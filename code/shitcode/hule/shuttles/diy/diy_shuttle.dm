@@ -77,8 +77,8 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 	shuttle_id = "autism"
 	port_id = "diy_autism"
-	mappath = "code/shitcode/hule/shuttles/diy/diy_autism.dmm"
-	//suffix = "diy/diy_autism.dmm"
+	//mappath = "code/shitcode/hule/shuttles/diy/diy_autism.dmm"
+	suffix = "diy/diy_autism.dmm"
 
 /obj/item/shuttlespawner/diyshuttle
 	name = "bluespace shuttle capsule"
@@ -111,7 +111,8 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 /datum/map_template/shuttle/capsule/diyshuttle/lesser
 	name = "Lesser Autism Shuttle"
-	mappath = "code/shitcode/hule/shuttles/diy/diy_autism_lesser.dmm"
+	//mappath = "code/shitcode/hule/shuttles/diy/diy_autism_lesser.dmm"
+	suffix = "diy/diy_autism_lesser.dmm"
 
 /obj/item/shuttlespawner/diyshuttle/lesser
 	template_id = "autism_lesser"

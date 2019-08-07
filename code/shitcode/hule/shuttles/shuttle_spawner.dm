@@ -57,7 +57,7 @@ obj/item/shuttlespawner
 
 /datum/map_template/shuttle/capsule
 	name = "Capsule Shuttle"
-	//prefix = "code/shitcode/hule/shuttles/"
+	prefix = "code/shitcode/hule/shuttles/"
 	//suffix = ""
 	port_id = ""
 	shuttle_id = ""
