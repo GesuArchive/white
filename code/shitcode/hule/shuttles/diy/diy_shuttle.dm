@@ -1,18 +1,11 @@
 GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
-/obj/docking_port/mobile/diy
-	name = "DIY"
-	id = "diy_autism"
-	dir = 2
-	port_direction = 2
-	width = 13
-	height = 24
-	dwidth = 6
-	dheight = 23
+/area/shuttle/diy
+	name = "Do-It-Yourself shuttle"
+	requires_power = TRUE
+	valid_territory = FALSE
 
-/obj/docking_port/mobile/diy/Initialize()
-	id += "[GLOB.diy_shuttle_count]"
-	. = ..()
+//////////////////////////////////////////////////
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy
 	name = "Do-It-Yourself shuttle navigation console"
@@ -38,12 +31,29 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 /obj/machinery/computer/shuttle/diy
 	name = "Do-It-Yourself shuttle movement console"
 	shuttleId = "diy_autism"
-	possible_destinations = "diy_autism_home;diy_autism_custom"
+	possible_destinations = ""
 	dir = 1
 
 /obj/machinery/computer/shuttle/diy/Initialize()
 	shuttleId += "[GLOB.diy_shuttle_count]"
-	possible_destinations += "[GLOB.diy_shuttle_count]"
+	possible_destinations += "diy_autism_home[GLOB.diy_shuttle_count];"
+	possible_destinations += "diy_autism_custom[GLOB.diy_shuttle_count]"
+	. = ..()
+
+//////////////////////////////////////////////////////
+
+/obj/docking_port/mobile/diy
+	name = "DIY"
+	id = "diy_autism"
+	dir = 2
+	port_direction = 2
+	width = 13
+	height = 22
+	dwidth = 6
+	dheight = 12
+
+/obj/docking_port/mobile/diy/Initialize()
+	id += "[GLOB.diy_shuttle_count]"
 	. = ..()
 
 /obj/docking_port/stationary/diy
@@ -51,14 +61,15 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	id = "diy_autism_home"
 	dir = 2
 	width = 13
-	height = 24
+	height = 22
 	dwidth = 6
-	dheight = 23
+	dheight = 21
 
-/area/shuttle/diy
-	name = "Do-It-Yourself shuttle"
-	requires_power = TRUE
-	valid_territory = FALSE
+/obj/docking_port/stationary/diy/Initialize()
+	id += "[GLOB.diy_shuttle_count]"
+	. = ..()
+
+///////////////////////////////////////////////////////////////////////
 
 /datum/map_template/shuttle/capsule/diyshuttle
 	name = "Autism Shuttle"
@@ -67,7 +78,7 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	shuttle_id = "autism"
 	port_id = "diy_autism"
 	mappath = "code/shitcode/hule/shuttles/diy/diy_autism.dmm"
-	suffix = "diy/diy_autism.dmm"
+	//suffix = "diy/diy_autism.dmm"
 
 /obj/item/shuttlespawner/diyshuttle
 	name = "bluespace shuttle capsule"
@@ -83,3 +94,25 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	. = ..()
 	if(used)
 		GLOB.diy_shuttle_count++
+
+///////////////////////////////////////
+
+/obj/docking_port/mobile/diy/lesser
+	width = 9
+	height = 14
+	dwidth = 4
+	dheight = 15
+
+/obj/docking_port/stationary/diy/lesser
+	width = 9
+	height = 14
+	dwidth = 4
+	dheight = 15
+
+/datum/map_template/shuttle/capsule/diyshuttle/lesser
+	name = "Lesser Autism Shuttle"
+	mappath = "code/shitcode/hule/shuttles/diy/diy_autism_lesser.dmm"
+
+/obj/item/shuttlespawner/diyshuttle/lesser
+	template_id = "autism_lesser"
+	template = new /datum/map_template/shuttle/capsule/diyshuttle/lesser

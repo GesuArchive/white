@@ -35,7 +35,7 @@
 /datum/techweb_node/telesci
 	id = "telesci"
 	display_name = "Prikol/Time Manipulation"
-	description = "Allows for advaced prikol construction."
+	description = "Allows for advanced prikol construction."
 	prereq_ids = list("adv_datatheory")
 	design_ids = list("telepad", "telesci_console")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)

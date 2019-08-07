@@ -1,6 +1,6 @@
 "a" = (/obj/structure/lattice,/turf/open/space/basic,/area/space/nearstation)
 "b" = (/turf/open/space/basic,/area/shuttle/diy)
-"c" = (/obj/structure/lattice,/obj/docking_port/stationary/diy,/obj/docking_port/mobile/diy,/turf/open/space/basic,/area/shuttle/diy)
+"c" = (/obj/docking_port/stationary/diy,/obj/docking_port/mobile/diy,/turf/open/floor/plating,/area/shuttle/diy)
 "d" = (/obj/structure/lattice,/turf/open/space/basic,/area/shuttle/diy)
 "e" = (/obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy,/turf/open/floor/plating,/area/shuttle/diy)
 "f" = (/obj/machinery/computer/shuttle/diy,/turf/open/floor/plating,/area/shuttle/diy)
@@ -10,16 +10,16 @@
 (1,1,1) = {"
 aaaaaaaaaaaaaaa
 abbbbbbcbbbbbba
-abbbbbbdbbbbbba
-abbbbbbdbbbbbba
-abbbbbbdhbbbbba
-abbbbbbdhbbbbba
-abbbbbbdhbbbbba
-abbbbbbdhbbbbba
-abbbbbbdhbbbbba
-abbbbbbdhbbbbba
-abbbbbbdbbbbbba
-abbbbbbdbbbbbba
+abbbbbbgbbbbbba
+abbbbbbgbbbbbba
+abbbbbbghbbbbba
+abbbbbbghbbbbba
+abbbbbbghbbbbba
+abbbbbbghbbbbba
+abbbbbbghbbbbba
+abbbbbbghbbbbba
+abbbbbbgbbbbbba
+abbbbbbgbbbbbba
 adddddefgddddda
 abbbbbbdbbbbbba
 abbbbbbdbbbbbba
