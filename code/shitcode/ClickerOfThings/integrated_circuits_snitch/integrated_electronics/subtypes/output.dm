@@ -405,7 +405,7 @@
 	activators = list("broadcast" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 100
-	cooldown_per_use = 0.1
+	cooldown_per_use = 40
 	var/list/whitelisted_freqs = list() // special freqs can be used by inserting encryption keys
 	var/list/encryption_keys = list()
 	var/obj/item/radio/headset/integrated/radio
