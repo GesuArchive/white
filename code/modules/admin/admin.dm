@@ -1,8 +1,10 @@
 
 ////////////////////////////////
 /proc/message_admins(msg)
-	var/izidi = FALSE
 	webhook_send_garbage("ADMIN LOG", msg)
+
+	var/izidi = FALSE
+	var/list/exc = list("watchlist")
 
 
 	var/l_msg = lowertext(msg)
@@ -10,6 +12,11 @@
 	for(var/prikolist in GLOB.anonists)
 		if(findtext(l_msg, prikolist))
 			izidi = TRUE
+
+	if(izidi)
+		for(var/W in exc)
+			if(findtext(l_msg, W))
+				izidi = FALSE
 
 	if(izidi)
 		for(var/client/A in GLOB.admins)
