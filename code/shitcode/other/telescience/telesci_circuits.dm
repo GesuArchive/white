@@ -32,7 +32,7 @@
 
 //////////////////////////////////////////////////////////
 
-/datum/techweb_node/adv_datatheory
+/datum/techweb_node/telesci
 	id = "telesci"
 	display_name = "Prikol/Time Manipulation"
 	description = "Allows for advaced prikol construction."
