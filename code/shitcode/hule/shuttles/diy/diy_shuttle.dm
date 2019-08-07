@@ -66,8 +66,8 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 	shuttle_id = "autism"
 	port_id = "diy_autism"
-	prefix = "code/shitcode/hule/shuttles/diy/"
-	suffix = "diy_autism.dmm"
+	mappath = "code/shitcode/hule/shuttles/diy/diy_autism.dmm"
+	suffix = "diy/diy_autism.dmm"
 
 /obj/item/shuttlespawner/diyshuttle
 	name = "bluespace shuttle capsule"
