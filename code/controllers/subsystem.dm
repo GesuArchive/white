@@ -34,7 +34,7 @@
 	var/runlevels = RUNLEVELS_DEFAULT	//points of the game at which the SS can fire
 
 	var/static/list/failure_strikes //How many times we suspect a subsystem type has crashed the MC, 3 strikes and you're out!
-	var/toplayes = 0
+	var/toplayers = 0
 
 //Do not override
 ///datum/controller/subsystem/New()
