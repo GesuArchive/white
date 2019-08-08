@@ -44,10 +44,6 @@
 
 	to_chat(M, "<span class='reallybig redtext'>RIP AND TEAR</span>")
 
-	var/old_color = M.client.color
-	var/static/list/red_splash = list(1,0,0,0.8,0.2,0, 0.8,0,0.2,0.1,0,0)
-	var/static/list/pure_red = list(0,0,0,0,0,0,0,0,0,1,0,0)
-
 	animate(victim.client,color = red_splash, time = 10, easing = SINE_EASING|EASE_OUT)
 	sleep(10)
 	animate(victim.client,color = old_color, time = duration)//, easing = SINE_EASING|EASE_OUT)
