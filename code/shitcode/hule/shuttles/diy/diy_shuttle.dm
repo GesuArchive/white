@@ -48,9 +48,9 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	dir = 2
 	port_direction = 2
 	width = 13
-	height = 22
+	height = 20
 	dwidth = 6
-	dheight = 12
+	dheight = 19
 
 /obj/docking_port/mobile/diy/Initialize()
 	id += "[GLOB.diy_shuttle_count]"
@@ -61,9 +61,9 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	id = "diy_autism_home"
 	dir = 2
 	width = 13
-	height = 22
+	height = 20
 	dwidth = 6
-	dheight = 21
+	dheight = 19
 
 /obj/docking_port/stationary/diy/Initialize()
 	id += "[GLOB.diy_shuttle_count]"
@@ -99,15 +99,15 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 /obj/docking_port/mobile/diy/lesser
 	width = 9
-	height = 14
+	height = 13
 	dwidth = 4
-	dheight = 15
+	dheight = 14
 
 /obj/docking_port/stationary/diy/lesser
 	width = 9
-	height = 14
+	height = 13
 	dwidth = 4
-	dheight = 15
+	dheight = 14
 
 /datum/map_template/shuttle/capsule/diyshuttle/lesser
 	name = "Lesser Autism Shuttle"

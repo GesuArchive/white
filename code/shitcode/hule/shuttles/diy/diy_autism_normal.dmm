@@ -1,33 +1,34 @@
-"a" = (/obj/structure/lattice,/turf/open/space/basic,/area/space/nearstation)
-"b" = (/turf/open/space/basic,/area/shuttle/diy)
+"a" = (/obj/structure/lattice,/turf/template_noop,/area/template_noop)
+"b" = (/turf/open/space/basic,/obj/structure/lattice,/turf/template_noop,/area/template_noop)
 "c" = (/obj/docking_port/stationary/diy,/obj/docking_port/mobile/diy,/turf/open/floor/plating,/area/shuttle/diy)
-"d" = (/obj/structure/lattice,/turf/open/space/basic,/area/shuttle/diy)
 "e" = (/obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy,/turf/open/floor/plating,/area/shuttle/diy)
 "f" = (/obj/machinery/computer/shuttle/diy,/turf/open/floor/plating,/area/shuttle/diy)
 "g" = (/turf/open/floor/plating,/area/shuttle/diy)
-"h" = (/obj/structure/shuttle/engine/propulsion/burst{anchored = 0},/turf/open/space/basic,/area/shuttle/diy)
+"h" = (/turf/template_noop,/area/shuttle/diy)
+"i" = (/obj/structure/shuttle/engine/propulsion/burst{anchored = 0},/turf/template_noop,/area/shuttle/diy)
+"j" = (/obj/structure/lattice,/turf/template_noop,/area/shuttle/diy)
 
 (1,1,1) = {"
-aaaaaaaaaaaaaaa
-abbbbbbcbbbbbba
-abbbbbbgbbbbbba
-abbbbbbgbbbbbba
-abbbbbbghbbbbba
-abbbbbbghbbbbba
-abbbbbbghbbbbba
-abbbbbbghbbbbba
-abbbbbbghbbbbba
-abbbbbbghbbbbba
-abbbbbbgbbbbbba
-abbbbbbgbbbbbba
-adddddefgddddda
-abbbbbbdbbbbbba
-abbbbbbdbbbbbba
-abbbbbbdbbbbbba
-abbbbbbdbbbbbba
-abbbbbbdbbbbbba
-abbbbbbdbbbbbba
-abbbbbbdbbbbbba
-abbbbbbdbbbbbba
+aaaaaaabaaaaaaa
+ahhhhhhchhhhhha
+ahhhhhhghhhhhha
+ahhhhhhghhhhhha
+ahhhhhhgihhhhha
+ahhhhhhgihhhhha
+ahhhhhhgihhhhha
+ahhhhhhgihhhhha
+ahhhhhhgihhhhha
+ahhhhhhgihhhhha
+ahhhhhhghhhhhha
+ahhhhhhghhhhhha
+ajjjjjefgjjjjja
+ahhhhhhjhhhhhha
+ahhhhhhjhhhhhha
+ahhhhhhjhhhhhha
+ahhhhhhjhhhhhha
+ahhhhhhjhhhhhha
+ahhhhhhjhhhhhha
+ahhhhhhjhhhhhha
+ahhhhhhjhhhhhha
 aaaaaaaaaaaaaaa
 "}
