@@ -104,6 +104,7 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 ///////////////////////////////////////
 
 /obj/docking_port/mobile/diy/lesser
+	port_direction = 2
 	width = 9
 	height = 13
 	dwidth = 4
