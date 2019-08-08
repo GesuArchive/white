@@ -46,9 +46,9 @@
 
 	var/old_color = M.client.color
 
-	animate(victim.client,color = red_splash, time = 10, easing = SINE_EASING|EASE_OUT)
+	animate(M.client,color = red_splash, time = 10, easing = SINE_EASING|EASE_OUT)
 	sleep(10)
-	animate(victim.client,color = old_color, time = duration)//, easing = SINE_EASING|EASE_OUT)
+	animate(M.client,color = old_color, time = duration)//, easing = SINE_EASING|EASE_OUT)
 
 
 /*
