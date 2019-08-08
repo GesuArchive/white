@@ -11,6 +11,9 @@
 	var/duration = 600
 	var/cooldown = 3600
 
+/datum/quirk/programmer/on_spawn()
+	ADD_TRAIT(quirk_holder, TRAIT_PACIFISM, "semiviolent")
+
 /datum/quirk/semiviolent/on_process()
 	if(ragemode_time > 0)
 		ragemode_time--
@@ -19,23 +22,19 @@
 		ragemode_time++
 		return
 
-	if(quirk_holder.health < 65 && !ragemode)
-		if(HAS_TRAIT_FROM(quirk_holder,TRAIT_PACIFISM, "semiviolent"))
-			REMOVE_TRAIT(quirk_holder, TRAIT_PACIFISM, "semiviolent")
+	if(quirk_holder.health < 65 && HAS_TRAIT_FROM(quirk_holder,TRAIT_PACIFISM, "semiviolent"))
+		REMOVE_TRAIT(quirk_holder, TRAIT_PACIFISM, "semiviolent")
 
 		ragemode_time += duration
 		quirk_holder.reagents.add_reagent(/datum/reagent/medicine/ephedrine,2)
 		rage_effect()
-		ragemode = TRUE
 
-	else
-		if(!HAS_TRAIT_FROM(quirk_holder,TRAIT_PACIFISM, "semiviolent"))
-			ADD_TRAIT(quirk_holder, TRAIT_PACIFISM, "semiviolent")
+	else if(!HAS_TRAIT_FROM(quirk_holder,TRAIT_PACIFISM, "semiviolent"))
+		ADD_TRAIT(quirk_holder, TRAIT_PACIFISM, "semiviolent")
 
-		if(ragemode)
-			ragemode_time -= cooldown
-			quirk_holder.reagents.add_reagent(/datum/reagent/toxin/skewium,10)
-			ragemode = FALSE
+		ragemode_time -= cooldown
+		quirk_holder.reagents.add_reagent(/datum/reagent/toxin/skewium,10)
+		ragemode = FALSE
 
 /datum/quirk/semiviolent/proc/rage_effect()
 	if(!quirk_holder.client || !iscarbon(quirk_holder))
