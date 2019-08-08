@@ -14,7 +14,7 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	shuttlePortId = "diy_autism_custom"
 	jumpto_ports = list()
 	dir = 1
-	x_offset = 15
+	x_offset = 0
 	y_offset = 0
 	z_lock = list(2,3,4,7,8,9,10,12)
 

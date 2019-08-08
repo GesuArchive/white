@@ -5,7 +5,6 @@
 "e" = (/obj/docking_port/stationary/diy/lesser,/obj/docking_port/mobile/diy/lesser,/turf/open/floor/plating,/area/shuttle/diy)
 "f" = (/obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy,/turf/open/floor/plating,/area/shuttle/diy)
 "g" = (/obj/machinery/computer/shuttle/diy,/turf/open/floor/plating,/area/shuttle/diy)
-"h" = (/obj/machinery/computer/monitor/secret{dir = 1},/turf/open/floor/plating,/area/shuttle/diy)
 
 (1,1,1) = {"
 aaaaaaaaaaa
@@ -20,7 +19,7 @@ acccccdccca
 acccccdccca
 accccccccca
 abcccccccba
-abccfchccba
+abccfccccba
 abbccgccbba
 abbbcccbbba
 aaaaaaaaaaa
