@@ -53,7 +53,7 @@
 
 	volume = 30
 
-	complexity = 20
+	complexity = 40
 	cooldown_per_use = 6 SECONDS
 	inputs = list(
 		"target" = IC_PINTYPE_REF,
@@ -166,7 +166,7 @@
 								"<span class='userdanger'>[acting_object] is trying to take a blood sample from you!</span>")
 			busy = TRUE
 			if(do_atom(src, L, extra_checks=CALLBACK(L, /mob/living/proc/can_inject,null,0)))
-				if(L.transfer_blood_to(src, tramount))
+				if(L.transfer_blood_to(src, tramount/3))
 					L.visible_message("<span class='danger'>[acting_object] takes a blood sample from [L]!</span>", \
 					"<span class='userdanger'>[acting_object] takes a blood sample from you!</span>")
 				else
