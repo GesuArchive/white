@@ -95,6 +95,12 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	if(used)
 		GLOB.diy_shuttle_count++
 
+/datum/supply_pack/misc/diyshuttle
+	name = "Bluespace shuttle capsule crate"
+	cost = 10000
+	contains = list(/obj/item/shuttlespawner/diyshuttle)
+	crate_name = "shuttle capsule crate"
+
 ///////////////////////////////////////
 
 /obj/docking_port/mobile/diy/lesser
