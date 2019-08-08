@@ -76,7 +76,7 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	description = "Priv"
 
 	port_id = "diy_autism"
-	suffix = "normal.dmm"
+	suffix = "normal"
 	prefix = "code/shitcode/hule/shuttles/diy/"
 
 
@@ -111,7 +111,7 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 /datum/map_template/shuttle/capsule/diyshuttle/lesser
 	name = "Lesser Autism Shuttle"
-	suffix = "lesser.dmm"
+	suffix = "lesser"
 
 /obj/item/shuttlespawner/diyshuttle/lesser
 	template_id = "autism_lesser"
