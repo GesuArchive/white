@@ -26,8 +26,8 @@ BONUS
 	level = 1
 	severity = 1
 	base_message_chance = 15
-	symptom_delay_min = 2
-	symptom_delay_max = 15
+	symptom_delay_min = 30
+	symptom_delay_max = 50
 	var/infective = FALSE
 	threshold_desc = "<b>Resistance 3:</b> Host will drop small items when shitting.<br>\
 					  <b>Resistance 10:</b> Occasionally causes shitting fits that stun the host.<br>\
@@ -47,7 +47,7 @@ BONUS
 	if(A.properties["resistance"] >= 10) //strong enough to stun (rarely)
 		power = 2
 	if(A.properties["stage_rate"] >= 6) //shitting more often
-		symptom_delay_max = 10
+		symptom_delay_max = 40
 
 /datum/symptom/poo/Activate(datum/disease/advance/A)
 	if(!..())
@@ -67,9 +67,9 @@ BONUS
 				to_chat(M, "<span notice='userdanger'>[pick("You have a farting fit!", "You can't stop farting!")]</span>")
 				M.Immobilize(20)
 				M.emote("poo")
-				addtimer(CALLBACK(M, /mob/.proc/emote, "poo"), 6)
 				addtimer(CALLBACK(M, /mob/.proc/emote, "poo"), 12)
-				addtimer(CALLBACK(M, /mob/.proc/emote, "poo"), 18)
+				addtimer(CALLBACK(M, /mob/.proc/emote, "poo"), 24)
+				addtimer(CALLBACK(M, /mob/.proc/emote, "poo"), 36)
 			if(infective && M.CanSpreadAirborneDisease())
 				A.spread(1)
 
