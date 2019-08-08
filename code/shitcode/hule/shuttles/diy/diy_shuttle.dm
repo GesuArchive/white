@@ -103,26 +103,40 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 ///////////////////////////////////////
 
-/obj/docking_port/mobile/diy/lesser
+/obj/docking_port/mobile/diy_lesser
+	name = "DIY"
+	id = "diy_autism"
+	dir = 2
+	port_direction = 2
 	width = 9
 	height = 13
 	dwidth = 4
 	dheight = 14
 
-/obj/docking_port/stationary/diy/lesser
+/obj/docking_port/mobile/diy_lesser/Initialize()
+	id += "[GLOB.diy_shuttle_count]"
+	. = ..()
+
+/obj/docking_port/stationary/diy_lesser
+	name = "DIY stationary"
+	id = "diy_autism_home"
 	width = 9
 	height = 13
 	dwidth = 4
 	dheight = 14
 
-/datum/map_template/shuttle/capsule/diyshuttle_lesser
+
+/obj/docking_port/stationary/diy_lesser/Initialize()
+	id += "[GLOB.diy_shuttle_count]"
+	. = ..()
+
+//////////////////////////////////////////////
+
+/datum/map_template/shuttle/capsule/diyshuttle/lesser
 	name = "Lesser Autism Shuttle"
 	description = "Priv"
-
-	port_id = "diy_autism"
 	suffix = "lesser"
-	prefix = "code/shitcode/hule/shuttles/diy/"
 
 /obj/item/shuttlespawner/diyshuttle/lesser
 	template_id = "autism_lesser"
-	template = new /datum/map_template/shuttle/capsule/diyshuttle_lesser
+	template = new /datum/map_template/shuttle/capsule/diyshuttle/lesser
