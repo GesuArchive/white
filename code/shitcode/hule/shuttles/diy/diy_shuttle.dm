@@ -104,7 +104,6 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 ///////////////////////////////////////
 
 /obj/docking_port/mobile/diy/lesser
-	port_direction = 2
 	width = 9
 	height = 13
 	dwidth = 4
@@ -116,9 +115,13 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	dwidth = 4
 	dheight = 14
 
-/datum/map_template/shuttle/capsule/diyshuttle/lesser
+/datum/map_template/shuttle/capsule/diyshuttle_lesser
 	name = "Lesser Autism Shuttle"
+	description = "Priv"
+
+	port_id = "diy_autism"
 	suffix = "lesser"
+	prefix = "code/shitcode/hule/shuttles/diy/"
 
 /obj/item/shuttlespawner/diyshuttle/lesser
 	template_id = "autism_lesser"
