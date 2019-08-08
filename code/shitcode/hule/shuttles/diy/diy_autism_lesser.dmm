@@ -2,7 +2,7 @@
 "b" = (/turf/template_noop,/area/shuttle/diy)
 "c" = (/turf/open/floor/plating,/area/shuttle/diy)
 "d" = (/obj/structure/shuttle/engine/propulsion/burst{anchored = 0},/turf/open/floor/plating,/area/shuttle/diy)
-"e" = (/obj/docking_port/stationary/diy/lesser,/obj/docking_port/mobile/diy/lesser,/turf/open/floor/plating,/area/shuttle/diy)
+"e" = (/obj/docking_port/mobile/diy/lesser,/turf/open/floor/plating,/area/shuttle/diy)
 "f" = (/obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy,/turf/open/floor/plating,/area/shuttle/diy)
 "g" = (/obj/machinery/computer/shuttle/diy,/turf/open/floor/plating,/area/shuttle/diy)
 
