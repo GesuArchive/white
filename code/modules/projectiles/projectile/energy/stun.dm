@@ -19,7 +19,7 @@
 		do_sparks(1, TRUE, src)
 	else if(iscarbon(target))
 		var/mob/living/carbon/C = target
-		C.reagents.add_reagent(/datum/reagent/pax,20)
+		C.reagents.add_reagent(/datum/reagent/pax,10)
 
 	/*
 		SEND_SIGNAL(C, COMSIG_ADD_MOOD_EVENT, "tased", /datum/mood_event/tased)
