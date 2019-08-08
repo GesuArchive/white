@@ -47,10 +47,10 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	id = "diy_autism"
 	dir = 2
 	port_direction = 2
-	width = 13
-	height = 20
-	dwidth = 6
-	dheight = 19
+	width = 9
+	height = 13
+	dwidth = 4
+	dheight = 14
 
 /obj/docking_port/mobile/diy/Initialize()
 	id += "[GLOB.diy_shuttle_count]"
@@ -60,10 +60,10 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	name = "DIY stationary"
 	id = "diy_autism_home"
 	dir = 2
-	width = 13
-	height = 20
-	dwidth = 6
-	dheight = 19
+	width = 9
+	height = 13
+	dwidth = 4
+	dheight = 14
 
 /obj/docking_port/stationary/diy/Initialize()
 	id += "[GLOB.diy_shuttle_count]"
@@ -83,7 +83,6 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 /obj/item/shuttlespawner/diyshuttle
 	name = "bluespace shuttle capsule"
 	desc = "Priva."
-	template_id = "autism"
 	template = new /datum/map_template/shuttle/capsule/diyshuttle
 
 /obj/item/shuttlespawner/diyshuttle/Initialize()
@@ -103,41 +102,22 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 ///////////////////////////////////////
 
-/obj/docking_port/mobile/diy_lesser
-	name = "DIY"
-	id = "diy_autism"
-	dir = 2
-	port_direction = 2
-	width = 9
-	height = 13
-	dwidth = 4
-	dheight = 14
+/obj/docking_port/mobile/diy/big
+	width = 13
+	height = 20
+	dwidth = 6
+	dheight = 19
 
-/obj/docking_port/mobile/diy_lesser/Initialize()
-	id += "[GLOB.diy_shuttle_count]"
-	. = ..()
+/obj/docking_port/mobile/diy/big
+	width = 13
+	height = 20
+	dwidth = 6
+	dheight = 19
 
-/obj/docking_port/stationary/diy_lesser
-	name = "DIY stationary"
-	id = "diy_autism_home"
-	dir = 2
-	width = 9
-	height = 13
-	dwidth = 4
-	dheight = 14
-
-
-/obj/docking_port/stationary/diy_lesser/Initialize()
-	id += "[GLOB.diy_shuttle_count]"
-	. = ..()
-
-//////////////////////////////////////////////
-
-/datum/map_template/shuttle/capsule/diyshuttle/lesser
-	name = "Lesser Autism Shuttle"
+/datum/map_template/shuttle/capsule/diyshuttle/big
+	name = "Big Autism Shuttle"
 	description = "Priv"
-	suffix = "lesser"
+	suffix = "big"
 
-/obj/item/shuttlespawner/diyshuttle/lesser
-	template_id = "autism_lesser"
-	template = new /datum/map_template/shuttle/capsule/diyshuttle/lesser
+/obj/item/shuttlespawner/diyshuttle/big
+	template = new /datum/map_template/shuttle/capsule/diyshuttle/big

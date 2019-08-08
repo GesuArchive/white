@@ -1,33 +1,26 @@
 "a" = (/obj/structure/lattice,/turf/template_noop,/area/template_noop)
-"c" = (/obj/docking_port/stationary/diy,/obj/docking_port/mobile/diy,/turf/open/floor/plating,/area/shuttle/diy)
-"e" = (/obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy,/turf/open/floor/plating,/area/shuttle/diy)
-"f" = (/obj/machinery/computer/shuttle/diy,/turf/open/floor/plating,/area/shuttle/diy)
-"g" = (/turf/open/floor/plating,/area/shuttle/diy)
-"h" = (/turf/template_noop,/area/shuttle/diy)
-"i" = (/obj/structure/shuttle/engine/propulsion/burst{anchored = 0},/turf/template_noop,/area/shuttle/diy)
-"j" = (/obj/structure/lattice,/turf/template_noop,/area/shuttle/diy)
+"b" = (/turf/template_noop,/area/shuttle/diy)
+"c" = (/obj/docking_port/stationary/diy_lesser,/obj/docking_port/mobile/diy_lesser,/turf/open/floor/plating,/area/shuttle/diy)
+"d" = (/obj/structure/shuttle/engine/propulsion/burst{anchored = 0},/turf/open/floor/plating,/area/shuttle/diy)
+"e" = (/turf/open/floor/plating,/area/shuttle/diy)
+"f" = (/obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy,/turf/open/floor/plating,/area/shuttle/diy)
+"g" = (/obj/machinery/computer/shuttle/diy,/turf/open/floor/plating,/area/shuttle/diy)
 
 (1,1,1) = {"
-aaaaaaaaaaaaaaa
-ahhhhhhchhhhhha
-ahhhhhhghhhhhha
-ahhhhhhghhhhhha
-ahhhhhhgihhhhha
-ahhhhhhgihhhhha
-ahhhhhhgihhhhha
-ahhhhhhgihhhhha
-ahhhhhhgihhhhha
-ahhhhhhgihhhhha
-ahhhhhhghhhhhha
-ahhhhhhghhhhhha
-ajjjjjefgjjjjja
-ahhhhhhjhhhhhha
-ahhhhhhjhhhhhha
-ahhhhhhjhhhhhha
-ahhhhhhjhhhhhha
-ahhhhhhjhhhhhha
-ahhhhhhjhhhhhha
-ahhhhhhjhhhhhha
-ahhhhhhjhhhhhha
-aaaaaaaaaaaaaaa
+aaaaaaaaaaa
+abbeeceebba
+abeeeeeeeba
+aeeeeeeeeea
+aeeeeedeeea
+aeeeeedeeea
+aeeeeedeeea
+aeeeeedeeea
+aeeeeedeeea
+aeeeeedeeea
+aeeeeeeeeea
+abeeeeeeeba
+abeefeeeeba
+abbeegeebba
+abbbeeebbba
+aaaaaaaaaaa
 "}

@@ -1,20 +1,11 @@
-obj/item/shuttlespawner
+/obj/item/shuttlespawner
 	name = "bluespace shuttle capsule"
 	desc = "An emergency shelter stored within a pocket of bluespace."
 	icon_state = "capsule"
 	icon = 'icons/obj/mining.dmi'
 	w_class = WEIGHT_CLASS_TINY
-	var/template_id = ""
 	var/datum/map_template/shuttle/capsule/template
 	var/used = FALSE
-
-/obj/item/shuttlespawner/proc/get_template()
-	if(template)
-		return
-	template = SSmapping.shuttle_templates[template_id]
-	if(!template)
-		WARNING("Shelter template ([template_id]) not found!")
-		qdel(src)
 
 /obj/item/shuttlespawner/Destroy()
 	template = null // without this, capsules would be one use. per round.
@@ -22,13 +13,11 @@ obj/item/shuttlespawner
 
 /obj/item/shuttlespawner/examine(mob/user)
 	. = ..()
-	get_template()
 	. += "This capsule has the [template.name] stored."
 	. += template.description
 
 /obj/item/shuttlespawner/attack_self()
 	//Can't grab when capsule is New() because templates aren't loaded then
-	get_template()
 	if(!used)
 		loc.visible_message("<span class='warning'>\The [src] begins to shake. Stand back!</span>")
 		used = TRUE
