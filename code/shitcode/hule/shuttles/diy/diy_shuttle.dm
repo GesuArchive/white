@@ -20,7 +20,7 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy/Initialize()
 	shuttleId += "[GLOB.diy_shuttle_count]"
-	shuttlePortId += "[GLOB.diy_shuttle_count]"
+	shuttlePortId = "diy_autism[GLOB.diy_shuttle_count]_custom"
 	. = ..()
 	GLOB.jam_on_wardec += src
 
@@ -36,8 +36,8 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 /obj/machinery/computer/shuttle/diy/Initialize()
 	shuttleId += "[GLOB.diy_shuttle_count]"
-	possible_destinations += "diy_autism_home[GLOB.diy_shuttle_count];"
-	possible_destinations += "diy_autism_custom[GLOB.diy_shuttle_count]"
+	possible_destinations += "diy_autism[GLOB.diy_shuttle_count]_home;"
+	possible_destinations += "diy_autism[GLOB.diy_shuttle_count]_custom"
 	. = ..()
 
 //////////////////////////////////////////////////////
@@ -66,7 +66,7 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	dheight = 14
 
 /obj/docking_port/stationary/diy/Initialize()
-	id += "[GLOB.diy_shuttle_count]"
+	id = "diy_autism[GLOB.diy_shuttle_count]_home"
 	. = ..()
 
 ///////////////////////////////////////////////////////////////////////
@@ -94,12 +94,6 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	if(used)
 		GLOB.diy_shuttle_count++
 
-/datum/supply_pack/misc/diyshuttle
-	name = "Bluespace shuttle capsule crate"
-	cost = 10000
-	contains = list(/obj/item/shuttlespawner/diyshuttle)
-	crate_name = "shuttle capsule crate"
-
 ///////////////////////////////////////
 
 /obj/docking_port/mobile/diy/big
@@ -108,7 +102,7 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	dwidth = 6
 	dheight = 19
 
-/obj/docking_port/mobile/diy/big
+/obj/docking_port/stationary/diy/big
 	width = 13
 	height = 20
 	dwidth = 6
@@ -121,3 +115,9 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 /obj/item/shuttlespawner/diyshuttle/big
 	template = new /datum/map_template/shuttle/capsule/diyshuttle/big
+
+/datum/supply_pack/misc/diyshuttle
+	name = "Bluespace shuttle capsule crate"
+	cost = 10000
+	contains = list(/obj/item/shuttlespawner/diyshuttle/big)
+	crate_name = "shuttle capsule crate"
