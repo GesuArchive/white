@@ -11,7 +11,7 @@
 	var/duration = 600
 	var/cooldown = 3600
 
-/datum/quirk/programmer/on_spawn()
+/datum/quirk/semiviolent/on_spawn()
 	ADD_TRAIT(quirk_holder, TRAIT_PACIFISM, "semiviolent")
 
 /datum/quirk/semiviolent/on_process()
