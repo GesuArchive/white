@@ -24,6 +24,8 @@ SUBSYSTEM_DEF(lighting)
 
 	fire(FALSE, TRUE)
 
+	toplayers = "Ускоряем свет"
+
 	return ..()
 
 /datum/controller/subsystem/lighting/fire(resumed, init_tick_checks)

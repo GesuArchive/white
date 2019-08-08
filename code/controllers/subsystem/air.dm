@@ -70,6 +70,7 @@ SUBSYSTEM_DEF(air)
 	setup_atmos_machinery()
 	setup_pipenets()
 	gas_reactions = init_gas_reactions()
+	toplayers = "Заполнили воздухом"
 	return ..()
 
 
@@ -328,7 +329,7 @@ SUBSYSTEM_DEF(air)
 			CHECK_TICK
 
 		var/msg = "HEY! LISTEN! [DisplayTimeText(world.timeofday - timer)] were wasted processing [starting_ats] turf(s) (connected to [ending_ats] other turfs) with atmos differences at round start."
-		to_chat(world, "<span class='boldannounce'>[msg]</span>")
+		message_admins("<span class='boldannounce'>[msg]</span>")
 		warning(msg)
 
 /turf/open/proc/resolve_active_graph()

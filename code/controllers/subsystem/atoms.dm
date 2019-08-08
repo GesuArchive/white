@@ -44,7 +44,7 @@ SUBSYSTEM_DEF(atoms)
 				++count
 				CHECK_TICK
 
-	testing("Initialized [count] atoms")
+	testing("Создано [count] атомов")
 	pass(count)
 
 	initialized = INITIALIZATION_INNEW_REGULAR

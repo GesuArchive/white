@@ -34,6 +34,7 @@
 	var/runlevels = RUNLEVELS_DEFAULT	//points of the game at which the SS can fire
 
 	var/static/list/failure_strikes //How many times we suspect a subsystem type has crashed the MC, 3 strikes and you're out!
+	var/toplayes = 0
 
 //Do not override
 ///datum/controller/subsystem/New()
@@ -160,8 +161,10 @@
 /datum/controller/subsystem/Initialize(start_timeofday)
 	initialized = TRUE
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
-	var/msg = "Initialized [name] subsystem within [time] second[time == 1 ? "" : "s"]!"
-	to_chat(world, "<span class='boldannounce'>[msg]</span>")
+	var/msg = "Инициализация [name] за [time] секунд[time == 1 ? "" : "у"]!"
+	message_admins("<span class='boldannounce'>[msg]</span>")
+	if (toplayers)
+		to_chat(world, "<span class='boldannounce'>[toplayers] за [time] секунд[time == 1 ? "" : "у"]</span>")
 	log_world(msg)
 	return time
 
