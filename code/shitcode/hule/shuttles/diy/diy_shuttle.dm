@@ -125,4 +125,4 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 /obj/item/shuttlespawner/diyshuttle/lesser
 	template_id = "autism_lesser"
-	template = new /datum/map_template/shuttle/capsule/diyshuttle/lesser
+	template = new /datum/map_template/shuttle/capsule/diyshuttle_lesser
