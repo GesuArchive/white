@@ -1,26 +1,26 @@
 "a" = (/obj/structure/lattice,/turf/template_noop,/area/template_noop)
 "b" = (/turf/template_noop,/area/shuttle/diy)
-"c" = (/turf/open/floor/plating,/area/shuttle/diy)
+"c" = (/obj/docking_port/stationary/diy_lesser,/obj/docking_port/mobile/diy_lesser,/turf/open/floor/plating,/area/shuttle/diy)
 "d" = (/obj/structure/shuttle/engine/propulsion/burst{anchored = 0},/turf/open/floor/plating,/area/shuttle/diy)
-"e" = (/obj/docking_port/mobile/diy/lesser,/turf/open/floor/plating,/area/shuttle/diy)
+"e" = (/turf/open/floor/plating,/area/shuttle/diy)
 "f" = (/obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy,/turf/open/floor/plating,/area/shuttle/diy)
 "g" = (/obj/machinery/computer/shuttle/diy,/turf/open/floor/plating,/area/shuttle/diy)
 
 (1,1,1) = {"
 aaaaaaaaaaa
-abbcceccbba
-abcccccccba
-accccccccca
-acccccdccca
-acccccdccca
-acccccdccca
-acccccdccca
-acccccdccca
-acccccdccca
-accccccccca
-abcccccccba
-abccfccccba
-abbccgccbba
-abbbcccbbba
+abbeeceebba
+abeeeeeeeba
+aeeeeeeeeea
+aeeeeedeeea
+aeeeeedeeea
+aeeeeedeeea
+aeeeeedeeea
+aeeeeedeeea
+aeeeeedeeea
+aeeeeeeeeea
+abeeeeeeeba
+abeefeeeeba
+abbeegeebba
+abbbeeebbba
 aaaaaaaaaaa
 "}

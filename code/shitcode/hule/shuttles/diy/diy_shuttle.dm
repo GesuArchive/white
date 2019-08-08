@@ -120,6 +120,7 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 /obj/docking_port/stationary/diy_lesser
 	name = "DIY stationary"
 	id = "diy_autism_home"
+	dir = 2
 	width = 9
 	height = 13
 	dwidth = 4
