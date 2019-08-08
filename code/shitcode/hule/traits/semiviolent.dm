@@ -8,8 +8,8 @@
 	medical_record_text = "Пациент является пацифистом и не может заставить себя причинить вред кому-либо."
 	var/ragemode = FALSE
 	var/ragemode_time = 0
-	var/duration = 600
-	var/cooldown = 3600
+	var/duration = 60
+	var/cooldown = 360
 
 /datum/quirk/semiviolent/on_spawn()
 	ADD_TRAIT(quirk_holder, TRAIT_PACIFISM, "semiviolent")
