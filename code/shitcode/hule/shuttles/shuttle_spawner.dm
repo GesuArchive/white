@@ -58,9 +58,8 @@ obj/item/shuttlespawner
 /datum/map_template/shuttle/capsule
 	name = "Capsule Shuttle"
 	prefix = "code/shitcode/hule/shuttles/"
-	//suffix = ""
+	suffix = ""
 	port_id = ""
-	shuttle_id = ""
 	var/blacklisted_turfs
 	var/whitelisted_turfs
 	var/banned_areas

@@ -111,7 +111,6 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 /datum/map_template/shuttle/capsule/diyshuttle/lesser
 	name = "Lesser Autism Shuttle"
-	//mappath = "code/shitcode/hule/shuttles/diy/diy_autism_lesser.dmm"
 	suffix = "lesser.dmm"
 
 /obj/item/shuttlespawner/diyshuttle/lesser
