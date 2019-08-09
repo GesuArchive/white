@@ -11,6 +11,15 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	flags = SS_NO_INIT
 	wait = 10
 
+/client/verb/toggle_battletension()
+	set name = "Toggle Battle Tension"
+	set desc = "Toggles battle music."
+	set category = "Preferences"
+
+	prefs.battlemusic = !prefs.battlemusic
+	prefs.save_preferences()
+	to_chat(usr, "<span class='danger'>Battle music [prefs.enable_tips ? "en" : "dis"]abled.</span>")
+
 /mob/living
 	var/datum/btension/battletension
 
@@ -21,7 +30,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		battletension = new /datum/btension
 		battletension.owner = src
 
-	if(!battletension)
+	if(!battletension || !client || !client.prefs.battlemusic)
 		return
 
 	if(battletension.tension && amount > 0)
