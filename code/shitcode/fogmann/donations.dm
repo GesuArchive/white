@@ -20,6 +20,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Collectable rabbit ears",	/obj/item/clothing/head/collectable/rabbitears,	120),
 		new /datum/donate_info("Cardborg helment",			/obj/item/clothing/head/cardborg,				20),
 		new /datum/donate_info("Bear pelt",					/obj/item/clothing/head/bearpelt,				200),
+		new /datum/donate_info("Scarecrow Hat",				/obj/item/clothing/head/scarecrow_hat,			200),
 	),
 	"Masks" = list(
 		new /datum/donate_info("Fake Moustache",			/obj/item/clothing/mask/fakemoustache,			100),
@@ -30,6 +31,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Plague Doctor Mask",		/obj/item/clothing/mask/gas/plaguedoctor,		180),
 		new /datum/donate_info("Monkey Mask",				/obj/item/clothing/mask/gas/monkeymask,			180),
 		new /datum/donate_info("Owl Mask",					/obj/item/clothing/mask/gas/owl_mask,			180),
+		new /datum/donate_info("Sack Mask",					/obj/item/clothing/mask/scarecrow,				180),
 	),
 	"Personal Stuff" = list(
 		new /datum/donate_info("Eye patch",					/obj/item/clothing/glasses/eyepatch,			130),
