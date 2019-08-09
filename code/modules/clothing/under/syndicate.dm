@@ -26,6 +26,7 @@
 	item_state = "bl_suit"
 	item_color = "tactifool"
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 40)
+	has_sensor = HAS_SENSORS
 
 /obj/item/clothing/under/syndicate/tacticool/skirt
 	name = "tacticool skirtleneck"
@@ -35,6 +36,7 @@
 	item_color = "tactifool_skirt"
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 40)
 	fitted = FEMALE_UNIFORM_TOP
+	has_sensor = HAS_SENSORS
 
 /obj/item/clothing/under/syndicate/sniper
 	name = "Tactical turtleneck suit"
