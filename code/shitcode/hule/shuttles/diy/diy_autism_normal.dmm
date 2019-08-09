@@ -1,5 +1,5 @@
 "a" = (/obj/structure/lattice,/turf/template_noop,/area/template_noop)
-"b" = (/turf/template_noop,/area/shuttle/diy)
+"b" = (/turf/template_noop,/area/template_noop)
 "c" = (/obj/docking_port/stationary/diy,/obj/docking_port/mobile/diy,/turf/open/floor/plating,/area/shuttle/diy)
 "d" = (/obj/structure/shuttle/engine/propulsion/burst{anchored = 0},/turf/open/floor/plating,/area/shuttle/diy)
 "e" = (/turf/open/floor/plating,/area/shuttle/diy)
