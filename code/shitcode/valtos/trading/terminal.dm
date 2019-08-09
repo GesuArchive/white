@@ -16,7 +16,6 @@
 	rebuild_inventory(GLOB.terminal_products, product_records)
 
 /obj/machinery/vending/terminal/proc/rebuild_inventory(list/productlist, list/recordlist)
-	product_records = list()
 	for(var/typepath in productlist)
 		if (prob(23))
 			var/amount = rand(1, 30)
@@ -34,6 +33,7 @@
 /obj/machinery/vending/terminal/process()
 	. = ..()
 	if(last_rebuild + 900 <= world.time && prob(99))
+		product_records = list()
 		last_rebuild = world.time
 		speak("Новые продукты в наличии!")
 		rebuild_inventory(GLOB.terminal_products, product_records)
