@@ -97,7 +97,7 @@
 	suit_store = /obj/item/gun/ballistic/rifle/boltaction/ptr
 	l_pocket = /obj/item/switchblade
 	back = /obj/item/storage/backpack/satchel/leather
-	backpack_contents = list(/obj/item/ammo_box/a15mm = 3, /obj/item/grenade/syndieminibomb/concussion = 2, /obj/item/grenade/plastic/c4 = 1)
+	backpack_contents = list(/obj/item/ammo_box/a15mm = 3, /obj/item/grenade/syndieminibomb/concussion = 2, /obj/item/grenade/c4 = 1)
 
 /datum/outfit/asshunter
 	name = "Okhotnik Na Pedikov"
@@ -116,7 +116,7 @@
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(	/obj/item/ammo_box/a15mm = 3,
 								/obj/item/grenade/syndieminibomb/concussion = 2,
-								/obj/item/grenade/plastic/c4 = 1,
+								/obj/item/grenade/c4 = 1,
 								/obj/item/book/granter/spell/knock = 1,
 								/obj/item/book/granter/spell/summonitem = 1,
 								/obj/item/book/granter/martial/cqc = 1,
