@@ -7,14 +7,16 @@
 	default_price = 500
 	extra_price = 5000
 	max_integrity = 300000
+	var/last_rebuild = 0
 	payment_department = NO_FREEBIES
 
 /obj/machinery/vending/terminal/Initialize(mapload)
 	. = ..()
-	product_records = list()
+	last_rebuild = world.time + rand(600, 900)
 	rebuild_inventory(GLOB.terminal_products, product_records)
 
 /obj/machinery/vending/terminal/proc/rebuild_inventory(list/productlist, list/recordlist)
+	product_records = list()
 	for(var/typepath in productlist)
 		if (prob(23))
 			var/amount = rand(1, 30)
@@ -28,6 +30,13 @@
 			R.custom_price = rand(100, 10000) //best prices
 			R.custom_premium_price = rand(100, 10000) //best prices
 			recordlist += R
+
+/obj/machinery/vending/terminal/process()
+	. = ..()
+	if(last_rebuild + 900 <= world.time && prob(99))
+		last_rebuild = world.time
+		speak("Новые продукты в наличии!")
+		rebuild_inventory(GLOB.terminal_products, product_records)
 
 /obj/machinery/vending/terminal/emag_act(mob/user)
 	if(shock(user, 100))
