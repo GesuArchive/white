@@ -19,7 +19,7 @@
 	for(var/typepath in productlist)
 		if (prob(23))
 			if (prob(65))
-				typepath = pick(subtypesof(obj/item))
+				typepath = pick(subtypesof(/obj/item))
 			var/amount = rand(1, 30)
 			var/atom/temp = typepath
 			var/datum/data/vending_product/R = new /datum/data/vending_product()
