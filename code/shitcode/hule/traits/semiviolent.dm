@@ -52,7 +52,3 @@
 	sleep(10)
 	animate(M.client,color = old_color, time = duration)//, easing = SINE_EASING|EASE_OUT)
 
-
-
-//var/obj/effect/mine/pickup/bloodbath/B = new(H)
-//INVOKE_ASYNC(B, /obj/effect/mine/pickup/bloodbath/.proc/mineEffect, H)
