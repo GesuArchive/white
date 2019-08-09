@@ -11,6 +11,7 @@
 
 /obj/machinery/vending/terminal/Initialize(mapload)
 	. = ..()
+	product_records = list()
 	rebuild_inventory(GLOB.terminal_products, product_records)
 
 /obj/machinery/vending/terminal/proc/rebuild_inventory(list/productlist, list/recordlist)
