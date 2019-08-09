@@ -13053,6 +13053,14 @@
 /obj/item/clothing/gloves/color/yellow,
 /turf/open/floor/plasteel,
 /area/engine/engine_room)
+"aEx" = (
+/obj/machinery/vending/ancap,
+/turf/open/floor/wood,
+/area/library)
+"aEy" = (
+/obj/machinery/vending/terminal,
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "aEz" = (
 /obj/machinery/power/apc{
 	areastring = "/area/hallway/secondary/entry";
@@ -51453,7 +51461,7 @@
 /area/quartermaster/office)
 "nrB" = (
 /obj/structure/noticeboard{
-	pixel_x = -32;
+	pixel_x = -32
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -51501,7 +51509,7 @@
 	dir = 4
 	},
 /obj/item/radio/intercom{
-	pixel_x = -28;
+	pixel_x = -28
 	},
 /turf/open/floor/plasteel,
 /area/vacant_room/commissary)
@@ -96966,7 +96974,7 @@ aaf
 aaf
 alO
 aqA
-anf
+aEy
 alP
 anf
 anf
@@ -97507,7 +97515,7 @@ aIt
 aIt
 aWd
 aXV
-aIt
+aEx
 bbD
 aYV
 aXq
