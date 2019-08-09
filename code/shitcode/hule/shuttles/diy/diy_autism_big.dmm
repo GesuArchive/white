@@ -1,5 +1,5 @@
 "a" = (/obj/structure/lattice,/turf/template_noop,/area/template_noop)
-"b" = (/obj/docking_port/stationary/diy,/turf/open/floor/plating,/area/shuttle/diy)
+"b" = (/obj/docking_port/stationary/diy/big,/obj/docking_port/mobile/diy/big,/turf/open/floor/plating,/area/shuttle/diy)
 "e" = (/obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy,/turf/open/floor/plating,/area/shuttle/diy)
 "f" = (/obj/machinery/computer/shuttle/diy,/turf/open/floor/plating,/area/shuttle/diy)
 "g" = (/turf/open/floor/plating,/area/shuttle/diy)

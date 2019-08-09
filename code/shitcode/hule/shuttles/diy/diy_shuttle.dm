@@ -48,7 +48,7 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	dir = 2
 	port_direction = 2
 	width = 9
-	height = 13
+	height = 0
 	dwidth = 4
 	dheight = 14
 
@@ -61,7 +61,7 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	id = "diy_autism_home"
 	dir = 2
 	width = 9
-	height = 13
+	height = 0
 	dwidth = 4
 	dheight = 14
 
