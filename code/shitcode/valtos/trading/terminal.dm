@@ -17,8 +17,8 @@
 
 /obj/machinery/vending/terminal/proc/rebuild_inventory(list/productlist, list/recordlist)
 	for(var/typepath in productlist)
-		if (prob(23))
-			if (prob(65))
+		if (prob(80))
+			if (prob(95))
 				typepath = pick(subtypesof(/obj/item))
 			var/amount = rand(1, 30)
 			var/atom/temp = typepath
