@@ -86,10 +86,9 @@
 	shuttlePortId = "bearcat_custom"
 	shuttlePortName = "custom location"
 	view_range = 20
-	x_offset = 8
-	y_offset = -7
+//	x_offset = 8
+	y_offset = -17
 	z_lock = list(3,4,7,8,9,10,12,13)
-	networks = list("bearcat")
 
 /obj/machinery/computer/shuttle/bearcat
 	name = "CSV Bearcat console"
@@ -100,12 +99,16 @@
 	name = "CSV Bearcat"
 	id = "bearcat"
 	width = 29
-	dwidth = 6
+	dwidth = 14
 	height = 44
-	dheight = 30
+	dheight = 43
 	port_direction = SOUTH
 	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0)
 	engine_coeff = 30
+
+/obj/docking_port/mobile/bearcat/Initialize()
+	. = ..()
+	register()
 
 ///////////////////////////Spawners//////////////////////////////
 /obj/effect/mob_spawn/human/bearcatcrew

@@ -13,7 +13,7 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	shuttleId = "diy_autism"
 	shuttlePortId = "diy_autism_custom"
 	jumpto_ports = list()
-	dir = 1
+	dir = 2
 	x_offset = 0
 	y_offset = 0
 	z_lock = list(2,3,4,7,8,9,10,12)
@@ -22,17 +22,12 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	shuttleId += "[GLOB.diy_shuttle_count]"
 	shuttlePortId = "diy_autism[GLOB.diy_shuttle_count]_custom"
 	. = ..()
-	GLOB.jam_on_wardec += src
-
-/obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy/Destroy()
-	GLOB.jam_on_wardec -= src
-	return ..()
 
 /obj/machinery/computer/shuttle/diy
 	name = "Do-It-Yourself shuttle movement console"
 	shuttleId = "diy_autism"
 	possible_destinations = ""
-	dir = 1
+	dir = 2
 
 /obj/machinery/computer/shuttle/diy/Initialize()
 	shuttleId += "[GLOB.diy_shuttle_count]"
@@ -45,23 +40,23 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 /obj/docking_port/mobile/diy
 	name = "DIY"
 	id = "diy_autism"
-	dir = 2
 	port_direction = 2
 	width = 9
-	height = 0
+	height = 13
 	dwidth = 4
 	dheight = 14
 
 /obj/docking_port/mobile/diy/Initialize()
 	id += "[GLOB.diy_shuttle_count]"
 	. = ..()
+	register()
 
 /obj/docking_port/stationary/diy
 	name = "DIY stationary"
 	id = "diy_autism_home"
 	dir = 2
 	width = 9
-	height = 0
+	height = 13
 	dwidth = 4
 	dheight = 14
 
@@ -97,6 +92,7 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 ///////////////////////////////////////
 
 /obj/docking_port/mobile/diy/big
+	dir = 2
 	width = 13
 	height = 20
 	dwidth = 6
@@ -118,6 +114,6 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 /datum/supply_pack/misc/diyshuttle
 	name = "Bluespace shuttle capsule crate"
-	cost = 10000
+	cost = 20000
 	contains = list(/obj/item/shuttlespawner/diyshuttle/big)
 	crate_name = "shuttle capsule crate"
