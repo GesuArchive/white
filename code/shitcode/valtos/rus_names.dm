@@ -12,8 +12,8 @@
 
 /obj/Initialize()
 	. = ..()
-	ru_name = name
-	ru_desc = desc
+	if (!ru_name)
+		ru_name = name
 
 /mob
 	var/ru_name
@@ -21,8 +21,8 @@
 
 /mob/Initialize()
 	. = ..()
-	ru_name = name
-	ru_desc = desc
+	if (!ru_name)
+		ru_name = name
 
 /turf
 	var/ru_name
@@ -30,8 +30,8 @@
 
 /turf/Initialize()
 	. = ..()
-	ru_name = name
-	ru_desc = desc
+	if (!ru_name)
+		ru_name = name
 
 //////////////////////////////////////
 //
