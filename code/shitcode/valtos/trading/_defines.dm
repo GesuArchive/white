@@ -6,5 +6,14 @@ GLOBAL_LIST_INIT(terminal_products, list(
 	/obj/item/book/granter/spell/assacc,
 	/obj/item/circular_saw/folding,
 	/obj/item/reagent_containers/food/snacks/customizable/shaurma,
-	/obj/item/reagent_containers/food/drinks/boyarka
+	/obj/item/reagent_containers/food/drinks/boyarka,
+	/mob/living/carbon/human,
+	/obj/item/circuitboard/machine/clonepod/experimental,
+	/obj/item/clothing/shoes/combat,
+	/obj/item/gun/ballistic/rifle/boltaction/ptr,
+	/obj/item/ammo_box/a15mm,
+	/obj/item/clothing/under/syndicate,
+	/obj/item/clothing/glasses/sunglasses,
+	/obj/item/grenade/c4,
+	/obj/item/clothing/gloves/combat/maggloves
 ))
