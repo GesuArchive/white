@@ -17,6 +17,7 @@
 /datum/quirk/semiviolent/on_process()
 	if(ragemode_time > 0)
 		ragemode_time--
+		quirk_holder.create_tension(2)
 		return
 	else if(ragemode_time < 0)
 		ragemode_time++
@@ -28,12 +29,13 @@
 		ragemode_time += duration
 		quirk_holder.reagents.add_reagent(/datum/reagent/medicine/ephedrine,2)
 		rage_effect()
+		quirk_holder.create_tension(60)
 
 	else if(!HAS_TRAIT_FROM(quirk_holder,TRAIT_PACIFISM, "semiviolent"))
 		ADD_TRAIT(quirk_holder, TRAIT_PACIFISM, "semiviolent")
 
 		ragemode_time -= cooldown
-		quirk_holder.reagents.add_reagent(/datum/reagent/toxin/skewium,10)
+		quirk_holder.reagents.add_reagent(/datum/reagent/toxin/skewium,5)
 		ragemode = FALSE
 
 /datum/quirk/semiviolent/proc/rage_effect()
@@ -41,7 +43,7 @@
 		return
 	var/mob/living/carbon/M = quirk_holder
 
-	to_chat(M, "<span class='reallybig redtext'>RIP AND TEAR</span>")
+	//to_chat(M, "<span class='reallybig redtext'>RIP AND TEAR</span>")
 
 	var/old_color = M.client.color
 
