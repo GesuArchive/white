@@ -83,7 +83,8 @@
 
 /obj/attacked_by(obj/item/I, mob/living/user)
 	if(I.force)
-		visible_message("<span class='danger'>[user] бьёт [src] [I]!</span>", null, null, COMBAT_MESSAGE_RANGE)
+		user.visible_message("<span class='danger'>[user] бьёт [src] при помощи [I]!</span>", \
+					"<span class='danger'>Вы бьёте [src] при помощи [I]!</span>", null, COMBAT_MESSAGE_RANGE)
 		//only witnesses close by and the victim see a hit message.
 		log_combat(user, src, "атакует", I)
 	take_damage(I.force, I.damtype, "melee", 1)
@@ -134,10 +135,12 @@
 		return
 	var/message_hit_area = ""
 	if(hit_area)
-		message_hit_area = "в [ru_parse_zone(hit_area)]"
-	var/attack_message = "[message_verb] [I] [message_hit_area]."
+		message_hit_area = "[hit_area]"
+	var/attack_message = "[src] [message_verb]ся в [message_hit_area] при помощи [I]!"
+	var/attack_message_local = "Вы [message_verb]е [message_hit_area] при помощи [I]!"
 	if(user in viewers(src, null))
-		attack_message = "[user] [message_verb] при помощи [I] [src] [message_hit_area]!"
+		attack_message = "[user] [message_verb] [src] в [message_hit_area] при помощи [I]!"
+		attack_message_local = "[user] [message_verb] твою [message_hit_area] при помощи [I]!"
 	visible_message("<span class='danger'>[attack_message]</span>",\
-		"<span class='userdanger'>[attack_message]</span>", null, COMBAT_MESSAGE_RANGE)
+		"<span class='userdanger'>[attack_message_local]</span>", null, COMBAT_MESSAGE_RANGE)
 	return 1
