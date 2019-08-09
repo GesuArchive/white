@@ -1,0 +1,33 @@
+"a" = (/obj/structure/lattice,/turf/template_noop,/area/template_noop)
+"b" = (/obj/docking_port/stationary/diy/big,/obj/docking_port/mobile/diy/big,/turf/open/floor/plating,/area/shuttle/diy)
+"e" = (/obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy,/turf/open/floor/plating,/area/shuttle/diy)
+"f" = (/obj/machinery/computer/shuttle/diy,/turf/open/floor/plating,/area/shuttle/diy)
+"g" = (/turf/open/floor/plating,/area/shuttle/diy)
+"h" = (/turf/template_noop,/area/shuttle/diy)
+"i" = (/obj/structure/shuttle/engine/propulsion/burst{anchored = 0},/turf/template_noop,/area/shuttle/diy)
+"j" = (/obj/structure/lattice,/turf/template_noop,/area/shuttle/diy)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaa
+ahhhhhhbhhhhhha
+ahhhhhhghhhhhha
+ahhhhhhghhhhhha
+ahhhhhhgihhhhha
+ahhhhhhgihhhhha
+ahhhhhhgihhhhha
+ahhhhhhgihhhhha
+ahhhhhhgihhhhha
+ahhhhhhgihhhhha
+ahhhhhhghhhhhha
+ahhhhhhghhhhhha
+ajjjjjefgjjjjja
+ahhhhhhjhhhhhha
+ahhhhhhjhhhhhha
+ahhhhhhjhhhhhha
+ahhhhhhjhhhhhha
+ahhhhhhjhhhhhha
+ahhhhhhjhhhhhha
+ahhhhhhjhhhhhha
+ahhhhhhjhhhhhha
+aaaaaaaaaaaaaaa
+"}

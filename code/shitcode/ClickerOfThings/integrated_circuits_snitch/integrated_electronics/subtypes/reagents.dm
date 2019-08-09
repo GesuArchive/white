@@ -160,7 +160,7 @@
 
 		var/tramount = abs(transfer_amount)
 
-		if(isliving(AM))
+		if(isliving(AM) && !istype(assembly.loc, /obj/item/storage))
 			var/mob/living/L = AM
 			L.visible_message("<span class='danger'>[acting_object] is trying to take a blood sample from [L]!</span>", \
 								"<span class='userdanger'>[acting_object] is trying to take a blood sample from you!</span>")

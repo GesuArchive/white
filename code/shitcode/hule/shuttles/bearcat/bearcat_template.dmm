@@ -93,8 +93,8 @@
 "bO" = (/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/dorms)
 "bP" = (/turf/closed/wall,/area/shuttle/bearcat/saloon)
 "bQ" = (/obj/machinery/vending/snack/random,/turf/open/floor/plasteel,/area/shuttle/bearcat/saloon)
-"bR" = (/obj/effect/mob_spawn/human/bearcatcrew/atmos,/turf/open/floor/plasteel,/area/shuttle/bearcat/dorms)
-"bS" = (/obj/effect/mob_spawn/human/bearcatcrew/pilot,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 9},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 10},/turf/open/floor/plasteel,/area/shuttle/bearcat/dorms)
+"bR" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 9},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 10},/turf/open/floor/plasteel,/area/shuttle/bearcat/dorms)
+"bS" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer1{icon_state = "scrub_map_on-1"; dir = 1},/turf/open/floor/plasteel,/area/shuttle/bearcat/dorms)
 "bT" = (/turf/open/floor/plasteel,/area/shuttle/bearcat/saloon)
 "bU" = (/obj/machinery/vending/coffee,/turf/open/floor/plasteel,/area/shuttle/bearcat/saloon)
 "bV" = (/turf/closed/wall,/area/shuttle/bearcat/dorms)
@@ -127,7 +127,7 @@
 "cw" = (/obj/structure/disposalpipe/trunk{dir = 8},/obj/machinery/disposal/bin,/turf/open/floor/plasteel,/area/shuttle/bearcat/saloon)
 "cx" = (/obj/structure/cable,/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer1{icon_state = "manifold-1"; dir = 8},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer3{icon_state = "manifold-3"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/hallway)
 "cy" = (/obj/structure/cable,/turf/open/floor/plasteel,/area/shuttle/bearcat/dorms)
-"cz" = (/obj/effect/mob_spawn/human/bearcatcrew/eng,/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer1{icon_state = "scrub_map_on-1"; dir = 1},/turf/open/floor/plasteel,/area/shuttle/bearcat/dorms)
+"cz" = (/turf/open/floor/plasteel,/area/shuttle/bearcat/dorms)
 "cA" = (/turf/closed/wall/mineral/plastitanium,/area/shuttle/bearcat/kitchen)
 "cB" = (/turf/closed/wall,/area/shuttle/bearcat/kitchen)
 "cC" = (/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 10},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 9},/turf/open/floor/plasteel/white,/area/shuttle/bearcat/medbay)
@@ -340,9 +340,9 @@ aaaaaaaaaaaaaaaabrbsbnaVbsbublbwbsaVbnbsbraaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaabrbubvbwbybubtbwbAbubvbBbraaaaaaaaaaaaaaaa
 aaaaaaaaaabCbDbEbDbDfKbFbFbFfEbFbFbFfKbHbHbIbHbJaaaaaaaaaa
 aaaaaaaaaabDbKcZbMbNfVbPbQftfSbTbUbPfVbVbWdebYbHaaaaaaaaaa
-aaaaaaaaaabEbZaSbGcabxcecfcgbzdpcfcecxcmbObSbYbIaaaaaaaaaa
-aaaaaaaaaabDcnbecpbNcccrcsctcdcvcwbPgfbVcyczbYbIaaaaaaaaaa
-aaaaaaaaaacAcBcBcBcBchcDcDcDcjcDcDcDggbVcGbRbYbHaaaaaaaaaa
+aaaaaaaaaabEbZaSbGcabxcecfcgbzdpcfcecxcmbObRbYbIaaaaaaaaaa
+aaaaaaaaaabDcnbecpbNcccrcsctcdcvcwbPgfbVcybSbYbIaaaaaaaaaa
+aaaaaaaaaacAcBcBcBcBchcDcDcDcjcDcDcDggbVcGczbYbHaaaaaaaaaa
 aaaaaaaaaacAcIcJcKcBckcDcMcNcldacQcDgfcRcRcRcRcSaaaaaaaaaa
 cTcUcUcVcWcXcYdsdxcBckcDdbdbcqdbddcDgfcReidfdgcScWcVcUcUcT
 cUdhdicUcWcXcYcbcEdcdldmdncOegffdndmcxcucCdtdtducWcUdidhcU
