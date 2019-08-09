@@ -1,4 +1,4 @@
-GLOBAL_LIST_INIT(pidorlist, file2list("[global.config.directory]/autoeban/pidorlist.fackuobema"))
+GLOBAL_LIST_INIT(pidorlist, world.file2list("[global.config.directory]/autoeban/pidorlist.fackuobema"))
 
 /client/proc/prikol_panel()
 	set category = "Debug"
@@ -20,7 +20,7 @@ GLOBAL_LIST_INIT(pidorlist, file2list("[global.config.directory]/autoeban/pidorl
 		if("Debug Pidoras Existence")
 			var/list/debugmenu = list("Cancel", "Add Pidoras", "Remove Pidoras (rly?)", "Pidoras List")
 
-			var/selected_debug = input("Debug Pidoras Antag", "PRIKOLPANEL V1.0", "Cancel") as null|anything in menu
+			var/selected_debug = input("Debug Pidoras Antag", "PRIKOLPANEL V1.0", "Cancel") as null|anything in debugmenu
 
 			switch(selected_debug)
 				if("Cancel")
