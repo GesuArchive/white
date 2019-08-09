@@ -15,17 +15,18 @@
 
 /obj/machinery/vending/terminal/proc/rebuild_inventory(list/productlist, list/recordlist)
 	for(var/typepath in productlist)
-		var/amount = rand(1, 30)
-
-		var/atom/temp = typepath
-		var/datum/data/vending_product/R = new /datum/data/vending_product()
-		GLOB.vending_products[typepath] = 1
-		R.name = initial(temp.name)
-		R.product_path = typepath
-		R.max_amount = amount
-		R.custom_price = initial(temp.custom_price)
-		R.custom_premium_price = rand(100, 10000) //best prices
-		recordlist += R
+		if (prob(23))
+			var/amount = rand(1, 30)
+			var/atom/temp = typepath
+			var/datum/data/vending_product/R = new /datum/data/vending_product()
+			GLOB.vending_products[typepath] = 1
+			R.name = initial(temp.name)
+			R.product_path = typepath
+			R.amount = amount
+			R.max_amount = amount
+			R.custom_price = rand(100, 10000) //best prices
+			R.custom_premium_price = rand(100, 10000) //best prices
+			recordlist += R
 
 /obj/machinery/vending/terminal/emag_act(mob/user)
 	if(shock(user, 100))
