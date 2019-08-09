@@ -21982,8 +21982,6 @@
 	},
 /obj/structure/sign/directions/evac{
 	dir = 4;
-	pixel_x = 0;
-	pixel_y = 0;
 	pixel_x = 32;
 	pixel_y = 28
 	},
@@ -51456,7 +51454,6 @@
 "nrB" = (
 /obj/structure/noticeboard{
 	pixel_x = -32;
-	pixel_y = 0
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -51505,7 +51502,6 @@
 	},
 /obj/item/radio/intercom{
 	pixel_x = -28;
-	pixel_y = 0
 	},
 /turf/open/floor/plasteel,
 /area/vacant_room/commissary)
