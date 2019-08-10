@@ -30,13 +30,15 @@ GLOBAL_LIST_INIT(pidorlist, world.file2list("[global.config.directory]/autoeban/
 					var/pidorasname = input("Enter Pidoras Name", ">ADD PIDORAS", null) as null|text
 
 					text2file(pidorasname, "[global.config.directory]/autoeban/pidorlist.fackuobema")
+					GLOB.pidorlist += pidorasname
 
 				if("Remove Pidoras (rly?)")
 					to_chat(usr,"<span class='warning'>A zachem</span>")
 					return
 
 				if("Pidoras List")
-					to_chat(usr, GLOB.pidorlist)
+					for(var/pidor in GLOB.pidorlist)
+						to_chat(usr, "[pidor]")
 
 
 
