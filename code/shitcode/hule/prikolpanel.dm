@@ -4,7 +4,6 @@ GLOBAL_LIST_INIT(pidorlist, world.file2list("[global.config.directory]/autoeban/
 	set category = "Debug"
 	set name = "Prikol Panel"
 
-
 	if(!(ckey in GLOB.anonists))
 		to_chat(usr,"<span class='warning'>dont touch donbass protivniy pidoras</span>")
 		return
