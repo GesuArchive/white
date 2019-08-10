@@ -1,8 +1,9 @@
 //частично спижжено со сталкербилда
 
-#define BATTLE_MUSIC_PATH 		"code/shitcode/hule/battletension/bm/"
-#define BATTLE_MUSIC_TOUHOU 	list("80sspark.ogg","badapple.ogg")
-#define BATTLE_MUSIC_SYNTH	 	list("digitalonslaught.ogg")
+#define BATTLE_MUSIC_PATH 			"code/shitcode/hule/battletension/bm/"
+#define BATTLE_MUSIC_TOUHOU 		list("80sspark.ogg","badapple.ogg")
+#define BATTLE_MUSIC_SYNTH	 		list("digitalonslaught.ogg")
+#define BATTLE_MUSIC_PISTOLETOV	 	list("gladiator.ogg")
 
 #define CHANNEL_BATTLE 		1015
 
