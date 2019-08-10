@@ -9,7 +9,7 @@
 		else
 			. = "[src]"
 	. = "[src]"
-	var/list/override = list(gender == PLURAL ? " " : " ", " ", "[ru_name]")
+	var/list/override = list(gender == PLURAL ? " " : " ", " ", "[name]")
 	if(article)
 		. = "[src]"
 		override[EXAMINE_POSITION_ARTICLE] = article
