@@ -106,7 +106,7 @@
 				price_listed = "FREE"
 			if(coin_records.Find(R) || is_hidden)
 				price_listed = "$[R.custom_premium_price ? R.custom_premium_price : extra_price]"
-			dat += {"<tr><td><img src='data:image/jpeg;base64,[GetIconForProduct(prize)]'/></td>
+			dat += {"<tr><td><img src='data:image/jpeg;base64,[GetIconForProduct(R)]'/></td>
 							<td style=\"width: 100%\"><b>[sanitize(R.name)]  ([price_listed])</b></td>"}
 			if(R.amount > 0 && ((C && C.registered_account && onstation) || (!onstation && isliving(user))))
 				dat += "<td align='right'><b>[R.amount]&nbsp;</b><a href='byond://?src=[REF(src)];vend=[REF(R)]'>Vend</a></td>"
