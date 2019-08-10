@@ -1,3 +1,5 @@
+GLOBAL_LIST_EMPTY(terminal_icon_cache)
+
 GLOBAL_LIST_INIT(terminal_products, list(
 	/obj/item/reagent_containers/glass/bowl,
 	/obj/item/reagent_containers/food/snacks/poo,

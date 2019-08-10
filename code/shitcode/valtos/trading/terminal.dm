@@ -106,7 +106,7 @@
 				price_listed = "FREE"
 			if(coin_records.Find(R) || is_hidden)
 				price_listed = "$[R.custom_premium_price ? R.custom_premium_price : extra_price]"
-			dat += {"<tr><td>[icon2base64html(R.product_path)]</td>
+			dat += {"<tr><td><img src='data:image/jpeg;base64,[GetIconForProduct(prize)]'/></td>
 							<td style=\"width: 100%\"><b>[sanitize(R.name)]  ([price_listed])</b></td>"}
 			if(R.amount > 0 && ((C && C.registered_account && onstation) || (!onstation && isliving(user))))
 				dat += "<td align='right'><b>[R.amount]&nbsp;</b><a href='byond://?src=[REF(src)];vend=[REF(R)]'>Vend</a></td>"
@@ -123,3 +123,12 @@
 	popup.set_content(dat.Join(""))
 	popup.set_title_image(user.browse_rsc_icon(icon, icon_state))
 	popup.open()
+
+/obj/machinery/vending/terminal/proc/GetIconForProduct(datum/data/vending_product/P)
+	if(GLOB.terminal_icon_cache[P.product_path])
+		return GLOB.terminal_icon_cache[P.product_path]
+
+	var/product = new P.product_path()
+	GLOB.terminal_icon_cache[P.product_path] = icon2base64(getFlatIcon(product, no_anim = TRUE))
+	qdel(product)
+	return GLOB.terminal_icon_cache[P.product_path]
