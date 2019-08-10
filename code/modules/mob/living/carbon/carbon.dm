@@ -7,9 +7,6 @@
 	update_body_parts() //to update the carbon's new bodyparts appearance
 	GLOB.carbon_list += src
 
-	killcounter = new /datum/cs_killcounter
-	killcounter.owner = src
-
 	create_tension(-1)
 
 	grant_tts()

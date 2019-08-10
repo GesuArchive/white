@@ -1128,8 +1128,6 @@
 	if(object)
 		sobject = " with [object]"
 
-		secure_kill(living_target, user, object) //prikl
-
 	var/saddition = ""
 	if(addition)
 		saddition = " [addition]"

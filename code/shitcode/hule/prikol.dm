@@ -1,17 +1,12 @@
 GLOBAL_VAR_INIT(prikol_mode, FALSE)
 
-/mob/living/carbon
+/mob/living
 	var/datum/cs_killcounter/killcounter
 
-/*	//in carbon.dm
-/mob/living/carbon/Initialize()
-	. = ..()
-	killcounter = new /datum/cs_killcounter
-	killcounter.owner = src
-*/
+//nasral na living.dm
 
 /datum/cs_killcounter
-	var/mob/living/carbon/owner
+	var/mob/living/owner
 	var/killcount = 0
 	var/killstreak = 0
 	var/maxkillstreak = 0
@@ -37,8 +32,16 @@ GLOBAL_VAR_INIT(prikol_mode, FALSE)
 /datum/cs_killcounter/proc/count_kill(var/headshot = FALSE)
 	killcount++
 
-	if(!GLOB.prikol_mode)
-		return
+	if(!GLOB.prikol_mode && owner.mind.antag_datums)
+		var/count = FALSE
+		for(var/datum/antagonist/A in owner.mind.antag_datums)
+			if(istype(A, /datum/antagonist/traitor) && /datum/objective/hijack in A.objectives)
+				count = TRUE
+			else if (istype(A, /datum/antagonist/nukeop))
+				count = TRUE
+
+		if(!count)
+			return
 
 	killstreak++
 	timer += time4kill
@@ -89,19 +92,9 @@ GLOBAL_VAR_INIT(prikol_mode, FALSE)
 	else
 		message_admins("[key] toggled P.R.I.K.O.L mode off.")
 
-/proc/secure_kill(var/mob/living/victim, var/mob/living/carbon/frabber, var/obj/weapon) // PRIKOL
-	if(!istype(victim, /mob/living)|| !istype(frabber, /mob/living/carbon) || !frabber.mind)
-		return
-	var/hpnow = victim.health
-	if(hpnow <= -100)
-		if(istype(weapon, /obj/item/projectile))
-			var/obj/item/projectile/P = weapon
+//nasral na death.dm
 
-			if(P.damage + hpnow > -100)
-				frabber.killcounter.count_kill()
-
-		else if(istype(weapon, /obj))
-			var/obj/O = weapon
-
-			if(O.force + hpnow > -100)
-				frabber.killcounter.count_kill()
+/proc/secure_kill(var/frabbername)
+	for(var/mob/living/L in GLOB.player_list)
+		if(L.real_name == frabbername)
+			L.killcounter.count_kill()
