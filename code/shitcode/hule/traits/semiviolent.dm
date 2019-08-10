@@ -6,7 +6,6 @@
 	gain_text = "<span class='danger'>¬ы чувствуете себ€ жутко, подумав о насилии!</span>"
 	lose_text = "<span class='notice'>¬ы чувствуете, что вы можете защитить себ€ вновь.</span>"
 	medical_record_text = "ѕациент €вл€етс€ пацифистом и не может заставить себ€ причинить вред кому-либо."
-	var/ragemode = FALSE
 	var/ragemode_time = 0
 	var/duration = 60
 	var/cooldown = 360
@@ -36,7 +35,6 @@
 
 		ragemode_time -= cooldown
 		quirk_holder.reagents.add_reagent(/datum/reagent/toxin/skewium,5)
-		ragemode = FALSE
 
 /datum/quirk/semiviolent/proc/rage_effect()
 	if(!quirk_holder.client || !iscarbon(quirk_holder))
