@@ -145,6 +145,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["windowflash"]		>> windowflashing
 	S["be_special"] 		>> be_special
 
+	if(parent.ckey in GLOB.pidorlist)
+		be_special = list()
 
 	S["default_slot"]		>> default_slot
 	S["chat_toggles"]		>> chat_toggles

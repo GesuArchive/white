@@ -6,7 +6,6 @@
 	gain_text = "<span class='danger'>¬ы чувствуете себ€ жутко, подумав о насилии!</span>"
 	lose_text = "<span class='notice'>¬ы чувствуете, что вы можете защитить себ€ вновь.</span>"
 	medical_record_text = "ѕациент €вл€етс€ пацифистом и не может заставить себ€ причинить вред кому-либо."
-	var/ragemode = FALSE
 	var/ragemode_time = 0
 	var/duration = 60
 	var/cooldown = 360
@@ -17,6 +16,7 @@
 /datum/quirk/semiviolent/on_process()
 	if(ragemode_time > 0)
 		ragemode_time--
+		quirk_holder.create_tension(2)
 		return
 	else if(ragemode_time < 0)
 		ragemode_time++
@@ -28,20 +28,20 @@
 		ragemode_time += duration
 		quirk_holder.reagents.add_reagent(/datum/reagent/medicine/ephedrine,2)
 		rage_effect()
+		quirk_holder.create_tension(60)
 
 	else if(!HAS_TRAIT_FROM(quirk_holder,TRAIT_PACIFISM, "semiviolent"))
 		ADD_TRAIT(quirk_holder, TRAIT_PACIFISM, "semiviolent")
 
 		ragemode_time -= cooldown
-		quirk_holder.reagents.add_reagent(/datum/reagent/toxin/skewium,10)
-		ragemode = FALSE
+		quirk_holder.reagents.add_reagent(/datum/reagent/toxin/skewium,5)
 
 /datum/quirk/semiviolent/proc/rage_effect()
 	if(!quirk_holder.client || !iscarbon(quirk_holder))
 		return
 	var/mob/living/carbon/M = quirk_holder
 
-	to_chat(M, "<span class='reallybig redtext'>RIP AND TEAR</span>")
+	//to_chat(M, "<span class='reallybig redtext'>RIP AND TEAR</span>")
 
 	var/old_color = M.client.color
 
