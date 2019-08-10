@@ -1,7 +1,8 @@
 //частично спижжено со сталкербилда
 
-#define BATTLE_MUSIC_PATH 	"code/shitcode/hule/battletension/bm/"
-#define BATTLE_MUSIC_LIST 	list("80sspark.ogg","badapple.ogg")
+#define BATTLE_MUSIC_PATH 		"code/shitcode/hule/battletension/bm/"
+#define BATTLE_MUSIC_TOUHOU 	list("80sspark.ogg","badapple.ogg")
+#define BATTLE_MUSIC_SYNTH	 	list("digitalonslaught.ogg")
 
 #define CHANNEL_BATTLE 		1015
 
@@ -54,9 +55,15 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	STOP_PROCESSING(SSbtension, src)
 	. = ..()
 
-/datum/btension/proc/get_sound_list()
+/datum/btension/proc/get_sound_list(var/genre)
+	var/list/genrelist
+	if(genre)
+		genrelist = genre
+	else
+		genrelist = pick(list(BATTLE_MUSIC_TOUHOU,BATTLE_MUSIC_SYNTH))
+
 	var/list/bmlist = list()
-	for(var/I in BATTLE_MUSIC_LIST)
+	for(var/I in genrelist)
 		bmlist += BATTLE_MUSIC_PATH + I
 	return bmlist
 
