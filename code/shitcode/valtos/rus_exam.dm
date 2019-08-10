@@ -1,11 +1,13 @@
 /atom/proc/ru_get_examine_name(mob/user)
-	//switch (prob(100))
-	//	if (0 to 3)
-	//		. = "непримечательный [src]"
-	//	if (4 to 12)
-	//		. = "обычный [src]"
-	//	else
-	//		. = "[src]"
+	switch (rand(0, 100))
+		if (1)
+			. = "непримечательный [src]"
+		if (2)
+			. = "обычный [src]"
+		if (3)
+			. = "невероятный [src]"
+		else
+			. = "[src]"
 	. = "[src]"
 	var/list/override = list(gender == PLURAL ? " " : " ", " ", "[name]")
 	if(article)
