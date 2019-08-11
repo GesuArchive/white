@@ -32,7 +32,7 @@ GLOBAL_VAR_INIT(prikol_mode, FALSE)
 /datum/cs_killcounter/proc/count_kill(var/headshot = FALSE)
 	killcount++
 
-	if(!GLOB.prikol_mode && owner.mind.antag_datums)
+	if(!GLOB.prikol_mode || owner.mind.antag_datums)
 		var/count = FALSE
 		for(var/datum/antagonist/A in owner.mind.antag_datums)
 			if(istype(A, /datum/antagonist/traitor) && /datum/objective/hijack in A.objectives)
