@@ -79,6 +79,9 @@
 		if("Russian Officer")
 			O = new /datum/outfit/plasmaman/security
 
+		if("Kazakhstan Officer")
+			O = new /datum/outfit/plasmaman/security
+
 		if("International Officer")
 			O = new /datum/outfit/plasmaman/security
 
