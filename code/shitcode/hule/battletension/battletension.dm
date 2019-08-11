@@ -28,7 +28,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 //nasral na living_defense.dm & item_attack.dm & carbon_defense.dm
 
 /mob/living/proc/create_tension(var/amount)
-	if(mind && !battletension)
+	if(client && !battletension)
 		battletension = new /datum/btension
 		battletension.owner = src
 
@@ -84,7 +84,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	bm.status = SOUND_STREAM
 
 /datum/btension/process()
-	if(tension < 1 || !bm || !bm.file)
+	if(!bm || !bm.file)
 		return
 
 	switch(tension)
