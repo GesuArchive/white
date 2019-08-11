@@ -38,12 +38,13 @@
 	name = "generic russian cookbook"
 	desc = "Обычная книга с надписью <<Русская кухня>> - Содержит пошаговые инструкции сборки различного самодельного снаряжения из металла, клея и бутылки водки."
 	crafting_recipe_types = list(
-								/datum/crafting_recipe/cookbook/mshotgun,
-								/datum/crafting_recipe/cookbook/mshotgunmag,
-								/datum/crafting_recipe/cookbook/npgrenade,
-								/datum/crafting_recipe/cookbook/grenadeprimer
-
+									/datum/crafting_recipe/cookbook/mshotgun,
+									/datum/crafting_recipe/cookbook/mshotgunmag,
+									/datum/crafting_recipe/cookbook/npgrenade,
+									/datum/crafting_recipe/cookbook/grenadeprimer,
+									/datum/crafting_recipe/cookbook/poleaxe
 								)
+
 /datum/uplink_item/cookbook
 	name = "Cookbook"
 	category = "Devices and Tools"
@@ -83,7 +84,6 @@
 				/datum/reagent/drug/krokodil = 10,
 				/datum/reagent/consumable/ethanol/vodka = 5,
 				/obj/item/grenade/smokebomb = 1)
-//	parts = list()
 	tools = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
 	time = 100
 
@@ -93,6 +93,15 @@
 	reqs = list(/obj/item/assembly/igniter = 1,
 				/obj/item/stock_parts/manipulator = 2,
 				/obj/item/stack/cable_coil = 20)
-//	parts = list()
 	tools = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	time = 100
+
+/datum/crafting_recipe/cookbook/poleaxe
+	name = "Prikol Poleaxe"
+	result = /obj/item/twohanded/required/paxe
+	reqs = list(/obj/item/stack/sheet/plasteel = 1,
+				/obj/item/stack/sheet/metal = 5,
+				/obj/item/twohanded/spear = 1,
+				/obj/item/stack/cable_coil = 10)
+	tools = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
 	time = 100

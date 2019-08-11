@@ -14,6 +14,9 @@
 	killcounter = new /datum/cs_killcounter
 	killcounter.owner = src
 
+	battletension = new /datum/btension
+	battletension.owner = src
+
 /mob/living/proc/initialize_footstep()
 	AddComponent(/datum/component/footstep)
 

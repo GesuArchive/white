@@ -9,6 +9,9 @@
 	supervisors = "the chief medical officer"
 	selection_color = "#ffeef0"
 
+	exp_type = EXP_TYPE_CREW
+	exp_requirements = 120
+
 	outfit = /datum/outfit/job/doctor
 
 	access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_CHEMISTRY, ACCESS_GENETICS, ACCESS_CLONING, ACCESS_VIROLOGY, ACCESS_MECH_MEDICAL, ACCESS_MINERAL_STOREROOM)

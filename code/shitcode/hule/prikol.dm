@@ -12,6 +12,7 @@ GLOBAL_VAR_INIT(prikol_mode, FALSE)
 	var/maxkillstreak = 0
 	var/time4kill = 150
 	var/timer = 0
+	var/force_enable = FALSE
 
 /datum/cs_killcounter/New()
 	. = ..()
@@ -32,19 +33,21 @@ GLOBAL_VAR_INIT(prikol_mode, FALSE)
 /datum/cs_killcounter/proc/count_kill(var/headshot = FALSE)
 	killcount++
 
-	if(!GLOB.prikol_mode && owner.mind.antag_datums)
+	killstreak++
+	timer += time4kill
+
+	if(!GLOB.prikol_mode || owner.mind.antag_datums || force_enable) //пиздец уебищно выглядит лень придумывать другое
 		var/count = FALSE
 		for(var/datum/antagonist/A in owner.mind.antag_datums)
 			if(istype(A, /datum/antagonist/traitor) && /datum/objective/hijack in A.objectives)
 				count = TRUE
-			else if (istype(A, /datum/antagonist/nukeop))
+			else if(istype(A, /datum/antagonist/nukeop))
+				count = TRUE
+			else if(force_enable)
 				count = TRUE
 
 		if(!count)
 			return
-
-	killstreak++
-	timer += time4kill
 
 	if(headshot)
 		addtimer(CALLBACK(src, .proc/killsound), 25)
@@ -95,6 +98,8 @@ GLOBAL_VAR_INIT(prikol_mode, FALSE)
 //nasral na death.dm
 
 /proc/secure_kill(var/frabbername)
+	if(!frabbername)
+		return
 	for(var/mob/living/L in GLOB.player_list)
 		if(L.real_name == frabbername)
 			L.killcounter.count_kill()

@@ -50,8 +50,12 @@
 
 		if(istype(P.firer, /mob/living) && mind && !stat)
 			var/mob/living/frabber = P.firer
-			frabber.create_tension(P.damage/4)
-			create_tension(P.damage/4)
+			if(!P.damage_type == STAMINA)
+				frabber.create_tension(P.damage)
+				create_tension(P.damage)
+			else
+				frabber.create_tension(P.damage/4)
+				create_tension(P.damage/4)
 
 		apply_effects(P.stun, P.knockdown, P.unconscious, P.irradiate, P.slur, P.stutter, P.eyeblur, P.drowsy, FALSE, P.stamina, P.jitter, P.paralyze, P.immobilize)
 		if(P.dismemberment)

@@ -110,6 +110,8 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 /obj/effect/landmark/start/security_officer/New()
 	if (prob(50)) //lazy bitch
 		name = "International Officer"
+		if (prob(75))
+			name = "Kazakhstan Officer"
 	..()
 
 /obj/effect/landmark/start/botanist

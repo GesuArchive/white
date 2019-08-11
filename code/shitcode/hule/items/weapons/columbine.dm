@@ -10,7 +10,7 @@
 	mag_type = /obj/item/ammo_box/magazine/pistolm9mm
 	burst_size = 1
 	fire_delay = 0.5
-
+/*
 /datum/outfit/schoolshooter
 	name = "Schoolshooter"
 
@@ -27,4 +27,4 @@
 	backpack_contents = list(/obj/item/ammo_box/c9mm = 1, /obj/item/ammo_box/magazine/pistolm9mm = 1,
 							, /obj/item/grenade/syndieminibomb/concussion = 3, /obj/item/grenade/c4 = 2)
 
-
+*/
