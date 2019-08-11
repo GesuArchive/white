@@ -36,6 +36,36 @@
 	..()
 	add_objective(new/datum/objective/experiment)
 
+/datum/team/abductor_team/is_solo()
+	return FALSE
+
+/datum/team/abductor_team/proc/add_objective(datum/objective/O)
+	O.team = src
+	O.update_explanation_text()
+	objectives += O
+
+/datum/team/abductor_team/roundend_report()
+	var/list/result = list()
+
+	var/won = TRUE
+	for(var/datum/objective/O in objectives)
+		if(!O.check_completion())
+			won = FALSE
+	if(won)
+		result += "<span class='greentext big'>[name] team fulfilled its mission!</span>"
+	else
+		result += "<span class='redtext big'>[name] team failed its mission.</span>"
+
+	result += "<span class='header'>The abductors of [name] were:</span>"
+	for(var/datum/mind/abductor_mind in members)
+		result += printplayer(abductor_mind)
+	result += printobjectives(objectives)
+
+	return "<div class='panel redborder'>[result.Join("<br>")]</div>"
+
+//////////////////////////////////////OBJECTIVES//////////////////////////////////////
+
+
 //////////////////////////////////////ANTAG//////////////////////////////////////
 
 /datum/antagonist/schoolshooter
@@ -43,23 +73,18 @@
 	roundend_category = "schoolshooters"
 	antagpanel_category = "Traitor"
 	show_in_antagpanel = FALSE
-	greet_text = "Use your stealth technology and equipment to incapacitate humans for your scientist to retrieve."
+	greet_text = "Priva."
+	can_hijack = HIJACK_HIJACKER
 	var/datum/team/schoolshooters/team
 
-/datum/antagonist/schoolshooter/typeone
-	outfit = /datum/outfit/schoolshooter/typeone
-
-/datum/antagonist/schoolshooter/typetwo
-	outfit = /datum/outfit/schoolshooter/typetwo
-
-/datum/antagonist/abductor/create_team(datum/team/abductor_team/new_team)
+/datum/antagonist/schoolshooter/create_team(datum/team/abductor_team/new_team)
 	if(!new_team)
 		return
 	if(!istype(new_team))
 		stack_trace("Wrong team type passed to [type] initialization.")
 	team = new_team
 
-/datum/antagonist/abductor/on_gain()
+/datum/antagonist/schoolshooter/on_gain()
 	owner.special_role = "Schoolshooter"
 	owner.assigned_role = "Schoolshooter"
 	objectives += team.objectives
