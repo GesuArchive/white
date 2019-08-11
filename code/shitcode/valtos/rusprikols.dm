@@ -76,6 +76,8 @@
 	spawn_positions = 1
 	minimal_player_age = 28
 	exp_requirements = 6000
+	exp_type = EXP_TYPE_CREW
+	exp_type_department = EXP_TYPE_SECURITY
 	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_MAINT_TUNNELS, ACCESS_MECH_SECURITY,
 					ACCESS_MORGUE, ACCESS_WEAPONS, ACCESS_FORENSICS_LOCKERS, ACCESS_MINERAL_STOREROOM, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP,
 					ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION,
@@ -90,7 +92,7 @@
 
 	belt = /obj/item/pda/security
 	ears = /obj/item/radio/headset/headset_sec/alt/department/engi
-	uniform = /obj/item/clothing/under/rank/omon
+	uniform = /obj/item/clothing/under/rank/omon/green
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/helmet/sec
 	suit = /obj/item/clothing/suit/armor/vest/alt
