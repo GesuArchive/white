@@ -76,11 +76,11 @@
 	spawn_positions = 1
 	minimal_player_age = 28
 	exp_requirements = 6000
-	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_MAINT_TUNNELS, ACCESS_MECH_SECURITY, 
-					ACCESS_MORGUE, ACCESS_WEAPONS, ACCESS_FORENSICS_LOCKERS, ACCESS_MINERAL_STOREROOM, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, 
-					ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, 
+	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_MAINT_TUNNELS, ACCESS_MECH_SECURITY,
+					ACCESS_MORGUE, ACCESS_WEAPONS, ACCESS_FORENSICS_LOCKERS, ACCESS_MINERAL_STOREROOM, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP,
+					ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION,
 					ACCESS_ATMOSPHERICS, ACCESS_MINERAL_STOREROOM)
-	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_WEAPONS, ACCESS_MECH_SECURITY, 
+	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_WEAPONS, ACCESS_MECH_SECURITY,
 					ACCESS_MINERAL_STOREROOM, ACCESS_ATMOSPHERICS, ACCESS_CONSTRUCTION, ACCESS_MECH_ENGINE, ACCESS_MINERAL_STOREROOM) // See /datum/job/officer/get_access()
 	outfit = /datum/outfit/job/security/kazakh
 
@@ -90,7 +90,7 @@
 
 	belt = /obj/item/pda/security
 	ears = /obj/item/radio/headset/headset_sec/alt/department/engi
-	uniform = /obj/item/clothing/under/rank/omon
+	uniform = /obj/item/clothing/under/rank/omon/green
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/helmet/sec
 	suit = /obj/item/clothing/suit/armor/vest/alt
@@ -98,7 +98,7 @@
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/assembly/flash/handheld
 	suit_store = /obj/item/gun/energy/disabler
-	backpack_contents = list(/obj/item/melee/baton/loaded=1, /obj/item/clothing/under/rank/engineering/atmospheric_technician=1, 
+	backpack_contents = list(/obj/item/melee/baton/loaded=1, /obj/item/clothing/under/rank/engineering/atmospheric_technician=1,
 	/obj/item/modular_computer/tablet/preset/advanced=1, /obj/item/pipe_dispenser=1)
 
 	backpack = /obj/item/storage/backpack/security
