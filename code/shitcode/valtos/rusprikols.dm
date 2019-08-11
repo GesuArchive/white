@@ -75,7 +75,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	minimal_player_age = 28
-	exp_requirements = 600
+	exp_requirements = 6000
 	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_MAINT_TUNNELS, ACCESS_MECH_SECURITY, 
 					ACCESS_MORGUE, ACCESS_WEAPONS, ACCESS_FORENSICS_LOCKERS, ACCESS_MINERAL_STOREROOM, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, 
 					ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, 
@@ -86,7 +86,7 @@
 
 /datum/outfit/job/security/kazakh
 	name = "Kazakh Officer uniform"
-	jobtype = /datum/job/officer/omon
+	jobtype = /datum/job/officer/kazakh
 
 	belt = /obj/item/pda/security
 	ears = /obj/item/radio/headset/headset_sec/alt/department/engi
