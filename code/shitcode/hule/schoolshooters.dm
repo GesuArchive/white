@@ -44,8 +44,6 @@
 /datum/team/schoolshooters/New()
 	..()
 	var/datum/objective/hijack/O = new
-	O.team = src
-	O.update_explanation_text()
 	objectives += O
 
 /datum/team/schoolshooters/is_solo()
@@ -64,8 +62,8 @@
 		result += "<span class='redtext big'>[name] team failed its mission.</span>"
 
 	result += "<span class='header'>The [name] were:</span>"
-	for(var/datum/mind/abductor_mind in members)
-		result += printplayer(abductor_mind)
+	for(var/datum/mind/shooter in members)
+		result += printplayer(shooter)
 	result += printobjectives(objectives)
 
 	return "<div class='panel redborder'>[result.Join("<br>")]</div>"
@@ -113,6 +111,8 @@
 	fakeable = FALSE
 
 /datum/round_event/ghost_role/schoolshooters/spawn_role()
+	//var/list/funny_names = list("Podjog Saraev", "Rulon Oboev", "Ushat Pomoev")
+
 	var/list/possible_spawns = list()
 	for(var/turf/X in GLOB.xeno_spawn)
 		if(istype(X.loc, /area/maintenance))
