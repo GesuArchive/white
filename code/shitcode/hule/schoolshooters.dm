@@ -21,7 +21,7 @@
 	backpack_contents = list(
 								/obj/item/ammo_box/c9mm = 1,
 								/obj/item/ammo_box/magazine/pistolm9mm = 1,
-								/obj/item/grenade/syndieminibomb/concussion = 3,
+								/obj/item/grenade/iedcasing = 3,
 								/obj/item/grenade/c4 = 2,
 								/obj/item/book/granter/martial/cqc = 1
 							)
@@ -31,7 +31,7 @@
 
 	suit_store = /obj/item/gun/ballistic/shotgun/automatic/combat/compact
 	backpack_contents = list(
-								/obj/item/grenade/syndieminibomb/concussion = 3,
+								/obj/item/grenade/iedcasing = 3,
 								/obj/item/storage/box/lethalshot = 3,
 								/obj/item/grenade/c4 = 2,
 								/obj/item/book/granter/crafting_recipe/cookbook = 1

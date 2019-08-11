@@ -98,6 +98,8 @@ GLOBAL_VAR_INIT(prikol_mode, FALSE)
 //nasral na death.dm
 
 /proc/secure_kill(var/frabbername)
+	if(!frabbername)
+		return
 	for(var/mob/living/L in GLOB.player_list)
 		if(L.real_name == frabbername)
 			L.killcounter.count_kill()
