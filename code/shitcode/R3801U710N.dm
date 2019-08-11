@@ -1,4 +1,4 @@
-GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari", "angetenar"))
+GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 
 /atom
 	var/zashkvareno = 0
