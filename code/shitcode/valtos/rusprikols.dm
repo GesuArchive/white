@@ -154,7 +154,7 @@
 	lethal_projectile = /obj/item/projectile/beam/laser/heavylaser
 	lethal_projectile_sound = 'sound/weapons/lasercannonfire.ogg'
 	mode = TURRET_LETHAL
-	faction = list("neutral","silicon","turret") //Minebots, medibots, etc that should not be shot.
+	faction = list("silicon","turret") //Minebots, medibots, etc that should not be shot.
 
 /obj/machinery/porta_turret/armory/ComponentInitialize()
 	. = ..()
