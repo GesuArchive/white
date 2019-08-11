@@ -32,6 +32,10 @@
 /datum/team/schoolshooters
 	member_name = "schoolshooter"
 
+/datum/team/abductor_team/New()
+	..()
+	add_objective(new/datum/objective/experiment)
+
 //////////////////////////////////////ANTAG//////////////////////////////////////
 
 /datum/antagonist/schoolshooter
@@ -47,6 +51,19 @@
 
 /datum/antagonist/schoolshooter/typetwo
 	outfit = /datum/outfit/schoolshooter/typetwo
+
+/datum/antagonist/abductor/create_team(datum/team/abductor_team/new_team)
+	if(!new_team)
+		return
+	if(!istype(new_team))
+		stack_trace("Wrong team type passed to [type] initialization.")
+	team = new_team
+
+/datum/antagonist/abductor/on_gain()
+	owner.special_role = "Schoolshooter"
+	owner.assigned_role = "Schoolshooter"
+	objectives += team.objectives
+	return ..()
 
 //////////////////////////////////////ROUND EVENT//////////////////////////////////////
 
@@ -88,11 +105,19 @@
 	log_game("[key_name(first)] has been selected as Schoolshooter.")
 	log_game("[key_name(second)] has been selected as Schoolshooter.")
 
-	first.mind.add_antag_datum(/datum/antagonist/schoolshooter/typeone, T)
-	second.mind.add_antag_datum(/datum/antagonist/schoolshooter/typetwo, T)
+	first.mind.add_antag_datum(/datum/antagonist/schoolshooter, T)
+	second.mind.add_antag_datum(/datum/antagonist/schoolshooter, T)
+
+	first.equipOutfit(/datum/outfit/schoolshooter/typeone)
+	second.equipOutfit(/datum/outfit/schoolshooter/typetwo)
+
+	first.forceMove(landing_turf)
+	second.forceMove(landing_turf)
 
 	spawned_mobs += list(first, second)
 
 	return SUCCESSFUL_SPAWN
+
+
 
 
