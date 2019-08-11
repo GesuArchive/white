@@ -16,10 +16,13 @@
 
 /datum/quirk/programmer/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
-	if(H.socks == "Stockings (Programmer)" && H.client.prefs.jumpsuit_style = "Jumpskirt")
+	if(H.socks == "Stockings (Programmer)" && H.client.prefs.jumpsuit_style == "Jumpskirt")
 		var/obj/item/integrated_circuit_printer/upgraded/prog/P = new(get_turf(H))
-		var/list/slots = list (
-			"backpack" = SLOT_IN_BACKPACK,
-			"hands" = SLOT_HANDS,
-		)
+		var/list/slots = list(
+							"backpack" = SLOT_IN_BACKPACK,
+							"hands" = SLOT_HANDS,
+							)
 		H.equip_in_one_of_slots(P, slots , qdel_on_fail = TRUE)
+	else
+		var/obj/item/integrated_circuit_printer/IC = new(get_turf(H))
+		H.put_in_hands(IC)
