@@ -495,7 +495,7 @@
 	var/client/C = GLOB.directory[player_ckey]
 	var/datum/admin_help/AH = admin_ticket_log(player_ckey, msg)
 	//var/appeal_url = "No ban appeal url set!"
-	appeal_url = CONFIG_GET(string/banappeals)
+	//appeal_url = CONFIG_GET(string/banappeals)
 	var/is_admin = FALSE
 	if(C)
 		build_ban_cache(C)
