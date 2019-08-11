@@ -22,7 +22,7 @@
 							"backpack" = SLOT_IN_BACKPACK,
 							"hands" = SLOT_HANDS,
 							)
-		H.equip_in_one_of_slots(P, slots , qdel_on_fail = TRUE)
+		H.equip_in_one_of_slots(P, slots , qdel_on_fail = FALSE)
 	else
 		var/obj/item/integrated_circuit_printer/IC = new(get_turf(H))
 		H.put_in_hands(IC)
