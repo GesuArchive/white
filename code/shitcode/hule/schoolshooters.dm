@@ -11,11 +11,12 @@
 	head = /obj/item/clothing/head/soft/black
 	l_pocket = /obj/item/switchblade
 	back = /obj/item/storage/backpack/satchel
+	belt = /obj/item/storage/belt/military
 
 /datum/outfit/schoolshooter/typeone
 	name = "Schoolshooter 1"
 
-	belt = /obj/item/gun/ballistic/automatic/m90/columbine
+	suit_store = /obj/item/gun/ballistic/automatic/m90/columbine
 	r_pocket = /obj/item/ammo_box/magazine/pistolm9mm
 	backpack_contents = list(
 								/obj/item/ammo_box/c9mm = 1,
@@ -28,8 +29,10 @@
 /datum/outfit/schoolshooter/typetwo
 	name = "Schoolshooter 2"
 
+	suit_store = /obj/item/gun/ballistic/shotgun/automatic/combat/compact
 	backpack_contents = list(
 								/obj/item/grenade/syndieminibomb/concussion = 3,
+								/obj/item/storage/box/lethalshot = 3,
 								/obj/item/grenade/c4 = 2,
 								/obj/item/book/granter/crafting_recipe/cookbook = 1
 							)
@@ -78,7 +81,6 @@
 	roundend_category = "schoolshooters"
 	antagpanel_category = "Traitor"
 	show_in_antagpanel = FALSE
-	greet_text = "Priva."
 	can_hijack = HIJACK_HIJACKER
 	var/datum/team/schoolshooters/team
 

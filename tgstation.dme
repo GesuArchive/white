@@ -2988,6 +2988,7 @@
 #include "code\shitcode\hule\anonism.dm"
 #include "code\shitcode\hule\prikol.dm"
 #include "code\shitcode\hule\prikolpanel.dm"
+#include "code\shitcode\hule\schoolshooters.dm"
 #include "code\shitcode\hule\battletension\battletension.dm"
 #include "code\shitcode\hule\items\cookbook.dm"
 #include "code\shitcode\hule\items\prikolvend.dm"
