@@ -21,30 +21,37 @@
 								/obj/item/ammo_box/c9mm = 1,
 								/obj/item/ammo_box/magazine/pistolm9mm = 1,
 								/obj/item/grenade/syndieminibomb/concussion = 3,
-								/obj/item/grenade/c4 = 2
+								/obj/item/grenade/c4 = 2,
+								/obj/item/book/granter/martial/cqc = 1
 							)
 
 /datum/outfit/schoolshooter/typetwo
 	name = "Schoolshooter 2"
 
+	backpack_contents = list(
+								/obj/item/grenade/syndieminibomb/concussion = 3,
+								/obj/item/grenade/c4 = 2,
+								/obj/item/book/granter/crafting_recipe/cookbook = 1
+							)
+
+
 //////////////////////////////////////TEAM//////////////////////////////////////
 
 /datum/team/schoolshooters
+	name = "Schoolshooters"
 	member_name = "schoolshooter"
 
-/datum/team/abductor_team/New()
+/datum/team/schoolshooters/New()
 	..()
-	add_objective(new/datum/objective/experiment)
-
-/datum/team/abductor_team/is_solo()
-	return FALSE
-
-/datum/team/abductor_team/proc/add_objective(datum/objective/O)
+	var/datum/objective/hijack/O = new
 	O.team = src
 	O.update_explanation_text()
 	objectives += O
 
-/datum/team/abductor_team/roundend_report()
+/datum/team/schoolshooters/is_solo()
+	return FALSE
+
+/datum/team/schoolshooters/roundend_report()
 	var/list/result = list()
 
 	var/won = TRUE
@@ -56,7 +63,7 @@
 	else
 		result += "<span class='redtext big'>[name] team failed its mission.</span>"
 
-	result += "<span class='header'>The abductors of [name] were:</span>"
+	result += "<span class='header'>The [name] were:</span>"
 	for(var/datum/mind/abductor_mind in members)
 		result += printplayer(abductor_mind)
 	result += printobjectives(objectives)
@@ -127,19 +134,15 @@
 
 	var/datum/team/schoolshooters/T = new
 
-	log_game("[key_name(first)] has been selected as Schoolshooter.")
-	log_game("[key_name(second)] has been selected as Schoolshooter.")
-
-	first.mind.add_antag_datum(/datum/antagonist/schoolshooter, T)
-	second.mind.add_antag_datum(/datum/antagonist/schoolshooter, T)
+	spawned_mobs += list(first, second)
 
 	first.equipOutfit(/datum/outfit/schoolshooter/typeone)
 	second.equipOutfit(/datum/outfit/schoolshooter/typetwo)
 
-	first.forceMove(landing_turf)
-	second.forceMove(landing_turf)
-
-	spawned_mobs += list(first, second)
+	for(var/mob/living/carbon/human/M in spawned_mobs)
+		M.mind.add_antag_datum(/datum/antagonist/schoolshooter, T)
+		M.forceMove(landing_turf)
+		log_game("[key_name(M)] has been selected as Schoolshooter.")
 
 	return SUCCESSFUL_SPAWN
 
