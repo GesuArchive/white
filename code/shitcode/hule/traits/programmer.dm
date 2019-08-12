@@ -1,5 +1,3 @@
-#define TRAIT_PROGRAMMER		"programmer"
-
 /obj/item/integrated_circuit_printer/upgraded/prog
 	name = "Advanced ICP"
 	icon_state = "adv_icp"
@@ -9,7 +7,7 @@
 	name = "Professional Hardware Engineer"
 	desc = "Arriving at station while having programming socks on gives you special ICP."
 	value = 1
-	mob_trait = TRAIT_PROGRAMMER
+	mob_trait = "programmer"
 	gain_text = "<span class='notice'>You know everything about compiling and crossdressing.</span>"
 	lose_text = "<span class='danger'>You feel like a normie.</span>"
 	medical_record_text = "Patient says that you will code better if you dress like a japaneese schoolgirl."
