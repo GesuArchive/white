@@ -12,6 +12,8 @@
 
 /obj/machinery/vending/terminal/Initialize(mapload)
 	. = ..()
+	if (prob(25))
+		qdel(src)
 	last_rebuild = world.time + rand(300, 1000)
 	rebuild_inventory(GLOB.terminal_products, product_records)
 
