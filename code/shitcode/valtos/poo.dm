@@ -136,10 +136,10 @@
 	. = ..()
 	if(. && ishuman(user))
 		var/mob/living/carbon/H = user
-		if(HAS_TRAIT(H, TRAIT_LIGHT_POOER) && H.nutrition >= 350)
+		if(HAS_TRAIT(H, TRAIT_LIGHT_POOER) && H.nutrition >= NUTRITION_LEVEL_WELL_FED)
 			H.visible_message("<span class='notice'>[H] профессионально выдавливает остроконечный снаряд!</span>", \
 					"<span class='notice'>Вы выдавили какаху из своего тела.</span>")
-			playsound(H, 'code/shitcode/fogmann/fart.ogg', 50, 1)
+			playsound(H, 'code/shitcode/valtos/sounds/poo2.ogg', 25, 1) //silence hunter
 			var/obj/item/reagent_containers/food/snacks/poo/P = new(get_turf(H))
 			H.put_in_hands(P)
 			if(!H.in_throw_mode)
@@ -147,10 +147,10 @@
 			H.nutrition -= 50
 			SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 			return
-		else if (H.nutrition >= 400)
+		else if (H.nutrition >= NUTRITION_LEVEL_FULL)
 			H.visible_message("<span class='notice'>[H] нежно выдавливает какулину!</span>", \
 					"<span class='notice'>Вы выдавили какаху из своего тела.</span>")
-			playsound(H, 'code/shitcode/fogmann/fart.ogg', 50, 1)
+			playsound(H, 'code/shitcode/valtos/sounds/poo2.ogg', 50, 1)
 			new /obj/item/reagent_containers/food/snacks/poo(H.loc)
 			H.nutrition -= 75
 			SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
