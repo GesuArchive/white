@@ -3,7 +3,7 @@
 /datum/map_template/ruin/space/bearcat
 	id = "bearcat"
 	prefix = "code/shitcode/hule/shuttles/bearcat/"
-	suffix = "bearcat_template.dmm"
+	suffix = "bearcat_trading.dmm"
 	name = "CSV Bearcat"
 	//unpickable = TRUE
 
@@ -93,15 +93,15 @@
 /obj/machinery/computer/shuttle/bearcat
 	name = "CSV Bearcat console"
 	shuttleId = "bearcat"
-	possible_destinations = "bearcat_custom"
+	possible_destinations = "bearcat_custom;bearcat_away"
 
 /obj/docking_port/mobile/bearcat
 	name = "CSV Bearcat"
 	id = "bearcat"
 	width = 29
-	dwidth = 14
+	dwidth = 6
 	height = 44
-	dheight = 43
+	dheight = 30
 	port_direction = SOUTH
 	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0)
 	engine_coeff = 30
@@ -109,6 +109,14 @@
 /obj/docking_port/mobile/bearcat/Initialize()
 	. = ..()
 	register()
+
+/obj/docking_port/stationaty/bearcat
+	name = "CSV Bearcat Away"
+	id = "bearcat_away"
+	width = 29
+	dwidth = 6
+	height = 44
+	dheight = 30
 
 ///////////////////////////Spawners//////////////////////////////
 /obj/effect/mob_spawn/human/bearcatcrew
