@@ -12,6 +12,8 @@
 			if(!G.started_as_observer)//If you aghost to do this, KorPhaeron will deadmin you in your sleep.
 				log_admin("[key_name(usr)] checked advanced who in-round")
 			for(var/client/C in GLOB.clients)
+				if(C.ckey in GLOB.anonists && !check_rights(R_PERMISSIONS,0))
+					continue
 				var/entry = "\t[C.key]"
 				if(C.holder && C.holder.fakekey)
 					entry += " <i>(as [C.holder.fakekey])</i>"
@@ -41,7 +43,7 @@
 				var/entry = "\t[C.key]"
 				if(C.holder && C.holder.fakekey)
 					entry += " <i>(as [C.holder.fakekey])</i>"
-				if(C.ckey in GLOB.anonists && !check_rights(R_PERMISSIONS,0))
+				if(C.ckey in GLOB.anonists)
 					continue
 				entry += " ([round(C.avgping, 1)]ms)"
 				Lines += entry
