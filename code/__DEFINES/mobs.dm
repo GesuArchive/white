@@ -148,14 +148,14 @@
 #define SANITY_INSANE 0
 
 //Nutrition levels for humans
-#define NUTRITION_LEVEL_FAT 400
-#define NUTRITION_LEVEL_FULL 300
-#define NUTRITION_LEVEL_WELL_FED 250
+#define NUTRITION_LEVEL_FAT 550
+#define NUTRITION_LEVEL_FULL 350
+#define NUTRITION_LEVEL_WELL_FED 275
 #define NUTRITION_LEVEL_FED 200
 #define NUTRITION_LEVEL_HUNGRY 100
 #define NUTRITION_LEVEL_STARVING 50
 
-#define NUTRITION_LEVEL_START_MIN 100
+#define NUTRITION_LEVEL_START_MIN 175
 #define NUTRITION_LEVEL_START_MAX 400
 
 //Disgust levels for humans
@@ -262,7 +262,7 @@
 #define POCKET_STRIP_DELAY			40	//time taken (in deciseconds) to search somebody's pockets
 #define DOOR_CRUSH_DAMAGE	15	//the amount of damage that airlocks deal when they crush you
 
-#define	HUNGER_FACTOR		0.41	//factor at which mob nutrition decreases
+#define	HUNGER_FACTOR		0.48	//factor at which mob nutrition decreases
 #define	ETHEREAL_CHARGE_FACTOR	0.22 //factor at which ethereal's charge decreases
 #define	REAGENTS_METABOLISM 0.4	//How many units of reagent are consumed per tick, by default.
 #define REAGENTS_EFFECT_MULTIPLIER (REAGENTS_METABOLISM / 0.4)	// By defining the effect multiplier this way, it'll exactly adjust all effects according to how they originally were with the 0.4 metabolism
