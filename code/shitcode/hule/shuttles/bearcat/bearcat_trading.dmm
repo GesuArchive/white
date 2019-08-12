@@ -133,13 +133,13 @@
 "cC" = (/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 10},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 9},/turf/open/floor/plasteel/white,/area/shuttle/bearcat/medbay)
 "cD" = (/turf/closed/wall,/area/shuttle/bearcat/cargo)
 "cE" = (/obj/structure/disposalpipe/segment{dir = 6},/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/kitchen)
-"cF" = (/obj/machinery/door/airlock/maintenance_hatch{name = "Hatch"; req_access_txt = "205"},/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
+"cF" = (/obj/structure/table,/obj/item/storage/toolbox/electrical{pixel_x = -5; pixel_y = -5},/obj/item/storage/toolbox/electrical,/obj/item/stock_parts/cell/high/plus,/obj/item/stock_parts/cell/high/plus,/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
 "cG" = (/obj/machinery/light/small{dir = 8},/obj/structure/table,/obj/structure/bedsheetbin,/obj/structure/cable,/obj/machinery/power/apc/auto_name/south,/turf/open/floor/plasteel,/area/shuttle/bearcat/dorms)
-"cH" = (/obj/structure/table,/obj/item/storage/pill_bottle/charcoal,/obj/item/clothing/neck/stethoscope,/obj/item/reagent_containers/glass/bottle/salglu_solution,/obj/item/storage/box/syringes,/turf/open/floor/plasteel/white,/area/shuttle/bearcat/medbay)
+"cH" = (/obj/machinery/atmospherics/components/unary/vent_pump/on/layer3,/obj/machinery/airalarm/directional/north,/obj/structure/table,/obj/item/clothing/neck/stethoscope,/obj/item/storage/box/syringes,/obj/item/storage/pill_bottle/charcoal,/turf/open/floor/plasteel/white,/area/shuttle/bearcat/medbay)
 "cI" = (/obj/structure/table,/obj/machinery/microwave,/turf/open/floor/plasteel,/area/shuttle/bearcat/kitchen)
 "cJ" = (/obj/machinery/processor,/turf/open/floor/plasteel,/area/shuttle/bearcat/kitchen)
 "cK" = (/obj/machinery/light/small{dir = 4},/obj/structure/closet/secure_closet/freezer/kitchen,/turf/open/floor/plasteel,/area/shuttle/bearcat/kitchen)
-"cL" = (/obj/structure/disposalpipe/segment,/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,/turf/open/floor/plasteel/stairs/old,/area/shuttle/bearcat/hallway)
+"cL" = (/obj/machinery/light/small{dir = 8},/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
 "cM" = (/obj/machinery/autolathe,/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
 "cN" = (/obj/machinery/light/small{dir = 1},/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
 "cO" = (/obj/structure/cable,/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer1{icon_state = "scrub_map_on-1"; dir = 4},/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
@@ -164,14 +164,13 @@
 "dh" = (/turf/open/floor/plating,/area/shuttle/bearcat/engines)
 "di" = (/obj/machinery/light/small{dir = 1},/turf/open/floor/plating,/area/shuttle/bearcat/engines)
 "dj" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 6},/turf/open/floor/plasteel,/area/shuttle/bearcat/washroom)
-"dk" = (/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,/turf/open/floor/plasteel/stairs/old,/area/shuttle/bearcat/toolstorage)
+"dk" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,/obj/structure/cable,/turf/open/floor/plasteel,/area/shuttle/bearcat/hallway)
 "dl" = (/obj/structure/disposalpipe/junction,/obj/structure/cable,/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer1{icon_state = "manifold-1"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer3{icon_state = "manifold-3"; dir = 4},/turf/open/floor/plasteel,/area/shuttle/bearcat/hallway)
 "dm" = (/obj/machinery/door/airlock/maintenance_hatch{name = "Hatch"; req_access_txt = "205"},/obj/structure/cable,/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
 "dn" = (/obj/structure/cable,/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
-"do" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,/turf/open/floor/plasteel/stairs/old,/area/shuttle/bearcat/hallway)
+"do" = (/obj/item/circuitboard/machine/seed_extractor,/obj/item/circuitboard/machine/biogenerator,/obj/item/circuitboard/machine/plantgenes,/obj/structure/closet/crate,/obj/item/disk/plantgene,/obj/item/disk/plantgene,/obj/item/disk/plantgene,/obj/item/disk/plantgene,/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
 "dp" = (/obj/structure/chair/stool,/obj/structure/cable,/obj/machinery/atmospherics/components/unary/vent_pump/on/layer3{icon_state = "vent_map_on-3"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/saloon)
 "dq" = (/obj/structure/disposalpipe/segment,/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,/turf/open/floor/plasteel,/area/shuttle/bearcat/hallway)
-"dr" = (/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
 "ds" = (/obj/structure/chair/stool,/obj/machinery/atmospherics/components/unary/vent_pump/on/layer3,/turf/open/floor/plasteel,/area/shuttle/bearcat/kitchen)
 "dt" = (/turf/open/floor/plasteel/white,/area/shuttle/bearcat/medbay)
 "du" = (/obj/structure/window/plastitanium,/obj/structure/grille,/obj/machinery/door/poddoor/preopen{id = "bearcat_windows"},/turf/open/floor/plating,/area/shuttle/bearcat/medbay)
@@ -182,13 +181,11 @@
 "dz" = (/obj/machinery/light/small{dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
 "dA" = (/obj/structure/cable,/obj/machinery/power/apc/auto_name/east,/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
 "dB" = (/obj/machinery/light/small{dir = 8},/obj/structure/disposalpipe/segment,/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,/turf/open/floor/plasteel,/area/shuttle/bearcat/hallway)
-"dC" = (/obj/machinery/light/small,/obj/structure/table,/obj/item/construction/rcd,/obj/structure/cable,/obj/machinery/airalarm/directional/south,/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
 "dD" = (/obj/structure/table,/obj/item/storage/firstaid,/turf/open/floor/plasteel/white,/area/shuttle/bearcat/medbay)
 "dE" = (/obj/structure/window/reinforced/spawner/north,/obj/structure/shuttle/engine/heater,/turf/open/floor/plating,/area/shuttle/bearcat/engines)
 "dF" = (/turf/closed/wall/mineral/plastitanium,/area/shuttle/bearcat/washroom)
 "dG" = (/turf/closed/wall,/area/shuttle/bearcat/washroom)
 "dH" = (/obj/structure/closet/crate,/obj/item/circuitboard/machine/recycler,/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
-"dI" = (/obj/machinery/light/small,/obj/item/circuitboard/machine/seed_extractor,/obj/item/circuitboard/machine/biogenerator,/obj/item/circuitboard/machine/plantgenes,/obj/structure/closet/crate,/obj/item/disk/plantgene,/obj/item/disk/plantgene,/obj/item/disk/plantgene,/obj/item/disk/plantgene,/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
 "dJ" = (/obj/structure/closet/crate,/obj/item/circuitboard/machine/hydroponics,/obj/item/circuitboard/machine/hydroponics,/obj/item/seeds/berry/glow,/obj/item/seeds/chili/ice,/obj/item/circuitboard/machine/hydroponics,/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
 "dK" = (/turf/closed/wall,/area/shuttle/bearcat/maint2)
 "dL" = (/turf/closed/wall/mineral/plastitanium,/area/shuttle/bearcat/maint2)
@@ -197,9 +194,9 @@
 "dO" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/hallway)
 "dP" = (/obj/structure/cable,/obj/machinery/power/apc/auto_name/south,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/hallway)
 "dQ" = (/obj/machinery/light/small,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/hallway)
-"dR" = (/turf/closed/wall,/area/shuttle/bearcat/toolstorage)
+"dR" = (/obj/structure/table,/obj/item/storage/toolbox/mechanical,/obj/item/storage/toolbox/mechanical{pixel_x = 5; pixel_y = 5},/obj/item/clothing/head/welding,/obj/item/storage/belt/utility,/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
 "dS" = (/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 6},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/washroom)
-"dT" = (/obj/machinery/door/airlock/maintenance_hatch{name = "Hatch"; req_access_txt = "205"},/turf/open/floor/plasteel,/area/shuttle/bearcat/maint2)
+"dT" = (/obj/machinery/light/small{dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,/obj/structure/cable,/turf/open/floor/plasteel,/area/shuttle/bearcat/hallway)
 "dU" = (/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
 "dV" = (/obj/structure/shuttle/engine/large,/obj/structure/lattice,/turf/template_noop,/area/shuttle/bearcat/engines)
 "dW" = (/obj/structure/window/plastitanium,/obj/structure/grille,/obj/machinery/door/poddoor/preopen{id = "bearcat_windows"},/obj/machinery/door/poddoor/preopen{id = "bearcat_windows"},/turf/open/floor/plating,/area/shuttle/bearcat/washroom)
@@ -207,40 +204,34 @@
 "dY" = (/obj/machinery/door/airlock/maintenance_hatch{name = "Hatch"; req_access_txt = "205"},/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/washroom)
 "dZ" = (/obj/structure/table,/obj/item/defibrillator/loaded,/obj/item/storage/backpack/duffelbag/med/surgery,/obj/structure/cable,/obj/machinery/power/apc/auto_name/south,/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer1{icon_state = "scrub_map_on-1"; dir = 1},/turf/open/floor/plasteel/white,/area/shuttle/bearcat/medbay)
 "ea" = (/obj/machinery/door/airlock/maintenance_hatch{name = "Hatch"; req_access_txt = "205"},/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,/turf/open/floor/plasteel,/area/shuttle/bearcat/engineering)
-"eb" = (/obj/structure/table,/obj/item/storage/toolbox/electrical{pixel_x = -5; pixel_y = -5},/obj/item/storage/toolbox/electrical,/obj/item/stock_parts/cell/high/plus,/obj/item/stock_parts/cell/high/plus,/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
-"ec" = (/obj/machinery/light/small{dir = 1},/obj/machinery/vending/tool,/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
+"eb" = (/obj/machinery/atmospherics/components/unary/vent_pump/on/layer3{icon_state = "vent_map_on-3"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
+"ec" = (/obj/machinery/door/airlock/maintenance_hatch{name = "Hatch"; req_access_txt = "205"},/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
 "ed" = (/obj/machinery/atmospherics/components/unary/vent_pump/on/layer3{icon_state = "vent_map_on-3"; dir = 1},/turf/open/floor/plasteel,/area/shuttle/bearcat/washroom)
-"ee" = (/obj/machinery/light/small{dir = 1},/obj/machinery/vending/engineering{req_access_txt = "0"},/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
-"ef" = (/obj/structure/table,/obj/item/clothing/suit/space/hardsuit/engine,/obj/item/clothing/shoes/magboots,/obj/item/clothing/mask/gas,/obj/item/tank/jetpack/oxygen,/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
+"ee" = (/obj/structure/table,/obj/item/storage/box/lights/mixed{pixel_x = 3; pixel_y = 3},/obj/item/storage/box/lights/mixed,/obj/item/device/flashlight,/obj/item/device/flashlight,/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
+"ef" = (/obj/machinery/light/small,/obj/structure/table,/obj/item/construction/rcd,/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
 "eg" = (/obj/structure/cable,/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer1{icon_state = "manifold-1"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer3{icon_state = "manifold-3"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
 "eh" = (/obj/structure/window/plastitanium,/obj/structure/grille,/obj/machinery/door/poddoor/preopen{id = "bearcat_windows"},/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
-"ei" = (/obj/structure/table/optable,/obj/machinery/atmospherics/components/unary/vent_pump/on/layer3,/obj/machinery/airalarm/directional/north,/turf/open/floor/plasteel/white,/area/shuttle/bearcat/medbay)
+"ei" = (/obj/machinery/stasis,/turf/open/floor/plasteel/white,/area/shuttle/bearcat/medbay)
 "ej" = (/obj/structure/table,/obj/structure/cable,/obj/machinery/power/apc/auto_name/south,/turf/open/floor/plasteel,/area/shuttle/bearcat/washroom)
 "ek" = (/obj/structure/disposalpipe/segment,/obj/structure/cable,/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer1{icon_state = "manifold-1"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer3{icon_state = "manifold-3"; dir = 4},/turf/open/floor/plasteel,/area/shuttle/bearcat/hallway)
-"el" = (/obj/structure/table,/obj/item/storage/toolbox/mechanical,/obj/item/storage/toolbox/mechanical{pixel_x = 5; pixel_y = 5},/obj/item/clothing/head/welding,/obj/item/storage/belt/utility,/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
-"em" = (/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
+"el" = (/obj/machinery/light/small,/obj/structure/tank_dispenser,/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
+"em" = (/obj/structure/table,/obj/item/stack/rods/fifty,/obj/item/stack/sheet/metal/fifty,/obj/item/stack/sheet/glass/fifty,/obj/item/stack/rods/fifty,/obj/item/stack/sheet/metal/fifty,/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
 "en" = (/obj/machinery/atmospherics/components/unary/tank/air{dir = 4},/turf/open/floor/plating,/area/shuttle/bearcat/engineering)
 "eo" = (/turf/closed/wall/mineral/plastitanium,/area/shuttle/bearcat/maint1)
 "ep" = (/turf/closed/wall,/area/shuttle/bearcat/maint1)
-"eq" = (/obj/machinery/door/airlock/maintenance_hatch{name = "Hatch"; req_access_txt = "205"},/obj/structure/cable,/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
-"er" = (/obj/structure/cable,/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
 "es" = (/obj/machinery/light/small{dir = 4},/obj/structure/cable,/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer1{icon_state = "scrub_map_on-1"; dir = 1},/obj/machinery/airalarm/directional/east,/turf/open/floor/plasteel,/area/shuttle/bearcat/washroom)
 "et" = (/obj/machinery/atmospherics/components/unary/vent_pump/on/layer3,/obj/machinery/airalarm/directional/north,/turf/open/floor/plasteel,/area/shuttle/bearcat/maint1)
-"eu" = (/obj/machinery/door/airlock/maintenance_hatch{name = "Hatch"; req_access_txt = "205"},/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
 "ev" = (/obj/structure/closet/firecloset/full,/turf/open/floor/plasteel,/area/shuttle/bearcat/maint1)
 "ew" = (/obj/machinery/atmospherics/components/unary/vent_pump/on/layer3{icon_state = "vent_map_on-3"; dir = 4},/turf/open/floor/plasteel,/area/shuttle/bearcat/dockingbay)
 "ex" = (/obj/machinery/light/small{dir = 4},/obj/structure/reagent_dispensers/watertank,/turf/open/floor/plasteel,/area/shuttle/bearcat/maint1)
 "ey" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 6},/turf/open/floor/plating,/area/shuttle/bearcat/engineering)
-"ez" = (/obj/structure/table,/obj/item/storage/box/lights/mixed{pixel_x = 3; pixel_y = 3},/obj/item/storage/box/lights/mixed,/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/structure/cable,/obj/machinery/power/apc/auto_name/south,/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
+"ez" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,/obj/structure/cable,/obj/structure/cable,/turf/open/floor/plasteel,/area/shuttle/bearcat/hallway)
 "eA" = (/obj/machinery/light/small{dir = 4},/obj/item/pipe_dispenser,/obj/structure/table,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 10},/obj/machinery/airalarm/directional/north,/turf/open/floor/plating,/area/shuttle/bearcat/engineering)
-"eB" = (/obj/machinery/light/small,/obj/structure/tank_dispenser,/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
-"eC" = (/obj/structure/table,/obj/item/stack/rods/fifty,/obj/item/stack/sheet/metal/fifty,/obj/item/stack/sheet/glass/fifty,/obj/item/stack/rods/fifty,/obj/item/stack/sheet/metal/fifty,/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
 "eD" = (/turf/closed/wall/r_wall,/area/shuttle/bearcat/maint2)
 "eE" = (/obj/structure/closet/crate,/obj/item/stack/sheet/metal/fifty,/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
 "eF" = (/obj/structure/closet/crate,/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
 "eG" = (/obj/structure/window/plastitanium,/obj/structure/grille,/obj/machinery/door/poddoor/preopen{id = "bearcat_windows"},/turf/open/floor/plating,/area/shuttle/bearcat/maint1)
 "eH" = (/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 6},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 5},/turf/open/floor/plasteel,/area/shuttle/bearcat/maint1)
-"eI" = (/obj/structure/cable,/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer1{icon_state = "manifold-1"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer3{icon_state = "manifold-3"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
 "eJ" = (/obj/machinery/door/airlock/maintenance_hatch{name = "Hatch"; req_access_txt = "205"},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/engineering)
 "eK" = (/obj/structure/falsewall/reinforced,/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
 "eL" = (/obj/structure/table/reinforced,/obj/item/stack/spacecash/c1000,/obj/item/stack/spacecash/c1000,/obj/item/stack/spacecash/c1000,/obj/item/stack/spacecash/c1000,/obj/item/stack/spacecash/c1000,/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
@@ -264,7 +255,6 @@
 "fd" = (/turf/closed/wall/mineral/plastitanium,/area/shuttle/bearcat/engineering)
 "fe" = (/obj/machinery/door/airlock/maintenance_hatch{name = "Hatch"; req_access_txt = "205"},/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/maint1)
 "ff" = (/obj/structure/cable,/obj/machinery/atmospherics/components/unary/vent_pump/on/layer3{icon_state = "vent_map_on-3"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/cargo)
-"fg" = (/obj/machinery/atmospherics/components/unary/vent_pump/on/layer3{icon_state = "vent_map_on-3"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
 "fh" = (/obj/structure/closet/secure_closet/engineering_personal{locked = 0},/obj/structure/disposalpipe/segment,/turf/open/floor/plasteel,/area/shuttle/bearcat/engineering)
 "fi" = (/obj/machinery/light/small{dir = 1},/obj/structure/closet/secure_closet/atmospherics{locked = 0},/turf/open/floor/plasteel,/area/shuttle/bearcat/engineering)
 "fj" = (/obj/structure/closet/secure_closet/engineering_electrical{locked = 0},/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer1{icon_state = "scrub_map_on-1"; dir = 4},/turf/open/floor/plasteel,/area/shuttle/bearcat/engineering)
@@ -276,7 +266,7 @@
 "fp" = (/obj/structure/table,/obj/item/storage/toolbox/electrical,/turf/open/floor/plating,/area/shuttle/bearcat/engineering)
 "fq" = (/obj/structure/closet/crate/radiation,/obj/item/stack/sheet/mineral/uranium{amount = 20},/turf/open/floor/plating,/area/shuttle/bearcat/engineering)
 "fr" = (/obj/structure/window/plastitanium,/obj/structure/grille,/obj/machinery/door/poddoor/preopen{id = "bearcat_windows"},/turf/open/floor/plating,/area/shuttle/bearcat/engineering)
-"fs" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer1{icon_state = "scrub_map_on-1"; dir = 4},/turf/open/floor/plasteel,/area/shuttle/bearcat/toolstorage)
+"fs" = (/obj/machinery/door/airlock/maintenance_hatch{name = "Hatch"; req_access_txt = "205"},/obj/structure/cable,/turf/open/floor/plasteel,/area/shuttle/bearcat/maint2)
 "ft" = (/obj/machinery/airalarm/directional/north,/turf/open/floor/plasteel,/area/shuttle/bearcat/saloon)
 "fu" = (/obj/machinery/portable_atmospherics/scrubber,/turf/open/floor/plating,/area/shuttle/bearcat/engineering)
 "fv" = (/obj/structure/cable,/obj/machinery/power/apc/auto_name/south,/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer1{icon_state = "scrub_map_on-1"; dir = 1},/turf/open/floor/plasteel,/area/shuttle/bearcat/maint1)
@@ -320,6 +310,9 @@
 "gh" = (/obj/machinery/atmospherics/components/binary/volume_pump/layer1,/turf/closed/wall/mineral/plastitanium,/area/shuttle/bearcat/engineering)
 "gi" = (/obj/structure/lattice,/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer1{icon_state = "inje_map-1"; dir = 1},/turf/template_noop,/area/shuttle/bearcat/engineering)
 "gj" = (/obj/machinery/door/airlock/external{req_access_txt = "205"},/obj/structure/fans/tiny,/turf/open/floor/plasteel,/area/shuttle/bearcat/dockingbay)
+"gk" = (/obj/structure/cable,/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
+"gl" = (/obj/machinery/airalarm/directional/north,/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
+"gm" = (/obj/machinery/power/apc/auto_name/west,/obj/structure/cable,/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaabbaabaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -345,16 +338,16 @@ aaaaaaaaaabEbZaSbGcabxcecfcgbzdpcfcecxcmbObRbYbIaaaaaaaaaa
 aaaaaaaaaabDcnbecpbNcccrcsctcdcvcwbPgfbVcybSbYbIaaaaaaaaaa
 aaaaaaaaaacAcBcBcBcBchcDcDcDcjcDcDcDggbVcGczbYbHaaaaaaaaaa
 aaaaaaaaaacAcIcJcKcBckcDcMcNcldacQcDgfcRcRcRcRcSaaaaaaaaaa
-cTcUcUcVcWcXcYdsdxcBckcDdbdbcqdbddcDgfcReidfdgcScWcVcUcUcT
+cTcUcUcVcWcXcYdsdxcBckcDdbdbcqdbddcDgfcRcHdfdgcScWcVcUcUcT
 cUdhdicUcWcXcYcbcEdcdldmdncOegffdndmcxcucCdtdtducWcUdidhcU
-cUdhdhdvdhcAdwcodycBckcDdzdbcqdbdAcDgfcRdZcHdDcSdhdvdhdhcU
-cUdEdEcUdhdFdGdGdGdGchcDdHdbcqdIdJcDggdKdKdKdKdLdhcUdEdEcU
-cUdhdhcUdhdFdMdjdSdYekdRdRdRcFdRdRdRgfdTdUdUdUdLdhcUdhdhcU
-cWdVcWcWdhdWdXedesdGcLdRebecdkeeefdRdodKdUdUdUehdhcWdVcWcW
-aaaaaaaacWdFdXcPejdGdqdRelemdremefdRgfdKdUdUdUdLcWaaaaaaaa
-aaaaaaaacWeoepepepepdqeqerfseIfgemeugfdKdKdKdKdLcWaaaaaaaa
-aaaaaaaaaaeoevetexepdBdRezdCdreBeCdRggeDeEdUeFdLaaaaaaaaaa
-aaaaaaaaaaeGeveHfbfeekdRdRdRcFdRdRdRgfeKdUdUeLdLaaaaaaaaaa
+cUdhdhdvdhcAdwcodycBckcDdzdbcqdbdAcDdkcRdZeidDcSdhdvdhdhcU
+cUdEdEcUdhdFdGdGdGdGchcDdHdbcqdodJcDdTdKdKdKdKdLdhcUdEdEcU
+cUdhdhcUdhdFdMdjdSdYekcDdbdbcqdbdbcDezfsgkgldUdLdhcUdhdhcU
+cWdVcWcWdhdWdXedesdGdqcDcFdbcqdbdbcDgfdKgmdUdUehdhcWdVcWcW
+aaaaaaaacWdFdXcPejdGdqcDdRdbcqdbdbcDgfdKdUdUdUdLcWaaaaaaaa
+aaaaaaaacWeoepepepepdqdmdndnegebdbecgfdKcLdUdUdLcWaaaaaaaa
+aaaaaaaaaaeoevetexepdBcDeeefcqelemcDggeDeEdUeFdLaaaaaaaaaa
+aaaaaaaaaaeGeveHfbfeekcDcDcDcjcDcDcDgfeKdUdUeLdLaaaaaaaaaa
 aaaaaaaaaaeoevfveNepeQdNdOdOfwdPdOdQfyeDdUeVeFdLaaaaaaaaaa
 aaaaaaaaaaeWeXeYeYeYeYeZfafaeafafafaeYeYeYeYeXfcaaaaaaaaaa
 aaaaaaaaaaaafdenfOeAeYfhfifjfxflfmfneYfofpfqfdaaaaaaaaaaaa
