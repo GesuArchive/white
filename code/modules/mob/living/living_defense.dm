@@ -89,8 +89,8 @@
 		SEND_SIGNAL(I, COMSIG_MOVABLE_IMPACT_ZONE, src, zone)
 		dtype = I.damtype
 
-		if(isliving(P.firer))
-			var/mob/living/L = P.firer
+		if(isliving(I.thrownby))
+			var/mob/living/L = I.thrownby
 			lastattacker = L.real_name
 			if(L.ckey)
 				lastattackerckey = L.ckey
