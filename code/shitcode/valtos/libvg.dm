@@ -9,7 +9,7 @@
 
 
 /proc/to_utf8(var/message, var/mob_or_client)
-	if(TEST_RUN_PARAMETER in params)
+	if(TEST_RUN_PARAMETER in world.params)
 		return message
 	else
 		return LIBVG("to_utf8", "1251", message)
