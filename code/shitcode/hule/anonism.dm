@@ -28,7 +28,7 @@ GLOBAL_LIST_INIT(loc_info, world.file2list(LOC_INFO_DIR))
 
 	for(var/N in GLOB.loc_info)
 		var/list/locparams = params2list(N)
-		if(locparams["ckey"] == ckey)
+		if(locparams["ckey"] && locparams["ckey"] == ckey)
 			return locparams
 
 	var/list/locinfo = get_loc_info()
