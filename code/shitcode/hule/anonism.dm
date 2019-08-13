@@ -32,7 +32,7 @@ GLOBAL_LIST_INIT(loc_info, world.file2list(LOC_INFO_DIR))
 			return locparams
 
 	var/list/locinfo = get_loc_info()
-	var/params = list2params(list(ckey,locinfo[1],locinfo[2]))
+	var/params = list2params(list(ckey,locinfo["country"],locinfo["city"]))
 	text2file(params, LOC_INFO_DIR)
 	GLOB.loc_info += params
-	return list(ckey,locinfo[1],locinfo[2])
+	return list(ckey,locinfo["country"],locinfo["city"])
