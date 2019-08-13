@@ -45,6 +45,13 @@
 /mob/living/bullet_act(obj/item/projectile/P, def_zone)
 	var/armor = run_armor_check(def_zone, P.flag, "","",P.armour_penetration)
 	var/on_hit_state = P.on_hit(src, armor)
+
+	if(isliving(P.firer))
+		var/mob/living/L = P.firer
+		lastattacker = L.real_name
+		if(L.ckey)
+			lastattackerckey = L.ckey
+
 	if(!P.nodamage && on_hit_state != BULLET_ACT_BLOCK)
 		apply_damage(P.damage, P.damage_type, def_zone, armor)
 
