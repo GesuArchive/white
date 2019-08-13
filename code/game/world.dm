@@ -247,7 +247,7 @@ GLOBAL_VAR(restart_counter)
 	//var/hostedby
 	var/server_name = "piss"
 	if(config)
-		hostedby = CONFIG_GET(string/hostedby)
+		//hostedby = CONFIG_GET(string/hostedby)
 		server_name = CONFIG_GET(string/servername)
 
 	s += "<a href=\"https://discord.gg/BNUgzsT\"><big><b>[server_name] presents:</b></big> [station_name()]</br>"
