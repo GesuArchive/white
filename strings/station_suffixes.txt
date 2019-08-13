@@ -1,65 +1,65 @@
-Station
-Frontier
-Suffix
-Death-trap
-Space-hulk
-Lab
-Hazard
-Academy
-Spess Junk
-Fishery
-No-Moon
-Tomb
-Crypt
-Hut
-Monkey
-Bomb
-Trade Post
-Fortress
-Village
-Town
-City
-Edition
-Hive
-Complex
-Base
-Facility
-Depot
-Outpost
-Installation
-Drydock
-Observatory
-Array
-Relay
-Monitor
-Platform
-Construct
-Hangar
-Prison
-Center
-Port
-Waystation
-Factory
-Waypoint
-Stopover
-Hub
-HQ
-Office
-Object
-Fortification
-Colony
-Planet-Cracker
-Roost
-Fat Camp
-Airstrip
-Harbor
-Garden
-Continent
-Environment
-Course
-Country
-Province
-Workspace
-Metro
-Warehouse
-Space Junk
+Вокзал
+Граница
+суффикс
+Смертельная ловушка
+Космический корпус
+Лаборатория
+Опасность
+Академия
+Спесс Джонс
+Рыболовство
+Не-Лунный
+Гробница
+Гробница
+Хатка
+Обезьянка
+Бомба
+Торговая почта
+Крепость
+Деревня
+Город
+Город
+Издание
+Улей
+Комплекс
+База
+Объект
+Аппарат
+аванпост
+Установка
+Драйдок
+обсерватория
+Массив
+Реле
+Монитор
+Платформа
+Построить
+Ангар
+Тюрьма
+Центр
+Порт
+Путевая станция
+Завод
+Дорожная точка
+Остановка
+Концентратор
+ШТАБ-КВАРТИРА
+Офис
+Объект
+Усиление
+Колония
+Планетарный крекер
+Петух
+Толстый лагерь
+Аэродром
+гавань
+Сад
+Континент
+Окружающая среда
+Курс
+Страна
+Провинция
+Рабочее пространство
+Метро
+Склад
+Космический мусор

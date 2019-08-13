@@ -255,15 +255,16 @@ GLOBAL_VAR(restart_counter)
 
 	var/players = GLOB.clients.len
 
-	if(GLOB.master_mode)
-		s += "<b>Mode:</b> [GLOB.master_mode]</br>"
+	s += "<b>Map:</b> [SSmapping.config?.map_name || "Loading..."]</br>"
 
-	s += "<b>Players:</b> [players]/150</br>"
+	s += "<b>Players:</b> [players]/80</br>"
+
+	s += "<b>Time:</b> [worldtime2text()]</br>"
 
 	if (!host && hostedby)
 		s += "<b>Host:</b> [hostedby]"
 
-	status = s
+	status = to_utf8(s)
 
 /world/proc/update_hub_visibility(new_visibility)
 	if(new_visibility == GLOB.hub_visibility)
