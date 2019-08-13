@@ -12,6 +12,8 @@
 
 /obj/machinery/vending/terminal/Initialize(mapload)
 	. = ..()
+	if (prob(25))
+		qdel(src)
 	last_rebuild = world.time + rand(300, 1000)
 	rebuild_inventory(GLOB.terminal_products, product_records)
 
@@ -89,7 +91,7 @@
 					<div class='statusDisplay'>"}
 
 	if(!product_records.len)
-		dat += "<font color = 'red'>No product loaded!</font>"
+		dat += "<font color = 'red'>Кто-то украл все наши товары!</font>"
 	else
 		var/list/display_records = product_records + coin_records
 		if(extended_inventory)
@@ -102,21 +104,17 @@
 				continue
 			if(R.custom_price)
 				price_listed = "$[R.custom_price]"
-			if(!onstation || account && account.account_job && account.account_job.paycheck_department == payment_department)
-				price_listed = "FREE"
-			if(coin_records.Find(R) || is_hidden)
-				price_listed = "$[R.custom_premium_price ? R.custom_premium_price : extra_price]"
 			dat += {"<tr><td><img src='data:image/jpeg;base64,[GetIconForProduct(R)]'/></td>
 							<td style=\"width: 100%\"><b>[sanitize(R.name)]  ([price_listed])</b></td>"}
-			if(R.amount > 0 && ((C && C.registered_account && onstation) || (!onstation && isliving(user))))
-				dat += "<td align='right'><b>[R.amount]&nbsp;</b><a href='byond://?src=[REF(src)];vend=[REF(R)]'>Vend</a></td>"
+			if(R.amount > 0 && ((C && C.registered_account && onstation && account.account_balance > R.custom_price) || (!onstation && isliving(user))))
+				dat += "<td align='right'><b>[R.amount]&nbsp;</b><a href='byond://?src=[REF(src)];vend=[REF(R)]'>Купить</a></td>"
 			else
-				dat += "<td align='right'><span class='linkOff'>Not&nbsp;Available</span></td>"
+				dat += "<td align='right'><span class='linkOff'>Недоступно</span></td>"
 			dat += "</tr>"
 		dat += "</table>"
 	dat += "</div>"
 	if(onstation && C && C.registered_account)
-		dat += "<b>Balance: $[account.account_balance]</b>"
+		dat += "<b>Баланс: $[account.account_balance]</b>"
 
 	var/datum/browser/popup = new(user, "vending", (name))
 	popup.add_stylesheet(get_asset_datum(/datum/asset/spritesheet/vending))

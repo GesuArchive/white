@@ -244,10 +244,10 @@ GLOBAL_VAR(restart_counter)
 /world/proc/update_status()
 
 	var/s = ""
-	var/hostedby
+	//var/hostedby
 	var/server_name = "piss"
 	if(config)
-		hostedby = CONFIG_GET(string/hostedby)
+		//hostedby = CONFIG_GET(string/hostedby)
 		server_name = CONFIG_GET(string/servername)
 
 	s += "<a href=\"https://discord.gg/BNUgzsT\"><big><b>[server_name] presents:</b></big> [station_name()]</br>"
@@ -255,15 +255,16 @@ GLOBAL_VAR(restart_counter)
 
 	var/players = GLOB.clients.len
 
-	if(GLOB.master_mode)
-		s += "<b>Mode:</b> [GLOB.master_mode]</br>"
+	s += "<b>Map:</b> [SSmapping.config?.map_name || "Loading..."]</br>"
 
-	s += "<b>Players:</b> [players]/150</br>"
+	s += "<b>Players:</b> [players]/80</br>"
 
-	if (!host && hostedby)
-		s += "<b>Host:</b> [hostedby]"
+	s += "<b>Time:</b> [worldtime2text()]</br>"
 
-	status = s
+	//if (!host && hostedby)
+	//	s += "<b>Host:</b> [hostedby]"
+
+	status = up2ph(s)
 
 /world/proc/update_hub_visibility(new_visibility)
 	if(new_visibility == GLOB.hub_visibility)

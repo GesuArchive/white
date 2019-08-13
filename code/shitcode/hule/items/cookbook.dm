@@ -97,7 +97,7 @@
 	time = 100
 
 /datum/crafting_recipe/cookbook/poleaxe
-	name = "Prikol Poleaxe"
+	name = "Ebonumba Topor"
 	result = /obj/item/twohanded/required/paxe
 	reqs = list(/obj/item/stack/sheet/plasteel = 1,
 				/obj/item/stack/sheet/metal = 5,

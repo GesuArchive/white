@@ -50,7 +50,7 @@
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/assembly/flash/handheld
 	suit_store = /obj/item/gun/energy/disabler
-	backpack_contents = list(/obj/item/melee/baton/loaded=1)
+	backpack_contents = list(/obj/item/melee/baton/loaded=1, /obj/item/melee/classic_baton/dildon=1)
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec
@@ -100,7 +100,7 @@
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/assembly/flash/handheld
 	suit_store = /obj/item/gun/energy/disabler
-	backpack_contents = list(/obj/item/melee/baton/loaded=1, /obj/item/clothing/under/rank/engineering/atmospheric_technician=1,
+	backpack_contents = list(/obj/item/melee/classic_baton/dildon=1, /obj/item/clothing/under/rank/engineering/atmospheric_technician=1,
 	/obj/item/modular_computer/tablet/preset/advanced=1, /obj/item/pipe_dispenser=1)
 
 	backpack = /obj/item/storage/backpack/security
@@ -159,3 +159,21 @@
 /obj/machinery/porta_turret/armory/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/empprotection, EMP_PROTECT_SELF | EMP_PROTECT_WIRES)
+
+/obj/item/melee/classic_baton/dildon
+	name = "dildo"
+	ru_name = "дилдак"
+	desc = "При неправильном обращении окажется у тебя в жопе."
+	icon = 'code/shitcode/valtos/icons/melee.dmi'
+	icon_state = "dildo"
+	item_state = "dildo"
+	lefthand_file = 'code/shitcode/valtos/icons/lefthand.dmi'
+	righthand_file = 'code/shitcode/valtos/icons/righthand.dmi'
+	slot_flags = ITEM_SLOT_BELT
+	force = 10
+	w_class = WEIGHT_CLASS_NORMAL
+
+	cooldown = 40
+	stun_time_carbon = 80
+	stun_time_silicon = 0.60
+

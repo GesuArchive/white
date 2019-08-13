@@ -40,7 +40,7 @@
 	var/atom/movable/AM = get_pin_data_as_type(IC_INPUT, 1, /atom/movable)
 	if(!AM)
 		return FALSE
-	if(istype(AM, /obj/item/gun/energy))
+	if(istype(AM, /obj/item/gun/energy) && !istype(AM, /obj/item/gun/energy/plasmacutter))
 		return FALSE
 	if(!assembly)
 		return FALSE // Pointless to do everything else if there's no battery to draw from.
@@ -158,7 +158,7 @@
 			push_data()
 			activate_pin(5)
 			return
-	
+
 		var/obj/structure/cable/foundcable = locate() in get_turf(src)
 		// If no connector can't connect
 		if(!foundcable || foundcable.invisibility != 0)

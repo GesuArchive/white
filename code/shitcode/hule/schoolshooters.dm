@@ -113,7 +113,7 @@
 	fakeable = FALSE
 
 /datum/round_event/ghost_role/schoolshooters/spawn_role()
-	//var/list/funny_names = list("Podjog Saraev", "Rulon Oboev", "Ushat Pomoev")
+	var/list/funny_names = list("Podjog Saraev", "Rulon Oboev", "Ushat Pomoev")
 
 	var/list/possible_spawns = list()
 	for(var/turf/X in GLOB.xeno_spawn)
@@ -145,6 +145,10 @@
 		M.mind.add_antag_datum(/datum/antagonist/schoolshooter, T)
 		M.forceMove(landing_turf)
 		log_game("[key_name(M)] has been selected as Schoolshooter.")
+		var/namae = pick(funny_names)
+		funny_names -= namae
+		M.real_name = namae
+
 
 	return SUCCESSFUL_SPAWN
 
