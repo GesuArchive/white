@@ -3040,7 +3040,6 @@
 /obj/machinery/holopad,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable,
-/mob/living/simple_animal/bot/secbot/grievous,
 /turf/open/floor/plasteel,
 /area/security/main)
 "agD" = (

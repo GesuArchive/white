@@ -3038,7 +3038,6 @@
 #include "code\shitcode\valtos\miners.dm"
 #include "code\shitcode\valtos\poo.dm"
 #include "code\shitcode\valtos\pronouns_ru.dm"
-#include "code\shitcode\valtos\protocol_C.dm"
 #include "code\shitcode\valtos\rus_exam.dm"
 #include "code\shitcode\valtos\rus_names.dm"
 #include "code\shitcode\valtos\rusprikols.dm"
