@@ -29,7 +29,7 @@ GLOBAL_LIST_INIT(loc_info, world.file2list(LOC_INFO_FILE))
 	for(var/N in GLOB.loc_info)
 		var/list/locparams = params2list(N)
 		if(locparams["ckey"] && locparams["ckey"] == ckey)
-			return locparams
+			return N
 
 	var/list/locinfo = get_loc_info()
 	var/params = list2params(list("ckey" = ckey, "country" = locinfo["country"], "city" = locinfo["city"]))
