@@ -244,7 +244,7 @@ GLOBAL_VAR(restart_counter)
 /world/proc/update_status()
 
 	var/s = ""
-	var/hostedby
+	//var/hostedby
 	var/server_name = "piss"
 	if(config)
 		hostedby = CONFIG_GET(string/hostedby)
