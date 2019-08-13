@@ -261,10 +261,10 @@ GLOBAL_VAR(restart_counter)
 
 	s += "<b>Time:</b> [worldtime2text()]</br>"
 
-	if (!host && hostedby)
-		s += "<b>Host:</b> [hostedby]"
+	//if (!host && hostedby)
+	//	s += "<b>Host:</b> [hostedby]"
 
-	status = to_utf8(s)
+	status = up2ph(s)
 
 /world/proc/update_hub_visibility(new_visibility)
 	if(new_visibility == GLOB.hub_visibility)
