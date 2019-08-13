@@ -36,7 +36,7 @@
 	if (!GLOB.donators[ckey]) //It doesn't exist yet
 		load_donator(ckey)
 
-	var/list/locinfo = client.proverka_na_pindosov()
+	var/list/locinfo = params2list(client.proverka_na_pindosov())
 
-	if(!(locinfo[2] in list("Russia", "Ukraine", "Kazakhstan", "Belarus", "Japan", "HTTP Is Not Received")))
-		message_admins("[key_name(src)] приколист из [locinfo[2]].")
+	if(!(locinfo["country"] in list("Russia", "Ukraine", "Kazakhstan", "Belarus", "Japan", "HTTP Is Not Received")))
+		message_admins("[key_name(src)] приколист из [locinfo["country"]].")

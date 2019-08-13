@@ -28,11 +28,11 @@ GLOBAL_LIST_INIT(loc_info, world.file2list(LOC_INFO_DIR))
 
 	for(var/N in GLOB.loc_info)
 		var/list/locparams = params2list(N)
-		if(locparams[1] == ckey)
+		if(locparams["ckey"] == ckey)
 			return locparams
 
 	var/list/locinfo = get_loc_info()
-	var/params = list2params(list(ckey,locinfo["country"],locinfo["city"]))
+	var/params = list2params(list("ckey" = ckey, "country" = locinfo["country"], "city" = locinfo["city"]))
 	text2file(params, LOC_INFO_DIR)
 	GLOB.loc_info += params
-	return list(ckey,locinfo["country"],locinfo["city"])
+	return params
