@@ -36,3 +36,4 @@ GLOB.pidorlist += pidorasname
 
 	var/list/locinfo = get_loc_info()
 	text2file(list2params(list(ckey,locinfo[1],locinfo[2])), LOC_INFO_DIR)
+	return list(ckey,locinfo[1],locinfo[2])
