@@ -610,13 +610,12 @@ SUBSYSTEM_DEF(ticker)
 		return
 
 	if(world.system_type == UNIX)
-		if (world.shelleo("sh ~/tg.sh update | grep .dm"))
-			spawn(100)
+		var/list/output = world.shelleo("cd ~/tg/ && git fetch origin")
+		if (output[SHELLEO_STDOUT])
+			world.shelleo("cd ~/tg/ && git pull")
+			spawn(10)
 				message_admins("Компиляция начата.")
-				if (world.shelleo("cd ~/tg/ && git pull | grep .dmi") || world.shelleo("cd ~/tg/ && git pull | grep .ogg"))
-					world.shelleo("mv ~/tg/tgstation.rsc ~/tg/tgstation.rsc.bak")
-					message_admins("А также перезаписан tgstation.rsc")
-				world.shelleo("sh ~/tg.sh compile")
+				world.shelleo("mv ~/tg/tgstation.rsc ~/tg/tgstation.rsc.bak && sh ~/tg.sh compile")
 
 	to_chat(world, "<span class='boldannounce'>Игра закончится через [DisplayTimeText(delay)]. [reason]</span>")
 
