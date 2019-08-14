@@ -119,3 +119,5 @@
 			Sr.name = "solidified [src]"
 			Sr.add_atom_colour(src.color, FIXED_COLOUR_PRIORITY)
 			Sr.filling_color = src.color
+			if(src.data)
+				Sr.data = src.data
