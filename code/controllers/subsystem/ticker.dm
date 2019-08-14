@@ -610,12 +610,7 @@ SUBSYSTEM_DEF(ticker)
 		return
 
 	if(world.system_type == UNIX)
-		var/list/output = world.shelleo("cd ~/tg/ && git fetch origin")
-		if (output[SHELLEO_STDOUT])
-			world.shelleo("cd ~/tg/ && git pull")
-			spawn(10)
-				message_admins("Компиляция начата.")
-				world.shelleo("mv ~/tg/tgstation.rsc ~/tg/tgstation.rsc.bak && sh ~/tg.sh compile")
+		WRITE_FILE("nhb/ended", world.time)
 
 	to_chat(world, "<span class='boldannounce'>Игра закончится через [DisplayTimeText(delay)]. [reason]</span>")
 
