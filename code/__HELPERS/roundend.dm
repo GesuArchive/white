@@ -162,7 +162,7 @@
 /datum/controller/subsystem/ticker/proc/declare_completion()
 	set waitfor = FALSE
 
-	to_chat(world, "<BR><BR><BR><span class='big bold'>The round has ended.</span>")
+	to_chat(world, "<BR><BR><BR><span class='big bold'Конец раунда.</span>")
 	log_game("The round has ended.")
 
 	for(var/I in round_end_events)
@@ -233,9 +233,9 @@
 /datum/controller/subsystem/ticker/proc/standard_reboot()
 	if(ready_for_reboot)
 		if(mode.station_was_nuked)
-			Reboot("Station destroyed by Nuclear Device.", "nuke")
+			Reboot("Станция уничтожена Ядерной бомбой.", "nuke")
 		else
-			Reboot("Round ended.", "proper completion")
+			Reboot("Конец раунда.", "proper completion")
 	else
 		CRASH("Attempted standard reboot without ticker roundend completion")
 

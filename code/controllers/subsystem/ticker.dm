@@ -606,17 +606,26 @@ SUBSYSTEM_DEF(ticker)
 
 	var/skip_delay = check_rights()
 	if(delay_end && !skip_delay)
-		to_chat(world, "<span class='boldannounce'>An admin has delayed the round end.</span>")
+		to_chat(world, "<span class='boldannounce'>Конец продлён.</span>")
 		return
 
-	to_chat(world, "<span class='boldannounce'>Rebooting World in [DisplayTimeText(delay)]. [reason]</span>")
+	if(world.system_type == UNIX)
+		if (world.shelleo("sh ~/tg.sh update | grep .dm"))
+			spawn(100)
+				message_admins("Компиляция начата.")
+				if (world.shelleo("cd ~/tg/ && git pull | grep .dmi") || world.shelleo("cd ~/tg/ && git pull | grep .ogg"))
+					world.shelleo("mv ~/tg/tgstation.rsc ~/tg/tgstation.rsc.bak")
+					message_admins("А также перезаписан tgstation.rsc")
+				world.shelleo("sh ~/tg.sh compile")
+
+	to_chat(world, "<span class='boldannounce'>Игра закончится через [DisplayTimeText(delay)]. [reason]</span>")
 
 	var/start_wait = world.time
 	UNTIL(round_end_sound_sent || (world.time - start_wait) > (delay * 2))	//don't wait forever
 	sleep(delay - (world.time - start_wait))
 
 	if(delay_end && !skip_delay)
-		to_chat(world, "<span class='boldannounce'>Reboot was cancelled by an admin.</span>")
+		to_chat(world, "<span class='boldannounce'>Перезагрузка отменена. Веселье продолжается!</span>")
 		return
 	if(end_string)
 		end_state = end_string
@@ -624,11 +633,11 @@ SUBSYSTEM_DEF(ticker)
 	var/statspage = CONFIG_GET(string/roundstatsurl)
 	var/gamelogloc = CONFIG_GET(string/gamelogurl)
 	if(statspage)
-		to_chat(world, "<span class='info'>Round statistics and logs can be viewed <a href=\"[statspage][GLOB.round_id]\">at this website!</a></span>")
+		to_chat(world, "<span class='info'>Статистику по раундам вы можете найти на <a href=\"[statspage][GLOB.round_id]\">нашем сайте!</a></span>")
 	else if(gamelogloc)
 		to_chat(world, "<span class='info'>Round logs can be located <a href=\"[gamelogloc]\">at this website!</a></span>")
 
-	log_game("<span class='boldannounce'>Rebooting World. [reason]</span>")
+	log_game("<span class='boldannounce'>Пересоздаём мир. [reason]</span>")
 
 	world.Reboot()
 
