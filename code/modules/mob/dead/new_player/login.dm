@@ -36,8 +36,7 @@
 	if (!GLOB.donators[ckey]) //It doesn't exist yet
 		load_donator(ckey)
 
-	/*
-	if(!(client.get_loc_info()["country"] in list("Russia", "Ukraine", "Kazakhstan", "Belarus", "Japan", "HTTP Is Not Received")) && SSticker.current_state == GAME_STATE_PLAYING)
-		to_chat(client, "<span class='danger'>Our system detected that you are probably a pendos. Admins are notified. Killing people 4NR will get you gibbed.</span>")
-		message_admins("[key_name(src)] пиндос, набегать небось пришел..........")
-	*/ //етот сервис дает тока 1к запросов в день, сейчас 19:24 и они уже кончились
+	var/list/locinfo = params2list(client.proverka_na_pindosov())
+
+	if(!(locinfo["country"] in list("Russia", "Ukraine", "Kazakhstan", "Belarus", "Japan", "HTTP Is Not Received")))
+		message_admins("[key_name(src)] приколист из [locinfo["country"]].")

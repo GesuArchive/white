@@ -82,7 +82,8 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 /obj/item/shuttlespawner/diyshuttle/Initialize()
 	. = ..()
-	template.port_id += "[GLOB.diy_shuttle_count]"
+	if(template)
+		template.port_id += "[GLOB.diy_shuttle_count]"
 
 /obj/item/shuttlespawner/diyshuttle/attack_self()
 	. = ..()

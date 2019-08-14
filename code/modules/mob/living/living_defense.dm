@@ -45,6 +45,13 @@
 /mob/living/bullet_act(obj/item/projectile/P, def_zone)
 	var/armor = run_armor_check(def_zone, P.flag, "","",P.armour_penetration)
 	var/on_hit_state = P.on_hit(src, armor)
+
+	if(isliving(P.firer))
+		var/mob/living/L = P.firer
+		lastattacker = L.real_name
+		if(L.ckey)
+			lastattackerckey = L.ckey
+
 	if(!P.nodamage && on_hit_state != BULLET_ACT_BLOCK)
 		apply_damage(P.damage, P.damage_type, def_zone, armor)
 
@@ -81,6 +88,12 @@
 		var/volume = I.get_volume_by_throwforce_and_or_w_class()
 		SEND_SIGNAL(I, COMSIG_MOVABLE_IMPACT_ZONE, src, zone)
 		dtype = I.damtype
+
+		if(isliving(I.thrownby))
+			var/mob/living/L = I.thrownby
+			lastattacker = L.real_name
+			if(L.ckey)
+				lastattackerckey = L.ckey
 
 		if (I.throwforce > 0) //If the weapon's throwforce is greater than zero...
 			if (I.throwhitsound) //...and throwhitsound is defined...

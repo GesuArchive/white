@@ -114,7 +114,7 @@
 			var/obj/item/reagent_containers/food/snacks/solid_reagent/Sr = new (T)
 			if(touch_msg)
 				Sr.add_fingerprint(touch_mob)
-			Sr.reagents.add_reagent(src.type, volume)
+			Sr.reagents.add_reagent(src.type, volume, src.data)
 			Sr.reagent_type = src.type
 			Sr.name = "solidified [src]"
 			Sr.add_atom_colour(src.color, FIXED_COLOUR_PRIORITY)

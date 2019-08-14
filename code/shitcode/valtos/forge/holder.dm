@@ -199,3 +199,33 @@
 				if(R.reagent_state != SOLID)
 					R.reaction_obj(A, R.volume * volume_modifier, show_message)
 				R.handle_state_change(get_turf(A), R.volume * special_modifier, cached_my_atom)
+
+/datum/reagents/react_single(datum/reagent/R, atom/A, method = TOUCH, volume_modifier = 1, show_message = TRUE)
+	var/datum/cached_my_atom = my_atom
+	var/react_type
+	if(isliving(A))
+		react_type = "LIVING"
+		if(method == INGEST)
+			var/mob/living/L = A
+			L.taste(src)
+	else if(isturf(A))
+		react_type = "TURF"
+	else if(isobj(A))
+		react_type = "OBJ"
+	else
+		return
+	switch(react_type)
+		if("LIVING")
+			var/touch_protection = 0
+			if(method == VAPOR)
+				var/mob/living/L = A
+				touch_protection = L.get_permeability_protection()
+			R.reaction_mob(A, method, R.volume * volume_modifier, show_message, touch_protection)
+		if("TURF")
+			if(R.reagent_state != SOLID)
+				R.reaction_turf(A, R.volume * volume_modifier, show_message)
+			R.handle_state_change(A, R.volume * volume_modifier, cached_my_atom)
+		if("OBJ")
+			if(R.reagent_state != SOLID)
+				R.reaction_obj(A, R.volume * volume_modifier, show_message)
+			R.handle_state_change(get_turf(A), R.volume * volume_modifier, cached_my_atom)
