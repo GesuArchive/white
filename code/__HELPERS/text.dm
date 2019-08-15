@@ -690,6 +690,8 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 
 //Used for applying byonds text macros to strings that are loaded at runtime
 /proc/apply_text_macros(string)
+	return string
+
 	var/next_backslash = findtext(string, "\\")
 	if(!next_backslash)
 		return string
