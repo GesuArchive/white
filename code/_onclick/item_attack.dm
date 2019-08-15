@@ -136,11 +136,11 @@
 	var/message_hit_area = ""
 	if(hit_area)
 		message_hit_area = "[ru_parse_zone(hit_area)]"
-	var/attack_message = "[src] [message_verb]ся в [message_hit_area] при помощи [I]!"
-	var/attack_message_local = "Вы [message_verb]е [message_hit_area] при помощи [I]!"
+	var/attack_message = "[src] [message_verb]ся в [message_hit_area] при помощи [I.name]!"
+	var/attack_message_local = "Вы [message_verb]е [message_hit_area] при помощи [I.name]!"
 	if(user in viewers(src, null))
-		attack_message = "[user] [message_verb] [src] в [message_hit_area] при помощи [I]!"
-		attack_message_local = "[user] [message_verb] твою [message_hit_area] при помощи [I]!"
+		attack_message = "[user] [message_verb] [src] в [message_hit_area] при помощи [I.name]!"
+		attack_message_local = "[user] [message_verb] твою [message_hit_area] при помощи [I.name]!"
 	visible_message("<span class='danger'>[attack_message]</span>",\
 		"<span class='userdanger'>[attack_message_local]</span>", null, COMBAT_MESSAGE_RANGE)
 	return 1

@@ -1,20 +1,20 @@
 /atom/proc/ru_get_examine_name(mob/user)
 	switch (rand(0, 100))
 		if (1)
-			. = "непримечательный [src]"
+			. = "непримечательный [src.name]"
 		if (2)
-			. = "обычный [src]"
+			. = "обычный [src.name]"
 		if (3)
-			. = "невероятный [src]"
+			. = "невероятный [src.name]"
 		else
-			. = "[src]"
-	. = "[src]"
+			. = "[src.name]"
+	. = "[src.name]"
 	var/list/override = list(gender == PLURAL ? " " : " ", " ", "[name]")
 	if(article)
-		. = "[src]"
+		. = "[src.name]"
 		override[EXAMINE_POSITION_ARTICLE] = article
 	if(SEND_SIGNAL(src, COMSIG_ATOM_GET_EXAMINE_NAME, user, override) & COMPONENT_EXNAME_CHANGED)
-		. = override.Join("")
+		. = "[src.name]"
 
 ///Generate the full examine string of this atom (including icon for goonchat)
 /atom/proc/ru_get_examine_string(mob/user)
