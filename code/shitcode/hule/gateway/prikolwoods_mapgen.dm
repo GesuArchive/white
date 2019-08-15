@@ -50,7 +50,6 @@
 /datum/mapGenerator/prikolwoods/hollow/random/monsters
 	modules = list(/datum/mapGeneratorModule/bottomLayer/prikolwoodsTurfs,
 		/datum/mapGeneratorModule/border/prikolwoodsWalls,
-		/datum/mapGeneratorModule/splatterLayer/prikolwoodsWalls,
 		/datum/mapGeneratorModule/prikolwoodsTrees,
 		/datum/mapGeneratorModule/randRocksLess,
 		/datum/mapGeneratorModule/randBushesLess
