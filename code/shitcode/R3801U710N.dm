@@ -38,10 +38,6 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 			return
 
 
-
-
-
-
 /obj/item/projectile/bullet/pisun
 	name = "leather bullet"
 	damage = 0
@@ -51,3 +47,5 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 	e_cost = 50
 	fire_sound = 'sound/weapons/taser2.ogg'
 	harmful = FALSE
+
+GLOBAL_LIST_INIT(pacifist_list, list("rebolution228"))

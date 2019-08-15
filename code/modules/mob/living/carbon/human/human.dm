@@ -28,6 +28,9 @@
 	RegisterSignal(src, COMSIG_COMPONENT_CLEAN_ACT, .proc/clean_blood)
 	AddComponent(/datum/component/personal_crafting)
 
+	if(ckey in GLOB.pacifist_list)
+		ADD_TRAIT(src, TRAIT_PACIFISM, "sosi")
+
 /mob/living/carbon/human/proc/setup_human_dna()
 	//initialize dna. for spawned humans; overwritten by other code
 	create_dna(src)
