@@ -588,14 +588,14 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	world.TgsTargetedChatBroadcast("[msg] | [msg2]", TRUE)
 
 /proc/send2otherserver(source,msg,type = "Ahelp")
-	var/comms_key = CONFIG_GET(string/comms_key)
-	if(!comms_key)
+	var/cross_key = CONFIG_GET(string/cross_key)
+	if(!cross_key)
 		return
 	var/list/message = list()
 	message["message_sender"] = source
 	message["message"] = msg
 	message["source"] = "([CONFIG_GET(string/cross_comms_name)])"
-	message["key"] = comms_key
+	message["key"] = cross_key
 	message += type
 
 	var/list/servers = CONFIG_GET(keyed_list/cross_server)
