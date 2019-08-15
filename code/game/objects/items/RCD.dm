@@ -54,7 +54,7 @@ RLD
 	if(upgrade & RCD_UPGRADE_SILO_LINK)
 		. += "\A [src]. Remote storage link state: [silo_link ? "[silo_mats.on_hold() ? "ON HOLD" : "ON"]" : "OFF"]."
 		if(silo_link && !silo_mats.on_hold())
-			. += "\A [src]. Remote connection have iron in equivalent to [silo_mats.mat_container.materials[/datum/material/iron]/500] rcd units." // 1 matter for 1 floortile, as 4 tiles are produced from 1 metal
+			. += "\A [src]. Remote connection have iron in equivalent to [silo_mats.mat_container.get_material_amount(/datum/material/iron)/500] rcd units." // 1 matter for 1 floortile, as 4 tiles are produced from 1 metal
 
 /obj/item/construction/Destroy()
 	QDEL_NULL(spark_system)
@@ -132,14 +132,15 @@ RLD
 		update_icon()
 		return TRUE
 	else
-		if(!silo_mats.mat_container.has_materials(list(/datum/material/iron = 500), amount))
-			if(user)
-				to_chat(user, no_ammo_message)
-			return FALSE
 		if(silo_mats.on_hold())
 			if(user)
 				to_chat(user, "Mineral access is on hold, please contact the quartermaster.")
 			return FALSE
+		if(!silo_mats.mat_container.has_materials(list(/datum/material/iron = 500), amount))
+			if(user)
+				to_chat(user, no_ammo_message)
+			return FALSE
+
 		silo_mats.mat_container.use_materials(list(/datum/material/iron = 500), amount)
 		silo_mats.silo_log(src, "consume", -amount, "build", list(/datum/material/iron = 500))
 		return TRUE
@@ -219,16 +220,6 @@ RLD
 		window_type_name = "glass"
 
 	to_chat(user, "<span class='notice'>You change \the [src]'s window mode to [window_type_name].</span>")
-
-/obj/item/construction/rcd/verb/toggle_silo_link_verb()
-	set name = "RCD : Toggle Silo Link"
-	set category = "Object"
-	set src in view(1)
-
-	if(!usr.canUseTopic(src, BE_CLOSE))
-		return
-
-	toggle_silo_link(usr)
 
 /obj/item/construction/rcd/proc/toggle_silo_link(mob/user)
 	if(silo_mats)
@@ -481,13 +472,14 @@ RLD
 	var/list/rcd_results = A.rcd_vals(user, src)
 	if(!rcd_results)
 		return FALSE
-	if(do_after(user, rcd_results["delay"] * delay_mod, target = A))
-		if(checkResource(rcd_results["cost"], user))
-			if(A.rcd_act(user, src, rcd_results["mode"]))
-				useResource(rcd_results["cost"], user)
-				activate()
-				playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-				return TRUE
+	if(checkResource(rcd_results["cost"], user))
+		if(do_after(user, rcd_results["delay"] * delay_mod, target = A))
+			if(checkResource(rcd_results["cost"], user))
+				if(A.rcd_act(user, src, rcd_results["mode"]))
+					useResource(rcd_results["cost"], user)
+					activate()
+					playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
+					return TRUE
 
 /obj/item/construction/rcd/Initialize()
 	. = ..()
@@ -509,6 +501,10 @@ RLD
 		choices += list(
 		"Machine Frames" = image(icon = 'icons/mob/radial.dmi', icon_state = "machine"),
 		"Computer Frames" = image(icon = 'icons/mob/radial.dmi', icon_state = "computer_dir"),
+		)
+	if(upgrade & RCD_UPGRADE_SILO_LINK)
+		choices += list(
+		"Silo Link" = image(icon = 'icons/obj/mining.dmi', icon_state = "silo"),
 		)
 	if(mode == RCD_AIRLOCK)
 		choices += list(
@@ -545,6 +541,9 @@ RLD
 			return
 		if("Change Window Type")
 			toggle_window_type(user)
+			return
+		if("Silo Link")
+			toggle_silo_link(user)
 			return
 		else
 			return
