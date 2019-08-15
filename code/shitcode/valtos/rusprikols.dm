@@ -172,8 +172,5 @@
 	slot_flags = ITEM_SLOT_BELT
 	force = 10
 	w_class = WEIGHT_CLASS_NORMAL
-
 	cooldown = 40
-	stun_time_carbon = 80
-	stun_time_silicon = 0.60
 
