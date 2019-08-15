@@ -19,6 +19,7 @@ SUBSYSTEM_DEF(atoms)
 	setupGenetics() //to set the mutations' sequence
 	initialized = INITIALIZATION_INNEW_MAPLOAD
 	InitializeAtoms()
+	toplayers = "Пересоздали атомную структуру"
 	return ..()
 
 /datum/controller/subsystem/atoms/proc/InitializeAtoms(list/atoms)

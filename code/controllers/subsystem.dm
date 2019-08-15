@@ -162,10 +162,11 @@
 	initialized = TRUE
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 	var/msg = "Инициализация [name] за [time] секунд!"
+	var/log_msg = "Init [name] for [time]s!"
 	message_admins("<span class='boldannounce'>[msg]</span>")
 	if (toplayers)
 		to_chat(world, "<span class='boldannounce'>[toplayers] за [time] секунд</span>")
-	log_world(msg)
+	log_world(log_msg)
 	return time
 
 //hook for printing stats to the "MC" statuspanel for admins to see performance and related stats etc.
