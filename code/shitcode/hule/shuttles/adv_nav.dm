@@ -2,6 +2,7 @@
 	name = "advanced navigation computer"
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/adv/GrantActions(mob/living/user)
+	jumpto_ports = list()
 	jump_action = new /datum/action/innate/camera_jump/shuttle_docker_adv
 	..()
 
