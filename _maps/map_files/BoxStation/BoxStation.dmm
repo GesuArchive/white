@@ -18071,6 +18071,11 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/chapel/main)
+"aQB" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,
+/turf/open/space/basic,
+/area/space/nearstation)
 "aQC" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/plasteel,
@@ -18578,6 +18583,11 @@
 "aRS" = (
 /turf/open/floor/carpet,
 /area/chapel/main)
+"aRT" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/supply/visible,
+/turf/open/space/basic,
+/area/space/nearstation)
 "aRU" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/effect/spawner/structure/window/reinforced,
@@ -84032,7 +84042,7 @@ aaa
 aaa
 aaa
 aaa
-gXs
+aaa
 gXs
 gXs
 gXs
@@ -84290,7 +84300,7 @@ aaa
 aaa
 aaa
 aaa
-gXs
+aaa
 gXs
 gXs
 ccw
@@ -84548,7 +84558,7 @@ aaa
 aaa
 aaa
 aaa
-gXs
+aaa
 gXs
 ccw
 ccw
@@ -84805,7 +84815,7 @@ aaa
 aaa
 aaa
 aaa
-gXs
+aaa
 gXs
 cig
 cpb
@@ -85036,8 +85046,8 @@ bFx
 bGW
 bKI
 alX
-gXs
-gXs
+aQB
+aQB
 aaa
 aaa
 aaa
@@ -85063,7 +85073,7 @@ aaa
 aaa
 aaa
 aaa
-gXs
+aaa
 cig
 cig
 czg
@@ -85320,7 +85330,7 @@ aaa
 aaa
 aaa
 aaa
-gXs
+aaa
 cig
 aaa
 afp
@@ -85550,7 +85560,7 @@ aNn
 bvd
 bKJ
 aoZ
-gXs
+aRT
 aaa
 aaa
 aaa
@@ -85577,7 +85587,7 @@ aaa
 aaa
 aaa
 aaa
-gXs
+aaa
 cig
 aaa
 aaa
@@ -85834,7 +85844,7 @@ aaa
 aaa
 aaa
 aaa
-gXs
+aaa
 ccw
 aaa
 aaa

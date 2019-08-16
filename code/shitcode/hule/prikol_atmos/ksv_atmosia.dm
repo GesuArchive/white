@@ -2,7 +2,7 @@
 	name = "KSV Atmosia"
 	prefix = "code/shitcode/hule/prikol_atmos/"
 	port_id = "ksv_atmosia"
-	suffix = "a"
+	suffix = "b"
 
 ///////////////////////////////////////////////////////
 
