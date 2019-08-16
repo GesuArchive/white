@@ -3014,6 +3014,8 @@
 #include "code\shitcode\hule\items\weapons\winchester.dm"
 #include "code\shitcode\hule\magic\magicthrow.dm"
 #include "code\shitcode\hule\magic\pomoyka.dm"
+#include "code\shitcode\hule\prikol_atmos\ksv_atmosia.dm"
+#include "code\shitcode\hule\prikol_atmos\ksv_atmosia_atmos.dm"
 #include "code\shitcode\hule\shuttles\adv_nav.dm"
 #include "code\shitcode\hule\shuttles\shuttle_spawner.dm"
 #include "code\shitcode\hule\shuttles\bearcat\bearcat.dm"
