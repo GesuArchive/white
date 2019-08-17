@@ -123,6 +123,7 @@
 "cs" = (/obj/machinery/airalarm/directional/north,/obj/structure/cable,/turf/open/floor/plating,/area/shuttle/atmosia/engine)
 "ct" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/on{dir = 8},/obj/machinery/atmospherics/pipe/simple/yellow/visible,/turf/open/floor/plasteel,/area/shuttle/atmosia/atmos)
 "cu" = (/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer1{dir = 1; icon_state = "inje_map-1"; volume_rate = 200},/obj/machinery/igniter/incinerator_atmos,/turf/open/floor/engine,/area/shuttle/atmosia/engine)
+"cv" = (/obj/machinery/button/ignition/incinerator/atmos{pixel_y = -26},/turf/open/floor/plating,/area/shuttle/atmosia/engine)
 "cw" = (/obj/machinery/door/airlock/external{name = "Atmospherics External Airlock"; req_access_txt = "24"},/obj/effect/mapping_helpers/airlock/cyclelink_helper{dir = 1},/turf/open/floor/plating,/area/shuttle/atmosia)
 "cx" = (/obj/machinery/atmospherics/pipe/simple/brown/visible{icon_state = "pipe11-2"; dir = 9},/turf/closed/wall/r_wall,/area/shuttle/atmosia/engine)
 "cz" = (/obj/machinery/light/small{dir = 1},/obj/structure/window/plasma/reinforced/spawner/east,/obj/machinery/atmospherics/components/unary/outlet_injector/atmos/air_input,/obj/structure/window/plasma/reinforced/spawner,/obj/structure/window/plasma/reinforced/spawner/north,/turf/open/floor/engine/air,/area/shuttle/atmosia/atmos)
@@ -147,7 +148,6 @@
 "cW" = (/obj/machinery/atmospherics/pipe/simple/yellow/visible{icon_state = "pipe11-2"; dir = 8},/turf/open/floor/plasteel,/area/shuttle/atmosia)
 "cX" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{dir = 9},/turf/closed/wall/r_wall,/area/shuttle/atmosia/engine)
 "cY" = (/turf/closed/wall,/area/shuttle/atmosia/engine)
-"cZ" = (/obj/machinery/atmospherics/pipe/simple/general/visible{dir = 4},/turf/open/floor/plating,/area/shuttle/atmosia/engine)
 "da" = (/obj/machinery/atmospherics/pipe/simple/general/visible,/turf/closed/wall,/area/shuttle/atmosia/engine)
 "db" = (/obj/machinery/door/airlock/atmos{name = "Atmospherics"; req_access_txt = "24"},/obj/structure/cable,/turf/open/floor/plasteel,/area/shuttle/atmosia/engine)
 "dc" = (/obj/machinery/atmospherics/pipe/simple/general/visible/layer1,/obj/machinery/atmospherics/pipe/simple/general/visible/layer3{icon_state = "pipe11-3"; dir = 5},/obj/machinery/atmospherics/components/unary/outlet_injector/on{dir = 1; icon_state = "inje_map-2"; volume_rate = 200},/turf/open/floor/engine,/area/shuttle/atmosia/engine)
@@ -211,10 +211,10 @@ accocqcEdbdHaxaxbJbPcfcFcFcFcFahbOaVac
 accocDcLcadIcjcjcjcjcjcjbQbQbQbQbRaVac
 accKcDdfdLdLcsdJdLdTbfcococococococOac
 accKcUcMcMcMcMcMcMcMdLdKdKcMcMcRbqcSac
-accKcUcMcMcMcMcMcMcMdLcMcMcMbvcococOac
-accocQcMcYcMdacMcMcMdLdMdMdLcMcMcMdeac
+accKcUcMcvcMcMcMcMcMdLcMcMcMbvcococOac
+accocQcMcYcYdacMcMcMdLdMdMdLcMcMcMdeac
 accocqbBcYdcddcYcMdLdMcYcYdMdLcMbZdeac
-accVcXcMcYcudodqcMdLcZdrdsdqdLcMbZdeac
+accVcXcMcYcudodqcMdLdqdrdsdqdLcMbZdeac
 accococMcMcYcYcYcMdLdMcYcYdMdLcMdtcxac
 acaccococMcMbKcMcMcMcMcMbKcMcMdtcxacac
 acacaccocococodvdvdvdvdvcococodnacacac
