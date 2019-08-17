@@ -109,7 +109,7 @@
 "ce" = (/obj/structure/lattice,/obj/machinery/atmospherics/components/trinary/filter/atmos/flipped/co2,/turf/template_noop,/area/shuttle/atmosia/atmos)
 "cf" = (/obj/structure/lattice,/obj/machinery/atmospherics/components/trinary/mixer/airmix/flipped{icon_state = "mixer_on_f"; dir = 8},/turf/template_noop,/area/shuttle/atmosia/atmos)
 "cg" = (/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/cyan/visible,/obj/machinery/atmospherics/pipe/simple/yellow/visible{dir = 4},/turf/open/floor/plasteel,/area/shuttle/atmosia/atmos)
-"ch" = (/obj/structure/fireaxecabinet{pixel_x = -32},/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,/turf/open/floor/plasteel,/area/shuttle/atmosia/atmos)
+"ch" = (/obj/structure/fireaxecabinet{pixel_x = -32},/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,/obj/machinery/atmospherics/components/unary/portables_connector/visible{dir = 4},/turf/open/floor/plasteel,/area/shuttle/atmosia/atmos)
 "ci" = (/obj/structure/cable,/turf/open/floor/plasteel,/area/shuttle/atmosia/atmos)
 "cj" = (/obj/machinery/atmospherics/pipe/simple/green/visible{dir = 4},/turf/closed/wall/r_wall,/area/shuttle/atmosia/engine)
 "ck" = (/obj/structure/lattice,/obj/machinery/atmospherics/components/trinary/filter/atmos/flipped/plasma,/turf/template_noop,/area/shuttle/atmosia/atmos)
@@ -193,7 +193,7 @@
 "dK" = (/obj/machinery/portable_atmospherics/pump,/turf/open/floor/plating,/area/shuttle/atmosia/engine)
 "dL" = (/obj/structure/cable,/turf/open/floor/plating,/area/shuttle/atmosia/engine)
 "dM" = (/obj/machinery/power/rad_collector/anchored/delta,/obj/structure/cable,/turf/open/floor/plating,/area/shuttle/atmosia/engine)
-"dN" = (/obj/structure/window/plasma/reinforced/spawner/east,/turf/open/floor/plasteel,/area/shuttle/atmosia/atmos)
+"dN" = (/obj/structure/window/plasma/reinforced/spawner/east,/obj/machinery/portable_atmospherics/scrubber,/turf/open/floor/plasteel,/area/shuttle/atmosia/atmos)
 "dO" = (/obj/structure/cable,/obj/machinery/atmospherics/components/binary/pump{dir = 4; layer = 2.4},/turf/open/floor/plasteel,/area/shuttle/atmosia/atmos)
 "dP" = (/obj/machinery/atmospherics/pipe/simple/yellow/visible,/turf/closed/wall,/area/shuttle/atmosia/atmos)
 "dQ" = (/obj/machinery/atmospherics/pipe/simple/yellow/visible{dir = 5},/turf/open/floor/plasteel,/area/shuttle/atmosia/atmos)
@@ -235,7 +235,7 @@ acbwbobMbWaBaHbibybCaQbubmbxbHcnceaVac
 acbwbLctbVaBaHbibFbCbnbAdWegeheickaVac
 acbwbpbDbWaGaHbibJbCdsczdxdwdFdVbNaVac
 acbwbTbDbSaGaHbicCaKdYdZeaejekelcmaVac
-acajchbMcicGbcbzdCbGebececedeeefbOaVac
+acajchbDcicGbcbzdCbGebececedeeefbOaVac
 accocqcEdbdHcLaxdNbPcfcFcFcFcFahbOaVac
 accocDcpcadIcjcjcjcjcjcjbQbQbQdgbRaVac
 accKcDdfdLdLcsdJcHdTbfcococococococOac
