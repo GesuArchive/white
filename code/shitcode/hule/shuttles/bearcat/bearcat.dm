@@ -110,7 +110,7 @@
 	. = ..()
 	register()
 
-/obj/docking_port/stationaty/bearcat
+/obj/docking_port/stationary/bearcat
 	name = "CSV Bearcat Away"
 	id = "bearcat_away"
 	width = 29

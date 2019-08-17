@@ -50,7 +50,7 @@
 "aX" = (/obj/machinery/door/airlock/maintenance_hatch{name = "Hatch"; req_access_txt = "205"},/turf/open/floor/plasteel,/area/shuttle/bearcat/dockingbay)
 "aY" = (/obj/machinery/door/airlock/hatch{name = "Brdige"; req_access_txt = "203"},/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,/turf/open/floor/plasteel,/area/shuttle/bearcat/dockingbay)
 "aZ" = (/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,/turf/open/floor/plasteel,/area/shuttle/bearcat/dockingbay)
-"ba" = (/obj/machinery/door/airlock/external{req_access_txt = "205"},/obj/structure/fans/tiny,/obj/docking_port/mobile/bearcat,/obj/docking_port/stationaty/bearcat,/turf/open/floor/plasteel,/area/shuttle/bearcat/dockingbay)
+"ba" = (/obj/machinery/door/airlock/external{req_access_txt = "205"},/obj/structure/fans/tiny,/obj/docking_port/mobile/bearcat,/obj/docking_port/stationary/bearcat,/turf/open/floor/plasteel,/area/shuttle/bearcat/dockingbay)
 "bb" = (/obj/structure/window/reinforced/spawner,/obj/structure/window/reinforced/spawner/north,/turf/open/floor/plasteel,/area/shuttle/bearcat/dockingbay)
 "bc" = (/obj/machinery/door/poddoor/preopen{id = "bearcat_windows"},/obj/machinery/door/airlock/external{req_access_txt = "205"},/turf/open/floor/plasteel,/area/shuttle/bearcat/dockingbay)
 "bd" = (/obj/machinery/light{dir = 1},/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer1{icon_state = "scrub_map_on-1"; dir = 4},/turf/open/floor/plasteel,/area/shuttle/bearcat/dockingbay)
