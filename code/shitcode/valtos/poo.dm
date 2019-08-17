@@ -18,7 +18,7 @@
 	foodtype = MEAT | RAW | TOXIC
 	grind_results = list()
 
-/obj/item/reagent_containers/food/snacks/poo/Initialize()
+/obj/item/reagent_containers/food/snacks/poo/cooked/Initialize()
 	. = ..()
 	if (random_icon_states && (icon_state == initial(icon_state)) && length(random_icon_states) > 0)
 		icon_state = pick(random_icon_states)
