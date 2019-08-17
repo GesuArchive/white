@@ -139,6 +139,7 @@
 "cI" = (/obj/machinery/atmospherics/pipe/manifold/green/visible{dir = 1},/obj/structure/lattice,/turf/template_noop,/area/shuttle/atmosia/atmos)
 "cJ" = (/obj/structure/lattice,/obj/machinery/atmospherics/pipe/simple/green/visible{icon_state = "pipe11-2"; dir = 8},/turf/template_noop,/area/shuttle/atmosia/atmos)
 "cK" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/plating,/area/shuttle/atmosia/engine)
+"cL" = (/obj/machinery/atmospherics/pipe/simple/general/visible,/obj/machinery/atmospherics/pipe/simple/general/visible/layer1,/obj/machinery/atmospherics/pipe/simple/general/visible/layer3,/turf/closed/wall,/area/shuttle/atmosia/engine)
 "cM" = (/turf/open/floor/plating,/area/shuttle/atmosia/engine)
 "cN" = (/obj/machinery/camera/xray{icon_state = "xraycamera"; dir = 1},/turf/open/floor/plating,/area/shuttle/atmosia/engine)
 "cO" = (/obj/machinery/atmospherics/pipe/simple/brown/visible,/turf/closed/wall/r_wall,/area/shuttle/atmosia/engine)
@@ -240,7 +241,7 @@ accocDcpcadIcjcjcjcjcjcjbQbQbQdgbRaVac
 accKcDdfdLdLcsdJcHdTbfcococococococOac
 accKcUcMcMcMcMcMcMcMdLdKdKcMcMcRbqcSac
 accKcUcMcvcMcMcMcMcMdLcMcMcMbvcococOac
-accocQcMcYcYdacMcMcMdLdMdMdLcMcMcMdeac
+accocQcMcYcLdacMcMcMdLdMdMdLcMcMcMdeac
 accocqbBcYcudccYcMdLdMcYcYdMdLcMbZdeac
 accVcXcMcYdddodqcMdLdqdpdrdqdLcMbZdeac
 accococMcMcYcYcYcMdLdMcYcYdMdLcMdtcxac
