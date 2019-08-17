@@ -9,7 +9,7 @@
 	selection_color = "#ccffcc"
 	supervisors = "your laws"
 	req_admin_notify = TRUE
-	minimal_player_age = 30
+	minimal_player_age = 10
 	exp_requirements = 180
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_SILICON
