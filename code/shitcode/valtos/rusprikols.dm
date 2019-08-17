@@ -49,8 +49,8 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/assembly/flash/handheld
-	suit_store = /obj/item/gun/energy/disabler
-	backpack_contents = list(/obj/item/melee/baton/loaded=1, /obj/item/melee/classic_baton/dildon=1)
+	suit_store = /obj/item/gun/ballistic/automatic/pistol/traumatic
+	backpack_contents = list(/obj/item/melee/baton/loaded=1, /obj/item/melee/classic_baton/dildon=1, /obj/item/ammo_box/magazine/traumatic=1)
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec
@@ -59,7 +59,7 @@
 
 	implants = list(/obj/item/implant/mindshield/, /obj/item/implant/krav_maga)
 
-	chameleon_extras = list(/obj/item/gun/energy/disabler, /obj/item/clothing/glasses/hud/security/sunglasses, /obj/item/clothing/head/helmet)
+	chameleon_extras = list(/obj/item/gun/ballistic/automatic/pistol/traumatic, /obj/item/clothing/glasses/hud/security/sunglasses, /obj/item/clothing/head/helmet)
 
 /datum/outfit/job/hos
 	implants = list(/obj/item/implant/mindshield/, /obj/item/implant/krav_maga)
@@ -99,9 +99,9 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/assembly/flash/handheld
-	suit_store = /obj/item/gun/energy/disabler
+	suit_store = /obj/item/gun/ballistic/automatic/pistol/traumatic
 	backpack_contents = list(/obj/item/melee/classic_baton/dildon=1, /obj/item/clothing/under/rank/engineering/atmospheric_technician=1,
-	/obj/item/modular_computer/tablet/preset/advanced=1, /obj/item/pipe_dispenser=1)
+	/obj/item/modular_computer/tablet/preset/advanced=1, /obj/item/pipe_dispenser=1, /obj/item/ammo_box/magazine/traumatic=2)
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec
@@ -110,7 +110,7 @@
 
 	implants = list(/obj/item/implant/mindshield/, /obj/item/implant/krav_maga)
 
-	chameleon_extras = list(/obj/item/gun/energy/disabler, /obj/item/clothing/glasses/hud/security/sunglasses, /obj/item/clothing/head/helmet)
+	chameleon_extras = list(/obj/item/gun/ballistic/automatic/pistol/traumatic, /obj/item/clothing/glasses/hud/security/sunglasses, /obj/item/clothing/head/helmet)
 
 
 /obj/mecha/working/ripley/buran
@@ -174,3 +174,39 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	cooldown = 40
 
+/obj/item/gun/ballistic/automatic/pistol/traumatic
+	name = "\improper M1911-S"
+	desc = "Переделанная версия M1911 под травматические патроны."
+	icon_state = "m1911"
+	w_class = WEIGHT_CLASS_NORMAL
+	mag_type = /obj/item/ammo_box/magazine/traumatic
+	can_suppress = FALSE
+
+/obj/item/gun/ballistic/automatic/pistol/traumatic/no_mag
+	spawnwithmagazine = FALSE
+
+/obj/item/ammo_box/magazine/traumatic
+	name = "handgun traumatic magazine (.45)"
+	icon_state = "45-8"
+	ammo_type = /obj/item/ammo_casing/traumatic
+	caliber = ".45"
+	max_ammo = 8
+
+/obj/item/ammo_casing/traumatic
+	name = ".45 traumatic bullet casing"
+	desc = "A .45 traumatic bullet casing."
+	caliber = ".45"
+	projectile_type = /obj/item/projectile/bullet/traumatic
+
+/obj/item/projectile/bullet/traumatic
+	name = ".45 traumatic bullet"
+	damage = 3 //наша резина делает больно, не более
+	stamina = 50
+
+/datum/design/traumatic
+	name = ".45 traumatic magazine"
+	id = "traumatic"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 5000, /datum/material/glass = 5000)
+	build_path = /obj/item/ammo_box/magazine/traumatic
+	category = list("initial", "Security")
