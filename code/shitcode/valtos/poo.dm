@@ -9,19 +9,19 @@
 	name = "poo"
 	desc = "Продукт человеческой единицы."
 	icon = 'code/shitcode/valtos/icons/poo.dmi'
-	icon_state = "poo1"
+	icon_state = "truepoo"
 	tastes = list("shit" = 1, "poo" = 1)
-	var/random_icon_states = list("poo1", "poo2", "poo3", "poo4", "poo5", "poo6")
+	//var/random_icon_states = list("poo1", "poo2", "poo3", "poo4", "poo5", "poo6")
 	list_reagents = list(/datum/reagent/toxin/poo = 5)
 	cooked_type = /obj/item/reagent_containers/food/snacks/poo/cooked
 	filling_color = "#4B3320"
 	foodtype = MEAT | RAW | TOXIC
 	grind_results = list()
 
-/obj/item/reagent_containers/food/snacks/poo/Initialize()
-	. = ..()
-	if (random_icon_states && (icon_state == initial(icon_state)) && length(random_icon_states) > 0)
-		icon_state = pick(random_icon_states)
+//obj/item/reagent_containers/food/snacks/poo/Initialize()
+	//. = ..()
+	//if (random_icon_states && (icon_state == initial(icon_state)) && length(random_icon_states) > 0)
+	//	icon_state = pick(random_icon_states)
 
 /obj/item/reagent_containers/food/snacks/poo/cooked
 	name = "cooked poo"
