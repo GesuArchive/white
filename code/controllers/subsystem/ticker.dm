@@ -251,7 +251,7 @@ SUBSYSTEM_DEF(ticker)
 		if(!can_continue)
 			log_game("[mode.name] failed pre_setup, cause: [mode.setup_error]")
 			QDEL_NULL(mode)
-			to_chat(world, "<B>Не обнаружен Капитан.</B> Откатываем таймер назад....")
+			to_chat(world, "<B>Нет готовых людей [GLOB.master_mode].</B> Откатываем таймер.")
 			SSjob.ResetOccupations()
 			return 0
 	else
