@@ -18,15 +18,15 @@
 	foodtype = MEAT | RAW | TOXIC
 	grind_results = list()
 
-//obj/item/reagent_containers/food/snacks/poo/Initialize()
-	//. = ..()
-	//if (random_icon_states && (icon_state == initial(icon_state)) && length(random_icon_states) > 0)
-	//	icon_state = pick(random_icon_states)
+/obj/item/reagent_containers/food/snacks/poo/Initialize()
+	. = ..()
+	if (random_icon_states && (icon_state == initial(icon_state)) && length(random_icon_states) > 0)
+		icon_state = pick(random_icon_states)
 
 /obj/item/reagent_containers/food/snacks/poo/cooked
 	name = "cooked poo"
 	icon_state = "ppoo1"
-	random_icon_states = list("ppoo1", "ppoo2", "ppoo3", "ppoo4", "ppoo5", "ppoo6")
+	var/random_icon_states = list("ppoo1", "ppoo2", "ppoo3", "ppoo4", "ppoo5", "ppoo6")
 	filling_color = "#4B3320"
 
 /datum/reagent/toxin/poo
