@@ -670,14 +670,14 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		"[pick_list_replacements(HAL_LINES_FILE, "aggressive")]",\
 		"[pick_list_replacements(HAL_LINES_FILE, "help")]!!",\
 		"[pick_list_replacements(HAL_LINES_FILE, "escape")]",\
-		"I'm infected, [pick_list_replacements(HAL_LINES_FILE, "infection_advice")]!")
+		"У меня вирус, [pick_list_replacements(HAL_LINES_FILE, "infection_advice")]!")
 
-	var/radio_messages = list("[pick_list_replacements(HAL_LINES_FILE, "people")] is [pick_list_replacements(HAL_LINES_FILE, "accusations")]!",\
-		"Help!",\
-		"[pick_list_replacements(HAL_LINES_FILE, "threat")] in [pick_list_replacements(HAL_LINES_FILE, "location")][prob(50)?"!":"!!"]",\
-		"[pick("Where's [target.first_name()]?", "Set [target.first_name()] to arrest!")]",\
-		"[pick("C","Ai, c","Someone c","Rec")]all the shuttle!",\
-		"AI [pick("rogue", "is dead")]!!")
+	var/radio_messages = list("[pick_list_replacements(HAL_LINES_FILE, "people")] [pick_list_replacements(HAL_LINES_FILE, "accusations")]!",\
+		"Помогите!",\
+		"[pick_list_replacements(HAL_LINES_FILE, "threat")] в [pick_list_replacements(HAL_LINES_FILE, "location")][prob(50)?"!":"!!"]",\
+		"[pick("Где [target.first_name()]?", "Аррестуйте [target.first_name()]!")]",\
+		"[pick("По","Кто-нибудь, по","От")]зовите шаттл!",\
+		"ИИ [pick("сбойный", "уничтожен")]!!")
 
 	var/mob/living/carbon/person = null
 	var/datum/language/understood_language = target.get_random_understood_language()
