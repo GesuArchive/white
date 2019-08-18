@@ -53,7 +53,6 @@
 					/datum/mapGeneratorModule/bottomLayer/prikolwoodsTurfs,
 					/datum/mapGeneratorModule/border/prikolwoodsWalls,
 					/datum/mapGeneratorModule/prikolwoodsTrees,
-					/datum/mapGeneratorModule/prikolwoodsDeadTrees,
 					/datum/mapGeneratorModule/prikolwoodsRandRocks,
 					/datum/mapGeneratorModule/prikolwoodsRandBushes
 
@@ -75,7 +74,6 @@
 					/datum/mapGeneratorModule/bottomLayer/prikolwoodsTurfs,
 					/datum/mapGeneratorModule/border/prikolwoodsWalls,
 					/datum/mapGeneratorModule/prikolwoodsTreesDense,
-					/datum/mapGeneratorModule/prikolwoodsDeadTreesDense,
 					/datum/mapGeneratorModule/prikolwoodsRandRocks,
 					/datum/mapGeneratorModule/prikolwoodsRandBushes
 
