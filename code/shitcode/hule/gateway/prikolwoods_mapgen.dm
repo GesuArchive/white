@@ -13,33 +13,71 @@
 	spawnableAtoms = list()
 	spawnableTurfs = list(/turf/closed/mineral = 30)
 
+//////////////////////////////////////////////////////////////////
+
 /datum/mapGeneratorModule/prikolwoodsTrees
 	spawnableAtoms = list(/obj/structure/flora/tree/jungle/prikol = 3, /obj/structure/flora/tree/jungle/small/prikol = 7)
 
-/datum/mapGeneratorModule/deadTreesLess
+/datum/mapGeneratorModule/prikolwoodsDeadTrees
 	spawnableAtoms = list(/obj/structure/flora/tree/dead = 2)
 
-/datum/mapGeneratorModule/randBushesLess
+/////////////////////////////////////////////////////////////////////
+
+/datum/mapGeneratorModule/prikolwoodsTreesDense
+	spawnableAtoms = list(/obj/structure/flora/tree/jungle/prikol = 7, /obj/structure/flora/tree/jungle/small/prikol = 15)
+
+/datum/mapGeneratorModule/prikolwoodsDeadTreesDense
+	spawnableAtoms = list(/obj/structure/flora/tree/dead = 5)
+
+////////////////////////////////////////////////////////////////////
+
+/datum/mapGeneratorModule/prikolwoodsRandBushes
 	spawnableAtoms = list()
 
-/datum/mapGeneratorModule/randBushesLess/New()
+/datum/mapGeneratorModule/randBushes/New()
 	..()
 	spawnableAtoms = typesof(/obj/structure/flora/ausbushes)
 	for(var/i in spawnableAtoms)
 		spawnableAtoms[i] = 10
 
-/datum/mapGeneratorModule/randRocksLess
+/datum/mapGeneratorModule/prikolwoodsRandRocks
 	spawnableAtoms = list(/obj/structure/flora/rock = 10, /obj/structure/flora/rock/pile = 5)
 
 
 
 
-/datum/mapGenerator/prikolwoods/hollow/random/monsters
-	modules = list(/datum/mapGeneratorModule/bottomLayer/prikolwoodsTurfs,
-		/datum/mapGeneratorModule/border/prikolwoodsWalls,
-		/datum/mapGeneratorModule/prikolwoodsTrees,
-		/datum/mapGeneratorModule/randRocksLess,
-		/datum/mapGeneratorModule/randBushesLess
 
-		)
-	buildmode_name = "Pattern: Prikolwoods test"
+
+/datum/mapGenerator/prikolwoods/
+	modules = list(
+					/datum/mapGeneratorModule/bottomLayer/prikolwoodsTurfs,
+					/datum/mapGeneratorModule/border/prikolwoodsWalls,
+					/datum/mapGeneratorModule/prikolwoodsTrees,
+					/datum/mapGeneratorModule/prikolwoodsDeadTrees,
+					/datum/mapGeneratorModule/prikolwoodsRandRocks,
+					/datum/mapGeneratorModule/prikolwoodsRandBushes
+
+				)
+	buildmode_name = "Pattern: Prikolwoods"
+
+/datum/mapGenerator/prikolwoods/grasslands
+	modules = list(
+					/datum/mapGeneratorModule/bottomLayer/prikolwoodsTurfs,
+					/datum/mapGeneratorModule/border/prikolwoodsWalls,
+					/datum/mapGeneratorModule/prikolwoodsRandRocks,
+					/datum/mapGeneratorModule/prikolwoodsRandBushes
+
+				)
+	buildmode_name = "Pattern: Prikolwoods Grasslands"
+
+/datum/mapGenerator/prikolwoods/dense
+	modules = list(
+					/datum/mapGeneratorModule/bottomLayer/prikolwoodsTurfs,
+					/datum/mapGeneratorModule/border/prikolwoodsWalls,
+					/datum/mapGeneratorModule/prikolwoodsTreesDense,
+					/datum/mapGeneratorModule/prikolwoodsDeadTreesDense,
+					/datum/mapGeneratorModule/prikolwoodsRandRocks,
+					/datum/mapGeneratorModule/prikolwoodsRandBushes
+
+				)
+	buildmode_name = "Pattern: Prikolwoods Dense"
