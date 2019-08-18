@@ -34,7 +34,7 @@
 /datum/mapGeneratorModule/prikolwoodsRandBushes
 	spawnableAtoms = list()
 
-/datum/mapGeneratorModule/randBushes/New()
+/datum/mapGeneratorModule/prikolwoodsRandBushes/New()
 	..()
 	spawnableAtoms = typesof(/obj/structure/flora/ausbushes)
 	for(var/i in spawnableAtoms)
