@@ -262,9 +262,10 @@
 					disk.uploader_ckey = retard.ckey
 					var/mob/M = usr
 					message_admins("[M.real_name]([M.ckey]) uploaded <A HREF='?_src_=holder;listensound=\ref[S]'>sound</A> named as [N]. <A HREF='?_src_=holder;wipedata=\ref[disk]'>Wipe</A> data.")
+					coin--
+
 			icon_state = "writer_off"
 			writing = 0
-			coin -= 1
 			retard = null
 			retard_name = null
 
