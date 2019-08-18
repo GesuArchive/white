@@ -7156,7 +7156,8 @@
 "apF" = (
 /obj/structure/window/reinforced/spawner/east,
 /obj/structure/window/reinforced/spawner/west,
-/turf/open/floor/plasteel,
+/obj/structure/cable,
+/turf/open/floor/plating,
 /area/maintenance/aft)
 "apG" = (
 /obj/machinery/portable_atmospherics/canister/water_vapor,
@@ -17824,17 +17825,20 @@
 "aPV" = (
 /obj/structure/window/reinforced/spawner,
 /obj/structure/window/reinforced/spawner/west,
-/turf/open/floor/plasteel,
+/obj/structure/cable,
+/turf/open/floor/plating,
 /area/maintenance/aft)
 "aPW" = (
 /obj/structure/window/reinforced/spawner,
 /obj/structure/window/reinforced/spawner/north,
-/turf/open/floor/plasteel,
+/obj/structure/cable,
+/turf/open/floor/plating,
 /area/maintenance/aft)
 "aPX" = (
 /obj/structure/window/reinforced/spawner/east,
 /obj/structure/window/reinforced/spawner/north,
-/turf/open/floor/plasteel,
+/obj/structure/cable,
+/turf/open/floor/plating,
 /area/maintenance/aft)
 "aPY" = (
 /obj/structure/chair/stool,
@@ -18070,7 +18074,8 @@
 	name = "Atmospherics";
 	req_access_txt = "24"
 	},
-/turf/open/floor/plasteel,
+/obj/structure/cable,
+/turf/open/floor/plating,
 /area/maintenance/aft)
 "aQC" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
@@ -19833,6 +19838,26 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/bridge)
+"aVm" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/maintenance/aft)
+"aVn" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/maintenance/aft)
 "aVo" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -20000,6 +20025,13 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
+"aVG" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/maintenance/aft)
 "aVH" = (
 /obj/machinery/processor,
 /obj/machinery/firealarm{
@@ -20217,6 +20249,14 @@
 /obj/structure/window,
 /turf/open/floor/plating,
 /area/maintenance/port)
+"aWk" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/turf/open/floor/plating,
+/area/maintenance/aft)
 "aWl" = (
 /obj/structure/grille,
 /obj/structure/window{
@@ -20342,6 +20382,10 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/port)
+"aWA" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/turf/closed/wall/r_wall,
+/area/maintenance/aft)
 "aWB" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -20355,6 +20399,31 @@
 	},
 /turf/closed/wall,
 /area/quartermaster/warehouse)
+"aWD" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/turf/open/space/basic,
+/area/space/nearstation)
+"aWE" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/turf/open/space/basic,
+/area/space/nearstation)
+"aWF" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
+"aWG" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 9
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "aWH" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/blue,
@@ -20801,6 +20870,13 @@
 	},
 /turf/open/floor/carpet,
 /area/chapel/main)
+"aXC" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+	dir = 4
+	},
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/engine/atmos)
 "aXD" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -20839,6 +20915,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
+"aXH" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+	dir = 9
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "aXI" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
@@ -20855,6 +20938,10 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/closed/wall,
 /area/quartermaster/warehouse)
+"aXK" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/engine/atmos)
 "aXL" = (
 /turf/open/floor/carpet,
 /area/vacant_room/office)
@@ -35100,16 +35187,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
-"bJy" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
-	dir = 1
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/maintenance/aft)
 "bJA" = (
 /obj/effect/landmark/blobstart,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -35396,22 +35473,8 @@
 	},
 /turf/closed/wall/r_wall,
 /area/maintenance/aft)
-"bKz" = (
-/obj/structure/reagent_dispensers/watertank,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/maintenance/aft)
 "bKB" = (
 /obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/maintenance/aft)
-"bKC" = (
-/obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
@@ -37246,13 +37309,6 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/engine/atmos)
-"bQn" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 4
-	},
-/obj/effect/spawner/structure/window,
-/turf/open/floor/plating,
 /area/engine/atmos)
 "bQq" = (
 /obj/machinery/camera{
@@ -83037,8 +83093,8 @@ bLK
 bMK
 bMK
 bOY
-bQn
-bRx
+aXC
+aXK
 bMK
 bMK
 bUJ
@@ -83289,12 +83345,12 @@ bCv
 bCv
 bCv
 bJs
-bKz
-agd
-gXs
-gXs
-gXs
-gXs
+aVG
+aWA
+aWD
+aWD
+aWF
+aXH
 gXs
 gXs
 aPj
@@ -83545,12 +83601,12 @@ bDP
 bCv
 bAw
 bAw
-bJs
-bKC
-agd
-gXs
-gXs
-gXs
+aVm
+aWk
+alk
+aWE
+aWE
+aWG
 gXs
 gXs
 gXs
@@ -84059,9 +84115,9 @@ bDQ
 bFn
 bDO
 bHX
-bJy
-bKE
-alk
+aVn
+bKT
+agd
 aTa
 aTq
 aTq
