@@ -201,7 +201,7 @@
 		if(!usr.mind.miming)
 			to_chat(usr, "<span class='warning'>You must dedicate yourself to silence first!</span>")
 			return
-		invocation = "<B>[usr.real_name]</B> fires [usr.p_their()] finger gun!"
+		invocation = "<B>[usr.real_name]</B> стреляет из [usr.ru_ego()] пальца!"
 	else
 		invocation_type ="none"
 	..()

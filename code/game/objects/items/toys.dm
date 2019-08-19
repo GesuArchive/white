@@ -227,14 +227,14 @@
 		return
 	src.add_fingerprint(user)
 	if (src.bullets < 1)
-		user.show_message("<span class='warning'>*click*</span>", 2)
+		user.show_message("<span class='warning'>*ש¸כך*</span>", 2)
 		playsound(src, 'sound/weapons/gun_dry_fire.ogg', 30, TRUE)
 		return
 	playsound(user, 'sound/weapons/gunshot.ogg', 100, 1)
 	src.bullets--
-	user.visible_message("<span class='danger'>[user] fires [src] at [target]!</span>", \
-						"<span class='danger'>You fire [src] at [target]!</span>", \
-						 "<span class='italics'>You hear a gunshot!</span>")
+	user.visible_message("<span class='danger'>[user] סענוכÿוע טח [src] ג [target]!</span>", \
+						"<span class='danger'>ֲû סענוכÿועו טח [src] ג [target]!</span>", \
+						 "<span class='italics'>ֲû סכûרטעו גûסענוכ!</span>")
 
 /obj/item/toy/ammo/gun
 	name = "capgun ammo"
