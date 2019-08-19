@@ -94,7 +94,7 @@
 	if(I.force)
 		apply_damage(I.force, I.damtype)
 
-		if(mind && !stat)
+		if(client && user.client && user != src && stat < 2)
 			user.create_tension(I.force * 1.2)
 			create_tension(I.force * 1.2)
 

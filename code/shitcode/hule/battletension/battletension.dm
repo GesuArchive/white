@@ -25,14 +25,14 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 /mob/living
 	var/datum/btension/battletension
 
-//nasral na living_defense.dm & item_attack.dm & carbon_defense.dm
+//nasral na living_defense.dm & item_attack.dm & carbon_defense.dm & human_defence.dm
 
 /mob/living/proc/create_tension(var/amount)
 	if(client && !battletension)
 		battletension = new /datum/btension
 		battletension.owner = src
 
-	if(!battletension || !client || !client.prefs.battlemusic)
+	if(!battletension || !client && !client.prefs.battlemusic)
 		return
 
 	if(battletension.tension && amount > 0)
@@ -114,6 +114,10 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 			bm.volume = 80
 			SEND_SOUND(owner, bm)
 			bm.status = SOUND_UPDATE
+
+	if(owner.stat)
+		tension = 0
+		return
 
 	if(tension > 0)
 		tension -= 2
