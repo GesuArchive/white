@@ -113,7 +113,7 @@
 	id = "slime"
 	default_color = "00FFFF"
 	species_traits = list(MUTCOLORS,EYECOLOR,HAIR,FACEHAIR,NOBLOOD)
-	say_mod = "says"
+	say_mod = "говорит"
 	hair_color = "mutcolor"
 	hair_alpha = 150
 	var/datum/action/innate/split_body/slime_split
@@ -387,7 +387,7 @@
 /datum/species/jelly/luminescent
 	name = "Luminescent"
 	id = "lum"
-	say_mod = "says"
+	say_mod = "говорит"
 	var/glow_intensity = LUMINESCENT_DEFAULT_GLOW
 	var/obj/effect/dummy/luminescent_glow/glow
 	var/obj/item/slime_extract/current_extract
