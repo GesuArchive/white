@@ -1127,7 +1127,7 @@
 		message_admins("[key_name_admin(usr)] has sent [key_name_admin(L)] to the thunderdome. (Observer.)")
 
 	else if(href_list["revive"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_SPAWN))
 			return
 
 		var/mob/living/L = locate(href_list["revive"])
