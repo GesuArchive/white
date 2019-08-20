@@ -2,7 +2,7 @@
 
 #define BATTLE_MUSIC_PATH 			"code/shitcode/hule/battletension/bm/"
 #define BATTLE_MUSIC_TOUHOU 		list("80sspark.ogg","badapple.ogg")
-#define BATTLE_MUSIC_SYNTH	 		list("digitalonslaught.ogg")
+#define BATTLE_MUSIC_SYNTH	 		list("digitalonslaught.ogg", "03 NARC.ogg")
 #define BATTLE_MUSIC_PISTOLETOV	 	list("gladiator.ogg")
 
 #define CHANNEL_BATTLE 		1015
@@ -35,7 +35,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	if(!battletension || !client && !client.prefs.battlemusic)
 		return
 
-	if(battletension.tension && amount > 0)
+	if(!stat && battletension.tension && amount > 0)
 		battletension.tension += amount
 	else
 		battletension.tension = amount
@@ -114,10 +114,6 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 			bm.volume = 80
 			SEND_SOUND(owner, bm)
 			bm.status = SOUND_UPDATE
-
-	if(owner.stat)
-		tension = 0
-		return
 
 	if(tension > 0)
 		tension -= 2
