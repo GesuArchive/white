@@ -19,7 +19,8 @@
 	premium = list(
 						/obj/item/book/granter/martial/cqc = 1,
 						/obj/item/disk/surgery/brainwashing = 1,
-						/obj/item/gun/chem = 1
+						/obj/item/gun/chem = 1,
+						/obj/item/gun/blastcannon = 1
 					)
 
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
