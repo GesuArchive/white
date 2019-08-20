@@ -10,7 +10,7 @@ GLOBAL_VAR_INIT(prikol_mode, FALSE)
 	var/killcount = 0
 	var/killstreak = 0
 	var/maxkillstreak = 0
-	var/time4kill = 7
+	var/time4kill = 10
 	var/timer = 0
 	var/force_enable = FALSE
 
