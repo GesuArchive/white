@@ -423,6 +423,10 @@
 	config_entry_value = 50
 	integer = FALSE
 
+/datum/config_entry/number/spp
+	config_entry_value = 20
+	min_val = 0
+
 /datum/config_entry/flag/irc_announce_new_game
 	deprecated_by = /datum/config_entry/string/chat_announce_new_game
 

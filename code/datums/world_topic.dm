@@ -149,7 +149,7 @@
 	.["ai"] = CONFIG_GET(flag/allow_ai)
 	.["host"] = world.host ? world.host : null
 	.["round_id"] = GLOB.round_id
-	.["players"] = GLOB.clients.len
+	.["players"] = CONFIG_GET(number/spp) + GLOB.clients.len
 	.["revision"] = GLOB.revdata.commit
 	.["revision_date"] = GLOB.revdata.date
 
@@ -194,7 +194,7 @@
 	log = FALSE
 
 /datum/world_topic/players/Run(list/input)
-	return GLOB.player_list.len
+	return CONFIG_GET(number/spp) + GLOB.player_list.len
 
 /datum/world_topic/adminwho
 	keyword = "adminwho"
