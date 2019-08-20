@@ -53,13 +53,11 @@
 	cost = 2
 	surplus = 10
 
-/datum/uplink_item/fate_dice
+/datum/uplink_item/badass/fate_dice
 	name = "Fate D20"
-	category = "Devices and Tools"
 	desc = "Prikol."
 	item = /obj/item/dice/d20/fate/one_use
 	cost = 20
-	surplus = 10
 
 /datum/crafting_recipe/cookbook
 	always_availible = FALSE
