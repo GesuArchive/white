@@ -167,9 +167,15 @@ GLOBAL_LIST_EMPTY(doppler_arrays)
 			point_gain = 1000
 		var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_SCI)
 		if(D)
-			D.adjust_money(point_gain)
+			var/ancapbucks = 0
+			if(point_gain > 50000)
+				ancapbucks = 50000
+			else
+				ancapbucks = point_gain
+
+			D.adjust_money(ancapbucks)
 			linked_techweb.add_point_type(TECHWEB_POINT_TYPE_DEFAULT, point_gain)
-			say("Explosion details and mixture analyzed and sold to the highest bidder for $[point_gain], with a reward of [point_gain] points.")
+			say("Explosion details and mixture analyzed and sold to the highest bidder for $[ancapbucks], with a reward of [point_gain] points.")
 
 	else //you've made smaller bombs
 		say("Data already captured. Aborting.")
