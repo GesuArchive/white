@@ -1494,7 +1494,7 @@
 		usr.client.Getmob(M)
 
 	else if(href_list["sendmob"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/M = locate(href_list["sendmob"])
