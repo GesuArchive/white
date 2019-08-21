@@ -277,3 +277,12 @@ proc/check_donations(ckey)
 		return 1
 	else
 		return 0
+
+/datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if (!H.client)
+		return
+
+	if (H.client.ckey == "VanoTyan")
+		special_item = new /obj/item/gun/energy/laser/lovegun(get_turf(H))
+		H.equip_in_one_of_slots(special_item, SLOT_IN_BACKPACK, FALSE)

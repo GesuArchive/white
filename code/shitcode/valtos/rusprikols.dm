@@ -223,7 +223,9 @@
 	item_state = "dildo"
 	icon = 'code/shitcode/valtos/icons/melee.dmi'
 	desc = "Сила магии дружбы проникает в тебя, пока ты смотришь на это."
+	fire_sound = 'sound/weapons/gunshot_silenced.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/lovegun)
+	selfcharge = 1
 	clumsy_check = 0
 	item_flags = NONE
 
@@ -237,7 +239,13 @@
 	icon_state = "heart"
 	icon = 'code/shitcode/valtos/icons/projectiles.dmi'
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 1
+	damage = 0
+	speed = 0.4
 	light_range = 2
+	eyeblur = 0
 	damage_type = STAMINA
 	light_color = LIGHT_COLOR_PINK
+
+/obj/item/projectile/beam/lovegun/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	new /obj/effect/temp_visual/love_heart(get_turf(target.loc))
