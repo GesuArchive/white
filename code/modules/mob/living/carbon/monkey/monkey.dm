@@ -86,7 +86,7 @@
 
 /mob/living/carbon/monkey/Stat()
 	..()
-	if(statpanel("Status"))
+	if(statpanel("Game"))
 		stat(null, "Intent: [a_intent]")
 		stat(null, "Move Mode: [m_intent]")
 		if(client && mind)

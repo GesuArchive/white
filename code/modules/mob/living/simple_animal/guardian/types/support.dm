@@ -22,7 +22,7 @@
 
 /mob/living/simple_animal/hostile/guardian/healer/Stat()
 	..()
-	if(statpanel("Status"))
+	if(statpanel("Game"))
 		if(beacon_cooldown >= world.time)
 			stat(null, "Beacon Cooldown Remaining: [DisplayTimeText(beacon_cooldown - world.time)]")
 

@@ -90,7 +90,7 @@
 /mob/living/carbon/alien/Stat()
 	..()
 
-	if(statpanel("Status"))
+	if(statpanel("Game"))
 		stat(null, "Intent: [a_intent]")
 
 /mob/living/carbon/alien/getTrail()

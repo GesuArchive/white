@@ -123,7 +123,7 @@
 
 /mob/living/simple_animal/hostile/swarmer/Stat()
 	..()
-	if(statpanel("Status"))
+	if(statpanel("Game"))
 		stat("Resources:",resources)
 
 /mob/living/simple_animal/hostile/swarmer/emp_act()

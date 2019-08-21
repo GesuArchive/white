@@ -60,7 +60,7 @@
 /mob/living/carbon/human/Stat()
 	..()
 
-	if(statpanel("Status"))
+	if(statpanel("Game"))
 		stat(null, "Intent: [a_intent]")
 		stat(null, "Move Mode: [m_intent]")
 		if (internal)

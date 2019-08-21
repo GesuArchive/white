@@ -165,7 +165,7 @@
 
 /mob/living/silicon/pai/Stat()
 	..()
-	if(statpanel("Status"))
+	if(statpanel("Game"))
 		if(!stat)
 			stat(null, text("Emitter Integrity: [emitterhealth * (100/emittermaxhealth)]"))
 		else

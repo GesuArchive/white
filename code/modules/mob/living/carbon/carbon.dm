@@ -419,7 +419,7 @@
 
 /mob/living/carbon/Stat()
 	..()
-	if(statpanel("Status"))
+	if(statpanel("Game"))
 		var/obj/item/organ/alien/plasmavessel/vessel = getorgan(/obj/item/organ/alien/plasmavessel)
 		if(vessel)
 			stat(null, "Plasma Stored: [vessel.storedPlasma]/[vessel.max_plasma]")

@@ -299,7 +299,7 @@
 
 /mob/living/simple_animal/Stat()
 	..()
-	if(statpanel("Status"))
+	if(statpanel("Game"))
 		stat(null, "Health: [round((health / maxHealth) * 100)]%")
 		return 1
 
