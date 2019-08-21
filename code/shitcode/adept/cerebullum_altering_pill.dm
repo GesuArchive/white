@@ -14,7 +14,7 @@
         C.gain_trauma(/datum/brain_trauma/special/psychotic_brawling)
 
 /obj/item/reagent_containers/pill/psychosis_drug_pill
-	name = "Cerebullum altering pill."
+	name = "Cerebullum altering pill"
 	desc = "Makes you mad."
 	icon_state = "pill5"
 	list_reagents = list(/datum/reagent/drug/psychosis_drug = 1)
