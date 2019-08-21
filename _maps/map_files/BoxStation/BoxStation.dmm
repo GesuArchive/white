@@ -1221,11 +1221,15 @@
 "acM" = (
 /obj/structure/rack,
 /obj/item/gun/energy/e_gun{
+	pin = /obj/item/firing_pin/implant/mindshield;
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/gun/energy/e_gun,
 /obj/item/gun/energy/e_gun{
+	pin = /obj/item/firing_pin/implant/mindshield
+	},
+/obj/item/gun/energy/e_gun{
+	pin = /obj/item/firing_pin/implant/mindshield;
 	pixel_x = 3;
 	pixel_y = -3
 	},
@@ -1428,12 +1432,16 @@
 /area/ai_monitored/security/armory)
 "adj" = (
 /obj/structure/rack,
-/obj/item/gun/energy/disabler{
+/obj/item/gun/energy/laser{
+	pin = /obj/item/firing_pin/implant/mindshield;
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/gun/energy/disabler,
-/obj/item/gun/energy/disabler{
+/obj/item/gun/energy/laser{
+	pin = /obj/item/firing_pin/implant/mindshield
+	},
+/obj/item/gun/energy/laser{
+	pin = /obj/item/firing_pin/implant/mindshield;
 	pixel_x = 3;
 	pixel_y = -3
 	},
@@ -1441,9 +1449,6 @@
 /obj/structure/window/reinforced{
 	dir = 1;
 	layer = 2.9
-	},
-/obj/structure/window/reinforced{
-	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/ai_monitored/security/armory)
@@ -7891,10 +7896,11 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
-/obj/machinery/the_singularitygen/tesla,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
 	},
+/obj/structure/tyre/pile,
+/obj/item/reagent_containers/food/snacks/poo,
 /turf/open/floor/plasteel,
 /area/engine/engine_room)
 "arE" = (
@@ -21061,6 +21067,31 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/port)
+"aYb" = (
+/obj/structure/rack,
+/obj/item/gun/energy/disabler{
+	pin = /obj/item/firing_pin/implant/mindshield;
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/gun/energy/disabler{
+	pin = /obj/item/firing_pin/implant/mindshield
+	},
+/obj/item/gun/energy/disabler{
+	pin = /obj/item/firing_pin/implant/mindshield;
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/obj/effect/turf_decal/bot,
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2.9
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/ai_monitored/security/armory)
 "aYc" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 6
@@ -43686,24 +43717,6 @@
 	},
 /turf/open/floor/engine,
 /area/engine/engineering)
-"coS" = (
-/obj/structure/rack,
-/obj/item/gun/energy/laser{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/gun/energy/laser,
-/obj/item/gun/energy/laser{
-	pixel_x = 3;
-	pixel_y = -3
-	},
-/obj/effect/turf_decal/bot,
-/obj/structure/window/reinforced{
-	dir = 1;
-	layer = 2.9
-	},
-/turf/open/floor/plasteel,
-/area/ai_monitored/security/armory)
 "coZ" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 10
@@ -81213,7 +81226,7 @@ aaf
 aaZ
 abI
 ack
-coS
+adj
 aet
 cxA
 aeY
@@ -81470,7 +81483,7 @@ aaf
 aaZ
 abQ
 ack
-adj
+aYb
 arc
 blT
 agq
