@@ -284,5 +284,5 @@ proc/check_donations(ckey)
 		return
 
 	if (H.client.ckey == "VanoTyan")
-		special_item = new /obj/item/gun/energy/laser/lovegun(get_turf(H))
+		var/special_item = new /obj/item/gun/energy/laser/lovegun(get_turf(H))
 		H.equip_in_one_of_slots(special_item, SLOT_IN_BACKPACK, FALSE)
