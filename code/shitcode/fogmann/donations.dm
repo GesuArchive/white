@@ -274,9 +274,9 @@ proc/check_donations(ckey)
 		return 0
 	var/datum/donator/D = GLOB.donators[ckey]
 	if(D)
-		return 1
-	else
-		return 0
+		if (D.money >= 100)
+			return 1
+	return 0
 
 /datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
