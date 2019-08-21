@@ -154,11 +154,17 @@
 	lethal_projectile = /obj/item/projectile/beam/laser/heavylaser
 	lethal_projectile_sound = 'sound/weapons/lasercannonfire.ogg'
 	mode = TURRET_LETHAL
-	faction = list("silicon","turret") //Minebots, medibots, etc that should not be shot.
+	faction = list("silicon","turret")
 
 /obj/machinery/porta_turret/armory/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/empprotection, EMP_PROTECT_SELF | EMP_PROTECT_WIRES)
+
+/obj/machinery/porta_turret/armory/setup()
+	return
+
+/obj/machinery/porta_turret/armory/interact(mob/user)
+	return
 
 /obj/item/melee/classic_baton/dildon
 	name = "dildo"
@@ -201,7 +207,7 @@
 /obj/item/projectile/bullet/traumatic
 	name = ".45 traumatic bullet"
 	damage = 3 //наша резина делает больно, не более
-	stamina = 50
+	stamina = 90
 
 /datum/design/traumatic
 	name = ".45 traumatic magazine"
