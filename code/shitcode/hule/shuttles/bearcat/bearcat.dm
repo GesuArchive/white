@@ -1,14 +1,22 @@
-///////////////////////////CSV Bearcat////////////////////////////
+///////////////////////////CSV Bearcat Ruin////////////////////////////
 
 /datum/map_template/ruin/space/bearcat
 	id = "bearcat"
 	prefix = "code/shitcode/hule/shuttles/bearcat/"
-	suffix = "bearcat_trading.dmm"
+	suffix = "bearcat_dock.dmm"
 	name = "CSV Bearcat"
 	//unpickable = TRUE
 
-///////////////////////////Areas//////////////////////////////////
+/datum/map_template/shuttle/bearcat
+	name = "CSV Bearcat"
+	prefix = "code/shitcode/hule/shuttles/bearcat/"
+	port_id = "bearcat"
+	suffix = "template"
 
+/datum/map_template/shuttle/bearcat/trading
+	suffix = "trading"
+
+///////////////////////////Areas//////////////////////////////////
 
 /area/shuttle/bearcat
 	name = "CSV Bearcat"
@@ -86,8 +94,8 @@
 	shuttlePortId = "bearcat_custom"
 	shuttlePortName = "custom location"
 	view_range = 20
-//	x_offset = 8
-	y_offset = -17
+	x_offset = 8
+	y_offset = -12
 	z_lock = list(3,4,7,8,9,10,12,13)
 
 /obj/machinery/computer/shuttle/bearcat
@@ -106,13 +114,16 @@
 	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0)
 	engine_coeff = 30
 
+/*
 /obj/docking_port/mobile/bearcat/Initialize()
 	. = ..()
 	register()
+*/
 
 /obj/docking_port/stationary/bearcat
 	name = "CSV Bearcat Away"
 	id = "bearcat_away"
+	roundstart_template = /datum/map_template/shuttle/bearcat/trading
 	width = 29
 	dwidth = 6
 	height = 44
