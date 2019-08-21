@@ -280,9 +280,9 @@ proc/check_donations(ckey)
 
 /datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	if (!H.client)
+	if (!H.ckey)
 		return
 
-	if (H.client.ckey == "VanoTyan")
+	if (H.ckey == "VanoTyan")
 		var/special_item = new /obj/item/gun/energy/laser/lovegun(get_turf(H))
 		H.equip_in_one_of_slots(special_item, SLOT_IN_BACKPACK, FALSE)

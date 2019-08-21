@@ -240,7 +240,7 @@
 	icon = 'code/shitcode/valtos/icons/projectiles.dmi'
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	damage = 0
-	speed = 0.4
+	speed = 1.4
 	light_range = 2
 	eyeblur = 0
 	damage_type = STAMINA
