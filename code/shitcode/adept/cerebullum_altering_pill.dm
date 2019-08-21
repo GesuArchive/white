@@ -6,12 +6,15 @@
     overdose_threshold = 20
     addiction_threshold = 10
     taste_description = "salt"
+    var/datum/martial_art/psychotic_brawling/pb
 
 /datum/reagent/drug/psychosis_drug/on_mob_add(mob/M)
     ..()
-    if(iscarbon(M))
-        var/mob/living/carbon/C = M
-        C.gain_trauma(/datum/brain_trauma/special/psychotic_brawling)
+    pb = new(null)
+    if(ishuman(M))
+        var/mob/living/carbon/human/H = M
+        pb.teach(H, FALSE)
+        //H.gain_trauma(/datum/brain_trauma/special/psychotic_brawling)
 
 /obj/item/reagent_containers/pill/psychosis_drug_pill
 	name = "Cerebullum altering pill"
