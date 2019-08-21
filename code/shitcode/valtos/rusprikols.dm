@@ -216,3 +216,28 @@
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 5000)
 	build_path = /obj/item/ammo_box/magazine/traumatic
 	category = list("initial", "Security")
+
+/obj/item/gun/energy/laser/lovegun
+	name = "love gun"
+	icon_state = "dildo"
+	item_state = "dildo"
+	icon = 'code/shitcode/valtos/icons/melee.dmi'
+	desc = "Сила магии дружбы проникает в тебя, пока ты смотришь на это."
+	ammo_type = list(/obj/item/ammo_casing/energy/laser/lovegun)
+	clumsy_check = 0
+	item_flags = NONE
+
+/obj/item/ammo_casing/energy/laser/lovegun
+	projectile_type = /obj/item/projectile/beam/lovegun
+	select_name = "lovegun"
+	harmful = FALSE
+
+/obj/item/projectile/beam/lovegun
+	name = "heart"
+	icon_state = "heart"
+	icon = 'code/shitcode/valtos/icons/projectiles.dmi'
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	damage = 1
+	light_range = 2
+	damage_type = STAMINA
+	light_color = LIGHT_COLOR_PINK
