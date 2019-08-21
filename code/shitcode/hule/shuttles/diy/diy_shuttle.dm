@@ -80,10 +80,6 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	desc = "Priva."
 	template = new /datum/map_template/shuttle/capsule/diyshuttle
 
-/obj/item/shuttlespawner/diyshuttle/Initialize()
-	. = ..()
-	if(template)
-		template.port_id += "[GLOB.diy_shuttle_count]"
 
 /obj/item/shuttlespawner/diyshuttle/attack_self()
 	. = ..()
