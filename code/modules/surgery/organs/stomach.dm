@@ -42,7 +42,7 @@
 			H.vomit(damage)
 			to_chat(H, "<span class='warning'>Your stomach reels in pain as you're incapable of holding down all that food!</span>")
 
-	if(!H.nutrition)
+	if(H.nutrition <= 50)
 		applyOrganDamage(1)
 
 /obj/item/organ/stomach/proc/handle_disgust(mob/living/carbon/human/H)
