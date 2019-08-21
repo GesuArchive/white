@@ -32,7 +32,10 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		battletension = new /datum/btension
 		battletension.owner = src
 
-	if(!battletension || !client && !client.prefs.battlemusic)
+	if(!battletension || !client)
+		return
+
+	if(!client.prefs.battlemusic) //client != null? Let's runtime monkeys
 		return
 
 	if(!stat && battletension.tension && amount > 0)
