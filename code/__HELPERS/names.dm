@@ -124,7 +124,7 @@ GLOBAL_VAR(command_name)
 		if(5)
 			new_station_name += pick(GLOB.numbers_as_words)
 		if(13)
-			new_station_name += pick("13","XIII","Thirteen")
+			new_station_name += pick("13","XIII","Тринадцать")
 	return new_station_name
 
 /proc/syndicate_name()
