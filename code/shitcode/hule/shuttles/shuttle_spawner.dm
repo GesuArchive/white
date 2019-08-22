@@ -25,14 +25,14 @@
 		var/turf/deploy_location = get_turf(src)
 		var/status = template.check_deploy(deploy_location)
 		switch(status)
-			if(SHELTER_DEPLOY_BAD_AREA)
+			if("bad area")
 				src.loc.visible_message("<span class='warning'>\The [src] will not function in this area.</span>")
-			if(SHELTER_DEPLOY_BAD_TURFS, SHELTER_DEPLOY_ANCHORED_OBJECTS)
+			if("bad turfs", "anchored objects")
 				var/width = template.width
 				var/height = template.height
 				src.loc.visible_message("<span class='warning'>\The [src] doesn't have room to deploy! You need to clear a [width]x[height] area!</span>")
 
-		if(status != SHELTER_DEPLOY_ALLOWED)
+		if(status != "allowed")
 			used = FALSE
 			return
 
@@ -57,23 +57,22 @@
 /datum/map_template/shuttle/capsule/New()
 	. = ..()
 	blacklisted_turfs = typecacheof(/turf/closed)
-	whitelisted_turfs = list(/turf/open/space/basic)
+	whitelisted_turfs = typecacheof(/turf/open/space/basic)
 	banned_areas = typecacheof(/area/shuttle)
-	banned_objects = list()
 
 /datum/map_template/shuttle/capsule/proc/check_deploy(turf/deploy_location)
 	var/affected = get_affected_turfs(deploy_location, centered=TRUE)
 	for(var/turf/T in affected)
 		var/area/A = get_area(T)
 		if(is_type_in_typecache(A, banned_areas))
-			return SHELTER_DEPLOY_BAD_AREA
+			return "bad area"
 
 		var/banned = is_type_in_typecache(T, blacklisted_turfs)
 		var/permitted = is_type_in_typecache(T, whitelisted_turfs)
 		if(banned && !permitted)
-			return SHELTER_DEPLOY_BAD_TURFS
+			return "bad turfs"
 
 		for(var/obj/O in T)
 			if((O.density && O.anchored) || is_type_in_typecache(O, banned_objects))
-				return SHELTER_DEPLOY_ANCHORED_OBJECTS
-	return SHELTER_DEPLOY_ALLOWED
+				return "anchored objects"
+	return "allowed"
