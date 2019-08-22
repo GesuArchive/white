@@ -274,7 +274,7 @@ proc/check_donations(ckey)
 		return 0
 	var/datum/donator/D = GLOB.donators[ckey]
 	if(D)
-		if (D.money >= 100)
+		if (D.maxmoney >= 50)
 			return 1
 	return 0
 
