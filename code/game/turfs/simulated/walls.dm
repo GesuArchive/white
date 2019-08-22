@@ -77,7 +77,7 @@
 	if(girder_type)
 		new /obj/item/stack/sheet/metal(src)
 
-/turf/closed/wall/ex_act(severity, target)
+/turf/closed/wall/ex_act(severity, target, prikolist)
 	if(target == src)
 		dismantle_wall(1,1)
 		return
@@ -85,7 +85,7 @@
 		if(1)
 			//SN src = null
 			var/turf/NT = ScrapeAway()
-			NT.contents_explosion(severity, target)
+			NT.contents_explosion(severity, target, prikolist)
 			return
 		if(2)
 			if (prob(50))

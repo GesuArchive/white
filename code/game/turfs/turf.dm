@@ -449,7 +449,7 @@
 			if(isliving(A) && prikolist)
 				var/mob/living/L = A
 				L.lastattackerckey = prikolist
-			A.ex_act(severity, target)
+			A.ex_act(severity, target, prikolist)
 			CHECK_TICK
 
 /turf/narsie_act(force, ignore_mobs, probability = 20)
