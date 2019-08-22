@@ -4,8 +4,8 @@ GLOBAL_LIST_EMPTY(explosions)
 //Against my better judgement, I will return the explosion datum
 //If I see any GC errors for it I will find you
 //and I will gib you
-/proc/explosion(atom/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = TRUE, ignorecap = FALSE, flame_range = 0, silent = FALSE, smoke = FALSE)
-	return new /datum/explosion(epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog, ignorecap, flame_range, silent, smoke)
+/proc/explosion(atom/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = TRUE, ignorecap = FALSE, flame_range = 0, silent = FALSE, smoke = FALSE, initiatorckey)
+	return new /datum/explosion(epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog, ignorecap, flame_range, silent, smoke, initiatorckey)
 
 //This datum creates 3 async tasks
 //1 GatherSpiralTurfsProc runs spiral_range_turfs(tick_checked = TRUE) to populate the affected_turfs list
@@ -33,7 +33,7 @@ GLOBAL_LIST_EMPTY(explosions)
 		EX_PREPROCESS_EXIT_CHECK\
 	}
 
-/datum/explosion/New(atom/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog, ignorecap, flame_range, silent, smoke)
+/datum/explosion/New(atom/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog, ignorecap, flame_range, silent, smoke, initiatorckey)
 	set waitfor = FALSE
 
 	var/id = ++id_counter
@@ -211,7 +211,10 @@ GLOBAL_LIST_EMPTY(explosions)
 		if(dist > EXPLODE_NONE)
 			T.explosion_level = max(T.explosion_level, dist)	//let the bigger one have it
 			T.explosion_id = id
-			T.ex_act(dist)
+			if(initiatorckey)
+				T.ex_act(dist, prikolist = initiatorckey)
+			else
+				T.ex_act(dist)
 			exploded_this_tick += T
 
 		//--- THROW ITEMS AROUND ---

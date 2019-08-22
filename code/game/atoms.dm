@@ -503,7 +503,7 @@
 	return FALSE
 
 /// Handle what happens when your contents are exploded by a bomb
-/atom/proc/contents_explosion(severity, target)
+/atom/proc/contents_explosion(severity, target, prikolist)
 	return //For handling the effects of explosions on contents that would not normally be effected
 
 /**
@@ -511,9 +511,9 @@
   *
   * Default behaviour is to call contents_explosion() and send the COMSIG_ATOM_EX_ACT signal
   */
-/atom/proc/ex_act(severity, target)
+/atom/proc/ex_act(severity, target, prikolist)
 	set waitfor = FALSE
-	contents_explosion(severity, target)
+	contents_explosion(severity, target, prikolist)
 	SEND_SIGNAL(src, COMSIG_ATOM_EX_ACT, severity, target)
 
 /**

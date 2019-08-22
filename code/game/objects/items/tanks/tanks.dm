@@ -250,7 +250,7 @@
 		var/turf/epicenter = get_turf(loc)
 
 
-		explosion(epicenter, round(range*0.25), round(range*0.5), round(range), round(range*1.5))
+		explosion(epicenter, round(range*0.25), round(range*0.5), round(range), round(range*1.5), initiatorckey = fingerprintslast)
 		if(istype(src.loc, /obj/item/transfer_valve))
 			qdel(src.loc)
 		else
