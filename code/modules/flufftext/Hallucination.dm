@@ -677,6 +677,8 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		"[pick_list_replacements(HAL_LINES_FILE, "threat")] в [pick_list_replacements(HAL_LINES_FILE, "location")][prob(50)?"!":"!!"]",\
 		"[pick("Где [target.first_name()]?", "Аррестуйте [target.first_name()]!")]",\
 		"[pick("По","Кто-нибудь, по","От")]зовите шаттл!",\
+		"[pick_list_replacements(HAL_LINES_FILE, "prikols")]",\
+		"У [pick_list_replacements(HAL_LINES_FILE, "jobs")] [pick_list_replacements(HAL_LINES_FILE, "tator-items")]!!!",\
 		"ИИ [pick("сбойный", "уничтожен")]!!")
 
 	var/mob/living/carbon/person = null
