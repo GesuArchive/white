@@ -114,23 +114,23 @@
 /obj/item/gun/examine(mob/user)
 	. = ..()
 	if(pin)
-		. += "It has \a [pin] installed."
+		. += "Внутри установлен боёк типа [pin.ru_name]."
 	else
-		. += "It doesn't have a <b>firing pin</b> installed, and won't fire."
+		. += "Внутри отсутствует <b>боёк</b>, поэтому оно не будет стрелять."
 
 	if(gun_light)
-		. += "It has \a [gun_light] [can_flashlight ? "" : "permanently "]mounted on it."
+		. += "На нём установлен [gun_light.ru_name], который [can_flashlight ? "" : "надёжно "]прикручен к нему."
 		if(can_flashlight) //if it has a light and this is false, the light is permanent.
-			. += "<span class='info'>[gun_light] looks like it can be <b>unscrewed</b> from [src].</span>"
+			. += "<span class='info'>Похоже [gun_light.ru_name] может быть <b>откручен</b> от [src.ru_name].</span>"
 	else if(can_flashlight)
-		. += "It has a mounting point for a <b>seclite</b>."
+		. += "Здесь присутствует посадочное место для <b>фонарика</b>."
 
 	if(bayonet)
-		. += "It has \a [bayonet] [can_bayonet ? "" : "permanently "]affixed to it."
+		. += "На нём установлен [bayonet.ru_name], который [can_bayonet ? "" : "надёжно "]прикреплён к нему."
 		if(can_bayonet) //if it has a bayonet and this is false, the bayonet is permanent.
-			. += "<span class='info'>[bayonet] looks like it can be <b>unscrewed</b> from [src].</span>"
+			. += "<span class='info'>Похоже [bayonet.ru_name] может быть <b>откручен</b> от [src.ru_name].</span>"
 	else if(can_bayonet)
-		. += "It has a <b>bayonet</b> lug on it."
+		. += "Похоже сюда можно прикрепить <b>штык</b>."
 
 /obj/item/gun/equipped(mob/living/user, slot)
 	. = ..()
@@ -161,9 +161,9 @@
 		playsound(user, fire_sound, fire_sound_volume, vary_fire_sound)
 		if(message)
 			if(pointblank)
-				user.visible_message("<span class='danger'>[user] стреляет из [src] <b>В УПОР</b> по [pbtarget]!</span>", null, null, COMBAT_MESSAGE_RANGE)
+				user.visible_message("<span class='danger'><b>[user]</b> стреляет из [src.ru_name] <b>В УПОР</b> по <b>[pbtarget]</b>!</span>", null, null, COMBAT_MESSAGE_RANGE)
 			else
-				user.visible_message("<span class='danger'>[user] стреляет из [src]!</span>", null, null, COMBAT_MESSAGE_RANGE)
+				user.visible_message("<span class='danger'><b>[user]</b> стреляет из [src.ru_name]!</span>", null, null, COMBAT_MESSAGE_RANGE)
 
 /obj/item/gun/emp_act(severity)
 	. = ..()
@@ -203,14 +203,14 @@
 	if(clumsy_check)
 		if(istype(user))
 			if (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(40))
-				to_chat(user, "<span class='userdanger'>Вы стреляете себе в ногу из [src]!</span>")
+				to_chat(user, "<span class='userdanger'>Вы стреляете себе в ногу из [src.ru_name]!</span>")
 				var/shot_leg = pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 				process_fire(user, user, FALSE, params, shot_leg)
 				user.dropItemToGround(src, TRUE)
 				return
 
 	if(weapon_weight == WEAPON_HEAVY && user.get_inactive_held_item())
-		to_chat(user, "<span class='warning'>Нужно держать [src] в обеих руках!</span>")
+		to_chat(user, "<span class='warning'>Нужно держать [src.ru_name] в обеих руках!</span>")
 		return
 
 	//DUAL (or more!) WIELDING

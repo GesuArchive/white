@@ -122,7 +122,8 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Music Writer",				/obj/machinery/party/musicwriter,				450),
 		new /datum/donate_info("TTS ears",					/obj/item/organ/ears/cat/tts,                   500),
 		new /datum/donate_info("DIY Shuttle capsule",		/obj/item/shuttlespawner/diyshuttle,			500),
-		new /datum/donate_info("Anonist Mask",				/obj/item/clothing/mask/gas/anonist,			100)
+		new /datum/donate_info("Anonist Mask",				/obj/item/clothing/mask/gas/anonist,			100),
+		new /datum/donate_info("Love Gun", 					/obj/item/gun/energy/lovegun, 					301,	"VanoTyan")
 	)
 ))
 
@@ -130,6 +131,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 	var/name
 	var/path_to
 	var/cost = 0
+	var/special = null
 
 /datum/donate_info/New(name, path, cost)
 	src.name = name
@@ -182,10 +184,6 @@ GLOBAL_LIST_EMPTY(donators)
 	dat += "<h3>МАШИНА ДОНАТОВ. Баланс: [money]</h3>"
 	dat += "<div class='statusDisplay'>"
 	dat += "<table>"
-	if (user.ckey == "VanoTyan")
-		new var/datum/donate_info/special_item("Love Gun", /obj/item/gun/energy/laser/lovegun, 100)
-		dat += "<tr><td></td><td><center><b>!! SPECIAL STUFF !!</b></center></td><td></td><td></td></tr>"
-		dat += "<tr><td><img src='data:image/jpeg;base64,[GetIconForProduct(special_item)]'/></td><td>[special_item.name]</td><td>[special_item.cost]</td><td><A href='?src=\ref[src];getdonate=\ref[special_item]'>Получить</A></td></tr>"
 	for(var/L in GLOB.donations_list)
 		dat += "<tr><td></td><td><center><b>[L]</b></center></td><td></td><td></td></tr>"
 		for(var/datum/donate_info/prize in GLOB.donations_list[L])
@@ -235,6 +233,11 @@ GLOBAL_LIST_EMPTY(donators)
 
 	if(user.stat)
 		return 0
+	
+	if(prize.special)
+		if (prize.special != user.ckey)
+			to_chat(user,"<span class='warning'>Этот предмет предназначен для [prize.special].</span>")
+			return 0
 
 	var/list/slots = list(
 		"сумке" = SLOT_IN_BACKPACK,
