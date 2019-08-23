@@ -183,7 +183,7 @@ GLOBAL_LIST_EMPTY(donators)
 	dat += "<div class='statusDisplay'>"
 	dat += "<table>"
 	if (user.ckey == "VanoTyan")
-		new /datum/donate_info/special_item("Love Gun", /obj/item/gun/energy/laser/lovegun, 100)
+		new var/datum/donate_info/special_item("Love Gun", /obj/item/gun/energy/laser/lovegun, 100)
 		dat += "<tr><td></td><td><center><b>!! SPECIAL STUFF !!</b></center></td><td></td><td></td></tr>"
 		dat += "<tr><td><img src='data:image/jpeg;base64,[GetIconForProduct(special_item)]'/></td><td>[special_item.name]</td><td>[special_item.cost]</td><td><A href='?src=\ref[src];getdonate=\ref[special_item]'>Получить</A></td></tr>"
 	for(var/L in GLOB.donations_list)
