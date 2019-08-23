@@ -184,13 +184,13 @@
 			organ_hit_text = " в [ru_parse_zone(parse_zone(limb_hit))]"
 		if(suppressed)
 			playsound(loc, hitsound, 5, 1, -1)
-			to_chat(L, "<span class='userdanger'>В <b>тебя</b> попадает [src.ru_name][organ_hit_text]!</span>")
+			to_chat(L, "<span class='userdanger'>В <b>тебя</b> попадает [src.name][organ_hit_text]!</span>")
 		else
 			if(hitsound)
 				var/volume = vol_by_damage()
 				playsound(loc, hitsound, volume, 1, -1)
-			L.visible_message("<span class='danger'>В <b>[L]</b> попадает [src.ru_name][organ_hit_text]!</span>", \
-					"<span class='userdanger'>В <b>[L]<b> попадает [src.ru_name][organ_hit_text]!</span>", null, COMBAT_MESSAGE_RANGE)
+			L.visible_message("<span class='danger'>В <b>[L]</b> попадает [src.name][organ_hit_text]!</span>", \
+					"<span class='userdanger'>В <b>[L]<b> попадает [src.name][organ_hit_text]!</span>", null, COMBAT_MESSAGE_RANGE)
 
 		if(def_zone == BODY_ZONE_HEAD && GLOB.prikol_mode && !istype(src, /obj/item/projectile/bullet/a15mm))
 			playsound(src,'code/shitcode/hule/SFX/csSFX/headshot.wav', 100, 5, pressure_affected = FALSE)
