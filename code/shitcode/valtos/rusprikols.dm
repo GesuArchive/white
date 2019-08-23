@@ -224,7 +224,7 @@
 	icon = 'code/shitcode/valtos/icons/melee.dmi'
 	desc = "Сила магии дружбы проникает в тебя, пока ты смотришь на это."
 	fire_sound = 'code/shitcode/valtos/sounds/love/shot1.ogg'
-	var/list/random_sound =('code/shitcode/valtos/sounds/love/shot1.ogg',
+	var/list/random_sound = list('code/shitcode/valtos/sounds/love/shot1.ogg',
 							'code/shitcode/valtos/sounds/love/shot2.ogg',
 							'code/shitcode/valtos/sounds/love/shot3.ogg',
 							'code/shitcode/valtos/sounds/love/shot4.ogg',
@@ -239,7 +239,7 @@
 	clumsy_check = 0
 	item_flags = NONE
 
-/obj/item/gun/energy/process_chamber()
+/obj/item/gun/energy/lovegun/process_chamber()
 	. = ..()
 	fire_sound = pick(random_sound)
 
