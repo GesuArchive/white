@@ -161,9 +161,9 @@
 		playsound(user, fire_sound, fire_sound_volume, vary_fire_sound)
 		if(message)
 			if(pointblank)
-				user.visible_message("<span class='danger'><b>[user]</b> стреляет из [src.ru_name] <b>В УПОР</b> по <b>[pbtarget]</b>!</span>", null, null, COMBAT_MESSAGE_RANGE)
+				user.visible_message("<span class='danger'><b>[user]</b> стреляет из [src.name] <b>В УПОР</b> по <b>[pbtarget]</b>!</span>", null, null, COMBAT_MESSAGE_RANGE)
 			else
-				user.visible_message("<span class='danger'><b>[user]</b> стреляет из [src.ru_name]!</span>", null, null, COMBAT_MESSAGE_RANGE)
+				user.visible_message("<span class='danger'><b>[user]</b> стреляет из [src.name]!</span>", null, null, COMBAT_MESSAGE_RANGE)
 
 /obj/item/gun/emp_act(severity)
 	. = ..()

@@ -110,7 +110,7 @@
 		if(!blocked)
 			visible_message("<span class='danger'>В <b>[src]</b> попадает <b>[I.ru_name]</b>!</span>", \
 							"<span class='userdanger'>В <b>тебя</b> попадает [I.ru_name]!</span>")
-			var/armor = run_armor_check(zone, "melee", "Ваша броня защищает вашу [ru_parse_zone(zone)].", "Ваша броня смягчает удар в [ru_parse_zone(zone)].",I.armour_penetration)
+			var/armor = run_armor_check(zone, "melee", "Ваша броня защищает вашу [ru_parse_zone(parse_zone(zone))].", "Ваша броня смягчает удар в [ru_parse_zone(parse_zone(zone))].",I.armour_penetration)
 			apply_damage(I.throwforce, dtype, zone, armor)
 
 			if(I.thrownby)

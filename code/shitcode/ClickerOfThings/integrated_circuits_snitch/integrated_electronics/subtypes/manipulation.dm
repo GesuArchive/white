@@ -102,7 +102,7 @@
 		var/target_x = CLAMP(T.x + xo.data, 0, world.maxx)
 		var/target_y = CLAMP(T.y + yo.data, 0, world.maxy)
 
-		assembly.visible_message("<span class='danger'><b>[assembly]</b> стреляет из [installed_gun.ru_name]!</span>")
+		assembly.visible_message("<span class='danger'><b>[assembly]</b> стреляет из [installed_gun.name]!</span>")
 		shootAt(locate(target_x, target_y, T.z))
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/proc/shootAt(turf/target)

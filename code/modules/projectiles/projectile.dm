@@ -181,7 +181,7 @@
 		var/organ_hit_text = ""
 		var/limb_hit = L.check_limb_hit(def_zone)//to get the correct message info.
 		if(limb_hit)
-			organ_hit_text = " в [ru_parse_zone(limb_hit)]"
+			organ_hit_text = " в [ru_parse_zone(parse_zone(limb_hit))]"
 		if(suppressed)
 			playsound(loc, hitsound, 5, 1, -1)
 			to_chat(L, "<span class='userdanger'>В <b>тебя</b> попадает [src.ru_name][organ_hit_text]!</span>")
