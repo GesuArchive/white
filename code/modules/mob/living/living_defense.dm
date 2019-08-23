@@ -108,9 +108,9 @@
 		if(!I.throwforce)// Otherwise, if the item's throwforce is 0...
 			playsound(loc, 'sound/weapons/throwtap.ogg', 1, volume, -1)//...play throwtap.ogg.
 		if(!blocked)
-			visible_message("<span class='danger'>В [src] попадает [I]!</span>", \
-							"<span class='userdanger'>В тебя попадает [I]!</span>")
-			var/armor = run_armor_check(zone, "melee", "Your armor has protected your [parse_zone(zone)].", "Your armor has softened hit to your [parse_zone(zone)].",I.armour_penetration)
+			visible_message("<span class='danger'>В <b>[src]</b> попадает <b>[I.ru_name]</b>!</span>", \
+							"<span class='userdanger'>В <b>тебя</b> попадает [I.ru_name]!</span>")
+			var/armor = run_armor_check(zone, "melee", "Ваша броня защищает вашу [ru_parse_zone(zone)].", "Ваша броня смягчает удар в [ru_parse_zone(zone)].",I.armour_penetration)
 			apply_damage(I.throwforce, dtype, zone, armor)
 
 			if(I.thrownby)

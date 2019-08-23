@@ -232,8 +232,8 @@
 		return
 	playsound(user, 'sound/weapons/gunshot.ogg', 100, 1)
 	src.bullets--
-	user.visible_message("<span class='danger'>[user] стреляет из [src] в [target]!</span>", \
-						"<span class='danger'>Вы стреляете из [src] в [target]!</span>", \
+	user.visible_message("<span class='danger'><b>[user]</b> стреляет из [src.ru_name] в <b>[target]</b>!</span>", \
+						"<span class='danger'>Вы стреляете из [src.ru_name] в <b>[target]</b>!</span>", \
 						 "<span class='italics'>Вы слышите выстрел!</span>")
 
 /obj/item/toy/ammo/gun

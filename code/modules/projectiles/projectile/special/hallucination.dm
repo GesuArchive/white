@@ -48,10 +48,10 @@
 
 /obj/item/projectile/hallucination/proc/target_on_hit(mob/M)
 	if(M == hal_target)
-		to_chat(hal_target, "<span class='userdanger'>В грудь [M] попадает [src]!</span>")
+		to_chat(hal_target, "<span class='userdanger'>В грудь [M] попадает [src.ru_name]!</span>")
 		hal_apply_effect()
 	else if(M in view(hal_target))
-		to_chat(hal_target, "<span class='danger'>В грудь [M] попадает [src]!!</span>")
+		to_chat(hal_target, "<span class='danger'>В грудь [M] попадает [src.ru_name]!!</span>")
 	if(damage_type == BRUTE)
 		var/splatter_dir = dir
 		if(starting)

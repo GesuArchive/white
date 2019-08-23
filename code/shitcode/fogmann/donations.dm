@@ -133,10 +133,11 @@ GLOBAL_LIST_INIT(donations_list, list(
 	var/cost = 0
 	var/special = null
 
-/datum/donate_info/New(name, path, cost)
+/datum/donate_info/New(name, path, cost, special = null)
 	src.name = name
 	src.path_to = path
 	src.cost = cost
+	src.special = special
 
 /client/verb/new_donates_panel()
 	set name = "Donations panel"

@@ -68,7 +68,7 @@
 /obj/item/cardboard_cutout/bullet_act(obj/item/projectile/P)
 	if(istype(P, /obj/item/projectile/bullet/reusable))
 		P.on_hit(src, 0)
-	visible_message("<span class='danger'>В [src] попадает [P]!</span>")
+	visible_message("<span class='danger'>В <b>[src]</b> попадает <b>[P.ru_name]</b>!</span>")
 	playsound(src, 'sound/weapons/slice.ogg', 50, 1)
 	if(prob(P.damage))
 		push_over()
