@@ -95,6 +95,9 @@ GLOBAL_VAR_INIT(prikol_mode, FALSE)
 	else
 		message_admins("[key] toggled P.R.I.K.O.L mode off.")
 
+/mob/living
+	var/force_killcount = FALSE
+
 //nasral na death.dm
 
 /proc/secure_kill(var/frabberckey)
