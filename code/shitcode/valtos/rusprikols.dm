@@ -217,19 +217,33 @@
 	build_path = /obj/item/ammo_box/magazine/traumatic
 	category = list("initial", "Security")
 
-/obj/item/gun/energy/laser/lovegun
+/obj/item/gun/energy/lovegun
 	name = "love gun"
 	icon_state = "dildo"
 	item_state = "dildo"
 	icon = 'code/shitcode/valtos/icons/melee.dmi'
 	desc = "Сила магии дружбы проникает в тебя, пока ты смотришь на это."
-	fire_sound = 'sound/weapons/gunshot_silenced.ogg'
-	ammo_type = list(/obj/item/ammo_casing/energy/laser/lovegun)
+	fire_sound = 'code/shitcode/valtos/sounds/love/shot1.ogg'
+	var/list/random_sound = list('code/shitcode/valtos/sounds/love/shot1.ogg',
+							'code/shitcode/valtos/sounds/love/shot2.ogg',
+							'code/shitcode/valtos/sounds/love/shot3.ogg',
+							'code/shitcode/valtos/sounds/love/shot4.ogg',
+							'code/shitcode/valtos/sounds/love/shot5.ogg',
+							'code/shitcode/valtos/sounds/love/shot6.ogg',
+							'code/shitcode/valtos/sounds/love/shot7.ogg',
+							'code/shitcode/valtos/sounds/love/shot8.ogg',
+							'code/shitcode/valtos/sounds/love/shot9.ogg')
+	ammo_type = list(/obj/item/ammo_casing/energy/lovegun)
 	selfcharge = 1
+	burst_size = 3
 	clumsy_check = 0
 	item_flags = NONE
 
-/obj/item/ammo_casing/energy/laser/lovegun
+/obj/item/gun/energy/lovegun/process_chamber()
+	. = ..()
+	fire_sound = pick(random_sound)
+
+/obj/item/ammo_casing/energy/lovegun
 	projectile_type = /obj/item/projectile/beam/lovegun
 	select_name = "lovegun"
 	harmful = FALSE
@@ -240,7 +254,7 @@
 	icon = 'code/shitcode/valtos/icons/projectiles.dmi'
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	damage = 0
-	speed = 1.4
+	speed = 3
 	light_range = 2
 	eyeblur = 0
 	damage_type = STAMINA
@@ -248,4 +262,6 @@
 
 /obj/item/projectile/beam/lovegun/on_hit(atom/target, blocked = FALSE)
 	. = ..()
+	new /obj/effect/temp_visual/love_heart(get_turf(target.loc))
+	new /obj/effect/temp_visual/love_heart(get_turf(target.loc))
 	new /obj/effect/temp_visual/love_heart(get_turf(target.loc))

@@ -122,7 +122,8 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Music Writer",				/obj/machinery/party/musicwriter,				450),
 		new /datum/donate_info("TTS ears",					/obj/item/organ/ears/cat/tts,                   500),
 		new /datum/donate_info("DIY Shuttle capsule",		/obj/item/shuttlespawner/diyshuttle,			500),
-		new /datum/donate_info("Anonist Mask",				/obj/item/clothing/mask/gas/anonist,			100)
+		new /datum/donate_info("Anonist Mask",				/obj/item/clothing/mask/gas/anonist,			100),
+		new /datum/donate_info("Love Gun", 					/obj/item/gun/energy/lovegun, 					301,	"VanoTyan")
 	)
 ))
 
@@ -130,6 +131,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 	var/name
 	var/path_to
 	var/cost = 0
+	var/special = null
 
 /datum/donate_info/New(name, path, cost)
 	src.name = name
@@ -231,6 +233,11 @@ GLOBAL_LIST_EMPTY(donators)
 
 	if(user.stat)
 		return 0
+	
+	if(prize.special)
+		if (prize.special != user.ckey)
+			to_chat(user,"<span class='warning'>Этот предмет предназначен для [prize.special].</span>")
+			return 0
 
 	var/list/slots = list(
 		"сумке" = SLOT_IN_BACKPACK,
@@ -277,12 +284,3 @@ proc/check_donations(ckey)
 		if (D.maxmoney >= 50)
 			return 1
 	return 0
-
-/datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if (!H.ckey)
-		return
-
-	if (H.ckey == "VanoTyan")
-		var/special_item = new /obj/item/gun/energy/laser/lovegun(get_turf(H))
-		H.equip_in_one_of_slots(special_item, SLOT_IN_BACKPACK, FALSE)
