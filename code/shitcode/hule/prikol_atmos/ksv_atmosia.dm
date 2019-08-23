@@ -61,3 +61,13 @@
 	dwidth = 9
 	height = 28
 	dheight = 1
+
+/obj/docking_port/stationary/atmosia/hohlostan
+	name = "KSV Atmosia Hohlostan"
+	id = "ksv_atmosia_hohlostan"
+	roundstart_template = null
+	dir = 2
+	width = 19
+	dwidth = 9
+	height = 28
+	dheight = 1

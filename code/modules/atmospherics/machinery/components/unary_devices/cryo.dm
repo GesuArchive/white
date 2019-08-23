@@ -329,6 +329,17 @@
 		to_chat(user, "<span class='warning'>You can't access the maintenance panel while the pod is " \
 		+ (on ? "active" : (occupant ? "full" : "open")) + "!</span>")
 		return
+	if(istype(I, /obj/item/card/id/departmental_budget/med))
+		var/proice = input("Please set a fair price", "Cryo", "Cancel") as null|num
+		if(!proice)
+			fair_market_price = 0
+			return
+		if(proice < 0)
+			fair_market_price = 0
+		else
+			fair_market_price = proice
+		to_chat(user, "<span class='notice'>Fair market price is now [fair_market_price] ancap$.")
+		return
 	return ..()
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, \

@@ -428,7 +428,7 @@
 
 /turf/proc/is_shielded()
 
-/turf/contents_explosion(severity, target)
+/turf/contents_explosion(severity, target, prikolist)
 	var/affecting_level
 	if(severity == 1)
 		affecting_level = 1
@@ -446,7 +446,10 @@
 				var/atom/movable/AM = A
 				if(!AM.ex_check(explosion_id))
 					continue
-			A.ex_act(severity, target)
+			if(isliving(A) && prikolist)
+				var/mob/living/L = A
+				L.lastattackerckey = prikolist
+			A.ex_act(severity, target, prikolist)
 			CHECK_TICK
 
 /turf/narsie_act(force, ignore_mobs, probability = 20)
