@@ -182,6 +182,10 @@ GLOBAL_LIST_EMPTY(donators)
 	dat += "<h3>МАШИНА ДОНАТОВ. Баланс: [money]</h3>"
 	dat += "<div class='statusDisplay'>"
 	dat += "<table>"
+	if (user.ckey == "VanoTyan")
+		new /datum/donate_info/special_item("Love Gun", /obj/item/gun/energy/laser/lovegun, 100)
+		dat += "<tr><td></td><td><center><b>!! SPECIAL STUFF !!</b></center></td><td></td><td></td></tr>"
+		dat += "<tr><td><img src='data:image/jpeg;base64,[GetIconForProduct(special_item)]'/></td><td>[special_item.name]</td><td>[special_item.cost]</td><td><A href='?src=\ref[src];getdonate=\ref[special_item]'>Получить</A></td></tr>"
 	for(var/L in GLOB.donations_list)
 		dat += "<tr><td></td><td><center><b>[L]</b></center></td><td></td><td></td></tr>"
 		for(var/datum/donate_info/prize in GLOB.donations_list[L])
@@ -277,12 +281,3 @@ proc/check_donations(ckey)
 		if (D.maxmoney >= 50)
 			return 1
 	return 0
-
-/datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if (!H.ckey)
-		return
-
-	if (H.ckey == "VanoTyan")
-		var/special_item = new /obj/item/gun/energy/laser/lovegun(get_turf(H))
-		H.equip_in_one_of_slots(special_item, SLOT_IN_BACKPACK, FALSE)
