@@ -123,7 +123,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("TTS ears",					/obj/item/organ/ears/cat/tts,                   500),
 		new /datum/donate_info("DIY Shuttle capsule",		/obj/item/shuttlespawner/diyshuttle,			500),
 		new /datum/donate_info("Anonist Mask",				/obj/item/clothing/mask/gas/anonist,			100),
-		new /datum/donate_info("Love Gun", 					/obj/item/gun/energy/lovegun, 					301,	"VanoTyan")
+		new /datum/donate_info("Love Gun", 					/obj/item/gun/energy/lovegun, 					301,	"vanotyan")
 	)
 ))
 
