@@ -134,7 +134,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 	var/special = null
 	var/stock = 30
 
-/datum/donate_info/New(name, path, cost, special = null, stock)
+/datum/donate_info/New(name, path, cost, special = null, stock = 30)
 	src.name = name
 	src.path_to = path
 	src.cost = cost
