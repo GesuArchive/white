@@ -4,7 +4,7 @@
 	id = "bearcat"
 	prefix = "code/shitcode/hule/shuttles/bearcat/"
 	suffix = "bearcat_dock.dmm"
-	name = "CSV Bearcat"
+	name = "CSV Bearcat Dock"
 	//unpickable = TRUE
 
 /datum/map_template/shuttle/bearcat
