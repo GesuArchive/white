@@ -49,10 +49,7 @@ GLOBAL_VAR_INIT(prikol_mode, FALSE)
 		if(!count)
 			return
 
-
 	killsound()
-
-
 
 /datum/cs_killcounter/proc/killsound() // ya hz ebat' y menya kakayata huevaya liba zvukov iz cs
 	var/turf/T = get_turf(owner)
