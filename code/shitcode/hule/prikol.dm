@@ -19,9 +19,11 @@ GLOBAL_VAR_INIT(prikol_mode, FALSE)
 	START_PROCESSING(SSobj, src)
 
 /datum/cs_killcounter/Destroy()
-	. = ..()
-	maxkillstreak = killstreak
 	STOP_PROCESSING(SSobj, src)
+	maxkillstreak = killstreak
+	. = ..()
+
+
 
 /datum/cs_killcounter/process()
 	if(timer)
@@ -30,7 +32,7 @@ GLOBAL_VAR_INIT(prikol_mode, FALSE)
 		maxkillstreak = killstreak
 		killstreak = 0
 
-/datum/cs_killcounter/proc/count_kill(var/headshot = FALSE)
+/datum/cs_killcounter/proc/count_kill()
 	killcount++
 
 	killstreak++
@@ -49,10 +51,8 @@ GLOBAL_VAR_INIT(prikol_mode, FALSE)
 		if(!count)
 			return
 
-	if(headshot)
-		addtimer(CALLBACK(src, .proc/killsound), 25)
-	else
-		killsound()
+
+	killsound()
 
 
 
