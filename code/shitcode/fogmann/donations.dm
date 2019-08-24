@@ -123,7 +123,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("TTS ears",					/obj/item/organ/ears/cat/tts,                   500),
 		new /datum/donate_info("DIY Shuttle capsule",		/obj/item/shuttlespawner/diyshuttle,			500),
 		new /datum/donate_info("Anonist Mask",				/obj/item/clothing/mask/gas/anonist,			100),
-		new /datum/donate_info("Love Gun", 					/obj/item/gun/energy/lovegun, 					301,	"vanotyan")
+		new /datum/donate_info("Love Gun", 					/obj/item/gun/energy/lovegun, 					0,	"vanotyan")
 	)
 ))
 
@@ -132,6 +132,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 	var/path_to
 	var/cost = 0
 	var/special = null
+	var/stock = 30
 
 /datum/donate_info/New(name, path, cost, special = null)
 	src.name = name
@@ -234,10 +235,15 @@ GLOBAL_LIST_EMPTY(donators)
 
 	if(user.stat)
 		return 0
-	
+
+	if(prize.stock <= 0)
+		to_chat(user,"<span class='warning'>ѕоставки <b>[prize.name]</b> закончились.</span>")
+		return 0
+
 	if(prize.special)
 		if (prize.special != user.ckey)
-			to_chat(user,"<span class='warning'>Ётот предмет предназначен дл€ [prize.special].</span>")
+			prize.stock = 0
+			to_chat(user,"<span class='warning'>Ётот предмет предназначен дл€ <b>[prize.special]</b>.</span>")
 			return 0
 
 	var/list/slots = list(
@@ -246,6 +252,8 @@ GLOBAL_LIST_EMPTY(donators)
 		"правом кармане" = SLOT_R_STORE,
 		"руке" = SLOT_GENERC_DEXTROUS_STORAGE
 	)
+
+	prize.stock--
 
 	var/obj/spawned = new prize.path_to(user.loc)
 	var/where = null
