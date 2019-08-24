@@ -23,8 +23,6 @@ GLOBAL_VAR_INIT(prikol_mode, FALSE)
 	maxkillstreak = killstreak
 	. = ..()
 
-
-
 /datum/cs_killcounter/process()
 	if(timer)
 		timer--
