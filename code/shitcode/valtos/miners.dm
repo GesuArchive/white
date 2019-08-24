@@ -3,7 +3,7 @@
 // fuck this
 /////////////////////////////////////
 
-/obj/machinery/spaceminer
+/obj/machinery/power/spaceminer
 	name = "spacecoin miner"
 	desc = "Converts energy into money."
 	icon = 'code/shitcode/valtos/icons/miner.dmi'
@@ -12,24 +12,26 @@
 	anchored = FALSE
 	density = TRUE
 
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 40
+	use_power = NO_POWER_USE
+	idle_power_usage = 80
 
 	var/coins = 0
 	var/tier = 1
 	var/mining = FALSE
 	var/diff = 10
 
-/obj/machinery/power/port_gen/Initialize()
+/obj/machinery/power/spaceminer/Initialize()
 	. = ..()
+	if(anchored)
+		connect_to_network()
 
-/obj/machinery/spaceminer/attack_ai(mob/user)
+/obj/machinery/power/spaceminer/attack_ai(mob/user)
 	interact(user)
 
-/obj/machinery/spaceminer/attack_paw(mob/user)
+/obj/machinery/power/spaceminer/attack_paw(mob/user)
 	interact(user)
 
-/obj/machinery/spaceminer/process()
+/obj/machinery/power/spaceminer/process()
 	..()
 	if(mining)
 		if (stat & (BROKEN|NOPOWER))
@@ -44,21 +46,25 @@
 		else
 			diff += rand(1, 5)
 
-/obj/machinery/spaceminer/attackby(obj/item/O, mob/user, params)
+/obj/machinery/power/spaceminer/attackby(obj/item/O, mob/user, params)
 	if(!mining)
 		if(O.tool_behaviour == TOOL_WRENCH)
 			if(!anchored && !isinspace())
 				to_chat(user, "<span class='notice'>You secure the coinminer to the floor.</span>")
 				anchored = TRUE
+				connect_to_network()
+				update_cable_icons_on_turf(get_turf(src))
 			else if(anchored)
 				to_chat(user, "<span class='notice'>You unsecure the coinminer from the floor.</span>")
 				anchored = FALSE
+				disconnect_from_network()
+				update_cable_icons_on_turf(get_turf(src))
 
 			playsound(src, 'sound/items/deconstruct.ogg', 50, 1)
 			return
 	return ..()
 
-/obj/machinery/spaceminer/proc/eject_money()
+/obj/machinery/power/spaceminer/proc/eject_money()
 	if (coins == 0)
 		return
 	var/money = coins * diff
@@ -66,7 +72,7 @@
 	new /obj/item/holochip(drop_location(), money)
 	coins = 0
 
-/obj/machinery/spaceminer/ui_interact(mob/user)
+/obj/machinery/power/spaceminer/ui_interact(mob/user)
 	if(!anchored)
 		return
 	. = ..()
@@ -87,7 +93,7 @@
 	popup.set_title_image(usr.browse_rsc_icon(src.icon, src.icon_state))
 	popup.open()
 
-/obj/machinery/spaceminer/Topic(href, href_list)
+/obj/machinery/power/spaceminer/Topic(href, href_list)
 	if(..())
 		return
 	if(href_list["mine"])
@@ -108,20 +114,20 @@
 		eject_money()
 		src.updateUsrDialog()
 
-/obj/machinery/spaceminer/tier2
+/obj/machinery/power/spaceminer/tier2
 	tier = 2
 
-/obj/machinery/spaceminer/tier3
+/obj/machinery/power/spaceminer/tier3
 	tier = 3
 
-/obj/machinery/spaceminer/tier4
+/obj/machinery/power/spaceminer/tier4
 	tier = 4
 
 /datum/supply_pack/misc/spaceminer
 	name = "Spacecoin Miner Tier 1"
 	desc = "Ping!"
-	cost = 60000
-	contains = list(/obj/machinery/spaceminer,
+	cost = 80000
+	contains = list(/obj/machinery/power/spaceminer,
 					/obj/item/wrench)
 	crate_name = "coinminer tier 1 crate"
 /*
@@ -152,6 +158,6 @@
 /datum/supply_pack/misc/minerchallenge
 	name = "You can do it! The Miner Challenge"
 	desc = "Pong!"
-	cost = 7000000
+	cost = 70000069
 	contains = list(/obj/item/gun/energy/pulse/prize)
 	crate_name = "coinminer tier 4 crate"
