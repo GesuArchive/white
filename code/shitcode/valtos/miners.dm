@@ -1,3 +1,28 @@
+SUBSYSTEM_DEF(spm)
+	name = "Space Coin"
+	wait = 10
+	var/list/miners	= list()
+	var/convertprice = 30
+
+/datum/controller/subsystem/spm/PreInit()
+	convertprice = rand (0,100)
+
+/datum/controller/subsystem/spm/stat_entry(msg)
+	..("P:[miners.len]")
+
+/datum/controller/subsystem/spm/fire()
+	convertprice += rand (-30,30)
+
+	for(var/obj/machinery/power/spaceminer/MC in miners)
+		if(convertprice <= -100)
+			MC.say("Рынок обрушился. Я больше не актуален...")
+			spawn(30)
+				explosion(MC, 1, 2, 3, 8)
+		if(!MC.powernet)
+			miners.Remove(MC)
+			continue
+		MC.update()
+
 ////////////////////////////////////////////
 // SPACECOIN miners
 // fuck this
@@ -14,16 +39,26 @@
 
 	use_power = NO_POWER_USE
 	idle_power_usage = 80
+	active_power_usage = 80000
 
 	var/coins = 0
 	var/tier = 1
 	var/mining = FALSE
-	var/diff = 10
 
 /obj/machinery/power/spaceminer/Initialize()
 	. = ..()
 	if(anchored)
 		connect_to_network()
+
+/obj/machinery/power/spaceminer/connect_to_network()
+	var/to_return = ..()
+	if(powernet)
+		SSspm.miners |= src
+	return to_return
+
+/obj/machinery/power/solar_control/disconnect_from_network()
+	..()
+	SSspm.miners.Remove(src)
 
 /obj/machinery/power/spaceminer/attack_ai(mob/user)
 	interact(user)
@@ -40,11 +75,7 @@
 			idle_power_usage = 40
 			mining = FALSE
 		playsound(src, 'code/shitcode/valtos/sounds/ping.ogg', 100, 1)
-		coins += tier
-		if(prob(50))
-			diff -= rand(1, 3) //lol //balanced maybe
-		else
-			diff += rand(1, 5)
+		coins += (tier * SSspm.convertprice)
 
 /obj/machinery/power/spaceminer/attackby(obj/item/O, mob/user, params)
 	if(!mining)
@@ -65,11 +96,12 @@
 	return ..()
 
 /obj/machinery/power/spaceminer/proc/eject_money()
-	if (coins == 0)
+	if (coins <= 0)
+		playsound(src, 'sound/items/deconstruct.ogg', 50, 1)
+		qdel(src)
 		return
-	var/money = coins * diff
-	say("[coins] SC converted to $[money].")
-	new /obj/item/holochip(drop_location(), money)
+	say("[coins] SC converted to $[coins].")
+	new /obj/item/holochip(drop_location(), coins)
 	coins = 0
 
 /obj/machinery/power/spaceminer/ui_interact(mob/user)
@@ -78,8 +110,8 @@
 	. = ..()
 
 	var/dat = "Current Balance: [coins] SC<br>"
-	dat += "Current Conversion: $[diff]<br>"
-	dat += "Current Power Usage: [idle_power_usage] W<br>"
+	dat += "Current Conversion: $[SSspm.convertprice]<br>"
+	dat += "Current Power Usage: [active_power_usage] W<br>"
 
 	if(!mining)
 		dat += "<A href='?src=[REF(src)];mine=1'>Turn ON</A><br>"
@@ -100,14 +132,14 @@
 		say("Booting up...")
 		icon_state = "miner-on"
 		playsound(src, 'code/shitcode/valtos/sounds/up.ogg', 100, 1)
-		idle_power_usage = 80000 * tier
+		active_power_usage = 80000 * tier
 		mining = TRUE
 		src.updateUsrDialog()
 	if(href_list["stop"])
 		say("Shutdown...")
 		icon_state = "miner-off"
 		playsound(src, 'code/shitcode/valtos/sounds/down.ogg', 100, 1)
-		idle_power_usage = 40
+		active_power_usage = 40
 		mining = FALSE
 		src.updateUsrDialog()
 	if(href_list["money"])
