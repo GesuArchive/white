@@ -1,11 +1,11 @@
-/datum/quirk/prosthetic_limb
+/datum/quirk/augmented
 	name = "Аугментированный"
 	desc = "Вы заменили одну из своих рук на новейший протез!"
 	value = 2
 	var/slot_string = "limb"
 	medical_record_text = "Во время физического обследования у пациента был обнаружен протез."
 
-/datum/quirk/prosthetic_limb/on_spawn()
+/datum/quirk/augmented/on_spawn()
 	var/limb_slot = pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)
 	var/mob/living/carbon/human/H = quirk_holder
 	var/obj/item/bodypart/old_part = H.get_bodypart(limb_slot)
