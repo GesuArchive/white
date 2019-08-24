@@ -123,7 +123,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("TTS ears",					/obj/item/organ/ears/cat/tts,                   500),
 		new /datum/donate_info("DIY Shuttle capsule",		/obj/item/shuttlespawner/diyshuttle,			500),
 		new /datum/donate_info("Anonist Mask",				/obj/item/clothing/mask/gas/anonist,			100),
-		new /datum/donate_info("Love Gun", 					/obj/item/gun/energy/lovegun, 					0,	"vanotyan")
+		new /datum/donate_info("Love Gun", 					/obj/item/gun/energy/lovegun, 					0,	"vanotyan", 1)
 	)
 ))
 
@@ -134,11 +134,12 @@ GLOBAL_LIST_INIT(donations_list, list(
 	var/special = null
 	var/stock = 30
 
-/datum/donate_info/New(name, path, cost, special = null)
+/datum/donate_info/New(name, path, cost, special = null, stock)
 	src.name = name
 	src.path_to = path
 	src.cost = cost
 	src.special = special
+	src.stock = stock
 
 /client/verb/new_donates_panel()
 	set name = "Donations panel"
@@ -242,7 +243,6 @@ GLOBAL_LIST_EMPTY(donators)
 
 	if(prize.special)
 		if (prize.special != user.ckey)
-			prize.stock = 0
 			to_chat(user,"<span class='warning'>Этот предмет предназначен для <b>[prize.special]</b>.</span>")
 			return 0
 
