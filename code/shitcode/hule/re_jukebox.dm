@@ -93,7 +93,7 @@
 		stop = world.time + 100
 	*/
 
-/obj/machinery/party/turntable/attackby(obj/item/I, mob/user)
+/obj/machinery/turntable/attackby(obj/item/I, mob/user)
 	if(default_unfasten_wrench(user, I))
 		return
 
@@ -104,7 +104,7 @@
 
 	return ..()
 
-/obj/machinery/computer/card/proc/disk_insert(mob/user, /obj/item/card/music/I, target)
+/obj/machinery/turntable/proc/disk_insert(mob/user, obj/item/card/music/I, target)
 	if(istype(I))
 		if(target)
 			to_chat(user, "<span class='warning'>There's already a disk!</span>")
