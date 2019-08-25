@@ -430,9 +430,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		if (menuitem)
 			menuitem.Load_checked(src)
 
-	if (prefs.fullscreen)
-		winset(src, "mainwindow", "is-maximized=false;can-resize=false;titlebar=false;menu=")
-		winset(src, "mainwindow", "is-maximized=true")
+	ToggleFullscreen()
 
 	Master.UpdateTickRate()
 

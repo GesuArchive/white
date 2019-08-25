@@ -1510,11 +1510,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("fullscreen")
 					fullscreen = !fullscreen
-					if(fullscreen && parent)
-						winset(src, "mainwindow", "is-maximized=false;can-resize=false;titlebar=false;menu=")
-						winset(src, "mainwindow", "is-maximized=true")
-					else if (!fullscreen && parent)
-						winset(src, "mainwindow", "is-maximized=false;can-resize=true;titlebar=true;menu=menu")
+					parent.ToggleFullscreen()
 
 				if("widescreenpref")
 					widescreenpref = !widescreenpref
