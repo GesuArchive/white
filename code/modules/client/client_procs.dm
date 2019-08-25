@@ -430,6 +430,11 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		if (menuitem)
 			menuitem.Load_checked(src)
 
+	if (prefs.fullscreen)
+		winset(src,"default","Titlebar=true")
+		winset(src,"default","can-resize=true")
+		winset(src,"default","is-maximized=false")
+
 	Master.UpdateTickRate()
 
 //////////////

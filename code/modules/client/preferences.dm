@@ -97,6 +97,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/ambientocclusion = TRUE
 	var/auto_fit_viewport = TRUE
+	var/fullscreen = FALSE
 	var/widescreenpref = FALSE
 
 	var/uplink_spawn_loc = UPLINK_PDA
@@ -534,6 +535,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "<b>Ambient Occlusion:</b> <a href='?_src_=prefs;preference=ambientocclusion'>[ambientocclusion ? "Enabled" : "Disabled"]</a><br>"
 			dat += "<b>Fit Viewport:</b> <a href='?_src_=prefs;preference=auto_fit_viewport'>[auto_fit_viewport ? "Auto" : "Manual"]</a><br>"
+			dat += "<b>Fullscreen:</b> <a href='?_src_=prefs;preference=fullscreen'>[fullscreen ? "Enabled" : "Disabled"]</a><br>"
 			if (CONFIG_GET(string/default_view) != CONFIG_GET(string/default_view_square))
 				dat += "<b>Widescreen:</b> <a href='?_src_=prefs;preference=widescreenpref'>[widescreenpref ? "Enabled ([CONFIG_GET(string/default_view)])" : "Disabled ([CONFIG_GET(string/default_view_square)])"]</a><br>"
 
@@ -1505,6 +1507,17 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					auto_fit_viewport = !auto_fit_viewport
 					if(auto_fit_viewport && parent)
 						parent.fit_viewport()
+
+				if("fulllscreen")
+					fullscreen = !fullscreen
+					if(fullscreen)
+						winset(src,"default","Titlebar=true")
+						winset(src,"default","can-resize=true")
+						winset(src,"default","is-maximized=false")
+					else
+						winset(src,"default","Titlebar=false")
+						winset(src,"default","can-resize=false")
+						winset(src,"default","is-maximized=true")
 
 				if("widescreenpref")
 					widescreenpref = !widescreenpref
