@@ -1511,13 +1511,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("fulllscreen")
 					fullscreen = !fullscreen
 					if(fullscreen)
-						winset(src,"default","Titlebar=true")
-						winset(src,"default","can-resize=true")
-						winset(src,"default","is-maximized=false")
+						winset(src,"mainwindow","Titlebar=true")
+						winset(src,"mainwindow","can-resize=true")
+						winset(src,"mainwindow","is-maximized=false")
 					else
-						winset(src,"default","Titlebar=false")
-						winset(src,"default","can-resize=false")
-						winset(src,"default","is-maximized=true")
+						winset(src,"mainwindow","Titlebar=false")
+						winset(src,"mainwindow","can-resize=false")
+						winset(src,"mainwindow","is-maximized=true")
 
 				if("widescreenpref")
 					widescreenpref = !widescreenpref
