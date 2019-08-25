@@ -167,6 +167,7 @@
 		update_total()
 		return 0
 */
+/*
 /datum/reagents/reaction(atom/A, method = TOUCH, volume_modifier = 1, show_message = 1, special_modifier = 1)
 	var/datum/cached_my_atom = my_atom
 	var/react_type
@@ -229,3 +230,4 @@
 			if(R.reagent_state != SOLID)
 				R.reaction_obj(A, R.volume * volume_modifier, show_message)
 			R.handle_state_change(get_turf(A), R.volume * volume_modifier, cached_my_atom)
+*/

@@ -3024,6 +3024,7 @@
 #include "code\shitcode\hule\shuttles\shuttle_spawner.dm"
 #include "code\shitcode\hule\shuttles\bearcat\bearcat.dm"
 #include "code\shitcode\hule\shuttles\diy\diy_shuttle.dm"
+#include "code\shitcode\hule\traits\adv_prosthetic.dm"
 #include "code\shitcode\hule\traits\programmer.dm"
 #include "code\shitcode\hule\traits\semiviolent.dm"
 #include "code\shitcode\hule\tts\tts.dm"
