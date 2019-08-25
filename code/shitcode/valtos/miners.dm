@@ -114,11 +114,7 @@ SUBSYSTEM_DEF(spm)
 	return ..()
 
 /obj/machinery/power/spaceminer/proc/eject_money()
-	if (coins <= 0)
-		playsound(src, 'sound/items/deconstruct.ogg', 50, 1)
-		qdel(src)
-		return
-	say("[coins] SC converted to $[coins].")
+	say("Withdrawed $[coins].")
 	new /obj/item/holochip(drop_location(), coins)
 	coins = 0
 
