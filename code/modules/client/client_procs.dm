@@ -431,9 +431,9 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 			menuitem.Load_checked(src)
 
 	if (prefs.fullscreen)
-		winset(src,"default","Titlebar=true")
-		winset(src,"default","can-resize=true")
-		winset(src,"default","is-maximized=false")
+		winset(src,"mainwindow","Titlebar=true")
+		winset(src,"mainwindow","can-resize=true")
+		winset(src,"mainwindow","is-maximized=false")
 
 	Master.UpdateTickRate()
 
