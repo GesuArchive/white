@@ -63,17 +63,15 @@
 	if(!active && !selection)
 		return
 
-	//var/sound/song_played = sound(selection.song_path)
-
 	var/turf/T = get_turf(src)
 
 	for(var/mob/M in range(playing_range,src))
-		if(!M.client/* || !(M.client.prefs.toggles & SOUND_INSTRUMENTS)*/)
+		if(!M.client)
 			continue
 
 		if(!(M in rangers))
 			rangers[M] = TRUE
-			//M.playsound_local(get_turf(M), null, 100, channel = CHANNEL_JUKEBOX, S = song_played)
+
 		var/turf/MT = get_turf(M)
 
 		var/dx = T.x - MT.x // Hearing from the right/left
@@ -91,7 +89,6 @@
 			rangers -= L
 			if(!L || !L.client)
 				continue
-			//L.stop_sound_channel(CHANNEL_JUKEBOX)
 
 			L.jukebox_music.status = SOUND_UPDATE//|SOUND_STREAM
 			L.jukebox_music.volume = 0
@@ -139,12 +136,6 @@
 		to_chat(user,"<span class='warning'>Error: Access Denied.</span>")
 		user.playsound_local(src,'sound/misc/compiler-failure.ogg', 25, 1)
 		return
-	/*
-	if(!songs.len)
-		to_chat(user,"<span class='warning'>Error: No music tracks have been authorized for your station. Petition Central Command to resolve this issue.</span>")
-		playsound(src,'sound/misc/compiler-failure.ogg', 25, 1)
-		return
-	*/
 
 	var/list/dat = list()
 	dat +="<div class='statusDisplay' style='text-align:center'>"
@@ -213,32 +204,27 @@
 		var/sound/S = sound(selection.song_path)
 		S.repeat = 1
 		S.channel = CHANNEL_JUKEBOX
-		S.falloff = 2
+		S.falloff = 5
 		S.wait = 0
 		S.volume = 0
 		S.status = 0 //SOUND_STREAM
 
+		S.x = 1
+		S.z = 1
+		S.y = 1
+
 		for(var/mob/M)
 			M.jukebox_music = S
-			SEND_SOUND(M, S)
+			SEND_SOUND(M, M.jukebox_music)
 
 	START_PROCESSING(SSobj, src)
 
 /obj/machinery/turntable/proc/dance_over()
-	/*
-	for(var/mob/living/L in rangers)
-		if(!L || !L.client)
-			continue
-		L.stop_sound_channel(CHANNEL_JUKEBOX)
-
-	*/
 	rangers = list()
 
 	for(var/mob/M)
 		M.jukebox_music = null
 		M.stop_sound_channel(CHANNEL_JUKEBOX)
-
-
 
 	active = FALSE
 	playsound(src,'sound/machines/terminal_off.ogg',50,1)
