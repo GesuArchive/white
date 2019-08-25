@@ -1508,7 +1508,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(auto_fit_viewport && parent)
 						parent.fit_viewport()
 
-				if("fulllscreen")
+				if("fullscreen")
 					fullscreen = !fullscreen
 					if(fullscreen && parent)
 						winset(src,"mainwindow","Titlebar=true")
