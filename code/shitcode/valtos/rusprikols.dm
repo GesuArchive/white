@@ -169,17 +169,6 @@
 /obj/machinery/porta_turret/armory/interact(mob/user)
 	return
 
-/*
-/obj/machinery/porta_turret/armory/target(atom/movable/target)
-	if(target)
-		setDir(get_dir(base, target))//even if you can't shoot, follow the target
-		shootAt(target)
-		addtimer(CALLBACK(src, .proc/shootAt, target), 5)
-		addtimer(CALLBACK(src, .proc/shootAt, target), 10)
-		addtimer(CALLBACK(src, .proc/shootAt, target), 15)
-		return TRUE
-*/
-
 /obj/item/projectile/beam/laser/heavylaser/penetrator
 	movement_type = FLYING | UNSTOPPABLE
 

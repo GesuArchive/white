@@ -14171,7 +14171,7 @@
 	dir = 8
 	},
 /obj/machinery/turretid{
-	control_area = "/area/ai_monitored/security/armory";
+	control_area = null;
 	lethal = 1;
 	name = "Armory Turret Control";
 	pixel_x = 27;
@@ -21155,14 +21155,6 @@
 	name = "Captain's Desk Door";
 	req_access_txt = "20"
 	},
-/obj/machinery/turretid{
-	control_area = "/area/crew_quarters/heads/captain";
-	name = "Captain's Office Turret Control";
-	pixel_x = 0;
-	pixel_y = -27;
-	req_access = null;
-	req_access_txt = "3"
-	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "aYk" = (
@@ -21210,7 +21202,7 @@
 /area/bridge)
 "aYp" = (
 /obj/machinery/turretid{
-	control_area = "/area/crew_quarters/heads/captain";
+	control_area = null;
 	lethal = 1;
 	name = "Captain's Office Turret Control";
 	pixel_x = 0;
