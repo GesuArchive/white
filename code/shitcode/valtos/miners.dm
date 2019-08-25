@@ -3,8 +3,10 @@ SUBSYSTEM_DEF(spm)
 	wait = 10
 	var/list/miners	= list()
 	var/convertprice = 30
+	var/crypto = "Space Coin"
 
 /datum/controller/subsystem/spm/PreInit()
+	gen_new_crypto()
 	convertprice = rand (0,100)
 
 /datum/controller/subsystem/spm/stat_entry(msg)
@@ -15,13 +17,19 @@ SUBSYSTEM_DEF(spm)
 
 	for(var/obj/machinery/power/spaceminer/MC in miners)
 		if(convertprice <= -100)
-			MC.say("Рынок обрушился. Я больше не актуален...")
+			MC.say("Рынок [SSspm.crypto] обрушился. Я больше не актуален...")
+			gen_new_crypto()
 			spawn(30)
 				explosion(MC, 1, 2, 3, 8)
 		if(!MC.powernet)
 			miners.Remove(MC)
+			MC.update()
 			continue
 		MC.update()
+
+/datum/controller/subsystem/spm/gen_new_crypto()
+	crypto = pick(GLOB.crypto_names)
+	convertprice = 30
 
 ////////////////////////////////////////////
 // SPACECOIN miners
@@ -49,6 +57,7 @@ SUBSYSTEM_DEF(spm)
 	. = ..()
 	if(anchored)
 		connect_to_network()
+	name = "[SSspm.crypto] miner"
 
 /obj/machinery/power/spaceminer/connect_to_network()
 	var/to_return = ..()
@@ -67,12 +76,19 @@ SUBSYSTEM_DEF(spm)
 	interact(user)
 
 /obj/machinery/power/spaceminer/proc/update()
+	if(!mining || (!powernet && active_power_usage))
+		say("Insufficient power. Halting mining.")
+		icon_state = "miner-off"
+		idle_power_usage = 40
+		playsound(src, 'code/shitcode/valtos/sounds/down.ogg', 100, 1)
+		mining = FALSE
+		return
 	if(mining)
-		if (stat & (BROKEN|NOPOWER))
-			say("Insufficient power. Halting mining.")
-			icon_state = "miner-off"
-			idle_power_usage = 40
+		if(!active_power_usage || surplus() >= active_power_usage)
+			add_load(active_power_usage)
+		else
 			mining = FALSE
+			return
 		playsound(src, 'code/shitcode/valtos/sounds/ping.ogg', 100, 1)
 		coins += (tier * SSspm.convertprice)
 
@@ -119,7 +135,7 @@ SUBSYSTEM_DEF(spm)
 
 	dat += "<A href='?src=[REF(src)];money=1'>Withdraw money</A><br>"
 
-	var/datum/browser/popup = new(user, "miner", "Spacecoin Miner Tier [tier]", 300, 200)
+	var/datum/browser/popup = new(user, "miner", "[SSspm.crypto] Miner Tier [tier]", 300, 200)
 	popup.set_content("<center>[dat]</center>")
 	popup.set_title_image(usr.browse_rsc_icon(src.icon, src.icon_state))
 	popup.open()
