@@ -1,13 +1,14 @@
 SUBSYSTEM_DEF(spm)
 	name = "Space Coin"
-	wait = 10
+	wait = 25
 	var/list/miners	= list()
 	var/convertprice = 30
 	var/crypto = "Space Coin"
 
-/datum/controller/subsystem/spm/PreInit()
-	gen_new_crypto()
+/datum/controller/subsystem/spm/Initialize()
+	. = ..()
 	convertprice = rand (0,100)
+	gen_new_crypto()
 
 /datum/controller/subsystem/spm/stat_entry(msg)
 	..("P:[miners.len]")
@@ -15,10 +16,12 @@ SUBSYSTEM_DEF(spm)
 /datum/controller/subsystem/spm/fire()
 	convertprice += rand (-30,30)
 
+	if(convertprice <= -100)
+		gen_new_crypto()
+
 	for(var/obj/machinery/power/spaceminer/MC in miners)
 		if(convertprice <= -100)
 			MC.say("Рынок [SSspm.crypto] обрушился. Я больше не актуален...")
-			gen_new_crypto()
 			spawn(30)
 				explosion(MC, 1, 2, 3, 8)
 		if(!MC.powernet)
@@ -77,16 +80,16 @@ SUBSYSTEM_DEF(spm)
 
 /obj/machinery/power/spaceminer/proc/update()
 	if(!mining || (!powernet && active_power_usage))
-		say("Insufficient power. Halting mining.")
-		icon_state = "miner-off"
-		idle_power_usage = 40
-		playsound(src, 'code/shitcode/valtos/sounds/down.ogg', 100, 1)
-		mining = FALSE
 		return
 	if(mining)
 		if(!active_power_usage || surplus() >= active_power_usage)
 			add_load(active_power_usage)
 		else
+			say("Insufficient power. Halting mining.")
+			icon_state = "miner-off"
+			idle_power_usage = 40
+			playsound(src, 'code/shitcode/valtos/sounds/down.ogg', 100, 1)
+			mining = FALSE
 			mining = FALSE
 			return
 		playsound(src, 'code/shitcode/valtos/sounds/ping.ogg', 100, 1)
