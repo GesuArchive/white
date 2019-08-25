@@ -1,3 +1,6 @@
+/mob
+	var/sound/jukebox_music
+
 /obj/machinery/turntable
 	name = "jukebox"
 	desc = "A classic music player."
@@ -14,6 +17,7 @@
 
 	var/obj/item/card/music/disk
 	var/playing_range = 12
+	var/volume
 
 /*
 /datum/track
@@ -56,47 +60,43 @@
 	return ..()
 
 /obj/machinery/turntable/process()
-	if(!selection)
+	if(!active && !selection)
 		return
 
-	var/sound/song_played = sound(selection.song_path)
+	//var/sound/song_played = sound(selection.song_path)
+
+	var/turf/T = get_turf(src)
 
 	for(var/mob/M in range(playing_range,src))
 		if(!M.client/* || !(M.client.prefs.toggles & SOUND_INSTRUMENTS)*/)
 			continue
+
 		if(!(M in rangers))
 			rangers[M] = TRUE
-			M.playsound_local(get_turf(M), null, 100, channel = CHANNEL_JUKEBOX, S = song_played)
+			//M.playsound_local(get_turf(M), null, 100, channel = CHANNEL_JUKEBOX, S = song_played)
+		var/turf/MT = get_turf(M)
+
+		var/dx = T.x - MT.x // Hearing from the right/left
+		M.jukebox_music.x = dx
+		var/dz = T.y - MT.y // Hearing from infront/behind
+		M.jukebox_music.z = dz
+
+		M.jukebox_music.status = SOUND_UPDATE//|SOUND_STREAM
+		M.jukebox_music.volume = 100 //dodelat
+
+		SEND_SOUND(M, M.jukebox_music)
+
 	for(var/mob/L in rangers)
 		if(get_dist(src,L) > playing_range)
 			rangers -= L
 			if(!L || !L.client)
 				continue
-			L.stop_sound_channel(CHANNEL_JUKEBOX)
-	/*
-	if(world.time < stop && active)
-		var/sound/song_played = sound(selection.song_path)
+			//L.stop_sound_channel(CHANNEL_JUKEBOX)
 
-		for(var/mob/M in range(10,src))
-			if(!M.client || !(M.client.prefs.toggles & SOUND_INSTRUMENTS))
-				continue
-			if(!(M in rangers))
-				rangers[M] = TRUE
-				M.playsound_local(get_turf(M), null, 100, channel = CHANNEL_JUKEBOX, S = song_played)
-		for(var/mob/L in rangers)
-			if(get_dist(src,L) > 10)
-				rangers -= L
-				if(!L || !L.client)
-					continue
-				L.stop_sound_channel(CHANNEL_JUKEBOX)
-	else if(active)
-		active = FALSE
-		STOP_PROCESSING(SSobj, src)
-		dance_over()
-		playsound(src,'sound/machines/terminal_off.ogg',50,1)
-		update_icon()
-		stop = world.time + 100
-	*/
+			L.jukebox_music.status = SOUND_UPDATE//|SOUND_STREAM
+			L.jukebox_music.volume = 0
+
+			SEND_SOUND(L, L.jukebox_music)
 
 /obj/machinery/turntable/attackby(obj/item/I, mob/user)
 	if(default_unfasten_wrench(user, I))
@@ -179,25 +179,8 @@
 			else if(active)
 				dance_over()
 				updateUsrDialog()
-			/*
-			if(!active)
-				if(stop > world.time)
-					to_chat(usr, "<span class='warning'>Error: The device is still resetting from the last activation, it will be ready again in [DisplayTimeText(stop-world.time)].</span>")
-					playsound(src, 'sound/misc/compiler-failure.ogg', 50, 1)
-					return
-				activate_music()
-				START_PROCESSING(SSobj, src)
-				updateUsrDialog()
-			else if(active)
-				stop = 0
-				updateUsrDialog()
-			*/
+
 		if("select")
-			/*
-			if(active)
-				to_chat(usr, "<span class='warning'>Error: You cannot change the song until the current one is over.</span>")
-				return
-			*/
 			var/list/available = list()
 			for(var/datum/track/S in songs)
 				available[S.song_name] = S
@@ -217,6 +200,7 @@
 				disk.loc = src.loc
 				if(active)
 					dance_over()
+				if(selection == disk.data)
 					selection = null
 				disk = null
 
@@ -225,14 +209,36 @@
 /obj/machinery/turntable/proc/activate_music()
 	active = TRUE
 	update_icon()
+	if(selection)
+		var/sound/S = sound(selection.song_path)
+		S.repeat = 1
+		S.channel = CHANNEL_JUKEBOX
+		S.falloff = 2
+		S.wait = 0
+		S.volume = 0
+		S.status = 0 //SOUND_STREAM
+
+		for(var/mob/M)
+			M.jukebox_music = S
+			SEND_SOUND(M, S)
+
 	START_PROCESSING(SSobj, src)
 
 /obj/machinery/turntable/proc/dance_over()
+	/*
 	for(var/mob/living/L in rangers)
 		if(!L || !L.client)
 			continue
 		L.stop_sound_channel(CHANNEL_JUKEBOX)
+
+	*/
 	rangers = list()
+
+	for(var/mob/M)
+		M.jukebox_music = null
+		M.stop_sound_channel(CHANNEL_JUKEBOX)
+
+
 
 	active = FALSE
 	playsound(src,'sound/machines/terminal_off.ogg',50,1)

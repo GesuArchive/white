@@ -46,7 +46,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	if(fexists("[TTS_PATH]/lines/[namae].ogg"))
 		for(var/mob/M in range(13))
 			var/turf/T = get_turf(src)
-			M.playsound_local(T, "[TTS_PATH]/lines/[namae].ogg", 100)
+			M.playsound_local(T, "[TTS_PATH]/lines/[namae].ogg", 100, channel = TTS.assigned_channel)
 		fdel("[TTS_PATH]/lines/[namae].ogg")
 		fdel("[TTS_PATH]/conv/[namae].mp3")
 
@@ -68,11 +68,14 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	var/createtts = 0 //create tts on hear
 	var/lang
 
-	var/charcd = 0.1 //ticks for one char
+	var/charcd = 0.2 //ticks for one char
 	var/maxchars = 256 //sasai kudosai
+
+	var/assigned_channel
 
 /datum/tts/New()
 	. = ..()
+	assigned_channel = open_sound_channel()
 	GLOB.tts_datums += src
 	START_PROCESSING(SStts, src)
 
