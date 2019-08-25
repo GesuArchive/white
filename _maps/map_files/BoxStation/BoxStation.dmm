@@ -14171,7 +14171,8 @@
 	dir = 8
 	},
 /obj/machinery/turretid{
-	control_area = "/area/ai_monitored/security/armory";
+	control_area = null;
+	lethal = 1;
 	name = "Armory Turret Control";
 	pixel_x = 27;
 	req_access = null;
@@ -21154,14 +21155,6 @@
 	name = "Captain's Desk Door";
 	req_access_txt = "20"
 	},
-/obj/machinery/turretid{
-	control_area = "/area/crew_quarters/heads/captain";
-	name = "Captain's Office Turret Control";
-	pixel_x = 0;
-	pixel_y = -27;
-	req_access = null;
-	req_access_txt = "3"
-	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "aYk" = (
@@ -21207,6 +21200,18 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
 /area/bridge)
+"aYp" = (
+/obj/machinery/turretid{
+	control_area = null;
+	lethal = 1;
+	name = "Captain's Office Turret Control";
+	pixel_x = 0;
+	pixel_y = -27;
+	req_access = null;
+	req_access_txt = "3"
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/heads/captain)
 "aYq" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -21507,6 +21512,19 @@
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/plasteel,
 /area/vacant_room/commissary)
+"aZa" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/dresser,
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden{
+	dir = 8
+	},
+/obj/machinery/light_switch{
+	pixel_y = 28
+	},
+/turf/open/floor/carpet,
+/area/crew_quarters/heads/captain)
 "aZb" = (
 /obj/machinery/camera{
 	c_tag = "Bar South";
@@ -21558,6 +21576,12 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/carpet,
 /area/chapel/main)
+"aZi" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/open/floor/carpet,
+/area/crew_quarters/heads/captain)
 "aZj" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -26614,30 +26638,11 @@
 	},
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
-"bmz" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/structure/dresser,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden{
-	dir = 8
-	},
-/turf/open/floor/carpet,
-/area/crew_quarters/heads/captain)
 "bmA" = (
 /obj/machinery/door/airlock{
 	name = "Private Restroom"
 	},
 /turf/open/floor/plasteel/freezer,
-/area/crew_quarters/heads/captain)
-"bmB" = (
-/obj/machinery/light_switch{
-	pixel_y = 28
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "bmC" = (
 /obj/structure/sink{
@@ -82581,7 +82586,7 @@ bgU
 bdk
 bjF
 blc
-bmz
+aZa
 bnY
 bpk
 bqJ
@@ -83094,8 +83099,8 @@ bfC
 bgV
 bim
 aYj
-aZV
-bmB
+aYg
+aZi
 bnZ
 bpl
 bqH
@@ -83350,8 +83355,8 @@ bcP
 cBo
 bbw
 bbw
-bbw
-aYg
+aYp
+aZV
 bmA
 bmx
 bmx

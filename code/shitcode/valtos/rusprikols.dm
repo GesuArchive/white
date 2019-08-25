@@ -154,6 +154,9 @@
 	lethal_projectile = /obj/item/projectile/beam/laser/heavylaser/penetrator
 	lethal_projectile_sound = 'sound/weapons/lasercannonfire.ogg'
 	mode = TURRET_LETHAL
+	shoot_unloyal = 1
+	stun_all = 1
+	auth_weapons = 1
 	faction = list("silicon","turret")
 
 /obj/machinery/porta_turret/armory/ComponentInitialize()
@@ -165,15 +168,6 @@
 
 /obj/machinery/porta_turret/armory/interact(mob/user)
 	return
-
-/obj/machinery/porta_turret/armory(atom/movable/target)
-	if(target)
-		setDir(get_dir(base, target))//even if you can't shoot, follow the target
-		shootAt(target)
-		addtimer(CALLBACK(src, .proc/shootAt, target), 5)
-		addtimer(CALLBACK(src, .proc/shootAt, target), 10)
-		addtimer(CALLBACK(src, .proc/shootAt, target), 15)
-		return TRUE
 
 /obj/item/projectile/beam/laser/heavylaser/penetrator
 	movement_type = FLYING | UNSTOPPABLE
