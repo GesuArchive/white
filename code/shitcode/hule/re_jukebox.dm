@@ -11,6 +11,7 @@
 	var/stop = 0
 	var/list/songs = list()
 	var/datum/track/selection = null
+
 	var/obj/item/card/music/disk
 	var/playing_range = 12
 
@@ -30,6 +31,10 @@
 
 /obj/machinery/turntable/Initialize()
 	. = ..()
+	for(var/obj/machinery/turntable/TT) // NO WAY
+		if(TT != src)
+			qdel(src)
+
 	var/list/tracks = flist("config/jukebox_music/sounds/")
 
 	for(var/S in tracks)
@@ -57,7 +62,7 @@
 	var/sound/song_played = sound(selection.song_path)
 
 	for(var/mob/M in range(playing_range,src))
-		if(!M.client || !(M.client.prefs.toggles & SOUND_INSTRUMENTS))
+		if(!M.client/* || !(M.client.prefs.toggles & SOUND_INSTRUMENTS)*/)
 			continue
 		if(!(M in rangers))
 			rangers[M] = TRUE
@@ -117,7 +122,6 @@
 		updateUsrDialog()
 		return TRUE
 
-
 /obj/machinery/turntable/update_icon()
 	if(active)
 		icon_state = "[initial(icon_state)]-active"
@@ -147,10 +151,12 @@
 	dat += "<b><A href='?src=[REF(src)];action=toggle'>[!active ? "BREAK IT DOWN" : "SHUT IT DOWN"]<b></A><br>"
 	dat += "</div><br>"
 	dat += "<A href='?src=[REF(src)];action=select'> Select Track</A><br>"
-	dat += "Track Selected: [selection.song_name]<br>"
 
-	if(selection.song_length)
-		dat += "Track Length: [DisplayTimeText(selection.song_length)]<br><br>"
+	if(selection)
+		if(selection.song_name)
+			dat += "Track Selected: [selection.song_name]<br>"
+		if(selection.song_length)
+			dat += "Track Length: [DisplayTimeText(selection.song_length)]<br><br>"
 	if(disk)
 		dat += "<A href='?src=[REF(src)];action=eject'>Eject Disk</A><br>"
 
