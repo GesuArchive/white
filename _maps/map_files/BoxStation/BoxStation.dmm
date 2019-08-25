@@ -21118,6 +21118,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port)
+"aYg" = (
+/obj/machinery/porta_turret/armory,
+/turf/closed/wall/r_wall,
+/area/crew_quarters/heads/captain)
 "aYh" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -21142,6 +21146,24 @@
 /obj/item/wirecutters,
 /turf/open/floor/plasteel,
 /area/vacant_room/commissary)
+"aYj" = (
+/obj/machinery/door/window{
+	base_state = "right";
+	dir = 4;
+	icon_state = "right";
+	name = "Captain's Desk Door";
+	req_access_txt = "20"
+	},
+/obj/machinery/turretid{
+	control_area = "/area/crew_quarters/heads/captain";
+	name = "Captain's Office Turret Control";
+	pixel_x = 0;
+	pixel_y = -27;
+	req_access = null;
+	req_access_txt = "3"
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/heads/captain)
 "aYk" = (
 /obj/machinery/light,
 /obj/effect/turf_decal/tile/blue,
@@ -25461,16 +25483,6 @@
 	pixel_y = -24
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/turf/open/floor/wood,
-/area/crew_quarters/heads/captain)
-"bjG" = (
-/obj/machinery/door/window{
-	base_state = "right";
-	dir = 4;
-	icon_state = "right";
-	name = "Captain's Desk Door";
-	req_access_txt = "20"
-	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "bjH" = (
@@ -83081,7 +83093,7 @@ bcQ
 bfC
 bgV
 bim
-bjG
+aYj
 aZV
 bmB
 bnZ
@@ -83339,7 +83351,7 @@ cBo
 bbw
 bbw
 bbw
-aZV
+aYg
 bmA
 bmx
 bmx
