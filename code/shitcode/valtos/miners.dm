@@ -16,9 +16,6 @@ SUBSYSTEM_DEF(spm)
 /datum/controller/subsystem/spm/fire()
 	convertprice += rand (-30,30)
 
-	if(convertprice <= -100)
-		gen_new_crypto()
-
 	for(var/obj/machinery/power/spaceminer/MC in miners)
 		if(convertprice <= -100)
 			MC.say("Рынок [SSspm.crypto] обрушился. Я больше не актуален...")
@@ -29,6 +26,9 @@ SUBSYSTEM_DEF(spm)
 			MC.update()
 			continue
 		MC.update()
+
+	if(convertprice <= -100)
+		gen_new_crypto()
 
 /datum/controller/subsystem/spm/proc/gen_new_crypto()
 	crypto = pick(GLOB.crypto_names)
