@@ -205,6 +205,7 @@
 		S.repeat = 1
 		S.channel = CHANNEL_JUKEBOX
 		S.falloff = 5
+		S.environment = 0
 		S.wait = 0
 		S.volume = 0
 		S.status = 0 //SOUND_STREAM
