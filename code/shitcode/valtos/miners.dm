@@ -27,7 +27,7 @@ SUBSYSTEM_DEF(spm)
 			continue
 		MC.update()
 
-/datum/controller/subsystem/spm/gen_new_crypto()
+/datum/controller/subsystem/spm/proc/gen_new_crypto()
 	crypto = pick(GLOB.crypto_names)
 	convertprice = 30
 
