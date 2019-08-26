@@ -430,7 +430,8 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		if (menuitem)
 			menuitem.Load_checked(src)
 
-	ToggleFullscreen()
+	if (prefs.fullscreen)
+		ToggleFullscreen()
 
 	Master.UpdateTickRate()
 
