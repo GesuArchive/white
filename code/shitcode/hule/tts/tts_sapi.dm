@@ -22,7 +22,6 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 		var/mob/etot = src
 		namae = etot.ckey
 
-
 	tts_core(msg, namae, voice)
 
 	if(fexists("[TTS_PATH]/lines/[namae].wav"))
@@ -34,10 +33,12 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 /atom/movable
 	var/datum/tts/TTS
 
-/atom/movable/proc/grant_tts()
+/atom/movable/proc/grant_tts(var/voice)
 	if(!TTS)
 		TTS = new /datum/tts
 		TTS.owner = src
+		if(voice)
+			TTS.voicename = voice
 
 /atom/movable/proc/remove_tts()
 	if(TTS)

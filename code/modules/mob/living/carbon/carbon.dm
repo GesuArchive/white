@@ -9,7 +9,11 @@
 
 	create_tension(-1)
 
-	grant_tts()
+	switch(gender)
+		if("male")
+			grant_tts(pick(list("Maxim", "Nicolai")))
+		if("female")
+			grant_tts(pick(list("Alyona", "Tatyana")))
 
 /mob/living/carbon/Destroy()
 	//This must be done first, so the mob ghosts correctly before DNA etc is nulled
