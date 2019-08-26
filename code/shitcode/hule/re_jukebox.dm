@@ -198,6 +198,8 @@
 			var/selected = input(usr, "Choose your song", "Track:") as null|anything in available
 			if(QDELETED(src) || !selected || !istype(available[selected], /datum/track))
 				return
+			if(active)
+				dance_over()
 			selection = available[selected]
 			updateUsrDialog()
 
