@@ -44,7 +44,7 @@
 //           BLOOD BROTHERS             //
 //                                      //
 //////////////////////////////////////////
-
+/*
 /datum/dynamic_ruleset/roundstart/traitorbro
 	name = "Blood Brothers"
 	antag_flag = ROLE_BROTHER
@@ -89,7 +89,7 @@
 		team.update_name()
 	mode.brother_teams += pre_brother_teams
 	return TRUE
-
+*/
 //////////////////////////////////////////////
 //                                          //
 //               CHANGELINGS                //
@@ -120,7 +120,7 @@
 
 /datum/dynamic_ruleset/roundstart/changeling/execute()
 	var/team_mode = FALSE
-	if(prob(team_mode_probability)) 
+	if(prob(team_mode_probability))
 		team_mode = TRUE
 		var/list/team_objectives = subtypesof(/datum/objective/changeling_team_objective)
 		var/list/possible_team_objectives = list()
@@ -167,13 +167,13 @@
 /datum/dynamic_ruleset/roundstart/wizard/pre_execute()
 	if(GLOB.wizardstart.len == 0)
 		return FALSE
-	
+
 	var/mob/M = pick_n_take(candidates)
 	if (M)
 		assigned += M.mind
 		M.mind.assigned_role = ROLE_WIZARD
 		M.mind.special_role = ROLE_WIZARD
-	
+
 	return TRUE
 
 /datum/dynamic_ruleset/roundstart/wizard/execute()
@@ -181,7 +181,7 @@
 		M.current.forceMove(pick(GLOB.wizardstart))
 		M.add_antag_datum(new antag_datum())
 	return TRUE
-	
+
 //////////////////////////////////////////////
 //                                          //
 //                BLOOD CULT                //
@@ -226,7 +226,7 @@
 		var/datum/antagonist/cult/new_cultist = new antag_datum()
 		new_cultist.cult_team = main_cult
 		new_cultist.give_equipment = TRUE
-		M.add_antag_datum(new_cultist)	
+		M.add_antag_datum(new_cultist)
 	main_cult.setup_objectives()
 	return TRUE
 
@@ -375,7 +375,7 @@
 	revolution.update_heads()
 	SSshuttle.registerHostileEnvironment(src)
 	return TRUE
-	
+
 /datum/dynamic_ruleset/roundstart/revs/rule_process()
 	if(check_rev_victory())
 		finished = 1
@@ -585,7 +585,7 @@
 	high_population_requirement = 101
 	var/devil_limit = 4 // Hard limit on devils if scaling is turned off
 
-/datum/dynamic_ruleset/roundstart/devil/pre_execute()	
+/datum/dynamic_ruleset/roundstart/devil/pre_execute()
 	var/tsc = CONFIG_GET(number/traitor_scaling_coeff)
 	var/num_devils = 1
 
