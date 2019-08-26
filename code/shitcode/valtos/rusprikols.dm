@@ -171,6 +171,7 @@
 
 /obj/item/projectile/beam/laser/heavylaser/penetrator
 	movement_type = FLYING | UNSTOPPABLE
+	range = 12
 
 /obj/item/melee/classic_baton/dildon
 	name = "dildo"

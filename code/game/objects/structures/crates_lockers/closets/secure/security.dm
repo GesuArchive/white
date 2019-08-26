@@ -2,6 +2,8 @@
 	name = "\proper captain's locker"
 	req_access = list(ACCESS_CAPTAIN)
 	icon_state = "cap"
+	anchored = 1
+	anchorable = 0
 
 /obj/structure/closet/secure_closet/captains/PopulateContents()
 	..()
