@@ -75,6 +75,9 @@
 
 		var/turf/MT = get_turf(M)
 
+		if(!M.jukebox_music)
+			continue
+
 		if(env_sound)
 			M.jukebox_music.falloff = 4
 
@@ -280,10 +283,13 @@
 	var/writing = 0
 
 /obj/machinery/musicwriter/attackby(obj/O, mob/user)
+	if(default_unfasten_wrench(user, I))
+		return
 	if(istype(O, /obj/item/coin))
 		user.dropItemToGround(O)
 		qdel(O)
 		coin++
+		return
 
 /obj/machinery/musicwriter/attack_hand(mob/user)
 	var/dat = ""
