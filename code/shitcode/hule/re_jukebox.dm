@@ -67,16 +67,13 @@
 	var/turf/T = get_turf(src)
 
 	for(var/mob/M in range(playing_range,src))
-		if(!M.client)
+		if(!M.client || !M.jukebox_music)
 			continue
 
 		if(!(M in rangers))
 			rangers[M] = TRUE
 
 		var/turf/MT = get_turf(M)
-
-		if(!M.jukebox_music)
-			continue
 
 		if(env_sound)
 			M.jukebox_music.falloff = 4
