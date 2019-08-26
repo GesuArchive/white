@@ -1,11 +1,11 @@
-![fuck](https://travis-ci.com/daxsc/White-Tgstation.svg?branch=master)
+![fuck](https://travis-ci.com/frosty-dev/white-dream-main.svg?branch=master)
 ## White Dream: New Hope
 
 **Website:** https://frosty.space
 
 **Hub:** https://hub.frosty.space
 
-**Code:** https://github.com/daxsc/White-Tgstation
+**Code:** https://github.com/frosty-dev/white-dream-main
 
 **Wiki:** https://tgstation13.org/wiki/Main_Page
 
