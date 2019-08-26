@@ -232,22 +232,22 @@
 		S.repeat = 1
 		S.channel = CHANNEL_JUKEBOX
 		S.falloff = 2
-		S.environment = 0
+		//S.environment = 0
 		S.wait = 0
 		S.volume = 0
 		S.status = 0 //SOUND_STREAM
 
 		S.x = 0
-		S.z = 0
-		S.y = 0
+		S.z = 1
+		S.y = 1
 
 		for(var/mob/M)
 			M.jukebox_music = S
 			SEND_SOUND(M, M.jukebox_music)
 
 	update_icon()
-	active = TRUE
 	START_PROCESSING(SSobj, src)
+	active = TRUE
 
 /obj/machinery/turntable/proc/dance_over()
 	rangers = list()
@@ -256,10 +256,10 @@
 		M.jukebox_music = null
 		M.stop_sound_channel(CHANNEL_JUKEBOX)
 
-	active = FALSE
 	playsound(src,'sound/machines/terminal_off.ogg',50,1)
 	update_icon()
 	STOP_PROCESSING(SSobj, src)
+	active = FALSE
 
 /obj/item/card/music
 	icon_state = "data_3"
@@ -314,7 +314,7 @@
 					var/obj/item/card/music/disk = new
 					T.song_path = S
 					//T.f_name = copytext(N, 1, 2)
-					T.song_name = copytext(N, 2)
+					T.song_name = N
 					disk.data = T
 					disk.name = "disk ([N])"
 					disk.loc = src.loc
