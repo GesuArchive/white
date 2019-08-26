@@ -84,7 +84,7 @@
 			var/dz = T.y - MT.y // Hearing from infront/behind
 			M.jukebox_music.z = dz
 
-			M.jukebox_music.environment = 0
+			//M.jukebox_music.environment = 0
 		else
 			M.jukebox_music.falloff = 2
 
@@ -92,7 +92,7 @@
 			M.jukebox_music.y = 1
 			M.jukebox_music.z = 1
 
-			M.jukebox_music.environment = -1
+			//M.jukebox_music.environment = -1
 
 		M.jukebox_music.status = SOUND_UPDATE//|SOUND_STREAM
 		M.jukebox_music.volume = volume
