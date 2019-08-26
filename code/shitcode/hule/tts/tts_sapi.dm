@@ -47,7 +47,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	var/atom/movable/owner
 	var/cooldown = 0
 	var/createtts = 0 //create tts on hear
-	var/voicename = "Anna"
+	var/voicename = "Nicolai"
 
 	var/charcd = 0.2 //ticks for one char
 	var/maxchars = 256 //sasai kudosai
