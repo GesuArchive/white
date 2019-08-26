@@ -21120,7 +21120,9 @@
 /turf/open/floor/plating,
 /area/maintenance/port)
 "aYg" = (
-/obj/machinery/porta_turret/armory,
+/obj/machinery/porta_turret/armory{
+	scan_range = 9
+	},
 /turf/closed/wall/r_wall,
 /area/crew_quarters/heads/captain)
 "aYh" = (
@@ -21766,6 +21768,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
+"aZJ" = (
+/obj/structure/bed/dogbed/renault,
+/mob/living/simple_animal/pet/fox/Renault{
+	faction = list("neutral","turret")
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/heads/captain)
 "aZK" = (
 /turf/closed/wall,
 /area/quartermaster/sorting)
@@ -49368,11 +49377,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/port)
-"hec" = (
-/obj/structure/bed/dogbed/renault,
-/mob/living/simple_animal/pet/fox/Renault,
-/turf/open/floor/wood,
-/area/crew_quarters/heads/captain)
 "hhs" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/structure/disposalpipe/segment,
@@ -84121,7 +84125,7 @@ aYF
 aZV
 bbw
 bcn
-hec
+aZJ
 ben
 bfE
 bgX

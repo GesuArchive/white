@@ -17,7 +17,8 @@
 
 	var/obj/item/card/music/disk
 	var/playing_range = 12
-	var/volume
+	var/volume = 100
+	var/env_sound = 0
 
 /*
 /datum/track
@@ -74,13 +75,27 @@
 
 		var/turf/MT = get_turf(M)
 
-		var/dx = T.x - MT.x // Hearing from the right/left
-		M.jukebox_music.x = dx
-		var/dz = T.y - MT.y // Hearing from infront/behind
-		M.jukebox_music.z = dz
+		if(env_sound)
+			M.jukebox_music.falloff = 4
+
+			M.jukebox_music.y = 1
+			var/dx = T.x - MT.x // Hearing from the right/left
+			M.jukebox_music.x = dx
+			var/dz = T.y - MT.y // Hearing from infront/behind
+			M.jukebox_music.z = dz
+
+			//M.jukebox_music.environment = 0
+		else
+			M.jukebox_music.falloff = 2
+
+			M.jukebox_music.x = 0
+			M.jukebox_music.y = 1
+			M.jukebox_music.z = 1
+
+			//M.jukebox_music.environment = -1
 
 		M.jukebox_music.status = SOUND_UPDATE//|SOUND_STREAM
-		M.jukebox_music.volume = 100 //dodelat
+		M.jukebox_music.volume = volume
 
 		SEND_SOUND(M, M.jukebox_music)
 
@@ -142,14 +157,16 @@
 	dat += "<b><A href='?src=[REF(src)];action=toggle'>[!active ? "BREAK IT DOWN" : "SHUT IT DOWN"]<b></A><br>"
 	dat += "</div><br>"
 	dat += "<A href='?src=[REF(src)];action=select'> Select Track</A><br>"
+	dat += "<A href='?src=[REF(src)];action=volume'> Set Volume</A><br>"
+	dat += "<A href='?src=[REF(src)];action=env'> Toggle 3D sound [!env_sound ? "on" : "off"]</A><br>"
 
 	if(selection)
 		if(selection.song_name)
-			dat += "Track Selected: [selection.song_name]<br>"
+			dat += "<br>Track Selected: [selection.song_name]<br>"
 		if(selection.song_length)
 			dat += "Track Length: [DisplayTimeText(selection.song_length)]<br><br>"
 	if(disk)
-		dat += "<A href='?src=[REF(src)];action=eject'>Eject Disk</A><br>"
+		dat += "<br><br><br><A href='?src=[REF(src)];action=eject'>Eject Disk</A><br>"
 
 	var/datum/browser/popup = new(user, "vending", "[name]", 400, 350)
 	popup.set_content(dat.Join())
@@ -183,6 +200,8 @@
 			var/selected = input(usr, "Choose your song", "Track:") as null|anything in available
 			if(QDELETED(src) || !selected || !istype(available[selected], /datum/track))
 				return
+			if(active)
+				dance_over()
 			selection = available[selected]
 			updateUsrDialog()
 
@@ -197,20 +216,28 @@
 
 			updateUsrDialog()
 
+		if("volume")
+			var/new_volume = input(usr, "Set Volume", null) as num|null
+			if(new_volume)
+				volume = max(0, min(100, new_volume))
+			updateUsrDialog()
+
+		if("env")
+			env_sound = !env_sound
+			updateUsrDialog()
+
 /obj/machinery/turntable/proc/activate_music()
-	active = TRUE
-	update_icon()
 	if(selection)
 		var/sound/S = sound(selection.song_path)
 		S.repeat = 1
 		S.channel = CHANNEL_JUKEBOX
-		S.falloff = 5
-		S.environment = 0
+		S.falloff = 2
+		//S.environment = 0
 		S.wait = 0
 		S.volume = 0
 		S.status = 0 //SOUND_STREAM
 
-		S.x = 1
+		S.x = 0
 		S.z = 1
 		S.y = 1
 
@@ -218,7 +245,9 @@
 			M.jukebox_music = S
 			SEND_SOUND(M, M.jukebox_music)
 
+	update_icon()
 	START_PROCESSING(SSobj, src)
+	active = TRUE
 
 /obj/machinery/turntable/proc/dance_over()
 	rangers = list()
@@ -227,10 +256,10 @@
 		M.jukebox_music = null
 		M.stop_sound_channel(CHANNEL_JUKEBOX)
 
-	active = FALSE
 	playsound(src,'sound/machines/terminal_off.ogg',50,1)
 	update_icon()
 	STOP_PROCESSING(SSobj, src)
+	active = FALSE
 
 /obj/item/card/music
 	icon_state = "data_3"
@@ -285,7 +314,7 @@
 					var/obj/item/card/music/disk = new
 					T.song_path = S
 					//T.f_name = copytext(N, 1, 2)
-					T.song_name = copytext(N, 2)
+					T.song_name = N
 					disk.data = T
 					disk.name = "disk ([N])"
 					disk.loc = src.loc
