@@ -12,9 +12,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	wait = 20
 
 /proc/tts_core(var/msg, var/filename, var/voice)
-	world.shelleo("chcp 1251")
-	world.shelleo("[TTS_PATH]\\balcon -t \"[msg]\" -w [TTS_PATH]/lines/[filename].wav -n [voice] -enc 1251")
-	world.shelleo("chcp 437")
+	world.shelleo("code\\shitcode\\hule\\tts\\balcon\\balcon -t \"[msg]\" -w \"[TTS_PATH]/lines/[filename].wav\" -n [voice] -enc 1251")
 
 /atom/movable/proc/tts(var/msg, var/voice)
 	var/namae
@@ -23,6 +21,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	else
 		var/mob/etot = src
 		namae = etot.ckey
+
 
 	tts_core(msg, namae, voice)
 
@@ -94,7 +93,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	if(!check_rights())
 		return
 */
-	var/list/menu = list("Cancel", "Toggle TTS", "Change Lang", "Toggle Living Only")
+	var/list/menu = list("Cancel", "Toggle TTS")
 
 	var/selected = input("Main Menu", "ANIME VOICEOVER", "Cancel") as null|anything in menu
 
