@@ -279,12 +279,12 @@
 	var/retard_name
 	var/writing = 0
 
-/obj/machinery/musicwriter/attackby(obj/O, mob/user)
+/obj/machinery/musicwriter/attackby(obj/item/I, mob/user)
 	if(default_unfasten_wrench(user, I))
 		return
-	if(istype(O, /obj/item/coin))
-		user.dropItemToGround(O)
-		qdel(O)
+	if(istype(I, /obj/item/coin))
+		user.dropItemToGround(I)
+		qdel(I)
 		coin++
 		return
 
