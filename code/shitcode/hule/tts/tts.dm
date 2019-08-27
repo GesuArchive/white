@@ -3,7 +3,7 @@
 #define TTS_PATH "code/shitcode/hule/tts"
 
 GLOBAL_VAR_INIT(tts, FALSE)
-GLOBAL_LIST_INIT(tts_settings, list("ru", 1))//1-lang, 2-livingonly
+GLOBAL_LIST_INIT(tts_settings, list("ru"))//1-lang, 2-livingonly
 GLOBAL_LIST_EMPTY(tts_datums)
 
 PROCESSING_SUBSYSTEM_DEF(tts)
