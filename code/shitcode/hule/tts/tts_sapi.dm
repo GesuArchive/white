@@ -14,7 +14,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 /proc/tts_core(var/msg, var/filename, var/voice)
 	world.shelleo("code\\shitcode\\hule\\tts\\balcon\\balcon -t \"[msg]\" -w \"[TTS_PATH]/lines/[filename].wav\" -n [voice] -enc 1251")
 
-/atom/movable/proc/tts(var/msg, var/voice)
+/atom/movable/proc/tts(var/msg, var/voice, var/freq)
 	var/namae
 	if(!ismob(src))
 		namae = name
@@ -27,7 +27,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	if(fexists("[TTS_PATH]/lines/[namae].wav"))
 		for(var/mob/M in range(13))
 			var/turf/T = get_turf(src)
-			M.playsound_local(T, "[TTS_PATH]/lines/[namae].wav", 100, channel = TTS.assigned_channel)
+			M.playsound_local(T, "[TTS_PATH]/lines/[namae].wav", 100, channel = TTS.assigned_channel, frequency = freq)
 		fdel("[TTS_PATH]/lines/[namae].wav")
 
 /atom/movable
@@ -49,10 +49,9 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	var/cooldown = 0
 	var/createtts = 0 //create tts on hear
 	var/voicename = "Nicolai"
-
 	var/charcd = 0.2 //ticks for one char
 	var/maxchars = 256 //sasai kudosai
-
+	var/freq = 1
 	var/assigned_channel
 
 /datum/tts/New()
@@ -74,7 +73,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	if(cooldown <= 0)
 		msg = trim(msg, maxchars)
 		cooldown = length(msg)*charcd
-		owner.tts(msg, voicename)
+		owner.tts(msg, voicename, freq)
 
 /client/proc/anime_voiceover()
 	set category = "Fun"
