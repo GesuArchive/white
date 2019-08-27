@@ -57,13 +57,6 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 
 /datum/tts/New()
 	. = ..()
-	if(ismob(owner))
-		var/mob/M = owner
-		if(M.gender == "male")
-			voicename = pick(MALE_VOICES)
-		else if(M.gender == "female")
-			voicename = pick(FEMALE_VOICES)
-
 	assigned_channel = open_sound_channel()
 	GLOB.tts_datums += src
 	START_PROCESSING(SStts, src)
