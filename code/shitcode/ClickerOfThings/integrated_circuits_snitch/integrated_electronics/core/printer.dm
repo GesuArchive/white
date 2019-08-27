@@ -217,6 +217,7 @@
 			return TRUE
 
 		var/cost = 400
+		/*
 		if(ispath(build_type, /obj/item/electronic_assembly))
 			var/obj/item/electronic_assembly/E = SScircuit.cached_assemblies[build_type]
 			cost = E.materials[/datum/material/iron]
@@ -225,6 +226,7 @@
 			cost = IC.materials[/datum/material/iron]
 		else if(!(build_type in SScircuit.circuit_fabricator_recipe_list["Tools"]))
 			return
+		*/
 
 		var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 
