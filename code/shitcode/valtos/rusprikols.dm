@@ -1,7 +1,7 @@
 /obj/item/clothing/under/rank/omon
 	name = "omon jumpsuit"
 	desc = "A tactical security jumpsuit for Russian officers."
-	alternate_worn_icon = 'code/shitcode/valtos/icons/clothing/uniform.dmi'
+	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/uniform.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/uniforms.dmi'
 	icon_state = "omon"
 	item_state = "b_suit"
@@ -21,14 +21,14 @@
 /obj/item/clothing/suit/armor/riot/omon
 	name = "omon riot suit"
 	desc = "Designed for effective extermination."
-	alternate_worn_icon = 'code/shitcode/valtos/icons/clothing/suit.dmi'
+	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/suit.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/suits.dmi'
 	icon_state = "omon_riot"
 
 /obj/item/clothing/suit/armor/bulletproof/omon
 	name = "bulletproof omon armor"
 	desc = "If you wear it, then obviously you are going to kill people."
-	alternate_worn_icon = 'code/shitcode/valtos/icons/clothing/suit.dmi'
+	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/suit.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/suits.dmi'
 	icon_state = "omon_armor"
 
