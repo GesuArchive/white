@@ -79,27 +79,17 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	set category = "Fun"
 	set name = "ANIME VO"
 
-
 	if(!(ckey in GLOB.anonists))
 		return
 /*
 	if(!check_rights())
 		return
 */
-	var/list/menu = list("Cancel", "Toggle TTS")
+	GLOB.tts = !GLOB.tts
 
-	var/selected = input("Main Menu", "ANIME VOICEOVER", "Cancel") as null|anything in menu
-
-	switch(selected)
-		if("Cancel")
-			return
-
-		if("Toggle TTS")
-			GLOB.tts = !GLOB.tts
-
-			if(GLOB.tts)
-				message_admins("[key] toggled anime voiceover on.")
-			else
-				message_admins("[key] toggled anime voiceover off.")
+	if(GLOB.tts)
+		message_admins("[key] toggled anime voiceover on.")
+	else
+		message_admins("[key] toggled anime voiceover off.")
 
 #undef TTS_PATH
