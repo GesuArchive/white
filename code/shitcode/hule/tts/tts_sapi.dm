@@ -10,7 +10,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	wait = 20
 
 /proc/tts_core(var/msg, var/filename, var/voice)
-	world.shelleo("code\\shitcode\\hule\\tts\\balcon\\balcon -t \"[msg]\" -w \"[TTS_PATH]/lines/[filename].wav\" -n [voice] -enc 1251")
+	world.shelleo("DISPLAY=:0.0 wine code\\shitcode\\hule\\tts\\balcon\\balcon.exe -t \"[msg]\" -w \"[TTS_PATH]/lines/[filename].wav\" -n [voice] -enc 1251")
 
 /atom/movable/proc/tts(var/msg, var/voice, var/freq)
 	var/namae
