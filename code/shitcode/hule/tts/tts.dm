@@ -10,7 +10,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	name = "Text To Speech"
 	priority = 15
 	flags = SS_NO_INIT
-	wait = 20
+	wait = 10
 
 /proc/tts_core(var/msg, var/filename, var/lang)
 	if(fexists("[TTS_PATH]/voiceq.txt"))
@@ -33,7 +33,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	else
 		world.shelleo("python [TTS_PATH]/tts.py")
 
-/atom/movable/proc/tts(var/msg, var/lang=GLOB.tts_settings[1])
+/atom/movable/proc/tts(var/msg, var/lang=GLOB.tts_settings[1], var/freq)
 	var/namae
 	if(!ismob(src))
 		namae = name
@@ -46,7 +46,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	if(fexists("[TTS_PATH]/lines/[namae].ogg"))
 		for(var/mob/M in range(13))
 			var/turf/T = get_turf(src)
-			M.playsound_local(T, "[TTS_PATH]/lines/[namae].ogg", 100, channel = TTS.assigned_channel)
+			M.playsound_local(T, "[TTS_PATH]/lines/[namae].ogg", 100, channel = TTS.assigned_channel, frequency = freq)
 		fdel("[TTS_PATH]/lines/[namae].ogg")
 		fdel("[TTS_PATH]/conv/[namae].mp3")
 
@@ -72,6 +72,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	var/maxchars = 256 //sasai kudosai
 
 	var/assigned_channel
+	var/frequency = 1
 
 /datum/tts/New()
 	. = ..()
@@ -93,9 +94,9 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 		msg = trim(msg, maxchars)
 		cooldown = length(msg)*charcd
 		if(lang)
-			owner.tts(msg, lang)
+			owner.tts(msg, lang, freq = frequency)
 		else
-			owner.tts(msg)
+			owner.tts(msg, freq = frequency)
 
 /client/proc/anime_voiceover()
 	set category = "Fun"
