@@ -1,6 +1,4 @@
 #define TTS_PATH "code/shitcode/hule/tts"
-#define MALE_VOICES list("Maxim", "Nicolai")
-#define FEMALE_VOICES list("Alyona", "Tatyana")
 
 GLOBAL_VAR_INIT(tts, FALSE)
 GLOBAL_LIST_EMPTY(tts_datums)
@@ -44,6 +42,8 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 					voicename = pick(list("Maxim", "Nicolai"))
 				if("female")
 					voicename = pick(list("Alyona", "Tatyana"))
+				if("plural")
+					voicename = pick(list("Maxim", "Nicolai", "Alyona", "Tatyana"))
 
 /atom/movable/proc/remove_tts()
 	if(TTS)
