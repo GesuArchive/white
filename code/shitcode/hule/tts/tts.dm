@@ -89,8 +89,6 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 		cooldown--
 
 /datum/tts/proc/generate_tts(msg)
-	if(!isliving(owner) && GLOB.tts_settings[2])
-		return
 	if(cooldown <= 0)
 		msg = trim(msg, maxchars)
 		cooldown = length(msg)*charcd
@@ -110,7 +108,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	if(!check_rights())
 		return
 */
-	var/list/menu = list("Cancel", "Toggle TTS", "Change Lang", "Toggle Living Only")
+	var/list/menu = list("Cancel", "Toggle TTS", "Change Lang"")
 
 	var/selected = input("Main Menu", "ANIME VOICEOVER", "Cancel") as null|anything in menu
 
@@ -135,14 +133,5 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 
 			message_admins("[key] sets anime voiceover lang to \"[selectedlang]\"")
 			GLOB.tts_settings[1] = selectedlang
-
-		if("Toggle Living Only")
-			GLOB.tts_settings[2] = !GLOB.tts_settings[2]
-
-			if(GLOB.tts_settings[2])
-				message_admins("[key] toggled living only tts on.")
-			else
-				message_admins("[key] toggled living only tts off.")
-
 
 #undef TTS_PATH
