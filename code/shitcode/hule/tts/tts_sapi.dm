@@ -1,6 +1,4 @@
 #define TTS_PATH "code/shitcode/hule/tts"
-#define MALE_VOICES list("Maxim", "Nicolai")
-#define FEMALE_VOICES list("Alyona", "Tatyana")
 
 GLOBAL_VAR_INIT(tts, FALSE)
 GLOBAL_LIST_EMPTY(tts_datums)
@@ -37,8 +35,15 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	if(!TTS)
 		TTS = new /datum/tts
 		TTS.owner = src
-		if(voice)
-			TTS.voicename = voice
+		if(ismob(src))
+			var/mob/M = src
+			switch(M.gender)
+				if("male")
+					TTS.voicename = pick(list("Maxim", "Nicolai"))
+				if("female")
+					TTS.voicename = pick(list("Alyona", "Tatyana"))
+				if("plural")
+					TTS.voicename = pick(list("Maxim", "Nicolai", "Alyona", "Tatyana"))
 
 /atom/movable/proc/remove_tts()
 	if(TTS)
