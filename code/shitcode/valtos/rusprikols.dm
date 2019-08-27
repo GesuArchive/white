@@ -5,7 +5,7 @@
 	icon = 'code/shitcode/valtos/icons/clothing/uniforms.dmi'
 	icon_state = "omon"
 	item_state = "b_suit"
-	item_color = "omon"
+
 	armor = list("melee" = 15, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
 	strip_delay = 50
 	sensor_mode = SENSOR_COORDS
@@ -15,7 +15,7 @@
 /obj/item/clothing/under/rank/omon/green
 	icon_state = "omon-2"
 	item_state = "g_suit"
-	item_color = "omon-2"
+
 
 
 /obj/item/clothing/suit/armor/riot/omon
