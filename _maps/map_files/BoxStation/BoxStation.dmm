@@ -21518,13 +21518,13 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/structure/dresser,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
 	dir = 8
 	},
 /obj/machinery/light_switch{
 	pixel_y = 28
 	},
+/obj/structure/closet/secure_closet/captains,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "aZb" = (
@@ -21778,6 +21778,14 @@
 "aZK" = (
 /turf/closed/wall,
 /area/quartermaster/sorting)
+"aZL" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/structure/dresser,
+/turf/open/floor/carpet,
+/area/crew_quarters/heads/captain)
 "aZM" = (
 /turf/closed/wall/r_wall,
 /area/bridge/meeting_room)
@@ -27721,14 +27729,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
-	dir = 4
-	},
-/turf/open/floor/carpet,
-/area/crew_quarters/heads/captain)
-"bpk" = (
-/obj/structure/closet/secure_closet/captains,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/open/floor/carpet,
@@ -82592,7 +82592,7 @@ bjF
 blc
 aZa
 bnY
-bpk
+aZL
 bqJ
 bsj
 btI
