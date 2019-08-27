@@ -35,8 +35,8 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	if(!TTS)
 		TTS = new /datum/tts
 		TTS.owner = src
-		if(ismob(owner))
-			var/mob/M = owner
+		if(ismob(src))
+			var/mob/M = src
 			switch(M.gender)
 				if("male")
 					voicename = pick(list("Maxim", "Nicolai"))
