@@ -108,7 +108,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	if(!check_rights())
 		return
 */
-	var/list/menu = list("Cancel", "Toggle TTS", "Change Lang"")
+	var/list/menu = list("Cancel", "Toggle TTS", "Change Lang")
 
 	var/selected = input("Main Menu", "ANIME VOICEOVER", "Cancel") as null|anything in menu
 
