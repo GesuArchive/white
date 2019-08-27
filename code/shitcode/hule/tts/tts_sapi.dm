@@ -37,8 +37,13 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	if(!TTS)
 		TTS = new /datum/tts
 		TTS.owner = src
-		if(voice)
-			TTS.voicename = voice
+		if(ismob(owner))
+			var/mob/M = owner
+			switch(M.gender)
+				if("male")
+					voicename = pick(list("Maxim", "Nicolai"))
+				if("female")
+					voicename = pick(list("Alyona", "Tatyana"))
 
 /atom/movable/proc/remove_tts()
 	if(TTS)
