@@ -27,7 +27,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	if(fexists("[TTS_PATH]/lines/[namae].wav"))
 		for(var/mob/M in range(13))
 			var/turf/T = get_turf(src)
-			M.playsound_local(T, "[TTS_PATH]/lines/[namae].wav", 100, channel = TTS.assigned_channel, frequency = freq)
+			M.playsound_local(T, "[TTS_PATH]/lines/[namae].wav", 100, channel = TTS.assigned_channel, vary = TRUE, frequency = freq)
 		fdel("[TTS_PATH]/lines/[namae].wav")
 
 /atom/movable
