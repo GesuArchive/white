@@ -189,7 +189,7 @@
 	if(special_faces.len == sides)
 		result = special_faces[result]
 	if(user != null) //Dice was rolled in someone's hand
-		user.visible_message("[user] кидает [src]. Он приземляется на [result]. [comment]", \
+		user.visible_message("[user] кидает [src]. Он приземляется на [result]. [comment]</span>", \
 							 "<span class='notice'>Ты бросаешь [src]. Он приземляется на [result]. [comment]</span>", \
 							 "<span class='italics'>Вы слышите как катится [src], это звучит как [fake_result].</span>")
 	else if(!src.throwing) //Dice was thrown and is coming to rest

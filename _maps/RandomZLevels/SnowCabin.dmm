@@ -1101,7 +1101,7 @@
 /area/awaymission/cabin/snowforest/sovietsurface)
 "dr" = (
 /obj/effect/decal/cleanable/blood,
-/obj/item/reagent_containers/pill/patch/styptic,
+/obj/item/reagent_containers/pill/patch/libital,
 /turf/open/floor/plating/snowed/temperatre,
 /area/awaymission/cabin/snowforest/sovietsurface)
 "ds" = (
@@ -1282,7 +1282,7 @@
 /turf/open/floor/plating/snowed/temperatre,
 /area/awaymission/cabin/snowforest/sovietsurface)
 "dW" = (
-/obj/item/reagent_containers/pill/patch/styptic,
+/obj/item/reagent_containers/pill/patch/libital,
 /turf/open/floor/plating/snowed/temperatre,
 /area/awaymission/cabin/snowforest/sovietsurface)
 "dX" = (
@@ -3109,7 +3109,7 @@
 /area/awaymission/cabin/snowforest/sovietsurface)
 "hY" = (
 /obj/effect/decal/cleanable/blood/gibs,
-/obj/item/reagent_containers/pill/patch/styptic,
+/obj/item/reagent_containers/pill/patch/libital,
 /turf/open/floor/plating/snowed/temperatre,
 /area/awaymission/cabin/snowforest/sovietsurface)
 "hZ" = (
