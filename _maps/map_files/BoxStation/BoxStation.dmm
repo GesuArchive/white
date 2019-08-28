@@ -21789,6 +21789,17 @@
 "aZM" = (
 /turf/closed/wall/r_wall,
 /area/bridge/meeting_room)
+"aZN" = (
+/obj/machinery/field/generator{
+	anchored = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plating{
+	icon_state = "panelscorched"
+	},
+/area/space/nearstation)
 "aZO" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/closed/wall,
@@ -22089,6 +22100,17 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/chapel/main)
+"baC" = (
+/obj/machinery/field/generator{
+	anchored = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating{
+	luminosity = 2
+	},
+/area/space/nearstation)
 "baD" = (
 /obj/machinery/power/apc{
 	areastring = "/area/hallway/secondary/exit";
@@ -22221,6 +22243,18 @@
 	},
 /turf/open/floor/plasteel/grimy,
 /area/security/detectives_office)
+"baW" = (
+/obj/machinery/field/generator{
+	anchored = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plating{
+	initial_gas_mix = "o2=0.01;n2=0.01";
+	luminosity = 2
+	},
+/area/space/nearstation)
 "baX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment{
@@ -22472,6 +22506,13 @@
 	dir = 1
 	},
 /area/hallway/secondary/exit)
+"bbH" = (
+/obj/machinery/field/generator{
+	anchored = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating,
+/area/space/nearstation)
 "bbI" = (
 /obj/machinery/power/apc{
 	areastring = "/area/vacant_room/office";
@@ -72626,7 +72667,7 @@ atl
 arY
 arY
 arY
-arY
+baC
 arY
 arY
 arY
@@ -73650,7 +73691,7 @@ azP
 aCS
 aDJ
 awO
-arY
+aZN
 gXs
 gXs
 asj
@@ -73658,7 +73699,7 @@ axd
 asj
 gXs
 gXs
-arY
+bbH
 awO
 aaa
 aaT
@@ -74682,7 +74723,7 @@ avi
 arY
 arY
 arY
-arY
+baW
 arY
 arY
 arY
