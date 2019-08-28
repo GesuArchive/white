@@ -155,7 +155,7 @@
 	lethal_projectile_sound = 'sound/weapons/lasercannonfire.ogg'
 	mode = TURRET_LETHAL
 	shoot_unloyal = 1
-	stun_all = 1
+	//stun_all = 1
 	auth_weapons = 1
 	always_up = 1
 	scan_range = 9
