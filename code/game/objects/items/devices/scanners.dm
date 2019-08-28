@@ -605,6 +605,7 @@ GENE SCANNER
 			to_chat(user, "<span class='notice'>Moles: [round(total_moles, 0.01)] mol</span>")
 			to_chat(user, "<span class='notice'>Volume: [volume] L</span>")
 			to_chat(user, "<span class='notice'>Pressure: [round(pressure,0.01)] kPa</span>")
+			to_chat(user, "<span class='notice'>Energy: [round(air_contents.thermal_energy(),0.01)] J</span>")
 
 			var/list/cached_gases = air_contents.gases
 			for(var/id in cached_gases)
