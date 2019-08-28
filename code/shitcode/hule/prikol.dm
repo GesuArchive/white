@@ -1,4 +1,5 @@
 GLOBAL_VAR_INIT(prikol_mode, FALSE)
+GLOBAL_LIST_EMPTY(frabbers)
 
 /mob/living
 	var/datum/cs_killcounter/killcounter
@@ -98,6 +99,12 @@ GLOBAL_VAR_INIT(prikol_mode, FALSE)
 /proc/secure_kill(var/frabberckey)
 	if(!frabberckey)
 		return
+
+	if(GLOB.frabbers[frabberckey])
+		GLOB.frabbers[frabberckey]++
+	else
+		GLOB.frabbers[frabberckey] = 1
+
 	for(var/mob/living/L in GLOB.player_list)
 		if(L.ckey == frabberckey)
 			L.killcounter.count_kill()
