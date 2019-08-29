@@ -2995,6 +2995,8 @@
 #include "code\shitcode\hule\prikolpanel.dm"
 #include "code\shitcode\hule\re_jukebox.dm"
 #include "code\shitcode\hule\schoolshooters.dm"
+#include "code\shitcode\hule\aspects\aspects.dm"
+#include "code\shitcode\hule\aspects\ss.dm"
 #include "code\shitcode\hule\battletension\battletension.dm"
 #include "code\shitcode\hule\gateway\prikolwoods.dm"
 #include "code\shitcode\hule\gateway\prikolwoods_flora.dm"
