@@ -19,7 +19,7 @@
 	weight = 7
 
 /datum/round_aspect/bom_bass/run_aspect()
-	var/expcount = rand(1,4)
+	var/expcount = rand(2,4)
 
 	var/list/possible_spawns = list()
 	for(var/turf/X in GLOB.xeno_spawn)
@@ -29,4 +29,12 @@
 	var/i
 	for(i=0, i<expcount, i++)
 		explosion(pick_n_take(possible_spawns), 5, 7, 14)
+	..()
+
+/datum/round_aspect/unpower
+	name = "Свет не завезли"
+	weight = 4
+
+/datum/round_aspect/unpower/run_aspect()
+	power_failure()
 	..()
