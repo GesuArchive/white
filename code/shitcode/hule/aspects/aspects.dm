@@ -7,7 +7,7 @@
 	return
 
 /datum/round_aspect/random_appearance
-	name = "Случайная внешность"
+	name = "Random appearance"
 	weight = 3
 
 /datum/round_aspect/random_appearance/run_aspect()
@@ -15,7 +15,7 @@
 	..()
 
 /datum/round_aspect/bom_bass
-	name = "Свершение Прикола"
+	name = "Bombass"
 	weight = 7
 
 /datum/round_aspect/bom_bass/run_aspect()
@@ -31,10 +31,10 @@
 		explosion(pick_n_take(possible_spawns), 5, 7, 14)
 	..()
 
-/datum/round_aspect/unpower
-	name = "Свет не завезли"
+/datum/round_aspect/power_failure
+	name = "Power Failure"
 	weight = 4
 
-/datum/round_aspect/unpower/run_aspect()
+/datum/round_aspect/power_failure/run_aspect()
 	power_failure()
 	..()
