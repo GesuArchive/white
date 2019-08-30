@@ -229,7 +229,7 @@
 	else
 		SSshuttle.emergencyLastCallLoc = null
 
-	priority_announce("Вызван эвакуационный шаттл. [redAlert ? "Подтверждён \"Красный код\": отправляем приоритетный шаттл. " : "" ]It will arrive in [timeLeft(600)] minutes.[reason][SSshuttle.emergencyLastCallLoc ? "\n\nИсточник сигнала идентифицирован, данные о его местоположении доступны с любой коммуникационной консоли." : "" ]", null, 'sound/ai/shuttlecalled.ogg', "Priority")
+	priority_announce("Вызван эвакуационный шаттл. [redAlert ? "Подтверждён \"Красный код\": отправляем приоритетный шаттл. " : "" ]Он прибудет через [timeLeft(600)] минут.[reason][SSshuttle.emergencyLastCallLoc ? "\n\nИсточник сигнала идентифицирован, данные о его местоположении доступны с любой коммуникационной консоли." : "" ]", null, 'sound/ai/shuttlecalled.ogg', "Priority")
 
 /obj/docking_port/mobile/emergency/cancel(area/signalOrigin)
 	if(mode != SHUTTLE_CALL)
@@ -422,7 +422,7 @@
 	mode = SHUTTLE_ESCAPE
 	launch_status = ENDGAME_LAUNCHED
 	setTimer(SSshuttle.emergencyEscapeTime)
-	priority_announce("The Emergency Shuttle preparing for direct jump. Estimate [timeLeft(600)] minutes until the shuttle docks at Central Command.", null, null, "Priority")
+	priority_announce("Эвакуационный шаттл готовится к прямому прыжку. Ожидайте [timeLeft(600)] минуты пока он не прибудет к Центральному Командованию.", null, null, "Priority")
 
 
 /obj/docking_port/mobile/pod

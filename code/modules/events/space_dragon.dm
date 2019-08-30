@@ -12,7 +12,7 @@
 	announceWhen = 10
 
 /datum/round_event/ghost_role/space_dragon/announce(fake)
-	priority_announce("It appears a lifeform with magical traces is approaching [station_name()], please stand-by.", "Lifesign Alert")
+	priority_announce("Похоже, приближается форма жизни с признаками магии к [station_name()], пожалуйста, приготовьтесь.", "Вторжение на борт")
 
 /datum/round_event/ghost_role/space_dragon/spawn_role()
 	var/list/candidates = get_candidates(ROLE_ALIEN, null, ROLE_ALIEN)

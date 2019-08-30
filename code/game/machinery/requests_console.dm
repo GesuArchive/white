@@ -369,10 +369,10 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 
 	linkedsender = source_department ? "<a href='?src=[REF(src)];write=[ckey(source_department)]'>[source_department]</a>" : (source || "unknown")
 
-	var/authentic = (msgVerified || msgStamped) && " (Authenticated)"
-	var/alert = "Message from [source][authentic]"
+	var/authentic = (msgVerified || msgStamped) && " (Подтверждено)"
+	var/alert = "Сообщение от [source][authentic]"
 	var/silenced = silent
-	var/header = "<b>From:</b> [linkedsender] Received: [station_time_timestamp()]<BR>"
+	var/header = "<b>От:</b> [linkedsender] Получено: [station_time_timestamp()]<BR>"
 
 	switch(priority)
 		if(REQ_NORMAL_MESSAGE_PRIORITY)
@@ -381,15 +381,15 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 				update_icon()
 
 		if(REQ_HIGH_MESSAGE_PRIORITY)
-			header = "<span class='bad'>High Priority</span><BR>[header]"
-			alert = "PRIORITY Alert from [source][authentic]"
+			header = "<span class='bad'>Высокий Приоритет</span><BR>[header]"
+			alert = "Приоритетное сообщение от [source][authentic]"
 			if(newmessagepriority < REQ_HIGH_MESSAGE_PRIORITY)
 				newmessagepriority = REQ_HIGH_MESSAGE_PRIORITY
 				update_icon()
 
 		if(REQ_EXTREME_MESSAGE_PRIORITY)
-			header = "<span class='bad'>!!!Extreme Priority!!!</span><BR>[header]"
-			alert = "EXTREME PRIORITY Alert from [source][authentic]"
+			header = "<span class='bad'>!!!Сверхвысокий Приоритет!!!</span><BR>[header]"
+			alert = "Сверхприоритетное сообщение от [source][authentic]"
 			silenced = FALSE
 			if(newmessagepriority < REQ_EXTREME_MESSAGE_PRIORITY)
 				newmessagepriority = REQ_EXTREME_MESSAGE_PRIORITY

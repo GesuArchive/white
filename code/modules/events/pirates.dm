@@ -26,16 +26,16 @@
 	ship_name = pick(strings(PIRATE_NAMES_FILE, "ship_names"))
 
 /datum/round_event/pirates/announce(fake)
-	priority_announce("Incoming subspace communication. Secure channel opened at all communication consoles.", "Incoming Message", 'sound/ai/commandreport.ogg')
+	priority_announce("Входящая подпространственная передача данных. Открыт защищенный канал связи на всех коммуникационных консолях.", "Входящее сообщение", 'sound/ai/commandreport.ogg')
 	if(fake)
 		return
 	threat = new
 	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
 	if(D)
 		payoff = max(payoff_min, FLOOR(D.account_balance * 0.80, 1000))
-	threat.title = "Business proposition"
-	threat.content = "This is [ship_name]. Pay up [payoff] credits or you'll walk the plank."
-	threat.possible_answers = list("We'll pay.","No way.")
+	threat.title = "Бизнес-предложение"
+	threat.content = "Это [ship_name]. Выплатите [payoff] кредитов или вы пройдётесь по доске."
+	threat.possible_answers = list("Мы заплатим.","Нет.")
 	threat.answer_callback = CALLBACK(src,.proc/answered)
 	SScommunications.send_message(threat,unique = TRUE)
 
@@ -44,19 +44,19 @@
 		var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
 		if(D)
 			if(D.adjust_money(-payoff))
-				priority_announce("Thanks for the credits, landlubbers.",sender_override = ship_name)
+				priority_announce("Спасибо за кредиты, сухопутные крысы.",sender_override = ship_name)
 				paid_off = TRUE
 				return
 			else
-				priority_announce("Trying to cheat us? You'll regret this!",sender_override = ship_name)
+				priority_announce("Пытаешься нас обмануть? Ты пожалеешь об этом!",sender_override = ship_name)
 	if(!shuttle_spawned)
 		spawn_shuttle()
 	else
-		priority_announce("Too late to beg for mercy!",sender_override = ship_name)
+		priority_announce("Слишком поздно умолять о пощаде!",sender_override = ship_name)
 
 /datum/round_event/pirates/start()
 	if(threat && !threat.answered)
-		threat.possible_answers = list("Too late")
+		threat.possible_answers = list("Слишком поздно")
 		threat.answered = 1
 	if(!paid_off && !shuttle_spawned)
 		spawn_shuttle()
@@ -64,7 +64,7 @@
 /datum/round_event/pirates/proc/spawn_shuttle()
 	shuttle_spawned = TRUE
 
-	var/list/candidates = pollGhostCandidates("Do you wish to be considered for pirate crew?", ROLE_TRAITOR)
+	var/list/candidates = pollGhostCandidates("Вы хотите попасть в команду пиратов?", ROLE_TRAITOR)
 	shuffle_inplace(candidates)
 
 	var/datum/map_template/shuttle/pirate/default/ship = new
@@ -88,7 +88,7 @@
 			else
 				announce_to_ghosts(spawner)
 
-	priority_announce("Unidentified armed ship detected near the station.")
+	priority_announce("Вблизи станции обнаружен неопознанный вооруженный корабль.")
 
 //Shuttle equipment
 
@@ -154,7 +154,7 @@
 	credits_stored = 0
 
 /obj/machinery/shuttle_scrambler/proc/send_notification()
-	priority_announce("Data theft signal detected, source registered on local gps units.")
+	priority_announce("Обнаружен сигнал кражи данных, источник зарегистрирован на локальных GPS устройствах.")
 
 /obj/machinery/shuttle_scrambler/proc/toggle_off(mob/user)
 	SSshuttle.clearTradeBlockade(src)

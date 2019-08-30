@@ -5,16 +5,16 @@
 	var/announcement
 
 	if(type == "Priority")
-		announcement += "<h1 class='alert'>Priority Announcement</h1>"
+		announcement += "<h1 class='alert'>Срочное Объявление</h1>"
 		if (title && length(title) > 0)
 			announcement += "<br><h2 class='alert'>[rhtml_encode(title)]</h2>"
 	else if(type == "Captain")
-		announcement += "<h1 class='alert'>Captain Announces</h1>"
-		GLOB.news_network.SubmitArticle(text, "Captain's Announcement", "Station Announcements", null)
+		announcement += "<h1 class='alert'>Капитан Объявляет</h1>"
+		GLOB.news_network.SubmitArticle(text, "Капитан Объявляет", "Station Announcements", null)
 
 	else
 		if(!sender_override)
-			announcement += "<h1 class='alert'>[command_name()] Update</h1>"
+			announcement += "<h1 class='alert'>Объявление от [command_name()]</h1>"
 		else
 			announcement += "<h1 class='alert'>[sender_override]</h1>"
 		if (title && length(title) > 0)
@@ -22,9 +22,9 @@
 
 		if(!sender_override)
 			if(title == "")
-				GLOB.news_network.SubmitArticle(text, "Central Command Update", "Station Announcements", null)
+				GLOB.news_network.SubmitArticle(text, "Объявление от Центрального Командования", "Station Announcements", null)
 			else
-				GLOB.news_network.SubmitArticle(title + "<br><br>" + text, "Central Command", "Station Announcements", null)
+				GLOB.news_network.SubmitArticle(title + "<br><br>" + text, "Центральное Командование", "Station Announcements", null)
 
 	announcement += "<br><span class='alert'>[rhtml_encode(text)]</span><br>"
 	announcement += "<br>"
@@ -38,10 +38,10 @@
 
 /proc/print_command_report(text = "", title = null, announce=TRUE)
 	if(!title)
-		title = "Classified [command_name()] Update"
+		title = "Секретное Сообщение от [command_name()]"
 
 	if(announce)
-		priority_announce("A report has been downloaded and printed out at all communications consoles.", "Incoming Classified Message", 'sound/ai/commandreport.ogg')
+		priority_announce("Отчет был загружен и распечатан на всех коммуникационных консолях.", "Входящее Секретное Сообщение", 'sound/ai/commandreport.ogg')
 
 	var/datum/comm_message/M  = new
 	M.title = title

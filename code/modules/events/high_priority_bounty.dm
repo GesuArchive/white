@@ -6,7 +6,7 @@
 	earliest_start = 10
 
 /datum/round_event/high_priority_bounty/announce(fake)
-	priority_announce("Central Command has issued a high-priority cargo bounty. Details have been sent to all bounty consoles.", "Nanotrasen Bounty Program")
+	priority_announce("Центральное Командование выдало высокоприоритетную награду за груз. Детали были разосланы на все консоли грантов.", "Программы Грантов Нанотрейзен")
 
 /datum/round_event/high_priority_bounty/start()
 	var/datum/bounty/B

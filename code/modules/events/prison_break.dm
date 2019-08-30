@@ -30,7 +30,7 @@
 
 /datum/round_event/grey_tide/announce(fake)
 	if(areasToOpen && areasToOpen.len > 0)
-		priority_announce("Gr3y.T1d3 virus detected in [station_name()] door subroutines. Severity level of [severity]. Recommend station AI involvement.", "Security Alert")
+		priority_announce("Gr3y.T1d3 вирус обнаружен в дверных подпрограммах [station_name()]. Уровень тяжести [severity]. Рекомендуется участие ИИ для решения проблемы.", "Нарушение безопасности")
 	else
 		log_world("ERROR: Could not initiate grey-tide. No areas in the list!")
 		kill()
