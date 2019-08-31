@@ -36,7 +36,6 @@
 	weight = 4
 
 /datum/round_aspect/power_failure/run_aspect()
-/area/tcommsat/server
 	for(var/obj/machinery/power/smes/S in GLOB.machines)
 		if(istype(get_area(S), /area/ai_monitored/turret_protected) || !is_station_level(S.z) || istype(get_area(S), /area/tcommsat/server))
 			continue
