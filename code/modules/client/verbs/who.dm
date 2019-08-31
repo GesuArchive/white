@@ -2,7 +2,7 @@
 	set name = "Who"
 	set category = "OOC"
 
-	var/msg = "<b>Current Players:</b>\n"
+	var/msg = "<b>Онлайн:</b>\n"
 
 	var/list/Lines = list()
 
@@ -18,23 +18,23 @@
 				if(C.holder && C.holder.fakekey)
 					entry += " <i>(as [C.holder.fakekey])</i>"
 				if (isnewplayer(C.mob))
-					entry += " - <font color='darkgray'><b>In Lobby</b></font>"
+					entry += " - <font color='darkgray'><b>Лобби</b></font>"
 				else
 					entry += " - Playing as [C.mob.real_name]"
 					switch(C.mob.stat)
 						if(UNCONSCIOUS)
-							entry += " - <font color='darkgray'><b>Unconscious</b></font>"
+							entry += " - <font color='darkgray'><b>Без сознания</b></font>"
 						if(DEAD)
 							if(isobserver(C.mob))
 								var/mob/dead/observer/O = C.mob
 								if(O.started_as_observer)
-									entry += " - <font color='gray'>Observing</font>"
+									entry += " - <font color='gray'>Наблюдает</font>"
 								else
-									entry += " - <font color='black'><b>DEAD</b></font>"
+									entry += " - <font color='black'><b>МЁРТВ</b></font>"
 							else
-								entry += " - <font color='black'><b>DEAD</b></font>"
+								entry += " - <font color='black'><b>МЁРТВ</b></font>"
 					if(is_special_character(C.mob))
-						entry += " - <b><font color='red'>Antagonist</font></b>"
+						entry += " - <b><font color='red'>Антаг</font></b>"
 				entry += " [ADMIN_QUE(C.mob)]"
 				entry += " ([round(C.avgping, 1)]ms)"
 				Lines += entry
@@ -45,21 +45,21 @@
 					entry += " <i>(as [C.holder.fakekey])</i>"
 				if(C.ckey in GLOB.anonists)
 					continue
-				entry += " ([round(C.avgping, 1)]ms)"
+				entry += " - ([round(C.avgping, 1)]мс)"
 				Lines += entry
 	else
 		for(var/client/C in GLOB.clients)
 			if(C.holder && C.holder.fakekey)
-				Lines += "[C.holder.fakekey] ([round(C.avgping, 1)]ms)"
+				Lines += "\t[C.holder.fakekey] - ([round(C.avgping, 1)]мс)"
 			else if(C.ckey in GLOB.anonists)
 				continue
 			else
-				Lines += "[C.key] ([round(C.avgping, 1)]ms)"
+				Lines += "\t[C.key] - ([round(C.avgping, 1)]мс)"
 
 	for(var/line in sortList(Lines))
 		msg += "[line]\n"
 
-	msg += "<b>Total Players: [length(Lines)]</b>"
+	msg += "<b>Всего: [length(Lines)]</b>"
 	to_chat(src, msg)
 
 /client/proc/adminwho()
@@ -88,11 +88,12 @@
 				msg += " (AFK)"
 			msg += "\n"
 	else
-		for(var/client/C in GLOB.admins)
+		msg = "<b>Тебе пиздец.</b>"
+		/*for(var/client/C in GLOB.admins)
 			if(C.is_afk())
 				continue //Don't show afk admins to adminwho
 			if(!C.holder.fakekey)
 				msg += "\t[C] is a [C.holder.rank]\n"
-		msg += "<span class='info'>Adminhelps are also sent to IRC. If no admins are available in game adminhelp anyways and an admin on IRC will see it and respond.</span>"
+		msg += "<span class='info'>Adminhelps are also sent to IRC. If no admins are available in game adminhelp anyways and an admin on IRC will see it and respond.</span>"*/
 	to_chat(src, msg)
 
