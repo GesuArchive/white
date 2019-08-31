@@ -641,15 +641,15 @@ SUBSYSTEM_DEF(ticker)
 	update_everything_flag_in_db()
 	if(!round_end_sound)
 		round_end_sound = pick(\
-		'sound/roundend/newroundsexy.ogg',
-		'sound/roundend/apcdestroyed.ogg',
-		'sound/roundend/bangindonk.ogg',
-		'sound/roundend/leavingtg.ogg',
-		'sound/roundend/its_only_game.ogg',
-		'sound/roundend/yeehaw.ogg',
-		'sound/roundend/disappointed.ogg',
-		'sound/roundend/scrunglartiy.ogg',
-		'sound/roundend/petersondisappointed.ogg'\
+		'sound/roundend/chashapunk.ogg',
+		'sound/roundend/chisti.ogg',
+		'sound/roundend/djeban.ogg',
+		'sound/roundend/hello.ogg',
+		'sound/roundend/karutonik.ogg',
+		'sound/roundend/onyx.ogg',
+		'sound/roundend/pidoras.ogg',
+		'sound/roundend/mocha.wav',
+		'sound/roundend/gachicombat.ogg'\
 		)
 
 	SEND_SOUND(world, sound(round_end_sound))
