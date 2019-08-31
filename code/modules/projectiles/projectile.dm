@@ -183,12 +183,12 @@
 		if(limb_hit)
 			organ_hit_text = "В [ru_parse_zone(parse_zone(limb_hit))]"
 		if(suppressed)
-			playsound(loc, hitsound, 5, 1, -1)
+			playsound(loc, hitsound, 5, TRUE, -1)
 			to_chat(L, "<span class='userdanger'>[organ_hit_text] попадает [src.name]!</span>")
 		else
 			if(hitsound)
 				var/volume = vol_by_damage()
-				playsound(loc, hitsound, volume, 1, -1)
+				playsound(loc, hitsound, volume, TRUE, -1)
 			L.visible_message("<span class='danger'>[organ_hit_text] <b>[L]</b> попадает [src.name]!</span>", \
 					"<span class='userdanger'>[organ_hit_text] <b>[L]<b> попадает [src.name]!</span>", null, COMBAT_MESSAGE_RANGE)
 
@@ -245,7 +245,7 @@
 		var/volume = CLAMP(vol_by_damage() + 20, 0, 100)
 		if(suppressed)
 			volume = 5
-		playsound(loc, hitsound_wall, volume, 1, -1)
+		playsound(loc, hitsound_wall, volume, TRUE, -1)
 
 	return process_hit(T, select_target(T, A))
 
