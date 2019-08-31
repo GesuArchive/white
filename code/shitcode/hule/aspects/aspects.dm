@@ -46,7 +46,7 @@
 		S.power_change()
 
 	for(var/area/A in GLOB.the_station_areas)
-		if(!A.requires_power || A.always_unpowered || istype(get_area(S), /area/tcommsat/server))
+		if(!A.requires_power || A.always_unpowered || istype(A, /area/tcommsat/server))
 			continue
 		if(GLOB.typecache_powerfailure_safe_areas[A.type])
 			continue
