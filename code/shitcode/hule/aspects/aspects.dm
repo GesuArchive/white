@@ -30,7 +30,7 @@
 	for(i=0, i<expcount, i++)
 		explosion(pick_n_take(possible_spawns), 5, 7, 14)
 	..()
-
+/*
 /datum/round_aspect/power_failure
 	name = "Power Failure"
 	weight = 4
@@ -38,3 +38,4 @@
 /datum/round_aspect/power_failure/run_aspect()
 	power_failure()
 	..()
+*/
