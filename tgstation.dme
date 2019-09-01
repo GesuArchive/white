@@ -2991,6 +2991,7 @@
 #include "code\shitcode\Gargule\surgery\table.dm"
 #include "code\shitcode\Gargule\virology\symptoms\old.dm"
 #include "code\shitcode\hule\anonism.dm"
+#include "code\shitcode\hule\prikls.dm"
 #include "code\shitcode\hule\prikol.dm"
 #include "code\shitcode\hule\prikolpanel.dm"
 #include "code\shitcode\hule\re_jukebox.dm"
