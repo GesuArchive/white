@@ -1,5 +1,5 @@
 "aa" = (/obj/machinery/atmospherics/pipe/simple/yellow/visible{icon_state = "pipe11-2"; dir = 8},/obj/structure/table,/obj/machinery/power/apc/auto_name/south,/obj/structure/cable,/obj/item/clothing/suit/hazardvest,/obj/item/clothing/suit/hazardvest,/obj/item/clothing/suit/hazardvest,/turf/open/floor/plasteel,/area/shuttle/atmosia)
-"ab" = (/obj/machinery/door/airlock/external{name = "Atmospherics External Airlock"; req_access_txt = "24"},/obj/effect/mapping_helpers/airlock/cyclelink_helper,/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{dir = 4},/turf/open/floor/plating,/area/shuttle/atmosia/atmos)
+"ab" = (/obj/machinery/door/airlock/external{name = "Atmospherics External Airlock"; req_access_txt = "24"},/obj/effect/mapping_helpers/airlock/cyclelink_helper,/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{dir = 4},/turf/open/floor/plating,/area/shuttle/atmosia/atmos)
 "ac" = (/turf/template_noop,/area/template_noop)
 "ad" = (/obj/machinery/atmospherics/pipe/simple/cyan/visible{dir = 6},/turf/closed/wall,/area/shuttle/atmosia/atmos)
 "ae" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,/obj/machinery/light/small{dir = 1},/turf/open/floor/plating,/area/shuttle/atmosia/atmos)
