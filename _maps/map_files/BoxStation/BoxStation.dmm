@@ -21524,7 +21524,8 @@
 /obj/machinery/light_switch{
 	pixel_y = 28
 	},
-/obj/structure/closet/secure_closet/captains,
+/obj/structure/safe/floor,
+/obj/item/card/id/captains_spare,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "aZb" = (
@@ -25784,6 +25785,10 @@
 	},
 /turf/open/floor/plating,
 /area/medical/medbay/central)
+"bjJ" = (
+/obj/structure/closet/secure_closet/captains,
+/turf/open/floor/carpet,
+/area/crew_quarters/heads/captain)
 "bjK" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on,
 /obj/structure/cable,
@@ -27493,11 +27498,6 @@
 	pixel_x = -22
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/turf/open/floor/carpet,
-/area/crew_quarters/heads/captain)
-"bnZ" = (
-/obj/structure/table/wood,
-/obj/item/flashlight/lamp/green,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "boa" = (
@@ -71193,7 +71193,7 @@ bCq
 bLv
 bLv
 bLv
-bLv
+apW
 aaa
 aaa
 aaa
@@ -83219,7 +83219,7 @@ bim
 aYj
 aYg
 aZi
-bnZ
+bjJ
 bpl
 bqH
 bsl
