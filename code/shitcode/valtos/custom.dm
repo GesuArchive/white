@@ -184,3 +184,38 @@
 		transform = M
 		icon = smooth_icon
 	. = ..()
+
+
+/obj/structure/pillar
+	name = "pillar"
+	desc = "Заборчик. Круто."
+	icon = 'code/shitcode/valtos/icons/objects.dmi'
+	icon_state = "b-1"
+	density = FALSE
+	layer = TURF_LAYER
+	pressure_resistance = 4*ONE_ATMOSPHERE
+	anchored = TRUE
+	flags_1 = ON_BORDER_1
+	max_integrity = 250
+	can_be_unanchored = FALSE
+	resistance_flags = ACID_PROOF
+	armor = list("melee" = 90, "bullet" = 90, "laser" = 100, "energy" = 100, "bomb" = 50, "bio" = 100, "rad" = 100, "fire" = 80, "acid" = 100)
+	CanAtmosPass = ATMOS_PASS_YES
+	rad_insulation = RAD_NO_INSULATION
+	rad_flags = RAD_NO_CONTAMINATE
+	var/real_explosion_block	//ignore this, just use explosion_block
+
+/obj/structure/pillar/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover) && (mover.pass_flags & PASSTABLE))
+		return 1
+	return 1
+
+/obj/structure/pillar/CheckExit(atom/movable/O, turf/target)
+	if(istype(O) && (O.pass_flags & PASSTABLE))
+		return 1
+	if(get_dir(O.loc, target) == dir)
+		return 0
+	return 1
+
+/obj/structure/pillar/CanAtmosPass(turf/T)
+	return TRUE
