@@ -4,6 +4,8 @@ SUBSYSTEM_DEF(aspects)
 	flags = SS_NO_FIRE
 	init_order = -70
 
+	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
+
 	var/ca_name = "LOBBY"
 
 	var/list/aspects = list()
@@ -28,3 +30,5 @@ SUBSYSTEM_DEF(aspects)
 	current_aspect = pickweight(aspects)
 	current_aspect.run_aspect()
 	ca_name = current_aspect.name
+
+	to_chat(world, "<span class='notice'><B>Важно:</B> [current_aspect.desc]</span>")
