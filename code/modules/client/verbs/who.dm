@@ -20,7 +20,7 @@
 				if (isnewplayer(C.mob))
 					entry += " - <font color='darkgray'><b>Лобби</b></font>"
 				else
-					entry += " - Playing as [C.mob.real_name]"
+					entry += " - Играет как [C.mob.real_name]"
 					switch(C.mob.stat)
 						if(UNCONSCIOUS)
 							entry += " - <font color='darkgray'><b>Без сознания</b></font>"
@@ -36,7 +36,7 @@
 					if(is_special_character(C.mob))
 						entry += " - <b><font color='red'>Антаг</font></b>"
 				entry += " [ADMIN_QUE(C.mob)]"
-				entry += " ([round(C.avgping, 1)]ms)"
+				entry += " ([round(C.avgping, 1)]мс)"
 				Lines += entry
 		else//If they don't have +ADMIN, only show hidden admins
 			for(var/client/C in GLOB.clients)

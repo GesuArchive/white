@@ -1,10 +1,10 @@
 /mob/living/silicon
 	gender = NEUTER
 	has_unlimited_silicon_privilege = 1
-	verb_say = "states"
-	verb_ask = "queries"
-	verb_exclaim = "declares"
-	verb_yell = "alarms"
+	verb_say = "констатирует"
+	verb_ask = "запрашивает"
+	verb_exclaim = "объ€вл€ет"
+	verb_yell = "тревожит"
 	initial_language_holder = /datum/language_holder/synthetic
 	see_in_dark = 8
 	bubble_icon = "machine"

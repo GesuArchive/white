@@ -23,10 +23,10 @@
 	var/obj/item/paicard/card	// The card we inhabit
 	var/hacking = FALSE		//Are we hacking a door?
 
-	var/speakStatement = "states"
-	var/speakExclamation = "declares"
-	var/speakDoubleExclamation = "alarms"
-	var/speakQuery = "queries"
+	var/speakStatement = "констатирует"
+	var/speakExclamation = "объ€вл€ет"
+	var/speakDoubleExclamation = "тревожит"
+	var/speakQuery = "запрашивает"
 
 	var/obj/item/pai_cable/cable		// The cable we produce and use when door or camera jacking
 

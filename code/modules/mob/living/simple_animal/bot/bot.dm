@@ -15,10 +15,10 @@
 	has_unlimited_silicon_privilege = 1
 	sentience_type = SENTIENCE_ARTIFICIAL
 	status_flags = NONE //no default canpush
-	verb_say = "states"
-	verb_ask = "queries"
-	verb_exclaim = "declares"
-	verb_yell = "alarms"
+	verb_say = "констатирует"
+	verb_ask = "запрашивает"
+	verb_exclaim = "объ€вл€ет"
+	verb_yell = "тревожит"
 	initial_language_holder = /datum/language_holder/synthetic
 	bubble_icon = "machine"
 	speech_span = SPAN_ROBOT

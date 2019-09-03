@@ -47,9 +47,9 @@ IF YOU MODIFY THE PRODUCTS LIST OF A MACHINE, MAKE SURE TO UPDATE ITS RESUPPLY C
 	icon_state = "generic"
 	layer = BELOW_OBJ_LAYER
 	density = TRUE
-	verb_say = "beeps"
-	verb_ask = "beeps"
-	verb_exclaim = "beeps"
+	verb_say = "бипает"
+	verb_ask = "бипает"
+	verb_exclaim = "бипает"
 	max_integrity = 300
 	integrity_failure = 100
 	armor = list("melee" = 20, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 70)

@@ -10,9 +10,9 @@
 	materials = list(/datum/material/iron=500, /datum/material/glass=50)
 	flags_1 = HEAR_1
 	attachable = TRUE
-	verb_say = "beeps"
-	verb_ask = "beeps"
-	verb_exclaim = "beeps"
+	verb_say = "бипает"
+	verb_ask = "бипает"
+	verb_exclaim = "бипает"
 	var/listening = FALSE
 	var/recorded = "" //the activation message
 	var/mode = 1

@@ -212,7 +212,7 @@
 	desc = "A voice synthesizer that can interface with organic lifeforms."
 	status = ORGAN_ROBOTIC
 	icon_state = "tonguerobot"
-	say_mod = "states"
+	say_mod = "констатирует"
 	attack_verb = list("бипает", "бупает")
 	modifies_speech = TRUE
 	taste_sensitivity = 25 // not as good as an organic tongue

@@ -87,8 +87,8 @@ Class Procs:
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
 	desc = "Some kind of machine."
-	verb_say = "beeps"
-	verb_yell = "blares"
+	verb_say = "бипает"
+	verb_yell = "вспыхивает"
 	pressure_resistance = 15
 	max_integrity = 200
 	layer = BELOW_OBJ_LAYER //keeps shit coming out of the machine from ending up underneath it.

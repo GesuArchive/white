@@ -349,7 +349,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 /obj/machinery/requests_console/say_mod(input, message_mode)
 	var/ending = copytext(input, length(input) - 2)
 	if (ending == "!!!")
-		. = "blares"
+		. = "вспыхивает"
 	else
 		. = ..()
 

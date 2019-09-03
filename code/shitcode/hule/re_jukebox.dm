@@ -6,7 +6,7 @@
 	desc = "A classic music player."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "jukebox"
-	verb_say = "states"
+	verb_say = "констатирует"
 	density = TRUE
 //	req_access = list(ACCESS_BAR)
 	var/active = FALSE
