@@ -55,7 +55,7 @@
 
 	for(var/mob/M in GLOB.player_list)
 		if(!isnewplayer(M) && M.can_hear())
-			to_chat(M, "<span><font class='big bold' color = red>[rhtml_encode(title)]</font color><BR>[rhtml_encode(message)]</span><BR>")
+			to_chat(M, "<span><font class='big bold' color = red>[rhtml_encode(title)]</font color><BR></span><span class='alert'>[rhtml_encode(message)]</span><BR>")
 			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 				if(alert)
 					SEND_SOUND(M, sound('sound/misc/notice1.ogg'))

@@ -407,7 +407,7 @@
 		SSquirks.AssignQuirks(humanc, humanc.client, TRUE)
 
 	if(humanc)
-		to_chat(humanc, "<span class='notice'><B>Важно:</B> [SSaspects.current_aspect.desc]</span>")
+		to_chat(humanc, "<span class='notice'><BR><B>Важно:</B> [SSaspects.current_aspect.desc]</span><BR>")
 
 	log_manifest(character.mind.key,character.mind,character,latejoin = TRUE)
 

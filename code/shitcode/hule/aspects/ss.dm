@@ -31,4 +31,4 @@ SUBSYSTEM_DEF(aspects)
 	current_aspect.run_aspect()
 	ca_name = current_aspect.name
 
-	send_to_playing_players("<span class='notice'><B>Важно:</B> [current_aspect.desc]</span>")
+	to_chat(world, "<span class='notice'><B>Важно:</B> [current_aspect.desc]</span>")
