@@ -266,7 +266,7 @@
 	observer.started_as_observer = TRUE
 	close_spawn_windows()
 	var/obj/effect/landmark/observer_start/O = locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list
-	to_chat(src, "<span class='notice'>Телепортируемся!</span>")
+	to_chat(src, "<span class='notice'>Телепортируемся! Аспект: [SSaspects.current_aspect.desc]</span>")
 	if (O)
 		observer.forceMove(O.loc)
 	else
@@ -405,6 +405,9 @@
 
 	if(humanc && CONFIG_GET(flag/roundstart_traits))
 		SSquirks.AssignQuirks(humanc, humanc.client, TRUE)
+
+	if(humanc)
+		to_chat(humanc, "<span class='notice'><B>Важно:</B> [SSaspects.current_aspect.desc]</span>")
 
 	log_manifest(character.mind.key,character.mind,character,latejoin = TRUE)
 
