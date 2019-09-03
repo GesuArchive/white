@@ -1,7 +1,8 @@
 /turf/open/openspace
 	name = "open space"
 	desc = "Watch your step!"
-	icon_state = "grey"
+	icon = 'code/shitcode/valtos/icons/turfs.dmi'
+	icon_state = "open"
 	baseturfs = /turf/open/openspace
 	CanAtmosPassVertical = ATMOS_PASS_YES
 	plane = FLOOR_OPENSPACE_PLANE
