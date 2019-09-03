@@ -77,7 +77,6 @@
 		T.air.copy_from_turf(src)
 	for(var/turf/closed/mineral/random/T in world)
 		T.initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-		T.air.copy_from_turf(src)
 	..()
 
 /*
