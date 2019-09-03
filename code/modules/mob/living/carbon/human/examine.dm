@@ -225,12 +225,12 @@
 	if(bleedsuppress)
 		msg += "[t_on] перевязан[t_a].\n"
 	else if(bleed_rate)
-		if(reagents.has_reagent(/datum/reagent/toxin/heparin))
+		if(reagents.has_reagent(/datum/reagent/toxin/heparin, needs_metabolizing = TRUE))
 			msg += "<b>[t_on] обильно истекает кровью!</b>\n"
 		else
 			msg += "<B>[t_on] истекает кровью!</B>\n"
 
-	if(reagents.has_reagent(/datum/reagent/teslium))
+	if(reagents.has_reagent(/datum/reagent/teslium, needs_metabolizing = TRUE))
 		msg += "[t_on] испускает нежное голубое свечение!\n"
 
 	if(islist(stun_absorption))
