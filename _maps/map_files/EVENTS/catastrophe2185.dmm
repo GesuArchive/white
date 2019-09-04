@@ -572,6 +572,68 @@
 	icon_state = "mm-1"
 	},
 /area/space)
+"bs" = (
+/obj/structure/pillar{
+	dir = 8;
+	icon_state = "b-1"
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "g-2"
+	},
+/area/space)
+"bt" = (
+/turf/open/floor/partyhard/steel{
+	icon_state = "x-4"
+	},
+/area/space)
+"bu" = (
+/obj/structure/pillar{
+	dir = 4;
+	icon_state = "b-1"
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "g-2"
+	},
+/area/space)
+"bv" = (
+/turf/open/floor/partyhard/steel{
+	icon_state = "st-6"
+	},
+/area/space)
+"bw" = (
+/obj/structure/pillar{
+	dir = 8;
+	icon_state = "b-1"
+	},
+/obj/structure/pillar{
+	dir = 4;
+	icon_state = "b-1"
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "g-3"
+	},
+/area/space)
+"bx" = (
+/obj/structure/pillar{
+	dir = 1;
+	icon_state = "b-1";
+	pixel_y = 32
+	},
+/obj/structure/pillar,
+/turf/open/floor/partyhard/steel{
+	icon_state = "rg-3"
+	},
+/area/space)
+"by" = (
+/turf/open/floor/partyhard/steel{
+	icon_state = "st-12"
+	},
+/area/space)
+"bz" = (
+/turf/open/floor/partyhard/steel{
+	icon_state = "st-2"
+	},
+/area/space)
 
 (1,1,1) = {"
 aa
@@ -22097,15 +22159,15 @@ ac
 ai
 ac
 aY
+ae
 aT
 aT
 aT
+ae
 aT
 aT
 aT
-aT
-aT
-aT
+ae
 bc
 ac
 ai
@@ -22224,15 +22286,15 @@ ah
 ab
 ab
 ab
-ag
+bx
 ab
 ab
 ab
-ag
+bx
 ab
 ab
 ab
-ag
+bx
 ab
 ab
 ab
@@ -22351,26 +22413,26 @@ ac
 ab
 aU
 aZ
+ad
 aZ
 aZ
 aZ
+ad
 aZ
 aZ
 aZ
-aZ
-aZ
-aZ
+ad
 aZ
 bd
 ab
 ab
 ac
-aA
-ac
-ac
 ac
 aA
 ac
+ac
+ac
+aA
 ac
 ac
 ab
@@ -22477,11 +22539,11 @@ aI
 aQ
 ab
 aJ
-ad
-ad
-ad
-ad
-ad
+ac
+ac
+aA
+ac
+ac
 ad
 ad
 ad
@@ -22601,24 +22663,24 @@ ab
 ab
 ab
 aJ
-aR
-af
-aJ
 ad
+bw
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-aR
-ak
-ak
 ac
+by
+by
+by
+ac
+ac
+ad
+ad
+ad
+ad
+ad
+aR
+ak
+ak
+aA
 aB
 aE
 aE
@@ -22626,7 +22688,7 @@ aE
 aE
 aE
 am
-ac
+aA
 af
 aO
 bj
@@ -22731,12 +22793,12 @@ aJ
 aR
 ab
 aJ
-ad
-ad
-ad
-ad
-ad
-ad
+aA
+by
+by
+by
+bz
+ac
 ad
 ad
 ad
@@ -22858,12 +22920,12 @@ aJ
 aR
 ab
 aJ
-ad
-ad
-ad
-ad
-ad
-ad
+ac
+by
+by
+by
+bz
+aA
 ad
 ad
 ad
@@ -22880,7 +22942,7 @@ aE
 aE
 aE
 am
-aA
+ac
 ab
 aO
 bj
@@ -22985,12 +23047,12 @@ aJ
 aR
 ab
 aJ
-ad
-ad
-ad
-ad
-ad
-ad
+ac
+ac
+bz
+bz
+bz
+aA
 ad
 ad
 ad
@@ -22999,7 +23061,7 @@ ad
 aR
 aL
 aL
-ac
+aA
 aB
 aE
 aE
@@ -23109,18 +23171,18 @@ ab
 ab
 ab
 aJ
-aR
-af
-aJ
+ad
+bw
 ad
 ad
+aA
+bz
+bz
+bz
+aA
 ad
 ad
-ad
-ad
-ad
-ad
-ad
+br
 ad
 ad
 aR
@@ -23134,7 +23196,7 @@ aE
 aE
 aE
 am
-ac
+aA
 af
 aO
 bj
@@ -23240,19 +23302,19 @@ aR
 ab
 aJ
 ad
+ac
+bz
+bz
+bz
+ac
 ad
 ad
 ad
 ad
 ad
 ad
-ad
-ad
-ad
-ad
-aR
-ab
-ab
+bs
+bs
 ac
 aB
 aE
@@ -23367,20 +23429,20 @@ aR
 ab
 aJ
 ad
-ad
-ad
-ad
-br
-ad
-ad
-ad
-ad
-ad
-ad
-aR
-aL
-aL
 ac
+bz
+bz
+bz
+aA
+ad
+ad
+ad
+ad
+ad
+ad
+bt
+bt
+bv
 aB
 aE
 aE
@@ -23388,7 +23450,7 @@ aE
 aE
 aE
 am
-aA
+ac
 ab
 aO
 bj
@@ -23494,19 +23556,19 @@ aR
 ab
 aJ
 ad
+ac
+bz
+bz
+bz
+ac
 ad
 ad
 ad
 ad
 ad
 ad
-ad
-ad
-ad
-ad
-aR
-ab
-ab
+bu
+bu
 ac
 aB
 aE
@@ -23617,16 +23679,16 @@ ab
 ab
 ab
 aJ
-aR
-af
-aJ
+ad
+bw
 ad
 ad
-ad
-ad
-ad
-ad
-ad
+aA
+bz
+bz
+bz
+ac
+ac
 ad
 ad
 ad
@@ -23642,7 +23704,7 @@ aE
 aE
 aE
 am
-ac
+aA
 af
 aO
 bj
@@ -23748,20 +23810,20 @@ aR
 ab
 aJ
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+ac
+bz
+bz
+bz
+bz
+ac
+bv
+bv
+ac
 ad
 aR
 aL
 aL
-ac
+aA
 aB
 aE
 aE
@@ -23875,15 +23937,15 @@ aR
 ab
 aJ
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+ac
+bz
+bz
+bz
+bz
+bz
+bz
+bz
+ac
 ad
 aR
 ab
@@ -23896,7 +23958,7 @@ aE
 aE
 aE
 am
-aA
+ac
 ab
 aO
 bj
@@ -24002,15 +24064,15 @@ aR
 ab
 aJ
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+ac
+bz
+bz
+bz
+bz
+bz
+bz
+bz
+ac
 ad
 aR
 ab
@@ -24125,24 +24187,24 @@ ab
 ab
 ab
 aJ
-aR
-af
-aJ
+ad
+bw
 ad
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+aA
+bz
+bz
+bz
+bz
+bz
+bz
+bz
+aA
 ad
 aR
 ak
 ak
-ac
+aA
 aB
 aE
 aE
@@ -24150,7 +24212,7 @@ aE
 aE
 aE
 am
-ac
+aA
 af
 aO
 bj
@@ -24255,17 +24317,17 @@ aJ
 aR
 ab
 aJ
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+ac
+ac
+bz
+bz
+bz
+bz
+bz
+bz
+bz
+ac
+ac
 aR
 ai
 ai
@@ -24382,17 +24444,17 @@ aJ
 aR
 ab
 aJ
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+ac
+by
+by
+by
+bz
+bz
+bz
+by
+by
+by
+ac
 aR
 ab
 ab
@@ -24404,7 +24466,7 @@ aF
 aF
 aF
 aH
-aA
+ac
 ab
 ac
 ac
@@ -24509,17 +24571,17 @@ aJ
 aR
 ab
 aJ
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+aA
+by
+by
+by
+bz
+bz
+bz
+by
+by
+by
+aA
 aR
 ab
 ab
@@ -24633,20 +24695,20 @@ ab
 ab
 ab
 aJ
-aR
-af
-aJ
 ad
+bw
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+ac
+by
+by
+by
+ac
+ac
+ac
+by
+by
+by
+ac
 aR
 ab
 ab
@@ -24658,7 +24720,7 @@ aK
 aK
 aK
 aK
-aA
+ac
 ab
 ah
 ah
@@ -24763,17 +24825,17 @@ aM
 aS
 ab
 aJ
+ac
+ac
+aA
+ac
+ac
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+ac
+ac
+aA
+ac
+ac
 aR
 ab
 ab
