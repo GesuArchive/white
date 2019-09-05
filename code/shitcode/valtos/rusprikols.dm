@@ -207,6 +207,13 @@
 	caliber = ".45"
 	max_ammo = 8
 
+/obj/item/ammo_box/magazine/traumatic/update_icon()
+	..()
+	if (ammo_count() >= 8)
+		icon_state = "45-8"
+	else
+		icon_state = "45-[ammo_count()]"
+
 /obj/item/ammo_casing/traumatic
 	name = ".45 traumatic bullet casing"
 	desc = "A .45 traumatic bullet casing."
