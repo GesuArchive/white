@@ -8,9 +8,6 @@
 	if(!gibbed)
 		emote("deathgasp")
 
-	if(battletension)
-		qdel(battletension.bm)
-
 	. = ..()
 
 	for(var/T in get_traumas())

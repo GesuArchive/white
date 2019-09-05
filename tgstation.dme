@@ -3009,7 +3009,7 @@
 #include "code\shitcode\hule\schoolshooters.dm"
 #include "code\shitcode\hule\aspects\aspects.dm"
 #include "code\shitcode\hule\aspects\ss.dm"
-#include "code\shitcode\hule\battletension\battletension.dm"
+#include "code\shitcode\hule\battletension\bt_comp.dm"
 #include "code\shitcode\hule\custom_ghosts\custom_ghosts.dm"
 #include "code\shitcode\hule\gateway\prikolwoods.dm"
 #include "code\shitcode\hule\gateway\prikolwoods_flora.dm"

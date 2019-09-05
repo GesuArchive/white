@@ -77,10 +77,6 @@
 	if(I.force)
 		apply_damage(I.force, I.damtype, affecting)
 
-		if(client && user.client && user != src && stat < 2)
-			user.create_tension(I.force * 1.2)
-			create_tension(I.force * 1.2)
-
 		if(I.damtype == BRUTE && affecting.status == BODYPART_ORGANIC)
 			if(prob(33))
 				I.add_mob_blood(src)
