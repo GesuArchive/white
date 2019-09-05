@@ -111,7 +111,7 @@
 	if(ishuman(hit_atom))
 		var/mob/living/carbon/human/H = hit_atom
 		var/mutable_appearance/pooverlay = mutable_appearance('code/shitcode/valtos/icons/poo.dmi')
-		H.Paralyze(5) //splat!
+		//H.Paralyze(5) //splat!
 		H.adjust_blurriness(1)
 		H.visible_message("<span class='warning'>[H] is pooed by [src]!</span>", "<span class='userdanger'>You've been pooed by [src]!</span>")
 		playsound(H, "desceration", 50, TRUE)
