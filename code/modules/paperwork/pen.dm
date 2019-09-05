@@ -115,9 +115,9 @@
 			if(!input)
 				to_chat(user, "<span class='warning'>Тебе перехотелось писать...</span>")
 				return
-			M.visible_message(user, "<span class='warning'>[user] начинает писать что-то на лбу <b>[M]</b>.</span>")
+			M.visible_message(user, "<span class='danger'>[user] начинает писать что-то на лбу <b>[M]</b>.</span>")
 			if(src.use_tool(M, user, 40, volume=50))
-				M.visible_message(user, "<span class='warning'>[user] написал <b>[input]</b на лбу <b>[M]</b>.</span>")
+				M.visible_message(user, "<span class='danger'>[user] написал <b>[input]</b на лбу <b>[M]</b>.</span>")
 				M.headstamp = input
 				return
 			to_chat(user, "<span class='warning'>Тебе перехотелось писать...</span>")
