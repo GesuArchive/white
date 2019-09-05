@@ -45,7 +45,7 @@
 	if(!istype(T))
 		return
 	if(reac_volume >= 1)
-		T.MakeSlippery(TURF_WET_LUBE, 15 SECONDS, min(reac_volume * 2 SECONDS, 120))
+		T.MakeSlippery(TURF_WET_WATER, 15 SECONDS, min(reac_volume * 2 SECONDS, 120))
 
 	var/obj/effect/decal/cleanable/poo/B = locate() in T //find some poo here
 	if(!B)
