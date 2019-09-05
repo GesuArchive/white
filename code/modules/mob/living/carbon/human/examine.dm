@@ -28,6 +28,8 @@
 
 		. += "На н[t_na] [w_uniform.ru_get_examine_string(user)][accessory_msg]."
 	//head
+	if(headstamp && !(SLOT_HEAD in obscured))
+		. += "<b>У н[t_ego] на лбу написано [headstamp]. Круто.</b>"
 	if(head)
 		. += "На голове у н[t_ego] [head.ru_get_examine_string(user)]."
 	//suit/armor

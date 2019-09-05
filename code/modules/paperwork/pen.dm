@@ -110,6 +110,18 @@
 		return
 
 	if(!force)
+		if(user.zone_selected == BODY_ZONE_HEAD)
+			var/input = input("Что бы ты хотел написать у [M] на лбу?","Засранец...", M.headstamp) as text|null
+			if(!input)
+				to_chat(user, "<span class='warning'>Тебе перехотелось писать...</span>")
+				return
+			M.visible_message(user, "<span class='warning'>[user] начинает писать что-то на лбу <b>[M]</b>.</span>")
+			if(I.use_tool(M, user, 40, volume=50))
+				M.visible_message(user, "<span class='warning'>[user] написал <b>[input]</b на лбу <b>[M]</b>.</span>")
+				M.headstamp = input
+				return
+			to_chat(user, "<span class='warning'>Тебе перехотелось писать...</span>")
+			return
 		if(M.can_inject(user, 1))
 			to_chat(user, "<span class='warning'>You stab [M] with the pen.</span>")
 			if(!stealth)
