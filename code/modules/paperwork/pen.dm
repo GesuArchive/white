@@ -116,7 +116,10 @@
 				to_chat(user, "<span class='warning'>Тебе перехотелось писать...</span>")
 				return
 			M.visible_message(user, "<span class='danger'>[user] начинает писать что-то на лбу <b>[M]</b>.</span>")
-			if(src.use_tool(M, user, 40, volume=50))
+			var/speedofwriting = 40
+			if((HAS_TRAIT(user, TRAIT_CLUMSY)))
+				speedofwriting = 15
+			if(src.use_tool(M, user, 15, volume=50))
 				M.visible_message(user, "<span class='danger'>[user] написал <b>[input]</b на лбу <b>[M]</b>.</span>")
 				M.headstamp = input
 				return
