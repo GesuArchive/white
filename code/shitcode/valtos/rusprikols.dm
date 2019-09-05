@@ -281,3 +281,6 @@
 	new /obj/effect/temp_visual/love_heart(get_turf(target.loc))
 	new /obj/effect/temp_visual/love_heart(get_turf(target.loc))
 	new /obj/effect/temp_visual/love_heart(get_turf(target.loc))
+
+/mob/living
+	var/headstamp //надпись на башне
