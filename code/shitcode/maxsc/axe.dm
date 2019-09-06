@@ -34,7 +34,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	force = 5
 	force_wielded = 20
-	throwforce = 20
+	throwforce = 24
 	attack_verb = list("attacked", "brought law to", "cleaved", "pierced")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = IS_SHARP
@@ -53,6 +53,7 @@
 		charged = FALSE
 		block_chance = 100
 		sleep(30)
+		to_chat(user, "<span class='notice'>You can't bring law fo now.</span>")
 		block_chance = 0
 		addtimer(CALLBACK(src, .proc/Recharge), recharge_time)
 
