@@ -54,10 +54,6 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	if(tension > 0)
 		tension--
 		if(tension <= 0)
-			bm.volume = 0
-			SEND_SOUND(owner, bm)
-			qdel(bm)
-			bm = null
 			pick_sound()
 
 /datum/component/battletension/proc/bulletact_react(datum/source, obj/item/projectile/P, def_zone)
@@ -90,6 +86,12 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		tension = amount
 
 /datum/component/battletension/proc/pick_sound()
+	if(bm)
+		bm.volume = 0
+		SEND_SOUND(owner, bm)
+		qdel(bm)
+		bm = null
+
 	var/sound/S = sound(pick(get_sound_list()))
 	if(!S || !S.file)
 		return
@@ -105,12 +107,12 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 /datum/component/battletension/proc/get_sound_list()
 	var/list/result = list()
-	var/list/sounds = (
-						list("gladiator.ogg"),
-						list("digitalonslaught.ogg", "03 NARC.ogg"),
-						list("80sspark.ogg","badapple.ogg"),
-						list()
-						)
+	var/list/sounds = list(
+							list("gladiator.ogg"),
+							list("digitalonslaught.ogg", "03 NARC.ogg"),
+							list("80sspark.ogg","badapple.ogg"),
+							list()
+							)
 	if(!owner || !owner.client || !owner.client.prefs)
 		return
 
@@ -133,25 +135,15 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	var/list/settings = prefs.btprefs
 
 	var/list/menu = list("баттлтеншн", "приколов", "синтвейв", "тохо", "мк")
+	var/list/revmenu = list("баттлтеншн"=1, "приколов"=2, "синтвейв"=3, "тохо"=4, "мк"=5)
 
 	for(var/i = 1, i<settings.len, i++)
-		menu[i] = "[settings[i] ? "Нехочу" : "Хочу"]" + menu[i]
+		menu[i] = "[settings[i] ? "Нехочу" : "Хочу"] " + menu[i]
 
 	var/selected = input(null, "BT Customization") as null|anything in menu
 	selected = splittext(selected, " ")[2]
 
-	var/settnum = 1
-	switch(selected)
-		if("баттлтеншн")
-			settnum = 1
-		if("приколов")
-			settnum = 2
-		if("синтвейв")
-			settnum = 3
-		if("тохо")
-			settnum = 4
-		if("мк")
-			settnum = 5
+	var/settnum = revmenu[selected]
 
 	settings[settnum] = !settings[settnum]
 	to_chat(usr, "<span class='danger'>[settings[settnum] ? "Теперь ты хочешь" : "Ты больше не хочешь"] [selected].</span>")
@@ -159,3 +151,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	prefs.btprefs = settings
 	prefs.save_preferences()
 
+	if(mob)
+		var/datum/component/battletension/BT = mob.GetComponent(/datum/component/battletension)
+		if(BT)
+			BT.pick_sound()
