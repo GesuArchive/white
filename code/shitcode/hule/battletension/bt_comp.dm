@@ -15,7 +15,8 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	if(isliving(parent))
 		owner = parent
-		pick_sound()
+
+	pick_sound()
 
 /datum/component/battletension/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ATOM_BULLET_ACT, .proc/bulletact_react)
@@ -34,6 +35,11 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	return ..()
 
 /datum/component/battletension/process()
+	if(tension > 0)
+		tension--
+		if(tension <= 0)
+			pick_sound()
+
 	if(tension < 0 || !bm || !bm.file)
 		return
 
@@ -47,11 +53,6 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 		if(80 to INFINITY)
 			tension = 80
-
-	if(tension > 0)
-		tension--
-		if(tension <= 0)
-			pick_sound()
 
 /datum/component/battletension/proc/bulletact_react(datum/source, obj/item/projectile/P, def_zone)
 	create_tension(P.damage)
@@ -77,7 +78,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		BT.create_tension(I.force * 1.2)
 
 /datum/component/battletension/proc/create_tension(amount)
-	if(!owner.client.prefs.btprefs[1])
+	if(!owner.client || !owner.client.prefs.btprefs || !owner.client.prefs.btprefs[1])
 		return
 
 	amount = round(amount)
