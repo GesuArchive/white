@@ -46,6 +46,8 @@
 	var/armor = run_armor_check(def_zone, P.flag, "","",P.armour_penetration)
 	var/on_hit_state = P.on_hit(src, armor)
 
+	SEND_SIGNAL(src, COMSIG_ATOM_BULLET_ACT, P, def_zone)
+
 	if(isliving(P.firer))
 		var/mob/living/L = P.firer
 		lastattacker = L.real_name
