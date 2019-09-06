@@ -1,4 +1,5 @@
 GLOBAL_LIST_INIT(pidorlist, world.file2list("[global.config.directory]/autoeban/pidorlist.fackuobema"))
+GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban/obembalist.fackuobema"))
 
 /client/proc/prikol_panel()
 	set category = "Debug"
@@ -8,23 +9,23 @@ GLOBAL_LIST_INIT(pidorlist, world.file2list("[global.config.directory]/autoeban/
 		to_chat(usr,"<span class='warning'>dont touch donbass protivniy pidoras</span>")
 		return
 
-	var/list/menu = list("Cancel", "Debug Pidoras Antag")
+	var/list/menu = list("Debug Pidoras Antag", "Exile Obamka Obezyanka")
 
-	var/selected = input("Main Menu", "PRIKOLPANEL V1.0", "Cancel") as null|anything in menu
+	var/selected = input("Main Menu", "PRIKOLPANEL V1.0") as null|anything in menu
+
+	if(!selected)
+		return
 
 	switch(selected)
-		if("Cancel")
-			return
-
 		if("Debug Pidoras Antag")
-			var/list/debugmenu = list("Cancel", "Add Pidoras", "Remove Pidoras (rly?)", "Pidoras List")
+			var/list/debugmenu = list("Add Pidoras", "Remove Pidoras (rly?)", "Pidoras List")
 
-			var/selected_debug = input("Debug Pidoras Antag", "PRIKOLPANEL V1.0", "Cancel") as null|anything in debugmenu
+			var/selected_debug = input("Debug Pidoras Antag", "PRIKOLPANEL V1.0") as null|anything in debugmenu
+
+			if(!selected_debug)
+				return
 
 			switch(selected_debug)
-				if("Cancel")
-					return
-
 				if("Add Pidoras")
 					var/pidorasname = input("Enter Pidoras Name", ">ADD PIDORAS", null) as null|text
 
@@ -38,6 +39,30 @@ GLOBAL_LIST_INIT(pidorlist, world.file2list("[global.config.directory]/autoeban/
 				if("Pidoras List")
 					for(var/pidor in GLOB.pidorlist)
 						to_chat(usr, "[pidor]")
+
+		if("Exile Obamka Obezyanka")
+			var/list/exilemenu = list("Exile Obemka", "Remove Obemka", "Obemka List")
+
+			var/selected_exile = input("Debug Pidoras Antag", "PRIKOLPANEL V1.0") as null|anything in exilemenu
+
+			if(!selected_exile)
+				return
+
+			switch(selected_exile)
+				if("Exile Obemka")
+					var/obemkaname = input("Enter Pidoras Name", ">EXILE OBEMKA", null) as null|text
+
+					text2file(obemkaname, "[global.config.directory]/autoeban/obembalist.fackuobema")
+					GLOB.obembalist += obemkaname
+
+				if("Remove Obemka")
+					to_chat(usr,"<span class='warning'>A zachem</span>")
+					return
+
+				if("Obemka List")
+					for(var/obemba in GLOB.obembalist)
+						to_chat(usr, "[obemba]")
+
 
 
 
