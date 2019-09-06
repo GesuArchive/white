@@ -27,7 +27,7 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 
 			switch(selected_debug)
 				if("Add Pidoras")
-					var/pidorasname = input("Enter Pidoras Name", ">ADD PIDORAS", null) as null|text
+					var/pidorasname = input("Enter Pidoras Name", ">ADD PIDORAS") as null|text
 
 					text2file(pidorasname, "[global.config.directory]/autoeban/pidorlist.fackuobema")
 					GLOB.pidorlist += pidorasname
@@ -50,14 +50,23 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 
 			switch(selected_exile)
 				if("Exile Obemka")
-					var/obemkaname = input("Enter Pidoras Name", ">EXILE OBEMKA", null) as null|text
+					var/obemkaname = input("Enter Obemka Name", ">EXILE OBEMKA") as null|text
 
 					text2file(obemkaname, "[global.config.directory]/autoeban/obembalist.fackuobema")
 					GLOB.obembalist += obemkaname
 
 				if("Remove Obemka")
-					to_chat(usr,"<span class='warning'>A zachem</span>")
-					return
+					var/nonobemkaname = input("Enter Obemka Name", ">UNEXILE OBEMKA") as null|text in GLOB.obembalist
+
+					if(!nonobemkaname)
+						return
+
+					GLOB.obembalist -= nonobemkaname
+
+					fdel("[global.config.directory]/autoeban/obembalist.fackuobema")
+
+					for(var/i in GLOB.obembalist)
+						text2file(i, "[global.config.directory]/autoeban/obembalist.fackuobema")
 
 				if("Obemka List")
 					for(var/obemba in GLOB.obembalist)
