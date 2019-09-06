@@ -94,10 +94,15 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		qdel(bm)
 		bm = null
 
-/datum/component/battletension/proc/pick_sound()
+/datum/component/battletension/proc/pick_sound(soundpath)
 	stop_bm()
 
-	var/sound/S = sound(pick(get_sound_list()))
+	var/sound/S
+
+	if(soundpath)
+		S = sound(soundpath)
+	else
+		S = sound(pick(get_sound_list()))
 	if(!S || !S.file)
 		return
 
