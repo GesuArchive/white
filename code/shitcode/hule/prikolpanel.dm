@@ -56,7 +56,7 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 					GLOB.obembalist += obemkaname
 
 				if("Remove Obemka")
-					var/nonobemkaname = input("Enter Obemka Name", ">UNEXILE OBEMKA") as null|text in GLOB.obembalist
+					var/nonobemkaname = input("Enter Obemka Name", ">UNEXILE OBEMKA") as null|anything in GLOB.obembalist
 
 					if(!nonobemkaname)
 						return
