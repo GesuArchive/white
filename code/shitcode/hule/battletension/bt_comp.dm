@@ -131,7 +131,6 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	set desc = "Allows for advanced prikol immersion."
 	set category = "Preferences"
 
-	//list shit: 1 - toggle, 2 - prikols, 3 - synth, 4 - toho, 5 - mc
 	var/list/settings = prefs.btprefs
 
 	var/list/menu = list("баттлтеншн", "приколов", "синтвейв", "тохо", "мк")
