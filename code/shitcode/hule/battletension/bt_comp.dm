@@ -29,7 +29,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 /datum/component/battletension/Destroy()
 	if(bm)
 		bm.volume = 0
-		bm.status = SOUND_STREAM|SOUND_UPDATE
+		bm.status = SOUND_UPDATE
 		SEND_SOUND(owner, bm)
 
 	STOP_PROCESSING(SSbtension, src)
@@ -41,7 +41,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		return
 
 	bm.volume = tension
-	bm.status = SOUND_STREAM|SOUND_UPDATE
+	bm.status = SOUND_UPDATE
 	SEND_SOUND(owner, bm)
 
 	switch(tension)
@@ -61,11 +61,9 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 			pick_sound()
 
 /datum/component/battletension/proc/bulletact_react(datum/source, obj/item/projectile/P, def_zone)
-	to_chat(owner, "<span class='warning'>bulletact msg</span>")
-	to_chat(P.firer, "<span class='warning'>bulletact firer msg</span>")
 	create_tension(P.damage)
 
-	if(!P.firer)
+	if(!P.firer || P.firer == owner)
 		return
 
 	var/datum/component/battletension/BT = P.firer.GetComponent(/datum/component/battletension)
@@ -77,7 +75,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 /datum/component/battletension/proc/attackby_react(datum/source, obj/item/I, mob/user)
 	create_tension(I.force * 1.2)
 
-	if(!user)
+	if(!user || user == owner)
 		return
 
 	var/datum/component/battletension/BT = user.GetComponent(/datum/component/battletension)
@@ -92,7 +90,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		tension = amount
 
 /datum/component/battletension/proc/pick_sound()
-	var/sound/S = sound("code/shitcode/hule/battletension/bm/" + pick(list("digitalonslaught.ogg", "03 NARC.ogg")))
+	var/sound/S = sound(pick(get_sound_list()))
 	if(!S || !S.file)
 		return
 	S.repeat = 1
@@ -100,7 +98,64 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	S.falloff = 2
 	S.wait = 0
 	S.volume = 0
-	S.status = SOUND_STREAM
+	S.status = 0
 
 	bm = S
 	SEND_SOUND(owner, bm)
+
+/datum/component/battletension/proc/get_sound_list()
+	var/list/result = list()
+	var/list/sounds = (
+						list("gladiator.ogg"),
+						list("digitalonslaught.ogg", "03 NARC.ogg"),
+						list("80sspark.ogg","badapple.ogg"),
+						list()
+						)
+	if(!owner || !owner.client || !owner.client.prefs)
+		return
+
+	var/list/settings = owner.client.prefs.btprefs
+	for(var/i = 2, i<settings.len, i++)
+		if(settings[i])
+			result += sounds[i-1]
+
+	for(var/i in result)
+		i = "code/shitcode/hule/battletension/bm/" + i
+
+	return result
+
+/client/verb/customize_battletension()
+	set name = "Customize Battle Tension"
+	set desc = "Allows for advanced prikol immersion."
+	set category = "Preferences"
+
+	//list shit: 1 - toggle, 2 - prikols, 3 - synth, 4 - toho, 5 - mc
+	var/list/settings = prefs.btprefs
+
+	var/list/menu = list("баттлтеншн", "приколов", "синтвейв", "тохо", "мк")
+
+	for(var/i = 1, i<settings.len, i++)
+		menu[i] = "[settings[i] ? "Нехочу" : "Хочу"]" + menu[i]
+
+	var/selected = input(null, "BT Customization") as null|anything in menu
+	selected = splittext(selected, " ")[2]
+
+	var/settnum = 1
+	switch(selected)
+		if("баттлтеншн")
+			settnum = 1
+		if("приколов")
+			settnum = 2
+		if("синтвейв")
+			settnum = 3
+		if("тохо")
+			settnum = 4
+		if("мк")
+			settnum = 5
+
+	settings[settnum] = !settings[settnum]
+	to_chat(usr, "<span class='danger'>[settings[settnum] ? "Теперь ты хочешь" : "Ты больше не хочешь"] [selected].</span>")
+
+	prefs.btprefs = settings
+	prefs.save_preferences()
+

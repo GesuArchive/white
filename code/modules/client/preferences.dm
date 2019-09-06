@@ -107,7 +107,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/action_buttons_screen_locs = list()
 
-	var/battlemusic = TRUE
+	var/list/btprefs = list(0, 0, 0, 0, 0)
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -1542,7 +1542,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if(be_random_species)
 		be_random_name = 1
 		random_species()
-		
+
 	if(be_random_name)
 		real_name = pref_species.random_name(gender)
 
