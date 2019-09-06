@@ -31,8 +31,7 @@
 		return
 	if(!canSuicide())
 		return
-	to_chat(usr, "Сегодня совсем не хочется умирать!")
-	if(confirm == "aaa")
+	if(confirm == "Yes")
 		set_suicide(TRUE) //need to be called before calling suicide_act as fuck knows what suicide_act will do with your suicider
 		var/obj/item/held_item = get_active_held_item()
 		if(held_item)

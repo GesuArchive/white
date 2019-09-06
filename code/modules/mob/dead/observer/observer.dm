@@ -280,8 +280,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Ghost"
 	set desc = "Relinquish your life and enter the land of the dead."
 
-	to_chat(usr, "Ты всеми силами хочешь выбраться из оков плоти, но у тебя ничего не выходит, ведь ты не знаешь как!")
-	/*
 	if(stat != DEAD)
 		succumb()
 	if(stat == DEAD)
@@ -291,7 +289,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(response != "Ghost")
 			return	//didn't want to ghost after-all
 		ghostize(0)						//0 parameter is so we can never re-enter our body, "Charlie, you can never come baaaack~" :3
-	*/
+
 /mob/camera/verb/ghost()
 	set category = "OOC"
 	set name = "Ghost"
