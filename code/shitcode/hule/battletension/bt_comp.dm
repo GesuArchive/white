@@ -77,8 +77,13 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	if(BT)
 		BT.create_tension(I.force * 1.2)
 
-/datum/component/battletension/proc/create_tension(amount)
+/datum/component/battletension/proc/is_enabled()
 	if(!owner.client || !owner.client.prefs.btprefs || !owner.client.prefs.btprefs[1])
+		return FALSE
+	return TRUE
+
+/datum/component/battletension/proc/create_tension(amount)
+	if(!is_enabled())
 		return
 
 	amount = round(amount)
@@ -158,6 +163,8 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		i++
 
 	var/selected = input("a a a a", "BT Customization") as null|anything in menu
+	if(!selected)
+		return
 	selected = splittext(selected, " ")[2]
 
 	var/settnum = revmenu[selected]
