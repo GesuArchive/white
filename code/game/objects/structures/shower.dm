@@ -128,6 +128,7 @@
 /obj/machinery/shower/proc/wash_mob(mob/living/L)
 	SEND_SIGNAL(L, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_WEAK)
 	L.wash_cream()
+	L.headstamp = null
 	L.wash_poo()
 	L.remove_atom_colour(WASHABLE_COLOUR_PRIORITY)
 	SEND_SIGNAL(L, COMSIG_ADD_MOOD_EVENT, "shower", /datum/mood_event/nice_shower)

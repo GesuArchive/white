@@ -284,3 +284,119 @@
 
 /mob/living
 	var/headstamp //надпись на башне
+
+/obj/item/stock_parts/capacitor/noneuclid
+	name = "noneuclid capacitor"
+	desc = "An capacity capacitor used in the construction of a variety of devices."
+	icon_state = "quadratic_capacitor"
+	rating = 8
+	materials = list(/datum/material/iron=1, /datum/material/glass=1)
+	color = "#ff3333"
+
+/obj/item/stock_parts/scanning_module/noneuclid
+	name = "noneuclid scanning module"
+	desc = "A compact, ultra resolution noneuclid scanning module used in the construction of certain devices."
+	icon_state = "triphasic_scan_module"
+	rating = 8
+	materials = list(/datum/material/iron=1, /datum/material/glass=1)
+	color = "#ff3333"
+
+/obj/item/stock_parts/manipulator/noneuclid
+	name = "noneuclid-manipulator"
+	desc = "A tiny little manipulator used in the construction of certain devices."
+	icon_state = "femto_mani"
+	rating = 8
+	materials = list(/datum/material/iron=1)
+	color = "#ff3333"
+
+/obj/item/stock_parts/micro_laser/noneuclid
+	name = "noneuclid micro-laser"
+	icon_state = "quadultra_micro_laser"
+	desc = "A tiny laser used in certain devices."
+	rating = 8
+	materials = list(/datum/material/iron=1, /datum/material/glass=1)
+	color = "#ff3333"
+
+/obj/item/stock_parts/matter_bin/noneuclid
+	name = "noneuclid matter bin"
+	desc = "A container designed to hold noneuclid matter awaiting reconstruction."
+	icon_state = "bluespace_matter_bin"
+	rating = 8
+	materials = list(/datum/material/iron=1)
+	color = "#ff3333"
+
+/obj/item/storage/part_replacer/bluespace/tier8
+	color = "#ff3333"
+	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/storage/part_replacer/bluespace/tier8/PopulateContents()
+	for(var/i in 1 to 50)
+		new /obj/item/stock_parts/capacitor/noneuclid(src)
+		new /obj/item/stock_parts/scanning_module/noneuclid(src)
+		new /obj/item/stock_parts/manipulator/noneuclid(src)
+		new /obj/item/stock_parts/micro_laser/noneuclid(src)
+		new /obj/item/stock_parts/matter_bin/noneuclid(src)
+
+/datum/techweb_node/noneuclidic
+	id = "noneuclidic"
+	display_name = "Non-Euclid Research"
+	description = "Experiments in the field of bluespace technologies led to the discovery of non-Euclidean spaces."
+	prereq_ids = list("bluespace_travel", "practical_bluespace", "advanced_bluespace")
+	design_ids = list("noneuclid_matter_bin", "noneuclid_mani", "noneuclid_scanning", "noneuclid_capacitor", "noneuclid_micro_laser")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 200000)
+	export_price = 100000
+
+/datum/design/noneuclid_matter_bin
+	name = "Noneuclid Matter Bin"
+	desc = "A stock part used in the construction of various devices."
+	id = "noneuclid_matter_bin"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 2500, /datum/material/diamond = 1000, /datum/material/bluespace = 1000)
+	build_path = /obj/item/stock_parts/matter_bin/noneuclid
+	category = list("Stock Parts")
+	lathe_time_factor = 0.2
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/noneuclid_mani
+	name = "Noneuclid Manipulator"
+	desc = "A stock part used in the construction of various devices."
+	id = "noneuclid_mani"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 2000, /datum/material/diamond = 300, /datum/material/titanium = 300)
+	build_path = /obj/item/stock_parts/manipulator/noneuclid
+	category = list("Stock Parts")
+	lathe_time_factor = 0.2
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/noneuclid_scanning
+	name = "Noneuclid Scanning Module"
+	desc = "A stock part used in the construction of various devices."
+	id = "noneuclid_scanning"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 2000, /datum/material/glass = 2000, /datum/material/diamond = 300, /datum/material/bluespace = 300)
+	build_path = /obj/item/stock_parts/scanning_module/noneuclid
+	category = list("Stock Parts")
+	lathe_time_factor = 0.2
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/noneuclid_capacitor
+	name = "Noneuclid Capacitor"
+	desc = "A stock part used in the construction of various devices."
+	id = "noneuclid_capacitor"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 2000, /datum/material/glass = 2000, /datum/material/gold = 1000, /datum/material/diamond = 100)
+	build_path = /obj/item/stock_parts/capacitor/noneuclid
+	category = list("Stock Parts")
+	lathe_time_factor = 0.2
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/noneuclid_micro_laser
+	name = "Noneuclid Micro-Laser"
+	desc = "A stock part used in the construction of various devices."
+	id = "noneuclid_micro_laser"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 2000, /datum/material/glass = 2000, /datum/material/uranium = 1000, /datum/material/diamond = 600)
+	build_path = /obj/item/stock_parts/micro_laser/noneuclid
+	category = list("Stock Parts")
+	lathe_time_factor = 0.2
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE

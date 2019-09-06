@@ -249,6 +249,7 @@
 		ooze.transfer_to_limb(src, owner)
 
 	name = "[owner.real_name]'s head"
+	desc = "На голове осталась надпись <b>[owner.headstamp]</b>."
 	..()
 
 //Attach a limb to a human and drop any existing limb of that type.
