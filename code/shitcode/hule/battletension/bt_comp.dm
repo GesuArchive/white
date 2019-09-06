@@ -44,9 +44,10 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	if(tension < 0)
 		return
 
-	bm.volume = tension
-	bm.status = SOUND_UPDATE
-	SEND_SOUND(owner, bm)
+	if(bm)
+		bm.volume = tension
+		bm.status = SOUND_UPDATE
+		SEND_SOUND(owner, bm)
 
 	switch(tension)
 		if(0 to 30)
