@@ -26,7 +26,7 @@
 			new /obj/item/reagent_containers/food/drinks/bottle/rum(src)
 			new /obj/item/reagent_containers/food/snacks/grown/ambrosia/deus(src)
 			new /obj/item/reagent_containers/food/drinks/bottle/whiskey(src)
-			new /obj/item/lighter(src)
+			new /obj/item/storage/part_replacer/bluespace/tier8(src)
 		if(6 to 10)
 			new /obj/item/bedsheet(src)
 			new /obj/item/kitchen/knife(src)

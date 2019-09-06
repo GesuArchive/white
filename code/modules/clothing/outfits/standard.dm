@@ -437,4 +437,4 @@
 		/obj/item/construction/rcd/combat=1,\
 		/obj/item/gun/magic/wand/resurrection/debug=1,\
 		/obj/item/melee/transforming/energy/axe=1,\
-		/obj/item/storage/part_replacer/bluespace/tier4=1)
+		/obj/item/storage/part_replacer/bluespace/tier8=1)
