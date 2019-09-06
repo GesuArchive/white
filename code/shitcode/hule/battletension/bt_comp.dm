@@ -117,12 +117,11 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		return
 
 	var/list/settings = owner.client.prefs.btprefs
+
 	for(var/i = 2, i<settings.len, i++)
 		if(settings[i])
-			result += sounds[i-1]
-
-	for(var/i in result)
-		i = "code/shitcode/hule/battletension/bm/" + i
+			for(var/ii in sounds[i-1])
+				result += "code/shitcode/hule/battletension/bm/" + ii
 
 	return result
 
@@ -131,15 +130,21 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	set desc = "Allows for advanced prikol immersion."
 	set category = "Preferences"
 
-	var/list/settings = prefs.btprefs
+	var/list/settings
+	if(prefs.btprefs)
+		settings = prefs.btprefs
+	else
+		settings = list(0, 0, 0, 0, 0)
 
 	var/list/menu = list("баттлтеншн", "приколов", "синтвейв", "тохо", "мк")
 	var/list/revmenu = list("баттлтеншн"=1, "приколов"=2, "синтвейв"=3, "тохо"=4, "мк"=5)
 
-	for(var/i = 1, i<settings.len, i++)
+	var/i = 1
+	for(var/item in settings)
 		menu[i] = "[settings[i] ? "Нехочу" : "Хочу"] " + menu[i]
+		i++
 
-	var/selected = input(null, "BT Customization") as null|anything in menu
+	var/selected = input("a a a a", "BT Customization") as null|anything in menu
 	selected = splittext(selected, " ")[2]
 
 	var/settnum = revmenu[selected]
