@@ -79,7 +79,7 @@
 
 	//mask
 	if(wear_mask && !(SLOT_WEAR_MASK in obscured))
-		. += "[t_on] имеет [wear_mask.ru_get_examine_string(user)] на [t_ego] лице."
+		. += "На [t_ego] лице [wear_mask.ru_get_examine_string(user)]."
 
 	if(wear_neck && !(SLOT_NECK in obscured))
 		. += "На шее у н[t_ego] [wear_neck.ru_get_examine_string(user)]."
