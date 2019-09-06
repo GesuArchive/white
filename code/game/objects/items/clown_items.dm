@@ -123,7 +123,6 @@
 			target.remove_atom_colour(WASHABLE_COLOUR_PRIORITY)
 			SEND_SIGNAL(target, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_MEDIUM)
 			target.wash_cream()
-			target.headstamp = null
 			decreaseUses(user)
 	return
 
