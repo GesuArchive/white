@@ -41,7 +41,6 @@
 
 
 /mob/living/carbon/human/bullet_act(obj/item/projectile/P, def_zone)
-	SEND_SIGNAL(src, COMSIG_ATOM_BULLET_ACT, P, def_zone)
 	if(dna && dna.species)
 		var/spec_return = dna.species.bullet_act(P, src)
 		if(spec_return)
