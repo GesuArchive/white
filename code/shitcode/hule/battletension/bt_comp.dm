@@ -78,6 +78,8 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		BT.create_tension(I.force * 1.2)
 
 /datum/component/battletension/proc/create_tension(amount)
+	amount = round(amount)
+
 	if(tension)
 		tension += amount
 	else
