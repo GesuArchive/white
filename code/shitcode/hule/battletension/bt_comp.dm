@@ -16,8 +16,6 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	if(isliving(parent))
 		owner = parent
 
-	pick_sound()
-
 /datum/component/battletension/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ATOM_BULLET_ACT, .proc/bulletact_react)
 	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, .proc/attackby_react)
@@ -35,12 +33,15 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	return ..()
 
 /datum/component/battletension/process()
+	if(is_enabled() && (!bm || !bm.file))
+		pick_sound()
+
 	if(tension > 0)
 		tension--
 		if(tension <= 0)
 			pick_sound()
 
-	if(tension < 0 || !bm || !bm.file)
+	if(tension < 0)
 		return
 
 	bm.volume = tension
