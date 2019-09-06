@@ -103,6 +103,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		S = sound(soundpath)
 	else
 		S = sound(pick(get_sound_list()))
+
 	if(!S || !S.file)
 		return
 
