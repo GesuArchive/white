@@ -17,8 +17,11 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
 
+	if(pooed)
+		. += "<b>Невероятно, но [t_ego] одежда <font color='red'>ВСЯ В ГОВНЕ</font>.</b>"
+
 	if(headstamp && !(SLOT_HEAD in obscured))
-		. += "<b>У н[t_ego] на лбу написано [headstamp]. Круто.</b>"
+		. += "У н[t_ego] на лбу написано <b>[headstamp]</b>. Круто."
 
 	//uniform
 	if(w_uniform && !(SLOT_W_UNIFORM in obscured))

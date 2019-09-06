@@ -998,6 +998,8 @@
 					if(SEND_SIGNAL(H.shoes, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_STRENGTH_BLOOD))
 						H.update_inv_shoes()
 				H.wash_cream()
+				H.wash_poo()
+				H.headstamp = null
 			SEND_SIGNAL(M, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_STRENGTH_BLOOD)
 
 /datum/reagent/space_cleaner/ez_clean
