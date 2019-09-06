@@ -27,7 +27,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 									))
 
 /datum/component/battletension/Destroy()
-	stop_sound()
+	stop_bm()
 
 	STOP_PROCESSING(SSbtension, src)
 	owner = null
@@ -51,7 +51,6 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	if(tension > 0)
 		tension--
 		if(tension <= 0)
-			stop_sound()
 			pick_sound()
 
 /datum/component/battletension/proc/bulletact_react(datum/source, obj/item/projectile/P, def_zone)
@@ -78,6 +77,9 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		BT.create_tension(I.force * 1.2)
 
 /datum/component/battletension/proc/create_tension(amount)
+	if(!owner.client.prefs.btprefs[1])
+		return
+
 	amount = round(amount)
 
 	if(tension)
@@ -85,7 +87,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	else
 		tension = amount
 
-/datum/component/battletension/proc/stop_sound()
+/datum/component/battletension/proc/stop_bm()
 	if(bm)
 		bm.volume = 0
 		SEND_SOUND(owner, bm)
@@ -93,9 +95,12 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		bm = null
 
 /datum/component/battletension/proc/pick_sound()
+	stop_bm()
+
 	var/sound/S = sound(pick(get_sound_list()))
 	if(!S || !S.file)
 		return
+
 	S.repeat = 1
 	S.channel = 1015
 	S.falloff = 2
