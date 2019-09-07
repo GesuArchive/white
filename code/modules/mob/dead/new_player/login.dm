@@ -47,3 +47,4 @@
 		winset(src, null, "command=.options")
 		client << link("[addr]?redirect=1")
 		message_admins("[key_name(src)] сослан на [addr].")
+		qdel(src)
