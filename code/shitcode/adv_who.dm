@@ -29,9 +29,9 @@
 				continue
 
 			if(isobserver(C.mob))
-				entry += " - <font color='gray'><b>Наблюдает</b></font> as <b>[C.mob.real_name]</b>"
+				entry += " - <font color='gray'><b>Наблюдает</b></font> - <b>[C.mob.real_name]</b>"
 			else if(isliving(C.mob))
-				entry += " - <font color='green'><b>Играет</b></font> as <b>[C.mob.real_name]</b>"
+				entry += " - <font color='green'><b>Играет</b></font> - <b>[C.mob.real_name]</b>"
 
 			switch(C.mob.stat)
 				if(UNCONSCIOUS)
