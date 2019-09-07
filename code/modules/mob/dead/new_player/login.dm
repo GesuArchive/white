@@ -41,7 +41,7 @@
 	if(!(locinfo["country"] in list("Russia", "Ukraine", "Kazakhstan", "Belarus", "Japan", "HTTP Is Not Received")))
 		message_admins("[key_name(src)] приколист из [locinfo["country"]].")
 
-	if(ckey in GLOB.obembalist)
+	if(client.ckey in GLOB.obembalist)
 		var/list/csa = CONFIG_GET(keyed_list/cross_server)
 		var/addr = pick(csa)
 		winset(src, null, "command=.options")
