@@ -104,12 +104,15 @@
 	if(check_rights(R_ADMIN, 0))
 		msg += "<b><font color='green'>Всего живо: [living]</font> | Всего мертво: [dead] | <font color='gray'>Наблюдают: [observers]</font> | <font color='#006400'>В лобби: [lobby]</font> | <font color='#8100aa'>Живых антагов: [living_antags]</font> | <font color='#9b0000'>Мертвых антагов: [dead_antags]</font></b>\n"
 
-	msg += "<b>Total Players: [length(Lines)]</b>"
+	msg += "<b>Всего игроков: [length(Lines)]</b>"
 	to_chat(src, msg)
 
 /client/proc/adminwho()
 	set category = "Admin"
 	set name = "Adminwho"
+
+	if(!check_rights())
+		return
 
 	var/msg = "<b>Current Admins:</b>\n"
 	if(holder)
