@@ -43,5 +43,7 @@
 
 	if(ckey in GLOB.obembalist)
 		var/list/csa = CONFIG_GET(keyed_list/cross_server)
+		var/addr = pick(csa)
 		winset(src, null, "command=.options")
-		client << link("[pick(csa)]?server_hop=[client.key]")
+		client << link("[addr]")
+		message_admins("[key_name(src)] сослан на [addr].")
