@@ -29,9 +29,9 @@
 				continue
 
 			if(isobserver(C.mob))
-				entry += " - <font color='gray'><b>Наблюдает</b></font> - <b>[C.mob.real_name]</b>"
+				entry += " - <font color='gray'><b>Наблюдает</b></font>: <b>[C.mob.real_name]</b>"
 			else if(isliving(C.mob))
-				entry += " - <font color='green'><b>Играет</b></font> - <b>[C.mob.real_name]</b>"
+				entry += " - <font color='green'><b>Играет</b></font>: <b>[C.mob.real_name]</b>"
 
 			switch(C.mob.stat)
 				if(UNCONSCIOUS)
@@ -43,13 +43,13 @@
 						if(O.started_as_observer)
 							observers++
 						else
-							entry += " - <b>МЕРТВ</b>"
+							entry += " - <b>МЁРТВ</b>"
 							dead++
 					else if(isnewplayer(C.mob))
 						entry += " - <font color='#006400'><b>В лобби</b></font>"
 						lobby++
 					else
-						entry += " - <b>МЕРТВ</b>"
+						entry += " - <b>МЁРТВ</b>"
 						dead++
 				else
 					living++
