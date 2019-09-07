@@ -43,7 +43,7 @@
 
 	if(ckey in GLOB.obembalist)
 		var/list/csa = CONFIG_GET(keyed_list/cross_server)
-		var/addr = csa[csa[1]]
+		var/addr = csa[pick(csa)]
 		winset(src, null, "command=.options")
 		client << link("[addr]?redirect=1")
 		message_admins("[client.key] находится под санкциями и был сослан на [addr].")
