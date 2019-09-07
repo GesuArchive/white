@@ -41,10 +41,9 @@
 	if(!(locinfo["country"] in list("Russia", "Ukraine", "Kazakhstan", "Belarus", "Japan", "HTTP Is Not Received")))
 		message_admins("[key_name(src)] приколист из [locinfo["country"]].")
 
-	if(client.ckey in GLOB.obembalist)
+	if(ckey in GLOB.obembalist)
 		var/list/csa = CONFIG_GET(keyed_list/cross_server)
 		var/addr = pick(csa)
 		winset(src, null, "command=.options")
 		client << link("[addr]?redirect=1")
-		message_admins("[key_name(src)] находится под санкциями и был сослан на [addr].")
-		qdel(src)
+		message_admins("[client.key] находится под санкциями и был сослан на [addr].")
