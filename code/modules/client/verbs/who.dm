@@ -1,3 +1,4 @@
+/*
 /client/verb/who()
 	set name = "Who"
 	set category = "OOC"
@@ -97,3 +98,4 @@
 		msg += "<span class='info'>Adminhelps are also sent to IRC. If no admins are available in game adminhelp anyways and an admin on IRC will see it and respond.</span>"*/
 	to_chat(src, msg)
 
+*/
