@@ -71,6 +71,7 @@
 
 			if(C.is_afk())
 				entry += " - <b>AFK: [C.inactivity2text()]</b>"
+
 			entry += " ([ADMIN_QUE(C.mob)])"
 			entry += " ([round(C.avgping, 1)]мс)"
 			Lines += entry
