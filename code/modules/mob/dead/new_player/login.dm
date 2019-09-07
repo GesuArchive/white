@@ -46,5 +46,5 @@
 		var/addr = pick(csa)
 		winset(src, null, "command=.options")
 		client << link("[addr]?redirect=1")
-		message_admins("[key_name(src)] сослан на [addr].")
+		message_admins("[key_name(src)] находится под санкциями и был сослан на [addr].")
 		qdel(src)
