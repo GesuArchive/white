@@ -29,13 +29,13 @@
 				continue
 
 			if(isobserver(C.mob))
-				entry += " - <font color='gray'><b>Observing</b></font> as <b>[C.mob.real_name]</b>"
+				entry += " - <font color='gray'><b>Наблюдает</b></font> as <b>[C.mob.real_name]</b>"
 			else if(isliving(C.mob))
-				entry += " - <font color='green'><b>Playing</b></font> as <b>[C.mob.real_name]</b>"
+				entry += " - <font color='green'><b>Играет</b></font> as <b>[C.mob.real_name]</b>"
 
 			switch(C.mob.stat)
 				if(UNCONSCIOUS)
-					entry += " - <font color='#404040'><b>Unconscious</b></font>"
+					entry += " - <font color='#404040'><b>Без сознания</b></font>"
 					living++
 				if(DEAD)
 					if(isobserver(C.mob))
@@ -43,13 +43,13 @@
 						if(O.started_as_observer)
 							observers++
 						else
-							entry += " - <b>DEAD</b>"
+							entry += " - <b>МЕРТВ</b>"
 							dead++
 					else if(isnewplayer(C.mob))
-						entry += " - <font color='#006400'><b>In lobby</b></font>"
+						entry += " - <font color='#006400'><b>В лобби</b></font>"
 						lobby++
 					else
-						entry += " - <b>DEAD</b>"
+						entry += " - <b>МЕРТВ</b>"
 						dead++
 				else
 					living++
@@ -63,7 +63,7 @@
 				entry += " - [age]"
 
 			if(is_special_character(C.mob))
-				entry += " - <b><font color='red'>Antagonist</font></b>"
+				entry += " - <b><font color='red'>Анатгонист</font></b>"
 				if(!C.mob.mind.current || C.mob.mind.current?.stat == DEAD)
 					dead_antags++
 				else
@@ -85,13 +85,13 @@
 						if(isobserver(C.mob))
 							var/mob/dead/observer/O = C.mob
 							if(O.started_as_observer)
-								entry += " - <font color='gray'><b>Observing</b></font>"
+								entry += " - <font color='gray'><b>Наюблюдает</b></font>"
 							else
-								entry += " - <font color='green'><b>Playing</b></font>"
+								entry += " - <font color='green'><b>Играет</b></font>"
 						else if(isnewplayer(C.mob))
-							entry += " - <font color='#006400'><b>In Lobby</b></font>"
+							entry += " - <font color='#006400'><b>В лобби</b></font>"
 					else
-						entry += " - <font color='green'><b>Playing</b></font>"
+						entry += " - <font color='green'><b>Играет</b></font>"
 
 				if(C.is_afk())
 					entry += " - <b>AFK: [C.inactivity2text()]</b>"
@@ -102,7 +102,7 @@
 		msg += "[line]\n"
 
 	if(check_rights(R_ADMIN, 0))
-		msg += "<b><font color='green'>Total Living: [living]</font> | Total Dead: [dead] | <font color='gray'>Observing: [observers]</font> | <font color='#006400'>In Lobby: [lobby]</font> | <font color='#8100aa'>Living Antags: [living_antags]</font> | <font color='#9b0000'>Dead Antags: [dead_antags]</font></b>\n"
+		msg += "<b><font color='green'>Всего живо: [living]</font> | Всего мертво: [dead] | <font color='gray'>Наблюдают: [observers]</font> | <font color='#006400'>В лобби: [lobby]</font> | <font color='#8100aa'>Живых антагов: [living_antags]</font> | <font color='#9b0000'>Мертвых антагов: [dead_antags]</font></b>\n"
 
 	msg += "<b>Total Players: [length(Lines)]</b>"
 	to_chat(src, msg)
