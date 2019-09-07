@@ -38,7 +38,7 @@
 					entry += " - <font color='darkgray'><b>Лобби</b></font>"
 					lobby++
 				else
-					entry += " - Играет: [C.mob.real_name]"
+					entry += " - Играет как [C.mob.real_name]"
 					switch(C.mob.stat)
 						if(UNCONSCIOUS)
 							entry += " - <font color='darkgray'><b>Без сознания</b></font>"
