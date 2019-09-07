@@ -53,7 +53,7 @@
 						dead++
 				else
 					living++
-
+			/*
 			if(isnum(C.player_age))
 				var/age = C.player_age
 				if(age <= 1)
@@ -61,7 +61,7 @@
 				else if(age < 10)
 					age = "<font color='#ff8c00'><b>[age]</b></font>"
 				entry += " - [age]"
-
+			*/
 			if(is_special_character(C.mob))
 				entry += " - <b><font color='red'>Анатгонист</font></b>"
 				if(!C.mob.mind.current || C.mob.mind.current?.stat == DEAD)
