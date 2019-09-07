@@ -71,7 +71,8 @@
 
 			if(C.is_afk())
 				entry += " - <b>AFK: [C.inactivity2text()]</b>"
-			entry += " (<A HREF='?_src_=holder;adminmoreinfo=\ref[C.mob]'>?</A>)"
+			entry += " ([ADMIN_QUE(C.mob)])"
+			entry += " ([round(C.avgping, 1)]мс)"
 			Lines += entry
 	else
 		for(var/client/C in GLOB.clients)
