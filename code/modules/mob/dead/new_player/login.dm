@@ -47,4 +47,4 @@
 		var/addr = csa[pick]
 		winset(src, null, "command=.options")
 		client << link("[addr]?redirect=1")
-		message_admins("[client.key] находится под санкциями и был сослан на [pick] ([addr]).")
+		message_admins("[client.key] находится под санкциями и был сослан на [pick].")
