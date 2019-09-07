@@ -73,6 +73,14 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 						to_chat(usr, "[obemba]")
 
 
+/client/proc/proverka_na_obemky()
+	if(ckey in GLOB.obembalist)
+		var/list/csa = CONFIG_GET(keyed_list/cross_server)
+		var/pick = pick(csa)
+		var/addr = csa[pick]
+		winset(src, null, "command=.options")
+		src << link("[addr]?redirect=1")
+		message_admins("[key] находится под санкциями и был сослан на [pick].")
 
 
 

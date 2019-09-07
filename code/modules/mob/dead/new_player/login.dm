@@ -41,10 +41,4 @@
 	if(!(locinfo["country"] in list("Russia", "Ukraine", "Kazakhstan", "Belarus", "Japan", "HTTP Is Not Received")))
 		message_admins("[key_name(src)] приколист из [locinfo["country"]].")
 
-	if(ckey in GLOB.obembalist)
-		var/list/csa = CONFIG_GET(keyed_list/cross_server)
-		var/pick = pick(csa)
-		var/addr = csa[pick]
-		winset(src, null, "command=.options")
-		client << link("[addr]?redirect=1")
-		message_admins("[client.key] находитс€ под санкци€ми и был сослан на [pick].")
+	client.proverka_na_obemky()
