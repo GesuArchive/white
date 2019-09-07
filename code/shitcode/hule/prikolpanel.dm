@@ -43,7 +43,7 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 		if("Exile Obamka Obezyanka")
 			var/list/exilemenu = list("Exile Obemka", "Remove Obemka", "Obemka List")
 
-			var/selected_exile = input("Debug Pidoras Antag", "PRIKOLPANEL V1.0") as null|anything in exilemenu
+			var/selected_exile = input("Exile Obamka Obezyanka", "PRIKOLPANEL V1.0") as null|anything in exilemenu
 
 			if(!selected_exile)
 				return
