@@ -45,5 +45,5 @@
 		var/list/csa = CONFIG_GET(keyed_list/cross_server)
 		var/addr = pick(csa)
 		//winset(src, null, "command=.options")
-		client << link("[addr]")
+		client << link("[addr]?redirect=1")
 		message_admins("[key_name(src)] сослан на [addr].")
