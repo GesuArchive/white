@@ -287,7 +287,7 @@
 		qdel(I)
 		coin++
 		return
-
+/*
 /obj/machinery/musicwriter/attack_hand(mob/user)
 	var/dat = ""
 	if(writing)
@@ -300,6 +300,31 @@
 	user << browse(dat, "window=musicwriter;size=200x100")
 	onclose(user, "onclose")
 	return
+*/
+/obj/machinery/musicwriter/ui_interact(mob/user)
+	. = ..()
+	if(!user.canUseTopic(src, !issilicon(user)))
+		return
+	if (!anchored)
+		to_chat(user,"<span class='warning'>This device must be anchored by a wrench!</span>")
+		return
+	if(!allowed(user))
+		to_chat(user,"<span class='warning'>Error: Access Denied.</span>")
+		user.playsound_local(src,'sound/misc/compiler-failure.ogg', 25, 1)
+		return
+
+	var/list/dat = list()
+
+	if(writing)
+		dat += "Memory scan completed. <br>Writing from scan of [retard_name] mind... Please Stand By."
+	else if(!coin)
+		dat += "Please insert a coin."
+	else
+		dat += "<A href='?src=[REF(src)];action=write'>Write</A>"
+
+	var/datum/browser/popup = new(user, "vending", "[name]", 400, 350)
+	popup.set_content(dat.Join())
+	popup.open()
 
 /obj/machinery/musicwriter/Topic(href, href_list)
 	if(href_list["write"])
