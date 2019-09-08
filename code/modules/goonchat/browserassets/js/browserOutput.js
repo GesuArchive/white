@@ -697,460 +697,446 @@ if (typeof $ === 'undefined') {
 }
 
 $(function() {
-    $messages = $('#messages');
-    $subOptions = $('#subOptions');
-    $subAudio = $('#subAudio');
-    $selectedSub = $subOptions;
+	$messages = $('#messages');
+	$subOptions = $('#subOptions');
+	$subAudio = $('#subAudio');
+	$selectedSub = $subOptions;
 
-    //Hey look it's a controller loop!
-    setInterval(function() {
-        if (opts.lastPang + opts.pangLimit < Date.now() && !opts.restarting) { //Every pingLimit
-            if (!opts.noResponse) { //Only actually append a message if the previous ping didn't also fail (to prevent spam)
-                opts.noResponse = true;
-                opts.noResponseCount++;
-                internalOutput('<div class="connectionClosed internal" data-count="' + opts.noResponseCount + '">You are either AFK, experiencing lag or the connection has closed.</div>', 'internal');
-            }
-        } else if (opts.noResponse) { //Previous ping attempt failed ohno
-            $('.connectionClosed[data-count="' + opts.noResponseCount + '"]:not(.restored)').addClass('restored').text('Your connection has been restored (probably)!');
-            opts.noResponse = false;
-        }
-    }, 2000); //2 seconds
-
-
-    /*****************************************
-     *
-     * LOAD SAVED CONFIG
-     *
-     ******************************************/
-    var savedConfig = {
-        'sfontSize': getCookie('fontsize'),
-        'slineHeight': getCookie('lineheight'),
-        'spingDisabled': getCookie('pingdisabled'),
-        'shighlightTerms': getCookie('highlightterms'),
-        'shighlightColor': getCookie('highlightcolor'),
-        'smusicVolume': getCookie('musicVolume'),
-        'smessagecombining': getCookie('messagecombining'),
-        'sdarkmode': getCookie('darkmode'),
-    };
-
-    if (savedConfig.sfontSize) {
-        $messages.css('font-size', savedConfig.sfontSize);
-        internalOutput('<span class="internal boldnshit">Loaded font size setting of: ' + savedConfig.sfontSize + '</span>', 'internal');
-    }
-    if (savedConfig.slineHeight) {
-        $("body").css('line-height', savedConfig.slineHeight);
-        internalOutput('<span class="internal boldnshit">Loaded line height setting of: ' + savedConfig.slineHeight + '</span>', 'internal');
-    }
-    if (savedConfig.sdarkmode == 'true') {
-        swap();
-    }
-    if (savedConfig.spingDisabled) {
-        if (savedConfig.spingDisabled == 'true') {
-            opts.pingDisabled = true;
-            $('#ping').hide();
-        }
-        internalOutput('<span class="internal boldnshit">Loaded ping display of: ' + (opts.pingDisabled ? 'hidden' : 'visible') + '</span>', 'internal');
-    }
-    if (savedConfig.shighlightTerms) {
-        var savedTerms = $.parseJSON(savedConfig.shighlightTerms);
-        var actualTerms = '';
-        for (var i = 0; i < savedTerms.length; i++) {
-            if (savedTerms[i]) {
-                actualTerms += savedTerms[i] + ', ';
-            }
-        }
-        if (actualTerms) {
-            actualTerms = actualTerms.substring(0, actualTerms.length - 2);
-            internalOutput('<span class="internal boldnshit">Loaded highlight strings of: ' + actualTerms + '</span>', 'internal');
-            opts.highlightTerms = savedTerms;
-        }
-    }
-    if (savedConfig.shighlightColor) {
-        opts.highlightColor = savedConfig.shighlightColor;
-        internalOutput('<span class="internal boldnshit">Loaded highlight color of: ' + savedConfig.shighlightColor + '</span>', 'internal');
-    }
-    if (savedConfig.smusicVolume) {
-        var newVolume = clamp(savedConfig.smusicVolume, 0, 100);
-        $('#adminMusic').prop('volume', newVolume / 100);
-        $('#musicVolume').val(newVolume);
-        opts.updatedVolume = newVolume;
-        sendVolumeUpdate();
-        internalOutput('<span class="internal boldnshit">Loaded music volume of: ' + savedConfig.smusicVolume + '</span>', 'internal');
-    } else {
-        $('#adminMusic').prop('volume', opts.defaultMusicVolume / 100);
-    }
-
-    if (savedConfig.smessagecombining) {
-        if (savedConfig.smessagecombining == 'false') {
-            opts.messageCombining = false;
-        } else {
-            opts.messageCombining = true;
-        }
-    }
-    (function() {
-        var dataCookie = getCookie('connData');
-        if (dataCookie) {
-            var dataJ;
-            try {
-                dataJ = $.parseJSON(dataCookie);
-            } catch (e) {
-                window.onerror('JSON ' + e + '. ' + dataCookie, 'browserOutput.html', 434);
-                return;
-            }
-            opts.clientData = dataJ;
-        }
-    })();
+	//Hey look it's a controller loop!
+	setInterval(function() {
+		if (opts.lastPang + opts.pangLimit < Date.now() && !opts.restarting) { //Every pingLimit
+				if (!opts.noResponse) { //Only actually append a message if the previous ping didn't also fail (to prevent spam)
+					opts.noResponse = true;
+					opts.noResponseCount++;
+					internalOutput('<div class="connectionClosed internal" data-count="'+opts.noResponseCount+'">You are either AFK, experiencing lag or the connection has closed.</div>', 'internal');
+				}
+		} else if (opts.noResponse) { //Previous ping attempt failed ohno
+				$('.connectionClosed[data-count="'+opts.noResponseCount+'"]:not(.restored)').addClass('restored').text('Your connection has been restored (probably)!');
+				opts.noResponse = false;
+		}
+	}, 2000); //2 seconds
 
 
-    /*****************************************
-     *
-     * BASE CHAT OUTPUT EVENTS
-     *
-     ******************************************/
+	/*****************************************
+	*
+	* LOAD SAVED CONFIG
+	*
+	******************************************/
+	var savedConfig = {
+		fontsize: getCookie('fontsize'),
+		lineheight: getCookie('lineheight'),
+		'spingDisabled': getCookie('pingdisabled'),
+		'shighlightTerms': getCookie('highlightterms'),
+		'shighlightColor': getCookie('highlightcolor'),
+		'smusicVolume': getCookie('musicVolume'),
+		'smessagecombining': getCookie('messagecombining'),
+		'sdarkmode': getCookie('darkmode'),
+	};
 
-    $('body').on('click', 'a', function(e) {
-        e.preventDefault();
-    });
-
-    $('body').on('mousedown', function(e) {
-        var $target = $(e.target);
-
-        if ($contextMenu && opts.hasOwnProperty('contextMenuTarget') && opts.contextMenuTarget) {
-            hideContextMenu();
-            return false;
-        }
-
-        if ($target.is('a') || $target.parent('a').length || $target.is('input') || $target.is('textarea')) {
-            opts.preventFocus = true;
-        } else {
-            opts.preventFocus = false;
-            opts.mouseDownX = e.pageX;
-            opts.mouseDownY = e.pageY;
-        }
-    });
-
-    $messages.on('mousedown', function(e) {
-        if ($selectedSub && $selectedSub.is(':visible')) {
-            $selectedSub.slideUp('fast', subSlideUp);
-            clearInterval(opts.selectedSubLoop);
-        }
-    });
-
-    $('body').on('mouseup', function(e) {
-        if (!opts.preventFocus &&
-            (e.pageX >= opts.mouseDownX - opts.clickTolerance && e.pageX <= opts.mouseDownX + opts.clickTolerance) &&
-            (e.pageY >= opts.mouseDownY - opts.clickTolerance && e.pageY <= opts.mouseDownY + opts.clickTolerance)
-        ) {
-            opts.mouseDownX = null;
-            opts.mouseDownY = null;
-            runByond('byond://winset?mapwindow.map.focus=true');
-        }
-    });
-
-    $messages.on('click', 'a', function(e) {
-        var href = $(this).attr('href');
-        $(this).addClass('visited');
-        if (href[0] == '?' || (href.length >= 8 && href.substring(0, 8) == 'byond://')) {
-            runByond(href);
-        } else {
-            href = escaper(href);
-            runByond('?action=openLink&link=' + href);
-        }
-    });
-
-    //Fuck everything about this event. Will look into alternatives.
-    $('body').on('keydown', function(e) {
-        if (e.target.nodeName == 'INPUT' || e.target.nodeName == 'TEXTAREA') {
-            return;
-        }
-
-        if (e.ctrlKey || e.altKey || e.shiftKey) { //Band-aid "fix" for allowing ctrl+c copy paste etc. Needs a proper fix.
-            return;
-        }
-
-        e.preventDefault()
-
-        var k = e.which;
-        // Hardcoded because else there would be no feedback message.
-        if (k == 113) { // F2
-            runByond('byond://winset?screenshot=auto');
-            internalOutput('Screenshot taken', 'internal');
-        }
-
-        var c = "";
-        switch (k) {
-            case 8:
-                c = 'BACK';
-            case 9:
-                c = 'TAB';
-            case 13:
-                c = 'ENTER';
-            case 19:
-                c = 'PAUSE';
-            case 27:
-                c = 'ESCAPE';
-            case 33: // Page up
-                c = 'NORTHEAST';
-            case 34: // Page down
-                c = 'SOUTHEAST';
-            case 35: // End
-                c = 'SOUTHWEST';
-            case 36: // Home
-                c = 'NORTHWEST';
-            case 37:
-                c = 'WEST';
-            case 38:
-                c = 'NORTH';
-            case 39:
-                c = 'EAST';
-            case 40:
-                c = 'SOUTH';
-            case 45:
-                c = 'INSERT';
-            case 46:
-                c = 'DELETE';
-            case 93: // That weird thing to the right of alt gr.
-                c = 'APPS';
-
-            default:
-                c = String.fromCharCode(k);
-        }
-
-        if (c.length == 0) {
-            if (!e.shiftKey) {
-                c = c.toLowerCase();
-            }
-            runByond('byond://winset?mapwindow.map.focus=true;mainwindow.input.text=' + c);
-            return false;
-        } else {
-            runByond('byond://winset?mapwindow.map.focus=true');
-            return false;
-        }
-    });
-
-    //Mildly hacky fix for scroll issues on mob change (interface gets resized sometimes, messing up snap-scroll)
-    $(window).on('resize', function(e) {
-        if ($(this).height() !== opts.priorChatHeight) {
-            $('body,html').scrollTop($messages.outerHeight());
-            opts.priorChatHeight = $(this).height();
-        }
-    });
+	if (savedConfig.fontsize) {
+		$messages.css('font-size', savedConfig.fontsize);
+		internalOutput('<span class="internal boldnshit">Loaded font size setting of: '+savedConfig.fontsize+'</span>', 'internal');
+	}
+	if (savedConfig.lineheight) {
+		$("body").css('line-height', savedConfig.lineheight);
+		internalOutput('<span class="internal boldnshit">Loaded line height setting of: '+savedConfig.lineheight+'</span>', 'internal');
+	}
+	if(savedConfig.sdarkmode == 'true'){
+		swap();
+	}
+	if (savedConfig.spingDisabled) {
+		if (savedConfig.spingDisabled == 'true') {
+			opts.pingDisabled = true;
+			$('#ping').hide();
+		}
+		internalOutput('<span class="internal boldnshit">Loaded ping display of: '+(opts.pingDisabled ? 'hidden' : 'visible')+'</span>', 'internal');
+	}
+	if (savedConfig.shighlightTerms) {
+		var savedTerms = $.parseJSON(savedConfig.shighlightTerms);
+		var actualTerms = '';
+		for (var i = 0; i < savedTerms.length; i++) {
+			if (savedTerms[i]) {
+				actualTerms += savedTerms[i] + ', ';
+			}
+		}
+		if (actualTerms) {
+			actualTerms = actualTerms.substring(0, actualTerms.length - 2);
+			internalOutput('<span class="internal boldnshit">Loaded highlight strings of: ' + actualTerms+'</span>', 'internal');
+			opts.highlightTerms = savedTerms;
+		}
+	}
+	if (savedConfig.shighlightColor) {
+		opts.highlightColor = savedConfig.shighlightColor;
+		internalOutput('<span class="internal boldnshit">Loaded highlight color of: '+savedConfig.shighlightColor+'</span>', 'internal');
+	}
+	if (savedConfig.smusicVolume) {
+		var newVolume = clamp(savedConfig.smusicVolume, 0, 100);
+		$('#adminMusic').prop('volume', newVolume / 100);
+		$('#musicVolume').val(newVolume);
+		opts.updatedVolume = newVolume;
+		sendVolumeUpdate();
+		internalOutput('<span class="internal boldnshit">Loaded music volume of: '+savedConfig.smusicVolume+'</span>', 'internal');
+	}
+	else{
+		$('#adminMusic').prop('volume', opts.defaultMusicVolume / 100);
+	}
+	
+	if (savedConfig.smessagecombining) {
+		if (savedConfig.smessagecombining == 'false') {
+			opts.messageCombining = false;
+		} else {
+			opts.messageCombining = true;
+		}
+	}
+	(function() {
+		var dataCookie = getCookie('connData');
+		if (dataCookie) {
+			var dataJ;
+			try {
+				dataJ = $.parseJSON(dataCookie);
+			} catch (e) {
+				window.onerror('JSON '+e+'. '+dataCookie, 'browserOutput.html', 434);
+				return;
+			}
+			opts.clientData = dataJ;
+		}
+	})();
 
 
-    /*****************************************
-     *
-     * OPTIONS INTERFACE EVENTS
-     *
-     ******************************************/
+	/*****************************************
+	*
+	* BASE CHAT OUTPUT EVENTS
+	*
+	******************************************/
 
-    $('body').on('click', '#newMessages', function(e) {
-        var messagesHeight = $messages.outerHeight();
-        $('body,html').scrollTop(messagesHeight);
-        $('#newMessages').remove();
-        runByond('byond://winset?mapwindow.map.focus=true');
-    });
+	$('body').on('click', 'a', function(e) {
+		e.preventDefault();
+	});
 
-    $('#toggleOptions').click(function(e) {
-        handleToggleClick($subOptions, $(this));
-    });
-    $('#darkmodetoggle').click(function(e) {
-        swap();
-    });
-    $('#toggleAudio').click(function(e) {
-        handleToggleClick($subAudio, $(this));
-    });
+	$('body').on('mousedown', function(e) {
+		var $target = $(e.target);
 
-    $('.sub, .toggle').mouseenter(function() {
-        opts.suppressSubClose = true;
-    });
+		if ($contextMenu && opts.hasOwnProperty('contextMenuTarget') && opts.contextMenuTarget) {
+			hideContextMenu();
+			return false;
+		}
 
-    $('.sub, .toggle').mouseleave(function() {
-        opts.suppressSubClose = false;
-    });
+		if ($target.is('a') || $target.parent('a').length || $target.is('input') || $target.is('textarea')) {
+			opts.preventFocus = true;
+		} else {
+			opts.preventFocus = false;
+			opts.mouseDownX = e.pageX;
+			opts.mouseDownY = e.pageY;
+		}
+	});
 
-    $('#decreaseFont').click(function(e) {
-        var fontSize = parseInt($messages.css('font-size'));
-        fontSize = fontSize - 1 + 'px';
-        $messages.css({ 'font-size': fontSize });
-        setCookie('fontsize', fontSize, 365);
-        internalOutput('<span class="internal boldnshit">Font size set to ' + fontSize + '</span>', 'internal');
-    });
+	$messages.on('mousedown', function(e) {
+		if ($selectedSub && $selectedSub.is(':visible')) {
+			$selectedSub.slideUp('fast', subSlideUp);
+			clearInterval(opts.selectedSubLoop);
+		}
+	});
 
-    $('#increaseFont').click(function(e) {
-        var fontSize = parseInt($messages.css('font-size'));
-        fontSize = fontSize + 1 + 'px';
-        $messages.css({ 'font-size': fontSize });
-        setCookie('fontsize', fontSize, 365);
-        internalOutput('<span class="internal boldnshit">Font size set to ' + fontSize + '</span>', 'internal');
-    });
+	$('body').on('mouseup', function(e) {
+		if (!opts.preventFocus &&
+			(e.pageX >= opts.mouseDownX - opts.clickTolerance && e.pageX <= opts.mouseDownX + opts.clickTolerance) &&
+			(e.pageY >= opts.mouseDownY - opts.clickTolerance && e.pageY <= opts.mouseDownY + opts.clickTolerance)
+		) {
+			opts.mouseDownX = null;
+			opts.mouseDownY = null;
+			runByond('byond://winset?mapwindow.map.focus=true');
+		}
+	});
 
-    $('#decreaseLineHeight').click(function(e) {
-        var Heightline = parseFloat($("body").css('line-height'));
-        var Sizefont = parseFloat($("body").css('font-size'));
-        var lineheightvar = Heightline / Sizefont
-        lineheightvar -= 0.1;
-        lineheightvar = lineheightvar.toFixed(1)
-        $("body").css({ 'line-height': lineheightvar });
-        setCookie('lineheight', lineheightvar, 365);
-        internalOutput('<span class="internal boldnshit">Line height set to ' + lineheightvar + '</span>', 'internal');
-    });
+	$messages.on('click', 'a', function(e) {
+		var href = $(this).attr('href');
+		$(this).addClass('visited');
+		if (href[0] == '?' || (href.length >= 8 && href.substring(0,8) == 'byond://')) {
+			runByond(href);
+		} else {
+			href = escaper(href);
+			runByond('?action=openLink&link='+href);
+		}
+	});
 
-    $('#increaseLineHeight').click(function(e) {
-        var Heightline = parseFloat($("body").css('line-height'));
-        var Sizefont = parseFloat($("body").css('font-size'));
-        var lineheightvar = Heightline / Sizefont
-        lineheightvar += 0.1;
-        lineheightvar = lineheightvar.toFixed(1)
-        $("body").css({ 'line-height': lineheightvar });
-        setCookie('lineheight', lineheightvar, 365);
-        internalOutput('<span class="internal boldnshit">Line height set to ' + lineheightvar + '</span>', 'internal');
-    });
+	//Fuck everything about this event. Will look into alternatives.
+	$('body').on('keydown', function(e) {
+		if (e.target.nodeName == 'INPUT' || e.target.nodeName == 'TEXTAREA') {
+			return;
+		}
 
-    $('#togglePing').click(function(e) {
-        if (opts.pingDisabled) {
-            $('#ping').slideDown('fast');
-            opts.pingDisabled = false;
-        } else {
-            $('#ping').slideUp('fast');
-            opts.pingDisabled = true;
-        }
-        setCookie('pingdisabled', (opts.pingDisabled ? 'true' : 'false'), 365);
-    });
+		if (e.ctrlKey || e.altKey || e.shiftKey) { //Band-aid "fix" for allowing ctrl+c copy paste etc. Needs a proper fix.
+			return;
+		}
 
-    $('#saveLog').click(function(e) {
-        // Requires IE 10+ to issue download commands. Just opening a popup
-        // window will cause Ctrl+S to save a blank page, ignoring innerHTML.
-        if (!window.Blob) {
-            output('<span class="big red">This function is only supported on IE 10+. Upgrade if possible.</span>', 'internal');
-            return;
-        }
+		e.preventDefault()
 
-        $.ajax({
-            type: 'GET',
-            url: 'browserOutput_white.css',
-            success: function(styleData) {
-                var blob = new Blob(['<head><title>Chat Log</title><style>', styleData, '</style></head><body>', $messages.html(), '</body>']);
+		var k = e.which;
+		// Hardcoded because else there would be no feedback message.
+		if (k == 113) { // F2
+			runByond('byond://winset?screenshot=auto');
+			internalOutput('Screenshot taken', 'internal');
+		}
 
-                var fname = 'SS13 Chat Log';
-                var date = new Date(),
-                    month = date.getMonth(),
-                    day = date.getDay(),
-                    hours = date.getHours(),
-                    mins = date.getMinutes(),
-                    secs = date.getSeconds();
-                fname += ' ' + date.getFullYear() + '-' + (month < 10 ? '0' : '') + month + '-' + (day < 10 ? '0' : '') + day;
-                fname += ' ' + (hours < 10 ? '0' : '') + hours + (mins < 10 ? '0' : '') + mins + (secs < 10 ? '0' : '') + secs;
-                fname += '.html';
+		var c = "";
+		switch (k) {
+			case 8:
+				c = 'BACK';
+			case 9:
+				c = 'TAB';
+			case 13:
+				c = 'ENTER';
+			case 19:
+				c = 'PAUSE';
+			case 27:
+				c = 'ESCAPE';
+			case 33: // Page up
+				c = 'NORTHEAST';
+			case 34: // Page down
+				c = 'SOUTHEAST';
+			case 35: // End
+				c = 'SOUTHWEST';
+			case 36: // Home
+				c = 'NORTHWEST';
+			case 37:
+				c = 'WEST';
+			case 38:
+				c = 'NORTH';
+			case 39:
+				c = 'EAST';
+			case 40:
+				c = 'SOUTH';
+			case 45:
+				c = 'INSERT';
+			case 46:
+				c = 'DELETE';
+			case 93: // That weird thing to the right of alt gr.
+				c = 'APPS';
 
-                window.navigator.msSaveBlob(blob, fname);
-            }
-        });
-    });
+			default:
+				c = String.fromCharCode(k);
+		}
 
-    $('#highlightTerm').click(function(e) {
-        if ($('.popup .highlightTerm').is(':visible')) { return; }
-        var termInputs = '';
-        for (var i = 0; i < opts.highlightLimit; i++) {
-            termInputs += '<div><input type="text" name="highlightTermInput' + i + '" id="highlightTermInput' + i + '" class="highlightTermInput' + i + '" maxlength="255" value="' + (opts.highlightTerms[i] ? opts.highlightTerms[i] : '') + '" /></div>';
-        }
-        var popupContent = '<div class="head">String Highlighting</div>' +
-            '<div class="highlightPopup" id="highlightPopup">' +
-            '<div>Choose up to ' + opts.highlightLimit + ' strings that will highlight the line when they appear in chat.</div>' +
-            '<form id="highlightTermForm">' +
-            termInputs +
-            '<div><input type="text" name="highlightColor" id="highlightColor" class="highlightColor" ' +
-            'style="background-color: ' + (opts.highlightColor ? opts.highlightColor : '#FFFF00') + '" value="' + (opts.highlightColor ? opts.highlightColor : '#FFFF00') + '" maxlength="7" /></div>' +
-            '<div><input type="submit" name="highlightTermSubmit" id="highlightTermSubmit" class="highlightTermSubmit" value="Save" /></div>' +
-            '</form>' +
-            '</div>';
-        createPopup(popupContent, 250);
-    });
+		if (c.length == 0) {
+			if (!e.shiftKey) {
+				c = c.toLowerCase();
+			}
+			runByond('byond://winset?mapwindow.map.focus=true;mainwindow.input.text='+c);
+			return false;
+		} else {
+			runByond('byond://winset?mapwindow.map.focus=true');
+			return false;
+		}
+	});
 
-    $('body').on('keyup', '#highlightColor', function() {
-        var color = $('#highlightColor').val();
-        color = color.trim();
-        if (!color || color.charAt(0) != '#') return;
-        $('#highlightColor').css('background-color', color);
-    });
-
-    $('body').on('submit', '#highlightTermForm', function(e) {
-        e.preventDefault();
-
-        var count = 0;
-        while (count < opts.highlightLimit) {
-            var term = $('#highlightTermInput' + count).val();
-            if (term) {
-                term = term.trim();
-                if (term === '') {
-                    opts.highlightTerms[count] = null;
-                } else {
-                    opts.highlightTerms[count] = term.toLowerCase();
-                }
-            } else {
-                opts.highlightTerms[count] = null;
-            }
-            count++;
-        }
-
-        var color = $('#highlightColor').val();
-        color = color.trim();
-        if (color == '' || color.charAt(0) != '#') {
-            opts.highlightColor = '#FFFF00';
-        } else {
-            opts.highlightColor = color;
-        }
-        var $popup = $('#highlightPopup').closest('.popup');
-        $popup.remove();
-
-        setCookie('highlightterms', JSON.stringify(opts.highlightTerms), 365);
-        setCookie('highlightcolor', opts.highlightColor, 365);
-    });
-
-    $('#clearMessages').click(function() {
-        $messages.empty();
-        opts.messageCount = 0;
-    });
-
-    $('#musicVolumeSpan').hover(function() {
-        $('#musicVolumeText').addClass('hidden');
-        $('#musicVolume').removeClass('hidden');
-    }, function() {
-        $('#musicVolume').addClass('hidden');
-        $('#musicVolumeText').removeClass('hidden');
-    });
-
-    $('#musicVolume').change(function() {
-        var newVolume = $('#musicVolume').val();
-        newVolume = clamp(newVolume, 0, 100);
-        $('#adminMusic').prop('volume', newVolume / 100);
-        setCookie('musicVolume', newVolume, 365);
-        opts.updatedVolume = newVolume;
-        if (!opts.volumeUpdating) {
-            setTimeout(sendVolumeUpdate, opts.volumeUpdateDelay);
-            opts.volumeUpdating = true;
-        }
-    });
-
-    $('#toggleCombine').click(function(e) {
-        opts.messageCombining = !opts.messageCombining;
-        setCookie('messagecombining', (opts.messageCombining ? 'true' : 'false'), 365);
-    });
-
-    $('img.icon').error(iconError);
+	//Mildly hacky fix for scroll issues on mob change (interface gets resized sometimes, messing up snap-scroll)
+	$(window).on('resize', function(e) {
+		if ($(this).height() !== opts.priorChatHeight) {
+			$('body,html').scrollTop($messages.outerHeight());
+			opts.priorChatHeight = $(this).height();
+		}
+	});
 
 
+	/*****************************************
+	*
+	* OPTIONS INTERFACE EVENTS
+	*
+	******************************************/
 
+	$('body').on('click', '#newMessages', function(e) {
+		var messagesHeight = $messages.outerHeight();
+		$('body,html').scrollTop(messagesHeight);
+		$('#newMessages').remove();
+		runByond('byond://winset?mapwindow.map.focus=true');
+	});
 
-    /*****************************************
-     *
-     * KICK EVERYTHING OFF
-     *
-     ******************************************/
+	$('#toggleOptions').click(function(e) {
+		handleToggleClick($subOptions, $(this));
+	});
+	$('#darkmodetoggle').click(function(e) {
+		swap();
+	});
+	$('#toggleAudio').click(function(e) {
+		handleToggleClick($subAudio, $(this));
+	});
 
-    runByond('?_src_=chat&proc=doneLoading');
-    if ($('#loading').is(':visible')) {
-        $('#loading').remove();
-    }
-    $('#userBar').show();
-    opts.priorChatHeight = $(window).height();
+	$('.sub, .toggle').mouseenter(function() {
+		opts.suppressSubClose = true;
+	});
+
+	$('.sub, .toggle').mouseleave(function() {
+		opts.suppressSubClose = false;
+	});
+
+	$('#decreaseFont').click(function(e) {
+		savedConfig.fontsize = Math.max(parseInt(savedConfig.fontsize || 13) - 1, 1) + 'px';
+		$messages.css({'font-size': savedConfig.fontsize});
+		setCookie('fontsize', savedConfig.fontsize, 365);
+		internalOutput('<span class="internal boldnshit">Font size set to '+savedConfig.fontsize+'</span>', 'internal');
+	});
+
+	$('#increaseFont').click(function(e) {
+		savedConfig.fontsize = (parseInt(savedConfig.fontsize || 13) + 1) + 'px';
+		$messages.css({'font-size': savedConfig.fontsize});
+		setCookie('fontsize', savedConfig.fontsize, 365);
+		internalOutput('<span class="internal boldnshit">Font size set to '+savedConfig.fontsize+'</span>', 'internal');
+	});
+
+	$('#decreaseLineHeight').click(function(e) {
+		savedConfig.lineheight = Math.max(parseFloat(savedConfig.lineheight || 1.2) - 0.1, 0.1).toFixed(1);
+		$("body").css({'line-height': savedConfig.lineheight});
+		setCookie('lineheight', savedConfig.lineheight, 365);
+		internalOutput('<span class="internal boldnshit">Line height set to '+savedConfig.lineheight+'</span>', 'internal');
+	});
+
+	$('#increaseLineHeight').click(function(e) {
+		savedConfig.lineheight = (parseFloat(savedConfig.lineheight || 1.2) + 0.1).toFixed(1);
+		$("body").css({'line-height': savedConfig.lineheight});
+		setCookie('lineheight', savedConfig.lineheight, 365);
+		internalOutput('<span class="internal boldnshit">Line height set to '+savedConfig.lineheight+'</span>', 'internal');
+	});
+
+	$('#togglePing').click(function(e) {
+		if (opts.pingDisabled) {
+			$('#ping').slideDown('fast');
+			opts.pingDisabled = false;
+		} else {
+			$('#ping').slideUp('fast');
+			opts.pingDisabled = true;
+		}
+		setCookie('pingdisabled', (opts.pingDisabled ? 'true' : 'false'), 365);
+	});
+
+	$('#saveLog').click(function(e) {
+		// Requires IE 10+ to issue download commands. Just opening a popup
+		// window will cause Ctrl+S to save a blank page, ignoring innerHTML.
+		if (!window.Blob) {
+			output('<span class="big red">This function is only supported on IE 10 and up. Upgrade if possible.</span>', 'internal');
+			return;
+		}
+
+		$.ajax({
+			type: 'GET',
+			url: 'browserOutput_white.css',
+			success: function(styleData) {
+				var blob = new Blob(['<head><title>Chat Log</title><style>', styleData, '</style></head><body>', $messages.html(), '</body>']);
+
+				var fname = 'SS13 Chat Log';
+				var date = new Date(), month = date.getMonth(), day = date.getDay(), hours = date.getHours(), mins = date.getMinutes(), secs = date.getSeconds();
+				fname += ' ' + date.getFullYear() + '-' + (month < 10 ? '0' : '') + month + '-' + (day < 10 ? '0' : '') + day;
+				fname += ' ' + (hours < 10 ? '0' : '') + hours + (mins < 10 ? '0' : '') + mins + (secs < 10 ? '0' : '') + secs;
+				fname += '.html';
+
+				window.navigator.msSaveBlob(blob, fname);
+			}
+		});
+	});
+
+	$('#highlightTerm').click(function(e) {
+		if ($('.popup .highlightTerm').is(':visible')) {return;}
+		var termInputs = '';
+		for (var i = 0; i < opts.highlightLimit; i++) {
+			termInputs += '<div><input type="text" name="highlightTermInput'+i+'" id="highlightTermInput'+i+'" class="highlightTermInput'+i+'" maxlength="255" value="'+(opts.highlightTerms[i] ? opts.highlightTerms[i] : '')+'" /></div>';
+		}
+		var popupContent = '<div class="head">String Highlighting</div>' +
+			'<div class="highlightPopup" id="highlightPopup">' +
+				'<div>Choose up to '+opts.highlightLimit+' strings that will highlight the line when they appear in chat.</div>' +
+				'<form id="highlightTermForm">' +
+					termInputs +
+					'<div><input type="text" name="highlightColor" id="highlightColor" class="highlightColor" '+
+						'style="background-color: '+(opts.highlightColor ? opts.highlightColor : '#FFFF00')+'" value="'+(opts.highlightColor ? opts.highlightColor : '#FFFF00')+'" maxlength="7" /></div>' +
+					'<div><input type="submit" name="highlightTermSubmit" id="highlightTermSubmit" class="highlightTermSubmit" value="Save" /></div>' +
+				'</form>' +
+			'</div>';
+		createPopup(popupContent, 250);
+	});
+
+	$('body').on('keyup', '#highlightColor', function() {
+		var color = $('#highlightColor').val();
+		color = color.trim();
+		if (!color || color.charAt(0) != '#') return;
+		$('#highlightColor').css('background-color', color);
+	});
+
+	$('body').on('submit', '#highlightTermForm', function(e) {
+		e.preventDefault();
+
+		var count = 0;
+		while (count < opts.highlightLimit) {
+			var term = $('#highlightTermInput'+count).val();
+			if (term) {
+				term = term.trim();
+				if (term === '') {
+					opts.highlightTerms[count] = null;
+				} else {
+					opts.highlightTerms[count] = term.toLowerCase();
+				}
+			} else {
+				opts.highlightTerms[count] = null;
+			}
+			count++;
+		}
+
+		var color = $('#highlightColor').val();
+		color = color.trim();
+		if (color == '' || color.charAt(0) != '#') {
+			opts.highlightColor = '#FFFF00';
+		} else {
+			opts.highlightColor = color;
+		}
+		var $popup = $('#highlightPopup').closest('.popup');
+		$popup.remove();
+
+		setCookie('highlightterms', JSON.stringify(opts.highlightTerms), 365);
+		setCookie('highlightcolor', opts.highlightColor, 365);
+	});
+
+	$('#clearMessages').click(function() {
+		$messages.empty();
+		opts.messageCount = 0;
+	});
+	
+	$('#musicVolumeSpan').hover(function() {
+		$('#musicVolumeText').addClass('hidden');
+		$('#musicVolume').removeClass('hidden');
+	}, function() {
+		$('#musicVolume').addClass('hidden');
+		$('#musicVolumeText').removeClass('hidden');
+	});
+
+	$('#musicVolume').change(function() {
+		var newVolume = $('#musicVolume').val();
+		newVolume = clamp(newVolume, 0, 100);
+		$('#adminMusic').prop('volume', newVolume / 100);
+		setCookie('musicVolume', newVolume, 365);
+		opts.updatedVolume = newVolume;
+		if(!opts.volumeUpdating) {
+			setTimeout(sendVolumeUpdate, opts.volumeUpdateDelay);
+			opts.volumeUpdating = true;
+		}
+	});
+
+	$('#toggleCombine').click(function(e) {
+		opts.messageCombining = !opts.messageCombining;
+		setCookie('messagecombining', (opts.messageCombining ? 'true' : 'false'), 365);
+	});
+
+	$('img.icon').error(iconError);
+	
+	
+		
+
+	/*****************************************
+	*
+	* KICK EVERYTHING OFF
+	*
+	******************************************/
+
+	runByond('?_src_=chat&proc=doneLoading');
+	if ($('#loading').is(':visible')) {
+		$('#loading').remove();
+	}
+	$('#userBar').show();
+	opts.priorChatHeight = $(window).height();
 });
