@@ -122,8 +122,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			randomise[RANDOM_SPECIES] = TRUE
 		if(S["backbag"])
 			S["backbag"]	>> backpack
-		if(S["hair_style_name"])
-			S["hair_style_name"]	>> hairstyle
+		if(S["hairstyle_name"])
+			S["hairstyle_name"]	>> hairstyle
 		if(S["facial_style_name"])
 			S["facial_style_name"]	>> facial_hairstyle
 

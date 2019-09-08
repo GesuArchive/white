@@ -16,16 +16,16 @@
 
 		if(icon_state == "ghost")
 			var/datum/sprite_accessory/S
-			if(facial_hair_style)
-				S = GLOB.facial_hair_styles_list[facial_hair_style]
+			if(facial_hairstyle)
+				S = GLOB.facial_hairstyle_list[facial_hairstyle]
 				if(S)
 					facial_hair_overlay = mutable_appearance(S.icon, "[S.icon_state]", -HAIR_LAYER)
 					if(facial_hair_color)
 						facial_hair_overlay.color = "#" + facial_hair_color
 					facial_hair_overlay.alpha = 200
 					add_overlay(facial_hair_overlay)
-			if(hair_style)
-				S = GLOB.hair_styles_list[hair_style]
+			if(hairstyle)
+				S = GLOB.hairstyles_list[hairstyle]
 				if(S)
 					hair_overlay = mutable_appearance(S.icon, "[S.icon_state]", -HAIR_LAYER)
 					if(hair_color)
