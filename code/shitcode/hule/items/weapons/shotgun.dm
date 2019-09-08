@@ -1,4 +1,4 @@
-/obj/item/gun/ballistic/automatic/shotgun/small
+/obj/item/gun/ballistic/shotgun/automatic/small
 	name = "netu"
 	desc = "netu"
 	icon = 'code/shitcode/hule/icons/obj/weapons.dmi'
@@ -13,17 +13,17 @@
 	burst_size = 1
 	fire_delay = 1
 
-/obj/item/gun/ballistic/automatic/shotgun/small/Initialize()
+/obj/item/gun/ballistic/shotgun/automatic/small/Initialize()
 	. = ..()
 	update_icon()
 
-/obj/item/gun/ballistic/automatic/shotgun/small/update_icon()
+/obj/item/gun/ballistic/shotgun/automatic/small/update_icon()
 	cut_overlays()
 	if(magazine)
 		add_overlay("[magazine.icon_state]")
 	icon_state = "smshotgun"
 
-/obj/item/gun/ballistic/automatic/shotgun/small/makeshift
+/obj/item/gun/ballistic/shotgun/automatic/small/makeshift
 	name = "Captain's bane"
 	desc = "Гротескное изделие явно кустарного производства. Выглядит слегка ненадежно."
 	spawnwithmagazine = FALSE
@@ -40,18 +40,18 @@
 	max_ammo = 4
 	start_empty = 1
 
-/obj/item/gun/ballistic/automatic/shotgun/small/makeshift/afterattack()
+/obj/item/gun/ballistic/shotgun/automatic/small/makeshift/afterattack()
 	..()
 	if(prob(jamchance))
 		jammed = TRUE
 
-/obj/item/gun/ballistic/automatic/shotgun/small/makeshift/can_shoot()
+/obj/item/gun/ballistic/shotgun/automatic/small/makeshift/can_shoot()
 	.=..()
 	if(jammed)
 		playsound(src, "gun_dry_fire", 30, 1)
 		return FALSE
 
-/obj/item/gun/ballistic/automatic/shotgun/small/makeshift/attackby(obj/item/A, mob/user, params)
+/obj/item/gun/ballistic/shotgun/automatic/small/makeshift/attackby(obj/item/A, mob/user, params)
 	..()
 	if(istype(A, /obj/item/screwdriver))
 		if(!magazine)
