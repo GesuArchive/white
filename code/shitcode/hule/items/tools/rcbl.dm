@@ -1,5 +1,5 @@
-/obj/item/rcbl
-	name = "Conveyor Belt Printer"
+/obj/item/conv_printer
+	name = "Rapid Conveyor Belt Printer"
 	desc = "A device used to rapidly construct conveyor lines."
 	icon = 'icons/obj/tools.dmi'
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
@@ -19,53 +19,53 @@
 	var/c_id = ""
 	var/mode = 1
 
-/obj/item/rcbl/Initialize()
+/obj/item/conv_printer/Initialize()
 	. = ..()
 
-/obj/item/rcbl/examine(mob/user)
+/obj/item/conv_printer/examine(mob/user)
 	. = ..()
 	. += "<span class='notice'>It currently holds [matter]/[mattermax] fabrication-units.</span>"
 
-/obj/item/rcbl/attackby(obj/item/I, mob/user, params)
+/obj/item/conv_printer/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/rcd_ammo))
 		if((matter + 10) > mattermax)
-			to_chat(user, "The RCP can't hold any more matter.")
+			to_chat(user, "<span class='notice'>The RCBP can't hold any more matter.</span>")
 			return
 		qdel(I)
 		matter += 10
 		playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
-		to_chat(user, "The RCP now holds [matter]/[mattermax] fabrication-units.")
+		to_chat(user, "<span class='notice'>The RCBP now holds [matter]/[mattermax] fabrication-units.</span>")
 	/*
 	else if (istype(I, /obj/item/multitool))
 		c_id = input(user, "Input a conveyor id", "Conveyor ID", c_id) as text
 	*/
 	else if(istype(I, /obj/item/conveyor_switch_construct))
-		to_chat(user, "<span class='notice'>You link the switch to the RCP.</span>")
+		to_chat(user, "<span class='notice'>You link the switch to the RCBP.</span>")
 		var/obj/item/conveyor_switch_construct/C = I
 		c_id = C.id
 	else
 		return ..()
 
-/obj/item/rcbl/afterattack(atom/A, mob/user, proximity)
+/obj/item/conv_printer/afterattack(atom/A, mob/user, proximity)
 	. = ..()
 	if(!proximity)
 		return
 
 	if(c_id == "")
-		to_chat(user, "No switch linked!")
+		to_chat(user, "<span class='notice'>No switch linked!</span>")
 		return
 
 	if(istype(A, /obj/machinery/conveyor) && user.a_intent == INTENT_HARM)
 		matter++
 		qdel(A)
-		to_chat(user, "Deconstructing [A.name]...")
+		to_chat(user, "<span class='notice'>Deconstructing [A.name]...</span>")
 		return
 
 	if (matter < 1)
 		to_chat(user, "<span class='warning'>\The [src] doesn't have enough matter left.</span>")
 		return
 
-	to_chat(user, "<span class='notice'>Constructing Conveyor Belt...</span>")
+	to_chat(user, "<span class='notice'>Constructing conveyor belt...</span>")
 
 	var/obj/machinery/conveyor/B = new(get_turf(A))
 	B.id = c_id
@@ -76,12 +76,12 @@
 	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
 
 	matter--
-	to_chat(user, "<span class='notice'>The RCP now holds [matter]/[mattermax] fabrication-units.</span>")
+	to_chat(user, "<span class='notice'>The RCBP now holds [matter]/[mattermax] fabrication-units.</span>")
 
-/datum/design/rcbl
-	name = "Rapid Conveyor Printer"
-	id = "rcbl"
+/datum/design/conv_printer
+	name = "Rapid Conveyor Belt Printer"
+	id = "conv_printer"
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 50000)
-	build_path = /obj/item/rcbl
+	build_path = /obj/item/conv_printer
 	category = list("hacked", "Construction")
