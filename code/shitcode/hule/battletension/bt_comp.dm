@@ -80,7 +80,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		BT.create_tension(I.force * 1.2)
 
 /datum/component/battletension/proc/is_enabled()
-	if(!owner.client || !owner.client.prefs.btprefs || !owner.client.prefs.btprefs[1])
+	if(!owner.client || !owner.client.prefs.btprefs)
 		return FALSE
 	return TRUE
 
@@ -135,17 +135,20 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 							list("gladiator.ogg"),
 							list("digitalonslaught.ogg", "03 NARC.ogg"),
 							list("80sspark.ogg","badapple.ogg"),
-							list()
+							list("unstoppable.ogg")
 							)
 	if(!owner || !owner.client || !owner.client.prefs)
 		return
 
-	var/list/settings = owner.client.prefs.btprefs
+	var/settings = owner.client.prefs.btprefs
 
-	for(var/i = 2, i<settings.len, i++)
-		if(settings[i])
-			for(var/ii in sounds[i-1])
+	var/i = 0
+
+	for(var/item in sounds)
+		if(settings & 2**i)
+			for(var/ii in item)
 				result += "code/shitcode/hule/battletension/bm/" + ii
+		i++
 
 	return result
 
@@ -154,18 +157,31 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	set desc = "Allows for advanced prikol immersion."
 	set category = "Preferences"
 
-	var/list/settings
+	var/settings
+
+
+
+
+
 	if(prefs.btprefs)
+		if(islist(prefs.btprefs))
+			prefs.btprefs = 0
+			prefs.save_preferences()
 		settings = prefs.btprefs
 	else
-		settings = list(0, 0, 0, 0, 0)
+		settings = 0
 
-	var/list/menu = list("баттлтеншн", "приколов", "синтвейв", "тохо", "мк")
-	var/list/revmenu = list("баттлтеншн"=1, "приколов"=2, "синтвейв"=3, "тохо"=4, "мк"=5)
+	var/list/options = list("приколов", "синтвейв", "тохо", "мк")
+	var/list/revmenu = list("приколов"=0, "синтвейв"=1, "тохо"=2, "мк"=3)
 
-	var/i = 1
-	for(var/item in settings)
-		menu[i] = "[settings[i] ? "Нехочу" : "Хочу"] " + menu[i]
+	var/list/menu = list()
+
+	var/i = 0
+	for(var/item in options)
+		if(settings & 2**i)
+			menu += "Нехочу " + item
+		else
+			menu += "Хочу " + item
 		i++
 
 	var/selected = input("a a a a", "BT Customization") as null|anything in menu
@@ -173,10 +189,14 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		return
 	selected = splittext(selected, " ")[2]
 
-	var/settnum = revmenu[selected]
+	var/settbit = 2**revmenu[selected]
 
-	settings[settnum] = !settings[settnum]
-	to_chat(usr, "<span class='danger'>[settings[settnum] ? "Теперь ты хочешь" : "Ты больше не хочешь"] [selected].</span>")
+	if(settings & settbit)
+		settings &= ~settbit
+		to_chat(usr, "<span class='danger'>Ты больше не хочешь [selected].</span>")
+	else
+		settings |= settbit
+		to_chat(usr, "<span class='danger'>Теперь ты хочешь [selected].</span>")
 
 	prefs.btprefs = settings
 	prefs.save_preferences()
