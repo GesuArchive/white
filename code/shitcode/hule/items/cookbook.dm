@@ -66,7 +66,7 @@
 
 /datum/crafting_recipe/cookbook/mshotgun
 	name = "Makeshift Shotgun"
-	result = /obj/item/gun/ballistic/automatic/shotgun/small/makeshift
+	result = /obj/item/gun/ballistic/shotgun/automatic/small/makeshift
 	reqs = list(/obj/item/weaponcrafting/receiver = 1,
 				/obj/item/pipe = 1,
 				/obj/item/stack/sheet/metal = 20,
