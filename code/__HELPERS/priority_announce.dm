@@ -24,9 +24,9 @@
 			if(title == "")
 				GLOB.news_network.SubmitArticle(text, "Объявление от Центрального Командования", "Station Announcements", null)
 			else
-				GLOB.news_network.SubmitArticle(title + "<br><br>" + text, "Центральное Командование", "Station Announcements", null)
+				GLOB.news_network.SubmitArticle(title + "<br>" + text, "Центральное Командование", "Station Announcements", null)
 
-	announcement += "<br><span class='alert'>[rhtml_encode(text)]</span><br>"
+	announcement += "<span class='alert'>[rhtml_encode(text)]</span><br>"
 	announcement += "<br>"
 
 	var/s = sound(sound)
@@ -55,7 +55,7 @@
 
 	for(var/mob/M in GLOB.player_list)
 		if(!isnewplayer(M) && M.can_hear())
-			to_chat(M, "<h1 class='alert'>[rhtml_encode(title)]</h1><BR><span class='alert'>[rhtml_encode(message)]</span><BR>")
+			to_chat(M, "<h1 class='alert'>[rhtml_encode(title)]</h1><BR><span class='alert'>[rhtml_encode(message)]</span><BR><BR>")
 			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 				if(alert)
 					SEND_SOUND(M, sound('sound/misc/notice1.ogg'))
