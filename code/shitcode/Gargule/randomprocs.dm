@@ -77,7 +77,7 @@ mob/living/carbon/human/species/lizard/Initialize()
 	..()
 	if(slot == 2 && isstrictlytype(src,/obj/item/clothing/mask/gas/sechailer) && !broken_hailer)
 		if(cooldown < world.time - 30)
-		recent_uses++
+			recent_uses++
 			if(cooldown_special < world.time - 180)
 				recent_uses = initial(recent_uses)
 			switch(recent_uses)
