@@ -696,6 +696,9 @@
 /mob/Stat()
 	..()
 
+	if(statpanel("Game"))
+		stat(null, "--- \[GAME PANEL V.1.284718\] ---")
+
 	if(statpanel("Status"))
 		if (client)
 			stat(null, "Ping: [round(client.lastping, 1)]ms (Average: [round(client.avgping, 1)]ms)")
