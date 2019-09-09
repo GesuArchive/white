@@ -341,7 +341,7 @@
 	id = "noneuclidic"
 	display_name = "Non-Euclid Research"
 	description = "Experiments in the field of bluespace technologies led to the discovery of non-Euclidean spaces."
-	prereq_ids = list("bluespace_travel", "practical_bluespace", "advanced_bluespace")
+	prereq_ids = list("bluespace_travel", "practical_bluespace", "bluespace_storage")
 	design_ids = list("noneuclid_matter_bin", "noneuclid_mani", "noneuclid_scanning", "noneuclid_capacitor", "noneuclid_micro_laser")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 200000)
 	export_price = 100000
