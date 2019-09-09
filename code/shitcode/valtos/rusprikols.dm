@@ -11,7 +11,7 @@ GLOBAL_LIST_INIT(gachisounds, list(
 	'code/shitcode/valtos/sounds/gachi/penetration_2.ogg',
 	'code/shitcode/valtos/sounds/gachi/wrong_door.ogg',
 	'code/shitcode/valtos/sounds/gachi/you_like_that.ogg'
-)
+))
 
 /obj/item/clothing/under/rank/omon
 	name = "omon jumpsuit"
