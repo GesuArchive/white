@@ -1,3 +1,18 @@
+GLOBAL_LIST_INIT(gachisounds, list(
+	'code/shitcode/valtos/sounds/gachi/ass_we_can.ogg',
+	'code/shitcode/valtos/sounds/gachi/come_on.ogg',
+	'code/shitcode/valtos/sounds/gachi/do_you_like_what_you_see.ogg',
+	'code/shitcode/valtos/sounds/gachi/fuck_you.ogg',
+	'code/shitcode/valtos/sounds/gachi/fuck_you_leather_man.ogg',
+	'code/shitcode/valtos/sounds/gachi/fucking_cumming.ogg',
+	'code/shitcode/valtos/sounds/gachi/i_dont_do_anal.ogg',
+	'code/shitcode/valtos/sounds/gachi/its_so_fucking_deep.ogg',
+	'code/shitcode/valtos/sounds/gachi/penetration_1.ogg',
+	'code/shitcode/valtos/sounds/gachi/penetration_2.ogg',
+	'code/shitcode/valtos/sounds/gachi/wrong_door.ogg',
+	'code/shitcode/valtos/sounds/gachi/you_like_that.ogg'
+)
+
 /obj/item/clothing/under/rank/omon
 	name = "omon jumpsuit"
 	desc = "A tactical security jumpsuit for Russian officers."
@@ -15,8 +30,6 @@
 /obj/item/clothing/under/rank/omon/green
 	icon_state = "omon-2"
 	item_state = "g_suit"
-
-
 
 /obj/item/clothing/suit/armor/riot/omon
 	name = "omon riot suit"
@@ -258,6 +271,8 @@
 /obj/item/gun/energy/lovegun/process_chamber()
 	. = ..()
 	fire_sound = pick(random_sound)
+	if (prob(50))
+		fire_sound = pick(GLOB.gachisounds)
 
 /obj/item/ammo_casing/energy/lovegun
 	projectile_type = /obj/item/projectile/beam/lovegun
