@@ -3,7 +3,7 @@
  */
 /obj/structure/falsewall
 	name = "wall"
-	desc = "A huge chunk of metal used to separate rooms."
+	desc = "«доровенный кусок металла, который служит дл€ разделени€ помещений."
 	anchored = TRUE
 	icon = 'icons/turf/walls/wall.dmi'
 	icon_state = "wall"
@@ -143,7 +143,7 @@
 
 /obj/structure/falsewall/reinforced
 	name = "reinforced wall"
-	desc = "A huge chunk of reinforced metal used to separate rooms."
+	desc = "«доровенный укреплЄнный кусок металла, который служит дл€ разделени€ помещений."
 	icon = 'icons/turf/walls/reinforced_wall.dmi'
 	icon_state = "r_wall"
 	walltype = /turf/closed/wall/r_wall

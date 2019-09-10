@@ -2,7 +2,7 @@
 
 /turf/closed/wall
 	name = "wall"
-	desc = "A huge chunk of metal used to separate rooms."
+	desc = "Здоровенный кусок металла, который служит для разделения помещений."
 	icon = 'icons/turf/walls/wall.dmi'
 	icon_state = "wall"
 	explosion_block = 1

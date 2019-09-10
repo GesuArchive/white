@@ -12,7 +12,7 @@
 	//node1 is input port
 
 	name = "dual-port air vent"
-	desc = "Has a valve and pump attached to it. There are two ports."
+	desc = "К нему прикручены вентиль и помпа. Тут два порта."
 
 	level = 1
 	var/frequency = 0

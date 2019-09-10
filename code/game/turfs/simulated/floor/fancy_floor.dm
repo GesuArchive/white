@@ -179,7 +179,7 @@
 
 /turf/open/floor/carpet/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>There's a <b>small crack</b> on the edge of it.</span>"
+	. += "<span class='notice'>Здесь есть <b>небольшая трещина</b> на краю.</span>"
 
 /turf/open/floor/carpet/Initialize()
 	. = ..()

@@ -4,7 +4,7 @@
 
 /obj/machinery/camera
 	name = "security camera"
-	desc = "It's used to monitor rooms."
+	desc = "Используется для мониторинга помещений."
 	icon = 'icons/obj/machines/camera.dmi'
 	icon_state = "camera" //mapping icon to represent upgrade states. if you want a different base icon, update default_camera_icon as well as this.
 	use_power = ACTIVE_POWER_USE
@@ -110,26 +110,26 @@
 /obj/machinery/camera/examine(mob/user)
 	. += ..()
 	if(isEmpProof(TRUE)) //don't reveal it's upgraded if was done via MALF AI Upgrade Camera Network ability
-		. += "It has electromagnetic interference shielding installed."
+		. += "Видно, что защита от ЭМИ установлена."
 	else
-		. += "<span class='info'>It can be shielded against electromagnetic interference with some <b>plasma</b>.</span>"
+		. += "<span class='info'>Она может быть улучшена защитой от ЭМИ <b>плазмой</b>.</span>"
 	if(isXRay(TRUE)) //don't reveal it's upgraded if was done via MALF AI Upgrade Camera Network ability
-		. += "It has an X-ray photodiode installed."
+		. += "Похоже тут установлен X-ray фотодиод."
 	else
-		. += "<span class='info'>It can be upgraded with an X-ray photodiode with an <b>analyzer</b>.</span>"
+		. += "<span class='info'>Она может быть улучшена X-ray фотодиодом при помощи <b>аналайзера</b>.</span>"
 	if(isMotion())
-		. += "It has a proximity sensor installed."
+		. += "Здесь установлен датчик движения."
 	else
-		. += "<span class='info'>It can be upgraded with a <b>proximity sensor</b>.</span>"
+		. += "<span class='info'>Она может быть улучшена установкой <b>датчика движения</b>.</span>"
 
 	if(!status)
-		. += "<span class='info'>It's currently deactivated.</span>"
+		. += "<span class='info'>Она не работает.</span>"
 		if(!panel_open && powered())
-			. += "<span class='notice'>You'll need to open its maintenance panel with a <b>screwdriver</b> to turn it back on.</span>"
+			. += "<span class='notice'>Надо бы сначала <b>открутить</b>, чтобы включить её снова.</span>"
 	if(panel_open)
-		. += "<span class='info'>Its maintenance panel is currently open.</span>"
+		. += "<span class='info'>Техническая панель открыта.</span>"
 		if(!status && powered())
-			. += "<span class='info'>It can reactivated with a <b>screwdriver</b>.</span>"
+			. += "<span class='info'>Она может быть активирована снова при помощи <b>отвёртки</b>.</span>"
 
 /obj/machinery/camera/emp_act(severity)
 	. = ..()
@@ -190,7 +190,7 @@
 	if(..())
 		return TRUE
 	panel_open = !panel_open
-	to_chat(user, "<span class='notice'>You screw the camera's panel [panel_open ? "open" : "closed"].</span>")
+	to_chat(user, "<span class='notice'>Ты [panel_open ? "открутил" : "закрутил"] техническую панель.</span>")
 	I.play_tool_sound(src)
 	update_icon()
 	return TRUE
@@ -210,7 +210,7 @@
 		return
 
 	setViewRange((view_range == initial(view_range)) ? short_range : initial(view_range))
-	to_chat(user, "<span class='notice'>You [(view_range == initial(view_range)) ? "restore" : "mess up"] the camera's focus.</span>")
+	to_chat(user, "<span class='notice'>Ты [(view_range == initial(view_range)) ? "восстановил" : "сломал"] фокусировку камеры.</span>")
 	return TRUE
 
 /obj/machinery/camera/welder_act(mob/living/user, obj/item/I)
@@ -221,10 +221,10 @@
 	if(!I.tool_start_check(user, amount=0))
 		return TRUE
 
-	to_chat(user, "<span class='notice'>You start to weld [src]...</span>")
+	to_chat(user, "<span class='notice'>Ты начинаешь разваривать [src.name]...</span>")
 	if(I.use_tool(src, user, 100, volume=50))
-		user.visible_message("<span class='warning'>[user] unwelds [src], leaving it as just a frame bolted to the wall.</span>",
-			"<span class='warning'>You unweld [src], leaving it as just a frame bolted to the wall</span>")
+		user.visible_message("<span class='warning'>[user] отваривает [src.name] от стены, оставляя только рамку с болтами.</span>",
+			"<span class='warning'>Ты отварил [src.name] от стены, оставив только рамку с болтами.</span>")
 		deconstruct(TRUE)
 
 	return TRUE
@@ -237,19 +237,19 @@
 				if(!user.temporarilyRemoveItemFromInventory(I))
 					return
 				upgradeXRay(FALSE, TRUE)
-				to_chat(user, "<span class='notice'>You attach [I] into [assembly]'s inner circuits.</span>")
+				to_chat(user, "<span class='notice'>Ты прикрепил [I.name] во внутреннюю схему [assembly.name].</span>")
 				qdel(I)
 			else
-				to_chat(user, "<span class='notice'>[src] already has that upgrade!</span>")
+				to_chat(user, "<span class='notice'>[src.name] уже имеет это улучшение!</span>")
 			return
 
 		else if(istype(I, /obj/item/stack/sheet/mineral/plasma))
 			if(!isEmpProof(TRUE)) //don't reveal it was already upgraded if was done via MALF AI Upgrade Camera Network ability
 				if(I.use_tool(src, user, 0, amount=1))
 					upgradeEmpProof(FALSE, TRUE)
-					to_chat(user, "<span class='notice'>You attach [I] into [assembly]'s inner circuits.</span>")
+					to_chat(user, "<span class='notice'>Ты прикрепил [I.name] во внутреннюю схему [assembly.name].</span>")
 			else
-				to_chat(user, "<span class='notice'>[src] already has that upgrade!</span>")
+				to_chat(user, "<span class='notice'>[src.name] уже имеет это улучшение!</span>")
 			return
 
 		else if(istype(I, /obj/item/assembly/prox_sensor))
@@ -257,10 +257,10 @@
 				if(!user.temporarilyRemoveItemFromInventory(I))
 					return
 				upgradeMotion()
-				to_chat(user, "<span class='notice'>You attach [I] into [assembly]'s inner circuits.</span>")
+				to_chat(user, "<span class='notice'>Ты прикрепил [I.name] во внутреннюю схему [assembly.name].</span>")
 				qdel(I)
 			else
-				to_chat(user, "<span class='notice'>[src] already has that upgrade!</span>")
+				to_chat(user, "<span class='notice'>[src.name] уже имеет это улучшение!</span>")
 			return
 
 	// OTHER

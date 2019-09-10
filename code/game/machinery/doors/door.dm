@@ -1,6 +1,6 @@
 /obj/machinery/door
 	name = "door"
-	desc = "It opens and closes."
+	desc = "Он открывается и закрывается. Удивительно."
 	icon = 'icons/obj/doors/Doorint.dmi'
 	icon_state = "door1"
 	opacity = 1
@@ -41,11 +41,11 @@
 	. = ..()
 	if(red_alert_access)
 		if(GLOB.security_level >= SEC_LEVEL_RED)
-			. += "<span class='notice'>Due to a security threat, its access requirements have been lifted!</span>"
+			. += "<span class='notice'>Учитывая угрозу, требования по доступу повышены!</span>"
 		else
-			. += "<span class='notice'>In the event of a red alert, its access requirements will automatically lift.</span>"
+			. += "<span class='notice'>Учитывая красный код, требования по доступу повышены.</span>"
 	if(!poddoor)
-		. += "<span class='notice'>Its maintenance panel is <b>screwed</b> in place.</span>"
+		. += "<span class='notice'>Техническая панель <b>прикручена</b> на месте.</span>"
 
 /obj/machinery/door/check_access_list(list/access_list)
 	if(red_alert_access && GLOB.security_level >= SEC_LEVEL_RED)
