@@ -36,7 +36,7 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		user.do_attack_animation(src)
 		structureclimber.Paralyze(40)
-		structureclimber.visible_message("<span class='warning'>[structureclimber] has been knocked off [src].", "You're knocked off [src]!", "You see [structureclimber] get knocked off [src].</span>")
+		structureclimber.visible_message("<span class='warning'><b>[structureclimber]</b> сваливается с <b>[src.name]</b>.", "Ты упал с [src.name]!", "Ты видишь как [structureclimber] падает с [src.name].</span>")
 
 /obj/structure/ui_act(action, params)
 	..()
@@ -68,8 +68,8 @@
 
 /obj/structure/proc/climb_structure(mob/living/user)
 	src.add_fingerprint(user)
-	user.visible_message("<span class='warning'>[user] starts climbing onto [src].</span>", \
-								"<span class='notice'>You start climbing onto [src]...</span>")
+	user.visible_message("<span class='warning'>[user] начинает взбираться на [src.name].</span>", \
+								"<span class='notice'>Ты начинаешь взбираться на [src.name]...</span>")
 	var/adjusted_climb_time = climb_time
 	if(user.restrained()) //climbing takes twice as long when restrained.
 		adjusted_climb_time *= 2
@@ -81,23 +81,23 @@
 	if(do_mob(user, user, adjusted_climb_time))
 		if(src.loc) //Checking if structure has been destroyed
 			if(do_climb(user))
-				user.visible_message("<span class='warning'>[user] climbs onto [src].</span>", \
-									"<span class='notice'>You climb onto [src].</span>")
+				user.visible_message("<span class='warning'>[user] взбирается на [src.name].</span>", \
+									"<span class='notice'>Ты взбирваешься на [src.name].</span>")
 				log_combat(user, src, "climbed onto")
 				if(climb_stun)
 					user.Stun(climb_stun)
 				. = 1
 			else
-				to_chat(user, "<span class='warning'>You fail to climb onto [src].</span>")
+				to_chat(user, "<span class='warning'>У тебя не вышло взобраться на [src.name].</span>")
 	structureclimber = null
 
 /obj/structure/examine(mob/user)
 	. = ..()
 	if(!(resistance_flags & INDESTRUCTIBLE))
 		if(resistance_flags & ON_FIRE)
-			. += "<span class='warning'>It's on fire!</span>"
+			. += "<span class='warning'>Оно горит!</span>"
 		if(broken)
-			. += "<span class='notice'>It appears to be broken.</span>"
+			. += "<span class='notice'>Оно сломано.</span>"
 		var/examine_status = examine_status(user)
 		if(examine_status)
 			. += examine_status
@@ -106,9 +106,9 @@
 	var/healthpercent = (obj_integrity/max_integrity) * 100
 	switch(healthpercent)
 		if(50 to 99)
-			return  "It looks slightly damaged."
+			return  "Виднеются следы царапин."
 		if(25 to 50)
-			return  "It appears heavily damaged."
+			return  "Вмятины видны невооруженным глазом."
 		if(0 to 25)
 			if(!broken)
-				return  "<span class='warning'>It's falling apart!</span>"
+				return  "<span class='warning'>Кажется эта штука сейчас развалится!</span>"

@@ -228,6 +228,36 @@ proc/rhtml_decode(var/t)
 		text = replacetext(text, "\\u[GLOB.rus_unicode_conversion_hex[s]]", s)
 	return json_decode(text)
 
+/proc/ru_comms(freq)
+	if(freq == "Common")
+		return "Основной"
+	else if (freq == "Security")
+		return "Секьюрити"
+	else if (freq == "Engineering")
+		return "Инженерия"
+	else if (freq == "Command")
+		return "Командование"
+	else if (freq == "Science")
+		return "Научный"
+	else if (freq == "Medical")
+		return "Медбей"
+	else if (freq == "Supply")
+		return "Карго"
+	else if (freq == "Service")
+		return "Обслуживание"
+	else if (freq == "AI Private")
+		return "Приватный ИИ"
+	else if (freq == "Syndicate")
+		return "Синдикат"
+	else if (freq == "CentCom")
+		return "ЦентКом"
+	else if (freq == "Red Team")
+		return "Советы"
+	else if (freq == "Blue Team")
+		return "Фашисты"
+	else
+		return freq
+
 #undef UPC
 #undef PHC
 #undef PHCH

@@ -288,7 +288,7 @@
 /obj/item/storage/bag/tray/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.insert_preposition = "on"
+	STR.insert_preposition = "на"
 
 /obj/item/storage/bag/tray/attack(mob/living/M, mob/living/user)
 	. = ..()
@@ -345,7 +345,7 @@
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_combined_w_class = 200
 	STR.max_items = 50
-	STR.insert_preposition = "in"
+	STR.insert_preposition = "в"
 	STR.set_holdable(list(/obj/item/reagent_containers/pill, /obj/item/reagent_containers/glass/beaker, /obj/item/reagent_containers/glass/bottle, /obj/item/reagent_containers/medigel, /obj/item/reagent_containers/syringe, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/chem_pack))
 
 /*
@@ -365,7 +365,7 @@
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_combined_w_class = 200
 	STR.max_items = 25
-	STR.insert_preposition = "in"
+	STR.insert_preposition = "в"
 	STR.set_holdable(list(/obj/item/slime_extract, /obj/item/reagent_containers/syringe, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/glass/beaker, /obj/item/reagent_containers/glass/bottle, /obj/item/reagent_containers/blood, /obj/item/reagent_containers/hypospray/medipen, /obj/item/reagent_containers/food/snacks/deadmouse, /obj/item/reagent_containers/food/snacks/monkeycube))
 
 /*
@@ -386,5 +386,5 @@
 	STR.max_combined_w_class = 100
 	STR.max_items = 50
 	STR.max_w_class = WEIGHT_CLASS_SMALL
-	STR.insert_preposition = "in"
+	STR.insert_preposition = "в"
 	STR.set_holdable(list(/obj/item/stack/ore/bluespace_crystal, /obj/item/assembly, /obj/item/stock_parts, /obj/item/reagent_containers/glass/beaker, /obj/item/stack/cable_coil, /obj/item/circuitboard, /obj/item/electronics))

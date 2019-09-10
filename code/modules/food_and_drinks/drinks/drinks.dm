@@ -24,31 +24,31 @@
 /obj/item/reagent_containers/food/drinks/attack(mob/living/M, mob/user, def_zone)
 
 	if(!reagents || !reagents.total_volume)
-		to_chat(user, "<span class='warning'>[src] is empty!</span>")
+		to_chat(user, "<span class='warning'>[src.name] пуст!</span>")
 		return 0
 
 	if(!canconsume(M, user))
 		return 0
 
 	if (!is_drainable())
-		to_chat(user, "<span class='warning'>[src]'s lid hasn't been opened!</span>")
+		to_chat(user, "<span class='warning'> рышка [src.name] не открыта!</span>")
 		return 0
 
 	if(M == user)
-		user.visible_message("<span class='notice'>[user] swallows a gulp of [src].</span>", \
-			"<span class='notice'>You swallow a gulp of [src].</span>")
+		user.visible_message("<span class='notice'>[user] делает глоток из [src.name].</span>", \
+			"<span class='notice'>“ы делаешь глоток из [src.name].</span>")
 		if(HAS_TRAIT(M, TRAIT_VORACIOUS))
 			M.changeNext_move(CLICK_CD_MELEE * 0.5) //chug! chug! chug!
 
 	else
-		M.visible_message("<span class='danger'>[user] attempts to feed [M] the contents of [src].</span>", \
-			"<span class='userdanger'>[user] attempts to feed you the contents of [src].</span>")
+		M.visible_message("<span class='danger'>[user] пытаетс€ напоить [M] содержимым [src.name].</span>", \
+			"<span class='userdanger'>[user] пытаетс€ напоить теб€ содержимым [src.name].</span>")
 		if(!do_mob(user, M))
 			return
 		if(!reagents || !reagents.total_volume)
 			return // The drink might be empty after the delay, such as by spam-feeding
-		M.visible_message("<span class='danger'>[user] fed [M] the contents of [src].</span>", \
-			"<span class='userdanger'>[user] fed you the contents of [src].</span>")
+		M.visible_message("<span class='danger'>[user] поит [M] содержимым [src.name].</span>", \
+			"<span class='userdanger'>[user] поит теб€ содержимым [src.name].</span>")
 		log_combat(user, M, "fed", reagents.log_list())
 
 	var/fraction = min(gulp_size/reagents.total_volume, 1)
@@ -65,16 +65,16 @@
 
 	if(target.is_refillable() && is_drainable()) //Something like a glass. Player probably wants to transfer TO it.
 		if(!reagents.total_volume)
-			to_chat(user, "<span class='warning'>[src] is empty.</span>")
+			to_chat(user, "<span class='warning'>[src.name] пуст.</span>")
 			return
 
 		if(target.reagents.holder_full())
-			to_chat(user, "<span class='warning'>[target] is full.</span>")
+			to_chat(user, "<span class='warning'>[target] полный.</span>")
 			return
 
 		var/refill = reagents.get_master_reagent_id()
 		var/trans = src.reagents.trans_to(target, amount_per_transfer_from_this, transfered_by = user)
-		to_chat(user, "<span class='notice'>You transfer [trans] units of the solution to [target].</span>")
+		to_chat(user, "<span class='notice'>“ы перелил [trans] единиц жидкости в [target].</span>")
 
 		if(iscyborg(user)) //Cyborg modules that include drinks automatically refill themselves, but drain the borg's cell
 			var/mob/living/silicon/robot/bro = user
@@ -83,25 +83,25 @@
 
 	else if(target.is_drainable()) //A dispenser. Transfer FROM it TO us.
 		if (!is_refillable())
-			to_chat(user, "<span class='warning'>[src]'s tab isn't open!</span>")
+			to_chat(user, "<span class='warning'> рышка [src.name] не открыта!</span>")
 			return
 
 		if(!target.reagents.total_volume)
-			to_chat(user, "<span class='warning'>[target] is empty.</span>")
+			to_chat(user, "<span class='warning'>[target] пуст.</span>")
 			return
 
 		if(reagents.holder_full())
-			to_chat(user, "<span class='warning'>[src] is full.</span>")
+			to_chat(user, "<span class='warning'>[src.name] полон.</span>")
 			return
 
 		var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this, transfered_by = user)
-		to_chat(user, "<span class='notice'>You fill [src] with [trans] units of the contents of [target].</span>")
+		to_chat(user, "<span class='notice'>“ы перелил в [src.name] [trans] единиц из [target].</span>")
 
 /obj/item/reagent_containers/food/drinks/attackby(obj/item/I, mob/user, params)
 	var/hotness = I.is_hot()
 	if(hotness && reagents)
 		reagents.expose_temperature(hotness)
-		to_chat(user, "<span class='notice'>You heat [name] with [I]!</span>")
+		to_chat(user, "<span class='notice'>“ы нагреваешь [name] при помощи [I.name]!</span>")
 	..()
 
 /obj/item/reagent_containers/food/drinks/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
