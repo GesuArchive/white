@@ -14,7 +14,7 @@
 	target_mobtypes = list(/mob/living) //Feel free to dissect devils but they're magic.
 	replaced_by = /datum/surgery/advanced/experimental_dissection/adv
 	requires_tech = FALSE
-	var/value_multiplier = 1
+	var/value_multiplier = 3
 
 /datum/surgery/advanced/experimental_dissection/can_start(mob/user, mob/living/target)
 	. = ..()
@@ -89,19 +89,19 @@
 
 /datum/surgery/advanced/experimental_dissection/adv
 	name = "Thorough Dissection"
-	value_multiplier = 2
+	value_multiplier = 5
 	replaced_by = /datum/surgery/advanced/experimental_dissection/exp
 	requires_tech = TRUE
 
 /datum/surgery/advanced/experimental_dissection/exp
 	name = "Experimental Dissection"
-	value_multiplier = 5
+	value_multiplier = 10
 	replaced_by = /datum/surgery/advanced/experimental_dissection/alien
 	requires_tech = TRUE
 
 /datum/surgery/advanced/experimental_dissection/alien
 	name = "Extraterrestrial Dissection"
-	value_multiplier = 10
+	value_multiplier = 20
 	requires_tech = TRUE
 	replaced_by = null
 
