@@ -57,7 +57,7 @@
 		return
 
 	user.log_message(msg, LOG_EMOTE)
-	msg = "<b>[user]</b> " + msg
+	msg = "<b>[user]</b> " + pointization(r_lowertext(msg))
 
 	var/tmp_sound = get_sound(user)
 	if(tmp_sound && (!only_forced_audio || !intentional))
