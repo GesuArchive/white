@@ -327,31 +327,35 @@
 	popup.open()
 
 /obj/machinery/musicwriter/Topic(href, href_list)
-	if(href_list["write"])
-		if(!writing && !retard && coin)
-			icon_state = "writer_on"
-			writing = 1
-			retard = usr
-			retard_name = retard.name
-			var/N = sanitize(input("Name of music") as text|null)
-			//retard << "Please stand still while your data is uploading"
-			if(N)
-				var/sound/S = input("Your music file") as sound|null
-				if(S)
-					var/datum/track/T = new()
-					var/obj/item/card/music/disk = new
-					T.song_path = S
-					//T.f_name = copytext(N, 1, 2)
-					T.song_name = N
-					disk.data = T
-					disk.name = "disk ([N])"
-					disk.loc = src.loc
-					disk.uploader_ckey = retard.ckey
-					var/mob/M = usr
-					message_admins("[M.real_name]([M.ckey]) uploaded <A HREF='?_src_=holder;listensound=\ref[S]'>sound</A> named as [N]. <A HREF='?_src_=holder;wipedata=\ref[disk]'>Wipe</A> data.")
-					coin--
+	if(..())
+		return
+	add_fingerprint(usr)
+	switch(href_list["action"])
+		if("write")
+			if(!writing && !retard && coin)
+				icon_state = "writer_on"
+				writing = 1
+				retard = usr
+				retard_name = retard.name
+				var/N = sanitize(input("Name of music") as text|null)
+				//retard << "Please stand still while your data is uploading"
+				if(N)
+					var/sound/S = input("Your music file") as sound|null
+					if(S)
+						var/datum/track/T = new()
+						var/obj/item/card/music/disk = new
+						T.song_path = S
+						//T.f_name = copytext(N, 1, 2)
+						T.song_name = N
+						disk.data = T
+						disk.name = "disk ([N])"
+						disk.loc = src.loc
+						disk.uploader_ckey = retard.ckey
+						var/mob/M = usr
+						message_admins("[M.real_name]([M.ckey]) uploaded <A HREF='?_src_=holder;listensound=\ref[S]'>sound</A> named as [N]. <A HREF='?_src_=holder;wipedata=\ref[disk]'>Wipe</A> data.")
+						coin--
 
-			icon_state = "writer_off"
-			writing = 0
-			retard = null
-			retard_name = null
+				icon_state = "writer_off"
+				writing = 0
+				retard = null
+				retard_name = null
