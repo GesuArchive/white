@@ -36,9 +36,9 @@ GLOBAL_LIST_INIT(high_priority_sentience, typecacheof(list(
 	var/pets = pick("животных/роботов", "роботов/животных", "питомцев", "простых животных", "меньших жизненных форм", "\[REDACTED\]")
 	var/strength = pick("человеческий", "умеренный", "ящеринный", "надёжный", "командный", "клоунский", "низкий", "очень низкий", "\[REDACTED\]")
 
-	sentience_report += "Учитывая данные [data], мы считаем, что [one] из [pets] развил [strength] уровень интеллекта и умение общаться."
+	sentience_report += "Учитывая данные [data], мы считаем, что [one] из [pets] развило [strength] уровень интеллекта и умение общаться."
 
-	priority_announce(sentience_report,"[command_name()] среднего приоритета")
+	priority_announce(sentience_report,"Объявление средней важности")
 
 /datum/round_event/ghost_role/sentience/spawn_role()
 	var/list/mob/dead/observer/candidates
