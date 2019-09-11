@@ -79,6 +79,30 @@
 		T.initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	..()
 
+/datum/round_aspect/rich
+	name = "Rich"
+	desc = "Экипаж работал усердно в прошлую смену, за что и был награждён премиями в размере 5000 кредитов каждому."
+	weight = 9
+
+/datum/round_aspect/rich/run_aspect()
+	for(var/datum/bank_account/department/D in SSeconomy.generated_accounts)
+		D.adjust_money(5000)
+	..()
+
+/datum/round_aspect/drunk
+	name = "Drunk"
+	desc = "На станции стоит явный запах вчерашнего веселья... и кажется оно только начинается."
+	weight = 11
+
+/datum/round_aspect/drunk/run_aspect()
+	for(var/mob/living/carbon/human/H in GLOB.carbon_list)
+		if(!H.client)
+			continue
+		if(H.stat == DEAD)
+			continue
+		H.drunkenness = 50
+	..()
+
 /*
 /datum/round_aspect/power_failure
 	name = "Power Failure"

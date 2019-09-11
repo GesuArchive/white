@@ -3,8 +3,9 @@ SUBSYSTEM_DEF(aspects)
 
 	flags = SS_NO_FIRE
 	init_order = -70
+	wait = 5
 
-	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
+	runlevels = RUNLEVEL_GAME
 
 	var/ca_name = "LOBBY"
 
@@ -19,9 +20,13 @@ SUBSYSTEM_DEF(aspects)
 
 	toplayers = "Создаём случайные последовательности"
 
-	run_aspect()
-
 	return ..()
+
+/datum/controller/subsystem/aspects/fire()
+	if(state != SS_RUNNING || !can_fire)
+		return
+	can_fire = FALSE
+	run_aspect()
 
 /datum/controller/subsystem/aspects/stat_entry(msg)
 	..("CA:[ca_name]")
