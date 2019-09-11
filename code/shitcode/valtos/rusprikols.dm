@@ -203,21 +203,39 @@ GLOBAL_LIST_INIT(gachisounds, list(
 	cooldown = 40
 
 /obj/item/gun/ballistic/automatic/pistol/traumatic
-	name = "\improper M1911-S"
-	desc = "Переделанная версия M1911 под травматические патроны."
-	icon_state = "m1911"
+	name = "\improper Enforcer T46"
+	desc = "Эти штуки были взяты буквально с боем. Теперь это обыденность."
+	icon = 'code/shitcode/valtos/icons/gun.dmi'
+	icon_state = "enforcer"
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/traumatic
-	can_suppress = FALSE
+	can_suppress = TRUE
+	var/boltcolor = "red"
+	var/list/possible_colors = list("black", "green", "tan", "red", "grey")
+
+/obj/item/gun/ballistic/automatic/pistol/traumatic/Initialize()
+	. = ..()
+	icon_state = "enforcer_[pick(possible_colors)]"
+	boltcolor = pick(possible_colors)
+
+/obj/item/gun/ballistic/automatic/pistol/traumatic/update_icon()
+	if (QDELETED(src))
+		return
+	..()
+	cut_overlays()
+	if (bolt_type == BOLT_TYPE_LOCKING)
+		add_overlay("[icon_state]_[boltcolor]_bolt[bolt_locked ? "_locked" : ""]")
+	if (suppressed)
+		add_overlay("[icon_state]_supp")
 
 /obj/item/gun/ballistic/automatic/pistol/traumatic/no_mag
 	spawnwithmagazine = FALSE
 
 /obj/item/ammo_box/magazine/traumatic
-	name = "handgun traumatic magazine (.45)"
+	name = "handgun traumatic magazine (9mm)"
 	icon_state = "45-8"
 	ammo_type = /obj/item/ammo_casing/traumatic
-	caliber = ".45"
+	caliber = "9mm"
 	max_ammo = 8
 
 /obj/item/ammo_box/magazine/traumatic/update_icon()
@@ -228,18 +246,18 @@ GLOBAL_LIST_INIT(gachisounds, list(
 		icon_state = "45-[ammo_count()]"
 
 /obj/item/ammo_casing/traumatic
-	name = ".45 traumatic bullet casing"
-	desc = "A .45 traumatic bullet casing."
-	caliber = ".45"
+	name = "9mm traumatic bullet casing"
+	desc = "A 9mm traumatic bullet casing."
+	caliber = "9mm"
 	projectile_type = /obj/item/projectile/bullet/traumatic
 
 /obj/item/projectile/bullet/traumatic
-	name = ".45 traumatic bullet"
+	name = "9mm traumatic bullet"
 	damage = 3 //наша резина делает больно, не более
 	stamina = 90
 
 /datum/design/traumatic
-	name = ".45 traumatic magazine"
+	name = "9mm traumatic magazine"
 	id = "traumatic"
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 5000)
@@ -264,15 +282,13 @@ GLOBAL_LIST_INIT(gachisounds, list(
 							'code/shitcode/valtos/sounds/love/shot9.ogg')
 	ammo_type = list(/obj/item/ammo_casing/energy/lovegun)
 	selfcharge = 1
-	burst_size = 3
+	burst_size = 1
 	clumsy_check = 0
 	item_flags = NONE
 
 /obj/item/gun/energy/lovegun/process_chamber()
 	. = ..()
 	fire_sound = pick(random_sound)
-	if (prob(50))
-		fire_sound = pick(GLOB.gachisounds)
 
 /obj/item/ammo_casing/energy/lovegun
 	projectile_type = /obj/item/projectile/beam/lovegun
@@ -293,6 +309,7 @@ GLOBAL_LIST_INIT(gachisounds, list(
 
 /obj/item/projectile/beam/lovegun/on_hit(atom/target, blocked = FALSE)
 	. = ..()
+	playsound(target, pick(GLOB.gachisounds), 25, FALSE)
 	new /obj/effect/temp_visual/love_heart(get_turf(target.loc))
 	new /obj/effect/temp_visual/love_heart(get_turf(target.loc))
 	new /obj/effect/temp_visual/love_heart(get_turf(target.loc))
