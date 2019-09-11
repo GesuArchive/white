@@ -108,7 +108,7 @@
 	if(prefs && (prefs.toggles & SOUND_LOBBY))
 		var/tmusic = replacetext(replacetext(replacetext(SSticker.login_music, ".ogg", ""), "rare+", ""), "config/title_music/sounds/", " ")
 		to_chat(src, "<center><b>Сейчас играет:<i>[tmusic]</i></b></center>")
-		if(tmusic = "Red Alert 2 - Hell March" || tmusic = "Red Alert 3 - Soviet March")
+		if(tmusic == "Red Alert 2 - Hell March" || tmusic == "Red Alert 3 - Soviet March")
 			SStitle.icon = "config/title_screens/images/emperor.jpg"
 		SEND_SOUND(src, sound(SSticker.login_music, repeat = 0, wait = 0, volume = vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
 
