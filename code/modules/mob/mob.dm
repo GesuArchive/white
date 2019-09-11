@@ -543,7 +543,7 @@
 		memory_throttle_time = world.time + 5 SECONDS
 		msg = copytext(msg, 1, MAX_MESSAGE_LEN)
 		msg = sanitize(msg)
-		
+
 		mind.store_memory(msg)
 	else
 		to_chat(src, "You don't have a mind datum for some reason, so you can't add a note to it.")
@@ -1197,6 +1197,10 @@
 		if("logging")
 			return debug_variable(var_name, logging, 0, src, FALSE)
 	. = ..()
+
+/mob/vv_auto_rename(new_name)
+	//Do not do parent's actions, as we *usually* do this differently.
+	fully_replace_character_name(real_name, new_name)
 
 ///Show the language menu for this mob
 /mob/verb/open_language_menu()
