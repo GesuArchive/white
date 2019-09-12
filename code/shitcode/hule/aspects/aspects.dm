@@ -1,6 +1,6 @@
 /datum/round_aspect
 	var/name = "Nothing"
-	var/desc = ""
+	var/desc = "Ничего."
 	var/weight = 10
 
 /datum/round_aspect/proc/run_aspect()
