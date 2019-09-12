@@ -16,7 +16,7 @@
 	light_range = 5
 	light_power = 1.5
 	light_color = LIGHT_COLOR_FIRE
-	var/datum/reagent/currently_forging//forge one mat at a time
+	var/datum/reagent/currently_forging //forge one mat at a time
 	var/processing = FALSE
 	var/efficiency = 1
 	var/datum/techweb/stored_research
@@ -70,7 +70,7 @@
 /obj/machinery/reagent_forge/proc/check_cost(materials, using)
 	var/datum/component/material_container/ourmaterials = GetComponent(/datum/component/material_container)
 
-	if(ourmaterials.materials[MAT_REAGENT] <= 0)
+	if(ourmaterials.get_material_amount(MAT_REAGENT) <= 0)
 		qdel(currently_forging)
 		currently_forging = null
 		return FALSE
@@ -78,12 +78,12 @@
 	if(!materials)
 		return FALSE
 
-	if(materials*efficiency > ourmaterials.materials[MAT_REAGENT])
+	if(materials*efficiency > ourmaterials.get_material_amount(MAT_REAGENT))
 		return FALSE
 	else
 		if(using)
 			var/list/materials_used = list(MAT_REAGENT=materials*efficiency)
-			ourmaterials.use_materials(materials_used)
+			ourmaterials.use_amount_mat(materials_used)
 		return TRUE
 
 
@@ -141,7 +141,7 @@
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 	data["recipes"] = listofrecipes
 	data["currently_forging"] = currently_forging ? currently_forging : "Nothing"
-	data["material_amount"] = materials.materials[MAT_REAGENT]
+	data["material_amount"] = materials.get_material_amount(MAT_REAGENT)
 	data["can_afford"] = check_cost(lowest_cost, FALSE)
 	return data
 
@@ -166,10 +166,10 @@
 		if("Dump")
 			if(currently_forging)
 				var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
-				var/amount = materials.materials[MAT_REAGENT]
+				var/amount = materials.get_material_amount(MAT_REAGENT)
 				if(amount > 0)
 					var/list/materials_used = list(MAT_REAGENT=amount)
-					materials.use_materials(materials_used)
+					materials.use_amount_mat(materials_used)
 					var/obj/item/stack/sheet/mineral/reagent/RS = new(get_turf(usr))
 					RS.amount = materials.amount2sheet(amount)
 					var/paths = subtypesof(/datum/reagent)//one reference per stack
