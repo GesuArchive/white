@@ -266,7 +266,7 @@
 	observer.started_as_observer = TRUE
 	close_spawn_windows()
 	var/obj/effect/landmark/observer_start/O = locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list
-	to_chat(src, "<span class='notice'>Телепортируемся! Аспект: [SSaspects.current_aspect.desc]</span>")
+	to_chat(src, "<span class='notice'>Телепортируемся! Аспект: [SSaspects.ca_desc]</span>")
 	if (O)
 		observer.forceMove(O.loc)
 	else
