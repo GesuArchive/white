@@ -24,7 +24,7 @@ SUBSYSTEM_DEF(aspects)
 
 	return ..()
 
-/datum/controller/subsystem/aspects/fire()
+/datum/controller/subsystem/aspects/fire(resumed = 0)
 	if(SSticker.current_state == GAME_STATE_PLAYING && can_fire)
 		run_aspect()
 		return
