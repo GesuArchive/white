@@ -192,7 +192,8 @@
 	icon = 'code/shitcode/valtos/icons/objects.dmi'
 	icon_state = "b-1"
 	density = FALSE
-	layer = TURF_LAYER
+	layer = BYOND_LIGHTING_LAYER
+	plane = BYOND_LIGHTING_PLANE
 	pressure_resistance = 4*ONE_ATMOSPHERE
 	anchored = TRUE
 	flags_1 = ON_BORDER_1
