@@ -3,11 +3,13 @@ SUBSYSTEM_DEF(aspects)
 
 	flags = SS_NO_FIRE
 	init_order = -70
+	can_fire = TRUE
 	wait = 5
 
 	runlevels = RUNLEVEL_GAME
 
 	var/ca_name = "LOBBY"
+	var/ca_desc = "Довольно тихо."
 
 	var/list/aspects = list()
 
@@ -34,6 +36,7 @@ SUBSYSTEM_DEF(aspects)
 	current_aspect = pickweight(aspects)
 	current_aspect.run_aspect()
 	ca_name = current_aspect.name
+	ca_desc = current_aspect.desc
 
 	to_chat(world, "<span class='notice'><B>Важно:</B> [current_aspect.desc]</span>")
 	can_fire = FALSE
