@@ -12,7 +12,6 @@
 	var/working = FALSE
 	var/datum/reagent/reagent_inside = null
 	var/work_time = 300
-	var/end_volume = 100
 	circuit = /obj/item/circuitboard/machine/reagent_sheet
 
 /obj/machinery/reagent_sheet/Initialize()
@@ -23,12 +22,12 @@
 	for(var/obj/item/stock_parts/micro_laser/ML in component_parts)
 		work_time = (initial(work_time)/ML.rating)
 	for(var/obj/item/stock_parts/matter_bin/MB in component_parts)
-		end_volume = initial(end_volume) * MB.rating
+		reagents.maximum_volume = initial(reagents.maximum_volume) * MB.rating
 
 /obj/machinery/reagent_sheet/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += "<span class='notice'>Дисплей показывает: На выходе <b>[end_volume/20]</b> слитков после <b>[work_time*0.1]</b> секунд работы.</span>"
+		. += "<span class='notice'>Дисплей показывает: На выходе <b>[reagents.maximum_volume/20]</b> слитков после <b>[work_time*0.1]</b> секунд работы.</span>"
 
 /obj/machinery/reagent_sheet/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/reagent_containers/glass/beaker) && !panel_open)
@@ -45,7 +44,7 @@
 					if(RB.reagents.total_volume && reagents.total_volume < reagents.maximum_volume)	
 						RB.reagents.trans_to(src, RB.reagents.total_volume)
 						reagent_inside = RR
-						to_chat(user, "Ты добавил [end_volume] юнитов <b>[RR]</b> в процессор!")
+						to_chat(user, "Ты добавил [reagents.maximum_volume] юнитов <b>[RR]</b> в процессор!")
 			else
 				to_chat(user, "<span class='warning'>[src.name] ваша смесь содержит примеси. Принимаются реагенты только одного типа!</span>")
 				return
@@ -66,7 +65,7 @@
 		to_chat(user, "<span class='warning'>[src.name] всё ещё работает!</span>")
 
 /obj/machinery/reagent_sheet/proc/create_sheets(amount)
-	var/sheet_amount = max(round(amount / MINERAL_MATERIAL_AMOUNT), 1)
+	var/sheet_amount = max(round((amount * 20) / MINERAL_MATERIAL_AMOUNT), 1)
 	var/obj/item/stack/sheet/mineral/reagent/RS = new(get_turf(src))
 	visible_message("<span class='notice'>[src.name] заканчивает работу.</span>")
 	playsound(src, 'sound/machines/ping.ogg', 50, 0)
@@ -81,7 +80,7 @@
 			break
 		else
 			qdel(RR)
-	reagents = null
+	reagents.reagent_list = null
 	reagent_inside = null
 	working = FALSE
 	return
