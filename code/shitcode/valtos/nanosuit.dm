@@ -1196,4 +1196,4 @@ mob/living/carbon/human/key_down(_key, client/user)
 	cost = 20
 	surplus = 10
 	cant_discount = TRUE
-	exclude_modes = list(/datum/game_mode/nuclear, /datum/game_mode/infiltration)
+	exclude_modes = list(/datum/game_mode/nuclear)
