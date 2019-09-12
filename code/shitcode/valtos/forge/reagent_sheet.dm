@@ -73,7 +73,7 @@
 	RS.amount = sheet_amount
 	for(var/path in subtypesof(/datum/reagent))
 		var/datum/reagent/RR = new path
-		if(RR.type == reagent_inside)
+		if(RR.type == reagent_inside.type)
 			RS.reagent_type = RR
 			RS.name = "[RR.name] ingots"
 			RS.singular_name = "[RR.name] ingot"
@@ -81,6 +81,8 @@
 			break
 		else
 			qdel(RR)
+	reagents = null
+	reagent_inside = null
 	working = FALSE
 	return
 
