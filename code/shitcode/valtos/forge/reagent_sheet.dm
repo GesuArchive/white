@@ -26,7 +26,8 @@
 		. += "<span class='notice'>he status display reads: Outputting <b>[end_volume/20]</b> ingot(s) after <b>[work_time*0.1]</b> seconds of processing.</span>"
 
 /obj/machinery/reagent_sheet/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/solid_reagent) && !panel_open)
+	if(istype(I, /obj/item/reagent_containers/glass/beaker) && !panel_open)
+		var/obj/item/reagent_containers/glass/beaker/W = I
 		if(stat & BROKEN)
 			to_chat(user, "<span class='warning'>[src] is broken!</span>")
 			return
@@ -34,22 +35,19 @@
 			to_chat(user, "<span class='warning'>[src] is busy!</span>")
 			return
 		else
-			var/area/a = loc.loc // Gets our locations location, like a dream within a dream
-			if(!isarea(a))
-				return
-			if(a.power_equip == 0) // There's no APC in this area, don't try to cheat power!
-				to_chat(user, "<span class='warning'>[src] seems to be powered off!</span>")
-				return
-			if(!user.transferItemToLoc(I,src) && !I.reagents)
-				to_chat(user, "<span class='alert'>[src] rejects [I]</span>")
-				return
-			working = I
-			var/chem_material = working.reagents.total_volume * end_volume
-			use_power = working.reagents.total_volume
-			updateUsrDialog()
-			addtimer(CALLBACK(src, /obj/machinery/reagent_sheet/proc/create_sheets, chem_material), work_time)
-			to_chat(user, "<span class='notice'>You add [working] to [src]</span>")
-			visible_message("<span class='notice'>[src] activates!</span>")
+			if(LAZYLEN(W.reagents.reagent_list) == 1)
+				for(var/X in W.reagents.reagent_list)
+					var/datum/reagent/S = X
+					if(W.reagents.total_volume && reagents.total_volume < reagents.maximum_volume)
+						to_chat(user, "You add [S] to the machine!")
+						W.reagents.trans_to(src, W.reagents.total_volume)
+						working = X
+						var/chem_material = working.reagents.total_volume * end_volume
+						use_power = W.reagents.total_volume
+						updateUsrDialog()
+						addtimer(CALLBACK(src, /obj/machinery/reagent_sheet/proc/create_sheets, chem_material), work_time)
+						to_chat(user, "<span class='notice'>You add [working] to [src]</span>")
+						visible_message("<span class='notice'>[src] activates!</span>")
 		if(!in_range(src, working) || !user.Adjacent(src))
 			return
 	else
