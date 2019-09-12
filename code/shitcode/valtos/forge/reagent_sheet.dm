@@ -38,7 +38,7 @@
 			if(LAZYLEN(W.reagents.reagent_list) == 1)
 				for(var/X in W.reagents.reagent_list)
 					var/datum/reagent/S = X
-					if(W.reagents.total_volume && reagents.total_volume < reagents.maximum_volume)
+					if(W.reagents.total_volume < reagents.maximum_volume)
 						to_chat(user, "You add [S] to the machine!")
 						W.reagents.trans_to(src, W.reagents.total_volume)
 						working = X
