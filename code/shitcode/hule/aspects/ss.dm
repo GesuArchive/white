@@ -1,15 +1,13 @@
 SUBSYSTEM_DEF(aspects)
 	name = "Aspects"
 
-	flags = SS_NO_FIRE
+	flags = SS_NO_FIRE //я блять это только сейчас заметил. Ну да ладно.
 	init_order = -70
-	can_fire = TRUE
-	wait = 5
 
 	runlevels = RUNLEVEL_GAME
 
 	var/ca_name = "LOBBY"
-	var/ca_desc = "Довольно тихо."
+	var/ca_desc = "Секрет."
 
 	var/list/aspects = list()
 
@@ -24,11 +22,6 @@ SUBSYSTEM_DEF(aspects)
 
 	return ..()
 
-/datum/controller/subsystem/aspects/fire(resumed = 0)
-	if(SSticker.current_state == GAME_STATE_PLAYING && can_fire)
-		run_aspect()
-		return
-
 /datum/controller/subsystem/aspects/stat_entry(msg)
 	..("CA:[ca_name]")
 
@@ -39,4 +32,3 @@ SUBSYSTEM_DEF(aspects)
 	ca_desc = current_aspect.desc
 
 	to_chat(world, "<span class='notice'><B>Важно:</B> [current_aspect.desc]</span>")
-	can_fire = FALSE

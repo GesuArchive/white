@@ -303,6 +303,8 @@ SUBSYSTEM_DEF(ticker)
 
 	PostSetup()
 
+	SSaspects.run_aspect()
+
 	return TRUE
 
 /datum/controller/subsystem/ticker/proc/PostSetup()
