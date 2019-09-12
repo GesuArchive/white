@@ -25,7 +25,6 @@ SUBSYSTEM_DEF(aspects)
 /datum/controller/subsystem/aspects/fire()
 	if(state != SS_RUNNING || !can_fire)
 		return
-	can_fire = FALSE
 	run_aspect()
 
 /datum/controller/subsystem/aspects/stat_entry(msg)
@@ -37,3 +36,4 @@ SUBSYSTEM_DEF(aspects)
 	ca_name = current_aspect.name
 
 	to_chat(world, "<span class='notice'><B>Важно:</B> [current_aspect.desc]</span>")
+	can_fire = FALSE
