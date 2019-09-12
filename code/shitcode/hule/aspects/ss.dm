@@ -25,9 +25,9 @@ SUBSYSTEM_DEF(aspects)
 	return ..()
 
 /datum/controller/subsystem/aspects/fire()
-	if(SSticker.current_state != GAME_STATE_PLAYING || !can_fire)
+	if(SSticker.current_state == GAME_STATE_PLAYING && can_fire)
+		run_aspect()
 		return
-	run_aspect()
 
 /datum/controller/subsystem/aspects/stat_entry(msg)
 	..("CA:[ca_name]")
