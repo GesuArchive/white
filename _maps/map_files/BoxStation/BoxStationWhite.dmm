@@ -19698,6 +19698,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/locker)
+"aVa" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "aVb" = (
 /obj/structure/sign/warning/electricshock{
 	pixel_y = 32
@@ -31591,11 +31595,6 @@
 	location = "AIE"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
-"bAi" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/obj/machinery/atmospherics/components/unary/vent_pump/on,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "bAj" = (
@@ -85184,7 +85183,7 @@ bgY
 aJq
 aJq
 aJq
-bAi
+aVa
 bmS
 bmS
 bpC
