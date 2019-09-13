@@ -7,7 +7,7 @@
 	if(type == "Priority")
 		announcement += "<h1 class='alert'>Срочное Объявление</h1>"
 		if (title && length(title) > 0)
-			announcement += "<br><h2 class='alert'>[rhtml_encode(title)]</h2>"
+			announcement += "<h2 class='alert'>[rhtml_encode(title)]</h2>"
 	else if(type == "Captain")
 		announcement += "<h1 class='alert'>Капитан Объявляет</h1>"
 		GLOB.news_network.SubmitArticle(text, "Капитан Объявляет", "Station Announcements", null)
@@ -18,7 +18,7 @@
 		else
 			announcement += "<h1 class='alert'>[sender_override]</h1>"
 		if (title && length(title) > 0)
-			announcement += "<br><h2 class='alert'>[rhtml_encode(title)]</h2>"
+			announcement += "<h2 class='alert'>[rhtml_encode(title)]</h2>"
 
 		if(!sender_override)
 			if(title == "")

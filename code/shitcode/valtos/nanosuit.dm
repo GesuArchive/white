@@ -692,7 +692,7 @@
 		ADD_TRAIT(Wearer, TRAIT_NODISMEMBER, "Nanosuit")
 		RegisterSignal(Wearer, list(COMSIG_MOB_ITEM_ATTACK,COMSIG_MOB_ITEM_AFTERATTACK,COMSIG_MOB_THROW,COMSIG_MOB_ATTACK_HAND), .proc/kill_cloak,TRUE)
 		if(is_station_level(T.z))
-			priority_announce("[user] использовал запрещЄнный [src.name] в [A.map_name]!","—ообщение от —индиката!", sound = 'code/shitcode/valtos/sounds/nanosuitengage.ogg')
+			priority_announce("[user] использовал[user.ru_na()] запрещЄнный нанокостюм в [A.map_name]!","Ёкстренное сообщение!", sound = 'code/shitcode/valtos/sounds/nanosuitengage.ogg')
 		log_game("[user] has engaged [src]")
 		if(help_verb)
 			Wearer.verbs += help_verb
