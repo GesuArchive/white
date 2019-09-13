@@ -73,24 +73,24 @@
 				if(NS.cell.charge >= NANO_JUMP_USE)
 					NS.set_nano_energy(NANO_JUMP_USE,NANO_CHARGE_DELAY)
 				else
-					to_chat(user, "<span class='warning'>Not enough charge.</span>")
+					to_chat(user, "<span class='warning'>Недостаточно энергии.</span>")
 					return
 			else
-				to_chat(user, "<span class='warning'>You must be on a proper floor or stable structure.</span>")
+				to_chat(user, "<span class='warning'>Нужно находиться на твёрдой поверхности.</span>")
 				return
 		else
-			to_chat(user, "<span class='warning'>Only available in strength mode.</span>")
+			to_chat(user, "<span class='warning'Доступно только в режиме <b>силы</b>.</span>")
 			return
 	else
-		to_chat(user, "<span class='warning'>You must be wearing a nanosuit.</span>")
+		to_chat(user, "<span class='warning'>Без нанокостюма эти ботинки бесполезны.</span>")
 		return
 
 	var/atom/target = get_edge_target_turf(user, user.dir) //gets the user's direction
 	if(user.throw_at(target, jumpdistance, jumpspeed, spin = FALSE, diagonals_first = TRUE))
 		playsound(src, 'sound/effects/stealthoff.ogg', 50, TRUE)
-		user.visible_message("<span class='warning'>[user] jumps forward into the air!</span>")
+		user.visible_message("<span class='warning'>[user] прыгает вперёд с невероятной силой!</span>")
 	else
-		to_chat(user, "<span class='warning'>Something prevents you from dashing forward!</span>")
+		to_chat(user, "<span class='warning'>Что-то не даёт тебе прыгнуть!</span>")
 
 
 /obj/item/clothing/shoes/combat/coldres/nanojump/equipped(mob/user, slot)
@@ -177,7 +177,7 @@
 	if(!ishuman(user))
 		return
 	on = !on
-	to_chat(user, "<span class='[forced ? "warning":"notice"]'>[forced ? "The goggles turn":"You turn the goggles"] [on ? "on":"off"][forced ? "!":"."]</span>")
+	to_chat(user, "<span class='[forced ? "warning":"notice"]'>Твой ПНВ [on ? "включен":"выключен"][forced ? "!":"."]</span>")
 	if(on)
 		darkness_view = 8
 		lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
@@ -269,9 +269,9 @@
 /obj/item/clothing/suit/space/hardsuit/nano/examine(mob/user)
 	..()
 	if(mode != NANO_NONE)
-		to_chat(user, "The suit appears to be in [mode] mode.")
+		to_chat(user, "Костюм находится в режиме <b>[mode]</b>.")
 	else
-		to_chat(user, "The suit appears to be offline.")
+		to_chat(user, "Костюм выключен.")
 
 /obj/item/clothing/suit/space/hardsuit/nano/process()
 	..()
@@ -287,7 +287,7 @@
 			detecting = TRUE
 		if(world.time > temp_cooldown)
 			if(!defrosted)
-				helmet.display_visor_message("Activating suit defrosting protocols.")
+				helmet.display_visor_message("Активированы протоколы разморозки.")
 				Wearer.reagents.add_reagent(/datum/reagent/medicine/leporazine, 3)
 				defrosted = TRUE
 				temp_cooldown += 100
@@ -313,7 +313,7 @@
 	if(delay > recharge_cooldown)
 		recharge_cooldown = delay
 	if(cell.charge < crit_energy && !criticalpower) //energy is less than critical energy level(20) and not in crit power
-		helmet.display_visor_message("Energy Critical!") //now we are
+		helmet.display_visor_message("Недостаточно энергии!") //now we are
 		criticalpower = TRUE
 	else if(cell.charge > crit_energy) //did our energy go higher than the crit level
 		criticalpower = FALSE //turn it off
@@ -338,7 +338,7 @@
 	var/obj/item/projectile/P = hitby
 	if(mode == NANO_ARMOR && cell && cell.charge)
 		if(prob(final_block_chance))
-			user.visible_message("<span class='danger'>[user]'s shields deflect [attack_text] draining their energy!</span>")
+			user.visible_message("<span class='danger'>Защита [user] отражает [attack_text]!</span>")
 			if(damage)
 				if(attack_type != STAMINA)
 					set_nano_energy(10 + damage,NANO_CHARGE_DELAY)//laser guns, anything lethal drains 5 + the damage dealt
@@ -348,7 +348,7 @@
 				set_nano_energy(35,NANO_CHARGE_DELAY)
 			return TRUE
 		else
-			user.visible_message("<span class='warning'>[user]'s shields fail to deflect [attack_text].</span>")
+			user.visible_message("<span class='warning'>Защита [user] не смогла отразить [attack_text].</span>")
 			return FALSE
 		if(damage && attack_type == PROJECTILE_ATTACK && P.damage_type != STAMINA && prob(50))
 			var/datum/effect_system/spark_spread/s = new
@@ -364,24 +364,24 @@
 		if(!msg_time_react)
 			if(BP.body_zone == BODY_ZONE_L_LEG || BP.body_zone == BODY_ZONE_R_LEG || BP.body_zone == BODY_ZONE_L_ARM || BP.body_zone == BODY_ZONE_R_ARM)
 				if(BP.brute_dam > trauma_threshold)
-					helmet.display_visor_message("Extensive blunt force detected in [BP.name]!")
+					helmet.display_visor_message("Замечены переломы и обширные травмы в районе [BP.name]!")
 					msg_time_react = 200
 				else if(BP.burn_dam > trauma_threshold)
-					helmet.display_visor_message("Heat shield failure detected in [BP.name]!")
+					helmet.display_visor_message("Ошибки защиты от огня замечены в области [BP.name]!")
 					msg_time_react = 200
 			if(BP.body_zone == BODY_ZONE_HEAD)
 				if(BP.brute_dam > trauma_threshold)
-					helmet.display_visor_message("Cranial trauma detected!")
+					helmet.display_visor_message("Замечены критические повреждения черепа!")
 					msg_time_react = 300
 				else if(BP.burn_dam > trauma_threshold)
-					helmet.display_visor_message("Facial burns detected!")
+					helmet.display_visor_message("Замечены критические ожоги черепа!")
 					msg_time_react = 300
 			if(BP.body_zone == BODY_ZONE_CHEST)
 				if(BP.brute_dam > trauma_threshold)
-					helmet.display_visor_message("Thoracic trauma detected!")
+					helmet.display_visor_message("Замечены травмы тела несовместимые с жизнью!")
 					msg_time_react = 300
 				else if(BP.burn_dam > trauma_threshold)
-					helmet.display_visor_message("Thoracic burns detected!")
+					helmet.display_visor_message("Обнаружены критические ожоги тела!")
 					msg_time_react = 300
 
 	if(attack_type == LEAP_ATTACK)
@@ -390,7 +390,7 @@
 	return ..()
 
 /obj/item/clothing/suit/space/hardsuit/nano/proc/heal_nano(mob/living/carbon/human/user)
-	helmet.display_visor_message("Engaging emergency medical protocols")
+	helmet.display_visor_message("Включены экстренные медицинские протоколы.")
 	user.reagents.add_reagent(/datum/reagent/medicine/syndicate_nanites, 1)
 
 /obj/item/clothing/suit/space/hardsuit/nano/ui_action_click(mob/user, action)
@@ -413,7 +413,7 @@
 		mode = suitmode
 		switch(suitmode)
 			if(NANO_ARMOR)
-				helmet.display_visor_message("Maximum Armor!")
+				helmet.display_visor_message("Максимум Брони!")
 				block_chance = 50
 				slowdown = initial(slowdown)
 				armor = armor.setRating(melee = 50, bullet = 50, laser = 50, energy = 55, bomb = 90, rad = 90)
@@ -429,7 +429,7 @@
 				jetpack.full_speed = FALSE
 
 			if(NANO_CLOAK)
-				helmet.display_visor_message("Cloak Engaged!")
+				helmet.display_visor_message("Маскировка включена!")
 				block_chance = initial(block_chance)
 				slowdown = 0.4 //cloaking makes us move slightly faster
 				armor = armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 70)
@@ -445,7 +445,7 @@
 				jetpack.full_speed = FALSE
 
 			if(NANO_SPEED)
-				helmet.display_visor_message("Maximum Speed!")
+				helmet.display_visor_message("Максимум скорости!")
 				block_chance = initial(block_chance)
 				slowdown = initial(slowdown)
 				armor = armor.setRating(melee = 40, bullet = 40, laser = 40, energy = 45, bomb = 70, rad = 70)
@@ -456,14 +456,14 @@
 				animate(Wearer, alpha = 255, time = 5)
 				REMOVE_TRAIT(Wearer, TRAIT_PUSHIMMUNE, NANO_STRENGTH)
 				ADD_TRAIT(Wearer, TRAIT_TACRELOAD, NANO_SPEED)
-				Wearer.add_movespeed_modifier(NANO_SPEED, update=TRUE, priority=100, multiplicative_slowdown=-0.25, blacklisted_movetypes=(FLYING|FLOATING))
+				Wearer.add_movespeed_modifier(NANO_SPEED, update=TRUE, priority=100, multiplicative_slowdown=-0.75, blacklisted_movetypes=(FLYING|FLOATING))
 				ADD_TRAIT(Wearer, TRAIT_IGNORESLOWDOWN, NANO_SPEED)
 				REMOVE_TRAIT(Wearer, TRAIT_LIGHT_STEP, NANO_SPEED)
 				style.remove(Wearer)
 				jetpack.full_speed = TRUE
 
 			if(NANO_STRENGTH)
-				helmet.display_visor_message("Maximum Strength!")
+				helmet.display_visor_message("Максимум силы!")
 				block_chance = initial(block_chance)
 				style.teach(Wearer,1)
 				slowdown = initial(slowdown)
@@ -518,7 +518,7 @@
 		return //Not sure how this could happen.
 	SSblackbox.record_feedback("tally", "nanosuit_emp_shutdown", 1, type)
 	Wearer.confused += 50
-	helmet.display_visor_message("EMP Assault! Systems impaired.")
+	helmet.display_visor_message("ЭМИ атака! Сбой всех систем.")
 	sleep(40)
 	Wearer.apply_effects(paralyze = 300, stun = 300, jitter = 120)
 	toggle_mode(NANO_NONE, TRUE)
@@ -528,16 +528,16 @@
 
 /obj/item/clothing/suit/space/hardsuit/nano/proc/emp_assaulttwo()
 	sleep(35)
-	helmet.display_visor_message("Warning, EMP shutdown, all systems impaired!")
+	helmet.display_visor_message("Внимание, ЭМИ атака! Сбой всех систем.")
 	sleep(25)
-	helmet.display_visor_message("Switching to: core function mode.")
+	helmet.display_visor_message("Смена режима: базовое поддержание работы костюма.")
 	sleep(25)
-	helmet.display_visor_message("Life support priority. Warning!")
+	helmet.display_visor_message("Система жизнеобеспечения. Ошибка!")
 	addtimer(CALLBACK(src, .proc/emp_assaultthree), 35)
 
 
 /obj/item/clothing/suit/space/hardsuit/nano/proc/emp_assaultthree()
-	helmet.display_visor_message("CMOS reset sequence begin, standby...")
+	helmet.display_visor_message("Принудительный сброс CMOS начат, ожидайте...")
 	sleep(20)
 	playsound(src, 'sound/machines/beep.ogg', 50, FALSE)
 	helmet.display_visor_message("4672482//-82544111.0//WRXT _YWD")
@@ -558,7 +558,7 @@
 	sleep(10)
 	helmet.display_visor_message("LOADING//...")
 	sleep(30)
-	helmet.display_visor_message("Cardiac dysrhythmia treatment in progress, standby...")
+	helmet.display_visor_message("В процессе лечения сердечной дисритмии, ожидайте...")
 	playsound(src, 'sound/machines/defib_charge.ogg', 75, FALSE)
 	sleep(25)
 	playsound(src, 'sound/machines/defib_zap.ogg', 50, FALSE)
@@ -566,7 +566,7 @@
 	Wearer.adjustOxyLoss(-55)
 	sleep(3)
 	playsound(src, 'sound/machines/defib_success.ogg', 75, FALSE)
-	helmet.display_visor_message("Cleared to proceed.")
+	helmet.display_visor_message("Все системы были успешно перезагружены.")
 	shutdown = FALSE
 	toggle_mode(NANO_ARMOR)
 
@@ -654,12 +654,12 @@
 		return
 	if(zoom || force_off)
 		user.client.change_view(CONFIG_GET(string/default_view))
-		to_chat(user, "<span class='boldnotice'>Disabled helmet zoom...</span>")
+		to_chat(user, "<span class='boldnotice'>Отключено: увеличение детализации.</span>")
 		zoom = FALSE
 		return FALSE
 	else
 		user.client.change_view(zoom_range)
-		to_chat(user, "<span class='boldnotice'>Enabled helmet zoom!</span>")
+		to_chat(user, "<span class='boldnotice'>Включено: увеличение детализации.</span>")
 		zoom = TRUE
 		return TRUE
 
@@ -692,7 +692,7 @@
 		ADD_TRAIT(Wearer, TRAIT_NODISMEMBER, "Nanosuit")
 		RegisterSignal(Wearer, list(COMSIG_MOB_ITEM_ATTACK,COMSIG_MOB_ITEM_AFTERATTACK,COMSIG_MOB_THROW,COMSIG_MOB_ATTACK_HAND), .proc/kill_cloak,TRUE)
 		if(is_station_level(T.z))
-			priority_announce("[user] has engaged [src] at [A.map_name]!","Message from The Syndicate!", sound = 'code/shitcode/valtos/sounds/nanosuitengage.ogg')
+			priority_announce("[user] использовал запрещённый [src.name] в [A.map_name]!","Сообщение от Синдиката!", sound = 'code/shitcode/valtos/sounds/nanosuitengage.ogg')
 		log_game("[user] has engaged [src]")
 		if(help_verb)
 			Wearer.verbs += help_verb
@@ -707,32 +707,32 @@
 /obj/item/clothing/suit/space/hardsuit/nano/proc/bootSequence()
 	helmet.display_visor_message("Crynet - UEFI v1.32 Syndicate Systems")
 	sleep(10)
-	helmet.display_visor_message("P.O.S.T. Commencing...")
+	helmet.display_visor_message("P.O.S.T. Загрузка...")
 	sleep(30)
 	playsound(src, 'sound/machines/beep.ogg', 50, FALSE)
-	helmet.display_visor_message("Memory test: 6144MB OK(Installed Memory: 6144MB)")
+	helmet.display_visor_message("Проверка памяти: 6144MB OK(Установленный объём: 6144MB)")
 	sleep(10)
-	helmet.display_visor_message("Onboard equipment test: OK")
+	helmet.display_visor_message("Набортное оборудование: OK")
 	sleep(10)
-	helmet.display_visor_message("Telecommunications systems: OK")
+	helmet.display_visor_message("Телекоммуникационные системы: OK")
 	sleep(10)
-	helmet.display_visor_message("Checking environment sensors, standby...")
+	helmet.display_visor_message("Проверка сенсоров окружения, ожидайте...")
 	sleep(20)
 	healthon = TRUE
-	helmet.display_visor_message("Life signs systems: OK")
+	helmet.display_visor_message("Датчики форм жизни: OK")
 	sleep(5)
 	atmoson = TRUE
-	helmet.display_visor_message("Atmospheric sensors: OK")
+	helmet.display_visor_message("Атмосферные сенсоры: OK")
 	sleep(5)
 	cellon = TRUE
-	helmet.display_visor_message("Power sensor: OK")
+	helmet.display_visor_message("Сенсоры энергии: OK")
 	sleep(5)
 	radon = TRUE
-	helmet.display_visor_message("Geiger counter: OK")
+	helmet.display_visor_message("Счётчик гейгера: OK")
 	sleep(5)
-	helmet.display_visor_message("Loading default configuration, standby...")
+	helmet.display_visor_message("Загружаем стандартную конфигурацию, ожидайте...")
 	sleep(25)
-	helmet.display_visor_message("Successful. Have a safe and secure day.")
+	helmet.display_visor_message("Успех. Приятного использования.")
 	shutdown = FALSE
 	toggle_mode(NANO_ARMOR)
 
@@ -797,8 +797,8 @@
 
 /datum/martial_art/nanosuit/proc/PowerPunch(mob/living/carbon/human/A, mob/living/carbon/human/D)
 	if(!D.stat || !D.IsParalyzed())
-		D.visible_message("<span class='warning'>[A] power punches [D]!</span>", \
-						  	"<span class='userdanger'>[A] hits you with the force of a bus!</span>")
+		D.visible_message("<span class='warning'>[A] сверхсильно бьёт [D]!</span>", \
+						  	"<span class='userdanger'>[A] бьёт тебя с невероятной силой!</span>")
 		playsound(get_turf(A), 'sound/effects/hit_punch.ogg', 75, TRUE, -1)
 		D.apply_damage(20, BRUTE)
 		var/atom/throw_target = get_edge_target_turf(D, A.dir)
@@ -812,8 +812,8 @@
 	if(head)
 		head.drop_limb()
 		head.drop_organs()
-		D.visible_message("<span class='warning'>[A] smashes [D] in the head, splattering their brains!</span>", \
-					"<span class='userdanger'>OH SHI-</span>")
+		D.visible_message("<span class='warning'>[A] лупит [D] в голову, разбрызгивая мозги по полу!</span>", \
+					"<span class='userdanger'>ВОТ БЛ-</span>")
 		playsound(get_turf(A), 'code/shitcode/valtos/sounds/squishy.ogg', 75, TRUE, -1)
 		playsound(get_turf(A), 'sound/magic/disintegrate.ogg', 50, TRUE, -1)
 		D.death(FALSE)
@@ -831,19 +831,19 @@
 		A.start_pulling(D, TRUE)
 		if(A.pulling)
 			D.stop_pulling()
-			D.visible_message("<span class='danger'>[A] grapples [D]!</span>", \
-								"<span class='userdanger'>[A] grapples you!</span>")
+			D.visible_message("<span class='danger'>[A] загребает [D]!</span>", \
+								"<span class='userdanger'>[A] неистово хватает тебя! Пиздец тебе...</span>")
 			A.grab_state = GRAB_AGGRESSIVE //Instant aggressive grab
 			log_combat(A, D, "grabbed", addition="aggressively")
 	return TRUE
 
 /datum/martial_art/nanosuit/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/D)
-	var/picked_hit_type = pick("punches", "kicks")
+	var/picked_hit_type = pick("бьёт", "пинает")
 	var/bonus_damage = 10
 	var/quick = FALSE
 	if(D.resting || D.lying)//we can hit ourselves
 		bonus_damage += 5
-		picked_hit_type = "stomps on"
+		picked_hit_type = "топчется по"
 		if(A.zone_selected == BODY_ZONE_HEAD && D.get_bodypart(BODY_ZONE_HEAD) && (!A.resting || !A.lying))
 			D.add_splatter_floor(D.loc)
 			D.apply_damage(10, BRAIN)
@@ -857,8 +857,8 @@
 			A.stop_pulling() //So we don't spam the combo
 			bonus_damage += 5
 			D.Paralyze(15)
-			D.visible_message("<span class='warning'>[A] knocks [D] the fuck down!", \
-							"<span class='userdanger'>[A] knocks you the fuck down!</span>")
+			D.visible_message("<span class='warning'>[A] ложит [D] к хуям на пол!", \
+							"<span class='userdanger'>[A] ложит тебя к хуям на пол!</span>")
 			if(prob(75))
 				step_away(D,A,15)
 		else if(A.grab_state > GRAB_AGGRESSIVE)
@@ -867,11 +867,11 @@
 				D.throw_at(throw_target, rand(1,2), 7, A)
 			bonus_damage += 10
 			D.Paralyze(60)
-			D.visible_message("<span class='warning'>[A] knocks [D] the fuck out!!", \
-							"<span class='userdanger'>[A] knocks you the fuck out!!</span>")
+			D.visible_message("<span class='warning'>[A] хуярит [D] так, что тот охуевает!!", \
+							"<span class='userdanger'>[A] хуярит тебя так, что ты охуеваешь!!</span>")
 		else if(A.resting && !D.lying) //but we can't legsweep ourselves!
-			D.visible_message("<span class='warning'>[A] leg sweeps [D]!", \
-								"<span class='userdanger'>[A] leg sweeps you!</span>")
+			D.visible_message("<span class='warning'>[A] ломает колено [D]!", \
+								"<span class='userdanger'>[A] ломает тебе колено!</span>")
 			playsound(get_turf(A), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 			bonus_damage += 5
 			D.Paralyze(60)
@@ -887,9 +887,9 @@
 		else if(prob(35))
 			cleeve_attack(A,D)
 			return FALSE
-	D.visible_message("<span class='danger'>[A] [quick?"quick":""] [picked_hit_type] [D]!</span>", \
-					"<span class='userdanger'>[A] [quick?"quick":""] [picked_hit_type] you!</span>")
-	if(picked_hit_type == "kicks" || picked_hit_type == "stomps on")
+	D.visible_message("<span class='danger'>[A] [quick?"быстро":""] [picked_hit_type] [D]!</span>", \
+					"<span class='userdanger'>[A] [quick?"быстро":""] [picked_hit_type] тебя!</span>")
+	if(picked_hit_type == "пинает" || picked_hit_type == "топчется по")
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 		playsound(get_turf(D), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 	else
@@ -907,13 +907,13 @@
 		if(I)
 			if(D.temporarilyRemoveItemFromInventory(I))
 				A.put_in_hands(I)
-		D.visible_message("<span class='danger'>[A] has disarmed [D]!</span>", \
-							"<span class='userdanger'>[A] has disarmed [D]!</span>")
+		D.visible_message("<span class='danger'>[A] обезоруживает [D]!</span>", \
+							"<span class='userdanger'>[A] обезоруживает [D]!</span>")
 		playsound(D, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 		D.Paralyze(40)
 	else
-		D.visible_message("<span class='danger'>[A] attempted to disarm [D]!</span>", \
-							"<span class='userdanger'>[A] attempted to disarm [D]!</span>")
+		D.visible_message("<span class='danger'>[A] пытается обезоружить [D]!</span>", \
+							"<span class='userdanger'>[A] пытается обезоружить [D]!</span>")
 		playsound(D, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 	log_combat(A, D, "disarmed with nanosuit", "[I ? " removing \the [I]" : ""]")
 	return TRUE
@@ -937,13 +937,13 @@
 	if(user.a_intent == INTENT_HARM)
 		..(user, TRUE)
 		apply_damage(20, BRUTE)
-		var/hitverb = "punched"
+		var/hitverb = "бьёт"
 		if(mob_size < MOB_SIZE_LARGE)
 			step_away(src,user,15)
-			hitverb = "slammed"
+			hitverb = "влетает в"
 		playsound(loc, "punch", 25, TRUE, -1)
-		visible_message("<span class='danger'>[user] has [hitverb] [src]!</span>", \
-		"<span class='userdanger'>[user] has [hitverb] [src]!</span>", null, COMBAT_MESSAGE_RANGE)
+		visible_message("<span class='danger'>[user] [hitverb] [src]!</span>", \
+		"<span class='userdanger'>[user] [hitverb] [src]!</span>", null, COMBAT_MESSAGE_RANGE)
 		return TRUE
 
 /obj/item/attack_nanosuit(mob/living/carbon/human/user)
@@ -971,7 +971,7 @@
 /obj/attack_nanosuit(mob/living/carbon/human/user, does_attack_animation = FALSE)//attacking objects barehand
 	if(user.a_intent == INTENT_HARM)
 		..(user, TRUE)
-		visible_message("<span class='danger'>[user] smashes [src]!</span>", null, null, COMBAT_MESSAGE_RANGE)
+		visible_message("<span class='danger'>[user] ломает [src]!</span>", null, null, COMBAT_MESSAGE_RANGE)
 		if(density)
 			playsound(src, 'sound/effects/bang.ogg', 100, TRUE)//less ear rape
 		else
@@ -989,7 +989,7 @@
 
 /obj/attacked_by(obj/item/I, mob/living/user)
 	if(I.force && I.damtype == BRUTE && ishuman(user) && user.mind.has_martialart(MARTIALART_NANOSUIT))
-		visible_message("<span class='danger'>[user] has hit [src] with a strengthened blow from [I]!</span>", null, null, COMBAT_MESSAGE_RANGE)
+		visible_message("<span class='danger'>[user] бьёт [src] с невероятной силой при помощи [I.name]!</span>", null, null, COMBAT_MESSAGE_RANGE)
 		take_damage(I.force*1.75, I.damtype, "melee", TRUE)//take 75% more damage with strength on
 		return
 	return ..()
