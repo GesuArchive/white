@@ -355,7 +355,7 @@
 			s.set_up(1, 1, src)
 			s.start()
 	kill_cloak()
-	if(prob(damage*1.5) && user.health < 50 && current_charges)
+	if(user.health < 100 && current_charges)
 		addtimer(CALLBACK(src, .proc/addmedicalcharge), medical_delay,TIMER_UNIQUE|TIMER_OVERRIDE)
 		current_charges--
 		heal_nano(user)
