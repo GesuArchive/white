@@ -391,7 +391,7 @@
 
 /obj/item/clothing/suit/space/hardsuit/nano/proc/heal_nano(mob/living/carbon/human/user)
 	helmet.display_visor_message("¬ключены экстренные медицинские протоколы.")
-	user.reagents.add_reagent(/datum/reagent/medicine/syndicate_nanites, 1)
+	user.reagents.add_reagent(/datum/reagent/medicine/syndicate_nanites, 7)
 
 /obj/item/clothing/suit/space/hardsuit/nano/ui_action_click(mob/user, action)
 	if(istype(action, /datum/action/item_action/nanosuit/armor))
