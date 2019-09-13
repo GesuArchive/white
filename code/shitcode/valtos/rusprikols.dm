@@ -210,13 +210,14 @@ GLOBAL_LIST_INIT(gachisounds, list(
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/traumatic
 	can_suppress = TRUE
-	var/boltcolor = "red"
+	var/boltcolor
 	var/list/possible_colors = list("black", "green", "tan", "red", "grey")
 
 /obj/item/gun/ballistic/automatic/pistol/traumatic/Initialize()
-	. = ..()
 	icon_state = "enforcer_[pick(possible_colors)]"
-	boltcolor = pick(possible_colors)
+	if (!boltcolor)
+		boltcolor = pick(possible_colors)
+	. = ..()
 
 /obj/item/gun/ballistic/automatic/pistol/traumatic/update_icon()
 	if (QDELETED(src))
