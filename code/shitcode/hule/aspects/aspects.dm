@@ -103,6 +103,19 @@
 		H.drunkenness = 50
 	..()
 
+/datum/round_aspect/prikol
+	name = "Prikol"
+	desc = "Произошел Правий Сиктор."
+	weight = 11
+
+/datum/round_aspect/prikol/run_aspect()
+	for(var/turf/open/floor/plasteel/floor)
+		if(floor.x % 2 == 0 && floor.y % 2 == 0)
+			add_atom_colour("#FFF200"), WASHABLE_COLOUR_PRIORITY)
+		else
+			add_atom_colour("#00B7EF"), WASHABLE_COLOUR_PRIORITY)
+	..()
+
 /*
 /datum/round_aspect/power_failure
 	name = "Power Failure"
