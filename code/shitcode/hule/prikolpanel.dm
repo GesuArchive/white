@@ -74,7 +74,7 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 
 		if("Prikol Knopka")
 
-			var/list/maps = SSmapping.LoadGroup(list(), "MultiZ Debug", "map_files/debug", "multiz.dmm", list(list(ZTRAIT_UP = 1),list(ZTRAIT_UP = 1, ZTRAIT_DOWN = -1), list(ZTRAIT_DOWN = -1)), ZTRAITS_STATION, silent = FALSE)
+			var/list/maps = SSmapping.LoadGroup(list(), "Plasma Station 2185", "map_files/EVENTS", "catastrophe2185.dmm", list(list(ZTRAIT_UP = 1),list(ZTRAIT_UP = 1, ZTRAIT_DOWN = -1), list(ZTRAIT_DOWN = -1)), ZTRAITS_STATION, silent = FALSE)
 
 			for(var/datum/parsed_map/parsed in maps)
 				parsed.initTemplateBounds()
