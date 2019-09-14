@@ -73,13 +73,16 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 						to_chat(usr, "[obemba]")
 
 		if("Prikol Knopka")
+			var/confpath = input("Enter map json file path", ">AAAAAAAA") as null|text
+			if(!confpath)
+				return
 
-			var/list/maps = SSmapping.LoadGroup(list(), "Plasma Station 2185", "map_files/EVENTS", "catastrophe2185.dmm", list(list(ZTRAIT_UP = 1),list(ZTRAIT_UP = 1, ZTRAIT_DOWN = -1), list(ZTRAIT_DOWN = -1)), ZTRAITS_STATION, silent = FALSE)
+			var/datum/map_config/config = load_map_config(filename = confpath, default_to_box = FALSE, delete_after = FALSE, error_if_missing = TRUE)
+
+			var/list/maps = SSmapping.LoadGroup(list(), config.map_name, config.map_path, config.map_file, config.traits)
 
 			for(var/datum/parsed_map/parsed in maps)
 				parsed.initTemplateBounds()
-
-
 
 /client/proc/proverka_na_obemky()
 	if(ckey in GLOB.obembalist)
