@@ -74,7 +74,7 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 
 		if("Prikol Knopka")
 
-			SSmapping.LoadGroup(list(), "MultiZ Debug", "map_files/debug", "multiz.dmm", list(list(ZTRAIT_UP = 1),list(ZTRAIT_UP = 1, ZTRAIT_DOWN = -1), ZTRAIT_DOWN = -1)), ZTRAITS_STATION, silent = FALSE)
+			SSmapping.LoadGroup(list(), "MultiZ Debug", "map_files/debug", "multiz.dmm", list(list(ZTRAIT_UP = 1),list(ZTRAIT_UP = 1, ZTRAIT_DOWN = -1), list(ZTRAIT_DOWN = -1)), ZTRAITS_STATION, silent = FALSE)
 
 
 /client/proc/proverka_na_obemky()
