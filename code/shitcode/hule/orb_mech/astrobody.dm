@@ -20,6 +20,5 @@
 	mass = 1
 	radius = 5
 
-/datum/astrobody/proc/getGravAttraction(list/bodies)
 
 
