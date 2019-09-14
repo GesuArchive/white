@@ -180,7 +180,6 @@
 	else
 		playsound(src, 'sound/effects/splat.ogg', 50, TRUE)
 
-	// By default, the emagged recycler will gib all non-carbons. (human simple animal mobs don't count)
 	if(iscarbon(L))
 		if(L.stat == CONSCIOUS)
 			L.say("ARRRRRRRRRRRGH!!!", forced="recycler grinding")
