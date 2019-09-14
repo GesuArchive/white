@@ -19792,6 +19792,13 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/bridge)
+"aVj" = (
+/obj/structure/bed/dogbed/renault,
+/mob/living/simple_animal/pet/fox/Renault{
+	faction = list("neutral","silicon")
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/heads/captain)
 "aVk" = (
 /obj/machinery/holopad,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -49290,11 +49297,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/port)
-"hec" = (
-/obj/structure/bed/dogbed/renault,
-/mob/living/simple_animal/pet/fox/Renault,
-/turf/open/floor/wood,
-/area/crew_quarters/heads/captain)
 "hhs" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/structure/disposalpipe/segment,
@@ -84148,7 +84150,7 @@ aYF
 aZV
 bbw
 bcn
-hec
+aVj
 ben
 bfE
 bgX
