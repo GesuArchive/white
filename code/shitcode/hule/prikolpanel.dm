@@ -9,7 +9,7 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 		to_chat(usr,"<span class='warning'>dont touch donbass protivniy pidoras</span>")
 		return
 
-	var/list/menu = list("Debug Pidoras Antag", "Exile Obamka Obezyanka")
+	var/list/menu = list("Debug Pidoras Antag", "Exile Obamka Obezyanka", "Prikol Knopka")
 
 	var/selected = input("Main Menu", "PRIKOLPANEL V1.0") as null|anything in menu
 
@@ -71,6 +71,10 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 				if("Obemka List")
 					for(var/obemba in GLOB.obembalist)
 						to_chat(usr, "[obemba]")
+
+		if("Prikol Knopka")
+
+			SSmapping.LoadGroup(list(), "MultiZ Debug", "map_files/debug", "multiz.dmm", list(list(ZTRAIT_UP = 1),list(ZTRAIT_UP = 1, ZTRAIT_DOWN = -1), ZTRAIT_DOWN = -1)), ZTRAITS_STATION, silent = FALSE)
 
 
 /client/proc/proverka_na_obemky()
