@@ -83,6 +83,8 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 			if(config.map_name == "Box Station")
 				return
 
+			to_chat(usr, "Map: [config.map_name]")
+
 			var/list/maps = SSmapping.LoadGroup(list(), config.map_name, config.map_path, config.map_file, config.traits)
 
 			repopulate_sorted_areas()
