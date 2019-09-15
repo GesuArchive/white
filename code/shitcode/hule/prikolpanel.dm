@@ -80,7 +80,7 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 
 			var/datum/map_config/config = load_map_config(filename = confpath, default_to_box = FALSE, delete_after = FALSE, error_if_missing = TRUE)
 
-			if(config.defaulted)
+			if(config.map_name == "Box Station")
 				return
 
 			var/list/maps = SSmapping.LoadGroup(list(), config.map_name, config.map_path, config.map_file, config.traits)
