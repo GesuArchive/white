@@ -544,7 +544,7 @@
 	. = ..()
 	for(var/i in get_equipped_items())
 		var/obj/item/item = i
-		SEND_SIGNAL(item, COMSIG_ITEM_WEARERCROSSED, AM)
+		SEND_SIGNAL(item, COMSIG_ITEM_WEARERCROSSED, AM, src)
 
 
 

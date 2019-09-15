@@ -30,6 +30,7 @@
 
 	if(ckey in GLOB.pacifist_list)
 		ADD_TRAIT(src, TRAIT_PACIFISM, "sosi")
+	GLOB.human_list += src
 
 /mob/living/carbon/human/proc/setup_human_dna()
 	//initialize dna. for spawned humans; overwritten by other code
@@ -44,6 +45,7 @@
 
 /mob/living/carbon/human/Destroy()
 	QDEL_NULL(physiology)
+	GLOB.human_list -= src
 	return ..()
 
 
