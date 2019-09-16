@@ -28,10 +28,10 @@
 		var/tl = SSticker.GetTimeLeft()
 		var/postfix
 		if(tl > 0)
-			postfix = "in about [DisplayTimeText(tl)]"
+			postfix = "через [DisplayTimeText(tl)]"
 		else
-			postfix = "soon"
-		to_chat(src, "Please set up your character and select \"Ready\". The game will start [postfix].")
+			postfix = "скоро"
+		to_chat(src, "Пожалуйста, настройте своего персонажа и нажмите кнопку \"Готов\". Игра начнётся [postfix].")
 
 	if (!GLOB.donators[ckey]) //It doesn't exist yet
 		load_donator(ckey)

@@ -90,22 +90,22 @@
 
 /obj/structure/falsewall/attackby(obj/item/W, mob/user, params)
 	if(opening)
-		to_chat(user, "<span class='warning'>You must wait until the door has stopped moving!</span>")
+		to_chat(user, "<span class='warning'>НАДО ПОДОЖДАТЬ!</span>")
 		return
 
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
 		if(density)
 			var/turf/T = get_turf(src)
 			if(T.density)
-				to_chat(user, "<span class='warning'>[src] is blocked!</span>")
+				to_chat(user, "<span class='warning'>[src.name] заблокирована!</span>")
 				return
 			if(!isfloorturf(T))
-				to_chat(user, "<span class='warning'>[src] bolts must be tightened on the floor!</span>")
+				to_chat(user, "<span class='warning'>[src.name] не ощущает пола под собой!</span>")
 				return
-			user.visible_message("<span class='notice'>[user] tightens some bolts on the wall.</span>", "<span class='notice'>You tighten the bolts on the wall.</span>")
+			user.visible_message("<span class='notice'>[user] затягивает болты стены.</span>", "<span class='notice'>Ты затянул болты стены.</span>")
 			ChangeToWall()
 		else
-			to_chat(user, "<span class='warning'>You can't reach, close it first!</span>")
+			to_chat(user, "<span class='warning'>Ты не можешь достать до болтов! Закрой её!</span>")
 
 	else if(W.tool_behaviour == TOOL_WELDER)
 		if(W.use_tool(src, user, 0, volume=50))
@@ -134,7 +134,7 @@
 	return null
 
 /obj/structure/falsewall/examine_status(mob/user) //So you can't detect falsewalls by examine.
-	to_chat(user, "<span class='notice'>The outer plating is <b>welded</b> firmly in place.</span>")
+	to_chat(user, "<span class='notice'>Внешнее покрытие <b>приварено</b> крепко.</span>")
 	return null
 
 /*
@@ -150,7 +150,7 @@
 	mineral = /obj/item/stack/sheet/plasteel
 
 /obj/structure/falsewall/reinforced/examine_status(mob/user)
-	to_chat(user, "<span class='notice'>The outer <b>grille</b> is fully intact.</span>")
+	to_chat(user, "<span class='notice'>Внешняя <b>решетка</b> цела.</span>")
 	return null
 
 /obj/structure/falsewall/reinforced/attackby(obj/item/tool, mob/user)
@@ -164,7 +164,7 @@
 
 /obj/structure/falsewall/uranium
 	name = "uranium wall"
-	desc = "A wall with uranium plating. This is probably a bad idea."
+	desc = "Стена с урановым покрытием. Это плохая идея."
 	icon = 'icons/turf/walls/uranium_wall.dmi'
 	icon_state = "uranium"
 	mineral = /obj/item/stack/sheet/mineral/uranium
@@ -198,7 +198,7 @@
 
 /obj/structure/falsewall/gold
 	name = "gold wall"
-	desc = "A wall with gold plating. Swag!"
+	desc = "Стена с золотым покрытием. Чётко!"
 	icon = 'icons/turf/walls/gold_wall.dmi'
 	icon_state = "gold"
 	mineral = /obj/item/stack/sheet/mineral/gold
@@ -207,7 +207,7 @@
 
 /obj/structure/falsewall/silver
 	name = "silver wall"
-	desc = "A wall with silver plating. Shiny."
+	desc = "Стена с серебрянным покрытием. Сияет."
 	icon = 'icons/turf/walls/silver_wall.dmi'
 	icon_state = "silver"
 	mineral = /obj/item/stack/sheet/mineral/silver
@@ -216,7 +216,7 @@
 
 /obj/structure/falsewall/diamond
 	name = "diamond wall"
-	desc = "A wall with diamond plating. You monster."
+	desc = "Стена с алмазным покрытием. Построено идиотом."
 	icon = 'icons/turf/walls/diamond_wall.dmi'
 	icon_state = "diamond"
 	mineral = /obj/item/stack/sheet/mineral/diamond
@@ -226,7 +226,7 @@
 
 /obj/structure/falsewall/plasma
 	name = "plasma wall"
-	desc = "A wall with plasma plating. This is definitely a bad idea."
+	desc = "Стена с покрытием из плазмы. Это плохая идея."
 	icon = 'icons/turf/walls/plasma_wall.dmi'
 	icon_state = "plasma"
 	mineral = /obj/item/stack/sheet/mineral/plasma
@@ -254,7 +254,7 @@
 
 /obj/structure/falsewall/bananium
 	name = "bananium wall"
-	desc = "A wall with bananium plating. Honk!"
+	desc = "Стена с бананиевым покрытием. Хонк!"
 	icon = 'icons/turf/walls/bananium_wall.dmi'
 	icon_state = "bananium"
 	mineral = /obj/item/stack/sheet/mineral/bananium
@@ -264,7 +264,7 @@
 
 /obj/structure/falsewall/sandstone
 	name = "sandstone wall"
-	desc = "A wall with sandstone plating. Rough."
+	desc = "Стена с песчанниковым покрытием. Грубая."
 	icon = 'icons/turf/walls/sandstone_wall.dmi'
 	icon_state = "sandstone"
 	mineral = /obj/item/stack/sheet/mineral/sandstone
@@ -273,7 +273,7 @@
 
 /obj/structure/falsewall/wood
 	name = "wooden wall"
-	desc = "A wall with wooden plating. Stiff."
+	desc = "Стена с деревянным покрытием. Занозы торчат."
 	icon = 'icons/turf/walls/wood_wall.dmi'
 	icon_state = "wood"
 	mineral = /obj/item/stack/sheet/mineral/wood
@@ -282,7 +282,7 @@
 
 /obj/structure/falsewall/iron
 	name = "rough metal wall"
-	desc = "A wall with rough metal plating."
+	desc = "Стена с металлическим покрытием"
 	icon = 'icons/turf/walls/iron_wall.dmi'
 	icon_state = "iron"
 	mineral = /obj/item/stack/rods
@@ -292,7 +292,7 @@
 
 /obj/structure/falsewall/abductor
 	name = "alien wall"
-	desc = "A wall with alien alloy plating."
+	desc = "Стена с инопланетным покрытием."
 	icon = 'icons/turf/walls/abductor_wall.dmi'
 	icon_state = "abductor"
 	mineral = /obj/item/stack/sheet/mineral/abductor
@@ -301,7 +301,7 @@
 
 /obj/structure/falsewall/titanium
 	name = "wall"
-	desc = "A light-weight titanium wall used in shuttles."
+	desc = "Стена с легковесным титановым покрытием."
 	icon = 'icons/turf/walls/shuttle_wall.dmi'
 	icon_state = "shuttle"
 	mineral = /obj/item/stack/sheet/mineral/titanium
@@ -311,7 +311,7 @@
 
 /obj/structure/falsewall/plastitanium
 	name = "wall"
-	desc = "An evil wall of plasma and titanium."
+	desc = "Зловещая стена с пластитановым покрытием."
 	icon = 'icons/turf/walls/plastitanium_wall.dmi'
 	icon_state = "shuttle"
 	mineral = /obj/item/stack/sheet/mineral/plastitanium
@@ -321,7 +321,7 @@
 
 /obj/structure/falsewall/brass
 	name = "clockwork wall"
-	desc = "A huge chunk of warm metal. The clanging of machinery emanates from within."
+	desc = "Здоровенный кусок тёплой на ощупь стены. Внутри что-то стучит и крутится."
 	icon = 'icons/turf/walls/clockwork_wall.dmi'
 	icon_state = "clockwork_wall"
 	resistance_flags = FIRE_PROOF | ACID_PROOF

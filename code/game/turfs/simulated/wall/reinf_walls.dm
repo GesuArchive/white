@@ -17,19 +17,19 @@
 /turf/closed/wall/r_wall/deconstruction_hints(mob/user)
 	switch(d_state)
 		if(INTACT)
-			return "<span class='notice'>The outer <b>grille</b> is fully intact.</span>"
+			return "<span class='notice'>Внешняя <b>решетка</b> цела.</span>"
 		if(SUPPORT_LINES)
-			return "<span class='notice'>The outer <i>grille</i> has been cut, and the support lines are <b>screwed</b> securely to the outer cover.</span>"
+			return "<span class='notice'>Внешняя <i>решетка</i> надкусана, теперь её можно <b>открутить</b>.</span>"
 		if(COVER)
-			return "<span class='notice'>The support lines have been <i>unscrewed</i>, and the metal cover is <b>welded</b> firmly in place.</span>"
+			return "<span class='notice'>Поддерживающие линии <i>откручены</i>, металлическое покрытие <b>приварено</b> крепко.</span>"
 		if(CUT_COVER)
-			return "<span class='notice'>The metal cover has been <i>sliced through</i>, and is <b>connected loosely</b> to the girder.</span>"
+			return "<span class='notice'>Металлическое покрытие <i>проварено насквозь</i> и <b>болтается</b> на основании.</span>"
 		if(ANCHOR_BOLTS)
-			return "<span class='notice'>The outer cover has been <i>pried away</i>, and the bolts anchoring the support rods are <b>wrenched</b> in place.</span>"
+			return "<span class='notice'>Металлическое покрытие <i>снято</i>, а также болты всё ещё <b>прикручены</b> на месте.</span>"
 		if(SUPPORT_RODS)
-			return "<span class='notice'>The bolts anchoring the support rods have been <i>loosened</i>, but are still <b>welded</b> firmly to the girder.</span>"
+			return "<span class='notice'>Болты удерживающие каркас <i>откручены</i>, но всё ещё <b>приварены</b> крепко к основанию.</span>"
 		if(SHEATH)
-			return "<span class='notice'>The support rods have been <i>sliced through</i>, and the outer sheath is <b>connected loosely</b> to the girder.</span>"
+			return "<span class='notice'>Поддерживающие каркас болты <i>срезаны</i>, внутреннее покрытие <b>прикручено слабо</b> к основанию.</span>"
 
 /turf/closed/wall/r_wall/devastate_wall()
 	new sheet_type(src, sheet_amount)
@@ -45,7 +45,7 @@
 		playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
 	else
 		playsound(src, 'sound/effects/bang.ogg', 50, TRUE)
-		to_chat(M, "<span class='warning'>This wall is far too strong for you to destroy.</span>")
+		to_chat(M, "<span class='warning'>Эта стена слишком крепка для тебя.</span>")
 
 /turf/closed/wall/r_wall/try_decon(obj/item/W, mob/user, turf/T)
 	//DECONSTRUCTION
@@ -55,138 +55,138 @@
 				W.play_tool_sound(src, 100)
 				d_state = SUPPORT_LINES
 				update_icon()
-				to_chat(user, "<span class='notice'>You cut the outer grille.</span>")
+				to_chat(user, "<span class='notice'>Ты откусываешь внешнюю решетку.</span>")
 				return 1
 
 		if(SUPPORT_LINES)
 			if(W.tool_behaviour == TOOL_SCREWDRIVER)
-				to_chat(user, "<span class='notice'>You begin unsecuring the support lines...</span>")
+				to_chat(user, "<span class='notice'>Ты начинаешь откручивать поддерживающие линии...</span>")
 				if(W.use_tool(src, user, 40, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != SUPPORT_LINES)
 						return 1
 					d_state = COVER
 					update_icon()
-					to_chat(user, "<span class='notice'>You unsecure the support lines.</span>")
+					to_chat(user, "<span class='notice'>Ты откручиваешь поддерживающие линии.</span>")
 				return 1
 
 			else if(W.tool_behaviour == TOOL_WIRECUTTER)
 				W.play_tool_sound(src, 100)
 				d_state = INTACT
 				update_icon()
-				to_chat(user, "<span class='notice'>You repair the outer grille.</span>")
+				to_chat(user, "<span class='notice'>Ты чинишь внешнюю решетку.</span>")
 				return 1
 
 		if(COVER)
 			if(W.tool_behaviour == TOOL_WELDER)
 				if(!W.tool_start_check(user, amount=0))
 					return
-				to_chat(user, "<span class='notice'>You begin slicing through the metal cover...</span>")
+				to_chat(user, "<span class='notice'>Ты начинаешь разваривать металлическое покрытие...</span>")
 				if(W.use_tool(src, user, 60, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != COVER)
 						return 1
 					d_state = CUT_COVER
 					update_icon()
-					to_chat(user, "<span class='notice'>You press firmly on the cover, dislodging it.</span>")
+					to_chat(user, "<span class='notice'>Ты слегка давишь на него и оно немного отходит от стены.</span>")
 				return 1
 
 			if(W.tool_behaviour == TOOL_SCREWDRIVER)
-				to_chat(user, "<span class='notice'>You begin securing the support lines...</span>")
+				to_chat(user, "<span class='notice'>Ты начинаешь прикручивать поддерживающие линии обратно...</span>")
 				if(W.use_tool(src, user, 40, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != COVER)
 						return 1
 					d_state = SUPPORT_LINES
 					update_icon()
-					to_chat(user, "<span class='notice'>The support lines have been secured.</span>")
+					to_chat(user, "<span class='notice'>Ты прикручиваешь поддерживающие линии.</span>")
 				return 1
 
 		if(CUT_COVER)
 			if(W.tool_behaviour == TOOL_CROWBAR)
-				to_chat(user, "<span class='notice'>You struggle to pry off the cover...</span>")
+				to_chat(user, "<span class='notice'>Ты начинаешь выдавливать покрытие...</span>")
 				if(W.use_tool(src, user, 100, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != CUT_COVER)
 						return 1
 					d_state = ANCHOR_BOLTS
 					update_icon()
-					to_chat(user, "<span class='notice'>You pry off the cover.</span>")
+					to_chat(user, "<span class='notice'>Ты выдавливаешь покрытие.</span>")
 				return 1
 
 			if(W.tool_behaviour == TOOL_WELDER)
 				if(!W.tool_start_check(user, amount=0))
 					return
-				to_chat(user, "<span class='notice'>You begin welding the metal cover back to the frame...</span>")
+				to_chat(user, "<span class='notice'>Ты начинаешь приваривать покрытие обратно на место...</span>")
 				if(W.use_tool(src, user, 60, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != CUT_COVER)
 						return TRUE
 					d_state = COVER
 					update_icon()
-					to_chat(user, "<span class='notice'>The metal cover has been welded securely to the frame.</span>")
+					to_chat(user, "<span class='notice'>Ты привариваешь металлическое покрытие обратно на место.</span>")
 				return 1
 
 		if(ANCHOR_BOLTS)
 			if(W.tool_behaviour == TOOL_WRENCH)
-				to_chat(user, "<span class='notice'>You start loosening the anchoring bolts which secure the support rods to their frame...</span>")
+				to_chat(user, "<span class='notice'>Ты начинаешь откручивать болты удерживающие каркас...</span>")
 				if(W.use_tool(src, user, 40, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != ANCHOR_BOLTS)
 						return 1
 					d_state = SUPPORT_RODS
 					update_icon()
-					to_chat(user, "<span class='notice'>You remove the bolts anchoring the support rods.</span>")
+					to_chat(user, "<span class='notice'>Ты откручиваешь болты удерживающие каркас.</span>")
 				return 1
 
 			if(W.tool_behaviour == TOOL_CROWBAR)
-				to_chat(user, "<span class='notice'>You start to pry the cover back into place...</span>")
+				to_chat(user, "<span class='notice'>Ты начинаешь ставить покрытие обратно на место...</span>")
 				if(W.use_tool(src, user, 20, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != ANCHOR_BOLTS)
 						return 1
 					d_state = CUT_COVER
 					update_icon()
-					to_chat(user, "<span class='notice'>The metal cover has been pried back into place.</span>")
+					to_chat(user, "<span class='notice'>Ты ставишь покрытие обратно на место.</span>")
 				return 1
 
 		if(SUPPORT_RODS)
 			if(W.tool_behaviour == TOOL_WELDER)
 				if(!W.tool_start_check(user, amount=0))
 					return
-				to_chat(user, "<span class='notice'>You begin slicing through the support rods...</span>")
+				to_chat(user, "<span class='notice'>Ты начинаешь разрезать поддерживающий каркас...</span>")
 				if(W.use_tool(src, user, 100, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != SUPPORT_RODS)
 						return 1
 					d_state = SHEATH
 					update_icon()
-					to_chat(user, "<span class='notice'>You slice through the support rods.</span>")
+					to_chat(user, "<span class='notice'>Ты прорезаешься через поддерживающий каркас.</span>")
 				return 1
 
 			if(W.tool_behaviour == TOOL_WRENCH)
-				to_chat(user, "<span class='notice'>You start tightening the bolts which secure the support rods to their frame...</span>")
+				to_chat(user, "<span class='notice'>Ты начинаешь затягивать болты поддерживающие каркас...</span>")
 				W.play_tool_sound(src, 100)
 				if(W.use_tool(src, user, 40))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != SUPPORT_RODS)
 						return 1
 					d_state = ANCHOR_BOLTS
 					update_icon()
-					to_chat(user, "<span class='notice'>You tighten the bolts anchoring the support rods.</span>")
+					to_chat(user, "<span class='notice'>Ты затягиваешь болты поддерживающие каркас.</span>")
 				return 1
 
 		if(SHEATH)
 			if(W.tool_behaviour == TOOL_CROWBAR)
-				to_chat(user, "<span class='notice'>You struggle to pry off the outer sheath...</span>")
+				to_chat(user, "<span class='notice'>Ты начинаешь выдавливать каркас...</span>")
 				if(W.use_tool(src, user, 100, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != SHEATH)
 						return 1
-					to_chat(user, "<span class='notice'>You pry off the outer sheath.</span>")
+					to_chat(user, "<span class='notice'>Ты выдавливаешь каркас.</span>")
 					dismantle_wall()
 				return 1
 
 			if(W.tool_behaviour == TOOL_WELDER)
 				if(!W.tool_start_check(user, amount=0))
 					return
-				to_chat(user, "<span class='notice'>You begin welding the support rods back together...</span>")
+				to_chat(user, "<span class='notice'>Ты начинаешь сваривать поддерживающий каркас обратно...</span>")
 				if(W.use_tool(src, user, 100, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != SHEATH)
 						return TRUE
 					d_state = SUPPORT_RODS
 					update_icon()
-					to_chat(user, "<span class='notice'>You weld the support rods back together.</span>")
+					to_chat(user, "<span class='notice'>Ты привариваешь всё как было.</span>")
 				return 1
 	return 0
 

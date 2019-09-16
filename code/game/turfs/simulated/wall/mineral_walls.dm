@@ -1,6 +1,6 @@
 /turf/closed/wall/mineral
 	name = "mineral wall"
-	desc = "This shouldn't exist"
+	desc = "Не смотри на меня семпай..."
 	icon_state = ""
 	var/last_event = 0
 	var/active = null
@@ -9,7 +9,7 @@
 
 /turf/closed/wall/mineral/gold
 	name = "gold wall"
-	desc = "A wall with gold plating. Swag!"
+	desc = "Стена с золотым покрытием. Чётко!"
 	icon = 'icons/turf/walls/gold_wall.dmi'
 	icon_state = "gold"
 	sheet_type = /obj/item/stack/sheet/mineral/gold
@@ -18,7 +18,7 @@
 
 /turf/closed/wall/mineral/silver
 	name = "silver wall"
-	desc = "A wall with silver plating. Shiny!"
+	desc = "Стена с серебрянным покрытием. Сияет."
 	icon = 'icons/turf/walls/silver_wall.dmi'
 	icon_state = "silver"
 	sheet_type = /obj/item/stack/sheet/mineral/silver
@@ -26,7 +26,7 @@
 
 /turf/closed/wall/mineral/diamond
 	name = "diamond wall"
-	desc = "A wall with diamond plating. You monster."
+	desc = "Стена с алмазным покрытием. Построено идиотом."
 	icon = 'icons/turf/walls/diamond_wall.dmi'
 	icon_state = "diamond"
 	sheet_type = /obj/item/stack/sheet/mineral/diamond
@@ -36,7 +36,7 @@
 
 /turf/closed/wall/mineral/bananium
 	name = "bananium wall"
-	desc = "A wall with bananium plating. Honk!"
+	desc = "Стена с бананиевым покрытием. Хонк!"
 	icon = 'icons/turf/walls/bananium_wall.dmi'
 	icon_state = "bananium"
 	sheet_type = /obj/item/stack/sheet/mineral/bananium
@@ -44,7 +44,7 @@
 
 /turf/closed/wall/mineral/sandstone
 	name = "sandstone wall"
-	desc = "A wall with sandstone plating. Rough."
+	desc = "Стена с песчанниковым покрытием. Грубая."
 	icon = 'icons/turf/walls/sandstone_wall.dmi'
 	icon_state = "sandstone"
 	sheet_type = /obj/item/stack/sheet/mineral/sandstone
@@ -54,7 +54,7 @@
 /turf/closed/wall/mineral/uranium
 	article = "a"
 	name = "uranium wall"
-	desc = "A wall with uranium plating. This is probably a bad idea."
+	desc = "Стена с урановым покрытием. Это плохая идея."
 	icon = 'icons/turf/walls/uranium_wall.dmi'
 	icon_state = "uranium"
 	sheet_type = /obj/item/stack/sheet/mineral/uranium
@@ -86,7 +86,7 @@
 
 /turf/closed/wall/mineral/plasma
 	name = "plasma wall"
-	desc = "A wall with plasma plating. This is definitely a bad idea."
+	desc = "Стена с покрытием из плазмы. Это плохая идея."
 	icon = 'icons/turf/walls/plasma_wall.dmi'
 	icon_state = "plasma"
 	sheet_type = /obj/item/stack/sheet/mineral/plasma
@@ -124,7 +124,7 @@
 
 /turf/closed/wall/mineral/wood
 	name = "wooden wall"
-	desc = "A wall with wooden plating. Stiff."
+	desc = "Стена с деревянным покрытием. Занозы торчат."
 	icon = 'icons/turf/walls/wood_wall.dmi'
 	icon_state = "wood"
 	sheet_type = /obj/item/stack/sheet/mineral/wood
@@ -143,14 +143,14 @@
 	return ..()
 
 /turf/closed/wall/mineral/wood/nonmetal
-	desc = "A solidly wooden wall. It's a bit weaker than a wall made with metal."
+	desc = "Стена состоящая только из дерева. не такая крепкая, но зато без металла."
 	girder_type = /obj/structure/barricade/wooden
 	hardness = 50
 	canSmoothWith = list(/turf/closed/wall/mineral/wood, /obj/structure/falsewall/wood, /turf/closed/wall/mineral/wood/nonmetal)
 
 /turf/closed/wall/mineral/iron
 	name = "rough metal wall"
-	desc = "A wall with rough metal plating."
+	desc = "Стена с металлическим покрытием"
 	icon = 'icons/turf/walls/iron_wall.dmi'
 	icon_state = "iron"
 	sheet_type = /obj/item/stack/rods
@@ -158,7 +158,7 @@
 
 /turf/closed/wall/mineral/snow
 	name = "packed snow wall"
-	desc = "A wall made of densely packed snow blocks."
+	desc = "Стена из настоящего снега!"
 	icon = 'icons/turf/walls/snow_wall.dmi'
 	icon_state = "snow"
 	hardness = 80
@@ -172,7 +172,7 @@
 
 /turf/closed/wall/mineral/abductor
 	name = "alien wall"
-	desc = "A wall with alien alloy plating."
+	desc = "Стена с инопланетным покрытием."
 	icon = 'icons/turf/walls/abductor_wall.dmi'
 	icon_state = "abductor"
 	smooth = SMOOTH_TRUE|SMOOTH_DIAGONAL
@@ -185,7 +185,7 @@
 
 /turf/closed/wall/mineral/titanium //has to use this path due to how building walls works
 	name = "wall"
-	desc = "A light-weight titanium wall used in shuttles."
+	desc = "Стена с легковесным титановым покрытием."
 	icon = 'icons/turf/walls/shuttle_wall.dmi'
 	icon_state = "map-shuttle"
 	explosion_block = 3
@@ -232,7 +232,7 @@
 
 /turf/closed/wall/mineral/titanium/survival
 	name = "pod wall"
-	desc = "An easily-compressable wall used for temporary shelter."
+	desc = "Красивая стена с пластитановым покрытием. Отлично подходит для укрытий от непогоды."
 	icon = 'icons/turf/walls/survival_pod_walls.dmi'
 	icon_state = "smooth"
 	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
@@ -248,7 +248,7 @@
 
 /turf/closed/wall/mineral/plastitanium
 	name = "wall"
-	desc = "A durable wall made of an alloy of plasma and titanium."
+	desc = "Зловещая стена со пластитановым покрытием."
 	icon = 'icons/turf/walls/plastitanium_wall.dmi'
 	icon_state = "map-shuttle"
 	explosion_block = 4

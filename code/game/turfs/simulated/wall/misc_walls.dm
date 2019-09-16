@@ -1,6 +1,6 @@
 /turf/closed/wall/mineral/cult
 	name = "runed metal wall"
-	desc = "A cold metal wall engraved with indecipherable symbols. Studying them causes your head to pound."
+	desc = "Стена с непонятными рунами на ней, которые вызывают боли в голове если долго смотреть на них. Холодная на ощупь."
 	icon = 'icons/turf/walls/cult_wall.dmi'
 	icon_state = "cult"
 	canSmoothWith = null
@@ -36,7 +36,7 @@
 
 /turf/closed/wall/mineral/cult/artificer
 	name = "runed stone wall"
-	desc = "A cold stone wall engraved with indecipherable symbols. Studying them causes your head to pound."
+	desc = "Стена с непонятными рунами на ней, которые вызывают боли в голове если долго смотреть на них. Холодная на ощупь."
 
 /turf/closed/wall/mineral/cult/artificer/break_wall()
 	new /obj/effect/temp_visual/cult/turf(get_turf(src))
@@ -48,7 +48,7 @@
 //Clockwork wall: Causes nearby tinkerer's caches to generate components.
 /turf/closed/wall/clockwork
 	name = "clockwork wall"
-	desc = "A huge chunk of warm metal. The clanging of machinery emanates from within."
+	desc = "Здоровенный кусок тёплой на ощупь стены. Внутри что-то стучит и крутится."
 	explosion_block = 2
 	hardness = 10
 	slicing_duration = 80
@@ -155,7 +155,7 @@
 /turf/closed/wall/ice
 	icon = 'icons/turf/walls/icedmetal_wall.dmi'
 	icon_state = "iced"
-	desc = "A wall covered in a thick sheet of ice."
+	desc = "Стена покрытая льдом."
 	canSmoothWith = null
 	hardness = 35
 	slicing_duration = 150 //welding through the ice+metal
@@ -163,19 +163,19 @@
 
 /turf/closed/wall/rust
 	name = "rusted wall"
-	desc = "A rusted metal wall."
+	desc = "Старая ржавая стена."
 	icon = 'icons/turf/walls/rusty_wall.dmi'
 	hardness = 45
 
 /turf/closed/wall/r_wall/rust
 	name = "rusted reinforced wall"
-	desc = "A huge chunk of rusted reinforced metal."
+	desc = "Старая укреплённая ржавая стена."
 	icon = 'icons/turf/walls/rusty_reinforced_wall.dmi'
 	hardness = 15
 
 /turf/closed/wall/mineral/bronze
 	name = "clockwork wall"
-	desc = "A huge chunk of bronze, decorated like gears and cogs."
+	desc = "Крупная бронзовая стена. Её украшивают также и бронзовые шестерни."
 	icon = 'icons/turf/walls/clockwork_wall.dmi'
 	icon_state = "clockwork_wall"
 	sheet_type = /obj/item/stack/tile/bronze
