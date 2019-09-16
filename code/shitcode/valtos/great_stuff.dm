@@ -159,19 +159,19 @@
 /obj/item/clothing/mask/gas/izan
 	name = "old style gas mask"
 	desc = "Ìלל. Õאיכü Âאיע."
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
+	flags_inv = 256
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/mask.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/masks.dmi'
 	icon_state = "fullgas"
 
 /obj/item/clothing/mask/gas/izan/german
 	name = "german gas mask"
-	flags_inv = HIDEMASK|HIDEEYES|HIDEFACE
+	flags_inv = 256
 	icon_state = "german_gasmask"
 
 /obj/item/clothing/mask/gas/izan/german/alt
 	name = "gas mask"
-	flags_inv = HIDEMASK|HIDEEYES|HIDEFACE
+	flags_inv = 256
 	icon_state = "gas_alt"
 
 /obj/item/clothing/mask/gas/izan/respirator
@@ -181,7 +181,7 @@
 /obj/item/clothing/mask/izanclava
 	name = "balaclava"
 	desc = "Ìלל. Õאיכü Âאיע."
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
+	flags_inv = 256
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/mask.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/masks.dmi'
 	icon_state = "balaclava"
