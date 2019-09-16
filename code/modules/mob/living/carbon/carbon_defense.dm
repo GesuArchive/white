@@ -62,8 +62,8 @@
 				if(isturf(I.loc))
 					I.attack_hand(src)
 					if(get_active_held_item() == I) //if our attack_hand() picks up the item...
-						visible_message("<span class='warning'>[src] catches [I]!</span>", \
-										"<span class='userdanger'>You catch [I] in mid-air!</span>")
+						visible_message("<span class='warning'><b>[src]</b> ловит <b>[I.name]</b>!</span>", \
+										"<span class='userdanger'>Ты ловишь <b>[I.name]</b> в воздухе!</span>")
 						throw_mode_off()
 						return 1
 	..()
@@ -165,8 +165,8 @@
 				if(M.powerlevel < 0)
 					M.powerlevel = 0
 
-				visible_message("<span class='danger'>The [M.name] has shocked [src]!</span>", \
-				"<span class='userdanger'>The [M.name] has shocked you!</span>")
+				visible_message("<span class='danger'><b>[M.name]</b> ёбнул током <b>[src]</b>!</span>", \
+				"<span class='userdanger'><b>[M.name]</b> ёбнул тебя током!</span>")
 
 				do_sparks(5, TRUE, src)
 				var/power = M.powerlevel + rand(0,3)
@@ -250,18 +250,18 @@
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)
 	if(on_fire)
-		to_chat(M, "<span class='warning'>You can't put [p_them()] out with just your bare hands!</span>")
+		to_chat(M, "<span class='warning'>Ты не можешь дотронуться до н[ru_ego()] голыми руками!</span>")
 		return
 
 	if(!(mobility_flags & MOBILITY_STAND))
 		if(buckled)
-			to_chat(M, "<span class='warning'>You need to unbuckle [src] first to do that!</span>")
+			to_chat(M, "<span class='warning'>Тебе нужно отстегнуться от [src.name], чтобы сделать это!</span>")
 			return
-		M.visible_message("<span class='notice'>[M] shakes [src] trying to get [p_them()] up!</span>", \
-						"<span class='notice'>You shake [src] trying to get [p_them()] up!</span>")
+		M.visible_message("<span class='notice'>[M] встряхивает [src] пытаесь поднять [ru_ego()]!</span>", \
+						"<span class='notice'>Ты встряхиваешь [src] пытаесь поднять [ru_ego()]!</span>")
 	else
-		M.visible_message("<span class='notice'>[M] hugs [src] to make [p_them()] feel better!</span>", \
-					"<span class='notice'>You hug [src] to make [p_them()] feel better!</span>")
+		M.visible_message("<span class='notice'>[M] обнимает [src]!</span>", \
+					"<span class='notice'>Ты обнимаешь [src]!</span>")
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "hug", /datum/mood_event/hug)
 		if(HAS_TRAIT(M, TRAIT_FRIENDLY))
 			var/datum/component/mood/mood = M.GetComponent(/datum/component/mood)
@@ -297,16 +297,16 @@
 			return
 
 		if (damage == 1)
-			to_chat(src, "<span class='warning'>Your eyes sting a little.</span>")
+			to_chat(src, "<span class='warning'>Твои глаза покалывает слегка.</span>")
 			if(prob(40))
 				eyes.applyOrganDamage(1)
 
 		else if (damage == 2)
-			to_chat(src, "<span class='warning'>Your eyes burn.</span>")
+			to_chat(src, "<span class='warning'>Твои глаза горят.</span>")
 			eyes.applyOrganDamage(rand(2, 4))
 
 		else if( damage >= 3)
-			to_chat(src, "<span class='warning'>Your eyes itch and burn severely!</span>")
+			to_chat(src, "<span class='warning'>Твои глаза сильно горят и слезятся!</span>")
 			eyes.applyOrganDamage(rand(12, 16))
 
 		if(eyes.damage > 10)
@@ -316,22 +316,22 @@
 			if(eyes.damage > 20)
 				if(prob(eyes.damage - 20))
 					if(!HAS_TRAIT(src, TRAIT_NEARSIGHT))
-						to_chat(src, "<span class='warning'>Your eyes start to burn badly!</span>")
+						to_chat(src, "<span class='warning'>Твои глаза начали неприятно гореть!</span>")
 					become_nearsighted(EYE_DAMAGE)
 
 				else if(prob(eyes.damage - 25))
 					if(!HAS_TRAIT(src, TRAIT_BLIND))
-						to_chat(src, "<span class='warning'>You can't see anything!</span>")
+						to_chat(src, "<span class='warning'>Ты перестаёшь видеть!</span>")
 					eyes.applyOrganDamage(eyes.maxHealth)
 
 			else
-				to_chat(src, "<span class='warning'>Your eyes are really starting to hurt. This can't be good for you!</span>")
+				to_chat(src, "<span class='warning'>Твои глаза начали болеть. Это не очень полезно для тебя!</span>")
 		if(has_bane(BANE_LIGHT))
 			mind.disrupt_spells(-500)
 		return 1
 	else if(damage == 0) // just enough protection
 		if(prob(20))
-			to_chat(src, "<span class='notice'>Something bright flashes in the corner of your vision!</span>")
+			to_chat(src, "<span class='notice'>Ты замечаешь как что-то вспыхнуло краем глаза!</span>")
 		if(has_bane(BANE_LIGHT))
 			mind.disrupt_spells(0)
 
@@ -354,13 +354,13 @@
 			adjustEarDamage(ear_damage,deaf)
 
 			if(ears.damage >= 15)
-				to_chat(src, "<span class='warning'>Your ears start to ring badly!</span>")
+				to_chat(src, "<span class='warning'>В твоих ушах начало звенеть сильно!</span>")
 				if(prob(ears.damage - 5))
-					to_chat(src, "<span class='userdanger'>You can't hear anything!</span>")
+					to_chat(src, "<span class='userdanger'>Ты ничего не слышишь!</span>")
 					ears.damage = min(ears.damage, ears.maxHealth)
 					// you need earmuffs, inacusiate, or replacement
 			else if(ears.damage >= 5)
-				to_chat(src, "<span class='warning'>Your ears start to ring!</span>")
+				to_chat(src, "<span class='warning'>В твоих ушах начало звенеть!</span>")
 			SEND_SOUND(src, sound('sound/weapons/flash_ring.ogg',0,1,0,250))
 		return effect_amount //how soundbanged we are
 
