@@ -11,8 +11,8 @@
 	desc = "Ммм. Хайль Вайт."
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/uniform.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/uniforms.dmi'
-	icon_state = "m35jacket"
-	item_state = "m35jacket"
+	icon_state = "m35_jacket"
+	item_state = "m35_jacket"
 
 	armor = list("melee" = 20, "bullet" = 20, "laser" = 20,"energy" = 20, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 30)
 	can_adjust = FALSE
@@ -80,14 +80,14 @@
 	icon_state = "super_elite_army_coat"
 	armor = list("melee" = 75, "bullet" = 100, "laser" = 60,"energy" = 50, "bomb" = 70, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 30)
 
-/obj/item/clothing/suit/robes
+/obj/item/clothing/suit/cowl
 	name = "cowl"
 	desc = "Красивое покрывало."
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/suits.dmi'
 	icon_state = "cowl"
 
-/obj/item/clothing/suit/robes
+/obj/item/clothing/suit/cowl/robe
 	name = "robe"
 	desc = "Модное покрывало."
 	icon_state = "robe"
@@ -112,6 +112,7 @@
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/hat.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/hats.dmi'
 	icon_state = "arbiter"
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 
 /obj/item/clothing/head/helmet/arbiter/inquisitor
@@ -144,14 +145,50 @@
 	name = "pickelhelm"
 	icon_state = "pickelhelm"
 
+/obj/item/clothing/head/helmet/richard
+	name = "richard's head"
+	desc = "Пахнет кровью."
+	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/hat.dmi'
+	icon = 'code/shitcode/valtos/icons/clothing/hats.dmi'
+	icon_state = "richard"
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
+	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+
 //masks
 
 /obj/item/clothing/mask/gas/izan
 	name = "old style gas mask"
 	desc = "Ммм. Хайль Вайт."
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/mask.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/masks.dmi'
 	icon_state = "fullgas"
+
+/obj/item/clothing/mask/gas/izan/german
+	name = "german gas mask"
+	flags_inv = HIDEMASK|HIDEEYES|HIDEFACE
+	icon_state = "german_gasmask"
+
+/obj/item/clothing/mask/gas/izan/german/alt
+	name = "gas mask"
+	flags_inv = HIDEMASK|HIDEEYES|HIDEFACE
+	icon_state = "gas_alt"
+
+/obj/item/clothing/mask/gas/izan/respirator
+	name = "respirator mask"
+	icon_state = "respirator"
+
+/obj/item/clothing/mask/izanclava
+	name = "balaclava"
+	desc = "Ммм. Хайль Вайт."
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
+	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/mask.dmi'
+	icon = 'code/shitcode/valtos/icons/clothing/masks.dmi'
+	icon_state = "balaclava"
+
+/obj/item/clothing/mask/izanclava/swat
+	name = "swatclava"
+	icon_state = "swatclava"
 
 //shoes
 
@@ -194,6 +231,7 @@
 
 /obj/item/ammo_box/magazine/ak47mag
 	name = "AK-47 magazine (7.62)"
+	icon = 'code/shitcode/valtos/icons/ammo.dmi'
 	icon_state = "akm"
 	ammo_type = /obj/item/ammo_casing/a762
 	caliber = "a762"
