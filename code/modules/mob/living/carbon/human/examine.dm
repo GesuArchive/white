@@ -79,7 +79,7 @@
 
 	//mask
 	if(wear_mask && !(SLOT_WEAR_MASK in obscured))
-		. += "На [t_ego] лице [wear_mask.ru_get_examine_string(user)]."
+		. += "На лице у [t_ego] [wear_mask.ru_get_examine_string(user)]."
 
 	if(wear_neck && !(SLOT_NECK in obscured))
 		. += "На шее у н[t_ego] [wear_neck.ru_get_examine_string(user)]."
@@ -157,14 +157,14 @@
 	var/r_limbs_missing = 0
 	for(var/t in missing)
 		if(t==BODY_ZONE_HEAD)
-			msg += "<span class='deadsay'><B>[ru_ego(TRUE)] [parse_zone(t)] отсутствует!</B><span class='warning'>\n"
+			msg += "<span class='deadsay'><B>[ru_ego(TRUE)] [ru_exam_parse_zone(parse_zone(t))] отсутствует!</B><span class='warning'>\n"
 			continue
 		if(t == BODY_ZONE_L_ARM || t == BODY_ZONE_L_LEG)
 			l_limbs_missing++
 		else if(t == BODY_ZONE_R_ARM || t == BODY_ZONE_R_LEG)
 			r_limbs_missing++
 
-		msg += "<B>[ru_ego(TRUE)] [parse_zone(t)] отсутствует!</B>\n"
+		msg += "<B>[ru_ego(TRUE)] [ru_exam_parse_zone(parse_zone(t))] отсутствует!</B>\n"
 
 	if(l_limbs_missing >= 2 && r_limbs_missing == 0)
 		msg += "[t_on] стоит на правой части.\n"
@@ -297,7 +297,7 @@
 				msg += "[t_on] имеет пустой, рассеянный взгляд и кажется совершенно не реагирующим ни на что. [t_on] может выйти из этого в ближайшее время.\n"
 
 	if (length(msg))
-		. += "<span class='warning'>[msg.Join("")]</span>"
+		. += "\n<span class='warning'>[msg.Join("")]</span>"
 
 	var/trait_exam = common_trait_examine()
 	if (!isnull(trait_exam))
@@ -344,8 +344,8 @@
 					"<a href='?src=[REF(src)];hud=s;view_comment=1'>\[Просмотреть комментарии\]</a>",
 					"<a href='?src=[REF(src)];hud=s;add_comment=1'>\[Добавить комментарий\]</a>"), "")
 	else if(isobserver(user) && traitstring)
-		. += "<span class='info'><b>Черты:</b> [traitstring]</span><br>"
-	. += "*---------*</span>"
+		. += "<span class='info'><b>Черты:</b> [traitstring]</span>"
+	. += "<span class='info'>*---------*</span>"
 
 /mob/living/proc/status_effect_examines(pronoun_replacement) //You can include this in any mob's examine() to show the examine texts of status effects!
 	var/list/dat = list()
