@@ -3069,6 +3069,7 @@
 #include "code\shitcode\valtos\ducttape.dm"
 #include "code\shitcode\valtos\fullscreen.dm"
 #include "code\shitcode\valtos\gen.dm"
+#include "code\shitcode\valtos\great_stuff.dm"
 #include "code\shitcode\valtos\libvg.dm"
 #include "code\shitcode\valtos\lockermech.dm"
 #include "code\shitcode\valtos\miners.dm"
