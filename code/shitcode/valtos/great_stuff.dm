@@ -217,12 +217,13 @@
 	lefthand_file = 'code/shitcode/valtos/icons/lefthand.dmi'
 	righthand_file = 'code/shitcode/valtos/icons/righthand.dmi'
 	mob_overlay_icon = 'code/shitcode/valtos/icons/back.dmi'
+	fire_sound = "code/shitcode/valtos/sounds/ak74_shot.ogg"
 	icon_state = "ak47"
 	item_state = "ak47"
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	mag_type = /obj/item/ammo_box/magazine/ak47mag
-	fire_delay = 3
+	fire_delay = 2
 	can_suppress = FALSE
 	burst_size = 3
 	can_bayonet = TRUE

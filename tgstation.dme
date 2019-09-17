@@ -3064,6 +3064,7 @@
 #include "code\shitcode\qwaszx000\loly\loly.dm"
 #include "code\shitcode\valtos\bombass.dm"
 #include "code\shitcode\valtos\brs.dm"
+#include "code\shitcode\valtos\crossbow.dm"
 #include "code\shitcode\valtos\custom.dm"
 #include "code\shitcode\valtos\dakis.dm"
 #include "code\shitcode\valtos\ducttape.dm"
