@@ -101,6 +101,9 @@
 	return 0
 
 /datum/interaction/lewd/post_interaction(var/mob/user, var/mob/target)
+	cooldaun = 1
+	spawn (15)
+		cooldaun = 0
 	if(user_refactory_cost)   user.refactory_period += user_refactory_cost
 	if(target_refactory_cost) target.refactory_period += target_refactory_cost
 	return ..()

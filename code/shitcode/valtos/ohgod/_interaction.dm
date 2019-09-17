@@ -118,7 +118,7 @@ var/list/interactions
 
 /datum/interaction/proc/post_interaction(var/mob/user, var/mob/target)
 	cooldaun = 1
-	spawn (5)
+	spawn (15)
 		cooldaun = 0
 	if(interaction_sound)
 		if(interaction_sound_age_pitch)
