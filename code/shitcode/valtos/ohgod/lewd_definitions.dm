@@ -84,7 +84,7 @@
 
 /datum/interaction/lewd/finger
 	command = "finger"
-	description = "Просунуть копыто в вагину."
+	description = "Просунуть пальчик в вагину."
 	require_user_hands = 1
 	require_target_vagina = 1
 	interaction_sound = null
@@ -99,7 +99,7 @@
 
 /datum/interaction/lewd/fingerass
 	command = "fingerm"
-	description = "Просунуть копыто в задницу."
+	description = "Просунуть пальчик в задницу."
 	interaction_sound = null
 	require_user_hands = 1
 	require_target_anus = 1
@@ -159,7 +159,7 @@
 
 /datum/interaction/lewd/breastfuck
 	command = "breastfuck"
-	description = "Трахнуть вымя."
+	description = "Трахнуть вагину."
 	interaction_sound = null
 	require_user_penis = 1
 	user_not_tired = 1
@@ -225,7 +225,7 @@
 
 /datum/interaction/lewd/mountface
 	command = "mountface"
-	description = "Сесть крупом на лицо."
+	description = "Сесть задницей на лицо."
 	interaction_sound = null
 	require_target_mouth = 1
 	require_user_anus = 1
@@ -240,7 +240,7 @@
 
 /datum/interaction/lewd/lickfeet
 	command = "lickfeet"
-	description = "Вылизать копыта."
+	description = "Вылизать ступни."
 	interaction_sound = null
 	require_user_mouth = 1
 	max_distance = 1
@@ -252,7 +252,7 @@
 
 /datum/interaction/lewd/grindface
 	command = "grindface"
-	description = "Мять мордочку подушечками."
+	description = "Мять лицо попкой."
 	interaction_sound = null
 	require_target_mouth = 1
 	max_distance = 0
@@ -264,7 +264,7 @@
 
 /datum/interaction/lewd/grindmouth
 	command = "grindmouth"
-	description = "Заставить отлизывать подушечки ртом."
+	description = "Заставить отлизывать попку ртом."
 	interaction_sound = null
 	require_target_mouth = 1
 	max_distance = 0

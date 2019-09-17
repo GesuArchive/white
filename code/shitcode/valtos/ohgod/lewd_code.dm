@@ -282,7 +282,7 @@
 	if(partner.is_fucking(src, CUM_TARGET_HAND))
 		message = "[pick(list("дрочит [partner].", "работает рукой с головкой члена [partner].", "надрачивает член [partner] быстрее."))]"
 	else
-		message = "нежно обхватывает член [partner] копытом."
+		message = "нежно обхватывает член [partner] рукой."
 		partner.set_is_fucking(src, CUM_TARGET_HAND)
 
 	playsound(src, "code/shitcode/valtos/ohgod/sounds/interactions/bang[rand(1, 3)].ogg", 70, 1, -1)
@@ -298,7 +298,7 @@
 	if(is_fucking(partner, CUM_TARGET_BREASTS))
 		message = "[pick(list("трахает [partner] между грудей.", "сношает [partner] между сисек."))]"
 	else
-		message = "взял груди [partner] копытом и надрачивает ими свой член."
+		message = "взял груди [partner] рукой и надрачивает ими свой член."
 		set_is_fucking(partner , CUM_TARGET_BREASTS)
 
 
@@ -329,9 +329,9 @@
 	var/lust_increase = 1
 
 	if(partner.get_item_by_slot(SLOT_SHOES) != null) {
-		message = "licks \the [partner]'s \ [partner.get_item_by_slot(SLOT_SHOES)]."
+		message = "лижет [partner.get_item_by_slot(SLOT_SHOES)] [partner]."
 	} else {
-		message = "licks \the [partner]'s feet."
+		message = "лижет ступню [partner]."
 	}
 
 	playsound(loc, "code/shitcode/valtos/ohgod/sounds/interactions/champ_fingering.ogg", 50, 1, -1)
