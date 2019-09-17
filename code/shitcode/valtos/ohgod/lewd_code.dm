@@ -1,8 +1,3 @@
-/*/proc/cum_splatter(var/datum/reagent/blood/source, var/atom/target) // Like blood_splatter(), but much more questionable on a resume.
-	var/obj/effect/decal/cleanable/cum/C = new(get_turf(target))
-	C.blood_DNA = list()
-	C.blood_DNA[source.data["blood_DNA"]] = (source && source.data && source.data["blood_type"]) ? source.data["blood_type"] : "O+" */
-
 /mob/var/lastmoan
 
 /mob/proc/moan()
@@ -15,13 +10,14 @@
 		moan--
 	lastmoan = moan
 
-	visible_message("<font color=purple> <B>\The [src]</B> [pick("мычит", "мычит в наслаждении",)].</font>")
-	playsound(get_turf(src), "code/shitcode/valtos/ohgod/sounds/interactions/moan_[gender == FEMALE ? "f" : "m"][moan].ogg", 70, 1, 0)//, pitch = get_age_pitch())
+	visible_message("<font color=purple> <B>\The [src]</B> [pick("стонет", "стонет в наслаждении",)].</font>")
+
+	if (gender == FEMALE && prob(50))
+		playsound(get_turf(src), "code/shitcode/valtos/sounds/love/shot[rand(1, 8)].ogg", 90, 1, 0)
+	else
+		playsound(get_turf(src), "code/shitcode/valtos/ohgod/sounds/interactions/moan_[gender == FEMALE ? "f" : "m"][moan].ogg", 70, 1, 0)
 
 /mob/proc/cum(var/mob/partner, var/target_orifice)
-
-	//if(rand(250))
-	//	playsound(loc, "honk/sound/interactions/oof.ogg", 70, 1, -1)
 
 	var/message
 	if(has_penis())
@@ -45,13 +41,11 @@
 			if(CUM_TARGET_VAGINA)
 				if(partner.is_nude() && partner.has_vagina())
 					message = "кончил во влагалище [partner]."
-					//partner.reagents.add_reagent("cum", 10)
 				else
 					message = "кончил на животик[partner]."
 			if(CUM_TARGET_ANUS)
 				if(partner.is_nude() && partner.has_anus())
 					message = "кончил в задницу [partner]."
-					//partner.reagents.add_reagent("cum", 10)
 				else
 					message = "кончил на спинку [partner]."
 			if(CUM_TARGET_HAND)
@@ -83,9 +77,15 @@
 		lust -= pick(10, 15, 20, 25)
 
 	if(gender == MALE)
-		playsound(loc, "code/shitcode/valtos/ohgod/sounds/interactions/final_m[rand(1, 3)].ogg", 90, 1, 0)//, pitch = get_age_pitch())
+		if (prob(50))
+			playsound(loc, "code/shitcode/valtos/ohgod/sounds/interactions/final_m[rand(1, 3)].ogg", 90, 1, 0)
+		else
+			playsound(loc, "code/shitcode/valtos/sounds/gachi/penetration_[rand(1, 2)].ogg", 90, 1, 0)
 	else if(gender == FEMALE)
-		playsound(loc, "code/shitcode/valtos/ohgod/sounds/interactions/final_f[rand(1, 5)].ogg", 70, 1, 0)//, pitch = get_age_pitch())
+		if (prob(50))
+			playsound(loc, "code/shitcode/valtos/ohgod/sounds/interactions/final_f[rand(1, 5)].ogg", 70, 1, 0)
+		else
+			playsound(loc, "code/shitcode/valtos/sounds/love/shot9.ogg", 90, 1, 0)
 
 	visible_message("<font color=purple><b>\The [src]</b> [message]</font>")
 
@@ -177,7 +177,7 @@
 		message = "[pick(list("brutally fucks \the [partner]'s throat.", "chokes \the [partner] on their dick."))]</span>"
 		if(rand(3))
 			partner.emote("chokes on \The [src]")
-			partner.adjustOxyLoss(5)
+			partner.adjustOxyLoss(1)
 	else if(is_fucking(partner, CUM_TARGET_MOUTH))
 		message = "суёт член глубже, заходя уже в глотку [partner]."
 
@@ -457,7 +457,7 @@
 		set_is_fucking(partner , THIGH_SMOTHERING)
 
 	if(rand(3))
-		partner.adjustOxyLoss(5)
+		partner.adjustOxyLoss(1)
 	var file = pick(list("bj10", "bj3", "foot_wet1", "foot_dry3"))
 	playsound(loc, "code/shitcode/valtos/ohgod/sounds/interactions/[file].ogg", 70, 1, -1)
 	visible_message("<b>\The [src]</b> [message]")
@@ -498,7 +498,7 @@
 	w_class = 1
 	throw_speed = 3
 	throw_range = 15
-	attack_verb = list("slammed", "bashed", "whipped")
+	attack_verb = list("тесачит")
 
 	var/hole = CUM_TARGET_VAGINA
 	var/pleasure = 5

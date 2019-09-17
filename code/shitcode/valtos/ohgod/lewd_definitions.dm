@@ -14,9 +14,6 @@
 
 /datum/interaction/lewd/kiss/evaluate_user(var/mob/user, var/silent=1)
 	if(..())
-		//if(!user.has_lips())
-		//	if(!silent) user << "<span class='warning'>You don't have any lips.</span>")
-		//	return 0
 		return 1
 	return 0
 

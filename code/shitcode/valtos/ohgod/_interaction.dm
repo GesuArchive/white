@@ -46,17 +46,19 @@ var/list/interactions
 	var/require_target_hands
 	var/needs_physical_contact
 
+	var/cooldaun = 0
+
 /datum/interaction/proc/evaluate_user(var/mob/user, var/silent=1)
 
 	if(require_user_mouth)
 		if(!user.has_mouth())
-			if(!silent) user << "<span class = 'warning'>У вас нет рта!.</span>"
+			if(!silent) user << "<span class = 'warning'>У тебя нет рта!.</span>"
 			return 0
 		if(!user.mouth_is_free())
-			if(!silent) user << "<span class = 'warning'>Ваш рот прикрыт.</span>"
+			if(!silent) user << "<span class = 'warning'>Твой рот прикрыт.</span>"
 			return 0
 	if(require_user_hands && !user.has_hands())
-		if(!silent) user << "<span class = 'warning'>У вас нет рук.</span>"
+		if(!silent) user << "<span class = 'warning'>У тебя нет рук.</span>"
 		return 0
 	return 1
 
@@ -96,6 +98,8 @@ var/list/interactions
 		return
 	if(!evaluate_target(user, target, silent=0))
 		return
+	if(cooldaun)
+		return
 
 	display_interaction(user, target)
 
@@ -108,40 +112,17 @@ var/list/interactions
 
 /datum/interaction/proc/display_interaction(var/mob/user, var/mob/target)
 	if(simple_message)
-		var/use_message = replacetext(simple_message, "USER", "\the [user]")
-		use_message = replacetext(use_message, "TARGET", "\the [target]")
+		var/use_message = replacetext(simple_message, "USER", "<b>[user]</b>")
+		use_message = replacetext(use_message, "TARGET", "<b>[target]</b>")
 		user.visible_message("<span class='[simple_style]'>[ruscapitalize(use_message)]</span>")
 
 /datum/interaction/proc/post_interaction(var/mob/user, var/mob/target)
+	cooldaun = 1
+	spawn (5)
+		cooldaun = 0
 	if(interaction_sound)
 		if(interaction_sound_age_pitch)
-			playsound(get_turf(user), interaction_sound, 50, 1, -1)//, pitch = user.get_age_pitch())
+			playsound(get_turf(user), interaction_sound, 50, 1, -1)
 		else
 			playsound(get_turf(user), interaction_sound, 50, 1, -1)
 	return
-/*
-/atom/movable/attack_hand(mob/living/user)
-	. = ..()
-	if(can_buckle && buckled_mob)
-		if(user_unbuckle_mob(user))
-			return 1
-
-/atom/movable/MouseDrop_T(mob/living/M, mob/living/user)
-	. = ..()
-	if(can_buckle && istype(M) && !buckled_mob)
-		if(user_buckle_mob(M, user))
-			return 1
-
-
-/atom/movable/attack_hand(mob/living/user)
-	. = ..()
-	if(can_buckle && buckled_mob)
-		if(user_unbuckle_mob(user))
-			return 1
-
-/atom/movable/MouseDrop_T(mob/living/M, mob/living/user)
-	. = ..()
-	if(can_buckle && istype(M) && !buckled_mob)
-		if(user_buckle_mob(M, user))
-			return 1
-*/
