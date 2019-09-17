@@ -88,6 +88,8 @@ var/list/interactions
 	return 0
 
 /datum/interaction/proc/do_action(var/mob/user, var/mob/target)
+	if(cooldaun)
+		return
 	if(get_dist(user, target) > max_distance)
 		user << "<span class='warning'>TARGET слишком далеко.</span>"
 		return
@@ -98,8 +100,7 @@ var/list/interactions
 		return
 	if(!evaluate_target(user, target, silent=0))
 		return
-	if(cooldaun)
-		return
+	cooldaun = 1
 
 	display_interaction(user, target)
 
@@ -117,7 +118,6 @@ var/list/interactions
 		user.visible_message("<span class='[simple_style]'>[ruscapitalize(use_message)]</span>")
 
 /datum/interaction/proc/post_interaction(var/mob/user, var/mob/target)
-	cooldaun = 1
 	spawn (15)
 		cooldaun = 0
 	if(interaction_sound)
