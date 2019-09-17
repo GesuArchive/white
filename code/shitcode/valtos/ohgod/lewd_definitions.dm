@@ -159,7 +159,7 @@
 
 /datum/interaction/lewd/breastfuck
 	command = "breastfuck"
-	description = "Трахнуть вагину."
+	description = "Трахнуть сиськи."
 	interaction_sound = null
 	require_user_penis = 1
 	user_not_tired = 1
