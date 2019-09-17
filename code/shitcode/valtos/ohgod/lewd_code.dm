@@ -89,6 +89,8 @@
 
 	visible_message("<font color=purple><b>\The [src]</b> [message]</font>")
 
+	new /obj/effect/decal/cleanable/cum(src.loc)
+
 	multiorgasms += 1
 	if(multiorgasms == 1)
 		log_combat(partner, src, "came on")
