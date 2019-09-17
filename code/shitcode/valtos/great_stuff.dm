@@ -56,7 +56,7 @@
 
 //suits
 
-/obj/item/clothing/suit/armor/vest
+/obj/item/clothing/suit/armor/vest/izan
 	name = "bulletproof vest"
 	desc = "—пасЄт твою грудь от пуль."
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/suit.dmi'
@@ -65,18 +65,18 @@
 
 	armor = list("melee" = 35, "bullet" = 90, "laser" = 20,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
 
-/obj/item/clothing/suit/armor/vest/arbiter
+/obj/item/clothing/suit/armor/vest/izan/arbiter
 	icon_state = "arbiter"
 
-/obj/item/clothing/suit/armor/vest/army_coat
+/obj/item/clothing/suit/armor/vest/izan/army_coat
 	icon_state = "army_coat"
 	armor = list("melee" = 45, "bullet" = 90, "laser" = 10,"energy" = 20, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
 
-/obj/item/clothing/suit/armor/vest/elite_army_coat
+/obj/item/clothing/suit/armor/vest/izan/elite_army_coat
 	icon_state = "elite_army_coat"
 	armor = list("melee" = 55, "bullet" = 95, "laser" = 20,"energy" = 30, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
 
-/obj/item/clothing/suit/armor/vest/super_elite_army_coat
+/obj/item/clothing/suit/armor/vest/izan/super_elite_army_coat
 	icon_state = "super_elite_army_coat"
 	armor = list("melee" = 75, "bullet" = 100, "laser" = 60,"energy" = 50, "bomb" = 70, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 30)
 
