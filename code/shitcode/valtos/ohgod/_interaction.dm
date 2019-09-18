@@ -118,7 +118,7 @@ var/list/interactions
 		user.visible_message("<span class='[simple_style]'>[ruscapitalize(use_message)]</span>")
 
 /datum/interaction/proc/post_interaction(var/mob/user, var/mob/target)
-	spawn (15)
+	spawn (5)
 		cooldaun = 0
 	if(interaction_sound)
 		if(interaction_sound_age_pitch)
