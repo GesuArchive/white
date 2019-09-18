@@ -1,5 +1,5 @@
 /obj/effect/decal/cleanable/cum
-	name = "cum"
+	name = "smetana"
 	desc = "Выглядит вкусно."
 	density = 0
 	layer = 3

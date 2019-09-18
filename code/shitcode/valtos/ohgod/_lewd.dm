@@ -9,17 +9,17 @@
 /mob/list_interaction_attributes()
 	var/dat = ..()
 	if(refactory_period)
-		dat += "<br>...сексуально исчерпан."
+		dat += "<br>...не голоден."
 	if(is_nude())
 		dat += "<br>...голый."
 		if(has_vagina())
-			dat += "<br>...имеет грудь."
+			dat += "<br>...имеет горы."
 		if(has_penis())
-			dat += "<br>...имеет пенис."
+			dat += "<br>...имеет стан-батон."
 		if(has_vagina())
-			dat += "<br>...имеет вагину."
+			dat += "<br>...имеет пельмени."
 		if(has_anus())
-			dat += "<br>...имеет анус."
+			dat += "<br>...имеет шоколад."
 	else
 		dat += "<br>...в одежде."
 	return dat
@@ -69,13 +69,13 @@
 			if(!silent) user << "<span class = 'warning'>Вам мешает одежда.</span>"
 			return 0
 		if(require_user_penis && !user.has_penis())
-			if(!silent) user << "<span class = 'warning'>У вас нет члена.</span>"
+			if(!silent) user << "<span class = 'warning'>У вас нет огурца.</span>"
 			return 0
 		if(require_user_anus && !user.has_anus())
-			if(!silent) user << "<span class = 'warning'>У вас нет ануса.</span>"
+			if(!silent) user << "<span class = 'warning'>У вас нет шоколадницы.</span>"
 			return 0
 		if(require_user_vagina && !user.has_vagina())
-			if(!silent) user << "<span class = 'warning'>У вас нет вагины.</span>"
+			if(!silent) user << "<span class = 'warning'>У вас нет пельмешка.</span>"
 			return 0
 		return 1
 	return 0
@@ -89,13 +89,13 @@
 			if(!silent) user << "<span class = 'warning'>TARGET мешает одежда.</span>"
 			return 0
 		if(require_target_penis && !target.has_penis())
-			if(!silent) user << "<span class = 'warning'>У TARGET нет пениса.</span>"
+			if(!silent) user << "<span class = 'warning'>У TARGET нет огурца.</span>"
 			return 0
 		if(require_target_anus && !target.has_anus())
-			if(!silent) user << "<span class = 'warning'>У TARGET нет ануса.</span>"
+			if(!silent) user << "<span class = 'warning'>У TARGET нет шоколадницы.</span>"
 			return 0
 		if(require_target_vagina && !target.has_vagina())
-			if(!silent) user << "<span class = 'warning'>У TARGET нет вагины.</span>"
+			if(!silent) user << "<span class = 'warning'>У TARGET нет пельмешка.</span>"
 			return 0
 		return 1
 	return 0
@@ -108,7 +108,7 @@
 	return ..()
 
 /datum/interaction/lewd/get_action_link_for(var/mob/user, var/mob/target)
-	return "<font color='#FF0000'><b>ГРЕХИ:</b></font> [..()]"
+	return "<font color='#FF0000'><b>ШАЛОСТИ:</b></font> [..()]"
 	if(user.stat == DEAD) return
 
 #define CUM_TARGET_MOUTH "mouth"
