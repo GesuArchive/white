@@ -50,7 +50,7 @@
 					message = "насметанил на спинку [partner]."
 			if(CUM_TARGET_HAND)
 				if(partner.has_hand())
-					message = "насметанил в руку [partner]'s."
+					message = "насметанил в руку [partner]."
 				else
 					message = "насметанил на [partner]."
 			if(CUM_TARGET_BREASTS)
@@ -62,7 +62,8 @@
 				if(partner.has_mouth() && partner.mouth_is_free())
 					message = "нещадно принуждает [partner] съесть €ишницу с колбасой."
 			if(THIGH_SMOTHERING)
-				message = "удерживает [partner] в очень крепком захвате не дава€ выбратьс€, попутно смазыва€ лицо майонезиком."
+				if(partner.has_mouth())
+					message = "удерживает [partner] в очень крепком захвате не дава€ выбратьс€, попутно смазыва€ лицо майонезиком."
 			else
 				message = "спустил на пол сметанку!"
 
