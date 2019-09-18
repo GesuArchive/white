@@ -53,13 +53,13 @@
 	if(!D.stat && !D.IsParalyzed())
 		if(A.dir != D.dir)
 			log_combat(A, D, "missed a back-kick (Sleeping Carp) on")
-			D.visible_message("<span class='warning'>[A] tries to kick [D] in the back, but misses!</span>", \
-						"<span class='userdanger'>[A] tries to kick you in the back, but misses!</span>")
+			D.visible_message("<span class='warning'><b>[A]</b> пытаетс€ ударить <b>[D]</b> в спину, но промахиваетс€!</span>", \
+						"<span class='userdanger'><b>[A]</b> пытаетс€ ударить теб€ в спину, но промахиваетс€!</span>")
 			return TRUE
 		log_combat(A, D, "back-kicked (Sleeping Carp)")
 		A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
-		D.visible_message("<span class='warning'>[A] kicks [D] in the back!</span>", \
-					"<span class='userdanger'>[A] kicks you in the back, making you stumble and fall!</span>")
+		D.visible_message("<span class='warning'><b>[A]</b> пинает <b>[D]</b> в спину!</span>", \
+					"<span class='userdanger'><b>[A]</b> пинает теб€ в спину, принужда€ теб€ упасть!</span>")
 		step_to(D,get_step(D,D.dir),1)
 		D.Paralyze(80)
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, TRUE, -1)
@@ -70,9 +70,9 @@
 	if(!D.stat && !D.IsParalyzed())
 		log_combat(A, D, "stomach kneed (Sleeping Carp)")
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
-		D.visible_message("<span class='warning'>[A] knees [D] in the stomach!</span>", \
-						  "<span class='userdanger'>[A] winds you with a knee in the stomach!</span>")
-		D.audible_message("<b>[D]</b> gags!")
+		D.visible_message("<span class='warning'><b>[A]</b> бьЄт <b>[D]</b> коленом в живот!</span>", \
+						  "<span class='userdanger'><b>[A]</b> бьЄт теб€ коленом в живот!</span>")
+		D.audible_message("<b>[D]</b> задыхаетс€!")
 		D.losebreath += 3
 		D.Stun(40)
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, TRUE, -1)
@@ -83,8 +83,8 @@
 	if(!D.stat && !D.IsParalyzed())
 		log_combat(A, D, "head kicked (Sleeping Carp)")
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
-		D.visible_message("<span class='warning'>[A] kicks [D] in the head!</span>", \
-						  "<span class='userdanger'>[A] kicks you in the jaw!</span>")
+		D.visible_message("<span class='warning'><b>[A]</b> пинает <b>[D]</b> в голову!</span>", \
+						  "<span class='userdanger'><b>[A]</b> пинает теб€ в ебало!</span>")
 		D.apply_damage(20, A.dna.species.attack_type, BODY_ZONE_HEAD)
 		D.drop_all_held_items()
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, TRUE, -1)
@@ -96,8 +96,8 @@
 	if(!(D.mobility_flags & MOBILITY_STAND))
 		log_combat(A, D, "elbow dropped (Sleeping Carp)")
 		A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
-		D.visible_message("<span class='warning'>[A] elbow drops [D]!</span>", \
-							"<span class='userdanger'>[A] piledrives you with their elbow!</span>")
+		D.visible_message("<span class='warning'><b>[A]</b> кидает <b>[D]</b> с прогиба!</span>", \
+							"<span class='userdanger'><b>[A]</b> кидает теб€ с прогиба!</span>")
 		if(D.stat)
 			D.death() //FINISH HIM!
 		D.apply_damage(50, A.dna.species.attack_type, BODY_ZONE_CHEST)
@@ -116,8 +116,8 @@
 			D.drop_all_held_items()
 			A.grab_state = GRAB_AGGRESSIVE //Instant agressive grab if on grab intent
 			log_combat(A, D, "grabbed", addition="aggressively")
-			D.visible_message("<span class='warning'>[A] violently grabs [D]!</span>", \
-								"<span class='userdanger'>[A] violently grabs you!</span>")
+			D.visible_message("<span class='warning'><b>[A]</b> жестко хватает <b>[D]</b>!</span>", \
+								"<span class='userdanger'><b>[A]</b> жестко хватает теб€!</span>")
 		return TRUE
 	return FALSE
 
@@ -126,13 +126,13 @@
 	if(check_streak(A,D))
 		return TRUE
 	A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
-	var/atk_verb = pick("punches", "kicks", "chops", "hits", "slams")
-	D.visible_message("<span class='danger'>[A] [atk_verb] [D]!</span>", \
-					  "<span class='userdanger'>[A] [atk_verb] you!</span>")
+	var/atk_verb = pick("бьЄт", "пинает", "ху€рит", "избивает", "выбивает")
+	D.visible_message("<span class='danger'><b>[A]</b> [atk_verb] <b>[D]</b>!</span>", \
+					  "<span class='userdanger'><b>[A]</b> [atk_verb] теб€!</span>")
 	D.apply_damage(rand(10,15), BRUTE)
 	playsound(get_turf(D), 'sound/weapons/punch1.ogg', 25, TRUE, -1)
 	if(prob(D.getBruteLoss()) && (D.mobility_flags & MOBILITY_STAND))
-		D.visible_message("<span class='warning'>[D] stumbles and falls!</span>", "<span class='userdanger'>The blow sends you to the ground!</span>")
+		D.visible_message("<span class='warning'><b>[D]</b> stumbles and falls!</span>", "<span class='userdanger'>”дар отправл€ет теб€ пососать!</span>")
 		D.Paralyze(80)
 	log_combat(A, D, "[atk_verb] (Sleeping Carp)")
 	return TRUE
@@ -154,7 +154,7 @@
 		return BULLET_ACT_HIT
 	if(!isturf(A.loc)) //NO MOTHERFLIPPIN MECHS!
 		return BULLET_ACT_HIT
-	A.visible_message("<span class='danger'>[A] deflects the projectile; [A.p_they()] can't be hit with ranged weapons!</span>", "<span class='userdanger'>You deflect the projectile!</span>")
+	A.visible_message("<span class='danger'><b>[A]</b> отражает снар€д!</span>", "<span class='userdanger'>“ы отражаешь снар€д!</span>")
 	playsound(src, pick('sound/weapons/bulletflyby.ogg', 'sound/weapons/bulletflyby2.ogg', 'sound/weapons/bulletflyby3.ogg'), 75, TRUE)
 	P.firer = A
 	P.setAngle(rand(0, 360))//SHING
