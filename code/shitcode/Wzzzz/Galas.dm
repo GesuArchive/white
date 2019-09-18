@@ -1,6 +1,6 @@
 //clothing
 
-/obj/item/clothing/glasses
+/obj/item/clothing/glasses/zw
 	name = "Glasses"
 	desc = "Очко/и"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'
@@ -8,7 +8,7 @@
 	icon_state = "googless"
 	item_state = "googless"
 
-/obj/item/clothing/glasses/leforge
+/obj/item/clothing/glasses/zw/leforge
 	name = "Le forge"
 	desc = "Аля форж"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'
@@ -16,7 +16,7 @@
 	icon_state = "leforge"
 	item_state = "leforge"
 
-/obj/item/clothing/glasses/denight
+/obj/item/clothing/glasses/zw/denight
 	name = "denight vision goggles"
 	desc = "Not night, just denight"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'
@@ -24,7 +24,7 @@
 	icon_state = "denight"
 	item_state = "denight"
 
-/obj/item/clothing/glasses/jensenshades
+/obj/item/clothing/glasses/zw/jensenshades
 	name = "Jensenshades"
 	desc = "Дженсен Стэтхем"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'
@@ -32,7 +32,7 @@
 	icon_state = "jensenshades"
 	item_state = "jensenshades"
 	
-/obj/item/clothing/glasses/goggless
+/obj/item/clothing/glasses/zw/goggless
 	name = "Dark gogles"
 	desc = "Something familiar, but dark"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'
@@ -40,7 +40,7 @@
 	icon_state = "goggless"
 	item_state = "goggless"
 
-/obj/item/clothing/glasses/sec_flash
+/obj/item/clothing/glasses/zw/sec_flash
 	name = "Security glasses"
 	desc = "New style, maybe"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'
@@ -48,7 +48,7 @@
 	icon_state = "sec_flash"
 	item_state = "sec_flash"
 	
-/obj/item/clothing/glasses/rwelding
+/obj/item/clothing/glasses/zw/rwelding
 	name = "New welding goggles"
 	desc = "Protects the eyes from bright flashes; approved by the mad scientist association."
 	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'
