@@ -49,10 +49,6 @@
 	if(obj_flags & EMAGGED)
 		.+= "This funny thing has made [frabbs] frabbs"
 
-/obj/machinery/recycler/power_change()
-	..()
-	update_icon()
-
 
 /obj/machinery/recycler/attackby(obj/item/I, mob/user, params)
 	if(default_deconstruction_screwdriver(user, "grinder-oOpen", "grinder-o0", I))

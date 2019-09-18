@@ -5,7 +5,7 @@
 
 **Hub:** https://hub.frosty.space
 
-**Code:** https://github.com/daxsc/White-Tgstation
+**Code:** https://github.com/frosty-dev/white-dream-main
 
 **Wiki:** https://tgstation13.org/wiki/Main_Page
 
