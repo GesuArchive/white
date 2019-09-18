@@ -7,9 +7,8 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/masks.dmi'
 	icon_state = "swatclava"
 	item_state = "swatclava"
-	flags_inv = HIDEHAIR
-	flags_inv = HIDEEARS
-	
+	flags_inv = HIDEHAIR|HIDEEARS
+	visor_flags_inv = HIDEHAIR|HIDEEARS
 	
 /obj/item/clothing/shoes/blackger
 	name = "Black  Boots"
