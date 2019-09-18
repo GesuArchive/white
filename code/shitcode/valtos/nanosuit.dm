@@ -885,7 +885,6 @@
 			if(check_streak(A,D))
 				return TRUE
 		else if(prob(35))
-			cleeve_attack(A,D)
 			return FALSE
 	D.visible_message("<span class='danger'>[A] [quick?"быстро":""] [picked_hit_type] [D]!</span>", \
 					"<span class='userdanger'>[A] [quick?"быстро":""] [picked_hit_type] тебя!</span>")
@@ -917,11 +916,6 @@
 		playsound(D, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 	log_combat(A, D, "disarmed with nanosuit", "[I ? " removing \the [I]" : ""]")
 	return TRUE
-
-/datum/martial_art/nanosuit/proc/cleeve_attack(mob/living/carbon/human/A, mob/living/carbon/D)
-	for(D in orange(1, A))
-		if(D != A && is_A_facing_B(A,D) && (!D.stat || !D.IsParalyzed()))
-			basic_hit(A,D)
 
 /obj/proc/nanosuit_damage() //the damage nanosuits do on punches to this object, is affected by melee armor
 	return 25 //just enough to damage an airlock
