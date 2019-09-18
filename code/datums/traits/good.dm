@@ -37,6 +37,19 @@
 	lose_text = "<span class='danger'>¬ы больше не можете чувствовать, как алкоголь исцел€ет ваши раны.</span>"
 	medical_record_text = "ѕациент имеет необычную эффективность метаболизма печени лечить его от ран, употребл€€ алкогольные напитки."
 
+/datum/quirk/drunkhealing/on_process()
+	var/mob/living/carbon/C = quirk_holder
+	switch(C.drunkenness)
+		if (6 to 40)
+			C.adjustBruteLoss(-0.1, FALSE)
+			C.adjustFireLoss(-0.05, FALSE)
+		if (41 to 60)
+			C.adjustBruteLoss(-0.4, FALSE)
+			C.adjustFireLoss(-0.2, FALSE)
+		if (61 to INFINITY)
+			C.adjustBruteLoss(-0.8, FALSE)
+			C.adjustFireLoss(-0.4, FALSE)
+
 /datum/quirk/empath
 	name = "Ёмпати€"
 	desc = "Ѕудь то шестым чувством, или просто тщательное изучение €зыка тела, но вам достаточно взгл€да на кого-нибудь, чтобы пон€ть, что он чувствует." 
