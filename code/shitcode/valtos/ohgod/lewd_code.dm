@@ -62,8 +62,7 @@
 				if(partner.has_mouth() && partner.mouth_is_free())
 					message = "нещадно принуждает [partner] съесть €ишницу с колбасой."
 			if(THIGH_SMOTHERING)
-				if(partner.has_mouth())
-					message = "удерживает [partner] в очень крепком захвате не дава€ выбратьс€, попутно смазыва€ лицо майонезиком."
+				message = "удерживает [partner] в очень крепком захвате не дава€ выбратьс€ попутно смазыва€ лицо майонезиком."
 			else
 				message = "спустил на пол сметанку!"
 
