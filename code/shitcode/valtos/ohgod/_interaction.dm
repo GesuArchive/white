@@ -12,8 +12,7 @@
 GLOBAL_LIST_EMPTY(interactions)
 
 /proc/make_interactions(var/interaction)
-	if(!GLOB.interactions)
-		GLOB.interactions = list()
+	if(!GLOB.interactions.len)
 		for(var/itype in typesof(/datum/interaction)-/datum/interaction)
 			var/datum/interaction/I = new itype()
 			GLOB.interactions[I.command] = I
