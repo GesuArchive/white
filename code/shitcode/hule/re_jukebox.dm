@@ -40,11 +40,11 @@
 		if(TT != src)
 			qdel(src)
 
-	var/list/tracks = flist("config/jukebox_music/sounds/")
+	var/list/tracks = flist("[global.config.directory]/jukebox_music/sounds/")
 
 	for(var/S in tracks)
 		var/datum/track/T = new()
-		T.song_path = file("config/jukebox_music/sounds/[S]")
+		T.song_path = file("[global.config.directory]/jukebox_music/sounds/[S]")
 		var/list/L = splittext(S,"+")
 		if(L.len != 3)
 			continue
