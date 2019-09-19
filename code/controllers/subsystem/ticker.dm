@@ -303,7 +303,8 @@ SUBSYSTEM_DEF(ticker)
 
 	PostSetup()
 
-	SSaspects.run_aspect()
+	if(!TEST_RUN_PARAMETER in world.params)
+		SSaspects.run_aspect()
 
 	return TRUE
 
