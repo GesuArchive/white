@@ -1,14 +1,5 @@
 //clothing
-
-/obj/item/clothing/glasses/zw
-	name = "Glasses"
-	desc = "Очко/и"
-	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/eyes.dmi'
-	icon_state = "googless"
-	item_state = "googless"
-
-/obj/item/clothing/glasses/zw/leforge
+/obj/item/clothing/glasses/wzzzz/leforge
 	name = "Le forge"
 	desc = "Аля форж"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'
@@ -16,39 +7,50 @@
 	icon_state = "leforge"
 	item_state = "leforge"
 
-/obj/item/clothing/glasses/zw/denight
+/obj/item/clothing/glasses/wzzzz/denight
 	name = "denight vision goggles"
 	desc = "Not night, just denight"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/eyes.dmi'
 	icon_state = "denight"
 	item_state = "denight"
+	flash_protect = 1
+	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+	darkness_view = 10
 
-/obj/item/clothing/glasses/zw/jensenshades
+/obj/item/clothing/glasses/wzzzz/jensenshades
 	name = "Jensenshades"
 	desc = "Дженсен Стэтхем"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/eyes.dmi'
 	icon_state = "jensenshades"
 	item_state = "jensenshades"
+	flash_protect = 5
+	tint = 1
 	
-/obj/item/clothing/glasses/zw/goggless
+/obj/item/clothing/glasses/wzzzz/goggless
 	name = "Dark gogles"
 	desc = "Something familiar, but dark"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/eyes.dmi'
 	icon_state = "goggless"
 	item_state = "goggless"
+	tint = 1
+	flash_protect = 3
+	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+	darkness_view = 8
 
-/obj/item/clothing/glasses/zw/sec_flash
+/obj/item/clothing/glasses/wzzzz/sec_flash
 	name = "Security glasses"
 	desc = "New style, maybe"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/eyes.dmi'
 	icon_state = "sec_flash"
 	item_state = "sec_flash"
+	flash_protect = 1
+	tint = 1
 	
-/obj/item/clothing/glasses/zw/rwelding
+/obj/item/clothing/glasses/wzzzz/rwelding
 	name = "New welding goggles"
 	desc = "Protects the eyes from bright flashes; approved by the mad scientist association."
 	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'
