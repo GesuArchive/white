@@ -9,14 +9,14 @@
 
 
 // Rectum? Damn near killed 'em.
-var/list/interactions
+GLOBAL_LIST_EMPTY(interactions)
 
 /proc/make_interactions(var/interaction)
-	if(!interactions)
-		interactions = list()
+	if(!GLOB.interactions)
+		GLOB.interactions = list()
 		for(var/itype in typesof(/datum/interaction)-/datum/interaction)
 			var/datum/interaction/I = new itype()
-			interactions[I.command] = I
+			GLOB.interactions[I.command] = I
 
 /mob/proc/list_interaction_attributes()
 	var/dat = ""

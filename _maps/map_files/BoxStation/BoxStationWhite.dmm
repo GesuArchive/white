@@ -18663,7 +18663,6 @@
 	control_area = null;
 	lethal = 1;
 	name = "Captain's Office Turret Control";
-	pixel_x = 0;
 	pixel_y = -27;
 	req_access = null;
 	req_access_txt = "3"
