@@ -706,6 +706,10 @@
 
 	if(statpanel("Game"))
 		stat(null, "--- \[GAME PANEL V.1.284718\] ---")
+		if(SSshuttle.emergency)
+			var/ETA = SSshuttle.emergency.getModeStr()
+			if(ETA)
+				stat(null, "[ETA] [SSshuttle.emergency.getTimerStr()]")
 
 	if(statpanel("Status"))
 		if (client)
@@ -719,10 +723,6 @@
 		stat(null, "Round Time: [worldtime2text()]")
 		stat(null, "Station Time: [station_time_timestamp()]")
 		stat(null, "Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)")
-		if(SSshuttle.emergency)
-			var/ETA = SSshuttle.emergency.getModeStr()
-			if(ETA)
-				stat(null, "[ETA] [SSshuttle.emergency.getTimerStr()]")
 
 	if(client && client.holder)
 		if(statpanel("MC"))
