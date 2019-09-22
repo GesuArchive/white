@@ -190,7 +190,6 @@ GLOBAL_LIST_INIT(gachisounds, list(
 
 /obj/item/melee/classic_baton/dildon
 	name = "dildo"
-	ru_name = "дилдак"
 	desc = "При неправильном обращении окажется у тебя в жопе."
 	icon = 'code/shitcode/valtos/icons/melee.dmi'
 	icon_state = "dildo"

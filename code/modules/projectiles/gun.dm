@@ -114,21 +114,21 @@
 /obj/item/gun/examine(mob/user)
 	. = ..()
 	if(pin)
-		. += "Внутри установлен боёк типа [pin.ru_name]."
+		. += "Внутри установлен боёк типа [pin.name]."
 	else
 		. += "Внутри отсутствует <b>боёк</b>, поэтому оно не будет стрелять."
 
 	if(gun_light)
-		. += "На нём установлен [gun_light.ru_name], который [can_flashlight ? "" : "надёжно "]прикручен к нему."
+		. += "На нём установлен [gun_light.name], который [can_flashlight ? "" : "надёжно "]прикручен к нему."
 		if(can_flashlight) //if it has a light and this is false, the light is permanent.
-			. += "<span class='info'>Похоже [gun_light.ru_name] может быть <b>откручен</b> от [src.ru_name].</span>"
+			. += "<span class='info'>Похоже [gun_light.name] может быть <b>откручен</b> от [src.name].</span>"
 	else if(can_flashlight)
 		. += "Здесь присутствует посадочное место для <b>фонарика</b>."
 
 	if(bayonet)
-		. += "На нём установлен [bayonet.ru_name], который [can_bayonet ? "" : "надёжно "]прикреплён к нему."
+		. += "На нём установлен [bayonet.name], который [can_bayonet ? "" : "надёжно "]прикреплён к нему."
 		if(can_bayonet) //if it has a bayonet and this is false, the bayonet is permanent.
-			. += "<span class='info'>Похоже [bayonet.ru_name] может быть <b>откручен</b> от [src.ru_name].</span>"
+			. += "<span class='info'>Похоже [bayonet.name] может быть <b>откручен</b> от [src.name].</span>"
 	else if(can_bayonet)
 		. += "Похоже сюда можно прикрепить <b>штык</b>."
 
@@ -203,14 +203,14 @@
 	if(clumsy_check)
 		if(istype(user))
 			if (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(40))
-				to_chat(user, "<span class='userdanger'>Вы стреляете себе в ногу из [src.ru_name]!</span>")
+				to_chat(user, "<span class='userdanger'>Вы стреляете себе в ногу из [src.name]!</span>")
 				var/shot_leg = pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 				process_fire(user, user, FALSE, params, shot_leg)
 				user.dropItemToGround(src, TRUE)
 				return
 
 	if(weapon_weight == WEAPON_HEAVY && user.get_inactive_held_item())
-		to_chat(user, "<span class='warning'>Нужно держать [src.ru_name] в обеих руках!</span>")
+		to_chat(user, "<span class='warning'>Нужно держать [src.name] в обеих руках!</span>")
 		return
 
 	//DUAL (or more!) WIELDING
