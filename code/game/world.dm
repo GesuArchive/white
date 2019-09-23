@@ -265,7 +265,7 @@ GLOBAL_VAR(restart_counter)
 		server_name = CONFIG_GET(string/servername)
 
 	s += "<a href=\"https://discord.gg/BNUgzsT\"><big><b>[server_name] Main</b></big></br>"
-	s += "<img src=\"https://i.imgur.com/lmUGFYa.png\"></a>"
+	s += "<img src=\"https://i.imgur.com/tmxrtV0.png\"></a>"
 
 	var/players = GLOB.clients.len
 
