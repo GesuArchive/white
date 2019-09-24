@@ -50,7 +50,7 @@
 	flash_protect = 1
 	tint = 1
 	
-/obj/item/clothing/glasses/wzzzz/rwelding
+/obj/item/clothing/glasses/welding/r
 	name = "New welding goggles"
 	desc = "Protects the eyes from bright flashes; approved by the mad scientist association."
 	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'

@@ -5,6 +5,7 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "siege_helmet"
 	item_state = "siege_helmet"	
+	dynamic_hair_suffix = ""
 	flags_inv = HIDEEARS|HIDEHAIR
 	visor_flags_inv = HIDEEARS|HIDEHAIR
 	resistance_flags = NONE
@@ -19,11 +20,14 @@
 	icon_state = "rig0sec"
 	item_state = "rig0sec"	
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
 	resistance_flags = NONE|ACID_PROOF
-	armor = list("melee" = 60, "bullet" = 70, "laser" = 50,"energy" = 50, "bomb" = 60, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
-	flash_protect = 1
+	clothing_flags = BLOCK_GAS_SMOKE_EFFECT
+	armor = list("melee" = 60, "bullet" = 70, "laser" = 50,"energy" = 50, "bomb" = 60, "bio" = 50, "rad" = 50, "fire" = 60, "acid" = 50)
+	flash_protect = 2
 
 /obj/item/clothing/head/helmet/wzzzz/emergencyhelmet
 	name = "emergency Helmet"
@@ -32,8 +36,10 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "emergencyhelm"
 	item_state = "emergencyhelm"
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
 	clothing_flags = STOPSPRESSUREDAMAGE
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -47,9 +53,11 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "voxstealth"
 	item_state = "voxstealth"
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	clothing_flags = STOPSPRESSUREDAMAGE
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	clothing_flags = STOPSPRESSUREDAMAGE|BLOCK_GAS_SMOKE_EFFECT
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	resistance_flags = NONE|ACID_PROOF
@@ -64,8 +72,10 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "rig0syndieskrell"
 	item_state = "rig0syndieskrell"
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
 	clothing_flags = STOPSPRESSUREDAMAGE
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -79,8 +89,10 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "rig0syndieunathi"
 	item_state = "rig0syndieunathi"
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
 	clothing_flags = STOPSPRESSUREDAMAGE
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -94,8 +106,10 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "rig0syndietaj"
 	item_state = "rig0syndietaj"
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
 	clothing_flags = STOPSPRESSUREDAMAGE
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -110,6 +124,7 @@
 	icon_state = "swathelm"
 	item_state = "swathelm"
 	flags_inv = HIDEHAIR|HIDEEARS
+	dynamic_hair_suffix = ""
 	visor_flags_inv = HIDEHAIR|HIDEEARS
 	resistance_flags = NONE
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
@@ -121,9 +136,9 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "amp"
 	item_state = "amp"
+	clothing_flags = BLOCK_GAS_SMOKE_EFFECT
 	resistance_flags = NONE
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 20,"energy" = 100, "bomb" = 5, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 50)
-	flash_protect = 5
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 100,"energy" = 100, "bomb" = 10, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	
 /obj/item/clothing/head/helmet/wzzzz/helmetold1
 	name = "old helmet"
@@ -135,6 +150,7 @@
 	icon_state = "helmetold1"
 	item_state = "helmetold1"
 	flags_inv = HIDEHAIR|HIDEEARS
+	dynamic_hair_suffix = ""
 	visor_flags_inv = HIDEHAIR|HIDEEARS
 	resistance_flags = NONE
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
@@ -148,8 +164,9 @@
 	item_state = "stealth_rig"
 	flags_cover = HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSMOUTH | PEPPERPROOF
-	flags_inv = HIDEEARS|HIDEFACE
-	visor_flags_inv = HIDEEARS|HIDEFACE
+	flags_inv = HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	visor_flags_inv = HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	dynamic_hair_suffix = ""
 	armor = list("melee" = 10, "bullet" = 20, "laser" = 10,"energy" = 0, "bomb" = 10, "bio" = 5, "rad" = 0, "fire" = 10, "acid" = 5)
 
 /obj/item/clothing/head/helmet/wzzzz/ushankadownb
@@ -172,20 +189,6 @@
 	item_state = "ushankaupb"	
 	armor = list("melee" = 10, "bullet" = 5, "laser" = 5, "energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 5)
 	
-/obj/item/clothing/head/helmet/wzzzz/bombsuitsec
-	name = "bomb helmet"
-	desc = "Some protection from kabom"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
-	icon_state = "bombsuitsec"
-	item_state = "bombsuitsec"
-	flags_inv = HIDEHAIR|HIDEEARS
-	visor_flags_inv = HIDEHAIR|HIDEEARS
-	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	resistance_flags = NONE
-	armor = list("melee" = 70, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 80, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
-	
 /obj/item/clothing/head/helmet/wzzzz/breacher_rig_cheap
 	name = "breacher helmet cheap"
 	desc = "Looks good for dark persons"
@@ -195,9 +198,11 @@
 	item_state = "breacher_rig_cheap"	
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	clothing_flags = STOPSPRESSUREDAMAGE
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
+	clothing_flags = STOPSPRESSUREDAMAGE|BLOCK_GAS_SMOKE_EFFECT
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
 	resistance_flags = NONE|ACID_PROOF
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
@@ -211,9 +216,11 @@
 	item_state = "breacher_rig"	
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	clothing_flags = STOPSPRESSUREDAMAGE
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	clothing_flags = STOPSPRESSUREDAMAGE|BLOCK_GAS_SMOKE_EFFECT
 	resistance_flags = NONE|ACID_PROOF|FREEZE_PROOF|LAVA_PROOF
 	armor = list("melee" = 80, "bullet" = 65, "laser" = 55,"energy" = 35, "bomb" = 75, "bio" = 25, "rad" = 10, "fire" = 75, "acid" = 100)
 	flash_protect = 3
@@ -227,9 +234,11 @@
 	item_state = "asset_protection_rig"	
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	flags_inv = HIDEHAIR|HIDEEARS
-	visor_flags_inv = HIDEHAIR|HIDEEARS
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACIALHAIR
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACIALHAIR
 	resistance_flags = NONE
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
 	armor = list("melee" = 60, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 35, "bio" = 10, "rad" = 0, "fire" = 55, "acid" = 50)
 
 /obj/item/clothing/head/helmet/wzzzz/hazard_rig
@@ -241,27 +250,15 @@
 	item_state = "hazard_rig"	
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	flags_inv = HIDEHAIR|HIDEEYES
-	visor_flags_inv = HIDEHAIR|HIDEEYES
-	clothing_flags = STOPSPRESSUREDAMAGE
+	flags_inv = HIDEHAIR|HIDEEYES|HIDEFACIALHAIR
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	visor_flags_inv = HIDEHAIR|HIDEEYES|HIDEFACIALHAIR
+	clothing_flags = STOPSPRESSUREDAMAGE|BLOCK_GAS_SMOKE_EFFECT
 	resistance_flags = NONE|ACID_PROOF|FREEZE_PROOF
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 45,"energy" = 20, "bomb" = 65, "bio" = 25, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
 	tint = 1
-
-/obj/item/clothing/head/helmet/wzzzz/bio_anom
-	name = "anomaly helmet"
-	desc = "Yes, that from BayStation"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
-	icon_state = "bio_anom"
-	item_state = "bio_anom"	
-	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	resistance_flags = NONE|ACID_PROOF
-	armor = list("melee" = 40, "bullet" = 20, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 80, "rad" = 50, "fire" = 75, "acid" = 70)
 
 /obj/item/clothing/head/helmet/wzzzz/helmetoldup
 	name = "old helmet black"
@@ -271,6 +268,7 @@
 	icon_state = "helmetoldup1"
 	item_state = "helmetoldup1"	
 	flags_inv = HIDEHAIR|HIDEEARS
+	dynamic_hair_suffix = ""
 	visor_flags_inv = HIDEHAIR|HIDEEARS
 	clothing_flags = STOPSPRESSUREDAMAGE
 	resistance_flags = NONE
@@ -285,6 +283,7 @@
 	item_state = "swatoldup"	
 	flags_inv = HIDEHAIR|HIDEEARS
 	visor_flags_inv = HIDEHAIR|HIDEEARS
+	dynamic_hair_suffix = ""
 	resistance_flags = NONE
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
 	
@@ -295,8 +294,10 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "medicalalt_helm"
 	item_state = "medicalalt_helm"	
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
 	clothing_flags = STOPSPRESSUREDAMAGE
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -310,9 +311,11 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "secalt_helm"
 	item_state = "secalt_helm"
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	clothing_flags = STOPSPRESSUREDAMAGE
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	clothing_flags = STOPSPRESSUREDAMAGE|BLOCK_GAS_SMOKE_EFFECT
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	resistance_flags = NONE
@@ -328,6 +331,7 @@
 	icon_state = "helmet_reflect"
 	item_state = "helmet_reflect"	
 	flags_inv = HIDEHAIR|HIDEEARS
+	dynamic_hair_suffix = ""
 	visor_flags_inv = HIDEHAIR|HIDEEARS
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 90,"energy" = 70, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
 	
@@ -397,13 +401,15 @@
 	item_state = "salvage_helm"
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	clothing_flags = STOPSPRESSUREDAMAGE
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	clothing_flags = STOPSPRESSUREDAMAGE|BLOCK_GAS_SMOKE_EFFECT
 	resistance_flags = NONE
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 30,"energy" = 5, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 30)
 	
-/obj/item/clothing/head/helmet/wzzzz/knightwelding
+/obj/item/clothing/head/welding/knightwelding
 	name = "welding mask knight"
 	desc = "Here was artist"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
@@ -418,7 +424,22 @@
 	flash_protect = 2
 	tint = 2
 	
-/obj/item/clothing/head/helmet/wzzzz/demonwelding
+/obj/item/clothing/head/welding/engiewelding
+	name = "welding mask engie"
+	desc = "Here was artist"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
+	icon_state = "engiewelding"
+	item_state = "engiewelding"
+	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
+	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
+	flags_inv = HIDEEARS|HIDEFACE
+	visor_flags_inv = HIDEEARS|HIDEFACE
+	armor = list("melee" = 40, "bullet" = 20, "laser" = 10,"energy" = 0, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5)
+	flash_protect = 2
+	tint = 2
+	
+/obj/item/clothing/head/welding/demonwelding
 	name = "welding mask demon"
 	desc = "Here was artist"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
@@ -433,7 +454,7 @@
 	flash_protect = 2
 	tint = 2
 
-/obj/item/clothing/head/helmet/wzzzz/fancywelding
+/obj/item/clothing/head/welding/fancywelding
 	name = "welding mask fancy"
 	desc = "Here was artist"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
@@ -456,6 +477,7 @@
 	icon_state = "helmet_ntguard"
 	item_state = "helmet_ntguard"
 	flags_inv = HIDEHAIR|HIDEEARS
+	dynamic_hair_suffix = ""
 	visor_flags_inv = HIDEHAIR|HIDEEARS
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 35,"energy" = 10, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
 
@@ -483,7 +505,7 @@
 	icon_state = "beret_corporate_whitered"
 	item_state = "beret_corporate_whitered"
 
-/obj/item/clothing/head/helmet/wzzzz/bow
+/obj/item/clothing/head/wzzzz/bow
 	name = "bow"
 	desc = "Little detail on your head"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
@@ -531,7 +553,7 @@
 	item_state = "ushankaupbl"
 	armor = list("melee" = 10, "bullet" = 5, "laser" = 5, "energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 5)
 	
-/obj/item/clothing/head/helmet/wzzzz/carpwelding
+/obj/item/clothing/head/welding/carpwelding
 	name = "welding mask carp"
 	desc = "Here was artist"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
@@ -555,8 +577,10 @@
 	item_state = "merc_rig_heavy"
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
 	clothing_flags = STOPSPRESSUREDAMAGE
 	resistance_flags = NONE|ACID_PROOF|FREEZE_PROOF
 	armor = list("melee" = 70, "bullet" = 60, "laser" = 50,"energy" = 10, "bomb" = 50, "bio" = 0, "rad" = 0, "fire" = 70, "acid" = 60)
@@ -579,31 +603,23 @@
 	item_state = "facecover"
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	clothing_flags = BLOCK_GAS_SMOKE_EFFECT
 	resistance_flags = NONE
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
-
-/obj/item/clothing/head/helmet/wzzzz/excavation_helm
-	name = "excavation helmet"
-	desc = "For excavation, maybe"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
-	icon_state = "excavation_helm"
-	item_state = "excavation_helm"
-	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
-	clothing_flags = STOPSPRESSUREDAMAGE
-	resistance_flags = NONE
-	armor = list("melee" = 45, "bullet" = 40, "laser" = 30,"energy" = 10, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
 
 /obj/item/clothing/head/helmet/wzzzz/zhan_scarf
 	name = "zhan scarf"
 	desc = "Uneque scarf"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACIALHAIR
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACIALHAIR
 	icon_state = "zhan_scarf"
 	item_state = "zhan_scarf"
 	
@@ -613,17 +629,21 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "philosopher_wig"
+	flags_inv = HIDEHAIR
+	visor_flags_inv = HIDEHAIR
+	dynamic_hair_suffix = ""
 	item_state = "philosopher_wig"
-	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 80, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 80, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5)
 	
 /obj/item/clothing/head/helmet/wzzzz/hijab
 	name = "hijab"
 	desc = "Hijab"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
+	dynamic_hair_suffix = ""
 	icon_state = "hijab"
 	item_state = "hijab"
-	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 0)
 	
 /obj/item/clothing/head/helmet/wzzzz/taqiyah
 	name = "taqiyah"
@@ -657,3 +677,295 @@
 	icon_state = "fez"
 	item_state = "fez"
 	
+/obj/item/clothing/head/helmet/wzzzz/officercap
+	name = "officer cap"
+	desc = "Good cap for good officers"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
+	icon_state = "officercap"
+	item_state = "officercap"
+
+/obj/item/clothing/head/helmet/wzzzz/helmet_sol
+	name = "soldier helmet"
+	desc = "Looks strange for soldier, but that for soldiers"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
+	icon_state = "helmet_sol"
+	item_state = "helmet_sol"
+	flags_inv = HIDEEARS
+	visor_flags_inv = HIDEEARS
+	dynamic_hair_suffix = ""
+	resistance_flags = NONE
+	armor = list("melee" = 40, "bullet" = 35, "laser" = 40,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 20)
+	
+/obj/item/clothing/head/helmet/wzzzz/helmet_tac
+	name = "tactical helmet"
+	desc = "Looks unusual for helmet"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
+	icon_state = "helmet_tac"
+	item_state = "helmet_tac"
+	dynamic_hair_suffix = ""
+	flags_inv = HIDEEARS
+	visor_flags_inv = HIDEEARS
+	resistance_flags = NONE
+	armor = list("melee" = 45, "bullet" = 50, "laser" = 35,"energy" = 10, "bomb" = 35, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 25)
+	
+/obj/item/clothing/gloves/combat/guard
+	name = "guard gloves"
+	desc = "These tactical gloves are fireproof and electrically insulated."
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hands.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/gloves.dmi'
+	icon_state = "guards"
+	item_state = "guards"
+	siemens_coefficient = 0
+	permeability_coefficient = 0.01
+	strip_delay = 50
+	cold_protection = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
+	heat_protection = HANDS
+	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
+	resistance_flags = NONE
+	armor = list("melee" = 50, "bullet" = 40, "laser" = 20, "energy" = 0, "bomb" = 60, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
+	
+/obj/item/clothing/gloves/combat/evening_gloves
+	name = "evening gloves"
+	desc = "Evening gloves."
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hands.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/gloves.dmi'
+	icon_state = "evening_gloves"
+	item_state = "evening_gloves"
+	siemens_coefficient = 0
+	permeability_coefficient = 0.05
+	strip_delay = 100
+	cold_protection = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
+	heat_protection = HANDS
+	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
+	resistance_flags = NONE
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 100, "rad" = 25, "fire" = 50, "acid" = 75)
+	
+/obj/item/clothing/head/helmet/wzzzz/bio_anom
+	name = "Anomaly hood"
+	desc = "A hood that protects the head and face from exotic alien energies and biological contamination."
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
+	icon_state = "bio_anom"
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	item_state = "bio_anom"	
+	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
+	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	clothing_flags = BLOCK_GAS_SMOKE_EFFECT|STOPSPRESSUREDAMAGE|SNUG_FIT
+	resistance_flags = NONE|ACID_PROOF
+	armor = list("melee" = 40, "bullet" = 20, "laser" = 30,"energy" = 30, "bomb" = 30, "bio" = 100, "rad" = 100, "fire" = 75, "acid" = 70)
+
+
+/obj/item/clothing/suit/space/anomaly
+	name = "Anomaly suit"
+	desc = "A suit that protects against exotic alien energies and biological contamination."
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/suits.dmi'
+	icon_state = "bio_anom"
+	item_state = "bio_anom"
+	clothing_flags = STOPSPRESSUREDAMAGE
+	w_class = WEIGHT_CLASS_HUGE
+	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
+	armor = list("melee" = 30, "bullet" = 20, "laser" = 20,"energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 100, "fire" = 80, "acid" = 85)
+	
+/obj/item/clothing/suit/space/secger
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "rig_sec"
+	item_state = "rig_sec"
+	name = "security german hardsuit"
+	desc = "A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
+	armor = list(melee = 80, bullet = 65, laser = 55, energy = 15, bomb = 80, bio = 100, rad = 60)
+	
+//helmettype = /obj/item/clothing/head/helmet/wzzzz/rig0sec
+	
+/obj/item/clothing/suit/space/secalt
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "rig_secalt"
+	item_state = "rig_secalt"
+	name = "security german hardsuit"
+	desc = "A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
+	armor = list(melee = 80, bullet = 65, laser = 55, energy = 15, bomb = 80, bio = 100, rad = 60)
+	
+//helmettype = /obj/item/clothing/head/helmet/wzzzz/secalt_helm
+	
+/obj/item/clothing/suit/armor/vest/bulletproofsuit
+	name = "bulletproof armour"
+	desc = "Better bulletproof suit."
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "bulletproof"
+	siemens_coefficient = 0.7
+	item_state = "bulletproof"
+	armor = list("melee" = 50, "bullet" = 90, "laser" = 20,"energy" = 0, "bomb" = 60, "bio" = 0, "rad" = 0, "fire" = 40, "acid" = 30)
+
+/obj/item/clothing/suit/toggle/labcoat/rd
+	name = "scientist labcoat"
+	desc = "A suit that make some protection against some accidents at work"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	armor = list("melee" = 15, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 75, "rad" = 0, "fire" = 50, "acid" = 75)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "labcoat_rd"
+	item_state = "labcoat_rd"
+	
+/obj/item/clothing/under/syndicate/sweater
+	name = "sweater turtleneck"
+	desc = "Comfortable and warm"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/ties.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon_state = "sweater"
+	alt_covers_chest = FALSE
+	cold_protection = CHEST | GROIN | LEGS | FEET | ARMS | HANDS
+	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
+	item_state = "sweater"
+	
+
+/obj/item/clothing/suit/space/excavation
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	item_state = "rig_excavation"
+	icon_state = "rig_excavation"
+	name = "excavation voidsuit"
+	desc = "A specially shielded voidsuit that insulates against some exotic alien energies, as well as the more mundane dangers of excavation."
+	armor = list(melee = 30, bullet = 0, laser = 5,energy = 40, bomb = 35, bio = 100, rad = 100)
+
+/obj/item/clothing/head/helmet/space/excavation
+	name = "excavation voidsuit helmet"
+	desc = "A sophisticated voidsuit helmet, capable of protecting the wearer from many exotic alien energies."
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hats.dmi'
+	icon_state = "rig0_excavation"
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	item_state = "rig0_excavation"
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	clothing_flags = STOPSPRESSUREDAMAGE|BLOCK_GAS_SMOKE_EFFECT
+	resistance_flags = NONE
+	armor = list(melee = 30, bullet = 0, laser = 5 ,energy = 40, bomb = 35, bio = 100, rad = 100)
+	
+
+/obj/item/clothing/suit/armor/vest/bulletproofsuit/vest
+	name = "bulletproof vest"
+	desc = "A suit of armor with heavy plates to protect against ballistic projectiles. Looks like it might impair movement."
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "bulletproofvest"
+	item_state = "bulletproofvest"
+	armor = list("melee" = 40, "bullet" = 80, "laser" = 20,"energy" = 0, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 40, "acid" = 30)
+
+/obj/item/clothing/suit/space/salvage
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	item_state = "rig_salvage"
+	icon_state = "rig_salvage"
+	name = "salvage suit"
+	desc = "Salvaged"
+	armor = list(melee = 50, bullet = 40, laser = 20 ,energy = 10, bomb = 45, bio = 90, rad = 70)
+	
+/obj/item/clothing/suit/bomb_suit/german
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	icon_state = "bombsuitsec"
+	item_state = "bombsuitsec"
+	armor = list("melee" = 50, "bullet" = 50, "laser" = 20,"energy" = 10, "bomb" = 100, "bio" = 40, "rad" = 0, "fire" = 80, "acid" = 50)
+	
+/obj/item/clothing/head/bomb_hood/german
+	name = "bomb helmet"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
+	icon_state = "bombsuitsec"
+	item_state = "bombsuitsec"
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACIALHAIR|HIDEMASK
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACIALHAIR|HIDEMASK
+	armor = list("melee" = 70, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 100, "bio" = 0, "rad" = 0, "fire" = 80, "acid" = 50)
+	
+/obj/item/clothing/suit/armor/hos/german
+	icon_state = "hosg"
+	item_state = "hosg"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+
+/obj/item/clothing/suit/imperium_monk/german
+	icon_state = "imperium_monk"
+	item_state = "imperium_monk"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	flags_inv = HIDEHAIR|HIDEEARS|256
+	visor_flags_inv = HIDEHAIR|HIDEEARS|256
+	armor = list("melee" = 30, "bullet" = 10, "laser" = 20,"energy" = 30, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 10)
+	
+/obj/item/clothing/suit/psyamp
+	icon_state = "psyamp"
+	item_state = "psyamp"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	armor = list("melee" = 20, "bullet" = 10, "laser" = 100,"energy" = 100, "bomb" = 20, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+	
+/obj/item/clothing/suit/radiation/german
+	icon_state = "rad"
+	item_state = "rad"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+
+/obj/item/clothing/suit/radiation/germanold
+	icon_state = "rad_old"
+	item_state = "rad_old"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	
+/obj/item/clothing/suit/armor/vest/swat_german
+	name = "swat suit"
+	desc = "Good suit for battles versus revolution or criminals."
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "swatold"
+	siemens_coefficient = 0.6	
+	item_state = "swatold"
+	armor = list("melee" = 50, "bullet" = 50, "laser" = 40,"energy" = 10, "bomb" = 70, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 50)
+
+/obj/item/clothing/suit/armor/vest/riot_german
+	name = "swat suit"
+	desc = "Good suit for battles versus revolution or criminals."
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "riotold"
+	siemens_coefficient = 0.7	
+	item_state = "riotold"
+	armor = list("melee" = 55, "bullet" = 40, "laser" = 30,"energy" = 10, "bomb" = 60, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 50)
+	
+/obj/item/clothing/suit/armor/vest/swatarmor_german
+	name = "swat armor"
+	desc = "Armor for swat and swat operations."
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "swatarmor"
+	siemens_coefficient = 0.5	
+	item_state = "swatarmor"
+	armor = list("melee" = 50, "bullet" = 50, "laser" = 40,"energy" = 20, "bomb" = 65, "bio" = 10, "rad" = 0, "fire" = 50, "acid" = 55)
+
+/obj/item/clothing/suit/hazardvest/green
+	icon_state = "hazard_g"
+	item_state = "hazard_g"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+
+/obj/item/clothing/suit/hazardvest/white
+	icon_state = "hazard_w"
+	item_state = "hazard_w"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	
+/obj/item/clothing/suit/hazardvest/blue
+	icon_state = "hazard_b"
+	item_state = "hazard_b"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'

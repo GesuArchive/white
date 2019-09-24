@@ -10,7 +10,7 @@
 	flags_inv = HIDEHAIR|HIDEEARS
 	visor_flags_inv = HIDEHAIR|HIDEEARS
 	
-/obj/item/clothing/shoes/blackger
+/obj/item/clothing/shoes/combat/blackger
 	name = "Black  Boots"
 	desc = "Looks stylish"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/feet.dmi'
