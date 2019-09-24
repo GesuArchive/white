@@ -37,7 +37,7 @@
 	jobtype = /datum/job/hos
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/pda/heads/hos
+	belt = /obj/item/katana
 	ears = /obj/item/radio/headset/heads/hos/alt
 	uniform = /obj/item/clothing/under/rank/security/head_of_security
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -46,7 +46,7 @@
 	head = /obj/item/clothing/head/HoS/beret
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	suit_store = /obj/item/gun/energy/e_gun
-	r_pocket = /obj/item/assembly/flash/handheld
+	r_pocket = /obj/item/pda/heads/hos
 	l_pocket = /obj/item/restraints/handcuffs
 	backpack_contents = list(/obj/item/melee/baton/loaded=1)
 
