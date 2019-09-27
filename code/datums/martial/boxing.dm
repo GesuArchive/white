@@ -33,7 +33,7 @@
 
 	D.visible_message("<span class='danger'>[A] [atk_verb] [D]!</span>", \
 			"<span class='userdanger'>[A] [atk_verb] тебя!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-		to_chat(A, "<span class='danger'>Ты бьёшь [atk_verb] [D]!</span>")
+	to_chat(A, "<span class='danger'>Ты бьёшь [atk_verb] [D]!</span>")
 
 	D.apply_damage(damage, STAMINA, affecting, armor_block)
 	log_combat(A, D, "punched (boxing) ")

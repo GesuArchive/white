@@ -56,7 +56,7 @@
 			log_combat(A, D, "missed a back-kick (Sleeping Carp) on")
 			D.visible_message("<span class='warning'><b>[A]</b> пытаетс€ ударить <b>[D]</b> в спину, но промахиваетс€!</span>", \
 						"<span class='userdanger'><b>[A]</b> пытаетс€ ударить теб€ в спину, но промахиваетс€!</span>", "<span class='hear'>“ы слышишь взмах!</span>", null, A)
-						to_chat(A, "<span class='warning'>“ы промахиваешьс€ мимо [D]!</span>")
+			to_chat(A, "<span class='warning'>“ы промахиваешьс€ мимо [D]!</span>")
 			return TRUE
 		log_combat(A, D, "back-kicked (Sleeping Carp)")
 		A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
