@@ -98,7 +98,7 @@
 		to_chat(user, "<span class='notice'>Ты перелил в [src.name] [trans] единиц из [target].</span>")
 
 /obj/item/reagent_containers/food/drinks/attackby(obj/item/I, mob/user, params)
-	var/hotness = I.is_hot()
+	var/hotness = I.get_temperature()
 	if(hotness && reagents)
 		reagents.expose_temperature(hotness)
 		to_chat(user, "<span class='notice'>Ты нагреваешь [name] при помощи [I.name]!</span>")
