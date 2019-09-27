@@ -7,7 +7,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	weapon_weight = WEAPON_MEDIUM
 	mag_type = /obj/item/ammo_box/magazine/m4s12g
-	fire_sound = 'sound/weapons/gunshot.ogg'
+	fire_sound = 'sound/weapons/gun/pistol/shot.ogg'
 	can_suppress = FALSE
 	pin = /obj/item/firing_pin
 	burst_size = 1

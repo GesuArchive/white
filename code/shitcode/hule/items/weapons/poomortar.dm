@@ -3,7 +3,7 @@
 	desc = "Юѕрх."
 	icon_state = "mecha_bananamrtr"
 	projectile = /obj/item/reagent_containers/food/snacks/poo
-	fire_sound = 'sound/weapons/grenadelaunch.ogg'
+	fire_sound = 'sound/weapons/gun/general/rocket_launch.ogg'
 	projectile_energy_cost = 100
 	equip_cooldown = 20
 	projectiles = 12
