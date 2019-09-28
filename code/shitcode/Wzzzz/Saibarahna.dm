@@ -1,4 +1,4 @@
-/obj/item/melee/sabre/marine
+/obj/item/melee/sabre/wzzzz/marine
 	name = "marine sword"
 	desc = "A curved sword issued to german marines"
 	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
@@ -18,7 +18,7 @@
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	materials = list(/datum/material/iron = 500)
 	
-/obj/item/melee/sabre/officer
+/obj/item/melee/sabre/wzzzz/officer
 	name = "officer sword"
 	desc = "A curved sword issued to german officers"
 	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
@@ -38,7 +38,7 @@
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	materials = list(/datum/material/iron = 500)
 	
-/obj/item/melee/sabre/marineofficer
+/obj/item/melee/sabre/wzzzz/marineofficer
 	name = "marine officer sword"
 	desc = "A curved sword issued to german marine officers"
 	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
@@ -58,7 +58,7 @@
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	materials = list(/datum/material/iron = 500)
 	
-/obj/item/melee/sabre/pettyofficer
+/obj/item/melee/sabre/wzzzz/pettyofficer
 	name = "pettyofficer sword"
 	desc = "A curved sword issued to german petty officers"
 	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
@@ -78,7 +78,7 @@
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	materials = list(/datum/material/iron = 500)
 	
-/obj/item/melee/sabre/german
+/obj/item/melee/sabre/wzzzz/german
 	name = "german sabre"
 	desc = "A good weapon in melee battle"
 	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
@@ -98,7 +98,7 @@
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	materials = list(/datum/material/iron = 500)
 	
-/obj/item/melee/classic_baton/german
+/obj/item/melee/classic_baton/wzzzz/german
 	name = "baton"
 	desc = "A compact yet robust personal defense weapon. Can be concealed when folded."
 	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
@@ -109,7 +109,7 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/belt.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	
-/obj/item/melee/club
+/obj/item/melee/wzzzz/club
 	icon_state = "club"
 	item_state = "club"
 	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
@@ -124,7 +124,7 @@
 	armour_penetration = 30
 	materials = list(/datum/material/iron=2000)
 	
-/obj/item/kitchen/knife/german
+/obj/item/kitchen/knife/wzzzz/german
 	name = "combat knife"
 	desc = "A german military combat knife."
 	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 50, "embedded_fall_chance" = 5, "embedded_ignore_throwspeed_threshold" = TRUE)
