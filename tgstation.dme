@@ -3088,6 +3088,7 @@
 #include "code\shitcode\valtos\rus_names.dm"
 #include "code\shitcode\valtos\rusprikols.dm"
 #include "code\shitcode\valtos\trayshield.dm"
+#include "code\shitcode\valtos\autodoc\autodoc.dm"
 #include "code\shitcode\valtos\dss\_def.dm"
 #include "code\shitcode\valtos\forge\__reagent_states.dm"
 #include "code\shitcode\valtos\forge\_def.dm"
