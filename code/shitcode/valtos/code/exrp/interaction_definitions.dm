@@ -26,7 +26,7 @@ datum/interaction/kiss/evaluate_user(var/mob/user, var/silent=1)
 	description = "Дать пять."
 	require_user_mouth = 1
 	simple_message = "USER даёт пятюню TARGET!"
-	interaction_sound = 'code/shitcode/valtos/ohgod/sounds/interactions/slap.ogg'
+	interaction_sound = 'code/shitcode/valtos/sounds/exrp/interactions/slap.ogg'
 	needs_physical_contact = 1
 
 /datum/interaction/fistbump

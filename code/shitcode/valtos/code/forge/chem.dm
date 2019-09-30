@@ -2,7 +2,7 @@ GLOBAL_LIST_EMPTY(chempiles)
 /obj/effect/decal/cleanable/chempile
 	name = "chemicals"
 	desc = "An indiscernible mixture of chemicals"
-	icon = 'code/shitcode/valtos/forge/icon/32x32.dmi'
+	icon = 'code/shitcode/valtos/icons/forge/32x32.dmi'
 	icon_state = "chempile"
 	mergeable_decal = FALSE
 	resistance_flags = ACID_PROOF | FIRE_PROOF

@@ -15,7 +15,7 @@
 	if (gender == FEMALE && prob(25))
 		playsound(get_turf(src), "code/shitcode/valtos/sounds/love/shot[rand(1, 8)].ogg", 90, 1, 0)
 	else
-		playsound(get_turf(src), "code/shitcode/valtos/ohgod/sounds/interactions/moan_[gender == FEMALE ? "f" : "m"][moan].ogg", 70, 1, 0)
+		playsound(get_turf(src), "code/shitcode/valtos/sounds/exrp/interactions/moan_[gender == FEMALE ? "f" : "m"][moan].ogg", 70, 1, 0)
 
 /mob/proc/cum(var/mob/living/carbon/partner, var/target_orifice)
 
@@ -75,12 +75,12 @@
 
 	if(gender == MALE)
 		if (prob(75))
-			playsound(loc, "code/shitcode/valtos/ohgod/sounds/interactions/final_m[rand(1, 3)].ogg", 90, 1, 0)
+			playsound(loc, "code/shitcode/valtos/sounds/exrp/interactions/final_m[rand(1, 3)].ogg", 90, 1, 0)
 		else
 			playsound(loc, "code/shitcode/valtos/sounds/gachi/penetration_[rand(1, 2)].ogg", 90, 1, 0)
 	else if(gender == FEMALE)
 		if (prob(75))
-			playsound(loc, "code/shitcode/valtos/ohgod/sounds/interactions/final_f[rand(1, 5)].ogg", 70, 1, 0)
+			playsound(loc, "code/shitcode/valtos/sounds/exrp/interactions/final_f[rand(1, 5)].ogg", 70, 1, 0)
 		else
 			playsound(loc, "code/shitcode/valtos/sounds/love/shot9.ogg", 90, 1, 0)
 
@@ -121,7 +121,7 @@
 		if ("do_oral")
 			lust_increase = 10
 			c_target = CUM_TARGET_MOUTH
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/bj[rand(1, 11)].ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/bj[rand(1, 11)].ogg"
 			if(partner.is_fucking(src, CUM_TARGET_MOUTH))
 				if(prob(partner.sexual_potency))
 					message = "зарывается языком в пельмешек [partner]."
@@ -145,7 +145,7 @@
 		if ("do_facefuck")
 			lust_increase = 10
 			c_target = CUM_TARGET_MOUTH
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/oral[rand(1, 2)].ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/oral[rand(1, 2)].ogg"
 			if(is_fucking(partner, CUM_TARGET_MOUTH))
 				if(has_vagina())
 					message = "елозит своим пельмешком по лицу [partner]."
@@ -166,7 +166,7 @@
 		if ("do_throatfuck")
 			lust_increase = 10
 			c_target = CUM_TARGET_MOUTH
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/oral[rand(1, 2)].ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/oral[rand(1, 2)].ogg"
 			if(is_fucking(partner, CUM_TARGET_THROAT))
 				message = pick(list("невероятно сильно ловит клёв в проруби [partner].", "топит карпика в проруби [partner]."))
 				if(rand(3) == 1) // 33%
@@ -182,7 +182,7 @@
 		if ("do_anal")
 			lust_increase = 10
 			c_target = CUM_TARGET_ANUS
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/bang[rand(1, 3)].ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
 			if(is_fucking(partner, CUM_TARGET_ANUS))
 				message = pick("исследует [partner] в шоколадницу.","нежно исследует пещеру [partner]","всаживает стан-батон в шоколадницу [partner] по самые гренки.")
 			else
@@ -192,7 +192,7 @@
 		if ("do_vaginal")
 			lust_increase = 10
 			c_target = CUM_TARGET_VAGINA
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/champ[rand(1, 2)].ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/champ[rand(1, 2)].ogg"
 			if(is_fucking(partner, CUM_TARGET_VAGINA))
 				message = "проникает в пельмешек [partner]."
 			else
@@ -202,7 +202,7 @@
 		if ("do_mount")
 			lust_increase = 10
 			c_target = CUM_TARGET_VAGINA
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/bang[rand(1, 3)].ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
 			if(partner.is_fucking(src, CUM_TARGET_VAGINA))
 				message = "скачет на стан-батоне [partner]."
 			else
@@ -212,7 +212,7 @@
 		if ("do_mountass")
 			lust_increase = 10
 			c_target = CUM_TARGET_ANUS
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/bang[rand(1, 3)].ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
 			if(partner.is_fucking(src, CUM_TARGET_ANUS))
 				message = "скачет на стан-батоне [partner]."
 			else
@@ -222,25 +222,25 @@
 		if ("do_fingering")
 			lust_increase = 10
 			c_target = null
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/champ_fingering.ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/champ_fingering.ogg"
 			message = pick(list("анализирует пельмешек [partner].", "измеряет глубину пельмешка [partner].", "проверяет на прочность пельмешек [partner]."))
 
 		if ("do_fingerass")
 			lust_increase = 10
 			c_target = null
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/champ_fingering.ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/champ_fingering.ogg"
 			message = pick(list("анализирует шоколадницу [partner].", "измеряет глубину скважины [partner].", "проверяет на прочность задний привод [partner]."))
 
 		if ("do_rimjob")
 			lust_increase = 10
 			c_target = null
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/champ_fingering.ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/champ_fingering.ogg"
 			message = "<b>[src]<b> вынюхивает след на заднем дворе [partner].</span>"
 
 		if ("do_handjob")
 			lust_increase = 10
 			c_target = CUM_TARGET_HAND
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/bang[rand(1, 3)].ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
 			if(partner.is_fucking(src, CUM_TARGET_HAND))
 				message = pick(list("шакалит [partner].", "работает рукой с головкой стан-батона [partner].", "включает и выключает стан-батон [partner] быстрее."))
 			else
@@ -250,7 +250,7 @@
 		if ("do_breastfuck")
 			lust_increase = 10
 			c_target = CUM_TARGET_BREASTS
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/bang[rand(1, 3)].ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
 			if(is_fucking(partner, CUM_TARGET_BREASTS))
 				message = pick(list("исследует [partner] между горок.", "прокатывается у [partner] между горок."))
 			else
@@ -260,7 +260,7 @@
 		if ("do_mountface")
 			lust_increase = 1
 			c_target = null
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/squelch[rand(1, 3)].ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/squelch[rand(1, 3)].ogg"
 			if(is_fucking(partner, GRINDING_FACE_WITH_ANUS))
 				message = pick(list("кормит булочками [partner]", "даёт покушать булочек [partner]."))
 			else
@@ -270,7 +270,7 @@
 		if ("do_grindface")
 			lust_increase = 1
 			c_target = null
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/foot_dry[rand(1, 4)].ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/foot_dry[rand(1, 4)].ogg"
 			if(src.get_item_by_slot(SLOT_SHOES) != null)
 				message = pick(list("поставил [get_shoes()] подошвой на лицо [partner].", "опускает свои [get_shoes()] на лицо [partner] и надавливает ими.", "грубо давит [get_shoes()] на лицо [partner]."))
 			else
@@ -280,7 +280,7 @@
 		if ("do_grindmouth")
 			lust_increase = 1
 			c_target = null
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/foot_wet[rand(1, 3)].ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/foot_wet[rand(1, 3)].ogg"
 			if(src.get_item_by_slot(SLOT_SHOES) != null)
 				message = pick(list("заставляет [partner] попробовать [get_shoes()].", "даёт слизать грязь с [get_shoes()] [partner]."))
 			else
@@ -290,7 +290,7 @@
 		if ("do_nuts")
 			lust_increase = 1
 			c_target = CUM_TARGET_MOUTH
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/nuts[rand(1, 4)].ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/nuts[rand(1, 4)].ogg"
 			if(is_fucking(partner, NUTS_TO_FACE))
 				message = pick(list("хватает [partner] за голову и принуждает вкусить яишницы.", "умоляет [partner] попробовать ещё больше божественной яишенки.", "нещадно принимается кормить [partner] яишницей.", "вытаскивает всё то, что [partner] не скушал и ждёт пока тот проглотит остатки."))
 			else
@@ -301,7 +301,7 @@
 			lust_increase = 10
 			c_target = THIGH_SMOTHERING
 			var file = pick(list("bj10", "bj3", "foot_wet1", "foot_dry3"))
-			stp = "code/shitcode/valtos/ohgod/sounds/interactions/[file].ogg"
+			stp = "code/shitcode/valtos/sounds/exrp/interactions/[file].ogg"
 			if(is_fucking(partner, THIGH_SMOTHERING))
 				if(has_vagina())
 					message = pick(list("берёт в ещё более крепкий захват ногами голову [partner] блокируя его обзор целиком.", "обхватывает голову [partner] ногами принуждая вкусить пельменей."))
@@ -344,7 +344,7 @@
 /obj/item/dildo
 	name = "dildo"
 	desc = "Пиздец."
-	icon = 'code/shitcode/valtos/ohgod/icons/samurai.dmi'
+	icon = 'code/shitcode/valtos/icons/exrp/samurai.dmi'
 	icon_state = "dildo"
 	item_state = "c_tube"
 	throwforce = 0
@@ -372,7 +372,7 @@
 	if(message)
 		user.visible_message("<font color=purple>[user] [message].</font>")
 		M.handle_post_sex(pleasure, null, user)
-		playsound(loc, "code/shitcode/valtos/ohgod/sounds/interactions/bang[rand(4, 6)].ogg", 70, 1, -1)
+		playsound(loc, "code/shitcode/valtos/sounds/exrp/interactions/bang[rand(4, 6)].ogg", 70, 1, -1)
 	else
 		return ..()
 

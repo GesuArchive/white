@@ -1,7 +1,7 @@
 /obj/machinery/vending/terminal
 	name = "Trading Terminal MK1"
 	desc = "Вещи возврату не подлежат."
-	icon = 'code/shitcode/valtos/trading/vending.dmi'
+	icon = 'code/shitcode/valtos/icons/vending.dmi'
 	icon_state = "trading"
 	product_ads = "Лучшее только у нас!;Купи-купи-купи!"
 	default_price = 500

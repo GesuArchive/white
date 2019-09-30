@@ -36,7 +36,7 @@
 	description = "Шлёпнуть по заднице."
 	simple_message = "USER шлепнул TARGET по заднице!"
 	simple_style = "danger"
-	interaction_sound = 'code/shitcode/valtos/ohgod/sounds/interactions/slap.ogg'
+	interaction_sound = 'code/shitcode/valtos/sounds/exrp/interactions/slap.ogg'
 	needs_physical_contact = 1
 	max_distance = 1
 

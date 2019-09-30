@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/food/snacks/solid_reagent
 	name = "solidified chemicals"
 	desc = "Are you sure eating this is a good idea?"
-	icon = 'code/shitcode/valtos/forge/icon/chemical.dmi'
+	icon = 'code/shitcode/valtos/icons/forge/chemical.dmi'
 	icon_state = "chembar"
 	obj_flags = UNIQUE_RENAME
 	var/reagent_type

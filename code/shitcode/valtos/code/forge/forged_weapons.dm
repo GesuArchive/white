@@ -1,7 +1,7 @@
 /obj/item/forged
-	icon = 'code/shitcode/valtos/forge/icon/forged_weapons.dmi'
-	lefthand_file = 'code/shitcode/valtos/forge/icon/lefthand.dmi'
-	righthand_file = 'code/shitcode/valtos/forge/icon/righthand.dmi'
+	icon = 'code/shitcode/valtos/icons/forge/forged_weapons.dmi'
+	lefthand_file = 'code/shitcode/valtos/icons/forge/lefthand.dmi'
+	righthand_file = 'code/shitcode/valtos/icons/forge/righthand.dmi'
 	var/datum/reagent/reagent_type
 	var/weapon_type
 	var/identifier = FORGED_MELEE_SINGLEHANDED
@@ -61,7 +61,7 @@
 	desc = "A custom dagger forged from solid ingots"
 	icon_state = "forged_knife"
 	item_state = "forged_dagger"
-	hitsound = 'code/shitcode/valtos/forge/sound/knife.ogg'
+	hitsound = 'code/shitcode/valtos/sounds/forge/knife.ogg'
 	weapon_type = MELEE_TYPE_DAGGER
 	stabby = TRANSFER_SHARP
 	w_class = WEIGHT_CLASS_SMALL
@@ -74,7 +74,7 @@
 	desc = "A custom sword forged from solid ingots"
 	icon_state = "forged_sword"
 	item_state = "forged_sword"
-	mob_overlay_icon = 'code/shitcode/valtos/forge/icon/belt.dmi'
+	mob_overlay_icon = 'code/shitcode/valtos/icons/forge/belt.dmi'
 	slot_flags = SLOT_BELT
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	weapon_type = MELEE_TYPE_SWORD
@@ -89,9 +89,9 @@
 	desc = "A custom mace forged from solid ingots"
 	icon_state = "forged_mace"
 	item_state = "forged_mace"
-	mob_overlay_icon = 'code/shitcode/valtos/forge/icon/belt.dmi'
+	mob_overlay_icon = 'code/shitcode/valtos/icons/forge/belt.dmi'
 	slot_flags = SLOT_BELT
-	hitsound = 'code/shitcode/valtos/forge/sound/crunch.ogg'
+	hitsound = 'code/shitcode/valtos/sounds/forge/crunch.ogg'
 	weapon_type = MELEE_TYPE_MACE
 	stabby = TRANSFER_PARTIALLY_BLUNT
 	w_class = WEIGHT_CLASS_BULKY
@@ -101,9 +101,9 @@
 
 
 /obj/item/twohanded/forged
-	icon = 'code/shitcode/valtos/forge/icon/forged_weapons.dmi'
-	lefthand_file = 'code/shitcode/valtos/forge/icon/lefthand.dmi'
-	righthand_file = 'code/shitcode/valtos/forge/icon/righthand.dmi'
+	icon = 'code/shitcode/valtos/icons/forge/forged_weapons.dmi'
+	lefthand_file = 'code/shitcode/valtos/icons/forge/lefthand.dmi'
+	righthand_file = 'code/shitcode/valtos/icons/forge/righthand.dmi'
 	var/datum/reagent/reagent_type
 	var/weapon_type = MELEE_TYPE_GREATSWORD
 	var/identifier = FORGED_MELEE_TWOHANDED
@@ -164,8 +164,8 @@
 	name = "forged greatsword"
 	desc = "A custom greatsword forged from solid ingots"
 	icon_state = "forged_greatsword"
-	lefthand_file = 'code/shitcode/valtos/forge/icon/64x64_lefthand.dmi'
-	righthand_file = 'code/shitcode/valtos/forge/icon/64x64_righthand.dmi'
+	lefthand_file = 'code/shitcode/valtos/icons/forge/64x64_lefthand.dmi'
+	righthand_file = 'code/shitcode/valtos/icons/forge/64x64_righthand.dmi'
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	hitsound = 'sound/weapons/slash.ogg'
@@ -187,9 +187,9 @@
 	name = "forged warhammer"
 	desc = "A custom warhammer forged from solid ingots"
 	icon_state = "forged_hammer0"
-	mob_overlay_icon = 'code/shitcode/valtos/forge/icon/back.dmi'
+	mob_overlay_icon = 'code/shitcode/valtos/icons/forge/back.dmi'
 	slot_flags = ITEM_SLOT_BACK
-	hitsound = 'code/shitcode/valtos/forge/sound/crunch.ogg'
+	hitsound = 'code/shitcode/valtos/sounds/forge/crunch.ogg'
 	weapon_type = MELEE_TYPE_WARHAMMER
 	stabby = TRANSFER_BLUNT
 	w_class = WEIGHT_CLASS_HUGE
