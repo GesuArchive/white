@@ -166,9 +166,8 @@ GLOBAL_LIST_INIT(gachisounds, list(
 	lethal_projectile = /obj/item/projectile/beam/laser/heavylaser/penetrator
 	lethal_projectile_sound = 'sound/weapons/lasercannonfire.ogg'
 	mode = TURRET_LETHAL
-	shoot_unloyal = 1
+	turret_flags = TURRET_FLAG_SHOOT_UNSHIELDED | TURRET_FLAG_SHOOT_CRIMINALS | TURRET_FLAG_AUTH_WEAPONS
 	//stun_all = 1
-	auth_weapons = 1
 	always_up = 1
 	scan_range = 9
 	use_power = NO_POWER_USE
