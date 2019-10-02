@@ -77,13 +77,12 @@
 	timeout = 2 MINUTES
 
 /datum/mood_event/table/add_effects()
-	if(ishuman(owner))
+	if(isfelinid(owner))
 		var/mob/living/carbon/human/H = owner
-		if(iscatperson(H))
-			H.dna.species.start_wagging_tail(H)
-			addtimer(CALLBACK(H.dna.species, /datum/species.proc/stop_wagging_tail, H), 30)
-			description =  "<span class='nicegreen'>Со мной хотят поиграться на столе!</span>\n"
-			mood_change = 2
+		H.dna.species.start_wagging_tail(H)
+		addtimer(CALLBACK(H.dna.species, /datum/species.proc/stop_wagging_tail, H), 30)
+		description =  "<span class='nicegreen'>Со мной хотят поиграться на столе!</span>\n"
+		mood_change = 2
 
 /datum/mood_event/brain_damage
   mood_change = -3
