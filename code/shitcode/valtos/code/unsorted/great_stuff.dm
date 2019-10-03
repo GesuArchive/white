@@ -14,23 +14,23 @@
 	icon_state = "m35_jacket"
 	item_state = "m35_jacket"
 
-	armor = list("melee" = 20, "bullet" = 20, "laser" = 20,"energy" = 20, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 30)
+	//armor = list("melee" = 20, "bullet" = 20, "laser" = 20,"energy" = 20, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 30)
 	can_adjust = FALSE
 
 /obj/item/clothing/under/m35jacket/officer
 	icon_state = "m35_jacket_officer"
 	item_state = "m35_jacket_officer"
-	armor = list("melee" = 30, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
+	//armor = list("melee" = 30, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
 
 /obj/item/clothing/under/m35jacket/elite
 	icon_state = "m35_elite_jacket"
 	item_state = "m35_elite_jacket"
-	armor = list("melee" = 60, "bullet" = 60, "laser" = 60,"energy" = 60, "bomb" = 60, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 60)
+	//armor = list("melee" = 60, "bullet" = 60, "laser" = 60,"energy" = 60, "bomb" = 60, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 60)
 
 /obj/item/clothing/under/m35jacket/elite/super
 	icon_state = "m35_super_elite_jacket"
 	item_state = "m35_super_elite_jacket"
-	armor = list("melee" = 90, "bullet" = 90, "laser" = 90,"energy" = 90, "bomb" = 90, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 90)
+	//armor = list("melee" = 90, "bullet" = 90, "laser" = 90,"energy" = 90, "bomb" = 90, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 90)
 
 /obj/item/clothing/under/magistrate
 	name = "magistrate uniform"
@@ -40,7 +40,7 @@
 	icon_state = "magistrate"
 	item_state = "magistrate"
 
-	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+	//armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	can_adjust = FALSE
 
 /obj/item/clothing/under/arbiter
@@ -51,34 +51,34 @@
 	icon_state = "arbiter"
 	item_state = "arbiter"
 
-	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+	//armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	can_adjust = FALSE
 
 //suits
 
 /obj/item/clothing/suit/armor/vest/izan
 	name = "bulletproof vest"
-	desc = "Спасёт твою грудь от пуль."
+	desc = "Спасёт твою грудь от пуль. Пахнет китайским пластиком."
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/suits.dmi'
 	icon_state = "opvest"
 
-	armor = list("melee" = 35, "bullet" = 90, "laser" = 20,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
+	//armor = list("melee" = 35, "bullet" = 90, "laser" = 20,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
 
 /obj/item/clothing/suit/armor/vest/izan/arbiter
 	icon_state = "arbiter"
 
 /obj/item/clothing/suit/armor/vest/izan/army_coat
 	icon_state = "army_coat"
-	armor = list("melee" = 45, "bullet" = 90, "laser" = 10,"energy" = 20, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
+	//armor = list("melee" = 45, "bullet" = 90, "laser" = 10,"energy" = 20, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
 
 /obj/item/clothing/suit/armor/vest/izan/elite_army_coat
 	icon_state = "elite_army_coat"
-	armor = list("melee" = 55, "bullet" = 95, "laser" = 20,"energy" = 30, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
+	//armor = list("melee" = 55, "bullet" = 95, "laser" = 20,"energy" = 30, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
 
 /obj/item/clothing/suit/armor/vest/izan/super_elite_army_coat
 	icon_state = "super_elite_army_coat"
-	armor = list("melee" = 75, "bullet" = 100, "laser" = 60,"energy" = 50, "bomb" = 70, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 30)
+	//armor = list("melee" = 75, "bullet" = 100, "laser" = 60,"energy" = 50, "bomb" = 70, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 30)
 
 /obj/item/clothing/suit/cowl
 	name = "cowl"
@@ -113,7 +113,7 @@
 	icon = 'code/shitcode/valtos/icons/clothing/hats.dmi'
 	icon_state = "arbiter"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
-	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+	//armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 
 /obj/item/clothing/head/helmet/arbiter/inquisitor
 	name = "inquisitor helmet"
@@ -125,12 +125,12 @@
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/hat.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/hats.dmi'
 	icon_state = "officer_cap"
-	armor = list("melee" = 55, "bullet" = 90, "laser" = 20,"energy" = 30, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
+	//armor = list("melee" = 55, "bullet" = 90, "laser" = 20,"energy" = 30, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
 
 /obj/item/clothing/head/helmet/izanhelm/elite
 	name = "m35 elite cap"
 	icon_state = "m35_elite_cap"
-	armor = list("melee" = 75, "bullet" = 100, "laser" = 60,"energy" = 50, "bomb" = 70, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 30)
+	//armor = list("melee" = 75, "bullet" = 100, "laser" = 60,"energy" = 50, "bomb" = 70, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 30)
 
 /obj/item/clothing/head/helmet/izanhelm/helmet
 	name = "m35 helmet"
@@ -139,7 +139,7 @@
 /obj/item/clothing/head/helmet/izanhelm/helmet/elite
 	name = "m35 elite helmet"
 	icon_state = "m35_elite_helmet"
-	armor = list("melee" = 75, "bullet" = 100, "laser" = 60,"energy" = 50, "bomb" = 70, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 30)
+	//armor = list("melee" = 75, "bullet" = 100, "laser" = 60,"energy" = 50, "bomb" = 70, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 30)
 
 /obj/item/clothing/head/helmet/izanhelm/helmet/pickelhelm
 	name = "pickelhelm"
@@ -152,7 +152,7 @@
 	icon = 'code/shitcode/valtos/icons/clothing/hats.dmi'
 	icon_state = "richard"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
-	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+	//armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 
 //masks
 
