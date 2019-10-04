@@ -48,6 +48,87 @@
 	icon_state = "turban"
 	item_state = "turban"
 
+/obj/item/clothing/head/soft/wzzzz/fleetsoft
+	name = "fleet cap"
+	desc = "For fleet?"
+	soft_type = "fleet"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hatsnew.dmi'
+	icon_state = "fleetsoft"
+	item_state = "fleetsoft"
+
+
+/obj/item/clothing/head/soft/wzzzz/solsoft
+	name = "soldier cap"
+	soft_type = "sol"
+	desc = "Good luck to protect your head by it"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hatsnew.dmi'
+	icon_state = "solsoft"
+	item_state = "solsoft"
+
+
+/obj/item/clothing/head/wzzzz/greydresscap
+	name = "greydress cap"
+	desc = "Looks like thing for HOP"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hatsnew.dmi'
+	icon_state = "greydresscap"
+	item_state = "greydresscap"
+
+/obj/item/clothing/head/wzzzz/mbillsoft
+	name = "mbill cap"
+	desc = "Maybe, just red cap"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hatsnew.dmi'
+	icon_state = "mbillsoft"
+	item_state = "mbillsoft"
+
+
+/obj/item/clothing/head/wzzzz/greydresscap_com
+	name = "greydress cap"
+	desc = "Looks like thing for HOP"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hatsnew.dmi'
+	icon_state = "greydresscap_com"
+	item_state = "greydresscap_com"
+
+
+/obj/item/clothing/head/wzzzz/cap_veteran
+	name = "veteran cap"
+	desc = "Conscript-medium-veteran"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hatsnew.dmi'
+	icon_state = "cap_veteran"
+	item_state = "cap_veteran"
+
+/obj/item/clothing/head/soft/wzzzz/expeditionsoft
+	name = "expedition cap"
+	desc = "For expedition"
+	soft_type = "expedition"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hatsnew.dmi'
+	icon_state = "expeditionsoft"
+	item_state = "expeditionsoft"
+
+/obj/item/clothing/head/soft/wzzzz/expeditioncomsoft
+	name = "expedition cap"
+	desc = "For expedition"
+	soft_type = "expeditioncom"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hatsnew.dmi'
+	icon_state = "expeditioncomsoft"
+	item_state = "expeditioncomsoft"
+
+/obj/item/clothing/head/soft/wzzzz/corpsoft
+	name = "corpsoft cap"
+	soft_type = "corp"
+	desc = "From corpsoft"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hatsnew.dmi'
+	icon_state = "corpsoft"
+	item_state = "corpsoft"
+
 /obj/item/clothing/head/wzzzz/greyutility
 	name = "grey cap"
 	desc = "Grey cap"
@@ -80,21 +161,14 @@
 	icon_state = "beret_greensilver"
 	item_state = "beret_greensilver"
 
-/obj/item/clothing/head/wzzzz/ntwhitesoft
+/obj/item/clothing/head/soft/wzzzz/ntwhitesoft
 	name = "NT cap"
+	soft_type = "ntwhite"
 	desc = "Unusual white color"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "ntwhitesoft"
 	item_state = "ntwhitesoft"
-
-/obj/item/clothing/head/wzzzz/ntwhitesoft_flipped
-	name = "NT cap"
-	desc = "Unusual white color"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
-	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
-	icon_state = "ntwhitesoft_flipped"
-	item_state = "ntwhitesoft_flipped"
 
 /obj/item/clothing/head/wzzzz/beret_corporate_whitered
 	name = "NT beret"
@@ -152,13 +226,38 @@
 	item_state = "ushankaupbl"
 	armor = list("melee" = 10, "bullet" = 5, "laser" = 5, "energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 5)
 	
+/obj/item/clothing/head/wzzzz/ushankadownbl
+	name = "black ushanka"
+	desc = "Ushanka..."
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
+	icon_state = "ushankadownbl"
+	item_state = "ushankadownbl"
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 5, "energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 5)
+	
+/obj/item/clothing/head/wzzzz/tanutility
+	name = "tan utility cap"
+	desc = "For deserts?"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hatsnew.dmi'
+	icon_state = "tanutility1"
+	item_state = "tanutility1"
+	
+/obj/item/clothing/head/wzzzz/navyutility
+	name = "navy utility cap"
+	desc = "You saw here navy?"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hatsnew.dmi'
+	icon_state = "navyutility1"
+	item_state = "navyutility1"
+	
 /obj/item/clothing/head/wzzzz/greenutility
 	name = "green cap"
 	desc = "Russian style"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
-	icon_state = "greenutility"
-	item_state = "greenutility"
+	icon_state = "greenutility1"
+	item_state = "greenutility1"
 	
 /obj/item/clothing/head/wzzzz/greenwheelcap
 	name = "green officer cap"
@@ -175,6 +274,22 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "greengarrisoncap"
 	item_state = "greengarrisoncap"
+	
+/obj/item/clothing/head/wzzzz/greenwheelcap_com
+	name = "green officer cap"
+	desc = "Russian style"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hatsnew.dmi'
+	icon_state = "greenwheelcap_com"
+	item_state = "greenwheelcap_com"
+
+/obj/item/clothing/head/wzzzz/greengarrisoncap_com
+	name = "green garrison cap"
+	desc = "Between soviet and russian syles"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hatsnew.dmi'
+	icon_state = "greengarrisoncap_com"
+	item_state = "greengarrisoncap_com"
 	
 /obj/item/clothing/head/wzzzz/greendrill
 	name = "green drill cap"
@@ -228,6 +343,30 @@
 	icon_state = "ushankaupb"
 	item_state = "ushankaupb"	
 	armor = list("melee" = 10, "bullet" = 5, "laser" = 5, "energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 5)
+	
+	
+	
+/obj/item/clothing/head/wzzzz/mcushankadown
+	name = "green Ushanka"
+	desc = "Ushanka..."
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hatsnew.dmi'
+	icon_state = "mcushankadown"
+	item_state = "mcushankadown"
+	flags_inv = HIDEEARS
+	visor_flags_inv = HIDEEARS
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 5, "energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 5)
+	
+/obj/item/clothing/head/wzzzz/mcushankaup
+	name = "green Ushanka"
+	desc = "Ushanka..."
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hatsnew.dmi'
+	icon_state = "mcushankaup"
+	item_state = "mcushankaup"	
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 5, "energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 5)
+	
+
 	
 /obj/item/clothing/head/wzzzz/beret
 	name = "beret"

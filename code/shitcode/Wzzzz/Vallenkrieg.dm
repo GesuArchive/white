@@ -117,7 +117,7 @@
 /obj/item/clothing/head/helmet/wzzzz/arbiter
 	name = "arbiter helmet"
 	desc = "Somebody saw description?"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/mask.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/hat.dmi'
 	icon = 'code/shitcode/Wzzzz/Valya/clothing/hats.dmi'
 	icon_state = "arbiter"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
@@ -128,18 +128,18 @@
 	icon_state = "inquisitor"
 
 /obj/item/clothing/head/helmet/wzzzz/izanhelm
-	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/mask.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/hat.dmi'
 	icon = 'code/shitcode/Wzzzz/Valya/clothing/hats.dmi'
 	icon_state = "officer_cap"
 	name = "officer hat"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/mask.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/hat.dmi'
 	icon = 'code/shitcode/Wzzzz/Valya/clothing/hats.dmi'
 	desc = "Officer's cap. It is obviously used by the officers of the Kaiser Army."
 
 /obj/item/clothing/head/cap/wzzzz/elite
 	name = "black officer hat"
 	desc = "Officer's cap is of dark color. In addition, the cockade depicts a symbol of the secret police."
-	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/mask.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/hat.dmi'
 	icon = 'code/shitcode/Wzzzz/Valya/clothing/hats.dmi'
 	icon_state = "m35_elite_cap"
 
@@ -147,7 +147,7 @@
 	name = "stahlhelm"
 	desc = "An ordinary steel helmet. Used by the Kaiser Army."
 	icon_state = "m35_helmet"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/mask.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/hat.dmi'
 	icon = 'code/shitcode/Wzzzz/Valya/clothing/hats.dmi'
 	armor = list(melee = 35, bullet = 20, laser = 20, energy = 35, bomb = 15, bio = 2, rad = 0)
 
@@ -155,7 +155,7 @@
 	name = "black stahlhelm"
 	desc = "A typical germany steel helmet. Black color and it seems instead of steel here used a strong alloy"
 	icon_state = "m35_elite_helmet"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/mask.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/hat.dmi'
 	icon = 'code/shitcode/Wzzzz/Valya/clothing/hats.dmi'
 	armor = list("melee" = 35, "bullet" = 40, "laser" = 40,"energy" = 25, "bomb" = 45, "bio" = 2, "rad" = 0, "fire" = 30, "acid" = 20)
 
@@ -163,7 +163,7 @@
 	name = "pickelhaube"
 	desc = "A spiked helmet.On the front is an eagle of gold color. Inspires respect for the Kaiser"
 	armor = list(melee = 65, bullet = 60, laser = 60, energy = 60, bomb = 60, bio = 2, rad = 0, "fire" = 30, "acid" = 20)
-	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/mask.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/hat.dmi'
 	icon = 'code/shitcode/Wzzzz/Valya/clothing/hats.dmi'
 	icon_state = "pickelhelm"
 
@@ -196,7 +196,7 @@
 	dynamic_fhair_suffix = ""
 	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR
 	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/mask.dmi'
-	icon = 'code/shitcode/Wzzzz/Valya/clothing/hats.dmi'
+	icon = 'code/shitcode/Wzzzz/Valya/clothing/masks.dmi'
 	dynamic_fhair_suffix = ""
 
 /obj/item/clothing/mask/gas/wzzzz/germanalt
@@ -206,14 +206,14 @@
 	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR
 	dynamic_fhair_suffix = ""
 	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/mask.dmi'
-	icon = 'code/shitcode/Wzzzz/Valya/clothing/hats.dmi'
+	icon = 'code/shitcode/Wzzzz/Valya/clothing/masks.dmi'
 
 /obj/item/clothing/mask/gas/wzzzz/respirator
 	name = "respirator mask"
 	icon_state = "respirator"
 	flags_inv = HIDEFACE|HIDEFACIALHAIR
 	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/mask.dmi'
-	icon = 'code/shitcode/Wzzzz/Valya/clothing/hats.dmi'
+	icon = 'code/shitcode/Wzzzz/Valya/clothing/masks.dmi'
 	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR
 	dynamic_fhair_suffix = ""
 
@@ -222,6 +222,7 @@
 	desc = "German balaclava."
 	dynamic_fhair_suffix = ""
 	dynamic_hair_suffix = ""
+	flags_inv = HIDEFACE|HIDEFACIALHAIR
 	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/mask.dmi'
 	icon = 'code/shitcode/Wzzzz/Valya/clothing/masks.dmi'
 	icon_state = "balaclava"

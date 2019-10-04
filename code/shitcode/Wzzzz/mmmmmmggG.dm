@@ -12,6 +12,7 @@
 	mag_type = /obj/item/ammo_box/magazine/wzzzz/a762d
 	w_class = WEIGHT_CLASS_HUGE
 	fire_delay = 1
+	spread = 8
 	can_suppress = FALSE
 	burst_size = 5
 	can_bayonet = FALSE
