@@ -17,6 +17,7 @@
 	robust_searching = 1
 	stat_attack = DEAD
 	obj_damage = 0
+	gold_core_spawnable = HOSTILE_SPAWN
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	speak_emote = list("squeaks")
 	ventcrawler = VENTCRAWLER_ALWAYS
