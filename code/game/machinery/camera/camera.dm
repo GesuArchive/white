@@ -12,7 +12,7 @@
 	active_power_usage = 10
 	layer = WALL_OBJ_LAYER
 	resistance_flags = FIRE_PROOF
-
+	damage_deflection = 12
 	armor = list("melee" = 50, "bullet" = 20, "laser" = 20, "energy" = 20, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 50)
 	max_integrity = 100
 	integrity_failure = 50
@@ -129,7 +129,7 @@
 	if(panel_open)
 		. += "<span class='info'>Техническая панель открыта.</span>"
 		if(!status && powered())
-			. += "<span class='info'>Она может быть активирована снова при помощи <b>отвёртки</b>.</span>"
+			. += "<span class='info'>Она может быть активирована снова при помощи <b>кусачек</b>.</span>"
 
 /obj/machinery/camera/emp_act(severity)
 	. = ..()
@@ -317,9 +317,10 @@
 
 	return ..()
 
+
 /obj/machinery/camera/run_obj_armor(damage_amount, damage_type, damage_flag = 0, attack_dir)
-	if(damage_flag == "melee" && damage_amount < 12 && !(stat & BROKEN))
-		return 0
+	if(stat & BROKEN)
+		return damage_amount
 	. = ..()
 
 /obj/machinery/camera/obj_break(damage_flag)
