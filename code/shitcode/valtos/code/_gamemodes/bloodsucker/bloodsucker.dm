@@ -201,9 +201,9 @@
 	if (!am_valid)
 		H.set_species(/datum/species/human)
 		H.real_name = H.client.prefs.custom_names["human"]
-		if (H.wear_id)
-			H.wear_id.GetID().registered_name = H.real_name
-			H.wear_id.GetID().update_label()
+		//if (H.wear_id)
+		//	H.wear_id.GetID().registered_name = H.real_name
+		//	H.wear_id.GetID().update_label()
 
 
 /datum/game_mode/proc/can_make_vassal(mob/living/target, datum/mind/creator, display_warning=TRUE)//, check_antag_or_loyal=FALSE)

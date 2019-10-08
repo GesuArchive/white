@@ -145,7 +145,7 @@
 /datum/action/bloodsucker/proc/CheckCanDeactivate(display_error)
 	return TRUE
 
-/datum/action/bloodsucker/UpdateButtonIcon()
+/datum/action/bloodsucker/UpdateButtonIcon(status_only, force)
 	background_icon_state = active? background_icon_state_on : background_icon_state_off
 	..()//UpdateButtonIcon()
 

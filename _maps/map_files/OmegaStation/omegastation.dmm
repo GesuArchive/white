@@ -23863,7 +23863,6 @@
 	},
 /obj/item/radio/intercom{
 	name = "Station Intercom";
-	pixel_x = 0;
 	pixel_y = -31
 	},
 /turf/open/floor/plasteel,
@@ -28931,8 +28930,7 @@
 /obj/structure/cable,
 /obj/structure/sign/warning{
 	desc = "An infuriatingly uncentered warning sign.";
-	pixel_x = 30;
-	pixel_y = 0
+	pixel_x = 30
 	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
