@@ -224,7 +224,7 @@
 	return TRUE
 
 
-/obj/item/projectile/bullet/forged
+/obj/projectile/bullet/forged
 	damage = 0
 	hitsound_wall = "ricochet"
 	impact_effect_type = /obj/effect/temp_visual/impact_effect
@@ -236,7 +236,7 @@
 	var/fire = FALSE
 
 
-/obj/item/projectile/bullet/forged/proc/assign_properties(datum/reagent/reagent_type, caliber_multiplier)
+/obj/projectile/bullet/forged/proc/assign_properties(datum/reagent/reagent_type, caliber_multiplier)
 	if(reagent_type)
 		special_traits = list()
 		name = name += " ([reagent_type.name])"
@@ -249,7 +249,7 @@
 			S.on_apply(src, identifier)
 
 
-/obj/item/projectile/bullet/forged/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/bullet/forged/on_hit(atom/target, blocked = FALSE)
 	. = ..()
 	if(reagent_type)
 		for(var/I in special_traits)
@@ -267,7 +267,7 @@
 
 
 
-/obj/item/projectile/bullet/forged/Move()
+/obj/projectile/bullet/forged/Move()
 	. = ..()
 	if(!QDELETED(src))
 		for(var/I in special_traits)
@@ -278,8 +278,6 @@
 		if(radioactive)
 			radiation_pulse(src, 300)
 
-		if(fire)
-			open_flame()
 		var/turf/location = get_turf(src)
 		if(location && reagent_type)
 			reagent_type.reaction_turf(location, 1)
@@ -288,7 +286,7 @@
 /obj/item/ammo_casing/forged
 	name = "forged bullet casing"
 	desc = "A custom bullet casing designed to be quickly changeable to any caliber"
-	projectile_type = /obj/item/projectile/bullet/forged
+	projectile_type = /obj/projectile/bullet/forged
 	var/datum/reagent/reagent_type
 	var/static/list/calibers = list("357" = 4.5, "a762" = 5, "n762" = 5, ".50" = 6, "38" = 1.5, "10mm" = 3, "9mm" = 2, "4.6x30mm" = 2, ".45" = 2.5, "a556" = 3.5, "mm195129" = 4.5)
 
@@ -304,7 +302,7 @@
 	if(!caliber)
 		caliber = input("Shape the bullet to which caliber? (You may only do this once!)", "Transform", caliber) as null|anything in calibers
 		if(BB)
-			var/obj/item/projectile/bullet/forged/FF = BB
+			var/obj/projectile/bullet/forged/FF = BB
 			FF.reagent_type = reagent_type
 			FF.assign_properties(reagent_type, calibers[caliber])
 			desc = "A custom [caliber] bullet casing"

@@ -6,7 +6,7 @@
 	removable_components = FALSE
 	load_type = /obj/item/weapon/rcd_ammo
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4, TECH_MAGNET = 4)
-	projectile_type = /obj/item/projectile/bullet/magnetic/slug
+	projectile_type = /obj/projectile/bullet/magnetic/slug
 	power_cost = 300
 	w_class = ITEM_SIZE_HUGE
 	slot_flags = SLOT_BELT
@@ -96,7 +96,7 @@
 	slowdown_worn = 0
 	power_cost = 100
 	load_type = /obj/item/weapon/magnetic_ammo
-	projectile_type = /obj/item/projectile/bullet/magnetic/flechette
+	projectile_type = /obj/projectile/bullet/magnetic/flechette
 	loaded = /obj/item/weapon/magnetic_ammo
 
 	firemodes = list(

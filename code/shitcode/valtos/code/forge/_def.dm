@@ -72,7 +72,7 @@
 				F.force_wielded = F.force_wielded * 1.3
 				F.throwforce = F.throwforce * 1.3
 			if(FORGED_BULLET_CASING)
-				var/obj/item/projectile/bullet/forged/F = I
+				var/obj/projectile/bullet/forged/F = I
 				F.damage = F.damage * 1.3
 				F.armour_penetration += 10
 
@@ -98,7 +98,7 @@
 				if(F.sharpness == IS_SHARP)
 					F.sharpness = IS_SHARP_ACCURATE
 			if(FORGED_BULLET_CASING)
-				var/obj/item/projectile/bullet/forged/F = I
+				var/obj/projectile/bullet/forged/F = I
 				F.dismemberment += 20
 
 
@@ -119,7 +119,7 @@
 				F.radioactive = TRUE
 				START_PROCESSING(SSobj, F)
 			if(FORGED_BULLET_CASING)
-				var/obj/item/projectile/bullet/forged/F = I
+				var/obj/projectile/bullet/forged/F = I
 				F.radioactive = TRUE
 
 
@@ -132,7 +132,7 @@
 	if(type && I)
 		switch(type)
 			if(FORGED_BULLET_CASING)
-				var/obj/item/projectile/bullet/forged/F = I
+				var/obj/projectile/bullet/forged/F = I
 				if(F.damage >= 20)
 					F.movement_type |= UNSTOPPABLE
 					F.range = F.range * 0.5//oof
@@ -141,7 +141,7 @@
 /datum/special_trait/ultradense/on_hit(atom/target, mob/user, obj/item/I, type)
 	if(I && target && type)
 		if(type == FORGED_BULLET_CASING)
-			var/obj/item/projectile/bullet/forged/F = I
+			var/obj/projectile/bullet/forged/F = I
 			if(isliving(target))
 				var/mob/living/M = target
 				M.throw_at(get_edge_target_turf(M, F.dir),1 ,5)
@@ -185,7 +185,7 @@
 
 /datum/special_trait/bouncy/on_apply(obj/item/I, type)
 	if(type == FORGED_BULLET_CASING)
-		var/obj/item/projectile/bullet/forged/F = I
+		var/obj/projectile/bullet/forged/F = I
 		F.ricochets_max += 10
 		F.ricochet_chance = 100
 
@@ -209,7 +209,7 @@
 				F.speed = rand(CLICK_CD_RAPID, CLICK_CD_MELEE * 5)
 				F.stabby = rand(TRANSFER_BLUNT, TRANSFER_SHARPEST)
 			if(FORGED_BULLET_CASING)
-				var/obj/item/projectile/bullet/forged/F = I
+				var/obj/projectile/bullet/forged/F = I
 				F.damage = rand(1, 80)
 				F.speed = rand(0, 5)
 				F.damage_type = pick(BRUTE, BURN, TOX, OXY, CLONE)
@@ -235,7 +235,7 @@
 				F.add_overlay(GLOB.fire_overlay, TRUE)
 				START_PROCESSING(SSobj, I)
 			if(FORGED_BULLET_CASING)
-				var/obj/item/projectile/bullet/forged/F = I
+				var/obj/projectile/bullet/forged/F = I
 				F.fire = TRUE
 				F.add_overlay(GLOB.fire_overlay, TRUE)
 
@@ -332,7 +332,7 @@
 					splash(1, F, user, TOUCH, 2)
 
 			if(FORGED_BULLET_CASING)
-				var/obj/item/projectile/bullet/forged/F = I
+				var/obj/projectile/bullet/forged/F = I
 				splash(1, F, F, TOUCH, 2)
 
 

@@ -9,7 +9,7 @@
 	one_hand_penalty = 2
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	projectile_type = /obj/item/projectile/beam/midlaser
+	projectile_type = /obj/projectile/beam/midlaser
 	wielded_item_state = "laser-wielded"
 
 /obj/item/weapon/gun/energy/laser/mounted
@@ -20,7 +20,7 @@
 /obj/item/weapon/gun/energy/laser/practice
 	name = "practice laser carbine"
 	desc = "A modified version of the HI G40E, this one fires less concentrated energy bolts designed for target practice."
-	projectile_type = /obj/item/projectile/beam/practice
+	projectile_type = /obj/projectile/beam/practice
 
 obj/item/weapon/gun/energy/retro
 	name = "retro laser"
@@ -29,7 +29,7 @@ obj/item/weapon/gun/energy/retro
 	desc = "An older model of the basic lasergun. Nevertheless, it is still quite deadly and easy to maintain, making it a favorite amongst pirates and other outlaws."
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = ITEM_SIZE_NORMAL
-	projectile_type = /obj/item/projectile/beam
+	projectile_type = /obj/projectile/beam
 	fire_delay = 15 //old technology, and a pistol
 
 /obj/item/weapon/gun/energy/captain
@@ -40,7 +40,7 @@ obj/item/weapon/gun/energy/retro
 	force = 5
 	slot_flags = SLOT_BELT //too unusually shaped to fit in a holster
 	w_class = ITEM_SIZE_NORMAL
-	projectile_type = /obj/item/projectile/beam
+	projectile_type = /obj/projectile/beam
 	origin_tech = null
 	max_shots = 5 //to compensate a bit for self-recharging
 	one_hand_penalty = 1 //a little bulky
@@ -55,7 +55,7 @@ obj/item/weapon/gun/energy/retro
 	slot_flags = SLOT_BELT|SLOT_BACK
 	one_hand_penalty = 6 //large and heavy
 	w_class = ITEM_SIZE_HUGE
-	projectile_type = /obj/item/projectile/beam/heavylaser
+	projectile_type = /obj/projectile/beam/heavylaser
 	charge_cost = 40
 	max_shots = 6
 	accuracy = 2
@@ -76,7 +76,7 @@ obj/item/weapon/gun/energy/retro
 	item_state = "xray"
 	slot_flags = SLOT_BELT|SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
-	projectile_type = /obj/item/projectile/beam/xray/midlaser
+	projectile_type = /obj/projectile/beam/xray/midlaser
 	one_hand_penalty = 2
 	w_class = ITEM_SIZE_LARGE
 	charge_cost = 15
@@ -87,7 +87,7 @@ obj/item/weapon/gun/energy/retro
 	icon_state = "oldxray"
 	item_state = "oldxray"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	projectile_type = /obj/item/projectile/beam/xray
+	projectile_type = /obj/projectile/beam/xray
 	one_hand_penalty = 1
 	w_class = ITEM_SIZE_NORMAL
 	fire_delay = 10
@@ -98,7 +98,7 @@ obj/item/weapon/gun/energy/retro
 	icon_state = "sniper"
 	item_state = "laser"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 5, TECH_POWER = 4)
-	projectile_type = /obj/item/projectile/beam/sniper
+	projectile_type = /obj/projectile/beam/sniper
 	one_hand_penalty = 5 // The weapon itself is heavy, and the long barrel makes it hard to hold steady with just one hand.
 	slot_flags = SLOT_BACK
 	charge_cost = 40
@@ -129,7 +129,7 @@ obj/item/weapon/gun/energy/retro
 	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 2)
 	self_recharge = 1
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	projectile_type = /obj/item/projectile/beam/lastertag/blue
+	projectile_type = /obj/projectile/beam/lastertag/blue
 	var/required_vest
 
 /obj/item/weapon/gun/energy/lasertag/special_check(var/mob/living/carbon/human/M)
@@ -142,11 +142,11 @@ obj/item/weapon/gun/energy/retro
 /obj/item/weapon/gun/energy/lasertag/blue
 	icon_state = "bluetag"
 	item_state = "bluetag"
-	projectile_type = /obj/item/projectile/beam/lastertag/blue
+	projectile_type = /obj/projectile/beam/lastertag/blue
 	required_vest = /obj/item/clothing/suit/bluetag
 
 /obj/item/weapon/gun/energy/lasertag/red
 	icon_state = "redtag"
 	item_state = "redtag"
-	projectile_type = /obj/item/projectile/beam/lastertag/red
+	projectile_type = /obj/projectile/beam/lastertag/red
 	required_vest = /obj/item/clothing/suit/redtag

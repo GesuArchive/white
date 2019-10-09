@@ -3,20 +3,20 @@
 	desc = "Как вообще из спичек, бумаги и сахара можно сделать боеприпас?"
 	icon = 'code/shitcode/hule/icons/obj/weapons.dmi'
 	icon_state = "cshell"
-	projectile_type = /obj/item/projectile/bullet/pellet/shotgun_glassslug
+	projectile_type = /obj/projectile/bullet/pellet/shotgun_glassslug
 	pellets = 5
 	variance = 25
 
 /obj/item/ammo_casing/shotgun/diyslug/plasma
 	name = "makeshift plasmaglass slug"
-	projectile_type = /obj/item/projectile/bullet/pellet/shotgun_plasmaslug
+	projectile_type = /obj/projectile/bullet/pellet/shotgun_plasmaslug
 
 
-/obj/item/projectile/bullet/pellet/shotgun_plasmaslug
+/obj/projectile/bullet/pellet/shotgun_plasmaslug
 	name = "makeshift plasmaglass slug"
 	damage = 8
 
-/obj/item/projectile/bullet/pellet/shotgun_glassslug
+/obj/projectile/bullet/pellet/shotgun_glassslug
 	name = "makeshift glass slug"
 	damage = 4
 	stamina = 2

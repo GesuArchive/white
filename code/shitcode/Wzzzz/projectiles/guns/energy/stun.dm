@@ -4,11 +4,11 @@
 	icon_state = "taser"
 	item_state = "pistol"//null	//so the human update icon uses the icon_state instead.
 	max_shots = 6
-	projectile_type = /obj/item/projectile/beam/stun ///obj/item/projectile/energy/electrode
+	projectile_type = /obj/projectile/beam/stun ///obj/projectile/energy/electrode
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun),
-		list(mode_name="shock", projectile_type=/obj/item/projectile/beam/stun/shock),
+		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun),
+		list(mode_name="shock", projectile_type=/obj/projectile/beam/stun/shock),
 		)
 
 /obj/item/weapon/gun/energy/taser/carbine
@@ -21,12 +21,12 @@
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	force = 8
 	max_shots = 10
-	projectile_type = /obj/item/projectile/beam/stun/heavy
+	projectile_type = /obj/projectile/beam/stun/heavy
 	wielded_item_state = "tasercarbine-wielded"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun/heavy),
-		list(mode_name="shock", projectile_type=/obj/item/projectile/beam/stun/shock/heavy),
+		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun/heavy),
+		list(mode_name="shock", projectile_type=/obj/projectile/beam/stun/shock/heavy),
 		)
 
 /obj/item/weapon/gun/energy/taser/mounted
@@ -46,7 +46,7 @@
 	icon_state = "stunrevolver"
 	item_state = "stunrevolver"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
-	projectile_type = /obj/item/projectile/energy/electrode
+	projectile_type = /obj/projectile/energy/electrode
 	max_shots = 8
 
 /obj/item/weapon/gun/energy/stunrevolver/rifle
@@ -60,7 +60,7 @@
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	force = 10
 	max_shots = 12
-	projectile_type = /obj/item/projectile/energy/electrode/stunshot
+	projectile_type = /obj/projectile/energy/electrode/stunshot
 	wielded_item_state = "stunrifle-wielded"
 
 /obj/item/weapon/gun/energy/crossbow
@@ -74,14 +74,14 @@
 	slot_flags = SLOT_BELT
 	silenced = 1
 	fire_sound = 'sound/weapons/Genhit.ogg'
-	projectile_type = /obj/item/projectile/energy/bolt
+	projectile_type = /obj/projectile/energy/bolt
 	max_shots = 8
 	self_recharge = 1
 	charge_meter = 0
 
 /obj/item/weapon/gun/energy/crossbow/ninja
 	name = "energy dart thrower"
-	projectile_type = /obj/item/projectile/energy/dart
+	projectile_type = /obj/projectile/energy/dart
 	max_shots = 5
 
 /obj/item/weapon/gun/energy/crossbow/largecrossbow
@@ -91,7 +91,7 @@
 	force = 10
 	one_hand_penalty = 1
 	matter = list(DEFAULT_WALL_MATERIAL = 200000)
-	projectile_type = /obj/item/projectile/energy/bolt/large
+	projectile_type = /obj/projectile/energy/bolt/large
 
 /obj/item/weapon/gun/energy/plasmastun
 	name = "plasma pulse projector"
@@ -101,4 +101,4 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_POWER = 3)
 	fire_delay = 20
 	max_shots = 4
-	projectile_type = /obj/item/projectile/energy/plasmastun
+	projectile_type = /obj/projectile/energy/plasmastun

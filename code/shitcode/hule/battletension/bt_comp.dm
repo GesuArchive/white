@@ -56,7 +56,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		if(80 to INFINITY)
 			tension = 80
 
-/datum/component/battletension/proc/bulletact_react(datum/source, obj/item/projectile/P, def_zone)
+/datum/component/battletension/proc/bulletact_react(datum/source, obj/projectile/P, def_zone)
 	create_tension(P.damage)
 
 	if(!P.firer || P.firer == owner)

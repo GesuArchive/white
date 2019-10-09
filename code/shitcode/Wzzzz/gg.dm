@@ -1,11 +1,11 @@
-/obj/item/projectile/bullet/rifle/a556
+/obj/projectile/bullet/rifle/a556
 	damage = 50
 	armour_penetration = 25
 	
 /obj/item/ammo_casing/wzzzz/a556
 	desc = "A 5.56mm bullet casing."
 	caliber = "a556"
-	projectile_type = /obj/item/projectile/bullet/rifle/a556
+	projectile_type = /obj/projectile/bullet/rifle/a556
 	icon = 'code/shitcode/Wzzzz/icons/ammo.dmi'
 	icon_state = "rifle_casing"
 	item_state = "rifle_casing"

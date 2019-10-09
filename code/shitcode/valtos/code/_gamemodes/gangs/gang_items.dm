@@ -778,7 +778,7 @@
 	item_state = "syringe_0"
 	throw_speed = 3
 	throw_range = 5
-	materials = list(MAT_METAL=600, MAT_GLASS=200)
+	custom_materials = list(MAT_METAL=600, MAT_GLASS=200)
 
 /obj/item/reviver/attack(mob/living/carbon/human/H, mob/user)
 	if(!ishuman(H) || icon_state == "implanter0")

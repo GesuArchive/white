@@ -36,16 +36,16 @@
 	icon = 'code/shitcode/hule/icons/obj/weapons.dmi'
 	icon_state = "15mm-casing"
 	caliber = "15mm"
-	projectile_type = /obj/item/projectile/bullet/a15mm
+	projectile_type = /obj/projectile/bullet/a15mm
 
-/obj/item/projectile/bullet/a15mm
+/obj/projectile/bullet/a15mm
 	name = "15mm bullet"
 	damage = 99
 	speed = 0.5
 	dismemberment = 70
 	pass_flags = PASSTABLE | PASSGRILLE
 
-/obj/item/projectile/bullet/a15mm/on_hit(atom/target)
+/obj/projectile/bullet/a15mm/on_hit(atom/target)
 	. = ..()
 	var/obj/item/gun/ballistic/rifle/boltaction/ptr/G = fired_from
 

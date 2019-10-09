@@ -114,8 +114,8 @@
 		QDEL_NULL(fakeholder)
 	return ..()
 
-/turf/closed/wall/mineral/reagent/bullet_act(obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/beam))
+/turf/closed/wall/mineral/reagent/bullet_act(obj/projectile/Proj)
+	if(istype(Proj, /obj/projectile/beam))
 		heat(1000)
 	else
 		reagent_act(src)

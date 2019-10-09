@@ -34,9 +34,9 @@
 	name = "armory defense turret"
 	desc = "An energy blaster auto-turret."
 	installation = null
-	stun_projectile = /obj/item/projectile/energy/electrode
+	stun_projectile = /obj/projectile/energy/electrode
 	stun_projectile_sound = 'sound/weapons/taser.ogg'
-	lethal_projectile = /obj/item/projectile/beam/laser/heavylaser/penetrator
+	lethal_projectile = /obj/projectile/beam/laser/heavylaser/penetrator
 	lethal_projectile_sound = 'sound/weapons/lasercannonfire.ogg'
 	mode = TURRET_LETHAL
 	turret_flags = TURRET_FLAG_SHOOT_UNSHIELDED | TURRET_FLAG_SHOOT_CRIMINALS | TURRET_FLAG_AUTH_WEAPONS
@@ -56,7 +56,7 @@
 /obj/machinery/porta_turret/armory/interact(mob/user)
 	return
 
-/obj/item/projectile/beam/laser/heavylaser/penetrator
+/obj/projectile/beam/laser/heavylaser/penetrator
 	movement_type = FLYING | UNSTOPPABLE
 	range = 12
 
@@ -81,7 +81,7 @@
 	desc = "An capacity capacitor used in the construction of a variety of devices."
 	icon_state = "quadratic_capacitor"
 	rating = 8
-	materials = list(/datum/material/iron=1, /datum/material/glass=1)
+	custom_materials = list(/datum/material/iron=1, /datum/material/glass=1)
 	color = "#ff3333"
 
 /obj/item/stock_parts/scanning_module/noneuclid
@@ -89,7 +89,7 @@
 	desc = "A compact, ultra resolution noneuclid scanning module used in the construction of certain devices."
 	icon_state = "triphasic_scan_module"
 	rating = 8
-	materials = list(/datum/material/iron=1, /datum/material/glass=1)
+	custom_materials = list(/datum/material/iron=1, /datum/material/glass=1)
 	color = "#ff3333"
 
 /obj/item/stock_parts/manipulator/noneuclid
@@ -97,7 +97,7 @@
 	desc = "A tiny little manipulator used in the construction of certain devices."
 	icon_state = "femto_mani"
 	rating = 8
-	materials = list(/datum/material/iron=1)
+	custom_materials = list(/datum/material/iron=1)
 	color = "#ff3333"
 
 /obj/item/stock_parts/micro_laser/noneuclid
@@ -105,7 +105,7 @@
 	icon_state = "quadultra_micro_laser"
 	desc = "A tiny laser used in certain devices."
 	rating = 8
-	materials = list(/datum/material/iron=1, /datum/material/glass=1)
+	custom_materials = list(/datum/material/iron=1, /datum/material/glass=1)
 	color = "#ff3333"
 
 /obj/item/stock_parts/matter_bin/noneuclid
@@ -113,7 +113,7 @@
 	desc = "A container designed to hold noneuclid matter awaiting reconstruction."
 	icon_state = "bluespace_matter_bin"
 	rating = 8
-	materials = list(/datum/material/iron=1)
+	custom_materials = list(/datum/material/iron=1)
 	color = "#ff3333"
 
 /obj/item/storage/part_replacer/bluespace/tier8

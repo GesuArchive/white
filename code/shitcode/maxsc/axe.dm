@@ -15,7 +15,7 @@
 	attack_verb = list("ударяет", "рубит", "протыкает", "режет")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = IS_SHARP
-	materials = list(MAT_METAL=5000)
+	custom_materials = list(MAT_METAL=5000)
 	max_integrity = 200
 
 /obj/item/twohanded/required/paxe/Initialize()
@@ -38,7 +38,7 @@
 	attack_verb = list("ударяет", "приносит справедливость", "рубит", "протыкает")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = IS_SHARP
-	materials = list(MAT_METAL=5000)
+	custom_materials = list(MAT_METAL=5000)
 	max_integrity = 200
 	var/charged = TRUE
 	var/recharge_time = 600

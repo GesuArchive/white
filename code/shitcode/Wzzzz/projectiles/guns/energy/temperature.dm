@@ -11,7 +11,7 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 	one_hand_penalty = 2
 
-	projectile_type = /obj/item/projectile/temp
+	projectile_type = /obj/projectile/temp
 	cell_type = /obj/item/weapon/cell/high
 
 

@@ -28,8 +28,8 @@
 	else
 		..()
 
-/obj/item/projectile/kinetic/decreased_damage
+/obj/projectile/kinetic/decreased_damage
 	damage = 5
 
 /obj/item/ammo_casing/energy/kinetic/decreased_damage
-	projectile_type = /obj/item/projectile/kinetic
+	projectile_type = /obj/projectile/kinetic

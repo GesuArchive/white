@@ -6,14 +6,14 @@
 	max_shots = 10
 	fire_delay = 10 // To balance for the fact that it is a pistol and can be used one-handed without penalty
 
-	projectile_type = /obj/item/projectile/beam/stun
+	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	modifystate = "energystun"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="energystun"),
-		list(mode_name="shock", projectile_type=/obj/item/projectile/beam/stun/shock, modifystate="energyshock"),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="energykill"),
+		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun, modifystate="energystun"),
+		list(mode_name="shock", projectile_type=/obj/projectile/beam/stun/shock, modifystate="energyshock"),
+		list(mode_name="lethal", projectile_type=/obj/projectile/beam, modifystate="energykill"),
 		)
 
 /obj/item/weapon/gun/energy/gun/small
@@ -26,9 +26,9 @@
 	modifystate = "smallgunstun"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="smallgunstun"),
-		list(mode_name="shock", projectile_type=/obj/item/projectile/beam/stun/shock, modifystate="smallgunshock"),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/smalllaser, modifystate="smallgunkill"),
+		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun, modifystate="smallgunstun"),
+		list(mode_name="shock", projectile_type=/obj/projectile/beam/stun/shock, modifystate="smallgunshock"),
+		list(mode_name="lethal", projectile_type=/obj/projectile/beam/smalllaser, modifystate="smallgunkill"),
 		)
 
 /obj/item/weapon/gun/energy/gun/mounted
@@ -49,9 +49,9 @@
 	one_hand_penalty = 1 //bulkier than an e-gun, but not quite the size of a carbine
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun),
-		list(mode_name="shock", projectile_type=/obj/item/projectile/beam/stun/shock),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam),
+		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun),
+		list(mode_name="shock", projectile_type=/obj/projectile/beam/stun/shock),
+		list(mode_name="lethal", projectile_type=/obj/projectile/beam),
 		)
 
 	var/fail_counter = 0

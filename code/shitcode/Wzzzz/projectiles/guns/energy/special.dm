@@ -11,7 +11,7 @@
 	one_hand_penalty = 4
 	charge_cost = 30
 	max_shots = 10
-	projectile_type = /obj/item/projectile/ion
+	projectile_type = /obj/projectile/ion
 	wielded_item_state = "ionrifle-wielded"
 
 /obj/item/weapon/gun/energy/ionrifle/emp_act(severity)
@@ -29,7 +29,7 @@
 	one_hand_penalty = 0
 	charge_cost = 20
 	max_shots = 8
-	projectile_type = /obj/item/projectile/ion/small
+	projectile_type = /obj/projectile/ion/small
 
 /obj/item/weapon/gun/energy/decloner
 	name = "biological demolecularisor"
@@ -38,7 +38,7 @@
 	item_state = "decloner"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4, TECH_POWER = 3)
 	max_shots = 10
-	projectile_type = /obj/item/projectile/energy/declone
+	projectile_type = /obj/projectile/energy/declone
 
 /obj/item/weapon/gun/energy/floragun
 	name = "floral somatoray"
@@ -47,16 +47,16 @@
 	item_state = "floramut"
 	charge_cost = 10
 	max_shots = 10
-	projectile_type = /obj/item/projectile/energy/floramut
+	projectile_type = /obj/projectile/energy/floramut
 	origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_POWER = 3)
 	modifystate = "floramut"
 	self_recharge = 1
 	var/decl/plantgene/gene = null
 
 	firemodes = list(
-		list(mode_name="induce mutations", projectile_type=/obj/item/projectile/energy/floramut, modifystate="floramut"),
-		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield"),
-		list(mode_name="induce specific mutations", projectile_type=/obj/item/projectile/energy/floramut/gene, modifystate="floramut"),
+		list(mode_name="induce mutations", projectile_type=/obj/projectile/energy/floramut, modifystate="floramut"),
+		list(mode_name="increase yield", projectile_type=/obj/projectile/energy/florayield, modifystate="florayield"),
+		list(mode_name="induce specific mutations", projectile_type=/obj/projectile/energy/floramut/gene, modifystate="floramut"),
 		)
 
 /obj/item/weapon/gun/energy/floragun/afterattack(obj/target, mob/user, adjacent_flag)
@@ -86,7 +86,7 @@
 
 /obj/item/weapon/gun/energy/floragun/consume_next_projectile()
 	. = ..()
-	var/obj/item/projectile/energy/floramut/gene/G = .
+	var/obj/projectile/energy/floramut/gene/G = .
 	if(istype(G))
 		G.gene = gene
 
@@ -97,7 +97,7 @@
 	item_state = "c20r"
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = ITEM_SIZE_HUGE
-	projectile_type = /obj/item/projectile/meteor
+	projectile_type = /obj/projectile/meteor
 	cell_type = /obj/item/weapon/cell/potato
 	self_recharge = 1
 	recharge_time = 5 //Time it takes for shots to recharge (in ticks)
@@ -117,7 +117,7 @@
 	name = "mind flayer"
 	desc = "A custom-built weapon of some kind."
 	icon_state = "xray"
-	projectile_type = /obj/item/projectile/beam/mindflayer
+	projectile_type = /obj/projectile/beam/mindflayer
 
 /obj/item/weapon/gun/energy/toxgun
 	name = "phoron pistol"
@@ -125,7 +125,7 @@
 	icon_state = "toxgun"
 	w_class = ITEM_SIZE_NORMAL
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
-	projectile_type = /obj/item/projectile/energy/phoron
+	projectile_type = /obj/projectile/energy/phoron
 
 /* Staves */
 
@@ -141,7 +141,7 @@
 	slot_flags = SLOT_BACK
 	w_class = ITEM_SIZE_HUGE
 	max_shots = 5
-	projectile_type = /obj/item/projectile/change
+	projectile_type = /obj/projectile/change
 	origin_tech = null
 	self_recharge = 1
 	charge_meter = 0
@@ -163,7 +163,7 @@
 /obj/item/weapon/gun/energy/staff/animate
 	name = "staff of animation"
 	desc = "An artefact that spits bolts of life-force which causes objects which are hit by it to animate and come to life! This magic doesn't affect machines."
-	projectile_type = /obj/item/projectile/animate
+	projectile_type = /obj/projectile/animate
 	max_shots = 10
 
 obj/item/weapon/gun/energy/staff/focus
@@ -173,15 +173,15 @@ obj/item/weapon/gun/energy/staff/focus
 	icon_state = "focus"
 	item_state = "focus"
 	slot_flags = SLOT_BACK
-	projectile_type = /obj/item/projectile/forcebolt
+	projectile_type = /obj/projectile/forcebolt
 	/*
 	attack_self(mob/living/user as mob)
-		if(projectile_type == /obj/item/projectile/forcebolt)
+		if(projectile_type == /obj/projectile/forcebolt)
 			charge_cost = 400
 			to_chat(user, "<span class='warning'>The [src.name] will now strike a small area.</span>")
-			projectile_type = /obj/item/projectile/forcebolt/strong
+			projectile_type = /obj/projectile/forcebolt/strong
 		else
 			charge_cost = 200
 			to_chat(user, "<span class='warning'>The [src.name] will now strike only a single person.</span>")
-			projectile_type = /obj/item/projectile/forcebolt"
+			projectile_type = /obj/projectile/forcebolt"
 	*/

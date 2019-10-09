@@ -70,7 +70,7 @@
 			to_chat(user, "<span class='warning'>[I] needs to be shaped to a caliber before it can be added!</span>")
 			return
 
-		var/obj/item/projectile/bullet/forged/FB = F.BB
+		var/obj/projectile/bullet/forged/FB = F.BB
 		special_traits = FB.special_traits
 		is_bullet = TRUE
 

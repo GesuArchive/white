@@ -100,8 +100,8 @@
 		qdel(fakeholder)
 	return ..()
 
-/obj/structure/mineral_door/transparent/reagent/bullet_act(obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/beam))
+/obj/structure/mineral_door/transparent/reagent/bullet_act(obj/projectile/Proj)
+	if(istype(Proj, /obj/projectile/beam))
 		temperature_expose(exposed_temperature = 1000)
 	else
 		reagent_act(src)

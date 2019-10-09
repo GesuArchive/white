@@ -1,4 +1,4 @@
-/obj/item/projectile/bullet/chemdart
+/obj/projectile/bullet/chemdart
 	name = "dart"
 	icon_state = "dart"
 	damage = 5
@@ -10,11 +10,11 @@
 
 	muzzle_type = null
 
-/obj/item/projectile/bullet/chemdart/New()
+/obj/projectile/bullet/chemdart/New()
 	reagents = new/datum/reagents(reagent_amount)
 	reagents.my_atom = src
 
-/obj/item/projectile/bullet/chemdart/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
+/obj/projectile/bullet/chemdart/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
 	if(blocked < 100 && isliving(target))
 		var/mob/living/L = target
 		if(L.can_inject(null, def_zone))
@@ -25,7 +25,7 @@
 	desc = "A small hardened, hollow dart."
 	icon_state = "dart"
 	caliber = "dart"
-	projectile_type = /obj/item/projectile/bullet/chemdart
+	projectile_type = /obj/projectile/bullet/chemdart
 	leaves_residue = 0
 
 /obj/item/ammo_casing/chemdart/expend()
@@ -91,7 +91,7 @@
 
 /obj/item/weapon/gun/projectile/dartgun/consume_next_projectile()
 	. = ..()
-	var/obj/item/projectile/bullet/chemdart/dart = .
+	var/obj/projectile/bullet/chemdart/dart = .
 	if(istype(dart))
 		fill_dart(dart)
 
@@ -128,7 +128,7 @@
 	user.visible_message("\The [user] removes \a [B] from [src].", "<span class='notice'>You remove [B] from [src].</span>")
 
 //fills the given dart with reagents
-/obj/item/weapon/gun/projectile/dartgun/proc/fill_dart(var/obj/item/projectile/bullet/chemdart/dart)
+/obj/item/weapon/gun/projectile/dartgun/proc/fill_dart(var/obj/projectile/bullet/chemdart/dart)
 	if(mixing.len)
 		var/mix_amount = dart.reagent_amount/mixing.len
 		for(var/obj/item/weapon/reagent_containers/glass/beaker/B in mixing)

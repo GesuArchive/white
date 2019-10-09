@@ -335,7 +335,7 @@
 		set_nano_energy(speed_use_rate,NANO_CHARGE_DELAY)
 
 /obj/item/clothing/suit/space/hardsuit/nano/hit_reaction(mob/living/carbon/human/user, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
-	var/obj/item/projectile/P = hitby
+	var/obj/projectile/P = hitby
 	if(mode == NANO_ARMOR && cell && cell.charge)
 		if(prob(final_block_chance))
 			user.visible_message("<span class='danger'>Защита [user] отражает [attack_text]!</span>")
@@ -344,7 +344,7 @@
 					set_nano_energy(10 + damage,NANO_CHARGE_DELAY)//laser guns, anything lethal drains 5 + the damage dealt
 				else if(P.damage_type == STAMINA && attack_type == PROJECTILE_ATTACK)
 					set_nano_energy(20,NANO_CHARGE_DELAY)//stamina damage, aka disabler beams
-			if(istype(P, /obj/item/projectile/energy/electrode))//if electrode aka taser
+			if(istype(P, /obj/projectile/energy/electrode))//if electrode aka taser
 				set_nano_energy(35,NANO_CHARGE_DELAY)
 			return TRUE
 		else

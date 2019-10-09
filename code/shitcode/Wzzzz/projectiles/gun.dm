@@ -308,7 +308,7 @@
 
 
 /obj/item/weapon/gun/proc/process_point_blank(obj/projectile, mob/user, atom/target)
-	var/obj/item/projectile/P = projectile
+	var/obj/projectile/P = projectile
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
 
@@ -329,7 +329,7 @@
 	P.damage *= damage_mult
 
 /obj/item/weapon/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, var/burst, var/held_twohanded)
-	var/obj/item/projectile/P = projectile
+	var/obj/projectile/P = projectile
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
 
@@ -356,7 +356,7 @@
 
 //does the actual launching of the projectile
 /obj/item/weapon/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, var/target_zone, var/params=null)
-	var/obj/item/projectile/P = projectile
+	var/obj/projectile/P = projectile
 	if(!istype(P))
 		return 0 //default behaviour only applies to true projectiles
 
@@ -392,7 +392,7 @@
 		return
 
 
-/obj/item/weapon/gun/proc/play_fire_sound(var/mob/user, var/obj/item/projectile/P)
+/obj/item/weapon/gun/proc/play_fire_sound(var/mob/user, var/obj/projectile/P)
 	var/shot_sound = (istype(P) && P.fire_sound)? P.fire_sound : fire_sound
 	if(silenced)
 		playsound(user, shot_sound, 10, 1)
@@ -412,7 +412,7 @@
 		M.visible_message("<span class='notice'>[user] decided life was worth living</span>")
 		mouthshoot = 0
 		return
-	var/obj/item/projectile/in_chamber = consume_next_projectile()
+	var/obj/projectile/in_chamber = consume_next_projectile()
 	if (istype(in_chamber))
 		user.visible_message("<span class = 'warning'>[user] pulls the trigger.</span>")
 		var/shot_sound = in_chamber.fire_sound? in_chamber.fire_sound : fire_sound
@@ -420,7 +420,7 @@
 			playsound(user, shot_sound, 10, 1)
 		else
 			playsound(user, shot_sound, 50, 1)
-		if(istype(in_chamber, /obj/item/projectile/beam/lastertag))
+		if(istype(in_chamber, /obj/projectile/beam/lastertag))
 			user.show_message("<span class = 'warning'>You feel rather silly, trying to commit suicide with a toy.</span>")
 			mouthshoot = 0
 			return

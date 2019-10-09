@@ -47,11 +47,11 @@
 /obj/item/ammo_casing/brifle
 	desc = "An old worn out looking bullet casing."
 	caliber = "763"
-	projectile_type = /obj/item/projectile/bullet/rifle/a762/brifle
+	projectile_type = /obj/projectile/bullet/rifle/a762/brifle
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 
-/obj/item/projectile/bullet/rifle/a762/brifle
+/obj/projectile/bullet/rifle/a762/brifle
 	fire_sound = "brifle"
 	penetration_modifier = 1.5
 

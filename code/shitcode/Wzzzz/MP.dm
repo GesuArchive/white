@@ -28,7 +28,7 @@
 	max_ammo = 32
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
-/obj/item/projectile/bullet/mp40
+/obj/projectile/bullet/mp40
 	name = "9mm bullet"
 	damage = 25
 	armour_penetration = 13.5
@@ -37,4 +37,4 @@
 	name = "9mm bullet casing"
 	desc = "A c9mm bullet casing."
 	caliber = "c9mm"
-	projectile_type = /obj/item/projectile/bullet/mp40
+	projectile_type = /obj/projectile/bullet/mp40

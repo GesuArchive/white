@@ -40,11 +40,11 @@ GLOBAL_LIST_INIT(gachisounds, list(
 	fire_sound = pick(random_sound)
 
 /obj/item/ammo_casing/energy/lovegun
-	projectile_type = /obj/item/projectile/beam/lovegun
+	projectile_type = /obj/projectile/beam/lovegun
 	select_name = "lovegun"
 	harmful = FALSE
 
-/obj/item/projectile/beam/lovegun
+/obj/projectile/beam/lovegun
 	name = "heart"
 	icon_state = "heart"
 	icon = 'code/shitcode/valtos/icons/projectiles.dmi'
@@ -56,7 +56,7 @@ GLOBAL_LIST_INIT(gachisounds, list(
 	damage_type = STAMINA
 	light_color = LIGHT_COLOR_PINK
 
-/obj/item/projectile/beam/lovegun/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/beam/lovegun/on_hit(atom/target, blocked = FALSE)
 	. = ..()
 	playsound(target, pick(GLOB.gachisounds), 25, FALSE)
 	new /obj/effect/temp_visual/love_heart(get_turf(target.loc))

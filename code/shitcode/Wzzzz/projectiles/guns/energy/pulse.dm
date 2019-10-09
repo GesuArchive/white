@@ -5,7 +5,7 @@
 	item_state = "pulse"
 	slot_flags = SLOT_BACK
 	force = 12
-	projectile_type = /obj/item/projectile/beam/pulse/heavy
+	projectile_type = /obj/projectile/beam/pulse/heavy
 	max_shots = 36
 	w_class = ITEM_SIZE_HUGE
 	one_hand_penalty=6
@@ -21,7 +21,7 @@
 	icon_state = "pulse_carbine"
 	slot_flags = SLOT_BACK|SLOT_BELT
 	force = 8
-	projectile_type = /obj/item/projectile/beam/pulse/mid
+	projectile_type = /obj/projectile/beam/pulse/mid
 	max_shots = 24
 	w_class = ITEM_SIZE_LARGE
 	one_hand_penalty=3
@@ -34,7 +34,7 @@
 	icon_state = "pulse_pistol"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	force = 6
-	projectile_type = /obj/item/projectile/beam/pulse
+	projectile_type = /obj/projectile/beam/pulse
 	max_shots = 21
 	w_class = ITEM_SIZE_NORMAL
 	one_hand_penalty=1 //a bit heavy
@@ -50,7 +50,7 @@
 	desc = "A heavy-duty, pulse-based energy weapon. Because of its complexity and cost, it is rarely seen in use except by specialists."
 	cell_type = /obj/item/weapon/cell/super
 	fire_delay = 25
-	projectile_type=/obj/item/projectile/beam/pulse/destroy
+	projectile_type=/obj/projectile/beam/pulse/destroy
 	charge_cost=40
 
 /obj/item/weapon/gun/energy/pulse_rifle/destroyer/attack_self(mob/living/user as mob)

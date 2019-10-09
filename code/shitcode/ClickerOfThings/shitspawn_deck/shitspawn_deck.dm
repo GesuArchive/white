@@ -14,7 +14,7 @@
 	icon_state = "deck_nanotrasen_full"
 	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 1
-	throwhitsound = 'code/shitcode/ClickerOfThings/shitspawn_deck/cardinsult.ogg'
+	hitsound = 'code/shitcode/ClickerOfThings/shitspawn_deck/cardinsult.ogg'
 
 
 

@@ -1,4 +1,4 @@
-/obj/item/projectile
+/obj/projectile
 	name = "projectile"
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bullet"
@@ -32,7 +32,7 @@
 	var/nodamage = 0 //Determines if the projectile will skip any damage inflictions
 	var/taser_effect = 0 //If set then the projectile will apply it's agony damage using stun_effect_act() to mobs it hits, and other damage will be ignored
 	var/check_armour = "bullet" //Defines what armor to use when it hits things.  Must be set to bullet, laser, energy,or bomb	//Cael - bio and rad are also valid
-	var/projectile_type = /obj/item/projectile
+	var/projectile_type = /obj/projectile
 	var/penetrating = 0 //If greater than zero, the projectile will pass through dense objects as specified by on_penetrate()
 	var/kill_count = 50 //This will de-increment every process(). When 0, it will delete the projectile.
 		//Effects
@@ -64,12 +64,12 @@
 	var/matrix/effect_transform			// matrix to rotate and scale projectile effects - putting it here so it doesn't
 										//  have to be recreated multiple times
 
-/obj/item/projectile/New()
+/obj/projectile/New()
 	damtype = damage_type //TODO unify these vars properly
 	..()
 
 //TODO: make it so this is called more reliably, instead of sometimes by bullet_act() and sometimes not
-/obj/item/projectile/proc/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
+/obj/projectile/proc/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
 	var/turf/target_loca = get_turf(target)
 	if(blocked >= 100)		return 0//Full block
 	if(!isliving(target))	return 0
@@ -100,31 +100,31 @@
 	return 1
 
 //called when the projectile stops flying because it collided with something
-/obj/item/projectile/proc/on_impact(var/atom/A)
+/obj/projectile/proc/on_impact(var/atom/A)
 	impact_effect(effect_transform)		// generate impact effect
 	return
 
 //Checks if the projectile is eligible for embedding. Not that it necessarily will.
-/obj/item/projectile/proc/can_embed()
+/obj/projectile/proc/can_embed()
 	//embed must be enabled and damage type must be brute
 	if(!embed || damage_type != BRUTE)
 		return 0
 	return 1
 
-/obj/item/projectile/proc/get_structure_damage()
+/obj/projectile/proc/get_structure_damage()
 	if(damage_type == BRUTE || damage_type == BURN)
 		return damage
 	return 0
 
 //return 1 if the projectile should be allowed to pass through after all, 0 if not.
-/obj/item/projectile/proc/check_penetrate(var/atom/A)
+/obj/projectile/proc/check_penetrate(var/atom/A)
 	return 1
 
-/obj/item/projectile/proc/check_fire(atom/target as mob, var/mob/living/user as mob)  //Checks if you can hit them or not.
+/obj/projectile/proc/check_fire(atom/target as mob, var/mob/living/user as mob)  //Checks if you can hit them or not.
 	check_trajectory(target, user, pass_flags, flags)
 
 //sets the click point of the projectile using mouse input params
-/obj/item/projectile/proc/set_clickpoint(var/params)
+/obj/projectile/proc/set_clickpoint(var/params)
 	var/list/mouse_control = params2list(params)
 	if(mouse_control["icon-x"])
 		p_x = text2num(mouse_control["icon-x"])
@@ -138,7 +138,7 @@
 		p_y = between(0, p_y + rand(-radius, radius), world.icon_size)
 
 //called to launch a projectile
-/obj/item/projectile/proc/launch(atom/target, var/target_zone, var/x_offset=0, var/y_offset=0, var/angle_offset=0)
+/obj/projectile/proc/launch(atom/target, var/target_zone, var/x_offset=0, var/y_offset=0, var/angle_offset=0)
 	var/turf/curloc = get_turf(src)
 	var/turf/targloc = get_turf(target)
 	if (!istype(targloc) || !istype(curloc))
@@ -160,7 +160,7 @@
 	return 0
 
 //called to launch a projectile from a gun
-/obj/item/projectile/proc/launch_from_gun(atom/target, mob/user, obj/item/weapon/gun/launcher, var/target_zone, var/x_offset=0, var/y_offset=0)
+/obj/projectile/proc/launch_from_gun(atom/target, mob/user, obj/item/weapon/gun/launcher, var/target_zone, var/x_offset=0, var/y_offset=0)
 	if(user == target) //Shooting yourself
 		user.bullet_act(src, target_zone)
 		qdel(src)
@@ -175,7 +175,7 @@
 	return launch(target, target_zone, x_offset, y_offset)
 
 //Used to change the direction of the projectile in flight.
-/obj/item/projectile/proc/redirect(var/new_x, var/new_y, var/atom/starting_loc, var/mob/new_firer=null)
+/obj/projectile/proc/redirect(var/new_x, var/new_y, var/atom/starting_loc, var/mob/new_firer=null)
 	var/turf/new_target = locate(new_x, new_y, src.z)
 
 	original = new_target
@@ -185,7 +185,7 @@
 	setup_trajectory(starting_loc, new_target)
 
 //Called when the projectile intercepts a mob. Returns 1 if the projectile hit the mob, 0 if it missed and should keep flying.
-/obj/item/projectile/proc/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
+/obj/projectile/proc/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
 	if(!istype(target_mob))
 		return
 
@@ -232,7 +232,7 @@
 
 	return 1
 
-/obj/item/projectile/Bump(atom/A as mob|obj|turf|area, forced=0)
+/obj/projectile/Bump(atom/A as mob|obj|turf|area, forced=0)
 	if(A == src)
 		return 0 //no
 
@@ -296,13 +296,13 @@
 	qdel(src)
 	return 1
 
-/obj/item/projectile/ex_act()
+/obj/projectile/ex_act()
 	return //explosions probably shouldn't delete projectiles
 
-/obj/item/projectile/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+/obj/projectile/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	return 1
 
-/obj/item/projectile/process()
+/obj/projectile/process()
 	var/first_step = 1
 
 	spawn while(src && src.loc)
@@ -345,10 +345,10 @@
 		if(!hitscan)
 			sleep(step_delay)	//add delay between movement iterations if it's not a hitscan weapon
 
-/obj/item/projectile/proc/before_move()
+/obj/projectile/proc/before_move()
 	return 0
 
-/obj/item/projectile/proc/setup_trajectory(turf/startloc, turf/targloc, var/x_offset = 0, var/y_offset = 0)
+/obj/projectile/proc/setup_trajectory(turf/startloc, turf/targloc, var/x_offset = 0, var/y_offset = 0)
 	// setup projectile state
 	starting = startloc
 	current = startloc
@@ -372,7 +372,7 @@
 
 	transform = turn(transform, -(trajectory.return_angle() + 90)) //no idea why 90 needs to be added, but it works
 
-/obj/item/projectile/proc/muzzle_effect(var/matrix/T)
+/obj/projectile/proc/muzzle_effect(var/matrix/T)
 	if(silenced)
 		return
 
@@ -385,7 +385,7 @@
 			M.pixel_y = location.pixel_y
 			M.activate()
 
-/obj/item/projectile/proc/tracer_effect(var/matrix/M)
+/obj/projectile/proc/tracer_effect(var/matrix/M)
 	if(ispath(tracer_type))
 		var/obj/effect/projectile/P = new tracer_type(location.loc)
 
@@ -398,7 +398,7 @@
 			else
 				P.activate()
 
-/obj/item/projectile/proc/impact_effect(var/matrix/M)
+/obj/projectile/proc/impact_effect(var/matrix/M)
 	if(ispath(impact_type))
 		var/obj/effect/projectile/P = new impact_type(location.loc)
 
@@ -409,17 +409,17 @@
 			P.activate()
 
 //"Tracing" projectile
-/obj/item/projectile/test //Used to see if you can hit them.
+/obj/projectile/test //Used to see if you can hit them.
 	invisibility = 101 //Nope!  Can't see me!
 	yo = null
 	xo = null
 	var/result = 0 //To pass the message back to the gun.
 
-/obj/item/projectile/test/Bump(atom/A as mob|obj|turf|area)
+/obj/projectile/test/Bump(atom/A as mob|obj|turf|area)
 	if(A == firer)
 		loc = A.loc
 		return //cannot shoot yourself
-	if(istype(A, /obj/item/projectile))
+	if(istype(A, /obj/projectile))
 		return
 	if(istype(A, /mob/living) || istype(A, /obj/mecha) || istype(A, /obj/vehicle))
 		result = 2 //We hit someone, return 1!
@@ -427,7 +427,7 @@
 	result = 1
 	return
 
-/obj/item/projectile/test/launch(atom/target)
+/obj/projectile/test/launch(atom/target)
 	var/turf/curloc = get_turf(src)
 	var/turf/targloc = get_turf(target)
 	if(!curloc || !targloc)
@@ -439,7 +439,7 @@
 	setup_trajectory(curloc, targloc)
 	return process(targloc)
 
-/obj/item/projectile/test/process(var/turf/targloc)
+/obj/projectile/test/process(var/turf/targloc)
 	while(src) //Loop on through!
 		if(result)
 			return (result - 1)
@@ -464,7 +464,7 @@
 	if(!istype(target) || !istype(firer))
 		return 0
 
-	var/obj/item/projectile/test/trace = new /obj/item/projectile/test(get_turf(firer)) //Making the test....
+	var/obj/projectile/test/trace = new /obj/projectile/test(get_turf(firer)) //Making the test....
 
 	//Set the flags and pass flags to that of the real projectile...
 	if(!isnull(flags))

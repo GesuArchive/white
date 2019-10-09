@@ -57,7 +57,7 @@ obj/item/banner/engineering/atmos/mundane
 	color = LIGHT_COLOR_YELLOW
 	w_class = WEIGHT_CLASS_BULKY
 	flags_1 = CONDUCT_1
-	materials = list()
+	custom_materials = list()
 	anchored = TRUE
 
 /obj/structure/statue/sandstone/venus/afrodita
@@ -244,7 +244,7 @@ obj/item/banner/engineering/atmos/mundane
 	name = "shotgun dart"
 	desc = "A dart for use in shotguns. Filled with tranquilizers."
 	icon_state = "cshell"
-	projectile_type = /obj/item/projectile/bullet/dart
+	projectile_type = /obj/projectile/bullet/dart
 
 /obj/item/ammo_casing/shotgun/dart/sleeping/Initialize()
 	. = ..()

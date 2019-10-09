@@ -46,9 +46,9 @@
 	name = "9mm traumatic bullet casing"
 	desc = "A 9mm traumatic bullet casing."
 	caliber = "9mm"
-	projectile_type = /obj/item/projectile/bullet/traumatic
+	projectile_type = /obj/projectile/bullet/traumatic
 
-/obj/item/projectile/bullet/traumatic
+/obj/projectile/bullet/traumatic
 	name = "9mm traumatic bullet"
 	damage = 3 //наша резина делает больно, не более
 	stamina = 90

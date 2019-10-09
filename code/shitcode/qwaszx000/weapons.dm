@@ -19,7 +19,7 @@ Arrow&bow
 /obj/item/reagent_containers/syringe/arrow/update_icon()
 	cut_overlays()
 
-/obj/item/projectile/bullet/dart/syringe/bow//Arrow
+/obj/projectile/bullet/dart/syringe/bow//Arrow
 	name = "arrow"
 	icon_state = "bolter"
 	damage = 10
@@ -28,7 +28,7 @@ Arrow&bow
 /obj/item/ammo_casing/syringegun/bow//Bow chamber
 	name = "Arrow"
 	desc = "A high-power spring that throws arrows."
-	projectile_type = /obj/item/projectile/bullet/dart/syringe/bow
+	projectile_type = /obj/projectile/bullet/dart/syringe/bow
 	firing_effect_type = null
 /obj/item/gun/syringe/bow//Bow
 	name = "Bow"

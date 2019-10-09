@@ -30,16 +30,16 @@
 	if (istype(I, /obj/item/stack/rods)||istype(I, /obj/item/stack/tile))
 		var/obj/item/stack/S = I
 		if(istype(I, /obj/item/stack/rods))
-			projectile_type = /obj/item/projectile/magic/rodacc
+			projectile_type = /obj/projectile/magic/rodacc
 		else
-			projectile_type = /obj/item/projectile/magic/tileacc
+			projectile_type = /obj/projectile/magic/tileacc
 		S.amount--
 		if(S.amount <= 0)
 			qdel(S)
 	else
 		to_chat(usr,"<span class='notice'>В руке должна быть плитка или арматура</span>")
 		return
-	if (projectile_type == /obj/item/projectile/magic/tileacc)
+	if (projectile_type == /obj/projectile/magic/tileacc)
 		if(current_amount < 5)
 			to_chat(usr,"<span class='notice'>Недостаточно зарядов для запуска плитки</span>")
 			return
@@ -49,7 +49,7 @@
 	. = ..()
 	projectile_type = 0
 
-/obj/item/projectile/magic/rodacc
+/obj/projectile/magic/rodacc
 	name = "accelerating rod"
 	icon = 'code/shitcode/hule/icons/projectiles/magicthrow.dmi'
 	icon_state = "rod"
@@ -63,7 +63,7 @@
 	hitsound = 'sound/weapons/barragespellhit.ogg'
 	var/acc = 0.2
 
-/obj/item/projectile/magic/rodacc/process()
+/obj/projectile/magic/rodacc/process()
 	damage += 7
 	if(speed > 0.1)
 		speed -= acc
@@ -72,7 +72,7 @@
 			acc = 0.05
 	. = ..()
 
-/obj/item/projectile/magic/rodacc/on_hit(atom/target)
+/obj/projectile/magic/rodacc/on_hit(atom/target)
 	if(speed <= 0.6)
 		if(istype(target, /obj/mecha))
 			target.ex_act(EXPLODE_HEAVY)
@@ -82,7 +82,7 @@
 			A.desc += "\nОго, да в нем дырень! Эта штука уже точно не спасет от разгерметизации."
 	. = ..()
 
-/obj/item/projectile/magic/tileacc
+/obj/projectile/magic/tileacc
 	name = "spinning tile"
 	icon = 'code/shitcode/hule/icons/projectiles/magicthrow.dmi'
 	icon_state = "tile"
@@ -95,14 +95,14 @@
 	dismemberment = 50
 	var/crit = 0
 
-/obj/item/projectile/magic/tileacc/Initialize()
+/obj/projectile/magic/tileacc/Initialize()
 	if(prob(33))
 		name += " of death"
 		icon_state = "tile_crit"
 		crit = 1
 	. = ..()
 
-/obj/item/projectile/magic/tileacc/on_hit(atom/target)
+/obj/projectile/magic/tileacc/on_hit(atom/target)
 	. = ..()
 	if(crit)
 		if(iscarbon(target))

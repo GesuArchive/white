@@ -1,4 +1,4 @@
-/obj/item/projectile/ion
+/obj/projectile/ion
 	name = "ion bolt"
 	icon_state = "ion"
 	fire_sound = 'sound/weapons/Laser.ogg'
@@ -12,11 +12,11 @@
 		empulse(target, pulse_range, pulse_range)
 		return 1
 
-/obj/item/projectile/ion/small
+/obj/projectile/ion/small
 	name = "ion pulse"
 	pulse_range = 0
 
-/obj/item/projectile/bullet/gyro
+/obj/projectile/bullet/gyro
 	name ="explosive bolt"
 	icon_state= "bolter"
 	damage = 50
@@ -28,7 +28,7 @@
 		explosion(target, -1, 0, 2)
 		return 1
 
-/obj/item/projectile/temp
+/obj/projectile/temp
 	name = "freeze beam"
 	icon_state = "ice_2"
 	fire_sound = 'sound/weapons/pulse3.ogg'
@@ -45,7 +45,7 @@
 			M.bodytemperature = temperature
 		return 1
 
-/obj/item/projectile/meteor
+/obj/projectile/meteor
 	name = "meteor"
 	icon = 'icons/obj/meteor.dmi'
 	icon_state = "smallf"
@@ -75,7 +75,7 @@
 		else
 			return 0
 
-/obj/item/projectile/energy/floramut
+/obj/projectile/energy/floramut
 	name = "alpha somatoray"
 	icon_state = "energy"
 	fire_sound = 'sound/effects/stealthoff.ogg'
@@ -109,7 +109,7 @@
 		else
 			return 1
 			
-/obj/item/projectile/energy/floramut/gene
+/obj/projectile/energy/floramut/gene
 	name = "gamma somatoray"
 	icon_state = "energy2"
 	fire_sound = 'sound/effects/stealthoff.ogg'
@@ -119,7 +119,7 @@
 	check_armour = "energy"
 	var/decl/plantgene/gene = null
 
-/obj/item/projectile/energy/florayield
+/obj/projectile/energy/florayield
 	name = "beta somatoray"
 	icon_state = "energy2"
 	fire_sound = 'sound/effects/stealthoff.ogg'
@@ -140,14 +140,14 @@
 			return 1
 
 
-/obj/item/projectile/beam/mindflayer
+/obj/projectile/beam/mindflayer
 	name = "flayer ray"
 
 	on_hit(var/atom/target, var/blocked = 0)
 		if(ishuman(target))
 			var/mob/living/carbon/human/M = target
 			M.confused += rand(5,8)
-/obj/item/projectile/chameleon
+/obj/projectile/chameleon
 	name = "bullet"
 	icon_state = "bullet"
 	damage = 1 // stop trying to murderbone with a fake gun dumbass!!!

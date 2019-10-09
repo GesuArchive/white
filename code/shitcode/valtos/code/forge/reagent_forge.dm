@@ -49,14 +49,14 @@
 					to_chat(user, "<span class='warning'>The sheet crumbles away into dust, perhaps it was a fake one?</span>")
 					qdel(R)
 					return FALSE
-				materials.insert_stack(R, R.amount)
+				materials.insert_item(R, R.amount)
 				to_chat(user, "<span class='notice'>You add [R] to [src]</span>")
 				currently_forging = new R.reagent_type.type
 				return
 
 			if(currently_forging && currently_forging.type && R.reagent_type.type == currently_forging.type)//preventing unnecessary references from being made
 				var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
-				materials.insert_stack(R, R.amount)
+				materials.insert_item(R, R.amount)
 				to_chat(user, "<span class='notice'>You add [R] to [src]</span>")
 				return
 			else

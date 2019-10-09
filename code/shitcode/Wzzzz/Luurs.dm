@@ -29,12 +29,12 @@
 	name = "Mauser magazine (10mm rubber)"
 	ammo_type = /obj/item/ammo_casing/wzzzz/mauser
 
-/obj/item/projectile/bullet/pistol/wzzzz/rubberma
+/obj/projectile/bullet/pistol/wzzzz/rubberma
 	name = "rubber bullet"
 	damage = 7
 	stamina = 30
 
-/obj/item/projectile/bullet/pistol/wzzzz/battle
+/obj/projectile/bullet/pistol/wzzzz/battle
 	name = "10mm bullet"
 	damage = 23
 	armour_penetration = 15
@@ -43,10 +43,10 @@
 	name = "10mm bullet casing."
 	desc = "A 10mm bullet casing."
 	caliber = "10mm"
-	projectile_type = /obj/item/projectile/bullet/pistol/wzzzz/rubberma
+	projectile_type = /obj/projectile/bullet/pistol/wzzzz/rubberma
 
 /obj/item/ammo_casing/wzzzz/mauserb
 	name = "10mm bullet casing."
 	desc = "A 10mm bullet casing."
 	caliber = "10mm"
-	projectile_type = /obj/item/projectile/bullet/pistol/wzzzz/battle
+	projectile_type = /obj/projectile/bullet/pistol/wzzzz/battle

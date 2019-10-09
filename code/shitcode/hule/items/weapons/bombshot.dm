@@ -3,15 +3,15 @@
 	desc = "A highly explosive round for a 12 gauge shotgun."
 	icon = 'code/shitcode/hule/icons/obj/weapons.dmi'
 	icon_state = "bombslug"
-	projectile_type = /obj/item/projectile/bullet/shotgun_bombslug
+	projectile_type = /obj/projectile/bullet/shotgun_bombslug
 
-/obj/item/projectile/bullet/shotgun_bombslug
+/obj/projectile/bullet/shotgun_bombslug
 	name ="FRAGZ-5-10-15 slug"
 	icon_state = "missile"
 	damage = 25
 	knockdown = 50
 
-/obj/item/projectile/bullet/shotgun_bombslug/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/bullet/shotgun_bombslug/on_hit(atom/target, blocked = FALSE)
 	..()
 	explosion(target, 5, 10, 15)
 	return TRUE

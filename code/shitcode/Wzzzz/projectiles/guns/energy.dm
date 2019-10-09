@@ -9,7 +9,7 @@
 	var/charge_cost = 20 //How much energy is needed to fire.
 	var/max_shots = 10 //Determines the capacity of the weapon's power cell. Specifying a cell_type overrides this value.
 	var/cell_type = null
-	var/projectile_type = /obj/item/projectile/beam/practice
+	var/projectile_type = /obj/projectile/beam/practice
 	var/modifystate
 	var/charge_meter = 1	//if set, the icon state will be chosen based on the current charge
 

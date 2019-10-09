@@ -30,7 +30,7 @@
 	multiple_sprites = TRUE
 
 
-/obj/item/projectile/bullet/wzzzz/a792x33
+/obj/projectile/bullet/wzzzz/a792x33
 	name = "a792x33 bullet"
 	damage = 25
 	armour_penetration = 5
@@ -39,4 +39,4 @@
 	name = "a792x33 bullet casing"
 	desc = "A a792x33 bullet casing."
 	caliber = "a792x33"
-	projectile_type = /obj/item/projectile/bullet/wzzzz/a792x33
+	projectile_type = /obj/projectile/bullet/wzzzz/a792x33

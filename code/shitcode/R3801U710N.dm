@@ -21,7 +21,7 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 			var/obj/item/ammo_box/AB = A
 			for(var/obj/item/ammo_casing/R in AB.stored_ammo)
 				qdel(R.BB)
-				R.BB = new /obj/item/projectile/bullet/pisun
+				R.BB = new /obj/projectile/bullet/pisun
 			return
 
 		if(istype(A, /obj/item/gun/ballistic))
@@ -29,7 +29,7 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 			if(B.magazine)
 				for(var/obj/item/ammo_casing/R in B.magazine)
 					qdel(R.BB)
-					R.BB = new /obj/item/projectile/bullet/pisun
+					R.BB = new /obj/projectile/bullet/pisun
 			return
 
 		if(istype(A, /obj/item/gun/energy))
@@ -38,12 +38,12 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 			return
 
 
-/obj/item/projectile/bullet/pisun
+/obj/projectile/bullet/pisun
 	name = "leather bullet"
 	damage = 0
 
 /obj/item/ammo_casing/energy/pisun
-	projectile_type = /obj/item/projectile/bullet/pisun
+	projectile_type = /obj/projectile/bullet/pisun
 	e_cost = 50
 	fire_sound = 'sound/weapons/taser2.ogg'
 	harmful = FALSE

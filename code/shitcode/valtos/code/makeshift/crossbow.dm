@@ -28,7 +28,7 @@
 				var/obj/item/stack/rods/R = A
 				if (R.use(1))
 					chambered = new /obj/item/ammo_casing/rod
-					var/obj/item/projectile/rod/PR = chambered.BB
+					var/obj/projectile/rod/PR = chambered.BB
 
 					if (PR)
 						PR.range = PR.range * charge
@@ -149,7 +149,7 @@
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
 
-/obj/item/projectile/rod
+/obj/projectile/rod
 	name = "metal rod"
 	icon = 'code/shitcode/valtos/icons/crossbow.dmi'
 	icon_state = "rod_proj"
@@ -163,12 +163,12 @@
 	var/hitsound_override = 'sound/weapons/pierce.ogg'
 	var/charge = 0 // How much power is in the bolt, transferred from the crossbow
 
-/obj/item/projectile/rod/on_range()
+/obj/projectile/rod/on_range()
 	// we didn't hit anything, place a rod here
 	new /obj/item/stack/rods(get_turf(src))
 	..()
 
-obj/item/projectile/rod/proc/Impale(mob/living/carbon/human/H)
+obj/projectile/rod/proc/Impale(mob/living/carbon/human/H)
 	if (H)
 		var/hit_zone = H.check_limb_hit(def_zone)
 		var/obj/item/bodypart/BP = H.get_bodypart(hit_zone)
@@ -184,7 +184,7 @@ obj/item/projectile/rod/proc/Impale(mob/living/carbon/human/H)
 			playsound(H, impale_sound, 50, 1)
 			H.emote("scream")
 
-/obj/item/projectile/rod/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/rod/on_hit(atom/target, blocked = FALSE)
 	..()
 	var/volume = vol_by_damage()
 	if (istype(target, /mob))
@@ -200,4 +200,4 @@ obj/item/projectile/rod/proc/Impale(mob/living/carbon/human/H)
 	qdel(src)
 
 /obj/item/ammo_casing/rod
-    projectile_type = /obj/item/projectile/rod
+    projectile_type = /obj/projectile/rod
