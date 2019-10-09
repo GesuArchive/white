@@ -45,7 +45,7 @@
 	timeout = 5 MINUTES
 
 /datum/mood_event/pet_animal/add_effects(mob/animal)
-	description = "<span class='nicegreen'>\[animal.name] такой милый! я не могу перестать гладить [animal.p_them()]!</span>\n"
+	description = "<span class='nicegreen'>[animal.name] такой милый! я не могу перестать гладить [animal.p_them()]!</span>\n"
 
 /datum/mood_event/honk
 	description = "<span class='nicegreen'>ћен€ ’ќЌ нули!/span>\n"
