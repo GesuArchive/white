@@ -9,6 +9,7 @@
 	id = MARTIALART_SLEEPINGCARP
 	allow_temp_override = FALSE
 	help_verb = /mob/living/carbon/human/proc/sleeping_carp_help
+	smashes_tables = TRUE
 	var/old_grab_state = null
 
 /datum/martial_art/the_sleeping_carp/proc/check_streak(mob/living/carbon/human/A, mob/living/carbon/human/D)
@@ -73,7 +74,7 @@
 	if(!D.stat && !D.IsParalyzed())
 		log_combat(A, D, "stomach kneed (Sleeping Carp)")
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
-		D.visible_message("<span class='warning'><b>[A]</b> бьёт <b>[D]</b> коленом в живот!</span>", \
+		D.visible_message("<span class='danger'><b>[A]</b> бьёт <b>[D]</b> коленом в живот!</span>", \
 						  "<span class='userdanger'><b>[A]</b> бьёт тебя коленом в живот!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", null, A)
 		to_chat(A, "<span class='danger'>Ты бьёшь [D] коленом в живот [D.p_them()]!</span>")
 		D.losebreath += 3
@@ -151,7 +152,7 @@
 		return TRUE
 	return ..()
 
-/datum/martial_art/the_sleeping_carp/on_projectile_hit(mob/living/carbon/human/A, obj/item/projectile/P, def_zone)
+/datum/martial_art/the_sleeping_carp/on_projectile_hit(mob/living/carbon/human/A, obj/projectile/P, def_zone)
 	. = ..()
 	if(A.incapacitated(FALSE, TRUE)) //NO STUN
 		return BULLET_ACT_HIT

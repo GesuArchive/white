@@ -460,7 +460,7 @@
 	throw_speed = 4
 	embedding = list("embedded_impact_pain_multiplier" = 3)
 	armour_penetration = 10
-	materials = list(/datum/material/iron=1150, /datum/material/glass=2075)
+	custom_materials = list(/datum/material/iron=1150, /datum/material/glass=2075)
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("атакует", "протыкает", "пробивает", "кромсает", "насаживает")
 	sharpness = IS_SHARP
@@ -572,7 +572,7 @@
 	throwforce = 13
 	throw_speed = 2
 	throw_range = 4
-	materials = list(/datum/material/iron=13000)
+	custom_materials = list(/datum/material/iron=13000)
 	attack_verb = list("пилит", "кромсает", "режет", "рубит", "нарезает")
 	hitsound = "swing_hit"
 	sharpness = IS_SHARP
