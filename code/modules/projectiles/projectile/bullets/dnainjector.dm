@@ -1,4 +1,4 @@
-/obj/item/projectile/bullet/dnainjector
+/obj/projectile/bullet/dnainjector
 	name = "\improper DNA injector"
 	icon_state = "syringeproj"
 	var/obj/item/dnainjector/injector
@@ -6,7 +6,7 @@
 	hitsound_wall = "shatter"
 	speed = 0.2
 
-/obj/item/projectile/bullet/dnainjector/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/bullet/dnainjector/on_hit(atom/target, blocked = FALSE)
 	if(iscarbon(target))
 		var/mob/living/carbon/M = target
 		if(blocked != 100)
@@ -20,6 +20,6 @@
 									   "<span class='userdanger'>You were protected against \the [src]!</span>")
 	return ..()
 
-/obj/item/projectile/bullet/dnainjector/Destroy()
+/obj/projectile/bullet/dnainjector/Destroy()
 	QDEL_NULL(injector)
 	return ..()
