@@ -1375,7 +1375,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				log_combat(user, target, "shoved", "knocking them down")
 			else if(target_table)
 				target.Knockdown(SHOVE_KNOCKDOWN_TABLE)
-				user.visible_message("<span class='danger'>[user.name] заталкивает [target.name] на [target_table]!</span>",
+				target.visible_message("<span class='danger'>[user.name] заталкивает [target.name] на [target_table]!</span>",
 					"<span class='danger'>Тебя заталкивает [target.name] на [target_table]!</span>", "<span class='hear'>Ты слышишь агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, user)
 				to_chat(user, "<span class='danger'>Ты заталкиваешь [target.name] на [target_table]!</span>")
 				target.throw_at(target_table, 1, 1, null, FALSE) //1 speed throws with no spin are basically just forcemoves with a hard collision check
@@ -1383,7 +1383,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			else if(target_collateral_human)
 				target.Knockdown(SHOVE_KNOCKDOWN_HUMAN)
 				target_collateral_human.Knockdown(SHOVE_KNOCKDOWN_COLLATERAL)
-				user.visible_message("<span class='danger'>[user.name] толкает [target.name] в [target_collateral_human.name]!</span>",
+				target.visible_message("<span class='danger'>[user.name] толкает [target.name] в [target_collateral_human.name]!</span>",
 					"<span class='danger'>Тебя толкает [target.name] в [target_collateral_human.name]!</span>", "<span class='hear'>Ты слышишь агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, user)
 				to_chat(user, "<span class='danger'>Ты толкаешь [target.name] в [target_collateral_human.name]!</span>")
 				log_combat(user, target, "shoved", "into [target_collateral_human.name]")

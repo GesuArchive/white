@@ -1162,7 +1162,7 @@
 	return FALSE
 
 ///Sets the custom materials for an item.
-/atom/proc/set_custom_materials(var/list/materials, multiplier = 1)
+/atom/proc/set_custom_materials(list/materials, multiplier = 1)
 
 	if(!materials)
 		materials = custom_materials
@@ -1179,4 +1179,5 @@
 
 		if(!(material_flags & MATERIAL_NO_EFFECTS))
 			custom_material.on_applied(src, materials[custom_material] * multiplier * material_modifier, material_flags)
-		custom_materials[custom_material] += materials[custom_material] * multiplier
+		custom_materials[custom_material] += materials[x] * multiplier
+
