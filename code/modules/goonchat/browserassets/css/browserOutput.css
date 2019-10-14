@@ -3,6 +3,9 @@
 * GLOBAL STYLES
 *
 ******************************************/
+
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&display=swap');
+
 html, body {
 	padding: 0;
 	margin: 0;
@@ -258,7 +261,7 @@ a.popt {text-decoration: none;}
 /* OUTPUT COLORS */
 .highlight {background: yellow;}
 
-h1, h2, h3, h4, h5, h6	{color: #a4bad6;font-family: Georgia, Verdana, sans-serif;}
+h1, h2, h3, h4, h5, h6	{color: #a4bad6;font-family: 'M PLUS Rounded 1c', sans-serif;}
 h1.alert, h2.alert		{color: #a4bad6;}
 
 em						{font-style: normal;	font-weight: bold;}
@@ -294,7 +297,7 @@ em						{font-style: normal;	font-weight: bold;}
 .yell					{					font-weight: bold;}
 
 .alert					{color: #d82020;}
-h1.alert, h2.alert		{color: #000000;}
+h1.alert, h2.alert		{color: #000000; margin: 0 0 14px 0;}
 
 .emote					{					font-style: italic;}
 .selecteddna			{color: #ffffff;	background-color: #001B1B}
@@ -442,6 +445,13 @@ h1.alert, h2.alert		{color: #000000;}
 .text-normal {font-weight: normal; font-style: normal;}
 .hidden {display: none; visibility: hidden;}
 
+/* WHITE SHIT */
+
+.veryalert {
+    background: repeating-linear-gradient(-45deg,#daaa18,#daaa18 8px,#000000 8px,#000000 16px);
+    border: none;
+    height: 8px;
+}
 
 /* MOTD SHIT */
 #motd-main {

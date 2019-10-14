@@ -4,6 +4,8 @@
 
 	var/announcement
 
+	announcement += "<hr class='veryalert'>"
+
 	if(type == "Priority")
 		announcement += "<h1 class='alert'>Срочное Объявление</h1>"
 		if (title && length(title) > 0)
@@ -26,8 +28,8 @@
 			else
 				GLOB.news_network.SubmitArticle(title + "<br>" + text, "Центральное Командование", "Station Announcements", null)
 
-	announcement += "<span class='alert'>[rhtml_encode(text)]</span><br>"
-	announcement += "<br>"
+	announcement += "<span class='alert'>[rhtml_encode(text)]</span>"
+	announcement += "<hr class='veryalert'>"
 
 	var/s = sound(sound)
 	for(var/mob/M in GLOB.player_list)
