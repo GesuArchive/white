@@ -124,7 +124,7 @@
 		new_player_panel()
 
 	if(href_list["late_join"])
-		if(!SSticker || !SSticker.IsRoundInProgress())
+		if(!SSticker?.IsRoundInProgress())
 			to_chat(usr, "<span class='danger'>Раунд ещё не начался или уже завершился...</span>")
 			return
 
@@ -150,6 +150,9 @@
 		ViewManifest()
 
 	if(href_list["SelectedJob"])
+		if(!SSticker?.IsRoundInProgress())
+			to_chat(usr, "<span class='danger'>The round is either not ready, or has already finished...</span>")
+			return
 
 		if(!GLOB.enter_allowed)
 			to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
@@ -483,7 +486,12 @@
 	if(frn)
 		client.prefs.random_character()
 		client.prefs.real_name = client.prefs.pref_species.random_name(gender,1)
-	client.prefs.copy_to(H)
+	
+	var/is_antag
+	if(mind in GLOB.pre_setup_antags)
+		is_antag = TRUE
+	
+	client.prefs.copy_to(H, antagonist = is_antag)
 	H.dna.update_dna_identity()
 	if(mind)
 		if(transfer_after)
