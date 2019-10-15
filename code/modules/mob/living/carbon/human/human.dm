@@ -1165,12 +1165,6 @@
 /mob/living/carbon/human/species/golem/snow
 	race = /datum/species/golem/snow
 
-/mob/living/carbon/human/species/golem/clockwork
-	race = /datum/species/golem/clockwork
-
-/mob/living/carbon/human/species/golem/clockwork/no_scrap
-	race = /datum/species/golem/clockwork/no_scrap
-
 /mob/living/carbon/human/species/golem/capitalist
 	race = /datum/species/golem/capitalist
 
