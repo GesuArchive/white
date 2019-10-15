@@ -957,11 +957,6 @@
 			..(user, TRUE)
 		return TRUE
 
-/obj/structure/destructible/clockwork/attack_nanosuit(mob/living/carbon/human/user, does_attack_animation = FALSE)
-	if(is_servant_of_ratvar(user) && immune_to_servant_attacks)
-		return FALSE
-	return ..()
-
 /obj/attack_nanosuit(mob/living/carbon/human/user, does_attack_animation = FALSE)//attacking objects barehand
 	if(user.a_intent == INTENT_HARM)
 		..(user, TRUE)
