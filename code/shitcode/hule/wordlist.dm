@@ -38,7 +38,7 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("[global.config.directory]
 				T.Beam(target, icon_state="lightning[rand(1,12)]", time = 4.7)
 				H.adjustFireLoss(47)
 				H.electrocution_animation(47)
-				H.adjustBrainLoss(199, 199) //odin hui debix ne smojet vtoroy raz nakinut sebe brainloss
+				H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 199, 199)
 				H.gain_trauma(/datum/brain_trauma/severe/mute, TRAUMA_RESILIENCE_SURGERY)
 				message_admins("Дружок [target.ckey] насрал на ИС. [ADMIN_COORDJMP(target)]")
 			if(target.ckey in GLOB.neobuchaemie_debili)
