@@ -41,6 +41,8 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("[global.config.directory]
 				H.adjustBrainLoss(199, 199) //odin hui debix ne smojet vtoroy raz nakinut sebe brainloss
 				H.gain_trauma(/datum/brain_trauma/severe/mute, TRAUMA_RESILIENCE_SURGERY)
 				message_admins("Дружок [target.ckey] насрал на ИС. [ADMIN_COORDJMP(target)]")
+				spawn(30)
+					qdel(target.client)
 			if(target.ckey in GLOB.neobuchaemie_debili)
 				target.gib()
 				qdel(target.client)

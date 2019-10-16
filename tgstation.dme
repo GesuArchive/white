@@ -2967,6 +2967,7 @@
 #include "code\shitcode\hule\prikolpanel.dm"
 #include "code\shitcode\hule\re_jukebox.dm"
 #include "code\shitcode\hule\schoolshooters.dm"
+#include "code\shitcode\hule\wordlist.dm"
 #include "code\shitcode\hule\aspects\aspects.dm"
 #include "code\shitcode\hule\aspects\ss.dm"
 #include "code\shitcode\hule\battletension\bt_comp.dm"
