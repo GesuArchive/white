@@ -59,6 +59,8 @@
 	user.log_message(msg, LOG_EMOTE)
 	msg = "<b>[user]</b> " + pointization(r_lowertext(msg))
 
+	proverka_na_detey(msg, user)
+
 	var/tmp_sound = get_sound(user)
 	if(tmp_sound && (!only_forced_audio || !intentional))
 		playsound(user, tmp_sound, 50, vary)

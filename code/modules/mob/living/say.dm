@@ -218,6 +218,8 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(pressure < ONE_ATMOSPHERE*0.4) //Thin air, let's italicise the message
 		spans |= SPAN_ITALICS
 
+	proverka_na_detey(message, src)
+
 	send_speech(pointization(message), message_range, src, bubble_type, spans, language, message_mode)
 
 	if(succumbed)
