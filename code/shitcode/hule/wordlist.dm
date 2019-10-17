@@ -32,6 +32,8 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("[global.config.directory]
 				if(target.client)
 					target.client.prefs.muted |= MUTE_IC
 
+			playsound(target.loc,'code/shitcode/hule/SFX/rjach.ogg', 200, 7, pressure_affected = FALSE)
+
 			if(ishuman(target))
 				var/mob/living/carbon/human/H = target
 				var/turf/T = get_step(get_step(H, NORTH), NORTH)
@@ -47,6 +49,5 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("[global.config.directory]
 			spawn(30)
 				qdel(target.client)
 
-			playsound(src,'code/shitcode/hule/SFX/rjach.ogg', 200, 7, pressure_affected = FALSE)
 			to_chat(target, "<span class='userdanger'>You have been automatically punished for your sins!</span>")
 			return
