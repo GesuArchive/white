@@ -197,6 +197,7 @@
 	button.moved = DEFAULT_BLOODSPELLS
 	button.ordered = FALSE
 /datum/action/bloodsucker/passive/Destroy()
+	. = ..()
 	if(owner)
 		Remove(owner)
 	target = null
