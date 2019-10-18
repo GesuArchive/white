@@ -3072,6 +3072,7 @@
 #include "code\shitcode\valtos\code\exrp\interaction_definitions.dm"
 #include "code\shitcode\valtos\code\exrp\interaction_interface.dm"
 #include "code\shitcode\valtos\code\exrp\interaction_mob.dm"
+#include "code\shitcode\valtos\code\exrp\interaction_whitelist.dm"
 #include "code\shitcode\valtos\code\exrp\lewd_code.dm"
 #include "code\shitcode\valtos\code\exrp\lewd_definitions.dm"
 #include "code\shitcode\valtos\code\exrp\lewd_mob.dm"
