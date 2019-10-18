@@ -4,7 +4,8 @@
 /mob/living/carbon/human/MouseDrop_T(mob/M as mob, mob/user as mob)
 	. = ..()
 	if(M == src || src == usr || M != usr)		return
-	if(usr.restrained())		return
+	if(usr.restrained())						return
+	if(check_whitelist_exrp(M.ckey)) 			return
 
 	user.try_interaction(src)
 
