@@ -108,7 +108,7 @@ window "mapwindow"
 		text-color = none
 		is-default = true
 		saved-params = "icon-size"
-		zoom-mode = distort
+		zoom-mode = normal
 
 window "infowindow"
 	elem "infowindow"
