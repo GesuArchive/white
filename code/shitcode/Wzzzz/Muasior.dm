@@ -29,21 +29,21 @@
 	name = "Luger magazine (9mm rubber)"
 	ammo_type = /obj/item/ammo_casing/wzzzz/luger
 
-/obj/projectile/bullet/pistol/wzzzz/rubber
+/obj/item/projectile/bullet/pistol/wzzzz/rubber
 	name = "rubber bullet"
 	damage = 5
 	stamina = 25
 
-/obj/projectile/bullet/pistol/wzzzz/battle
+/obj/item/projectile/bullet/pistol/wzzzz/battle
 	name = "9mm bullet"
 	damage = 20
 
 /obj/item/ammo_casing/wzzzz/luger
 	desc = "A 9mm bullet casing."
 	caliber = "9mm"
-	projectile_type = /obj/projectile/bullet/pistol/wzzzz/rubber
+	projectile_type = /obj/item/projectile/bullet/pistol/wzzzz/rubber
 
 /obj/item/ammo_casing/wzzzz/lugerb
 	desc = "A 9mm bullet casing."
 	caliber = "9mm"
-	projectile_type = /obj/projectile/bullet/pistol/wzzzz/battle
+	projectile_type = /obj/item/projectile/bullet/pistol/wzzzz/battle

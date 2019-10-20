@@ -58,7 +58,7 @@
 	icon_state = "rwelding-g"
 	item_state = "rwelding-g"
 	actions_types = list(/datum/action/item_action/toggle)
-	custom_materials = list(/datum/material/iron = 250)
+	materials = list(/datum/material/iron = 250)
 	flash_protect = 2
 	tint = 2
 	visor_vars_to_toggle = VISOR_FLASHPROTECT | VISOR_TINT

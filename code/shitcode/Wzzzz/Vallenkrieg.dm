@@ -226,6 +226,8 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/mask.dmi'
 	icon = 'code/shitcode/Wzzzz/Valya/clothing/masks.dmi'
 	icon_state = "balaclava"
+	flags_inv = HIDEHAIR|HIDEEARS
+	visor_flags_inv = HIDEHAIR|HIDEEARS
 
 /obj/item/clothing/shoes/combat/wzzzz/arbiter
 	name = "arbiter boots"

@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/automatic/l6_saw/unrestricted/wzzzz/mg34
 	name = "MG-34"
-	desc = "German light machinegun chambered in 7.92x57mm Mauser ammunition. An utterly devastating support weapon."
+	desc = "German machinegun chambered in 7.92x57mm Mauser ammunition. An utterly devastating support weapon."
 	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
 	lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 	righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
@@ -30,7 +30,7 @@
 	multiple_sprites = TRUE
 
 
-/obj/projectile/bullet/wzzzz/a792x33
+/obj/item/projectile/bullet/wzzzz/a792x33
 	name = "a792x33 bullet"
 	damage = 25
 	armour_penetration = 5
@@ -39,4 +39,4 @@
 	name = "a792x33 bullet casing"
 	desc = "A a792x33 bullet casing."
 	caliber = "a792x33"
-	projectile_type = /obj/projectile/bullet/wzzzz/a792x33
+	projectile_type = /obj/item/projectile/bullet/wzzzz/a792x33

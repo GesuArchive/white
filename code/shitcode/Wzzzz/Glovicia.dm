@@ -42,7 +42,7 @@
 	icon_state = "flippers"
 	item_state = "flippers"
 	
-/obj/item/clothing/mask/wzzzz/full
+/obj/item/clothing/mask/gas/wzzzz/full
 	name = "gas mask"
 	desc = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
 	icon_state = "fullgas"

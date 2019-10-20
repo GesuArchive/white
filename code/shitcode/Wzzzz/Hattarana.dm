@@ -127,15 +127,15 @@
 	resistance_flags = NONE
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
 	
-/obj/item/clothing/head/helmet/wzzzz/amp
+/obj/item/clothing/head/wizard/wzzzz/amp
 	name = "amp"
 	desc = "Something strange"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "amp"
 	item_state = "amp"
-	clothing_flags = BLOCK_GAS_SMOKE_EFFECT
-	resistance_flags = NONE
+	clothing_flags = BLOCK_GAS_SMOKE_EFFECT|STOPSPRESSUREDAMAGE
+	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE  
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 0, "acid" = 100)
 	
 /obj/item/clothing/head/helmet/wzzzz/helmetold1
@@ -152,18 +152,35 @@
 	resistance_flags = NONE
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
 
-/obj/item/clothing/head/helmet/wzzzz/stealth_rig
-	name = "stealth helmet"
+/obj/item/clothing/mask/gas/wzzzz/stealth_rig
+	name = "stealth mask"
+	body_parts_covered = HEAD
+	var/lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+	var/darkness_view = 10
 	desc = "Looks like something for shadow stealth"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "stealth_rig"
+	flash_protect = 2
+	slot_flags = ITEM_SLOT_EYES
+	resistance_flags = NONE
+	gas_transfer_coefficient = 0.01
+	permeability_coefficient = 0.01
+	var/vision_flags = 0
+	var/invis_view = 25
+	var/invis_override = 0
+	var/list/icon/current = list()
+	var/vision_correction = 0
+	var/glass_colour_type
 	item_state = "stealth_rig"
-	flags_cover = HEADCOVERSMOUTH | PEPPERPROOF
-	visor_flags_cover = HEADCOVERSMOUTH | PEPPERPROOF
-	flags_inv = HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEMASK
-	visor_flags_inv = HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	flags_cover = HEADCOVERSMOUTH | PEPPERPROOF | HEADCOVERSEYES | GLASSESCOVERSEYES | MASKCOVERSEYES | MASKCOVERSMOUTH
+	visor_flags_cover = HEADCOVERSEYES|HEADCOVERSMOUTH|PEPPERPROOF
+	flags_inv = HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEHAIR
+	visor_flags_inv = HIDEEYES|HIDEFACE|HIDEFACIALHAIR|HIDEHAIR|HIDEEARS
+	clothing_flags = BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS
 	dynamic_hair_suffix = ""
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	dynamic_fhair_suffix = ""
 	armor = list("melee" = 10, "bullet" = 20, "laser" = 10,"energy" = 0, "bomb" = 10, "bio" = 5, "rad" = 0, "fire" = 10, "acid" = 5)
 	
 /obj/item/clothing/head/helmet/wzzzz/breacher_rig_cheap
@@ -695,15 +712,19 @@
 	visor_flags_inv = HIDEHAIR|HIDEEARS|256
 	armor = list("melee" = 30, "bullet" = 10, "laser" = 20,"energy" = 30, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 10)
 	
-/obj/item/clothing/suit/wzzzz/psyamp
+/obj/item/clothing/suit/wizrobe/wzzzz/psyamp
 	icon_state = "psyamp"
+	actions = list(/obj/effect/proc_holder/spell/targeted/projectile/magic_missile)
+	flags_inv = NONE
 	item_state = "psyamp"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	heat_protection = CHEST|GROIN|LEGS|ARMS
+	clothing_flags = STOPSPRESSUREDAMAGE
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
-	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 0, "acid" = 100)
+	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE  
+	armor = list("melee" = 500, "bullet" = 500, "laser" = 500,"energy" = 500, "bomb" = 500, "bio" = 500, "rad" = 500, "fire" = 0, "acid" = 500)
 	
 /obj/item/clothing/suit/radiation/wzzzz/german
 	icon_state = "rad"
@@ -2200,7 +2221,9 @@
 	desc = "From somewhere for someone"
 	item_state = "psysuit"
 	alt_covers_chest = FALSE
-	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 0, "acid" = 100)
+	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE  
+	clothing_flags = STOPSPRESSUREDAMAGE
+	armor = list("melee" = 500, "bullet" = 500, "laser" = 500,"energy" = 500, "bomb" = 500, "bio" = 500, "rad" = 500, "fire" = 0, "acid" = 500)
 	
 /obj/item/clothing/under/wzzzz/redcoat
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
@@ -2802,15 +2825,94 @@
 	name = "swim suit"
 	desc = "Good dive in space"
 	alt_covers_chest = FALSE
+	
+/obj/item/clothing/under/wzzzz/chickensuit
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	icon_state = "chickensuit"
+	item_state = "chickensuit"
+	name = "chicken suit"
+	desc = "Young petuch."
+	alt_covers_chest = FALSE
 
-
-
-
-
-
-
-
-
-
-
-
+/obj/item/melee/cultblade/wzzzz
+	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+	slot_flags = SLOT_BELT|SLOT_BACK
+	
+/obj/item/melee/cultblade/wzzzz/great
+	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+	force = 75
+	throwforce = 40
+	block_chance = 70
+	slot_flags = SLOT_BELT|SLOT_BACK
+	
+/obj/item/clothing/suit/armor/plate/crusader/wzzzz
+	armor = list("melee" = 80, "bullet" = 65, "laser" = 100,"energy" = 100, "bomb" = 75, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+	
+/obj/item/shield/riot/roman/wzzzz
+	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+	block_chance = 100
+	explosion_block = 0
+	max_integrity = 1.#INF
+	obj_integrity = 1.#INF
+	force = 30
+	throwforce = 20
+	
+/obj/item/clothing/suit/space/syndicate/black/engie/wzzzz
+	resistance_flags = NONE|FREEZE_PROOF|FIRE_PROOF
+	
+/obj/item/clothing/under/syndicate/combat/wzzzz
+	resistance_flags = NONE|FREEZE_PROOF|FIRE_PROOF
+	
+/obj/item/clothing/head/helmet/space/syndicate/black/engie/wzzzz
+	resistance_flags = NONE|FREEZE_PROOF|FIRE_PROOF
+	
+/obj/item/clothing/head/helmet/wzzzz/helmet_command
+	name = "command helmet"
+	desc = "Helmet with special line at back side like symbol of command?"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
+	icon_state = "helmet_command"
+	item_state = "helmet_command"	
+	flags_inv = HIDEHAIR|HIDEEARS
+	visor_flags_inv = HIDEHAIR|HIDEEARS
+	resistance_flags = NONE
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	
+/obj/item/clothing/head/helmet/wzzzz/helmet_security
+	name = "security helmet"
+	desc = "Helmet with special line at back side like symbol of security."
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
+	icon_state = "helmet_security"
+	item_state = "helmet_security"	
+	flags_inv = HIDEHAIR|HIDEEARS
+	visor_flags_inv = HIDEHAIR|HIDEEARS
+	resistance_flags = NONE
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	
+/obj/item/clothing/head/helmet/wzzzz/helmet_pcrc
+	name = "pcrc helmet"
+	desc = "Helmet with special line at back side like symbol of pcrc."
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
+	icon_state = "helmet_pcrc"
+	item_state = "helmet_pcrc"	
+	flags_inv = HIDEHAIR|HIDEEARS
+	visor_flags_inv = HIDEHAIR|HIDEEARS
+	resistance_flags = NONE
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	
+/obj/item/clothing/head/helmet/wzzzz/helmet_nt
+	name = "nt helmet"
+	desc = "Helmet for NT conscripts?"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
+	icon_state = "helmet_nt"
+	item_state = "helmet_nt"	
+	flags_inv = HIDEHAIR|HIDEEARS
+	visor_flags_inv = HIDEHAIR|HIDEEARS
+	resistance_flags = NONE
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)

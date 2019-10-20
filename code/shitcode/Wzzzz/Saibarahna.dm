@@ -16,7 +16,7 @@
 	armour_penetration = 25
 	sharpness = IS_SHARP
 	hitsound = 'sound/weapons/rapierhit.ogg'
-	custom_materials = list(/datum/material/iron = 500)
+	materials = list(/datum/material/iron = 500)
 	
 /obj/item/melee/sabre/wzzzz/officer
 	name = "officer sword"
@@ -36,7 +36,7 @@
 	armour_penetration = 20
 	sharpness = IS_SHARP
 	hitsound = 'sound/weapons/rapierhit.ogg'
-	custom_materials = list(/datum/material/iron = 500)
+	materials = list(/datum/material/iron = 500)
 	
 /obj/item/melee/sabre/wzzzz/marineofficer
 	name = "marine officer sword"
@@ -56,7 +56,7 @@
 	armour_penetration = 15
 	sharpness = IS_SHARP
 	hitsound = 'sound/weapons/rapierhit.ogg'
-	custom_materials = list(/datum/material/iron = 500)
+	materials = list(/datum/material/iron = 500)
 	
 /obj/item/melee/sabre/wzzzz/pettyofficer
 	name = "pettyofficer sword"
@@ -76,7 +76,7 @@
 	armour_penetration = 20
 	sharpness = IS_SHARP
 	hitsound = 'sound/weapons/rapierhit.ogg'
-	custom_materials = list(/datum/material/iron = 500)
+	materials = list(/datum/material/iron = 500)
 	
 /obj/item/melee/sabre/wzzzz/german
 	name = "german sabre"
@@ -96,13 +96,14 @@
 	armour_penetration = 35
 	sharpness = IS_SHARP
 	hitsound = 'sound/weapons/rapierhit.ogg'
-	custom_materials = list(/datum/material/iron = 500)
+	materials = list(/datum/material/iron = 500)
 	
 /obj/item/melee/classic_baton/wzzzz/german
 	name = "baton"
 	desc = "A compact yet robust personal defense weapon. Can be concealed when folded."
 	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
 	icon_state = "baton"
+	cooldown = 20
 	item_state = "baton"
 	lefthand_file = 'code/shitcode/Wzzzz/icons/Weeal.dmi'
 	righthand_file = 'code/shitcode/Wzzzz/icons/Weear.dmi'
@@ -122,7 +123,7 @@
 	throwforce = 3
 	throw_speed = 2
 	armour_penetration = 30
-	custom_materials = list(/datum/material/iron=2000)
+	materials = list(/datum/material/iron=2000)
 	
 /obj/item/kitchen/knife/wzzzz/german
 	name = "combat knife"

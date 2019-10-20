@@ -25,12 +25,12 @@
 	name = "7.92x57mm bullet casing"
 	desc = "A 7.92x57mm bullet casing."
 	caliber = "a792x57"
-	projectile_type = /obj/projectile/bullet/a792x57
+	projectile_type = /obj/item/projectile/bullet/a792x57
 	icon = 'code/shitcode/Wzzzz/icons/ammo.dmi'
 	icon_state = "rifle_casing"
 	item_state = "rifle_casing"
 
-/obj/projectile/bullet/a792x57
+/obj/item/projectile/bullet/a792x57
 	damage = 45
 	paralyze = 3
 	armour_penetration = 45
@@ -247,9 +247,9 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
 
 /obj/item/ammo_casing/energy/electrode/carb
 	e_cost = 150
-	projectile_type = /obj/projectile/energy/electrode/carb
+	projectile_type = /obj/item/projectile/energy/electrode/carb
 
-/obj/projectile/energy/electrode/carb
+/obj/item/projectile/energy/electrode/carb
 	damage = 60
 	stutter = 7
 	jitter = 27
@@ -263,9 +263,9 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
 /obj/item/ammo_casing/wzzzz/c9mm
 	desc = "A 9mm bullet casing."
 	caliber = "9mm"
-	projectile_type = /obj/projectile/bullet/c9mmt
+	projectile_type = /obj/item/projectile/bullet/c9mmt
 
-/obj/projectile/bullet/c9mmt
+/obj/item/projectile/bullet/c9mmt
 	damage = 25
 	armour_penetration = 13.5
 	
