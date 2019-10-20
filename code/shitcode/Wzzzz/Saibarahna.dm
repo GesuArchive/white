@@ -36,7 +36,7 @@
 	armour_penetration = 20
 	sharpness = IS_SHARP
 	hitsound = 'sound/weapons/rapierhit.ogg'
-	materials = list(/datum/material/iron = 500)
+	custom_materials = list(/datum/material/iron = 500)
 	
 /obj/item/melee/sabre/wzzzz/marineofficer
 	name = "marine officer sword"
@@ -56,7 +56,7 @@
 	armour_penetration = 15
 	sharpness = IS_SHARP
 	hitsound = 'sound/weapons/rapierhit.ogg'
-	materials = list(/datum/material/iron = 500)
+	custom_materials = list(/datum/material/iron = 500)
 	
 /obj/item/melee/sabre/wzzzz/pettyofficer
 	name = "pettyofficer sword"
@@ -76,7 +76,7 @@
 	armour_penetration = 20
 	sharpness = IS_SHARP
 	hitsound = 'sound/weapons/rapierhit.ogg'
-	materials = list(/datum/material/iron = 500)
+	custom_materials = list(/datum/material/iron = 500)
 	
 /obj/item/melee/sabre/wzzzz/german
 	name = "german sabre"
@@ -96,7 +96,7 @@
 	armour_penetration = 35
 	sharpness = IS_SHARP
 	hitsound = 'sound/weapons/rapierhit.ogg'
-	materials = list(/datum/material/iron = 500)
+	custom_materials = list(/datum/material/iron = 500)
 	
 /obj/item/melee/classic_baton/wzzzz/german
 	name = "baton"
@@ -123,7 +123,7 @@
 	throwforce = 3
 	throw_speed = 2
 	armour_penetration = 30
-	materials = list(/datum/material/iron=2000)
+	custom_materials = list(/datum/material/iron=2000)
 	
 /obj/item/kitchen/knife/wzzzz/german
 	name = "combat knife"
