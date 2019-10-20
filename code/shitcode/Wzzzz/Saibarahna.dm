@@ -16,8 +16,8 @@
 	armour_penetration = 25
 	sharpness = IS_SHARP
 	hitsound = 'sound/weapons/rapierhit.ogg'
-	materials = list(/datum/material/iron = 500)
-	
+	custom_materials = list(/datum/material/iron = 500)
+
 /obj/item/melee/sabre/wzzzz/officer
 	name = "officer sword"
 	desc = "A curved sword issued to german officers"
@@ -37,7 +37,7 @@
 	sharpness = IS_SHARP
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	custom_materials = list(/datum/material/iron = 500)
-	
+
 /obj/item/melee/sabre/wzzzz/marineofficer
 	name = "marine officer sword"
 	desc = "A curved sword issued to german marine officers"
@@ -57,7 +57,7 @@
 	sharpness = IS_SHARP
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	custom_materials = list(/datum/material/iron = 500)
-	
+
 /obj/item/melee/sabre/wzzzz/pettyofficer
 	name = "pettyofficer sword"
 	desc = "A curved sword issued to german petty officers"
@@ -77,7 +77,7 @@
 	sharpness = IS_SHARP
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	custom_materials = list(/datum/material/iron = 500)
-	
+
 /obj/item/melee/sabre/wzzzz/german
 	name = "german sabre"
 	desc = "A good weapon in melee battle"
@@ -97,7 +97,7 @@
 	sharpness = IS_SHARP
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	custom_materials = list(/datum/material/iron = 500)
-	
+
 /obj/item/melee/classic_baton/wzzzz/german
 	name = "baton"
 	desc = "A compact yet robust personal defense weapon. Can be concealed when folded."
@@ -109,7 +109,7 @@
 	righthand_file = 'code/shitcode/Wzzzz/icons/Weear.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/belt.dmi'
 	slot_flags = ITEM_SLOT_BELT
-	
+
 /obj/item/melee/wzzzz/club
 	icon_state = "club"
 	item_state = "club"
@@ -124,7 +124,7 @@
 	throw_speed = 2
 	armour_penetration = 30
 	custom_materials = list(/datum/material/iron=2000)
-	
+
 /obj/item/kitchen/knife/wzzzz/german
 	name = "combat knife"
 	desc = "A german military combat knife."
@@ -137,7 +137,7 @@
 	righthand_file = 'code/shitcode/Wzzzz/icons/Weear.dmi'
 	throwforce = 15
 	bayonet = TRUE
-	
+
 /obj/item/melee/baton/loaded/german
 	desc = "A german stun baton."
 	icon = 'code/shitcode/Wzzzz/icons/Uebermarginal/weapons.dmi'
