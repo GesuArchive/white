@@ -4,7 +4,7 @@
 
 	var/announcement
 
-	announcement += "<hr class='veryalert'>"
+	//announcement += "<hr class='veryalert'>"
 
 	if(type == "Priority")
 		announcement += "<h1 class='alert'>Срочное Объявление</h1>"
@@ -16,7 +16,7 @@
 
 	else
 		if(!sender_override)
-			announcement += "<h1 class='alert'>Объявление от [command_name()]</h1>"
+			announcement += "<h1 class='alert'>[command_name()]</h1>"
 		else
 			announcement += "<h1 class='alert'>[sender_override]</h1>"
 		if (title && length(title) > 0)
@@ -24,12 +24,12 @@
 
 		if(!sender_override)
 			if(title == "")
-				GLOB.news_network.SubmitArticle(text, "Объявление от Центрального Командования", "Station Announcements", null)
+				GLOB.news_network.SubmitArticle(text, "Центральное Командование", "Station Announcements", null)
 			else
 				GLOB.news_network.SubmitArticle(title + "<br>" + text, "Центральное Командование", "Station Announcements", null)
 
 	announcement += "<span class='alert'>[rhtml_encode(text)]</span>"
-	announcement += "<hr class='veryalert'>"
+	announcement += "<br><br>"
 
 	var/s = sound(sound)
 	for(var/mob/M in GLOB.player_list)
@@ -40,7 +40,7 @@
 
 /proc/print_command_report(text = "", title = null, announce=TRUE)
 	if(!title)
-		title = "Секретное Сообщение от [command_name()]"
+		title = "Секретно: [command_name()]"
 
 	if(announce)
 		priority_announce("Отчет был загружен и распечатан на всех коммуникационных консолях.", "Входящее Секретное Сообщение", 'sound/ai/commandreport.ogg')
