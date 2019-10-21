@@ -59,11 +59,11 @@
 	var/healthpercent = round((obj_integrity/max_integrity) * 100, 1)
 	switch(healthpercent)
 		if(50 to 99)
-			. += "<span class='info'>It looks slightly damaged.</span>"
+			. += "<span class='info'>Виднеются небольшие царапины.</span>"
 		if(25 to 50)
-			. += "<span class='info'>It appears heavily damaged.</span>"
+			. += "<span class='info'>Выглядит серьёзно повреждённым.</span>"
 		if(0 to 25)
-			. += "<span class='warning'>It's falling apart!</span>"
+			. += "<span class='warning'>Вот-вот развалится!</span>"
 
 /obj/item/shield/riot/proc/shatter(mob/living/carbon/human/owner)
 	playsound(owner, 'sound/effects/glassbr3.ogg', 100)

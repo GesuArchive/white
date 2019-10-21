@@ -76,17 +76,22 @@
 	return
 
 /client/verb/hotkeys_help()
-	set name = "hotkeys-help"
+	set name = "Помощь по хоткеям"
 	set category = "OOC"
 
 	var/adminhotkeys = {"<font color='purple'>
 Admin:
-\tF3 = asay
-\tF5 = Aghost (admin-ghost)
-\tF6 = player-panel
+\tF1 = AdminHelp
+\tF2 = OOC
+\tF3 = Say
+\tF4 = Me
+\tF5 = Asay
+\tF6 = Aghost
 \tF7 = Buildmode
 \tF8 = Invisimin
 \tCtrl+F8 = Stealthmin
+\tF9 = Player Panel
+\tF10 = DSay
 </font>"}
 
 	mob.hotkey_help()
@@ -95,7 +100,7 @@ Admin:
 		to_chat(src, adminhotkeys)
 
 /client/verb/changelog()
-	set name = "Changelog"
+	set name = "Последние изменения"
 	set category = "OOC"
 	var/datum/asset/changelog = get_asset_datum(/datum/asset/simple/changelog)
 	changelog.send(src)

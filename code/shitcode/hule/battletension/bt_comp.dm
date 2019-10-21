@@ -153,7 +153,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	return result
 
 /client/verb/customize_battletension()
-	set name = "Customize Battle Tension"
+	set name = "Настроить Battle Tension"
 	set desc = "Allows for advanced prikol immersion."
 	set category = "Preferences"
 

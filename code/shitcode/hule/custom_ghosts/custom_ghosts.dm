@@ -51,7 +51,7 @@
 			swap_icons()
 
 /mob/dead/observer/verb/custom_ghost_form()
-	set name = "Custom Ghost Form"
+	set name = "Кастомный Спрайт Призрака"
 	set category = "Preferences"
 	set desc = "Customize your ghastly appearance."
 

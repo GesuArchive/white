@@ -180,7 +180,7 @@
 
 /obj/machinery/button/door
 	name = "door button"
-	desc = "A door remote control switch."
+	desc = " нопка, котора€ контроллирует шлюзы и не только."
 	var/normaldoorcontrol = FALSE
 	var/specialfunctions = OPEN // Bitflag, see assembly file
 	var/sync_doors = TRUE

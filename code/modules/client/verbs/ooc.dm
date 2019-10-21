@@ -6,7 +6,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	set category = "OOC"
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Speech is currently admin-disabled.</span>")
+		to_chat(usr, "<span class='danger'>БЛЯТЬ!</span>")
 		return
 
 	if(!mob)
@@ -14,13 +14,13 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 	if(!holder)
 		if(!GLOB.ooc_allowed)
-			to_chat(src, "<span class='danger'>OOC is globally muted.</span>")
+			to_chat(src, "<span class='danger'>OOC выключен. Приятной игры.</span>")
 			return
 		if(!GLOB.dooc_allowed && (mob.stat == DEAD))
-			to_chat(usr, "<span class='danger'>OOC for dead mobs has been turned off.</span>")
+			to_chat(usr, "<span class='danger'>OOC трупам не разрешён. Приятной игры.</span>")
 			return
 		if(prefs.muted & MUTE_OOC)
-			to_chat(src, "<span class='danger'>You cannot use OOC (muted).</span>")
+			to_chat(src, "<span class='danger'>Тебе нельзя. Приятной игры.</span>")
 			return
 	if(QDELETED(src))
 		return
@@ -41,13 +41,13 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		if(handle_spam_prevention(msg,MUTE_OOC))
 			return
 		if(findtext(msg, "byond://"))
-			to_chat(src, "<B>Advertising other servers is not allowed.</B>")
+			to_chat(src, "<B>Ты че ебать...</B>")
 			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
 			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
 			return
 
 	if(!(prefs.chat_toggles & CHAT_OOC))
-		to_chat(src, "<span class='danger'>You have OOC muted.</span>")
+		to_chat(src, "<span class='danger'>Тебе нельзя.</span>")
 		return
 
 	if(!src.shadowbanned_ooc)
@@ -98,7 +98,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 			return
 	else //otherwise just toggle it
 		GLOB.ooc_allowed = !GLOB.ooc_allowed
-	to_chat(world, "<B>The OOC channel has been globally [GLOB.ooc_allowed ? "enabled" : "disabled"].</B>")
+	//to_chat(world, "<B>The OOC channel has been globally [GLOB.ooc_allowed ? "enabled" : "disabled"].</B>")
 
 /proc/toggle_dooc(toggle = null)
 	if(toggle != null)
@@ -122,7 +122,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	GLOB.OOC_COLOR = null
 
 /client/verb/colorooc()
-	set name = "Set Your OOC Color"
+	set name = "Установить свой цвет OOC"
 	set category = "Preferences"
 
 	if(!holder || !check_rights_for(src, R_ADMIN))
@@ -138,7 +138,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	return
 
 /client/verb/resetcolorooc()
-	set name = "Reset Your OOC Color"
+	set name = "Сбросить свой цвет OOC"
 	set desc = "Returns your OOC Color to default"
 	set category = "Preferences"
 
@@ -152,7 +152,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 //Checks admin notice
 /client/verb/admin_notice()
-	set name = "Adminnotice"
+	set name = "Заметки раунда"
 	set category = "Admin"
 	set desc ="Check the admin notice if it has been set"
 	set hidden = TRUE
@@ -163,7 +163,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		to_chat(src, "<span class='notice'>There are no admin notices at the moment.</span>")
 
 /client/verb/fix_chat()
-	set name = "Fix chat"
+	set name = "ПОЧИНИТЬ ЧАТ"
 	set category = "OOC"
 	if (!chatOutput || !istype(chatOutput))
 		var/action = alert(src, "Invalid Chat Output data found!\nRecreate data?", "Wot?", "Recreate Chat Output data", "Cancel")
@@ -246,7 +246,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 
 /client/verb/motd()
-	set name = "MOTD"
+	set name = "Приветствие"
 	set category = "OOC"
 	set desc ="Check the Message of the Day"
 
@@ -257,7 +257,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		to_chat(src, "<span class='notice'>The Message of the Day has not been set.</span>")
 
 /client/proc/self_notes()
-	set name = "View Admin Remarks"
+	set name = "Просмотреть чем я отличился"
 	set category = "OOC"
 	set desc = "View the notes that admins have written about you"
 
@@ -268,7 +268,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	browse_messages(null, usr.ckey, null, TRUE)
 
 /client/proc/self_playtime()
-	set name = "View tracked playtime"
+	set name = "Показать моё время игры"
 	set category = "OOC"
 	set desc = "View the amount of playtime for roles the server has tracked."
 
@@ -292,7 +292,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	prefs.save_preferences()
 
 /client/verb/select_ignore()
-	set name = "Ignore"
+	set name = "Игнорировать"
 	set category = "OOC"
 	set desc ="Ignore a player's messages on the OOC channel"
 
@@ -321,14 +321,14 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	ignore_key(selection, displayed_choicename)
 
 /client/proc/show_previous_roundend_report()
-	set name = "Your Last Round"
+	set name = "Мой последний раунд"
 	set category = "OOC"
 	set desc = "View the last round end report you've seen"
 
 	SSticker.show_roundend_report(src, TRUE)
 
 /client/verb/fit_viewport()
-	set name = "Fit Viewport"
+	set name = "Подстроить экран"
 	set category = "OOC"
 	set desc = "Fit the width of the map window to match the viewport"
 
@@ -381,7 +381,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	webhook_send_token(key, token)
 
 /client/verb/policy()
-	set name = "Show Policy"
+	set name = "Показать политику"
 	set desc = "Show special server rules related to your current character."
 	set category = "OOC"
 

@@ -1,6 +1,6 @@
 /obj/structure/chair
 	name = "chair"
-	desc = "You sit in this. Either by will or force."
+	desc = "На нём можно сидеть."
 	icon = 'icons/obj/chairs.dmi'
 	icon_state = "chair"
 	anchored = TRUE
@@ -379,7 +379,7 @@
 
 /obj/structure/chair/old
 	name = "strange chair"
-	desc = "You sit in this. Either by will or force. Looks REALLY uncomfortable."
+	desc = "На нём можно сидеть. Выглядит ОЧЕНЬ комфортным."
 	icon_state = "chairold"
 	item_chair = null
 

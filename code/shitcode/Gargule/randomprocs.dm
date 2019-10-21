@@ -64,8 +64,6 @@ mob/living/carbon/human/species/lizard/Initialize()
 		var/obj/item/seeds/berry/S = FT.seed
 		if(S.get_gene(/datum/plant_gene/trait/glow))
 			pow = S.potency*2/100//if trait any of biolums
-			if(S.get_gene(/datum/plant_gene/trait/glow/berry))
-				pow += 1//if trait glow-berry
 			if(pow > 0)
 				var/obj/item/organ/heart/light/N = new(user.loc)
 				N.power = pow

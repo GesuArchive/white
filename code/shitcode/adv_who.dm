@@ -38,7 +38,7 @@
 					entry += " - <font color='darkgray'><b>Лобби</b></font>"
 					lobby++
 				else
-					entry += " - Играет как [C.mob.real_name]"
+					entry += " - [C.mob.real_name]"
 					switch(C.mob.stat)
 						if(UNCONSCIOUS)
 							entry += " - <font color='darkgray'><b>Без сознания</b></font>"
@@ -106,7 +106,7 @@
 		msg += "[line]\n"
 
 	if(check_rights(R_ADMIN, 0))
-		msg += "<b><font color='green'>Живо: [living]</font> | Мертвы: [dead] | <font color='gray'>Наблюдают: [observers]</font> | <font color='#006400'>В лобби: [lobby]</font> | <font color='#8100aa'>Живых антагов: [living_antags]</font> | <font color='#9b0000'>Мертвых антагов: [dead_antags]</font></b>\n"
+		msg += "<b><font color='green'>L: [living]</font> | D: [dead] | <font color='gray'>O: [observers]</font> | <font color='#006400'>LOBBY: [lobby]</font> | <font color='#8100aa'>AA: [living_antags]</font> | <font color='#9b0000'>DA: [dead_antags]</font></b>\n"
 
 	msg += "<b>Всего игроков: [length(Lines)]</b>"
 	to_chat(src, msg)

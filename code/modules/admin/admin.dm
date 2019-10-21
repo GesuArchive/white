@@ -630,9 +630,9 @@
 	var/new_nores = !CONFIG_GET(flag/norespawn)
 	CONFIG_SET(flag/norespawn, new_nores)
 	if (!new_nores)
-		to_chat(world, "<B>You may now respawn.</B>")
+		to_chat(world, "<B>Разрешено переродиться.</B>")
 	else
-		to_chat(world, "<B>You may no longer respawn :(</B>")
+		to_chat(world, "<B>Запрещено перерождаться.(</B>")
 	message_admins("<span class='adminnotice'>[key_name_admin(usr)] toggled respawn to [!new_nores ? "On" : "Off"].</span>")
 	log_admin("[key_name(usr)] toggled respawn to [!new_nores ? "On" : "Off"].")
 	world.update_status()
