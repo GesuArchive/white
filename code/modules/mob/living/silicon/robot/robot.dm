@@ -643,7 +643,7 @@
 		// I could change the network to null but I don't know what would happen, and it seems too hacky for me.
 
 /mob/living/silicon/robot/mode()
-	set name = "Активировать предмет в манипуляторе"
+	set name = "Использовать предмет в руке"
 	set category = "IC"
 	set src = usr
 
