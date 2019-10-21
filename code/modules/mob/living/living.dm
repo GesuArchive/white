@@ -378,7 +378,7 @@
 		return FALSE
 	if(!..())
 		return FALSE
-	visible_message("<b>[src]</b> показывает на <b>[A]</b>.", "<span class='notice'>Ты показываешь на <b>[A]</b>.</span>")
+	visible_message("<span class='name'>[src]</span> показывает на <b>[A]</b>.", "<span class='notice'>Ты показываешь на <b>[A]</b>.</span>")
 	return TRUE
 
 /mob/living/verb/succumb(whispered as null)
@@ -586,6 +586,13 @@
 	return
 
 /mob/living/Move(atom/newloc, direct)
+	if(lying) 
+		if(direct & EAST)
+			lying = 90
+		if(direct & EAST)
+			lying = 270
+		update_transform()
+		lying_prev = lying
 	if (buckled && buckled.loc != newloc) //not updating position
 		if (!buckled.anchored)
 			return buckled.Move(newloc, direct)

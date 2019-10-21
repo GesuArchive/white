@@ -723,8 +723,11 @@
 	if(!force)
 		amount = min(remaining_space_items(), amount)
 	for(var/i in 1 to amount)
-		handle_item_insertion(new type(real_location), TRUE)
-		CHECK_TICK
+		if(!handle_item_insertion(new type(real_location), TRUE))
+			return i > 1 //return TRUE only if at least one insertion has been successful.
+		if(CHECK_TICK)
+			if(QDELETED(src))
+				return TRUE
 	return TRUE
 
 /datum/component/storage/proc/on_attack_hand(datum/source, mob/user)
@@ -812,8 +815,8 @@
 	collection_mode = (collection_mode+1)%3
 	switch(collection_mode)
 		if(COLLECT_SAME)
-			to_chat(user, "[parent] теперь собирает предметы одного типа разом.")
+			to_chat(user, "<span class='notice'>[parent] теперь собирает предметы одного типа разом.</span>")
 		if(COLLECT_EVERYTHING)
-			to_chat(user, "[parent] теперь собирает предметы всех типов разом.")
+			to_chat(user, "<span class='notice'>[parent] теперь собирает предметы всех типов разом.</span>")
 		if(COLLECT_ONE)
-			to_chat(user, "[parent] теперь собирает один предмет один раз.")
+			to_chat(user, "<span class='notice'>[parent] теперь собирает один предмет один раз.</span>")

@@ -41,7 +41,7 @@
 	for(var/A in required_reagents) //make a list where the key is text, because that looks alot better in the ui than a typepath
 		var/datum/reagent/R = A
 		text_reagents[initial(R.name)] = required_reagents[R]
-	
+
 	data["reagents"] = text_reagents
 	data["emptying"] = emptying
 	return data

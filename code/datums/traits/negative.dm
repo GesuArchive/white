@@ -455,10 +455,8 @@
 	var/datum/reagent/reagent_instance //! actual instanced version of the reagent
 	var/where_drug //! Where the drug spawned
 	var/obj/item/drug_container_type //! If this is defined before pill generation, pill generation will be skipped. This is the type of the pill bottle.
-	var/obj/item/drug_instance //! instanced version of the container
 	var/where_accessory //! where the accessory spawned
 	var/obj/item/accessory_type //! If this is null, an accessory won't be spawned.
-	var/obj/item/accessory_instance //! instanced version of the accessory
 	var/process_interval = 30 SECONDS //! how frequently the quirk processes
 	var/next_process = 0 //! ticker for processing
 
@@ -471,7 +469,7 @@
 	var/current_turf = get_turf(quirk_holder)
 	if (!drug_container_type)
 		drug_container_type = /obj/item/storage/pill_bottle
-	drug_instance = new drug_container_type(current_turf)
+	var/obj/item/drug_instance = new drug_container_type(current_turf)
 	if (istype(drug_instance, /obj/item/storage/pill_bottle))
 		var/pill_state = "pill[rand(1,20)]"
 		for(var/i in 1 to 7)
@@ -479,6 +477,7 @@
 			P.icon_state = pill_state
 			P.reagents.add_reagent(reagent_type, 1)
 
+	var/obj/item/accessory_instance
 	if (accessory_type)
 		accessory_instance = new accessory_type(current_turf)
 	var/list/slots = list(
@@ -497,7 +496,7 @@
 		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
 
 /datum/quirk/junkie/proc/announce_drugs()
-	to_chat(quirk_holder, "<span class='boldnotice'>Вы пронесли [drug_instance.name] из [reagent_instance.name] [where_drug]. Скоро он закончится...</span>")
+	to_chat(quirk_holder, "<span class='boldnotice'>Ты пронёс [initial(drug_container_type.name)] из [initial(reagent_type.name)] [where_drug]. Скоро он закончится...</span>")
 
 /datum/quirk/junkie/on_process()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -531,7 +530,7 @@
 	. = ..()
 
 /datum/quirk/junkie/smoker/announce_drugs()
-	to_chat(quirk_holder, "<span class='boldnotice'>Пачка сигарет [drug_instance.name] [where_drug], и зажигалочка [where_accessory]. Убедитесь, что вы достанете ваш любимый бренд, если тот закончится.</span>")
+	to_chat(quirk_holder, "<span class='boldnotice'>Пачка сигарет [initial(drug_container_type.name)] [where_drug], и зажигалочка [where_accessory]. Убедись, что ты достанешь свой любимый бренд, если тот закончится.</span>")
 
 
 /datum/quirk/junkie/smoker/on_process()
@@ -539,8 +538,8 @@
 	var/mob/living/carbon/human/H = quirk_holder
 	var/obj/item/I = H.get_item_by_slot(SLOT_WEAR_MASK)
 	if (istype(I, /obj/item/clothing/mask/cigarette))
-		var/obj/item/storage/fancy/cigarettes/C = drug_instance
-		if(istype(I, C.spawn_type))
+		var/obj/item/storage/fancy/cigarettes/C = drug_container_type
+		if(istype(I, initial(C.spawn_type)))
 			SEND_SIGNAL(quirk_holder, COMSIG_CLEAR_MOOD_EVENT, "wrong_cigs")
 			return
 		SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "wrong_cigs", /datum/mood_event/wrong_brand)

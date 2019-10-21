@@ -125,7 +125,7 @@
 
 	if(href_list["late_join"])
 		if(!SSticker?.IsRoundInProgress())
-			to_chat(usr, "<span class='danger'>Раунд ещё не начался или уже завершился...</span>")
+			to_chat(usr, "<span class='boldwarning'>Раунд ещё не начался или уже завершился...</span>")
 			return
 
 		if(href_list["late_join"] == "override")
@@ -555,6 +555,6 @@
 		if(has_antags)
 			log_admin("[src.ckey] just got booted back to lobby with no jobs, but antags enabled.")
 			message_admins("[src.ckey] just got booted back to lobby with no jobs enabled, but antag rolling enabled. Likely antag rolling abuse.")
-		
+
 		return FALSE //This is the only case someone should actually be completely blocked from antag rolling as well
 	return TRUE
