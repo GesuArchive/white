@@ -46,7 +46,7 @@ SUBSYSTEM_DEF(mailbox)
 		return ..()
 
 	if(istype(I, /obj/item/storage/box/mailbox))
-		
+		return
 
 	else
 		to_chat(user, "<span class='alert'><b>[src.name]</b> не принимает <b>[I.name]</b>. “олько специальные контейнеры.</span>")
