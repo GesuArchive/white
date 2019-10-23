@@ -327,7 +327,7 @@
 		to_chat(user, "<span class='warning'>You can't access the maintenance panel while the pod is " \
 		+ (on ? "active" : (occupant ? "full" : "open")) + "!</span>")
 		return
-	if(istype(I, /obj/item/card/id/departmental_budget/med))
+	if(istype(I, /obj/item/card/id/departmental_budget/car))
 		var/proice = input("Please set a fair price", "Cryo", "Cancel") as null|num
 		if(!proice)
 			fair_market_price = 0
