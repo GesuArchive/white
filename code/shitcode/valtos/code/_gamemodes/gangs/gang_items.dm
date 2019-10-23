@@ -382,7 +382,7 @@
 	to_chat(user, "<span class='notice'>You tagged [territory] for your gang!</span>")
 
 /obj/effect/decal/cleanable/crayon/gang
-	icon = 'hippiestation/icons/effects/crayondecal.dmi'
+	icon = 'code/shitcode/valtos/icons/crayondecal.dmi'
 	layer = HIGH_OBJ_LAYER //Harder to hide
 	plane = GAME_PLANE
 	do_icon_rotate = FALSE //These are designed to always face south, so no rotation please.
