@@ -341,7 +341,7 @@
 		clicky = CLAMP(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
 
 	if(!instant)
-		to_chat(user, "<span class='notice'>You start drawing a [temp] on the	[target.name]...</span>")
+		to_chat(user, "<span class='notice'>You start drawing a [temp] on the [target.name]...</span>")
 
 	if(pre_noise)
 		audible_message("<span class='notice'>You hear spraying.</span>")
@@ -350,6 +350,8 @@
 	var/wait_time = 50
 	if(paint_mode == PAINT_LARGE_HORIZONTAL)
 		wait_time *= 3
+
+	if(gang) instant = FALSE // hippie -- gang spraying must not be instant, balance reasons
 
 	if(!instant)
 		if(!do_after(user, 50, target = target))
@@ -360,6 +362,12 @@
 
 
 	var/list/turf/affected_turfs = list()
+
+	if(gang) // hippie start -- gang spraying is done differently
+		if(gang_final(user, target, affected_turfs))
+			return
+		actually_paints = FALSE // skip the next if check
+	// hippie end
 
 	if(actually_paints)
 		var/obj/effect/decal/cleanable/crayon/C
