@@ -90,7 +90,7 @@
 /obj/item/clothing/suit/cowl/robe
 	name = "robe"
 	desc = "Модное покрывало."
-	icon_state = "robe"
+	icon_state = "robes"
 
 //gloves
 
