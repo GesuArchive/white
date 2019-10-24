@@ -5,7 +5,7 @@
 	. = ..()
 	if(M == src || src == usr || M != usr)		return
 	if(usr.restrained())						return
-	if(check_whitelist_exrp(M.ckey)) 			return
+	if(!check_whitelist_exrp(M.ckey)) 			return
 
 	user.try_interaction(src)
 
