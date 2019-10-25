@@ -24,7 +24,7 @@
 #define BLOODSUCKER_STARVE_VOLUME	5	// Amount of blood, below which a Vamp is at risk of frenzy.
 
 // RECIPES
-#define CAT_STRUCTURE	"Structures"
+//#define CAT_STRUCTURE	"Structures"
 
 // MARTIAL ARTS
 #define MARTIALART_HUNTER "hunter-fu"
