@@ -77,6 +77,7 @@
 #define ANTAG_HUD_BROTHER		22
 #define ANTAG_HUD_OBSESSED	23
 #define ANTAG_HUD_FUGITIVE	24
+#define ANTAG_HUD_BLOODSUCKER		25
 
 // Notification action types
 #define NOTIFY_JUMP "jump"

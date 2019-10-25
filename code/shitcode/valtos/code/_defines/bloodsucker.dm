@@ -15,7 +15,7 @@
 #define TRAIT_NOPULSE			"nopulse"		// You don't pump blood.
 
 // HUD
-#define ANTAG_HUD_BLOODSUCKER		26  // MOVED TO atom_hud.dm, so we can get a conflict error and update if anything changes. // Check atom_hud.dm to see what the current top number is.
+//#define ANTAG_HUD_BLOODSUCKER		25  // MOVED TO atom_hud.dm, so we can get a conflict error and update if anything changes. // Check atom_hud.dm to see what the current top number is.
 
 // BLOODSUCKER
 #define BLOODSUCKER_LEVEL_TO_EMBRACE	3
