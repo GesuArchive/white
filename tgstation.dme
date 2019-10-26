@@ -3122,6 +3122,7 @@
 #include "code\shitcode\valtos\code\guns\tanner.dm"
 #include "code\shitcode\valtos\code\guns\traumat.dm"
 #include "code\shitcode\valtos\code\jobs\russian.dm"
+#include "code\shitcode\valtos\code\lifeweb\turfs.dm"
 #include "code\shitcode\valtos\code\makeshift\crossbow.dm"
 #include "code\shitcode\valtos\code\makeshift\ducttape.dm"
 #include "code\shitcode\valtos\code\makeshift\lockermech.dm"
