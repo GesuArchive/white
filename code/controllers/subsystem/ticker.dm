@@ -303,7 +303,7 @@ SUBSYSTEM_DEF(ticker)
 
 	PostSetup()
 
-	if(!TEST_RUN_PARAMETER in world.params)
+	if(CONFIG_GET(flag/aspects))
 		SSaspects.run_aspect()
 
 	return TRUE
