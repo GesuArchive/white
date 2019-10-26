@@ -5,13 +5,12 @@
 */
 
 // The default UI style is the first one in the list
-GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
+GLOBAL_LIST_INIT(available_ui_styles, list(
 	"Midnight" = 'icons/mob/screen_midnight.dmi',
 	"Retro" = 'icons/mob/screen_retro.dmi',
 	"Plasmafire" = 'icons/mob/screen_plasmafire.dmi',
 	"Slimecore" = 'icons/mob/screen_slimecore.dmi',
 	"Operative" = 'icons/mob/screen_operative.dmi',
-	"Clockwork" = 'icons/mob/screen_clockwork.dmi',
 	"Bassboosted" = 'icons/mob/screen_bassboosted.dmi'
 )));
 
@@ -114,9 +113,6 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 	mymob = null
 
 	return ..()
-
-/mob
-	var/hud_type = /datum/hud
 
 /mob/proc/create_mob_hud()
 	if(!client || hud_used)

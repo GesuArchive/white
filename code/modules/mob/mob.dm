@@ -440,7 +440,7 @@
 	set name = "Показать на..."
 	set category = "Object"
 
-	if(!src || !isturf(src.loc) || !(A in view(src.loc)))
+	if(!src || !isturf(src.loc) || !(A in view(client.view, src)))
 		return FALSE
 	if(istype(A, /obj/effect/temp_visual/point))
 		return FALSE
