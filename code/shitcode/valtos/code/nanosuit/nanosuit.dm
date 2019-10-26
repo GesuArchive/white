@@ -260,9 +260,6 @@
 		QDEL_NULL(cell)
 	return ..()
 
-/obj/item/clothing/suit/space/hardsuit/nano/prevent_content_explosion()
-	return TRUE
-
 /obj/item/clothing/suit/space/hardsuit/nano/contents_explosion()
 	return
 
