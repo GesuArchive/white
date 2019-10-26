@@ -12,7 +12,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	"Slimecore" = 'icons/mob/screen_slimecore.dmi',
 	"Operative" = 'icons/mob/screen_operative.dmi',
 	"Bassboosted" = 'icons/mob/screen_bassboosted.dmi'
-)));
+));
 
 /proc/ui_style2icon(ui_style)
 	return GLOB.available_ui_styles[ui_style] || GLOB.available_ui_styles[GLOB.available_ui_styles[1]]
