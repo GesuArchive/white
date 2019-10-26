@@ -9,11 +9,11 @@
 /turf/closed/lifeweb
 
 /turf/closed/lifeweb/rock
-    name = "rock"
-    icon = 'code/shitcode/valtos/icons/lifeweb/caves_fuck.dmi'
-    icon_state = "wall"
-    smooth = SMOOTH_MORE|SMOOTH_BORDER
-    canSmoothWith = null
+	name = "rock"
+	icon = 'code/shitcode/valtos/icons/lifeweb/caves_fuck.dmi'
+	icon_state = "wall"
+	smooth = SMOOTH_MORE|SMOOTH_BORDER
+	canSmoothWith = null
 	baseturfs = /turf/open/floor/plating/asteroid/airless
 	initial_gas_mix = AIRLESS_ATMOS
 	opacity = 1
