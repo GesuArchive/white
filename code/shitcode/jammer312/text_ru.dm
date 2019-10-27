@@ -184,7 +184,7 @@ GLOBAL_LIST_INIT(rus_unicode_fix,null)
 
 /proc/rhtml_encode(t)
 	t = strip_macros(t)
-	t = rhtml_decode(t)
+	t = html_decode(t)
 	var/list/c = splittext(t, UPC)
 	if(c.len == 1)
 		return html_encode(t)

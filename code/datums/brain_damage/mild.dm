@@ -207,7 +207,7 @@
 			else
 				suffix = ""
 
-			word = rhtml_decode(word)
+			word = html_decode(word)
 
 			if(lowertext(word) in common_words)
 				new_message += word + suffix
@@ -219,7 +219,7 @@
 					var/list/charlist = string2charlist(word) // Stupid shit code
 					shuffle_inplace(charlist)
 					charlist.len = round(charlist.len * 0.5,1)
-					new_message += rhtml_encode(jointext(charlist,"")) + suffix
+					new_message += html_encode(jointext(charlist,"")) + suffix
 
 		message = jointext(new_message, " ")
 

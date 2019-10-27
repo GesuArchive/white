@@ -59,7 +59,7 @@
 
 //Runs byond's sanitization proc along-side sanitize_simple
 /proc/sanitize(t,list/repl_chars = null)
-	return rhtml_encode(sanitize_simple(t,repl_chars))
+	return html_encode(sanitize_simple(t,repl_chars))
 
 //Runs sanitize and strip_html_simple
 //I believe strip_html_simple() is required to run first to prevent '<' from displaying as '&lt;' after sanitize() calls byond's html_encode()
@@ -69,7 +69,7 @@
 //Runs byond's sanitization proc along-side strip_html_simple
 //I believe strip_html_simple() is required to run first to prevent '<' from displaying as '&lt;' that html_encode() would cause
 /proc/adminscrub(t,limit=MAX_MESSAGE_LEN)
-	return copytext((rhtml_encode(strip_html_simple(t))),1,limit)
+	return copytext((html_encode(strip_html_simple(t))),1,limit)
 
 
 //Returns null if there is any bad text in the string
@@ -98,17 +98,17 @@
 /proc/stripped_input(mob/user, message = "", title = "", default = "", max_length=MAX_MESSAGE_LEN, no_trim=FALSE)
 	var/name = input(user, message, title, default) as text|null
 	if(no_trim)
-		return copytext(rhtml_encode(name), 1, max_length)
+		return copytext(html_encode(name), 1, max_length)
 	else
-		return trim(rhtml_encode(name), max_length) //trim is "outside" because html_encode can expand single symbols into multiple symbols (such as turning < into &lt;)
+		return trim(html_encode(name), max_length) //trim is "outside" because html_encode can expand single symbols into multiple symbols (such as turning < into &lt;)
 
 // Used to get a properly sanitized multiline input, of max_length
 /proc/stripped_multiline_input(mob/user, message = "", title = "", default = "", max_length=MAX_MESSAGE_LEN, no_trim=FALSE)
 	var/name = input(user, message, title, default) as message|null
 	if(no_trim)
-		return copytext(rhtml_encode(name), 1, max_length)
+		return copytext(html_encode(name), 1, max_length)
 	else
-		return trim(rhtml_encode(name), max_length)
+		return trim(html_encode(name), max_length)
 
 //Filters out undesirable characters from names
 /proc/reject_bad_name(t_in, allow_numbers=0, max_length=MAX_NAME_LEN)

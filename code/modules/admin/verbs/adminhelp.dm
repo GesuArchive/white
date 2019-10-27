@@ -419,7 +419,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 
 /datum/admin_help/proc/Retitle()
 	var/new_title = input(usr, "Enter a title for the ticket", "Rename Ticket", name) as text|null
-	new_title = rhtml_encode(new_title)
+	new_title = html_encode(new_title)
 	if(new_title)
 		name = new_title
 		name_b = pa2pb(new_title)

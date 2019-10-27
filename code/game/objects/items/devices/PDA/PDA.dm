@@ -689,7 +689,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 		var/hrefstart
 		var/hrefend
 		if (isAI(L))
-			hrefstart = "<a href='?src=[REF(L)];track=[rhtml_encode(signal.data["name"])]'>"
+			hrefstart = "<a href='?src=[REF(L)];track=[html_encode(signal.data["name"])]'>"
 			hrefend = "</a>"
 
 		if(signal.data["automated"])
@@ -900,7 +900,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 		note = replacetext(note, "<li>", "\[*\]")
 		note = replacetext(note, "<ul>", "\[list\]")
 		note = replacetext(note, "</ul>", "\[/list\]")
-		note = rhtml_encode(note)
+		note = html_encode(note)
 		notescanned = TRUE
 		to_chat(user, "<span class='notice'>Paper scanned. Saved to PDA's notekeeper.</span>" )
 

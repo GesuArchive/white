@@ -210,7 +210,7 @@ SUBSYSTEM_DEF(shuttle)
 			to_chat(user, "<span class='alert'>The emergency shuttle has been disabled by CentCom.</span>")
 			return
 	call_reason = ph2up(call_reason) // https://youtu.be/-Bu654lDuBk
-	call_reason = trim(rhtml_encode(call_reason))
+	call_reason = trim(html_encode(call_reason))
 
 	if(length(call_reason) < CALL_SHUTTLE_REASON_LENGTH && seclevel2num(get_security_level()) > SEC_LEVEL_GREEN)
 		to_chat(user, "<span class='alert'>You must provide a reason.</span>")
@@ -221,9 +221,9 @@ SUBSYSTEM_DEF(shuttle)
 	var/security_num = seclevel2num(get_security_level())
 	switch(security_num)
 		if(SEC_LEVEL_RED,SEC_LEVEL_DELTA)
-			emergency.request(null, signal_origin, rhtml_decode(emergency_reason), 1) //There is a serious threat we gotta move no time to give them five minutes.
+			emergency.request(null, signal_origin, html_decode(emergency_reason), 1) //There is a serious threat we gotta move no time to give them five minutes.
 		else
-			emergency.request(null, signal_origin, rhtml_decode(emergency_reason), 0)
+			emergency.request(null, signal_origin, html_decode(emergency_reason), 0)
 
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(FREQ_STATUS_DISPLAYS)
 

@@ -239,10 +239,10 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 	else
 		var/list/header = list()
 
-		var/scan_name = inserted_scan_id ? rhtml_encode(inserted_scan_id.name) : "--------"
-		var/target_name = inserted_modify_id ? rhtml_encode(inserted_modify_id.name) : "--------"
-		var/target_owner = (inserted_modify_id && inserted_modify_id.registered_name) ? rhtml_encode(inserted_modify_id.registered_name) : "--------"
-		var/target_rank = (inserted_modify_id && inserted_modify_id.assignment) ? rhtml_encode(inserted_modify_id.assignment) : "Unassigned"
+		var/scan_name = inserted_scan_id ? html_encode(inserted_scan_id.name) : "--------"
+		var/target_name = inserted_modify_id ? html_encode(inserted_modify_id.name) : "--------"
+		var/target_owner = (inserted_modify_id && inserted_modify_id.registered_name) ? html_encode(inserted_modify_id.registered_name) : "--------"
+		var/target_rank = (inserted_modify_id && inserted_modify_id.assignment) ? html_encode(inserted_modify_id.assignment) : "Unassigned"
 
 		if(!authenticated)
 			header += {"<br><i>Please insert the cards into the slots</i><br>

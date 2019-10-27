@@ -218,7 +218,7 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 		message = replacetext(message, "\proper", "")
 		message = replacetext(message, "\n", "<br>")
 		message = replacetext(message, "\t", "[FOURSPACES][FOURSPACES]")
-		message = up2ph(message)
+		message = message
 
 
 	if(islist(target))
