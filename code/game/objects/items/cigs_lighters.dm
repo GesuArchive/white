@@ -48,7 +48,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		item_state = "cigon"
 		name = "lit [initial(name)]"
 		desc = "A [initial(name)]. This one is lit."
-		attack_verb = list("зажигает","с невероятным усилием поджигает")
+		attack_verb = list("Р·Р°Р¶РёРіР°РµС‚","СЃ РЅРµРІРµСЂРѕСЏС‚РЅС‹Рј СѓСЃРёР»РёРµРј РїРѕРґР¶РёРіР°РµС‚")
 		START_PROCESSING(SSobj, src)
 		update_icon()
 
@@ -62,7 +62,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		item_state = "cigoff"
 		name = "burnt [initial(name)]"
 		desc = "A [initial(name)]. This one has seen better days."
-		attack_verb = list("щёлкает")
+		attack_verb = list("С‰С‘Р»РєР°РµС‚")
 		STOP_PROCESSING(SSobj, src)
 
 /obj/item/match/extinguish()
@@ -182,7 +182,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 	lit = TRUE
 	name = "lit [name]"
-	attack_verb = list("выжигает", "жарит")
+	attack_verb = list("РІС‹Р¶РёРіР°РµС‚", "Р¶Р°СЂРёС‚")
 	hitsound = 'sound/items/welder.ogg'
 	damtype = "fire"
 	force = 4
@@ -615,7 +615,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		force = 5
 		damtype = "fire"
 		hitsound = 'sound/items/welder.ogg'
-		attack_verb = list("выжигает", "жарит")
+		attack_verb = list("РІС‹Р¶РёРіР°РµС‚", "Р¶Р°СЂРёС‚")
 		set_light(1)
 		START_PROCESSING(SSobj, src)
 	else

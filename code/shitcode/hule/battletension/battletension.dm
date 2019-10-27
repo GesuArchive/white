@@ -1,4 +1,4 @@
-//частично спижжено со сталкербилда
+//С‡Р°СЃС‚РёС‡РЅРѕ СЃРїРёР¶Р¶РµРЅРѕ СЃРѕ СЃС‚Р°Р»РєРµСЂР±РёР»РґР°
 
 #define BATTLE_MUSIC_PATH 			"code/shitcode/hule/battletension/bm/"
 #define BATTLE_MUSIC_TOUHOU 		list("80sspark.ogg","badapple.ogg")
@@ -81,7 +81,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	S.wait = 0
 	S.volume = 0
 	S.status = SOUND_STREAM
-	//S.environment = 0 //че это нахуй в доках нету
+	//S.environment = 0 //С‡Рµ СЌС‚Рѕ РЅР°С…СѓР№ РІ РґРѕРєР°С… РЅРµС‚Сѓ
 	bm = S
 	SEND_SOUND(owner, bm)
 	bm.status = SOUND_STREAM

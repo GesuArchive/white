@@ -11,10 +11,10 @@
 
 /mob/living/carbon/human/try_interaction(var/mob/partner)
 
-	var/dat = "<B><HR><FONT size=3>Взаимодействие с [partner]...</FONT></B><HR>"
+	var/dat = "<B><HR><FONT size=3>Р’Р·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ СЃ [partner]...</FONT></B><HR>"
 
-	dat += "Твоё тело...<br>[list_interaction_attributes()]<hr>"
-	dat += "Партнёр...<br>[partner.list_interaction_attributes()]<hr>"
+	dat += "РўРІРѕС‘ С‚РµР»Рѕ...<br>[list_interaction_attributes()]<hr>"
+	dat += "РџР°СЂС‚РЅС‘СЂ...<br>[partner.list_interaction_attributes()]<hr>"
 
 	make_interactions()
 	for(var/interaction_key in GLOB.interactions)
@@ -22,6 +22,6 @@
 		if(I.evaluate_user(src) && I.evaluate_target(src, partner))
 			dat += I.get_action_link_for(src, partner)
 
-	var/datum/browser/popup = new(usr, "interactions", "Шалости", 340, 480)
+	var/datum/browser/popup = new(usr, "interactions", "РЁР°Р»РѕСЃС‚Рё", 340, 480)
 	popup.set_content(dat)
 	popup.open()

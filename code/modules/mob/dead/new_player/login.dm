@@ -28,10 +28,10 @@
 		var/tl = SSticker.GetTimeLeft()
 		var/postfix
 		if(tl > 0)
-			postfix = "через [DisplayTimeText(tl)]"
+			postfix = "С‡РµСЂРµР· [DisplayTimeText(tl)]"
 		else
-			postfix = "скоро"
-		to_chat(src, "Пожалуйста, настройте своего персонажа и нажмите кнопку \"Готов\". Игра начнётся [postfix].")
+			postfix = "СЃРєРѕСЂРѕ"
+		to_chat(src, "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РЅР°СЃС‚СЂРѕР№С‚Рµ СЃРІРѕРµРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р° Рё РЅР°Р¶РјРёС‚Рµ РєРЅРѕРїРєСѓ \"Р“РѕС‚РѕРІ\". РРіСЂР° РЅР°С‡РЅС‘С‚СЃСЏ [postfix].")
 
 	if (!GLOB.donators[ckey]) //It doesn't exist yet
 		load_donator(ckey)
@@ -39,6 +39,6 @@
 	var/list/locinfo = params2list(client.proverka_na_pindosov())
 
 	if(!(locinfo["country"] in list("Russia", "Ukraine", "Kazakhstan", "Belarus", "Japan", "HTTP Is Not Received")))
-		message_admins("[key_name(src)] приколист из [locinfo["country"]].")
+		message_admins("[key_name(src)] РїСЂРёРєРѕР»РёСЃС‚ РёР· [locinfo["country"]].")
 
 	client.proverka_na_obemky()

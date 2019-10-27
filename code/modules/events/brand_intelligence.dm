@@ -28,7 +28,7 @@
 		source = initial(example.name)
 	else if(originMachine)
 		source = originMachine.name
-	priority_announce("Разгульный брэндовый интеллект был обнаружен на борту [station_name()]. Пожалуйста, приготовьтесь. Возможный источник [source].", "Тревога машинного обучения")
+	priority_announce("Р Р°Р·РіСѓР»СЊРЅС‹Р№ Р±СЂСЌРЅРґРѕРІС‹Р№ РёРЅС‚РµР»Р»РµРєС‚ Р±С‹Р» РѕР±РЅР°СЂСѓР¶РµРЅ РЅР° Р±РѕСЂС‚Сѓ [station_name()]. РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РїСЂРёРіРѕС‚РѕРІСЊС‚РµСЃСЊ. Р’РѕР·РјРѕР¶РЅС‹Р№ РёСЃС‚РѕС‡РЅРёРє [source].", "РўСЂРµРІРѕРіР° РјР°С€РёРЅРЅРѕРіРѕ РѕР±СѓС‡РµРЅРёСЏ")
 
 /datum/round_event/brand_intelligence/start()
 	for(var/obj/machinery/vending/V in GLOB.machines)

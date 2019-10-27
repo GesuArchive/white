@@ -65,7 +65,7 @@
 	singular_name = "bluespace polycrystal"
 	desc = "A stable polycrystal, made of fused-together bluespace crystals. You could probably break one off."
 	custom_materials = list(/datum/material/bluespace=MINERAL_MATERIAL_AMOUNT)
-	attack_verb =list("блюспейс полибьёт", "блюспейс полиударяет", "блюспейс полилупит", "блюспейс поливмазывает", "блюспейс полиразносит")
+	attack_verb =list("Р±Р»СЋСЃРїРµР№СЃ РїРѕР»РёР±СЊС‘С‚", "Р±Р»СЋСЃРїРµР№СЃ РїРѕР»РёСѓРґР°СЂСЏРµС‚", "Р±Р»СЋСЃРїРµР№СЃ РїРѕР»РёР»СѓРїРёС‚", "Р±Р»СЋСЃРїРµР№СЃ РїРѕР»РёРІРјР°Р·С‹РІР°РµС‚", "Р±Р»СЋСЃРїРµР№СЃ РїРѕР»РёСЂР°Р·РЅРѕСЃРёС‚")
 	novariants = TRUE
 	grind_results = list(/datum/reagent/bluespace = 20)
 	point_value = 30

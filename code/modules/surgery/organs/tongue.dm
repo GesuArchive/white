@@ -4,7 +4,7 @@
 	icon_state = "tonguenormal"
 	zone = BODY_ZONE_PRECISE_MOUTH
 	slot = ORGAN_SLOT_TONGUE
-	attack_verb = list("лижет", "нализывает", "шлёпает", "французит", "язычит")
+	attack_verb = list("Р»РёР¶РµС‚", "РЅР°Р»РёР·С‹РІР°РµС‚", "С€Р»С‘РїР°РµС‚", "С„СЂР°РЅС†СѓР·РёС‚", "СЏР·С‹С‡РёС‚")
 	var/list/languages_possible
 	var/say_mod = null
 	var/taste_sensitivity = 15 // lower is more sensitive.
@@ -179,7 +179,7 @@
 	desc = "Apparently skeletons alter the sounds they produce through oscillation of their teeth, hence their characteristic rattling."
 	icon_state = "tonguebone"
 	say_mod = "rattles"
-	attack_verb = list("кусает", "прокусывает", "откусывает", "шутит", "костирует")
+	attack_verb = list("РєСѓСЃР°РµС‚", "РїСЂРѕРєСѓСЃС‹РІР°РµС‚", "РѕС‚РєСѓСЃС‹РІР°РµС‚", "С€СѓС‚РёС‚", "РєРѕСЃС‚РёСЂСѓРµС‚")
 	taste_sensitivity = 101 // skeletons cannot taste anything
 	modifies_speech = TRUE
 	var/chattering = FALSE
@@ -210,8 +210,8 @@
 	desc = "A voice synthesizer that can interface with organic lifeforms."
 	status = ORGAN_ROBOTIC
 	icon_state = "tonguerobot"
-	say_mod = "констатирует"
-	attack_verb = list("бипает", "бупает")
+	say_mod = "РєРѕРЅСЃС‚Р°С‚РёСЂСѓРµС‚"
+	attack_verb = list("Р±РёРїР°РµС‚", "Р±СѓРїР°РµС‚")
 	modifies_speech = TRUE
 	taste_sensitivity = 25 // not as good as an organic tongue
 

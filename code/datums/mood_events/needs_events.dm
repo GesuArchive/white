@@ -1,85 +1,85 @@
 //nutrition
 /datum/mood_event/fat
-	description = "<span class='warning'><B>Во мне столько жира...</B></span>\n" //muh fatshaming
+	description = "<span class='warning'><B>Р’Рѕ РјРЅРµ СЃС‚РѕР»СЊРєРѕ Р¶РёСЂР°...</B></span>\n" //muh fatshaming
 	mood_change = -6
 
 /datum/mood_event/wellfed
-	description = "<span class='nicegreen'>Мой желудок полон!</span>\n"
+	description = "<span class='nicegreen'>РњРѕР№ Р¶РµР»СѓРґРѕРє РїРѕР»РѕРЅ!</span>\n"
 	mood_change = 8
 
 /datum/mood_event/fed
-	description = "<span class='nicegreen'>Я не хочу есть.</span>\n"
+	description = "<span class='nicegreen'>РЇ РЅРµ С…РѕС‡Сѓ РµСЃС‚СЊ.</span>\n"
 	mood_change = 5
 
 /datum/mood_event/hungry
-	description = "<span class='warning'>Я хочу есть.</span>\n"
+	description = "<span class='warning'>РЇ С…РѕС‡Сѓ РµСЃС‚СЊ.</span>\n"
 	mood_change = -6
 
 /datum/mood_event/starving
-	description = "<span class='boldwarning'>Я голодаю!</span>\n"
+	description = "<span class='boldwarning'>РЇ РіРѕР»РѕРґР°СЋ!</span>\n"
 	mood_change = -10
 
 //charge
 /datum/mood_event/charged
-	description = "<span class='nicegreen'>Я чувствую электричество в моих венах!</span>\n"
+	description = "<span class='nicegreen'>РЇ С‡СѓРІСЃС‚РІСѓСЋ СЌР»РµРєС‚СЂРёС‡РµСЃС‚РІРѕ РІ РјРѕРёС… РІРµРЅР°С…!</span>\n"
 	mood_change = 6
 
 /datum/mood_event/lowpower
-	description = "<span class='warning'>Моя энергия заканчивается, нужно зарядиться где-нибудь.</span>\n"
+	description = "<span class='warning'>РњРѕСЏ СЌРЅРµСЂРіРёСЏ Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ, РЅСѓР¶РЅРѕ Р·Р°СЂСЏРґРёС‚СЊСЃСЏ РіРґРµ-РЅРёР±СѓРґСЊ.</span>\n"
 	mood_change = -6
 
 /datum/mood_event/decharged
-	description = "<span class='boldwarning'>Я отчаянно нуждаюсь в электричестве!</span>\n"
+	description = "<span class='boldwarning'>РЇ РѕС‚С‡Р°СЏРЅРЅРѕ РЅСѓР¶РґР°СЋСЃСЊ РІ СЌР»РµРєС‚СЂРёС‡РµСЃС‚РІРµ!</span>\n"
 	mood_change = -10
 
 //Disgust
 /datum/mood_event/gross
-	description = "<span class='warning'>Это было что-то мерзкое.</span>\n"
+	description = "<span class='warning'>Р­С‚Рѕ Р±С‹Р»Рѕ С‡С‚Рѕ-С‚Рѕ РјРµСЂР·РєРѕРµ.</span>\n"
 	mood_change = -4
 
 /datum/mood_event/verygross
-	description = "<span class='warning'>Кажется, меня вырвет.</span>\n"
+	description = "<span class='warning'>РљР°Р¶РµС‚СЃСЏ, РјРµРЅСЏ РІС‹СЂРІРµС‚.</span>\n"
 	mood_change = -6
 
 /datum/mood_event/disgusted
-	description = "<span class='boldwarning'>О, боже, это было отвратительно.</span>\n"
+	description = "<span class='boldwarning'>Рћ, Р±РѕР¶Рµ, СЌС‚Рѕ Р±С‹Р»Рѕ РѕС‚РІСЂР°С‚РёС‚РµР»СЊРЅРѕ.</span>\n"
 	mood_change = -8
 
 /datum/mood_event/disgust/bad_smell
-	description = "<span class='warning'>Я чувствую запах чего-то ужасно разложившегося внутри этой комнаты.</span>\n"
+	description = "<span class='warning'>РЇ С‡СѓРІСЃС‚РІСѓСЋ Р·Р°РїР°С… С‡РµРіРѕ-С‚Рѕ СѓР¶Р°СЃРЅРѕ СЂР°Р·Р»РѕР¶РёРІС€РµРіРѕСЃСЏ РІРЅСѓС‚СЂРё СЌС‚РѕР№ РєРѕРјРЅР°С‚С‹.</span>\n"
 	mood_change = -6
 
 /datum/mood_event/disgust/nauseating_stench
-	description = "<span class='warning'>Запах гниющего мяса невыносим!</span>\n"
+	description = "<span class='warning'>Р—Р°РїР°С… РіРЅРёСЋС‰РµРіРѕ РјСЏСЃР° РЅРµРІС‹РЅРѕСЃРёРј!</span>\n"
 	mood_change = -12
 
 //Generic needs events
 /datum/mood_event/favorite_food
-	description = "<span class='nicegreen'>Это было вкусно.</span>\n"
+	description = "<span class='nicegreen'>Р­С‚Рѕ Р±С‹Р»Рѕ РІРєСѓСЃРЅРѕ.</span>\n"
 	mood_change = 5
 	timeout = 4 MINUTES
 
 /datum/mood_event/gross_food
-	description = "<span class='warning'>Это было невкусно.</span>\n"
+	description = "<span class='warning'>Р­С‚Рѕ Р±С‹Р»Рѕ РЅРµРІРєСѓСЃРЅРѕ.</span>\n"
 	mood_change = -2
 	timeout = 4 MINUTES
 
 /datum/mood_event/disgusting_food
-	description = "<span class='warning'>Эта еда была отвратительна!</span>\n"
+	description = "<span class='warning'>Р­С‚Р° РµРґР° Р±С‹Р»Р° РѕС‚РІСЂР°С‚РёС‚РµР»СЊРЅР°!</span>\n"
 	mood_change = -6
 	timeout = 4 MINUTES
 
 /datum/mood_event/breakfast
-	description = "<span class='nicegreen'>Нет ничего приятнее, чем начать смену с приятного завтрака.</span>\n"
+	description = "<span class='nicegreen'>РќРµС‚ РЅРёС‡РµРіРѕ РїСЂРёСЏС‚РЅРµРµ, С‡РµРј РЅР°С‡Р°С‚СЊ СЃРјРµРЅСѓ СЃ РїСЂРёСЏС‚РЅРѕРіРѕ Р·Р°РІС‚СЂР°РєР°.</span>\n"
 	mood_change = 2
 	timeout = 10 MINUTES
 
 /datum/mood_event/nice_shower
-	description = "<span class='nicegreen'>Отличный душ.</span>\n"
+	description = "<span class='nicegreen'>РћС‚Р»РёС‡РЅС‹Р№ РґСѓС€.</span>\n"
 	mood_change = 4
 	timeout = 5 MINUTES
 
 /datum/mood_event/fresh_laundry
-	description = "<span class='nicegreen'>Нет ничего лучше, чем надеть свежевыстиранный комбинезон.</span>\n"
+	description = "<span class='nicegreen'>РќРµС‚ РЅРёС‡РµРіРѕ Р»СѓС‡С€Рµ, С‡РµРј РЅР°РґРµС‚СЊ СЃРІРµР¶РµРІС‹СЃС‚РёСЂР°РЅРЅС‹Р№ РєРѕРјР±РёРЅРµР·РѕРЅ.</span>\n"
 	mood_change = 2
 	timeout = 10 MINUTES

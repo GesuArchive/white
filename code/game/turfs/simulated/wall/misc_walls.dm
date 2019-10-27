@@ -1,6 +1,6 @@
 /turf/closed/wall/mineral/cult
 	name = "runed metal wall"
-	desc = "Стена с непонятными рунами на ней, которые вызывают боли в голове если долго смотреть на них. Холодная на ощупь."
+	desc = "РЎС‚РµРЅР° СЃ РЅРµРїРѕРЅСЏС‚РЅС‹РјРё СЂСѓРЅР°РјРё РЅР° РЅРµР№, РєРѕС‚РѕСЂС‹Рµ РІС‹Р·С‹РІР°СЋС‚ Р±РѕР»Рё РІ РіРѕР»РѕРІРµ РµСЃР»Рё РґРѕР»РіРѕ СЃРјРѕС‚СЂРµС‚СЊ РЅР° РЅРёС…. РҐРѕР»РѕРґРЅР°СЏ РЅР° РѕС‰СѓРїСЊ."
 	icon = 'icons/turf/walls/cult_wall.dmi'
 	icon_state = "cult"
 	canSmoothWith = null
@@ -28,7 +28,7 @@
 
 /turf/closed/wall/mineral/cult/artificer
 	name = "runed stone wall"
-	desc = "Стена с непонятными рунами на ней, которые вызывают боли в голове если долго смотреть на них. Холодная на ощупь."
+	desc = "РЎС‚РµРЅР° СЃ РЅРµРїРѕРЅСЏС‚РЅС‹РјРё СЂСѓРЅР°РјРё РЅР° РЅРµР№, РєРѕС‚РѕСЂС‹Рµ РІС‹Р·С‹РІР°СЋС‚ Р±РѕР»Рё РІ РіРѕР»РѕРІРµ РµСЃР»Рё РґРѕР»РіРѕ СЃРјРѕС‚СЂРµС‚СЊ РЅР° РЅРёС…. РҐРѕР»РѕРґРЅР°СЏ РЅР° РѕС‰СѓРїСЊ."
 
 /turf/closed/wall/mineral/cult/artificer/break_wall()
 	new /obj/effect/temp_visual/cult/turf(get_turf(src))
@@ -44,7 +44,7 @@
 /turf/closed/wall/ice
 	icon = 'icons/turf/walls/icedmetal_wall.dmi'
 	icon_state = "iced"
-	desc = "Стена покрытая льдом."
+	desc = "РЎС‚РµРЅР° РїРѕРєСЂС‹С‚Р°СЏ Р»СЊРґРѕРј."
 	canSmoothWith = null
 	hardness = 35
 	slicing_duration = 150 //welding through the ice+metal
@@ -52,19 +52,19 @@
 
 /turf/closed/wall/rust
 	name = "rusted wall"
-	desc = "Старая ржавая стена."
+	desc = "РЎС‚Р°СЂР°СЏ СЂР¶Р°РІР°СЏ СЃС‚РµРЅР°."
 	icon = 'icons/turf/walls/rusty_wall.dmi'
 	hardness = 45
 
 /turf/closed/wall/r_wall/rust
 	name = "rusted reinforced wall"
-	desc = "Старая укреплённая ржавая стена."
+	desc = "РЎС‚Р°СЂР°СЏ СѓРєСЂРµРїР»С‘РЅРЅР°СЏ СЂР¶Р°РІР°СЏ СЃС‚РµРЅР°."
 	icon = 'icons/turf/walls/rusty_reinforced_wall.dmi'
 	hardness = 15
 
 /turf/closed/wall/mineral/bronze
 	name = "clockwork wall"
-	desc = "Крупная бронзовая стена. Её украшивают также и бронзовые шестерни."
+	desc = "РљСЂСѓРїРЅР°СЏ Р±СЂРѕРЅР·РѕРІР°СЏ СЃС‚РµРЅР°. Р•С‘ СѓРєСЂР°С€РёРІР°СЋС‚ С‚Р°РєР¶Рµ Рё Р±СЂРѕРЅР·РѕРІС‹Рµ С€РµСЃС‚РµСЂРЅРё."
 	icon = 'icons/turf/walls/clockwork_wall.dmi'
 	icon_state = "clockwork_wall"
 	sheet_type = /obj/item/stack/tile/bronze

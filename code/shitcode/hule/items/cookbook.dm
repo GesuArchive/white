@@ -3,7 +3,7 @@
 
 /obj/item/book/cookbook
 	name = "generic russian cookbook"
-	desc = "Обычная книга с надписью <<Русская кухня>> - Содержит пошаговые инструкции сборки различного самодельного снаряжения из металла, клея и бутылки водки."
+	desc = "РћР±С‹С‡РЅР°СЏ РєРЅРёРіР° СЃ РЅР°РґРїРёСЃСЊСЋ <<Р СѓСЃСЃРєР°СЏ РєСѓС…РЅСЏ>> - РЎРѕРґРµСЂР¶РёС‚ РїРѕС€Р°РіРѕРІС‹Рµ РёРЅСЃС‚СЂСѓРєС†РёРё СЃР±РѕСЂРєРё СЂР°Р·Р»РёС‡РЅРѕРіРѕ СЃР°РјРѕРґРµР»СЊРЅРѕРіРѕ СЃРЅР°СЂСЏР¶РµРЅРёСЏ РёР· РјРµС‚Р°Р»Р»Р°, РєР»РµСЏ Рё Р±СѓС‚С‹Р»РєРё РІРѕРґРєРё."
 	icon_state ="demonomicon"
 	lefthand_file = 'icons/mob/inhands/misc/books_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/books_righthand.dmi'
@@ -36,7 +36,7 @@
 
 /obj/item/book/granter/crafting_recipe/cookbook
 	name = "generic russian cookbook"
-	desc = "Обычная книга с надписью <<Русская кухня>> - Содержит пошаговые инструкции сборки различного самодельного снаряжения из металла, клея и бутылки водки."
+	desc = "РћР±С‹С‡РЅР°СЏ РєРЅРёРіР° СЃ РЅР°РґРїРёСЃСЊСЋ <<Р СѓСЃСЃРєР°СЏ РєСѓС…РЅСЏ>> - РЎРѕРґРµСЂР¶РёС‚ РїРѕС€Р°РіРѕРІС‹Рµ РёРЅСЃС‚СЂСѓРєС†РёРё СЃР±РѕСЂРєРё СЂР°Р·Р»РёС‡РЅРѕРіРѕ СЃР°РјРѕРґРµР»СЊРЅРѕРіРѕ СЃРЅР°СЂСЏР¶РµРЅРёСЏ РёР· РјРµС‚Р°Р»Р»Р°, РєР»РµСЏ Рё Р±СѓС‚С‹Р»РєРё РІРѕРґРєРё."
 	crafting_recipe_types = list(
 									/datum/crafting_recipe/cookbook/mshotgun,
 									/datum/crafting_recipe/cookbook/mshotgunmag,
@@ -48,7 +48,7 @@
 /datum/uplink_item/cookbook
 	name = "Cookbook"
 	category = "Devices and Tools"
-	desc = "Очень интересная и познавательная книга."
+	desc = "РћС‡РµРЅСЊ РёРЅС‚РµСЂРµСЃРЅР°СЏ Рё РїРѕР·РЅР°РІР°С‚РµР»СЊРЅР°СЏ РєРЅРёРіР°."
 	item = /obj/item/book/granter/crafting_recipe/cookbook
 	cost = 2
 	surplus = 10

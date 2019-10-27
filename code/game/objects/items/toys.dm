@@ -189,7 +189,7 @@
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	custom_materials = list(/datum/material/iron=10, /datum/material/glass=10)
-	attack_verb = list("атакует", "пистолетирует", "бьёт", "колотит")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "РїРёСЃС‚РѕР»РµС‚РёСЂСѓРµС‚", "Р±СЊС‘С‚", "РєРѕР»РѕС‚РёС‚")
 	var/bullets = 7
 
 /obj/item/toy/gun/examine(mob/user)
@@ -227,14 +227,14 @@
 		return
 	src.add_fingerprint(user)
 	if (src.bullets < 1)
-		user.show_message("<span class='warning'>*щёлк*</span>", MSG_AUDIBLE)
+		user.show_message("<span class='warning'>*С‰С‘Р»Рє*</span>", MSG_AUDIBLE)
 		playsound(src, 'sound/weapons/gun/revolver/dry_fire.ogg', 30, TRUE)
 		return
 	playsound(user, 'sound/weapons/gun/revolver/shot.ogg', 100, TRUE)
 	src.bullets--
-	user.visible_message("<span class='danger'><b>[user]</b> стреляет из <b>[src.name]</b> в <b>[target]</b>!</span>", \
-						"<span class='danger'>Ты стреляешь из <b>[src.name]</b> в <b>[target]</b>!</span>", \
-						 "<span class='italics'>Ты слышишь выстрел!</span>")
+	user.visible_message("<span class='danger'><b>[user]</b> СЃС‚СЂРµР»СЏРµС‚ РёР· <b>[src.name]</b> РІ <b>[target]</b>!</span>", \
+						"<span class='danger'>РўС‹ СЃС‚СЂРµР»СЏРµС€СЊ РёР· <b>[src.name]</b> РІ <b>[target]</b>!</span>", \
+						 "<span class='italics'>РўС‹ СЃР»С‹С€РёС€СЊ РІС‹СЃС‚СЂРµР»!</span>")
 
 /obj/item/toy/ammo/gun
 	name = "capgun ammo"
@@ -265,7 +265,7 @@
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	var/active = 0
 	w_class = WEIGHT_CLASS_SMALL
-	attack_verb = list("атакует", "вмазывает", "бьёт")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "РІРјР°Р·С‹РІР°РµС‚", "Р±СЊС‘С‚")
 	var/hacked = FALSE
 	var/saber_color
 
@@ -328,7 +328,7 @@
 	item_state = "arm_blade"
 	lefthand_file = 'icons/mob/inhands/antag/changeling_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/antag/changeling_righthand.dmi'
-	attack_verb = list("протыкает", "пожирает", "унижает")
+	attack_verb = list("РїСЂРѕС‚С‹РєР°РµС‚", "РїРѕР¶РёСЂР°РµС‚", "СѓРЅРёР¶Р°РµС‚")
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = FLAMMABLE
 
@@ -343,7 +343,7 @@
 	var/active = FALSE
 	icon = 'icons/obj/items_and_weapons.dmi'
 	hitsound = 'sound/weapons/smash.ogg'
-	attack_verb = list("робастит")
+	attack_verb = list("СЂРѕР±Р°СЃС‚РёС‚")
 
 /obj/item/toy/windupToolbox/attack_self(mob/user)
 	if(!active)
@@ -390,7 +390,7 @@
 	throw_range = 5
 	force_unwielded = 0
 	force_wielded = 0
-	attack_verb = list("атакует", "struck", "бьёт")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "struck", "Р±СЊС‘С‚")
 
 /obj/item/twohanded/dualsaber/toy/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	return 0
@@ -411,7 +411,7 @@
 	force = 5
 	throwforce = 5
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb = list("атакует", "режет", "втыкает", "рубит")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "СЂРµР¶РµС‚", "РІС‚С‹РєР°РµС‚", "СЂСѓР±РёС‚")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
 /*
@@ -677,7 +677,7 @@
 	var/card_throwforce = 0
 	var/card_throw_speed = 3
 	var/card_throw_range = 7
-	var/list/card_attack_verb = list("атакует")
+	var/list/card_attack_verb = list("Р°С‚Р°РєСѓРµС‚")
 
 /obj/item/toy/cards/suicide_act(mob/living/carbon/user)
 	user.visible_message("<span class='suicide'>[user] is slitting [user.p_their()] wrists with \the [src]! It looks like [user.p_they()] [user.p_have()] a crummy hand!</span>")
@@ -1016,7 +1016,7 @@
 	card_throwforce = 10
 	card_throw_speed = 3
 	card_throw_range = 7
-	card_attack_verb = list("атакует", "режет", "нарезает", "рубит", "режет")
+	card_attack_verb = list("Р°С‚Р°РєСѓРµС‚", "СЂРµР¶РµС‚", "РЅР°СЂРµР·Р°РµС‚", "СЂСѓР±РёС‚", "СЂРµР¶РµС‚")
 	resistance_flags = NONE
 
 /*

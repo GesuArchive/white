@@ -42,7 +42,7 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("[global.config.directory]
 				H.electrocution_animation(47)
 				H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 199, 199)
 				H.gain_trauma(/datum/brain_trauma/severe/mute, TRAUMA_RESILIENCE_SURGERY)
-				message_admins("Дружок [target.ckey] насрал на ИС. [ADMIN_COORDJMP(target)]")
+				message_admins("Р”СЂСѓР¶РѕРє [target.ckey] РЅР°СЃСЂР°Р» РЅР° РРЎ. [ADMIN_COORDJMP(target)]")
 			if(target.ckey in GLOB.neobuchaemie_debili)
 				target.gib()
 

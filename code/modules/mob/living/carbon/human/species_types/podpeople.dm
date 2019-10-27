@@ -6,7 +6,7 @@
 	species_traits = list(MUTCOLORS,EYECOLOR)
 	inherent_traits = list(TRAIT_ALWAYS_CLEAN)
 	inherent_factions = list("plants", "vines")
-	attack_verb = "φΰοΰες"
+	attack_verb = "Ρ†Π°ΠΏΠ°ΠµΡ‚"
 	attack_sound = 'sound/weapons/slice.ogg'
 	miss_sound = 'sound/weapons/slashmiss.ogg'
 	burnmod = 1.25

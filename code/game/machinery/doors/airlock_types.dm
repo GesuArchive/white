@@ -492,7 +492,7 @@
 	icon = 'icons/obj/doors/airlocks/station/maintenance.dmi'
 	overlays_file = 'icons/obj/doors/airlocks/station/overlays.dmi'
 	name = "airlock"
-	desc = "Он открывается и закрывается. Удивительно."
+	desc = "РћРЅ РѕС‚РєСЂС‹РІР°РµС‚СЃСЏ Рё Р·Р°РєСЂС‹РІР°РµС‚СЃСЏ. РЈРґРёРІРёС‚РµР»СЊРЅРѕ."
 	stealthy = TRUE
 	update_icon()
 

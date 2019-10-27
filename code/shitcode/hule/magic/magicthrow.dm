@@ -2,14 +2,14 @@
 	spell = /obj/effect/proc_holder/spell/aimed/ass_accelerator
 	spellname = "Ass Accelerator"
 	icon_state ="bookfireball"
-	desc = "Выглядит ПрИкОлЬнО"
+	desc = "Р’С‹РіР»СЏРґРёС‚ РџСЂРРєРћР»Р¬РЅРћ"
 	remarks = list()
 
 
 /obj/effect/proc_holder/spell/aimed/ass_accelerator
-	name = "Ускоритель <s>М</s>асс"
-	desc = "Позволяет метать плитку еще более смертоносно и ускорять межстанционную баллистическую арматуру до огромных скоростей"
-	school = "College of руснявый humor, Manayamirok state, USA"
+	name = "РЈСЃРєРѕСЂРёС‚РµР»СЊ <s>Рњ</s>Р°СЃСЃ"
+	desc = "РџРѕР·РІРѕР»СЏРµС‚ РјРµС‚Р°С‚СЊ РїР»РёС‚РєСѓ РµС‰Рµ Р±РѕР»РµРµ СЃРјРµСЂС‚РѕРЅРѕСЃРЅРѕ Рё СѓСЃРєРѕСЂСЏС‚СЊ РјРµР¶СЃС‚Р°РЅС†РёРѕРЅРЅСѓСЋ Р±Р°Р»Р»РёСЃС‚РёС‡РµСЃРєСѓСЋ Р°СЂРјР°С‚СѓСЂСѓ РґРѕ РѕРіСЂРѕРјРЅС‹С… СЃРєРѕСЂРѕСЃС‚РµР№"
+	school = "College of СЂСѓСЃРЅСЏРІС‹Р№ humor, Manayamirok state, USA"
 	charge_max = 60
 	clothes_req = FALSE
 	invocation = "KA VO"
@@ -21,8 +21,8 @@
 	base_icon_state = "fireball"
 	action_icon_state = "fireball0"
 	sound = 'code/shitcode/hule/SFX/anekdot_delimiter.ogg'
-	active_msg = "Теперь ты будешь ускорять всю хуйню."
-	deactive_msg = "Ты больше не ускоряешь всю хуйню."
+	active_msg = "РўРµРїРµСЂСЊ С‚С‹ Р±СѓРґРµС€СЊ СѓСЃРєРѕСЂСЏС‚СЊ РІСЃСЋ С…СѓР№РЅСЋ."
+	deactive_msg = "РўС‹ Р±РѕР»СЊС€Рµ РЅРµ СѓСЃРєРѕСЂСЏРµС€СЊ РІСЃСЋ С…СѓР№РЅСЋ."
 	active = FALSE
 
 /obj/effect/proc_holder/spell/aimed/ass_accelerator/cast(list/targets, mob/living/user)
@@ -37,11 +37,11 @@
 		if(S.amount <= 0)
 			qdel(S)
 	else
-		to_chat(usr,"<span class='notice'>В руке должна быть плитка или арматура</span>")
+		to_chat(usr,"<span class='notice'>Р’ СЂСѓРєРµ РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РїР»РёС‚РєР° РёР»Рё Р°СЂРјР°С‚СѓСЂР°</span>")
 		return
 	if (projectile_type == /obj/projectile/magic/tileacc)
 		if(current_amount < 5)
-			to_chat(usr,"<span class='notice'>Недостаточно зарядов для запуска плитки</span>")
+			to_chat(usr,"<span class='notice'>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ Р·Р°СЂСЏРґРѕРІ РґР»СЏ Р·Р°РїСѓСЃРєР° РїР»РёС‚РєРё</span>")
 			return
 		else
 			current_amount -= 4
@@ -79,7 +79,7 @@
 		if(istype(target, /obj/machinery/door/airlock))
 			var/obj/machinery/door/airlock/A = target
 			A.CanAtmosPass = ATMOS_PASS_YES
-			A.desc += "\nОго, да в нем дырень! Эта штука уже точно не спасет от разгерметизации."
+			A.desc += "\nРћРіРѕ, РґР° РІ РЅРµРј РґС‹СЂРµРЅСЊ! Р­С‚Р° С€С‚СѓРєР° СѓР¶Рµ С‚РѕС‡РЅРѕ РЅРµ СЃРїР°СЃРµС‚ РѕС‚ СЂР°Р·РіРµСЂРјРµС‚РёР·Р°С†РёРё."
 	. = ..()
 
 /obj/projectile/magic/tileacc

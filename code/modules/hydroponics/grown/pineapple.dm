@@ -22,7 +22,7 @@
 	force = 4
 	throwforce = 8
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("жалит", "ананасит")
+	attack_verb = list("Р¶Р°Р»РёС‚", "Р°РЅР°РЅР°СЃРёС‚")
 	throw_speed = 1
 	throw_range = 5
 	slice_path = /obj/item/reagent_containers/food/snacks/pineappleslice

@@ -160,7 +160,7 @@
 	throw_range = 0
 	throw_speed = 0
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "СЂСѓР±РёС‚", "РІС‚С‹РєР°РµС‚", "СЂР°Р·СЂРµР·Р°РµС‚", "РєСЂРѕРјСЃР°РµС‚", "СЂР°Р·СЂС‹РІР°РµС‚", "РЅР°СЂРµР·Р°РµС‚", "СЂРµР¶РµС‚")
 	sharpness = IS_SHARP
 	var/can_drop = FALSE
 	var/fake = FALSE

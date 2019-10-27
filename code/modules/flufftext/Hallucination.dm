@@ -664,16 +664,16 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		"[pick_list_replacements(HAL_LINES_FILE, "aggressive")]",\
 		"[pick_list_replacements(HAL_LINES_FILE, "help")]!!",\
 		"[pick_list_replacements(HAL_LINES_FILE, "escape")]",\
-		"У меня вирус, [pick_list_replacements(HAL_LINES_FILE, "infection_advice")]!")
+		"РЈ РјРµРЅСЏ РІРёСЂСѓСЃ, [pick_list_replacements(HAL_LINES_FILE, "infection_advice")]!")
 
 	var/radio_messages = list("[pick_list_replacements(HAL_LINES_FILE, "people")] [pick_list_replacements(HAL_LINES_FILE, "accusations")]!",\
-		"Помогите!",\
-		"[pick_list_replacements(HAL_LINES_FILE, "threat")] в [pick_list_replacements(HAL_LINES_FILE, "location")][prob(50)?"!":"!!"]",\
-		"[pick("Где [target.first_name()]?", "Аррестуйте [target.first_name()]!")]",\
-		"[pick("По","Кто-нибудь, по","От")]зовите шаттл!",\
+		"РџРѕРјРѕРіРёС‚Рµ!",\
+		"[pick_list_replacements(HAL_LINES_FILE, "threat")] РІ [pick_list_replacements(HAL_LINES_FILE, "location")][prob(50)?"!":"!!"]",\
+		"[pick("Р“РґРµ [target.first_name()]?", "РђСЂСЂРµСЃС‚СѓР№С‚Рµ [target.first_name()]!")]",\
+		"[pick("РџРѕ","РљС‚Рѕ-РЅРёР±СѓРґСЊ, РїРѕ","РћС‚")]Р·РѕРІРёС‚Рµ С€Р°С‚С‚Р»!",\
 		"[pick_list_replacements(HAL_LINES_FILE, "prikols")]",\
-		"У [pick_list_replacements(HAL_LINES_FILE, "jobs")] [pick_list_replacements(HAL_LINES_FILE, "tator-items")]!!!",\
-		"ИИ [pick("сбойный", "уничтожен")]!!")
+		"РЈ [pick_list_replacements(HAL_LINES_FILE, "jobs")] [pick_list_replacements(HAL_LINES_FILE, "tator-items")]!!!",\
+		"РР [pick("СЃР±РѕР№РЅС‹Р№", "СѓРЅРёС‡С‚РѕР¶РµРЅ")]!!")
 
 	var/mob/living/carbon/person = null
 	var/datum/language/understood_language = target.get_random_understood_language()
@@ -1149,7 +1149,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			fakemob = target //ever been so lonely you had to haunt yourself?
 		if(fakemob)
 			sleep(rand(20, 50))
-			to_chat(target, "<span class='deadsay'><b>ПРИЗРАК: [fakemob.name]</b> говорит, \"[pick("rip","why did i just drop dead?","hey [target.first_name()]","git gud","you too?","is the AI rogue?",\
+			to_chat(target, "<span class='deadsay'><b>РџР РР—Р РђРљ: [fakemob.name]</b> РіРѕРІРѕСЂРёС‚, \"[pick("rip","why did i just drop dead?","hey [target.first_name()]","git gud","you too?","is the AI rogue?",\
 			 "i[prob(50)?" fucking":""] hate [pick("blood cult", "clock cult", "revenants", "this round","this","myself","admins","you")]")]\"</span>")
 	sleep(rand(70,90))
 	target.set_screwyhud(SCREWYHUD_NONE)

@@ -26,10 +26,10 @@
 
 /obj/structure/fireplace/proc/try_light(obj/item/O, mob/user)
 	if(lit)
-		to_chat(user, "<span class='warning'>Оно уже горит!</span>")
+		to_chat(user, "<span class='warning'>РћРЅРѕ СѓР¶Рµ РіРѕСЂРёС‚!</span>")
 		return FALSE
 	if(!fuel_added)
-		to_chat(user, "<span class='warning'><b>[src.name]</b> требует немного топлива для розжига!</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> С‚СЂРµР±СѓРµС‚ РЅРµРјРЅРѕРіРѕ С‚РѕРїР»РёРІР° РґР»СЏ СЂРѕР·Р¶РёРіР°!</span>")
 		return FALSE
 	var/msg = O.ignition_effect(src, user)
 	if(msg)
@@ -43,24 +43,24 @@
 		var/space_remaining = MAXIMUM_BURN_TIMER - burn_time_remaining()
 		var/space_for_logs = round(space_remaining / LOG_BURN_TIMER)
 		if(space_for_logs < 1)
-			to_chat(user, "<span class='warning'>Похоже [T.name] не поместится в <b>[src.name]</b>!</span>")
+			to_chat(user, "<span class='warning'>РџРѕС…РѕР¶Рµ [T.name] РЅРµ РїРѕРјРµСЃС‚РёС‚СЃСЏ РІ <b>[src.name]</b>!</span>")
 			return
 		var/logs_used = min(space_for_logs, wood.amount)
 		wood.use(logs_used)
 		adjust_fuel_timer(LOG_BURN_TIMER * logs_used)
-		user.visible_message("<span class='notice'><b>[user]</b> подкидывает немного \
-			древесины в <b>[src.name]</b>.</span>", "<span class='notice'>Ты подкидываешь \
-			немного древесины в <b>[src.name]</b>.</span>")
+		user.visible_message("<span class='notice'><b>[user]</b> РїРѕРґРєРёРґС‹РІР°РµС‚ РЅРµРјРЅРѕРіРѕ \
+			РґСЂРµРІРµСЃРёРЅС‹ РІ <b>[src.name]</b>.</span>", "<span class='notice'>РўС‹ РїРѕРґРєРёРґС‹РІР°РµС€СЊ \
+			РЅРµРјРЅРѕРіРѕ РґСЂРµРІРµСЃРёРЅС‹ РІ <b>[src.name]</b>.</span>")
 	else if(istype(T, /obj/item/paper_bin))
 		var/obj/item/paper_bin/paper_bin = T
-		user.visible_message("<span class='notice'><b>[user]</b> закидывает [T.name] в \
-			<b>[src.name]</b>.</span>", "<span class='notice'>Ты закидываешь [T.name] в <b>[src.name]</b>.\
+		user.visible_message("<span class='notice'><b>[user]</b> Р·Р°РєРёРґС‹РІР°РµС‚ [T.name] РІ \
+			<b>[src.name]</b>.</span>", "<span class='notice'>РўС‹ Р·Р°РєРёРґС‹РІР°РµС€СЊ [T.name] РІ <b>[src.name]</b>.\
 			</span>")
 		adjust_fuel_timer(PAPER_BURN_TIMER * paper_bin.total_paper)
 		qdel(paper_bin)
 	else if(istype(T, /obj/item/paper))
-		user.visible_message("<span class='notice'><b>[user]</b> бросает [T.name] в \
-			<b>[src.name]</b>.</span>", "<span class='notice'>Ты бросаешь [T.name] в <b>[src.name]</b>.\
+		user.visible_message("<span class='notice'><b>[user]</b> Р±СЂРѕСЃР°РµС‚ [T.name] РІ \
+			<b>[src.name]</b>.</span>", "<span class='notice'>РўС‹ Р±СЂРѕСЃР°РµС€СЊ [T.name] РІ <b>[src.name]</b>.\
 			</span>")
 		adjust_fuel_timer(PAPER_BURN_TIMER)
 		qdel(T)

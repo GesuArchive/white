@@ -15,7 +15,7 @@
 	tool_behaviour = TOOL_MINING
 	toolspeed = 1
 	usesound = list('sound/effects/picaxe1.ogg', 'sound/effects/picaxe2.ogg', 'sound/effects/picaxe3.ogg')
-	attack_verb = list("бьёт", "протыкает", "рубит", "атакует")
+	attack_verb = list("Р±СЊС‘С‚", "РїСЂРѕС‚С‹РєР°РµС‚", "СЂСѓР±РёС‚", "Р°С‚Р°РєСѓРµС‚")
 
 /obj/item/pickaxe/suicide_act(mob/living/user)
 	user.visible_message("<span class='suicide'>[user] begins digging into [user.p_their()] chest! It looks like [user.p_theyre()] trying to commit suicide!</span>")
@@ -107,7 +107,7 @@
 	item_state = "shovel"
 	w_class = WEIGHT_CLASS_NORMAL
 	custom_materials = list(/datum/material/iron=50)
-	attack_verb = list("колотит", "ударяет", "колошматит", "вмазывает")
+	attack_verb = list("РєРѕР»РѕС‚РёС‚", "СѓРґР°СЂСЏРµС‚", "РєРѕР»РѕС€РјР°С‚РёС‚", "РІРјР°Р·С‹РІР°РµС‚")
 	sharpness = IS_SHARP
 
 /obj/item/shovel/Initialize()

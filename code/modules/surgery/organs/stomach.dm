@@ -4,7 +4,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_STOMACH
-	attack_verb = list("выжимает", "выдавливает", "шлёпает", "кормит")
+	attack_verb = list("РІС‹Р¶РёРјР°РµС‚", "РІС‹РґР°РІР»РёРІР°РµС‚", "С€Р»С‘РїР°РµС‚", "РєРѕСЂРјРёС‚")
 	desc = "Onaka ga suite imasu."
 
 	healing_factor = STANDARD_ORGAN_HEALING

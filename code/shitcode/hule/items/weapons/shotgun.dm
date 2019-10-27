@@ -25,7 +25,7 @@
 
 /obj/item/gun/ballistic/shotgun/automatic/small/makeshift
 	name = "Captain's bane"
-	desc = "Гротескное изделие явно кустарного производства. Выглядит слегка ненадежно."
+	desc = "Р“СЂРѕС‚РµСЃРєРЅРѕРµ РёР·РґРµР»РёРµ СЏРІРЅРѕ РєСѓСЃС‚Р°СЂРЅРѕРіРѕ РїСЂРѕРёР·РІРѕРґСЃС‚РІР°. Р’С‹РіР»СЏРґРёС‚ СЃР»РµРіРєР° РЅРµРЅР°РґРµР¶РЅРѕ."
 	spawnwithmagazine = FALSE
 	var/jammed = FALSE
 	var/jamchance = 5

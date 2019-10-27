@@ -12,7 +12,7 @@
 	announceWhen = 10
 
 /datum/round_event/ghost_role/space_dragon/announce(fake)
-	priority_announce("Похоже, приближается форма жизни с признаками магии к [station_name()], пожалуйста, приготовьтесь.", "Вторжение на борт")
+	priority_announce("РџРѕС…РѕР¶Рµ, РїСЂРёР±Р»РёР¶Р°РµС‚СЃСЏ С„РѕСЂРјР° Р¶РёР·РЅРё СЃ РїСЂРёР·РЅР°РєР°РјРё РјР°РіРёРё Рє [station_name()], РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РїСЂРёРіРѕС‚РѕРІСЊС‚РµСЃСЊ.", "Р’С‚РѕСЂР¶РµРЅРёРµ РЅР° Р±РѕСЂС‚")
 
 /datum/round_event/ghost_role/space_dragon/spawn_role()
 	var/list/candidates = get_candidates(ROLE_ALIEN, null, ROLE_ALIEN)

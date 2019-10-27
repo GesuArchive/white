@@ -6,7 +6,7 @@
 
 /turf/open/floor/plasteel/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Здесь есть <b>небольшая трещина</b> на краю.</span>"
+	. += "<span class='notice'>Р—РґРµСЃСЊ РµСЃС‚СЊ <b>РЅРµР±РѕР»СЊС€Р°СЏ С‚СЂРµС‰РёРЅР°</b> РЅР° РєСЂР°СЋ.</span>"
 
 /turf/open/floor/plasteel/update_icon()
 	if(!..())

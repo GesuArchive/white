@@ -25,7 +25,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/toxic_food = TOXIC
 	var/list/no_equip = list()	// slots the race can't equip stuff to
 	var/nojumpsuit = 0	// this is sorta... weird. it basically lets you equip stuff that usually needs jumpsuits without one, like belts and pockets and ids
-	var/say_mod = "говорит"	// affects the speech message
+	var/say_mod = "РіРѕРІРѕСЂРёС‚"	// affects the speech message
 	var/list/default_features = list() // Default mutant bodyparts for this species. Don't forget to set one for every mutant bodypart you allow this species to have.
 	var/list/mutant_bodyparts = list() 	// Visible CURRENT bodyparts that are unique to a species. DO NOT USE THIS AS A LIST OF ALL POSSIBLE BODYPARTS AS IT WILL FUCK SHIT UP! Changes to this list for non-species specific bodyparts (ie cat ears and tails) should be assigned at organ level if possible. Layer hiding is handled by handle_mutant_bodyparts() below.
 	var/list/mutant_organs = list()		//Internal organs that are unique to this race.
@@ -61,7 +61,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	///List of factions the mob gain upon gaining this species.
 	var/list/inherent_factions
 
-	var/attack_verb = "бьёт"	// punch-specific attack verb
+	var/attack_verb = "Р±СЊС‘С‚"	// punch-specific attack verb
 	var/sound/attack_sound = 'sound/weapons/punch1.ogg'
 	var/sound/miss_sound = 'sound/weapons/punchmiss.ogg'
 
@@ -1200,9 +1200,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 /datum/species/proc/grab(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	if(target.check_block())
-		target.visible_message("<span class='warning'>[target] блокирует попытку захвата [user]!</span>", \
-							"<span class='userdanger'>Ты блокируешь попытку захвата [user]!</span>", "<span class='hear'>Ты слышишь взмах!</span>", COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, "<span class='warning'>Твоя попытка захвата [target] была отражена!</span>")
+		target.visible_message("<span class='warning'>[target] Р±Р»РѕРєРёСЂСѓРµС‚ РїРѕРїС‹С‚РєСѓ Р·Р°С…РІР°С‚Р° [user]!</span>", \
+							"<span class='userdanger'>РўС‹ Р±Р»РѕРєРёСЂСѓРµС€СЊ РїРѕРїС‹С‚РєСѓ Р·Р°С…РІР°С‚Р° [user]!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РІР·РјР°С…!</span>", COMBAT_MESSAGE_RANGE, user)
+		to_chat(user, "<span class='warning'>РўРІРѕСЏ РїРѕРїС‹С‚РєР° Р·Р°С…РІР°С‚Р° [target] Р±С‹Р»Р° РѕС‚СЂР°Р¶РµРЅР°!</span>")
 		return FALSE
 	if(attacker_style && attacker_style.grab_act(user,target))
 		return TRUE
@@ -1228,9 +1228,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		to_chat(user, "<span class='warning'>You don't want to harm [target]!</span>")
 		return FALSE
 	if(target.check_block())
-		target.visible_message("<span class='warning'>[target] блокирует удар [user]!</span>", \
-							"<span class='userdanger'>Ты блокируешь удар [user]!</span>", "<span class='hear'>Ты слышишь взмах!</span>", COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, "<span class='warning'>Твоя атака по [target] была отражена!</span>")
+		target.visible_message("<span class='warning'>[target] Р±Р»РѕРєРёСЂСѓРµС‚ СѓРґР°СЂ [user]!</span>", \
+							"<span class='userdanger'>РўС‹ Р±Р»РѕРєРёСЂСѓРµС€СЊ СѓРґР°СЂ [user]!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РІР·РјР°С…!</span>", COMBAT_MESSAGE_RANGE, user)
+		to_chat(user, "<span class='warning'>РўРІРѕСЏ Р°С‚Р°РєР° РїРѕ [target] Р±С‹Р»Р° РѕС‚СЂР°Р¶РµРЅР°!</span>")
 		return FALSE
 	if(attacker_style && attacker_style.harm_act(user,target))
 		return TRUE
@@ -1263,9 +1263,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		if(!damage || !affecting || prob(miss_chance))//future-proofing for species that have 0 damage/weird cases where no zone is targeted
 			playsound(target.loc, user.dna.species.miss_sound, 25, TRUE, -1)
-			target.visible_message("<span class='danger'>[user] [atk_verb] мимо [target]!</span>",\
-							"<span class='userdanger'>[user] [atk_verb] мимо тебя!</span>", "<span class='hear'>Ты слышишь взмах!</span>", COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, "<span class='warning'>Твой [atk_verb] бьёт мимо [target]!</span>")
+			target.visible_message("<span class='danger'>[user] [atk_verb] РјРёРјРѕ [target]!</span>",\
+							"<span class='userdanger'>[user] [atk_verb] РјРёРјРѕ С‚РµР±СЏ!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РІР·РјР°С…!</span>", COMBAT_MESSAGE_RANGE, user)
+			to_chat(user, "<span class='warning'>РўРІРѕР№ [atk_verb] Р±СЊС‘С‚ РјРёРјРѕ [target]!</span>")
 			log_combat(user, target, "attempted to punch")
 			return FALSE
 
@@ -1274,8 +1274,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		playsound(target.loc, user.dna.species.attack_sound, 25, TRUE, -1)
 
 		target.visible_message("<span class='danger'>[user] [atk_verb] [target]!</span>", \
-					"<span class='userdanger'>[user] [atk_verb] тебя!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, "<span class='danger'>Ты [atk_verb] [target]!</span>")
+					"<span class='userdanger'>[user] [atk_verb] С‚РµР±СЏ!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РєР°Рє С‡С‚Рѕ-С‚Рѕ СЃРёР»СЊРЅРѕ Р±СЊС‘С‚ РїРѕ РїР»РѕС‚Рё!</span>", COMBAT_MESSAGE_RANGE, user)
+		to_chat(user, "<span class='danger'>РўС‹ [atk_verb] [target]!</span>")
 
 		target.lastattacker = user.real_name
 		target.lastattackerckey = user.ckey
@@ -1293,9 +1293,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			log_combat(user, target, "punched")
 
 		if((target.stat != DEAD) && damage >= user.dna.species.punchstunthreshold)
-			target.visible_message("<span class='danger'>[user] валит [target] на пол!</span>", \
-							"<span class='userdanger'>[user] валит тебя на пол!</span>", "<span class='hear'>Ты слышишь агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, "<span class='danger'>Ты укладываешь [target] поспать!</span>")
+			target.visible_message("<span class='danger'>[user] РІР°Р»РёС‚ [target] РЅР° РїРѕР»!</span>", \
+							"<span class='userdanger'>[user] РІР°Р»РёС‚ С‚РµР±СЏ РЅР° РїРѕР»!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ Р°РіСЂРµСЃСЃРёРІРЅСѓСЋ РїРѕС‚Р°СЃРѕРІРєСѓ СЃРѕРїСЂРѕРІРѕР¶РґР°СЋС‰СѓСЋСЃСЏ РіСЂРѕРјРєРёРј СЃС‚СѓРєРѕРј!</span>", COMBAT_MESSAGE_RANGE, user)
+			to_chat(user, "<span class='danger'>РўС‹ СѓРєР»Р°РґС‹РІР°РµС€СЊ [target] РїРѕСЃРїР°С‚СЊ!</span>")
 			var/knockdown_duration = 40 + (target.getStaminaLoss() + (target.getBruteLoss()*0.5))*0.8 //50 total damage = 40 base stun + 40 stun modifier = 80 stun duration, which is the old base duration
 			target.apply_effect(knockdown_duration, EFFECT_KNOCKDOWN, armor_block)
 			target.forcesay(GLOB.hit_appends)
@@ -1308,9 +1308,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 /datum/species/proc/disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	if(target.check_block())
-		target.visible_message("<span class='warning'>[target] блокирует попытку толчка [user]!</span>", \
-							"<span class='userdanger'>Ты блокируешь попытку толчка [user]!</span>", "<span class='hear'>Ты слышишь взмах!</span>", COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, "<span class='warning'>Твоя попытка толкнуть [target] провалилась!</span>")
+		target.visible_message("<span class='warning'>[target] Р±Р»РѕРєРёСЂСѓРµС‚ РїРѕРїС‹С‚РєСѓ С‚РѕР»С‡РєР° [user]!</span>", \
+							"<span class='userdanger'>РўС‹ Р±Р»РѕРєРёСЂСѓРµС€СЊ РїРѕРїС‹С‚РєСѓ С‚РѕР»С‡РєР° [user]!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РІР·РјР°С…!</span>", COMBAT_MESSAGE_RANGE, user)
+		to_chat(user, "<span class='warning'>РўРІРѕСЏ РїРѕРїС‹С‚РєР° С‚РѕР»РєРЅСѓС‚СЊ [target] РїСЂРѕРІР°Р»РёР»Р°СЃСЊ!</span>")
 		return FALSE
 	if(attacker_style && attacker_style.disarm_act(user,target))
 		return TRUE
@@ -1349,9 +1349,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		if(target.IsKnockdown() && !target.IsParalyzed())
 			target.Paralyze(SHOVE_CHAIN_PARALYZE)
-			target.visible_message("<span class='danger'>[user.name] ложит [target.name] на лопатки!</span>",
-				"<span class='danger'>[user.name] ложит тебя на лопатки!</span>", "<span class='hear'>Ты слышишь агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, "<span class='danger'>Ты ложишь [target.name] на лопатки!</span>")
+			target.visible_message("<span class='danger'>[user.name] Р»РѕР¶РёС‚ [target.name] РЅР° Р»РѕРїР°С‚РєРё!</span>",
+				"<span class='danger'>[user.name] Р»РѕР¶РёС‚ С‚РµР±СЏ РЅР° Р»РѕРїР°С‚РєРё!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ Р°РіСЂРµСЃСЃРёРІРЅСѓСЋ РїРѕС‚Р°СЃРѕРІРєСѓ СЃРѕРїСЂРѕРІРѕР¶РґР°СЋС‰СѓСЋСЃСЏ РіСЂРѕРјРєРёРј СЃС‚СѓРєРѕРј!</span>", COMBAT_MESSAGE_RANGE, user)
+			to_chat(user, "<span class='danger'>РўС‹ Р»РѕР¶РёС€СЊ [target.name] РЅР° Р»РѕРїР°С‚РєРё!</span>")
 			addtimer(CALLBACK(target, /mob/living/proc/SetKnockdown, 0), SHOVE_CHAIN_PARALYZE)
 			log_combat(user, target, "kicks", "onto their side (paralyzing)")
 
@@ -1370,35 +1370,35 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 							break
 			if((!target_table && !target_collateral_human) || directional_blocked)
 				target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
-				user.visible_message("<span class='danger'>[user.name] толкает [target.name], повалив на пол!</span>",
-					"<span class='danger'>Тебя толкает [target.name], повалив на пол!</span>", "<span class='hear'>Ты слышишь агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, user)
-				to_chat(user, "<span class='danger'>Ты толкаешь [target.name], повалив на пол!</span>")
+				user.visible_message("<span class='danger'>[user.name] С‚РѕР»РєР°РµС‚ [target.name], РїРѕРІР°Р»РёРІ РЅР° РїРѕР»!</span>",
+					"<span class='danger'>РўРµР±СЏ С‚РѕР»РєР°РµС‚ [target.name], РїРѕРІР°Р»РёРІ РЅР° РїРѕР»!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ Р°РіСЂРµСЃСЃРёРІРЅСѓСЋ РїРѕС‚Р°СЃРѕРІРєСѓ СЃРѕРїСЂРѕРІРѕР¶РґР°СЋС‰СѓСЋСЃСЏ РіСЂРѕРјРєРёРј СЃС‚СѓРєРѕРј!</span>", COMBAT_MESSAGE_RANGE, user)
+				to_chat(user, "<span class='danger'>РўС‹ С‚РѕР»РєР°РµС€СЊ [target.name], РїРѕРІР°Р»РёРІ РЅР° РїРѕР»!</span>")
 				log_combat(user, target, "shoved", "knocking them down")
 			else if(target_table)
 				target.Knockdown(SHOVE_KNOCKDOWN_TABLE)
-				target.visible_message("<span class='danger'>[user.name] заталкивает [target.name] на [target_table]!</span>",
-					"<span class='danger'>Тебя заталкивает [target.name] на [target_table]!</span>", "<span class='hear'>Ты слышишь агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, user)
-				to_chat(user, "<span class='danger'>Ты заталкиваешь [target.name] на [target_table]!</span>")
+				target.visible_message("<span class='danger'>[user.name] Р·Р°С‚Р°Р»РєРёРІР°РµС‚ [target.name] РЅР° [target_table]!</span>",
+					"<span class='danger'>РўРµР±СЏ Р·Р°С‚Р°Р»РєРёРІР°РµС‚ [target.name] РЅР° [target_table]!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ Р°РіСЂРµСЃСЃРёРІРЅСѓСЋ РїРѕС‚Р°СЃРѕРІРєСѓ СЃРѕРїСЂРѕРІРѕР¶РґР°СЋС‰СѓСЋСЃСЏ РіСЂРѕРјРєРёРј СЃС‚СѓРєРѕРј!</span>", COMBAT_MESSAGE_RANGE, user)
+				to_chat(user, "<span class='danger'>РўС‹ Р·Р°С‚Р°Р»РєРёРІР°РµС€СЊ [target.name] РЅР° [target_table]!</span>")
 				target.throw_at(target_table, 1, 1, null, FALSE) //1 speed throws with no spin are basically just forcemoves with a hard collision check
 				log_combat(user, target, "shoved", "onto [target_table] (table)")
 			else if(target_collateral_human)
 				target.Knockdown(SHOVE_KNOCKDOWN_HUMAN)
 				target_collateral_human.Knockdown(SHOVE_KNOCKDOWN_COLLATERAL)
-				target.visible_message("<span class='danger'>[user.name] толкает [target.name] в [target_collateral_human.name]!</span>",
-					"<span class='danger'>Тебя толкает [target.name] в [target_collateral_human.name]!</span>", "<span class='hear'>Ты слышишь агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, user)
-				to_chat(user, "<span class='danger'>Ты толкаешь [target.name] в [target_collateral_human.name]!</span>")
+				target.visible_message("<span class='danger'>[user.name] С‚РѕР»РєР°РµС‚ [target.name] РІ [target_collateral_human.name]!</span>",
+					"<span class='danger'>РўРµР±СЏ С‚РѕР»РєР°РµС‚ [target.name] РІ [target_collateral_human.name]!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ Р°РіСЂРµСЃСЃРёРІРЅСѓСЋ РїРѕС‚Р°СЃРѕРІРєСѓ СЃРѕРїСЂРѕРІРѕР¶РґР°СЋС‰СѓСЋСЃСЏ РіСЂРѕРјРєРёРј СЃС‚СѓРєРѕРј!</span>", COMBAT_MESSAGE_RANGE, user)
+				to_chat(user, "<span class='danger'>РўС‹ С‚РѕР»РєР°РµС€СЊ [target.name] РІ [target_collateral_human.name]!</span>")
 				log_combat(user, target, "shoved", "into [target_collateral_human.name]")
 			else if(target_disposal_bin)
 				target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
 				target.forceMove(target_disposal_bin)
-				user.visible_message("<span class='danger'>[user.name] толкает [target.name] в [target_disposal_bin]!</span>",
-					"<span class='danger'>Тебя толкает [target.name] в [target_disposal_bin]!</span>", "<span class='hear'>Ты слышишь агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, user)
-				to_chat(user, "<span class='danger'>Ты толкаешь [target.name] прямо в [target_disposal_bin]!</span>")
+				user.visible_message("<span class='danger'>[user.name] С‚РѕР»РєР°РµС‚ [target.name] РІ [target_disposal_bin]!</span>",
+					"<span class='danger'>РўРµР±СЏ С‚РѕР»РєР°РµС‚ [target.name] РІ [target_disposal_bin]!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ Р°РіСЂРµСЃСЃРёРІРЅСѓСЋ РїРѕС‚Р°СЃРѕРІРєСѓ СЃРѕРїСЂРѕРІРѕР¶РґР°СЋС‰СѓСЋСЃСЏ РіСЂРѕРјРєРёРј СЃС‚СѓРєРѕРј!</span>", COMBAT_MESSAGE_RANGE, user)
+				to_chat(user, "<span class='danger'>РўС‹ С‚РѕР»РєР°РµС€СЊ [target.name] РїСЂСЏРјРѕ РІ [target_disposal_bin]!</span>")
 				log_combat(user, target, "shoved", "into [target_disposal_bin] (disposal bin)")
 		else
-			user.visible_message("<span class='danger'>[user.name] толкает [target.name]!</span>",
-				"<span class='danger'>Тебя толкает [target.name]!</span>", "<span class='hear'>Ты слышишь агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, "<span class='danger'>Ты толкаешь [target.name]!</span>")
+			user.visible_message("<span class='danger'>[user.name] С‚РѕР»РєР°РµС‚ [target.name]!</span>",
+				"<span class='danger'>РўРµР±СЏ С‚РѕР»РєР°РµС‚ [target.name]!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ Р°РіСЂРµСЃСЃРёРІРЅСѓСЋ РїРѕС‚Р°СЃРѕРІРєСѓ СЃРѕРїСЂРѕРІРѕР¶РґР°СЋС‰СѓСЋСЃСЏ РіСЂРѕРјРєРёРј СЃС‚СѓРєРѕРј!</span>", COMBAT_MESSAGE_RANGE, user)
+			to_chat(user, "<span class='danger'>РўС‹ С‚РѕР»РєР°РµС€СЊ [target.name]!</span>")
 			var/target_held_item = target.get_active_held_item()
 			var/knocked_item = FALSE
 			if(!is_type_in_typecache(target_held_item, GLOB.shove_disarming_types))
@@ -1406,20 +1406,20 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(!target.has_movespeed_modifier(MOVESPEED_ID_SHOVE))
 				target.add_movespeed_modifier(MOVESPEED_ID_SHOVE, multiplicative_slowdown = SHOVE_SLOWDOWN_STRENGTH)
 				if(target_held_item)
-					target.visible_message("<span class='danger'>Захват [target.name] на [target_held_item] слабеет!</span>",
-						"<span class='danger'>Твой захват [target_held_item] слабеет!</span>", null, COMBAT_MESSAGE_RANGE)
+					target.visible_message("<span class='danger'>Р—Р°С…РІР°С‚ [target.name] РЅР° [target_held_item] СЃР»Р°Р±РµРµС‚!</span>",
+						"<span class='danger'>РўРІРѕР№ Р·Р°С…РІР°С‚ [target_held_item] СЃР»Р°Р±РµРµС‚!</span>", null, COMBAT_MESSAGE_RANGE)
 				addtimer(CALLBACK(target, /mob/living/carbon/human/proc/clear_shove_slowdown), SHOVE_SLOWDOWN_LENGTH)
 			else if(target_held_item)
 				target.dropItemToGround(target_held_item)
 				knocked_item = TRUE
-				target.visible_message("<span class='danger'>[target.name] роняет [target_held_item]!!</span>",
-					"<span class='danger'>Ты роняешь [target_held_item]!!</span>", null, COMBAT_MESSAGE_RANGE)
+				target.visible_message("<span class='danger'>[target.name] СЂРѕРЅСЏРµС‚ [target_held_item]!!</span>",
+					"<span class='danger'>РўС‹ СЂРѕРЅСЏРµС€СЊ [target_held_item]!!</span>", null, COMBAT_MESSAGE_RANGE)
 			var/append_message = ""
 			if(target_held_item)
 				if(knocked_item)
-					append_message = "выбив из рук [target_held_item]"
+					append_message = "РІС‹Р±РёРІ РёР· СЂСѓРє [target_held_item]"
 				else
-					append_message = "ослабив захват [target_held_item]"
+					append_message = "РѕСЃР»Р°Р±РёРІ Р·Р°С…РІР°С‚ [target_held_item]"
 			log_combat(user, target, "shoved", append_message)
 
 /datum/species/proc/spec_hitby(atom/movable/AM, mob/living/carbon/human/H)
@@ -1437,9 +1437,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		attacker_style = M.mind.martial_art
 	if((M != H) && M.a_intent != INTENT_HELP && H.check_shields(M, 0, M.name, attack_type = UNARMED_ATTACK))
 		log_combat(M, H, "attempted to touch")
-		H.visible_message("<span class='warning'>[M] пытается дотронуться до [H]!</span>", \
-						"<span class='userdanger'>[M] пытается доптронуться до тебя!</span>", "<span class='hear'>Ты слышишь взмах!</span>", COMBAT_MESSAGE_RANGE, M)
-		to_chat(M, "<span class='warning'>Ты пытаешься дотронуться до [H]!</span>")
+		H.visible_message("<span class='warning'>[M] РїС‹С‚Р°РµС‚СЃСЏ РґРѕС‚СЂРѕРЅСѓС‚СЊСЃСЏ РґРѕ [H]!</span>", \
+						"<span class='userdanger'>[M] РїС‹С‚Р°РµС‚СЃСЏ РґРѕРїС‚СЂРѕРЅСѓС‚СЊСЃСЏ РґРѕ С‚РµР±СЏ!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РІР·РјР°С…!</span>", COMBAT_MESSAGE_RANGE, M)
+		to_chat(M, "<span class='warning'>РўС‹ РїС‹С‚Р°РµС€СЊСЃСЏ РґРѕС‚СЂРѕРЅСѓС‚СЊСЃСЏ РґРѕ [H]!</span>")
 		return 0
 	SEND_SIGNAL(M, COMSIG_MOB_ATTACK_HAND, M, H, attacker_style)
 	switch(M.a_intent)
@@ -1461,8 +1461,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(H.check_shields(I, I.force, "the [I.name]", MELEE_ATTACK, I.armour_penetration))
 			return 0
 	if(H.check_block())
-		H.visible_message("<span class='warning'>[H] блокирует [I]!</span>", \
-						"<span class='userdanger'>Вы блокируете [I]!</span>")
+		H.visible_message("<span class='warning'>[H] Р±Р»РѕРєРёСЂСѓРµС‚ [I]!</span>", \
+						"<span class='userdanger'>Р’С‹ Р±Р»РѕРєРёСЂСѓРµС‚Рµ [I]!</span>")
 		return 0
 
 	var/hit_area
@@ -1472,7 +1472,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	hit_area = affecting.name
 	var/def_zone = affecting.body_zone
 
-	var/armor_block = H.run_armor_check(affecting, "melee", "<span class='notice'>Ваша броня защищает вас от удара в [hit_area]!</span>", "<span class='warning'>Ваша броня смягчает удар в [hit_area]!</span>",I.armour_penetration)
+	var/armor_block = H.run_armor_check(affecting, "melee", "<span class='notice'>Р’Р°С€Р° Р±СЂРѕРЅСЏ Р·Р°С‰РёС‰Р°РµС‚ РІР°СЃ РѕС‚ СѓРґР°СЂР° РІ [hit_area]!</span>", "<span class='warning'>Р’Р°С€Р° Р±СЂРѕРЅСЏ СЃРјСЏРіС‡Р°РµС‚ СѓРґР°СЂ РІ [hit_area]!</span>",I.armour_penetration)
 	armor_block = min(90,armor_block) //cap damage reduction at 90%
 	var/Iforce = I.force //to avoid runtimes on the forcesay checks at the bottom. Some items might delete themselves if you drop them. (stunning yourself, ninja swords)
 
@@ -1509,8 +1509,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					if(prob(I.force))
 						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 20)
 						if(H.stat == CONSCIOUS)
-							H.visible_message("<span class='danger'>[H] беспорядочно шатается!</span>", \
-											"<span class='userdanger'>Вы получили письмо!</span>")
+							H.visible_message("<span class='danger'>[H] Р±РµСЃРїРѕСЂСЏРґРѕС‡РЅРѕ С€Р°С‚Р°РµС‚СЃСЏ!</span>", \
+											"<span class='userdanger'>Р’С‹ РїРѕР»СѓС‡РёР»Рё РїРёСЃСЊРјРѕ!</span>")
 							H.confused = max(H.confused, 20)
 							H.adjust_blurriness(10)
 						if(prob(10))
@@ -1537,8 +1537,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(BODY_ZONE_CHEST)
 				if(H.stat == CONSCIOUS && !I.get_sharpness() && armor_block < 50)
 					if(prob(I.force))
-						H.visible_message("<span class='danger'>[H] оглушен[H.ru_a()]!</span>", \
-									"<span class='userdanger'>Вы оглушены!</span>")
+						H.visible_message("<span class='danger'>[H] РѕРіР»СѓС€РµРЅ[H.ru_a()]!</span>", \
+									"<span class='userdanger'>Р’С‹ РѕРіР»СѓС€РµРЅС‹!</span>")
 						H.apply_effect(60, EFFECT_KNOCKDOWN, armor_block)
 
 				if(bloody)

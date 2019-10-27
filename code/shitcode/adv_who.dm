@@ -2,7 +2,7 @@
 	set name = "Who"
 	set category = "OOC"
 
-	var/msg = "<b>Онлайн:</b>\n"
+	var/msg = "<b>РћРЅР»Р°Р№РЅ:</b>\n"
 
 	var/living = 0
 	var/dead = 0
@@ -35,25 +35,25 @@
 					entry += " <i>(as [C.holder.fakekey])</i>"
 
 				if (isnewplayer(C.mob))
-					entry += " - <font color='darkgray'><b>Лобби</b></font>"
+					entry += " - <font color='darkgray'><b>Р›РѕР±Р±Рё</b></font>"
 					lobby++
 				else
 					entry += " - [C.mob.real_name]"
 					switch(C.mob.stat)
 						if(UNCONSCIOUS)
-							entry += " - <font color='darkgray'><b>Без сознания</b></font>"
+							entry += " - <font color='darkgray'><b>Р‘РµР· СЃРѕР·РЅР°РЅРёСЏ</b></font>"
 							living++
 						if(DEAD)
 							if(isobserver(C.mob))
 								var/mob/dead/observer/O = C.mob
 								if(O.started_as_observer)
-									entry += " - <font color='gray'>Наблюдает</font>"
+									entry += " - <font color='gray'>РќР°Р±Р»СЋРґР°РµС‚</font>"
 									observers++
 								else
-									entry += " - <font color='black'><b>МЁРТВ</b></font>"
+									entry += " - <font color='black'><b>РњРЃР РўР’</b></font>"
 									dead++
 							else
-								entry += " - <font color='black'><b>МЁРТВ</b></font>"
+								entry += " - <font color='black'><b>РњРЃР РўР’</b></font>"
 								dead++
 						else
 							living++
@@ -67,7 +67,7 @@
 					entry += " - [age]"
 				*/
 				if(is_special_character(C.mob))
-					entry += " - <b><font color='red'>Антагонист</font></b>"
+					entry += " - <b><font color='red'>РђРЅС‚Р°РіРѕРЅРёСЃС‚</font></b>"
 					if(!C.mob.mind.current || C.mob.mind.current?.stat == DEAD)
 						dead_antags++
 					else
@@ -77,7 +77,7 @@
 					entry += " - <b>AFK: [C.inactivity2text()]</b>"
 
 				entry += " [ADMIN_QUE(C.mob)]"
-				entry += " ([round(C.avgping, 1)]мс)"
+				entry += " ([round(C.avgping, 1)]РјСЃ)"
 				Lines += entry
 
 		else//If they don't have +ADMIN, only show hidden admins
@@ -89,7 +89,7 @@
 				if(C.holder && C.holder.fakekey)
 					entry += " <i>(as [C.holder.fakekey])</i>"
 
-				entry += " - ([round(C.avgping, 1)]мс)"
+				entry += " - ([round(C.avgping, 1)]РјСЃ)"
 				Lines += entry
 	else
 		for(var/client/C in GLOB.clients)
@@ -97,10 +97,10 @@
 				continue
 
 			if(C.holder && C.holder.fakekey)
-				Lines += "\t[C.holder.fakekey] - ([round(C.avgping, 1)]мс)"
+				Lines += "\t[C.holder.fakekey] - ([round(C.avgping, 1)]РјСЃ)"
 
 			else
-				Lines += "\t[C.key] - ([round(C.avgping, 1)]мс)"
+				Lines += "\t[C.key] - ([round(C.avgping, 1)]РјСЃ)"
 
 	for(var/line in sortList(Lines))
 		msg += "[line]\n"
@@ -108,7 +108,7 @@
 	if(check_rights(R_ADMIN, 0))
 		msg += "<b><font color='green'>L: [living]</font> | D: [dead] | <font color='gray'>O: [observers]</font> | <font color='#006400'>LOBBY: [lobby]</font> | <font color='#8100aa'>AA: [living_antags]</font> | <font color='#9b0000'>DA: [dead_antags]</font></b>\n"
 
-	msg += "<b>Всего игроков: [length(Lines)]</b>"
+	msg += "<b>Р’СЃРµРіРѕ РёРіСЂРѕРєРѕРІ: [length(Lines)]</b>"
 	to_chat(src, msg)
 
 /client/proc/adminwho()

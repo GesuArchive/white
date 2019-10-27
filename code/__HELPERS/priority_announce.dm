@@ -7,12 +7,12 @@
 	//announcement += "<hr class='veryalert'>"
 
 	if(type == "Priority")
-		announcement += "<h1 class='alert'>Срочное Объявление</h1>"
+		announcement += "<h1 class='alert'>РЎСЂРѕС‡РЅРѕРµ РћР±СЉСЏРІР»РµРЅРёРµ</h1>"
 		if (title && length(title) > 0)
 			announcement += "<h2 class='alert'>[rhtml_encode(title)]</h2>"
 	else if(type == "Captain")
-		announcement += "<h1 class='alert'>Капитан Объявляет</h1>"
-		GLOB.news_network.SubmitArticle(text, "Капитан Объявляет", "Station Announcements", null)
+		announcement += "<h1 class='alert'>РљР°РїРёС‚Р°РЅ РћР±СЉСЏРІР»СЏРµС‚</h1>"
+		GLOB.news_network.SubmitArticle(text, "РљР°РїРёС‚Р°РЅ РћР±СЉСЏРІР»СЏРµС‚", "Station Announcements", null)
 
 	else
 		if(!sender_override)
@@ -24,9 +24,9 @@
 
 		if(!sender_override)
 			if(title == "")
-				GLOB.news_network.SubmitArticle(text, "Центральное Командование", "Station Announcements", null)
+				GLOB.news_network.SubmitArticle(text, "Р¦РµРЅС‚СЂР°Р»СЊРЅРѕРµ РљРѕРјР°РЅРґРѕРІР°РЅРёРµ", "Station Announcements", null)
 			else
-				GLOB.news_network.SubmitArticle(title + "<br>" + text, "Центральное Командование", "Station Announcements", null)
+				GLOB.news_network.SubmitArticle(title + "<br>" + text, "Р¦РµРЅС‚СЂР°Р»СЊРЅРѕРµ РљРѕРјР°РЅРґРѕРІР°РЅРёРµ", "Station Announcements", null)
 
 	announcement += "<span class='alert'>[rhtml_encode(text)]</span>"
 	announcement += "<br><br>"
@@ -40,10 +40,10 @@
 
 /proc/print_command_report(text = "", title = null, announce=TRUE)
 	if(!title)
-		title = "Секретно: [command_name()]"
+		title = "РЎРµРєСЂРµС‚РЅРѕ: [command_name()]"
 
 	if(announce)
-		priority_announce("Отчет был загружен и распечатан на всех коммуникационных консолях.", "Входящее Секретное Сообщение", 'sound/ai/commandreport.ogg')
+		priority_announce("РћС‚С‡РµС‚ Р±С‹Р» Р·Р°РіСЂСѓР¶РµРЅ Рё СЂР°СЃРїРµС‡Р°С‚Р°РЅ РЅР° РІСЃРµС… РєРѕРјРјСѓРЅРёРєР°С†РёРѕРЅРЅС‹С… РєРѕРЅСЃРѕР»СЏС….", "Р’С…РѕРґСЏС‰РµРµ РЎРµРєСЂРµС‚РЅРѕРµ РЎРѕРѕР±С‰РµРЅРёРµ", 'sound/ai/commandreport.ogg')
 
 	var/datum/comm_message/M  = new
 	M.title = title
@@ -51,7 +51,7 @@
 
 	SScommunications.send_message(M)
 
-/proc/minor_announce(message, title = "Внимание:", alert)
+/proc/minor_announce(message, title = "Р’РЅРёРјР°РЅРёРµ:", alert)
 	if(!message)
 		return
 

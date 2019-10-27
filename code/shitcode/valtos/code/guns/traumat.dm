@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/automatic/pistol/traumatic
 	name = "\improper Enforcer T46"
-	desc = "Эти штуки были взяты буквально с боем. Теперь это обыденность."
+	desc = "Р­С‚Рё С€С‚СѓРєРё Р±С‹Р»Рё РІР·СЏС‚С‹ Р±СѓРєРІР°Р»СЊРЅРѕ СЃ Р±РѕРµРј. РўРµРїРµСЂСЊ СЌС‚Рѕ РѕР±С‹РґРµРЅРЅРѕСЃС‚СЊ."
 	icon = 'code/shitcode/valtos/icons/gun.dmi'
 	icon_state = "enforcer"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -50,7 +50,7 @@
 
 /obj/projectile/bullet/traumatic
 	name = "9mm traumatic bullet"
-	damage = 3 //наша резина делает больно, не более
+	damage = 3 //РЅР°С€Р° СЂРµР·РёРЅР° РґРµР»Р°РµС‚ Р±РѕР»СЊРЅРѕ, РЅРµ Р±РѕР»РµРµ
 	stamina = 90
 
 /datum/design/traumatic

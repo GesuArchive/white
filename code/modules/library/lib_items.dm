@@ -188,7 +188,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_NORMAL		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)
-	attack_verb = list("колотит", "вмазывает", "учит")
+	attack_verb = list("РєРѕР»РѕС‚РёС‚", "РІРјР°Р·С‹РІР°РµС‚", "СѓС‡РёС‚")
 	resistance_flags = FLAMMABLE
 	drop_sound = 'sound/items/handling/book_drop.ogg'
 	pickup_sound =  'sound/items/handling/book_pickup.ogg'

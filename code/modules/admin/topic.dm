@@ -1431,7 +1431,7 @@
 		log_admin("[key_name(H)] got their poop, spawned by [key_name(src.owner)].")
 		message_admins("[key_name(H)] got their poop, spawned by [key_name(src.owner)].")
 		SSblackbox.record_feedback("amount", "admin_poop_spawned", 1)
-		to_chat(H, "<span class='adminnotice'>Your prayers have been answered!! You received <font size='16'><b>вонючий кусок кала</b></font>!</span>")
+		to_chat(H, "<span class='adminnotice'>Your prayers have been answered!! You received <font size='16'><b>РІРѕРЅСЋС‡РёР№ РєСѓСЃРѕРє РєР°Р»Р°</b></font>!</span>")
 		SEND_SOUND(H, sound('sound/effects/pray_chaplain.ogg'))
 
 	else if(href_list["adminsmite"])

@@ -70,7 +70,7 @@ SUBSYSTEM_DEF(air)
 	setup_atmos_machinery()
 	setup_pipenets()
 	gas_reactions = init_gas_reactions()
-	toplayers = "Заполнили воздухом"
+	toplayers = "Р—Р°РїРѕР»РЅРёР»Рё РІРѕР·РґСѓС…РѕРј"
 	return ..()
 
 

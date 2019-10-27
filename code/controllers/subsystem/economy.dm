@@ -52,7 +52,7 @@ SUBSYSTEM_DEF(economy)
 	var/budget_to_hand_out = round(budget_pool / department_accounts.len)
 	for(var/A in department_accounts)
 		new /datum/bank_account/department(A, budget_to_hand_out)
-	toplayers = "—Î‡‚ËÏ ¿Ì ‡Ô"
+	toplayers = "–°–ª–∞–≤–∏–º –ê–Ω–ö–∞–ø"
 	return ..()
 
 /datum/controller/subsystem/economy/fire(resumed = 0)

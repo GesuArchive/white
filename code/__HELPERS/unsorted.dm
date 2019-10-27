@@ -701,57 +701,57 @@ Turf and target are separate in case you want to teleport some distance from a t
 
 /proc/ru_parse_zone(zone)
 	if(zone == "right hand")
-		return "правую кисть"
+		return "РїСЂР°РІСѓСЋ РєРёСЃС‚СЊ"
 	else if (zone == "left hand")
-		return "левую кисть"
+		return "Р»РµРІСѓСЋ РєРёСЃС‚СЊ"
 	else if (zone == "left arm")
-		return "левую руку"
+		return "Р»РµРІСѓСЋ СЂСѓРєСѓ"
 	else if (zone == "right arm")
-		return "правую руку"
+		return "РїСЂР°РІСѓСЋ СЂСѓРєСѓ"
 	else if (zone == "left leg")
-		return "левую руку"
+		return "Р»РµРІСѓСЋ СЂСѓРєСѓ"
 	else if (zone == "right leg")
-		return "правую руку"
+		return "РїСЂР°РІСѓСЋ СЂСѓРєСѓ"
 	else if (zone == "left foot")
-		return "левую ступню"
+		return "Р»РµРІСѓСЋ СЃС‚СѓРїРЅСЋ"
 	else if (zone == "right foot")
-		return "правую ступню"
+		return "РїСЂР°РІСѓСЋ СЃС‚СѓРїРЅСЋ"
 	else if (zone == "chest")
-		return "грудь"
+		return "РіСЂСѓРґСЊ"
 	else if (zone == "mouth")
-		return "рот"
+		return "СЂРѕС‚"
 	else if (zone == "groin")
-		return "пах"
+		return "РїР°С…"
 	else if (zone == "head")
-		return "голову"
+		return "РіРѕР»РѕРІСѓ"
 	else
 		return zone
 
 /proc/ru_exam_parse_zone(zone)
 	if(zone == "right hand")
-		return "правая кисть"
+		return "РїСЂР°РІР°СЏ РєРёСЃС‚СЊ"
 	else if (zone == "left hand")
-		return "левая кисть"
+		return "Р»РµРІР°СЏ РєРёСЃС‚СЊ"
 	else if (zone == "left arm")
-		return "левая рука"
+		return "Р»РµРІР°СЏ СЂСѓРєР°"
 	else if (zone == "right arm")
-		return "правая рука"
+		return "РїСЂР°РІР°СЏ СЂСѓРєР°"
 	else if (zone == "left leg")
-		return "левая рука"
+		return "Р»РµРІР°СЏ СЂСѓРєР°"
 	else if (zone == "right leg")
-		return "правая рука"
+		return "РїСЂР°РІР°СЏ СЂСѓРєР°"
 	else if (zone == "left foot")
-		return "левая ступня"
+		return "Р»РµРІР°СЏ СЃС‚СѓРїРЅСЏ"
 	else if (zone == "right foot")
-		return "правая ступня"
+		return "РїСЂР°РІР°СЏ СЃС‚СѓРїРЅСЏ"
 	else if (zone == "chest")
-		return "грудь"
+		return "РіСЂСѓРґСЊ"
 	else if (zone == "mouth")
-		return "рот"
+		return "СЂРѕС‚"
 	else if (zone == "groin")
-		return "пах"
+		return "РїР°С…"
 	else if (zone == "head")
-		return "голову"
+		return "РіРѕР»РѕРІСѓ"
 	else
 		return zone
 
@@ -1327,17 +1327,17 @@ GLOBAL_REAL_VAR(list/stack_trace_storage)
 /proc/weightclass2text(var/w_class)
 	switch(w_class)
 		if(WEIGHT_CLASS_TINY)
-			. = "ничтожный"
+			. = "РЅРёС‡С‚РѕР¶РЅС‹Р№"
 		if(WEIGHT_CLASS_SMALL)
-			. = "небольшой"
+			. = "РЅРµР±РѕР»СЊС€РѕР№"
 		if(WEIGHT_CLASS_NORMAL)
-			. = "средний"
+			. = "СЃСЂРµРґРЅРёР№"
 		if(WEIGHT_CLASS_BULKY)
-			. = "большой"
+			. = "Р±РѕР»СЊС€РѕР№"
 		if(WEIGHT_CLASS_HUGE)
-			. = "огромный"
+			. = "РѕРіСЂРѕРјРЅС‹Р№"
 		if(WEIGHT_CLASS_GIGANTIC)
-			. = "гигантский"
+			. = "РіРёРіР°РЅС‚СЃРєРёР№"
 		else
 			. = ""
 

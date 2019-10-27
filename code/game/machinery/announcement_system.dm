@@ -17,9 +17,9 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	circuit = /obj/item/circuitboard/machine/announcement_system
 
 	var/obj/item/radio/headset/radio
-	var/arrival = "%PERSON прибыл на станцию как %RANK"
+	var/arrival = "%PERSON РїСЂРёР±С‹Р» РЅР° СЃС‚Р°РЅС†РёСЋ РєР°Рє %RANK"
 	var/arrivalToggle = 1
-	var/newhead = "%PERSON, %RANK, глава отдела."
+	var/newhead = "%PERSON, %RANK, РіР»Р°РІР° РѕС‚РґРµР»Р°."
 	var/newheadToggle = 1
 
 	var/greenlight = "Light_Green"
@@ -85,7 +85,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	else if(message_type == "NEWHEAD" && newheadToggle)
 		message = CompileText(newhead, user, rank)
 	else if(message_type == "ARRIVALS_BROKEN")
-		message = "Шаттл прибытия был поврежден. Пристыковка для ремонта..."
+		message = "РЁР°С‚С‚Р» РїСЂРёР±С‹С‚РёСЏ Р±С‹Р» РїРѕРІСЂРµР¶РґРµРЅ. РџСЂРёСЃС‚С‹РєРѕРІРєР° РґР»СЏ СЂРµРјРѕРЅС‚Р°..."
 
 	if(channels.len == 0)
 		radio.talk_into(src, message, null)

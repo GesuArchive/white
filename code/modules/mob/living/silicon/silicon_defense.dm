@@ -9,14 +9,14 @@
 	if(..()) //if harm or disarm intent
 		var/damage = 20
 		if (prob(90))
-			log_combat(M, src, "атакует")
+			log_combat(M, src, "Р°С‚Р°РєСѓРµС‚")
 			playsound(loc, 'sound/weapons/slash.ogg', 25, TRUE, -1)
 			visible_message("<span class='danger'>[M] slashes at [src]!</span>", \
 							"<span class='userdanger'>[M] slashes at you!</span>", null, null, M)
 			to_chat(M, "<span class='danger'>You slash at [src]!</span>")
 			if(prob(8))
 				flash_act(affect_silicon = 1)
-			log_combat(M, src, "атакует")
+			log_combat(M, src, "Р°С‚Р°РєСѓРµС‚")
 			adjustBruteLoss(damage)
 			updatehealth()
 		else

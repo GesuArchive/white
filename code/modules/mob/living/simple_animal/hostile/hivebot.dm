@@ -26,10 +26,10 @@
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	possible_a_intents = list(INTENT_HELP, INTENT_GRAB, INTENT_DISARM, INTENT_HARM)
 	minbodytemp = 0
-	verb_say = "констатирует"
-	verb_ask = "запрашивает"
-	verb_exclaim = "объявляет"
-	verb_yell = "тревожит"
+	verb_say = "РєРѕРЅСЃС‚Р°С‚РёСЂСѓРµС‚"
+	verb_ask = "Р·Р°РїСЂР°С€РёРІР°РµС‚"
+	verb_exclaim = "РѕР±СЉСЏРІР»СЏРµС‚"
+	verb_yell = "С‚СЂРµРІРѕР¶РёС‚"
 	bubble_icon = "machine"
 	speech_span = SPAN_ROBOT
 	gold_core_spawnable = HOSTILE_SPAWN

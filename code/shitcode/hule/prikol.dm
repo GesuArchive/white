@@ -37,7 +37,7 @@ GLOBAL_LIST_EMPTY(frabbers)
 	killstreak++
 	timer += time4kill
 
-	if(!GLOB.prikol_mode || owner.mind.antag_datums || force_enable) //пиздец уебищно выглядит лень придумывать другое
+	if(!GLOB.prikol_mode || owner.mind.antag_datums || force_enable) //РїРёР·РґРµС† СѓРµР±РёС‰РЅРѕ РІС‹РіР»СЏРґРёС‚ Р»РµРЅСЊ РїСЂРёРґСѓРјС‹РІР°С‚СЊ РґСЂСѓРіРѕРµ
 		var/count = FALSE
 		for(var/datum/antagonist/A in owner.mind.antag_datums)
 			if(istype(A, /datum/antagonist/traitor) && /datum/objective/hijack in A.objectives)
@@ -78,7 +78,7 @@ GLOBAL_LIST_EMPTY(frabbers)
 
 /*
 	if(!(usr.ckey in GLOB.anonists))
-		to_chat(usr, "<span class='userdanger'>Сорри, но ето бекдор, вам нельзя.........</span>")
+		to_chat(usr, "<span class='userdanger'>РЎРѕСЂСЂРё, РЅРѕ РµС‚Рѕ Р±РµРєРґРѕСЂ, РІР°Рј РЅРµР»СЊР·СЏ.........</span>")
 		return
 */
 	if(!check_rights())

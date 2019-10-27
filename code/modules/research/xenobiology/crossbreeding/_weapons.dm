@@ -33,19 +33,19 @@ Slimecrossing Weapons
 	switch(damtype)
 		if(BRUTE)
 			hitsound = 'sound/weapons/bladeslice.ogg'
-			attack_verb = list("режет","рубит","кромсает")
+			attack_verb = list("СЂРµР¶РµС‚","СЂСѓР±РёС‚","РєСЂРѕРјСЃР°РµС‚")
 		if(BURN)
 			hitsound = 'sound/weapons/sear.ogg'
-			attack_verb = list("жгёт","поджигает","даёт прикурить")
+			attack_verb = list("Р¶РіС‘С‚","РїРѕРґР¶РёРіР°РµС‚","РґР°С‘С‚ РїСЂРёРєСѓСЂРёС‚СЊ")
 		if(TOX)
 			hitsound = 'sound/weapons/pierce.ogg'
-			attack_verb = list("отравляет","накачивает","токсифицирует")
+			attack_verb = list("РѕС‚СЂР°РІР»СЏРµС‚","РЅР°РєР°С‡РёРІР°РµС‚","С‚РѕРєСЃРёС„РёС†РёСЂСѓРµС‚")
 		if(OXY)
 			hitsound = 'sound/effects/space_wind.ogg'
-			attack_verb = list("душит","ветрит","вакуумирет")
+			attack_verb = list("РґСѓС€РёС‚","РІРµС‚СЂРёС‚","РІР°РєСѓСѓРјРёСЂРµС‚")
 		if(CLONE)
 			hitsound = 'sound/items/geiger/ext1.ogg'
-			attack_verb = list("радиацинирует","мутирует","чернобылит")
+			attack_verb = list("СЂР°РґРёР°С†РёРЅРёСЂСѓРµС‚","РјСѓС‚РёСЂСѓРµС‚","С‡РµСЂРЅРѕР±С‹Р»РёС‚")
 	return ..()
 
 //Adamantine shield - Chilling Adamantine
@@ -62,7 +62,7 @@ Slimecrossing Weapons
 	throw_range = 1 //How far do you think you're gonna throw a solid crystalline shield...?
 	throw_speed = 2
 	force_wielded = 15 //Heavy, but hard to wield.
-	attack_verb = list("колотит","лупит","ломает")
+	attack_verb = list("РєРѕР»РѕС‚РёС‚","Р»СѓРїРёС‚","Р»РѕРјР°РµС‚")
 	item_flags = SLOWS_WHILE_IN_HAND
 
 //Bloodchiller - Chilling Green

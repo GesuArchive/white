@@ -263,7 +263,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 		if(isliving(usr))
 			var/mob/living/L = usr
 			message = L.treat_message(message)
-		minor_announce(message, "[department] объявляет:")
+		minor_announce(message, "[department] РѕР±СЉСЏРІР»СЏРµС‚:")
 		GLOB.news_network.SubmitArticle(message, department, "Station Announcements", null)
 		usr.log_talk(message, LOG_SAY, tag="station announcement from [src]")
 		message_admins("[ADMIN_LOOKUPFLW(usr)] has made a station announcement from [src] at [AREACOORD(usr)].")
@@ -346,7 +346,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 /obj/machinery/requests_console/say_mod(input, message_mode)
 	var/ending = copytext(input, length(input) - 2)
 	if (ending == "!!!")
-		. = "вспыхивает"
+		. = "РІСЃРїС‹С…РёРІР°РµС‚"
 	else
 		. = ..()
 
@@ -366,10 +366,10 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 
 	linkedsender = source_department ? "<a href='?src=[REF(src)];write=[ckey(source_department)]'>[source_department]</a>" : (source || "unknown")
 
-	var/authentic = (msgVerified || msgStamped) && " (Подтверждено)"
-	var/alert = "Сообщение от [source][authentic]"
+	var/authentic = (msgVerified || msgStamped) && " (РџРѕРґС‚РІРµСЂР¶РґРµРЅРѕ)"
+	var/alert = "РЎРѕРѕР±С‰РµРЅРёРµ РѕС‚ [source][authentic]"
 	var/silenced = silent
-	var/header = "<b>От:</b> [linkedsender] Получено: [station_time_timestamp()]<BR>"
+	var/header = "<b>РћС‚:</b> [linkedsender] РџРѕР»СѓС‡РµРЅРѕ: [station_time_timestamp()]<BR>"
 
 	switch(priority)
 		if(REQ_NORMAL_MESSAGE_PRIORITY)
@@ -378,15 +378,15 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 				update_icon()
 
 		if(REQ_HIGH_MESSAGE_PRIORITY)
-			header = "<span class='bad'>Высокий Приоритет</span><BR>[header]"
-			alert = "Приоритетное сообщение от [source][authentic]"
+			header = "<span class='bad'>Р’С‹СЃРѕРєРёР№ РџСЂРёРѕСЂРёС‚РµС‚</span><BR>[header]"
+			alert = "РџСЂРёРѕСЂРёС‚РµС‚РЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РѕС‚ [source][authentic]"
 			if(newmessagepriority < REQ_HIGH_MESSAGE_PRIORITY)
 				newmessagepriority = REQ_HIGH_MESSAGE_PRIORITY
 				update_icon()
 
 		if(REQ_EXTREME_MESSAGE_PRIORITY)
-			header = "<span class='bad'>!!!Сверхвысокий Приоритет!!!</span><BR>[header]"
-			alert = "Сверхприоритетное сообщение от [source][authentic]"
+			header = "<span class='bad'>!!!РЎРІРµСЂС…РІС‹СЃРѕРєРёР№ РџСЂРёРѕСЂРёС‚РµС‚!!!</span><BR>[header]"
+			alert = "РЎРІРµСЂС…РїСЂРёРѕСЂРёС‚РµС‚РЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РѕС‚ [source][authentic]"
 			silenced = FALSE
 			if(newmessagepriority < REQ_EXTREME_MESSAGE_PRIORITY)
 				newmessagepriority = REQ_EXTREME_MESSAGE_PRIORITY

@@ -12,7 +12,7 @@
 	announceWhen	= 1
 
 /datum/round_event/radiation_storm/announce(fake)
-	priority_announce("Вблизи станции обнаружены высокие уровни радиации. Технические тоннели лучше всего защищены от излучения.", "Аномальная тревога", 'sound/ai/radiation.ogg')
+	priority_announce("Р’Р±Р»РёР·Рё СЃС‚Р°РЅС†РёРё РѕР±РЅР°СЂСѓР¶РµРЅС‹ РІС‹СЃРѕРєРёРµ СѓСЂРѕРІРЅРё СЂР°РґРёР°С†РёРё. РўРµС…РЅРёС‡РµСЃРєРёРµ С‚РѕРЅРЅРµР»Рё Р»СѓС‡С€Рµ РІСЃРµРіРѕ Р·Р°С‰РёС‰РµРЅС‹ РѕС‚ РёР·Р»СѓС‡РµРЅРёСЏ.", "РђРЅРѕРјР°Р»СЊРЅР°СЏ С‚СЂРµРІРѕРіР°", 'sound/ai/radiation.ogg')
 	//sound not longer matches the text, but an audible warning is probably good
 
 /datum/round_event/radiation_storm/start()

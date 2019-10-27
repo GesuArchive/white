@@ -5,7 +5,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 
 /mob/dead/observer
 	name = "ghost"
-	desc = "Это призрак. Бу!" //jinkies!
+	desc = "Р­С‚Рѕ РїСЂРёР·СЂР°Рє. Р‘Сѓ!" //jinkies!
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost"
 	layer = GHOST_LAYER
@@ -141,7 +141,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 
 /mob/dead/observer/get_photo_description(obj/item/camera/camera)
 	if(!invisibility || camera.see_ghosts)
-		return "Также тут виден призрак!"
+		return "РўР°РєР¶Рµ С‚СѓС‚ РІРёРґРµРЅ РїСЂРёР·СЂР°Рє!"
 
 /mob/dead/observer/narsie_act()
 	var/old_color = color
@@ -273,7 +273,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 */
 /mob/living/verb/ghost()
 	set category = "OOC"
-	set name = "Покинуть тело"
+	set name = "РџРѕРєРёРЅСѓС‚СЊ С‚РµР»Рѕ"
 	set desc = "Relinquish your life and enter the land of the dead."
 
 	if(stat != DEAD)
@@ -288,7 +288,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/camera/verb/ghost()
 	set category = "OOC"
-	set name = "Покинуть тело"
+	set name = "РџРѕРєРёРЅСѓС‚СЊ С‚РµР»Рѕ"
 	set desc = "Relinquish your life and enter the land of the dead."
 
 	var/response = alert(src, "Are you -sure- you want to ghost?\n(You are alive. If you ghost whilst still alive you may not play again this round! You can't change your mind so choose wisely!!)","Are you sure you want to ghost?","Ghost","Stay in body")
@@ -319,7 +319,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/reenter_corpse()
 	set category = "Ghost"
-	set name = "Вернуться в тело"
+	set name = "Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ С‚РµР»Рѕ"
 	if(!client)
 		return
 	if(!mind || QDELETED(mind.current))
@@ -338,7 +338,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/stay_dead()
 	set category = "Ghost"
-	set name = "Не хочу воскресать"
+	set name = "РќРµ С…РѕС‡Сѓ РІРѕСЃРєСЂРµСЃР°С‚СЊ"
 	if(!client)
 		return
 	if(!can_reenter_corpse)
@@ -377,7 +377,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/proc/dead_tele()
 	set category = "Ghost"
-	set name = "Телепортироваться в..."
+	set name = "РўРµР»РµРїРѕСЂС‚РёСЂРѕРІР°С‚СЊСЃСЏ РІ..."
 	set desc= "Teleport to a location"
 	if(!isobserver(usr))
 		to_chat(usr, "<span class='warning'>Not when you're not dead!</span>")
@@ -405,7 +405,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/follow()
 	set category = "Ghost"
-	set name = "Следить за..." // "Haunt"
+	set name = "РЎР»РµРґРёС‚СЊ Р·Р°..." // "Haunt"
 	set desc = "Follow and orbit a mob."
 
 	var/list/mobs = getpois(skip_mindless=1)
@@ -451,7 +451,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/jumptomob() //Moves the ghost instead of just changing the ghosts's eye -Nodrak
 	set category = "Ghost"
-	set name = "Переместиться к..."
+	set name = "РџРµСЂРµРјРµСЃС‚РёС‚СЊСЃСЏ Рє..."
 	set desc = "Teleport to a mob"
 
 	if(isobserver(usr)) //Make sure they're an observer!
@@ -478,7 +478,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/change_view_range()
 	set category = "Ghost"
-	set name = "Радиус обзора"
+	set name = "Р Р°РґРёСѓСЃ РѕР±Р·РѕСЂР°"
 	set desc = "Change your view range."
 
 	var/max_view = client.prefs.unlock_content ? GHOST_MAX_VIEW_RANGE_MEMBER : GHOST_MAX_VIEW_RANGE_DEFAULT
@@ -524,7 +524,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	to_chat(src, "<span class='danger'>You are dead! You have no mind to store memory!</span>")
 
 /mob/dead/observer/verb/toggle_ghostsee()
-	set name = "Видеть других"
+	set name = "Р’РёРґРµС‚СЊ РґСЂСѓРіРёС…"
 	set desc = "Toggles your ability to see things only ghosts can see, like other ghosts"
 	set category = "Ghost"
 	ghostvision = !(ghostvision)
@@ -532,7 +532,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	to_chat(usr, "<span class='boldnotice'>You [(ghostvision?"now":"no longer")] have ghost vision.</span>")
 
 /mob/dead/observer/verb/toggle_darkness()
-	set name = "Видеть тьму"
+	set name = "Р’РёРґРµС‚СЊ С‚СЊРјСѓ"
 	set category = "Ghost"
 	switch(lighting_alpha)
 		if (LIGHTING_PLANE_ALPHA_VISIBLE)
@@ -624,15 +624,15 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/dead/observer/pointed(atom/A as mob|obj|turf in view(client.view, src))
 	if(!..())
 		return 0
-	usr.visible_message("<span class='deadsay'><b>[src]</b> показывает на [A].</span>")
+	usr.visible_message("<span class='deadsay'><b>[src]</b> РїРѕРєР°Р·С‹РІР°РµС‚ РЅР° [A].</span>")
 	return TRUE
 
 /mob/dead/observer/verb/view_manifest()
-	set name = "Показать персонал"
+	set name = "РџРѕРєР°Р·Р°С‚СЊ РїРµСЂСЃРѕРЅР°Р»"
 	set category = "Ghost"
 
 	var/dat
-	dat += "<h4>Персонал</h4>"
+	dat += "<h4>РџРµСЂСЃРѕРЅР°Р»</h4>"
 	dat += GLOB.data_core.get_manifest()
 
 	src << browse(dat, "window=manifest;size=387x420;can_close=1")
@@ -683,7 +683,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		H.remove_hud_from(src)
 
 /mob/dead/observer/verb/toggle_data_huds()
-	set name = "Переключить Sec/Med/Diag HUD"
+	set name = "РџРµСЂРµРєР»СЋС‡РёС‚СЊ Sec/Med/Diag HUD"
 	set desc = "Toggles whether you see medical/security/diagnostic HUDs"
 	set category = "Ghost"
 
@@ -697,7 +697,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		data_huds_on = 1
 
 /mob/dead/observer/verb/toggle_health_scan()
-	set name = "Переключить сканирование здоровья"
+	set name = "РџРµСЂРµРєР»СЋС‡РёС‚СЊ СЃРєР°РЅРёСЂРѕРІР°РЅРёРµ Р·РґРѕСЂРѕРІСЊСЏ"
 	set desc = "Toggles whether you health-scan living beings on click"
 	set category = "Ghost"
 
@@ -709,7 +709,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		health_scan = TRUE
 
 /mob/dead/observer/verb/toggle_gas_scan()
-	set name = "Переключить сканирование газов"
+	set name = "РџРµСЂРµРєР»СЋС‡РёС‚СЊ СЃРєР°РЅРёСЂРѕРІР°РЅРёРµ РіР°Р·РѕРІ"
 	set desc = "Toggles whether you analyze gas contents on click"
 	set category = "Ghost"
 
@@ -721,7 +721,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		gas_scan = TRUE
 
 /mob/dead/observer/verb/restore_ghost_appearance()
-	set name = "Сбросить внешность призрака"
+	set name = "РЎР±СЂРѕСЃРёС‚СЊ РІРЅРµС€РЅРѕСЃС‚СЊ РїСЂРёР·СЂР°РєР°"
 	set desc = "Sets your deadchat name and ghost appearance to your \
 		roundstart character."
 	set category = "Ghost"
@@ -785,7 +785,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			hud_used.show_hud(hud_used.hud_version)
 
 /mob/dead/observer/verb/observe()
-	set name = "Наблюдать"
+	set name = "РќР°Р±Р»СЋРґР°С‚СЊ"
 	set category = "OOC"
 
 	var/list/creatures = getpois()
@@ -856,7 +856,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	GLOB.observer_default_invisibility = amount
 
 /mob/dead/observer/proc/open_spawners_menu()
-	set name = "Меню перерождений"
+	set name = "РњРµРЅСЋ РїРµСЂРµСЂРѕР¶РґРµРЅРёР№"
 	set desc = "See all currently available spawners"
 	set category = "Ghost"
 	if(!spawners_menu)
@@ -866,7 +866,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/proc/tray_view()
 	set category = "Ghost"
-	set name = "T-ray зрение"
+	set name = "T-ray Р·СЂРµРЅРёРµ"
 	set desc = "Toggles a view of sub-floor objects"
 
 	var/static/t_ray_view = FALSE

@@ -41,7 +41,7 @@ In all, this is a lot like the monkey code. /N
 								"<span class='userdanger'>[M.name] bites you!</span>", "<span class='hear'>You hear a chomp!</span>", COMBAT_MESSAGE_RANGE, M)
 				to_chat(M, "<span class='danger'>You bite [src]!</span>")
 				adjustBruteLoss(1)
-				log_combat(M, src, "атакует")
+				log_combat(M, src, "Р°С‚Р°РєСѓРµС‚")
 				updatehealth()
 			else
 				to_chat(M, "<span class='warning'>[name] is too injured for that.</span>")
@@ -100,7 +100,7 @@ In all, this is a lot like the monkey code. /N
 		if(M.is_adult)
 			damage = rand(10, 40)
 		adjustBruteLoss(damage)
-		log_combat(M, src, "атакует")
+		log_combat(M, src, "Р°С‚Р°РєСѓРµС‚")
 		updatehealth()
 
 /mob/living/carbon/alien/ex_act(severity, target, origin)

@@ -178,7 +178,7 @@ effective or pretty fucking useless.
 	icon_state = "utilitybelt"
 	item_state = "utility"
 	slot_flags = ITEM_SLOT_BELT
-	attack_verb = list("доминирует", "наказывает", "приручает")
+	attack_verb = list("РґРѕРјРёРЅРёСЂСѓРµС‚", "РЅР°РєР°Р·С‹РІР°РµС‚", "РїСЂРёСЂСѓС‡Р°РµС‚")
 
 	var/mob/living/carbon/human/user = null
 	var/charge = 300

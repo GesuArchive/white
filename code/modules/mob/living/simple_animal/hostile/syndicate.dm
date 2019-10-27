@@ -305,7 +305,7 @@
 	mob_size = MOB_SIZE_TINY
 	movement_type = FLYING
 	limb_destroyer = 1
-	speak_emote = list("констатирует")
+	speak_emote = list("РєРѕРЅСЃС‚Р°С‚РёСЂСѓРµС‚")
 	bubble_icon = "syndibot"
 	gold_core_spawnable = HOSTILE_SPAWN
 	del_on_death = 1

@@ -85,7 +85,7 @@
 	icon_state = "guitar"
 	item_state = "guitar"
 	instrumentExt = "ogg"
-	attack_verb = list("играет метал", "серенадирует", "инструментирует", "применяет по делу")
+	attack_verb = list("РёРіСЂР°РµС‚ РјРµС‚Р°Р»", "СЃРµСЂРµРЅР°РґРёСЂСѓРµС‚", "РёРЅСЃС‚СЂСѓРјРµРЅС‚РёСЂСѓРµС‚", "РїСЂРёРјРµРЅСЏРµС‚ РїРѕ РґРµР»Сѓ")
 	hitsound = 'sound/weapons/stringsmash.ogg'
 	instrumentId = "guitar"
 
@@ -95,7 +95,7 @@
 	icon_state = "eguitar"
 	item_state = "eguitar"
 	force = 12
-	attack_verb = list("играет метал", "серенадирует", "инструментирует", "применяет по делу")
+	attack_verb = list("РёРіСЂР°РµС‚ РјРµС‚Р°Р»", "СЃРµСЂРµРЅР°РґРёСЂСѓРµС‚", "РёРЅСЃС‚СЂСѓРјРµРЅС‚РёСЂСѓРµС‚", "РїСЂРёРјРµРЅСЏРµС‚ РїРѕ РґРµР»Сѓ")
 	hitsound = 'sound/weapons/stringsmash.ogg'
 	instrumentId = "eguitar"
 	instrumentExt = "ogg"
@@ -128,7 +128,7 @@
 	item_state = "trombone"
 	force = 0
 	instrumentId = "trombone"
-	attack_verb = list("играет","джаззует","трампетирует","горнирует","дудит","спукает")
+	attack_verb = list("РёРіСЂР°РµС‚","РґР¶Р°Р·Р·СѓРµС‚","С‚СЂР°РјРїРµС‚РёСЂСѓРµС‚","РіРѕСЂРЅРёСЂСѓРµС‚","РґСѓРґРёС‚","СЃРїСѓРєР°РµС‚")
 
 /obj/item/instrument/trumpet/spectral/Initialize()
 	. = ..()
@@ -152,7 +152,7 @@
 	item_state = "saxophone"
 	instrumentId = "saxophone"
 	force = 0
-	attack_verb = list("играет","саксирует","горнирует","дудит","спукает")
+	attack_verb = list("РёРіСЂР°РµС‚","СЃР°РєСЃРёСЂСѓРµС‚","РіРѕСЂРЅРёСЂСѓРµС‚","РґСѓРґРёС‚","СЃРїСѓРєР°РµС‚")
 
 /obj/item/instrument/saxophone/spectral/Initialize()
 	. = ..()
@@ -176,7 +176,7 @@
 	icon_state = "trombone"
 	item_state = "trombone"
 	force = 0
-	attack_verb = list("играет","тромбирует","дудит","спукает")
+	attack_verb = list("РёРіСЂР°РµС‚","С‚СЂРѕРјР±РёСЂСѓРµС‚","РґСѓРґРёС‚","СЃРїСѓРєР°РµС‚")
 
 /obj/item/instrument/trombone/spectral/Initialize()
 	. = ..()
@@ -225,7 +225,7 @@
 	item_state = "bike_horn"
 	lefthand_file = 'icons/mob/inhands/equipment/horns_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/horns_righthand.dmi'
-	attack_verb = list("невероятно красиво ХОНКАЕТ")
+	attack_verb = list("РЅРµРІРµСЂРѕСЏС‚РЅРѕ РєСЂР°СЃРёРІРѕ РҐРћРќРљРђР•Рў")
 	instrumentId = "bikehorn"
 	instrumentExt = "ogg"
 	w_class = WEIGHT_CLASS_TINY

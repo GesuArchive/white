@@ -1,9 +1,9 @@
 /datum/quirk/augmented
-	name = "Аугментированный"
-	desc = "Вы заменили одну из своих рук на новейший протез!"
+	name = "РђСѓРіРјРµРЅС‚РёСЂРѕРІР°РЅРЅС‹Р№"
+	desc = "Р’С‹ Р·Р°РјРµРЅРёР»Рё РѕРґРЅСѓ РёР· СЃРІРѕРёС… СЂСѓРє РЅР° РЅРѕРІРµР№С€РёР№ РїСЂРѕС‚РµР·!"
 	value = 2
 	var/slot_string = "limb"
-	medical_record_text = "Во время физического обследования у пациента был обнаружен протез."
+	medical_record_text = "Р’Рѕ РІСЂРµРјСЏ С„РёР·РёС‡РµСЃРєРѕРіРѕ РѕР±СЃР»РµРґРѕРІР°РЅРёСЏ Сѓ РїР°С†РёРµРЅС‚Р° Р±С‹Р» РѕР±РЅР°СЂСѓР¶РµРЅ РїСЂРѕС‚РµР·."
 
 /datum/quirk/augmented/on_spawn()
 	var/limb_slot = pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)
@@ -13,10 +13,10 @@
 	switch(limb_slot)
 		if(BODY_ZONE_L_ARM)
 			prosthetic = new/obj/item/bodypart/l_arm/robot(quirk_holder)
-			slot_string = "левая рука"
+			slot_string = "Р»РµРІР°СЏ СЂСѓРєР°"
 		if(BODY_ZONE_R_ARM)
 			prosthetic = new/obj/item/bodypart/r_arm/robot(quirk_holder)
-			slot_string = "правая рука"
+			slot_string = "РїСЂР°РІР°СЏ СЂСѓРєР°"
 	prosthetic.replace_limb(H)
 	qdel(old_part)
 	H.regenerate_icons()

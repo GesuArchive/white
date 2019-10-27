@@ -30,7 +30,7 @@
 	flags_1 = CONDUCT_1
 	item_flags = SURGICAL_TOOL
 	w_class = WEIGHT_CLASS_TINY
-	attack_verb = list("атакует", "прокусывает")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "РїСЂРѕРєСѓСЃС‹РІР°РµС‚")
 	tool_behaviour = TOOL_HEMOSTAT
 	toolspeed = 1
 
@@ -51,7 +51,7 @@
 	flags_1 = CONDUCT_1
 	item_flags = SURGICAL_TOOL
 	w_class = WEIGHT_CLASS_TINY
-	attack_verb = list("прожигает")
+	attack_verb = list("РїСЂРѕР¶РёРіР°РµС‚")
 	tool_behaviour = TOOL_CAUTERY
 	toolspeed = 1
 
@@ -73,7 +73,7 @@
 	item_flags = SURGICAL_TOOL
 	force = 15
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb = list("дырявит")
+	attack_verb = list("РґС‹СЂСЏРІРёС‚")
 	tool_behaviour = TOOL_DRILL
 	toolspeed = 1
 
@@ -101,7 +101,7 @@
 	throw_speed = 3
 	throw_range = 5
 	custom_materials = list(/datum/material/iron=4000, /datum/material/glass=1000)
-	attack_verb = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "СЂСѓР±РёС‚", "РІС‚С‹РєР°РµС‚", "СЂР°Р·СЂРµР·Р°РµС‚", "РєСЂРѕРјСЃР°РµС‚", "СЂР°Р·СЂС‹РІР°РµС‚", "РЅР°СЂРµР·Р°РµС‚", "СЂРµР¶РµС‚")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = IS_SHARP_ACCURATE
 	tool_behaviour = TOOL_SCALPEL
@@ -137,7 +137,7 @@
 	throw_speed = 2
 	throw_range = 5
 	custom_materials = list(/datum/material/iron=10000, /datum/material/glass=6000)
-	attack_verb = list("атакует", "рубит", "пилит", "режет")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "СЂСѓР±РёС‚", "РїРёР»РёС‚", "СЂРµР¶РµС‚")
 	sharpness = IS_SHARP
 	tool_behaviour = TOOL_SAW
 	toolspeed = 1
@@ -161,7 +161,7 @@
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	item_state = "drapes"
 	w_class = WEIGHT_CLASS_TINY
-	attack_verb = list("шлёпает")
+	attack_verb = list("С€Р»С‘РїР°РµС‚")
 
 /obj/item/surgical_drapes/attack(mob/living/M, mob/user)
 	if(!attempt_initiate_surgery(src, M, user))

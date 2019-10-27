@@ -185,20 +185,20 @@ obj/item/dice/d6/ebony
 	var/fake_result = roll(sides)//Daredevil isn't as good as he used to be
 	var/comment = ""
 	if(sides == 20 && result == 20)
-		comment = "Вау, двадцатка!"
+		comment = "Р’Р°Сѓ, РґРІР°РґС†Р°С‚РєР°!"
 	else if(sides == 20 && result == 1)
-		comment = "Вот это невезение!"
+		comment = "Р’РѕС‚ СЌС‚Рѕ РЅРµРІРµР·РµРЅРёРµ!"
 	update_icon()
 	if(initial(icon_state) == "d00")
 		result = (result - 1)*10
 	if(special_faces.len == sides)
 		result = special_faces[result]
 	if(user != null) //Dice was rolled in someone's hand
-		user.visible_message("[user] кидает [src]. Он приземляется на [result]. [comment]</span>", \
-							 "<span class='notice'>Ты бросаешь [src]. Он приземляется на [result]. [comment]</span>", \
-							 "<span class='italics'>Вы слышите как катится [src], это звучит как [fake_result].</span>")
+		user.visible_message("[user] РєРёРґР°РµС‚ [src]. РћРЅ РїСЂРёР·РµРјР»СЏРµС‚СЃСЏ РЅР° [result]. [comment]</span>", \
+							 "<span class='notice'>РўС‹ Р±СЂРѕСЃР°РµС€СЊ [src]. РћРЅ РїСЂРёР·РµРјР»СЏРµС‚СЃСЏ РЅР° [result]. [comment]</span>", \
+							 "<span class='italics'>Р’С‹ СЃР»С‹С€РёС‚Рµ РєР°Рє РєР°С‚РёС‚СЃСЏ [src], СЌС‚Рѕ Р·РІСѓС‡РёС‚ РєР°Рє [fake_result].</span>")
 	else if(!src.throwing) //Dice was thrown and is coming to rest
-		visible_message("<span class='notice'>[src] останавливается приземлившись на [result]. [comment]</span>")
+		visible_message("<span class='notice'>[src] РѕСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ РїСЂРёР·РµРјР»РёРІС€РёСЃСЊ РЅР° [result]. [comment]</span>")
 
 /obj/item/dice/update_icon()
 	cut_overlays()

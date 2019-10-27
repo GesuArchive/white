@@ -39,9 +39,9 @@
 	maxHealth = 80
 	pass_flags = PASSTABLE | PASSMOB
 
-	speak = list("Привет!","Здарова!","Крекер?","Кудах! Джордж Меллонс гриферит меня!")
-	speak_emote = list("клевещет","говорит","вскрикивает")
-	emote_hear = list("клевещет.","вопит!")
+	speak = list("РџСЂРёРІРµС‚!","Р—РґР°СЂРѕРІР°!","РљСЂРµРєРµСЂ?","РљСѓРґР°С…! Р”Р¶РѕСЂРґР¶ РњРµР»Р»РѕРЅСЃ РіСЂРёС„РµСЂРёС‚ РјРµРЅСЏ!")
+	speak_emote = list("РєР»РµРІРµС‰РµС‚","РіРѕРІРѕСЂРёС‚","РІСЃРєСЂРёРєРёРІР°РµС‚")
+	emote_hear = list("РєР»РµРІРµС‰РµС‚.","РІРѕРїРёС‚!")
 	emote_see = list("flutters its wings.")
 
 	speak_chance = 1 //1% (1 in 100) chance every tick; So about once per 150 seconds, assuming an average tick is 1.5s
@@ -50,18 +50,18 @@
 	melee_damage_upper = 10
 	melee_damage_lower = 5
 
-	response_help_continuous = "поглаживает"
-	response_help_simple = "гладит"
-	response_disarm_continuous = "отталкивает чуть дальше"
-	response_disarm_simple = "осторожно отталкивает"
-	response_harm_continuous = "забивает"
-	response_harm_simple = "бьёт"
+	response_help_continuous = "РїРѕРіР»Р°Р¶РёРІР°РµС‚"
+	response_help_simple = "РіР»Р°РґРёС‚"
+	response_disarm_continuous = "РѕС‚С‚Р°Р»РєРёРІР°РµС‚ С‡СѓС‚СЊ РґР°Р»СЊС€Рµ"
+	response_disarm_simple = "РѕСЃС‚РѕСЂРѕР¶РЅРѕ РѕС‚С‚Р°Р»РєРёРІР°РµС‚"
+	response_harm_continuous = "Р·Р°Р±РёРІР°РµС‚"
+	response_harm_simple = "Р±СЊС‘С‚"
 	stop_automated_movement = 1
 	a_intent = INTENT_HARM //parrots now start "aggressive" since only player parrots will nuzzle.
-	attack_verb_continuous = "грызёт"
-	attack_verb_simple = "кусает"
-	friendly_verb_continuous = "ворсится"
-	friendly_verb_simple = "ворсится"
+	attack_verb_continuous = "РіСЂС‹Р·С‘С‚"
+	attack_verb_simple = "РєСѓСЃР°РµС‚"
+	friendly_verb_continuous = "РІРѕСЂСЃРёС‚СЃСЏ"
+	friendly_verb_simple = "РІРѕСЂСЃРёС‚СЃСЏ"
 	mob_size = MOB_SIZE_SMALL
 	movement_type = FLYING
 	gold_core_spawnable = FRIENDLY_SPAWN

@@ -43,7 +43,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 1
 	throw_range = 3
-	attack_verb = list("жалит")
+	attack_verb = list("Р¶Р°Р»РёС‚")
 
 /obj/item/reagent_containers/food/snacks/grown/nettle/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] is eating some of [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
@@ -106,7 +106,7 @@
 		return
 	if(isliving(M))
 		to_chat(M, "<span class='danger'>You are stunned by the powerful acid of the Deathnettle!</span>")
-		log_combat(user, M, "атакует", src)
+		log_combat(user, M, "Р°С‚Р°РєСѓРµС‚", src)
 
 		M.adjust_blurriness(force/7)
 		if(prob(20))

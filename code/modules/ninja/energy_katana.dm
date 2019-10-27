@@ -11,7 +11,7 @@
 	armour_penetration = 50
 	w_class = WEIGHT_CLASS_NORMAL
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "СЂСѓР±РёС‚", "РІС‚С‹РєР°РµС‚", "СЂР°Р·СЂРµР·Р°РµС‚", "РєСЂРѕРјСЃР°РµС‚", "СЂР°Р·СЂС‹РІР°РµС‚", "РЅР°СЂРµР·Р°РµС‚", "СЂРµР¶РµС‚")
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	sharpness = IS_SHARP
 	max_integrity = 200

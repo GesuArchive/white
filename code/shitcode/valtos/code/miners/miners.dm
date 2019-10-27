@@ -18,7 +18,7 @@ SUBSYSTEM_DEF(spm)
 
 	for(var/obj/machinery/power/spaceminer/MC in miners)
 		if(convertprice <= -100)
-			MC.say("Ðûíîê [SSspm.crypto] îáðóøèëñÿ. ß áîëüøå íå àêòóàëåí...")
+			MC.say("Ð Ñ‹Ð½Ð¾Ðº [SSspm.crypto] Ð¾Ð±Ñ€ÑƒÑˆÐ¸Ð»ÑÑ. Ð¯ Ð±Ð¾Ð»ÑŒÑˆÐµ Ð½Ðµ Ð°ÐºÑ‚ÑƒÐ°Ð»ÐµÐ½...")
 			spawn(30)
 				explosion(MC, 1, 2, 3, 8)
 		if(!MC.powernet)

@@ -1,34 +1,34 @@
 //pronoun procs, for getting pronouns without using the text macros that only work in certain positions
 //datums don't have gender, but most of their subtypes do!
 /datum/proc/ru_who(capitalized, temp_gender)
-	. = "он"
+	. = "РѕРЅ"
 	if(capitalized)
 		. = capitalize(.)
 
 /datum/proc/ru_ego(capitalized, temp_gender)
-	. = "его"
+	. = "РµРіРѕ"
 	if(capitalized)
 		. = capitalize(.)
 
 /datum/proc/ru_eto(capitalized, temp_gender)
-	. = "это"
+	. = "СЌС‚Рѕ"
 	if(capitalized)
 		. = capitalize(.)
 
 /datum/proc/ru_have(temp_gender)
-	. = "имеет"
+	. = "РёРјРµРµС‚"
 
 /datum/proc/ru_was(temp_gender)
-	. = "был"
+	. = "Р±С‹Р»"
 
 /datum/proc/ru_do(temp_gender)
-	. = "делает"
+	. = "РґРµР»Р°РµС‚"
 
 /datum/proc/ru_kon(temp_gender)
-	. = "ый"
+	. = "С‹Р№"
 
 /datum/proc/ru_na(temp_gender)
-	. = "ём"
+	. = "С‘Рј"
 
 /datum/proc/ru_a(temp_gender)
 	. = ""
@@ -37,48 +37,48 @@
 /client/ru_who(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "он"
+	. = "РѕРЅ"
 	switch(temp_gender)
 		if(FEMALE)
-			. = "она"
+			. = "РѕРЅР°"
 		if(MALE)
-			. = "он"
+			. = "РѕРЅ"
 	if(capitalized)
 		. = capitalize(.)
 
 /client/ru_ego(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "его"
+	. = "РµРіРѕ"
 	switch(temp_gender)
 		if(FEMALE)
-			. = "её"
+			. = "РµС‘"
 		if(MALE)
-			. = "его"
+			. = "РµРіРѕ"
 	if(capitalized)
 		. = capitalize(.)
 
 /client/ru_was(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "был"
+	. = "Р±С‹Р»"
 	switch(temp_gender)
 		if(FEMALE)
-			. = "была"
+			. = "Р±С‹Р»Р°"
 		if(MALE)
-			. = "был"
+			. = "Р±С‹Р»"
 	if(capitalized)
 		. = capitalize(.)
 
 /client/ru_na(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "ём"
+	. = "С‘Рј"
 	switch(temp_gender)
 		if(FEMALE)
-			. = "ей"
+			. = "РµР№"
 		if(MALE)
-			. = "ём"
+			. = "С‘Рј"
 	if(capitalized)
 		. = capitalize(.)
 
@@ -88,7 +88,7 @@
 	. = ""
 	switch(temp_gender)
 		if(FEMALE)
-			. = "а"
+			. = "Р°"
 		if(MALE)
 			. = ""
 	if(capitalized)
@@ -97,86 +97,86 @@
 /client/ru_eto(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "это"
+	. = "СЌС‚Рѕ"
 	if(temp_gender == PLURAL || temp_gender == NEUTER)
-		. = "эти"
+		. = "СЌС‚Рё"
 
 /client/ru_have(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "имеет"
+	. = "РёРјРµРµС‚"
 	if(temp_gender == PLURAL || temp_gender == NEUTER)
-		. = "имеет"
+		. = "РёРјРµРµС‚"
 
 
 //mobs(and atoms but atoms don't really matter write your own proc overrides) also have gender!
 /mob/ru_who(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "он"
+	. = "РѕРЅ"
 	switch(temp_gender)
 		if(FEMALE)
-			. = "она"
+			. = "РѕРЅР°"
 		if(MALE)
-			. = "он"
+			. = "РѕРЅ"
 		if(PLURAL)
-			. = "оно"
+			. = "РѕРЅРѕ"
 	if(capitalized)
 		. = capitalize(.)
 
 /mob/ru_ego(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "его"
+	. = "РµРіРѕ"
 	switch(temp_gender)
 		if(FEMALE)
-			. = "её"
+			. = "РµС‘"
 		if(MALE)
-			. = "его"
+			. = "РµРіРѕ"
 		if(PLURAL)
-			. = "его"
+			. = "РµРіРѕ"
 	if(capitalized)
 		. = capitalize(.)
 
 /mob/ru_eto(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "это"
+	. = "СЌС‚Рѕ"
 	switch(temp_gender)
 		if(FEMALE)
-			. = "это"
+			. = "СЌС‚Рѕ"
 		if(MALE)
-			. = "это"
+			. = "СЌС‚Рѕ"
 		if(PLURAL)
-			. = "это"
+			. = "СЌС‚Рѕ"
 	if(capitalized)
 		. = capitalize(.)
 
 /mob/ru_na(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "ём"
+	. = "С‘Рј"
 	switch(temp_gender)
 		if(FEMALE)
-			. = "ей"
+			. = "РµР№"
 		if(MALE)
-			. = "ём"
+			. = "С‘Рј"
 		if(PLURAL)
-			. = "ём"
+			. = "С‘Рј"
 	if(capitalized)
 		. = capitalize(.)
 
 /mob/ru_kon(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "ый"
+	. = "С‹Р№"
 	switch(temp_gender)
 		if(FEMALE)
-			. = "аЯ"
+			. = "Р°РЇ"
 		if(MALE)
-			. = "ый"
+			. = "С‹Р№"
 		if(PLURAL)
-			. = "ое"
+			. = "РѕРµ"
 
 /mob/ru_a(temp_gender)
 	if(!temp_gender)
@@ -184,30 +184,30 @@
 	. = ""
 	switch(temp_gender)
 		if(FEMALE)
-			. = "а"
+			. = "Р°"
 		if(MALE)
 			. = ""
 		if(PLURAL)
-			. = "о"
+			. = "Рѕ"
 
 /mob/ru_was(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "был"
+	. = "Р±С‹Р»"
 	switch(temp_gender)
 		if(FEMALE)
-			. = "была"
+			. = "Р±С‹Р»Р°"
 		if(MALE)
-			. = "был"
+			. = "Р±С‹Р»"
 		if(PLURAL)
-			. = "был"
+			. = "Р±С‹Р»"
 
 /mob/ru_have(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "имеет"
+	. = "РёРјРµРµС‚"
 	if(temp_gender == PLURAL)
-		. = "имело"
+		. = "РёРјРµР»Рѕ"
 
 //humans need special handling, because they can have their gender hidden
 /mob/living/carbon/human/ru_who(capitalized, temp_gender)

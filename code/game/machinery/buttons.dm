@@ -181,7 +181,7 @@
 
 /obj/machinery/button/door
 	name = "door button"
-	desc = "Кнопка, которая контроллирует шлюзы и не только."
+	desc = "РљРЅРѕРїРєР°, РєРѕС‚РѕСЂР°СЏ РєРѕРЅС‚СЂРѕР»Р»РёСЂСѓРµС‚ С€Р»СЋР·С‹ Рё РЅРµ С‚РѕР»СЊРєРѕ."
 	var/normaldoorcontrol = FALSE
 	var/specialfunctions = OPEN // Bitflag, see assembly file
 	var/sync_doors = TRUE

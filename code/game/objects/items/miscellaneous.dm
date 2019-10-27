@@ -10,7 +10,7 @@
 	throw_speed = 2
 	throw_range = 5
 	w_class = WEIGHT_CLASS_SMALL
-	attack_verb = list("предупреждает", "предостерегает", "лупит")
+	attack_verb = list("РїСЂРµРґСѓРїСЂРµР¶РґР°РµС‚", "РїСЂРµРґРѕСЃС‚РµСЂРµРіР°РµС‚", "Р»СѓРїРёС‚")
 
 /obj/item/choice_beacon
 	name = "choice beacon"
@@ -137,7 +137,7 @@
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "skub"
 	w_class = WEIGHT_CLASS_BULKY
-	attack_verb = list("пудрит")
+	attack_verb = list("РїСѓРґСЂРёС‚")
 
 /obj/item/skub/suicide_act(mob/living/user)
 	user.visible_message("<span class='suicide'>[user] has declared themself as anti-skub! The skub tears them apart!</span>")

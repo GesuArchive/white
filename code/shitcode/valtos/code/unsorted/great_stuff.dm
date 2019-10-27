@@ -8,7 +8,7 @@
 
 /obj/item/clothing/under/m35jacket
 	name = "m35 jacket"
-	desc = "Ммм. Хайль Вайт."
+	desc = "РњРјРј. РҐР°Р№Р»СЊ Р’Р°Р№С‚."
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/uniform.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/uniforms.dmi'
 	icon_state = "m35_jacket"
@@ -34,7 +34,7 @@
 
 /obj/item/clothing/under/magistrate
 	name = "magistrate uniform"
-	desc = "Ммм. Хайль Вайт."
+	desc = "РњРјРј. РҐР°Р№Р»СЊ Р’Р°Р№С‚."
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/uniform.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/uniforms.dmi'
 	icon_state = "magistrate"
@@ -45,7 +45,7 @@
 
 /obj/item/clothing/under/arbiter
 	name = "arbiter uniform"
-	desc = "Ммм. Хайль Вайт."
+	desc = "РњРјРј. РҐР°Р№Р»СЊ Р’Р°Р№С‚."
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/uniform.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/uniforms.dmi'
 	icon_state = "arbiter"
@@ -58,7 +58,7 @@
 
 /obj/item/clothing/suit/armor/vest/izan
 	name = "bulletproof vest"
-	desc = "Спасёт твою грудь от пуль. Пахнет китайским пластиком."
+	desc = "РЎРїР°СЃС‘С‚ С‚РІРѕСЋ РіСЂСѓРґСЊ РѕС‚ РїСѓР»СЊ. РџР°С…РЅРµС‚ РєРёС‚Р°Р№СЃРєРёРј РїР»Р°СЃС‚РёРєРѕРј."
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/suits.dmi'
 	icon_state = "opvest"
@@ -82,14 +82,14 @@
 
 /obj/item/clothing/suit/cowl
 	name = "cowl"
-	desc = "Красивое покрывало."
+	desc = "РљСЂР°СЃРёРІРѕРµ РїРѕРєСЂС‹РІР°Р»Рѕ."
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/suits.dmi'
 	icon_state = "cowl"
 
 /obj/item/clothing/suit/cowl/robe
 	name = "robe"
-	desc = "Модное покрывало."
+	desc = "РњРѕРґРЅРѕРµ РїРѕРєСЂС‹РІР°Р»Рѕ."
 	icon_state = "robes"
 
 //gloves
@@ -108,7 +108,7 @@
 
 /obj/item/clothing/head/helmet/arbiter
 	name = "arbiter helmet"
-	desc = "Ммм. Хайль Вайт."
+	desc = "РњРјРј. РҐР°Р№Р»СЊ Р’Р°Р№С‚."
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/hat.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/hats.dmi'
 	icon_state = "arbiter"
@@ -121,7 +121,7 @@
 
 /obj/item/clothing/head/helmet/izanhelm
 	name = "m35 cap"
-	desc = "Ммм. Хайль Вайт."
+	desc = "РњРјРј. РҐР°Р№Р»СЊ Р’Р°Р№С‚."
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/hat.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/hats.dmi'
 	icon_state = "officer_cap"
@@ -147,7 +147,7 @@
 
 /obj/item/clothing/head/helmet/richard
 	name = "richard's head"
-	desc = "Пахнет кровью."
+	desc = "РџР°С…РЅРµС‚ РєСЂРѕРІСЊСЋ."
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/hat.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/hats.dmi'
 	icon_state = "richard"
@@ -158,7 +158,7 @@
 
 /obj/item/clothing/mask/gas/izan
 	name = "old style gas mask"
-	desc = "Ммм. Хайль Вайт."
+	desc = "РњРјРј. РҐР°Р№Р»СЊ Р’Р°Р№С‚."
 	flags_inv = 256
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/mask.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/masks.dmi'
@@ -180,7 +180,7 @@
 
 /obj/item/clothing/mask/izanclava
 	name = "balaclava"
-	desc = "Ммм. Хайль Вайт."
+	desc = "РњРјРј. РҐР°Р№Р»СЊ Р’Р°Р№С‚."
 	flags_inv = 256
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/mask.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/masks.dmi'
@@ -194,7 +194,7 @@
 
 /obj/item/clothing/shoes/jackboots/arbiter
 	name = "arbiter boots"
-	desc = "Ммм. Хайль Вайт."
+	desc = "РњРјРј. РҐР°Р№Р»СЊ Р’Р°Р№С‚."
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/shoe.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/shoes.dmi'
 	icon_state = "arbiter"
@@ -203,7 +203,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/makarov
 	name = "\improper Makarov"
-	desc = "Ммм. Хайль Вайт."
+	desc = "РњРјРј. РҐР°Р№Р»СЊ Р’Р°Р№С‚."
 	icon = 'code/shitcode/valtos/icons/gun.dmi'
 	icon_state = "makarov"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -212,7 +212,7 @@
 
 /obj/item/gun/ballistic/automatic/ak47
 	name = "AK-47"
-	desc = "Отрывает ебальник с очереди. Использует противотанковый калибр 7.62."
+	desc = "РћС‚СЂС‹РІР°РµС‚ РµР±Р°Р»СЊРЅРёРє СЃ РѕС‡РµСЂРµРґРё. РСЃРїРѕР»СЊР·СѓРµС‚ РїСЂРѕС‚РёРІРѕС‚Р°РЅРєРѕРІС‹Р№ РєР°Р»РёР±СЂ 7.62."
 	icon = 'code/shitcode/valtos/icons/gun.dmi'
 	lefthand_file = 'code/shitcode/valtos/icons/lefthand.dmi'
 	righthand_file = 'code/shitcode/valtos/icons/righthand.dmi'

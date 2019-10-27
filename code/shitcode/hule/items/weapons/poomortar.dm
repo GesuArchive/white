@@ -1,6 +1,6 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/poo_mortar
 	name = "R3801U710N two-twenty-eight poo mortar"
-	desc = "Охае."
+	desc = "РћС…Р°Рµ."
 	icon_state = "mecha_bananamrtr"
 	projectile = /obj/item/reagent_containers/food/snacks/poo
 	fire_sound = 'sound/weapons/gun/general/rocket_launch.ogg'
@@ -25,7 +25,7 @@
 		return 1
 	return 0
 
-/datum/crafting_recipe/poomortar  //мне лень искать как замутить дизайн для фабиркатораа
+/datum/crafting_recipe/poomortar  //РјРЅРµ Р»РµРЅСЊ РёСЃРєР°С‚СЊ РєР°Рє Р·Р°РјСѓС‚РёС‚СЊ РґРёР·Р°Р№РЅ РґР»СЏ С„Р°Р±РёСЂРєР°С‚РѕСЂР°Р°
 	name = "poo mortar"
 	result = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/poo_mortar
 	time = 300

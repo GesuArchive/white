@@ -1,6 +1,6 @@
 /obj/structure/window
 	name = "window"
-	desc = "Окно. Невероятно."
+	desc = "РћРєРЅРѕ. РќРµРІРµСЂРѕСЏС‚РЅРѕ."
 	icon_state = "window"
 	density = TRUE
 	layer = ABOVE_OBJ_LAYER //Just above doors
@@ -33,18 +33,18 @@
 	. = ..()
 	if(reinf)
 		if(anchored && state == WINDOW_SCREWED_TO_FRAME)
-			. += "<span class='notice'>Окно <b>прикручено</b> к рамке.</span>"
+			. += "<span class='notice'>РћРєРЅРѕ <b>РїСЂРёРєСЂСѓС‡РµРЅРѕ</b> Рє СЂР°РјРєРµ.</span>"
 		else if(anchored && state == WINDOW_IN_FRAME)
-			. += "<span class='notice'>Окно <i>откручено</i> от рамки, но всё ещё <b>пристыковано</b> к ней.</span>"
+			. += "<span class='notice'>РћРєРЅРѕ <i>РѕС‚РєСЂСѓС‡РµРЅРѕ</i> РѕС‚ СЂР°РјРєРё, РЅРѕ РІСЃС‘ РµС‰С‘ <b>РїСЂРёСЃС‚С‹РєРѕРІР°РЅРѕ</b> Рє РЅРµР№.</span>"
 		else if(anchored && state == WINDOW_OUT_OF_FRAME)
-			. += "<span class='notice'>Окно вышло из рамки, но может быть <i>пристыковано</i> к ней. Оно <b>прикручено</b> к полу.</span>"
+			. += "<span class='notice'>РћРєРЅРѕ РІС‹С€Р»Рѕ РёР· СЂР°РјРєРё, РЅРѕ РјРѕР¶РµС‚ Р±С‹С‚СЊ <i>РїСЂРёСЃС‚С‹РєРѕРІР°РЅРѕ</i> Рє РЅРµР№. РћРЅРѕ <b>РїСЂРёРєСЂСѓС‡РµРЅРѕ</b> Рє РїРѕР»Сѓ.</span>"
 		else if(!anchored)
-			. += "<span class='notice'>Окно <i>окручено</i> от пола, и может быть разобрано <b>раскручиванием</b>.</span>"
+			. += "<span class='notice'>РћРєРЅРѕ <i>РѕРєСЂСѓС‡РµРЅРѕ</i> РѕС‚ РїРѕР»Р°, Рё РјРѕР¶РµС‚ Р±С‹С‚СЊ СЂР°Р·РѕР±СЂР°РЅРѕ <b>СЂР°СЃРєСЂСѓС‡РёРІР°РЅРёРµРј</b>.</span>"
 	else
 		if(anchored)
-			. += "<span class='notice'>Окно <b>прикручено</b> к полу.</span>"
+			. += "<span class='notice'>РћРєРЅРѕ <b>РїСЂРёРєСЂСѓС‡РµРЅРѕ</b> Рє РїРѕР»Сѓ.</span>"
 		else
-			. += "<span class='notice'>Окно <i>окручено</i> от пола, и может быть разобрано <b>раскручиванием</b>.</span>"
+			. += "<span class='notice'>РћРєРЅРѕ <i>РѕРєСЂСѓС‡РµРЅРѕ</i> РѕС‚ РїРѕР»Р°, Рё РјРѕР¶РµС‚ Р±С‹С‚СЊ СЂР°Р·РѕР±СЂР°РЅРѕ <b>СЂР°СЃРєСЂСѓС‡РёРІР°РЅРёРµРј</b>.</span>"
 
 /obj/structure/window/Initialize(mapload, direct)
 	. = ..()
@@ -76,7 +76,7 @@
 /obj/structure/window/rcd_act(mob/user, obj/item/construction/rcd/the_rcd)
 	switch(the_rcd.mode)
 		if(RCD_DECONSTRUCT)
-			to_chat(user, "<span class='notice'>Ты разобрал окно.</span>")
+			to_chat(user, "<span class='notice'>РўС‹ СЂР°Р·РѕР±СЂР°Р» РѕРєРЅРѕ.</span>")
 			qdel(src)
 			return TRUE
 	return FALSE
@@ -123,7 +123,7 @@
 
 /obj/structure/window/attack_tk(mob/user)
 	user.changeNext_move(CLICK_CD_MELEE)
-	user.visible_message("<span class='notice'>Что-то стучит по [src.name].</span>")
+	user.visible_message("<span class='notice'>Р§С‚Рѕ-С‚Рѕ СЃС‚СѓС‡РёС‚ РїРѕ [src.name].</span>")
 	add_fingerprint(user)
 	playsound(src, 'sound/effects/Glassknock.ogg', 50, TRUE)
 
@@ -139,8 +139,8 @@
 	if(!can_be_reached(user))
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	user.visible_message("<span class='notice'>[user] стучит по [src.name].</span>", \
-		"<span class='notice'>Ты стучишь по [src.name].</span>")
+	user.visible_message("<span class='notice'>[user] СЃС‚СѓС‡РёС‚ РїРѕ [src.name].</span>", \
+		"<span class='notice'>РўС‹ СЃС‚СѓС‡РёС€СЊ РїРѕ [src.name].</span>")
 	add_fingerprint(user)
 	playsound(src, 'sound/effects/Glassknock.ogg', 50, TRUE)
 
@@ -163,36 +163,36 @@
 			if(!I.tool_start_check(user, amount=0))
 				return
 
-			to_chat(user, "<span class='notice'>Ты начинаешь чинить [src.name]...</span>")
+			to_chat(user, "<span class='notice'>РўС‹ РЅР°С‡РёРЅР°РµС€СЊ С‡РёРЅРёС‚СЊ [src.name]...</span>")
 			if(I.use_tool(src, user, 40, volume=50))
 				obj_integrity = max_integrity
 				update_nearby_icons()
-				to_chat(user, "<span class='notice'>Ты чинишь [src.name].</span>")
+				to_chat(user, "<span class='notice'>РўС‹ С‡РёРЅРёС€СЊ [src.name].</span>")
 		else
-			to_chat(user, "<span class='warning'>[src.name] не требуется починка!</span>")
+			to_chat(user, "<span class='warning'>[src.name] РЅРµ С‚СЂРµР±СѓРµС‚СЃСЏ РїРѕС‡РёРЅРєР°!</span>")
 		return
 
 	if(!(flags_1&NODECONSTRUCT_1) && !(reinf && state >= RWINDOW_FRAME_BOLTED))
 		if(I.tool_behaviour == TOOL_SCREWDRIVER)
-			to_chat(user, "<span class='notice'>Ты начинаешь [anchored ? "откручивать окно от пола":"прикручивать окно к полу"]...</span>")
+			to_chat(user, "<span class='notice'>РўС‹ РЅР°С‡РёРЅР°РµС€СЊ [anchored ? "РѕС‚РєСЂСѓС‡РёРІР°С‚СЊ РѕРєРЅРѕ РѕС‚ РїРѕР»Р°":"РїСЂРёРєСЂСѓС‡РёРІР°С‚СЊ РѕРєРЅРѕ Рє РїРѕР»Сѓ"]...</span>")
 			if(I.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, .proc/check_anchored, anchored)))
 				setAnchored(!anchored)
-				to_chat(user, "<span class='notice'>Ты [anchored ? "прикрутил к полу":"открутил от пола"].</span>")
+				to_chat(user, "<span class='notice'>РўС‹ [anchored ? "РїСЂРёРєСЂСѓС‚РёР» Рє РїРѕР»Сѓ":"РѕС‚РєСЂСѓС‚РёР» РѕС‚ РїРѕР»Р°"].</span>")
 			return
 		else if(I.tool_behaviour == TOOL_WRENCH && !anchored)
-			to_chat(user, "<span class='notice'>Ты начинаешь разбирать [src.name]...</span>")
+			to_chat(user, "<span class='notice'>РўС‹ РЅР°С‡РёРЅР°РµС€СЊ СЂР°Р·Р±РёСЂР°С‚СЊ [src.name]...</span>")
 			if(I.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, .proc/check_state_and_anchored, state, anchored)))
 				var/obj/item/stack/sheet/G = new glass_type(user.loc, glass_amount)
 				G.add_fingerprint(user)
 				playsound(src, 'sound/items/Deconstruct.ogg', 50, TRUE)
-				to_chat(user, "<span class='notice'>Ты разобрал [src.name].</span>")
+				to_chat(user, "<span class='notice'>РўС‹ СЂР°Р·РѕР±СЂР°Р» [src.name].</span>")
 				qdel(src)
 			return
 		else if(I.tool_behaviour == TOOL_CROWBAR && reinf && (state == WINDOW_OUT_OF_FRAME) && anchored)
-			to_chat(user, "<span class='notice'>Ты начинаешь вставлять окно в рамку...</span>")
+			to_chat(user, "<span class='notice'>РўС‹ РЅР°С‡РёРЅР°РµС€СЊ РІСЃС‚Р°РІР»СЏС‚СЊ РѕРєРЅРѕ РІ СЂР°РјРєСѓ...</span>")
 			if(I.use_tool(src, user, 100, volume = 75, extra_checks = CALLBACK(src, .proc/check_state_and_anchored, state, anchored)))
 				state = RWINDOW_SECURE
-				to_chat(user, "<span class='notice'>Ты вставил окно в рамку.</span>")
+				to_chat(user, "<span class='notice'>РўС‹ РІСЃС‚Р°РІРёР» РѕРєРЅРѕ РІ СЂР°РјРєСѓ.</span>")
 			return
 
 	return ..()
@@ -264,13 +264,13 @@
 
 /obj/structure/window/proc/can_be_rotated(mob/user,rotation_type)
 	if(anchored)
-		to_chat(user, "<span class='warning'>[src.name] не может быть повёрнуто. Оно прикручено к полу!</span>")
+		to_chat(user, "<span class='warning'>[src.name] РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїРѕРІС‘СЂРЅСѓС‚Рѕ. РћРЅРѕ РїСЂРёРєСЂСѓС‡РµРЅРѕ Рє РїРѕР»Сѓ!</span>")
 		return FALSE
 
 	var/target_dir = turn(dir, rotation_type == ROTATION_CLOCKWISE ? -90 : 90)
 
 	if(!valid_window_location(loc, target_dir))
-		to_chat(user, "<span class='warning'>[src.name] не может быть повёрнуто в этом направлении!</span>")
+		to_chat(user, "<span class='warning'>[src.name] РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїРѕРІС‘СЂРЅСѓС‚Рѕ РІ СЌС‚РѕРј РЅР°РїСЂР°РІР»РµРЅРёРё!</span>")
 		return FALSE
 	return TRUE
 
@@ -355,7 +355,7 @@
 
 /obj/structure/window/reinforced
 	name = "reinforced window"
-	desc = "Окно, которое укреплено стальными прутьями."
+	desc = "РћРєРЅРѕ, РєРѕС‚РѕСЂРѕРµ СѓРєСЂРµРїР»РµРЅРѕ СЃС‚Р°Р»СЊРЅС‹РјРё РїСЂСѓС‚СЊСЏРјРё."
 	icon_state = "rwindow"
 	reinf = TRUE
 	heat_resistance = 1600
@@ -373,43 +373,43 @@
 	switch(state)
 		if(RWINDOW_SECURE)
 			if(I.tool_behaviour == TOOL_WELDER && user.a_intent == INTENT_HARM)
-				user.visible_message("<span class='notice'>[user] направил [I.name] на защищённые винтики [src.name]...</span>",
-										"<span class='notice'>Ты начинаешь нагревать винтики [src.name]...</span>")
+				user.visible_message("<span class='notice'>[user] РЅР°РїСЂР°РІРёР» [I.name] РЅР° Р·Р°С‰РёС‰С‘РЅРЅС‹Рµ РІРёРЅС‚РёРєРё [src.name]...</span>",
+										"<span class='notice'>РўС‹ РЅР°С‡РёРЅР°РµС€СЊ РЅР°РіСЂРµРІР°С‚СЊ РІРёРЅС‚РёРєРё [src.name]...</span>")
 				if(I.use_tool(src, user, 180, volume = 100))
-					to_chat(user, "<span class='notice'>Винтики раскалены до бела, похоже можно открутить их прямо сейчас..</span>")
+					to_chat(user, "<span class='notice'>Р’РёРЅС‚РёРєРё СЂР°СЃРєР°Р»РµРЅС‹ РґРѕ Р±РµР»Р°, РїРѕС…РѕР¶Рµ РјРѕР¶РЅРѕ РѕС‚РєСЂСѓС‚РёС‚СЊ РёС… РїСЂСЏРјРѕ СЃРµР№С‡Р°СЃ..</span>")
 					state = RWINDOW_BOLTS_HEATED
 					addtimer(CALLBACK(src, .proc/cool_bolts), 300)
 				return
 		if(RWINDOW_BOLTS_HEATED)
 			if(I.tool_behaviour == TOOL_SCREWDRIVER)
-				user.visible_message("<span class='notice'>[user] втыкает отвёртку в раскалённые винтики и начинает их выкручивать...</span>",
-										"<span class='notice'>Ты втыкаешь отвёртку в раскалённые винтики и начинаешь их выкручивать...</span>")
+				user.visible_message("<span class='notice'>[user] РІС‚С‹РєР°РµС‚ РѕС‚РІС‘СЂС‚РєСѓ РІ СЂР°СЃРєР°Р»С‘РЅРЅС‹Рµ РІРёРЅС‚РёРєРё Рё РЅР°С‡РёРЅР°РµС‚ РёС… РІС‹РєСЂСѓС‡РёРІР°С‚СЊ...</span>",
+										"<span class='notice'>РўС‹ РІС‚С‹РєР°РµС€СЊ РѕС‚РІС‘СЂС‚РєСѓ РІ СЂР°СЃРєР°Р»С‘РЅРЅС‹Рµ РІРёРЅС‚РёРєРё Рё РЅР°С‡РёРЅР°РµС€СЊ РёС… РІС‹РєСЂСѓС‡РёРІР°С‚СЊ...</span>")
 				if(I.use_tool(src, user, 80, volume = 50))
 					state = RWINDOW_BOLTS_OUT
-					to_chat(user, "<span class='notice'>Винтики удалены и теперь окно можно подпереть</span>")
+					to_chat(user, "<span class='notice'>Р’РёРЅС‚РёРєРё СѓРґР°Р»РµРЅС‹ Рё С‚РµРїРµСЂСЊ РѕРєРЅРѕ РјРѕР¶РЅРѕ РїРѕРґРїРµСЂРµС‚СЊ</span>")
 				return
 		if(RWINDOW_BOLTS_OUT)
 			if(I.tool_behaviour == TOOL_CROWBAR)
-				user.visible_message("<span class='notice'>[user] вставляет [I.name] в щель и начинает подпирать окно...</span>",
-										"<span class='notice'>Ты вставляешь [I.name] в щель и начинаешь подпирать окно...</span>")
+				user.visible_message("<span class='notice'>[user] РІСЃС‚Р°РІР»СЏРµС‚ [I.name] РІ С‰РµР»СЊ Рё РЅР°С‡РёРЅР°РµС‚ РїРѕРґРїРёСЂР°С‚СЊ РѕРєРЅРѕ...</span>",
+										"<span class='notice'>РўС‹ РІСЃС‚Р°РІР»СЏРµС€СЊ [I.name] РІ С‰РµР»СЊ Рё РЅР°С‡РёРЅР°РµС€СЊ РїРѕРґРїРёСЂР°С‚СЊ РѕРєРЅРѕ...</span>")
 				if(I.use_tool(src, user, 50, volume = 50))
 					state = RWINDOW_POPPED
-					to_chat(user, "<span class='notice'>Основная плита вышла из рамки и стали видны прутья, которые можно откусить.</span>")
+					to_chat(user, "<span class='notice'>РћСЃРЅРѕРІРЅР°СЏ РїР»РёС‚Р° РІС‹С€Р»Р° РёР· СЂР°РјРєРё Рё СЃС‚Р°Р»Рё РІРёРґРЅС‹ РїСЂСѓС‚СЊСЏ, РєРѕС‚РѕСЂС‹Рµ РјРѕР¶РЅРѕ РѕС‚РєСѓСЃРёС‚СЊ.</span>")
 				return
 		if(RWINDOW_POPPED)
 			if(I.tool_behaviour == TOOL_WIRECUTTER)
-				user.visible_message("<span class='notice'>[user] начинает откусывать доступные прутья [src.name]...</span>",
-										"<span class='notice'>Ты начинаешь откусывать доступные прутья [src.name]...</span>")
+				user.visible_message("<span class='notice'>[user] РЅР°С‡РёРЅР°РµС‚ РѕС‚РєСѓСЃС‹РІР°С‚СЊ РґРѕСЃС‚СѓРїРЅС‹Рµ РїСЂСѓС‚СЊСЏ [src.name]...</span>",
+										"<span class='notice'>РўС‹ РЅР°С‡РёРЅР°РµС€СЊ РѕС‚РєСѓСЃС‹РІР°С‚СЊ РґРѕСЃС‚СѓРїРЅС‹Рµ РїСЂСѓС‚СЊСЏ [src.name]...</span>")
 				if(I.use_tool(src, user, 30, volume = 50))
 					state = RWINDOW_BARS_CUT
-					to_chat(user, "<span class='notice'>Основная плита отделена от рамки и теперь её удерживает только несколько болтов.</span>")
+					to_chat(user, "<span class='notice'>РћСЃРЅРѕРІРЅР°СЏ РїР»РёС‚Р° РѕС‚РґРµР»РµРЅР° РѕС‚ СЂР°РјРєРё Рё С‚РµРїРµСЂСЊ РµС‘ СѓРґРµСЂР¶РёРІР°РµС‚ С‚РѕР»СЊРєРѕ РЅРµСЃРєРѕР»СЊРєРѕ Р±РѕР»С‚РѕРІ.</span>")
 				return
 		if(RWINDOW_BARS_CUT)
 			if(I.tool_behaviour == TOOL_WRENCH)
-				user.visible_message("<span class='notice'>[user] начинает откручивать [src.name] от рамки...</span>",
-					"<span class='notice'>Ты начинаешь откручивать болты...</span>")
+				user.visible_message("<span class='notice'>[user] РЅР°С‡РёРЅР°РµС‚ РѕС‚РєСЂСѓС‡РёРІР°С‚СЊ [src.name] РѕС‚ СЂР°РјРєРё...</span>",
+					"<span class='notice'>РўС‹ РЅР°С‡РёРЅР°РµС€СЊ РѕС‚РєСЂСѓС‡РёРІР°С‚СЊ Р±РѕР»С‚С‹...</span>")
 				if(I.use_tool(src, user, 50, volume = 50))
-					to_chat(user, "<span class='notice'>Ты снял окно с болтов и теперь оно может быть свободно перемещено.</span>")
+					to_chat(user, "<span class='notice'>РўС‹ СЃРЅСЏР» РѕРєРЅРѕ СЃ Р±РѕР»С‚РѕРІ Рё С‚РµРїРµСЂСЊ РѕРЅРѕ РјРѕР¶РµС‚ Р±С‹С‚СЊ СЃРІРѕР±РѕРґРЅРѕ РїРµСЂРµРјРµС‰РµРЅРѕ.</span>")
 					state = WINDOW_OUT_OF_FRAME
 					setAnchored(FALSE)
 				return
@@ -418,21 +418,21 @@
 /obj/structure/window/proc/cool_bolts()
 	if(state == RWINDOW_BOLTS_HEATED)
 		state = RWINDOW_SECURE
-		visible_message("<span class='notice'>Винтики в [src.name] выглядят остывшими...</span>")
+		visible_message("<span class='notice'>Р’РёРЅС‚РёРєРё РІ [src.name] РІС‹РіР»СЏРґСЏС‚ РѕСЃС‚С‹РІС€РёРјРё...</span>")
 
 /obj/structure/window/reinforced/examine(mob/user)
 	. = ..()
 	switch(state)
 		if(RWINDOW_SECURE)
-			. += "<span class='notice'>Похоже окно вкручено одноразовыми винтами. Придётся <b>нагреть их</b>, чтобы получить хоть какой-то шанс выкрутить их обратно.</span>"
+			. += "<span class='notice'>РџРѕС…РѕР¶Рµ РѕРєРЅРѕ РІРєСЂСѓС‡РµРЅРѕ РѕРґРЅРѕСЂР°Р·РѕРІС‹РјРё РІРёРЅС‚Р°РјРё. РџСЂРёРґС‘С‚СЃСЏ <b>РЅР°РіСЂРµС‚СЊ РёС…</b>, С‡С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ С…РѕС‚СЊ РєР°РєРѕР№-С‚Рѕ С€Р°РЅСЃ РІС‹РєСЂСѓС‚РёС‚СЊ РёС… РѕР±СЂР°С‚РЅРѕ.</span>"
 		if(RWINDOW_BOLTS_HEATED)
-			. += "<span class='notice'>Винтики раскалены до бела, похоже можно <b>открутить их</b> прямо сейчас.</span>"
+			. += "<span class='notice'>Р’РёРЅС‚РёРєРё СЂР°СЃРєР°Р»РµРЅС‹ РґРѕ Р±РµР»Р°, РїРѕС…РѕР¶Рµ РјРѕР¶РЅРѕ <b>РѕС‚РєСЂСѓС‚РёС‚СЊ РёС…</b> РїСЂСЏРјРѕ СЃРµР№С‡Р°СЃ.</span>"
 		if(RWINDOW_BOLTS_OUT)
-			. += "<span class='notice'>Винтики удалены и теперь окно можно <b>подпереть</b> сквозь доступную щель.</span>"
+			. += "<span class='notice'>Р’РёРЅС‚РёРєРё СѓРґР°Р»РµРЅС‹ Рё С‚РµРїРµСЂСЊ РѕРєРЅРѕ РјРѕР¶РЅРѕ <b>РїРѕРґРїРµСЂРµС‚СЊ</b> СЃРєРІРѕР·СЊ РґРѕСЃС‚СѓРїРЅСѓСЋ С‰РµР»СЊ.</span>"
 		if(RWINDOW_POPPED)
-			. += "<span class='notice'>Основная плита вышла из рамки и стали видны прутья, которые можно <b>откусить</b>.</span>"
+			. += "<span class='notice'>РћСЃРЅРѕРІРЅР°СЏ РїР»РёС‚Р° РІС‹С€Р»Р° РёР· СЂР°РјРєРё Рё СЃС‚Р°Р»Рё РІРёРґРЅС‹ РїСЂСѓС‚СЊСЏ, РєРѕС‚РѕСЂС‹Рµ РјРѕР¶РЅРѕ <b>РѕС‚РєСѓСЃРёС‚СЊ</b>.</span>"
 		if(RWINDOW_BARS_CUT)
-			. += "<span class='notice'>Основная плита отделена от рамки и теперь её удерживает только несколько <b>болтов</b>.</span>"
+			. += "<span class='notice'>РћСЃРЅРѕРІРЅР°СЏ РїР»РёС‚Р° РѕС‚РґРµР»РµРЅР° РѕС‚ СЂР°РјРєРё Рё С‚РµРїРµСЂСЊ РµС‘ СѓРґРµСЂР¶РёРІР°РµС‚ С‚РѕР»СЊРєРѕ РЅРµСЃРєРѕР»СЊРєРѕ <b>Р±РѕР»С‚РѕРІ</b>.</span>"
 
 /obj/structure/window/reinforced/spawner/east
 	dir = EAST
@@ -731,7 +731,7 @@
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	breaksound = 'sound/items/poster_ripped.ogg'
 	hitsound = 'sound/weapons/slashmiss.ogg'
-	var/static/mutable_appearance/torn = mutable_appearance('icons/obj/smooth_structures/paperframes.dmi',icon_state = "кромсает", layer = ABOVE_OBJ_LAYER - 0.1)
+	var/static/mutable_appearance/torn = mutable_appearance('icons/obj/smooth_structures/paperframes.dmi',icon_state = "РєСЂРѕРјСЃР°РµС‚", layer = ABOVE_OBJ_LAYER - 0.1)
 	var/static/mutable_appearance/paper = mutable_appearance('icons/obj/smooth_structures/paperframes.dmi',icon_state = "paper", layer = ABOVE_OBJ_LAYER - 0.1)
 
 /obj/structure/window/paperframe/Initialize()

@@ -31,7 +31,7 @@
 						to_chat(M, "<span class='danger'>You knock [src] down!</span>")
 					var/obj/item/bodypart/affecting = get_bodypart(ran_zone(M.zone_selected))
 					apply_damage(damage, BRUTE, affecting)
-					log_combat(M, src, "атакует")
+					log_combat(M, src, "Р°С‚Р°РєСѓРµС‚")
 				else
 					playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 					visible_message("<span class='danger'>[M]'s punch misses [src]!</span>", \

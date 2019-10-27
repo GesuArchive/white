@@ -5,7 +5,7 @@
 	icon_state = "scrub_map-2"
 
 	name = "air scrubber"
-	desc = "К нему прикручены вентиль и помпа."
+	desc = "Рљ РЅРµРјСѓ РїСЂРёРєСЂСѓС‡РµРЅС‹ РІРµРЅС‚РёР»СЊ Рё РїРѕРјРїР°."
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 10
 	active_power_usage = 60

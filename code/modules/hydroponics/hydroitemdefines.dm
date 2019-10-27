@@ -58,7 +58,7 @@
 	throwforce = 7
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=50)
-	attack_verb = list("разрубает", "разрыхляет", "режет", "культивирует")
+	attack_verb = list("СЂР°Р·СЂСѓР±Р°РµС‚", "СЂР°Р·СЂС‹С…Р»СЏРµС‚", "СЂРµР¶РµС‚", "РєСѓР»СЊС‚РёРІРёСЂСѓРµС‚")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
 /obj/item/cultivator/suicide_act(mob/user)
@@ -69,7 +69,7 @@
 	name = "rake"
 	icon_state = "rake"
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb = list("донатит", "вайпает", "колотит", "педалирует")
+	attack_verb = list("РґРѕРЅР°С‚РёС‚", "РІР°Р№РїР°РµС‚", "РєРѕР»РѕС‚РёС‚", "РїРµРґР°Р»РёСЂСѓРµС‚")
 	hitsound = null
 	custom_materials = null
 	flags_1 = NONE
@@ -98,7 +98,7 @@
 	throw_speed = 3
 	throw_range = 4
 	custom_materials = list(/datum/material/iron = 15000)
-	attack_verb = list("рубит", "кромсает", "режет")
+	attack_verb = list("СЂСѓР±РёС‚", "РєСЂРѕРјСЃР°РµС‚", "СЂРµР¶РµС‚")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = IS_SHARP
 
@@ -131,7 +131,7 @@
 	flags_1 = CONDUCT_1
 	armour_penetration = 20
 	slot_flags = ITEM_SLOT_BACK
-	attack_verb = list("рубит", "нарезает", "режет", "разрывает")
+	attack_verb = list("СЂСѓР±РёС‚", "РЅР°СЂРµР·Р°РµС‚", "СЂРµР¶РµС‚", "СЂР°Р·СЂС‹РІР°РµС‚")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	var/swiping = FALSE
 

@@ -12,7 +12,7 @@
 	throw_range = 7
 	force = 10
 	custom_materials = list(/datum/material/iron = 90)
-	attack_verb = list("хуярит", "ебошит", "устраивает развал", "баллонит", "грейтайдит", "петушит", "учит летать")
+	attack_verb = list("С…СѓСЏСЂРёС‚", "РµР±РѕС€РёС‚", "СѓСЃС‚СЂР°РёРІР°РµС‚ СЂР°Р·РІР°Р»", "Р±Р°Р»Р»РѕРЅРёС‚", "РіСЂРµР№С‚Р°Р№РґРёС‚", "РїРµС‚СѓС€РёС‚", "СѓС‡РёС‚ Р»РµС‚Р°С‚СЊ")
 	dog_fashion = /datum/dog_fashion/back
 	resistance_flags = FIRE_PROOF
 	var/max_water = 50

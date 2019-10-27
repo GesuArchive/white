@@ -28,7 +28,7 @@
 	attack_verb_simple = "drill"
 	attack_sound = 'sound/weapons/circsawhit.ogg'
 	sentience_type = SENTIENCE_MINEBOT
-	speak_emote = list("констатирует")
+	speak_emote = list("РєРѕРЅСЃС‚Р°С‚РёСЂСѓРµС‚")
 	wanted_objects = list(/obj/item/stack/ore/diamond, /obj/item/stack/ore/gold, /obj/item/stack/ore/silver,
 						  /obj/item/stack/ore/plasma, /obj/item/stack/ore/uranium, /obj/item/stack/ore/iron,
 						  /obj/item/stack/ore/bananium, /obj/item/stack/ore/titanium)

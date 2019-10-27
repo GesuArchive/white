@@ -7,7 +7,7 @@
 	lefthand_file = 'icons/mob/inhands/equipment/belt_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/belt_righthand.dmi'
 	slot_flags = ITEM_SLOT_BELT
-	attack_verb = list("шлёпает", "учит", "совращает")
+	attack_verb = list("С€Р»С‘РїР°РµС‚", "СѓС‡РёС‚", "СЃРѕРІСЂР°С‰Р°РµС‚")
 	max_integrity = 300
 	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
 	var/content_overlays = FALSE //If this is true, the belt will gain overlays based on what it's holding

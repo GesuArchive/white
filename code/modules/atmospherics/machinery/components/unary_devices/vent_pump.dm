@@ -9,7 +9,7 @@
 	icon_state = "vent_map-2"
 
 	name = "air vent"
-	desc = "К нему прикручены вентиль и помпа."
+	desc = "Рљ РЅРµРјСѓ РїСЂРёРєСЂСѓС‡РµРЅС‹ РІРµРЅС‚РёР»СЊ Рё РїРѕРјРїР°."
 
 	use_power = IDLE_POWER_USE
 	can_unwrench = TRUE

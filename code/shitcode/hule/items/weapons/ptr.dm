@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/rifle/boltaction/ptr
 	name = "AMATR M4ND4"
-	desc = "Цельтесь В ГОЛОВУ."
+	desc = "Р¦РµР»СЊС‚РµСЃСЊ Р’ Р“РћР›РћР’РЈ."
 	icon = 'code/shitcode/hule/icons/obj/weapons.dmi'
 	icon_state = "ptr"
 	item_state = "ptr"
@@ -15,12 +15,12 @@
 	var/HC = 0
 	for(var/obj/item/bodypart/head/H in contents)
 		HC++
-	. += "<span class='notice'>Ружье поглотило [HC] голов.\nИспользуйте монтировку для экстракции голов.</span>"
+	. += "<span class='notice'>Р СѓР¶СЊРµ РїРѕРіР»РѕС‚РёР»Рѕ [HC] РіРѕР»РѕРІ.\nРСЃРїРѕР»СЊР·СѓР№С‚Рµ РјРѕРЅС‚РёСЂРѕРІРєСѓ РґР»СЏ СЌРєСЃС‚СЂР°РєС†РёРё РіРѕР»РѕРІ.</span>"
 
 /obj/item/gun/ballistic/rifle/boltaction/ptr/attackby(obj/item/W, mob/user, params)
 	. = ..()
 	if(istype(W, /obj/item/crowbar))
-		to_chat(user, "Вы опустошаете головохранилище винтовки.")
+		to_chat(user, "Р’С‹ РѕРїСѓСЃС‚РѕС€Р°РµС‚Рµ РіРѕР»РѕРІРѕС…СЂР°РЅРёР»РёС‰Рµ РІРёРЅС‚РѕРІРєРё.")
 		var/turf/T = get_turf(user)
 		for(var/obj/item/bodypart/head/H in contents)
 			H.forceMove(T)
@@ -57,7 +57,7 @@
 		var/mob/living/carbon/C = target
 		if(def_zone == BODY_ZONE_HEAD)
 			var/obj/item/bodypart/head/H = C.get_bodypart(BODY_ZONE_HEAD)
-			to_chat(C, "<span class='userdanger'>Вашу голову поглотило антиматериальное противотанковое ружье M4ND4!</span>")
+			to_chat(C, "<span class='userdanger'>Р’Р°С€Сѓ РіРѕР»РѕРІСѓ РїРѕРіР»РѕС‚РёР»Рѕ Р°РЅС‚РёРјР°С‚РµСЂРёР°Р»СЊРЅРѕРµ РїСЂРѕС‚РёРІРѕС‚Р°РЅРєРѕРІРѕРµ СЂСѓР¶СЊРµ M4ND4!</span>")
 
 			H.drop_limb()
 			H.forceMove(G)

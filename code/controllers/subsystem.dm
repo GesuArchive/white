@@ -161,11 +161,11 @@
 /datum/controller/subsystem/Initialize(start_timeofday)
 	initialized = TRUE
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
-	var/msg = "Инициализация [name] за [time] секунд!"
+	var/msg = "РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ [name] Р·Р° [time] СЃРµРєСѓРЅРґ!"
 	var/log_msg = "Init [name] for [time]s!"
 	message_admins("<span class='boldannounce'>[msg]</span>")
 	if (toplayers)
-		to_chat(world, "<span class='boldannounce'>[toplayers] за [time] секунд</span>")
+		to_chat(world, "<span class='boldannounce'>[toplayers] Р·Р° [time] СЃРµРєСѓРЅРґ</span>")
 	log_world(log_msg)
 	return time
 

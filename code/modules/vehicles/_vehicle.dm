@@ -39,11 +39,11 @@
 	var/healthpercent = obj_integrity/max_integrity * 100
 	switch(healthpercent)
 		if(50 to 99)
-			. += "Виднеются небольшие царапины."
+			. += "Р’РёРґРЅРµСЋС‚СЃСЏ РЅРµР±РѕР»СЊС€РёРµ С†Р°СЂР°РїРёРЅС‹."
 		if(25 to 50)
-			. += "Выглядит серьёзно повреждённым."
+			. += "Р’С‹РіР»СЏРґРёС‚ СЃРµСЂСЊС‘Р·РЅРѕ РїРѕРІСЂРµР¶РґС‘РЅРЅС‹Рј."
 		if(0 to 25)
-			. += "<span class='warning'>Вот-вот развалится!</span>"
+			. += "<span class='warning'>Р’РѕС‚-РІРѕС‚ СЂР°Р·РІР°Р»РёС‚СЃСЏ!</span>"
 
 /obj/vehicle/proc/is_key(obj/item/I)
 	return I? (key_type_exact? (I.type == key_type) : istype(I, key_type)) : FALSE

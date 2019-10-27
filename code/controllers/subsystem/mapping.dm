@@ -219,7 +219,7 @@ SUBSYSTEM_DEF(mapping)
 		if (!pm.load(1, 1, start_z + parsed_maps[P], no_changeturf = TRUE))
 			errorList |= pm.original_path
 	if(!silent)
-		INIT_ANNOUNCE("Вспомнили про [name] за [(REALTIMEOFDAY - start_time)/10]s!")
+		INIT_ANNOUNCE("Р’СЃРїРѕРјРЅРёР»Рё РїСЂРѕ [name] Р·Р° [(REALTIMEOFDAY - start_time)/10]s!")
 	return parsed_maps
 
 /datum/controller/subsystem/mapping/proc/loadWorld()
@@ -231,7 +231,7 @@ SUBSYSTEM_DEF(mapping)
 
 	// load the station
 	station_start = world.maxz + 1
-	INIT_ANNOUNCE("Перемещаемся к [config.map_name]...")
+	INIT_ANNOUNCE("РџРµСЂРµРјРµС‰Р°РµРјСЃСЏ Рє [config.map_name]...")
 	LoadGroup(FailedZs, "Station", config.map_path, config.map_file, config.traits, ZTRAITS_STATION)
 
 	if(SSdbcore.Connect())
@@ -422,13 +422,13 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 			if(!mapfile)
 				return
 			away_name = "[mapfile] custom"
-			to_chat(usr,"<span class='notice'>Открываем врата к [away_name]...</span>")
+			to_chat(usr,"<span class='notice'>РћС‚РєСЂС‹РІР°РµРј РІСЂР°С‚Р° Рє [away_name]...</span>")
 			var/datum/map_template/template = new(mapfile, "Away Mission")
 			away_level = template.load_new_z()
 		else
 			if(answer in GLOB.potentialRandomZlevels)
 				away_name = answer
-				to_chat(usr,"<span class='notice'>Открываем врата к [away_name]...</span>")
+				to_chat(usr,"<span class='notice'>РћС‚РєСЂС‹РІР°РµРј РІСЂР°С‚Р° Рє [away_name]...</span>")
 				var/datum/map_template/template = new(away_name, "Away Mission")
 				away_level = template.load_new_z()
 			else

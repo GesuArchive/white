@@ -292,9 +292,9 @@
 /obj/examine(mob/user)
 	. = ..()
 	if(obj_flags & UNIQUE_RENAME)
-		. += "<span class='notice'>Вы можете переименовать это используя ручку или что-то подобное.</span>"
+		. += "<span class='notice'>Р’С‹ РјРѕР¶РµС‚Рµ РїРµСЂРµРёРјРµРЅРѕРІР°С‚СЊ СЌС‚Рѕ РёСЃРїРѕР»СЊР·СѓСЏ СЂСѓС‡РєСѓ РёР»Рё С‡С‚Рѕ-С‚Рѕ РїРѕРґРѕР±РЅРѕРµ.</span>"
 	if(unique_reskin && !current_skin)
-		. += "<span class='notice'>Alt-клик по предмету, чтобы изменить облик.</span>"
+		. += "<span class='notice'>Alt-РєР»РёРє РїРѕ РїСЂРµРґРјРµС‚Сѓ, С‡С‚РѕР±С‹ РёР·РјРµРЅРёС‚СЊ РѕР±Р»РёРє.</span>"
 
 /obj/AltClick(mob/user)
 	. = ..()
@@ -304,18 +304,18 @@
 /obj/proc/reskin_obj(mob/M)
 	if(!LAZYLEN(unique_reskin))
 		return
-	to_chat(M, "<b>Вероятные опции для [name]:</b>")
+	to_chat(M, "<b>Р’РµСЂРѕСЏС‚РЅС‹Рµ РѕРїС†РёРё РґР»СЏ [name]:</b>")
 	for(var/V in unique_reskin)
 		var/output = icon2html(src, M, unique_reskin[V])
 		to_chat(M, "[V]: <span class='reallybig'>[output]</span>")
 
-	var/choice = input(M,"Внимание, у вас только одна попытка изменения облика для [src]!","Reskin Object") as null|anything in sortList(unique_reskin)
+	var/choice = input(M,"Р’РЅРёРјР°РЅРёРµ, Сѓ РІР°СЃ С‚РѕР»СЊРєРѕ РѕРґРЅР° РїРѕРїС‹С‚РєР° РёР·РјРµРЅРµРЅРёСЏ РѕР±Р»РёРєР° РґР»СЏ [src]!","Reskin Object") as null|anything in sortList(unique_reskin)
 	if(!QDELETED(src) && choice && !current_skin && !M.incapacitated() && in_range(M,src))
 		if(!unique_reskin[choice])
 			return
 		current_skin = choice
 		icon_state = unique_reskin[choice]
-		to_chat(M, "[src] теперь выглядит как '[choice].'")
+		to_chat(M, "[src] С‚РµРїРµСЂСЊ РІС‹РіР»СЏРґРёС‚ РєР°Рє '[choice].'")
 
 /obj/analyzer_act(mob/living/user, obj/item/I)
 	if(atmosanalyzer_scan(user, src))

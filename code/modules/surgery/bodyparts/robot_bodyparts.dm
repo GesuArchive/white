@@ -13,7 +13,7 @@
 /obj/item/bodypart/l_arm/robot
 	name = "cyborg left arm"
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
-	attack_verb = list("шлёпает", "бьёт")
+	attack_verb = list("С€Р»С‘РїР°РµС‚", "Р±СЊС‘С‚")
 	item_state = "buildpipe"
 	icon = 'icons/mob/augmentation/augments.dmi'
 	flags_1 = CONDUCT_1
@@ -34,7 +34,7 @@
 /obj/item/bodypart/r_arm/robot
 	name = "cyborg right arm"
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
-	attack_verb = list("шлёпает", "бьёт")
+	attack_verb = list("С€Р»С‘РїР°РµС‚", "Р±СЊС‘С‚")
 	item_state = "buildpipe"
 	icon = 'icons/mob/augmentation/augments.dmi'
 	flags_1 = CONDUCT_1
@@ -55,7 +55,7 @@
 /obj/item/bodypart/l_leg/robot
 	name = "cyborg left leg"
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
-	attack_verb = list("пинает", "давит")
+	attack_verb = list("РїРёРЅР°РµС‚", "РґР°РІРёС‚")
 	item_state = "buildpipe"
 	icon = 'icons/mob/augmentation/augments.dmi'
 	flags_1 = CONDUCT_1
@@ -76,7 +76,7 @@
 /obj/item/bodypart/r_leg/robot
 	name = "cyborg right leg"
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
-	attack_verb = list("пинает", "давит")
+	attack_verb = list("РїРёРЅР°РµС‚", "РґР°РІРёС‚")
 	item_state = "buildpipe"
 	icon = 'icons/mob/augmentation/augments.dmi'
 	flags_1 = CONDUCT_1

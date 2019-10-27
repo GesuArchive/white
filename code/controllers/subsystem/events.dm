@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(events)
 		control += E				//add it to the list of all events (controls)
 	reschedule()
 	getHoliday()
-	toplayers = "Приглашаем педалей"
+	toplayers = "РџСЂРёРіР»Р°С€Р°РµРј РїРµРґР°Р»РµР№"
 	return ..()
 
 

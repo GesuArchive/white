@@ -20,7 +20,7 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	custom_materials = list(/datum/material/iron=1000)
 	mats_per_stack = 1000
 	max_amount = 50
-	attack_verb = list("бьёт", "протыкает", "шлёпает")
+	attack_verb = list("Р±СЊС‘С‚", "РїСЂРѕС‚С‹РєР°РµС‚", "С€Р»С‘РїР°РµС‚")
 	hitsound = 'sound/weapons/gun/general/grenade_launch.ogg'
 	novariants = TRUE
 

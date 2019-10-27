@@ -1,7 +1,7 @@
 /datum/species/android
 	name = "Android"
 	id = "android"
-	say_mod = "констатирует"
+	say_mod = "РєРѕРЅСЃС‚Р°С‚РёСЂСѓРµС‚"
 	species_traits = list(NOBLOOD)
 	inherent_traits = list(TRAIT_NOMETABOLISM,TRAIT_TOXIMMUNE,TRAIT_RESISTHEAT,TRAIT_NOBREATH,TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE,TRAIT_NOFIRE,TRAIT_PIERCEIMMUNE,TRAIT_NOHUNGER,TRAIT_LIMBATTACHMENT)
 	inherent_biotypes = MOB_ROBOTIC|MOB_HUMANOID

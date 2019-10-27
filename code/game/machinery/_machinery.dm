@@ -87,8 +87,8 @@ Class Procs:
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
 	desc = "Some kind of machine."
-	verb_say = "бипает"
-	verb_yell = "вспыхивает"
+	verb_say = "Р±РёРїР°РµС‚"
+	verb_yell = "РІСЃРїС‹С…РёРІР°РµС‚"
 	pressure_resistance = 15
 	max_integrity = 200
 	layer = BELOW_OBJ_LAYER //keeps shit coming out of the machine from ending up underneath it.
@@ -509,11 +509,11 @@ Class Procs:
 		var/healthpercent = (obj_integrity/max_integrity) * 100
 		switch(healthpercent)
 			if(50 to 99)
-				. += "Виднеются небольшие царапины."
+				. += "Р’РёРґРЅРµСЋС‚СЃСЏ РЅРµР±РѕР»СЊС€РёРµ С†Р°СЂР°РїРёРЅС‹."
 			if(25 to 50)
-				. += "Выглядит серьёзно повреждённым."
+				. += "Р’С‹РіР»СЏРґРёС‚ СЃРµСЂСЊС‘Р·РЅРѕ РїРѕРІСЂРµР¶РґС‘РЅРЅС‹Рј."
 			if(0 to 25)
-				. += "<span class='warning'>Вот-вот развалится!</span>"
+				. += "<span class='warning'>Р’РѕС‚-РІРѕС‚ СЂР°Р·РІР°Р»РёС‚СЃСЏ!</span>"
 	if(user.research_scanner && component_parts)
 		. += display_parts(user, TRUE)
 

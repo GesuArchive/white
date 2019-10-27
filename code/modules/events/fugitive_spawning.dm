@@ -112,4 +112,4 @@
 		CRASH("Fugitive Hunters (Created from fugitive event) found no turf to load in")
 	if(!ship.load(T))
 		CRASH("Loading [backstory] ship failed!")
-	priority_announce("Неизвестный корабль обнаружен недалеко от станции.")
+	priority_announce("РќРµРёР·РІРµСЃС‚РЅС‹Р№ РєРѕСЂР°Р±Р»СЊ РѕР±РЅР°СЂСѓР¶РµРЅ РЅРµРґР°Р»РµРєРѕ РѕС‚ СЃС‚Р°РЅС†РёРё.")

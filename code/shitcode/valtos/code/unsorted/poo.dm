@@ -7,7 +7,7 @@
 
 /obj/item/reagent_containers/food/snacks/poo
 	name = "poo"
-	desc = "Продукт человеческой единицы."
+	desc = "РџСЂРѕРґСѓРєС‚ С‡РµР»РѕРІРµС‡РµСЃРєРѕР№ РµРґРёРЅРёС†С‹."
 	icon = 'code/shitcode/valtos/icons/poo.dmi'
 	icon_state = "truepoo"
 	tastes = list("shit" = 1, "poo" = 1)
@@ -91,7 +91,7 @@
 
 /obj/effect/decal/cleanable/poo
 	name = "poo"
-	desc = "И кто это тут размазал?"
+	desc = "Р РєС‚Рѕ СЌС‚Рѕ С‚СѓС‚ СЂР°Р·РјР°Р·Р°Р»?"
 	icon = 'code/shitcode/valtos/icons/poo.dmi'
 	icon_state = "splat1"
 	random_icon_states = list("splat1", "splat2", "splat3", "splat4", "splat5", "splat6", "splat7", "splat8")
@@ -137,8 +137,8 @@
 	if(. && ishuman(user))
 		var/mob/living/carbon/H = user
 		if(HAS_TRAIT(H, TRAIT_LIGHT_POOER) && H.nutrition >= NUTRITION_LEVEL_WELL_FED)
-			H.visible_message("<span class='notice'>[H] профессионально выдавливает остроконечный снаряд!</span>", \
-					"<span class='notice'>Вы выдавили какаху из своего тела.</span>")
+			H.visible_message("<span class='notice'>[H] РїСЂРѕС„РµСЃСЃРёРѕРЅР°Р»СЊРЅРѕ РІС‹РґР°РІР»РёРІР°РµС‚ РѕСЃС‚СЂРѕРєРѕРЅРµС‡РЅС‹Р№ СЃРЅР°СЂСЏРґ!</span>", \
+					"<span class='notice'>Р’С‹ РІС‹РґР°РІРёР»Рё РєР°РєР°С…Сѓ РёР· СЃРІРѕРµРіРѕ С‚РµР»Р°.</span>")
 			playsound(H, 'code/shitcode/valtos/sounds/poo2.ogg', 25, 1) //silence hunter
 			var/obj/item/reagent_containers/food/snacks/poo/P = new(get_turf(H))
 			H.put_in_hands(P)
@@ -148,16 +148,16 @@
 			SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 			return
 		else if (H.nutrition >= NUTRITION_LEVEL_FULL)
-			H.visible_message("<span class='notice'>[H] нежно выдавливает какулину!</span>", \
-					"<span class='notice'>Вы выдавили какаху из своего тела.</span>")
+			H.visible_message("<span class='notice'>[H] РЅРµР¶РЅРѕ РІС‹РґР°РІР»РёРІР°РµС‚ РєР°РєСѓР»РёРЅСѓ!</span>", \
+					"<span class='notice'>Р’С‹ РІС‹РґР°РІРёР»Рё РєР°РєР°С…Сѓ РёР· СЃРІРѕРµРіРѕ С‚РµР»Р°.</span>")
 			playsound(H, 'code/shitcode/valtos/sounds/poo2.ogg', 50, 1)
 			new /obj/item/reagent_containers/food/snacks/poo(H.loc)
 			H.nutrition -= 75
 			SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 			return
 		else
-			H.visible_message("<span class='notice'>[H] страдает!</span>", \
-					"<span class='notice'>Вам нечем какать.</span>")
+			H.visible_message("<span class='notice'>[H] СЃС‚СЂР°РґР°РµС‚!</span>", \
+					"<span class='notice'>Р’Р°Рј РЅРµС‡РµРј РєР°РєР°С‚СЊ.</span>")
 			H.Paralyze(80)
 			H.adjust_blurriness(1)
 			SSblackbox.record_feedback("tally", "poo", 1, "Poo Creation Failed")

@@ -4,51 +4,51 @@
 /datum/emote/living/carbon/human/cry
 	key = "cry"
 	key_third_person = "cries"
-	message = "плачет."
+	message = "РїР»Р°С‡РµС‚."
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/carbon/human/dap
 	key = "dap"
 	key_third_person = "daps"
-	message = "озадаченно не может найти кому пожать руку и жмёт свою. Позорище."
-	message_param = "приветственно жмёт руку братку %t."
+	message = "РѕР·Р°РґР°С‡РµРЅРЅРѕ РЅРµ РјРѕР¶РµС‚ РЅР°Р№С‚Рё РєРѕРјСѓ РїРѕР¶Р°С‚СЊ СЂСѓРєСѓ Рё Р¶РјС‘С‚ СЃРІРѕСЋ. РџРѕР·РѕСЂРёС‰Рµ."
+	message_param = "РїСЂРёРІРµС‚СЃС‚РІРµРЅРЅРѕ Р¶РјС‘С‚ СЂСѓРєСѓ Р±СЂР°С‚РєСѓ %t."
 	restraint_check = TRUE
 
 /datum/emote/living/carbon/human/eyebrow
 	key = "eyebrow"
-	message = "поднимает бровь."
+	message = "РїРѕРґРЅРёРјР°РµС‚ Р±СЂРѕРІСЊ."
 
 /datum/emote/living/carbon/human/grumble
 	key = "grumble"
 	key_third_person = "grumbles"
-	message = "ворчит!"
+	message = "РІРѕСЂС‡РёС‚!"
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/carbon/human/handshake
 	key = "handshake"
-	message = "пожимает свои руки."
-	message_param = "пожимает руку %t."
+	message = "РїРѕР¶РёРјР°РµС‚ СЃРІРѕРё СЂСѓРєРё."
+	message_param = "РїРѕР¶РёРјР°РµС‚ СЂСѓРєСѓ %t."
 	restraint_check = TRUE
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/carbon/human/hug
 	key = "hug"
 	key_third_person = "hugs"
-	message = "обнимает себя."
-	message_param = "обнимает %t."
+	message = "РѕР±РЅРёРјР°РµС‚ СЃРµР±СЏ."
+	message_param = "РѕР±РЅРёРјР°РµС‚ %t."
 	restraint_check = TRUE
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/carbon/human/mumble
 	key = "mumble"
 	key_third_person = "mumbles"
-	message = "бормочет!"
+	message = "Р±РѕСЂРјРѕС‡РµС‚!"
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/carbon/human/scream
 	key = "scream"
 	key_third_person = "screams"
-	message = "кричит!"
+	message = "РєСЂРёС‡РёС‚!"
 	emote_type = EMOTE_AUDIBLE
 	only_forced_audio = TRUE
 	vary = TRUE
@@ -72,30 +72,30 @@
 
 /datum/emote/living/carbon/human/pale
 	key = "pale"
-	message = "бледнеет на секунду."
+	message = "Р±Р»РµРґРЅРµРµС‚ РЅР° СЃРµРєСѓРЅРґСѓ."
 
 /datum/emote/living/carbon/human/raise
 	key = "raise"
 	key_third_person = "raises"
-	message = "поднимает руки."
+	message = "РїРѕРґРЅРёРјР°РµС‚ СЂСѓРєРё."
 	restraint_check = TRUE
 
 /datum/emote/living/carbon/human/salute
 	key = "salute"
 	key_third_person = "salutes"
-	message = "отдаёт честь."
-	message_param = "отдаёт честь %t."
+	message = "РѕС‚РґР°С‘С‚ С‡РµСЃС‚СЊ."
+	message_param = "РѕС‚РґР°С‘С‚ С‡РµСЃС‚СЊ %t."
 	restraint_check = TRUE
 
 /datum/emote/living/carbon/human/shrug
 	key = "shrug"
 	key_third_person = "shrugs"
-	message = "пожимает плечами."
+	message = "РїРѕР¶РёРјР°РµС‚ РїР»РµС‡Р°РјРё."
 
 /datum/emote/living/carbon/human/wag
 	key = "wag"
 	key_third_person = "wags"
-	message = "виляет хвостом."
+	message = "РІРёР»СЏРµС‚ С…РІРѕСЃС‚РѕРј."
 
 /datum/emote/living/carbon/human/wag/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
@@ -126,7 +126,7 @@
 /datum/emote/living/carbon/human/wing
 	key = "wing"
 	key_third_person = "wings"
-	message = "свои крылья."
+	message = "СЃРІРѕРё РєСЂС‹Р»СЊСЏ."
 
 /datum/emote/living/carbon/human/wing/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
@@ -141,9 +141,9 @@
 	. = ..()
 	var/mob/living/carbon/human/H = user
 	if("wings" in H.dna.species.mutant_bodyparts)
-		. = "раскрывает " + message
+		. = "СЂР°СЃРєСЂС‹РІР°РµС‚ " + message
 	else
-		. = "убирает " + message
+		. = "СѓР±РёСЂР°РµС‚ " + message
 
 /datum/emote/living/carbon/human/wing/can_run_emote(mob/user, status_check = TRUE, intentional)
 	if(!..())

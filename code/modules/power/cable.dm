@@ -401,7 +401,7 @@ GLOBAL_LIST_INIT(cable_coil_recipes, list(new/datum/stack_recipe("cable restrain
 	custom_materials = list(/datum/material/iron=10, /datum/material/glass=5)
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
-	attack_verb = list("шлёпает", "хлыстает", "учит", "принуждает")
+	attack_verb = list("С€Р»С‘РїР°РµС‚", "С…Р»С‹СЃС‚Р°РµС‚", "СѓС‡РёС‚", "РїСЂРёРЅСѓР¶РґР°РµС‚")
 	singular_name = "cable piece"
 	full_w_class = WEIGHT_CLASS_SMALL
 	grind_results = list(/datum/reagent/copper = 2) //2 copper per cable in the coil

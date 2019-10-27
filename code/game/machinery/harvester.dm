@@ -4,7 +4,7 @@
 	density = TRUE
 	icon = 'icons/obj/machines/harvester.dmi'
 	icon_state = "harvester"
-	verb_say = "констатирует"
+	verb_say = "РєРѕРЅСЃС‚Р°С‚РёСЂСѓРµС‚"
 	state_open = FALSE
 	idle_power_usage = 50
 	circuit = /obj/item/circuitboard/machine/harvester

@@ -188,7 +188,7 @@
 
 /obj/structure/pillar
 	name = "pillar"
-	desc = "Заборчик. Круто."
+	desc = "Р—Р°Р±РѕСЂС‡РёРє. РљСЂСѓС‚Рѕ."
 	icon = 'code/shitcode/valtos/icons/objects.dmi'
 	icon_state = "b-1"
 	density = FALSE

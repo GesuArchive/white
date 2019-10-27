@@ -6,7 +6,7 @@
 	siemens_coefficient = 0.5
 	body_parts_covered = HANDS
 	slot_flags = ITEM_SLOT_GLOVES
-	attack_verb = list("вызывает на дуэль")
+	attack_verb = list("РІС‹Р·С‹РІР°РµС‚ РЅР° РґСѓСЌР»СЊ")
 	var/transfer_prints = FALSE
 	strip_delay = 20
 	equip_delay_other = 40

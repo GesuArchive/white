@@ -107,7 +107,7 @@
 				"<span class='userdanger'>You hit yourself with a bottle of [src.name][head_attack_message]!</span>")
 
 	//Attack logs
-	log_combat(user, target, "атакует", src)
+	log_combat(user, target, "Р°С‚Р°РєСѓРµС‚", src)
 
 	//The reagents in the bottle splash all over the target, thanks for the idea Nodrak
 	SplashReagents(target)
@@ -130,7 +130,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	item_state = "beer"
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("втыкает", "рубит", "атакует")
+	attack_verb = list("РІС‚С‹РєР°РµС‚", "СЂСѓР±РёС‚", "Р°С‚Р°РєСѓРµС‚")
 	sharpness = IS_SHARP
 	var/static/icon/broken_outline = icon('icons/obj/drinks.dmi', "broken")
 

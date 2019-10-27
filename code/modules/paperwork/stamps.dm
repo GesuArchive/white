@@ -10,7 +10,7 @@
 	throw_range = 7
 	custom_materials = list(/datum/material/iron=60)
 	pressure_resistance = 2
-	attack_verb = list("øòàìïóåò")
+	attack_verb = list("ÑˆÑ‚Ğ°Ğ¼Ğ¿ÑƒĞµÑ‚")
 
 /obj/item/stamp/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] stamps 'VOID' on [user.p_their()] forehead, then promptly falls over, dead.</span>")

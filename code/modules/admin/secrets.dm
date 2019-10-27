@@ -153,7 +153,7 @@
 			set_station_name(new_name)
 			log_admin("[key_name(usr)] renamed the station to \"[new_name]\".")
 			message_admins("<span class='adminnotice'>[key_name_admin(usr)] renamed the station to: [new_name].</span>")
-			priority_announce("[command_name()] переименована в \"[new_name]\".")
+			priority_announce("[command_name()] РїРµСЂРµРёРјРµРЅРѕРІР°РЅР° РІ \"[new_name]\".")
 		if("night_shift_set")
 			if(!check_rights(R_ADMIN))
 				return
@@ -179,7 +179,7 @@
 			set_station_name(new_name)
 			log_admin("[key_name(usr)] reset the station name.")
 			message_admins("<span class='adminnotice'>[key_name_admin(usr)] reset the station name.</span>")
-			priority_announce("[command_name()] переименована в \"[new_name]\".")
+			priority_announce("[command_name()] РїРµСЂРµРёРјРµРЅРѕРІР°РЅР° РІ \"[new_name]\".")
 
 		if("list_bombers")
 			if(!check_rights(R_ADMIN))

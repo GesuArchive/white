@@ -324,7 +324,7 @@ GLOBAL_LIST_INIT(blacklisted_malf_machines, typecacheof(list(
 	icon_state = "nuclearbomb_base"
 	desc = "A weapon which disintegrates all organic life in a large area."
 	density = TRUE
-	verb_exclaim = "вспыхивает"
+	verb_exclaim = "РІСЃРїС‹С…РёРІР°РµС‚"
 	var/timing = FALSE
 	var/obj/effect/countdown/doomsday/countdown
 	var/detonation_timer

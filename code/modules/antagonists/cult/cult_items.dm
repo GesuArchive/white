@@ -41,7 +41,7 @@
 	force = 30
 	throwforce = 10
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрубает", "нарезает", "культирует")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "СЂСѓР±РёС‚", "РІС‚С‹РєР°РµС‚", "СЂР°Р·СЂРµР·Р°РµС‚", "РєСЂРѕРјСЃР°РµС‚", "СЂР°Р·СЂСѓР±Р°РµС‚", "РЅР°СЂРµР·Р°РµС‚", "РєСѓР»СЊС‚РёСЂСѓРµС‚")
 
 /obj/item/melee/cultblade/Initialize()
 	. = ..()
@@ -88,7 +88,7 @@
 	throw_range = 3
 	sharpness = IS_SHARP
 	light_color = "#ff0000"
-	attack_verb = list("разрубает", "рубит", "кромсает", "уничтожает", "разрывает", "нарезает", "режет")
+	attack_verb = list("СЂР°Р·СЂСѓР±Р°РµС‚", "СЂСѓР±РёС‚", "РєСЂРѕРјСЃР°РµС‚", "СѓРЅРёС‡С‚РѕР¶Р°РµС‚", "СЂР°Р·СЂС‹РІР°РµС‚", "РЅР°СЂРµР·Р°РµС‚", "СЂРµР¶РµС‚")
 	icon_state = "cultbastard"
 	item_state = "cultbastard"
 	hitsound = 'sound/weapons/bladeslice.ogg'
@@ -620,7 +620,7 @@
 	throw_speed = 2
 	armour_penetration = 30
 	block_chance = 30
-	attack_verb = list("атакует", "протыкает", "втыкает", "кромсает", "насаживает")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "РїСЂРѕС‚С‹РєР°РµС‚", "РІС‚С‹РєР°РµС‚", "РєСЂРѕРјСЃР°РµС‚", "РЅР°СЃР°Р¶РёРІР°РµС‚")
 	sharpness = IS_SHARP
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	var/datum/action/innate/cult/spear/spear_act
@@ -875,7 +875,7 @@
 	throw_speed = 1
 	throw_range = 4
 	w_class = WEIGHT_CLASS_BULKY
-	attack_verb = list("тычет", "стукает")
+	attack_verb = list("С‚С‹С‡РµС‚", "СЃС‚СѓРєР°РµС‚")
 	hitsound = 'sound/weapons/smash.ogg'
 	var/illusions = 2
 

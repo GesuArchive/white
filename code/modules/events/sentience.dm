@@ -26,19 +26,19 @@ GLOBAL_LIST_INIT(high_priority_sentience, typecacheof(list(
 	minimum_required = 1
 	role_name = "random animal"
 	var/animals = 1
-	var/one = "одно"
+	var/one = "РѕРґРЅРѕ"
 	fakeable = TRUE
 
 /datum/round_event/ghost_role/sentience/announce(fake)
 	var/sentience_report = ""
 
-	var/data = pick("сканирования с наших датчиков дальнего радиуса действия", "наших сложных вероятностных моделей", "нашего всемогущества", "трафика связи на вашей станции", "эмиссии энергии, которые мы обнаружили", "\[REDACTED\]")
-	var/pets = pick("животных/роботов", "роботов/животных", "питомцев", "простых животных", "меньших жизненных форм", "\[REDACTED\]")
-	var/strength = pick("человеческий", "умеренный", "ящеринный", "надёжный", "командный", "клоунский", "низкий", "очень низкий", "\[REDACTED\]")
+	var/data = pick("СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ СЃ РЅР°С€РёС… РґР°С‚С‡РёРєРѕРІ РґР°Р»СЊРЅРµРіРѕ СЂР°РґРёСѓСЃР° РґРµР№СЃС‚РІРёСЏ", "РЅР°С€РёС… СЃР»РѕР¶РЅС‹С… РІРµСЂРѕСЏС‚РЅРѕСЃС‚РЅС‹С… РјРѕРґРµР»РµР№", "РЅР°С€РµРіРѕ РІСЃРµРјРѕРіСѓС‰РµСЃС‚РІР°", "С‚СЂР°С„РёРєР° СЃРІСЏР·Рё РЅР° РІР°С€РµР№ СЃС‚Р°РЅС†РёРё", "СЌРјРёСЃСЃРёРё СЌРЅРµСЂРіРёРё, РєРѕС‚РѕСЂС‹Рµ РјС‹ РѕР±РЅР°СЂСѓР¶РёР»Рё", "\[REDACTED\]")
+	var/pets = pick("Р¶РёРІРѕС‚РЅС‹С…/СЂРѕР±РѕС‚РѕРІ", "СЂРѕР±РѕС‚РѕРІ/Р¶РёРІРѕС‚РЅС‹С…", "РїРёС‚РѕРјС†РµРІ", "РїСЂРѕСЃС‚С‹С… Р¶РёРІРѕС‚РЅС‹С…", "РјРµРЅСЊС€РёС… Р¶РёР·РЅРµРЅРЅС‹С… С„РѕСЂРј", "\[REDACTED\]")
+	var/strength = pick("С‡РµР»РѕРІРµС‡РµСЃРєРёР№", "СѓРјРµСЂРµРЅРЅС‹Р№", "СЏС‰РµСЂРёРЅРЅС‹Р№", "РЅР°РґС‘Р¶РЅС‹Р№", "РєРѕРјР°РЅРґРЅС‹Р№", "РєР»РѕСѓРЅСЃРєРёР№", "РЅРёР·РєРёР№", "РѕС‡РµРЅСЊ РЅРёР·РєРёР№", "\[REDACTED\]")
 
-	sentience_report += "Учитывая данные [data], мы считаем, что [one] из [pets] развило [strength] уровень интеллекта и умение общаться."
+	sentience_report += "РЈС‡РёС‚С‹РІР°СЏ РґР°РЅРЅС‹Рµ [data], РјС‹ СЃС‡РёС‚Р°РµРј, С‡С‚Рѕ [one] РёР· [pets] СЂР°Р·РІРёР»Рѕ [strength] СѓСЂРѕРІРµРЅСЊ РёРЅС‚РµР»Р»РµРєС‚Р° Рё СѓРјРµРЅРёРµ РѕР±С‰Р°С‚СЊСЃСЏ."
 
-	priority_announce(sentience_report,"Объявление средней важности")
+	priority_announce(sentience_report,"РћР±СЉСЏРІР»РµРЅРёРµ СЃСЂРµРґРЅРµР№ РІР°Р¶РЅРѕСЃС‚Рё")
 
 /datum/round_event/ghost_role/sentience/spawn_role()
 	var/list/mob/dead/observer/candidates
@@ -107,6 +107,6 @@ GLOBAL_LIST_INIT(high_priority_sentience, typecacheof(list(
 	weight = 0
 
 /datum/round_event/ghost_role/sentience/all
-	one = "все"
+	one = "РІСЃРµ"
 	animals = INFINITY // as many as there are ghosts and animals
 	// cockroach pride, station wide

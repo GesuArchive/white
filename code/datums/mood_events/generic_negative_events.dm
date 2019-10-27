@@ -1,39 +1,39 @@
 /datum/mood_event/handcuffed
-	description = "<span class='warning'>Кажется мои выходки кто-то заметил.</span>\n"
+	description = "<span class='warning'>РљР°Р¶РµС‚СЃСЏ РјРѕРё РІС‹С…РѕРґРєРё РєС‚Рѕ-С‚Рѕ Р·Р°РјРµС‚РёР».</span>\n"
 	mood_change = -1
 
 /datum/mood_event/broken_vow //Used for when mimes break their vow of silence
-  description = "<span class='boldwarning'>Моё имя было опозорено нарушением моего обета...</span>\n"
+  description = "<span class='boldwarning'>РњРѕС‘ РёРјСЏ Р±С‹Р»Рѕ РѕРїРѕР·РѕСЂРµРЅРѕ РЅР°СЂСѓС€РµРЅРёРµРј РјРѕРµРіРѕ РѕР±РµС‚Р°...</span>\n"
   mood_change = -8
 
 /datum/mood_event/on_fire
-	description = "<span class='boldwarning'>Я ГОРЮ!!!/span>\n"
+	description = "<span class='boldwarning'>РЇ Р“РћР Р®!!!/span>\n"
 	mood_change = -12
 
 /datum/mood_event/suffocation
-	description = "<span class='boldwarning'>НЕ.. МОГУ... ДЫШАТЬ...</span>\n"
+	description = "<span class='boldwarning'>РќР•.. РњРћР“РЈ... Р”Р«РЁРђРўР¬...</span>\n"
 	mood_change = -12
 
 /datum/mood_event/burnt_thumb
-	description = "<span class='warning'>Не стоило мне играть с зажигалкой.</span>\n"
+	description = "<span class='warning'>РќРµ СЃС‚РѕРёР»Рѕ РјРЅРµ РёРіСЂР°С‚СЊ СЃ Р·Р°Р¶РёРіР°Р»РєРѕР№.</span>\n"
 	mood_change = -1
 	timeout = 2 MINUTES
 
 /datum/mood_event/cold
-	description = "<span class='warning'>Тут очень холодно.</span>\n"
+	description = "<span class='warning'>РўСѓС‚ РѕС‡РµРЅСЊ С…РѕР»РѕРґРЅРѕ.</span>\n"
 	mood_change = -5
 
 /datum/mood_event/hot
-	description = "<span class='warning'>Становится жарковато.</span>\n"
+	description = "<span class='warning'>РЎС‚Р°РЅРѕРІРёС‚СЃСЏ Р¶Р°СЂРєРѕРІР°С‚Рѕ.</span>\n"
 	mood_change = -5
 
 /datum/mood_event/creampie
-	description = "<span class='warning'>Меня окремили. На вкус как пирог.</span>\n"
+	description = "<span class='warning'>РњРµРЅСЏ РѕРєСЂРµРјРёР»Рё. РќР° РІРєСѓСЃ РєР°Рє РїРёСЂРѕРі.</span>\n"
 	mood_change = -2
 	timeout = 3 MINUTES
 
 /datum/mood_event/slipped
-	description = "<span class='warning'>Опять подскальзываюсь. Надо быть аккуратней.</span>\n"
+	description = "<span class='warning'>РћРїСЏС‚СЊ РїРѕРґСЃРєР°Р»СЊР·С‹РІР°СЋСЃСЊ. РќР°РґРѕ Р±С‹С‚СЊ Р°РєРєСѓСЂР°С‚РЅРµР№.</span>\n"
 	mood_change = -2
 	timeout = 3 MINUTES
 
@@ -43,22 +43,22 @@
 	timeout = 3 MINUTES
 
 /datum/mood_event/delam //SM delamination
-	description = "<span class='boldwarning'>Эти инженеры никогда не могут что-то сделать нормально...</span>\n"
+	description = "<span class='boldwarning'>Р­С‚Рё РёРЅР¶РµРЅРµСЂС‹ РЅРёРєРѕРіРґР° РЅРµ РјРѕРіСѓС‚ С‡С‚Рѕ-С‚Рѕ СЃРґРµР»Р°С‚СЊ РЅРѕСЂРјР°Р»СЊРЅРѕ...</span>\n"
 	mood_change = -2
 	timeout = 4 MINUTES
 
 /datum/mood_event/depression
-	description = "<span class='warning'>Мне грустно без каких-либо причин.</span>\n"
+	description = "<span class='warning'>РњРЅРµ РіСЂСѓСЃС‚РЅРѕ Р±РµР· РєР°РєРёС…-Р»РёР±Рѕ РїСЂРёС‡РёРЅ.</span>\n"
 	mood_change = -12
 	timeout = 2 MINUTES
 
 /datum/mood_event/shameful_suicide //suicide_acts that return SHAME, like sord
-  description = "<span class='boldwarning'>Я даже не могу покончить со всем этим!</span>\n"
+  description = "<span class='boldwarning'>РЇ РґР°Р¶Рµ РЅРµ РјРѕРіСѓ РїРѕРєРѕРЅС‡РёС‚СЊ СЃРѕ РІСЃРµРј СЌС‚РёРј!</span>\n"
   mood_change = -15
   timeout = 60 SECONDS
 
 /datum/mood_event/dismembered
-  description = "<span class='boldwarning'>АА-А! МНЕ НУЖНА БЫЛА ЭТА КОНЕЧНОСТЬ!</span>\n"
+  description = "<span class='boldwarning'>РђРђ-Рђ! РњРќР• РќРЈР–РќРђ Р‘Р«Р›Рђ Р­РўРђ РљРћРќР•Р§РќРћРЎРўР¬!</span>\n"
   mood_change = -10
   timeout = 8 MINUTES
 
@@ -68,11 +68,11 @@
 	timeout = 2 MINUTES
 
 /datum/mood_event/embedded
-	description = "<span class='boldwarning'>Достаньте это из меня, достаньте!</span>\n"
+	description = "<span class='boldwarning'>Р”РѕСЃС‚Р°РЅСЊС‚Рµ СЌС‚Рѕ РёР· РјРµРЅСЏ, РґРѕСЃС‚Р°РЅСЊС‚Рµ!</span>\n"
 	mood_change = -7
 
 /datum/mood_event/table
-	description = "<span class='warning'>Кто-то бросил меня на стол!</span>\n"
+	description = "<span class='warning'>РљС‚Рѕ-С‚Рѕ Р±СЂРѕСЃРёР» РјРµРЅСЏ РЅР° СЃС‚РѕР»!</span>\n"
 	mood_change = -2
 	timeout = 2 MINUTES
 
@@ -81,7 +81,7 @@
 		var/mob/living/carbon/human/H = owner
 		H.dna.species.start_wagging_tail(H)
 		addtimer(CALLBACK(H.dna.species, /datum/species.proc/stop_wagging_tail, H), 30)
-		description =  "<span class='nicegreen'>Со мной хотят поиграться на столе!</span>\n"
+		description =  "<span class='nicegreen'>РЎРѕ РјРЅРѕР№ С…РѕС‚СЏС‚ РїРѕРёРіСЂР°С‚СЊСЃСЏ РЅР° СЃС‚РѕР»Рµ!</span>\n"
 		mood_change = 2
 
 /datum/mood_event/table_headsmash
@@ -94,67 +94,67 @@
 
 /datum/mood_event/brain_damage/add_effects()
   var/damage_message = pick_list_replacements(BRAIN_DAMAGE_FILE, "brain_damage")
-  description = "<span class='warning'>Хых... Хах... [damage_message]</span>\n"
+  description = "<span class='warning'>РҐС‹С…... РҐР°С…... [damage_message]</span>\n"
 
 /datum/mood_event/hulk //Entire duration of having the hulk mutation
-  description = "<span class='warning'>ХАЛК БИТЬ!</span>\n"
+  description = "<span class='warning'>РҐРђР›Рљ Р‘РРўР¬!</span>\n"
   mood_change = -4
 
 /datum/mood_event/epilepsy //Only when the mutation causes a seizure
-  description = "<span class='warning'>Стоило обратить внимание на предупреждение об эпилепсии.</span>\n"
+  description = "<span class='warning'>РЎС‚РѕРёР»Рѕ РѕР±СЂР°С‚РёС‚СЊ РІРЅРёРјР°РЅРёРµ РЅР° РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ РѕР± СЌРїРёР»РµРїСЃРёРё.</span>\n"
   mood_change = -3
   timeout = 5 MINUTES
 
 /datum/mood_event/nyctophobia
-	description = "<span class='warning'>Здесь темновато...</span>\n"
+	description = "<span class='warning'>Р—РґРµСЃСЊ С‚РµРјРЅРѕРІР°С‚Рѕ...</span>\n"
 	mood_change = -3
 
 /datum/mood_event/family_heirloom_missing
-	description = "<span class='warning'>Я скучаю по моей семейной реликвии...</span>\n"
+	description = "<span class='warning'>РЇ СЃРєСѓС‡Р°СЋ РїРѕ РјРѕРµР№ СЃРµРјРµР№РЅРѕР№ СЂРµР»РёРєРІРёРё...</span>\n"
 	mood_change = -4
 
 /datum/mood_event/healsbadman
-	description = "<span class='warning'>Меня держит тонкая нить, и у меня ощущение, что я могу развалиться в любой момент!</span>\n"
+	description = "<span class='warning'>РњРµРЅСЏ РґРµСЂР¶РёС‚ С‚РѕРЅРєР°СЏ РЅРёС‚СЊ, Рё Сѓ РјРµРЅСЏ РѕС‰СѓС‰РµРЅРёРµ, С‡С‚Рѕ СЏ РјРѕРіСѓ СЂР°Р·РІР°Р»РёС‚СЊСЃСЏ РІ Р»СЋР±РѕР№ РјРѕРјРµРЅС‚!</span>\n"
 	mood_change = -4
 	timeout = 2 MINUTES
 
 /datum/mood_event/jittery
-	description = "<span class='warning'>Я нервничаю, нервничаю и не могу стоять ровно!</span>\n"
+	description = "<span class='warning'>РЇ РЅРµСЂРІРЅРёС‡Р°СЋ, РЅРµСЂРІРЅРёС‡Р°СЋ Рё РЅРµ РјРѕРіСѓ СЃС‚РѕСЏС‚СЊ СЂРѕРІРЅРѕ!</span>\n"
 	mood_change = -2
 
 /datum/mood_event/vomit
-	description = "<span class='warning'>Меня только что вырвало. Мерзость.</span>\n"
+	description = "<span class='warning'>РњРµРЅСЏ С‚РѕР»СЊРєРѕ С‡С‚Рѕ РІС‹СЂРІР°Р»Рѕ. РњРµСЂР·РѕСЃС‚СЊ.</span>\n"
 	mood_change = -2
 	timeout = 2 MINUTES
 
 /datum/mood_event/vomitself
-	description = "<span class='warning'>Меня только что стошнило на себя. Это отвратительно.</span>\n"
+	description = "<span class='warning'>РњРµРЅСЏ С‚РѕР»СЊРєРѕ С‡С‚Рѕ СЃС‚РѕС€РЅРёР»Рѕ РЅР° СЃРµР±СЏ. Р­С‚Рѕ РѕС‚РІСЂР°С‚РёС‚РµР»СЊРЅРѕ.</span>\n"
 	mood_change = -4
 	timeout = 3 MINUTES
 
 /datum/mood_event/painful_medicine
-	description = "<span class='warning'>Медицина может быть и хороша для меня, но сейчас она адово жалит!</span>\n"
+	description = "<span class='warning'>РњРµРґРёС†РёРЅР° РјРѕР¶РµС‚ Р±С‹С‚СЊ Рё С…РѕСЂРѕС€Р° РґР»СЏ РјРµРЅСЏ, РЅРѕ СЃРµР№С‡Р°СЃ РѕРЅР° Р°РґРѕРІРѕ Р¶Р°Р»РёС‚!</span>\n"
 	mood_change = -5
 	timeout = 60 SECONDS
 
 /datum/mood_event/spooked
-	description = "<span class='warning'>Дребезжание тех костей... Я не могу это забыть.</span>\n"
+	description = "<span class='warning'>Р”СЂРµР±РµР·Р¶Р°РЅРёРµ С‚РµС… РєРѕСЃС‚РµР№... РЇ РЅРµ РјРѕРіСѓ СЌС‚Рѕ Р·Р°Р±С‹С‚СЊ.</span>\n"
 	mood_change = -4
 	timeout = 4 MINUTES
 
 /datum/mood_event/loud_gong
-	description = "<span class='warning'>Этот гонг и правда очень громок!</span>\n"
+	description = "<span class='warning'>Р­С‚РѕС‚ РіРѕРЅРі Рё РїСЂР°РІРґР° РѕС‡РµРЅСЊ РіСЂРѕРјРѕРє!</span>\n"
 	mood_change = -3
 	timeout = 2 MINUTES
 
 /datum/mood_event/notcreeping
-	description = "<span class='warning'>Голоса не рады тому, что я не выполняю своё задание, и они болезненно заставляют мои мысли выполнять его.</span>\n"
+	description = "<span class='warning'>Р“РѕР»РѕСЃР° РЅРµ СЂР°РґС‹ С‚РѕРјСѓ, С‡С‚Рѕ СЏ РЅРµ РІС‹РїРѕР»РЅСЏСЋ СЃРІРѕС‘ Р·Р°РґР°РЅРёРµ, Рё РѕРЅРё Р±РѕР»РµР·РЅРµРЅРЅРѕ Р·Р°СЃС‚Р°РІР»СЏСЋС‚ РјРѕРё РјС‹СЃР»Рё РІС‹РїРѕР»РЅСЏС‚СЊ РµРіРѕ.</span>\n"
 	mood_change = -6
 	timeout = 30
 	hidden = TRUE
 
 /datum/mood_event/notcreepingsevere//not hidden since it's so severe
-	description = "<span class='boldwarning'>ОНИИИ ХОТЯЯЯТ ЕГООО!!</span>\n"
+	description = "<span class='boldwarning'>РћРќРРР РҐРћРўРЇРЇРЇРў Р•Р“РћРћРћ!!</span>\n"
 	mood_change = -30
 	timeout = 30
 
@@ -163,42 +163,42 @@
 	for(var/i in 1 to rand(3,5))
 		unstable += copytext(name, -1)
 	var/unhinged = uppertext(unstable.Join(""))//example Tinea Luxor > TINEA LUXORRRR (with randomness in how long that slur is)
-	description = "<span class='boldwarning'>ОНИИИ ХОТЯЯЯТ [unhinged]!!</span>\n"
+	description = "<span class='boldwarning'>РћРќРРР РҐРћРўРЇРЇРЇРў [unhinged]!!</span>\n"
 
 /datum/mood_event/sapped
-	description = "<span class='boldwarning'>Необъяснимая печаль пожирает меня...</span>\n"
+	description = "<span class='boldwarning'>РќРµРѕР±СЉСЏСЃРЅРёРјР°СЏ РїРµС‡Р°Р»СЊ РїРѕР¶РёСЂР°РµС‚ РјРµРЅСЏ...</span>\n"
 	mood_change = -15
 	timeout = 90 SECONDS
 
 /datum/mood_event/back_pain
-	description = "<span class='boldwarning'>Сумки никогда не сидят ровно на моей спине, это очень больно!</span>\n"
+	description = "<span class='boldwarning'>РЎСѓРјРєРё РЅРёРєРѕРіРґР° РЅРµ СЃРёРґСЏС‚ СЂРѕРІРЅРѕ РЅР° РјРѕРµР№ СЃРїРёРЅРµ, СЌС‚Рѕ РѕС‡РµРЅСЊ Р±РѕР»СЊРЅРѕ!</span>\n"
 	mood_change = -15
 
 /datum/mood_event/sad_empath
-	description = "<span class='warning'>Кто-то видимо грустит...</span>\n"
+	description = "<span class='warning'>РљС‚Рѕ-С‚Рѕ РІРёРґРёРјРѕ РіСЂСѓСЃС‚РёС‚...</span>\n"
 	mood_change = -2
 	timeout = 60 SECONDS
 
 /datum/mood_event/sad_empath/add_effects(mob/sadtarget)
-	description = "<span class='warning'>[sadtarget.name] кажется грустит...</span>\n"
+	description = "<span class='warning'>[sadtarget.name] РєР°Р¶РµС‚СЃСЏ РіСЂСѓСЃС‚РёС‚...</span>\n"
 
 /datum/mood_event/sacrifice_bad
-	description ="<span class='warning'>Эти чёртовы дикари!</span>\n"
+	description ="<span class='warning'>Р­С‚Рё С‡С‘СЂС‚РѕРІС‹ РґРёРєР°СЂРё!</span>\n"
 	mood_change = -5
 	timeout = 2 MINUTES
 
 /datum/mood_event/artbad
-	description = "<span class='warning'>У меня получалось и лучше чем это.</span>\n"
+	description = "<span class='warning'>РЈ РјРµРЅСЏ РїРѕР»СѓС‡Р°Р»РѕСЃСЊ Рё Р»СѓС‡С€Рµ С‡РµРј СЌС‚Рѕ.</span>\n"
 	mood_change = -2
 	timeout = 1200
 
 //These are unused so far but I want to remember them to use them later
 /datum/mood_event/cloned_corpse
-	description = "<span class='boldwarning'>Мой... Собственный... Труп...</span>\n"
+	description = "<span class='boldwarning'>РњРѕР№... РЎРѕР±СЃС‚РІРµРЅРЅС‹Р№... РўСЂСѓРї...</span>\n"
 	mood_change = -6
 
 /datum/mood_event/surgery
-	description = "<span class='boldwarning'>МЕНЯ РЕЖУТ НА КУСОЧКИ!!</span>\n"
+	description = "<span class='boldwarning'>РњР•РќРЇ Р Р•Р–РЈРў РќРђ РљРЈРЎРћР§РљР!!</span>\n"
 	mood_change = -8
 
 /datum/mood_event/nanite_sadness

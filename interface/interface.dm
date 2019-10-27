@@ -76,7 +76,7 @@
 	return
 
 /client/verb/hotkeys_help()
-	set name = "Помощь по хоткеям"
+	set name = "РџРѕРјРѕС‰СЊ РїРѕ С…РѕС‚РєРµСЏРј"
 	set category = "OOC"
 
 	var/adminhotkeys = {"<font color='purple'>
@@ -100,7 +100,7 @@ Admin:
 		to_chat(src, adminhotkeys)
 
 /client/verb/changelog()
-	set name = "Последние изменения"
+	set name = "РџРѕСЃР»РµРґРЅРёРµ РёР·РјРµРЅРµРЅРёСЏ"
 	set category = "OOC"
 	var/datum/asset/changelog = get_asset_datum(/datum/asset/simple/changelog)
 	changelog.send(src)

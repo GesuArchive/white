@@ -119,14 +119,14 @@
 /mob/proc/get_held_index_name(i)
 	var/list/hand = list()
 	if(i > 2)
-		hand += "âåğõíåé "
+		hand += "Ğ²ĞµÑ€Ñ…Ğ½ĞµĞ¹ "
 	var/num = 0
 	if(!(i % 2))
 		num = i-2
-		hand += "ïğàâîé ğóêå"
+		hand += "Ğ¿Ñ€Ğ°Ğ²Ğ¾Ğ¹ Ñ€ÑƒĞºĞµ"
 	else
 		num = i-1
-		hand += "ëåâîé ğóêå"
+		hand += "Ğ»ĞµĞ²Ğ¾Ğ¹ Ñ€ÑƒĞºĞµ"
 	num -= (num*0.5)
 	if(num > 1) //"upper left hand #1" seems weird, but "upper left hand #2" is A-ok
 		hand += " #[num]"

@@ -111,19 +111,19 @@
 
 	if(!force)
 		if(user.zone_selected == BODY_ZONE_HEAD)
-			var/input = input("Что бы ты хотел написать у [M] на лбу?","Засранец...", M.headstamp) as text|null
+			var/input = input("Р§С‚Рѕ Р±С‹ С‚С‹ С…РѕС‚РµР» РЅР°РїРёСЃР°С‚СЊ Сѓ [M] РЅР° Р»Р±Сѓ?","Р—Р°СЃСЂР°РЅРµС†...", M.headstamp) as text|null
 			if(!input)
-				to_chat(user, "<span class='warning'>Тебе перехотелось писать...</span>")
+				to_chat(user, "<span class='warning'>РўРµР±Рµ РїРµСЂРµС…РѕС‚РµР»РѕСЃСЊ РїРёСЃР°С‚СЊ...</span>")
 				return
-			M.visible_message(user, "<span class='danger'>[user] начинает писать что-то на лбу <b>[M]</b>.</span>")
+			M.visible_message(user, "<span class='danger'>[user] РЅР°С‡РёРЅР°РµС‚ РїРёСЃР°С‚СЊ С‡С‚Рѕ-С‚Рѕ РЅР° Р»Р±Сѓ <b>[M]</b>.</span>")
 			var/speedofwriting = 40
 			if((HAS_TRAIT(user, TRAIT_CLUMSY)))
 				speedofwriting = 15
 			if(src.use_tool(M, user, speedofwriting, volume=50))
-				M.visible_message(user, "<span class='danger'>[user] написал <b>[input]</b на лбу <b>[M]</b>.</span>")
+				M.visible_message(user, "<span class='danger'>[user] РЅР°РїРёСЃР°Р» <b>[input]</b РЅР° Р»Р±Сѓ <b>[M]</b>.</span>")
 				M.headstamp = input
 				return
-			to_chat(user, "<span class='warning'>Тебе перехотелось писать...</span>")
+			to_chat(user, "<span class='warning'>РўРµР±Рµ РїРµСЂРµС…РѕС‚РµР»РѕСЃСЊ РїРёСЃР°С‚СЊ...</span>")
 			return
 		if(M.can_inject(user, 1))
 			to_chat(user, "<span class='warning'>You stab [M] with the pen.</span>")
@@ -131,7 +131,7 @@
 				to_chat(M, "<span class='danger'>You feel a tiny prick!</span>")
 			. = 1
 
-		log_combat(user, M, "втыкает", src)
+		log_combat(user, M, "РІС‚С‹РєР°РµС‚", src)
 
 	else
 		. = ..()
@@ -188,7 +188,7 @@
  * (Alan) Edaggers
  */
 /obj/item/pen/edagger
-	attack_verb = list("рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет") //these wont show up if the pen is off
+	attack_verb = list("СЂСѓР±РёС‚", "РІС‚С‹РєР°РµС‚", "СЂР°Р·СЂРµР·Р°РµС‚", "РєСЂРѕРјСЃР°РµС‚", "СЂР°Р·СЂС‹РІР°РµС‚", "РЅР°СЂРµР·Р°РµС‚", "СЂРµР¶РµС‚") //these wont show up if the pen is off
 	sharpness = IS_SHARP
 	var/on = FALSE
 

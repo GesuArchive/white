@@ -26,16 +26,16 @@
 	ship_name = pick(strings(PIRATE_NAMES_FILE, "ship_names"))
 
 /datum/round_event/pirates/announce(fake)
-	priority_announce("Входящая подпространственная передача данных. Открыт защищенный канал связи на всех коммуникационных консолях.", "Входящее сообщение", 'sound/ai/commandreport.ogg')
+	priority_announce("Р’С…РѕРґСЏС‰Р°СЏ РїРѕРґРїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµРЅРЅР°СЏ РїРµСЂРµРґР°С‡Р° РґР°РЅРЅС‹С…. РћС‚РєСЂС‹С‚ Р·Р°С‰РёС‰РµРЅРЅС‹Р№ РєР°РЅР°Р» СЃРІСЏР·Рё РЅР° РІСЃРµС… РєРѕРјРјСѓРЅРёРєР°С†РёРѕРЅРЅС‹С… РєРѕРЅСЃРѕР»СЏС….", "Р’С…РѕРґСЏС‰РµРµ СЃРѕРѕР±С‰РµРЅРёРµ", 'sound/ai/commandreport.ogg')
 	if(fake)
 		return
 	threat = new
 	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
 	if(D)
 		payoff = max(payoff_min, FLOOR(D.account_balance * 0.80, 1000))
-	threat.title = "Бизнес-предложение"
-	threat.content = "Это [ship_name]. Выплатите [payoff] кредитов или вы пройдётесь по доске."
-	threat.possible_answers = list("Мы заплатим.","Нет.")
+	threat.title = "Р‘РёР·РЅРµСЃ-РїСЂРµРґР»РѕР¶РµРЅРёРµ"
+	threat.content = "Р­С‚Рѕ [ship_name]. Р’С‹РїР»Р°С‚РёС‚Рµ [payoff] РєСЂРµРґРёС‚РѕРІ РёР»Рё РІС‹ РїСЂРѕР№РґС‘С‚РµСЃСЊ РїРѕ РґРѕСЃРєРµ."
+	threat.possible_answers = list("РњС‹ Р·Р°РїР»Р°С‚РёРј.","РќРµС‚.")
 	threat.answer_callback = CALLBACK(src,.proc/answered)
 	SScommunications.send_message(threat,unique = TRUE)
 
@@ -44,19 +44,19 @@
 		var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
 		if(D)
 			if(D.adjust_money(-payoff))
-				priority_announce("Спасибо за кредиты, сухопутные крысы.",sender_override = ship_name)
+				priority_announce("РЎРїР°СЃРёР±Рѕ Р·Р° РєСЂРµРґРёС‚С‹, СЃСѓС…РѕРїСѓС‚РЅС‹Рµ РєСЂС‹СЃС‹.",sender_override = ship_name)
 				paid_off = TRUE
 				return
 			else
-				priority_announce("Пытаешься нас обмануть? Ты пожалеешь об этом!",sender_override = ship_name)
+				priority_announce("РџС‹С‚Р°РµС€СЊСЃСЏ РЅР°СЃ РѕР±РјР°РЅСѓС‚СЊ? РўС‹ РїРѕР¶Р°Р»РµРµС€СЊ РѕР± СЌС‚РѕРј!",sender_override = ship_name)
 	if(!shuttle_spawned)
 		spawn_shuttle()
 	else
-		priority_announce("Слишком поздно умолять о пощаде!",sender_override = ship_name)
+		priority_announce("РЎР»РёС€РєРѕРј РїРѕР·РґРЅРѕ СѓРјРѕР»СЏС‚СЊ Рѕ РїРѕС‰Р°РґРµ!",sender_override = ship_name)
 
 /datum/round_event/pirates/start()
 	if(threat && !threat.answered)
-		threat.possible_answers = list("Слишком поздно")
+		threat.possible_answers = list("РЎР»РёС€РєРѕРј РїРѕР·РґРЅРѕ")
 		threat.answered = 1
 	if(!paid_off && !shuttle_spawned)
 		spawn_shuttle()
@@ -64,7 +64,7 @@
 /datum/round_event/pirates/proc/spawn_shuttle()
 	shuttle_spawned = TRUE
 
-	var/list/candidates = pollGhostCandidates("Вы хотите попасть в команду пиратов?", ROLE_TRAITOR)
+	var/list/candidates = pollGhostCandidates("Р’С‹ С…РѕС‚РёС‚Рµ РїРѕРїР°СЃС‚СЊ РІ РєРѕРјР°РЅРґСѓ РїРёСЂР°С‚РѕРІ?", ROLE_TRAITOR)
 	shuffle_inplace(candidates)
 
 	var/datum/map_template/shuttle/pirate/default/ship = new
@@ -88,7 +88,7 @@
 			else
 				announce_to_ghosts(spawner)
 
-	priority_announce("Вблизи станции обнаружен неопознанный вооруженный корабль.")
+	priority_announce("Р’Р±Р»РёР·Рё СЃС‚Р°РЅС†РёРё РѕР±РЅР°СЂСѓР¶РµРЅ РЅРµРѕРїРѕР·РЅР°РЅРЅС‹Р№ РІРѕРѕСЂСѓР¶РµРЅРЅС‹Р№ РєРѕСЂР°Р±Р»СЊ.")
 
 //Shuttle equipment
 
@@ -154,7 +154,7 @@
 	credits_stored = 0
 
 /obj/machinery/shuttle_scrambler/proc/send_notification()
-	priority_announce("Обнаружен сигнал кражи данных, источник зарегистрирован на локальных GPS устройствах.")
+	priority_announce("РћР±РЅР°СЂСѓР¶РµРЅ СЃРёРіРЅР°Р» РєСЂР°Р¶Рё РґР°РЅРЅС‹С…, РёСЃС‚РѕС‡РЅРёРє Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ РЅР° Р»РѕРєР°Р»СЊРЅС‹С… GPS СѓСЃС‚СЂРѕР№СЃС‚РІР°С….")
 
 /obj/machinery/shuttle_scrambler/proc/toggle_off(mob/user)
 	SSshuttle.clearTradeBlockade(src)

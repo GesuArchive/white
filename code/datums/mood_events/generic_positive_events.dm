@@ -1,150 +1,150 @@
 /datum/mood_event/hug
-	description = "<span class='nicegreen'>Обнимашки - круто.</span>\n"
+	description = "<span class='nicegreen'>РћР±РЅРёРјР°С€РєРё - РєСЂСѓС‚Рѕ.</span>\n"
 	mood_change = 1
 	timeout = 2 MINUTES
 
 /datum/mood_event/betterhug
-	description = "<span class='nicegreen'>Кто-то очень добр ко мне.</span>\n"
+	description = "<span class='nicegreen'>РљС‚Рѕ-С‚Рѕ РѕС‡РµРЅСЊ РґРѕР±СЂ РєРѕ РјРЅРµ.</span>\n"
 	mood_change = 3
 	timeout = 4 MINUTES
 
 /datum/mood_event/betterhug/add_effects(mob/friend)
-	description = "<span class='nicegreen'>[friend.name] очень мило себя ведёт.</span>\n"
+	description = "<span class='nicegreen'>[friend.name] РѕС‡РµРЅСЊ РјРёР»Рѕ СЃРµР±СЏ РІРµРґС‘С‚.</span>\n"
 
 /datum/mood_event/besthug
-	description = "<span class='nicegreen'>Рядом с кем-то очень приятно находится, мне так хорошо с ним!</span>\n"
+	description = "<span class='nicegreen'>Р СЏРґРѕРј СЃ РєРµРј-С‚Рѕ РѕС‡РµРЅСЊ РїСЂРёСЏС‚РЅРѕ РЅР°С…РѕРґРёС‚СЃСЏ, РјРЅРµ С‚Р°Рє С…РѕСЂРѕС€Рѕ СЃ РЅРёРј!</span>\n"
 	mood_change = 5
 	timeout = 4 MINUTES
 
 /datum/mood_event/besthug/add_effects(mob/friend)
-	description = "<span class='nicegreen'>[friend.name] очень мило себя ведёт, рядом с [friend.p_they()] так хорошо находиться!</span>\n"
+	description = "<span class='nicegreen'>[friend.name] РѕС‡РµРЅСЊ РјРёР»Рѕ СЃРµР±СЏ РІРµРґС‘С‚, СЂСЏРґРѕРј СЃ [friend.p_they()] С‚Р°Рє С…РѕСЂРѕС€Рѕ РЅР°С…РѕРґРёС‚СЊСЃСЏ!</span>\n"
 
 /datum/mood_event/arcade
-	description = "<span class='nicegreen'>У меня получилось пройти игру!</span>\n"
+	description = "<span class='nicegreen'>РЈ РјРµРЅСЏ РїРѕР»СѓС‡РёР»РѕСЃСЊ РїСЂРѕР№С‚Рё РёРіСЂСѓ!</span>\n"
 	mood_change = 3
 	timeout = 8 MINUTES
 
 /datum/mood_event/blessing
-	description = "<span class='nicegreen'>Меня благословили.</span>\n"
+	description = "<span class='nicegreen'>РњРµРЅСЏ Р±Р»Р°РіРѕСЃР»РѕРІРёР»Рё.</span>\n"
 	mood_change = 3
 	timeout = 8 MINUTES
 
 /datum/mood_event/book_nerd
-	description = "<span class='nicegreen'>Это была хорошая книжка.</span>\n"
+	description = "<span class='nicegreen'>Р­С‚Рѕ Р±С‹Р»Р° С…РѕСЂРѕС€Р°СЏ РєРЅРёР¶РєР°.</span>\n"
 	mood_change = 1
 	timeout = 5 MINUTES
 
 /datum/mood_event/exercise
-	description = "<span class='nicegreen'>Работа в спортзале выпускает энедорфины!</span>\n"
+	description = "<span class='nicegreen'>Р Р°Р±РѕС‚Р° РІ СЃРїРѕСЂС‚Р·Р°Р»Рµ РІС‹РїСѓСЃРєР°РµС‚ СЌРЅРµРґРѕСЂС„РёРЅС‹!</span>\n"
 	mood_change = 2
 	timeout = 5 MINUTES
 
 /datum/mood_event/pet_animal
-	description = "<span class='nicegreen'>Животные такие милые! Не могу перестать их гладить!</span>\n"
+	description = "<span class='nicegreen'>Р–РёРІРѕС‚РЅС‹Рµ С‚Р°РєРёРµ РјРёР»С‹Рµ! РќРµ РјРѕРіСѓ РїРµСЂРµСЃС‚Р°С‚СЊ РёС… РіР»Р°РґРёС‚СЊ!</span>\n"
 	mood_change = 2
 	timeout = 5 MINUTES
 
 /datum/mood_event/pet_animal/add_effects(mob/animal)
-	description = "<span class='nicegreen'>[animal.name] такой милый! Я не могу перестать гладить [animal.p_them()]!</span>\n"
+	description = "<span class='nicegreen'>[animal.name] С‚Р°РєРѕР№ РјРёР»С‹Р№! РЇ РЅРµ РјРѕРіСѓ РїРµСЂРµСЃС‚Р°С‚СЊ РіР»Р°РґРёС‚СЊ [animal.p_them()]!</span>\n"
 
 /datum/mood_event/honk
-	description = "<span class='nicegreen'>Меня ХОНКнули!/span>\n"
+	description = "<span class='nicegreen'>РњРµРЅСЏ РҐРћРќРљРЅСѓР»Рё!/span>\n"
 	mood_change = 2
 	timeout = 4 MINUTES
 	special_screen_obj = "honked_nose"
 	special_screen_replace = FALSE
 
 /datum/mood_event/perform_cpr
-	description = "<span class='nicegreen'>Так приятно спасти чью-то жизнь.</span>\n"
+	description = "<span class='nicegreen'>РўР°Рє РїСЂРёСЏС‚РЅРѕ СЃРїР°СЃС‚Рё С‡СЊСЋ-С‚Рѕ Р¶РёР·РЅСЊ.</span>\n"
 	mood_change = 6
 	timeout = 8 MINUTES
 
 /datum/mood_event/oblivious
-	description = "<span class='nicegreen'>Какой прекрасный день..</span>\n"
+	description = "<span class='nicegreen'>РљР°РєРѕР№ РїСЂРµРєСЂР°СЃРЅС‹Р№ РґРµРЅСЊ..</span>\n"
 	mood_change = 3
 
 /datum/mood_event/jolly
-	description = "<span class='nicegreen'>Мне весело без какой-либо причины.</span>\n"
+	description = "<span class='nicegreen'>РњРЅРµ РІРµСЃРµР»Рѕ Р±РµР· РєР°РєРѕР№-Р»РёР±Рѕ РїСЂРёС‡РёРЅС‹.</span>\n"
 	mood_change = 6
 	timeout = 2 MINUTES
 
 /datum/mood_event/focused
-	description = "<span class='nicegreen'>У меня есть цель, и я добьюсь её, во что бы то ни стало!</span>\n" //Used for syndies, nukeops etc so they can focus on their goals
+	description = "<span class='nicegreen'>РЈ РјРµРЅСЏ РµСЃС‚СЊ С†РµР»СЊ, Рё СЏ РґРѕР±СЊСЋСЃСЊ РµС‘, РІРѕ С‡С‚Рѕ Р±С‹ С‚Рѕ РЅРё СЃС‚Р°Р»Рѕ!</span>\n" //Used for syndies, nukeops etc so they can focus on their goals
 	mood_change = 4
 	hidden = TRUE
 
 /datum/mood_event/badass_antag
-	description = "<span class='greentext'>Я так крут, и все это знают. Просто посмотри на них, они трясутся от одной мысли, что я рядом с ними.</span>\n"
+	description = "<span class='greentext'>РЇ С‚Р°Рє РєСЂСѓС‚, Рё РІСЃРµ СЌС‚Рѕ Р·РЅР°СЋС‚. РџСЂРѕСЃС‚Рѕ РїРѕСЃРјРѕС‚СЂРё РЅР° РЅРёС…, РѕРЅРё С‚СЂСЏСЃСѓС‚СЃСЏ РѕС‚ РѕРґРЅРѕР№ РјС‹СЃР»Рё, С‡С‚Рѕ СЏ СЂСЏРґРѕРј СЃ РЅРёРјРё.</span>\n"
 	mood_change = 7
 	hidden = TRUE
 	special_screen_obj = "badass_sun"
 	special_screen_replace = FALSE
 
 /datum/mood_event/creeping
-	description = "<span class='greentext'>Голоса освободили меня!</span>\n" //creeps get it when they are around their obsession
+	description = "<span class='greentext'>Р“РѕР»РѕСЃР° РѕСЃРІРѕР±РѕРґРёР»Рё РјРµРЅСЏ!</span>\n" //creeps get it when they are around their obsession
 	mood_change = 18
 	timeout = 3 SECONDS
 	hidden = TRUE
 
 /datum/mood_event/revolution
-	description = "<span class='nicegreen'>СЛАВА РЕВОЛЮЦИИ!!!</span>\n"
+	description = "<span class='nicegreen'>РЎР›РђР’Рђ Р Р•Р’РћР›Р®Р¦РР!!!</span>\n"
 	mood_change = 3
 	hidden = TRUE
 
 /datum/mood_event/cult
-	description = "<span class='nicegreen'>Я знаю правду, славим великого!</span>\n"
+	description = "<span class='nicegreen'>РЇ Р·РЅР°СЋ РїСЂР°РІРґСѓ, СЃР»Р°РІРёРј РІРµР»РёРєРѕРіРѕ!</span>\n"
 	mood_change = 10 //maybe being a cultist isnt that bad after all
 	hidden = TRUE
 
 /datum/mood_event/family_heirloom
-	description = "<span class='nicegreen'>Со мной моя семейная реликвия в безопасности.</span>\n"
+	description = "<span class='nicegreen'>РЎРѕ РјРЅРѕР№ РјРѕСЏ СЃРµРјРµР№РЅР°СЏ СЂРµР»РёРєРІРёСЏ РІ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё.</span>\n"
 	mood_change = 1
 
 /datum/mood_event/goodmusic
-	description = "<span class='nicegreen'>В этой музыке есть что-то успокаивающее.</span>\n"
+	description = "<span class='nicegreen'>Р’ СЌС‚РѕР№ РјСѓР·С‹РєРµ РµСЃС‚СЊ С‡С‚Рѕ-С‚Рѕ СѓСЃРїРѕРєР°РёРІР°СЋС‰РµРµ.</span>\n"
 	mood_change = 3
 	timeout = 60 SECONDS
 
 /datum/mood_event/chemical_euphoria
-	description = "<span class='nicegreen'>Хех... Хехехе... Хехе...</span>\n"
+	description = "<span class='nicegreen'>РҐРµС…... РҐРµС…РµС…Рµ... РҐРµС…Рµ...</span>\n"
 	mood_change = 4
 
 /datum/mood_event/chemical_laughter
-	description = "<span class='nicegreen'>Laughter самая лучшая медицина, не так ли?!</span>\n"
+	description = "<span class='nicegreen'>Laughter СЃР°РјР°СЏ Р»СѓС‡С€Р°СЏ РјРµРґРёС†РёРЅР°, РЅРµ С‚Р°Рє Р»Рё?!</span>\n"
 	mood_change = 4
 	timeout = 3 MINUTES
 
 /datum/mood_event/chemical_superlaughter
-	description = "<span class='nicegreen'>*ХРИП*</span>\n"
+	description = "<span class='nicegreen'>*РҐР РРџ*</span>\n"
 	mood_change = 12
 	timeout = 3 MINUTES
 
 /datum/mood_event/religiously_comforted
-	description = "<span class='nicegreen'>Мне приятно находится рядом со священным человеком.</span>\n"
+	description = "<span class='nicegreen'>РњРЅРµ РїСЂРёСЏС‚РЅРѕ РЅР°С…РѕРґРёС‚СЃСЏ СЂСЏРґРѕРј СЃРѕ СЃРІСЏС‰РµРЅРЅС‹Рј С‡РµР»РѕРІРµРєРѕРј.</span>\n"
 	mood_change = 3
 	timeout = 5 MINUTES
 
 /datum/mood_event/clownshoes
-	description = "<span class='nicegreen'>Эта обувь - наследие клоунады, я не хочу их снимать!</span>\n"
+	description = "<span class='nicegreen'>Р­С‚Р° РѕР±СѓРІСЊ - РЅР°СЃР»РµРґРёРµ РєР»РѕСѓРЅР°РґС‹, СЏ РЅРµ С…РѕС‡Сѓ РёС… СЃРЅРёРјР°С‚СЊ!</span>\n"
 	mood_change = 5
 
 /datum/mood_event/sacrifice_good
-	description ="<span class='nicegreen'>Боги довольны этим подношением!</span>\n"
+	description ="<span class='nicegreen'>Р‘РѕРіРё РґРѕРІРѕР»СЊРЅС‹ СЌС‚РёРј РїРѕРґРЅРѕС€РµРЅРёРµРј!</span>\n"
 	mood_change = 5
 	timeout = 3 MINUTES
 
 /datum/mood_event/artok
-	description = "<span class='nicegreen'>Так приятно, что здесь занимаются искусством.</span>\n"
+	description = "<span class='nicegreen'>РўР°Рє РїСЂРёСЏС‚РЅРѕ, С‡С‚Рѕ Р·РґРµСЃСЊ Р·Р°РЅРёРјР°СЋС‚СЃСЏ РёСЃРєСѓСЃСЃС‚РІРѕРј.</span>\n"
 	mood_change = 2
 	timeout = 5 MINUTES
 
 /datum/mood_event/artgood
-	description = "<span class='nicegreen'>Какое заставляющее задуматься произведение искусства, я не могу перестать думать о нём!</span>\n"
+	description = "<span class='nicegreen'>РљР°РєРѕРµ Р·Р°СЃС‚Р°РІР»СЏСЋС‰РµРµ Р·Р°РґСѓРјР°С‚СЊСЃСЏ РїСЂРѕРёР·РІРµРґРµРЅРёРµ РёСЃРєСѓСЃСЃС‚РІР°, СЏ РЅРµ РјРѕРіСѓ РїРµСЂРµСЃС‚Р°С‚СЊ РґСѓРјР°С‚СЊ Рѕ РЅС‘Рј!</span>\n"
 	mood_change = 4
 	timeout = 5 MINUTES
 
 /datum/mood_event/artgreat
-	description = "<span class='nicegreen'>Это произведение искусства такое прекрасное! Я снова верю в доброту человечества, очень многое говорит о людях, что рисуют такое в этом месте.</span>\n"
+	description = "<span class='nicegreen'>Р­С‚Рѕ РїСЂРѕРёР·РІРµРґРµРЅРёРµ РёСЃРєСѓСЃСЃС‚РІР° С‚Р°РєРѕРµ РїСЂРµРєСЂР°СЃРЅРѕРµ! РЇ СЃРЅРѕРІР° РІРµСЂСЋ РІ РґРѕР±СЂРѕС‚Сѓ С‡РµР»РѕРІРµС‡РµСЃС‚РІР°, РѕС‡РµРЅСЊ РјРЅРѕРіРѕРµ РіРѕРІРѕСЂРёС‚ Рѕ Р»СЋРґСЏС…, С‡С‚Рѕ СЂРёСЃСѓСЋС‚ С‚Р°РєРѕРµ РІ СЌС‚РѕРј РјРµСЃС‚Рµ.</span>\n"
 	mood_change = 6
 	timeout = 5 MINUTES
 

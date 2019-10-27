@@ -667,8 +667,8 @@
 	icon_state = "cleaving_saw"
 	icon_state_on = "cleaving_saw_open"
 	slot_flags = ITEM_SLOT_BELT
-	attack_verb_off = list("атакует", "пилит", "sliced", "кромсает", "ripped", "нарезает", "режет")
-	attack_verb_on = list("разрубает", "swiped", "slashed", "рубит")
+	attack_verb_off = list("Р°С‚Р°РєСѓРµС‚", "РїРёР»РёС‚", "sliced", "РєСЂРѕРјСЃР°РµС‚", "ripped", "РЅР°СЂРµР·Р°РµС‚", "СЂРµР¶РµС‚")
+	attack_verb_on = list("СЂР°Р·СЂСѓР±Р°РµС‚", "swiped", "slashed", "СЂСѓР±РёС‚")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	hitsound_on = 'sound/weapons/bladeslice.ogg'
 	w_class = WEIGHT_CLASS_BULKY
@@ -781,7 +781,7 @@
 	force = 1
 	throwforce = 1
 	hitsound = 'sound/effects/ghost2.ogg'
-	attack_verb = list("атакует", "рубит", "втыкает", "режет", "кромсает", "разрывает", "нарезает", "душманит")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "СЂСѓР±РёС‚", "РІС‚С‹РєР°РµС‚", "СЂРµР¶РµС‚", "РєСЂРѕРјСЃР°РµС‚", "СЂР°Р·СЂС‹РІР°РµС‚", "РЅР°СЂРµР·Р°РµС‚", "РґСѓС€РјР°РЅРёС‚")
 	var/summon_cooldown = 0
 	var/list/mob/dead/observer/spirits
 
@@ -1098,7 +1098,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	force = 15
-	attack_verb = list("бьёт", "лупит", "пульверизирует")
+	attack_verb = list("Р±СЊС‘С‚", "Р»СѓРїРёС‚", "РїСѓР»СЊРІРµСЂРёР·РёСЂСѓРµС‚")
 	hitsound = 'sound/weapons/sonic_jackhammer.ogg'
 	actions_types = list(/datum/action/item_action/vortex_recall, /datum/action/item_action/toggle_unfriendly_fire)
 	var/cooldown_time = 20 //how long the cooldown between non-melee ranged attacks is

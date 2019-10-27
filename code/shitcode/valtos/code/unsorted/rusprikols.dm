@@ -1,5 +1,5 @@
 /obj/mecha/working/ripley/buran
-	desc = "Гарантия тоталитарной власти. Держится на духовных скрепах."
+	desc = "Р“Р°СЂР°РЅС‚РёСЏ С‚РѕС‚Р°Р»РёС‚Р°СЂРЅРѕР№ РІР»Р°СЃС‚Рё. Р”РµСЂР¶РёС‚СЃСЏ РЅР° РґСѓС…РѕРІРЅС‹С… СЃРєСЂРµРїР°С…."
 	name = "\improper APLU MK-IV \"Buran\""
 	icon = 'code/shitcode/valtos/icons/mecha.dmi'
 	icon_state = "buran"
@@ -62,7 +62,7 @@
 
 /obj/item/melee/classic_baton/dildon
 	name = "dildo"
-	desc = "При неправильном обращении окажется у тебя в жопе."
+	desc = "РџСЂРё РЅРµРїСЂР°РІРёР»СЊРЅРѕРј РѕР±СЂР°С‰РµРЅРёРё РѕРєР°Р¶РµС‚СЃСЏ Сѓ С‚РµР±СЏ РІ Р¶РѕРїРµ."
 	icon = 'code/shitcode/valtos/icons/melee.dmi'
 	icon_state = "dildo"
 	item_state = "dildo"
@@ -74,7 +74,7 @@
 	cooldown = 40
 
 /mob/living
-	var/headstamp //надпись на башне
+	var/headstamp //РЅР°РґРїРёСЃСЊ РЅР° Р±Р°С€РЅРµ
 
 /obj/item/stock_parts/capacitor/noneuclid
 	name = "noneuclid capacitor"

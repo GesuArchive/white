@@ -146,7 +146,7 @@ SUBSYSTEM_DEF(ticker)
 				start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 10)
 			for(var/client/C in GLOB.clients)
 				window_flash(C, ignorepref = TRUE) //let them know lobby has opened up.
-			to_chat(world, "<span class='boldnotice'>Приветствуем вас на [station_name()]!</span>")
+			to_chat(world, "<span class='boldnotice'>РџСЂРёРІРµС‚СЃС‚РІСѓРµРј РІР°СЃ РЅР° [station_name()]!</span>")
 			send2chat("New round starting on [SSmapping.config.map_name]!", CONFIG_GET(string/chat_announce_new_game))
 			current_state = GAME_STATE_PREGAME
 			webhook_send_roundstatus("lobby")
@@ -206,7 +206,7 @@ SUBSYSTEM_DEF(ticker)
 
 
 /datum/controller/subsystem/ticker/proc/setup()
-	to_chat(world, "<span class='boldannounce'>Начинаем игру...</span>")
+	to_chat(world, "<span class='boldannounce'>РќР°С‡РёРЅР°РµРј РёРіСЂСѓ...</span>")
 	var/init_start = world.timeofday
 		//Create and announce mode
 	var/list/datum/game_mode/runnable_modes
@@ -224,7 +224,7 @@ SUBSYSTEM_DEF(ticker)
 
 		if(!mode)
 			if(!runnable_modes.len)
-				to_chat(world, "<B>Ничего не вышло!</B> Откатываем таймер назад.")
+				to_chat(world, "<B>РќРёС‡РµРіРѕ РЅРµ РІС‹С€Р»Рѕ!</B> РћС‚РєР°С‚С‹РІР°РµРј С‚Р°Р№РјРµСЂ РЅР°Р·Р°Рґ.")
 				return 0
 			mode = pickweight(runnable_modes)
 			if(!mode)	//too few roundtypes all run too recently
@@ -251,7 +251,7 @@ SUBSYSTEM_DEF(ticker)
 		if(!can_continue)
 			log_game("[mode.name] failed pre_setup, cause: [mode.setup_error]")
 			QDEL_NULL(mode)
-			to_chat(world, "<B>Нет готовых людей [GLOB.master_mode].</B> Откатываем таймер.")
+			to_chat(world, "<B>РќРµС‚ РіРѕС‚РѕРІС‹С… Р»СЋРґРµР№ [GLOB.master_mode].</B> РћС‚РєР°С‚С‹РІР°РµРј С‚Р°Р№РјРµСЂ.")
 			SSjob.ResetOccupations()
 			return 0
 	else
@@ -289,14 +289,14 @@ SUBSYSTEM_DEF(ticker)
 	round_start_time = world.time
 	SSdbcore.SetRoundStart()
 
-	to_chat(world, "<span class='notice'><B>Приветствуем вас на [station_name()], приятного пребывания!</B></span>")
+	to_chat(world, "<span class='notice'><B>РџСЂРёРІРµС‚СЃС‚РІСѓРµРј РІР°СЃ РЅР° [station_name()], РїСЂРёСЏС‚РЅРѕРіРѕ РїСЂРµР±С‹РІР°РЅРёСЏ!</B></span>")
 	SEND_SOUND(world, sound('sound/ai/welcome.ogg'))
 
 	current_state = GAME_STATE_PLAYING
 	Master.SetRunLevel(RUNLEVEL_GAME)
 
 	if(SSevents.holidays)
-		to_chat(world, "<span class='notice'>и...</span>")
+		to_chat(world, "<span class='notice'>Рё...</span>")
 		for(var/holidayname in SSevents.holidays)
 			var/datum/holiday/holiday = SSevents.holidays[holidayname]
 			to_chat(world, "<h4>[holiday.greet()]</h4>")
@@ -615,20 +615,20 @@ SUBSYSTEM_DEF(ticker)
 
 	var/skip_delay = check_rights()
 	if(delay_end && !skip_delay)
-		to_chat(world, "<span class='boldannounce'>Конец продлён.</span>")
+		to_chat(world, "<span class='boldannounce'>РљРѕРЅРµС† РїСЂРѕРґР»С‘РЅ.</span>")
 		return
 
 	if(world.system_type == UNIX)
 		WRITE_FILE("nhb/ended", world.time)
 
-	to_chat(world, "<span class='boldannounce'>Игра закончится через [DisplayTimeText(delay)]. [reason]</span>")
+	to_chat(world, "<span class='boldannounce'>РРіСЂР° Р·Р°РєРѕРЅС‡РёС‚СЃСЏ С‡РµСЂРµР· [DisplayTimeText(delay)]. [reason]</span>")
 
 	var/start_wait = world.time
 	UNTIL(round_end_sound_sent || (world.time - start_wait) > (delay * 2))	//don't wait forever
 	sleep(delay - (world.time - start_wait))
 
 	if(delay_end && !skip_delay)
-		to_chat(world, "<span class='boldannounce'>Перезагрузка отменена. Веселье продолжается!</span>")
+		to_chat(world, "<span class='boldannounce'>РџРµСЂРµР·Р°РіСЂСѓР·РєР° РѕС‚РјРµРЅРµРЅР°. Р’РµСЃРµР»СЊРµ РїСЂРѕРґРѕР»Р¶Р°РµС‚СЃСЏ!</span>")
 		return
 	if(end_string)
 		end_state = end_string
@@ -636,11 +636,11 @@ SUBSYSTEM_DEF(ticker)
 	var/statspage = CONFIG_GET(string/roundstatsurl)
 	var/gamelogloc = CONFIG_GET(string/gamelogurl)
 	if(statspage)
-		to_chat(world, "<span class='info'>Статистику по раундам вы можете найти на <a href=\"[statspage][GLOB.round_id]\">нашем сайте!</a></span>")
+		to_chat(world, "<span class='info'>РЎС‚Р°С‚РёСЃС‚РёРєСѓ РїРѕ СЂР°СѓРЅРґР°Рј РІС‹ РјРѕР¶РµС‚Рµ РЅР°Р№С‚Рё РЅР° <a href=\"[statspage][GLOB.round_id]\">РЅР°С€РµРј СЃР°Р№С‚Рµ!</a></span>")
 	else if(gamelogloc)
 		to_chat(world, "<span class='info'>Round logs can be located <a href=\"[gamelogloc]\">at this website!</a></span>")
 
-	log_game("<span class='boldannounce'>Пересоздаём мир. [reason]</span>")
+	log_game("<span class='boldannounce'>РџРµСЂРµСЃРѕР·РґР°С‘Рј РјРёСЂ. [reason]</span>")
 
 	world.Reboot()
 

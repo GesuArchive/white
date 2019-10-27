@@ -8,7 +8,7 @@
 	max_amount = 50
 	throw_speed = 1
 	throw_range = 3
-	attack_verb = list("лупит", "бьёт", "разбивает", "вмазывает", "атакует")
+	attack_verb = list("Р»СѓРїРёС‚", "Р±СЊС‘С‚", "СЂР°Р·Р±РёРІР°РµС‚", "РІРјР°Р·С‹РІР°РµС‚", "Р°С‚Р°РєСѓРµС‚")
 	novariants = FALSE
 	mats_per_stack = MINERAL_MATERIAL_AMOUNT
 	var/sheettype = null //this is used for girders in the creation of walls/false walls

@@ -27,15 +27,15 @@
 /obj/machinery/reagent_sheet/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += "<span class='notice'>Дисплей показывает: На выходе <b>[reagents.maximum_volume/20]</b> слитков после <b>[work_time*0.1]</b> секунд работы.</span>"
+		. += "<span class='notice'>Р”РёСЃРїР»РµР№ РїРѕРєР°Р·С‹РІР°РµС‚: РќР° РІС‹С…РѕРґРµ <b>[reagents.maximum_volume/20]</b> СЃР»РёС‚РєРѕРІ РїРѕСЃР»Рµ <b>[work_time*0.1]</b> СЃРµРєСѓРЅРґ СЂР°Р±РѕС‚С‹.</span>"
 
 /obj/machinery/reagent_sheet/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/reagent_containers/glass/beaker) && !panel_open)
 		if(stat & BROKEN)
-			to_chat(user, "<span class='warning'>[src.name] сломан!</span>")
+			to_chat(user, "<span class='warning'>[src.name] СЃР»РѕРјР°РЅ!</span>")
 			return
 		if(working)
-			to_chat(user, "<span class='warning'>[src.name] уже работает!</span>")
+			to_chat(user, "<span class='warning'>[src.name] СѓР¶Рµ СЂР°Р±РѕС‚Р°РµС‚!</span>")
 			return
 		else
 			var/obj/item/reagent_containers/glass/beaker/RB = I
@@ -44,9 +44,9 @@
 					if(RB.reagents.total_volume && reagents.total_volume < reagents.maximum_volume)	
 						RB.reagents.trans_to(src, RB.reagents.total_volume)
 						reagent_inside = RR
-						to_chat(user, "Ты добавил [reagents.maximum_volume] юнитов <b>[RR]</b> в процессор!")
+						to_chat(user, "РўС‹ РґРѕР±Р°РІРёР» [reagents.maximum_volume] СЋРЅРёС‚РѕРІ <b>[RR]</b> РІ РїСЂРѕС†РµСЃСЃРѕСЂ!")
 			else
-				to_chat(user, "<span class='warning'>[src.name] ваша смесь содержит примеси. Принимаются реагенты только одного типа!</span>")
+				to_chat(user, "<span class='warning'>[src.name] РІР°С€Р° СЃРјРµСЃСЊ СЃРѕРґРµСЂР¶РёС‚ РїСЂРёРјРµСЃРё. РџСЂРёРЅРёРјР°СЋС‚СЃСЏ СЂРµР°РіРµРЅС‚С‹ С‚РѕР»СЊРєРѕ РѕРґРЅРѕРіРѕ С‚РёРїР°!</span>")
 				return
 	else
 		if(!working && default_deconstruction_screwdriver(user, icon_state, icon_state, I))
@@ -60,14 +60,14 @@
 		working = TRUE
 		use_power = reagents.total_volume
 		addtimer(CALLBACK(src, /obj/machinery/reagent_sheet/proc/create_sheets, reagents.total_volume), work_time)
-		visible_message("<span class='notice'>[src.name] активируется!</span>")
+		visible_message("<span class='notice'>[src.name] Р°РєС‚РёРІРёСЂСѓРµС‚СЃСЏ!</span>")
 	else
-		to_chat(user, "<span class='warning'>[src.name] всё ещё работает!</span>")
+		to_chat(user, "<span class='warning'>[src.name] РІСЃС‘ РµС‰С‘ СЂР°Р±РѕС‚Р°РµС‚!</span>")
 
 /obj/machinery/reagent_sheet/proc/create_sheets(amount)
 	var/sheet_amount = max(round((amount * 20) / MINERAL_MATERIAL_AMOUNT), 1)
 	var/obj/item/stack/sheet/mineral/reagent/RS = new(get_turf(src))
-	visible_message("<span class='notice'>[src.name] заканчивает работу.</span>")
+	visible_message("<span class='notice'>[src.name] Р·Р°РєР°РЅС‡РёРІР°РµС‚ СЂР°Р±РѕС‚Сѓ.</span>")
 	playsound(src, 'sound/machines/ping.ogg', 50, 0)
 	RS.amount = sheet_amount
 	for(var/path in subtypesof(/datum/reagent))

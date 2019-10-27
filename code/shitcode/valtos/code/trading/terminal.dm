@@ -1,9 +1,9 @@
 /obj/machinery/vending/terminal
 	name = "Trading Terminal MK1"
-	desc = "Вещи возврату не подлежат."
+	desc = "Р’РµС‰Рё РІРѕР·РІСЂР°С‚Сѓ РЅРµ РїРѕРґР»РµР¶Р°С‚."
 	icon = 'code/shitcode/valtos/icons/vending.dmi'
 	icon_state = "trading"
-	product_ads = "Лучшее только у нас!;Купи-купи-купи!"
+	product_ads = "Р›СѓС‡С€РµРµ С‚РѕР»СЊРєРѕ Сѓ РЅР°СЃ!;РљСѓРїРё-РєСѓРїРё-РєСѓРїРё!"
 	default_price = 500
 	extra_price = 5000
 	max_integrity = 300000
@@ -39,7 +39,7 @@
 	if(last_rebuild + 2000 <= world.time && prob(99))
 		product_records = list()
 		last_rebuild = world.time
-		speak("Новые продукты в наличии!")
+		speak("РќРѕРІС‹Рµ РїСЂРѕРґСѓРєС‚С‹ РІ РЅР°Р»РёС‡РёРё!")
 		rebuild_inventory(GLOB.terminal_products, product_records)
 
 /obj/machinery/vending/terminal/emag_act(mob/user)
@@ -91,7 +91,7 @@
 					<div class='statusDisplay'>"}
 
 	if(!product_records.len)
-		dat += "<font color = 'red'>Кто-то украл все наши товары!</font>"
+		dat += "<font color = 'red'>РљС‚Рѕ-С‚Рѕ СѓРєСЂР°Р» РІСЃРµ РЅР°С€Рё С‚РѕРІР°СЂС‹!</font>"
 	else
 		var/list/display_records = product_records + coin_records
 		if(extended_inventory)
@@ -107,14 +107,14 @@
 			dat += {"<tr><td><img src='data:image/jpeg;base64,[GetIconForProduct(R)]'/></td>
 							<td style=\"width: 100%\"><b>[sanitize(R.name)]  ([price_listed])</b></td>"}
 			if(R.amount > 0 && ((C && C.registered_account && onstation && account.account_balance > R.custom_price) || (!onstation && isliving(user))))
-				dat += "<td align='right'><b>[R.amount]&nbsp;</b><a href='byond://?src=[REF(src)];vend=[REF(R)]'>Купить</a></td>"
+				dat += "<td align='right'><b>[R.amount]&nbsp;</b><a href='byond://?src=[REF(src)];vend=[REF(R)]'>РљСѓРїРёС‚СЊ</a></td>"
 			else
-				dat += "<td align='right'><span class='linkOff'>Недоступно</span></td>"
+				dat += "<td align='right'><span class='linkOff'>РќРµРґРѕСЃС‚СѓРїРЅРѕ</span></td>"
 			dat += "</tr>"
 		dat += "</table>"
 	dat += "</div>"
 	if(onstation && C && C.registered_account)
-		dat += "<b>Баланс: $[account.account_balance]</b>"
+		dat += "<b>Р‘Р°Р»Р°РЅСЃ: $[account.account_balance]</b>"
 
 	var/datum/browser/popup = new(user, "vending", (name))
 	popup.add_stylesheet(get_asset_datum(/datum/asset/spritesheet/vending))

@@ -51,7 +51,7 @@
 
 /obj/item/grenade/chem_grenade/npgrenade
 	name = "smoke grenade"
-	desc = "The word 'óòáÿáòğäíâëëê' is scribbled on it in crayon. You'd better don't try to disassemble this."
+	desc = "The word 'ÑƒÑ‚Ğ±ÑĞ±Ñ‚Ñ€Ğ´Ğ½Ğ²Ğ»Ğ»Ğº' is scribbled on it in crayon. You'd better don't try to disassemble this."
 	icon = 'code/shitcode/hule/icons/obj/weapons.dmi'
 	icon_state = "npgrenade"
 	stage = 3

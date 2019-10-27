@@ -24,7 +24,7 @@
 	throw_range = 5
 	custom_materials = list(/datum/material/iron=80)
 	flags_1 = CONDUCT_1
-	attack_verb = list("атакует", "протыкает", "дырявит")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "РїСЂРѕС‚С‹РєР°РµС‚", "РґС‹СЂСЏРІРёС‚")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 30)
 	var/datum/reagent/forkload //used to eat omelette
@@ -69,7 +69,7 @@
 	throw_speed = 3
 	throw_range = 6
 	custom_materials = list(/datum/material/iron=12000)
-	attack_verb = list("режет", "протыкает", "нарезает", "тычет", "рвёт", "разрезает", "рубит")
+	attack_verb = list("СЂРµР¶РµС‚", "РїСЂРѕС‚С‹РєР°РµС‚", "РЅР°СЂРµР·Р°РµС‚", "С‚С‹С‡РµС‚", "СЂРІС‘С‚", "СЂР°Р·СЂРµР·Р°РµС‚", "СЂСѓР±РёС‚")
 	sharpness = IS_SHARP_ACCURATE
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
 	var/bayonet = FALSE	//Can this be attached to a gun?
@@ -111,7 +111,7 @@
 	force = 15
 	throwforce = 10
 	custom_materials = list(/datum/material/iron=18000)
-	attack_verb = list("мясует", "рубит", "кромсает", "нарезает", "рвёт", "разрубает", "режет", "бьёт")
+	attack_verb = list("РјСЏСЃСѓРµС‚", "СЂСѓР±РёС‚", "РєСЂРѕРјСЃР°РµС‚", "РЅР°СЂРµР·Р°РµС‚", "СЂРІС‘С‚", "СЂР°Р·СЂСѓР±Р°РµС‚", "СЂРµР¶РµС‚", "Р±СЊС‘С‚")
 	w_class = WEIGHT_CLASS_NORMAL
 	custom_price = 60
 
@@ -122,7 +122,7 @@
 	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 65, "embedded_fall_chance" = 10, "embedded_ignore_throwspeed_threshold" = TRUE)
 	force = 20
 	throwforce = 20
-	attack_verb = list("режет", "протыкает", "нарезает", "рвёт", "разрубает", "кромсает")
+	attack_verb = list("СЂРµР¶РµС‚", "РїСЂРѕС‚С‹РєР°РµС‚", "РЅР°СЂРµР·Р°РµС‚", "СЂРІС‘С‚", "СЂР°Р·СЂСѓР±Р°РµС‚", "РєСЂРѕРјСЃР°РµС‚")
 	bayonet = TRUE
 
 /obj/item/kitchen/knife/combat/survival
@@ -162,7 +162,7 @@
 	force = 8
 	throwforce = 12//fuck git
 	custom_materials = null
-	attack_verb = list("тычет", "насаживает")
+	attack_verb = list("С‚С‹С‡РµС‚", "РЅР°СЃР°Р¶РёРІР°РµС‚")
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/kitchen/knife/carrotshiv/suicide_act(mob/living/carbon/user)
@@ -178,7 +178,7 @@
 	throw_speed = 3
 	throw_range = 7
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb = list("лупит", "колошматит", "месит", "учит готовить", "раскатывает")
+	attack_verb = list("Р»СѓРїРёС‚", "РєРѕР»РѕС€РјР°С‚РёС‚", "РјРµСЃРёС‚", "СѓС‡РёС‚ РіРѕС‚РѕРІРёС‚СЊ", "СЂР°СЃРєР°С‚С‹РІР°РµС‚")
 	custom_price = 20
 
 /obj/item/kitchen/rollingpin/suicide_act(mob/living/carbon/user)

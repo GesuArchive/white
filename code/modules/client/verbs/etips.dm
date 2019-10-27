@@ -1,5 +1,5 @@
 /client/verb/toggle_tips()
-	set name = "Включить подсказки возле курсора"
+	set name = "Р’РєР»СЋС‡РёС‚СЊ РїРѕРґСЃРєР°Р·РєРё РІРѕР·Р»Рµ РєСѓСЂСЃРѕСЂР°"
 	set desc = "Toggles examine hover-over tooltips"
 	set category = "Preferences"
 
@@ -8,7 +8,7 @@
 	to_chat(usr, "<span class='danger'>Examine tooltips [prefs.enable_tips ? "en" : "dis"]abled.</span>")
 
 /client/verb/change_tip_delay()
-	set name = "Установить задержку подсказок"
+	set name = "РЈСЃС‚Р°РЅРѕРІРёС‚СЊ Р·Р°РґРµСЂР¶РєСѓ РїРѕРґСЃРєР°Р·РѕРє"
 	set desc = "Sets the delay in milliseconds before examine tooltips appear"
 	set category = "Preferences"
 

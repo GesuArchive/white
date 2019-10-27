@@ -4,7 +4,7 @@
 
 /obj/machinery/camera
 	name = "security camera"
-	desc = "Используется для мониторинга помещений."
+	desc = "РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РјРѕРЅРёС‚РѕСЂРёРЅРіР° РїРѕРјРµС‰РµРЅРёР№."
 	icon = 'icons/obj/machines/camera.dmi'
 	icon_state = "camera" //mapping icon to represent upgrade states. if you want a different base icon, update default_camera_icon as well as this.
 	use_power = ACTIVE_POWER_USE
@@ -110,26 +110,26 @@
 /obj/machinery/camera/examine(mob/user)
 	. += ..()
 	if(isEmpProof(TRUE)) //don't reveal it's upgraded if was done via MALF AI Upgrade Camera Network ability
-		. += "Видно, что защита от ЭМИ установлена."
+		. += "Р’РёРґРЅРѕ, С‡С‚Рѕ Р·Р°С‰РёС‚Р° РѕС‚ Р­РњР СѓСЃС‚Р°РЅРѕРІР»РµРЅР°."
 	else
-		. += "<span class='info'>Она может быть улучшена защитой от ЭМИ <b>плазмой</b>.</span>"
+		. += "<span class='info'>РћРЅР° РјРѕР¶РµС‚ Р±С‹С‚СЊ СѓР»СѓС‡С€РµРЅР° Р·Р°С‰РёС‚РѕР№ РѕС‚ Р­РњР <b>РїР»Р°Р·РјРѕР№</b>.</span>"
 	if(isXRay(TRUE)) //don't reveal it's upgraded if was done via MALF AI Upgrade Camera Network ability
-		. += "Похоже тут установлен X-ray фотодиод."
+		. += "РџРѕС…РѕР¶Рµ С‚СѓС‚ СѓСЃС‚Р°РЅРѕРІР»РµРЅ X-ray С„РѕС‚РѕРґРёРѕРґ."
 	else
-		. += "<span class='info'>Она может быть улучшена X-ray фотодиодом при помощи <b>аналайзера</b>.</span>"
+		. += "<span class='info'>РћРЅР° РјРѕР¶РµС‚ Р±С‹С‚СЊ СѓР»СѓС‡С€РµРЅР° X-ray С„РѕС‚РѕРґРёРѕРґРѕРј РїСЂРё РїРѕРјРѕС‰Рё <b>Р°РЅР°Р»Р°Р№Р·РµСЂР°</b>.</span>"
 	if(isMotion())
-		. += "Здесь установлен датчик движения."
+		. += "Р—РґРµСЃСЊ СѓСЃС‚Р°РЅРѕРІР»РµРЅ РґР°С‚С‡РёРє РґРІРёР¶РµРЅРёСЏ."
 	else
-		. += "<span class='info'>Она может быть улучшена установкой <b>датчика движения</b>.</span>"
+		. += "<span class='info'>РћРЅР° РјРѕР¶РµС‚ Р±С‹С‚СЊ СѓР»СѓС‡С€РµРЅР° СѓСЃС‚Р°РЅРѕРІРєРѕР№ <b>РґР°С‚С‡РёРєР° РґРІРёР¶РµРЅРёСЏ</b>.</span>"
 
 	if(!status)
-		. += "<span class='info'>Она не работает.</span>"
+		. += "<span class='info'>РћРЅР° РЅРµ СЂР°Р±РѕС‚Р°РµС‚.</span>"
 		if(!panel_open && powered())
-			. += "<span class='notice'>Надо бы сначала <b>открутить</b>, чтобы включить её снова.</span>"
+			. += "<span class='notice'>РќР°РґРѕ Р±С‹ СЃРЅР°С‡Р°Р»Р° <b>РѕС‚РєСЂСѓС‚РёС‚СЊ</b>, С‡С‚РѕР±С‹ РІРєР»СЋС‡РёС‚СЊ РµС‘ СЃРЅРѕРІР°.</span>"
 	if(panel_open)
-		. += "<span class='info'>Техническая панель открыта.</span>"
+		. += "<span class='info'>РўРµС…РЅРёС‡РµСЃРєР°СЏ РїР°РЅРµР»СЊ РѕС‚РєСЂС‹С‚Р°.</span>"
 		if(!status && powered())
-			. += "<span class='info'>Она может быть активирована снова при помощи <b>кусачек</b>.</span>"
+			. += "<span class='info'>РћРЅР° РјРѕР¶РµС‚ Р±С‹С‚СЊ Р°РєС‚РёРІРёСЂРѕРІР°РЅР° СЃРЅРѕРІР° РїСЂРё РїРѕРјРѕС‰Рё <b>РєСѓСЃР°С‡РµРє</b>.</span>"
 
 /obj/machinery/camera/emp_act(severity)
 	. = ..()
@@ -190,7 +190,7 @@
 	if(..())
 		return TRUE
 	panel_open = !panel_open
-	to_chat(user, "<span class='notice'>Ты [panel_open ? "открутил" : "закрутил"] техническую панель.</span>")
+	to_chat(user, "<span class='notice'>РўС‹ [panel_open ? "РѕС‚РєСЂСѓС‚РёР»" : "Р·Р°РєСЂСѓС‚РёР»"] С‚РµС…РЅРёС‡РµСЃРєСѓСЋ РїР°РЅРµР»СЊ.</span>")
 	I.play_tool_sound(src)
 	update_icon()
 	return TRUE
@@ -210,7 +210,7 @@
 		return
 
 	setViewRange((view_range == initial(view_range)) ? short_range : initial(view_range))
-	to_chat(user, "<span class='notice'>Ты [(view_range == initial(view_range)) ? "восстановил" : "сломал"] фокусировку камеры.</span>")
+	to_chat(user, "<span class='notice'>РўС‹ [(view_range == initial(view_range)) ? "РІРѕСЃСЃС‚Р°РЅРѕРІРёР»" : "СЃР»РѕРјР°Р»"] С„РѕРєСѓСЃРёСЂРѕРІРєСѓ РєР°РјРµСЂС‹.</span>")
 	return TRUE
 
 /obj/machinery/camera/welder_act(mob/living/user, obj/item/I)
@@ -221,10 +221,10 @@
 	if(!I.tool_start_check(user, amount=0))
 		return TRUE
 
-	to_chat(user, "<span class='notice'>Ты начинаешь разваривать [src.name]...</span>")
+	to_chat(user, "<span class='notice'>РўС‹ РЅР°С‡РёРЅР°РµС€СЊ СЂР°Р·РІР°СЂРёРІР°С‚СЊ [src.name]...</span>")
 	if(I.use_tool(src, user, 100, volume=50))
-		user.visible_message("<span class='warning'>[user] отваривает [src.name] от стены, оставляя только рамку с болтами.</span>",
-			"<span class='warning'>Ты отварил [src.name] от стены, оставив только рамку с болтами.</span>")
+		user.visible_message("<span class='warning'>[user] РѕС‚РІР°СЂРёРІР°РµС‚ [src.name] РѕС‚ СЃС‚РµРЅС‹, РѕСЃС‚Р°РІР»СЏСЏ С‚РѕР»СЊРєРѕ СЂР°РјРєСѓ СЃ Р±РѕР»С‚Р°РјРё.</span>",
+			"<span class='warning'>РўС‹ РѕС‚РІР°СЂРёР» [src.name] РѕС‚ СЃС‚РµРЅС‹, РѕСЃС‚Р°РІРёРІ С‚РѕР»СЊРєРѕ СЂР°РјРєСѓ СЃ Р±РѕР»С‚Р°РјРё.</span>")
 		deconstruct(TRUE)
 
 	return TRUE
@@ -237,19 +237,19 @@
 				if(!user.temporarilyRemoveItemFromInventory(I))
 					return
 				upgradeXRay(FALSE, TRUE)
-				to_chat(user, "<span class='notice'>Ты прикрепил [I.name] во внутреннюю схему [assembly.name].</span>")
+				to_chat(user, "<span class='notice'>РўС‹ РїСЂРёРєСЂРµРїРёР» [I.name] РІРѕ РІРЅСѓС‚СЂРµРЅРЅСЋСЋ СЃС…РµРјСѓ [assembly.name].</span>")
 				qdel(I)
 			else
-				to_chat(user, "<span class='warning'>[src.name] уже имеет это улучшение!</span>")
+				to_chat(user, "<span class='warning'>[src.name] СѓР¶Рµ РёРјРµРµС‚ СЌС‚Рѕ СѓР»СѓС‡С€РµРЅРёРµ!</span>")
 			return
 
 		else if(istype(I, /obj/item/stack/sheet/mineral/plasma))
 			if(!isEmpProof(TRUE)) //don't reveal it was already upgraded if was done via MALF AI Upgrade Camera Network ability
 				if(I.use_tool(src, user, 0, amount=1))
 					upgradeEmpProof(FALSE, TRUE)
-					to_chat(user, "<span class='notice'>Ты прикрепил [I.name] во внутреннюю схему [assembly.name].</span>")
+					to_chat(user, "<span class='notice'>РўС‹ РїСЂРёРєСЂРµРїРёР» [I.name] РІРѕ РІРЅСѓС‚СЂРµРЅРЅСЋСЋ СЃС…РµРјСѓ [assembly.name].</span>")
 			else
-				to_chat(user, "<span class='warning'>[src.name] уже имеет это улучшение!</span>")
+				to_chat(user, "<span class='warning'>[src.name] СѓР¶Рµ РёРјРµРµС‚ СЌС‚Рѕ СѓР»СѓС‡С€РµРЅРёРµ!</span>")
 			return
 
 		else if(istype(I, /obj/item/assembly/prox_sensor))
@@ -257,10 +257,10 @@
 				if(!user.temporarilyRemoveItemFromInventory(I))
 					return
 				upgradeMotion()
-				to_chat(user, "<span class='notice'>Ты прикрепил [I.name] во внутреннюю схему [assembly.name].</span>")
+				to_chat(user, "<span class='notice'>РўС‹ РїСЂРёРєСЂРµРїРёР» [I.name] РІРѕ РІРЅСѓС‚СЂРµРЅРЅСЋСЋ СЃС…РµРјСѓ [assembly.name].</span>")
 				qdel(I)
 			else
-				to_chat(user, "<span class='warning'>[src.name] уже имеет это улучшение!</span>")
+				to_chat(user, "<span class='warning'>[src.name] СѓР¶Рµ РёРјРµРµС‚ СЌС‚Рѕ СѓР»СѓС‡С€РµРЅРёРµ!</span>")
 			return
 
 	// OTHER

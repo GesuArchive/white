@@ -11,7 +11,7 @@
 	set category = "Special Verbs"
 
 	if(tfbsfr >= 3)
-		to_chat(src, "Превышен лимит фидбека. Вы уже постарались, спасибо.")
+		to_chat(src, "РџСЂРµРІС‹С€РµРЅ Р»РёРјРёС‚ С„РёРґР±РµРєР°. Р’С‹ СѓР¶Рµ РїРѕСЃС‚Р°СЂР°Р»РёСЃСЊ, СЃРїР°СЃРёР±Рѕ.")
 		return
 
 	tfbsfr++
@@ -25,18 +25,18 @@
 
 	var/list/message = list()
 
-	message["head"] = input(src,"Message:", "Придумайте название вашему запросу") as message|null
-	message["content"] = input(src,"Message:", "Распишите ваш запрос в свободной форме") as message|null
+	message["head"] = input(src,"Message:", "РџСЂРёРґСѓРјР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РІР°С€РµРјСѓ Р·Р°РїСЂРѕСЃСѓ") as message|null
+	message["content"] = input(src,"Message:", "Р Р°СЃРїРёС€РёС‚Рµ РІР°С€ Р·Р°РїСЂРѕСЃ РІ СЃРІРѕР±РѕРґРЅРѕР№ С„РѕСЂРјРµ") as message|null
 
 	message["head"] = trim(message["head"])
 	message["content"] = trim(message["content"])
 
 	if(!message["head"] || !message["content"])
-		to_chat(src, "Подумайте.")
+		to_chat(src, "РџРѕРґСѓРјР°Р№С‚Рµ.")
 		return
 
 	var/formattedmessage = "Header: [message["head"]]```[message["content"]]```Coords: [AREACOORD(usr)] [ckey]"
 
 	text2file(formattedmessage, "data/feedbacksystem.log")
 
-	to_chat(src, "Ваше сообщение: \"[message["head"]]\"\n\"[message["content"]]\"\n было доставлено. Благодарим вас за помощь.")
+	to_chat(src, "Р’Р°С€Рµ СЃРѕРѕР±С‰РµРЅРёРµ: \"[message["head"]]\"\n\"[message["content"]]\"\n Р±С‹Р»Рѕ РґРѕСЃС‚Р°РІР»РµРЅРѕ. Р‘Р»Р°РіРѕРґР°СЂРёРј РІР°СЃ Р·Р° РїРѕРјРѕС‰СЊ.")

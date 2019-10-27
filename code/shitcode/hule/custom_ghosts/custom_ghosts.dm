@@ -51,11 +51,11 @@
 			swap_icons()
 
 /mob/dead/observer/verb/custom_ghost_form()
-	set name = "Кастомный Спрайт Призрака"
+	set name = "РљР°СЃС‚РѕРјРЅС‹Р№ РЎРїСЂР°Р№С‚ РџСЂРёР·СЂР°РєР°"
 	set category = "Preferences"
 	set desc = "Customize your ghastly appearance."
 
 	if(fexists("code/shitcode/hule/custom_ghosts/[ckey].dmi"))
 		swap_icons()
 	else
-		to_chat(src,"<span class='warning'>Кастомный спрайт не найден.</span>")
+		to_chat(src,"<span class='warning'>РљР°СЃС‚РѕРјРЅС‹Р№ СЃРїСЂР°Р№С‚ РЅРµ РЅР°Р№РґРµРЅ.</span>")

@@ -59,7 +59,7 @@
 	set waitfor = 0
 	sound_to_playing_players('sound/magic/lightning_chargeup.ogg')
 	sleep(80)
-	priority_announce("Обнаружена большая блюспейс аномалия приближающаяся к [station_name()]. Готовьтесь к столкновению.")
+	priority_announce("РћР±РЅР°СЂСѓР¶РµРЅР° Р±РѕР»СЊС€Р°СЏ Р±Р»СЋСЃРїРµР№СЃ Р°РЅРѕРјР°Р»РёСЏ РїСЂРёР±Р»РёР¶Р°СЋС‰Р°СЏСЃСЏ Рє [station_name()]. Р“РѕС‚РѕРІСЊС‚РµСЃСЊ Рє СЃС‚РѕР»РєРЅРѕРІРµРЅРёСЋ.")
 	sleep(20)
 	sound_to_playing_players('sound/magic/lightningbolt.ogg')
 

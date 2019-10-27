@@ -20,11 +20,11 @@ GLOBAL_LIST_EMPTY(interactions)
 /mob/proc/list_interaction_attributes()
 	var/dat = ""
 	if(has_hands())
-		dat += "...имеет руки."
+		dat += "...РёРјРµРµС‚ СЂСѓРєРё."
 	if(has_mouth())
 		if(dat != "")
 			dat += "<br>"
-		dat += "...имеет рот, который [mouth_is_free() ? "не прикрыт" : "прикрыт"]."
+		dat += "...РёРјРµРµС‚ СЂРѕС‚, РєРѕС‚РѕСЂС‹Р№ [mouth_is_free() ? "РЅРµ РїСЂРёРєСЂС‹С‚" : "РїСЂРёРєСЂС‹С‚"]."
 	return dat
 
 /datum/interaction
@@ -51,13 +51,13 @@ GLOBAL_LIST_EMPTY(interactions)
 
 	if(require_user_mouth)
 		if(!user.has_mouth())
-			if(!silent) user << "<span class = 'warning'>У тебя нет рта!.</span>"
+			if(!silent) user << "<span class = 'warning'>РЈ С‚РµР±СЏ РЅРµС‚ СЂС‚Р°!.</span>"
 			return 0
 		if(!user.mouth_is_free())
-			if(!silent) user << "<span class = 'warning'>Твой рот прикрыт.</span>"
+			if(!silent) user << "<span class = 'warning'>РўРІРѕР№ СЂРѕС‚ РїСЂРёРєСЂС‹С‚.</span>"
 			return 0
 	if(require_user_hands && !user.has_hands())
-		if(!silent) user << "<span class = 'warning'>У тебя нет рук.</span>"
+		if(!silent) user << "<span class = 'warning'>РЈ С‚РµР±СЏ РЅРµС‚ СЂСѓРє.</span>"
 		return 0
 	return 1
 
@@ -65,13 +65,13 @@ GLOBAL_LIST_EMPTY(interactions)
 
 	if(require_target_mouth)
 		if(!target.has_mouth())
-			if(!silent) user << "<span class = 'warning'>У TARGET нет рта.</span>"
+			if(!silent) user << "<span class = 'warning'>РЈ TARGET РЅРµС‚ СЂС‚Р°.</span>"
 			return 0
 		if(!target.mouth_is_free())
-			if(!silent) user << "<span class = 'warning'>Рот TARGET прикрыт.</span>"
+			if(!silent) user << "<span class = 'warning'>Р РѕС‚ TARGET РїСЂРёРєСЂС‹С‚.</span>"
 			return 0
 	if(require_target_hands && !target.has_hands())
-		if(!silent) user << "<span class = 'warning'>У TARGET нет рук.</span>"
+		if(!silent) user << "<span class = 'warning'>РЈ TARGET РЅРµС‚ СЂСѓРє.</span>"
 		return 0
 	return 1
 
@@ -90,10 +90,10 @@ GLOBAL_LIST_EMPTY(interactions)
 	if(cooldaun)
 		return
 	if(get_dist(user, target) > max_distance)
-		user << "<span class='warning'>TARGET слишком далеко.</span>"
+		user << "<span class='warning'>TARGET СЃР»РёС€РєРѕРј РґР°Р»РµРєРѕ.</span>"
 		return
 	if(needs_physical_contact && !(user.Adjacent(target) && target.Adjacent(user)))
-		user << "<span class='warning'>Вы не можете добраться до TARGET.</span>"
+		user << "<span class='warning'>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РґРѕР±СЂР°С‚СЊСЃСЏ РґРѕ TARGET.</span>"
 		return
 	if(!evaluate_user(user, silent=0))
 		return

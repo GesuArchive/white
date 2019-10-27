@@ -279,21 +279,21 @@
 		if(6)
 			dat+="<B><FONT COLOR='maroon'>ERROR: Could not submit Feed story to Network.</B></FONT><HR><BR>"
 			if(src.admincaster_feed_channel.channel_name=="")
-				dat+="<FONT COLOR='maroon'>Â•Invalid receiving channel name.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>Ğ’â€¢Invalid receiving channel name.</FONT><BR>"
 			if(src.admincaster_feed_message.returnBody(-1) == "" || src.admincaster_feed_message.returnBody(-1) == "\[REDACTED\]")
-				dat+="<FONT COLOR='maroon'>Â•Invalid message body.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>Ğ’â€¢Invalid message body.</FONT><BR>"
 			dat+="<BR><A href='?src=[REF(src)];[HrefToken()];ac_setScreen=[3]'>Return</A><BR>"
 		if(7)
 			dat+="<B><FONT COLOR='maroon'>ERROR: Could not submit Feed Channel to Network.</B></FONT><HR><BR>"
 			if(src.admincaster_feed_channel.channel_name =="" || src.admincaster_feed_channel.channel_name == "\[REDACTED\]")
-				dat+="<FONT COLOR='maroon'>Â•Invalid channel name.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>Ğ’â€¢Invalid channel name.</FONT><BR>"
 			var/check = 0
 			for(var/datum/newscaster/feed_channel/FC in GLOB.news_network.network_channels)
 				if(FC.channel_name == src.admincaster_feed_channel.channel_name)
 					check = 1
 					break
 			if(check)
-				dat+="<FONT COLOR='maroon'>Â•Channel name already in use.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>Ğ’â€¢Channel name already in use.</FONT><BR>"
 			dat+="<BR><A href='?src=[REF(src)];[HrefToken()];ac_setScreen=[2]'>Return</A><BR>"
 		if(9)
 			dat+="<B>[admincaster_feed_channel.channel_name]: </B><FONT SIZE=1>\[created by: <FONT COLOR='maroon'>[admincaster_feed_channel.returnAuthor(-1)]</FONT>\]</FONT><HR>"
@@ -394,9 +394,9 @@
 		if(16)
 			dat+="<B><FONT COLOR='maroon'>ERROR: Wanted Issue rejected by Network.</B></FONT><HR><BR>"
 			if(src.admincaster_wanted_message.criminal =="" || src.admincaster_wanted_message.criminal == "\[REDACTED\]")
-				dat+="<FONT COLOR='maroon'>Â•Invalid name for person wanted.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>Ğ’â€¢Invalid name for person wanted.</FONT><BR>"
 			if(src.admincaster_wanted_message.body == "" || src.admincaster_wanted_message.body == "\[REDACTED\]")
-				dat+="<FONT COLOR='maroon'>Â•Invalid description.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>Ğ’â€¢Invalid description.</FONT><BR>"
 			dat+="<BR><A href='?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Return</A><BR>"
 		if(17)
 			dat+="<B>Wanted Issue successfully deleted from Circulation</B><BR>"
@@ -630,9 +630,9 @@
 	var/new_nores = !CONFIG_GET(flag/norespawn)
 	CONFIG_SET(flag/norespawn, new_nores)
 	if (!new_nores)
-		to_chat(world, "<B>Ğàçğåøåíî ïåğåğîäèòüñÿ.</B>")
+		to_chat(world, "<B>Ğ Ğ°Ğ·Ñ€ĞµÑˆĞµĞ½Ğ¾ Ğ¿ĞµÑ€ĞµÑ€Ğ¾Ğ´Ğ¸Ñ‚ÑŒÑÑ.</B>")
 	else
-		to_chat(world, "<B>Çàïğåùåíî ïåğåğîæäàòüñÿ.(</B>")
+		to_chat(world, "<B>Ğ—Ğ°Ğ¿Ñ€ĞµÑ‰ĞµĞ½Ğ¾ Ğ¿ĞµÑ€ĞµÑ€Ğ¾Ğ¶Ğ´Ğ°Ñ‚ÑŒÑÑ.(</B>")
 	message_admins("<span class='adminnotice'>[key_name_admin(usr)] toggled respawn to [!new_nores ? "On" : "Off"].</span>")
 	log_admin("[key_name(usr)] toggled respawn to [!new_nores ? "On" : "Off"].")
 	world.update_status()

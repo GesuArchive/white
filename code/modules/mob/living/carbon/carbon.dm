@@ -27,7 +27,7 @@
 		var/obj/item/twohanded/TH = item_in_hand
 		if(istype(TH))
 			if(TH.wielded == 1)
-				to_chat(usr, "<span class='warning'>Твои руки заняты твоим [TH.name].</span>")
+				to_chat(usr, "<span class='warning'>РўРІРѕРё СЂСѓРєРё Р·Р°РЅСЏС‚С‹ С‚РІРѕРёРј [TH.name].</span>")
 				return
 	var/oindex = active_hand_index
 	active_hand_index = held_index
@@ -87,8 +87,8 @@
 			take_bodypart_damage(10,check_armor = TRUE)
 			victim.Paralyze(20)
 			Paralyze(20)
-			visible_message("<span class='danger'><b>[src]</b> врезается в <b>[victim]</b>, роняя обоих на пол!</span>",\
-				"<span class='userdanger'>Ты врезаешься в <b>[victim]</b>!</span>")
+			visible_message("<span class='danger'><b>[src]</b> РІСЂРµР·Р°РµС‚СЃСЏ РІ <b>[victim]</b>, СЂРѕРЅСЏСЏ РѕР±РѕРёС… РЅР° РїРѕР»!</span>",\
+				"<span class='userdanger'>РўС‹ РІСЂРµР·Р°РµС€СЊСЃСЏ РІ <b>[victim]</b>!</span>")
 		playsound(src,'sound/weapons/punch1.ogg', 50, TRUE)
 
 
@@ -135,7 +135,7 @@
 				thrown_thing = throwable_mob
 				stop_pulling()
 				if(HAS_TRAIT(src, TRAIT_PACIFISM))
-					to_chat(src, "<span class='notice'>Ты аккуратно отпускаешь <b>[throwable_mob]</b>.</span>")
+					to_chat(src, "<span class='notice'>РўС‹ Р°РєРєСѓСЂР°С‚РЅРѕ РѕС‚РїСѓСЃРєР°РµС€СЊ <b>[throwable_mob]</b>.</span>")
 					return
 				var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 				var/turf/end_T = get_turf(target)
@@ -147,12 +147,12 @@
 		dropItemToGround(I, silent = TRUE)
 
 		if(HAS_TRAIT(src, TRAIT_PACIFISM) && I.throwforce)
-			to_chat(src, "<span class='notice'>Ты аккуратно положил <b>[I.name]</b> на пол.</span>")
+			to_chat(src, "<span class='notice'>РўС‹ Р°РєРєСѓСЂР°С‚РЅРѕ РїРѕР»РѕР¶РёР» <b>[I.name]</b> РЅР° РїРѕР».</span>")
 			return
 
 	if(thrown_thing)
-		visible_message("<span class='danger'><b>[src]</b> бросает <b>[thrown_thing.name]</b>.</span>", \
-						"<span class='danger'>Ты бросаешь <b>[thrown_thing.name]</b>.</span>")
+		visible_message("<span class='danger'><b>[src]</b> Р±СЂРѕСЃР°РµС‚ <b>[thrown_thing.name]</b>.</span>", \
+						"<span class='danger'>РўС‹ Р±СЂРѕСЃР°РµС€СЊ <b>[thrown_thing.name]</b>.</span>")
 		log_message("has thrown [thrown_thing.name]", LOG_ATTACK)
 		newtonian_move(get_dir(target, src))
 		thrown_thing.safe_throw_at(target, thrown_thing.throw_range, thrown_thing.throw_speed, src, null, null, null, move_force)
@@ -170,25 +170,25 @@
 	<HR>
 	<B><FONT size=3>[name]</FONT></B>
 	<HR>
-	<BR><B>Голова:</B> <A href='?src=[REF(src)];item=[SLOT_HEAD]'>[(head && !(head.item_flags & ABSTRACT)) ? head : "Nothing"]</A>"}
+	<BR><B>Р“РѕР»РѕРІР°:</B> <A href='?src=[REF(src)];item=[SLOT_HEAD]'>[(head && !(head.item_flags & ABSTRACT)) ? head : "Nothing"]</A>"}
 
 	var/list/obscured = check_obscured_slots()
 
 	if(SLOT_NECK in obscured)
-		dat += "<BR><B>Шея:</B> Скрыто"
+		dat += "<BR><B>РЁРµСЏ:</B> РЎРєСЂС‹С‚Рѕ"
 	else
-		dat += "<BR><B>Шея:</B> <A href='?src=[REF(src)];item=[SLOT_NECK]'>[(wear_neck && !(wear_neck.item_flags & ABSTRACT)) ? (wear_neck) : "Nothing"]</A>"
+		dat += "<BR><B>РЁРµСЏ:</B> <A href='?src=[REF(src)];item=[SLOT_NECK]'>[(wear_neck && !(wear_neck.item_flags & ABSTRACT)) ? (wear_neck) : "Nothing"]</A>"
 
 	if(SLOT_WEAR_MASK in obscured)
-		dat += "<BR><B>Лицо:</B> Скрыто"
+		dat += "<BR><B>Р›РёС†Рѕ:</B> РЎРєСЂС‹С‚Рѕ"
 	else
-		dat += "<BR><B>Лицо:</B> <A href='?src=[REF(src)];item=[SLOT_WEAR_MASK]'>[(wear_mask && !(wear_mask.item_flags & ABSTRACT))	? wear_mask	: "Nothing"]</a>"
+		dat += "<BR><B>Р›РёС†Рѕ:</B> <A href='?src=[REF(src)];item=[SLOT_WEAR_MASK]'>[(wear_mask && !(wear_mask.item_flags & ABSTRACT))	? wear_mask	: "Nothing"]</a>"
 
 	for(var/i in 1 to held_items.len)
 		var/obj/item/I = get_item_for_held_index(i)
 		dat += "<BR><B>[get_held_index_name(i)]:</B> </td><td><A href='?src=[REF(src)];item=[SLOT_HANDS];hand_index=[i]'>[(I && !(I.item_flags & ABSTRACT)) ? I : "Nothing"]</a>"
 
-	dat += "<BR><B>Спина:</B> <A href='?src=[REF(src)];item=[SLOT_BACK]'>[back ? back : "Nothing"]</A>"
+	dat += "<BR><B>РЎРїРёРЅР°:</B> <A href='?src=[REF(src)];item=[SLOT_BACK]'>[back ? back : "Nothing"]</A>"
 
 	if(istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank))
 		dat += "<BR><A href='?src=[REF(src)];internal=1'>[internal ? "Disable Internals" : "Set Internals"]</A>"

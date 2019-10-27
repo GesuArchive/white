@@ -21,7 +21,7 @@
 	force = 10
 	throwforce = 7
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb = list("порит", "шлёпает", "лупит", "учит")
+	attack_verb = list("РїРѕСЂРёС‚", "С€Р»С‘РїР°РµС‚", "Р»СѓРїРёС‚", "СѓС‡РёС‚")
 	hitsound = 'sound/weapons/chainhit.ogg'
 	custom_materials = list(/datum/material/iron = 1000)
 
@@ -41,7 +41,7 @@
 	force = 20
 	throwforce = 10
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("атакует", "режет", "протыкает", "нарезает", "рвёт", "разрывает", "кромсает", "разрезает")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "СЂРµР¶РµС‚", "РїСЂРѕС‚С‹РєР°РµС‚", "РЅР°СЂРµР·Р°РµС‚", "СЂРІС‘С‚", "СЂР°Р·СЂС‹РІР°РµС‚", "РєСЂРѕРјСЃР°РµС‚", "СЂР°Р·СЂРµР·Р°РµС‚")
 	sharpness = IS_SHARP
 
 /obj/item/melee/synthetic_arm_blade/Initialize()
@@ -63,7 +63,7 @@
 	block_chance = 50
 	armour_penetration = 75
 	sharpness = IS_SHARP
-	attack_verb = list("нежно резанул", "изысканно рубанул")
+	attack_verb = list("РЅРµР¶РЅРѕ СЂРµР·Р°РЅСѓР»", "РёР·С‹СЃРєР°РЅРЅРѕ СЂСѓР±Р°РЅСѓР»")
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	custom_materials = list(/datum/material/iron = 1000)
 
@@ -144,7 +144,7 @@
 	throwforce = 10
 	block_chance = 20
 	armour_penetration = 65
-	attack_verb = list("режет", "жалит", "колит", "тычет")
+	attack_verb = list("СЂРµР¶РµС‚", "Р¶Р°Р»РёС‚", "РєРѕР»РёС‚", "С‚С‹С‡РµС‚")
 	hitsound = 'sound/weapons/rapierhit.ogg'
 
 /obj/item/melee/beesword/afterattack(atom/target, mob/user, proximity)
@@ -360,7 +360,7 @@
 		item_state = on_item_state
 		w_class = weight_class_on
 		force = force_on
-		attack_verb = list("унижает", "бьёт", "ломает", "атакует")
+		attack_verb = list("СѓРЅРёР¶Р°РµС‚", "Р±СЊС‘С‚", "Р»РѕРјР°РµС‚", "Р°С‚Р°РєСѓРµС‚")
 	else
 		to_chat(user, desc["local_off"])
 		icon_state = off_icon_state
@@ -368,7 +368,7 @@
 		slot_flags = ITEM_SLOT_BELT
 		w_class = WEIGHT_CLASS_SMALL
 		force = force_off
-		attack_verb = list("тычет", "указывает")
+		attack_verb = list("С‚С‹С‡РµС‚", "СѓРєР°Р·С‹РІР°РµС‚")
 
 	playsound(src.loc, on_sound, 50, TRUE)
 	add_fingerprint(user)
@@ -514,7 +514,7 @@
 	slot_flags = ITEM_SLOT_BELT
 	force = 15
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb = list("порит", "взбивает", "ударяет", "учит")
+	attack_verb = list("РїРѕСЂРёС‚", "РІР·Р±РёРІР°РµС‚", "СѓРґР°СЂСЏРµС‚", "СѓС‡РёС‚")
 	hitsound = 'sound/weapons/whip.ogg'
 
 /obj/item/melee/curator_whip/afterattack(target, mob/user, proximity_flag)
@@ -533,7 +533,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	item_flags = NONE
 	force = 0
-	attack_verb = list("бьёт", "тычет")
+	attack_verb = list("Р±СЊС‘С‚", "С‚С‹С‡РµС‚")
 	var/obj/item/reagent_containers/food/snacks/sausage/held_sausage
 	var/static/list/ovens
 	var/on = FALSE

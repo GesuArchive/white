@@ -21,7 +21,7 @@
 	throw_range = 3
 	w_class = WEIGHT_CLASS_BULKY
 	custom_materials = list(/datum/material/glass=7500, /datum/material/iron=1000)
-	attack_verb = list("толкает", "бьёт")
+	attack_verb = list("С‚РѕР»РєР°РµС‚", "Р±СЊС‘С‚")
 	var/cooldown = 0 //shield bash cooldown. based on world.time
 	transparent = TRUE
 	max_integrity = 75
@@ -59,11 +59,11 @@
 	var/healthpercent = round((obj_integrity/max_integrity) * 100, 1)
 	switch(healthpercent)
 		if(50 to 99)
-			. += "<span class='info'>Виднеются небольшие царапины.</span>"
+			. += "<span class='info'>Р’РёРґРЅРµСЋС‚СЃСЏ РЅРµР±РѕР»СЊС€РёРµ С†Р°СЂР°РїРёРЅС‹.</span>"
 		if(25 to 50)
-			. += "<span class='info'>Выглядит серьёзно повреждённым.</span>"
+			. += "<span class='info'>Р’С‹РіР»СЏРґРёС‚ СЃРµСЂСЊС‘Р·РЅРѕ РїРѕРІСЂРµР¶РґС‘РЅРЅС‹Рј.</span>"
 		if(0 to 25)
-			. += "<span class='warning'>Вот-вот развалится!</span>"
+			. += "<span class='warning'>Р’РѕС‚-РІРѕС‚ СЂР°Р·РІР°Р»РёС‚СЃСЏ!</span>"
 
 /obj/item/shield/riot/proc/shatter(mob/living/carbon/human/owner)
 	playsound(owner, 'sound/effects/glassbr3.ogg', 100)
@@ -187,7 +187,7 @@
 	lefthand_file = 'icons/mob/inhands/equipment/shields_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/shields_righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
-	attack_verb = list("толкает", "бьёт")
+	attack_verb = list("С‚РѕР»РєР°РµС‚", "Р±СЊС‘С‚")
 	throw_range = 5
 	force = 3
 	throwforce = 3

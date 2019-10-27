@@ -12,7 +12,7 @@
 	throw_range = 7
 	w_class = WEIGHT_CLASS_BULKY
 	custom_materials = list(/datum/material/iron = 500)
-	attack_verb = list("робастит")
+	attack_verb = list("СЂРѕР±Р°СЃС‚РёС‚")
 	hitsound = 'sound/weapons/smash.ogg'
 	drop_sound = 'sound/items/handling/toolbox_drop.ogg'
 	pickup_sound =  'sound/items/handling/toolbox_pickup.ogg'

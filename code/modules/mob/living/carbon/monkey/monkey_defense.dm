@@ -56,7 +56,7 @@
 				if(!affecting)
 					affecting = get_bodypart(BODY_ZONE_CHEST)
 				apply_damage(damage, BRUTE, affecting)
-				log_combat(M, src, "атакует")
+				log_combat(M, src, "Р°С‚Р°РєСѓРµС‚")
 
 			else
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
@@ -98,7 +98,7 @@
 					to_chat(M, "<span class='danger'>You slash [name]!</span>")
 
 				var/obj/item/bodypart/affecting = get_bodypart(ran_zone(M.zone_selected))
-				log_combat(M, src, "атакует")
+				log_combat(M, src, "Р°С‚Р°РєСѓРµС‚")
 				if(!affecting)
 					affecting = get_bodypart(BODY_ZONE_CHEST)
 				if(!dismembering_strike(M, affecting.body_zone)) //Dismemberment successful

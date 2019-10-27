@@ -78,7 +78,7 @@
 	w_class_on = WEIGHT_CLASS_HUGE
 	flags_1 = CONDUCT_1
 	armour_penetration = 100
-	attack_verb_off = list("атакует", "рубит", "разрубает", "кромсает", "режет")
+	attack_verb_off = list("Р°С‚Р°РєСѓРµС‚", "СЂСѓР±РёС‚", "СЂР°Р·СЂСѓР±Р°РµС‚", "РєСЂРѕРјСЃР°РµС‚", "СЂРµР¶РµС‚")
 	attack_verb_on = list()
 	light_color = "#40ceff"
 

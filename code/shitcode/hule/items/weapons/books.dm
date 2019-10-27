@@ -1,20 +1,20 @@
 /obj/item/book/killbook
-	name = "Супер прикол"
+	name = "РЎСѓРїРµСЂ РїСЂРёРєРѕР»"
 	icon_state ="book"
 	throw_speed = 1
 	throw_range = 10
 	author = "Forces beyond your comprehension"
 	unique = 1
-	title = "Сборник Приколов!"
+	title = "РЎР±РѕСЂРЅРёРє РџСЂРёРєРѕР»РѕРІ!"
 	dat = {"<html>
 	<img src=https://i.imgur.com/s3CURZY.png width=350px height=350px> <br>
-	Список лохов:<br>
+	РЎРїРёСЃРѕРє Р»РѕС…РѕРІ:<br>
 	"}
 
 /obj/item/book/killbook/Initialize()
 	..()
 	icon_state = "book[rand(1,7)]"
-	name = "Сборник [pick("приколов","анекдотов","юморесок")] [pick("от кодербаса", "от Нуждина", "про болоны", "про бимбы", "про ассистентов", "про вардена")]"
+	name = "РЎР±РѕСЂРЅРёРє [pick("РїСЂРёРєРѕР»РѕРІ","Р°РЅРµРєРґРѕС‚РѕРІ","СЋРјРѕСЂРµСЃРѕРє")] [pick("РѕС‚ РєРѕРґРµСЂР±Р°СЃР°", "РѕС‚ РќСѓР¶РґРёРЅР°", "РїСЂРѕ Р±РѕР»РѕРЅС‹", "РїСЂРѕ Р±РёРјР±С‹", "РїСЂРѕ Р°СЃСЃРёСЃС‚РµРЅС‚РѕРІ", "РїСЂРѕ РІР°СЂРґРµРЅР°")]"
 
 /obj/item/book/killbook/attack_self(mob/user)
 	if(ishuman(user))
@@ -22,17 +22,17 @@
 		if(!H.undergoing_cardiac_arrest() && H.can_heartattack())
 			H.set_heartattack(TRUE)
 			if(H.stat == CONSCIOUS)
-				H.visible_message("<span class='danger'>[H] здох! Ну и лох!</span>")
+				H.visible_message("<span class='danger'>[H] Р·РґРѕС…! РќСѓ Рё Р»РѕС…!</span>")
 			dat += "[H.real_name]<br>"
 	if(!(ishuman(user)))
-		user.visible_message("<span class='danger'>[user] здох! Ну и лох!</span>")
+		user.visible_message("<span class='danger'>[user] Р·РґРѕС…! РќСѓ Рё Р»РѕС…!</span>")
 		user.forceMove(src)
 		dat += "[user.name]<br>"
 	..()
 
 /datum/uplink_item/role_restricted/killbook
 	name = "Very funny book"
-	desc = "Сборник ну просто ОЧЕНЬ смешных приколов в количестве 1 шт."
+	desc = "РЎР±РѕСЂРЅРёРє РЅСѓ РїСЂРѕСЃС‚Рѕ РћР§Р•РќР¬ СЃРјРµС€РЅС‹С… РїСЂРёРєРѕР»РѕРІ РІ РєРѕР»РёС‡РµСЃС‚РІРµ 1 С€С‚."
 	item = /obj/item/book/killbook
 	cost = 1
 	restricted_roles = list("Curator", "Assistant")

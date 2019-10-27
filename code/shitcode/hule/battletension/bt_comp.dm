@@ -153,7 +153,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	return result
 
 /client/verb/customize_battletension()
-	set name = "Настроить Battle Tension"
+	set name = "РќР°СЃС‚СЂРѕРёС‚СЊ Battle Tension"
 	set desc = "Allows for advanced prikol immersion."
 	set category = "Preferences"
 
@@ -171,17 +171,17 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	else
 		settings = 0
 
-	var/list/options = list("приколов", "синтвейв", "тохо", "мк")
-	var/list/revmenu = list("приколов"=0, "синтвейв"=1, "тохо"=2, "мк"=3)
+	var/list/options = list("РїСЂРёРєРѕР»РѕРІ", "СЃРёРЅС‚РІРµР№РІ", "С‚РѕС…Рѕ", "РјРє")
+	var/list/revmenu = list("РїСЂРёРєРѕР»РѕРІ"=0, "СЃРёРЅС‚РІРµР№РІ"=1, "С‚РѕС…Рѕ"=2, "РјРє"=3)
 
 	var/list/menu = list()
 
 	var/i = 0
 	for(var/item in options)
 		if(settings & 2**i)
-			menu += "Нехочу " + item
+			menu += "РќРµС…РѕС‡Сѓ " + item
 		else
-			menu += "Хочу " + item
+			menu += "РҐРѕС‡Сѓ " + item
 		i++
 
 	var/selected = input("a a a a", "BT Customization") as null|anything in menu
@@ -193,10 +193,10 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	if(settings & settbit)
 		settings &= ~settbit
-		to_chat(usr, "<span class='danger'>Ты больше не хочешь [selected].</span>")
+		to_chat(usr, "<span class='danger'>РўС‹ Р±РѕР»СЊС€Рµ РЅРµ С…РѕС‡РµС€СЊ [selected].</span>")
 	else
 		settings |= settbit
-		to_chat(usr, "<span class='danger'>Теперь ты хочешь [selected].</span>")
+		to_chat(usr, "<span class='danger'>РўРµРїРµСЂСЊ С‚С‹ С…РѕС‡РµС€СЊ [selected].</span>")
 
 	prefs.btprefs = settings
 	prefs.save_preferences()

@@ -15,7 +15,7 @@
 	icon = 'icons/obj/machines/cloning.dmi'
 	icon_state = "pod_0"
 	req_access = list(ACCESS_CLONING) //FOR PREMATURE UNLOCKING.
-	verb_say = "констатирует"
+	verb_say = "РєРѕРЅСЃС‚Р°С‚РёСЂСѓРµС‚"
 	circuit = /obj/item/circuitboard/machine/clonepod
 
 	var/heal_level //The clone is released once its health reaches this level.

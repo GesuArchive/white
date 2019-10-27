@@ -1,7 +1,7 @@
 //clothing
 /obj/item/clothing/glasses/wzzzz/leforge
 	name = "Le forge"
-	desc = "Аля форж"
+	desc = "РђР»СЏ С„РѕСЂР¶"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/eyes.dmi'
 	icon_state = "leforge"
@@ -20,7 +20,7 @@
 
 /obj/item/clothing/glasses/wzzzz/jensenshades
 	name = "Jensenshades"
-	desc = "Дженсен Стэтхем"
+	desc = "Р”Р¶РµРЅСЃРµРЅ РЎС‚СЌС‚С…РµРј"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/glasses.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/eyes.dmi'
 	icon_state = "jensenshades"

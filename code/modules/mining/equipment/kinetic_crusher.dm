@@ -18,7 +18,7 @@
 	armour_penetration = 10
 	custom_materials = list(/datum/material/iron=1150, /datum/material/glass=2075)
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("размазывает", "уничтожает", "разрубает", "рубит", "ударяет")
+	attack_verb = list("СЂР°Р·РјР°Р·С‹РІР°РµС‚", "СѓРЅРёС‡С‚РѕР¶Р°РµС‚", "СЂР°Р·СЂСѓР±Р°РµС‚", "СЂСѓР±РёС‚", "СѓРґР°СЂСЏРµС‚")
 	sharpness = IS_SHARP
 	actions_types = list(/datum/action/item_action/toggle_light)
 	var/list/trophies = list()

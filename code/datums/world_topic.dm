@@ -29,7 +29,7 @@
 	key_valid = config && (CONFIG_GET(string/comms_key) == input["key"])
 	var/key_cvalid = config && (CONFIG_GET(string/cross_key) == input["key"])
 	if(require_comms_key && !key_valid)
-		if(!key_cvalid) //хочу спать
+		if(!key_cvalid) //С…РѕС‡Сѓ СЃРїР°С‚СЊ
 			return "Bad Key"
 	input -= "key"
 	. = Run(input)
@@ -88,7 +88,7 @@
 	require_comms_key = TRUE
 
 /datum/world_topic/comms_console/Run(list/input)
-	minor_announce(input["message"], "Входящее сообщение от [input["message_sender"]]")
+	minor_announce(input["message"], "Р’С…РѕРґСЏС‰РµРµ СЃРѕРѕР±С‰РµРЅРёРµ РѕС‚ [input["message_sender"]]")
 	for(var/obj/machinery/computer/communications/CM in GLOB.machines)
 		CM.overrideCooldown()
 
@@ -200,7 +200,7 @@
 	log = FALSE
 
 /datum/world_topic/adminwho/Run(list/input)
-	var/msg = "А вот на Украине..."
+	var/msg = "Рђ РІРѕС‚ РЅР° РЈРєСЂР°РёРЅРµ..."
 	/*for(var/adm in GLOB.admins)
 		var/client/C = adm
 		if(!C.holder.fakekey)

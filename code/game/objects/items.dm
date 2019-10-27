@@ -208,19 +208,19 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 /obj/item/examine(mob/user) //This might be spammy. Remove?
 	. = ..()
 
-	. += "Это [weightclass2text(w_class)] предмет."
+	. += "Р­С‚Рѕ [weightclass2text(w_class)] РїСЂРµРґРјРµС‚."
 
 	if(resistance_flags & INDESTRUCTIBLE)
-		. += "[src] выглядит сверхкрепким и практически неуязвимым!"
+		. += "[src] РІС‹РіР»СЏРґРёС‚ СЃРІРµСЂС…РєСЂРµРїРєРёРј Рё РїСЂР°РєС‚РёС‡РµСЃРєРё РЅРµСѓСЏР·РІРёРјС‹Рј!"
 	else
 		if(resistance_flags & LAVA_PROOF)
-			. += "[src] выглядит устойчивым к сверхвысоким температурам! Похоже он выдержит даже магму."
+			. += "[src] РІС‹РіР»СЏРґРёС‚ СѓСЃС‚РѕР№С‡РёРІС‹Рј Рє СЃРІРµСЂС…РІС‹СЃРѕРєРёРј С‚РµРјРїРµСЂР°С‚СѓСЂР°Рј! РџРѕС…РѕР¶Рµ РѕРЅ РІС‹РґРµСЂР¶РёС‚ РґР°Р¶Рµ РјР°РіРјСѓ."
 		if(resistance_flags & (ACID_PROOF | UNACIDABLE))
-			. += "[src] выглядит устойчивым к кислоте!"
+			. += "[src] РІС‹РіР»СЏРґРёС‚ СѓСЃС‚РѕР№С‡РёРІС‹Рј Рє РєРёСЃР»РѕС‚Рµ!"
 		if(resistance_flags & FREEZE_PROOF)
-			. += "[src] выглядит устойчивым к холоду."
+			. += "[src] РІС‹РіР»СЏРґРёС‚ СѓСЃС‚РѕР№С‡РёРІС‹Рј Рє С…РѕР»РѕРґСѓ."
 		if(resistance_flags & FIRE_PROOF)
-			. += "[src] выглядит устойчивым к огню."
+			. += "[src] РІС‹РіР»СЏРґРёС‚ СѓСЃС‚РѕР№С‡РёРІС‹Рј Рє РѕРіРЅСЋ."
 
 	if(!user.research_scanner)
 		return
@@ -247,7 +247,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		research_msg += "None"
 
 	// Extractable materials. Only shows the names, not the amounts.
-	research_msg += ".<br><font color='purple'>Материалы:</font> "
+	research_msg += ".<br><font color='purple'>РњР°С‚РµСЂРёР°Р»С‹:</font> "
 	if (length(custom_materials))
 		sep = ""
 		for(var/mat in custom_materials)
@@ -288,9 +288,9 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 
 		if(can_handle_hot)
 			extinguish()
-			to_chat(user, "<span class='notice'>Вы потушили [src].</span>")
+			to_chat(user, "<span class='notice'>Р’С‹ РїРѕС‚СѓС€РёР»Рё [src].</span>")
 		else
-			to_chat(user, "<span class='warning'>Вы обожгли свою руку дотронувшись до [src]!</span>")
+			to_chat(user, "<span class='warning'>Р’С‹ РѕР±РѕР¶РіР»Рё СЃРІРѕСЋ СЂСѓРєСѓ РґРѕС‚СЂРѕРЅСѓРІС€РёСЃСЊ РґРѕ [src]!</span>")
 			var/obj/item/bodypart/affecting = C.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 			if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
 				C.update_damage_overlays()
@@ -300,7 +300,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		var/mob/living/carbon/C = user
 		if(istype(C))
 			if(!C.gloves || (!(C.gloves.resistance_flags & (UNACIDABLE|ACID_PROOF))))
-				to_chat(user, "<span class='warning'>Кислота на [src] обжигает вашу руку!</span>")
+				to_chat(user, "<span class='warning'>РљРёСЃР»РѕС‚Р° РЅР° [src] РѕР±Р¶РёРіР°РµС‚ РІР°С€Сѓ СЂСѓРєСѓ!</span>")
 				var/obj/item/bodypart/affecting = C.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 				if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
 					C.update_damage_overlays()
@@ -312,7 +312,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	var/grav = user.has_gravity()
 	if(grav > STANDARD_GRAVITY)
 		var/grav_power = min(3,grav - STANDARD_GRAVITY)
-		to_chat(user,"<span class='notice'>Вы с трудом начинаете поднимать [src]...</span>")
+		to_chat(user,"<span class='notice'>Р’С‹ СЃ С‚СЂСѓРґРѕРј РЅР°С‡РёРЅР°РµС‚Рµ РїРѕРґРЅРёРјР°С‚СЊ [src]...</span>")
 		if(!do_mob(user,src,30*grav_power))
 			return
 
@@ -361,7 +361,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	if(!A.has_fine_manipulation)
 		if(src in A.contents) // To stop Aliens having items stuck in their pockets
 			A.dropItemToGround(src)
-		to_chat(user, "<span class='warning'>У вас лапки!</span>")
+		to_chat(user, "<span class='warning'>РЈ РІР°СЃ Р»Р°РїРєРё!</span>")
 		return
 	attack_paw(A)
 
@@ -380,10 +380,10 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 
 // afterattack() and attack() prototypes moved to _onclick/item_attack.dm for consistency
 
-/obj/item/proc/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "удар", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
+/obj/item/proc/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "СѓРґР°СЂ", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, args)
 	if(prob(final_block_chance))
-		owner.visible_message("<span class='danger'>[owner] блокирует [attack_text] при помощи [src]!</span>")
+		owner.visible_message("<span class='danger'>[owner] Р±Р»РѕРєРёСЂСѓРµС‚ [attack_text] РїСЂРё РїРѕРјРѕС‰Рё [src]!</span>")
 		return 1
 	return 0
 
@@ -484,15 +484,15 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 
 	if(M.is_eyes_covered())
 		// you can't stab someone in the eyes wearing a mask!
-		to_chat(user, "<span class='warning'>Вам нужно убрать защиту с [M.ru_ego()] глаз, чтобы сделать это!</span>")
+		to_chat(user, "<span class='warning'>Р’Р°Рј РЅСѓР¶РЅРѕ СѓР±СЂР°С‚СЊ Р·Р°С‰РёС‚Сѓ СЃ [M.ru_ego()] РіР»Р°Р·, С‡С‚РѕР±С‹ СЃРґРµР»Р°С‚СЊ СЌС‚Рѕ!</span>")
 		return
 
 	if(isalien(M))//Aliens don't have eyes./N     slimes also don't have eyes!
-		to_chat(user, "<span class='warning'>Вы не можете найти глаза у этого существа!</span>")
+		to_chat(user, "<span class='warning'>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РЅР°Р№С‚Рё РіР»Р°Р·Р° Сѓ СЌС‚РѕРіРѕ СЃСѓС‰РµСЃС‚РІР°!</span>")
 		return
 
 	if(isbrain(M))
-		to_chat(user, "<span class='warning'>Вы не можете найти глаз на этом мозге!</span>")
+		to_chat(user, "<span class='warning'>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РЅР°Р№С‚Рё РіР»Р°Р· РЅР° СЌС‚РѕРј РјРѕР·РіРµ!</span>")
 		return
 
 	src.add_fingerprint(user)
@@ -502,12 +502,12 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	user.do_attack_animation(M)
 
 	if(M != user)
-		M.visible_message("<span class='danger'>[user] протыкает глаз [M] используя [src]!</span>", \
-							"<span class='userdanger'>[user] протыкает вам глаз используя [src]!</span>")
+		M.visible_message("<span class='danger'>[user] РїСЂРѕС‚С‹РєР°РµС‚ РіР»Р°Р· [M] РёСЃРїРѕР»СЊР·СѓСЏ [src]!</span>", \
+							"<span class='userdanger'>[user] РїСЂРѕС‚С‹РєР°РµС‚ РІР°Рј РіР»Р°Р· РёСЃРїРѕР»СЊР·СѓСЏ [src]!</span>")
 	else
 		user.visible_message( \
-			"<span class='danger'>[user] протыкает свой глаз при помощи [src]!</span>", \
-			"<span class='userdanger'>Вы проткнули себе глаз при помощи [src]!</span>" \
+			"<span class='danger'>[user] РїСЂРѕС‚С‹РєР°РµС‚ СЃРІРѕР№ РіР»Р°Р· РїСЂРё РїРѕРјРѕС‰Рё [src]!</span>", \
+			"<span class='userdanger'>Р’С‹ РїСЂРѕС‚РєРЅСѓР»Рё СЃРµР±Рµ РіР»Р°Р· РїСЂРё РїРѕРјРѕС‰Рё [src]!</span>" \
 		)
 	if(is_human_victim)
 		var/mob/living/carbon/human/U = M
@@ -518,7 +518,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "eye_stab", /datum/mood_event/eye_stab)
 
-	log_combat(user, M, "атакует", "[src.name]", "(INTENT: [uppertext(user.a_intent)])")
+	log_combat(user, M, "Р°С‚Р°РєСѓРµС‚", "[src.name]", "(INTENT: [uppertext(user.a_intent)])")
 
 	var/obj/item/organ/eyes/eyes = M.getorganslot(ORGAN_SLOT_EYES)
 	if (!eyes)
@@ -528,20 +528,20 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	if(eyes.damage >= 10)
 		M.adjust_blurriness(15)
 		if(M.stat != DEAD)
-			to_chat(M, "<span class='danger'>Ваши глаза начинают кровоточить!</span>")
+			to_chat(M, "<span class='danger'>Р’Р°С€Рё РіР»Р°Р·Р° РЅР°С‡РёРЅР°СЋС‚ РєСЂРѕРІРѕС‚РѕС‡РёС‚СЊ!</span>")
 		if(!(HAS_TRAIT(M, TRAIT_BLIND) || HAS_TRAIT(M, TRAIT_NEARSIGHT)))
-			to_chat(M, "<span class='danger'>Вы становитесь близоруким!</span>")
+			to_chat(M, "<span class='danger'>Р’С‹ СЃС‚Р°РЅРѕРІРёС‚РµСЃСЊ Р±Р»РёР·РѕСЂСѓРєРёРј!</span>")
 		M.become_nearsighted(EYE_DAMAGE)
 		if(prob(50))
 			if(M.stat != DEAD)
 				if(M.drop_all_held_items())
-					to_chat(M, "<span class='danger'>Вы бросаете то, что держите в своих руках и хватаетесь за свои глаза!</span>")
+					to_chat(M, "<span class='danger'>Р’С‹ Р±СЂРѕСЃР°РµС‚Рµ С‚Рѕ, С‡С‚Рѕ РґРµСЂР¶РёС‚Рµ РІ СЃРІРѕРёС… СЂСѓРєР°С… Рё С…РІР°С‚Р°РµС‚РµСЃСЊ Р·Р° СЃРІРѕРё РіР»Р°Р·Р°!</span>")
 			M.adjust_blurriness(10)
 			M.Unconscious(20)
 			M.Paralyze(40)
 		if (prob(eyes.damage - 10 + 1))
 			M.become_blind(EYE_DAMAGE)
-			to_chat(M, "<span class='danger'>Вы ослепли!</span>")
+			to_chat(M, "<span class='danger'>Р’С‹ РѕСЃР»РµРїР»Рё!</span>")
 
 /obj/item/singularity_pull(S, current_size)
 	..()
@@ -663,7 +663,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 
 /obj/item/proc/ignition_effect(atom/A, mob/user)
 	if(get_temperature())
-		. = "<span class='notice'>[user] поджигает [A] при помощи [src].</span>"
+		. = "<span class='notice'>[user] РїРѕРґР¶РёРіР°РµС‚ [A] РїСЂРё РїРѕРјРѕС‰Рё [src].</span>"
 	else
 		. = ""
 

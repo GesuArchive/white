@@ -4,7 +4,7 @@
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "suspiciousphone"
 	w_class = WEIGHT_CLASS_SMALL
-	attack_verb = list("звонит")
+	attack_verb = list("Р·РІРѕРЅРёС‚")
 	var/dumped = FALSE
 
 /obj/item/suspiciousphone/attack_self(mob/user)

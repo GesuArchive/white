@@ -1,6 +1,6 @@
 /obj/effect/decal/cleanable/cum
 	name = "smetana"
-	desc = "Выглядит вкусно."
+	desc = "Р’С‹РіР»СЏРґРёС‚ РІРєСѓСЃРЅРѕ."
 	density = 0
 	layer = 3
 	icon = 'code/shitcode/valtos/icons/exrp/smetanka.dmi'

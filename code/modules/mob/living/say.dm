@@ -32,31 +32,31 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	//kinda localization -- rastaf0
 	//same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
 	// Location
-	"к" = MODE_R_HAND,
-	"д" = MODE_L_HAND,
-	"ш" = MODE_INTERCOM,
+	"Рє" = MODE_R_HAND,
+	"Рґ" = MODE_L_HAND,
+	"С€" = MODE_INTERCOM,
 
 	// Department
-	"р" = MODE_DEPARTMENT,
-	"с" = RADIO_CHANNEL_COMMAND,
-	"т" = RADIO_CHANNEL_SCIENCE,
-	"ь" = RADIO_CHANNEL_MEDICAL,
-	"у" = RADIO_CHANNEL_ENGINEERING,
-	"ы" = RADIO_CHANNEL_SECURITY,
-	"г" = RADIO_CHANNEL_SUPPLY,
-	"м" = RADIO_CHANNEL_SERVICE,
+	"СЂ" = MODE_DEPARTMENT,
+	"СЃ" = RADIO_CHANNEL_COMMAND,
+	"С‚" = RADIO_CHANNEL_SCIENCE,
+	"СЊ" = RADIO_CHANNEL_MEDICAL,
+	"Сѓ" = RADIO_CHANNEL_ENGINEERING,
+	"С‹" = RADIO_CHANNEL_SECURITY,
+	"Рі" = RADIO_CHANNEL_SUPPLY,
+	"Рј" = RADIO_CHANNEL_SERVICE,
 
 	// Faction
-	"е" = RADIO_CHANNEL_SYNDICATE,
-	"н" = RADIO_CHANNEL_CENTCOM,
+	"Рµ" = RADIO_CHANNEL_SYNDICATE,
+	"РЅ" = RADIO_CHANNEL_CENTCOM,
 
 	// Admin
-	"з" = MODE_ADMIN,
-	"в" = MODE_DEADMIN,
+	"Р·" = MODE_ADMIN,
+	"РІ" = MODE_DEADMIN,
 
 	// Misc
-	"щ" = RADIO_CHANNEL_AI_PRIVATE,
-	"ч" = MODE_VOCALCORDS
+	"С‰" = RADIO_CHANNEL_AI_PRIVATE,
+	"С‡" = MODE_VOCALCORDS
 ))
 
 /mob/living/proc/Ellipsis(original_msg, chance = 50, keep_words)
@@ -100,7 +100,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	if(ic_blocked)
 		//The filter warning message shows the sanitized message though.
-		to_chat(src, "<span class='warning'>Вы попытались сказать: <span replaceRegex='show_filtered_ic_chat'>\"[message]\"</span>, но у вас ничего не вышло.</span>")
+		to_chat(src, "<span class='warning'>Р’С‹ РїРѕРїС‹С‚Р°Р»РёСЃСЊ СЃРєР°Р·Р°С‚СЊ: <span replaceRegex='show_filtered_ic_chat'>\"[message]\"</span>, РЅРѕ Сѓ РІР°СЃ РЅРёС‡РµРіРѕ РЅРµ РІС‹С€Р»Рѕ.</span>")
 		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
 		return
 

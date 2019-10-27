@@ -501,7 +501,7 @@
 	throw_range = 5
 	w_class = WEIGHT_CLASS_SMALL
 	body_parts_covered = CHEST|GROIN
-	attack_verb = list("предупреждает", "предостерегает", "размазывает")
+	attack_verb = list("РїСЂРµРґСѓРїСЂРµР¶РґР°РµС‚", "РїСЂРµРґРѕСЃС‚РµСЂРµРіР°РµС‚", "СЂР°Р·РјР°Р·С‹РІР°РµС‚")
 	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 

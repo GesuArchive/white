@@ -156,7 +156,7 @@
 	force = 10
 	throwforce = 10
 	throw_speed = 4
-	attack_verb = list("πεζες")
+	attack_verb = list("Ρ€ΠµΠ¶ΠµΡ‚")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = IS_SHARP
 

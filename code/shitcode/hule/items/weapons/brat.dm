@@ -1,6 +1,6 @@
 /obj/item/ammo_casing/shotgun/diyslug
 	name = "makeshift glass slug"
-	desc = "Как вообще из спичек, бумаги и сахара можно сделать боеприпас?"
+	desc = "РљР°Рє РІРѕРѕР±С‰Рµ РёР· СЃРїРёС‡РµРє, Р±СѓРјР°РіРё Рё СЃР°С…Р°СЂР° РјРѕР¶РЅРѕ СЃРґРµР»Р°С‚СЊ Р±РѕРµРїСЂРёРїР°СЃ?"
 	icon = 'code/shitcode/hule/icons/obj/weapons.dmi'
 	icon_state = "cshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_glassslug

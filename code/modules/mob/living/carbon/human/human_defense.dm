@@ -56,8 +56,8 @@
 	if(!(P.original == src && P.firer == src)) //can't block or reflect when shooting yourself
 		if(P.reflectable & REFLECT_NORMAL)
 			if(check_reflect(def_zone)) // Checks if you've passed a reflection% check
-				visible_message("<span class='danger'>[src] отражает [P.name]!</span>", \
-								"<span class='userdanger'>[src] отражает [P.name]!</span>")
+				visible_message("<span class='danger'>[src] РѕС‚СЂР°Р¶Р°РµС‚ [P.name]!</span>", \
+								"<span class='userdanger'>[src] РѕС‚СЂР°Р¶Р°РµС‚ [P.name]!</span>")
 				// Find a turf near or on the original location to bounce to
 				if(!isturf(loc)) //Open canopy mech (ripley) check. if we're inside something and still got hit
 					P.force_hit = TRUE //The thing we're in passed the bullet to us. Pass it back, and tell it to take the damage.
@@ -187,15 +187,15 @@
 	. = ..()
 	if(!.)
 		return
-	var/hulk_verb = pick("ломает","крушит")
+	var/hulk_verb = pick("Р»РѕРјР°РµС‚","РєСЂСѓС€РёС‚")
 	if(check_shields(user, 15, "the [hulk_verb]ing"))
 		return
 	..()
 	playsound(loc, user.dna.species.attack_sound, 25, TRUE, -1)
 	var/message = "[user] [hulk_verb] [src]!"
 	visible_message("<span class='danger'>[message]</span>", \
-							"<span class='userdanger'>[message]</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", null, user)
-	to_chat(user, "<span class='danger'>Твой удар [hulk_verb] [src]!</span>")
+							"<span class='userdanger'>[message]</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РєР°Рє С‡С‚Рѕ-С‚Рѕ СЃРёР»СЊРЅРѕ Р±СЊС‘С‚ РїРѕ РїР»РѕС‚Рё!</span>", null, user)
+	to_chat(user, "<span class='danger'>РўРІРѕР№ СѓРґР°СЂ [hulk_verb] [src]!</span>")
 	adjustBruteLoss(15)
 
 /mob/living/carbon/human/attack_hand(mob/user)

@@ -55,15 +55,15 @@
 	if(!D.stat && !D.IsParalyzed())
 		if(A.dir != D.dir)
 			log_combat(A, D, "missed a back-kick (Sleeping Carp) on")
-			D.visible_message("<span class='warning'><b>[A]</b> пытается ударить <b>[D]</b> в спину, но промахивается!</span>", \
-						"<span class='userdanger'><b>[A]</b> пытается ударить тебя в спину, но промахивается!</span>", "<span class='hear'>Ты слышишь взмах!</span>", null, A)
-			to_chat(A, "<span class='warning'>Ты промахиваешься мимо [D]!</span>")
+			D.visible_message("<span class='warning'><b>[A]</b> РїС‹С‚Р°РµС‚СЃСЏ СѓРґР°СЂРёС‚СЊ <b>[D]</b> РІ СЃРїРёРЅСѓ, РЅРѕ РїСЂРѕРјР°С…РёРІР°РµС‚СЃСЏ!</span>", \
+						"<span class='userdanger'><b>[A]</b> РїС‹С‚Р°РµС‚СЃСЏ СѓРґР°СЂРёС‚СЊ С‚РµР±СЏ РІ СЃРїРёРЅСѓ, РЅРѕ РїСЂРѕРјР°С…РёРІР°РµС‚СЃСЏ!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РІР·РјР°С…!</span>", null, A)
+			to_chat(A, "<span class='warning'>РўС‹ РїСЂРѕРјР°С…РёРІР°РµС€СЊСЃСЏ РјРёРјРѕ [D]!</span>")
 			return TRUE
 		log_combat(A, D, "back-kicked (Sleeping Carp)")
 		A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
-		D.visible_message("<span class='warning'><b>[A]</b> пинает <b>[D]</b> в спину!</span>", \
-					"<span class='userdanger'><b>[A]</b> пинает тебя в спину, принуждая тебя упасть!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", null, A)
-		to_chat(A, "<span class='danger'>Ты сбиваешь с ног [D]!</span>")
+		D.visible_message("<span class='warning'><b>[A]</b> РїРёРЅР°РµС‚ <b>[D]</b> РІ СЃРїРёРЅСѓ!</span>", \
+					"<span class='userdanger'><b>[A]</b> РїРёРЅР°РµС‚ С‚РµР±СЏ РІ СЃРїРёРЅСѓ, РїСЂРёРЅСѓР¶РґР°СЏ С‚РµР±СЏ СѓРїР°СЃС‚СЊ!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РєР°Рє С‡С‚Рѕ-С‚Рѕ СЃРёР»СЊРЅРѕ Р±СЊС‘С‚ РїРѕ РїР»РѕС‚Рё!</span>", null, A)
+		to_chat(A, "<span class='danger'>РўС‹ СЃР±РёРІР°РµС€СЊ СЃ РЅРѕРі [D]!</span>")
 		step_to(D,get_step(D,D.dir),1)
 		D.Paralyze(80)
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, TRUE, -1)
@@ -74,9 +74,9 @@
 	if(!D.stat && !D.IsParalyzed())
 		log_combat(A, D, "stomach kneed (Sleeping Carp)")
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
-		D.visible_message("<span class='danger'><b>[A]</b> бьёт <b>[D]</b> коленом в живот!</span>", \
-						  "<span class='userdanger'><b>[A]</b> бьёт тебя коленом в живот!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", null, A)
-		to_chat(A, "<span class='danger'>Ты бьёшь [D] коленом в живот [D.p_them()]!</span>")
+		D.visible_message("<span class='danger'><b>[A]</b> Р±СЊС‘С‚ <b>[D]</b> РєРѕР»РµРЅРѕРј РІ Р¶РёРІРѕС‚!</span>", \
+						  "<span class='userdanger'><b>[A]</b> Р±СЊС‘С‚ С‚РµР±СЏ РєРѕР»РµРЅРѕРј РІ Р¶РёРІРѕС‚!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РєР°Рє С‡С‚Рѕ-С‚Рѕ СЃРёР»СЊРЅРѕ Р±СЊС‘С‚ РїРѕ РїР»РѕС‚Рё!</span>", null, A)
+		to_chat(A, "<span class='danger'>РўС‹ Р±СЊС‘С€СЊ [D] РєРѕР»РµРЅРѕРј РІ Р¶РёРІРѕС‚ [D.p_them()]!</span>")
 		D.losebreath += 3
 		D.Stun(40)
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, TRUE, -1)
@@ -87,9 +87,9 @@
 	if(!D.stat && !D.IsParalyzed())
 		log_combat(A, D, "head kicked (Sleeping Carp)")
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
-		D.visible_message("<span class='warning'><b>[A]</b> пинает <b>[D]</b> в голову!</span>", \
-						  "<span class='userdanger'><b>[A]</b> пинает тебя в ебало!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", null, A)
-		to_chat(A, "<span class='danger'>Ты пинаешь [D] в голову!</span>")
+		D.visible_message("<span class='warning'><b>[A]</b> РїРёРЅР°РµС‚ <b>[D]</b> РІ РіРѕР»РѕРІСѓ!</span>", \
+						  "<span class='userdanger'><b>[A]</b> РїРёРЅР°РµС‚ С‚РµР±СЏ РІ РµР±Р°Р»Рѕ!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РєР°Рє С‡С‚Рѕ-С‚Рѕ СЃРёР»СЊРЅРѕ Р±СЊС‘С‚ РїРѕ РїР»РѕС‚Рё!</span>", null, A)
+		to_chat(A, "<span class='danger'>РўС‹ РїРёРЅР°РµС€СЊ [D] РІ РіРѕР»РѕРІСѓ!</span>")
 		D.apply_damage(20, A.dna.species.attack_type, BODY_ZONE_HEAD)
 		D.drop_all_held_items()
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, TRUE, -1)
@@ -101,9 +101,9 @@
 	if(!(D.mobility_flags & MOBILITY_STAND))
 		log_combat(A, D, "elbow dropped (Sleeping Carp)")
 		A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
-		D.visible_message("<span class='warning'><b>[A]</b> кидает <b>[D]</b> с прогиба!</span>", \
-							"<span class='userdanger'><b>[A]</b> кидает тебя с прогиба!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", null, A)
-		to_chat(A, "<span class='danger'>Ты кидаешь [D] с прогиба!</span>")
+		D.visible_message("<span class='warning'><b>[A]</b> РєРёРґР°РµС‚ <b>[D]</b> СЃ РїСЂРѕРіРёР±Р°!</span>", \
+							"<span class='userdanger'><b>[A]</b> РєРёРґР°РµС‚ С‚РµР±СЏ СЃ РїСЂРѕРіРёР±Р°!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РєР°Рє С‡С‚Рѕ-С‚Рѕ СЃРёР»СЊРЅРѕ Р±СЊС‘С‚ РїРѕ РїР»РѕС‚Рё!</span>", null, A)
+		to_chat(A, "<span class='danger'>РўС‹ РєРёРґР°РµС€СЊ [D] СЃ РїСЂРѕРіРёР±Р°!</span>")
 		if(D.stat)
 			D.death() //FINISH HIM!
 		D.apply_damage(50, A.dna.species.attack_type, BODY_ZONE_CHEST)
@@ -122,9 +122,9 @@
 			D.drop_all_held_items()
 			A.grab_state = GRAB_AGGRESSIVE //Instant agressive grab if on grab intent
 			log_combat(A, D, "grabbed", addition="aggressively")
-			D.visible_message("<span class='warning'><b>[A]</b> жестко хватает <b>[D]</b>!</span>", \
-								"<span class='userdanger'><b>[A]</b> жестко хватает тебя!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", null, A)
-			to_chat(A, "<span class='danger'>Ты жестко хватаешь [D]!</span>")
+			D.visible_message("<span class='warning'><b>[A]</b> Р¶РµСЃС‚РєРѕ С…РІР°С‚Р°РµС‚ <b>[D]</b>!</span>", \
+								"<span class='userdanger'><b>[A]</b> Р¶РµСЃС‚РєРѕ С…РІР°С‚Р°РµС‚ С‚РµР±СЏ!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РєР°Рє С‡С‚Рѕ-С‚Рѕ СЃРёР»СЊРЅРѕ Р±СЊС‘С‚ РїРѕ РїР»РѕС‚Рё!</span>", null, A)
+			to_chat(A, "<span class='danger'>РўС‹ Р¶РµСЃС‚РєРѕ С…РІР°С‚Р°РµС€СЊ [D]!</span>")
 		return TRUE
 	return FALSE
 
@@ -133,14 +133,14 @@
 	if(check_streak(A,D))
 		return TRUE
 	A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
-	var/atk_verb = pick("бьёт", "пинает", "хуярит", "избивает", "выбивает")
+	var/atk_verb = pick("Р±СЊС‘С‚", "РїРёРЅР°РµС‚", "С…СѓСЏСЂРёС‚", "РёР·Р±РёРІР°РµС‚", "РІС‹Р±РёРІР°РµС‚")
 	D.visible_message("<span class='danger'><b>[A]</b> [atk_verb] <b>[D]</b>!</span>", \
-					  "<span class='userdanger'><b>[A]</b> [atk_verb] тебя!</span>", null, null, A)
-	to_chat(A, "<span class='danger'>Твоя атака [atk_verb] [D]!</span>")
+					  "<span class='userdanger'><b>[A]</b> [atk_verb] С‚РµР±СЏ!</span>", null, null, A)
+	to_chat(A, "<span class='danger'>РўРІРѕСЏ Р°С‚Р°РєР° [atk_verb] [D]!</span>")
 	D.apply_damage(rand(10,15), BRUTE)
 	playsound(get_turf(D), 'sound/weapons/punch1.ogg', 25, TRUE, -1)
 	if(prob(D.getBruteLoss()) && (D.mobility_flags & MOBILITY_STAND))
-		D.visible_message("<span class='warning'><b>[D]</b> stumbles and falls!</span>", "<span class='userdanger'>Удар отправляет тебя пососать!</span>")
+		D.visible_message("<span class='warning'><b>[D]</b> stumbles and falls!</span>", "<span class='userdanger'>РЈРґР°СЂ РѕС‚РїСЂР°РІР»СЏРµС‚ С‚РµР±СЏ РїРѕСЃРѕСЃР°С‚СЊ!</span>")
 		D.Paralyze(80)
 	log_combat(A, D, "[atk_verb] (Sleeping Carp)")
 	return TRUE
@@ -162,7 +162,7 @@
 		return BULLET_ACT_HIT
 	if(!isturf(A.loc)) //NO MOTHERFLIPPIN MECHS!
 		return BULLET_ACT_HIT
-	A.visible_message("<span class='danger'><b>[A]</b> отражает снаряд!</span>", "<span class='userdanger'>Ты отражаешь снаряд!</span>")
+	A.visible_message("<span class='danger'><b>[A]</b> РѕС‚СЂР°Р¶Р°РµС‚ СЃРЅР°СЂСЏРґ!</span>", "<span class='userdanger'>РўС‹ РѕС‚СЂР°Р¶Р°РµС€СЊ СЃРЅР°СЂСЏРґ!</span>")
 	playsound(src, pick('sound/weapons/bulletflyby.ogg', 'sound/weapons/bulletflyby2.ogg', 'sound/weapons/bulletflyby3.ogg'), 75, TRUE)
 	P.firer = A
 	P.setAngle(rand(0, 360))//SHING
@@ -202,7 +202,7 @@
 	force_wielded = 24
 	throwforce = 20
 	throw_speed = 2
-	attack_verb = list("лупит", "хлопает", "ударяет", "бьёт")
+	attack_verb = list("Р»СѓРїРёС‚", "С…Р»РѕРїР°РµС‚", "СѓРґР°СЂСЏРµС‚", "Р±СЊС‘С‚")
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "bostaff0"
 	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi'

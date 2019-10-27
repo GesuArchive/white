@@ -23,7 +23,7 @@
 			to_chat(M, "<span class='danger'>You [response_harm_simple] [src]!</span>")
 			playsound(loc, attacked_sound, 25, TRUE, -1)
 			attack_threshold_check(harm_intent_damage)
-			log_combat(M, src, "атакует")
+			log_combat(M, src, "Р°С‚Р°РєСѓРµС‚")
 			updatehealth()
 			return TRUE
 
@@ -66,7 +66,7 @@
 			to_chat(M, "<span class='danger'>You slash at [src]!</span>")
 			playsound(loc, 'sound/weapons/slice.ogg', 25, TRUE, -1)
 			attack_threshold_check(damage)
-			log_combat(M, src, "атакует")
+			log_combat(M, src, "Р°С‚Р°РєСѓРµС‚")
 		return 1
 
 /mob/living/simple_animal/attack_larva(mob/living/carbon/alien/larva/L)

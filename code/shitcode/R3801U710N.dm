@@ -6,11 +6,11 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 /proc/zashkvar_check(var/mob/M, var/atom/A) //nasral na other_mobs.dm
 	if(M && M.ckey && !A.zashkvareno && M.ckey in GLOB.petushiniy_list)
 		A.zashkvareno = 1
-		A.visible_message("<span class='danger'>[A.name] зашкваривается от петушиного касания!</span>")
+		A.visible_message("<span class='danger'>[A.name] Р·Р°С€РєРІР°СЂРёРІР°РµС‚СЃСЏ РѕС‚ РїРµС‚СѓС€РёРЅРѕРіРѕ РєР°СЃР°РЅРёСЏ!</span>")
 		if(prob(50))
-			A.name = "Петушиный " + A.name
+			A.name = "РџРµС‚СѓС€РёРЅС‹Р№ " + A.name
 		else
-			A.name = "Зашкваренный " + A.name
+			A.name = "Р—Р°С€РєРІР°СЂРµРЅРЅС‹Р№ " + A.name
 
 		if(istype(A, /obj))
 			var/obj/O = A

@@ -4,78 +4,78 @@
 	//var/t_na 	= ru_na()
 	var/t_a 	= ru_a()
 
-	. = list("<span class='info'>*---------*\nЭто же [icon2html(src, user)] \a <EM>[src]</EM>!")
+	. = list("<span class='info'>*---------*\nР­С‚Рѕ Р¶Рµ [icon2html(src, user)] \a <EM>[src]</EM>!")
 	var/list/obscured = check_obscured_slots()
 
 	if (handcuffed)
-		. += "<span class='warning'>[t_on] [icon2html(handcuffed, user)] в наручниках!</span>"
+		. += "<span class='warning'>[t_on] [icon2html(handcuffed, user)] РІ РЅР°СЂСѓС‡РЅРёРєР°С…!</span>"
 	if (head)
-		. += "На голове у н[t_ego] [head.ru_get_examine_string(user)]."
+		. += "РќР° РіРѕР»РѕРІРµ Сѓ РЅ[t_ego] [head.ru_get_examine_string(user)]."
 	if(wear_mask && !(SLOT_WEAR_MASK in obscured))
-		. += "На [t_ego] лице [wear_mask.ru_get_examine_string(user)]."
+		. += "РќР° [t_ego] Р»РёС†Рµ [wear_mask.ru_get_examine_string(user)]."
 	if(wear_neck && !(SLOT_NECK in obscured))
-		. += "На шее у н[t_ego] [wear_neck.ru_get_examine_string(user)]."
+		. += "РќР° С€РµРµ Сѓ РЅ[t_ego] [wear_neck.ru_get_examine_string(user)]."
 
 	for(var/obj/item/I in held_items)
 		if(!(I.item_flags & ABSTRACT))
-			. += "В [t_ego] [get_held_index_name(get_held_index_of_item(I))] он[t_a] держит [I.ru_get_examine_string(user)]."
+			. += "Р’ [t_ego] [get_held_index_name(get_held_index_of_item(I))] РѕРЅ[t_a] РґРµСЂР¶РёС‚ [I.ru_get_examine_string(user)]."
 
 	if (back)
-		. += "На [t_ego] спине [back.ru_get_examine_string(user)]."
+		. += "РќР° [t_ego] СЃРїРёРЅРµ [back.ru_get_examine_string(user)]."
 	var/appears_dead = 0
 	if (stat == DEAD)
 		appears_dead = 1
 		if(getorgan(/obj/item/organ/brain))
-			. += "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни...</span>"
+			. += "<span class='deadsay'>[t_on] РЅРµ СЂРµР°РіРёСЂСѓРµС‚ РЅР° РїСЂРѕРёСЃС…РѕРґСЏС‰РµРµ РІРѕРєСЂСѓРі; РЅРµС‚ РїСЂРёР·РЅР°РєРѕРІ Р¶РёР·РЅРё...</span>"
 		else if(get_bodypart(BODY_ZONE_HEAD))
-			. += "<span class='deadsay'>Похоже, что у н[t_ego] нет мозга...</span>"
+			. += "<span class='deadsay'>РџРѕС…РѕР¶Рµ, С‡С‚Рѕ Сѓ РЅ[t_ego] РЅРµС‚ РјРѕР·РіР°...</span>"
 
 	var/list/missing = get_missing_limbs()
 	for(var/t in missing)
 		if(t==BODY_ZONE_HEAD)
-			. += "<span class='deadsay'><B>[ru_ego(TRUE)] [parse_zone(t)] отсутствует!</B></span>"
+			. += "<span class='deadsay'><B>[ru_ego(TRUE)] [parse_zone(t)] РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚!</B></span>"
 			continue
-		. += "<span class='warning'><B>[ru_ego(TRUE)] [parse_zone(t)] отсутствует!</B></span>"
+		. += "<span class='warning'><B>[ru_ego(TRUE)] [parse_zone(t)] РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚!</B></span>"
 
 	var/list/msg = list("<span class='warning'>")
 	var/temp = getBruteLoss()
 	if(!(user == src && src.hal_screwyhud == SCREWYHUD_HEALTHY)) //fake healthy
 		if(temp)
 			if (temp < 25)
-				msg += "[t_on] имеет незначительные ушибы.\n"
+				msg += "[t_on] РёРјРµРµС‚ РЅРµР·РЅР°С‡РёС‚РµР»СЊРЅС‹Рµ СѓС€РёР±С‹.\n"
 			else if (temp < 50)
-				msg += "[t_on] <b>тяжело</b> ранен[t_a]!\n"
+				msg += "[t_on] <b>С‚СЏР¶РµР»Рѕ</b> СЂР°РЅРµРЅ[t_a]!\n"
 			else
-				msg += "<B>[t_on] смертельно ранен[t_a]!</B>\n"
+				msg += "<B>[t_on] СЃРјРµСЂС‚РµР»СЊРЅРѕ СЂР°РЅРµРЅ[t_a]!</B>\n"
 
 		temp = getFireLoss()
 		if(temp)
 			if (temp < 25)
-				msg += "[t_on] немного подгорел[t_a].\n"
+				msg += "[t_on] РЅРµРјРЅРѕРіРѕ РїРѕРґРіРѕСЂРµР»[t_a].\n"
 			else if (temp < 50)
-				msg += "[t_on] имеет <b>серьёзные</b> ожоги!\n"
+				msg += "[t_on] РёРјРµРµС‚ <b>СЃРµСЂСЊС‘Р·РЅС‹Рµ</b> РѕР¶РѕРіРё!\n"
 			else
-				msg += "<B>[t_on] имеет смертельные ожоги!</B>\n"
+				msg += "<B>[t_on] РёРјРµРµС‚ СЃРјРµСЂС‚РµР»СЊРЅС‹Рµ РѕР¶РѕРіРё!</B>\n"
 
 		temp = getCloneLoss()
 		if(temp)
 			if(temp < 25)
-				msg += "[t_on] незначительные генетические повреждения.\n"
+				msg += "[t_on] РЅРµР·РЅР°С‡РёС‚РµР»СЊРЅС‹Рµ РіРµРЅРµС‚РёС‡РµСЃРєРёРµ РїРѕРІСЂРµР¶РґРµРЅРёСЏ.\n"
 			else if(temp < 50)
-				msg += "[t_on] <b>сильные</b> генетические повреждения!\n"
+				msg += "[t_on] <b>СЃРёР»СЊРЅС‹Рµ</b> РіРµРЅРµС‚РёС‡РµСЃРєРёРµ РїРѕРІСЂРµР¶РґРµРЅРёСЏ!\n"
 			else
-				msg += "<b>[t_on] смертельные генетические повреждения!</b>\n"
+				msg += "<b>[t_on] СЃРјРµСЂС‚РµР»СЊРЅС‹Рµ РіРµРЅРµС‚РёС‡РµСЃРєРёРµ РїРѕРІСЂРµР¶РґРµРЅРёСЏ!</b>\n"
 
 	if(HAS_TRAIT(src, TRAIT_DUMB))
-		msg += "[t_on] имеет глупое выражение лица.\n"
+		msg += "[t_on] РёРјРµРµС‚ РіР»СѓРїРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ Р»РёС†Р°.\n"
 
 	if(fire_stacks > 0)
-		msg += "[t_on] в чем-то горючем.\n"
+		msg += "[t_on] РІ С‡РµРј-С‚Рѕ РіРѕСЂСЋС‡РµРј.\n"
 	if(fire_stacks < 0)
-		msg += "[t_on] выглядит мокро.\n"
+		msg += "[t_on] РІС‹РіР»СЏРґРёС‚ РјРѕРєСЂРѕ.\n"
 
 	if(pulledby && pulledby.grab_state)
-		msg += "[t_on] удерживается захватом [pulledby].\n"
+		msg += "[t_on] СѓРґРµСЂР¶РёРІР°РµС‚СЃСЏ Р·Р°С…РІР°С‚РѕРј [pulledby].\n"
 
 	msg += "</span>"
 
@@ -83,9 +83,9 @@
 
 	if(!appears_dead)
 		if(stat == UNCONSCIOUS)
-			. += "[t_on] не реагирует на происходящее вокруг.\n"
+			. += "[t_on] РЅРµ СЂРµР°РіРёСЂСѓРµС‚ РЅР° РїСЂРѕРёСЃС…РѕРґСЏС‰РµРµ РІРѕРєСЂСѓРі.\n"
 		else if(InCritical())
-			. += "[t_on] едва в сознании.\n"
+			. += "[t_on] РµРґРІР° РІ СЃРѕР·РЅР°РЅРёРё.\n"
 
 	var/trait_exam = common_trait_examine()
 	if (!isnull(trait_exam))
@@ -95,15 +95,15 @@
 	if(mood)
 		switch(mood.shown_mood)
 			if(-INFINITY to MOOD_LEVEL_SAD4)
-				. += "[t_on] выглядит убито, будто сейчас расплачется."
+				. += "[t_on] РІС‹РіР»СЏРґРёС‚ СѓР±РёС‚Рѕ, Р±СѓРґС‚Рѕ СЃРµР№С‡Р°СЃ СЂР°СЃРїР»Р°С‡РµС‚СЃСЏ."
 			if(MOOD_LEVEL_SAD4 to MOOD_LEVEL_SAD3)
-				. += "[t_on] выглядит расстроено."
+				. += "[t_on] РІС‹РіР»СЏРґРёС‚ СЂР°СЃСЃС‚СЂРѕРµРЅРѕ."
 			if(MOOD_LEVEL_SAD3 to MOOD_LEVEL_SAD2)
-				. += "[t_on] выглядит немного не в себе."
+				. += "[t_on] РІС‹РіР»СЏРґРёС‚ РЅРµРјРЅРѕРіРѕ РЅРµ РІ СЃРµР±Рµ."
 			if(MOOD_LEVEL_HAPPY2 to MOOD_LEVEL_HAPPY3)
-				. += "[t_on] выглядит немного на веселе."
+				. += "[t_on] РІС‹РіР»СЏРґРёС‚ РЅРµРјРЅРѕРіРѕ РЅР° РІРµСЃРµР»Рµ."
 			if(MOOD_LEVEL_HAPPY3 to MOOD_LEVEL_HAPPY4)
-				. += "[t_on] выглядит очень весело."
+				. += "[t_on] РІС‹РіР»СЏРґРёС‚ РѕС‡РµРЅСЊ РІРµСЃРµР»Рѕ."
 			if(MOOD_LEVEL_HAPPY4 to INFINITY)
-				. += "[t_on] в экстазе."
+				. += "[t_on] РІ СЌРєСЃС‚Р°Р·Рµ."
 	. += "*---------*</span>"

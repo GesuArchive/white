@@ -155,7 +155,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 			M.visible_message("<span class='danger'>[user] beats [M] over the head with [src]!</span>", \
 					"<span class='userdanger'>[user] beats [M] over the head with [src]!</span>")
 			playsound(src.loc, "punch", 25, TRUE, -1)
-			log_combat(user, M, "атакует", src)
+			log_combat(user, M, "Р°С‚Р°РєСѓРµС‚", src)
 
 	else
 		M.visible_message("<span class='danger'>[user] smacks [M]'s lifeless corpse with [src].</span>")
@@ -242,7 +242,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 	hitsound = 'sound/weapons/sear.ogg'
 	damtype = BURN
 	name = "Syndicate Tome"
-	attack_verb = list("атакует", "прожигает", "освящает", "оскверняет", "пропагандирует")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "РїСЂРѕР¶РёРіР°РµС‚", "РѕСЃРІСЏС‰Р°РµС‚", "РѕСЃРєРІРµСЂРЅСЏРµС‚", "РїСЂРѕРїР°РіР°РЅРґРёСЂСѓРµС‚")
 	var/uses = 1
 
 /obj/item/storage/book/bible/syndicate/attack_self(mob/living/carbon/human/H)

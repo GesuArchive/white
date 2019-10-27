@@ -5,7 +5,7 @@
 	noteleport = TRUE
 	has_gravity = TRUE
 	mood_bonus = 150
-	mood_message = "<span class='nicegreen'>СЕГОДНЯ Я УМРУ!\n</span>"
+	mood_message = "<span class='nicegreen'>РЎР•Р“РћР”РќРЇ РЇ РЈРњР РЈ!\n</span>"
 
 /obj/structure/closet/bombcloset/bombsquad
 	name = "\improper BOMBSQUAD closet"
@@ -66,7 +66,7 @@
 	var/started = FALSE
 
 	announce_span = "assault"
-	announce_text = "Сегодня будет очень жарко."
+	announce_text = "РЎРµРіРѕРґРЅСЏ Р±СѓРґРµС‚ РѕС‡РµРЅСЊ Р¶Р°СЂРєРѕ."
 
 /datum/game_mode/assault/pre_setup()
 	SSjob.SetupOccupations("Assault")
@@ -79,5 +79,5 @@
 /datum/game_mode/assault/process()
 	if ((world.time-SSticker.round_start_time) > 18000 && !started)
 		started = TRUE
-		to_chat(world, "<span class='warning'>Вы ощущаете себя готовым к бою...</span>")
+		to_chat(world, "<span class='warning'>Р’С‹ РѕС‰СѓС‰Р°РµС‚Рµ СЃРµР±СЏ РіРѕС‚РѕРІС‹Рј Рє Р±РѕСЋ...</span>")
 

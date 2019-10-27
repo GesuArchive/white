@@ -125,16 +125,16 @@
 
 		if(newletter in list(" ", "!", "?", ".", ","))
 			//do nothing
-		else if(lowertext(newletter) in list("à", "å", "è", "î", "ó", "þ"))
+		else if(lowertext(newletter) in list("Ð°", "Ðµ", "Ð¸", "Ð¾", "Ñƒ", "ÑŽ"))
 			if(is_upper)
-				newletter = "ÏÔ"
+				newletter = "ÐŸÐ¤"
 			else
-				newletter = "ïô"
+				newletter = "Ð¿Ñ„"
 		else
 			if(is_upper)
-				newletter = "Ì"
+				newletter = "Ðœ"
 			else
-				newletter = "ì"
+				newletter = "Ð¼"
 		newphrase+="[newletter]"
 		counter-=1
 	return newphrase

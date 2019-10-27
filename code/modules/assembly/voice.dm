@@ -10,9 +10,9 @@
 	custom_materials = list(/datum/material/iron=500, /datum/material/glass=50)
 	flags_1 = HEAR_1
 	attachable = TRUE
-	verb_say = "бипает"
-	verb_ask = "бипает"
-	verb_exclaim = "бипает"
+	verb_say = "Р±РёРїР°РµС‚"
+	verb_ask = "Р±РёРїР°РµС‚"
+	verb_exclaim = "Р±РёРїР°РµС‚"
 	var/listening = FALSE
 	var/recorded = "" //the activation message
 	var/mode = 1

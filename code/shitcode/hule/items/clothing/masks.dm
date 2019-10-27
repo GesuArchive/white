@@ -1,6 +1,6 @@
 /obj/item/clothing/mask/gas/anonist
 	name = "suspicious mask"
-	desc = "Древняя маска гордого воина, сражающегося с несправедливостью, подлым правительством и прогнившей системой."
+	desc = "Р”СЂРµРІРЅСЏСЏ РјР°СЃРєР° РіРѕСЂРґРѕРіРѕ РІРѕРёРЅР°, СЃСЂР°Р¶Р°СЋС‰РµРіРѕСЃСЏ СЃ РЅРµСЃРїСЂР°РІРµРґР»РёРІРѕСЃС‚СЊСЋ, РїРѕРґР»С‹Рј РїСЂР°РІРёС‚РµР»СЊСЃС‚РІРѕРј Рё РїСЂРѕРіРЅРёРІС€РµР№ СЃРёСЃС‚РµРјРѕР№."
 	icon = 'code/shitcode/hule/icons/obj/masks.dmi'
 	mob_overlay_icon = 'code/shitcode/hule/icons/onmob/masks.dmi'
 	icon_state = "fawkes"
@@ -11,14 +11,14 @@
 /obj/item/clothing/mask/gas/anonist/equipped(mob/living/carbon/human/user, slot)
 	..()
 	if(cursed && slot == 2)
-		to_chat(user, "<span class='warning'>Ха лолка ебать затралил у тя [pick("батрудинов","биекция","тошиба","бомбанушен73","будапешт","бандера","бандероль","багратион","багет","баребух","бивалент")] еБаТьТыЛоХ</span>")
+		to_chat(user, "<span class='warning'>РҐР° Р»РѕР»РєР° РµР±Р°С‚СЊ Р·Р°С‚СЂР°Р»РёР» Сѓ С‚СЏ [pick("Р±Р°С‚СЂСѓРґРёРЅРѕРІ","Р±РёРµРєС†РёСЏ","С‚РѕС€РёР±Р°","Р±РѕРјР±Р°РЅСѓС€РµРЅ73","Р±СѓРґР°РїРµС€С‚","Р±Р°РЅРґРµСЂР°","Р±Р°РЅРґРµСЂРѕР»СЊ","Р±Р°РіСЂР°С‚РёРѕРЅ","Р±Р°РіРµС‚","Р±Р°СЂРµР±СѓС…","Р±РёРІР°Р»РµРЅС‚")] РµР‘Р°РўСЊРўС‹Р›РѕРҐ</span>")
 //		to_chat(user, "<img src=[pick("cdn.discordapp.com/attachments/389758687750782997/428556384435568640/unknown.png", "cdn.discordapp.com/attachments/389758687750782997/428556488198324224/B8ytQCR6_6w.png","cdn.discordapp.com/attachments/389758687750782997/428556551574257684/unknown.png","cdn.discordapp.com/attachments/389758687750782997/428558148400578561/unknown.png")]>")
 
 /obj/item/clothing/mask/gas/anonist/attack_hand(mob/user)
 	if(cursed && iscarbon(user))
 		var/mob/living/carbon/C = user
 		if(src == C.wear_mask)
-			to_chat(user, "<span class='userdanger'>Ты че деб? Ты хочешь чтоб ОНИ тебя ВЫЧИСЛИЛИ по ай-си-кью и ОТПИЗДИЛИ, дурашка? А, блин????????????</span>")
+			to_chat(user, "<span class='userdanger'>РўС‹ С‡Рµ РґРµР±? РўС‹ С…РѕС‡РµС€СЊ С‡С‚РѕР± РћРќР С‚РµР±СЏ Р’Р«Р§РРЎР›РР›Р РїРѕ Р°Р№-СЃРё-РєСЊСЋ Рё РћРўРџРР—Р”РР›Р, РґСѓСЂР°С€РєР°? Рђ, Р±Р»РёРЅ????????????</span>")
 			return
 	..()
 

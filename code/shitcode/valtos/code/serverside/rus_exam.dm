@@ -1,11 +1,11 @@
 /atom/proc/ru_get_examine_name(mob/user)
 	switch (rand(0, 100))
 		if (1)
-			. = "непримечательный [src.name]"
+			. = "РЅРµРїСЂРёРјРµС‡Р°С‚РµР»СЊРЅС‹Р№ [src.name]"
 		if (2)
-			. = "обычный [src.name]"
+			. = "РѕР±С‹С‡РЅС‹Р№ [src.name]"
 		if (3)
-			. = "невероятный [src.name]"
+			. = "РЅРµРІРµСЂРѕСЏС‚РЅС‹Р№ [src.name]"
 		else
 			. = "[src.name]"
 	. = "[src.name]"

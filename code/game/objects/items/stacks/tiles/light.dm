@@ -4,7 +4,7 @@
 	desc = "A floor tile, made out of glass. It produces light."
 	icon_state = "tile_e"
 	flags_1 = CONDUCT_1
-	attack_verb = list("лупит", "бьёт", "разбивает", "вмазывает", "атакует")
+	attack_verb = list("Р»СѓРїРёС‚", "Р±СЊС‘С‚", "СЂР°Р·Р±РёРІР°РµС‚", "РІРјР°Р·С‹РІР°РµС‚", "Р°С‚Р°РєСѓРµС‚")
 	turf_type = /turf/open/floor/light
 	var/state = 0
 

@@ -56,7 +56,7 @@
 	force = 0
 	throwforce = 0
 	item_flags = DROPDEL | ABSTRACT
-	attack_verb = list("шлёпает")
+	attack_verb = list("С€Р»С‘РїР°РµС‚")
 	hitsound = 'sound/effects/snap.ogg'
 
 /obj/item/slapper_mark_two/attack(mob/M, mob/living/carbon/human/user)

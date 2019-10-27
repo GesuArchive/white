@@ -44,7 +44,7 @@
 
 /obj/item/reagent_containers/food/drinks/boyarka
 	name = "Boyarka"
-	desc = "Твой новый лучший друг"
+	desc = "РўРІРѕР№ РЅРѕРІС‹Р№ Р»СѓС‡С€РёР№ РґСЂСѓРі"
 	icon = 'code/shitcode/hule/icons/obj/boyarka.dmi'
 	icon_state = "boyarka"
 	list_reagents = list(/datum/reagent/consumable/ethanol/boyarka = 30)

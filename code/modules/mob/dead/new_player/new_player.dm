@@ -41,20 +41,20 @@
 	return
 
 /mob/dead/new_player/proc/new_player_panel()
-	var/output = "<center><p><a href='byond://?src=[REF(src)];show_preferences=1'>Настроить Персонажа</a></p>"
+	var/output = "<center><p><a href='byond://?src=[REF(src)];show_preferences=1'>РќР°СЃС‚СЂРѕРёС‚СЊ РџРµСЂСЃРѕРЅР°Р¶Р°</a></p>"
 
 	if(SSticker.current_state <= GAME_STATE_PREGAME)
 		switch(ready)
 			if(PLAYER_NOT_READY)
-				output += "<p>\[ [LINKIFY_READY("Готов", PLAYER_READY_TO_PLAY)] | <b>Не готов</b> | [LINKIFY_READY("Наблюдать", PLAYER_READY_TO_OBSERVE)] \]</p>"
+				output += "<p>\[ [LINKIFY_READY("Р“РѕС‚РѕРІ", PLAYER_READY_TO_PLAY)] | <b>РќРµ РіРѕС‚РѕРІ</b> | [LINKIFY_READY("РќР°Р±Р»СЋРґР°С‚СЊ", PLAYER_READY_TO_OBSERVE)] \]</p>"
 			if(PLAYER_READY_TO_PLAY)
-				output += "<p>\[ <b>Готов</b> | [LINKIFY_READY("Не готов", PLAYER_NOT_READY)] | [LINKIFY_READY("Наблюдать", PLAYER_READY_TO_OBSERVE)] \]</p>"
+				output += "<p>\[ <b>Р“РѕС‚РѕРІ</b> | [LINKIFY_READY("РќРµ РіРѕС‚РѕРІ", PLAYER_NOT_READY)] | [LINKIFY_READY("РќР°Р±Р»СЋРґР°С‚СЊ", PLAYER_READY_TO_OBSERVE)] \]</p>"
 			if(PLAYER_READY_TO_OBSERVE)
-				output += "<p>\[ [LINKIFY_READY("Готов", PLAYER_READY_TO_PLAY)] | [LINKIFY_READY("Не готов", PLAYER_NOT_READY)] | <b> Наблюдать </b> \]</p>"
+				output += "<p>\[ [LINKIFY_READY("Р“РѕС‚РѕРІ", PLAYER_READY_TO_PLAY)] | [LINKIFY_READY("РќРµ РіРѕС‚РѕРІ", PLAYER_NOT_READY)] | <b> РќР°Р±Р»СЋРґР°С‚СЊ </b> \]</p>"
 	else
-		output += "<p><a href='byond://?src=[REF(src)];manifest=1'>Список Экипажа</a></p>"
-		output += "<p><a href='byond://?src=[REF(src)];late_join=1'>Присоединиться!</a></p>"
-		output += "<p>[LINKIFY_READY("Наблюдать", PLAYER_READY_TO_OBSERVE)]</p>"
+		output += "<p><a href='byond://?src=[REF(src)];manifest=1'>РЎРїРёСЃРѕРє Р­РєРёРїР°Р¶Р°</a></p>"
+		output += "<p><a href='byond://?src=[REF(src)];late_join=1'>РџСЂРёСЃРѕРµРґРёРЅРёС‚СЊСЃСЏ!</a></p>"
+		output += "<p>[LINKIFY_READY("РќР°Р±Р»СЋРґР°С‚СЊ", PLAYER_READY_TO_OBSERVE)]</p>"
 
 	/*
 	if(!IsGuestKey(src.key))
@@ -125,7 +125,7 @@
 
 	if(href_list["late_join"])
 		if(!SSticker?.IsRoundInProgress())
-			to_chat(usr, "<span class='boldwarning'>Раунд ещё не начался или уже завершился...</span>")
+			to_chat(usr, "<span class='boldwarning'>Р Р°СѓРЅРґ РµС‰С‘ РЅРµ РЅР°С‡Р°Р»СЃСЏ РёР»Рё СѓР¶Рµ Р·Р°РІРµСЂС€РёР»СЃСЏ...</span>")
 			return
 
 		if(href_list["late_join"] == "override")
@@ -137,12 +137,12 @@
 
 			var/queue_position = SSticker.queued_players.Find(usr)
 			if(queue_position == 1)
-				to_chat(usr, "<span class='notice'>Ты следующий по списку желающих войти в раунд. Тебя оповестят о подходящей возможности.</span>")
+				to_chat(usr, "<span class='notice'>РўС‹ СЃР»РµРґСѓСЋС‰РёР№ РїРѕ СЃРїРёСЃРєСѓ Р¶РµР»Р°СЋС‰РёС… РІРѕР№С‚Рё РІ СЂР°СѓРЅРґ. РўРµР±СЏ РѕРїРѕРІРµСЃС‚СЏС‚ Рѕ РїРѕРґС…РѕРґСЏС‰РµР№ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё.</span>")
 			else if(queue_position)
-				to_chat(usr, "<span class='notice'>Перед тобой [queue_position-1] игроков в очереди ожидания захода в раунд.</span>")
+				to_chat(usr, "<span class='notice'>РџРµСЂРµРґ С‚РѕР±РѕР№ [queue_position-1] РёРіСЂРѕРєРѕРІ РІ РѕС‡РµСЂРµРґРё РѕР¶РёРґР°РЅРёСЏ Р·Р°С…РѕРґР° РІ СЂР°СѓРЅРґ.</span>")
 			else
 				SSticker.queued_players += usr
-				to_chat(usr, "<span class='notice'>Тебя добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len].</span>")
+				to_chat(usr, "<span class='notice'>РўРµР±СЏ РґРѕР±Р°РІРёР»Рё РІ РѕС‡РµСЂРµРґСЊ РґР»СЏ Р·Р°С…РѕРґР° РІ РёРіСЂСѓ. РўРІРѕР№ РЅРѕРјРµСЂ РІ РѕС‡РµСЂРµРґРё: [SSticker.queued_players.len].</span>")
 			return
 		LateChoices()
 
@@ -262,7 +262,7 @@
 		ready = PLAYER_NOT_READY
 		return FALSE
 
-	var/this_is_like_playing_right = alert(src,"Действительно хочешь следить? У тебя не будет возможности зайти в этот раунд (исключая частые ивенты и спаунеры)!","Player Setup","Yes","No")
+	var/this_is_like_playing_right = alert(src,"Р”РµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‡РµС€СЊ СЃР»РµРґРёС‚СЊ? РЈ С‚РµР±СЏ РЅРµ Р±СѓРґРµС‚ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё Р·Р°Р№С‚Рё РІ СЌС‚РѕС‚ СЂР°СѓРЅРґ (РёСЃРєР»СЋС‡Р°СЏ С‡Р°СЃС‚С‹Рµ РёРІРµРЅС‚С‹ Рё СЃРїР°СѓРЅРµСЂС‹)!","Player Setup","Yes","No")
 
 	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Yes")
 		ready = PLAYER_NOT_READY
@@ -276,11 +276,11 @@
 	observer.started_as_observer = TRUE
 	close_spawn_windows()
 	var/obj/effect/landmark/observer_start/O = locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list
-	to_chat(src, "<span class='notice'>Телепортируемся! Аспект: [SSaspects.ca_desc]</span>")
+	to_chat(src, "<span class='notice'>РўРµР»РµРїРѕСЂС‚РёСЂСѓРµРјСЃСЏ! РђСЃРїРµРєС‚: [SSaspects.ca_desc]</span>")
 	if (O)
 		observer.forceMove(O.loc)
 	else
-		to_chat(src, "<span class='notice'>Что-то сломалось. Не паникуй и нажми F1 описав проблему.</span>")
+		to_chat(src, "<span class='notice'>Р§С‚Рѕ-С‚Рѕ СЃР»РѕРјР°Р»РѕСЃСЊ. РќРµ РїР°РЅРёРєСѓР№ Рё РЅР°Р¶РјРё F1 РѕРїРёСЃР°РІ РїСЂРѕР±Р»РµРјСѓ.</span>")
 		stack_trace("There's no freaking observer landmark available on this map or you're making observers before the map is initialised")
 	observer.key = key
 	observer.client = client
@@ -297,17 +297,17 @@
 /proc/get_job_unavailable_error_message(retval, jobtitle)
 	switch(retval)
 		if(JOB_AVAILABLE)
-			return "[jobtitle] доступен."
+			return "[jobtitle] РґРѕСЃС‚СѓРїРµРЅ."
 		if(JOB_UNAVAILABLE_GENERIC)
-			return "[jobtitle] недоступен."
+			return "[jobtitle] РЅРµРґРѕСЃС‚СѓРїРµРЅ."
 		if(JOB_UNAVAILABLE_BANNED)
-			return "Тебе нельзя быть [jobtitle]."
+			return "РўРµР±Рµ РЅРµР»СЊР·СЏ Р±С‹С‚СЊ [jobtitle]."
 		if(JOB_UNAVAILABLE_PLAYTIME)
-			return "Ты не наиграл достаточно времени для [jobtitle]."
+			return "РўС‹ РЅРµ РЅР°РёРіСЂР°Р» РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РІСЂРµРјРµРЅРё РґР»СЏ [jobtitle]."
 		if(JOB_UNAVAILABLE_ACCOUNTAGE)
-			return "Твой аккаунт слишком молодой для [jobtitle]."
+			return "РўРІРѕР№ Р°РєРєР°СѓРЅС‚ СЃР»РёС€РєРѕРј РјРѕР»РѕРґРѕР№ РґР»СЏ [jobtitle]."
 		if(JOB_UNAVAILABLE_SLOTFULL)
-			return "[jobtitle] уже достаточно на станции."
+			return "[jobtitle] СѓР¶Рµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РЅР° СЃС‚Р°РЅС†РёРё."
 	return "Error: Unknown job availability."
 
 /mob/dead/new_player/proc/IsJobUnavailable(rank, latejoin = FALSE)
@@ -349,7 +349,7 @@
 	if(SSshuttle.arrivals)
 		close_spawn_windows()	//In case we get held up
 		if(SSshuttle.arrivals.damaged && CONFIG_GET(flag/arrivals_shuttle_require_safe_latejoin))
-			src << alert("Шаттл прибытия сломан! Ожидай, когда его починят.")
+			src << alert("РЁР°С‚С‚Р» РїСЂРёР±С‹С‚РёСЏ СЃР»РѕРјР°РЅ! РћР¶РёРґР°Р№, РєРѕРіРґР° РµРіРѕ РїРѕС‡РёРЅСЏС‚.")
 			return FALSE
 
 		if(CONFIG_GET(flag/arrivals_shuttle_require_undocked))
@@ -417,7 +417,7 @@
 		SSquirks.AssignQuirks(humanc, humanc.client, TRUE)
 
 	if(humanc)
-		to_chat(humanc, "<span class='notice'><BR><B>Важно:</B> [SSaspects.current_aspect.desc]</span><BR>")
+		to_chat(humanc, "<span class='notice'><BR><B>Р’Р°Р¶РЅРѕ:</B> [SSaspects.current_aspect.desc]</span><BR>")
 
 	log_manifest(character.mind.key,character.mind,character,latejoin = TRUE)
 
@@ -430,14 +430,14 @@
 
 
 /mob/dead/new_player/proc/LateChoices()
-	var/list/dat = list("<div class='notice'>Длительность раунда: [DisplayTimeText(world.time - SSticker.round_start_time)]</div>")
+	var/list/dat = list("<div class='notice'>Р”Р»РёС‚РµР»СЊРЅРѕСЃС‚СЊ СЂР°СѓРЅРґР°: [DisplayTimeText(world.time - SSticker.round_start_time)]</div>")
 	if(SSshuttle.emergency)
 		switch(SSshuttle.emergency.mode)
 			if(SHUTTLE_ESCAPE)
-				dat += "<div class='notice red'>Станция эвакуирована.</div><br>"
+				dat += "<div class='notice red'>РЎС‚Р°РЅС†РёСЏ СЌРІР°РєСѓРёСЂРѕРІР°РЅР°.</div><br>"
 			if(SHUTTLE_CALL)
 				if(!SSshuttle.canRecall())
-					dat += "<div class='notice red'>Станция готовится к эвакуации.</div><br>"
+					dat += "<div class='notice red'>РЎС‚Р°РЅС†РёСЏ РіРѕС‚РѕРІРёС‚СЃСЏ Рє СЌРІР°РєСѓР°С†РёРё.</div><br>"
 	for(var/datum/job/prioritized_job in SSjob.prioritized_jobs)
 		if(prioritized_job.current_positions >= prioritized_job.total_positions)
 			SSjob.prioritized_jobs -= prioritized_job
@@ -467,7 +467,7 @@
 			dat += "</td><td valign='top'>"
 	dat += "</td></tr></table></center>"
 	dat += "</div></div>"
-	var/datum/browser/popup = new(src, "latechoices", "Выбери профессию", 680, 580)
+	var/datum/browser/popup = new(src, "latechoices", "Р’С‹Р±РµСЂРё РїСЂРѕС„РµСЃСЃРёСЋ", 680, 580)
 	popup.add_stylesheet("playeroptions", 'html/browser/playeroptions.css')
 	popup.set_content(jointext(dat, ""))
 	popup.open(FALSE) // 0 is passed to open so that it doesn't use the onclose() proc

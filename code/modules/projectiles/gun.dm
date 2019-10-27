@@ -16,7 +16,7 @@
 	throw_range = 5
 	force = 5
 	item_flags = NEEDS_PERMIT
-	attack_verb = list("ударяет", "бьёт", "колотит")
+	attack_verb = list("СѓРґР°СЂСЏРµС‚", "Р±СЊС‘С‚", "РєРѕР»РѕС‚РёС‚")
 
 	var/fire_sound = 'sound/weapons/gun/pistol/shot.ogg'
 	var/vary_fire_sound = TRUE
@@ -117,23 +117,23 @@
 /obj/item/gun/examine(mob/user)
 	. = ..()
 	if(pin)
-		. += "Внутри установлен боёк типа [pin.name]."
+		. += "Р’РЅСѓС‚СЂРё СѓСЃС‚Р°РЅРѕРІР»РµРЅ Р±РѕС‘Рє С‚РёРїР° [pin.name]."
 	else
-		. += "Внутри отсутствует <b>боёк</b>, поэтому оно не будет стрелять."
+		. += "Р’РЅСѓС‚СЂРё РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚ <b>Р±РѕС‘Рє</b>, РїРѕСЌС‚РѕРјСѓ РѕРЅРѕ РЅРµ Р±СѓРґРµС‚ СЃС‚СЂРµР»СЏС‚СЊ."
 
 	if(gun_light)
-		. += "На нём установлен [gun_light.name], который [can_flashlight ? "" : "надёжно "]прикручен к нему."
+		. += "РќР° РЅС‘Рј СѓСЃС‚Р°РЅРѕРІР»РµРЅ [gun_light.name], РєРѕС‚РѕСЂС‹Р№ [can_flashlight ? "" : "РЅР°РґС‘Р¶РЅРѕ "]РїСЂРёРєСЂСѓС‡РµРЅ Рє РЅРµРјСѓ."
 		if(can_flashlight) //if it has a light and this is false, the light is permanent.
-			. += "<span class='info'>Похоже [gun_light.name] может быть <b>откручен</b> от [src.name].</span>"
+			. += "<span class='info'>РџРѕС…РѕР¶Рµ [gun_light.name] РјРѕР¶РµС‚ Р±С‹С‚СЊ <b>РѕС‚РєСЂСѓС‡РµРЅ</b> РѕС‚ [src.name].</span>"
 	else if(can_flashlight)
-		. += "Здесь присутствует посадочное место для <b>фонарика</b>."
+		. += "Р—РґРµСЃСЊ РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚ РїРѕСЃР°РґРѕС‡РЅРѕРµ РјРµСЃС‚Рѕ РґР»СЏ <b>С„РѕРЅР°СЂРёРєР°</b>."
 
 	if(bayonet)
-		. += "На нём установлен [bayonet.name], который [can_bayonet ? "" : "надёжно "]прикреплён к нему."
+		. += "РќР° РЅС‘Рј СѓСЃС‚Р°РЅРѕРІР»РµРЅ [bayonet.name], РєРѕС‚РѕСЂС‹Р№ [can_bayonet ? "" : "РЅР°РґС‘Р¶РЅРѕ "]РїСЂРёРєСЂРµРїР»С‘РЅ Рє РЅРµРјСѓ."
 		if(can_bayonet) //if it has a bayonet and this is false, the bayonet is permanent.
-			. += "<span class='info'>Похоже [bayonet.name] может быть <b>откручен</b> от [src.name].</span>"
+			. += "<span class='info'>РџРѕС…РѕР¶Рµ [bayonet.name] РјРѕР¶РµС‚ Р±С‹С‚СЊ <b>РѕС‚РєСЂСѓС‡РµРЅ</b> РѕС‚ [src.name].</span>"
 	else if(can_bayonet)
-		. += "Похоже сюда можно прикрепить <b>штык</b>."
+		. += "РџРѕС…РѕР¶Рµ СЃСЋРґР° РјРѕР¶РЅРѕ РїСЂРёРєСЂРµРїРёС‚СЊ <b>С€С‚С‹Рє</b>."
 
 /obj/item/gun/equipped(mob/living/user, slot)
 	. = ..()
@@ -150,7 +150,7 @@
 	return TRUE
 
 /obj/item/gun/proc/shoot_with_empty_chamber(mob/living/user as mob|obj)
-	to_chat(user, "<span class='danger'>*щёлк*</span>")
+	to_chat(user, "<span class='danger'>*С‰С‘Р»Рє*</span>")
 	playsound(src, dry_fire_sound, 30, TRUE)
 
 
@@ -164,14 +164,14 @@
 		playsound(user, fire_sound, fire_sound_volume, vary_fire_sound)
 		if(message)
 			if(pointblank)
-				user.visible_message("<span class='danger'><b>[user]</b> стреляет из <b>[src.name]</b> <b>В УПОР</b> по <b>[pbtarget]</b>!</span>", \
-								"<span class='danger'>Ты стреляешь из [src.name] <b>В УПОР</b> по <b>[pbtarget]</b>!</span>", \
-								"<span class='hear'>Ты слышишь выстрел!</span>", COMBAT_MESSAGE_RANGE, pbtarget)
-				to_chat(pbtarget, "<span class='userdanger'><b>[user]</b> стреляет из <b>[src.name]</b> в тебя <b>В УПОР</b>.!</span>")
+				user.visible_message("<span class='danger'><b>[user]</b> СЃС‚СЂРµР»СЏРµС‚ РёР· <b>[src.name]</b> <b>Р’ РЈРџРћР </b> РїРѕ <b>[pbtarget]</b>!</span>", \
+								"<span class='danger'>РўС‹ СЃС‚СЂРµР»СЏРµС€СЊ РёР· [src.name] <b>Р’ РЈРџРћР </b> РїРѕ <b>[pbtarget]</b>!</span>", \
+								"<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РІС‹СЃС‚СЂРµР»!</span>", COMBAT_MESSAGE_RANGE, pbtarget)
+				to_chat(pbtarget, "<span class='userdanger'><b>[user]</b> СЃС‚СЂРµР»СЏРµС‚ РёР· <b>[src.name]</b> РІ С‚РµР±СЏ <b>Р’ РЈРџРћР </b>.!</span>")
 			else
-				user.visible_message("<span class='danger'><b>[user]</b> стреляет из <b>[src.name]</b>!</span>", \
-								"<span class='danger'>Ты стреляешь из [src.name]!</span>", \
-								"<span class='hear'>Ты слышишь выстрел!</span>", COMBAT_MESSAGE_RANGE)
+				user.visible_message("<span class='danger'><b>[user]</b> СЃС‚СЂРµР»СЏРµС‚ РёР· <b>[src.name]</b>!</span>", \
+								"<span class='danger'>РўС‹ СЃС‚СЂРµР»СЏРµС€СЊ РёР· [src.name]!</span>", \
+								"<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РІС‹СЃС‚СЂРµР»!</span>", COMBAT_MESSAGE_RANGE)
 
 /obj/item/gun/emp_act(severity)
 	. = ..()
@@ -211,14 +211,14 @@
 	if(clumsy_check)
 		if(istype(user))
 			if (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(40))
-				to_chat(user, "<span class='userdanger'>Вы стреляете себе в ногу из [src.name]!</span>")
+				to_chat(user, "<span class='userdanger'>Р’С‹ СЃС‚СЂРµР»СЏРµС‚Рµ СЃРµР±Рµ РІ РЅРѕРіСѓ РёР· [src.name]!</span>")
 				var/shot_leg = pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 				process_fire(user, user, FALSE, params, shot_leg)
 				user.dropItemToGround(src, TRUE)
 				return
 
 	if(weapon_weight == WEAPON_HEAVY && user.get_inactive_held_item())
-		to_chat(user, "<span class='warning'>Нужно держать [src.name] в обеих руках!</span>")
+		to_chat(user, "<span class='warning'>РќСѓР¶РЅРѕ РґРµСЂР¶Р°С‚СЊ [src.name] РІ РѕР±РµРёС… СЂСѓРєР°С…!</span>")
 		return
 
 	//DUAL (or more!) WIELDING

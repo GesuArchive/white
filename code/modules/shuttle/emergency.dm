@@ -229,7 +229,7 @@
 	else
 		SSshuttle.emergencyLastCallLoc = null
 
-	priority_announce("Вызван эвакуационный шаттл. [redAlert ? "Подтверждён \"Красный код\": отправляем приоритетный шаттл. " : "" ]Он прибудет через [timeLeft(600)] минут.[reason][SSshuttle.emergencyLastCallLoc ? "\n\nИсточник сигнала идентифицирован, данные о его местоположении доступны с любой коммуникационной консоли." : "" ]", null, 'sound/ai/shuttlecalled.ogg', "Priority")
+	priority_announce("Р’С‹Р·РІР°РЅ СЌРІР°РєСѓР°С†РёРѕРЅРЅС‹Р№ С€Р°С‚С‚Р». [redAlert ? "РџРѕРґС‚РІРµСЂР¶РґС‘РЅ \"РљСЂР°СЃРЅС‹Р№ РєРѕРґ\": РѕС‚РїСЂР°РІР»СЏРµРј РїСЂРёРѕСЂРёС‚РµС‚РЅС‹Р№ С€Р°С‚С‚Р». " : "" ]РћРЅ РїСЂРёР±СѓРґРµС‚ С‡РµСЂРµР· [timeLeft(600)] РјРёРЅСѓС‚.[reason][SSshuttle.emergencyLastCallLoc ? "\n\nРСЃС‚РѕС‡РЅРёРє СЃРёРіРЅР°Р»Р° РёРґРµРЅС‚РёС„РёС†РёСЂРѕРІР°РЅ, РґР°РЅРЅС‹Рµ Рѕ РµРіРѕ РјРµСЃС‚РѕРїРѕР»РѕР¶РµРЅРёРё РґРѕСЃС‚СѓРїРЅС‹ СЃ Р»СЋР±РѕР№ РєРѕРјРјСѓРЅРёРєР°С†РёРѕРЅРЅРѕР№ РєРѕРЅСЃРѕР»Рё." : "" ]", null, 'sound/ai/shuttlecalled.ogg', "Priority")
 
 /obj/docking_port/mobile/emergency/cancel(area/signalOrigin)
 	if(mode != SHUTTLE_CALL)
@@ -244,7 +244,7 @@
 		SSshuttle.emergencyLastCallLoc = signalOrigin
 	else
 		SSshuttle.emergencyLastCallLoc = null
-	priority_announce("Эвакуационный шаттл был отозван. [SSshuttle.emergencyLastCallLoc ? " Источник сигнала идентифицирован, данные о его местоположении доступны с любой коммуникационной консоли." : "" ]", null, 'sound/ai/shuttlerecalled.ogg', "Priority")
+	priority_announce("Р­РІР°РєСѓР°С†РёРѕРЅРЅС‹Р№ С€Р°С‚С‚Р» Р±С‹Р» РѕС‚РѕР·РІР°РЅ. [SSshuttle.emergencyLastCallLoc ? " РСЃС‚РѕС‡РЅРёРє СЃРёРіРЅР°Р»Р° РёРґРµРЅС‚РёС„РёС†РёСЂРѕРІР°РЅ, РґР°РЅРЅС‹Рµ Рѕ РµРіРѕ РјРµСЃС‚РѕРїРѕР»РѕР¶РµРЅРёРё РґРѕСЃС‚СѓРїРЅС‹ СЃ Р»СЋР±РѕР№ РєРѕРјРјСѓРЅРёРєР°С†РёРѕРЅРЅРѕР№ РєРѕРЅСЃРѕР»Рё." : "" ]", null, 'sound/ai/shuttlerecalled.ogg', "Priority")
 
 /obj/docking_port/mobile/emergency/proc/is_hijacked()
 	var/has_people = FALSE
@@ -317,7 +317,7 @@
 				webhook_send_roundstatus("shuttle docked")
 				setTimer(SSshuttle.emergencyDockTime)
 				send2irc("Server", "The Emergency Shuttle has docked with the station.")
-				priority_announce("Эвакуационный шаттл был пристыкован к станции. В вашем распоряжении [timeLeft(600)] минуты на посадку.", null, 'sound/ai/shuttledock.ogg', "Priority")
+				priority_announce("Р­РІР°РєСѓР°С†РёРѕРЅРЅС‹Р№ С€Р°С‚С‚Р» Р±С‹Р» РїСЂРёСЃС‚С‹РєРѕРІР°РЅ Рє СЃС‚Р°РЅС†РёРё. Р’ РІР°С€РµРј СЂР°СЃРїРѕСЂСЏР¶РµРЅРёРё [timeLeft(600)] РјРёРЅСѓС‚С‹ РЅР° РїРѕСЃР°РґРєСѓ.", null, 'sound/ai/shuttledock.ogg', "Priority")
 				ShuttleDBStuff()
 
 
@@ -368,7 +368,7 @@
 				mode = SHUTTLE_ESCAPE
 				launch_status = ENDGAME_LAUNCHED
 				setTimer(SSshuttle.emergencyEscapeTime * engine_coeff)
-				priority_announce("Эвакуационный шаттл покинул станцию. Осталось [timeLeft(600)] минуты до прибытия в доки Центрального Коммандования.", null, null, "Priority")
+				priority_announce("Р­РІР°РєСѓР°С†РёРѕРЅРЅС‹Р№ С€Р°С‚С‚Р» РїРѕРєРёРЅСѓР» СЃС‚Р°РЅС†РёСЋ. РћСЃС‚Р°Р»РѕСЃСЊ [timeLeft(600)] РјРёРЅСѓС‚С‹ РґРѕ РїСЂРёР±С‹С‚РёСЏ РІ РґРѕРєРё Р¦РµРЅС‚СЂР°Р»СЊРЅРѕРіРѕ РљРѕРјРјР°РЅРґРѕРІР°РЅРёСЏ.", null, null, "Priority")
 				webhook_send_roundstatus("shuttle left")
 
 		if(SHUTTLE_STRANDED)
@@ -422,7 +422,7 @@
 	mode = SHUTTLE_ESCAPE
 	launch_status = ENDGAME_LAUNCHED
 	setTimer(SSshuttle.emergencyEscapeTime)
-	priority_announce("Эвакуационный шаттл готовится к прямому прыжку. Ожидайте [timeLeft(600)] минуты пока он не прибудет к Центральному Командованию.", null, null, "Priority")
+	priority_announce("Р­РІР°РєСѓР°С†РёРѕРЅРЅС‹Р№ С€Р°С‚С‚Р» РіРѕС‚РѕРІРёС‚СЃСЏ Рє РїСЂСЏРјРѕРјСѓ РїСЂС‹Р¶РєСѓ. РћР¶РёРґР°Р№С‚Рµ [timeLeft(600)] РјРёРЅСѓС‚С‹ РїРѕРєР° РѕРЅ РЅРµ РїСЂРёР±СѓРґРµС‚ Рє Р¦РµРЅС‚СЂР°Р»СЊРЅРѕРјСѓ РљРѕРјР°РЅРґРѕРІР°РЅРёСЋ.", null, null, "Priority")
 
 
 /obj/docking_port/mobile/pod

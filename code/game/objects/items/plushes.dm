@@ -3,7 +3,7 @@
 	desc = "This is the special coder plush, do not steal."
 	icon = 'icons/obj/plushes.dmi'
 	icon_state = "debug"
-	attack_verb = list("бьётенькает", "шепчетенькает", "плюшит")
+	attack_verb = list("Р±СЊС‘С‚РµРЅСЊРєР°РµС‚", "С€РµРїС‡РµС‚РµРЅСЊРєР°РµС‚", "РїР»СЋС€РёС‚")
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = FLAMMABLE
 	var/list/squeak_override //Weighted list; If you want your plush to have different squeak sounds use this
@@ -380,14 +380,14 @@
 	desc = "An adorable stuffed toy that resembles a space carp."
 	icon_state = "carpplush"
 	item_state = "carp_plushie"
-	attack_verb = list("кусает", "пожирает", "шлёпает плавничком")
+	attack_verb = list("РєСѓСЃР°РµС‚", "РїРѕР¶РёСЂР°РµС‚", "С€Р»С‘РїР°РµС‚ РїР»Р°РІРЅРёС‡РєРѕРј")
 	squeak_override = list('sound/weapons/bite.ogg'=1)
 
 /obj/item/toy/plush/bubbleplush
 	name = "\improper Bubblegum plushie"
 	desc = "The friendly red demon that gives good miners gifts."
 	icon_state = "bubbleplush"
-	attack_verb = list("арендует")
+	attack_verb = list("Р°СЂРµРЅРґСѓРµС‚")
 	squeak_override = list('sound/magic/demon_attack1.ogg'=1)
 
 /obj/item/toy/plush/plushvar
@@ -496,7 +496,7 @@
 	desc = "An adorable stuffed toy that resembles a lizardperson."
 	icon_state = "plushie_lizard"
 	item_state = "plushie_lizard"
-	attack_verb = list("рвёт когтишками", "шипит", "шлёпает хвостиком")
+	attack_verb = list("СЂРІС‘С‚ РєРѕРіС‚РёС€РєР°РјРё", "С€РёРїРёС‚", "С€Р»С‘РїР°РµС‚ С…РІРѕСЃС‚РёРєРѕРј")
 	squeak_override = list('sound/weapons/slash.ogg' = 1)
 
 /obj/item/toy/plush/snakeplushie
@@ -504,7 +504,7 @@
 	desc = "An adorable stuffed toy that resembles a snake. Not to be mistaken for the real thing."
 	icon_state = "plushie_snake"
 	item_state = "plushie_snake"
-	attack_verb = list("кусает", "шипит", "шлёпает хвостиком")
+	attack_verb = list("РєСѓСЃР°РµС‚", "С€РёРїРёС‚", "С€Р»С‘РїР°РµС‚ С…РІРѕСЃС‚РёРєРѕРј")
 	squeak_override = list('sound/weapons/bite.ogg' = 1)
 
 /obj/item/toy/plush/nukeplushie
@@ -512,7 +512,7 @@
 	desc = "A stuffed toy that resembles a syndicate nuclear operative. The tag claims operatives to be purely fictitious."
 	icon_state = "plushie_nuke"
 	item_state = "plushie_nuke"
-	attack_verb = list("застреливает", "взрывает", "детонирует")
+	attack_verb = list("Р·Р°СЃС‚СЂРµР»РёРІР°РµС‚", "РІР·СЂС‹РІР°РµС‚", "РґРµС‚РѕРЅРёСЂСѓРµС‚")
 	squeak_override = list('sound/effects/hit_punch.ogg' = 1)
 
 /obj/item/toy/plush/slimeplushie
@@ -520,7 +520,7 @@
 	desc = "An adorable stuffed toy that resembles a slime. It is practically just a hacky sack."
 	icon_state = "plushie_slime"
 	item_state = "plushie_slime"
-	attack_verb = list("болтает", "слаймит", "посасывает")
+	attack_verb = list("Р±РѕР»С‚Р°РµС‚", "СЃР»Р°Р№РјРёС‚", "РїРѕСЃР°СЃС‹РІР°РµС‚")
 	squeak_override = list('sound/effects/blobattack.ogg' = 1)
 	gender = FEMALE	//given all the jokes and drawings, I'm not sure the xenobiologists would make a slimeboy
 
@@ -539,6 +539,6 @@
 	desc = "A cute toy that resembles an even cuter bee."
 	icon_state = "plushie_h"
 	item_state = "plushie_h"
-	attack_verb = list("жалит")
+	attack_verb = list("Р¶Р°Р»РёС‚")
 	gender = FEMALE
 	squeak_override = list('sound/voice/moth/scream_moth.ogg'=1)

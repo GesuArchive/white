@@ -76,7 +76,7 @@
 	..()
 	if(href_list["cancel"])
 		if(!triggering)
-			to_chat(usr, "<span class='admin'>Слишком поздно</span>")
+			to_chat(usr, "<span class='admin'>РЎР»РёС€РєРѕРј РїРѕР·РґРЅРѕ</span>")
 			return
 		triggering = FALSE
 		message_admins("[key_name_admin(usr)] cancelled event [name].")
@@ -94,7 +94,7 @@
 	if(random)
 		log_game("Random Event triggering: [name] ([typepath])")
 	if (alert_observers)
-		deadchat_broadcast(" только что [random ? " случайно" : ""] случилась!", "<b>[name]</b>") //STOP ASSUMING IT'S BADMINS!
+		deadchat_broadcast(" С‚РѕР»СЊРєРѕ С‡С‚Рѕ [random ? " СЃР»СѓС‡Р°Р№РЅРѕ" : ""] СЃР»СѓС‡РёР»Р°СЃСЊ!", "<b>[name]</b>") //STOP ASSUMING IT'S BADMINS!
 	return E
 
 //Special admins setup
@@ -136,7 +136,7 @@
 /datum/round_event/proc/announce_to_ghosts(atom/atom_of_interest)
 	if(control.alert_observers)
 		if (atom_of_interest)
-			notify_ghosts("[control.name] имеет объект интереса: [atom_of_interest]!", source=atom_of_interest, action=NOTIFY_ORBIT, header="Что-то интересное!")
+			notify_ghosts("[control.name] РёРјРµРµС‚ РѕР±СЉРµРєС‚ РёРЅС‚РµСЂРµСЃР°: [atom_of_interest]!", source=atom_of_interest, action=NOTIFY_ORBIT, header="Р§С‚Рѕ-С‚Рѕ РёРЅС‚РµСЂРµСЃРЅРѕРµ!")
 	return
 
 //Called when the tick is equal to the announceWhen variable.

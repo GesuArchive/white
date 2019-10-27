@@ -1,6 +1,6 @@
 /datum/interaction/lewd/kiss
 	command = "deepkiss"
-	description = "Глубокий засос."
+	description = "Р“Р»СѓР±РѕРєРёР№ Р·Р°СЃРѕСЃ."
 	require_user_mouth = 1
 	write_log_user = "kissed"
 	write_log_target = "was kissed by"
@@ -19,13 +19,13 @@
 
 /datum/interaction/lewd/kiss/display_interaction(var/mob/living/carbon/user, var/mob/living/carbon/target)
 	if (user.lust >= 3)
-		user.visible_message("<span class='warning'>[user] делает глубокий и продолжительный поцелуй с [target].</span>")
+		user.visible_message("<span class='warning'>[user] РґРµР»Р°РµС‚ РіР»СѓР±РѕРєРёР№ Рё РїСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅС‹Р№ РїРѕС†РµР»СѓР№ СЃ [target].</span>")
 	else
-		user.visible_message("<span class='warning'>[user] целует [target] по-французки.</span>")
+		user.visible_message("<span class='warning'>[user] С†РµР»СѓРµС‚ [target] РїРѕ-С„СЂР°РЅС†СѓР·РєРё.</span>")
 
 /datum/interaction/lewd/oral
 	command = "suckvag"
-	description = "Отполировать пельмешку."
+	description = "РћС‚РїРѕР»РёСЂРѕРІР°С‚СЊ РїРµР»СЊРјРµС€РєСѓ."
 	require_user_mouth = 1
 	require_target_vagina = 1
 	write_log_user = "gave head to"
@@ -42,7 +42,7 @@
 
 /datum/interaction/lewd/oral/blowjob
 	command = "suckcock"
-	description = "Отполировать огурец."
+	description = "РћС‚РїРѕР»РёСЂРѕРІР°С‚СЊ РѕРіСѓСЂРµС†."
 	require_target_vagina = 0
 	require_target_penis = 1
 	target_not_tired = 1
@@ -51,7 +51,7 @@
 
 /datum/interaction/lewd/fuck
 	command = "fuckvag"
-	description = "Раскромсать вареник."
+	description = "Р Р°СЃРєСЂРѕРјСЃР°С‚СЊ РІР°СЂРµРЅРёРє."
 	require_user_penis = 1
 	require_target_vagina = 1
 	write_log_user = "fucked"
@@ -69,7 +69,7 @@
 
 /datum/interaction/lewd/fuck/anal
 	command = "fuckass"
-	description = "Пробить шоколадницу."
+	description = "РџСЂРѕР±РёС‚СЊ С€РѕРєРѕР»Р°РґРЅРёС†Сѓ."
 	require_target_vagina = 0
 	require_target_anus = 1
 	user_not_tired = 1
@@ -81,7 +81,7 @@
 
 /datum/interaction/lewd/finger
 	command = "finger"
-	description = "Засунуть сигарету в пепельницу."
+	description = "Р—Р°СЃСѓРЅСѓС‚СЊ СЃРёРіР°СЂРµС‚Сѓ РІ РїРµРїРµР»СЊРЅРёС†Сѓ."
 	require_user_hands = 1
 	require_target_vagina = 1
 	interaction_sound = null
@@ -96,7 +96,7 @@
 
 /datum/interaction/lewd/fingerass
 	command = "fingerm"
-	description = "Почесать шоколадный глаз."
+	description = "РџРѕС‡РµСЃР°С‚СЊ С€РѕРєРѕР»Р°РґРЅС‹Р№ РіР»Р°Р·."
 	interaction_sound = null
 	require_user_hands = 1
 	require_target_anus = 1
@@ -112,7 +112,7 @@
 
 /datum/interaction/lewd/facefuck
 	command = "facefuck"
-	description = "Проверить глубину проруби."
+	description = "РџСЂРѕРІРµСЂРёС‚СЊ РіР»СѓР±РёРЅСѓ РїСЂРѕСЂСѓР±Рё."
 	interaction_sound = null
 	require_target_mouth = 1
 	user_not_tired = 1
@@ -126,7 +126,7 @@
 
 /datum/interaction/lewd/throatfuck
 	command = "throatfuck"
-	description = "Утопить муму в проруби."
+	description = "РЈС‚РѕРїРёС‚СЊ РјСѓРјСѓ РІ РїСЂРѕСЂСѓР±Рё."
 	interaction_sound = null
 	require_user_penis = 1
 	require_target_mouth = 1
@@ -141,7 +141,7 @@
 
 /datum/interaction/lewd/handjob
 	command = "handjob"
-	description = "Полировать ствол."
+	description = "РџРѕР»РёСЂРѕРІР°С‚СЊ СЃС‚РІРѕР»."
 	interaction_sound = null
 	require_user_hands = 1
 	require_target_penis = 1
@@ -156,7 +156,7 @@
 
 /datum/interaction/lewd/breastfuck
 	command = "breastfuck"
-	description = "Проскользить между двух горок."
+	description = "РџСЂРѕСЃРєРѕР»СЊР·РёС‚СЊ РјРµР¶РґСѓ РґРІСѓС… РіРѕСЂРѕРє."
 	interaction_sound = null
 	require_user_penis = 1
 	user_not_tired = 1
@@ -172,7 +172,7 @@
 
 /datum/interaction/lewd/mount
 	command = "mount"
-	description = "Покататься на карусели."
+	description = "РџРѕРєР°С‚Р°С‚СЊСЃСЏ РЅР° РєР°СЂСѓСЃРµР»Рё."
 	interaction_sound = null
 	require_user_vagina = 1
 	require_target_penis = 1
@@ -189,7 +189,7 @@
 
 /datum/interaction/lewd/mountass
 	command = "mountm"
-	description = "Присесть на выступ."
+	description = "РџСЂРёСЃРµСЃС‚СЊ РЅР° РІС‹СЃС‚СѓРї."
 	interaction_sound = null
 	require_user_vagina = 0
 	require_user_anus = 1
@@ -207,7 +207,7 @@
 
 /datum/interaction/lewd/rimjob
 	command = "rimjob"
-	description = "Скушать шоколад."
+	description = "РЎРєСѓС€Р°С‚СЊ С€РѕРєРѕР»Р°Рґ."
 	interaction_sound = null
 	require_user_mouth = 1
 	require_target_anus = 1
@@ -222,7 +222,7 @@
 
 /datum/interaction/lewd/mountface
 	command = "mountface"
-	description = "Промариновать лимончик."
+	description = "РџСЂРѕРјР°СЂРёРЅРѕРІР°С‚СЊ Р»РёРјРѕРЅС‡РёРє."
 	interaction_sound = null
 	require_target_mouth = 1
 	require_user_anus = 1
@@ -237,7 +237,7 @@
 
 /datum/interaction/lewd/grindface
 	command = "grindface"
-	description = "Дать понюхать ноги."
+	description = "Р”Р°С‚СЊ РїРѕРЅСЋС…Р°С‚СЊ РЅРѕРіРё."
 	interaction_sound = null
 	require_target_mouth = 1
 	max_distance = 0
@@ -249,7 +249,7 @@
 
 /datum/interaction/lewd/grindmouth
 	command = "grindmouth"
-	description = "Угостить ногами."
+	description = "РЈРіРѕСЃС‚РёС‚СЊ РЅРѕРіР°РјРё."
 	interaction_sound = null
 	require_target_mouth = 1
 	max_distance = 0
@@ -261,7 +261,7 @@
 
 /datum/interaction/lewd/nuts
 	command = "nuts"
-	description = "Накормить яишницей."
+	description = "РќР°РєРѕСЂРјРёС‚СЊ СЏРёС€РЅРёС†РµР№."
 	interaction_sound = null
 	require_user_naked = 1
 	require_user_penis = 1
@@ -275,7 +275,7 @@
 
 /datum/interaction/lewd/thighs
 	command = "thighs"
-	description = "Взять в захват ногами."
+	description = "Р’Р·СЏС‚СЊ РІ Р·Р°С…РІР°С‚ РЅРѕРіР°РјРё."
 	interaction_sound = null
 	max_distance = 0
 	require_user_naked = 1

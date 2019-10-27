@@ -228,7 +228,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	force_unwielded = 5
 	force_wielded = 24
-	attack_verb = list("атакует", "рубит", "разрубает", "кромсает", "режет")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "СЂСѓР±РёС‚", "СЂР°Р·СЂСѓР±Р°РµС‚", "РєСЂРѕРјСЃР°РµС‚", "СЂРµР¶РµС‚")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = IS_SHARP
 	max_integrity = 200
@@ -281,7 +281,7 @@
 	armour_penetration = 35
 	var/saber_color = "green"
 	light_color = "#00ff00"//green
-	attack_verb = list("атакует", "рубит", "втыкает", "бьёт", "кромсает", "разрывает", "нарезает", "режет")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "СЂСѓР±РёС‚", "РІС‚С‹РєР°РµС‚", "Р±СЊС‘С‚", "РєСЂРѕРјСЃР°РµС‚", "СЂР°Р·СЂС‹РІР°РµС‚", "РЅР°СЂРµР·Р°РµС‚", "СЂРµР¶РµС‚")
 	block_chance = 75
 	max_integrity = 200
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 70)
@@ -462,7 +462,7 @@
 	armour_penetration = 10
 	custom_materials = list(/datum/material/iron=1150, /datum/material/glass=2075)
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("атакует", "протыкает", "пробивает", "кромсает", "насаживает")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "РїСЂРѕС‚С‹РєР°РµС‚", "РїСЂРѕР±РёРІР°РµС‚", "РєСЂРѕРјСЃР°РµС‚", "РЅР°СЃР°Р¶РёРІР°РµС‚")
 	sharpness = IS_SHARP
 	max_integrity = 200
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 30)
@@ -573,7 +573,7 @@
 	throw_speed = 2
 	throw_range = 4
 	custom_materials = list(/datum/material/iron=13000)
-	attack_verb = list("пилит", "кромсает", "режет", "рубит", "нарезает")
+	attack_verb = list("РїРёР»РёС‚", "РєСЂРѕРјСЃР°РµС‚", "СЂРµР¶РµС‚", "СЂСѓР±РёС‚", "РЅР°СЂРµР·Р°РµС‚")
 	hitsound = "swing_hit"
 	sharpness = IS_SHARP
 	actions_types = list(/datum/action/item_action/startchainsaw)
@@ -640,7 +640,7 @@
 	desc = "Recovered from the aftermath of a revolt aboard Defense Outpost Theta Aegis, in which a seemingly endless tide of Assistants caused heavy casualities among Nanotrasen military forces."
 	force_unwielded = 15
 	force_wielded = 25
-	attack_verb = list("насаживает")
+	attack_verb = list("РЅР°СЃР°Р¶РёРІР°РµС‚")
 
 /obj/item/twohanded/spear/grey_tide/afterattack(atom/movable/AM, mob/living/user, proximity)
 	. = ..()
@@ -668,7 +668,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	force_unwielded = 7
 	force_wielded = 15
-	attack_verb = list("атакует", "пронзает", "пробивает")
+	attack_verb = list("Р°С‚Р°РєСѓРµС‚", "РїСЂРѕРЅР·Р°РµС‚", "РїСЂРѕР±РёРІР°РµС‚")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = IS_SHARP
 	max_integrity = 200
@@ -751,7 +751,7 @@
 	throwforce = 20
 	throw_speed = 4
 	sharpness = IS_SHARP
-	attack_verb = list("режет", "рубит", "нарезает")
+	attack_verb = list("СЂРµР¶РµС‚", "СЂСѓР±РёС‚", "РЅР°СЂРµР·Р°РµС‚")
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 	hitsound = 'sound/weapons/bladeslice.ogg'

@@ -1,5 +1,5 @@
 /turf/open/floor/plating/conc
-	name = "Магический бетон"
+	name = "РњР°РіРёС‡РµСЃРєРёР№ Р±РµС‚РѕРЅ"
 	icon = 'code/shitcode/hule/icons/obj/pomoyka.dmi'
 	icon_plating = "concrete0"
 	icon_state = "concrete0"
@@ -13,8 +13,8 @@
 
 /*
 /obj/item/stack/tile/conc
-	name = "Магическая пластиковая имитация бетона"
-	desc = "Нахуя? Кто это придумал?"
+	name = "РњР°РіРёС‡РµСЃРєР°СЏ РїР»Р°СЃС‚РёРєРѕРІР°СЏ РёРјРёС‚Р°С†РёСЏ Р±РµС‚РѕРЅР°"
+	desc = "РќР°С…СѓСЏ? РљС‚Рѕ СЌС‚Рѕ РїСЂРёРґСѓРјР°Р»?"
 	icon = 'code/shitcode/hule/magic/pomoyka/pomoyka.dmi'
 	icon_state = "conc-tile"
 	turf_type = /turf/open/floor/plating/conc
@@ -22,7 +22,7 @@
 */
 
 /obj/structure/tyre
-	name = "Покрышка от ПАЗика"
+	name = "РџРѕРєСЂС‹С€РєР° РѕС‚ РџРђР—РёРєР°"
 	icon = 'code/shitcode/hule/icons/obj/pomoyka.dmi'
 	icon_state = "shina0"
 	desc = ""
@@ -31,8 +31,8 @@
 	anchored = TRUE
 
 /obj/structure/tyre/pile
-	name = "Куча покрышек"
-	desc = "Куча покрышек, реализованная в виде стека"
+	name = "РљСѓС‡Р° РїРѕРєСЂС‹С€РµРє"
+	desc = "РљСѓС‡Р° РїРѕРєСЂС‹С€РµРє, СЂРµР°Р»РёР·РѕРІР°РЅРЅР°СЏ РІ РІРёРґРµ СЃС‚РµРєР°"
 	icon_state = "shina4"
 	max_integrity = 200
 	density = TRUE
@@ -43,7 +43,7 @@
 		icon_state = "shina[rand(1,3)]"
 
 /obj/structure/tbin
-	name = "Мусорка"
+	name = "РњСѓСЃРѕСЂРєР°"
 	icon = 'code/shitcode/hule/icons/obj/pomoyka.dmi'
 	icon_state = "yashik_musor0"
 	resistance_flags = FIRE_PROOF
@@ -57,8 +57,8 @@
 		icon_state = "yashik_musor1"
 
 /obj/structure/tbin/full
-	name = "Магическая мусорка"
-	desc = "Полная неизведанного мусорка"
+	name = "РњР°РіРёС‡РµСЃРєР°СЏ РјСѓСЃРѕСЂРєР°"
+	desc = "РџРѕР»РЅР°СЏ РЅРµРёР·РІРµРґР°РЅРЅРѕРіРѕ РјСѓСЃРѕСЂРєР°"
 	icon_state = "yashik_musor0_full"
 	var/list/lootn = list(	/obj/item/shard,
 							/obj/item/reagent_containers/syringe
@@ -99,19 +99,19 @@
 /obj/structure/tbin/full/proc/spawnjunk(list/L, mob/M)
 	var/obj/O = pick(L)
 	var/obj/I = new O(get_turf(src),src)
-	to_chat(M,"<span class='notice'>Вы нашли [I.name]</span>")
+	to_chat(M,"<span class='notice'>Р’С‹ РЅР°С€Р»Рё [I.name]</span>")
 
 /obj/structure/tbin/full/verb/use()
 	set category = "IC"
-	set name = "Порыться в муосрке"
+	set name = "РџРѕСЂС‹С‚СЊСЃСЏ РІ РјСѓРѕСЃСЂРєРµ"
 	set src in view(1)
 
 	if(usesleft <= 0)
-		to_chat(usr,"<span class='notice'>Эта мусорка пуста</span>")
+		to_chat(usr,"<span class='notice'>Р­С‚Р° РјСѓСЃРѕСЂРєР° РїСѓСЃС‚Р°</span>")
 		return
 
 	if(!ismonkey(usr)&&!ishuman(usr)|| usr.stat)
-		to_chat(usr,"<span class='warning'>Ты што дэбил ты неможеш рыца в мусорке ТЫ ШТО</span>")
+		to_chat(usr,"<span class='warning'>РўС‹ С€С‚Рѕ РґСЌР±РёР» С‚С‹ РЅРµРјРѕР¶РµС€ СЂС‹С†Р° РІ РјСѓСЃРѕСЂРєРµ РўР« РЁРўРћ</span>")
 		return
 
 	if(prob(30))
@@ -128,12 +128,12 @@
 			spawnjunk(lootr, usr)
 		usesleft--
 	else
-		to_chat(usr,"<span class='notice'>Вы ничего не нашли</span>")
+		to_chat(usr,"<span class='notice'>Р’С‹ РЅРёС‡РµРіРѕ РЅРµ РЅР°С€Р»Рё</span>")
 
 /obj/effect/proc_holder/spell/targeted/pomoyka
-	name = "Призыв Сердца Помойки"
-	desc = "Этот анекдот призывает магическую помойку из другого мира тупо исекай!!!!!"
-	school = "College of руснявый humor, Manayamirok state, USA"
+	name = "РџСЂРёР·С‹РІ РЎРµСЂРґС†Р° РџРѕРјРѕР№РєРё"
+	desc = "Р­С‚РѕС‚ Р°РЅРµРєРґРѕС‚ РїСЂРёР·С‹РІР°РµС‚ РјР°РіРёС‡РµСЃРєСѓСЋ РїРѕРјРѕР№РєСѓ РёР· РґСЂСѓРіРѕРіРѕ РјРёСЂР° С‚СѓРїРѕ РёСЃРµРєР°Р№!!!!!"
+	school = "College of СЂСѓСЃРЅСЏРІС‹Р№ humor, Manayamirok state, USA"
 	charge_max = 100
 	clothes_req = FALSE
 	invocation = "V GOLOVU"
@@ -147,11 +147,11 @@
 	new /obj/structure/pomoyka(get_turf(user),user)
 
 	for(var/obj/effect/proc_holder/spell/aspell in user.mind.spell_list)
-		if("Призыв Сердца Помойки" == aspell.name)
+		if("РџСЂРёР·С‹РІ РЎРµСЂРґС†Р° РџРѕРјРѕР№РєРё" == aspell.name)
 			user.mind.spell_list.Remove(aspell)
 
 /obj/structure/pomoyka
-	name = "Сердце Помойки"
+	name = "РЎРµСЂРґС†Рµ РџРѕРјРѕР№РєРё"
 	desc = ""
 	icon = 'code/shitcode/hule/icons/obj/pomoyka.dmi'
 	icon_state = "fawkes"
@@ -182,7 +182,7 @@
 	. = ..()
 
 /obj/structure/pomoyka/process()
-	desc = "Пипец пафосное название прямо как в анимэ \nВремя: [time] / [timemul ** radius] \nРадиус: [radius] \nЭнергия: [bdmgacc] / [radius * bdmgmul]"
+	desc = "РџРёРїРµС† РїР°С„РѕСЃРЅРѕРµ РЅР°Р·РІР°РЅРёРµ РїСЂСЏРјРѕ РєР°Рє РІ Р°РЅРёРјСЌ \nР’СЂРµРјСЏ: [time] / [timemul ** radius] \nР Р°РґРёСѓСЃ: [radius] \nР­РЅРµСЂРіРёСЏ: [bdmgacc] / [radius * bdmgmul]"
 	for(var/mob/living/carbon/human/H in range(radius, src))
 		var/bhp = 200 - H.getOrganLoss(ORGAN_SLOT_BRAIN)
 		if(bhp > bdmg)
@@ -215,5 +215,5 @@
 	spell = /obj/effect/proc_holder/spell/targeted/pomoyka
 	spellname = "pomoyka"
 	icon_state ="bookfireball"
-	desc = "Данная книга очень ватная на ощупь"
-	remarks = list("Каво?", "Слава дедам - слава и нам...", "Трансформеры... ")
+	desc = "Р”Р°РЅРЅР°СЏ РєРЅРёРіР° РѕС‡РµРЅСЊ РІР°С‚РЅР°СЏ РЅР° РѕС‰СѓРїСЊ"
+	remarks = list("РљР°РІРѕ?", "РЎР»Р°РІР° РґРµРґР°Рј - СЃР»Р°РІР° Рё РЅР°Рј...", "РўСЂР°РЅСЃС„РѕСЂРјРµСЂС‹... ")

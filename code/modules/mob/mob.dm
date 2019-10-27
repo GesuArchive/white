@@ -437,7 +437,7 @@
   * overridden here and in /mob/dead/observer for different point span classes and sanity checks
   */
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
-	set name = "Показать на..."
+	set name = "РџРѕРєР°Р·Р°С‚СЊ РЅР°..."
 	set category = "Object"
 
 	if(!src || !isturf(src.loc) || !(A in view(client.view, src)))
@@ -491,7 +491,7 @@
   * Calls attack self on the item and updates the inventory hud for hands
   */
 /mob/verb/mode()
-	set name = "Использовать предмет в руке"
+	set name = "РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїСЂРµРґРјРµС‚ РІ СЂСѓРєРµ"
 	set category = "Object"
 	set src = usr
 
@@ -512,7 +512,7 @@
   * This actually gets the mind datums notes
   */
 /mob/verb/memory()
-	set name = "Заметки"
+	set name = "Р—Р°РјРµС‚РєРё"
 	set category = "IC"
 	set desc = "View your character's notes memory."
 	if(mind)
@@ -524,7 +524,7 @@
   * Add a note to the mind datum
   */
 /mob/verb/add_memory(msg as message)
-	set name = "Добавить заметку"
+	set name = "Р”РѕР±Р°РІРёС‚СЊ Р·Р°РјРµС‚РєСѓ"
 	set category = "IC"
 	if(mind)
 		if (world.time < memory_throttle_time)
@@ -545,18 +545,18 @@
   * Only works if flag/norespawn is allowed in config
   */
 /mob/verb/abandon_mob()
-	set name = "Переродиться"
+	set name = "РџРµСЂРµСЂРѕРґРёС‚СЊСЃСЏ"
 	set category = "OOC"
 
 	if (CONFIG_GET(flag/norespawn))
 		return
 	if ((stat != DEAD || !( SSticker )))
-		to_chat(usr, "<span class='boldnotice'>Ты живой!</span>")
+		to_chat(usr, "<span class='boldnotice'>РўС‹ Р¶РёРІРѕР№!</span>")
 		return
 
 	log_game("[key_name(usr)] used abandon mob.")
 
-	to_chat(usr, "<span class='boldnotice'>Поменяй имя или я приду к тебе ночью и вырву твою печень!</span>")
+	to_chat(usr, "<span class='boldnotice'>РџРѕРјРµРЅСЏР№ РёРјСЏ РёР»Рё СЏ РїСЂРёРґСѓ Рє С‚РµР±Рµ РЅРѕС‡СЊСЋ Рё РІС‹СЂРІСѓ С‚РІРѕСЋ РїРµС‡РµРЅСЊ!</span>")
 
 	if(!client)
 		log_game("[key_name(usr)] AM failed due to disconnect.")

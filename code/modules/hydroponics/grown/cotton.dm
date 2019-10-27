@@ -27,7 +27,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 2
 	throw_range = 3
-	attack_verb = list("шлёпает")
+	attack_verb = list("С€Р»С‘РїР°РµС‚")
 	var/cotton_type = /obj/item/stack/sheet/cotton
 	var/cotton_name = "raw cotton"
 
@@ -74,6 +74,6 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	throw_speed = 2
 	throw_range = 3
-	attack_verb = list("колотит", "бьёт", "ударяет", "вмазывает")
+	attack_verb = list("РєРѕР»РѕС‚РёС‚", "Р±СЊС‘С‚", "СѓРґР°СЂСЏРµС‚", "РІРјР°Р·С‹РІР°РµС‚")
 	cotton_type = /obj/item/stack/sheet/cotton/durathread
 	cotton_name = "raw durathread"

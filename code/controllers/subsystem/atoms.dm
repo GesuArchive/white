@@ -19,7 +19,7 @@ SUBSYSTEM_DEF(atoms)
 	setupGenetics() //to set the mutations' sequence
 	initialized = INITIALIZATION_INNEW_MAPLOAD
 	InitializeAtoms()
-	toplayers = "Пересоздали атомную структуру"
+	toplayers = "РџРµСЂРµСЃРѕР·РґР°Р»Рё Р°С‚РѕРјРЅСѓСЋ СЃС‚СЂСѓРєС‚СѓСЂСѓ"
 	return ..()
 
 /datum/controller/subsystem/atoms/proc/InitializeAtoms(list/atoms)
@@ -45,7 +45,7 @@ SUBSYSTEM_DEF(atoms)
 				++count
 				CHECK_TICK
 
-	testing("Создано [count] атомов")
+	testing("РЎРѕР·РґР°РЅРѕ [count] Р°С‚РѕРјРѕРІ")
 	pass(count)
 
 	initialized = INITIALIZATION_INNEW_REGULAR

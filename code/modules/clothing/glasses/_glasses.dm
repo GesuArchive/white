@@ -86,7 +86,7 @@
 	force = 10
 	throwforce = 10
 	throw_speed = 4
-	attack_verb = list("πεζες")
+	attack_verb = list("Ρ€ΠµΠ¶ΠµΡ‚")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = IS_SHARP
 
@@ -154,7 +154,7 @@
 	force = 10
 	throwforce = 20
 	throw_speed = 4
-	attack_verb = list("πεζες")
+	attack_verb = list("Ρ€ΠµΠ¶ΠµΡ‚")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = IS_SHARP
 	glass_colour_type = /datum/client_colour/glass_colour/lightgreen
@@ -219,7 +219,7 @@
 	force = 10
 	throwforce = 10
 	throw_speed = 4
-	attack_verb = list("πεζες")
+	attack_verb = list("Ρ€ΠµΠ¶ΠµΡ‚")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = IS_SHARP
 
@@ -239,7 +239,7 @@
 	force = 10
 	throwforce = 10
 	throw_speed = 4
-	attack_verb = list("πεζες")
+	attack_verb = list("Ρ€ΠµΠ¶ΠµΡ‚")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = IS_SHARP
 	glass_colour_type = /datum/client_colour/glass_colour/orange

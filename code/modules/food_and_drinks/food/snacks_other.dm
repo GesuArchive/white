@@ -403,7 +403,7 @@
 	throwforce = 10
 	block_chance = 50
 	armour_penetration = 75
-	attack_verb = list("шлёпает", "рубит")
+	attack_verb = list("С€Р»С‘РїР°РµС‚", "СЂСѓР±РёС‚")
 	w_class = WEIGHT_CLASS_BULKY
 	tastes = list("cherry" = 1, "crepe" = 1)
 	foodtype = GRAIN | FRUIT | SUGAR

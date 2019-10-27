@@ -5,13 +5,13 @@
 		src.forceMove(T)
 		T.grenade = src
 		T.owner = user
-		message_admins("[ADMIN_LOOKUPFLW(user)] поставил растяжку [ADMIN_COORDJMP(user)].")
-		log_game("[key_name(user)] поставил растяжку [COORD(user)].")
+		message_admins("[ADMIN_LOOKUPFLW(user)] РїРѕСЃС‚Р°РІРёР» СЂР°СЃС‚СЏР¶РєСѓ [ADMIN_COORDJMP(user)].")
+		log_game("[key_name(user)] РїРѕСЃС‚Р°РІРёР» СЂР°СЃС‚СЏР¶РєСѓ [COORD(user)].")
 	..()
 
 /obj/structure/boobytrap
-	name = "РастЯжка ебать"
-	desc = "Пиздец, не подходи - убьет!"
+	name = "Р Р°СЃС‚РЇР¶РєР° РµР±Р°С‚СЊ"
+	desc = "РџРёР·РґРµС†, РЅРµ РїРѕРґС…РѕРґРё - СѓР±СЊРµС‚!"
 	icon_state = "boobytrap"
 	icon = 'code/shitcode/hule/icons/obj/weapons.dmi'
 	anchored = TRUE
@@ -52,7 +52,7 @@
 		if(do_after(user, 30, target = src))
 			W.play_tool_sound(src)
 			if(prob(80) && user.mind.antag_datums == null && user != owner)
-				to_chat(user, "<span class='userdanger'>Дебил блядь! Кто тебя учил растяжки обезвреживать?</span>")
+				to_chat(user, "<span class='userdanger'>Р”РµР±РёР» Р±Р»СЏРґСЊ! РљС‚Рѕ С‚РµР±СЏ СѓС‡РёР» СЂР°СЃС‚СЏР¶РєРё РѕР±РµР·РІСЂРµР¶РёРІР°С‚СЊ?</span>")
 				activate()
 				return
 			if(grenade)
@@ -62,7 +62,7 @@
 
 /obj/item/wirekit
 	name = "Wiring kit"
-	desc = "Содержит все необходимое для создания растяжек."
+	desc = "РЎРѕРґРµСЂР¶РёС‚ РІСЃРµ РЅРµРѕР±С…РѕРґРёРјРѕРµ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ СЂР°СЃС‚СЏР¶РµРє."
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "matchbox"
 	item_state = "zippo"

@@ -11,7 +11,7 @@
 	punchdamagelow = 20
 	punchdamagehigh = 30//they are inhumanly strong
 	punchstunthreshold = 25
-	attack_verb = "ломает"
+	attack_verb = "Р»РѕРјР°РµС‚"
 	attack_sound = 'sound/weapons/resonator_blast.ogg'
 	use_skintones = 0
 	species_traits = list(NOBLOOD,EYECOLOR)

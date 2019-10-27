@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/automatic/pistol/tanner
 	name = "Tanner M41"
-	desc = "Неплохой аналог Стечкина. Также принимает обоймы 10mm."
+	desc = "РќРµРїР»РѕС…РѕР№ Р°РЅР°Р»РѕРі РЎС‚РµС‡РєРёРЅР°. РўР°РєР¶Рµ РїСЂРёРЅРёРјР°РµС‚ РѕР±РѕР№РјС‹ 10mm."
 	icon = 'code/shitcode/valtos/icons/gun.dmi'
 	icon_state = "tanner"
 	w_class = WEIGHT_CLASS_NORMAL

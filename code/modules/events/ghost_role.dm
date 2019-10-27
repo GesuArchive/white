@@ -62,7 +62,7 @@
 	var/list/mob/dead/observer/regular_candidates
 	// don't get their hopes up
 	if(priority_candidates.len < minimum_required)
-		regular_candidates = pollGhostCandidates("Õîòèòå áûòü '[role_name]'?", jobban, gametypecheck, be_special)
+		regular_candidates = pollGhostCandidates("Ð¥Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð±Ñ‹Ñ‚ÑŒ '[role_name]'?", jobban, gametypecheck, be_special)
 	else
 		regular_candidates = list()
 

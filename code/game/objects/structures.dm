@@ -36,7 +36,7 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		user.do_attack_animation(src)
 		structureclimber.Paralyze(40)
-		structureclimber.visible_message("<span class='warning'><b>[structureclimber]</b> сваливается с <b>[src.name]</b>.", "Ты упал с [src.name]!", "Ты видишь как [structureclimber] падает с [src.name].</span>")
+		structureclimber.visible_message("<span class='warning'><b>[structureclimber]</b> СЃРІР°Р»РёРІР°РµС‚СЃСЏ СЃ <b>[src.name]</b>.", "РўС‹ СѓРїР°Р» СЃ [src.name]!", "РўС‹ РІРёРґРёС€СЊ РєР°Рє [structureclimber] РїР°РґР°РµС‚ СЃ [src.name].</span>")
 
 /obj/structure/ui_act(action, params)
 	..()
@@ -72,8 +72,8 @@
 
 /obj/structure/proc/climb_structure(mob/living/user)
 	src.add_fingerprint(user)
-	user.visible_message("<span class='warning'>[user] начинает взбираться на [src.name].</span>", \
-								"<span class='notice'>Ты начинаешь взбираться на [src.name]...</span>")
+	user.visible_message("<span class='warning'>[user] РЅР°С‡РёРЅР°РµС‚ РІР·Р±РёСЂР°С‚СЊСЃСЏ РЅР° [src.name].</span>", \
+								"<span class='notice'>РўС‹ РЅР°С‡РёРЅР°РµС€СЊ РІР·Р±РёСЂР°С‚СЊСЃСЏ РЅР° [src.name]...</span>")
 	var/adjusted_climb_time = climb_time
 	if(user.restrained()) //climbing takes twice as long when restrained.
 		adjusted_climb_time *= 2
@@ -85,23 +85,23 @@
 	if(do_mob(user, user, adjusted_climb_time))
 		if(src.loc) //Checking if structure has been destroyed
 			if(do_climb(user))
-				user.visible_message("<span class='warning'>[user] взбирается на [src.name].</span>", \
-									"<span class='notice'>Ты взбирваешься на [src.name].</span>")
+				user.visible_message("<span class='warning'>[user] РІР·Р±РёСЂР°РµС‚СЃСЏ РЅР° [src.name].</span>", \
+									"<span class='notice'>РўС‹ РІР·Р±РёСЂРІР°РµС€СЊСЃСЏ РЅР° [src.name].</span>")
 				log_combat(user, src, "climbed onto")
 				if(climb_stun)
 					user.Stun(climb_stun)
 				. = 1
 			else
-				to_chat(user, "<span class='warning'>У тебя не вышло взобраться на [src.name].</span>")
+				to_chat(user, "<span class='warning'>РЈ С‚РµР±СЏ РЅРµ РІС‹С€Р»Рѕ РІР·РѕР±СЂР°С‚СЊСЃСЏ РЅР° [src.name].</span>")
 	structureclimber = null
 
 /obj/structure/examine(mob/user)
 	. = ..()
 	if(!(resistance_flags & INDESTRUCTIBLE))
 		if(resistance_flags & ON_FIRE)
-			. += "<span class='warning'>Оно горит!</span>"
+			. += "<span class='warning'>РћРЅРѕ РіРѕСЂРёС‚!</span>"
 		if(broken)
-			. += "<span class='notice'>Оно сломано.</span>"
+			. += "<span class='notice'>РћРЅРѕ СЃР»РѕРјР°РЅРѕ.</span>"
 		var/examine_status = examine_status(user)
 		if(examine_status)
 			. += examine_status
@@ -110,9 +110,9 @@
 	var/healthpercent = (obj_integrity/max_integrity) * 100
 	switch(healthpercent)
 		if(50 to 99)
-			return  "Виднеются следы царапин."
+			return  "Р’РёРґРЅРµСЋС‚СЃСЏ СЃР»РµРґС‹ С†Р°СЂР°РїРёРЅ."
 		if(25 to 50)
-			return  "Вмятины видны невооруженным глазом."
+			return  "Р’РјСЏС‚РёРЅС‹ РІРёРґРЅС‹ РЅРµРІРѕРѕСЂСѓР¶РµРЅРЅС‹Рј РіР»Р°Р·РѕРј."
 		if(0 to 25)
 			if(!broken)
-				return  "<span class='warning'>Кажется эта штука сейчас развалится!</span>"
+				return  "<span class='warning'>РљР°Р¶РµС‚СЃСЏ СЌС‚Р° С€С‚СѓРєР° СЃРµР№С‡Р°СЃ СЂР°Р·РІР°Р»РёС‚СЃСЏ!</span>"

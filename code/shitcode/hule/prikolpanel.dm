@@ -99,7 +99,7 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 		var/addr = csa[pick]
 		winset(src, null, "command=.options")
 		src << link("[addr]?redirect=1")
-		message_admins("[key] íàõîäèòñÿ ïîä ñàíêöèÿìè è áûë ñîñëàí íà [pick].")
+		message_admins("[key] Ð½Ð°Ñ…Ð¾Ð´Ð¸Ñ‚ÑÑ Ð¿Ð¾Ð´ ÑÐ°Ð½ÐºÑ†Ð¸ÑÐ¼Ð¸ Ð¸ Ð±Ñ‹Ð» ÑÐ¾ÑÐ»Ð°Ð½ Ð½Ð° [pick].")
 
 
 

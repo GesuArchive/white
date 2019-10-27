@@ -356,8 +356,8 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		SEND_SOUND(initiator, sound('sound/effects/rejt.ogg'))
 
 		to_chat(initiator, "<font color='red' size='4'><b>- AdminHelp Rejected! -</b></font>")
-		to_chat(initiator, "<font color='red'><b>Ваш запрос отклонён.</b> Попробуй ещё раз.</font>")
-		to_chat(initiator, "Пожалуйста, успокойтесь. Администратор возможно не видел какие-либо события связанные с раундом, поэтому распишите проблему более подробно и также четко указывайте имена тех, о ком вы сообщаете.")
+		to_chat(initiator, "<font color='red'><b>Р’Р°С€ Р·Р°РїСЂРѕСЃ РѕС‚РєР»РѕРЅС‘РЅ.</b> РџРѕРїСЂРѕР±СѓР№ РµС‰С‘ СЂР°Р·.</font>")
+		to_chat(initiator, "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СѓСЃРїРѕРєРѕР№С‚РµСЃСЊ. РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ РІРѕР·РјРѕР¶РЅРѕ РЅРµ РІРёРґРµР» РєР°РєРёРµ-Р»РёР±Рѕ СЃРѕР±С‹С‚РёСЏ СЃРІСЏР·Р°РЅРЅС‹Рµ СЃ СЂР°СѓРЅРґРѕРј, РїРѕСЌС‚РѕРјСѓ СЂР°СЃРїРёС€РёС‚Рµ РїСЂРѕР±Р»РµРјСѓ Р±РѕР»РµРµ РїРѕРґСЂРѕР±РЅРѕ Рё С‚Р°РєР¶Рµ С‡РµС‚РєРѕ СѓРєР°Р·С‹РІР°Р№С‚Рµ РёРјРµРЅР° С‚РµС…, Рѕ РєРѕРј РІС‹ СЃРѕРѕР±С‰Р°РµС‚Рµ.")
 
 	SSblackbox.record_feedback("tally", "ahelp_stats", 1, "rejected")
 	var/msg = "Ticket [TicketHref("#[id]")] rejected by [key_name]"

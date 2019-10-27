@@ -1,13 +1,13 @@
 SUBSYSTEM_DEF(aspects)
 	name = "Aspects"
 
-	flags = SS_NO_FIRE //я блять это только сейчас заметил. Ну да ладно.
+	flags = SS_NO_FIRE //СЏ Р±Р»СЏС‚СЊ СЌС‚Рѕ С‚РѕР»СЊРєРѕ СЃРµР№С‡Р°СЃ Р·Р°РјРµС‚РёР». РќСѓ РґР° Р»Р°РґРЅРѕ.
 	init_order = -70
 
 	runlevels = RUNLEVEL_GAME
 
 	var/ca_name = "LOBBY"
-	var/ca_desc = "Секрет."
+	var/ca_desc = "РЎРµРєСЂРµС‚."
 
 	var/list/aspects = list()
 
@@ -18,7 +18,7 @@ SUBSYSTEM_DEF(aspects)
 		var/datum/round_aspect/A = new item()
 		aspects[A] = A.weight
 
-	toplayers = "Создаём случайные последовательности"
+	toplayers = "РЎРѕР·РґР°С‘Рј СЃР»СѓС‡Р°Р№РЅС‹Рµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё"
 
 	return ..()
 
@@ -31,4 +31,4 @@ SUBSYSTEM_DEF(aspects)
 	ca_name = current_aspect.name
 	ca_desc = current_aspect.desc
 
-	to_chat(world, "<span class='notice'><B>Важно:</B> [current_aspect.desc]</span>")
+	to_chat(world, "<span class='notice'><B>Р’Р°Р¶РЅРѕ:</B> [current_aspect.desc]</span>")

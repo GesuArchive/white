@@ -32,10 +32,10 @@
 	var/mob/living/carbon/human/user = usr
 
 	if (user.wear_mask != src && user.head != src)
-		to_chat(usr, "Вы крутите переключатель ПНВ [src] в надежде разглядеть что-то во тьме, но у вас ничего не выходит. Может стоить надеть его?")
+		to_chat(usr, "Р’С‹ РєСЂСѓС‚РёС‚Рµ РїРµСЂРµРєР»СЋС‡Р°С‚РµР»СЊ РџРќР’ [src] РІ РЅР°РґРµР¶РґРµ СЂР°Р·РіР»СЏРґРµС‚СЊ С‡С‚Рѕ-С‚Рѕ РІРѕ С‚СЊРјРµ, РЅРѕ Сѓ РІР°СЃ РЅРёС‡РµРіРѕ РЅРµ РІС‹С…РѕРґРёС‚. РњРѕР¶РµС‚ СЃС‚РѕРёС‚СЊ РЅР°РґРµС‚СЊ РµРіРѕ?")
 		playsound(usr, 'stalker/sound/nv_start.ogg', 50, 1, -1)
 		//if (prob(5))
-		//	to_chat(usr, "<b>Тем самым приводя устройство в состояние бесполезной тряпки!</b>")
+		//	to_chat(usr, "<b>РўРµРј СЃР°РјС‹Рј РїСЂРёРІРѕРґСЏ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ РІ СЃРѕСЃС‚РѕСЏРЅРёРµ Р±РµСЃРїРѕР»РµР·РЅРѕР№ С‚СЂСЏРїРєРё!</b>")
 		//	playsound(usr, 'stalker/sound/nv_off.ogg', 50, 1, -1)
 		//	qdel(src)
 		return
@@ -53,12 +53,12 @@
 		var/mob/living/carbon/human/user = usr
 		if(!nvg.active)
 			playsound(usr, 'stalker/sound/nv_off.ogg', 50, 1, -1)
-			to_chat(usr, "Вы деактивировали оптическую матрицу [src].")
+			to_chat(usr, "Р’С‹ РґРµР°РєС‚РёРІРёСЂРѕРІР°Р»Рё РѕРїС‚РёС‡РµСЃРєСѓСЋ РјР°С‚СЂРёС†Сѓ [src].")
 			user.remove_client_colour(nvg.colour_matrix)
 			user.see_override_nva = 0
 		else
 			playsound(usr, 'stalker/sound/nv_start.ogg', 50, 1, -1)
-			to_chat(usr, "Вы активировали оптическую матрицу [src].")
+			to_chat(usr, "Р’С‹ Р°РєС‚РёРІРёСЂРѕРІР°Р»Рё РѕРїС‚РёС‡РµСЃРєСѓСЋ РјР°С‚СЂРёС†Сѓ [src].")
 			user.add_client_colour(nvg.colour_matrix)
 			user.see_override_nva = 4
 	for(var/X in actions)

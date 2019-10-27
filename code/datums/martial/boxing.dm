@@ -14,14 +14,14 @@
 
 	A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
 
-	var/atk_verb = pick("левым хуком","правым хуком","прямым ударом")
+	var/atk_verb = pick("Р»РµРІС‹Рј С…СѓРєРѕРј","РїСЂР°РІС‹Рј С…СѓРєРѕРј","РїСЂСЏРјС‹Рј СѓРґР°СЂРѕРј")
 
 	var/damage = rand(5, 8) + A.dna.species.punchdamagelow
 	if(!damage)
 		playsound(D.loc, A.dna.species.miss_sound, 25, TRUE, -1)
-		D.visible_message("<span class='warning'>[A] [atk_verb] мимо [D]!</span>", \
-			"<span class='userdanger'>[A] [atk_verb] мимо тебя!</span>", "<span class='hear'>Ты слышишь взмах!</span>", COMBAT_MESSAGE_RANGE, A)
-		to_chat(A, "<span class='warning'>Ты промахиваешься [atk_verb], пытаясь ударить [D]!</span>")
+		D.visible_message("<span class='warning'>[A] [atk_verb] РјРёРјРѕ [D]!</span>", \
+			"<span class='userdanger'>[A] [atk_verb] РјРёРјРѕ С‚РµР±СЏ!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РІР·РјР°С…!</span>", COMBAT_MESSAGE_RANGE, A)
+		to_chat(A, "<span class='warning'>РўС‹ РїСЂРѕРјР°С…РёРІР°РµС€СЊСЃСЏ [atk_verb], РїС‹С‚Р°СЏСЃСЊ СѓРґР°СЂРёС‚СЊ [D]!</span>")
 		log_combat(A, D, "attempted to hit", atk_verb)
 		return 0
 
@@ -32,17 +32,17 @@
 	playsound(D.loc, A.dna.species.attack_sound, 25, TRUE, -1)
 
 	D.visible_message("<span class='danger'>[A] [atk_verb] [D]!</span>", \
-			"<span class='userdanger'>[A] [atk_verb] тебя!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-	to_chat(A, "<span class='danger'>Ты бьёшь [atk_verb] [D]!</span>")
+			"<span class='userdanger'>[A] [atk_verb] С‚РµР±СЏ!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РєР°Рє С‡С‚Рѕ-С‚Рѕ СЃРёР»СЊРЅРѕ Р±СЊС‘С‚ РїРѕ РїР»РѕС‚Рё!</span>", COMBAT_MESSAGE_RANGE, A)
+	to_chat(A, "<span class='danger'>РўС‹ Р±СЊС‘С€СЊ [atk_verb] [D]!</span>")
 
 	D.apply_damage(damage, STAMINA, affecting, armor_block)
 	log_combat(A, D, "punched (boxing) ")
 	if(D.getStaminaLoss() > 50 && istype(D.mind?.martial_art, /datum/martial_art/boxing))
 		var/knockout_prob = D.getStaminaLoss() + rand(-15,15)
 		if((D.stat != DEAD) && prob(knockout_prob))
-			D.visible_message("<span class='danger'>[A] валит [D] одним сильным ударом!</span>", \
-								"<span class='userdanger'>[A] валит тебя сильным ударом!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-			to_chat(A, "<span class='danger'>Ты ложишь [D] одним сильным ударом!</span>")
+			D.visible_message("<span class='danger'>[A] РІР°Р»РёС‚ [D] РѕРґРЅРёРј СЃРёР»СЊРЅС‹Рј СѓРґР°СЂРѕРј!</span>", \
+								"<span class='userdanger'>[A] РІР°Р»РёС‚ С‚РµР±СЏ СЃРёР»СЊРЅС‹Рј СѓРґР°СЂРѕРј!</span>", "<span class='hear'>РўС‹ СЃР»С‹С€РёС€СЊ РєР°Рє С‡С‚Рѕ-С‚Рѕ СЃРёР»СЊРЅРѕ Р±СЊС‘С‚ РїРѕ РїР»РѕС‚Рё!</span>", COMBAT_MESSAGE_RANGE, A)
+			to_chat(A, "<span class='danger'>РўС‹ Р»РѕР¶РёС€СЊ [D] РѕРґРЅРёРј СЃРёР»СЊРЅС‹Рј СѓРґР°СЂРѕРј!</span>")
 			D.apply_effect(200,EFFECT_KNOCKDOWN,armor_block)
 			D.SetSleeping(100)
 			D.forcesay(GLOB.hit_appends)

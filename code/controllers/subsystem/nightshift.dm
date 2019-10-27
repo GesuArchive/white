@@ -21,7 +21,7 @@ SUBSYSTEM_DEF(nightshift)
 	check_nightshift()
 
 /datum/controller/subsystem/nightshift/proc/announce(message)
-	priority_announce(message, sound='sound/misc/notice2.ogg', sender_override="Автоматизированная Система Света")
+	priority_announce(message, sound='sound/misc/notice2.ogg', sender_override="РђРІС‚РѕРјР°С‚РёР·РёСЂРѕРІР°РЅРЅР°СЏ РЎРёСЃС‚РµРјР° РЎРІРµС‚Р°")
 
 /datum/controller/subsystem/nightshift/proc/check_nightshift()
 	var/emergency = GLOB.security_level >= SEC_LEVEL_RED
@@ -33,9 +33,9 @@ SUBSYSTEM_DEF(nightshift)
 		if(night_time)
 			announcing = FALSE
 			if(!emergency)
-				announce("Восстанавливаем нормальный цикл работы освещения.")
+				announce("Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµРј РЅРѕСЂРјР°Р»СЊРЅС‹Р№ С†РёРєР» СЂР°Р±РѕС‚С‹ РѕСЃРІРµС‰РµРЅРёСЏ.")
 			else
-				announce("Отключаем цикл работы освещения: Ситуация на станции находится в критичическом состоянии.")  
+				announce("РћС‚РєР»СЋС‡Р°РµРј С†РёРєР» СЂР°Р±РѕС‚С‹ РѕСЃРІРµС‰РµРЅРёСЏ: РЎРёС‚СѓР°С†РёСЏ РЅР° СЃС‚Р°РЅС†РёРё РЅР°С…РѕРґРёС‚СЃСЏ РІ РєСЂРёС‚РёС‡РёС‡РµСЃРєРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё.")  
 	if(emergency)
 		night_time = FALSE
 	if(nightshift_active != night_time)
@@ -45,9 +45,9 @@ SUBSYSTEM_DEF(nightshift)
 	nightshift_active = active
 	if(announce)
 		if (active)
-			announce("Вечер, экипаж. Для снижения энергопотребления и стимулирования циркадных ритмов некоторых видов животных, всё освещение на борту станции было затемнено на ночь.")
+			announce("Р’РµС‡РµСЂ, СЌРєРёРїР°Р¶. Р”Р»СЏ СЃРЅРёР¶РµРЅРёСЏ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ Рё СЃС‚РёРјСѓР»РёСЂРѕРІР°РЅРёСЏ С†РёСЂРєР°РґРЅС‹С… СЂРёС‚РјРѕРІ РЅРµРєРѕС‚РѕСЂС‹С… РІРёРґРѕРІ Р¶РёРІРѕС‚РЅС‹С…, РІСЃС‘ РѕСЃРІРµС‰РµРЅРёРµ РЅР° Р±РѕСЂС‚Сѓ СЃС‚Р°РЅС†РёРё Р±С‹Р»Рѕ Р·Р°С‚РµРјРЅРµРЅРѕ РЅР° РЅРѕС‡СЊ.")
 		else
-			announce("Утро, экипаж. Как и днем, функционирование всех светильников на борту станции восстановлено до прежнего состояния.")
+			announce("РЈС‚СЂРѕ, СЌРєРёРїР°Р¶. РљР°Рє Рё РґРЅРµРј, С„СѓРЅРєС†РёРѕРЅРёСЂРѕРІР°РЅРёРµ РІСЃРµС… СЃРІРµС‚РёР»СЊРЅРёРєРѕРІ РЅР° Р±РѕСЂС‚Сѓ СЃС‚Р°РЅС†РёРё РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРѕ РґРѕ РїСЂРµР¶РЅРµРіРѕ СЃРѕСЃС‚РѕСЏРЅРёСЏ.")
 	for(var/A in GLOB.apcs_list)
 		var/obj/machinery/power/apc/APC = A
 		if (APC.area && (APC.area.type in GLOB.the_station_areas))

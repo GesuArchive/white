@@ -467,26 +467,26 @@
 	if(custom_materials)
 		for(var/i in custom_materials)
 			var/datum/material/M = i
-			. += "<u>Материал похож на [M.name]</u>."
+			. += "<u>РњР°С‚РµСЂРёР°Р» РїРѕС…РѕР¶ РЅР° [M.name]</u>."
 	if(reagents)
 		if(reagents.flags & TRANSPARENT)
-			. += "Он содержит:"
+			. += "РћРЅ СЃРѕРґРµСЂР¶РёС‚:"
 			if(length(reagents.reagent_list))
 				if(user.can_see_reagents()) //Show each individual reagent
 					for(var/datum/reagent/R in reagents.reagent_list)
-						. += "[R.volume] единиц [R.name]"
+						. += "[R.volume] РµРґРёРЅРёС† [R.name]"
 				else //Otherwise, just show the total volume
 					var/total_volume = 0
 					for(var/datum/reagent/R in reagents.reagent_list)
 						total_volume += R.volume
-					. += "[total_volume] единиц различных реагентов"
+					. += "[total_volume] РµРґРёРЅРёС† СЂР°Р·Р»РёС‡РЅС‹С… СЂРµР°РіРµРЅС‚РѕРІ"
 			else
-				. += "Ничего."
+				. += "РќРёС‡РµРіРѕ."
 		else if(reagents.flags & AMOUNT_VISIBLE)
 			if(reagents.total_volume)
-				. += "<span class='notice'>В нём ещё есть [reagents.total_volume] единиц.</span>"
+				. += "<span class='notice'>Р’ РЅС‘Рј РµС‰С‘ РµСЃС‚СЊ [reagents.total_volume] РµРґРёРЅРёС†.</span>"
 			else
-				. += "<span class='danger'>Он пустой.</span>"
+				. += "<span class='danger'>РћРЅ РїСѓСЃС‚РѕР№.</span>"
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
@@ -724,7 +724,7 @@
 	while (do_after(user, 10, TRUE, src, FALSE, CALLBACK(STR, /datum/component/storage.proc/handle_mass_item_insertion, things, src_object, user, progress)))
 		stoplag(1)
 	qdel(progress)
-	to_chat(user, "<span class='notice'>Ты вытряхиваешь содержимое [src_object.parent] [STR.insert_preposition] [src.name] как можешь.</span>")
+	to_chat(user, "<span class='notice'>РўС‹ РІС‹С‚СЂСЏС…РёРІР°РµС€СЊ СЃРѕРґРµСЂР¶РёРјРѕРµ [src_object.parent] [STR.insert_preposition] [src.name] РєР°Рє РјРѕР¶РµС€СЊ.</span>")
 	STR.orient2hud(user)
 	src_object.orient2hud(user)
 	if(user.active_storage) //refresh the HUD to show the transfered contents

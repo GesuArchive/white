@@ -12,16 +12,16 @@
 		if(HAS_TRAIT(L, TRAIT_PROSOPAGNOSIA))
 			obscure_name = TRUE
 
-	. = list("<span class='info'>*---------*\nЭто же <EM>[!obscure_name ? name : "Unknown"]</EM>!")
+	. = list("<span class='info'>*---------*\nР­С‚Рѕ Р¶Рµ <EM>[!obscure_name ? name : "Unknown"]</EM>!")
 
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
 
 	if(pooed)
-		. += "<b>Невероятно, но [t_ego] одежда <font color='red'>ВСЯ В ГОВНЕ</font>.</b>"
+		. += "<b>РќРµРІРµСЂРѕСЏС‚РЅРѕ, РЅРѕ [t_ego] РѕРґРµР¶РґР° <font color='red'>Р’РЎРЇ Р’ Р“РћР’РќР•</font>.</b>"
 
 	if(headstamp && !(SLOT_HEAD in obscured))
-		. += "У н[t_ego] на лбу написано <b>[headstamp]</b>. Круто."
+		. += "РЈ РЅ[t_ego] РЅР° Р»Р±Сѓ РЅР°РїРёСЃР°РЅРѕ <b>[headstamp]</b>. РљСЂСѓС‚Рѕ."
 
 	//uniform
 	if(w_uniform && !(SLOT_W_UNIFORM in obscured))
@@ -30,74 +30,74 @@
 		if(istype(w_uniform, /obj/item/clothing/under))
 			var/obj/item/clothing/under/U = w_uniform
 			if(U.attached_accessory)
-				accessory_msg += " с [icon2html(U.attached_accessory, user)] \a [U.attached_accessory]"
+				accessory_msg += " СЃ [icon2html(U.attached_accessory, user)] \a [U.attached_accessory]"
 
-		. += "На н[t_na] [w_uniform.ru_get_examine_string(user)][accessory_msg]."
+		. += "РќР° РЅ[t_na] [w_uniform.ru_get_examine_string(user)][accessory_msg]."
 	//head
 	if(head)
-		. += "На голове у н[t_ego] [head.ru_get_examine_string(user)]."
+		. += "РќР° РіРѕР»РѕРІРµ Сѓ РЅ[t_ego] [head.ru_get_examine_string(user)]."
 	//suit/armor
 	if(wear_suit)
-		. += "На н[t_na] [wear_suit.ru_get_examine_string(user)]."
+		. += "РќР° РЅ[t_na] [wear_suit.ru_get_examine_string(user)]."
 		//suit/armor storage
 		if(s_store && !(SLOT_S_STORE in obscured))
-			. += "И к нему прикреплён [s_store.ru_get_examine_string(user)]."
+			. += "Р Рє РЅРµРјСѓ РїСЂРёРєСЂРµРїР»С‘РЅ [s_store.ru_get_examine_string(user)]."
 	//back
 	if(back)
-		. += "На [t_ego] спине [back.ru_get_examine_string(user)]."
+		. += "РќР° [t_ego] СЃРїРёРЅРµ [back.ru_get_examine_string(user)]."
 
 	//Hands
 	for(var/obj/item/I in held_items)
 		if(!(I.item_flags & ABSTRACT))
-			. += "В [t_ego] [get_held_index_name(get_held_index_of_item(I))] он[t_a] держит [I.ru_get_examine_string(user)]."
+			. += "Р’ [t_ego] [get_held_index_name(get_held_index_of_item(I))] РѕРЅ[t_a] РґРµСЂР¶РёС‚ [I.ru_get_examine_string(user)]."
 
 	var/datum/component/forensics/FR = GetComponent(/datum/component/forensics)
 	//gloves
 	if(gloves && !(SLOT_GLOVES in obscured))
-		. += "На руках у н[t_ego] [gloves.ru_get_examine_string(user)]."
+		. += "РќР° СЂСѓРєР°С… Сѓ РЅ[t_ego] [gloves.ru_get_examine_string(user)]."
 	else if(FR && length(FR.blood_DNA))
 		var/hand_number = get_num_arms(FALSE)
 		if(hand_number)
-			. += "<span class='warning'>[ru_ego(TRUE)] рук[hand_number > 1 ? "и" : "а"] в крови!</span>"
+			. += "<span class='warning'>[ru_ego(TRUE)] СЂСѓРє[hand_number > 1 ? "Рё" : "Р°"] РІ РєСЂРѕРІРё!</span>"
 
 	//handcuffed?
 
 	//handcuffed?
 	if(handcuffed)
 		if(istype(handcuffed, /obj/item/restraints/handcuffs/cable))
-			. += "<span class='warning'>[t_on] [icon2html(handcuffed, user)] связан[t_a]!</span>"
+			. += "<span class='warning'>[t_on] [icon2html(handcuffed, user)] СЃРІСЏР·Р°РЅ[t_a]!</span>"
 		else
-			. += "<span class='warning'>[t_on] [icon2html(handcuffed, user)] в наручниках!</span>"
+			. += "<span class='warning'>[t_on] [icon2html(handcuffed, user)] РІ РЅР°СЂСѓС‡РЅРёРєР°С…!</span>"
 
 	//belt
 	if(belt)
-		. += "На поясе у н[t_ego] [belt.ru_get_examine_string(user)]."
+		. += "РќР° РїРѕСЏСЃРµ Сѓ РЅ[t_ego] [belt.ru_get_examine_string(user)]."
 
 	//shoes
 	if(shoes && !(SLOT_SHOES in obscured))
-		. += "На [t_ego] ногах надеты [shoes.ru_get_examine_string(user)]."
+		. += "РќР° [t_ego] РЅРѕРіР°С… РЅР°РґРµС‚С‹ [shoes.ru_get_examine_string(user)]."
 
 	//mask
 	if(wear_mask && !(SLOT_WEAR_MASK in obscured))
-		. += "На лице у [t_ego] [wear_mask.ru_get_examine_string(user)]."
+		. += "РќР° Р»РёС†Рµ Сѓ [t_ego] [wear_mask.ru_get_examine_string(user)]."
 
 	if(wear_neck && !(SLOT_NECK in obscured))
-		. += "На шее у н[t_ego] [wear_neck.ru_get_examine_string(user)]."
+		. += "РќР° С€РµРµ Сѓ РЅ[t_ego] [wear_neck.ru_get_examine_string(user)]."
 
 	//eyes
 	if(!(SLOT_GLASSES in obscured))
 		if(glasses)
-			. += "На н[t_na] [glasses.ru_get_examine_string(user)]."
+			. += "РќР° РЅ[t_na] [glasses.ru_get_examine_string(user)]."
 		else if(eye_color == BLOODCULT_EYE && iscultist(src) && HAS_TRAIT(src, CULT_EYES))
-			. += "<span class='warning'><B>[ru_ego(TRUE)] глаза ярко-красные и они горят!</B></span>"
+			. += "<span class='warning'><B>[ru_ego(TRUE)] РіР»Р°Р·Р° СЏСЂРєРѕ-РєСЂР°СЃРЅС‹Рµ Рё РѕРЅРё РіРѕСЂСЏС‚!</B></span>"
 
 	//ears
 	if(ears && !(SLOT_EARS in obscured))
-		. += "В ушах у н[t_ego] [ears.ru_get_examine_string(user)]."
+		. += "Р’ СѓС€Р°С… Сѓ РЅ[t_ego] [ears.ru_get_examine_string(user)]."
 
 	//ID
 	if(wear_id)
-		. += "Также у н[t_ego] есть [wear_id.ru_get_examine_string(user)]."
+		. += "РўР°РєР¶Рµ Сѓ РЅ[t_ego] РµСЃС‚СЊ [wear_id.ru_get_examine_string(user)]."
 
 	//Status effects
 	var/list/status_examines = status_effect_examines()
@@ -107,27 +107,27 @@
 	//Jitters
 	switch(jitteriness)
 		if(300 to INFINITY)
-			. += "<span class='warning'><B>[t_on] бьётся в судорогах!</B></span>"
+			. += "<span class='warning'><B>[t_on] Р±СЊС‘С‚СЃСЏ РІ СЃСѓРґРѕСЂРѕРіР°С…!</B></span>"
 		if(200 to 300)
-			. += "<span class='warning'>[t_on] нервно дёргается.</span>"
+			. += "<span class='warning'>[t_on] РЅРµСЂРІРЅРѕ РґС‘СЂРіР°РµС‚СЃСЏ.</span>"
 		if(100 to 200)
-			. += "<span class='warning'>[t_on] дрожит.</span>"
+			. += "<span class='warning'>[t_on] РґСЂРѕР¶РёС‚.</span>"
 
 	var/appears_dead = 0
 	if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
 		appears_dead = 1
 		if(suiciding)
-			. += "<span class='warning'>[t_on] выглядит как суицидник... [t_ego] уже невозможно спасти.</span>"
+			. += "<span class='warning'>[t_on] РІС‹РіР»СЏРґРёС‚ РєР°Рє СЃСѓРёС†РёРґРЅРёРє... [t_ego] СѓР¶Рµ РЅРµРІРѕР·РјРѕР¶РЅРѕ СЃРїР°СЃС‚Рё.</span>"
 		if(hellbound)
-			. += "<span class='warning'>[ru_ego(TRUE)] душа выглядит оторванной от [t_ego] тела. Реанимация бесполезна.</span>"
+			. += "<span class='warning'>[ru_ego(TRUE)] РґСѓС€Р° РІС‹РіР»СЏРґРёС‚ РѕС‚РѕСЂРІР°РЅРЅРѕР№ РѕС‚ [t_ego] С‚РµР»Р°. Р РµР°РЅРёРјР°С†РёСЏ Р±РµСЃРїРѕР»РµР·РЅР°.</span>"
 		. += ""
 		if(getorgan(/obj/item/organ/brain) && !key && !get_ghost(FALSE, TRUE))
-			. += "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и души...</span>"
+			. += "<span class='deadsay'>[t_on] РЅРµ СЂРµР°РіРёСЂСѓРµС‚ РЅР° РїСЂРѕРёСЃС…РѕРґСЏС‰РµРµ РІРѕРєСЂСѓРі; РЅРµС‚ РїСЂРёР·РЅР°РєРѕРІ Р¶РёР·РЅРё Рё РґСѓС€Рё...</span>"
 		else
-			. += "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни...</span>"
+			. += "<span class='deadsay'>[t_on] РЅРµ СЂРµР°РіРёСЂСѓРµС‚ РЅР° РїСЂРѕРёСЃС…РѕРґСЏС‰РµРµ РІРѕРєСЂСѓРі; РЅРµС‚ РїСЂРёР·РЅР°РєРѕРІ Р¶РёР·РЅРё...</span>"
 
 	if(get_bodypart(BODY_ZONE_HEAD) && !getorgan(/obj/item/organ/brain))
-		. += "<span class='deadsay'>Похоже, что у н[t_ego] нет мозга...</span>"
+		. += "<span class='deadsay'>РџРѕС…РѕР¶Рµ, С‡С‚Рѕ Сѓ РЅ[t_ego] РЅРµС‚ РјРѕР·РіР°...</span>"
 
 	var/temp = getBruteLoss() //no need to calculate each of these twice
 
@@ -141,13 +141,13 @@
 			disabled += BP
 		missing -= BP.body_zone
 		for(var/obj/item/I in BP.embedded_objects)
-			msg += "<B>У н[t_ego] застрял \a [icon2html(I, user)] [I] в [BP.name]!</B>\n"
+			msg += "<B>РЈ РЅ[t_ego] Р·Р°СЃС‚СЂСЏР» \a [icon2html(I, user)] [I] РІ [BP.name]!</B>\n"
 
 	for(var/X in disabled)
 		var/obj/item/bodypart/BP = X
 		var/damage_text
 		if(!(BP.get_damage(include_stamina = FALSE) >= BP.max_damage)) //Stamina is disabling the limb
-			damage_text = "вялый и безжизненный"
+			damage_text = "РІСЏР»С‹Р№ Рё Р±РµР·Р¶РёР·РЅРµРЅРЅС‹Р№"
 		else
 			damage_text = (BP.brute_dam >= BP.burn_dam) ? BP.heavy_brute_msg : BP.heavy_burn_msg
 		msg += "<B>[t_ego] [BP.name] [damage_text]!</B>\n"
@@ -157,87 +157,87 @@
 	var/r_limbs_missing = 0
 	for(var/t in missing)
 		if(t==BODY_ZONE_HEAD)
-			msg += "<span class='deadsay'><B>[ru_ego(TRUE)] [ru_exam_parse_zone(parse_zone(t))] отсутствует!</B><span class='warning'>\n"
+			msg += "<span class='deadsay'><B>[ru_ego(TRUE)] [ru_exam_parse_zone(parse_zone(t))] РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚!</B><span class='warning'>\n"
 			continue
 		if(t == BODY_ZONE_L_ARM || t == BODY_ZONE_L_LEG)
 			l_limbs_missing++
 		else if(t == BODY_ZONE_R_ARM || t == BODY_ZONE_R_LEG)
 			r_limbs_missing++
 
-		msg += "<B>[ru_ego(TRUE)] [ru_exam_parse_zone(parse_zone(t))] отсутствует!</B>\n"
+		msg += "<B>[ru_ego(TRUE)] [ru_exam_parse_zone(parse_zone(t))] РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚!</B>\n"
 
 	if(l_limbs_missing >= 2 && r_limbs_missing == 0)
-		msg += "[t_on] стоит на правой части.\n"
+		msg += "[t_on] СЃС‚РѕРёС‚ РЅР° РїСЂР°РІРѕР№ С‡Р°СЃС‚Рё.\n"
 	else if(l_limbs_missing == 0 && r_limbs_missing >= 2)
-		msg += "[t_on] стоит на левой части.\n"
+		msg += "[t_on] СЃС‚РѕРёС‚ РЅР° Р»РµРІРѕР№ С‡Р°СЃС‚Рё.\n"
 	else if(l_limbs_missing >= 2 && r_limbs_missing >= 2)
-		msg += "[t_on] выглядит как котлетка.\n"
+		msg += "[t_on] РІС‹РіР»СЏРґРёС‚ РєР°Рє РєРѕС‚Р»РµС‚РєР°.\n"
 
 	if(!(user == src && src.hal_screwyhud == SCREWYHUD_HEALTHY)) //fake healthy
 		if(temp)
 			if(temp < 25)
-				msg += "[t_on] имеет незначительные ушибы.\n"
+				msg += "[t_on] РёРјРµРµС‚ РЅРµР·РЅР°С‡РёС‚РµР»СЊРЅС‹Рµ СѓС€РёР±С‹.\n"
 			else if(temp < 50)
-				msg += "[t_on] <b>тяжело</b> ранен[t_a]!\n"
+				msg += "[t_on] <b>С‚СЏР¶РµР»Рѕ</b> СЂР°РЅРµРЅ[t_a]!\n"
 			else
-				msg += "<B>[t_on] смертельно ранен[t_a]!</B>\n"
+				msg += "<B>[t_on] СЃРјРµСЂС‚РµР»СЊРЅРѕ СЂР°РЅРµРЅ[t_a]!</B>\n"
 
 		temp = getFireLoss()
 		if(temp)
 			if(temp < 25)
-				msg += "[t_on] немного подгорел[t_a].\n"
+				msg += "[t_on] РЅРµРјРЅРѕРіРѕ РїРѕРґРіРѕСЂРµР»[t_a].\n"
 			else if (temp < 50)
-				msg += "[t_on] имеет <b>серьёзные</b> ожоги!\n"
+				msg += "[t_on] РёРјРµРµС‚ <b>СЃРµСЂСЊС‘Р·РЅС‹Рµ</b> РѕР¶РѕРіРё!\n"
 			else
-				msg += "<B>[t_on] имеет смертельные ожоги!</B>\n"
+				msg += "<B>[t_on] РёРјРµРµС‚ СЃРјРµСЂС‚РµР»СЊРЅС‹Рµ РѕР¶РѕРіРё!</B>\n"
 
 		temp = getCloneLoss()
 		if(temp)
 			if(temp < 25)
-				msg += "[t_on] незначительные генетические повреждения.\n"
+				msg += "[t_on] РЅРµР·РЅР°С‡РёС‚РµР»СЊРЅС‹Рµ РіРµРЅРµС‚РёС‡РµСЃРєРёРµ РїРѕРІСЂРµР¶РґРµРЅРёСЏ.\n"
 			else if(temp < 50)
-				msg += "[t_on] <b>сильные</b> генетические повреждения!\n"
+				msg += "[t_on] <b>СЃРёР»СЊРЅС‹Рµ</b> РіРµРЅРµС‚РёС‡РµСЃРєРёРµ РїРѕРІСЂРµР¶РґРµРЅРёСЏ!\n"
 			else
-				msg += "<b>[t_on] смертельные генетические повреждения!</b>\n"
+				msg += "<b>[t_on] СЃРјРµСЂС‚РµР»СЊРЅС‹Рµ РіРµРЅРµС‚РёС‡РµСЃРєРёРµ РїРѕРІСЂРµР¶РґРµРЅРёСЏ!</b>\n"
 
 
 	if(fire_stacks > 0)
-		msg += "[t_on] в чем-то горючем.\n"
+		msg += "[t_on] РІ С‡РµРј-С‚Рѕ РіРѕСЂСЋС‡РµРј.\n"
 	if(fire_stacks < 0)
-		msg += "[t_on] выглядит мокро.\n"
+		msg += "[t_on] РІС‹РіР»СЏРґРёС‚ РјРѕРєСЂРѕ.\n"
 
 
 	if(pulledby && pulledby.grab_state)
-		msg += "[t_on] удерживается захватом [pulledby].\n"
+		msg += "[t_on] СѓРґРµСЂР¶РёРІР°РµС‚СЃСЏ Р·Р°С…РІР°С‚РѕРј [pulledby].\n"
 
 	if(nutrition < NUTRITION_LEVEL_STARVING - 50)
-		msg += "[t_on] выглядит смертельно истощённо.\n"
+		msg += "[t_on] РІС‹РіР»СЏРґРёС‚ СЃРјРµСЂС‚РµР»СЊРЅРѕ РёСЃС‚РѕС‰С‘РЅРЅРѕ.\n"
 	else if(nutrition >= NUTRITION_LEVEL_FAT)
 		if(user.nutrition < NUTRITION_LEVEL_STARVING - 50)
-			msg += "[t_on] выглядит как толстенький, словно поросёнок. Очень вкусный поросёнок.\n"
+			msg += "[t_on] РІС‹РіР»СЏРґРёС‚ РєР°Рє С‚РѕР»СЃС‚РµРЅСЊРєРёР№, СЃР»РѕРІРЅРѕ РїРѕСЂРѕСЃС‘РЅРѕРє. РћС‡РµРЅСЊ РІРєСѓСЃРЅС‹Р№ РїРѕСЂРѕСЃС‘РЅРѕРє.\n"
 		else
-			msg += "[t_on] выглядит довольно плотно.\n"
+			msg += "[t_on] РІС‹РіР»СЏРґРёС‚ РґРѕРІРѕР»СЊРЅРѕ РїР»РѕС‚РЅРѕ.\n"
 	switch(disgust)
 		if(DISGUST_LEVEL_GROSS to DISGUST_LEVEL_VERYGROSS)
-			msg += "[t_on] выглядит немного грязновато.\n"
+			msg += "[t_on] РІС‹РіР»СЏРґРёС‚ РЅРµРјРЅРѕРіРѕ РіСЂСЏР·РЅРѕРІР°С‚Рѕ.\n"
 		if(DISGUST_LEVEL_VERYGROSS to DISGUST_LEVEL_DISGUSTED)
-			msg += "[t_on] выглядит очень грязно.\n"
+			msg += "[t_on] РІС‹РіР»СЏРґРёС‚ РѕС‡РµРЅСЊ РіСЂСЏР·РЅРѕ.\n"
 		if(DISGUST_LEVEL_DISGUSTED to INFINITY)
-			msg += "[t_on] выглядит отвратительно грязно.\n"
+			msg += "[t_on] РІС‹РіР»СЏРґРёС‚ РѕС‚РІСЂР°С‚РёС‚РµР»СЊРЅРѕ РіСЂСЏР·РЅРѕ.\n"
 
 	if(blood_volume < BLOOD_VOLUME_SAFE)
-		msg += "[ru_ego(TRUE)] кожа бледная.\n"
+		msg += "[ru_ego(TRUE)] РєРѕР¶Р° Р±Р»РµРґРЅР°СЏ.\n"
 
 	if(bleedsuppress)
-		msg += "[t_on] перевязан[t_a].\n"
+		msg += "[t_on] РїРµСЂРµРІСЏР·Р°РЅ[t_a].\n"
 	else if(bleed_rate)
 		if(reagents.has_reagent(/datum/reagent/toxin/heparin, needs_metabolizing = TRUE))
-			msg += "<b>[t_on] обильно истекает кровью!</b>\n"
+			msg += "<b>[t_on] РѕР±РёР»СЊРЅРѕ РёСЃС‚РµРєР°РµС‚ РєСЂРѕРІСЊСЋ!</b>\n"
 		else
-			msg += "<B>[t_on] истекает кровью!</B>\n"
+			msg += "<B>[t_on] РёСЃС‚РµРєР°РµС‚ РєСЂРѕРІСЊСЋ!</B>\n"
 
 	if(reagents.has_reagent(/datum/reagent/teslium, needs_metabolizing = TRUE))
-		msg += "[t_on] испускает нежное голубое свечение!\n"
+		msg += "[t_on] РёСЃРїСѓСЃРєР°РµС‚ РЅРµР¶РЅРѕРµ РіРѕР»СѓР±РѕРµ СЃРІРµС‡РµРЅРёРµ!\n"
 
 	if(islist(stun_absorption))
 		for(var/i in stun_absorption)
@@ -248,53 +248,53 @@
 		if(drunkenness && !skipface) //Drunkenness
 			switch(drunkenness)
 				if(11 to 21)
-					msg += "[t_on] немного пьян[t_a].\n"
+					msg += "[t_on] РЅРµРјРЅРѕРіРѕ РїСЊСЏРЅ[t_a].\n"
 				if(21.01 to 41) //.01s are used in case drunkenness ends up to be a small decimal
-					msg += "[t_on] пьян[t_a].\n"
+					msg += "[t_on] РїСЊСЏРЅ[t_a].\n"
 				if(41.01 to 51)
-					msg += "[t_on] довольно пьян[t_a] и от н[t_ego] чувствуется запах алкоголя.\n"
+					msg += "[t_on] РґРѕРІРѕР»СЊРЅРѕ РїСЊСЏРЅ[t_a] Рё РѕС‚ РЅ[t_ego] С‡СѓРІСЃС‚РІСѓРµС‚СЃСЏ Р·Р°РїР°С… Р°Р»РєРѕРіРѕР»СЏ.\n"
 				if(51.01 to 61)
-					msg += "Очень пьян[t_a] и от н[t_ego] несёт перегаром.\n"
+					msg += "РћС‡РµРЅСЊ РїСЊСЏРЅ[t_a] Рё РѕС‚ РЅ[t_ego] РЅРµСЃС‘С‚ РїРµСЂРµРіР°СЂРѕРј.\n"
 				if(61.01 to 91)
-					msg += "[t_on] в стельку.\n"
+					msg += "[t_on] РІ СЃС‚РµР»СЊРєСѓ.\n"
 				if(91.01 to INFINITY)
-					msg += "[t_on] в говно!\n"
+					msg += "[t_on] РІ РіРѕРІРЅРѕ!\n"
 
 		if(src != user)
 			if(HAS_TRAIT(user, TRAIT_EMPATH))
 				if (a_intent != INTENT_HELP)
-					msg += "[t_on] выглядит на готове.\n"
+					msg += "[t_on] РІС‹РіР»СЏРґРёС‚ РЅР° РіРѕС‚РѕРІРµ.\n"
 				if (getOxyLoss() >= 10)
-					msg += "[t_on] выглядит измотанно.\n"
+					msg += "[t_on] РІС‹РіР»СЏРґРёС‚ РёР·РјРѕС‚Р°РЅРЅРѕ.\n"
 				if (getToxLoss() >= 10)
-					msg += "[t_on] выглядит болезненно.\n"
+					msg += "[t_on] РІС‹РіР»СЏРґРёС‚ Р±РѕР»РµР·РЅРµРЅРЅРѕ.\n"
 				var/datum/component/mood/mood = src.GetComponent(/datum/component/mood)
 				if(mood.sanity <= SANITY_DISTURBED)
-					msg += "[t_on] выглядит расстроено.\n"
+					msg += "[t_on] РІС‹РіР»СЏРґРёС‚ СЂР°СЃСЃС‚СЂРѕРµРЅРѕ.\n"
 					SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "empath", /datum/mood_event/sad_empath, src)
 				if (HAS_TRAIT(src, TRAIT_BLIND))
-					msg += "[t_on] смотрит в пустоту.\n"
+					msg += "[t_on] СЃРјРѕС‚СЂРёС‚ РІ РїСѓСЃС‚РѕС‚Сѓ.\n"
 				if (HAS_TRAIT(src, TRAIT_DEAF))
-					msg += "[t_on] не реагирует на шум.\n"
+					msg += "[t_on] РЅРµ СЂРµР°РіРёСЂСѓРµС‚ РЅР° С€СѓРј.\n"
 
 			msg += "</span>"
 
 			if(HAS_TRAIT(user, TRAIT_SPIRITUAL) && mind?.isholy)
-				msg += "От н[t_ego] веет святым духом.\n"
+				msg += "РћС‚ РЅ[t_ego] РІРµРµС‚ СЃРІСЏС‚С‹Рј РґСѓС…РѕРј.\n"
 				SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "religious_comfort", /datum/mood_event/religiously_comforted)
 
 		if(stat == UNCONSCIOUS)
-			msg += "[t_on] не реагирует на происходящее вокруг.\n"
+			msg += "[t_on] РЅРµ СЂРµР°РіРёСЂСѓРµС‚ РЅР° РїСЂРѕРёСЃС…РѕРґСЏС‰РµРµ РІРѕРєСЂСѓРі.\n"
 		else
 			if(HAS_TRAIT(src, TRAIT_DUMB))
-				msg += "[t_on] имеет глупое выражение лица.\n"
+				msg += "[t_on] РёРјРµРµС‚ РіР»СѓРїРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ Р»РёС†Р°.\n"
 			if(InCritical())
-				msg += "[t_on] едва в сознании.\n"
+				msg += "[t_on] РµРґРІР° РІ СЃРѕР·РЅР°РЅРёРё.\n"
 		if(getorgan(/obj/item/organ/brain))
 			if(!key)
-				msg += "<span class='deadsay'>[t_on] тотальный кататоник. Стресс от жизни в глубоком космосе сильно повлиял на н[t_ego]. Восстановление маловероятно.</span>\n"
+				msg += "<span class='deadsay'>[t_on] С‚РѕС‚Р°Р»СЊРЅС‹Р№ РєР°С‚Р°С‚РѕРЅРёРє. РЎС‚СЂРµСЃСЃ РѕС‚ Р¶РёР·РЅРё РІ РіР»СѓР±РѕРєРѕРј РєРѕСЃРјРѕСЃРµ СЃРёР»СЊРЅРѕ РїРѕРІР»РёСЏР» РЅР° РЅ[t_ego]. Р’РѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РјР°Р»РѕРІРµСЂРѕСЏС‚РЅРѕ.</span>\n"
 			else if(!client)
-				msg += "[t_on] имеет пустой, рассеянный взгляд и кажется совершенно не реагирующим ни на что. [t_on] может выйти из этого в ближайшее время.\n"
+				msg += "[t_on] РёРјРµРµС‚ РїСѓСЃС‚РѕР№, СЂР°СЃСЃРµСЏРЅРЅС‹Р№ РІР·РіР»СЏРґ Рё РєР°Р¶РµС‚СЃСЏ СЃРѕРІРµСЂС€РµРЅРЅРѕ РЅРµ СЂРµР°РіРёСЂСѓСЋС‰РёРј РЅРё РЅР° С‡С‚Рѕ. [t_on] РјРѕР¶РµС‚ РІС‹Р№С‚Рё РёР· СЌС‚РѕРіРѕ РІ Р±Р»РёР¶Р°Р№С€РµРµ РІСЂРµРјСЏ.\n"
 
 	if (length(msg))
 		. += "\n<span class='warning'>[msg.Join("")]</span>"
@@ -309,14 +309,14 @@
 	if(perpname && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)))
 		var/datum/data/record/R = find_record("name", perpname, GLOB.data_core.general)
 		if(R)
-			. += "<span class='deptradio'>Должность:</span> [R.fields["rank"]]\n<a href='?src=[REF(src)];hud=1;photo_front=1'>\[Front photo\]</a><a href='?src=[REF(src)];hud=1;photo_side=1'>\[Side photo\]</a>"
+			. += "<span class='deptradio'>Р”РѕР»Р¶РЅРѕСЃС‚СЊ:</span> [R.fields["rank"]]\n<a href='?src=[REF(src)];hud=1;photo_front=1'>\[Front photo\]</a><a href='?src=[REF(src)];hud=1;photo_side=1'>\[Side photo\]</a>"
 		if(HAS_TRAIT(user, TRAIT_MEDICAL_HUD))
 			var/cyberimp_detect
 			for(var/obj/item/organ/cyberimp/CI in internal_organs)
 				if(CI.status == ORGAN_ROBOTIC && !CI.syndicate_implant)
-					cyberimp_detect += "[name] модифицировано [CI.name]."
+					cyberimp_detect += "[name] РјРѕРґРёС„РёС†РёСЂРѕРІР°РЅРѕ [CI.name]."
 			if(cyberimp_detect)
-				. += "Обнаружены кибернетические модификации:"
+				. += "РћР±РЅР°СЂСѓР¶РµРЅС‹ РєРёР±РµСЂРЅРµС‚РёС‡РµСЃРєРёРµ РјРѕРґРёС„РёРєР°С†РёРё:"
 				. += cyberimp_detect
 			if(R)
 				var/health_r = R.fields["p_stat"]
@@ -327,7 +327,7 @@
 			if(R)
 				. += "<a href='?src=[REF(src)];hud=m;evaluation=1'>\[Medical evaluation\]</a><br>"
 			if(traitstring)
-				. += "<span class='info'>Выявленные физиологические признаки:\n[traitstring]"
+				. += "<span class='info'>Р’С‹СЏРІР»РµРЅРЅС‹Рµ С„РёР·РёРѕР»РѕРіРёС‡РµСЃРєРёРµ РїСЂРёР·РЅР°РєРё:\n[traitstring]"
 
 		if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
 			if(!user.stat && user != src)
@@ -338,13 +338,13 @@
 				if(R)
 					criminal = R.fields["criminal"]
 
-				. += "<span class='deptradio'>Статус:</span> <a href='?src=[REF(src)];hud=s;status=1'>\[[criminal]\]</a>"
-				. += jointext(list("<span class='deptradio'>Заметки:</span> <a href='?src=[REF(src)];hud=s;view=1'>\[View\]</a>",
-					"<a href='?src=[REF(src)];hud=s;add_crime=1'>\[Добавить нарушение\]</a>",
-					"<a href='?src=[REF(src)];hud=s;view_comment=1'>\[Просмотреть комментарии\]</a>",
-					"<a href='?src=[REF(src)];hud=s;add_comment=1'>\[Добавить комментарий\]</a>"), "")
+				. += "<span class='deptradio'>РЎС‚Р°С‚СѓСЃ:</span> <a href='?src=[REF(src)];hud=s;status=1'>\[[criminal]\]</a>"
+				. += jointext(list("<span class='deptradio'>Р—Р°РјРµС‚РєРё:</span> <a href='?src=[REF(src)];hud=s;view=1'>\[View\]</a>",
+					"<a href='?src=[REF(src)];hud=s;add_crime=1'>\[Р”РѕР±Р°РІРёС‚СЊ РЅР°СЂСѓС€РµРЅРёРµ\]</a>",
+					"<a href='?src=[REF(src)];hud=s;view_comment=1'>\[РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ РєРѕРјРјРµРЅС‚Р°СЂРёРё\]</a>",
+					"<a href='?src=[REF(src)];hud=s;add_comment=1'>\[Р”РѕР±Р°РІРёС‚СЊ РєРѕРјРјРµРЅС‚Р°СЂРёР№\]</a>"), "")
 	else if(isobserver(user) && traitstring)
-		. += "<span class='info'><b>Черты:</b> [traitstring]</span>"
+		. += "<span class='info'><b>Р§РµСЂС‚С‹:</b> [traitstring]</span>"
 	. += "<span class='info'>*---------*</span>"
 
 /mob/living/proc/status_effect_examines(pronoun_replacement) //You can include this in any mob's examine() to show the examine texts of status effects!

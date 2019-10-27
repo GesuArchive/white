@@ -39,4 +39,4 @@
 				cleaned_human.wash_poo()
 				cleaned_human.headstamp = null
 				cleaned_human.regenerate_icons()
-				to_chat(cleaned_human, "<span class='danger'>[AM] моет твоё лицо!</span>")
+				to_chat(cleaned_human, "<span class='danger'>[AM] РјРѕРµС‚ С‚РІРѕС‘ Р»РёС†Рѕ!</span>")
