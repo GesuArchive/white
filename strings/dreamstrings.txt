@@ -1,44 +1,44 @@
-%A% %ADJECTIVE% знакомое лицо
-%A% %ADJECTIVE% член экипажа
-%A% %ADJECTIVE% сотрудник службы безопасности
-%A% %ADJECTIVE% доктор
-%A% %ADJECTIVE% инженер
-%A% %ADJECTIVE% шахтёр
-%A% %ADJECTIVE% слайм
-%A% %ADJECTIVE% пришелец
-%A% %ADJECTIVE% предатель
-%A% %ADJECTIVE% союзник
-%A% %ADJECTIVE% учёный
-%A% %ADJECTIVE% мартышка
-%A% %ADJECTIVE% любимый человек
-%A% %ADJECTIVE% монстр
-the %ADJECTIVE% капитан
-%A% %ADJECTIVE% шапка
-%A% %ADJECTIVE% ID-карта
-%A% %ADJECTIVE% бутылка
-%A% %ADJECTIVE% ящик с инструментами
-%A% %ADJECTIVE% пушка
-солнце
-двигатель
-станция
-%A% %ADJECTIVE% планета
-медбей
-%ADJECTIVE% мостик
-%ADJECTIVE% бриг
-%A% %ADJECTIVE% шаттл
-%A% %ADJECTIVE% лаборатория
-Нанотрейзен
-Синдикат
-Федерация Волшебников
-%ADJECTIVE% кровь
-%ADJECTIVE% плазма
-%ADJECTIVE% ветер
-%ADJECTIVE% тьма
-%ADJECTIVE% свет
-%ADJECTIVE% смерть
-%ADJECTIVE% мигающие огни
-%ADJECTIVE% энергия
-%ADJECTIVE% богатства
-вода
-%ADJECTIVE% огни
-немного %ADJECTIVE% арбузов
+%A% %ADJECTIVE% Р·РЅР°РєРѕРјРѕРµ Р»РёС†Рѕ
+%A% %ADJECTIVE% С‡Р»РµРЅ СЌРєРёРїР°Р¶Р°
+%A% %ADJECTIVE% СЃРѕС‚СЂСѓРґРЅРёРє СЃР»СѓР¶Р±С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё
+%A% %ADJECTIVE% РґРѕРєС‚РѕСЂ
+%A% %ADJECTIVE% РёРЅР¶РµРЅРµСЂ
+%A% %ADJECTIVE% С€Р°С…С‚С‘СЂ
+%A% %ADJECTIVE% СЃР»Р°Р№Рј
+%A% %ADJECTIVE% РїСЂРёС€РµР»РµС†
+%A% %ADJECTIVE% РїСЂРµРґР°С‚РµР»СЊ
+%A% %ADJECTIVE% СЃРѕСЋР·РЅРёРє
+%A% %ADJECTIVE% СѓС‡С‘РЅС‹Р№
+%A% %ADJECTIVE% РјР°СЂС‚С‹С€РєР°
+%A% %ADJECTIVE% Р»СЋР±РёРјС‹Р№ С‡РµР»РѕРІРµРє
+%A% %ADJECTIVE% РјРѕРЅСЃС‚СЂ
+the %ADJECTIVE% РєР°РїРёС‚Р°РЅ
+%A% %ADJECTIVE% С€Р°РїРєР°
+%A% %ADJECTIVE% ID-РєР°СЂС‚Р°
+%A% %ADJECTIVE% Р±СѓС‚С‹Р»РєР°
+%A% %ADJECTIVE% СЏС‰РёРє СЃ РёРЅСЃС‚СЂСѓРјРµРЅС‚Р°РјРё
+%A% %ADJECTIVE% РїСѓС€РєР°
+СЃРѕР»РЅС†Рµ
+РґРІРёРіР°С‚РµР»СЊ
+СЃС‚Р°РЅС†РёСЏ
+%A% %ADJECTIVE% РїР»Р°РЅРµС‚Р°
+РјРµРґР±РµР№
+%ADJECTIVE% РјРѕСЃС‚РёРє
+%ADJECTIVE% Р±СЂРёРі
+%A% %ADJECTIVE% С€Р°С‚С‚Р»
+%A% %ADJECTIVE% Р»Р°Р±РѕСЂР°С‚РѕСЂРёСЏ
+РќР°РЅРѕС‚СЂРµР№Р·РµРЅ
+РЎРёРЅРґРёРєР°С‚
+Р¤РµРґРµСЂР°С†РёСЏ Р’РѕР»С€РµР±РЅРёРєРѕРІ
+%ADJECTIVE% РєСЂРѕРІСЊ
+%ADJECTIVE% РїР»Р°Р·РјР°
+%ADJECTIVE% РІРµС‚РµСЂ
+%ADJECTIVE% С‚СЊРјР°
+%ADJECTIVE% СЃРІРµС‚
+%ADJECTIVE% СЃРјРµСЂС‚СЊ
+%ADJECTIVE% РјРёРіР°СЋС‰РёРµ РѕРіРЅРё
+%ADJECTIVE% СЌРЅРµСЂРіРёСЏ
+%ADJECTIVE% Р±РѕРіР°С‚СЃС‚РІР°
+РІРѕРґР°
+%ADJECTIVE% РѕРіРЅРё
+РЅРµРјРЅРѕРіРѕ %ADJECTIVE% Р°СЂР±СѓР·РѕРІ
