@@ -3140,6 +3140,7 @@
 #include "code\shitcode\valtos\code\serverside\pronouns_ru.dm"
 #include "code\shitcode\valtos\code\serverside\rus_exam.dm"
 #include "code\shitcode\valtos\code\serverside\rus_names.dm"
+#include "code\shitcode\valtos\code\serverside\text_ru.dm"
 #include "code\shitcode\valtos\code\trading\_defines.dm"
 #include "code\shitcode\valtos\code\trading\terminal.dm"
 #include "code\shitcode\valtos\code\uniforms\russian.dm"
