@@ -57,7 +57,7 @@
 		return
 
 	user.log_message(msg, LOG_EMOTE)
-	msg = "<b>[user]</b> " + pointization(r_lowertext(msg))
+	msg = "<b>[user]</b> " + pointization(r_antidaunize(msg))
 
 	proverka_na_detey(msg, user)
 

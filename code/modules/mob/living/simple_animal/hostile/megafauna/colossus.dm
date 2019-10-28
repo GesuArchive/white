@@ -314,7 +314,7 @@ Difficulty: Very Hard
 	var/list/file_data = list()
 	file_data["data"] = stored_items
 	fdel(json_file)
-	WRITE_FILE(json_file, r_json_encode(file_data))
+	WRITE_FILE(json_file, json_encode(file_data))
 
 /obj/machinery/smartfridge/black_box/proc/ReadMemory()
 	if(fexists("data/npc_saves/Blackbox.sav")) //legacy compatability to convert old format to new

@@ -323,7 +323,7 @@
 /// Prompt the passed in mob client to download this outfit as a json blob
 /datum/outfit/proc/save_to_file(mob/admin)
 	var/stored_data = get_json_data()
-	var/json = r_json_encode(stored_data)
+	var/json = json_encode(stored_data)
 	//Kinda annoying but as far as i can tell you need to make actual file.
 	var/f = file("data/TempOutfitUpload")
 	fdel(f)

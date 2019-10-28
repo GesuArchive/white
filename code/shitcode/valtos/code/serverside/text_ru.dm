@@ -1,0 +1,118 @@
+// Для 513 в самый раз
+// Люммокс пидорас
+
+GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
+	"А" = "0410", "а" = "0430",
+	"Б" = "0411", "б" = "0431",
+	"В" = "0412", "в" = "0432",
+	"Г" = "0413", "г" = "0433",
+	"Д" = "0414", "д" = "0434",
+	"Е" = "0415", "е" = "0435",
+	"Ж" = "0416", "ж" = "0436",
+	"З" = "0417", "з" = "0437",
+	"И" = "0418", "и" = "0438",
+	"Й" = "0419", "й" = "0439",
+	"К" = "041a", "к" = "043a",
+	"Л" = "041b", "л" = "043b",
+	"М" = "041c", "м" = "043c",
+	"Н" = "041d", "н" = "043d",
+	"О" = "041e", "о" = "043e",
+	"П" = "041f", "п" = "043f",
+	"Р" = "0420", "р" = "0440",
+	"С" = "0421", "с" = "0441",
+	"Т" = "0422", "т" = "0442",
+	"У" = "0423", "у" = "0443",
+	"Ф" = "0424", "ф" = "0444",
+	"Х" = "0425", "х" = "0445",
+	"Ц" = "0426", "ц" = "0446",
+	"Ч" = "0427", "ч" = "0447",
+	"Ш" = "0428", "ш" = "0448",
+	"Щ" = "0429", "щ" = "0449",
+	"Ъ" = "042a", "ъ" = "044a",
+	"Ы" = "042b", "ы" = "044b",
+	"Ь" = "042c", "ь" = "044c",
+	"Э" = "042d", "э" = "044d",
+	"Ю" = "042e", "ю" = "044e",
+	"Я" = "042f", "я" = "044f",
+
+	"Ё" = "0401", "ё" = "0451"
+	))
+
+/proc/r_lowertext(text)
+	var/t = ""
+	for(var/i = 1, i <= length(text), i++)
+		var/a = text2ascii(text, i)
+		if (a == 1105 || a == 1025)
+			t += ascii2text(1105)
+			continue
+		if (a < 1040 || a > 1071)
+			t += ascii2text(a)
+			continue
+		t += ascii2text(a + 32)
+	return lowertext(t)
+
+/proc/r_uppertext(text)
+	var/t = ""
+	for(var/i = 1, i <= length(text), i++)
+		var/a = text2ascii(text, i)
+		if (a == 1105 || a == 1025)
+			t += ascii2text(1025)
+			continue
+		if (a < 1072 || a > 1105)
+			t += ascii2text(a)
+			continue
+		t += ascii2text(a - 32)
+	return uppertext(t)
+
+/proc/pointization(text)
+	if (!text)
+		return
+	if (copytext(text,1,2) == "*") //Emotes allowed.
+		return text
+	if (copytext(text,-1) in list("!", "?", "."))
+		return text
+	text += "."
+	return text
+
+/proc/r_capitalize(t as text)
+    var/first = ascii2text(text2ascii(t))
+    return r_uppertext(first) + copytext(t, length(first) + 1)
+
+/proc/r_antidaunize(t as text)
+    var/first = ascii2text(text2ascii(t))
+    return r_lowertext(first) + copytext(t, length(first) + 1)
+
+/proc/r_json_decode(text) //now I'm stupid
+	for(var/s in GLOB.rus_unicode_conversion_hex)
+		text = replacetext(text, "\\u[GLOB.rus_unicode_conversion_hex[s]]", s)
+	return json_decode(text)
+
+/proc/ru_comms(freq)
+	if(freq == "Common")
+		return "Основной"
+	else if (freq == "Security")
+		return "Секьюрити"
+	else if (freq == "Engineering")
+		return "Инженерия"
+	else if (freq == "Command")
+		return "Командование"
+	else if (freq == "Science")
+		return "Научный"
+	else if (freq == "Medical")
+		return "Медбей"
+	else if (freq == "Supply")
+		return "Карго"
+	else if (freq == "Service")
+		return "Обслуживание"
+	else if (freq == "AI Private")
+		return "Приватный ИИ"
+	else if (freq == "Syndicate")
+		return "Синдикат"
+	else if (freq == "CentCom")
+		return "ЦентКом"
+	else if (freq == "Red Team")
+		return "Советы"
+	else if (freq == "Blue Team")
+		return "Нацисты"
+	else
+		return freq

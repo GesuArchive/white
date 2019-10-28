@@ -4,7 +4,7 @@
 		var/datum/reagent/R = t
 		. += list(list("id" = t, "text" = initial(R.name)))
 
-	. = r_json_encode(.)
+	. = json_encode(.)
 
 /proc/beakersforbeakers()
 	. = list()
@@ -12,7 +12,7 @@
 		var/obj/item/reagent_containers/C = t
 		. += list(list("id" = t, "text" = initial(C.name), "volume" = initial(C.volume)))
 
-	. = r_json_encode(.)
+	. = json_encode(.)
 
 /datum/admins/proc/beaker_panel_act(list/href_list)
 	switch (href_list["beakerpanel"])

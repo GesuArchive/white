@@ -93,7 +93,7 @@ SUBSYSTEM_DEF(blackbox)
 		var/sqlversion = 1
 		if(FV.key in versions)
 			sqlversion = versions[FV.key]
-		sqlrowlist += list(list("datetime" = "Now()", "round_id" = GLOB.round_id, "key_name" =  "'[sanitizeSQL(FV.key)]'", "key_type" = "'[FV.key_type]'", "version" = "[sqlversion]", "json" = "'[sanitizeSQL(r_json_encode(FV.json))]'"))
+		sqlrowlist += list(list("datetime" = "Now()", "round_id" = GLOB.round_id, "key_name" =  "'[sanitizeSQL(FV.key)]'", "key_type" = "'[FV.key_type]'", "version" = "[sqlversion]", "json" = "'[sanitizeSQL(json_encode(FV.json))]'"))
 
 	if (!length(sqlrowlist))
 		return

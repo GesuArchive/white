@@ -216,7 +216,7 @@
 	if(wires.len)
 		blocks["wires"] = wires
 
-	return r_json_encode(blocks)
+	return json_encode(blocks)
 
 
 

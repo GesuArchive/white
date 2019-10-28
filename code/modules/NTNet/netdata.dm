@@ -23,7 +23,7 @@
 	data |= json_decode(json)
 
 /datum/netdata/proc/data_to_json()
-	return r_json_encode(data)
+	return json_encode(data)
 
 /datum/netdata/proc/json_list_generation_admin()	//for admin logs and such.
 	. = list()
