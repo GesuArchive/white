@@ -291,9 +291,9 @@
 
 		log_combat(src, M, "grabbed", addition="passive grab")
 		if(!supress_message && !(iscarbon(AM) && HAS_TRAIT(src, TRAIT_STRONG_GRABBER)))
-			M.visible_message("<span class='warning'>[src] хватает [M] нежно!</span>", \
-							"<span class='warning'>[src] хватает тебя нежно!</span>", null, null, src)
-			to_chat(src, "<span class='notice'>Ты хватаешь [M] нежно!</span>")
+			M.visible_message("<span class='warning'>[src] хватает [M] [(zone_selected == "l_arm" || zone_selected == "r_arm")? "за руку":"нежно"]!</span>", \
+							"<span class='warning'>[src] хватает тебя [(zone_selected == "l_arm" || zone_selected == "r_arm")? "за руку":"нежно"]!</span>", null, null, src)
+			to_chat(src, "<span class='notice'>Ты хватаешь [M] [(zone_selected == "l_arm" || zone_selected == "r_arm")? "за руку":"нежно"]!</span>")
 		if(!iscarbon(src))
 			M.LAssailant = null
 		else
