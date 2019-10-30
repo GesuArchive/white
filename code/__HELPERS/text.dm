@@ -74,24 +74,23 @@
 
 //Returns null if there is any bad text in the string
 /proc/reject_bad_text(text, max_length=512)
-	return text
-//	if(length(text) > max_length)
-//		return			//message too long
-//	var/non_whitespace = 0
-//	for(var/i=1, i<=length(text), i++)
-//		switch(text2ascii(text,i))
-//			if(62,60,92,47)
-//				return			//rejects the text if it contains these bad characters: <, >, \ or /
-//			if(127 to 255)
-//				return			//rejects weird letters like �
-//			if(0 to 31)
-//				return			//more weird stuff
-//			if(32)
-//				continue		//whitespace
-//			else
-//				non_whitespace = 1
-//	if(non_whitespace)
-//		return text		//only accepts the text if it has some non-spaces
+	if(length(text) > max_length)
+		return			//message too long
+	var/non_whitespace = 0
+	for(var/i=1, i<=length(text), i++)
+		switch(text2ascii(text,i))
+			if(62,60,92,47)
+				return			//rejects the text if it contains these bad characters: <, >, \ or /
+			if(127 to 255)
+				return			//rejects weird letters like �
+			if(0 to 31)
+				return			//more weird stuff
+			if(32)
+				continue		//whitespace
+			else
+				non_whitespace = 1
+	if(non_whitespace)
+		return text		//only accepts the text if it has some non-spaces
 
 // Used to get a properly sanitized input, of max_length
 // no_trim is self explanatory but it prevents the input from being trimed if you intend to parse newlines or whitespace.
@@ -111,7 +110,7 @@
 		return trim(html_encode(name), max_length)
 
 //Filters out undesirable characters from names
-/proc/reject_bad_name(t_in, allow_numbers=0, max_length=MAX_NAME_LEN)
+/proc/reject_bad_name(t_in, allow_numbers=0, max_length=84)
 	if(!t_in || length(t_in) > max_length)
 		return //Rejects the input if it is null or if it is longer then the max length allowed
 
@@ -122,6 +121,9 @@
 	for(var/i=1, i<=length(t_in), i++)
 		var/ascii_char = text2ascii(t_in,i)
 		switch(ascii_char)
+			if(1105 to 1e31)
+				continue
+
 			// A  .. Z
 			if(65 to 90)			//Uppercase Letters
 				t_out += ascii2text(ascii_char)
@@ -130,6 +132,20 @@
 
 			// a  .. z
 			if(97 to 122)			//Lowercase Letters
+				if(last_char_group<2)
+					t_out += ascii2text(ascii_char-32)	//Force uppercase first character
+				else
+					t_out += ascii2text(ascii_char)
+				number_of_alphanumeric++
+				last_char_group = 4
+
+			if(1040 to 1071)			//Русские буковки
+				t_out += ascii2text(ascii_char)
+				number_of_alphanumeric++
+				last_char_group = 4
+
+			if(1072 to 1105)			//Русские буковки
+				world << last_char_group
 				if(last_char_group<2)
 					t_out += ascii2text(ascii_char-32)	//Force uppercase first character
 				else
