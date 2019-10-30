@@ -100,7 +100,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	if(ic_blocked)
 		//The filter warning message shows the sanitized message though.
-		to_chat(src, "<span class='warning'>Вы попытались сказать: <span replaceRegex='show_filtered_ic_chat'>\"[message]\"</span>, но у вас ничего не вышло.</span>")
+		to_chat(src, "<span class='warning'>Ты хотел сказать: <span replaceRegex='show_filtered_ic_chat'>\"[message]\"</span>, но у тебя ничего не вышло.</span>")
 		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
 		return
 
@@ -163,7 +163,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		return
 
 	if(!can_speak_vocal(message))
-		to_chat(src, "<span class='warning'>You find yourself unable to speak!</span>")
+		to_chat(src, "<span class='warning'>Не помню как говорить!</span>")
 		return
 
 	var/message_range = 7

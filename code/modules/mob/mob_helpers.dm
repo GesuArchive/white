@@ -80,122 +80,87 @@
 /**
   * Makes you speak like you're drunk
   */
-/proc/slur(n)
-	var/phrase = html_decode(n)
-	var/leng = lentext(phrase)
-	var/counter=lentext(phrase)
-	var/newphrase=""
-	var/newletter=""
-	while(counter>=1)
-		newletter=copytext(phrase,(leng-counter)+1,(leng-counter)+2)
-		if(rand(1,3)==3)
-			if(lowertext(newletter)=="o")
-				newletter="u"
-			if(lowertext(newletter)=="s")
-				newletter="ch"
-			if(lowertext(newletter)=="a")
-				newletter="ah"
-			if(lowertext(newletter)=="u")
-				newletter="oo"
-			if(lowertext(newletter)=="c")
-				newletter="k"
-		if(rand(1,20)==20)
-			if(newletter==" ")
-				newletter="...huuuhhh..."
-			if(newletter==".")
-				newletter=" *BURP*."
-		switch(rand(1,20))
-			if(1)
-				newletter+="'"
-			if(10)
-				newletter+="[newletter]"
-			if(20)
-				newletter+="[newletter][newletter]"
-		newphrase+="[newletter]";counter-=1
-	return newphrase
+/proc/slur(phrase)
+	var/output = ""
 
-/// Makes you talk like you got cult stunned, which is slurring but with some dark messages
-/proc/cultslur(n) // Inflicted on victims of a stun talisman
-	var/phrase = html_decode(n)
-	var/leng = lentext(phrase)
-	var/counter=lentext(phrase)
-	var/newphrase=""
-	var/newletter=""
-	while(counter>=1)
-		newletter=copytext(phrase,(leng-counter)+1,(leng-counter)+2)
-		if(rand(1,2)==2)
-			if(lowertext(newletter)=="o")
-				newletter="u"
-			if(lowertext(newletter)=="t")
-				newletter="ch"
-			if(lowertext(newletter)=="a")
-				newletter="ah"
-			if(lowertext(newletter)=="u")
-				newletter="oo"
-			if(lowertext(newletter)=="c")
-				newletter=" NAR "
-			if(lowertext(newletter)=="s")
-				newletter=" SIE "
-		if(rand(1,4)==4)
-			if(newletter==" ")
-				newletter=" no hope... "
-			if(newletter=="H")
-				newletter=" IT COMES... "
+	for(var/i = 1; i <= lentext(phrase); i++)
+		var/a_letter = text2ascii(phrase, i)
+		var/letter = ascii2text(a_letter)
+		if(prob(33))
+			if(r_lowertext(letter)=="о")	letter="у"
+			if(r_lowertext(letter)=="ы")	letter="i"
+			if(r_lowertext(letter)=="р")	letter="r"
+			if(r_lowertext(letter)=="л")	letter="ль"
+			if(r_lowertext(letter)=="з")	letter="с"
+			if(r_lowertext(letter)=="в")	letter="ф"
+			if(r_lowertext(letter)=="б")	letter="п"
+			if(r_lowertext(letter)=="г")	letter="х"
+			if(r_lowertext(letter)=="д")	letter="т"
 
 		switch(rand(1,15))
-			if(1)
-				newletter="'"
-			if(2)
-				newletter+="agn"
-			if(3)
-				newletter="fth"
-			if(4)
-				newletter="nglu"
-			if(5)
-				newletter="glor"
-		newphrase+="[newletter]";counter-=1
-	return newphrase
+			if(1,3,5,8)		letter = "[r_lowertext(letter)]"
+			if(2,4,6,15)	letter = "[r_uppertext(letter)]"
+			if(7)			letter += "'"
+			if(9,10)		letter = "<b>[letter]</b>"
+			if(11,12)		letter = "<big>[letter]</big>"
+			if(13)			letter = "<small>[letter]</small>"
+		output += letter
+
+	return output
+
+/// Makes you talk like you got cult stunned, which is slurring but with some dark messages
+/proc/cultslur(phrase)
+	var/output = ""
+
+	for(var/i = 1; i <= lentext(phrase); i++)
+		var/a_letter = text2ascii(phrase, i)
+		var/letter = ascii2text(a_letter)
+		if(prob(33))
+			if(r_lowertext(letter)=="о")	letter="о"
+			if(r_lowertext(letter)=="ы")	letter="i"
+			if(r_lowertext(letter)=="р")	letter="НАР"
+			if(r_lowertext(letter)=="л")	letter="ль"
+			if(r_lowertext(letter)=="з")	letter="СИ"
+			if(r_lowertext(letter)=="в")	letter="ф"
+			if(r_lowertext(letter)=="б")	letter="п"
+			if(r_lowertext(letter)=="г")	letter="СМЫСЛА"
+			if(r_lowertext(letter)=="д")	letter="т"
+			if(r_lowertext(letter)=="н")	letter="НЕТ"
+
+		switch(rand(1,15))
+			if(1,3,5,8)		letter = "[r_lowertext(letter)]"
+			if(2,4,6,15)	letter = "[r_uppertext(letter)]"
+			if(7)			letter += "'"
+			if(9,10)		letter = "<b>[letter]</b>"
+			if(11,12)		letter = "<big>[letter]</big>"
+			if(13)			letter = "<small>[letter]</small>"
+		output += letter
+
+	return output
 
 ///Adds stuttering to the message passed in
 /proc/stutter(n)
-	var/te = html_decode(n)
-	var/t = ""//placed before the message. Not really sure what it's for.
-	n = length(n)//length of the entire word
-	var/p = null
-	p = 1//1 is the start of any word
-	while(p <= n)//while P, which starts at 1 is less or equal to N which is the length.
-		var/n_letter = copytext(te, p, p + 1)//copies text from a certain distance. In this case, only one letter at a time.
-		if (prob(80) && (ckey(n_letter) in list("b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z")))
-			if (prob(10))
-				n_letter = text("[n_letter]-[n_letter]-[n_letter]-[n_letter]")//replaces the current letter with this instead.
-			else
-				if (prob(20))
-					n_letter = text("[n_letter]-[n_letter]-[n_letter]")
-				else
-					if (prob(5))
-						n_letter = null
-					else
-						n_letter = text("[n_letter]-[n_letter]")
-		t = text("[t][n_letter]")//since the above is ran through for each letter, the text just adds up back to the original word.
-		p++//for each letter p is increased to find where the next letter will be.
-	return copytext(sanitize(t),1,MAX_MESSAGE_LEN)
+	return r_stutter(n)
 
 ///Convert a message to derpy speak
 /proc/derpspeech(message, stuttering)
-	message = replacetext(message, " am ", " ")
-	message = replacetext(message, " is ", " ")
-	message = replacetext(message, " are ", " ")
-	message = replacetext(message, "you", "u")
-	message = replacetext(message, "help", "halp")
-	message = replacetext(message, "grief", "grife")
-	message = replacetext(message, "space", "spess")
-	message = replacetext(message, "carp", "crap")
-	message = replacetext(message, "reason", "raisin")
+	message = replacetext(message, "ты", "-")
+	message = replacetext(message, "голова", "ТЫКОВКА")
+	message = replacetext(message, "ноги", "ПАЛОЧКИ")
+	message = replacetext(message, "помоги", "посмотри")
+	message = replacetext(message, "убивают", "любят")
+	message = replacetext(message, "убивает", "любит")
+	message = replacetext(message, "космос", "дырочк")
+	message = replacetext(message, "техи", "попа")
+	message = replacetext(message, "техах", "попу")
+	message = replacetext(message, "стволы", "дерьмо")
+	message = replacetext(message, "пушки", "говно")
+	message = replacetext(message, "руки", "КУЛЬТЯПКИ")
 	if(prob(50))
-		message = uppertext(message)
-		message += "[stutter(pick("!", "!!", "!!!"))]"
+		message = r_uppertext(message)
+		message += "[r_stutter(pick("!", "!!", "!!!"))]"
 	if(!stuttering && prob(15))
-		message = stutter(message)
+		message = r_stutter(message)
 	return message
 
 /**
@@ -206,7 +171,7 @@
 /proc/Gibberish(text, replace_characters = FALSE, chance = 50)
 	. = ""
 	for(var/i in 1 to length(text))
-		var/letter = text[i]
+		var/letter = ascii2text(text2ascii(text, i))
 		if(prob(chance))
 			if(replace_characters)
 				letter = ""
@@ -233,9 +198,10 @@
 		var/n_letter
 		var/n_mod = rand(1,4)
 		if(p+n_mod>n+1)
-			n_letter = copytext(te, p, n+1)
+			n_letter = ascii2text(text2ascii(te, p))
 		else
-			n_letter = copytext(te, p, p+n_mod)
+			for (var/i = 0, i <= n_mod, i++)
+				n_letter += ascii2text(text2ascii(te, p + i))
 		if (prob(50))
 			if (prob(30))
 				n_letter = text("[n_letter]-[n_letter]-[n_letter]")
@@ -245,7 +211,7 @@
 			n_letter = text("[n_letter]")
 		t = text("[t][n_letter]")
 		p=p+n_mod
-	return copytext(sanitize(t),1,MAX_MESSAGE_LEN)
+	return copytext(sanitize(t),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))
 
 ///Shake the camera of the person viewing the mob SO REAL!
 /proc/shake_camera(mob/M, duration, strength=1)
