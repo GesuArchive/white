@@ -7,7 +7,7 @@
 
 /datum/component/storage/concrete/autodoc
 	silent = TRUE
-	max_combined_w_class = WEIGHT_CLASS_HUGE
+	max_combined_w_class = WEIGHT_CLASS_GIGANTIC
 	max_w_class = WEIGHT_CLASS_BULKY
 	drop_all_on_deconstruct = TRUE
 	drop_all_on_destroy = TRUE
@@ -35,25 +35,32 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	/datum/surgery_step/revive,
 	/datum/surgery_step/pacify,
 	/datum/surgery_step/thread_veins,
-	/datum/surgery_step/splice_nerves,
+//	/datum/surgery_step/splice_nerves,
 	/datum/surgery_step/ground_nerves,
 	/datum/surgery_step/muscled_veins,
 	/datum/surgery_step/reinforce_ligaments,
-	/datum/surgery_step/reshape_ligaments
+	/datum/surgery_step/reshape_ligaments,
+	/datum/surgery_step/mechanic_open,
+	/datum/surgery_step/mechanic_unwrench,
+	/datum/surgery_step/prepare_electronics,
+	/datum/surgery_step/mechanic_wrench,
+	/datum/surgery_step/open_hatch,
+	/datum/surgery_step/mechanic_close
 )))
 
 /obj/machinery/autodoc
-	name = "Auto-Doc Mark IX"
-	desc = "A fully stationary automated surgeon! Fun for the whole family!"
+	name = "Авто-Док МК IX"
+	desc = "Полностью стационарная автоматическа хирургия! Для всей семьи!"
 	circuit = /obj/item/circuitboard/machine/autodoc
-	icon = 'icons/obj/machines/nanite_chamber.dmi'
-	icon_state = "nanite_chamber"
-	density = TRUE
+	icon = 'code/shitcode/valtos/icons/autodoc.dmi'
+	icon_state = "autodoc_base"
+	density = FALSE
 	anchored = TRUE
 	layer = ABOVE_WINDOW_LAYER
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 50
 	active_power_usage = 300
+	pixel_x = -16
 	var/speed_mult = 1
 	var/max_storage = 1
 	var/list/valid_surgeries = list()
@@ -64,15 +71,22 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	var/in_use = FALSE
 	var/caesar = FALSE
 	var/message_cooldown = 0
+	var/mutable_appearance/top_overlay
 
 /obj/machinery/autodoc/examine(mob/user)
 	. = ..()
 	if(occupant)
-		. += "<span class='notice'>You see <b>[occupant]</b> inside.</span>"
-	. += "<span class='notice'><b>Ctrl-Click</b> to access the internal storage.</span>"
+		. += "<span class='notice'>Ты видишь <b>[occupant]</b> внутри.</span>"
+	. += "<span class='notice'><b>Ctrl-Клик</b> чтобы открыть внутреннее хранилище.</span>"
+
+/obj/machinery/autodoc/CanPass(atom/movable/mover, turf/target)
+	if(get_dir(src, mover) == NORTH || get_dir(src, target) == NORTH)
+		return FALSE
+	return ..()
 
 /obj/machinery/autodoc/Initialize()
 	. = ..()
+	top_overlay = mutable_appearance(icon, "autodoc_top", ABOVE_MOB_LAYER)
 	occupant_typecache = GLOB.typecache_living
 	update_icon()
 	for(var/datum/surgery/S in GLOB.surgeries_list)
@@ -85,12 +99,12 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 					valid = FALSE
 					break
 		if(valid)
-			//to_chat(world, "[S]([S.type]) is a valid surgery!")
 			valid_surgeries += S
 
 /obj/machinery/autodoc/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/storage/concrete/autodoc)
+	var/datum/component/storage/STR = LoadComponent(/datum/component/storage/concrete/autodoc)
+	STR.cant_hold = typecacheof(list(/obj/item/card/emag))
 
 /obj/machinery/autodoc/RefreshParts()
 	var/list/P = list()
@@ -110,8 +124,9 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	for(var/obj/item/stock_parts/matter_bin/M in component_parts)
 		P += M.get_part_rating()
 	max_storage = round(list_avg(P), 1)
-	var/datum/component/storage/ST = LoadComponent(/datum/component/storage/concrete/autodoc)
-	ST.max_items = max_storage
+	var/datum/component/storage/STR = LoadComponent(/datum/component/storage/concrete/autodoc)
+	STR.max_items = max_storage
+	STR.cant_hold = typecacheof(list(/obj/item/card/emag))
 
 /obj/machinery/autodoc/CtrlClick(mob/user)
 	if(in_use)
@@ -138,36 +153,52 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 						target_surgery = S
 						return
 		if("start")
-			INVOKE_ASYNC(src, .proc/surgery_time)
+			INVOKE_ASYNC(src, .proc/surgery_time, usr)
 
 /obj/machinery/autodoc/Destroy()
-	active_surgery.complete()
+	if(active_surgery)
+		active_surgery.complete()
 	open_machine()
 	return ..()
 
 /obj/machinery/autodoc/proc/mcdonalds(mob/living/carbon/victim)
 	for(var/obj/item/bodypart/BP in victim.bodyparts)
 		if(BP.body_part != HEAD && BP.body_part != CHEST && BP.dismemberable)
-			BP.dismember()
+			playsound(src, 'sound/weapons/circsawhit.ogg', 50, TRUE)
+			BP.drop_limb()
+			victim.emote("scream")
+			BP.forceMove(get_turf(src))
+			BP.throw_at(get_edge_target_turf(src, pick(GLOB.alldirs)), INFINITY, 5, spin = TRUE)
+			sleep(10)
+	var/list/organs = list()
+	for(var/obj/item/organ/OR in victim.internal_organs)
+		if(!istype(OR, /obj/item/organ/brain) && !istype(OR, /obj/item/organ/heart))
+			organs += OR
+	if(LAZYLEN(organs))
+		var/obj/item/organ/O = pick(organs)
+		O.Remove(victim)
+		O.forceMove(get_turf(src))
+		victim.emote("scream")
+		O.throw_at(get_edge_target_turf(src, pick(GLOB.alldirs)), INFINITY, 5, spin = TRUE)
 	// this is just a big ol' middle finger to the victim
 	victim.slurring = 300
 	victim.dizziness = 300
 	victim.jitteriness = 300
-	victim.setOrganLoss(ORGAN_SLOT_BRAIN, min(135, victim.getOrganLoss(ORGAN_SLOT_BRAIN)))
+	victim.setBrainLoss(max(135, victim.getBrainLoss()))
 	caesar = FALSE
+	playsound(src, 'sound/weapons/circsawhit.ogg', 50, TRUE)
 
-/obj/machinery/autodoc/proc/surgery_time()
+/obj/machinery/autodoc/proc/surgery_time(mob/living/doer)
 	var/mob/living/carbon/patient
 	if(in_use)
-		say("Auto-Doc currently in use!")
+		say("Авто-Док уже используется!")
 		playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
 		return
 	if(!target_surgery || !target_zone)
-		say("Invalid configuration!")
+		say("Неверные настройки!")
 		playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
 		if(!state_open)
 			open_machine()
-			update_icon()
 		return
 	if(state_open)
 		close_machine()
@@ -176,11 +207,10 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 		patient = C
 		break
 	if(!patient)
-		say("No patient inside!")
+		say("Не обнаружен пациент!")
 		playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
 		if(!state_open)
 			open_machine()
-			update_icon()
 		return
 	var/obj/item/bodypart/affecting = patient.get_bodypart(check_zone(target_zone))
 	if(affecting)
@@ -188,27 +218,37 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 			playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
 			if(!state_open)
 				open_machine()
-				update_icon()
 			return
 		if(target_surgery.requires_bodypart_type && affecting.status != target_surgery.requires_bodypart_type)
+			say("Авто-Док не умеет работать с этой частью тела!")
 			playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
 			if(!state_open)
 				open_machine()
-				update_icon()
 			return
 		if(target_surgery.requires_real_bodypart && affecting.is_pseudopart)
 			playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
 			if(!state_open)
 				open_machine()
-				update_icon()
 			return
 	else if(patient && target_surgery.requires_bodypart) //mob with no limb in surgery zone when we need a limb
 		playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
 		if(!state_open)
 			open_machine()
-			update_icon()
 		return
+	log_combat(doer, patient, "began [target_surgery] surgery", src)
+	for(var/surgery_type in target_surgery.steps)
+		var/datum/surgery_step/SS = new surgery_type
+		if(!SS.autodoc_check(target_zone, src, FALSE, patient))
+			qdel(SS)
+			playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
+			if(!state_open)
+				open_machine()
+			return
+		qdel(SS)
 	in_use = TRUE
+	var/datum/component/storage/ST = GetComponent(/datum/component/storage/concrete/autodoc)
+	ST.close_all()
+	ST.locked = TRUE
 	update_icon()
 	active_surgery = new target_surgery.type(patient, target_zone, affecting)
 	while(active_surgery.status <= active_surgery.steps.len)
@@ -221,15 +261,17 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 		active_step = next_step
 		active_surgery.step_in_progress = TRUE
 		active_surgery.status++
-		if(next_step.repeatable)
+		if(next_step.repeatable || next_step.ad_repeatable)
 			while(next_step.autodoc_check(target_zone, src, TRUE, patient))
+				sleep((next_step.time * speed_mult) / 2)
 				playsound(src, 'sound/weapons/circsawhit.ogg', 50, TRUE)
-				sleep(next_step.time * speed_mult)
+				sleep((next_step.time * speed_mult) / 2)
 				playsound(src, 'sound/weapons/circsawhit.ogg', 50, TRUE)
 				next_step.autodoc_success(patient, target_zone, active_surgery, src)
 		else
+			sleep((next_step.time * speed_mult) / 2)
 			playsound(src, 'sound/weapons/circsawhit.ogg', 50, TRUE)
-			sleep(next_step.time * speed_mult)
+			sleep((next_step.time * speed_mult) / 2)
 			playsound(src, 'sound/weapons/circsawhit.ogg', 50, TRUE)
 			next_step.autodoc_success(patient, target_zone, active_surgery, src)
 		active_surgery.step_in_progress = FALSE
@@ -237,6 +279,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	active_surgery = null
 	active_step = null
 	in_use = FALSE
+	ST.locked = FALSE
 	if(!state_open)
 		open_machine()
 	update_icon()
@@ -260,7 +303,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 				"name" = initial(S.name),
 				"current" = active_step ? (active_step.type == s) : FALSE
 			))
-
+		
 	else
 		.["mode"] = 1
 		.["target"] = target_zone
@@ -274,6 +317,8 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 				))
 
 /obj/machinery/autodoc/MouseDrop_T(mob/target, mob/user)
+	if(!QDELETED(occupant) && istype(occupant))
+		return
 	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK) || !Adjacent(target) || !user.Adjacent(target) || !iscarbon(target))
 		return
 	if(close_machine(target))
@@ -282,43 +327,35 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 
 /obj/machinery/autodoc/emag_act(mob/user)
 	if(caesar)
-		to_chat(user, "<span class='notice'>\The [src]'s safeties are already corrupted!</span>")
+		to_chat(user, "<span class='notice'>Бедный <b>[src]</b> уже взломан!</span>")
 		return
-	to_chat(user, "<span class='notice'>You discretely emag \the [src], corrupting it's safeties.</span>")
+	log_combat(user, src, "emagged")
+	to_chat(user, "<span class='notice'>Ты нещадно проводишь криптокаркой по <b>[src]</b>, заставляя его сойти с ума.</span>")
 	add_fingerprint(user)
 	caesar = TRUE
 
 /obj/machinery/autodoc/update_icon()
 	cut_overlays()
-
-	if((stat & MAINT) || panel_open)
-		add_overlay("maint")
-	else if(!(stat & (NOPOWER|BROKEN)))
+	add_overlay(top_overlay)
+	if(!(stat & (NOPOWER|BROKEN)))
 		if(in_use)
-			add_overlay("red")
+			add_overlay("auto_doc_lights_working")
 		else
-			add_overlay("green")
-
-	//running and someone in there
+			add_overlay("auto_doc_lights_on")
 	if(occupant)
-		if(in_use)
-			icon_state = initial(icon_state) + "_active"
-		else
-			icon_state = initial(icon_state) + "_occupied"
-		return
-
-	//running
-	icon_state = initial(icon_state) + "_open"
+		add_overlay("autodoc_door_closed")
+	else
+		add_overlay("autodoc_door_open")
 
 /obj/machinery/autodoc/proc/toggle_open(mob/user)
 	if(panel_open)
-		to_chat(user, "<span class='notice'>Close the maintenance panel first.</span>")
+		to_chat(user, "<span class='notice'>Надо бы панель закрыть.</span>")
 		return
 	if(state_open)
 		close_machine(null, user)
 		return
 	else if(in_use)
-		to_chat(user, "<span class='notice'>The bolts are locked down, securing the door shut.</span>")
+		to_chat(user, "<span class='notice'>Не открыть. Похоже надо подождать.</span>")
 		return
 	open_machine()
 
@@ -328,19 +365,20 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	..(FALSE)
 	if(occupant)
 		occupant.forceMove(get_turf(src))
+	update_icon()
 	return TRUE
 
 /obj/machinery/autodoc/relaymove(mob/user as mob)
 	if(user.stat || in_use)
 		if(message_cooldown <= world.time)
 			message_cooldown = world.time + 50
-			to_chat(user, "<span class='warning'>[src]'s door won't budge!</span>")
+			to_chat(user, "<span class='warning'>Дверца <b>[src]</b> застряла!</span>")
 		return
 	open_machine()
 
 
 /obj/item/circuitboard/machine/autodoc
-	name = "circuit board (Auto-Doc Mark IX)"
+	name = "микросхема (Авто-Док МК IX)"
 	build_path = /obj/machinery/autodoc
 	req_components = list(
 							/obj/item/stock_parts/capacitor = 2,
@@ -351,8 +389,8 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 							/obj/item/stack/sheet/glass = 1)
 
 /datum/design/board/autodoc
-	name = "Machine Design (Auto-Doc Mark IX)"
-	desc = "Allows for the construction of circuit boards used to build a Auto-Doc Mark IX."
+	name = "Machine Design (Авто-Док МК IX)"
+	desc = "Allows for the construction of circuit boards used to build a Авто-Док МК IX."
 	id = "autodoc"
 	build_path = /obj/item/circuitboard/machine/autodoc
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
@@ -406,7 +444,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 		var/obj/item/bodypart/target_limb = surgery.operated_bodypart
 		target_limb.drop_limb()
 		target_limb.forceMove(get_turf(autodoc))
-		autodoc.visible_message("<span class='notice'>\The [autodoc] spits out \the [target_limb]!</span>")
+		autodoc.visible_message("<span class='notice'><b>[autodoc]</b> выплёвывает <b>[target_limb]</b>!</span>")
 	return TRUE
 
 /datum/surgery_step/heal/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
@@ -444,7 +482,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 		if(O.zone == target_zone)
 			return TRUE
 	if(!silent)
-		autodoc.say("No valid organs that fit into the [parse_zone(target_zone)] found in internal storage!")
+		autodoc.say("Не найдено подходящих органов для [parse_zone(target_zone)] во внутреннем хранилище!")
 	return FALSE
 
 /datum/surgery_step/remove_fat/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
@@ -459,13 +497,13 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 		typeofmeat = H.dna.species.meat
 
 	var/obj/item/reagent_containers/food/snacks/meat/slab/human/newmeat = new typeofmeat
-	newmeat.name = "fatty meat"
-	newmeat.desc = "Extremely fatty tissue taken from a patient."
+	newmeat.name = "жирное мясо"
+	newmeat.desc = "Невероятно жирный кусок мяса."
 	newmeat.subjectname = H.real_name
 	newmeat.subjectjob = H.job
 	newmeat.reagents.add_reagent (/datum/reagent/consumable/nutriment, (removednutriment / 15)) //To balance with nutriment_factor of nutriment
 	newmeat.forceMove(get_turf(autodoc))
-	autodoc.visible_message("<span class='notice'>\The [autodoc] spits out \the [newmeat]!</span>")
+	autodoc.visible_message("<span class='notice'><b>[autodoc]</b> выплёвывает <b>[newmeat]</b>!</span>")
 	return TRUE
 
 /datum/surgery_step/replace_limb/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
@@ -482,7 +520,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 		if(limb.body_zone == target_zone)
 			return TRUE
 	if(!silent)
-		autodoc.say("No valid bodyparts that fit onto the [parse_zone(target_zone)] found in internal storage!")
+		autodoc.say("Не найдено подходящих органов для [parse_zone(target_zone)] во внутреннем хранилище!")
 	return FALSE
 
 /datum/surgery_step/remove_object/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
@@ -490,7 +528,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = target
 			for(var/obj/item/I in L.embedded_objects)
-				autodoc.visible_message("<span class='notice'>\The [autodoc] spits out \the [I]!</span>")
+				autodoc.visible_message("<span class='notice'><b>[autodoc]</b> выплёвывает <b>[I]</b>!</span>")
 				I.forceMove(get_turf(autodoc))
 				L.embedded_objects -= I
 			if(!H.has_embedded_objects())
@@ -510,11 +548,14 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 			target.adjustToxLoss(organ_rejection_dam)
 	return TRUE
 
+/datum/surgery_step/insert_pill
+	ad_repeatable = TRUE
+
 /datum/surgery_step/insert_pill/autodoc_check(target_zone, obj/machinery/autodoc/autodoc, silent = TRUE, mob/living/carbon/target)
 	for(var/obj/item/reagent_containers/pill/P in autodoc.contents)
 		return TRUE
 	if(!silent)
-		autodoc.say("No pills found in internal storage!")
+		autodoc.say("Не обнаружено таблеток во внутреннем хранилище!")
 	return FALSE
 
 /datum/surgery_step/insert_pill/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
@@ -525,7 +566,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	if(pill)
 		pill.forceMove(target)
 		var/datum/action/item_action/hands_free/activate_pill/P = new(pill)
-		P.button.name = "Activate [pill.name]"
+		P.button.name = "Активировать [pill.name]"
 		P.target = pill
 		P.Grant(target)
 	return TRUE
@@ -549,12 +590,12 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	target.adjustOxyLoss(-50, 0)
 	target.updatehealth()
 	if(target.revive())
-		target.visible_message("...[target] wakes up, alive and aware!")
-		target.emote("gasp")
+		target.visible_message("...<b>[target]</b> восстаёт из мёртвых! Чудеса!")
+		target.emote("задыхается")
 		target.setOrganLoss(ORGAN_SLOT_BRAIN, 50, 199) //MAD SCIENCE
 		return TRUE
 	else
-		target.visible_message("...[target.p_they()] convulses, then lies still.")
+		target.visible_message("...<b>[target]</b> резко дёргается и больше не двигается.")
 		return FALSE
 
 /datum/surgery_step/pacify/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
@@ -587,6 +628,9 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 
 /datum/surgery_step/proc/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
 	return TRUE
+
+/datum/surgery_step
+	var/ad_repeatable = FALSE
 
 /datum/surgery_step/proc/autodoc_check(target_zone, obj/machinery/autodoc/autodoc, silent = TRUE, mob/living/carbon/target)
 	return TRUE
