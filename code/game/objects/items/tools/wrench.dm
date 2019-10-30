@@ -40,7 +40,6 @@
 	icon_state = "wrench_medical"
 	force = 2 //MEDICAL
 	throwforce = 4
-
 	attack_verb = list ("крутит", "лечит", "стукает", "тычет", "вмазывает")
 
 /obj/item/wrench/medical/suicide_act(mob/living/user)
