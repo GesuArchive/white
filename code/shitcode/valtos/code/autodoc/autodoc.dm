@@ -184,7 +184,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	victim.slurring = 300
 	victim.dizziness = 300
 	victim.jitteriness = 300
-	victim.setBrainLoss(max(135, victim.getBrainLoss()))
+	victim.setOrganLoss(ORGAN_SLOT_BRAIN, max(135, victim.getOrganLoss(ORGAN_SLOT_BRAIN)))
 	caesar = FALSE
 	playsound(src, 'sound/weapons/circsawhit.ogg', 50, TRUE)
 
