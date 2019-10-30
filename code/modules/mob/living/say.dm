@@ -163,7 +163,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		return
 
 	if(!can_speak_vocal(message))
-		to_chat(src, "<span class='warning'>Не помню как говорить!</span>")
+		to_chat(src, "<span class='warning'>Не могу говорить!</span>")
 		return
 
 	var/message_range = 7
