@@ -231,6 +231,9 @@
 		if(MUTE_ALL)
 			mute_string = "everything"
 			feedback_string = "Everything"
+		if(MUTE_LOOC)
+			mute_string = "LOOC"
+			feedback_string = "LOOC"
 		else
 			return
 

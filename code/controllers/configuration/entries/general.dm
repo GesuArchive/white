@@ -41,6 +41,10 @@
 
 /datum/config_entry/flag/log_ooc	// log OOC channel
 
+/datum/config_entry/flag/log_looc
+
+/datum/config_entry/flag/looc_during_round
+
 /datum/config_entry/flag/log_access	// log login/logout
 
 /datum/config_entry/flag/log_say	// log client say
