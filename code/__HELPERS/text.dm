@@ -145,7 +145,6 @@
 				last_char_group = 4
 
 			if(1072 to 1105)			//Русские буковки
-				world << last_char_group
 				if(last_char_group<2)
 					t_out += ascii2text(ascii_char-32)	//Force uppercase first character
 				else
