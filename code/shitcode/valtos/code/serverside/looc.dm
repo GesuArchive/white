@@ -75,7 +75,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, listen_looc)()
 			to_chat(src, "<span class='bold'>Пидор.</span>")
 			log_admin("[key_name(src)] has attempted to advertise in LOOC: [msg]")
 			message_admins("[key_name_admin(src)] has attempted to advertise in LOOC: [msg]")
-            qdel(src)
+			qdel(src)
 			return
 
 	if(!(prefs.chat_toggles & CHAT_LOOC))
