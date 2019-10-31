@@ -21,7 +21,7 @@
 	SSblackbox.record_feedback("admin_toggle","Toggle Dead LOOC|[GLOB.dlooc_allowed]")
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, listen_looc)()
-	set name = "Show/Hide LOOC"
+	set name = "Показать/Скрыть LOOC"
 	set category = "Preferences"
 	set desc = "Show LOOC Chat"
 	usr.client.prefs.chat_toggles ^= CHAT_LOOC

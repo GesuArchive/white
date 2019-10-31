@@ -27,7 +27,7 @@
 
 
 /mob/living/simple_animal/parrot
-	name = "parrot"
+	name = "попугай"
 	desc = "The parrot squaks, \"It's a Parrot! BAWWK!\"" //'
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "parrot_fly"
@@ -40,8 +40,8 @@
 	pass_flags = PASSTABLE | PASSMOB
 
 	speak = list("Привет!","Здарова!","Крекер?","Кудах! Джордж Меллонс гриферит меня!")
-	speak_emote = list("клевещет","говорит","вскрикивает")
-	emote_hear = list("клевещет.","вопит!")
+	speak_emote = list("кудахчет","говорит","вскрикивает")
+	emote_hear = list("кудахчет.","вопит!")
 	emote_see = list("flutters its wings.")
 
 	speak_chance = 1 //1% (1 in 100) chance every tick; So about once per 150 seconds, assuming an average tick is 1.5s
@@ -870,8 +870,8 @@
  * Sub-types
  */
 /mob/living/simple_animal/parrot/Poly
-	name = "Poly"
-	desc = "Poly the Parrot. An expert on quantum cracker theory."
+	name = "Поли"
+	desc = "Попугайчик по имени Поли. An expert on quantum cracker theory."
 	speak = list("Poly wanna cracker!", ":e Check the crystal, you chucklefucks!",":e Wire the solars, you lazy bums!",":e WHO TOOK THE DAMN HARDSUITS?",":e OH GOD ITS ABOUT TO DELAMINATE CALL THE SHUTTLE")
 	gold_core_spawnable = NO_SPAWN
 	speak_chance = 3
@@ -961,7 +961,7 @@
 	WRITE_FILE(json_file, json_encode(file_data))
 
 /mob/living/simple_animal/parrot/Poly/ghost
-	name = "The Ghost of Poly"
+	name = "Призрак Поли"
 	desc = "Doomed to squawk the Earth."
 	color = "#FFFFFF77"
 	speak_chance = 20
