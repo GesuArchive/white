@@ -9,7 +9,7 @@
 	toggle_looc()
 	log_admin("[key_name(usr)] toggled LOOC.")
 	message_admins("[key_name_admin(usr)] toggled LOOC.")
-	SSblackbox.record_feedback("admin_toggle","Toggle LOOC|[GLOB.looc_allowed]")
+	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, "Toggle LOOC|[GLOB.looc_allowed]")
 
 /datum/admins/proc/toggleloocdead()
 	set category = "Server"
@@ -18,7 +18,7 @@
 	GLOB.dlooc_allowed = !(GLOB.dlooc_allowed)
 	log_admin("[key_name(usr)] toggled Dead LOOC.")
 	message_admins("[key_name_admin(usr)] toggled Dead LOOC.")
-	SSblackbox.record_feedback("admin_toggle","Toggle Dead LOOC|[GLOB.dlooc_allowed]")
+	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, "Toggle Dead LOOC|[GLOB.dlooc_allowed]")
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, listen_looc)()
 	set name = "Показать/Скрыть LOOC"
@@ -27,7 +27,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, listen_looc)()
 	usr.client.prefs.chat_toggles ^= CHAT_LOOC
 	usr.client.prefs.save_preferences()
 	to_chat(usr, "You will [(usr.client.prefs.chat_toggles & CHAT_LOOC) ? "now" : "no longer"] see messages on the LOOC channel.")
-	SSblackbox.record_feedback("preferences_verb","Toggle Seeing LOOC|[usr.client.prefs.chat_toggles & CHAT_LOOC]") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, "Toggle Seeing LOOC|[usr.client.prefs.chat_toggles & CHAT_LOOC]") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/verbs/menu/Settings/listen_looc/Get_checked(client/C)
 	return C.prefs.chat_toggles & CHAT_LOOC
