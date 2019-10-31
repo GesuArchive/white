@@ -3,12 +3,11 @@
 
 /obj/machinery/turntable
 	name = "jukebox"
-	desc = "A classic music player."
+	desc = "Классический музыкальный проигрыватель."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "jukebox"
 	verb_say = "констатирует"
 	density = TRUE
-//	req_access = list(ACCESS_BAR)
 	var/active = FALSE
 	var/list/rangers = list()
 	var/stop = 0
@@ -20,25 +19,11 @@
 	var/volume = 100
 	var/env_sound = 0
 
-/*
-/datum/track
-	var/song_name = "generic"
-	var/song_path = null
-	var/song_length = 0
-	var/song_beat = 0
-
-/datum/track/New(name, path, length, beat)
-	song_name = name
-	song_path = path
-	song_length = length
-	song_beat = beat
-*/
+/obj/machinery/turntable/donate
+	desc = "Классический музыкальный проигрыватель. Пахнет помидорами."
 
 /obj/machinery/turntable/Initialize()
 	. = ..()
-	for(var/obj/machinery/turntable/TT) // NO WAY
-		if(TT != src)
-			qdel(src)
 
 	var/list/tracks = flist("[global.config.directory]/jukebox_music/sounds/")
 
@@ -55,6 +40,12 @@
 
 	if(songs.len)
 		selection = pick(songs)
+
+/obj/machinery/turntable/donate/Initialize()
+	. = ..()
+	for(var/obj/machinery/turntable/donate/TT) // NO WAY
+		if(TT != src)
+			qdel(src)
 
 /obj/machinery/turntable/Destroy()
 	dance_over()

@@ -115,6 +115,8 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("m35 Super Elite Jacket",	/obj/item/clothing/under/m35jacket/elite/super,	125),
 		new /datum/donate_info("Magistrate Uniform",		/obj/item/clothing/under/magistrate,			125),
 		new /datum/donate_info("Arbiter Uniform",			/obj/item/clothing/under/arbiter,				125),
+		new /datum/donate_info("Blue Galaxy Suit",			/obj/item/clothing/under/rank/civilian/lawyer/galaxy,225),
+		new /datum/donate_info("Red Galaxy Suit",			/obj/item/clothing/under/rank/civilian/lawyer/galaxy/red,225),
 	),
 	"Gloves" = list(
 		new /datum/donate_info("White Gloves",				/obj/item/clothing/gloves/color/white,			125),
@@ -148,7 +150,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 	),
 	"Inovations" = list(
 		new /datum/donate_info("Casino Cards",				/obj/item/toy/cards/deck/shitspawn_deck,		450),
-		new /datum/donate_info("Jukebox (Only one)",		/obj/machinery/turntable,						100),
+		new /datum/donate_info("Jukebox (Only one)",		/obj/machinery/turntable/donate,				100),
 		new /datum/donate_info("Music Writer",				/obj/machinery/musicwriter,						450),
 		new /datum/donate_info("TTS ears",					/obj/item/organ/ears/cat/tts,                   500),
 		new /datum/donate_info("DIY Shuttle capsule",		/obj/item/shuttlespawner/diyshuttle,			500),
