@@ -142,7 +142,7 @@
                     /obj/item/clothing/suit/toggle/wzzzz/hawaii = 5,
                     /obj/item/clothing/suit/toggle/wzzzz/hawaii2 = 5,
                     /obj/item/clothing/suit/toggle/wzzzz/det_vest = 5,
-                    /obj/item/clothing/suit/toggle/wzzzz/jacket = "5",
+                    /obj/item/clothing/suit/toggle/wzzzz/jacket = 5,
                     /obj/item/clothing/suit/toggle/wzzzz/jacket/tan = 5,
                     /obj/item/clothing/suit/toggle/wzzzz/jacket/charcoal = 5,
                     /obj/item/clothing/suit/toggle/wzzzz/jacket/checkered = 5,
