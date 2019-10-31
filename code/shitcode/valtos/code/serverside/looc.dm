@@ -1,6 +1,3 @@
-GLOBAL_VAR_INIT(looc_allowed, TRUE)
-GLOBAL_VAR_INIT(dlooc_allowed, TRUE) 
-
 /proc/log_looc(text)
 	if (CONFIG_GET(flag/log_looc))
 		WRITE_LOG(GLOB.world_game_log, "LOOC: [text]")
@@ -56,7 +53,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, listen_looc)()
 		if(prefs.muted & MUTE_LOOC)
 			to_chat(src, "<span class='danger'>Не хочу писать в LOOC.</span>")
 			return
-		if(jobban_isbanned(src.mob, "OOC"))
+		if(src.shadowbanned_ooc || is_banned_from(ckey, "OOC"))
 			to_chat(src, "<span class='danger'>Я точно не хочу писать в LOOC.</span>")
 			return
 
