@@ -11,9 +11,15 @@
 </ui-display>
 <ui-display>
 	<ui-section>
-        <ui-button action='help' params='{ "value": {{+!data.show_help}}}'>
-			{{data.show_help ? "Hide help" : "Show help"}}
+		{{#if data.show_help}}
+        <ui-button action='help' params='{ "value": 0 }'>
+			Hide help
 		</ui-button>
+		{{else}}
+        <ui-button action='help' params='{ "value": 1 }'>
+			Show help
+		</ui-button>
+		{{/if}}
 		<ui-button action='newline'>
 			New line
 		</ui-button>
@@ -29,14 +35,14 @@
 	</ui-section>
 	<ui-section>
 	{{#each data.lines}}
-		<div style="float: left; text-align: left; width: 60px">
-			<ui-button action='deleteline' params='{"value": {{data.page_offset+index+1}}}'>
-				{{data.page_offset+index+1}}
+		<div style="float: left; text-align: left; width: 30px">
+			<ui-button action='deleteline' params='{"value": {{@index+1+data.page_offset}}}'>
+				{{@index+1+data.page_offset}}
 			</ui-button>
 		</div>
-		<div style="float: center; text-align: left; width: 400px;">
-			<ui-button action='modifyline' params='{"value": {{data.page_offset+index+1}}}'>
-				{{value}}
+		<div style="float: center; text-align: left; width: 500px;">
+			<ui-button action='modifyline' params='{"value": {{@index+1+data.page_offset}}}'>
+				{{this}}
 			</ui-button>
 		</div>
 	{{/each}}

@@ -33,19 +33,21 @@
 	return 0
 
 
-/obj/structure/synthesized_instrument/Topic(href, href_list)
-	if (..())
-		return 1
+/obj/structure/synthesized_instrument/ui_act(action, params)
+	if(..())
+		return
 
-	var/target = href_list["target"]
-	var/value = text2num(href_list["value"])
-	if (href_list["value"] && !isnum(value))
+	if(!usr.canUseTopic(src, !issilicon(usr)))
+		return
+
+	var/value = text2num(params["value"])
+	if (params["value"] && !isnum(value))
 		src.player.song.debug_panel.append_message("Non-numeric value was supplied")
 		return 0
 
 	src.add_fingerprint(usr)
 
-	switch (target)
+	switch (action)
 		if ("tempo") src.player.song.tempo = src.player.song.sanitize_tempo(src.player.song.tempo + value*world.tick_lag)
 		if ("play")
 			src.player.song.playing = value
@@ -77,12 +79,12 @@
 				else
 					src.player.song.tempo = src.player.song.sanitize_tempo(5) // default 120 BPM
 				if(src.player.song.lines.len > maximum_lines)
-					usr << "Too many lines!"
+					to_chat(usr, "Too many lines!")
 					src.player.song.lines.Cut(maximum_lines+1)
 				var/linenum = 1
 				for(var/l in src.player.song.lines)
 					if(length(l) > maximum_line_length)
-						usr << "Line [linenum] too long!"
+						to_chat(usr, "Line [linenum] too long!")
 						src.player.song.lines.Remove(l)
 					else
 						linenum++
@@ -103,9 +105,9 @@
 				if (global.musical_config.debug_password_hash == hash)
 					src.player.song.debug_panel.access_panel(usr)
 				else
-					usr << "Wrong password"
+					to_chat(usr, "Wrong password")
 			else
-				usr << "Debug flag is set to 0."
+				to_chat(usr, "Debug flag is set to 0.")
 		else
 			return 0
 
@@ -147,19 +149,20 @@
 	return 0
 
 
-/obj/item/device/synthesized_instrument/Topic(href, href_list)
-	if (..())
-		return 1
+/obj/item/device/synthesized_instrument/ui_act(action, params)
+	if(..())
+		return
+	if(!usr.canUseTopic(src, !issilicon(usr)))
+		return
 
-	var/target = href_list["target"]
-	var/value = text2num(href_list["value"])
-	if (href_list["value"] && !isnum(value))
+	var/value = text2num(params["value"])
+	if (params["value"] && !isnum(value))
 		src.player.song.debug_panel.append_message("Non-numeric value was supplied")
 		return 0
 
 	src.add_fingerprint(usr)
 
-	switch (target)
+	switch (action)
 		if ("tempo") src.player.song.tempo = src.player.song.sanitize_tempo(src.player.song.tempo + value*world.tick_lag)
 		if ("play")
 			src.player.song.playing = value
@@ -191,12 +194,12 @@
 				else
 					src.player.song.tempo = src.player.song.sanitize_tempo(5) // default 120 BPM
 				if(src.player.song.lines.len > maximum_lines)
-					usr << "Too many lines!"
+					to_chat(usr, "Too many lines!")
 					src.player.song.lines.Cut(maximum_lines+1)
 				var/linenum = 1
 				for(var/l in src.player.song.lines)
 					if(length(l) > maximum_line_length)
-						usr << "Line [linenum] too long!"
+						to_chat(usr, "Line [linenum] too long!")
 						src.player.song.lines.Remove(l)
 					else
 						linenum++
@@ -217,9 +220,9 @@
 				if (global.musical_config.debug_password_hash == hash)
 					src.player.song.debug_panel.access_panel(usr)
 				else
-					usr << "Wrong password"
+					to_chat(usr, "Wrong password")
 			else
-				usr << "Debug flag is set to 0."
+				to_chat(usr, "Debug flag is set to 0.")
 		else
 			return 0
 

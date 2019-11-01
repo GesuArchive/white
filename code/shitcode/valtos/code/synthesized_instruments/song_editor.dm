@@ -20,7 +20,7 @@
 		max(1 + global.musical_config.song_editor_lines_per_page * (page_num-1), 1),
 		min(global.musical_config.song_editor_lines_per_page * page_num, src.song.lines.len))
 
-/datum/song_editor/ui_interact(mob/user, ui_key = "song_editor", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
+/datum/song_editor/ui_data(mob/user)
 	var/list/data = list()
 
 	var/current_page = src.current_page()
@@ -35,23 +35,24 @@
 	data["page_num"] = current_page
 	data["page_offset"] = global.musical_config.song_editor_lines_per_page * (current_page-1)
 
+	return data
+
+/datum/song_editor/ui_interact(mob/user, ui_key = "song_editor", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "song_editor", "Song Editor", 550, 600, master_ui, state)
-		ui.push_data(data)
 		ui.open()
 
-/datum/song_editor/Topic(href, href_list)
-	if (..())
-		return 1
+/datum/song_editor/ui_act(action, params)
+	if(..())
+		return
 
-	var/target = href_list["target"]
-	var/value = text2num(href_list["value"])
-	if (href_list["value"] && !isnum(value))
+	var/value = text2num(params["value"])
+	if (params["value"] && !isnum(value))
 		src.song.debug_panel.append_message("Non-numeric value was supplied")
 		return 0
 
-	switch (target)
+	switch (action)
 		if("newline")
 			var/newline = html_encode(input(usr, "Enter your line: ") as text|null)
 			if(!newline)

@@ -381,4 +381,4 @@
 		hole = CUM_TARGET_ANUS
 	else
 		hole = CUM_TARGET_VAGINA
-	user << "<span class='warning'>Hmmm. Maybe we should put it in \a [hole]?</span>"
+	to_chat(user, "<span class='warning'>Hmmm. Maybe we should put it in \a [hole]?</span>")

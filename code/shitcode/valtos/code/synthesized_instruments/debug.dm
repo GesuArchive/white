@@ -135,9 +135,9 @@
 				usr << E.three_values[i]
 			if (E.report) usr << E.report
 		else
-			usr << "No longer accessible"
+			to_chat(usr, "No longer accessible")
 	if (href_list["toggle_recording"])
 		src.recording = !src.recording
-		usr << "[!src.recording ? "not" : ""] recording"
+		to_chat(usr, "[!src.recording ? "not" : ""] recording")
 	if (href_list["refresh"])
 		src.show_panel(usr)

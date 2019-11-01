@@ -104,7 +104,7 @@
 	if (istype(O, /obj/item/wrench))
 		if (!anchored && !isinspace())
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-			user << "<span class='notice'> You begin to tighten \the [src] to the floor...</span>"
+			to_chat(user, "<span class='notice'> You begin to tighten \the [src] to the floor...</span>")
 			if (do_after(user, 20))
 				user.visible_message( \
 					"[user] tightens \the [src]'s casters.", \
@@ -113,7 +113,7 @@
 				src.anchored = 1
 		else if(anchored)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-			user << "<span class='notice'> You begin to loosen \the [src]'s casters...</span>"
+			to_chat(user, "<span class='notice'> You begin to loosen \the [src]'s casters...</span>")
 			if (do_after(user, 40))
 				user.visible_message( \
 					"[user] loosens \the [src]'s casters.", \
@@ -229,9 +229,8 @@
 		line++
 	src.player:code = conditions
 
-
-/obj/structure/synthesized_instrument/synthesizer/ui_interact(mob/user, ui_key = "instrument", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
-	var/list/data
+/obj/structure/synthesized_instrument/synthesizer/ui_data(mob/user)
+	var/list/data = ..()
 	data = list(
 		"playback" = list(
 			"playing" = src.player.song.playing,
@@ -283,24 +282,25 @@
 	data["code"]["ids"] = ids
 	*/
 
+	return data
+
+/obj/structure/synthesized_instrument/synthesizer/ui_interact(mob/user, ui_key = "instrument", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "song_synthesizer", src.name, 600, 800, master_ui, state)
-		ui.push_data(data)
 		ui.open()
 		ui.set_autoupdate(1)
 
-/obj/structure/synthesized_instrument/synthesizer/Topic(href, href_list)
-	if (..())
-		return 1
+/obj/structure/synthesized_instrument/synthesizer/ui_act(action, params)
+	if(..())
+		return
 
-	var/target = href_list["target"]
-	var/value = text2num(href_list["value"])
-	if (href_list["value"] && !isnum(value))
+	var/value = text2num(params["value"])
+	if (params["value"] && !isnum(value))
 		src.player.song.debug_panel.append_message("Non-numeric value was supplied")
 		return 0
 
-	switch (target)
+	switch (action)
 		if ("volume")
 			src.player.volume = max(min(player.volume+text2num(value), 100), 0)
 		if ("transposition")
@@ -343,7 +343,7 @@
 					src.env_editor = new (src.player)
 				src.env_editor.ui_interact(usr)
 			else
-				usr << "Virtual environment is disabled"
+				to_chat(usr, "Virtual environment is disabled")
 
 		if ("show_echo_editor")
 			if (!src.echo_editor)
@@ -364,11 +364,8 @@
 
 	return 1
 
-
 /obj/structure/synthesized_instrument/synthesizer/shouldStopPlaying(mob/user)
 	return !((src && in_range(src, user) && src.anchored) || src.player.song.autorepeat)
-
-
 
 /obj/structure/synthesized_instrument/synthesizer/mindbreaker
 	New()

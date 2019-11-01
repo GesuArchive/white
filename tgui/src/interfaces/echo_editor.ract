@@ -4,19 +4,31 @@
 			<section class="cell">
 				{{name}}
 			</section>
-			<section class="cell" align='right'>
-				<div style="float: left; text-align: center; width: 100px">
+			<section class="cell">
+				<div style="float: left; text-align: center; width: 48px;">
 					{{value}}
 				</div>
-				<ui-button action='desc'>
-					?
-				</ui-button>
-				<ui-button action='desc'>
-					R
-				</ui-button>
-				<ui-button action='desc'>
-					E
-				</ui-button>
+			</section>
+			<section class="cell">
+				<div style="width: 32px;">
+					<ui-button action='desc' params='{"index": {{@index+1}}}'>
+						?
+					</ui-button>
+				</div>
+			</section>
+			<section class="cell">
+				<div style="width: 32px;">
+					<ui-button action='reset' params='{"index": {{@index+1}}'>
+						R
+					</ui-button>
+				</div>
+			</section>
+			<section class="cell">
+				<div style="width: 32px;">
+					<ui-button action='set' params='{"index": {{@index+1}}}'>
+						E
+					</ui-button>
+				</div>
 			</section>
 		</section>
 	{{/each}}
