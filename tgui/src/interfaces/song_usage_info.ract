@@ -1,16 +1,10 @@
-<div class="item">
-	<div class="itemLabel">
-		Free channels:
-	</div>
-	<div class="itemContent">
-		{{:helper.displayBar(data.channels_left, 0, data.max_channels)}}
-	</div>
-</div>
-<div class="item">
-	<div class="itemLabel">
-		Events:
-	</div>
-	<div class="itemContent">
-		{{:helper.displayBar(data.events_active, 0, data.max_events)}}
-	</div>
-</div>
+<ui-display>
+	<ui-section title='Free channels:'>
+		<ui-bar min='0' max='{{data.max_channels}}' value='{{data.channels_left}}'>{{data.channels_left}}</ui-bar>
+	</ui-section>
+</ui-display>
+<ui-display>
+	<ui-section title='Events:'>
+		<ui-bar min='0' max='{{data.max_events}}' value='{{data.events_active}}'>{{data.events_active}}</ui-bar>
+	</ui-section>
+</ui-display>
