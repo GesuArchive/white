@@ -1,7 +1,7 @@
 /datum/env_editor
-	var/obj/sound_player/player
+	var/datum/sound_player/player
 
-/datum/env_editor/New(obj/sound_player/player)
+/datum/env_editor/New(datum/sound_player/player)
 	src.player = player
 
 /datum/env_editor/ui_data(mob/user)
@@ -10,9 +10,9 @@
 	for (var/i=1 to 23)
 		var/list/env_data = list()
 		env_data["index"] = i
-		env_data["name"] = global.musical_config.env_param_names[i]
+		env_data["name"] = GLOB.musical_config.env_param_names[i]
 		env_data["value"] = src.player.env[i]
-		env_data["real"] = global.musical_config.env_params_bounds[i][3]
+		env_data["real"] = GLOB.musical_config.env_params_bounds[i][3]
 		data["env_params"] += list(env_data)
 	return data
 
@@ -23,7 +23,7 @@
 		ui.open()
 
 /datum/env_editor/ui_act(action, params)
-	if (!global.musical_config.env_settings_available)
+	if (!GLOB.musical_config.env_settings_available)
 		return 0
 
 	if (..())
@@ -31,13 +31,13 @@
 
 	var/index = text2num(params["index"])
 	if (params["index"] && !(index in 1 to 23))
-		src.player.song.debug_panel.append_message("Wrong index was provided: [index]")
+		to_chat(usr, "Wrong index was provided: [index]")
 		return 0
 
-	var/name = global.musical_config.env_param_names[index]
-	var/desc = global.musical_config.env_param_desc[index]
-	var/default = global.musical_config.env_default[index]
-	var/list/bounds = global.musical_config.env_params_bounds[index]
+	var/name = GLOB.musical_config.env_param_names[index]
+	var/desc = GLOB.musical_config.env_param_desc[index]
+	var/default = GLOB.musical_config.env_default[index]
+	var/list/bounds = GLOB.musical_config.env_params_bounds[index]
 	var/bound_min = bounds[1]
 	var/bound_max = bounds[2]
 	var/reals_allowed = bounds[3]
@@ -52,7 +52,7 @@
 		if ("reset")
 			src.player.env[index] = default
 		if ("reset_all")
-			src.player.env = global.musical_config.env_default.Copy()
+			src.player.env = GLOB.musical_config.env_default.Copy()
 		if ("desc")
 			to_chat(usr, "[name]: from [bound_min] to [bound_max] (default: [default])<br>[desc]")
 

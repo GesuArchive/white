@@ -6,7 +6,7 @@
 	var/autorepeat = 0
 	var/current_line = 0
 
-	var/obj/sound_player/player // Not a physical thing
+	var/datum/sound_player/player // Not a physical thing
 	var/datum/instrument/instrument_data
 
 	var/list/free_channels = list()
@@ -19,15 +19,11 @@
 	var/octave_range_min
 	var/octave_range_max
 
-	var/datum/musical_debug/debug_panel
-
-
-/datum/synthesized_song/New(obj/sound_player/playing_object, datum/instrument/instrument)
+/datum/synthesized_song/New(datum/sound_player/playing_object, datum/instrument/instrument)
 	src.player = playing_object
 	src.instrument_data = instrument
-	src.octave_range_min = global.musical_config.lowest_octave
-	src.octave_range_max = global.musical_config.highest_octave
-	src.debug_panel = new (src)
+	src.octave_range_min = GLOB.musical_config.lowest_octave
+	src.octave_range_max = GLOB.musical_config.highest_octave
 
 	instrument.create_full_sample_deviation_map()
 	src.occupy_channels()
@@ -39,14 +35,14 @@
 
 
 /datum/synthesized_song/proc/occupy_channels()
-	if (!global.musical_config.free_channels_populated)
+	if (!GLOB.musical_config.free_channels_populated)
 		for (var/i=1 to 1024) // Currently only 1024 channels are allowed
-			global.musical_config.free_channels += i
-		global.musical_config.free_channels_populated = 1 // Only once
+			GLOB.musical_config.free_channels += i
+		GLOB.musical_config.free_channels_populated = 1 // Only once
 
-	for (var/i=1 to global.musical_config.channels_per_instrument)
-		if (global.musical_config.free_channels.len)
-			src.free_channel(pick_n_take(global.musical_config.free_channels))
+	for (var/i=1 to GLOB.musical_config.channels_per_instrument)
+		if (GLOB.musical_config.free_channels.len)
+			src.free_channel(pick_n_take(GLOB.musical_config.free_channels))
 
 
 /datum/synthesized_song/proc/take_any_channel()
@@ -59,23 +55,23 @@
 
 
 /datum/synthesized_song/proc/return_all_channels()
-	global.musical_config.free_channels |= src.free_channels
+	GLOB.musical_config.free_channels |= src.free_channels
 	src.free_channels.Cut()
 
 
 /datum/synthesized_song/proc/play_synthesized_note(note, acc, oct, duration, where, which_one)
-	if (oct < global.musical_config.lowest_octave || oct > global.musical_config.highest_octave)	return
+	if (oct < GLOB.musical_config.lowest_octave || oct > GLOB.musical_config.highest_octave)	return
 	if (oct < src.octave_range_min || oct > src.octave_range_max)	return
 
 	var/delta1 = acc == "b" ? -1 : acc == "#" ? 1 : acc == "s" ? 1 : acc == "n" ? 0 : 0
 	var/delta2 = 12 * oct
 
-	var/note_num = delta1+delta2+global.musical_config.nn2no[note]
+	var/note_num = delta1+delta2+GLOB.musical_config.nn2no[note]
 	if (note_num < 0 || note_num > 127)
-		src.debug_panel.append_message(text("Play synthesized note failed because of 0..127 condition, [] [] []", note, acc, oct))
+		CRASH("play_synthesized note failed because of 0..127 condition, [note], [acc], [oct]")
 		return
 
-	var/datum/sample_pair/pair = src.instrument_data.sample_map[global.musical_config.n2t(note_num)]
+	var/datum/sample_pair/pair = src.instrument_data.sample_map[GLOB.musical_config.n2t(note_num)]
 	#define Q 0.083 // 1/12
 	var/freq = 2**(Q*pair.deviation)
 	var/chan = src.take_any_channel()
@@ -83,7 +79,6 @@
 		if (!src.player.channel_overload())
 			src.playing = 0
 			src.autorepeat = 0
-			src.debug_panel.append_message("All channels were exhausted")
 			return
 	#undef Q
 	var/list/mob/to_play_for = src.player.who_to_play_for()
@@ -104,32 +99,7 @@
 	sound_copy.channel = channel
 	player.apply_modifications_for(who, sound_copy, which, where, which_one)
 
-	who << sound_copy
-	#if DM_VERSION < 511
-	sound_copy.frequency = 1
-	#endif
-	/*
-	spawn(duration)
-		var/delta_volume = player.volume / sustain_timer
-		var/stored_soft_coeff = soft_coeff
-		var/stored_linear_decay = linear_decay
-		while (playing)
-			sleep(1)
-			if (stored_linear_decay)
-				sound_copy.volume = max(sound_copy.volume - delta_volume, 0)
-			else
-				sound_copy.volume = max(round(sound_copy.volume / stored_soft_coeff), 0)
-			if (sound_copy.volume > 0)
-				sound_copy.status |= SOUND_UPDATE
-				who << sound_copy
-			else
-				break
-		free_channel(sound_copy.channel)
-		who << sound(channel=sound_copy.channel, wait=0)
-
-		// Made obsolete by new manual event scheduler
-		// Also lagged as shit
-	*/
+	SEND_SOUND(who, sound_copy)
 	var/delta_volume = player.volume / src.sustain_timer
 	var/current_volume = max(round(sound_copy.volume), 0)
 	var/tick = duration
@@ -137,11 +107,9 @@
 		var/new_volume = current_volume
 		tick += world.tick_lag
 		if (delta_volume <= 0)
-			src.debug_panel.append_message("Delta Volume somehow was non-positive: [delta_volume]")
-			break
+			CRASH("Delta Volume somehow was non-positive: [delta_volume]")
 		if (src.soft_coeff <= 1)
-			src.debug_panel.append_message("Soft Coeff somehow was <=1: [src.soft_coeff]")
-			break
+			CRASH("Soft Coeff somehow was <=1: [src.soft_coeff]")
 
 		if (src.linear_decay)
 			new_volume = new_volume - delta_volume
@@ -160,33 +128,27 @@
 
 #define CP(L, S) copytext(L, S, S+1)
 #define IS_DIGIT(L) (L >= "0" && L <= "9" ? 1 : 0)
-#define SAFETY_CHECK if (!src.lines.len || src.player.event_manager.is_overloaded()) {goto Stop}
 
-/datum/synthesized_song/proc/play_song(mob/user)
-	// This code is really fucking horrible.
-	src.player.cache_unseen_tiles()
-	src.player.event_manager.activate()
-	var/list/allowed_suff = list("b", "n", "#", "s")
-	var/list/note_off_delta = list("a"=91, "b"=91, "c"=98, "d"=98, "e"=98, "f"=98, "g"=98)
-	var/list/lines_copy = src.lines.Copy()
-	spawn()
-		Start
-		if (!lines_copy.len) goto Stop
-		var/list/cur_accidentals = list("n", "n", "n", "n", "n", "n", "n")
-		var/list/cur_octaves = list(3, 3, 3, 3, 3, 3, 3)
-		src.current_line = 1
-		for (var/line in lines_copy)
-			var/cur_note = 1
-			if (src.player && src.player.actual_instrument)
-				var/obj/structure/synthesized_instrument/S = src.player.actual_instrument // Fuck, this is horrible.
-				if (S.song_editor)
-					SStgui.update_uis(S.song_editor)
-			for (var/notes in splittext(lowertext(line), ","))
-				var/list/components = splittext(notes, "/")
+/datum/synthesized_song/proc/play_lines(mob/user, list/allowed_suff, list/note_off_delta, list/lines)
+	Start
+	if (!lines.len) goto Stop
+	var/list/cur_accidentals = list("n", "n", "n", "n", "n", "n", "n")
+	var/list/cur_octaves = list(3, 3, 3, 3, 3, 3, 3)
+	src.current_line = 1
+	for (var/line in lines)
+		var/cur_note = 1
+		if (src.player && src.player.actual_instrument)
+			var/obj/structure/synthesized_instrument/S = src.player.actual_instrument // Fuck, this is horrible.
+			if (S.song_editor)
+				SStgui.update_uis(S.song_editor)
+		for (var/notes in splittext(lowertext(line), ","))
+			var/list/components = splittext(notes, "/")
+			var/duration = sanitize_tempo(src.tempo)
+			if (components.len)
 				var/delta = components.len==2 && text2num(components[2]) ? text2num(components[2]) : 1
 				var/note_str = splittext(components[1], "-")
 
-				var/duration = sanitize_tempo(src.tempo / delta)
+				duration = sanitize_tempo(src.tempo / delta)
 				src.player.event_manager.suspended = 1
 				for (var/note in note_str)
 					if (!note)	continue // wtf, empty note
@@ -194,6 +156,8 @@
 					var/note_off = 0
 					if (note_sym in note_off_delta)
 						note_off = text2ascii(note_sym) - note_off_delta[note_sym]
+					else
+						continue // Shitty note, move along and avoid runtimes
 
 					var/octave = cur_octaves[note_off]
 					var/accidental = cur_accidentals[note_off]
@@ -218,20 +182,28 @@
 					play_synthesized_note(note_off, accidental, octave+transposition, duration, src.current_line, cur_note)
 					if (src.player.event_manager.is_overloaded())
 						goto Stop
-				cur_note++
-				src.player.event_manager.suspended = 0
-				if (!src.playing || src.player.shouldStopPlaying(user)) goto Stop
-				sleep(duration)
-			src.current_line++
-		if (src.autorepeat)
-			goto Start
+			cur_note++
+			src.player.event_manager.suspended = 0
+			if (!src.playing || src.player.shouldStopPlaying(user)) goto Stop
+			sleep(duration)
+		src.current_line++
+	if (src.autorepeat)
+		goto Start
 
-		Stop
-		src.autorepeat = 0
-		src.playing = 0
-		src.current_line = 0
-		src.player.event_manager.deactivate()
+	Stop
+	src.autorepeat = 0
+	src.playing = 0
+	src.current_line = 0
+	src.player.event_manager.deactivate()
+
+/datum/synthesized_song/proc/play_song(mob/user)
+	// This code is really fucking horrible.
+	src.player.cache_unseen_tiles()
+	src.player.event_manager.activate()
+	var/list/allowed_suff = list("b", "n", "#", "s")
+	var/list/note_off_delta = list("a"=91, "b"=91, "c"=98, "d"=98, "e"=98, "f"=98, "g"=98)
+	var/list/lines_copy = src.lines.Copy()
+	addtimer(CALLBACK(src, .proc/play_lines, user, allowed_suff, note_off_delta, lines_copy), 0)
 
 #undef CP
 #undef IS_DIGIT
-#undef SAFETY_CHECK

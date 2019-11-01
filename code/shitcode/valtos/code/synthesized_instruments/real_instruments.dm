@@ -1,20 +1,20 @@
 /obj/structure/synthesized_instrument
-	var/obj/sound_player/player
+	var/datum/sound_player/player
 	var/datum/song_editor/song_editor
 	var/datum/usage_info/usage_info
 	var/maximum_lines
 	var/maximum_line_length
 
 
-/obj/structure/synthesized_instrument/New()
-	..()
-	src.maximum_lines = global.musical_config.max_lines
-	src.maximum_line_length = global.musical_config.max_line_length
+/obj/structure/synthesized_instrument/Initialize()
+	. = ..()
+	src.maximum_lines = GLOB.musical_config.max_lines
+	src.maximum_line_length = GLOB.musical_config.max_line_length
 
 
 /obj/structure/synthesized_instrument/Destroy()
-	qdel(player)
-	..()
+	QDEL_NULL(src.player)
+	. = ..()
 
 
 /obj/structure/synthesized_instrument/attack_hand(mob/user)
@@ -42,7 +42,7 @@
 
 	var/value = text2num(params["value"])
 	if (params["value"] && !isnum(value))
-		src.player.song.debug_panel.append_message("Non-numeric value was supplied")
+		to_chat(usr, "Non-numeric value was given")
 		return 0
 
 	src.add_fingerprint(usr)
@@ -90,24 +90,13 @@
 						linenum++
 		if ("show_song_editor")
 			if (!src.song_editor)
-				src.song_editor = new (src, src.player.song)
+				src.song_editor = new (host = src, song = src.player.song)
 			src.song_editor.ui_interact(usr)
 
 		if ("show_usage")
 			if (!src.usage_info)
 				src.usage_info = new (src, src.player)
 			src.usage_info.ui_interact(usr)
-
-		if ("debug")
-			if (src.player.song.debug_panel)
-				var/password = input(usr, "Enter password to access debug") as text
-				var/hash = md5(password)
-				if (global.musical_config.debug_password_hash == hash)
-					src.player.song.debug_panel.access_panel(usr)
-				else
-					to_chat(usr, "Wrong password")
-			else
-				to_chat(usr, "Debug flag is set to 0.")
 		else
 			return 0
 
@@ -116,23 +105,22 @@
 
 
 /obj/item/device/synthesized_instrument
-	var/obj/sound_player/player
+	var/datum/sound_player/player
 	var/datum/song_editor/song_editor
 	var/datum/usage_info/usage_info
 	var/maximum_lines
 	var/maximum_line_length
 
 
-/obj/item/device/synthesized_instrument/New()
-	..()
-	src.maximum_lines = global.musical_config.max_lines
-	src.maximum_line_length = global.musical_config.max_line_length
+/obj/item/device/synthesized_instrument/Initialize()
+	. = ..()
+	src.maximum_lines = GLOB.musical_config.max_lines
+	src.maximum_line_length = GLOB.musical_config.max_line_length
 
 
 /obj/item/device/synthesized_instrument/Destroy()
-	qdel(player)
-	..()
-
+	QDEL_NULL(src.player)
+	. = ..()
 
 /obj/item/device/synthesized_instrument/attack_hand(mob/user)
 	src.interact(user)
@@ -157,7 +145,7 @@
 
 	var/value = text2num(params["value"])
 	if (params["value"] && !isnum(value))
-		src.player.song.debug_panel.append_message("Non-numeric value was supplied")
+		to_chat(usr, "Non-numeric value was given")
 		return 0
 
 	src.add_fingerprint(usr)
@@ -212,17 +200,6 @@
 			if (!src.usage_info)
 				src.usage_info = new (src, src.player)
 			src.usage_info.ui_interact(usr)
-
-		if ("debug")
-			if (src.player.song.debug_panel)
-				var/password = input(usr, "Enter password to access debug") as text
-				var/hash = md5(password)
-				if (global.musical_config.debug_password_hash == hash)
-					src.player.song.debug_panel.access_panel(usr)
-				else
-					to_chat(usr, "Wrong password")
-			else
-				to_chat(usr, "Debug flag is set to 0.")
 		else
 			return 0
 
