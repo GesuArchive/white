@@ -106,7 +106,7 @@
 /datum/round_aspect/prikol
 	name = "Prikol"
 	desc = "Произошел Правий Сиктор."
-	weight = 11
+	weight = 1
 
 /datum/round_aspect/prikol/run_aspect()
 	for(var/turf/open/floor/plasteel/floor)
