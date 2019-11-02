@@ -94,7 +94,7 @@
 /obj/structure/synthesized_instrument/synthesizer/ui_interact(mob/user, ui_key = "instrument", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
-		ui = new(user, src, ui_key, "song_synthesizer", src.name, 600, 800, master_ui, state)
+		ui = new(user, src, ui_key, "song_synthesizer", src.name, 500, 400, master_ui, state)
 		ui.open()
 		ui.set_autoupdate(1)
 

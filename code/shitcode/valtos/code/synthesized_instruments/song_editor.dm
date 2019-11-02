@@ -37,7 +37,7 @@
 
 	return data
 
-/datum/song_editor/ui_interact(mob/user, ui_key = "song_editor", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
+/datum/song_editor/ui_interact(mob/user, ui_key = "song_editor", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.conscious_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "song_editor", "Song Editor", 550, 600, master_ui, state)

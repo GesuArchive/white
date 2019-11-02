@@ -16,10 +16,10 @@
 		data["env_params"] += list(env_data)
 	return data
 
-/datum/env_editor/ui_interact(mob/user, ui_key = "env_editor", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
+/datum/env_editor/ui_interact(mob/user, ui_key = "env_editor", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.conscious_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
-		ui = new(user, src, ui_key, "env_editor", "Environment Editor", 300, 800, master_ui, state)
+		ui = new(user, src, ui_key, "env_editor", "Environment Editor", 400, 500, master_ui, state)
 		ui.open()
 
 /datum/env_editor/ui_act(action, params)

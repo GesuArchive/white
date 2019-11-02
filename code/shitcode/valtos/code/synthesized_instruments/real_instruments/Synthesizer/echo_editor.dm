@@ -17,10 +17,10 @@
 		data["echo_params"] += list(echo_data)
 	return data
 
-/datum/echo_editor/ui_interact(mob/user, ui_key = "echo_editor", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
+/datum/echo_editor/ui_interact(mob/user, ui_key = "echo_editor", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.conscious_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
-		ui = new(user, src, ui_key, "echo_editor", "Echo Editor", 400, 600, master_ui, state)
+		ui = new(user, src, ui_key, "echo_editor", "Echo Editor", 400, 400, master_ui, state)
 		ui.open()
 
 /datum/echo_editor/ui_act(action, params)
