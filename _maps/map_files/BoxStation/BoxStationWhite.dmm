@@ -13105,6 +13105,10 @@
 /obj/item/cultivator/rake,
 /turf/open/floor/plasteel,
 /area/medical/chemistry)
+"aEs" = (
+/obj/structure/synthesized_instrument/synthesizer,
+/turf/open/floor/plasteel/dark,
+/area/security/prison)
 "aEz" = (
 /obj/machinery/power/apc{
 	areastring = "/area/hallway/secondary/entry";
@@ -78944,7 +78948,7 @@ aem
 aeO
 afG
 acd
-agK
+aEs
 agK
 ail
 aiE
