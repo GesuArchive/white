@@ -7,8 +7,9 @@
 		return
 	if(usr.restrained())
 		return
-	if(!check_whitelist_exrp(M.ckey) || !check_rights_for(M.client, R_ADMIN))
-		return
+	if (!check_rights_for(M.client, R_ADMIN))
+		if(!check_whitelist_exrp(M.ckey))
+			return
 
 	user.try_interaction(src)
 
