@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/food/snacks/solid_reagent
 	name = "solidified chemicals"
-	desc = "Are you sure eating this is a good idea?"
+	desc = "Стоит ли это пробовать на вкус? Хмм..."
 	icon = 'code/shitcode/valtos/icons/forge/chemical.dmi'
 	icon_state = "chembar"
 	obj_flags = UNIQUE_RENAME
@@ -36,7 +36,7 @@
 	var/hotness = I.get_temperature()
 	if(hotness && reagents)
 		reagents.expose_temperature(hotness)
-		to_chat(user, "<span class='notice'>You heat [src] with [I].</span>")
+		to_chat(user, "<span class='notice'>Нагреваю [src] при помощи [I].</span>")
 		if(volume <= 0)
 			qdel(src)
 
@@ -46,10 +46,10 @@
 		return
 	if(target.is_open_container()/* || istype(target, /obj/effect/decal/cleanable/chempile) && target.reagents*/)
 		if(!target.reagents.total_volume)
-			to_chat(user, "<span class='warning'>[target] is empty! There's nothing to dissolve [src] in.</span>")
+			to_chat(user, "<span class='warning'>[target] пуст! Надо бы заполнить чем-то жидким, чтобы растворить [src] внутри.</span>")
 			return
-		to_chat(user, "<span class='notice'>You dissolve [src] in [target].</span>")
+		to_chat(user, "<span class='notice'>Элегантно растворяю [src] в [target].</span>")
 		for(var/mob/O in viewers(2, user))	//viewers is necessary here because of the small radius
-			to_chat(O, "<span class='warning'>[user] dissolves [src] into [target]!</span>")
+			to_chat(O, "<span class='warning'>[user] закидывает [src] в [target]!</span>")
 		reagents.trans_to(target, reagents.total_volume)
 		qdel(src)
