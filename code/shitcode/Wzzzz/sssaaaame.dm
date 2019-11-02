@@ -685,3 +685,109 @@
 	dynamic_hair_suffix = ""
 	armor = list("melee" = 45, "bullet" = 40, "laser" = 40,"energy" = 20, "bomb" = 35, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 55)
 	flags_inv = HIDEEARS|HIDEHAIR
+	
+	
+/obj/item/clothing/head/wzzzz/beret_cmo
+	name = "cmo beret"
+	desc = "Beret specially for CMO"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/hats.dmi'
+	icon_state = "beret_cmo"
+	item_state = "beret_cmo"
+	
+/obj/item/clothing/head/wzzzz/beret_atmospherics
+	name = "atmospherics beret"
+	desc = "Beret for atmospherics"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/hats.dmi'
+	icon_state = "beret_atmospherics"
+	item_state = "beret_atmospherics"
+	
+/obj/item/clothing/head/wzzzz/beret_ce
+	name = "ce beret"
+	desc = "Beret for CE"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/hats.dmi'
+	icon_state = "beret_ce"
+	item_state = "beret_ce"
+	
+/obj/item/clothing/head/wzzzz/beret_centcom_captain
+	name = "centcom captain beret"
+	desc = "Beret for captain"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/hats.dmi'
+	icon_state = "beret_centcom_captain"
+	item_state = "beret_centcom_captain"
+	
+/obj/item/clothing/head/wzzzz/beret_centcom_officer
+	name = "centcom officer beret"
+	desc = "Beret for centcom officers"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/hats.dmi'
+	icon_state = "beret_centcom_officer"
+	item_state = "beret_centcom_officer"
+	
+/obj/item/clothing/head/wzzzz/beret_centcom_officer_navy
+	name = "officer navy beret"
+	desc = "Beret for centcom officers navy"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/hats.dmi'
+	icon_state = "beret_centcom_officer_navy"
+	item_state = "beret_centcom_officer_navy"
+	
+/obj/item/clothing/head/wzzzz/beret_engineering
+	name = "engineering beret"
+	desc = "Beret for engineering"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/hats.dmi'
+	icon_state = "beret_engineering"
+	item_state = "beret_engineering"
+
+/obj/item/clothing/head/wzzzz/beret_captain
+	name = "captain beret"
+	desc = "Beret for captain"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/hats.dmi'
+	icon_state = "beret_captain"
+	item_state = "beret_captain"
+	
+/obj/item/clothing/head/wzzzz/beret_corporate_warden
+	name = "warden beret"
+	desc = "Beret for coreporate wardens"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/hats.dmi'
+	icon_state = "beret_corporate_warden"
+	item_state = "beret_corporate_warden"
+	
+/obj/item/clothing/head/wzzzz/beret_corporate_officer
+	name = "officer beret"
+	desc = "Beret for corporate officers"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/hats.dmi'
+	icon_state = "beret_corporate_officer"
+	item_state = "beret_corporate_officer"
+	
+/obj/item/clothing/head/wzzzz/beret_med
+	name = "medical beret"
+	desc = "Beret for doctors"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/hats.dmi'
+	icon_state = "beret_med"
+	item_state = "beret_med"
+	
+/obj/item/clothing/head/wzzzz/beret_sci
+	name = "science beret"
+	desc = "Beret for scientists"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/hats.dmi'
+	icon_state = "beret_sci"
+	item_state = "beret_sci"
+	
+/obj/item/clothing/head/soft/wzzzz/altsecsoft
+	name = "security cap"
+	desc = "For security"
+	soft_type = "altsec"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/hats.dmi'
+	icon_state = "altsecsoft"
+	item_state = "altsecsoft"
