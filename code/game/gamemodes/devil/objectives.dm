@@ -80,7 +80,7 @@
 	if(target)
 		explanation_text = "Purchase and retain the soul of [target.name], the [target.assigned_role]."
 	else
-		explanation_text = "Free objective."
+		explanation_text = "Развлекаться"
 
 /datum/objective/devil/buy_target/check_completion()
 	return target.soulOwner == owner
