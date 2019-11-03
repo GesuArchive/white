@@ -83,7 +83,7 @@
 /proc/slur(phrase)
 	var/output = ""
 
-	for(var/i = 1; i <= lentext(phrase); i++)
+	for(var/i = 1; i <= length(phrase); i++)
 		var/a_letter = text2ascii(phrase, i)
 		var/letter = ascii2text(a_letter)
 		if(prob(33))
@@ -112,7 +112,7 @@
 /proc/cultslur(phrase)
 	var/output = ""
 
-	for(var/i = 1; i <= lentext(phrase); i++)
+	for(var/i = 1; i <= length(phrase); i++)
 		var/a_letter = text2ascii(phrase, i)
 		var/letter = ascii2text(a_letter)
 		if(prob(33))
