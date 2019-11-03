@@ -32,6 +32,11 @@
 /area/centcom/debug
 	name = "Debug Operations"
 
+/area/centcom/outdoors
+	name = "CentCom Outdoors"
+	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	has_gravity = TRUE
+
 /area/centcom/supplypod/flyMeToTheMoon
 	name = "Supplypod Shipping lane"
 	icon_state = "supplypod_flight"

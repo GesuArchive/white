@@ -248,6 +248,11 @@
 /turf/open/floor/plating/snowed/temperatre
 	temperature = 255.37
 
+/turf/open/floor/plating/snowed/smoothed/centcom
+	temperature = 293.15
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	blocks_air = TRUE
+
 /turf/open/floor/plating/grass
 	name = "grass"
 	desc = "A patch of grass."

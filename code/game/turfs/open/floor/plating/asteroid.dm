@@ -92,7 +92,7 @@
 	environment_type = "basalt"
 	floor_variance = 15
 	digResult = /obj/item/stack/ore/glass/basalt
-	slowdown = -0.8
+	slowdown = -0.5
 
 /turf/open/floor/plating/asteroid/basalt/lava //lava underneath
 	baseturfs = /turf/open/lava/smooth
@@ -314,8 +314,8 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 
 /turf/open/floor/plating/asteroid/snow
 	gender = PLURAL
-	name = "snow"
-	desc = "Looks cold."
+	name = "снег"
+	desc = "Выглядит холодным."
 	icon = 'icons/turf/snow.dmi'
 	baseturfs = /turf/open/floor/plating/asteroid/snow
 	icon_state = "snow"
@@ -340,8 +340,8 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 	return FALSE
 
 /turf/open/floor/plating/asteroid/snow/ice
-	name = "icy snow"
-	desc = "Looks colder."
+	name = "ледяной снег"
+	desc = "Выглядит ещё холоднее."
 	baseturfs = /turf/open/floor/plating/asteroid/snow/ice
 	initial_gas_mix = "o2=0;n2=82;plasma=24;TEMP=120"
 	floor_variance = 0
@@ -365,3 +365,7 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 /turf/open/floor/plating/asteroid/snow/atmosphere
 	initial_gas_mix = FROZEN_ATMOS
 	planetary_atmos = FALSE
+
+/turf/open/floor/plating/asteroid/snow/centcom
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	blocks_air = TRUE
