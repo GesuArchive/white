@@ -28,36 +28,36 @@
 		switch(target_orifice)
 			if(CUM_TARGET_MOUTH)
 				if(partner.has_mouth() && partner.mouth_is_free())
-					message = pick("насметанил прямо в рот [partner].","спустил на язычок [partner].","брызгает сметанкой в рот [partner].","заполняет рот [partner] сметанкой.","обильно насметанил в рот [partner], так, что стекает изо рта.","выпускает в ротик [partner] порцию густого молочка")
+					message = pick("сметанит прямо в рот [partner].","спустил на язычок [partner].","брызгает сметанкой в рот [partner].","заполняет рот [partner] сметанкой.","обильно сметанит в рот [partner], так, что стекает изо рта.","выпускает в ротик [partner] порцию густого молочка")
 					partner.reagents.add_reagent("cum", 10)
 				else
-					message = "насметанил на лицо [partner]."
+					message = "сметанит на лицо [partner]."
 			if(CUM_TARGET_THROAT)
 				if(partner.has_mouth() && partner.mouth_is_free())
-					message = "засунул свой стан-батон как можно глубже в глотку [partner] и насметанил."
+					message = "засунул свой стан-батон как можно глубже в глотку [partner] и сметанит."
 					partner.reagents.add_reagent("cum", 15)
 				else
-					message = "насметанил на лицо [partner]."
+					message = "сметанит на лицо [partner]."
 			if(CUM_TARGET_VAGINA)
 				if(partner.is_nude() && partner.has_vagina())
-					message = "насметанил в пельмешек [partner]."
+					message = "сметанит в пельмешек [partner]."
 				else
-					message = "насметанил на животик[partner]."
+					message = "сметанит на животик[partner]."
 			if(CUM_TARGET_ANUS)
 				if(partner.is_nude() && partner.has_anus())
-					message = "насметанил в шокоданицу [partner]."
+					message = "сметанит в шокоданицу [partner]."
 				else
-					message = "насметанил на спинку [partner]."
+					message = "сметанит на спинку [partner]."
 			if(CUM_TARGET_HAND)
 				if(partner.has_hand())
-					message = "насметанил в руку [partner]."
+					message = "сметанит в руку [partner]."
 				else
-					message = "насметанил на [partner]."
+					message = "сметанит на [partner]."
 			if(CUM_TARGET_BREASTS)
 				if(partner.is_nude() && partner.has_vagina())
-					message = "насметанил на грудь [partner]."
+					message = "сметанит на грудь [partner]."
 				else
-					message = "насметанил на шею и грудь [partner]."
+					message = "сметанит на шею и грудь [partner]."
 			if(NUTS_TO_FACE)
 				if(partner.has_mouth() && partner.mouth_is_free())
 					message = "нещадно принуждает [partner] съесть яишницу с колбасой."

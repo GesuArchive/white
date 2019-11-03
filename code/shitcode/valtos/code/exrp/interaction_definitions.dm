@@ -33,7 +33,7 @@ datum/interaction/kiss/evaluate_user(var/mob/user, var/silent=1)
 	command = "fistbump"
 	description = "Брофист!"
 	require_user_hands = 1
-	simple_message = "USER сделал брофист с TARGET! О да!"
+	simple_message = "USER делает брофист с TARGET! О да!"
 	needs_physical_contact = 1
 
 /datum/interaction/holdhand
