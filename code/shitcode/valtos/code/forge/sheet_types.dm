@@ -17,8 +17,8 @@ GLOBAL_LIST_INIT(reagent_recipes, list ( \
 	))
 
 /obj/item/stack/sheet/mineral/reagent/Initialize(mapload, new_amount, merge = TRUE)
-	recipes = GLOB.reagent_recipes
 	. = ..()
+	recipes = GLOB.reagent_recipes
 
 
 /obj/item/stack/sheet/mineral/reagent/change_stack(mob/user,amount)
