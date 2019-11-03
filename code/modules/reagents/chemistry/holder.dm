@@ -424,13 +424,13 @@
 						R.reagent_state = LIQUID
 						if(!is_type_in_typecache(cached_my_atom, GLOB.no_reagent_message_typecache) && SSticker.current_state == GAME_STATE_PLAYING)
 							for(var/mob/M in range(3))
-								to_chat(M, ("<span class='notice'>[icon2html(cached_my_atom, viewers(cached_my_atom))] плавится в жидкость!</span>"))
+								to_chat(M, ("<span class='notice'>[R.name] плавится в жидкость!</span>"))
 				if(LIQUID)
 					if(chem_temp < R.melting_point && !is_type_in_typecache(R, GLOB.solidchange_reagent_blacklist))
 						R.reagent_state = SOLID
 						if(!is_type_in_typecache(cached_my_atom, GLOB.no_reagent_message_typecache) && SSticker.current_state == GAME_STATE_PLAYING)
 							for(var/mob/M in range(3))
-								to_chat(M, ("<span class='notice'>[icon2html(cached_my_atom, viewers(cached_my_atom))] раствор затвердевает!</span>"))
+								to_chat(M, ("<span class='notice'>[R.name] затвердевает!</span>"))
 			for(var/reaction in cached_reactions[R.type]) // Was a big list but now it should be smaller since we filtered it with our reagent id
 				if(!reaction)
 					continue
@@ -583,7 +583,8 @@
 		my_atom.on_reagent_change(CLEAR_REAGENTS)
 	return 0
 
-/datum/reagents/proc/reaction(atom/A, method = TOUCH, volume_modifier = 1, show_message = 1)
+/datum/reagents/proc/reaction(atom/A, method = TOUCH, volume_modifier = 1, show_message = 1, special_modifier = 1)
+	var/datum/cached_my_atom = my_atom
 	var/react_type
 	if(isliving(A))
 		react_type = "LIVING"
@@ -607,11 +608,16 @@
 					touch_protection = L.get_permeability_protection()
 				R.reaction_mob(A, method, R.volume * volume_modifier, show_message, touch_protection)
 			if("TURF")
-				R.reaction_turf(A, R.volume * volume_modifier, show_message)
+				if(R.reagent_state != SOLID)
+					R.reaction_turf(A, R.volume * volume_modifier, show_message)
+				R.handle_state_change(A, R.volume * special_modifier, cached_my_atom)
 			if("OBJ")
-				R.reaction_obj(A, R.volume * volume_modifier, show_message)
+				if(R.reagent_state != SOLID)
+					R.reaction_obj(A, R.volume * volume_modifier, show_message)
+				R.handle_state_change(get_turf(A), R.volume * special_modifier, cached_my_atom)
 
 /datum/reagents/proc/react_single(datum/reagent/R, atom/A, method = TOUCH, volume_modifier = 1, show_message = TRUE)
+	var/datum/cached_my_atom = my_atom
 	var/react_type
 	if(isliving(A))
 		react_type = "LIVING"
@@ -632,9 +638,13 @@
 				touch_protection = L.get_permeability_protection()
 			R.reaction_mob(A, method, R.volume * volume_modifier, show_message, touch_protection)
 		if("TURF")
-			R.reaction_turf(A, R.volume * volume_modifier, show_message)
+			if(R.reagent_state != SOLID)
+				R.reaction_turf(A, R.volume * volume_modifier, show_message)
+			R.handle_state_change(A, R.volume * volume_modifier, cached_my_atom)
 		if("OBJ")
-			R.reaction_obj(A, R.volume * volume_modifier, show_message)
+			if(R.reagent_state != SOLID)
+				R.reaction_obj(A, R.volume * volume_modifier, show_message)
+			R.handle_state_change(get_turf(A), R.volume * volume_modifier, cached_my_atom)
 
 /datum/reagents/proc/holder_full()
 	if(total_volume >= maximum_volume)
