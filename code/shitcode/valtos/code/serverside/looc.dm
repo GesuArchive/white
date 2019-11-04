@@ -130,4 +130,4 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, listen_looc)()
 
 /proc/toggle_looc(toggle = null)
 	GLOB.looc_allowed = (toggle || !GLOB.looc_allowed)
-	to_chat(world, "<span class='bold'>LOOC теперь [GLOB.looc_allowed ? "включен" : "отключен"].</span>") 
+	message_admins("<span class='bold'>LOOC [GLOB.looc_allowed ? "выключен" : "включен"].</span>") 
