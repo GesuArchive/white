@@ -49,6 +49,11 @@
 	detail_overlay.color = detail_color
 	add_overlay(detail_overlay)
 
+/obj/item/proc/GetCard()
+
+/obj/item/card/data/GetCard()
+	return src
+
 /obj/item/card/data/full_color
 	desc = "A plastic magstripe card for simple and speedy data storage and transfer. This one has the entire card colored."
 	icon_state = "data_2"
