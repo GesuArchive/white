@@ -83,7 +83,7 @@
 	else
 		if(using)
 			var/list/materials_used = list(/datum/material/reagent=materials*efficiency)
-			ourmaterials.use_amount_mat(/datum/material/reagent, /datum/material/reagent=materials_used)
+			ourmaterials.use_materials(/datum/material/reagent=materials_used, 1)
 		return TRUE
 
 
@@ -92,7 +92,10 @@
 		return FALSE
 
 	for(var/i in 1 to amount)
-		if(!check_cost(D.materials[/datum/material/reagent], TRUE))
+		var/cost
+		for(var/MAT in D.materials)
+			cost = D.materials[MAT]*efficiency
+		if(!check_cost(cost, TRUE))
 			visible_message("<span class='warning'>The low material indicator flashes on [src]!</span>")
 			playsound(src, 'sound/machines/buzz-two.ogg', 60, 0)
 			return FALSE
@@ -131,7 +134,9 @@
 	for(var/v in stored_research.researched_designs)
 		var/datum/design/forge/D = SSresearch.techweb_design_by_id(v)
 		var/md5name = md5(D.name)
-		var/cost = D.materials[/datum/material/reagent]*efficiency
+		var/cost = 0
+		for(var/MAT in D.materials)
+			cost = D.materials[MAT]*efficiency
 		if(!listofrecipes[md5name])
 			listofrecipes[md5name] = list("name" = D.name, "category" = D.category[2], "cost" = cost)
 			if(cost < lowest_cost)
@@ -168,7 +173,7 @@
 				var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 				var/amount = materials.get_material_amount(/datum/material/reagent)
 				if(amount > 0)
-					materials.use_amount_mat(/datum/material/reagent, /datum/material/reagent=amount)
+					materials.use_materials(/datum/material/reagent=amount, 1)
 					var/obj/item/stack/sheet/mineral/reagent/RS = new(get_turf(usr))
 					RS.amount = materials.amount2sheet(amount)
 					var/paths = subtypesof(/datum/reagent)//one reference per stack
