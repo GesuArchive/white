@@ -100,6 +100,14 @@
 	description = "<span class='nicegreen'>Со мной моя семейная реликвия в безопасности.</span>\n"
 	mood_change = 1
 
+/datum/mood_event/fan_clown_pin
+	description = "<span class='nicegreen'>I love showing off my clown pin!</span>\n"
+	mood_change = 1
+
+/datum/mood_event/fan_mime_pin
+	description = "<span class='nicegreen'>I love showing off my mime pin!</span>\n"
+	mood_change = 1
+
 /datum/mood_event/goodmusic
 	description = "<span class='nicegreen'>В этой музыке есть что-то успокаивающее.</span>\n"
 	mood_change = 3

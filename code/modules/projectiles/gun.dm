@@ -71,6 +71,7 @@
 	var/datum/action/toggle_scope_zoom/azoom
 
 	var/automatic = 0 //can gun use it, 0 is no, anything above 0 is the delay between clicks in ds
+	var/pb_knockback = 0
 
 /obj/item/gun/Initialize()
 	. = ..()
@@ -168,6 +169,9 @@
 								"<span class='danger'>Ты стреляешь из [src.name] <b>В УПОР</b> по <b>[pbtarget]</b>!</span>", \
 								"<span class='hear'>Ты слышишь выстрел!</span>", COMBAT_MESSAGE_RANGE, pbtarget)
 				to_chat(pbtarget, "<span class='userdanger'><b>[user]</b> стреляет из <b>[src.name]</b> в тебя <b>В УПОР</b>.!</span>")
+				if(pb_knockback > 0)
+					var/atom/throw_target = get_edge_target_turf(pbtarget, user.dir)
+					pbtarget.throw_at(throw_target, pb_knockback, 2)
 			else
 				user.visible_message("<span class='danger'><b>[user]</b> стреляет из <b>[src.name]</b>!</span>", \
 								"<span class='danger'>Ты стреляешь из [src.name]!</span>", \

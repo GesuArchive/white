@@ -59,6 +59,42 @@
 	lose_text = "<span class='danger'>Вы чувствуете себя изолированными ото всех.</span>"
 	medical_record_text = "Пациент очень восприимчив и чувствителен к социальным сигналам, или возможно имеет экстрасенсорные способности. Необходима дальнейшая проверка."
 
+datum/quirk/fan_clown
+	name = "Clown Fan"
+	desc = "You enjoy the clown's antics and get a mood boost when you see them."
+	value = 1
+	mob_trait = TRAIT_FAN_CLOWN
+	gain_text = "<span class='notice'>You are a big fan of the Clown.</span>"
+	lose_text = "<span class='danger'>The clown doesn't seem so great.</span>"
+	medical_record_text = "Patient reports being a big fan of the Clown."
+
+/datum/quirk/fan_clown/on_spawn()
+	var/mob/living/carbon/human/H = quirk_holder
+	var/obj/item/clothing/accessory/fan_clown_pin/B = new(get_turf(H))
+	var/list/slots = list (
+		"backpack" = SLOT_IN_BACKPACK,
+		"hands" = SLOT_HANDS,
+	)
+	H.equip_in_one_of_slots(B, slots , qdel_on_fail = TRUE)
+
+datum/quirk/fan_mime
+	name = "Mime Fan"
+	desc = "You enjoy the Mime's antics and get a mood boost when you see them."
+	value = 1
+	mob_trait = TRAIT_FAN_MIME
+	gain_text = "<span class='notice'>You are a big fan of the Mime.</span>"
+	lose_text = "<span class='danger'>The mime doesn't seem so great.</span>"
+	medical_record_text = "Patient reports being a big fan of the Mime."
+
+/datum/quirk/fan_mime/on_spawn()
+	var/mob/living/carbon/human/H = quirk_holder
+	var/obj/item/clothing/accessory/fan_mime_pin/B = new(get_turf(H))
+	var/list/slots = list (
+		"backpack" = SLOT_IN_BACKPACK,
+		"hands" = SLOT_HANDS,
+	)
+	H.equip_in_one_of_slots(B, slots , qdel_on_fail = TRUE)
+
 /datum/quirk/freerunning
 	name = "Паркурист" 
 	desc = "Вы хорошо преодолеваете препятствия! Вы быстрее залезаете на столы."

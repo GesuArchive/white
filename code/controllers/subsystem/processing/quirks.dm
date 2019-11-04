@@ -17,7 +17,7 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 	if(!quirks.len)
 		SetupQuirks()
 
-	quirk_blacklist = list(list("Слепой","Близорукий"),list("Весёлый","Депрессия","Апатичный","Чувствительный"),list("Потеря вкуса","Вегетарианец","Девиантные Вкусы"),list("Ананасофил","Ананасофоб"),list("Толерантность к Алкоголю","Алкоголик"))
+	quirk_blacklist = list(list("Слепой","Близорукий"),list("Весёлый","Депрессия","Апатичный","Чувствительный"),list("Потеря вкуса","Вегетарианец","Девиантные Вкусы"),list("Ананасофил","Ананасофоб"),list("Толерантность к Алкоголю","Алкоголик"),list("Clown Fan","Mime Fan"))
 	return ..()
 
 /datum/controller/subsystem/processing/quirks/proc/SetupQuirks()

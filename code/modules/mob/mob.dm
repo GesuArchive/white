@@ -1121,6 +1121,9 @@
 /mob/proc/get_idcard(hand_first)
 	return
 
+/mob/proc/get_id_in_hand()
+	return
+
 /**
   * Get the mob VV dropdown extras
   */
