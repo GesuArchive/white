@@ -49,14 +49,14 @@
 					to_chat(user, "<span class='warning'>The sheet crumbles away into dust, perhaps it was a fake one?</span>")
 					qdel(R)
 					return FALSE
-				materials.insert_item(R, R.amount)
+				materials.insert_item(R, 1, R.amount)
 				to_chat(user, "<span class='notice'>You add [R] to [src]</span>")
 				currently_forging = new R.reagent_type.type
 				return
 
 			if(currently_forging && currently_forging.type && R.reagent_type.type == currently_forging.type)//preventing unnecessary references from being made
 				var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
-				materials.insert_item(R, R.amount)
+				materials.insert_item(R, 1, R.amount)
 				to_chat(user, "<span class='notice'>You add [R] to [src]</span>")
 				return
 			else
@@ -83,7 +83,7 @@
 	else
 		if(using)
 			var/list/materials_used = list(/datum/material/reagent=materials*efficiency)
-			ourmaterials.use_amount_mat(materials_used)
+			ourmaterials.use_amount_mat(/datum/material/reagent, /datum/material/reagent=amount)
 		return TRUE
 
 
@@ -168,8 +168,7 @@
 				var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 				var/amount = materials.get_material_amount(/datum/material/reagent)
 				if(amount > 0)
-					var/list/materials_used = list(/datum/material/reagent=amount)
-					materials.use_amount_mat(materials_used)
+					materials.use_amount_mat(/datum/material/reagent, /datum/material/reagent=amount)
 					var/obj/item/stack/sheet/mineral/reagent/RS = new(get_turf(usr))
 					RS.amount = materials.amount2sheet(amount)
 					var/paths = subtypesof(/datum/reagent)//one reference per stack
