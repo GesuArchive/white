@@ -340,7 +340,7 @@
 			if(type == "watchlist entry" && filter && !(t_ckey in GLOB.directory))
 				continue
 			var/admin_key = query_get_type_messages.item[4]
-			var/text = query_get_type_messages.item[5]
+			var/text = cp1252_to_utf8(query_get_type_messages.item[5])
 			var/timestamp = query_get_type_messages.item[6]
 			var/server = query_get_type_messages.item[7]
 			var/editor_key = query_get_type_messages.item[8]
@@ -381,7 +381,7 @@
 				continue
 			var/id = query_get_messages.item[3]
 			var/admin_key = query_get_messages.item[4]
-			var/text = query_get_messages.item[5]
+			var/text = cp1252_to_utf8(query_get_messages.item[5])
 			var/timestamp = query_get_messages.item[6]
 			var/server = query_get_messages.item[7]
 			var/editor_key = query_get_messages.item[8]
@@ -527,7 +527,7 @@
 	while(query_get_message_output.NextRow())
 		var/message_id = query_get_message_output.item[1]
 		var/admin_key = query_get_message_output.item[2]
-		var/text = query_get_message_output.item[3]
+		var/text = cp1252_to_utf8(query_get_message_output.item[3])
 		var/timestamp = query_get_message_output.item[4]
 		var/editor_key = query_get_message_output.item[5]
 		switch(type)

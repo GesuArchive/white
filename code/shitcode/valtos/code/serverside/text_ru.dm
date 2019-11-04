@@ -38,6 +38,16 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	"Ё" = "0401", "ё" = "0451"
 	))
 
+/proc/cp1252_to_utf8(text) //Временный прок. Транслирует не всё, но оно и не нужно
+	var/t = ""
+	for(var/i = 1, i <= length(text), i++)
+		var/a = text2ascii(text, i)
+		if (a < 224 || a > 255)
+			t += ascii2text(a)
+			continue
+		t += ascii2text(a + 848)
+	return t
+
 /proc/r_lowertext(text)
 	var/t = ""
 	for(var/i = 1, i <= length(text), i++)
