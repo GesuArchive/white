@@ -16,7 +16,7 @@
 	throw_range = 5
 	force = 5
 	item_flags = NEEDS_PERMIT
-	attack_verb = list("ударяет", "бьёт", "колотит")
+	attack_verb = list("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ", "пїЅпїЅпїЅпїЅ", "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ")
 
 	var/fire_sound = 'sound/weapons/gun/pistol/shot.ogg'
 	var/vary_fire_sound = TRUE
@@ -71,6 +71,7 @@
 	var/datum/action/toggle_scope_zoom/azoom
 
 	var/automatic = 0 //can gun use it, 0 is no, anything above 0 is the delay between clicks in ds
+	var/pb_knockback = 0
 
 /obj/item/gun/Initialize()
 	. = ..()
@@ -150,7 +151,7 @@
 	return TRUE
 
 /obj/item/gun/proc/shoot_with_empty_chamber(mob/living/user as mob|obj)
-	to_chat(user, "<span class='danger'>*щёлк*</span>")
+	to_chat(user, "<span class='danger'>*пїЅпїЅпїЅпїЅ*</span>")
 	playsound(src, dry_fire_sound, 30, TRUE)
 
 
@@ -164,14 +165,18 @@
 		playsound(user, fire_sound, fire_sound_volume, vary_fire_sound)
 		if(message)
 			if(pointblank)
-				user.visible_message("<span class='danger'><b>[user]</b> стреляет из <b>[src.name]</b> <b>В УПОР</b> по <b>[pbtarget]</b>!</span>", \
-								"<span class='danger'>Ты стреляешь из [src.name] <b>В УПОР</b> по <b>[pbtarget]</b>!</span>", \
-								"<span class='hear'>Ты слышишь выстрел!</span>", COMBAT_MESSAGE_RANGE, pbtarget)
-				to_chat(pbtarget, "<span class='userdanger'><b>[user]</b> стреляет из <b>[src.name]</b> в тебя <b>В УПОР</b>.!</span>")
+				user.visible_message("<span class='danger'>[user] fires [src] point blank at [pbtarget]!</span>", \
+								"<span class='danger'>You fire [src] point blank at [pbtarget]!</span>", \
+								"<span class='hear'>You hear a gunshot!</span>", COMBAT_MESSAGE_RANGE, pbtarget)
+				to_chat(pbtarget, "<span class='userdanger'>[user] fires [src] point blank at you!</span>")
+				if(pb_knockback > 0)
+					var/atom/throw_target = get_edge_target_turf(pbtarget, user.dir)
+					pbtarget.throw_at(throw_target, pb_knockback, 2)
+
 			else
-				user.visible_message("<span class='danger'><b>[user]</b> стреляет из <b>[src.name]</b>!</span>", \
-								"<span class='danger'>Ты стреляешь из [src.name]!</span>", \
-								"<span class='hear'>Ты слышишь выстрел!</span>", COMBAT_MESSAGE_RANGE)
+				user.visible_message("<span class='danger'><b>[user]</b> пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ <b>[src.name]</b>!</span>", \
+								"<span class='danger'>пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ [src.name]!</span>", \
+								"<span class='hear'>пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ!</span>", COMBAT_MESSAGE_RANGE)
 
 /obj/item/gun/emp_act(severity)
 	. = ..()
@@ -211,14 +216,14 @@
 	if(clumsy_check)
 		if(istype(user))
 			if (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(40))
-				to_chat(user, "<span class='userdanger'>Вы стреляете себе в ногу из [src]!</span>")
+				to_chat(user, "<span class='userdanger'>пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ [src]!</span>")
 				var/shot_leg = pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 				process_fire(user, user, FALSE, params, shot_leg)
 				user.dropItemToGround(src, TRUE)
 				return
 
 	if(weapon_weight == WEAPON_HEAVY && user.get_inactive_held_item())
-		to_chat(user, "<span class='warning'>Нужно держать [src] в обеих руках!</span>")
+		to_chat(user, "<span class='warning'>пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ [src] пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ!</span>")
 		return
 
 	//DUAL (or more!) WIELDING

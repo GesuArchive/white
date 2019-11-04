@@ -17,7 +17,7 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 	if(!quirks.len)
 		SetupQuirks()
 
-	quirk_blacklist = list(list("Слепой","Близорукий"),list("Весёлый","Депрессия","Апатичный","Чувствительный"),list("Потеря вкуса","Вегетарианец","Девиантные Вкусы"),list("Ананасофил","Ананасофоб"),list("Толерантность к Алкоголю","Алкоголик"))
+	quirk_blacklist = list(list("Blind","Nearsighted"),list("Jolly","Depression","Apathetic","Hypersensitive"),list("Ageusia","Vegetarian","Deviant Tastes"),list("Ananas Affinity","Ananas Aversion"),list("Alcohol Tolerance","Light Drinker"),list("Clown Fan","Mime Fan"))
 	return ..()
 
 /datum/controller/subsystem/processing/quirks/proc/SetupQuirks()
@@ -36,7 +36,7 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 		if(Q)
 			user.add_quirk(Q, spawn_effects)
 		else
-			to_chat(user, "Ваше качество \"[V]\" было убрано в связи с ребалансом. Просьба настроить их снова.")
+			to_chat(user, "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ \"[V]\" пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.")
 			stack_trace("Invalid quirk \"[V]\" in client [cli.ckey] preferences")
 			cli.prefs.all_quirks -= V
 			badquirk = TRUE

@@ -90,9 +90,9 @@
 
 /datum/component/nanites/Destroy()
 	STOP_PROCESSING(SSnanites, src)
-	set_nanite_bar(TRUE)
 	QDEL_LIST(programs)
 	if(host_mob)
+		set_nanite_bar(TRUE)
 		host_mob.hud_set_nanite_indicator()
 	host_mob = null
 	return ..()
@@ -105,6 +105,7 @@
 
 /datum/component/nanites/process()
 	adjust_nanites(null, regen_rate)
+	add_research()
 	for(var/X in programs)
 		var/datum/nanite_program/NP = X
 		NP.on_process()
@@ -137,13 +138,17 @@
 		add_program(null, SNP.copy())
 
 /datum/component/nanites/proc/cloud_sync()
-	if(!cloud_id)
-		return
-	var/datum/nanite_cloud_backup/backup = SSnanites.get_cloud_backup(cloud_id)
-	if(backup)
-		var/datum/component/nanites/cloud_copy = backup.nanites
-		if(cloud_copy)
-			sync(null, cloud_copy)
+	if(cloud_id)
+		var/datum/nanite_cloud_backup/backup = SSnanites.get_cloud_backup(cloud_id)
+		if(backup)
+			var/datum/component/nanites/cloud_copy = backup.nanites
+			if(cloud_copy)
+				sync(null, cloud_copy)
+				return
+	//Without cloud syncing nanites can accumulate errors and/or defects
+	if(prob(8))
+		var/datum/nanite_program/NP = pick(programs)
+		NP.software_error()
 
 /datum/component/nanites/proc/add_program(datum/source, datum/nanite_program/new_program, datum/nanite_program/source_program)
 	for(var/X in programs)
@@ -271,6 +276,19 @@
 /datum/component/nanites/proc/get_programs(datum/source, list/nanite_programs)
 	nanite_programs |= programs
 
+/datum/component/nanites/proc/add_research()
+	var/research_value = NANITE_BASE_RESEARCH
+	if(!ishuman(host_mob))	
+		if(!iscarbon(host_mob))
+			research_value *= 0.4
+		else
+			research_value *= 0.8
+	if(!host_mob.client)
+		research_value *= 0.5
+	if(host_mob.stat == DEAD)
+		research_value *= 0.75
+	SSresearch.science_tech.add_point_list(list(TECHWEB_POINT_TYPE_NANITES = research_value))
+	
 /datum/component/nanites/proc/nanite_scan(datum/source, mob/user, full_scan)
 	if(!full_scan)
 		if(!stealth)
