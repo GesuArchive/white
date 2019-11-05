@@ -10,7 +10,7 @@
 	fire_sound = 'code/shitcode/RedFoxIV/guns/energy_smg/fire.ogg'
 	fire_sound_volume = 100
 
-	//характеристики ствола
+	//С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё СЃС‚РІРѕР»Р°
 	bolt_type = BOLT_TYPE_OPEN
 	mag_type = /obj/item/ammo_box/magazine/energy_smg
 	mag_display = TRUE
@@ -20,29 +20,29 @@
 
 
 
-//собственный прок для экзамайна, состоящий из кусков кода со всего света потому что я ебал эти затворы и навязанные кодом куски описания, которые мне не нужны
+//СЃРѕР±СЃС‚РІРµРЅРЅС‹Р№ РїСЂРѕРє РґР»СЏ СЌРєР·Р°РјР°Р№РЅР°, СЃРѕСЃС‚РѕСЏС‰РёР№ РёР· РєСѓСЃРєРѕРІ РєРѕРґР° СЃРѕ РІСЃРµРіРѕ СЃРІРµС‚Р° РїРѕС‚РѕРјСѓ С‡С‚Рѕ СЏ РµР±Р°Р» СЌС‚Рё Р·Р°С‚РІРѕСЂС‹ Рё РЅР°РІСЏР·Р°РЅРЅС‹Рµ РєРѕРґРѕРј РєСѓСЃРєРё РѕРїРёСЃР°РЅРёСЏ, РєРѕС‚РѕСЂС‹Рµ РјРЅРµ РЅРµ РЅСѓР¶РЅС‹
 
 /obj/item/gun/ballistic/energy_smg/examine(mob/user)
 	. = list("[ru_get_examine_string(user, TRUE)].")
 	. += desc
-	. += "Это [weightclass2text(w_class)] предмет."
+	. += "Р­С‚Рѕ [weightclass2text(w_class)] РїСЂРµРґРјРµС‚."
 	if(pin)
-		. += "Внутри установлен боёк типа [pin.name]."
+		. += "Р’РЅСѓС‚СЂРё СѓСЃС‚Р°РЅРѕРІР»РµРЅ Р±РѕС‘Рє С‚РёРїР° [pin.name]."
 	else
-		. += "Внутри отсутствует <b>боёк</b>, поэтому оно не будет стрелять."
+		. += "Р’РЅСѓС‚СЂРё РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚ <b>Р±РѕС‘Рє</b>, РїРѕСЌС‚РѕРјСѓ РѕРЅРѕ РЅРµ Р±СѓРґРµС‚ СЃС‚СЂРµР»СЏС‚СЊ."
 
 	if(!magazine)
-		. += "Аккумулятор отсутствует."
+		. += "РђРєРєСѓРјСѓР»СЏС‚РѕСЂ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚."
 		return
 
 	if(get_ammo())
-		. += "Заряда хватает ещё на [get_ammo()] выстрелов"
+		. += "Р—Р°СЂСЏРґР° С…РІР°С‚Р°РµС‚ РµС‰С‘ РЅР° [get_ammo()] РІС‹СЃС‚СЂРµР»РѕРІ"
 	else
-		. += "Аккумулятор разряжен."
+		. += "РђРєРєСѓРјСѓР»СЏС‚РѕСЂ СЂР°Р·СЂСЏР¶РµРЅ."
 
-	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .) //не ебу что это, но пожалуй оставлю.
+	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .) //РЅРµ РµР±Сѓ С‡С‚Рѕ СЌС‚Рѕ, РЅРѕ РїРѕР¶Р°Р»СѓР№ РѕСЃС‚Р°РІР»СЋ.
 
-//копипаста из ballistic.dm, переделанная под мои нужды. (гильзы не вылетают на пол, а удаляются)
+//РєРѕРїРёРїР°СЃС‚Р° РёР· ballistic.dm, РїРµСЂРµРґРµР»Р°РЅРЅР°СЏ РїРѕРґ РјРѕРё РЅСѓР¶РґС‹. (РіРёР»СЊР·С‹ РЅРµ РІС‹Р»РµС‚Р°СЋС‚ РЅР° РїРѕР», Р° СѓРґР°Р»СЏСЋС‚СЃСЏ)
 /obj/item/gun/ballistic/energy_smg/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
 	if(!semi_auto && from_firing)
 		return
@@ -56,12 +56,12 @@
 	if (chamber_next_round && (magazine?.max_ammo > 1))
 		chamber_round()
 
-//копипаста из ballistics.dm, переделанная под мои нужды. (никаких звуков передёргивания, уведомлений в чат)
+//РєРѕРїРёРїР°СЃС‚Р° РёР· ballistics.dm, РїРµСЂРµРґРµР»Р°РЅРЅР°СЏ РїРѕРґ РјРѕРё РЅСѓР¶РґС‹. (РЅРёРєР°РєРёС… Р·РІСѓРєРѕРІ РїРµСЂРµРґС‘СЂРіРёРІР°РЅРёСЏ, СѓРІРµРґРѕРјР»РµРЅРёР№ РІ С‡Р°С‚)
 /obj/item/gun/ballistic/energy_smg/rack(mob/user = null)
 	if(!bolt_locked)
 		return
 	if (user)
-		return //не даём передёргивать затвор кому попало
+		return //РЅРµ РґР°С‘Рј РїРµСЂРµРґС‘СЂРіРёРІР°С‚СЊ Р·Р°С‚РІРѕСЂ РєРѕРјСѓ РїРѕРїР°Р»Рѕ
 	bolt_locked = FALSE
 	process_chamber(!chambered, FALSE)
 	update_icon()
@@ -78,19 +78,10 @@
 
 
 
-//абсолютно тот же смг, но с пином для СБ. для спавна в армори
-/obj/item/gun/ballistic/energy_smg/mindshield
-	pin = /obj/item/firing_pin/implant/mindshield
-
-//для протолата
-/obj/item/gun/ballistic/energy_smg/nopin
-	pin = none
-	spawnwithmagazine = FALSE
-
-//--магазин--
+//--РјР°РіР°Р·РёРЅ--
 /obj/item/ammo_box/magazine/energy_smg
 	name = "Low-power pulse battery"
-	desc = "An external battery designed for a prototype weapon. Can't be recharged in standard weapon charging stations or battery  chargers."
+	desc = "An external battery designed for a prototype gun. Can't be recharged in standard weapon charging stations or battery  chargers."
 	icon= 'code/shitcode/RedFoxIV/guns/energy_smg/energy_smg.dmi'
 	icon_state = "energy_smg_ammobox"
 	ammo_type = /obj/item/ammo_casing/energy_smg
@@ -98,25 +89,25 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/ammo_box/attack_self(mob/user)
-	return //не даём вытаскивать пульки из аккумулятора
+	return //РЅРµ РґР°С‘Рј РІС‹С‚Р°СЃРєРёРІР°С‚СЊ РїСѓР»СЊРєРё РёР· Р°РєРєСѓРјСѓР»СЏС‚РѕСЂР°
 
 
-//--ржаказин--
-/obj/item/ammo_box/magazine/energy_smg/debug
+//--СЂР¶Р°РєР°Р·РёРЅ--
+/obj/item/ammo_box/magazine/energy_smg/lmao
 	max_ammo = 1488
 
 
-//--пульки--
+//--РїСѓР»СЊРєРё--
 /obj/item/ammo_casing/energy_smg
-	desc = "редфокс дебил"
-	caliber = "energy" //на всякий случай
+	desc = "СЂРµРґС„РѕРєСЃ РґРµР±РёР»"
+	caliber = "9mm" //СЃСѓРєР°, РЅРµ Р·РЅР°СЋ С‡С‘ СЃ СЌС‚РёРј РґРµР»Р°С‚СЊ
 	projectile_type = /obj/projectile/bullet/energy_smg_bullet
 
 
 
 /obj/projectile/bullet/energy_smg_bullet
 	name = "energy pellet"
-	damage = 3.2
+	damage = 3
 	stamina = 1
 	icon = 'code/shitcode/RedFoxIV/guns/energy_smg/energy_smg.dmi'
 	icon_state = "energy_smg_proj"

@@ -695,15 +695,6 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 	export_price = 5000
 
-/datum/techweb_node/exotic_weapons
-	id = "exotic_weapons"
-	display_name = "Exotic Weaponry"
-	description = "A fancy way of saying \"ducktape that shit together\"."
-	prereq_ids = list("adv_weaponry", "beam_weapons")
-	design_ids = list("energy_smg", "energy_smg_mag")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
-	export_price = 7500
-
 /datum/techweb_node/gravity_gun
 	id = "gravity_gun"
 	display_name = "One-point Bluespace-gravitational Manipulator"
