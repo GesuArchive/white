@@ -45,6 +45,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		return
 
 	if(bm)
+		fuck_screen(owner, tension)
 		bm.volume = tension
 		bm.status = SOUND_UPDATE
 		SEND_SOUND(owner, bm)
@@ -55,6 +56,19 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 		if(80 to INFINITY)
 			tension = 80
+
+/datum/btension/fuck_screen(mob/living/user, howmuch)
+	if(!user.client)
+		return
+	if (prob(howmuch) && howmuch > 5)
+		var/obj/screen/plane_master/floor/OT = locate(/obj/screen/plane_master/floor) in user.client.screen
+		var/obj/screen/plane_master/game_world/GW = locate(/obj/screen/plane_master/game_world) in user.client.screen
+		var/matrix/M = matrix()
+		M.Translate(0, rand(-2, 2))
+		animate(OT, transform = M, time = rand(15, 35), loop = 1, easing = SINE_EASING)
+		animate(OT = null, time = rand(15, 35), easing = SINE_EASING)
+		animate(GW, transform = M, time = rand(15, 35), loop = 1, easing = SINE_EASING)
+		animate(GW = null, time = rand(15, 35), easing = SINE_EASING)
 
 /datum/component/battletension/proc/bulletact_react(datum/source, obj/projectile/P, def_zone)
 	create_tension(P.damage)
