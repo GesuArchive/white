@@ -120,14 +120,16 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	if(tension > 0)
 		tension -= 2
-		fuck_screen(owner, tension)
+		owner.fuck_screen(tension)
 		if(tension <= 0)
 			qdel(bm)
 			pick_sound()
 
-/datum/btension/fuck_screen(mob/living/user, howmuch)
-	var/obj/screen/plane_master/floor/OT = locate(/obj/screen/plane_master/floor) in user.client.screen
-	var/obj/screen/plane_master/game_world/GW = locate(/obj/screen/plane_master/game_world) in user.client.screen
+/mob/living/proc/fuck_screen(howmuch)
+	if (!client)
+		return
+	var/obj/screen/plane_master/floor/OT = locate(/obj/screen/plane_master/floor) in client.screen
+	var/obj/screen/plane_master/game_world/GW = locate(/obj/screen/plane_master/game_world) in client.screen
 	var/matrix/M = matrix()
 	M.Translate(0, rand(-2, 2))
 	animate(OT, transform = M, time = rand(15, 35), loop = 1, easing = SINE_EASING)
