@@ -254,7 +254,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 	. = ..()
 	if(ishuman(user) || issilicon(user))
 		var/mob/living/human_or_robot_user = user
-		var/dat
+		var/dat = "<head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8' /></head>"
 		scan_user(human_or_robot_user)
 		switch(screen)
 			if(0)
@@ -887,7 +887,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 /obj/item/newspaper/attack_self(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
-		var/dat
+		var/dat = "<head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8' /></head>"
 		pages = 0
 		switch(screen)
 			if(0) //Cover
