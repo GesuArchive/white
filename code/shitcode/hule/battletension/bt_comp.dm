@@ -57,7 +57,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		if(80 to INFINITY)
 			tension = 80
 
-/datum/component/battletension/fuck_screen(mob/living/user, howmuch)
+/datum/component/battletension/proc/fuck_screen(mob/living/user, howmuch)
 	if(!user.client)
 		return
 	if (prob(howmuch) && howmuch > 5)
