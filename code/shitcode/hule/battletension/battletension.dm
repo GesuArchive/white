@@ -126,16 +126,11 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 			pick_sound()
 
 /datum/btension/fuck_screen(mob/living/user, howmuch)
-	if(!user.client)
-		return
-	if (howmuch < 5)
-		return
-	if (prob(howmuch))
-		var/obj/screen/plane_master/floor/OT = locate(/obj/screen/plane_master/floor) in user.client.screen
-		var/obj/screen/plane_master/game_world/GW = locate(/obj/screen/plane_master/game_world) in user.client.screen
-		var/matrix/M = matrix()
-		M.Translate(0, rand(-2, 2))
-		animate(OT, transform = M, time = rand(15, 35), loop = 1, easing = SINE_EASING)
-		animate(OT = null, time = rand(15, 35), easing = SINE_EASING)
-		animate(GW, transform = M, time = rand(15, 35), loop = 1, easing = SINE_EASING)
-		animate(GW = null, time = rand(15, 35), easing = SINE_EASING)
+	var/obj/screen/plane_master/floor/OT = locate(/obj/screen/plane_master/floor) in user.client.screen
+	var/obj/screen/plane_master/game_world/GW = locate(/obj/screen/plane_master/game_world) in user.client.screen
+	var/matrix/M = matrix()
+	M.Translate(0, rand(-2, 2))
+	animate(OT, transform = M, time = rand(15, 35), loop = 1, easing = SINE_EASING)
+	animate(OT = null, time = rand(15, 35), easing = SINE_EASING)
+	animate(GW, transform = M, time = rand(15, 35), loop = 1, easing = SINE_EASING)
+	animate(GW = null, time = rand(15, 35), easing = SINE_EASING)
