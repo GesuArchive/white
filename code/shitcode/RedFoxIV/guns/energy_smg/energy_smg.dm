@@ -49,7 +49,7 @@
 	var/obj/item/ammo_casing/AC = chambered //Find chambered round
 	if(istype(AC)) //there's a chambered round
 		if(casing_ejector || !from_firing)
-			AC.Destroy()
+			qdel(AC)
 			chambered = null
 		else if(empty_chamber)
 			chambered = null
