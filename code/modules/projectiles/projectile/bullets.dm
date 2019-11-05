@@ -7,4 +7,4 @@
 	flag = "bullet"
 	hitsound_wall = "ricochet"
 	impact_effect_type = /obj/effect/temp_visual/impact_effect
-	speed = 0.5
+	speed = 0.4
