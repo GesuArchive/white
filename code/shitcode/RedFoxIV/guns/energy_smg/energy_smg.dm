@@ -66,7 +66,6 @@
 	process_chamber(!chambered, FALSE)
 	update_icon()
 
-
 /obj/item/gun/ballistic/energy_smg/insert_magazine(mob/user, obj/item/ammo_box/magazine/AM, display_message = TRUE)
 	..()
 	rack()
@@ -78,10 +77,19 @@
 
 
 
+//абсолютно тот же смг, но с пином для СБ. для спавна в армори
+/obj/item/gun/ballistic/energy_smg/mindshield
+	pin = /obj/item/firing_pin/implant/mindshield
+
+//для протолата
+/obj/item/gun/ballistic/energy_smg/nopin
+	pin = null
+	spawnwithmagazine = FALSE
+
 //--магазин--
 /obj/item/ammo_box/magazine/energy_smg
 	name = "Low-power pulse battery"
-	desc = "An external battery designed for a prototype gun. Can't be recharged in standard weapon charging stations or battery  chargers."
+	desc = "An external battery designed for a prototype weapon. Can't be recharged in standard weapon charging stations or battery  chargers."
 	icon= 'code/shitcode/RedFoxIV/guns/energy_smg/energy_smg.dmi'
 	icon_state = "energy_smg_ammobox"
 	ammo_type = /obj/item/ammo_casing/energy_smg
@@ -93,21 +101,43 @@
 
 
 //--ржаказин--
-/obj/item/ammo_box/magazine/energy_smg/lmao
+/obj/item/ammo_box/magazine/energy_smg/debug
 	max_ammo = 1488
 
 
 //--пульки--
 /obj/item/ammo_casing/energy_smg
 	desc = "редфокс дебил"
-	caliber = "9mm" //сука, не знаю чё с этим делать
+	caliber = "energy" //на всякий случай
 	projectile_type = /obj/projectile/bullet/energy_smg_bullet
 
 
 
 /obj/projectile/bullet/energy_smg_bullet
 	name = "energy pellet"
-	damage = 3
+	damage = 3.2
 	stamina = 1
 	icon = 'code/shitcode/RedFoxIV/guns/energy_smg/energy_smg.dmi'
 	icon_state = "energy_smg_proj"
+
+
+
+/datum/design/energy_smg
+	name = "Prototype Energy SMG"
+	desc = "A prototype burst energy weapon. Uses special external batteries"
+	id = "energy_smg"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/titanium = 12000, /datum/material/glass = 2000, /datum/material/gold = 1500, /datum/material/iron = 35000)
+	build_path = /obj/item/gun/ballistic/energy_smg/nopin
+	category = list("Weapons")
+	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_SCIENCE//убрать флаг РнД если чрезмерно охуеют
+
+/datum/design/energy_smg_mag
+	name = "Energy SMG cartridge"
+	desc = "An external battery designed for a prototype weapon."
+	id = "energy_smg_mag"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/titanium = 2500, /datum/material/iron = 500)
+	build_path = /obj/item/ammo_box/magazine/energy_smg
+	category = list("Ammo")
+	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_SCIENCE//убрать флаг РнД если чрезмерно охуеют
