@@ -4,7 +4,7 @@
 	icon = 'code/shitcode/RedFoxIV/guns/energy_smg/energy_smg.dmi'
 	icon_state = "energy_smg"
 	item_state = "energy_smg"
-	custom_materials = list(/datum/material/titanium=5000,/datum/material/diamond=500)
+	custom_materials = list(/datum/material/titanium = 20000, /datum/material/glass = 2000, /datum/material/gold = 4000 , /datum/material/iron = 35000)
 	lefthand_file = 'code/shitcode/RedFoxIV/guns/guns_lefthand.dmi'
 	righthand_file = 'code/shitcode/RedFoxIV/guns/guns_righthand.dmi'
 	fire_sound = 'code/shitcode/RedFoxIV/guns/energy_smg/fire.ogg'
@@ -127,7 +127,7 @@
 	desc = "A prototype burst energy weapon. Uses special external batteries"
 	id = "energy_smg"
 	build_type = PROTOLATHE
-	materials = list(/datum/material/titanium = 12000, /datum/material/glass = 2000, /datum/material/gold = 1500, /datum/material/iron = 35000)
+	materials = list(/datum/material/titanium = 20000, /datum/material/glass = 2000, /datum/material/gold = 4000 , /datum/material/iron = 35000)
 	build_path = /obj/item/gun/ballistic/energy_smg/nopin
 	category = list("Weapons")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_SCIENCE//убрать флаг РнД если чрезмерно охуеют

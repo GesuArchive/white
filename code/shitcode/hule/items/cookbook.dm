@@ -66,7 +66,7 @@
 
 /datum/crafting_recipe/cookbook/mshotgun
 	name = "Makeshift Shotgun"
-	result = /obj/item/gun/ballistic/shotgun/automatic/small/makeshift
+	result = /obj/item/gun/ballistic/shotgun/makeshift
 	reqs = list(/obj/item/weaponcrafting/receiver = 1,
 				/obj/item/pipe = 1,
 				/obj/item/stack/sheet/metal = 20,
@@ -76,7 +76,7 @@
 
 /datum/crafting_recipe/cookbook/mshotgunmag
 	name = "Makeshift Shotgun magazine"
-	result = /obj/item/ammo_box/magazine/m4s12g
+	result = /obj/item/ammo_box/magazine/makeshift
 	reqs = list(/obj/item/stack/sheet/metal = 5,
 				/obj/item/stack/rods = 4)
 	tools = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH)
