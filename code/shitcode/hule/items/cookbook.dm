@@ -72,7 +72,7 @@
 				/obj/item/stack/sheet/metal = 20,
 				/obj/item/stack/rods = 5)
 	tools = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
-	time = 300
+	time = 150
 
 /datum/crafting_recipe/cookbook/mshotgunmag
 	name = "Makeshift Shotgun magazine"
@@ -80,7 +80,7 @@
 	reqs = list(/obj/item/stack/sheet/metal = 5,
 				/obj/item/stack/rods = 4)
 	tools = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH)
-	time = 100
+	time = 75
 	subcategory = CAT_AMMO
 
 /datum/crafting_recipe/cookbook/npgrenade
