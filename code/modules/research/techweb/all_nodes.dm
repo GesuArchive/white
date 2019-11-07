@@ -701,7 +701,7 @@
 	description = "A fancy way of saying \"ducktape that shit together\"."
 	prereq_ids = list("adv_weaponry", "beam_weapons")
 	design_ids = list("energy_smg", "energy_smg_mag")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 12500)
 	export_price = 7500
 
 /datum/techweb_node/gravity_gun

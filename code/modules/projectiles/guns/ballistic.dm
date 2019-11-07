@@ -376,7 +376,7 @@
 	var/count_chambered = !(bolt_type == BOLT_TYPE_NO_BOLT || bolt_type == BOLT_TYPE_OPEN)
 	. += "Внутри [get_ammo(count_chambered)] патронов."
 	if (!chambered)
-		. += "Совсем пуст"
+		. += "Патронник пуст."
 	if (bolt_locked)
 		. += "[bolt_wording] не передёрнут."
 	if (suppressed)
