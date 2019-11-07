@@ -125,7 +125,7 @@ GLOBAL_VAR(command_name)
 			new_station_name += pick(GLOB.numbers_as_words)
 		if(13)
 			new_station_name += pick("13","XIII","Тринадцать")
-	return new_station_name
+	return r_capitalize(r_lowertext(new_station_name))
 
 /proc/syndicate_name()
 	var/name = ""
