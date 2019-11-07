@@ -12,11 +12,6 @@ datum/musical_event
 	src.time = time
 	src.new_volume = volume
 
-/datum/musical_event/Destroy()
-	source = null
-	subject = null
-	object = null
-
 /datum/musical_event/proc/tick()
 	if (!(istype(object) && istype(subject) && istype(source))) 
 		return
