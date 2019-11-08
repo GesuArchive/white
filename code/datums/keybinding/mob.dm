@@ -57,7 +57,7 @@
 
 /datum/keybinding/mob/stop_pulling/down(client/user)
 	var/mob/M = user.mob
-	if (M.pulling)
+	if(!M.pulling)
 		to_chat(user, "<span class='notice'>You are not pulling anything.</span>")
 	else
 		M.stop_pulling()
@@ -94,28 +94,6 @@
 /datum/keybinding/mob/swap_hands/down(client/user)
 	var/mob/M = user.mob
 	M.swap_hand()
-	return TRUE
-
-/datum/keybinding/mob/say
-	key = "T"
-	name = "say"
-	full_name = "Say"
-	description = ""
-
-/datum/keybinding/mob/say/down(client/user)
-	var/mob/M = user.mob
-	M.say_wrapper()
-	return TRUE
-
-/datum/keybinding/mob/me
-	key = "M"
-	name = "me"
-	full_name = "Me"
-	description = ""
-
-/datum/keybinding/mob/me/down(client/user)
-	var/mob/M = user.mob
-	M.me_verb()
 	return TRUE
 
 /datum/keybinding/mob/activate_inhand
@@ -158,6 +136,17 @@
 	return TRUE
 
 /datum/keybinding/mob/toggle_move_intent/up(client/user)
+	var/mob/M = user.mob
+	M.toggle_move_intent()
+	return TRUE
+
+/datum/keybinding/mob/toggle_move_intent_alternative
+	key = "Unbound"
+	name = "toggle_move_intent_alt"
+	full_name = "press to cycle move intent"
+	description = "Pressing this cycle to the opposite move intent, does not cycle back"
+
+/datum/keybinding/mob/toggle_move_intent_alternative/down(client/user)
 	var/mob/M = user.mob
 	M.toggle_move_intent()
 	return TRUE
