@@ -41,17 +41,18 @@
 	//the time a key was pressed isn't actually used anywhere (as of 2019-9-10) but this allows easier access usage/checking
 	keys_held[_key] = world.time
 	current_key_address = ((current_key_address + 1) % HELD_KEY_BUFFER_LENGTH)
-	var/movement = SSinput.movement_keys[_key]
+	var/movement = movement_keys[_key]
 	if(!(next_move_dir_sub & movement) && !keys_held["Ctrl"])
 		next_move_dir_add |= movement
 
 	// Client-level keybindings are ones anyone should be able to do at any time
 	// Things like taking screenshots, hitting tab, and adminhelps.
-
 	var/AltMod = keys_held["Alt"] ? "Alt-" : ""
 	var/CtrlMod = keys_held["Ctrl"] ? "Ctrl-" : ""
 	var/ShiftMod = keys_held["Shift"] ? "Shift-" : ""
 	var/full_key = "[AltMod][CtrlMod][ShiftMod][_key]"
+	if(_key == "Alt" || _key == "Ctrl" || _key == "Shift") // only add modifiers if the key is not a modifier already
+		full_key = _key
 	var/keycount = 0
 	for(var/kb_name in prefs.key_bindings[full_key])
 		keycount++
@@ -71,7 +72,7 @@
 		if(keys_held[i] == _key)
 			keys_held[i] = null
 			break
-	var/movement = SSinput.movement_keys[_key]
+	var/movement = movement_keys[_key]
 	if(!(next_move_dir_add & movement))
 		next_move_dir_sub |= movement
 
