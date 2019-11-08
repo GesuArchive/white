@@ -13106,7 +13106,6 @@
 /turf/open/floor/plasteel,
 /area/medical/chemistry)
 "aEs" = (
-/obj/structure/synthesized_instrument/synthesizer,
 /turf/open/floor/plasteel/dark,
 /area/security/prison)
 "aEz" = (
