@@ -38,3 +38,26 @@
 	suffix = "wruin2.dmm"
 	name = "Autism Station"
 	description = "Практически автономная министация посреди космоса. Уцелела благодаря идиотам среди экипажа и полным отсутствием тактической ценности для синдиката."
+
+//telepadovo
+
+/area/ruin/space/has_grav/powered/partywhite
+	name = "Partywhite"
+	var/music_triggered = FALSE
+
+/area/ruin/space/has_grav/powered/partywhite/Entered(mob/user)
+	. = ..()
+
+	if(!user.ckey)
+		return
+
+	if (!music_triggered)
+		for (var/obj/machinery/jukebox/disco/indestructible/D in /area/ruin/space/has_grav/powered/partywhite)
+			D.activate_music()
+		music_triggered = TRUE
+
+/datum/map_template/ruin/space/partywhite
+	id = "partywhite"
+	suffix = "wruin3.dmm"
+	name = "Partywhite"
+	description = "Синдикат решил устроить тусу посреди космоса и никто им не должен помешать. Никто."
