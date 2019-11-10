@@ -24,7 +24,7 @@
 				typepath = pick(subtypesof(/obj/item))
 			var/amount = rand(1, 5)
 			var/atom/temp = typepath
-			if (temp.icon_state == null || temp.icon == null)
+			if (initial(temp.icon_state) == null || initial(temp.icon) == null)
 				continue
 			var/datum/data/vending_product/R = new /datum/data/vending_product()
 			GLOB.vending_products[typepath] = 1
