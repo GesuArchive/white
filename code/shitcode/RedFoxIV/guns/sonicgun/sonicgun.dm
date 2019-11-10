@@ -1,4 +1,3 @@
-
 /obj/item/gun/energy/cell/NLAW
 	name = "N-LAW"
 	desc = "A prototype energy weapon which was nicknamed the \"Sonic Blaster\" for looking like a giant fucking subwoofer with a trigger and a handle. Uses standard power cells which can be found all around the station."
@@ -67,3 +66,14 @@
 	range = 7
 	knock_distance = 6
 	move_force = MOVE_FORCE_OVERPOWERING
+
+
+/datum/design/nlaw
+	name = "N-LAW"
+	desc = "A prototype energy weapon which utilizes powerful acoustic waves to knock people around."
+	id = "nlaw"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/titanium = 14000, /datum/material/plasma = 6000, /datum/material/glass = 10000, /datum/material/gold = 6000 , /datum/material/iron = 25000)
+	build_path = /obj/item/gun/ballistic/energy_smg/nopin
+	category = list("Weapons")
+	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_SCIENCE //убрать флаг РнД если чрезмерно охуеют
