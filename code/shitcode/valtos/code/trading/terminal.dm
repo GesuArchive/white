@@ -22,8 +22,10 @@
 		if (prob(80))
 			if (prob(95))
 				typepath = pick(subtypesof(/obj/item))
-			var/amount = rand(1, 30)
+			var/amount = rand(1, 5)
 			var/atom/temp = typepath
+			if (temp.icon_state == null || temp.icon == null)
+				continue
 			var/datum/data/vending_product/R = new /datum/data/vending_product()
 			GLOB.vending_products[typepath] = 1
 			R.name = initial(temp.name)
