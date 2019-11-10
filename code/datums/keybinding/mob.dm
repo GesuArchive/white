@@ -261,5 +261,11 @@
 
 /datum/keybinding/mob/me/down(client/user)
 	var/mob/M = user.mob
-	M.me_verb()
+	M.me_wrapper()
 	return TRUE
+
+/mob/verb/me_wrapper()
+	set name = ".Me"
+	set hidden = TRUE
+	var/message = input("", "Me \"text\"") as null|text
+	me_verb(message)
