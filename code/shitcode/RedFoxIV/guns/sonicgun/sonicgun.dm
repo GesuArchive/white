@@ -1,4 +1,4 @@
-	/cell/NLAW
+/obj/item/gun/energy/cell/NLAW
 	name = "N-LAW"
 	desc = "A prototype energy weapon which was nicknamed the \"Sonic Blaster\" for looking like a giant fucking subwoofer with a trigger and a handle. Uses standard power cells which can be found all around the station."
 	icon = 'code/shitcode/RedFoxIV/guns/sonicgun/sonicgun.dmi'
