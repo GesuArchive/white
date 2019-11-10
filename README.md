@@ -1,4 +1,4 @@
-![fuck](https://travis-ci.com/frosty-dev/white-dream-main.svg?branch=master)
+[![fuck](https://travis-ci.com/frosty-dev/white-dream-main.svg?branch=master)](https://travis-ci.com/frosty-dev/white-dream-main)
 ## White Dream: New Hope
 
 **Website:** https://frosty.space
