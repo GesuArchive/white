@@ -27,7 +27,7 @@ SUBSYSTEM_DEF(input)
 	"T" = "say",
 	"F3" = "say",
 	"M" = "me",
-	"F4" = "say",
+	"F4" = "me",
 	"Back" = "\".winset \\\"input.text=\\\"\\\"\\\"\"",
 	"Tab" = "\".winset \\\"input.focus=true?map.focus=true input.background-color=[COLOR_INPUT_DISABLED]:input.focus=true input.background-color=[COLOR_INPUT_ENABLED]\\\"\"", 
 	"Escape" = "\".winset \\\"input.text=\\\"\\\"\\\"\"")
