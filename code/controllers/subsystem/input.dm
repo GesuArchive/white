@@ -23,11 +23,8 @@ SUBSYSTEM_DEF(input)
 	"Any" = "\"KeyDown \[\[*\]\]\"",
 	"Any+UP" = "\"KeyUp \[\[*\]\]\"",
 	"O" = "ooc",
-	"F2" = "ooc",
 	"T" = "say",
-	"F3" = "say",
 	"M" = "me",
-	"F4" = "me",
 	"Back" = "\".winset \\\"input.text=\\\"\\\"\\\"\"",
 	"Tab" = "\".winset \\\"input.focus=true?map.focus=true input.background-color=[COLOR_INPUT_DISABLED]:input.focus=true input.background-color=[COLOR_INPUT_ENABLED]\\\"\"", 
 	"Escape" = "\".winset \\\"input.text=\\\"\\\"\\\"\"")
