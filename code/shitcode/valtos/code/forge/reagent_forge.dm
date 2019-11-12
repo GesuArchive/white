@@ -83,7 +83,7 @@
 	else
 		if(using)
 			var/list/materials_used = list(/datum/material/reagent=materials*efficiency)
-			ourmaterials.use_materials(/datum/material/reagent=materials_used, 1)
+			ourmaterials.use_amount_mat(materials_used, /datum/material/reagent)
 		return TRUE
 
 
@@ -173,7 +173,7 @@
 				var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 				var/amount = materials.get_material_amount(/datum/material/reagent)
 				if(amount > 0)
-					materials.use_materials(/datum/material/reagent=amount, 1)
+					materials.retrieve_all()
 					var/obj/item/stack/sheet/mineral/reagent/RS = new(get_turf(usr))
 					RS.amount = materials.amount2sheet(amount)
 					var/paths = subtypesof(/datum/reagent)//one reference per stack
