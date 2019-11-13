@@ -6,7 +6,7 @@
 #define TRAIT_LIGHT_POOER		"legkoserya"
 
 /obj/item/reagent_containers/food/snacks/poo
-	name = "poo"
+	name = "говно"
 	desc = "Продукт человеческой единицы."
 	icon = 'code/shitcode/valtos/icons/poo.dmi'
 	icon_state = "truepoo"
@@ -24,14 +24,14 @@
 		icon_state = pick(random_icon_states)
 
 /obj/item/reagent_containers/food/snacks/poo/cooked
-	name = "cooked poo"
+	name = "жареное говно"
 	icon_state = "ppoo1"
-	var/random_icon_states = list("ppoo1", "ppoo2", "ppoo3", "ppoo4", "ppoo5", "ppoo6")
+	random_icon_states = list("ppoo1", "ppoo2", "ppoo3", "ppoo4", "ppoo5", "ppoo6")
 	filling_color = "#4B3320"
 
 /datum/reagent/toxin/poo
-	name = "Poo"
-	description = "Govno?"
+	name = "Говно"
+	description = "Говно?"
 	color = "#4B3320"
 	toxpwr = 2.5
 	taste_description = "poo"
