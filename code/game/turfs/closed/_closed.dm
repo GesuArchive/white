@@ -19,7 +19,7 @@
 	return ..()
 
 /turf/closed/indestructible
-	name = "wall"
+	name = "стена"
 	icon = 'icons/turf/walls.dmi'
 	explosion_block = 50
 
@@ -37,12 +37,12 @@
 	return
 
 /turf/closed/indestructible/oldshuttle
-	name = "strange shuttle wall"
+	name = "странная челночная стена"
 	icon = 'icons/turf/shuttleold.dmi'
 	icon_state = "block"
 
 /turf/closed/indestructible/sandstone
-	name = "sandstone wall"
+	name = "песчаниковая стена"
 	desc = "A wall with sandstone plating. Rough."
 	icon = 'icons/turf/walls/sandstone_wall.dmi'
 	icon_state = "sandstone"
@@ -53,7 +53,7 @@
 	icon_state = "corner"
 
 /turf/closed/indestructible/splashscreen
-	name = "Space Station 13"
+	name = "White Dream"
 	icon = 'icons/blank_title.png'
 	icon_state = ""
 	layer = FLY_LAYER
@@ -93,7 +93,7 @@
 	icon_state = "wall3"
 
 /turf/closed/indestructible/fakeglass
-	name = "window"
+	name = "окно"
 	icon_state = "fake_window"
 	opacity = 0
 	smooth = SMOOTH_TRUE
@@ -106,7 +106,7 @@
 	underlays += mutable_appearance('icons/turf/floors.dmi', "plating") //add the plating underlay, below the grille
 
 /turf/closed/indestructible/opsglass
-	name = "window"
+	name = "окно"
 	icon_state = "plastitanium_window"
 	opacity = 0
 	smooth = SMOOTH_TRUE
@@ -124,34 +124,34 @@
 	icon_state = "fake_door"
 
 /turf/closed/indestructible/rock
-	name = "dense rock"
-	desc = "An extremely densely-packed rock, most mining tools or explosives would never get through this."
+	name = "плотная скала"
+	desc = "Чрезвычайно плотная порода, большинство горнодобывающих орудий и взрывчатых веществ никогда не пройдет сквозь нее."
 	icon = 'icons/turf/mining.dmi'
 	icon_state = "rock"
 
 /turf/closed/indestructible/rock/snow
-	name = "mountainside"
-	desc = "An extremely densely-packed rock, sheeted over with centuries worth of ice and snow."
+	name = "склон горы"
+	desc = "Чрезвычайно плотная скала, покрытая льдом и снегом на протяжении столетий."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "snowrock"
 	bullet_sizzle = TRUE
 	bullet_bounce_sound = null
 
 /turf/closed/indestructible/rock/snow/ice
-	name = "iced rock"
-	desc = "Extremely densely-packed sheets of ice and rock, forged over the years of the harsh cold."
+	name = "ледяной камень"
+	desc = "Чрезвычайно плотно заполненные ледяные и скальные покровы, выкованные за годы сильного холода."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "icerock"
 
 /turf/closed/indestructible/paper
-	name = "thick paper wall"
-	desc = "A wall layered with impenetrable sheets of paper."
+	name = "толстая бумажная стена"
+	desc = "Стена, покрытая непроницаемыми листами бумаги."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "paperwall"
 
 /turf/closed/indestructible/necropolis
-	name = "necropolis wall"
-	desc = "A seemingly impenetrable wall."
+	name = "стена некрополя"
+	desc = "Казалось бы, непробиваемая стена."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "necro"
 	explosion_block = 50
@@ -163,8 +163,8 @@
 	return TRUE
 
 /turf/closed/indestructible/riveted/boss
-	name = "necropolis wall"
-	desc = "A thick, seemingly indestructible stone wall."
+	name = "стена некрополя"
+	desc = "Толстая, казалось бы, неразрушимая каменная стена."
 	icon = 'icons/turf/walls/boss_wall.dmi'
 	icon_state = "wall"
 	canSmoothWith = list(/turf/closed/indestructible/riveted/boss, /turf/closed/indestructible/riveted/boss/see_through)
@@ -180,7 +180,7 @@
 	return TRUE
 
 /turf/closed/indestructible/riveted/hierophant
-	name = "wall"
-	desc = "A wall made out of a strange metal. The squares on it pulse in a predictable pattern."
+	name = "стена"
+	desc = "Стена, сделанная из странного металла. Квадраты на нем пульсируют предсказуемым образом."
 	icon = 'icons/turf/walls/hierophant_wall.dmi'
 	icon_state = "wall"

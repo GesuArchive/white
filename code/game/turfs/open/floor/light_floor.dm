@@ -1,6 +1,6 @@
 /turf/open/floor/light
-	name = "light floor"
-	desc = "A wired glass tile embedded into the floor."
+	name = "светящийся пол"
+	desc = "В пол вмонтирована электрическая светящаяся стеклянная плитка."
 	light_range = 5
 	icon_state = "light_on"
 	floor_tile = /obj/item/stack/tile/light
@@ -15,7 +15,7 @@
 
 /turf/open/floor/light/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Здесь есть <b>небольшая трещина</b> на краю..</span>"
+	. += "<span class='notice'>Здесь есть <b>небольшая трещина</b> с краю.</span>"
 
 /turf/open/floor/light/Initialize()
 	. = ..()
@@ -79,9 +79,9 @@
 			qdel(C)
 			state = 0 //fixing it by bashing it with a light bulb, fun eh?
 			update_icon()
-			to_chat(user, "<span class='notice'>You replace the light bulb.</span>")
+			to_chat(user, "<span class='notice'>Заменяю лампочку.</span>")
 		else
-			to_chat(user, "<span class='notice'>The light bulb seems fine, no need to replace it.</span>")
+			to_chat(user, "<span class='notice'>Лампочка кажется в порядке, замена лампочки не требуется.</span>")
 
 
 //Cycles through all of the colours

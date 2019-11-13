@@ -1,7 +1,7 @@
 /turf/open/floor/goonplaque
-	name = "commemorative plaque"
+	name = "памятная доска"
 	icon_state = "plaque"
-	desc = "\"This is a plaque in honour of our comrades on the G4407 Stations. Hopefully TG4407 model can live up to your fame and fortune.\" Scratched in beneath that is a crude image of a meteor and a spaceman. The spaceman is laughing. The meteor is exploding."
+	desc = "\"Это мемориальная доска в честь наших товарищей на станциях G4407. Надеюсь, модель TG4407 будет соответствовать вашей славе и богатству.\" Под ним грубое изображение метеорита и космонавта. Космонавт смеется. Метеорит взрывается."
 	floor_tile = /obj/item/stack/tile/plasteel
 	tiled_dirt = FALSE
 
@@ -51,10 +51,10 @@
 	initial_gas_mix = TCOMMS_ATMOS
 
 /turf/open/floor/circuit/telecomms/mainframe
-	name = "mainframe base"
+	name = "мейнфреймовое основание"
 
 /turf/open/floor/circuit/telecomms/server
-	name = "server base"
+	name = "серверная база"
 
 /turf/open/floor/circuit/green
 	icon_state = "gcircuit"
@@ -78,7 +78,7 @@
 	initial_gas_mix = TCOMMS_ATMOS
 
 /turf/open/floor/circuit/green/telecomms/mainframe
-	name = "mainframe base"
+	name = "мейнфреймовое основание"
 
 /turf/open/floor/circuit/red
 	icon_state = "rcircuit"
@@ -102,7 +102,7 @@
 	initial_gas_mix = TCOMMS_ATMOS
 
 /turf/open/floor/pod
-	name = "pod floor"
+	name = "капсульный пол"
 	icon_state = "podfloor"
 	icon_regular_floor = "podfloor"
 	floor_tile = /obj/item/stack/tile/pod
@@ -119,7 +119,7 @@
 
 
 /turf/open/floor/noslip
-	name = "high-traction floor"
+	name = "высокопрочный пол"
 	icon_state = "noslip"
 	floor_tile = /obj/item/stack/tile/noslip
 	broken_states = list("noslip-damaged1","noslip-damaged2","noslip-damaged3")
@@ -137,36 +137,36 @@
 /turf/open/floor/bluespace
 	slowdown = -1
 	icon_state = "bluespace"
-	desc = "Through a series of micro-teleports these tiles let people move at incredible speeds."
+	desc = "Благодаря серии микро-телепортов эти плитки позволяют людям передвигаться с невероятной скоростью."
 	floor_tile = /obj/item/stack/tile/bluespace
 
 
 /turf/open/floor/sepia
 	slowdown = 2
 	icon_state = "sepia"
-	desc = "Time seems to flow very slowly around these tiles."
+	desc = "Время, кажется, течет очень медленно вокруг этих плиток."
 	floor_tile = /obj/item/stack/tile/sepia
 
 
 /turf/open/floor/bronze
-	name = "bronze floor"
-	desc = "Some heavy bronze tiles."
+	name = "бронзовый пол"
+	desc = "Тяжелая бронзовая плитка."
 	icon = 'icons/obj/clockwork_objects.dmi'
 	icon_state = "clockwork_floor"
 	floor_tile = /obj/item/stack/tile/bronze
 
 /turf/open/floor/white
-	name = "white floor"
-	desc = "A tile in a pure white color."
+	name = "белый пол"
+	desc = "Плитка чистого белого цвета."
 	icon_state = "pure_white"
 
 /turf/open/floor/black
-	name = "black floor"
+	name = "чёрный пол"
 	icon_state = "black"
 
 /turf/open/floor/plastic
-	name = "plastic floor"
-	desc = "Cheap, lightweight flooring. Melts easily."
+	name = "пластмассовый пол"
+	desc = "Дешевый, легкий пол. Легко плавится."
 	icon_state = "plastic"
 	thermal_conductivity = 0.1
 	heat_capacity = 900

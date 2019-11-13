@@ -1,7 +1,7 @@
 /**********************Mineral deposits**************************/
 
 /turf/closed/mineral //wall piece
-	name = "rock"
+	name = "камень"
 	icon = 'icons/turf/mining.dmi'
 	icon_state = "rock"
 	var/smooth_icon = 'icons/turf/smoothrocks.dmi'
@@ -395,7 +395,7 @@
 	defer_change = 1
 
 /turf/closed/mineral/ash_rock //wall piece
-	name = "rock"
+	name = "камень"
 	icon = 'icons/turf/mining.dmi'
 	smooth_icon = 'icons/turf/walls/rock_wall.dmi'
 	icon_state = "rock2"
@@ -408,7 +408,7 @@
 	defer_change = 1
 
 /turf/closed/mineral/snowmountain
-	name = "snowy mountainside"
+	name = "заснеженный склон горы"
 	icon = 'icons/turf/mining.dmi'
 	smooth_icon = 'icons/turf/walls/mountain_wall.dmi'
 	icon_state = "mountainrock"
@@ -421,7 +421,7 @@
 	defer_change = TRUE
 
 /turf/closed/mineral/snowmountain/cavern
-	name = "ice cavern rock"
+	name = "ледяная скала пещеры"
 	icon = 'icons/turf/mining.dmi'
 	smooth_icon = 'icons/turf/walls/icerock_wall.dmi'
 	icon_state = "icerock"
@@ -458,10 +458,10 @@
 	if(stage == GIBTONITE_UNSTRUCK)
 		activated_overlay = mutable_appearance('icons/turf/smoothrocks.dmi', "rock_Gibtonite_active", ON_EDGED_TURF_LAYER)
 		add_overlay(activated_overlay)
-		name = "gibtonite deposit"
-		desc = "An active gibtonite reserve. Run!"
+		name = "месторождение гибтонита"
+		desc = "Активный резерв гибтонита. Беги!"
 		stage = GIBTONITE_ACTIVE
-		visible_message("<span class='danger'>There was gibtonite inside! It's going to explode!</span>")
+		visible_message("<span class='danger'>ГИБТОНИТ СУКА! ОНО ЩАС ЕБАНЁТ НАХУЙ!</span>")
 
 		var/notify_admins = 0
 		if(z != 5)
@@ -491,11 +491,11 @@
 		cut_overlay(activated_overlay)
 		activated_overlay.icon_state = "rock_Gibtonite_inactive"
 		add_overlay(activated_overlay)
-		desc = "An inactive gibtonite reserve. The ore can be extracted."
+		desc = "Неактивный резерв гибтонита. Руду можно добывать."
 		stage = GIBTONITE_STABLE
 		if(det_time < 0)
 			det_time = 0
-		visible_message("<span class='notice'>The chain reaction was stopped! The gibtonite had [det_time] reactions left till the explosion!</span>")
+		visible_message("<span class='notice'>Цепная реакция была остановлена! Гибтонит содержал [det_time] реакций, оставшихся до взрыва!</span>")
 
 /turf/closed/mineral/gibtonite/gets_drilled(mob/user, triggered_by_explosion = 0)
 	if(stage == GIBTONITE_UNSTRUCK && mineralAmt >= 1) //Gibtonite deposit is activated
@@ -531,8 +531,8 @@
 	defer_change = 1
 
 /turf/closed/mineral/strong
-	name = "Very strong rock"
-	desc = "Seems to be stronger than the other rocks in the area. Only a master of mining techniques could destroy this."
+	name = "очень крепкий камень"
+	desc = "Похоже, что он сильнее других камней в этом районе. Только мастер горного дела сможет уничтожить это."
 	environment_type = "basalt"
 	turf_type = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
 	baseturfs = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
@@ -542,13 +542,13 @@
 
 /turf/closed/mineral/strong/attackby(obj/item/I, mob/user, params)
 	if(!ishuman(user))
-		to_chat(usr, "<span class='warning'>Only a more advanced species could break a rock such as this one!</span>")
+		to_chat(usr, "<span class='warning'>Только более продвинутый в своих способностях вид мог бы разбить такую скалу, как эта!</span>")
 		return FALSE
 	var/mob/living/carbon/human/H = user
 	if(H.mind.get_skill_level(/datum/skill/mining) >= SKILL_LEVEL_LEGENDARY)
 		. = ..()
 	else
-		to_chat(usr, "<span class='warning'>The rock seems to be too strong to destroy. Maybe I can break it once I become a master miner.</span>")
+		to_chat(usr, "<span class='warning'>Похоже, камень слишком крепок, чтобы его уничтожить. Может быть, я смогу сломать его, когда стану главным шахтёром.</span>")
 
 
 /turf/closed/mineral/strong/gets_drilled(user)

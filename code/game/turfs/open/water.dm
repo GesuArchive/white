@@ -1,7 +1,7 @@
 /turf/open/water
 	gender = PLURAL
-	name = "water"
-	desc = "Shallow water."
+	name = "вода"
+	desc = "Мелководье."
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "riverwater_motion"
 	baseturfs = /turf/open/chasm/lavaland

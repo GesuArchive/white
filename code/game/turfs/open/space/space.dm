@@ -1,7 +1,7 @@
 /turf/open/space
 	icon = 'icons/turf/space.dmi'
 	icon_state = "0"
-	name = "\proper space"
+	name = "космос"
 	intact = 0
 
 	temperature = TCMB
@@ -99,22 +99,22 @@
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		var/obj/structure/lattice/catwalk/W = locate(/obj/structure/lattice/catwalk, src)
 		if(W)
-			to_chat(user, "<span class='warning'>There is already a catwalk here!</span>")
+			to_chat(user, "<span class='warning'>Тут уже есть мостик!</span>")
 			return
 		if(L)
 			if(R.use(1))
-				to_chat(user, "<span class='notice'>You construct a catwalk.</span>")
+				to_chat(user, "<span class='notice'>Строю мостик.</span>")
 				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 				new/obj/structure/lattice/catwalk(src)
 			else
-				to_chat(user, "<span class='warning'>You need two rods to build a catwalk!</span>")
+				to_chat(user, "<span class='warning'>Надо бы побольше прутьев для постройки мостика!</span>")
 			return
 		if(R.use(1))
-			to_chat(user, "<span class='notice'>You construct a lattice.</span>")
+			to_chat(user, "<span class='notice'>Строю решетку.</span>")
 			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 			ReplaceWithLattice()
 		else
-			to_chat(user, "<span class='warning'>You need one rod to build a lattice.</span>")
+			to_chat(user, "<span class='warning'>Надо бы побольше прутьев для постройки решетки.</span>")
 		return
 	if(istype(C, /obj/item/stack/tile/plasteel))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
@@ -123,12 +123,12 @@
 			if(S.use(1))
 				qdel(L)
 				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-				to_chat(user, "<span class='notice'>You build a floor.</span>")
+				to_chat(user, "<span class='notice'>Покрываю обшивкой.</span>")
 				PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
 			else
-				to_chat(user, "<span class='warning'>You need one floor tile to build a floor!</span>")
+				to_chat(user, "<span class='warning'>Надо бы плиточку!</span>")
 		else
-			to_chat(user, "<span class='warning'>The plating is going to need some support! Place metal rods first.</span>")
+			to_chat(user, "<span class='warning'>Надо бы опору сначала сделать. Подойдёт несколько прутьев.</span>")
 
 /turf/open/space/Entered(atom/movable/A)
 	..()

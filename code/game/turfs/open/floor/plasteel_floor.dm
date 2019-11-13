@@ -6,7 +6,7 @@
 
 /turf/open/floor/plasteel/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Здесь есть <b>небольшая трещина</b> на краю.</span>"
+	. += "<span class='notice'>Здесь есть <b>небольшая трещина</b> с краю.</span>"
 
 /turf/open/floor/plasteel/update_icon()
 	if(!..())
@@ -89,7 +89,7 @@
 
 
 /turf/open/floor/plasteel/kitchen_coldroom
-	name = "cold room floor"
+	name = "пол холодильной камеры"
 	initial_gas_mix = KITCHEN_COLDROOM_ATMOS
 
 /turf/open/floor/plasteel/kitchen_coldroom/freezerfloor
@@ -109,14 +109,14 @@
 
 /turf/open/floor/plasteel/cult
 	icon_state = "cult"
-	name = "engraved floor"
+	name = "гравированный пол"
 
 /turf/open/floor/plasteel/vaporwave
 	icon_state = "pinkblack"
 
 /turf/open/floor/plasteel/goonplaque
 	icon_state = "plaque"
-	name = "commemorative plaque"
+	name = "памятная доска"
 	desc = "\"This is a plaque in honour of our comrades on the G4407 Stations. Hopefully TG4407 model can live up to your fame and fortune.\" Scratched in beneath that is a crude image of a meteor and a spaceman. The spaceman is laughing. The meteor is exploding."
 	tiled_dirt = FALSE
 

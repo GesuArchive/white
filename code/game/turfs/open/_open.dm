@@ -33,7 +33,7 @@
 	return (direction == UP)
 
 /turf/open/indestructible
-	name = "floor"
+	name = "плиточка"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "floor"
 	footstep = FOOTSTEP_FLOOR
@@ -53,7 +53,7 @@
 	return
 
 /turf/open/indestructible/sound
-	name = "squeaky floor"
+	name = "скрипучий пол"
 	footstep = null
 	barefootstep = null
 	clawfootstep = null
@@ -66,8 +66,8 @@
 		playsound(src,sound,50,TRUE)
 
 /turf/open/indestructible/necropolis
-	name = "necropolis floor"
-	desc = "It's regarding you suspiciously."
+	name = "пол некрополя"
+	desc = "Смотрит на тебя с подозрением. Тьфу."
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "necro1"
 	baseturfs = /turf/open/indestructible/necropolis
@@ -87,7 +87,7 @@
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 
 /turf/open/indestructible/boss //you put stone tiles on this and use it as a base
-	name = "necropolis floor"
+	name = "пол некрополя"
 	icon = 'icons/turf/boss_floors.dmi'
 	icon_state = "boss"
 	baseturfs = /turf/open/indestructible/boss
@@ -109,8 +109,8 @@
 	return FALSE
 
 /turf/open/indestructible/paper
-	name = "notebook floor"
-	desc = "A floor made of invulnerable notebook paper."
+	name = "тетрадный пол"
+	desc = "Пол из неуязвимой бумаги для блокнотов."
 	icon_state = "paperfloor"
 	footstep = null
 	barefootstep = null
@@ -119,7 +119,7 @@
 	tiled_dirt = FALSE
 
 /turf/open/indestructible/binary
-	name = "tear in the fabric of reality"
+	name = "разрыв ткани реальности"
 	CanAtmosPass = ATMOS_PASS_NO
 	baseturfs = /turf/open/indestructible/binary
 	icon_state = "binary"
@@ -196,7 +196,7 @@
 			if(C.m_intent == MOVE_INTENT_WALK && (lube&NO_SLIP_WHEN_WALKING))
 				return 0
 		if(!(lube&SLIDE_ICE))
-			to_chat(C, "<span class='notice'>You slipped[ O ? " on the [O.name]" : ""]!</span>")
+			to_chat(C, "<span class='notice'>Слишком скоо-о-ользко[ O ? "! БЛЯДСКИЙ [r_uppertext(O.name)]" : ""]!</span>")
 			playsound(C.loc, 'sound/misc/slip.ogg', 50, TRUE, -3)
 
 		SEND_SIGNAL(C, COMSIG_ADD_MOOD_EVENT, "slipped", /datum/mood_event/slipped)
