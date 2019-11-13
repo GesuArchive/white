@@ -65,17 +65,17 @@
 
 /datum/round_aspect/terraformed
 	name = "Terraformed"
-	desc = "Продвинутые технологии терраформирования теперь позволяют находиться на Лаваленде без надобности в дыхательных масках."
+	desc = "Продвинутые технологии терраформирования озеленили Лаваленд."
 	weight = 5
 
 /datum/round_aspect/terraformed/run_aspect()
 	for(var/turf/open/floor/plating/asteroid/basalt/lava_land_surface/T in world)
-		T.initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-		T.air.copy_from_turf(src)
+		T.ChangeTurf(/turf/open/floor/plating/grass, flags = CHANGETURF_DEFER_CHANGE)
 	for(var/turf/open/lava/T in world)
-		T.initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-		T.air.copy_from_turf(src)
+		T.ChangeTurf(/turf/open/floor/plating/beach/water, flags = CHANGETURF_DEFER_CHANGE)
 	for(var/turf/closed/mineral/random/T in world)
+		T.turf_type = /turf/open/floor/plating/grass
+		T.baseturfs = /turf/open/floor/plating/grass
 		T.initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	..()
 
@@ -114,6 +114,79 @@
 			floor.add_atom_colour(("#FFF200"), WASHABLE_COLOUR_PRIORITY)
 		else
 			floor.add_atom_colour(("#00B7EF"), WASHABLE_COLOUR_PRIORITY)
+	..()
+
+/datum/round_aspect/minecraft
+	name = "Minecraft"
+	desc = "Сегодня поиграю я в Майнкрафт</br>С рассвета до глубокой ночи.</br>Наружу выходить мне лень, пусть даже там - отличный день."
+	weight = 5
+
+/datum/round_aspect/minecraft/run_aspect()
+	for(var/turf/open/floor/plasteel/floor)
+		floor.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		floor.icon_state = "stone"
+	for(var/turf/open/floor/plasteel/white/floor)
+		floor.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		floor.icon_state = "slab"
+	for(var/turf/open/floor/plasteel/dark/floor)
+		floor.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		floor.icon_state = "stone"
+	for(var/turf/open/floor/circuit/cir)
+		cir.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		cir.icon_state = "fug"
+	for(var/turf/open/floor/plating/plating)
+		plating.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		plating.icon_state = "dirt"
+	for(var/turf/open/floor/engine/ef)
+		ef.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		ef.icon_state = "stoneblock"
+	for(var/obj/machinery/power/supermatter_crystal/engine/e)
+		e.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		e.icon_state = "ender"
+	for(var/turf/closed/wall/wa)
+		wa.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		wa.icon_state = "cobblestone"
+		wa.cut_overlays()
+	for(var/turf/closed/wall/r_wall/rwa)
+		rwa.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		rwa.icon_state = "obsidian"
+		rwa.cut_overlays()
+	for(var/turf/closed/wall/mineral/titanium/ti)
+		ti.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		ti.icon_state = "quartz"
+		ti.cut_overlays()
+	for(var/turf/closed/indestructible/riveted/riv)
+		riv.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		riv.icon_state = "adminium"
+		riv.cut_overlays()
+	for(var/turf/open/floor/carpet/car)
+		car.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		car.icon_state = "carpet"
+		car.cut_overlays()
+	for(var/obj/machinery/rnd/production/protolathe/plat)
+		plat.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		plat.icon_state = "furnace"
+	for(var/obj/machinery/autolathe/autol)
+		autol.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		autol.icon_state = "craft"
+	for(var/obj/machinery/power/solar/solar)
+		solar.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		solar.icon_state = "solar"
+	for(var/obj/structure/window/reinforced/fulltile/rw)
+		rw.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		rw.icon_state = "glass"
+	for(var/obj/structure/window/fulltile/w)
+		w.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		w.icon_state = "glass"
+	for(var/obj/structure/grille/g)
+		g.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		g.icon_state = "fence"
+	for(var/obj/machinery/nuclearbomb/selfdestruct/tnt)
+		tnt.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		tnt.icon_state = "tnt"
+	for(var/turf/open/floor/wood/p)
+		p.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		p.icon_state = "plank"
 	..()
 
 /*
