@@ -1116,7 +1116,6 @@
 /area/ruin/space/has_grav/terrorship)
 "dt" = (
 /obj/structure/table/reinforced,
-/obj/item/shield/trayshield,
 /turf/open/floor/plasteel/cafeteria,
 /area/ruin/space/has_grav/terrorship)
 "du" = (
