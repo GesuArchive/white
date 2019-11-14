@@ -86,6 +86,7 @@
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/suits.dmi'
 	icon_state = "cowl"
+	slot_flags = ITEM_SLOT_NECK
 
 /obj/item/clothing/suit/cowl/robe
 	name = "robe"

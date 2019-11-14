@@ -241,7 +241,7 @@
 		special_traits = list()
 		name = name += " ([reagent_type.name])"
 		color = reagent_type.color
-		damage = max(0.1, (reagent_type.density * 1.5 * caliber_multiplier))
+		damage = max(0.1, (reagent_type.density * 0.8 * caliber_multiplier))
 		speed = max(0, reagent_type.density / 2.5)
 		for(var/I in reagent_type.special_traits)
 			var/datum/special_trait/S = new I
