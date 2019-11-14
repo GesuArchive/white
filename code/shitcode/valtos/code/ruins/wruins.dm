@@ -65,25 +65,44 @@
 	jumpto_ports = list("explorer_mini_station" = 1)
 	view_range = 9
 
+/obj/item/paper/crumpled/ruins/autism
+	desc = "<i>Ты пидор.</i>"
+
 //telepadovo
 
 /area/ruin/space/has_grav/powered/partywhite
 	name = "Partywhite"
-	var/music_triggered = FALSE
 
-/area/ruin/space/has_grav/powered/partywhite/Entered(mob/user)
+/area/ruin/space/has_grav/powered/partywhite/Initialize(mapload)
 	. = ..()
-
-	if(!user.ckey)
-		return
-
-	if (!music_triggered)
-		for (var/obj/machinery/jukebox/disco/indestructible/D in /area/ruin/space/has_grav/powered/partywhite)
+	if(mapload)
+		for (var/obj/machinery/jukebox/disco/indestructible/D in src)
 			D.activate_music()
-		music_triggered = TRUE
 
 /datum/map_template/ruin/space/partywhite
 	id = "partywhite"
 	suffix = "wruin3.dmm"
 	name = "Partywhite"
 	description = "Синдикат решил устроить тусу посреди космоса и никто им не должен помешать. Никто."
+
+//terrorship
+
+/area/ruin/space/has_grav/terrorship
+	name = "Terrorship"
+	requires_power = FALSE
+	noteleport = TRUE //ага ебать
+	hidden = TRUE
+	valid_territory = FALSE
+
+/obj/structure/fluff/artillery
+	name = "артиллерия"
+	desc = "Долбит нормально."
+	icon = 'code/shitcode/valtos/icons/artillery.dmi'
+	icon_state = "artillery"
+	density = TRUE
+
+/datum/map_template/ruin/space/terrorship
+	id = "terrorship"
+	suffix = "wruin4.dmm"
+	name = "Terrorship"
+	description = "При попытке пристыковать артиллерию к основной части корабля Mothership при помощи блюспейс технологий эта часть корабля попала в наш сектор. Блюпупа получил <b>за лупу</b>."
