@@ -263,6 +263,7 @@ GLOBAL_VAR(restart_counter)
 
 	var/s = ""
 	var/hostedby
+	var/special_string
 	var/server_name = "piss"
 	if(config)
 		special_string = CONFIG_GET(string/special_string)
