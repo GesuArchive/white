@@ -73,7 +73,7 @@
 		T.ChangeTurf(/turf/open/floor/plating/grass, flags = CHANGETURF_DEFER_CHANGE)
 	for(var/turf/open/lava/T in world)
 		T.ChangeTurf(/turf/open/floor/plating/beach/water, flags = CHANGETURF_DEFER_CHANGE)
-	for(var/turf/closed/mineral/random/T in world)
+	for(var/turf/closed/mineral/T in world)
 		T.turf_type = /turf/open/floor/plating/grass
 		T.baseturfs = /turf/open/floor/plating/grass
 		T.initial_gas_mix = OPENTURF_DEFAULT_ATMOS
