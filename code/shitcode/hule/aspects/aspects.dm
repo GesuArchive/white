@@ -81,12 +81,12 @@
 
 /datum/round_aspect/rich
 	name = "Rich"
-	desc = "Экипаж работал усердно в прошлую смену, за что и был награждён премиями в размере 5000 кредитов каждому."
+	desc = "Экипаж работал усердно в прошлую смену, за что и был награждён премиями в размере 10000 кредитов каждому."
 	weight = 9
 
 /datum/round_aspect/rich/run_aspect()
-	for(var/datum/bank_account/department/D in SSeconomy.generated_accounts)
-		D.adjust_money(5000)
+	for(var/datum/bank_account/D in SSeconomy.bank_accounts)
+		D._adjust_money(10000)
 	..()
 
 /datum/round_aspect/drunk
@@ -119,7 +119,7 @@
 /datum/round_aspect/minecraft
 	name = "Minecraft"
 	desc = "Сегодня поиграю я в Майнкрафт</br>С рассвета до глубокой ночи.</br>Наружу выходить мне лень, пусть даже там - отличный день."
-	weight = 5
+	weight = 1
 
 /datum/round_aspect/minecraft/run_aspect()
 	for(var/turf/open/floor/plasteel/floor)
