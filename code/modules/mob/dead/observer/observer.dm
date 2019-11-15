@@ -276,7 +276,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 */
 /mob/living/verb/ghost()
 	set category = "OOC"
-	set name = "Покинуть тело"
+	set name = " ❗ Покинуть тело"
 	set desc = "Relinquish your life and enter the land of the dead."
 
 	if(stat != DEAD)
@@ -287,7 +287,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/camera/verb/ghost()
 	set category = "OOC"
-	set name = "Покинуть тело"
+	set name = " ❗ Покинуть тело"
 	set desc = "Relinquish your life and enter the land of the dead."
 
 	var/response = alert(src, "Are you -sure- you want to ghost?\n(You are alive. If you ghost whilst still alive you may not play again this round! You can't change your mind so choose wisely!!)","Are you sure you want to ghost?","Ghost","Stay in body")
@@ -318,7 +318,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/reenter_corpse()
 	set category = "Ghost"
-	set name = "Вернуться в тело"
+	set name = " ❗ Вернуться в тело"
 	if(!client)
 		return
 	if(!mind || QDELETED(mind.current))
@@ -337,7 +337,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/stay_dead()
 	set category = "Ghost"
-	set name = "Не хочу воскресать"
+	set name = " ❌ Не хочу воскресать"
 	if(!client)
 		return
 	if(!can_reenter_corpse)
@@ -404,7 +404,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/follow()
 	set category = "Ghost"
-	set name = "Следить за..." // "Haunt"
+	set name = "Кружить около..." // "Haunt"
 	set desc = "Follow and orbit a mob."
 
 	var/list/mobs = getpois(skip_mindless=1)
@@ -477,7 +477,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/change_view_range()
 	set category = "Ghost"
-	set name = "Радиус обзора"
+	set name = " #️⃣ Радиус обзора"
 	set desc = "Change your view range."
 
 	var/max_view = client.prefs.unlock_content ? GHOST_MAX_VIEW_RANGE_MEMBER : GHOST_MAX_VIEW_RANGE_DEFAULT
@@ -492,7 +492,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		client.change_view(CONFIG_GET(string/default_view))
 
 /mob/dead/observer/verb/add_view_range(input as num)
-	set name = "Add View Range"
+	set name = " #️⃣ Add View Range"
 	set hidden = TRUE
 	var/max_view = client.prefs.unlock_content ? GHOST_MAX_VIEW_RANGE_MEMBER : GHOST_MAX_VIEW_RANGE_DEFAULT
 	if(input)
@@ -523,7 +523,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	to_chat(src, "<span class='danger'>You are dead! You have no mind to store memory!</span>")
 
 /mob/dead/observer/verb/toggle_ghostsee()
-	set name = "Видеть других"
+	set name = " 🔄 Видеть других"
 	set desc = "Toggles your ability to see things only ghosts can see, like other ghosts"
 	set category = "Ghost"
 	ghostvision = !(ghostvision)
@@ -531,7 +531,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	to_chat(usr, "<span class='boldnotice'>You [(ghostvision?"now":"no longer")] have ghost vision.</span>")
 
 /mob/dead/observer/verb/toggle_darkness()
-	set name = "Видеть тьму"
+	set name = " 🔄 Видеть тьму"
 	set category = "Ghost"
 	switch(lighting_alpha)
 		if (LIGHTING_PLANE_ALPHA_VISIBLE)
@@ -627,7 +627,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	return TRUE
 
 /mob/dead/observer/verb/view_manifest()
-	set name = "Показать персонал"
+	set name = " 📝 Показать персонал"
 	set category = "Ghost"
 
 	var/dat
@@ -682,7 +682,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		H.remove_hud_from(src)
 
 /mob/dead/observer/verb/toggle_data_huds()
-	set name = "Переключить Sec/Med/Diag HUD"
+	set name = " 🔄 Sec/Med/Diag HUD"
 	set desc = "Toggles whether you see medical/security/diagnostic HUDs"
 	set category = "Ghost"
 
@@ -696,7 +696,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		data_huds_on = 1
 
 /mob/dead/observer/verb/toggle_health_scan()
-	set name = "Переключить сканирование здоровья"
+	set name = " 🔄 Сканирование здоровья"
 	set desc = "Toggles whether you health-scan living beings on click"
 	set category = "Ghost"
 
@@ -708,7 +708,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		health_scan = TRUE
 
 /mob/dead/observer/verb/toggle_gas_scan()
-	set name = "Переключить сканирование газов"
+	set name = " 🔄 Сканирование газов"
 	set desc = "Toggles whether you analyze gas contents on click"
 	set category = "Ghost"
 
@@ -720,7 +720,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		gas_scan = TRUE
 
 /mob/dead/observer/verb/restore_ghost_appearance()
-	set name = "Сбросить внешность призрака"
+	set name = " ❌ Сбросить внешность призрака"
 	set desc = "Sets your deadchat name and ghost appearance to your \
 		roundstart character."
 	set category = "Ghost"
@@ -786,7 +786,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			hud_used.show_hud(hud_used.hud_version)
 
 /mob/dead/observer/verb/observe()
-	set name = "Наблюдать"
+	set name = "Следить за..."
 	set category = "OOC"
 
 	var/list/creatures = getpois()
@@ -813,7 +813,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/register_pai_candidate()
 	set category = "Ghost"
-	set name = "pAI Setup"
+	set name = " #️⃣ pAI Setup"
 	set desc = "Upload a fragment of your personality to the global pAI databanks"
 
 	register_pai()
@@ -857,7 +857,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	GLOB.observer_default_invisibility = amount
 
 /mob/dead/observer/proc/open_spawners_menu()
-	set name = "Меню перерождений"
+	set name = " #️⃣ Меню перерождений"
 	set desc = "See all currently available spawners"
 	set category = "Ghost"
 	if(!spawners_menu)
@@ -867,7 +867,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/proc/tray_view()
 	set category = "Ghost"
-	set name = "T-ray зрение"
+	set name = " 🔄 T-ray зрение"
 	set desc = "Toggles a view of sub-floor objects"
 
 	var/static/t_ray_view = FALSE

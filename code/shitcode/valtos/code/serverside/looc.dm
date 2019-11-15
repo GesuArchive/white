@@ -5,7 +5,7 @@
 /datum/admins/proc/togglelooc()
 	set category = "Server"
 	set desc="can you even see verb descriptions anywhere?"
-	set name="Toggle LOOC"
+	set name=" 🔄 Toggle LOOC"
 	toggle_looc()
 	log_admin("[key_name(usr)] toggled LOOC.")
 	message_admins("[key_name_admin(usr)] toggled LOOC.")
@@ -14,14 +14,14 @@
 /datum/admins/proc/toggleloocdead()
 	set category = "Server"
 	set desc = "seriously, why do we even bother"
-	set name = "Toggle Dead LOOC"
+	set name = " 🔄 Toggle Dead LOOC"
 	GLOB.dlooc_allowed = !(GLOB.dlooc_allowed)
 	log_admin("[key_name(usr)] toggled Dead LOOC.")
 	message_admins("[key_name_admin(usr)] toggled Dead LOOC.")
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, "Toggle Dead LOOC|[GLOB.dlooc_allowed]")
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, listen_looc)()
-	set name = "Показать/Скрыть LOOC"
+	set name = " 🔄 LOOC"
 	set category = "Preferences"
 	set desc = "Show LOOC Chat"
 	usr.client.prefs.chat_toggles ^= CHAT_LOOC
