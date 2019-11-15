@@ -52,17 +52,25 @@
 /obj/effect/mob_spawn/human/bombmeat
 	name = "кровавая капсула"
 	desc = "Промёрзшая изнутри капсула. Если присмотреться, то внутри находится спящий человек."
-	mob_name = "бомбасист"
+	mob_name = "Бомбасист"
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	roundstart = FALSE
 	death = FALSE
 	random = FALSE
+	oxy_damage = 20
 	mob_species = /datum/species/human
 	flavour_text = "<span class='big bold'>ПОРА УМИРАТЬ!</b>"
 	uniform = /datum/outfit/job/assistant
 	shoes = null
 	assignedrole = "Bombmeat"
+
+/obj/effect/mob_spawn/human/bombmeat/equip(mob/living/carbon/human/H)
+	. = ..()
+	if(H.gender==FEMALE)
+		H.real_name = "Бомбасистка [capitalize(pick(GLOB.first_names_female))]"
+	else
+		H.real_name = "Бомбасист [capitalize(pick(GLOB.first_names_male))]"
 
 /obj/effect/mob_spawn/human/bombmeat/Destroy()
 	new/obj/structure/showcase/machinery/oldpod/used(drop_location())
