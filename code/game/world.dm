@@ -263,10 +263,13 @@ GLOBAL_VAR(restart_counter)
 
 	var/s = ""
 	var/hostedby
+	var/special_string
 	var/server_name = "piss"
 	if(config)
+		special_string = CONFIG_GET(string/special_string)
 		hostedby = CONFIG_GET(string/hostedby)
 		server_name = CONFIG_GET(string/servername)
+		s += "[special_string]"
 
 	s += "<a href=\"https://discord.gg/BNUgzsT\"><big><b>[server_name] Main</b></big></br>"
 	s += "<img src=\"https://i.imgur.com/tmxrtV0.png\"></a>"

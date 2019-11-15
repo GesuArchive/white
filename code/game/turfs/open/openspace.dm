@@ -1,6 +1,6 @@
 /turf/open/openspace
-	name = "open space"
-	desc = "Watch your step!"
+	name = "открытое пространство"
+	desc = "Смотри под ноги!"
 	icon = 'code/shitcode/valtos/icons/turfs.dmi'
 	icon_state = "open"
 	baseturfs = /turf/open/openspace

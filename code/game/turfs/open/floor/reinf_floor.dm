@@ -1,7 +1,7 @@
 
 /turf/open/floor/engine
-	name = "reinforced floor"
-	desc = "Extremely sturdy."
+	name = "армированный пол"
+	desc = "Чрезвычайно прочный."
 	icon_state = "engine"
 	thermal_conductivity = 0.025
 	heat_capacity = INFINITY
@@ -14,7 +14,7 @@
 
 /turf/open/floor/engine/examine(mob/user)
 	. += ..()
-	. += "<span class='notice'>The reinforcement rods are <b>wrenched</b> firmly in place.</span>"
+	. += "<span class='notice'>Арматурные стержни <b>прикручены</b> крепко.</span>"
 
 /turf/open/floor/engine/airless
 	initial_gas_mix = AIRLESS_ATMOS
@@ -38,7 +38,7 @@
 
 /turf/open/floor/engine/wrench_act(mob/living/user, obj/item/I)
 	..()
-	to_chat(user, "<span class='notice'>You begin removing rods...</span>")
+	to_chat(user, "<span class='notice'>Начинаю извлекать стержни...</span>")
 	if(I.use_tool(src, user, 30, volume=80))
 		if(!istype(src, /turf/open/floor/engine))
 			return TRUE
@@ -98,35 +98,35 @@
 
 /turf/open/floor/engine/n2o
 	article = "an"
-	name = "\improper N2O floor"
+	name = "\improper N2O пол"
 	initial_gas_mix = ATMOS_TANK_N2O
 
 /turf/open/floor/engine/co2
-	name = "\improper CO2 floor"
+	name = "\improper CO2 пол"
 	initial_gas_mix = ATMOS_TANK_CO2
 
 /turf/open/floor/engine/plasma
-	name = "plasma floor"
+	name = "plasma пол"
 	initial_gas_mix = ATMOS_TANK_PLASMA
 
 /turf/open/floor/engine/o2
-	name = "\improper O2 floor"
+	name = "\improper O2 пол"
 	initial_gas_mix = ATMOS_TANK_O2
 
 /turf/open/floor/engine/n2
 	article = "an"
-	name = "\improper N2 floor"
+	name = "\improper N2 пол"
 	initial_gas_mix = ATMOS_TANK_N2
 
 /turf/open/floor/engine/air
-	name = "air floor"
+	name = "пол воздуховода"
 	initial_gas_mix = ATMOS_TANK_AIRMIX
 
 
 
 /turf/open/floor/engine/cult
-	name = "engraved floor"
-	desc = "The air smells strange over this sinister flooring."
+	name = "гравированный пол"
+	desc = "Странно пахнет воздухом над этим зловещим полом."
 	icon_state = "plating"
 	floor_tile = null
 	var/obj/effect/cult_turf/overlay/floor/bloodcult/realappearance
@@ -155,5 +155,5 @@
 	initial_gas_mix = AIRLESS_ATMOS
 
 /turf/open/floor/engine/vacuum
-	name = "vacuum floor"
+	name = "вакуумный пол"
 	initial_gas_mix = AIRLESS_ATMOS

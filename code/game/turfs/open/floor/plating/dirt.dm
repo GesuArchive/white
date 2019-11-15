@@ -1,7 +1,7 @@
 /turf/open/floor/plating/dirt
 	gender = PLURAL
-	name = "dirt"
-	desc = "Upon closer examination, it's still dirt."
+	name = "грязь"
+	desc = "При более тщательном рассмотрении, это все еще грязь."
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "dirt"
 	baseturfs = /turf/open/chasm/jungle

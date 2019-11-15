@@ -1,7 +1,7 @@
 #define MAX_DENT_DECALS 15
 
 /turf/closed/wall
-	name = "wall"
+	name = "стена"
 	desc = "Здоровенный кусок металла, который служит для разделения помещений."
 	icon = 'icons/turf/walls/wall.dmi'
 	icon_state = "wall"
@@ -108,8 +108,8 @@
 	switch(M.damtype)
 		if(BRUTE)
 			playsound(src, 'sound/weapons/punch4.ogg', 50, TRUE)
-			M.visible_message("<span class='danger'>[M.name] hits [src]!</span>", \
-							"<span class='danger'>You hit [src]!</span>", null, COMBAT_MESSAGE_RANGE)
+			M.visible_message("<span class='danger'>[M.name] бьёт [src]!</span>", \
+							"<span class='danger'>Бью [src]!</span>", null, COMBAT_MESSAGE_RANGE)
 			if(prob(hardness + M.force) && M.force > 20)
 				dismantle_wall(1)
 				playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
@@ -138,14 +138,14 @@
 	..()
 	if(prob(hardness))
 		playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
-		user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ), forced = "hulk")
+		user.say(pick(";РАААААААААААРГХ!", ";ХАНННННННЕННГГГГГХ!", ";ГВААААААААААААААРРРРРРРРРРР!", "НННННННЕННГГГГГГХХХХХХ!", ";АААААААААРРРГХ!" ), forced = "hulk")
 		dismantle_wall(1)
 	else
 		playsound(src, 'sound/effects/bang.ogg', 50, TRUE)
 		add_dent(WALL_DENT_HIT)
-		user.visible_message("<span class='danger'>[user] smashes \the [src]!</span>", \
-					"<span class='danger'>You smash \the [src]!</span>", \
-					"<span class='hear'>You hear a booming smash!</span>")
+		user.visible_message("<span class='danger'>[user] хуярит [src]!</span>", \
+					"<span class='danger'>Ебошу [src]!</span>", \
+					"<span class='hear'>Слышу громкий пиздец!</span>")
 	return TRUE
 
 /turf/closed/wall/attack_hand(mob/user)
@@ -153,14 +153,14 @@
 	if(.)
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	to_chat(user, "<span class='notice'>You push the wall but nothing happens!</span>")
+	to_chat(user, "<span class='notice'>Толкаю стену, но ничего не происходит!</span>")
 	playsound(src, 'sound/weapons/genhit.ogg', 25, TRUE)
 	add_fingerprint(user)
 
 /turf/closed/wall/attackby(obj/item/W, mob/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
 	if (!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user, "<span class='warning'>У меня не хватает ловкости, чтобы сделать это!</span>")
 		return
 
 	//get the user's location
@@ -185,10 +185,10 @@
 		if(!W.tool_start_check(user, amount=0))
 			return FALSE
 
-		to_chat(user, "<span class='notice'>You begin fixing dents on the wall...</span>")
+		to_chat(user, "<span class='notice'>Начинаю чинить стену...</span>")
 		if(W.use_tool(src, user, 0, volume=100))
 			if(iswallturf(src) && LAZYLEN(dent_decals))
-				to_chat(user, "<span class='notice'>You fix some dents on the wall.</span>")
+				to_chat(user, "<span class='notice'>Стена починена.</span>")
 				cut_overlay(dent_decals)
 				dent_decals.Cut()
 			return TRUE
@@ -214,10 +214,10 @@
 		if(!I.tool_start_check(user, amount=0))
 			return FALSE
 
-		to_chat(user, "<span class='notice'>You begin slicing through the outer plating...</span>")
+		to_chat(user, "<span class='notice'>Начинаю разваривать стену...</span>")
 		if(I.use_tool(src, user, slicing_duration, volume=100))
 			if(iswallturf(src))
-				to_chat(user, "<span class='notice'>You remove the outer plating.</span>")
+				to_chat(user, "<span class='notice'>После недолгого ожидания удалось снять верхнюю обшивку.</span>")
 				dismantle_wall()
 			return TRUE
 
@@ -261,7 +261,7 @@
 /turf/closed/wall/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_DECONSTRUCT)
-			to_chat(user, "<span class='notice'>You deconstruct the wall.</span>")
+			to_chat(user, "<span class='notice'>Разбираю стену.</span>")
 			ScrapeAway()
 			return TRUE
 	return FALSE

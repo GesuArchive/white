@@ -171,6 +171,8 @@
 /datum/config_entry/flag/load_legacy_ranks_only	//Loads admin ranks only from legacy admin_ranks.txt, while enabled ranks are mirrored to the database
 	protection = CONFIG_ENTRY_LOCKED
 
+/datum/config_entry/string/special_string
+
 /datum/config_entry/string/hostedby
 
 /datum/config_entry/flag/norespawn

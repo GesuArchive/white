@@ -47,37 +47,31 @@
 	minimal_player_age = 0
 	outfit = /datum/outfit/job/bombsquad
 
-
 	display_order = JOB_DISPLAY_ORDER_DEFAULT
 
+/obj/effect/mob_spawn/human/bombmeat
+	name = "кровавая капсула"
+	desc = "Промёрзшая изнутри капсула. Если присмотреться, то внутри находится спящий человек."
+	mob_name = "Бомбасист"
+	icon = 'icons/obj/machines/sleeper.dmi'
+	icon_state = "sleeper"
+	roundstart = FALSE
+	death = FALSE
+	random = FALSE
+	oxy_damage = 20
+	mob_species = /datum/species/human
+	flavour_text = "<span class='big bold'>ПОРА УМИРАТЬ!</b>"
+	uniform = /datum/outfit/job/assistant
+	shoes = null
+	assignedrole = "Bombmeat"
 
-//////////////////////////////////////////////////////////////////////
-
-/datum/game_mode/assault
-	name = "assault"
-	probability = 3
-	report_type = "assault"
-	required_players = 30
-	maximum_players = -1
-	required_enemies = 1
-	recommended_enemies = 1
-	antag_flag = ROLE_TRAITOR
-	enemy_minimum_age = 0
-	var/started = FALSE
-
-	announce_span = "assault"
-	announce_text = "Сегодня будет очень жарко."
-
-/datum/game_mode/assault/pre_setup()
-	SSjob.SetupOccupations("Assault")
-	return 1
-
-/datum/game_mode/assault/post_setup()
-	load_new_z_level("_maps/RandomZLevels/bombass.dmm", "Assault Mission")
+/obj/effect/mob_spawn/human/bombmeat/equip(mob/living/carbon/human/H)
 	. = ..()
+	if(H.gender==FEMALE)
+		H.real_name = "Бомбасистка [capitalize(pick(GLOB.first_names_female))]"
+	else
+		H.real_name = "Бомбасист [capitalize(pick(GLOB.first_names_male))]"
 
-/datum/game_mode/assault/process()
-	if ((world.time-SSticker.round_start_time) > 18000 && !started)
-		started = TRUE
-		to_chat(world, "<span class='warning'>Вы ощущаете себя готовым к бою...</span>")
-
+/obj/effect/mob_spawn/human/bombmeat/Destroy()
+	new/obj/structure/showcase/machinery/oldpod/used(drop_location())
+	return ..()

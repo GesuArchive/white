@@ -120,7 +120,7 @@
 		D.grabbedby(A, 1)
 		if(old_grab_state == GRAB_PASSIVE)
 			D.drop_all_held_items()
-			A.grab_state = GRAB_AGGRESSIVE //Instant agressive grab if on grab intent
+			A.setGrabState(GRAB_AGGRESSIVE) //Instant agressive grab if on grab intent
 			log_combat(A, D, "grabbed", addition="aggressively")
 			D.visible_message("<span class='warning'><b>[A]</b> жестко хватает <b>[D]</b>!</span>", \
 								"<span class='userdanger'><b>[A]</b> жестко хватает тебя!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", null, A)

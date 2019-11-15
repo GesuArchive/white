@@ -162,7 +162,7 @@
 /datum/controller/subsystem/ticker/proc/declare_completion()
 	set waitfor = FALSE
 
-	to_chat(world, "<BR><BR><BR><span class='big bold'Конец раунда.</span>")
+	to_chat(world, "<BR><BR><BR><span class='big bold'>Конец раунда.</span>")
 	log_game("The round has ended.")
 
 	for(var/I in round_end_events)
@@ -177,6 +177,10 @@
 
 	var/popcount = gather_roundend_feedback()
 	display_report(popcount)
+
+	spawn(50)
+		ready_for_reboot = TRUE
+		standard_reboot()
 
 	CHECK_TICK
 
@@ -225,10 +229,6 @@
 
 	//stop collecting feedback during grifftime
 	SSblackbox.Seal()
-
-	sleep(50)
-	ready_for_reboot = TRUE
-	standard_reboot()
 
 /datum/controller/subsystem/ticker/proc/standard_reboot()
 	if(ready_for_reboot)

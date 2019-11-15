@@ -16,23 +16,6 @@
 /proc/moth_name()
 	return "[pick(GLOB.moth_first)] [pick(GLOB.moth_last)]"
 
-/proc/church_name()
-	var/static/church_name
-	if (church_name)
-		return church_name
-
-	var/name = ""
-
-	name += pick("Holy", "United", "First", "Second", "Last")
-
-	if (prob(20))
-		name += " Space"
-
-	name += " " + pick("Church", "Cathedral", "Body", "Worshippers", "Movement", "Witnesses")
-	name += " of [religion_name()]"
-
-	return name
-
 GLOBAL_VAR(command_name)
 /proc/command_name()
 	if (GLOB.command_name)
@@ -48,18 +31,6 @@ GLOBAL_VAR(command_name)
 	GLOB.command_name = name
 
 	return name
-
-/proc/religion_name()
-	var/static/religion_name
-	if (religion_name)
-		return religion_name
-
-	var/name = ""
-
-	name += pick("bee", "science", "edu", "captain", "assistant", "monkey", "alien", "space", "unit", "sprocket", "gadget", "bomb", "revolution", "beyond", "station", "goon", "robot", "ivor", "hobnob")
-	name += pick("ism", "ia", "ology", "istism", "ites", "ick", "ian", "ity")
-
-	return capitalize(name)
 
 /proc/station_name()
 	if(!GLOB.station_name)
@@ -125,7 +96,7 @@ GLOBAL_VAR(command_name)
 			new_station_name += pick(GLOB.numbers_as_words)
 		if(13)
 			new_station_name += pick("13","XIII","Тринадцать")
-	return new_station_name
+	return r_capitalize(r_lowertext(new_station_name))
 
 /proc/syndicate_name()
 	var/name = ""

@@ -1,5 +1,5 @@
 /turf/closed/wall/r_wall
-	name = "reinforced wall"
+	name = "армированная стена"
 	desc = "Здоровенный укреплённый кусок металла, который служит для разделения помещений."
 	icon = 'icons/turf/walls/reinforced_wall.dmi'
 	icon_state = "r_wall"
@@ -221,8 +221,8 @@
 		return ..()
 
 /turf/closed/wall/r_wall/syndicate
-	name = "hull"
-	desc = "The armored hull of an ominous looking ship."
+	name = "обшивка"
+	desc = "Бронированный корпус зловещего корабля."
 	icon = 'icons/turf/walls/plastitanium_wall.dmi'
 	icon_state = "map-shuttle"
 	explosion_block = 20

@@ -1,5 +1,5 @@
 /obj/structure/window
-	name = "window"
+	name = "окно"
 	desc = "Окно. Невероятно."
 	icon_state = "window"
 	density = TRUE
@@ -354,7 +354,7 @@
 	anchored = FALSE
 
 /obj/structure/window/reinforced
-	name = "reinforced window"
+	name = "армированное окно"
 	desc = "Окно, которое укреплено стальными прутьями."
 	icon_state = "rwindow"
 	reinf = TRUE
