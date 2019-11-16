@@ -4,10 +4,10 @@
 /area/template_noop)
 "ab" = (
 /obj/machinery/porta_turret/syndicate,
-/turf/closed/indestructible/opshuttle,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/terrorship)
 "ac" = (
-/turf/closed/indestructible/opshuttle,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/terrorship)
 "ad" = (
 /turf/open/floor/plasteel/dark,
@@ -187,7 +187,7 @@
 /obj/structure/fluff/artillery{
 	pixel_y = -64
 	},
-/turf/closed/indestructible/opshuttle,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/terrorship)
 "az" = (
 /turf/open/floor/partyhard/steel{
@@ -266,8 +266,9 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "aM" = (
-/obj/structure/table,
-/turf/open/floor/plasteel/dark,
+/obj/machinery/iv_drip,
+/mob/living/simple_animal/bot/medbot/mysterious,
+/turf/open/floor/carpet/royalblue,
 /area/ruin/space/has_grav/terrorship)
 "aN" = (
 /obj/machinery/power/rtg/abductor,
@@ -578,8 +579,10 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/terrorship)
 "bJ" = (
-/mob/living/simple_animal/bot/medbot/mysterious,
-/turf/open/floor/plasteel/white,
+/mob/living/simple_animal/hostile/syndicate/ranged/smg/space/stormtrooper,
+/turf/open/floor/partyhard/steel{
+	icon_state = "cx-2"
+	},
 /area/ruin/space/has_grav/terrorship)
 "bK" = (
 /obj/effect/mob_spawn/human/corpse/nanotrasensoldier,
@@ -1048,8 +1051,10 @@
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "dh" = (
-/mob/living/simple_animal/bot/honkbot,
-/turf/open/floor/plasteel/dark,
+/mob/living/simple_animal/hostile/syndicate/ranged/shotgun,
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-2"
+	},
 /area/ruin/space/has_grav/terrorship)
 "di" = (
 /obj/machinery/light{
@@ -1094,10 +1099,11 @@
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "dp" = (
-/obj/machinery/light{
+/obj/structure/chair/office{
 	dir = 8
 	},
-/turf/open/floor/engine,
+/mob/living/simple_animal/hostile/syndicate/melee,
+/turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "dq" = (
 /obj/structure/table/reinforced,
@@ -1106,8 +1112,11 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/ruin/space/has_grav/terrorship)
 "dr" = (
-/obj/structure/table/reinforced,
-/turf/open/floor/plasteel/cafeteria,
+/obj/machinery/atmospherics/components/unary/outlet_injector{
+	icon_state = "inje_map-2";
+	dir = 1
+	},
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/terrorship)
 "ds" = (
 /obj/structure/table/reinforced,
@@ -1553,25 +1562,22 @@
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/terrorship)
 "eU" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector{
-	icon_state = "inje_map-2";
-	dir = 1
-	},
-/turf/closed/indestructible/opshuttle,
+/obj/structure/shuttle/engine/huge,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/terrorship)
 "eV" = (
-/obj/structure/shuttle/engine/huge,
-/turf/closed/indestructible/opshuttle,
+/obj/structure/shuttle/engine/large,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/terrorship)
 "eW" = (
-/obj/structure/shuttle/engine/large,
-/turf/closed/indestructible/opshuttle,
+/mob/living/simple_animal/hostile/syndicate/ranged/spacebattle,
+/turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/terrorship)
 "eX" = (
 /mob/living/simple_animal/hostile/megafauna/dragon/space_dragon{
 	faction = list("Syndicate");
 	health = 550;
-	name = "ванечка"
+	name = "Ванечка"
 	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
@@ -1799,6 +1805,45 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
+"fE" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/syndicate/ranged/spacebattle,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/terrorship)
+"fF" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/mob/living/simple_animal/hostile/syndicate/ranged/spacebattle,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/terrorship)
+"fG" = (
+/obj/effect/turf_decal/stripes/line,
+/mob/living/simple_animal/hostile/syndicate/melee/sword,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
+"fH" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/mob/living/simple_animal/hostile/syndicate/melee/sword,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
+"fI" = (
+/mob/living/simple_animal/hostile/syndicate/melee/sword,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
+"fJ" = (
+/obj/machinery/atmospherics/pipe/simple/dark,
+/mob/living/simple_animal/hostile/syndicate/melee/sword,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/terrorship)
+"fK" = (
+/mob/living/simple_animal/hostile/syndicate/melee/sword/space,
+/turf/template_noop,
+/area/template_noop)
 
 (1,1,1) = {"
 aa
@@ -1854,7 +1899,7 @@ aa
 "}
 (2,1,1) = {"
 aa
-aa
+fK
 aa
 aa
 aa
@@ -1939,7 +1984,7 @@ aa
 aa
 aa
 aa
-aa
+fK
 aa
 aa
 aa
@@ -2004,7 +2049,7 @@ aa
 aa
 aa
 aa
-aa
+fK
 aa
 aa
 "}
@@ -2076,7 +2121,7 @@ aa
 aa
 aa
 aa
-aa
+fK
 aa
 aa
 aa
@@ -2263,9 +2308,9 @@ dk
 ed
 ep
 eP
-eU
+dr
 ac
-eV
+eU
 aa
 "}
 (10,1,1) = {"
@@ -2299,12 +2344,12 @@ aa
 aa
 ac
 cP
-cH
+dp
 fk
 ac
 cZ
 ad
-ad
+fI
 fx
 dn
 dk
@@ -2315,7 +2360,7 @@ ep
 eB
 ep
 eP
-eU
+dr
 ac
 ac
 aa
@@ -2350,7 +2395,7 @@ aa
 aa
 ac
 cN
-cH
+dp
 ad
 fk
 ac
@@ -2367,7 +2412,7 @@ dK
 em
 ep
 eP
-eU
+dr
 ac
 ac
 aa
@@ -2438,7 +2483,7 @@ aa
 aa
 ay
 ad
-aM
+ad
 bc
 bi
 bi
@@ -2472,8 +2517,8 @@ dk
 dk
 ed
 eP
-eU
-eW
+dr
+eV
 aa
 "}
 (14,1,1) = {"
@@ -2489,7 +2534,7 @@ aa
 aa
 ay
 ad
-aM
+ad
 fn
 bd
 bj
@@ -2524,7 +2569,7 @@ ep
 ep
 eB
 eP
-eU
+dr
 ac
 aa
 "}
@@ -2540,12 +2585,12 @@ aa
 aa
 ay
 ad
-aM
+ad
 fm
 fp
 bd
 bk
-bk
+dh
 bk
 bk
 bk
@@ -2572,12 +2617,12 @@ dk
 dk
 ef
 er
-ep
+fJ
 ep
 eB
 eP
-eU
-eW
+dr
+eV
 aa
 "}
 (16,1,1) = {"
@@ -2591,13 +2636,13 @@ aa
 aa
 ay
 ad
-aM
+ad
 fm
 fo
 fl
 bd
 bk
-bk
+dh
 bk
 bk
 bk
@@ -2628,7 +2673,7 @@ dR
 eH
 em
 eP
-eU
+dr
 ac
 aa
 "}
@@ -2642,7 +2687,7 @@ aa
 aa
 ay
 ad
-aM
+ad
 fm
 fo
 aP
@@ -2693,7 +2738,7 @@ aa
 aa
 ay
 ad
-aM
+ad
 fm
 fo
 aP
@@ -2722,7 +2767,7 @@ bf
 ac
 df
 dk
-do
+fE
 dk
 aF
 dS
@@ -2731,9 +2776,9 @@ dS
 dn
 eJ
 eP
-eU
+dr
 ac
-eV
+eU
 aa
 "}
 (19,1,1) = {"
@@ -2783,7 +2828,7 @@ es
 eD
 eK
 eP
-eU
+dr
 ac
 ac
 aa
@@ -2826,7 +2871,7 @@ bq
 ac
 dg
 dk
-dp
+fF
 dk
 aF
 dS
@@ -2835,7 +2880,7 @@ dS
 dn
 eL
 eP
-eU
+dr
 ac
 ac
 aa
@@ -2867,8 +2912,8 @@ bC
 aF
 bC
 cu
+eW
 bC
-bJ
 bF
 bC
 ce
@@ -2914,7 +2959,7 @@ bu
 bC
 bC
 bC
-bC
+eW
 bC
 bM
 bC
@@ -2940,8 +2985,8 @@ dU
 eM
 ed
 eP
-eU
-eW
+dr
+eV
 aa
 "}
 (23,1,1) = {"
@@ -2964,7 +3009,7 @@ eY
 ac
 bv
 bC
-bJ
+eW
 bF
 bC
 bC
@@ -2992,7 +3037,7 @@ ep
 ep
 eB
 eP
-eU
+dr
 ac
 aa
 "}
@@ -3044,8 +3089,8 @@ er
 ep
 eB
 eP
-eU
-eW
+dr
+eV
 aa
 "}
 (25,1,1) = {"
@@ -3096,7 +3141,7 @@ dk
 dk
 em
 eP
-eU
+dr
 ac
 aa
 "}
@@ -3108,9 +3153,9 @@ ad
 ag
 aq
 aB
-aB
+bJ
 aG
-aB
+bJ
 aB
 aV
 at
@@ -3129,14 +3174,14 @@ ac
 cx
 cD
 aF
-cD
+aM
 cx
 ac
 ac
 ac
 fu
 ad
-dh
+ad
 fk
 dn
 dx
@@ -3157,7 +3202,7 @@ ac
 ff
 ad
 eX
-ag
+fG
 ar
 aB
 aG
@@ -3165,7 +3210,7 @@ aN
 aG
 aB
 ar
-at
+fH
 ad
 ad
 fh
@@ -3199,9 +3244,9 @@ dk
 eF
 ep
 eP
-eU
+dr
 ac
-eV
+eU
 aa
 "}
 (28,1,1) = {"
@@ -3212,9 +3257,9 @@ ad
 ag
 aq
 aB
-aB
+bJ
 aG
-aB
+bJ
 aB
 aV
 at
@@ -3251,7 +3296,7 @@ ep
 eB
 ep
 eP
-eU
+dr
 ac
 ac
 aa
@@ -3303,7 +3348,7 @@ dk
 em
 ep
 eP
-eU
+dr
 ac
 ac
 aa
@@ -3388,8 +3433,8 @@ bM
 bA
 bK
 cF
-bJ
 bC
+eW
 bC
 bC
 bC
@@ -3506,7 +3551,7 @@ dn
 ba
 ad
 ba
-ad
+fI
 ad
 aW
 eO
@@ -3674,7 +3719,7 @@ aa
 "}
 (37,1,1) = {"
 aa
-aa
+fK
 aa
 ac
 aj
@@ -3710,7 +3755,7 @@ ac
 ad
 ad
 dm
-dr
+dt
 dB
 dB
 dY
@@ -3812,7 +3857,7 @@ ad
 aW
 ft
 ba
-ad
+fI
 dm
 dt
 dB
@@ -4004,7 +4049,7 @@ aa
 aa
 aa
 aa
-aa
+fK
 aa
 aa
 aa
@@ -4189,7 +4234,7 @@ aa
 aa
 aa
 aa
-aa
+fK
 aa
 "}
 (47,1,1) = {"

@@ -279,7 +279,7 @@
 /mob/living/simple_animal/hostile/syndicate/civilian/Aggro()
 	..()
 	summon_backup(15)
-	say("GUARDS!!")
+	say("ОХРАНА!!")
 
 
 /mob/living/simple_animal/hostile/viscerator
