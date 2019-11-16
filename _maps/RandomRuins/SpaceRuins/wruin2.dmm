@@ -4961,7 +4961,6 @@
 	dwidth = 4;
 	height = 9;
 	width = 5;
-	port_direction = 2;
 	id = "explorer_mini_custom";
 	name = "Autism Station";
 	roundstart_template = /datum/map_template/shuttle/ruin/explorer_mini
