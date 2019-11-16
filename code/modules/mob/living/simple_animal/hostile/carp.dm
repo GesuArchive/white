@@ -1,8 +1,8 @@
 #define REGENERATION_DELAY 60  // After taking damage, how long it takes for automatic regeneration to begin for megacarps (ty robustin!)
 
 /mob/living/simple_animal/hostile/carp
-	name = "space carp"
-	desc = "A ferocious, fang-bearing creature that resembles a fish."
+	name = "космокарп"
+	desc = "Милашка - подумаешь ты перед первым в своей жизни укусом карпа."
 	icon = 'icons/mob/carp.dmi'
 	icon_state = "base"
 	icon_living = "base"
@@ -12,21 +12,21 @@
 	speak_chance = 0
 	turns_per_move = 5
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/carpmeat = 2)
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
-	emote_taunt = list("gnashes")
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
+	response_disarm_continuous = "аккуратно отталкивает"
+	response_disarm_simple = "аккуратно отталкивает"
+	emote_taunt = list("скрежетает зубками")
 	taunt_chance = 30
 	speed = 0
-	maxHealth = 25
-	health = 25
+	maxHealth = 50
+	health = 50
 	spacewalk = TRUE
 
 	harm_intent_damage = 8
-	obj_damage = 50
-	melee_damage_lower = 20
-	melee_damage_upper = 20
+	obj_damage = 100
+	melee_damage_lower = 30
+	melee_damage_upper = 30
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
 	attack_sound = 'sound/weapons/bite.ogg'
@@ -63,6 +63,10 @@
 	var/static/list/carp_colors_rare = list(\
 	"silver" = "#fdfbf3", \
 	)
+
+	robust_searching = TRUE
+	vision_range = 20
+	aggro_vision_range = 30
 
 /mob/living/simple_animal/hostile/carp/Initialize(mapload)
 	. = ..()
@@ -128,21 +132,21 @@
 
 /mob/living/simple_animal/hostile/carp/megacarp
 	icon = 'icons/mob/broadMobs.dmi'
-	name = "Mega Space Carp"
-	desc = "A ferocious, fang bearing creature that resembles a shark. This one seems especially ticked off."
+	name = "мега-космокарп"
+	desc = "Милашка - подумаешь ты перед первым в своей жизни укусом карпа. Этот выглядит здоровее обычного."
 	icon_state = "megacarp"
 	icon_living = "megacarp"
 	icon_dead = "megacarp_dead"
 	icon_gib = "megacarp_gib"
-	maxHealth = 20
-	health = 20
+	maxHealth = 200
+	health = 200
 	pixel_x = -16
 	mob_size = MOB_SIZE_LARGE
 	random_color = FALSE
 
-	obj_damage = 80
-	melee_damage_lower = 20
-	melee_damage_upper = 20
+	obj_damage = 180
+	melee_damage_lower = 50
+	melee_damage_upper = 50
 
 	var/regen_cooldown = 0
 
