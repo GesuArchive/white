@@ -137,6 +137,7 @@
 	righthand_file = 'code/shitcode/Wzzzz/icons/Weear.dmi'
 	throwforce = 15
 	bayonet = TRUE
+	custom_price = 0
 
 /obj/item/melee/baton/loaded/german
 	desc = "A german stun baton."

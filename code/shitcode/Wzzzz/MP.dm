@@ -10,21 +10,21 @@
 	resistance_flags = FIRE_PROOF
 	fire_sound = 'code/shitcode/Wzzzz/Gunshot_light.ogg'
 	mag_type = /obj/item/ammo_box/magazine/wzzzz/mp40
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = 4
 	fire_delay = 2
 	can_suppress = FALSE
 	burst_size = 3
 	can_bayonet = FALSE
 	fire_sound = 'code/shitcode/Wzzzz/smg_fire.ogg'
-
+	
 /obj/item/ammo_box/magazine/wzzzz/mp40
-	name = "MP-40 magazine (9mm)"
+	name = "MP-40 magazine (c9mm)"
 	desc = "A mp40 magazine."
 	icon = 'code/shitcode/Wzzzz/ne_sharu_v_etom.dmi'
 	icon_state = "mp40mag"
 	item_state = "mp40mag"
-	caliber = "c9mm"
-	ammo_type = /obj/item/ammo_casing/wzzzz/c9mm
+	caliber = "crgmm"
+	ammo_type = /obj/item/ammo_casing/wzzzz/crgmm
 	max_ammo = 32
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
@@ -33,8 +33,8 @@
 	damage = 25
 	armour_penetration = 13.5
 
-/obj/item/ammo_casing/wzzzz/c9mm
+/obj/item/ammo_casing/wzzzz/crgmm
 	name = "9mm bullet casing"
-	desc = "A c9mm bullet casing."
-	caliber = "c9mm"
+	desc = "A 9mm bullet casing."
+	caliber = "crgmm"
 	projectile_type = /obj/projectile/bullet/mp40

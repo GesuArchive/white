@@ -21,7 +21,6 @@
 	name = "asset protection hardsuit"
 	desc = "Probably for protection."
 	alt_desc = "Probably for protection."
-	alt_desc = "Probably for protection."
 	icon_state = "hardsuit0-asset_protection"
 	item_state = "hardsuit0-asset_protection"
 	hardsuit_type = "asset_protection"
@@ -30,7 +29,7 @@
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 35, "bio" = 100, "rad" = 0, "fire" = 55, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/asset_protection
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
-
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/eng
 	name = "engineer hardsuit helmet"
 	desc = "For engineers."
@@ -62,9 +61,9 @@
 	armor = list("melee" = 30, "bullet" = 25, "laser" = 30, "energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 75, "fire" = 50, "acid" = 75)
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/t_scanner, /obj/item/construction/rcd, /obj/item/pipe_dispenser)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/eng
-
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/breacher_cheap
-	name = "breacher cheap helmet"
+	name = "breacher cheap hardsuit helmet"
 	desc = "Not enough good like usual breacher suit, but too good."
 	alt_desc = "Not enough good like usual breacher suit, but too good."
 	icon_state = "breacher_rig_cheap"
@@ -209,7 +208,7 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 60,"energy" = 60, "bomb" = 50, "bio" = 100, "rad" = 60, "fire" = 100, "acid" = 100)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/hazard_rig
-
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/merc_rig
 	name = "advanced blood-red hardsuit helmet"
 	desc = "Advanced Syndicate red hardsuit helmet."
@@ -241,7 +240,7 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 60, "bullet" = 60, "laser" = 45, "energy" = 40, "bomb" = 60, "bio" = 100, "rad" = 50, "fire" = 80, "acid" = 90)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/merc_rig
-
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_miningalt
 	name = "advanced miner hardsuit helmet"
 	desc = "For miners, isn't it?"
@@ -276,17 +275,17 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_miningalt
-
-
-
-
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/merc_rig_heavy
 	name = "heavy blood-red hardsuit helmet"
 	desc = "Very heavy, but nice protection."
@@ -303,7 +302,7 @@
 	on = FALSE
 	slowdown = 0.5
 	brightness_on = 1
-
+	
 	resistance_flags = NONE|FREEZE_PROOF|FIRE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/merc_rig_heavy
@@ -320,12 +319,12 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 90, "bullet" = 85, "laser" = 80,"energy" = 85, "bomb" = 90, "bio" = 100, "rad" = 50, "fire" = 100, "acid" = 100)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/merc_rig_heavy
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/security_rig
 	name = "security hardsuit helmet"
 	desc = "New model of security hardsuit for station."
@@ -356,12 +355,12 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/security_rig
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/medical_rig
 	name = "medical hardsuit helmet"
 	desc = "New model of medical hardsuit for station."
@@ -392,8 +391,8 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 70, "fire" = 60, "acid" = 70)
-	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/medical_rig
-
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/medical_rig	
+	
 /obj/item/clothing/glasses/hud/wzzzz/hacker_rig
 	name = "hacker googless"
 	desc = "Do you deserve that?"
@@ -401,6 +400,7 @@
 	icon_state = "hardsuit1-hacker_rig"
 	item_state = "hardsuit1-hacker_rig"
 	darkness_view = 10
+	var/list/datahuds = list(DATA_HUD_SECURITY_ADVANCED, DATA_HUD_DIAGNOSTIC_BASIC)
 	//t_ray_scan(user, 10, range)
 	flash_protect = 3
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
@@ -411,8 +411,22 @@
 	hud_trait = TRAIT_SECURITY_HUD
 	resistance_flags = NONE
 
+	//obj/item/clothing/glasses/hud/wzzzz/hacker_rig/equipped(mob/living/carbon/human/user, slot)
+    //..()
+    //if(slot == SLOT_EYES)
+    //    for(var/hud_type in datahuds)
+    //        var/datum/atom_hud/DHUD = GLOB.huds[hud_type]
+    //        DHUD.add_hud_to(user)
+	//
+	//obj/item/clothing/glasses/hud/wzzzz/hacker_rig/dropped(mob/living/carbon/human/user)
+    //..()
+    //if(user.eyes == src)
+    //    for(var/hud_type in datahuds)
+    //        var/datum/atom_hud/DHUD = GLOB.huds[hud_type]
+    //        DHUD.remove_hud_from(user)
+
 /obj/item/clothing/suit/space/wzzzz/hacker_rig
-	name = "breacher cheap hardsuit"
+	name = "hacker suit"
 	desc = "Do you deserve this hardsuit?"
 	alt_desc = "Do you deserve this hardsuit?"
 	icon_state = "hardsuit0-hacker_rig"
@@ -423,12 +437,12 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 100,"energy" = 100, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 50, "acid" = 50)
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_engineer_rig
 	name = "ert engineer hardsuit helmet"
 	desc = "Old style of ert hardsuit."
@@ -461,9 +475,9 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_engineer_rig
-
-
-
+	
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_commander_rig
 	name = "ert commander hardsuit helmet"
 	desc = "Old style of ert hardsuit."
@@ -496,8 +510,8 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_commander_rig
-
-
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_security_rig
 	name = "ert security hardsuit helmet"
 	desc = "Old style of ert hardsuit."
@@ -530,10 +544,10 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_security_rig
-
-
-
-
+	
+	
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_medical_rig
 	name = "ert medical hardsuit helmet"
 	desc = "Old style of ert hardsuit."
@@ -568,9 +582,9 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_medical_rig
-
-
-
+	
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_janitor_rig
 	name = "ert janitor hardsuit helmet"
 	desc = "Old style of ert hardsuit."
@@ -603,9 +617,9 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_janitor_rig
-
-
-
+	
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/skrell_helmet_white
 	name = "screll hardsuit helmet"
 	desc = "For skrells, for space"
@@ -640,15 +654,15 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/skrell_helmet_white
-
-
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/eva_rig
 	name = "eva hardsuit helmet"
 	desc = "New style of EVA hardsuit, more warm and comfortable."
@@ -682,12 +696,12 @@
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 60, "rad" = 0, "fire" = 40, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/eva_rig
 	cold_protection = 750
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_atmosalt
 	name = "atmospherical hardsuit helmet"
 	desc = "New style of atmospherical hardsuit."
@@ -721,11 +735,11 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 25, "fire" = 100, "acid" = 75)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_atmosalt
-
-
-
-
-
+	
+	
+	
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_secalt
 	name = "security hardsuit helmet"
 	desc = "New style of security hardsuit."
@@ -760,13 +774,13 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_secalt
-
-
-
-
-
+	
+	
+	
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_sec
-	name = "blood-red hardsuit helmet"
+	name = "security hardsuit helmet"
 	desc = "New style of security hardsuit."
 	alt_desc = "New style of security hardsuit."
 	icon_state = "rig_sec"
@@ -784,7 +798,7 @@
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/rig_sec
-	name = "breacher cheap hardsuit"
+	name = "security hardsuit"
 	desc = "New style of security hardsuit."
 	alt_desc = "New style of security hardsuit."
 	icon_state = "rig_sec"
@@ -798,11 +812,11 @@
 	armor = list("melee" = 70, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 60, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_sec
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
-
-
-
-
-
+	
+	
+	
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_medicalalt
 	name = "medical hardsuit helmet"
 	desc = "New style of medical hardsuit."
@@ -821,10 +835,10 @@
 	on = FALSE
 	brightness_on = 1
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
-
+	
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/rig_medicalalt
-	name = "breacher cheap hardsuit"
+	name = "medical hardsuit"
 	desc = "New style of medical hardsuit."
 	alt_desc = "New style of medical hardsuit."
 	icon_state = "rig_medicalalt"
@@ -839,11 +853,11 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 10, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 60, "fire" = 60, "acid" = 75)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_medicalalt
-
-
-
-
-
+	
+	
+	
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_salvage
 	name = "salvage hardsuit helmet"
 	desc = "Salvaged hardsuit."
@@ -863,7 +877,7 @@
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/rig_salvage
-	name = "breacher cheap hardsuit"
+	name = "salvaged hardsuit"
 	desc = "Salvaged hardsuit."
 	alt_desc = "Salvaged hardsuit."
 	icon_state = "rig_salvage"
@@ -878,10 +892,10 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20,"energy" = 10, "bomb" = 50, "bio" = 100, "rad" = 20, "fire" = 70, "acid" = 30)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_salvage
-
-
-
-
+	
+	
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_excavation
 	name = "excavation hardsuit helmet"
 	desc = "Hardsuit for exploring."
@@ -919,11 +933,11 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list(melee = 30, bullet = 20, laser = 35,energy = 20, bomb = 30, bio = 100, rad = 100, fire = 50, acid = 40)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_excavation
-
-
-
-
-
+	
+	
+	
+	
+	
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_engineeringalt
 	name = "engineer hardsuit helmet"
 	desc = "New style of engineer hardsuit."
@@ -959,8 +973,8 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 40, "bio" = 100, "rad" = 50, "fire" = 60, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_engineeringalt
-
-
+	
+	
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/skrell_helmet_black
 	name = "screll hardsuit helmet"
@@ -994,3 +1008,412 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 30, "energy" = 20, "bomb" = 40, "bio" = 100, "rad" = 0, "fire" = 50, "acid" = 40)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/skrell_helmet_black
+	
+/obj/item/clothing/suit/toggle/wzzzz/hoodie/black
+	color = "#404040"
+
+/obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/rig_secalt_sec
+	name = "security hardsuit"
+	desc = "New style of security hardsuit."
+	alt_desc = "New style of security hardsuit."
+	icon_state = "rig_secalt_sec"
+	item_state = "rig_secalt_sec"
+	slowdown = 0.7
+	hardsuit_type = "rig_secalt"
+	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
+	clothing_flags = STOPSPRESSUREDAMAGE
+	w_class = WEIGHT_CLASS_NORMAL
+	jetpack = null
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_secalt
+	
+	
+	
+/obj/item/clothing/head/helmet/space/hardsuit/medical/wzzzz
+	name = "paramedical hardsuit helmet"
+	icon_state = "hardsuit0-paramedic"
+	item_state = "hardsuit0_paramedic"
+	hardsuit_type = "paramedic"
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/hats.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
+	armor = list("melee" = 35, "bullet" = 15, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 100, "rad" = 60, "fire" = 60, "acid" = 75)
+	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SCAN_REAGENTS | SNUG_FIT
+
+/obj/item/clothing/suit/space/hardsuit/medical/wzzzz
+	name = "paramedical hardsuit"
+	icon_state = "hardsuit_paramedic"
+	item_state = "hardsuit_paramedic"
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	armor = list("melee" = 35, "bullet" = 15, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 100, "rad" = 60, "fire" = 60, "acid" = 75)
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/medical/wzzzz
+	slowdown = 0.5
+	
+/obj/item/clothing/suit/wizrobe/wzzzz/battlemage
+	icon_state = "battlemage"
+	item_state = "battlemage"
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+	cold_protection = CHEST|GROIN|LEGS|ARMS
+	heat_protection = CHEST|GROIN|LEGS|ARMS
+	slowdown = 0.7
+	clothing_flags = STOPSPRESSUREDAMAGE
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE|FIRE_PROOF|FREEZE_PROOF|LAVA_PROOF
+	armor = list("melee" = 80, "bullet" = 60, "laser" = 70,"energy" = 80, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100, "magic" = 75)
+	
+/mob/living/simple_animal/hostile/pirate/ranged/space/wzzzz
+	icon = 'code/shitcode/Wzzzz/icons/Ora/li/simple_human.dmi'
+	
+/mob/living/simple_animal/hostile/pirate/melee/space/wzzzz
+	icon = 'code/shitcode/Wzzzz/icons/Ora/li/simple_human.dmi'
+	
+/mob/living/simple_animal/hostile/russian/ranged/officer/wzzzz
+	icon = 'code/shitcode/Wzzzz/icons/Ora/li/simple_human.dmi'
+	
+/mob/living/simple_animal/hostile/russian/wzzzz
+	icon = 'code/shitcode/Wzzzz/icons/Ora/li/simple_human.dmi'
+	
+/mob/living/simple_animal/hostile/russian/ranged/wzzzz
+	icon = 'code/shitcode/Wzzzz/icons/Ora/li/simple_human.dmi'
+	
+/mob/living/simple_animal/hostile/syndicate/wzzzz
+	icon = 'code/shitcode/Wzzzz/icons/Ora/li/simple_human.dmi'
+	
+/mob/living/simple_animal/hostile/syndicate/melee/sword/wzzzz
+	icon = 'code/shitcode/Wzzzz/icons/Ora/li/simple_human.dmi'
+	
+/mob/living/simple_animal/hostile/syndicate/melee/sword/space/wzzzz
+	icon = 'code/shitcode/Wzzzz/icons/Ora/li/simple_human.dmi'
+	
+/mob/living/simple_animal/hostile/syndicate/ranged/smg/wzzzz
+	icon = 'code/shitcode/Wzzzz/icons/Ora/li/simple_human.dmi'
+
+/mob/living/simple_animal/hostile/syndicate/ranged/smg/space/wzzzz
+	icon = 'code/shitcode/Wzzzz/icons/Ora/li/simple_human.dmi'
+
+//mob/living/simple_animal/hostile/syndicate/ranged/shotgun/space/stormtrooper/wzzzz
+//	icon = 'code/shitcode/Wzzzz/icons/Ora/li/simple_human.dmi'
+
+/mob/living/simple_animal/hostile/faithless/wzzzz
+	icon = 'code/shitcode/Wzzzz/icons/Ora/li/simple_human.dmi'
+	maxHealth = 100
+	melee_damage_lower = 20
+	melee_damage_upper = 20
+	unsuitable_atmos_damage = 5
+	harm_intent_damage = 15
+
+/obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/pilot_helm
+	name = "pilot hardsuit helmet"
+	desc = "For space pilots."
+	alt_desc = "For space pilots."
+	icon_state = "pilot_helm"
+	item_state = "pilot_helm"
+	hardsuit_type = "pilot"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	armor = list("melee" = 30, "bullet" = 30, "laser" = 30, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 10, "fire" = 70, "acid" = 60)
+	flash_protect = 1
+	actions_types = null
+	clothing_flags = STOPSPRESSUREDAMAGE
+	on = FALSE
+	brightness_on = 1
+	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
+
+/obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/pilot
+	name = "pilot hardsuit"
+	desc = "For space pilots."
+	alt_desc = "For space pilots."
+	icon_state = "pilot"
+	item_state = "pilot"
+	slowdown = 0.7
+	hardsuit_type = "pilot"
+	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
+	clothing_flags = STOPSPRESSUREDAMAGE
+	w_class = WEIGHT_CLASS_NORMAL
+	jetpack = null
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	armor = list("melee" = 30, "bullet" = 30, "laser" = 30, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 10, "fire" = 70, "acid" = 60)
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/pilot_helm
+	
+/obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/helm_explorer
+	name = "explorer void suit helmet"
+	desc = "For space explorers."
+	alt_desc = "For space explorers."
+	icon_state = "helm_explorer"
+	item_state = "helm_explorer"
+	hardsuit_type = "pilot"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	armor = list("melee" = 30, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 35, "bio" = 100, "rad" = 90, "fire" = 80, "acid" = 80)
+	flash_protect = 2
+	actions_types = null
+	clothing_flags = STOPSPRESSUREDAMAGE
+	on = FALSE
+	brightness_on = 1
+	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
+
+/obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/void_explorer
+	name = "explorer void suit"
+	desc = "For space explorers."
+	alt_desc = "For space explorers."
+	icon_state = "void_explorer"
+	item_state = "void_explorer"
+	slowdown = 0.8
+	hardsuit_type = "void_explorer"
+	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
+	clothing_flags = STOPSPRESSUREDAMAGE
+	w_class = WEIGHT_CLASS_NORMAL
+	jetpack = null
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	armor = list("melee" = 30, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 35, "bio" = 100, "rad" = 90, "fire" = 80, "acid" = 80)
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/helm_explorer
+	
+/obj/machinery/vending/wzzzz/dude
+	payment_department = null
+	name = "Great feast"
+	desc = "Only you can stop evil."
+	slogan_delay = 25000
+	max_integrity = 750
+	icon_state = "dude"
+	product_slogans = "The earth is hungry, its heart shrinks and demands purification, the earth is thirsty.;Be blessed, the humble, for they are a convenient target.;The air smells of death and decay, the smell of victory.;Life is cheap, death is free. Hurry up, the offer is limited.;I will put the mutilated organs of my enemies on my head like a hat, and tie their guts like a tie. Oh, how good my dance will be.;Human garbage seeps through the clutching fingers of death.;Blood spatter everywhere. Like a river that flows around me and drags me into its flow.;The smell of dark skin seeps into my nostrils, followed by the smell of death. The human remains are stuck to my clothes like jewelry, and I'm still walking on bones, knee-deep in blood and guts.;Enjoy the frozen excrement of death machines relentlessly grinding flesh...;Who said they had fallen and could not be brought back to the right path?"
+	product_ads = "The earth is hungry, its heart shrinks and demands purification, the earth is thirsty.;Be blessed, the humble, for they are a convenient target.;The air smells of death and decay, the smell of victory.;Life is cheap, death is free. Hurry up, the offer is limited.;I will put the mutilated organs of my enemies on my head like a hat, and tie their guts like a tie. Oh, how good my dance will be.;Human garbage seeps through the clutching fingers of death.;Blood spatter everywhere. Like a river that flows around me and drags me into its flow.;The smell of dark skin seeps into my nostrils, followed by the smell of death. The human remains are stuck to my clothes like jewelry, and I'm still walking on bones, knee-deep in blood and guts.;Enjoy the frozen excrement of death machines relentlessly grinding flesh...;Who said they had fallen and could not be brought back to the right path?"
+	vend_reply = "Only my weapon undersrand me."
+	circuit = /obj/item/circuitboard/machine/vending/donksofttoyvendor/wzzzz/dude
+	resistance_flags = NONE|ACID_PROOF|FIRE_PROOF|FREEZE_PROOF
+	icon = 'code/shitcode/Wzzzz/icons/vera.dmi'
+	armor = list("melee" = 30, "bullet" = 20, "laser" = 10, "energy" = 0, "bomb" = 30, "bio" = 30, "rad" = 0, "fire" = 80, "acid" = 50)
+	refill_canister = /obj/item/vending_refill/custom
+	default_price = 0
+	extra_price = 0
+	refill_canister = /obj/item/vending_refill/wzzzz/dude
+	products = list(
+		/obj/item/grenade/chem_grenade/incendiary = 25,
+		/obj/item/kitchen/knife/free = 25,
+		/obj/item/kitchen/knife/butcher/free = 25,
+		/obj/item/kitchen/knife/wzzzz/german = 25,
+		/obj/item/restraints/legcuffs/bola/tactical = 25,
+		/obj/item/restraints/legcuffs/bola = 25,
+		/obj/item/twohanded/required/chainsaw = 25,
+		/obj/item/storage/belt/bandolier = 25,
+		/obj/item/storage/backpack/fireproof = 25,
+		/obj/item/clothing/shoes/jackboots = 25,
+		/obj/item/clothing/glasses/sunglasses = 25,
+		/obj/item/clothing/suit/jacket/leather/overcoat = 25,
+		/obj/item/storage/pill_bottle/happy = 25,
+		/obj/item/stack/medical/gauze/improvised = 25,
+		/obj/item/storage/firstaid/advanced = 25,
+		/obj/item/ammo_casing/shotgun/improvised = 25,
+		/obj/item/gun/ballistic/shotgun/doublebarrel/improvised = 25,
+		/obj/item/ammo_box/a357 = 25,
+		/obj/item/gun/ballistic/revolver/mateba = 25,
+		/obj/item/tank/internals/plasma/full = 25,
+		/obj/item/flamethrower = 25,
+		/obj/item/ammo_box/magazine/ak47mag = 25,
+		/obj/item/gun/ballistic/automatic/ak47 = 25,
+		/obj/item/gun/ballistic/crossbow/improv = 25,
+		/obj/item/stack/rods/twentyfive = 25,
+		/obj/item/gun/ballistic/crossbow = 25,
+		/obj/item/grenade/iedcasing = 25,
+		/obj/item/grenade/syndieminibomb/concussion/frag = 25,
+		/obj/item/grenade/c4/x4 = 25,
+		/obj/item/twohanded/spear = 25,
+		/obj/item/gun/ballistic/automatic/wt550/wzzzz/german = 25,
+		/obj/item/gun/ballistic/shotgun/doublebarrel = 25,
+		/obj/item/ammo_casing/caseless/rocket = 25,
+		/obj/item/ammo_casing/caseless/rocket/hedp = 25,
+		/obj/item/gun/ballistic/rocketlauncher/unrestricted = 25,
+		/obj/item/ammo_box/magazine/wt550m9/wzzzz/mc9mmt = 25,
+		/obj/item/restraints/legcuffs/beartrap = 25,
+		/obj/item/grenade/c4 = 25,
+		/obj/item/storage/box/lethalshot = 25,
+		/obj/item/ammo_box/magazine/m12g = 25,
+		/obj/item/gun/ballistic/shotgun/bulldog/unrestricted = 25,
+		/obj/item/twohanded/spear/explosive/wzzzz = 25,
+		/obj/item/gun/ballistic/automatic/tommygun = 25,
+		/obj/item/ammo_box/magazine/tommygunm45 = 25,
+		/obj/item/gun/ballistic/shotgun/lethal = 25,
+		/obj/item/ammo_box/magazine/uzim9mm = 25,
+		/obj/item/gun/ballistic/automatic/mini_uzi = 25,
+		/obj/item/gun/ballistic/automatic/pistol/APS = 25,
+		/obj/item/ammo_box/magazine/pistolm9mm = 25,
+		/obj/item/gun/ballistic/automatic/pistol/makarov = 25,
+		/obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted = 25,
+		/obj/item/ammo_box/a40mm = 25,
+		/obj/item/gun/ballistic/automatic/pistol/tanner = 25,
+		/obj/item/ammo_box/magazine/m10mm = 25,
+		/obj/item/reagent_containers/food/drinks/bottle/molotov/wzzzz = 25,
+		/obj/item/switchblade = 25,
+		/obj/item/lighter/greyscale = 25)
+	contraband = list(
+		/obj/item/gun/ballistic/automatic/pistol/wzzzz/mauser = 25,
+		/obj/item/ammo_box/magazine/wzzzz/mauser/battle = 25,
+		/obj/item/gun/ballistic/automatic/pistol/wzzzz/luger = 25,
+		/obj/item/ammo_box/magazine/wzzzz/luger/battle = 25,
+		/obj/item/gun/ballistic/automatic/pistol = 25,
+		/obj/item/gun/ballistic/automatic/pistol/m1911 = 25,
+		/obj/item/ammo_box/magazine/m45 = 25,
+		/obj/item/gun/ballistic/automatic/pistol/deagle = 25,
+		/obj/item/ammo_box/magazine/m50 = 25,
+		/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope = 25,
+		/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k = 25,
+		/obj/item/ammo_box/magazine/wzzzz/a792x57 = 25,
+		/obj/item/gun/ballistic/automatic/c20r/unrestricted = 25,
+		/obj/item/ammo_box/magazine/smgm45 = 25,
+		/obj/item/gun/ballistic/automatic/gyropistol = 25,
+		/obj/item/ammo_box/magazine/m75 = 25,
+		/obj/item/gun/ballistic/automatic/surplus = 25,
+		/obj/item/ammo_box/magazine/m10mm/rifle = 25,
+		/obj/item/gun/ballistic/automatic/l6_saw/unrestricted/wzzzz/mg34 = 25,
+		/obj/item/ammo_box/magazine/wzzzz/a762d = 25,
+		/obj/item/gun/ballistic/automatic/l6_saw/unrestricted = 25,
+		/obj/item/ammo_box/magazine/mm712x82 = 25,
+		/obj/item/gun/ballistic/automatic/ar = 25,
+		/obj/item/ammo_box/magazine/m556 = 25,
+		/obj/item/gun/ballistic/automatic/ar/wzzzz = 25,
+		/obj/item/ammo_box/magazine/m556/arg/wzzzz = 25,
+		/obj/item/gun/ballistic/automatic/m90/unrestricted = 25,
+		/obj/item/ammo_box/magazine/m556 = 25,
+		/obj/item/gun/ballistic/automatic/proto/unrestricted = 25,
+		/obj/item/ammo_box/magazine/smgm9mm = 25,
+		/obj/item/gun/ballistic/automatic/wzzzz/mp40 = 25,
+		/obj/item/ammo_box/magazine/wzzzz/mp40 = 25,
+		/obj/item/gun/ballistic/automatic/wzzzz/g43 = 25,
+		/obj/item/ammo_box/magazine/wzzzz/g43 = 25,
+		/obj/item/gun/ballistic/automatic/wzzzz/stg = 25,
+		/obj/item/ammo_box/magazine/wzzzz/stg = 25,
+		/obj/item/gun/ballistic/shotgun/automatic/combat = 25,
+		/obj/item/gun/ballistic/shotgun/doublebarrel/hook = 25,
+		/obj/item/gun/ballistic/shotgun/sniper = 25,
+		/obj/item/gun/ballistic/shotgun/automatic/dual_tube = 25,
+		/obj/item/ammo_box/magazine/m12g/slug = 25,
+		/obj/item/ammo_box/magazine/m12g/dragon = 25,
+		/obj/item/gun/ballistic/rifle/boltaction = 25,
+		/obj/item/clothing/suit/armor/vest = 25,
+		/obj/item/clothing/suit/armor/wzzzz/opvest = 25,
+		/obj/item/shovel = 25,
+		/obj/item/shovel/serrated = 25,
+		/obj/item/pickaxe = 25,
+		/obj/item/twohanded/fireaxe = 25,
+		/obj/item/melee/sabre/wzzzz/german = 25,
+		/obj/item/melee/wzzzz/club = 25,
+		/obj/item/melee/classic_baton/wzzzz/german = 25,
+		/obj/item/melee/sabre/wzzzz/marine = 25,
+		/obj/item/gun/ballistic/automatic/ar/wzzzz/fg42 = 25,
+		/obj/item/ammo_box/magazine/wzzzz/fg42 = 25,
+		/obj/item/gun/ballistic/automatic/m90/unrestricted/wzzzz/z8 = 25,
+		/obj/item/ammo_box/magazine/wzzzz/a556carbine = 25,
+		/obj/item/gun/ballistic/automatic/wzzzz/carbine = 25,
+		/obj/item/ammo_box/magazine/wzzzz/carbine = 25,				
+		/obj/item/suppressor = 25)
+		
+	
+/obj/item/vending_refill/wzzzz/dude
+	machine_name = "Great feast"
+	icon_state = "refill_dude"
+	icon = 'code/shitcode/Wzzzz/icons/vera.dmi'
+	
+/obj/item/circuitboard/machine/vending/donksofttoyvendor/wzzzz/dude
+	name = "Thirsty circuitboard"
+	desc = "The earth is hungry, its heart shrinks and demands purification, the earth is thirsty."
+	
+/obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_secb
+	name = "security hardsuit helmet"
+	desc = "For space security."
+	alt_desc = "For space security."
+	icon_state = "sec_helm1"
+	item_state = "sec_helm1"
+	hardsuit_type = "rig_sec1"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
+	flash_protect = 1
+	actions_types = null
+	clothing_flags = STOPSPRESSUREDAMAGE
+	on = FALSE
+	brightness_on = 1
+	resistance_flags = NONE|FIRE_PROOF
+
+/obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/rig_secb
+	name = "security hardsuit"
+	desc = "For space security."
+	alt_desc = "For space security."
+	icon_state = "rig_sec1"
+	item_state = "rig_sec1"
+	slowdown = 0.7
+	hardsuit_type = "pilot"
+	resistance_flags = NONE|FIRE_PROOF
+	clothing_flags = STOPSPRESSUREDAMAGE
+	w_class = WEIGHT_CLASS_NORMAL
+	jetpack = null
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_secb
+	
+/obj/item/reagent_containers/food/drinks/bottle/molotov/wzzzz
+	reagents = /datum/reagent/napalm
+	
+/obj/item/twohanded/spear/explosive/wzzzz
+	explosive = /obj/item/grenade/syndieminibomb/concussion/frag	
+	
+/obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/null
+	name = "hardsuit helmet"
+	desc = "Just hardsuit helmet."
+	alt_desc = "Just hardsuit helmet."
+	icon_state = "hardsuit0-null_rig"
+	item_state = "hardsuit0-null_rig"
+	hardsuit_type = "null_rig"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
+	flash_protect = 1
+	clothing_flags = STOPSPRESSUREDAMAGE
+	on = FALSE
+	brightness_on = 4
+	resistance_flags = NONE|FIRE_PROOF
+
+/obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/null
+	name = "hardsuit"
+	desc = "Just hardsuit."
+	alt_desc = "Just hardsuit."
+	slowdown = 0.7
+	hardsuit_type = "null_rig"
+	resistance_flags = NONE|FIRE_PROOF
+	clothing_flags = STOPSPRESSUREDAMAGE
+	w_class = WEIGHT_CLASS_NORMAL
+	icon_state = "hardsuit0-null_rig"
+	item_state = "hardsuit0-null_rig"
+	jetpack = null
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/null
+	
+/obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/null_f
+	name = "hardsuit"
+	desc = "Just hardsuit."
+	alt_desc = "Just hardsuit."
+	slowdown = 0.7
+	hardsuit_type = "null_rig_f"
+	resistance_flags = NONE|FIRE_PROOF
+	clothing_flags = STOPSPRESSUREDAMAGE
+	w_class = WEIGHT_CLASS_NORMAL
+	icon_state = "hardsuit0-null_rig_f"
+	item_state = "hardsuit0-null_rig_f"
+	jetpack = null
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/null
+	
+/obj/item/kitchen/knife/free
+	custom_price = 0
+	
+/obj/item/kitchen/knife/butcher/free
+	custom_price = 0
+	

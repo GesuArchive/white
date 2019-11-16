@@ -4,21 +4,21 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "siege_helmet"
-	item_state = "siege_helmet"
+	item_state = "siege_helmet"	
 	dynamic_hair_suffix = ""
 	flags_inv = HIDEEARS|HIDEHAIR
 	visor_flags_inv = HIDEEARS|HIDEHAIR
 	resistance_flags = NONE
 	armor = list("melee" = 60, "bullet" = 35, "laser" = 25,"energy" = 20, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 20)
-
-
+	
+	
 /obj/item/clothing/head/helmet/wzzzz/rig0sec
 	name = "heavy security helmet"
 	desc = "Stylish deutch helmet"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "rig0sec"
-	item_state = "rig0sec"
+	item_state = "rig0sec"	
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEMASK
 	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
@@ -63,7 +63,7 @@
 	resistance_flags = NONE|ACID_PROOF
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 40,"energy" = 30, "bomb" = 20, "bio" = 50, "rad" = 20, "fire" = 20, "acid" = 80)
 	flash_protect = 1
-
+	
 /obj/item/clothing/head/helmet/wzzzz/rig0syndieskrell
 	name = "syndicate helmet skrell"
 	desc = "Not for humans, but looks great"
@@ -97,7 +97,7 @@
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	resistance_flags = NONE
 	armor = list("melee" = 45, "bullet" = 60, "laser" = 30,"energy" = 10, "bomb" = 35, "bio" = 0, "rad" = 0, "fire" = 55, "acid" = 50)
-
+	
 /obj/item/clothing/head/helmet/wzzzz/rig0syndietaj
 	name = "syndicate helmet tajare"
 	desc = "Not for humans, but looks great"
@@ -114,7 +114,7 @@
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	resistance_flags = NONE
 	armor = list("melee" = 45, "bullet" = 60, "laser" = 30,"energy" = 10, "bomb" = 35, "bio" = 0, "rad" = 0, "fire" = 55, "acid" = 50)
-
+	
 /obj/item/clothing/head/helmet/wzzzz/swathelm
 	name = "swat helmet"
 	desc = "Helmet for SWAT"
@@ -126,7 +126,7 @@
 	visor_flags_inv = HIDEHAIR|HIDEEARS
 	resistance_flags = NONE
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
-
+	
 /obj/item/clothing/head/wizard/wzzzz/amp
 	name = "amp"
 	desc = "Something strange"
@@ -135,9 +135,9 @@
 	icon_state = "amp"
 	item_state = "amp"
 	clothing_flags = BLOCK_GAS_SMOKE_EFFECT|STOPSPRESSUREDAMAGE
-	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE
+	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE  
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 0, "acid" = 100)
-
+	
 /obj/item/clothing/head/helmet/wzzzz/helmetold1
 	name = "old helmet"
 	desc = "Nostalgy"
@@ -182,14 +182,14 @@
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
 	dynamic_fhair_suffix = ""
 	armor = list("melee" = 10, "bullet" = 20, "laser" = 10,"energy" = 0, "bomb" = 10, "bio" = 5, "rad" = 0, "fire" = 10, "acid" = 5)
-
+	
 /obj/item/clothing/head/helmet/wzzzz/breacher_rig_cheap
 	name = "breacher helmet cheap"
 	desc = "Looks good for dark persons"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "breacher_rig_cheap"
-	item_state = "breacher_rig_cheap"
+	item_state = "breacher_rig_cheap"	
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	clothing_flags = STOPSPRESSUREDAMAGE|BLOCK_GAS_SMOKE_EFFECT
@@ -200,14 +200,14 @@
 	resistance_flags = NONE|ACID_PROOF
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
-
+	
 /obj/item/clothing/head/helmet/wzzzz/breacher_rig
 	name = "breacher helmet"
 	desc = "Looks good for dark persons"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "breacher_rig"
-	item_state = "breacher_rig"
+	item_state = "breacher_rig"	
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	dynamic_hair_suffix = ""
@@ -225,7 +225,7 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "asset_protection_rig"
-	item_state = "asset_protection_rig"
+	item_state = "asset_protection_rig"	
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACIALHAIR|HIDEMASK
@@ -241,7 +241,7 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "hazard_rig"
-	item_state = "hazard_rig"
+	item_state = "hazard_rig"	
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	flags_inv = HIDEHAIR|HIDEEYES|HIDEFACIALHAIR
@@ -259,32 +259,32 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "helmetoldup1"
-	item_state = "helmetoldup1"
+	item_state = "helmetoldup1"	
 	flags_inv = HIDEHAIR|HIDEEARS
 	visor_flags_inv = HIDEHAIR|HIDEEARS
 	clothing_flags = STOPSPRESSUREDAMAGE
 	resistance_flags = NONE
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
-
+	
 /obj/item/clothing/head/helmet/wzzzz/swatoldup
 	name = "old SWAT helmet"
 	desc = "Old black SWAT helmet"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "swatoldup"
-	item_state = "swatoldup"
+	item_state = "swatoldup"	
 	flags_inv = HIDEHAIR|HIDEEARS
 	visor_flags_inv = HIDEHAIR|HIDEEARS
 	resistance_flags = NONE
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
-
+	
 /obj/item/clothing/head/helmet/wzzzz/medicalalt_helm
 	name = "medical helmet"
 	desc = "Helmet for medics"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "medicalalt_helm"
-	item_state = "medicalalt_helm"
+	item_state = "medicalalt_helm"	
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEMASK
 	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
 	dynamic_hair_suffix = ""
@@ -294,7 +294,7 @@
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	resistance_flags = NONE
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
-
+	
 /obj/item/clothing/head/helmet/wzzzz/secalt_helm
 	name = "hard security helmet"
 	desc = "Harder, Better, Faster, Stronger"
@@ -319,11 +319,11 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "helmet_reflect"
-	item_state = "helmet_reflect"
+	item_state = "helmet_reflect"	
 	flags_inv = HIDEHAIR|HIDEEARS
 	visor_flags_inv = HIDEHAIR|HIDEEARS
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 90,"energy" = 70, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
-
+	
 /obj/item/clothing/head/helmet/wzzzz/salvage_helm
 	name = "salvage helmet"
 	desc = "Salvage helmet"
@@ -340,7 +340,7 @@
 	clothing_flags = STOPSPRESSUREDAMAGE|BLOCK_GAS_SMOKE_EFFECT
 	resistance_flags = NONE
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 30,"energy" = 5, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 30)
-
+	
 /obj/item/clothing/head/welding/wzzzz/knightwelding
 	name = "welding mask knight"
 	desc = "Here was artist"
@@ -355,7 +355,7 @@
 	armor = list("melee" = 40, "bullet" = 20, "laser" = 10,"energy" = 0, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5)
 	flash_protect = 2
 	tint = 2
-
+	
 /obj/item/clothing/head/welding/wzzzz/engiewelding
 	name = "welding mask engie"
 	desc = "Here was artist"
@@ -370,7 +370,7 @@
 	armor = list("melee" = 40, "bullet" = 20, "laser" = 10,"energy" = 0, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5)
 	flash_protect = 2
 	tint = 2
-
+	
 /obj/item/clothing/head/welding/wzzzz/demonwelding
 	name = "welding mask demon"
 	desc = "Here was artist"
@@ -411,7 +411,7 @@
 	flags_inv = HIDEHAIR|HIDEEARS
 	visor_flags_inv = HIDEHAIR|HIDEEARS
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 35,"energy" = 10, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
-
+	
 /obj/item/clothing/head/welding/wzzzz/carpwelding
 	name = "welding mask carp"
 	desc = "Here was artist"
@@ -444,7 +444,7 @@
 	resistance_flags = NONE|ACID_PROOF|FREEZE_PROOF
 	armor = list("melee" = 70, "bullet" = 60, "laser" = 50,"energy" = 10, "bomb" = 50, "bio" = 0, "rad" = 0, "fire" = 70, "acid" = 60)
 	flash_protect = 1
-
+	
 /obj/item/clothing/head/helmet/wzzzz/facecover
 	name = "facecover"
 	desc = "Looks unusually"
@@ -473,7 +473,7 @@
 	visor_flags_inv = HIDEEARS
 	resistance_flags = NONE
 	armor = list("melee" = 40, "bullet" = 35, "laser" = 40,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 20)
-
+	
 /obj/item/clothing/head/helmet/wzzzz/helmet_tac
 	name = "tactical helmet"
 	desc = "Looks unusual for helmet"
@@ -485,7 +485,7 @@
 	visor_flags_inv = HIDEEARS
 	resistance_flags = NONE
 	armor = list("melee" = 45, "bullet" = 50, "laser" = 35,"energy" = 10, "bomb" = 35, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 25)
-
+	
 /obj/item/clothing/gloves/combat/wzzzz/guard
 	name = "guard gloves"
 	desc = "These tactical gloves are fireproof and electrically insulated."
@@ -502,7 +502,7 @@
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = NONE
 	armor = list("melee" = 50, "bullet" = 40, "laser" = 20, "energy" = 0, "bomb" = 60, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
-
+	
 /obj/item/clothing/gloves/combat/wzzzz/evening_gloves
 	name = "evening gloves"
 	desc = "Evening gloves."
@@ -519,7 +519,7 @@
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = NONE
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 100, "rad" = 25, "fire" = 50, "acid" = 75)
-
+	
 /obj/item/clothing/head/helmet/wzzzz/bio_anom
 	name = "Anomaly hood"
 	desc = "A hood that protects the head and face from exotic alien energies and biological contamination."
@@ -528,7 +528,7 @@
 	icon_state = "bio_anom"
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
-	item_state = "bio_anom"
+	item_state = "bio_anom"	
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEMASK
@@ -552,7 +552,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 20,"energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 100, "fire" = 80, "acid" = 85)
-
+	
 /obj/item/clothing/suit/space/wzzzz/secger
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
@@ -564,9 +564,9 @@
 	name = "security german hardsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
 	armor = list(melee = 80, bullet = 65, laser = 55, energy = 15, bomb = 80, bio = 100, rad = 60)
-
+	
 //helmettype = /obj/item/clothing/head/helmet/wzzzz/rig0sec
-
+	
 /obj/item/clothing/suit/space/wzzzz/secalt
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
@@ -577,9 +577,9 @@
 	name = "security german hardsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
 	armor = list(melee = 80, bullet = 65, laser = 55, energy = 15, bomb = 80, bio = 100, rad = 60)
-
+	
 //helmettype = /obj/item/clothing/head/helmet/wzzzz/secalt_helm
-
+	
 /obj/item/clothing/suit/armor/vest/wzzzz/bulletproofsuit
 	name = "bulletproof armour"
 	desc = "Better bulletproof suit."
@@ -598,15 +598,16 @@
 	armor = list("melee" = 15, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 75, "rad" = 0, "fire" = 50, "acid" = 75)
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon_state = "labcoat_rd"
-	body_parts_covered = CHEST|GROIN|ARMS
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 	item_state = "labcoat_rd"
-
+	
 /obj/item/clothing/under/syndicate/wzzzz/sweater
 	name = "sweater turtleneck"
 	desc = "Comfortable and warm"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/ties.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "sweater"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	cold_protection = CHEST|GROIN|LEGS|ARMS
@@ -614,7 +615,7 @@
 	item_state = "sweater"
 	cold_protection = 200
 	min_cold_protection_temperature = 60
-
+	
 
 /obj/item/clothing/suit/space/wzzzz/excavation
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
@@ -642,7 +643,7 @@
 	clothing_flags = STOPSPRESSUREDAMAGE|BLOCK_GAS_SMOKE_EFFECT
 	resistance_flags = NONE
 	armor = list(melee = 30, bullet = 0, laser = 5 ,energy = 40, bomb = 35, bio = 100, rad = 100)
-
+	
 
 /obj/item/clothing/suit/armor/vest/bulletproofsuit/wzzzz/vest
 	name = "bulletproof vest"
@@ -665,7 +666,7 @@
 	name = "salvage suit"
 	desc = "Salvaged"
 	armor = list(melee = 50, bullet = 40, laser = 20 ,energy = 10, bomb = 45, bio = 90, rad = 70)
-
+	
 /obj/item/clothing/suit/bomb_suit/wzzzz/german
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
@@ -675,7 +676,7 @@
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 20,"energy" = 10, "bomb" = 100, "bio" = 40, "rad" = 0, "fire" = 80, "acid" = 50)
-
+	
 /obj/item/clothing/suit/bomb_suit/wzzzz/german/bombsuitsecold
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
@@ -685,7 +686,7 @@
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 20,"energy" = 10, "bomb" = 100, "bio" = 40, "rad" = 0, "fire" = 80, "acid" = 50)
-
+	
 /obj/item/clothing/head/bomb_hood/wzzzz/german
 	name = "bomb helmet"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/head.dmi'
@@ -695,7 +696,7 @@
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACIALHAIR|HIDEMASK|HIDEMASK
 	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACIALHAIR|HIDEMASK
 	armor = list("melee" = 70, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 100, "bio" = 0, "rad" = 0, "fire" = 80, "acid" = 50)
-
+	
 /obj/item/clothing/suit/armor/hos/wzzzz/german
 	icon_state = "hosg"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -711,10 +712,10 @@
 	flags_inv = HIDEHAIR|HIDEEARS|256
 	visor_flags_inv = HIDEHAIR|HIDEEARS|256
 	armor = list("melee" = 30, "bullet" = 10, "laser" = 20,"energy" = 30, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 10)
-
+	
 /obj/item/clothing/suit/wizrobe/wzzzz/psyamp
 	icon_state = "psyamp"
-	actions = list(/obj/effect/proc_holder/spell/targeted/projectile/magic_missile)
+	actions_types = list(/obj/effect/proc_holder/spell/targeted/projectile/magic_missile)
 	flags_inv = NONE
 	item_state = "psyamp"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -723,9 +724,9 @@
 	clothing_flags = STOPSPRESSUREDAMAGE
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
-	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE
+	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE  
 	armor = list("melee" = 500, "bullet" = 500, "laser" = 500,"energy" = 500, "bomb" = 500, "bio" = 500, "rad" = 500, "fire" = 0, "acid" = 500)
-
+	
 /obj/item/clothing/suit/radiation/wzzzz/german
 	icon_state = "rad"
 	item_state = "rad"
@@ -737,14 +738,14 @@
 	item_state = "rad_old"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
-
+	
 /obj/item/clothing/suit/armor/vest/wzzzz/swat_german
 	name = "swat suit"
 	desc = "Good suit for battles versus revolution or criminals."
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon_state = "swatold"
-	siemens_coefficient = 0.6
+	siemens_coefficient = 0.6	
 	item_state = "swatold"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 40,"energy" = 10, "bomb" = 70, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 50)
@@ -759,14 +760,14 @@
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	item_state = "riotold"
 	armor = list("melee" = 75, "bullet" = 33, "laser" = 50,"energy" = 10, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 40)
-
+	
 /obj/item/clothing/suit/armor/vest/wzzzz/swatarmor_german
 	name = "swat armor"
 	desc = "Armor for swat and swat operations."
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon_state = "swatarmor"
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.5	
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	item_state = "swatarmor"
 	armor = list("melee" = 60, "bullet" = 60, "laser" = 60,"energy" = 40, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 40, "acid" = 40)
@@ -782,13 +783,13 @@
 	item_state = "hazard_w"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
-
+	
 /obj/item/clothing/suit/hazardvest/wzzzz/blue
 	icon_state = "hazard_b"
 	item_state = "hazard_b"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
-
+	
 /obj/item/clothing/suit/space/wzzzz/sec
 	name = "security space suit"
 	desc = "A common suit what protects against pressure."
@@ -818,7 +819,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	armor = list("melee" = 20, "bullet" = 20, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 10, "fire" = 80, "acid" = 50)
-
+	
 /obj/item/clothing/head/helmet/space/wzzzz/sec
 	name = "security space helmet"
 	desc = "A common space for space travels."
@@ -833,7 +834,7 @@
 	clothing_flags = STOPSPRESSUREDAMAGE|BLOCK_GAS_SMOKE_EFFECT
 	resistance_flags = NONE
 	armor = list(melee = 30, bullet = 10, laser = 15, energy =10, bomb = 35, bio = 100, rad = 10)
-
+	
 /obj/item/clothing/head/helmet/space/wzzzz/eng
 	name = "engineer space helmet"
 	desc = "A common space for space travels."
@@ -848,7 +849,7 @@
 	clothing_flags = STOPSPRESSUREDAMAGE|BLOCK_GAS_SMOKE_EFFECT
 	resistance_flags = NONE
 	armor = list(melee = 30, bullet = 10, laser = 15, energy =10, bomb = 35, bio = 100, rad = 10)
-
+	
 /obj/item/clothing/suit/armor/hos/trenchcoat/wzzzz/jensen
 	name = "jensen trenchcoat"
 	desc = "You never asked for anything that stylish."
@@ -866,7 +867,7 @@
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
-
+	
 /obj/item/clothing/suit/wzzzz/sweater
 	name = "sweater"
 	desc = "Comfortable and warm"
@@ -894,13 +895,13 @@
 /obj/item/clothing/suit/wzzzz
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/ties.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/ties.dmi'
-
+	
 /obj/item/clothing/suit/wzzzz/thawb
 	desc = "What is thawb?"
 	name = "thawb"
 	icon_state = "thawb"
 	item_state = "thawb"
-
+	
 /obj/item/clothing/suit/wzzzz/sherwani
 	desc = "Sherwani"
 	name = "sherwani"
@@ -912,7 +913,7 @@
 	name = "qipao"
 	icon_state = "qipao"
 	item_state = "qipao"
-
+	
 /obj/item/clothing/suit/wzzzz/ubacblack
 	desc = "Ubac"
 	name = "ubac"
@@ -920,7 +921,7 @@
 	item_state = "ubacblack"
 	body_parts_covered = CHEST|GROIN
 	armor = list("melee" = 15, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 10)
-
+	
 /obj/item/clothing/suit/wzzzz/ubactan
 	desc = "Ubac"
 	name = "ubac"
@@ -928,7 +929,7 @@
 	item_state = "ubactan"
 	body_parts_covered = CHEST|GROIN
 	armor = list("melee" = 15, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 10)
-
+	
 /obj/item/clothing/suit/wzzzz/ubacgreen
 	desc = "ubacgreen"
 	name = "ubacgreen"
@@ -936,7 +937,7 @@
 	icon_state = "ubacgreen"
 	item_state = "ubacgreen"
 	armor = list("melee" = 15, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 10)
-
+	
 /obj/item/clothing/suit/wzzzz/dashiki
 	desc = "What is dashiki?"
 	name = "dashiki"
@@ -946,7 +947,7 @@
 /obj/item/clothing/suit/wzzzz/dashiki/red
 	icon_state = "dashikired"
 	item_state = "dashikired"
-
+	
 /obj/item/clothing/suit/wzzzz/dashiki/blue
 	icon_state = "dashikiblue"
 	item_state = "dashikiblue"
@@ -965,7 +966,7 @@
 	icon_state = "nt_jacket"
 	body_parts_covered = CHEST|GROIN
 	item_state = "nt_jacket"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/
 	name = "NT jacket"
 	desc = "Just jacket from NT"
@@ -975,7 +976,7 @@
 	icon_state = "nt_jacket"
 	body_parts_covered = CHEST|GROIN
 	item_state = "nt_jacket"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/zhongshan
 	name = "zhongshan"
 	desc = "Zhongshan"
@@ -997,18 +998,18 @@
 /obj/item/clothing/suit/toggle/wzzzz/hawaii2
 	icon_state = "hawaii2"
 	item_state = "hawaii2"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/det_vest
 	name = "detective vest"
 	desc = "Little armor for detectives, what don't like their coat"
 	armor = list("melee" = 20, "bullet" = 20, "laser" = 15,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
 	icon_state = "det_vest"
 	item_state = "det_vest"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/jacket
 	name = "jacket"
 	desc = "Common jacket"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/jacket/tan
 	name = "tan jacket"
 	icon_state = "tan_jacket"
@@ -1023,17 +1024,17 @@
 	name = "checkered jacket"
 	icon_state = "checkered_jacket"
 	item_state = "checkered_jacket"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/jacket/burgundy
 	name = "burgundy jacket"
 	icon_state = "burgundy_jacket"
 	item_state = "burgundy_jacket"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/jacket/navy
 	name = "navy jacket"
 	icon_state = "navy_jacket"
 	item_state = "navy_jacket"
-
+	
 /obj/item/storage/belt/military/wzzzz/vest
 	name = "german black vest"
 	desc = "Armor, storage, stilysh"
@@ -1042,17 +1043,17 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/ties.dmi'
 	icon_state = "vest_black"
 	item_state = "vest_black"
-
+	
 /obj/item/storage/belt/military/wzzzz/vest/brown
 	name = "german brown vest"
 	icon_state = "vest_brown"
 	item_state = "vest_brown"
-
+	
 /obj/item/storage/belt/military/wzzzz/vest/white
 	name = "german white vest"
 	icon_state = "vest_white"
 	item_state = "vest_white"
-
+	
 /obj/item/storage/belt/mining/wzzzz/large
 	icon_state = "webbing_large"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/ties.dmi'
@@ -1111,8 +1112,8 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/ties.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/ties.dmi'
 	item_state = "webbing"
-
-
+	
+	
 
 /obj/item/clothing/suit/toggle/wzzzz/trackjacketred
 	name = "track jacket red"
@@ -1123,7 +1124,7 @@
 	icon_state = "trackjacketred"
 	body_parts_covered = CHEST|ARMS
 	item_state = "trackjacketred"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/trackjacket
 	name = "track jacket"
 	desc = "Track jacket"
@@ -1133,7 +1134,7 @@
 	icon_state = "trackjacket"
 	body_parts_covered = CHEST|ARMS
 	item_state = "trackjacket"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/trackjacketblue
 	name = "track jacket blue"
 	desc = "Track jacket"
@@ -1143,7 +1144,7 @@
 	icon_state = "trackjacketblue"
 	body_parts_covered = CHEST|ARMS
 	item_state = "trackjacketblue"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/trackjacketwhite
 	name = "track jacket white"
 	desc = "Track jacket"
@@ -1153,7 +1154,7 @@
 	icon_state = "trackjacketwhite"
 	body_parts_covered = CHEST|ARMS
 	item_state = "trackjacketwhite"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/trackjacketgreen
 	name = "track jacket green"
 	desc = "Track jacket"
@@ -1163,7 +1164,7 @@
 	icon_state = "trackjacketgreen"
 	body_parts_covered = CHEST|ARMS
 	item_state = "trackjacketgreen"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/ia_jacket
 	name = "track jacket"
 	desc = "Track jacket"
@@ -1173,7 +1174,7 @@
 	icon_state = "ia_jacket"
 	body_parts_covered = CHEST|ARMS
 	item_state = "ia_jacket"
-
+	
 /obj/item/clothing/suit/wzzzz/gentlecoat
 	icon_state = "gentlecoat"
 	body_parts_covered = CHEST|GROIN|ARMS
@@ -1200,7 +1201,7 @@
 	icon_state = "brown_jacket"
 	body_parts_covered = CHEST|ARMS
 	item_state = "brown_jacket"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/suitjacket_blue
 	name = "blue jacket"
 	desc = "Blue jacket"
@@ -1210,7 +1211,7 @@
 	icon_state = "suitjacket_blue"
 	body_parts_covered = CHEST|ARMS
 	item_state = "suitjacket_blue"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/bomber
 	name = "bomber jacket"
 	desc = "Oldstyle"
@@ -1220,7 +1221,7 @@
 	icon_state = "bomber"
 	body_parts_covered = CHEST|ARMS
 	item_state = "bomber"
-
+	
 /obj/item/clothing/suit/wzzzz/leather_jacket
 	name = "leather jacket"
 	desc = "Leather jacket"
@@ -1230,7 +1231,7 @@
 	icon_state = "leather_jacket"
 	body_parts_covered = CHEST|ARMS
 	item_state = "leather_jacket"
-
+	
 /obj/item/clothing/suit/wzzzz/mbill
 	name = "jacket"
 	desc = "Jacket"
@@ -1240,7 +1241,7 @@
 	icon_state = "mbill"
 	body_parts_covered = CHEST|ARMS
 	item_state = "mbill"
-
+	
 /obj/item/clothing/suit/wzzzz/towel
 	name = "towel"
 	desc = "Space, war and you with towel"
@@ -1268,7 +1269,7 @@
 	icon_state = "surgical"
 	body_parts_covered = CHEST|ARMS
 	item_state = "surgical"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/ems_jacket
 	name = "emergensy jacket"
 	desc = "If you wear it, then not time to read description"
@@ -1278,7 +1279,7 @@
 	icon_state = "ems_jacket"
 	body_parts_covered = CHEST|ARMS
 	item_state = "ems_jacket"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/whitedress
 	name = "white dress"
 	desc = "For important persons"
@@ -1298,7 +1299,7 @@
 	icon_state = "whitedress_com"
 	body_parts_covered = CHEST|GROIN|ARMS
 	item_state = "whitedress_com"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/marshal_jacket
 	name = "marshal jacket"
 	desc = "Wow, jackets special for marshals"
@@ -1339,7 +1340,7 @@
 	icon_state = "smw_hoodie"
 	body_parts_covered = CHEST|ARMS
 	item_state = "smw_hoodie"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/nt_hoodie
 	name = "NT hoodie"
 	desc = "Looks good"
@@ -1379,7 +1380,7 @@
 	icon_state = "cti_hoodie"
 	body_parts_covered = CHEST|ARMS
 	item_state = "cti_hoodie"
-
+	
 /obj/item/clothing/suit/toggle/wzzzz/hoodie
 	name = "hoodie"
 	desc = "Hoodie for hoodies"
@@ -1399,7 +1400,7 @@
 	icon_state = "fr_jacket"
 	body_parts_covered = CHEST|ARMS
 	item_state = "fr_jacket"
-
+	
 /obj/item/clothing/suit/wzzzz/mantle_unathi
 	name = "mantle"
 	desc = "Something old or wild"
@@ -1409,7 +1410,7 @@
 	icon_state = "mantle_unathi"
 	body_parts_covered = CHEST
 	item_state = "mantle_unathi"
-
+	
 /obj/item/clothing/suit/wzzzz/robe_unathi
 	name = "robe"
 	desc = "Low technologies"
@@ -1418,7 +1419,7 @@
 	icon_state = "robe_unathi"
 	body_parts_covered = CHEST|GROIN
 	item_state = "robe_unathi"
-
+	
 /obj/item/clothing/suit/space/wzzzz/skrell_suit_black
 	name = "black space suit"
 	desc = "For skrells, but we anyway too use it"
@@ -1433,7 +1434,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 0, "fire" = 60, "acid" = 60)
-
+	
 /obj/item/clothing/suit/space/wzzzz/skrell_suit_white
 	name = "white space suit"
 	desc = "For skrells, but we anyway too use it"
@@ -1468,7 +1469,7 @@
 	icon_state = "forensics_red"
 	body_parts_covered = CHEST|ARMS
 	item_state = "forensics_red"
-
+	
 /obj/item/clothing/suit/armor/vest/wzzzz/armorsec
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
@@ -1497,7 +1498,7 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon_state = "blueponcho"
 	item_state = "blueponcho"
-
+	
 /obj/item/clothing/suit/wzzzz/purpleponcho
 	desc = "Purple poncho"
 	name = "purple poncho"
@@ -1505,15 +1506,15 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon_state = "purpleponcho"
 	item_state = "purpleponcho"
-
+	
 /obj/item/clothing/suit/wzzzz/secponcho
 	desc = "Security poncho"
 	name = "secutiry poncho"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon_state = "secponcho"
-	item_state = "secponcho"
-
+	item_state = "secponcho"	
+	
 /obj/item/clothing/suit/wzzzz/medponcho
 	desc = "Medical poncho"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
@@ -1521,7 +1522,7 @@
 	name = "medical poncho"
 	icon_state = "medponcho"
 	item_state = "medponcho"
-
+	
 /obj/item/clothing/suit/wzzzz/engiponcho
 	desc = "Engineer poncho"
 	name = "engineer poncho"
@@ -1529,7 +1530,7 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon_state = "engiponcho"
 	item_state = "engiponcho"
-
+	
 /obj/item/clothing/suit/wzzzz/cargoponcho
 	desc = "Cargo poncho"
 	name = "cargo poncho"
@@ -1537,7 +1538,7 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	item_state = "cargoponcho"
-
+	
 /obj/item/clothing/suit/wzzzz/sciponcho
 	desc = "Science poncho"
 	name = "science poncho"
@@ -1545,7 +1546,7 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	item_state = "sciponcho"
-
+	
 /obj/item/clothing/suit/wzzzz/pvest
 	desc = "Vest"
 	name = "vest"
@@ -1571,35 +1572,35 @@
 /obj/item/clothing/suit/wzzzz/blackservice/med
 	icon_state = "blackservice_med"
 	item_state = "blackservice_med"
-
+	
 /obj/item/clothing/suit/wzzzz/blackservice/medcom
 	icon_state = "blackservice_medcom"
 	item_state = "blackservice_medcom"
-
+	
 /obj/item/clothing/suit/wzzzz/blackservice/eng
 	icon_state = "blackservice_eng"
 	item_state = "blackservice_eng"
-
+	
 /obj/item/clothing/suit/wzzzz/blackservice/engcom
 	icon_state = "pvest_engcom"
 	item_state = "pvest_engcom"
-
+	
 /obj/item/clothing/suit/wzzzz/blackservice/sup
 	icon_state = "blackservice_sup"
 	item_state = "blackservice_sup"
-
+	
 /obj/item/clothing/suit/wzzzz/blackservice/sec
 	icon_state = "blackservice_sec"
 	item_state = "blackservice_sec"
-
+	
 /obj/item/clothing/suit/wzzzz/blackservice/seccom
 	icon_state = "blackservice_seccom"
 	item_state = "blackservice_seccom"
-
+	
 /obj/item/clothing/suit/wzzzz/blackservice/com
 	icon_state = "blackservice_com"
 	item_state = "blackservice_com"
-
+	
 /obj/item/clothing/suit/wzzzz/greenservice
 	name = "greenservice jacket"
 	desc = "Greenservice"
@@ -1609,35 +1610,35 @@
 	icon_state = "greenservice"
 	body_parts_covered = CHEST|ARMS
 	item_state = "greenservice"
-
+	
 /obj/item/clothing/suit/wzzzz/greenservice/med
 	icon_state = "greenservice_med"
 	item_state = "greenservice_med"
-
+	
 /obj/item/clothing/suit/wzzzz/greenservice/medcom
 	icon_state = "greenservice_medcom"
 	item_state = "greenservice_medcom"
-
+	
 /obj/item/clothing/suit/wzzzz/greenservice/eng
 	icon_state = "greenservice_eng"
 	item_state = "greenservice_eng"
-
+	
 /obj/item/clothing/suit/wzzzz/greenservice/engcom
 	icon_state = "greenservice_engcom"
 	item_state = "greenservice_engcom"
-
+	
 /obj/item/clothing/suit/wzzzz/greenservice/sup
 	icon_state = "greenservice_sup"
 	item_state = "greenservice_sup"
-
+	
 /obj/item/clothing/suit/wzzzz/greenservice/sec
 	icon_state = "greenservice_sec"
 	item_state = "greenservice_sec"
-
+	
 /obj/item/clothing/suit/wzzzz/greenservice/seccom
 	icon_state = "greenservice_seccom"
 	item_state = "greenservice_seccom"
-
+	
 /obj/item/clothing/suit/wzzzz/greenservice/com
 	icon_state = "greenservice_com"
 	item_state = "greenservice_com"
@@ -1651,11 +1652,11 @@
 	icon_state = "greydress"
 	body_parts_covered = CHEST|ARMS
 	item_state = "greydress"
-
+	
 /obj/item/clothing/suit/wzzzz/greydress/com
 	icon_state = "greydress_com"
 	item_state = "greydress_com"
-
+	
 /obj/item/clothing/suit/wzzzz/blackdress
 	name = "blackdress jacket"
 	desc = "Blackdress"
@@ -1665,7 +1666,7 @@
 	icon_state = "blackdress"
 	body_parts_covered = CHEST|ARMS
 	item_state = "blackdress"
-
+	
 /obj/item/clothing/suit/wzzzz/doctor_vest
 	name = "doctor vest"
 	desc = "For doctor"
@@ -1675,11 +1676,11 @@
 	body_parts_covered = CHEST
 	item_state = "doctor_vest"
 
-
+	
 /obj/item/clothing/suit/wzzzz/blackdress/com
 	icon_state = "blackdress_com"
 	item_state = "blackdress_com"
-
+	
 /obj/item/clothing/suit/armor/vest/wzzzz/german
 	name = "Vest"
 	desc = "Protection and, maybe, looks good."
@@ -1689,18 +1690,18 @@
 	icon_state = "kvest"
 	item_state = "kvest"
 	body_parts_covered = CHEST
-
+	
 /obj/item/clothing/suit/armor/vest/wzzzz/german/mercwebvest
 	icon_state = "mercwebvest"
 	armor = list("melee" = 40, "bullet" = 35, "laser" = 35, "energy" = 15, "bomb" = 35, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 60)
 	item_state = "mercwebvest"
 	body_parts_covered = CHEST|LEGS
-
+	
 /obj/item/clothing/suit/armor/vest/wzzzz/german/webvest
 	armor = list("melee" = 35, "bullet" = 35, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
 	icon_state = "webvest"
 	item_state = "webvest"
-
+	
 /obj/item/clothing/suit/armor/vest/wzzzz/german/ntvest
 	icon_state = "ntvest"
 	item_state = "ntvest"
@@ -1708,19 +1709,19 @@
 /obj/item/clothing/suit/armor/vest/wzzzz/german/detvest
 	icon_state = "detvest"
 	item_state = "detvest"
-
+	
 /obj/item/clothing/suit/armor/vest/wzzzz/german/solvest
 	icon_state = "solvest"
 	item_state = "solvest"
-
+	
 /obj/item/clothing/suit/armor/vest/wzzzz/german/pcrcvest
 	icon_state = "pcrcvest"
 	item_state = "pcrcvest"
-
+	
 /obj/item/clothing/suit/armor/vest/wzzzz/german/webvest/secwebvest
 	icon_state = "secwebvest"
 	item_state = "secwebvest"
-
+	
 /obj/item/clothing/suit/armor/vest/wzzzz/german/webvest/comwebvest
 	icon_state = "comwebvest"
 	item_state = "comwebvest"
@@ -1736,7 +1737,7 @@
 /obj/item/clothing/suit/armor/vest/wzzzz/german/webvest/pcrcwebvest
 	icon_state = "pcrcwebvest"
 	item_state = "pcrcwebvest"
-
+	
 /obj/item/clothing/suit/armor/vest/wzzzz/german/webvest/ertarmor_cmd
 	name = "ert armor"
 	desc = "Usually ert use another protection, but that too exist."
@@ -1746,7 +1747,7 @@
 	icon_state = "ertarmor_cmd"
 	item_state = "ertarmor_cmd"
 	body_parts_covered = CHEST
-
+	
 /obj/item/clothing/suit/armor/vest/wzzzz/german/webvest/ertarmor_med
 	name = "ert armor"
 	desc = "Usually ert use another protection, but that too exist."
@@ -1756,7 +1757,7 @@
 	icon_state = "ertarmor_med"
 	item_state = "ertarmor_med"
 	body_parts_covered = CHEST
-
+	
 /obj/item/clothing/suit/armor/vest/wzzzz/german/webvest/ertarmor_sec
 	name = "ert armor"
 	desc = "Usually ert use another protection, but that too exist."
@@ -1766,7 +1767,7 @@
 	icon_state = "ertarmor_sec"
 	item_state = "ertarmor_esc"
 	body_parts_covered = CHEST
-
+	
 /obj/item/clothing/suit/armor/vest/wzzzz/german/webvest/ertarmor_eng
 	name = "ert armor"
 	desc = "Usually ert use another protection, but that too exist."
@@ -1784,10 +1785,11 @@
 	desc = "A non-descript and slightly suspicious looking turtleneck with digital camouflage cargo pants."
 	icon_state = "combat"
 	item_state = "combat"
+	can_adjust = FALSE
 	has_sensor = NO_SENSORS
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 20,"energy" = 20, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/mbill
 	name = "mbill uniform"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
@@ -1795,8 +1797,9 @@
 	desc = "Looks commons, feel legendary."
 	icon_state = "mbill"
 	item_state = "mbill"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/cargo/tech/wzzzz/ntwork
 	name = "NT worker uniform"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
@@ -1804,14 +1807,16 @@
 	desc = "Work, work and work"
 	icon_state = "ntwork"
 	item_state = "ntwork"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/security/officer/wzzzz/ntpilot
 	name = "NT pilot uniform"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "Work, work and work"
 	icon_state = "ntpilot"
+	can_adjust = FALSE
 	item_state = "ntpilot"
 	alt_covers_chest = FALSE
 
@@ -1822,23 +1827,26 @@
 	desc = "Old classic style"
 	icon_state = "ntsmock"
 	item_state = "ntsmock"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/ntsmockexec
 	name = "NT smock uniform"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "Old classic style"
 	icon_state = "ntsmockexec"
+	can_adjust = FALSE
 	item_state = "ntsmockexec"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/abaya
 	name = "abaya dress"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "unusual style"
 	icon_state = "abaya"
+	can_adjust = FALSE
 	item_state = "abaya"
 	alt_covers_chest = FALSE
 
@@ -1850,6 +1858,7 @@
 	icon_state = "ntguard"
 	item_state = "ntguard"
 	alt_covers_chest = FALSE
+	can_adjust = FALSE
 	armor = list("melee" = 20, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 35)
 
 /obj/item/clothing/under/wzzzz/confed
@@ -1857,37 +1866,41 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "Confed"
+	can_adjust = FALSE
 	icon_state = "confed"
 	item_state = "confed"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/focal
 	name = "focal jumpskirt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "Looks like for workers"
 	icon_state = "focal"
+	can_adjust = FALSE
 	item_state = "focal"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/engineering/engineer/wzzzz/mechanic
 	name = "mechanic jumpsuit"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "Cheap jumpsuit for cheap workers"
 	icon_state = "grayson"
+	can_adjust = FALSE
 	item_state = "grayson"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/security/officer/wzzzz/wardt
 	name = "ward jumpskirt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "Ward"
 	icon_state = "wardt"
+	can_adjust = FALSE
 	item_state = "wardt"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/engineering/atmospheric_technician/wzzzz/aether
 	name = "aether jumpskirt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
@@ -1895,14 +1908,16 @@
 	desc = "For aether"
 	icon_state = "aether"
 	item_state = "aether"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/frontier
 	name = "frontier jumpskirt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "For frontier"
 	icon_state = "frontier"
+	can_adjust = FALSE
 	item_state = "frontier"
 	alt_covers_chest = FALSE
 
@@ -1913,26 +1928,29 @@
 	desc = "For non-hand work"
 	icon_state = "saare"
 	item_state = "saare"
-	alt_covers_chest = FALSE
+	alt_covers_chest = FALSE	
+	can_adjust = FALSE
 
 /obj/item/clothing/under/wzzzz/heph
 	name = "heph jumpskirt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "For non-hand work"
+	can_adjust = FALSE
 	icon_state = "heph"
 	item_state = "heph"
-	alt_covers_chest = FALSE
-
+	alt_covers_chest = FALSE	
+	
 /obj/item/clothing/under/rank/security/officer/wzzzz/pcrc
 	name = "pcrc jumpskirt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "Something not for low rank"
 	icon_state = "pcrc"
+	can_adjust = FALSE
 	item_state = "pcrc"
-	alt_covers_chest = FALSE
-
+	alt_covers_chest = FALSE	
+	
 /obj/item/clothing/under/wzzzz/greydress
 	name = "greydress jumpskirt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
@@ -1940,7 +1958,8 @@
 	desc = "Grey thing"
 	icon_state = "greydress"
 	item_state = "greydress"
-	alt_covers_chest = FALSE
+	can_adjust = FALSE
+	alt_covers_chest = FALSE	
 
 /obj/item/clothing/under/wzzzz/greydress_com
 	name = "greydress jumpskirt"
@@ -1949,8 +1968,9 @@
 	desc = "Grey thing"
 	icon_state = "greydress_com"
 	item_state = "greydress_com"
-	alt_covers_chest = FALSE
-
+	can_adjust = FALSE
+	alt_covers_chest = FALSE	
+	
 /obj/item/clothing/under/wzzzz/greydressfem
 	name = "greydress female jumpskirt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
@@ -1958,7 +1978,8 @@
 	desc = "Grey thing"
 	icon_state = "greydressfem"
 	item_state = "greydressfem"
-	alt_covers_chest = FALSE
+	can_adjust = FALSE
+	alt_covers_chest = FALSE	
 
 /obj/item/clothing/under/wzzzz/greydressfem_com
 	name = "greydress female jumpskirt"
@@ -1967,8 +1988,9 @@
 	desc = "Grey thing"
 	icon_state = "greydressfem_com"
 	item_state = "greydressfem_com"
-	alt_covers_chest = FALSE
-
+	can_adjust = FALSE
+	alt_covers_chest = FALSE	
+	
 /obj/item/clothing/under/wzzzz/blackdress
 	name = "Blackdress jumpskirt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
@@ -1976,7 +1998,8 @@
 	desc = "Black thing"
 	icon_state = "blackdress"
 	item_state = "blackdress"
-	alt_covers_chest = FALSE
+	can_adjust = FALSE
+	alt_covers_chest = FALSE	
 
 /obj/item/clothing/under/wzzzz/blackdress_com
 	name = "blackdress jumpskirt"
@@ -1984,9 +2007,10 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "Black thing"
 	icon_state = "blackdress_com"
+	can_adjust = FALSE
 	item_state = "blackdress_com"
-	alt_covers_chest = FALSE
-
+	alt_covers_chest = FALSE	
+	
 /obj/item/clothing/under/wzzzz/blackdressfem
 	name = "blackdress female jumpskirt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
@@ -1994,7 +2018,8 @@
 	desc = "Black thing"
 	icon_state = "blackdressfem"
 	item_state = "blackdressfem"
-	alt_covers_chest = FALSE
+	can_adjust = FALSE
+	alt_covers_chest = FALSE	
 
 /obj/item/clothing/under/wzzzz/blackdressfem_com
 	name = "blackdress female jumpskirt"
@@ -2002,19 +2027,21 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "Black thing"
 	icon_state = "blackdressfem_com"
+	can_adjust = FALSE
 	item_state = "blackdressfem_com"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/medical/doctor/wzzzz/sterile
 	name = "sterile jumpskirt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "Sterile"
 	icon_state = "sterile"
+	can_adjust = FALSE
 	item_state = "sterile"
 	alt_covers_chest = FALSE
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 30, "rad" = 0, "fire" = 0, "acid" = 10)
-
+	
 /obj/item/clothing/under/rank/security/officer/wzzzz/marinept
 	name = "marine jumpskirt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
@@ -2022,6 +2049,7 @@
 	desc = "Marine uniform"
 	icon_state = "marinept"
 	item_state = "marinept"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/fleetpt
@@ -2031,23 +2059,26 @@
 	desc = "Fleet uniform"
 	icon_state = "fleetpt"
 	item_state = "fleetpt"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/expeditionpt
 	name = "expedition jumpskirt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "Expedition uniform"
+	can_adjust = FALSE
 	icon_state = "expeditionpt"
 	item_state = "expeditionpt"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/miami
 	name = "miami shirt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "Miami!"
 	icon_state = "miami"
+	can_adjust = FALSE
 	item_state = "miami"
 	alt_covers_chest = FALSE
 
@@ -2058,7 +2089,8 @@
 	desc = "Blue fire"
 	icon_state = "dress_fire"
 	item_state = "dress_fire"
-	alt_covers_chest = FALSE
+	can_adjust = FALSE
+	alt_covers_chest = FALSE	
 
 /obj/item/clothing/under/wzzzz/greenservice
 	name = "greenservice jumpskirt"
@@ -2067,23 +2099,26 @@
 	desc = "Green uniform"
 	icon_state = "greenservice"
 	item_state = "greenservice"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/greenservice_com
 	name = "greenservice jumpskirt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "Green uniform"
 	icon_state = "greenservice_com"
+	can_adjust = FALSE
 	item_state = "greenservice_com"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/whiteservice
 	name = "whiteservice jumpskirt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	desc = "White uniform"
 	icon_state = "whiteservice"
+	can_adjust = FALSE
 	item_state = "whiteservice"
 	alt_covers_chest = FALSE
 
@@ -2094,61 +2129,70 @@
 	desc = "White uniform"
 	icon_state = "whiteservicefem"
 	item_state = "whiteservicefem"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/security/head_of_security/wzzzz/hosred
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "hosred"
 	item_state = "hosred"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/security/officer/wzzzz/secred
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "secred_s"
 	item_state = "secred_s"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/cargo/tech/wzzzz/german
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "cargo"
 	item_state = "cargo"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/cargo/qm/wzzzz/german
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "qm"
+	can_adjust = FALSE
 	item_state = "qm"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/medical/doctor/wzzzz/medical_short
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "medical_short"
 	item_state = "medical_short"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/centcom/officer/wzzzz
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "officer"
 	item_state = "officer"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/centcom/officer/wzzzz/centcom
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "centcom"
 	item_state = "centcom"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/medical/doctor/wzzzz/white
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "white"
+	can_adjust = FALSE
 	item_state = "white"
 	alt_covers_chest = FALSE
 
@@ -2157,6 +2201,7 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "medical"
 	item_state = "medical"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/johnny
@@ -2164,6 +2209,7 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "johnny"
 	item_state = "johnny"
+	can_adjust = FALSE
 	name = "johnny uniform"
 	desc = "Johnny, from Johnny, for Johnny"
 	alt_covers_chest = FALSE
@@ -2173,19 +2219,21 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "orang"
 	name = "orange uniform"
+	can_adjust = FALSE
 	desc = "If you like orange"
 	item_state = "orang"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/blu
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "blu"
 	name = "blue uniform"
 	desc = "Simple, but classic"
+	can_adjust = FALSE
 	item_state = "blu"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/purpl
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2194,7 +2242,8 @@
 	desc = "Simple, but classic"
 	item_state = "purpl"
 	alt_covers_chest = FALSE
-
+	can_adjust = FALSE
+	
 /obj/item/clothing/under/wzzzz/gree
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2202,17 +2251,19 @@
 	item_state = "gree"
 	name = "green uniform"
 	desc = "Simple, but classic"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/mai_yang
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "mai_yang"
 	item_state = "mai_yang"
 	name = "yang uniform"
+	can_adjust = FALSE
 	desc = "Dirt or art?"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/psysuit
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2221,10 +2272,11 @@
 	desc = "From somewhere for someone"
 	item_state = "psysuit"
 	alt_covers_chest = FALSE
-	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE
+	can_adjust = FALSE
+	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE  
 	clothing_flags = STOPSPRESSUREDAMAGE
 	armor = list("melee" = 500, "bullet" = 500, "laser" = 500,"energy" = 500, "bomb" = 500, "bio" = 500, "rad" = 500, "fire" = 0, "acid" = 500)
-
+	
 /obj/item/clothing/under/wzzzz/redcoat
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2233,16 +2285,18 @@
 	desc = "Like pirate, but no"
 	item_state = "redcoat"
 	alt_covers_chest = FALSE
-
+	can_adjust = FALSE
+	
 /obj/item/clothing/under/wzzzz/nursesuit
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "nursesuit"
 	item_state = "nursesuit"
+	can_adjust = FALSE
 	name = "nurse uniform"
 	desc = "Why you read it, you want be fired?"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/lawyer_purp
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2250,14 +2304,16 @@
 	item_state = "lawyer_purp"
 	alt_covers_chest = FALSE
 	name = "lawyer uniform"
+	can_adjust = FALSE
 	desc = "Looks stylish"
-
+	
 /obj/item/clothing/under/wzzzz/scrubsblack
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "scrubsblack"
 	item_state = "scrubsblack"
 	alt_covers_chest = FALSE
+	can_adjust = FALSE
 	name = "scrubs"
 	desc = "For clear"
 
@@ -2267,18 +2323,20 @@
 	icon_state = "scrubspurple"
 	item_state = "scrubspurple"
 	alt_covers_chest = FALSE
+	can_adjust = FALSE
 	name = "scrubs"
 	desc = "For clear"
-
+	
 /obj/item/clothing/under/wzzzz/scrubsgreen
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "scrubsgreen"
 	item_state = "scrubsgreen"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
 	name = "scrubs"
 	desc = "For clear"
-
+	
 /obj/item/clothing/under/wzzzz/scrubsblue
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2286,6 +2344,7 @@
 	item_state = "scrubsblue"
 	alt_covers_chest = FALSE
 	name = "scrubs"
+	can_adjust = FALSE
 	desc = "For clear"
 
 
@@ -2295,15 +2354,17 @@
 	icon_state = "greyutility"
 	item_state = "greyutility"
 	name = "grey utility jumpsuit"
+	can_adjust = FALSE
 	desc = "Grey"
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/greyutility_eng
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "greyutility_eng"
 	name = "grey utility jumpsuit"
+	can_adjust = FALSE
 	desc = "Grey"
 	item_state = "greyutility_eng"
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
@@ -2315,40 +2376,44 @@
 	icon_state = "greyutility_med"
 	name = "grey utility jumpsuit"
 	desc = "Grey"
+	can_adjust = FALSE
 	item_state = "greyutility_med"
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/greyutility_sup
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "greyutility_sup"
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
 	item_state = "greyutility_sup"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
 	name = "grey utility jumpsuit"
 	desc = "Grey"
-
+	
 /obj/item/clothing/under/wzzzz/greyutility_sec
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "greyutility_sec"
 	item_state = "greyutility_sec"
 	name = "grey utility jumpsuit"
+	can_adjust = FALSE
 	desc = "Grey"
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/greyutility_com
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "greyutility_com"
 	item_state = "greyutility_com"
 	name = "grey utility jumpsuit"
+	can_adjust = FALSE
 	desc = "Grey"
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/navyutility
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2357,13 +2422,15 @@
 	item_state = "navyutility"
 	alt_covers_chest = FALSE
 	name = "navy jumpsuit"
+	can_adjust = FALSE
 	desc = "For space navi"
-
+	
 /obj/item/clothing/under/wzzzz/navyutility_eng
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "navyutility_eng"
 	item_state = "navyutility_eng"
+	can_adjust = FALSE
 	name = "navy jumpsuit"
 	desc = "For space navi"
 	alt_covers_chest = FALSE
@@ -2374,35 +2441,39 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "navyutility_med"
 	name = "navy jumpsuit"
+	can_adjust = FALSE
 	desc = "For space navi"
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
 	item_state = "navyutility_med"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/navyutility_sup
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "navyutility_sup"
 	name = "navy jumpsuit"
+	can_adjust = FALSE
 	desc = "For space navi"
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
 	item_state = "navyutility_sup"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/navyutility_sec
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "navyutility_sec"
+	can_adjust = FALSE
 	name = "navy jumpsuit"
 	desc = "For space navi"
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
 	item_state = "navyutility_sec"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/navyutility_com
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "navyutility_com"
+	can_adjust = FALSE
 	name = "navy jumpsuit"
 	desc = "For space navi"
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
@@ -2414,11 +2485,12 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "greenutility"
 	item_state = "greenutility"
+	can_adjust = FALSE
 	name = "green utility jumpsuit"
 	desc = "Russian style"
 	alt_covers_chest = FALSE
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
-
+	
 /obj/item/clothing/under/rank/security/officer/wzzzz/tanutility
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2426,6 +2498,7 @@
 	item_state = "tanutility"
 	name = "tan utility jumpsuit"
 	desc = "Desert style"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 45, "acid" = 40)
 
@@ -2435,50 +2508,55 @@
 	icon_state = "blackutility"
 	item_state = "blackutility"
 	alt_covers_chest = FALSE
+	can_adjust = FALSE
 	name = "black utility jumpsuit"
 	desc = "Stylish black color"
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 55, "acid" = 40)
-
+	
 /obj/item/clothing/under/wzzzz/blackutility_crew
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "blackutility_crew"
 	item_state = "blackutility_crew"
 	name = "black utility jumpsuit"
+	can_adjust = FALSE
 	desc = "Stylish black color"
 	alt_covers_chest = FALSE
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 55, "acid" = 40)
-
+	
 /obj/item/clothing/under/wzzzz/blackutility_med
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "blackutility_med"
 	item_state = "blackutility_med"
 	name = "black utility jumpsuit"
+	can_adjust = FALSE
 	desc = "Stylish black color"
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 55, "acid" = 40)
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/blackutility_medcom
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "blackutility_medcom"
 	name = "black utility jumpsuit"
 	desc = "Stylish black color"
+	can_adjust = FALSE
 	item_state = "blackutility_medcom"
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 55, "acid" = 40)
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/blackutility_eng
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "blackutility_eng"
 	item_state = "blackutility_eng"
 	name = "black utility jumpsuit"
+	can_adjust = FALSE
 	desc = "Stylish black color"
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 55, "acid" = 40)
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/blackutility_engcom
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2486,29 +2564,32 @@
 	item_state = "blackutility_engcom"
 	name = "black utility jumpsuit"
 	desc = "Stylish black color"
+	can_adjust = FALSE
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 55, "acid" = 40)
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/blackutility_sup
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "blackutility_sup"
 	name = "black utility jumpsuit"
+	can_adjust = FALSE
 	desc = "Stylish black color"
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 55, "acid" = 40)
 	item_state = "blackutility_sup"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/blackutility_sec
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "blackutility_sec"
 	item_state = "blackutility_sec"
 	name = "black utility jumpsuit"
+	can_adjust = FALSE
 	desc = "Stylish black color"
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 55, "acid" = 40)
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/blackutility_seccom
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2517,22 +2598,25 @@
 	item_state = "blackutility_seccom"
 	name = "black utility jumpsuit"
 	desc = "Stylish black color"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/blackutility_com
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "blackutility_com"
 	name = "black utility jumpsuit"
 	desc = "Stylish black color"
+	can_adjust = FALSE
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 55, "acid" = 40)
 	item_state = "blackutility_com"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/security/detective/wzzzz/detective2
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "detective2"
+	can_adjust = FALSE
 	item_state = "detective2"
 	alt_covers_chest = FALSE
 
@@ -2542,10 +2626,11 @@
 	icon_state = "jensen"
 	item_state = "jensen"
 	name = "jensen jumpsuit"
+	can_adjust = FALSE
 	desc = "I not asked for this!"
 	alt_covers_chest = FALSE
 	armor = list("melee" = 20, "bullet" = 20, "laser" = 20,"energy" = 20, "bomb" = 20, "bio" = 20, "rad" = 0, "fire" = 50, "acid" = 50)
-
+	
 
 /obj/item/clothing/under/wzzzz/blue_blazer
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
@@ -2553,9 +2638,10 @@
 	icon_state = "blue_blazer"
 	item_state = "blue_blazer"
 	name = "blazer"
+	can_adjust = FALSE
 	desc = "Blue blazer..."
-	alt_covers_chest = FALSE
-
+	alt_covers_chest = FALSE	
+	
 /obj/item/clothing/under/wzzzz/gentlesuit
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2563,6 +2649,7 @@
 	item_state = "gentlesuit"
 	name = "gentelman jumpsuit"
 	desc = "Black, white, gentle"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/rnd/research_director/wzzzz/rdalt
@@ -2570,6 +2657,7 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "rdalt"
 	item_state = "rdalt"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/security/officer/wzzzz/swatunder
@@ -2577,8 +2665,9 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "swatunder"
 	item_state = "swatunder"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/bride_purple
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2587,35 +2676,39 @@
 	desc = "Princess"
 	item_state = "bride_purple"
 	alt_covers_chest = FALSE
-
+	can_adjust = FALSE
+	
 /obj/item/clothing/under/rank/civilian/head_of_personnel/wzzzz/hopwhimsy
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "hopwhimsy"
 	item_state = "hopwhimsy"
-
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/security/warden/wzzzz/wardendnavyclothes
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "wardendnavyclothes"
 	item_state = "wardendnavyclothes"
 	alt_covers_chest = FALSE
-
+	can_adjust = FALSE
+	
 /obj/item/clothing/under/rank/security/officer/wzzzz/officerdnavyclothes
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "officerdnavyclothes"
 	item_state = "officerdnavyclothes"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/bride_orange
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "bride_orange"
 	item_state = "bride_orange"
 	alt_covers_chest = FALSE
+	can_adjust = FALSE
 	name = "bridge"
 	desc = "Princess"
 
@@ -2624,17 +2717,19 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "hos_corporate"
 	item_state = "hos_corporate"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/dress_orange
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "dress_orange"
 	name = "dress"
+	can_adjust = FALSE
 	desc = "True girl"
 	item_state = "dress_orange"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/dispatch
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2642,15 +2737,17 @@
 	item_state = "dispatch"
 	name = "dispatch"
 	desc = "Not patch"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/security/head_of_security/wzzzz/hosdnavyclothes
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "hosdnavyclothes"
 	item_state = "hosdnavyclothes"
 	alt_covers_chest = FALSE
-
+	can_adjust = FALSE
+	
 /obj/item/clothing/under/wzzzz/captain_fly
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2658,33 +2755,37 @@
 	item_state = "captain_fly"
 	name = "captain's fly"
 	desc = "Unusual for captain"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/security/officer/wzzzz/internalaffairs
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "internalaffairs"
 	item_state = "internalaffairs"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/bride_blue
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "bride_blue"
 	item_state = "bride_blue"
 	alt_covers_chest = FALSE
+	can_adjust = FALSE
 	name = "bridge"
 	desc = "Princess"
-
+	
 /obj/item/clothing/under/wzzzz/bride_red
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "bride_red"
+	can_adjust = FALSE
 	item_state = "bride_red"
 	name = "bridge"
 	desc = "Princess"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/bride_white
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2692,8 +2793,9 @@
 	item_state = "bride_white"
 	name = "bridge"
 	desc = "Princess"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/dress_saloon
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2701,59 +2803,66 @@
 	item_state = "dress_saloon"
 	alt_covers_chest = FALSE
 	name = "dress"
+	can_adjust = FALSE
 	desc = "Sexy?"
-
+	
 /obj/item/clothing/under/wzzzz/orderly
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "orderly"
 	item_state = "orderly"
 	alt_covers_chest = FALSE
+	can_adjust = FALSE
 	name = "orderly"
 	desc = "Very simple, but classic"
-
+	
 /obj/item/clothing/under/wzzzz/nurse
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "nurse"
 	item_state = "nurse"
+	can_adjust = FALSE
 	name = "nurse dress"
 	desc = "True nurse don't uses her dress for looking at that"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/oldman
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "oldman"
 	item_state = "oldman"
 	name = "oldman suit"
+	can_adjust = FALSE
 	desc = "Hope, what young people don't kill you"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/rank/security/officer/wzzzz/sec_corporate
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "sec_corporate"
 	item_state = "sec_corporate"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
 	armor = list("melee" = 20, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 10, "rad" = 0, "fire" = 40, "acid" = 40)
-
+	
 /obj/item/clothing/under/wzzzz/psychturtle
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "psychturtle"
 	cold_protection = 200
+	can_adjust = FALSE
 	min_cold_protection_temperature = 60
 	item_state = "psychturtle"
 	alt_covers_chest = FALSE
 	name = "sweater turtleneck"
 	desc = "This sweater looks unusual"
-
+	
 /obj/item/clothing/under/rank/security/head_of_security/wzzzz/hos_corporate1
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "hos_corporate1"
 	item_state = "hos_corporate1"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/security/warden/wzzzz/warden_corporate
@@ -2761,6 +2870,7 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "warden_corporate"
 	item_state = "warden_corporate"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/undertaker
@@ -2768,6 +2878,7 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "undertaker"
 	item_state = "undertaker"
+	can_adjust = FALSE
 	name = "undertaker suit"
 	desc = "For true undertakers"
 	alt_covers_chest = FALSE
@@ -2779,6 +2890,7 @@
 	item_state = "stripper_g"
 	name = "stripper"
 	desc = "To seduce someone?"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/wzzzz/stripper_p
@@ -2787,6 +2899,7 @@
 	icon_state = "stripper_p"
 	item_state = "stripper_p"
 	name = "stripper"
+	can_adjust = FALSE
 	desc = "To seduce someone?"
 	alt_covers_chest = FALSE
 
@@ -2798,7 +2911,8 @@
 	name = "swim suit"
 	desc = "Good dive in space"
 	alt_covers_chest = FALSE
-
+	can_adjust = FALSE
+	
 /obj/item/clothing/under/wzzzz/swim_red
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2806,17 +2920,19 @@
 	item_state = "swim_red"
 	name = "swim suit"
 	desc = "Good dive in space"
+	can_adjust = FALSE
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/swim_purp
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
 	icon_state = "swim_purp"
 	item_state = "swim_purp"
 	name = "swim suit"
+	can_adjust = FALSE
 	desc = "Good dive in space"
 	alt_covers_chest = FALSE
-
+	
 /obj/item/clothing/under/wzzzz/swim_green
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
@@ -2825,21 +2941,15 @@
 	name = "swim suit"
 	desc = "Good dive in space"
 	alt_covers_chest = FALSE
+	can_adjust = FALSE
+	
 
-/obj/item/clothing/under/wzzzz/chickensuit
-	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
-	icon_state = "chickensuit"
-	item_state = "chickensuit"
-	name = "chicken suit"
-	desc = "Young petuch."
-	alt_covers_chest = FALSE
 
 /obj/item/melee/cultblade/wzzzz
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	slot_flags = SLOT_BELT|SLOT_BACK
-
+	
 /obj/item/melee/cultblade/wzzzz/great
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
@@ -2847,10 +2957,10 @@
 	throwforce = 40
 	block_chance = 70
 	slot_flags = SLOT_BELT|SLOT_BACK
-
+	
 /obj/item/clothing/suit/armor/plate/crusader/wzzzz
 	armor = list("melee" = 80, "bullet" = 65, "laser" = 100,"energy" = 100, "bomb" = 75, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
-
+	
 /obj/item/shield/riot/roman/wzzzz
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	block_chance = 100
@@ -2859,60 +2969,683 @@
 	obj_integrity = 1.#INF
 	force = 30
 	throwforce = 20
-
+	
 /obj/item/clothing/suit/space/syndicate/black/engie/wzzzz
 	resistance_flags = NONE|FREEZE_PROOF|FIRE_PROOF
-
+	
 /obj/item/clothing/under/syndicate/combat/wzzzz
 	resistance_flags = NONE|FREEZE_PROOF|FIRE_PROOF
-
+	
 /obj/item/clothing/head/helmet/space/syndicate/black/engie/wzzzz
 	resistance_flags = NONE|FREEZE_PROOF|FIRE_PROOF
-
+	
 /obj/item/clothing/head/helmet/wzzzz/helmet_command
 	name = "command helmet"
 	desc = "Helmet with special line at back side like symbol of command?"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "helmet_command"
-	item_state = "helmet_command"
+	item_state = "helmet_command"	
 	flags_inv = HIDEHAIR|HIDEEARS
 	visor_flags_inv = HIDEHAIR|HIDEEARS
 	resistance_flags = NONE
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
-
+	
 /obj/item/clothing/head/helmet/wzzzz/helmet_security
 	name = "security helmet"
 	desc = "Helmet with special line at back side like symbol of security."
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "helmet_security"
-	item_state = "helmet_security"
+	item_state = "helmet_security"	
 	flags_inv = HIDEHAIR|HIDEEARS
 	visor_flags_inv = HIDEHAIR|HIDEEARS
 	resistance_flags = NONE
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
-
+	
 /obj/item/clothing/head/helmet/wzzzz/helmet_pcrc
 	name = "pcrc helmet"
 	desc = "Helmet with special line at back side like symbol of pcrc."
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "helmet_pcrc"
-	item_state = "helmet_pcrc"
+	item_state = "helmet_pcrc"	
 	flags_inv = HIDEHAIR|HIDEEARS
 	visor_flags_inv = HIDEHAIR|HIDEEARS
 	resistance_flags = NONE
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
-
+	
 /obj/item/clothing/head/helmet/wzzzz/helmet_nt
 	name = "nt helmet"
 	desc = "Helmet for NT conscripts?"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/hats.dmi'
 	icon_state = "helmet_nt"
-	item_state = "helmet_nt"
+	item_state = "helmet_nt"	
 	flags_inv = HIDEHAIR|HIDEEARS
 	visor_flags_inv = HIDEHAIR|HIDEEARS
 	resistance_flags = NONE
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	
+/obj/item/clothing/suit/toggle/wzzzz/trackjackettcc
+	name = "track jacket TTC"
+	desc = "Track jacket"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "trackjackettcc"
+	body_parts_covered = CHEST|ARMS
+	item_state = "trackjackettcc"
+	
+/obj/item/clothing/under/rank/security/officer/wzzzz/ert_uniform
+	name = "ert jumpskirt"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/uniforms.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/uniform.dmi'
+	desc = "Marine uniform"
+	icon_state = "ert_uniform"
+	item_state = "ert_uniform"
+	alt_covers_chest = FALSE
+	
+/obj/item/clothing/suit/toggle/labcoat/wzzzz/rdzeng
+	name = "scientist labcoat"
+	desc = "A suit that make some protection against some accidents at work"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	armor = list("melee" = 15, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 75, "rad" = 0, "fire" = 50, "acid" = 75)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "labcoat_rd_zeng"
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	item_state = "labcoat_rd_zeng"
+	
+/obj/item/clothing/suit/toggle/labcoat/wzzzz/rdheph
+	name = "scientist labcoat"
+	desc = "A suit that make some protection against some accidents at work"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	armor = list("melee" = 15, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 75, "rad" = 0, "fire" = 50, "acid" = 75)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "labcoat_rd_heph"
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	item_state = "labcoat_rd_heph"
+	
+/obj/item/clothing/suit/toggle/labcoat/wzzzz/rd1
+	name = "scientist labcoat"
+	desc = "A suit that make some protection against some accidents at work"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	armor = list("melee" = 15, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 75, "rad" = 0, "fire" = 50, "acid" = 75)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "labcoat_rd1"
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	item_state = "labcoat_rd1"
+
+/obj/item/clothing/suit/wzzzz/sciponcho_heph
+	desc = "Poncho for area of knowledge"
+	name = "scientist poncho"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "sciponcho_heph"
+	item_state = "sciponcho_heph"
+
+/obj/item/clothing/suit/wzzzz/sciponcho_zeng
+	desc = "Poncho for area of knowledge"
+	name = "scientist poncho"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "sciponcho_zeng"
+	item_state = "sciponcho_zeng"	
+
+/obj/item/clothing/suit/wzzzz/sciponcho
+	desc = "Poncho for area of knowledge"
+	name = "scientist poncho"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "sciponcho"
+	item_state = "sciponcho"
+	
+/obj/item/clothing/suit/wzzzz/sciponcho_nt
+	desc = "Poncho for area of knowledge"
+	name = "scientist poncho"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "sciponcho_nt"
+	item_state = "sciponcho_nt"
+
+/obj/item/clothing/suit/toggle/labcoat/wzzzz/zeng
+	name = "scientist labcoat"
+	desc = "A suit that make some protection against some accidents at work"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	armor = list("melee" = 15, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 75, "rad" = 0, "fire" = 50, "acid" = 75)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "labcoat_zeng"
+	body_parts_covered = CHEST|GROIN|ARMS
+	item_state = "labcoat_zeng"
+	
+	
+/obj/item/clothing/suit/toggle/labcoat/wzzzz/heph
+	name = "scientist labcoat"
+	desc = "A suit that make some protection against some accidents at work"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	armor = list("melee" = 15, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 75, "rad" = 0, "fire" = 50, "acid" = 75)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "labcoat_rd_heph"
+	body_parts_covered = CHEST|GROIN|ARMS
+	item_state = "labcoat_rd_heph"
+	
+/obj/item/clothing/suit/toggle/labcoat/wzzzz/1
+	name = "scientist labcoat"
+	desc = "A suit that make some protection against some accidents at work"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	armor = list("melee" = 15, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 75, "rad" = 0, "fire" = 50, "acid" = 75)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "labcoat_1"
+	body_parts_covered = CHEST|GROIN|ARMS
+	item_state = "labcoat_1"
+	
+/obj/item/clothing/suit/toggle/labcoat/wzzzz/dais
+	name = "scientist labcoat"
+	desc = "A suit that make some protection against some accidents at work"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	armor = list("melee" = 15, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 75, "rad" = 0, "fire" = 50, "acid" = 75)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "labcoat_dais"
+	body_parts_covered = CHEST|GROIN|ARMS
+	item_state = "labcoat_dais"
+	
+/obj/item/clothing/suit/toggle/labcoat/wzzzz/xy
+	name = "scientist labcoat"
+	desc = "Advanced large labcoat for more risk science"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	armor = list("melee" = 30, "bullet" = 0, "laser" = 20,"energy" = 20, "bomb" = 20, "bio" = 100, "rad" = 20, "fire" = 75, "acid" = 90)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "labcoat_xy"
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	item_state = "labcoat_xy"
+	
+/obj/item/clothing/under/wzzzz/maid
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/uniforms.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/uniforms.dmi'
+	icon_state = "maid"
+	item_state = "maid"
+	body_parts_covered = CHEST|GROIN
+	name = "maid uniform"
+	can_adjust = FALSE
+	desc = "For oldstyle maids"
+	
+/obj/item/clothing/under/rank/medical/doctor/wzzzz/brig_phys
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/uniforms.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/uniforms.dmi'
+	icon_state = "brig_phys"
+	item_state = "brig_phys"
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+	name = "psychologist uniform"
+	desc = "Little useful work"
+	
+/obj/item/clothing/under/rank/security/officer/wzzzz/altsecurity
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/uniforms.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/uniforms.dmi'
+	icon_state = "altsecurity"
+	item_state = "altsecurity"
+	
+/obj/item/clothing/under/wzzzz/victorianblred
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/uniforms.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/uniforms.dmi'
+	icon_state = "victorianblred"
+	item_state = "victorianblred"
+	name = "victorian uniform"
+	can_adjust = FALSE
+	desc = "For nostalgia"
+	
+/obj/item/clothing/under/wzzzz/victorianredvest
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/uniforms.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/uniforms.dmi'
+	icon_state = "victorianredvest"
+	item_state = "victorianredvest"
+	name = "victorian uniform"
+	can_adjust = FALSE
+	desc = "For nostalgia"
+	
+/obj/item/clothing/under/wzzzz/victorianvest
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/uniforms.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/uniforms.dmi'
+	icon_state = "victorianvest"
+	item_state = "victorianvest"
+	name = "victorian uniform"
+	can_adjust = FALSE
+	desc = "For nostalgia"
+	
+/obj/item/clothing/under/wzzzz/victorianblackdress
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/uniforms.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/uniforms.dmi'
+	icon_state = "victorianblackdress"
+	item_state = "victorianblackdress"
+	body_parts_covered = CHEST|GROIN
+	name = "victorian dress"
+	can_adjust = FALSE
+	desc = "Like true lady"
+	
+/obj/item/clothing/under/wzzzz/victorianreddress
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/uniforms.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/uniforms.dmi'
+	icon_state = "victorianreddress"
+	item_state = "victorianreddress"
+	body_parts_covered = CHEST|GROIN
+	name = "victorian dress"
+	can_adjust = FALSE
+	desc = "Like true lady"
+	
+/obj/item/clothing/suit/wzzzz/desertmiljacket
+	name = "desert jacket"
+	desc = "Desert military jacket"
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	armor = list("melee" = 15, "bullet" = 15, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 20)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	icon_state = "desertmiljacket"
+	body_parts_covered = CHEST|ARMS
+	item_state = "desertmiljacket"
+	
+/obj/item/clothing/suit/wzzzz/secmiljacket
+	name = "security jacket"
+	desc = "Security military jacket"
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	armor = list("melee" = 20, "bullet" = 15, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 20)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	icon_state = "secmiljacket"
+	body_parts_covered = CHEST|ARMS
+	item_state = "secmiljacket"
+	
+/obj/item/clothing/suit/wzzzz/navymiljacket
+	name = "navy jacket"
+	desc = "Navy military jacket"
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	armor = list("melee" = 20, "bullet" = 15, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 20)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	icon_state = "navymiljacket"
+	body_parts_covered = CHEST|ARMS
+	item_state = "navymiljacket"
+	
+/obj/item/clothing/suit/toggle/labcoat/wzzzz/labcoat_sec
+	name = "security labcoat"
+	desc = "A labcoat that make some protection against some accidents at work"
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	armor = list("melee" = 15, "bullet" = 10, "laser" = 5,"energy" = 0, "bomb" = 10, "bio" = 75, "rad" = 0, "fire" = 40, "acid" = 75)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	icon_state = "labcoat_sec"
+	body_parts_covered = CHEST|ARMS
+	item_state = "labcoat_sec"
+	
+/obj/item/clothing/suit/armor/vest/wzzzz/brig_phys_vest
+	name = "psychologist vest"
+	desc = "Looks like for security, but not fully, perhabs."
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	icon_state = "brig_phys_vest"
+	item_state = "brig_phys_vest"
+	body_parts_covered = CHEST
+	armor = list("melee" = 15, "bullet" = 15, "laser" = 10,"energy" = 0, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 20, "acid" = 20)
+	
+/obj/item/clothing/suit/armor/vest/wzzzz/paramedic_vest
+	name = "paramedic vest"
+	desc = "Special vest for paramedics."
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	icon_state = "paramedic_vest"
+	item_state = "paramedic_vest"
+	body_parts_covered = CHEST
+	armor = list("melee" = 15, "bullet" = 15, "laser" = 10,"energy" = 0, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 20, "acid" = 20)
+
+/obj/item/clothing/suit/armor/riot/knight/wzzzz
+	name = "heavy knight suit"
+	desc = "A suit of semi-flexible polycarbonate body armor with heavy padding to protect against melee attacks. Helps the wearer resist shoving in close quarters."
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	icon_state = "knight_grey"
+	item_state = "knight_grey"
+	armor = list("melee" = 80, "bullet" = 75, "laser" = 40, "energy" = 25, "bomb" = 60, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 80)
+	slowdown = 0.7
+	
+/obj/item/clothing/suit/armor/changeling/wzzzz
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	armor = list("melee" = 50, "bullet" = 60, "laser" = 20, "energy" = 15, "bomb" = 60, "bio" = 100, "rad" = 0, "fire" = 50, "acid" = 70)
+	
+/obj/item/clothing/suit/space/hardsuit/deathsquad/wzzzz
+	armor = list("melee" = 70, "bullet" = 70, "laser" = 40, "energy" = 40, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 90)
+	actions = null
+	actions_types = null
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	icon_state = "uegarmor"
+	item_state = "uegarmor"
+	name = "ueg armor"
+	desc = "Special armor for special forces."
+	
+/obj/item/clothing/suit/space/wzzzz/ashwalker
+	armor = list("melee" = 40, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 60, "bio" = 100, "rad" = 0, "fire" = 100, "acid" = 80)
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	icon_state = "ashwalker"
+	item_state = "ashwalker"
+	clothing_flags = STOPSPRESSUREDAMAGE|LAVAPROTECT  
+	resistance_flags = FIRE_PROOF|LAVA_PROOF|FREEZE_PROOF 
+	name = "ashwalker armor"
+	desc = "Good armor for adventures in lava areas."
+	
+/obj/item/clothing/suit/armor/vest/alt/wzzzz/blueshield
+	name = "blueshield armor vest"
+	desc = "Armor vest for forces of Blushield."
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	icon_state = "blueshield_old"
+	armor = list("melee" = 35, "bullet" = 35, "laser" = 35, "energy" = 15, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 50)
+	item_state = "blueshield_old"
+
+/obj/item/clothing/suit/armor/vest/wzzzz/blueshield
+	name = "blueshield armor vest"
+	desc = "Armor vest for forces of Blushield."
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	icon_state = "blueshield"
+	armor = list("melee" = 35, "bullet" = 35, "laser" = 35, "energy" = 15, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 50)
+	item_state = "blueshield"
+	
+/obj/item/clothing/suit/armor/vest/leather/wzzzz/tailcoat
+	name = "tail coat"
+	desc = "Stylish armored coat."
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	icon_state = "tailcoat"
+	armor = list("melee" = 20, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 15)
+	item_state = "tailcoat"
+	
+/obj/item/clothing/suit/armor/vest/leather/wzzzz/ladiesvictoriancoat
+	name = "ladies coat"
+	desc = "Stylish victorian coat for ladies."
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	icon_state = "ladiesvictoriancoat"
+	armor = list("melee" = 15, "bullet" = 10, "laser" = 5, "energy" = 5, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 5)
+	item_state = "ladiesvictoriancoat"
+	
+/obj/item/clothing/suit/armor/vest/leather/wzzzz/ladiesredvictoriancoat
+	name = "ladies coat"
+	desc = "Stylish victorian coat for ladies."
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	icon_state = "ladiesredvictoriancoat"
+	armor = list("melee" = 15, "bullet" = 10, "laser" = 5, "energy" = 5, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 5)
+	item_state = "ladiesredvictoriancoat"
+	
+/obj/item/clothing/suit/wzzzz/greymiljacket
+	name = "grey jacket"
+	desc = "Grey military jacket"
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
+	armor = list("melee" = 25, "bullet" = 15, "laser" = 10,"energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 20)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	icon_state = "greymiljacket"
+	body_parts_covered = CHEST|ARMS
+	item_state = "greymiljacket"
+	
+/obj/item/clothing/suit/hooded/wintercoat/science/wzzzz/zeng
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "coatscience_zeng"
+	item_state = "coatscience_zeng"
+
+/obj/item/clothing/suit/hooded/wintercoat/science/wzzzz/heph
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "coatscience_heph"
+	item_state = "coatscience_heph"
+
+/obj/item/clothing/suit/hooded/wintercoat/science/wzzzz/dais
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "coatscience_dais"
+	item_state = "coatscience_dais"
+
+/obj/item/clothing/suit/hooded/wintercoat/science/wzzzz/alt
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "coatscience1"
+	item_state = "coatscience1"
+
+/obj/item/clothing/suit/hooded/wintercoat/science/wzzzz/nt
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "coatscience_nt"
+	item_state = "coatscience_nt"
+	
+/obj/item/clothing/suit/wzzzz/m_dress
+	name = "jacket"
+	desc = "Just jacket"
+	armor = list("melee" = 15, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 15)
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "m_dress"
+	body_parts_covered = CHEST|ARMS
+	item_state = "m_dress"
+	
+/obj/item/clothing/suit/wzzzz/m_dress_int
+	name = "jacket"
+	desc = "Just jacket"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	armor = list("melee" = 15, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 15)
+	icon_state = "m_dress_int"
+	body_parts_covered = CHEST|ARMS
+	item_state = "m_dress_int"
+	
+/obj/item/clothing/suit/wzzzz/m_service
+	name = "jacket"
+	desc = "Just jacket"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	armor = list("melee" = 15, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 15)
+	icon_state = "m_service"
+	body_parts_covered = CHEST|ARMS
+	item_state = "m_service"
+	
+/obj/item/clothing/suit/wzzzz/m_service_int
+	name = "jacket"
+	desc = "Just jacket"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	armor = list("melee" = 15, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 15)
+	icon_state = "m_service_int"
+	body_parts_covered = CHEST|ARMS
+	item_state = "m_service_int"
+	
+/obj/item/clothing/suit/wzzzz/infsuit
+	name = "jacket"
+	desc = "Just jacket"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	armor = list("melee" = 15, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 15)
+	icon_state = "infsuit"
+	body_parts_covered = CHEST|ARMS
+	item_state = "infsuit"
+
+/obj/item/clothing/suit/toggle/wzzzz/suitjacket
+	name = "suit jacket"
+	desc = "Just suit jacket"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "suitjacket"
+	body_parts_covered = CHEST|GROIN
+	item_state = "suitjacket"
+
+/obj/item/clothing/suit/armor/vest/wzzzz/german/webvest/m_vest
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "m_vest"
+	item_state = "m_vest"
+	name = "medical vest"
+	desc = "Special vest for medics"
+	
+/obj/item/clothing/suit/toggle/wzzzz/hoodiealt
+	name = "hoodie"
+	desc = "Wow, first hoodie with hood"
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5)
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "hoodiealt"
+	body_parts_covered = CHEST|ARMS
+	item_state = "hoodiealt"
+	
+/obj/item/clothing/head/helmet/space/eva/wzzzzz
+	name = "Pirate"
+	desc = "Pirate technologies"
+	icon = 'code/shitcode/Wzzzz/pirha.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/pirha1.dmi'
+	icon_state = "pirha"
+	item_state = "pirha"
+	
+/obj/item/clothing/head/helmet/space/eva/wzzzzz
+	name = "Pirate space helmet"
+	desc = "Pirate technologies"
+	icon = 'code/shitcode/Wzzzz/pirha.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/pirha1.dmi'
+	icon_state = "pirha"
+	item_state = "pirha"
+	
+/obj/item/clothing/head/helmet/space/syndicate/wzzzz
+	name = "Pirate space helmet"
+	desc = "Pirate technologies"
+	icon = 'code/shitcode/Wzzzz/pirha.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/pirha1.dmi'
+	icon_state = "pirhald"
+	item_state = "pirhald"
+	
+/obj/item/gun/energy/decloner/wzzzz
+	burst_size = 3
+	pin = /obj/item/firing_pin/dna
+	cell = /obj/item/stock_parts/cell/high/plus
+	selfcharge = 10
+	
+
+/obj/item/clothing/head/helmet/wzzzz/helmet_tac/helmet_allya1
+	mob_overlay_icon = 'code/shitcode/Wzzzz/pirha1.dmi'
+	icon = 'code/shitcode/Wzzzz/pirha.dmi'
+	icon_state = "helmet_allya1"
+	item_state = "helmet_allya1"
+	
+/obj/item/clothing/head/helmet/wzzzz/helmet_tac/helmet_allya0
+	mob_overlay_icon = 'code/shitcode/Wzzzz/pirha1.dmi'
+	icon = 'code/shitcode/Wzzzz/pirha.dmi'
+	icon_state = "helmet_allya0"
+	item_state = "helmet_allya0"
+	
+/obj/item/clothing/suit/toggle/labcoat/wzzzz/sco
+	name = "scientist labcoat"
+	desc = "A suit that make some protection against some accidents at work"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	armor = list("melee" = 15, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 75, "rad" = 0, "fire" = 50, "acid" = 75)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "labcoat_cso"
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	item_state = "labcoat_cso"
+	
+/obj/item/clothing/under/wzzzz/chickensuit
+	name = "chicken suit"
+	desc = "For future petuch."
+	can_adjust = FALSE
+	icon_state = "chickensuit"
+	item_state = "chickensuit"
+	body_parts_covered = CHEST|ARMS|GROIN|LEGS|FEET
+	icon = 'icons/obj/clothing/suits.dmi'
+	mob_overlay_icon = 'icons/mob/clothing/suit.dmi'
+	
+/obj/item/clothing/neck/stripedgreenscarf/wzzzz/grey
+	name = "striped grey scarf"
+	icon_state = "stripedgreyscarf"
+	item_state = "stripedgreyscarf"
+	custom_price = 25
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/ties.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/ties.dmi'
+	
+/obj/item/clothing/neck/stripedgreenscarf/wzzzz/black
+	name = "striped black scarf"
+	icon_state = "stripedblackscarf"
+	item_state = "stripedblackscarf"
+	custom_price = 25
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/ties.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/ties.dmi'
+	
+/obj/item/clothing/suit/toggle/labcoat/wzzzz/labcoat_black
+	name = "scientist labcoat"
+	desc = "A suit that make some protection against some accidents at work"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
+	armor = list("melee" = 15, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 75, "rad" = 0, "fire" = 50, "acid" = 75)
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
+	icon_state = "labcoat_black"
+	body_parts_covered = CHEST|GROIN|ARMS
+	item_state = "labcoat_black"
+	
+/obj/item/clothing/suit/armor/vest/capcarapace/syndicate/wzzzz/blackgrey
+	icon = 'code/shitcode/Wzzzz/pirha.dmi'
+	item_state = "syndievestbg"
+	icon_state = "syndievestbg"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/pirha1.dmi'
+	
+/obj/item/clothing/suit/armor/vest/capcarapace/syndicate/wzzzz/black
+	icon = 'code/shitcode/Wzzzz/pirha.dmi'
+	item_state = "syndievestg"
+	icon_state = "syndievestg"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/pirha1.dmi'
+	
+/obj/item/clothing/suit/armor/vest/capcarapace/syndicate/wzzzz/dark
+	icon = 'code/shitcode/Wzzzz/pirha.dmi'
+	item_state = "syndievestb"
+	icon_state = "syndievestb"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/pirha1.dmi'
+	
+/obj/item/clothing/head/wizard/battlemage
+	name = "battle wizard helmet"
+	desc = "Shield magic."
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/hats.dmi'
+	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE|FIRE_PROOF|FREEZE_PROOF|LAVA_PROOF
+	armor = list("melee" = 80, "bullet" = 60, "laser" = 70,"energy" = 80, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100, "magic" = 75)
+	item_state = "battlemage"
+	icon_state = "battlemage"
+	
+/obj/item/clothing/head/helmet/swat/wzzzz
+	item_state = "sind"
+	icon_state = "sind"
+	icon = 'code/shitcode/Wzzzz/pirha.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/pirha1.dmi'	
+	
+/obj/item/clothing/head/helmet/wzzzz/m_helmet
+	name = "helmet"
+	desc = "Helmet."
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/hatsnew.dmi'
+	icon_state = "m_helmet"
+	item_state = "m_helmet"
+	flags_inv = HIDEEARS
+	visor_flags_inv = HIDEEARS
+	resistance_flags = NONE
+	armor = list("melee" = 40, "bullet" = 35, "laser" = 40,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 20)
+	
+/obj/item/clothing/under/syndicate/wzzzz/green
+	icon = 'code/shitcode/Wzzzz/pirha.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/pirha1.dmi'
+	icon_state = "syndicate"
+	item_state = "syndicate"
+	can_adjust = FALSE
+	alt_covers_chest = FALSE
+	
+/obj/item/clothing/under/syndicate/tacticool/wzzzz
+	icon = 'code/shitcode/Wzzzz/pirha.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/pirha1.dmi'
+	icon_state = "tactifool"
+	item_state = "tactifool"
+	can_adjust = FALSE
+	alt_covers_chest = FALSE
+	
+/obj/item/clothing/under/syndicate/tacticool/wzzzz/green
+	icon_state = "tactifoolg"
+	item_state = "tactifoolg"
+	
+/obj/item/clothing/under/syndicate/tacticool/wzzzz/black
+	icon_state = "tactifoolb"
+	item_state = "tactifoolb"
+	

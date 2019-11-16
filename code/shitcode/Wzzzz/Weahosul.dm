@@ -33,6 +33,7 @@
 /obj/projectile/bullet/a792x57
 	damage = 45
 	paralyze = 3
+	speed = 0.4
 	armour_penetration = 45
 
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k
@@ -47,11 +48,9 @@
 	bolt_type = BOLT_TYPE_STANDARD
 	semi_auto = FALSE
 	internal_magazine = TRUE
-	fire_sound = "code/shitcode/Wzzzz/kar_shot.ogg"
+	fire_sound = 'code/shitcode/Wzzzz/kar_shot.ogg'
 	fire_sound_volume = 80
 	vary_fire_sound = FALSE
-	rack_sound = "sound/weapons/mosinboltout.ogg"
-	bolt_drop_sound = "sound/weapons/mosinboltin.ogg"
 	tac_reloads = FALSE
 	can_be_sawn_off = FALSE
 	lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
@@ -87,7 +86,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/attackby(obj/item/A, mob/us
 		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
 		mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
-		fire_sound = "code/shitcode/Wzzzz/kar_shot.ogg"
+		fire_sound = 'code/shitcode/Wzzzz/kar_shot.ogg'
 		return
 	else
 		icon_state = "kar98k"
@@ -96,7 +95,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/attackby(obj/item/A, mob/us
 		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
 		mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
-		fire_sound = "code/shitcode/Wzzzz/kar_shot.ogg"
+		fire_sound = 'code/shitcode/Wzzzz/kar_shot.ogg'
 		return
 	if (bolt_locked == FALSE)
 		icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
@@ -126,7 +125,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/attackby(obj/item/A, mob/us
 	else
 		icon_state = "kar98k"
 		item_state = "kar98k"
-		fire_sound = "code/shitcode/Wzzzz/kar_shot.ogg"
+		fire_sound = 'code/shitcode/Wzzzz/kar_shot.ogg'
 		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
 		mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
@@ -140,8 +139,8 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/rack(mob/user = null)
 		update_icon()
 		return
 	drop_bolt(user)
-
-
+	
+	
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope
 	name = "kar98k scope"
 	desc = "Some kind of bolt action rifle. You get the feeling you shouldn't have this."
@@ -151,7 +150,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/rack(mob/user = null)
 	zoom_amt = 10
 	zoom_out_amt = 13
 	actions_types = list()
-
+	
 obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/can_shoot()
 	if (bolt_locked)
 		return FALSE
@@ -176,7 +175,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/attackby(obj/item/A, 
 		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
 		mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
-		fire_sound = "code/shitcode/Wzzzz/kar_shot.ogg"
+		fire_sound = 'code/shitcode/Wzzzz/kar_shot.ogg'
 		return
 	else
 		icon_state = "kar98k_scope"
@@ -185,7 +184,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/attackby(obj/item/A, 
 		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
 		mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
-		fire_sound = "code/shitcode/Wzzzz/kar_shot.ogg"
+		fire_sound = 'code/shitcode/Wzzzz/kar_shot.ogg'
 		return
 	if (bolt_locked == FALSE)
 		icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
@@ -215,7 +214,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/attackby(obj/item/A, 
 	else
 		icon_state = "kar98k_scope"
 		item_state = "kar98k_scope"
-		fire_sound = "code/shitcode/Wzzzz/kar_shot.ogg"
+		fire_sound = 'code/shitcode/Wzzzz/kar_shot.ogg'
 		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
 		mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
@@ -229,7 +228,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
 		update_icon()
 		return
 	drop_bolt(user)
-
+	
 /obj/item/gun/energy/taser/wzzzz/carbine
 	name = "taser carbine"
 	desc = "The NT Mk44 NL is a high capacity gun used for non-lethal takedowns. It can switch between high and low intensity stun shots."
@@ -254,7 +253,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
 	stutter = 7
 	jitter = 27
 	range = 10
-
+	
 /obj/item/ammo_box/magazine/wt550m9/wzzzz/mc9mmt
 	name = "top mounted magazine (9mm)"
 	ammo_type = /obj/item/ammo_casing/wzzzz/c9mm
@@ -268,7 +267,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
 /obj/projectile/bullet/c9mmt
 	damage = 25
 	armour_penetration = 13.5
-
+	
 /obj/item/gun/ballistic/automatic/wt550/wzzzz/german
 	name = "9mm machine pistol"
 	desc = "The W-T 550 Saber is a cheap self-defense weapon, mass-produced by Ward-Takahashi for paramilitary and private use. Uses 9mm rounds."
