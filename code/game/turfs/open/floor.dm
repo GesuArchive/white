@@ -184,7 +184,7 @@
 		broken = 0
 		burnt = 0
 		if(user && !silent)
-			to_chat(user, "<span class='notice'>Убираю повреждённую обшивку.</span>")
+			to_chat(user, "<span class='notice'>Убираю повреждённую плитку.</span>")
 	else
 		if(user && !silent)
 			to_chat(user, "<span class='notice'>Снимаю плитку.</span>")
