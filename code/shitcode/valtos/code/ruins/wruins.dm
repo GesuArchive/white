@@ -75,11 +75,13 @@
 /area/ruin/space/has_grav/powered/partywhite
 	name = "Partywhite"
 
+/*
 /area/ruin/space/has_grav/powered/partywhite/Initialize(mapload)
 	. = ..()
 	if(mapload)
 		for (var/obj/machinery/jukebox/disco/indestructible/D in src)
 			D.activate_music()
+*/
 
 /datum/map_template/ruin/space/partywhite
 	id = "partywhite"
