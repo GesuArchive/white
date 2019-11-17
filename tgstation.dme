@@ -3148,6 +3148,7 @@
 #include "code\shitcode\valtos\code\nanosuit\nanosuit.dm"
 #include "code\shitcode\valtos\code\outfits\russian.dm"
 #include "code\shitcode\valtos\code\quickwrite\_quickwrite.dm"
+#include "code\shitcode\valtos\code\quickwrite\demo.dm"
 #include "code\shitcode\valtos\code\quickwrite\qwow.dm"
 #include "code\shitcode\valtos\code\ruins\wruins.dm"
 #include "code\shitcode\valtos\code\serverside\brs.dm"
