@@ -3,7 +3,7 @@
 
 /datum/antagonist/traitor
 	name = "Traitor"
-	ru_name = "Предатель"
+	var/ru_name = "Предатель"
 	roundend_category = "traitors"
 	antagpanel_category = "Traitor"
 	job_rank = ROLE_TRAITOR
