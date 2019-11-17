@@ -220,7 +220,7 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 		message = replacetext(message, "\t", "[FOURSPACES][FOURSPACES]")
 		message = message
 
-	if(!confidential && target != GLOB.admins && target != GLOB.mentors) // hippie -- moody blues
+	if(!confidential && target != GLOB.admins) // hippie -- moody blues
 		SSdemo.write_chat(target, message)
 
 	if(islist(target))

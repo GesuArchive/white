@@ -38,7 +38,7 @@ SUBSYSTEM_DEF(chat)
 		message = replacetext(message, "\t", "[FOURSPACES][FOURSPACES]")
 	message += "<br>"
 
-	if(!confidential && target != GLOB.admins && target != GLOB.mentors) // hippie -- moody blues
+	if(!confidential && target != GLOB.admins) // hippie -- moody blues
 		SSdemo.write_chat(target, message)
 
 	//url_encode it TWICE, this way any UTF-8 characters are able to be decoded by the Javascript.
