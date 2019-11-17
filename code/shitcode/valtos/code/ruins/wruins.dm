@@ -7,6 +7,7 @@
 	id = "telepadovo"
 	suffix = "wruin1.dmm"
 	name = "Telepadovo"
+	allow_duplicates = FALSE
 	description = "Синдикат в последнее время плохо финансируется, в следствии чего начал заведовать переправкой космобеженцев через телепады."
 
 //austation
@@ -37,6 +38,7 @@
 	id = "austation"
 	suffix = "wruin2.dmm"
 	name = "Autism Station"
+	allow_duplicates = FALSE
 	description = "Практически автономная министация посреди космоса. Уцелела благодаря идиотам среди экипажа и полным отсутствием тактической ценности для синдиката."
 
 /area/shuttle/explorer_mini
@@ -83,6 +85,7 @@
 	id = "partywhite"
 	suffix = "wruin3.dmm"
 	name = "Partywhite"
+	allow_duplicates = FALSE
 	description = "Синдикат решил устроить тусу посреди космоса и никто им не должен помешать. Никто."
 
 //terrorship
@@ -92,6 +95,7 @@
 	requires_power = FALSE
 	noteleport = TRUE //ага ебать
 	hidden = TRUE
+	allow_duplicates = FALSE
 	valid_territory = FALSE
 
 /obj/structure/fluff/artillery
