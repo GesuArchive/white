@@ -1356,7 +1356,7 @@
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_secb
 	
 /obj/item/reagent_containers/food/drinks/bottle/molotov/wzzzz
-	reagents = /datum/reagent/napalm
+	list_reagents = list(/datum/reagent/napalm = 25)
 	
 /obj/item/twohanded/spear/explosive/wzzzz
 	explosive = /obj/item/grenade/syndieminibomb/concussion/frag	
