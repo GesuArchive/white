@@ -14,3 +14,4 @@ g++-7 -std=c++17 -m32 -shared -o libquickwrite.so -fPIC dllmain.cpp
 
 mkdir -p ~/.byond/bin
 cp $PWD/libquickwrite.so ~/.byond/bin
+
