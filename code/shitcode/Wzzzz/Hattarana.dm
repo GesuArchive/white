@@ -3129,7 +3129,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	item_state = "labcoat_rd_heph"
 	
-/obj/item/clothing/suit/toggle/labcoat/wzzzz/1
+/obj/item/clothing/suit/toggle/labcoat/wzzzz/one
 	name = "scientist labcoat"
 	desc = "A suit that make some protection against some accidents at work"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'

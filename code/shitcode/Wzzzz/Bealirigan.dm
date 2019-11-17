@@ -65,7 +65,7 @@
 	light_power = -5
 	flashlight_power = -5
 	light_range = 3.5
-	
+/*
 /obj/item/storage/belt/military/assault/wzzzz/gersyn
 
 /obj/item/storage/belt/military/assault/wzzzz/gersyn/PopulateContents()
@@ -75,7 +75,7 @@
 	new /obj/item/ammo_box/magazine/wzzzz/mp40(src)
 	new /obj/item/ammo_box/magazine/wzzzz/mauser/battle(src)
 	new /obj/item/grenade/syndieminibomb/concussion/frag(src)
-	
+*/
 /obj/item/storage/belt/military/assault/wzzzz/bull4
 
 /obj/item/storage/belt/military/assault/wzzzz/bull4/PopulateContents()
@@ -146,4 +146,3 @@
 	new /obj/item/grenade/smokebomb(src)
 	new /obj/item/grenade/syndieminibomb/concussion/frag(src)
 	new /obj/item/grenade/syndieminibomb/concussion/frag(src)
-	
