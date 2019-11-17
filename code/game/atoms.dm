@@ -105,6 +105,8 @@
 		if(SSatoms.InitAtom(src, args))
 			//we were deleted
 			return
+	SSdemo.mark_new(src) // hippie -- moody blues
+
 
 /**
   * The primary method that objects are setup in SS13 with

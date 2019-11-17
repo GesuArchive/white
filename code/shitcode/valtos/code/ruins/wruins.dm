@@ -95,7 +95,6 @@
 	requires_power = FALSE
 	noteleport = TRUE //ага ебать
 	hidden = TRUE
-	allow_duplicates = FALSE
 	valid_territory = FALSE
 
 /obj/structure/fluff/artillery
@@ -109,4 +108,5 @@
 	id = "terrorship"
 	suffix = "wruin4.dmm"
 	name = "Terrorship"
+	allow_duplicates = FALSE
 	description = "При попытке пристыковать артиллерию к основной части корабля Mothership при помощи блюспейс технологий эта часть корабля попала в наш сектор. Блюпупа получил <b>за лупу</b>."

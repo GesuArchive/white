@@ -205,7 +205,7 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 	log_world("\[[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")]\] Client: [(src.owner.key ? src.owner.key : src.owner)] triggered JS error: [error]")
 
 //Global chat procs
-/proc/to_chat_immediate(target, message, handle_whitespace = TRUE)
+/proc/to_chat_immediate(target, message, handle_whitespace = TRUE, confidential=FALSE)
 	if(!target || !message)
 		return
 
@@ -220,6 +220,8 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 		message = replacetext(message, "\t", "[FOURSPACES][FOURSPACES]")
 		message = message
 
+	if(!confidential && target != GLOB.admins && target != GLOB.mentors) // hippie -- moody blues
+		SSdemo.write_chat(target, message)
 
 	if(islist(target))
 		// Do the double-encoding outside the loop to save nanoseconds
@@ -262,11 +264,11 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 		// url_encode it TWICE, this way any UTF-8 characters are able to be decoded by the Javascript.
 		C << output(url_encode(url_encode(message)), "browseroutput:output")
 
-/proc/to_chat(target, message, handle_whitespace = TRUE)
+/proc/to_chat(target, message, handle_whitespace = TRUE, confidential = FALSE)
 	if(Master.current_runlevel == RUNLEVEL_INIT || !SSchat?.initialized)
-		to_chat_immediate(target, message, handle_whitespace)
+		to_chat_immediate(target, message, handle_whitespace, confidential)
 		return
-	SSchat.queue(target, message, handle_whitespace)
+	SSchat.queue(target, message, handle_whitespace, confidential)
 
 /datum/chatOutput/proc/swaptolightmode() //Dark mode light mode stuff. Yell at KMC if this breaks! (See darkmode.dm for documentation)
 	owner.force_white_theme()
