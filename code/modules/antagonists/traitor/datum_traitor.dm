@@ -2,7 +2,8 @@
 #define TRAITOR_AI	  "AI"
 
 /datum/antagonist/traitor
-	name = "Предатель"
+	name = "Traitor"
+	ru_name = "Предатель"
 	roundend_category = "traitors"
 	antagpanel_category = "Traitor"
 	job_rank = ROLE_TRAITOR
