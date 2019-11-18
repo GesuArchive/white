@@ -119,10 +119,12 @@
 /obj/machinery/clonepod/experimental/bombass/growclone(clonename, ui, mutation_index, mindref, last_death, blood_type, datum/species/mrace, list/features, factions, list/quirks, datum/bank_account/insurance)
 	. = ..()
 
-	var/datum/antagonist/bombmeat/bt = new
-	occupant.mind.add_antag_datum(bt)
+	var/mob/living/mob_occupant = get_mob_or_brainmob(occupant)
 
-	if(occupant.gender==FEMALE)
-		occupant.real_name = "Бомбасистка [capitalize(pick(GLOB.first_names_female))]"
+	var/datum/antagonist/bombmeat/bt = new
+	mob_occupant.mind.add_antag_datum(bt)
+
+	if(mob_occupant.gender==FEMALE)
+		mob_occupant.real_name = "Бомбасистка [capitalize(pick(GLOB.first_names_female))]"
 	else
-		occupant.real_name = "Бомбасист [capitalize(pick(GLOB.first_names_male))]"
+		mob_occupant.real_name = "Бомбасист [capitalize(pick(GLOB.first_names_male))]"
