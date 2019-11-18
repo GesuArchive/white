@@ -81,7 +81,7 @@
 	new/obj/structure/showcase/machinery/oldpod/used(drop_location())
 	return ..()
 
-/datum/team/bombmeat_team
+/datum/team/bombmeat
 
 /datum/antagonist/bombmeat/get_team()
 	return bombmeat_team
