@@ -81,9 +81,10 @@
 	new/obj/structure/showcase/machinery/oldpod/used(drop_location())
 	return ..()
 
-/obj/effect/mob_spawn/human/bombmeat/special(mob/living/new_spawn)
-	var/datum/antagonist/bombmeat/bt = new
-	new_spawn.mind.add_antag_datum(bt)
+/datum/team/bombmeat_team
+
+/datum/antagonist/bombmeat/get_team()
+	return bombmeat_team
 
 /datum/antagonist/bombmeat
 	name = "Bombmeat"
@@ -117,7 +118,6 @@
 		stack_trace("Wrong team type passed to [type] initialization.")
 	bombmeat_team = new_team
 
-/datum/team/bombmeat_team
-
-/datum/antagonist/bombmeat/get_team()
-	return bombmeat_team
+/obj/effect/mob_spawn/human/bombmeat/special(mob/living/new_spawn)
+	var/datum/antagonist/bombmeat/bt = new
+	new_spawn.mind.add_antag_datum(bt)
