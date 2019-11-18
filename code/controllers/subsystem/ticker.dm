@@ -642,7 +642,7 @@ SUBSYSTEM_DEF(ticker)
 	var/demopage = CONFIG_GET(string/demopage)
 
 	if(GLOB.round_id && demopage)
-		world.shelleo("python3 data/dp.py [GLOB.round_id]")
+		world.shelleo("screen -dmS copyscripto python3 data/dp.py [GLOB.round_id]")
 		to_chat(world, "<span class='info'>Реплей раунда просмотреть <a href=\"[demopage][GLOB.round_id]\">можно тут!</a></span>")
 
 	if(statspage)
