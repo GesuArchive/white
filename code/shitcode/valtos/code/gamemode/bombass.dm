@@ -120,9 +120,9 @@
 	. = ..()
 
 	var/datum/antagonist/bombmeat/bt = new
-	H.mind.add_antag_datum(bt)
+	occupant.mind.add_antag_datum(bt)
 
-	if(H.gender==FEMALE)
-		H.real_name = "Бомбасистка [capitalize(pick(GLOB.first_names_female))]"
+	if(occupant.gender==FEMALE)
+		occupant.real_name = "Бомбасистка [capitalize(pick(GLOB.first_names_female))]"
 	else
-		H.real_name = "Бомбасист [capitalize(pick(GLOB.first_names_male))]"
+		occupant.real_name = "Бомбасист [capitalize(pick(GLOB.first_names_male))]"
