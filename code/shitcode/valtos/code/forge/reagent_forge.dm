@@ -82,9 +82,8 @@
 		return FALSE
 	else
 		if(using)
-			//var/list/materials_used = list(/datum/material/reagent=materials*efficiency)
-			//ourmaterials.use_amount_mat(materials_used, /datum/material/reagent)
-			ourmaterials.retrieve_all() //похуй
+			var/list/materials_used = list(/datum/material/reagent=materials*efficiency)
+			ourmaterials.use_amount_mat(materials_used, /datum/material/reagent)
 		return TRUE
 
 
@@ -174,7 +173,7 @@
 				var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 				var/amount = materials.get_material_amount(/datum/material/reagent)
 				if(amount > 0)
-					materials.retrieve_all()
+					materials.use_amount_mat(amount, /datum/material/reagent)
 					var/obj/item/stack/sheet/mineral/reagent/RS = new(get_turf(usr))
 					RS.amount = materials.amount2sheet(amount)
 					var/paths = subtypesof(/datum/reagent)//one reference per stack
