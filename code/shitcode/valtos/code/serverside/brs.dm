@@ -11,7 +11,7 @@
 	set category = "Special Verbs"
 
 	if(tfbsfr >= 3)
-		to_chat(src, "Превышен лимит фидбека. Вы уже постарались, спасибо.")
+		to_chat(src, "Превышен лимит фидбека. Вы уже постарались, спасибо.", confidential = TRUE)
 		return
 
 	tfbsfr++
@@ -32,11 +32,11 @@
 	message["content"] = trim(message["content"])
 
 	if(!message["head"] || !message["content"])
-		to_chat(src, "Подумайте.")
+		to_chat(src, "Подумайте.", confidential = TRUE)
 		return
 
 	var/formattedmessage = "Header: [message["head"]]```[message["content"]]```Coords: [AREACOORD(usr)] [ckey]"
 
 	text2file(formattedmessage, "data/feedbacksystem.log")
 
-	to_chat(src, "Ваше сообщение: \"[message["head"]]\"\n\"[message["content"]]\"\n было доставлено. Благодарим вас за помощь.")
+	to_chat(src, "Ваше сообщение: \"[message["head"]]\"\n\"[message["content"]]\"\n было доставлено. Благодарим вас за помощь.", confidential = TRUE)
