@@ -1,15 +1,18 @@
 /area/awaymission/bombass
 	name = "bombass"
 	icon_state = "awaycontent6"
-	requires_power = FALSE
+	requires_power = TRUE
 	noteleport = TRUE
 	has_gravity = TRUE
+	outdoors = TRUE
 	mood_bonus = 150
 	mood_message = "<span class='nicegreen'>СЕГОДНЯ Я УМРУ!\n</span>"
 
 /area/awaymission/bombass/indoors
 	name = "bombass housing"
-	dynamic_lighting = DYNAMIC_LIGHTING_ENABLED
+	outdoors = FALSE
+	requires_power = FALSE
+	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 
 /obj/structure/closet/bombcloset/bombsquad
 	name = "\improper BOMBSQUAD closet"
@@ -24,15 +27,6 @@
 
 /obj/item/clothing/head/bomb_hood/bombsquad
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR
-
-
-/obj/effect/landmark/start/bombsquad
-	name = "Defender"
-	icon_state = "Assistant"
-
-/obj/effect/landmark/start/bombscmd
-	name = "Defend Commander"
-	icon_state = "Chaplain"
 
 /datum/outfit/job/bombsquad
 	name = "BombMeat uniform"
@@ -67,7 +61,7 @@
 	flavour_text = "<span class='big bold'>ПОРА УМИРАТЬ!</b>"
 	uniform = /datum/outfit/job/assistant
 	shoes = null
-	disease = /datum/disease/tuberculosis
+	disease = /datum/disease/dnaspread
 	assignedrole = "Bombmeat"
 
 /obj/effect/mob_spawn/human/bombmeat/equip(mob/living/carbon/human/H)
@@ -121,3 +115,14 @@
 /obj/effect/mob_spawn/human/bombmeat/special(mob/living/new_spawn)
 	var/datum/antagonist/bombmeat/bt = new
 	new_spawn.mind.add_antag_datum(bt)
+
+/obj/machinery/clonepod/experimental/bombass/growclone(clonename, ui, mutation_index, mindref, last_death, blood_type, datum/species/mrace, list/features, factions, list/quirks, datum/bank_account/insurance)
+	. = ..()
+
+	var/datum/antagonist/bombmeat/bt = new
+	H.mind.add_antag_datum(bt)
+
+	if(H.gender==FEMALE)
+		H.real_name = "Бомбасистка [capitalize(pick(GLOB.first_names_female))]"
+	else
+		H.real_name = "Бомбасист [capitalize(pick(GLOB.first_names_male))]"

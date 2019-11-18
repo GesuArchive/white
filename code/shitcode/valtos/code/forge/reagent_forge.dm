@@ -84,8 +84,7 @@
 		return FALSE
 	else
 		if(using)
-			var/list/materials_used = list(/datum/material/reagent=materials*efficiency)
-			ourmaterials.use_amount_mat(materials_used, /datum/material/reagent)
+			ourmaterials.use_amount_mat(materials*efficiency, /datum/material/reagent)
 		return TRUE
 
 
