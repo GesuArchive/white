@@ -7,6 +7,10 @@
 	mood_bonus = 150
 	mood_message = "<span class='nicegreen'>СЕГОДНЯ Я УМРУ!\n</span>"
 
+/area/awaymission/bombass/indoors
+	name = "bombass housing"
+	dynamic_lighting = DYNAMIC_LIGHTING_ENABLED
+
 /obj/structure/closet/bombcloset/bombsquad
 	name = "\improper BOMBSQUAD closet"
 	anchored = TRUE
@@ -58,11 +62,12 @@
 	roundstart = FALSE
 	death = FALSE
 	random = FALSE
-	oxy_damage = 20
+	oxy_damage = 30
 	mob_species = /datum/species/human
 	flavour_text = "<span class='big bold'>ПОРА УМИРАТЬ!</b>"
 	uniform = /datum/outfit/job/assistant
 	shoes = null
+	disease = /datum/disease/tuberculosis
 	assignedrole = "Bombmeat"
 
 /obj/effect/mob_spawn/human/bombmeat/equip(mob/living/carbon/human/H)
@@ -75,3 +80,44 @@
 /obj/effect/mob_spawn/human/bombmeat/Destroy()
 	new/obj/structure/showcase/machinery/oldpod/used(drop_location())
 	return ..()
+
+/obj/effect/mob_spawn/human/bombmeat/special(mob/living/new_spawn)
+	var/datum/antagonist/bombmeat/bt = new
+	new_spawn.mind.add_antag_datum(bt)
+
+/datum/antagonist/bombmeat
+	name = "Bombmeat"
+	roundend_category = "Bombmeat"
+	silent = TRUE //greet called by the spawn
+	show_in_antagpanel = FALSE
+	prevent_roundtype_conversion = FALSE
+	antag_hud_type = ANTAG_HUD_FUGITIVE
+	antag_hud_name = "fugitive_hunter"
+	var/datum/team/bombmeat/bombmeat_team
+
+/datum/antagonist/bombmeat/apply_innate_effects(mob/living/mob_override)
+	var/mob/living/M = mob_override || owner.current
+	add_antag_hud(antag_hud_type, antag_hud_name, M)
+
+/datum/antagonist/bombmeat/remove_innate_effects(mob/living/mob_override)
+	var/mob/living/M = mob_override || owner.current
+	remove_antag_hud(antag_hud_type, M)
+
+/datum/antagonist/bombmeat/create_team(datum/team/bombmeat/new_team)
+	if(!new_team)
+		for(var/datum/antagonist/bombmeat/H in GLOB.antagonists)
+			if(!H.owner)
+				continue
+			if(H.bombmeat_team)
+				bombmeat_team = H.bombmeat_team
+				return
+		bombmeat_team = new /datum/team/bombmeat
+		return
+	if(!istype(new_team))
+		stack_trace("Wrong team type passed to [type] initialization.")
+	bombmeat_team = new_team
+
+/datum/team/bombmeat_team
+
+/datum/antagonist/bombmeat/get_team()
+	return bombmeat_team

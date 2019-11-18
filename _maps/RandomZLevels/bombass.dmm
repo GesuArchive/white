@@ -4,12 +4,12 @@
 /area/awaymission/bombass)
 "ab" = (
 /turf/closed/wall/partyhard,
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "ac" = (
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-2"
 	},
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "ad" = (
 /obj/machinery/light{
 	dir = 1
@@ -17,29 +17,23 @@
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-2"
 	},
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "ae" = (
-/obj/machinery/space_heater,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"af" = (
 /obj/structure/sink/kitchen,
 /turf/closed/wall/partyhard,
-/area/awaymission/bombass)
-"ag" = (
+/area/awaymission/bombass/indoors)
+"af" = (
 /obj/machinery/reagent_forge,
 /turf/open/floor/partyhard/steel{
 	icon_state = "cx-10"
 	},
-/area/awaymission/bombass)
-"ah" = (
+/area/awaymission/bombass/indoors)
+"ag" = (
 /turf/open/floor/partyhard/steel{
 	icon_state = "cx-10"
 	},
-/area/awaymission/bombass)
-"ai" = (
+/area/awaymission/bombass/indoors)
+"ah" = (
 /obj/machinery/reagent_material_manipulator,
 /obj/machinery/light{
 	dir = 1
@@ -47,14 +41,14 @@
 /turf/open/floor/partyhard/steel{
 	icon_state = "st-10"
 	},
-/area/awaymission/bombass)
-"aj" = (
+/area/awaymission/bombass/indoors)
+"ai" = (
 /obj/machinery/reagent_material_manipulator,
 /turf/open/floor/partyhard/steel{
 	icon_state = "st-10"
 	},
-/area/awaymission/bombass)
-"ak" = (
+/area/awaymission/bombass/indoors)
+"aj" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -66,50 +60,212 @@
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
 	},
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
+"ak" = (
+/obj/effect/turf_decal/partyhard/lines{
+	icon_state = "s-2"
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-5"
+	},
+/area/awaymission/bombass/indoors)
 "al" = (
+/obj/effect/turf_decal/partyhard/lines{
+	icon_state = "s-6"
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"am" = (
+/obj/effect/turf_decal/partyhard/lines{
+	icon_state = "s-3"
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"an" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"ao" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-5"
+	},
+/area/awaymission/bombass/indoors)
+"ap" = (
+/obj/effect/turf_decal/stripes/corner{
+	icon_state = "warninglinecorner";
+	dir = 8
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"aq" = (
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"ar" = (
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-5"
+	},
+/area/awaymission/bombass/indoors)
+"as" = (
+/obj/structure/table,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"at" = (
 /obj/structure/chair/comfy/black,
 /obj/effect/turf_decal/bot_red,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
-"am" = (
+/area/awaymission/bombass/indoors)
+"au" = (
+/obj/machinery/space_heater,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"av" = (
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-3"
+	},
+/area/awaymission/bombass/indoors)
+"aw" = (
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-9"
+	},
+/area/awaymission/bombass/indoors)
+"ax" = (
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-4"
 	},
-/area/awaymission/bombass)
-"an" = (
-/obj/machinery/clonepod/experimental,
-/obj/structure/window/reinforced/survival_pod{
-	icon_state = "pwindow";
-	dir = 4
+/area/awaymission/bombass/indoors)
+"ay" = (
+/obj/machinery/door/airlock/hatch,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
 	},
+/area/awaymission/bombass/indoors)
+"az" = (
+/obj/effect/turf_decal/partyhard/lines,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"aA" = (
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"aB" = (
+/obj/effect/turf_decal/partyhard/lines{
+	icon_state = "s-7"
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"aC" = (
 /obj/effect/turf_decal/stripes/line{
 	icon_state = "warningline";
 	dir = 8
 	},
 /turf/open/floor/partyhard/steel{
-	icon_state = "cx-3"
+	icon_state = "mm-1"
 	},
-/area/awaymission/bombass)
-"ao" = (
+/area/awaymission/bombass/indoors)
+"aD" = (
+/obj/machinery/microwave,
+/obj/structure/table,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
 	},
-/area/awaymission/bombass)
-"ap" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
+/area/awaymission/bombass/indoors)
+"aE" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	icon_state = "tile_corner";
+	dir = 4
 	},
-/area/awaymission/bombass)
-"aq" = (
-/obj/structure/table,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-2"
 	},
-/area/awaymission/bombass)
-"ar" = (
+/area/awaymission/bombass/indoors)
+"aF" = (
+/obj/effect/turf_decal/tile/blue{
+	icon_state = "tile_corner";
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"aG" = (
+/obj/structure/table,
+/obj/item/clothing/under/wzzzz/m35jacket/elite/super,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"aH" = (
+/obj/effect/turf_decal/tile/blue{
+	icon_state = "tile_corner";
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-5"
+	},
+/area/awaymission/bombass/indoors)
+"aI" = (
+/obj/effect/turf_decal/tile/blue{
+	icon_state = "tile_corner";
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	icon_state = "tile_corner";
+	dir = 1
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"aJ" = (
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-6"
+	},
+/area/awaymission/bombass/indoors)
+"aK" = (
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-10"
+	},
+/area/awaymission/bombass/indoors)
+"aL" = (
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-5"
+	},
+/area/awaymission/bombass/indoors)
+"aM" = (
+/obj/effect/turf_decal/arrows{
+	icon_state = "arrows";
+	dir = 1
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"aN" = (
 /obj/structure/closet/bombcloset/bombsquad,
 /obj/item/tank/internals/oxygen/yellow,
 /obj/item/clothing/mask/gas/anonist,
@@ -127,39 +283,8 @@
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
-"as" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"at" = (
-/obj/machinery/door/airlock/hatch,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"au" = (
-/obj/machinery/dna_scannernew,
-/turf/open/floor/partyhard/steel{
-	icon_state = "cx-4"
-	},
-/area/awaymission/bombass)
-"av" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-10"
-	},
-/area/awaymission/bombass)
-"aw" = (
-/obj/machinery/computer/prototype_cloning{
-	icon_state = "computer";
-	dir = 4
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "cx-5"
-	},
-/area/awaymission/bombass)
-"ax" = (
+/area/awaymission/bombass/indoors)
+"aO" = (
 /obj/structure/closet/bombcloset/bombsquad,
 /obj/machinery/light{
 	dir = 1
@@ -180,195 +305,115 @@
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
-"ay" = (
-/obj/effect/turf_decal/stripes/end{
-	icon_state = "warn_end";
-	dir = 8
+/area/awaymission/bombass/indoors)
+"aP" = (
+/obj/structure/closet/bombcloset/bombsquad,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/clothing/mask/gas/anonist,
+/obj/item/gun/ballistic/rifle/boltaction,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 30
 	},
+/obj/effect/turf_decal/box,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/head/wzzzz/beret_greensilver,
+/obj/item/clothing/gloves/combat/wzzzz/guard,
+/obj/item/clothing/glasses/wzzzz/goggless,
+/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
+/obj/item/clothing/under/wzzzz/m35jacket,
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
+	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
-"az" = (
-/obj/machinery/door/airlock/hatch,
+/area/awaymission/bombass/indoors)
+"aQ" = (
+/obj/structure/closet/bombcloset/bombsquad,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/clothing/mask/gas/anonist,
+/obj/item/gun/ballistic/rifle/boltaction,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 30
+	},
+/obj/effect/turf_decal/box,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/head/wzzzz/fez,
+/obj/item/clothing/gloves/combat/wzzzz/guard,
+/obj/item/clothing/glasses/wzzzz/goggless,
+/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
+/obj/item/clothing/under/wzzzz/m35jacket,
 /turf/open/floor/partyhard/steel{
-	icon_state = "st-13"
+	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
-"aA" = (
+/area/awaymission/bombass/indoors)
+"aR" = (
+/obj/structure/closet/bombcloset/bombsquad,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/clothing/mask/gas/anonist,
+/obj/item/gun/ballistic/rifle/boltaction,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 30
+	},
+/obj/effect/turf_decal/box,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/head/wzzzz/cowboyhat,
+/obj/item/clothing/gloves/combat/wzzzz/guard,
+/obj/item/clothing/glasses/wzzzz/goggless,
+/obj/item/clothing/neck/tie,
+/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
+/obj/item/clothing/under/wzzzz/m35jacket,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"aS" = (
+/obj/structure/closet/bombcloset/bombsquad,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/clothing/mask/gas/anonist,
+/obj/item/gun/ballistic/rifle/boltaction,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 30
+	},
+/obj/effect/turf_decal/box,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/head/wzzzz/cowboyhat,
+/obj/item/clothing/gloves/combat/wzzzz/guard,
+/obj/item/clothing/glasses/wzzzz/goggless,
+/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
+/obj/item/clothing/under/wzzzz/m35jacket,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"aT" = (
+/obj/structure/closet/bombcloset/bombsquad,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/clothing/mask/gas/anonist,
+/obj/item/gun/ballistic/rifle/boltaction,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 30
+	},
+/obj/effect/turf_decal/box,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/head/wzzzz/beaver_hat,
+/obj/item/clothing/gloves/combat/wzzzz/guard,
+/obj/item/clothing/glasses/wzzzz/goggless,
+/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
+/obj/item/clothing/under/wzzzz/m35jacket,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"aU" = (
+/obj/effect/turf_decal/partyhard/lines{
+	icon_state = "s-7"
+	},
 /obj/effect/turf_decal/arrows{
 	icon_state = "arrows";
 	dir = 8
 	},
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
-	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
 	},
-/area/awaymission/bombass)
-"aB" = (
-/obj/machinery/computer/prototype_cloning{
-	icon_state = "computer";
-	dir = 4
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "cx-4"
-	},
-/area/awaymission/bombass)
-"aC" = (
-/obj/machinery/gibber,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"aD" = (
-/obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"aE" = (
-/obj/machinery/smartfridge,
-/turf/closed/wall/partyhard,
-/area/awaymission/bombass)
-"aF" = (
-/obj/machinery/door/airlock/hatch,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"aG" = (
-/obj/machinery/microwave,
-/obj/structure/table,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"aH" = (
-/obj/structure/table,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"aI" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"aJ" = (
-/obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
-/area/awaymission/bombass)
-"aK" = (
-/obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 4
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"aL" = (
-/obj/machinery/light{
-	icon_state = "tube";
-	dir = 4
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"aM" = (
-/obj/machinery/light,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"aN" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-3"
-	},
-/area/awaymission/bombass)
-"aO" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-9"
-	},
-/area/awaymission/bombass)
-"aP" = (
-/obj/machinery/chem_heater,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-4"
-	},
-/area/awaymission/bombass)
-"aQ" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/structure/ladder/unbreakable{
-	height = 2;
-	id = "bunkerbot";
-	name = "durable ladder"
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"aR" = (
-/obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 1
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"aS" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-7"
-	},
-/area/awaymission/bombass)
-"aT" = (
-/obj/structure/chair/office,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
-/area/awaymission/bombass)
-"aU" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-8"
-	},
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "aV" = (
 /obj/machinery/clonepod/experimental,
 /obj/structure/window/reinforced/survival_pod{
@@ -380,86 +425,83 @@
 	dir = 8
 	},
 /turf/open/floor/partyhard/steel{
-	icon_state = "cx-6"
+	icon_state = "cx-3"
 	},
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "aW" = (
-/obj/machinery/light/small{
+/obj/machinery/dna_scannernew,
+/turf/open/floor/partyhard/steel{
+	icon_state = "cx-4"
+	},
+/area/awaymission/bombass/indoors)
+"aX" = (
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-7"
+	},
+/area/awaymission/bombass/indoors)
+"aY" = (
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-2"
+	},
+/area/awaymission/bombass/indoors)
+"aZ" = (
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-8"
+	},
+/area/awaymission/bombass/indoors)
+"ba" = (
+/obj/effect/turf_decal/stripes/line{
+	icon_state = "warningline";
 	dir = 8
 	},
-/obj/structure/ladder/unbreakable{
-	height = 1;
-	id = "bunkertop";
-	name = "durable ladder"
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"bb" = (
+/obj/effect/turf_decal/tile/blue{
+	icon_state = "tile_corner";
+	dir = 4
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-2"
 	},
-/area/awaymission/bombass)
-"aX" = (
-/obj/machinery/reagentgrinder,
-/obj/structure/table,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-6"
-	},
-/area/awaymission/bombass)
-"aY" = (
-/obj/machinery/chem_dispenser/fullupgrade,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-10"
-	},
-/area/awaymission/bombass)
-"aZ" = (
-/obj/machinery/reagent_sheet,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-5"
-	},
-/area/awaymission/bombass)
-"ba" = (
-/obj/structure/table,
-/obj/item/lightreplacer,
-/obj/item/lightreplacer,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/sheet/glass/fifty,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"bb" = (
-/obj/machinery/autolathe/hacked,
-/obj/machinery/light,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "bc" = (
-/obj/structure/closet/toolcloset,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
+/obj/effect/turf_decal/tile/blue{
+	icon_state = "tile_corner";
+	dir = 4
 	},
-/area/awaymission/bombass)
-"bd" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
+/obj/effect/turf_decal/tile/blue{
+	icon_state = "tile_corner";
 	dir = 1
 	},
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
+	icon_state = "mm-2"
 	},
-/area/awaymission/bombass)
-"be" = (
-/obj/machinery/dna_scannernew,
+/area/awaymission/bombass/indoors)
+"bd" = (
+/obj/effect/turf_decal/tile/blue{
+	icon_state = "tile_corner";
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	icon_state = "tile_corner";
+	dir = 1
+	},
 /turf/open/floor/partyhard/steel{
-	icon_state = "cx-5"
+	icon_state = "mm-5"
 	},
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
+"be" = (
+/obj/effect/turf_decal/tile/blue{
+	icon_state = "tile_corner";
+	dir = 1
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
 "bf" = (
 /turf/closed/mineral/partyhard,
 /area/awaymission/bombass)
@@ -482,36 +524,43 @@
 	},
 /area/awaymission/bombass)
 "bk" = (
-/obj/structure/fans/tiny/invisible,
 /obj/machinery/door/airlock/hatch,
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
+	icon_state = "st-13"
 	},
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "bl" = (
 /obj/structure/headpike,
 /turf/open/floor/plating/partyhard,
 /area/awaymission/bombass)
 "bm" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
+/obj/effect/turf_decal/arrows{
+	icon_state = "arrows";
+	dir = 8
 	},
-/area/awaymission/bombass)
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
 "bn" = (
+/obj/effect/turf_decal/bot,
 /turf/open/floor/partyhard/steel{
-	icon_state = "dd-8"
+	icon_state = "mm-2"
 	},
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "bo" = (
-/obj/structure/ladder/unbreakable{
-	height = 2;
-	id = "bunkertop";
-	name = "durable ladder"
+/obj/effect/turf_decal/arrows{
+	icon_state = "arrows";
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	icon_state = "warningline";
+	dir = 1
 	},
 /turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
+	icon_state = "mm-1"
 	},
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "bp" = (
 /obj/structure/guillotine,
 /turf/open/floor/partyhard/steel{
@@ -519,313 +568,417 @@
 	},
 /area/awaymission/bombass)
 "bq" = (
-/obj/machinery/mech_bay_recharge_port,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-7"
+/obj/effect/turf_decal/stripes/line{
+	icon_state = "warningline";
+	dir = 1
 	},
-/area/awaymission/bombass)
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
 "br" = (
-/obj/machinery/mech_bay_recharge_port{
-	icon_state = "recharge_port";
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-8"
-	},
-/area/awaymission/bombass)
-"bs" = (
-/obj/machinery/computer/mech_bay_power_console{
-	icon_state = "computer";
-	dir = 4
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-10"
-	},
-/area/awaymission/bombass)
-"bt" = (
-/obj/machinery/computer/mech_bay_power_console{
-	icon_state = "computer";
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-10"
-	},
-/area/awaymission/bombass)
-"bu" = (
-/obj/machinery/mecha_part_fabricator,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-9"
-	},
-/area/awaymission/bombass)
-"bv" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-6"
-	},
-/area/awaymission/bombass)
-"bw" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-5"
-	},
-/area/awaymission/bombass)
-"bx" = (
-/obj/effect/turf_decal/partyhard/lines{
-	icon_state = "s-2"
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
-/area/awaymission/bombass)
-"by" = (
-/obj/effect/turf_decal/partyhard/lines{
-	icon_state = "s-6"
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"bz" = (
-/obj/effect/turf_decal/partyhard/lines{
-	icon_state = "s-3"
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"bA" = (
-/obj/effect/turf_decal/partyhard/lines,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"bB" = (
-/obj/effect/turf_decal/partyhard/lines{
-	icon_state = "s-7"
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"bC" = (
-/obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 1
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"bD" = (
-/obj/effect/turf_decal/partyhard/lines,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
-/area/awaymission/bombass)
-"bE" = (
-/obj/effect/turf_decal/partyhard/lines{
-	icon_state = "s-5"
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"bF" = (
-/obj/effect/turf_decal/partyhard/lines{
-	icon_state = "s-8"
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"bG" = (
-/obj/effect/turf_decal/partyhard/lines{
-	icon_state = "s-4"
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"bH" = (
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"bI" = (
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
-/area/awaymission/bombass)
-"bJ" = (
-/obj/effect/turf_decal/stripes/corner{
-	icon_state = "warninglinecorner";
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"bK" = (
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"bL" = (
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"bM" = (
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
-/area/awaymission/bombass)
-"bN" = (
-/obj/effect/turf_decal/stripes/corner{
-	icon_state = "warninglinecorner";
-	dir = 4
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
-/area/awaymission/bombass)
-"bO" = (
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"bP" = (
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"bQ" = (
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
-/area/awaymission/bombass)
-"bR" = (
-/obj/effect/turf_decal/stripes/corner{
-	icon_state = "warninglinecorner";
-	dir = 1
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"bS" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
-/area/awaymission/bombass)
-"bT" = (
-/obj/effect/turf_decal/partyhard/lines{
-	icon_state = "s-7"
-	},
-/obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"bU" = (
 /obj/effect/turf_decal/stripes/end{
 	icon_state = "warn_end";
 	dir = 8
 	},
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
+	icon_state = "mm-1"
 	},
-/area/awaymission/bombass)
-"bV" = (
+/area/awaymission/bombass/indoors)
+"bs" = (
+/obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	icon_state = "warningline";
 	dir = 1
 	},
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/arrows{
+	icon_state = "arrows";
+	dir = 8
+	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
 	},
-/area/awaymission/bombass)
-"bW" = (
+/area/awaymission/bombass/indoors)
+"bt" = (
+/obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	icon_state = "warningline";
 	dir = 1
 	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"bu" = (
 /obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	icon_state = "warningline";
+	dir = 1
+	},
+/obj/effect/turf_decal/arrows{
+	icon_state = "arrows";
+	dir = 8
+	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-5"
 	},
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
+"bv" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	icon_state = "warningline";
+	dir = 1
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-5"
+	},
+/area/awaymission/bombass/indoors)
+"bw" = (
+/obj/effect/turf_decal/stripes/end{
+	icon_state = "warn_end";
+	dir = 4
+	},
+/obj/effect/turf_decal/arrows{
+	icon_state = "arrows";
+	dir = 8
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"bx" = (
+/obj/effect/turf_decal/partyhard/lines,
+/obj/effect/turf_decal/arrows{
+	icon_state = "arrows";
+	dir = 8
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"by" = (
+/obj/effect/turf_decal/partyhard/lines{
+	icon_state = "s-7"
+	},
+/obj/effect/turf_decal/arrows{
+	icon_state = "arrows";
+	dir = 8
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"bz" = (
+/obj/machinery/clonepod/experimental,
+/obj/structure/window/reinforced/survival_pod{
+	icon_state = "pwindow";
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	icon_state = "warningline";
+	dir = 8
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "cx-6"
+	},
+/area/awaymission/bombass/indoors)
+"bA" = (
+/obj/machinery/computer/prototype_cloning{
+	icon_state = "computer";
+	dir = 4
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "cx-5"
+	},
+/area/awaymission/bombass/indoors)
+"bB" = (
+/obj/machinery/gibber,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"bC" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 8
+	},
+/obj/effect/turf_decal/bot_white/left,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"bD" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 4
+	},
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"bE" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/bot_white/right,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"bF" = (
+/obj/machinery/smartfridge,
+/turf/closed/wall/partyhard,
+/area/awaymission/bombass/indoors)
+"bG" = (
+/obj/structure/window/reinforced/fulltile/partyhard,
+/turf/open/floor/partyhard/steel{
+	icon_state = "st-13"
+	},
+/area/awaymission/bombass/indoors)
+"bH" = (
+/obj/machinery/door/airlock/hatch,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"bI" = (
+/obj/structure/closet/bombcloset/bombsquad,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/clothing/mask/gas/anonist,
+/obj/item/gun/ballistic/rifle/boltaction,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 30
+	},
+/obj/effect/turf_decal/box,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/head/wzzzz/feather_trilby,
+/obj/item/clothing/gloves/combat/wzzzz/guard,
+/obj/item/clothing/glasses/wzzzz/goggless,
+/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
+/obj/item/clothing/under/wzzzz/m35jacket,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"bJ" = (
+/obj/structure/closet/bombcloset/bombsquad,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/clothing/mask/gas/anonist,
+/obj/item/gun/ballistic/rifle/boltaction,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 30
+	},
+/obj/effect/turf_decal/box,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/head/wzzzz/cowboyhat,
+/obj/item/clothing/gloves/combat/wzzzz/guard,
+/obj/item/clothing/glasses/wzzzz/goggless,
+/obj/item/clothing/neck/scarf/red,
+/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
+/obj/item/clothing/under/wzzzz/m35jacket,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"bK" = (
+/obj/structure/closet/bombcloset/bombsquad,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/clothing/mask/gas/anonist,
+/obj/item/gun/ballistic/rifle/boltaction,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 30
+	},
+/obj/effect/turf_decal/box,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/head/wzzzz/hijab,
+/obj/item/clothing/gloves/combat/wzzzz/guard,
+/obj/item/clothing/glasses/wzzzz/goggless,
+/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
+/obj/item/clothing/under/wzzzz/m35jacket,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"bL" = (
+/obj/structure/closet/bombcloset/bombsquad,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/clothing/mask/gas/anonist,
+/obj/item/gun/ballistic/rifle/boltaction,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 30
+	},
+/obj/effect/turf_decal/box,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/head/wzzzz/mcushankadown,
+/obj/item/clothing/gloves/combat/wzzzz/guard,
+/obj/item/clothing/glasses/wzzzz/goggless,
+/obj/item/clothing/neck/scarf/red,
+/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
+/obj/item/clothing/under/wzzzz/m35jacket,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"bM" = (
+/obj/structure/closet/bombcloset/bombsquad,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/clothing/mask/gas/anonist,
+/obj/item/gun/ballistic/rifle/boltaction,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 30
+	},
+/obj/effect/turf_decal/box,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/head/wzzzz/navyutility,
+/obj/item/clothing/gloves/combat/wzzzz/guard,
+/obj/item/clothing/glasses/wzzzz/goggless,
+/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
+/obj/item/clothing/under/wzzzz/m35jacket,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"bN" = (
+/obj/effect/turf_decal/partyhard/lines,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-5"
+	},
+/area/awaymission/bombass/indoors)
+"bO" = (
+/obj/effect/turf_decal/stripes/line{
+	icon_state = "warningline";
+	dir = 8
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-5"
+	},
+/area/awaymission/bombass/indoors)
+"bP" = (
+/obj/structure/table,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"bQ" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"bR" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 1
+	},
+/obj/effect/turf_decal/bot_white/left,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"bS" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-5"
+	},
+/area/awaymission/bombass/indoors)
+"bT" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 4
+	},
+/obj/effect/turf_decal/bot_white/right,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"bU" = (
+/obj/machinery/light{
+	icon_state = "tube";
+	dir = 4
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"bV" = (
+/obj/machinery/light,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"bW" = (
+/obj/effect/turf_decal/arrows,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
 "bX" = (
-/obj/structure/closet/bombcloset/bombsquad,
-/obj/item/tank/internals/oxygen/yellow,
-/obj/item/clothing/mask/gas/anonist,
-/obj/item/gun/ballistic/rifle/boltaction,
-/obj/item/stack/sheet/mineral/sandbags{
-	amount = 30
-	},
-/obj/effect/turf_decal/box,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/wzzzz/beret_greensilver,
-/obj/item/clothing/gloves/combat/wzzzz/guard,
-/obj/item/clothing/glasses/wzzzz/goggless,
-/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
-/obj/item/clothing/under/wzzzz/m35jacket,
+/obj/machinery/chem_heater,
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
+	icon_state = "dd-4"
 	},
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "bY" = (
-/obj/structure/closet/bombcloset/bombsquad,
-/obj/item/tank/internals/oxygen/yellow,
-/obj/item/clothing/mask/gas/anonist,
-/obj/item/gun/ballistic/rifle/boltaction,
-/obj/item/stack/sheet/mineral/sandbags{
-	amount = 30
+/obj/machinery/light/small{
+	dir = 8
 	},
-/obj/effect/turf_decal/box,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/wzzzz/fez,
-/obj/item/clothing/gloves/combat/wzzzz/guard,
-/obj/item/clothing/glasses/wzzzz/goggless,
-/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
-/obj/item/clothing/under/wzzzz/m35jacket,
+/obj/structure/ladder/unbreakable{
+	height = 2;
+	id = "bunkerbot";
+	name = "durable ladder"
+	},
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
+	icon_state = "mm-2"
 	},
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "bZ" = (
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/partyhard/steel{
@@ -989,605 +1142,65 @@
 	},
 /area/awaymission/bombass)
 "cs" = (
-/obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 4
+/obj/structure/closet/bombcloset/bombsquad,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/clothing/mask/gas/anonist,
+/obj/item/gun/ballistic/rifle/boltaction,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 30
 	},
-/obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 1
-	},
+/obj/effect/turf_decal/box,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/head/wzzzz/feather_trilby,
+/obj/item/clothing/gloves/combat/wzzzz/guard,
+/obj/item/clothing/glasses/wzzzz/goggless,
+/obj/item/clothing/neck/scarf/red,
+/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
+/obj/item/clothing/under/wzzzz/m35jacket,
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
+	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "ct" = (
-/obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 1
+/obj/structure/closet/bombcloset/bombsquad,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/clothing/mask/gas/anonist,
+/obj/item/gun/ballistic/rifle/boltaction,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 30
 	},
+/obj/effect/turf_decal/box,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/head/wzzzz/feather_trilby,
+/obj/item/clothing/gloves/combat/wzzzz/guard,
+/obj/item/clothing/glasses/wzzzz/goggless,
+/obj/item/clothing/neck/tie,
+/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
+/obj/item/clothing/under/wzzzz/m35jacket,
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
+	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "cu" = (
-/obj/structure/chair{
-	dir = 1
+/obj/structure/closet/bombcloset/bombsquad,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/clothing/mask/gas/anonist,
+/obj/item/gun/ballistic/rifle/boltaction,
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 30
 	},
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 8
-	},
-/obj/effect/turf_decal/bot_white/left,
+/obj/effect/turf_decal/box,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/head/wzzzz/mcushankadown,
+/obj/item/clothing/gloves/combat/wzzzz/guard,
+/obj/item/clothing/glasses/wzzzz/goggless,
+/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
+/obj/item/clothing/under/wzzzz/m35jacket,
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
+	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "cv" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 4
-	},
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cw" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/yellow,
-/obj/effect/turf_decal/bot_white/right,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cx" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 1
-	},
-/obj/effect/turf_decal/bot_white/left,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"cy" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
-/area/awaymission/bombass)
-"cz" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 4
-	},
-/obj/effect/turf_decal/bot_white/right,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cA" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 1
-	},
-/obj/effect/turf_decal/bot_white/left,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cB" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/obj/effect/turf_decal/bot_white/left,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cC" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cD" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/obj/effect/turf_decal/bot_white/right,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cE" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 4
-	},
-/obj/effect/turf_decal/bot_white/right,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"cF" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/yellow,
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 1
-	},
-/obj/effect/turf_decal/bot_white/left,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cG" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/yellow,
-/obj/effect/turf_decal/bot_white/left,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cH" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/yellow,
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cI" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/yellow,
-/obj/effect/turf_decal/bot_white/right,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cJ" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/yellow,
-/obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 4
-	},
-/obj/effect/turf_decal/bot_white/right,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cK" = (
-/obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cL" = (
-/obj/structure/window/reinforced/fulltile/partyhard,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-13"
-	},
-/area/awaymission/bombass)
-"cM" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
-	},
-/obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"cN" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
-	},
-/obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
-/area/awaymission/bombass)
-"cO" = (
-/obj/effect/turf_decal/stripes/end{
-	icon_state = "warn_end";
-	dir = 4
-	},
-/obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"cP" = (
-/obj/effect/turf_decal/partyhard/lines,
-/obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"cQ" = (
-/obj/effect/turf_decal/partyhard/lines{
-	icon_state = "s-7"
-	},
-/obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"cR" = (
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass)
-"cS" = (
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
-/area/awaymission/bombass)
-"cT" = (
-/obj/effect/turf_decal/arrows,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cU" = (
-/obj/effect/turf_decal/bot,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cV" = (
-/obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 4
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cW" = (
-/obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 1
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
-	},
-/area/awaymission/bombass)
-"cX" = (
-/obj/structure/closet/bombcloset/bombsquad,
-/obj/item/tank/internals/oxygen/yellow,
-/obj/item/clothing/mask/gas/anonist,
-/obj/item/gun/ballistic/rifle/boltaction,
-/obj/item/stack/sheet/mineral/sandbags{
-	amount = 30
-	},
-/obj/effect/turf_decal/box,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/wzzzz/cowboyhat,
-/obj/item/clothing/gloves/combat/wzzzz/guard,
-/obj/item/clothing/glasses/wzzzz/goggless,
-/obj/item/clothing/neck/tie,
-/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
-/obj/item/clothing/under/wzzzz/m35jacket,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"cY" = (
-/obj/structure/closet/bombcloset/bombsquad,
-/obj/item/tank/internals/oxygen/yellow,
-/obj/item/clothing/mask/gas/anonist,
-/obj/item/gun/ballistic/rifle/boltaction,
-/obj/item/stack/sheet/mineral/sandbags{
-	amount = 30
-	},
-/obj/effect/turf_decal/box,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/wzzzz/cowboyhat,
-/obj/item/clothing/gloves/combat/wzzzz/guard,
-/obj/item/clothing/glasses/wzzzz/goggless,
-/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
-/obj/item/clothing/under/wzzzz/m35jacket,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"cZ" = (
-/obj/structure/closet/bombcloset/bombsquad,
-/obj/item/tank/internals/oxygen/yellow,
-/obj/item/clothing/mask/gas/anonist,
-/obj/item/gun/ballistic/rifle/boltaction,
-/obj/item/stack/sheet/mineral/sandbags{
-	amount = 30
-	},
-/obj/effect/turf_decal/box,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/wzzzz/beaver_hat,
-/obj/item/clothing/gloves/combat/wzzzz/guard,
-/obj/item/clothing/glasses/wzzzz/goggless,
-/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
-/obj/item/clothing/under/wzzzz/m35jacket,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"da" = (
-/obj/structure/closet/bombcloset/bombsquad,
-/obj/item/tank/internals/oxygen/yellow,
-/obj/item/clothing/mask/gas/anonist,
-/obj/item/gun/ballistic/rifle/boltaction,
-/obj/item/stack/sheet/mineral/sandbags{
-	amount = 30
-	},
-/obj/effect/turf_decal/box,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/wzzzz/feather_trilby,
-/obj/item/clothing/gloves/combat/wzzzz/guard,
-/obj/item/clothing/glasses/wzzzz/goggless,
-/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
-/obj/item/clothing/under/wzzzz/m35jacket,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"db" = (
-/obj/structure/closet/bombcloset/bombsquad,
-/obj/item/tank/internals/oxygen/yellow,
-/obj/item/clothing/mask/gas/anonist,
-/obj/item/gun/ballistic/rifle/boltaction,
-/obj/item/stack/sheet/mineral/sandbags{
-	amount = 30
-	},
-/obj/effect/turf_decal/box,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/wzzzz/cowboyhat,
-/obj/item/clothing/gloves/combat/wzzzz/guard,
-/obj/item/clothing/glasses/wzzzz/goggless,
-/obj/item/clothing/neck/scarf/red,
-/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
-/obj/item/clothing/under/wzzzz/m35jacket,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"dc" = (
-/obj/structure/closet/bombcloset/bombsquad,
-/obj/item/tank/internals/oxygen/yellow,
-/obj/item/clothing/mask/gas/anonist,
-/obj/item/gun/ballistic/rifle/boltaction,
-/obj/item/stack/sheet/mineral/sandbags{
-	amount = 30
-	},
-/obj/effect/turf_decal/box,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/wzzzz/hijab,
-/obj/item/clothing/gloves/combat/wzzzz/guard,
-/obj/item/clothing/glasses/wzzzz/goggless,
-/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
-/obj/item/clothing/under/wzzzz/m35jacket,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"dd" = (
-/obj/structure/closet/bombcloset/bombsquad,
-/obj/item/tank/internals/oxygen/yellow,
-/obj/item/clothing/mask/gas/anonist,
-/obj/item/gun/ballistic/rifle/boltaction,
-/obj/item/stack/sheet/mineral/sandbags{
-	amount = 30
-	},
-/obj/effect/turf_decal/box,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/wzzzz/mcushankadown,
-/obj/item/clothing/gloves/combat/wzzzz/guard,
-/obj/item/clothing/glasses/wzzzz/goggless,
-/obj/item/clothing/neck/scarf/red,
-/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
-/obj/item/clothing/under/wzzzz/m35jacket,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"de" = (
-/obj/structure/closet/bombcloset/bombsquad,
-/obj/item/tank/internals/oxygen/yellow,
-/obj/item/clothing/mask/gas/anonist,
-/obj/item/gun/ballistic/rifle/boltaction,
-/obj/item/stack/sheet/mineral/sandbags{
-	amount = 30
-	},
-/obj/effect/turf_decal/box,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/wzzzz/navyutility,
-/obj/item/clothing/gloves/combat/wzzzz/guard,
-/obj/item/clothing/glasses/wzzzz/goggless,
-/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
-/obj/item/clothing/under/wzzzz/m35jacket,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"df" = (
-/obj/structure/closet/bombcloset/bombsquad,
-/obj/item/tank/internals/oxygen/yellow,
-/obj/item/clothing/mask/gas/anonist,
-/obj/item/gun/ballistic/rifle/boltaction,
-/obj/item/stack/sheet/mineral/sandbags{
-	amount = 30
-	},
-/obj/effect/turf_decal/box,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/wzzzz/feather_trilby,
-/obj/item/clothing/gloves/combat/wzzzz/guard,
-/obj/item/clothing/glasses/wzzzz/goggless,
-/obj/item/clothing/neck/scarf/red,
-/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
-/obj/item/clothing/under/wzzzz/m35jacket,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"dg" = (
-/obj/structure/closet/bombcloset/bombsquad,
-/obj/item/tank/internals/oxygen/yellow,
-/obj/item/clothing/mask/gas/anonist,
-/obj/item/gun/ballistic/rifle/boltaction,
-/obj/item/stack/sheet/mineral/sandbags{
-	amount = 30
-	},
-/obj/effect/turf_decal/box,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/wzzzz/feather_trilby,
-/obj/item/clothing/gloves/combat/wzzzz/guard,
-/obj/item/clothing/glasses/wzzzz/goggless,
-/obj/item/clothing/neck/tie,
-/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
-/obj/item/clothing/under/wzzzz/m35jacket,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"dh" = (
-/obj/structure/closet/bombcloset/bombsquad,
-/obj/item/tank/internals/oxygen/yellow,
-/obj/item/clothing/mask/gas/anonist,
-/obj/item/gun/ballistic/rifle/boltaction,
-/obj/item/stack/sheet/mineral/sandbags{
-	amount = 30
-	},
-/obj/effect/turf_decal/box,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/wzzzz/mcushankadown,
-/obj/item/clothing/gloves/combat/wzzzz/guard,
-/obj/item/clothing/glasses/wzzzz/goggless,
-/obj/item/clothing/suit/armor/vest/wzzzz/m35/black,
-/obj/item/clothing/under/wzzzz/m35jacket,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
-/area/awaymission/bombass)
-"di" = (
 /obj/structure/closet/bombcloset/bombsquad,
 /obj/item/tank/internals/oxygen/yellow,
 /obj/item/clothing/mask/gas/anonist,
@@ -1605,8 +1218,296 @@
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
-"dj" = (
+/area/awaymission/bombass/indoors)
+"cw" = (
+/obj/structure/table,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/reagent_containers/food/snacks/meat/slab/human,
+/obj/item/documents/syndicate/red,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"cx" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 1
+	},
+/obj/effect/turf_decal/bot_white/left,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"cy" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot_white/left,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"cz" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"cA" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot_white/right,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"cB" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 4
+	},
+/obj/effect/turf_decal/bot_white/right,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"cC" = (
+/obj/structure/chair/office,
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-2"
+	},
+/area/awaymission/bombass/indoors)
+"cD" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-8"
+	},
+/area/awaymission/bombass/indoors)
+"cE" = (
+/obj/effect/turf_decal/stripes/end{
+	icon_state = "warn_end";
+	dir = 8
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-5"
+	},
+/area/awaymission/bombass/indoors)
+"cF" = (
+/obj/effect/turf_decal/stripes/line{
+	icon_state = "warningline";
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/arrows{
+	icon_state = "arrows";
+	dir = 8
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"cG" = (
+/obj/effect/turf_decal/stripes/line{
+	icon_state = "warningline";
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-5"
+	},
+/area/awaymission/bombass/indoors)
+"cH" = (
+/obj/effect/turf_decal/stripes/line{
+	icon_state = "warningline";
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"cI" = (
+/obj/effect/turf_decal/stripes/line{
+	icon_state = "warningline";
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/arrows{
+	icon_state = "arrows";
+	dir = 8
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-5"
+	},
+/area/awaymission/bombass/indoors)
+"cJ" = (
+/obj/machinery/computer/prototype_cloning{
+	icon_state = "computer";
+	dir = 4
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "cx-4"
+	},
+/area/awaymission/bombass/indoors)
+"cK" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 1
+	},
+/obj/effect/turf_decal/bot_white/left,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"cL" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/bot_white/left,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"cM" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"cN" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/bot_white/right,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"cO" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	icon_state = "tile_corner";
+	dir = 4
+	},
+/obj/effect/turf_decal/bot_white/right,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"cP" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/ladder/unbreakable{
+	height = 1;
+	id = "bunkertop";
+	name = "durable ladder"
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
+/area/awaymission/bombass/indoors)
+"cQ" = (
+/obj/machinery/reagentgrinder,
+/obj/structure/table,
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-6"
+	},
+/area/awaymission/bombass/indoors)
+"cR" = (
+/obj/machinery/chem_dispenser/fullupgrade,
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-10"
+	},
+/area/awaymission/bombass/indoors)
+"cS" = (
+/obj/machinery/reagent_sheet,
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-5"
+	},
+/area/awaymission/bombass/indoors)
+"cT" = (
+/obj/structure/table,
+/obj/item/lightreplacer,
+/obj/item/lightreplacer,
+/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/glass/fifty,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"cU" = (
+/obj/machinery/autolathe/hacked,
+/obj/machinery/light,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"cV" = (
+/obj/structure/closet/toolcloset,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"cW" = (
 /obj/structure/closet/bombcloset/bombsquad,
 /obj/item/tank/internals/oxygen/yellow,
 /obj/item/clothing/mask/gas/anonist,
@@ -1624,8 +1525,8 @@
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
-"dk" = (
+/area/awaymission/bombass/indoors)
+"cX" = (
 /obj/structure/closet/bombcloset/bombsquad,
 /obj/machinery/light,
 /obj/item/tank/internals/oxygen/yellow,
@@ -1644,8 +1545,8 @@
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
-"dl" = (
+/area/awaymission/bombass/indoors)
+"cY" = (
 /obj/structure/closet/bombcloset/bombsquad,
 /obj/item/tank/internals/oxygen/yellow,
 /obj/item/clothing/mask/gas/anonist,
@@ -1663,8 +1564,8 @@
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
-"dm" = (
+/area/awaymission/bombass/indoors)
+"cZ" = (
 /obj/structure/closet/bombcloset/bombsquad,
 /obj/item/tank/internals/oxygen/yellow,
 /obj/item/clothing/mask/gas/anonist,
@@ -1682,8 +1583,8 @@
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
-"dn" = (
+/area/awaymission/bombass/indoors)
+"da" = (
 /obj/structure/closet/bombcloset/bombsquad,
 /obj/item/tank/internals/oxygen/yellow,
 /obj/item/clothing/mask/gas/anonist,
@@ -1701,8 +1602,8 @@
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
-"do" = (
+/area/awaymission/bombass/indoors)
+"db" = (
 /obj/structure/closet/bombcloset/bombsquad,
 /obj/item/tank/internals/oxygen/yellow,
 /obj/item/clothing/mask/gas/anonist,
@@ -1721,8 +1622,8 @@
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
-"dp" = (
+/area/awaymission/bombass/indoors)
+"dc" = (
 /obj/structure/closet/bombcloset/bombsquad,
 /obj/machinery/light,
 /obj/item/tank/internals/oxygen/yellow,
@@ -1741,8 +1642,8 @@
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
-"dq" = (
+/area/awaymission/bombass/indoors)
+"dd" = (
 /obj/structure/closet/bombcloset/bombsquad,
 /obj/item/tank/internals/oxygen/yellow,
 /obj/item/clothing/mask/gas/anonist,
@@ -1760,14 +1661,119 @@
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
-/area/awaymission/bombass)
-"dr" = (
-/obj/structure/table,
-/obj/item/clothing/under/wzzzz/m35jacket/elite/super,
+/area/awaymission/bombass/indoors)
+"de" = (
+/obj/machinery/dna_scannernew,
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-2"
+	icon_state = "cx-5"
+	},
+/area/awaymission/bombass/indoors)
+"df" = (
+/obj/effect/mob_spawn/human/bombmeat{
+	icon_state = "sleeper";
+	dir = 8
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"dg" = (
+/obj/effect/mob_spawn/human/bombmeat{
+	icon_state = "sleeper";
+	dir = 8
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"dh" = (
+/obj/effect/turf_decal/partyhard/lines{
+	icon_state = "s-5"
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"di" = (
+/obj/effect/turf_decal/partyhard/lines{
+	icon_state = "s-8"
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"dj" = (
+/obj/effect/turf_decal/partyhard/lines{
+	icon_state = "s-4"
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"dk" = (
+/obj/effect/turf_decal/stripes/corner{
+	icon_state = "warninglinecorner";
+	dir = 4
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-5"
+	},
+/area/awaymission/bombass/indoors)
+"dl" = (
+/obj/effect/turf_decal/stripes/line{
+	icon_state = "warningline";
+	dir = 1
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"dm" = (
+/obj/effect/turf_decal/stripes/line{
+	icon_state = "warningline";
+	dir = 1
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-5"
+	},
+/area/awaymission/bombass/indoors)
+"dn" = (
+/obj/effect/turf_decal/stripes/corner{
+	icon_state = "warninglinecorner";
+	dir = 1
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
+	},
+/area/awaymission/bombass/indoors)
+"do" = (
+/obj/effect/mob_spawn/human/bombmeat{
+	icon_state = "sleeper";
+	dir = 8
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-5"
+	},
+/area/awaymission/bombass/indoors)
+"dp" = (
+/obj/structure/fans/tiny/invisible,
+/obj/machinery/door/airlock/hatch,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
 	},
 /area/awaymission/bombass)
+"dq" = (
+/obj/machinery/mecha_part_fabricator,
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-9"
+	},
+/area/awaymission/bombass/indoors)
+"dr" = (
+/obj/effect/mob_spawn/human/syndicate/battlecruiser/captain,
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-7"
+	},
+/area/awaymission/bombass/indoors)
 "ds" = (
 /turf/open/floor/partyhard/steel{
 	icon_state = "r-3"
@@ -1787,68 +1793,79 @@
 	},
 /area/awaymission/bombass)
 "dw" = (
-/obj/machinery/gateway{
-	dir = 9
+/obj/structure/closet/crate/miningcar,
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-8"
 	},
-/turf/open/floor/light,
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "dx" = (
-/obj/machinery/gateway{
-	dir = 1
+/obj/structure/ladder/unbreakable{
+	height = 2;
+	id = "bunkertop";
+	name = "durable ladder"
 	},
-/turf/open/floor/light,
-/area/awaymission/bombass)
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-2"
+	},
+/area/awaymission/bombass/indoors)
 "dy" = (
-/obj/machinery/gateway{
-	dir = 5
+/obj/machinery/mech_bay_recharge_port,
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-7"
 	},
-/turf/open/floor/light,
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "dz" = (
-/obj/machinery/gateway{
+/obj/machinery/mech_bay_recharge_port{
+	icon_state = "recharge_port";
 	dir = 8
 	},
-/turf/open/floor/light,
-/area/awaymission/bombass)
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-8"
+	},
+/area/awaymission/bombass/indoors)
 "dA" = (
-/obj/machinery/gateway/centeraway,
-/turf/open/floor/light,
-/area/awaymission/bombass)
-"dB" = (
-/obj/machinery/gateway{
+/obj/machinery/computer/mech_bay_power_console{
+	icon_state = "computer";
 	dir = 4
 	},
-/turf/open/floor/light,
-/area/awaymission/bombass)
-"dC" = (
-/obj/machinery/gateway{
-	dir = 10
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-10"
 	},
-/turf/open/floor/light,
+/area/awaymission/bombass/indoors)
+"dB" = (
+/obj/machinery/computer/mech_bay_power_console{
+	icon_state = "computer";
+	dir = 8
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-10"
+	},
+/area/awaymission/bombass/indoors)
+"dC" = (
+/obj/machinery/porta_turret/centcom_shuttle,
+/turf/closed/wall/partyhard,
 /area/awaymission/bombass)
 "dD" = (
-/obj/machinery/gateway,
-/turf/open/floor/light,
+/turf/closed/wall/partyhard,
 /area/awaymission/bombass)
 "dE" = (
-/obj/machinery/gateway{
-	dir = 6
-	},
-/turf/open/floor/light,
-/area/awaymission/bombass)
-"dF" = (
 /obj/effect/spawner/structure/window/reinforced/partyhard,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
 /area/awaymission/bombass)
-"dG" = (
-/obj/structure/fans/tiny,
-/obj/machinery/door/airlock/hatch,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
+"dF" = (
+/obj/machinery/gateway{
+	dir = 9
 	},
-/area/awaymission/bombass)
+/turf/open/floor/light,
+/area/awaymission/bombass/indoors)
+"dG" = (
+/obj/machinery/gateway{
+	dir = 1
+	},
+/turf/open/floor/light,
+/area/awaymission/bombass/indoors)
 "dH" = (
 /turf/closed/wall/rust,
 /area/awaymission/bombass)
@@ -1868,96 +1885,116 @@
 /turf/open/floor/plating,
 /area/awaymission/bombass)
 "dL" = (
+/turf/open/floor/plating/partyhard,
+/area/awaymission/bombass/indoors)
+"dM" = (
+/obj/machinery/gateway{
+	dir = 5
+	},
+/turf/open/floor/light,
+/area/awaymission/bombass/indoors)
+"dN" = (
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
-	icon_state = "panelscorched"
+	icon_state = "platingdmg1"
 	},
-/area/awaymission/bombass)
-"dM" = (
-/obj/structure/closet/crate/miningcar,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-8"
+/area/awaymission/bombass/indoors)
+"dO" = (
+/turf/open/floor/plating{
+	heat_capacity = 1e+006;
+	icon_state = "platingdmg3"
 	},
-/area/awaymission/bombass)
-"dN" = (
+/area/awaymission/bombass/indoors)
+"dP" = (
 /obj/structure/closet/crate,
 /obj/effect/spawner/lootdrop/gloves,
 /turf/open/floor/plating,
-/area/awaymission/bombass)
-"dO" = (
+/area/awaymission/bombass/indoors)
+"dQ" = (
 /obj/structure/closet/crate,
 /obj/effect/spawner/lootdrop/maintenance/eight,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
 	icon_state = "panelscorched"
 	},
-/area/awaymission/bombass)
-"dP" = (
-/obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/minor/kittyears_or_rabbitears,
-/turf/open/floor/plating,
-/area/awaymission/bombass)
-"dQ" = (
-/obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/minor/bowler_or_that,
-/turf/open/floor/plating,
-/area/awaymission/bombass)
+/area/awaymission/bombass/indoors)
 "dR" = (
-/obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonheavy,
-/turf/open/floor/plating,
-/area/awaymission/bombass)
+/turf/open/floor/plating{
+	heat_capacity = 1e+006;
+	icon_state = "panelscorched"
+	},
+/area/awaymission/bombass/indoors)
 "dS" = (
 /obj/effect/spawner/lootdrop/snowdin/dungeonheavy,
 /turf/open/floor/plating/partyhard,
 /area/awaymission/bombass)
 "dT" = (
-/obj/effect/mob_spawn/human/bombmeat{
-	icon_state = "sleeper";
+/obj/machinery/gateway{
 	dir = 8
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-8"
-	},
-/area/awaymission/bombass)
+/turf/open/floor/light,
+/area/awaymission/bombass/indoors)
 "dU" = (
-/obj/effect/mob_spawn/human/bombmeat{
-	icon_state = "sleeper";
+/obj/machinery/gateway/centeraway,
+/turf/open/floor/light,
+/area/awaymission/bombass/indoors)
+"dV" = (
+/obj/machinery/gateway{
 	dir = 4
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
-/area/awaymission/bombass)
-"dV" = (
-/obj/effect/mob_spawn/human/bombmeat{
-	icon_state = "sleeper";
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
-/area/awaymission/bombass)
+/turf/open/floor/light,
+/area/awaymission/bombass/indoors)
 "dW" = (
-/obj/structure/table,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/documents/syndicate/red,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
+/obj/machinery/gateway{
+	dir = 10
 	},
-/area/awaymission/bombass)
+/turf/open/floor/light,
+/area/awaymission/bombass/indoors)
 "dX" = (
-/obj/effect/mob_spawn/human/syndicate/battlecruiser/captain,
+/obj/machinery/gateway,
+/turf/open/floor/light,
+/area/awaymission/bombass/indoors)
+"dY" = (
+/obj/machinery/gateway{
+	dir = 6
+	},
+/turf/open/floor/light,
+/area/awaymission/bombass/indoors)
+"dZ" = (
+/obj/structure/spawner/skeleton,
+/turf/open/floor/plating/partyhard,
+/area/awaymission/bombass)
+"ea" = (
+/obj/structure/spawner/mining/goliath,
+/turf/open/floor/plating/partyhard,
+/area/awaymission/bombass)
+"eb" = (
+/obj/structure/spawner/clown,
+/turf/open/floor/plating/partyhard,
+/area/awaymission/bombass)
+"ec" = (
+/turf/open/floor/plating,
+/area/awaymission/bombass/indoors)
+"ed" = (
+/obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/minor/kittyears_or_rabbitears,
+/turf/open/floor/plating,
+/area/awaymission/bombass/indoors)
+"ee" = (
+/obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/minor/bowler_or_that,
+/turf/open/floor/plating,
+/area/awaymission/bombass/indoors)
+"ef" = (
+/obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/snowdin/dungeonheavy,
+/turf/open/floor/plating,
+/area/awaymission/bombass/indoors)
+"eg" = (
+/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/hatch,
 /turf/open/floor/partyhard/steel{
-	icon_state = "dd-7"
+	icon_state = "mm-4"
 	},
 /area/awaymission/bombass)
 
@@ -2354,12 +2391,12 @@ aa
 ab
 ab
 ab
-cV
+aE
 ac
 ac
-aI
-cu
-cF
+bQ
+bC
+cK
 ab
 aa
 bf
@@ -2547,13 +2584,13 @@ aa
 aa
 ab
 ac
-ap
-aD
-aK
+ar
+aF
+bb
 ac
-cu
-cA
-cG
+bC
+cx
+cL
 ab
 aa
 bf
@@ -2697,7 +2734,7 @@ bf
 bf
 bg
 bg
-bg
+dZ
 bh
 bg
 bg
@@ -2741,13 +2778,13 @@ aa
 aa
 ab
 ac
-aq
-aq
-aR
-cu
-cx
-cB
-cG
+as
+as
+bc
+bC
+bR
+cy
+cL
 ab
 aa
 bf
@@ -2935,13 +2972,13 @@ aa
 aa
 ab
 ad
-al
-dr
-cs
-cv
-cy
-cC
-cH
+at
+aG
+bd
+bD
+bS
+cz
+cM
 ab
 aa
 bf
@@ -3129,13 +3166,13 @@ aa
 aa
 ab
 ac
-aq
-aq
-aR
-cw
-cz
-cD
-cI
+as
+as
+bc
+bE
+bT
+cA
+cN
 ab
 aa
 bf
@@ -3176,6 +3213,17 @@ bf
 bf
 bf
 bg
+dZ
+bg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bf
@@ -3187,8 +3235,6 @@ bf
 bf
 bf
 bf
-bg
-bg
 bf
 bf
 bf
@@ -3210,15 +3256,6 @@ bf
 bf
 bf
 bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bg
 bg
 bg
 bg
@@ -3324,12 +3361,12 @@ aa
 ab
 ac
 ac
-aJ
-ct
-ao
-cw
-cE
-cI
+aH
+be
+aA
+bE
+cB
+cN
 ab
 aa
 bf
@@ -3411,22 +3448,12 @@ bf
 bf
 bf
 bf
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
 bf
 bf
 bf
-bf
-bf
-bf
+bg
+bg
+bg
 bg
 bg
 bg
@@ -3437,31 +3464,30 @@ bf
 bf
 bf
 bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
 bg
 bg
+dZ
 bg
-bg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
 bf
 bf
 bf
@@ -3479,9 +3505,20 @@ bf
 bf
 bf
 bf
+bf
 bg
 bg
 bg
+bg
+bf
+bf
+bf
+bf
+bf
+bf
+bg
+bg
+eb
 bg
 bg
 bg
@@ -3518,12 +3555,12 @@ aa
 ab
 ab
 ab
-cW
+aI
 ac
 ac
-aL
-cw
-cJ
+bU
+bE
+cO
 ab
 aa
 bf
@@ -3604,47 +3641,6 @@ bf
 bf
 bf
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bf
-bf
-bg
-bg
-bg
-bg
-bg
-bg
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
 bf
 bf
 bf
@@ -3660,6 +3656,47 @@ bg
 bg
 bf
 bf
+bg
+bg
+bg
+bg
+bg
+bg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bf
+bf
 bf
 bf
 bg
@@ -3673,7 +3710,7 @@ bf
 bf
 bf
 bf
-bg
+bf
 bg
 bg
 bg
@@ -3713,7 +3750,7 @@ aa
 aa
 ab
 ab
-az
+bk
 ab
 ab
 ab
@@ -3784,39 +3821,7 @@ bg
 bg
 bg
 bg
-bg
-bg
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+ea
 bg
 bf
 bf
@@ -3827,16 +3832,10 @@ bf
 bf
 bf
 bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
+bg
+bg
+bg
+bg
 bf
 bf
 bf
@@ -3853,6 +3852,44 @@ bg
 bg
 bg
 bg
+bg
+bg
+bg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
 bf
 bf
 bf
@@ -3865,11 +3902,11 @@ bf
 bf
 bf
 bf
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -3907,7 +3944,7 @@ aa
 ab
 ab
 ac
-cK
+bm
 ac
 ac
 ab
@@ -3942,7 +3979,7 @@ bg
 bg
 bg
 bg
-bg
+dZ
 bg
 bg
 bg
@@ -3996,9 +4033,9 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
+bf
+bf
+bf
 bg
 bg
 bg
@@ -4061,11 +4098,11 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
 bh
 bg
 bg
@@ -4100,10 +4137,10 @@ aa
 aa
 ab
 ac
-as
+aq
 ac
 ac
-aM
+bV
 ab
 ab
 ab
@@ -4114,7 +4151,7 @@ bf
 bf
 bg
 bg
-bg
+dZ
 bf
 bf
 bf
@@ -4256,12 +4293,12 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bi
-bg
+bf
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -4292,14 +4329,14 @@ aa
 (13,1,1) = {"
 aa
 aa
-af
+ae
 ac
 ac
-cU
-as
-cT
-aF
-aW
+bn
+aq
+bW
+bH
+cP
 ab
 aa
 bf
@@ -4320,9 +4357,9 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
+bf
+bf
+bf
 bg
 bg
 bg
@@ -4385,6 +4422,7 @@ bg
 bg
 bg
 bg
+bf
 bg
 bg
 bg
@@ -4395,8 +4433,7 @@ bg
 bg
 bg
 bg
-bg
-bg
+dZ
 bg
 bg
 bg
@@ -4452,9 +4489,9 @@ bg
 bg
 bg
 bg
-bg
-bg
-bh
+bf
+bf
+bf
 bg
 bg
 bg
@@ -4491,7 +4528,7 @@ ac
 ac
 ac
 ac
-aM
+bV
 ab
 ab
 ab
@@ -4514,11 +4551,11 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -4542,9 +4579,9 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
+bf
+bf
+bf
 bg
 bg
 bg
@@ -4579,8 +4616,8 @@ bg
 bg
 bg
 bg
-bg
-bg
+bf
+bf
 bg
 bg
 bg
@@ -4681,9 +4718,9 @@ aa
 aa
 aa
 ab
-ae
-ao
-cK
+au
+aA
+bm
 ac
 ac
 ab
@@ -4709,6 +4746,49 @@ bg
 bg
 bg
 bg
+bf
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+bf
+bf
+bg
+bg
+bg
+bg
+bg
+bl
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+dK
+dK
+dH
+bg
+bg
+bg
+bg
+bg
+bg
 bg
 bg
 bg
@@ -4721,6 +4801,18 @@ bf
 bf
 bg
 bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bf
+bf
+bf
 bg
 bg
 bg
@@ -4743,61 +4835,6 @@ bg
 bg
 bg
 bg
-dK
-dK
-dH
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bl
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
 bg
 bg
 bg
@@ -4826,9 +4863,9 @@ bg
 bg
 dK
 dH
-dK
-dI
-dK
+ec
+dN
+ec
 bg
 bg
 bg
@@ -4857,7 +4894,7 @@ bg
 bg
 bg
 bg
-bg
+dZ
 bg
 bg
 bf
@@ -4877,7 +4914,7 @@ ab
 ab
 ab
 ab
-az
+bk
 ab
 ab
 ab
@@ -4904,10 +4941,10 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -4927,13 +4964,13 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -4952,6 +4989,10 @@ bg
 bg
 bg
 bg
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -4963,13 +5004,9 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
 bg
 bg
 bg
@@ -5020,9 +5057,9 @@ bg
 bg
 bg
 dH
-dK
-bg
-bg
+ec
+dL
+dL
 bg
 bg
 bg
@@ -5068,14 +5105,14 @@ aa
 (17,1,1) = {"
 aa
 ab
-ag
-aN
-bv
-aA
-az
-aN
-aS
+af
+av
+aJ
+bo
+bk
+av
 aX
+cQ
 ab
 aa
 bf
@@ -5099,9 +5136,9 @@ bg
 bl
 bg
 bg
-bg
-bg
-bg
+bf
+bf
+bf
 bg
 bg
 bf
@@ -5121,11 +5158,11 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
 bf
 bf
 bf
@@ -5146,10 +5183,10 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
 bg
 dH
 bg
@@ -5262,14 +5299,14 @@ aa
 (18,1,1) = {"
 aa
 ab
-ah
-aO
-av
-bO
-aE
-aO
-aT
-aY
+ag
+aw
+aK
+bq
+bF
+aw
+cC
+cR
 ab
 aa
 bf
@@ -5292,9 +5329,9 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
+bf
+bf
+bf
 bg
 bg
 bg
@@ -5316,6 +5353,25 @@ bg
 bg
 bg
 bg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
 bg
 bg
 bg
@@ -5332,26 +5388,7 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+dZ
 bg
 bg
 bg
@@ -5456,14 +5493,14 @@ aa
 (19,1,1) = {"
 aa
 ab
-ah
-aO
-av
-aA
-cL
-aP
-aU
-aZ
+ag
+aw
+aK
+bo
+bG
+bX
+cD
+cS
 ab
 aa
 bf
@@ -5486,8 +5523,8 @@ bg
 bg
 bg
 bg
-bg
-bg
+bf
+bf
 bg
 bg
 bg
@@ -5510,8 +5547,27 @@ bg
 bg
 bg
 bg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
 bg
 bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+dZ
 bg
 bg
 bf
@@ -5520,25 +5576,6 @@ bf
 bf
 bf
 bf
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
 bg
 bg
 bg
@@ -5650,10 +5687,10 @@ aa
 (20,1,1) = {"
 aa
 ab
-ai
-aO
-av
-bO
+ah
+aw
+aK
+bq
 ab
 ab
 ab
@@ -5705,6 +5742,25 @@ bf
 bg
 bg
 bg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
 bg
 bg
 bg
@@ -5732,25 +5788,6 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
 bf
 bf
 bf
@@ -5764,9 +5801,9 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
+bf
+bf
+bf
 bg
 bg
 bg
@@ -5807,13 +5844,13 @@ bg
 bg
 bg
 dt
-ab
-ab
-dF
-dG
-dF
-ab
-ab
+dC
+dD
+dE
+eg
+dE
+dD
+dC
 dt
 bg
 bg
@@ -5844,12 +5881,12 @@ aa
 (21,1,1) = {"
 aa
 ab
-aj
-aO
-av
-aA
-aF
-aQ
+ai
+aw
+aK
+bo
+bH
+bY
 ab
 aa
 aa
@@ -5862,11 +5899,11 @@ bg
 bg
 bZ
 cd
-ab
-ab
-bk
-ab
-ab
+dD
+dD
+dp
+dD
+dD
 cm
 cl
 bg
@@ -5921,10 +5958,10 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -5958,6 +5995,10 @@ bg
 bg
 bg
 bg
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -5966,11 +6007,7 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-dK
+ec
 bg
 bg
 bg
@@ -6001,13 +6038,13 @@ bg
 bg
 bg
 du
-ab
-as
-as
-as
-as
-as
-ab
+dD
+aq
+aq
+aq
+aq
+aq
+dD
 du
 bg
 bg
@@ -6038,10 +6075,10 @@ aa
 (22,1,1) = {"
 aa
 ab
-aj
-aO
-av
-bO
+ai
+aw
+aK
+bq
 ab
 ab
 ab
@@ -6055,13 +6092,13 @@ bg
 bg
 bg
 ca
+dD
 ab
+dr
+aX
+dy
 ab
-dX
-aS
-bq
-ab
-ab
+dD
 cp
 bg
 bg
@@ -6115,31 +6152,6 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bf
-bf
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bf
-bf
 bf
 bf
 bf
@@ -6163,8 +6175,33 @@ bg
 bg
 bg
 bg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
 bg
-dK
+bg
+bg
+bg
+bg
+bg
+bg
+bf
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+ec
 bg
 bg
 bg
@@ -6195,13 +6232,13 @@ bg
 bg
 bg
 bg
+dE
+aq
 dF
-as
-dw
-dz
-dC
-as
-dF
+dT
+dW
+aq
+dE
 bg
 bg
 bg
@@ -6232,14 +6269,14 @@ aa
 (23,1,1) = {"
 aa
 ab
-ag
-aO
+af
+aw
+aK
+bq
+bk
 av
-bO
-az
-aN
-aS
 aX
+cQ
 ab
 aa
 bf
@@ -6249,13 +6286,13 @@ bg
 bg
 bg
 cb
-ab
-bu
-bm
-bm
-bm
-bs
-ab
+dD
+dq
+aY
+aY
+aY
+dA
+dD
 cq
 bg
 bg
@@ -6310,33 +6347,6 @@ bg
 bg
 bg
 bg
-bg
-bf
-bf
-bf
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bf
-bf
-bf
-bf
-bf
 bf
 bf
 bf
@@ -6358,7 +6368,34 @@ bg
 bg
 bg
 bg
-dK
+bg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+bg
+bg
+bf
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+ec
 bg
 bg
 bg
@@ -6389,13 +6426,13 @@ bg
 bg
 bg
 bg
+eg
+aq
 dG
-as
-dx
-dA
-dD
-as
-dG
+dU
+dX
+aq
+eg
 bg
 bg
 bg
@@ -6426,14 +6463,14 @@ aa
 (24,1,1) = {"
 aa
 ab
-ah
-aO
-av
-bO
-aE
-aO
-aT
-aY
+ag
+aw
+aK
+bq
+bF
+aw
+cC
+cR
 ab
 aa
 bf
@@ -6443,13 +6480,13 @@ bg
 bg
 bg
 cb
-bk
-aO
-bm
-bo
-bm
-av
-ab
+dp
+aw
+aY
+dx
+aY
+aK
+dD
 cq
 bg
 bg
@@ -6541,10 +6578,10 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -6552,7 +6589,7 @@ bg
 bg
 bg
 dH
-bg
+dL
 bg
 bg
 bg
@@ -6571,10 +6608,8 @@ bg
 bg
 bg
 bg
-bg
-dK
-bg
-bg
+dL
+ec
 bg
 bg
 bg
@@ -6583,13 +6618,15 @@ bg
 bg
 bg
 bg
-dF
-as
-dy
-dB
+bg
+bg
 dE
-as
-dF
+aq
+dM
+dV
+dY
+aq
+dE
 bg
 bg
 bg
@@ -6620,14 +6657,14 @@ aa
 (25,1,1) = {"
 aa
 ab
-ah
-aO
-av
-bO
-cL
-aP
-aU
-aZ
+ag
+aw
+aK
+bq
+bG
+bX
+cD
+cS
 ab
 aa
 bf
@@ -6637,22 +6674,22 @@ bg
 bg
 bg
 cb
-ab
-bu
-bm
-bm
-bm
-bt
-ab
+dD
+dq
+aY
+aY
+aY
+dB
+dD
 cr
 bg
 bg
 bg
 bg
 bg
-bg
-bg
-bg
+bf
+bf
+bf
 bg
 bg
 bg
@@ -6746,7 +6783,7 @@ bg
 bg
 bg
 dH
-dK
+ec
 bg
 bg
 bg
@@ -6765,8 +6802,8 @@ bg
 bg
 bg
 bg
-bg
-bg
+dL
+dL
 bg
 bg
 bg
@@ -6777,13 +6814,13 @@ bg
 bg
 bg
 du
-ab
-as
-as
-as
-as
-as
-ab
+dD
+aq
+aq
+aq
+aq
+aq
+dD
 du
 bg
 bg
@@ -6814,10 +6851,10 @@ aa
 (26,1,1) = {"
 aa
 ab
-ai
-aO
-av
-bO
+ah
+aw
+aK
+bq
 ab
 ab
 ab
@@ -6831,19 +6868,23 @@ bg
 bg
 bg
 cb
+dD
 ab
+dw
+aZ
+dz
 ab
-dM
-bn
-br
-ab
-ab
+dD
 cq
 bg
 bg
 bg
 bg
 bg
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -6873,14 +6914,10 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
+dL
 dH
-bg
-dJ
+dL
+dO
 dK
 dK
 bg
@@ -6940,7 +6977,7 @@ bg
 bg
 bg
 dH
-dK
+ec
 bg
 bg
 bg
@@ -6971,13 +7008,13 @@ bg
 bg
 bg
 dt
-ab
-ab
-dF
-dG
-dF
-ab
-ab
+dC
+dD
+dE
+eg
+dE
+dD
+dC
 dt
 bg
 bg
@@ -7008,14 +7045,14 @@ aa
 (27,1,1) = {"
 aa
 ab
-ag
-aO
+af
+aw
+aK
+bq
+bk
 av
-bO
-az
-aN
-aS
 aX
+cQ
 ab
 aa
 bf
@@ -7026,11 +7063,11 @@ bg
 bg
 cc
 ce
-ab
-ab
-bk
-ab
-ab
+dD
+dD
+dp
+dD
+dD
 cn
 co
 bg
@@ -7039,10 +7076,21 @@ bg
 bg
 bg
 bg
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
 bg
+bg
+bg
+bg
+bg
+bg
+bf
 bf
 bg
 bg
@@ -7058,23 +7106,12 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
 dK
 dK
-bg
+dL
 dH
-bg
-dK
+dL
+ec
 bg
 bg
 bg
@@ -7117,7 +7154,7 @@ bg
 bg
 bg
 bg
-bg
+bf
 bg
 bg
 bg
@@ -7134,7 +7171,7 @@ bg
 bg
 bg
 dH
-bg
+dL
 bg
 bg
 bg
@@ -7202,14 +7239,14 @@ aa
 (28,1,1) = {"
 aa
 ab
-ah
-aO
-av
-bO
-aE
-aO
-aT
-aY
+ag
+aw
+aK
+bq
+bF
+aw
+cC
+cR
 ab
 aa
 bf
@@ -7234,22 +7271,22 @@ bg
 bg
 bg
 bg
+bf
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+bg
+bg
 bg
 bg
 bf
 bf
 bf
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+bf
 bg
 bg
 bg
@@ -7263,13 +7300,13 @@ bg
 bg
 bg
 bg
-bg
-dK
-bg
+dL
+ec
+dL
 dH
-bg
-bg
-bg
+dL
+dL
+dL
 bg
 bg
 bg
@@ -7308,11 +7345,11 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -7370,9 +7407,9 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
+bf
+bf
+bf
 bg
 bg
 bg
@@ -7396,14 +7433,14 @@ aa
 (29,1,1) = {"
 aa
 ab
-ah
-am
-bw
-bO
-cL
-aP
-aU
-aZ
+ag
+ax
+aL
+bq
+bG
+bX
+cD
+cS
 ab
 aa
 bf
@@ -7428,12 +7465,85 @@ bg
 bg
 bg
 bg
+bf
+bf
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+bg
+bg
+bg
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+dH
+dH
+dH
+dH
+dH
+dH
+dH
+bg
+bg
+bg
+bg
+bg
+dL
+dL
+dL
+dL
+dL
+dH
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
 bg
 bf
 bf
 bf
 bf
 bf
+bf
 bg
 bg
 bg
@@ -7457,13 +7567,6 @@ bg
 bg
 bg
 bg
-dH
-dH
-dH
-dH
-dH
-dH
-dH
 bg
 bg
 bg
@@ -7474,7 +7577,6 @@ bg
 bg
 bg
 bg
-dH
 bg
 bg
 bg
@@ -7498,76 +7600,11 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -7635,6 +7672,12 @@ bg
 bg
 bg
 bg
+bf
+bf
+bf
+bg
+bg
+dZ
 bg
 bg
 bg
@@ -7645,29 +7688,23 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+dL
+dL
 dH
-bg
-dK
-bg
-bg
+dL
+ec
+dL
+dL
 bg
 bg
 bg
 dK
 dJ
-dK
-dK
-bg
-dK
-bg
+ec
+ec
+dL
+ec
+dL
 dH
 bg
 bg
@@ -7681,7 +7718,7 @@ bg
 bg
 bg
 bg
-bg
+dZ
 bg
 bg
 bg
@@ -7695,6 +7732,11 @@ bg
 bg
 bg
 bg
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -7751,17 +7793,12 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -7810,7 +7847,7 @@ bg
 bg
 bg
 bg
-bg
+dZ
 bg
 bg
 bg
@@ -7818,50 +7855,50 @@ bg
 bg
 bg
 dH
-dI
-dO
 dN
-dI
-dH
 dQ
-dK
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+dP
+dN
 dH
-dK
-dI
-dK
-bg
-dK
+ee
+ec
 bg
 bg
 bg
+bf
+bf
+bf
+bf
 bg
 bg
 bg
-dK
-dK
-dK
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+dL
+dL
+dH
+ec
+dN
+ec
+dL
+ec
+dL
+dL
+dL
+bg
+dL
+dL
+ec
+ec
+ec
 dH
 bg
 bg
@@ -7879,6 +7916,8 @@ bg
 bg
 bg
 bg
+bf
+bf
 bg
 bg
 bg
@@ -7886,13 +7925,11 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -7911,6 +7948,8 @@ bg
 bg
 bg
 bg
+bf
+bf
 bg
 bg
 bg
@@ -7946,16 +7985,14 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -8012,20 +8049,20 @@ bg
 bg
 bg
 dH
-dJ
-dL
-dJ
-dP
+dO
+dR
+dO
+ed
 dH
-dJ
+dO
+dL
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -8040,66 +8077,22 @@ bg
 bg
 dK
 dI
-bg
+dL
 dH
-bg
-dK
-bg
-bg
-bg
-dK
-dK
-bg
-bg
-dK
-bg
-dK
-bg
-bg
-dH
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-dH
-dH
+dL
+ec
+dL
+dL
+dL
+ec
+ec
+dL
+dL
+ec
+dL
+ec
+dL
+dL
 dH
 bg
 bg
@@ -8116,6 +8109,50 @@ bg
 bg
 bg
 bg
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+bg
+bg
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+dH
+dH
+dH
+bg
+bg
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
 bg
 bg
 bg
@@ -8141,13 +8178,13 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -8178,8 +8215,8 @@ aa
 aa
 aa
 ab
-ao
-ba
+aA
+cT
 ab
 aa
 bf
@@ -8206,21 +8243,21 @@ bg
 bg
 bg
 dH
-dN
-dL
-dK
-dK
+dP
+dR
+ec
+ec
 dH
+dL
+dL
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -8242,17 +8279,14 @@ bg
 bg
 bg
 dK
-bg
-bg
-dK
-bg
-bg
-dI
-dK
-bg
-bg
-bg
-bg
+dL
+dL
+ec
+dL
+dL
+dN
+ec
+dL
 bg
 bg
 bg
@@ -8268,16 +8302,19 @@ bg
 bg
 bg
 bg
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
 bg
 bg
 bg
@@ -8296,6 +8333,12 @@ bg
 bg
 bg
 bg
+bf
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -8310,14 +8353,8 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-dK
+dL
+ec
 dH
 bg
 bg
@@ -8336,11 +8373,11 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -8372,8 +8409,8 @@ ab
 ab
 ab
 ab
-ao
-bb
+aA
+cU
 ab
 aa
 bf
@@ -8399,10 +8436,33 @@ bg
 bg
 bg
 bg
+dL
+dL
+ec
+ec
+dL
+dL
+dL
+dL
 bg
 bg
-dK
-dK
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
 bg
 bg
 bg
@@ -8413,8 +8473,40 @@ bg
 bg
 bf
 bf
+dL
+ef
+dL
+dL
+dL
+dL
+ec
+dL
+dH
 bg
 bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bf
+bf
+bf
+bf
+bf
+bg
+bg
+bg
+bg
+bg
+bf
 bg
 bg
 bg
@@ -8436,14 +8528,27 @@ bg
 bg
 bf
 bf
+bf
+bf
+bf
+bf
+bf
 bg
-dR
 bg
 bg
 bg
 bg
-dK
 bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+bg
+dL
+dN
 dH
 bg
 bg
@@ -8463,75 +8568,7 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-dI
-dH
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+bf
 bg
 bg
 bg
@@ -8560,14 +8597,14 @@ aa
 (35,1,1) = {"
 aa
 ab
-ak
-at
-bC
-ao
-bC
-ao
-bC
-bc
+aj
+ay
+aM
+aA
+aM
+aA
+aM
+cV
 ab
 aa
 bf
@@ -8594,30 +8631,30 @@ bg
 bg
 bg
 dH
-bg
-dK
+dL
+ec
+bf
+bf
+bf
+bf
+dL
+dL
+bf
+bf
+bf
+bf
 bf
 bf
 bf
 bf
 bg
 bg
-bf
-bf
-bf
-bf
-bf
-bf
-bf
-bf
 bg
 bg
 bg
 bg
 bg
-bg
-bg
-bg
+dZ
 bg
 bg
 bg
@@ -8653,6 +8690,11 @@ bg
 bg
 bg
 bg
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -8678,6 +8720,12 @@ bg
 bg
 bg
 bg
+bf
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -8693,19 +8741,8 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-dK
+dL
+ec
 dH
 bg
 bg
@@ -8714,8 +8751,8 @@ bg
 bg
 bg
 bg
-bg
-bg
+bf
+bf
 bg
 bg
 bg
@@ -8757,10 +8794,10 @@ ab
 ab
 ab
 ab
-at
+ay
 ab
 ab
-at
+ay
 ab
 ab
 aa
@@ -8847,11 +8884,11 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -8877,6 +8914,11 @@ bh
 bg
 bg
 bg
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -8893,13 +8935,8 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+dL
+dL
 dH
 bg
 bg
@@ -8909,9 +8946,9 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
+bf
+bf
+bf
 bg
 bg
 bg
@@ -8934,7 +8971,7 @@ bf
 bg
 bg
 bg
-bg
+dZ
 bg
 bf
 bf
@@ -8950,12 +8987,12 @@ aa
 aa
 aa
 ab
-ar
-ay
-da
-cY
-bU
-dj
+aN
+br
+bI
+aS
+cE
+cW
 ab
 aa
 bf
@@ -9042,11 +9079,11 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -9071,11 +9108,11 @@ bh
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bl
@@ -9103,10 +9140,10 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -9144,12 +9181,12 @@ aa
 aa
 aa
 ab
-ax
-cM
-db
-df
-cR
-dk
+aO
+bs
+bJ
+cs
+cF
+cX
 ab
 aa
 bf
@@ -9236,14 +9273,14 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -9266,7 +9303,7 @@ bg
 bg
 bg
 bg
-bg
+bf
 bg
 bg
 bg
@@ -9297,12 +9334,12 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -9338,12 +9375,12 @@ aa
 aa
 aa
 ab
-bX
-bd
-cZ
-dc
-bW
-dl
+aP
+bt
+aT
+bK
+cG
+cY
 ab
 aa
 bf
@@ -9411,6 +9448,7 @@ bg
 bg
 bg
 bg
+bf
 bg
 bg
 bg
@@ -9430,8 +9468,7 @@ bg
 bg
 bg
 bg
-bg
-bg
+bf
 bf
 bf
 bf
@@ -9491,12 +9528,12 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -9532,12 +9569,12 @@ aa
 aa
 aa
 ab
-bY
-cN
-dc
-dg
-cR
-dm
+aQ
+bu
+bK
+ct
+cF
+cZ
 ab
 aa
 bf
@@ -9602,13 +9639,13 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -9685,13 +9722,13 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bh
-bg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -9726,12 +9763,12 @@ aa
 aa
 aa
 ab
-cX
-bS
+aR
+bv
+bI
+cu
+cH
 da
-dh
-bV
-dn
 ab
 aa
 bf
@@ -9800,10 +9837,10 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -9880,11 +9917,11 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bh
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -9920,12 +9957,12 @@ aa
 aa
 aa
 ab
-cY
-cM
-bY
-bY
-cS
-do
+aS
+bs
+aQ
+aQ
+cI
+db
 ab
 aa
 bf
@@ -9994,12 +10031,12 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -10074,11 +10111,11 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bi
+bf
+bf
+bf
+bf
+bf
 bg
 bg
 bg
@@ -10114,12 +10151,12 @@ aa
 aa
 aa
 ab
-ax
-bd
-dd
-di
-bV
-dp
+aO
+bt
+bL
+cv
+cH
+dc
 ab
 aa
 bf
@@ -10185,15 +10222,15 @@ bg
 bg
 bg
 bg
+dZ
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
+bf
+bf
+bf
+bf
+bf
 bf
 bf
 bf
@@ -10308,12 +10345,12 @@ aa
 aa
 aa
 ab
-cZ
-cO
-de
-de
-cO
-dq
+aT
+bw
+bM
+bM
+bw
+dd
 ab
 aa
 aa
@@ -10384,8 +10421,8 @@ bg
 bg
 bg
 bg
-bg
-bg
+bf
+bf
 bf
 bf
 bf
@@ -10503,10 +10540,10 @@ ab
 ab
 ab
 ab
-at
+ay
 ab
 ab
-at
+ay
 ab
 ab
 ab
@@ -10694,16 +10731,16 @@ aa
 (46,1,1) = {"
 aa
 ab
+ak
+az
+az
 bx
-bA
-bA
-cP
-bD
-bA
-cP
-bA
-bA
-bE
+bN
+az
+bx
+az
+az
+dh
 ab
 aa
 bf
@@ -10888,16 +10925,16 @@ aa
 (47,1,1) = {"
 aa
 ab
-by
-ao
-as
-ao
-ao
-ao
-as
-ap
-ao
-bF
+al
+aA
+aq
+aA
+aA
+aA
+aq
+ar
+aA
+di
 ab
 aa
 bf
@@ -11060,7 +11097,7 @@ bf
 bg
 bg
 bg
-bg
+ea
 bg
 bg
 bg
@@ -11082,16 +11119,16 @@ aa
 (48,1,1) = {"
 aa
 ab
-bz
-bB
-bT
-cQ
-bB
-bB
-bT
-bT
-bB
-bG
+am
+aB
+aU
+by
+aB
+aB
+aU
+aU
+aB
+dj
 ab
 aa
 bf
@@ -11278,14 +11315,14 @@ aa
 ab
 ab
 ab
-an
 aV
+bz
 ab
 ab
-an
 aV
+bz
 ab
-at
+ay
 ab
 aa
 bf
@@ -11472,14 +11509,14 @@ aa
 ab
 ab
 ab
-au
-aw
+aW
+bA
 ab
 ab
-aB
-be
+cJ
+de
 ab
-bN
+dk
 ab
 aa
 bf
@@ -11664,16 +11701,16 @@ aa
 (51,1,1) = {"
 aa
 ab
-bH
-aN
-aS
-aS
-aS
-aS
-aS
-aS
-bv
-bO
+an
+av
+aX
+aX
+aX
+aX
+aX
+aX
+aJ
+bq
 ab
 aa
 bf
@@ -11858,16 +11895,16 @@ aa
 (52,1,1) = {"
 aa
 ab
-bH
-aO
-dV
-dV
-dV
-dV
-dV
-dV
-av
-bP
+an
+aw
+aY
+aY
+aY
+aY
+aY
+aY
+aK
+dl
 ab
 aa
 bf
@@ -11995,7 +12032,7 @@ bf
 bg
 bg
 bg
-bg
+dZ
 bg
 bg
 bf
@@ -12052,16 +12089,16 @@ aa
 (53,1,1) = {"
 aa
 ab
-bI
-aO
-dU
-dU
-dU
-dU
-dU
-dU
-av
-bO
+ao
+aw
+aY
+aY
+aY
+aY
+aY
+aY
+aK
+bq
 ab
 aa
 bf
@@ -12157,7 +12194,7 @@ bf
 bf
 bg
 bg
-bg
+ea
 bg
 bg
 bg
@@ -12167,7 +12204,7 @@ bg
 bg
 bg
 dS
-bg
+dZ
 bg
 bg
 bg
@@ -12246,16 +12283,16 @@ aa
 (54,1,1) = {"
 aa
 ab
-bH
-aO
-bm
-bm
-bm
-bm
-bm
-bm
-av
-bO
+an
+aw
+aY
+aY
+aY
+aY
+aY
+aY
+aK
+bq
 ab
 aa
 bf
@@ -12440,16 +12477,16 @@ aa
 (55,1,1) = {"
 aa
 ab
-bH
-am
-dT
-dT
-dT
-dT
-dT
-dT
-bw
-bQ
+an
+ax
+aZ
+aZ
+aZ
+aZ
+aZ
+aZ
+aL
+dm
 ab
 aa
 bf
@@ -12634,16 +12671,16 @@ aa
 (56,1,1) = {"
 aa
 ab
-bJ
-bK
-bL
-bK
-bM
-bK
-bK
-bK
-bL
-bR
+ap
+aC
+ba
+aC
+bO
+aC
+aC
+aC
+ba
+dn
 ab
 aa
 bf
@@ -12828,16 +12865,16 @@ aa
 (57,1,1) = {"
 aa
 ab
-as
-aG
-aG
-aC
-aH
-dW
-aC
-as
-ao
-ap
+aq
+aD
+aD
+bB
+bP
+cw
+bB
+df
+dg
+do
 ab
 aa
 bf

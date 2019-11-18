@@ -52,12 +52,14 @@
 				materials.insert_item(R, 1, R.amount)
 				to_chat(user, "<span class='notice'>You add [R] to [src]</span>")
 				currently_forging = new R.reagent_type.type
+				qdel(R)
 				return
 
 			if(currently_forging && currently_forging.type && R.reagent_type.type == currently_forging.type)//preventing unnecessary references from being made
 				var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 				materials.insert_item(R, 1, R.amount)
 				to_chat(user, "<span class='notice'>You add [R] to [src]</span>")
+				qdel(R)
 				return
 			else
 				to_chat(user, "<span class='notice'>[currently_forging] is currently being forged, either remove or use it before adding a different material</span>")//if null is currently being forged comes up i'm gonna scree
