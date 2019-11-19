@@ -9167,6 +9167,10 @@
 	},
 /turf/open/floor/plating/airless,
 /area/syndicate_mothership/control)
+"uf" = (
+/obj/machinery/reagent_sheet,
+/turf/open/indestructible,
+/area/centcom/debug)
 "ug" = (
 /turf/open/indestructible,
 /area/centcom/debug)
@@ -9481,6 +9485,7 @@
 	},
 /obj/effect/turf_decal/tile/blue,
 /obj/structure/table/wood/fancy/royalblue,
+/obj/machinery/reagentgrinder/constructed,
 /turf/open/indestructible,
 /area/centcom/debug)
 "uJ" = (
@@ -10602,8 +10607,9 @@
 /turf/open/floor/plating/snowed/smoothed/centcom,
 /area/centcom/outdoors)
 "wV" = (
-/turf/open/floor/plating/asteroid/snow/centcom,
-/area/syndicate_mothership)
+/obj/machinery/reagent_material_manipulator,
+/turf/open/indestructible,
+/area/centcom/debug)
 "wW" = (
 /obj/machinery/light{
 	dir = 1
@@ -10636,6 +10642,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/syndicate_mothership/control)
+"wZ" = (
+/obj/machinery/reagent_forge,
+/turf/open/indestructible,
+/area/centcom/debug)
 "xa" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -10855,6 +10865,19 @@
 /obj/machinery/light,
 /turf/open/floor/carpet,
 /area/wizard_station)
+"xA" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/chem_master,
+/turf/open/indestructible,
+/area/centcom/debug)
 "xB" = (
 /mob/living/simple_animal/bot/medbot{
 	desc = "When engaged in combat, the vanquishing of thine enemy can be the warrior's only concern.";
@@ -10864,6 +10887,26 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
+"xC" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/machinery/chem_dispenser/chem_synthesizer,
+/turf/open/indestructible,
+/area/centcom/debug)
+"xD" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/machinery/chem_heater,
+/turf/open/indestructible,
+/area/centcom/debug)
 "xE" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 8
@@ -10874,6 +10917,10 @@
 /obj/effect/turf_decal/tile/green,
 /turf/open/floor/holofloor,
 /area/holodeck/rec_center/firingrange)
+"xF" = (
+/obj/machinery/iv_drip,
+/turf/open/indestructible,
+/area/centcom/debug)
 "xG" = (
 /turf/open/floor/plasteel/dark,
 /area/syndicate_mothership/control)
@@ -10908,6 +10955,10 @@
 	},
 /turf/open/floor/plating/airless,
 /area/syndicate_mothership/control)
+"xN" = (
+/obj/machinery/autodoc,
+/turf/open/indestructible,
+/area/centcom/debug)
 "xO" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -11029,6 +11080,10 @@
 	},
 /turf/open/floor/engine/cult,
 /area/wizard_station)
+"yc" = (
+/obj/machinery/priem_steklotara,
+/turf/open/indestructible,
+/area/centcom/debug)
 "yd" = (
 /obj/structure/flora/ausbushes/fernybush,
 /obj/structure/flora/ausbushes/fullgrass,
@@ -11040,6 +11095,10 @@
 	},
 /turf/open/floor/grass,
 /area/centcom/holding)
+"ye" = (
+/obj/item/statuebust/hippocratic,
+/turf/open/floor/plating/asteroid/snow/centcom,
+/area/centcom/outdoors)
 "yf" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -11047,6 +11106,18 @@
 /obj/machinery/light,
 /turf/open/floor/plasteel/dark,
 /area/centcom/supplypod)
+"yg" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/computer/arcade/amputation,
+/turf/open/indestructible,
+/area/centcom/debug)
+"yh" = (
+/obj/machinery/syndicatebomb/badmin,
+/turf/open/indestructible,
+/area/centcom/debug)
 "yj" = (
 /obj/machinery/door/airlock/centcom{
 	name = "CentCom Security";
@@ -42932,37 +43003,37 @@ hl
 hl
 hl
 hl
-wV
+hl
 hh
 hh
 hh
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
 hh
 hh
 hh
@@ -43194,32 +43265,32 @@ hh
 aa
 hh
 hh
-wV
-wV
-wV
+hl
+hl
+hl
 hh
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
 hh
 aa
 aa
@@ -43456,26 +43527,26 @@ hh
 hh
 hh
 hh
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
 hh
 hh
 aa
@@ -43714,25 +43785,25 @@ aa
 aa
 hh
 hh
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
 hh
-wV
-wV
-wV
-wV
+hl
+hl
+hl
+hl
 hh
 aa
 aa
@@ -43971,23 +44042,23 @@ aa
 aa
 aa
 hh
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
-wV
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
+hl
 hh
 hh
-wV
+hl
 hh
 hh
-wV
+hl
 hh
 hh
 hh
@@ -44229,14 +44300,14 @@ aa
 aa
 hh
 hh
-wV
+hl
 hh
 hh
 hh
 hh
-wV
-wV
-wV
+hl
+hl
+hl
 hh
 hh
 hh
@@ -44492,7 +44563,7 @@ aa
 aa
 hh
 hh
-wV
+hl
 hh
 hh
 aa
@@ -49899,7 +49970,7 @@ jC
 jC
 jC
 jC
-jC
+ye
 jC
 jC
 jC
@@ -61199,9 +61270,9 @@ uc
 uc
 uc
 uc
-wX
-uc
-uc
+xA
+xC
+xD
 uI
 io
 lL
@@ -61710,11 +61781,11 @@ ug
 ug
 ug
 ug
+yc
 ug
+uf
 ug
-ug
-ug
-ug
+wZ
 ug
 uM
 io
@@ -61965,10 +62036,10 @@ wq
 vr
 ug
 ug
-ug
+xN
 ug
 uh
-ug
+yh
 ug
 ug
 ug
@@ -62224,13 +62295,13 @@ ug
 ug
 ug
 ug
+xF
+ug
+wV
 ug
 ug
 ug
-ug
-ug
-ug
-uM
+yg
 io
 vS
 iu
