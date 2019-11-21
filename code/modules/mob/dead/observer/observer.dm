@@ -280,14 +280,15 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set desc = "Relinquish your life and enter the land of the dead."
 
 	if(stat != DEAD)
+		succumb()
 		if(incapacitated())
 			var/response = alert(src, "Преждевременный выход из тела отбирает у тебя право на донос.\nОно тебе нужно?", "Точно, ёпта?", "Да, хуярь", "Не, нихуя")
 			if(response == "Да, хуярь")
-				ghostize(1)
+				ghostize(FALSE)
 				return
 		to_chat(src, "<span class='boldnotice'>Я пока ещё живу.</span>")
 	if(stat == DEAD)
-		ghostize(1)
+		ghostize(TRUE)
 	return
 
 /mob/camera/verb/ghost()
