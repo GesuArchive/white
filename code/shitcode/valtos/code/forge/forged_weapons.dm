@@ -75,7 +75,7 @@
 	icon_state = "forged_sword"
 	item_state = "forged_sword"
 	mob_overlay_icon = 'code/shitcode/valtos/icons/forge/belt.dmi'
-	slot_flags = SLOT_BELT
+	slot_flags = ITEM_SLOT_BELT
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	weapon_type = MELEE_TYPE_SWORD
 	stabby = TRANSFER_SHARPER
@@ -90,7 +90,7 @@
 	icon_state = "forged_mace"
 	item_state = "forged_mace"
 	mob_overlay_icon = 'code/shitcode/valtos/icons/forge/belt.dmi'
-	slot_flags = SLOT_BELT
+	slot_flags = ITEM_SLOT_BELT
 	hitsound = 'code/shitcode/valtos/sounds/forge/crunch.ogg'
 	weapon_type = MELEE_TYPE_MACE
 	stabby = TRANSFER_PARTIALLY_BLUNT

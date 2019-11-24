@@ -279,10 +279,10 @@ GLOBAL_LIST_EMPTY(donators)
 			return 0
 
 	var/list/slots = list(
-		"сумке" = SLOT_IN_BACKPACK,
-		"левом кармане" = SLOT_L_STORE,
-		"правом кармане" = SLOT_R_STORE,
-		"руке" = SLOT_GENERC_DEXTROUS_STORAGE
+		"сумке" = ITEM_SLOT_BACKPACK,
+		"левом кармане" = ITEM_SLOT_LPOCKET,
+		"правом кармане" = ITEM_SLOT_RPOCKET,
+		"руке" = ITEM_SLOT_DEX_STORAGE
 	)
 
 	prize.stock--

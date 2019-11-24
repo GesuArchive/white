@@ -780,7 +780,7 @@
 				I.update_icon()
 		if(2)
 			var/dMI = get_dist(get_turf(M),get_turf(I))
-			if(M.can_equip(I, SLOT_HANDS)&& !(dMI > 1 || dMI < 0))
+			if(M.can_equip(I, ITEM_SLOT_HANDS)&& !(dMI > 1 || dMI < 0))
 				M.put_in_hands(I)
 		if(3)
 			M.drop_all_held_items()

@@ -271,7 +271,7 @@
 			lust_increase = 1
 			c_target = null
 			stp = "code/shitcode/valtos/sounds/exrp/interactions/foot_dry[rand(1, 4)].ogg"
-			if(src.get_item_by_slot(SLOT_SHOES) != null)
+			if(src.get_item_by_slot(ITEM_SLOT_FEET) != null)
 				message = pick(list("поставил [get_shoes()] подошвой на лицо [partner].", "опускает свои [get_shoes()] на лицо [partner] и надавливает ими.", "грубо давит [get_shoes()] на лицо [partner]."))
 			else
 				message = pick(list("ставит свои оголённые ноги на лицо [partner].", "опускает свои массивные ступни на лицо [partner], и мнёт ими его.", "выставляет ноги на лицо [partner]."))
@@ -281,7 +281,7 @@
 			lust_increase = 1
 			c_target = null
 			stp = "code/shitcode/valtos/sounds/exrp/interactions/foot_wet[rand(1, 3)].ogg"
-			if(src.get_item_by_slot(SLOT_SHOES) != null)
+			if(src.get_item_by_slot(ITEM_SLOT_FEET) != null)
 				message = pick(list("заставляет [partner] попробовать [get_shoes()].", "даёт слизать грязь с [get_shoes()] [partner]."))
 			else
 				message = pick(list("принуждает [partner] попробовать свой грязный палец на ноге.", "предлагает [partner] вкусить ступню.", "прикрывает рот и нос [partner] ступнёй, затем ждёт пока [partner] отключится и резко отпускает ступню."))
@@ -322,7 +322,7 @@
 	do_fucking_animation(get_dir(src, partner))
 
 /mob/proc/get_shoes()
-	var/obj/A = get_item_by_slot(SLOT_SHOES)
+	var/obj/A = get_item_by_slot(ITEM_SLOT_FEET)
 	if(findtext (A.name,"the"))
 		return copytext(A.name, 3, (length(A.name)) + 1)
 	else

@@ -31,7 +31,6 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	/datum/surgery_step/retract_skin,
 	/datum/surgery_step/insert_pill,
 	/datum/surgery_step/fix_eyes,
-	/datum/surgery_step/replace,
 	/datum/surgery_step/revive,
 	/datum/surgery_step/pacify,
 	/datum/surgery_step/thread_veins,

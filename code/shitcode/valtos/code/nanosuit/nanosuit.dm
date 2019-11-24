@@ -27,7 +27,7 @@
 
 /obj/item/clothing/under/syndicate/combat/nano/equipped(mob/user, slot)
 	..()
-	if(slot == SLOT_W_UNIFORM)
+	if(slot == ITEM_SLOT_ICLOTHING)
 		ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
 
 /obj/item/clothing/mask/gas/nano_mask
@@ -39,7 +39,7 @@
 
 /obj/item/clothing/mask/gas/nano_mask/equipped(mob/user, slot)
 	..()
-	if(slot == SLOT_WEAR_MASK)
+	if(slot == ITEM_SLOT_MASK)
 		ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
 
 /datum/action/item_action/nanojump
@@ -95,7 +95,7 @@
 
 /obj/item/clothing/shoes/combat/coldres/nanojump/equipped(mob/user, slot)
 	..()
-	if(slot == SLOT_SHOES)
+	if(slot == ITEM_SLOT_FEET)
 		ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
 
 /obj/item/clothing/gloves/combat/nano
@@ -108,7 +108,7 @@
 
 /obj/item/clothing/gloves/combat/nano/equipped(mob/user, slot)
 	..()
-	if(slot == SLOT_GLOVES)
+	if(slot == ITEM_SLOT_GLOVES)
 		ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
 
 /obj/item/radio/headset/syndicate/alt/nano
@@ -123,7 +123,7 @@
 
 /obj/item/radio/headset/syndicate/alt/nano/equipped(mob/user, slot)
 	..()
-	if(slot == SLOT_EARS)
+	if(slot == ITEM_SLOT_EARS)
 		ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
 
 /obj/item/radio/headset/syndicate/alt/nano/AltClick()
@@ -160,7 +160,7 @@
 
 /obj/item/clothing/glasses/nano_goggles/equipped(mob/user, slot)
 	..()
-	if(slot == SLOT_GLASSES)
+	if(slot == ITEM_SLOT_EYES)
 		ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
 
 /obj/item/clothing/glasses/nano_goggles/ui_action_click(mob/user, action)
@@ -631,7 +631,7 @@
 
 /obj/item/clothing/head/helmet/space/hardsuit/nano/equipped(mob/living/carbon/human/user, slot)
 	..()
-	if(slot == SLOT_HEAD)
+	if(slot == ITEM_SLOT_HEAD)
 		ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
 		for(var/hud_type in datahuds)
 			var/datum/atom_hud/DHUD = GLOB.huds[hud_type]
@@ -680,7 +680,7 @@
 /obj/item/clothing/suit/space/hardsuit/nano/equipped(mob/user, slot)
 	if(ishuman(user))
 		Wearer = user
-	if(slot == SLOT_WEAR_SUIT)
+	if(slot == ITEM_SLOT_OCLOTHING)
 		var/turf/T = get_turf(src)
 		var/area/A = get_area(src)
 		ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
@@ -744,7 +744,7 @@
 	gloves = /obj/item/clothing/gloves/combat/nano
 	implants = list(/obj/item/implant/explosive/disintegrate)
 	suit_store = /obj/item/tank/internals/emergency_oxygen/recharge
-	internals_slot = SLOT_S_STORE
+	internals_slot = ITEM_SLOT_SUITSTORE
 
 /mob/living/carbon/human/Stat()
 	..()
@@ -1089,7 +1089,7 @@
 
 /obj/item/tank/internals/emergency_oxygen/recharge/equipped(mob/living/carbon/human/wearer, slot)
 	..()
-	if(slot == SLOT_S_STORE)
+	if(slot == ITEM_SLOT_SUITSTORE)
 		ADD_TRAIT(src, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
 		START_PROCESSING(SSobj, src)
 

@@ -235,7 +235,7 @@ obj/item/banner/engineering/atmos/mundane
 	zoomable = TRUE
 	zoom_amt = 10
 	zoom_out_amt = 13
-	slot_flags = SLOT_BACK
+	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/internal/shot
 	casing_ejector = FALSE
 	weapon_weight = WEAPON_MEDIUM
@@ -280,7 +280,7 @@ obj/item/banner/engineering/atmos/mundane
 
 
 /obj/item/book/ruchinese/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] ебашит себя по голове книгой, видимо на станции нет мух!</span>")
+	user.visible_message("<span class='suicide'>[user] пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ!</span>")
 	var/delay_offset = 0
 	for(var/mob/M in viewers(src, 7))
 		var/mob/living/carbon/human/C = M
@@ -291,7 +291,7 @@ obj/item/banner/engineering/atmos/mundane
 
 /datum/uplink_item/role_restricted/ruchinese
 	name = "Russian-chinese dictionary"
-	desc = "Старая книга, убившая прародителя мух и мотыльков. На ней до сих пор видны их засохшие внутренности."
+	desc = "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ."
 	item = /obj/item/book/ruchinese
 	cost = 18
 	restricted_roles = list("Chaplain", "Curator", "Assistant")
