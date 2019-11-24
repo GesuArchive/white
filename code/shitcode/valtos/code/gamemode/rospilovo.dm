@@ -753,10 +753,6 @@
 /obj/structure/grille/rospilovo/attackby(obj/item/W, mob/user, params)
 	return
 
-/obj/structure/grille/hitby(AM as mob|obj)
-	..()
-	return
-
 /obj/structure/grille/rospilovo/wood
 	desc = "Старый деревянный забор."
 	icon_state = "zabor_horizontal1"
