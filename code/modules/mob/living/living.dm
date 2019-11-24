@@ -497,6 +497,37 @@
 	update_stat()
 	med_hud_set_health()
 	med_hud_set_status()
+	update_health_hud()
+
+/mob/living/update_health_hud()
+	if(hud_used?.healths)
+		var/severity = 0
+		var/healthpercent = (health/maxHealth) * 100
+		switch(healthpercent)
+			if(100 to INFINITY)
+				hud_used.healths.icon_state = "health0"
+			if(80 to 100)
+				hud_used.healths.icon_state = "health1"
+				severity = 1
+			if(60 to 80)
+				hud_used.healths.icon_state = "health2"
+				severity = 2
+			if(40 to 60)
+				hud_used.healths.icon_state = "health3"
+				severity = 3
+			if(20 to 40)
+				hud_used.healths.icon_state = "health4"
+				severity = 4
+			if(1 to 20)
+				hud_used.healths.icon_state = "health5"
+				severity = 5
+			else
+				hud_used.healths.icon_state = "health7"
+				severity = 6
+		if(severity > 0)
+			overlay_fullscreen("brute", /obj/screen/fullscreen/brute, severity)
+		else
+			clear_fullscreen("brute")
 
 //Proc used to resuscitate a mob, for full_heal see fully_heal()
 /mob/living/proc/revive(full_heal = FALSE, admin_revive = FALSE)
@@ -579,7 +610,7 @@
 	return
 
 /mob/living/Move(atom/newloc, direct)
-	if(lying) 
+	if(lying)
 		if(direct & EAST)
 			lying = 90
 		if(direct & WEST)
@@ -759,7 +790,8 @@
 /mob/living/proc/get_visible_name()
 	return name
 
-/mob/living/update_gravity(has_gravity,override = 0)
+/mob/living/update_gravity(has_gravity, override)
+	. = ..()
 	if(!SSticker.HasRoundStarted())
 		return
 	if(has_gravity)
@@ -933,8 +965,11 @@
 	return TRUE
 
 /mob/living/proc/can_use_guns(obj/item/G)//actually used for more than guns!
+	if(G.trigger_guard == TRIGGER_GUARD_NONE)
+		to_chat(src, "<span class='warning'>You are unable to fire this!</span>")
+		return FALSE
 	if(G.trigger_guard != TRIGGER_GUARD_ALLOW_ALL && !IsAdvancedToolUser())
-		to_chat(src, "<span class='warning'>У тебя не хватает ловкости для этого!</span>")
+		to_chat(src, "<span class='warning'>Пытаюсь выстрелить из [G.name], но ничего не выходит!</span>")
 		return FALSE
 	return TRUE
 
@@ -1164,6 +1199,19 @@
 			layer = initial(layer)
 	update_transform()
 	lying_prev = lying
+
+	// Movespeed mods based on arms/legs quantity
+	if(!get_leg_ignore())
+		var/limbless_slowdown = 0
+		// These checks for <2 should be swapped out for something else if we ever end up with a species with more than 2
+		if(has_legs < 2)
+			limbless_slowdown += 6 - (has_legs * 3)
+			if(!has_legs && has_arms < 2)
+				limbless_slowdown += 6 - (has_arms * 3)
+		if(limbless_slowdown)
+			add_movespeed_modifier(MOVESPEED_ID_LIVING_LIMBLESS, update=TRUE, priority=100, override=TRUE, multiplicative_slowdown=limbless_slowdown, movetypes=GROUND)
+		else
+			remove_movespeed_modifier(MOVESPEED_ID_LIVING_LIMBLESS, update=TRUE)
 
 /mob/living/proc/fall(forced)
 	if(!(mobility_flags & MOBILITY_USE))

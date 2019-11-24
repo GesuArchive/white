@@ -28,7 +28,7 @@ GLOBAL_LIST_EMPTY(all_wormholes) // So we can pick wormholes to teleport to
 
 	for(var/i = 1, i <= number_of_wormholes, i++)
 		var/turf/T = pick(pick_turfs)
-		wormholes += new /obj/effect/portal/wormhole(T, null, 0, null, FALSE)
+		wormholes += new /obj/effect/portal/wormhole(T, 0, null, FALSE)
 
 /datum/round_event/wormholes/announce(fake)
 	priority_announce("На станции обнаружены пространственно-временные аномалии. Нет никаких дополнительных данных.", "Аномальная тревога", 'sound/ai/spanomalies.ogg')

@@ -261,7 +261,7 @@ Transfer_mind is there to check if mob is being deleted/not going to have a body
 Works together with spawning an observer, noted above.
 */
 
-/mob/proc/ghostize(can_reenter_corpse = 1)
+/mob/proc/ghostize(can_reenter_corpse = TRUE)
 	if(key)
 		if(!cmptext(copytext(key,1,2),"@")) // Skip aghosts.
 			stop_sound_channel(CHANNEL_HEARTBEAT) //Stop heartbeat sounds because You Are A Ghost Now
@@ -269,6 +269,8 @@ Works together with spawning an observer, noted above.
 			SStgui.on_transfer(src, ghost) // Transfer NanoUIs.
 			ghost.can_reenter_corpse = can_reenter_corpse
 			ghost.key = key
+			if(!can_reenter_corpse)	// Disassociates observer mind from the body mind
+				ghost.mind = null
 			return ghost
 
 /*
@@ -299,7 +301,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	var/response = alert(src, "Are you -sure- you want to ghost?\n(You are alive. If you ghost whilst still alive you may not play again this round! You can't change your mind so choose wisely!!)","Are you sure you want to ghost?","Ghost","Stay in body")
 	if(response != "Ghost")
 		return
-	ghostize(0)
+	ghostize(FALSE)
 
 /mob/dead/observer/Move(NewLoc, direct)
 	if(updatedir)
@@ -355,6 +357,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 
 	can_reenter_corpse = FALSE
+	// Disassociates observer mind from the body mind
+	mind = null
+
 	to_chat(src, "<span class='boldnotice'>You can no longer be brought back into your body.</span>")
 	return TRUE
 

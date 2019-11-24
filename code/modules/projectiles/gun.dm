@@ -51,6 +51,7 @@
 	var/obj/item/flashlight/seclite/gun_light
 	var/mutable_appearance/flashlight_overlay
 	var/datum/action/item_action/toggle_gunlight/alight
+	var/gunlight_state = "flight"
 
 	var/can_bayonet = FALSE //if a bayonet can be added or removed if it already has one.
 	var/obj/item/kitchen/knife/bayonet
@@ -220,11 +221,10 @@
 				process_fire(user, user, FALSE, params, shot_leg)
 				user.dropItemToGround(src, TRUE)
 				return
-
-	if(weapon_weight == WEAPON_HEAVY && user.get_inactive_held_item())
+	var/obj/item/bodypart/other_hand = user.has_hand_for_held_index(user.get_inactive_hand_index()) //returns non-disabled inactive hands 
+	if(weapon_weight == WEAPON_HEAVY && (user.get_inactive_held_item() || !other_hand))
 		to_chat(user, "<span class='warning'>Нужно держать [src.name] в обеих руках!</span>")
 		return
-
 	//DUAL (or more!) WIELDING
 	var/bonus_spread = 0
 	var/loop_counter = 0
@@ -482,7 +482,7 @@
 		else
 			set_light(0)
 		cut_overlays(flashlight_overlay, TRUE)
-		var/state = "flight[gun_light.on? "_on":""]"	//Generic state.
+		var/state = "[gunlight_state][gun_light.on? "_on":""]"	//Generic state.
 		if(gun_light.icon_state in icon_states('icons/obj/guns/flashlights.dmi'))	//Snowflake state?
 			state = gun_light.icon_state
 		flashlight_overlay = mutable_appearance('icons/obj/guns/flashlights.dmi', state)

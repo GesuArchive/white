@@ -11,9 +11,9 @@
 		. += "<span class='warning'>[t_on] [icon2html(handcuffed, user)] в наручниках!</span>"
 	if (head)
 		. += "На голове у н[t_ego] [head.ru_get_examine_string(user)]."
-	if(wear_mask && !(SLOT_WEAR_MASK in obscured))
+	if(wear_mask && !(ITEM_SLOT_MASK in obscured))
 		. += "На [t_ego] лице [wear_mask.ru_get_examine_string(user)]."
-	if(wear_neck && !(SLOT_NECK in obscured))
+	if(wear_neck && !(ITEM_SLOT_NECK in obscured))
 		. += "На шее у н[t_ego] [wear_neck.ru_get_examine_string(user)]."
 
 	for(var/obj/item/I in held_items)

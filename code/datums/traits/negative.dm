@@ -46,7 +46,7 @@
 /datum/quirk/blindness/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
 	var/obj/item/clothing/glasses/blindfold/white/B = new(get_turf(H))
-	if(!H.equip_to_slot_if_possible(B, SLOT_GLASSES, bypass_equip_delay_self = TRUE)) //if you can't put it on the user's eyes, put it in their hands, otherwise put it on their eyes
+	if(!H.equip_to_slot_if_possible(B, ITEM_SLOT_EYES, bypass_equip_delay_self = TRUE)) //if you can't put it on the user's eyes, put it in their hands, otherwise put it on their eyes
 		H.put_in_hands(B)
 	H.regenerate_icons()
 
@@ -177,9 +177,9 @@
 		/obj/item/dice/d20)
 	heirloom = new heirloom_type(get_turf(quirk_holder))
 	var/list/slots = list(
-		"в вашем левом кармане" = SLOT_L_STORE,
-		"в вашем правом кармане" = SLOT_R_STORE,
-		"в вашей сумке" = SLOT_IN_BACKPACK
+		"в вашем левом кармане" = ITEM_SLOT_LPOCKET,
+		"в вашем правом кармане" = ITEM_SLOT_RPOCKET,
+		"в вашей сумке" = ITEM_SLOT_BACKPACK
 	)
 	where = H.equip_in_one_of_slots(heirloom, slots, FALSE) || "у ваших ног"
 
@@ -270,7 +270,7 @@
 	var/mob/living/carbon/human/H = quirk_holder
 	var/obj/item/clothing/glasses/regular/glasses = new(get_turf(H))
 	H.put_in_hands(glasses)
-	H.equip_to_slot(glasses, SLOT_GLASSES)
+	H.equip_to_slot(glasses, ITEM_SLOT_EYES)
 	H.regenerate_icons() //this is to remove the inhand icon, which persists even if it's not in their hands
 
 /datum/quirk/nyctophobia
@@ -481,9 +481,9 @@
 	if (accessory_type)
 		accessory_instance = new accessory_type(current_turf)
 	var/list/slots = list(
-		"в вашем левом кармане" = SLOT_L_STORE,
-		"в вашем правом кармане" = SLOT_R_STORE,
-		"в вашей сумке" = SLOT_IN_BACKPACK
+		"в вашем левом кармане" = ITEM_SLOT_LPOCKET,
+		"в вашем правом кармане" = ITEM_SLOT_RPOCKET,
+		"в вашей сумке" = ITEM_SLOT_BACKPACK
 	)
 	where_drug = H.equip_in_one_of_slots(drug_instance, slots, FALSE) || "у ваших ног"
 	if (accessory_instance)
@@ -536,7 +536,7 @@
 /datum/quirk/junkie/smoker/on_process()
 	. = ..()
 	var/mob/living/carbon/human/H = quirk_holder
-	var/obj/item/I = H.get_item_by_slot(SLOT_WEAR_MASK)
+	var/obj/item/I = H.get_item_by_slot(ITEM_SLOT_MASK)
 	if (istype(I, /obj/item/clothing/mask/cigarette))
 		var/obj/item/storage/fancy/cigarettes/C = drug_container_type
 		if(istype(I, initial(C.spawn_type)))
