@@ -3135,6 +3135,7 @@
 #include "code\shitcode\valtos\code\gamemode\bombass.dm"
 #include "code\shitcode\valtos\code\gamemode\custom.dm"
 #include "code\shitcode\valtos\code\gamemode\gen.dm"
+#include "code\shitcode\valtos\code\gamemode\rospilovo.dm"
 #include "code\shitcode\valtos\code\guns\lovegun.dm"
 #include "code\shitcode\valtos\code\guns\tanner.dm"
 #include "code\shitcode\valtos\code\guns\traumat.dm"
