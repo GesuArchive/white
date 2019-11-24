@@ -6,6 +6,10 @@
 	    "emergency": "emergency_kilo",
 	    "ferry": "ferry_kilo",
 	    "cargo": "cargo_kilo",
-	    "whiteship": "whiteship_kilo"
-    }
+	    "whiteship": "whiteship_delta"
+    },
+	"traits": [
+		{"Baseturf": "/turf/open/floor/plating/asteroid/snow/temperatre"},
+		{"Linkage": "Self"}
+	]
 }
