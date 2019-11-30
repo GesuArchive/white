@@ -117,6 +117,8 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Arbiter Uniform",			/obj/item/clothing/under/arbiter,				125),
 		new /datum/donate_info("Blue Galaxy Suit",			/obj/item/clothing/under/rank/civilian/lawyer/galaxy,225),
 		new /datum/donate_info("Red Galaxy Suit",			/obj/item/clothing/under/rank/civilian/lawyer/galaxy/red,225),
+		new /datum/donate_info("Jabroni Outfit"),			/obj/item/clothing/under/costume/jabroni, 		100),
+		new /datum/donate_info("Спортивный Костюм"),		/obj/item/clothing/under/switer/tracksuit, 		228),
 	),
 	"Gloves" = list(
 		new /datum/donate_info("White Gloves",				/obj/item/clothing/gloves/color/white,			125),
