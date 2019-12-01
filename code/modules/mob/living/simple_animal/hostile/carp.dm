@@ -19,14 +19,14 @@
 	emote_taunt = list("скрежетает зубками")
 	taunt_chance = 30
 	speed = 0
-	maxHealth = 50
-	health = 50
+	maxHealth = 25
+	health = 25
 	spacewalk = TRUE
 
 	harm_intent_damage = 8
 	obj_damage = 100
-	melee_damage_lower = 30
-	melee_damage_upper = 30
+	melee_damage_lower = 15
+	melee_damage_upper = 15
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
 	attack_sound = 'sound/weapons/bite.ogg'
@@ -65,8 +65,8 @@
 	)
 
 	robust_searching = TRUE
-	vision_range = 20
-	aggro_vision_range = 30
+	vision_range = 10
+	aggro_vision_range = 20
 
 /mob/living/simple_animal/hostile/carp/Initialize(mapload)
 	. = ..()
@@ -138,15 +138,15 @@
 	icon_living = "megacarp"
 	icon_dead = "megacarp_dead"
 	icon_gib = "megacarp_gib"
-	maxHealth = 200
-	health = 200
+	maxHealth = 100
+	health = 100
 	pixel_x = -16
 	mob_size = MOB_SIZE_LARGE
 	random_color = FALSE
 
-	obj_damage = 180
-	melee_damage_lower = 50
-	melee_damage_upper = 50
+	obj_damage = 120
+	melee_damage_lower = 30
+	melee_damage_upper = 30
 
 	var/regen_cooldown = 0
 
