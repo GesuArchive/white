@@ -76,7 +76,7 @@
 /obj/structure/window/rcd_act(mob/user, obj/item/construction/rcd/the_rcd)
 	switch(the_rcd.mode)
 		if(RCD_DECONSTRUCT)
-			to_chat(user, "<span class='notice'>Ты разобрал окно.</span>")
+			to_chat(user, "<span class='notice'>Разбираю окно.</span>")
 			qdel(src)
 			return TRUE
 	return FALSE
@@ -140,7 +140,7 @@
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	user.visible_message("<span class='notice'>[user] стучит по [src.name].</span>", \
-		"<span class='notice'>Ты стучишь по [src.name].</span>")
+		"<span class='notice'>Стучу по [src.name].</span>")
 	add_fingerprint(user)
 	playsound(src, 'sound/effects/Glassknock.ogg', 50, TRUE)
 
@@ -163,36 +163,36 @@
 			if(!I.tool_start_check(user, amount=0))
 				return
 
-			to_chat(user, "<span class='notice'>Ты начинаешь чинить [src.name]...</span>")
+			to_chat(user, "<span class='notice'>Начинаю чинить [src.name]...</span>")
 			if(I.use_tool(src, user, 40, volume=50))
 				obj_integrity = max_integrity
 				update_nearby_icons()
-				to_chat(user, "<span class='notice'>Ты чинишь [src.name].</span>")
+				to_chat(user, "<span class='notice'>Чиню [src.name].</span>")
 		else
 			to_chat(user, "<span class='warning'>[src.name] не требуется починка!</span>")
 		return
 
 	if(!(flags_1&NODECONSTRUCT_1) && !(reinf && state >= RWINDOW_FRAME_BOLTED))
 		if(I.tool_behaviour == TOOL_SCREWDRIVER)
-			to_chat(user, "<span class='notice'>Ты начинаешь [anchored ? "откручивать окно от пола":"прикручивать окно к полу"]...</span>")
+			to_chat(user, "<span class='notice'>Начинаю [anchored ? "откручивать окно от пола":"прикручивать окно к полу"]...</span>")
 			if(I.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, .proc/check_anchored, anchored)))
 				setAnchored(!anchored)
-				to_chat(user, "<span class='notice'>Ты [anchored ? "прикрутил к полу":"открутил от пола"].</span>")
+				to_chat(user, "<span class='notice'>[anchored ? "Прикручиваю к полу":"откручиваю от пола"].</span>")
 			return
 		else if(I.tool_behaviour == TOOL_WRENCH && !anchored)
-			to_chat(user, "<span class='notice'>Ты начинаешь разбирать [src.name]...</span>")
+			to_chat(user, "<span class='notice'>Начинаю разбирать [src.name]...</span>")
 			if(I.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, .proc/check_state_and_anchored, state, anchored)))
 				var/obj/item/stack/sheet/G = new glass_type(user.loc, glass_amount)
 				G.add_fingerprint(user)
 				playsound(src, 'sound/items/Deconstruct.ogg', 50, TRUE)
-				to_chat(user, "<span class='notice'>Ты разобрал [src.name].</span>")
+				to_chat(user, "<span class='notice'>Разбираю [src.name].</span>")
 				qdel(src)
 			return
 		else if(I.tool_behaviour == TOOL_CROWBAR && reinf && (state == WINDOW_OUT_OF_FRAME) && anchored)
-			to_chat(user, "<span class='notice'>Ты начинаешь вставлять окно в рамку...</span>")
+			to_chat(user, "<span class='notice'>Начинаю вставлять окно в рамку...</span>")
 			if(I.use_tool(src, user, 100, volume = 75, extra_checks = CALLBACK(src, .proc/check_state_and_anchored, state, anchored)))
 				state = RWINDOW_SECURE
-				to_chat(user, "<span class='notice'>Ты вставил окно в рамку.</span>")
+				to_chat(user, "<span class='notice'>Вставляю окно в рамку.</span>")
 			return
 
 	return ..()
@@ -374,7 +374,7 @@
 		if(RWINDOW_SECURE)
 			if(I.tool_behaviour == TOOL_WELDER && user.a_intent == INTENT_HARM)
 				user.visible_message("<span class='notice'>[user] направил [I.name] на защищённые винтики [src.name]...</span>",
-										"<span class='notice'>Ты начинаешь нагревать винтики [src.name]...</span>")
+										"<span class='notice'>Начинаю нагревать винтики [src.name]...</span>")
 				if(I.use_tool(src, user, 180, volume = 100))
 					to_chat(user, "<span class='notice'>Винтики раскалены до бела, похоже можно открутить их прямо сейчас..</span>")
 					state = RWINDOW_BOLTS_HEATED
@@ -383,7 +383,7 @@
 		if(RWINDOW_BOLTS_HEATED)
 			if(I.tool_behaviour == TOOL_SCREWDRIVER)
 				user.visible_message("<span class='notice'>[user] втыкает отвёртку в раскалённые винтики и начинает их выкручивать...</span>",
-										"<span class='notice'>Ты втыкаешь отвёртку в раскалённые винтики и начинаешь их выкручивать...</span>")
+										"<span class='notice'>Втыкаю отвёртку в раскалённые винтики и начинаешь их выкручивать...</span>")
 				if(I.use_tool(src, user, 80, volume = 50))
 					state = RWINDOW_BOLTS_OUT
 					to_chat(user, "<span class='notice'>Винтики удалены и теперь окно можно подпереть</span>")
@@ -391,7 +391,7 @@
 		if(RWINDOW_BOLTS_OUT)
 			if(I.tool_behaviour == TOOL_CROWBAR)
 				user.visible_message("<span class='notice'>[user] вставляет [I.name] в щель и начинает подпирать окно...</span>",
-										"<span class='notice'>Ты вставляешь [I.name] в щель и начинаешь подпирать окно...</span>")
+										"<span class='notice'>Вставляю [I.name] в щель и начинаю подпирать окно...</span>")
 				if(I.use_tool(src, user, 50, volume = 50))
 					state = RWINDOW_POPPED
 					to_chat(user, "<span class='notice'>Основная плита вышла из рамки и стали видны прутья, которые можно откусить.</span>")
@@ -399,7 +399,7 @@
 		if(RWINDOW_POPPED)
 			if(I.tool_behaviour == TOOL_WIRECUTTER)
 				user.visible_message("<span class='notice'>[user] начинает откусывать доступные прутья [src.name]...</span>",
-										"<span class='notice'>Ты начинаешь откусывать доступные прутья [src.name]...</span>")
+										"<span class='notice'>Начинаю откусывать доступные прутья [src.name]...</span>")
 				if(I.use_tool(src, user, 30, volume = 50))
 					state = RWINDOW_BARS_CUT
 					to_chat(user, "<span class='notice'>Основная плита отделена от рамки и теперь её удерживает только несколько болтов.</span>")
@@ -407,9 +407,9 @@
 		if(RWINDOW_BARS_CUT)
 			if(I.tool_behaviour == TOOL_WRENCH)
 				user.visible_message("<span class='notice'>[user] начинает откручивать [src.name] от рамки...</span>",
-					"<span class='notice'>Ты начинаешь откручивать болты...</span>")
+					"<span class='notice'>Начинаю откручивать болты...</span>")
 				if(I.use_tool(src, user, 50, volume = 50))
-					to_chat(user, "<span class='notice'>Ты снял окно с болтов и теперь оно может быть свободно перемещено.</span>")
+					to_chat(user, "<span class='notice'>Снимаю окно с болтов и теперь оно может быть свободно перемещено.</span>")
 					state = WINDOW_OUT_OF_FRAME
 					setAnchored(FALSE)
 				return

@@ -18,14 +18,14 @@
 	cell_type = /obj/item/stock_parts/cell/high						//будет использована эта батарейка при SPAWN_WITH_FULL_CELL или SPAWN_WITH_DEAD_CELL.
 	cell = null														//не трогать, батареи спавнятся строго в Initialize()
 	shaded_charge = FALSE 											//оверлеи, отображающие уровень заряда. (см. energy.dm)
-	var/spawn_with_cell = SPAWN_WITH_FULL_CELL						
+	var/spawn_with_cell = SPAWN_WITH_FULL_CELL
 	var/accepts_any_cell = TRUE										//можно ли стрелять с пульсача и мизинчиковой батарейки
 	var/load_sound = 'sound/weapons/gun/general/magazine_insert_empty.ogg'
 	var/load_sound_volume = 40
 	var/load_sound_vary = TRUE
 	var/tac_reloads = TRUE											//можно ли заменить батарею, кликнув по оружию другой батареей
 	var/show_charge_meter = TRUE									//показывать ли заряд вставленной батареи при экзамайне оружия
-	
+
 
 /obj/item/gun/energy/cell/Initialize()
 	. = ..()
@@ -33,11 +33,11 @@
 		cell = new cell_type(src)
 		if(spawn_with_cell == SPAWN_WITH_FULL_CELL)
 			cell.give(cell.maxcharge)
-	
-	
+
+
 	update_ammo_types()
 	recharge_newshot(TRUE)
-	
+
 	if(selfcharge)					//понятия не имею, как этот цирк будет работать с selfcharge, но на всякий случай выпиливать не буду.
 		START_PROCESSING(SSobj, src)
 	update_icon()
@@ -61,12 +61,12 @@
 	if(user.transferItemToLoc(BAT, src))
 		cell = BAT
 		if (display_message)
-			to_chat(user, "<span class='notice'>Ты вставил [BAT] в <b>[src]</b>.</span>")
+			to_chat(user, "<span class='notice'>Вставляю [BAT] в <b>[src]</b>.</span>")
 		playsound(src, load_sound, load_sound_volume, load_sound_vary)
 		update_icon()
 		return TRUE
 	else
-		to_chat(user, "<span class='warning'>Ты не можешь убрать <b>[src]</b> из своей руки!</span>")
+		to_chat(user, "<span class='warning'>Не могу убрать <b>[src]</b> из своей руки!</span>")
 		return FALSE
 
 
@@ -77,12 +77,12 @@
 	old_cell.update_icon()
 	if(tac_load)
 		if (insert_cell(user, FALSE, tac_load))
-			to_chat(user, "<span class='notice'>Ты производишь тактическую перезарядку <b>[src]</b>.</span>")
+			to_chat(user, "<span class='notice'>Произвожу тактическую перезарядку <b>[src]</b>.</span>")
 	else
 		cell = null
 	user.put_in_hands(old_cell)
 	if (display_message)
-		to_chat(user, "<span class='notice'>Ты вытащил [old_cell] из <b>[src]</b>.</span>")
+		to_chat(user, "<span class='notice'>Вытаскиваю [old_cell] из <b>[src]</b>.</span>")
 	update_icon()
 
 /obj/item/gun/energy/cell/update_icon(force_update)
@@ -143,7 +143,7 @@
 	else
 		to_chat(user, "<span class='warning'><b>[A.name]</b> не вставляется в <b>[src]</b>!</span>")
 		return
-	
+
 	//можно запилить модификации для лазеров типа увеличения скорострельности, дамага и прочая поебень из какой-нибуть статодрочерской ммо
 	//да хоть замена лазеров на obj/projectile/leather_bullet
 

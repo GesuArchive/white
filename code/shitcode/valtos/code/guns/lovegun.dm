@@ -18,7 +18,7 @@ GLOBAL_LIST_INIT(gachisounds, list(
 	icon_state = "dildo"
 	item_state = "dildo"
 	icon = 'code/shitcode/valtos/icons/melee.dmi'
-	desc = "Сила магии дружбы проникает в тебя, пока ты смотришь на это."
+	desc = "Сила магии дружбы проникает в меня, пока ты смотришь на это."
 	fire_sound = 'code/shitcode/valtos/sounds/love/shot1.ogg'
 	var/list/random_sound = list('code/shitcode/valtos/sounds/love/shot1.ogg',
 							'code/shitcode/valtos/sounds/love/shot2.ogg',

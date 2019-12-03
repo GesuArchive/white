@@ -726,7 +726,7 @@
 	while (do_after(user, 10, TRUE, src, FALSE, CALLBACK(STR, /datum/component/storage.proc/handle_mass_item_insertion, things, src_object, user, progress)))
 		stoplag(1)
 	qdel(progress)
-	to_chat(user, "<span class='notice'>Ты вытряхиваешь содержимое [src_object.parent] [STR.insert_preposition] [src.name] как можешь.</span>")
+	to_chat(user, "<span class='notice'>Вытряхиваю содержимое [src_object.parent] [STR.insert_preposition] [src.name] как могу.</span>")
 	STR.orient2hud(user)
 	src_object.orient2hud(user)
 	if(user.active_storage) //refresh the HUD to show the transfered contents

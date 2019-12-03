@@ -56,14 +56,14 @@
 		if(A.dir != D.dir)
 			log_combat(A, D, "missed a back-kick (Sleeping Carp) on")
 			D.visible_message("<span class='warning'><b>[A]</b> пытается ударить <b>[D]</b> в спину, но промахивается!</span>", \
-						"<span class='userdanger'><b>[A]</b> пытается ударить тебя в спину, но промахивается!</span>", "<span class='hear'>Ты слышишь взмах!</span>", null, A)
-			to_chat(A, "<span class='warning'>Ты промахиваешься мимо [D]!</span>")
+						"<span class='userdanger'><b>[A]</b> пытается ударить меня в спину, но промахивается!</span>", "<span class='hear'>Слышу взмах!</span>", null, A)
+			to_chat(A, "<span class='warning'>Промахиваюсь мимо [D]!</span>")
 			return TRUE
 		log_combat(A, D, "back-kicked (Sleeping Carp)")
 		A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
 		D.visible_message("<span class='warning'><b>[A]</b> пинает <b>[D]</b> в спину!</span>", \
-					"<span class='userdanger'><b>[A]</b> пинает тебя в спину, принуждая тебя упасть!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", null, A)
-		to_chat(A, "<span class='danger'>Ты сбиваешь с ног [D]!</span>")
+					"<span class='userdanger'><b>[A]</b> пинает меня в спину, принуждая меня упасть!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", null, A)
+		to_chat(A, "<span class='danger'>Сбиваю с ног [D]!</span>")
 		step_to(D,get_step(D,D.dir),1)
 		D.Paralyze(80)
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, TRUE, -1)
@@ -75,8 +75,8 @@
 		log_combat(A, D, "stomach kneed (Sleeping Carp)")
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 		D.visible_message("<span class='danger'><b>[A]</b> бьёт <b>[D]</b> коленом в живот!</span>", \
-						  "<span class='userdanger'><b>[A]</b> бьёт тебя коленом в живот!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", null, A)
-		to_chat(A, "<span class='danger'>Ты бьёшь [D] коленом в живот [D.p_them()]!</span>")
+						  "<span class='userdanger'><b>[A]</b> бьёт меня коленом в живот!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", null, A)
+		to_chat(A, "<span class='danger'>Бью [D] коленом в живот [D.p_them()]!</span>")
 		D.losebreath += 3
 		D.Stun(40)
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, TRUE, -1)
@@ -88,8 +88,8 @@
 		log_combat(A, D, "head kicked (Sleeping Carp)")
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 		D.visible_message("<span class='warning'><b>[A]</b> пинает <b>[D]</b> в голову!</span>", \
-						  "<span class='userdanger'><b>[A]</b> пинает тебя в ебало!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", null, A)
-		to_chat(A, "<span class='danger'>Ты пинаешь [D] в голову!</span>")
+						  "<span class='userdanger'><b>[A]</b> пинает меня в ебало!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", null, A)
+		to_chat(A, "<span class='danger'>Пинаю [D] в голову!</span>")
 		D.apply_damage(20, A.dna.species.attack_type, BODY_ZONE_HEAD)
 		D.drop_all_held_items()
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, TRUE, -1)
@@ -102,8 +102,8 @@
 		log_combat(A, D, "elbow dropped (Sleeping Carp)")
 		A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
 		D.visible_message("<span class='warning'><b>[A]</b> кидает <b>[D]</b> с прогиба!</span>", \
-							"<span class='userdanger'><b>[A]</b> кидает тебя с прогиба!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", null, A)
-		to_chat(A, "<span class='danger'>Ты кидаешь [D] с прогиба!</span>")
+							"<span class='userdanger'><b>[A]</b> кидает меня с прогиба!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", null, A)
+		to_chat(A, "<span class='danger'>Кидаю [D] с прогиба!</span>")
 		if(D.stat)
 			D.death() //FINISH HIM!
 		D.apply_damage(50, A.dna.species.attack_type, BODY_ZONE_CHEST)
@@ -123,8 +123,8 @@
 			A.setGrabState(GRAB_AGGRESSIVE) //Instant agressive grab if on grab intent
 			log_combat(A, D, "grabbed", addition="aggressively")
 			D.visible_message("<span class='warning'><b>[A]</b> жестко хватает <b>[D]</b>!</span>", \
-								"<span class='userdanger'><b>[A]</b> жестко хватает тебя!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", null, A)
-			to_chat(A, "<span class='danger'>Ты жестко хватаешь [D]!</span>")
+								"<span class='userdanger'><b>[A]</b> жестко хватает меня!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", null, A)
+			to_chat(A, "<span class='danger'>Жестко хватаю [D]!</span>")
 		return TRUE
 	return FALSE
 
@@ -135,12 +135,12 @@
 	A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
 	var/atk_verb = pick("бьёт", "пинает", "хуярит", "избивает", "выбивает")
 	D.visible_message("<span class='danger'><b>[A]</b> [atk_verb] <b>[D]</b>!</span>", \
-					  "<span class='userdanger'><b>[A]</b> [atk_verb] тебя!</span>", null, null, A)
+					  "<span class='userdanger'><b>[A]</b> [atk_verb] меня!</span>", null, null, A)
 	to_chat(A, "<span class='danger'>Твоя атака [atk_verb] [D]!</span>")
 	D.apply_damage(rand(10,15), BRUTE)
 	playsound(get_turf(D), 'sound/weapons/punch1.ogg', 25, TRUE, -1)
 	if(prob(D.getBruteLoss()) && (D.mobility_flags & MOBILITY_STAND))
-		D.visible_message("<span class='warning'><b>[D]</b> stumbles and falls!</span>", "<span class='userdanger'>Удар отправляет тебя пососать!</span>")
+		D.visible_message("<span class='warning'><b>[D]</b> stumbles and falls!</span>", "<span class='userdanger'>Удар отправляет меня пососать!</span>")
 		D.Paralyze(80)
 	log_combat(A, D, "[atk_verb] (Sleeping Carp)")
 	return TRUE
@@ -162,7 +162,7 @@
 		return BULLET_ACT_HIT
 	if(!isturf(A.loc)) //NO MOTHERFLIPPIN MECHS!
 		return BULLET_ACT_HIT
-	A.visible_message("<span class='danger'><b>[A]</b> отражает снаряд!</span>", "<span class='userdanger'>Ты отражаешь снаряд!</span>")
+	A.visible_message("<span class='danger'><b>[A]</b> отражает снаряд!</span>", "<span class='userdanger'>Отражаю снаряд!</span>")
 	playsound(src, pick('sound/weapons/bulletflyby.ogg', 'sound/weapons/bulletflyby2.ogg', 'sound/weapons/bulletflyby3.ogg'), 75, TRUE)
 	P.firer = A
 	P.setAngle(rand(0, 360))//SHING

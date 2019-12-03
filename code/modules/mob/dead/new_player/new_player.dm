@@ -137,12 +137,12 @@
 
 			var/queue_position = SSticker.queued_players.Find(usr)
 			if(queue_position == 1)
-				to_chat(usr, "<span class='notice'>Ты следующий по списку желающих войти в раунд. Тебя оповестят о подходящей возможности.</span>")
+				to_chat(usr, "<span class='notice'>Ты следующий по списку желающих войти в раунд. меня оповестят о подходящей возможности.</span>")
 			else if(queue_position)
 				to_chat(usr, "<span class='notice'>Перед тобой [queue_position-1] игроков в очереди ожидания захода в раунд.</span>")
 			else
 				SSticker.queued_players += usr
-				to_chat(usr, "<span class='notice'>Тебя добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len].</span>")
+				to_chat(usr, "<span class='notice'>меня добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len].</span>")
 			return
 		LateChoices()
 
@@ -262,7 +262,7 @@
 		ready = PLAYER_NOT_READY
 		return FALSE
 
-	var/this_is_like_playing_right = alert(src,"Действительно хочешь следить? У тебя не будет возможности зайти в этот раунд (исключая частые ивенты и спаунеры)!","Player Setup","Yes","No")
+	var/this_is_like_playing_right = alert(src,"Действительно хочешь следить? У меня не будет возможности зайти в этот раунд (исключая частые ивенты и спаунеры)!","Player Setup","Yes","No")
 
 	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Yes")
 		ready = PLAYER_NOT_READY
@@ -488,11 +488,11 @@
 	if(frn)
 		client.prefs.random_character()
 		client.prefs.real_name = client.prefs.pref_species.random_name(gender,1)
-	
+
 	var/is_antag
 	if(mind in GLOB.pre_setup_antags)
 		is_antag = TRUE
-	
+
 	client.prefs.copy_to(H, antagonist = is_antag)
 	H.dna.update_dna_identity()
 	if(mind)

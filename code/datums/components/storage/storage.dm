@@ -211,14 +211,14 @@
 		things = typecache_filter_list(things, typecacheof(I.type))
 	var/len = length(things)
 	if(!len)
-		to_chat(M, "<span class='warning'>Ты ничего не смог собрать в [parent]!</span>")
+		to_chat(M, "<span class='warning'>Ничего не смог собрать в [parent]!</span>")
 		return
 	var/datum/progressbar/progress = new(M, len, I.loc)
 	var/list/rejections = list()
 	while(do_after(M, 10, TRUE, parent, FALSE, CALLBACK(src, .proc/handle_mass_pickup, things, I.loc, rejections, progress)))
 		stoplag(1)
 	qdel(progress)
-	to_chat(M, "<span class='notice'>Ты собрал всё что мог [insert_preposition] [parent].</span>")
+	to_chat(M, "<span class='notice'>Собираю всё что могу [insert_preposition] [parent].</span>")
 
 /datum/component/storage/proc/handle_mass_item_insertion(list/things, datum/component/storage/src_object, mob/user, datum/progressbar/progress)
 	var/atom/source_real_location = src_object.real_location()
@@ -666,7 +666,7 @@
 		playsound(parent, "rustle", 50, TRUE, -5)
 	for(var/mob/viewing in viewers(user, null))
 		if(M == viewing)
-			to_chat(usr, "<span class='notice'>Ты положил [I.name] [insert_preposition] [parent].</span>")
+			to_chat(usr, "<span class='notice'>Ложу [I.name] [insert_preposition] [parent].</span>")
 		else if(in_range(M, viewing)) //If someone is standing close enough, they can tell what it is...
 			viewing.show_message("<span class='notice'>[M] ложит [I.name] [insert_preposition] [parent].</span>", MSG_VISUAL)
 		else if(I && I.w_class >= 3) //Otherwise they can only see large or normal items from a distance...
@@ -802,9 +802,9 @@
 		A.add_fingerprint(user)
 		remove_from_storage(I, get_turf(user))
 		if(!user.put_in_hands(I))
-			to_chat(user, "<span class='notice'>Ты пытаешься вытащить [I.name] роняя его на пол.</span>")
+			to_chat(user, "<span class='notice'>Пытаюсь вытащить [I.name] роняя его на пол.</span>")
 			return
-		user.visible_message("<span class='warning'>[user] достаёт [I.name] из [parent]!</span>", "<span class='notice'>Ты вытащил [I.name] из [parent].</span>")
+		user.visible_message("<span class='warning'>[user] достаёт [I.name] из [parent]!</span>", "<span class='notice'>Вытаскиваю [I.name] из [parent].</span>")
 		return
 
 /datum/component/storage/proc/action_trigger(datum/signal_source, datum/action/source)

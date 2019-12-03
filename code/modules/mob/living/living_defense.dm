@@ -8,17 +8,17 @@
 		if(penetrated_text)
 			to_chat(src, "<span class='userdanger'>[penetrated_text]</span>")
 		else
-			to_chat(src, "<span class='userdanger'>Твоя броня пробита!</span>")
+			to_chat(src, "<span class='userdanger'>Моя броня пробита!</span>")
 	else if(armor >= 100)
 		if(absorb_text)
 			to_chat(src, "<span class='notice'>[absorb_text]</span>")
 		else
-			to_chat(src, "<span class='notice'>Твоя броня поглотила удар!</span>")
+			to_chat(src, "<span class='notice'>Моя броня поглотила удар!</span>")
 	else if(armor > 0)
 		if(soften_text)
 			to_chat(src, "<span class='warning'>[soften_text]</span>")
 		else
-			to_chat(src, "<span class='warning'>Твоя броня смягчает удар!</span>")
+			to_chat(src, "<span class='warning'>Моя броня смягчает удар!</span>")
 	return armor
 
 
@@ -83,8 +83,8 @@
 		dtype = I.damtype
 		if(!blocked)
 			visible_message("<span class='danger'>В <b>[src]</b> попадает <b>[I.name]</b>!</span>", \
-							"<span class='userdanger'>В <b>тебя</b> попадает [I.name]!</span>")
-			var/armor = run_armor_check(zone, "melee", "Твоя броня защищает вашу [ru_parse_zone(parse_zone(zone))].", "Твоя броня смягчает удар в [ru_parse_zone(parse_zone(zone))].",I.armour_penetration)
+							"<span class='userdanger'>В <b>меня</b> попадает [I.name]!</span>")
+			var/armor = run_armor_check(zone, "melee", "Моя броня защищает вашу [ru_parse_zone(parse_zone(zone))].", "Моя броня смягчает удар в [ru_parse_zone(parse_zone(zone))].",I.armour_penetration)
 			apply_damage(I.throwforce, dtype, zone, armor)
 
 			if(I.thrownby)
@@ -120,15 +120,15 @@
 				return
 		updatehealth()
 		visible_message("<span class='danger'><b>[M.name]</b> бьёт <b>[src]</b>!</span>", \
-						"<span class='userdanger'><b>[M.name]</b> бьёт тебя!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", null, COMBAT_MESSAGE_RANGE)
-		to_chat(M, "<span class='danger'>Ты бьёшь [src]!</span>")
+						"<span class='userdanger'><b>[M.name]</b> бьёт меня!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", null, COMBAT_MESSAGE_RANGE)
+		to_chat(M, "<span class='danger'>Бью [src]!</span>")
 		log_combat(M.occupant, src, "attacked", M, "(INTENT: [uppertext(M.occupant.a_intent)]) (DAMTYPE: [uppertext(M.damtype)])")
 	else
 		step_away(src,M)
 		log_combat(M.occupant, src, "pushed", M)
 		visible_message("<span class='warning'><b>[M.name]</b> отталкивает <b>[src]</b> с пути.</span>", \
-						"<span class='warning'><b>[M.name]</b> отталкивает тебя с пути.</span>", "<span class='hear'>Ты слышишь агрессивную потасовку сопровождающуюся громким стуком!</span>", 5, M)
-		to_chat(M, "<span class='danger'>Ты отталкиваешь [src] с пути.</span>")
+						"<span class='warning'><b>[M.name]</b> отталкивает меня с пути.</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", 5, M)
+		to_chat(M, "<span class='danger'>Отталкиваю [src] с пути.</span>")
 
 /mob/living/fire_act()
 	adjust_fire_stacks(3)
@@ -165,8 +165,8 @@
 			var/old_grab_state = user.grab_state
 			var/grab_upgrade_time = instant ? 0 : 30
 			visible_message("<span class='danger'><b>[user]</b> начинает брать <b>[src]</b> в более крепкий захват!</span>", \
-				"<span class='userdanger'><b>[user]</b> начинает брать тебя <b>[src]</b> в более крепкий захват!</span>", "<span class='hear'>Ты слышишь агрессивную потасовку!</span>", null, user)
-			to_chat(user, "<span class='danger'>Ты начинаешь брать [src] в более крепкий захват!</span>")
+				"<span class='userdanger'><b>[user]</b> начинает брать меня <b>[src]</b> в более крепкий захват!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", null, user)
+			to_chat(user, "<span class='danger'>Начинаю брать [src] в более крепкий захват!</span>")
 			switch(user.grab_state)
 				if(GRAB_AGGRESSIVE)
 					log_combat(user, src, "attempted to neck grab", addition="neck grab")
@@ -177,7 +177,7 @@
 			if(!user.pulling || user.pulling != src || user.grab_state != old_grab_state)
 				return 0
 			if(user.a_intent != INTENT_GRAB)
-				to_chat(user, "<span class='warning'>Ты должен сосредоточиться на захвате, чтобы схватить сильнее!</span>")
+				to_chat(user, "<span class='warning'>Надо бы сосредоточиться на захвате, чтобы схватить сильнее!</span>")
 				return 0
 		user.setGrabState(user.grab_state + 1)
 		switch(user.grab_state)
@@ -185,29 +185,29 @@
 				var/add_log = ""
 				if(HAS_TRAIT(user, TRAIT_PACIFISM))
 					visible_message("<span class='danger'><b>[user]</b> крепко хватает <b>[src]</b>!</span>",
-									"<span class='danger'><b>[user]</b> крепко держит тебя!</span>", "<span class='hear'>Ты слышишь агрессивную потасовку!</span>", null, user)
-					to_chat(user, "<span class='danger'>Ты крепко хватаешь [src]!</span>")
+									"<span class='danger'><b>[user]</b> крепко держит меня!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", null, user)
+					to_chat(user, "<span class='danger'>Крепко хватаю [src]!</span>")
 					add_log = " (pacifist)"
 				else
 					visible_message("<span class='danger'><b>[user]</b> хватает <b>[src]</b> крепче!</span>", \
-									"<span class='userdanger'><b>[user]</b> хватает тебя крепче!</span>", "<span class='hear'>Ты слышишь агрессивную потасовку!</span>", null, user)
-					to_chat(user, "<span class='danger'>Ты хватаешь [src] крепче!</span>")
+									"<span class='userdanger'><b>[user]</b> хватает меня крепче!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", null, user)
+					to_chat(user, "<span class='danger'>Хватаю [src] крепче!</span>")
 					drop_all_held_items()
 				stop_pulling()
 				log_combat(user, src, "grabbed", addition="aggressive grab[add_log]")
 			if(GRAB_NECK)
 				log_combat(user, src, "grabbed", addition="neck grab")
 				visible_message("<span class='danger'><b>[user]</b> хватает <b>[src]</b> за шею!</span>",\
-								"<span class='userdanger'><b>[user]</b> хватает тебя за шею!</span>", "<span class='hear'>Ты слышишь агрессивную потасовку!</span>", null, user)
-				to_chat(user, "<span class='danger'>Ты хватаешь [src] за шею!</span>")
+								"<span class='userdanger'><b>[user]</b> хватает меня за шею!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", null, user)
+				to_chat(user, "<span class='danger'>Хватаю [src] за шею!</span>")
 				update_mobility() //we fall down
 				if(!buckled && !density)
 					Move(user.loc)
 			if(GRAB_KILL)
 				log_combat(user, src, "strangled", addition="kill grab")
 				visible_message("<span class='danger'><b>[user]</b> душит <b>[src]</b>!</span>", \
-								"<span class='userdanger'><b>[user]</b> душит тебя!</span>", "<span class='hear'>Ты слышишь агрессивную потасовку!</span>", null, user)
-				to_chat(user, "<span class='danger'>Ты душишь [src]!</span>")
+								"<span class='userdanger'><b>[user]</b> душит меня!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", null, user)
+				to_chat(user, "<span class='danger'>Душу [src]!</span>")
 				update_mobility() //we fall down
 				if(!buckled && !density)
 					Move(user.loc)
@@ -233,16 +233,16 @@
 		log_combat(M, src, "атакует")
 		M.do_attack_animation(src)
 		visible_message("<span class='danger'><b>[M.name]</b> кушает <b>[src]</b>!</span>", \
-				"<span class='userdanger'><b>[M.name]</b> кушает тебя!</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, M)
-		to_chat(M, "<span class='danger'>Ты кушаешь [src]!</span>")
+				"<span class='userdanger'><b>[M.name]</b> кушает меня!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, M)
+		to_chat(M, "<span class='danger'>Кушаю [src]!</span>")
 		return TRUE
 
 /mob/living/attack_animal(mob/living/simple_animal/M)
 	M.face_atom(src)
 	if(M.melee_damage_upper == 0)
 		visible_message("<span class='notice'><b>[M]</b> [M.friendly_verb_continuous] <b>[src]</b>!</span>", \
-						"<span class='notice'><b>[M]</b> [M.friendly_verb_continuous] тебя!</span>", null, COMBAT_MESSAGE_RANGE, M)
-		to_chat(M, "<span class='notice'>Ты [M.friendly_verb_simple] <b>[src]</b>!</span>")
+						"<span class='notice'><b>[M]</b> [M.friendly_verb_continuous] меня!</span>", null, COMBAT_MESSAGE_RANGE, M)
+		to_chat(M, "<span class='notice'>Я [M.friendly_verb_simple] <b>[src]</b>!</span>")
 		return FALSE
 	if(HAS_TRAIT(M, TRAIT_PACIFISM))
 		to_chat(M, "<span class='warning'>Не хочу вредить!</span>")
@@ -256,8 +256,8 @@
 		playsound(loc, M.attack_sound, 50, TRUE, TRUE)
 	M.do_attack_animation(src)
 	visible_message("<span class='danger'><b>[M]</b> [M.attack_verb_continuous] <b>[src]</b>!</span>", \
-					"<span class='userdanger'><b>[M]</b> [M.attack_verb_continuous] тебя!</span>", null, COMBAT_MESSAGE_RANGE, M)
-	to_chat(M, "<span class='danger'>Ты [M.attack_verb_simple] <b>[src]</b>!</span>")
+					"<span class='userdanger'><b>[M]</b> [M.attack_verb_continuous] меня!</span>", null, COMBAT_MESSAGE_RANGE, M)
+	to_chat(M, "<span class='danger'>Я [M.attack_verb_simple] <b>[src]</b>!</span>")
 	log_combat(M, src, "attacked")
 	return TRUE
 
@@ -280,21 +280,21 @@
 			log_combat(M, src, "атакует")
 			playsound(loc, 'sound/weapons/bite.ogg', 50, TRUE, -1)
 			visible_message("<span class='danger'><b>[M.name]</b> кусает <b>[src]</b>!</span>", \
-					"<span class='userdanger'><b>[M.name]</b> кусает тебя!</span>", "<span class='hear'>Ты слышишь кусь!</span>", COMBAT_MESSAGE_RANGE, M)
-			to_chat(M, "<span class='danger'>Ты кусаешь [src]!</span>")
+					"<span class='userdanger'><b>[M.name]</b> кусает меня!</span>", "<span class='hear'>Слышу кусь!</span>", COMBAT_MESSAGE_RANGE, M)
+			to_chat(M, "<span class='danger'>Я кусаю [src]!</span>")
 			return TRUE
 		else
 			visible_message("<span class='danger'><b>[M.name]</b> пытается укусить <b>[src]</b>!</span>", \
-				"<span class='userdanger'><b>[M.name]</b> пытается укусить тебя!</span>", "<span class='hear'>Ты слышишь как защелкиваются челюсти!</span>", COMBAT_MESSAGE_RANGE, M)
-			to_chat(M, "<span class='danger'>Ты пытаешься укусить [src]!</span>")
+				"<span class='userdanger'><b>[M.name]</b> пытается укусить меня!</span>", "<span class='hear'>Слышу как защелкиваются челюсти!</span>", COMBAT_MESSAGE_RANGE, M)
+			to_chat(M, "<span class='danger'>Пытаюсь укусить [src]!</span>")
 	return FALSE
 
 /mob/living/attack_larva(mob/living/carbon/alien/larva/L)
 	switch(L.a_intent)
 		if("help")
 			visible_message("<span class='notice'><b>[L.name]</b> трётся своей головой о <b>[src]</b>.</span>", \
-							"<span class='notice'><b>[L.name]</b> трётся своей головой о тебя.</span>", null, null, L)
-			to_chat(L, "<span class='notice'>Ты трёшь свою голову о [src].</span>")
+							"<span class='notice'><b>[L.name]</b> трётся своей головой о меня.</span>", null, null, L)
+			to_chat(L, "<span class='notice'>Тру свою голову о [src].</span>")
 			return FALSE
 
 		else
@@ -306,22 +306,22 @@
 			if(prob(90))
 				log_combat(L, src, "атакует")
 				visible_message("<span class='danger'><b>[L.name]</b> кусает [src]!</span>", \
-								"<span class='userdanger'><b>[L.name]</b> кусает тебя!</span>", "<span class='hear'>Ты слышишь кусь!</span>", COMBAT_MESSAGE_RANGE, L)
-				to_chat(L, "<span class='danger'>Ты кусаешь [src]!</span>")
+								"<span class='userdanger'><b>[L.name]</b> кусает меня!</span>", "<span class='hear'>Слышу кусь!</span>", COMBAT_MESSAGE_RANGE, L)
+				to_chat(L, "<span class='danger'>Кусаю [src]!</span>")
 				playsound(loc, 'sound/weapons/bite.ogg', 50, TRUE, -1)
 				return TRUE
 			else
 				visible_message("<span class='danger'><b>[L.name]</b> пытается укусить <b>[src]</b>!</span>", \
-								"<span class='userdanger'><b>[L.name]</b> пытается укусить тебя!</span>", "<span class='hear'>Ты слышишь как защелкиваются челюсти!</span>", COMBAT_MESSAGE_RANGE, L)
-				to_chat(L, "<span class='danger'>Ты пытаешься укусить [src]!</span>")
+								"<span class='userdanger'><b>[L.name]</b> пытается укусить меня!</span>", "<span class='hear'>Слышу как защелкиваются челюсти!</span>", COMBAT_MESSAGE_RANGE, L)
+				to_chat(L, "<span class='danger'>Пытаюсь укусить [src]!</span>")
 	return FALSE
 
 /mob/living/attack_alien(mob/living/carbon/alien/humanoid/M)
 	switch(M.a_intent)
 		if ("help")
 			visible_message("<span class='notice'><b>[M]</b> cобнимает <b>[src]</b> своей клешнёй.</span>", \
-				"<span class='notice'><b>[M]</b> обнимает тебя своей клешнёй.</span>", null, null, M)
-			to_chat(M, "<span class='notice'>Ты обнимаешь [src] своей клешнёй.</span>")
+				"<span class='notice'><b>[M]</b> обнимает меня своей клешнёй.</span>", null, null, M)
+			to_chat(M, "<span class='notice'>Обнимаю [src] своей клешнёй.</span>")
 			return FALSE
 		if ("grab")
 			grabbedby(M)
@@ -370,8 +370,8 @@
 		adjustStaminaLoss(shock_damage)
 	visible_message(
 		"<span class='danger'><b>[src]</b> ловит разряд тока от <b>[source]</b>!</span>", \
-		"<span class='userdanger'>Тебя ударило током! <b>ЭТО ОЧЕНЬ БОЛЬНО!</b></span>", \
-		"<span class='italics'>Ты слышишь щёлканье электрических разрядов.</span>" \
+		"<span class='userdanger'>меня ударило током! <b>ЭТО ОЧЕНЬ БОЛЬНО!</b></span>", \
+		"<span class='italics'>Слышу щёлканье электрических разрядов.</span>" \
 	)
 	return shock_damage
 

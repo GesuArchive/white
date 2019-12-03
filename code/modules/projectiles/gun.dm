@@ -167,16 +167,16 @@
 		if(message)
 			if(pointblank)
 				user.visible_message("<span class='danger'><b>[user]</b> стреляет из <b>[src.name]</b> <b>В УПОР</b> по <b>[pbtarget]</b>!</span>", \
-								"<span class='danger'>Ты стреляешь из [src.name] <b>В УПОР</b> по <b>[pbtarget]</b>!</span>", \
-								"<span class='hear'>Ты слышишь выстрел!</span>", COMBAT_MESSAGE_RANGE, pbtarget)
-				to_chat(pbtarget, "<span class='userdanger'><b>[user]</b> стреляет из <b>[src.name]</b> в тебя <b>В УПОР</b>.!</span>")
+								"<span class='danger'>Стреляю из [src.name] <b>В УПОР</b> по <b>[pbtarget]</b>!</span>", \
+								"<span class='hear'>Слышу выстрел!</span>", COMBAT_MESSAGE_RANGE, pbtarget)
+				to_chat(pbtarget, "<span class='userdanger'><b>[user]</b> стреляет из <b>[src.name]</b> в меня <b>В УПОР</b>.!</span>")
 				if(pb_knockback > 0)
 					var/atom/throw_target = get_edge_target_turf(pbtarget, user.dir)
 					pbtarget.throw_at(throw_target, pb_knockback, 2)
 			else
 				user.visible_message("<span class='danger'><b>[user]</b> стреляет из <b>[src.name]</b>!</span>", \
-								"<span class='danger'>Ты стреляешь из [src.name]!</span>", \
-								"<span class='hear'>Ты слышишь выстрел!</span>", COMBAT_MESSAGE_RANGE)
+								"<span class='danger'>Стреляю из [src.name]!</span>", \
+								"<span class='hear'>Слышу выстрел!</span>", COMBAT_MESSAGE_RANGE)
 
 /obj/item/gun/emp_act(severity)
 	. = ..()

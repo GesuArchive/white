@@ -34,19 +34,19 @@
 
 	if(M == user)
 		user.visible_message("<span class='notice'>[user] делает глоток из [src.name].</span>", \
-			"<span class='notice'>Ты делаешь глоток из [src.name].</span>")
+			"<span class='notice'>Делаю глоток из [src.name].</span>")
 		if(HAS_TRAIT(M, TRAIT_VORACIOUS))
 			M.changeNext_move(CLICK_CD_MELEE * 0.5) //chug! chug! chug!
 
 	else
 		M.visible_message("<span class='danger'>[user] пытается напоить [M] содержимым [src.name].</span>", \
-			"<span class='userdanger'>[user] пытается напоить тебя содержимым [src.name].</span>")
+			"<span class='userdanger'>[user] пытается напоить меня содержимым [src.name].</span>")
 		if(!do_mob(user, M))
 			return
 		if(!reagents || !reagents.total_volume)
 			return // The drink might be empty after the delay, such as by spam-feeding
 		M.visible_message("<span class='danger'>[user] поит [M] содержимым [src.name].</span>", \
-			"<span class='userdanger'>[user] поит тебя содержимым [src.name].</span>")
+			"<span class='userdanger'>[user] поит меня содержимым [src.name].</span>")
 		log_combat(user, M, "fed", reagents.log_list())
 
 	var/fraction = min(gulp_size/reagents.total_volume, 1)
@@ -72,7 +72,7 @@
 
 		var/refill = reagents.get_master_reagent_id()
 		var/trans = src.reagents.trans_to(target, amount_per_transfer_from_this, transfered_by = user)
-		to_chat(user, "<span class='notice'>Ты перелил [trans] единиц жидкости в [target].</span>")
+		to_chat(user, "<span class='notice'>Переливаю [trans] единиц жидкости в [target].</span>")
 
 		if(iscyborg(user)) //Cyborg modules that include drinks automatically refill themselves, but drain the borg's cell
 			var/mob/living/silicon/robot/bro = user
@@ -93,13 +93,13 @@
 			return
 
 		var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this, transfered_by = user)
-		to_chat(user, "<span class='notice'>Ты перелил в [src.name] [trans] единиц из [target].</span>")
+		to_chat(user, "<span class='notice'>Переливаю в [src.name] [trans] единиц из [target].</span>")
 
 /obj/item/reagent_containers/food/drinks/attackby(obj/item/I, mob/user, params)
 	var/hotness = I.get_temperature()
 	if(hotness && reagents)
 		reagents.expose_temperature(hotness)
-		to_chat(user, "<span class='notice'>Ты нагреваешь [name] при помощи [I.name]!</span>")
+		to_chat(user, "<span class='notice'>Нагреваю [name] при помощи [I.name]!</span>")
 	..()
 
 /obj/item/reagent_containers/food/drinks/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)

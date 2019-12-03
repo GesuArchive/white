@@ -67,7 +67,7 @@
 
 /turf/open/indestructible/necropolis
 	name = "пол некрополя"
-	desc = "Смотрит на тебя с подозрением. Тьфу."
+	desc = "Смотрит на меня с подозрением. Тьфу."
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "necro1"
 	baseturfs = /turf/open/indestructible/necropolis

@@ -550,7 +550,7 @@
 "bn" = (
 /obj/effect/turf_decal/bot,
 /mob/living/simple_animal/pet/dog/shepherd{
-	desc = "Смотрит на тебя как на мясо.";
+	desc = "Смотрит на меня как на мясо.";
 	name = "Michael Shepard"
 	},
 /turf/open/floor/partyhard/steel{

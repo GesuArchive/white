@@ -177,7 +177,7 @@
 	if(!ishuman(user))
 		return
 	on = !on
-	to_chat(user, "<span class='[forced ? "warning":"notice"]'>Твой ПНВ [on ? "включен":"выключен"][forced ? "!":"."]</span>")
+	to_chat(user, "<span class='[forced ? "warning":"notice"]'>Мой ПНВ [on ? "включен":"выключен"][forced ? "!":"."]</span>")
 	if(on)
 		darkness_view = 8
 		lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
@@ -795,7 +795,7 @@
 /datum/martial_art/nanosuit/proc/PowerPunch(mob/living/carbon/human/A, mob/living/carbon/human/D)
 	if(!D.stat || !D.IsParalyzed())
 		D.visible_message("<span class='warning'>[A] сверхсильно бьёт [D]!</span>", \
-						  	"<span class='userdanger'>[A] бьёт тебя с невероятной силой!</span>")
+						  	"<span class='userdanger'>[A] бьёт меня с невероятной силой!</span>")
 		playsound(get_turf(A), 'sound/effects/hit_punch.ogg', 75, TRUE, -1)
 		D.apply_damage(20, BRUTE)
 		var/atom/throw_target = get_edge_target_turf(D, A.dir)
@@ -829,7 +829,7 @@
 		if(A.pulling)
 			D.stop_pulling()
 			D.visible_message("<span class='danger'>[A] загребает [D]!</span>", \
-								"<span class='userdanger'>[A] неистово хватает тебя! Пиздец тебе...</span>")
+								"<span class='userdanger'>[A] неистово хватает меня! Пиздец тебе...</span>")
 			A.grab_state = GRAB_AGGRESSIVE //Instant aggressive grab
 			log_combat(A, D, "grabbed", addition="aggressively")
 	return TRUE
@@ -855,7 +855,7 @@
 			bonus_damage += 5
 			D.Paralyze(15)
 			D.visible_message("<span class='warning'>[A] ложит [D] к хуям на пол!", \
-							"<span class='userdanger'>[A] ложит тебя к хуям на пол!</span>")
+							"<span class='userdanger'>[A] ложит меня к хуям на пол!</span>")
 			if(prob(75))
 				step_away(D,A,15)
 		else if(A.grab_state > GRAB_AGGRESSIVE)
@@ -865,7 +865,7 @@
 			bonus_damage += 10
 			D.Paralyze(60)
 			D.visible_message("<span class='warning'>[A] хуярит [D] так, что тот охуевает!!", \
-							"<span class='userdanger'>[A] хуярит тебя так, что ты охуеваешь!!</span>")
+							"<span class='userdanger'>[A] хуярит меня так, что ты охуеваешь!!</span>")
 		else if(A.resting && !D.lying) //but we can't legsweep ourselves!
 			D.visible_message("<span class='warning'>[A] ломает колено [D]!", \
 								"<span class='userdanger'>[A] ломает тебе колено!</span>")
@@ -884,7 +884,7 @@
 		else if(prob(35))
 			return FALSE
 	D.visible_message("<span class='danger'>[A] [quick?"быстро":""] [picked_hit_type] [D]!</span>", \
-					"<span class='userdanger'>[A] [quick?"быстро":""] [picked_hit_type] тебя!</span>")
+					"<span class='userdanger'>[A] [quick?"быстро":""] [picked_hit_type] меня!</span>")
 	if(picked_hit_type == "пинает" || picked_hit_type == "топчется по")
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 		playsound(get_turf(D), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)

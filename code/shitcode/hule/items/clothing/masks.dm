@@ -18,7 +18,7 @@
 	if(cursed && iscarbon(user))
 		var/mob/living/carbon/C = user
 		if(src == C.wear_mask)
-			to_chat(user, "<span class='userdanger'>Ты че деб? Ты хочешь чтоб ОНИ тебя ВЫЧИСЛИЛИ по ай-си-кью и ОТПИЗДИЛИ, дурашка? А, блин????????????</span>")
+			to_chat(user, "<span class='userdanger'>Ты че деб? Ты хочешь чтоб ОНИ меня ВЫЧИСЛИЛИ по ай-си-кью и ОТПИЗДИЛИ, дурашка? А, блин????????????</span>")
 			return
 	..()
 

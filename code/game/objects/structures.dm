@@ -73,7 +73,7 @@
 /obj/structure/proc/climb_structure(mob/living/user)
 	src.add_fingerprint(user)
 	user.visible_message("<span class='warning'>[user] начинает взбираться на [src.name].</span>", \
-								"<span class='notice'>Ты начинаешь взбираться на [src.name]...</span>")
+								"<span class='notice'>Начинаю взбираться на [src.name]...</span>")
 	var/adjusted_climb_time = climb_time
 	if(user.restrained()) //climbing takes twice as long when restrained.
 		adjusted_climb_time *= 2
@@ -86,13 +86,13 @@
 		if(src.loc) //Checking if structure has been destroyed
 			if(do_climb(user))
 				user.visible_message("<span class='warning'>[user] взбирается на [src.name].</span>", \
-									"<span class='notice'>Ты взбирваешься на [src.name].</span>")
+									"<span class='notice'>Взбираюсь на [src.name].</span>")
 				log_combat(user, src, "climbed onto")
 				if(climb_stun)
 					user.Stun(climb_stun)
 				. = 1
 			else
-				to_chat(user, "<span class='warning'>У тебя не вышло взобраться на [src.name].</span>")
+				to_chat(user, "<span class='warning'>У меня не вышло взобраться на [src.name].</span>")
 	structureclimber = null
 
 /obj/structure/examine(mob/user)

@@ -89,7 +89,7 @@
 			victim.Paralyze(20)
 			Paralyze(20)
 			visible_message("<span class='danger'><b>[src]</b> врезается в <b>[victim]</b>, роняя обоих на пол!</span>",\
-				"<span class='userdanger'>Ты врезаешься в <b>[victim]</b>!</span>")
+				"<span class='userdanger'>Врезаюсь в <b>[victim]</b>!</span>")
 		playsound(src,'sound/weapons/punch1.ogg', 50, TRUE)
 
 
@@ -136,7 +136,7 @@
 				thrown_thing = throwable_mob
 				stop_pulling()
 				if(HAS_TRAIT(src, TRAIT_PACIFISM))
-					to_chat(src, "<span class='notice'>Ты аккуратно отпускаешь <b>[throwable_mob]</b>.</span>")
+					to_chat(src, "<span class='notice'>Аккуратно отпускаю <b>[throwable_mob]</b>.</span>")
 					return
 				var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 				var/turf/end_T = get_turf(target)
@@ -148,12 +148,12 @@
 		dropItemToGround(I, silent = TRUE)
 
 		if(HAS_TRAIT(src, TRAIT_PACIFISM) && I.throwforce)
-			to_chat(src, "<span class='notice'>Ты аккуратно положил <b>[I.name]</b> на пол.</span>")
+			to_chat(src, "<span class='notice'>Аккуратно ложу <b>[I.name]</b> на пол.</span>")
 			return
 
 	if(thrown_thing)
 		visible_message("<span class='danger'><b>[src]</b> бросает <b>[thrown_thing.name]</b>.</span>", \
-						"<span class='danger'>Ты бросаешь <b>[thrown_thing.name]</b>.</span>")
+						"<span class='danger'>Бросаю <b>[thrown_thing.name]</b>.</span>")
 		log_message("has thrown [thrown_thing.name]", LOG_ATTACK)
 		newtonian_move(get_dir(target, src))
 		thrown_thing.safe_throw_at(target, thrown_thing.throw_range, thrown_thing.throw_speed, src, null, null, null, move_force)

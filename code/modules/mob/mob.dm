@@ -551,7 +551,7 @@
 	if (CONFIG_GET(flag/norespawn))
 		return
 	if ((stat != DEAD || !( SSticker )))
-		to_chat(usr, "<span class='boldnotice'>Ты живой!</span>")
+		to_chat(usr, "<span class='boldnotice'>Я живу!</span>")
 		return
 
 	log_game("[key_name(usr)] used abandon mob.")

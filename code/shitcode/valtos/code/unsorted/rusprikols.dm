@@ -62,7 +62,7 @@
 
 /obj/item/melee/classic_baton/dildon
 	name = "dildo"
-	desc = "При неправильном обращении окажется у тебя в жопе."
+	desc = "При неправильном обращении окажется у меня в жопе."
 	icon = 'code/shitcode/valtos/icons/melee.dmi'
 	icon_state = "dildo"
 	item_state = "dildo"

@@ -144,7 +144,7 @@
 	var/attack_message_local = "Вы [message_verb]е [message_hit_area] при помощи [I.name]!"
 	if(user in viewers(src, null))
 		attack_message = "<b>[user]</b> [message_verb] <b>[src]</b> в [message_hit_area] при помощи [I.name]!"
-		attack_message_local = "<b>[user]</b> [message_verb] <b>тебя</b> в [message_hit_area] при помощи [I.name]!"
+		attack_message_local = "<b>[user]</b> [message_verb] <b>меня</b> в [message_hit_area] при помощи [I.name]!"
 	visible_message("<span class='danger'>[attack_message]</span>",\
 		"<span class='userdanger'>[attack_message_local]</span>", null, COMBAT_MESSAGE_RANGE)
 	return 1

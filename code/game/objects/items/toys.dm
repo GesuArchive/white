@@ -233,8 +233,8 @@
 	playsound(user, 'sound/weapons/gun/revolver/shot.ogg', 100, TRUE)
 	src.bullets--
 	user.visible_message("<span class='danger'><b>[user]</b> стреляет из <b>[src.name]</b> в <b>[target]</b>!</span>", \
-						"<span class='danger'>Ты стреляешь из <b>[src.name]</b> в <b>[target]</b>!</span>", \
-						 "<span class='italics'>Ты слышишь выстрел!</span>")
+						"<span class='danger'>Стреляю из <b>[src.name]</b> в <b>[target]</b>!</span>", \
+						 "<span class='italics'>Слышу выстрел!</span>")
 
 /obj/item/toy/ammo/gun
 	name = "capgun ammo"

@@ -171,7 +171,7 @@
 			return
 		bolt_locked = FALSE
 	if (user)
-		to_chat(user, "<span class='notice'>Ты передёргиваешь [bolt_wording] <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>Передёргиваю [bolt_wording] <b>[src.name]</b>.</span>")
 	process_chamber(!chambered, FALSE)
 	if (bolt_type == BOLT_TYPE_LOCKING && !chambered)
 		bolt_locked = TRUE
@@ -184,7 +184,7 @@
 /obj/item/gun/ballistic/proc/drop_bolt(mob/user = null)
 	playsound(src, bolt_drop_sound, bolt_drop_sound_volume, FALSE)
 	if (user)
-		to_chat(user, "<span class='notice'>Ты опускаешь [bolt_wording] <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>Опускаю [bolt_wording] <b>[src.name]</b>.</span>")
 	chamber_round()
 	bolt_locked = FALSE
 	update_icon()
@@ -197,14 +197,14 @@
 	if(user.transferItemToLoc(AM, src))
 		magazine = AM
 		if (display_message)
-			to_chat(user, "<span class='notice'>Ты вставил [magazine_wording] в <b>[src.name]</b>.</span>")
+			to_chat(user, "<span class='notice'>Вставляю [magazine_wording] в <b>[src.name]</b>.</span>")
 		playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
 		if (bolt_type == BOLT_TYPE_OPEN && !bolt_locked)
 			chamber_round(TRUE)
 		update_icon()
 		return TRUE
 	else
-		to_chat(user, "<span class='warning'>Ты не можешь убрать <b>[src.name]</b> из своей руки!</span>")
+		to_chat(user, "<span class='warning'>Не могу убрать <b>[src.name]</b> из своей руки!</span>")
 		return FALSE
 
 ///Handles all the logic of magazine ejection, if tac_load is set that magazine will be tacloaded in the place of the old eject
@@ -219,16 +219,16 @@
 	var/obj/item/ammo_box/magazine/old_mag = magazine
 	if (tac_load)
 		if (insert_magazine(user, tac_load, FALSE))
-			to_chat(user, "<span class='notice'>Ты производишь тактическую перезарядку <b>[src.name]</b>.</span>")
+			to_chat(user, "<span class='notice'>Произвожу тактическую перезарядку <b>[src.name]</b>.</span>")
 		else
-			to_chat(user, "<span class='warning'>Ты бросаешь старый [magazine_wording], но новый не вставляется. Невероятно.</span>")
+			to_chat(user, "<span class='warning'>Бросаю старый [magazine_wording], но новый не вставляется. Невероятно.</span>")
 			magazine = null
 	else
 		magazine = null
 	user.put_in_hands(old_mag)
 	old_mag.update_icon()
 	if (display_message)
-		to_chat(user, "<span class='notice'>Ты вытащил [magazine_wording] из <b>[src.name]</b>.</span>")
+		to_chat(user, "<span class='notice'>Вытаскиваю [magazine_wording] из <b>[src.name]</b>.</span>")
 	update_icon()
 
 /obj/item/gun/ballistic/can_shoot()
@@ -255,7 +255,7 @@
 				chambered = null
 			var/num_loaded = magazine.attackby(A, user, params, TRUE)
 			if (num_loaded)
-				to_chat(user, "<span class='notice'>Ты загрузил [num_loaded] [cartridge_wording] в <b>[src.name]</b>.</span>")
+				to_chat(user, "<span class='notice'>Загружаю [num_loaded] [cartridge_wording] в <b>[src.name]</b>.</span>")
 				playsound(src, load_sound, load_sound_volume, load_sound_vary)
 				if (chambered == null && bolt_type == BOLT_TYPE_NO_BOLT)
 					chamber_round()
@@ -265,7 +265,7 @@
 	if(istype(A, /obj/item/suppressor))
 		var/obj/item/suppressor/S = A
 		if(!can_suppress)
-			to_chat(user, "<span class='warning'>Ты без понятия как приделать [S.name] к <b>[src.name]</b>!</span>")
+			to_chat(user, "<span class='warning'Без понятия как приделать [S.name] к <b>[src.name]</b>!</span>")
 			return
 		if(!user.is_holding(src))
 			to_chat(user, "<span class='warning'>Нужно держать в руках <b>[src.name]</b>, чтобы приделать [S.name]!</span>")
@@ -274,7 +274,7 @@
 			to_chat(user, "<span class='warning'><b>[src.name]</b> уже имеет глушитель!</span>")
 			return
 		if(user.transferItemToLoc(A, src))
-			to_chat(user, "<span class='notice'>Ты прикрутил [S.name] к <b>[src.name]</b>.</span>")
+			to_chat(user, "<span class='notice'>Прикручиваю [S.name] к <b>[src.name]</b>.</span>")
 			install_suppressor(A)
 			return
 	if (can_be_sawn_off)
@@ -302,7 +302,7 @@
 			var/obj/item/suppressor/S = suppressed
 			if(!user.is_holding(src))
 				return ..()
-			to_chat(user, "<span class='notice'>Ты открутил [suppressed] от <b>[src.name]</b>.</span>")
+			to_chat(user, "<span class='notice'>Откручиваю [suppressed] от <b>[src.name]</b>.</span>")
 			user.put_in_hands(suppressed)
 			w_class -= S.w_class
 			suppressed = null

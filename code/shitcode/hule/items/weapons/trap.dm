@@ -52,7 +52,7 @@
 		if(do_after(user, 30, target = src))
 			W.play_tool_sound(src)
 			if(prob(80) && user.mind.antag_datums == null && user != owner)
-				to_chat(user, "<span class='userdanger'>Дебил блядь! Кто тебя учил растяжки обезвреживать?</span>")
+				to_chat(user, "<span class='userdanger'>Дебил блядь! Кто меня учил растяжки обезвреживать?</span>")
 				activate()
 				return
 			if(grenade)

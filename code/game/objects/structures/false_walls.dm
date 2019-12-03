@@ -96,10 +96,10 @@
 			if(!isfloorturf(T))
 				to_chat(user, "<span class='warning'>[src.name] не ощущает пола под собой!</span>")
 				return
-			user.visible_message("<span class='notice'>[user] затягивает болты стены.</span>", "<span class='notice'>Ты затянул болты стены.</span>")
+			user.visible_message("<span class='notice'>[user] затягивает болты стены.</span>", "<span class='notice'>Затягиваю болты стены.</span>")
 			ChangeToWall()
 		else
-			to_chat(user, "<span class='warning'>Ты не можешь достать до болтов! Закрой её!</span>")
+			to_chat(user, "<span class='warning'>Не могу достать до болтов! Закрыть бы её!</span>")
 
 	else if(W.tool_behaviour == TOOL_WELDER)
 		if(W.use_tool(src, user, 0, volume=50))

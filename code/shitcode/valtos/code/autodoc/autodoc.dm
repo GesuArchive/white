@@ -75,7 +75,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 /obj/machinery/autodoc/examine(mob/user)
 	. = ..()
 	if(occupant)
-		. += "<span class='notice'>Ты видишь <b>[occupant]</b> внутри.</span>"
+		. += "<span class='notice'>Вижу <b>[occupant]</b> внутри.</span>"
 	. += "<span class='notice'><b>Ctrl-Клик</b> чтобы открыть внутреннее хранилище.</span>"
 
 /obj/machinery/autodoc/CanPass(atom/movable/mover, turf/target)
@@ -302,7 +302,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 				"name" = initial(S.name),
 				"current" = active_step ? (active_step.type == s) : FALSE
 			))
-		
+
 	else
 		.["mode"] = 1
 		.["target"] = target_zone
@@ -329,7 +329,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 		to_chat(user, "<span class='notice'>Бедный <b>[src]</b> уже взломан!</span>")
 		return
 	log_combat(user, src, "emagged")
-	to_chat(user, "<span class='notice'>Ты нещадно проводишь криптокаркой по <b>[src]</b>, заставляя его сойти с ума.</span>")
+	to_chat(user, "<span class='notice'>Я нещадно провожу криптокаркой по <b>[src]</b>, заставляя его сойти с ума.</span>")
 	add_fingerprint(user)
 	caesar = TRUE
 

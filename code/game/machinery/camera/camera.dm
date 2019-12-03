@@ -190,7 +190,7 @@
 	if(..())
 		return TRUE
 	panel_open = !panel_open
-	to_chat(user, "<span class='notice'>Ты [panel_open ? "открутил" : "закрутил"] техническую панель.</span>")
+	to_chat(user, "<span class='notice'>Я [panel_open ? "откручиваю" : "закручиваю"] техническую панель.</span>")
 	I.play_tool_sound(src)
 	update_icon()
 	return TRUE
@@ -240,7 +240,7 @@
 		return
 
 	setViewRange((view_range == initial(view_range)) ? short_range : initial(view_range))
-	to_chat(user, "<span class='notice'>Ты [(view_range == initial(view_range)) ? "восстановил" : "сломал"] фокусировку камеры.</span>")
+	to_chat(user, "<span class='notice'>Я [(view_range == initial(view_range)) ? "восстанавливаю" : "ломаю"] фокусировку камеры.</span>")
 	return TRUE
 
 /obj/machinery/camera/welder_act(mob/living/user, obj/item/I)
@@ -251,10 +251,10 @@
 	if(!I.tool_start_check(user, amount=0))
 		return TRUE
 
-	to_chat(user, "<span class='notice'>Ты начинаешь разваривать [src.name]...</span>")
+	to_chat(user, "<span class='notice'>Начинаю разваривать [src.name]...</span>")
 	if(I.use_tool(src, user, 100, volume=50))
 		user.visible_message("<span class='warning'>[user] отваривает [src.name] от стены, оставляя только рамку с болтами.</span>",
-			"<span class='warning'>Ты отварил [src.name] от стены, оставив только рамку с болтами.</span>")
+			"<span class='warning'>Отвариваю [src.name] от стены, оставив только рамку с болтами.</span>")
 		deconstruct(TRUE)
 
 	return TRUE
@@ -267,7 +267,7 @@
 				if(!user.temporarilyRemoveItemFromInventory(I))
 					return
 				upgradeXRay(FALSE, TRUE)
-				to_chat(user, "<span class='notice'>Ты прикрепил [I.name] во внутреннюю схему [assembly.name].</span>")
+				to_chat(user, "<span class='notice'>Прикрепляю [I.name] во внутреннюю схему [assembly.name].</span>")
 				qdel(I)
 			else
 				to_chat(user, "<span class='warning'>[src.name] уже имеет это улучшение!</span>")
@@ -277,7 +277,7 @@
 			if(!isEmpProof(TRUE)) //don't reveal it was already upgraded if was done via MALF AI Upgrade Camera Network ability
 				if(I.use_tool(src, user, 0, amount=1))
 					upgradeEmpProof(FALSE, TRUE)
-					to_chat(user, "<span class='notice'>Ты прикрепил [I.name] во внутреннюю схему [assembly.name].</span>")
+					to_chat(user, "<span class='notice'>Прикрепляю [I.name] во внутреннюю схему [assembly.name].</span>")
 			else
 				to_chat(user, "<span class='warning'>[src.name] уже имеет это улучшение!</span>")
 			return
@@ -287,7 +287,7 @@
 				if(!user.temporarilyRemoveItemFromInventory(I))
 					return
 				upgradeMotion()
-				to_chat(user, "<span class='notice'>Ты прикрепил [I.name] во внутреннюю схему [assembly.name].</span>")
+				to_chat(user, "<span class='notice'>Прикрепляю [I.name] во внутреннюю схему [assembly.name].</span>")
 				qdel(I)
 			else
 				to_chat(user, "<span class='warning'>[src.name] уже имеет это улучшение!</span>")

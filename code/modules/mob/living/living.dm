@@ -57,7 +57,7 @@
 
 /mob/living/proc/ZImpactDamage(turf/T, levels)
 	visible_message("<span class='danger'><b>[src]</b> влетает в <b>[T]</b> с хрустящим звуком!</span>", \
-					"<span class='userdanger'>Ты влетаешь в [T] с хрустящим звуком!</span>")
+					"<span class='userdanger'>Влетаю в [T] с хрустящим звуком!</span>")
 	adjustBruteLoss((levels * 5) ** 1.5)
 	Knockdown(levels * 50)
 
@@ -268,8 +268,8 @@
 	if(AM.pulledby)
 		if(!supress_message)
 			AM.visible_message("<span class='danger'><b>[src]</b> оттягивает <b>[AM]</b> у <b>[AM.pulledby]</b>.</span>", \
-							"<span class='danger'><b>[src]</b> оттягивает тебя из захвата <b>[AM.pulledby]</b>.</span>", null, null, src)
-			to_chat(src, "<span class='notice'>Ты оттягиваешь <b>[AM]</b> из захвата <b>[AM.pulledby]</b>!</span>")
+							"<span class='danger'><b>[src]</b> оттягивает меня из захвата <b>[AM.pulledby]</b>.</span>", null, null, src)
+			to_chat(src, "<span class='notice'>Оттягиваю <b>[AM]</b> из захвата <b>[AM.pulledby]</b>!</span>")
 		log_combat(AM, AM.pulledby, "pulled from", src)
 		AM.pulledby.stop_pulling() //an object can't be pulled by two mobs at once.
 
@@ -295,8 +295,8 @@
 		log_combat(src, M, "grabbed", addition="passive grab")
 		if(!supress_message && !(iscarbon(AM) && HAS_TRAIT(src, TRAIT_STRONG_GRABBER)))
 			M.visible_message("<span class='warning'>[src] хватает [M] [(zone_selected == "l_arm" || zone_selected == "r_arm" && ishuman(M))? "за руку":"нежно"]!</span>", \
-							"<span class='warning'>[src] хватает тебя [(zone_selected == "l_arm" || zone_selected == "r_arm" && ishuman(M))? "за руку":"нежно"]!</span>", null, null, src)
-			to_chat(src, "<span class='notice'>Ты хватаешь [M] [(zone_selected == "l_arm" || zone_selected == "r_arm" && ishuman(M))? "за руку":"нежно"]!</span>")
+							"<span class='warning'>[src] хватает меня [(zone_selected == "l_arm" || zone_selected == "r_arm" && ishuman(M))? "за руку":"нежно"]!</span>", null, null, src)
+			to_chat(src, "<span class='notice'>Хватаю [M] [(zone_selected == "l_arm" || zone_selected == "r_arm" && ishuman(M))? "за руку":"нежно"]!</span>")
 		if(!iscarbon(src))
 			M.LAssailant = null
 		else
@@ -391,7 +391,7 @@
 		return FALSE
 	if(!..())
 		return FALSE
-	visible_message("<span class='name'>[src]</span> показывает на <b>[A]</b>.", "<span class='notice'>Ты показываешь на <b>[A]</b>.</span>")
+	visible_message("<span class='name'>[src]</span> показывает на <b>[A]</b>.", "<span class='notice'>Показываю на <b>[A]</b>.</span>")
 	return TRUE
 
 /mob/living/verb/succumb(whispered as null)
@@ -401,7 +401,7 @@
 		adjustOxyLoss(health - HEALTH_THRESHOLD_DEAD)
 		updatehealth()
 		if(!whispered)
-			to_chat(src, "<span class='notice'>Ты сдаёшься смерти. Позорно.</span>")
+			to_chat(src, "<span class='notice'>Сдаюсь смерти. Позорно.</span>")
 		death()
 
 /mob/living/incapacitated(ignore_restraints = FALSE, ignore_grab = FALSE, check_immobilized = FALSE, ignore_stasis = FALSE)
@@ -437,10 +437,10 @@
 	set category = "IC"
 
 	if(IsSleeping())
-		to_chat(src, "<span class='warning'>Ты уже спишь!</span>")
+		to_chat(src, "<span class='warning'>Уже сплю!</span>")
 		return
 	else
-		if(alert(src, "Хочешь поспать?", "Sleep", "Yes", "No") == "Yes")
+		if(alert(src, "Хочешь поспать?", "Sleep", "Да", "Нет") == "Да")
 			SetSleeping(400) //Short nap
 	update_mobility()
 
@@ -461,9 +461,9 @@
 /mob/living/proc/set_resting(rest, silent = TRUE)
 	if(!silent)
 		if(rest)
-			to_chat(src, "<span class='notice'>Ты ложишься.</span>")
+			to_chat(src, "<span class='notice'>Ложусь.</span>")
 		else
-			to_chat(src, "<span class='notice'>Ты встаёшь.</span>")
+			to_chat(src, "<span class='notice'>Встаю.</span>")
 	resting = rest
 	update_resting()
 
@@ -766,16 +766,16 @@
 		resist_chance = max(resist_chance/altered_grab_state-sqrt((getStaminaLoss()+getBruteLoss()/2)*(3-altered_grab_state)), 0) // https://i.imgur.com/6yAT90T.png for sample output values
 		if(prob(resist_chance))
 			visible_message("<span class='danger'><b>[src]</b> вырывается из захвата <b>[pulledby]</b>!</span>", \
-							"<span class='danger'>Ты вырываешься из захвата <b>[pulledby]</b>!</span>", null, null, pulledby)
-			to_chat(pulledby, "<span class='warning'><b>[src]</b> вырывается из твоего захвата!</span>")
+							"<span class='danger'>Вырываюсь из захвата <b>[pulledby]</b>!</span>", null, null, pulledby)
+			to_chat(pulledby, "<span class='warning'><b>[src]</b> вырывается из моего захвата!</span>")
 			log_combat(pulledby, src, "broke grab")
 			pulledby.stop_pulling()
 			return FALSE
 		else
 			adjustStaminaLoss(rand(8,15))//8 is from 7.5 rounded up
 			visible_message("<span class='danger'><b>[src]</b> пытается вырваться из захвата <b>[pulledby]</b>!</span>", \
-							"<span class='warning'>Ты пытаешься вырваться из захвата <b>[pulledby]</b>!</span>", null, null, pulledby)
-			to_chat(pulledby, "<span class='danger'><b>[src]</b> пытается вырваться из твоего захвата!</span>")
+							"<span class='warning'>Пытаюсь вырваться из захвата <b>[pulledby]</b>!</span>", null, null, pulledby)
+			to_chat(pulledby, "<span class='danger'><b>[src]</b> пытается вырваться из моего захвата!</span>")
 		if(moving_resist && client) //we resisted by trying to move
 			client.move_delay = world.time + 20
 	else
@@ -958,13 +958,13 @@
 
 /mob/living/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
 	if(incapacitated())
-		to_chat(src, "<span class='warning'>Ты не хочешь это делать прямо сейчас!</span>")
+		to_chat(src, "<span class='warning'>Не хочу это делать прямо сейчас!</span>")
 		return FALSE
 	if(be_close && !in_range(M, src))
-		to_chat(src, "<span class='warning'>Ты слишком далеко!</span>")
+		to_chat(src, "<span class='warning'>Я слишком далеко!</span>")
 		return FALSE
 	if(!no_dexterity)
-		to_chat(src, "<span class='warning'>У тебя не хватает ловкости для этого!</span>")
+		to_chat(src, "<span class='warning'>У меня не хватает ловкости для этого!</span>")
 		return FALSE
 	return TRUE
 
@@ -1067,7 +1067,7 @@
 	if(fire_stacks > 0 && !on_fire)
 		on_fire = 1
 		src.visible_message("<span class='warning'><b>[src]</b> горит!</span>", \
-						"<span class='userdanger'>Ты начинаешь гореть! Вот это да!</span>")
+						"<span class='userdanger'>Я ГОРЮ!!! Вот это да!</span>")
 		new/obj/effect/dummy/lighting_obj/moblight/fire(src)
 		throw_alert("fire", /obj/screen/alert/fire)
 		update_fire()
@@ -1305,8 +1305,8 @@
 		to_chat(user, "<span class='warning'><b>[src]</b> прикован к чему-то!</span>")
 		return FALSE
 	user.visible_message("<span class='warning'><b>[user]</b> начинает подбирать <b>[src]</b>!</span>", \
-					"<span class='danger'>Ты начинаешь подбирать <b>[src]</b>...</span>", null, null, src)
-	to_chat(src, "<span class='userdanger'><b>[user]</b> начинает подбирать тебя!</span>")
+					"<span class='danger'>Начинаю подбирать <b>[src]</b>...</span>", null, null, src)
+	to_chat(src, "<span class='userdanger'><b>[user]</b> начинает подбирать меня!</span>")
 	if(!do_after(user, 20, target = src))
 		return FALSE
 	mob_pickup(user)

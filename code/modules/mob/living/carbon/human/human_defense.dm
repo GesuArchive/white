@@ -194,8 +194,8 @@
 	playsound(loc, user.dna.species.attack_sound, 25, TRUE, -1)
 	var/message = "[user] [hulk_verb] [src]!"
 	visible_message("<span class='danger'>[message]</span>", \
-							"<span class='userdanger'>[message]</span>", "<span class='hear'>Ты слышишь как что-то сильно бьёт по плоти!</span>", null, user)
-	to_chat(user, "<span class='danger'>Твой удар [hulk_verb] [src]!</span>")
+							"<span class='userdanger'>[message]</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", null, user)
+	to_chat(user, "<span class='danger'>Мой удар [hulk_verb] [src]!</span>")
 	adjustBruteLoss(15)
 
 /mob/living/carbon/human/attack_hand(mob/user)

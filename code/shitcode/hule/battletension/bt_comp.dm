@@ -216,10 +216,10 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	if(settings & settbit)
 		settings &= ~settbit
-		to_chat(usr, "<span class='danger'>Ты больше не хочешь [selected].</span>")
+		to_chat(usr, "<span class='danger'>Большу не хочу [selected].</span>")
 	else
 		settings |= settbit
-		to_chat(usr, "<span class='danger'>Теперь ты хочешь [selected].</span>")
+		to_chat(usr, "<span class='danger'>Теперь хочу [selected].</span>")
 
 	prefs.btprefs = settings
 	prefs.save_preferences()

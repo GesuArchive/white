@@ -51,13 +51,13 @@ GLOBAL_LIST_EMPTY(interactions)
 
 	if(require_user_mouth)
 		if(!user.has_mouth())
-			if(!silent) to_chat(user, "<span class = 'warning'>У тебя нет рта!.</span>")
+			if(!silent) to_chat(user, "<span class = 'warning'>У меня нет рта!.</span>")
 			return 0
 		if(!user.mouth_is_free())
-			if(!silent) to_chat(user, "<span class = 'warning'>Твой рот прикрыт.</span>")
+			if(!silent) to_chat(user, "<span class = 'warning'>Мой рот прикрыт.</span>")
 			return 0
 	if(require_user_hands && !user.has_hands())
-		if(!silent) to_chat(user, "<span class = 'warning'>У тебя нет рук.</span>")
+		if(!silent) to_chat(user, "<span class = 'warning'>У меня нет рук.</span>")
 		return 0
 	return 1
 
