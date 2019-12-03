@@ -350,7 +350,6 @@
 /area/ruin/space/has_grav/telepadovo)
 "aY" = (
 /obj/structure/table/wood/fancy/royalblack,
-/obj/item/reagent_containers/glass/colocup,
 /turf/open/floor/partyhard/steel{
 	icon_state = "st-2"
 	},
