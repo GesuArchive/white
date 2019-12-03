@@ -721,9 +721,9 @@ Turf and target are separate in case you want to teleport some distance from a t
 	else if (zone == "right arm")
 		return "правая рука"
 	else if (zone == "left leg")
-		return "левая рука"
+		return "левая нога"
 	else if (zone == "right leg")
-		return "правая рука"
+		return "правая нога"
 	else if (zone == "left foot")
 		return "левая ступня"
 	else if (zone == "right foot")
