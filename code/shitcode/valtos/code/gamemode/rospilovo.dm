@@ -36,6 +36,12 @@
 	icon = 'code/shitcode/valtos/icons/rospilovo/floor.dmi'
 	icon_state = "beton"
 
+/turf/open/floor/rospilovo/cyber
+	name = "киберпол"
+	desc = "БЛЯТЬ!"
+	icon = 'code/shitcode/valtos/icons/rospilovo/cybershit.dmi'
+	icon_state = "bfloor-1"
+
 /turf/open/floor/rospilovo/wood
 	name = "деревянный пол"
 	desc = "Скрипучий пиздец."
@@ -85,6 +91,22 @@
 	/turf/closed/wall/rospilovo/beton_agro
 	)
 	smooth = SMOOTH_TRUE
+
+/turf/closed/wall/rospilovo/cyberwall
+	name = "стена"
+	desc = "Здоровенная, пиздец."
+	icon = 'code/shitcode/valtos/icons/rospilovo/cyberwall.dmi'
+	icon_state = "cyberwall"
+	canSmoothWith = list(
+	/turf/closed/wall/rospilovo/cyberwall
+	)
+
+/turf/closed/wall/rospilovo/cyberwall/not
+	icon = 'code/shitcode/valtos/icons/rospilovo/notacyberwall.dmi'
+	icon_state = "notacyberwall"
+	canSmoothWith = list(
+	/turf/closed/wall/rospilovo/cyberwall/not
+	)
 
 /turf/closed/wall/rospilovo/beton
 	name = "стена"
