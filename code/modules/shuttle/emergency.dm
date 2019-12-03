@@ -316,8 +316,8 @@
 				mode = SHUTTLE_DOCKED
 				webhook_send_roundstatus("shuttle docked")
 				setTimer(SSshuttle.emergencyDockTime)
-				send2irc("Server", "The Emergency Shuttle has docked with the station.")
-				priority_announce("Эвакуационный шаттл был пристыкован к станции. В вашем распоряжении [timeLeft(600)] минуты на посадку.", null, 'sound/ai/shuttledock.ogg', "Priority")
+				send2tgs("Server", "The Emergency Shuttle has docked with the station.")
+				priority_announce("Эвакуационный шаттл был пристыкован к станции. В вашем распоряжении [timeLeft(600)] минут на посадку.", null, 'sound/ai/shuttledock.ogg', "Priority")
 				ShuttleDBStuff()
 
 
@@ -422,7 +422,7 @@
 	mode = SHUTTLE_ESCAPE
 	launch_status = ENDGAME_LAUNCHED
 	setTimer(SSshuttle.emergencyEscapeTime)
-	priority_announce("Эвакуационный шаттл готовится к прямому прыжку. Ожидайте [timeLeft(600)] минуты пока он не прибудет к Центральному Командованию.", null, null, "Priority")
+	priority_announce("Эвакуационный шаттл готовится к прямому прыжку. Ожидайте [timeLeft(600)] минут пока он не прибудет к Центральному Командованию.", null, null, "Priority")
 
 
 /obj/docking_port/mobile/pod
