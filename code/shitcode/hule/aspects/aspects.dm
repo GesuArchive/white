@@ -1,7 +1,7 @@
 /datum/round_aspect
 	var/name = "Nothing"
 	var/desc = "Ничего."
-	var/weight = 13
+	var/weight = 26
 
 /datum/round_aspect/proc/run_aspect()
 	SSblackbox.record_feedback("tally", "aspect", 1, name) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -10,7 +10,7 @@
 /datum/round_aspect/random_appearance
 	name = "Random appearance"
 	desc = "Экипаж перестал узнавать друг-друга в лицо."
-	weight = 8
+	weight = 16
 
 /datum/round_aspect/random_appearance/run_aspect()
 	CONFIG_SET(flag/force_random_names, TRUE)
@@ -19,7 +19,7 @@
 /datum/round_aspect/bom_bass
 	name = "Bombass"
 	desc = "Инженеры схалтурили при строительстве станции и вместо обычного металлического покрытия решили использовать остатки снарядов от противотанковых винтовок, которые уже проявили себя."
-	weight = 7
+	weight = 14
 
 /datum/round_aspect/bom_bass/run_aspect()
 	var/expcount = rand(1,4)
@@ -37,16 +37,17 @@
 /datum/round_aspect/rpg_loot
 	name = "RPG Loot"
 	desc = "Наши гениальные учёные достигли таких высот при работе с материалами, что теперь каждый предмет обладает <i>особенными</i> свойствами."
-	weight = 2
+	weight = 4
 
 /datum/round_aspect/rpg_loot/run_aspect()
-	new /datum/round_event_control/wizard/rpgloot
+	var/datum/round_event_control/wizard/rpgloot/D = new()
+	D.runEvent()
 	..()
 
 /datum/round_aspect/no_matter
 	name = "No matter"
 	desc = "Какой-то смышлённый агент синдиката решил украсть кристалл суперматерии целиком."
-	weight = 15
+	weight = 30
 
 /datum/round_aspect/no_matter/run_aspect()
 	GLOB.main_supermatter_engine.Destroy()
@@ -55,7 +56,7 @@
 /datum/round_aspect/airunlock
 	name = "Airunlock"
 	desc = "Кого волнует безопасность? Экипаж свободно может ходить по всем отсекам, ведь все шлюзы теперь для них доступны."
-	weight = 10
+	weight = 20
 
 /datum/round_aspect/airunlock/run_aspect()
 	for(var/obj/machinery/door/D in GLOB.machines)
@@ -66,7 +67,7 @@
 /datum/round_aspect/terraformed
 	name = "Terraformed"
 	desc = "Продвинутые технологии терраформирования озеленили Лаваленд."
-	weight = 9
+	weight = 18
 
 /datum/round_aspect/terraformed/run_aspect()
 	for(var/turf/open/floor/plating/asteroid/basalt/lava_land_surface/T in world)
@@ -82,7 +83,7 @@
 /datum/round_aspect/rich
 	name = "Rich"
 	desc = "Экипаж работал усердно в прошлую смену, за что и был награждён премиями в размере 10000 кредитов каждому."
-	weight = 12
+	weight = 24
 
 /datum/round_aspect/rich/run_aspect()
 	for(var/datum/bank_account/D in SSeconomy.bank_accounts)
@@ -92,7 +93,7 @@
 /datum/round_aspect/drunk
 	name = "Drunk"
 	desc = "На станции стоит явный запах вчерашнего веселья... и кажется оно только начинается."
-	weight = 18
+	weight = 36
 
 /datum/round_aspect/drunk/run_aspect()
 	for(var/mob/living/carbon/human/H in GLOB.carbon_list)
@@ -100,7 +101,7 @@
 			continue
 		if(H.stat == DEAD)
 			continue
-		H.drunkenness = 50
+		H.drunkenness = 90
 	..()
 
 /datum/round_aspect/prikol
@@ -192,7 +193,7 @@
 /datum/round_aspect/fast_and_furious
 	name = "Fast and Furious"
 	desc = "Люди спешат и не важно куда."
-	weight = 13
+	weight = 26
 
 /datum/round_aspect/fast_and_furious/run_aspect()
 	CONFIG_SET(number/movedelay/run_delay, 1)
@@ -201,34 +202,34 @@
 /datum/round_aspect/weak
 	name = "Weak"
 	desc = "Удары стали слабее. Пули мягче. К чему это приведёт?"
-	weight = 9
+	weight = 18
 
 /datum/round_aspect/weak/run_aspect()
-	CONFIG_SET(number/damage_multiplier, 0.75)
+	CONFIG_SET(number/damage_multiplier, 0.5)
 	..()
 
 /datum/round_aspect/immortality
 	name = "Immortality"
 	desc = "Шахтёры притащили неизвестный артефакт дарующий бессмертие и активировали его на станции. Никто не сможет получить достаточных травм, чтобы погибнуть. Наверное."
-	weight = 4
+	weight = 8
 
 /datum/round_aspect/immortality/run_aspect()
-	CONFIG_SET(number/damage_multiplier, 0.01)
+	CONFIG_SET(number/damage_multiplier, 0)
 	..()
 
 /datum/round_aspect/bloody
 	name = "Bloody"
 	desc = "В эту смену любая незначительная травма может оказаться летальной."
-	weight = 3
+	weight = 6
 
 /datum/round_aspect/bloody/run_aspect()
-	CONFIG_SET(number/damage_multiplier, 2.75)
+	CONFIG_SET(number/damage_multiplier, 3)
 	..()
 
 /datum/round_aspect/assistants
 	name = "Assistants"
 	desc = "Критическая масса ассистентов увеличивается с каждой минутой. ЦК решило перенаправить эту нагрузку и на вашу станцию."
-	weight = 8
+	weight = 16
 
 /datum/controller/subsystem/job/proc/DisableJobsButThis(job_path)
 	for(var/I in occupations)
@@ -238,7 +239,7 @@
 			J.spawn_positions = 0
 			J.current_positions = 0
 		else
-			J.total_positions = 75
+			J.total_positions = 750
 
 /datum/round_aspect/assistants/run_aspect()
 	SSjob.DisableJobsButThis(/datum/job/assistant)

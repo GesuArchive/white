@@ -51,7 +51,7 @@
 
 /client/verb/showrevinfo()
 	set category = "OOC"
-	set name = "Show Server Revision"
+	set name = " ℹ️ Информация о сервере"
 	set desc = "Check the current server code revision"
 
 	var/list/msg = list("")

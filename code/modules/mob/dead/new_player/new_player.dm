@@ -142,7 +142,7 @@
 				to_chat(usr, "<span class='notice'>Перед тобой [queue_position-1] игроков в очереди ожидания захода в раунд.</span>")
 			else
 				SSticker.queued_players += usr
-				to_chat(usr, "<span class='notice'>меня добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len].</span>")
+				to_chat(usr, "<span class='notice'>Меня добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len].</span>")
 			return
 		LateChoices()
 

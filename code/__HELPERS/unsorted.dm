@@ -735,7 +735,7 @@ Turf and target are separate in case you want to teleport some distance from a t
 	else if (zone == "groin")
 		return "пах"
 	else if (zone == "head")
-		return "голову"
+		return "голова"
 	else
 		return zone
 

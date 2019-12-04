@@ -56,21 +56,21 @@
 	..()
 
 	if(statpanel("Game"))
-		stat(null, "Intent: [a_intent]")
-		stat(null, "Move Mode: [m_intent]")
+		stat(null, "Взаимодействие: [a_intent]")
+		stat(null, "Режим перемещения: [m_intent]")
 		if (internal)
 			if (!internal.air_contents)
 				qdel(internal)
 			else
-				stat(null, "Internal Atmosphere Info: [internal.name]")
-				stat(null, "Tank Pressure: [internal.air_contents.return_pressure()]")
-				stat(null, "Distribution Pressure: [internal.distribute_pressure]")
+				stat(null, "Используемый источник воздуха: [internal.name]")
+				stat(null, "Давление баллона: [internal.air_contents.return_pressure()]")
+				stat(null, "Поставляемое давление: [internal.distribute_pressure]")
 
 		if(mind)
 			var/datum/antagonist/changeling/changeling = mind.has_antag_datum(/datum/antagonist/changeling)
 			if(changeling)
-				stat(null, "Chemical Storage: [changeling.chem_charges]/[changeling.chem_storage]")
-				stat(null, "Absorbed DNA: [changeling.absorbedcount]")
+				stat(null, "Химикаты: [changeling.chem_charges]/[changeling.chem_storage]")
+				stat(null, "Поглощено ДНК: [changeling.absorbedcount]")
 
 	//NINJACODE
 	if(istype(wear_suit, /obj/item/clothing/suit/space/space_ninja)) //Only display if actually a ninja.

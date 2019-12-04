@@ -29,7 +29,7 @@
 
 /client/verb/rules()
 	set name = "rules"
-	set desc = "Show Server Rules."
+	set desc = " ℹ️ Правила сервера"
 	set hidden = 1
 	var/rulesurl = CONFIG_GET(string/rulesurl)
 	if(rulesurl)
@@ -76,7 +76,7 @@
 	return
 
 /client/verb/changelog()
-	set name = "Последние изменения"
+	set name = " ℹ️ Последние изменения"
 	set category = "OOC"
 	var/datum/asset/changelog = get_asset_datum(/datum/asset/simple/changelog)
 	changelog.send(src)

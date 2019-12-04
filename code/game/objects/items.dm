@@ -189,7 +189,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	return
 
 /obj/item/verb/move_to_top()
-	set name = "Move To Top"
+	set name = "Переместить наверх"
 	set category = "Object"
 	set src in oview(1)
 
@@ -452,7 +452,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 /obj/item/verb/verb_pickup()
 	set src in oview(1)
 	set category = "Object"
-	set name = "Pick up"
+	set name = "Подобрать"
 
 	if(usr.incapacitated() || !Adjacent(usr))
 		return

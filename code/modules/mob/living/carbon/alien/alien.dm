@@ -91,7 +91,7 @@
 	..()
 
 	if(statpanel("Game"))
-		stat(null, "Intent: [a_intent]")
+		stat(null, "Взаимодействие: [a_intent]")
 
 /mob/living/carbon/alien/getTrail()
 	if(getBruteLoss() < 200)

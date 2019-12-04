@@ -88,13 +88,13 @@
 /mob/living/carbon/monkey/Stat()
 	..()
 	if(statpanel("Game"))
-		stat(null, "Intent: [a_intent]")
-		stat(null, "Move Mode: [m_intent]")
+		stat(null, "Взаимодействие: [a_intent]")
+		stat(null, "Режим перемещения: [m_intent]")
 		if(client && mind)
 			var/datum/antagonist/changeling/changeling = mind.has_antag_datum(/datum/antagonist/changeling)
 			if(changeling)
-				stat("Chemical Storage", "[changeling.chem_charges]/[changeling.chem_storage]")
-				stat("Absorbed DNA", changeling.absorbedcount)
+				stat("Химикаты", "[changeling.chem_charges]/[changeling.chem_storage]")
+				stat("Поглощено ДНК", changeling.absorbedcount)
 	return
 
 

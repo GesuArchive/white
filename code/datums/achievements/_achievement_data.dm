@@ -30,7 +30,7 @@
 
 /datum/achievement_data/proc/load_all_achievements()
 	set waitfor = FALSE
-	
+
 	var/list/kv = list()
 	var/datum/DBQuery/Query = SSdbcore.NewQuery("SELECT achievement_key,value FROM [format_table_name("achievements")] WHERE ckey = '[sanitizeSQL(owner_ckey)]'")
 	if(!Query.Execute())
@@ -130,7 +130,7 @@
 
 /client/verb/checkachievements()
 	set category = "OOC"
-	set name = "Check achievements"
+	set name = " ℹ️ Мои достижения"
 	set desc = "See all of your achievements!"
 
 	player_details.achievements.ui_interact(usr)

@@ -597,7 +597,7 @@
 	category = list("initial", "T-Comm")
 
 /datum/design/radio_headset
-	name = "Radio Headset"
+	name = "Гарнитура"
 	id = "radio_headset"
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 75)

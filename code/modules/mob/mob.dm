@@ -512,7 +512,7 @@
   * This actually gets the mind datums notes
   */
 /mob/verb/memory()
-	set name = "Заметки"
+	set name = " ℹ️ Заметки"
 	set category = "IC"
 	set desc = "View your character's notes memory."
 	if(mind)
@@ -524,7 +524,7 @@
   * Add a note to the mind datum
   */
 /mob/verb/add_memory(msg as message)
-	set name = "Добавить заметку"
+	set name = " 📝 Добавить заметку"
 	set category = "IC"
 	if(mind)
 		if (world.time < memory_throttle_time)
@@ -545,7 +545,7 @@
   * Only works if flag/norespawn is allowed in config
   */
 /mob/verb/abandon_mob()
-	set name = "Переродиться"
+	set name = " ❗ Переродиться"
 	set category = "OOC"
 
 	if (CONFIG_GET(flag/norespawn))
@@ -582,7 +582,7 @@
   * Sometimes helps if the user is stuck in another perspective or camera
   */
 /mob/verb/cancel_camera()
-	set name = "Cancel Camera View"
+	set name = " ❗ Выйти из режима камеры"
 	set category = "OOC"
 	reset_perspective(null)
 	unset_machine()
@@ -691,7 +691,7 @@
 	..()
 
 	if(statpanel("Game"))
-		stat(null, "--- \[GAME PANEL V.1.284718\] ---")
+		stat(null, "--- \[Игровая Панель\] ---")
 		if(SSshuttle.emergency)
 			var/ETA = SSshuttle.emergency.getModeStr()
 			if(ETA)
