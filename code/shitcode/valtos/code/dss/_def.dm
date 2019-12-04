@@ -26,4 +26,4 @@
 		stat(null, "Выносливость: [dstats["stamina"]]")
 		stat(null, "Интеллект: [dstats["intelligence"]]")
 		stat(null, "Ловкость: [dstats["dexterity"]]")
-		stat(null, "Сила воли: [src.wpp]")
+		stat(null, "Сила воли: [client.wpp]")

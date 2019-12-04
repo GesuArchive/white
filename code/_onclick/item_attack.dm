@@ -141,7 +141,7 @@
 	if(hit_area)
 		message_hit_area = "[ru_parse_zone(hit_area)]"
 	var/attack_message = "[src] [message_verb] в [message_hit_area] используя [I.name]!"
-	var/attack_message_local = "[ru_capitalize(message_verb)] [message_hit_area] используя [I.name]!"
+	var/attack_message_local = "[capitalize(message_verb)] [message_hit_area] используя [I.name]!"
 	if(user in viewers(src, null))
 		attack_message = "<b>[user]</b> [message_verb] <b>[src]</b> в [message_hit_area] используя [I.name]!"
 		attack_message_local = "<b>[user]</b> [message_verb] <b>меня</b> в [message_hit_area] используя [I.name]!"
