@@ -140,11 +140,11 @@
 	var/message_hit_area = ""
 	if(hit_area)
 		message_hit_area = "[ru_parse_zone(hit_area)]"
-	var/attack_message = "[src] [message_verb] в [message_hit_area] [sklonenie(I.name, TVORITELNI)]!"
-	var/attack_message_local = "[capitalize(message_verb)] [message_hit_area] [sklonenie(I.name, TVORITELNI)]!"
+	var/attack_message = "[src] [message_verb] в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
+	var/attack_message_local = "[capitalize(message_verb)] [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
 	if(user in viewers(src, null))
-		attack_message = "<b>[user]</b> [message_verb] <b>[sklonenie(src.name, VINITELNI, gender)]</b> в [message_hit_area] [sklonenie(I.name, TVORITELNI)]!"
-		attack_message_local = "<b>[user]</b> [message_verb] <b>меня</b> в [message_hit_area] [sklonenie(I.name, TVORITELNI)]!"
+		attack_message = "<b>[user]</b> [message_verb] <b>[sklonenie(src.name, VINITELNI, gender)]</b> в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
+		attack_message_local = "<b>[user]</b> [message_verb] <b>меня</b> в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
 	visible_message("<span class='danger'>[attack_message]</span>",\
 		"<span class='userdanger'>[attack_message_local]</span>", null, COMBAT_MESSAGE_RANGE)
 	return 1
