@@ -3173,6 +3173,7 @@
 #include "code\shitcode\valtos\code\serverside\fullscreen.dm"
 #include "code\shitcode\valtos\code\serverside\libvg.dm"
 #include "code\shitcode\valtos\code\serverside\looc.dm"
+#include "code\shitcode\valtos\code\serverside\padezhi.dm"
 #include "code\shitcode\valtos\code\serverside\pronouns_ru.dm"
 #include "code\shitcode\valtos\code\serverside\rus_exam.dm"
 #include "code\shitcode\valtos\code\serverside\text_ru.dm"
