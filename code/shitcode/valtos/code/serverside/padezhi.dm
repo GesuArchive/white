@@ -38,7 +38,7 @@
 /proc/sklonenie(msgfrom, rule, gender = null)
 	var/to_ret = ""
 	for(var/word in splittext_char(msgfrom, " "))
-		to_ret += "[sklonenie_do(word, rule, gender)] "
+		to_ret += " [sklonenie_do(word, rule, gender)]"
 	return to_ret
 
 /proc/sklonenie_do(msgfrom, rule, gender = null)

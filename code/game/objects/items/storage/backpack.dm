@@ -213,6 +213,7 @@
 	desc = "Модная сумка."
 	icon_state = "satchel-norm"
 	item_state = "satchel-norm"
+	gender = FEMALE // прикол
 
 /obj/item/storage/backpack/satchel/leather
 	name = "кожаная сумка"
