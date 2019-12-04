@@ -207,7 +207,7 @@ obj/item/dice/d6/ebony
 	if(user != null) //Dice was rolled in someone's hand
 		user.visible_message("[user] кидает [src]. Он приземляется на [result]. [comment]</span>", \
 							 "<span class='notice'>Бросаю [src]. Он приземляется на [result]. [comment]</span>", \
-							 "<span class='italics'>Вы слышите как катится [src], это звучит как [fake_result].</span>")
+							 "<span class='italics'>Я слышу как катится [src], это звучит как [fake_result].</span>")
 	else if(!src.throwing) //Dice was thrown and is coming to rest
 		visible_message("<span class='notice'>[src] останавливается приземлившись на [result]. [comment]</span>")
 

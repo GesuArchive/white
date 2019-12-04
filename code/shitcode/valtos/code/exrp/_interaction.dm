@@ -93,7 +93,7 @@ GLOBAL_LIST_EMPTY(interactions)
 		to_chat(user, "<span class='warning'>TARGET слишком далеко.</span>")
 		return
 	if(needs_physical_contact && !(user.Adjacent(target) && target.Adjacent(user)))
-		to_chat(user, "<span class='warning'>Вы не можете добраться до TARGET.</span>")
+		to_chat(user, "<span class='warning'>Я не могу добраться до TARGET.</span>")
 		return
 	if(!evaluate_user(user, silent=0))
 		return

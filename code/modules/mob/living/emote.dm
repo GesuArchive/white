@@ -517,6 +517,6 @@
 		return
 	var/obj/item/slapper/N = new(user)
 	if(user.put_in_hands(N))
-		to_chat(user, "<span class='notice'>Вы готовы шлёпать.</span>")
+		to_chat(user, "<span class='notice'>Я хочу шлёпать.</span>")
 	else
-		to_chat(user, "<span class='warning'>Вы пока не готовы шлёпать.</span>")
+		to_chat(user, "<span class='warning'>Не хочу шлёпать.</span>")

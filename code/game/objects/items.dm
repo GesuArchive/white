@@ -288,9 +288,9 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 
 		if(can_handle_hot)
 			extinguish()
-			to_chat(user, "<span class='notice'>Вы потушили [src].</span>")
+			to_chat(user, "<span class='notice'>Я тушу [src].</span>")
 		else
-			to_chat(user, "<span class='warning'>Вы обожгли свою руку дотронувшись до [src]!</span>")
+			to_chat(user, "<span class='warning'>Я обжигаю свою руку дотронувшись до [src]! БЛЯТЬ!</span>")
 			var/obj/item/bodypart/affecting = C.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 			if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
 				C.update_damage_overlays()
@@ -300,7 +300,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		var/mob/living/carbon/C = user
 		if(istype(C))
 			if(!C.gloves || (!(C.gloves.resistance_flags & (UNACIDABLE|ACID_PROOF))))
-				to_chat(user, "<span class='warning'>Кислота на [src] обжигает вашу руку!</span>")
+				to_chat(user, "<span class='warning'>Кислота на [src] обжигает мою руку!</span>")
 				var/obj/item/bodypart/affecting = C.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 				if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
 					C.update_damage_overlays()
@@ -312,7 +312,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	var/grav = user.has_gravity()
 	if(grav > STANDARD_GRAVITY)
 		var/grav_power = min(3,grav - STANDARD_GRAVITY)
-		to_chat(user,"<span class='notice'>Вы с трудом начинаете поднимать [src]...</span>")
+		to_chat(user,"<span class='notice'>Я с трудом начинаю поднимать [src]...</span>")
 		if(!do_mob(user,src,30*grav_power))
 			return
 
@@ -489,11 +489,11 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		return
 
 	if(isalien(M))//Aliens don't have eyes./N     slimes also don't have eyes!
-		to_chat(user, "<span class='warning'>Вы не можете найти глаза у этого существа!</span>")
+		to_chat(user, "<span class='warning'>Я не могу найти глаза у этого существа!</span>")
 		return
 
 	if(isbrain(M))
-		to_chat(user, "<span class='warning'>Вы не можете найти глаз на этом мозге!</span>")
+		to_chat(user, "<span class='warning'>Я не могу найти глаз на этом мозге!</span>")
 		return
 
 	src.add_fingerprint(user)
@@ -508,7 +508,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	else
 		user.visible_message( \
 			"<span class='danger'>[user] протыкает свой глаз при помощи [src]!</span>", \
-			"<span class='userdanger'>Вы проткнули себе глаз при помощи [src]!</span>" \
+			"<span class='userdanger'>Я протыкаю себе глаз при помощи [src]!</span>" \
 		)
 	if(is_human_victim)
 		var/mob/living/carbon/human/U = M
@@ -529,20 +529,20 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	if(eyes.damage >= 10)
 		M.adjust_blurriness(15)
 		if(M.stat != DEAD)
-			to_chat(M, "<span class='danger'>Ваши глаза начинают кровоточить!</span>")
+			to_chat(M, "<span class='danger'>Мои глаза начинают кровоточить!</span>")
 		if(!(HAS_TRAIT(M, TRAIT_BLIND) || HAS_TRAIT(M, TRAIT_NEARSIGHT)))
-			to_chat(M, "<span class='danger'>Вы становитесь близоруким!</span>")
+			to_chat(M, "<span class='danger'>Я становлюсь близоруким!</span>")
 		M.become_nearsighted(EYE_DAMAGE)
 		if(prob(50))
 			if(M.stat != DEAD)
 				if(M.drop_all_held_items())
-					to_chat(M, "<span class='danger'>Вы бросаете то, что держите в своих руках и хватаетесь за свои глаза!</span>")
+					to_chat(M, "<span class='danger'>Я бросаю то, что держу в своих руках и хватаюсь за свои глаза!</span>")
 			M.adjust_blurriness(10)
 			M.Unconscious(20)
 			M.Paralyze(40)
 		if (prob(eyes.damage - 10 + 1))
 			M.become_blind(EYE_DAMAGE)
-			to_chat(M, "<span class='danger'>Вы ослепли!</span>")
+			to_chat(M, "<span class='danger'>Я слепну!</span>")
 
 /obj/item/singularity_pull(S, current_size)
 	..()

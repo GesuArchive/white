@@ -49,11 +49,11 @@
 
 /obj/item/twohanded/required/paxee/attack_self(mob/user)
 	if (charged)
-		to_chat(user, "<span class='notice'>Вы готовы нести справедливость.</span>")
+		to_chat(user, "<span class='notice'>Я готов нести справедливость.</span>")
 		charged = FALSE
 		block_chance = 100
 		sleep(30)
-		to_chat(user, "<span class='notice'>Сейчас вы не готовы нести справедливость.</span>")
+		to_chat(user, "<span class='notice'>Сейчас я не готов нести справедливость.</span>")
 		block_chance = 0
 		addtimer(CALLBACK(src, .proc/Recharge), recharge_time)
 
@@ -77,11 +77,11 @@
 /obj/item/book/manual/wiki/security_space_law/afterattack(atom/target, mob/living/user, proximity_flag, clickparams)
 	. = ..()
 	if (istype(target, /obj/item/twohanded/required/paxe))
-		to_chat(user, "<span class='notice'>Вы улучшаете алебарду властью, данною вам законом.</span>")
+		to_chat(user, "<span class='notice'>Я улучшаю алебарду властью, данною мне законом.</span>")
 		var/obj/item/twohanded/required/paxe/I = target
 		new /obj/item/twohanded/required/paxee(I.loc)
 		qdel(I)
 		for (var/mob/i in GLOB.player_list)
 			if (istype (i, /mob/living/carbon/human/))
 				var/mob/living/carbon/human/H = i
-				to_chat(H, "<span class='warning'>Вы чувствуете высвобождение сил ебонумбы.</span>")
+				to_chat(H, "<span class='warning'>Я чувствую высвобождение сил ебонумбы.</span>")

@@ -3,8 +3,8 @@
 	desc = "Мысль о насилии заставляет вас чувствовать себя неприятно. Но всему есть предел..."
 	value = 0
 	//mob_trait = TRAIT_PACIFISM
-	gain_text = "<span class='danger'>Вы чувствуете себя жутко, подумав о насилии!</span>"
-	lose_text = "<span class='notice'>Вы чувствуете, что вы можете защитить себя вновь.</span>"
+	gain_text = "<span class='danger'>Я чувствую себя жутко, подумав о насилии!</span>"
+	lose_text = "<span class='notice'>Я чувствую, что смогу защитить себя вновь.</span>"
 	medical_record_text = "Пациент является пацифистом и не может заставить себя причинить вред кому-либо."
 	var/ragemode_time = 0
 	var/duration = 60

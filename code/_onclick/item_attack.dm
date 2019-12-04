@@ -87,8 +87,8 @@
 
 /obj/attacked_by(obj/item/I, mob/living/user)
 	if(I.force)
-		user.visible_message("<span class='danger'>[user] бьёт [src] при помощи [I]!</span>", \
-					"<span class='danger'>Вы бьёте [src] при помощи [I]!</span>", null, COMBAT_MESSAGE_RANGE)
+		user.visible_message("<span class='danger'>[user] бьёт [src] [sklonenie(I.name, TVORITELNI, I.gender)]!</span>", \
+					"<span class='danger'>Бью [src] [sklonenie(I.name, TVORITELNI, I.gender)]!</span>", null, COMBAT_MESSAGE_RANGE)
 		//only witnesses close by and the victim see a hit message.
 		log_combat(user, src, "атакует", I)
 	take_damage(I.force, I.damtype, "melee", 1)

@@ -3,19 +3,19 @@
 
 /datum/quirk/no_taste
 	name = "Агевзия"
-	desc = "Вы потеряли свои вкусовые рецепторы и не можете почувствовать вкус какой-либо еды! Но токсичная пища всё-равно будет отравлять вас."
+	desc = "Я потерял свои вкусовые рецепторы и не могу почувствовать вкус какой-либо еды! Но токсичная пища всё-равно будет отравлять вас."
 	value = 0
 	mob_trait = TRAIT_AGEUSIA
-	gain_text = "<span class='notice'>Вы больше не чувствуете вкус еды!</span>"
-	lose_text = "<span class='notice'>Теперь вы можете почувствовать вкус еды!</span>"
+	gain_text = "<span class='notice'>Я больше не чувствую вкус еды!</span>"
+	lose_text = "<span class='notice'>Теперь я могу почувствовать вкус еды!</span>"
 	medical_record_text = "Пациент страдает от агавзии и неспособен чувствовать вкус еды или жидкости."
 
 /datum/quirk/vegetarian
 	name = "Вегетарианец"
-	desc = "Вы находите идею есть мясо физически и морально отталкивающим."
+	desc = "Я находите идею есть мясо физически и морально отталкивающим."
 	value = 0
-	gain_text = "<span class='notice'>Вы находите идею есть мясо физически и морально отталкивающим.</span>"
-	lose_text = "<span class='notice'>Вы чувствуете, что перестали быть вегетарианцем..</span>"
+	gain_text = "<span class='notice'>Я находите идею есть мясо физически и морально отталкивающим.</span>"
+	lose_text = "<span class='notice'>Я чувствую, что перестал быть вегетарианцем..</span>"
 	medical_record_text = "Пациент сообщает о вегетарианской диете.."
 
 /datum/quirk/vegetarian/add()
@@ -44,10 +44,10 @@
 
 /datum/quirk/pineapple_liker
 	name = "Любитель ананасов"
-	desc = "Вы очень сильно любите ананасы. Вы никогда ими не наедитесь!"  
+	desc = "Я очень сильно люблю ананасы. Я никогда ими не наедитесь!"
 	value = 0
-	gain_text = "<span class='notice'>Вы чувствуете, что испытываете сильную тягу к ананасам..</span>"
-	lose_text = "<span class='notice'>Ваша любовь к ананасам медленно угасает..</span>"
+	gain_text = "<span class='notice'>Я чувствую, что испытываете сильную тягу к ананасам..</span>"
+	lose_text = "<span class='notice'>Моя любовь к ананасам медленно угасает..</span>"
 	medical_record_text = "Пациент демонстрирует патологическую любовь к ананасу."
 
 /datum/quirk/pineapple_liker/add()
@@ -63,13 +63,13 @@
 
 /datum/quirk/pineapple_hater
 	name = "Отвращение к ананасам"
-	desc = "Вы ненавидите ананасы. Серьёзно, кто, чёрт возьми, в здравом уме скажет, что они вкусные? И какой психопат посмел бы положить это в ПИЦЦУ?!"
+	desc = "Я ненавижу ананасы. Серьёзно, кто, чёрт возьми, в здравом уме скажет, что они вкусные? И какой психопат посмел бы положить это в ПИЦЦУ?!"
 	value = 0
-	gain_text = "<span class='notice'>Вы думаете над тем, какой кусок идиота любит ананасы...</span>" 
-	lose_text = "<span class='notice'>Ваша ненависть к ананасам медленнно угасает...</span>"
+	gain_text = "<span class='notice'>Я думаете над тем, какой кусок идиота любит ананасы...</span>"
+	lose_text = "<span class='notice'>Моя ненависть к ананасам медленнно угасает...</span>"
 	medical_record_text = "Пациент считает, что ананасы отвратительны."
 
-/datum/quirk/pineapple_hater/add() 
+/datum/quirk/pineapple_hater/add()
 	var/mob/living/carbon/human/H = quirk_holder
 	var/datum/species/species = H.dna.species
 	species.disliked_food |= PINEAPPLE
@@ -82,10 +82,10 @@
 
 /datum/quirk/deviant_tastes
 	name = "Девиантные вкусы"
-	desc = "Вы не любите ту еду, которое большинство предпочитает употреблять. Тем не менее, вы любите то, что не любят они."
+	desc = "Я не люблю ту еду, которое большинство предпочитает употреблять. Тем не менее, я люблю то, что не любят они."
 	value = 0
 	gain_text = "<span class='notice'>У вас возникает жажда съесть что-нибудь странное на вкус.</span>"
-	lose_text = "<span class='notice'>Вам хочется поесть нормальную еду.</span>"
+	lose_text = "<span class='notice'>Мне хочется поесть нормальную еду.</span>"
 	medical_record_text = "Пациент демонстрирует необычные предпочтения к еде."
 
 /datum/quirk/deviant_tastes/add()
@@ -104,7 +104,7 @@
 
 /datum/quirk/monochromatic
 	name = "Монохромия"
-	desc = "Вы не можете различать цвета и видите весь мир в черно-белых тонах."
+	desc = "Я не могу различать цвета и вижу весь мир в черно-белых тонах."
 	value = 0
 	medical_record_text = "У пациента было обнаружено нарушение цветового зрения."
 
@@ -129,7 +129,7 @@
 /datum/quirk/phobia/post_add()
 	var/mob/living/carbon/human/H = quirk_holder
 	H.gain_trauma(new /datum/brain_trauma/mild/phobia(H.client.prefs.phobia), TRAUMA_RESILIENCE_ABSOLUTE)
-	
+
 /datum/quirk/phobia/remove()
 	var/mob/living/carbon/human/H = quirk_holder
 	if(H)

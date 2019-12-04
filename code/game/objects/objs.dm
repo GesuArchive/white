@@ -292,7 +292,7 @@
 /obj/examine(mob/user)
 	. = ..()
 	if(obj_flags & UNIQUE_RENAME)
-		. += "<span class='notice'>Вы можете переименовать это используя ручку или что-то подобное.</span>"
+		. += "<span class='notice'>Я могу переименовать это используя ручку или что-то подобное.</span>"
 	if(unique_reskin && !current_skin)
 		. += "<span class='notice'>Alt-клик по предмету, чтобы изменить облик.</span>"
 

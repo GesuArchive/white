@@ -1437,7 +1437,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			return 0
 	if(H.check_block())
 		H.visible_message("<span class='warning'>[H] блокирует [I]!</span>", \
-						"<span class='userdanger'>Вы блокируете [I]!</span>")
+						"<span class='userdanger'>Я блокирую [I]!</span>")
 		return 0
 
 	var/hit_area
@@ -1485,7 +1485,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 20)
 						if(H.stat == CONSCIOUS)
 							H.visible_message("<span class='danger'>[H] беспорядочно шатается!</span>", \
-											"<span class='userdanger'>Вы получили письмо!</span>")
+											"<span class='userdanger'>Я получаю письмо!</span>")
 							H.confused = max(H.confused, 20)
 							H.adjust_blurriness(10)
 						if(prob(10))
@@ -1513,7 +1513,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				if(H.stat == CONSCIOUS && !I.get_sharpness() && armor_block < 50)
 					if(prob(I.force))
 						H.visible_message("<span class='danger'>[H] оглушен[H.ru_a()]!</span>", \
-									"<span class='userdanger'>Вы оглушены!</span>")
+									"<span class='userdanger'>Меня оглушило!</span>")
 						H.apply_effect(60, EFFECT_KNOCKDOWN, armor_block)
 
 				if(bloody)

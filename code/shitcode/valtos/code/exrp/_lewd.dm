@@ -63,7 +63,7 @@
 /datum/interaction/lewd/evaluate_user(var/mob/user, var/silent=1)
 	if(..(user, silent))
 		if(user_not_tired && user.refactory_period)
-			to_chat(user, "<span class='warning'>Вы всё еще устали после прошлого раза.</span>")
+			to_chat(user, "<span class='warning'>Я всё еще не хочу после прошлого раза.</span>")
 			return 0
 		if(require_user_naked && !user.is_nude())
 			if(!silent) to_chat(user, "<span class = 'warning'>Вам мешает одежда.</span>")
