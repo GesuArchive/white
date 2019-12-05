@@ -312,7 +312,10 @@
 	if(!blank)
 		add_overlays += mutable_appearance(icon, "assigned")
 	if(job)
-		add_overlays += mutable_appearance(icon, "id[job]")
+		if(job != "russianofficer" || job != "kazakhstanofficer" || job != "internationalofficer")
+			add_overlays += mutable_appearance(icon, "id[job]")
+		else
+			add_overlays += mutable_appearance('code/shitcode/valtos/icons/card.dmi', "id[job]")
 	add_overlay(add_overlays)
 	update_in_wallet(add_overlays)
 
