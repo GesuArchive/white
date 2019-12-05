@@ -26,7 +26,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	spans |= speech_span
 	if(!language)
 		language = get_default_language()
-	send_speech(pointization(message), 7, src, , spans, message_language=language)
+	send_speech(message, 7, src, , spans, message_language=language)
 
 /atom/movable/proc/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_HEAR, args)
