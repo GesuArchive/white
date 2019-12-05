@@ -8,6 +8,8 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+// Travis backdoor
+#if DM_VERSION >= 513 && DM_BUILD >= 1493
 /*
 /client/verb/fuck()
 	set name = "memes"
@@ -270,3 +272,4 @@
 			return "[msgfrom][OneListTooTo[rule]]"
 
 	return msgfrom // возвращаем слово, если оно чудом не нашло своего конца
+#endif
