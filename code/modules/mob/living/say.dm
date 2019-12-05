@@ -220,7 +220,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	proverka_na_detey(message, src)
 
-	send_speech(pointization(message), message_range, src, bubble_type, spans, language, message_mode)
+	send_speech(message, message_range, src, bubble_type, spans, language, message_mode)
 
 	if(succumbed)
 		succumb(1)
