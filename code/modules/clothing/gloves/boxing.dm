@@ -1,6 +1,6 @@
 /obj/item/clothing/gloves/boxing
-	name = "boxing gloves"
-	desc = "Because you really needed another excuse to punch your crewmates."
+	name = "боксёрские перчатки"
+	desc = "Потому что тебе действительно нужен был другой повод, чтобы ударить своих товарищей по команде."
 	icon_state = "boxing"
 	item_state = "boxing"
 	equip_delay_other = 60
