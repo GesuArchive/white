@@ -17,7 +17,10 @@
 	dstats[MOB_INT] = rand(8, 16)
 	dstats[MOB_DEX] = rand(7, 13)
 
+/mob/living/carbon/human/proc/AssignStats()
+
 	// аугментируем статы согласно ролям
+
 	if(mind)
 		switch(mind.assigned_role)
 			if("Captain")
@@ -212,8 +215,12 @@
 				dstats[MOB_INT] += rand(7, 10)
 				dstats[MOB_DEX] += rand(-4, 1)
 
-		// если антаг, то
+	recalculate_stats()
 
+
+/datum/antagonist/on_gain()
+	. = ..()
+	if(mind)
 		if(mind.assigned_role == mind.special_role) // пока бустаем статы всем антагам
 			dstats[MOB_STR] += rand(5, 10)
 			dstats[MOB_STM] += rand(5, 10)
