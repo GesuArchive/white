@@ -8,8 +8,6 @@
 // do this shit
 
 /mob/living/carbon/human/StatsInit()
-	. = ..()
-
 	// рандомизируем стартовые статы
 
 	dstats[MOB_STR] = rand(9, 14)
