@@ -5823,7 +5823,7 @@
 	dir = 10
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "amq" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 1
@@ -6479,7 +6479,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/maintenance/solars/port/fore)
+/area/maintenance/port/fore)
 "anJ" = (
 /obj/machinery/atmospherics/pipe/simple/supplymain/hidden,
 /turf/open/floor/plating,
@@ -7538,7 +7538,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/maintenance/solars/starboard/fore)
+/area/maintenance/starboard/fore)
 "aqx" = (
 /obj/structure/sign/warning/electricshock,
 /turf/closed/wall/r_wall,
@@ -10057,7 +10057,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/maintenance/department/electrical)
+/area/maintenance/starboard/fore)
 "awR" = (
 /obj/structure/closet/secure_closet/chemical,
 /obj/structure/disposalpipe/junction/flip{
@@ -17797,9 +17797,6 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
-	dir = 5
-	},
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -21361,8 +21358,9 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "aYJ" = (
-/turf/open/floor/engine/vacuum,
-/area/maintenance/disposal/incinerator)
+/obj/structure/grille,
+/turf/open/space/basic,
+/area/space/nearstation)
 "aYK" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
@@ -25498,7 +25496,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/maintenance/disposal)
+/area/maintenance/port)
 "bjg" = (
 /obj/structure/disposalpipe/segment{
 	dir = 9
@@ -29126,6 +29124,7 @@
 	name = "Engineering Foyer APC";
 	pixel_x = -25
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/break_room)
 "brC" = (
@@ -29744,6 +29743,15 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
+"bta" = (
+/obj/structure/cable,
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/medical/chemistry)
+"btb" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/turf/closed/wall/r_wall,
+/area/medical/chemistry)
 "btc" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 1
@@ -29757,14 +29765,47 @@
 	},
 /turf/open/floor/plasteel,
 /area/teleporter)
+"bte" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+	dir = 4
+	},
+/turf/closed/wall/r_wall,
+/area/medical/chemistry)
+"btf" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 5
+	},
+/turf/closed/wall/r_wall,
+/area/medical/chemistry)
 "btg" = (
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/white,
 /area/medical/sleeper)
+"bth" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/door/airlock/medical/glass{
+	name = "Chemistry Lab";
+	req_access_txt = "5; 33"
+	},
+/turf/open/floor/plating,
+/area/maintenance/aft)
 "bti" = (
 /obj/structure/closet/secure_closet/personal/patient,
 /turf/open/floor/plasteel/white,
 /area/medical/genetics)
+"btj" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/door/airlock/atmos{
+	name = "Turbine Access";
+	req_access_txt = "32"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/maintenance/aft)
 "btk" = (
 /obj/structure/closet/wardrobe/white,
 /turf/open/floor/plasteel/white,
@@ -29959,6 +30000,14 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
+"btF" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Starboard Quarter Solar Access";
+	req_access_txt = "10"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/maintenance/starboard/aft)
 "btG" = (
 /turf/closed/wall/r_wall,
 /area/engine/gravity_generator)
@@ -30001,6 +30050,14 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/teleporter)
+"btN" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Port Quarter Solar Access";
+	req_access_txt = "10"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "btO" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/tile/blue{
@@ -42704,11 +42761,6 @@
 /obj/structure/sign/warning/biohazard,
 /turf/closed/wall/r_wall,
 /area/medical/chemistry)
-"ceI" = (
-/obj/structure/cable,
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/space/basic,
-/area/medical/chemistry)
 "ceJ" = (
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall/r_wall,
@@ -42840,15 +42892,6 @@
 /area/engine/atmos)
 "cfj" = (
 /turf/closed/wall,
-/area/maintenance/disposal/incinerator)
-"cfk" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/door/airlock/atmos{
-	name = "Turbine Access";
-	req_access_txt = "32"
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
 /area/maintenance/disposal/incinerator)
 "cfl" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
@@ -43072,13 +43115,6 @@
 "cgi" = (
 /turf/open/floor/circuit/telecomms,
 /area/science/xenobiology)
-"cgj" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 4
-	},
-/turf/closed/wall/r_wall,
-/area/maintenance/starboard/aft)
 "cgk" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/sign/warning/biohazard,
@@ -43377,15 +43413,6 @@
 	},
 /turf/open/floor/circuit/telecomms,
 /area/science/xenobiology)
-"chp" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 5
-	},
-/turf/closed/wall/r_wall,
-/area/maintenance/starboard/aft)
 "chq" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible{
 	dir = 4
@@ -43496,14 +43523,6 @@
 /obj/machinery/door/airlock/external{
 	name = "Solar Maintenance";
 	req_access_txt = "10; 13"
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/maintenance/solars/port/aft)
-"chS" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Port Quarter Solar Access";
-	req_access_txt = "10"
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -44015,14 +44034,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
-"cjF" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Starboard Quarter Solar Access";
-	req_access_txt = "10"
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/maintenance/solars/starboard/aft)
 "cjG" = (
 /obj/structure/sign/warning/electricshock,
 /turf/closed/wall/r_wall,
@@ -50544,14 +50555,6 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
-"hJq" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/door/airlock/medical/glass{
-	name = "Chemistry Lab";
-	req_access_txt = "5; 33"
-	},
-/turf/open/floor/plating,
-/area/medical/chemistry)
 "hQK" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -52015,10 +52018,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/brig)
-"rGg" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/closed/wall/r_wall,
-/area/maintenance/starboard/aft)
 "rHZ" = (
 /obj/structure/rack,
 /obj/item/wrench,
@@ -73067,7 +73066,7 @@ bCq
 bCq
 cfw
 cgE
-chS
+btN
 cfw
 cfw
 bCq
@@ -79763,7 +79762,7 @@ cgR
 cqA
 cqT
 csg
-aIG
+aIi
 aKi
 aIi
 aKi
@@ -90815,6 +90814,7 @@ aaf
 aaf
 aaa
 aaa
+aaa
 aaf
 aaa
 csn
@@ -91070,7 +91070,7 @@ aag
 aag
 aag
 aag
-aag
+aaa
 aaa
 aaf
 csD
@@ -91311,7 +91311,7 @@ bzs
 ccE
 cdF
 ceD
-cfk
+btj
 cfY
 rfW
 ckj
@@ -91324,10 +91324,10 @@ cme
 cop
 cmd
 cmd
-cmd
 cqs
-aaa
+aYJ
 aag
+aaa
 aaa
 aaf
 csD
@@ -91581,10 +91581,10 @@ cnC
 cor
 ciM
 cpN
-aYJ
 cqt
-aaa
+aYJ
 aag
+aaa
 aaa
 aaf
 csD
@@ -91838,10 +91838,10 @@ cme
 coq
 cmd
 cmd
-cmd
 cqs
-aaa
+aYJ
 aag
+aaa
 aaa
 aaf
 csD
@@ -92098,7 +92098,7 @@ cmd
 aag
 aag
 aag
-aag
+aaa
 aaa
 aaf
 csD
@@ -92595,7 +92595,7 @@ caO
 sjK
 ccI
 cdL
-ceI
+bta
 auN
 avi
 awi
@@ -93366,7 +93366,7 @@ caP
 cbO
 ccJ
 auH
-hJq
+bth
 cfp
 cge
 cfp
@@ -94651,13 +94651,13 @@ pjk
 qae
 cNY
 cNY
-rGg
-rGg
-cgj
-rGg
-rGg
-chp
-mtK
+btb
+btb
+bte
+btb
+btb
+btf
+hTU
 hTU
 apf
 apf
@@ -103137,7 +103137,7 @@ cNW
 cNW
 jVl
 cdr
-cjF
+btF
 cks
 clx
 cks
