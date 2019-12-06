@@ -42,7 +42,7 @@ P.S. Обратите внимание: карты сборок /tg/ и White Dr
 
 Весь код после [commit'а 333c566b88108de218d882840e61928a9b759d8f в 2014/31/12 в 4:38 PM PST](https://github.com/tgstation/tgstation/commit/333c566b88108de218d882840e61928a9b759d8f) лицензируется под [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html).
 
-All code before [commit'а 333c566b88108de218d882840e61928a9b759d8f в 2014/31/12 в 4:38 PM PST](https://github.com/tgstation/tgstation/commit/333c566b88108de218d882840e61928a9b759d8f) лицензируется под [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html).
+Весь код до [commit'а 333c566b88108de218d882840e61928a9b759d8f в 2014/31/12 в 4:38 PM PST](https://github.com/tgstation/tgstation/commit/333c566b88108de218d882840e61928a9b759d8f) лицензируется под [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html).
 (Включая инструменты, если в их readme не указано иное.)
 
 Смотрите LICENSE и GPLv3.txt для более подробной информации.
