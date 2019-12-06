@@ -221,14 +221,14 @@
 /datum/antagonist/on_gain()
 	. = ..()
 	if(owner && owner.current)
-		if(owner.mind && ishuman(owner))
-			if(owner.mind.assigned_role == owner.mind.special_role) // пока бустаем статы всем антагам
-				owner.dstats[MOB_STR] += rand(5, 10)
-				owner.dstats[MOB_STM] += rand(5, 10)
-				owner.dstats[MOB_INT] += rand(5, 10)
-				owner.dstats[MOB_DEX] += rand(5, 10)
+		if(owner.current.mind && ishuman(owner.current))
+			if(owner.current.mind.assigned_role == owner.current.mind.special_role) // пока бустаем статы всем антагам
+				owner.current.dstats[MOB_STR] += rand(5, 10)
+				owner.current.dstats[MOB_STM] += rand(5, 10)
+				owner.current.dstats[MOB_INT] += rand(5, 10)
+				owner.current.dstats[MOB_DEX] += rand(5, 10)
 
-	recalculate_stats()
+	owner.current.recalculate_stats()
 
 /mob/living/carbon/human/proc/recalculate_stats()
 
