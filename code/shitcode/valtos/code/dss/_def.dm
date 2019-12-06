@@ -23,25 +23,48 @@
 
 	// калькулируем модификаторы
 
-	maxHealth 					   = FLOOR((maxHealth         			  * (dstats[MOB_STR] + dstats[MOB_STM]											))  / 20, 1)
-	dna.species.armor 			   = FLOOR((dna.species.armor         	  * (dstats[MOB_STR] + dstats[MOB_STM]									 		))  / 20, 1)
-	dna.species.punchdamagelow 	   = FLOOR((dna.species.punchdamagelow    * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
-	dna.species.punchdamagehigh    = FLOOR((dna.species.punchdamagehigh   * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
-	dna.species.punchstunthreshold = FLOOR((dna.species.punchstunthreshold* (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
-	dna.species.brutemod 		   = FLOOR((dna.species.brutemod          * (dstats[MOB_STR] + dstats[MOB_STM]									  		)) / 20, 1)
-	dna.species.burnmod 		   = FLOOR((dna.species.burnmod           * (dstats[MOB_STR] + dstats[MOB_STM]									  		)) / 20, 1)
-	dna.species.coldmod 		   = FLOOR((dna.species.coldmod           * (dstats[MOB_STR] + dstats[MOB_STM]									  		)) / 20, 1)
-	dna.species.heatmod 		   = FLOOR((dna.species.heatmod           * (dstats[MOB_STR] + dstats[MOB_STM]									  		)) / 20, 1)
-	dna.species.stunmod 		   = FLOOR((dna.species.stunmod           * (dstats[MOB_STR] + dstats[MOB_STM] + dstats[MOB_DEX]				 		)) / 30, 1)
-	dna.species.speedmod 		   = FLOOR(dna.species.speedmod		  	  / (dstats[MOB_DEX] / 10), 1)
-	next_move_modifier			   = FLOOR(next_move_modifier			  / (dstats[MOB_DEX] / 10), 1)
+	if(dstats[MOB_STR] >= 30)
+		visible_message("<span class='suicide'><b>[name]</b> разлетается на куски!</span>")
+		gib()
+		return
+
+	if(dstats[MOB_INT] <= 0)
+		visible_message("<span class='suicide'><b>[name]</b> падает на пол закатив свои глаза!</span>")
+		setOrganLoss(ORGAN_SLOT_BRAIN, 200)
+		return
+
+	if(dstats[MOB_INT] >= 30)
+		var/obj/item/organ/brain/B = getorganslot(ORGAN_SLOT_BRAIN)
+		var/turf/T = get_turf(src)
+		var/turf/target = get_ranged_target_turf(src, turn(dir, 180), 1)
+		B.Remove(src)
+		B.forceMove(T)
+		var/datum/callback/gibspawner = CALLBACK(GLOBAL_PROC, /proc/spawn_atom_to_turf, /obj/effect/gibspawner/generic, B, 1, FALSE, src)
+		B.throw_at(target, 1, 1, callback=gibspawner)
+		visible_message("<span class='suicide'>Мозги <b>[sklonenie(name, VINITELNI, gender)]</b> вырываются из черепной коробки!</span>")
+		return
+
+	var/datum/species/TS = dna.species
+
+	maxHealth 					   = FLOOR((100         			 * (dstats[MOB_STR] + dstats[MOB_STM]										  ))  / 20, 1)
+	dna.species.armor 			   = FLOOR((TS.armor         	  	 * (dstats[MOB_STR] + dstats[MOB_STM]									 	  ))  / 20, 1)
+	dna.species.punchdamagelow 	   = FLOOR((TS.punchdamagelow    	 * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
+	dna.species.punchdamagehigh    = FLOOR((TS.punchdamagehigh   	 * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
+	dna.species.punchstunthreshold = CEILING((TS.punchstunthreshold  * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 20)
+	dna.species.brutemod 		   = (TS.brutemod * (dstats[MOB_STR] + dstats[MOB_STM])) / 20
+	dna.species.burnmod 		   = (TS.burnmod  * (dstats[MOB_STR] + dstats[MOB_STM])) / 20
+	dna.species.coldmod 		   = (TS.coldmod  * (dstats[MOB_STR] + dstats[MOB_STM])) / 20
+	dna.species.heatmod 		   = (TS.heatmod  * (dstats[MOB_STR] + dstats[MOB_STM])) / 20
+	dna.species.stunmod 		   = (TS.stunmod  * (dstats[MOB_STR] + dstats[MOB_STM] + dstats[MOB_DEX])) / 30
+	dna.species.speedmod 		   = TS.speedmod  / (dstats[MOB_DEX] / 10)
+	next_move_modifier			   = next_move_modifier / (dstats[MOB_DEX] / 10)
 
 /mob/living/carbon/human/Stat()
 	..()
 	if(statpanel("Game"))
 		stat(null, "--- \[Персонаж\] ---")
-		stat(null, "Сила:         [dstats["strength"]]")
-		stat(null, "Выносливость: [dstats["stamina"]]")
-		stat(null, "Интеллект:    [dstats["intelligence"]]")
-		stat(null, "Ловкость:     [dstats["dexterity"]]")
-		stat(null, "Сила воли:    [client.wpp]")
+		stat("Сила: ",			dstats["strength"])
+		stat("Выносливость:",   dstats["stamina"])
+		stat("Интеллект:",      dstats["intelligence"])
+		stat("Ловкость:",       dstats["dexterity"])
+		stat("Сила воли:",      client.wpp)
