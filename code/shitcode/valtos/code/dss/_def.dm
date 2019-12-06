@@ -222,13 +222,13 @@
 	. = ..()
 	if(owner && owner.current && ishuman(owner.current))
 		var/mob/living/carbon/human/H = owner.current
-		if(H.current.mind)
-			if(H.current.mind.assigned_role == H.current.mind.special_role) // пока бустаем статы всем антагам
-				H.current.dstats[MOB_STR] += rand(5, 10)
-				H.current.dstats[MOB_STM] += rand(5, 10)
-				H.current.dstats[MOB_INT] += rand(5, 10)
-				H.current.dstats[MOB_DEX] += rand(5, 10)
-				H.current.recalculate_stats()
+		if(H.mind)
+			if(H.mind.assigned_role == H.mind.special_role) // пока бустаем статы всем антагам
+				H.dstats[MOB_STR] += rand(5, 10)
+				H.dstats[MOB_STM] += rand(5, 10)
+				H.dstats[MOB_INT] += rand(5, 10)
+				H.dstats[MOB_DEX] += rand(5, 10)
+				H.recalculate_stats()
 
 
 /mob/living/carbon/human/proc/recalculate_stats()
