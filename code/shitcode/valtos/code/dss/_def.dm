@@ -214,12 +214,11 @@
 					dstats[MOB_DEX] += rand(-4, 1)
 
 			// если антаг, то
-			spawn(50)
-				if(mind.assigned_role == mind.special_role) // пока бустаем статы всем антагам
-					dstats[MOB_STR] += rand(5, 10)
-					dstats[MOB_STM] += rand(5, 10)
-					dstats[MOB_INT] += rand(5, 10)
-					dstats[MOB_DEX] += rand(5, 10)
+			if(mind.special_role) // пока бустаем статы всем антагам
+				dstats[MOB_STR] += rand(5, 10)
+				dstats[MOB_STM] += rand(5, 10)
+				dstats[MOB_INT] += rand(5, 10)
+				dstats[MOB_DEX] += rand(5, 10)
 
 		recalculate_stats()
 
