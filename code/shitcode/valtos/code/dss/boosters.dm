@@ -18,7 +18,7 @@
 			N.dstats[MOB_STR] = N.dstats[MOB_STR] + rand(3, 7)
 			N.dstats[MOB_INT] = N.dstats[MOB_INT] - rand(3, 5)
 			to_chat(M, "<span class='notice'>ЧУВСТВУЮ СИЛУ И БЕЗЗАБОТСТВО!</span>")
-			H.recalculate_stats()
+			N.recalculate_stats()
 
 /obj/item/reagent_containers/pill/askorbinka
 	name = "аскорбинка"
@@ -41,4 +41,4 @@
 			N.dstats[MOB_INT] = N.dstats[MOB_INT] + rand(3, 7)
 			N.dstats[MOB_DEX] = N.dstats[MOB_DEX] + rand(2, 4)
 			to_chat(M, "<span class='notice'>Ням!</span>")
-			H.recalculate_stats()
+			N.recalculate_stats()
