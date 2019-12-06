@@ -7,7 +7,7 @@
 
 // do this shit
 
-/mob/living/carbon/human/Initialize()
+/mob/living/carbon/human/create_dna()
 	. = ..()
 
 	// рандомизируем стартовые статы
@@ -219,8 +219,8 @@
 				dstats[MOB_STM] += rand(5, 10)
 				dstats[MOB_INT] += rand(5, 10)
 				dstats[MOB_DEX] += rand(5, 10)
-		spawn(0)
-			recalculate_stats()
+
+		recalculate_stats()
 
 /mob/living/carbon/human/proc/recalculate_stats()
 
