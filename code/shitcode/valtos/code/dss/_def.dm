@@ -57,7 +57,7 @@
 	dna.species.heatmod 		   = (TS.heatmod  * (dstats[MOB_STR] + dstats[MOB_STM])) / 20
 	dna.species.stunmod 		   = (TS.stunmod  * (dstats[MOB_STR] + dstats[MOB_STM] + dstats[MOB_DEX])) / 30
 	dna.species.speedmod 		   = TS.speedmod  / (dstats[MOB_DEX] / 10)
-	next_move_modifier			   = next_move_modifier / (dstats[MOB_DEX] / 10)
+	next_move_modifier			   = 1 / (dstats[MOB_DEX] / 10)
 
 /mob/living/carbon/human/Stat()
 	..()
