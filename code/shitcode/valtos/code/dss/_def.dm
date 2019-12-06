@@ -7,7 +7,7 @@
 
 // do this shit
 
-/mob/living/carbon/human/create_dna()
+/mob/living/carbon/human/StatsInit()
 	. = ..()
 
 	// рандомизируем стартовые статы
@@ -247,8 +247,6 @@
 		visible_message("<span class='suicide'>Мозги <b>[sklonenie(name, VINITELNI, gender)]</b> вырываются из черепной коробки!</span>")
 		return
 
-//	if(!dna)
-//		return
 	var/datum/species/TS = dna.species
 
 	maxHealth 					   = FLOOR((100         			 * (dstats[MOB_STR] + dstats[MOB_STM]										  ))  / 20, 1)
