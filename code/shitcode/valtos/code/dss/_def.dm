@@ -219,8 +219,8 @@
 				dstats[MOB_STM] += rand(5, 10)
 				dstats[MOB_INT] += rand(5, 10)
 				dstats[MOB_DEX] += rand(5, 10)
-
-		recalculate_stats()
+		spawn(0)
+			recalculate_stats()
 
 /mob/living/carbon/human/proc/recalculate_stats()
 
@@ -247,6 +247,8 @@
 		visible_message("<span class='suicide'>Мозги <b>[sklonenie(name, VINITELNI, gender)]</b> вырываются из черепной коробки!</span>")
 		return
 
+//	if(!dna)
+//		return
 	var/datum/species/TS = dna.species
 
 	maxHealth 					   = FLOOR((100         			 * (dstats[MOB_STR] + dstats[MOB_STM]										  ))  / 20, 1)
