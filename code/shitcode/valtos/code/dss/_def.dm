@@ -220,12 +220,13 @@
 
 /datum/antagonist/on_gain()
 	. = ..()
-	if(mind)
-		if(mind.assigned_role == mind.special_role) // пока бустаем статы всем антагам
-			dstats[MOB_STR] += rand(5, 10)
-			dstats[MOB_STM] += rand(5, 10)
-			dstats[MOB_INT] += rand(5, 10)
-			dstats[MOB_DEX] += rand(5, 10)
+	if(owner && owner.current)
+		if(owner.mind && ishuman(owner))
+			if(owner.mind.assigned_role == owner.mind.special_role) // пока бустаем статы всем антагам
+				owner.dstats[MOB_STR] += rand(5, 10)
+				owner.dstats[MOB_STM] += rand(5, 10)
+				owner.dstats[MOB_INT] += rand(5, 10)
+				owner.dstats[MOB_DEX] += rand(5, 10)
 
 	recalculate_stats()
 
