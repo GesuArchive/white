@@ -7,7 +7,7 @@
 
 // do this shit
 
-/mob/living/carbon/human/StatsInit()
+/mob/living/carbon/human/proc/StatsInit()
 	// рандомизируем стартовые статы
 
 	dstats[MOB_STR] = rand(9, 14)
