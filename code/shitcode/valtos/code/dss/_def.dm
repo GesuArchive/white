@@ -213,10 +213,10 @@
 
 			// если антаг, то
 			if(mind.special_role) // пока бустаем статы всем антагам
-				dstats[MOB_STR] += rand(5, 10)
-				dstats[MOB_STM] += rand(5, 10)
-				dstats[MOB_INT] += rand(5, 10)
-				dstats[MOB_DEX] += rand(5, 10)
+				dstats[MOB_STR] += rand(1, 5)
+				dstats[MOB_STM] += rand(1, 5)
+				dstats[MOB_INT] += rand(1, 5)
+				dstats[MOB_DEX] += rand(1, 5)
 
 		recalculate_stats()
 
