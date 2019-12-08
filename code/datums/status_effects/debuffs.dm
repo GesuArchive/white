@@ -538,7 +538,7 @@
 	if(prob(40))
 		var/obj/item/I = H.get_active_held_item()
 		if(I && H.dropItemToGround(I))
-			H.visible_message("<span class='notice'>Рука [H] дёргается и случайно выбрасывает [sklonenie(I.name, VINITELNI, I.gender]!</span>","<span class='userdanger'>Моя рука внезапно дёргается и из неё выпадает то, что я держу!</span>")
+			H.visible_message("<span class='notice'>Рука [H] дёргается и случайно выбрасывает [sklonenie(I.name, VINITELNI, I.gender)]!</span>","<span class='userdanger'>Моя рука внезапно дёргается и из неё выпадает то, что я держу!</span>")
 			H.jitteriness += 5
 
 /obj/screen/alert/status_effect/convulsing
