@@ -16,7 +16,7 @@
 		var/mob/living/carbon/human/N = L
 		N.dstats[MOB_STR] = N.dstats[MOB_STR] + volume * 2
 		N.dstats[MOB_INT] = N.dstats[MOB_INT] - volume
-		to_chat(M, "<span class='notice'>ЧУВСТВУЮ СИЛУ И БЕЗЗАБОТСТВО!</span>")
+		to_chat(L, "<span class='notice'>ЧУВСТВУЮ СИЛУ И БЕЗЗАБОТСТВО!</span>")
 		N.recalculate_stats()
 	. = ..()
 
@@ -54,7 +54,7 @@
 		N.dstats[MOB_STR] = N.dstats[MOB_STR] - volume
 		N.dstats[MOB_INT] = N.dstats[MOB_INT] + volume * 2
 		N.dstats[MOB_DEX] = N.dstats[MOB_DEX] + volume
-		to_chat(M, "<span class='notice'>Ням!</span>")
+		to_chat(L, "<span class='notice'>Ням!</span>")
 		N.recalculate_stats()
 
 /datum/reagent/askorbinka/overdose_process(mob/living/M)
@@ -62,7 +62,7 @@
 		var/mob/living/carbon/human/N = M
 		var/obj/item/organ/brain/B = N.getorganslot(ORGAN_SLOT_BRAIN)
 		var/turf/T = get_turf(N)
-		var/turf/target = get_ranged_target_turf(N, turn(dir, 180), 1)
+		var/turf/target = get_ranged_target_turf(N, turn(N.dir, 180), 1)
 		B.Remove(N)
 		B.forceMove(T)
 		var/datum/callback/gibspawner = CALLBACK(GLOBAL_PROC, /proc/spawn_atom_to_turf, /obj/effect/gibspawner/generic, B, 1, FALSE, N)
