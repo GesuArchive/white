@@ -247,17 +247,17 @@
 
 	var/datum/species/TS = dna.species
 
-	maxHealth 					   = FLOOR((100         			 * (dstats[MOB_STR] + dstats[MOB_STM]										  ))  / 20, 1)
-	dna.species.armor 			   = FLOOR((TS.armor         	  	 * (dstats[MOB_STR] + dstats[MOB_STM]									 	  ))  / 20, 1)
-	dna.species.punchdamagelow 	   = FLOOR((TS.punchdamagelow    	 * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
-	dna.species.punchdamagehigh    = FLOOR((TS.punchdamagehigh   	 * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
-	dna.species.punchstunthreshold = CEILING((TS.punchstunthreshold  * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 20)
-	dna.species.brutemod 		   = TS.brutemod * ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
-	dna.species.burnmod 		   = TS.burnmod  * ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
-	dna.species.coldmod 		   = TS.coldmod  * ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
-	dna.species.heatmod 		   = TS.heatmod  * ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
-	dna.species.stunmod 		   = TS.stunmod  * ((dstats[MOB_STR] + dstats[MOB_STM] + dstats[MOB_DEX]) / 30)
-	dna.species.speedmod 		   = TS.speedmod  / (dstats[MOB_DEX] / 10)
+	maxHealth 					   = FLOOR((100         			  * (dstats[MOB_STR] + dstats[MOB_STM]										  ))  / 20, 1)
+	dna.species.armor 			   = FLOOR((TS.armor         	  	  * (dstats[MOB_STR] + dstats[MOB_STM]									 	  ))  / 20, 1)
+	dna.species.punchdamagelow 	   = FLOOR((TS.punchdamagelow    	  * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
+	dna.species.punchdamagehigh    = FLOOR((TS.punchdamagehigh   	  * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
+	dna.species.punchstunthreshold = CEILING((TS.punchstunthreshold   * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 20)
+	dna.species.brutemod 		   = TS.brutemod  / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
+	dna.species.burnmod 		   = TS.burnmod   / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
+	dna.species.coldmod 		   = TS.coldmod   / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
+	dna.species.heatmod 		   = TS.heatmod   / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
+	dna.species.stunmod 		   = TS.stunmod   / ((dstats[MOB_STR] + dstats[MOB_STM] + dstats[MOB_DEX]) / 30)
+	dna.species.speedmod 		   = TS.speedmod  / (dstats[MOB_DEX]  / 10)
 	next_move_modifier			   = 1 / (dstats[MOB_DEX] / 10)
 
 /mob/living/carbon/human/UnarmedAttack(atom/A, proximity)
