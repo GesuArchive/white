@@ -231,7 +231,7 @@
 
 	var/datum/species/TS = dna.species
 
-	maxHealth 					   = FLOOR((100         			  * (dstats[MOB_STR] + dstats[MOB_STM]										  ))  / 20, 1)
+	maxHealth 					   = FLOOR((50         				  * (dstats[MOB_STR] + dstats[MOB_STM]										  ))  / 20, 1)
 	dna.species.armor 			   = FLOOR((TS.armor         	  	  * (dstats[MOB_STR] + dstats[MOB_STM]									 	  ))  / 20, 1)
 	dna.species.punchdamagelow 	   = FLOOR((TS.punchdamagelow    	  * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
 	dna.species.punchdamagehigh    = FLOOR((TS.punchdamagehigh   	  * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
@@ -246,7 +246,7 @@
 
 /mob/living/carbon/human/UnarmedAttack(atom/A, proximity)
 	. = ..()
-	if(dstats[MOB_STR] <= 30)
+	if(dstats[MOB_STR] <= 29)
 		return
 	if(!proximity)
 		return
