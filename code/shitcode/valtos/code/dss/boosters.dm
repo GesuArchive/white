@@ -78,10 +78,15 @@
 	required_reagents = list(/datum/reagent/drug/pumpup= 1, /datum/reagent/drug/happiness = 1, /datum/reagent/drug/aranesp = 1, /datum/reagent/drug/methamphetamine = 1)
 	required_temp = 500
 
+/datum/reagent/razrivozhopoebin
+	name = "Razrivozhopoebin"
+	description = "FUCK!"
+	color = "#f0f0f0"
+	taste_description = "cum"
 
 /datum/chemical_reaction/reagent_explosion/razrivozhopoebin
 	name = "Razrivozhopoebin"
 	id = /datum/reagent/razrivozhopoebin
 	results = list(/datum/reagent/razrivozhopoebin = 4)
-	required_reagents = list(/datum/reagent/askorbinka = 1, /datum/reagent/toxin/acid/viagra = 1)
+	required_reagents = list(/datum/reagent/askorbinka = 1, /datum/reagent/viagra = 1)
 	strengthdiv = 4
