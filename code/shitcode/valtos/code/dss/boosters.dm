@@ -10,13 +10,22 @@
 	color = "#FF00FF"
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
 	overdose_threshold = 8
+	var/list/base_stats = list(MOB_STR = 0, MOB_STM = 0, MOB_INT = 0, MOB_DEX = 0)
+
+/datum/reagent/viagra/on_mob_add(mob/living/L)
+	if(ishuman(L))
+		var/mob/living/carbon/human/N = L
+		base_stats[MOB_STR] = N.dstats[MOB_STR]
+		base_stats[MOB_STM] = N.dstats[MOB_STM]
+		base_stats[MOB_INT] = N.dstats[MOB_INT]
+		base_stats[MOB_DEX] = N.dstats[MOB_DEX]
+		to_chat(L, "<span class='notice'>ЧУВСТВУЮ СИЛУ И БЕЗЗАБОТСТВО!</span>")
 
 /datum/reagent/viagra/on_mob_life(mob/living/L)
 	if(ishuman(L))
 		var/mob/living/carbon/human/N = L
-		N.dstats[MOB_STR] = N.dstats[MOB_STR] + volume * 2
-		N.dstats[MOB_INT] = N.dstats[MOB_INT] - volume
-		to_chat(L, "<span class='notice'>ЧУВСТВУЮ СИЛУ И БЕЗЗАБОТСТВО!</span>")
+		N.dstats[MOB_STR] = base_stats[MOB_STR] + volume * 2
+		N.dstats[MOB_INT] = base_stats[MOB_INT] - volume
 		N.recalculate_stats()
 	. = ..()
 
@@ -47,14 +56,23 @@
 	color = "#FFFFFF"
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
 	overdose_threshold = 8
+	var/list/base_stats = list(MOB_STR = 0, MOB_STM = 0, MOB_INT = 0, MOB_DEX = 0)
+
+/datum/reagent/askorbinka/on_mob_add(mob/living/L)
+	if(ishuman(L))
+		var/mob/living/carbon/human/N = L
+		base_stats[MOB_STR] = N.dstats[MOB_STR]
+		base_stats[MOB_STM] = N.dstats[MOB_STM]
+		base_stats[MOB_INT] = N.dstats[MOB_INT]
+		base_stats[MOB_DEX] = N.dstats[MOB_DEX]
+		to_chat(L, "<span class='notice'>Ням!</span>")
 
 /datum/reagent/askorbinka/on_mob_life(mob/living/L)
 	if(ishuman(L))
 		var/mob/living/carbon/human/N = L
-		N.dstats[MOB_STR] = N.dstats[MOB_STR] - volume
-		N.dstats[MOB_INT] = N.dstats[MOB_INT] + volume * 2
-		N.dstats[MOB_DEX] = N.dstats[MOB_DEX] + volume
-		to_chat(L, "<span class='notice'>Ням!</span>")
+		N.dstats[MOB_STR] = base_stats[MOB_STR] - volume
+		N.dstats[MOB_INT] = base_stats[MOB_INT] + volume * 2
+		N.dstats[MOB_DEX] = base_stats[MOB_DEX] + volume
 		N.recalculate_stats()
 
 /datum/reagent/askorbinka/overdose_process(mob/living/M)
@@ -89,4 +107,4 @@
 	id = /datum/reagent/razrivozhopoebin
 	results = list(/datum/reagent/razrivozhopoebin = 4)
 	required_reagents = list(/datum/reagent/askorbinka = 1, /datum/reagent/viagra = 1)
-	strengthdiv = 4
+	strengthdiv = 16
