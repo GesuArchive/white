@@ -256,8 +256,8 @@
 	dna.species.coldmod 		   = bs["coldmod"]			  			 / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
 	dna.species.heatmod 		   = bs["heatmod"]			  			 / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
 	dna.species.stunmod 		   = bs["stunmod"]   		  			 / ((dstats[MOB_STR] + dstats[MOB_STM] + dstats[MOB_DEX]) / 30)
-	dna.species.speedmod 		   = bs["speedmod"]  		  			 - (dstats[MOB_DEX]  / 20)
-	next_move_modifier			   = bs["next_move_modifier"] 			 / (dstats[MOB_DEX] / 20)
+	dna.species.speedmod 		   = bs["speedmod"]  		  			 / (dstats[MOB_DEX] / 10)
+	next_move_modifier			   = bs["next_move_modifier"] 			 / (dstats[MOB_DEX] / 10)
 
 /mob/living/carbon/human/UnarmedAttack(atom/A, proximity)
 	. = ..()
