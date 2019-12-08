@@ -4,6 +4,7 @@
 
 /mob/living/carbon/human
 	var/list/dstats = list(MOB_STR = 10, MOB_STM = 10, MOB_INT = 10, MOB_DEX = 10)
+	var/list/bs = list()
 
 // do this shit
 
@@ -15,7 +16,23 @@
 	dstats[MOB_INT] = rand(8, 16)
 	dstats[MOB_DEX] = rand(7, 13)
 
+	// запоминаем базовые значения
+
+	bs["maxHealth"]			= maxHealth
+	bs["armor"]				= dna.species.armor
+	bs["punchdamagelow"]	= dna.species.punchdamagelow
+	bs["punchdamagehigh"]   = dna.species.punchdamagehigh
+	bs["punchstunthreshold"]= dna.species.punchstunthreshold
+	bs["brutemod"]			= dna.species.brutemod
+	bs["burnmod"]			= dna.species.burnmod
+	bs["coldmod"]			= dna.species.coldmod
+	bs["heatmod"]			= dna.species.heatmod
+	bs["stunmod"]			= dna.species.stunmod
+	bs["speedmod"]			= dna.species.speedmod
+	bs["next_move_modifier"]= next_move_modifier
+
 	// аугментируем статы согласно ролям
+
 	spawn(50)
 		if(mind)
 			switch(mind.assigned_role)
@@ -229,20 +246,18 @@
 		setOrganLoss(ORGAN_SLOT_BRAIN, 200)
 		return
 
-	var/datum/species/TS = dna.species
-
-	maxHealth 					   = FLOOR((50         				  * (dstats[MOB_STR] + dstats[MOB_STM]										  ))  / 20, 1)
-	dna.species.armor 			   = FLOOR((TS.armor         	  	  * (dstats[MOB_STR] + dstats[MOB_STM]									 	  ))  / 20, 1)
-	dna.species.punchdamagelow 	   = FLOOR((TS.punchdamagelow    	  * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
-	dna.species.punchdamagehigh    = FLOOR((TS.punchdamagehigh   	  * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
-	dna.species.punchstunthreshold = CEILING((TS.punchstunthreshold   * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 20)
-	dna.species.brutemod 		   = TS.brutemod  / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
-	dna.species.burnmod 		   = TS.burnmod   / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
-	dna.species.coldmod 		   = TS.coldmod   / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
-	dna.species.heatmod 		   = TS.heatmod   / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
-	dna.species.stunmod 		   = TS.stunmod   / ((dstats[MOB_STR] + dstats[MOB_STM] + dstats[MOB_DEX]) / 30)
-	dna.species.speedmod 		   = TS.speedmod  / (dstats[MOB_DEX]  / 10)
-	next_move_modifier			   = 1 / (dstats[MOB_DEX] / 10)
+	maxHealth 					   = FLOOR((bs["maxHealth"]           	 * (dstats[MOB_STR] + dstats[MOB_STM]										  ))  / 20, 1)
+	dna.species.armor 			   = FLOOR((bs["armor"]         	  	 * (dstats[MOB_STR] + dstats[MOB_STM]									 	  ))  / 20, 1)
+	dna.species.punchdamagelow 	   = FLOOR((bs["punchdamagelow"]    	 * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
+	dna.species.punchdamagehigh    = FLOOR((bs["punchdamagehigh"]   	 * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
+	dna.species.punchstunthreshold = CEILING((bs["punchstunthreshold"]   * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 20)
+	dna.species.brutemod 		   = bs["brutemod"]			  			 / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
+	dna.species.burnmod 		   = bs["burnmod"]			  			 / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
+	dna.species.coldmod 		   = bs["coldmod"]			  			 / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
+	dna.species.heatmod 		   = bs["heatmod"]			  			 / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
+	dna.species.stunmod 		   = bs["stunmod"]   		  			 / ((dstats[MOB_STR] + dstats[MOB_STM] + dstats[MOB_DEX]) / 30)
+	dna.species.speedmod 		   = bs["speedmod"]  		  			 - (dstats[MOB_DEX]  / 20)
+	next_move_modifier			   = bs["next_move_modifier"] 			 / (dstats[MOB_DEX] / 20)
 
 /mob/living/carbon/human/UnarmedAttack(atom/A, proximity)
 	. = ..()
@@ -263,8 +278,8 @@
 	..()
 	if(statpanel("Game"))
 		stat(null, "--- \[Персонаж\] ---")
-		stat("Сила: ",			dstats["strength"])
-		stat("Выносливость:",   dstats["stamina"])
-		stat("Интеллект:",      dstats["intelligence"])
-		stat("Ловкость:",       dstats["dexterity"])
+		stat("Сила: ",			FLOOR(dstats["strength"], 1))
+		stat("Выносливость:",   FLOOR(dstats["stamina"], 1))
+		stat("Интеллект:",      FLOOR(dstats["intelligence"], 1))
+		stat("Ловкость:",       FLOOR(dstats["dexterity"], 1))
 		stat("Сила воли:",      client.wpp)
