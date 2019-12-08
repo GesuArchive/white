@@ -59,7 +59,7 @@ BONUS
 	switch(A.stage)
 		if(1, 2, 3)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(M, "<span notice='warning'>[pick("You swallow excess mucus.", "You lightly cough.")]</span>")
+				to_chat(M, "<span notice='warning'>[pick("Сглатываю излишки слизи.", "Я слегка покашливаю.")]</span>")
 		else
 			M.emote("cough")
 			if(M.CanSpreadAirborneDisease())
