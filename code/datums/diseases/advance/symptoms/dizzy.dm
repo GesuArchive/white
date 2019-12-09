@@ -45,7 +45,7 @@ Bonus
 	switch(A.stage)
 		if(1, 2, 3, 4)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(M, "<span class='warning'>[pick("You feel dizzy.", "Your head spins.")]</span>")
+				to_chat(M, "<span class='warning'>[pick("У меня кружится голова.", "Перед глазами всё вращается.")]</span>")
 		else
 			to_chat(M, "<span class='userdanger'>A wave of dizziness washes over you!</span>")
 			if(M.dizziness <= 70)

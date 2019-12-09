@@ -3,16 +3,16 @@
 	mob_overlay_icon = 'icons/mob/clothing/under/rnd.dmi'
 
 /obj/item/clothing/under/rank/rnd/research_director
-	desc = "It's a suit worn by those with the know-how to achieve the position of \"Research Director\". Its fabric provides minor protection from biological contaminants."
-	name = "research director's vest suit"
+	desc = "Это костюм, который носят те, кто обладает ноу-хау для достижения позиции \"Научного Руководителя\". Его ткань обеспечивает незначительную защиту от биологических загрязнений."
+	name = "костюм научного руководителя"
 	icon_state = "director"
 	item_state = "lb_suit"
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 35)
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/rnd/research_director/skirt
-	name = "research director's vest suitskirt"
-	desc = "It's a suitskirt worn by those with the know-how to achieve the position of \"Research Director\". Its fabric provides minor protection from biological contaminants."
+	name = "костюм научного руководителя с юбкой"
+	desc = "Это костюм, который носят те, кто обладает ноу-хау для достижения позиции \"Научного Руководителя\". Его ткань обеспечивает незначительную защиту от биологических загрязнений."
 	icon_state = "director_skirt"
 	item_state = "lb_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
@@ -20,8 +20,8 @@
 	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/rnd/research_director/alt
-	desc = "Maybe you'll engineer your own half-man, half-pig creature some day. Its fabric provides minor protection from biological contaminants."
-	name = "research director's tan suit"
+	desc = "Может, когда-нибудь ты сможешь создать свое собственное получеловечное, полуживое существо. Его ткань обеспечивает незначительную защиту от биологических загрязнений."
+	name = "рыжевато-коричневый костюм научного руководителя"
 	icon_state = "rdwhimsy"
 	item_state = "rdwhimsy"
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -29,8 +29,8 @@
 	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/rnd/research_director/alt/skirt
-	name = "research director's tan suitskirt"
-	desc = "Maybe you'll engineer your own half-man, half-pig creature some day. Its fabric provides minor protection from biological contaminants."
+	name = "рыжевато-коричневый костюм научного руководителя с юбкой"
+	desc = "Может, когда-нибудь ты сможешь создать свое собственное получеловечное, полуживое существо. Его ткань обеспечивает незначительную защиту от биологических загрязнений."
 	icon_state = "rdwhimsy_skirt"
 	item_state = "rdwhimsy"
 	body_parts_covered = CHEST|GROIN|ARMS
@@ -38,8 +38,8 @@
 	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/rnd/research_director/turtleneck
-	desc = "A dark purple turtleneck and tan khakis, for a director with a superior sense of style."
-	name = "research director's turtleneck"
+	desc = "Темно-фиолетовая водолазка и загар хакис, для режиссера с превосходным чувством стиля."
+	name = "водолазка научного руководителя"
 	icon_state = "rdturtle"
 	item_state = "p_suit"
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -47,8 +47,8 @@
 	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/rnd/research_director/turtleneck/skirt
-	name = "research director's turtleneck skirt"
-	desc = "A dark purple turtleneck and tan khaki skirt, for a director with a superior sense of style."
+	name = "водолазка с юбкой"
+	desc = "Темно-фиолетовая водолазка и загар хакис, для режиссера с превосходным чувством стиля."
 	icon_state = "rdturtle_skirt"
 	item_state = "p_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
@@ -56,16 +56,16 @@
 	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/rnd/scientist
-	desc = "It's made of a special fiber that provides minor protection against explosives. It has markings that denote the wearer as a scientist."
-	name = "scientist's jumpsuit"
+	desc = "Он изготовлен из специального волокна, обеспечивающего незначительную защиту от взрывчатки. У него есть маркировка, обозначающая, что носитель является ученым."
+	name = "кобинезон учёного"
 	icon_state = "toxins"
 	item_state = "w_suit"
 	permeability_coefficient = 0.5
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/under/rank/rnd/scientist/skirt
-	name = "scientist's jumpskirt"
-	desc = "It's made of a special fiber that provides minor protection against explosives. It has markings that denote the wearer as a scientist."
+	name = "юбкомбез учёного"
+	desc = "Он изготовлен из специального волокна, обеспечивающего незначительную защиту от взрывчатки. У него есть маркировка, обозначающая, что носитель является ученым."
 	icon_state = "toxinswhite_skirt"
 	item_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
@@ -73,15 +73,15 @@
 	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/rnd/roboticist
-	desc = "It's a slimming black with reinforced seams; great for industrial work."
-	name = "roboticist's jumpsuit"
+	desc = "Он изготовлен из специального волокна, обеспечивающего незначительную защиту от взрывчатки. У него есть маркировка, обозначающая, что носитель является ученым."
+	name = "комбинезон робототехника"
 	icon_state = "robotics"
 	item_state = "robotics"
 	resistance_flags = NONE
 
 /obj/item/clothing/under/rank/rnd/roboticist/skirt
-	name = "roboticist's jumpskirt"
-	desc = "It's a slimming black with reinforced seams; great for industrial work."
+	name = "юбкомбез робототехника"
+	desc = "Он изготовлен из специального волокна, обеспечивающего незначительную защиту от взрывчатки. У него есть маркировка, обозначающая, что носитель является ученым."
 	icon_state = "robotics_skirt"
 	item_state = "robotics"
 	body_parts_covered = CHEST|GROIN|ARMS

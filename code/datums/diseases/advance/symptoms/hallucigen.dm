@@ -62,7 +62,7 @@ Bonus
 		else
 			if(prob(base_message_chance))
 				if(!fake_healthy)
-					to_chat(M, "<span class='userdanger'>[pick("Oh, your head...", "Your head pounds.", "They're everywhere! Run!", "Something in the shadows...")]</span>")
+					to_chat(M, "<span class='userdanger'>[pick("Oh, your head...", "Моя голова разрывается.", "They're everywhere! Run!", "Something in the shadows...")]</span>")
 				else
 					to_chat(M, "<span class='notice'>[pick(healthy_messages)]</span>")
 			M.hallucination += (45 * power)

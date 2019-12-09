@@ -179,7 +179,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 			var/health_diff = round(-HEALTH_THRESHOLD_DEAD + health)
 			// If we cut our message short, abruptly end it with a-..
 			var/message_len = length(message)
-			message = copytext(message, 1, health_diff) + "[message_len > health_diff ? "-.." : "..."]"
+			message = copytext_char(message, 1, health_diff) + "[message_len > health_diff ? "-.." : "..."]"
 			message = Ellipsis(message, 10, 1)
 			last_words = message
 			message_mode = MODE_WHISPER_CRIT
@@ -220,7 +220,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	proverka_na_detey(message, src)
 
-	send_speech(pointization(message), message_range, src, bubble_type, spans, language, message_mode)
+	send_speech(message, message_range, src, bubble_type, spans, language, message_mode)
 
 	if(succumbed)
 		succumb(1)
@@ -328,8 +328,8 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		return lowertext(copytext(message, 2, 3))
 
 /mob/living/proc/get_message_language(message)
-	if(copytext(message, 1, 2) == ",")
-		var/key = copytext(message, 2, 3)
+	if(copytext_char(message, 1, 2) == ",")
+		var/key = copytext_char(message, 2, 3)
 		for(var/ld in GLOB.all_languages)
 			var/datum/language/LD = ld
 			if(initial(LD.key) == key)
@@ -395,11 +395,11 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(message_mode == MODE_WHISPER)
 		. = verb_whisper
 	else if(message_mode == MODE_WHISPER_CRIT)
-		. = "[verb_whisper] in [p_their()] last breath"
+		. = "[verb_whisper] на последнем дыхании"
 	else if(stuttering)
-		. = "stammers"
+		. = "заикается"
 	else if(derpspeech)
-		. = "gibbers"
+		. = "тараторит"
 	else
 		. = ..()
 

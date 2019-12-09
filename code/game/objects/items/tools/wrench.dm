@@ -1,6 +1,6 @@
 /obj/item/wrench
-	name = "wrench"
-	desc = "A wrench with common uses. Can be found in your hand."
+	name = "гаечный ключ"
+	desc = "Ключ общего назначения. Его можно найти в твоей руке."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "wrench"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
@@ -26,8 +26,8 @@
 	return (BRUTELOSS)
 
 /obj/item/wrench/abductor
-	name = "alien wrench"
-	desc = "A polarized wrench. It causes anything placed between the jaws to turn."
+	name = "чужеродный гаечный ключ"
+	desc = "Поляризованный ключ. Это приводит к тому, что все, что находится между челюстями, поворачивается."
 	icon = 'icons/obj/abductor.dmi'
 	icon_state = "wrench"
 	usesound = 'sound/effects/empulse.ogg'
@@ -35,8 +35,8 @@
 
 
 /obj/item/wrench/medical
-	name = "medical wrench"
-	desc = "A medical wrench with common(medical?) uses. Can be found in your hand."
+	name = "медицинский гаечный ключ"
+	desc = "Медицинский ключ с обычным (медицинским?) использованием. Его можно найти в твоей руке."
 	icon_state = "wrench_medical"
 	force = 2 //MEDICAL
 	throwforce = 4
@@ -47,7 +47,7 @@
 /obj/item/wrench/medical/examine(mob/user)
 	. = ..()
 	if(suicider)
-		. += "<span class='notice'>For some reason, it reminds you of [suicider].</span>"
+		. += "<span class='notice'>По какой-то причине, это напоминает мне о [suicider].</span>"
 
 /obj/item/wrench/medical/suicide_act(mob/living/user)
 	user.visible_message("<span class='suicide'>[user] is praying to the medical wrench to take [user.p_their()] soul. It looks like [user.p_theyre()] trying to commit suicide!</span>")
@@ -69,8 +69,8 @@
 	return OXYLOSS
 
 /obj/item/wrench/cyborg
-	name = "hydraulic wrench"
-	desc = "An advanced robotic wrench, powered by internal hydraulics. Twice as fast as the handheld version."
+	name = "гидравлический гаечный ключ"
+	desc = "Усовершенствованный роботизированный ключ, приводимый в действие внутренней гидравликой. В два раза быстрее, чем версия для портативных устройств."
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "wrench_cyborg"
 	toolspeed = 0.5

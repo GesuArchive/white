@@ -1240,7 +1240,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			playsound(target.loc, user.dna.species.miss_sound, 25, TRUE, -1)
 			target.visible_message("<span class='danger'>[user] [atk_verb] мимо [target]!</span>",\
 							"<span class='userdanger'>[user] [atk_verb] мимо меня!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, "<span class='warning'>Мой [atk_verb] бьёт мимо [target]!</span>")
+			to_chat(user, "<span class='warning'>Мой удар бьёт мимо [target]!</span>")
 			log_combat(user, target, "attempted to punch")
 			return FALSE
 
@@ -1250,7 +1250,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		target.visible_message("<span class='danger'>[user] [atk_verb] [target]!</span>", \
 					"<span class='userdanger'>[user] [atk_verb] меня!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, "<span class='danger'>Я [atk_verb] [target]!</span>")
+		to_chat(user, "<span class='danger'>Бью [target]!</span>")
 
 		target.lastattacker = user.real_name
 		target.lastattackerckey = user.ckey
@@ -1444,10 +1444,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(!affecting) //Something went wrong. Maybe the limb is missing?
 		affecting = H.bodyparts[1]
 
-	hit_area = affecting.name
+	hit_area = ru_parse_zone(affecting.name)
 	var/def_zone = affecting.body_zone
 
-	var/armor_block = H.run_armor_check(affecting, "melee", "<span class='notice'>Ваша броня защищает вас от удара в [hit_area]!</span>", "<span class='warning'>Ваша броня смягчает удар в [hit_area]!</span>",I.armour_penetration)
+	var/armor_block = H.run_armor_check(affecting, "melee", "<span class='notice'>Моя броня защищает меня от удара в [hit_area]!</span>", "<span class='warning'>Моя броня смягчает удар в [hit_area]!</span>",I.armour_penetration)
 	armor_block = min(90,armor_block) //cap damage reduction at 90%
 	var/Iforce = I.force //to avoid runtimes on the forcesay checks at the bottom. Some items might delete themselves if you drop them. (stunning yourself, ninja swords)
 

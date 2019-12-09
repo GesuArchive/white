@@ -77,10 +77,12 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 /proc/pointization(text)
 	if (!text)
 		return
-	if (copytext(text,1,2) == "*") //Emotes allowed.
+#if DM_VERSION >= 513 && DM_BUILD >= 1493
+	if (copytext_char(text,1,2) == "*") //Emotes allowed.
 		return text
-	if (copytext(text,-1) in list("!", "?", "."))
+	if (copytext_char(text,-1) in list("!", "?", "."))
 		return text
+#endif
 	text += "."
 	return text
 
@@ -147,4 +149,4 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 					else
 						t += text("[ascii2text(a)]-[ascii2text(a)]")
 		t += ascii2text(a)
-	return copytext(sanitize(t),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))
+	return copytext_char(sanitize(t),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))

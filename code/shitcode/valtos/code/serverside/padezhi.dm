@@ -37,6 +37,8 @@
 
 /proc/sklonenie(msgfrom, rule, gender = null)
 	var/to_ret = ""
+// Travis backdoor
+#if DM_VERSION >= 513 && DM_BUILD >= 1493
 	for(var/word in splittext_char(msgfrom, " "))
 		to_ret += " [sklonenie_do(word, rule, gender)]"
 	return to_ret
@@ -270,3 +272,4 @@
 			return "[msgfrom][OneListTooTo[rule]]"
 
 	return msgfrom // возвращаем слово, если оно чудом не нашло своего конца
+#endif

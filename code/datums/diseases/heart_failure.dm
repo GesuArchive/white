@@ -31,7 +31,7 @@
 				if(prob(2))
 					to_chat(H, "<span class='warning'>You feel [pick("discomfort", "pressure", "a burning sensation", "pain")] in your chest.</span>")
 				if(prob(2))
-					to_chat(H, "<span class='warning'>You feel dizzy.</span>")
+					to_chat(H, "<span class='warning'>У меня кружится голова.</span>")
 					H.confused += 6
 				if(prob(3))
 					to_chat(H, "<span class='warning'>You feel [pick("full", "nauseated", "sweaty", "weak", "tired", "short on breath", "uneasy")].</span>")

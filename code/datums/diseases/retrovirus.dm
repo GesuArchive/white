@@ -36,7 +36,7 @@
 					cure()
 					return
 			if (prob(8))
-				to_chat(affected_mob, "<span class='danger'>Your head hurts.</span>")
+				to_chat(affected_mob, "<span class='danger'>Моя голова болит.</span>")
 			if (prob(9))
 				to_chat(affected_mob, "<span class='danger'>You feel a tingling sensation in your chest.</span>")
 			if (prob(9))
