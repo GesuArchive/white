@@ -278,7 +278,7 @@
 	if(ishuman(A))
 		var/mob/living/carbon/human/T = A
 		var/atom/throw_target = get_edge_target_turf(T, get_dir(T, get_step_away(T, src)))
-		T.throw_at(throw_target, 200, (FLOOR(dna.species.punchdamagehigh/4), 1), src)
+		T.throw_at(throw_target, 200, (FLOOR(dna.species.punchdamagehigh/4, 1)), src)
 		return
 	if(A.attack_hulk(src))
 		log_combat(src, A, "punched", "hulk powers")
