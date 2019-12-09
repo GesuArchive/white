@@ -149,4 +149,4 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 					else
 						t += text("[ascii2text(a)]-[ascii2text(a)]")
 		t += ascii2text(a)
-	return copytext(sanitize(t),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))
+	return copytext_char(sanitize(t),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))
