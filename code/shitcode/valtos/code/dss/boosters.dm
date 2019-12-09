@@ -2,14 +2,14 @@
 	name = "таблетка виагры"
 	desc = "Заставит вкусившего получить немного силы."
 	icon_state = "pill16"
-	list_reagents = list(/datum/reagent/viagra = 5)
+	list_reagents = list(/datum/reagent/viagra = 12)
 
 /datum/reagent/viagra
 	name = "Viagra"
 	description = "Жидкость, которая делает из мальчика мужчину."
 	color = "#FF00FF"
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
-	overdose_threshold = 8
+	overdose_threshold = 15
 	var/list/base_stats = list(MOB_STR = 0, MOB_STM = 0, MOB_INT = 0, MOB_DEX = 0)
 
 /datum/reagent/viagra/on_mob_add(mob/living/L)
@@ -41,21 +41,21 @@
 	name = /datum/reagent/viagra
 	id = /datum/reagent/viagra
 	results = list(/datum/reagent/viagra = 1)
-	required_reagents = list(/datum/reagent/drug/crank = 1, /datum/reagent/drug/methamphetamine = 1, /datum/reagent/drug/bath_salts = 1, /datum/reagent/drug/krokodil = 1)
+	required_reagents = list(/datum/reagent/drug/crank = 1, /datum/reagent/consumable/sugar = 1, /datum/reagent/drug/bath_salts = 1, /datum/reagent/drug/krokodil = 1)
 	required_temp = 500
 
 /obj/item/reagent_containers/pill/askorbinka
 	name = "аскорбинка"
 	desc = "Говорят такими раньше пытали людей."
 	icon_state = "pill15"
-	list_reagents = list(/datum/reagent/askorbinka = 5)
+	list_reagents = list(/datum/reagent/askorbinka = 12)
 
 /datum/reagent/askorbinka
 	name = "Askorbinka"
 	description = "Ммм, на вкус как уран."
 	color = "#FFFFFF"
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
-	overdose_threshold = 8
+	overdose_threshold = 15
 	var/list/base_stats = list(MOB_STR = 0, MOB_STM = 0, MOB_INT = 0, MOB_DEX = 0)
 
 /datum/reagent/askorbinka/on_mob_add(mob/living/L)
@@ -93,7 +93,7 @@
 	name = /datum/reagent/askorbinka
 	id = /datum/reagent/askorbinka
 	results = list(/datum/reagent/askorbinka = 1)
-	required_reagents = list(/datum/reagent/drug/pumpup= 1, /datum/reagent/drug/happiness = 1, /datum/reagent/drug/aranesp = 1, /datum/reagent/drug/methamphetamine = 1)
+	required_reagents = list(/datum/reagent/drug/pumpup= 1, /datum/reagent/drug/happiness = 1, /datum/reagent/drug/aranesp = 1, /datum/reagent/consumable/sugar = 1)
 	required_temp = 500
 
 /datum/reagent/razrivozhopoebin
