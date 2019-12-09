@@ -276,8 +276,9 @@
 	if(src.a_intent != INTENT_HARM)
 		return
 	if(ishuman(A))
-		var/atom/throw_target = get_edge_target_turf(A, get_dir(A, get_step_away(A, src)))
-		A.throw_at(throw_target, 200, (FLOOR(dna.species.punchdamagehigh/4), 1), src)
+		var/mob/living/carbon/human/T = A
+		var/atom/throw_target = get_edge_target_turf(T, get_dir(T, get_step_away(T, src)))
+		T.throw_at(throw_target, 200, (FLOOR(dna.species.punchdamagehigh/4), 1), src)
 		return
 	if(A.attack_hulk(src))
 		log_combat(src, A, "punched", "hulk powers")
