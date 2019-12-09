@@ -4,7 +4,8 @@
 
 /mob/living/carbon/human
 	var/list/dstats = list(MOB_STR = 10, MOB_STM = 10, MOB_INT = 10, MOB_DEX = 10)
-	var/list/bs = list()
+	var/list/bstats = list(MOB_STR = 10, MOB_STM = 10, MOB_INT = 10, MOB_DEX = 10)
+	var/list/bmods = list()
 
 // do this shit
 
@@ -18,18 +19,18 @@
 
 	// запоминаем базовые значения
 
-	bs["maxHealth"]			= maxHealth
-	bs["armor"]				= dna.species.armor
-	bs["punchdamagelow"]	= dna.species.punchdamagelow
-	bs["punchdamagehigh"]   = dna.species.punchdamagehigh
-	bs["punchstunthreshold"]= dna.species.punchstunthreshold
-	bs["brutemod"]			= dna.species.brutemod
-	bs["burnmod"]			= dna.species.burnmod
-	bs["coldmod"]			= dna.species.coldmod
-	bs["heatmod"]			= dna.species.heatmod
-	bs["stunmod"]			= dna.species.stunmod
-	bs["speedmod"]			= dna.species.speedmod
-	bs["next_move_modifier"]= next_move_modifier
+	bmods["maxHealth"]			= maxHealth
+	bmods["armor"]				= dna.species.armor
+	bmods["punchdamagelow"]	= dna.species.punchdamagelow
+	bmods["punchdamagehigh"]   = dna.species.punchdamagehigh
+	bmods["punchstunthreshold"]= dna.species.punchstunthreshold
+	bmods["brutemod"]			= dna.species.brutemod
+	bmods["burnmod"]			= dna.species.burnmod
+	bmods["coldmod"]			= dna.species.coldmod
+	bmods["heatmod"]			= dna.species.heatmod
+	bmods["stunmod"]			= dna.species.stunmod
+	bmods["speedmod"]			= dna.species.speedmod
+	bmods["next_move_modifier"]= next_move_modifier
 
 	// аугментируем статы согласно ролям
 
@@ -235,6 +236,13 @@
 				dstats[MOB_INT] += rand(1, 5)
 				dstats[MOB_DEX] += rand(1, 5)
 
+		// сохраняем базовые статы
+
+		bstats[MOB_STR] = dstats[MOB_STR]
+		bstats[MOB_STM] = dstats[MOB_STM]
+		bstats[MOB_INT] = dstats[MOB_INT]
+		bstats[MOB_DEX] = dstats[MOB_DEX]
+
 		recalculate_stats()
 
 /mob/living/carbon/human/proc/recalculate_stats()
@@ -246,18 +254,18 @@
 		setOrganLoss(ORGAN_SLOT_BRAIN, 200)
 		return
 
-	maxHealth 					   = FLOOR((bs["maxHealth"]           	 * (dstats[MOB_STR] + dstats[MOB_STM]										  ))  / 20, 1)
-	dna.species.armor 			   = FLOOR((bs["armor"]         	  	 * (dstats[MOB_STR] + dstats[MOB_STM]									 	  ))  / 20, 1)
-	dna.species.punchdamagelow 	   = FLOOR((bs["punchdamagelow"]    	 * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
-	dna.species.punchdamagehigh    = FLOOR((bs["punchdamagehigh"]   	 * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 1)
-	dna.species.punchstunthreshold = CEILING((bs["punchstunthreshold"]   * (dstats[MOB_STR] + dstats[MOB_STM] + ((dstats[MOB_INT] + dstats[MOB_DEX])/2))) / 30, 20)
-	dna.species.brutemod 		   = bs["brutemod"]			  			 / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
-	dna.species.burnmod 		   = bs["burnmod"]			  			 / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
-	dna.species.coldmod 		   = bs["coldmod"]			  			 / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
-	dna.species.heatmod 		   = bs["heatmod"]			  			 / ((dstats[MOB_STR] + dstats[MOB_STM]) / 20)
-	dna.species.stunmod 		   = bs["stunmod"]   		  			 / ((dstats[MOB_STR] + dstats[MOB_STM] + dstats[MOB_DEX]) / 30)
-	dna.species.speedmod 		   = bs["speedmod"]  		  			 / (dstats[MOB_DEX] / 10)
-	next_move_modifier			   = bs["next_move_modifier"] 			 / (dstats[MOB_DEX] / 10)
+	maxHealth 					   = FLOOR((bmods["maxHealth"]           * (bstats[MOB_STR] + bstats[MOB_STM]										  ))  / 20, 1)
+	dna.species.armor 			   = FLOOR((bmods["armor"]         	  	 * (bstats[MOB_STR] + bstats[MOB_STM]									 	  ))  / 20, 1)
+	dna.species.punchdamagelow 	   = FLOOR((bmods["punchdamagelow"]    	 * (bstats[MOB_STR] + bstats[MOB_STM] + ((bstats[MOB_INT] + bstats[MOB_DEX])/2))) / 30, 1)
+	dna.species.punchdamagehigh    = FLOOR((bmods["punchdamagehigh"]   	 * (bstats[MOB_STR] + bstats[MOB_STM] + ((bstats[MOB_INT] + bstats[MOB_DEX])/2))) / 30, 1)
+	dna.species.punchstunthreshold = CEILING((bmods["punchstunthreshold"]* (bstats[MOB_STR] + bstats[MOB_STM] + ((bstats[MOB_INT] + bstats[MOB_DEX])/2))) / 30, 20)
+	dna.species.brutemod 		   = bmods["brutemod"]			  		 / ((bstats[MOB_STR] + bstats[MOB_STM]) / 20)
+	dna.species.burnmod 		   = bmods["burnmod"]			  		 / ((bstats[MOB_STR] + bstats[MOB_STM]) / 20)
+	dna.species.coldmod 		   = bmods["coldmod"]			  		 / ((bstats[MOB_STR] + bstats[MOB_STM]) / 20)
+	dna.species.heatmod 		   = bmods["heatmod"]			  		 / ((bstats[MOB_STR] + bstats[MOB_STM]) / 20)
+	dna.species.stunmod 		   = bmods["stunmod"]   		  		 / ((bstats[MOB_STR] + bstats[MOB_STM] + bstats[MOB_DEX]) / 30)
+	dna.species.speedmod 		   = bmods["speedmod"]  		  		 / (bstats[MOB_DEX] / 10)
+	next_move_modifier			   = bmods["next_move_modifier"] 		 / (bstats[MOB_DEX] / 10)
 
 /mob/living/carbon/human/UnarmedAttack(atom/A, proximity)
 	. = ..()
@@ -266,6 +274,10 @@
 	if(!proximity)
 		return
 	if(src.a_intent != INTENT_HARM)
+		return
+	if(ishuman(A))
+		var/atom/throw_target = get_edge_target_turf(A, get_dir(A, get_step_away(A, src)))
+		A.throw_at(throw_target, 200, (FLOOR(dna.species.punchdamagehigh/4), 1), src)
 		return
 	if(A.attack_hulk(src))
 		log_combat(src, A, "punched", "hulk powers")
