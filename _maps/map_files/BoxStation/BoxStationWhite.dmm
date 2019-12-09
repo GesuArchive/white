@@ -28957,7 +28957,8 @@
 "brl" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 4;
-	name = "Газ в Микс"
+	name = "Газ в Микс";
+	on = 1
 	},
 /turf/open/floor/engine,
 /area/engine/engineering)
@@ -29580,9 +29581,10 @@
 /turf/open/floor/plasteel,
 /area/maintenance/disposal/incinerator)
 "bsC" = (
-/obj/machinery/atmospherics/components/binary/pump{
-	dir = 8;
-	name = "Микс в Газ"
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/components/trinary/filter/flipped/critical{
+	dir = 4;
+	on = 1
 	},
 /turf/open/floor/engine,
 /area/engine/engineering)
@@ -30140,6 +30142,14 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
+"btY" = (
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 8;
+	name = "Микс в Газ";
+	on = 1
+	},
+/turf/open/floor/engine,
+/area/engine/engineering)
 "btZ" = (
 /obj/machinery/light,
 /obj/structure/disposalpipe/segment{
@@ -30213,6 +30223,25 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/genetics)
+"buh" = (
+/obj/machinery/atmospherics/components/trinary/filter/flipped/critical{
+	dir = 8;
+	filter_type = "n2";
+	on = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/engine,
+/area/engine/engineering)
+"bui" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/components/binary/valve{
+	dir = 4;
+	name = "Output to Waste";
+	on = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/engine,
+/area/engine/engineering)
 "buj" = (
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "robotics2";
@@ -30250,6 +30279,17 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/research)
+"bup" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/machinery/atmospherics/components/binary/valve/digital/on{
+	dir = 4;
+	name = "Output Release";
+	on = 0
+	},
+/turf/open/floor/engine,
+/area/engine/engineering)
 "buq" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -30267,6 +30307,13 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/white,
 /area/medical/genetics)
+"bus" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/mix_output{
+	dir = 8;
+	on = 0
+	},
+/turf/open/floor/engine/vacuum,
+/area/engine/atmos)
 "but" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -37889,12 +37936,6 @@
 "bPk" = (
 /obj/machinery/camera{
 	c_tag = "Atmospherics Waste Tank"
-	},
-/turf/open/floor/engine/vacuum,
-/area/engine/atmos)
-"bPl" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/mix_output{
-	dir = 8
 	},
 /turf/open/floor/engine/vacuum,
 /area/engine/atmos)
@@ -48518,13 +48559,6 @@
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/engine/engineering)
-"cDv" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/atmospherics/components/trinary/filter/flipped/critical{
-	dir = 4
-	},
-/turf/open/floor/engine,
-/area/engine/engineering)
 "cDw" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/manifold/cyan/visible{
@@ -49043,14 +49077,6 @@
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/engine/engineering)
-"cGf" = (
-/obj/machinery/atmospherics/components/trinary/filter/flipped/critical{
-	dir = 8;
-	filter_type = "n2"
-	},
-/obj/structure/cable,
-/turf/open/floor/engine,
-/area/engine/engineering)
 "cGh" = (
 /obj/effect/turf_decal/stripes/corner,
 /obj/structure/cable,
@@ -49114,16 +49140,6 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/visible,
 /obj/machinery/meter,
-/turf/open/floor/engine,
-/area/engine/engineering)
-"cGC" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
-	},
-/obj/machinery/atmospherics/components/binary/valve/digital/on{
-	dir = 4;
-	name = "Output Release"
-	},
 /turf/open/floor/engine,
 /area/engine/engineering)
 "cGD" = (
@@ -51241,15 +51257,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/science/nanite)
-"mBv" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/atmospherics/components/binary/valve{
-	dir = 4;
-	name = "Output to Waste"
-	},
-/obj/structure/cable,
-/turf/open/floor/engine,
-/area/engine/engineering)
 "mFY" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/vending/modularpc,
@@ -81300,7 +81307,7 @@ ckH
 ccw
 cDh
 cpy
-cDv
+bsC
 cDD
 cqU
 cMD
@@ -81309,7 +81316,7 @@ cEz
 cMH
 cMD
 cFL
-cGf
+buh
 kQq
 cMm
 cGS
@@ -83109,7 +83116,7 @@ cFj
 cEf
 cFS
 czE
-mBv
+bui
 cGI
 cGS
 ciZ
@@ -83617,13 +83624,13 @@ bpr
 cqb
 cqb
 cqb
-bsC
+btY
 cqb
 cqb
 brl
 cqb
 cGh
-cGC
+bup
 cey
 ijc
 csd
@@ -88981,7 +88988,7 @@ bKH
 bzs
 bRK
 bOh
-bPl
+bus
 bQB
 bRL
 bOh
