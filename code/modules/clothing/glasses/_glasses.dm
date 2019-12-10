@@ -212,7 +212,7 @@
 	REMOVE_TRAIT(user, TRAIT_BOOZE_SLIDER, CLOTHING_TRAIT)
 
 /obj/item/clothing/glasses/sunglasses/garb
-	name = "black gar glasses"
+	name = "чёрный gar glasses"
 	desc = "Go beyond impossible and kick reason to the curb!"
 	icon_state = "garb"
 	item_state = "garb"
@@ -224,7 +224,7 @@
 	sharpness = IS_SHARP
 
 /obj/item/clothing/glasses/sunglasses/garb/supergarb
-	name = "black giga gar glasses"
+	name = "чёрный giga gar glasses"
 	desc = "Believe in us humans."
 	icon_state = "supergarb"
 	item_state = "garb"
@@ -395,14 +395,14 @@
 	item_state = "heat"
 
 /obj/item/clothing/glasses/orange
-	name = "orange glasses"
+	name = "оранжевый  glasses"
 	desc = "A sweet pair of orange shades."
 	icon_state = "orangeglasses"
 	item_state = "orangeglasses"
 	glass_colour_type = /datum/client_colour/glass_colour/lightorange
 
 /obj/item/clothing/glasses/red
-	name = "red glasses"
+	name = "красный glasses"
 	desc = "Hey, you're looking good, senpai!"
 	icon_state = "redglasses"
 	item_state = "redglasses"

@@ -45,28 +45,28 @@
 	. += "<span class='notice'>Alt-click the cap to flip it [flipped ? "forwards" : "backwards"].</span>"
 
 /obj/item/clothing/head/soft/red
-	name = "red cap"
+	name = "красный cap"
 	desc = "It's a baseball hat in a tasteless red colour."
 	icon_state = "redsoft"
 	soft_type = "red"
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/blue
-	name = "blue cap"
+	name = "синий cap"
 	desc = "It's a baseball hat in a tasteless blue colour."
 	icon_state = "bluesoft"
 	soft_type = "blue"
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/green
-	name = "green cap"
+	name = "зелёный cap"
 	desc = "It's a baseball hat in a tasteless green colour."
 	icon_state = "greensoft"
 	soft_type = "green"
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/yellow
-	name = "yellow cap"
+	name = "жёлтый cap"
 	desc = "It's a baseball hat in a tasteless yellow colour."
 	icon_state = "yellowsoft"
 	soft_type = "yellow"
@@ -80,28 +80,28 @@
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/orange
-	name = "orange cap"
+	name = "оранжевый  cap"
 	desc = "It's a baseball hat in a tasteless orange colour."
 	icon_state = "orangesoft"
 	soft_type = "orange"
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/mime
-	name = "white cap"
+	name = "белый cap"
 	desc = "It's a baseball hat in a tasteless white colour."
 	icon_state = "mimesoft"
 	soft_type = "mime"
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/purple
-	name = "purple cap"
+	name = "фиолетовый cap"
 	desc = "It's a baseball hat in a tasteless purple colour."
 	icon_state = "purplesoft"
 	soft_type = "purple"
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/black
-	name = "black cap"
+	name = "чёрный cap"
 	desc = "It's a baseball hat in a tasteless black colour."
 	icon_state = "blacksoft"
 	soft_type = "black"

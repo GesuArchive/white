@@ -25,15 +25,15 @@
 	custom_price = 15
 
 /obj/item/clothing/neck/tie/blue
-	name = "blue tie"
+	name = "синий tie"
 	icon_state = "bluetie"
 
 /obj/item/clothing/neck/tie/red
-	name = "red tie"
+	name = "красный tie"
 	icon_state = "redtie"
 
 /obj/item/clothing/neck/tie/black
-	name = "black tie"
+	name = "чёрный tie"
 	icon_state = "blacktie"
 
 /obj/item/clothing/neck/tie/horrible
@@ -89,14 +89,14 @@
 ///////////
 
 /obj/item/clothing/neck/scarf //Default white color, same functionality as beanies.
-	name = "white scarf"
+	name = "белый scarf"
 	icon_state = "scarf"
 	desc = "A stylish scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks."
 	dog_fashion = /datum/dog_fashion/head
 	custom_price = 10
 
 /obj/item/clothing/neck/scarf/black
-	name = "black scarf"
+	name = "чёрный scarf"
 	icon_state = "scarf"
 	color = "#4A4A4B" //Grey but it looks black
 
@@ -106,37 +106,37 @@
 	color = "#F699CD" //Pink
 
 /obj/item/clothing/neck/scarf/red
-	name = "red scarf"
+	name = "красный scarf"
 	icon_state = "scarf"
 	color = "#D91414" //Red
 
 /obj/item/clothing/neck/scarf/green
-	name = "green scarf"
+	name = "зелёный scarf"
 	icon_state = "scarf"
 	color = "#5C9E54" //Green
 
 /obj/item/clothing/neck/scarf/darkblue
-	name = "dark blue scarf"
+	name = "тёмно-синий scarf"
 	icon_state = "scarf"
 	color = "#1E85BC" //Blue
 
 /obj/item/clothing/neck/scarf/purple
-	name = "purple scarf"
+	name = "фиолетовый scarf"
 	icon_state = "scarf"
 	color = "#9557C5" //Purple
 
 /obj/item/clothing/neck/scarf/yellow
-	name = "yellow scarf"
+	name = "жёлтый scarf"
 	icon_state = "scarf"
 	color = "#E0C14F" //Yellow
 
 /obj/item/clothing/neck/scarf/orange
-	name = "orange scarf"
+	name = "оранжевый  scarf"
 	icon_state = "scarf"
 	color = "#C67A4B" //Orange
 
 /obj/item/clothing/neck/scarf/cyan
-	name = "cyan scarf"
+	name = "голубой scarf"
 	icon_state = "scarf"
 	color = "#54A3CE" //Cyan
 
@@ -148,24 +148,24 @@
 	icon_state = "zebrascarf"
 
 /obj/item/clothing/neck/scarf/christmas
-	name = "christmas scarf"
+	name = "рождественский scarf"
 	icon_state = "christmasscarf"
 
 //The three following scarves don't have the scarf subtype
 //This is because Ian can equip anything from that subtype
 //However, these 3 don't have corgi versions of their sprites
 /obj/item/clothing/neck/stripedredscarf
-	name = "striped red scarf"
+	name = "полосатый red scarf"
 	icon_state = "stripedredscarf"
 	custom_price = 10
 
 /obj/item/clothing/neck/stripedgreenscarf
-	name = "striped green scarf"
+	name = "полосатый green scarf"
 	icon_state = "stripedgreenscarf"
 	custom_price = 10
 
 /obj/item/clothing/neck/stripedbluescarf
-	name = "striped blue scarf"
+	name = "полосатый blue scarf"
 	icon_state = "stripedbluescarf"
 	custom_price = 10
 

@@ -17,7 +17,7 @@ Contains:
 
 	//Death squad armored space suits, not hardsuits!
 /obj/item/clothing/head/helmet/space/hardsuit/deathsquad
-	name = "MK.III SWAT Helmet"
+	name = "MK.III шлем спецназа"
 	desc = "An advanced tactical space helmet."
 	icon_state = "deathsquad"
 	item_state = "deathsquad"

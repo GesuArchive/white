@@ -24,7 +24,7 @@
 	throwforce = 1
 
 /obj/item/clothing/head/canada
-	name = "striped red tophat"
+	name = "полосатый red tophat"
 	desc = "It smells like fresh donut holes. / <i>Il sent comme des trous de beignets frais.</i>"
 	icon_state = "canada"
 	item_state = "canada"
@@ -61,7 +61,7 @@
 	dog_fashion = /datum/dog_fashion/head/nurse
 
 /obj/item/clothing/head/syndicatefake
-	name = "black space-helmet replica"
+	name = "чёрный space-helmet replica"
 	icon_state = "syndicate-helm-black-red"
 	item_state = "syndicate-helm-black-red"
 	desc = "A plastic replica of a Syndicate agent's space helmet. You'll look just like a real murderous Syndicate agent in this! This is a toy, it is not made for use in space!"
@@ -229,7 +229,7 @@
 	dog_fashion = /datum/dog_fashion/head/sombrero
 
 /obj/item/clothing/head/sombrero/green
-	name = "green sombrero"
+	name = "зелёный sombrero"
 	icon_state = "greensombrero"
 	item_state = "greensombrero"
 	desc = "As elegant as a dancing cactus."
@@ -418,13 +418,13 @@
 	icon_state = "medievaljewhat"
 
 /obj/item/clothing/head/taqiyahwhite
-	name = "white taqiyah"
+	name = "белый taqiyah"
 	desc = "An extra-mustahabb way of showing your devotion to Allah."
 	icon_state = "taqiyahwhite"
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/small
 
 /obj/item/clothing/head/taqiyahred
-	name = "red taqiyah"
+	name = "красный taqiyah"
 	desc = "An extra-mustahabb way of showing your devotion to Allah."
 	icon_state = "taqiyahred"
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/small
