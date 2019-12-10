@@ -120,7 +120,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		return
 
 	S.repeat = 1
-	S.channel = 1015
+	S.channel = open_sound_channel()
 	S.falloff = 2
 	S.wait = 0
 	S.volume = 0

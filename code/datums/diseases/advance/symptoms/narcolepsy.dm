@@ -55,7 +55,7 @@ Bonus
 				if(yawning)
 					to_chat(M, "<span class='warning'>You try and fail to suppress a yawn.</span>")
 				else
-					to_chat(M, "<span class='warning'>You nod off for a moment.</span>") //you can't really yawn while nodding off, can you?
+					to_chat(M, "<span class='warning'>Засыпаю на мгновение.</span>") //you can't really yawn while nodding off, can you?
 			if(M.drowsyness < 70)
 				M.drowsyness += 10
 			if(yawning)

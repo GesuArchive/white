@@ -50,7 +50,7 @@ Bonus
 	switch(A.stage)
 		if(1, 2, 3, 4)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(M, "<span class='warning'>[pick("Your head hurts.", "Your mind blanks for a moment.")]</span>")
+				to_chat(M, "<span class='warning'>[pick("Моя голова болит.", "Мой разум на мгновение остался пустым.")]</span>")
 		else
 			to_chat(M, "<span class='userdanger'>You can't think straight!</span>")
 			if(M.confused < 100)

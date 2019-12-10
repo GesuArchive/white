@@ -411,7 +411,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	..()
 	var/item
 	if(!item_type)
-		item = pick(list("esword","taser","ebow","baton","dual_esword","clockspear","ttv","flash","armblade"))
+		item = pick(list("esword","taser","ebow","baton","dual_esword","ttv","flash","armblade"))
 	else
 		item = item_type
 	feedback_details += "Item: [item]"
@@ -750,7 +750,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		"<span class='notice'>Your [pick("arm", "leg", "back", "head")] itches.</span>",\
 		"<span class='warning'>You feel [pick("hot","cold","dry","wet","woozy","faint")].</span>",
 		"<span class='warning'>Your stomach rumbles.</span>",
-		"<span class='warning'>Your head hurts.</span>",
+		"<span class='warning'>Моя голова болит.</span>",
 		"<span class='warning'>You hear a faint buzz in your head.</span>",
 		"<B>[target]</B> sneezes.")
 	if(prob(10))

@@ -21,7 +21,7 @@
 	var/list/active_timers
 	/// Status traits attached to this datum
 	var/list/status_traits
-	
+
 	/// Components attached to this datum
 	/// Lazy associated list in the structure of `type:component/list of components`
 	var/list/datum_components
@@ -33,7 +33,7 @@
 	/// Is this datum capable of sending signals?
 	/// Set to true when a signal has been registered
 	var/signal_enabled = FALSE
-	
+
 	/// Datum level flags
 	var/datum_flags = NONE
 
@@ -60,10 +60,10 @@
 
 /**
   * Default implementation of clean-up code.
-  * 
+  *
   * This should be overridden to remove all references pointing to the object being destroyed, if
   * you do override it, make sure to call the parent and return it's return value by default
-  * 
+  *
   * Return an appropriate QDEL_HINT to modify handling of your deletion;
   * in most cases this is QDEL_HINT_QUEUE.
   *
@@ -73,7 +73,7 @@
   * * Notifying datums listening to signals from this datum that we are going away
   *
   * Returns QDEL_HINT_QUEUE
-  */ 
+  */
 /datum/proc/Destroy(force=FALSE, ...)
 	SHOULD_CALL_PARENT(1)
 	tag = null
@@ -186,11 +186,9 @@
 	if(!islist(jsonlist))
 		if(!istext(jsonlist))
 			CRASH("Invalid JSON")
-			return
 		jsonlist = r_json_decode(jsonlist)
 		if(!islist(jsonlist))
 			CRASH("Invalid JSON")
-			return
 	if(!jsonlist["DATUM_TYPE"])
 		return
 	if(!ispath(jsonlist["DATUM_TYPE"]))
