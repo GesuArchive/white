@@ -2,6 +2,23 @@
 "aa" = (
 /turf/template_noop,
 /area/template_noop)
+"ab" = (
+/obj/structure/table,
+/obj/item/storage/firstaid/fire,
+/obj/item/crowbar,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/item/sensor_device,
+/obj/item/storage/firstaid/advanced,
+/obj/item/storage/firstaid/brute,
+/obj/item/defibrillator/loaded,
+/obj/item/healthanalyzer/advanced,
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/escape)
 "ac" = (
 /obj/effect/spawner/structure/window/shuttle,
 /turf/open/floor/plating,
@@ -270,22 +287,6 @@
 /area/shuttle/escape)
 "bd" = (
 /obj/machinery/stasis,
-/turf/open/floor/mineral/titanium/white,
-/area/shuttle/escape)
-"be" = (
-/obj/structure/table,
-/obj/item/storage/firstaid/fire,
-/obj/item/storage/firstaid/regular{
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/obj/item/crowbar,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 27
-	},
-/obj/machinery/light/small{
-	dir = 4
-	},
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/escape)
 "bf" = (
@@ -604,7 +605,7 @@ am
 aR
 ac
 bd
-be
+ab
 bd
 ad
 ad
