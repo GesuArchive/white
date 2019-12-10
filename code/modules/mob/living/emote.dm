@@ -519,4 +519,14 @@
 	if(user.put_in_hands(N))
 		to_chat(user, "<span class='notice'>Я хочу шлёпать.</span>")
 	else
-		to_chat(user, "<span class='warning'>Не хочу шлёпать.</span>")
+		to_chat(user, "<span class='warning'>Не могу шлёпать.</span>")
+
+/datum/emote/inhale
+	key = "inhale"
+	key_third_person = "inhales"
+	message = "делает вдох."
+
+/datum/emote/exhale
+	key = "exhale"
+	key_third_person = "exhales"
+	message = "делает выдох."

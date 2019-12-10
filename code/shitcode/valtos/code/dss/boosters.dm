@@ -41,7 +41,7 @@
 	id = /datum/reagent/viagra
 	results = list(/datum/reagent/viagra = 1)
 	required_reagents = list(/datum/reagent/drug/crank = 1, /datum/reagent/consumable/sugar = 1, /datum/reagent/drug/bath_salts = 1, /datum/reagent/drug/krokodil = 1)
-	required_temp = 500
+	required_temp = 25
 
 /obj/item/reagent_containers/pill/askorbinka
 	name = "аскорбинка"
@@ -92,7 +92,7 @@
 	id = /datum/reagent/askorbinka
 	results = list(/datum/reagent/askorbinka = 1)
 	required_reagents = list(/datum/reagent/drug/pumpup= 1, /datum/reagent/drug/happiness = 1, /datum/reagent/drug/aranesp = 1, /datum/reagent/consumable/sugar = 1)
-	required_temp = 500
+	required_temp = 25
 
 /datum/reagent/razrivozhopoebin
 	name = "Razrivozhopoebin"
