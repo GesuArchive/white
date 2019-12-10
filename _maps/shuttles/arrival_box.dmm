@@ -17,7 +17,16 @@
 /area/shuttle/arrival)
 "e" = (
 /obj/structure/table,
-/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/regular{
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/item/crowbar,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27;
+	pixel_y = 1
+	},
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/arrival)
 "f" = (
@@ -73,20 +82,30 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/arrival)
 "o" = (
-/obj/structure/window/shuttle,
-/obj/structure/grille,
-/turf/open/floor/plating,
-/area/shuttle/arrival)
-"p" = (
-/obj/structure/chair/comfy/shuttle,
-/turf/open/floor/mineral/titanium/blue,
-/area/shuttle/arrival)
-"q" = (
-/obj/structure/chair/comfy/shuttle,
-/obj/machinery/light/small{
+/obj/machinery/computer/shuttle{
 	dir = 4
 	},
 /turf/open/floor/mineral/titanium/blue,
+/area/shuttle/arrival)
+"p" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/obj/item/radio/intercom{
+	pixel_x = 29
+	},
+/obj/machinery/light{
+	icon_state = "tube";
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium/blue,
+/area/shuttle/arrival)
+"q" = (
+/obj/machinery/vending/wallmed{
+	name = "Emergency NanoMed";
+	use_power = 0
+	},
+/turf/closed/wall/mineral/titanium,
 /area/shuttle/arrival)
 "r" = (
 /obj/structure/chair/comfy/shuttle{
@@ -114,16 +133,13 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/arrival)
 "v" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
+/obj/machinery/computer/crew{
+	dir = 4
 	},
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/arrival)
 "w" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
-/obj/machinery/light/small{
+/obj/machinery/computer/monitor{
 	dir = 4
 	},
 /turf/open/floor/mineral/titanium/blue,
@@ -133,7 +149,16 @@
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/arrival)
 "y" = (
-/obj/machinery/light,
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/obj/machinery/light{
+	icon_state = "tube";
+	dir = 4
+	},
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/arrival)
 "z" = (
@@ -150,6 +175,16 @@
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/arrival)
+"B" = (
+/obj/machinery/light,
+/turf/open/floor/mineral/titanium/blue,
+/area/shuttle/arrival)
+"C" = (
+/obj/machinery/light_switch{
+	step_x = 6
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/arrival)
 "S" = (
 /turf/open/floor/mineral/titanium,
 /area/shuttle/arrival)
@@ -157,7 +192,7 @@
 (1,1,1) = {"
 a
 b
-o
+d
 d
 d
 b
@@ -166,18 +201,18 @@ a
 (2,1,1) = {"
 a
 b
-p
-S
 v
+o
+w
 b
 a
 "}
 (3,1,1) = {"
 a
 b
-q
+p
 S
-w
+y
 b
 a
 "}
@@ -186,7 +221,7 @@ b
 b
 b
 t
-b
+C
 b
 b
 "}
@@ -214,8 +249,8 @@ g
 f
 f
 f
-y
-b
+B
+q
 "}
 (8,1,1) = {"
 d
