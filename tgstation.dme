@@ -3124,6 +3124,7 @@
 #include "code\shitcode\valtos\code\autodoc\autodoc.dm"
 #include "code\shitcode\valtos\code\dss\_def.dm"
 #include "code\shitcode\valtos\code\dss\boosters.dm"
+#include "code\shitcode\valtos\code\dss\debug.dm"
 #include "code\shitcode\valtos\code\exrp\_interaction.dm"
 #include "code\shitcode\valtos\code\exrp\_lewd.dm"
 #include "code\shitcode\valtos\code\exrp\interaction_definitions.dm"
