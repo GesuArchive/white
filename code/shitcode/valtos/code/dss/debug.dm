@@ -24,13 +24,13 @@
 	for (var/i in statlist)
 		pickerlist += list(list("value" = statlist[i], "name" = i))
 
-	var/list/result = presentpicker(usr, "Modify stats", "Modify stats: [src]", Button1="Save", Button2 = "Cancel", Timeout=FALSE, inputtype = "text", values = pickerlist)
+	var/list/result = presentpicker(usr, "Modify stats", "Modify stats: [M]", Button1="Save", Button2 = "Cancel", Timeout=FALSE, inputtype = "text", values = pickerlist)
 
 	if (islist(result))
 		if (result["button"] != 2)
-			M.set_stats(str = text2num(result["values"][MOB_STR]),\
-						stm = text2num(result["values"][MOB_STM]),\
-						int = text2num(result["values"][MOB_INT]),\
-						dex = text2num(result["values"][MOB_DEX]))
-			log_admin("[key_name(usr)] modified the stats on [src] ([type]) to STR: [M.bstats[MOB_STR]], STM: [M.bstats[MOB_STM]], INT: [M.bstats[MOB_INT]], DEX: [M.bstats[MOB_DEX]]")
-			message_admins("<span class='notice'>[key_name_admin(usr)] modified the stats on [src] ([type]) to STR: [M.bstats[MOB_STR]], STM: [M.bstats[MOB_STM]], INT: [M.bstats[MOB_INT]], DEX: [M.bstats[MOB_DEX]]</span>")
+			M.set_stats(text2num(result["values"][MOB_STR]),\
+						text2num(result["values"][MOB_STM]),\
+						text2num(result["values"][MOB_INT]),\
+						text2num(result["values"][MOB_DEX]))
+			log_admin("[key_name(usr)] modified the stats on [M] ([type]) to STR: [M.bstats[MOB_STR]], STM: [M.bstats[MOB_STM]], INT: [M.bstats[MOB_INT]], DEX: [M.bstats[MOB_DEX]]")
+			message_admins("<span class='notice'>[key_name_admin(usr)] modified the stats on [M] ([type]) to STR: [M.bstats[MOB_STR]], STM: [M.bstats[MOB_STM]], INT: [M.bstats[MOB_INT]], DEX: [M.bstats[MOB_DEX]]</span>")
