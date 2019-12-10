@@ -620,6 +620,7 @@
 	actions_types = list(/datum/action/item_action/nanosuit/zoom)
 	rad_flags = RAD_PROTECT_CONTENTS | RAD_NO_CONTAMINATE
 	rad_insulation = RAD_NO_INSULATION
+	var/explosion_detection_dist = 21
 
 /obj/item/clothing/head/helmet/space/hardsuit/nano/proc/sense_explosion(datum/source, turf/epicenter, devastation_range, heavy_impact_range,
 		light_impact_range, took, orig_dev_range, orig_heavy_range, orig_light_range)
