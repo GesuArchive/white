@@ -223,7 +223,10 @@
 /datum/objective/bloodsucker/solars/check_completion()
 	// Sort through all /obj/machinery/power/solar_control in the station ONLY, and check that they are functioning.
 	// Make sure that lastgen is 0 or connected_panels.len is 0. Doesnt matter if it's tracking.
-	for (var/obj/machinery/power/solar_control/SC in SSsun.solars)
+	for (var/obj/machinery/power/solar_control/SC in world)
+		// skip if not on the station
+		if(!is_station_level(SC.z))
+			continue
 		// Check On Station:
 		var/turf/T = get_turf(SC)
 		if(!T || !is_station_level(T.z)) // <------ Taken from NukeOp

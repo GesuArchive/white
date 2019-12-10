@@ -286,6 +286,15 @@
 		src.changeNext_move(CLICK_CD_MELEE)
 		return COMPONENT_NO_ATTACK_HAND
 
+/mob/living/carbon/human/proc/get_stats()
+	return list("STR" = bstats[MOB_STR], "STM" = bstats[MOB_STM], "INT" = bstats[MOB_INT], "DEX" = bstats[MOB_DEX])
+
+/mob/living/carbon/human/proc/set_stats(str = bstats[MOB_STR], stm = bstats[MOB_STM], int = bstats[MOB_INT], dex = bstats[MOB_DEX])
+	bstats[MOB_STR] = str
+	bstats[MOB_STM] = stm
+	bstats[MOB_INT] = int
+	bstats[MOB_DEX] = dex
+	return
 
 /mob/living/carbon/human/Stat()
 	..()

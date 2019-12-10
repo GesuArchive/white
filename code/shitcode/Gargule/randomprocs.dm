@@ -74,29 +74,18 @@ mob/living/carbon/human/species/lizard/Initialize()
 /obj/item/clothing/mask/gas/sechailer/equipped(mob/living/carbon/human/user, slot)
 	..()
 	if(slot == 2 && isstrictlytype(src,/obj/item/clothing/mask/gas/sechailer) && !broken_hailer)
-		if(cooldown < world.time - 30)
-			recent_uses++
-			if(cooldown_special < world.time - 180)
-				recent_uses = initial(recent_uses)
-			switch(recent_uses)
-				if(3)
-					to_chat(usr, "<span class='warning'>\The [src] is starting to heat up.</span>")
-				if(4)
-					to_chat(usr, "<span class='userdanger'>\The [src] is heating up dangerously from overuse!</span>")
-				if(5)
-					broken_hailer = 1
-					to_chat(usr, "<span class='userdanger'>\The [src]'s power modulator overloads and breaks.</span>")
-					return
-		playsound(user,'code/shitcode/Gargule/sounds/shitMask.ogg',75,1)
+		if(cooldown < world.time - 100)
+			playsound(user,'code/shitcode/Gargule/sounds/shitMask.ogg',75,1)
+			cooldown = world.time
 
 /obj/item/nullrod/claymore
 	var/cooldown = 0
 
 /obj/item/nullrod/claymore/attack_self(mob/user)
 	..()
-	if(isstrictlytype(src,/obj/item/nullrod/claymore) && cooldown < world.time)
+	if(isstrictlytype(src,/obj/item/nullrod/claymore) && cooldown < world.time - 100)
 		playsound(user,'code/shitcode/Gargule/sounds/inTheNameOfGod.ogg',75,1)
-		cooldown = world.time + 120
+		cooldown = world.time
 
 /obj/allowed(mob/M)
 	.=..()
