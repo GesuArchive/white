@@ -791,7 +791,7 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
 
 /obj/item/clothing/suit/space/wzzzz/sec
-	name = "security space suit"
+	name = "security скафандр"
 	desc = "A common suit what protects against pressure."
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
@@ -806,7 +806,7 @@
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20,"energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 10, "fire" = 80, "acid" = 50)
 
 /obj/item/clothing/suit/space/wzzzz/eng
-	name = "engineer space suit"
+	name = "engineer скафандр"
 	desc = "A common suit what protects against pressure."
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
@@ -821,7 +821,7 @@
 	armor = list("melee" = 20, "bullet" = 20, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 10, "fire" = 80, "acid" = 50)
 
 /obj/item/clothing/head/helmet/space/wzzzz/sec
-	name = "security space helmet"
+	name = "security космошлем"
 	desc = "A common space for space travels."
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hats.dmi'
@@ -836,7 +836,7 @@
 	armor = list(melee = 30, bullet = 10, laser = 15, energy =10, bomb = 35, bio = 100, rad = 10)
 
 /obj/item/clothing/head/helmet/space/wzzzz/eng
-	name = "engineer space helmet"
+	name = "engineer космошлем"
 	desc = "A common space for space travels."
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hats.dmi'
@@ -859,7 +859,7 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
 
 /obj/item/clothing/suit/space/syndicate/wzzzz/german
-	name = "оранжевый  space suit"
+	name = "оранжевый  скафандр"
 	icon_state = "syndicate_orange_ger"
 	item_state = "syndicate_orange_ger"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -1421,7 +1421,7 @@
 	item_state = "robe_unathi"
 
 /obj/item/clothing/suit/space/wzzzz/skrell_suit_black
-	name = "чёрный space suit"
+	name = "чёрный скафандр"
 	desc = "For skrells, but we anyway too use it"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
@@ -1436,7 +1436,7 @@
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 0, "fire" = 60, "acid" = 60)
 
 /obj/item/clothing/suit/space/wzzzz/skrell_suit_white
-	name = "белый space suit"
+	name = "белый скафандр"
 	desc = "For skrells, but we anyway too use it"
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
@@ -3499,7 +3499,7 @@
 	item_state = "pirha"
 
 /obj/item/clothing/head/helmet/space/eva/wzzzzz
-	name = "Pirate space helmet"
+	name = "Pirate космошлем"
 	desc = "Pirate technologies"
 	icon = 'code/shitcode/Wzzzz/pirha.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/pirha1.dmi'
@@ -3507,7 +3507,7 @@
 	item_state = "pirha"
 
 /obj/item/clothing/head/helmet/space/syndicate/wzzzz
-	name = "Pirate space helmet"
+	name = "Pirate космошлем"
 	desc = "Pirate technologies"
 	icon = 'code/shitcode/Wzzzz/pirha.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/pirha1.dmi'
