@@ -333,11 +333,11 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 #if DM_VERSION >= 513 && DM_BUILD >= 1493
 	if(copytext_char(message, 1, 2) == ",")
 		var/key = copytext_char(message, 2, 3)
-#endif
 		for(var/ld in GLOB.all_languages)
 			var/datum/language/LD = ld
 			if(initial(LD.key) == key)
 				return LD
+#endif
 	return null
 
 /mob/living/proc/treat_message(message)
