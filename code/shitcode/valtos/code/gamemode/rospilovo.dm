@@ -888,7 +888,6 @@ obj/structure/grille/rospilovo/beton/CanPass(atom/movable/mover, turf/target, he
 
 	for (var/turf/fuck in src)
 		fuck.icon_state = "ohshit"
-		fuck.color = "#[rand_hex_color()]"
 
 	sleep(100)
 
