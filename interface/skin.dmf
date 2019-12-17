@@ -61,8 +61,8 @@ window "mainwindow"
 		menu = "menu"
 	elem "split"
 		type = CHILD
-		pos = 3,0
-		size = 634x440
+		pos = 0,0
+		size = 640x440
 		anchor1 = 0,0
 		anchor2 = 100,100
 		background-color = none
@@ -81,7 +81,7 @@ window "mainwindow"
 	elem "tooltip"
 		type = BROWSER
 		pos = 0,0
-		size = 999x999
+		size = 640x440
 		anchor1 = none
 		anchor2 = none
 		is-visible = false
@@ -134,7 +134,7 @@ window "infowindow"
 window "outputwindow"
 	elem "outputwindow"
 		type = MAIN
-		pos = 372,0
+		pos = 281,0
 		size = 640x480
 		anchor1 = none
 		anchor2 = none
@@ -142,8 +142,8 @@ window "outputwindow"
 		is-pane = true
 	elem "saybutton"
 		type = BUTTON
-		pos = 600,456
-		size = 40x20
+		pos = 600,454
+		size = 40x24
 		anchor1 = 100,100
 		anchor2 = none
 		saved-params = "is-checked"
@@ -152,8 +152,8 @@ window "outputwindow"
 		button-type = pushbox
 	elem "oocbutton"
 		type = BUTTON
-		pos = 560,456
-		size = 40x20
+		pos = 560,454
+		size = 40x24
 		anchor1 = 100,100
 		anchor2 = none
 		saved-params = "is-checked"
@@ -162,8 +162,8 @@ window "outputwindow"
 		button-type = pushbox
 	elem "mebutton"
 		type = BUTTON
-		pos = 520,456
-		size = 40x20
+		pos = 520,454
+		size = 40x24
 		anchor1 = 100,100
 		anchor2 = none
 		saved-params = "is-checked"
@@ -172,10 +172,12 @@ window "outputwindow"
 		button-type = pushbox
 	elem "input"
 		type = INPUT
-		pos = 0,456
-		size = 517x20
+		pos = 0,454
+		size = 515x24
 		anchor1 = 0,100
 		anchor2 = 100,100
+		font-family = "Courier New"
+		font-size = 12
 		background-color = #d3b5b5
 		is-default = true
 		border = sunken
@@ -216,8 +218,8 @@ window "popupwindow"
 window "preferences_window"
 	elem "preferences_window"
 		type = MAIN
-		pos = 281,0
-		size = 1280x1000
+		pos = 0,0
+		size = 960x512
 		anchor1 = none
 		anchor2 = none
 		is-visible = false
@@ -243,7 +245,7 @@ window "statwindow"
 	elem "statwindow"
 		type = MAIN
 		pos = 281,0
-		size = 640x480
+		size = 640x360
 		anchor1 = none
 		anchor2 = none
 		saved-params = "pos;size;is-minimized;is-maximized"
@@ -251,7 +253,7 @@ window "statwindow"
 	elem "stat"
 		type = INFO
 		pos = 0,0
-		size = 636x480
+		size = 640x480
 		anchor1 = 0,0
 		anchor2 = 100,100
 		is-default = true
