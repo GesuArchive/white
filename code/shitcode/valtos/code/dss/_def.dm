@@ -158,10 +158,10 @@
 					dstats[MOB_DEX] += rand( 2, 2)
 
 				if("Assistant") // никому не нужный (tm)
-					dstats[MOB_STR] += rand(-3, 2)
-					dstats[MOB_STM] += rand(-3, 3)
-					dstats[MOB_INT] += rand(-6, 3)
-					dstats[MOB_DEX] += rand(-3, 3)
+					dstats[MOB_STR] += rand(3, 9)
+					dstats[MOB_STM] += rand(3, 9)
+					dstats[MOB_INT] += rand(6, 9)
+					dstats[MOB_DEX] += rand(3, 9)
 
 				if("Chief Medical Officer")
 					dstats[MOB_STR] += rand(1, 4)
