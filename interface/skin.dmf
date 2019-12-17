@@ -250,6 +250,7 @@ window "statwindow"
 		anchor2 = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
+		can-scroll = vertical
 	elem "stat"
 		type = INFO
 		pos = 0,0
