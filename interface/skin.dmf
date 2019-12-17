@@ -185,7 +185,7 @@ window "outputwindow"
 	elem "browseroutput"
 		type = BROWSER
 		pos = 0,0
-		size = 640x456
+		size = 640x452
 		anchor1 = 0,0
 		anchor2 = 100,100
 		background-color = #ffffff
@@ -196,7 +196,7 @@ window "outputwindow"
 	elem "output"
 		type = OUTPUT
 		pos = 0,0
-		size = 640x456
+		size = 640x452
 		anchor1 = 0,0
 		anchor2 = 100,100
 		is-default = true
@@ -236,7 +236,7 @@ window "preferences_window"
 		type = MAP
 		pos = 960,0
 		size = 320x1000
-		anchor1 = 75,0
+		anchor1 = 55,0
 		anchor2 = 100,100
 		right-click = true
 		saved-params = "zoom;letterbox;zoom-mode"
