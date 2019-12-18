@@ -218,8 +218,8 @@ window "popupwindow"
 window "preferences_window"
 	elem "preferences_window"
 		type = MAIN
-		pos = 0,0
-		size = 960x512
+		pos = 64,64
+		size = 1000x640
 		anchor1 = none
 		anchor2 = none
 		is-visible = false
@@ -228,15 +228,16 @@ window "preferences_window"
 	elem "preferences_browser"
 		type = BROWSER
 		pos = 0,0
-		size = 960x1000
+		size = 760x640
 		anchor1 = 0,0
-		anchor2 = 55,100
+		anchor2 = 75,100
 		saved-params = ""
+		can-scroll = vertical
 	elem "character_preview_map"
 		type = MAP
-		pos = 960,0
-		size = 640x1000
-		anchor1 = 55,0
+		pos = 760,0
+		size = 240x640
+		anchor1 = 75,0
 		anchor2 = 100,100
 		right-click = true
 		saved-params = "zoom;letterbox;zoom-mode"
