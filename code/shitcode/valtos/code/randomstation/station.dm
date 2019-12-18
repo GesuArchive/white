@@ -36,3 +36,13 @@
 	id = "compact_central"
 	suffix = "compact_central.dmm"
 	name = "Compact Central"
+
+/datum/map_template/ruin/station/engine
+	id = "engine_sm"
+	suffix = "engine_sm.dmm"
+	name = "Supermatter"
+
+/datum/map_template/ruin/station/engine/singulotesla
+	id = "engine_singulo_tesla"
+	suffix = "engine_singulo_tesla.dmm"
+	name = "Singulo or Tesla"

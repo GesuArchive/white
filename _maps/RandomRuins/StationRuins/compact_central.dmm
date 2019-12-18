@@ -1742,18 +1742,23 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "en" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
+/obj/structure/disposalpipe/segment{
+	dir = 10
 	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge";
+	req_access_txt = "19"
 	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/hallway/primary/central)
+/area/bridge)
 "eo" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/closed/wall/r_wall,
@@ -3072,20 +3077,14 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
 "hn" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 10
+/obj/machinery/door/poddoor/preopen{
+	id = "bridge blast";
+	name = "bridge blast door"
 	},
-/obj/machinery/door/airlock/command/glass{
-	name = "Bridge";
-	req_access_txt = "19"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 4
-	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/bridge)
 "ho" = (
@@ -3127,8 +3126,8 @@
 /obj/structure/cable,
 /obj/machinery/power/apc{
 	areastring = "/area/hallway/primary/central";
-	name = "Central Hall APC";
-	pixel_y = -23
+	name = "Compact Central Hall APC";
+	pixel_y = 23
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -3179,8 +3178,8 @@
 	},
 /obj/machinery/power/apc/highcap/five_k{
 	areastring = "/area/ai_monitored/turret_protected/ai_upload";
-	name = "Upload APC";
-	pixel_y = -23
+	name = "Compact Upload APC";
+	pixel_y = 23
 	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
@@ -3341,16 +3340,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "hU" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 4
-	},
-/obj/machinery/door/poddoor/preopen{
-	id = "bridge blast";
-	name = "bridge blast door"
-	},
-/turf/open/floor/plasteel,
-/area/bridge)
-"hV" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -3362,8 +3351,23 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/bridge)
+"hV" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "hW" = (
 /obj/machinery/vending/cart,
 /turf/open/floor/wood,
@@ -3604,6 +3608,13 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
 	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"ix" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "iL" = (
@@ -4416,7 +4427,7 @@ ab
 "}
 (15,1,1) = {"
 ab
-az
+ga
 aj
 aj
 aj
@@ -4438,7 +4449,7 @@ bx
 bx
 cx
 cP
-hn
+en
 ez
 eK
 eT
@@ -4476,7 +4487,7 @@ ar
 ar
 cx
 cQ
-hU
+hn
 ey
 eL
 eV
@@ -4496,7 +4507,7 @@ aE
 aE
 aA
 aA
-ep
+an
 ep
 ep
 cf
@@ -4511,10 +4522,10 @@ aW
 aj
 aj
 aj
-ar
+ix
 cx
 cR
-hV
+hU
 cx
 fC
 fD
@@ -4552,7 +4563,7 @@ aj
 aj
 aK
 de
-en
+hV
 fV
 gl
 aw
@@ -4644,8 +4655,8 @@ kn
 "}
 (21,1,1) = {"
 ab
-aE
-aE
+an
+an
 aA
 aK
 bK
@@ -4655,7 +4666,7 @@ bK
 bK
 bK
 bK
-az
+ga
 aj
 gt
 aG
@@ -4682,8 +4693,8 @@ ab
 "}
 (22,1,1) = {"
 ab
-bM
-aE
+aj
+aj
 aj
 ar
 bK
@@ -4720,7 +4731,7 @@ ab
 "}
 (23,1,1) = {"
 ab
-bM
+aE
 aE
 aj
 ar

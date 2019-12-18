@@ -42,3 +42,6 @@
 
 /obj/effect/landmark/stationroom/bridge
 	template_names = list("Default Central", "Compact Central")
+
+/obj/effect/landmark/stationroom/engine
+	template_names = list("Supermatter", "Singulo or Tesla")
