@@ -128,7 +128,7 @@
 	else
 		move_delay = world.time
 
-	var/MD = mob.move_delay
+	var/MD = move_delay
 	mob.glide_size = 32/(MD/10*min(32, world.fps))
 
 	if(L.confused)
