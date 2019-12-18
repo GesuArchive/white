@@ -246,7 +246,7 @@ window "statwindow"
 	elem "statwindow"
 		type = MAIN
 		pos = 281,0
-		size = 640x360
+		size = 640x480
 		anchor1 = none
 		anchor2 = none
 		saved-params = "pos;size;is-minimized;is-maximized"
@@ -259,4 +259,3 @@ window "statwindow"
 		anchor2 = 100,100
 		is-default = true
 		saved-params = ""
-		can-scroll = vertical
