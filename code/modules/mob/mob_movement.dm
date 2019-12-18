@@ -122,6 +122,9 @@
 	if(!mob.Process_Spacemove(direct))
 		return FALSE
 	//We are now going to move
+
+	mob.glide_size = 32/(move_delay/10*min(32, world.fps)) //Smart Smooth Movement
+
 	var/add_delay = mob.cached_multiplicative_slowdown
 	if(old_move_delay + (add_delay*MOVEMENT_DELAY_BUFFER_DELTA) + MOVEMENT_DELAY_BUFFER > world.time)
 		move_delay = old_move_delay
