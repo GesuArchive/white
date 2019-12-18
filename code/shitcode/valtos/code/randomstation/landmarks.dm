@@ -36,3 +36,9 @@
 
 /obj/effect/landmark/stationroom/brig
 	template_names = list("Default Brig", "Loose Brig", "Armored Brig")
+
+/obj/effect/landmark/stationroom/bar
+	template_names = list("Default Bar", "Neon Bar")
+
+/obj/effect/landmark/stationroom/bridge
+	template_names = list("Default Central", "Compact Central")

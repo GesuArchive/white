@@ -16,3 +16,23 @@
 	id = "armored_brig"
 	suffix = "armored_brig.dmm"
 	name = "Armored Brig"
+
+/datum/map_template/ruin/station/bar
+	id = "default_bar"
+	suffix = "default_bar.dmm"
+	name = "Default Bar"
+
+/datum/map_template/ruin/station/bar/neon
+	id = "neon_bar"
+	suffix = "neon_bar.dmm"
+	name = "Neon Bar"
+
+/datum/map_template/ruin/station/bridge
+	id = "default_central"
+	suffix = "default_central.dmm"
+	name = "Default Central"
+
+/datum/map_template/ruin/station/bridge/compact
+	id = "compact_central"
+	suffix = "compact_central.dmm"
+	name = "Compact Central"
