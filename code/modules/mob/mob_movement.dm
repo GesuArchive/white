@@ -128,9 +128,6 @@
 	else
 		move_delay = world.time
 
-	var/MD = move_delay
-	mob.glide_size = 32/(MD/10*min(32, world.fps))
-
 	if(L.confused)
 		var/newdir = 0
 		if(L.confused > 40)
