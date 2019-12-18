@@ -38,17 +38,17 @@
   * Move a client in a direction
   *
   * Huge proc, has a lot of functionality
-  * 
+  *
   * Mostly it will despatch to the mob that you are the owner of to actually move
   * in the physical realm
-  * 
+  *
   * Things that stop you moving as a mob:
   * * world time being less than your next move_delay
   * * not being in a mob, or that mob not having a loc
   * * missing the n and direction parameters
   * * being in remote control of an object (calls Moveobject instead)
   * * being dead (it ghosts you instead)
-  * 
+  *
   * Things that stop you moving as a mob living (why even have OO if you're just shoving it all
   * in the parent proc with istype checks right?):
   * * having incorporeal_move set (calls Process_Incorpmove() instead)
@@ -68,7 +68,7 @@
   *
   * Finally if you're pulling an object and it's dense, you are turned 180 after the move
   * (if you ask me, this should be at the top of the move so you don't dance around)
-  * 
+  *
   */
 /client/Move(n, direct)
 	if(world.time < move_delay) //do not move anything ahead of this check please
@@ -77,7 +77,11 @@
 		next_move_dir_add = 0
 		next_move_dir_sub = 0
 	var/old_move_delay = move_delay
-	move_delay = world.time + world.tick_lag //this is here because Move() can now be called mutiple times per tick
+
+	var/MD = mob.move_delay
+	move_delay = MD + world.time
+	mob.glide_size = 32/(MD/10*min(32, world.fps))
+
 	if(!mob || !mob.loc)
 		return FALSE
 	if(!n || !direct)
@@ -175,7 +179,7 @@
   * Allows mobs to ignore density and phase through objects
   *
   * Called by client/Move()
-  * 
+  *
   * The behaviour depends on the incorporeal_move value of the mob
   *
   * * INCORPOREAL_MOVE_BASIC - forceMoved to the next tile with no stop
@@ -263,9 +267,9 @@
   * Handles mob/living movement in space (or no gravity)
   *
   * Called by /client/Move()
-  * 
+  *
   * return TRUE for movement or FALSE for none
-  * 
+  *
   * You can move in space if you have a spacewalk ability
   */
 /mob/Process_Spacemove(movement_dir = 0)
@@ -443,7 +447,7 @@
 
 /**
   * Toggle the move intent of the mob
-  * 
+  *
   * triggers an update the move intent hud as well
   */
 /mob/proc/toggle_move_intent(mob/user)
