@@ -36,7 +36,7 @@ SUBSYSTEM_DEF(chat)
 	if(handle_whitespace)
 		message = replacetext(message, "\n", "<br>")
 		message = replacetext(message, "\t", "[FOURSPACES][FOURSPACES]")
-	//message += "<br>" //wtf boys
+	message += "<br>"
 
 	if(!confidential && target != GLOB.admins) // hippie -- moody blues
 		SSdemo.write_chat(target, message)
