@@ -28,7 +28,7 @@ var opts = {
     'scrollSnapTolerance': 10, //If within x pixels of bottom
     'clickTolerance': 10, //Keep focus if outside x pixels of mousedown position on mouseup
     'imageRetryDelay': 50, //how long between attempts to reload images (in ms)
-    'imageRetryLimit': 50, //how many attempts should we make? 
+    'imageRetryLimit': 50, //how many attempts should we make?
     'popups': 0, //Amount of popups opened ever
     'wasd': false, //Is the user in wasd mode?
     'priorChatHeight': 0, //Thing for height-resizing detection
@@ -708,10 +708,10 @@ $(function() {
 				if (!opts.noResponse) { //Only actually append a message if the previous ping didn't also fail (to prevent spam)
 					opts.noResponse = true;
 					opts.noResponseCount++;
-					internalOutput('<div class="connectionClosed internal" data-count="'+opts.noResponseCount+'">You are either AFK, experiencing lag or the connection has closed.</div>', 'internal');
+					internalOutput('<div class="connectionClosed internal" data-count="'+opts.noResponseCount+'">Чат не обновляется. Попробуйте сделать File -> Reconnect, если только это не конец раунда.</div>', 'internal');
 				}
 		} else if (opts.noResponse) { //Previous ping attempt failed ohno
-				$('.connectionClosed[data-count="'+opts.noResponseCount+'"]:not(.restored)').addClass('restored').text('Your connection has been restored (probably)!');
+				$('.connectionClosed[data-count="'+opts.noResponseCount+'"]:not(.restored)').addClass('restored').text('Соединение восстановлено!');
 				opts.noResponse = false;
 		}
 	}, 2000); //2 seconds
@@ -735,11 +735,11 @@ $(function() {
 
 	if (savedConfig.fontsize) {
 		$messages.css('font-size', savedConfig.fontsize);
-		internalOutput('<span class="internal boldnshit">Loaded font size setting of: '+savedConfig.fontsize+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Загружен размер шрифта: '+savedConfig.fontsize+'</span>', 'internal');
 	}
 	if (savedConfig.lineheight) {
 		$("body").css('line-height', savedConfig.lineheight);
-		internalOutput('<span class="internal boldnshit">Loaded line height setting of: '+savedConfig.lineheight+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Загружена высота строки: '+savedConfig.lineheight+'</span>', 'internal');
 	}
 	if(savedConfig.sdarkmode == 'true'){
 		swap();
@@ -749,7 +749,7 @@ $(function() {
 			opts.pingDisabled = true;
 			$('#ping').hide();
 		}
-		internalOutput('<span class="internal boldnshit">Loaded ping display of: '+(opts.pingDisabled ? 'hidden' : 'visible')+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Загружено отображение пинга: '+(opts.pingDisabled ? 'hidden' : 'visible')+'</span>', 'internal');
 	}
 	if (savedConfig.shighlightTerms) {
 		var savedTerms = $.parseJSON(savedConfig.shighlightTerms);
@@ -761,13 +761,13 @@ $(function() {
 		}
 		if (actualTerms) {
 			actualTerms = actualTerms.substring(0, actualTerms.length - 2);
-			internalOutput('<span class="internal boldnshit">Loaded highlight strings of: ' + actualTerms+'</span>', 'internal');
+			internalOutput('<span class="internal boldnshit">Загружена подсветка слов: ' + actualTerms+'</span>', 'internal');
 			opts.highlightTerms = savedTerms;
 		}
 	}
 	if (savedConfig.shighlightColor) {
 		opts.highlightColor = savedConfig.shighlightColor;
-		internalOutput('<span class="internal boldnshit">Loaded highlight color of: '+savedConfig.shighlightColor+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Загружен цвет для подсветки слов: '+savedConfig.shighlightColor+'</span>', 'internal');
 	}
 	if (savedConfig.smusicVolume) {
 		var newVolume = clamp(savedConfig.smusicVolume, 0, 100);
@@ -775,12 +775,12 @@ $(function() {
 		$('#musicVolume').val(newVolume);
 		opts.updatedVolume = newVolume;
 		sendVolumeUpdate();
-		internalOutput('<span class="internal boldnshit">Loaded music volume of: '+savedConfig.smusicVolume+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Загружена громкость звуков: '+savedConfig.smusicVolume+'</span>', 'internal');
 	}
 	else{
 		$('#adminMusic').prop('volume', opts.defaultMusicVolume / 100);
 	}
-	
+
 	if (savedConfig.smessagecombining) {
 		if (savedConfig.smessagecombining == 'false') {
 			opts.messageCombining = false;
@@ -973,28 +973,28 @@ $(function() {
 		savedConfig.fontsize = Math.max(parseInt(savedConfig.fontsize || 13) - 1, 1) + 'px';
 		$messages.css({'font-size': savedConfig.fontsize});
 		setCookie('fontsize', savedConfig.fontsize, 365);
-		internalOutput('<span class="internal boldnshit">Font size set to '+savedConfig.fontsize+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Размер шрифта теперь '+savedConfig.fontsize+'</span>', 'internal');
 	});
 
 	$('#increaseFont').click(function(e) {
 		savedConfig.fontsize = (parseInt(savedConfig.fontsize || 13) + 1) + 'px';
 		$messages.css({'font-size': savedConfig.fontsize});
 		setCookie('fontsize', savedConfig.fontsize, 365);
-		internalOutput('<span class="internal boldnshit">Font size set to '+savedConfig.fontsize+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Размер шрифта теперь '+savedConfig.fontsize+'</span>', 'internal');
 	});
 
 	$('#decreaseLineHeight').click(function(e) {
 		savedConfig.lineheight = Math.max(parseFloat(savedConfig.lineheight || 1.2) - 0.1, 0.1).toFixed(1);
 		$("body").css({'line-height': savedConfig.lineheight});
 		setCookie('lineheight', savedConfig.lineheight, 365);
-		internalOutput('<span class="internal boldnshit">Line height set to '+savedConfig.lineheight+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Высота строк теперь '+savedConfig.lineheight+'</span>', 'internal');
 	});
 
 	$('#increaseLineHeight').click(function(e) {
 		savedConfig.lineheight = (parseFloat(savedConfig.lineheight || 1.2) + 0.1).toFixed(1);
 		$("body").css({'line-height': savedConfig.lineheight});
 		setCookie('lineheight', savedConfig.lineheight, 365);
-		internalOutput('<span class="internal boldnshit">Line height set to '+savedConfig.lineheight+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Высота строк теперь '+savedConfig.lineheight+'</span>', 'internal');
 	});
 
 	$('#togglePing').click(function(e) {
@@ -1096,7 +1096,7 @@ $(function() {
 		$messages.empty();
 		opts.messageCount = 0;
 	});
-	
+
 	$('#musicVolumeSpan').hover(function() {
 		$('#musicVolumeText').addClass('hidden');
 		$('#musicVolume').removeClass('hidden');
@@ -1123,9 +1123,9 @@ $(function() {
 	});
 
 	$('img.icon').error(iconError);
-	
-	
-		
+
+
+
 
 	/*****************************************
 	*
