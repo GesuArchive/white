@@ -77,10 +77,7 @@
 		next_move_dir_add = 0
 		next_move_dir_sub = 0
 	var/old_move_delay = move_delay
-
-	var/MD = mob.move_delay
-	move_delay = MD + world.time
-	mob.glide_size = 32/(MD/10*min(32, world.fps))
+	move_delay = world.time + world.tick_lag //this is here because Move() can now be called mutiple times per tick
 
 	if(!mob || !mob.loc)
 		return FALSE
@@ -130,6 +127,9 @@
 		move_delay = old_move_delay
 	else
 		move_delay = world.time
+
+	var/MD = mob.move_delay
+	mob.glide_size = 32/(MD/10*min(32, world.fps))
 
 	if(L.confused)
 		var/newdir = 0
