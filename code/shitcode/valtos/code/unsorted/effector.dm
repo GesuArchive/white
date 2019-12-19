@@ -23,7 +23,6 @@ GLOBAL_LIST_EMPTY(effectors)
 /obj/effector/Initialize()
 	. = ..()
 	GLOB.effectors += src
-	soundloop = new(list(src), TRUE)
 
 /obj/effector/Destroy()
 	GLOB.effectors -= src
@@ -31,8 +30,9 @@ GLOBAL_LIST_EMPTY(effectors)
 	return ..()
 
 /obj/effector/proc/emmit()
+	soundloop = new(list(src), TRUE)
 	soundloop.start()
-	while(SSticker.current_state == GAME_STATE_PLAYING)
+	while(TRUE)
 		var/obj/effect/vaper_smoke/S = new(get_turf(src))
 		animate(S, pixel_y = 64, pixel_x = rand(-12, 12), transform = matrix()*2, alpha = 0, time = 40)
 		sleep(7)
