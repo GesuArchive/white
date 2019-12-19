@@ -235,7 +235,7 @@ window "preferences_window"
 		can-scroll = vertical
 	elem "character_preview_map"
 		type = MAP
-		pos = 760,0
+		pos = 530,0
 		size = 170x640
 		anchor1 = 76,0
 		anchor2 = 100,100
