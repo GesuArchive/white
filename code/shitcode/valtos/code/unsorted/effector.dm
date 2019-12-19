@@ -30,10 +30,12 @@
 		sleep(7)
 
 /obj/effect/vaper_smoke
+	name = "пар"
 	alpha = 60
 	layer = FLY_LAYER
 	icon = 'code/shitcode/valtos/icons/effector.dmi'
 	icon_state = "smoke"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/effect/vaper_smoke/Initialize()
 	. = ..()
