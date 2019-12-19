@@ -1,3 +1,5 @@
+GLOBAL_LIST_EMPTY(effectors)
+
 /datum/looping_sound/effector_vaper
 	start_sound = 'sound/machines/shower/shower_start.ogg'
 	start_length = 2
@@ -13,25 +15,26 @@
 	icon_state = "effector"
 	var/datum/looping_sound/effector_vaper/soundloop
 
+/datum/controller/subsystem/ticker/proc/start_vaping()
+	for(var/EF in GLOB.effectors)
+		EF.emmit()
+
 /obj/effector/Initialize()
 	. = ..()
-	emmit()
+	GLOB.effectors += src
 	soundloop = new(list(src), TRUE)
-	soundloop.start()
 
 /obj/effector/Destroy()
+	GLOB.effectors -= src
 	QDEL_NULL(soundloop)
 	return ..()
 
 /obj/effector/proc/emmit()
-	if(SSticker.current_state == GAME_STATE_PLAYING)
-		while(TRUE && SSticker.current_state == GAME_STATE_PLAYING)
-			var/obj/effect/vaper_smoke/S = new(get_turf(src))
-			animate(S, pixel_y = 64, pixel_x = rand(-12, 12), transform = matrix()*2, alpha = 0, time = 40)
-			sleep(7)
-	else
-		sleep(100)
-		emmit()
+	soundloop.start()
+	while(SSticker.current_state == GAME_STATE_PLAYING)
+		var/obj/effect/vaper_smoke/S = new(get_turf(src))
+		animate(S, pixel_y = 64, pixel_x = rand(-12, 12), transform = matrix()*2, alpha = 0, time = 40)
+		sleep(7)
 
 /obj/effect/vaper_smoke
 	name = "пар"

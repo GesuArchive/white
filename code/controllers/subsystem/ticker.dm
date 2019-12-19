@@ -317,6 +317,7 @@ SUBSYSTEM_DEF(ticker)
 	mode.post_setup()
 	GLOB.start_state = new /datum/station_state()
 	GLOB.start_state.count()
+	start_vaping()
 
 	var/list/adm = get_admin_counts()
 	var/list/allmins = adm["present"]
