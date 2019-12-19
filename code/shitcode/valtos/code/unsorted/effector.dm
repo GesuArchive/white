@@ -16,7 +16,7 @@
 /obj/effector/Initialize()
 	. = ..()
 	emmit()
-	soundloop = new(list(src), active)
+	soundloop = new(list(src), TRUE)
 	soundloop.start()
 
 /obj/effector/Destroy()
