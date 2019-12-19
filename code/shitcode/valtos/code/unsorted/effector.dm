@@ -28,6 +28,9 @@
 		var/obj/effect/vaper_smoke/S = new(get_turf(src))
 		animate(S, pixel_y = 64, pixel_x = rand(-12, 12), transform = matrix()*2, alpha = 0, time = 40)
 		sleep(7)
+	else
+		sleep(100)
+		emmit()
 
 /obj/effect/vaper_smoke
 	name = "пар"
