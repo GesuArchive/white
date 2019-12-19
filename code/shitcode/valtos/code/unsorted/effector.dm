@@ -12,6 +12,7 @@
 	icon = 'code/shitcode/valtos/icons/effector.dmi'
 	icon_state = "effector"
 	var/workout = TRUE
+	var/workdir = "up"
 	var/datum/looping_sound/effector_vaper/soundloop
 
 /obj/machinery/effector/Destroy()
@@ -24,7 +25,11 @@
 		soundloop.start()
 		workout = FALSE
 	var/obj/effect/vaper_smoke/S = new(get_turf(src))
-	animate(S, pixel_y = 64, pixel_x = rand(-12, 12), transform = matrix()*2, alpha = 0, time = 40)
+	switch(workdir)
+		if("up")
+			animate(S, pixel_y = 64, pixel_x = rand(-12, 12), transform = matrix()*2, alpha = 0, time = 40)
+		if("down")
+			animate(S, pixel_y = -64, pixel_x = rand(-12, 12), transform = matrix()*2, alpha = 0, time = 40)
 
 /obj/effect/vaper_smoke
 	name = "пар"
