@@ -1,5 +1,3 @@
-GLOBAL_LIST_EMPTY(effectors)
-
 /datum/looping_sound/effector_vaper
 	start_sound = 'sound/machines/shower/shower_start.ogg'
 	start_length = 2
@@ -16,15 +14,13 @@ GLOBAL_LIST_EMPTY(effectors)
 	var/datum/looping_sound/effector_vaper/soundloop
 
 /datum/controller/subsystem/ticker/proc/start_vaping()
-	for(var/obj/effector/EF in GLOB.effectors)
+	for(var/obj/effector/EF in world)
 		EF.emmit()
 
 /obj/effector/Initialize()
 	. = ..()
-	GLOB.effectors += src
 
 /obj/effector/Destroy()
-	GLOB.effectors -= src
 	QDEL_NULL(soundloop)
 	return ..()
 
