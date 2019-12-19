@@ -46,3 +46,13 @@
 	id = "engine_singulo_tesla"
 	suffix = "engine_singulo_tesla.dmm"
 	name = "Singulo or Tesla"
+
+/datum/map_template/ruin/station/maint_sw
+	id = "default_maint_sw"
+	suffix = "default_maint_sw.dmm"
+	name = "Default Maint SW"
+
+/datum/map_template/ruin/station/maint_sw/arena
+	id = "arena_maint_sw"
+	suffix = "arena_maint_sw.dmm"
+	name = "Arena Maint SW"

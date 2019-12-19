@@ -45,3 +45,6 @@
 
 /obj/effect/landmark/stationroom/engine
 	template_names = list("Supermatter", "Singulo or Tesla")
+
+/obj/effect/landmark/stationroom/maint_sw
+	template_names = list("Default Maint SW", "Arena Maint SW")

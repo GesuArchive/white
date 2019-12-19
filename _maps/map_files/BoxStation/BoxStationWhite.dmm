@@ -65,6 +65,34 @@
 /obj/effect/landmark/stationroom/engine,
 /turf/template_noop,
 /area/template_noop)
+"aao" = (
+/obj/effector,
+/turf/closed/wall,
+/area/maintenance/port/fore)
+"aap" = (
+/obj/effector,
+/turf/closed/wall,
+/area/maintenance/port)
+"aaq" = (
+/obj/effector,
+/turf/closed/wall,
+/area/maintenance/port/aft)
+"aar" = (
+/obj/effect/landmark/stationroom/maint_sw,
+/turf/template_noop,
+/area/template_noop)
+"aas" = (
+/obj/effector,
+/turf/closed/wall,
+/area/chapel/office)
+"aat" = (
+/obj/effector,
+/turf/closed/wall,
+/area/construction)
+"aau" = (
+/obj/effector,
+/turf/closed/wall,
+/area/maintenance/starboard/aft)
 "aav" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 10
@@ -72,6 +100,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/break_room)
+"aaw" = (
+/obj/effector,
+/turf/closed/wall,
+/area/hallway/secondary/entry)
 "aaH" = (
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
@@ -13323,13 +13355,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/science/lab)
-"aXC" = (
-/obj/structure/sign/warning/nosmoking{
-	pixel_x = -28
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/maintenance/port/aft)
 "aXD" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
 	dir = 4
@@ -14708,10 +14733,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/starboard)
-"bcU" = (
-/obj/item/stack/tile/plasteel,
-/turf/open/space,
-/area/space/nearstation)
 "bcV" = (
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall,
@@ -14964,10 +14985,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
-"bdV" = (
-/obj/item/stack/sheet/metal,
-/turf/open/floor/plating/airless,
-/area/space/nearstation)
 "bdW" = (
 /obj/item/clothing/gloves/color/rainbow,
 /obj/item/clothing/head/soft/rainbow,
@@ -28582,12 +28599,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
-"bSu" = (
-/obj/item/stack/cable_coil{
-	amount = 5
-	},
-/turf/open/floor/plating/airless,
-/area/space/nearstation)
 "bSw" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 8
@@ -28983,12 +28994,6 @@
 	},
 /turf/closed/wall,
 /area/maintenance/port/aft)
-"bTB" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 6
-	},
-/turf/closed/wall,
-/area/maintenance/port/aft)
 "bTC" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
 /turf/closed/wall,
@@ -29284,11 +29289,6 @@
 /turf/open/space,
 /area/space/nearstation)
 "bUt" = (
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/maintenance/port/aft)
-"bUv" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
@@ -31089,12 +31089,6 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/maintenance/port/aft)
-"car" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 5
-	},
-/turf/closed/wall,
 /area/maintenance/port/aft)
 "cas" = (
 /obj/machinery/door/airlock/maintenance{
@@ -33505,10 +33499,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
-"cjn" = (
-/obj/item/weldingtool,
-/turf/open/floor/plating/airless,
-/area/space/nearstation)
 "cjo" = (
 /obj/structure/closet/toolcloset,
 /turf/open/floor/plasteel,
@@ -37199,10 +37189,6 @@
 /obj/item/clothing/under/misc/burial,
 /turf/open/floor/plasteel/grimy,
 /area/chapel/office)
-"cCa" = (
-/obj/item/clothing/head/hardhat,
-/turf/open/floor/plating/airless,
-/area/space/nearstation)
 "cCd" = (
 /turf/open/floor/plasteel,
 /area/construction)
@@ -53091,7 +53077,7 @@ arB
 aPv
 ayl
 aRZ
-asE
+aaw
 aAF
 awW
 cyl
@@ -56444,7 +56430,7 @@ aPz
 aXl
 bdR
 bfh
-aPz
+aap
 aPz
 aaa
 aaa
@@ -57439,7 +57425,7 @@ anJ
 anJ
 aFJ
 arK
-alU
+aao
 alU
 ali
 alU
@@ -60585,7 +60571,7 @@ bPR
 bRc
 bSo
 bTs
-bCq
+aaq
 bVy
 bLv
 cyE
@@ -62383,20 +62369,20 @@ bCq
 bPY
 cOw
 bCq
-bCq
-bCq
-bCq
-bCq
-bCq
-aYb
-bCq
-bCq
-bLv
-bCq
-bCq
-bCq
-bCq
-bCq
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aar
 cgG
 bCq
 gXs
@@ -62640,20 +62626,20 @@ bCq
 bPX
 bRg
 bRg
-bCq
-bUt
-aXC
-bUt
-bUt
-bUt
-bLv
-aaf
-aoV
-aoV
-aoV
-aoV
-aoV
-bLv
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
 bUt
 bLv
 aaa
@@ -62865,7 +62851,7 @@ aQM
 cCm
 aSg
 aSg
-aPz
+aap
 bdW
 aSg
 aZE
@@ -62897,20 +62883,20 @@ bLv
 bQa
 bHE
 bHE
-bCq
-bUt
-bLv
-bLv
-bLv
-bLv
-bLv
-aoV
-aoV
-aoV
-aoV
-aoV
-aaf
-bLv
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
 bUt
 bLv
 aaa
@@ -63154,20 +63140,20 @@ bLv
 bPZ
 bHE
 bHE
-cTF
-bUt
-bLv
-aoV
-aoV
-aoV
-aoV
-aoV
-aoV
-aoV
-aoV
-aoV
-aoV
-bLv
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
 bUt
 bLv
 aaa
@@ -63411,20 +63397,20 @@ bLv
 bHE
 bHE
 bSs
-bCq
-bUt
-bLv
-aoV
-aoV
-aoV
-bcU
-aaf
-aaH
-cCa
-aoV
-aoV
-aoV
-bLv
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
 bUt
 bLv
 aaa
@@ -63668,20 +63654,20 @@ bCq
 bHE
 bRh
 bLu
-bCq
-bUt
-bLv
-aaf
-aaf
-aoV
-aoV
-aaH
-bdV
-aaH
-aaf
-aaf
-aaf
-bLv
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
 bUt
 bLv
 aaa
@@ -63925,20 +63911,20 @@ bCq
 bOK
 bCq
 bCq
-bCq
-bUt
-bLv
-aoV
-aoV
-aoV
-aoV
-cjn
-bSu
-aaH
-aoV
-aoV
-aoV
-bLv
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
 bUt
 bLv
 aaa
@@ -64182,20 +64168,20 @@ bCq
 bHE
 bLv
 aaa
-bLv
-bUt
-bLv
-aoV
-aoV
-aoV
-aoV
-aoV
-aaH
-aaf
-aoV
-aoV
-aoV
-bLv
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
 bUt
 bLv
 aaa
@@ -64439,20 +64425,20 @@ bHE
 bHE
 bLv
 aaf
-bLv
-bUt
-bLv
-aaf
-aaf
-aoV
-aoV
-aoV
-aaH
-aoV
-aoV
-aaf
-aaf
-bCq
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
 bUt
 bCq
 bCq
@@ -64696,20 +64682,20 @@ bHE
 bLv
 bCq
 aaa
-bLv
-bUt
-bLv
-aoV
-aoV
-aoV
-aoV
-aoV
-aaf
-aoV
-aoV
-aoV
-aoV
-bCq
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
 bUt
 bSp
 bHE
@@ -64953,20 +64939,20 @@ bHE
 bLv
 aaa
 aaa
-bTB
-bUv
-bES
-bES
-bES
-bES
-bGp
-bGp
-bGp
-bGp
-bES
-bES
-bES
-car
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
 bUt
 bCq
 bJf
@@ -64976,7 +64962,7 @@ bCq
 tgF
 bPZ
 ccd
-bCq
+aaq
 swV
 cqL
 bJe
@@ -67523,7 +67509,7 @@ bNJ
 apV
 cjL
 gWd
-bNI
+aat
 bUz
 bVJ
 bWI
@@ -85976,7 +85962,7 @@ ayg
 ayg
 aCl
 aEe
-aFw
+aas
 aFw
 aFw
 aLo
@@ -88098,7 +88084,7 @@ dwb
 cNW
 cNW
 jVl
-cNW
+aau
 cNW
 cNW
 clt
@@ -92207,7 +92193,7 @@ cbf
 cbf
 cbf
 ceT
-cNW
+aau
 cOe
 chH
 cNW
