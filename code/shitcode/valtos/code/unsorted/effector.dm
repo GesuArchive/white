@@ -16,8 +16,7 @@ GLOBAL_LIST_EMPTY(effectors)
 	var/datum/looping_sound/effector_vaper/soundloop
 
 /datum/controller/subsystem/ticker/proc/start_vaping()
-	for(var/E in GLOB.effectors)
-		var/obj/effector/EF = E
+	for(var/obj/effector/EF in GLOB.effectors)
 		EF.emmit()
 
 /obj/effector/Initialize()
