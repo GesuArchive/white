@@ -50,6 +50,13 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 		fdel("[TTS_PATH]/lines/[namae].ogg")
 		fdel("[TTS_PATH]/conv/[namae].mp3")
 
+/proc/to_tts(target, message)
+	tts_core(message, "announcer", "ru")
+	if(fexists("[TTS_PATH]/lines/announcer.ogg"))
+		var/turf/T = get_turf(target)
+		target.playsound_local(T, "[TTS_PATH]/lines/announcer.ogg", 100, channel = TTS.assigned_channel, frequency = 1)
+	return
+
 /atom/movable
 	var/datum/tts/TTS
 

@@ -34,6 +34,7 @@
 	var/s = sound(sound)
 	for(var/mob/M in GLOB.player_list)
 		if(!isnewplayer(M) && M.can_hear())
+			to_tts(M, text)
 			to_chat(M, announcement)
 			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 				SEND_SOUND(M, s)
@@ -57,6 +58,7 @@
 
 	for(var/mob/M in GLOB.player_list)
 		if(!isnewplayer(M) && M.can_hear())
+			to_tts(M, message)
 			to_chat(M, "<h1 class='alert'>[html_encode(title)]</h1><BR><span class='alert'>[html_encode(message)]</span><BR><BR>")
 			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 				if(alert)
