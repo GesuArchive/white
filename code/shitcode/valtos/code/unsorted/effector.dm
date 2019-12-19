@@ -11,6 +11,7 @@
 	desc = "Парит. Гы."
 	icon = 'code/shitcode/valtos/icons/effector.dmi'
 	icon_state = "effector"
+	var/workout = TRUE
 	var/datum/looping_sound/effector_vaper/soundloop
 
 /obj/machinery/effector/Destroy()
@@ -18,8 +19,10 @@
 	return ..()
 
 /obj/machinery/effector/process()
-	soundloop = new(list(src), TRUE)
-	soundloop.start()
+	if(workout)
+		soundloop = new(list(src), TRUE)
+		soundloop.start()
+		workout = FALSE
 	var/obj/effect/vaper_smoke/S = new(get_turf(src))
 	animate(S, pixel_y = 64, pixel_x = rand(-12, 12), transform = matrix()*2, alpha = 0, time = 40)
 
