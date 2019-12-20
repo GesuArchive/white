@@ -2,6 +2,6 @@
 	colour = list(rgb(255,15,15), rgb(-35,225,-15), rgb(-15,-15,255), rgb(0,0,0))
 	priority = 5
 
-/mob/Initialize()
+/mob/living/carbon/human/Initialize()
 	. = ..()
 	add_client_colour(/datum/client_colour/correction)
