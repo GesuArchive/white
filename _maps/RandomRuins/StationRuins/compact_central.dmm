@@ -3127,6 +3127,7 @@
 /obj/machinery/power/apc{
 	areastring = "/area/hallway/primary/central";
 	name = "Compact Central Hall APC";
+	dir = 1;
 	pixel_y = 23
 	},
 /turf/open/floor/plasteel,
@@ -3179,6 +3180,7 @@
 /obj/machinery/power/apc/highcap/five_k{
 	areastring = "/area/ai_monitored/turret_protected/ai_upload";
 	name = "Compact Upload APC";
+	dir = 1;
 	pixel_y = 23
 	},
 /turf/open/floor/plasteel/dark,
