@@ -302,6 +302,8 @@
 			return "[jobtitle] недоступен."
 		if(JOB_UNAVAILABLE_BANNED)
 			return "Тебе нельзя быть [jobtitle]."
+		if(JOB_UNAVAILABLE_UNDONATED)
+			return "Роль [jobtitle] доступна только для благотворцев."
 		if(JOB_UNAVAILABLE_PLAYTIME)
 			return "Ты не наиграл достаточно времени для [jobtitle]."
 		if(JOB_UNAVAILABLE_ACCOUNTAGE)
@@ -325,6 +327,8 @@
 			return JOB_UNAVAILABLE_SLOTFULL
 	if(is_banned_from(ckey, rank))
 		return JOB_UNAVAILABLE_BANNED
+	if(!check_donations(ckey) && job.title == "Trader")
+		return JOB_UNAVAILABLE_UNDONATED
 	if(QDELETED(src))
 		return JOB_UNAVAILABLE_GENERIC
 	if(!job.player_old_enough(client))
@@ -443,7 +447,7 @@
 			SSjob.prioritized_jobs -= prioritized_job
 	dat += "<table><tr><td valign='top'>"
 	var/column_counter = 0
-	for(var/list/category in list(GLOB.command_positions) + list(GLOB.engineering_positions) + list(GLOB.supply_positions) + list(GLOB.nonhuman_positions - "pAI") + list(GLOB.civilian_positions) + list(GLOB.medical_positions) + list(GLOB.science_positions) + list(GLOB.security_positions))
+	for(var/list/category in list(GLOB.command_positions) + list(GLOB.engineering_positions) + list(GLOB.supply_positions) + list(GLOB.nonhuman_positions - "pAI") + list(GLOB.civilian_positions) + list(GLOB.medical_positions) + list(GLOB.science_positions) + list(GLOB.security_positions) + list(GLOB.special_positions))
 		//var/cat_color = SSjob.name_occupations[category[1]].selection_color //use the color of the first job in the category (the department head) as the category color
 		//dat += "<fieldset style='width: 185px; border: 2px solid [cat_color]; display: inline'>"
 		//dat += "<legend align='center' style='color: [cat_color]'>[SSjob.name_occupations[category[1]].exp_type_department]</legend>"

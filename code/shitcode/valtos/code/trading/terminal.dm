@@ -1,5 +1,5 @@
 /obj/machinery/vending/terminal
-	name = "Trading Terminal MK1"
+	name = "Trading Terminal MK2"
 	desc = "Вещи возврату не подлежат."
 	icon = 'code/shitcode/valtos/icons/vending.dmi'
 	icon_state = "trading"
@@ -9,11 +9,10 @@
 	max_integrity = 300000
 	var/last_rebuild = 0
 	payment_department = NO_FREEBIES
+	req_access = list(ACCESS_TRADER)
 
 /obj/machinery/vending/terminal/Initialize(mapload)
 	. = ..()
-	if (prob(25))
-		qdel(src)
 	last_rebuild = world.time + rand(300, 1000)
 	rebuild_inventory(GLOB.terminal_products, product_records)
 
@@ -32,8 +31,8 @@
 			R.product_path = typepath
 			R.amount = amount
 			R.max_amount = amount
-			R.custom_price = rand(100, 90000) //best prices
-			R.custom_premium_price = rand(100, 90000) //best prices
+			R.custom_price = rand(100, 20000) //best prices
+			R.custom_premium_price = rand(100, 20000) //best prices
 			recordlist += R
 
 /obj/machinery/vending/terminal/process()
@@ -74,9 +73,9 @@
 		C = H.get_idcard(TRUE)
 
 	if(!C)
-		dat += "<font color = 'red'><h3>No ID Card detected!</h3></font>"
+		dat += "<font color = 'red'><h3>Не вижу карту!</h3></font>"
 	else if (!C.registered_account)
-		dat += "<font color = 'red'><h3>No account on registered ID card!</h3></font>"
+		dat += "<font color = 'red'><h3>У вас нет банковского аккаунта на текущей карте!</h3></font>"
 	if(onstation && C && C.registered_account)
 		account = C.registered_account
 	if(vending_machine_input.len)
@@ -85,7 +84,7 @@
 		for (var/O in vending_machine_input)
 			if(vending_machine_input[O] > 0)
 				var/N = vending_machine_input[O]
-				dat += "<a href='byond://?src=[REF(src)];dispense=[sanitize(O)]'>Dispense</A> "
+				dat += "<a href='byond://?src=[REF(src)];dispense=[sanitize(O)]'>Выдать</A> "
 				dat += "<B>[capitalize(O)] ($[default_price]): [N]</B><br>"
 		dat += "</div>"
 

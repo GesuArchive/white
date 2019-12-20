@@ -1,5 +1,5 @@
 /datum/outfit/job/security/omon
-	name = "Russian Officer uniform"
+	name = "Russian Officer"
 	jobtype = /datum/job/officer/omon
 
 	belt = /obj/item/pda/security
@@ -33,7 +33,7 @@
 	implants = list(/obj/item/implant/mindshield/)
 
 /datum/outfit/job/security/kazakh
-	name = "Kazakh Officer uniform"
+	name = "Kazakh Officer"
 	jobtype = /datum/job/officer/kazakh
 
 	belt = /obj/item/pda/security
