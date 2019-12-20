@@ -667,12 +667,10 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "bV" = (
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 4
-	},
 /turf/open/floor/plasteel,
-/area/engine/engineering)
+/area/space)
 "bW" = (
 /obj/structure/particle_accelerator/fuel_chamber,
 /obj/structure/cable,

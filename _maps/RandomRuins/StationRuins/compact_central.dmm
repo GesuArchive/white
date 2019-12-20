@@ -1441,7 +1441,6 @@
 /obj/machinery/door/airlock/maintenance{
 	req_access_txt = "12"
 	},
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/plating,
 /area/maintenance/central)
@@ -3173,18 +3172,13 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
 "hy" = (
-/obj/structure/cable,
-/obj/machinery/light/small{
-	dir = 1
+/obj/effect/turf_decal/tile/blue,
+/obj/machinery/camera/autoname{
+	icon_state = "camera";
+	dir = 8
 	},
-/obj/machinery/power/apc/highcap/five_k{
-	areastring = "/area/ai_monitored/turret_protected/ai_upload";
-	name = "Compact Upload APC";
-	dir = 1;
-	pixel_y = 23
-	},
-/turf/open/floor/plasteel/dark,
-/area/ai_monitored/turret_protected/ai_upload)
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "hz" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/highsecurity{
@@ -3205,11 +3199,18 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
 "hB" = (
-/obj/machinery/computer/upload/borg{
-	icon_state = "computer";
-	dir = 4
+/obj/structure/cable,
+/obj/machinery/light/small{
+	dir = 1
 	},
-/turf/open/floor/circuit,
+/obj/machinery/power/apc/highcap/five_k{
+	areastring = "/area/ai_monitored/turret_protected/ai_upload";
+	name = "Compact Upload APC";
+	dir = 1;
+	pixel_y = 23
+	},
+/obj/machinery/camera/autoname,
+/turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
 "hC" = (
 /obj/machinery/door/firedoor,
@@ -3321,14 +3322,16 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "hR" = (
-/obj/machinery/computer/card{
-	dir = 8
+/obj/machinery/computer/upload/borg{
+	icon_state = "computer";
+	dir = 4
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 27
+/obj/machinery/camera/autoname{
+	icon_state = "camera";
+	dir = 4
 	},
-/turf/open/floor/carpet,
-/area/crew_quarters/heads/captain)
+/turf/open/floor/circuit,
+/area/ai_monitored/turret_protected/ai_upload)
 "hS" = (
 /obj/machinery/holopad,
 /turf/open/floor/plasteel,
@@ -3493,16 +3496,18 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "ij" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/obj/effect/turf_decal/tile/yellow{
-	dir = 4
+/obj/machinery/computer/card{
+	dir = 8
 	},
-/obj/machinery/airalarm{
-	dir = 8;
-	pixel_x = 24
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
 	},
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
+/obj/machinery/camera/autoname{
+	icon_state = "camera";
+	dir = 8
+	},
+/turf/open/floor/carpet,
+/area/crew_quarters/heads/captain)
 "ik" = (
 /obj/machinery/camera{
 	c_tag = "Captain's Quarters";
@@ -3617,6 +3622,35 @@
 	dir = 8
 	},
 /obj/machinery/light,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"iy" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/machinery/airalarm{
+	dir = 8;
+	pixel_x = 24
+	},
+/obj/machinery/camera/autoname{
+	icon_state = "camera";
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"iz" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/machinery/camera/autoname,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"iA" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/machinery/camera/autoname,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "iL" = (
@@ -4172,7 +4206,7 @@ bM
 bs
 bs
 cg
-hB
+hR
 bs
 bs
 bM
@@ -4399,7 +4433,7 @@ ep
 ep
 bM
 cf
-hy
+hB
 hG
 cf
 bM
@@ -4516,7 +4550,7 @@ cf
 cf
 cf
 cf
-ai
+iA
 aj
 gt
 aC
@@ -4625,7 +4659,7 @@ aj
 aj
 hr
 ek
-cZ
+hy
 bV
 ig
 cZ
@@ -4644,7 +4678,7 @@ gv
 gx
 gy
 gz
-ij
+iy
 hD
 gC
 gv
@@ -4823,7 +4857,7 @@ gM
 is
 ht
 es
-az
+iz
 aj
 ca
 ep
@@ -4935,7 +4969,7 @@ gQ
 hd
 he
 hh
-hR
+ij
 es
 ga
 aj
