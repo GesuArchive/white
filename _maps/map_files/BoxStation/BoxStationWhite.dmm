@@ -539,7 +539,7 @@
 	name = "блокировка";
 	pixel_x = 24;
 	pixel_y = 0;
-	req_access_txt = "1"
+	req_access_txt = "209"
 	},
 /turf/open/floor/wood,
 /area/vacant_room/office)
