@@ -4264,7 +4264,7 @@
 	icon = 'icons/obj/smooth_structures/wood_table.dmi';
 	icon_state = "wood_table";
 	max_integrity = 55;
-	name = "flipped table";
+	name = "flipped стол";
 	obj_integrity = 55
 	},
 /turf/open/floor/plasteel/yellowsiding{
@@ -4443,7 +4443,7 @@
 	icon = 'icons/obj/smooth_structures/wood_table.dmi';
 	icon_state = "wood_table";
 	max_integrity = 55;
-	name = "flipped table";
+	name = "flipped стол";
 	obj_integrity = 55
 	},
 /turf/open/floor/plasteel,
@@ -4634,7 +4634,7 @@
 	icon = 'icons/obj/smooth_structures/wood_table.dmi';
 	icon_state = "wood_table";
 	max_integrity = 55;
-	name = "flipped table";
+	name = "flipped стол";
 	obj_integrity = 55
 	},
 /turf/open/floor/plasteel/yellowsiding,

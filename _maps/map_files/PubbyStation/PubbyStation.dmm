@@ -27819,7 +27819,7 @@
 /area/science/robotics/lab)
 "btb" = (
 /obj/structure/table/optable{
-	name = "Robotics Operating Table"
+	name = "Robotics Operating стол"
 	},
 /obj/machinery/camera{
 	c_tag = "Robotics - Aft";
@@ -51069,7 +51069,7 @@
 /area/science/xenobiology)
 "hPU" = (
 /obj/structure/table/optable{
-	name = "Robotics Operating Table"
+	name = "Robotics Operating стол"
 	},
 /obj/item/surgical_drapes,
 /obj/item/clothing/mask/surgical,

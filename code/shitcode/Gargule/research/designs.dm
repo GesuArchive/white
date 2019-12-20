@@ -18,7 +18,7 @@
 	category = list("initial", "Medical")
 
 /datum/design/optable_folding
-	name = "Folding Table"
+	name = "Folding стол"
 	id = "optable_folding"
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 3000)

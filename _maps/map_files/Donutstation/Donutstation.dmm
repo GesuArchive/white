@@ -9934,7 +9934,7 @@
 /area/science/robotics/lab)
 "aAU" = (
 /obj/structure/table/optable{
-	name = "Robotics Operating Table"
+	name = "Robotics Operating стол"
 	},
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel/dark,

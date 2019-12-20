@@ -2688,7 +2688,7 @@
 "gQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/optable{
-	name = "Robotics Operating Table"
+	name = "Robotics Operating стол"
 	},
 /obj/item/surgical_drapes,
 /turf/open/floor/plasteel/white,

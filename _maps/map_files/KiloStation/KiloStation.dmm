@@ -918,7 +918,7 @@
 	dir = 1
 	},
 /obj/structure/table/optable{
-	name = "Forensics Operating Table"
+	name = "Forensics Operating стол"
 	},
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/neutral,
@@ -36969,7 +36969,7 @@
 "bdd" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/structure/table/optable{
-	name = "Robotics Operating Table"
+	name = "Robotics Operating стол"
 	},
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/dark,

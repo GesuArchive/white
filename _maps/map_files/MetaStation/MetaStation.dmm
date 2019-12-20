@@ -68493,7 +68493,7 @@
 /area/maintenance/starboard)
 "cYc" = (
 /obj/structure/table/optable{
-	name = "Robotics Operating Table"
+	name = "Robotics Operating стол"
 	},
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -30

@@ -1781,14 +1781,14 @@
 "fn" = (
 /obj/structure/table/wood/poker{
 	desc = "I bought this for, like, one hundred space credits.";
-	name = "cheap and fancy table"
+	name = "cheap and fancy стол"
 	},
 /turf/open/floor/wood,
 /area/awaymission/cabin/caves/mountain)
 "fo" = (
 /obj/structure/table/wood/poker{
 	desc = "I bought this for, like, one hundred space credits.";
-	name = "cheap and fancy table"
+	name = "cheap and fancy стол"
 	},
 /obj/structure/showcase/machinery/tv{
 	desc = "Up next after these commercials, the season premiere of Ghost Court will be on.";

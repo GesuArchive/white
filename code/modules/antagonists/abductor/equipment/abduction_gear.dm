@@ -776,7 +776,7 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 			qdel(src)
 
 /obj/structure/table/abductor
-	name = "alien table"
+	name = "alien стол"
 	desc = "Advanced flat surface technology at work!"
 	icon = 'icons/obj/smooth_structures/alien_table.dmi'
 	icon_state = "alien_table"
@@ -788,7 +788,7 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 	frame = /obj/structure/table_frame/abductor
 
 /obj/structure/table/optable/abductor
-	name = "alien operating table"
+	name = "alien operating стол"
 	desc = "Used for alien medical procedures. The surface is covered in tiny spines."
 	frame = /obj/structure/table_frame/abductor
 	buildstack = /obj/item/stack/sheet/mineral/silver

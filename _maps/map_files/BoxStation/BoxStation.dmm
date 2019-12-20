@@ -27330,7 +27330,7 @@
 /area/science/robotics/lab)
 "bsP" = (
 /obj/structure/table/optable{
-	name = "Robotics Operating Table"
+	name = "Robotics Operating стол"
 	},
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel/dark,
@@ -27359,7 +27359,7 @@
 /area/science/robotics/lab)
 "bsU" = (
 /obj/structure/table/optable{
-	name = "Robotics Operating Table"
+	name = "Robotics Operating стол"
 	},
 /obj/item/surgical_drapes,
 /turf/open/floor/plating,
