@@ -31,13 +31,13 @@
 	announcement += "<span class='alert'>[html_encode(text)]</span>"
 	announcement += "<br><br>"
 
-	var/s = sound(sound)
+	var/s = sound('sound/ai/attention.ogg')
 	for(var/mob/M in GLOB.player_list)
 		if(!isnewplayer(M) && M.can_hear())
-			to_tts(M, text)
 			to_chat(M, announcement)
 			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 				SEND_SOUND(M, s)
+				to_tts(M, text)
 
 /proc/print_command_report(text = "", title = null, announce=TRUE)
 	if(!title)
@@ -58,10 +58,10 @@
 
 	for(var/mob/M in GLOB.player_list)
 		if(!isnewplayer(M) && M.can_hear())
-			to_tts(M, message)
 			to_chat(M, "<h1 class='alert'>[html_encode(title)]</h1><BR><span class='alert'>[html_encode(message)]</span><BR><BR>")
 			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 				if(alert)
 					SEND_SOUND(M, sound('sound/misc/notice1.ogg'))
 				else
 					SEND_SOUND(M, sound('sound/misc/notice2.ogg'))
+				to_tts(M, message)
