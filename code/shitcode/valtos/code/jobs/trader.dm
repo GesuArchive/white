@@ -12,4 +12,3 @@
 	minimal_access = list(ACCESS_TRADER)
 	outfit = /datum/outfit/job/trader
 	display_order = JOB_DISPLAY_ORDER_SPECIAL
-
