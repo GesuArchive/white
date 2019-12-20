@@ -2,7 +2,7 @@
 	name = "Russian Officer"
 	jobtype = /datum/job/officer/omon
 
-	belt = /obj/item/pda/security
+	belt = /obj/item/gun/ballistic/automatic/pistol/traumatic
 	ears = /obj/item/radio/headset/headset_sec/alt
 	uniform = /obj/item/clothing/under/rank/omon/green
 	gloves = /obj/item/clothing/gloves/color/black
@@ -11,7 +11,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/assembly/flash/handheld
-	suit_store = /obj/item/gun/ballistic/automatic/pistol/traumatic
+	suit_store = /obj/item/pda/security
 	backpack_contents = list(/obj/item/melee/baton/loaded=1, /obj/item/ammo_box/magazine/traumatic=1)
 
 	backpack = /obj/item/storage/backpack/security
@@ -36,7 +36,7 @@
 	name = "Kazakh Officer"
 	jobtype = /datum/job/officer/kazakh
 
-	belt = /obj/item/pda/security
+	belt = /obj/item/gun/ballistic/automatic/pistol/makarov
 	ears = /obj/item/radio/headset/headset_sec/alt/department/engi
 	uniform = /obj/item/clothing/under/rank/engineering/atmospheric_technician
 	gloves = /obj/item/clothing/gloves/color/black
@@ -45,7 +45,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/assembly/flash/handheld
-	suit_store = /obj/item/gun/ballistic/automatic/pistol/makarov
+	suit_store = /obj/item/pda/security
 	backpack_contents = list(/obj/item/melee/classic_baton/dildon=1, /obj/item/modular_computer/tablet/preset/advanced=1, /obj/item/pipe_dispenser=1, /obj/item/ammo_box/magazine/pistolm9mm=2)
 
 	backpack = /obj/item/storage/backpack/security
