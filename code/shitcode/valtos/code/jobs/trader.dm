@@ -1,6 +1,7 @@
 /datum/job/trader
 	title = "Trader"
 	supervisors = "Торговая Ассоциация"
+	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	minimal_player_age = 28
