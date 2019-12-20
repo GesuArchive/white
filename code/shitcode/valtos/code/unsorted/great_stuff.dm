@@ -207,7 +207,7 @@
 	desc = "Ммм. Хайль Вайт."
 	icon = 'code/shitcode/valtos/icons/gun.dmi'
 	icon_state = "makarov"
-	slot_flags = ITEM_SLOT_BELT
+	slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_SUITSTORE
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/pistolm9mm
 	can_suppress = FALSE
@@ -222,7 +222,7 @@
 	fire_sound = "code/shitcode/valtos/sounds/ak74_shot.ogg"
 	icon_state = "ak47"
 	item_state = "ak47"
-	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
+	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT|ITEM_SLOT_SUITSTORE
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	mag_type = /obj/item/ammo_box/magazine/ak47mag
 	fire_delay = 2
