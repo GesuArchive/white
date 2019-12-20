@@ -15985,9 +15985,9 @@
 "bgP" = (
 /obj/structure/cable,
 /obj/machinery/power/apc{
-	areastring = "/area/medical";
+	areastring = "/area/medical/pharmacy";
 	dir = 1;
-	name = "Apothecary APC";
+	name = "Pharmacy APC";
 	pixel_x = 0;
 	pixel_y = 23
 	},
@@ -20797,7 +20797,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable,
 /obj/machinery/door/airlock/medical/glass{
-	name = "Apothecary";
+	name = "Pharmacy";
 	req_access_txt = "5; 59"
 	},
 /turf/open/floor/plasteel/white,
