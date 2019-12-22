@@ -335,5 +335,5 @@
 	. = ..()
 
 /obj/screen/parallax_layer/planet/nebula
-	speed = 0.1
+	speed = 3
 	icon_state = "nebula"
