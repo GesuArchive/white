@@ -21,7 +21,8 @@
 		C.parallax_layers_cached = list()
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_1(null, C.view)
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_2(null, C.view)
-		C.parallax_layers_cached += new /obj/screen/parallax_layer/planet(null, C.view)
+		C.parallax_layers_cached += new /obj/screen/parallax_layer/planet/nebula(null, C.view)
+		//C.parallax_layers_cached += new /obj/screen/parallax_layer/planet(null, C.view)
 		if(SSparallax.random_layer)
 			C.parallax_layers_cached += new SSparallax.random_layer
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_3(null, C.view)
@@ -170,7 +171,7 @@
 /datum/hud/proc/update_parallax()
 	var/client/C = mymob.client
 	var/turf/posobj = get_turf(C.eye)
-	if(!posobj) 
+	if(!posobj)
 		return
 	var/area/areaobj = posobj.loc
 
@@ -330,3 +331,6 @@
 
 /obj/screen/parallax_layer/planet/update_o()
 	return //Shit wont move
+
+/obj/screen/parallax_layer/planet/nebula
+	icon_state = "nebula"
