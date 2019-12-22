@@ -3184,7 +3184,6 @@
 #include "code\shitcode\valtos\code\randomstation\mapping.dm"
 #include "code\shitcode\valtos\code\randomstation\station.dm"
 #include "code\shitcode\valtos\code\ruins\wruins.dm"
-#include "code\shitcode\valtos\code\serverside\brs.dm"
 #include "code\shitcode\valtos\code\serverside\fullscreen.dm"
 #include "code\shitcode\valtos\code\serverside\libvg.dm"
 #include "code\shitcode\valtos\code\serverside\looc.dm"
