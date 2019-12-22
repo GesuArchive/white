@@ -81,7 +81,7 @@
 	output += "</center>"
 
 	//src << browse(output,"window=playersetup;size=210x240;can_close=0")
-	var/datum/browser/popup = new(src, "playersetup", "<div align='center'>New White Dream</div>", 250, 265)
+	var/datum/browser/popup = new(src, "playersetup", "<div align='center'>New White Dream</div>", 265, 265)
 	popup.set_window_options("can_close=0")
 	popup.set_content(output)
 	popup.open(FALSE)
