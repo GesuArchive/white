@@ -330,7 +330,10 @@
 		invisibility = INVISIBILITY_ABSTRACT
 
 /obj/screen/parallax_layer/planet/update_o()
-	return //Shit wont move
+	if (icon_state == "planet")
+		return //Shit wont move
+	. = ..()
 
 /obj/screen/parallax_layer/planet/nebula
+	speed = 0.1
 	icon_state = "nebula"
