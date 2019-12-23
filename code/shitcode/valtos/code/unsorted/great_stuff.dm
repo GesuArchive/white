@@ -219,7 +219,7 @@
 	lefthand_file = 'code/shitcode/valtos/icons/lefthand.dmi'
 	righthand_file = 'code/shitcode/valtos/icons/righthand.dmi'
 	mob_overlay_icon = 'code/shitcode/valtos/icons/back.dmi'
-	fire_sound = "code/shitcode/valtos/sounds/ak74_shot.ogg"
+	fire_sound = 'code/shitcode/valtos/sounds/ak74_shot.ogg'
 	icon_state = "ak47"
 	item_state = "ak47"
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
