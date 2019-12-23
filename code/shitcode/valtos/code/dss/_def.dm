@@ -110,10 +110,10 @@
 					dstats[MOB_DEX] += rand(6, 9)
 
 				if("Clown") // HONK
-					dstats[MOB_STR] += rand(-5, 7)
-					dstats[MOB_STM] += rand(-5, 7)
-					dstats[MOB_INT] += rand(-5, 7)
-					dstats[MOB_DEX] += rand(-5, 7)
+					dstats[MOB_STR] += rand(-10, 14)
+					dstats[MOB_STM] += rand(-10, 14)
+					dstats[MOB_INT] += rand(-10, 14)
+					dstats[MOB_DEX] += rand(-10, 14)
 
 				if("Mime")
 					dstats[MOB_STR] += rand(-2, 2)
