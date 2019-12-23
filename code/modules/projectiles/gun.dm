@@ -156,7 +156,7 @@
 	playsound(src, dry_fire_sound, 30, TRUE)
 
 
-/obj/item/gun/proc/shoot_live_shot(mob/living/user as mob|obj, pointblank = 0, mob/pbtarget = null, message = 1)
+/obj/item/gun/proc/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
 	if(recoil)
 		shake_camera(user, recoil + 1, recoil)
 
@@ -170,9 +170,10 @@
 								"<span class='danger'>Стреляю из [src.name] <b>В УПОР</b> по <b>[pbtarget]</b>!</span>", \
 								"<span class='hear'>Слышу выстрел!</span>", COMBAT_MESSAGE_RANGE, pbtarget)
 				to_chat(pbtarget, "<span class='userdanger'><b>[user]</b> стреляет из <b>[src.name]</b> в меня <b>В УПОР</b>.!</span>")
-				if(pb_knockback > 0)
-					var/atom/throw_target = get_edge_target_turf(pbtarget, user.dir)
-					pbtarget.throw_at(throw_target, pb_knockback, 2)
+				if(pb_knockback > 0 && ismob(pbtarget))
+					var/mob/PBT = pbtarget
+					var/atom/throw_target = get_edge_target_turf(PBT, user.dir)
+					PBT.throw_at(throw_target, pb_knockback, 2)
 			else
 				user.visible_message("<span class='danger'><b>[user]</b> стреляет из <b>[src.name]</b>!</span>", \
 								"<span class='danger'>Стреляю из [src.name]!</span>", \
