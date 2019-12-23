@@ -31,7 +31,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	/datum/surgery_step/retract_skin,
 	/datum/surgery_step/insert_pill,
 	/datum/surgery_step/fix_eyes,
-	/datum/surgery_step/revive,
+//	/datum/surgery_step/revive,
 	/datum/surgery_step/pacify,
 	/datum/surgery_step/thread_veins,
 //	/datum/surgery_step/splice_nerves,
@@ -128,7 +128,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	STR.cant_hold = typecacheof(list(/obj/item/card/emag))
 
 /obj/machinery/autodoc/CtrlClick(mob/user)
-	if(in_use)
+	if(in_use && isliving(user))
 		playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
 		return
 	var/datum/component/storage/ST = GetComponent(/datum/component/storage/concrete/autodoc)
@@ -583,19 +583,6 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	if(target && !(brutehealing && target.getBruteLoss()) && !(burnhealing && target.getFireLoss()))
 		return FALSE
 	return TRUE
-
-/datum/surgery_step/revive/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
-	playsound(get_turf(target), 'sound/magic/lightningbolt.ogg', 50, 1)
-	target.adjustOxyLoss(-50, 0)
-	target.updatehealth()
-	if(target.revive())
-		target.visible_message("...<b>[target]</b> восстаёт из мёртвых! Чудеса!")
-		target.emote("задыхается")
-		target.setOrganLoss(ORGAN_SLOT_BRAIN, 50, 199) //MAD SCIENCE
-		return TRUE
-	else
-		target.visible_message("...<b>[target]</b> резко дёргается и больше не двигается.")
-		return FALSE
 
 /datum/surgery_step/pacify/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
 	target.gain_trauma(/datum/brain_trauma/severe/pacifism, TRAUMA_RESILIENCE_LOBOTOMY)
