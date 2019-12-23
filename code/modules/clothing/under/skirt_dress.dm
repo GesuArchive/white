@@ -46,21 +46,21 @@
 	desc = "A blue, casual skirt."
 	icon_state = "blueskirt"
 	item_state = "b_suit"
-	custom_price = 25
+	custom_price = 60
 
 /obj/item/clothing/under/dress/skirt/red
 	name = "красный skirt"
 	desc = "A red, casual skirt."
 	icon_state = "redskirt"
 	item_state = "r_suit"
-	custom_price = 25
+	custom_price = 60
 
 /obj/item/clothing/under/dress/skirt/purple
 	name = "фиолетовый skirt"
 	desc = "A purple, casual skirt."
 	icon_state = "purpleskirt"
 	item_state = "p_suit"
-	custom_price = 25
+	custom_price = 60
 
 /obj/item/clothing/under/dress/skirt/plaid
 	name = "красный plaid skirt"
@@ -69,7 +69,7 @@
 	item_state = "plaid_red"
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
-	custom_price = 25
+	custom_price = 60
 
 /obj/item/clothing/under/dress/skirt/plaid/blue
 	name = "синий plaid skirt"

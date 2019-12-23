@@ -274,7 +274,7 @@
 	desc = "Куча волос без головы. Он меняет цвет в соответствии с волосами владельца. В этом нет ничего естественного."
 	color = "#FFF"
 	adjustablecolor = FALSE
-	custom_price = 25
+	custom_price = 100
 
 /obj/item/clothing/head/wig/natural/Initialize(mapload)
 	hairstyle = pick(GLOB.hairstyles_list - "Bald")

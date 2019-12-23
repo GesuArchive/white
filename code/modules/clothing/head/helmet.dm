@@ -83,7 +83,7 @@
 	desc = "Надежный шлем синего цвета, напоминающий вам, что вы все еще должны инженеру пиво."
 	icon_state = "blueshift"
 	item_state = "blueshift"
-	custom_premium_price = 450
+	custom_premium_price = 750
 
 /obj/item/clothing/head/helmet/riot
 	name = "анти-мятежный шлем"

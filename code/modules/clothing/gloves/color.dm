@@ -9,6 +9,8 @@
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	resistance_flags = NONE
+	custom_price = 1200
+	custom_premium_price = 1200
 
 /obj/item/clothing/gloves/color/fyellow                             //Cheap Chinese Crap
 	desc = "Эти перчатки являются дешевыми подделками желанных перчаток - это может плохо кончиться."
