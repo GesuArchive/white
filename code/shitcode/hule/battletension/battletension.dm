@@ -5,8 +5,6 @@
 #define BATTLE_MUSIC_SYNTH	 		list("digitalonslaught.ogg", "03 NARC.ogg")
 #define BATTLE_MUSIC_PISTOLETOV	 	list("gladiator.ogg")
 
-#define CHANNEL_BATTLE 		1015
-
 PROCESSING_SUBSYSTEM_DEF(btension)
 	name = "Battle Tension"
 	priority = 15
@@ -76,7 +74,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	if(!S || !S.file)
 		return
 	S.repeat = 1
-	S.channel = CHANNEL_BATTLE
+	S.channel = CHANNEL_BATTLETENSION
 	S.falloff = 2
 	S.wait = 0
 	S.volume = 0

@@ -221,7 +221,7 @@
 	if(selection)
 		var/sound/S = sound(selection.song_path)
 		S.repeat = 1
-		S.channel = CHANNEL_JUKEBOX
+		S.channel = CHANNEL_CUSTOM_JUKEBOX
 		S.falloff = 2
 		//S.environment = 0
 		S.wait = 0
@@ -245,7 +245,7 @@
 
 	for(var/mob/M)
 		M.jukebox_music = null
-		M.stop_sound_channel(CHANNEL_JUKEBOX)
+		M.stop_sound_channel(CHANNEL_CUSTOM_JUKEBOX)
 
 	playsound(src,'sound/machines/terminal_off.ogg',50,1)
 	update_icon()

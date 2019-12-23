@@ -55,7 +55,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	if(fexists("[TTS_PATH]/lines/announcer.ogg"))
 		var/mob/M = target
 		var/turf/T = get_turf(target)
-		M.playsound_local(T, "[TTS_PATH]/lines/announcer.ogg", 100, channel = open_sound_channel(), frequency = 1)
+		M.playsound_local(T, "[TTS_PATH]/lines/announcer.ogg", 70, channel = CHANNEL_TTS_ANNOUNCER, frequency = 1)
 	return
 
 /atom/movable
