@@ -22,7 +22,7 @@
 	name = "СОБР"
 
 	uniform = /obj/item/clothing/under/rank/sobr
-	suit = /obj/item/clothing/suit/armor/vest/wzzzz/german/mercwebvest
+	suit = /obj/item/clothing/suit/armor/bulletproof/omon
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/fingerless
 	ears = /obj/item/radio/headset/headset_cent
@@ -48,7 +48,7 @@
 	name = "Лидер СОБР"
 
 	uniform = /obj/item/clothing/under/rank/sobr
-	suit = /obj/item/clothing/suit/armor/vest/wzzzz/german/mercwebvest
+	suit = /obj/item/clothing/suit/armor/bulletproof/omon
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/fingerless
 	ears = /obj/item/radio/headset/headset_cent
