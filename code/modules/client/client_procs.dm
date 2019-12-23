@@ -954,7 +954,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	char_render_holders = null
 
 /client/proc/get_current_sounds()
-	return dd_list2text(SoundQuery(), "<br>")
+	return list2params(SoundQuery(), "<br>")
 
 /client/proc/give_award(achievement_type, mob/user)
 	return	player_details.achievements.unlock(achievement_type, user)
