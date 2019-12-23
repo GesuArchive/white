@@ -16,6 +16,10 @@
 	icon_state = "omon-2"
 	item_state = "g_suit"
 
+/obj/item/clothing/under/rank/sobr
+	icon_state = "telnyashka"
+	item_state = "telnyashka"
+
 /obj/item/clothing/suit/armor/riot/omon
 	name = "omon riot suit"
 	desc = "Designed for effective extermination."
