@@ -32,8 +32,8 @@
 	data["self_paid"] = self_paid
 	data["docked"] = SSshuttle.trader_supply.mode == SHUTTLE_IDLE
 	var/message = "Remember to stamp and send back the supply manifests."
-	if(SSshuttle.centcom_message)
-		message = SSshuttle.centcom_message
+	if(SSshuttle.trader_centcom_message)
+		message = SSshuttle.trader_centcom_message
 	if(SSshuttle.supplyBlocked)
 		message = blockade_warning
 	data["message"] = message
@@ -203,12 +203,14 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 /datum/map_template/shuttle/trader_transport
-	suffix = "trader_transport"
+	port_id = "trader"
+	suffix = "transport"
 	name = "Trader Transport Shuttle"
 	can_be_bought = FALSE
 
 /datum/map_template/shuttle/trader_supply
-	suffix = "trader_supply"
+	port_id = "trader"
+	suffix = "supply"
 	name = "Trader Supply Shuttle"
 	can_be_bought = FALSE
 
@@ -360,5 +362,5 @@
 		msg += export_text + "\n"
 		D.adjust_money(ex.total_value[E])
 
-	SSshuttle.centcom_message = msg
-	investigate_log("Shuttle contents sold for [D.account_balance - presale_points] credits. Contents: [ex.exported_atoms ? ex.exported_atoms.Join(",") + "." : "none."] Message: [SSshuttle.centcom_message || "none."]", INVESTIGATE_CARGO)
+	SSshuttle.trader_centcom_message = msg
+	investigate_log("Shuttle contents sold for [D.account_balance - presale_points] credits. Contents: [ex.exported_atoms ? ex.exported_atoms.Join(",") + "." : "none."] Message: [SSshuttle.trader_centcom_message || "none."]", INVESTIGATE_CARGO)

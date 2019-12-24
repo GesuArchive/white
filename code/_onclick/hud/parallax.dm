@@ -309,13 +309,6 @@
 	speed = 3
 	layer = 5
 
-/obj/screen/parallax_layer/random/update_status(mob/M)
-	var/turf/T = get_turf(M)
-	if(is_centcom_level(T.z))
-		invisibility = INVISIBILITY_ABSTRACT
-	else
-		invisibility = 0
-
 /obj/screen/parallax_layer/random/space_gas
 	icon_state = "space_gas"
 

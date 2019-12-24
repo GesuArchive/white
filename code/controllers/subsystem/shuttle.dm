@@ -41,6 +41,7 @@ SUBSYSTEM_DEF(shuttle)
 	var/obj/docking_port/mobile/supply/trader/trader_supply
 	var/trader_ordernum = 1					//order number given to next order
 	var/trader_points = 5000					//number of trade-points we have
+	var/trader_centcom_message = ""			//Remarks from CentCom on how well you checked the last order.
 	var/list/trader_shoppinglist = list()
 	var/list/trader_orderhistory = list()
 	var/list/trader_requestlist = list()
