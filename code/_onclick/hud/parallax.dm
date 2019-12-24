@@ -306,7 +306,7 @@
 /obj/screen/parallax_layer/random
 	blend_mode = BLEND_OVERLAY
 	speed = 3
-	layer = 3
+	layer = 5
 
 /obj/screen/parallax_layer/random/space_gas
 	icon_state = "space_gas"
@@ -322,8 +322,8 @@
 	icon_state = "planet"
 	blend_mode = BLEND_OVERLAY
 	absolute = TRUE //Status of seperation
-	speed = 3
-	layer = 30
+	speed = 2.5
+	layer = 4
 
 /obj/screen/parallax_layer/planet/update_status(mob/M)
 	var/turf/T = get_turf(M)
@@ -338,9 +338,7 @@
 	. = ..()
 
 /obj/screen/parallax_layer/planet/nebula
-	speed = 3
 	icon_state = "nebula"
 
 /obj/screen/parallax_layer/planet/high_definition
-	speed = 3
 	icon_state = "planet_new"
