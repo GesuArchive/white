@@ -26,6 +26,7 @@
 		if(SSparallax.random_layer)
 			C.parallax_layers_cached += new SSparallax.random_layer
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_3(null, C.view)
+		C.parallax_layers_cached += new /obj/screen/parallax_layer/ice_surface(null, C.view)
 
 	C.parallax_layers = C.parallax_layers_cached.Copy()
 
@@ -308,6 +309,13 @@
 	speed = 3
 	layer = 5
 
+/obj/screen/parallax_layer/random/update_status(mob/M)
+	var/turf/T = get_turf(M)
+	if(is_centcom_level(T.z))
+		invisibility = INVISIBILITY_ABSTRACT
+	else
+		invisibility = 0
+
 /obj/screen/parallax_layer/random/space_gas
 	icon_state = "space_gas"
 
@@ -342,3 +350,16 @@
 
 /obj/screen/parallax_layer/planet/high_definition
 	icon_state = "planet_new"
+
+/obj/screen/parallax_layer/ice_surface
+	icon_state = "ice_surface"
+	blend_mode = BLEND_OVERLAY
+	speed = 0
+	layer = 2
+
+/obj/screen/parallax_layer/ice_surface/update_status(mob/M)
+	var/turf/T = get_turf(M)
+	if(is_centcom_level(T.z))
+		invisibility = 0
+	else
+		invisibility = INVISIBILITY_ABSTRACT
