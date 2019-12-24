@@ -21,7 +21,7 @@
 		C.parallax_layers_cached = list()
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_1(null, C.view)
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_2(null, C.view)
-		C.parallax_layers_cached += new /obj/screen/parallax_layer/planet/nebula(null, C.view)
+		C.parallax_layers_cached += new SSparallax.random_planet(null, C.view)
 		//C.parallax_layers_cached += new /obj/screen/parallax_layer/planet(null, C.view)
 		if(SSparallax.random_layer)
 			C.parallax_layers_cached += new SSparallax.random_layer
@@ -289,7 +289,8 @@
 
 /obj/screen/parallax_layer/layer_1
 	icon_state = "layer1"
-	speed = 0.6
+	speed = 0
+	absolute = TRUE
 	layer = 1
 
 /obj/screen/parallax_layer/layer_2
@@ -332,10 +333,14 @@
 		invisibility = INVISIBILITY_ABSTRACT
 
 /obj/screen/parallax_layer/planet/update_o()
-	if (icon_state == "planet")
+	if (icon_state == "planet" || icon_state == "planet_new")
 		return //Shit wont move
 	. = ..()
 
 /obj/screen/parallax_layer/planet/nebula
 	speed = 3
 	icon_state = "nebula"
+
+/obj/screen/parallax_layer/planet/high_definition
+	speed = 3
+	icon_state = "planet_new"

@@ -9,10 +9,12 @@ SUBSYSTEM_DEF(parallax)
 	var/planet_y_offset = 128
 	var/random_layer
 	var/random_parallax_color
+	var/random_planet
 
 //These are cached per client so needs to be done asap so people joining at roundstart do not miss these.
 /datum/controller/subsystem/parallax/PreInit()
 	. = ..()
+	random_planet = pick(/obj/screen/parallax_layer/planet/high_definition, /obj/screen/parallax_layer/planet/nebula)
 	if(prob(70))	//70% chance to pick a special extra layer
 		random_layer = pick(/obj/screen/parallax_layer/random/space_gas, /obj/screen/parallax_layer/random/asteroids)
 		random_parallax_color = pick(COLOR_TEAL, COLOR_GREEN, COLOR_SILVER, COLOR_YELLOW, COLOR_CYAN, COLOR_ORANGE, COLOR_PURPLE)//Special color for random_layer1. Has to be done here so everyone sees the same color.
