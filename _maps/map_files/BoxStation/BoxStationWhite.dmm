@@ -7,7 +7,9 @@
 /turf/template_noop,
 /area/template_noop)
 "aac" = (
-/obj/machinery/vending/terminal,
+/obj/item/radio/intercom{
+	pixel_y = -29
+	},
 /turf/open/floor/wood,
 /area/vacant_room/office)
 "aad" = (
@@ -896,12 +898,48 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "acn" = (
-/obj/item/radio/intercom{
-	pixel_y = -29
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/machinery/vending/custom/unbreakable,
-/turf/open/floor/wood,
-/area/vacant_room/office)
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/machinery/computer/shuttle/ferry/request/trader{
+	icon_state = "computer";
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/hallway/secondary/entry)
+"aco" = (
+/obj/docking_port/stationary{
+	dir = 8;
+	dwidth = 2;
+	height = 5;
+	id = "trader_transport_station";
+	json_key = null;
+	name = "Trader Transport Station";
+	width = 5
+	},
+/turf/open/space/basic,
+/area/space)
+"acp" = (
+/obj/machinery/door/airlock/external{
+	name = "Port Docking Bay 4"
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/hallway/secondary/entry)
+"acq" = (
+/obj/machinery/door/airlock/external{
+	name = "Port Docking Bay 4"
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/hallway/secondary/entry)
 "acV" = (
 /obj/machinery/power/solar{
 	id = "auxsolareast";
@@ -14209,12 +14247,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/carpet,
 /area/chapel/main)
-"aZi" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/turf/open/floor/plasteel/white,
-/area/science/research)
 "aZj" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -19105,36 +19137,16 @@
 /obj/item/retractor,
 /turf/open/floor/plasteel/dark,
 /area/science/robotics/lab)
-"boM" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/turf/open/floor/plasteel/white,
-/area/science/research)
 "boN" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/office)
-"boO" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/turf/open/floor/plasteel/white,
-/area/science/research)
 "boP" = (
 /obj/machinery/atmospherics/pipe/manifold4w/green/visible,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
-"boQ" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/turf/open/floor/plasteel/white,
-/area/science/research)
 "boR" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -19487,12 +19499,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/science/robotics/lab)
-"bpZ" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/turf/open/floor/plasteel/white,
-/area/science/research)
 "bqa" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -20725,15 +20731,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
-"btW" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/turf/open/floor/plasteel/white,
-/area/science/research)
 "btX" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -28294,12 +28291,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/security/checkpoint/engineering)
-"bQf" = (
-/obj/effect/turf_decal/tile/yellow{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/hallway/primary/aft)
 "bQg" = (
 /turf/open/floor/plasteel,
 /area/hallway/primary/aft)
@@ -30199,13 +30190,6 @@
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/science/xenobiology)
-"bWo" = (
-/obj/machinery/door/firedoor/heavy,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/turf/open/floor/plasteel/white,
-/area/science/research)
 "bWt" = (
 /obj/structure/chair/office{
 	dir = 8
@@ -49080,7 +49064,7 @@ aaa
 aaa
 aaa
 aaa
-gXs
+aaa
 aaa
 aaa
 aaa
@@ -49337,9 +49321,9 @@ aaa
 aaa
 aaa
 aaa
-gXs
 aaa
 aaa
+aco
 aaa
 aaa
 gXs
@@ -49595,9 +49579,9 @@ aaa
 aaa
 aaa
 gXs
-aaa
-aaa
-aaa
+arB
+acp
+arB
 gXs
 gXs
 aaa
@@ -49852,9 +49836,9 @@ aaa
 aaa
 aaa
 gXs
-aaa
-gXs
-aaa
+awW
+ayl
+arB
 aAC
 gXs
 aaa
@@ -50109,9 +50093,9 @@ aaa
 aaa
 aaa
 arB
-awW
-awW
-asE
+arB
+acq
+arB
 arB
 gXs
 aaa
@@ -50366,7 +50350,7 @@ aaa
 aaa
 aaa
 arB
-awY
+acn
 ayk
 awW
 aAD
@@ -54733,7 +54717,7 @@ aUQ
 aUA
 aWr
 aXZ
-aac
+aUO
 czK
 bbe
 beO
@@ -55247,7 +55231,7 @@ aUQ
 aUW
 aXL
 aXZ
-acn
+aac
 czK
 bbe
 beO

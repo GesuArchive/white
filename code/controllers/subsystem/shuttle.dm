@@ -37,6 +37,14 @@ SUBSYSTEM_DEF(shuttle)
 	var/centcom_message = ""			//Remarks from CentCom on how well you checked the last order.
 	var/list/discoveredPlants = list()	//Typepaths for unusual plants we've already sent CentCom, associated with their potencies
 
+		//trader
+	var/obj/docking_port/mobile/supply/trader/trader_supply
+	var/trader_ordernum = 1					//order number given to next order
+	var/trader_points = 5000					//number of trade-points we have
+	var/list/trader_shoppinglist = list()
+	var/list/trader_orderhistory = list()
+	var/list/trader_requestlist = list()
+
 	var/list/supply_packs = list()
 	var/list/shoppinglist = list()
 	var/list/requestlist = list()
@@ -548,9 +556,11 @@ SUBSYSTEM_DEF(shuttle)
 		shuttle_purchase_requirements_met = SSshuttle.shuttle_purchase_requirements_met
 
 	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
+	var/datum/bank_account/DT = SSeconomy.get_dep_account(ACCOUNT_TRA)
 	centcom_message = SSshuttle.centcom_message
 	ordernum = SSshuttle.ordernum
 	points = D.account_balance
+	trader_points = DT.account_balance
 	emergencyNoEscape = SSshuttle.emergencyNoEscape
 	emergencyCallAmount = SSshuttle.emergencyCallAmount
 	shuttle_purchased = SSshuttle.shuttle_purchased
