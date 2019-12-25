@@ -130,7 +130,8 @@
 	if(shoppinglist.len)
 		return
 	var/list/empty_turfs = list()
-	for(var/turf/open/floor/T in get_area_turfs("/area/trading_outpost/transfer"))
+	var/area/trading_outpost/transfer/AR
+	for(var/turf/open/floor/T in AR)
 		if(is_blocked_turf(T))
 			continue
 		empty_turfs += T
@@ -182,8 +183,8 @@
 	var/msg = ""
 
 	var/datum/export_report/ex = new
-
-	for(var/atom/movable/AM in get_area_turfs("/area/trading_outpost/transfer"))
+	var/area/trading_outpost/transfer/AR
+	for(var/atom/movable/AM in AR)
 		if(iscameramob(AM))
 			continue
 		if(!AM.anchored || istype(AM, /obj/mecha))
