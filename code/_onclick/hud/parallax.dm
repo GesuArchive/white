@@ -348,7 +348,7 @@
 	icon_state = "ice_surface"
 	blend_mode = BLEND_OVERLAY
 	speed = 0
-	layer = 2
+	layer = 5
 
 /obj/screen/parallax_layer/ice_surface/update_status(mob/M)
 	var/turf/T = get_turf(M)
