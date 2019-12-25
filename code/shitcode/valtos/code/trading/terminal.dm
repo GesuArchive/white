@@ -107,7 +107,7 @@
 				price_listed = "$[R.custom_price]"
 			dat += {"<tr><td><img src='data:image/jpeg;base64,[GetIconForProduct(R)]'/></td>
 							<td style=\"width: 100%\"><b>[sanitize(R.name)]  ([price_listed])</b></td>"}
-			if(R.amount > 0 && ((C && C.registered_account && onstation && account.account_balance > R.custom_price) || (!onstation && isliving(user))))
+			if(R.amount > 0 && ((C && C.registered_account && onstation && account.account_balance > R.custom_price)))
 				dat += "<td align='right'><b>[R.amount]&nbsp;</b><a href='byond://?src=[REF(src)];vend=[REF(R)]'>Купить</a></td>"
 			else
 				dat += "<td align='right'><span class='linkOff'>Недоступно</span></td>"
