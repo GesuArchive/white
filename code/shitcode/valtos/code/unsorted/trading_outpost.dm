@@ -130,7 +130,7 @@
 	if(shoppinglist.len)
 		return
 	var/list/empty_turfs = list()
-	for(var/turf/open/floor/T in get_area_turfs(/area/trading_outpost/transfer))
+	for(var/turf/open/floor/T in get_area_turfs("/area/trading_outpost/transfer"))
 		if(is_blocked_turf(T))
 			continue
 		empty_turfs += T
@@ -183,7 +183,7 @@
 
 	var/datum/export_report/ex = new
 
-	for(var/atom/movable/AM in get_area_turfs(/area/trading_outpost/transfer))
+	for(var/atom/movable/AM in get_area_turfs("/area/trading_outpost/transfer"))
 		if(iscameramob(AM))
 			continue
 		if(!AM.anchored || istype(AM, /obj/mecha))
@@ -199,6 +199,8 @@
 
 		msg += export_text + "\n"
 		D.adjust_money(ex.total_value[E])
+
+	say("Проданы товары на сумму [D.account_balance - presale_points].")
 
 	investigate_log("Contents sold for [D.account_balance - presale_points] credits. Contents: [ex.exported_atoms ? ex.exported_atoms.Join(",") + "." : "none."]", INVESTIGATE_CARGO)
 
