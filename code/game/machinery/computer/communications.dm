@@ -312,10 +312,10 @@
 				var/input = stripped_input(usr, "Назовите причину по которой вы собираетесь вызвать специальный отряд быстрого реагирования на станцию.", "Запрос СОБРа.","")
 				if(!input || !(usr in view(1,src)) || !checkCCcooldown())
 					return
-				sobr_request(input, usr)
 				to_chat(usr, "<span class='notice'>Запрос отправлен.</span>")
 				usr.log_message("has requested the nuclear codes from CentCom with reason \"[input]\"", LOG_SAY)
 				priority_announce("Отряд СОБРа был вызван [usr].", "Экстренный запрос",'sound/ai/commandreport.ogg')
+				sobr_request(input, usr)
 				CM.lastTimeUsed = world.time
 
 		if("RestoreBackup")
