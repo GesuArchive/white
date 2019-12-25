@@ -92,6 +92,7 @@
 	var/obj/item/card/id/ID = usr.get_idcard(TRUE)
 	if(ID && istype(ID))
 		if(!check_access(ID))
+			say("Нет доступа.")
 			return
 	switch(action)
 		if("buy")
@@ -176,6 +177,9 @@
 		SO.generateCombo(miscboxes[I], I, misc_contents[I])
 		qdel(SO)
 	var/datum/bank_account/trader_budget = SSeconomy.get_dep_account(ACCOUNT_TRA)
+
+	say("Куплено [purchases] товаров на сумму [D.account_balance - presale_points].")
+
 	investigate_log("[purchases] orders in this shipment, worth [value] credits. [trader_budget.account_balance] credits left.", INVESTIGATE_CARGO)
 
 /obj/machinery/trading_beacon/proc/sell_items()
