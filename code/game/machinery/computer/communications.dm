@@ -315,8 +315,8 @@
 				to_chat(usr, "<span class='notice'>Запрос отправлен.</span>")
 				usr.log_message("has requested the nuclear codes from CentCom with reason \"[input]\"", LOG_SAY)
 				priority_announce("Отряд СОБРа был вызван [usr].", "Экстренный запрос",'sound/ai/commandreport.ogg')
-				sobr_request(input, usr)
 				CM.lastTimeUsed = world.time
+				sobr_request(input, usr)
 
 		if("RestoreBackup")
 			to_chat(usr, "<span class='notice'>Backup routing data restored!</span>")
