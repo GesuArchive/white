@@ -23,7 +23,7 @@
 	density = TRUE
 	var/list/shoppinglist = list()
 	var/list/supply_packs = list()
-	var/t_a = var/area/trading_outpost/transfer
+	var/t_a = /area/trading_outpost/transfer
 	ui_x = 780
 	ui_y = 750
 	flags_1 = NODECONSTRUCT_1
