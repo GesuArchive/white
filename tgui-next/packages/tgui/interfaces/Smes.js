@@ -28,7 +28,7 @@ export const Smes = props => {
 
   return (
     <Fragment>
-      <Section title="Stored Energy">
+      <Section title="Накоплено энергии">
         <ProgressBar
           value={data.capacityPercent * 0.01}
           ranges={{
@@ -37,32 +37,32 @@ export const Smes = props => {
             bad: [-Infinity, 0.15],
           }} />
       </Section>
-      <Section title="Input">
+      <Section title="Вход">
         <LabeledList>
           <LabeledList.Item
-            label="Charge Mode"
+            label="Режим зарядки"
             buttons={
               <Button
                 icon={data.inputAttempt ? 'sync-alt' : 'times'}
                 selected={data.inputAttempt}
                 onClick={() => act('tryinput')}>
-                {data.inputAttempt ? 'Auto' : 'Off'}
+                {data.inputAttempt ? 'Авто' : 'Выкл'}
               </Button>
             }>
             <Box color={inputState}>
               {data.capacityPercent >= 100
-                ? 'Fully Charged'
+                ? 'Полностью заряжено'
                 : data.inputting
-                  ? 'Charging'
-                  : 'Not Charging'}
+                  ? 'Зарядка'
+                  : 'Не заряжается'}
             </Box>
           </LabeledList.Item>
-          <LabeledList.Item label="Target Input">
+          <LabeledList.Item label="Целевой вход">
             <ProgressBar
               value={data.inputLevel/data.inputLevelMax}
               content={data.inputLevel_text} />
           </LabeledList.Item>
-          <LabeledList.Item label="Adjust Input">
+          <LabeledList.Item label="Настроить вход">
             <Button
               icon="fast-backward"
               disabled={data.inputLevel === 0}
@@ -88,37 +88,37 @@ export const Smes = props => {
                 target: 'max',
               })} />
           </LabeledList.Item>
-          <LabeledList.Item label="Available">
+          <LabeledList.Item label="Доступно">
             {data.inputAvailable}
           </LabeledList.Item>
         </LabeledList>
       </Section>
-      <Section title="Output">
+      <Section title="Выход">
         <LabeledList>
           <LabeledList.Item
-            label="Output Mode"
+            label="Режим выхода"
             buttons={
               <Button
                 icon={data.outputAttempt ? 'power-off' : 'times'}
                 selected={data.outputAttempt}
                 onClick={() => act('tryoutput')}>
-                {data.outputAttempt ? 'On' : 'Off'}
+                {data.outputAttempt ? 'Вкл' : 'Выкл'}
               </Button>
             }>
             <Box color={outputState}>
               {data.outputting
-                ? 'Sending'
+                ? 'Отправляется'
                 : data.charge > 0
-                  ? 'Not Sending'
-                  : 'No Charge'}
+                  ? 'Не отправляется'
+                  : 'Нет заряда'}
             </Box>
           </LabeledList.Item>
-          <LabeledList.Item label="Target Output">
+          <LabeledList.Item label="Целевой выход">
             <ProgressBar
               value={data.outputLevel/data.outputLevelMax}
               content={data.outputLevel_text} />
           </LabeledList.Item>
-          <LabeledList.Item label="Adjust Output">
+          <LabeledList.Item label="Настроить выход">
             <Button
               icon="fast-backward"
               disabled={data.outputLevel === 0}
@@ -144,7 +144,7 @@ export const Smes = props => {
                 target: 'max',
               })} />
           </LabeledList.Item>
-          <LabeledList.Item label="Outputting">
+          <LabeledList.Item label="Выход">
             {data.outputUsed}
           </LabeledList.Item>
         </LabeledList>

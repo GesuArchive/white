@@ -19,17 +19,17 @@ export const PortableGenerator = props => {
       {!data.anchored && (
         <NoticeBox>Generator not anchored.</NoticeBox>
       )}
-      <Section title="Status">
+      <Section title="Состояние">
         <LabeledList>
-          <LabeledList.Item label="Power switch">
+          <LabeledList.Item label="Переключатель питания">
             <Button
               icon={data.active ? 'power-off' : 'times'}
               onClick={() => act('toggle_power')}
               disabled={!data.ready_to_boot}>
-              {data.active ? 'On' : 'Off'}
+              {data.active ? 'Вкл' : 'Выкл'}
             </Button>
           </LabeledList.Item>
-          <LabeledList.Item label={data.sheet_name + ' sheets'}>
+          <LabeledList.Item label={data.sheet_name + ' листов'}>
             <Box inline color={stackPercentState}>{data.sheets}</Box>
             {(data.sheets >= 1) && (
               <Button
@@ -41,7 +41,7 @@ export const PortableGenerator = props => {
               </Button>
             )}
           </LabeledList.Item>
-          <LabeledList.Item label="Current sheet level">
+          <LabeledList.Item label="Текущий уровень листа">
             <ProgressBar
               value={data.stack_percent / 100}
               ranges={{
@@ -50,25 +50,25 @@ export const PortableGenerator = props => {
                 bad: [-Infinity, 0.01],
               }} />
           </LabeledList.Item>
-          <LabeledList.Item label="Heat level">
+          <LabeledList.Item label="Нагрев">
             {data.current_heat < 100 ? (
-              <Box inline color="good">Nominal</Box>
+              <Box inline color="good">Стабильный</Box>
             ) : (
               data.current_heat < 200 ? (
-                <Box inline color="average">Caution</Box>
+                <Box inline color="average">Нестабильный</Box>
               ) : (
-                <Box inline color="bad">DANGER</Box>
+                <Box inline color="bad">ОПАСНО</Box>
               )
             )}
           </LabeledList.Item>
         </LabeledList>
       </Section>
-      <Section title="Output">
+      <Section title="Вывод">
         <LabeledList>
-          <LabeledList.Item label="Current output">
+          <LabeledList.Item label="Текущий вывод">
             {data.power_output}
           </LabeledList.Item>
-          <LabeledList.Item label="Adjust output">
+          <LabeledList.Item label="Настроить вывод">
             <Button
               icon="minus"
               onClick={() => act('lower_power')}>
@@ -80,9 +80,9 @@ export const PortableGenerator = props => {
               {data.power_generated}
             </Button>
           </LabeledList.Item>
-          <LabeledList.Item label="Power available">
+          <LabeledList.Item label="Энергии доступно">
             <Box inline color={!data.connected && 'bad'}>
-              {data.connected ? data.power_available : "Unconnected"}
+              {data.connected ? data.power_available : "Не подключено"}
             </Box>
           </LabeledList.Item>
         </LabeledList>

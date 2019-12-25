@@ -6,16 +6,16 @@ export const BeakerContents = props => {
     <Box>
       {!beakerLoaded && (
         <Box color="label">
-          No beaker loaded.
+          Нет пробирки.
         </Box>
       ) || beakerContents.length === 0 && (
         <Box color="label">
-          Beaker is empty.
+          Пробирка пуста.
         </Box>
       )}
       {beakerContents.map(chemical => (
         <Box key={chemical.name} color="label">
-          {chemical.volume} units of {chemical.name}
+          {chemical.volume} единиц {chemical.name}
         </Box>
       ))}
     </Box>

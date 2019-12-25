@@ -19,30 +19,30 @@ export const SuitStorageUnit = props => {
     <Fragment>
       {!!(occupied && safeties) && (
         <NoticeBox>
-          Biological entity detected in suit chamber. Please remove
-          before continuing with operation.
+          Биологический объект обнаружен в камере костюма. Пожалуйста, удалите
+          прежде чем продолжить работу.
         </NoticeBox>
       )}
       {uv_active && (
         <NoticeBox>
-          Contents are currently being decontaminated. Please wait.
+          Содержимое в настоящее время дезактивируется. Пожалуйста, подождите.
         </NoticeBox>
       ) || (
         <Section
-          title="Storage"
+          title="Хранилище"
           minHeight="260px"
           buttons={(
             <Fragment>
               {!open && (
                 <Button
                   icon={locked ? 'unlock' : 'lock'}
-                  content={locked ? 'Unlock' : 'Lock'}
+                  content={locked ? 'Разблокировать' : 'Заблокировать'}
                   onClick={() => act('lock')} />
               )}
               {!locked && (
                 <Button
                   icon={open ? 'sign-out-alt' : 'sign-in-alt'}
-                  content={open ? 'Close' : 'Open'}
+                  content={open ? 'Закрыть' : 'Открыть'}
                   onClick={() => act('door')} />
               )}
             </Fragment>
@@ -58,37 +58,37 @@ export const SuitStorageUnit = props => {
             </Box>
           ) || open && (
             <LabeledList>
-              <LabeledList.Item label="Helmet">
+              <LabeledList.Item label="Шлем">
                 <Button
                   icon={helmet ? 'square' : 'square-o'}
-                  content={helmet || 'Empty'}
+                  content={helmet || 'Пусто'}
                   disabled={!helmet}
                   onClick={() => act('dispense', {
                     item: 'helmet',
                   })} />
               </LabeledList.Item>
-              <LabeledList.Item label="Suit">
+              <LabeledList.Item label="Костюм">
                 <Button
                   icon={suit ? 'square' : 'square-o'}
-                  content={suit || 'Empty'}
+                  content={suit || 'Пусто'}
                   disabled={!suit}
                   onClick={() => act('dispense', {
                     item: 'suit',
                   })} />
               </LabeledList.Item>
-              <LabeledList.Item label="Mask">
+              <LabeledList.Item label="Маска">
                 <Button
                   icon={mask ? 'square' : 'square-o'}
-                  content={mask || 'Empty'}
+                  content={mask || 'Пусто'}
                   disabled={!mask}
                   onClick={() => act('dispense', {
                     item: 'mask',
                   })} />
               </LabeledList.Item>
-              <LabeledList.Item label="Storage">
+              <LabeledList.Item label="Хранилище">
                 <Button
                   icon={storage ? 'square' : 'square-o'}
-                  content={storage || 'Empty'}
+                  content={storage || 'Пусто'}
                   disabled={!storage}
                   onClick={() => act('dispense', {
                     item: 'storage',
@@ -99,7 +99,7 @@ export const SuitStorageUnit = props => {
             <Button
               fluid
               icon="recycle"
-              content="Decontaminate"
+              content="Дезинфекция"
               disabled={occupied && safeties}
               textAlign="center"
               onClick={() => act('uv')} />

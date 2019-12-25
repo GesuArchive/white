@@ -16,12 +16,12 @@ export const SmokeMachine = props => {
   } = data;
   return (
     <Fragment>
-      <Section title="Dispersal Tank"
+      <Section title="Рассеивание"
         buttons={(
           <Button
             icon={active ? 'power-off' : 'times'}
             selected={active}
-            content={active ? 'On' : 'Off'}
+            content={active ? 'Вкл' : 'Выкл'}
             onClick={() => act('power')} />
         )}>
         <ProgressBar
@@ -34,7 +34,7 @@ export const SmokeMachine = props => {
         </ProgressBar>
         <Box mt={1}>
           <LabeledList>
-            <LabeledList.Item label="Range">
+            <LabeledList.Item label="Радиус">
               { [1, 2, 3, 4, 5].map(amount => (
                 <Button key={amount}
                   selected={setting === amount}
@@ -47,11 +47,11 @@ export const SmokeMachine = props => {
           </LabeledList>
         </Box>
       </Section>
-      <Section title="Contents"
+      <Section title="Содержимое"
         buttons={(
           <Button
             icon="trash"
-            content="Purge"
+            content="Очистить"
             onClick={() => act('purge')} />
         )}>
         {TankContents.map(chemical => (
@@ -62,7 +62,7 @@ export const SmokeMachine = props => {
               initial={0}
               value={chemical.volume} />
             {' '}
-            units of {chemical.name}
+            единиц {chemical.name}
           </Box>
         ))}
       </Section>

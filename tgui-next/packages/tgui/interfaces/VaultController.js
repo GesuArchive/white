@@ -6,16 +6,16 @@ export const VaultController = props => {
   const { act, data } = useBackend(props);
   return (
     <Section
-      title="Lock Status: "
+      title="Состояние блокировки: "
       buttons={(
         <Button
-          content={data.doorstatus ? 'Locked' : 'Unlocked'}
+          content={data.doorstatus ? 'Заблокировано' : 'Разблокировано'}
           icon={data.doorstatus ? 'lock' : 'unlock'}
           disabled={data.stored < data.max}
           onClick={() => act('togglelock')} />
       )}>
       <LabeledList>
-        <LabeledList.Item label="Charge">
+        <LabeledList.Item label="Заряд">
           <ProgressBar
             value={data.stored / data.max}
             content={toFixed(data.stored/1000)

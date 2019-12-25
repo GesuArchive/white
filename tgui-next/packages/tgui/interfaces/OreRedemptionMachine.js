@@ -114,7 +114,7 @@ class MaterialRow extends Component {
         </Table.Cell>
         <Table.Cell collapsing textAlign="right">
           <Box mr={2} color="label" inline>
-            {material.value && material.value + ' cr'}
+            {material.value && material.value + ' кр'}
           </Box>
         </Table.Cell>
         <Table.Cell collapsing textAlign="right">

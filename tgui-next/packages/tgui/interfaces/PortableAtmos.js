@@ -16,50 +16,50 @@ export const PortableBasicInfo = props => {
   return (
     <Fragment>
       <Section
-        title="Status"
+        title="Состояние"
         buttons={(
           <Button
             icon={on ? 'power-off' : 'times'}
-            content={on ? 'On' : 'Off'}
+            content={on ? 'Вкл' : 'Выкл'}
             selected={on}
             onClick={() => act('power')} />
         )}>
         <LabeledList>
-          <LabeledList.Item label="Pressure">
+          <LabeledList.Item label="Давление">
             <AnimatedNumber value={pressure} />
-            {' kPa'}
+            {' кПа'}
           </LabeledList.Item>
           <LabeledList.Item
-            label="Port"
+            label="Порт"
             color={connected ? 'good' : 'average'}>
-            {connected ? 'Connected' : 'Not Connected'}
+            {connected ? 'Подключено' : 'Не подключено'}
           </LabeledList.Item>
         </LabeledList>
       </Section>
       <Section
-        title="Holding Tank"
+        title="Канистра"
         minHeight="82px"
         buttons={(
           <Button
             icon="eject"
-            content="Eject"
+            content="Изъять"
             disabled={!holding}
             onClick={() => act('eject')} />
         )}>
         {holding ? (
           <LabeledList>
-            <LabeledList.Item label="Label">
+            <LabeledList.Item label="Метка">
               {holding.name}
             </LabeledList.Item>
-            <LabeledList.Item label="Pressure">
+            <LabeledList.Item label="Давление">
               <AnimatedNumber
                 value={holding.pressure} />
-              {' kPa'}
+              {' кПа'}
             </LabeledList.Item>
           </LabeledList>
         ) : (
           <Box color="average">
-            No holding tank
+            Не обнаружено канистры
           </Box>
         )}
       </Section>
@@ -83,19 +83,19 @@ export const PortablePump = props => {
     <Fragment>
       <PortableBasicInfo state={props.state} />
       <Section
-        title="Pump"
+        title="Помпа"
         buttons={(
           <Button
             icon={direction ? 'sign-in-alt' : 'sign-out-alt'}
-            content={direction ? 'In' : 'Out'}
+            content={direction ? 'Вход' : 'Выход'}
             selected={direction}
             onClick={() => act('direction')} />
         )}>
         <LabeledList>
-          <LabeledList.Item label="Output">
+          <LabeledList.Item label="Выход">
             <NumberInput
               value={target_pressure}
-              unit="kPa"
+              unit="кПа"
               width="75px"
               minValue={min_pressure}
               maxValue={max_pressure}
@@ -104,7 +104,7 @@ export const PortablePump = props => {
                 pressure: value,
               })} />
           </LabeledList.Item>
-          <LabeledList.Item label="Presets">
+          <LabeledList.Item label="Шаблон">
             <Button
               icon="minus"
               disabled={target_pressure === min_pressure}
@@ -138,7 +138,7 @@ export const PortableScrubber = props => {
   return (
     <Fragment>
       <PortableBasicInfo state={props.state} />
-      <Section title="Filters">
+      <Section title="Фильтры">
         {filter_types.map(filter => (
           <Button
             key={filter.id}

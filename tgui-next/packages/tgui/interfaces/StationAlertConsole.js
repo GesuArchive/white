@@ -10,11 +10,11 @@ export const StationAlertConsole = props => {
   const power = categories['Power'] || [];
   return (
     <Fragment>
-      <Section title="Fire Alarms">
+      <Section title="Пожарные тревоги">
         <ul>
           {fire.length === 0 && (
             <li className="color-good">
-              Systems Nominal
+              Системы в норме
             </li>
           )}
           {fire.map(alert => (
@@ -24,11 +24,11 @@ export const StationAlertConsole = props => {
           ))}
         </ul>
       </Section>
-      <Section title="Atmospherics Alarms">
+      <Section title="Атмосферные тревоги">
         <ul>
           {atmos.length === 0 && (
             <li className="color-good">
-              Systems Nominal
+              Системы в норме
             </li>
           )}
           {atmos.map(alert => (
@@ -38,11 +38,11 @@ export const StationAlertConsole = props => {
           ))}
         </ul>
       </Section>
-      <Section title="Power Alarms">
+      <Section title="Энергетические тревоги">
         <ul>
           {power.length === 0 && (
             <li className="color-good">
-              Systems Nominal
+              Системы в норме
             </li>
           )}
           {power.map(alert => (

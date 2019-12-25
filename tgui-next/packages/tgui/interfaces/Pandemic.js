@@ -17,23 +17,23 @@ export const PandemicBeakerDisplay = props => {
 
   return (
     <Section
-      title="Beaker"
+      title="Пробирка"
       buttons={(
         <Fragment>
           <Button
             icon="times"
-            content="Empty and Eject"
+            content="Опустошить и извлечь"
             color="bad"
             disabled={cant_empty}
             onClick={() => act('empty_eject_beaker')} />
           <Button
             icon="trash"
-            content="Empty"
+            content="Опустошить"
             disabled={cant_empty}
             onClick={() => act('empty_beaker')} />
           <Button
             icon="eject"
-            content="Eject"
+            content="Извлечь"
             disabled={!has_beaker}
             onClick={() => act('eject_beaker')} />
         </Fragment>
@@ -42,26 +42,26 @@ export const PandemicBeakerDisplay = props => {
         !beaker_empty ? (
           has_blood ? (
             <LabeledList>
-              <LabeledList.Item label="Blood DNA">
-                {(blood && blood.dna) || 'Unknown'}
+              <LabeledList.Item label="ДНК крови">
+                {(blood && blood.dna) || 'Неизвестно'}
               </LabeledList.Item>
-              <LabeledList.Item label="Blood Type">
-                {(blood && blood.type) || 'Unknown'}
+              <LabeledList.Item label="Группа крови">
+                {(blood && blood.type) || 'Неизвестно'}
               </LabeledList.Item>
             </LabeledList>
           ) : (
             <Box color="bad">
-              No blood detected
+              Не обнаружено крови
             </Box>
           )
         ) : (
           <Box color="bad">
-            Beaker is empty
+            Пробирка пуста
           </Box>
         )
       ) : (
         <NoticeBox>
-          No beaker loaded
+          Нет пробирки
         </NoticeBox>
       )}
     </Section>
@@ -96,7 +96,7 @@ export const PandemicDiseaseDisplay = props => {
           buttons={(
             <Button
               icon="flask"
-              content="Create culture bottle"
+              content="Создать образец"
               disabled={!is_ready}
               onClick={() => act('create_culture_bottle', {
                 index: virus.index,
@@ -108,13 +108,13 @@ export const PandemicDiseaseDisplay = props => {
             </Grid.Column>
             <Grid.Column>
               <LabeledList>
-                <LabeledList.Item label="Agent">
+                <LabeledList.Item label="Представитель">
                   {virus.agent}
                 </LabeledList.Item>
-                <LabeledList.Item label="Spread">
+                <LabeledList.Item label="Распространение">
                   {virus.spread}
                 </LabeledList.Item>
-                <LabeledList.Item label="Possible Cure">
+                <LabeledList.Item label="Возможная вакцина">
                   {virus.cure}
                 </LabeledList.Item>
               </LabeledList>
@@ -123,25 +123,25 @@ export const PandemicDiseaseDisplay = props => {
           {!!virus.is_adv && (
             <Fragment>
               <Section
-                title="Statistics"
+                title="Статистика"
                 level={2} >
                 <Grid>
                   <Grid.Column>
                     <LabeledList>
-                      <LabeledList.Item label="Resistance">
+                      <LabeledList.Item label="Сопротивление">
                         {virus.resistance}
                       </LabeledList.Item>
-                      <LabeledList.Item label="Stealth">
+                      <LabeledList.Item label="Скрытность">
                         {virus.stealth}
                       </LabeledList.Item>
                     </LabeledList>
                   </Grid.Column>
                   <Grid.Column>
                     <LabeledList>
-                      <LabeledList.Item label="Stage speed">
+                      <LabeledList.Item label="Скорость">
                         {virus.stage_speed}
                       </LabeledList.Item>
-                      <LabeledList.Item label="Transmissibility">
+                      <LabeledList.Item label="Передача">
                         {virus.transmission}
                       </LabeledList.Item>
                     </LabeledList>
@@ -149,7 +149,7 @@ export const PandemicDiseaseDisplay = props => {
                 </Grid>
               </Section>
               <Section
-                title="Symptoms"
+                title="Симптомы"
                 level={2} >
                 {symptoms.map(symptom => (
                   <Collapsible
@@ -202,19 +202,19 @@ export const PandemicSymptomDisplay = props => {
         </Grid.Column>
         <Grid.Column>
           <LabeledList>
-            <LabeledList.Item label="Level">
+            <LabeledList.Item label="Уровень">
               {level}
             </LabeledList.Item>
-            <LabeledList.Item label="Resistance">
+            <LabeledList.Item label="Сопротивление">
               {resistance}
             </LabeledList.Item>
-            <LabeledList.Item label="Stealth">
+            <LabeledList.Item label="Скрытность">
               {stealth}
             </LabeledList.Item>
-            <LabeledList.Item label="Stage Speed">
+            <LabeledList.Item label="Скорость">
               {stage_speed}
             </LabeledList.Item>
-            <LabeledList.Item label="Transmission">
+            <LabeledList.Item label="Передача">
               {transmission}
             </LabeledList.Item>
           </LabeledList>
@@ -222,7 +222,7 @@ export const PandemicSymptomDisplay = props => {
       </Grid>
       {thresholds.length > 0 && (
         <Section
-          title="Thresholds"
+          title="Задержки"
           level={3} >
           <LabeledList>
             {thresholds.map(threshold => {
@@ -248,7 +248,7 @@ export const PandemicAntibodyDisplay = props => {
   const resistances = data.resistances || [];
 
   return (
-    <Section title="Antibodies">
+    <Section title="Антитела">
       {resistances.length > 0 ? (
         <LabeledList>
           {resistances.map(resistance => (
@@ -257,7 +257,7 @@ export const PandemicAntibodyDisplay = props => {
               label={resistance.name} >
               <Button
                 icon="eye-dropper"
-                content="Create vaccine bottle"
+                content="Создать вакцину"
                 disabled={!data.is_ready}
                 onClick={() => act('create_vaccine_bottle', {
                   index: resistance.id,

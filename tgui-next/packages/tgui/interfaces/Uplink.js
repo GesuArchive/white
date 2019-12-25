@@ -56,12 +56,12 @@ export class Uplink extends Component {
               mr={1} />
             <Button
               icon={compact_mode ? 'list' : 'info'}
-              content={compact_mode ? 'Compact' : 'Detailed'}
+              content={compact_mode ? 'Компактно' : 'Детально'}
               onClick={() => act(ref, 'compact_toggle')} />
             {!!lockable && (
               <Button
                 icon="lock"
-                content="Lock"
+                content="Блокировать"
                 onClick={() => act(ref, 'lock')} />
             )}
           </Fragment>

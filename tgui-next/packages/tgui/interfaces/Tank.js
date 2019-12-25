@@ -6,7 +6,7 @@ export const Tank = props => {
   return (
     <Section>
       <LabeledList>
-        <LabeledList.Item label="Pressure">
+        <LabeledList.Item label="Давление">
           <ProgressBar
             value={data.tankPressure / 1013}
             content={data.tankPressure + ' kPa'}
@@ -16,7 +16,7 @@ export const Tank = props => {
               bad: [-Infinity, 0.15],
             }} />
         </LabeledList.Item>
-        <LabeledList.Item label="Pressure Regulator">
+        <LabeledList.Item label="Регулятор давления">
           <Button
             icon="fast-backward"
             disabled={data.ReleasePressure === data.minReleasePressure}
@@ -27,7 +27,7 @@ export const Tank = props => {
             animated
             value={parseFloat(data.releasePressure)}
             width="65px"
-            unit="kPa"
+            unit="кПа"
             minValue={data.minReleasePressure}
             maxValue={data.maxReleasePressure}
             onChange={(e, value) => act('pressure', {
