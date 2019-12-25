@@ -128,7 +128,8 @@
 	if(!skip_windups)
 		for(var/thing in C.parallax_layers)
 			var/obj/screen/parallax_layer/L = thing
-
+			if(L.speed == 0)
+				continue
 			var/T = PARALLAX_LOOP_TIME / L.speed
 			if (isnull(shortesttimer))
 				shortesttimer = T
@@ -156,10 +157,11 @@
 	C.parallax_animate_timer = FALSE
 	for(var/thing in C.parallax_layers)
 		var/obj/screen/parallax_layer/L = thing
+		if(L.speed == 0)
+			continue
 		if (!new_parallax_movedir)
 			animate(L)
 			continue
-
 		var/newstate = initial(L.icon_state)
 		var/T = PARALLAX_LOOP_TIME / L.speed
 
