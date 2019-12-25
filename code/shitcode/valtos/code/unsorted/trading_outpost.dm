@@ -21,6 +21,7 @@
 	desc = "Служит для торговли с поселениями на планете."
 	icon_state = "wooden_tv"
 	density = TRUE
+	req_access = list(ACCESS_TRADER)
 	var/list/shoppinglist = list()
 	var/list/supply_packs = list()
 	ui_x = 780
@@ -88,6 +89,10 @@
 	if(issilicon(usr))
 		say("Единицам ИИ запрещено пользоваться торговыми сетями.")
 		return
+	var/obj/item/card/id/ID = usr.get_idcard(TRUE)
+	if(ID && istype(ID))
+		if(!check_access(ID))
+			return
 	switch(action)
 		if("buy")
 			buy_items()
@@ -212,7 +217,7 @@
 	circuit = /obj/item/circuitboard/computer/ferry
 	shuttleId = "trader_transport"
 	possible_destinations = "trader_transport_home;trader_transport_station"
-	req_access = list()
+	req_access = list(ACCESS_TRADER)
 	req_access_txt = "209"
 
 /obj/machinery/computer/shuttle/ferry/request/trader
@@ -220,7 +225,7 @@
 	circuit = /obj/item/circuitboard/computer/ferry/request
 	shuttleId = "trader_transport"
 	possible_destinations = "trader_transport_home;trader_transport_station"
-	req_access = list()
+	req_access = list(ACCESS_TRADER)
 	req_access_txt = "209"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
