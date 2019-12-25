@@ -23,6 +23,7 @@
 	density = TRUE
 	var/list/shoppinglist = list()
 	var/list/supply_packs = list()
+	var/t_a = var/area/trading_outpost/transfer
 	ui_x = 780
 	ui_y = 750
 	flags_1 = NODECONSTRUCT_1
@@ -130,8 +131,7 @@
 	if(shoppinglist.len)
 		return
 	var/list/empty_turfs = list()
-	var/area/trading_outpost/transfer/AR
-	for(var/turf/open/floor/T in AR)
+	for(var/turf/open/floor/T in get_area_turfs(pop(get_areas(t_a, FALSE))))
 		if(is_blocked_turf(T))
 			continue
 		empty_turfs += T
@@ -183,8 +183,7 @@
 	var/msg = ""
 
 	var/datum/export_report/ex = new
-	var/area/trading_outpost/transfer/AR
-	for(var/atom/movable/AM in AR)
+	for(var/atom/movable/AM in pop(get_areas(t_a, FALSE)))
 		if(iscameramob(AM))
 			continue
 		if(!AM.anchored || istype(AM, /obj/mecha))
