@@ -107,9 +107,11 @@
 			var/obj/screen/parallax_layer/L = thing
 			L.icon_state = initial(L.icon_state)
 			L.update_o(C.view)
-			if(L.speed == 0)
-				continue
-			var/T = PARALLAX_LOOP_TIME / L.speed
+			var/T
+			if(L.speed != 0)
+				T = PARALLAX_LOOP_TIME / L.speed
+			else
+				T = PARALLAX_LOOP_TIME
 			if (T > animate_time)
 				animate_time = T
 		C.dont_animate_parallax = world.time + min(animate_time, PARALLAX_LOOP_TIME)
@@ -130,9 +132,11 @@
 	if(!skip_windups)
 		for(var/thing in C.parallax_layers)
 			var/obj/screen/parallax_layer/L = thing
-			if(L.speed == 0)
-				continue
-			var/T = PARALLAX_LOOP_TIME / L.speed
+			var/T
+			if(L.speed != 0)
+				T = PARALLAX_LOOP_TIME / L.speed
+			else
+				T = PARALLAX_LOOP_TIME
 			if (isnull(shortesttimer))
 				shortesttimer = T
 			if (T < shortesttimer)
@@ -159,13 +163,15 @@
 	C.parallax_animate_timer = FALSE
 	for(var/thing in C.parallax_layers)
 		var/obj/screen/parallax_layer/L = thing
-		if(L.speed == 0)
-			continue
 		if (!new_parallax_movedir)
 			animate(L)
 			continue
 		var/newstate = initial(L.icon_state)
-		var/T = PARALLAX_LOOP_TIME / L.speed
+		var/T
+		if(L.speed != 0)
+			T = PARALLAX_LOOP_TIME / L.speed
+		else
+			T = PARALLAX_LOOP_TIME
 
 		if (newstate in icon_states(L.icon))
 			L.icon_state = newstate
