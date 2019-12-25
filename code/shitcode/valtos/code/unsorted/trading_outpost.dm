@@ -218,6 +218,7 @@
 /obj/machinery/computer/shuttle/ferry/request/trader
 	name = "trader transport console"
 	circuit = /obj/item/circuitboard/computer/ferry/request
+	shuttleId = "trader_transport"
 	possible_destinations = "trader_transport_home;trader_transport_station"
 	req_access = list()
 	req_access_txt = "209"
