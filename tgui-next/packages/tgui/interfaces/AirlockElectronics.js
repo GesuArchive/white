@@ -44,34 +44,34 @@ export const AirlockElectronics = props => {
 
   return (
     <Fragment>
-      <Section title="Main">
+      <Section title="Основное">
         <LabeledList>
           <LabeledList.Item
-            label="Access Required">
+            label="Требуемый доступ">
             <Button
               icon={data.oneAccess ? 'unlock' : 'lock'}
-              content={data.oneAccess ? 'One' : 'All'}
+              content={data.oneAccess ? 'Один' : 'Весь'}
               onClick={() => act('one_access')}
             />
           </LabeledList.Item>
           <LabeledList.Item
-            label="Mass Modify">
+            label="Изменить все">
             <Button
               icon="check-double"
-              content="Grant All"
+              content="Выбрать всё"
               onClick={() => act('grant_all')}
             />
             <Button
               icon="undo"
-              content="Clear All"
+              content="Очистить всё"
               onClick={() => act('clear_all')}
             />
           </LabeledList.Item>
           <LabeledList.Item
-            label="Unrestricted Access">
+            label="Без доступа">
             <Button
               icon={data.unres_direction & 1 ? 'check-square-o' : 'square-o'}
-              content="North"
+              content="Север"
               selected={data.unres_direction & 1}
               onClick={() => act('direc_set', {
                 unres_direction: '1',
@@ -79,7 +79,7 @@ export const AirlockElectronics = props => {
             />
             <Button
               icon={data.unres_direction & 2 ? 'check-square-o' : 'square-o'}
-              content="East"
+              content="Восток"
               selected={data.unres_direction & 2}
               onClick={() => act('direc_set', {
                 unres_direction: '2',
@@ -87,7 +87,7 @@ export const AirlockElectronics = props => {
             />
             <Button
               icon={data.unres_direction & 4 ? 'check-square-o' : 'square-o'}
-              content="South"
+              content="Юг"
               selected={data.unres_direction & 4}
               onClick={() => act('direc_set', {
                 unres_direction: '4',
@@ -95,7 +95,7 @@ export const AirlockElectronics = props => {
             />
             <Button
               icon={data.unres_direction & 8 ? 'check-square-o' : 'square-o'}
-              content="West"
+              content="Запад"
               selected={data.unres_direction & 8}
               onClick={() => act('direc_set', {
                 unres_direction: '8',
@@ -104,7 +104,7 @@ export const AirlockElectronics = props => {
           </LabeledList.Item>
         </LabeledList>
       </Section>
-      <Section title="Access">
+      <Section title="Доступ">
         <Box height="261px">
           <Tabs vertical>
             {regions.map(region => {

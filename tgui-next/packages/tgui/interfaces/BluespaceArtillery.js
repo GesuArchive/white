@@ -20,7 +20,7 @@ export const BluespaceArtillery = props => {
       {connected ? (
         <Fragment>
           <Section
-            title="Target"
+            title="Цель"
             buttons={(
               <Button
                 icon="crosshairs"
@@ -30,7 +30,7 @@ export const BluespaceArtillery = props => {
             <Box
               color={target ? 'average' : 'bad'}
               fontSize="25px">
-              {target || 'No Target Set'}
+              {target || 'Нет цели'}
             </Box>
           </Section>
           <Section>
@@ -38,7 +38,7 @@ export const BluespaceArtillery = props => {
               <Box style={{ margin: 'auto' }}>
                 <Button
                   fluid
-                  content="FIRE"
+                  content="ОГОНЬ"
                   color="bad"
                   disabled={!target}
                   fontSize="30px"
@@ -51,11 +51,11 @@ export const BluespaceArtillery = props => {
                 <Box
                   color="bad"
                   fontSize="18px">
-                  Bluespace artillery is currently locked.
+                  Блюспейс артиллерия заблокирована
                 </Box>
                 <Box mt={1}>
-                  Awaiting authorization via keycard reader from at minimum
-                  two station heads.
+                  Ожидается разблокировка от, как минимум, двух
+                  авторизованных людей на станции.
                 </Box>
               </Fragment>
             )}
@@ -64,10 +64,10 @@ export const BluespaceArtillery = props => {
       ) : (
         <Section>
           <LabeledList>
-            <LabeledList.Item label="Maintenance">
+            <LabeledList.Item label="Сборка">
               <Button
                 icon="wrench"
-                content="Complete Deployment"
+                content="Завершить сборку"
                 onClick={() => act('build')} />
             </LabeledList.Item>
           </LabeledList>

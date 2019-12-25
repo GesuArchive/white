@@ -6,11 +6,11 @@ export const NaniteCodes = props => {
   const { act, data } = useBackend(props);
   return (
     <Section
-      title="Codes"
+      title="Коды"
       level={3}
       mr={1}>
       <LabeledList>
-        <LabeledList.Item label="Activation">
+        <LabeledList.Item label="Активация">
           <NumberInput
             value={data.activation_code}
             width="47px"
@@ -21,7 +21,7 @@ export const NaniteCodes = props => {
               code: value,
             })} />
         </LabeledList.Item>
-        <LabeledList.Item label="Deactivation">
+        <LabeledList.Item label="Деактивация">
           <NumberInput
             value={data.deactivation_code}
             width="47px"
@@ -32,7 +32,7 @@ export const NaniteCodes = props => {
               code: value,
             })} />
         </LabeledList.Item>
-        <LabeledList.Item label="Kill">
+        <LabeledList.Item label="Убийство">
           <NumberInput
             value={data.kill_code}
             width="47px"
@@ -44,7 +44,7 @@ export const NaniteCodes = props => {
             })} />
         </LabeledList.Item>
         {!!data.can_trigger && (
-          <LabeledList.Item label="Trigger">
+          <LabeledList.Item label="Триггер">
             <NumberInput
               value={data.trigger_code}
               width="47px"
@@ -66,14 +66,14 @@ export const NaniteDelays = props => {
 
   return (
     <Section
-      title="Delays"
+      title="Задержки"
       level={3}
       ml={1}>
       <LabeledList>
-        <LabeledList.Item label="Restart Timer">
+        <LabeledList.Item label="Перезагрузка">
           <NumberInput
             value={data.timer_restart}
-            unit="s"
+            unit="с"
             width="57px"
             minValue={0}
             maxValue={3600}
@@ -81,10 +81,10 @@ export const NaniteDelays = props => {
               delay: value,
             })} />
         </LabeledList.Item>
-        <LabeledList.Item label="Shutdown Timer">
+        <LabeledList.Item label="Отключение">
           <NumberInput
             value={data.timer_shutdown}
-            unit="s"
+            unit="с"
             width="57px"
             minValue={0}
             maxValue={3600}
@@ -94,10 +94,10 @@ export const NaniteDelays = props => {
         </LabeledList.Item>
         {!!data.can_trigger && (
           <Fragment>
-            <LabeledList.Item label="Trigger Repeat Timer">
+            <LabeledList.Item label="Таймер повторения">
               <NumberInput
                 value={data.timer_trigger}
-                unit="s"
+                unit="с"
                 width="57px"
                 minValue={0}
                 maxValue={3600}
@@ -105,10 +105,10 @@ export const NaniteDelays = props => {
                   delay: value,
                 })} />
             </LabeledList.Item>
-            <LabeledList.Item label="Trigger Delay">
+            <LabeledList.Item label="Задержка">
               <NumberInput
                 value={data.timer_trigger_delay}
-                unit="s"
+                unit="с"
                 width="57px"
                 minValue={0}
                 maxValue={3600}
@@ -247,11 +247,11 @@ export const NaniteProgrammer = props => {
   if (!has_program) {
     return (
       <Section
-        title="Blank Disk"
+        title="Пустой диск"
         buttons={(
           <Button
             icon="eject"
-            content="Eject"
+            content="Изъять"
             onClick={() => act('eject')} />
         )} />
     );
@@ -263,11 +263,11 @@ export const NaniteProgrammer = props => {
       buttons={(
         <Button
           icon="eject"
-          content="Eject"
+          content="Изъять"
           onClick={() => act('eject')} />
       )}>
       <Section
-        title="Info"
+        title="Информация"
         level={2}>
         <Grid>
           <Grid.Column>
@@ -275,15 +275,15 @@ export const NaniteProgrammer = props => {
           </Grid.Column>
           <Grid.Column size={0.7}>
             <LabeledList>
-              <LabeledList.Item label="Use Rate">
+              <LabeledList.Item label="Использование">
                 {use_rate}
               </LabeledList.Item>
               {!!can_trigger && (
                 <Fragment>
-                  <LabeledList.Item label="Trigger Cost">
+                  <LabeledList.Item label="Цена триггера">
                     {trigger_cost}
                   </LabeledList.Item>
-                  <LabeledList.Item label="Trigger Cooldown">
+                  <LabeledList.Item label="Охлаждение триггера">
                     {trigger_cooldown}
                   </LabeledList.Item>
                 </Fragment>
@@ -293,12 +293,12 @@ export const NaniteProgrammer = props => {
         </Grid>
       </Section>
       <Section
-        title="Settings"
+        title="Настройки"
         level={2}
         buttons={(
           <Button
             icon={activated ? 'power-off' : 'times'}
-            content={activated ? 'Active' : 'Inactive'}
+            content={activated ? 'Активно' : 'Не активно'}
             selected={activated}
             color="bad"
             bold
@@ -314,7 +314,7 @@ export const NaniteProgrammer = props => {
         </Grid>
         {!!has_extra_settings && (
           <Section
-            title="Special"
+            title="Особое"
             level={3}>
             <LabeledList>
               {extra_settings.map(setting => (

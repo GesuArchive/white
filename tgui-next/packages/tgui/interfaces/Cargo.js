@@ -18,16 +18,16 @@ export const Cargo = props => {
   const cartButtons = !data.requestonly && (
     <Fragment>
       <Box inline mx={1}>
-        {cart.length === 0 && 'Cart is empty'}
-        {cart.length === 1 && '1 item'}
-        {cart.length >= 2 && cart.length + ' items'}
+        {cart.length === 0 && 'Корзина пуста'}
+        {cart.length === 1 && '1 товар'}
+        {cart.length >= 2 && cart.length + ' товаров'}
         {' '}
-        {cartTotalAmount > 0 && `(${cartTotalAmount} cr)`}
+        {cartTotalAmount > 0 && `(${cartTotalAmount} кредитов)`}
       </Box>
       <Button
         icon="times"
         color="transparent"
-        content="Clear"
+        content="Очистить"
         onClick={() => act(ref, 'clear')} />
     </Fragment>
   );
@@ -35,32 +35,32 @@ export const Cargo = props => {
   return (
     <Fragment>
       <Section
-        title="Cargo"
+        title="Снабжение"
         buttons={(
           <Box inline bold>
-            <AnimatedNumber value={Math.round(data.points)} /> credits
+            Баланс: <AnimatedNumber value={Math.round(data.points)} /> кредитов
           </Box>
         )}>
         <LabeledList>
-          <LabeledList.Item label="Shuttle">
+          <LabeledList.Item label="Шаттл">
             {data.docked && !data.requestonly && (
               <Button
                 content={data.location}
                 onClick={() => act(ref, 'send')} />
             ) || data.location}
           </LabeledList.Item>
-          <LabeledList.Item label="CentCom Message">
+          <LabeledList.Item label="Сообщение ЦК">
             {data.message}
           </LabeledList.Item>
           {(data.loan && !data.requestonly) ? (
-            <LabeledList.Item label="Loan">
+            <LabeledList.Item label="Ссуда">
               {!data.loan_dispatched ? (
                 <Button
-                  content="Loan Shuttle"
+                  content="Передать шаттл"
                   disabled={!(data.away && data.docked)}
                   onClick={() => act(ref, 'loan')} />
               ) : (
-                <Box color="bad">Loaned to Centcom</Box>
+                <Box color="bad">Передано на ЦК</Box>
               )}
             </LabeledList.Item>
           ) : ''}
@@ -69,19 +69,19 @@ export const Cargo = props => {
       <Tabs mt={2}>
         <Tabs.Tab
           key="catalog"
-          label="Catalog"
+          label="Каталог"
           icon="list"
           lineHeight="23px">
           {() => (
             <Section
-              title="Catalog"
+              title="Каталог"
               buttons={(
                 <Fragment>
                   {cartButtons}
                   <Button
                     ml={1}
                     icon={data.self_paid ? 'check-square-o' : 'square-o'}
-                    content="Buy Privately"
+                    content="За мой счёт"
                     selected={data.self_paid}
                     onClick={() => act(ref, 'toggleprivate')} />
                 </Fragment>
@@ -92,17 +92,17 @@ export const Cargo = props => {
         </Tabs.Tab>
         <Tabs.Tab
           key="requests"
-          label={`Requests (${requests.length})`}
+          label={`Запросы (${requests.length})`}
           icon="envelope"
           highlight={requests.length > 0}
           lineHeight="23px">
           {() => (
             <Section
-              title="Active Requests"
+              title="Активные запросы"
               buttons={!data.requestonly && (
                 <Button
                   icon="times"
-                  content="Clear"
+                  content="Очистить"
                   color="transparent"
                   onClick={() => act(ref, 'denyall')} />
               )}>
@@ -113,13 +113,13 @@ export const Cargo = props => {
         {!data.requestonly && (
           <Tabs.Tab
             key="cart"
-            label={`Checkout (${cart.length})`}
+            label={`Корзина (${cart.length})`}
             icon="shopping-cart"
             highlight={cart.length > 0}
             lineHeight="23px">
             {() => (
               <Section
-                title="Current Cart"
+                title="Текущая корзина"
                 buttons={cartButtons}>
                 <Cart state={state} cart={cart} />
               </Section>
@@ -149,19 +149,19 @@ const Catalog = props => {
             </td>
             <td className="LabeledList__cell">
               {!!pack.small_item && (
-                <Fragment>Small Item</Fragment>
+                <Fragment>Небольшой</Fragment>
               )}
             </td>
             <td className="LabeledList__cell">
               {!!pack.access && (
-                <Fragment>Restrictions Apply</Fragment>
+                <Fragment>Защищено</Fragment>
               )}
             </td>
             <td className="LabeledList__cell LabeledList__buttons">
               <Button fluid
                 content={(data.self_paid
                   ? Math.round(pack.cost * 1.1)
-                  : pack.cost) + ' credits'}
+                  : pack.cost) + ' кредитов'}
                 onClick={() => act(ref, 'add', {
                   id: pack.id,
                 })} />
@@ -192,7 +192,7 @@ const Requests = props => {
   if (requests.length === 0) {
     return (
       <Box color="good">
-        No Requests
+        Нет запросов
       </Box>
     );
   }
@@ -209,13 +209,13 @@ const Requests = props => {
               {request.object}
             </td>
             <td className="LabeledList__cell">
-              By <b>{request.orderer}</b>
+              От <b>{request.orderer}</b>
             </td>
             <td className="LabeledList__cell">
               <i>{request.reason}</i>
             </td>
             <td className="LabeledList__cell LabeledList__buttons">
-              {request.cost} credits
+              {request.cost} кредитов
               {' '}
               {!data.requestonly && (
                 <Fragment>
@@ -247,7 +247,7 @@ const Cart = props => {
   const { ref } = config;
   return (
     <Fragment>
-      {cart.length === 0 && 'Nothing in cart'}
+      {cart.length === 0 && 'Корзина пуста'}
       {cart.length > 0 && (
         <LabeledList>
           {cart.map(entry => (
@@ -260,7 +260,7 @@ const Cart = props => {
                   <Box inline mx={2}>
                     {!!entry.paid && (<b>[Paid Privately]</b>)}
                     {' '}
-                    {entry.cost} credits
+                    {entry.cost} кредитов
                   </Box>
                   <Button
                     icon="minus"
@@ -283,7 +283,7 @@ const Cart = props => {
                 'line-height': '28px',
                 'padding': '0 12px',
               }}
-              content="Confirm the order"
+              content="Подтвердить заказ"
               onClick={() => act(ref, 'send')} />
           ) || (
             <Box opacity={0.5}>
@@ -311,16 +311,16 @@ export const CargoExpress = props => {
       {!data.locked &&(
         <Fragment>
           <Section
-            title="Cargo Express"
+            title="Снабжение Экспресс"
             buttons={(
               <Box inline bold>
                 <AnimatedNumber value={Math.round(data.points)} /> credits
               </Box>
             )}>
             <LabeledList>
-              <LabeledList.Item label="Landing Location">
+              <LabeledList.Item label="Место высадки">
                 <Button
-                  content="Cargo Bay"
+                  content="Отдел снабжения"
                   selected={!data.usingBeacon}
                   onClick={() => act(ref, 'LZCargo')} />
                 <Button
@@ -334,7 +334,7 @@ export const CargoExpress = props => {
                   disabled={!data.canBuyBeacon}
                   onClick={() => act(ref, 'printBeacon')} />
               </LabeledList.Item>
-              <LabeledList.Item label="Notice">
+              <LabeledList.Item label="Заметка">
                 {data.message}
               </LabeledList.Item>
             </LabeledList>

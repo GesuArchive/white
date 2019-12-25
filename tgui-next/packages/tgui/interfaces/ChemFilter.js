@@ -74,7 +74,7 @@ export class ChemFilter extends Component {
       <Grid>
         <Grid.Column>
           <ChemFilterPane
-            title="Left"
+            title="Левый"
             list={left}
             reagentName={this.state.leftReagentName}
             onReagentInput={value => this.setLeftReagentName(value)}
@@ -82,7 +82,7 @@ export class ChemFilter extends Component {
         </Grid.Column>
         <Grid.Column>
           <ChemFilterPane
-            title="Right"
+            title="Правый"
             list={right}
             reagentName={this.state.rightReagentName}
             onReagentInput={value => this.setRightReagentName(value)}

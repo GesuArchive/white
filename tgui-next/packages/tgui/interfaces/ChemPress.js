@@ -12,10 +12,10 @@ export const ChemPress = props => {
   return (
     <Section>
       <LabeledList>
-        <LabeledList.Item label="Pill Volume">
+        <LabeledList.Item label="Объём таблетки">
           <NumberInput
             value={pill_size}
-            unit="u"
+            unit="е"
             width="43px"
             minValue={5}
             maxValue={50}
@@ -25,14 +25,14 @@ export const ChemPress = props => {
               volume: value,
             })} />
         </LabeledList.Item>
-        <LabeledList.Item label="Pill Name">
+        <LabeledList.Item label="Имя таблетки">
           <Input
             value={pill_name}
             onChange={(e, value) => act('change_pill_name', {
               name: value,
             })} />
         </LabeledList.Item>
-        <LabeledList.Item label="Pill Style">
+        <LabeledList.Item label="Стиль таблетки">
           {pill_styles.map(pill => (
             <Button
               key={pill.id}

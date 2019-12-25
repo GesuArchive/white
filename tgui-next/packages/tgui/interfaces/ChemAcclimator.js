@@ -6,12 +6,12 @@ export const ChemAcclimator = props => {
   const { act, data } = useBackend(props);
   return (
     <Fragment>
-      <Section title="Acclimator">
+      <Section title="Аклиматор">
         <LabeledList>
-          <LabeledList.Item label="Current Temperature">
+          <LabeledList.Item label="Текущая температура">
             {data.chem_temp} K
           </LabeledList.Item>
-          <LabeledList.Item label="Target Temperature">
+          <LabeledList.Item label="Целевая температура">
             <NumberInput
               value={data.target_temperature}
               unit="K"
@@ -24,7 +24,7 @@ export const ChemAcclimator = props => {
                 temperature: value,
               })} />
           </LabeledList.Item>
-          <LabeledList.Item label="Acceptable Temp. Difference">
+          <LabeledList.Item label="Приемлемая темп. разница">
             <NumberInput
               value={data.allowed_temperature_difference}
               unit="K"
@@ -41,19 +41,19 @@ export const ChemAcclimator = props => {
         </LabeledList>
       </Section>
       <Section
-        title="Status"
+        title="Статус"
         buttons={(
           <Button
             icon="power-off"
-            content={data.enabled ? "On" : "Off"}
+            content={data.enabled ? "Вкл" : "Выкл"}
             selected={data.enabled}
             onClick={() => act('toggle_power')} />
         )}>
         <LabeledList>
-          <LabeledList.Item label="Volume">
+          <LabeledList.Item label="Объём">
             <NumberInput
               value={data.max_volume}
-              unit="u"
+              unit="е"
               width="50px"
               minValue={data.reagent_volume}
               maxValue={200}
@@ -63,11 +63,11 @@ export const ChemAcclimator = props => {
                 volume: value,
               })} />
           </LabeledList.Item>
-          <LabeledList.Item label="Current Operation">
+          <LabeledList.Item label="Текущая операция">
             {data.acclimate_state}
           </LabeledList.Item>
-          <LabeledList.Item label="Current State">
-            {data.emptying ? 'Emptying' : 'Filling'}
+          <LabeledList.Item label="Текущее состояние">
+            {data.emptying ? 'Опустошение' : 'Заполнение'}
           </LabeledList.Item>
         </LabeledList>
       </Section>

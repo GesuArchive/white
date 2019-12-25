@@ -18,15 +18,15 @@ export const GravityGenerator = props => {
           <NoticeBox>No data available</NoticeBox>
         ) || (
           <LabeledList>
-            <LabeledList.Item label="Breaker">
+            <LabeledList.Item label="Рубильник">
               <Button
                 icon={breaker ? 'power-off' : 'times'}
-                content={breaker ? 'On' : 'Off'}
+                content={breaker ? 'Вкл' : 'Выкл'}
                 selected={breaker}
                 disabled={!operational}
                 onClick={() => act('gentoggle')} />
             </LabeledList.Item>
-            <LabeledList.Item label="Gravity Charge">
+            <LabeledList.Item label="Гравитация">
               <ProgressBar
                 value={charge_count / 100}
                 ranges={{
@@ -35,25 +35,25 @@ export const GravityGenerator = props => {
                   bad: [-Infinity, 0.3],
                 }} />
             </LabeledList.Item>
-            <LabeledList.Item label="Charge Mode">
+            <LabeledList.Item label="Заряд">
               {charging_state === 0 && (
                 on && (
                   <Box color="good">
-                    Fully Charged
+                    Полностью заряжено
                   </Box>
                 ) || (
                   <Box color="bad">
-                    Not Charging
+                    Не заряжается
                   </Box>
                 ))}
               {charging_state === 1 && (
                 <Box color="average">
-                  Charging
+                  Заряжается
                 </Box>
               )}
               {charging_state === 2 && (
                 <Box color="average">
-                Discharging
+                Разряжается
                 </Box>
               )}
             </LabeledList.Item>
@@ -62,11 +62,11 @@ export const GravityGenerator = props => {
       </Section>
       {operational && charging_state !== 0 && (
         <NoticeBox textAlign="center">
-          WARNING - Radiation detected
+          ВНИМАНИЕ - запечена радиация
         </NoticeBox>
       ) || (
         <NoticeBox textAlign="center">
-          No radiation detected
+          Радиации не обнаружено
         </NoticeBox>
       )}
     </Fragment>

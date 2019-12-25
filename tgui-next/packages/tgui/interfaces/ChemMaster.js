@@ -23,7 +23,7 @@ export const ChemMaster = props => {
   return (
     <Fragment>
       <Section
-        title="Beaker"
+        title="Пробирка"
         buttons={!!data.isBeakerLoaded && (
           <Fragment>
             <Box inline color="label" mr={2}>
@@ -34,18 +34,18 @@ export const ChemMaster = props => {
             </Box>
             <Button
               icon="eject"
-              content="Eject"
+              content="Изъять"
               onClick={() => act(ref, 'eject')} />
           </Fragment>
         )}>
         {!isBeakerLoaded && (
           <Box color="label" mt="3px" mb="5px">
-            No beaker loaded.
+            Внутри нет пробирки
           </Box>
         )}
         {!!isBeakerLoaded && beakerContents.length === 0 && (
           <Box color="label" mt="3px" mb="5px">
-            Beaker is empty.
+            Пробирка пуста
           </Box>
         )}
         <ChemicalBuffer>
@@ -59,22 +59,22 @@ export const ChemMaster = props => {
         </ChemicalBuffer>
       </Section>
       <Section
-        title="Buffer"
+        title="Буффер"
         buttons={(
           <Fragment>
             <Box inline color="label" mr={1}>
-              Mode:
+              Режим:
             </Box>
             <Button
               color={data.mode ? 'good' : 'bad'}
               icon={data.mode ? 'exchange-alt' : 'times'}
-              content={data.mode ? 'Transfer' : 'Destroy'}
+              content={data.mode ? 'Перемещать' : 'Уничтожать'}
               onClick={() => act(ref, 'toggleMode')} />
           </Fragment>
         )}>
         {bufferContents.length === 0 && (
           <Box color="label" mt="3px" mb="5px">
-            Buffer is empty.
+            Буффер пуст.
           </Box>
         )}
         <ChemicalBuffer>
@@ -88,12 +88,12 @@ export const ChemMaster = props => {
         </ChemicalBuffer>
       </Section>
       <Section
-        title="Packaging">
+        title="Упаковка">
         <PackagingControls state={state} />
       </Section>
       {!!isPillBottleLoaded && (
         <Section
-          title="Pill Bottle"
+          title="Таблетница"
           buttons={(
             <Fragment>
               <Box inline color="label" mr={2}>
@@ -101,7 +101,7 @@ export const ChemMaster = props => {
               </Box>
               <Button
                 icon="eject"
-                content="Eject"
+                content="Изъять"
                 onClick={() => act(ref, 'ejectPillBottle')} />
             </Fragment>
           )} />
@@ -121,7 +121,7 @@ const ChemicalBufferEntry = props => {
         <AnimatedNumber
           value={chemical.volume}
           initial={0} />
-        {` units of ${chemical.name}`}
+        {` единиц ${chemical.name}`}
       </Table.Cell>
       <Table.Cell collapsing>
         <Button
@@ -146,7 +146,7 @@ const ChemicalBufferEntry = props => {
             to: transferTo,
           })} />
         <Button
-          content="All"
+          content="Всё"
           onClick={() => act(ref, 'transfer', {
             id: chemical.id,
             amount: 1000,
@@ -154,7 +154,7 @@ const ChemicalBufferEntry = props => {
           })} />
         <Button
           icon="ellipsis-h"
-          title="Custom amount"
+          title="Польз."
           onClick={() => act(ref, 'transfer', {
             id: chemical.id,
             amount: -1,
@@ -162,7 +162,7 @@ const ChemicalBufferEntry = props => {
           })} />
         <Button
           icon="question"
-          title="Analyze"
+          title="Анализ"
           onClick={() => act(ref, 'analyze', {
             id: chemical.id,
           })} />
@@ -192,7 +192,7 @@ const PackagingControlsItem = props => {
         maxValue={10}
         onChange={onChangeAmount} />
       <Button ml={1}
-        content="Create"
+        content="Создать"
         onClick={onCreate} />
       <Box inline ml={1}
         color="label"
@@ -229,7 +229,7 @@ class PackagingControls extends Component {
     return (
       <LabeledList>
         {!condi && (
-          <LabeledList.Item label="Pill type">
+          <LabeledList.Item label="Тип таблетки">
             {pillStyles.map(pill => (
               <Button
                 key={pill.id}
@@ -245,10 +245,10 @@ class PackagingControls extends Component {
         )}
         {!condi && (
           <PackagingControlsItem
-            label="Pills"
+            label="Таблетки"
             amount={pillAmount}
-            amountUnit="pills"
-            sideNote="max 50u"
+            amountUnit="таб."
+            sideNote="макс 50е"
             onChangeAmount={(e, value) => this.setState({
               pillAmount: value,
             })}
@@ -260,10 +260,10 @@ class PackagingControls extends Component {
         )}
         {!condi && (
           <PackagingControlsItem
-            label="Patches"
+            label="Пластыри"
             amount={patchAmount}
-            amountUnit="patches"
-            sideNote="max 40u"
+            amountUnit="пласт."
+            sideNote="макс 40е"
             onChangeAmount={(e, value) => this.setState({
               patchAmount: value,
             })}
@@ -275,10 +275,10 @@ class PackagingControls extends Component {
         )}
         {!condi && (
           <PackagingControlsItem
-            label="Bottles"
+            label="Бутылочки"
             amount={bottleAmount}
             amountUnit="bottles"
-            sideNote="max 30u"
+            sideNote="макс 30е"
             onChangeAmount={(e, value) => this.setState({
               bottleAmount: value,
             })}
@@ -290,10 +290,10 @@ class PackagingControls extends Component {
         )}
         {!!condi && (
           <PackagingControlsItem
-            label="Packs"
+            label="Упаковки"
             amount={packAmount}
-            amountUnit="packs"
-            sideNote="max 10u"
+            amountUnit="упак."
+            sideNote="макс 10е"
             onChangeAmount={(e, value) => this.setState({
               packAmount: value,
             })}
@@ -305,10 +305,10 @@ class PackagingControls extends Component {
         )}
         {!!condi && (
           <PackagingControlsItem
-            label="Bottles"
+            label="Бутылочки"
             amount={bottleAmount}
-            amountUnit="bottles"
-            sideNote="max 50u"
+            amountUnit="бут."
+            sideNote="макс 50е"
             onChangeAmount={(e, value) => this.setState({
               bottleAmount: value,
             })}
@@ -329,36 +329,36 @@ const AnalysisResults = props => {
   const { analyzeVars } = state.data;
   return (
     <Section
-      title="Analysis Results"
+      title="Результат анализа"
       buttons={(
         <Button
           icon="arrow-left"
-          content="Back"
+          content="Назад"
           onClick={() => act(ref, 'goScreen', {
             screen: 'home',
           })} />
       )}>
       <LabeledList>
-        <LabeledList.Item label="Name">
+        <LabeledList.Item label="Имя">
           {analyzeVars.name}
         </LabeledList.Item>
-        <LabeledList.Item label="State">
+        <LabeledList.Item label="Состояние">
           {analyzeVars.state}
         </LabeledList.Item>
-        <LabeledList.Item label="Color">
+        <LabeledList.Item label="Цвет">
           <ColorBox color={analyzeVars.color} mr={1} />
           {analyzeVars.color}
         </LabeledList.Item>
-        <LabeledList.Item label="Description">
+        <LabeledList.Item label="Описание">
           {analyzeVars.description}
         </LabeledList.Item>
-        <LabeledList.Item label="Metabolization Rate">
-          {analyzeVars.metaRate} u/minute
+        <LabeledList.Item label="Скорость метаболизма">
+          {analyzeVars.metaRate} е/минута
         </LabeledList.Item>
-        <LabeledList.Item label="Overdose Threshold">
+        <LabeledList.Item label="Порог передозировки">
           {analyzeVars.overD}
         </LabeledList.Item>
-        <LabeledList.Item label="Addiction Threshold">
+        <LabeledList.Item label="Порог зависимости">
           {analyzeVars.addicD}
         </LabeledList.Item>
       </LabeledList>

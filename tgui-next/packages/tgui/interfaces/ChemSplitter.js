@@ -12,10 +12,10 @@ export const ChemSplitter = props => {
   return (
     <Section>
       <LabeledList>
-        <LabeledList.Item label="Straight">
+        <LabeledList.Item label="Прямо">
           <NumberInput
             value={straight}
-            unit="u"
+            unit="е"
             width="55px"
             minValue={1}
             maxValue={max_transfer}
@@ -27,10 +27,10 @@ export const ChemSplitter = props => {
               amount: value,
             })} />
         </LabeledList.Item>
-        <LabeledList.Item label="Side">
+        <LabeledList.Item label="По бокам">
           <NumberInput
             value={side}
-            unit="u"
+            unit="е"
             width="55px"
             minValue={1}
             maxValue={max_transfer}

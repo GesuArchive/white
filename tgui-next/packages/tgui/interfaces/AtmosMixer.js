@@ -6,18 +6,18 @@ export const AtmosMixer = props => {
   return (
     <Section>
       <LabeledList>
-        <LabeledList.Item label="Power">
+        <LabeledList.Item label="Питание">
           <Button
             icon={data.on ? 'power-off' : 'times'}
-            content={data.on ? 'On' : 'Off'}
+            content={data.on ? 'Вкл' : 'Выкл'}
             selected={data.on}
             onClick={() => act('power')} />
         </LabeledList.Item>
-        <LabeledList.Item label="Output Pressure">
+        <LabeledList.Item label="Выходное давление">
           <NumberInput
             animated
             value={parseFloat(data.set_pressure)}
-            unit="kPa"
+            unit="кПа"
             width="75px"
             minValue={0}
             maxValue={4500}
@@ -28,13 +28,13 @@ export const AtmosMixer = props => {
           <Button
             ml={1}
             icon="plus"
-            content="Max"
+            content="Максимум"
             disabled={data.set_pressure === data.max_pressure}
             onClick={() => act('pressure', {
               pressure: 'max',
             })} />
         </LabeledList.Item>
-        <LabeledList.Item label="Node 1">
+        <LabeledList.Item label="Узел 1">
           <NumberInput
             animated
             value={data.node1_concentration}
@@ -47,7 +47,7 @@ export const AtmosMixer = props => {
               concentration: value,
             })} />
         </LabeledList.Item>
-        <LabeledList.Item label="Node 2">
+        <LabeledList.Item label="Узел 2">
           <NumberInput
             animated
             value={data.node2_concentration}

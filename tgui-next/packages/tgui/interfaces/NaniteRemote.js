@@ -16,11 +16,11 @@ export const NaniteRemote = props => {
   } = data;
 
   const modes = [
-    "Off",
-    "Local",
-    "Targeted",
-    "Area",
-    "Relay",
+    "Выкл",
+    "Локально",
+    "Целевое",
+    "Зона",
+    "Реле",
   ];
 
   if (locked) {
@@ -34,15 +34,15 @@ export const NaniteRemote = props => {
   return (
     <Fragment>
       <Section
-        title="Nanite Control"
+        title="Управление нанитами"
         buttons={(
           <Button
             icon="lock"
-            content="Lock Interface"
+            content="Заблокировать интерфейс"
             onClick={() => act('lock')} />
         )} >
         <LabeledList>
-          <LabeledList.Item label="Name">
+          <LabeledList.Item label="Имя">
             <Input
               value={program_name}
               maxLength={14}
@@ -52,10 +52,10 @@ export const NaniteRemote = props => {
               })} />
             <Button
               icon="save"
-              content="Save"
+              content="Сохранить"
               onClick={() => act('save')} />
           </LabeledList.Item>
-          <LabeledList.Item label={comms ? "Comm Code" : "Signal Code"} >
+          <LabeledList.Item label={comms ? "Ком. код" : "Сигнал"} >
             <NumberInput
               value={code}
               minValue={0}
@@ -68,7 +68,7 @@ export const NaniteRemote = props => {
               })} />
           </LabeledList.Item>
           {!!comms && (
-            <LabeledList.Item label="Message">
+            <LabeledList.Item label="Сообщение">
               <Input
                 value={message}
                 width="270px"
@@ -77,8 +77,8 @@ export const NaniteRemote = props => {
                 })} />
             </LabeledList.Item>
           )}
-          {mode === "Relay" && (
-            <LabeledList.Item label="Relay Code">
+          {mode === "Реле" && (
+            <LabeledList.Item label="Код реле">
               <NumberInput
                 value={relay_code}
                 minValue={0}
@@ -91,7 +91,7 @@ export const NaniteRemote = props => {
                 })} />
             </LabeledList.Item>
           )}
-          <LabeledList.Item label="Signal Mode">
+          <LabeledList.Item label="Режим">
             {modes.map(key => (
               <Button
                 key={key}
@@ -104,7 +104,7 @@ export const NaniteRemote = props => {
           </LabeledList.Item>
         </LabeledList>
       </Section>
-      <Section title="Saved Settings">
+      <Section title="Сохранённые настройки">
         {saved_settings.length > 0 ? (
           <Table>
             <Table.Row header>
@@ -135,7 +135,7 @@ export const NaniteRemote = props => {
                   {setting.code}
                 </Table.Cell>
                 <Table.Cell>
-                  {setting.mode === "Relay" && setting.relay_code}
+                  {setting.mode === "Реле" && setting.relay_code}
                 </Table.Cell>
                 <Table.Cell textAlign="right">
                   <Button
@@ -156,7 +156,7 @@ export const NaniteRemote = props => {
           </Table>
         ) : (
           <NoticeBox>
-          No settings currently saved
+          Не обнаружено сохранённых настроек
           </NoticeBox>
         )}
       </Section>

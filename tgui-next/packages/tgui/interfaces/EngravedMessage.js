@@ -67,7 +67,7 @@ export const EngravedMessage = props => {
       </Section>
       <Section>
         <LabeledList>
-          <LabeledList.Item label="Created On">
+          <LabeledList.Item label="Создано">
             {realdate}
           </LabeledList.Item>
         </LabeledList>
@@ -75,19 +75,19 @@ export const EngravedMessage = props => {
       <Section />
       {!!admin_mode && (
         <Section
-          title="Admin Panel"
+          title="АП"
           buttons={(
             <Button
               icon="times"
-              content="Delete"
+              content="Удалить"
               color="bad"
               onClick={() => act('delete')} />
           )}>
           <LabeledList>
-            <LabeledList.Item label="Creator Ckey">
+            <LabeledList.Item label="Автор">
               {creator_key}
             </LabeledList.Item>
-            <LabeledList.Item label="Creator Character Name">
+            <LabeledList.Item label="Имя персонажа">
               {creator_name}
             </LabeledList.Item>
           </LabeledList>

@@ -11,13 +11,13 @@ export const BankMachine = props => {
   } = data;
   return (
     <Fragment>
-      <Section title={station_name + ' Vault'}>
+      <Section title={'Банк: ' + station_name}>
         <LabeledList>
-          <LabeledList.Item label="Current Balance"
+          <LabeledList.Item label="Текущий баланс"
             buttons={(
               <Button
                 icon={siphoning ? 'times' : 'sync'}
-                content={siphoning ? 'Stop Siphoning' : 'Siphon Credits'}
+                content={siphoning ? 'Остановить' : 'Качать бабки'}
                 selected={siphoning}
                 onClick={() => act(siphoning ? 'halt' : 'siphon')} />
             )}>
@@ -26,7 +26,7 @@ export const BankMachine = props => {
         </LabeledList>
       </Section>
       <NoticeBox textAlign="center">
-        Authorized personnel only
+        Только авторизованный персонал
       </NoticeBox>
     </Fragment>
   );

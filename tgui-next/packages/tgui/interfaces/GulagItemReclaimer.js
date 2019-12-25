@@ -5,7 +5,7 @@ export const GulagItemReclaimer = props => {
   const { act, data } = useBackend(props);
   const mobs = data.mobs || [];
   return (
-    <Section title="Stored Items">
+    <Section title="Хранимые вещи">
       <Table>
         {mobs.map(mob => (
           <Table.Row key={mob.mob}>
@@ -14,7 +14,7 @@ export const GulagItemReclaimer = props => {
             </Table.Cell>
             <Table.Cell textAlign="right">
               <Button
-                content="Retrieve Items"
+                content="Вернуть"
                 disabled={!data.can_reclaim}
                 onClick={() => act('release_items', {
                   mobref: mob.mob,

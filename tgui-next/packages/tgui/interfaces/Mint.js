@@ -8,11 +8,11 @@ export const Mint = props => {
   return (
     <Fragment>
       <Section
-        title="Materials"
+        title="Материалы"
         buttons={
           <Button
             icon={data.processing ? 'times' : 'power-off'}
-            content={data.processing ? 'Stop' : 'Start'}
+            content={data.processing ? 'Стоп' : 'Старт'}
             selected={data.processing}
             onClick={() => act(data.processing
               ? 'stoppress'
@@ -34,13 +34,13 @@ export const Mint = props => {
                     material_name: material.material,
                   })} />
               )}>
-              {material.amount} cm³
+              {material.amount} см³
             </LabeledList.Item>
           ))}
         </LabeledList>
       </Section>
       <Section>
-        Pressed {data.produced_coins} coins this cycle.
+        Отчеканено {data.produced_coins} монет за такт.
       </Section>
     </Fragment>
   );

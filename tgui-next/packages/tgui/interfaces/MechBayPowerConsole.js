@@ -8,20 +8,20 @@ export const MechBayPowerConsole = props => {
   const cell = mech && mech.cell;
   return (
     <Section
-      title="Mech status"
+      title="Состояние меха"
       textAlign="center"
       buttons={(
         <Button
           icon="sync"
-          content="Sync"
+          content="Синхр."
           onClick={() => act('reconnect')} />
       )}>
       <LabeledList>
-        <LabeledList.Item label="Integrity">
+        <LabeledList.Item label="Состояние">
           {!recharge_port && (
-            <NoticeBox>No power port detected. Please re-sync.</NoticeBox>
+            <NoticeBox>Не обнаружено энергопортов.</NoticeBox>
           ) || !mech && (
-            <NoticeBox>No mech detected.</NoticeBox>
+            <NoticeBox>Не обнаружено меха.</NoticeBox>
           ) || (
             <ProgressBar
               value={mech.health / mech.maxhealth}
@@ -32,13 +32,13 @@ export const MechBayPowerConsole = props => {
               }} />
           )}
         </LabeledList.Item>
-        <LabeledList.Item label="Power">
+        <LabeledList.Item label="Питание">
           {!recharge_port && (
-            <NoticeBox>No power port detected. Please re-sync.</NoticeBox>
+            <NoticeBox>Не обнаружено энергопортов.</NoticeBox>
           ) || !mech && (
-            <NoticeBox>No mech detected.</NoticeBox>
+            <NoticeBox>Не обнаружено меха.</NoticeBox>
           ) || !cell && (
-            <NoticeBox>No cell is installed.</NoticeBox>
+            <NoticeBox>Нет аккумулятора.</NoticeBox>
           ) || (
             <ProgressBar
               value={cell.charge / cell.maxcharge}

@@ -19,11 +19,11 @@ export const AtmosControlConsole = props => {
               title={!data.tank && sensor.long_name}
               level={2}>
               <LabeledList>
-                <LabeledList.Item label="Pressure">
-                  {toFixed(sensor.pressure, 2) + ' kPa'}
+                <LabeledList.Item label="Давление">
+                  {toFixed(sensor.pressure, 2) + ' кПа'}
                 </LabeledList.Item>
                 {!!sensor.temperature && (
-                  <LabeledList.Item label="Temperature">
+                  <LabeledList.Item label="Температура">
                     {toFixed(sensor.temperature, 2) + ' K'}
                   </LabeledList.Item>
                 )}
@@ -41,25 +41,25 @@ export const AtmosControlConsole = props => {
       </Section>
       {data.tank && (
         <Section
-          title="Controls"
+          title="Управление"
           buttons={(
             <Button
               icon="undo"
-              content="Reconnect"
+              content="Переподключить"
               onClick={() => act('reconnect')} />
           )}>
           <LabeledList>
-            <LabeledList.Item label="Input Injector">
+            <LabeledList.Item label="Инжектор">
               <Button
                 icon={data.inputting ? 'power-off' : 'times'}
-                content={data.inputting ? 'Injecting' : 'Off'}
+                content={data.inputting ? 'Включен' : 'Отключен'}
                 selected={data.inputting}
                 onClick={() => act('input')} />
             </LabeledList.Item>
-            <LabeledList.Item label="Input Rate">
+            <LabeledList.Item label="Скорость ввода">
               <NumberInput
                 value={data.inputRate}
-                unit="L/s"
+                unit="Л/с"
                 width="63px"
                 minValue={0}
                 maxValue={200}
@@ -70,17 +70,17 @@ export const AtmosControlConsole = props => {
                   rate: value,
                 })} />
             </LabeledList.Item>
-            <LabeledList.Item label="Output Regulator">
+            <LabeledList.Item label="Выход">
               <Button
                 icon={data.outputting ? 'power-off' : 'times'}
-                content={data.outputting ? 'Open' : 'Closed'}
+                content={data.outputting ? 'Открыт' : 'Закрыт'}
                 selected={data.outputting}
                 onClick={() => act('output')} />
             </LabeledList.Item>
-            <LabeledList.Item label="Output Pressure">
+            <LabeledList.Item label="Выходное давление">
               <NumberInput
                 value={parseFloat(data.outputPressure)}
-                unit="kPa"
+                unit="кПа"
                 width="75px"
                 minValue={0}
                 maxValue={4500}

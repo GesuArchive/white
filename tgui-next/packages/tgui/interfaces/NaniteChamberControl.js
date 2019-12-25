@@ -28,11 +28,11 @@ export const NaniteChamberControl = props => {
 
   return (
     <Section
-      title={'Chamber: ' + occupant_name}
+      title={'Камера: ' + occupant_name}
       buttons={(
         <Button
           icon={locked ? 'lock' : 'lock-open'}
-          content={locked ? 'Locked' : 'Unlocked'}
+          content={locked ? 'Заблокирована' : 'Разблокирована'}
           color={locked ? 'bad' : 'default'}
           onClick={() => act('toggle_lock')} />
       )}>
@@ -44,13 +44,13 @@ export const NaniteChamberControl = props => {
             textAlign="center"
             fontSize="30px"
             mb={1}>
-            No Nanites Detected
+            Не обнаружены наниты
           </Box>
           <Button
             fluid
             bold
             icon="syringe"
-            content=" Implant Nanites"
+            content=" Имплантировать наниты"
             color="green"
             textAlign="center"
             fontSize="30px"
@@ -60,29 +60,29 @@ export const NaniteChamberControl = props => {
       ) : (
         <Fragment>
           <Section
-            title="Status"
+            title="Состояние"
             level={2}
             buttons={(
               <Button
                 icon="exclamation-triangle"
-                content="Destroy Nanites"
+                content="Уничтожить наниты"
                 color="bad"
                 onClick={() => act('remove_nanites')} />
             )}>
             <Grid>
               <Grid.Column>
                 <LabeledList>
-                  <LabeledList.Item label="Nanite Volume">
+                  <LabeledList.Item label="Объём нанитов">
                     {nanite_volume}
                   </LabeledList.Item>
-                  <LabeledList.Item label="Growth Rate">
+                  <LabeledList.Item label="Скорость роста">
                     {regen_rate}
                   </LabeledList.Item>
                 </LabeledList>
               </Grid.Column>
               <Grid.Column>
                 <LabeledList>
-                  <LabeledList.Item label="Safety Threshold">
+                  <LabeledList.Item label="Порог безопасности">
                     <NumberInput
                       value={safety_threshold}
                       minValue={0}
@@ -92,7 +92,7 @@ export const NaniteChamberControl = props => {
                         value: value,
                       })} />
                   </LabeledList.Item>
-                  <LabeledList.Item label="Cloud ID">
+                  <LabeledList.Item label="ID облака">
                     <NumberInput
                       value={cloud_id}
                       minValue={0}
@@ -109,7 +109,7 @@ export const NaniteChamberControl = props => {
             </Grid>
           </Section>
           <Section
-            title="Programs"
+            title="Программы"
             level={2}>
             {mob_programs.map(program => {
               const extra_settings = program.extra_settings || [];
@@ -126,13 +126,13 @@ export const NaniteChamberControl = props => {
                       {scan_level >= 2 && (
                         <Grid.Column size={0.6}>
                           <LabeledList>
-                            <LabeledList.Item label="Activation Status">
+                            <LabeledList.Item label="Активность">
                               <Box color={program.activated ? 'good' : 'bad'}>
-                                {program.activated ? 'Active' : 'Inactive' }
+                                {program.activated ? 'Активно' : 'Не активно' }
                               </Box>
                             </LabeledList.Item>
-                            <LabeledList.Item label="Nanites Consumed">
-                              {program.use_rate}/s
+                            <LabeledList.Item label="Потребление">
+                              {program.use_rate}/с
                             </LabeledList.Item>
                           </LabeledList>
                         </Grid.Column>
@@ -143,24 +143,24 @@ export const NaniteChamberControl = props => {
                         {!!program.can_trigger && (
                           <Grid.Column>
                             <Section
-                              title="Triggers"
+                              title="Триггеры"
                               level={2}>
                               <LabeledList>
-                                <LabeledList.Item label="Trigger Cost">
+                                <LabeledList.Item label="Цена">
                                   {program.trigger_cost}
                                 </LabeledList.Item>
-                                <LabeledList.Item label="Trigger Cooldown">
+                                <LabeledList.Item label="Охлаждение">
                                   {program.trigger_cooldown}
                                 </LabeledList.Item>
                                 {!!program.timer_trigger_delay && (
-                                  <LabeledList.Item label="Trigger Delay">
-                                    {program.timer_trigger_delay} s
+                                  <LabeledList.Item label="Задержка запуска">
+                                    {program.timer_trigger_delay} с
                                   </LabeledList.Item>
                                 )}
                                 {!!program.timer_trigger && (
                                   <LabeledList.Item
-                                    label="Trigger Repeat Timer">
-                                    {program.timer_trigger} s
+                                    label="Повторитель">
+                                    {program.timer_trigger} с
                                   </LabeledList.Item>
                                 )}
                               </LabeledList>
@@ -175,13 +175,13 @@ export const NaniteChamberControl = props => {
                                 {/* I mean, bruh, this indentation level
                                     is ABSOLUTELY INSANE!!! */}
                                 {program.timer_restart && (
-                                  <LabeledList.Item label="Restart Timer">
-                                    {program.timer_restart} s
+                                  <LabeledList.Item label="Перезапустить">
+                                    {program.timer_restart} с
                                   </LabeledList.Item>
                                 )}
                                 {program.timer_shutdown && (
-                                  <LabeledList.Item label="Shutdown Timer">
-                                    {program.timer_shutdown} s
+                                  <LabeledList.Item label="Отключить">
+                                    {program.timer_shutdown} с
                                   </LabeledList.Item>
                                 )}
                               </LabeledList>
@@ -193,7 +193,7 @@ export const NaniteChamberControl = props => {
                     {scan_level >= 3 && (
                       !!program.has_extra_settings && (
                         <Section
-                          title="Extra Settings"
+                          title="Дополнительно"
                           level={2}>
                           <LabeledList>
                             {extra_settings.map(extra_setting => (
@@ -211,27 +211,27 @@ export const NaniteChamberControl = props => {
                       <Grid>
                         <Grid.Column>
                           <Section
-                            title="Codes"
+                            title="Коды"
                             level={2}>
                             <LabeledList>
                               {!!program.activation_code && (
-                                <LabeledList.Item label="Activation">
+                                <LabeledList.Item label="Активация">
                                   {program.activation_code}
                                 </LabeledList.Item>
                               )}
                               {!!program.deactivation_code && (
-                                <LabeledList.Item label="Deactivation">
+                                <LabeledList.Item label="Деактивация">
                                   {program.deactivation_code}
                                 </LabeledList.Item>
                               )}
                               {!!program.kill_code && (
-                                <LabeledList.Item label="Kill">
+                                <LabeledList.Item label="Убийство">
                                   {program.kill_code}
                                 </LabeledList.Item>
                               )}
                               {!!program.can_trigger
                                 && !!program.trigger_code && (
-                                <LabeledList.Item label="Trigger">
+                                <LabeledList.Item label="Триггер">
                                   {program.trigger_code}
                                 </LabeledList.Item>
                               )}
@@ -241,7 +241,7 @@ export const NaniteChamberControl = props => {
                         {program.has_rules && (
                           <Grid.Column>
                             <Section
-                              title="Rules"
+                              title="Правила"
                               level={2}>
                               {rules.map(rule => (
                                 <Fragment key={rule.display}>

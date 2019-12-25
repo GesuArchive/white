@@ -6,7 +6,7 @@ export const AtmosAlertConsole = props => {
   const priorityAlerts = data.priority || [];
   const minorAlerts = data.minor || [];
   return (
-    <Section title="Alarms">
+    <Section title="Тревоги">
       <ul>
         {priorityAlerts.length > 0 ? (
           priorityAlerts.map(alert => (
@@ -20,7 +20,7 @@ export const AtmosAlertConsole = props => {
           ))
         ) : (
           <li className="color-good">
-            No Priority Alerts
+            Нет приоритетных тревог
           </li>
         )}
         {minorAlerts.length > 0 ? (
@@ -35,7 +35,7 @@ export const AtmosAlertConsole = props => {
           ))
         ) : (
           <li className="color-good">
-            No Minor Alerts
+            Нет средних тревог
           </li>
         )}
       </ul>

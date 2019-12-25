@@ -8,19 +8,19 @@ export const AtmosFilter = props => {
   return (
     <Section>
       <LabeledList>
-        <LabeledList.Item label="Power">
+        <LabeledList.Item label="Питание">
           <Button
             icon={data.on ? 'power-off' : 'times'}
-            content={data.on ? 'On' : 'Off'}
+            content={data.on ? 'Вкл' : 'Выкл'}
             selected={data.on}
             onClick={() => act('power')} />
         </LabeledList.Item>
-        <LabeledList.Item label="Transfer Rate">
+        <LabeledList.Item label="Скорость передачи">
           <NumberInput
             animated
             value={parseFloat(data.rate)}
             width="63px"
-            unit="L/s"
+            unit="Л/с"
             minValue={0}
             maxValue={200}
             onDrag={(e, value) => act('rate', {
@@ -29,13 +29,13 @@ export const AtmosFilter = props => {
           <Button
             ml={1}
             icon="plus"
-            content="Max"
+            content="Максимум"
             disabled={data.rate === data.max_rate}
             onClick={() => act('rate', {
               rate: 'max',
             })} />
         </LabeledList.Item>
-        <LabeledList.Item label="Filter">
+        <LabeledList.Item label="Фильтры">
           {filterTypes.map(filter => (
             <Button
               key={filter.id}
