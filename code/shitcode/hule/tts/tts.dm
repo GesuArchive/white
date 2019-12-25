@@ -84,7 +84,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 
 /datum/tts/New()
 	. = ..()
-	assigned_channel = open_sound_channel()
+	assigned_channel = open_sound_channel_for_tts()
 	GLOB.tts_datums += src
 	START_PROCESSING(SStts, src)
 
