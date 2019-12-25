@@ -76,7 +76,7 @@
 		dat += "<font color = 'red'><h3>Не вижу карту!</h3></font>"
 	else if (!C.registered_account)
 		dat += "<font color = 'red'><h3>У вас нет банковского аккаунта на текущей карте!</h3></font>"
-	if(onstation && C && C.registered_account)
+	if(C && C.registered_account)
 		account = C.registered_account
 	if(vending_machine_input.len)
 		dat += "<h3>[input_display_header]</h3>"
@@ -107,14 +107,14 @@
 				price_listed = "$[R.custom_price]"
 			dat += {"<tr><td><img src='data:image/jpeg;base64,[GetIconForProduct(R)]'/></td>
 							<td style=\"width: 100%\"><b>[sanitize(R.name)]  ([price_listed])</b></td>"}
-			if(R.amount > 0 && ((C && C.registered_account && onstation && account.account_balance > R.custom_price)))
+			if(R.amount > 0 && ((C && C.registered_account && account.account_balance > R.custom_price)))
 				dat += "<td align='right'><b>[R.amount]&nbsp;</b><a href='byond://?src=[REF(src)];vend=[REF(R)]'>Купить</a></td>"
 			else
 				dat += "<td align='right'><span class='linkOff'>Недоступно</span></td>"
 			dat += "</tr>"
 		dat += "</table>"
 	dat += "</div>"
-	if(onstation && C && C.registered_account)
+	if(C && C.registered_account)
 		dat += "<b>Баланс: $[account.account_balance]</b>"
 
 	var/datum/browser/popup = new(user, "vending", (name))
