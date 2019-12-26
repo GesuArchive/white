@@ -56,7 +56,7 @@
 	for(var/datum/supply_order/SO in shoppinglist)
 		data["cart"] += list(list(
 			"object" = SO.pack.name,
-			"cost" = SO.pack.cost,
+			"cost" = SO.pack.cost * 2,
 			"id" = SO.id,
 			"orderer" = SO.orderer,
 			"paid" = !isnull(SO.paying_account) //paid by requester
@@ -75,7 +75,7 @@
 			)
 		data["supplies"][P.group]["packs"] += list(list(
 			"name" = P.name,
-			"cost" = P.cost,
+			"cost" = P.cost * 2,
 			"id" = pack,
 			"desc" = P.desc || P.name, // If there is a description, use it. Otherwise use the pack's name.
 			"small_item" = P.small_item,
@@ -198,7 +198,7 @@
 			if(iscameramob(AM))
 				continue
 			if(!AM.anchored || istype(AM, /obj/mecha))
-				export_item_and_contents(AM, EXPORT_PIRATE | EXPORT_CARGO | EXPORT_CONTRABAND | EXPORT_EMAG, dry_run = FALSE,  delete_unsold = FALSE, external_report = ex)
+				export_item_and_contents(AM, EXPORT_CARGO | EXPORT_CONTRABAND | EXPORT_EMAG, dry_run = FALSE,  delete_unsold = FALSE, external_report = ex)
 
 	if(ex.exported_atoms)
 		ex.exported_atoms += "." //ugh
@@ -209,7 +209,8 @@
 			continue
 
 		msg += export_text + "\n"
-		D.adjust_money(ex.total_value[E])
+		if(ex.total_value[E] != 0)
+			D.adjust_money(ex.total_value[E] / 2)
 
 	say("Проданы товары на сумму [D.account_balance - presale_points].")
 
