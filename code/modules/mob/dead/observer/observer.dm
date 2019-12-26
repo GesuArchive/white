@@ -138,10 +138,10 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		AA.onNewMob(src)
 
 	. = ..()
-
-	if(src.client.holder)
-		sight = SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF
-		isreallyadmin = TRUE
+	spawn(50)
+		if(src.client.holder)
+			sight = SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF
+			isreallyadmin = TRUE
 
 	grant_all_languages()
 	show_data_huds()
