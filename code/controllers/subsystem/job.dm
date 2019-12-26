@@ -323,10 +323,6 @@ SUBSYSTEM_DEF(job)
 					JobDebug("DO player deleted during job ban check")
 					break
 
-				if(job.title == "Trader")
-					JobDebug("Not Allowed, Player: [player], Job:[job.title]")
-					continue
-
 				if(!job.player_old_enough(player.client))
 					JobDebug("DO player not old enough, Player: [player], Job:[job.title]")
 					continue

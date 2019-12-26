@@ -327,8 +327,6 @@
 			return JOB_UNAVAILABLE_SLOTFULL
 	if(is_banned_from(ckey, rank))
 		return JOB_UNAVAILABLE_BANNED
-	if(!check_donations(ckey) && job.title == "Trader")
-		return JOB_UNAVAILABLE_UNDONATED
 	if(QDELETED(src))
 		return JOB_UNAVAILABLE_GENERIC
 	if(!job.player_old_enough(client))
