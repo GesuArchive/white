@@ -335,7 +335,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	. = ..()
 	if(!isreallyadmin)
 		if(istype(AM, /obj) && AM != loc)
-			forceMove(AM)
+			forceMove(get_turf(AM))
 
 /mob/dead/observer/verb/reenter_corpse()
 	set category = "Ghost"
