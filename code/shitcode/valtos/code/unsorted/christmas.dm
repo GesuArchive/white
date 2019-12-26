@@ -22,6 +22,17 @@
 		transfer_fingerprints_to(S)
 		qdel(src)
 
+/obj/structure/snowflakes
+	name = "снежинки"
+	desc = "Выглядят ужасно."
+	icon = 'code/shitcode/valtos/icons/ny.dmi'
+	icon_state = "snowflakes_1"
+	layer = SIGN_LAYER
+
+/obj/structure/snowflakes/Initialize()
+	. = ..()
+	icon_state = "snowflakes_[rand(1, 4)]"
+
 /obj/structure/garland
 	name = "гирлянда"
 	desc = "Зима близко!"
