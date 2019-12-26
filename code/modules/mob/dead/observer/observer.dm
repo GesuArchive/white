@@ -309,18 +309,18 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	var/oldloc = loc
 
 	if(NewLoc)
-		forceMove(NewLoc)
+		//forceMove(NewLoc)
 		update_parallax_contents()
-	else
-		forceMove(get_turf(src))  //Get out of closets and such as a ghost
-		if((direct & NORTH) && y < world.maxy)
-			y++
-		else if((direct & SOUTH) && y > 1)
-			y--
-		if((direct & EAST) && x < world.maxx)
-			x++
-		else if((direct & WEST) && x > 1)
-			x--
+	//else
+	//	forceMove(get_turf(src))  //Get out of closets and such as a ghost
+	//	if((direct & NORTH) && y < world.maxy)
+	//		y++
+	//	else if((direct & SOUTH) && y > 1)
+	//		y--
+	//	if((direct & EAST) && x < world.maxx)
+	//		x++
+	//	else if((direct & WEST) && x > 1)
+	//		x--
 
 	Moved(oldloc, direct)
 
