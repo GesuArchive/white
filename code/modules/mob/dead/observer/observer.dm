@@ -308,9 +308,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		setDir(direct)//only update dir if we actually need it, so overlays won't spin on base sprites that don't have directions of their own
 	var/oldloc = loc
 
-	if(NewLoc)
-		//forceMove(NewLoc)
-		update_parallax_contents()
+	. = ..()
+
+	//if(NewLoc)
+	//	forceMove(NewLoc)
+	//	update_parallax_contents()
 	//else
 	//	forceMove(get_turf(src))  //Get out of closets and such as a ghost
 	//	if((direct & NORTH) && y < world.maxy)
