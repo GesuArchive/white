@@ -133,7 +133,7 @@
 	var/list/obj/miscboxes = list()
 	var/list/misc_order_num = list()
 	var/list/misc_contents = list()
-	if(shoppinglist.len)
+	if(!shoppinglist.len)
 		return
 	var/list/empty_turfs = list()
 	var/area/trading_outpost/transfer/A = GLOB.areas_by_type[/area/trading_outpost/transfer]
@@ -268,6 +268,6 @@
 	D.adjust_money(tier)
 	exp++
 	if(exp >= 100 * tier)
-		say("Новый уровень! Теперь производим [tier] кредитов за удар.")
 		tier++
 		exp = 0
+		say("Новый уровень! Теперь производим [tier] кредитов за удар.")
