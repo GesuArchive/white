@@ -132,7 +132,7 @@
 			return
 		vend_ready = FALSE //One thing at a time!!
 
-		var/datum/data/vending_product/R = locate(href_list["vend"])
+		var/datum/data/vending_product/R = locate(href_list["buy_term"])
 		var/list/record_to_check = product_records + coin_records
 		if(extended_inventory)
 			record_to_check = product_records + coin_records + hidden_records
