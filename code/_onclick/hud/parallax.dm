@@ -19,10 +19,9 @@
 
 	if(!length(C.parallax_layers_cached))
 		C.parallax_layers_cached = list()
-		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_1(null, C.view)
+		C.parallax_layers_cached += new SSparallax.random_space(null, C.view)
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_2(null, C.view)
-		C.parallax_layers_cached += new SSparallax.random_planet(null, C.view)
-		//C.parallax_layers_cached += new /obj/screen/parallax_layer/planet(null, C.view)
+		C.parallax_layers_cached += new /obj/screen/parallax_layer/planet/high_definition(null, C.view)
 		if(SSparallax.random_layer)
 			C.parallax_layers_cached += new SSparallax.random_layer
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_3(null, C.view)
@@ -300,13 +299,17 @@
 
 /obj/screen/parallax_layer/layer_1
 	icon_state = "layer1"
-	speed = 0
-	absolute = TRUE
+	speed = 1
+	layer = 1
+
+/obj/screen/parallax_layer/layer_1_2
+	icon_state = "layer1_2"
+	speed = 1
 	layer = 1
 
 /obj/screen/parallax_layer/layer_2
 	icon_state = "layer2"
-	speed = 1
+	speed = 1.2
 	layer = 2
 
 /obj/screen/parallax_layer/layer_3
@@ -357,7 +360,7 @@
 /obj/screen/parallax_layer/ice_surface
 	icon_state = "ice_surface"
 	blend_mode = BLEND_OVERLAY
-	speed = 0
+	speed = 1
 	layer = 5
 
 /obj/screen/parallax_layer/ice_surface/update_status(mob/M)
