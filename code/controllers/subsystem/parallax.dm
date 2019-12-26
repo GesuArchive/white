@@ -9,7 +9,7 @@ SUBSYSTEM_DEF(parallax)
 	var/planet_y_offset = 128
 	var/random_layer
 	var/random_parallax_color
-	var/random_planet
+	var/random_space
 
 //These are cached per client so needs to be done asap so people joining at roundstart do not miss these.
 /datum/controller/subsystem/parallax/PreInit()

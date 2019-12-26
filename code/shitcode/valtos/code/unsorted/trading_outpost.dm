@@ -178,7 +178,7 @@
 		qdel(SO)
 	var/datum/bank_account/trader_budget = SSeconomy.get_dep_account(ACCOUNT_TRA)
 
-	say("Куплено [purchases] товаров на сумму [D.account_balance - presale_points].")
+	say("Куплено [purchases] товаров на сумму [value].")
 
 	investigate_log("[purchases] orders in this shipment, worth [value] credits. [trader_budget.account_balance] credits left.", INVESTIGATE_CARGO)
 
