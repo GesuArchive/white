@@ -331,6 +331,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	Moved(oldloc, direct)
 
+/mob/dead/observer/Bump(atom/AM)
+	. = ..()
+	if(istype(AM, /obj) && AM != loc)
+		forceMove(AM)
+
 /mob/dead/observer/verb/reenter_corpse()
 	set category = "Ghost"
 	set name = " ❗ Вернуться в тело"
