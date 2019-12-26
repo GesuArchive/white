@@ -239,3 +239,35 @@
 	suffix = "transport"
 	name = "Trader Transport Shuttle"
 	can_be_bought = FALSE
+
+/datum/supply_pack/trader
+	group = "Trader"
+
+/datum/supply_pack/trader/farmbox
+	name = "FarmBox"
+	desc = "Эта штука служит для выращивания денег. Полезна только для торговца."
+	hidden = TRUE
+	cost = 10000
+	contains = list(/obj/structure/punching_bag/trader)
+	crate_name = "farmbox"
+	crate_type = /obj/structure/closet/crate/large
+	dangerous = TRUE
+
+/obj/structure/punching_bag/trader
+	name = "farm bag"
+	desc = "A farm bag. Can you get to speed level 4???"
+	anchored = FALSE
+	var/tier = 1
+	var/exp = 0
+
+/obj/structure/punching_bag/trader/attack_hand(mob/user as mob)
+	. = ..()
+	if(.)
+		return
+	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_TRA)
+	D.adjust_money(tier)
+	exp++
+	if(exp >= 100 * tier)
+		say("Новый уровень! Теперь производим [tier] кредитов за удар.")
+		tier++
+		exp = 0
