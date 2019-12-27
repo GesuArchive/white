@@ -63,6 +63,7 @@
 	SStitle.splash_turf = src
 	if(SStitle.icon)
 		icon = SStitle.icon
+		add_overlay('icons/wd_logo.png')
 	..()
 
 /turf/closed/indestructible/splashscreen/vv_edit_var(var_name, var_value)
