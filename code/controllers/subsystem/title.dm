@@ -45,6 +45,7 @@ SUBSYSTEM_DEF(title)
 
 	if(splash_turf)
 		splash_turf.icon = icon
+		splash_turf.add_overlay('icons/wd_logo.png')
 
 	return ..()
 
