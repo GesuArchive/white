@@ -36,25 +36,31 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	if((!bm || !bm.file) && is_enabled())
 		pick_sound()
 
-	if(tension > 0)
+	if(tension >= 0)
 		tension--
-		if(tension <= 0)
+		if(tension <= 15)
 			pick_sound()
-
-	if(tension < 0)
+	else
+		stop_bm()
 		return
 
-	if(bm)
-		bm.volume = tension
+	if(bm && tension <= 15)
+		switch(tension)
+			if(15 to 30)
+				bm.volume = 25
+			if(31 to 60)
+				bm.volume = 50
+			if(61 to INFINITY)
+				bm.volume = 75
 		bm.status = SOUND_UPDATE
 		SEND_SOUND(owner, bm)
 
 	switch(tension)
-		if(0 to 30)
+		if(15 to 30)
 			tension--
 
-		if(80 to INFINITY)
-			tension = 80
+		if(120 to INFINITY)
+			tension = 120
 
 /datum/component/battletension/proc/bulletact_react(datum/source, obj/projectile/P, def_zone)
 	create_tension(P.damage)
@@ -120,7 +126,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		return
 
 	S.repeat = 1
-	S.channel = open_sound_channel()
+	S.channel = CHANNEL_BATTLETENSION
 	S.falloff = 2
 	S.wait = 0
 	S.volume = 0
