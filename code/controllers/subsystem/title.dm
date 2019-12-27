@@ -34,11 +34,6 @@ SUBSYSTEM_DEF(title)
 	if(!file_path)
 		file_path = "icons/default_title.dmi"
 
-	if(SSticker.login_music == "[global.config.directory]/title_music/sounds/Red Alert 2 - Hell March.ogg" || SSticker.login_music == "[global.config.directory]/title_music/sounds/Red Alert 3 - Soviet March.ogg")
-		file_path = "[global.config.directory]/title_screens/images/emperor.jpg"
-	else if (SSticker.login_music == "[global.config.directory]/title_music/sounds/Makarov - KAMIKADZELOVANIA.ogg")
-		file_path = "[global.config.directory]/title_screens/images/nakazhite.dmi"
-
 	ASSERT(fexists(file_path))
 
 	icon = new(fcopy_rsc(file_path))
