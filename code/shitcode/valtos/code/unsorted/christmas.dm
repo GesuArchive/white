@@ -13,14 +13,17 @@
 
 /obj/item/stack/garland_pack/afterattack(atom/target, mob/user, proximity)
 	. = ..()
-	if(isturf(target) && proximity)
-		var/turf/T = target
-		user.visible_message("<span class='notice'>[user] вешает [src] на [T].</span>", \
-							 "<span class='notice'>Вешаю гирлянду на [T].</span>")
-		playsound(T, 'sound/items/deconstruct.ogg', 50, TRUE)
-		var/obj/structure/garland/S = new(T)
-		transfer_fingerprints_to(S)
-		qdel(src)
+	if(isclosedturf(target) && proximity)
+		if(locate(/obj/structure/garland) in target.loc)
+			to_chat(user, "<span class='warning'>Здесь уже есть гирлянда!</span>")
+			return
+		if(use(1))
+			var/turf/closed/T = target
+			user.visible_message("<span class='notice'>[user] вешает [src] на [T].</span>", \
+								"<span class='notice'>Вешаю гирлянду на [T].</span>")
+			playsound(T, 'sound/items/deconstruct.ogg', 50, TRUE)
+			var/obj/structure/garland/S = new(T)
+			transfer_fingerprints_to(S)
 
 /obj/structure/snowflakes
 	name = "снежинки"
