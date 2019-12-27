@@ -13,7 +13,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 /datum/component/battletension/Initialize()
 	START_PROCESSING(SSbtension, src)
 
-	if(isliving(parent))
+	if(isliving(parent) && owner.ckey != null)
 		owner = parent
 
 /datum/component/battletension/RegisterWithParent()
@@ -188,10 +188,6 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	var/settings
 
-
-
-
-
 	if(prefs.btprefs)
 		if(islist(prefs.btprefs))
 			prefs.btprefs = 0
@@ -222,7 +218,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	if(settings & settbit)
 		settings &= ~settbit
-		to_chat(usr, "<span class='danger'>Большу не хочу [selected].</span>")
+		to_chat(usr, "<span class='danger'>Больше не хочу [selected].</span>")
 	else
 		settings |= settbit
 		to_chat(usr, "<span class='danger'>Теперь хочу [selected].</span>")
