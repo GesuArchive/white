@@ -113,11 +113,11 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	avg = round(list_avg(P), 1)
 	switch(avg)
 		if(2)
-			speed_mult = 0.75
+			speed_mult = 3.5
 		if(3)
-			speed_mult = 0.5
+			speed_mult = 2.5
 		if(4)
-			speed_mult = 0.25
+			speed_mult = 1.5
 		else
 			speed_mult = 1
 	for(var/obj/item/stock_parts/matter_bin/M in component_parts)
@@ -380,12 +380,15 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	name = "микросхема (Авто-Док МК IX)"
 	build_path = /obj/machinery/autodoc
 	req_components = list(
-							/obj/item/stock_parts/capacitor = 2,
-							/obj/item/stock_parts/scanning_module = 1,
-							/obj/item/stock_parts/manipulator = 2,
-							/obj/item/stock_parts/micro_laser = 2,
-							/obj/item/stock_parts/matter_bin = 1,
-							/obj/item/stack/sheet/glass = 1)
+							/obj/item/stock_parts/capacitor = 5,
+							/obj/item/stock_parts/scanning_module = 5,
+							/obj/item/stock_parts/manipulator = 5,
+							/obj/item/stock_parts/micro_laser = 5,
+							/obj/item/stock_parts/matter_bin = 5,
+							/obj/item/scalpel/advanced = 1,
+							/obj/item/retractor/advanced = 1,
+							/obj/item/surgicaldrill/advanced = 1,
+							/obj/item/stack/sheet/glass = 15)
 
 /datum/design/board/autodoc
 	name = "Machine Design (Авто-Док МК IX)"
