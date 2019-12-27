@@ -15,7 +15,7 @@
 	. = ..()
 	if(isclosedturf(target) && proximity)
 		var/turf/closed/T = target
-		if(locate(/obj/structure/garland) in T.loc)
+		if(locate(/obj/structure/garland) in T)
 			to_chat(user, "<span class='warning'>Здесь уже есть гирлянда!</span>")
 			return
 		if(use(1))
