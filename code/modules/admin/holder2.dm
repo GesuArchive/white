@@ -91,8 +91,7 @@ GLOBAL_PROTECT(href_token)
 	var/client/C
 	if ((C = owner) || (C = GLOB.directory[target]))
 		disassociate()
-		if(C.ckey in GLOB.anonists)
-			C.verbs += /client/proc/readmin
+		C.verbs += /client/proc/readmin
 
 /datum/admins/proc/associate(client/C)
 	if(IsAdminAdvancedProcCall())

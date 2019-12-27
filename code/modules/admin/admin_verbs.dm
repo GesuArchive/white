@@ -663,6 +663,10 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	set category = "Admin"
 	set desc = "Regain your admin powers."
 
+	if(!isdead(src.mob))
+		to_chat(src, "<span class='interface'>Тебе нельзя. Надо бы из тела выйти.</span>", confidential=TRUE)
+		return
+
 	if(src.ckey in GLOB.de_admined)
 		to_chat(src, "<span class='interface'>You are not allowed to readmin in this round.</span>", confidential=TRUE)
 		return
