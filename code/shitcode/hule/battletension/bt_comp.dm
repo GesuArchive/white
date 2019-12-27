@@ -13,7 +13,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 /datum/component/battletension/Initialize()
 	START_PROCESSING(SSbtension, src)
 
-	if(isliving(parent) && owner.ckey != null)
+	if(isliving(parent))
 		owner = parent
 
 /datum/component/battletension/RegisterWithParent()
@@ -44,8 +44,12 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		stop_bm()
 		return
 
-	if(bm && tension <= 15)
+	if(bm)
 		switch(tension)
+			if(-INFINITY to -1)
+				bm.volume = 0
+			if(0 to 14)
+				bm.volume = 10
 			if(15 to 30)
 				bm.volume = 25
 			if(31 to 60)
@@ -56,7 +60,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		SEND_SOUND(owner, bm)
 
 	switch(tension)
-		if(15 to 30)
+		if(1 to 30)
 			tension--
 
 		if(120 to INFINITY)
@@ -152,8 +156,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 								"Carpenter Brut - Roller Mobster.ogg",
 								"Acid-Notation - The Yanderes Puppet Show.ogg",
 								"Street Cleaner - Murdercycle.ogg",
-								"Protector 101 - Hardware.ogg",
-								""
+								"Protector 101 - Hardware.ogg"
 							),
 							list(
 								"80sspark.ogg",
