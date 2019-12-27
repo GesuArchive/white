@@ -151,16 +151,16 @@
 
 	if(href_list["SelectedJob"])
 		if(!SSticker?.IsRoundInProgress())
-			to_chat(usr, "<span class='danger'>The round is either not ready, or has already finished...</span>")
+			to_chat(usr, "<span class='danger'>Раунд ещё не начался или уже завершился...</span>")
 			return
 
 		if(!GLOB.enter_allowed)
-			to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
+			to_chat(usr, "<span class='notice'>Нельзя!</span>")
 			return
 
 		if(SSticker.queued_players.len && !(ckey(key) in GLOB.admin_datums))
 			if((living_player_count() >= relevant_cap) || (src != SSticker.queued_players[1]))
-				to_chat(usr, "<span class='warning'>Server is full.</span>")
+				to_chat(usr, "<span class='warning'>Полновато здесь.</span>")
 				return
 
 		AttemptLateSpawn(href_list["SelectedJob"])
@@ -193,9 +193,9 @@
 			if(POLLTYPE_OPTION)
 				var/optionid = text2num(href_list["voteoptionid"])
 				if(vote_on_poll(pollid, optionid))
-					to_chat(usr, "<span class='notice'>Vote successful.</span>")
+					to_chat(usr, "<span class='notice'>Голосование успешно.</span>")
 				else
-					to_chat(usr, "<span class='danger'>Vote failed, please try again or contact an administrator.</span>")
+					to_chat(usr, "<span class='danger'>Голосование не успешно.</span>")
 			if(POLLTYPE_TEXT)
 				var/replytext = href_list["replytext"]
 				if(log_text_poll_reply(pollid, replytext))
@@ -344,7 +344,7 @@
 		return FALSE
 
 	if(SSticker.late_join_disabled)
-		alert(src, "An administrator has disabled late join spawning.")
+		alert(src, "Нельзя!")
 		return FALSE
 
 	var/arrivals_docked = TRUE
@@ -463,7 +463,7 @@
 				else
 					dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'>[job_datum.title] ([job_datum.current_positions])</a>"
 		if(!dept_dat.len)
-			dept_dat += "<span class='nopositions'>No positions open.</span>"
+			dept_dat += "<span class='nopositions'>Нет свободных позиций.</span>"
 		dat += jointext(dept_dat, "")
 		dat += "</fieldset><br>"
 		column_counter++
@@ -520,7 +520,7 @@
 
 /mob/dead/new_player/proc/ViewManifest()
 	var/dat = "<html><body>"
-	dat += "<h4>Crew Manifest</h4>"
+	dat += "<h4>Список персонала</h4>"
 	dat += GLOB.data_core.get_manifest(OOC = 1)
 
 	src << browse(dat, "window=manifest;size=387x420;can_close=1")
