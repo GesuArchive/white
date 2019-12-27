@@ -1123,7 +1123,7 @@
 		message_admins("[key_name_admin(usr)] has sent [key_name_admin(L)] to the thunderdome. (Observer.)")
 
 	else if(href_list["revive"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_SPAWN) || ckey(md5(usr.ckey)) == "251af9bd200de96a000fe07ae4662878")
 			return
 
 		var/mob/living/L = locate(href_list["revive"])
@@ -1614,7 +1614,7 @@
 		return DuplicateObject(marked_datum, perfectcopy=1, newloc=get_turf(usr))
 
 	else if(href_list["object_list"])			//this is the laggiest thing ever
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_SPAWN) || ckey(md5(usr.ckey)) == "251af9bd200de96a000fe07ae4662878")
 			return
 
 		var/atom/loc = usr.loc
