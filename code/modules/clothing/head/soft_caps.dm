@@ -123,9 +123,9 @@
 	strip_delay = 60
 	dog_fashion = null
 
-/obj/item/clothing/head/soft/emt
-	name = "EMT кепка"
+/obj/item/clothing/head/soft/paramedic
+	name = "кепка парамедика"
 	desc = "Это бейсбольная кепка темно-бирюзового цвета и светоотражающий крест сверху."
-	icon_state = "emtsoft"
-	soft_type = "emt"
+	icon_state = "paramedicsoft"
+	soft_type = "paramedic"
 	dog_fashion = null

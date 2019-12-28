@@ -16,11 +16,11 @@
 	icon_state = "labcoat_cmo"
 	item_state = "labcoat_cmo"
 
-/obj/item/clothing/suit/toggle/labcoat/emt
-	name = "куртка EMT"
+/obj/item/clothing/suit/toggle/labcoat/paramedic
+	name = "куртка парамедика"
 	desc = "Темно-синий жакет со светоотражающими полосками для техников скорой медицинской помощи."
-	icon_state = "labcoat_emt"
-	item_state = "labcoat_cmo"
+	icon_state = "labcoat_paramedic"
+	item_state = "labcoat_paramedic"
 
 /obj/item/clothing/suit/toggle/labcoat/mad
 	name = "лабораторный костюм сумасшедшего"
