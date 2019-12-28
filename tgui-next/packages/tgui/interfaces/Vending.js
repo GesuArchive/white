@@ -26,23 +26,23 @@ export const Vending = props => {
   }
   return (
     <Fragment>
-      <Section title="User">
+      <Section title="Пользователь">
         {data.user && (
           <Box>
-            Welcome, <b>{data.user.name}</b>,
+            Здравствуйте, <b>{data.user.name}</b>,
             {' '}
-            <b>{data.user.job || "Unemployed"}</b>!
+            <b>{data.user.job || "Безработный"}</b>!
             <br />
-            Your balance is <b>{data.user.cash} credits</b>.
+            Ваш баланс: <b>{data.user.cash} кредитов</b>.
           </Box>
         ) || (
           <Box color="light-gray">
-            No registered ID card!<br />
-            Please contact your local HoP!
+            Нет ID-карты!<br />
+            Свяжитесь с вашим местным отделом кадров!
           </Box>
         )}
       </Section>
-      <Section title="Products" >
+      <Section title="Товары" >
         <Table>
           {inventory.map((product => {
             const free = (
@@ -87,7 +87,7 @@ export const Vending = props => {
                 <Table.Cell>
                   {custom && (
                     <Button
-                      content={data.access ? 'FREE' : product.price + ' cr'}
+                      content={data.access ? 'ВЫДАТЬ' : product.price + ' cr'}
                       onClick={() => act(ref, 'dispense', {
                         'item': product.name,
                       })} />
@@ -103,7 +103,7 @@ export const Vending = props => {
                           )
                         )
                       )}
-                      content={free ? 'FREE' : product.price + ' cr'}
+                      content={free ? 'БЕСПЛАТНО' : product.price + ' cr'}
                       onClick={() => act(ref, 'vend', {
                         'ref': product.ref,
                       })} />
