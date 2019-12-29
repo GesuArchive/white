@@ -142,7 +142,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	var/list/genres = owner.client.prefs.btprefsnew
 
 	for(var/genre in genres)
-		for(var/music in flist("[global.config.directory]/battle_music/[genre]"))
+		for(var/music in flist("[global.config.directory]/battle_music/[genre]/"))
 			result += "[global.config.directory]/battle_music/[genre]/[music]"
 	return result
 
