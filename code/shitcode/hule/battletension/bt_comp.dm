@@ -42,6 +42,9 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	if((!bm || !bm.file) && is_enabled())
 		pick_sound()
 
+	if(tesion <= 0)
+		stop_bm()
+
 	if(tension >= 0)
 		tension--
 
@@ -137,8 +140,6 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	var/list/result = list()
 
 	var/list/genres = owner.client.prefs.btprefsnew
-
-	var/i = 0
 
 	for(var/genre in genres)
 		for(var/music in flist("[global.config.directory]/battle_music/[genre]"))
