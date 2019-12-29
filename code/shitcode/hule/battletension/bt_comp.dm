@@ -154,13 +154,12 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	var/list/genres = list(PRIKOL, TECHNO, TOUHOU, MORTAL, NAZIST)
 	var/settings
 
+	if(prefs.btprefsnew == null)
+		prefs.btprefsnew = genres
+		prefs.save_preferences()
+
 	if(prefs.btprefsnew)
-		if(!islist(prefs.btprefsnew))
-			prefs.btprefsnew = genres
-			prefs.save_preferences()
 		settings = prefs.btprefsnew
-	else
-		settings = genres
 
 	var/list/menu = list()
 
@@ -174,7 +173,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	if(!selected)
 		return
 
-	selected = splittext(selected, " ")[0]
+	selected = splittext(selected, " ")[1]
 
 	if(settings)
 		settings -= selected
