@@ -42,7 +42,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	if((!bm || !bm.file) && is_enabled())
 		pick_sound()
 
-	if(tesion <= 0)
+	if(tension <= 0)
 		stop_bm()
 
 	if(tension >= 0)
