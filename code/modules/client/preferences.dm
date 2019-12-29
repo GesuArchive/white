@@ -110,7 +110,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/action_buttons_screen_locs = list()
 
-	var/btprefs = 0
+	var/list/btprefsnew = list()
 
 /datum/preferences/New(client/C)
 	parent = C
