@@ -120,7 +120,7 @@
 	I.Blend(B.broken_outline, ICON_OVERLAY, rand(5), 1)
 	I.SwapColor(rgb(255, 0, 220, 255), rgb(0, 0, 0, 0))
 	B.icon = I
-	B.name = "broken [name]"
+	B.name = "разбитый [name]"
 	if(prob(33))
 		var/obj/item/shard/S = new(drop_location())
 		target.Bumped(S)

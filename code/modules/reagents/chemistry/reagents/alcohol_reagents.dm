@@ -35,6 +35,13 @@ All effects don't start immediately, but rather get worse over time; the rate is
 */
 
 /datum/reagent/consumable/ethanol/on_mob_life(mob/living/carbon/C)
+
+	C.setCloneLoss(0, 0)
+	C.setOxyLoss(0, 0)
+	C.heal_bodypart_damage(5,5)
+	C.adjustToxLoss(-5, 0, TRUE)
+	C.reagents.remove_all_type(/datum/reagent/toxin, 5*REM, 0, 1)
+
 	if(C.drunkenness < volume * boozepwr * ALCOHOL_THRESHOLD_MODIFIER || boozepwr < 0)
 		var/booze_power = boozepwr
 		if(HAS_TRAIT(C, TRAIT_ALCOHOL_TOLERANCE)) //we're an accomplished drinker
