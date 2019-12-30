@@ -57,7 +57,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 			var/mob/M = target
 			var/turf/T = get_turf(target)
 			M.playsound_local(T, "[TTS_PATH]/lines/announcer.ogg", 70, channel = CHANNEL_TTS_ANNOUNCER, frequency = 1)
-		return
+	return
 
 /atom/movable
 	var/datum/tts/TTS
