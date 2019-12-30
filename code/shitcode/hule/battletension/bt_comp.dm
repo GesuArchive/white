@@ -12,15 +12,14 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	wait = 17
 
 /datum/component/battletension
-	var/mob/living/owner
+	var/mob/living/carbon/human/owner
 
 	var/tension = 0
 	var/sound/bm
 
 /datum/component/battletension/Initialize()
-	START_PROCESSING(SSbtension, src)
-
-	if(isliving(parent))
+	if(ishuman(parent))
+		START_PROCESSING(SSbtension, src)
 		owner = parent
 
 /datum/component/battletension/RegisterWithParent()
