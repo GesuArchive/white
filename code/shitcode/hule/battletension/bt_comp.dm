@@ -176,7 +176,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	selected = splittext(selected, " ")[1]
 
-	if(settings)
+	if(selected in settings)
 		settings -= selected
 		to_chat(usr, "<span class='danger'>Больше не хочу [selected].</span>")
 	else
