@@ -51,12 +51,13 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 		fdel("[TTS_PATH]/conv/[namae].mp3")
 
 /proc/to_tts(target, message)
-	tts_core(message, "announcer", "ru")
-	if(fexists("[TTS_PATH]/lines/announcer.ogg"))
-		var/mob/M = target
-		var/turf/T = get_turf(target)
-		M.playsound_local(T, "[TTS_PATH]/lines/announcer.ogg", 70, channel = CHANNEL_TTS_ANNOUNCER, frequency = 1)
-	return
+	spawn(0)
+		tts_core(message, "announcer", "ru")
+		if(fexists("[TTS_PATH]/lines/announcer.ogg"))
+			var/mob/M = target
+			var/turf/T = get_turf(target)
+			M.playsound_local(T, "[TTS_PATH]/lines/announcer.ogg", 70, channel = CHANNEL_TTS_ANNOUNCER, frequency = 1)
+		return
 
 /atom/movable
 	var/datum/tts/TTS
