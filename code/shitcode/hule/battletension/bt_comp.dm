@@ -3,6 +3,7 @@
 #define TOUHOU "touhou"
 #define MORTAL "mortal"
 #define NAZIST "nazist"
+#define LOBBYS "lobbys"
 
 PROCESSING_SUBSYSTEM_DEF(btension)
 	name = "Battle Tension"
@@ -151,7 +152,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	set desc = "Allows for advanced prikol immersion."
 	set category = "Preferences"
 
-	var/list/genres = list(PRIKOL, TECHNO, TOUHOU, MORTAL, NAZIST)
+	var/list/genres = list(PRIKOL, TECHNO, TOUHOU, MORTAL, NAZIST, LOBBYS)
 	var/settings
 
 	if(prefs.btprefsnew == null)
