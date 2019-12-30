@@ -9,7 +9,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	name = "Battle Tension"
 	priority = 15
 	flags = SS_NO_INIT
-	wait = 25
+	wait = 17
 
 /datum/component/battletension
 	var/mob/living/owner
@@ -40,7 +40,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	return ..()
 
 /datum/component/battletension/process()
-	if((!bm || !bm.file) && is_enabled())
+	if((!bm || !bm.file) && is_enabled() && tension > 0)
 		pick_sound()
 
 	if(tension <= 0)
