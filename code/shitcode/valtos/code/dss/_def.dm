@@ -110,10 +110,10 @@
 					dstats[MOB_DEX] += rand(6, 9)
 
 				if("Clown") // HONK
-					dstats[MOB_STR] += rand(-10, 14)
-					dstats[MOB_STM] += rand(-10, 14)
-					dstats[MOB_INT] += rand(-10, 14)
-					dstats[MOB_DEX] += rand(-10, 14)
+					dstats[MOB_STR] += rand(-5, 7)
+					dstats[MOB_STM] += rand(-5, 7)
+					dstats[MOB_INT] += rand(-5, 7)
+					dstats[MOB_DEX] += rand(-5, 7)
 
 				if("Mime")
 					dstats[MOB_STR] += rand(-2, 2)
@@ -234,6 +234,12 @@
 					dstats[MOB_STM] += rand(-4, -1)
 					dstats[MOB_INT] += rand(2, 7)
 					dstats[MOB_DEX] += rand(-4, 0)
+
+				if("Paramedic")
+					dstats[MOB_STR] += rand(2, 5)
+					dstats[MOB_STM] += rand(1, 4)
+					dstats[MOB_INT] += rand(2, 7)
+					dstats[MOB_DEX] += rand(4, 12)
 
 			// если антаг, то
 			if(mind.special_role) // пока бустаем статы всем антагам
