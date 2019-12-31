@@ -286,7 +286,6 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 
 /datum/controller/subsystem/mapping/proc/maprotate()
 	if(map_voted)
-		map_voted = FALSE
 		return
 
 	var/players = GLOB.clients.len
