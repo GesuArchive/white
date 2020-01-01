@@ -2880,15 +2880,12 @@
 /obj/item/melee/cultblade/wzzzz
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	slot_flags = SLOT_BELT|SLOT_BACK
+	slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 	
 /obj/item/melee/cultblade/wzzzz/great
-	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	force = 75
 	throwforce = 40
 	block_chance = 70
-	slot_flags = SLOT_BELT|SLOT_BACK
 	
 /obj/item/clothing/suit/armor/plate/crusader/wzzzz
 	armor = list("melee" = 80, "bullet" = 65, "laser" = 100,"energy" = 100, "bomb" = 75, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
@@ -3061,7 +3058,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	item_state = "labcoat_rd_heph"
 	
-/obj/item/clothing/suit/toggle/labcoat/wzzzz/1
+/obj/item/clothing/suit/toggle/labcoat/wzzzz/sci
 	name = "scientist labcoat"
 	desc = "A suit that make some protection against some accidents at work"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
