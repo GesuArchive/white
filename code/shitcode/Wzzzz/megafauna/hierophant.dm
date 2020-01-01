@@ -36,11 +36,9 @@
 	var/did_reset = TRUE //if we timed out, returned to our beacon, and healed some
 	var/list/kill_phrases = list("Wsyvgi sj irivkc xettih. Vitemvmrk...", "Irivkc wsyvgi jsyrh. Vitemvmrk...", "Jyip jsyrh. Egxmzexmrk vitemv gcgpiw...", "Kix fiex. Liepmrk...")
 	var/list/target_phrases = list("Xevkix psgexih.", "Iriqc jsyrh.", "Eguymvih xevkix.")
-	medal_type = MEDAL_PREFIX
-	score_type = BIRD_SCORE
 	del_on_death = TRUE
-	death_sound = 'sound/magic/repulse.ogg'
-
+	attack_action_types = null
+/*
 /mob/living/simple_animal/hostile/megafauna/hierophantold/wzzzz/Initialize()
 	. = ..()
 	internal = new/obj/item/device/gps/internal/hierophant(src)
@@ -659,3 +657,4 @@
 	invisibility = 100
 
 #undef MEDAL_PREFIX
+*/

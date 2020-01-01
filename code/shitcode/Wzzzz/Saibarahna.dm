@@ -145,3 +145,20 @@
 	lefthand_file = 'code/shitcode/Wzzzz/icons/Weeal.dmi'
 	righthand_file = 'code/shitcode/Wzzzz/icons/Weear.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/belt.dmi'
+	
+/obj/item/hatchet/wzzzz/machete
+	name = "machete"
+	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
+	icon_state = "machete"
+	item_state = "machete"
+	lefthand_file = 'code/shitcode/Wzzzz/icons/Weeal.dmi'
+	righthand_file = 'code/shitcode/Wzzzz/icons/Weear.dmi'
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/belt.dmi'
+	slot_flags = ITEM_SLOT_BELT
+	flags_1 = CONDUCT_1
+	force = 23
+	throwforce = 10
+	block_chance = 30
+	armour_penetration = 15
+	sharpness = 5
+	custom_materials = list(/datum/material/iron = 550)

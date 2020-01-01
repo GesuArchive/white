@@ -26,6 +26,7 @@
 	ammo_type = /obj/item/ammo_casing/wzzzz/a792x33
 	max_ammo = 30
 	multiple_sprites = FALSE
+	
 
 
 /obj/projectile/bullet/wzzzz/stg
@@ -72,9 +73,9 @@
 	projectile_type = /obj/projectile/bullet/wzzzz/fg42
 	
 /obj/projectile/bullet/wzzzz/fg42
-	damage = 30
+	damage = 35
 	armour_penetration = 20
-	speed = 0.4
+	speed = 0.35
 	
 /obj/item/gun/ballistic/automatic/m90/unrestricted/wzzzz/z8
 	name = "bullpup assault rifle"
@@ -113,7 +114,7 @@
 	armour_penetration = 25
 	
 /obj/item/gun/ballistic/automatic/wzzzz/carbine
-	name = "assault rifle"
+	name = "assault carbine"
 	desc = "The assault rifle is new standart automatic weapon"
 	icon_state = "carbinex"
 	item_state = "carbinex"

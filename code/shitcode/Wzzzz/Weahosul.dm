@@ -32,7 +32,7 @@
 
 /obj/projectile/bullet/a792x57
 	damage = 45
-	paralyze = 3
+	stamina = 25
 	speed = 0.4
 	armour_penetration = 45
 

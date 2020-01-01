@@ -56,8 +56,13 @@
 	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/suit.dmi'
 	icon = 'code/shitcode/Wzzzz/Valya/clothing/suits.dmi'
 	icon_state = "opvest"
-
 	armor = list("melee" = 40, "bullet" = 35, "laser" = 40,"energy" = 35, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 30)
+	pocket_storage_component_path = /datum/component/storage/concrete/pockets/opvest
+
+/datum/component/storage/concrete/pockets/opvest/Initialize()
+	. = ..()
+	set_holdable(GLOB.security_vest_allowed)
+	max_items = 3
 
 /obj/item/clothing/suit/armor/vest/wzzzz/arbiter
 	icon_state = "arbiter"
@@ -181,8 +186,8 @@
 /obj/item/clothing/mask/gas/wzzzz/germanfull
 	name = "old style gas mask"
 	desc = "С›РјРј. вЂ™Р°Р№Р»СЊ В¬Р°Р№С‚."
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
-	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEEYES
+	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEEYES
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	mob_overlay_icon = 'code/shitcode/Wzzzz/Valya/clothing/mob/mask.dmi'
