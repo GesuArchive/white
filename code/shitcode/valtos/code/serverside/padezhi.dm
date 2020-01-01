@@ -48,9 +48,9 @@
 	return msgfrom
 
 /proc/sklonenie(msgfrom, rule, gender = null)
+#if DM_VERSION >= 513 && DM_BUILD >= 1493
 	var/to_ret = ""
 // Travis backdoor
-#if DM_VERSION >= 513 && DM_BUILD >= 1493
 	for(var/word in splittext_char(msgfrom, " "))
 		to_ret += " [sklonenie_do(word, rule, gender)]"
 	return to_ret
