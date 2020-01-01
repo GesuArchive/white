@@ -9,18 +9,18 @@ export const Apc = props => {
   const powerStatusMap = {
     2: {
       color: 'good',
-      externalPowerText: 'External Power',
-      chargingText: 'Fully Charged',
+      externalPowerText: 'Внешнее питание',
+      chargingText: 'Полностью заряжен',
     },
     1: {
       color: 'average',
-      externalPowerText: 'Low External Power',
-      chargingText: 'Charging',
+      externalPowerText: 'Малое внешнее питание',
+      chargingText: 'Зарядка',
     },
     0: {
       color: 'bad',
-      externalPowerText: 'No External Power',
-      chargingText: 'Not Charging',
+      externalPowerText: 'Нет внешнего питания',
+      chargingText: 'Не заряжается',
     },
   };
   const malfMap = {
@@ -65,7 +65,7 @@ export const Apc = props => {
         Automatic reboot in {data.failTime} seconds...
         <Button
           icon="sync"
-          content="Reboot Now"
+          content="Перезагрузить сейчас"
           onClick={() => act('reboot')} />
       </NoticeBox>
     );
@@ -77,33 +77,33 @@ export const Apc = props => {
         siliconUser={data.siliconUser}
         locked={data.locked}
         onLockStatusChange={() => act('lock')} />
-      <Section title="Power Status">
+      <Section title="Состояние энергии">
         <LabeledList>
           <LabeledList.Item
-            label="Main Breaker"
+            label="Основное питание"
             color={externalPowerStatus.color}
             buttons={(
               <Button
                 icon={data.isOperating ? 'power-off' : 'times'}
-                content={data.isOperating ? 'On' : 'Off'}
+                content={data.isOperating ? 'Вкл' : 'Выкл'}
                 selected={data.isOperating && !locked}
                 disabled={locked}
                 onClick={() => act('breaker')} />
             )}>
             [ {externalPowerStatus.externalPowerText} ]
           </LabeledList.Item>
-          <LabeledList.Item label="Power Cell">
+          <LabeledList.Item label="Аккумулятор">
             <ProgressBar
               color="good"
               value={adjustedCellChange} />
           </LabeledList.Item>
           <LabeledList.Item
-            label="Charge Mode"
+            label="Режим зарядки"
             color={chargingStatus.color}
             buttons={(
               <Button
                 icon={data.chargeMode ? 'sync' : 'close'}
-                content={data.chargeMode ? 'Auto' : 'Off'}
+                content={data.chargeMode ? 'Авто' : 'Выкл'}
                 disabled={locked}
                 onClick={() => act('charge')} />
             )}>
@@ -111,7 +111,7 @@ export const Apc = props => {
           </LabeledList.Item>
         </LabeledList>
       </Section>
-      <Section title="Power Channels">
+      <Section title="Энергоканалы">
         <LabeledList>
           {channelArray.map(channel => {
             const { topicParams } = channel;
@@ -123,11 +123,11 @@ export const Apc = props => {
                   <Fragment>
                     <Box inline mx={2}
                       color={channel.status >= 2 ? 'good' : 'bad'}>
-                      {channel.status >= 2 ? 'On' : 'Off'}
+                      {channel.status >= 2 ? 'Вкл' : 'Выкл'}
                     </Box>
                     <Button
                       icon="sync"
-                      content="Auto"
+                      content="Авто"
                       selected={!locked && (
                         channel.status === 1 || channel.status === 3
                       )}
@@ -135,13 +135,13 @@ export const Apc = props => {
                       onClick={() => act('channel', topicParams.auto)} />
                     <Button
                       icon="power-off"
-                      content="On"
+                      content="Вкл"
                       selected={!locked && channel.status === 2}
                       disabled={locked}
                       onClick={() => act('channel', topicParams.on)} />
                     <Button
                       icon="times"
-                      content="Off"
+                      content="Выкл"
                       selected={!locked && channel.status === 0}
                       disabled={locked}
                       onClick={() => act('channel', topicParams.off)} />
@@ -151,13 +151,13 @@ export const Apc = props => {
               </LabeledList.Item>
             );
           })}
-          <LabeledList.Item label="Total Load">
+          <LabeledList.Item label="Общая нагрузка">
             <b>{data.totalLoad}</b>
           </LabeledList.Item>
         </LabeledList>
       </Section>
       <Section
-        title="Misc"
+        title="Остальное"
         buttons={!!data.siliconUser && (
           <Fragment>
             {!!data.malfStatus && (
@@ -169,34 +169,34 @@ export const Apc = props => {
             )}
             <Button
               icon="lightbulb-o"
-              content="Overload"
+              content="Перегрузить"
               onClick={() => act('overload')} />
           </Fragment>
         )}>
         <LabeledList.Item
-          label="Cover Lock"
+          label="Блокировка крышки"
           buttons={(
             <Button
               icon={data.coverLocked ? 'lock' : 'unlock'}
-              content={data.coverLocked ? 'Engaged' : 'Disengaged'}
+              content={data.coverLocked ? 'Включена' : 'Выключена'}
               disabled={locked}
               onClick={() => act('cover')} />
           )} />
         <LabeledList.Item
-          label="Emergency Lighting"
+          label="Аварийное освещение"
           buttons={(
             <Button
               icon="lightbulb-o"
-              content={data.emergencyLights ? 'Enabled' : 'Disabled'}
+              content={data.emergencyLights ? 'Включено' : 'Отключено'}
               disabled={locked}
               onClick={() => act('emergency_lighting')} />
           )} />
         <LabeledList.Item
-          label="Night Shift Lighting"
+          label="Ночная смена освещения"
           buttons={(
             <Button
               icon="lightbulb-o"
-              content={data.nightshiftLights ? 'Enabled' : 'Disabled'}
+              content={data.nightshiftLights ? 'Включена' : 'Отключена'}
               disabled={locked}
               onClick={() => act('toggle_nightshift')} />
           )} />

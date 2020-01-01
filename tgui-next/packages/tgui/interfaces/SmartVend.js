@@ -6,17 +6,17 @@ export const SmartVend = props => {
   const { act, data } = useBackend(props);
   return (
     <Section
-      title="Storage"
+      title="Хранилище"
       buttons={!!data.isdryer && (
         <Button
           icon={data.drying ? 'stop' : 'tint'}
           onClick={() => act('Dry')}>
-          {data.drying ? 'Stop drying' : 'Dry'}
+          {data.drying ? 'Остановить' : 'Сушить'}
         </Button>
       )}>
       {data.contents.length === 0 && (
         <NoticeBox>
-          Unfortunately, this {data.name} is empty.
+          Невероятно, но {data.name} пуст.
         </NoticeBox>
       ) || (
         <Table>
@@ -26,7 +26,7 @@ export const SmartVend = props => {
             </Table.Cell>
             <Table.Cell collapsing />
             <Table.Cell collapsing textAlign="center">
-              {data.verb ? data.verb : 'Dispense'}
+              {data.verb ? data.verb : 'Выдать'}
             </Table.Cell>
           </Table.Row>
           {map((value, key) => (
@@ -39,14 +39,14 @@ export const SmartVend = props => {
               </Table.Cell>
               <Table.Cell collapsing>
                 <Button
-                  content="One"
+                  content="Один"
                   disabled={value.amount < 1}
                   onClick={() => act('Release', {
                     name: value.name,
                     amount: 1,
                   })} />
                 <Button
-                  content="Many"
+                  content="Много"
                   disabled={value.amount <= 1}
                   onClick={() => act('Release', {
                     name: value.name,

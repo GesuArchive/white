@@ -9,31 +9,31 @@ export const ThermoMachine = props => {
     <Fragment>
       <Section title="Status">
         <LabeledList>
-          <LabeledList.Item label="Temperature">
+          <LabeledList.Item label="Температура">
             <AnimatedNumber
               value={data.temperature}
               format={value => toFixed(value, 2)} />
             {' K'}
           </LabeledList.Item>
-          <LabeledList.Item label="Pressure">
+          <LabeledList.Item label="Давление">
             <AnimatedNumber
               value={data.pressure}
               format={value => toFixed(value, 2)} />
-            {' kPa'}
+            {' кПа'}
           </LabeledList.Item>
         </LabeledList>
       </Section>
       <Section
-        title="Controls"
+        title="Управление"
         buttons={(
           <Button
             icon={data.on ? 'power-off' : 'times'}
-            content={data.on ? 'On' : 'Off'}
+            content={data.on ? 'Вкл' : 'Выкл'}
             selected={data.on}
             onClick={() => act('power')} />
         )}>
         <LabeledList>
-          <LabeledList.Item label="Target Temperature">
+          <LabeledList.Item label="Целевая температура">
             <NumberInput
               animated
               value={Math.round(data.target)}
@@ -51,21 +51,21 @@ export const ThermoMachine = props => {
             <Button
               icon="fast-backward"
               disabled={data.target === data.min}
-              title="Minimum temperature"
+              title="Минимальная температура"
               onClick={() => act('target', {
                 target: data.min,
               })} />
             <Button
               icon="sync"
               disabled={data.target === data.initial}
-              title="Room Temperature"
+              title="Комнатная температура"
               onClick={() => act('target', {
                 target: data.initial,
               })} />
             <Button
               icon="fast-forward"
               disabled={data.target === data.max}
-              title="Maximum Temperature"
+              title="Максимальная температура"
               onClick={() => act('target', {
                 target: data.max,
               })} />

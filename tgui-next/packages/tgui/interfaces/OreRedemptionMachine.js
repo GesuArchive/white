@@ -16,12 +16,12 @@ export const OreRedemptionMachine = props => {
     <Fragment>
       <Section>
         <BlockQuote mb={1}>
-          This machine only accepts ore.<br />
-          Gibtonite and Slag are not accepted.
+          Эта машина принимает только руду.<br />
+          Гибтонит и шлак не принимаются.
         </BlockQuote>
         <Box>
           <Box inline color="label" mr={1}>
-            Unclaimed points:
+           Невостребованные очки:
           </Box>
           {unclaimedPoints}
           <Button
@@ -37,7 +37,7 @@ export const OreRedemptionMachine = props => {
             <Box mb={1}>
               <Button
                 icon="eject"
-                content="Eject design disk"
+                content="Изъять диск"
                 onClick={() => act('diskEject')} />
             </Box>
             <Table>
@@ -49,7 +49,7 @@ export const OreRedemptionMachine = props => {
                   <Table.Cell collapsing>
                     <Button
                       disabled={!design.canupload}
-                      content="Upload"
+                      content="Загрузить"
                       onClick={() => act('diskUpload', {
                         design: design.index,
                       })} />
@@ -61,11 +61,11 @@ export const OreRedemptionMachine = props => {
         ) || (
           <Button
             icon="save"
-            content="Insert design disk"
+            content="Вставить диск"
             onClick={() => act('diskInsert')} />
         )}
       </Section>
-      <Section title="Materials">
+      <Section title="Материалы">
         <Table>
           {materials.map(material => (
             <MaterialRow
@@ -78,7 +78,7 @@ export const OreRedemptionMachine = props => {
           ))}
         </Table>
       </Section>
-      <Section title="Alloys">
+      <Section title="Сплавы">
         <Table>
           {alloys.map(material => (
             <MaterialRow
@@ -114,12 +114,12 @@ class MaterialRow extends Component {
         </Table.Cell>
         <Table.Cell collapsing textAlign="right">
           <Box mr={2} color="label" inline>
-            {material.value && material.value + ' cr'}
+            {material.value && material.value + ' кр'}
           </Box>
         </Table.Cell>
         <Table.Cell collapsing textAlign="right">
           <Box mr={2} color="label" inline>
-            {amountAvailable} sheets
+            {amountAvailable} листов
           </Box>
         </Table.Cell>
         <Table.Cell collapsing>
@@ -135,7 +135,7 @@ class MaterialRow extends Component {
             })} />
           <Button
             disabled={amountAvailable < 1}
-            content="Release"
+            content="Выдать"
             onClick={() => onRelease(amount)} />
         </Table.Cell>
       </Table.Row>

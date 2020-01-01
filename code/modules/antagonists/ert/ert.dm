@@ -139,30 +139,30 @@
 	if(!ert_team)
 		return
 
-	to_chat(owner, "<B><font size=3 color=red>You are the [name].</font></B>")
+	to_chat(owner, "<B><font size=3 color=red>Я вхожу в [name].</font></B>")
 
-	var/missiondesc = "Your squad is being sent on a mission to [station_name()] by Nanotrasen's Security Division."
+	var/missiondesc = "Моя миссия на станции [station_name()] заключается в"
 	if(leader) //If Squad Leader
-		missiondesc += " Lead your squad to ensure the completion of the mission. Board the shuttle when your team is ready."
+		missiondesc += " ведении своего отряда на выполнение задачи. Занять оперативный шаттл, когда все готовы."
 	else
-		missiondesc += " Follow orders given to you by your squad leader."
+		missiondesc += " выполнении приказов своего лидера."
 
-		missiondesc += "Avoid civilian casualties when possible."
+		missiondesc += "Избегать смертей гражданских по возможности."
 
-	missiondesc += "<BR><B>Your Mission</B> : [ert_team.mission.explanation_text]"
+	missiondesc += "<BR><B>Моя миссия</B> : [ert_team.mission.explanation_text]"
 	to_chat(owner,missiondesc)
 
 /datum/antagonist/ert/deathsquad/greet()
 	if(!ert_team)
 		return
 
-	to_chat(owner, "<B><font size=3 color=red>You are the [name].</font></B>")
+	to_chat(owner, "<B><font size=3 color=red>Я член [name].</font></B>")
 
-	var/missiondesc = "Your squad is being sent on a mission to [station_name()] by Nanotrasen's Security Division."
+	var/missiondesc = "Моя миссия на станции [station_name()] заключается в"
 	if(leader) //If Squad Leader
-		missiondesc += " Lead your squad to ensure the completion of the mission. Board the shuttle when your team is ready."
+		missiondesc += " ведении своего отряда на выполнение задачи. Занять оперативный шаттл, когда все готовы."
 	else
-		missiondesc += " Follow orders given to you by your squad leader."
+		missiondesc += " выполнении приказов своего лидера."
 
-	missiondesc += "<BR><B>Your Mission</B> : [ert_team.mission.explanation_text]"
+	missiondesc += "<BR><B>Моя миссия</B> : [ert_team.mission.explanation_text]"
 	to_chat(owner,missiondesc)

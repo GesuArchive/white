@@ -10,51 +10,51 @@ export const TurbineComputer = props => {
     && !data.turbine_broke);
   return (
     <Section
-      title="Status"
+      title="Состояние"
       buttons={(
         <Fragment>
           <Button
             icon={data.online ? 'power-off' : 'times'}
-            content={data.online ? 'Online' : 'Offline'}
+            content={data.online ? 'Включена' : 'Отключена'}
             selected={data.online}
             disabled={!operational}
             onClick={() => act('toggle_power')} />
           <Button
             icon="sync"
-            content="Reconnect"
+            content="Переподключить"
             onClick={() => act('reconnect')} />
         </Fragment>
       )}>
       {!operational && (
         <LabeledList>
           <LabeledList.Item
-            label="Compressor Status"
+            label="Состояние компрессора"
             color={(!data.compressor || data.compressor_broke)
               ? 'bad'
               : 'good'}>
             {data.compressor_broke
-              ? data.compressor ? 'Offline' : 'Missing'
-              : 'Online'}
+              ? data.compressor ? 'Выключен' : 'Отсутствует'
+              : 'Включен'}
           </LabeledList.Item>
           <LabeledList.Item
-            label="Turbine Status"
+            label="Состояние турбины"
             color={(!data.turbine || data.turbine_broke)
               ? 'bad'
               : 'good'}>
             {data.turbine_broke
-              ? data.turbine ? 'Offline' : 'Missing'
-              : 'Online'}
+              ? data.turbine ? 'Выключена' : 'Отсутствует'
+              : 'Включена'}
           </LabeledList.Item>
         </LabeledList>
       ) || (
         <LabeledList>
-          <LabeledList.Item label="Turbine Speed">
-            {data.rpm} RPM
+          <LabeledList.Item label="Скорость турбины">
+            {data.rpm} ОВМ
           </LabeledList.Item>
-          <LabeledList.Item label="Internal Temp">
+          <LabeledList.Item label="Внутренняя температура">
             {data.temp} K
           </LabeledList.Item>
-          <LabeledList.Item label="Generated Power">
+          <LabeledList.Item label="Генерируемая мощность">
             {data.power}
           </LabeledList.Item>
         </LabeledList>

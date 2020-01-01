@@ -6,17 +6,17 @@ export const BrigTimer = props => {
   const { act, data } = useBackend(props);
   return (
     <Section
-      title="Cell Timer"
+      title="Таймер клетки"
       buttons={(
         <Fragment>
           <Button
             icon="clock-o"
-            content={data.timing ? 'Stop' : 'Start'}
+            content={data.timing ? 'Стоп' : 'Старт'}
             selected={data.timing}
             onClick={() => act(data.timing ? 'stop' : 'start')} />
           <Button
             icon="lightbulb-o"
-            content={data.flash_charging ? 'Recharging' : 'Flash'}
+            content={data.flash_charging ? 'Перезарядка' : 'Вспышка'}
             disabled={data.flash_charging}
             onClick={() => act('flash')} />
         </Fragment>
@@ -40,15 +40,15 @@ export const BrigTimer = props => {
       <br />
       <Button
         icon="hourglass-start"
-        content="Short"
+        content="Короткий"
         onClick={() => act('preset', { preset: 'short' })} />
       <Button
         icon="hourglass-start"
-        content="Medium"
+        content="Средний"
         onClick={() => act('preset', { preset: 'medium' })} />
       <Button
         icon="hourglass-start"
-        content="Long"
+        content="Долгий"
         onClick={() => act('preset', { preset: 'long' })} />
     </Section>
   );

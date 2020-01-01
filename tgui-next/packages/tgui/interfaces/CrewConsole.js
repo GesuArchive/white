@@ -65,18 +65,18 @@ export const CrewConsole = props => {
       <Table>
         <Table.Row>
           <Table.Cell bold>
-            Name
+            Имя
           </Table.Cell>
           <Table.Cell bold collapsing />
           <Table.Cell bold collapsing textAlign="center">
-            Vitals
+            Состояние
           </Table.Cell>
           <Table.Cell bold>
-            Position
+            Местоположение
           </Table.Cell>
           {!!data.link_allowed && (
             <Table.Cell bold collapsing>
-              Tracking
+              Слежка
             </Table.Cell>
           )}
         </Table.Row>
@@ -107,7 +107,7 @@ export const CrewConsole = props => {
                   <HealthStat type="brute" value={sensor.brutedam} />
                 </Box>
               ) : (
-                sensor.life_status ? 'Alive' : 'Dead'
+                sensor.life_status ? 'Жив' : 'Мёртв'
               )}
             </Table.Cell>
             <Table.Cell>
@@ -116,7 +116,7 @@ export const CrewConsole = props => {
             {!!data.link_allowed && (
               <Table.Cell collapsing>
                 <Button
-                  content="Track"
+                  content="Отслеживать"
                   disabled={!sensor.can_track}
                   onClick={() => act('select_person', {
                     name: sensor.name,

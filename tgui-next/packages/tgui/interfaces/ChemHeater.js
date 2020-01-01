@@ -18,16 +18,16 @@ export const ChemHeater = props => {
   return (
     <Fragment>
       <Section
-        title="Thermostat"
+        title="Термостат"
         buttons={(
           <Button
             icon={isActive ? 'power-off' : 'times'}
             selected={isActive}
-            content={isActive ? 'On' : 'Off'}
+            content={isActive ? 'Вкл' : 'Выкл'}
             onClick={() => act('power')} />
         )}>
         <LabeledList>
-          <LabeledList.Item label="Target">
+          <LabeledList.Item label="Целевое">
             <NumberInput
               width="65px"
               unit="K"
@@ -40,7 +40,7 @@ export const ChemHeater = props => {
                 target: value,
               })} />
           </LabeledList.Item>
-          <LabeledList.Item label="Reading">
+          <LabeledList.Item label="Текущее">
             <Box
               width="60px"
               textAlign="right">
@@ -54,7 +54,7 @@ export const ChemHeater = props => {
         </LabeledList>
       </Section>
       <Section
-        title="Beaker"
+        title="Пробирка"
         buttons={!!isBeakerLoaded && (
           <Fragment>
             <Box inline color="label" mr={2}>
@@ -62,7 +62,7 @@ export const ChemHeater = props => {
             </Box>
             <Button
               icon="eject"
-              content="Eject"
+              content="Изъять"
               onClick={() => act('eject')} />
           </Fragment>
         )}>

@@ -213,7 +213,7 @@
 	log = FALSE
 
 /datum/world_topic/who/Run(list/input)
-	var/msg = "Current Players:\n"
+	var/msg = "Текущие игроки:\n"
 	var/n = 0
 	for(var/client/C in GLOB.clients)
 		n++
@@ -221,7 +221,7 @@
 			msg += "\t[C.holder.fakekey]\n"
 		else
 			msg += "\t[C.key]\n"
-	msg += "Total Players: [n]"
+	msg += "Всего: [n]"
 	return msg
 
 /datum/world_topic/asay
@@ -229,11 +229,12 @@
 	require_comms_key = TRUE
 
 /datum/world_topic/asay/Run(list/input)
-	var/msg = "<span class='adminobserver'><span class='prefix'>DISCORD ADMIN:</span> <EM>[input["admin"]]</EM>: <span class='message'>[input["asay"]]</span></span>"
+	var/msg = "<span class='adminobserver'><span class='prefix'>Discord -> ASAY</span> <EM>[input["admin"]]</EM>: <span class='message'>[input["asay"]]</span></span>"
 	to_chat(GLOB.admins, msg)
 
 /datum/world_topic/ooc
 	keyword = "ooc"
+	require_comms_key = TRUE
 
 /datum/world_topic/ooc/Run(list/input)
 	if(!GLOB.ooc_allowed&&!input["isadmin"])
@@ -241,7 +242,7 @@
 
 	for(var/client/C in GLOB.clients)
 		if(C.prefs.chat_toggles & CHAT_OOC) // ooc ignore
-			to_chat(C, "<font color='[GLOB.normal_ooc_colour]'><span class='ooc'><span class='prefix'>DOOC:</span> <EM>[input["ckey"]]:</EM> <span class='message'>[cp1252_to_utf8(input["ooc"])]</span></span></font>")
+			to_chat(C, "<font color='[GLOB.normal_ooc_colour]'><span class='ooc'><span class='prefix'>Discord -> OOC:</span> <EM>[input["ckey"]]:</EM> <span class='message'>[cp1252_to_utf8(input["ooc"])]</span></span></font>")
 
 /datum/world_topic/ahelp
 	keyword = "adminhelp"

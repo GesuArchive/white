@@ -27,10 +27,10 @@ const CraftingList = props => {
           buttons={(
             <Button
               icon="cog"
-              content="Craft"
+              content="Создание"
               disabled={!craftability[craftable.ref]}
               tooltip={craftable.tool_text && (
-                'Tools needed: ' + craftable.tool_text
+                'Инструменты: ' + craftable.tool_text
               )}
               tooltipPosition="left"
               onClick={() => act('make', {
@@ -50,7 +50,7 @@ const CraftingList = props => {
         buttons={(
           <Button
             icon="cog"
-            content="Craft"
+            content="Создание"
             disabled={!craftability[craftable.ref]}
             onClick={() => act('make', {
               recipe: craftable.ref,
@@ -58,17 +58,17 @@ const CraftingList = props => {
         )}>
         <LabeledList>
           {!!craftable.req_text && (
-            <LabeledList.Item label="Required">
+            <LabeledList.Item label="Требуется">
               {craftable.req_text}
             </LabeledList.Item>
           )}
           {!!craftable.catalyst_text && (
-            <LabeledList.Item label="Catalyst">
+            <LabeledList.Item label="Катализатор">
               {craftable.catalyst_text}
             </LabeledList.Item>
           )}
           {!!craftable.tool_text && (
-            <LabeledList.Item label="Tools">
+            <LabeledList.Item label="Предметы">
               {craftable.tool_text}
             </LabeledList.Item>
           )}
@@ -106,7 +106,7 @@ export const PersonalCrafting = props => {
       textAlign="center">
       <Box mt={30}>
         <Icon name="cog" spin={1} />
-        {' Crafting...'}
+        {' Создаём...'}
       </Box>
     </Dimmer>
   );
@@ -115,17 +115,17 @@ export const PersonalCrafting = props => {
     <Fragment>
       {busyBox}
       <Section
-        title="Personal Crafting"
+        title="Создание"
         buttons={(
           <Fragment>
             <Button
               icon={display_compact ? "check-square-o" : "square-o"}
-              content="Compact"
+              content="Компактно"
               selected={display_compact}
               onClick={() => act('toggle_compact')} />
             <Button
               icon={display_craftable_only ? "check-square-o" : "square-o"}
-              content="Craftable Only"
+              content="Только возможные"
               selected={display_craftable_only}
               onClick={() => act('toggle_recipes')} />
           </Fragment>

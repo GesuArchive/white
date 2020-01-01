@@ -1,6 +1,6 @@
 /obj/item/clothing/under/rank/omon
-	name = "omon jumpsuit"
-	desc = "A tactical security jumpsuit for Russian officers."
+	name = "костюм омоновца"
+	desc = "Тактично пиздец."
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/uniform.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/uniforms.dmi'
 	icon_state = "omon"
@@ -15,6 +15,14 @@
 /obj/item/clothing/under/rank/omon/green
 	icon_state = "omon-2"
 	item_state = "g_suit"
+
+/obj/item/clothing/under/rank/sobr
+	name = "тельняшка"
+	desc = "Пиндосы ПОШЛИ на хуй."
+	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/uniform.dmi'
+	icon = 'code/shitcode/valtos/icons/clothing/uniforms.dmi'
+	icon_state = "telnyashka"
+	item_state = "telnyashka"
 
 /obj/item/clothing/suit/armor/riot/omon
 	name = "omon riot suit"

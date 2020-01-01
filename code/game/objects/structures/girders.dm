@@ -1,7 +1,7 @@
 /obj/structure/girder
-	name = "girder"
+	name = "балка"
 	icon_state = "girder"
-	desc = "A large structural assembly made out of metal; It requires a layer of metal before it can be considered a wall."
+	desc = "Большая структурная сборка из металла; Требуется слой металла, прежде чем он может рассматриваться как стена."
 	anchored = TRUE
 	density = TRUE
 	var/state = GIRDER_NORMAL

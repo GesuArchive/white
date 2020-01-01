@@ -31,20 +31,20 @@ const AirAlarmStatus = props => {
   const dangerMap = {
     0: {
       color: 'good',
-      localStatusText: 'Optimal',
+      localStatusText: 'Оптимально',
     },
     1: {
       color: 'average',
-      localStatusText: 'Caution',
+      localStatusText: 'Нестабильно',
     },
     2: {
       color: 'bad',
-      localStatusText: 'Danger (Internals Required)',
+      localStatusText: 'Опасно (Требуется Диагностика)',
     },
   };
   const localStatus = dangerMap[data.danger_level] || dangerMap[0];
   return (
-    <Section title="Air Status">
+    <Section title="Состояние атмосферы">
       <LabeledList>
         {entries.length > 0 && (
           <Fragment>
@@ -60,28 +60,28 @@ const AirAlarmStatus = props => {
               );
             })}
             <LabeledList.Item
-              label="Local status"
+              label="Местный статус"
               color={localStatus.color}>
               {localStatus.localStatusText}
             </LabeledList.Item>
             <LabeledList.Item
-              label="Area status"
+              label="Состояние зоны"
               color={data.atmos_alarm || data.fire_alarm ? 'bad' : 'good'}>
-              {data.atmos_alarm && 'Atmosphere Alarm'
-                || data.fire_alarm && 'Fire Alarm'
-                || 'Nominal'}
+              {data.atmos_alarm && 'Атмосферная тревога'
+                || data.fire_alarm && 'Пожарная тревога'
+                || 'Номинально'}
             </LabeledList.Item>
           </Fragment>
         ) || (
           <LabeledList.Item
-            label="Warning"
+            label="Внимание"
             color="bad">
             Cannot obtain air sample for analysis.
           </LabeledList.Item>
         )}
         {!!data.emagged && (
           <LabeledList.Item
-            label="Warning"
+            label="Внимание"
             color="bad">
             Safety measures offline. Device may exhibit abnormal behavior.
           </LabeledList.Item>
@@ -93,23 +93,23 @@ const AirAlarmStatus = props => {
 
 const AIR_ALARM_ROUTES = {
   home: {
-    title: 'Air Controls',
+    title: 'Контроль атмосферы',
     component: () => AirAlarmControlHome,
   },
   vents: {
-    title: 'Vent Controls',
+    title: 'Управление вентиляцией',
     component: () => AirAlarmControlVents,
   },
   scrubbers: {
-    title: 'Scrubber Controls',
+    title: 'Управление фильтрами',
     component: () => AirAlarmControlScrubbers,
   },
   modes: {
-    title: 'Operating Mode',
+    title: 'Режим работы',
     component: () => AirAlarmControlModes,
   },
   thresholds: {
-    title: 'Alarm Thresholds',
+    title: 'Пороги тревог',
     component: () => AirAlarmControlThresholds,
   },
 };
@@ -125,7 +125,7 @@ const AirAlarmControl = props => {
       buttons={config.screen !== 'home' && (
         <Button
           icon="arrow-left"
-          content="Back"
+          content="Назад"
           onClick={() => act('tgui:view', {
             screen: 'home',
           })} />
@@ -152,7 +152,7 @@ const AirAlarmControlHome = props => {
           ? 'exclamation-triangle'
           : 'exclamation'}
         color={atmos_alarm && 'caution'}
-        content="Area Atmosphere Alarm"
+        content="Атмосферная тревога"
         onClick={() => act(atmos_alarm ? 'reset' : 'alarm')} />
       <Box mt={1} />
       <Button
@@ -160,35 +160,35 @@ const AirAlarmControlHome = props => {
           ? 'exclamation-triangle'
           : 'exclamation'}
         color={mode === 3 && 'danger'}
-        content="Panic Siphon"
+        content="Паническая откачка"
         onClick={() => act('mode', {
           mode: mode === 3 ? 1 : 3,
         })} />
       <Box mt={2} />
       <Button
         icon="sign-out-alt"
-        content="Vent Controls"
+        content="Управление вентиляцией"
         onClick={() => act('tgui:view', {
           screen: 'vents',
         })} />
       <Box mt={1} />
       <Button
         icon="filter"
-        content="Scrubber Controls"
+        content="Управление фильтрами"
         onClick={() => act('tgui:view', {
           screen: 'scrubbers',
         })} />
       <Box mt={1} />
       <Button
         icon="cog"
-        content="Operating Mode"
+        content="Режим работы"
         onClick={() => act('tgui:view', {
           screen: 'modes',
         })} />
       <Box mt={1} />
       <Button
         icon="chart-bar"
-        content="Alarm Thresholds"
+        content="Пороги тревог"
         onClick={() => act('tgui:view', {
           screen: 'thresholds',
         })} />
@@ -205,7 +205,7 @@ const AirAlarmControlVents = props => {
   const { data } = useBackend(props);
   const { vents } = data;
   if (!vents || vents.length === 0) {
-    return 'Nothing to show';
+    return 'Нечего показывать';
   }
   return vents.map(vent => (
     <Vent key={vent.id_tag}
@@ -237,20 +237,20 @@ const Vent = props => {
         <Button
           icon={power ? 'power-off' : 'times'}
           selected={power}
-          content={power ? 'On' : 'Off'}
+          content={power ? 'ВКЛ' : 'ВЫКЛ'}
           onClick={() => act('power', {
             id_tag,
             val: Number(!power),
           })} />
       )}>
       <LabeledList>
-        <LabeledList.Item label="Mode">
-          {direction === 'release' ? 'Pressurizing' : 'Releasing'}
+        <LabeledList.Item label="Режим">
+          {direction === 'release' ? 'Герметизация' : 'Высвобождение'}
         </LabeledList.Item>
-        <LabeledList.Item label="Pressure Regulator">
+        <LabeledList.Item label="Регулятор давления">
           <Button
             icon="sign-in-alt"
-            content="Internal"
+            content="Внутренний"
             selected={incheck}
             onClick={() => act('incheck', {
               id_tag,
@@ -258,7 +258,7 @@ const Vent = props => {
             })} />
           <Button
             icon="sign-out-alt"
-            content="External"
+            content="Внешний"
             selected={excheck}
             onClick={() => act('excheck', {
               id_tag,
@@ -266,10 +266,10 @@ const Vent = props => {
             })} />
         </LabeledList.Item>
         {!!incheck && (
-          <LabeledList.Item label="Internal Target">
+          <LabeledList.Item label="Внутреннее целевое">
             <NumberInput
               value={Math.round(internal)}
-              unit="kPa"
+              unit="кПа"
               width="75px"
               minValue={0}
               step={10}
@@ -281,17 +281,17 @@ const Vent = props => {
             <Button
               icon="undo"
               disabled={intdefault}
-              content="Reset"
+              content="Сбросить"
               onClick={() => act('reset_internal_pressure', {
                 id_tag,
               })} />
           </LabeledList.Item>
         )}
         {!!excheck && (
-          <LabeledList.Item label="External Target">
+          <LabeledList.Item label="Внешнее целевое">
             <NumberInput
               value={Math.round(external)}
-              unit="kPa"
+              unit="кПа"
               width="75px"
               minValue={0}
               step={10}
@@ -303,7 +303,7 @@ const Vent = props => {
             <Button
               icon="undo"
               disabled={extdefault}
-              content="Reset"
+              content="Сбросить"
               onClick={() => act('reset_external_pressure', {
                 id_tag,
               })} />
@@ -323,7 +323,7 @@ const AirAlarmControlScrubbers = props => {
   const { data } = useBackend(props);
   const { scrubbers } = data;
   if (!scrubbers || scrubbers.length === 0) {
-    return 'Nothing to show';
+    return 'Нечего показывать';
   }
   return scrubbers.map(scrubber => (
     <Scrubber
@@ -350,7 +350,7 @@ const Scrubber = props => {
       buttons={(
         <Button
           icon={power ? 'power-off' : 'times'}
-          content={power ? 'On' : 'Off'}
+          content={power ? 'ВКЛ' : 'ВЫКЛ'}
           selected={power}
           onClick={() => act('power', {
             id_tag,
@@ -358,11 +358,11 @@ const Scrubber = props => {
           })} />
       )}>
       <LabeledList>
-        <LabeledList.Item label="Mode">
+        <LabeledList.Item label="Режим">
           <Button
             icon={scrubbing ? 'filter' : 'sign-in-alt'}
             color={scrubbing || 'danger'}
-            content={scrubbing ? 'Scrubbing' : 'Siphoning'}
+            content={scrubbing ? 'Чистка' : 'Выкачивание'}
             onClick={() => act('scrubbing', {
               id_tag,
               val: Number(!scrubbing),
@@ -370,13 +370,13 @@ const Scrubber = props => {
           <Button
             icon={widenet ? 'expand' : 'compress'}
             selected={widenet}
-            content={widenet ? 'Expanded range' : 'Normal range'}
+            content={widenet ? 'Расширенный радиус' : 'Обычный радиус'}
             onClick={() => act('widenet', {
               id_tag,
               val: Number(!widenet),
             })} />
         </LabeledList.Item>
-        <LabeledList.Item label="Filters">
+        <LabeledList.Item label="Фильтры">
           {scrubbing
             && filter_types.map(filter => (
               <Button key={filter.gas_id}
@@ -404,7 +404,7 @@ const AirAlarmControlModes = props => {
   const { act, data } = useBackend(props);
   const { modes } = data;
   if (!modes || modes.length === 0) {
-    return 'Nothing to show';
+    return 'Нечего показывать';
   }
   return modes.map(mode => (
     <Fragment key={mode.mode}>
@@ -433,10 +433,10 @@ const AirAlarmControlThresholds = props => {
       <thead>
         <tr>
           <td />
-          <td className="color-bad">min2</td>
-          <td className="color-average">min1</td>
-          <td className="color-average">max1</td>
-          <td className="color-bad">max2</td>
+          <td className="color-bad">мин2</td>
+          <td className="color-average">мин1</td>
+          <td className="color-average">макс1</td>
+          <td className="color-bad">макс2</td>
         </tr>
       </thead>
       <tbody>

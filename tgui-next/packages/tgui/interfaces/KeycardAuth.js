@@ -32,17 +32,17 @@ export const KeycardAuth = props => {
                   onClick={() => {
                     return act('red_alert');
                   }}
-                  content="Red Alert" />
+                  content="Красная тревога" />
                 <Button
                   icon="wrench"
                   fluid
                   onClick={() => act('emergency_maint')}
-                  content="Emergency Maintenance Access" />
+                  content="Аварийный доступ к техтоннелям" />
                 <Button
                   icon="meteor"
                   fluid
                   onClick={() => act('bsa_unlock')}
-                  content="Bluespace Artillery Unlock" />
+                  content="Разблокировка блюспейс артиллерии" />
               </Fragment>
             )}
           </Fragment>

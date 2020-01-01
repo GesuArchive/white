@@ -1,5 +1,5 @@
 /obj/item/optable
-	name = "folded table"
+	name = "folded стол"
 	desc = "A collapsed operation table that can be carried around. Stuff for extremal surgery"
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "folded"

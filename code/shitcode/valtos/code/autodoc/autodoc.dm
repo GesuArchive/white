@@ -31,7 +31,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	/datum/surgery_step/retract_skin,
 	/datum/surgery_step/insert_pill,
 	/datum/surgery_step/fix_eyes,
-	/datum/surgery_step/revive,
+//	/datum/surgery_step/revive,
 	/datum/surgery_step/pacify,
 	/datum/surgery_step/thread_veins,
 //	/datum/surgery_step/splice_nerves,
@@ -113,11 +113,11 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	avg = round(list_avg(P), 1)
 	switch(avg)
 		if(2)
-			speed_mult = 0.75
+			speed_mult = 3.5
 		if(3)
-			speed_mult = 0.5
+			speed_mult = 2.5
 		if(4)
-			speed_mult = 0.25
+			speed_mult = 1.5
 		else
 			speed_mult = 1
 	for(var/obj/item/stock_parts/matter_bin/M in component_parts)
@@ -128,7 +128,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	STR.cant_hold = typecacheof(list(/obj/item/card/emag))
 
 /obj/machinery/autodoc/CtrlClick(mob/user)
-	if(in_use)
+	if(in_use && isliving(user))
 		playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
 		return
 	var/datum/component/storage/ST = GetComponent(/datum/component/storage/concrete/autodoc)
@@ -380,12 +380,15 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	name = "микросхема (Авто-Док МК IX)"
 	build_path = /obj/machinery/autodoc
 	req_components = list(
-							/obj/item/stock_parts/capacitor = 2,
-							/obj/item/stock_parts/scanning_module = 1,
-							/obj/item/stock_parts/manipulator = 2,
-							/obj/item/stock_parts/micro_laser = 2,
-							/obj/item/stock_parts/matter_bin = 1,
-							/obj/item/stack/sheet/glass = 1)
+							/obj/item/stock_parts/capacitor = 5,
+							/obj/item/stock_parts/scanning_module = 5,
+							/obj/item/stock_parts/manipulator = 5,
+							/obj/item/stock_parts/micro_laser = 5,
+							/obj/item/stock_parts/matter_bin = 5,
+							/obj/item/scalpel/advanced = 1,
+							/obj/item/retractor/advanced = 1,
+							/obj/item/surgicaldrill/advanced = 1,
+							/obj/item/stack/sheet/glass = 15)
 
 /datum/design/board/autodoc
 	name = "Machine Design (Авто-Док МК IX)"
@@ -583,19 +586,6 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	if(target && !(brutehealing && target.getBruteLoss()) && !(burnhealing && target.getFireLoss()))
 		return FALSE
 	return TRUE
-
-/datum/surgery_step/revive/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
-	playsound(get_turf(target), 'sound/magic/lightningbolt.ogg', 50, 1)
-	target.adjustOxyLoss(-50, 0)
-	target.updatehealth()
-	if(target.revive())
-		target.visible_message("...<b>[target]</b> восстаёт из мёртвых! Чудеса!")
-		target.emote("задыхается")
-		target.setOrganLoss(ORGAN_SLOT_BRAIN, 50, 199) //MAD SCIENCE
-		return TRUE
-	else
-		target.visible_message("...<b>[target]</b> резко дёргается и больше не двигается.")
-		return FALSE
 
 /datum/surgery_step/pacify/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
 	target.gain_trauma(/datum/brain_trauma/severe/pacifism, TRAUMA_RESILIENCE_LOBOTOMY)

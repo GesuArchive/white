@@ -1126,6 +1126,9 @@
 		if(!check_rights(R_SPAWN))
 			return
 
+		if(!check_rights(R_PERMISSIONS) && !is_centcom_level(usr.z))
+			return
+
 		var/mob/living/L = locate(href_list["revive"])
 		if(!istype(L))
 			to_chat(usr, "This can only be used on instances of type /mob/living.", confidential=TRUE)
@@ -1520,6 +1523,15 @@
 		var/mob/M = locate(href_list["subtlemessage"])
 		usr.client.cmd_admin_subtle_message(M)
 
+	else if(href_list["playsoundto"])
+		if(!check_rights(R_SOUND))
+			return
+
+		var/mob/M = locate(href_list["playsoundto"])
+		var/S = input("", "Select a sound file",) as null|sound
+		if(S)
+			usr.client.play_direct_mob_sound(S, M)
+
 	else if(href_list["individuallog"])
 		if(!check_rights(R_ADMIN))
 			return
@@ -1606,6 +1618,9 @@
 
 	else if(href_list["object_list"])			//this is the laggiest thing ever
 		if(!check_rights(R_SPAWN))
+			return
+
+		if(!check_rights(R_PERMISSIONS) && !is_centcom_level(usr.z))
 			return
 
 		var/atom/loc = usr.loc

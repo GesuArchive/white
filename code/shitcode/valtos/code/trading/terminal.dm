@@ -1,5 +1,5 @@
 /obj/machinery/vending/terminal
-	name = "Trading Terminal MK1"
+	name = "Trading Terminal MK2"
 	desc = "Вещи возврату не подлежат."
 	icon = 'code/shitcode/valtos/icons/vending.dmi'
 	icon_state = "trading"
@@ -9,11 +9,10 @@
 	max_integrity = 300000
 	var/last_rebuild = 0
 	payment_department = NO_FREEBIES
+	req_access = list(ACCESS_TRADER)
 
 /obj/machinery/vending/terminal/Initialize(mapload)
 	. = ..()
-	if (prob(25))
-		qdel(src)
 	last_rebuild = world.time + rand(300, 1000)
 	rebuild_inventory(GLOB.terminal_products, product_records)
 
@@ -32,8 +31,8 @@
 			R.product_path = typepath
 			R.amount = amount
 			R.max_amount = amount
-			R.custom_price = rand(100, 90000) //best prices
-			R.custom_premium_price = rand(100, 90000) //best prices
+			R.custom_price = rand(100, 20000) //best prices
+			R.custom_premium_price = rand(100, 20000) //best prices
 			recordlist += R
 
 /obj/machinery/vending/terminal/process()
@@ -74,22 +73,12 @@
 		C = H.get_idcard(TRUE)
 
 	if(!C)
-		dat += "<font color = 'red'><h3>No ID Card detected!</h3></font>"
+		dat += "<font color = 'red'><h3>Не вижу карту!</h3></font>"
 	else if (!C.registered_account)
-		dat += "<font color = 'red'><h3>No account on registered ID card!</h3></font>"
-	if(onstation && C && C.registered_account)
+		dat += "<font color = 'red'><h3>У вас нет банковского аккаунта на текущей карте!</h3></font>"
+	if(C && C.registered_account)
 		account = C.registered_account
-	if(vending_machine_input.len)
-		dat += "<h3>[input_display_header]</h3>"
-		dat += "<div class='statusDisplay'>"
-		for (var/O in vending_machine_input)
-			if(vending_machine_input[O] > 0)
-				var/N = vending_machine_input[O]
-				dat += "<a href='byond://?src=[REF(src)];dispense=[sanitize(O)]'>Dispense</A> "
-				dat += "<B>[capitalize(O)] ($[default_price]): [N]</B><br>"
-		dat += "</div>"
-
-	dat += {"<h3>Select an item</h3>
+	dat += {"<h3>Выберите предмет</h3>
 					<div class='statusDisplay'>"}
 
 	if(!product_records.len)
@@ -108,14 +97,14 @@
 				price_listed = "$[R.custom_price]"
 			dat += {"<tr><td><img src='data:image/jpeg;base64,[GetIconForProduct(R)]'/></td>
 							<td style=\"width: 100%\"><b>[sanitize(R.name)]  ([price_listed])</b></td>"}
-			if(R.amount > 0 && ((C && C.registered_account && onstation && account.account_balance > R.custom_price) || (!onstation && isliving(user))))
-				dat += "<td align='right'><b>[R.amount]&nbsp;</b><a href='byond://?src=[REF(src)];vend=[REF(R)]'>Купить</a></td>"
+			if(R.amount > 0 && ((C && C.registered_account && account.account_balance > R.custom_price)))
+				dat += "<td align='right'><b>[R.amount]&nbsp;</b><a href='byond://?src=[REF(src)];buy_term=[REF(R)]'>Купить</a></td>"
 			else
 				dat += "<td align='right'><span class='linkOff'>Недоступно</span></td>"
 			dat += "</tr>"
 		dat += "</table>"
 	dat += "</div>"
-	if(onstation && C && C.registered_account)
+	if(C && C.registered_account)
 		dat += "<b>Баланс: $[account.account_balance]</b>"
 
 	var/datum/browser/popup = new(user, "vending", (name))
@@ -132,3 +121,78 @@
 	GLOB.terminal_icon_cache[P.product_path] = icon2base64(getFlatIcon(product, no_anim = TRUE))
 	qdel(product)
 	return GLOB.terminal_icon_cache[P.product_path]
+
+/obj/machinery/vending/terminal/Topic(href, href_list)
+	if(..())
+		return
+	usr.set_machine(src)
+	if((href_list["buy_term"]) && (vend_ready))
+		if(panel_open)
+			to_chat(usr, "<span class='warning'>The vending machine cannot dispense products while its service panel is open!</span>")
+			return
+		vend_ready = FALSE //One thing at a time!!
+
+		var/datum/data/vending_product/R = locate(href_list["buy_term"])
+		var/list/record_to_check = product_records + coin_records
+		if(extended_inventory)
+			record_to_check = product_records + coin_records + hidden_records
+		if(!R || !istype(R) || !R.product_path)
+			vend_ready = TRUE
+			return
+		var/price_to_use = default_price
+		if(R.custom_price)
+			price_to_use = R.custom_price
+		if(R in hidden_records)
+			if(!extended_inventory)
+				vend_ready = TRUE
+				return
+
+		else if (!(R in record_to_check))
+			vend_ready = TRUE
+			message_admins("Vending machine exploit attempted by [ADMIN_LOOKUPFLW(usr)]!")
+			return
+		if (R.amount <= 0)
+			say("Sold out of [R.name].")
+			flick(icon_deny,src)
+			vend_ready = TRUE
+			return
+		if(ishuman(usr))
+			var/mob/living/carbon/human/H = usr
+			var/obj/item/card/id/C = H.get_idcard(TRUE)
+
+			if(!C)
+				say("Нет карты.")
+				flick(icon_deny,src)
+				vend_ready = TRUE
+				return
+			else if (!C.registered_account)
+				say("Нет аккаунта.")
+				flick(icon_deny,src)
+				vend_ready = TRUE
+				return
+			var/datum/bank_account/account = C.registered_account
+			if(account?.account_job?.paycheck_department == payment_department)
+				price_to_use = 0
+			if(coin_records.Find(R) || hidden_records.Find(R))
+				price_to_use = R.custom_premium_price ? R.custom_premium_price : extra_price
+			if(price_to_use && !account.adjust_money(-price_to_use))
+				say("У тебя не хватает кредитов на [R.name].")
+				flick(icon_deny,src)
+				vend_ready = TRUE
+				return
+			var/datum/bank_account/D = SSeconomy.get_dep_account(payment_department)
+			if(D)
+				D.adjust_money(price_to_use)
+		if(last_shopper != usr || purchase_message_cooldown < world.time)
+			say("[src] благодарит тебя за твои деньги!")
+			purchase_message_cooldown = world.time + 5 SECONDS
+			last_shopper = usr
+		use_power(5)
+		if(icon_vend) //Show the vending animation if needed
+			flick(icon_vend,src)
+		playsound(src, 'sound/machines/machine_vend.ogg', 50, TRUE, extrarange = -3)
+		new R.product_path(get_turf(src))
+		R.amount--
+		SSblackbox.record_feedback("nested tally", "vending_machine_usage", 1, list("[type]", "[R.product_path]"))
+		vend_ready = TRUE
+	updateUsrDialog()

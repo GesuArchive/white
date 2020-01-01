@@ -10,11 +10,11 @@ export const CellularEmporium = props => {
       <Section>
         <LabeledList>
           <LabeledList.Item
-            label="Genetic Points"
+            label="Генетические очки"
             buttons={(
               <Button
                 icon="undo"
-                content="Readapt"
+                content="Переадаптировать"
                 disabled={!data.can_readapt}
                 onClick={() => act('readapt')} />
             )}>
@@ -34,7 +34,7 @@ export const CellularEmporium = props => {
                   {ability.dna_cost}
                   {' '}
                   <Button
-                    content={ability.owned ? 'Evolved' : 'Evolve'}
+                    content={ability.owned ? 'Развито' : 'Развить'}
                     selected={ability.owned}
                     onClick={() => act('evolve', {
                       name: ability.name,

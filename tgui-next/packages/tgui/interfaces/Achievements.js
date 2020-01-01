@@ -18,7 +18,7 @@ export const Achievement = props => {
         {desc}
         <Box
           color={value ? 'good' : 'bad'}
-          content={value ? 'Unlocked' : 'Locked'} />
+          content={value ? 'Открыто' : 'Не открыто'} />
       </td>
     </tr>
   );
@@ -41,7 +41,7 @@ export const Score = props => {
         {desc}
         <Box
           color={value > 0 ? 'good' : 'bad'}
-          content={value > 0 ? `Earned ${value} times` : 'Locked'} />
+          content={value > 0 ? `Достигнуто ${value} раз` : 'Не открыто'} />
       </td>
     </tr>
   );
@@ -82,7 +82,7 @@ export const Achievements = props => {
         </Tabs.Tab>
       ))}
       <Tabs.Tab
-        label="High Scores">
+        label="Рекорды">
         <Tabs vertical>
           {data.highscore.map(highscore => (
             <Tabs.Tab
@@ -97,7 +97,7 @@ export const Achievements = props => {
                     Key
                   </Table.Cell>
                   <Table.Cell color="label" textAlign="center">
-                    Score
+                    Счёт
                   </Table.Cell>
                 </Table.Row>
                 {Object.keys(highscore.scores).map((key, index) => (

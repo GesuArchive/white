@@ -55,6 +55,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	// of the mob
 	var/deadchat_name
 	var/datum/spawners_menu/spawners_menu
+	var/isreallyadmin = FALSE
 
 /mob/dead/observer/Initialize()
 	set_invisibility(GLOB.observer_default_invisibility)
@@ -137,6 +138,10 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		AA.onNewMob(src)
 
 	. = ..()
+	spawn(10)
+		if(src.client.holder)
+			sight = SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF
+			isreallyadmin = TRUE
 
 	grant_all_languages()
 	show_data_huds()
@@ -307,22 +312,30 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(updatedir)
 		setDir(direct)//only update dir if we actually need it, so overlays won't spin on base sprites that don't have directions of their own
 	var/oldloc = loc
-
-	if(NewLoc)
-		forceMove(NewLoc)
-		update_parallax_contents()
+	if(!isreallyadmin)
+		. = ..()
 	else
-		forceMove(get_turf(src))  //Get out of closets and such as a ghost
-		if((direct & NORTH) && y < world.maxy)
-			y++
-		else if((direct & SOUTH) && y > 1)
-			y--
-		if((direct & EAST) && x < world.maxx)
-			x++
-		else if((direct & WEST) && x > 1)
-			x--
+		if(NewLoc)
+			forceMove(NewLoc)
+			update_parallax_contents()
+		else
+			forceMove(get_turf(src))  //Get out of closets and such as a ghost
+			if((direct & NORTH) && y < world.maxy)
+				y++
+			else if((direct & SOUTH) && y > 1)
+				y--
+			if((direct & EAST) && x < world.maxx)
+				x++
+			else if((direct & WEST) && x > 1)
+				x--
 
 	Moved(oldloc, direct)
+
+/mob/dead/observer/Bump(atom/AM)
+	. = ..()
+	if(!isreallyadmin)
+		if(istype(AM, /obj) && AM != loc)
+			forceMove(get_turf(AM))
 
 /mob/dead/observer/verb/reenter_corpse()
 	set category = "Ghost"
@@ -739,7 +752,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set_ghost_appearance()
 	if(client && client.prefs)
 		deadchat_name = client.prefs.real_name
-		mind.ghostname = client.prefs.real_name
+		if(mind)
+			mind.ghostname = client.prefs.real_name
 		name = client.prefs.real_name
 
 /mob/dead/observer/proc/set_ghost_appearance()

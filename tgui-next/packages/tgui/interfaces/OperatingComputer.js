@@ -6,19 +6,19 @@ export const OperatingComputer = props => {
   const { act, data } = useBackend(props);
   const damageTypes = [
     {
-      label: 'Brute',
+      label: 'Физический',
       type: 'bruteLoss',
     },
     {
-      label: 'Burn',
+      label: 'Ожоги',
       type: 'fireLoss',
     },
     {
-      label: 'Toxin',
+      label: 'Токсины',
       type: 'toxLoss',
     },
     {
-      label: 'Respiratory',
+      label: 'Кислород',
       type: 'oxyLoss',
     },
   ];
@@ -32,7 +32,7 @@ export const OperatingComputer = props => {
     <Tabs>
       <Tabs.Tab
         key="state"
-        label="Patient State">
+        label="Статус пациента">
         {!table && (
           <NoticeBox>
             No Table Detected
@@ -40,19 +40,19 @@ export const OperatingComputer = props => {
         )}
         <Section>
           <Section
-            title="Patient State"
+            title="Статус пациента"
             level={2}>
             {patient ? (
               <LabeledList>
                 <LabeledList.Item
-                  label="State"
+                  label="Статус"
                   color={patient.statstate}>
                   {patient.stat}
                 </LabeledList.Item>
-                <LabeledList.Item label="Blood Type">
+                <LabeledList.Item label="Группа крови">
                   {patient.blood_type}
                 </LabeledList.Item>
-                <LabeledList.Item label="Health">
+                <LabeledList.Item label="Здоровье">
                   <ProgressBar
                     value={patient.health}
                     minValue={patient.minHealth}
@@ -74,11 +74,11 @@ export const OperatingComputer = props => {
                 ))}
               </LabeledList>
             ) : (
-              'No Patient Detected'
+              'Не обнаружно пациента'
             )}
           </Section>
           <Section
-            title="Initiated Procedures"
+            title="Процедуры"
             level={2}>
             {procedures.length ? (
               procedures.map(procedure => (
@@ -87,12 +87,12 @@ export const OperatingComputer = props => {
                   title={procedure.name}
                   level={3}>
                   <LabeledList>
-                    <LabeledList.Item label="Next Step">
+                    <LabeledList.Item label="Следующий шаг">
                       {procedure.next_step}
                       {procedure.chems_needed && (
                         <Fragment>
                           <b>
-                            Required Chemicals:
+                            Требуемые химикаты:
                           </b>
                           <br />
                           {procedure.chems_needed}
@@ -100,12 +100,12 @@ export const OperatingComputer = props => {
                       )}
                     </LabeledList.Item>
                     {!!data.alternative_step && (
-                      <LabeledList.Item label="Alternative Step">
+                      <LabeledList.Item label="Альтернативный шаг">
                         {procedure.alternative_step}
                         {procedure.alt_chems_needed && (
                           <Fragment>
                             <b>
-                             Required Chemicals:
+                            Требуемые химикаты:
                             </b>
                             <br />
                             {procedure.alt_chems_needed}
@@ -117,18 +117,18 @@ export const OperatingComputer = props => {
                 </Section>
               ))
             ) : (
-              'No Active Procedures'
+              'Нет активных операций'
             )}
           </Section>
         </Section>
       </Tabs.Tab>
       <Tabs.Tab
         key="procedures"
-        label="Surgery Procedures">
-        <Section title="Advanced Surgery Procedures">
+        label="Хирургические процедуры">
+        <Section title="Продвинутые хирургические процедуры">
           <Button
             icon="download"
-            content="Sync Research Database"
+            content="Синхронизировать"
             onClick={() => act('sync')} />
           {surgeries.map(surgery => (
             <Section

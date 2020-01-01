@@ -1,19 +1,25 @@
+#define PRIKOL "prikol"
+#define TECHNO "techno"
+#define TOUHOU "touhou"
+#define MORTAL "mortal"
+#define NAZIST "nazist"
+#define LOBBYS "lobbys"
+
 PROCESSING_SUBSYSTEM_DEF(btension)
 	name = "Battle Tension"
 	priority = 15
 	flags = SS_NO_INIT
-	wait = 10
+	wait = 17
 
 /datum/component/battletension
-	var/mob/living/owner
+	var/mob/living/carbon/human/owner
 
 	var/tension = 0
 	var/sound/bm
 
 /datum/component/battletension/Initialize()
-	START_PROCESSING(SSbtension, src)
-
-	if(isliving(parent))
+	if(ishuman(parent))
+		START_PROCESSING(SSbtension, src)
 		owner = parent
 
 /datum/component/battletension/RegisterWithParent()
@@ -33,16 +39,14 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	return ..()
 
 /datum/component/battletension/process()
-	if((!bm || !bm.file) && is_enabled())
+	if((!bm || !bm.file) && is_enabled() && tension > 0)
 		pick_sound()
 
-	if(tension > 0)
-		tension--
-		if(tension <= 0)
-			pick_sound()
+	if(tension <= 0)
+		stop_bm()
 
-	if(tension < 0)
-		return
+	if(tension >= 0)
+		tension--
 
 	if(bm)
 		bm.volume = tension
@@ -53,7 +57,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		if(0 to 30)
 			tension--
 
-		if(80 to INFINITY)
+		if(120 to INFINITY)
 			tension = 80
 
 /datum/component/battletension/proc/bulletact_react(datum/source, obj/projectile/P, def_zone)
@@ -80,7 +84,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		BT.create_tension(I.force * 1.2)
 
 /datum/component/battletension/proc/is_enabled()
-	if(!owner || !owner.client || !owner.client.prefs.btprefs)
+	if(!owner || !owner.client || !owner.client.prefs.btprefsnew)
 		return FALSE
 	return TRUE
 
@@ -120,7 +124,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		return
 
 	S.repeat = 1
-	S.channel = open_sound_channel()
+	S.channel = CHANNEL_BATTLETENSION
 	S.falloff = 2
 	S.wait = 0
 	S.volume = 0
@@ -130,49 +134,16 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	SEND_SOUND(owner, bm)
 
 /datum/component/battletension/proc/get_sound_list()
-	var/list/result = list()
-	var/list/sounds = list(
-							list(
-								"gladiator.ogg",
-								"Battlefield.ogg"
-							),
-							list(
-								"digitalonslaught.ogg",
-								"03 NARC.ogg",
-								"Maciej Niedzielski - Old Military Base.ogg",
-								"Locknar - Industrial Complex.ogg",
-								"Perturbator - Tactical Precision Disarray.ogg",
-								"M O O N - Hydrogen.ogg",
-								"Carpenter Brut - Roller Mobster.ogg",
-								"Acid-Notation - The Yanderes Puppet Show.ogg",
-								"Street Cleaner - Murdercycle.ogg",
-								"Protector 101 - Hardware.ogg",
-								""
-							),
-							list(
-								"80sspark.ogg",
-								"badapple.ogg",
-								"Galaxy Collapse.ogg"
-							),
-							list(
-								"unstoppable.ogg"
-							),
-							list(
-								"German Military Marches - Lore, Lore, Lore.ogg"
-							))
 	if(!owner || !owner.client || !owner.client.prefs)
 		return
 
-	var/settings = owner.client.prefs.btprefs
+	var/list/result = list()
 
-	var/i = 0
+	var/list/genres = owner.client.prefs.btprefsnew
 
-	for(var/item in sounds)
-		if(settings & 2**i)
-			for(var/ii in item)
-				result += "code/shitcode/hule/battletension/bm/" + ii
-		i++
-
+	for(var/genre in genres)
+		for(var/music in flist("[global.config.directory]/battle_music/[genre]/"))
+			result += "[global.config.directory]/battle_music/[genre]/[music]"
 	return result
 
 /client/verb/customize_battletension()
@@ -180,48 +151,38 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	set desc = "Allows for advanced prikol immersion."
 	set category = "Preferences"
 
+	var/list/genres = list(PRIKOL, TECHNO, TOUHOU, MORTAL, NAZIST, LOBBYS)
 	var/settings
 
+	if(prefs.btprefsnew == null)
+		prefs.btprefsnew = genres
+		prefs.save_preferences()
 
-
-
-
-	if(prefs.btprefs)
-		if(islist(prefs.btprefs))
-			prefs.btprefs = 0
-			prefs.save_preferences()
-		settings = prefs.btprefs
-	else
-		settings = 0
-
-	var/list/options = list("приколов", "техноту", "тохо", "мк", "любить вайт")
-	var/list/revmenu = list("приколов"=0, "техноту"=1, "тохо"=2, "мк"=3, "любить вайт"=4)
+	if(prefs.btprefsnew)
+		settings = prefs.btprefsnew
 
 	var/list/menu = list()
 
-	var/i = 0
-	for(var/item in options)
-		if(settings & 2**i)
-			menu += "Не хочу " + item
+	for(var/genre in genres)
+		if(genre in settings)
+			menu += genre + " ON"
 		else
-			menu += "Хочу " + item
-		i++
+			menu += genre + " OFF"
 
-	var/selected = input("a a a a a", "BT Customization") as null|anything in menu
+	var/selected = input("BT Customization") as null|anything in menu
 	if(!selected)
 		return
-	selected = splittext(selected, " ")[2]
 
-	var/settbit = 2**revmenu[selected]
+	selected = splittext(selected, " ")[1]
 
-	if(settings & settbit)
-		settings &= ~settbit
-		to_chat(usr, "<span class='danger'>Большу не хочу [selected].</span>")
+	if(selected in settings)
+		settings -= selected
+		to_chat(usr, "<span class='danger'>Больше не хочу [selected].</span>")
 	else
-		settings |= settbit
+		settings += selected
 		to_chat(usr, "<span class='danger'>Теперь хочу [selected].</span>")
 
-	prefs.btprefs = settings
+	prefs.btprefsnew = settings
 	prefs.save_preferences()
 
 	if(mob)

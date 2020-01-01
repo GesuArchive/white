@@ -18,23 +18,23 @@ export const SolarControl = props => {
   return (
     <Fragment>
       <Section
-        title="Status"
+        title="Состояние"
         buttons={(
           <Button
             icon="sync"
-            content="Scan for new hardware"
+            content="Сканировать новые устройства"
             onClick={() => act('refresh')} />
         )}>
         <Grid>
           <Grid.Column>
             <LabeledList>
               <LabeledList.Item
-                label="Solar tracker"
+                label="Солнечный трекер"
                 color={connected_tracker ? 'good' : 'bad'}>
                 {connected_tracker ? 'OK' : 'N/A'}
               </LabeledList.Item>
               <LabeledList.Item
-                label="Solar panels"
+                label="Солнечные панели"
                 color={connected_panels > 0 ? 'good' : 'bad'}>
                 {connected_panels}
               </LabeledList.Item>
@@ -42,7 +42,7 @@ export const SolarControl = props => {
           </Grid.Column>
           <Grid.Column size={1.5}>
             <LabeledList>
-              <LabeledList.Item label="Power output">
+              <LabeledList.Item label="Выходная мощность">
                 <ProgressBar
                   ranges={{
                     good: [0.66, Infinity],
@@ -58,27 +58,27 @@ export const SolarControl = props => {
           </Grid.Column>
         </Grid>
       </Section>
-      <Section title="Controls">
+      <Section title="Управление">
         <LabeledList>
-          <LabeledList.Item label="Tracking">
+          <LabeledList.Item label="Слежение">
             <Button
               icon="times"
-              content="Off"
+              content="Выкл"
               selected={tracking_state === 0}
               onClick={() => act('tracking', { mode: 0 })} />
             <Button
               icon="clock-o"
-              content="Timed"
+              content="Таймер"
               selected={tracking_state === 1}
               onClick={() => act('tracking', { mode: 1 })} />
             <Button
               icon="sync"
-              content="Auto"
+              content="Авто"
               selected={tracking_state === 2}
               disabled={!connected_tracker}
               onClick={() => act('tracking', { mode: 2 })} />
           </LabeledList.Item>
-          <LabeledList.Item label="Azimuth">
+          <LabeledList.Item label="Азимут">
             {(tracking_state === 0 || tracking_state === 1) && (
               <NumberInput
                 width="52px"
@@ -93,7 +93,7 @@ export const SolarControl = props => {
             {tracking_state === 1 && (
               <NumberInput
                 width="80px"
-                unit="°/m"
+                unit="°/м"
                 step={0.01}
                 stepPixelSize={1}
                 minValue={-max_rotation_rate-0.01}

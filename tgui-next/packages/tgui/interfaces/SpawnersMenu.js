@@ -15,12 +15,12 @@ export const SpawnersMenu = props => {
           buttons={(
             <Fragment>
               <Button
-                content="Jump"
+                content="Перейти"
                 onClick={() => act('jump', {
                   name: spawner.name,
                 })} />
               <Button
-                content="Spawn"
+                content="Вселиться"
                 onClick={() => act('spawn', {
                   name: spawner.name,
                 })} />

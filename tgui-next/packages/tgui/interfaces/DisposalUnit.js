@@ -7,55 +7,55 @@ export const DisposalUnit = props => {
   let stateText;
   if (data.full_pressure) {
     stateColor = 'good';
-    stateText = 'Ready';
+    stateText = 'Готов';
   }
   else if (data.panel_open) {
     stateColor = 'bad';
-    stateText = 'Power Disabled';
+    stateText = 'Питание отключено';
   }
   else if (data.pressure_charging) {
     stateColor = 'average';
-    stateText = 'Pressurizing';
+    stateText = 'Герметизация';
   }
   else {
     stateColor = 'bad';
-    stateText = 'Off';
+    stateText = 'Выключено';
   }
   return (
     <Section>
       <LabeledList>
         <LabeledList.Item
-          label="State"
+          label="Состояние"
           color={stateColor}>
           {stateText}
         </LabeledList.Item>
         <LabeledList.Item
-          label="Pressure">
+          label="Давление">
           <ProgressBar
             value={data.per}
             color="good" />
         </LabeledList.Item>
         <LabeledList.Item
-          label="Handle">
+          label="Ручка">
           <Button
             icon={data.flush ? 'toggle-on' : 'toggle-off'}
             disabled={data.isai || data.panel_open}
-            content={data.flush ? 'Disengage' : 'Engage'}
+            content={data.flush ? 'Отжать' : 'Нажать'}
             onClick={() => act(data.flush
               ? 'handle-0'
               : 'handle-1')}
           />
         </LabeledList.Item>
         <LabeledList.Item
-          label="Eject">
+          label="Содержимое">
           <Button
             icon="sign-out-alt"
             disabled={data.isai}
-            content="Eject Contents"
+            content="Изъять"
             onClick={() => act('eject')} />
         </LabeledList.Item>
         <LabeledList.Item
-          label="Power">
+          label="Питание">
           <Button
             icon="power-off"
             disabled={data.panel_open}

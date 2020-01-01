@@ -42,17 +42,18 @@
 /datum/supply_order/proc/generateRequisition(turf/T)
 	var/obj/item/paper/P = new(T)
 
-	P.name = "requisition form - #[id] ([pack.name])"
-	P.info += "<h2>[station_name()] Supply Requisition</h2>"
+	P.name = "реквизиционная форма номер [id] ([pack.name])"
+	P.info += "<h2>Запрос товаров для [station_name()]</h2>"
 	P.info += "<hr/>"
-	P.info += "Order #[id]<br/>"
-	P.info += "Item: [pack.name]<br/>"
-	P.info += "Access Restrictions: [get_access_desc(pack.access)]<br/>"
-	P.info += "Requested by: [orderer]<br/>"
+	P.info += "Запрос #[id]<br/>"
+	P.info += "Время заказа: [station_time_timestamp()]<br/>"
+	P.info += "Товар: [pack.name]<br/>"
+	P.info += "Ограничения: [get_access_desc(pack.access)]<br/>"
+	P.info += "Заказчик: [orderer]<br/>"
 	if(paying_account)
-		P.info += "Paid by: [paying_account.account_holder]<br/>"
-	P.info += "Rank: [orderer_rank]<br/>"
-	P.info += "Comment: [reason]<br/>"
+		P.info += "Оплачено: [paying_account.account_holder]<br/>"
+	P.info += "Ранг: [orderer_rank]<br/>"
+	P.info += "Комментарий: [reason]<br/>"
 
 	P.update_icon()
 	return P

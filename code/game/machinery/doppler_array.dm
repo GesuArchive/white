@@ -129,7 +129,7 @@
 	/*****The Point Calculator*****/
 
 	if(orig_light_range < 10)
-		say("Explosion not large enough for research calculations.")
+		say("Взрыв недостаточно большой для проведения исследований.")
 		return
 	else if(orig_light_range < 4500)
 		point_gain = (83300 * orig_light_range) / (orig_light_range + 3000)
@@ -156,10 +156,10 @@
 
 			D.adjust_money(ancapbucks)
 			linked_techweb.add_point_type(TECHWEB_POINT_TYPE_DEFAULT, point_gain)
-			say("Explosion details and mixture analyzed and sold to the highest bidder for $[ancapbucks], with a reward of [point_gain] points.")
+			say("Детали взрыва и смесь были проанализированы, теперь они проданы за [ancapbucks] cr, с наградой [point_gain] очков.")
 
 	else //you've made smaller bombs
-		say("Data already captured. Aborting.")
+		say("Данные уже собраны. Отмена.")
 		return
 
 

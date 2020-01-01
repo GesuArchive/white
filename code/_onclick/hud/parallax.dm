@@ -8,7 +8,7 @@
 	var/last_parallax_shift //world.time of last update
 	var/parallax_throttle = 0 //ds between updates
 	var/parallax_movedir = 0
-	var/parallax_layers_max = 4
+	var/parallax_layers_max = 6
 	var/parallax_animate_timer
 
 /datum/hud/proc/create_parallax(mob/viewmob)
@@ -19,12 +19,13 @@
 
 	if(!length(C.parallax_layers_cached))
 		C.parallax_layers_cached = list()
-		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_1(null, C.view)
+		C.parallax_layers_cached += new SSparallax.random_space(null, C.view)
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_2(null, C.view)
-		C.parallax_layers_cached += new /obj/screen/parallax_layer/planet(null, C.view)
+		C.parallax_layers_cached += new /obj/screen/parallax_layer/planet/high_definition(null, C.view)
 		if(SSparallax.random_layer)
 			C.parallax_layers_cached += new SSparallax.random_layer
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_3(null, C.view)
+		C.parallax_layers_cached += new /obj/screen/parallax_layer/ice_surface(null, C.view)
 
 	C.parallax_layers = C.parallax_layers_cached.Copy()
 
@@ -66,12 +67,12 @@
 		switch(C.prefs.parallax)
 			if (PARALLAX_INSANE)
 				C.parallax_throttle = FALSE
-				C.parallax_layers_max = 5
+				C.parallax_layers_max = 6
 				return TRUE
 
 			if (PARALLAX_MED)
 				C.parallax_throttle = PARALLAX_DELAY_MED
-				C.parallax_layers_max = 3
+				C.parallax_layers_max = 5
 				return TRUE
 
 			if (PARALLAX_LOW)
@@ -84,7 +85,7 @@
 
 	//This is high parallax.
 	C.parallax_throttle = PARALLAX_DELAY_DEFAULT
-	C.parallax_layers_max = 4
+	C.parallax_layers_max = 6
 	return TRUE
 
 /datum/hud/proc/update_parallax_pref(mob/viewmob)
@@ -105,7 +106,11 @@
 			var/obj/screen/parallax_layer/L = thing
 			L.icon_state = initial(L.icon_state)
 			L.update_o(C.view)
-			var/T = PARALLAX_LOOP_TIME / L.speed
+			var/T
+			if(L.speed != 0)
+				T = PARALLAX_LOOP_TIME / L.speed
+			else
+				T = PARALLAX_LOOP_TIME
 			if (T > animate_time)
 				animate_time = T
 		C.dont_animate_parallax = world.time + min(animate_time, PARALLAX_LOOP_TIME)
@@ -126,8 +131,11 @@
 	if(!skip_windups)
 		for(var/thing in C.parallax_layers)
 			var/obj/screen/parallax_layer/L = thing
-
-			var/T = PARALLAX_LOOP_TIME / L.speed
+			var/T
+			if(L.speed != 0)
+				T = PARALLAX_LOOP_TIME / L.speed
+			else
+				T = PARALLAX_LOOP_TIME
 			if (isnull(shortesttimer))
 				shortesttimer = T
 			if (T < shortesttimer)
@@ -149,15 +157,20 @@
 
 
 /datum/hud/proc/update_parallax_motionblur(client/C, animatedir, new_parallax_movedir, matrix/newtransform)
+	if(!C)
+		return
 	C.parallax_animate_timer = FALSE
 	for(var/thing in C.parallax_layers)
 		var/obj/screen/parallax_layer/L = thing
 		if (!new_parallax_movedir)
 			animate(L)
 			continue
-
 		var/newstate = initial(L.icon_state)
-		var/T = PARALLAX_LOOP_TIME / L.speed
+		var/T
+		if(L.speed != 0)
+			T = PARALLAX_LOOP_TIME / L.speed
+		else
+			T = PARALLAX_LOOP_TIME
 
 		if (newstate in icon_states(L.icon))
 			L.icon_state = newstate
@@ -170,7 +183,7 @@
 /datum/hud/proc/update_parallax()
 	var/client/C = mymob.client
 	var/turf/posobj = get_turf(C.eye)
-	if(!posobj) 
+	if(!posobj)
 		return
 	var/area/areaobj = posobj.loc
 
@@ -286,12 +299,17 @@
 
 /obj/screen/parallax_layer/layer_1
 	icon_state = "layer1"
-	speed = 0.6
+	speed = 1
+	layer = 1
+
+/obj/screen/parallax_layer/layer_1_2
+	icon_state = "layer1_2"
+	speed = 1
 	layer = 1
 
 /obj/screen/parallax_layer/layer_2
 	icon_state = "layer2"
-	speed = 1
+	speed = 1.2
 	layer = 2
 
 /obj/screen/parallax_layer/layer_3
@@ -302,10 +320,10 @@
 /obj/screen/parallax_layer/random
 	blend_mode = BLEND_OVERLAY
 	speed = 3
-	layer = 3
+	layer = 5
 
 /obj/screen/parallax_layer/random/space_gas
-	icon_state = "space gas"
+	icon_state = "space_gas"
 
 /obj/screen/parallax_layer/random/space_gas/Initialize(mapload, view)
 	. = ..()
@@ -318,8 +336,8 @@
 	icon_state = "planet"
 	blend_mode = BLEND_OVERLAY
 	absolute = TRUE //Status of seperation
-	speed = 3
-	layer = 30
+	speed = 2.5
+	layer = 4
 
 /obj/screen/parallax_layer/planet/update_status(mob/M)
 	var/turf/T = get_turf(M)
@@ -329,4 +347,25 @@
 		invisibility = INVISIBILITY_ABSTRACT
 
 /obj/screen/parallax_layer/planet/update_o()
-	return //Shit wont move
+	if (icon_state == "planet" || icon_state == "planet_new")
+		return //Shit wont move
+	. = ..()
+
+/obj/screen/parallax_layer/planet/nebula
+	icon_state = "nebula"
+
+/obj/screen/parallax_layer/planet/high_definition
+	icon_state = "planet_new"
+
+/obj/screen/parallax_layer/ice_surface
+	icon_state = "ice_surface"
+	blend_mode = BLEND_OVERLAY
+	speed = 1
+	layer = 5
+
+/obj/screen/parallax_layer/ice_surface/update_status(mob/M)
+	var/turf/T = get_turf(M)
+	if(is_centcom_level(T.z))
+		invisibility = 0
+	else
+		invisibility = INVISIBILITY_ABSTRACT

@@ -14,11 +14,11 @@ export const Holodeck = props => {
   return (
     <Fragment>
       <Section
-        title="Default Programs"
+        title="Стандартные программы"
         buttons={(
           <Button
             icon={emagged ? "unlock" : "lock"}
-            content="Safeties"
+            content="Безопасность"
             color="bad"
             disabled={!can_toggle_safety}
             selected={!emagged}
@@ -37,7 +37,7 @@ export const Holodeck = props => {
         ))}
       </Section>
       {!!emagged && (
-        <Section title="Dangerous Programs">
+        <Section title="Опасные программы">
           {emag_programs.map(emag_program => (
             <Button
               fluid

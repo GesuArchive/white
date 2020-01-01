@@ -34,13 +34,13 @@ export class ChemReactionChamber extends Component {
     const reagents = data.reagents || [];
     return (
       <Section
-        title="Reagents"
+        title="Реагенты"
         buttons={(
           <Box
             inline
             bold
             color={emptying ? "bad" : "good"} >
-            {emptying ? "Emptying" : "Filling"}
+            {emptying ? "Опустошение" : "Заполнение"}
           </Box>
         )} >
         <LabeledList>
@@ -51,7 +51,7 @@ export class ChemReactionChamber extends Component {
               <Input
                 fluid
                 value=""
-                placeholder="Reagent Name"
+                placeholder="Название реагента"
                 onInput={(e, value) => this.setReagentName(value)} />
             </td>
             <td

@@ -169,8 +169,9 @@
 							SSshuttle.existing_shuttle = SSshuttle.emergency
 							SSshuttle.action_load(S)
 							D.adjust_money(-S.credit_cost)
-							minor_announce("[usr.real_name] has purchased [S.name] for [S.credit_cost] credits." , "Shuttle Purchase")
+							minor_announce("[usr.real_name] has purchased [S.name] for [S.credit_cost] credits.[S.extra_desc ? " [S.extra_desc]" : ""]" , "Shuttle Purchase")
 							message_admins("[ADMIN_LOOKUPFLW(usr)] purchased [S.name].")
+							log_shuttle("[key_name(usr)] has purchased [S.name].")
 							SSblackbox.record_feedback("text", "shuttle_purchase", 1, "[S.name]")
 						else
 							to_chat(usr, "<span class='alert'>Insufficient credits.</span>")
@@ -303,6 +304,20 @@
 				usr.log_talk(input, LOG_SAY, tag="Syndicate announcement")
 				deadchat_broadcast(" has messaged the Syndicate, \"[input]\" at <span class='name'>[get_area_name(usr, TRUE)]</span>.", "<span class='name'>[usr.real_name]</span>", usr)
 				CM.lastTimeUsed = world.time
+
+		if("callsobr")
+			if(authenticated==2)
+				if(!checkCCcooldown())
+					to_chat(usr, "<span class='warning'>Нет свободных отрядов, подождите.</span>")
+					return
+				var/input = stripped_input(usr, "Назовите причину по которой вы собираетесь вызвать специальный отряд быстрого реагирования на станцию.", "Запрос СОБРа.","")
+				if(!input || !(usr in view(1,src)) || !checkCCcooldown())
+					return
+				to_chat(usr, "<span class='notice'>Запрос отправлен.</span>")
+				usr.log_message("has requested the nuclear codes from CentCom with reason \"[input]\"", LOG_SAY)
+				priority_announce("Отряд СОБРа был вызван [usr].", "Экстренный запрос",'sound/ai/commandreport.ogg')
+				CM.lastTimeUsed = world.time
+				sobr_request(input, usr)
 
 		if("RestoreBackup")
 			to_chat(usr, "<span class='notice'>Backup routing data restored!</span>")
@@ -475,6 +490,7 @@
 					if(SSmapping.config.allow_custom_shuttles)
 						dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=purchase_menu'>Purchase Shuttle</A> \]"
 					dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=changeseclevel'>Change Alert Level</A> \]"
+					dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=callsobr'>Call SOBR</A> \]"
 					dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=emergencyaccess'>Emergency Maintenance Access</A> \]"
 					dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=nukerequest'>Request Nuclear Authentication Codes</A> \]"
 					if(!(obj_flags & EMAGGED))

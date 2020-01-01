@@ -123,70 +123,71 @@
 	weight = 1
 
 /datum/round_aspect/minecraft/run_aspect()
+	var/icon/I = new('code/shitcode/valtos/icons/minecraft.dmi')
 	for(var/turf/open/floor/plasteel/floor)
-		floor.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		floor.icon = I
 		floor.icon_state = "stone"
 	for(var/turf/open/floor/plasteel/white/floor)
-		floor.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		floor.icon = I
 		floor.icon_state = "slab"
 	for(var/turf/open/floor/plasteel/dark/floor)
-		floor.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		floor.icon = I
 		floor.icon_state = "stone"
 	for(var/turf/open/floor/circuit/cir)
-		cir.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		cir.icon = I
 		cir.icon_state = "fug"
 	for(var/turf/open/floor/plating/plating)
-		plating.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		plating.icon = I
 		plating.icon_state = "dirt"
 	for(var/turf/open/floor/engine/ef)
-		ef.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		ef.icon = I
 		ef.icon_state = "stoneblock"
 	for(var/obj/machinery/power/supermatter_crystal/engine/e)
-		e.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		e.icon = I
 		e.icon_state = "ender"
 	for(var/turf/closed/wall/wa)
-		wa.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		wa.icon = I
 		wa.icon_state = "cobblestone"
 		wa.cut_overlays()
 	for(var/turf/closed/wall/r_wall/rwa)
-		rwa.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		rwa.icon = I
 		rwa.icon_state = "obsidian"
 		rwa.cut_overlays()
 	for(var/turf/closed/wall/mineral/titanium/ti)
-		ti.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		ti.icon = I
 		ti.icon_state = "quartz"
 		ti.cut_overlays()
 	for(var/turf/closed/indestructible/riveted/riv)
-		riv.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		riv.icon = I
 		riv.icon_state = "adminium"
 		riv.cut_overlays()
 	for(var/turf/open/floor/carpet/car)
-		car.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		car.icon = I
 		car.icon_state = "carpet"
 		car.cut_overlays()
 	for(var/obj/machinery/rnd/production/protolathe/plat)
-		plat.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		plat.icon = I
 		plat.icon_state = "furnace"
 	for(var/obj/machinery/autolathe/autol)
-		autol.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		autol.icon = I
 		autol.icon_state = "craft"
 	for(var/obj/machinery/power/solar/solar)
-		solar.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		solar.icon = I
 		solar.icon_state = "solar"
 	for(var/obj/structure/window/reinforced/fulltile/rw)
-		rw.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		rw.icon = I
 		rw.icon_state = "glass"
 	for(var/obj/structure/window/fulltile/w)
-		w.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		w.icon = I
 		w.icon_state = "glass"
 	for(var/obj/structure/grille/g)
-		g.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		g.icon = I
 		g.icon_state = "fence"
 	for(var/obj/machinery/nuclearbomb/selfdestruct/tnt)
-		tnt.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		tnt.icon = I
 		tnt.icon_state = "tnt"
 	for(var/turf/open/floor/wood/p)
-		p.icon = 'code/shitcode/valtos/icons/minecraft.dmi'
+		p.icon = I
 		p.icon_state = "plank"
 	..()
 

@@ -129,6 +129,9 @@
 #define ACCESS_AWAY_GENERIC3 207
 #define ACCESS_AWAY_GENERIC4 208
 
+// Trader access
+#define ACCESS_TRADER 209
+
 	//Special, for anything that's basically internal
 #define ACCESS_BLOODCULT 250
 

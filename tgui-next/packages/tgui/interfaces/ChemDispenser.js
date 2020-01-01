@@ -27,30 +27,30 @@ export const ChemDispenser = props => {
   return (
     <Fragment>
       <Section
-        title="Status"
+        title="Состояние"
         buttons={recording && (
           <Box inline mx={1} color="red">
             <Icon name="circle" mr={1} />
-            Recording
+            Запись
           </Box>
         )}>
         <LabeledList>
-          <LabeledList.Item label="Energy">
+          <LabeledList.Item label="Энергия">
             <ProgressBar
               value={data.energy / data.maxEnergy}
-              content={toFixed(data.energy) + ' units'} />
+              content={toFixed(data.energy) + ' единиц'} />
           </LabeledList.Item>
         </LabeledList>
       </Section>
       <Section
-        title="Recipes"
+        title="Рецепты"
         buttons={(
           <Fragment>
             {!recording && (
               <Box inline mx={1}>
                 <Button
                   color="transparent"
-                  content="Clear recipes"
+                  content="Очистить рецепты"
                   onClick={() => act('clear_recipes')} />
               </Box>
             )}
@@ -58,21 +58,21 @@ export const ChemDispenser = props => {
               <Button
                 icon="circle"
                 disabled={!data.isBeakerLoaded}
-                content="Record"
+                content="Запись"
                 onClick={() => act('record_recipe')} />
             )}
             {recording && (
               <Button
                 icon="ban"
                 color="transparent"
-                content="Discard"
+                content="Отменить"
                 onClick={() => act('cancel_recording')} />
             )}
             {recording && (
               <Button
                 icon="save"
                 color="green"
-                content="Save"
+                content="Сохранить"
                 onClick={() => act('save_recording')} />
             )}
           </Fragment>
@@ -90,13 +90,13 @@ export const ChemDispenser = props => {
           ))}
           {recipes.length === 0 && (
             <Box color="light-gray">
-              No recipes.
+              Нет рецептов.
             </Box>
           )}
         </Box>
       </Section>
       <Section
-        title="Dispense"
+        title="Распределение"
         buttons={(
           beakerTransferAmounts.map(amount => (
             <Button key={amount}
@@ -122,7 +122,7 @@ export const ChemDispenser = props => {
         </Box>
       </Section>
       <Section
-        title="Beaker"
+        title="Пробирка"
         buttons={(
           beakerTransferAmounts.map(amount => (
             <Button key={amount}
@@ -134,7 +134,7 @@ export const ChemDispenser = props => {
         )}>
         <LabeledList>
           <LabeledList.Item
-            label="Beaker"
+            label="Пробирка"
             buttons={!!data.isBeakerLoaded && (
               <Button
                 icon="eject"
@@ -143,7 +143,7 @@ export const ChemDispenser = props => {
                 onClick={() => act('eject')} />
             )}>
             {recording
-              && 'Virtual beaker'
+              && 'Виртуальная пробирка'
               || data.isBeakerLoaded
                 && (
                   <Fragment>
@@ -153,13 +153,13 @@ export const ChemDispenser = props => {
                     /{data.beakerMaxVolume} units
                   </Fragment>
                 )
-              || 'No beaker'}
+              || 'Нет пробирки'}
           </LabeledList.Item>
           <LabeledList.Item
-            label="Contents">
+            label="Содержимое">
             <Box color="label">
               {(!data.isBeakerLoaded && !recording) && 'N/A'
-                || beakerContents.length === 0 && 'Nothing'}
+                || beakerContents.length === 0 && 'Ничего'}
             </Box>
             {beakerContents.map(chemical => (
               <Box
@@ -169,7 +169,7 @@ export const ChemDispenser = props => {
                   initial={0}
                   value={chemical.volume} />
                 {' '}
-                units of {chemical.name}
+                единиц {chemical.name}
               </Box>
             ))}
           </LabeledList.Item>

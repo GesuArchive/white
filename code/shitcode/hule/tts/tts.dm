@@ -50,6 +50,15 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 		fdel("[TTS_PATH]/lines/[namae].ogg")
 		fdel("[TTS_PATH]/conv/[namae].mp3")
 
+/proc/to_tts(target, message)
+	spawn(0)
+		tts_core(message, "announcer", "ru")
+		if(fexists("[TTS_PATH]/lines/announcer.ogg"))
+			var/mob/M = target
+			var/turf/T = get_turf(target)
+			M.playsound_local(T, "[TTS_PATH]/lines/announcer.ogg", 70, channel = CHANNEL_TTS_ANNOUNCER, frequency = 1)
+	return
+
 /atom/movable
 	var/datum/tts/TTS
 
@@ -76,7 +85,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 
 /datum/tts/New()
 	. = ..()
-	assigned_channel = open_sound_channel()
+	assigned_channel = open_sound_channel_for_tts()
 	GLOB.tts_datums += src
 	START_PROCESSING(SStts, src)
 
@@ -136,3 +145,9 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 			GLOB.tts_settings[1] = selectedlang
 
 #undef TTS_PATH
+
+/proc/open_sound_channel_for_tts()
+	var/static/next_channel = CHANNEL_HIGHEST_AVAILABLE
+	. = ++next_channel
+	if(next_channel > CHANNEL_TTS_AVAILABLE)
+		next_channel = CHANNEL_HIGHEST_AVAILABLE + 1

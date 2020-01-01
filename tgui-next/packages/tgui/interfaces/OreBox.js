@@ -11,19 +11,19 @@ export const OreBox = props => {
   return (
     <Fragment>
       <Section
-        title="Ores"
+        title="Руда"
         buttons={(
           <Button
-            content="Empty"
+            content="Пусто"
             onClick={() => act(ref, 'removeall')} />
         )}>
         <Table>
           <Table.Row header>
             <Table.Cell>
-              Ore
+              Руда
             </Table.Cell>
             <Table.Cell collapsing textAlign="right">
-              Amount
+              Количество
             </Table.Cell>
           </Table.Row>
           {materials.map(material => (
@@ -42,9 +42,9 @@ export const OreBox = props => {
       </Section>
       <Section>
         <Box>
-          All ores will be placed in here when you are wearing a mining stachel
-          on your belt or in a pocket while dragging the ore box.<br />
-          Gibtonite is not accepted.
+         Все руды будут размещены здесь, когда вы носите шахтёрскую сумочку
+         на поясе или в кармане при перетаскивании коробки с рудой.<br />
+         Гибтонит не принимается.
         </Box>
       </Section>
     </Fragment>

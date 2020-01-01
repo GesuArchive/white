@@ -22,7 +22,7 @@
 	icon_state = "bluetie"
 	item_state = ""	//no inhands
 	w_class = WEIGHT_CLASS_SMALL
-	custom_price = 15
+	custom_price = 60
 
 /obj/item/clothing/neck/tie/blue
 	name = "синий галстук"
@@ -93,7 +93,7 @@
 	icon_state = "scarf"
 	desc = "Стильный шарф. Идеальный зимний аксессуар для тех, у кого острое чувство моды, и для тех, кто просто не может справиться с холодным бризом на шеях."
 	dog_fashion = /datum/dog_fashion/head
-	custom_price = 10
+	custom_price = 60
 
 /obj/item/clothing/neck/scarf/black
 	name = "чёрный шарф"

@@ -67,10 +67,11 @@ GLOBAL_VAR(command_name)
 		name = ""
 
 	// Prefix
-	for(var/holiday_name in SSevents.holidays)
-		if(holiday_name == "Friday the 13th")
-			random = 13
+	var/holiday_name = pick(SSevents.holidays)
+	if(holiday_name)
 		var/datum/holiday/holiday = SSevents.holidays[holiday_name]
+		if(istype(holiday, /datum/holiday/friday_thirteenth))
+			random = 13
 		name = holiday.getStationPrefix()
 		//get normal name
 	if(!name)
@@ -96,7 +97,7 @@ GLOBAL_VAR(command_name)
 			new_station_name += pick(GLOB.numbers_as_words)
 		if(13)
 			new_station_name += pick("13","XIII","Тринадцать")
-	return r_capitalize(r_lowertext(new_station_name))
+	return r_capitalize(new_station_name)
 
 /proc/syndicate_name()
 	var/name = ""

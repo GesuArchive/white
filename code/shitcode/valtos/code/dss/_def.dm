@@ -158,10 +158,10 @@
 					dstats[MOB_DEX] += rand( 2, 2)
 
 				if("Assistant") // никому не нужный (tm)
-					dstats[MOB_STR] += rand(3, 9)
-					dstats[MOB_STM] += rand(3, 9)
-					dstats[MOB_INT] += rand(6, 9)
-					dstats[MOB_DEX] += rand(3, 9)
+					dstats[MOB_STR] += rand(-3, 3)
+					dstats[MOB_STM] += rand(-3, 3)
+					dstats[MOB_INT] += rand(-6, 3)
+					dstats[MOB_DEX] += rand(-3, 3)
 
 				if("Chief Medical Officer")
 					dstats[MOB_STR] += rand(1, 4)
@@ -228,6 +228,18 @@
 					dstats[MOB_STM] += rand(-3, 1)
 					dstats[MOB_INT] += rand(7, 10)
 					dstats[MOB_DEX] += rand(-4, 1)
+
+				if("Trader")
+					dstats[MOB_STR] += rand(-2, 1)
+					dstats[MOB_STM] += rand(-4, -1)
+					dstats[MOB_INT] += rand(2, 7)
+					dstats[MOB_DEX] += rand(-4, 0)
+
+				if("Paramedic")
+					dstats[MOB_STR] += rand(2, 5)
+					dstats[MOB_STM] += rand(1, 4)
+					dstats[MOB_INT] += rand(2, 7)
+					dstats[MOB_DEX] += rand(4, 12)
 
 			// если антаг, то
 			if(mind.special_role) // пока бустаем статы всем антагам

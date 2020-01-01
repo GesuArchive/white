@@ -13,7 +13,7 @@ export const InterfaceLockNoticeBox = props => {
       <NoticeBox>
         <Flex align="center">
           <Flex.Item>
-            Interface lock status:
+            Состояние блокировки интерфейса:
           </Flex.Item>
           <Flex.Item grow={1} />
           <Flex.Item>
@@ -21,7 +21,7 @@ export const InterfaceLockNoticeBox = props => {
               m={0}
               color="gray"
               icon={locked ? 'lock' : 'unlock'}
-              content={locked ? 'Locked' : 'Unlocked'}
+              content={locked ? 'Заблокирован' : 'Разблокирован'}
               onClick={() => {
                 if (onLockStatusChange) {
                   onLockStatusChange(!locked);
@@ -35,8 +35,8 @@ export const InterfaceLockNoticeBox = props => {
   // For everyone else
   return (
     <NoticeBox>
-      Swipe {accessText || 'an ID card'}{' '}
-      to {locked ? 'unlock' : 'lock'} this interface.
+      Проведите {accessText || 'картой'}{' '}
+      для {locked ? 'разблокировки' : 'блокировки'} этого интерфейса.
     </NoticeBox>
   );
 };

@@ -7,17 +7,17 @@ export const SpaceHeater = props => {
   return (
     <Fragment>
       <Section
-        title="Power"
+        title="Энергия"
         buttons={(
           <Fragment>
             <Button
               icon="eject"
-              content="Eject Cell"
+              content="Изъять аккумулятор"
               disabled={!data.hasPowercell || !data.open}
               onClick={() => act('eject')} />
             <Button
               icon={data.on ? 'power-off' : 'times'}
-              content={data.on ? 'On' : 'Off'}
+              content={data.on ? 'Вкл' : 'Выкл'}
               selected={data.on}
               disabled={!data.hasPowercell}
               onClick={() => act('power')} />
@@ -25,7 +25,7 @@ export const SpaceHeater = props => {
         )}>
         <LabeledList>
           <LabeledList.Item
-            label="Cell"
+            label="Аккумулятор"
             color={!data.hasPowercell && 'bad'}>
             {data.hasPowercell && (
               <ProgressBar
@@ -36,13 +36,13 @@ export const SpaceHeater = props => {
                   average: [0.3, 0.6],
                   bad: [-Infinity, 0.3],
                 }} />
-            ) || 'None'}
+            ) || 'Нет'}
           </LabeledList.Item>
         </LabeledList>
       </Section>
-      <Section title="Thermostat">
+      <Section title="Термостат">
         <LabeledList>
-          <LabeledList.Item label="Current Temperature">
+          <LabeledList.Item label="Температура">
             <Box
               fontSize="18px"
               color={Math.abs(data.targetTemp - data.currentTemp) > 50
@@ -53,7 +53,7 @@ export const SpaceHeater = props => {
               {data.currentTemp}°C
             </Box>
           </LabeledList.Item>
-          <LabeledList.Item label="Target Temperature">
+          <LabeledList.Item label="Целевая">
             {data.open && (
               <NumberInput
                 animated
@@ -69,26 +69,26 @@ export const SpaceHeater = props => {
               data.targetTemp + '°C'
             )}
           </LabeledList.Item>
-          <LabeledList.Item label="Mode">
-            {!data.open && 'Auto' || (
+          <LabeledList.Item label="Режим">
+            {!data.open && 'Авто' || (
               <Fragment>
                 <Button
                   icon="thermometer-half"
-                  content="Auto"
+                  content="Авто"
                   selected={data.mode === 'auto'}
                   onClick={() => act('mode', {
                     mode: "auto",
                   })} />
                 <Button
                   icon="fire-alt"
-                  content="Heat"
+                  content="Нагрев"
                   selected={data.mode === 'heat'}
                   onClick={() => act('mode', {
                     mode: "heat",
                   })} />
                 <Button
                   icon="fan"
-                  content="Cool"
+                  content="Охлаждение"
                   selected={data.mode === 'cool'}
                   onClick={() => act('mode', {
                     mode: 'cool',

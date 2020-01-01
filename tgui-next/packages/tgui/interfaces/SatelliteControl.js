@@ -11,7 +11,7 @@ export const SatelliteControl = props => {
       {data.meteor_shield && (
         <Section>
           <LabeledList>
-            <LabeledListItem label="Coverage">
+            <LabeledListItem label="Покрытие">
               <ProgressBar
                 value={data.meteor_shield_coverage
                   / data.meteor_shield_coverage_max}
@@ -26,7 +26,7 @@ export const SatelliteControl = props => {
           </LabeledList>
         </Section>
       )}
-      <Section title="Satellite Controls">
+      <Section title="Управление">
         <Box mr={-1}>
           {satellites.map(satellite => (
             <Button.Checkbox

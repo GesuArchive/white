@@ -9,22 +9,22 @@ export const Crayon = props => {
   return (
     <Fragment>
       {!!capOrChanges && (
-        <Section title="Basic">
+        <Section title="Базовое">
           <LabeledList>
-            <LabeledList.Item label="Cap">
+            <LabeledList.Item label="Крышка">
               <Button
                 icon={data.is_capped ? 'power-off' : 'times'}
-                content={data.is_capped ? 'On' : 'Off'}
+                content={data.is_capped ? 'Есть' : 'Нет'}
                 selected={data.is_capped}
                 onClick={() => act('toggle_cap')} />
             </LabeledList.Item>
           </LabeledList>
           <Button
-            content="Select New Color"
+            content="Выбрать новый цвет"
             onClick={() => act('select_colour')} />
         </Section>
       )}
-      <Section title="Stencil">
+      <Section title="Шаблон">
         <LabeledList>
           {drawables.map(drawable => {
             const items = drawable.items || [];
@@ -46,14 +46,14 @@ export const Crayon = props => {
           })}
         </LabeledList>
       </Section>
-      <Section title="Text">
+      <Section title="Текст">
         <LabeledList>
-          <LabeledList.Item label="Current Buffer">
+          <LabeledList.Item label="Текущий буффер">
             {data.text_buffer}
           </LabeledList.Item>
         </LabeledList>
         <Button
-          content="New Text"
+          content="Новый текст"
           onClick={() => act('enter_text')} />
       </Section>
     </Fragment>
