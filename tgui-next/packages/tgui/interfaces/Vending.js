@@ -26,27 +26,30 @@ export const Vending = props => {
   }
   return (
     <Fragment>
-      <Section title="Пользователь">
-        {data.user && (
-          <Box>
+      {data.onstation && (
+        <Section title="Пользователь">
+          {data.user && (
+            <Box>
             Здравствуйте, <b>{data.user.name}</b>,
-            {' '}
-            <b>{data.user.job || "Безработный"}</b>!
-            <br />
-            Ваш баланс: <b>{data.user.cash} кредитов</b>.
-          </Box>
-        ) || (
-          <Box color="light-gray">
+              {' '}
+              <b>{data.user.job || "Безработный"}</b>!
+              <br />
+              Ваш баланс: <b>{data.user.cash} кредитов</b>.
+            </Box>
+          ) || (
+            <Box color="light-gray">
             Нет ID-карты!<br />
             Свяжитесь с вашим местным отделом кадров!
-          </Box>
-        )}
-      </Section>
+            </Box>
+          )}
+        </Section>
+      )}
       <Section title="Товары" >
         <Table>
           {inventory.map((product => {
             const free = (
-              product.price === 0
+              !data.onstation
+              || product.price === 0
               || (
                 !product.premium
                 && data.department
@@ -82,7 +85,7 @@ export const Vending = props => {
                       : data.stock[product.name] <= (product.max_amount / 2)
                         ? 'average'
                         : 'good'}>
-                    {data.stock[product.name]} in stock
+                    {data.stock[product.name]} в наличии
                   </Box>
                 </Table.Cell>
                 <Table.Cell>
