@@ -797,8 +797,8 @@
 	name = "Machete"
 	result = /obj/item/hatchet/wzzzz/machete
 	reqs = list(/obj/item/stack/rods = 1,
-	            /obj/item/stack/sheet/metal = 4)
-	time = 150
+	            /obj/item/stack/sheet/metal = 6)
+	time = 200
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
-	tools = list(TOOL_WELDER, TOOL_WIRECUTTER)
+	tools = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
