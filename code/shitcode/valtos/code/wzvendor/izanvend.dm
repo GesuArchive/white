@@ -85,7 +85,8 @@
 	switch(action)
 		if("vend")
 			. = TRUE
-			var/obj/R = text2path(params["product_path"])
+			var/datum/data/izanvend_product/W = text2path(params["product_path"])
+			var/obj/R = W.product_path
 			if(!R || !istype(R))
 				return
 			new R(get_turf(src))
