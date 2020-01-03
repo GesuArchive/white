@@ -54,15 +54,15 @@
 
 /turf/closed/indestructible/splashscreen
 	name = "White Dream"
-	icon = 'icons/blank_title.png'
-	icon_state = ""
+	icon = 'icons/protocol_c.dmi'
+	icon_state = "blank"
 	layer = FLY_LAYER
 	bullet_bounce_sound = null
 
 /turf/closed/indestructible/splashscreen/New()
 	SStitle.splash_turf = src
-	if(SStitle.icon)
-		icon = SStitle.icon
+	//if(SStitle.icon)
+	//	icon = SStitle.icon
 	..()
 
 /turf/closed/indestructible/splashscreen/vv_edit_var(var_name, var_value)

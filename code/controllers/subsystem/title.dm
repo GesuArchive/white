@@ -39,10 +39,22 @@ SUBSYSTEM_DEF(title)
 	icon = new(fcopy_rsc(file_path))
 
 	if(splash_turf)
-		splash_turf.icon = icon
-		splash_turf.add_overlay('icons/wd_logo.png')
+		splash_turf.icon = 'icons/protocol_c.dmi'
+		splash_turf.icon_state = "init1"
+		spawn(20)
+			splash_turf.icon_state = "loop1"
 
 	return ..()
+
+/datum/controller/subsystem/title/proc/set_image_state(state)
+	if(splash_turf)
+		splash_turf.icon_state = state
+
+/datum/controller/subsystem/title/proc/afterload()
+	if(splash_turf)
+		splash_turf.icon_state = null
+		splash_turf.icon = icon
+		splash_turf.add_overlay('icons/wd_logo.png')
 
 /datum/controller/subsystem/title/vv_edit_var(var_name, var_value)
 	. = ..()

@@ -50,6 +50,7 @@ SUBSYSTEM_DEF(mapping)
 #endif
 
 /datum/controller/subsystem/mapping/Initialize(timeofday)
+	SStitle.set_image_state("blank")
 	HACK_LoadMapConfig()
 	if(initialized)
 		return
@@ -109,6 +110,7 @@ SUBSYSTEM_DEF(mapping)
 	setup_map_transitions()
 	generate_station_area_list()
 	initialize_reserved_level(transit.z_value)
+	SStitle.set_image_state("init2")
 	return ..()
 
 /datum/controller/subsystem/mapping/proc/wipe_reservations(wipe_safety_delay = 100)

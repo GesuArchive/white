@@ -65,12 +65,12 @@ SUBSYSTEM_DEF(air)
 
 
 /datum/controller/subsystem/air/Initialize(timeofday)
+	SStitle.set_image_state("air")
 	map_loading = FALSE
 	setup_allturfs()
 	setup_atmos_machinery()
 	setup_pipenets()
 	gas_reactions = init_gas_reactions()
-	toplayers = "Заполнили воздухом"
 	return ..()
 
 
