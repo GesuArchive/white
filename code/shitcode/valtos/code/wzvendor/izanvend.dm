@@ -75,7 +75,7 @@
 			)
 		data["products"][P.cat]["packs"] += list(list(
 			"name" = P.name,
-			"product_path" = thing
+			"product_path" = P.product_path
 		))
 	return data
 
