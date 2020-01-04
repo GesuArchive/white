@@ -152,9 +152,10 @@
 			return
 
 	if(thrown_thing)
-		visible_message("<span class='danger'><b>[src]</b> бросает <b>[thrown_thing.name]</b>.</span>", \
-						"<span class='danger'>Бросаю <b>[thrown_thing.name]</b>.</span>")
+		visible_message("<span class='danger'><b>[src]</b> кидает <b>[thrown_thing.name]</b>.</span>", \
+						"<span class='danger'>Кидаю <b>[thrown_thing.name]</b>.</span>")
 		log_message("has thrown [thrown_thing.name]", LOG_ATTACK)
+		playsound(get_turf(src), 'code/shitcode/valtos/sounds/throw.wav', 50, TRUE)
 		newtonian_move(get_dir(target, src))
 		thrown_thing.safe_throw_at(target, thrown_thing.throw_range, thrown_thing.throw_speed, src, null, null, null, move_force)
 

@@ -96,7 +96,7 @@
 				break
 		else //Otherwise just pick random one
 			current_pick = pickweight(ruins_availible)
-		
+
 		var/placement_tries = forced_turf ? 1 : PLACEMENT_TRIES //Only try once if we target specific turf
 		var/failed_to_place = TRUE
 		var/target_z = 0
@@ -156,6 +156,8 @@
 									forced_ruins[linked] = target_z //I guess you might want a chain somehow
 								if(PLACE_LAVA_RUIN)
 									forced_ruins[linked] = pick(SSmapping.levels_by_trait(ZTRAIT_LAVA_RUINS))
+								if(PLACE_GENSOKYO_RUIN)
+									forced_ruins[linked] = pick(SSmapping.levels_by_trait(ZTRAIT_GENSOKYO_RUINS))
 								if(PLACE_SPACE_RUIN)
 									forced_ruins[linked] = pick(SSmapping.levels_by_trait(ZTRAIT_SPACE_RUINS))
 								if(PLACE_DEFAULT)
@@ -169,5 +171,5 @@
 		for(var/datum/map_template/ruin/R in ruins_availible)
 			if(R.cost > budget)
 				ruins_availible -= R
-	
+
 	log_world("Ruin loader finished with [budget] left to spend.")

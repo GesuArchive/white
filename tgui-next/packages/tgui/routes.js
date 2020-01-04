@@ -41,6 +41,7 @@ import { GravityGenerator } from './interfaces/GravityGenerator';
 import { GulagItemReclaimer } from './interfaces/GulagItemReclaimer';
 import { Holodeck } from './interfaces/Holodeck';
 import { ImplantChair } from './interfaces/ImplantChair';
+import { Izanvend } from './interfaces/Izanvend';
 import { KeycardAuth } from './interfaces/KeycardAuth';
 import { LaborClaimConsole } from './interfaces/LaborClaimConsole';
 import { LanguageMenu } from './interfaces/LanguageMenu';
@@ -264,6 +265,10 @@ const ROUTES = {
   },
   implantchair: {
     component: () => ImplantChair,
+    scrollable: false,
+  },
+  izanvend: {
+    component: () => Izanvend,
     scrollable: false,
   },
   keycard_auth: {

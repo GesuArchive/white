@@ -194,6 +194,9 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
 	var/msg = "Мир создан за [time] секунд!"
+	SStitle.set_image_state("end")
+	spawn(10)
+		SStitle.afterload()
 	to_chat(world, "<span class='boldannounce'>[msg]</span>")
 	log_world(msg)
 

@@ -478,6 +478,7 @@
 	width = 3
 	height = 4
 	var/target_area = /area/lavaland/surface/outdoors
+	var/gensokyo_area = /area/mine/unexplored/gensokyo
 	var/edge_distance = 16
 	// Minimal distance from the map edge, setting this too low can result in shuttle landing on the edge and getting "sliced"
 
@@ -486,7 +487,7 @@
 	if(!mapload)
 		return
 
-	var/list/turfs = get_area_turfs(target_area)
+	var/list/turfs = get_area_turfs(target_area) + get_area_turfs(gensokyo_area)
 	var/original_len = turfs.len
 	while(turfs.len)
 		var/turf/T = pick(turfs)

@@ -176,7 +176,6 @@
 	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	box = /obj/item/storage/box/survival
-	r_hand = /obj/item/stack/garland_pack/fifty
 
 	var/backpack = /obj/item/storage/backpack
 	var/satchel  = /obj/item/storage/backpack/satchel
