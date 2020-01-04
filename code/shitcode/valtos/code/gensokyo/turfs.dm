@@ -21,7 +21,7 @@
 		var/obj/structure/flora/ausbushes/rospilovo/F = pick(subtypesof(/obj/structure/flora/ausbushes/rospilovo))
 		new F(get_turf(src))
 		if (prob(20))
-			new /obj/structure/rospilovo/tree(get_turf(src))
+			new /obj/structure/flora/tree/gensokyo(get_turf(src))
 	var/C = pick("c", "d", "e", "f")
 	color = "#[C][C][C][C][C][C]"
 
@@ -31,11 +31,11 @@
 		if(istype(loc, /area/mine/explored/gensokyo) || !istype(loc, /area/mine/unexplored/gensokyo))
 			return
 		var/randumb = /mob/living/simple_animal/hostile/asteroid/mineral_crab
-		for(var/thing in urange(12, T)) //prevents mob clumps
+		for(var/thing in urange(7, T)) //prevents mob clumps
 			if(!ishostile(thing) && !istype(thing, /obj/structure/spawner))
 				continue
 			if(ispath(randumb, /mob/living/simple_animal/hostile/asteroid) || istype(thing, /mob/living/simple_animal/hostile/asteroid))
-				return //if the random is a standard mob, avoid spawning if there's another one within 12 tiles
+				return
 		new randumb(T)
 
 

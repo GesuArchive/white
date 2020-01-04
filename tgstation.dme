@@ -3192,6 +3192,7 @@
 #include "code\shitcode\valtos\code\gamemode\gen.dm"
 #include "code\shitcode\valtos\code\gamemode\rospilovo.dm"
 #include "code\shitcode\valtos\code\gensokyo\areas.dm"
+#include "code\shitcode\valtos\code\gensokyo\gensokyo.dm"
 #include "code\shitcode\valtos\code\gensokyo\mobs.dm"
 #include "code\shitcode\valtos\code\gensokyo\ruins.dm"
 #include "code\shitcode\valtos\code\gensokyo\turfs.dm"
