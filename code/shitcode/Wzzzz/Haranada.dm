@@ -1206,7 +1206,7 @@
 		/obj/item/clothing/glasses/sunglasses = 1.#INF,
 		/obj/item/clothing/suit/jacket/leather/overcoat = 1.#INF,
 		/obj/item/storage/pill_bottle/happy = 1.#INF,
-		/obj/item/stack/medical/gauze/improvised = 1.#INF,
+		/obj/item/stack/medical/gauze/improvised/free = 1.#INF,
 		/obj/item/storage/firstaid/advanced = 1.#INF,
 		/obj/item/ammo_casing/shotgun/improvised = 1.#INF,
 		/obj/item/gun/ballistic/shotgun/doublebarrel/improvised = 1.#INF,
@@ -1249,11 +1249,13 @@
 		/obj/item/ammo_box/magazine/m10mm = 1.#INF,
 		/obj/item/reagent_containers/food/drinks/bottle/molotov/wzzzz = 1.#INF,
 		/obj/item/switchblade = 1.#INF,
-		/obj/item/lighter/greyscale = 1.#INF,
-		/obj/item/hatchet/wzzzz/machete = 1.#INF,
+		/obj/item/lighter/greyscale/free = 1.#INF,
+		/obj/item/kitchen/knife/butcher/wzzzz/machete = 1.#INF,
 		/obj/item/ammo_box/magazine/wzzzz/assault_rifle = 1.#INF,
-		/obj/item/gun/ballistic/automatic/wzzzz/assault_rifle = 1.#INF)
-	contraband = list(
+		/obj/item/gun/ballistic/automatic/wzzzz/assault_rifle = 1.#INF,
+		/obj/item/storage/pill_bottle/wzzzz/soldier = 1.#INF,
+		/obj/item/clothing/mask/gas/wzzzz/germanfull = 1.#INF,
+		/obj/item/clothing/suit/armor/vest/leather/wzzzz/tailcoat/black = 1.#INF,
 		/obj/item/gun/ballistic/automatic/pistol/wzzzz/mauser = 1.#INF,
 		/obj/item/ammo_box/magazine/wzzzz/mauser/battle = 1.#INF,
 		/obj/item/gun/ballistic/automatic/pistol/wzzzz/luger = 1.#INF,
@@ -1299,6 +1301,11 @@
 		/obj/item/gun/ballistic/rifle/boltaction = 1.#INF,
 		/obj/item/clothing/suit/armor/vest = 1.#INF,
 		/obj/item/clothing/suit/armor/wzzzz/opvest = 1.#INF,
+		/obj/item/clothing/under/wzzzz/victorianvest/grey = 1.#INF,
+		/obj/item/clothing/suit/hooded/chaplainsuit/wzzzz/star_traitor = 1.#INF,
+		/obj/item/clothing/shoes/jackboots/wzzzz/fiendshoes = 1.#INF,
+		/obj/item/clothing/suit/hooded/chaplainsuit/wzzzz/fiendcowl = 1.#INF,
+		/obj/item/clothing/under/syndicate/wzzzz/fiendsuit = 1.#INF,
 		/obj/item/shovel = 1.#INF,
 		/obj/item/shovel/serrated = 1.#INF,
 		/obj/item/pickaxe = 1.#INF,
@@ -1315,7 +1322,16 @@
 		/obj/item/ammo_box/magazine/wzzzz/carbine = 1.#INF,				
 		/obj/item/suppressor = 1.#INF,
 		/obj/item/clothing/suit/armor/vest/wzzzz/german/webvest = 1.#INF,
-		/obj/item/clothing/suit/armor/vest/wzzzz/german/mercwebvest = 1.#INF)
+		/obj/item/clothing/suit/armor/vest/wzzzz/german/mercwebvest = 1.#INF,
+		/obj/item/storage/toolbox/ammo/wzzzz/Kar98 = 1.#INF,
+		/obj/item/storage/toolbox/ammo/wzzzz/STG = 1.#INF,
+		/obj/item/storage/toolbox/ammo/wzzzz/MP40 = 1.#INF,
+		/obj/item/storage/toolbox/ammo/wzzzz/G43 = 1.#INF,
+		/obj/item/storage/toolbox/ammo/wzzzz/FG42 = 1.#INF,
+		/obj/item/storage/toolbox/ammo/wzzzz/AK47 = 1.#INF,
+		/obj/item/storage/toolbox/ammo/wzzzz/WT550 = 1.#INF,
+		/obj/item/clothing/head/helmet/space/eva/wzzzz/black = 1.#INF)
+	contraband = list(/obj/item/clothing/suit/armor/vest/wzzzz/swatarmor_german/grey = 1.#INF)
 		
 	
 /obj/item/vending_refill/wzzzz/dude
@@ -1423,3 +1439,8 @@
 /obj/item/kitchen/knife/butcher/free
 	custom_price = 0
 	
+/obj/item/lighter/greyscale/free
+	custom_price = 0
+
+/obj/item/stack/medical/gauze/improvised/free
+	custom_price = 0

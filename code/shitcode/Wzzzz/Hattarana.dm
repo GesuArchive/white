@@ -770,6 +770,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	item_state = "swatarmor"
 	armor = list("melee" = 60, "bullet" = 60, "laser" = 60,"energy" = 40, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 40, "acid" = 40)
+	pocket_storage_component_path = /datum/component/storage/concrete/pockets/swatarmor
 
 /obj/item/clothing/suit/hazardvest/wzzzz/green
 	icon_state = "hazard_g"
@@ -3140,6 +3141,14 @@
 	can_adjust = FALSE
 	desc = "For nostalgia"
 	
+/obj/item/clothing/under/wzzzz/victorianvest/grey
+	icon_state = "victorianvestg"
+	item_state = "victorianvestg"
+	
+/obj/item/clothing/under/wzzzz/victorianvest/black
+	icon_state = "victorianvestb"
+	item_state = "victorianvestb"
+	
 /obj/item/clothing/under/wzzzz/victorianblackdress
 	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/uniforms.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/uniforms.dmi'
@@ -4355,9 +4364,9 @@
 	damage = 30
 	armour_penetration = 25
 	
-/obj/item/storage/toolbox/ammo/wzzzz/kar98
+/obj/item/storage/toolbox/ammo/wzzzz/Kar98
 
-/obj/item/storage/toolbox/ammo/wzzzz/kar98/PopulateContents()
+/obj/item/storage/toolbox/ammo/wzzzz/Kar98/PopulateContents()
 	new /obj/item/ammo_box/magazine/wzzzz/a792x57(src)
 	new /obj/item/ammo_box/magazine/wzzzz/a792x57(src)
 	new /obj/item/ammo_box/magazine/wzzzz/a792x57(src)
@@ -4435,8 +4444,15 @@
 
 /datum/component/storage/concrete/pockets/webvest/Initialize()
 	. = ..()
-	set_holdable(GLOB.security_vest_allowed)
 	max_items = 5
+	max_combined_w_class = 10
+	max_w_class = WEIGHT_CLASS_NORMAL
+	
+/datum/component/storage/concrete/pockets/swatarmor/Initialize()
+	. = ..()
+	max_items = 3
+	max_combined_w_class = 6
+	max_w_class = WEIGHT_CLASS_NORMAL
 	
 /obj/item/clothing/mask/gas/wzzzz/stealth_rig/alt
 	icon_state = "stealth_rig1"
@@ -4599,3 +4615,23 @@
 	contains = list(/obj/item/storage/pill_bottle/wzzzz/soldier,
 					/obj/item/storage/pill_bottle/wzzzz/soldier,
 					/obj/item/storage/pill_bottle/wzzzz/soldier)
+
+/obj/item/clothing/suit/armor/vest/wzzzz/german/mercwebvest/grey
+	icon_state = "mercwebvestg"
+	item_state = "mercwebvestg"
+	
+/obj/item/clothing/suit/armor/vest/wzzzz/swatarmor_german/grey
+	icon_state = "swatarmorg"
+	item_state = "swatarmorg"
+	
+/obj/item/clothing/suit/armor/vest/wzzzz/swatarmor_german/black
+	icon_state = "swatarmorb"
+	item_state = "swatarmorb"
+	
+/obj/item/clothing/head/helmet/wzzzz/swathelm/grey
+	icon_state = "swathelmg"
+	item_state = "swathelmg"
+	
+/obj/item/clothing/head/helmet/wzzzz/swathelm/black
+	icon_state = "swathelmb"
+	item_state = "swathelmb"

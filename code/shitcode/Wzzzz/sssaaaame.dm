@@ -802,3 +802,9 @@
 	desc = "Classic style, standart protection"
 	icon_state = "spacebowl_dark"
 	item_state = "spacebowl_dark"
+
+/obj/item/clothing/head/wzzzz/hijab/black
+	color = "#303030"
+	
+/obj/item/clothing/head/wzzzz/turban/black
+	color = "#303030"
