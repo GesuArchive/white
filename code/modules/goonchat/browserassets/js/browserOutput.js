@@ -22,54 +22,54 @@ window.onerror = function(msg, url, line, col, error) {
 window.status = 'Output';
 var $messages, $subOptions, $subAudio, $selectedSub, $contextMenu, $filterMessages, $last_message;
 var opts = {
-    //General
-    'messageCount': 0, //A count...of messages...
-    'messageLimit': 2053, //A limit...for the messages...
-    'scrollSnapTolerance': 10, //If within x pixels of bottom
-    'clickTolerance': 10, //Keep focus if outside x pixels of mousedown position on mouseup
-    'imageRetryDelay': 50, //how long between attempts to reload images (in ms)
-    'imageRetryLimit': 50, //how many attempts should we make?
-    'popups': 0, //Amount of popups opened ever
-    'wasd': false, //Is the user in wasd mode?
-    'priorChatHeight': 0, //Thing for height-resizing detection
-    'restarting': false, //Is the round restarting?
-    'darkmode': false, //Are we using darkmode? If not WHY ARE YOU LIVING IN 2009???
+	//General
+	'messageCount': 0, //A count...of messages...
+	'messageLimit': 2053, //A limit...for the messages...
+	'scrollSnapTolerance': 10, //If within x pixels of bottom
+	'clickTolerance': 10, //Keep focus if outside x pixels of mousedown position on mouseup
+	'imageRetryDelay': 50, //how long between attempts to reload images (in ms)
+	'imageRetryLimit': 50, //how many attempts should we make?
+	'popups': 0, //Amount of popups opened ever
+	'wasd': false, //Is the user in wasd mode?
+	'priorChatHeight': 0, //Thing for height-resizing detection
+	'restarting': false, //Is the round restarting?
+	'darkmode':false, //Are we using darkmode? If not WHY ARE YOU LIVING IN 2009???
 
-    //Options menu
-    'selectedSubLoop': null, //Contains the interval loop for closing the selected sub menu
-    'suppressSubClose': false, //Whether or not we should be hiding the selected sub menu
-    'highlightTerms': [],
-    'highlightLimit': 5,
-    'highlightColor': '#FFFF00', //The color of the highlighted message
-    'pingDisabled': false, //Has the user disabled the ping counter
+	//Options menu
+	'selectedSubLoop': null, //Contains the interval loop for closing the selected sub menu
+	'suppressSubClose': false, //Whether or not we should be hiding the selected sub menu
+	'highlightTerms': [],
+	'highlightLimit': 5,
+	'highlightColor': '#FFFF00', //The color of the highlighted message
+	'pingDisabled': false, //Has the user disabled the ping counter
 
-    //Ping display
-    'lastPang': 0, //Timestamp of the last response from the server.
-    'pangLimit': 35000,
-    'pingTime': 0, //Timestamp of when ping sent
-    'pongTime': 0, //Timestamp of when ping received
-    'noResponse': false, //Tracks the state of the previous ping request
-    'noResponseCount': 0, //How many failed pings?
+	//Ping display
+	'lastPang': 0, //Timestamp of the last response from the server.
+	'pangLimit': 35000,
+	'pingTime': 0, //Timestamp of when ping sent
+	'pongTime': 0, //Timestamp of when ping received
+	'noResponse': false, //Tracks the state of the previous ping request
+	'noResponseCount': 0, //How many failed pings?
 
-    //Clicks
-    'mouseDownX': null,
-    'mouseDownY': null,
-    'preventFocus': false, //Prevents switching focus to the game window
+	//Clicks
+	'mouseDownX': null,
+	'mouseDownY': null,
+	'preventFocus': false, //Prevents switching focus to the game window
 
-    //Client Connection Data
-    'clientDataLimit': 5,
-    'clientData': [],
+	//Client Connection Data
+	'clientDataLimit': 5,
+	'clientData': [],
 
-    //Admin music volume update
-    'volumeUpdateDelay': 5000, //Time from when the volume updates to data being sent to the server
-    'volumeUpdating': false, //True if volume update function set to fire
-    'updatedVolume': 0, //The volume level that is sent to the server
-    'musicStartAt': 0, //The position the music starts playing
-    'musicEndAt': 0, //The position the music... stops playing... if null, doesn't apply (so the music runs through)
+	//Admin music volume update
+	'volumeUpdateDelay': 5000, //Time from when the volume updates to data being sent to the server
+	'volumeUpdating': false, //True if volume update function set to fire
+	'updatedVolume': 0, //The volume level that is sent to the server
+	'musicStartAt': 0, //The position the music starts playing
+	'musicEndAt': 0, //The position the music... stops playing... if null, doesn't apply (so the music runs through)
 
-    'defaultMusicVolume': 25,
+	'defaultMusicVolume': 25,
 
-    'messageCombining': true,
+	'messageCombining': true,
 
 };
 var replaceRegexes = {};
@@ -155,21 +155,21 @@ function linkify_fallback(text) {
 }
 
 function byondDecode(message) {
-    // Basically we url_encode twice server side so we can manually read the encoded version and actually do UTF-8.
-    // The replace for + is because FOR SOME REASON, BYOND replaces spaces with a + instead of %20, and a plus with %2b.
-    // Marvelous.
-    message = message.replace(/\+/g, "%20");
-    try {
-        // This is a workaround for the above not always working when BYOND's shitty url encoding breaks. (byond bug id:2399401)
-        if (decodeURIComponent) {
-            message = decodeURIComponent(message);
-        } else {
-            throw new Error("Easiest way to trigger the fallback")
-        }
-    } catch (err) {
-        message = unescape(message);
-    }
-    return message;
+	// Basically we url_encode twice server side so we can manually read the encoded version and actually do UTF-8.
+	// The replace for + is because FOR SOME REASON, BYOND replaces spaces with a + instead of %20, and a plus with %2b.
+	// Marvelous.
+	message = message.replace(/\+/g, "%20");
+	try {
+		// This is a workaround for the above not always working when BYOND's shitty url encoding breaks. (byond bug id:2399401)
+		if (decodeURIComponent) {
+			message = decodeURIComponent(message);
+		} else {
+			throw new Error("Easiest way to trigger the fallback")
+		}
+	} catch (err) {
+		message = unescape(message);
+	}
+	return message;
 }
 
 function replaceRegex() {
@@ -479,28 +479,28 @@ function swap() { //Swap to darkmode
 }
 
 function handleClientData(ckey, ip, compid) {
-    //byond sends player info to here
-    var currentData = { 'ckey': ckey, 'ip': ip, 'compid': compid };
-    if (opts.clientData && !$.isEmptyObject(opts.clientData)) {
-        runByond('?_src_=chat&proc=analyzeClientData&param[cookie]=' + JSON.stringify({ 'connData': opts.clientData }));
+	//byond sends player info to here
+	var currentData = {'ckey': ckey, 'ip': ip, 'compid': compid};
+	if (opts.clientData && !$.isEmptyObject(opts.clientData)) {
+		runByond('?_src_=chat&proc=analyzeClientData&param[cookie]='+JSON.stringify({'connData': opts.clientData}));
 
-        for (var i = 0; i < opts.clientData.length; i++) {
-            var saved = opts.clientData[i];
-            if (currentData.ckey == saved.ckey && currentData.ip == saved.ip && currentData.compid == saved.compid) {
-                return; //Record already exists
-            }
-        }
+		for (var i = 0; i < opts.clientData.length; i++) {
+			var saved = opts.clientData[i];
+			if (currentData.ckey == saved.ckey && currentData.ip == saved.ip && currentData.compid == saved.compid) {
+				return; //Record already exists
+			}
+		}
+		//Lets make sure we obey our limit (can connect from server with higher limit)
+		while (opts.clientData.length >= opts.clientDataLimit) {
+			opts.clientData.shift();
+		}
+	} else {
+		runByond('?_src_=chat&proc=analyzeClientData&param[cookie]=none');
+	}
 
-        if (opts.clientData.length >= opts.clientDataLimit) {
-            opts.clientData.shift();
-        }
-    } else {
-        runByond('?_src_=chat&proc=analyzeClientData&param[cookie]=none');
-    }
-
-    //Update the cookie with current details
-    opts.clientData.push(currentData);
-    setCookie('connData', JSON.stringify(opts.clientData), 365);
+	//Update the cookie with current details
+	opts.clientData.push(currentData);
+	setCookie('connData', JSON.stringify(opts.clientData), 365);
 }
 
 //Server calls this on ehjax response

@@ -4,7 +4,8 @@
 	var/datum/objective/contract/contract = new()
 	var/target_rank
 	var/ransom = 0
-	var/payout_type = null
+	var/payout_type
+	var/wanted_message
 
 	var/list/victim_belongings = list()
 
@@ -34,6 +35,12 @@
 	contract.generate_dropoff()
 
 	ransom = 100 * rand(18, 45)
+
+	var/base = pick_list(WANTED_FILE, "basemessage")
+	var/verb_string = pick_list(WANTED_FILE, "verb")
+	var/noun = pick_list_weighted(WANTED_FILE, "noun")
+	var/location = pick_list_weighted(WANTED_FILE, "location")
+	wanted_message = "[base] [verb_string] [noun] [location]."
 
 /datum/syndicate_contract/proc/handle_extraction(var/mob/living/user)
 	if (contract.target && contract.dropoff_check(user, contract.target.current))
@@ -68,6 +75,7 @@
 
 			if (M == contract.target.current)
 				traitor_data.contractor_hub.contract_TC_to_redeem += contract.payout
+				traitor_data.contractor_hub.contracts_completed += 1
 
 				if (M.stat != DEAD)
 					traitor_data.contractor_hub.contract_TC_to_redeem += contract.payout_bonus

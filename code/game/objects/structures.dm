@@ -39,7 +39,7 @@
 		structureclimber.visible_message("<span class='warning'><b>[structureclimber]</b> сваливается с <b>[src.name]</b>.", "Ты упал с [src.name]!", "Ты видишь как [structureclimber] падает с [src.name].</span>")
 
 /obj/structure/ui_act(action, params)
-	..()
+	. = ..()
 	add_fingerprint(usr)
 
 /obj/structure/MouseDrop_T(atom/movable/O, mob/user)
