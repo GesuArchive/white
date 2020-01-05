@@ -5,31 +5,31 @@
 	icon_state = "int"
 	implant_color = "#0E7E00"
 	slot = ORGAN_SLOT_BRAIN_STATS
-	var/type = "int"
+	var/s_type = "int"
 
 /obj/item/organ/cyberimp/brain/stats/attack_hand(mob/user)
 	. = ..()
-	switch(type)
+	switch(s_type)
 		if("int")
-			type = "str"
+			s_type = "str"
 			to_chat(user, "<span class='notice'>Теперь имплант настроен на <b>СИЛУ</b>.</span>")
 		if("str")
-			type = "stm"
+			s_type = "stm"
 			to_chat(user, "<span class='notice'>Теперь имплант настроен на <b>ВЫНОСЛИВОСТЬ</b>.</span>")
 		if("stm")
-			type = "dex"
+			s_type = "dex"
 			to_chat(user, "<span class='notice'>Теперь имплант настроен на <b>ЛОВКОСТЬ</b>.</span>")
 		if("dex")
-			type = "int"
+			s_type = "int"
 			to_chat(user, "<span class='notice'>Теперь имплант настроен на <b>ИНТЕЛЛЕКТ</b>.</span>")
-	icon_state = type
+	icon_state = s_type
 
 /obj/item/organ/cyberimp/brain/stats/on_life()
 	..()
 	var/mob/living/carbon/human/M = owner
 	if(damage > 20)
 		if((organ_flags & ORGAN_FAILING))
-			switch(type)
+			switch(s_type)
 				if("int")
 					M.dstats[MOB_INT] = M.bstats[MOB_INT] - 5
 				if("str")
@@ -39,7 +39,7 @@
 				if("dex")
 					M.dstats[MOB_DEX] = M.bstats[MOB_DEX] - 5
 		else
-			switch(type)
+			switch(s_type)
 				if("int")
 					M.dstats[MOB_INT] = M.bstats[MOB_INT]
 				if("str")
@@ -50,7 +50,7 @@
 					M.dstats[MOB_DEX] = M.bstats[MOB_DEX]
 		M.recalculate_stats()
 	else
-		switch(type)
+		switch(s_type)
 			if("int")
 				M.dstats[MOB_INT] = M.bstats[MOB_INT] + 5
 			if("str")
@@ -64,7 +64,7 @@
 
 /obj/item/organ/cyberimp/brain/stats/Remove(mob/living/carbon/human/M, special = FALSE)
 	. = ..()
-	switch(type)
+	switch(s_type)
 		if("int")
 			M.dstats[MOB_INT] = M.bstats[MOB_INT]
 		if("str")
@@ -75,9 +75,9 @@
 			M.dstats[MOB_DEX] = M.bstats[MOB_DEX]
 	M.recalculate_stats()
 
-/obj/item/organ/cyberimp/brain/stats/Insert()
+/obj/item/organ/cyberimp/brain/stats/Insert(mob/living/carbon/human/M)
 	. = ..()
-	switch(type)
+	switch(s_type)
 		if("int")
 			M.dstats[MOB_INT] = M.bstats[MOB_INT] + 5
 		if("str")
