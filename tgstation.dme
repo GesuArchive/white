@@ -3250,6 +3250,7 @@
 #include "code\shitcode\valtos\code\unsorted\dakis.dm"
 #include "code\shitcode\valtos\code\unsorted\effector.dm"
 #include "code\shitcode\valtos\code\unsorted\great_stuff.dm"
+#include "code\shitcode\valtos\code\unsorted\implants.dm"
 #include "code\shitcode\valtos\code\unsorted\keybindings_reset.dm"
 #include "code\shitcode\valtos\code\unsorted\poo.dm"
 #include "code\shitcode\valtos\code\unsorted\rusprikols.dm"

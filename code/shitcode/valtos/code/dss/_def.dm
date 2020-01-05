@@ -21,16 +21,16 @@
 
 	bmods["maxHealth"]			= maxHealth
 	bmods["armor"]				= dna.species.armor
-	bmods["punchdamagelow"]	= dna.species.punchdamagelow
-	bmods["punchdamagehigh"]   = dna.species.punchdamagehigh
-	bmods["punchstunthreshold"]= dna.species.punchstunthreshold
+	bmods["punchdamagelow"]	    = dna.species.punchdamagelow
+	bmods["punchdamagehigh"]    = dna.species.punchdamagehigh
+	bmods["punchstunthreshold"] = dna.species.punchstunthreshold
 	bmods["brutemod"]			= dna.species.brutemod
 	bmods["burnmod"]			= dna.species.burnmod
 	bmods["coldmod"]			= dna.species.coldmod
 	bmods["heatmod"]			= dna.species.heatmod
 	bmods["stunmod"]			= dna.species.stunmod
 	bmods["speedmod"]			= dna.species.speedmod
-	bmods["next_move_modifier"]= next_move_modifier
+	bmods["next_move_modifier"] = next_move_modifier
 
 	// аугментируем статы согласно ролям
 
