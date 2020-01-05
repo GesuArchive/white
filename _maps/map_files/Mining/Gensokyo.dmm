@@ -304,7 +304,6 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/storage/fancy,
 /turf/open/floor/plasteel,
 /area/mine/production)
 "aZ" = (
