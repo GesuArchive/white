@@ -803,7 +803,6 @@
 /area/ai_monitored/turret_protected/ai_upload)
 "cg" = (
 /obj/machinery/computer/upload/ai{
-	icon_state = "computer";
 	dir = 4
 	},
 /turf/open/floor/circuit,
@@ -1624,6 +1623,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/gravity_generator)
 "eb" = (
@@ -1871,16 +1871,26 @@
 	dir = 10
 	},
 /obj/structure/cable,
+/obj/machinery/vending/coffee,
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "eG" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/obj/machinery/vending/cigarette,
-/turf/open/floor/wood,
-/area/bridge/meeting_room)
-"eH" = (
 /turf/closed/wall,
 /area/bridge/meeting_room)
+"eH" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/machinery/pdapainter,
+/turf/open/floor/plasteel,
+/area/crew_quarters/heads/hop)
 "eI" = (
 /obj/machinery/button/flasher{
 	id = "hopflash";
@@ -1898,15 +1908,11 @@
 	pixel_x = -4;
 	pixel_y = 36
 	},
-/obj/machinery/pdapainter,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
@@ -1945,8 +1951,7 @@
 	base_state = "rightsecure";
 	dir = 4;
 	icon_state = "rightsecure";
-	name = "Head of Personnel's Desk";
-	req_access_txt = "57"
+	name = "Head of Personnel's Desk"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -1995,29 +2000,21 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/machinery/airalarm{
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/open/floor/carpet,
 /area/bridge/meeting_room)
 "eR" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
 	dir = 4
 	},
-/obj/machinery/vending/coffee,
-/obj/machinery/airalarm{
-	dir = 8;
-	pixel_x = 24
-	},
-/turf/open/floor/wood,
+/turf/closed/wall,
 /area/bridge/meeting_room)
 "eS" = (
-/obj/structure/disposalpipe/trunk{
+/obj/structure/disposalpipe/segment{
 	dir = 4
-	},
-/obj/machinery/disposal/bin,
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
@@ -2030,6 +2027,9 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue,
+/obj/machinery/computer/card{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
 "eU" = (
@@ -2175,28 +2175,27 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 5
 	},
-/turf/open/floor/wood,
-/area/bridge/meeting_room)
-"fm" = (
 /obj/machinery/door/airlock/command{
 	name = "Head of Personnel";
 	req_access_txt = "57"
 	},
-/obj/structure/cable,
+/turf/open/floor/wood,
+/area/crew_quarters/heads/hop)
+"fm" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
-/turf/open/floor/wood,
-/area/crew_quarters/heads/hop)
-"fn" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 4
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
+/turf/open/floor/plasteel,
+/area/crew_quarters/heads/hop)
+"fn" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
@@ -2208,7 +2207,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/effect/mapping_helpers/ianbirthday,
+/obj/machinery/vending/cart,
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
 "fp" = (
@@ -2277,25 +2276,10 @@
 /turf/open/floor/carpet,
 /area/bridge/meeting_room)
 "fw" = (
-/obj/structure/cable,
-/obj/machinery/power/apc{
-	areastring = "/area/bridge/meeting_room";
-	dir = 4;
-	name = "Conference Room APC";
-	pixel_x = 24
-	},
-/turf/open/floor/wood,
+/turf/closed/wall,
 /area/bridge/meeting_room)
 "fx" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
+/obj/effect/mapping_helpers/ianbirthday,
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
 "fy" = (
@@ -2308,9 +2292,8 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/machinery/computer/card{
-	dir = 8
-	},
+/obj/structure/table,
+/obj/item/storage/box/ids,
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
 "fA" = (
@@ -2332,7 +2315,6 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
 	dir = 1
 	},
 /turf/open/floor/plasteel,
@@ -2455,23 +2437,32 @@
 /area/hallway/primary/central)
 "fP" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
 /turf/open/floor/carpet,
 /area/bridge/meeting_room)
 "fQ" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 27
-	},
-/turf/open/floor/wood,
+/turf/closed/wall,
 /area/bridge/meeting_room)
 "fR" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/turf/closed/wall,
-/area/bridge/meeting_room)
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/heads/hop)
 "fS" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -2561,12 +2552,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
 "gd" = (
@@ -2595,7 +2580,6 @@
 "gf" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
@@ -2639,7 +2623,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable,
 /obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
 	dir = 8
 	},
 /turf/open/floor/plasteel,
@@ -2647,7 +2630,6 @@
 "gl" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -3125,13 +3107,16 @@
 /obj/structure/cable,
 /obj/machinery/power/apc{
 	areastring = "/area/hallway/primary/central";
-	name = "Compact Central Hall APC";
 	dir = 1;
+	name = "Compact Central Hall APC";
 	pixel_y = 23
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "ht" = (
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "hu" = (
@@ -3174,7 +3159,6 @@
 "hy" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/machinery/camera/autoname{
-	icon_state = "camera";
 	dir = 8
 	},
 /turf/open/floor/plasteel,
@@ -3205,8 +3189,8 @@
 	},
 /obj/machinery/power/apc/highcap/five_k{
 	areastring = "/area/ai_monitored/turret_protected/ai_upload";
-	name = "Compact Upload APC";
 	dir = 1;
+	name = "Compact Upload APC";
 	pixel_y = 23
 	},
 /obj/machinery/camera/autoname,
@@ -3323,11 +3307,9 @@
 /area/hallway/primary/central)
 "hR" = (
 /obj/machinery/computer/upload/borg{
-	icon_state = "computer";
 	dir = 4
 	},
 /obj/machinery/camera/autoname{
-	icon_state = "camera";
 	dir = 4
 	},
 /turf/open/floor/circuit,
@@ -3374,7 +3356,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "hW" = (
-/obj/machinery/vending/cart,
+/obj/machinery/vending/cigarette,
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "hX" = (
@@ -3391,19 +3373,14 @@
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "ia" = (
-/obj/structure/closet/secure_closet/hop,
-/turf/open/floor/wood,
+/turf/closed/wall,
 /area/bridge/meeting_room)
 "ib" = (
 /obj/machinery/computer/bounty{
-	icon_state = "computer";
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/plasteel,
@@ -3434,8 +3411,7 @@
 	frequency = 1447;
 	listening = 0;
 	name = "Station Intercom (AI Private)";
-	pixel_x = 32;
-	pixel_y = 0
+	pixel_x = 32
 	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
@@ -3503,7 +3479,6 @@
 	pixel_x = 27
 	},
 /obj/machinery/camera/autoname{
-	icon_state = "camera";
 	dir = 8
 	},
 /turf/open/floor/carpet,
@@ -3580,6 +3555,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/machinery/camera/autoname,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "iu" = (
@@ -3634,7 +3610,6 @@
 	pixel_x = 24
 	},
 /obj/machinery/camera/autoname{
-	icon_state = "camera";
 	dir = 8
 	},
 /turf/open/floor/plasteel,
@@ -3653,6 +3628,17 @@
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"iI" = (
+/obj/structure/closet/secure_closet/hop,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue,
+/turf/open/floor/plasteel,
+/area/crew_quarters/heads/hop)
 "iL" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 4
@@ -3928,6 +3914,88 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
+"qJ" = (
+/obj/machinery/status_display/evac,
+/turf/closed/wall/r_wall,
+/area/ai_monitored/turret_protected/ai_upload)
+"rN" = (
+/obj/machinery/status_display/evac,
+/turf/closed/wall/r_wall,
+/area/hallway/primary/central)
+"wx" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/status_display/ai,
+/turf/open/floor/plating,
+/area/ai_monitored/turret_protected/ai_upload)
+"wy" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Captain's Office Maintenance";
+	req_access_txt = "12"
+	},
+/turf/open/floor/plating,
+/area/maintenance/central/secondary)
+"yh" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
+"AU" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/heads/hop)
+"On" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"Qp" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/heads/hop)
+"QS" = (
+/obj/machinery/door/poddoor/preopen{
+	id = "bridge blast";
+	name = "bridge blast door"
+	},
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/obj/machinery/status_display/evac,
+/turf/open/floor/plating,
+/area/bridge)
+"Yy" = (
+/obj/structure/chair/comfy/black{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/structure/cable,
+/obj/machinery/power/apc{
+	areastring = "/area/bridge/meeting_room";
+	dir = 4;
+	name = "Conference Room APC";
+	pixel_x = 24
+	},
+/turf/open/floor/carpet,
+/area/bridge/meeting_room)
 
 (1,1,1) = {"
 ab
@@ -4128,10 +4196,10 @@ cZ
 ep
 ep
 bM
+yh
 bM
 bM
-bM
-bM
+yh
 bM
 ep
 ep
@@ -4176,7 +4244,7 @@ ep
 ai
 aj
 ar
-bx
+QS
 bQ
 co
 cA
@@ -4202,14 +4270,14 @@ ab
 al
 hl
 ep
-bM
+yh
 bs
-bs
+wx
 cg
 hR
+wx
 bs
-bs
-bM
+yh
 ep
 ai
 aj
@@ -4249,7 +4317,7 @@ cd
 bs
 bM
 ep
-ai
+iA
 aj
 ar
 bx
@@ -4316,14 +4384,14 @@ ab
 az
 cZ
 ep
-bM
+yh
 bs
 cd
 cz
 cz
 ie
 bs
-bM
+yh
 ep
 gp
 aj
@@ -4338,7 +4406,7 @@ as
 eF
 eQ
 fk
-fk
+Yy
 fP
 hZ
 as
@@ -4376,7 +4444,7 @@ eo
 eG
 eR
 fl
-fw
+ia
 fQ
 ia
 as
@@ -4404,20 +4472,20 @@ ep
 ai
 aj
 ar
-bx
+QS
 cm
 cu
 cE
 cM
 fK
-as
+ey
 eH
-eH
+Qp
 fm
-eH
+AU
 fR
-eH
-as
+iI
+ey
 fj
 gt
 aj
@@ -4431,12 +4499,12 @@ bc
 cZ
 ep
 ep
-bM
+yh
 cf
 hB
 hG
 cf
-bM
+yh
 ep
 ep
 em
@@ -4549,7 +4617,7 @@ ep
 cf
 cf
 cf
-cf
+qJ
 iA
 aj
 gt
@@ -4691,8 +4759,8 @@ kn
 "}
 (21,1,1) = {"
 ab
-an
-an
+aE
+aE
 aA
 aK
 bK
@@ -4771,7 +4839,7 @@ aE
 aE
 aj
 ar
-bK
+wy
 eh
 im
 hF
@@ -4785,7 +4853,7 @@ aj
 aj
 aj
 hP
-ep
+rN
 ep
 dC
 dC
@@ -4825,11 +4893,11 @@ bZ
 ep
 ep
 bM
+yh
 bM
+yh
 bM
-bM
-bM
-bM
+yh
 bM
 dC
 eg
@@ -4899,7 +4967,7 @@ az
 aj
 ca
 ep
-bM
+yh
 af
 af
 ce
@@ -4975,7 +5043,7 @@ ga
 aj
 ii
 ep
-bM
+yh
 af
 bh
 ce
@@ -5051,7 +5119,7 @@ az
 aj
 ca
 ep
-bM
+yh
 af
 af
 ce
@@ -5129,11 +5197,11 @@ bZ
 ep
 ep
 bM
+yh
 bM
+yh
 bM
-bM
-bM
-bM
+yh
 bM
 dC
 hN
@@ -5194,7 +5262,7 @@ ar
 gs
 gE
 bW
-ai
+On
 cX
 bY
 dG
