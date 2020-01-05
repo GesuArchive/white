@@ -16,9 +16,7 @@ SUBSYSTEM_DEF(aspects)
 /datum/controller/subsystem/aspects/Initialize()
 	for(var/item in typesof(/datum/round_aspect))
 		var/datum/round_aspect/A = new item()
-		aspects[A] = A.weight
-
-	toplayers = "Создаём случайные последовательности"
+		aspects[A] = A.weigh
 
 	return ..()
 
