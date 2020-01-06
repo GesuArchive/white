@@ -782,13 +782,3 @@
             /obj/item/shovel/spade = 1)
 	result = /obj/item/shovel/serrated
 	category = CAT_PRIMAL
-	
-/datum/crafting_recipe/machete
-	name = "Machete"
-	result = /obj/item/kitchen/knife/butcher/wzzzz/machete
-	reqs = list(/obj/item/stack/rods = 1,
-	            /obj/item/stack/sheet/metal = 6)
-	time = 200
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
-	tools = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
