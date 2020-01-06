@@ -1245,6 +1245,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			log_combat(user, target, "attempted to punch")
 			return FALSE
 
+		punchouttooth(target,user,rand(0,9),affecting) // hippie -- teethcode
+
 		var/armor_block = target.run_armor_check(affecting, "melee")
 
 		playsound(target.loc, user.dna.species.attack_sound, 25, TRUE, -1)
@@ -1509,6 +1511,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					if(H.glasses && prob(33))
 						H.glasses.add_mob_blood(H)
 						H.update_inv_glasses()
+				punchouttooth(H,user,I.force,affecting) // hippie -- teethcode
 
 			if(BODY_ZONE_CHEST)
 				if(H.stat == CONSCIOUS && !I.get_sharpness() && armor_block < 50)

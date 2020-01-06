@@ -51,6 +51,8 @@
 	add_overlay(base_overlay)
 
 /obj/item/wirecutters/attack(mob/living/carbon/C, mob/user)
+	if(tearoutteeth(C, user)) // hippie start -- adds teeth code
+		return FALSE // hippie end
 	if(istype(C) && C.handcuffed && istype(C.handcuffed, /obj/item/restraints/handcuffs/cable))
 		user.visible_message("<span class='notice'>[user] перекусывает наручи [C] используя [src]!</span>")
 		qdel(C.handcuffed)

@@ -3243,6 +3243,8 @@
 #include "code\shitcode\valtos\code\synthesized_instruments\real_instruments\Synthesizer\echo_editor.dm"
 #include "code\shitcode\valtos\code\synthesized_instruments\real_instruments\Synthesizer\env_editor.dm"
 #include "code\shitcode\valtos\code\synthesized_instruments\real_instruments\Synthesizer\synthesizer.dm"
+#include "code\shitcode\valtos\code\teeth\misc.dm"
+#include "code\shitcode\valtos\code\teeth\teeth.dm"
 #include "code\shitcode\valtos\code\trading\_defines.dm"
 #include "code\shitcode\valtos\code\trading\terminal.dm"
 #include "code\shitcode\valtos\code\uniforms\russian.dm"
