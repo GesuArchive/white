@@ -7,18 +7,18 @@
 	projectile_type = /obj/projectile/bullet/c10mm
 
 /obj/item/ammo_casing/c10mm/ap
-	name = "10mm armor-piercing bullet casing"
-	desc = "A 10mm armor-piercing bullet casing."
+	name = "10mm ББ пуля casing"
+	desc = "A 10mm ББ пуля casing."
 	projectile_type = /obj/projectile/bullet/c10mm_ap
 
 /obj/item/ammo_casing/c10mm/hp
-	name = "10mm hollow-point bullet casing"
-	desc = "A 10mm hollow-point bullet casing."
+	name = "10mm трассирующая пуля casing"
+	desc = "A 10mm трассирующая пуля casing."
 	projectile_type = /obj/projectile/bullet/c10mm_hp
 
 /obj/item/ammo_casing/c10mm/fire
-	name = "10mm incendiary bullet casing"
-	desc = "A 10mm incendiary bullet casing."
+	name = "10mm поджигающая пуля casing"
+	desc = "A 10mm поджигающая пуля casing."
 	projectile_type = /obj/projectile/bullet/incendiary/c10mm
 
 // 9mm (Stechkin APS)
@@ -30,13 +30,13 @@
 	projectile_type = /obj/projectile/bullet/c9mm
 
 /obj/item/ammo_casing/c9mm/ap
-	name = "9mm armor-piercing bullet casing"
-	desc = "A 9mm armor-piercing bullet casing."
+	name = "9mm ББ пуля casing"
+	desc = "A 9mm ББ пуля casing."
 	projectile_type =/obj/projectile/bullet/c9mm_ap
 
 /obj/item/ammo_casing/c9mm/inc
-	name = "9mm incendiary bullet casing"
-	desc = "A 9mm incendiary bullet casing."
+	name = "9mm поджигающая пуля casing"
+	desc = "A 9mm поджигающая пуля casing."
 	projectile_type = /obj/projectile/bullet/incendiary/c9mm
 
 

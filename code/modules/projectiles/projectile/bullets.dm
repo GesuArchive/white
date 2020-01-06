@@ -1,5 +1,5 @@
 /obj/projectile/bullet
-	name = "bullet"
+	name = "пуля"
 	icon_state = "bullet"
 	damage = 60
 	damage_type = BRUTE

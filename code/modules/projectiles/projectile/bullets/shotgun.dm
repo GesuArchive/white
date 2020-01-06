@@ -1,22 +1,22 @@
 /obj/projectile/bullet/shotgun_slug
-	name = "12g shotgun slug"
+	name = "12g пуля"
 	damage = 60
 
 /obj/projectile/bullet/shotgun_beanbag
-	name = "beanbag slug"
+	name = "резиновая пуля"
 	damage = 5
 	stamina = 55
 
 /obj/projectile/bullet/incendiary/shotgun
-	name = "incendiary slug"
+	name = "поджигающая пуля"
 	damage = 20
 
 /obj/projectile/bullet/incendiary/shotgun/dragonsbreath
-	name = "dragonsbreath pellet"
+	name = "гранула драконьего дыхания"
 	damage = 5
 
 /obj/projectile/bullet/shotgun_stunslug
-	name = "stunslug"
+	name = "электропуля"
 	damage = 5
 	paralyze = 100
 	stutter = 5
@@ -26,7 +26,7 @@
 	color = "#FFFF00"
 
 /obj/projectile/bullet/shotgun_meteorslug
-	name = "meteorslug"
+	name = "метеоропуля"
 	icon = 'icons/obj/meteor.dmi'
 	icon_state = "dust"
 	damage = 30
@@ -46,7 +46,7 @@
 	SpinAnimation()
 
 /obj/projectile/bullet/shotgun_frag12
-	name ="frag12 slug"
+	name ="frag12 пуля"
 	damage = 25
 	paralyze = 50
 
@@ -60,16 +60,16 @@
 	var/tile_dropoff_s = 0.5
 
 /obj/projectile/bullet/pellet/shotgun_buckshot
-	name = "buckshot pellet"
+	name = "дробинка картечи"
 	damage = 12.5
 
 /obj/projectile/bullet/pellet/shotgun_rubbershot
-	name = "rubbershot pellet"
+	name = "резиновая дробинка"
 	damage = 3
 	stamina = 11
 
 /obj/projectile/bullet/pellet/shotgun_incapacitate
-	name = "incapacitating pellet"
+	name = "обезвреживающая дробинка"
 	damage = 1
 	stamina = 6
 

@@ -1,5 +1,5 @@
 /obj/projectile/energy/tesla
-	name = "tesla bolt"
+	name = "заряд теслы"
 	icon_state = "tesla_projectile"
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/blue_laser
 	var/chain
@@ -22,8 +22,8 @@
 	return ..()
 
 /obj/projectile/energy/tesla/revolver
-	name = "energy orb"
+	name = "энергосфера"
 
 /obj/projectile/energy/tesla/cannon
-	name = "tesla orb"
+	name = "сфера теслы"
 	power = 20000

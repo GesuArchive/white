@@ -1,5 +1,5 @@
 /obj/projectile/energy/electrode
-	name = "electrode"
+	name = "электрод"
 	icon_state = "spark"
 	color = "#FFFF00"
 	nodamage = FALSE

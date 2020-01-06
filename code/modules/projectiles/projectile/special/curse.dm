@@ -1,9 +1,9 @@
 /obj/effect/ebeam/curse_arm
-	name = "curse arm"
+	name = "проклятие руки"
 	layer = LARGE_MOB_LAYER
 
 /obj/projectile/curse_hand
-	name = "curse hand"
+	name = "проклятие кисти"
 	icon_state = "cursehand0"
 	hitsound = 'sound/effects/curse4.ogg'
 	layer = LARGE_MOB_LAYER

@@ -1,5 +1,5 @@
 /obj/projectile/energy/floramut
-	name = "alpha somatoray"
+	name = "альфа-сомато-луч"
 	icon_state = "energy"
 	damage = 0
 	damage_type = TOX
@@ -7,7 +7,7 @@
 	flag = "energy"
 
 /obj/projectile/energy/florayield
-	name = "beta somatoray"
+	name = "бета-сомато-луч"
 	icon_state = "energy2"
 	damage = 0
 	damage_type = TOX
