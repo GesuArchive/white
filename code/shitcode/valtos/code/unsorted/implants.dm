@@ -7,7 +7,7 @@
 	slot = ORGAN_SLOT_BRAIN_STATS
 	var/s_type = "int"
 
-/obj/item/organ/cyberimp/brain/stats/attack_hand(mob/user)
+/obj/item/organ/cyberimp/brain/stats/attack_self(mob/user)
 	. = ..()
 	switch(s_type)
 		if("int")
@@ -23,6 +23,7 @@
 			s_type = "int"
 			to_chat(user, "<span class='notice'>Теперь имплант настроен на <b>ИНТЕЛЛЕКТ</b>.</span>")
 	icon_state = s_type
+	update_icon()
 
 /obj/item/organ/cyberimp/brain/stats/on_life()
 	..()
@@ -80,12 +81,16 @@
 	switch(s_type)
 		if("int")
 			M.dstats[MOB_INT] = M.bstats[MOB_INT] + 5
+			to_chat(M, "<span class='notice'>Мои мозги работают быстрее!</span>")
 		if("str")
 			M.dstats[MOB_STR] = M.bstats[MOB_STR] + 5
+			to_chat(M, "<span class='notice'><b>Я ОЩУЩАЮ СИЛУ!</b></span>")
 		if("stm")
 			M.dstats[MOB_STM] = M.bstats[MOB_STM] + 5
+			to_chat(M, "<span class='notice'>Моя кожа каменеет, а кровь начинает кипеть!</span>")
 		if("dex")
 			M.dstats[MOB_DEX] = M.bstats[MOB_DEX] + 5
+			to_chat(M, "<span class='notice'>Я чувствую, что могу дотрогнуться локтём до носа!</span>")
 	M.recalculate_stats()
 
 /obj/item/organ/cyberimp/brain/stats/emp_act(severity)
@@ -93,6 +98,7 @@
 	if((organ_flags & ORGAN_FAILING) || . & EMP_PROTECT_SELF)
 		return
 	organ_flags |= ORGAN_FAILING
+	applyOrganDamage(severity)
 	addtimer(CALLBACK(src, .proc/reboot), 90 / severity)
 
 /obj/item/organ/cyberimp/brain/stats/proc/reboot()
