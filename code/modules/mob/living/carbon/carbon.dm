@@ -148,7 +148,7 @@
 		dropItemToGround(I, silent = TRUE)
 
 		if(HAS_TRAIT(src, TRAIT_PACIFISM) && I.throwforce)
-			to_chat(src, "<span class='notice'>Аккуратно ложу <b>[I.name]</b> на пол.</span>")
+			to_chat(src, "<span class='notice'>Аккуратно кладу <b>[I.name]</b> на пол.</span>")
 			return
 
 	if(thrown_thing)
