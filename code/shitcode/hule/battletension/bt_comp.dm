@@ -9,7 +9,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	name = "Battle Tension"
 	priority = 15
 	flags = SS_NO_INIT
-	wait = 17
+	wait = 13
 
 /datum/component/battletension
 	var/mob/living/carbon/human/owner
@@ -54,7 +54,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		SEND_SOUND(owner, bm)
 
 	switch(tension)
-		if(0 to 30)
+		if(0 to 60)
 			tension--
 
 		if(120 to INFINITY)
