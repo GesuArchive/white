@@ -71,11 +71,7 @@
 	new /obj/item/grenade/syndieminibomb/concussion(src)
 
 /proc/sobr_request(text, mob/Sender)
-#if DM_VERSION >= 513 && DM_BUILD >= 1493
 	var/msg = copytext_char(sanitize(text), 1, MAX_MESSAGE_LEN)
-#else
-	var/msg = copytext(sanitize(text), 1, MAX_MESSAGE_LEN)
-#endif
 	for(var/obj/machinery/computer/communications/C in GLOB.machines)
 		C.overrideCooldown()
 	var/list/mob/dead/observer/candidates = pollGhostCandidates("Хотите быть в специальном отряде быстрого реагирования?", "deathsquad", null)

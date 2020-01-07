@@ -952,9 +952,9 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		screen -= S
 		qdel(S)
 	char_render_holders = null
-#if DM_VERSION >= 513 && DM_BUILD >= 1493
+
 /client/proc/get_current_sounds()
 	return list2params(SoundQuery())
-#endif
+
 /client/proc/give_award(achievement_type, mob/user)
 	return	player_details.achievements.unlock(achievement_type, user)

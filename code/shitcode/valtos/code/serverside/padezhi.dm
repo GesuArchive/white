@@ -38,17 +38,14 @@
 /proc/sklonenie_item_tvor(msgfrom)
 	if(length(msgfrom) <= 2)
 		return msgfrom
-#if DM_VERSION >= 513 && DM_BUILD >= 1493
 	var/word_end = copytext_char(msgfrom, -2)
 	if(word_end == "ёт" || word_end == "ет")
 		return replacetext_char(msgfrom, copytext_char(word_end, -2), "ю ", -2)
 	else if (word_end == "ит")
 		return replacetext_char(msgfrom, copytext_char(word_end, -2), "лю", -2)
-#endif
 	return msgfrom
 
 /proc/sklonenie(msgfrom, rule, gender = null)
-#if DM_VERSION >= 513 && DM_BUILD >= 1493
 	var/to_ret = ""
 // Travis backdoor
 	for(var/word in splittext_char(msgfrom, " "))
@@ -284,4 +281,3 @@
 			return "[msgfrom][OneListTooTo[rule]]"
 
 	return msgfrom // возвращаем слово, если оно чудом не нашло своего конца
-#endif
