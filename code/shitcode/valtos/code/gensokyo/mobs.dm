@@ -11,6 +11,7 @@
 	icon_gib = "iron"
 	mob_biotypes = MOB_MINERAL|MOB_BEAST
 	mouse_opacity = MOUSE_OPACITY_ICON
+	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 	move_to_delay = 20
 	ranged = 1
 	ranged_cooldown_time = 120
@@ -18,8 +19,8 @@
 	friendly_verb_simple = "тычет клешнёй"
 	speak_emote = list("урчит")
 	speed = 1
-	maxHealth = 100
-	health = 100
+	maxHealth = 25
+	health = 25
 	harm_intent_damage = 0
 	obj_damage = 75
 	melee_damage_lower = 15
