@@ -1,5 +1,5 @@
 /turf/open/floor/grass/gensgrass
-	gender = PLURAL
+	gender = FEMALE
 	name = "трава"
 	icon = 'code/shitcode/valtos/icons/gensokyo/turfs.dmi'
 	icon_state = "grass1"
@@ -8,13 +8,23 @@
 	clawfootstep = FOOTSTEP_GRASS
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	//var/list/mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/mineral_crab = 25, /mob/living/simple_animal/hostile/asteroid/mineral_crab = 25)
+	var/nospawn = FALSE
+
+/turf/open/floor/grass/gensgrass/dirty
+	gender = FEMALE
+	name = "грязь"
+	icon = 'code/shitcode/valtos/icons/gensokyo/turfs.dmi'
+	icon_state = "dirt"
+	nospawn = TRUE
 
 /turf/open/floor/grass/gensgrass/Initialize()
 	. = ..()
+	if(nospawn)
+		return
 	icon_state = "grass[rand(1, 3)]"
 	SpawnMonster(get_turf(src))
 	if(prob(5))
+		name = "грязь"
 		icon_state = "dirt"
 		return
 	if (prob(70))
@@ -24,7 +34,6 @@
 			new /obj/structure/flora/tree/gensokyo(get_turf(src))
 	var/C = pick("c", "d", "e", "f")
 	color = "#[C][C][C][C][C][C]"
-
 
 /turf/open/floor/grass/gensgrass/proc/SpawnMonster(turf/T)
 	if(prob(30))
@@ -40,11 +49,11 @@
 
 
 /turf/closed/mineral/strong/gensokyo
-	turf_type = /turf/open/floor/grass/gensgrass
-	baseturfs = /turf/open/floor/grass/gensgrass
+	turf_type = /turf/open/floor/grass/gensgrass/dirty
+	baseturfs = /turf/open/floor/grass/gensgrass/dirty
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 
 /turf/closed/mineral/random/high_chance/gensokyo
-	turf_type = /turf/open/floor/grass/gensgrass
-	baseturfs = /turf/open/floor/grass/gensgrass
+	turf_type = /turf/open/floor/grass/gensgrass/dirty
+	baseturfs = /turf/open/floor/grass/gensgrass/dirty
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS

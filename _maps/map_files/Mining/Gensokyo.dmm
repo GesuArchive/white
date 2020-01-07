@@ -398,6 +398,13 @@
 "qy" = (
 /turf/closed/mineral/random/high_chance/gensokyo,
 /area/mine/unexplored/gensokyo)
+"rx" = (
+/turf/open/floor/bronze,
+/area/mine/unexplored/gensokyo)
+"UF" = (
+/mob/living/simple_animal/hostile/megafauna/colossus/reimu,
+/turf/open/floor/bronze,
+/area/mine/unexplored/gensokyo)
 
 (1,1,1) = {"
 ae
@@ -8432,12 +8439,12 @@ aa
 aa
 aa
 aa
+rx
 aa
+rx
+rx
 aa
-aa
-aa
-aa
-aa
+rx
 aa
 aa
 aa
@@ -8691,8 +8698,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+rx
+rx
 aa
 aa
 aa
@@ -8946,12 +8953,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+rx
+rx
+rx
+rx
+rx
+rx
 aa
 aa
 aa
@@ -9203,12 +9210,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+rx
+rx
+rx
+UF
+rx
+rx
 aa
 aa
 aa
@@ -9462,8 +9469,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+rx
+rx
 aa
 aa
 aa
@@ -9717,12 +9724,12 @@ aa
 aa
 aa
 aa
+rx
 aa
+rx
+rx
 aa
-aa
-aa
-aa
-aa
+rx
 aa
 aa
 aa
