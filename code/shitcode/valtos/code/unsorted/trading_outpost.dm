@@ -221,7 +221,7 @@
 	desc = "A console that controls the transport trader."
 	circuit = /obj/item/circuitboard/computer/ferry
 	shuttleId = "trader_transport"
-	possible_destinations = "trader_transport_home;trader_transport_station"
+	possible_destinations = "trader_transport_home;trader_transport_station;whiteship_home"
 	req_access = list(ACCESS_TRADER)
 	req_access_txt = "209"
 
@@ -229,7 +229,7 @@
 	name = "trader transport console"
 	circuit = /obj/item/circuitboard/computer/ferry/request
 	shuttleId = "trader_transport"
-	possible_destinations = "trader_transport_home;trader_transport_station"
+	possible_destinations = "trader_transport_home;trader_transport_station;whiteship_home"
 	req_access = list(ACCESS_TRADER)
 	req_access_txt = "209"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
