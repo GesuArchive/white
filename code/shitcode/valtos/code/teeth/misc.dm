@@ -60,6 +60,7 @@
 			target.visible_message("<span class='danger'>Зуб [target] вылетает и падает на пол!</span>", "<span class='userdanger'>Мой зубик!</span>")
 
 /proc/lisp(message, intensity=100) //Intensity = how hard will the dude be lisped
+#if DM_VERSION >= 513 && DM_BUILD >= 1493
 	message = prob(intensity) ? replacetext_char(message, "т", "ф") : message
 	message = prob(intensity) ? replacetext_char(message, "с", "ш") : message
 	message = prob(intensity) ? replacetext_char(message, "п", "пх") : message
@@ -72,6 +73,7 @@
 	message = prob(intensity) ? replacetext_char(message, "д", "т") : message
 	message = prob(intensity) ? replacetext_char(message, "б", "пф") : message
 	message = prob(intensity) ? replacetext_char(message, "ч", "фф") : message
+#endif
 	return message
 
 /obj/item/proc/tearoutteeth(var/mob/living/carbon/C, var/mob/living/user)
