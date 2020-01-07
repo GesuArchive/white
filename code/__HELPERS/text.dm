@@ -153,17 +153,14 @@
 				last_char_group = LETTERS_DETECTED
 
 			if(1040 to 1071)			//Русские буковки
-				t_out += ascii2text(ascii_char)
 				number_of_alphanumeric++
-				last_char_group = 4
+				last_char_group = LETTERS_DETECTED
 
 			if(1072 to 1105)			//Русские буковки
-				if(last_char_group<2)
-					t_out += ascii2text(ascii_char-32)	//Force uppercase first character
-				else
-					t_out += ascii2text(ascii_char)
+				if(last_char_group == NO_CHARS_DETECTED || last_char_group == SPACES_DETECTED || last_char_group == SYMBOLS_DETECTED) //start of a word
+					char = r_uppertext(char)
 				number_of_alphanumeric++
-				last_char_group = 4
+				last_char_group = LETTERS_DETECTED
 
 			// 0  .. 9
 			if(48 to 57)			//Numbers
@@ -220,7 +217,27 @@
 #undef NUMBERS_DETECTED
 #undef LETTERS_DETECTED
 
+//Checks the end of a string for a specified substring.
+//Returns the position of the substring or 0 if it was not found
+/proc/dd_hassuffix(text, suffix)
+	var/start = length(text) - length(suffix)
+	if(start)
+		return findtext(text, suffix, start, null)
+	return
 
+//Checks the end of a string for a specified substring. This proc is case sensitive
+//Returns the position of the substring or 0 if it was not found
+/proc/dd_hassuffix_case(text, suffix)
+	var/start = length(text) - length(suffix)
+	if(start)
+		return findtextEx(text, suffix, start, null)
+
+//Limits the length of the text. Note: MAX_MESSAGE_LEN and MAX_NAME_LEN are widely used for this purpose
+/proc/dd_limittext(message, length)
+	var/size = length(message)
+	if(size <= length)
+		return message
+	return copytext(message, 1, length + 1)
 
 //html_encode helper proc that returns the smallest non null of two numbers
 //or 0 if they're both null (needed because of findtext returning 0 when a value is not present)
