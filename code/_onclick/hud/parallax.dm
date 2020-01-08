@@ -21,9 +21,9 @@
 		C.parallax_layers_cached = list()
 		C.parallax_layers_cached += new SSparallax.random_space(null, C.view)
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_2(null, C.view)
-		if (SSparallax.current_mining == "gensokyo")
+		if (SSmapping.current_mining == "gensokyo")
 			C.parallax_layers_cached += new /obj/screen/parallax_layer/planet/high_definition/gensokyo(null, C.view)
-		else if (SSparallax.current_mining == "lavaland")
+		else if (SSmapping.current_mining == "lavaland")
 			C.parallax_layers_cached += new /obj/screen/parallax_layer/planet/high_definition(null, C.view)
 		if(SSparallax.random_layer)
 			C.parallax_layers_cached += new SSparallax.random_layer
