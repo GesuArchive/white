@@ -274,16 +274,16 @@ GLOBAL_VAR(restart_counter)
 		server_name = CONFIG_GET(string/servername)
 		s += "[special_string]"
 
-	s += "<a href=\"https://discord.gg/BNUgzsT\"><big><b>[server_name] Main</b></big></br>"
-	s += "<img src=\"https://i.imgur.com/tmxrtV0.png\"></a>"
+	s += "<a href=\"https://discord.gg/BNUgzsT\"><big><b>[server_name]: Heavy Roleplay Server</b></big></br>"
+	s += "<img src=\"https://i.imgur.com/bO44hlT.png\"></a>"
 
 	var/players = GLOB.clients.len
 
 	s += "<b>Map:</b> [SSmapping.config?.map_name || "Loading..."]</br>"
 
-	s += "<b>Players:</b> [players]/80</br>"
+	s += "<b>Players:</b> [players]/33</br>"
 
-	s += "<b>Time:</b> [worldtime2text()]</br>"
+	//s += "<b>Time:</b> [worldtime2text()]</br>"
 
 	if (!host && hostedby)
 		s += "<b>Host:</b> [hostedby]"
