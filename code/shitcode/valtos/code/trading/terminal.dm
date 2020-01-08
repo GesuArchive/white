@@ -31,8 +31,8 @@
 			R.product_path = typepath
 			R.amount = amount
 			R.max_amount = amount
-			R.custom_price = rand(100, 20000) //best prices
-			R.custom_premium_price = rand(100, 20000) //best prices
+			R.custom_price = rand(100000, 120000) //best prices
+			R.custom_premium_price = rand(100000, 120000) //best prices
 			recordlist += R
 
 /obj/machinery/vending/terminal/process()
