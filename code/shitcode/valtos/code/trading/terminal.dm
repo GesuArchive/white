@@ -21,7 +21,7 @@
 		if (prob(80))
 			if (prob(95))
 				typepath = pick(subtypesof(/obj/item))
-			var/amount = rand(1, 5)
+			var/amount = rand(1, 7)
 			var/atom/temp = typepath
 			if (!initial(temp.icon_state) || !initial(temp.icon))
 				continue

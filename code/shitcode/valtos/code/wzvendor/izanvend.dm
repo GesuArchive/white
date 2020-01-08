@@ -85,10 +85,7 @@
 	switch(action)
 		if("vend")
 			. = TRUE
-			var/datum/data/izanvend_product/W = text2path(params["product_path"])
-			var/obj/R = W
-			if(!R || !istype(R))
-				return
+			var/obj/R = text2path(params["product_path"])
 			new R(get_turf(src))
 			playsound(src, 'sound/machines/machine_vend.ogg', 50, TRUE, extrarange = -3)
 
