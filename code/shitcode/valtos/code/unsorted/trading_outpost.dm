@@ -93,6 +93,7 @@
 	if(ID && istype(ID))
 		if(!check_access(ID))
 			say("Нет доступа.")
+			electrocute_mob(usr, get_area(src), src, 1.7, TRUE)
 			return
 	switch(action)
 		if("buy")
