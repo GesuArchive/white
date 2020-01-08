@@ -413,7 +413,7 @@ h1.alert, h2.alert		{color: #aaaaaa; margin: 0 0 14px 0;}
 
 /* WHITE SHIT */
 
-.ooc, .adminooc, .adminobserver, .adminobserverooc {background: rgba(255, 255, 255, 0.6); padding: 2px 1px 2px 1px; line-height: 20px;}
+/*.ooc, .adminooc, .adminobserver, .adminobserverooc {background: rgba(255, 255, 255, 0.6); padding: 2px 1px 2px 1px; line-height: 20px;}*/
 
 .veryalert {
     background: repeating-linear-gradient(-45deg,#daaa18,#daaa18 8px,#000000 8px,#000000 16px);
