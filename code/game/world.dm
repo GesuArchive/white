@@ -283,7 +283,7 @@ GLOBAL_VAR(restart_counter)
 
 	s += "<b>Players:</b> [players]/33</br>"
 
-	//s += "<b>Time:</b> [worldtime2text()]</br>"
+	s += "<b>Time:</b> [worldtime2text()]</br>"
 
 	if (!host && hostedby)
 		s += "<b>Host:</b> [hostedby]"

@@ -429,7 +429,7 @@ h1.alert, h2.alert		{color: #aaaaaa; margin: 0 0 14px 0;}
 	box-shadow: 0 0 24px rgba(0, 0, 0, 1);
 	border: 1px solid #111;
 	margin: 16px 0 16px 0;
-	border-bottom: 16px solid #151515;
+	border-bottom: 8px solid #151515;
 }
 
 #motd-header {
@@ -462,13 +462,13 @@ h1.alert, h2.alert		{color: #aaaaaa; margin: 0 0 14px 0;}
 #motd-hr {
 	border: none;
 	border-top: 1px solid #333;
-	border-bottom: 4px solid #151515;
-	padding: 8px 0 16px 0;
+	border-bottom: 2px solid #151515;
+	padding: 4px 0 8px 0;
 	background: #232323;
 }
 
 #motd-footer {
 	font-family: sans-serif;
 	color: #fff;
-	padding: 8px;
+	padding: 4px;
 }
