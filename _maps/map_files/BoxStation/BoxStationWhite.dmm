@@ -20998,7 +20998,7 @@
 /obj/structure/cable,
 /obj/machinery/door/airlock/medical/glass{
 	name = "Pharmacy";
-	req_access_txt = "5; 59"
+	req_access_txt = "5; 69"
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
