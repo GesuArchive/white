@@ -40,6 +40,8 @@ SUBSYSTEM_DEF(mapping)
 	var/datum/space_level/empty_space
 	var/num_of_res_levels = 1
 
+	var/current_mining
+
 //dlete dis once #39770 is resolved
 /datum/controller/subsystem/mapping/proc/HACK_LoadMapConfig()
 	if(!config)
@@ -256,8 +258,11 @@ SUBSYSTEM_DEF(mapping)
 	if(config.minetype == "lavaland")
 		if(prob(50))
 			LoadGroup(FailedZs, "Lavaland", "map_files/Mining", "Lavaland.dmm", default_traits = ZTRAITS_LAVALAND)
+			current_mining == "lavaland"
 		else
 			LoadGroup(FailedZs, "Gensokyo", "map_files/Mining", "Gensokyo.dmm", default_traits = ZTRAITS_GENSOKYO)
+			current_mining == "gensokyo"
+
 	else if (!isnull(config.minetype))
 		INIT_ANNOUNCE("WARNING: An unknown minetype '[config.minetype]' was set! This is being ignored! Update the maploader code!")
 #endif

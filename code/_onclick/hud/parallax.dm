@@ -21,7 +21,10 @@
 		C.parallax_layers_cached = list()
 		C.parallax_layers_cached += new SSparallax.random_space(null, C.view)
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_2(null, C.view)
-		C.parallax_layers_cached += new /obj/screen/parallax_layer/planet/high_definition(null, C.view)
+		if (SSparallax.current_mining == "gensokyo")
+			C.parallax_layers_cached += new /obj/screen/parallax_layer/planet/high_definition/gensokyo(null, C.view)
+		else if (SSparallax.current_mining == "lavaland")
+			C.parallax_layers_cached += new /obj/screen/parallax_layer/planet/high_definition(null, C.view)
 		if(SSparallax.random_layer)
 			C.parallax_layers_cached += new SSparallax.random_layer
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_3(null, C.view)
@@ -307,6 +310,16 @@
 	speed = 1
 	layer = 1
 
+/obj/screen/parallax_layer/layer_1_3
+	icon_state = "layer1_3"
+	speed = 1
+	layer = 1
+
+/obj/screen/parallax_layer/layer_1_4
+	icon_state = "layer1_4"
+	speed = 1
+	layer = 1
+
 /obj/screen/parallax_layer/layer_2
 	icon_state = "layer2"
 	speed = 1.2
@@ -347,7 +360,7 @@
 		invisibility = INVISIBILITY_ABSTRACT
 
 /obj/screen/parallax_layer/planet/update_o()
-	if (icon_state == "planet" || icon_state == "planet_new")
+	if (icon_state == "planet_gensokyo" || icon_state == "planet_lavaland")
 		return //Shit wont move
 	. = ..()
 
@@ -355,7 +368,10 @@
 	icon_state = "nebula"
 
 /obj/screen/parallax_layer/planet/high_definition
-	icon_state = "planet_new"
+	icon_state = "planet_lavaland"
+
+/obj/screen/parallax_layer/planet/high_definition/gensokyo
+	icon_state = "planet_gensokyo"
 
 /obj/screen/parallax_layer/ice_surface
 	icon_state = "ice_surface"
