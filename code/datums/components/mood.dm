@@ -79,7 +79,7 @@
 		if(9)
 			msg += "<span class='nicegreen'>Я люблю жизнь!<span>\n"
 
-	msg += "<span class='notice'>Moodlets:\n</span>"//All moodlets
+	msg += "<span class='notice'>Факторы:\n</span>"//All moodlets
 	if(mood_events.len)
 		for(var/i in mood_events)
 			var/datum/mood_event/event = mood_events[i]

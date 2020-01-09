@@ -13,7 +13,7 @@
 		return
 	if(can_buckle && has_buckled_mobs())
 		if(buckled_mobs.len > 1)
-			var/unbuckled = input(user, "Who do you wish to unbuckle?","Unbuckle Who?") as null|mob in sortNames(buckled_mobs)
+			var/unbuckled = input(user, "Кого высаживаем?","А?") as null|mob in sortNames(buckled_mobs)
 			if(user_unbuckle_mob(unbuckled,user))
 				return 1
 		else
@@ -51,9 +51,9 @@
 	M.buckling = src
 	if(!M.can_buckle() && !force)
 		if(M == usr)
-			to_chat(M, "<span class='warning'>You are unable to buckle yourself to [src]!</span>")
+			to_chat(M, "<span class='warning'>Не могу сесть на [src]!</span>")
 		else
-			to_chat(usr, "<span class='warning'>You are unable to buckle [M] to [src]!</span>")
+			to_chat(usr, "<span class='warning'>Не могу усадить [M] на [src]!</span>")
 		M.buckling = null
 		return FALSE
 
@@ -119,25 +119,25 @@
 	. = buckle_mob(M, check_loc = check_loc)
 	if(.)
 		if(M == user)
-			M.visible_message("<span class='notice'>[M] buckles [M.p_them()]self to [src].</span>",\
-				"<span class='notice'>You buckle yourself to [src].</span>",\
-				"<span class='hear'>You hear metal clanking.</span>")
+			M.visible_message("<span class='notice'>[M] присаживается на [src].</span>",\
+				"<span class='notice'>Присаживаюсь на [src].</span>",\
+				"<span class='hear'>Слышу лязг метала.</span>")
 		else
-			M.visible_message("<span class='warning'>[user] buckles [M] to [src]!</span>",\
-				"<span class='warning'>[user] buckles you to [src]!</span>",\
-				"<span class='hear'>You hear metal clanking.</span>")
+			M.visible_message("<span class='warning'>[user] усаживает [M] на [src]!</span>",\
+				"<span class='warning'>[user] усаживает меня на [src]!</span>",\
+				"<span class='hear'>Слышу лязг метала.</span>")
 
 /atom/movable/proc/user_unbuckle_mob(mob/living/buckled_mob, mob/user)
 	var/mob/living/M = unbuckle_mob(buckled_mob)
 	if(M)
 		if(M != user)
-			M.visible_message("<span class='notice'>[user] unbuckles [M] from [src].</span>",\
-				"<span class='notice'>[user] unbuckles you from [src].</span>",\
-				"<span class='hear'>You hear metal clanking.</span>")
+			M.visible_message("<span class='notice'>[user] поднимает [M] с [src].</span>",\
+				"<span class='notice'>[user] поднмает меня с [src].</span>",\
+				"<span class='hear'>Слышу лязг метала.</span>")
 		else
-			M.visible_message("<span class='notice'>[M] unbuckles [M.p_them()]self from [src].</span>",\
-				"<span class='notice'>You unbuckle yourself from [src].</span>",\
-				"<span class='hear'>You hear metal clanking.</span>")
+			M.visible_message("<span class='notice'>[M] встаёт с [src].</span>",\
+				"<span class='notice'>Встаю с [src].</span>",\
+				"<span class='hear'>Слышу лязг метала.</span>")
 		add_fingerprint(user)
 		if(isliving(M.pulledby))
 			var/mob/living/L = M.pulledby
