@@ -57,6 +57,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/obj/screen/healths
 	var/obj/screen/healthdoll
 	var/obj/screen/internals
+	var/obj/screen/tooltip
 
 	// subtypes can override this to force a specific UI style
 	var/ui_style
@@ -74,6 +75,10 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		hide_actions_toggle.locked = mymob.client.prefs.buttons_locked
 
 	hand_slots = list()
+
+	tooltip = new /obj/screen/tooltip()
+	tooltip.hud = src
+	infodisplay += tooltip
 
 	for(var/mytype in subtypesof(/obj/screen/plane_master))
 		var/obj/screen/plane_master/instance = new mytype()

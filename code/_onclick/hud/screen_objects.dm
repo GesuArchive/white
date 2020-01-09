@@ -16,6 +16,8 @@
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
 	var/datum/hud/hud = null // A reference to the owner HUD, if any.
 
+	var/last_word
+
 /obj/screen/take_damage()
 	return
 
@@ -59,7 +61,7 @@
 		var/mob/M = usr
 		M.swap_hand()
 	return 1
-	
+
 /obj/screen/skills
 	name = "skills"
 	icon = 'icons/mob/screen_midnight.dmi'
@@ -406,7 +408,7 @@
 	var/mob/living/user = hud?.mymob
 	if(!istype(user))
 		return
-	
+
 	if(!user.resting)
 		icon_state = "act_rest"
 	else
@@ -549,7 +551,7 @@
 	if(choice != hud.mymob.zone_selected)
 		hud.mymob.zone_selected = choice
 		update_icon()
-	
+
 	return TRUE
 
 /obj/screen/zone_sel/update_overlays()
@@ -641,7 +643,7 @@
 	icon_state = "slime_health0"
 	screen_loc = ui_slime_health
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	
+
 /obj/screen/healths/lavaland_elite
 	icon = 'icons/mob/screen_elite.dmi'
 	icon_state = "elite_health0"
