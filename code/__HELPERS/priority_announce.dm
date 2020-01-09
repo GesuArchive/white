@@ -31,7 +31,7 @@
 	announcement += "<span class='alert'>[html_encode(text)]</span>"
 	announcement += "<br><br>"
 
-	var/s = sound('sound/ai/attention.ogg')
+	var/s = sound(sound)
 	for(var/mob/M in GLOB.player_list)
 		if(!isnewplayer(M) && M.can_hear())
 			to_chat(M, announcement)
