@@ -284,7 +284,7 @@
 
 /obj/item/slime_extract/blue
 	name = "синий slime extract"
-	icon_state = "синий slime extract"
+	icon_state = "blue slime extract"
 	effectmod = "stabilized"
 	activate_reagents = list(/datum/reagent/blood,/datum/reagent/toxin/plasma,/datum/reagent/water)
 
