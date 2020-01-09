@@ -128,7 +128,7 @@
 	if(!force)
 		if(user.zone_selected == BODY_ZONE_HEAD)
 			var/input = input("Что бы ты хотел написать у [M] на лбу?","Засранец...", M.headstamp) as text|null
-			if(!input)
+			if(!input || length(input) >= 30)
 				to_chat(user, "<span class='warning'>Тебе перехотелось писать...</span>")
 				return
 			M.visible_message(user, "<span class='danger'>[user] начинает писать что-то на лбу <b>[M]</b>.</span>")
