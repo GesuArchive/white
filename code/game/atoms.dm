@@ -466,8 +466,8 @@
 	if(desc)
 		. += desc
 
-	if(HAS_TRAIT(user, TRAIT_JEWISH))
-		var/datum/export_report/ex = export_item_and_contents(src, EXPORT_CONTRABAND, dry_run=TRUE)
+	if(HAS_TRAIT(user.mind, TRAIT_JEWISH))
+		var/datum/export_report/ex = export_item_and_contents(src, EXPORT_PIRATE | EXPORT_CARGO | EXPORT_CONTRABAND, dry_run=TRUE)
 		var/price = 0
 		for(var/x in ex.total_amount)
 			price += ex.total_value[x]
