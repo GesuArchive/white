@@ -252,3 +252,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define SLEEPING_CARP_TRAIT "sleeping_carp"
 #define MADE_UNCLONEABLE "made-uncloneable"
 #define TIMESTOP_TRAIT "timestop"
+
+//white traits
+#define TRAIT_KARTAVII		"kartavii"
+#define TRAIT_JEWISH		"jewish"
+#define TRAIT_UKRAINISH		"ukrainish"

@@ -189,10 +189,6 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	message = replacetext_char(message, "ы", "и")
 	return message
 
-#define TRAIT_KARTAVII		"kartavii"
-#define TRAIT_JEWISH		"jewish"
-#define TRAIT_UKRAINISH		"ukrainish"
-
 /datum/quirk/kartavii
 	name = "Картавый"
 	desc = "Я не помню как проговаривать букву \"Р\"."
