@@ -148,3 +148,74 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 						t += text("[ascii2text(a)]-[ascii2text(a)]")
 		t += ascii2text(a)
 	return copytext_char(sanitize(t),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))
+
+/proc/kartavo(message)
+	message = r_lowertext(message)
+	message = replacetext_char(message, "р", "л")
+	return message
+
+/proc/difilexish(message)
+	message = r_lowertext(message)
+	if(prob(25))
+		message = "Таки-[message]"
+	message = replacetext_char(message, "р", "г")
+	return message
+
+/proc/ukrainish(message)
+	message = r_lowertext(message)
+	message = replacetext_char(message, "здравствуйте", "здрастуйтэ")
+	message = replacetext_char(message, "привет", "прывит")
+	message = replacetext_char(message, "утро", "ранку")
+	message = replacetext_char(message, "дела", "у вас справы")
+	message = replacetext_char(message, "как", "як")
+	message = replacetext_char(message, "извините", "я выбачаюсь")
+	message = replacetext_char(message, "свидания", "побачэння")
+	message = replacetext_char(message, "понимаю", "розумию")
+	message = replacetext_char(message, "спасибо", "дякую")
+	message = replacetext_char(message, "пожалуйста", "будь-ласка")
+	message = replacetext_char(message, "зовут", "зваты")
+	message = replacetext_char(message, "меня", "мэнэ")
+	message = replacetext_char(message, "кто", "хто")
+	message = replacetext_char(message, "нибудь", "нэбудь")
+	message = replacetext_char(message, "говорит", "розмовляйе")
+	message = replacetext_char(message, "да", "так")
+	message = replacetext_char(message, "нет", "ни")
+	message = replacetext_char(message, "заблудился", "заблукав")
+	message = replacetext_char(message, "понял", "зрозумил")
+	message = replacetext_char(message, "не", "нэ")
+	message = replacetext_char(message, "тебя", "тэбе")
+	message = replacetext_char(message, "люблю", "кохаю")
+	message = replacetext_char(message, "и", "i")
+	message = replacetext_char(message, "ы", "и")
+	return message
+
+#define TRAIT_KARTAVII		"kartavii"
+#define TRAIT_JEWISH		"jewish"
+#define TRAIT_UKRAINISH		"ukrainish"
+
+/datum/quirk/kartavii
+	name = "Картавый"
+	desc = "Я не помню как проговаривать букву \"Р\"."
+	value = 0
+	mob_trait = TRAIT_KARTAVII
+	gain_text = "<span class='notice'>Я забываю как проговаривать букву \"Р\".</span>"
+	lose_text = "<span class='danger'>Я вспоминаю как проговаривать букву \"Р\".</span>"
+	medical_record_text = "Пациент не может проговаривать букву \"Р\"."
+
+/datum/quirk/jewish
+	name = "Еврей"
+	desc = "Я таки умею считать деньги."
+	value = 4 // гоев проще наёбывать
+	mob_trait = TRAIT_JEWISH
+	gain_text = "<span class='notice'>Теперь я знаю цену вещам.</span>"
+	lose_text = "<span class='danger'>Я забываю цену вещам.</span>"
+	medical_record_text = "Пациент имеет удивительные навыки в оценке стоимости вещей."
+
+/datum/quirk/ukrainish
+	name = "Украинец"
+	desc = "Бахнуть бы сала..."
+	value = 0
+	mob_trait = TRAIT_UKRAINISH
+	gain_text = "<span class='notice'>Дайте мне, будь ласка, сала.</span>"
+	lose_text = "<span class='danger'>Я забываю запах сала.</span>"
+	medical_record_text = "Пациент имеет страсть к салу."
