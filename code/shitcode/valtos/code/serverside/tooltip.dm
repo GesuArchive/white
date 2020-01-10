@@ -6,7 +6,7 @@
             var/obj_name = A.name
             if(mob.hud_used.tooltip.last_word == obj_name)
                 return
-            mob.hud_used.tooltip.maptext = "<span style='font-family: Arial; font-size: 12px; text-align: center;text-shadow: 1px 1px 2px black;'>[r_uppertext(obj_name)]</span>"
+            mob.hud_used.tooltip.maptext = "<span style='font-family: Arial; font-size: 12px; text-align: center;text-shadow: 1px 1px 2px black;background: #00000099;'>[r_uppertext(obj_name)]</span>"
 
 /obj/screen/tooltip
 	name = ""
