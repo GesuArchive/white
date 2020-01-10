@@ -217,7 +217,7 @@
 		if(!I || I.loc != src) //no item, no limb, or item is not in limb or in the person anymore
 			return
 		var/time_taken = I.embedding.embedded_unsafe_removal_time*I.w_class
-		usr.visible_message("<span class='warning'>[usr] attempts to remove [I] from [usr.p_their()] [L.name].</span>","<span class='notice'>You attempt to remove [I] from your [L.name]... (It will take [DisplayTimeText(time_taken)].)</span>")
+		usr.visible_message("<span class='warning'>[usr] пытается вытащить [I] из [L.name].</span>","<span class='notice'>Пытаюсь вытащить [I] из [L.name]... (Займёт примерно [DisplayTimeText(time_taken)].)</span>")
 		if(do_after(usr, time_taken, needhand = 1, target = src))
 			if(!I || !L || I.loc != src || !(I in L.embedded_objects))
 				return
@@ -226,7 +226,7 @@
 			I.forceMove(get_turf(src))
 			usr.put_in_hands(I)
 			usr.emote("scream")
-			usr.visible_message("<span class='notice'>[usr] successfully rips [I] out of [usr.p_their()] [L.name]!</span>", "<span class='notice'>You successfully remove [I] from your [L.name].</span>")
+			usr.visible_message("<span class='notice'>[usr] успешно вырывает [I] из [L.name]!</span>", "<span class='notice'>Успешно вырываю [I] из [L.name].</span>")
 			if(!has_embedded_objects())
 				clear_alert("embeddedobject")
 				SEND_SIGNAL(usr, COMSIG_CLEAR_MOOD_EVENT, "embedded")
@@ -235,7 +235,7 @@
 	if(href_list["item"]) //canUseTopic check for this is handled by mob/Topic()
 		var/slot = text2num(href_list["item"])
 		if(slot in check_obscured_slots(TRUE))
-			to_chat(usr, "<span class='warning'>You can't reach that! Something is covering it.</span>")
+			to_chat(usr, "<span class='warning'>Не могу достать! Что-то мешает доступу к этому.</span>")
 			return
 
 	if(href_list["pockets"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)) //TODO: Make it match (or intergrate it into) strippanel so you get 'item cannot fit here' warnings if mob_can_equip fails
@@ -247,10 +247,10 @@
 		var/delay_denominator = 1
 		if(pocket_item && !(pocket_item.item_flags & ABSTRACT))
 			if(HAS_TRAIT(pocket_item, TRAIT_NODROP))
-				to_chat(usr, "<span class='warning'>You try to empty [src]'s [pocket_side] pocket, it seems to be stuck!</span>")
-			to_chat(usr, "<span class='notice'>You try to empty [src]'s [pocket_side] pocket.</span>")
+				to_chat(usr, "<span class='warning'>Пытаюсь опустошить [pocket_side] карман [src], но похоже там что-то застряло!</span>")
+			to_chat(usr, "<span class='notice'>Пытаюсь опустошить [pocket_side] карман [src].</span>")
 		else if(place_item && place_item.mob_can_equip(src, usr, pocket_id, 1) && !(place_item.item_flags & ABSTRACT))
-			to_chat(usr, "<span class='notice'>You try to place [place_item] into [src]'s [pocket_side] pocket.</span>")
+			to_chat(usr, "<span class='notice'>Пытаюсь положить [place_item] в [pocket_side] карман [src].</span>")
 			delay_denominator = 4
 		else
 			return
@@ -268,7 +268,7 @@
 				//updating inv screen after handled by living/Topic()
 		else
 			// Display a warning if the user mocks up
-			to_chat(src, "<span class='warning'>You feel your [pocket_side] pocket being fumbled with!</span>")
+			to_chat(src, "<span class='warning'>Кто-то шарится в моём [pocket_side] кармане!</span>")
 
 ///////HUDs///////
 	if(href_list["hud"])
@@ -300,55 +300,55 @@
 				return
 			if(href_list["evaluation"])
 				if(!getBruteLoss() && !getFireLoss() && !getOxyLoss() && getToxLoss() < 20)
-					to_chat(usr, "<span class='notice'>No external injuries detected.</span><br>")
+					to_chat(usr, "<span class='notice'>Не обнаружено внешних травм.</span><br>")
 					return
 				var/span = "notice"
 				var/status = ""
 				if(getBruteLoss())
-					to_chat(usr, "<b>Physical trauma analysis:</b>")
+					to_chat(usr, "<b>Анализ физических травм:</b>")
 					for(var/X in bodyparts)
 						var/obj/item/bodypart/BP = X
 						var/brutedamage = BP.brute_dam
 						if(brutedamage > 0)
-							status = "received minor physical injuries."
+							status = "незначительные физические травмы."
 							span = "notice"
 						if(brutedamage > 20)
-							status = "been seriously damaged."
+							status = "серьезные физические травмы."
 							span = "danger"
 						if(brutedamage > 40)
-							status = "sustained major trauma!"
+							status = "ужасные физические травмы!"
 							span = "userdanger"
 						if(brutedamage)
-							to_chat(usr, "<span class='[span]'>[BP] appears to have [status]</span>")
+							to_chat(usr, "<span class='[span]'>[BP] имеет [status]</span>")
 				if(getFireLoss())
-					to_chat(usr, "<b>Analysis of skin burns:</b>")
+					to_chat(usr, "<b>Анализ кожного покрова:</b>")
 					for(var/X in bodyparts)
 						var/obj/item/bodypart/BP = X
 						var/burndamage = BP.burn_dam
 						if(burndamage > 0)
-							status = "signs of minor burns."
+							status = "признаки незначительных ожогов."
 							span = "notice"
 						if(burndamage > 20)
-							status = "serious burns."
+							status = "серьезные ожоги."
 							span = "danger"
 						if(burndamage > 40)
-							status = "major burns!"
+							status = "сильные ожоги!"
 							span = "userdanger"
 						if(burndamage)
-							to_chat(usr, "<span class='[span]'>[BP] appears to have [status]</span>")
+							to_chat(usr, "<span class='[span]'>[BP] имеет [status]</span>")
 				if(getOxyLoss())
-					to_chat(usr, "<span class='danger'>Patient has signs of suffocation, emergency treatment may be required!</span>")
+					to_chat(usr, "<span class='danger'>Пациент имеет признаки удушья, может потребоваться экстренное лечение!</span>")
 				if(getToxLoss() > 20)
-					to_chat(usr, "<span class='danger'>Gathered data is inconsistent with the analysis, possible cause: poisoning.</span>")
+					to_chat(usr, "<span class='danger'>Собранные данные не соответствуют анализу, возможная причина: отравление.</span>")
 			if(!H.wear_id) //You require access from here on out.
-				to_chat(H, "<span class='warning'>ERROR: Invalid access</span>")
+				to_chat(H, "<span class='warning'>ERROR: Нет доступа</span>")
 				return
 			var/list/access = H.wear_id.GetAccess()
 			if(!(ACCESS_MEDICAL in access))
-				to_chat(H, "<span class='warning'>ERROR: Invalid access</span>")
+				to_chat(H, "<span class='warning'>ERROR: Нет доступа</span>")
 				return
 			if(href_list["p_stat"])
-				var/health_status = input(usr, "Specify a new physical status for this person.", "Medical HUD", R.fields["p_stat"]) in list("Active", "Physically Unfit", "*Unconscious*", "*Deceased*", "Cancel")
+				var/health_status = input(usr, "Укажите новый физический статус для этого человека.", "Medical HUD", R.fields["p_stat"]) in list("Active", "Physically Unfit", "*Unconscious*", "*Deceased*", "Cancel")
 				if(!R)
 					return
 				if(!H.canUseHUD())
@@ -359,7 +359,7 @@
 					R.fields["p_stat"] = health_status
 				return
 			if(href_list["m_stat"])
-				var/health_status = input(usr, "Specify a new mental status for this person.", "Medical HUD", R.fields["m_stat"]) in list("Stable", "*Watch*", "*Unstable*", "*Insane*", "Cancel")
+				var/health_status = input(usr, "Укажите новый психический статус для этого человека.", "Medical HUD", R.fields["m_stat"]) in list("Stable", "*Watch*", "*Unstable*", "*Insane*", "Cancel")
 				if(!R)
 					return
 				if(!H.canUseHUD())
@@ -388,19 +388,19 @@
 						allowed_access = H.get_authentification_name()
 
 			if(!allowed_access)
-				to_chat(H, "<span class='warning'>ERROR: Invalid access.</span>")
+				to_chat(H, "<span class='warning'>ERROR: Нет доступа.</span>")
 				return
 
 			if(!perpname)
-				to_chat(H, "<span class='warning'>ERROR: Can not identify target.</span>")
+				to_chat(H, "<span class='warning'>ERROR: Не могу идентифицировать цель.</span>")
 				return
 			R = find_record("name", perpname, GLOB.data_core.security)
 			if(!R)
-				to_chat(usr, "<span class='warning'>ERROR: Unable to locate data core entry for target.</span>")
+				to_chat(usr, "<span class='warning'>ERROR: Невозможно найти запись ядра данных для цели.</span>")
 				return
 			if(href_list["status"])
-				var/setcriminal = input(usr, "Specify a new criminal status for this person.", "Security HUD", R.fields["criminal"]) in list("None", "*Arrest*", "Incarcerated", "Paroled", "Discharged", "Cancel")
-				if(setcriminal != "Cancel")
+				var/setcriminal = input(usr, "Укажите новый преступный статус для этого человека.", "Security HUD", R.fields["criminal"]) in list("None", "*Arrest*", "Incarcerated", "Paroled", "Discharged", "Отмена")
+				if(setcriminal != "Отмена")
 					if(!R)
 						return
 					if(!H.canUseHUD())
@@ -417,27 +417,27 @@
 					return
 				if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD))
 					return
-				to_chat(usr, "<b>Name:</b> [R.fields["name"]]	<b>Criminal Status:</b> [R.fields["criminal"]]")
-				to_chat(usr, "<b>Minor Crimes:</b>")
+				to_chat(usr, "<b>Имя:</b> [R.fields["name"]]	<b>Статус:</b> [R.fields["criminal"]]")
+				to_chat(usr, "<b>Незначительные преступления:</b>")
 				for(var/datum/data/crime/c in R.fields["mi_crim"])
-					to_chat(usr, "<b>Crime:</b> [c.crimeName]")
-					to_chat(usr, "<b>Details:</b> [c.crimeDetails]")
-					to_chat(usr, "Added by [c.author] at [c.time]")
+					to_chat(usr, "<b>Преступление:</b> [c.crimeName]")
+					to_chat(usr, "<b>Детали:</b> [c.crimeDetails]")
+					to_chat(usr, "Добавлено [c.author] в [c.time]")
 					to_chat(usr, "----------")
-					to_chat(usr, "<b>Major Crimes:</b>")
+					to_chat(usr, "<b>Серьёзные преступления:</b>")
 				for(var/datum/data/crime/c in R.fields["ma_crim"])
-					to_chat(usr, "<b>Crime:</b> [c.crimeName]")
-					to_chat(usr, "<b>Details:</b> [c.crimeDetails]")
-					to_chat(usr, "Added by [c.author] at [c.time]")
+					to_chat(usr, "<b>Преступление:</b> [c.crimeName]")
+					to_chat(usr, "<b>Детали:</b> [c.crimeDetails]")
+					to_chat(usr, "Добавлено [c.author] в [c.time]")
 					to_chat(usr, "----------")
-				to_chat(usr, "<b>Notes:</b> [R.fields["notes"]]")
+				to_chat(usr, "<b>Заметки:</b> [R.fields["notes"]]")
 				return
 
 			if(href_list["add_crime"])
-				switch(alert("What crime would you like to add?","Security HUD","Minor Crime","Major Crime","Cancel"))
-					if("Minor Crime")
-						var/t1 = stripped_input("Please input minor crime names:", "Security HUD", "", null)
-						var/t2 = stripped_multiline_input("Please input minor crime details:", "Security HUD", "", null)
+				switch(alert("Какое преступление вы хотели бы добавить?","Security HUD","Незначительное преступление","Серьёзное преступление","Отмена"))
+					if("Незначительное преступление")
+						var/t1 = stripped_input("Пожалуйста, введите имена мелких преступлений:", "Security HUD", "", null)
+						var/t2 = stripped_multiline_input("Пожалуйста, введите мелкие детали преступления:", "Security HUD", "", null)
 						if(!R || !t1 || !t2 || !allowed_access)
 							return
 						if(!H.canUseHUD())
@@ -447,11 +447,11 @@
 						var/crime = GLOB.data_core.createCrimeEntry(t1, t2, allowed_access, station_time_timestamp())
 						GLOB.data_core.addMinorCrime(R.fields["id"], crime)
 						investigate_log("New Minor Crime: <strong>[t1]</strong>: [t2] | Added to [R.fields["name"]] by [key_name(usr)]", INVESTIGATE_RECORDS)
-						to_chat(usr, "<span class='notice'>Successfully added a minor crime.</span>")
+						to_chat(usr, "<span class='notice'>Успешно добавлено незначительное преступление.</span>")
 						return
-					if("Major Crime")
-						var/t1 = stripped_input("Please input major crime names:", "Security HUD", "", null)
-						var/t2 = stripped_multiline_input("Please input major crime details:", "Security HUD", "", null)
+					if("Серьёзное преступление")
+						var/t1 = stripped_input("Пожалуйста, введите основные имена преступлений:", "Security HUD", "", null)
+						var/t2 = stripped_multiline_input("Пожалуйста, введите основные детали преступления:", "Security HUD", "", null)
 						if(!R || !t1 || !t2 || !allowed_access)
 							return
 						if(!H.canUseHUD())
@@ -461,7 +461,7 @@
 						var/crime = GLOB.data_core.createCrimeEntry(t1, t2, allowed_access, station_time_timestamp())
 						GLOB.data_core.addMajorCrime(R.fields["id"], crime)
 						investigate_log("New Major Crime: <strong>[t1]</strong>: [t2] | Added to [R.fields["name"]] by [key_name(usr)]", INVESTIGATE_RECORDS)
-						to_chat(usr, "<span class='notice'>Successfully added a major crime.</span>")
+						to_chat(usr, "<span class='notice'>Успешно добавлено серьёзное преступление.</span>")
 				return
 
 			if(href_list["view_comment"])
@@ -469,7 +469,7 @@
 					return
 				if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD))
 					return
-				to_chat(usr, "<b>Comments/Log:</b>")
+				to_chat(usr, "<b>Комментарии/Логи:</b>")
 				var/counter = 1
 				while(R.fields[text("com_[]", counter)])
 					to_chat(usr, R.fields[text("com_[]", counter)])
@@ -478,7 +478,7 @@
 				return
 
 			if(href_list["add_comment"])
-				var/t1 = stripped_multiline_input("Add Comment:", "Secure. records", null, null)
+				var/t1 = stripped_multiline_input("Добавить комментарий:", "Secure. records", null, null)
 				if (!R || !t1 || !allowed_access)
 					return
 				if(!H.canUseHUD())
@@ -488,8 +488,8 @@
 				var/counter = 1
 				while(R.fields[text("com_[]", counter)])
 					counter++
-				R.fields[text("com_[]", counter)] = text("Made by [] on [] [], []<BR>[]", allowed_access, station_time_timestamp(), time2text(world.realtime, "MMM DD"), GLOB.year_integer+540, t1)
-				to_chat(usr, "<span class='notice'>Successfully added comment.</span>")
+				R.fields[text("com_[]", counter)] = text("Сделано [] в [] [], []<BR>[]", allowed_access, station_time_timestamp(), time2text(world.realtime, "MMM DD"), GLOB.year_integer+540, t1)
+				to_chat(usr, "<span class='notice'>Успешно добавили комментарий.</span>")
 				return
 
 	..() //end of this massive fucking chain. TODO: make the hud chain not spooky. - Yeah, great job doing that.
@@ -519,7 +519,7 @@
 					. = 0
 	if(!. && error_msg && user)
 		// Might need re-wording.
-		to_chat(user, "<span class='alert'>There is no exposed flesh or thin material [above_neck(target_zone) ? "on [p_their()] head" : "on [p_their()] body"].</span>")
+		to_chat(user, "<span class='alert'>Там нет открытой плоти или тонкого материала [above_neck(target_zone) ? "на голове" : "на теле"].</span>")
 
 /mob/living/carbon/human/assess_threat(judgement_criteria, lasercolor = "", datum/callback/weaponcheck=null)
 	if(judgement_criteria & JUDGE_EMAGGED)
@@ -610,27 +610,27 @@
 		for(var/obj/item/hand in held_items)
 			if(prob(current_size * 5) && hand.w_class >= ((11-current_size)/2)  && dropItemToGround(hand))
 				step_towards(hand, src)
-				to_chat(src, "<span class='warning'>\The [S] pulls \the [hand] from your grip!</span>")
+				to_chat(src, "<span class='warning'>Невероятно, но [S] вытягивает [hand] из моей руки!</span>")
 	rad_act(current_size * 3)
 
 /mob/living/carbon/human/proc/do_cpr(mob/living/carbon/C)
 	CHECK_DNA_AND_SPECIES(C)
 
 	if(C.stat == DEAD || (HAS_TRAIT(C, TRAIT_FAKEDEATH)))
-		to_chat(src, "<span class='warning'>[C.name] is dead!</span>")
+		to_chat(src, "<span class='warning'>[C.name] мертво!</span>")
 		return
 	if(is_mouth_covered())
-		to_chat(src, "<span class='warning'>Remove your mask first!</span>")
+		to_chat(src, "<span class='warning'>Надо бы маску снять!</span>")
 		return 0
 	if(C.is_mouth_covered())
-		to_chat(src, "<span class='warning'>Remove [p_their()] mask first!</span>")
+		to_chat(src, "<span class='warning'>Сними с н[C.ru_ego()] маску сначала!</span>")
 		return 0
 
 	if(C.cpr_time < world.time + 30)
-		visible_message("<span class='notice'>[src] is trying to perform CPR on [C.name]!</span>", \
-						"<span class='notice'>You try to perform CPR on [C.name]... Hold still!</span>")
+		visible_message("<span class='notice'>[src] делает сердечно-легочную реанимацию [C.name]!</span>", \
+						"<span class='notice'>Делаю сердечно-легочную реанимацию [C.name]... Надо потерпеть!</span>")
 		if(!do_mob(src, C))
-			to_chat(src, "<span class='warning'>You fail to perform CPR on [C]!</span>")
+			to_chat(src, "<span class='warning'>У меня не вышло сделать сердечно-легочную реанимацию [C]!</span>")
 			return 0
 
 		var/they_breathe = !HAS_TRAIT(C, TRAIT_NOBREATH)
@@ -639,7 +639,7 @@
 		if(C.health > C.crit_threshold)
 			return
 
-		src.visible_message("<span class='notice'>[src] performs CPR on [C.name]!</span>", "<span class='notice'>You perform CPR on [C.name].</span>")
+		src.visible_message("<span class='notice'>[src] производит сердечно-легочную реанимацию [C.name]!</span>", "<span class='notice'>Произвожу сердечно-легочную реанимацию [C.name].</span>")
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "perform_cpr", /datum/mood_event/perform_cpr)
 		C.cpr_time = world.time
 		log_combat(src, C, "CPRed")
@@ -648,15 +648,15 @@
 			var/suff = min(C.getOxyLoss(), 7)
 			C.adjustOxyLoss(-suff)
 			C.updatehealth()
-			to_chat(C, "<span class='unconscious'>You feel a breath of fresh air enter your lungs... It feels good...</span>")
+			to_chat(C, "<span class='unconscious'>Я чувствую, как глоток свежего воздуха входит в мои легкие...</span>")
 		else if(they_breathe && !they_lung)
-			to_chat(C, "<span class='unconscious'>You feel a breath of fresh air... but you don't feel any better...</span>")
+			to_chat(C, "<span class='unconscious'>Я чувствую глоток свежего воздуха... но мне не лучше...</span>")
 		else
-			to_chat(C, "<span class='unconscious'>You feel a breath of fresh air... which is a sensation you don't recognise...</span>")
+			to_chat(C, "<span class='unconscious'>Я чувствую глоток свежего воздуха... но это ощущение, которое я не узнаю...</span>")
 
 /mob/living/carbon/human/cuff_resist(obj/item/I)
 	if(dna && dna.check_mutation(HULK) || istype(mind.martial_art, /datum/martial_art/nanosuit))
-		say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ), forced = "hulk")
+		say(pick(";РАААААААААРГ!", ";ХНННННННГГГГГГГ!", ";ГВААААРРХХ!", "ННННННГГГГГГХ!", ";ААААААРРГГ!" ), forced = "hulk")
 		if(..(I, cuff_break = FAST_CUFFBREAK))
 			dropItemToGround(I)
 	else
@@ -696,12 +696,12 @@
 
 /mob/living/carbon/human/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
 	if(!(mobility_flags & MOBILITY_UI))
-		to_chat(src, "<span class='warning'>You can't do that right now!</span>")
+		to_chat(src, "<span class='warning'>Не могу это сделать!</span>")
 		return FALSE
 	if(!Adjacent(M) && (M.loc != src))
 		if((be_close == FALSE) || (!no_tk && (dna.check_mutation(TK) && tkMaxRangeCheck(src, M))))
 			return TRUE
-		to_chat(src, "<span class='warning'>You are too far away!</span>")
+		to_chat(src, "<span class='warning'>Слишком далеко!</span>")
 		return FALSE
 	return TRUE
 
@@ -802,8 +802,8 @@
 /mob/living/carbon/human/vomit(lost_nutrition = 10, blood = 0, stun = 1, distance = 0, message = 1, toxic = 0)
 	if(blood && (NOBLOOD in dna.species.species_traits) && !HAS_TRAIT(src, TRAIT_TOXINLOVER))
 		if(message)
-			visible_message("<span class='warning'>[src] dry heaves!</span>", \
-							"<span class='userdanger'>You try to throw up, but there's nothing in your stomach!</span>")
+			visible_message("<span class='warning'>[src] рыгает!</span>", \
+							"<span class='userdanger'>Ты пытаешься вырвать, но в твоем желудке нет ничего!</span>")
 		if(stun)
 			Paralyze(200)
 		return 1
@@ -946,43 +946,43 @@
 	var/skills_space = "" //cobby told me to do this
 	if(HAS_TRAIT(src, TRAIT_QUICKER_CARRY))
 		carrydelay = 30
-		skills_space = "expertly"
+		skills_space = "экспертно"
 	else if(HAS_TRAIT(src, TRAIT_QUICK_CARRY))
 		carrydelay = 40
-		skills_space = "quickly"
+		skills_space = "быстро"
 	if(can_be_firemanned(target) && !incapacitated(FALSE, TRUE))
-		visible_message("<span class='notice'>[src] starts [skills_space] lifting [target] onto their back..</span>",
+		visible_message("<span class='notice'>[src] начинает [skills_space] поднимать [target] на свою спину..</span>",
 		//Joe Medic starts quickly/expertly lifting Grey Tider onto their back..
-		"<span class='notice'>[carrydelay < 35 ? "Using your gloves' nanochips, you" : "You"] [skills_space] start to lift [target] onto your back[carrydelay == 40 ? ", while assisted by the nanochips in your gloves.." : "..."]</span>")
+		"<span class='notice'>[carrydelay < 35 ? "Используя свои перчатки я' наночипы, я" : "Я"] [skills_space] начинаю начинаю поднимать [target] на свою спину[carrydelay == 40 ? ", пока мне помогают мои наночипы в перчатках.." : "..."]</span>")
 		//(Using your gloves' nanochips, you/You) ( /quickly/expertly) start to lift Grey Tider onto your back(, while assisted by the nanochips in your gloves../...)
 		if(do_after(src, carrydelay, TRUE, target))
 			//Second check to make sure they're still valid to be carried
 			if(can_be_firemanned(target) && !incapacitated(FALSE, TRUE))
 				buckle_mob(target, TRUE, TRUE, 90, 1, 0)
 				return
-		visible_message("<span class='warning'>[src] fails to fireman carry [target]!</span>")
+		visible_message("<span class='warning'>[src] не может поднять [target]!</span>")
 	else
-		to_chat(src, "<span class='warning'>You can't fireman carry [target] while they're standing!</span>")
+		to_chat(src, "<span class='warning'>Не могу поднять [target] пока о[target.ru_na()] стоит!</span>")
 
 /mob/living/carbon/human/proc/piggyback(mob/living/carbon/target)
 	if(can_piggyback(target))
-		visible_message("<span class='notice'>[target] starts to climb onto [src]...</span>")
+		visible_message("<span class='notice'>[target] начинает взбираться на [src]...</span>")
 		if(do_after(target, 15, target = src))
 			if(can_piggyback(target))
 				if(target.incapacitated(FALSE, TRUE) || incapacitated(FALSE, TRUE))
-					target.visible_message("<span class='warning'>[target] can't hang onto [src]!</span>")
+					target.visible_message("<span class='warning'>[target] не может взобраться на [src]!</span>")
 					return
 				buckle_mob(target, TRUE, TRUE, FALSE, 0, 2)
 		else
-			visible_message("<span class='warning'>[target] fails to climb onto [src]!</span>")
+			visible_message("<span class='warning'>[target] проваливает попытку взобраться на [src]!</span>")
 	else
-		to_chat(target, "<span class='warning'>You can't piggyback ride [src] right now!</span>")
+		to_chat(target, "<span class='warning'>Не хочу взбираться на [src]!</span>")
 
 /mob/living/carbon/human/buckle_mob(mob/living/target, force = FALSE, check_loc = TRUE, lying_buckle = FALSE, hands_needed = 0, target_hands_needed = 0)
 	if(!force)//humans are only meant to be ridden through piggybacking and special cases
 		return
 	if(!is_type_in_typecache(target, can_ride_typecache))
-		target.visible_message("<span class='warning'>[target] really can't seem to mount [src]...</span>")
+		target.visible_message("<span class='warning'>[target] не понимает как взобраться на [src]...</span>")
 		return
 	buckle_lying = lying_buckle
 	var/datum/component/riding/human/riding_datum = LoadComponent(/datum/component/riding/human)
@@ -999,12 +999,12 @@
 
 	if(hands_needed || target_hands_needed)
 		if(hands_needed && !equipped_hands_self)
-			src.visible_message("<span class='warning'>[src] can't get a grip on [target] because their hands are full!</span>",
-				"<span class='warning'>You can't get a grip on [target] because your hands are full!</span>")
+			src.visible_message("<span class='warning'>[src] не может схватиться за [target], потому что [src.ru_ego()] руки заняты!</span>",
+				"<span class='warning'>Не могу схватиться за [target], потому что мои руки заняты!</span>")
 			return
 		else if(target_hands_needed && !equipped_hands_target)
-			target.visible_message("<span class='warning'>[target] can't get a grip on [src] because their hands are full!</span>",
-				"<span class='warning'>You can't get a grip on [src] because your hands are full!</span>")
+			target.visible_message("<span class='warning'>[target] не может схватиться за [src], потому что [target.ru_ego()] руки заняты!</span>",
+				"<span class='warning'>Не могу схватиться за [src], потому что мои руки заняты!</span>")
 			return
 
 	stop_pulling()
@@ -1024,7 +1024,7 @@
 	remove_movespeed_modifier(MOVESPEED_ID_SHOVE)
 	var/active_item = get_active_held_item()
 	if(is_type_in_typecache(active_item, GLOB.shove_disarming_types))
-		visible_message("<span class='warning'>[src.name] regains their grip on \the [active_item]!</span>", "<span class='warning'>You regain your grip on \the [active_item]</span>", null, COMBAT_MESSAGE_RANGE)
+		visible_message("<span class='warning'>[src.name] возвращает свой захват [active_item]!</span>", "<span class='warning'>Возвращаю свой захват [active_item]</span>", null, COMBAT_MESSAGE_RANGE)
 
 /mob/living/carbon/human/do_after_coefficent()
 	. = ..()
