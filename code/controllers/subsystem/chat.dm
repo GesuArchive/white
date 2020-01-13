@@ -18,7 +18,7 @@ SUBSYSTEM_DEF(chat)
 			return
 
 
-/datum/controller/subsystem/chat/proc/queue(target, message, handle_whitespace = TRUE, confidential = FALSE) // hippie -- moody blues
+/datum/controller/subsystem/chat/proc/queue(target, message, handle_whitespace = TRUE, trailing_newline = TRUE, confidential = FALSE)
 	if(!target || !message)
 		return
 
@@ -36,7 +36,8 @@ SUBSYSTEM_DEF(chat)
 	if(handle_whitespace)
 		message = replacetext(message, "\n", "<br>")
 		message = replacetext(message, "\t", "[FOURSPACES][FOURSPACES]")
-	message += "<br>"
+	if (trailing_newline)
+		message += "<br>"
 
 	if(!confidential && target != GLOB.admins) // hippie -- moody blues
 		SSdemo.write_chat(target, message)

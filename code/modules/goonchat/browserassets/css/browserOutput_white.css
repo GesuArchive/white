@@ -418,53 +418,58 @@ h1.alert, h2.alert		{color: #000000;margin: 0 0 14px 0;}
 
 /* MOTD SHIT */
 #motd-main {
-	padding: 5px 0 1px 0; 
-	background: repeating-linear-gradient(45deg,#efefef,#efefef 8px,#ffffff 8px,#ffffff 16px); 
-	text-shadow: 0 0 1px #333; 
-	box-shadow: 0 0 24px rgba(170, 170, 170, 1); 
-	border: 1px solid #dfdfdf; 
-	margin: 16px 0 16px 0; 
+	padding: 5px 0 1px 0;
+	background: repeating-linear-gradient(45deg,#efefef,#efefef 8px,#ffffff 8px,#ffffff 16px);
+	text-shadow: 0 0 1px #333;
+	box-shadow: 0 0 24px rgba(170, 170, 170, 1);
+	border: 1px solid #dfdfdf;
+	margin: 16px 0 16px 0;
 	border-bottom: 16px solid #cfcfcf;
 }
 
 #motd-header {
-	color: #222; 
-	font-family: sans-serif; 
+	color: #222;
+	font-family: sans-serif;
 	text-decoration: none;
 }
 
 #motd-p {
-	font-family: sans-serif; 
+	font-family: sans-serif;
 	color: #f00;
 }
 
 #motd-a {
-	padding: 2px; 
+	padding: 2px;
 	color: #222;
 }
 
 #motd-warn {
-	padding: 2px; 
-	color: #f00; 
+	padding: 2px;
+	color: #f00;
 	font-size: 14px;
 }
 
 #motd-b {
-	padding: 2px; 
+	padding: 2px;
 	color: #222;
 }
 
 #motd-hr {
-	border: none; 
-	border-top: 1px solid #dfdfdf; 
-	border-bottom: 4px solid #cfcfcf; 
-	padding: 8px 0 16px 0; 
+	border: none;
+	border-top: 1px solid #dfdfdf;
+	border-bottom: 4px solid #cfcfcf;
+	padding: 8px 0 16px 0;
 	background: #efefef;
 }
 
 #motd-footer {
-	font-family: sans-serif; 
+	font-family: sans-serif;
 	color: #222;
 	text-shadow: none;
 	padding: 8px;
 }
+.text-normal {font-weight: normal;	font-style: normal;}
+.hidden {display: none;	visibility: hidden;}
+.ml-1 {margin-left: 1em;}
+.ml-2 {margin-left: 2em;}
+.ml-3 {margin-left: 3em;}

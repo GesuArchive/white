@@ -39,7 +39,7 @@
 	name = "тяжелый пожарный костюм"
 	desc = "Старый, громоздкий теплозащитный костюм."
 	icon_state = "thermal"
-	item_state = "firefighter"
+	item_state = "ro_suit"
 	slowdown = 1.5
 
 /obj/item/clothing/suit/fire/atmos
