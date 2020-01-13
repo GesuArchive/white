@@ -586,7 +586,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if (CONFIG_GET(string/default_view) != CONFIG_GET(string/default_view_square))
 				dat += "<b>Widescreen:</b> <a href='?_src_=prefs;preference=widescreenpref'>[widescreenpref ? "Enabled ([CONFIG_GET(string/default_view)])" : "Disabled ([CONFIG_GET(string/default_view_square)])"]</a><br>"
 
-			dat += "<b>Names Tooltip:</b> <a href='?_src_=prefs;preference=tooltip_user'>[(toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл"]</a><br>"
+			dat += "<b>Названия предметов:</b> <a href='?_src_=prefs;preference=tooltip_user'>[(toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл"]</a><br>"
+			dat += "<b>Позиция на экране:</b> <a href='?_src_=prefs;preference=tooltip_pos'>[(toggles & TOOLTIP_USER_POS) ? "Верх" : "Низ"]</a><br>"
 			if (CONFIG_GET(flag/maprotation))
 				var/p_map = preferred_map
 				if (!p_map)
@@ -1699,6 +1700,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("tooltip_user")
 					toggles ^= TOOLTIP_USER_UP
+
+				if("tooltip_pos")
+					toggles ^= TOOLTIP_USER_POS
 
 				if("widescreenpref")
 					widescreenpref = !widescreenpref

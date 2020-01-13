@@ -1,6 +1,6 @@
 /client/MouseEntered(object, location)
     ..()
-    if(istype(object, /atom) && !istype(object, /turf/closed/indestructible/splashscreen) && prefs.toggles & TOOLTIP_USER_UP)
+    if(istype(object, /atom) && !istype(object, /turf/closed/indestructible/splashscreen) && !(prefs.toggles & TOOLTIP_USER_UP))
         var/atom/A = object
         if(mob.hud_used.tooltip)
             var/obj_name = A.name
@@ -10,12 +10,19 @@
 
 /obj/screen/tooltip
 	name = ""
-	screen_loc = "NORTH,CENTER-3"
+	screen_loc = "SOUTH+1,CENTER-3"
+	var/screen_loc_alt = "NORTH,CENTER-3"
 	maptext_width = 228
 	maptext_y = 16
 
+/obj/screen/tooltip/proc/change_pos()
+	if (screen_loc == initial(screen_loc))
+		screen_loc = screen_loc_alt
+	else
+		screen_loc = initial(screen_loc)
+
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, toggle_tooltip_up)()
-	set name = " 🔄 Название предметов сверху"
+	set name = " 🔄 Название предметов"
 	set category = "Preferences"
 	set desc = "Это штука, которая пишет название текущего предмета под курсором."
 	usr.client.prefs.toggles ^= TOOLTIP_USER_UP
@@ -25,5 +32,23 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, toggle_tooltip_up)()
 	else
 		to_chat(usr, "Я буду видеть названия предметов.")
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Tooltip Up", "[usr.client.prefs.toggles & TOOLTIP_USER_UP ? "Вкл" : "Выкл"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
 /datum/verbs/menu/Settings/toggle_tooltip_up/Get_checked(client/C)
 	return C.prefs.toggles & TOOLTIP_USER_UP
+
+TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, toggle_tooltip_pos)()
+	set name = " 🔄 Позиция названий предметов"
+	set category = "Preferences"
+	set desc = "Это штука, которая пишет название текущего предмета под курсором."
+	usr.client.prefs.toggles ^= TOOLTIP_USER_POS
+	usr.client.prefs.save_preferences()
+	if(usr.client.prefs.toggles & TOOLTIP_USER_POS)
+		to_chat(usr, "Теперь панель будет снизу.")
+		hud_used.tooltip.change_pos()
+	else
+		to_chat(usr, "Теперь панель будет сверху.")
+		hud_used.tooltip.change_pos()
+	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Tooltip Pos", "[usr.client.prefs.toggles & TOOLTIP_USER_POS ? "Верх" : "Низ"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/datum/verbs/menu/Settings/toggle_tooltip_pos/Get_checked(client/C)
+	return C.prefs.toggles & TOOLTIP_USER_POS
