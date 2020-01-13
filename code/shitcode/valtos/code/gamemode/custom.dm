@@ -207,16 +207,17 @@
 	var/real_explosion_block	//ignore this, just use explosion_block
 
 /obj/structure/pillar/CanPass(atom/movable/mover, turf/target)
+	. = ..()
 	if(istype(mover) && (mover.pass_flags & PASSTABLE))
-		return 1
-	return 1
+		return TRUE
+	return TRUE
 
 /obj/structure/pillar/CheckExit(atom/movable/O, turf/target)
 	if(istype(O) && (O.pass_flags & PASSTABLE))
-		return 1
+		return TRUE
 	if(get_dir(O.loc, target) == dir)
-		return 0
-	return 1
+		return FALSE
+	return TRUE
 
 /obj/structure/pillar/CanAtmosPass(turf/T)
 	return TRUE
