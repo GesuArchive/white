@@ -291,6 +291,9 @@
 	icon_state = "jester_hat"
 	dynamic_hair_suffix = ""
 
+/obj/item/clothing/head/jester/alt
+	icon_state = "jester2"
+
 /obj/item/clothing/head/rice_hat
 	name = "рисовая шапка"
 	desc = "Welcome to the rice fields, motherfucker."
@@ -349,12 +352,6 @@
 	desc = "Ходи как египтянин."
 	icon_state = "pharoah_hat"
 	item_state = "pharoah_hat"
-
-/obj/item/clothing/head/jester/alt
-	name = "шапка шута"
-	desc = "Шапка с колокольчиками, чтобы добавить веселья в костюм."
-	icon_state = "jester_hat"
-	dynamic_hair_suffix = ""
 
 /obj/item/clothing/head/nemes
 	name = "головной убор Немеса"
@@ -445,3 +442,10 @@
 	desc = "Ужасная смесь из шапочки и мягкого колпачка зеленого цвета ЦентКома. Вы должны быть в отчаянии от власти над своими сверстниками, чтобы согласиться носить это."
 	icon_state = "intern_hat"
 	item_state = "intern_hat"
+
+/obj/item/clothing/head/coordinator
+	name = "coordinator cap"
+	desc = "A cap for a party ooordinator, stylish!."
+	icon_state = "capcap"
+	item_state = "that"
+	armor = list("melee" = 25, "bullet" = 15, "laser" = 25, "energy" = 35, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
