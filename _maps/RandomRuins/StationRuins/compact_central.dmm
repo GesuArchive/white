@@ -3500,7 +3500,6 @@
 /area/crew_quarters/heads/captain)
 "il" = (
 /obj/structure/closet/secure_closet/captains,
-/obj/item/card/id/captains_spare,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "im" = (
