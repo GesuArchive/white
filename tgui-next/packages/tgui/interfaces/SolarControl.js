@@ -42,7 +42,7 @@ export const SolarControl = props => {
           </Grid.Column>
           <Grid.Column size={1.5}>
             <LabeledList>
-              <LabeledList.Item label="Выходная мощность">
+              <LabeledList.Item label="Выход">
                 <ProgressBar
                   ranges={{
                     good: [0.66, Infinity],

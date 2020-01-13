@@ -64,7 +64,7 @@ export const GravityGenerator = props => {
       </Section>
       {operational && charging_state !== 0 && (
         <NoticeBox textAlign="center">
-          ВНИМАНИЕ - запечена радиация
+          ВНИМАНИЕ - замечена радиация
         </NoticeBox>
       )}
       {operational && charging_state === 0 && (
