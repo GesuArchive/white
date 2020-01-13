@@ -44,10 +44,10 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, toggle_tooltip_pos)()
 	usr.client.prefs.save_preferences()
 	if(usr.client.prefs.toggles & TOOLTIP_USER_POS)
 		to_chat(usr, "Теперь панель будет снизу.")
-		hud_used.tooltip.change_pos()
+		usr.hud_used.tooltip.change_pos()
 	else
 		to_chat(usr, "Теперь панель будет сверху.")
-		hud_used.tooltip.change_pos()
+		usr.hud_used.tooltip.change_pos()
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Tooltip Pos", "[usr.client.prefs.toggles & TOOLTIP_USER_POS ? "Верх" : "Низ"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/verbs/menu/Settings/toggle_tooltip_pos/Get_checked(client/C)
