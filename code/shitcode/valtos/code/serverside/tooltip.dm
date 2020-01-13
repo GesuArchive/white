@@ -11,15 +11,8 @@
 /obj/screen/tooltip
 	name = ""
 	screen_loc = "SOUTH+1,CENTER-3"
-	var/screen_loc_alt = "NORTH,CENTER-3"
 	maptext_width = 228
 	maptext_y = 16
-
-/obj/screen/tooltip/proc/change_pos()
-	if (screen_loc == initial(screen_loc))
-		screen_loc = screen_loc_alt
-	else
-		screen_loc = initial(screen_loc)
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, toggle_tooltip_up)()
 	set name = " 🔄 Название предметов"
