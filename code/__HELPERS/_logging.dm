@@ -6,7 +6,7 @@
 #define WRITE_FILE(file, text) DIRECT_OUTPUT(file, text)
 #define WRITE_LOG(log, text) rustg_log_write(log, text)
 
-/proc/send_sound_preprocessor(target, sound)
+/proc/send_sound_preprocessor(target, var/sound/sound)
 	if(!sound.environment)
 		sound.environment = 2
 	DIRECT_OUTPUT(target, sound)
