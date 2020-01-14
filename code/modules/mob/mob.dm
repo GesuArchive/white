@@ -689,11 +689,10 @@
 	..()
 
 	if(statpanel("Game"))
-		stat(null, "--- \[Игровая Панель\] ---")
 		if(SSshuttle.emergency)
 			var/ETA = SSshuttle.emergency.getModeStr()
 			if(ETA)
-				stat(null, "[ETA] [SSshuttle.emergency.getTimerStr()]")
+				stat("[ETA]", "[SSshuttle.emergency.getTimerStr()]")
 
 	if(statpanel("Status"))
 		if (client)
