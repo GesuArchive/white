@@ -239,7 +239,7 @@
 
 /datum/reagent/drug/pupupipi
 	name = "Sweet Brown"
-	description = "Фетиш-кулинария, которую часто пьют бродяги и бездельники. Высокие дозировки имеют... интересные эффекты."
+	description = "Последняя надежда, которую часто пьют бродяги и бездельники. Высокие дозировки имеют... интересные эффекты."
 	color = "#602101" // rgb: 96, 33, 1
 	overdose_threshold = 100
 	addiction_threshold = 50 // doesn't do shit though
