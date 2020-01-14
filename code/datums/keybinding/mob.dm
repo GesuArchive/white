@@ -257,7 +257,7 @@
 /mob/verb/say_wrapper()
 	set name = ".Say"
 	set hidden = TRUE
-	var/message = input("", "Говорить \"text\"") as null|text
+	var/message = input("", "Say \"text\"") as null|text
 	say_verb(message)
 
 /datum/keybinding/mob/me
@@ -274,5 +274,5 @@
 /mob/verb/me_wrapper()
 	set name = ".Me"
 	set hidden = TRUE
-	var/message = input("", "Эмоция \"text\"") as null|text
+	var/message = input("", "Me \"text\"") as null|text
 	me_verb(message)
