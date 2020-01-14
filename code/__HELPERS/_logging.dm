@@ -8,7 +8,7 @@
 
 /proc/send_sound_preprocessor(target, var/sound/sound)
 	if(!sound.environment)
-		sound.environment = 2
+		sound.environment = 10
 	DIRECT_OUTPUT(target, sound)
 
 //print a warning message to world.log
