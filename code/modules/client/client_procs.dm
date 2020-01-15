@@ -450,6 +450,23 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	if (prefs.fullscreen)
 		ToggleFullscreen()
 
+	//preload sounds
+
+	var/list/genres = list(PRIKOL, TECHNO, TOUHOU, MORTAL, NAZIST, LOBBYS)
+	var/list/result = list()
+	for(var/genre in genres)
+		for(var/music in flist("[global.config.directory]/battle_music/[genre]/"))
+			result += "[global.config.directory]/battle_music/[genre]/[music]"
+
+	for(var/sound/SO in result)
+		SO.volume = 0
+		SO.repeat = 0
+		SO.channel = CHANNEL_BATTLETENSION
+		SEND_SOUND(src, SO)
+		SEND_SOUND(src, null)
+
+	//preload sounds
+
 	Master.UpdateTickRate()
 
 //////////////
