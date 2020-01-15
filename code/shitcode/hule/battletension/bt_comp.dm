@@ -146,7 +146,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 			result += "[global.config.directory]/battle_music/[genre]/[music]"
 
 	for(var/sound/SO in result)
-		register_asset("[file]", SO)
+		register_asset("[SO.file]", SO)
 
 	return result
 
