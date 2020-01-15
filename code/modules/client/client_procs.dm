@@ -459,11 +459,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 			result += "[global.config.directory]/battle_music/[genre]/[music]"
 
 	for(var/sound/SO in result)
-		SO.volume = 0
-		SO.repeat = 0
-		SO.channel = CHANNEL_BATTLETENSION
-		SEND_SOUND(src, SO)
-		SEND_SOUND(src, null)
+		fcopy_rsc(SO)
 
 	//preload sounds
 
