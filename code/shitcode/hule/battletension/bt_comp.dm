@@ -144,6 +144,10 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	for(var/genre in genres)
 		for(var/music in flist("[global.config.directory]/battle_music/[genre]/"))
 			result += "[global.config.directory]/battle_music/[genre]/[music]"
+
+	for(var/sound/SO in result)
+		fcopy_rsc(SO)
+
 	return result
 
 /client/verb/customize_battletension()
@@ -180,7 +184,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		to_chat(usr, "<span class='danger'>Больше не хочу [selected].</span>")
 	else
 		settings += selected
-		to_chat(usr, "<span class='danger'>Теперь хочу [selected]. Может вызвать лаги, если не было включено ранее.</span>")
+		to_chat(usr, "<span class='danger'>Теперь хочу [selected].</span>")
 
 	prefs.btprefsnew = settings
 	prefs.save_preferences()
