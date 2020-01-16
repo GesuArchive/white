@@ -3,7 +3,16 @@
 #define TOUHOU "touhou"
 #define MORTAL "mortal"
 #define NAZIST "nazist"
-#define LOBBYS "lobbys"
+
+#define BMD "[global.config.directory]/battle_music"
+
+#define BM_PRIKOL list('[BMD]/prikol/Battlefield.ogg', '[BMD]/prikol/gladiator.ogg')
+#define BM_TECHNO list('[BMD]/techno/03 NARC.ogg', '[BMD]/techno/Acid-Notation - The Yanderes Puppet Show.ogg', '[BMD]/techno/Carpenter Brut - Roller Mobster.ogg', '[BMD]/techno/M O O N - Hydrogen.ogg', '[BMD]/techno/Protector 101 - Hardware.ogg', '[BMD]/techno/Street Cleaner - Murdercycle.ogg')
+#define BM_TOUHOU list('[BMD]/touhou/80sspark.ogg', '[BMD]/touhou/badapple.ogg', '[BMD]/touhou/Galaxy Collapse.ogg')
+#define BM_MORTAL list('[BMD]/mortal/unstoppable.ogg')
+#define BM_NAZIST list('[BMD]/nazist/German Military Marches - Lore, Lore, Lore.ogg')
+
+#undef BMD
 
 PROCESSING_SUBSYSTEM_DEF(btension)
 	name = "Battle Tension"
@@ -145,10 +154,6 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		for(var/music in flist("[global.config.directory]/battle_music/[genre]/"))
 			result += "[global.config.directory]/battle_music/[genre]/[music]"
 
-	for(var/sound/SO in result)
-		var/asset = fcopy_rsc(SO)
-		register_asset("[SO.file]", asset)
-
 	return result
 
 /client/verb/customize_battletension()
@@ -156,7 +161,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	set desc = "Allows for advanced prikol immersion."
 	set category = "Preferences"
 
-	var/list/genres = list(PRIKOL, TECHNO, TOUHOU, MORTAL, NAZIST, LOBBYS)
+	var/list/genres = list(PRIKOL, TECHNO, TOUHOU, MORTAL, NAZIST)
 	var/settings
 
 	if(prefs.btprefsnew == null)
