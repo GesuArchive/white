@@ -139,12 +139,11 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	var/list/result = list()
 	var/list/genres = owner.client.prefs.btprefsnew
 
-#ifndef TESTING
-	var/list/bm_prikol = list('/cfg/battle_music/prikol/Battlefield.ogg', '/cfg/battle_music/prikol/gladiator.ogg')
-	var/list/bm_techno = list('/cfg/battle_music/techno/03 NARC.ogg', '/cfg/battle_music/techno/Acid-Notation - The Yanderes Puppet Show.ogg', '/cfg/battle_music/techno/Carpenter Brut - Roller Mobster.ogg', '/cfg/battle_music/techno/M O O N - Hydrogen.ogg', '/cfg/battle_music/techno/Protector 101 - Hardware.ogg', '/cfg/battle_music/techno/Street Cleaner - Murdercycle.ogg')
-	var/list/bm_touhou = list('/cfg/battle_music/touhou/80sspark.ogg', '/cfg/battle_music/touhou/badapple.ogg', '/cfg/battle_music/touhou/Galaxy Collapse.ogg')
-	var/list/bm_mortal = list('/cfg/battle_music/mortal/unstoppable.ogg')
-	var/list/bm_nazist = list('/cfg/battle_music/nazist/German Military Marches - Lore, Lore, Lore.ogg')
+	var/list/bm_prikol = list('cfg/battle_music/prikol/Battlefield.ogg', 'cfg/battle_music/prikol/gladiator.ogg')
+	var/list/bm_techno = list('cfg/battle_music/techno/03 NARC.ogg', 'cfg/battle_music/techno/Acid-Notation - The Yanderes Puppet Show.ogg', 'cfg/battle_music/techno/Carpenter Brut - Roller Mobster.ogg', 'cfg/battle_music/techno/M O O N - Hydrogen.ogg', 'cfg/battle_music/techno/Protector 101 - Hardware.ogg', 'cfg/battle_music/techno/Street Cleaner - Murdercycle.ogg')
+	var/list/bm_touhou = list('cfg/battle_music/touhou/80sspark.ogg', 'cfg/battle_music/touhou/badapple.ogg', 'cfg/battle_music/touhou/Galaxy Collapse.ogg')
+	var/list/bm_mortal = list('cfg/battle_music/mortal/unstoppable.ogg')
+	var/list/bm_nazist = list('cfg/battle_music/nazist/German Military Marches - Lore, Lore, Lore.ogg')
 
 	for(var/genre in genres)
 		switch (genre)
@@ -158,7 +157,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 				result += bm_mortal
 			if (NAZIST)
 				result += bm_nazist
-#endif
+
 	return result
 
 /client/verb/customize_battletension()
