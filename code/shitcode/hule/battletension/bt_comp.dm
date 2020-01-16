@@ -4,16 +4,6 @@
 #define MORTAL "mortal"
 #define NAZIST "nazist"
 
-#define BMD "[global.config.directory]/battle_music"
-
-#define BM_PRIKOL list('[BMD]/prikol/Battlefield.ogg', '[BMD]/prikol/gladiator.ogg')
-#define BM_TECHNO list('[BMD]/techno/03 NARC.ogg', '[BMD]/techno/Acid-Notation - The Yanderes Puppet Show.ogg', '[BMD]/techno/Carpenter Brut - Roller Mobster.ogg', '[BMD]/techno/M O O N - Hydrogen.ogg', '[BMD]/techno/Protector 101 - Hardware.ogg', '[BMD]/techno/Street Cleaner - Murdercycle.ogg')
-#define BM_TOUHOU list('[BMD]/touhou/80sspark.ogg', '[BMD]/touhou/badapple.ogg', '[BMD]/touhou/Galaxy Collapse.ogg')
-#define BM_MORTAL list('[BMD]/mortal/unstoppable.ogg')
-#define BM_NAZIST list('[BMD]/nazist/German Military Marches - Lore, Lore, Lore.ogg')
-
-#undef BMD
-
 PROCESSING_SUBSYSTEM_DEF(btension)
 	name = "Battle Tension"
 	priority = 15
@@ -147,12 +137,26 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		return
 
 	var/list/result = list()
-
 	var/list/genres = owner.client.prefs.btprefsnew
 
+	var/list/bm_prikol = list('cfg/battle_music/prikol/Battlefield.ogg', 'cfg/battle_music/prikol/gladiator.ogg')
+	var/list/bm_techno = list('cfg/battle_music/techno/03 NARC.ogg', 'cfg/battle_music/techno/Acid-Notation - The Yanderes Puppet Show.ogg', 'cfg/battle_music/techno/Carpenter Brut - Roller Mobster.ogg', 'cfg/battle_music/techno/M O O N - Hydrogen.ogg', 'cfg/battle_music/techno/Protector 101 - Hardware.ogg', 'cfg/battle_music/techno/Street Cleaner - Murdercycle.ogg')
+	var/list/bm_touhou = list('cfg/battle_music/touhou/80sspark.ogg', 'cfg/battle_music/touhou/badapple.ogg', 'cfg/battle_music/touhou/Galaxy Collapse.ogg')
+	var/list/bm_mortal = list('cfg/battle_music/mortal/unstoppable.ogg')
+	var/list/bm_nazist = list('cfg/battle_music/nazist/German Military Marches - Lore, Lore, Lore.ogg')
+
 	for(var/genre in genres)
-		for(var/music in flist("[global.config.directory]/battle_music/[genre]/"))
-			result += "[global.config.directory]/battle_music/[genre]/[music]"
+		switch (genre)
+			if (PRIKOL)
+				result += bm_prikol
+			if (TECHNO)
+				result += bm_techno
+			if (TOUHOU)
+				result += bm_touhou
+			if (MORTAL)
+				result += bm_mortal
+			if (NAZIST)
+				result += bm_nazist
 
 	return result
 
