@@ -3236,7 +3236,6 @@
 #include "code\shitcode\valtos\code\randomstation\station.dm"
 #include "code\shitcode\valtos\code\ruins\wruins.dm"
 #include "code\shitcode\valtos\code\serverside\fullscreen.dm"
-#include "code\shitcode\valtos\code\serverside\libvg.dm"
 #include "code\shitcode\valtos\code\serverside\looc.dm"
 #include "code\shitcode\valtos\code\serverside\padezhi.dm"
 #include "code\shitcode\valtos\code\serverside\pronouns_ru.dm"
