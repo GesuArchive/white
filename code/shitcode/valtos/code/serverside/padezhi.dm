@@ -41,8 +41,12 @@
 	var/word_end = copytext_char(msgfrom, -2)
 	if(word_end == "ёт" || word_end == "ет")
 		return replacetext_char(msgfrom, copytext_char(word_end, -2), "ю ", -2)
-	else if (word_end == "ит")
-		return replacetext_char(msgfrom, copytext_char(word_end, -2), "лю", -2)
+	else if (word_end == "бит")
+		return replacetext_char(msgfrom, copytext_char(word_end, -3), "блю", -2)
+	else if (word_end == "нит")
+		return replacetext_char(msgfrom, copytext_char(word_end, -3), "ню", -2)
+	else if (word_end == "рю")
+		return replacetext_char(msgfrom, copytext_char(word_end, -2), "ню", -2)
 	return msgfrom
 
 /proc/sklonenie(msgfrom, rule, gender = null)
