@@ -2,6 +2,8 @@
 	if(stat == DEAD)
 		return
 
+	SEND_SOUND(src, sound(null))
+
 	silent = FALSE
 	losebreath = 0
 
