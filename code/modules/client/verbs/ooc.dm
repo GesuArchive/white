@@ -164,7 +164,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 /client/verb/fix_chat()
 	set name = " ❗ ПОЧИНИТЬ ЧАТ"
-	set category = "OOC"
+	set category = "ОСОБЕННОЕ"
 	if (!chatOutput || !istype(chatOutput))
 		var/action = alert(src, "Invalid Chat Output data found!\nRecreate data?", "Wot?", "Recreate Chat Output data", "Cancel")
 		if (action != "Recreate Chat Output data")
@@ -329,7 +329,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 /client/verb/fit_viewport()
 	set name = " ❗ Подстроить экран"
-	set category = "OOC"
+	set category = "ОСОБЕННОЕ"
 	set desc = "Fit the width of the map window to match the viewport"
 
 	// Fetch aspect ratio
