@@ -51,7 +51,6 @@
 
 /proc/sklonenie(msgfrom, rule, gender = null)
 	var/to_ret = ""
-// Travis backdoor
 	for(var/word in splittext_char(msgfrom, " "))
 		to_ret += " [sklonenie_do(word, rule, gender)]"
 	return to_ret
