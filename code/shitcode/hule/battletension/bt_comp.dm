@@ -128,6 +128,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	S.wait = 0
 	S.volume = 0
 	S.status = 0
+	S.environment = 0
 
 	bm = S
 	SEND_SOUND(owner, bm)
