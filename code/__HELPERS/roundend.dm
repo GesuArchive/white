@@ -132,7 +132,7 @@
 			for(var/datum/objective/O in A.objectives)
 				var/result = O.check_completion() ? "SUCCESS" : "FAIL"
 				if (result == "FAIL")
-					greentext = FALSE
+					greentexted = FALSE
 				antag_info["objectives"] += list(list("objective_type"=O.type,"text"=O.explanation_text,"result"=result))
 		SSblackbox.record_feedback("associative", "antagonists", 1, antag_info)
 
@@ -213,7 +213,7 @@
 			C.RollCredits()
 		C.playtitlemusic(40)
 
-		C.process_endround_metabalance()
+		C.process_endround_metacoin()
 
 		if(speed_round)
 			C.give_award(/datum/award/achievement/misc/speed_round, C.mob)
