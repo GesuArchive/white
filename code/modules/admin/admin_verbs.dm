@@ -660,7 +660,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/readmin()
 	set name = "Readmin"
-	set category = "АДМИН"
+	set category = "ОСОБЕННОЕ"
 	set desc = "Regain your admin powers."
 
 	if(!isdead(src.mob))
