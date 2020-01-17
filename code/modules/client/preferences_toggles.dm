@@ -228,7 +228,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Sound, toggle_announcement_sound)()
 	set name = " ❌ Остановить звуки"
 	set category = "Preferences"
 	set desc = "Stop Current Sounds"
-	SEND_SOUND(usr, sound(null))
+	DIRECT_OUTPUT(usr, sound(null))
 	var/client/C = usr.client
 	if(C && C.chatOutput && !C.chatOutput.broken && C.chatOutput.loaded)
 		C.chatOutput.stopMusic()
