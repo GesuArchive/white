@@ -59,6 +59,7 @@
 	var/dimension_x = 32
 	var/dimension_y = 32
 	var/center = FALSE	//Should we center the sprite?
+	var/metacoin_locked = FALSE // if it needs to be bought with metacoins to have it
 
 //////////////////////
 // Hair Definitions //
@@ -1699,6 +1700,7 @@
 	dimension_x = 46
 	center = TRUE
 	dimension_y = 34
+	metacoin_locked = TRUE
 
 /datum/sprite_accessory/wings/dragon
 	name = "Dragon"
