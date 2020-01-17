@@ -157,7 +157,7 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 
 /mob/living/simple_animal/hostile/guardian/Stat()
 	..()
-	if(statpanel("Game"))
+	if(statpanel("ИГРА"))
 		if(summoner)
 			var/resulthealth
 			if(iscarbon(summoner))

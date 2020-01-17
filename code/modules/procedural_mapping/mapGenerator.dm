@@ -144,7 +144,7 @@
 
 /client/proc/debugNatureMapGenerator()
 	set name = "Test Nature Map Generator"
-	set category = "Debug"
+	set category = "ДЕБАГ"
 
 	var/datum/mapGenerator/nature/N = new()
 	var/startInput = input(usr,"Start turf of Map, (X;Y;Z)", "Map Gen Settings", "1;1;1") as text|null
@@ -153,10 +153,10 @@
 		return
 
 	var/endInput = input(usr,"End turf of Map (X;Y;Z)", "Map Gen Settings", "[world.maxx];[world.maxy];[mob ? mob.z : 1]") as text|null
-	
+
 	if (isnull(endInput))
 		return
-	
+
 	//maxx maxy and current z so that if you fuck up, you only fuck up one entire z level instead of the entire universe
 	if(!startInput || !endInput)
 		to_chat(src, "Missing Input")

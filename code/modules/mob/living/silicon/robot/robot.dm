@@ -293,7 +293,7 @@
 
 /mob/living/silicon/robot/Stat()
 	..()
-	if(statpanel("Game"))
+	if(statpanel("ИГРА"))
 		if(cell)
 			stat("Charge Left:", "[cell.charge]/[cell.maxcharge]")
 		else

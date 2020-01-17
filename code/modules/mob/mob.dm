@@ -108,7 +108,7 @@
   * Some kind of debug verb that gives atmosphere environment details
   */
 /mob/proc/Cell()
-	set category = "Admin"
+	set category = "АДМИН"
 	set hidden = 1
 
 	if(!loc)
@@ -436,7 +436,7 @@
   */
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Показать на..."
-	set category = "Object"
+	set category = "ОБЪЕКТ"
 
 	if(!src || !isturf(src.loc) || !(A in view(client.view, src)))
 		return FALSE
@@ -490,7 +490,7 @@
   */
 /mob/verb/mode()
 	set name = "Использовать предмет в руке"
-	set category = "Object"
+	set category = "ОБЪЕКТ"
 	set src = usr
 
 	if(ismecha(loc))
@@ -688,13 +688,13 @@
 /mob/Stat()
 	..()
 
-	if(statpanel("Game"))
+	if(statpanel("ИГРА"))
 		if(SSshuttle.emergency)
 			var/ETA = SSshuttle.emergency.getModeStr()
 			if(ETA)
 				stat("[ETA]", "[SSshuttle.emergency.getTimerStr()]")
 
-	if(statpanel("Status"))
+	if(statpanel("СЕРВЕР"))
 		if (client)
 			stat("Пинг:", "[round(client.lastping, 1)]мс (Средний: [round(client.avgping, 1)]мс)")
 		stat("Карта:", "[SSmapping.config?.map_name || "Загрузка..."]")
@@ -733,7 +733,7 @@
 				for(var/datum/controller/subsystem/SS in Master.subsystems)
 					SS.stat_entry()
 			GLOB.cameranet.stat_entry()
-		if(statpanel("Tickets"))
+		if(statpanel("ТИКЕТЫ"))
 			GLOB.ahelp_tickets.stat_entry()
 		if(length(GLOB.sdql2_queries))
 			if(statpanel("SDQL2"))

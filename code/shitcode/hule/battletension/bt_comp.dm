@@ -164,7 +164,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 /client/verb/customize_battletension()
 	set name = " #️⃣ Настроить Battle Tension"
 	set desc = "Allows for advanced prikol immersion."
-	set category = "Preferences"
+	set category = "НАСТРОЙКИ"
 
 	var/list/genres = list(PRIKOL, TECHNO, TOUHOU, MORTAL, NAZIST)
 	var/settings

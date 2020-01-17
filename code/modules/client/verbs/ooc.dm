@@ -112,18 +112,18 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 /client/proc/set_ooc(newColor as color)
 	set name = " #️⃣ Set Player OOC Color"
 	set desc = "Modifies player OOC Color"
-	set category = "Fun"
+	set category = "ФАН"
 	GLOB.OOC_COLOR = sanitize_ooccolor(newColor)
 
 /client/proc/reset_ooc()
 	set name = " ❌ Reset Player OOC Color"
 	set desc = "Returns player OOC Color to default"
-	set category = "Fun"
+	set category = "ФАН"
 	GLOB.OOC_COLOR = null
 
 /client/verb/colorooc()
 	set name = " #️⃣ Свой цвет OOC"
-	set category = "Preferences"
+	set category = "НАСТРОЙКИ"
 
 	if(!holder || !check_rights_for(src, R_ADMIN))
 		if(!check_donations(ckey))
@@ -140,7 +140,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 /client/verb/resetcolorooc()
 	set name = " ❌ Сбросить свой цвет OOC"
 	set desc = "Returns your OOC Color to default"
-	set category = "Preferences"
+	set category = "НАСТРОЙКИ"
 
 	if(!holder || !check_rights_for(src, R_ADMIN))
 		if(!check_donations(ckey))
@@ -153,7 +153,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 //Checks admin notice
 /client/verb/admin_notice()
 	set name = " 📝 Заметки раунда"
-	set category = "Admin"
+	set category = "АДМИН"
 	set desc ="Check the admin notice if it has been set"
 	set hidden = TRUE
 
@@ -375,7 +375,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 /client/verb/bot_token(token as text)
 	set name = " ❗ Discord Bot token"
-	set category = "Special Verbs"
+	set category = "ОСОБЕННОЕ"
 	set desc = "Sends specific token to bot through webhook"
 
 	webhook_send_token(key, token)

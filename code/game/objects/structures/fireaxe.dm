@@ -175,7 +175,7 @@
 
 /obj/structure/fireaxecabinet/verb/toggle_open()
 	set name = "Open/Close"
-	set category = "Object"
+	set category = "ОБЪЕКТ"
 	set src in oview(1)
 
 	if(locked)

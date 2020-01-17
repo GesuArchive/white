@@ -493,7 +493,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	adminhelp(msg)
 
 /client/verb/adminhelp(msg as text)
-	set category = "Admin"
+	set category = "АДМИН"
 	set name = " ❗ Adminhelp"
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems

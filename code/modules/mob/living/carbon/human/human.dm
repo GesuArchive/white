@@ -56,7 +56,7 @@
 /mob/living/carbon/human/Stat()
 	..()
 
-	if(statpanel("Game"))
+	if(statpanel("ИГРА"))
 		//stat(null, "Взаимодействие: [a_intent]")
 		//stat(null, "Режим перемещения: [m_intent]")
 		if (internal)

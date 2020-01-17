@@ -45,7 +45,7 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 /mob/dead/Stat()
 	..()
 
-	if(!statpanel("Game"))
+	if(!statpanel("ИГРА"))
 		return
 	stat("Режим:", "[SSticker.hide_mode ? "Secret" : "[GLOB.master_mode]"]")
 

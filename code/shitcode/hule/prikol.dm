@@ -73,7 +73,7 @@ GLOBAL_LIST_EMPTY(frabbers)
 			playsound(T,'code/shitcode/hule/SFX/csSFX/holyshit.wav', 150, 5, pressure_affected = FALSE)
 
 /client/proc/toggle_prikol()
-	set category = "Fun"
+	set category = "ФАН"
 	set name = "Toggle P.R.I.K.O.L"
 
 /*

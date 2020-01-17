@@ -18,7 +18,7 @@
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, toggle_tooltip_up)()
 	set name = " 🔄 Название предметов"
-	set category = "Preferences"
+	set category = "НАСТРОЙКИ"
 	set desc = "Имена предметов"
 	usr.client.prefs.toggles ^= TOOLTIP_USER_UP
 	usr.client.prefs.save_preferences()
@@ -33,7 +33,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, toggle_tooltip_up)()
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, toggle_tooltip_pos)()
 	set name = " 🔄 Позиция названий предметов"
-	set category = "Preferences"
+	set category = "НАСТРОЙКИ"
 	set desc = "Позиция имён предметов"
 	usr.client.prefs.toggles ^= TOOLTIP_USER_POS
 	usr.client.prefs.save_preferences()
