@@ -40,7 +40,7 @@ GLOBAL_LIST_EMPTY(frabbers)
 	if(!GLOB.prikol_mode || owner.mind.antag_datums || force_enable) //пиздец уебищно выглядит лень придумывать другое
 		var/count = FALSE
 		for(var/datum/antagonist/A in owner.mind.antag_datums)
-			if(istype(A, /datum/antagonist/traitor) && /datum/objective/hijack in A.objectives)
+			if(istype(A, /datum/antagonist/traitor) && (/datum/objective/hijack in A.objectives))
 				count = TRUE
 			else if(istype(A, /datum/antagonist/nukeop))
 				count = TRUE
