@@ -304,7 +304,7 @@
 
 /obj/item/slime_extract/darkblue
 	name = "тёмно-синий slime extract"
-	icon_state = "darkblue slime extract"
+	icon_state = "dark blue slime extract"
 	effectmod = "chilling"
 	activate_reagents = list(/datum/reagent/toxin/plasma,/datum/reagent/water)
 
