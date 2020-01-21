@@ -37,8 +37,6 @@
 		to_chat(src, "<span class='rose bold'>Your new metacoin balance is [mc_count]!</span>")
 
 /client/proc/inc_metabalance(mc_count, ann=TRUE, reason=null)
-	if(mc_count >= 0)
-		return
 	var/datum/DBQuery/query_inc_metacoins = SSdbcore.NewQuery("UPDATE [format_table_name("player")] SET metacoins = metacoins + '[mc_count]' WHERE ckey = '[ckey]'")
 	query_inc_metacoins.warn_execute()
 	qdel(query_inc_metacoins)

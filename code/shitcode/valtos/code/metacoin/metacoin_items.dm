@@ -32,7 +32,7 @@
 	name = "ржака"
 	cost = 50
 	id = "rjaka"
-	enabled = FALSE
+	enabled = TRUE
 
 /datum/metacoin_shop_item/rjaka/after_buy(client/C)
 	to_chat(C, "<span class='notice'>Произошла ржака!</span>")
