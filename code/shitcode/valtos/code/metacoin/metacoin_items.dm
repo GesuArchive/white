@@ -36,7 +36,7 @@
 
 /datum/metacoin_shop_item/rjaka/after_buy(client/C)
 	to_chat(C, "<span class='notice'>Произошла ржака!</span>")
-	playsound(src,'code/shitcode/hule/SFX/rjach.ogg', 200, 7, pressure_affected = FALSE)
+	playsound(C.mob.loc,'code/shitcode/hule/SFX/rjach.ogg', 200, 7, pressure_affected = FALSE)
 
 /datum/metacoin_shop_item/only_one //you can only buy this item once
 	name = "only one"
