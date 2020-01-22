@@ -2,6 +2,9 @@
 	if(!text)
 		return
 
+	if (prob(15))
+		sound = 'sound/ai/cumttention.ogg'
+
 	var/announcement
 
 	//announcement += "<hr class='veryalert'>"
