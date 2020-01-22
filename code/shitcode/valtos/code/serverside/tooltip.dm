@@ -1,6 +1,6 @@
 /client/MouseEntered(object, location)
     ..()
-    if(istype(object, /atom) && !istype(object, /turf/closed/indestructible/splashscreen) && !(prefs.toggles & TOOLTIP_USER_UP))
+    if(istype(object, /atom) && !istype(object, /turf/closed/indestructible/splashscreen) && (prefs.toggles & TOOLTIP_USER_UP))
         var/atom/A = object
         if(mob.hud_used.tooltip)
             var/obj_name = A.name
@@ -16,22 +16,22 @@
 	layer = 23
 	plane = 23
 
-TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, toggle_tooltip_up)()
+TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_up)()
 	set name = " 🔄 Название предметов"
 	set category = "НАСТРОЙКИ"
 	set desc = "Имена предметов"
 	usr.client.prefs.toggles ^= TOOLTIP_USER_UP
 	usr.client.prefs.save_preferences()
 	if(usr.client.prefs.toggles & TOOLTIP_USER_UP)
-		to_chat(usr, "Я не буду видеть названия предметов.")
-	else
 		to_chat(usr, "Я буду видеть названия предметов.")
+	else
+		to_chat(usr, "Я не буду видеть названия предметов.")
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Tooltip Up", "[usr.client.prefs.toggles & TOOLTIP_USER_UP ? "Вкл" : "Выкл"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/verbs/menu/Settings/toggle_tooltip_up/Get_checked(client/C)
 	return C.prefs.toggles & TOOLTIP_USER_UP
 
-TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, toggle_tooltip_pos)()
+TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_pos)()
 	set name = " 🔄 Позиция названий предметов"
 	set category = "НАСТРОЙКИ"
 	set desc = "Позиция имён предметов"

@@ -98,7 +98,8 @@
 
 			if(C.holder && C.holder.fakekey)
 				Lines += "\t[C.holder.fakekey] - ([round(C.avgping, 1)]мс)"
-
+			else if (C.holder)
+				Lines += "\t<b>[C.key]</b> - ([round(C.avgping, 1)]мс)"
 			else
 				Lines += "\t[C.key] - ([round(C.avgping, 1)]мс)"
 

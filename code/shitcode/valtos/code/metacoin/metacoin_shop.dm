@@ -11,7 +11,7 @@ GLOBAL_LIST_EMPTY(metacoin_shop_items_list)
 
 /client/verb/metacoin_shop()
 	set category = "ОСОБЕННОЕ"
-	set name = "Мета Магазин"
+	set name = " ❗ Мета Магазин"
 	set desc="The shop for buying things with [CONFIG_GET(string/metacurrency_name)]s!"
 	var/metacoins = src.get_metabalance()
 	src.update_metacoin_items()
@@ -28,10 +28,10 @@ GLOBAL_LIST_EMPTY(metacoin_shop_items_list)
 		init_metacoin_shop_items_list()
 	for(var/datum/metacoin_shop_item/I in GLOB.metacoin_shop_items_list)
 		if (I.enabled)
-			body += "<div class='item [(I.id in src.metacoin_items) ? "disabled" : ""]' onclick='window.location=\"?metacoin_buy=[I.id]\"'><div class='icon-wrapper'>[I.get_icon(src)]</div><div style='text-align:center;user-select:none; -ms-user-select:none;'>[I.name]</div><div style='text-align:center;font-weight:bold;font-size:18px;user-select:none; -ms-user-select:none;'>[I.cost]bc</div></div>"
+			body += "<div class='item [(I.id in src.metacoin_items) ? "disabled" : ""]' onclick='window.location=\"?metacoin_buy=[I.id]\"'><div class='icon-wrapper'>[I.get_icon(src)]</div><div style='text-align:center;user-select:none; -ms-user-select:none;'>[I.name]</div><div style='text-align:center;font-weight:bold;font-size:18px;user-select:none; -ms-user-select:none;'>[I.cost] МК</div></div>"
 	body += "</div>"
 	body += "<br></body>"
-	var/datum/browser/popup = new(usr, "metacoinshop-[REF(src)]", "<div style='font-size: 20px;' align='center'>Welcome to the [CONFIG_GET(string/metacurrency_name)] Shop!</div>", 700, 500)
+	var/datum/browser/popup = new(usr, "metacoinshop-[REF(src)]", "<div style='font-size: 20px;' align='center'>Это же магазин на метавалюте!</div>", 700, 500)
 	popup.set_content(body)
 	popup.open(0)
 

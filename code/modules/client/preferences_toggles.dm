@@ -235,7 +235,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Sound, toggle_announcement_sound)()
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Stop Self Sounds")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
-TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, listen_ooc)()
+TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Chat, listen_ooc)()
 	set name = " 🔄 OOC"
 	set category = "НАСТРОЙКИ"
 	set desc = "Show OOC Chat"
@@ -246,8 +246,8 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, listen_ooc)()
 /datum/verbs/menu/Settings/listen_ooc/Get_checked(client/C)
 	return C.prefs.chat_toggles & CHAT_OOC
 
-TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, listen_bank_card)()
-	set name = " 🔄 Входящие обновления"
+TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, listen_bank_card)()
+	set name = " 🔄 Входящие платежи"
 	set category = "НАСТРОЙКИ"
 	set desc = "Show or hide updates to your income"
 	usr.client.prefs.chat_toggles ^= CHAT_BANKCARD
