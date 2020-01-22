@@ -243,7 +243,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Chat, listen_ooc)()
 	usr.client.prefs.save_preferences()
 	to_chat(usr, "You will [(usr.client.prefs.chat_toggles & CHAT_OOC) ? "now" : "no longer"] see messages on the OOC channel.")
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Seeing OOC", "[usr.client.prefs.chat_toggles & CHAT_OOC ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-/datum/verbs/menu/Settings/listen_ooc/Get_checked(client/C)
+/datum/verbs/menu/Settings/Chat/listen_ooc/Get_checked(client/C)
 	return C.prefs.chat_toggles & CHAT_OOC
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, listen_bank_card)()
@@ -254,7 +254,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, listen_bank_card)()
 	usr.client.prefs.save_preferences()
 	to_chat(usr, "You will [(usr.client.prefs.chat_toggles & CHAT_BANKCARD) ? "now" : "no longer"] be notified when you get paid.")
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Income Notifications", "[(usr.client.prefs.chat_toggles & CHAT_BANKCARD) ? "Enabled" : "Disabled"]"))
-/datum/verbs/menu/Settings/listen_bank_card/Get_checked(client/C)
+/datum/verbs/menu/Settings/Game/listen_bank_card/Get_checked(client/C)
 	return C.prefs.chat_toggles & CHAT_BANKCARD
 
 

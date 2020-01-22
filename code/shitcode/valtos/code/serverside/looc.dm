@@ -29,7 +29,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Chat, listen_looc)()
 	to_chat(usr, "You will [(usr.client.prefs.chat_toggles & CHAT_LOOC) ? "now" : "no longer"] see messages on the LOOC channel.")
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, "Toggle Seeing LOOC|[usr.client.prefs.chat_toggles & CHAT_LOOC]") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/datum/verbs/menu/Settings/listen_looc/Get_checked(client/C)
+/datum/verbs/menu/Settings/Chat/listen_looc/Get_checked(client/C)
 	return C.prefs.chat_toggles & CHAT_LOOC
 
 /client/verb/looc(msg as text)
