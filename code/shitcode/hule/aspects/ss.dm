@@ -12,6 +12,7 @@ SUBSYSTEM_DEF(aspects)
 	var/list/aspects = list()
 
 	var/datum/round_aspect/current_aspect
+	var/datum/round_aspect/forced_aspect
 
 /datum/controller/subsystem/aspects/Initialize()
 	for(var/item in typesof(/datum/round_aspect))
@@ -24,7 +25,10 @@ SUBSYSTEM_DEF(aspects)
 	..("CA:[ca_name]")
 
 /datum/controller/subsystem/aspects/proc/run_aspect()
-	current_aspect = pickweight(aspects)
+	if(!forced_aspect)
+		current_aspect = pickweight(aspects)
+	else
+		current_aspect = forced_aspect
 	current_aspect.run_aspect()
 	ca_name = current_aspect.name
 	ca_desc = current_aspect.desc
