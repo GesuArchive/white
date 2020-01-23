@@ -1126,7 +1126,7 @@
 		if(!check_rights(R_SPAWN))
 			return
 
-		if(!check_rights(R_PERMISSIONS) && !is_centcom_level(usr.z))
+		if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
 			return
 
 		var/mob/living/L = locate(href_list["revive"])
@@ -1594,25 +1594,35 @@
 	else if(href_list["create_object"])
 		if(!check_rights(R_SPAWN))
 			return
+		if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
+			return
 		return create_object(usr)
 
 	else if(href_list["quick_create_object"])
 		if(!check_rights(R_SPAWN))
+			return
+		if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
 			return
 		return quick_create_object(usr)
 
 	else if(href_list["create_turf"])
 		if(!check_rights(R_SPAWN))
 			return
+		if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
+			return
 		return create_turf(usr)
 
 	else if(href_list["create_mob"])
 		if(!check_rights(R_SPAWN))
 			return
+		if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
+			return
 		return create_mob(usr)
 
 	else if(href_list["dupe_marked_datum"])
 		if(!check_rights(R_SPAWN))
+			return
+		if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
 			return
 		return DuplicateObject(marked_datum, perfectcopy=1, newloc=get_turf(usr))
 
@@ -1620,7 +1630,7 @@
 		if(!check_rights(R_SPAWN))
 			return
 
-		if(!check_rights(R_PERMISSIONS) && !is_centcom_level(usr.z))
+		if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
 			return
 
 		var/atom/loc = usr.loc

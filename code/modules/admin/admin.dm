@@ -701,6 +701,9 @@
 	if(!check_rights(R_SPAWN) || !object)
 		return
 
+	if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
+		return
+
 	var/list/preparsed = splittext(object,":")
 	var/path = preparsed[1]
 	var/amount = 1
@@ -730,6 +733,9 @@
 	if(!check_rights(R_SPAWN))
 		return
 
+	if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
+		return
+
 	var/chosen = pick_closest_path(object)
 	if(!chosen)
 		return
@@ -752,6 +758,9 @@
 	set name = "Spawn Cargo"
 
 	if(!check_rights(R_SPAWN))
+		return
+
+	if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
 		return
 
 	var/chosen = pick_closest_path(object, make_types_fancy(subtypesof(/datum/supply_pack)))
@@ -958,6 +967,9 @@
 
 	//this is the exact two check rights checks required to edit a ckey with vv.
 	if (!check_rights(R_VAREDIT,0) || !check_rights(R_SPAWN|R_DEBUG,0))
+		return FALSE
+
+	if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
 		return FALSE
 
 	if (!frommob.ckey)
