@@ -55,7 +55,7 @@
 		C.inc_metabalance(cost, reason="Не выбран аспект.")
 		return
 	to_chat(C, "<span class='notice'>Выбрано [sel_aspect]! Будет запущено, если только кто-то не воспользуется возможностью ещё.</span>")
-	SSaspects.forced_aspect = sel_aspect
+	SSaspects.forced_aspect = new sel_aspect
 
 /datum/metacoin_shop_item/only_one //you can only buy this item once
 	name = "only one"
