@@ -14,7 +14,7 @@
 			inc_metabalance(METACOIN_NOTSURVIVE_REWARD, reason="Я пытался...")
 
 /client/proc/process_greentext()
-	inc_metabalance(METACOIN_GREENTEXT_REWARD, reason="Гринтекст!")
+	inc_metabalance(METACOIN_GREENTEXT_REWARD, reason="Задача выполнена!")
 
 /client/proc/process_ten_minute_living()
 	inc_metabalance(METACOIN_TENMINUTELIVING_REWARD, FALSE)
@@ -42,9 +42,9 @@
 	qdel(query_inc_metacoins)
 	if(ann)
 		if(reason)
-			to_chat(src, "<span class='rose bold'>[abs(mc_count)] [CONFIG_GET(string/metacurrency_name)]\s были [mc_count >= 0 ? "пополнены на моём аккаунте" : "сняты с моего аккаунта"]! Причина: [reason]</span>")
+			to_chat(src, "<span class='rose bold'>[reason] [mc_count >= 0 ? "Получено" : "Потеряно"] [abs(mc_count)] МетаКоин!</span>")
 		else
-			to_chat(src, "<span class='rose bold'>[abs(mc_count)] [CONFIG_GET(string/metacurrency_name)]\s были [mc_count >= 0 ? "пополнены на моём аккаунте" : "сняты с моего аккаунта"] your account!</span>")
+			to_chat(src, "<span class='rose bold'>[mc_count >= 0 ? "Получено" : "Потеряно"] [abs(mc_count)] МетаКоин!</span>")
 
 
 

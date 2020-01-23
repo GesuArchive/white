@@ -1,14 +1,13 @@
-/// Rewarded when you complete all your objectives as a traitor
-#define METACOIN_GREENTEXT_REWARD        50
-/// Rewarded when you earn a medal
-#define METACOIN_MEDAL_REWARD            25
-/// Rewarded when you complete a crew objective
-#define METACOIN_CO_REWARD				 10
-/// Rewarded when you escape on the shuttle
-#define METACOIN_ESCAPE_REWARD           7
-/// Rewarded when you survive the round
-#define METACOIN_SURVIVE_REWARD          5
-/// Rewarded when you don't survive the round, but stick around till the end
-#define METACOIN_NOTSURVIVE_REWARD       2
-/// Rewarded when you are alive and active for 10 minutes
-#define METACOIN_TENMINUTELIVING_REWARD  1
+// Положительные награды
+#define METACOIN_GREENTEXT_REWARD        50 // за гринтекст
+#define METACOIN_ESCAPE_REWARD           7  // за побег со станции
+#define METACOIN_SURVIVE_REWARD          5  // за выживание в раунде
+#define METACOIN_NOTSURVIVE_REWARD       2  // за смерть, если дождался конца раунда
+#define METACOIN_TENMINUTELIVING_REWARD  1  // за каждые 10 минут жизни
+
+// Отрицательные награды
+#define METACOIN_SUPERDEATH_REWARD      -5  // смерть от суперматерии
+#define METACOIN_BADWORDS_REWARD        -9  // сказал плохое слово
+#define METACOIN_NUKEDEATH_REWARD       -15 // смерть от ядерной бомбы
+#define METACOIN_SUICIDE_REWARD      	-20 // суицид
+#define METACOIN_CHASM_REWARD 			-25 // падение в пропасть
