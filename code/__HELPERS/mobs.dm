@@ -181,7 +181,7 @@ GLOBAL_LIST_EMPTY(species_list)
 	if(!user || !target)
 		return 0
 
-	if(ishuman(user))
+	if(ishuman(user) && time != 0)
 		var/mob/living/carbon/human/H = user
 		time = FLOOR((time/(H.dstats[MOB_INT] + H.dstats[MOB_DEX])) * 20, 1)
 
