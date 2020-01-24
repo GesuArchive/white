@@ -76,8 +76,9 @@
 				if(!(damagetype & (BRUTELOSS | FIRELOSS | TOXLOSS | OXYLOSS) ))
 					adjustOxyLoss(max(200 - getToxLoss() - getFireLoss() - getBruteLoss() - getOxyLoss(), 0))
 
-				death(FALSE)
-				ghostize(FALSE)	// Disallows reentering body and disassociates mind
+				spawn(5)
+					death(FALSE)
+					ghostize(FALSE)	// Disallows reentering body and disassociates mind
 
 				return
 
