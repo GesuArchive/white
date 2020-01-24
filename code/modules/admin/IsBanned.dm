@@ -13,17 +13,17 @@
 			return FALSE
 		log_access("Failed Login (invalid data): [key] [address]-[computer_id]")
 		return list("reason"="invalid login data", "desc"="Error: Could not check ban status, Please try again. Error message: Your computer provided invalid or blank information to the server on connection (byond username, IP, and Computer ID.) Provided information for reference: Username:'[key]' IP:'[address]' Computer ID:'[computer_id]'. (If you continue to get this error, please restart byond or contact byond support.)")
-	
+
 	if (type == "world")
 		return ..() //shunt world topic banchecks to purely to byond's internal ban system
-		
+
 	var/admin = FALSE
 	var/ckey = ckey(key)
-	
+
 	var/client/C = GLOB.directory[ckey]
 	if (C && ckey == C.ckey && computer_id == C.computer_id && address == C.address)
 		return //don't recheck connected clients.
-		
+
 	//IsBanned can get re-called on a user in certain situations, this prevents that leading to repeated messages to admins.
 	var/static/list/checkedckeys = list()
 	//magic voodo to check for a key in a list while also adding that key to the list without having to do two associated lookups
@@ -88,7 +88,7 @@
 				var/expires = "Навсегда."
 				if(i["expiration_time"])
 					expires = "Блокировка на [DisplayTimeText(text2num(i["duration"]) MINUTES)] заканчивается в [i["expiration_time"]]."
-				var/desc = {"Доступ запрещён, ([i["key"]]). Метка: [i["reason"]]. Блокировка #[i["id"]]) выдана [i["admin_key"]] в [i["bantime"]] во время раунда [i["round_id"]]. [expires]"}
+				var/desc = {"Доступ запрещён, ([i["key"]]). Метка: [html_decode(i["reason"])]. Блокировка #[i["id"]]) выдана [i["admin_key"]] в [i["bantime"]] во время раунда [i["round_id"]]. [expires]"}
 				log_access("Failed Login: [key] [computer_id] [address] - Banned (#[i["id"]])")
 				return list("reason"="Banned","desc"="[desc]")
 	if (admin)
@@ -211,7 +211,7 @@
 		if (C) //user is already connected!.
 			to_chat(C, "Возможно у вас проблемы. Если повторилось, то @Valtos#7828 поможет решить проблему.", confidential=TRUE)
 
-		var/desc = "\nПопробуйте лучше, ([bannedckey]). Метка:\n[ban["message"]]\nВыдан [ban["admin"]]\n"
+		var/desc = "\nПопробуйте лучше, ([bannedckey]). Метка:\n[html_decode(ban["message"])]\nВыдан [ban["admin"]]\n"
 		. = list("reason" = "Stickyban", "desc" = desc)
 		log_access("Failed Login: [key] [computer_id] [address] - StickyBanned [ban["message"]] Target Username: [bannedckey] Placed by [ban["admin"]]")
 
