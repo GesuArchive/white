@@ -49,15 +49,35 @@
 /datum/metacoin_shop_item/force_aspect/buy(client/C)
 	if (SSticker.current_state == GAME_STATE_SETTING_UP || SSticker.current_state == GAME_STATE_PLAYING || SSticker.current_state == GAME_STATE_FINISHED)
 		to_chat(C, "<span class='rose bold'>Слишком поздно! Доступно только перед началом раунда.</span>")
+		return
 	..()
 
 /datum/metacoin_shop_item/force_aspect/after_buy(client/C)
-	var/datum/round_aspect/sel_aspect = input("Выбирайте!", "Аспекты:", null, null) as null|anything in SSaspects.aspects
+	var/datum/round_aspect/sel_aspect = input("Аспекты:", "Выбирайте!", null, null) as null|anything in SSaspects.aspects
 	if(!sel_aspect)
 		C.inc_metabalance(cost, reason="Не выбран аспект.")
 		return
 	to_chat(C, "<span class='notice'>Выбрано <b>[sel_aspect]</b>! Будет выбран один из аспектов, которые могли выбрать ещё и другие.</span>")
 	SSaspects.forced_aspects[sel_aspect] = sel_aspect.weight
+
+/datum/metacoin_shop_item/purge_this_shit
+	name = "Фатальный сброс"
+	icon_state = "purge"
+	cost = 3000
+	id = "purge_this_shit"
+	enabled = TRUE
+
+/datum/metacoin_shop_item/purge_this_shit/buy(client/C)
+	var/fuck_everyone = alert(src,"Это действие приведёт обнулению ВСЕХ метакоинов. Ты уверен?","Очищение","Да","Нет")
+	if (fuck_everyone == "Да")
+		return ..()
+
+/datum/metacoin_shop_item/purge_this_shit/after_buy(client/C)
+	var/datum/DBQuery/purge_shit = SSdbcore.NewQuery("UPDATE [format_table_name("player")] SET metacoins = '0'")
+	purge_shit.warn_execute()
+	for(var/client/AAA in GLOB.clients)
+		AAA.update_metabalance_cache()
+	to_chat(world, "<BR><BR><BR><center><span class='big bold'>[C.ckey] уничтожает банк метакэша.</span></center><BR><BR><BR>")
 
 /datum/metacoin_shop_item/only_one //you can only buy this item once
 	name = "only one"
