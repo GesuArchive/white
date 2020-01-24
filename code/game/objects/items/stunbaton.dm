@@ -15,7 +15,7 @@
 	var/cooldown_check = 0
 
 	var/cooldown = (2.5 SECONDS)
-	var/stunforce = (20 SECONDS)
+	var/stunforce = (5 SECONDS)
 	var/turned_on = FALSE
 	var/obj/item/stock_parts/cell/cell
 	var/hitcost = 1000
@@ -183,7 +183,7 @@
 	L.Jitter(20)
 	L.confused = max(10, L.confused)
 	L.stuttering = max(8, L.stuttering)
-	L.adjustStaminaLoss(60)
+	L.adjustStaminaLoss(120)
 
 	SEND_SIGNAL(L, COMSIG_LIVING_MINOR_SHOCK)
 	addtimer(CALLBACK(src, .proc/apply_stun_effect_end, L), 2 SECONDS)
@@ -231,7 +231,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	force = 3
 	throwforce = 5
-	stunforce = (15 SECONDS)
+	stunforce = (5 SECONDS)
 	hitcost = 2000
 	throw_hit_chance = 10
 	slot_flags = ITEM_SLOT_BACK
