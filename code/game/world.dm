@@ -280,15 +280,13 @@ GLOBAL_VAR(restart_counter)
 		s += "[special_string]"
 
 	s += "<a href=\"https://discord.gg/BNUgzsT\"><big><b>[server_name]: Heavy Roleplay Server</b></big></br>"
-	s += "<img src=\"https://i.imgur.com/bO44hlT.png\"></a>"
+	s += "<img src=\"https://hub.station13.ru/o/?=[world.time]\"></a>"
 
 	var/players = GLOB.clients.len
 
 	s += "<b>Map:</b> [SSmapping.config?.map_name || "Loading..."]</br>"
 
 	s += "<b>Players:</b> [players]/33</br>"
-
-	s += "<b>Time:</b> [worldtime2text()]</br>"
 
 	if (!host && hostedby)
 		s += "<b>Host:</b> [hostedby]"
