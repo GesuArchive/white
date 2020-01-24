@@ -54,8 +54,8 @@
 	if(!sel_aspect)
 		C.inc_metabalance(cost, reason="Не выбран аспект.")
 		return
-	to_chat(C, "<span class='notice'>Выбрано <b>[sel_aspect]</b>! Будет запущено, если только кто-то не воспользуется возможностью ещё.</span>")
-	SSaspects.aspects[sel_aspect] = INFINITY // КОСТЫЛИ
+	to_chat(C, "<span class='notice'>Выбрано <b>[sel_aspect]</b>! Будет выбран один из аспектов, которые могли выбрать ещё и другие.</span>")
+	SSaspects.forced_aspects[sel_aspect] = sel_aspect.weight
 
 /datum/metacoin_shop_item/only_one //you can only buy this item once
 	name = "only one"
