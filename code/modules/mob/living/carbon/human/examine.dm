@@ -17,6 +17,12 @@
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
 
+	if(get_bodypart(BODY_ZONE_HEAD) && !skipface)
+		var/obj/item/bodypart/head/O = locate(/obj/item/bodypart/head) in bodyparts
+		if(O)
+			if(O.get_teeth() < O.max_teeth)
+				. += "<span class='warning'>Не хватает [O.max_teeth - O.get_teeth()] зубов!</span>"
+
 	if(pooed)
 		. += "<b>Невероятно, но [t_ego] одежда <font color='red'>ВСЯ В ГОВНЕ</font>.</b>"
 
