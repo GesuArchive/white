@@ -6,7 +6,7 @@
 	var/enabled = FALSE
 
 	//shat for icons
-	var/icon
+	var/icon = 'code/shitcode/valtos/icons/metacoin/items.dmi'
 	var/icon_state
 	var/icon_dir = 2
 
@@ -20,7 +20,7 @@
 		return
 	C.inc_metabalance(-cost, reason="Покупка.")
 	after_buy(C)
-	to_chat(C, "<span class='rose bold'>Покупаю [name] за [cost] метакоинов!</span>")
+	to_chat(C, "<span class='rose bold'>Покупаю [name] за [cost] метакэша!</span>")
 
 /datum/metacoin_shop_item/proc/after_buy(client/C)
 	//giving them the item they bought
@@ -30,6 +30,7 @@
 
 /datum/metacoin_shop_item/rjaka
 	name = "Ржака"
+	icon_state = "lul"
 	cost = 50
 	id = "rjaka"
 	enabled = TRUE
@@ -40,6 +41,7 @@
 
 /datum/metacoin_shop_item/force_aspect
 	name = "Выбрать аспект"
+	icon_state = "aspect"
 	cost = 200
 	id = "force_aspect"
 	enabled = TRUE

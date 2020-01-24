@@ -26,12 +26,17 @@
 		if(query_get_metacoins.NextRow())
 			mc_count = query_get_metacoins.item[1]
 
+	update_metabalance_cache()
 	qdel(query_get_metacoins)
 	return text2num(mc_count)
+
+/client/proc/update_metabalance_cache()
+	mc_cached = get_metabalance()
 
 /client/proc/set_metacoin_count(mc_count, ann=TRUE)
 	var/datum/DBQuery/query_set_metacoins = SSdbcore.NewQuery("UPDATE [format_table_name("player")] SET metacoins = '[mc_count]' WHERE ckey = '[ckey]'")
 	query_set_metacoins.warn_execute()
+	update_metabalance_cache()
 	qdel(query_set_metacoins)
 	if(ann)
 		to_chat(src, "<span class='rose bold'>Your new metacoin balance is [mc_count]!</span>")
@@ -39,12 +44,13 @@
 /client/proc/inc_metabalance(mc_count, ann=TRUE, reason=null)
 	var/datum/DBQuery/query_inc_metacoins = SSdbcore.NewQuery("UPDATE [format_table_name("player")] SET metacoins = metacoins + '[mc_count]' WHERE ckey = '[ckey]'")
 	query_inc_metacoins.warn_execute()
+	update_metabalance_cache()
 	qdel(query_inc_metacoins)
 	if(ann)
 		if(reason)
-			to_chat(src, "<span class='rose bold'>[reason] [mc_count >= 0 ? "Получено" : "Потеряно"] [abs(mc_count)] МетаКоин!</span>")
+			to_chat(src, "<span class='rose bold'>[reason] [mc_count >= 0 ? "Получено" : "Потеряно"] [abs(mc_count)] метакэша!</span>")
 		else
-			to_chat(src, "<span class='rose bold'>[mc_count >= 0 ? "Получено" : "Потеряно"] [abs(mc_count)] МетаКоин!</span>")
+			to_chat(src, "<span class='rose bold'>[mc_count >= 0 ? "Получено" : "Потеряно"] [abs(mc_count)] метакэша!</span>")
 
 
 
@@ -56,6 +62,7 @@
 /client
 	/// A cached list of "onlyone" metacoin items this client has bought.
 	var/list/metacoin_items = list()
+	var/mc_cached = 0
 
 /client/proc/update_metacoin_items()
 	metacoin_items = list()

@@ -31,7 +31,7 @@ GLOBAL_LIST_EMPTY(metacoin_shop_items_list)
 			body += "<div class='item [(I.id in src.metacoin_items) ? "disabled" : ""]' onclick='window.location=\"?metacoin_buy=[I.id]\"'><div class='icon-wrapper'>[I.get_icon(src)]</div><div style='text-align:center;user-select:none; -ms-user-select:none;'>[I.name]</div><div style='text-align:center;font-weight:bold;font-size:18px;user-select:none; -ms-user-select:none;'>[I.cost] МК</div></div>"
 	body += "</div>"
 	body += "<br></body>"
-	var/datum/browser/popup = new(usr, "metacoinshop-[REF(src)]", "<div style='font-size: 20px;' align='center'>Это же магазин на метавалюте!</div>", 700, 500)
+	var/datum/browser/popup = new(usr, "metacoinshop-[REF(src)]", "<div style='font-size: 20px;' align='center'>Это же магазин на метакэше!</div>", 700, 500)
 	popup.set_content(body)
 	popup.open(0)
 

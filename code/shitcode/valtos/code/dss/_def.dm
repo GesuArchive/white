@@ -327,4 +327,4 @@
 		stat("Выносливость:",   FLOOR(dstats["stamina"], 1))
 		stat("Интеллект:",      FLOOR(dstats["intelligence"], 1))
 		stat("Ловкость:",       FLOOR(dstats["dexterity"], 1))
-		stat("Сила воли:",      client.wpp)
+		stat("Метакэш:",      client.mc_cached)
