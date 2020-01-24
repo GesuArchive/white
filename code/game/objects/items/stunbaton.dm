@@ -15,7 +15,7 @@
 	var/cooldown_check = 0
 
 	var/cooldown = (2.5 SECONDS)
-	var/stunforce = (5 SECONDS)
+	var/stunforce = (20 SECONDS)
 	var/turned_on = FALSE
 	var/obj/item/stock_parts/cell/cell
 	var/hitcost = 1000
@@ -231,7 +231,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	force = 3
 	throwforce = 5
-	stunforce = (5 SECONDS)
+	stunforce = (15 SECONDS)
 	hitcost = 2000
 	throw_hit_chance = 10
 	slot_flags = ITEM_SLOT_BACK
