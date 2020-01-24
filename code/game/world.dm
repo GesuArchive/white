@@ -284,8 +284,6 @@ GLOBAL_VAR(restart_counter)
 
 	var/players = GLOB.clients.len
 
-	s += "<b>Map:</b> [SSmapping.config?.map_name || "Loading..."]</br>"
-
 	s += "<b>Players:</b> [players]/33</br>"
 
 	if (!host && hostedby)
