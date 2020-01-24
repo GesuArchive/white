@@ -36,6 +36,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/tgui_lock = TRUE
 	var/windowflashing = TRUE
 	var/toggles = TOGGLES_DEFAULT
+	var/w_toggles = W_TOGGLES_DEFAULT
 	var/db_flags
 	var/chat_toggles = TOGGLES_DEFAULT_CHAT
 	var/ghost_form = "ghost"
@@ -586,8 +587,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if (CONFIG_GET(string/default_view) != CONFIG_GET(string/default_view_square))
 				dat += "<b>Widescreen:</b> <a href='?_src_=prefs;preference=widescreenpref'>[widescreenpref ? "Enabled ([CONFIG_GET(string/default_view)])" : "Disabled ([CONFIG_GET(string/default_view_square)])"]</a><br>"
 
-			dat += "<b>Названия предметов:</b> <a href='?_src_=prefs;preference=tooltip_user'>[(toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл"]</a><br>"
-			dat += "<b>Позиция на экране:</b> <a href='?_src_=prefs;preference=tooltip_pos'>[(toggles & TOOLTIP_USER_POS) ? "Низ" : "Верх"]</a><br>"
+			dat += "<b>Названия предметов:</b> <a href='?_src_=prefs;preference=tooltip_user'>[(w_toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл"]</a><br>"
+			dat += "<b>Позиция на экране:</b> <a href='?_src_=prefs;preference=tooltip_pos'>[(w_toggles & TOOLTIP_USER_UP) ? "Низ" : "Верх"]</a><br>"
 			if (CONFIG_GET(flag/maprotation))
 				var/p_map = preferred_map
 				if (!p_map)
@@ -1699,10 +1700,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					parent.ToggleFullscreen()
 
 				if("tooltip_user")
-					toggles ^= TOOLTIP_USER_UP
+					w_toggles ^= TOOLTIP_USER_UP
 
 				if("tooltip_pos")
-					toggles ^= TOOLTIP_USER_POS
+					w_toggles ^= TOOLTIP_USER_POS
 
 				if("widescreenpref")
 					widescreenpref = !widescreenpref
