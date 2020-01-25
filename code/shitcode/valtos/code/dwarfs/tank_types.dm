@@ -6,7 +6,7 @@
 	icon_state = "dwarftank"
 	item_state = "dwarftank"
 	lefthand_file = 'code/shitcode/valtos/icons/lefthand.dmi'
-	righthand_file = 'code/shitcode/valtos/righthand.dmi'
+	righthand_file = 'code/shitcode/valtos/icons/righthand.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL

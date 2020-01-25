@@ -48,8 +48,8 @@
 	return ..()
 
 /datum/species/dwarf/on_species_gain(mob/living/carbon/human/C, datum/species/old_species, pref_load)
-	var/dwarf_hair = pick("Beard (Full)", "Beard (Dwarf)", "Beard (Very Long)")
-	C.facial_hairstyle = dwarf_hair
+	var/facial_dwarf_hair = pick("Beard (Full)", "Beard (Dwarf)", "Beard (Very Long)")
+	C.facial_hairstyle = facial_dwarf_hair
 	var/dwarf_hair = pick("Bald", "Skinhead", "Dandy Pompadour")
 	var/dwarf_beard = pick("Beard (Dwarf)") // you know it'd be cool if this actually worked with more than one beard
 	C.hairstyle = dwarf_hair
