@@ -505,3 +505,6 @@
 
 /datum/config_entry/string/metacurrency_name
 	config_entry_value = "MetaCoin"
+
+/datum/config_entry/flag/enable_demo
+	protection = CONFIG_ENTRY_LOCKED
