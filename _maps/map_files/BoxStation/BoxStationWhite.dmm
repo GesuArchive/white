@@ -2224,7 +2224,7 @@
 /area/maintenance/port/fore)
 "amD" = (
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -7920,7 +7920,7 @@
 /area/maintenance/starboard/fore)
 "aCm" = (
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -8523,12 +8523,12 @@
 /area/crew_quarters/dorms)
 "aDL" = (
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -9607,7 +9607,7 @@
 /area/ai_monitored/storage/eva)
 "aGk" = (
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -10282,7 +10282,7 @@
 	dir = 1
 	},
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -11953,7 +11953,7 @@
 /area/hallway/secondary/exit)
 "aOV" = (
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -14466,7 +14466,7 @@
 /area/science/research)
 "bal" = (
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -21814,7 +21814,7 @@
 /area/security/checkpoint/auxiliary)
 "bxN" = (
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -25813,7 +25813,7 @@
 /area/medical/virology)
 "bIK" = (
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -26616,7 +26616,7 @@
 /area/science/xenobiology)
 "bLd" = (
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -29529,7 +29529,7 @@
 	pixel_x = -22
 	},
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -31038,7 +31038,7 @@
 /area/medical/virology)
 "bZa" = (
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -36961,7 +36961,7 @@
 /area/maintenance/port/aft)
 "cAC" = (
 /obj/structure/sink/kitchen{
-	dir = 8;
+	dir = 4;
 	pixel_x = 11
 	},
 /turf/open/floor/plating,
