@@ -129,6 +129,11 @@
 
 	var/mob/living/carbon/human/H = user
 
+	if(H.dna.species.id == "dwarf")
+		to_chat(H, "<span class='warning'>Смотрю в зеркало и...</span>")
+		obj_break()
+		return
+
 	var/choice = input(user, "Something to change?", "Magical Grooming") as null|anything in list("name", "race", "gender", "hair", "eyes")
 
 	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))

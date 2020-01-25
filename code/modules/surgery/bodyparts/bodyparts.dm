@@ -288,7 +288,7 @@
 		C = source
 		if(!original_owner)
 			original_owner = source
-	else 
+	else
 		C = owner
 		if(original_owner && owner != original_owner) //Foreign limb
 			no_update = TRUE
@@ -410,6 +410,14 @@
 				limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
 			else
 				limb.icon_state = "[species_id]_[body_zone]"
+		// hippie start -- Hippie races (e.g. Avians)
+		if(should_draw_hippie)
+			limb.icon = 'code/shitcode/valtos/icons/dwarfs/mutant_bodyparts.dmi'
+			if(should_draw_gender)
+				limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
+			else
+				limb.icon_state = "[species_id]_[body_zone]"
+		// hippie end
 		if(aux_zone)
 			aux = image(limb.icon, "[species_id]_[aux_zone]", -aux_layer, image_dir)
 			. += aux
