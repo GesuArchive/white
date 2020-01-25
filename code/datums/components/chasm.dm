@@ -112,8 +112,7 @@
 			L.notransform = TRUE
 			L.Stun(200)
 			L.resting = TRUE
-			if (L.client)
-				L.client.inc_metabalance(METACOIN_CHASM_REWARD, reason="<b>АААААААААААААААААААААААААААААААААААААААААААА!!!</b>")
+			inc_metabalance(AM, METACOIN_CHASM_REWARD, reason="<b>АААААААААААААААААААААААААААААААААААААААААААА!!!</b>")
 
 		var/oldtransform = AM.transform
 		var/oldcolor = AM.color

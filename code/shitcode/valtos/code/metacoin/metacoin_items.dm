@@ -18,7 +18,7 @@
 	if (metacoins < cost)
 		to_chat(C, "<span class='rose bold'>Не хватает средст для покупки [name]!</span>")
 		return
-	C.inc_metabalance(-cost, reason="Покупка.")
+	inc_metabalance(C.mob, -cost, reason="Покупка.")
 	after_buy(C)
 	to_chat(C, "<span class='rose bold'>Покупаю [name] за [cost] метакэша!</span>")
 
@@ -55,7 +55,7 @@
 /datum/metacoin_shop_item/force_aspect/after_buy(client/C)
 	var/datum/round_aspect/sel_aspect = input("Аспекты:", "Выбирайте!", null, null) as null|anything in SSaspects.aspects
 	if(!sel_aspect)
-		C.inc_metabalance(cost, reason="Не выбран аспект.")
+		inc_metabalance(C.mob, cost, reason="Не выбран аспект.")
 		return
 	to_chat(C, "<span class='notice'>Выбрано <b>[sel_aspect]</b>! Будет выбран один из аспектов, которые могли выбрать ещё и другие.</span>")
 	SSaspects.forced_aspects[sel_aspect] = sel_aspect.weight

@@ -5,19 +5,19 @@
 		if(M.stat != DEAD && !isbrain(M))
 			if(EMERGENCY_ESCAPED_OR_ENDGAMED)
 				if(!M.onCentCom() && !M.onSyndieBase())
-					inc_metabalance(METACOIN_SURVIVE_REWARD, reason="Выжил.")
+					inc_metabalance(M, METACOIN_SURVIVE_REWARD, reason="Выжил.")
 				else
-					inc_metabalance(METACOIN_ESCAPE_REWARD, reason="Выжил и сбежал!")
+					inc_metabalance(M, METACOIN_ESCAPE_REWARD, reason="Выжил и сбежал!")
 			else
-				inc_metabalance(METACOIN_ESCAPE_REWARD, reason="Выжил.")
+				inc_metabalance(M, METACOIN_ESCAPE_REWARD, reason="Выжил.")
 		else
-			inc_metabalance(METACOIN_NOTSURVIVE_REWARD, reason="Я пытался...")
+			inc_metabalance(M, METACOIN_NOTSURVIVE_REWARD, reason="Я пытался...")
 
 /client/proc/process_greentext()
-	inc_metabalance(METACOIN_GREENTEXT_REWARD, reason="Задача выполнена!")
+	inc_metabalance(mob, METACOIN_GREENTEXT_REWARD, reason="Задача выполнена!")
 
 /client/proc/process_ten_minute_living()
-	inc_metabalance(METACOIN_TENMINUTELIVING_REWARD, FALSE)
+	inc_metabalance(mob, METACOIN_TENMINUTELIVING_REWARD, FALSE)
 
 /client/proc/get_metabalance()
 	var/datum/DBQuery/query_get_metacoins = SSdbcore.NewQuery("SELECT metacoins FROM [format_table_name("player")] WHERE ckey = '[ckey]'")
@@ -40,16 +40,18 @@
 	if(ann)
 		to_chat(src, "<span class='rose bold'>Your new metacoin balance is [mc_count]!</span>")
 
-/client/proc/inc_metabalance(mc_count, ann=TRUE, reason=null)
-	var/datum/DBQuery/query_inc_metacoins = SSdbcore.NewQuery("UPDATE [format_table_name("player")] SET metacoins = metacoins + '[mc_count]' WHERE ckey = '[ckey]'")
+/proc/inc_metabalance(mob/M, mc_count, ann=TRUE, reason=null)
+	if(mc_count > 0 && !M.client)
+		return
+	var/datum/DBQuery/query_inc_metacoins = SSdbcore.NewQuery("UPDATE [format_table_name("player")] SET metacoins = metacoins + '[mc_count]' WHERE ckey = '[M.ckey]'")
 	query_inc_metacoins.warn_execute()
-	update_metabalance_cache()
+	M.client.update_metabalance_cache()
 	qdel(query_inc_metacoins)
 	if(ann)
 		if(reason)
-			to_chat(src, "<span class='rose bold'>[reason] [mc_count >= 0 ? "Получено" : "Потеряно"] [abs(mc_count)] метакэша!</span>")
+			to_chat(M, "<span class='rose bold'>[reason] [mc_count >= 0 ? "Получено" : "Потеряно"] [abs(mc_count)] метакэша!</span>")
 		else
-			to_chat(src, "<span class='rose bold'>[mc_count >= 0 ? "Получено" : "Потеряно"] [abs(mc_count)] метакэша!</span>")
+			to_chat(M, "<span class='rose bold'>[mc_count >= 0 ? "Получено" : "Потеряно"] [abs(mc_count)] метакэша!</span>")
 
 
 

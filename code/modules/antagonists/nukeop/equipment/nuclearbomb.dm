@@ -579,8 +579,7 @@
 	for(var/mob/M in GLOB.mob_list)
 		if(M.stat != DEAD && M.z == z)
 			M.gib()
-			if (M.client)
-				M.client.inc_metabalance(METACOIN_NUKEDEATH_REWARD, reason="Я не хочу так умере~")
+			inc_metabalance(M, METACOIN_NUKEDEATH_REWARD, reason="Я не хочу так умере~")
 
 /*
 This is here to make the tiles around the station mininuke change when it's armed.
