@@ -735,7 +735,6 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		AM.visible_message("<span class='danger'>\The [AM] slams into \the [src] inducing a resonance... [AM.p_their()] body starts to glow and burst into flames before flashing into dust!</span>",\
 		"<span class='userdanger'>You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
 		"<span class='hear'>You hear an unearthly noise as a wave of heat washes over you.</span>")
-		var/mob/living/carbon/human/M = AM
 		inc_metabalance(AM, METACOIN_SUPERDEATH_REWARD, reason="Умер ужасной смертью.")
 	else if(isobj(AM) && !iseffect(AM))
 		AM.visible_message("<span class='danger'>\The [AM] smacks into \the [src] and rapidly flashes to ash.</span>", null,\
