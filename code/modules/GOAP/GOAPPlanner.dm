@@ -28,7 +28,7 @@
 	plan_tree = BuildPossiblePlans(end, start, usable_actions)
 
 	if(!length(plan_tree))
-		to_chat(world, "plan_tree was null! REEE")
+		//to_chat(world, "plan_tree was null! REEE")
 		return null
 
 	//Cheapest path
@@ -80,7 +80,7 @@
 			var/datum/goap_action/GA = a
 			var/datum/goap_plan_node/parent = PEEKLIST(parent_stack)
 			if(!InState(GA.effects, parent.state, "usable_actions")) // this won't get us to the goal
-				to_chat(world, "DEBUG: [GA.name] was rejected!")
+				//to_chat(world, "DEBUG: [GA.name] was rejected!")
 				continue
 
 			//What does the world look like if we run this action?
@@ -95,20 +95,20 @@
 			//This node reaches the goal, add it, but keep going to find more plans
 			if(InState(current_state, end, "add_to_plan_tree"))
 				plan_end_nodes += node
-				to_chat(world, "DEBUG: planning finished, final node is: [node.action.name]")
+				//to_chat(world, "DEBUG: planning finished, final node is: [node.action.name]")
 			else
 				usable_actions -= GA //NOTE 2
 				parent_stack += node
 				actions_stack += usable_actions.Copy() //NOTE 1
 				depth++
-				to_chat(world, "DEBUG: tree depth is [depth], last node added was [node.action.name]")
+				//to_chat(world, "DEBUG: tree depth is [depth], last node added was [node.action.name]")
 				nodefound = TRUE
 			CHECK_TICK
 		if(!nodefound)
 			pop(parent_stack)
 			pop(actions_stack)
 			depth--
-			to_chat(world, "DEBUG: popped both stacks, depth is now [depth]")
+			//to_chat(world, "DEBUG: popped both stacks, depth is now [depth]")
 	return plan_end_nodes
 
 
