@@ -79,8 +79,8 @@
 	update_icon()
 
 /obj/item/gun/ballistic/automatic/wt550
-	name = "охранная автоматическая винтовка"
-	desc = "Устаревшее оружие. Использует патроны 4.6x30mm калибра и разработано "WT-550 Automatic Rifle"."
+	name = "WT-550"
+	desc = "Устаревшее оружие. Использует патроны 4.6x30mm калибра и разработано \"WT-550 Automatic Rifle\"."
 	icon_state = "wt550"
 	item_state = "arg"
 	mag_type = /obj/item/ammo_box/magazine/wt550m9
