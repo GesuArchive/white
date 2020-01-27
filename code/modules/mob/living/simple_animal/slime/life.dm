@@ -224,7 +224,7 @@
 /mob/living/simple_animal/slime/proc/handle_nutrition()
 
 	if(docile) //God as my witness, I will never go hungry again
-		set_nutrition(400) //fuck you for using the base nutrition var
+		set_nutrition(700) //fuck you for using the base nutrition var
 		return
 
 	if(prob(15))
@@ -584,27 +584,27 @@
 
 /mob/living/simple_animal/slime/proc/get_max_nutrition() // Can't go above it
 	if (is_adult)
-		return 600
+		return 1200
 	else
-		return 500
+		return 1000
 
 /mob/living/simple_animal/slime/proc/get_grow_nutrition() // Above it we grow, below it we can eat
 	if (is_adult)
-		return 500
+		return 1000
 	else
-		return 400
+		return 800
 
 /mob/living/simple_animal/slime/proc/get_hunger_nutrition() // Below it we will always eat
 	if (is_adult)
-		return 400
+		return 800
 	else
-		return 300
+		return 600
 
 /mob/living/simple_animal/slime/proc/get_starve_nutrition() // Below it we will eat before everything else
 	if(is_adult)
-		return 300
+		return 600
 	else
-		return 200
+		return 500
 
 /mob/living/simple_animal/slime/proc/will_hunt(hunger = -1) // Check for being stopped from feeding and chasing
 	if (docile)
