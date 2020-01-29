@@ -336,7 +336,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 /obj/machinery/autodoc/update_icon()
 	cut_overlays()
 	add_overlay(top_overlay)
-	if(!(stat & (NOPOWER|BROKEN)))
+	if(!(machine_stat & (NOPOWER|BROKEN)))
 		if(in_use)
 			add_overlay("auto_doc_lights_working")
 		else

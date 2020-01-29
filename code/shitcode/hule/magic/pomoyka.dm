@@ -202,7 +202,7 @@
 				if(!(T in range(radius - 1, src)))
 					T.ChangeTurf(/turf/open/floor/plating/conc)
 					if(prob(20))
-						var/obj/M = safepick(musor)
+						var/obj/M = pick(musor)
 						new M(T)
 
 	else

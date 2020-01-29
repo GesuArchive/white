@@ -255,7 +255,7 @@
 				msg += "[t_on] [stun_absorption[i]["examine_message"]]\n"
 
 	if(just_sleeping)
-		msg += "[t_He] [t_is]n't responding to anything around [t_him] and seem[p_s()] to be asleep.\n"
+		msg += "[t_on] похоже спит. Гы.\n"
 
 	if(!appears_dead)
 		if(drunkenness && !skipface) //Drunkenness
