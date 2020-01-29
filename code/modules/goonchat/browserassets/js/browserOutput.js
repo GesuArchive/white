@@ -528,7 +528,7 @@ function ehjaxCallback(data) {
 
     } else if (data == 'roundrestart') {
         opts.restarting = true;
-        internalOutput('<div class="connectionClosed internal restarting">The connection has been closed because the server is restarting. Please wait while you automatically reconnect.</div>', 'internal');
+        internalOutput('<div class="connectionClosed internal restarting">Сервер перезагружается. Пожалуйста подождите.</div>', 'internal');
     } else if (data == 'stopMusic') {
         $('#adminMusic').prop('src', '');
     } else {
@@ -546,7 +546,7 @@ function ehjaxCallback(data) {
         if (data.clientData) {
             if (opts.restarting) {
                 opts.restarting = false;
-                $('.connectionClosed.restarting:not(.restored)').addClass('restored').text('The round restarted and you successfully reconnected!');
+                $('.connectionClosed.restarting:not(.restored)').addClass('restored').text('Успешно переподключились!');
             }
             if (!data.clientData.ckey && !data.clientData.ip && !data.clientData.compid) {
                 //TODO: Call shutdown perhaps
@@ -708,7 +708,7 @@ $(function() {
 				if (!opts.noResponse) { //Only actually append a message if the previous ping didn't also fail (to prevent spam)
 					opts.noResponse = true;
 					opts.noResponseCount++;
-					internalOutput('<div class="connectionClosed internal" data-count="'+opts.noResponseCount+'">Чат не обновляется. Попробуйте сделать File -> Reconnect, если только это не конец раунда.</div>', 'internal');
+					internalOutput('<div class="connectionClosed internal" data-count="'+opts.noResponseCount+'">Чат не обновляется. Попробуйте сделать File -> Reconnect, если только это не начало/конец раунда.</div>', 'internal');
 				}
 		} else if (opts.noResponse) { //Previous ping attempt failed ohno
 				$('.connectionClosed[data-count="'+opts.noResponseCount+'"]:not(.restored)').addClass('restored').text('Соединение восстановлено!');
