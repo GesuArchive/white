@@ -371,6 +371,7 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 
 /turf/open/floor/plating/asteroid/snow/centcom
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	plane = -1.9
 	temperature = 293.15
 
 /turf/open/floor/plating/asteroid/snow/centcom/New()

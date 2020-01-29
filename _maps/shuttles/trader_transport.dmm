@@ -20,7 +20,7 @@
 	height = 5;
 	id = "trader_transport";
 	name = "trader transport shuttle";
-	preferred_direction = 1;
+	port_direction = 2;
 	width = 5
 	},
 /obj/machinery/door/airlock/centcom{

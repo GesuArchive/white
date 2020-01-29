@@ -633,3 +633,7 @@
 /datum/map_template/shuttle/cargo/partyhard
 	suffix = "partyhard"
 	name = "cargo ferry (PartyHard)"
+
+/datum/map_template/shuttle/mining/unit
+	suffix = "unit"
+	name = "mining shuttle (Unit)"
