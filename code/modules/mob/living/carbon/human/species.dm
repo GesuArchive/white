@@ -568,7 +568,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				standing += mutable_appearance(socks.icon, socks.icon_state, -BODY_LAYER)
 
 	if(standing.len)
-		H.overlays_standing[BODY_LAYER] = standing
+		spawn(5)
+			H.overlays_standing[BODY_LAYER] = standing
 
 	H.apply_overlay(BODY_LAYER)
 	handle_mutant_bodyparts(H)
