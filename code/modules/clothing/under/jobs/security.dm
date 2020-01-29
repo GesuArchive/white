@@ -53,6 +53,14 @@
 	item_state = "officerblueclothes"
 	alt_covers_chest = TRUE
 
+/obj/item/clothing/under/rank/security/constable
+	name = "constable outfit"
+	desc = "A british looking outfit."
+	icon_state = "constable"
+	item_state = "constable"
+	can_adjust = FALSE
+	custom_price = 200
+
 /obj/item/clothing/under/rank/security/warden
 	name = "костюм секьюрити"
 	desc = "Формальный защитный костюм для офицеров в комплекте с пряжкой на поясе Нанотрейзен."

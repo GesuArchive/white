@@ -31,7 +31,7 @@
 		return
 
 	var/obj/item/stack/material = I
-	if (istype(I, /obj/item/stack))
+	if (istype(material))
 		if(material?.tableVariant)
 			if(material.get_amount() < 1)
 				to_chat(user, "<span class='warning'>Надо бы [material.name] чтобы закончить это!</span>")
@@ -39,7 +39,7 @@
 			to_chat(user, "<span class='notice'>Начинаю добавлять [material] к [src]...</span>")
 			if(do_after(user, 20, target = src) && material.use(1))
 				make_new_table(material.tableVariant)
-		else
+		else if(istype(material, /obj/item/stack/sheet))
 			if(material.get_amount() < 1)
 				to_chat(user, "<span class='warning'>Надо бы больше металла!</span>")
 				return

@@ -29,6 +29,7 @@
 	desc = "Пара довольно простых деревянных сандалий."
 	name = "тапочки"
 	icon_state = "wizard"
+	custom_materials = list(/datum/material/wood = MINERAL_MATERIAL_AMOUNT * 0.5)
 	strip_delay = 5
 	equip_delay_other = 50
 	permeability_coefficient = 0.9

@@ -989,6 +989,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(H.back)
 				if(SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_CAN_INSERT, I, H, TRUE))
 					return TRUE
+		if(ITEM_SLOT_LHANDSTORE)
+			var/obj/item/held_left = H.get_held_items_for_side(LEFT_HANDS)
+			if(held_left)
+				if(SEND_SIGNAL(held_left, COMSIG_TRY_STORAGE_CAN_INSERT, I, H, TRUE))
+					return TRUE
 			return FALSE
 	return FALSE //Unsupported slot
 
@@ -1356,7 +1361,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 						if(O.flags_1 & ON_BORDER_1 && O.dir == turn(shove_dir, 180) && O.density)
 							directional_blocked = TRUE
 							break
-			if((!target_table && !target_collateral_human) || directional_blocked)
+			if((!target_table && !target_collateral_human && !target_disposal_bin) || directional_blocked)
 				target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
 				user.visible_message("<span class='danger'>[user.name] толкает [target.name], повалив на пол!</span>",
 					"<span class='danger'>Меня толкает [target.name], повалив на пол!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, user)
