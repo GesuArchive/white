@@ -25,7 +25,7 @@ SUBSYSTEM_DEF(aspects)
 	..("CA:[ca_name]")
 
 /datum/controller/subsystem/aspects/proc/run_aspect()
-	if(forced_aspects)
+	if(forced_aspects.len)
 		current_aspect = pickweight(forced_aspects)
 	else
 		current_aspect = pickweight(aspects)
