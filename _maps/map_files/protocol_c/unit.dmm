@@ -5971,7 +5971,7 @@
 /turf/open/floor/plasteel/dark,
 /area/science/robotics/lab)
 "vg" = (
-/obj/structure/closet/emcloset,
+/obj/machinery/computer/shuttle/unit_shuttle,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "vi" = (
@@ -7959,6 +7959,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
+/obj/machinery/computer/shuttle/ferry/request/trader,
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
 "Ds" = (
@@ -12094,6 +12095,13 @@
 /obj/effect/landmark/observer_start,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"TC" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/computer/shuttle/mining/common,
+/turf/open/floor/plasteel,
+/area/hallway/primary/port)
 "TD" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/landmark/blobstart,
@@ -26989,7 +26997,7 @@ Ek
 Ek
 Ek
 yw
-CS
+TC
 Lz
 yw
 Ek

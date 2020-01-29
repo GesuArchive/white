@@ -31,12 +31,13 @@
 	id = "mining";
 	name = "mining shuttle";
 	port_direction = 4;
+	preferred_direction = 4;
 	width = 5
 	},
-/obj/structure/shuttle/engine/propulsion{
-	dir = 4
+/obj/machinery/door/airlock/shuttle{
+	name = "Mining Shuttle Airlock"
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 "u" = (
 /obj/structure/chair/comfy/shuttle{
@@ -58,11 +59,10 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 "Q" = (
-/obj/effect/spawner/structure/window/shuttle,
-/obj/structure/shuttle/engine/heater{
-	dir = 8
+/obj/structure/shuttle/engine/propulsion{
+	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/closed/wall/mineral/titanium,
 /area/shuttle/mining)
 "U" = (
 /obj/machinery/door/airlock/shuttle{
@@ -153,14 +153,14 @@ V
 (5,1,1) = {"
 p
 Y
-Q
+d
 W
 p
 "}
 (6,1,1) = {"
-p
+Q
 p
 r
 p
-p
+Q
 "}
