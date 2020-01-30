@@ -468,11 +468,11 @@ function toHex(n) {
 function swap() { //Swap to darkmode
     if (opts.darkmode) {
         document.getElementById("sheetofstyles").href = "browserOutput_white.css";
-        opts.darkmode = false;
+        opts.darkmode = true;
         runByond('?_src_=chat&proc=swaptolightmode');
     } else {
         document.getElementById("sheetofstyles").href = "browserOutput.css";
-        opts.darkmode = true;
+        opts.darkmode = false;
         runByond('?_src_=chat&proc=swaptodarkmode');
     }
     setCookie('darkmode', (opts.darkmode ? 'true' : 'false'), 365);
