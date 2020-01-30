@@ -33,7 +33,7 @@ var opts = {
 	'wasd': false, //Is the user in wasd mode?
 	'priorChatHeight': 0, //Thing for height-resizing detection
 	'restarting': false, //Is the round restarting?
-	'darkmode':true, //Are we using darkmode? If not WHY ARE YOU LIVING IN 2009???
+	'darkmode': true, //Are we using darkmode? If not WHY ARE YOU LIVING IN 2009???
 
 	//Options menu
 	'selectedSubLoop': null, //Contains the interval loop for closing the selected sub menu
@@ -468,14 +468,14 @@ function toHex(n) {
 function swap() { //Swap to darkmode
     if (opts.darkmode) {
         document.getElementById("sheetofstyles").href = "browserOutput_white.css";
-        opts.darkmode = true;
+        opts.darkmode = false;
         runByond('?_src_=chat&proc=swaptolightmode');
     } else {
         document.getElementById("sheetofstyles").href = "browserOutput.css";
-        opts.darkmode = false;
+        opts.darkmode = true;
         runByond('?_src_=chat&proc=swaptodarkmode');
     }
-    setCookie('darkmode', (opts.darkmode ? 'true' : 'false'), 365);
+    setCookie('darkmode', (opts.darkmode ? 'false' : 'true'), 365);
 }
 
 function handleClientData(ckey, ip, compid) {
