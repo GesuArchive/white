@@ -38,6 +38,10 @@
 	color = "#D4D4D4"
 	alpha = 50
 
+/obj/effect/turf_decal/tile/dark
+	name = "dark corner"
+	color = "#222222"
+
 /obj/effect/turf_decal/trimline
 	layer = TURF_PLATING_DECAL_LAYER
 	alpha = 110

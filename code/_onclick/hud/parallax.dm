@@ -28,6 +28,7 @@
 		if(SSparallax.random_layer)
 			C.parallax_layers_cached += new SSparallax.random_layer
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_3(null, C.view)
+		C.parallax_layers_cached += new /obj/screen/parallax_layer/clouds(null, C.view)
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/ice_surface(null, C.view)
 
 	C.parallax_layers = C.parallax_layers_cached.Copy()
@@ -376,10 +377,23 @@
 /obj/screen/parallax_layer/ice_surface
 	icon_state = "ice_surface"
 	blend_mode = BLEND_OVERLAY
-	speed = 1
+	speed = 0.1
 	layer = 5
 
 /obj/screen/parallax_layer/ice_surface/update_status(mob/M)
+	var/turf/T = get_turf(M)
+	if(is_centcom_level(T.z))
+		invisibility = 0
+	else
+		invisibility = INVISIBILITY_ABSTRACT
+
+/obj/screen/parallax_layer/clouds
+	icon_state = "clouds"
+	blend_mode = BLEND_OVERLAY
+	speed = 3
+	layer = 6
+
+/obj/screen/parallax_layer/clouds/update_status(mob/M)
 	var/turf/T = get_turf(M)
 	if(is_centcom_level(T.z))
 		invisibility = 0
