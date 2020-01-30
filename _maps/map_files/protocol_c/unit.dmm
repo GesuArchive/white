@@ -1555,7 +1555,7 @@
 "dC" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Research Maintenance Access";
-	req_access_txt = "12"
+	req_access_txt = "8"
 	},
 /turf/open/floor/plating,
 /area/science/lab)
@@ -1767,6 +1767,13 @@
 /obj/machinery/telecomms/server/presets/medical,
 /turf/open/floor/plasteel/dark/telecomms,
 /area/tcommsat/server)
+"eB" = (
+/obj/machinery/atmospherics/pipe/simple{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel/dark,
+/area/science/server)
 "eC" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
@@ -2162,6 +2169,9 @@
 "fR" = (
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/heads/hor)
+"fU" = (
+/turf/open/floor/plasteel/dark/telecomms,
+/area/science/server)
 "fV" = (
 /obj/machinery/airalarm{
 	dir = 4;
@@ -4733,6 +4743,14 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel,
 /area/security/main)
+"qf" = (
+/obj/machinery/door/airlock/command{
+	name = "Server Room";
+	req_access_txt = "30"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/science/server)
 "qg" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/open/floor/plasteel/cafeteria,
@@ -4784,6 +4802,16 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/department/engine/atmos)
+"qu" = (
+/obj/machinery/computer/rdservercontrol{
+	dir = 1
+	},
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
+/turf/open/floor/plasteel/dark,
+/area/science/server)
 "qx" = (
 /obj/docking_port/stationary{
 	dir = 8;
@@ -5281,6 +5309,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/medical/chemistry)
+"so" = (
+/obj/machinery/effector{
+	workdir = "down"
+	},
+/turf/closed/wall/r_wall,
+/area/engine/gravity_generator)
 "sp" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
@@ -5947,6 +5981,16 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/white,
 /area/science/nanite)
+"uN" = (
+/obj/machinery/atmospherics/pipe/manifold{
+	dir = 4
+	},
+/obj/machinery/door/airlock/command/glass{
+	name = "Server Room";
+	req_access_txt = "30"
+	},
+/turf/open/floor/plasteel/dark,
+/area/science/server)
 "uO" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -6319,7 +6363,7 @@
 "wm" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Research Maintenance Access";
-	req_access_txt = "12"
+	req_access_txt = "8"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -6505,6 +6549,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/science/mixing)
+"xd" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel/dark,
+/area/science/server)
 "xe" = (
 /turf/closed/wall/r_wall,
 /area/crew_quarters/heads/cmo)
@@ -8775,6 +8823,13 @@
 /obj/effect/spawner/lootdrop/grille_or_trash,
 /turf/open/floor/plating,
 /area/maintenance/department/cargo)
+"Gk" = (
+/obj/machinery/atmospherics/pipe/simple{
+	dir = 6
+	},
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/science/server)
 "Gm" = (
 /obj/structure/closet/crate,
 /obj/effect/decal/cleanable/dirt,
@@ -9134,10 +9189,23 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/hallway/primary/fore)
+"HM" = (
+/obj/structure/table,
+/obj/item/folder/white,
+/obj/item/pen,
+/obj/machinery/power/apc{
+	areastring = "/area/science/server";
+	dir = 1;
+	name = "Server Room APC";
+	pixel_y = 23
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel/dark,
+/area/science/server)
 "HN" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Research Maintenance Access";
-	req_access_txt = "12"
+	req_access_txt = "8"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -9969,6 +10037,13 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/lobby)
+"KN" = (
+/obj/machinery/atmospherics/pipe/simple{
+	dir = 5
+	},
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/science/server)
 "KO" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{
 	dir = 1
@@ -10336,6 +10411,15 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/mixing)
+"LR" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
+	dir = 8;
+	external_pressure_bound = 120;
+	name = "server vent"
+	},
+/obj/machinery/rnd/server,
+/turf/open/floor/circuit/telecomms/server,
+/area/science/server)
 "LT" = (
 /obj/structure/closet/wardrobe/grey,
 /turf/open/floor/plasteel,
@@ -10818,6 +10902,10 @@
 /obj/item/multitool,
 /turf/open/floor/plasteel,
 /area/quartermaster/office)
+"NL" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on,
+/turf/open/floor/plasteel/dark,
+/area/science/server)
 "NM" = (
 /obj/machinery/atmospherics/components/trinary/filter/atmos,
 /turf/open/floor/plating,
@@ -11925,6 +12013,20 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
+"Sq" = (
+/obj/machinery/atmospherics/pipe/simple{
+	dir = 5
+	},
+/obj/structure/chair/office/light,
+/obj/machinery/airalarm/server{
+	dir = 4;
+	pixel_x = -22
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/science/server)
 "Ss" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/brig{
@@ -11953,6 +12055,21 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/department/medical)
+"Sz" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 8;
+	external_pressure_bound = 140;
+	name = "server vent";
+	pressure_checks = 0
+	},
+/obj/machinery/camera{
+	c_tag = "Server Room";
+	network = list("ss13","rd");
+	pixel_x = 22
+	},
+/obj/machinery/rnd/server,
+/turf/open/floor/circuit/telecomms/server,
+/area/science/server)
 "SB" = (
 /obj/machinery/conveyor_switch/oneway{
 	dir = 8;
@@ -12708,7 +12825,7 @@
 "Vv" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Research Maintenance Access";
-	req_access_txt = "12"
+	req_access_txt = "8"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -12931,9 +13048,8 @@
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/hos)
 "Wl" = (
-/obj/machinery/effector,
-/turf/closed/wall,
-/area/engine/atmos)
+/turf/closed/wall/r_wall,
+/area/science/server)
 "Wn" = (
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor2";
@@ -13598,7 +13714,7 @@
 "YS" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Research Maintenance Access";
-	req_access_txt = "12"
+	req_access_txt = "8"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -20582,7 +20698,7 @@ am
 am
 be
 am
-am
+so
 FK
 Ce
 Qb
@@ -20886,7 +21002,7 @@ EG
 nD
 Ce
 Ce
-Wl
+Ce
 Ce
 Ce
 Af
@@ -28165,11 +28281,11 @@ Ek
 Ek
 Ek
 Ek
-Ek
-Ek
-Ek
-Ek
-GY
+Wl
+Wl
+Wl
+Wl
+Wl
 GY
 GY
 Lq
@@ -28317,11 +28433,11 @@ Ek
 Ek
 Ek
 Ek
-Ek
-Ek
-Ek
-Ek
-GY
+Wl
+NL
+Sq
+qu
+Wl
 AQ
 tF
 vp
@@ -28469,11 +28585,11 @@ Ek
 Ek
 Ek
 Ek
-Ek
-Ek
-Ek
-Ek
-WD
+Wl
+HM
+eB
+xd
+qf
 Lu
 GM
 GM
@@ -28621,11 +28737,11 @@ Ek
 Ek
 Ek
 Ek
-LC
-LC
-LC
-LC
-GY
+Wl
+Gk
+uN
+KN
+Wl
 Lu
 GM
 Ym
@@ -28773,11 +28889,11 @@ Ek
 Ek
 Ek
 Ek
-LC
-Al
-Al
-Al
-GY
+Wl
+Sz
+fU
+LR
+Wl
 mS
 GM
 ze
