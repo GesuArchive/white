@@ -5,7 +5,7 @@
 	name = "wall"
 	desc = "Здоровенный кусок металла, который служит для разделения помещений."
 	anchored = TRUE
-	icon = 'icons/turf/walls/wall.dmi'
+	icon = 'icons/turf/walls/baywall.dmi'
 	icon_state = "wall"
 	layer = LOW_OBJ_LAYER
 	density = TRUE
@@ -138,7 +138,7 @@
 /obj/structure/falsewall/reinforced
 	name = "reinforced wall"
 	desc = "Здоровенный укреплённый кусок металла, который служит для разделения помещений."
-	icon = 'icons/turf/walls/reinforced_wall.dmi'
+	icon = 'icons/turf/walls/rbaywall.dmi'
 	icon_state = "r_wall"
 	walltype = /turf/closed/wall/r_wall
 	mineral = /obj/item/stack/sheet/plasteel

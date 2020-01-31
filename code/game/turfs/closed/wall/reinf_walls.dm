@@ -1,7 +1,7 @@
 /turf/closed/wall/r_wall
 	name = "армированная стена"
 	desc = "Здоровенный укреплённый кусок металла, который служит для разделения помещений."
-	icon = 'icons/turf/walls/reinforced_wall.dmi'
+	icon = 'icons/turf/walls/rbaywall.dmi'
 	icon_state = "r_wall"
 	opacity = 1
 	density = TRUE
