@@ -86,8 +86,8 @@
 		holder.update_icon()
 
 /obj/item/assembly/timer/ui_status(mob/user)
-	if(is_secured(user))
-		return ..()
+	//if(is_secured(user)) // бомбы
+	//	return ..()
 	return UI_CLOSE
 
 /obj/item/assembly/timer/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, \

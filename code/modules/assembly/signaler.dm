@@ -65,8 +65,8 @@
 	return
 
 /obj/item/assembly/signaler/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = 0, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
-	if(!is_secured(user))
-		return
+	//if(!is_secured(user)) // а как ты в бомбе засекьюришь
+	//	return
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
 		var/ui_width = 280
