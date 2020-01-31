@@ -355,7 +355,7 @@
 
 /obj/screen/parallax_layer/planet/update_status(mob/M)
 	var/turf/T = get_turf(M)
-	if(is_station_level(T.z))
+	if(is_station_level(T.z) || (is_station_level(T.z) && T.z == 3))
 		invisibility = 0
 	else
 		invisibility = INVISIBILITY_ABSTRACT
@@ -382,7 +382,7 @@
 
 /obj/screen/parallax_layer/ice_surface/update_status(mob/M)
 	var/turf/T = get_turf(M)
-	if(is_centcom_level(T.z))
+	if(is_centcom_level(T.z) || (is_station_level(T.z) && T.z == 3))
 		invisibility = 0
 	else
 		invisibility = INVISIBILITY_ABSTRACT
