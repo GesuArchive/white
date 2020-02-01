@@ -135,6 +135,12 @@ datum/quirk/fan_mime
 	lose_text = "<span class='danger'>Я начинаю делать такие шаги, словно варвар.</span>"
 	medical_record_text = "Ловкость пациента противоречит сильной возможности к скрытности."
 
+/datum/quirk/light_step/on_spawn()
+	var/datum/component/footstep/C = quirk_holder.GetComponent(/datum/component/footstep)
+	if(C)
+		C.volume *= 0.6
+		C.e_range -= 2
+
 /datum/quirk/musician
 	name = "Музыкант"
 	desc = "Я умеете настраивать музыкальные инструменты так, что мелодия будет снимать определенные негативные эффекты у окружающих и успокаивать душу."
