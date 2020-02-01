@@ -16,6 +16,7 @@
 	var/verb_ask = "спрашивает"
 	var/verb_exclaim = "восклицает"
 	var/verb_whisper = "шепчет"
+	var/verb_sing = "поёт"
 	var/verb_yell = "выкрикивает"
 	var/speech_span
 	var/inertia_dir = 0
