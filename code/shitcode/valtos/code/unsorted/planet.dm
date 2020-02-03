@@ -18,3 +18,48 @@
 /datum/map_template/shuttle/arrival/unit
 	suffix = "unit"
 	name = "arrival shuttle (Unit)"
+
+/turf/open/space/basic/planet
+	name = "открытое пространство"
+	icon = 'code/shitcode/valtos/icons/cliffs.dmi'
+	icon_state = "void"
+	baseturfs = /turf/open/space/basic/planet
+	flags_1 = NOJAUNT_1
+	explosion_block = INFINITY
+
+/turf/open/space/basic/planet/cliffs
+	name = "обрыв"
+	icon_state = "cliff1"
+
+/turf/open/space/basic/planet/Initialize()
+	. = ..()
+	add_overlay("snow_storm")
+
+/turf/open/space/basic/planet/cliffs/Initialize()
+	add_overlay(icon_state)
+	. = ..()
+
+/turf/open/space/basic/planet/Entered(atom/movable/AM, atom/OldLoc)
+	..()
+	if(!locate(/obj/structure/lattice) in src)
+		throw_atom(AM)
+
+/turf/open/space/basic/planet/proc/throw_atom(atom/movable/AM)
+	set waitfor = FALSE
+	if(!AM || istype(AM, /obj/docking_port))
+		return
+	if(AM.loc != src)
+		return
+	var/max = world.maxx-TRANSITIONEDGE
+	var/min = 1+TRANSITIONEDGE
+
+	var/_z = 4 // всё летит в планету нахуй
+	var/_x = rand(min,max)
+	var/_y = rand(min,max)
+
+	var/turf/T = locate(_x, _y, _z)
+	if(isliving(AM))
+		AM.apply_damage(rand(100, 200), BRUTE)
+		AM.Paralyze(120)
+		to_chat(AM, "<big>БЛЯТЬ!</big>")
+	AM.forceMove(T)

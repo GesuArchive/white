@@ -209,20 +209,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/fore)
-"aw" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/plasteel/dark,
-/area/engine/gravity_generator)
 "ax" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -10836,6 +10822,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
+"JD" = (
+/obj/machinery/power/port_gen/pacman,
+/turf/open/floor/plating,
+/area/maintenance/department/security)
 "JF" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/south,
@@ -24092,7 +24082,7 @@ PE
 ky
 ME
 eU
-tN
+JD
 PE
 oi
 eU
