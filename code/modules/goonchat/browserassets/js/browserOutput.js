@@ -741,7 +741,7 @@ $(function() {
 		$("body").css('line-height', savedConfig.lineheight);
 		internalOutput('<span class="internal boldnshit">Загружена высота строки: '+savedConfig.lineheight+'</span>', 'internal');
 	}
-	if(savedConfig.sdarkmode == 'true'){
+	if(savedConfig.sdarkmode == 'false'){
 		swap();
 	}
 	if (savedConfig.spingDisabled) {
