@@ -256,8 +256,12 @@ SUBSYSTEM_DEF(mapping)
 
 	// load mining
 	if(config.minetype == "lavaland")
-		LoadGroup(FailedZs, "Lavaland", "map_files/Mining", "Lavaland_mini.dmm", default_traits = ZTRAITS_LAVALAND)
-		current_mining = "lavaland"
+		if(SSmapping.config.map_name == "Unit Station")
+			LoadGroup(FailedZs, "Lavaland", "map_files/Mining", "Lavaland_mini.dmm", default_traits = ZTRAITS_LAVALAND)
+			current_mining = "lavaland"
+		else
+			LoadGroup(FailedZs, "Lavaland", "map_files/Mining", "Lavaland.dmm", default_traits = ZTRAITS_LAVALAND)
+			current_mining = "lavaland"
 		//LoadGroup(FailedZs, "Gensokyo", "map_files/Mining", "Gensokyo.dmm", default_traits = ZTRAITS_GENSOKYO)
 		//current_mining = "gensokyo"
 
