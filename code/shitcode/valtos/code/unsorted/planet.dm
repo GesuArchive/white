@@ -26,22 +26,19 @@
 	baseturfs = /turf/open/space/basic/planet
 	flags_1 = NOJAUNT_1
 	explosion_block = INFINITY
-	var/sicon_state = ""
 
 /turf/open/space/basic/planet/cliffs
 	name = "обрыв"
 	icon_state = "cliff1"
+	plane = FLOOR_PLANE
 
 /turf/open/space/basic/planet/Initialize()
-	sicon_state = icon_state
 	. = ..()
 	add_overlay("snow_storm")
 
 /turf/open/space/basic/planet/cliffs/Initialize()
 	. = ..()
-	cut_overlays("snow_storm")
-	add_overlay(sicon_state)
-	add_overlay("snow_storm")
+	icon_state = initial(icon_state)
 
 /turf/open/space/basic/planet/Entered(atom/movable/AM, atom/OldLoc)
 	..()
