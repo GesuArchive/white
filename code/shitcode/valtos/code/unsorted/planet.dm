@@ -36,8 +36,10 @@
 	add_overlay("snow_storm")
 
 /turf/open/space/basic/planet/cliffs/Initialize()
-	add_overlay(icon_state)
 	. = ..()
+	cut_overlays("snow_storm")
+	add_overlay(icon_state)
+	add_overlay("snow_storm")
 
 /turf/open/space/basic/planet/Entered(atom/movable/AM, atom/OldLoc)
 	..()
@@ -59,7 +61,7 @@
 
 	var/turf/T = locate(_x, _y, _z)
 	if(isliving(AM))
-		var/mob/living/M
+		var/mob/living/M = AM
 		M.apply_damage(rand(100, 200), BRUTE)
 		M.Paralyze(120)
 		to_chat(M, "<big>БЛЯТЬ!</big>")
