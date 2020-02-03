@@ -32,13 +32,15 @@
 	icon_state = "cliff1"
 	plane = FLOOR_PLANE
 
-/turf/open/space/basic/planet/Initialize()
-	. = ..()
-	add_overlay("snow_storm")
-
 /turf/open/space/basic/planet/cliffs/Initialize()
+	aaaa = icon_state
 	. = ..()
-	icon_state = initial(icon_state)
+	icon_state = aaaa
+
+/area/centcom/outdoors/Initialize()
+	. = ..()
+	icon = 'code/shitcode/valtos/icons/cliffs.dmi'
+	icon_state = "snow_storm"
 
 /turf/open/space/basic/planet/Entered(atom/movable/AM, atom/OldLoc)
 	..()
