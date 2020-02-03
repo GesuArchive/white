@@ -30,10 +30,12 @@
 /turf/open/space/basic/planet/cliffs
 	name = "обрыв"
 	icon_state = "cliff1"
+	var/sicon_state = ""
 
 /turf/open/space/basic/planet/Initialize()
+	sicon_state = icon_state
 	. = ..()
-	icon_state = initial(icon_state)
+	icon_state = sicon_state
 	add_overlay("snow_storm")
 
 /turf/open/space/basic/planet/cliffs/Initialize()
