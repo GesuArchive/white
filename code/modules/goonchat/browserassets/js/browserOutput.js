@@ -466,14 +466,14 @@ function toHex(n) {
 }
 
 function swap() { //Swap to darkmode
-	if (!opts.lightmode){
-		document.getElementById("sheetofstyles").href = "browserOutput_white.css";
-		opts.lightmode = false;
-		runByond('?_src_=chat&proc=swaptolightmode');
-	} else {
+	if (opts.lightmode){
 		document.getElementById("sheetofstyles").href = "browserOutput.css";
-		opts.lightmode = true;
+		opts.lightmode = false;
 		runByond('?_src_=chat&proc=swaptodarkmode');
+	} else {
+		document.getElementById("sheetofstyles").href = "browserOutput_white.css";
+		opts.lightmode = true;
+		runByond('?_src_=chat&proc=swaptolightmode');
 	}
 	setCookie('lightmode', (opts.lightmode ? 'true' : 'false'), 365);
 }
