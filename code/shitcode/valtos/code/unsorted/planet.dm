@@ -59,7 +59,8 @@
 
 	var/turf/T = locate(_x, _y, _z)
 	if(isliving(AM))
-		AM.apply_damage(rand(100, 200), BRUTE)
-		AM.Paralyze(120)
-		to_chat(AM, "<big>БЛЯТЬ!</big>")
+		var/mob/living/M
+		M.apply_damage(rand(100, 200), BRUTE)
+		M.Paralyze(120)
+		to_chat(M, "<big>БЛЯТЬ!</big>")
 	AM.forceMove(T)
