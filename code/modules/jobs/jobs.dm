@@ -57,11 +57,6 @@ GLOBAL_LIST_INIT(security_positions, list(
 	"Russian Officer",
 	"Kazakhstan Officer"))
 
-
-GLOBAL_LIST_INIT(special_positions, list(
-	"Trader"))
-
-
 GLOBAL_LIST_INIT(nonhuman_positions, list(
 	"AI",
 	"Cyborg",
@@ -80,7 +75,7 @@ GLOBAL_LIST_INIT(position_categories, list(
 ))
 
 GLOBAL_LIST_INIT(exp_jobsmap, list(
-	EXP_TYPE_CREW = list("titles" = command_positions | engineering_positions | medical_positions | science_positions | supply_positions | security_positions | civilian_positions | special_positions | list("AI","Cyborg")), // crew positions
+	EXP_TYPE_CREW = list("titles" = command_positions | engineering_positions | medical_positions | science_positions | supply_positions | security_positions | civilian_positions | list("AI","Cyborg")), // crew positions
 	EXP_TYPE_COMMAND = list("titles" = command_positions),
 	EXP_TYPE_ENGINEERING = list("titles" = engineering_positions),
 	EXP_TYPE_MEDICAL = list("titles" = medical_positions),
