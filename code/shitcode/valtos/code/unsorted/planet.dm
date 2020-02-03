@@ -27,6 +27,10 @@
 	flags_1 = NOJAUNT_1
 	explosion_block = INFINITY
 
+/turf/open/space/basic/planet/Initialize()
+	. = ..()
+	icon_state = "void"
+
 /turf/open/space/basic/planet/cliffs
 	name = "обрыв"
 	icon_state = "cliff1"
@@ -42,6 +46,9 @@
 	. = ..()
 	icon = 'code/shitcode/valtos/icons/cliffs.dmi'
 	icon_state = "snow_storm"
+
+/area/centcom/outdoors/update_icon_state()
+	return
 
 /turf/open/space/basic/planet/Entered(atom/movable/AM, atom/OldLoc)
 	..()
