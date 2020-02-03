@@ -475,7 +475,7 @@ function swap() { //Swap to darkmode
 		opts.lightmode = true;
 		runByond('?_src_=chat&proc=swaptolightmode');
 	}
-	setCookie('lightmode', (opts.lightmode ? 'false' : 'true'), 365);
+	setCookie('lightmode', (opts.lightmode ? 'true' : 'false'), 365);
 }
 
 function handleClientData(ckey, ip, compid) {
@@ -741,8 +741,8 @@ $(function() {
 		$("body").css('line-height', savedConfig.lineheight);
 		internalOutput('<span class="internal boldnshit">Загружена высота строки: '+savedConfig.lineheight+'</span>', 'internal');
 	}
-	if(savedConfig.slightmode == 'true'){
-		swap();
+	if(savedConfig.slightmode == 'false'){
+		runByond('?_src_=chat&proc=swaptodarkmode');
 	}
 	if (savedConfig.spingDisabled) {
 		if (savedConfig.spingDisabled == 'true') {
