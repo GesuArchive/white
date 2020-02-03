@@ -32,6 +32,13 @@
 /obj/item/multitool,
 /turf/open/floor/circuit,
 /area/teleporter)
+"o" = (
+/obj/machinery/gravity_generator/main/station/admin{
+	density = 0;
+	invisibility = 101
+	},
+/turf/open/floor/plating/asteroid/snow/centcom,
+/area/awaymission/snowdin/outside)
 "r" = (
 /turf/open/floor/plating/snowed/smoothed,
 /area/awaymission/snowdin/outside)
@@ -91,6 +98,13 @@
 /obj/machinery/computer/teleporter,
 /turf/open/floor/plasteel/dark,
 /area/teleporter)
+"W" = (
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
+/turf/open/floor/plating/snowed/smoothed,
+/area/awaymission/snowdin/outside)
 
 (1,1,1) = {"
 A
@@ -16995,15 +17009,15 @@ A
 A
 A
 r
-r
-r
-r
-r
-r
-r
-r
-r
-r
+W
+W
+W
+W
+W
+W
+W
+W
+W
 r
 A
 A
@@ -17147,7 +17161,7 @@ A
 A
 A
 M
-r
+W
 a
 a
 a
@@ -17155,7 +17169,7 @@ a
 a
 a
 a
-r
+W
 M
 A
 r
@@ -17299,7 +17313,7 @@ A
 A
 A
 M
-r
+W
 a
 P
 s
@@ -17307,7 +17321,7 @@ I
 s
 z
 a
-r
+W
 M
 A
 r
@@ -17451,7 +17465,7 @@ A
 A
 A
 M
-r
+W
 a
 s
 g
@@ -17459,7 +17473,7 @@ U
 g
 s
 a
-r
+W
 M
 A
 A
@@ -17603,7 +17617,7 @@ A
 A
 A
 M
-r
+W
 a
 K
 d
@@ -17611,7 +17625,7 @@ G
 b
 g
 f
-r
+W
 r
 r
 r
@@ -17755,7 +17769,7 @@ A
 A
 A
 M
-r
+W
 a
 N
 g
@@ -17763,7 +17777,7 @@ c
 g
 s
 a
-r
+W
 M
 A
 A
@@ -17907,7 +17921,7 @@ A
 A
 A
 M
-r
+W
 a
 k
 s
@@ -17915,7 +17929,7 @@ g
 s
 T
 a
-r
+W
 M
 A
 A
@@ -18059,7 +18073,7 @@ A
 A
 A
 M
-r
+W
 a
 a
 a
@@ -18067,7 +18081,7 @@ a
 a
 a
 a
-r
+W
 M
 A
 A
@@ -18211,15 +18225,15 @@ A
 r
 A
 r
-r
-r
-r
-r
-r
-r
-r
-r
-r
+W
+W
+W
+W
+W
+W
+W
+W
+W
 r
 A
 r
@@ -22741,7 +22755,7 @@ A
 A
 "}
 (150,1,1) = {"
-A
+o
 A
 A
 A
