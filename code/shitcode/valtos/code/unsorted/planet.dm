@@ -33,6 +33,7 @@
 
 /turf/open/space/basic/planet/Initialize()
 	. = ..()
+	icon_state = initial(icon_state)
 	add_overlay("snow_storm")
 
 /turf/open/space/basic/planet/cliffs/Initialize()
