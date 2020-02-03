@@ -30,6 +30,7 @@
 /turf/open/space/basic/planet/cliffs
 	name = "обрыв"
 	icon_state = "cliff1"
+	var/aaaa = ""
 	plane = FLOOR_PLANE
 
 /turf/open/space/basic/planet/cliffs/Initialize()
