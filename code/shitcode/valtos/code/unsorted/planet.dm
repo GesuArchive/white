@@ -26,11 +26,11 @@
 	baseturfs = /turf/open/space/basic/planet
 	flags_1 = NOJAUNT_1
 	explosion_block = INFINITY
+	var/sicon_state = ""
 
 /turf/open/space/basic/planet/cliffs
 	name = "обрыв"
 	icon_state = "cliff1"
-	var/sicon_state = ""
 
 /turf/open/space/basic/planet/Initialize()
 	sicon_state = icon_state
