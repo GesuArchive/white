@@ -46,6 +46,7 @@
 	. = ..()
 	icon = 'code/shitcode/valtos/icons/cliffs.dmi'
 	icon_state = "snow_storm"
+	layer = OPENSPACE_LAYER
 
 /area/centcom/outdoors/update_icon_state()
 	return
