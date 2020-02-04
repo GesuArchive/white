@@ -21,3 +21,11 @@
 	id = "sweetbrown"
 	results = list(/datum/reagent/drug/pupupipi = 4)
 	required_reagents = list(/datum/reagent/fuel = 3, /datum/reagent/consumable/nutriment = 1)
+
+//white
+
+/datum/chemical_reaction/labebium
+	name = "Labebium"
+	id = "labebium"
+	results = list(/datum/reagent/drug/labebium = 1)
+	required_reagents = list(/datum/reagent/toxin/poo = 8, /datum/reagent/drug/pupupipi = 1)

@@ -382,7 +382,7 @@
 	H.emote("me", 1, pick("делает глубокий вдох", "расслабляется"))
 
 /datum/reagent/drug/grape_blast/proc/cure_autism(mob/living/carbon/C)
-	to_chat(C, "<span class='notice'>По мере того, как наркотики уходят, я чувствую, что медленно возвращаюсь к реальности...</span>")
+	to_chat(C, "<span class='notice'>По мере того, как наркотики выходят, я чувствую, что медленно возвращаюсь к реальности...</span>")
 	C.drowsyness++ //We feel sleepy after going through that trip.
 	if(!HAS_TRAIT(C, TRAIT_DUMB))
 		C.derpspeech = 0
@@ -420,3 +420,106 @@
 	if(vary)
 		sound.frequency = rand(10000,70000)
 	SEND_SOUND(C.client, sound)
+
+// white
+
+/datum/reagent/drug/labebium
+	name = "Labebium"
+	description = "Пахнет интересно."
+	color = "#999922"
+	reagent_state = LIQUID
+	taste_description = "моча"
+	var/obj/effect/hallucination/simple/ovoshi/fruit
+	var/obj/effect/hallucination/simple/water/flood
+	var/list/trip_types = list("ovoshi")
+	var/tripsoundstarted = FALSE
+
+/datum/reagent/drug/labebium/on_mob_end_metabolize(mob/living/L)
+	stop_shit(L)
+	..()
+
+/datum/reagent/drug/labebium/proc/stop_shit(mob/living/carbon/C)
+	if(C && C.hud_used)
+		SEND_SOUND(C.client, null)
+		var/list/screens = list(C.hud_used.plane_masters["[FLOOR_PLANE]"], C.hud_used.plane_masters["[GAME_PLANE]"], C.hud_used.plane_masters["[LIGHTING_PLANE]"], C.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], C.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], C.hud_used.plane_masters["[PLANE_SPACE]"])
+		for(var/obj/screen/plane_master/whole_screen in screens)
+			animate(whole_screen, transform = matrix(), time = 200, easing = ELASTIC_EASING)
+			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 200) //reset filters
+			addtimer(CALLBACK(whole_screen, /obj/screen/plane_master/.proc/backdrop, C), 201) //reset backdrop filters so they reappear
+
+/datum/reagent/drug/labebium/proc/create_flood(mob/living/carbon/C)
+	var/turf/T = locate(C.x + rand(-10, 10), C.y + rand(-10, 10), C.z)
+	flood = new(T, C)
+
+/datum/reagent/drug/labebium/proc/create_ovosh(mob/living/carbon/C)
+	var/turf/T = locate(C.x + rand(-10, 10), C.y + rand(-10, 10), C.z)
+	fruit = new(T, C)
+
+/datum/reagent/drug/labebium/on_mob_life(mob/living/carbon/H)
+	if(!H && !H.hud_used)
+		return
+	var/high_message
+	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"], H.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], H.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], H.hud_used.plane_masters["[PLANE_SPACE]"])
+	switch(current_cycle)
+		if(1 to 20)
+			high_message = pick("БЛЯТЬ! ТОЛЬКО НЕ ОВОЩИ!!!")
+			if(prob(15))
+				H.dna.add_mutation(SMILE)
+			else if(prob(30))
+				H.derpspeech++
+			if(!tripsoundstarted)
+				var/sound/sound = sound('code/shitcode/valtos/sounds/lifeweb/cometodaddy.ogg')
+				sound.environment = 23
+				sound.volume = 100
+				SEND_SOUND(H.client, sound)
+				tripsoundstarted = TRUE
+			for(var/i = 1, i <= 30, i++)
+				if(prob(55))
+					create_ovosh(H)
+		if(31 to INFINITY)
+			if(prob(20) && (H.mobility_flags & MOBILITY_MOVE) && !ismovableatom(H.loc))
+				step(H, pick(GLOB.cardinals))
+			if(prob(35))
+				for(var/obj/screen/plane_master/whole_screen in screens)
+					whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = "WAVE_BOUNDED")
+					animate(whole_screen.filters[whole_screen.filters.len], size = rand(1,3), time = 30, easing = QUAD_EASING, loop = -1)
+					addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
+			high_message = "НУ НАХУЙ!!!"
+			for(var/i = 1, i <= 100, i++)
+				create_flood(H)
+				create_ovosh(H)
+	if(prob(5))
+		to_chat(H, "<i>Овощи... <b>[high_message]</i></b>")
+	..()
+
+/obj/effect/hallucination/simple/water
+	name = "ыххыхыхыыы"
+	desc = "<big>АААААААААААААААААААААААА!!!</big>"
+	image_icon = 'code/shitcode/valtos/icons/lifeweb/water.dmi'
+	image_state = "water0"
+	image_layer = BYOND_LIGHTING_LAYER
+
+/obj/effect/hallucination/simple/water/New(mob/living/carbon/C, forced = TRUE)
+	image_state = "water[rand(0, 7)]"
+	. = ..()
+	color = pick("#ff00ff", "#ff0000", "#0000ff", "#00ff00", "#00ffff")
+	QDEL_IN(src, rand(40, 100))
+
+/obj/effect/hallucination/simple/ovoshi
+	name = "овощи овощи овощи"
+	desc = "Ммм заебись."
+	image_icon = 'code/shitcode/valtos/icons/lifeweb/harvest.dmi'
+	image_state = "berrypile"
+	var/list/states = list("berrypile", "chilipepper", "eggplant", "soybeans", \
+	"plumphelmet", "carrot", "corn", "corn2", "corn_cob", "tomato", "ambrosiavulgaris", \
+	"watermelon", "apple", "applestub", "appleold", "lime", "lemon", "poisonberrypile", \
+	"grapes", "cabbage", "greengrapes", "orange", "potato", "potato-peeled", "wheat", \
+	"ashroom", "cshroom", "eshroom", "fshroom", "amanita", "gshroom", "bshroom", "dshroom", \
+	"bezglaznik", "krovnik", "pumpkin", "rice", "goldenapple", "gryab", "curer", "otorvyannik", \
+	"glig", "beet", "turnip")
+	image_layer = BYOND_LIGHTING_LAYER
+
+/obj/effect/hallucination/simple/ovoshi/New(mob/living/carbon/C, forced = TRUE)
+	image_state = pick(states)
+	. = ..()
+	QDEL_IN(src, rand(40, 100))
