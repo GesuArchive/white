@@ -32,13 +32,13 @@
 		if((organ_flags & ORGAN_FAILING))
 			switch(s_type)
 				if("int")
-					M.dstats[MOB_INT] = M.bstats[MOB_INT] - 5
+					M.dstats[MOB_INT] = M.bstats[MOB_INT] - 15
 				if("str")
-					M.dstats[MOB_STR] = M.bstats[MOB_STR] - 5
+					M.dstats[MOB_STR] = M.bstats[MOB_STR] - 15
 				if("stm")
-					M.dstats[MOB_STM] = M.bstats[MOB_STM] - 5
+					M.dstats[MOB_STM] = M.bstats[MOB_STM] - 15
 				if("dex")
-					M.dstats[MOB_DEX] = M.bstats[MOB_DEX] - 5
+					M.dstats[MOB_DEX] = M.bstats[MOB_DEX] - 15
 		else
 			switch(s_type)
 				if("int")
@@ -53,13 +53,13 @@
 	else
 		switch(s_type)
 			if("int")
-				M.dstats[MOB_INT] = M.bstats[MOB_INT] + 5
+				M.dstats[MOB_INT] = M.bstats[MOB_INT] + 15
 			if("str")
-				M.dstats[MOB_STR] = M.bstats[MOB_STR] + 5
+				M.dstats[MOB_STR] = M.bstats[MOB_STR] + 15
 			if("stm")
-				M.dstats[MOB_STM] = M.bstats[MOB_STM] + 5
+				M.dstats[MOB_STM] = M.bstats[MOB_STM] + 15
 			if("dex")
-				M.dstats[MOB_DEX] = M.bstats[MOB_DEX] + 5
+				M.dstats[MOB_DEX] = M.bstats[MOB_DEX] + 15
 		M.recalculate_stats()
 	return
 
@@ -80,16 +80,16 @@
 	. = ..()
 	switch(s_type)
 		if("int")
-			M.dstats[MOB_INT] = M.bstats[MOB_INT] + 5
+			M.dstats[MOB_INT] = M.bstats[MOB_INT] + 15
 			to_chat(M, "<span class='notice'>Мои мозги работают быстрее!</span>")
 		if("str")
-			M.dstats[MOB_STR] = M.bstats[MOB_STR] + 5
+			M.dstats[MOB_STR] = M.bstats[MOB_STR] + 15
 			to_chat(M, "<span class='notice'><b>Я ОЩУЩАЮ СИЛУ!</b></span>")
 		if("stm")
-			M.dstats[MOB_STM] = M.bstats[MOB_STM] + 5
+			M.dstats[MOB_STM] = M.bstats[MOB_STM] + 15
 			to_chat(M, "<span class='notice'>Моя кожа каменеет, а кровь начинает кипеть!</span>")
 		if("dex")
-			M.dstats[MOB_DEX] = M.bstats[MOB_DEX] + 5
+			M.dstats[MOB_DEX] = M.bstats[MOB_DEX] + 15
 			to_chat(M, "<span class='notice'>Я чувствую, что могу дотрогнуться локтём до носа!</span>")
 	M.recalculate_stats()
 
