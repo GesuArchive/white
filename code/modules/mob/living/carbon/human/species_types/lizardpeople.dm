@@ -33,7 +33,7 @@
 /datum/species/lizard/natural_bodytemperature_stabilization(mob/living/carbon/human/H)
 	return 0
 
-/datum/species/lizard/random_name(gender,unique,lastname)
+/datum/species/lizard/random_name(gender,unique,lastname, en_lang = FALSE)
 	if(unique)
 		return random_unique_lizard_name(gender)
 

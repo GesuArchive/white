@@ -112,6 +112,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/action_buttons_screen_locs = list()
 
 	var/list/btprefsnew = list()
+	var/en_names = FALSE
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -132,7 +133,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	random_character()		//let's create a random character then - rather than a fat, bald and naked man.
 	key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
 	C?.update_movement_keys(src)
-	real_name = pref_species.random_name(gender,1)
+	real_name = pref_species.random_name(gender,1, en_lang = en_names)
 	if(!loaded_preferences_successfully)
 		save_preferences()
 	save_character()		//let's save this new random character so it doesn't keep generating new ones.
@@ -198,6 +199,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<b>Тебе нельзя. Ты всё ещё можешь настраивать персонажей, но в любом случае получишь случайную внешность и имя.</b><br>"
 			dat += "<a href='?_src_=prefs;preference=name;task=random'>Случайное имя</A> "
 			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_NAME]'>Всегда: [(randomise[RANDOM_NAME]) ? "Да" : "Нет"]</a>"
+			dat += "<a href='?_src_=prefs;preference=name_lang'>Генератор: [(en_names) ? "EN" : "RU"]</a>"
 			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_NAME_ANTAG]'>Когда антагонист: [(randomise[RANDOM_NAME_ANTAG]) ? "Да" : "Нет"]</a>"
 			dat += "<br><b>Имя:</b> "
 			dat += "<a href='?_src_=prefs;preference=name;task=input'>[real_name]</a><BR>"
@@ -1125,7 +1127,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if("random")
 			switch(href_list["preference"])
 				if("name")
-					real_name = pref_species.random_name(gender,1)
+					real_name = pref_species.random_name(gender,1, en_lang = en_names)
 				if("age")
 					age = rand(AGE_MIN, AGE_MAX)
 				if("hair")
@@ -1323,7 +1325,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						if(features["mcolor"] == "#000" || (!(MUTCOLORS_PARTSONLY in pref_species.species_traits) && ReadHSV(temp_hsv)[3] < ReadHSV("#7F7F7F")[3]))
 							features["mcolor"] = pref_species.default_color
 						if(randomise[RANDOM_NAME])
-							real_name = pref_species.random_name(gender)
+							real_name = pref_species.random_name(gender, en_lang = en_names)
 
 				if("mutant_color")
 					var/new_mutantcolor = input(user, "Choose your character's alien/mutant color:", "Character Preference","#"+features["mcolor"]) as color|null
@@ -1721,6 +1723,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						real_name = random_unique_name(gender)
 						save_character()
 
+				if("name_lang")
+					en_names = !en_names
+
 				if("tab")
 					if (href_list["tab"])
 						current_tab = text2num(href_list["tab"])
@@ -1739,7 +1744,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	if((randomise[RANDOM_NAME] || randomise[RANDOM_NAME_ANTAG] && antagonist) && !character_setup)
 		slot_randomized = TRUE
-		real_name = pref_species.random_name(gender)
+		real_name = pref_species.random_name(gender, en_lang = en_names)
 
 	if(roundstart_checks)
 		if(CONFIG_GET(flag/humans_need_surnames) && (pref_species.id == "human"))

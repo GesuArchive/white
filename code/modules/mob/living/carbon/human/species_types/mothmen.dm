@@ -24,7 +24,7 @@
 		var/mob/living/carbon/human/H = C
 		handle_mutant_bodyparts(H)
 
-/datum/species/moth/random_name(gender,unique,lastname)
+/datum/species/moth/random_name(gender,unique,lastname, en_lang = FALSE)
 	if(unique)
 		return random_unique_moth_name()
 

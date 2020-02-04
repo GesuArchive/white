@@ -145,7 +145,7 @@
 	H.update_internals_hud_icon(1)
 	return 0
 
-/datum/species/plasmaman/random_name(gender,unique,lastname)
+/datum/species/plasmaman/random_name(gender,unique,lastname, en_lang = FALSE)
 	if(unique)
 		return random_unique_plasmaman_name()
 

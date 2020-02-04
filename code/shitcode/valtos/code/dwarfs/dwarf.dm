@@ -92,7 +92,7 @@
 					to_chat(H, "<span class='danger'>You feel quite thirsty. A good beverage wouldn't hurt.</span>")
 			// Else nothing happens
 
-/datum/species/dwarf/random_name(gender,unique,lastname)
+/datum/species/dwarf/random_name(gender,unique,lastname, en_lang = FALSE)
 	return dwarf_name()
 
 #undef DWARF_ALCOHOL_RATE

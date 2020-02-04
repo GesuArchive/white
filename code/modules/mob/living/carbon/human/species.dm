@@ -122,20 +122,29 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		return TRUE
 	return FALSE
 
-/datum/species/proc/random_name(gender,unique,lastname)
+/datum/species/proc/random_name(gender,unique,lastname,en_lang)
 	if(unique)
-		return random_unique_name(gender)
+		return random_unique_name(gender, en_lang = en_lang)
 
 	var/randname
 	if(gender == MALE)
-		randname = pick(GLOB.first_names_male)
+		if (en_lang)
+			randname = pick(GLOB.first_names_male_en)
+		else
+			randname = pick(GLOB.first_names_male)
 	else
-		randname = pick(GLOB.first_names_female)
+		if (en_lang)
+			randname = pick(GLOB.first_names_female_en)
+		else
+			randname = pick(GLOB.first_names_female)
 
 	if(lastname)
 		randname += " [lastname]"
 	else
-		randname += " [pick(GLOB.last_names)]"
+		if (en_lang)
+			randname += " [pick(GLOB.last_names_en)]"
+		else
+			randname += " [pick(GLOB.last_names)]"
 
 	return randname
 
