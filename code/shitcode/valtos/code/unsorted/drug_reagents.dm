@@ -435,6 +435,7 @@
 	var/list/trip_types = list("ovoshi", "statues")
 	var/current_trip
 	var/tripsoundstarted = FALSE
+	var/list/shenanigans = list()
 
 /datum/reagent/drug/labebium/on_mob_end_metabolize(mob/living/L)
 	stop_shit(L)
@@ -456,17 +457,26 @@
 
 /datum/reagent/drug/labebium/proc/create_ovosh(mob/living/carbon/C)
 	var/turf/T = locate(C.x + rand(-10, 10), C.y + rand(-10, 10), C.z)
-	fruit = new(T, C)
+	fruit = new(T, C, phrases = shenanigans)
 
 /datum/reagent/drug/labebium/proc/create_statue(mob/living/carbon/C)
 	var/turf/T = locate(C.x + rand(-10, 10), C.y + rand(-10, 10), C.z)
-	statuya = new(T, C)
+	statuya = new(T, C, phrases = shenanigans)
+
+/datum/reagent/drug/labebium/on_mob_add(mob/living/L)
+	. = ..()
+	var/json_file = file("data/npc_saves/Poly.json")
+	if(!fexists(json_file))
+		return
+	var/list/json = r_json_decode(file2text(json_file))
+	shenanigans = json["phrases"]
+	if (!current_trip)
+		current_trip = pick(trip_types)
+	return
 
 /datum/reagent/drug/labebium/on_mob_life(mob/living/carbon/H)
 	if(!H && !H.hud_used)
 		return
-	if (!current_trip)
-		current_trip = pick(trip_types)
 	var/high_message
 	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"], H.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], H.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], H.hud_used.plane_masters["[PLANE_SPACE]"])
 	switch(current_trip)
@@ -493,9 +503,8 @@
 					if(prob(55))
 						var/rotation = max(min(round(current_cycle/4), 20),360)
 						for(var/obj/screen/plane_master/whole_screen in screens)
-							animate(whole_screen, color = color_matrix_rotate_hue(rotation), time = 800)
 							if(prob(20))
-								animate(whole_screen, transform = turn(matrix(), rand(1,rotation)), time = 500, easing = CIRCULAR_EASING)
+								animate(whole_screen, color = color_matrix_rotate_hue(rand(0,rotation)), transform = turn(matrix(), rand(1,rotation)), time = 500, easing = CIRCULAR_EASING)
 								animate(transform = turn(matrix(), -rotation), time = 100, easing = BACK_EASING)
 							whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = "WAVE_BOUNDED")
 							animate(whole_screen.filters[whole_screen.filters.len], size = rand(1,3), time = 30, easing = QUAD_EASING, loop = -1)
@@ -554,10 +563,12 @@
 		"glig", "beet", "turnip")
 	image_layer = BYOND_LIGHTING_LAYER
 
-/obj/effect/hallucination/simple/ovoshi/New(mob/living/carbon/C, forced = TRUE)
+/obj/effect/hallucination/simple/ovoshi/New(mob/living/carbon/C, forced = TRUE, phrases = list())
 	image_state = pick(states)
 	. = ..()
 	SpinAnimation(rand(5, 40), TRUE, prob(50))
+	if(prob(20))
+		say(pick(phrases))
 	for(var/i = 0; i <= 360; i += 30)
 		color = color_matrix_rotate_hue(rand(0, i))
 		sleep(1)
