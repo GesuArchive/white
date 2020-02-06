@@ -503,12 +503,13 @@
 					if(prob(55))
 						var/rotation = max(min(round(current_cycle/4), 20),360)
 						for(var/obj/screen/plane_master/whole_screen in screens)
-							if(prob(20))
-								animate(whole_screen, color = color_matrix_rotate_hue(rand(0,rotation)), transform = turn(matrix(), rand(1,rotation)), time = 500, easing = CIRCULAR_EASING)
+							if(prob(40))
+								animate(whole_screen, color = color_matrix_rotate_hue(rand(0,rotation)), transform = turn(matrix(), rand(1,rotation)), time = 150, easing = CIRCULAR_EASING)
 								animate(transform = turn(matrix(), -rotation), time = 100, easing = BACK_EASING)
-							whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = "WAVE_BOUNDED")
+							if(prob(3))
+								whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = "WAVE_BOUNDED")
 							animate(whole_screen.filters[whole_screen.filters.len], size = rand(1,3), time = 30, easing = QUAD_EASING, loop = -1)
-							addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
+							addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 600)
 					high_message = "НУ НАХУЙ!!!"
 					for(var/i = 1, i <= current_cycle, i++)
 						create_flood(H)
@@ -524,7 +525,7 @@
 			if(prob(15))
 				var/rotation = max(min(round(current_cycle/4), 20),360)
 				for(var/obj/screen/plane_master/whole_screen in screens)
-					animate(whole_screen, color = color_matrix_rotate_hue(rotation), time = 800)
+					animate(whole_screen, color = color_matrix_rotate_hue(rand(0, rotation)), time = rand(5, 20))
 			for(var/i = 1, i <= current_cycle, i++)
 				create_flood(H)
 				if(prob(15))
@@ -550,7 +551,7 @@
 	QDEL_IN(src, rand(40, 200))
 
 /obj/effect/hallucination/simple/ovoshi
-	name = "овощи овощи овощи"
+	name = "Овощ"
 	desc = "Ммм, заебись."
 	image_icon = 'code/shitcode/valtos/icons/lifeweb/harvest.dmi'
 	image_state = "berrypile"
@@ -567,7 +568,7 @@
 	image_state = pick(states)
 	. = ..()
 	SpinAnimation(rand(5, 40), TRUE, prob(50))
-	if(prob(20))
+	if(prob(3))
 		say(pick(phrases))
 	for(var/i = 0; i <= 360; i += 30)
 		color = color_matrix_rotate_hue(rand(0, i))
@@ -588,7 +589,7 @@
 	qdel(src)
 
 /obj/effect/hallucination/simple/ovoshi/statues
-	name = "мяу"
+	name = "Мяу"
 	desc = "Ого!"
 	image_icon = 'code/shitcode/valtos/icons/lifeweb/crafts.dmi'
 	image_state = "statue1"
