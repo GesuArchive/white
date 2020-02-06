@@ -240,6 +240,9 @@
 	if(!GLOB.ooc_allowed&&!input["isadmin"])
 		return "globally muted"
 
+	if(!is_banned_from(ckey(input["ckey"]), "OOC"))
+		return "you are retard"
+
 	for(var/client/C in GLOB.clients)
 		if(C.prefs.chat_toggles & CHAT_OOC) // ooc ignore
 			to_chat(C, "<font color='[GLOB.OOC_COLOR]'><span class='ooc'><span class='prefix'>Discord -> OOC:</span> <EM>[input["ckey"]]:</EM> <span class='message linkify'>[cp1252_to_utf8(input["ooc"])]</span></span></font>")
