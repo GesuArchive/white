@@ -431,7 +431,9 @@
 	taste_description = "моча"
 	var/obj/effect/hallucination/simple/ovoshi/fruit
 	var/obj/effect/hallucination/simple/water/flood
-	var/list/trip_types = list("ovoshi")
+	var/obj/effect/hallucination/simple/ovoshi/statues/statuya
+	var/list/trip_types = list("ovoshi", "statues")
+	var/current_trip
 	var/tripsoundstarted = FALSE
 
 /datum/reagent/drug/labebium/on_mob_end_metabolize(mob/living/L)
@@ -440,7 +442,8 @@
 
 /datum/reagent/drug/labebium/proc/stop_shit(mob/living/carbon/C)
 	if(C && C.hud_used)
-		SEND_SOUND(C.client, null)
+		C.Paralyze(25)
+		DIRECT_OUTPUT(C.client, sound(null))
 		var/list/screens = list(C.hud_used.plane_masters["[FLOOR_PLANE]"], C.hud_used.plane_masters["[GAME_PLANE]"], C.hud_used.plane_masters["[LIGHTING_PLANE]"], C.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], C.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], C.hud_used.plane_masters["[PLANE_SPACE]"])
 		for(var/obj/screen/plane_master/whole_screen in screens)
 			animate(whole_screen, transform = matrix(), time = 200, easing = ELASTIC_EASING)
@@ -455,41 +458,61 @@
 	var/turf/T = locate(C.x + rand(-10, 10), C.y + rand(-10, 10), C.z)
 	fruit = new(T, C)
 
+/datum/reagent/drug/labebium/proc/create_statue(mob/living/carbon/C)
+	var/turf/T = locate(C.x + rand(-10, 10), C.y + rand(-10, 10), C.z)
+	statuya = new(T, C)
+
 /datum/reagent/drug/labebium/on_mob_life(mob/living/carbon/H)
 	if(!H && !H.hud_used)
 		return
+	if (!current_trip)
+		current_trip = pick(trip_types)
 	var/high_message
 	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"], H.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], H.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], H.hud_used.plane_masters["[PLANE_SPACE]"])
-	switch(current_cycle)
-		if(1 to 20)
-			high_message = pick("БЛЯТЬ! ТОЛЬКО НЕ ОВОЩИ!!!")
-			if(prob(15))
-				H.dna.add_mutation(SMILE)
-			else if(prob(30))
-				H.derpspeech++
+	switch(current_trip)
+		if ("ovoshi")
+			switch(current_cycle)
+				if(1 to 20)
+					high_message = "БЛЯТЬ! ТОЛЬКО НЕ ОВОЩИ!!!"
+					if(prob(15))
+						H.dna.add_mutation(SMILE)
+					else if(prob(30))
+						H.derpspeech++
+					if(!tripsoundstarted)
+						var/sound/sound = sound('code/shitcode/valtos/sounds/lifeweb/cometodaddy.ogg', TRUE)
+						sound.environment = 23
+						sound.volume = 100
+						SEND_SOUND(H.client, sound)
+						tripsoundstarted = TRUE
+					for(var/i = 1, i <= 30, i++)
+						if(prob(55))
+							create_ovosh(H)
+				if(31 to INFINITY)
+					if(prob(20) && (H.mobility_flags & MOBILITY_MOVE) && !ismovableatom(H.loc))
+						step(H, pick(GLOB.cardinals))
+					if(prob(5))
+						for(var/obj/screen/plane_master/whole_screen in screens)
+							whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = "WAVE_BOUNDED")
+							animate(whole_screen.filters[whole_screen.filters.len], size = rand(1,3), time = 30, easing = QUAD_EASING, loop = -1)
+							addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
+					high_message = "НУ НАХУЙ!!!"
+					for(var/i = 1, i <= current_cycle, i++)
+						create_flood(H)
+						create_ovosh(H)
+		if ("statues")
+			high_message = "Расслабон..."
 			if(!tripsoundstarted)
-				var/sound/sound = sound('code/shitcode/valtos/sounds/lifeweb/cometodaddy.ogg')
+				var/sound/sound = sound('code/shitcode/valtos/sounds/lifeweb/caves8.ogg', TRUE)
 				sound.environment = 23
-				sound.volume = 100
+				sound.volume = 80
 				SEND_SOUND(H.client, sound)
 				tripsoundstarted = TRUE
-			for(var/i = 1, i <= 30, i++)
-				if(prob(55))
-					create_ovosh(H)
-		if(31 to INFINITY)
-			if(prob(20) && (H.mobility_flags & MOBILITY_MOVE) && !ismovableatom(H.loc))
-				step(H, pick(GLOB.cardinals))
-			if(prob(35))
-				for(var/obj/screen/plane_master/whole_screen in screens)
-					whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = "WAVE_BOUNDED")
-					animate(whole_screen.filters[whole_screen.filters.len], size = rand(1,3), time = 30, easing = QUAD_EASING, loop = -1)
-					addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
-			high_message = "НУ НАХУЙ!!!"
-			for(var/i = 1, i <= 100, i++)
+			for(var/i = 1, i <= current_cycle, i++)
 				create_flood(H)
-				create_ovosh(H)
+				if(prob(15))
+					create_statue(H)
 	if(prob(5))
-		to_chat(H, "<i>Овощи... <b>[high_message]</i></b>")
+		to_chat(H, "<b><i>[high_message]</i></b>")
 	..()
 
 /obj/effect/hallucination/simple/water
@@ -503,23 +526,45 @@
 	image_state = "water[rand(0, 7)]"
 	. = ..()
 	color = pick("#ff00ff", "#ff0000", "#0000ff", "#00ff00", "#00ffff")
-	QDEL_IN(src, rand(40, 100))
+	QDEL_IN(src, rand(40, 200))
 
 /obj/effect/hallucination/simple/ovoshi
 	name = "овощи овощи овощи"
-	desc = "Ммм заебись."
+	desc = "Ммм, заебись."
 	image_icon = 'code/shitcode/valtos/icons/lifeweb/harvest.dmi'
 	image_state = "berrypile"
 	var/list/states = list("berrypile", "chilipepper", "eggplant", "soybeans", \
-	"plumphelmet", "carrot", "corn", "corn2", "corn_cob", "tomato", "ambrosiavulgaris", \
-	"watermelon", "apple", "applestub", "appleold", "lime", "lemon", "poisonberrypile", \
-	"grapes", "cabbage", "greengrapes", "orange", "potato", "potato-peeled", "wheat", \
-	"ashroom", "cshroom", "eshroom", "fshroom", "amanita", "gshroom", "bshroom", "dshroom", \
-	"bezglaznik", "krovnik", "pumpkin", "rice", "goldenapple", "gryab", "curer", "otorvyannik", \
-	"glig", "beet", "turnip")
+		"plumphelmet", "carrot", "corn", "corn2", "corn_cob", "tomato", "ambrosiavulgaris", \
+		"watermelon", "apple", "applestub", "appleold", "lime", "lemon", "poisonberrypile", \
+		"grapes", "cabbage", "greengrapes", "orange", "potato", "potato-peeled", "wheat", \
+		"ashroom", "cshroom", "eshroom", "fshroom", "amanita", "gshroom", "bshroom", "dshroom", \
+		"bezglaznik", "krovnik", "pumpkin", "rice", "goldenapple", "gryab", "curer", "otorvyannik", \
+		"glig", "beet", "turnip")
 	image_layer = BYOND_LIGHTING_LAYER
 
 /obj/effect/hallucination/simple/ovoshi/New(mob/living/carbon/C, forced = TRUE)
 	image_state = pick(states)
 	. = ..()
-	QDEL_IN(src, rand(40, 100))
+	SpinAnimation(rand(5, 40), TRUE, prob(50))
+	QDEL_IN(src, rand(40, 200))
+
+/obj/effect/hallucination/simple/ovoshi/attack_hand(mob/living/carbon/C)
+	if(prob(10))
+		to_chat(C, "<b>ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ!!!</b>")
+	var/sound/sound = sound(pick('code/shitcode/valtos/sounds/lifeweb/wallhit.ogg', \
+		'code/shitcode/valtos/sounds/lifeweb/wallhit2.ogg', 'code/shitcode/valtos/sounds/lifeweb/wallhit3.ogg'))
+	sound.environment = 23
+	sound.volume = rand(50, 100)
+	SEND_SOUND(C.client, sound)
+	C.Paralyze(5)
+	to_chat(C, "<span class='rose bold'>[prob(50) ? "Получено" : "Потеряно"] 5 метакэша!</span>")
+	. = ..()
+	qdel(src)
+
+/obj/effect/hallucination/simple/ovoshi/statues
+	name = "мяу"
+	desc = "Ого!"
+	image_icon = 'code/shitcode/valtos/icons/lifeweb/crafts.dmi'
+	image_state = "statue1"
+	states = list("statue1", "statue2", "statue3", "statue4", \
+		"statue6", "statue7", "seangel", "seangel2")
