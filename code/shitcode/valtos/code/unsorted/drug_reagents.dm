@@ -531,7 +531,7 @@
 				if(prob(15))
 					create_statue(H)
 	if(prob(5))
-		to_chat(H, "<b><i>[high_message]</i></b>")
+		to_chat(H, "<b><big>[high_message]</big></b>")
 	..()
 
 /obj/effect/hallucination/simple/water
@@ -540,6 +540,7 @@
 	image_icon = 'code/shitcode/valtos/icons/lifeweb/water.dmi'
 	image_state = "water0"
 	image_layer = BYOND_LIGHTING_LAYER
+	var/triggered_shit = FALSE
 
 /obj/effect/hallucination/simple/water/New(mob/living/carbon/C, forced = TRUE)
 	image_state = "water[rand(0, 7)]"
@@ -547,10 +548,25 @@
 	pixel_x = (rand(-32, 32))
 	pixel_y = (rand(-32, 32))
 	color = pick("#ff00ff", "#ff0000", "#0000ff", "#00ff00", "#00ffff")
-	for(var/i = 0; i <= 360; i += 30)
-		color = color_matrix_rotate_hue(rand(0, i))
-		sleep(1)
+	animate(src, color = color_matrix_rotate_hue(360), time = 15, easing = CIRCULAR_EASING)
+	animate(color = color_matrix_rotate_hue(rand(0, 360)), time = 15, easing = CIRCULAR_EASING)
+	color = color_matrix_rotate_hue(rand(0, i))
 	QDEL_IN(src, rand(40, 200))
+
+/obj/effect/hallucination/simple/water/Bumped(atom/movable/AM)
+	. = ..()
+	if(!triggered_shit)
+		if(ishuman(A))
+			var/sound/sound = sound('code/shitcode/valtos/sounds/pshsh.ogg')
+			sound.environment = 23
+			sound.volume = 80
+			SEND_SOUND(A, sound)
+			animate(src, pixel_y = 256, pixel_x = rand(-4, 4), time = 30, easing = BOUNCE_EASING)
+			animate(pixel_x = rand(-4, 4))
+			if(prob(10))
+				to_chat(A, "<b>ПШШШШШШШШШШШШШШШШШШШ!!!</b>")
+			triggered_shit = TRUE
+
 
 /obj/effect/hallucination/simple/ovoshi
 	name = "Овощ"
@@ -574,9 +590,8 @@
 	pixel_y = (rand(-32, 32))
 	if(prob(3))
 		to_chat(C, "<big><b>Овощ</b> говорит, \"[pick(phrases)]\"</big>")
-	for(var/i = 0; i <= 360; i += 30)
-		color = color_matrix_rotate_hue(rand(0, i))
-		sleep(1)
+	animate(src, color = color_matrix_rotate_hue(360), time = 15, easing = CIRCULAR_EASING)
+	animate(color = color_matrix_rotate_hue(rand(0, 360)), time = 15, easing = CIRCULAR_EASING)
 	QDEL_IN(src, rand(40, 200))
 
 /obj/effect/hallucination/simple/ovoshi/attack_hand(mob/living/carbon/C)
