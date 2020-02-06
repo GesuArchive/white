@@ -490,8 +490,13 @@
 				if(31 to INFINITY)
 					if(prob(20) && (H.mobility_flags & MOBILITY_MOVE) && !ismovableatom(H.loc))
 						step(H, pick(GLOB.cardinals))
-					if(prob(5))
+					if(prob(55))
+						var/rotation = max(min(round(current_cycle/4), 20),360)
 						for(var/obj/screen/plane_master/whole_screen in screens)
+							animate(whole_screen, color = color_matrix_rotate_hue(rotation), time = 800)
+							if(prob(20))
+								animate(whole_screen, transform = turn(matrix(), rand(1,rotation)), time = 500, easing = CIRCULAR_EASING)
+								animate(transform = turn(matrix(), -rotation), time = 100, easing = BACK_EASING)
 							whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = "WAVE_BOUNDED")
 							animate(whole_screen.filters[whole_screen.filters.len], size = rand(1,3), time = 30, easing = QUAD_EASING, loop = -1)
 							addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
@@ -507,6 +512,10 @@
 				sound.volume = 80
 				SEND_SOUND(H.client, sound)
 				tripsoundstarted = TRUE
+			if(prob(15))
+				var/rotation = max(min(round(current_cycle/4), 20),360)
+				for(var/obj/screen/plane_master/whole_screen in screens)
+					animate(whole_screen, color = color_matrix_rotate_hue(rotation), time = 800)
 			for(var/i = 1, i <= current_cycle, i++)
 				create_flood(H)
 				if(prob(15))
@@ -526,6 +535,9 @@
 	image_state = "water[rand(0, 7)]"
 	. = ..()
 	color = pick("#ff00ff", "#ff0000", "#0000ff", "#00ff00", "#00ffff")
+	for(var/i = 0; i <= 360; i += 30)
+		color = color_matrix_rotate_hue(rand(0, i))
+		sleep(1)
 	QDEL_IN(src, rand(40, 200))
 
 /obj/effect/hallucination/simple/ovoshi
@@ -546,6 +558,9 @@
 	image_state = pick(states)
 	. = ..()
 	SpinAnimation(rand(5, 40), TRUE, prob(50))
+	for(var/i = 0; i <= 360; i += 30)
+		color = color_matrix_rotate_hue(rand(0, i))
+		sleep(1)
 	QDEL_IN(src, rand(40, 200))
 
 /obj/effect/hallucination/simple/ovoshi/attack_hand(mob/living/carbon/C)
