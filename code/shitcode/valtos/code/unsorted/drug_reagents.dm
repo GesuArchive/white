@@ -435,7 +435,7 @@
 	var/list/trip_types = list("ovoshi", "statues")
 	var/current_trip
 	var/tripsoundstarted = FALSE
-	var/list/shenanigans = list()
+	var/list/shenanigans = list("Пук")
 
 /datum/reagent/drug/labebium/on_mob_end_metabolize(mob/living/L)
 	stop_shit(L)
@@ -465,13 +465,13 @@
 
 /datum/reagent/drug/labebium/on_mob_add(mob/living/L)
 	. = ..()
+	if (!current_trip)
+		current_trip = pick(trip_types)
 	var/json_file = file("data/npc_saves/Poly.json")
 	if(!fexists(json_file))
 		return
 	var/list/json = r_json_decode(file2text(json_file))
 	shenanigans = json["phrases"]
-	if (!current_trip)
-		current_trip = pick(trip_types)
 	return
 
 /datum/reagent/drug/labebium/on_mob_life(mob/living/carbon/H)
@@ -511,6 +511,8 @@
 							animate(whole_screen.filters[whole_screen.filters.len], size = rand(1,3), time = 30, easing = QUAD_EASING, loop = -1)
 							addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 600)
 					high_message = "НУ НАХУЙ!!!"
+					if(prob(5))
+						animate(H.client, pixel_x = rand(-64,64), pixel_y = rand(-64,64), time = 100)
 					for(var/i = 1, i <= current_cycle, i++)
 						create_flood(H)
 						create_ovosh(H)
@@ -530,6 +532,8 @@
 				create_flood(H)
 				if(prob(15))
 					create_statue(H)
+	if(prob(10))
+		to_chat(H, "\n")
 	if(prob(5))
 		to_chat(H, "<b><big>[high_message]</big></b>")
 	..()
@@ -539,6 +543,7 @@
 	desc = "<big>АААААААААААААААААААААААА!!!</big>"
 	image_icon = 'code/shitcode/valtos/icons/lifeweb/water.dmi'
 	image_state = "water0"
+	density = TRUE
 	image_layer = BYOND_LIGHTING_LAYER
 	var/triggered_shit = FALSE
 
@@ -548,8 +553,8 @@
 	pixel_x = (rand(-32, 32))
 	pixel_y = (rand(-32, 32))
 	color = pick("#ff00ff", "#ff0000", "#0000ff", "#00ff00", "#00ffff")
-	animate(src, color = color_matrix_rotate_hue(360), time = 15, easing = CIRCULAR_EASING)
-	animate(color = color_matrix_rotate_hue(rand(0, 360)), time = 15, easing = CIRCULAR_EASING)
+	animate(src, color = color_matrix_rotate_hue(360), time = 55, easing = CIRCULAR_EASING)
+	animate(color = color_matrix_rotate_hue(rand(0, 360)), time = 55, easing = CIRCULAR_EASING)
 	QDEL_IN(src, rand(40, 200))
 
 /obj/effect/hallucination/simple/water/Bumped(atom/movable/AM)
@@ -562,6 +567,7 @@
 			SEND_SOUND(AM, sound)
 			animate(src, pixel_y = 256, pixel_x = rand(-4, 4), time = 30, easing = BOUNCE_EASING)
 			animate(pixel_x = rand(-4, 4))
+			density = FALSE
 			if(prob(10))
 				to_chat(AM, "<b>ПШШШШШШШШШШШШШШШШШШШ!!!</b>")
 			triggered_shit = TRUE
@@ -589,8 +595,9 @@
 	pixel_y = (rand(-32, 32))
 	if(prob(3))
 		to_chat(C, "<big><b>Овощ</b> говорит, \"[pick(phrases)]\"</big>")
-	animate(src, color = color_matrix_rotate_hue(360), time = 15, easing = CIRCULAR_EASING)
-	animate(color = color_matrix_rotate_hue(rand(0, 360)), time = 15, easing = CIRCULAR_EASING)
+	animate(src, color = color_matrix_rotate_hue(360), time = 55, easing = CIRCULAR_EASING)
+	animate(color = color_matrix_rotate_hue(rand(0, 360)), time = 55, easing = CIRCULAR_EASING)
+	animate(pixel_x = rand(-64,64), pixel_y = rand(-64,64), time = 100)
 	QDEL_IN(src, rand(40, 200))
 
 /obj/effect/hallucination/simple/ovoshi/attack_hand(mob/living/carbon/C)
@@ -602,7 +609,7 @@
 	sound.volume = rand(50, 100)
 	SEND_SOUND(C.client, sound)
 	C.Paralyze(5)
-	to_chat(C, "<span class='rose bold'>[prob(50) ? "Получено" : "Потеряно"] 5 метакэша!</span>")
+	to_chat(C, "<span class='rose bold'>[prob(50) ? "Получено" : "Потеряно"] [rand(1, 20)] метакэша!</span>")
 	. = ..()
 	qdel(src)
 
