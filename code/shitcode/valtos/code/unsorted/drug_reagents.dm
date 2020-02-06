@@ -550,21 +550,20 @@
 	color = pick("#ff00ff", "#ff0000", "#0000ff", "#00ff00", "#00ffff")
 	animate(src, color = color_matrix_rotate_hue(360), time = 15, easing = CIRCULAR_EASING)
 	animate(color = color_matrix_rotate_hue(rand(0, 360)), time = 15, easing = CIRCULAR_EASING)
-	color = color_matrix_rotate_hue(rand(0, i))
 	QDEL_IN(src, rand(40, 200))
 
 /obj/effect/hallucination/simple/water/Bumped(atom/movable/AM)
 	. = ..()
 	if(!triggered_shit)
-		if(ishuman(A))
+		if(ishuman(AM))
 			var/sound/sound = sound('code/shitcode/valtos/sounds/pshsh.ogg')
 			sound.environment = 23
 			sound.volume = 80
-			SEND_SOUND(A, sound)
+			SEND_SOUND(AM, sound)
 			animate(src, pixel_y = 256, pixel_x = rand(-4, 4), time = 30, easing = BOUNCE_EASING)
 			animate(pixel_x = rand(-4, 4))
 			if(prob(10))
-				to_chat(A, "<b>ПШШШШШШШШШШШШШШШШШШШ!!!</b>")
+				to_chat(AM, "<b>ПШШШШШШШШШШШШШШШШШШШ!!!</b>")
 			triggered_shit = TRUE
 
 
