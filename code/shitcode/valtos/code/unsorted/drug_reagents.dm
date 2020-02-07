@@ -452,16 +452,19 @@
 			addtimer(CALLBACK(whole_screen, /obj/screen/plane_master/.proc/backdrop, C), 201) //reset backdrop filters so they reappear
 
 /datum/reagent/drug/labebium/proc/create_flood(mob/living/carbon/C)
-	var/turf/T = locate(C.x + rand(-10, 10), C.y + rand(-10, 10), C.z)
-	flood = new(T, C)
+	for(var/turf/T in orange(7,C))
+		if(prob(66))
+			flood = new(T, C, phrases = shenanigans)
 
 /datum/reagent/drug/labebium/proc/create_ovosh(mob/living/carbon/C)
-	var/turf/T = locate(C.x + rand(-10, 10), C.y + rand(-10, 10), C.z)
-	fruit = new(T, C, phrases = shenanigans)
+	for(var/turf/T in orange(7,C))
+		if(prob(66))
+			fruit = new(T, C, phrases = shenanigans)
 
 /datum/reagent/drug/labebium/proc/create_statue(mob/living/carbon/C)
-	var/turf/T = locate(C.x + rand(-10, 10), C.y + rand(-10, 10), C.z)
-	statuya = new(T, C, phrases = shenanigans)
+	for(var/turf/T in orange(7,C))
+		if(prob(66))
+			statuya = new(T, C, phrases = shenanigans)
 
 /datum/reagent/drug/labebium/on_mob_add(mob/living/L)
 	. = ..()
@@ -494,9 +497,7 @@
 						sound.volume = 100
 						SEND_SOUND(H.client, sound)
 						tripsoundstarted = TRUE
-					for(var/i = 1, i <= 30, i++)
-						if(prob(55))
-							create_ovosh(H)
+						create_ovosh(H)
 				if(31 to INFINITY)
 					if(prob(20) && (H.mobility_flags & MOBILITY_MOVE) && !ismovableatom(H.loc))
 						step(H, pick(GLOB.cardinals))
@@ -513,9 +514,8 @@
 					high_message = "НУ НАХУЙ!!!"
 					if(prob(5))
 						animate(H.client, pixel_x = rand(-64,64), pixel_y = rand(-64,64), time = 100)
-					for(var/i = 1, i <= current_cycle, i++)
-						create_flood(H)
-						create_ovosh(H)
+					create_flood(H)
+					create_ovosh(H)
 		if ("statues")
 			high_message = "Расслабон..."
 			if(!tripsoundstarted)
@@ -527,10 +527,9 @@
 			if(prob(15))
 				for(var/obj/screen/plane_master/whole_screen in screens)
 					animate(whole_screen, color = color_matrix_rotate_hue(rand(0, 360)), time = rand(5, 20))
-			for(var/i = 1, i <= current_cycle, i++)
-				create_flood(H)
-				if(prob(15))
-					create_statue(H)
+			create_flood(H)
+			if(prob(15))
+				create_statue(H)
 	if(prob(10))
 		to_chat(H, "\n")
 	if(prob(5))
@@ -549,8 +548,8 @@
 /obj/effect/hallucination/simple/water/New(mob/living/carbon/C, forced = TRUE)
 	image_state = "water[rand(0, 7)]"
 	. = ..()
-	pixel_x = (rand(-32, 32))
-	pixel_y = (rand(-32, 32))
+	pixel_x = (rand(-16, 16))
+	pixel_y = (rand(-16, 16))
 	color = pick("#ff00ff", "#ff0000", "#0000ff", "#00ff00", "#00ffff")
 	animate(src, color = color_matrix_rotate_hue(rand(0, 360)), time = 55, easing = CIRCULAR_EASING)
 	QDEL_IN(src, rand(40, 200))
@@ -564,9 +563,8 @@
 			sound.volume = 80
 			SEND_SOUND(AM, sound)
 			animate(src, pixel_y = 256, pixel_x = rand(-4, 4), time = 30, easing = BOUNCE_EASING)
-			animate(pixel_x = rand(-4, 4))
 			density = FALSE
-			if(prob(10))
+			if(prob(80))
 				to_chat(AM, "<b>ПШШШШШШШШШШШШШШШШШШШ!!!</b>")
 			triggered_shit = TRUE
 
