@@ -454,7 +454,7 @@
 /datum/reagent/drug/labebium/proc/create_flood(mob/living/carbon/C)
 	for(var/turf/T in orange(7,C))
 		if(prob(66))
-			flood = new(T, C, phrases = shenanigans)
+			flood = new(T, C)
 
 /datum/reagent/drug/labebium/proc/create_ovosh(mob/living/carbon/C)
 	for(var/turf/T in orange(7,C))
