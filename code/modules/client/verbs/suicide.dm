@@ -119,6 +119,7 @@
 	if(!canSuicide())
 		return
 	if(confirm == "Yes")
+		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
 		visible_message("<span class='danger'>[src]'s brain is growing dull and lifeless. [p_they(TRUE)] look[p_s()] like [p_theyve()] lost the will to live.</span>", \
 						"<span class='userdanger'>[src]'s brain is growing dull and lifeless. [p_they(TRUE)] look[p_s()] like [p_theyve()] lost the will to live.</span>")
@@ -136,6 +137,7 @@
 	if(!canSuicide())
 		return
 	if(confirm == "Yes")
+		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
 		visible_message("<span class='danger'>[src] is attempting to bite [p_their()] tongue. It looks like [p_theyre()] trying to commit suicide.</span>", \
 				"<span class='userdanger'>[src] is attempting to bite [p_their()] tongue. It looks like [p_theyre()] trying to commit suicide.</span>")
@@ -154,6 +156,7 @@
 	if(!canSuicide())
 		return
 	if(confirm == "Yes")
+		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
 		visible_message("<span class='danger'>[src] is powering down. It looks like [p_theyre()] trying to commit suicide.</span>", \
 				"<span class='userdanger'>[src] is powering down. It looks like [p_theyre()] trying to commit suicide.</span>")
@@ -173,6 +176,7 @@
 	if(!canSuicide())
 		return
 	if(confirm == "Yes")
+		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
 		visible_message("<span class='danger'>[src] is powering down. It looks like [p_theyre()] trying to commit suicide.</span>", \
 				"<span class='userdanger'>[src] is powering down. It looks like [p_theyre()] trying to commit suicide.</span>")
@@ -188,6 +192,7 @@
 	set hidden = 1
 	var/confirm = alert("Are you sure you want to commit suicide?", "Confirm Suicide", "Yes", "No")
 	if(confirm == "Yes")
+		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		var/turf/T = get_turf(src.loc)
 		T.visible_message("<span class='notice'>[src] flashes a message across its screen, \"Wiping core files. Please acquire a new personality to continue using pAI device functions.\"</span>", null, \
 		 "<span class='notice'>[src] bleeps electronically.</span>")
@@ -207,6 +212,7 @@
 	if(!canSuicide())
 		return
 	if(confirm == "Yes")
+		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
 		visible_message("<span class='danger'>[src] is thrashing wildly! It looks like [p_theyre()] trying to commit suicide.</span>", \
 				"<span class='userdanger'>[src] is thrashing wildly! It looks like [p_theyre()] trying to commit suicide.</span>", \
@@ -227,6 +233,7 @@
 	if(!canSuicide())
 		return
 	if(confirm == "Yes")
+		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
 		visible_message("<span class='danger'>[src] begins to fall down. It looks like [p_theyve()] lost the will to live.</span>", \
 						"<span class='userdanger'>[src] begins to fall down. It looks like [p_theyve()] lost the will to live.</span>")
