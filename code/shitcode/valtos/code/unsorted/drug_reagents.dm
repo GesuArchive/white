@@ -506,7 +506,7 @@
 						var/rotation = max(min(round(current_cycle/4), 20),360)
 						for(var/obj/screen/plane_master/whole_screen in screens)
 							if(prob(40))
-								C.stuttering = 90
+								H.stuttering = 90
 								animate(whole_screen, color = color_matrix_rotate_hue(rand(0, 360)), transform = turn(matrix(), rand(1,rotation)), time = 150, easing = CIRCULAR_EASING)
 								animate(transform = turn(matrix(), -rotation), time = 100, easing = BACK_EASING)
 							if(prob(3))
@@ -569,7 +569,7 @@
 				var/mob/living/carbon/human/M
 				M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5, 170)
 				to_chat(AM, "<b>ПШШШШШШШШШШШШШШШШШШШ!!!</b>")
-				C.Paralyze(25)
+				M.Paralyze(25)
 			triggered_shit = TRUE
 
 
