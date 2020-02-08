@@ -12,10 +12,10 @@
 /mob/living/carbon/human/proc/StatsInit()
 	// рандомизируем стартовые статы
 
-	dstats[MOB_STR] = rand(9, 14)
-	dstats[MOB_STM] = rand(7, 12)
-	dstats[MOB_INT] = rand(8, 16)
-	dstats[MOB_DEX] = rand(7, 13)
+	dstats[MOB_STR] = rand(7, 12)
+	dstats[MOB_STM] = rand(5, 10)
+	dstats[MOB_INT] = rand(6, 12)
+	dstats[MOB_DEX] = rand(5, 10)
 
 	// запоминаем базовые значения
 
@@ -100,7 +100,7 @@
 				if("Cargo Technician")
 					dstats[MOB_STR] += rand( 3, 6)
 					dstats[MOB_STM] += rand( 2, 4)
-					dstats[MOB_INT] += rand(-6, 1)
+					dstats[MOB_INT] += rand(-4, 1)
 					dstats[MOB_DEX] += rand( 10, 15)
 
 				if("Shaft Miner")
@@ -243,10 +243,10 @@
 
 			// если антаг, то
 			if(mind.special_role) // пока бустаем статы всем антагам
-				dstats[MOB_STR] += rand(1, 5)
-				dstats[MOB_STM] += rand(1, 5)
-				dstats[MOB_INT] += rand(1, 5)
-				dstats[MOB_DEX] += rand(1, 5)
+				dstats[MOB_STR] += rand(1, 2)
+				dstats[MOB_STM] += rand(1, 2)
+				dstats[MOB_INT] += rand(1, 2)
+				dstats[MOB_DEX] += rand(1, 2)
 
 		// сохраняем базовые статы
 
