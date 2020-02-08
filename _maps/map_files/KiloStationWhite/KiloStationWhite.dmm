@@ -98313,7 +98313,7 @@
 	},
 /area/engine/atmos)
 "cJV" = (
-/obj/machinery/power/emitter/anchored{
+/obj/machinery/power/emitter/welded{
 	icon_state = "emitter";
 	dir = 4;
 	state = 2
@@ -98380,7 +98380,7 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "cKd" = (
-/obj/machinery/power/emitter/anchored{
+/obj/machinery/power/emitter/welded{
 	icon_state = "emitter";
 	dir = 8;
 	state = 2

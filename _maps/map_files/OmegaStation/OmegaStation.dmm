@@ -27042,7 +27042,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/power/emitter/anchored{
+/obj/machinery/power/emitter/welded{
 	dir = 8;
 	state = 2
 	},
@@ -37195,7 +37195,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/obj/machinery/power/emitter/anchored{
+/obj/machinery/power/emitter/welded{
 	dir = 4;
 	state = 2
 	},
