@@ -11376,10 +11376,10 @@
 /area/maintenance/port/fore)
 "arL" = (
 /turf/closed/wall/r_wall,
-/area/medical/genetics)
+/area/science/research)
 "arM" = (
 /turf/closed/wall/r_wall/rust,
-/area/medical/genetics)
+/area/science/research)
 "arN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/bot,
@@ -12025,10 +12025,10 @@
 /area/maintenance/port/fore)
 "ata" = (
 /turf/closed/wall,
-/area/medical/genetics)
+/area/science/research)
 "atb" = (
 /turf/closed/wall/rust,
-/area/medical/genetics)
+/area/science/research)
 "atc" = (
 /obj/structure/table,
 /obj/item/clothing/gloves/color/latex,
@@ -12048,7 +12048,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics)
+/area/science/research)
 "atd" = (
 /obj/structure/table,
 /obj/item/storage/box/monkeycubes{
@@ -12070,7 +12070,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics)
+/area/science/research)
 "ate" = (
 /obj/item/storage/box/rxglasses{
 	pixel_x = 3;
@@ -12088,12 +12088,12 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Genetics Lab APC";
-	areastring = "/area/medical/genetics";
+	areastring = "/area/science/research";
 	pixel_y = 24
 	},
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics)
+/area/science/research)
 "atf" = (
 /turf/closed/wall/r_wall,
 /area/medical/morgue)
@@ -13009,15 +13009,15 @@
 	},
 /mob/living/carbon/monkey,
 /turf/open/floor/grass,
-/area/medical/genetics)
+/area/science/research)
 "auG" = (
 /obj/structure/flora/junglebush/b,
 /turf/open/floor/grass,
-/area/medical/genetics)
+/area/science/research)
 "auH" = (
 /obj/structure/flora/junglebush/large,
 /turf/open/floor/grass,
-/area/medical/genetics)
+/area/science/research)
 "auI" = (
 /obj/structure/flora/junglebush/b,
 /obj/structure/flora/ausbushes/ppflowers,
@@ -13025,14 +13025,14 @@
 	dir = 4
 	},
 /turf/open/floor/grass,
-/area/medical/genetics)
+/area/science/research)
 "auJ" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/sign/warning/securearea{
 	pixel_y = 32
 	},
 /turf/open/floor/plating,
-/area/medical/genetics)
+/area/science/research)
 "auK" = (
 /obj/machinery/computer/scan_consolenew{
 	dir = 4
@@ -13048,7 +13048,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics)
+/area/science/research)
 "auL" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -13075,7 +13075,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics)
+/area/science/research)
 "auM" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -13087,7 +13087,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics)
+/area/science/research)
 "auN" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -13115,7 +13115,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics)
+/area/science/research)
 "auO" = (
 /obj/machinery/computer/scan_consolenew{
 	dir = 8
@@ -13138,7 +13138,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics)
+/area/science/research)
 "auP" = (
 /turf/closed/wall/r_wall/rust,
 /area/medical/morgue)
@@ -14123,14 +14123,14 @@
 	dir = 4
 	},
 /turf/open/floor/grass,
-/area/medical/genetics)
+/area/science/research)
 "awl" = (
 /obj/structure/flora/tree/jungle/small,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/open/floor/grass,
-/area/medical/genetics)
+/area/science/research)
 "awm" = (
 /obj/structure/flora/grass/jungle/b,
 /obj/structure/flora/ausbushes/ppflowers,
@@ -14138,7 +14138,7 @@
 	dir = 4
 	},
 /turf/open/floor/grass,
-/area/medical/genetics)
+/area/science/research)
 "awn" = (
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/ausbushes/fernybush,
@@ -14151,11 +14151,11 @@
 	},
 /mob/living/carbon/monkey,
 /turf/open/floor/grass,
-/area/medical/genetics)
+/area/science/research)
 "awo" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/medical/genetics)
+/area/science/research)
 "awp" = (
 /obj/machinery/dna_scannernew,
 /obj/effect/turf_decal/delivery,
@@ -14167,7 +14167,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics)
+/area/science/research)
 "awq" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -14189,7 +14189,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics)
+/area/science/research)
 "awr" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -14197,7 +14197,7 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer1,
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics)
+/area/science/research)
 "aws" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -14215,7 +14215,7 @@
 	icon_state = "1-2"
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics)
+/area/science/research)
 "awt" = (
 /obj/machinery/dna_scannernew,
 /obj/effect/turf_decal/delivery,
@@ -14231,7 +14231,7 @@
 	},
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics)
+/area/science/research)
 "awu" = (
 /obj/structure/bodycontainer/morgue,
 /obj/effect/turf_decal/tile/neutral{
@@ -15037,20 +15037,20 @@
 	pixel_x = -23
 	},
 /turf/open/floor/grass,
-/area/medical/genetics)
+/area/science/research)
 "axC" = (
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/ausbushes/lavendergrass,
 /mob/living/carbon/monkey,
 /turf/open/floor/grass,
-/area/medical/genetics)
+/area/science/research)
 "axD" = (
 /obj/structure/sink/puddle,
 /obj/structure/flora/ausbushes/reedbush{
 	pixel_y = 5
 	},
 /turf/open/floor/grass,
-/area/medical/genetics)
+/area/science/research)
 "axE" = (
 /obj/item/reagent_containers/food/snacks/grown/banana,
 /obj/effect/turf_decal/stripes/line{
@@ -15067,7 +15067,7 @@
 	dir = 5
 	},
 /turf/open/floor/grass,
-/area/medical/genetics)
+/area/science/research)
 "axF" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -15086,7 +15086,7 @@
 	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics)
+/area/science/research)
 "axG" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -15116,7 +15116,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics)
+/area/science/research)
 "axH" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -15136,7 +15136,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics)
+/area/science/research)
 "axI" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -15152,7 +15152,7 @@
 	dir = 10
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics)
+/area/science/research)
 "axJ" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -15174,7 +15174,7 @@
 	icon_state = "1-2"
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics)
+/area/science/research)
 "axK" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -15201,7 +15201,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics)
+/area/science/research)
 "axL" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/grunge{
@@ -16108,7 +16108,7 @@
 	name = "curious george"
 	},
 /turf/open/floor/grass,
-/area/medical/genetics)
+/area/science/research)
 "azd" = (
 /obj/item/toy/beach_ball{
 	pixel_y = 6
@@ -16117,7 +16117,7 @@
 	dir = 4
 	},
 /turf/open/floor/grass,
-/area/medical/genetics)
+/area/science/research)
 "aze" = (
 /obj/structure/flora/grass/jungle/b,
 /obj/structure/flora/ausbushes/brflowers,
@@ -16126,7 +16126,7 @@
 	},
 /mob/living/carbon/monkey,
 /turf/open/floor/grass,
-/area/medical/genetics)
+/area/science/research)
 "azf" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/grassybush,
@@ -16138,7 +16138,7 @@
 	dir = 9
 	},
 /turf/open/floor/grass,
-/area/medical/genetics)
+/area/science/research)
 "azg" = (
 /obj/machinery/vending/wardrobe/gene_wardrobe,
 /obj/effect/turf_decal/tile/blue,
@@ -16157,7 +16157,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics)
+/area/science/research)
 "azh" = (
 /obj/structure/table/glass,
 /obj/effect/turf_decal/tile/blue,
@@ -16174,7 +16174,7 @@
 	pixel_x = -3
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics)
+/area/science/research)
 "azi" = (
 /obj/machinery/disposal/bin,
 /obj/effect/turf_decal/tile/blue,
@@ -16188,7 +16188,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics)
+/area/science/research)
 "azj" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -16202,7 +16202,7 @@
 	icon_state = "1-2"
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics)
+/area/science/research)
 "azk" = (
 /obj/structure/table/glass,
 /obj/effect/turf_decal/tile/blue,
@@ -16233,7 +16233,7 @@
 	pixel_x = 24
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics)
+/area/science/research)
 "azl" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -17221,16 +17221,16 @@
 	req_access_txt = "5; 9; 68"
 	},
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics)
+/area/science/research)
 "aAF" = (
 /turf/closed/wall/r_wall,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aAG" = (
 /turf/closed/wall,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aAH" = (
 /turf/closed/wall/rust,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aAI" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/tile/neutral{
@@ -18289,7 +18289,7 @@
 "aCi" = (
 /obj/machinery/status_display/evac,
 /turf/closed/wall,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aCj" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -18297,7 +18297,7 @@
 	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aCk" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -18307,12 +18307,11 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/computer/cloning,
 /obj/item/radio/intercom{
 	pixel_y = 22
 	},
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aCl" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -18324,7 +18323,7 @@
 	pixel_y = 24
 	},
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aCm" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/grunge{
@@ -19366,7 +19365,7 @@
 "aDK" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aDL" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -19395,7 +19394,7 @@
 	},
 /obj/effect/turf_decal/box/corners,
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aDM" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -19411,7 +19410,7 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer1,
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aDN" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -19426,7 +19425,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aDO" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -19453,7 +19452,7 @@
 	dir = 6
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aDP" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -19473,7 +19472,7 @@
 	dir = 9
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aDQ" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -19488,7 +19487,7 @@
 /obj/machinery/power/apc/unlocked{
 	dir = 4;
 	name = "Cloning Lab APC";
-	areastring = "/area/medical/genetics/cloning";
+	areastring = "/area/medical/medbay/zone2";
 	pixel_x = 24
 	},
 /obj/machinery/camera{
@@ -19501,7 +19500,7 @@
 	icon_state = "0-2"
 	},
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aDR" = (
 /obj/structure/flora/grass/jungle/b,
 /obj/structure/flora/ausbushes/fullgrass,
@@ -20701,7 +20700,7 @@
 	icon_state = "4-8"
 	},
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aFB" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -20734,7 +20733,7 @@
 	dir = 10
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aFC" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -20758,7 +20757,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aFD" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -20776,7 +20775,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aFE" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -20791,7 +20790,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aFF" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -20805,7 +20804,7 @@
 	icon_state = "4-8"
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aFG" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -20818,10 +20817,6 @@
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/book/manual/wiki/medical_cloning{
-	pixel_x = 4;
-	pixel_y = 6
-	},
 /obj/item/crowbar,
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -20831,7 +20826,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aFH" = (
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/ausbushes/grassybush,
@@ -22101,7 +22096,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aHp" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -22114,7 +22109,7 @@
 	},
 /obj/machinery/vending/clothing,
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aHq" = (
 /obj/structure/closet/wardrobe/pjs,
 /obj/effect/turf_decal/tile/neutral{
@@ -22130,7 +22125,7 @@
 	},
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aHr" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -22146,7 +22141,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aHs" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -22161,7 +22156,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/showroomfloor,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aHt" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -22182,7 +22177,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aHu" = (
 /obj/structure/bookcase/random/religion,
 /obj/effect/turf_decal/tile/neutral{
@@ -23274,7 +23269,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aIY" = (
 /obj/structure/plasticflaps/opaque,
 /obj/effect/turf_decal/delivery,
@@ -23284,11 +23279,11 @@
 	req_access_txt = "50"
 	},
 /turf/open/floor/plasteel/dark,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aIZ" = (
 /obj/structure/sign/departments/medbay/alt,
 /turf/closed/wall,
-/area/medical/genetics/cloning)
+/area/medical/medbay/zone2)
 "aJa" = (
 /obj/structure/sign/departments/holy,
 /turf/closed/wall,

@@ -9239,9 +9239,6 @@
 /turf/open/floor/engine/vacuum,
 /area/engine/atmos)
 "apw" = (
-/obj/machinery/computer/cloning{
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},

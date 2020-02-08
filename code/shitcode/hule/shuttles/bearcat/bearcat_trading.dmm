@@ -237,7 +237,7 @@
 "eC" = (/obj/machinery/door/window{req_access_txt = "203"},/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
 "eD" = (/turf/closed/wall/r_wall,/area/shuttle/bearcat/maint2)
 "eE" = (/obj/machinery/dna_scannernew,/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
-"eF" = (/obj/machinery/computer/cloning{dir = 8; req_access = list(203)},/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
+"eF" = (/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
 "eG" = (/obj/structure/window/plastitanium,/obj/structure/grille,/obj/machinery/door/poddoor/preopen{id = "bearcat_windows"},/turf/open/floor/plating,/area/shuttle/bearcat/maint1)
 "eH" = (/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 6},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 5},/turf/open/floor/plasteel,/area/shuttle/bearcat/maint1)
 "eI" = (/obj/structure/table,/obj/item/multitool,/turf/open/floor/plating,/area/shuttle/bearcat/maint2)

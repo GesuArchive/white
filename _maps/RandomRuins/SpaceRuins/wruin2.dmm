@@ -1089,9 +1089,6 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/austation)
 "ck" = (
-/obj/machinery/computer/cloning{
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},

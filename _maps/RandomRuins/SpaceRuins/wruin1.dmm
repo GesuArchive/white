@@ -241,10 +241,6 @@
 	},
 /area/ruin/space/has_grav/telepadovo)
 "aK" = (
-/obj/machinery/computer/prototype_cloning{
-	icon_state = "computer";
-	dir = 8
-	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
 	},

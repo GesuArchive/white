@@ -690,10 +690,6 @@
 	},
 /area/awaymission/bombass/indoors)
 "bA" = (
-/obj/machinery/computer/prototype_cloning{
-	icon_state = "computer";
-	dir = 4
-	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "cx-5"
 	},
@@ -1370,10 +1366,6 @@
 	},
 /area/awaymission/bombass/indoors)
 "cJ" = (
-/obj/machinery/computer/prototype_cloning{
-	icon_state = "computer";
-	dir = 4
-	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "cx-4"
 	},

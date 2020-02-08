@@ -364,9 +364,6 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "bb" = (
-/obj/machinery/computer/cloning{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -860,10 +857,6 @@
 /turf/open/floor/carpet/royalblue,
 /area/ruin/space/has_grav/terrorship)
 "cE" = (
-/obj/machinery/computer/cloning{
-	icon_state = "computer";
-	dir = 4
-	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
