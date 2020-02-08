@@ -435,7 +435,7 @@
 	var/list/trip_types = list("ovoshi", "statues")
 	var/current_trip
 	var/tripsoundstarted = FALSE
-	var/list/shenanigans = list("Пук")
+	var/list/shenanigans = list()
 
 /datum/reagent/drug/labebium/on_mob_end_metabolize(mob/living/L)
 	stop_shit(L)
@@ -443,17 +443,17 @@
 
 /datum/reagent/drug/labebium/proc/stop_shit(mob/living/carbon/C)
 	if(C && C.hud_used)
-		C.Paralyze(25)
+		C.Paralyze(95)
 		DIRECT_OUTPUT(C.client, sound(null))
 		var/list/screens = list(C.hud_used.plane_masters["[FLOOR_PLANE]"], C.hud_used.plane_masters["[GAME_PLANE]"], C.hud_used.plane_masters["[LIGHTING_PLANE]"], C.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], C.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], C.hud_used.plane_masters["[PLANE_SPACE]"])
 		for(var/obj/screen/plane_master/whole_screen in screens)
-			animate(whole_screen, transform = matrix(), time = 200, easing = ELASTIC_EASING)
+			animate(whole_screen, transform = matrix(), color = "#ffffff", time = 200, easing = ELASTIC_EASING)
 			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 200) //reset filters
 			addtimer(CALLBACK(whole_screen, /obj/screen/plane_master/.proc/backdrop, C), 201) //reset backdrop filters so they reappear
 
 /datum/reagent/drug/labebium/proc/create_flood(mob/living/carbon/C)
 	for(var/turf/T in orange(7,C))
-		if(prob(66))
+		if(prob(10))
 			flood = new(T, C)
 
 /datum/reagent/drug/labebium/proc/create_ovosh(mob/living/carbon/C)
@@ -499,15 +499,18 @@
 						tripsoundstarted = TRUE
 						create_ovosh(H)
 				if(31 to INFINITY)
-					if(prob(20) && (H.mobility_flags & MOBILITY_MOVE) && !ismovableatom(H.loc))
+					if(prob(80) && (H.mobility_flags & MOBILITY_MOVE) && !ismovableatom(H.loc))
 						step(H, pick(GLOB.cardinals))
 					if(prob(55))
+						H.Jitter(35)
 						var/rotation = max(min(round(current_cycle/4), 20),360)
 						for(var/obj/screen/plane_master/whole_screen in screens)
 							if(prob(40))
+								C.stuttering = 90
 								animate(whole_screen, color = color_matrix_rotate_hue(rand(0, 360)), transform = turn(matrix(), rand(1,rotation)), time = 150, easing = CIRCULAR_EASING)
 								animate(transform = turn(matrix(), -rotation), time = 100, easing = BACK_EASING)
 							if(prob(3))
+								H.Jitter(100)
 								whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = "WAVE_BOUNDED")
 							animate(whole_screen.filters[whole_screen.filters.len], size = rand(1,3), time = 30, easing = QUAD_EASING, loop = -1)
 							addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 600)
@@ -548,10 +551,8 @@
 /obj/effect/hallucination/simple/water/New(mob/living/carbon/C, forced = TRUE)
 	image_state = "water[rand(0, 7)]"
 	. = ..()
-	pixel_x = (rand(-16, 16))
-	pixel_y = (rand(-16, 16))
 	color = pick("#ff00ff", "#ff0000", "#0000ff", "#00ff00", "#00ffff")
-	animate(src, color = color_matrix_rotate_hue(rand(0, 360)), time = 55, easing = CIRCULAR_EASING)
+	animate(src, color = color_matrix_rotate_hue(rand(0, 360)), time = 200, easing = CIRCULAR_EASING)
 	QDEL_IN(src, rand(40, 200))
 
 /obj/effect/hallucination/simple/water/Bumped(atom/movable/AM)
@@ -560,12 +561,15 @@
 		if(ishuman(AM))
 			var/sound/sound = sound('code/shitcode/valtos/sounds/pshsh.ogg')
 			sound.environment = 23
-			sound.volume = 80
+			sound.volume = 20
 			SEND_SOUND(AM, sound)
-			animate(src, pixel_y = 256, pixel_x = rand(-4, 4), time = 30, easing = BOUNCE_EASING)
+			animate(src, pixel_y = 900, pixel_x = rand(-4, 4), time = 30, easing = BOUNCE_EASING)
 			density = FALSE
 			if(prob(80))
+				var/mob/living/carbon/human/M
+				M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5, 170)
 				to_chat(AM, "<b>ПШШШШШШШШШШШШШШШШШШШ!!!</b>")
+				C.Paralyze(25)
 			triggered_shit = TRUE
 
 
@@ -591,8 +595,7 @@
 	pixel_y = (rand(-16, 16))
 	if(prob(3))
 		to_chat(C, "<big><b>[name]</b> говорит, \"[pick(phrases)]\"</big>")
-	animate(src, color = color_matrix_rotate_hue(rand(0, 360)), time = 55, easing = CIRCULAR_EASING)
-	animate(pixel_x = rand(-64,64), pixel_y = rand(-64,64), time = 100)
+	animate(src, color = color_matrix_rotate_hue(rand(0, 360)), time = 200, pixel_x = rand(-64,64), pixel_y = rand(-64,64), easing = CIRCULAR_EASING)
 	QDEL_IN(src, rand(40, 200))
 
 /obj/effect/hallucination/simple/ovoshi/attack_hand(mob/living/carbon/C)
