@@ -566,7 +566,7 @@
 			animate(src, pixel_y = 900, pixel_x = rand(-4, 4), time = 30, easing = BOUNCE_EASING)
 			density = FALSE
 			if(prob(80))
-				var/mob/living/carbon/human/M
+				var/mob/living/carbon/human/M = AM
 				M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5, 170)
 				to_chat(AM, "<b>ПШШШШШШШШШШШШШШШШШШШ!!!</b>")
 				M.Paralyze(25)
