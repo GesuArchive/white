@@ -401,7 +401,7 @@
 		recipient = current
 	var/output = ""
 	if(window)
-		output += "<head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head>"
+		output += "<head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"></head>"
 	output += "<B>Воспоминания [current.real_name]:</B><br>"
 	output += memory
 

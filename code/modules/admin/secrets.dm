@@ -2,7 +2,7 @@
 	if(!check_rights(0))
 		return
 
-	var/list/dat = list("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><B>The first rule of adminbuse is: you don't talk about the adminbuse.</B><HR>")
+	var/list/dat = list("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><B>The first rule of adminbuse is: you don't talk about the adminbuse.</B><HR>")
 
 	dat +={"
 			<B>General Secrets</B><BR>
@@ -97,7 +97,7 @@
 	var/ok = 0
 	switch(item)
 		if("admin_log")
-			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><B>Admin Log<HR></B>"
+			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><B>Admin Log<HR></B>"
 			for(var/l in GLOB.admin_log)
 				dat += "<li>[l]</li>"
 			if(!GLOB.admin_log.len)
@@ -105,7 +105,7 @@
 			usr << browse(dat, "window=admin_log")
 
 		if("show_admins")
-			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><B>Current admins:</B><HR>"
+			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><B>Current admins:</B><HR>"
 			if(GLOB.admin_datums)
 				for(var/ckey in GLOB.admin_datums)
 					var/datum/admins/D = GLOB.admin_datums[ckey]
@@ -181,7 +181,7 @@
 		if("list_bombers")
 			if(!check_rights(R_ADMIN))
 				return
-			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><B>Bombing List</B><HR>"
+			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><B>Bombing List</B><HR>"
 			for(var/l in GLOB.bombers)
 				dat += text("[l]<BR>")
 			usr << browse(dat, "window=bombers")
@@ -189,7 +189,7 @@
 		if("list_signalers")
 			if(!check_rights(R_ADMIN))
 				return
-			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><B>Showing last [length(GLOB.lastsignalers)] signalers.</B><HR>"
+			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><B>Showing last [length(GLOB.lastsignalers)] signalers.</B><HR>"
 			for(var/sig in GLOB.lastsignalers)
 				dat += "[sig]<BR>"
 			usr << browse(dat, "window=lastsignalers;size=800x500")
@@ -197,7 +197,7 @@
 		if("list_lawchanges")
 			if(!check_rights(R_ADMIN))
 				return
-			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><B>Showing last [length(GLOB.lawchanges)] law changes.</B><HR>"
+			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><B>Showing last [length(GLOB.lawchanges)] law changes.</B><HR>"
 			for(var/sig in GLOB.lawchanges)
 				dat += "[sig]<BR>"
 			usr << browse(dat, "window=lawchanges;size=800x500")
@@ -253,7 +253,7 @@
 		if("manifest")
 			if(!check_rights(R_ADMIN))
 				return
-			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><B>Showing Crew Manifest.</B><HR>"
+			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><B>Showing Crew Manifest.</B><HR>"
 			dat += "<table cellspacing=5><tr><th>Name</th><th>Position</th></tr>"
 			for(var/datum/data/record/t in GLOB.data_core.general)
 				dat += "<tr><td>[t.fields["name"]]</td><td>[t.fields["rank"]]</td></tr>"
@@ -262,7 +262,7 @@
 		if("DNA")
 			if(!check_rights(R_ADMIN))
 				return
-			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><B>Showing DNA from blood.</B><HR>"
+			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><B>Showing DNA from blood.</B><HR>"
 			dat += "<table cellspacing=5><tr><th>Name</th><th>DNA</th><th>Blood Type</th></tr>"
 			for(var/i in GLOB.human_list)
 				var/mob/living/carbon/human/H = i
@@ -273,7 +273,7 @@
 		if("fingerprints")
 			if(!check_rights(R_ADMIN))
 				return
-			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><B>Showing Fingerprints.</B><HR>"
+			var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><B>Showing Fingerprints.</B><HR>"
 			dat += "<table cellspacing=5><tr><th>Name</th><th>Fingerprints</th></tr>"
 			for(var/i in GLOB.human_list)
 				var/mob/living/carbon/human/H = i

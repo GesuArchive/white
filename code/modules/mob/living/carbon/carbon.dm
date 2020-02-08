@@ -164,7 +164,7 @@
 
 /mob/living/carbon/show_inv(mob/user)
 	user.set_machine(src)
-	var/dat = {"<head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head>
+	var/dat = {"<head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"></head>
 	<HR>
 	<B><FONT size=3>[name]</FONT></B>
 	<HR>

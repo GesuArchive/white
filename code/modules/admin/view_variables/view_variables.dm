@@ -92,7 +92,7 @@
 	var/html = {"
 <html>
 	<head>
-		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
 		<title>[title]</title>
 		<style>
 			body {
@@ -104,7 +104,7 @@
 				font-size: 8pt;
 			}
 		</style>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	</head>
 	<body onload='selectTextField()' onkeydown='return handle_keydown()' onkeyup='handle_keyup()'>
 		<script type="text/javascript">

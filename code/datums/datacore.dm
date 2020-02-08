@@ -160,7 +160,7 @@
 /datum/datacore/proc/get_manifest_html(monochrome = FALSE)
 	var/list/manifest = get_manifest()
 	var/dat = {"
-	<head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8' /><style>
+	<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /><style>
 		.manifest {border-collapse:collapse;}
 		.manifest td, th {border:1px solid [monochrome?"black":"#DEF; background-color:white; color:black"]; padding:.25em}
 		.manifest th {height: 2em; [monochrome?"border-top-width: 3px":"background-color: #48C; color:white"]}
