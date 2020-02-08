@@ -260,16 +260,14 @@
 /area/engine/engineering)
 "aI" = (
 /obj/machinery/power/emitter/welded{
-	dir = 4;
-	state = 2
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/engine/engineering)
 "aJ" = (
 /obj/machinery/power/emitter/welded{
-	dir = 8;
-	state = 2
+	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
