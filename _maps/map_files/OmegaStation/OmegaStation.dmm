@@ -9204,7 +9204,6 @@
 /area/medical)
 "aps" = (
 /obj/structure/window/reinforced,
-/obj/machinery/clonepod,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8

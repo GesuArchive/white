@@ -14,7 +14,7 @@
 	density = TRUE
 	icon = 'icons/obj/machines/cloning.dmi'
 	icon_state = "pod_0"
-	req_access = list(ACCESS_CLONING) //FOR PREMATURE UNLOCKING.
+	req_access = list() //FOR PREMATURE UNLOCKING.
 	verb_say = "констатирует"
 	circuit = /obj/item/circuitboard/machine/clonepod
 

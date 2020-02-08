@@ -233,7 +233,7 @@
 "ey" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{icon_state = "pipe11-1"; dir = 6},/turf/open/floor/plating,/area/shuttle/bearcat/engineering)
 "ez" = (/obj/structure/window/reinforced/spawner/west,/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
 "eA" = (/obj/machinery/light/small{dir = 4},/obj/item/pipe_dispenser,/obj/structure/table,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{icon_state = "pipe11-3"; dir = 10},/obj/machinery/airalarm/directional/north,/turf/open/floor/plating,/area/shuttle/bearcat/engineering)
-"eB" = (/obj/structure/window/reinforced/spawner,/obj/structure/window/reinforced/spawner/west,/obj/machinery/clonepod/experimental,/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
+"eB" = (/obj/structure/window/reinforced/spawner,/obj/structure/window/reinforced/spawner/west,/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
 "eC" = (/obj/machinery/door/window{req_access_txt = "203"},/turf/open/floor/plating,/area/shuttle/bearcat/maint2)
 "eD" = (/turf/closed/wall/r_wall,/area/shuttle/bearcat/maint2)
 "eE" = (/obj/machinery/dna_scannernew,/turf/open/floor/plating,/area/shuttle/bearcat/maint2)

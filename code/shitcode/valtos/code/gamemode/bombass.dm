@@ -116,6 +116,8 @@
 	var/datum/antagonist/bombmeat/bt = new
 	new_spawn.mind.add_antag_datum(bt)
 
+/*
+
 /obj/machinery/clonepod/experimental/bombass/growclone(clonename, ui, mutation_index, mindref, last_death, blood_type, datum/species/mrace, list/features, factions, list/quirks, datum/bank_account/insurance)
 	. = ..()
 
@@ -128,3 +130,5 @@
 		mob_occupant.real_name = "Бомбасистка [capitalize(pick(GLOB.first_names_female))]"
 	else
 		mob_occupant.real_name = "Бомбасист [capitalize(pick(GLOB.first_names_male))]"
+
+*/

@@ -256,7 +256,6 @@
 	},
 /area/ruin/space/has_grav/telepadovo)
 "aM" = (
-/obj/machinery/clonepod/experimental,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
 	},

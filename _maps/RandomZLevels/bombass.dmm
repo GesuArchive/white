@@ -428,7 +428,6 @@
 	icon_state = "warningline";
 	dir = 8
 	},
-/obj/machinery/clonepod/experimental/bombass,
 /turf/open/floor/partyhard/steel{
 	icon_state = "cx-3"
 	},
@@ -686,7 +685,6 @@
 	icon_state = "warningline";
 	dir = 8
 	},
-/obj/machinery/clonepod/experimental/bombass,
 /turf/open/floor/partyhard/steel{
 	icon_state = "cx-6"
 	},

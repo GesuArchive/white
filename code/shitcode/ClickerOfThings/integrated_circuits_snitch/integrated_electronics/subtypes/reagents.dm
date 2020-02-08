@@ -300,7 +300,7 @@
 
 /obj/item/integrated_circuit/reagent/storage/cryo/Initialize()
 	. = ..()
-	ENABLE_BITFIELD(reagents.flags, NO_REACT)
+	reagents.flags |= NO_REACT
 
 /obj/item/integrated_circuit/reagent/storage/grinder
 	name = "reagent grinder"

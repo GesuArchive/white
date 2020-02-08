@@ -673,7 +673,6 @@
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/terrorship)
 "bZ" = (
-/obj/machinery/clonepod,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
@@ -940,7 +939,6 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "cO" = (
-/obj/machinery/clonepod/experimental,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
