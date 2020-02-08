@@ -235,7 +235,7 @@
 		if(DISGUST_LEVEL_DISGUSTED to INFINITY)
 			msg += "[t_on] выглядит отвратительно грязно.\n"
 
-	if(blood_volume < BLOOD_VOLUME_SAFE)
+	if(blood_volume < BLOOD_VOLUME_SAFE || skin_tone == "albino")
 		msg += "[ru_ego(TRUE)] кожа бледная.\n"
 
 	if(bleedsuppress)

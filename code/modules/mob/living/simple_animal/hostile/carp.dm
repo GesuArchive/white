@@ -156,6 +156,7 @@
 	icon_living = "megacarp"
 	icon_dead = "megacarp_dead"
 	icon_gib = "megacarp_gib"
+	health_doll_icon = "megacarp"
 	maxHealth = 100
 	health = 100
 	pixel_x = -16

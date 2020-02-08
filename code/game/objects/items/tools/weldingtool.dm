@@ -282,10 +282,10 @@
 	status = !status
 	if(status)
 		to_chat(user, "<span class='notice'>Собираю обратно [sklonenie(src.name, VINITELNI, src.gender)].</span>")
-		DISABLE_BITFIELD(reagents.flags, OPENCONTAINER)
+		reagents.flags &= ~(OPENCONTAINER)
 	else
 		to_chat(user, "<span class='notice'>Теперь я могу модифицировать [sklonenie(src.name, VINITELNI, src.gender)].</span>")
-		ENABLE_BITFIELD(reagents.flags, OPENCONTAINER)
+		reagents.flags |= OPENCONTAINER
 	add_fingerprint(user)
 
 /obj/item/weldingtool/proc/flamethrower_rods(obj/item/I, mob/user)

@@ -46,7 +46,7 @@
 		to_chat(usr, "<span class='warning'>You seem to be selecting a mob that doesn't exist anymore.</span>", confidential=TRUE)
 		return
 
-	var/body = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8' /><title>Options for [M.key]</title></head>"
+	var/body = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>Options for [M.key]</title></head>"
 	body += "<body>Options panel for <b>[M]</b>"
 	if(M.client)
 		body += " played by <b>[M.client]</b> "
@@ -662,7 +662,7 @@
 /datum/admins/proc/delay()
 	set category = "СЕРВЕР"
 	set desc="Delay the game start"
-	set name="Delay pre-game"
+	set name="Delay Pre-Game"
 
 	var/newtime = input("Set a new time in seconds. Set -1 for indefinite delay.","Set Delay",round(SSticker.GetTimeLeft()/10)) as num|null
 	if(SSticker.current_state > GAME_STATE_PREGAME)

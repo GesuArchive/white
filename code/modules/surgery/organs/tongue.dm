@@ -248,6 +248,7 @@
 	name = "robotic voicebox"
 	desc = "A voice synthesizer that can interface with organic lifeforms."
 	status = ORGAN_ROBOTIC
+	organ_flags = NONE
 	icon_state = "tonguerobot"
 	say_mod = "констатирует"
 	attack_verb = list("бипает", "бупает")

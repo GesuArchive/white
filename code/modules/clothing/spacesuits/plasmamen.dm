@@ -156,6 +156,10 @@
 	icon_state = "warden_envirohelm"
 	item_state = "warden_envirohelm"
 
+/obj/item/clothing/head/helmet/space/plasmaman/prisoner
+	name = "prisoner's plasma envirosuit helmet"
+	desc = "A plasmaman containment helmet for prisoners."
+
 /obj/item/clothing/head/helmet/space/plasmaman/medical
 	name = "плазмаменский шлем доктора"
 	desc = "Сделало для горящих докторов."
