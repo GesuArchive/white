@@ -2,10 +2,10 @@
 	var/sound/jukebox_music
 
 /obj/machinery/turntable
-	name = "jukebox"
+	name = "музыкальный автомат"
 	desc = "Классический музыкальный проигрыватель."
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "jukebox"
+	icon = 'code/shitcode/valtos/icons/jukeboxes.dmi'
+	icon_state = "default"
 	verb_say = "констатирует"
 	density = TRUE
 	var/active = FALSE
@@ -24,6 +24,11 @@
 
 /obj/machinery/turntable/Initialize()
 	. = ..()
+
+	icon_state = pick("default", "tall", "neon")
+
+	if(icon_state == "tall")
+		name = "младший [name]"
 
 	var/list/tracks = flist("[global.config.directory]/jukebox_music/sounds/")
 
@@ -75,15 +80,12 @@
 			var/dz = T.y - MT.y // Hearing from infront/behind
 			M.jukebox_music.z = dz
 
-			//M.jukebox_music.environment = 0
 		else
 			M.jukebox_music.falloff = 2
 
 			M.jukebox_music.x = 0
 			M.jukebox_music.y = 1
 			M.jukebox_music.z = 1
-
-			//M.jukebox_music.environment = -1
 
 		M.jukebox_music.status = SOUND_UPDATE//|SOUND_STREAM
 		M.jukebox_music.volume = volume
@@ -115,49 +117,43 @@
 /obj/machinery/turntable/proc/disk_insert(mob/user, obj/item/card/music/I, target)
 	if(istype(I))
 		if(target)
-			to_chat(user, "<span class='warning'>There's already a disk!</span>")
+			to_chat(user, "<span class='warning'>Здесь уже есть диск!</span>")
 			return FALSE
 		if(!user.transferItemToLoc(I, src))
 			return FALSE
-		user.visible_message("<span class='notice'>[user] inserts a disk into the jukebox.</span>", \
-							"<span class='notice'>You insert a disk into the jukebox.</span>")
+		user.visible_message("<span class='notice'>[user] вставляет диск в музыкальный автомат.</span>", \
+							"<span class='notice'>Вставляю диск в музыкальный автомат.</span>")
 		playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 		updateUsrDialog()
 		return TRUE
-
-/obj/machinery/turntable/update_icon()
-	if(active)
-		icon_state = "[initial(icon_state)]-active"
-	else
-		icon_state = "[initial(icon_state)]"
 
 /obj/machinery/turntable/ui_interact(mob/user)
 	. = ..()
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return
 	if (!anchored)
-		to_chat(user,"<span class='warning'>This device must be anchored by a wrench!</span>")
+		to_chat(user,"<span class='warning'>Он же откручен!</span>")
 		return
 	if(!allowed(user))
-		to_chat(user,"<span class='warning'>Error: Access Denied.</span>")
+		to_chat(user,"<span class='warning'>Ошибка! Доступа нет.</span>")
 		user.playsound_local(src,'sound/misc/compiler-failure.ogg', 25, 1)
 		return
 
 	var/list/dat = list()
 	dat +="<div class='statusDisplay' style='text-align:center'>"
-	dat += "<b><A href='?src=[REF(src)];action=toggle'>[!active ? "BREAK IT DOWN" : "SHUT IT DOWN"]<b></A><br>"
+	dat += "<b><A href='?src=[REF(src)];action=toggle'>[!active ? "СТОП" : "СТАРТ"]<b></A><br>"
 	dat += "</div><br>"
-	dat += "<A href='?src=[REF(src)];action=select'> Select Track</A><br>"
-	dat += "<A href='?src=[REF(src)];action=volume'> Set Volume</A><br>"
-	dat += "<A href='?src=[REF(src)];action=env'> Toggle 3D sound [!env_sound ? "on" : "off"]</A><br>"
+	dat += "<A href='?src=[REF(src)];action=select'> Выбрать трек</A><br>"
+	dat += "<A href='?src=[REF(src)];action=volume'> Громкость</A><br>"
+	dat += "<A href='?src=[REF(src)];action=env'> Объёмный звук [!env_sound ? "ВКЛ" : "ВЫКЛ"]</A><br>"
 
 	if(selection)
 		if(selection.song_name)
-			dat += "<br>Track Selected: [selection.song_name]<br>"
+			dat += "<br>Трек: [selection.song_name]<br>"
 		if(selection.song_length)
-			dat += "Track Length: [DisplayTimeText(selection.song_length)]<br><br>"
+			dat += "Длина трека: [DisplayTimeText(selection.song_length)]<br><br>"
 	if(disk)
-		dat += "<br><br><br><A href='?src=[REF(src)];action=eject'>Eject Disk</A><br>"
+		dat += "<br><br><br><A href='?src=[REF(src)];action=eject'>Изъять диск</A><br>"
 
 	var/datum/browser/popup = new(user, "vending", "[name]", 400, 350)
 	popup.set_content(dat.Join())
@@ -188,7 +184,7 @@
 				if(disk.data)
 					available[disk.data.song_name] = disk.data
 
-			var/selected = input(usr, "Choose your song", "Track:") as null|anything in available
+			var/selected = input(usr, "Выбирай мудро", "Трек:") as null|anything in available
 			if(QDELETED(src) || !selected || !istype(available[selected], /datum/track))
 				return
 			if(active)
@@ -208,7 +204,7 @@
 			updateUsrDialog()
 
 		if("volume")
-			var/new_volume = input(usr, "Set Volume", null) as num|null
+			var/new_volume = input(usr, "Громкость", null) as num|null
 			if(new_volume)
 				volume = max(0, min(100, new_volume))
 			updateUsrDialog()
@@ -223,7 +219,6 @@
 		S.repeat = 1
 		S.channel = CHANNEL_CUSTOM_JUKEBOX
 		S.falloff = 2
-		//S.environment = 0
 		S.wait = 0
 		S.volume = 0
 		S.status = 0 //SOUND_STREAM
@@ -261,11 +256,10 @@
 	var/uploader_ckey
 
 /obj/machinery/musicwriter
-	name = "Memories writer"
-	icon = 'code/shitcode/magkorobka.dmi'
-	icon_state = "writer_off"
+	name = "записыватель мозговых импульсов МК-3"
+	icon = 'code/shitcode/valtos/icons/musicconsole.dmi'
+	icon_state = "off"
 	var/coin = 0
-	//var/obj/item/weapon/disk/music/disk
 	var/mob/retard //current user
 	var/retard_name
 	var/writing = 0
@@ -278,40 +272,27 @@
 		qdel(I)
 		coin++
 		return
-/*
-/obj/machinery/musicwriter/attack_hand(mob/user)
-	var/dat = ""
-	if(writing)
-		dat += "Memory scan completed. <br>Writing from scan of [retard_name] mind... Please Stand By."
-	else if(!coin)
-		dat += "Please insert a coin."
-	else
-		dat += "<A href='?src=\ref[src];write=1'>Write</A>"
 
-	user << browse(dat, "window=musicwriter;size=200x100")
-	onclose(user, "onclose")
-	return
-*/
 /obj/machinery/musicwriter/ui_interact(mob/user)
 	. = ..()
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return
 	if (!anchored)
-		to_chat(user,"<span class='warning'>This device must be anchored by a wrench!</span>")
+		to_chat(user,"<span class='warning'>Надо бы прикрутить!</span>")
 		return
 	if(!allowed(user))
-		to_chat(user,"<span class='warning'>Error: Access Denied.</span>")
+		to_chat(user,"<span class='warning'>Ошибка! Нет доступа.</span>")
 		user.playsound_local(src,'sound/misc/compiler-failure.ogg', 25, 1)
 		return
 
 	var/list/dat = list()
 
 	if(writing)
-		dat += "Memory scan completed. <br>Writing from scan of [retard_name] mind... Please Stand By."
+		dat += "Сканирование мозгов завершено. <br>Записываем мозги [retard_name]... Подождите!"
 	else if(!coin)
-		dat += "Please insert a coin."
+		dat += "Вставьте монетку."
 	else
-		dat += "<A href='?src=[REF(src)];action=write'>Write</A>"
+		dat += "<A href='?src=[REF(src)];action=write'>Записать</A>"
 
 	var/datum/browser/popup = new(user, "vending", "[name]", 400, 350)
 	popup.set_content(dat.Join())
@@ -324,14 +305,14 @@
 	switch(href_list["action"])
 		if("write")
 			if(!writing && !retard && coin)
-				icon_state = "writer_on"
+				icon_state = "on"
 				writing = 1
 				retard = usr
 				retard_name = retard.name
-				var/N = sanitize(input("Name of music") as text|null)
+				var/N = sanitize(input("Название") as text|null)
 				//retard << "Please stand still while your data is uploading"
 				if(N)
-					var/sound/S = input("Your music file") as sound|null
+					var/sound/S = input("Файл") as sound|null
 					if(S)
 						var/datum/track/T = new()
 						var/obj/item/card/music/disk = new
@@ -339,14 +320,14 @@
 						//T.f_name = copytext(N, 1, 2)
 						T.song_name = N
 						disk.data = T
-						disk.name = "disk ([N])"
+						disk.name = "диск ([N])"
 						disk.loc = src.loc
 						disk.uploader_ckey = retard.ckey
 						var/mob/M = usr
 						message_admins("[M.real_name]([M.ckey]) uploaded <A HREF='?_src_=holder;listensound=\ref[S]'>sound</A> named as [N]. <A HREF='?_src_=holder;wipedata=\ref[disk]'>Wipe</A> data.")
 						coin--
 
-				icon_state = "writer_off"
+				icon_state = "off"
 				writing = 0
 				retard = null
 				retard_name = null
