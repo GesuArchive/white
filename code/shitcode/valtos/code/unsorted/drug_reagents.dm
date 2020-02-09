@@ -465,7 +465,7 @@
 
 /datum/reagent/drug/labebium/proc/create_statue(mob/living/carbon/C)
 	for(var/turf/T in orange(14,C))
-		if(prob(3))
+		if(prob(1))
 			if(!(locate(statuya) in T.contents))
 				statuya = new(T, C, phrases = shenanigans)
 
@@ -508,10 +508,21 @@
 						H.Jitter(35)
 						var/rotation = max(min(round(current_cycle/4), 20),360)
 						for(var/obj/screen/plane_master/whole_screen in screens)
-							if(prob(6))
-								SEND_SOUND(H.client, sound('code/shitcode/valtos/sounds/trip_blast.wav'))
-								H.overlay_fullscreen("labebium", /obj/screen/fullscreen/labeb)
-								H.clear_fullscreen("labebium", 15)
+							if(prob(3))
+								var/sound/sound = sound('code/shitcode/valtos/sounds/trip_blast.wav')
+								sound.environment = 23
+								sound.volume = 100
+								SEND_SOUND(H.client, sound)
+								H.overlay_fullscreen("labebium", /obj/screen/fullscreen/labeb, rand(1, 23))
+								H.clear_fullscreen("labebium", rand(15, 60))
+								if(prob(50))
+									spawn(30)
+										H.overlay_fullscreen("labebium", /obj/screen/fullscreen/labeb, rand(1, 23))
+										H.clear_fullscreen("labebium", rand(15, 60))
+										if(prob(50))
+											spawn(30)
+												H.overlay_fullscreen("labebium", /obj/screen/fullscreen/labeb, rand(1, 23))
+												H.clear_fullscreen("labebium", rand(15, 60))
 							if(prob(40))
 								H.stuttering = 90
 								animate(whole_screen, color = color_matrix_rotate_hue(rand(0, 360)), transform = turn(matrix(), rand(1,rotation)), time = 150, easing = CIRCULAR_EASING)
@@ -519,6 +530,8 @@
 							if(prob(13))
 								H.Jitter(100)
 								whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = "WAVE_BOUNDED")
+								animate(whole_screen, transform = matrix()*2, time = 40, easing = BOUNCE_EASING)
+								addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
 							addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 600)
 					high_message = "НУ НАХУЙ!!!"
 					if(prob(5))
@@ -536,9 +549,15 @@
 			if(prob(15))
 				for(var/obj/screen/plane_master/whole_screen in screens)
 					animate(whole_screen, color = color_matrix_rotate_hue(rand(0, 360)), time = rand(5, 20))
-			create_flood(H)
 			if(prob(15))
 				create_statue(H)
+				if(prob(3))
+					var/sound/sound = sound('code/shitcode/valtos/sounds/trip_blast.wav')
+					sound.environment = 23
+					sound.volume = 100
+					SEND_SOUND(H.client, sound)
+					H.overlay_fullscreen("labebium", /obj/screen/fullscreen/labeb, rand(1, 23))
+					H.clear_fullscreen("labebium", rand(15, 60))
 	if(prob(10))
 		to_chat(H, "\n")
 	if(prob(5))
@@ -553,7 +572,7 @@
 	image_layer = BYOND_LIGHTING_LAYER
 	var/triggered_shit = FALSE
 
-/obj/effect/hallucination/simple/water/New(mob/living/carbon/C, forced = TRUE)
+/obj/effect/hallucination/simple/water/New(turf/location_who_cares_fuck, mob/living/carbon/C, forced = TRUE)
 	image_state = "water[rand(0, 7)]"
 	. = ..()
 	color = pick("#ff00ff", "#ff0000", "#0000ff", "#00ff00", "#00ffff")
@@ -591,7 +610,7 @@
 		"glig", "beet", "turnip")
 	image_layer = BYOND_LIGHTING_LAYER
 
-/obj/effect/hallucination/simple/ovoshi/New(mob/living/carbon/C, forced = TRUE, list/phrases = list())
+/obj/effect/hallucination/simple/ovoshi/New(turf/location_who_cares_fuck, mob/living/carbon/C, forced = TRUE, list/phrases = list())
 	image_state = pick(states)
 	. = ..()
 	SpinAnimation(rand(5, 40), TRUE, prob(50))
@@ -600,8 +619,8 @@
 	if(prob(3) && C.client)
 		if(!phrases.len)
 			phrases = list("Мяу", "Кря")
-		to_chat(C.client, "<big><b>[name]</b> говорит, \"[pick(phrases)]\"</big>")
-	animate(src, color = color_matrix_rotate_hue(rand(0, 360)), time = 200, pixel_x = rand(-64,64), pixel_y = rand(-64,64), easing = CIRCULAR_EASING)
+		to_chat(C.client, "<b>[name]</b> говорит, <big>\"[pick(phrases)]\"</big>")
+	animate(src, color = color_matrix_rotate_hue(rand(0, 360)), transform = matrix()*rand(1,3), time = 200, pixel_x = rand(-64,64), pixel_y = rand(-64,64), easing = CIRCULAR_EASING)
 	QDEL_IN(src, rand(40, 200))
 
 /obj/effect/hallucination/simple/ovoshi/attack_hand(mob/living/carbon/C)
@@ -627,9 +646,6 @@
 
 /obj/screen/fullscreen/labeb
 	icon = 'code/shitcode/valtos/icons/ruzone_went_up.dmi'
-	screen_loc = "WEST,SOUTH to EAST,NORTH"
-	icon_state = "1"
-
-/obj/screen/fullscreen/labeb/New()
-	icon_state = "[rand(1,23)]"
-	. = ..()
+	layer = SPLASHSCREEN_LAYER
+	screen_loc = "WEST,SOUTH"
+	icon_state = ""
