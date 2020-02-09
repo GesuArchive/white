@@ -10546,7 +10546,6 @@
 /turf/open/floor/plasteel/grimy,
 /area/centcom/control)
 "JO" = (
-/obj/machinery/vending/terminal,
 /turf/open/floor/plasteel,
 /area/trading_outpost)
 "JP" = (
