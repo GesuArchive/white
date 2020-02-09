@@ -509,7 +509,7 @@
 						var/rotation = max(min(round(current_cycle/4), 20),360)
 						for(var/obj/screen/plane_master/whole_screen in screens)
 							if(prob(6))
-								SEND_SOUND(H.client, sound('code/shitcode/valtos/sounds/trip_blast.ogg'))
+								SEND_SOUND(H.client, sound('code/shitcode/valtos/sounds/trip_blast.wav'))
 								H.overlay_fullscreen("labebium", /obj/screen/fullscreen/labeb)
 								H.clear_fullscreen("labebium", 15)
 							if(prob(40))
