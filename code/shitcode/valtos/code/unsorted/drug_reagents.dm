@@ -447,24 +447,27 @@
 		DIRECT_OUTPUT(C.client, sound(null))
 		var/list/screens = list(C.hud_used.plane_masters["[FLOOR_PLANE]"], C.hud_used.plane_masters["[GAME_PLANE]"], C.hud_used.plane_masters["[LIGHTING_PLANE]"], C.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], C.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], C.hud_used.plane_masters["[PLANE_SPACE]"])
 		for(var/obj/screen/plane_master/whole_screen in screens)
-			animate(whole_screen, transform = matrix(), color = "#ffffff", time = 200, easing = ELASTIC_EASING)
+			animate(whole_screen, transform = matrix(), pixel_x = 0, pixel_y = 0, color = "#ffffff", time = 200, easing = ELASTIC_EASING)
 			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 200) //reset filters
 			addtimer(CALLBACK(whole_screen, /obj/screen/plane_master/.proc/backdrop, C), 201) //reset backdrop filters so they reappear
 
 /datum/reagent/drug/labebium/proc/create_flood(mob/living/carbon/C)
-	for(var/turf/T in orange(7,C))
-		if(prob(10))
-			flood = new(T, C)
+	for(var/turf/T in orange(14,C))
+		if(prob(66))
+			if(!(locate(flood) in T.contents))
+				flood = new(T, C)
 
 /datum/reagent/drug/labebium/proc/create_ovosh(mob/living/carbon/C)
-	for(var/turf/T in orange(7,C))
-		if(prob(66))
-			fruit = new(T, C, phrases = shenanigans)
+	for(var/turf/T in orange(14,C))
+		if(prob(23))
+			if(!(locate(fruit) in T.contents))
+				fruit = new(T, C, phrases = shenanigans)
 
 /datum/reagent/drug/labebium/proc/create_statue(mob/living/carbon/C)
-	for(var/turf/T in orange(7,C))
-		if(prob(66))
-			statuya = new(T, C, phrases = shenanigans)
+	for(var/turf/T in orange(14,C))
+		if(prob(3))
+			if(!(locate(statuya) in T.contents))
+				statuya = new(T, C, phrases = shenanigans)
 
 /datum/reagent/drug/labebium/on_mob_add(mob/living/L)
 	. = ..()
@@ -501,18 +504,21 @@
 				if(31 to INFINITY)
 					if(prob(80) && (H.mobility_flags & MOBILITY_MOVE) && !ismovableatom(H.loc))
 						step(H, pick(GLOB.cardinals))
-					if(prob(55))
+					if(prob(85))
 						H.Jitter(35)
 						var/rotation = max(min(round(current_cycle/4), 20),360)
 						for(var/obj/screen/plane_master/whole_screen in screens)
+							if(prob(6))
+								SEND_SOUND(H.client, sound('code/shitcode/valtos/sounds/trip_blast.ogg'))
+								H.overlay_fullscreen("labebium", /obj/screen/fullscreen/labeb)
+								H.clear_fullscreen("labebium", 15)
 							if(prob(40))
 								H.stuttering = 90
 								animate(whole_screen, color = color_matrix_rotate_hue(rand(0, 360)), transform = turn(matrix(), rand(1,rotation)), time = 150, easing = CIRCULAR_EASING)
 								animate(transform = turn(matrix(), -rotation), time = 100, easing = BACK_EASING)
-							if(prob(3))
+							if(prob(13))
 								H.Jitter(100)
 								whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = "WAVE_BOUNDED")
-							animate(whole_screen.filters[whole_screen.filters.len], size = rand(1,3), time = 30, easing = QUAD_EASING, loop = -1)
 							addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 600)
 					high_message = "НУ НАХУЙ!!!"
 					if(prob(5))
@@ -544,7 +550,6 @@
 	desc = "<big>АААААААААААААААААААААААА!!!</big>"
 	image_icon = 'code/shitcode/valtos/icons/lifeweb/water.dmi'
 	image_state = "water0"
-	density = TRUE
 	image_layer = BYOND_LIGHTING_LAYER
 	var/triggered_shit = FALSE
 
@@ -555,20 +560,19 @@
 	animate(src, color = color_matrix_rotate_hue(rand(0, 360)), time = 200, easing = CIRCULAR_EASING)
 	QDEL_IN(src, rand(40, 200))
 
-/obj/effect/hallucination/simple/water/Bumped(atom/movable/AM)
+/obj/effect/hallucination/simple/water/Crossed(atom/movable/AM)
 	. = ..()
 	if(!triggered_shit)
 		if(ishuman(AM))
-			var/sound/sound = sound('code/shitcode/valtos/sounds/pshsh.ogg')
-			sound.environment = 23
-			sound.volume = 20
-			SEND_SOUND(AM, sound)
 			animate(src, pixel_y = 900, pixel_x = rand(-4, 4), time = 30, easing = BOUNCE_EASING)
-			density = FALSE
-			if(prob(80))
+			if(prob(10))
 				var/mob/living/carbon/human/M = AM
 				M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5, 170)
-				to_chat(AM, "<b>ПШШШШШШШШШШШШШШШШШШШ!!!</b>")
+				to_chat(M, "<b>ПШШШШШШШШШШШШШШШШШШШ!!!</b>")
+				var/sound/sound = sound('code/shitcode/valtos/sounds/pshsh.ogg')
+				sound.environment = 23
+				sound.volume = 20
+				SEND_SOUND(M, sound)
 				M.Paralyze(25)
 			triggered_shit = TRUE
 
@@ -587,14 +591,16 @@
 		"glig", "beet", "turnip")
 	image_layer = BYOND_LIGHTING_LAYER
 
-/obj/effect/hallucination/simple/ovoshi/New(mob/living/carbon/C, forced = TRUE, phrases = list())
+/obj/effect/hallucination/simple/ovoshi/New(mob/living/carbon/C, forced = TRUE, list/phrases = list())
 	image_state = pick(states)
 	. = ..()
 	SpinAnimation(rand(5, 40), TRUE, prob(50))
 	pixel_x = (rand(-16, 16))
 	pixel_y = (rand(-16, 16))
-	if(prob(3))
-		to_chat(C, "<big><b>[name]</b> говорит, \"[pick(phrases)]\"</big>")
+	if(prob(3) && C.client)
+		if(!phrases.len)
+			phrases = list("Мяу", "Кря")
+		to_chat(C.client, "<big><b>[name]</b> говорит, \"[pick(phrases)]\"</big>")
 	animate(src, color = color_matrix_rotate_hue(rand(0, 360)), time = 200, pixel_x = rand(-64,64), pixel_y = rand(-64,64), easing = CIRCULAR_EASING)
 	QDEL_IN(src, rand(40, 200))
 
@@ -618,3 +624,12 @@
 	image_state = "statue1"
 	states = list("statue1", "statue2", "statue3", "statue4", \
 		"statue6", "statue7", "seangel", "seangel2")
+
+/obj/screen/fullscreen/labeb
+	icon = 'code/shitcode/valtos/icons/ruzone_went_up.dmi'
+	screen_loc = "WEST,SOUTH to EAST,NORTH"
+	icon_state = "1"
+
+/obj/screen/fullscreen/labeb/New()
+	icon_state = "[rand(1,23)]"
+	. = ..()
