@@ -616,7 +616,7 @@
 	. = ..()
 	if(!triggered_shit)
 		if(ishuman(AM))
-			animate(src, pixel_y = 900, pixel_x = rand(-4, 4), time = 30, easing = BOUNCE_EASING)
+			animate(src, pixel_y = 600, pixel_x = rand(-4, 4), time = 30, easing = BOUNCE_EASING)
 			if(prob(10))
 				var/mob/living/carbon/human/M = AM
 				M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5, 170)
