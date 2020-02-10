@@ -588,7 +588,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<b>Widescreen:</b> <a href='?_src_=prefs;preference=widescreenpref'>[widescreenpref ? "Enabled ([CONFIG_GET(string/default_view)])" : "Disabled ([CONFIG_GET(string/default_view_square)])"]</a><br>"
 
 			dat += "<b>Названия предметов:</b> <a href='?_src_=prefs;preference=tooltip_user'>[(w_toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл"]</a><br>"
-			dat += "<b>Позиция на экране:</b> <a href='?_src_=prefs;preference=tooltip_pos'>[(w_toggles & TOOLTIP_USER_UP) ? "Низ" : "Верх"]</a><br>"
+			dat += "<b>Позиция на экране:</b> <a href='?_src_=prefs;preference=tooltip_pos'>[(w_toggles & TOOLTIP_USER_POS) ? "Низ" : "Верх"]</a><br>"
+			dat += "<b>Ретро-статусбар:</b> <a href='?_src_=prefs;preference=tooltip_pos'>[(w_toggles & TOOLTIP_USER_RETRO) ? "Вкл" : "Выкл"]</a><br>"
 			if (CONFIG_GET(flag/maprotation))
 				var/p_map = preferred_map
 				if (!p_map)
@@ -1704,6 +1705,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("tooltip_pos")
 					w_toggles ^= TOOLTIP_USER_POS
+
+				if("tooltip_retro")
+					w_toggles ^= TOOLTIP_USER_RETRO
 
 				if("widescreenpref")
 					widescreenpref = !widescreenpref

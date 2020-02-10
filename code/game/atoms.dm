@@ -501,13 +501,14 @@
 			else
 				. += "<span class='danger'>Он пустой.</span>"
 
-	if(user.mind.status_traits)
-		if(HAS_TRAIT(user.mind, TRAIT_JEWISH))
-			var/datum/export_report/ex = export_item_and_contents(src, EXPORT_PIRATE | EXPORT_CARGO | EXPORT_CONTRABAND, dry_run=TRUE)
-			var/price = 0
-			for(var/x in ex.total_amount)
-				price += ex.total_value[x]
-			. += "<span class='danger'><b>Цена: [price] кредит[get_num_string(price)].</b></span>"
+	if(ishuman(user))
+		if(user.mind.status_traits)
+			if(HAS_TRAIT(user.mind, TRAIT_JEWISH))
+				var/datum/export_report/ex = export_item_and_contents(src, EXPORT_PIRATE | EXPORT_CARGO | EXPORT_CONTRABAND, dry_run=TRUE)
+				var/price = 0
+				for(var/x in ex.total_amount)
+					price += ex.total_value[x]
+				. += "<span class='danger'><b>Цена: [price] кредит[get_num_string(price)].</b></span>"
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 

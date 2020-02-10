@@ -450,6 +450,11 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		if (menuitem)
 			menuitem.Load_checked(src)
 
+	if(prefs.w_toggles & TOOLTIP_USER_RETRO)
+		winset(src, "mainwindow", "statusbar = false;statusbar = true")
+		winset(src, "mainwindow", "is-maximized=false")
+		winset(src, "mainwindow", "is-maximized=true")
+
 	if (prefs.fullscreen)
 		ToggleFullscreen()
 
