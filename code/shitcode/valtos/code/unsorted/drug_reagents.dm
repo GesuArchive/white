@@ -456,7 +456,7 @@
 			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 200) //reset filters
 			addtimer(CALLBACK(whole_screen, /obj/screen/plane_master/.proc/backdrop, C), 201) //reset backdrop filters so they reappear
 		to_chat(C, "<b><big>Неужели отпустило...</big></b>")
-		if(prob(50) && current_cycle < 50)
+		if(prob(50) && current_cycle > 50)
 			spawn(30)
 				to_chat(C, "<b><big>Или нет?!</big></b>")
 				if(prob(50))
@@ -628,7 +628,7 @@
 			if(prob(10))
 				var/mob/living/carbon/human/M = AM
 				M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5, 170)
-				to_chat(M, "<b>ПШШШШШШШШШШШШШШШШШШШ!!!</b>")
+				to_chat(M, "<b>[readable_corrupted_text("ПШШШШШШШШШШШШШШШШШШШ!!!")]</b>")
 				var/sound/sound = sound('code/shitcode/valtos/sounds/pshsh.ogg')
 				sound.environment = 23
 				sound.volume = 20
