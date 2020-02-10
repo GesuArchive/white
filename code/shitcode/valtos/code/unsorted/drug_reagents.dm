@@ -436,6 +436,7 @@
 	var/current_trip
 	var/tripsoundstarted = FALSE
 	var/list/shenanigans = list()
+	var/list/sounds = list()
 
 /datum/reagent/drug/labebium/on_mob_end_metabolize(mob/living/L)
 	stop_shit(L)
@@ -506,10 +507,17 @@
 						SEND_SOUND(H.client, sound)
 						create_ovosh(H)
 						H.hud_used.show_hud(HUD_STYLE_NOHUD)
+						H.emote("scream")
 						tripsoundstarted = TRUE
 				if(31 to INFINITY)
 					if(prob(80) && (H.mobility_flags & MOBILITY_MOVE) && !ismovableatom(H.loc))
 						step(H, pick(GLOB.cardinals))
+					if(H.client)
+						sounds = H.client.SoundQuery()
+						for(var/sound/S in sounds)
+							if(S.len <= 3)
+								PlaySpook(H, S.file, 23)
+								sounds = list()
 					if(prob(85))
 						H.Jitter(35)
 						var/rotation = max(min(round(current_cycle/4), 20),360)
@@ -519,6 +527,7 @@
 								sound.environment = 23
 								sound.volume = 100
 								SEND_SOUND(H.client, sound)
+								H.emote("scream")
 								H.overlay_fullscreen("labebium", /obj/screen/fullscreen/labeb, rand(1, 23))
 								H.clear_fullscreen("labebium", rand(15, 60))
 								new /datum/hallucination/delusion(H, TRUE, duration = 150, skip_nearby = FALSE, custom_name = H.name)
@@ -526,10 +535,12 @@
 									spawn(30)
 										H.overlay_fullscreen("labebium", /obj/screen/fullscreen/labeb, rand(1, 23))
 										H.clear_fullscreen("labebium", rand(15, 60))
+										H.emote("scream")
 										if(prob(50))
 											spawn(30)
 												H.overlay_fullscreen("labebium", /obj/screen/fullscreen/labeb, rand(1, 23))
 												H.clear_fullscreen("labebium", rand(15, 60))
+												H.emote("scream")
 							if(prob(40))
 								H.stuttering = 90
 								animate(whole_screen, color = color_matrix_rotate_hue(rand(0, 360)), transform = turn(matrix(), rand(1,rotation)), time = 150, easing = CIRCULAR_EASING)
@@ -558,6 +569,12 @@
 				for(var/obj/screen/plane_master/whole_screen in screens)
 					animate(whole_screen, color = color_matrix_rotate_hue(rand(0, 360)), time = rand(5, 20))
 			if(prob(15))
+				if(H.client)
+					sounds = H.client.SoundQuery()
+					for(var/sound/S in sounds)
+						if(S.len <= 3)
+							PlaySpook(H, S.file, 23)
+							sounds = list()
 				create_statue(H)
 				if(prob(3))
 					var/sound/sound = sound('code/shitcode/valtos/sounds/trip_blast.wav')
@@ -571,6 +588,14 @@
 	if(prob(5))
 		to_chat(H, "<b><big>[high_message]</big></b>")
 	..()
+
+/datum/reagent/drug/labebium/proc/PlaySpook(mob/living/carbon/C, soundfile, environment = 0, vary = TRUE)
+	var/sound/sound = sound(soundfile)
+	sound.environment = environment //druggy
+	sound.volume = rand(25,100)
+	if(vary)
+		sound.frequency = rand(10000,70000)
+	SEND_SOUND(C.client, sound)
 
 /obj/effect/hallucination/simple/water
 	name = "ыххыхыхыыы"
