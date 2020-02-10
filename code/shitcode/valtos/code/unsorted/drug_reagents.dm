@@ -691,3 +691,17 @@
 	plane = SPLASHSCREEN_PLANE
 	screen_loc = "CENTER-7,SOUTH"
 	icon_state = ""
+
+/obj/item/reagent_containers/pill/labebium
+	name = "таблетка правды"
+	desc = "Выпей меня."
+	icon_state = "pill5"
+	list_reagents = list(/datum/reagent/drug/labebium = 15)
+
+/obj/item/storage/pill_bottle/labebium
+	name = "бутылочка правды"
+	desc = "Поглощение одной такой таблетки превратит тебя в овоща. Я не шучу."
+
+/obj/item/storage/pill_bottle/labebium/PopulateContents()
+	for(var/i in 1 to 5)
+		new /obj/item/reagent_containers/pill/labebium(src)
