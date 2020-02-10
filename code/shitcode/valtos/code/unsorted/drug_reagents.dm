@@ -443,6 +443,10 @@
 
 /datum/reagent/drug/labebium/proc/stop_shit(mob/living/carbon/C)
 	if(C && C.hud_used)
+		if(!HAS_TRAIT(C, TRAIT_DUMB))
+			C.derpspeech = 0
+		C.cultslurring = 0
+		C.hud_used.show_hud(HUD_STYLE_STANDARD)
 		C.Paralyze(95)
 		DIRECT_OUTPUT(C.client, sound(null))
 		var/list/screens = list(C.hud_used.plane_masters["[FLOOR_PLANE]"], C.hud_used.plane_masters["[GAME_PLANE]"], C.hud_used.plane_masters["[LIGHTING_PLANE]"], C.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], C.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], C.hud_used.plane_masters["[PLANE_SPACE]"])
@@ -486,7 +490,7 @@
 	var/high_message
 	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"], H.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], H.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], H.hud_used.plane_masters["[PLANE_SPACE]"])
 	switch(current_trip)
-		if ("ovoshi")
+		if("ovoshi")
 			switch(current_cycle)
 				if(1 to 20)
 					high_message = "БЛЯТЬ! ТОЛЬКО НЕ ОВОЩИ!!!"
@@ -494,13 +498,15 @@
 						H.dna.add_mutation(SMILE)
 					else if(prob(30))
 						H.derpspeech++
+						H.cultslurring++
 					if(!tripsoundstarted)
 						var/sound/sound = sound('code/shitcode/valtos/sounds/lifeweb/cometodaddy.ogg', TRUE)
 						sound.environment = 23
 						sound.volume = 100
 						SEND_SOUND(H.client, sound)
-						tripsoundstarted = TRUE
 						create_ovosh(H)
+						H.hud_used.show_hud(HUD_STYLE_NOHUD)
+						tripsoundstarted = TRUE
 				if(31 to INFINITY)
 					if(prob(80) && (H.mobility_flags & MOBILITY_MOVE) && !ismovableatom(H.loc))
 						step(H, pick(GLOB.cardinals))
@@ -515,6 +521,7 @@
 								SEND_SOUND(H.client, sound)
 								H.overlay_fullscreen("labebium", /obj/screen/fullscreen/labeb, rand(1, 23))
 								H.clear_fullscreen("labebium", rand(15, 60))
+								new /datum/hallucination/delusion(H, TRUE, duration = 150, skip_nearby = FALSE, custom_name = H.name)
 								if(prob(50))
 									spawn(30)
 										H.overlay_fullscreen("labebium", /obj/screen/fullscreen/labeb, rand(1, 23))
@@ -538,13 +545,14 @@
 						animate(H.client, pixel_x = rand(-64,64), pixel_y = rand(-64,64), time = 100)
 					create_flood(H)
 					create_ovosh(H)
-		if ("statues")
+		if("statues")
 			high_message = "Расслабон..."
 			if(!tripsoundstarted)
 				var/sound/sound = sound('code/shitcode/valtos/sounds/lifeweb/caves8.ogg', TRUE)
 				sound.environment = 23
 				sound.volume = 80
 				SEND_SOUND(H.client, sound)
+				H.hud_used.show_hud(HUD_STYLE_NOHUD)
 				tripsoundstarted = TRUE
 			if(prob(15))
 				for(var/obj/screen/plane_master/whole_screen in screens)
@@ -616,7 +624,7 @@
 	SpinAnimation(rand(5, 40), TRUE, prob(50))
 	pixel_x = (rand(-16, 16))
 	pixel_y = (rand(-16, 16))
-	if(prob(3) && C.client)
+	if(prob(1) && C.client)
 		if(!phrases.len)
 			phrases = list("Мяу", "Кря")
 		to_chat(C.client, "<b>[name]</b> говорит, <big>\"[pick(phrases)]\"</big>")
@@ -647,5 +655,6 @@
 /obj/screen/fullscreen/labeb
 	icon = 'code/shitcode/valtos/icons/ruzone_went_up.dmi'
 	layer = SPLASHSCREEN_LAYER
-	screen_loc = "WEST,SOUTH"
+	plane = SPLASHSCREEN_PLANE
+	screen_loc = "CENTER-7,SOUTH"
 	icon_state = ""
