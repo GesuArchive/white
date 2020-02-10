@@ -53,7 +53,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_pos)()
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_retro)()
 	set name = " 🔄 Ретро-названия"
 	set category = "НАСТРОЙКИ"
-	set desc = "Статусбар для любителей подолбиться в жопу"
+	set desc = "Ретро-статусбар"
 	usr.client.prefs.w_toggles ^= TOOLTIP_USER_RETRO
 	usr.client.prefs.save_preferences()
 	if(usr.client.prefs.w_toggles & TOOLTIP_USER_RETRO)
