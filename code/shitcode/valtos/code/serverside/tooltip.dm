@@ -58,12 +58,14 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_retro)()
 	usr.client.prefs.save_preferences()
 	if(usr.client.prefs.w_toggles & TOOLTIP_USER_RETRO)
 		to_chat(usr, "Я буду видеть названия предметов как раньше.")
+		winset(usr, "mainwindow", "is-maximized=false")
 		winset(usr, "mainwindow", "statusbar = false;statusbar = true")
+		winset(usr, "mainwindow", "is-maximized=true")
 	else
 		to_chat(usr, "Я не буду видеть названия предметов как раньше.")
+		winset(usr, "mainwindow", "is-maximized=false")
 		winset(usr, "mainwindow", "statusbar = true;statusbar = false")
-	winset(usr, "mainwindow", "is-maximized=false")
-	winset(usr, "mainwindow", "is-maximized=true")
+		winset(usr, "mainwindow", "is-maximized=true")
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Tooltip Retro", "[usr.client.prefs.w_toggles & TOOLTIP_USER_RETRO ? "Вкл" : "Выкл"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/verbs/menu/Settings/Game/toggle_tooltip_retro/Get_checked(client/C)
