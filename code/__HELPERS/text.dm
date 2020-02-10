@@ -603,6 +603,10 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 				ascii += 13
 			if(78 to 90, 110 to 122) //N to Z, n to z
 				ascii -= 13
+			if(1040 to 1058, 1072 to 1092)
+				ascii += 13
+			if(1059 to 1071, 1093 to 1105)
+				ascii -= 13
 		. += ascii2text(ascii)
 
 //Takes a list of values, sanitizes it down for readability and character count,

@@ -455,6 +455,14 @@
 			animate(whole_screen, transform = matrix(), pixel_x = 0, pixel_y = 0, color = "#ffffff", time = 200, easing = ELASTIC_EASING)
 			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 200) //reset filters
 			addtimer(CALLBACK(whole_screen, /obj/screen/plane_master/.proc/backdrop, C), 201) //reset backdrop filters so they reappear
+		to_chat(C, "<b><big>Неужели отпустило...</big></b>")
+		if(prob(50) && current_cycle < 50)
+			spawn(30)
+				to_chat(C, "<b><big>Или нет?!</big></b>")
+				if(prob(50))
+					spawn(50)
+						to_chat(C, "<b><big>БЛЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯТЬ!!!</big></b>")
+						C.reagents.add_reagent_list(list(/datum/reagent/drug/labebium = 25))
 
 /datum/reagent/drug/labebium/proc/create_flood(mob/living/carbon/C)
 	for(var/turf/T in orange(14,C))
@@ -586,7 +594,7 @@
 	if(prob(10))
 		to_chat(H, "\n")
 	if(prob(5))
-		to_chat(H, "<b><big>[high_message]</big></b>")
+		to_chat(H, "<b><big>[readable_corrupted_text(high_message)]</big></b>")
 	..()
 
 /datum/reagent/drug/labebium/proc/PlaySpook(mob/living/carbon/C, soundfile, environment = 0, vary = TRUE)
@@ -652,7 +660,7 @@
 	if(prob(1) && C.client)
 		if(!phrases.len)
 			phrases = list("Мяу", "Кря")
-		to_chat(C.client, "<b>[name]</b> говорит, <big>\"[pick(phrases)]\"</big>")
+		to_chat(C.client, "<b>[name]</b> говорит, <big>\"[readable_corrupted_text(pick(phrases))]\"</big>")
 	animate(src, color = color_matrix_rotate_hue(rand(0, 360)), transform = matrix()*rand(1,3), time = 200, pixel_x = rand(-64,64), pixel_y = rand(-64,64), easing = CIRCULAR_EASING)
 	QDEL_IN(src, rand(40, 200))
 
