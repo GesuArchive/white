@@ -980,7 +980,7 @@
 	if(can_be_firemanned(target) && !incapacitated(FALSE, TRUE))
 		visible_message("<span class='notice'>[src] начинает [skills_space] поднимать [target] на свою спину..</span>",
 		//Joe Medic starts quickly/expertly lifting Grey Tider onto their back..
-		"<span class='notice'>[carrydelay < 35 ? "Используя свои перчатки я' наночипы, я" : "Я"] [skills_space] начинаю начинаю поднимать [target] на свою спину[carrydelay == 40 ? ", пока мне помогают мои наночипы в перчатках.." : "..."]</span>")
+		"<span class='notice'>[carrydelay < 35 ? "Используя свои перчатки, я" : "Я"] [skills_space] начинаю поднимать [target] на свою спину[carrydelay == 40 ? ", пока мне помогают мои наночипы в них..." : "..."]</span>")
 		//(Using your gloves' nanochips, you/You) ( /quickly/expertly) start to lift Grey Tider onto your back(, while assisted by the nanochips in your gloves../...)
 		if(do_after(src, carrydelay, TRUE, target))
 			//Second check to make sure they're still valid to be carried
@@ -989,7 +989,7 @@
 				return
 		visible_message("<span class='warning'>[src] не может поднять [target]!</span>")
 	else
-		to_chat(src, "<span class='warning'>Не могу поднять [target] пока о[target.ru_na()] стоит!</span>")
+		to_chat(src, "<span class='warning'>Не могу поднять [target] пока [target.ru_who()] стоит!</span>")
 
 /mob/living/carbon/human/proc/piggyback(mob/living/carbon/target)
 	if(can_piggyback(target))

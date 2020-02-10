@@ -1,7 +1,7 @@
 
 /obj/item/bodypart
-	name = "limb"
-	desc = "Why is it detached..."
+	name = "конечность"
+	desc = "Почему так нахуй..."
 	force = 3
 	throwforce = 3
 	w_class = WEIGHT_CLASS_SMALL
@@ -58,20 +58,20 @@
 	var/dmg_overlay_type //the type of damage overlay (if any) to use when this bodypart is bruised/burned.
 
 	//Damage messages used by help_shake_act()
-	var/light_brute_msg = "bruised"
-	var/medium_brute_msg = "бьёт"
-	var/heavy_brute_msg = "mangled"
+	var/light_brute_msg = "травмирована"
+	var/medium_brute_msg = "повреждена"
+	var/heavy_brute_msg = "разорвана"
 
-	var/light_burn_msg = "numb"
-	var/medium_burn_msg = "blistered"
-	var/heavy_burn_msg = "peeling away"
+	var/light_burn_msg = "обгорела"
+	var/medium_burn_msg = "поджарена"
+	var/heavy_burn_msg = "отваливается"
 
 /obj/item/bodypart/examine(mob/user)
 	. = ..()
 	if(brute_dam > DAMAGE_PRECISION)
-		. += "<span class='warning'>This limb has [brute_dam > 30 ? "severe" : "minor"] bruising.</span>"
+		. += "<span class='warning'>Конечность имеет [brute_dam > 30 ? "серьёзные" : "незначительные"] травмы.</span>"
 	if(burn_dam > DAMAGE_PRECISION)
-		. += "<span class='warning'>This limb has [burn_dam > 30 ? "severe" : "minor"] burns.</span>"
+		. += "<span class='warning'>Конечность имеет [burn_dam > 30 ? "серьёзные" : "незначительные"] ожоги.</span>"
 
 /obj/item/bodypart/blob_act()
 	take_damage(max_damage)
@@ -88,11 +88,11 @@
 		if(HAS_TRAIT(C, TRAIT_LIMBATTACHMENT))
 			if(!H.get_bodypart(body_zone) && !animal_origin)
 				if(H == user)
-					H.visible_message("<span class='warning'>[H] jams [src] into [H.p_their()] empty socket!</span>",\
-					"<span class='notice'>You force [src] into your empty socket, and it locks into place!</span>")
+					H.visible_message("<span class='warning'>[H] впихивает [src] в себя!</span>",\
+					"<span class='notice'>Впихиваю [src] в себя и оно вроде как стоит как надо!</span>")
 				else
-					H.visible_message("<span class='warning'>[user] jams [src] into [H]'s empty socket!</span>",\
-					"<span class='notice'>[user] forces [src] into your empty socket, and it locks into place!</span>")
+					H.visible_message("<span class='warning'>[user] впихивает [src] в [H]!</span>",\
+					"<span class='notice'>[user] впихивает в меня [src] и оно вроде стоит как надо!</span>")
 				user.temporarilyRemoveItemFromInventory(src, TRUE)
 				attach_limb(C)
 				return
@@ -102,11 +102,11 @@
 	if(W.get_sharpness())
 		add_fingerprint(user)
 		if(!contents.len)
-			to_chat(user, "<span class='warning'>There is nothing left inside [src]!</span>")
+			to_chat(user, "<span class='warning'>А внутри [src] ничего и нет!</span>")
 			return
 		playsound(loc, 'sound/weapons/slice.ogg', 50, TRUE, -1)
-		user.visible_message("<span class='warning'>[user] begins to cut open [src].</span>",\
-			"<span class='notice'>You begin to cut open [src]...</span>")
+		user.visible_message("<span class='warning'>[user] начинает вскрывать [src].</span>",\
+			"<span class='notice'>Начинаю вскрывать [src]...</span>")
 		if(do_after(user, 54, target = src))
 			drop_organs(user, TRUE)
 	else
@@ -446,8 +446,8 @@
 	qdel(src)
 
 /obj/item/bodypart/chest
-	name = BODY_ZONE_CHEST
-	desc = "It's impolite to stare at a person's chest."
+	name = "грудь"
+	desc = "Неправильно смотреть на чью-то грудь."
 	icon_state = "default_human_chest"
 	max_damage = 200
 	body_zone = BODY_ZONE_CHEST
@@ -498,11 +498,8 @@
 	animal_origin = LARVA_BODYPART
 
 /obj/item/bodypart/l_arm
-	name = "left arm"
-	desc = "Did you know that the word 'sinister' stems originally from the \
-		Latin 'sinestra' (left hand), because the left hand was supposed to \
-		be possessed by the devil? This arm appears to be possessed by no \
-		one though."
+	name = "левая рука"
+	desc = "Этой штукой можно пощекотать свою жопу."
 	icon_state = "default_human_l_arm"
 	attack_verb = list("шлёпает", "бьёт")
 	max_damage = 50
@@ -529,12 +526,12 @@
 		if(owner.stat < UNCONSCIOUS)
 			owner.emote("scream")
 		if(owner.stat < DEAD)
-			to_chat(owner, "<span class='userdanger'>Your [name] is too damaged to function!</span>")
+			to_chat(owner, "<span class='userdanger'>Моя [name] сильно повреждена для работы!</span>")
 		if(held_index)
 			owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	else if(disabled == BODYPART_DISABLED_PARALYSIS)
 		if(owner.stat < DEAD)
-			to_chat(owner, "<span class='userdanger'>You can't feel your [name]!</span>")
+			to_chat(owner, "<span class='userdanger'>Я не чувствую свою [sklonenie(name, VINITELNI, FEMALE)]!</span>")
 			if(held_index)
 				owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	if(owner.hud_used)
@@ -564,9 +561,8 @@
 	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/r_arm
-	name = "right arm"
-	desc = "Over 87% of humans are right handed. That figure is much lower \
-		among humans missing their right arm."
+	name = "правая рука"
+	desc = "А вот этой вот дрочу."
 	icon_state = "default_human_r_arm"
 	attack_verb = list("шлёпает", "бьёт")
 	max_damage = 50
@@ -593,12 +589,12 @@
 		if(owner.stat < UNCONSCIOUS)
 			owner.emote("scream")
 		if(owner.stat < DEAD)
-			to_chat(owner, "<span class='userdanger'>Your [name] is too damaged to function!</span>")
+			to_chat(owner, "<span class='userdanger'>Моя [name] сильно повреждена для работы!</span>")
 		if(held_index)
 			owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	else if(disabled == BODYPART_DISABLED_PARALYSIS)
 		if(owner.stat < DEAD)
-			to_chat(owner, "<span class='userdanger'>You can't feel your [name]!</span>")
+			to_chat(owner, "<span class='userdanger'>Я не чувствую свою [sklonenie(name, VINITELNI, FEMALE)]!</span>")
 			if(held_index)
 				owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	if(owner.hud_used)
@@ -628,9 +624,8 @@
 	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/l_leg
-	name = "left leg"
-	desc = "Some athletes prefer to tie their left shoelaces first for good \
-		luck. In this instance, it probably would not have helped."
+	name = "левая нога"
+	desc = "Вставать с этой ноги не круто."
 	icon_state = "default_human_l_leg"
 	attack_verb = list("пинает", "давит")
 	max_damage = 50
@@ -654,13 +649,13 @@
 		if(owner.stat < UNCONSCIOUS)
 			owner.emote("scream")
 		if(owner.stat < DEAD)
-			to_chat(owner, "<span class='userdanger'>Your [name] is too damaged to function!</span>")
+			to_chat(owner, "<span class='userdanger'>Моя [name] сильно повреждена для работы!</span>")
 	else if(disabled == BODYPART_DISABLED_PARALYSIS)
 		if(owner.stat < DEAD)
-			to_chat(owner, "<span class='userdanger'>You can't feel your [name]!</span>")
+			to_chat(owner, "<span class='userdanger'>Я не чувствую свою [sklonenie(name, VINITELNI, FEMALE)]!</span>")
 
 /obj/item/bodypart/l_leg/digitigrade
-	name = "left digitigrade leg"
+	name = "левая искусственная нога"
 	use_digitigrade = FULL_DIGITIGRADE
 
 /obj/item/bodypart/l_leg/monkey
@@ -684,10 +679,8 @@
 	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/r_leg
-	name = "right leg"
-	desc = "You put your right leg in, your right leg out. In, out, in, out, \
-		shake it all about. And apparently then it detaches.\n\
-		The hokey pokey has certainly changed a lot since space colonisation."
+	name = "правая нога"
+	desc = "А вот с этой ноги стоит вставать."
 	// alternative spellings of 'pokey' are availible
 	icon_state = "default_human_r_leg"
 	attack_verb = list("пинает", "давит")
@@ -712,13 +705,13 @@
 		if(owner.stat < UNCONSCIOUS)
 			owner.emote("scream")
 		if(owner.stat < DEAD)
-			to_chat(owner, "<span class='userdanger'>Your [name] is too damaged to function!</span>")
+			to_chat(owner, "<span class='userdanger'>Моя [name] сильно повреждена для работы!</span>")
 	else if(disabled == BODYPART_DISABLED_PARALYSIS)
 		if(owner.stat < DEAD)
-			to_chat(owner, "<span class='userdanger'>You can't feel your [name]!</span>")
+			to_chat(owner, "<span class='userdanger'>Я не чувствую свою [sklonenie(name, VINITELNI, FEMALE)]!</span>")
 
 /obj/item/bodypart/r_leg/digitigrade
-	name = "right digitigrade leg"
+	name = "правая искусственная нога"
 	use_digitigrade = FULL_DIGITIGRADE
 
 /obj/item/bodypart/r_leg/monkey

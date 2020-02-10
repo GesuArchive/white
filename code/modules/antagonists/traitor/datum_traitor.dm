@@ -46,8 +46,8 @@
 
 /datum/antagonist/traitor/proc/handle_hearing(datum/source, list/hearing_args)
 	var/message = hearing_args[HEARING_RAW_MESSAGE]
-	message = GLOB.syndicate_code_phrase_regex.Replace(message, "<span class='blue'>$1</span>")
-	message = GLOB.syndicate_code_response_regex.Replace(message, "<span class='red'>$1</span>")
+	message = GLOB.syndicate_code_phrase_regex.Replace_char(message, "<span class='blue'>$1</span>")
+	message = GLOB.syndicate_code_response_regex.Replace_char(message, "<span class='red'>$1</span>")
 	hearing_args[HEARING_RAW_MESSAGE] = message
 
 /datum/antagonist/traitor/proc/add_objective(datum/objective/O)

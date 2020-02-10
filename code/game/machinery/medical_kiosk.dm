@@ -227,14 +227,14 @@
 			var/trauma_desc = ""
 			switch(B.resilience)
 				if(TRAUMA_RESILIENCE_SURGERY)
-					trauma_desc += "severe "
+					trauma_desc += "серьёзного "
 				if(TRAUMA_RESILIENCE_LOBOTOMY)
-					trauma_desc += "deep-rooted "
+					trauma_desc += "глубокого "
 				if(TRAUMA_RESILIENCE_MAGIC, TRAUMA_RESILIENCE_ABSOLUTE)
-					trauma_desc += "permanent "
+					trauma_desc += "вечного "
 			trauma_desc += B.scan_desc
 			trauma_text += trauma_desc
-		trauma_status = "Cerebral traumas detected: patient appears to be suffering from [english_list(trauma_text)]."
+		trauma_status = "Церебральные травмы обнаружены: пациент страдает от [english_list(trauma_text)]."
 
 	var/chem_status = FALSE
 	var/chemical_list= list()

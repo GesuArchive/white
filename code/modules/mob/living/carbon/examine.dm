@@ -1,10 +1,9 @@
 /mob/living/carbon/examine(mob/user)
 	var/t_on 	= ru_who(TRUE)
 	var/t_ego 	= ru_ego()
-	//var/t_na 	= ru_na()
 	var/t_a 	= ru_a()
 
-	. = list("<span class='info'>*---------*\nЭто же [icon2html(src, user)] \a <EM>[src]</EM>!")
+	. = list("<span class='info'>*---------*\nЭто же [icon2html(src, user)] <EM>[src]</EM>!")
 	var/list/obscured = check_obscured_slots()
 
 	if (handcuffed)

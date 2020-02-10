@@ -49,7 +49,6 @@
 					M.dstats[MOB_STM] = M.bstats[MOB_STM]
 				if("dex")
 					M.dstats[MOB_DEX] = M.bstats[MOB_DEX]
-		M.recalculate_stats()
 	else
 		switch(s_type)
 			if("int")
@@ -60,7 +59,7 @@
 				M.dstats[MOB_STM] = M.bstats[MOB_STM] + 15
 			if("dex")
 				M.dstats[MOB_DEX] = M.bstats[MOB_DEX] + 15
-		M.recalculate_stats()
+	M.recalculate_stats()
 	return
 
 /obj/item/organ/cyberimp/brain/stats/Remove(mob/living/carbon/human/M, special = FALSE)
