@@ -25,6 +25,7 @@
 	var/power = 5 //Maximum distance launched water will travel
 	var/precision = FALSE //By default, turfs picked from a spray are random, set to 1 to make it always have at least one water effect per row
 	var/cooling_power = 2 //Sets the cooling_temperature of the water reagent datum inside of the extinguisher when it is refilled
+	var/broken = FALSE
 
 /obj/item/extinguisher/mini
 	name = "карманный огнетушитель"
@@ -82,10 +83,13 @@
 	if(user.a_intent == INTENT_HELP && !safety) //If we're on help intent and going to spray people, don't bash them.
 		return FALSE
 	else
-		if(prob(5))
-			to_chat(user, "<span class='warning'>Щас ебанёт кажись...</span>")
-			spawn(30)
+		if(prob(5) && !broken)
+			to_chat(user, "<span class='userdanger'>Щас ебанёт кажись...</span>")
+			playsound(bang_turf, 'code/shitcode/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
+			spawn(rand(10, 50))
 				babah(user)
+			broken = TRUE
+			return FALSE
 		return ..()
 
 /obj/item/extinguisher/proc/babah(mob/living/H)
@@ -94,13 +98,13 @@
 		return
 	playsound(bang_turf, 'sound/weapons/flashbang.ogg', 100, TRUE, 8, 0.9)
 
-	new /obj/effect/dummy/lighting_obj (bang_turf, LIGHT_COLOR_WHITE, (9), 4, 2)
+	new /obj/effect/dummy/lighting_obj (bang_turf, LIGHT_COLOR_WHITE, (5), 4, 2)
 
 	new /obj/effect/particle_effect/foam(bang_turf)
 
-	explosion(bang_turf, 0, 0, 1, 0)
+	explosion(bang_turf, 0, 0, 3, 0)
 
-	for(var/mob/living/M in get_hearers_in_view(9, bang_turf))
+	for(var/mob/living/M in get_hearers_in_view(5, bang_turf))
 		if(M.stat == DEAD)
 			return
 		M.show_message("<big>БАХ!</big>", MSG_AUDIBLE)
@@ -124,10 +128,12 @@
 		refilling = TRUE
 		return FALSE
 	else
-		if(prob(5))
-			to_chat(user, "<span class='warning'>Щас ебанёт кажись...</span>")
-			spawn(30)
+		if(prob(5) && !broken)
+			to_chat(user, "<span class='userdanger'>Щас ебанёт кажись...</span>")
+			playsound(bang_turf, 'code/shitcode/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
+			spawn(rand(10, 50))
 				babah(user)
+			broken = TRUE
 			return FALSE
 		return ..()
 
