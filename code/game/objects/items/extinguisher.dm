@@ -117,6 +117,7 @@
 				M.Paralyze(5)
 				M.Knockdown(30)
 			M.soundbang_act(1, max(200/max(1,distance), 60), rand(0, 5))
+	qdel(src)
 
 /obj/item/extinguisher/attack_obj(obj/O, mob/living/user)
 	if(AttemptRefill(O, user))
