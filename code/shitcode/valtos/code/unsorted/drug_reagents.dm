@@ -625,7 +625,7 @@
 	if(!triggered_shit)
 		if(ishuman(AM))
 			animate(src, pixel_y = 600, pixel_x = rand(-4, 4), time = 30, easing = BOUNCE_EASING)
-			if(prob(10))
+			if(prob(10) && AM == target)
 				var/mob/living/carbon/human/M = AM
 				M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5, 170)
 				to_chat(M, "<b>[readable_corrupted_text("ПШШШШШШШШШШШШШШШШШШШ!!!")]</b>")
