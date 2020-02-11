@@ -10,7 +10,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	throw_speed = 2
 	throw_range = 7
-	force = 20
+	force = 30
 	custom_materials = list(/datum/material/iron = 90)
 	attack_verb = list("хуярит", "ебошит", "устраивает развал", "баллонит", "грейтайдит", "петушит", "учит летать")
 	dog_fashion = /datum/dog_fashion/back
@@ -82,13 +82,52 @@
 	if(user.a_intent == INTENT_HELP && !safety) //If we're on help intent and going to spray people, don't bash them.
 		return FALSE
 	else
+		if(prob(5))
+			to_chat(user, "<span class='warning'>Щас ебанёт кажись...</span>")
+			spawn(30)
+				babah(user)
 		return ..()
+
+/obj/item/extinguisher/proc/babah(mob/living/H)
+	var/bang_turf = get_turf(src)
+	if(!bang_turf)
+		return
+	playsound(bang_turf, 'sound/weapons/flashbang.ogg', 100, TRUE, 8, 0.9)
+
+	new /obj/effect/dummy/lighting_obj (bang_turf, LIGHT_COLOR_WHITE, (9), 4, 2)
+
+	new /obj/effect/particle_effect/foam(bang_turf)
+
+	explosion(bang_turf, 0, 0, 1, 0)
+
+	for(var/mob/living/M in get_hearers_in_view(9, bang_turf))
+		if(M.stat == DEAD)
+			return
+		M.show_message("<big>БАХ!</big>", MSG_AUDIBLE)
+		var/distance = max(0,get_dist(get_turf(src),get_turf(M)))
+		if(M.flash_act(affect_silicon = 1))
+			M.Paralyze(max(20/max(1,distance), 5))
+			M.Knockdown(max(200/max(1,distance), 60))
+		if(!distance || loc == M || loc == M.loc)	//Stop allahu akbarring rooms with this.
+			M.Paralyze(20)
+			M.Knockdown(200)
+			M.soundbang_act(1, 200, 10, 15)
+		else
+			if(distance <= 1) // Adds more stun as to not prime n' pull (#45381)
+				M.Paralyze(5)
+				M.Knockdown(30)
+			M.soundbang_act(1, max(200/max(1,distance), 60), rand(0, 5))
 
 /obj/item/extinguisher/attack_obj(obj/O, mob/living/user)
 	if(AttemptRefill(O, user))
 		refilling = TRUE
 		return FALSE
 	else
+		if(prob(5))
+			to_chat(user, "<span class='warning'>Щас ебанёт кажись...</span>")
+			spawn(30)
+				babah(user)
+			return FALSE
 		return ..()
 
 /obj/item/extinguisher/examine(mob/user)
