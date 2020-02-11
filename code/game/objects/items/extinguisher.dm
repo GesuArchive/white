@@ -85,7 +85,7 @@
 	else
 		if(prob(5) && !broken)
 			to_chat(user, "<span class='userdanger'>Щас ебанёт кажись...</span>")
-			playsound(bang_turf, 'code/shitcode/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
+			playsound(get_turf(src), 'code/shitcode/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
 			spawn(rand(10, 50))
 				babah(user)
 			broken = TRUE
@@ -130,7 +130,7 @@
 	else
 		if(prob(5) && !broken)
 			to_chat(user, "<span class='userdanger'>Щас ебанёт кажись...</span>")
-			playsound(bang_turf, 'code/shitcode/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
+			playsound(get_turf(src), 'code/shitcode/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
 			spawn(rand(10, 50))
 				babah(user)
 			broken = TRUE
