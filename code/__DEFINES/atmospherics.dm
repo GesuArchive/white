@@ -41,7 +41,7 @@
 #define CELL_VOLUME				2500
 
 /// liters in a normal breath
-#define BREATH_VOLUME			12
+#define BREATH_VOLUME			2
 /// Amount of air to take a from a tile
 #define BREATH_PERCENTAGE		(BREATH_VOLUME/CELL_VOLUME)
 
