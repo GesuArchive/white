@@ -579,7 +579,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(standing.len)
 		H.overlays_standing[BODY_LAYER] = standing
 
-	sleep(1)
 	H.apply_overlay(BODY_LAYER)
 	handle_mutant_bodyparts(H)
 
