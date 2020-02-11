@@ -10,7 +10,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	throw_speed = 2
 	throw_range = 7
-	force = 30
+	force = 18
 	custom_materials = list(/datum/material/iron = 90)
 	attack_verb = list("хуярит", "ебошит", "устраивает развал", "баллонит", "грейтайдит", "петушит", "учит летать")
 	dog_fashion = /datum/dog_fashion/back
@@ -128,7 +128,7 @@
 		refilling = TRUE
 		return FALSE
 	else
-		if(prob(5) && !broken)
+		if(prob(10) && !broken)
 			to_chat(user, "<span class='userdanger'>Щас ебанёт кажись...</span>")
 			playsound(get_turf(src), 'code/shitcode/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
 			spawn(rand(10, 50))
