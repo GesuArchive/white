@@ -102,7 +102,7 @@
 
 	new /obj/effect/particle_effect/foam(bang_turf)
 
-	explosion(bang_turf, 0, 0, 3, 0)
+	explosion(bang_turf, 0, 0, 2, 0)
 
 	for(var/mob/living/M in get_hearers_in_view(5, bang_turf))
 		if(M.stat == DEAD)
