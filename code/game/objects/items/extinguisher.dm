@@ -100,8 +100,9 @@
 	new /obj/effect/particle_effect/foam(bang_turf)
 
 	if(prob(75))
-		bang_turf.visible_message("<span class='warning'>Похоже пронесло...</span>")
 		force = 8 // как вы вообще этим бить собрались
+		for(var/mob/living/M in get_hearers_in_view(5, bang_turf))
+			M.visible_message("<span class='warning'>Похоже пронесло...</span>")
 		return
 
 	playsound(bang_turf, 'sound/weapons/flashbang.ogg', 100, TRUE, 8, 0.9)
