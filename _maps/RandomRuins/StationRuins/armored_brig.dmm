@@ -787,6 +787,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start/prisoner,
 /turf/open/floor/engine,
 /area/security/prison)
 "cc" = (
@@ -826,6 +827,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
+/obj/effect/landmark/start/prisoner,
 /turf/open/floor/engine,
 /area/security/prison)
 "cf" = (
@@ -4808,6 +4810,11 @@
 	},
 /turf/open/floor/engine,
 /area/security/brig)
+"MG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start/prisoner,
+/turf/open/floor/engine,
+/area/security/prison)
 
 (1,1,1) = {"
 ab
@@ -5159,7 +5166,7 @@ ay
 ay
 ay
 bH
-ay
+MG
 ay
 cX
 dv

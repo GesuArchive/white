@@ -96,11 +96,17 @@
 	var/bang_turf = get_turf(src)
 	if(!bang_turf)
 		return
+
+	new /obj/effect/particle_effect/foam(bang_turf)
+
+	if(prob(75))
+		bang_turf.visible_message("<span class='warning'>Похоже пронесло...</span>")
+		force = 8 // как вы вообще этим бить собрались
+		return
+
 	playsound(bang_turf, 'sound/weapons/flashbang.ogg', 100, TRUE, 8, 0.9)
 
 	new /obj/effect/dummy/lighting_obj (bang_turf, LIGHT_COLOR_WHITE, (5), 4, 2)
-
-	new /obj/effect/particle_effect/foam(bang_turf)
 
 	explosion(bang_turf, 0, 0, 2, 0)
 

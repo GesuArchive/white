@@ -14,7 +14,7 @@
 
 	dstats[MOB_STR] = rand(7, 12)
 	dstats[MOB_STM] = rand(5, 10)
-	dstats[MOB_INT] = rand(6, 12)
+	dstats[MOB_INT] = rand(7, 12)
 	dstats[MOB_DEX] = rand(5, 10)
 
 	// запоминаем базовые значения
@@ -158,6 +158,12 @@
 					dstats[MOB_DEX] += rand( 2, 2)
 
 				if("Assistant") // никому не нужный (tm)
+					dstats[MOB_STR] += rand(-3, 3)
+					dstats[MOB_STM] += rand(-3, 3)
+					dstats[MOB_INT] += rand(-6, 3)
+					dstats[MOB_DEX] += rand(-3, 3)
+
+				if("Prisoner") // same
 					dstats[MOB_STR] += rand(-3, 3)
 					dstats[MOB_STM] += rand(-3, 3)
 					dstats[MOB_INT] += rand(-6, 3)
