@@ -48,4 +48,4 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 	fire_sound = 'sound/weapons/taser2.ogg'
 	harmful = FALSE
 
-GLOBAL_LIST_INIT(pacifist_list, list("rebolution228"))
+GLOBAL_LIST_INIT(pacifist_list, list("rebolution228", "chillraccoon"))
