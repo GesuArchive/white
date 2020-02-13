@@ -248,8 +248,6 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 		message = replacetext(message, "\t", "[FOURSPACES][FOURSPACES]") //EIGHT SPACES IN TOTAL!!
 	if(trailing_newline)
 		message += "<br>"
-	if(!confidential && target != GLOB.admins) // hippie -- moody blues
-		SSdemo.write_chat(target, message)
 
 	if(islist(target))
 		// Do the double-encoding outside the loop to save nanoseconds
