@@ -38,7 +38,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	return ..()
 
 /datum/component/battletension/process()
-	if((!bm || !bm.file) && is_enabled() && tension > 0)
+	if((!bm || !bm.file) && is_enabled())
 		pick_sound()
 
 	if(tension <= 0)
