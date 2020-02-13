@@ -88,7 +88,7 @@
 				var/expires = "Навсегда."
 				if(i["expiration_time"])
 					expires = "Блокировка на [DisplayTimeText(text2num(i["duration"]) MINUTES)] заканчивается в [i["expiration_time"]]."
-				var/desc = {"Доступ запрещён, ([i["key"]]). Метка: [html_decode(i["reason"])]. Блокировка #[i["id"]]) выдана [i["admin_key"]] в [i["bantime"]] во время раунда [i["round_id"]]. [expires]"}
+				var/desc = {"Доступ запрещён, ([i["key"]]). \nМетка: [html_decode(i["reason"])]. \nБлокировка #[i["id"]] выдана [i["admin_key"]] в [i["bantime"]] во время раунда [i["round_id"]]. \n[expires]"}
 				log_access("Failed Login: [key] [computer_id] [address] - Banned (#[i["id"]])")
 				return list("reason"="Banned","desc"="[desc]")
 	if (admin)
