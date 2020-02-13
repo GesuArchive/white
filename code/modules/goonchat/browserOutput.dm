@@ -233,7 +233,7 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 	log_world("\[[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")]\] Client: [(src.owner.key ? src.owner.key : src.owner)] triggered JS error: [error]")
 
 //Global chat procs
-/proc/to_chat_immediate(target, message, handle_whitespace = TRUE, trailing_newline = TRUE, confidential=FALSE)
+/proc/to_chat_immediate(target, message, handle_whitespace = TRUE, trailing_newline = TRUE, confidential = FALSE)
 	if(!target || !message)
 		return
 
@@ -248,6 +248,9 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 		message = replacetext(message, "\t", "[FOURSPACES][FOURSPACES]") //EIGHT SPACES IN TOTAL!!
 	if(trailing_newline)
 		message += "<br>"
+
+	if(!confidential)
+		SSdemo.write_chat(target, message)
 
 	if(islist(target))
 		// Do the double-encoding outside the loop to save nanoseconds

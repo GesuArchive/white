@@ -43,6 +43,9 @@
 
 	var/zfalling = FALSE
 
+	///Last location of the atom for demo recording purposes
+	var/atom/demo_last_loc
+
 /atom/movable/proc/can_zFall(turf/source, levels = 1, turf/target, direction)
 	if(!direction)
 		direction = DOWN
@@ -360,6 +363,7 @@
 	if (length(client_mobs_in_contents))
 		update_parallax_contents()
 
+	SSdemo.mark_dirty(src)
 	return TRUE
 
 /atom/movable/Destroy(force)
