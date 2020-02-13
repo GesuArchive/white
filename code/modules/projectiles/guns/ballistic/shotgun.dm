@@ -213,12 +213,18 @@
 			to_chat(user, "<span class='warning'> Вам нужно как минимум десять длин кабеля, если вы хотите сделать стропу!</span>")
 
 /obj/item/gun/ballistic/shotgun/doublebarrel/improvised/update_icon_state()
-	item_state = "ishotgunsling"
+	. = ..()
+	if(slung)
+		item_state = "ishotgunsling"
+	if(sawn_off)
+		item_state = "ishotgun_sawn"
 
 /obj/item/gun/ballistic/shotgun/doublebarrel/improvised/update_overlays()
 	. = ..()
 	if(slung)
 		. += "ishotgunsling"
+	if(sawn_off)
+		. += "ishotgun_sawn"
 
 /obj/item/gun/ballistic/shotgun/doublebarrel/improvised/sawoff(mob/user)
 	. = ..()
