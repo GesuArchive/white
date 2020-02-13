@@ -13,7 +13,7 @@
 //austation
 
 /obj/effect/mob_spawn/human/austation
-	name = "пахнущая ссаниной капсула"
+	name = "пахнущая плохо капсула"
 	desc = "Промёрзшая изнутри капсула. Если присмотреться, то внутри находится спящий человек."
 	mob_name = "ассистуха"
 	icon = 'icons/obj/machines/sleeper.dmi'
@@ -22,7 +22,9 @@
 	death = FALSE
 	random = TRUE
 	mob_species = /datum/species/human
-	flavour_text = "<span class='big bold'>Мне повезло проснуться хрен пойми где. Надо бы понять что тут стряслось и выжить.</b>"
+	short_desc = "Аутистовец"
+	flavour_text = "Мне повезло проснуться непонятно где. Надо бы понять что тут стряслось и выжить."
+	important_info = "Скоро закончится свет."
 	uniform = /datum/outfit/job/assistant
 	shoes = null
 	assignedrole = "Autism Crew"

@@ -58,7 +58,9 @@
 	random = FALSE
 	oxy_damage = 30
 	mob_species = /datum/species/human
-	flavour_text = "<span class='big bold'>ПОРА УМИРАТЬ!</b>"
+	short_desc = "Бомбасист"
+	flavour_text = "ПОРА УМИРАТЬ!"
+	important_info = "Система клонирования дала сбой и теперь вся надежда только на самих себя."
 	uniform = /datum/outfit/job/assistant
 	shoes = null
 	disease = /datum/disease/dnaspread
