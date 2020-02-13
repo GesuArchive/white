@@ -437,6 +437,7 @@ GLOBAL_LIST_EMPTY(species_list)
 			var/datum/preferences/prefs = M.client.prefs
 			chat_toggles = prefs.chat_toggles
 			toggles = prefs.toggles
+			w_toggles = prefs.w_toggles
 			ignoring = prefs.ignoring
 
 

@@ -40,7 +40,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_pos)()
 	usr.client.prefs.w_toggles ^= TOOLTIP_USER_POS
 	usr.client.prefs.save_preferences()
 	if(usr.client.prefs.w_toggles & TOOLTIP_USER_POS)
-		to_chat(usr, "Теперь панель будет снизу.")
+		to_chat(usr, "Теперь панель будет внизу.")
 		usr.hud_used.tooltip.screen_loc = "SOUTH+1,CENTER-4:16"
 	else
 		to_chat(usr, "Теперь панель будет сверху.")
