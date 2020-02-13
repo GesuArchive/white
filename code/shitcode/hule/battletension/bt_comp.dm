@@ -18,11 +18,8 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 /datum/component/battletension/Initialize()
 	if(ishuman(parent))
-		var/mob/living/carbon/human/H = parent
-		spawn(50)
-			if(H.client)
-				START_PROCESSING(SSbtension, src)
-				owner = parent
+		START_PROCESSING(SSbtension, src)
+		owner = parent
 
 /datum/component/battletension/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ATOM_BULLET_ACT, .proc/bulletact_react)
@@ -41,6 +38,8 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	return ..()
 
 /datum/component/battletension/process()
+	if(!owner.client)
+		return
 	if((!bm || !bm.file) && is_enabled())
 		pick_sound()
 
