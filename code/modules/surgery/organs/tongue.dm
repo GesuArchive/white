@@ -57,12 +57,12 @@
 	modifies_speech = TRUE
 
 /obj/item/organ/tongue/lizard/handle_speech(datum/source, list/speech_args)
-	var/static/regex/lizard_hiss = new("s+", "g")
-	var/static/regex/lizard_hiSS = new("S+", "g")
+	var/static/regex/lizard_hiss = new("с+", "g")
+	var/static/regex/lizard_hiSS = new("С+", "g")
 	var/message = speech_args[SPEECH_MESSAGE]
 	if(message[1] != "*")
-		message = lizard_hiss.Replace(message, "sss")
-		message = lizard_hiSS.Replace(message, "SSS")
+		message = lizard_hiss.Replace_char(message, "ссс")
+		message = lizard_hiSS.Replace_char(message, "ССС")
 	speech_args[SPEECH_MESSAGE] = message
 
 /obj/item/organ/tongue/fly
@@ -89,12 +89,12 @@
 	))
 
 /obj/item/organ/tongue/fly/handle_speech(datum/source, list/speech_args)
-	var/static/regex/fly_buzz = new("z+", "g")
-	var/static/regex/fly_buZZ = new("Z+", "g")
+	var/static/regex/fly_buzz = new("з+", "g")
+	var/static/regex/fly_buZZ = new("З+", "g")
 	var/message = speech_args[SPEECH_MESSAGE]
 	if(message[1] != "*")
-		message = fly_buzz.Replace(message, "zzz")
-		message = fly_buZZ.Replace(message, "ZZZ")
+		message = fly_buzz.Replace_char(message, "ззз")
+		message = fly_buZZ.Replace_char(message, "ЗЗЗ")
 	speech_args[SPEECH_MESSAGE] = message
 
 /obj/item/organ/tongue/fly/Initialize(mapload)
