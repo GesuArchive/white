@@ -18,8 +18,10 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 /datum/component/battletension/Initialize()
 	if(ishuman(parent))
-		START_PROCESSING(SSbtension, src)
-		owner = parent
+		var/mob/living/carbon/human/H = parent
+		if(H.client)
+			START_PROCESSING(SSbtension, src)
+			owner = parent
 
 /datum/component/battletension/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ATOM_BULLET_ACT, .proc/bulletact_react)
