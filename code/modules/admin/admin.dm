@@ -21,13 +21,13 @@
 	if(izidi)
 		for(var/client/A in GLOB.admins)
 			if(check_rights_for(A,R_PERMISSIONS))
-				to_chat(A, msg, confidential=TRUE)
+				to_chat(A, msg, confidential = TRUE)
 	else
-		to_chat(GLOB.admins, msg, confidential=TRUE)
+		to_chat(GLOB.admins, msg, confidential = TRUE)
 
 /proc/relay_msg_admins(msg)
 	msg = "<span class=\"admin\"><span class=\"prefix\">RELAY:</span> <span class=\"message linkify\">[msg]</span></span>"
-	to_chat(GLOB.admins, msg, confidential=TRUE)
+	to_chat(GLOB.admins, msg, confidential = TRUE)
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////Panels
@@ -613,7 +613,7 @@
 		message_admins("<font color='blue'>[usr.key] has cancelled immediate game start. Game will start in 180 seconds.</font>")
 		log_admin("[usr.key] has cancelled immediate game start.")
 	else
-		to_chat(usr, "<font color='red'>Error: Start Now: Game has already started.</font>", confidential=TRUE)
+		to_chat(usr, "<font color='red'>Error: Start Now: Game has already started.</font>", confidential = TRUE)
 	return FALSE
 
 /datum/admins/proc/toggleenter()

@@ -430,7 +430,7 @@
 			if(!M.client)
 				to_chat(usr, "<span class='danger'>Error: [M] no longer has a client!</span>", confidential = TRUE)
 				return
-			//to_chat(M, "<span class='danger'>You have been kicked from the server by [usr.client.holder.fakekey ? "an Administrator" : "[usr.client.key]"].</span>", confidential=TRUE)
+			//to_chat(M, "<span class='danger'>You have been kicked from the server by [usr.client.holder.fakekey ? "an Administrator" : "[usr.client.key]"].</span>", confidential = TRUE)
 			log_admin("[key_name(usr)] kicked [key_name(M)].")
 			message_admins("<span class='adminnotice'>[key_name_admin(usr)] kicked [key_name_admin(M)].</span>")
 			qdel(M.client)
@@ -988,7 +988,7 @@
 			return
 
 		M.forceMove(pick(GLOB.prisonwarp))
-		//to_chat(M, "<span class='adminnotice'>You have been sent to Prison!</span>", confidential=TRUE)
+		//to_chat(M, "<span class='adminnotice'>You have been sent to Prison!</span>", confidential = TRUE)
 
 		log_admin("[key_name(usr)] has sent [key_name(M)] to Prison!")
 		message_admins("[key_name_admin(usr)] has sent [key_name_admin(M)] to Prison!")

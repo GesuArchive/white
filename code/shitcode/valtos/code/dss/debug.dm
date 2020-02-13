@@ -3,7 +3,7 @@
 	set name = "Set Stats"
 
 	if(!src.holder)
-		to_chat(src, "Only administrators may use this command.", confidential=TRUE)
+		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
 		return
 
 	var/list/keys = list()
@@ -13,7 +13,7 @@
 	var/client/selection = input("Please, select a player!", "Set Stat", null, null) as null|anything in sortKey(keys)
 
 	if(!selection)
-		to_chat(src, "No keys found.", confidential=TRUE)
+		to_chat(src, "No keys found.", confidential = TRUE)
 		return
 
 	var/mob/living/carbon/human/M = selection.mob
