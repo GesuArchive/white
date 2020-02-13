@@ -486,9 +486,11 @@
 			. += "<span class='danger'><b>Цена: [price] кредитов.</b></span>"
 
 	if(custom_materials)
+		var/list/materials_list = list()
 		for(var/i in custom_materials)
 			var/datum/material/M = i
-			. += "<u>Материал похож на [M.name]</u>."
+			materials_list += "[M.name]"
+		. += "<u>Похоже этот предмет создан из [english_list(materials_list)]</u>."
 	if(reagents)
 		if(reagents.flags & TRANSPARENT)
 			. += "Он содержит:"

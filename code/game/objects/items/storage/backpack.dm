@@ -512,13 +512,12 @@
 /obj/item/storage/backpack/duffelbag/syndie/ammo/dark_gygax
 	desc = "Большая сумка для вещей, упакованная до краев с различными экзотическими боеприпасами."
 
-/obj/item/storage/backpack/duffelbag/syndie/ammo/dark_gygax/PopulateContents()
-	new /obj/item/mecha_ammo/incendiary(src)
-	new /obj/item/mecha_ammo/incendiary(src)
-	new /obj/item/mecha_ammo/incendiary(src)
-	new /obj/item/mecha_ammo/flashbang(src)
-	new /obj/item/mecha_ammo/flashbang(src)
-	new /obj/item/mecha_ammo/flashbang(src)
+/obj/item/storage/backpack/duffelbag/syndie/ammo/mech/PopulateContents()
+	new /obj/item/mecha_ammo/scattershot(src)
+	new /obj/item/mecha_ammo/scattershot(src)
+	new /obj/item/mecha_ammo/scattershot(src)
+	new /obj/item/mecha_ammo/scattershot(src)
+	new /obj/item/storage/belt/utility/syndicate(src)
 
 /obj/item/storage/backpack/duffelbag/syndie/ammo/mauler
 	desc = "Большая сумка для вещей, упакованная до краев с различными экзотическими боеприпасами."
