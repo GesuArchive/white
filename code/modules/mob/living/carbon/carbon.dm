@@ -837,7 +837,7 @@
 		return
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
-		if(total_burn >= FLOOR((MAX_REVIVE_FIRE_DAMAGE*(RH.dstats[MOB_STR]+H.dstats[MOB_STM]))/20,1) || total_brute >= FLOOR((MAX_REVIVE_BRUTE_DAMAGE*(RH.dstats[MOB_STR]+H.dstats[MOB_STM]))/20,1))
+		if((getFireLoss() >= FLOOR((MAX_REVIVE_FIRE_DAMAGE*(H.dstats[MOB_STR]+H.dstats[MOB_STM]))/20,1)) || (getBruteLoss() >= FLOOR((MAX_REVIVE_BRUTE_DAMAGE*(H.dstats[MOB_STR]+H.dstats[MOB_STM]))/20,1)))
 			return
 	return TRUE
 
