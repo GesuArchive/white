@@ -3123,6 +3123,7 @@
 #include "code\shitcode\other\telescience\telesci_circuits.dm"
 #include "code\shitcode\other\telescience\telesci_computer.dm"
 #include "code\shitcode\qwaszx000\boyar.dm"
+#include "code\shitcode\qwaszx000\weapons.dm"
 #include "code\shitcode\qwaszx000\winners.dm"
 #include "code\shitcode\qwaszx000\loly\loly.dm"
 #include "code\shitcode\RedFoxIV\guns\battery_gun_def\battery_gun.dm"
