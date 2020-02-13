@@ -158,7 +158,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	dat += "<a href='?_src_=prefs;preference=tab;tab=3' [current_tab == 3 ? "class='linkOn'" : ""]>Хоткеи</a>"
 
 	if(!path)
-		dat += "<div class='notice'>Please create an account to save your preferences</div>"
+		dat += "<div class='notice'>Создайте своего первого персонажа.</div>"
 
 	dat += "</center>"
 
@@ -217,12 +217,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_GENDER]'>Всегда случайный пол: [(randomise[RANDOM_GENDER]) ? "Да" : "Нет"]</A>"
 					dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_GENDER_ANTAG]'>Когда антагонист: [(randomise[RANDOM_GENDER_ANTAG]) ? "Да" : "Нет"]</A>"
 
-			dat += "<br><b>Age:</b> <a href='?_src_=prefs;preference=age;task=input'>[age]</a>"
+			dat += "<br><b>Возраст:</b> <a href='?_src_=prefs;preference=age;task=input'>[age]</a>"
 			if(randomise[RANDOM_BODY] || randomise[RANDOM_BODY_ANTAG]) //doesn't work unless random body
 				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_AGE]'>Всегда случайный возраст: [(randomise[RANDOM_AGE]) ? "Да" : "Нет"]</A>"
 				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_AGE_ANTAG]'>Когда антагонист: [(randomise[RANDOM_AGE_ANTAG]) ? "Да" : "Нет"]</A>"
 
-			dat += "<br><br><b>Специальные имена:</b><BR>"
+			dat += "</tr><tr><td><br><br><b>Специальные имена:</b><BR>"
 			var/old_group
 			for(var/custom_name_id in GLOB.preferences_custom_names)
 				var/namedata = GLOB.preferences_custom_names[custom_name_id]
@@ -234,11 +234,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<a href ='?_src_=prefs;preference=[custom_name_id];task=input'><b>[namedata["pref_name"]]:</b> [custom_names[custom_name_id]]</a> "
 			dat += "<br><br>"
 
-			dat += "<b>Особенности должности:</b><BR>"
+			dat += "</td><td><b>Особенности должности:</b><BR>"
 			dat += "<a href='?_src_=prefs;preference=ai_core_icon;task=input'><b>Предпочтительный дисплей ИИ:</b> [preferred_ai_core_display]</a><br>"
 			dat += "<a href='?_src_=prefs;preference=sec_dept;task=input'><b>Предпочтительный отдел офицера:</b> [prefered_security_department]</a><BR></td>"
 
-			dat += "</tr></table>"
+			dat += "</td></tr></table>"
 
 			dat += "<h2>Тело</h2>"
 			dat += "<a href='?_src_=prefs;preference=all;task=random'>Случайное</A> "
@@ -269,11 +269,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_BACKPACK]'>[(randomise[RANDOM_BACKPACK]) ? "Блок" : "Разблок"]</A>"
 
 
-			dat += "<br><b>Стиль комбинезона:</b><BR><a href ='?_src_=prefs;preference=suit;task=input'>[jumpsuit_style]</a>"
+			dat += "<br><b>Комбез:</b><BR><a href ='?_src_=prefs;preference=suit;task=input'>[jumpsuit_style]</a>"
 			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_JUMPSUIT_STYLE]'>[(randomise[RANDOM_JUMPSUIT_STYLE]) ? "Блок" : "Разблок"]</A>"
 
 
-			dat += "<br><b>Местонахождение Uplink:</b><BR><a href ='?_src_=prefs;preference=uplink_loc;task=input'>[uplink_spawn_loc]</a><BR></td>"
+			dat += "<br><b>Uplink:</b><BR><a href ='?_src_=prefs;preference=uplink_loc;task=input'>[uplink_spawn_loc]</a><BR></td>"
 
 			var/use_skintones = pref_species.use_skintones
 			if(use_skintones)
@@ -619,7 +619,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			for (var/i in GLOB.special_roles)
 				if(is_banned_from(user.ckey, i))
-					dat += "<b>Быть [capitalize(i)]:</b> <a href='?_src_=prefs;bancheck=[i]'>БАНЕЦ</a><br>"
+					dat += "<b>[capitalize(i)]:</b> <a href='?_src_=prefs;bancheck=[i]'>БАНЕЦ</a><br>"
 				else
 					var/days_remaining = null
 					if(ispath(GLOB.special_roles[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
@@ -628,20 +628,20 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						days_remaining = temp_mode.get_remaining_days(user.client)
 
 					if(days_remaining)
-						dat += "<b>Быть [capitalize(i)]:</b> <font color=red> \[Через [days_remaining] дней]</font><br>"
+						dat += "<b>[capitalize(i)]:</b> <font color=red> \[Через [days_remaining] дней]</font><br>"
 					else
-						dat += "<b>Быть [capitalize(i)]:</b> <a href='?_src_=prefs;preference=be_special;be_special_type=[i]'>[(i in be_special) ? "Вкл" : "Выкл"]</a><br>"
+						dat += "<b>[capitalize(i)]:</b> <a href='?_src_=prefs;preference=be_special;be_special_type=[i]'>[(i in be_special) ? "Да" : "Нет"]</a><br>"
 			dat += "<br>"
-			dat += "<b>Midround Antagonist:</b> <a href='?_src_=prefs;preference=allow_midround_antag'>[(toggles & MIDROUND_ANTAG) ? "Вкл" : "Выкл"]</a><br>"
+			dat += "<b>Midround Антаг:</b> <a href='?_src_=prefs;preference=allow_midround_antag'>[(toggles & MIDROUND_ANTAG) ? "Да" : "Нет"]</a><br>"
 			dat += "</td></tr></table>"
 		if(2) //OOC Preferences
 			dat += "<table><tr><td width='340px' height='300px' valign='top'>"
-			dat += "<h2>OOC Settings</h2>"
-			dat += "<b>Window Flashing:</b> <a href='?_src_=prefs;preference=winflash'>[(windowflashing) ? "Вкл":"Выкл"]</a><br>"
+			dat += "<h2>Настройки OOC</h2>"
+			dat += "<b>Мигание окна:</b> <a href='?_src_=prefs;preference=winflash'>[(windowflashing) ? "Вкл":"Выкл"]</a><br>"
 			dat += "<br>"
-			dat += "<b>Play Admin MIDIs:</b> <a href='?_src_=prefs;preference=hear_midis'>[(toggles & SOUND_MIDI) ? "Вкл":"Выкл"]</a><br>"
-			dat += "<b>Play Lobby Music:</b> <a href='?_src_=prefs;preference=lobby_music'>[(toggles & SOUND_LOBBY) ? "Вкл":"Выкл"]</a><br>"
-			dat += "<b>See Pull Requests:</b> <a href='?_src_=prefs;preference=pull_requests'>[(chat_toggles & CHAT_PULLR) ? "Вкл":"Выкл"]</a><br>"
+			dat += "<b>Слышать Admin MIDIs:</b> <a href='?_src_=prefs;preference=hear_midis'>[(toggles & SOUND_MIDI) ? "Вкл":"Выкл"]</a><br>"
+			dat += "<b>Слышать Lobby Music:</b> <a href='?_src_=prefs;preference=lobby_music'>[(toggles & SOUND_LOBBY) ? "Вкл":"Выкл"]</a><br>"
+			dat += "<b>Видеть PR:</b> <a href='?_src_=prefs;preference=pull_requests'>[(chat_toggles & CHAT_PULLR) ? "Вкл":"Выкл"]</a><br>"
 			dat += "<br>"
 
 
@@ -650,7 +650,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "<b>BYOND Membership Publicity:</b> <a href='?_src_=prefs;preference=publicity'>[(toggles & MEMBER_PUBLIC) ? "Public" : "Hidden"]</a><br>"
 
 				if(unlock_content || check_rights_for(user.client, R_ADMIN) || check_donations(user.client.ckey))
-					dat += "<b>OOC Color:</b> <span style='border: 1px solid #161616; background-color: [ooccolor ? ooccolor : GLOB.normal_ooc_colour];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=ooccolor;task=input'>Change</a><br>"
+					dat += "<b>Цвет OOC:</b> <span style='border: 1px solid #161616; background-color: [ooccolor ? ooccolor : GLOB.normal_ooc_colour];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=ooccolor;task=input'>Change</a><br>"
 
 			dat += "</td>"
 
@@ -753,7 +753,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	dat += "</center>"
 
 	winshow(user, "preferences_window", TRUE)
-	var/datum/browser/popup = new(user, "preferences_browser", "<div align='center'>Character Setup</div>", 640, 770)
+	var/datum/browser/popup = new(user, "preferences_browser", "<div align='center'>Настройки</div>", 1000, 770)
 	popup.set_content(dat.Join())
 	popup.open(FALSE)
 	onclose(user, "preferences_window", src)
@@ -799,13 +799,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/HTML = "<center>"
 	if(SSjob.occupations.len <= 0)
-		HTML += "The job SSticker is not yet finished creating jobs, please try again later"
-		HTML += "<center><a href='?_src_=prefs;preference=job;task=close'>Done</a></center><br>" // Easier to press up here.
+		HTML += "Список работ ещё не инициализирован до конца. Подождите немного."
+		HTML += "<center><a href='?_src_=prefs;preference=job;task=close'>Готово</a></center><br>" // Easier to press up here.
 
 	else
-		HTML += "<b>Choose occupation chances</b><br>"
-		HTML += "<div align='center'>Left-click to raise an occupation preference, right-click to lower it.<br></div>"
-		HTML += "<center><a href='?_src_=prefs;preference=job;task=close'>Done</a></center><br>" // Easier to press up here.
+		HTML += "<b>Выбери шанс получить желаемую должность</b><br>"
+		HTML += "<div align='center'>ЛКМ, чтобы поднять вес, ПКМ чтобы понизить.<br></div>"
+		HTML += "<center><a href='?_src_=prefs;preference=job;task=close'>Готово</a></center><br>" // Easier to press up here.
 		HTML += "<script type='text/javascript'>function setJobPrefRedirect(level, rank) { window.location.href='?_src_=prefs;preference=job;task=setJobLevel;level=' + level + ';text=' + encodeURIComponent(rank); return false; }</script>"
 		HTML += "<table width='100%' cellpadding='1' cellspacing='0'><tr><td width='20%'>" // Table within a table for alignment, also allows you to easily add more colomns.
 		HTML += "<table width='100%' cellpadding='1' cellspacing='0'>"
@@ -831,7 +831,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			var/rank = job.title
 			lastJob = job
 			if(is_banned_from(user.ckey, rank))
-				HTML += "<font color=red>[rank]</font></td><td><a href='?_src_=prefs;bancheck=[rank]'> BANNED</a></td></tr>"
+				HTML += "<font color=red>[rank]</font></td><td><a href='?_src_=prefs;bancheck=[rank]'> БЛОК</a></td></tr>"
 				continue
 			var/required_playtime_remaining = job.required_playtime_remaining(user.client)
 			if(required_playtime_remaining)
@@ -851,29 +851,29 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			HTML += "</td><td width='40%'>"
 
-			var/prefLevelLabel = "ERROR"
+			var/prefLevelLabel = "ОШИБКА"
 			var/prefLevelColor = "pink"
 			var/prefUpperLevel = -1 // level to assign on left click
 			var/prefLowerLevel = -1 // level to assign on right click
 
 			switch(job_preferences[job.title])
 				if(JP_HIGH)
-					prefLevelLabel = "High"
+					prefLevelLabel = "Высокий"
 					prefLevelColor = "slateblue"
 					prefUpperLevel = 4
 					prefLowerLevel = 2
 				if(JP_MEDIUM)
-					prefLevelLabel = "Medium"
+					prefLevelLabel = "Средний"
 					prefLevelColor = "green"
 					prefUpperLevel = 1
 					prefLowerLevel = 3
 				if(JP_LOW)
-					prefLevelLabel = "Low"
+					prefLevelLabel = "Низкий"
 					prefLevelColor = "orange"
 					prefUpperLevel = 2
 					prefLowerLevel = 4
 				else
-					prefLevelLabel = "NEVER"
+					prefLevelLabel = "НИКОГДА"
 					prefLevelColor = "red"
 					prefUpperLevel = 3
 					prefLowerLevel = 1
@@ -882,9 +882,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			if(rank == SSjob.overflow_role)//Overflow is special
 				if(job_preferences[SSjob.overflow_role] == JP_LOW)
-					HTML += "<font color=green>Yes</font>"
+					HTML += "<font color=green>Да</font>"
 				else
-					HTML += "<font color=red>No</font>"
+					HTML += "<font color=red>Нет</font>"
 				HTML += "</a></td></tr>"
 				continue
 
@@ -897,15 +897,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		HTML += "</td'></tr></table>"
 		HTML += "</center></table>"
 
-		var/message = "Be an [SSjob.overflow_role] if preferences unavailable"
+		var/message = "Быть [SSjob.overflow_role], если не получилось"
 		if(joblessrole == BERANDOMJOB)
-			message = "Get random job if preferences unavailable"
+			message = "Получить случайную должность, если не получилось"
 		else if(joblessrole == RETURNTOLOBBY)
-			message = "Return to lobby if preferences unavailable"
+			message = "Вернуться в лобби, если не получилось"
 		HTML += "<center><br><a href='?_src_=prefs;preference=job;task=random'>[message]</a></center>"
-		HTML += "<center><a href='?_src_=prefs;preference=job;task=reset'>Reset Preferences</a></center>"
+		HTML += "<center><a href='?_src_=prefs;preference=job;task=reset'>Сбросить настройки</a></center>"
 
-	var/datum/browser/popup = new(user, "mob_occupation", "<div align='center'>Occupation Preferences</div>", width, height)
+	var/datum/browser/popup = new(user, "mob_occupation", "<div align='center'>Выбор должностей</div>", width, height)
 	popup.set_window_options("can_close=0")
 	popup.set_content(HTML)
 	popup.open(FALSE)
@@ -970,29 +970,29 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/list/dat = list()
 	if(!SSquirks.quirks.len)
-		dat += "The quirk subsystem hasn't finished initializing, please hold..."
-		dat += "<center><a href='?_src_=prefs;preference=trait;task=close'>Done</a></center><br>"
+		dat += "Система особенностей ещё не инициализирована. Надо подождать..."
+		dat += "<center><a href='?_src_=prefs;preference=trait;task=close'>Готово</a></center><br>"
 	else
-		dat += "<center><b>Choose quirk setup</b></center><br>"
-		dat += "<div align='center'>Left-click to add or remove quirks. You need negative quirks to have positive ones.<br>\
-		Quirks are applied at roundstart and cannot normally be removed.</div>"
-		dat += "<center><a href='?_src_=prefs;preference=trait;task=close'>Done</a></center>"
+		dat += "<center><b>Выбери возможные особенности персонажа</b></center><br>"
+		dat += "<div align='center'>ЛКМ, чтобы добавить или удалить особенность. Тебе нужны будут негативные особенности, чтобы иметь позитивные.<br>\
+		Особенности применяются каждый раунд и не могут быть убраны обычным путём.</div>"
+		dat += "<center><a href='?_src_=prefs;preference=trait;task=close'>Готово</a></center>"
 		dat += "<hr>"
-		dat += "<center><b>Current quirks:</b> [all_quirks.len ? all_quirks.Join(", ") : "None"]</center>"
-		dat += "<center>[GetPositiveQuirkCount()] / [MAX_QUIRKS] max positive quirks<br>\
-		<b>Quirk balance remaining:</b> [GetQuirkBalance()]</center><br>"
+		dat += "<center><b>Текущие особенности:</b> [all_quirks.len ? all_quirks.Join(", ") : "Нету!"]</center>"
+		dat += "<center>[GetPositiveQuirkCount()] / [MAX_QUIRKS] максимальных позитивных качеств<br>\
+		<b>Баланс особенностей:</b> [GetQuirkBalance()]</center><br>"
 		for(var/V in SSquirks.quirks)
 			var/datum/quirk/T = SSquirks.quirks[V]
 			var/quirk_name = initial(T.name)
 			var/has_quirk
 			var/quirk_cost = initial(T.value) * -1
-			var/lock_reason = "This trait is unavailable."
+			var/lock_reason = "Эта особенность недоступна."
 			var/quirk_conflict = FALSE
 			for(var/_V in all_quirks)
 				if(_V == quirk_name)
 					has_quirk = TRUE
 			if(initial(T.mood_quirk) && CONFIG_GET(flag/disable_human_mood))
-				lock_reason = "Mood is disabled."
+				lock_reason = "Настроение не настроено."
 				quirk_conflict = TRUE
 			if(has_quirk)
 				if(quirk_conflict)
@@ -1007,17 +1007,17 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				font_color = initial(T.value) > 0 ? "#AAFFAA" : "#FFAAAA"
 			if(quirk_conflict)
 				dat += "<font color='[font_color]'>[quirk_name]</font> - [initial(T.desc)] \
-				<font color='red'><b>LOCKED: [lock_reason]</b></font><br>"
+				<font color='red'><b>ЗАБЛОКИРОВАНО: [lock_reason]</b></font><br>"
 			else
 				if(has_quirk)
-					dat += "<a href='?_src_=prefs;preference=trait;task=update;trait=[quirk_name]'>[has_quirk ? "Remove" : "Take"] ([quirk_cost] pts.)</a> \
+					dat += "<a href='?_src_=prefs;preference=trait;task=update;trait=[quirk_name]'>[has_quirk ? "Убрать" : "Взять"] ([quirk_cost] о.)</a> \
 					<b><font color='[font_color]'>[quirk_name]</font></b> - [initial(T.desc)]<br>"
 				else
-					dat += "<a href='?_src_=prefs;preference=trait;task=update;trait=[quirk_name]'>[has_quirk ? "Remove" : "Take"] ([quirk_cost] pts.)</a> \
+					dat += "<a href='?_src_=prefs;preference=trait;task=update;trait=[quirk_name]'>[has_quirk ? "Убрать" : "Взять"] ([quirk_cost] о.)</a> \
 					<font color='[font_color]'>[quirk_name]</font> - [initial(T.desc)]<br>"
-		dat += "<br><center><a href='?_src_=prefs;preference=trait;task=reset'>Reset Quirks</a></center>"
+		dat += "<br><center><a href='?_src_=prefs;preference=trait;task=reset'>Сбросить особенности</a></center>"
 
-	var/datum/browser/popup = new(user, "mob_occupation", "<div align='center'>Quirk Preferences</div>", 900, 600) //no reason not to reuse the occupation window, as it's cleaner that way
+	var/datum/browser/popup = new(user, "mob_occupation", "<div align='center'>Настройка особенностей</div>", 900, 600) //no reason not to reuse the occupation window, as it's cleaner that way
 	popup.set_window_options("can_close=0")
 	popup.set_content(dat.Join())
 	popup.open(FALSE)
