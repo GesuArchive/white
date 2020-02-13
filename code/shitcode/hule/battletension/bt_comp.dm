@@ -42,7 +42,8 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		pick_sound()
 
 	if(tension <= 0)
-		stop_bm()
+		bm.volume = 0
+		return
 
 	if(tension >= 0)
 		tension--
