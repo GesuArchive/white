@@ -230,7 +230,7 @@
 /datum/round_aspect/assistants
 	name = "Assistants"
 	desc = "Критическая масса ассистентов увеличивается с каждой минутой. ЦК решило перенаправить эту нагрузку и на вашу станцию."
-	weight = 16
+	weight = 12
 
 /datum/controller/subsystem/job/proc/DisableJobsButThis(job_path)
 	for(var/I in occupations)
@@ -245,6 +245,61 @@
 /datum/round_aspect/assistants/run_aspect()
 	SSjob.DisableJobsButThis(/datum/job/assistant)
 	..()
+
+/datum/round_aspect/meow
+	name = "Cats"
+	desc = "Сбой в системе клонирования и очистки памяти на ЦК сделал всех членов экипажа фелинидами."
+	weight = 1
+
+/datum/round_aspect/meow/run_aspect()
+	for(var/M in GLOB.mob_list)
+		if(ishuman(M))
+			purrbation_apply(M)
+		CHECK_TICK
+	..()
+
+/datum/round_aspect/battled
+	name = "Battled"
+	desc = "Люди очень насторожены и готовы дать отпор в любую секунду."
+	weight = 8
+
+/datum/round_aspect/battled/run_aspect()
+	SSbtension.forced_tension = TRUE
+	..()
+
+/datum/round_aspect/tts
+	name = "TTS"
+	desc = "В эту смену я не только вижу ваши голоса. Я их слышу."
+	weight = 16
+
+/datum/round_aspect/tts/run_aspect()
+	GLOB.tts = !GLOB.tts
+	..()
+
+/datum/round_aspect/nogirlssky
+	name = "No Girls Sky"
+	desc = "Мужской - единственный биологический гендер на станции."
+	weight = 10
+
+/datum/round_aspect/nogirlssky/run_aspect()
+	for(var/mob/living/carbon/human/M in GLOB.human_list)
+		M.gender = MALE
+		CHECK_TICK
+	..()
+
+/datum/round_aspect/who_is_the_king
+	name = "Unlimited"
+	desc = "Из-за бюрократической ошибки станция позволяет удерживать в себе неограниченное количество людей на любой должности."
+	weight = 5
+
+/datum/round_aspect/who_is_the_king/run_aspect()
+	SSjob.AllowAllJobs()
+	..()
+
+/datum/controller/subsystem/job/proc/AllowAllJobs()
+	for(var/I in occupations)
+		var/datum/job/J = I
+		J.total_positions = 750
 
 /*
 /datum/round_aspect/power_failure

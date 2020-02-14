@@ -9,6 +9,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	priority = 15
 	flags = SS_NO_INIT
 	wait = 13
+	var/forced_tension = TRUE
 
 /datum/component/battletension
 	var/mob/living/carbon/human/owner
@@ -42,6 +43,9 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		return
 	if((!bm || !bm.file) && is_enabled())
 		pick_sound()
+
+	if(forced_tension && tension =< 50)
+		tension = 50
 
 	if(tension <= 0)
 		bm.volume = 0

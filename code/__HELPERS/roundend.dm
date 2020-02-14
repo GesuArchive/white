@@ -197,6 +197,10 @@
 	set waitfor = FALSE
 
 	to_chat(world, "<BR><BR><BR><center><span class='big bold'>Конец раунда.</span></center><BR><BR><BR>")
+
+	spawn(30)
+		to_chat(world, "<BR><span class='notice'>Аспект раунда был таков: <b>[SSaspects.ca_name]</b> - <i>[SSaspects.ca_desc]</i></span><BR>")
+
 	log_game("The round has ended.")
 
 	for(var/I in round_end_events)
