@@ -47,7 +47,9 @@
 	if(!isnum(amount_to_give) || amount_to_give < 0)
 		to_chat(C, "<span class='rose bold'>Неправильное число. Должно быть положительным.</span>")
 		return FALSE
+	cost = amount_to_give
 	..()
+	cost = 0
 
 /datum/metacoin_shop_item/mc_to_credits/after_buy(client/C)
 	var/mob/living/carbon/human/H = C.mob
