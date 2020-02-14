@@ -247,7 +247,7 @@
 	desc = "Дальность не проблема, когда вы можете притянуть жертву к себе."
 	icon_state = "hookshotgun"
 	item_state = "shotgun"
-	load_sound = 'sound/weapons/shotguninsert.ogg'
+	load_sound = 'sound/weapons/gun/shotgun/insert_shell.ogg'
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/bounty
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_MEDIUM
