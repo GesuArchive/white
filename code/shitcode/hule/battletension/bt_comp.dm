@@ -9,7 +9,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	priority = 15
 	flags = SS_NO_INIT
 	wait = 13
-	var/forced_tension = TRUE
+	var/forced_tension = FALSE
 
 /datum/component/battletension
 	var/mob/living/carbon/human/owner
