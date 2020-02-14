@@ -37,7 +37,7 @@
 	var/amount_to_give = 0
 
 /datum/metacoin_shop_item/mc_to_credits/buy(client/C)
-	if(SSticker.current_state == GAME_STATE_PLAYING || SSticker.current_state == GAME_STATE_FINISHED)
+	if(!SSticker.current_state == GAME_STATE_PLAYING)
 		to_chat(C, "<span class='rose bold'>Слишком рано! Доступно только во время игры.</span>")
 		return FALSE
 	if(!ishuman(C.mob))
@@ -81,7 +81,7 @@
 		return
 	var/datum/round_aspect/sel_aspect = input("Аспекты:", "Выбирайте!", null, null) as null|anything in SSaspects.aspects
 	if(!sel_aspect)
-		inc_metabalance(C.mob, cost, reason="Не выбран аспект.")
+		to_chat(C, "<span class='notice'>Не выбран аспект.</span>")
 		return
 	else
 		if(..())
