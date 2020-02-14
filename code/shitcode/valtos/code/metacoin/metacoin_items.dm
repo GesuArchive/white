@@ -13,11 +13,11 @@
 /datum/metacoin_shop_item/proc/buy(client/C)
 	if (!SSdbcore.IsConnected())
 		to_chat(C, "<span class='rose bold'>ОШИБОЧКА! Попробуй ещё раз!</span>")
-		return
+		return FALSE
 	var/metacoins = C.get_metabalance()
 	if (metacoins < cost)
-		to_chat(C, "<span class='rose bold'>Не хватает средст для покупки [name]!</span>")
-		return
+		to_chat(C, "<span class='rose bold'>Не хватает средств для покупки [name]!</span>")
+		return FALSE
 	inc_metabalance(C.mob, -cost, reason="Покупка.")
 	after_buy(C)
 	to_chat(C, "<span class='rose bold'>Покупаю [name] за [cost] метакэша!</span>")
@@ -28,12 +28,38 @@
 /datum/metacoin_shop_item/proc/get_icon(client/C) //getting the icon for the shop
 	return icon2html(icon, C, icon_state, icon_dir)
 
+/datum/metacoin_shop_item/mc_to_credits
+	name = "Получить кредиты"
+	icon_state = "cr"
+	cost = 0
+	id = "cr"
+	enabled = TRUE
+	var/amount_to_give = 0
+
+/datum/metacoin_shop_item/mc_to_credits/buy(client/C)
+	if(SSticker.current_state == GAME_STATE_PLAYING || SSticker.current_state == GAME_STATE_FINISHED)
+		to_chat(C, "<span class='rose bold'>Слишком рано! Доступно только во время игры.</span>")
+		return FALSE
+	if(!ishuman(C.mob))
+		to_chat(C, "<span class='rose bold'>А ты не человек.</span>")
+		return FALSE
+	amount_to_give = input("Конвертирование 1 к 10.","Введите число.") as null|num
+	if(!isnum(amount_to_give) || amount_to_give < 0)
+		to_chat(C, "<span class='rose bold'>Неправильное число. Должно быть положительным.</span>")
+		return FALSE
+	..()
+
+/datum/metacoin_shop_item/mc_to_credits/after_buy(client/C)
+	var/mob/living/carbon/human/H = C.mob
+	var/obj/item/holochip/HC = new(get_turf(H), 10*amount_to_give)
+	H.put_in_hands(HC)
+
 /datum/metacoin_shop_item/rjaka
 	name = "Ржака"
 	icon_state = "lul"
 	cost = 50
 	id = "rjaka"
-	enabled = TRUE
+	enabled = FALSE
 
 /datum/metacoin_shop_item/rjaka/after_buy(client/C)
 	to_chat(C, "<span class='notice'>Произошла ржака!</span>")
@@ -42,28 +68,30 @@
 /datum/metacoin_shop_item/force_aspect
 	name = "Выбрать аспект"
 	icon_state = "aspect"
-	cost = 200
+	cost = 150
 	id = "force_aspect"
 	enabled = TRUE
+
+/datum/metacoin_shop_item/force_aspect/after_buy(client/C)
+	return
 
 /datum/metacoin_shop_item/force_aspect/buy(client/C)
 	if (SSticker.current_state == GAME_STATE_SETTING_UP || SSticker.current_state == GAME_STATE_PLAYING || SSticker.current_state == GAME_STATE_FINISHED)
 		to_chat(C, "<span class='rose bold'>Слишком поздно! Доступно только перед началом раунда.</span>")
 		return
-	..()
-
-/datum/metacoin_shop_item/force_aspect/after_buy(client/C)
 	var/datum/round_aspect/sel_aspect = input("Аспекты:", "Выбирайте!", null, null) as null|anything in SSaspects.aspects
 	if(!sel_aspect)
 		inc_metabalance(C.mob, cost, reason="Не выбран аспект.")
 		return
-	to_chat(C, "<span class='notice'>Выбрано <b>[sel_aspect]</b>! Будет выбран один из аспектов, которые могли выбрать ещё и другие.</span>")
-	SSaspects.forced_aspects[sel_aspect] = sel_aspect.weight
+	else
+		if(..())
+			to_chat(C, "<span class='notice'>Выбрано <b>[sel_aspect]</b>! Будет выбран один из аспектов, которые могли выбрать ещё и другие.</span>")
+			SSaspects.forced_aspects[sel_aspect] = sel_aspect.weight
 
 /datum/metacoin_shop_item/purge_this_shit
 	name = "Фатальный сброс"
 	icon_state = "purge"
-	cost = 3000
+	cost = 10000
 	id = "purge_this_shit"
 	enabled = TRUE
 

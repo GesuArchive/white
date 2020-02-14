@@ -1,5 +1,5 @@
 // Положительные награды
-#define METACOIN_GREENTEXT_REWARD        50 // за гринтекст
+#define METACOIN_GREENTEXT_REWARD        25 // за гринтекст
 #define METACOIN_ESCAPE_REWARD           7  // за побег со станции
 #define METACOIN_SURVIVE_REWARD          5  // за выживание в раунде
 #define METACOIN_NOTSURVIVE_REWARD       2  // за смерть, если дождался конца раунда
