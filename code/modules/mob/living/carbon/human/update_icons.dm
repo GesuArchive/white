@@ -522,8 +522,8 @@ generate/load female uniform sprites matching all previously decided variables
 		layer2use = default_layer
 
 	var/mutable_appearance/standing
-	if(femaleuniform)
-		standing = wear_female_version(t_state,file2use,layer2use,femaleuniform)
+	//if(femaleuniform)
+	//	standing = wear_female_version(t_state,file2use,layer2use,femaleuniform)
 	if(!standing)
 		standing = mutable_appearance(file2use, t_state, -layer2use)
 
