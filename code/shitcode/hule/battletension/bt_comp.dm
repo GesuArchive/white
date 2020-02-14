@@ -44,7 +44,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	if((!bm || !bm.file) && is_enabled())
 		pick_sound()
 
-	if(forced_tension && tension =< 50)
+	if(forced_tension && tension <= 50)
 		tension = 50
 
 	if(tension <= 0)
