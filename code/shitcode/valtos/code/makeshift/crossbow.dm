@@ -10,12 +10,12 @@
 	force = 10
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BACK
-	fire_sound = "code/shitcode/valtos/sounds/rodgun_fire.ogg"
+	fire_sound = 'code/shitcode/valtos/sounds/rodgun_fire.ogg'
 	var/charge = 0
 	var/max_charge = 3
 	var/charging = FALSE
 	var/charge_time = 10
-	var/draw_sound = "sound/weapons/draw_bow.ogg"
+	var/draw_sound = 'sound/weapons/draw_bow.ogg'
 	var/insert_sound = 'sound/weapons/magin.ogg'
 	weapon_weight = WEAPON_MEDIUM
 	spawnwithmagazine = FALSE

@@ -19,7 +19,7 @@
 			return
 		qdel(I)
 		to_chat(user, "<span class='info'>Пункт приёма захавало бутылку.</span>")
-		playsound(src, "sound/machines/chime.ogg", 100, 0)
+		playsound(src, 'sound/machines/chime.ogg', 100, 0)
 		say("Бутылка обнаружена! Подождите...")
 		processing = TRUE
 		addtimer(CALLBACK(src, .proc/drop_money, btl), bottle_process_time)
@@ -42,5 +42,5 @@
 		else if (cost < 10)
 			new /obj/item/coin/iron(src.loc)
 			cost -= 1
-	playsound(src, "sound/machines/ping.ogg", 100, 0)
+	playsound(src, 'sound/machines/ping.ogg', 100, 0)
 	processing = FALSE

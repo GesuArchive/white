@@ -130,7 +130,7 @@
 	pushed_mob.apply_damage(40, STAMINA)
 	if(user.mind?.martial_art.smashes_tables && user.mind?.martial_art.can_use(user))
 		deconstruct(FALSE)
-	playsound(pushed_mob, "sound/effects/tableslam.ogg", 90, TRUE)
+	playsound(pushed_mob, 'sound/effects/tableslam.ogg', 90, TRUE)
 	pushed_mob.visible_message("<span class='danger'>[user] укладывает [pushed_mob] на [src]!</span>", \
 								"<span class='userdanger'>[user] прикладывает меня на [src]!</span>")
 	log_combat(user, pushed_mob, "tabled", null, "onto [src]")
@@ -143,7 +143,7 @@
 	take_damage(50)
 	if(user.mind?.martial_art.smashes_tables && user.mind?.martial_art.can_use(user))
 		deconstruct(FALSE)
-	playsound(pushed_mob, "sound/effects/tableheadsmash.ogg", 90, TRUE)
+	playsound(pushed_mob, 'sound/effects/tableheadsmash.ogg', 90, TRUE)
 	pushed_mob.visible_message("<span class='danger'>[user] хуярит голову [pushed_mob] об [src]!</span>",
 								"<span class='userdanger'>[user] бьёт моей головой об [src]</span>")
 	log_combat(user, pushed_mob, "head slammed", null, "against [src]")
