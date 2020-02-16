@@ -286,7 +286,7 @@ GLOBAL_LIST_INIT(pda_styles, sortList(list(MONO, VT, ORBITRON, SHARE)))
 #define INCREMENT_TALLY(L, stat) if(L[stat]){L[stat]++}else{L[stat] = 1}
 
 //TODO Move to a pref
-#define STATION_GOAL_BUDGET  1
+#define STATION_GOAL_BUDGET  3
 
 //Luma coefficients suggested for HDTVs. If you change these, make sure they add up to 1.
 #define LUMA_R 0.213
