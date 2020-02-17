@@ -536,9 +536,7 @@
 
 /obj/item/integrated_circuit/manipulation/matman/Initialize()
 	var/datum/component/material_container/materials = AddComponent(/datum/component/material_container)
-	list(/datum/material/iron, /datum/material/glass, /datum/material/silver, /datum/material/gold, /datum/material/diamond, /datum/material/plasma, /datum/material/uranium, /datum/material/bananium, /datum/material/titanium, /datum/material/bluespace)
-	FALSE, /obj/item/stack, CALLBACK(src, .proc/is_insertion_ready), CALLBACK(src, .proc/AfterMaterialInsert))
-	materials.max_amount =100000
+	materials.max_amount = 100000
 	materials.precise_insertion = TRUE
 	.=..()
 

@@ -232,7 +232,6 @@
 	var/regen_rate = 3 //rate at which we regen
 	var/msg_time_react = 0
 	var/trauma_threshold = 30
-	var/obj/item/stock_parts/cell/nano/cell //What type of power cell this uses
 	block_chance = 0
 	//variables for cloak pausing when shooting a suppressed gun
 	var/stealth_cloak_out = 1 //transition time out of cloak

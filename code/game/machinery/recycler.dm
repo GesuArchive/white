@@ -127,7 +127,7 @@
 		if(obj_flags & EMAGGED)
 			for(var/CRUNCH in crunchy_nom) // Eat them and keep going because we don't care about safety.
 				if(isliving(CRUNCH)) // MMIs and brains will get eaten like normal items
-					var/mob/living/L = AM
+					var/mob/living/L = CRUNCH
 					if(L.stat == 0)
 						frabbs++
 						if(frabbs == 5)
