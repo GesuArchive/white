@@ -43,11 +43,12 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		return
 	if((!bm || !bm.file) && is_enabled())
 		pick_sound()
+		return
 
 	if(SSbtension.forced_tension && tension <= 50)
 		tension = 50
 
-	if(tension <= 0)
+	if(tension <= 0 && bm)
 		bm.volume = 0
 		bm.status = SOUND_UPDATE
 		SEND_SOUND(owner, bm)
