@@ -72,9 +72,7 @@
 
 #define GENERIC list('sound/ambience/white/ambi1.ogg','sound/ambience/white/ambi2.ogg','sound/ambience/white/ambi3.ogg')
 
-#define HOLY list('sound/ambience/ambicha1.ogg','sound/ambience/ambicha2.ogg','sound/ambience/ambicha3.ogg',\
-										'sound/ambience/ambicha4.ogg', 'sound/ambience/ambiholy.ogg', 'sound/ambience/ambiholy2.ogg',\
-										'sound/ambience/ambiholy3.ogg')
+#define HOLY list('sound/ambience/white/ambichurch1.ogg')
 
 #define HIGHSEC list('sound/ambience/ambidanger.ogg', 'sound/ambience/ambidanger2.ogg')
 
