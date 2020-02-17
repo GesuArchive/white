@@ -29,7 +29,7 @@
 	return icon2html(icon, C, icon_state, icon_dir)
 
 /datum/metacoin_shop_item/mc_to_credits
-	name = "Получить кредиты"
+	name = "Кредиты"
 	icon_state = "cr"
 	cost = 0
 	id = "cr"
@@ -43,7 +43,7 @@
 	if(!ishuman(C.mob))
 		to_chat(C, "<span class='rose bold'>А ты не человек.</span>")
 		return FALSE
-	amount_to_give = input("Конвертирование 1 к 10.","Введите число.") as null|num
+	amount_to_give = input("Конвертирование 1 к 50.","Введите число.") as null|num
 	if(!isnum(amount_to_give) || amount_to_give < 0)
 		to_chat(C, "<span class='rose bold'>Неправильное число. Должно быть положительным.</span>")
 		return FALSE
@@ -53,7 +53,7 @@
 
 /datum/metacoin_shop_item/mc_to_credits/after_buy(client/C)
 	var/mob/living/carbon/human/H = C.mob
-	var/obj/item/holochip/HC = new(get_turf(H), 10*amount_to_give)
+	var/obj/item/holochip/HC = new(get_turf(H), 50*amount_to_give)
 	H.put_in_hands(HC)
 
 /datum/metacoin_shop_item/rjaka
