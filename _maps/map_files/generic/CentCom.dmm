@@ -11465,7 +11465,7 @@
 /turf/open/floor/wood,
 /area/centcom/holding)
 "yW" = (
-/obj/structure/fluff/railing,
+/obj/structure/railing,
 /turf/open/floor/plasteel/white,
 /area/trading_outpost)
 "yX" = (
@@ -11716,7 +11716,7 @@
 /turf/open/floor/plasteel/white,
 /area/trading_outpost)
 "zw" = (
-/obj/structure/fluff/railing/corner{
+/obj/structure/railing/corner{
 	dir = 8
 	},
 /turf/open/floor/plasteel/white,
@@ -11925,7 +11925,7 @@
 /turf/open/floor/plasteel,
 /area/trading_outpost)
 "zS" = (
-/obj/structure/fluff/railing{
+/obj/structure/railing{
 	dir = 4
 	},
 /turf/open/floor/plasteel/white,
@@ -12229,7 +12229,7 @@
 /turf/open/floor/grass,
 /area/wizard_station)
 "AC" = (
-/obj/structure/fluff/railing{
+/obj/structure/railing{
 	dir = 8
 	},
 /turf/open/floor/plasteel/white,
@@ -12240,7 +12240,7 @@
 /turf/open/floor/plasteel,
 /area/trading_outpost)
 "AE" = (
-/obj/structure/fluff/railing{
+/obj/structure/railing{
 	dir = 8
 	},
 /obj/machinery/light{
@@ -12269,7 +12269,7 @@
 /turf/open/floor/plasteel/white,
 /area/trading_outpost)
 "AJ" = (
-/obj/structure/fluff/railing/corner{
+/obj/structure/railing/corner{
 	dir = 4
 	},
 /turf/open/floor/plasteel/white,
@@ -12471,7 +12471,7 @@
 /turf/open/floor/grass,
 /area/wizard_station)
 "Bj" = (
-/obj/structure/fluff/railing{
+/obj/structure/railing{
 	dir = 1
 	},
 /turf/open/floor/plasteel/white,
@@ -12484,7 +12484,7 @@
 /turf/open/floor/plasteel,
 /area/trading_outpost)
 "Bm" = (
-/obj/structure/fluff/railing/corner,
+/obj/structure/railing/corner,
 /turf/open/floor/plasteel/white,
 /area/trading_outpost)
 "Bn" = (
@@ -12860,7 +12860,7 @@
 /turf/open/floor/engine/cult,
 /area/wizard_station)
 "BT" = (
-/obj/structure/fluff/railing/corner{
+/obj/structure/railing/corner{
 	dir = 1
 	},
 /turf/open/floor/plasteel/white,

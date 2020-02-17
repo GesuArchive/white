@@ -4708,13 +4708,13 @@
 	},
 /area/space/nearstation)
 "mZ" = (
-/obj/structure/fluff/railing,
+/obj/structure/railing,
 /turf/open/space/basic/planet/cliffs{
 	icon_state = "clifftop"
 	},
 /area/centcom/outdoors)
 "na" = (
-/obj/structure/fluff/railing{
+/obj/structure/railing{
 	dir = 1
 	},
 /turf/open/space/basic/planet/cliffs{
@@ -4740,7 +4740,7 @@
 	},
 /area/centcom/outdoors)
 "nf" = (
-/obj/structure/fluff/railing,
+/obj/structure/railing,
 /turf/open/space/basic/planet/cliffs{
 	icon_state = "cliff4"
 	},
@@ -4751,7 +4751,7 @@
 	},
 /area/centcom/outdoors)
 "nh" = (
-/obj/structure/fluff/railing,
+/obj/structure/railing,
 /turf/open/space/basic/planet/cliffs{
 	icon_state = "cliff5"
 	},
@@ -4768,13 +4768,13 @@
 	},
 /area/centcom/outdoors)
 "nk" = (
-/obj/structure/fluff/railing,
+/obj/structure/railing,
 /turf/open/space/basic/planet/cliffs{
 	icon_state = "cliff7"
 	},
 /area/centcom/outdoors)
 "nl" = (
-/obj/structure/fluff/railing,
+/obj/structure/railing,
 /turf/open/space/basic/planet/cliffs{
 	icon_state = "cliff6"
 	},

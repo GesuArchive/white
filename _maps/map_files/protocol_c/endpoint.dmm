@@ -61,7 +61,7 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "am" = (
-/obj/structure/fluff/railing,
+/obj/structure/railing,
 /turf/open/floor/plasteel/white,
 /area/trading_outpost)
 "an" = (
@@ -3130,7 +3130,7 @@
 /turf/open/floor/holofloor/plating,
 /area/holodeck/rec_center/kobayashi)
 "kn" = (
-/obj/structure/fluff/railing{
+/obj/structure/railing{
 	dir = 8
 	},
 /obj/machinery/light{
@@ -3238,7 +3238,7 @@
 /turf/open/floor/plasteel/freezer,
 /area/syndicate_mothership/control)
 "kQ" = (
-/obj/structure/fluff/railing/corner{
+/obj/structure/railing/corner{
 	dir = 8
 	},
 /turf/open/floor/plasteel/white,
@@ -10585,7 +10585,7 @@
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
 "Jw" = (
-/obj/structure/fluff/railing{
+/obj/structure/railing{
 	dir = 1
 	},
 /turf/open/floor/plasteel/white,
@@ -12331,7 +12331,7 @@
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/ert)
 "PZ" = (
-/obj/structure/fluff/railing{
+/obj/structure/railing{
 	dir = 8
 	},
 /turf/open/floor/plasteel/white,
@@ -12416,7 +12416,7 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "Qj" = (
-/obj/structure/fluff/railing/corner{
+/obj/structure/railing/corner{
 	dir = 4
 	},
 /turf/open/floor/plasteel/white,
@@ -12618,7 +12618,7 @@
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "QT" = (
-/obj/structure/fluff/railing/corner,
+/obj/structure/railing/corner,
 /turf/open/floor/plasteel/white,
 /area/trading_outpost)
 "QU" = (
@@ -12836,7 +12836,7 @@
 /turf/open/floor/plating/airless,
 /area/centcom/evac)
 "RG" = (
-/obj/structure/fluff/railing/corner{
+/obj/structure/railing/corner{
 	dir = 1
 	},
 /turf/open/floor/plasteel/white,
@@ -13211,7 +13211,7 @@
 /turf/open/floor/plasteel,
 /area/centcom/supply)
 "SR" = (
-/obj/structure/fluff/railing{
+/obj/structure/railing{
 	dir = 4
 	},
 /turf/open/floor/plasteel/white,
