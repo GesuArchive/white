@@ -71,4 +71,4 @@
 		H.update_inv_ears()
 		H.update_inv_neck()
 		H.update_inv_head()
-	to_chat(owner, "<span class='notice'>Вы [headphones_on? "включили музыку в наушниках. Untz Untz Untz!" : "отключили музыку в наушниках."]</span>")
+	to_chat(owner, "<span class='notice'>Ты [headphones_on? "включил музыку в наушниках. Untz Untz Untz!" : "отключил музыку в наушниках."]</span>")

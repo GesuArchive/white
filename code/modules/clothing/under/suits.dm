@@ -118,3 +118,9 @@
 	desc = "Белый костюм и жакет с синей рубашкой. Хочешь играть грубо? ЛАДНО!"
 	icon_state = "white_suit"
 	item_state = "white_suit"
+
+/obj/item/clothing/under/suit/beige
+	name = "beige suit"
+	desc = "An excellent light colored suit, experts in the field stress that it should not to be confused with the inferior tan suit."
+	icon_state = "beige_suit"
+	item_state = "beige_suit"
