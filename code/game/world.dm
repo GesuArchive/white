@@ -266,9 +266,8 @@ GLOBAL_VAR(restart_counter)
 			TgsEndProcess()
 
 	log_world("World rebooted at [time_stamp()]")
-	sleep(5)
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
-	sleep(5)
+	shelleo("curl -X POST http://localhost:3333/reboot-white")
 	..()
 
 /world/proc/update_status()
