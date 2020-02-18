@@ -1,3 +1,29 @@
+//WIP
+
+/obj/mecha/mechanized
+	var/left_arm = 428
+	var/right_arm = 428
+	var/legs = 646
+
+/obj/mecha/mechanized/Initialize()
+	RegisterSignal(src, COMSIG_PROJECTILE_PREHIT, .proc/prehit)
+	. = ..()
+
+/obj/mecha/mechanized/proc/prehit(obj/projectile/source, list/signal_args)
+	if(prob(deflect_chance))
+		visible_message("<span class='red'>[src] уворачивается от [source].</span>")
+		qdel(source)
+	switch(rand(1,4))
+		if(1)
+			left_arm -= source.damage
+		if(2)
+			right_arm -= source.damage
+		if(3)
+			legs -= source.damage
+		if(4)
+			max_integrity -= source.damage
+	qdel(source)
+
 /obj/mecha/mechanized/type_a
 	name = "TYPE-A Mech"
 	desc = "БЕГИ!!!"
@@ -12,8 +38,8 @@
 	step_energy_drain = 100
 	melee_energy_drain = 150
 	overload_step_energy_drain_min = 1000
-	max_integrity = 1300
-	deflect_chance = 5
+	max_integrity = 982
+	deflect_chance = 25
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 40, "energy" = 40, "bomb" = 40, "bio" = 40, "rad" = 40, "fire" = 100, "acid" = 100)
 	bumpsmash = TRUE
 	max_equip = 5
@@ -50,12 +76,11 @@
 	M.add_overlay(lance_overlay)
 
 /obj/item/mecha_parts/mecha_equipment/drill/lance/can_attach(obj/mecha/M as obj)
-	if(..())
-		if(istype(M, /obj/mecha/mechanized))
-			return TRUE
+	if(istype(M, /obj/mecha/mechanized) && M.equipment.len<M.max_equip)
+		return TRUE
 	return FALSE
 
-/obj/item/mecha_parts/mecha_equipment/drill/lance/attach(obj/mecha/M)
+/obj/item/mecha_parts/mecha_equipment/drill/lance/detach(obj/mecha/M)
 	..()
 	M.cut_overlay(lance_overlay)
 
