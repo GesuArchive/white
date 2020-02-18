@@ -41,7 +41,7 @@
 	tool_behaviour = TOOL_DRILL
 	toolspeed = 1.9
 	drill_delay = 3
-	drill_level = DRILL_HARDENED
+	drill_level = 2
 	var/icon/lance_overlay
 
 /obj/item/mecha_parts/mecha_equipment/drill/lance/attach(obj/mecha/M)
