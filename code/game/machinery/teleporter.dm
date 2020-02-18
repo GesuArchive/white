@@ -77,7 +77,7 @@
 			to_chat(H, "<span class='danger'>Your soul belongs to the hotel. While your body moves to station, your soul stays here.</span>")
 			H.ghostize(0)
 
-	if (ismovableatom(M))
+	if (ismovable(M))
 		if(do_teleport(M, com.target, channel = TELEPORT_CHANNEL_BLUESPACE))
 			use_power(5000)
 			if(!calibrated && prob(30 - ((accuracy) * 10))) //oh dear a problem
