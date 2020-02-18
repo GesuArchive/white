@@ -2,8 +2,9 @@
 	name = "TYPE-A Mech"
 	desc = "БЕГИ!!!"
 	icon = 'code/shitcode/valtos/icons/mechanized/type_a.dmi'
+	icon_state = "type_a"
 	pixel_x = -16
-	pixel_y = -16
+	step_in = 2
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	layer = ABOVE_MOB_LAYER
 	force = 5
