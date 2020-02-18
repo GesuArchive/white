@@ -240,7 +240,7 @@
 	if(!GLOB.ooc_allowed&&!input["isadmin"])
 		return "globally muted"
 
-	if(!is_banned_from(ckey(input["ckey"]), "OOC"))
+	if(is_banned_from(ckey(input["ckey"]), "OOC"))
 		return "you are retard"
 
 	for(var/client/C in GLOB.clients)
