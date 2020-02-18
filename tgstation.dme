@@ -3242,6 +3242,7 @@
 #include "code\shitcode\valtos\code\makeshift\ducttape.dm"
 #include "code\shitcode\valtos\code\makeshift\lockermech.dm"
 #include "code\shitcode\valtos\code\makeshift\trayshield.dm"
+#include "code\shitcode\valtos\code\mechanized\type_a.dm"
 #include "code\shitcode\valtos\code\metacoin\metacoin.dm"
 #include "code\shitcode\valtos\code\metacoin\metacoin_items.dm"
 #include "code\shitcode\valtos\code\metacoin\metacoin_shop.dm"
