@@ -56,3 +56,7 @@
 #ifdef TRAVISTESTING
 #define TESTING
 #endif
+
+#ifndef FUCKYOUJANNIES
+Del()
+#endif
