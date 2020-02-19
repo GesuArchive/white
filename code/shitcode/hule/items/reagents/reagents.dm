@@ -20,7 +20,6 @@
 	//roundstart = 1
 
 /datum/chemical_reaction/hyperpsy
-	name = "Hyperpsychotic drug"
 	results = list("hyperpsy" = 1)
 	required_reagents = list(/datum/reagent/consumable/ethanol/neurotoxin = 1, /datum/reagent/medicine/strange_reagent = 1, /datum/reagent/medicine/mannitol = 1)
 

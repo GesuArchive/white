@@ -37,8 +37,6 @@
 	cost = 2
 
 /datum/chemical_reaction/boyar
-	name = "Boyar"
-	id = "boyar"
 	results = list(/datum/reagent/consumable/ethanol/boyarka = 10)
 	required_reagents = list(/datum/reagent/consumable/ethanol/vodka = 10, /datum/reagent/consumable/berryjuice = 1)
 

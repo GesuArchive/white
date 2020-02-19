@@ -32,8 +32,6 @@
 	..()
 
 /datum/chemical_reaction/viagra
-	name = /datum/reagent/viagra
-	id = /datum/reagent/viagra
 	results = list(/datum/reagent/viagra = 1)
 	required_reagents = list(/datum/reagent/drug/crank = 1, /datum/reagent/consumable/sugar = 1, /datum/reagent/drug/bath_salts = 1, /datum/reagent/drug/krokodil = 1)
 	required_temp = 25
@@ -78,8 +76,6 @@
 	..()
 
 /datum/chemical_reaction/askorbinka
-	name = /datum/reagent/askorbinka
-	id = /datum/reagent/askorbinka
 	results = list(/datum/reagent/askorbinka = 1)
 	required_reagents = list(/datum/reagent/drug/pumpup= 1, /datum/reagent/drug/happiness = 1, /datum/reagent/drug/aranesp = 1, /datum/reagent/consumable/sugar = 1)
 	required_temp = 25
@@ -91,8 +87,6 @@
 	taste_description = "cum"
 
 /datum/chemical_reaction/reagent_explosion/razrivozhopoebin
-	name = "Razrivozhopoebin"
-	id = /datum/reagent/razrivozhopoebin
 	results = list(/datum/reagent/razrivozhopoebin = 4)
 	required_reagents = list(/datum/reagent/askorbinka = 1, /datum/reagent/viagra = 1)
 	strengthdiv = 16
