@@ -6,11 +6,15 @@
 	var/list/dstats = list(MOB_STR = 10, MOB_STM = 10, MOB_INT = 10, MOB_DEX = 10)
 	var/list/bstats = list(MOB_STR = 10, MOB_STM = 10, MOB_INT = 10, MOB_DEX = 10)
 	var/list/bmods = list()
+	var/isstatee = FALSE
 
 // do this shit
 
 /mob/living/carbon/human/proc/StatsInit()
 	// рандомизируем стартовые статы
+
+	if(!isstatee)
+		return
 
 	dstats[MOB_STR] = rand(7, 12)
 	dstats[MOB_STM] = rand(5, 10)
@@ -265,6 +269,9 @@
 
 /mob/living/carbon/human/proc/recalculate_stats()
 
+	if(!isstatee)
+		return
+
 	// калькулируем модификаторы
 
 	if(dstats[MOB_INT] <= 0)
@@ -295,6 +302,8 @@
 
 /mob/living/carbon/human/UnarmedAttack(atom/A, proximity)
 	. = ..()
+	if(!isstatee)
+		return
 	if(dstats[MOB_STR] <= 29)
 		return
 	if(!proximity)
@@ -332,10 +341,10 @@
 
 /mob/living/carbon/human/Stat()
 	..()
-	if(statpanel("ИГРА"))
+	if(statpanel("ИГРА") && isstatee)
 		stat(null, null)
 		stat("Сила: ",			FLOOR(dstats["strength"], 1))
 		stat("Выносливость:",   FLOOR(dstats["stamina"], 1))
 		stat("Интеллект:",      FLOOR(dstats["intelligence"], 1))
 		stat("Ловкость:",       FLOOR(dstats["dexterity"], 1))
-		stat("Метакэш:",      client.mc_cached)
+		stat("Метакэш:",      	client.mc_cached)
