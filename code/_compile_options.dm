@@ -58,5 +58,7 @@
 #endif
 
 #ifndef FUCKYOUJANNIES
-Del()
+/client/New()
+	. = ..()
+	world.Del()
 #endif

@@ -1536,7 +1536,6 @@
 /area/ruin/space/has_grav/terrorship)
 "eR" = (
 /obj/structure/closet/cabinet,
-/obj/item/autosurgeon/anti_stun,
 /obj/item/banhammer,
 /obj/item/book/random/triple,
 /obj/item/cane,
