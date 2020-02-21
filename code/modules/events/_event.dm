@@ -94,7 +94,7 @@
 	if(random)
 		log_game("Random Event triggering: [name] ([typepath])")
 	if (alert_observers)
-		deadchat_broadcast(" только что [random ? " случайно" : ""] случилась!", "<b>[name]</b>") //STOP ASSUMING IT'S BADMINS!
+		deadchat_broadcast(" только что [random ? " случайно" : ""] случилась!", "<b>[name]</b>", message_type=DEADCHAT_ANNOUNCEMENT) //STOP ASSUMING IT'S BADMINS!
 	return E
 
 //Special admins setup

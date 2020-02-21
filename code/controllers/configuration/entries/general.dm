@@ -502,3 +502,12 @@
 
 /datum/config_entry/flag/enable_demo
 	protection = CONFIG_ENTRY_LOCKED
+// DISCORD ROLE STUFFS
+// Using strings for everything because BYOND does not like numbers this big
+/datum/config_entry/flag/enable_discord_autorole
+
+/datum/config_entry/string/discord_token
+
+/datum/config_entry/string/discord_guildid
+
+/datum/config_entry/string/discord_roleid
