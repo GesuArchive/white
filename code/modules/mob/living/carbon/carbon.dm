@@ -1050,6 +1050,8 @@
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "shower", /datum/mood_event/nice_shower)
 
+	wash_poo()
+
 	for(var/obj/item/I in held_items)
 		I.washed(washer)
 
@@ -1059,6 +1061,7 @@
 	var/list/obscured = check_obscured_slots()
 
 	if(head && head.washed(washer))
+		headstamp = null
 		update_inv_head()
 
 	if(glasses && !(ITEM_SLOT_EYES in obscured) && glasses.washed(washer))
