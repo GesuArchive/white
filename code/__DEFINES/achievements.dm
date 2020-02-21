@@ -31,6 +31,7 @@
 // Medal hub IDs for boss medals (Pre-fixes)
 #define BOSS_MEDAL_ANY		  "Boss Killer"
 #define BOSS_MEDAL_MINER	  "Blood-drunk Miner Killer"
+#define BOSS_MEDAL_FROSTMINER "Demonic-frost Miner Killer"
 #define BOSS_MEDAL_BUBBLEGUM  "Bubblegum Killer"
 #define BOSS_MEDAL_COLOSSUS	  "Colossus Killer"
 #define BOSS_MEDAL_DRAKE	  "Drake Killer"
@@ -41,6 +42,7 @@
 #define BOSS_MEDAL_REIMU      "Reimu Killer"
 
 #define BOSS_MEDAL_MINER_CRUSHER	  	"Blood-drunk Miner Crusher"
+#define BOSS_MEDAL_FROSTMINER_CRUSHER	"Demonic-frost Miner Crusher"
 #define BOSS_MEDAL_BUBBLEGUM_CRUSHER  	"Bubblegum Crusher"
 #define BOSS_MEDAL_COLOSSUS_CRUSHER	  	"Colossus Crusher"
 #define BOSS_MEDAL_DRAKE_CRUSHER	  	"Drake Crusher"
@@ -52,6 +54,7 @@
 // Medal hub IDs for boss-kill scores
 #define BOSS_SCORE 	         "Bosses Killed"
 #define MINER_SCORE 		 "BDMs Killed"
+#define FROST_MINER_SCORE 	 "DFMs Killed"
 #define BUBBLEGUM_SCORE 	 "Bubblegum Killed"
 #define COLOSSUS_SCORE 	     "Colossus Killed"
 #define DRAKE_SCORE 	     "Drakes Killed"

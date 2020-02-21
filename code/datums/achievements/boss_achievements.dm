@@ -20,6 +20,11 @@
 	database_id = BOSS_MEDAL_MINER
 	icon = "miner"
 
+/datum/award/achievement/boss/demonic_miner_kill
+	name = "Demonic-frost Miner Killer"
+	desc = "Definitely harder than the Blood-drunk Miner."
+	database_id = BOSS_MEDAL_FROSTMINER
+
 /datum/award/achievement/boss/bubblegum_kill
 	name = "Bubblegum Killer"
 	desc = "I guess he wasn't made of candy after all"
@@ -61,6 +66,11 @@
 	desc = "I guess he couldn't handle his drink that well."
 	database_id = BOSS_MEDAL_MINER_CRUSHER
 	icon = "miner"
+
+/datum/award/achievement/boss/demonic_miner_crusher
+	name = "Demonic-frost Miner Crusher"
+	desc = "Definitely harder than the Blood-drunk Miner."
+	database_id = BOSS_MEDAL_FROSTMINER_CRUSHER
 
 /datum/award/achievement/boss/bubblegum_crusher
 	name = "Bubblegum Crusher"
