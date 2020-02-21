@@ -93,7 +93,7 @@
 	if(!automatic_charge_overlays)
 		return
 	if(cell) //prevents nullpointer exceptions
-		ratio = CEILING(CLAMP(cell.charge / cell.maxcharge, 0, 1) * charge_sections, 1)
+		ratio = CEILING(clamp(cell.charge / cell.maxcharge, 0, 1) * charge_sections, 1)
 	else
 		ratio = 0
 	cut_overlays()
