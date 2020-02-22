@@ -241,6 +241,7 @@
 
 /datum/outfit/proc/special_equip(mob/living/carbon/human/H)
 	//SS13 WHITE
+	head = /obj/item/clothing/head/helmet/izanhelm
 	uniform = /obj/item/clothing/under/m35jacket
 	shoes = /obj/item/clothing/shoes/jackboots
 
