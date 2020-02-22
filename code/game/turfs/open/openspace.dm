@@ -1,8 +1,7 @@
 /turf/open/openspace
 	name = "открытое пространство"
 	desc = "Смотри под ноги!"
-	icon = 'code/shitcode/valtos/icons/turfs.dmi'
-	icon_state = "open"
+	icon_state = "grey"
 	baseturfs = /turf/open/openspace
 	CanAtmosPassVertical = ATMOS_PASS_YES
 	//mouse_opacity = MOUSE_OPACITY_TRANSPARENT
