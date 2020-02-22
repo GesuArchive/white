@@ -150,23 +150,19 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	return copytext_char(sanitize(t),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))
 
 /proc/kartavo(message)
-	message = r_lowertext(message)
 	message = replacetext_char(message, "р", "л")
 	return message
 
 /proc/difilexish(message)
-	message = r_lowertext(message)
 	if(prob(25))
 		message = "Таки-[message]"
 	message = replacetext_char(message, "р", "г")
 	return message
 
 /proc/ukrainish(message)
-	message = r_lowertext(message)
 	message = replacetext_char(message, "здравствуйте", "здрастуйтэ")
 	message = replacetext_char(message, "привет", "прывит")
 	message = replacetext_char(message, "утро", "ранку")
-	message = replacetext_char(message, "дела", "у вас справы")
 	message = replacetext_char(message, "как", "як")
 	message = replacetext_char(message, "извините", "я выбачаюсь")
 	message = replacetext_char(message, "свидания", "побачэння")
@@ -178,8 +174,6 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	message = replacetext_char(message, "кто", "хто")
 	message = replacetext_char(message, "нибудь", "нэбудь")
 	message = replacetext_char(message, "говорит", "розмовляйе")
-	message = replacetext_char(message, "да", "так")
-	message = replacetext_char(message, "нет", "ни")
 	message = replacetext_char(message, "заблудился", "заблукав")
 	message = replacetext_char(message, "понял", "зрозумил")
 	message = replacetext_char(message, "не", "нэ")
