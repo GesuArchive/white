@@ -239,6 +239,11 @@
 		PDA.ownjob = J.title
 		PDA.update_label()
 
+/datum/outfit/proc/special_equip(mob/living/carbon/human/H)
+	//SS13 WHITE
+	uniform = /obj/item/clothing/under/m35jacket
+	shoes = /obj/item/clothing/shoes/jackboots
+
 /datum/outfit/job/get_chameleon_disguise_info()
 	var/list/types = ..()
 	types -= /obj/item/storage/backpack //otherwise this will override the actual backpacks
