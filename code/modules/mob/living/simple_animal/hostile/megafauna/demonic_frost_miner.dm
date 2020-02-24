@@ -203,3 +203,4 @@ Difficulty: Very Hard
 			P.fire()
 		SLEEP_CHECK_DEATH(8)
 	SetRecoveryTime(40, 20)
+	

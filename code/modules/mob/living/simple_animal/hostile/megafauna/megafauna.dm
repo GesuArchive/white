@@ -221,3 +221,4 @@
 	. = ..()
 	if(. > 0 && stat == CONSCIOUS)
 		Retaliate()
+		

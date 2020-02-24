@@ -460,9 +460,6 @@
 /turf/open/floor/plating/beach/sand,
 /area/ruin/powered/beach)
 "kn" = (
-/obj/structure/fluff/railing/corner{
-	dir = 1
-	},
 /obj/machinery/light,
 /turf/open/floor/plating/beach/coastline_b{
 	dir = 10
@@ -695,9 +692,6 @@
 /turf/open/floor/wood,
 /area/ruin/powered/beach)
 "vi" = (
-/obj/structure/fluff/railing{
-	dir = 8
-	},
 /turf/open/floor/plating/beach/coastline_b{
 	dir = 9
 	},
@@ -712,9 +706,6 @@
 /turf/closed/wall/mineral/wood/nonmetal,
 /area/ruin/powered/beach)
 "wW" = (
-/obj/structure/fluff/railing{
-	dir = 8
-	},
 /turf/open/floor/plating/beach/coastline_b{
 	dir = 4
 	},
