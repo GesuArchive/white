@@ -546,11 +546,13 @@
 	set name = " ❗ Переродиться"
 	set category = "OOC"
 
-	if (CONFIG_GET(flag/norespawn))
+	if (CONFIG_GET(flag/norespawn) && client.is_respawned)
 		return
 	if ((stat != DEAD || !( SSticker )))
 		to_chat(usr, "<span class='boldnotice'>Я живу!</span>")
 		return
+
+	client.is_respawned = TRUE
 
 	log_game("[key_name(usr)] used abandon mob.")
 

@@ -123,3 +123,5 @@
 	var/keysend_tripped = FALSE
 	///custom movement keys for this client
 	var/list/movement_keys = list()
+	//respawns -- white
+	var/is_respawned = FALSE
