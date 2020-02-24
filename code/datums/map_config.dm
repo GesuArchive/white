@@ -152,4 +152,3 @@ GLOBAL_VAR_INIT(next_mining_map, "random")
 	fdel("data/next_map.json")
 	json = text2file(json, "data/next_map.json")
 	return success
-	

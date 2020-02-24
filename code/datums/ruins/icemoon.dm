@@ -162,4 +162,3 @@
 	suffix = "icemoon_underground_syndicate_base1.dmm"
 	cost = 20
 	allow_duplicates = FALSE
-	

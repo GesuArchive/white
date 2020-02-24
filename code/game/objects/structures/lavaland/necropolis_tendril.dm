@@ -98,4 +98,3 @@ GLOBAL_LIST_INIT(tendrils, list())
 		if(!T.density)
 			T.TerraformTurf(/turf/open/chasm/lavaland, /turf/open/chasm/lavaland, flags = CHANGETURF_INHERIT_AIR)
 	qdel(src)
-	

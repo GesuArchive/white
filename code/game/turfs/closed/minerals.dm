@@ -756,4 +756,3 @@
 
 /turf/closed/mineral/strong/ex_act(severity, target)
 	return
-	
