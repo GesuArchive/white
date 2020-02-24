@@ -138,8 +138,6 @@
 	else
 		new /obj/item/tank/internals/plasmaman/belt(src)
 
-	new /obj/item/shuttlespawner/diyshuttle(src)
-
 /obj/item/storage/box/survival/radio/PopulateContents()
 	..() // we want the survival stuff too.
 	new /obj/item/radio/off(src)
