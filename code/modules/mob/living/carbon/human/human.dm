@@ -216,21 +216,7 @@
 		var/obj/item/I = locate(href_list["embedded_object"]) in L.embedded_objects
 		if(!I || I.loc != src) //no item, no limb, or item is not in limb or in the person anymore
 			return
-		var/time_taken = I.embedding.embedded_unsafe_removal_time*I.w_class
-		usr.visible_message("<span class='warning'>[usr] пытается вытащить [I] из [L.name].</span>","<span class='notice'>Пытаюсь вытащить [I] из [L.name]... (Займёт примерно [DisplayTimeText(time_taken)].)</span>")
-		if(do_after(usr, time_taken, needhand = 1, target = src))
-			if(!I || !L || I.loc != src || !(I in L.embedded_objects))
-				return
-			L.embedded_objects -= I
-			L.receive_damage(I.embedding.embedded_unsafe_removal_pain_multiplier*I.w_class)//It hurts to rip it out, get surgery you dingus.
-			I.forceMove(get_turf(src))
-			I.unembedded()
-			usr.put_in_hands(I)
-			usr.emote("scream")
-			usr.visible_message("<span class='notice'>[usr] успешно вырывает [I] из [L.name]!</span>", "<span class='notice'>Успешно вырываю [I] из [L.name].</span>")
-			if(!has_embedded_objects())
-				clear_alert("embeddedobject")
-				SEND_SIGNAL(usr, COMSIG_CLEAR_MOOD_EVENT, "embedded")
+		SEND_SIGNAL(src, COMSIG_HUMAN_EMBED_RIP, I, L)
 		return
 
 	if(href_list["item"]) //canUseTopic check for this is handled by mob/Topic()

@@ -33,7 +33,6 @@
 /obj/item/clothing/head/welding/attack_self(mob/user)
 	weldingvisortoggle(user)
 
-
 /*
  * Cakehat
  */
@@ -179,7 +178,6 @@
 /obj/item/clothing/head/kitty/genuine
 	desc = "Пара кошачьих ушей. На бирке внутри написано: \"Сделано вручную из настоящих кошек.\"."
 
-
 /obj/item/clothing/head/hardhat/reindeer
 	name = "оригинальная оленья шапка"
 	desc = "Некоторые поддельные рога и очень поддельный красный нос."
@@ -215,8 +213,6 @@
 /obj/item/clothing/head/cardborg/dropped(mob/living/user)
 	..()
 	user.remove_alt_appearance("standard_borg_disguise")
-
-
 
 /obj/item/clothing/head/wig
 	name = "парик"
@@ -255,18 +251,19 @@
 
 /obj/item/clothing/head/wig/attack_self(mob/user)
 	var/new_style = input(user, "Select a hairstyle", "Wig Styling")  as null|anything in (GLOB.hairstyles_list - "Bald")
+	var/newcolor = adjustablecolor ? input(usr,"","Choose Color",color) as color|null : null
 	if(!user.canUseTopic(src, BE_CLOSE))
 		return
 	if(new_style && new_style != hairstyle)
 		hairstyle = new_style
 		user.visible_message("<span class='notice'>[user] changes \the [src]'s hairstyle to [new_style].</span>", "<span class='notice'>You change \the [src]'s hairstyle to [new_style].</span>")
-	if(adjustablecolor)
-		color = input(usr,"","Choose Color",color) as color|null
+	if(newcolor && newcolor != color) // only update if necessary
+		add_atom_colour(newcolor, FIXED_COLOUR_PRIORITY)
 	update_icon()
 
 /obj/item/clothing/head/wig/random/Initialize(mapload)
 	hairstyle = pick(GLOB.hairstyles_list - "Bald") //Don't want invisible wig
-	color = "#[random_short_color()]"
+	add_atom_colour("#[random_short_color()]", FIXED_COLOUR_PRIORITY)
 	. = ..()
 
 /obj/item/clothing/head/wig/natural
@@ -283,8 +280,9 @@
 /obj/item/clothing/head/wig/natural/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
 	if(ishuman(user) && slot == ITEM_SLOT_HEAD)
-		color = "#[user.hair_color]"
-		update_icon()
+		if (color != "#[user.hair_color]") // only update if necessary
+			add_atom_colour("#[user.hair_color]", FIXED_COLOUR_PRIORITY)
+			update_icon()
 		user.update_inv_head()
 
 /obj/item/clothing/head/bronze
@@ -324,7 +322,6 @@
 
 	user.gain_trauma(paranoia, TRAUMA_RESILIENCE_MAGIC)
 	to_chat(user, "<span class='warning'>Как только вы надеваете расклеенную шляпу, в ваш разум вдруг врывается целый мир конспирологических теорий и, казалось бы, безумных идей. То, что ты когда-то считал невероятным... внезапно кажется неоспоримым. Все взаимосвязано и ничего не происходит случайно. Ты слишком много знаешь, и теперь они хотят забрать тебя.</span>")
-
 
 /obj/item/clothing/head/foilhat/MouseDrop(atom/over_object)
 	//God Im sorry
