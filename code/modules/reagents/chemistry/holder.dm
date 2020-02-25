@@ -676,11 +676,11 @@
 			if("TURF")
 				if(R.reagent_state != SOLID)
 					R.reaction_turf(A, R.volume * volume_modifier, show_message)
-				R.handle_state_change(A, R.volume * special_modifier, cached_my_atom)
+				R.handle_state_change(A, R.volume * special_modifier)
 			if("OBJ")
 				if(R.reagent_state != SOLID)
 					R.reaction_obj(A, R.volume * volume_modifier, show_message)
-				R.handle_state_change(get_turf(A), R.volume * special_modifier, cached_my_atom)
+				R.handle_state_change(get_turf(A), R.volume * special_modifier)
 
 /// Same as [/datum/reagents/proc/reaction] but only for one reagent
 /datum/reagents/proc/react_single(datum/reagent/R, atom/A, method = TOUCH, volume_modifier = 1, show_message = TRUE)
