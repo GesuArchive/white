@@ -275,6 +275,8 @@ SUBSYSTEM_DEF(mapping)
 	if (config.minetype == "random")
 		config.minetype = pickweightAllowZero(GLOB.mining_maps)
 
+	GLOB.current_mining_map = config.minetype
+
 	if(config.minetype == "lavaland")
 		if(SSmapping.config.map_name == "Unit Station")
 			LoadGroup(FailedZs, "Lavaland", "map_files/Mining", "Lavaland_mini.dmm", default_traits = ZTRAITS_LAVALAND)
@@ -435,10 +437,10 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 			lava_ruins_templates[R.name] = R
 		else if(istype(R, /datum/map_template/ruin/gensokyo))
 			gens_ruins_templates[R.name] = R
-		else if(istype(R, /datum/map_template/ruin/icemoon) && !istype(R, /datum/map_template/ruin/icemoon/underground))
-			ice_ruins_templates[R.name] = R
 		else if(istype(R, /datum/map_template/ruin/icemoon/underground))
 			ice_ruins_underground_templates[R.name] = R
+		else if(istype(R, /datum/map_template/ruin/icemoon))
+			ice_ruins_templates[R.name] = R
 		else if(istype(R, /datum/map_template/ruin/space))
 			space_ruins_templates[R.name] = R
 		else if(istype(R, /datum/map_template/ruin/station)) //yogs
