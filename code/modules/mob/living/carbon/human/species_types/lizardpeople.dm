@@ -2,7 +2,7 @@
 	// Reptilian humanoids with scaled skin and tails.
 	name = "Lizardperson"
 	id = "lizard"
-	say_mod = "hisses"
+	say_mod = "шипит"
 	default_color = "00FF00"
 	species_traits = list(MUTCOLORS,EYECOLOR,LIPS)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_REPTILE

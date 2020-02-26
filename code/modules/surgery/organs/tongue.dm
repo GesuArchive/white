@@ -52,7 +52,7 @@
 	name = "forked tongue"
 	desc = "A thin and long muscle typically found in reptilian races, apparently moonlights as a nose."
 	icon_state = "tonguelizard"
-	say_mod = "hisses"
+	say_mod = "шипит"
 	taste_sensitivity = 10 // combined nose + tongue, extra sensitive
 	modifies_speech = TRUE
 
@@ -69,7 +69,7 @@
 	name = "proboscis"
 	desc = "A freakish looking meat tube that apparently can take in liquids."
 	icon_state = "tonguefly"
-	say_mod = "buzzes"
+	say_mod = "жужжит"
 	taste_sensitivity = 25 // you eat vomit, this is a mercy
 	modifies_speech = TRUE
 	var/static/list/languages_possible_fly = typecacheof(list(
@@ -105,7 +105,7 @@
 	name = "superlingual matrix"
 	desc = "A mysterious structure that allows for instant communication between users. Pretty impressive until you need to eat something."
 	icon_state = "tongueayylmao"
-	say_mod = "gibbers"
+	say_mod = "тараторит"
 	taste_sensitivity = 101 // ayys cannot taste anything.
 	modifies_speech = TRUE
 	var/mothership
@@ -157,7 +157,7 @@
 	name = "rotting tongue"
 	desc = "Between the decay and the fact that it's just lying there you doubt a tongue has ever seemed less sexy."
 	icon_state = "tonguezombie"
-	say_mod = "moans"
+	say_mod = "мычит"
 	modifies_speech = TRUE
 	taste_sensitivity = 32
 
@@ -181,7 +181,7 @@
 	name = "alien tongue"
 	desc = "According to leading xenobiologists the evolutionary benefit of having a second mouth in your mouth is \"that it looks badass\"."
 	icon_state = "tonguexeno"
-	say_mod = "hisses"
+	say_mod = "шипит"
 	taste_sensitivity = 10 // LIZARDS ARE ALIENS CONFIRMED
 	modifies_speech = TRUE // not really, they just hiss
 	var/static/list/languages_possible_alien = typecacheof(list(
@@ -201,7 +201,7 @@
 	name = "bone \"tongue\""
 	desc = "Apparently skeletons alter the sounds they produce through oscillation of their teeth, hence their characteristic rattling."
 	icon_state = "tonguebone"
-	say_mod = "rattles"
+	say_mod = "костлявит"
 	attack_verb = list("кусает", "прокусывает", "откусывает", "шутит", "костирует")
 	taste_sensitivity = 101 // skeletons cannot taste anything
 	modifies_speech = TRUE
@@ -279,7 +279,7 @@
 	name = "electric discharger"
 	desc = "A sophisticated ethereal organ, capable of synthesising speech via electrical discharge."
 	icon_state = "electrotongue"
-	say_mod = "crackles"
+	say_mod = "искрит"
 	attack_verb = list("shocked", "jolted", "zapped")
 	taste_sensitivity = 101 // Not a tongue, they can't taste shit
 	var/static/list/languages_possible_ethereal = typecacheof(list(

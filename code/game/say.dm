@@ -60,7 +60,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	var/endspanpart = "</span>"
 
 	//Message
-	var/messagepart = " <span class='message'>[lang_treat(speaker, message_language, raw_message, spans, message_mode)]</span></span>"
+	var/messagepart = " <span class='message'>[pointization(lang_treat(speaker, message_language, raw_message, spans, message_mode))]</span></span>"
 
 	var/languageicon = ""
 	var/datum/language/D = GLOB.language_datum_instances[message_language]
@@ -145,7 +145,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	return "0"
 
 /atom/movable/proc/GetVoice()
-	return "[src]"	//Returns the atom's name, prepended with 'The' if it's not a proper noun
+	return capitalize("[src]")	//Returns the atom's name, prepended with 'The' if it's not a proper noun
 
 /atom/movable/proc/IsVocal()
 	return 1

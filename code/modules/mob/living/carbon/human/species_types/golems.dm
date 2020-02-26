@@ -499,7 +499,7 @@
 	name = "Bananium Golem"
 	id = "bananium golem"
 	fixed_mut_color = "ff0"
-	say_mod = "honks"
+	say_mod = "хонкает"
 	punchdamagelow = 0
 	punchdamagehigh = 1
 	punchstunthreshold = 2 //Harmless and can't stun
@@ -908,7 +908,7 @@
 /datum/species/golem/bone
 	name = "Bone Golem"
 	id = "bone golem"
-	say_mod = "rattles"
+	say_mod = "костлявит"
 	prefix = "Bone"
 	limbs_id = "b_golem"
 	special_names = list("Head", "Broth", "Fracture", "Rattler", "Appetit")
