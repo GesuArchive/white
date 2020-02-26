@@ -12,7 +12,7 @@
 			announcement += "<h2 class='alert'>[html_encode(title)]</h2>"
 	else if(type == "Captain")
 		announcement += "<h1 class='alert'>Капитан Объявляет</h1>"
-		GLOB.news_network.SubmitArticle(text, "Капитан Объявляет", "Station Announcements", null)
+		GLOB.news_network.SubmitArticle(text, "Капитан Объявляет", "Станционные Объявления", null)
 
 	else
 		if(!sender_override)
@@ -24,9 +24,9 @@
 
 		if(!sender_override)
 			if(title == "")
-				GLOB.news_network.SubmitArticle(text, "Центральное Командование", "Station Announcements", null)
+				GLOB.news_network.SubmitArticle(text, "Центральное Командование", "Станционные Объявления", null)
 			else
-				GLOB.news_network.SubmitArticle(title + "<br>" + text, "Центральное Командование", "Station Announcements", null)
+				GLOB.news_network.SubmitArticle(title + "<br>" + text, "Центральное Командование", "Станционные Объявления", null)
 
 	announcement += "<span class='alert'>[html_encode(text)]</span>"
 	announcement += "<br><br>"
