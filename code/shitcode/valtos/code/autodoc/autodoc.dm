@@ -302,10 +302,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 				"name" = initial(S.name),
 				"current" = active_step ? (active_step.type == s) : FALSE
 			))
-
-/obj/machinery/autodoc/ui_static_data(mob/user)
-	. = list()
-	if(!in_use)
+	else
 		.["mode"] = 1
 		.["target"] = target_zone
 		.["surgeries"] = list()
