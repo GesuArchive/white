@@ -105,7 +105,7 @@
 			message_admins("[key_name_admin(usr)] has changed the map to [VM.map_name]")
 
 /client/proc/adminchangeminingmap()
-	set category = "Server"
+	set category = "СЕРВЕР"
 	set name = "Change Mining Map"
 	if(SSticker.current_state < GAME_STATE_PREGAME)
 		to_chat(src, "<span class='interface'>Please wait until after the server is done setting up.</span>")
