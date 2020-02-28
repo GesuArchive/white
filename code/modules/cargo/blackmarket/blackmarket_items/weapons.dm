@@ -43,3 +43,13 @@
 	price_max = 400
 	stock_max = 2
 	availability_prob = 50
+
+/datum/blackmarket_item/weapon/reverse_bear_trap
+	name = "Reverse Bear Trap"
+	desc = "A horrifying set of shut metal jaws, rigged to a kitchen timer and secured by padlock to a head-mounted clamp. To apply, hit someone with it."
+	item = /obj/item/reverse_bear_trap
+
+	price_min = 500
+	price_max = 950
+	stock_max = 4
+	availability_prob = 30

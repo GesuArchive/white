@@ -61,3 +61,14 @@
 	price_min = 50
 	price_max = 150
 	availability_prob = 90
+
+/datum/blackmarket_item/consumable/labebium
+	name = "Бутылочка правды"
+	desc = "Заставит поглотившего это познать правду."
+	item = /obj/item/storage/pill_bottle/labebium
+
+	stock_min = 1
+	stock_max = 5
+	price_min = 250
+	price_max = 550
+	availability_prob = 30
