@@ -5,18 +5,6 @@
 "ab" = (
 /turf/template_noop,
 /area/template_noop)
-"ac" = (
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "engsm";
-	name = "Radiation Chamber Shutters"
-	},
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "engsm";
-	name = "Radiation Chamber Shutters"
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/engine/engineering)
 "ad" = (
 /turf/closed/wall/r_wall,
 /area/engine/engineering)
@@ -86,7 +74,6 @@
 	id = "engsm";
 	name = "Radiation Shutters Control";
 	pixel_x = 24;
-	pixel_y = 0;
 	req_access_txt = "10"
 	},
 /obj/structure/cable,
@@ -143,7 +130,6 @@
 /area/engine/engineering)
 "av" = (
 /obj/machinery/atmospherics/pipe/simple/orange/hidden{
-	icon_state = "pipe11-2";
 	dir = 5
 	},
 /turf/closed/wall,
@@ -171,7 +157,6 @@
 /area/engine/engineering)
 "az" = (
 /obj/machinery/atmospherics/pipe/simple/orange/hidden{
-	icon_state = "pipe11-2";
 	dir = 8
 	},
 /turf/closed/wall,
@@ -185,7 +170,6 @@
 	id = "engsm";
 	name = "Radiation Shutters Control";
 	pixel_x = 24;
-	pixel_y = 0;
 	req_access_txt = "10"
 	},
 /turf/open/floor/engine,
@@ -295,7 +279,6 @@
 	id = "engsm";
 	name = "Radiation Shutters Control";
 	pixel_x = -24;
-	pixel_y = 0;
 	req_access_txt = "10"
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
@@ -367,7 +350,6 @@
 /area/engine/engineering)
 "aY" = (
 /obj/effect/turf_decal/stripes/corner{
-	icon_state = "warninglinecorner";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -732,7 +714,6 @@
 	id = "engsm";
 	name = "Radiation Shutters Control";
 	pixel_x = -24;
-	pixel_y = 0;
 	req_access_txt = "10"
 	},
 /turf/open/floor/engine,
@@ -1339,7 +1320,7 @@ aa
 aa
 "}
 (20,1,1) = {"
-ac
+au
 aW
 as
 ao
