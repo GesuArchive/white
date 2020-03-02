@@ -124,4 +124,4 @@
 	///custom movement keys for this client
 	var/list/movement_keys = list()
 	//respawns -- white
-	var/is_respawned = FALSE
+	var/is_respawned = TRUE
