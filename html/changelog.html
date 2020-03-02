@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="changelog.css">
   <base target="_blank" />
   <script type='text/javascript'>
-  
+
 	function changeText(tagID, newText, linkTagID){
 		var tag = document.getElementById(tagID);
 		tag.innerHTML = newText;
@@ -13,8 +13,8 @@
 		linkTag.removeAttribute("href");
 		linkTag.removeAttribute("onclick");
 	}
-	
-  </script>  
+
+  </script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 
@@ -24,7 +24,7 @@
 	<tr>
 		<td valign='top'>
 			<div align='center'><font size='3'><b>Traditional Games Space Station 13</b></font></div>
-			
+
 			<p><div align='center'><font size='3'><a href="http://www.tgstation13.org/phpBB/">Forum</a> | <a href="http://www.tgstation13.org/wiki/Main_Page">Wiki</a> | <a href="https://github.com/tgstation/tgstation">Source Code</a></font></div></p>
 			<font size='2'><b>Join our <a href="https://tgstation13.org/phpBB/viewforum.php?f=60">Discord channel</a></b></font>
 			</td>
@@ -44,46 +44,84 @@
 </table>
 
 		<!--
-		
-		TO ADD AN ENTRY, ADD AND MAINTAIN YOUR OWN changelog/USERNAME.yml FILE. 
-		
+
+		TO ADD AN ENTRY, ADD AND MAINTAIN YOUR OWN changelog/USERNAME.yml FILE.
+
 		*** DO NOT FUCK WITH THIS FILE OR YOU WILL CAUSE MERGE CONFLICTS. ***
-		
+
 		-->
 		<div class="commit sansserif">
+			<h2 class="date">02 March 2020</h2>
+			<h3 class="author">Arkatos updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Remote Robot Control now uses tgui.</li>
+			</ul>
+
+			<h2 class="date">01 March 2020</h2>
+			<h3 class="author">Dennok updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">on 513 Openspace dark no more covers all on openspace turf.</li>
+				<li class="bugfix">on 513 You now can build on openspace that above openspace.</li>
+				<li class="bugfix">on 513 While vis flags used and transfer obj icon to openspace plan that placed below all turfs, any things that out of turf bounds now shown correctly below.</li>
+			</ul>
+			<h3 class="author">EOBGames updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Metastation's medbay has received a long overdue redesign/expansion. Have fun exploring it!</li>
+			</ul>
+			<h3 class="author">MMMiracles (Donutstation) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds an entire second floor to Donutstation.</li>
+				<li class="rscadd">Multiple areas now have a second floor section, ranging from maintenance to various departments.</li>
+			</ul>
+			<h3 class="author">Mickyan updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Brooms no longer cause your inventory to occasionally be dropped on the ground</li>
+				<li class="bugfix">Decreased the size of bubblegum boxes so that they correctly fit in pockets</li>
+			</ul>
+			<h3 class="author">NecromancerAnne updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Completely reworked Sleeping Carp</li>
+				<li class="balance">Sleeping Carp now costs 15TC.</li>
+				<li class="balance">Sleeping Carp users are really goddamn durable.</li>
+				<li class="balance">Sleeping Carp users have less moves but shorter combos and more ultraviolence.</li>
+				<li class="balance">Carp faction. Space walking-lite.</li>
+				<li class="balance">Sleeping Carp users need to be in throw mode to deflect ranged attacks.</li>
+				<li class="balance">Sleeping Carp users are immune to objects that puncture the skin.</li>
+				<li class="balance">Stun batons are now apply_damage instead of applyStaminaLoss. This might change some things.</li>
+			</ul>
+			<h3 class="author">Ryll/Shaps updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Basic sticky tape is now available in the autolathe by default, with advanced variants still able to be researched through the BEPIS major reward!</li>
+				<li class="bugfix">Harmless sticky embeds no longer print jostling messages</li>
+			</ul>
+			<h3 class="author">XDTM updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed Zombie Powder sometimes stunning people permanently.</li>
+			</ul>
+			<h3 class="author">and Twaticus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">you can now hold corgis and pAI's again. pull them, and then drag their sprite to yours.</li>
+				<li class="rscadd">you can now hold all of the stations pets, and more!</li>
+				<li class="rscadd">(b)admins can now make mobs holdable</li>
+				<li class="rscadd">you can now wash all of the stations pets in washing machines</li>
+				<li class="rscadd">pets can be put directly into washing machines from your hand</li>
+			</ul>
+
 			<h2 class="date">29 February 2020</h2>
+			<h3 class="author">ATHATH updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Synthflesh now unhusks a burn husked corpse on reaching 100u instead of on the next application. Still requires <50 burn damage after application.</li>
+				<li class="bugfix">Splashing synthflesh on a burn husked corpse will unhusk it if the total of synthflesh in the body and synthflesh being splashed is 100 or more. Still requires <50 burn damage after application.</li>
+				<li class="bugfix">Updates the description of synthflesh to reflect what it actually does more accurately. The amount of tox damage dealt is 66% of the amount of brute and burn damage healed, not 75%.</li>
+			</ul>
 			<h3 class="author">ArcaneDefence updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">The recipe for Carp Classic cigarettes has been brought up to company standards.</li>
 			</ul>
-			<h3 class="author">Arkatos and actioninja updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Malfunction Modules Picker now uses tgui.</li>
-			</ul>
-			<h3 class="author">LemonInTheDark updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="bugfix">Zaps no longer infinite chain after hitting coils.</li>
-				<li class="rscadd">Tesla zaps will now turn tesla generators into teslas.</li>
-				<li class="bugfix">Explosions might be a little less common, I've fixed the thing where machines would explode with no visible arc to the object.</li>
-				<li class="bugfix">Fixes a whole bunch of issues, teslas make more sense now</li>
-				<li class="code_imp">Makes my shitcode better</li>
-			</ul>
-			<h3 class="author">Mickyan updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="bugfix">Deltastation's disposal system will no longer accidentally dump garbage into the morgue</li>
-			</ul>
-			<h3 class="author">Ryll/Shaps updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Officer Beepsky has been promoted to Commander Beepsky! He is now officially in command of all of the bots on the station, who will now show him proper respect by saluting him when they cross paths.</li>
-			</ul>
-			<h3 class="author">Twaticus updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="imageadd">bola inhand sprites</li>
-			</ul>
-
-			<h2 class="date">26 February 2020</h2>
 			<h3 class="author">ArcaneMusic updated:</h3>
 			<ul class="changes bgimages16">
+				<li class="rscadd">Nanotrasen's Customer Service Division has developed a new, shielded product cage to better allow for sale of food and drink items on station, called the "Vend-A-Tray".</li>
+				<li class="rscadd">Vend-A-Trays are made with display case frames and a Card Reader stock part, now available at all protolathes.</li>
 				<li class="rscadd">The Nanotrasen Deliveries and Handling League (NDHL) have been noticing a decrease in station export profits, and the crate recycling program just isn't cutting it. New Sales Taggers have been deployed in all station cargo setups.</li>
 				<li class="rscadd">Wrapped items can be zapped with Sales Taggers in order to give the account holder a portion of the profit on a sale.</li>
 				<li class="tweak">Wooden Fermenting barrels now cost 8 wooden planks to craft, down from 30.</li>
@@ -97,14 +135,38 @@
 			<ul class="changes bgimages16">
 				<li class="rscadd">Gas Turbine now uses tgui.</li>
 			</ul>
+			<h3 class="author">Arkatos and actioninja updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Malfunction Modules Picker now uses tgui.</li>
+			</ul>
+			<h3 class="author">Arkatos1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Particle Accelerator now uses tgui.</li>
+			</ul>
 			<h3 class="author">Bumtickley00 updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">Helbital now heals brute instead of dealing brute</li>
 			</ul>
+			<h3 class="author">Farquaar updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Felinid speech is now audibly distinct from human speech.</li>
+			</ul>
+			<h3 class="author">LemonInTheDark updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Tesla zaps will now turn tesla generators into teslas.</li>
+				<li class="bugfix">Explosions might be a little less common, I've fixed the thing where machines would explode with no visible arc to the object.</li>
+				<li class="bugfix">Fixes a whole bunch of issues, teslas make more sense now</li>
+				<li class="code_imp">Makes my shitcode better</li>
+				<li class="tweak">The tesla revolver/cannon's projectiles now arc while in flight.</li>
+				<li class="balance">The projectiles now deal light burn damage on hit.</li>
+				<li class="bugfix">Zaps no longer infinite chain after hitting coils.</li>
+			</ul>
 			<h3 class="author">Mickyan updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="tweak">Added the art gallery to Deltastation</li>
 				<li class="tweak">Added plumbing room to Deltastation</li>
+				<li class="tweak">Added the art gallery to Deltastation</li>
+				<li class="bugfix">Deltastation's disposal system will no longer accidentally dump garbage into the morgue</li>
+				<li class="tweak">Added the art gallery to Pubbystation</li>
 			</ul>
 			<h3 class="author">Ryll/Shaps updated:</h3>
 			<ul class="changes bgimages16">
@@ -112,16 +174,28 @@
 				<li class="rscadd">Adds toy shurikens for pranks and shock shurikens for less lethal takedowns.</li>
 				<li class="rscadd">Adds sticky tape that lets you stick random junk to people! How will anyone believe the Captain's cries that he's not actually a boomer when there's a can of Monkey Energy stuck to his head?</li>
 				<li class="refactor">Embedding functionality has been made an element, with new support for dealing a mix of brute and stamina damage, and a separate pain check for on-move.</li>
+				<li class="rscadd">Officer Beepsky has been promoted to Commander Beepsky! He is now officially in command of all of the bots on the station, who will now show him proper respect by saluting him when they cross paths.</li>
+				<li class="tweak">Vendors make you squish for longer</li>
 			</ul>
 			<h3 class="author">ShizCalev updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">Blindfolds now properly blind you!</li>
 			</ul>
+			<h3 class="author">SteelSlayer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes some mixed up in-hand sprites for the airlock painter</li>
+				<li class="code_imp">Gives the airlock painter's paint selection popup menu a cancel button</li>
+				<li class="code_imp">Improves airlock painter code. Makes it easier to add new paintjob options and cuts down on duplicate code.</li>
+			</ul>
 			<h3 class="author">Time-Green updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="bugfix">fixes gastrolisis runtime</li>
-				<li class="rscadd">adds the snail achievement to genetics</li>
 				<li class="bugfix">reaction chamber empties again</li>
+				<li class="rscadd">adds the snail achievement to genetics</li>
+				<li class="bugfix">fixes gastrolisis runtime</li>
+			</ul>
+			<h3 class="author">Twaticus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">bola inhand sprites</li>
 			</ul>
 			<h3 class="author">Yenwodyah updated:</h3>
 			<ul class="changes bgimages16">
@@ -130,9 +204,9 @@
 			</ul>
 			<h3 class="author">bobbahbrown updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="bugfix">Fixed unsanitized blob broadcast allowing html injection</li>
 				<li class="tweak">Nanotrasen is now manufacturing wigs with waterproof dye -- shower with new-found confidence!</li>
 				<li class="bugfix">Wigs can no longer have their color changed when not being held.</li>
+				<li class="bugfix">Fixed unsanitized blob broadcast allowing html injection</li>
 			</ul>
 			<h3 class="author">cacogen updated:</h3>
 			<ul class="changes bgimages16">
@@ -155,9 +229,21 @@
 			<ul class="changes bgimages16">
 				<li class="spellcheck">Renamed "My mental status" to "My current sanity" in the mood printout.</li>
 			</ul>
+			<h3 class="author">nightred updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">natural body temp stabilization is more in line with expected results</li>
+				<li class="bugfix">fever/chills now cause your body temp to be changed based on the severity of the illness</li>
+				<li class="bugfix">mob code now uses the species proper body temp instead of the default body temp</li>
+				<li class="refactor">added new interface for body temp changes</li>
+			</ul>
 			<h3 class="author">pireamaineach updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="imageadd">Resprites several plasmaman items. add:Adds plasmagloves and fixes clipping on the plasmaman suit.</li>
+				<li class="balance">Envirogloves now have insul-tier permeability.</li>
+			</ul>
+			<h3 class="author">tralezab updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">transit tube pods will now throw you when they leave the transit tube</li>
 			</ul>
 
 			<h2 class="date">24 February 2020</h2>

@@ -30,7 +30,7 @@ export const Vending = props => {
         <Section title="Пользователь">
           {data.user && (
             <Box>
-            Здравствуйте, <b>{data.user.name}</b>,
+              Здравствуйте, <b>{data.user.name}</b>,
               {' '}
               <b>{data.user.job || "Безработный"}</b>!
               <br />
@@ -38,8 +38,8 @@ export const Vending = props => {
             </Box>
           ) || (
             <Box color="light-gray">
-            Нет ID-карты!<br />
-            Свяжитесь с вашим местным отделом кадров!
+              Нет ID-карты!<br />
+              Свяжитесь с вашим местным отделом кадров!
             </Box>
           )}
         </Section>

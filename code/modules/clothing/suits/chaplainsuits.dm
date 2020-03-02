@@ -45,15 +45,15 @@
 	item_state = "witchhunter"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
-/obj/item/clothing/suit/hooded/chaplainsuit/monkfrock
+/obj/item/clothing/suit/hooded/chaplainsuit/monkhabit
 	name = "платье монаха"
 	desc = "В нескольких шагах выше оказали вретище."
 	icon_state = "monkfrock"
 	item_state = "monkfrock"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
-	hoodtype = /obj/item/clothing/head/hooded/monkfrock
+	hoodtype = /obj/item/clothing/head/hooded/monkhabit
 
-/obj/item/clothing/head/hooded/monkfrock
+/obj/item/clothing/head/hooded/monkhabit
 	name = "капюшон монаха"
 	desc = "Ибо, когда человек хочет прикрыть свою лысину."
 	icon_state = "monkhood"
