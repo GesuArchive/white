@@ -21,7 +21,7 @@ export const OreRedemptionMachine = props => {
         </BlockQuote>
         <Box>
           <Box inline color="label" mr={1}>
-           Невостребованные очки:
+            Невостребованные очки:
           </Box>
           {unclaimedPoints}
           <Button
