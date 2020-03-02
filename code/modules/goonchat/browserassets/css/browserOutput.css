@@ -473,6 +473,20 @@ h1.alert, h2.alert		{color: #aaaaaa; margin: 0 0 14px 0;}
 	color: #fff;
 	padding: 4px;
 }
+
+#stbst {
+	width: 3px;
+	height: 14px;
+	animation: spin 0.7s infinite linear;
+	background: #fff;
+	margin-right: 6px;
+}
+
+@keyframes spin {
+	from {transform:rotate(0deg);}
+	to {transform:rotate(-360deg);}
+}
+
 .text-normal {font-weight: normal;	font-style: normal;}
 .hidden {display: none;	visibility: hidden;}
 .ml-1 {margin-left: 1em;}
