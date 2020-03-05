@@ -110,19 +110,6 @@
 	if(fire)
 		open_flame()
 
-
-/obj/item/forged/proc/assign_properties()
-	if(reagent_type && weapon_type)
-		special_traits = list()
-		name = name += " ([reagent_type.name])"
-		color = reagent_type.color
-		speed = max(CLICK_CD_RAPID, (reagent_type.density * weapon_type))
-		for(var/I in reagent_type.special_traits)
-			var/datum/special_trait/S = new I
-			LAZYADD(special_traits, S)
-			S.on_apply(src, identifier)
-
-
 /obj/item/forged/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	user.changeNext_move(speed)
 	if(iscarbon(target) && reagent_type && proximity_flag)
