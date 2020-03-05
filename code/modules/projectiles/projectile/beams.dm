@@ -70,7 +70,7 @@
 /obj/projectile/beam/disabler
 	name = "останавливающий луч"
 	icon_state = "omnilaser"
-	damage = 10
+	damage = 50
 	damage_type = STAMINA
 	flag = "energy"
 	hitsound = 'sound/weapons/tap.ogg'
