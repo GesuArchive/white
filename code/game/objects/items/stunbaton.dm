@@ -30,7 +30,7 @@
 	var/stun_sound = 'sound/weapons/egloves.ogg'
 
 	var/confusion_amt = 10
-	var/stamina_loss_amt = 30
+	var/stamina_loss_amt = 100
 	var/apply_stun_delay = 2 SECONDS
 	var/stun_time = 5 SECONDS
 
