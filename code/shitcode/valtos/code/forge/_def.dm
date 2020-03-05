@@ -68,8 +68,6 @@
 				F.throwforce = F.throwforce * 1.3
 			if(FORGED_MELEE_TWOHANDED)
 				var/obj/item/twohanded/forged/F = I
-				F.force_unwielded = F.force_unwielded * 1.3
-				F.force_wielded = F.force_wielded * 1.3
 				F.throwforce = F.throwforce * 1.3
 			if(FORGED_BULLET_CASING)
 				var/obj/projectile/bullet/forged/F = I
@@ -204,8 +202,6 @@
 				F.stabby = rand(TRANSFER_BLUNT, TRANSFER_SHARPEST)
 			if(FORGED_MELEE_TWOHANDED)
 				var/obj/item/twohanded/forged/F = I
-				F.force_wielded = rand(1, 80)
-				F.force_unwielded = max(0.1, F.force_wielded / 3)
 				F.speed = rand(CLICK_CD_RAPID, CLICK_CD_MELEE * 5)
 				F.stabby = rand(TRANSFER_BLUNT, TRANSFER_SHARPEST)
 			if(FORGED_BULLET_CASING)

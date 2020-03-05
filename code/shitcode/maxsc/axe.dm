@@ -10,7 +10,6 @@
 	block_chance = 10
 	slot_flags = ITEM_SLOT_BACK
 	force = 5
-	force_wielded = 15
 	throwforce = 20
 	attack_verb = list("ударяет", "рубит", "протыкает", "режет")
 	hitsound = 'sound/weapons/bladeslice.ogg'
@@ -33,7 +32,6 @@
 	block_chance = 0
 	slot_flags = ITEM_SLOT_BACK
 	force = 5
-	force_wielded = 20
 	throwforce = 24
 	attack_verb = list("ударяет", "приносит справедливость", "рубит", "протыкает")
 	hitsound = 'sound/weapons/bladeslice.ogg'

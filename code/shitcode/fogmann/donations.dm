@@ -142,7 +142,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Rubber Duck",				/obj/item/bikehorn/rubberducky,					200),
 		new /datum/donate_info("Champion Belt",				/obj/item/storage/belt/champion,				200),
 		new /datum/donate_info("Toy pistol",				/obj/item/toy/gun,								150),
-		new /datum/donate_info("Toy dualsaber",				/obj/item/twohanded/dualsaber/toy,				280),
+		new /datum/donate_info("Toy dualsaber",				/obj/item/dualsaber/toy,				280),
 		new /datum/donate_info("Toy katana",				/obj/item/toy/katana,							215),
 		new /datum/donate_info("Rainbow crayon",			/obj/item/toy/crayon/rainbow,					250),
 	),

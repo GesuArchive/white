@@ -131,15 +131,11 @@
 		special_traits = list()
 		name = name += " ([reagent_type.name])"
 		color = reagent_type.color
-		force_wielded = max(0.1, (reagent_type.density * weapon_type))
-		force_unwielded = max(0.1, force_wielded / 3)
-		throwforce = force_unwielded
 		speed = max(CLICK_CD_RAPID, (reagent_type.density * weapon_type))
 		for(var/I in reagent_type.special_traits)
 			var/datum/special_trait/S = new I
 			LAZYADD(special_traits, S)
 			S.on_apply(src, identifier)
-		armour_penetration += force_wielded * 0.2
 
 
 /obj/item/twohanded/forged/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
@@ -198,7 +194,7 @@
 	armour_penetration = 10
 
 /obj/item/twohanded/forged/warhammer/update_icon()
-	icon_state = "forged_hammer[wielded]"
+	icon_state = "forged_hammer_1"
 	return
 
 /obj/item/twohanded/forged/warhammer/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
@@ -209,7 +205,7 @@
 
 	if(iswallturf(target) && proximity_flag)
 		var/turf/closed/wall/W = target
-		var/chance = (force_wielded + W.hardness * 0.5)//>lower hardness = stronger wall
+		var/chance = (W.hardness * 0.5)//>lower hardness = stronger wall
 		if(chance < 10)
 			return FALSE
 

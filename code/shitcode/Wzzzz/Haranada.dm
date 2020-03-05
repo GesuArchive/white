@@ -1378,7 +1378,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/molotov/wzzzz
 	reagents = list(/datum/reagent/napalm = 100)
 
-/obj/item/twohanded/spear/explosive/wzzzz
+/obj/item/spear/explosive/wzzzz
 	explosive = /obj/item/grenade/syndieminibomb/concussion/frag
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/null
@@ -1436,7 +1436,7 @@
 
 /obj/item/kitchen/knife/butcher/free
 	custom_price = 0
-	
+
 /obj/item/lighter/greyscale/free
 	custom_price = 0
 
