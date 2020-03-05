@@ -44,6 +44,9 @@
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
+	if(nutrition < NUTRITION_LEVEL_HUNGRY)
+		take_overall_damage(stamina = 5)
+
 	if(stat != DEAD)
 		return 1
 
