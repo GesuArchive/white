@@ -3198,6 +3198,7 @@
 #include "code\shitcode\valtos\code\antagonists\gang\gang_hud.dm"
 #include "code\shitcode\valtos\code\antagonists\gang\vigilante.dm"
 #include "code\shitcode\valtos\code\autodoc\autodoc.dm"
+#include "code\shitcode\valtos\code\color_correction\correction.dm"
 #include "code\shitcode\valtos\code\dss\_def.dm"
 #include "code\shitcode\valtos\code\dss\boosters.dm"
 #include "code\shitcode\valtos\code\dss\debug.dm"
