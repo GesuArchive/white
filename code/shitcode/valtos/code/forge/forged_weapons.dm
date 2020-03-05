@@ -100,7 +100,7 @@
 	armour_penetration = 5
 
 
-/obj/item/twohanded/forged
+/obj/item/forged
 	icon = 'code/shitcode/valtos/icons/forge/forged_weapons.dmi'
 	lefthand_file = 'code/shitcode/valtos/icons/forge/lefthand.dmi'
 	righthand_file = 'code/shitcode/valtos/icons/forge/righthand.dmi'
@@ -114,19 +114,19 @@
 	var/fire = FALSE
 
 
-/obj/item/twohanded/forged/Destroy()
+/obj/item/forged/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
 
-/obj/item/twohanded/forged/process()
+/obj/item/forged/process()
 	if(prob(50) && radioactive)
 		radiation_pulse(src, 200, 0.5)
 	if(fire)
 		open_flame()
 
 
-/obj/item/twohanded/forged/proc/assign_properties()
+/obj/item/forged/proc/assign_properties()
 	if(reagent_type && weapon_type)
 		special_traits = list()
 		name = name += " ([reagent_type.name])"
@@ -138,7 +138,7 @@
 			S.on_apply(src, identifier)
 
 
-/obj/item/twohanded/forged/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+/obj/item/forged/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	user.changeNext_move(speed)
 	if(iscarbon(target) && reagent_type && proximity_flag)
 		var/mob/living/carbon/C = target
@@ -156,7 +156,7 @@
 				A.on_hit(target, user, src, FORGED_MELEE_TWOHANDED)
 	..()
 
-/obj/item/twohanded/forged/greatsword
+/obj/item/forged/greatsword
 	name = "forged greatsword"
 	desc = "A custom greatsword forged from solid ingots"
 	icon_state = "forged_greatsword"
@@ -172,14 +172,14 @@
 	attack_verb = list("нанизывает", "пробивает", "втыкает", "рубит", "кромсает", "протыкает")
 
 
-/obj/item/twohanded/forged/greatsword/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+/obj/item/forged/greatsword/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	..()
 	if(iscarbon(user) && proximity_flag)
 		var/mob/living/carbon/CU = user
 		CU.adjustStaminaLoss(10)
 
 
-/obj/item/twohanded/forged/warhammer
+/obj/item/forged/warhammer
 	name = "forged warhammer"
 	desc = "A custom warhammer forged from solid ingots"
 	icon_state = "forged_hammer0"
@@ -193,11 +193,11 @@
 	attack_verb = list("уничтожает", "молотит", "ударяет", "долбит", "разбивает")
 	armour_penetration = 10
 
-/obj/item/twohanded/forged/warhammer/update_icon()
+/obj/item/forged/warhammer/update_icon()
 	icon_state = "forged_hammer_1"
 	return
 
-/obj/item/twohanded/forged/warhammer/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+/obj/item/forged/warhammer/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	..()
 	if(iscarbon(user) && proximity_flag && target)
 		var/mob/living/carbon/CU = user

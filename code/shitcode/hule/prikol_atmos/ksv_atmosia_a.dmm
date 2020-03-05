@@ -68,7 +68,7 @@
 "bp" = (/obj/machinery/atmospherics/components/binary/pump{dir = 2; icon_state = "pump_map-2"},/turf/open/floor/plasteel,/area/shuttle/atmosia/atmos)
 "bq" = (/obj/machinery/light/small{dir = 1},/turf/open/floor/plating,/area/shuttle/atmosia/engine)
 "br" = (/obj/machinery/atmospherics/components/trinary/mixer{icon_state = "mixer_off"; dir = 1},/obj/structure/cable,/turf/open/floor/plasteel,/area/shuttle/atmosia/atmos)
-"bs" = (/obj/structure/window/reinforced/spawner/east,/obj/structure/table,/obj/item/twohanded/binoculars,/obj/machinery/atmospherics/pipe/simple/cyan/visible,/turf/open/floor/plasteel,/area/shuttle/atmosia/atmos)
+"bs" = (/obj/structure/window/reinforced/spawner/east,/obj/structure/table,/obj/item/binoculars,/obj/machinery/atmospherics/pipe/simple/cyan/visible,/turf/open/floor/plasteel,/area/shuttle/atmosia/atmos)
 "bt" = (/obj/machinery/air_sensor/atmos/nitrous_tank,/turf/open/floor/engine/n2o,/area/shuttle/atmosia/atmos)
 "bu" = (/obj/machinery/portable_atmospherics/canister/nitrous_oxide,/obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/nitrous_output,/turf/open/floor/engine/n2o,/area/shuttle/atmosia/atmos)
 "bv" = (/obj/machinery/light{dir = 4},/turf/open/floor/plating,/area/shuttle/atmosia/engine)

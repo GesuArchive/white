@@ -104,10 +104,10 @@
 
 /datum/crafting_recipe/cookbook/poleaxe
 	name = "Ebonumba Topor"
-	result = /obj/item/twohanded/required/paxe
+	result = /obj/item/paxe
 	reqs = list(/obj/item/stack/sheet/plasteel = 1,
 				/obj/item/stack/sheet/metal = 5,
-				/obj/item/twohanded/spear = 1,
+				/obj/item/spear = 1,
 				/obj/item/stack/cable_coil = 10)
 	tools = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
 	time = 100

@@ -20,7 +20,7 @@
 	name = "Custom Greatsword"
 	id = "fgsword"
 	materials = list(/datum/material/reagent = 8000)
-	build_path = /obj/item/twohanded/forged/greatsword
+	build_path = /obj/item/forged/greatsword
 	category = list("initial", "Weaponry")
 
 /datum/design/forge/forged_mace
@@ -34,7 +34,7 @@
 	name = "Custom Warhammer"
 	id = "fwhammer"
 	materials = list(/datum/material/reagent = 10000)
-	build_path = /obj/item/twohanded/forged/warhammer
+	build_path = /obj/item/forged/warhammer
 	category = list("initial", "Weaponry")
 
 /datum/design/forge/forged_bullet

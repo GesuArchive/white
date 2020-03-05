@@ -1,5 +1,5 @@
 /*********************Ebonumba TOPOR****************/
-/obj/item/twohanded/required/paxe
+/obj/item/paxe
 	name = "poleaxe"
 	desc = "Одно из самых универсальных видов оружия."
 	icon = 'code/shitcode/maxsc/icons/axe.dmi'
@@ -17,11 +17,11 @@
 	custom_materials = list(MAT_METAL=5000)
 	max_integrity = 200
 
-/obj/item/twohanded/required/paxe/Initialize()
+/obj/item/paxe/Initialize()
 	. = ..()
 	AddComponent(/datum/component/butchering, 60, 110)
 
-/obj/item/twohanded/required/paxee
+/obj/item/paxee
 	name = "poleaxe of law"
 	desc = "Одно из самых универсальных видов оружия. Оружие справедливости."
 	icon = 'code/shitcode/maxsc/icons/axe.dmi'
@@ -41,11 +41,11 @@
 	var/charged = TRUE
 	var/recharge_time = 600
 
-/obj/item/twohanded/required/paxee/Initialize()
+/obj/item/paxee/Initialize()
 	. = ..()
 	AddComponent(/datum/component/butchering, 60, 110)
 
-/obj/item/twohanded/required/paxee/attack_self(mob/user)
+/obj/item/paxee/attack_self(mob/user)
 	if (charged)
 		to_chat(user, "<span class='notice'>Я готов нести справедливость.</span>")
 		charged = FALSE
@@ -55,18 +55,18 @@
 		block_chance = 0
 		addtimer(CALLBACK(src, .proc/Recharge), recharge_time)
 
-/obj/item/twohanded/required/paxee/proc/Recharge()
+/obj/item/paxee/proc/Recharge()
 	if(!charged)
 		charged = TRUE
 
-/obj/item/twohanded/required/paxee/examine(mob/living/user)
+/obj/item/paxee/examine(mob/living/user)
 	..()
 	if (charged)
 		to_chat(user, "Вы чувствуете невероятную силу, исходящую из этого.")
 	else
 		to_chat(user, "Выглядит нормально.")
 
-/obj/item/twohanded/required/paxee/attack(mob/living/target, mob/living/carbon/user)
+/obj/item/paxee/attack(mob/living/target, mob/living/carbon/user)
 	if (istype(user, /mob/living/carbon/human/) && block_chance == 100)
 		var/mob/living/carbon/human/H = user
 		H.say("AD MORTEM INIMICUS!!!", ignore_spam = TRUE)
@@ -74,10 +74,10 @@
 
 /obj/item/book/manual/wiki/security_space_law/afterattack(atom/target, mob/living/user, proximity_flag, clickparams)
 	. = ..()
-	if (istype(target, /obj/item/twohanded/required/paxe))
+	if (istype(target, /obj/item/paxe))
 		to_chat(user, "<span class='notice'>Я улучшаю алебарду властью, данною мне законом.</span>")
-		var/obj/item/twohanded/required/paxe/I = target
-		new /obj/item/twohanded/required/paxee(I.loc)
+		var/obj/item/paxe/I = target
+		new /obj/item/paxee(I.loc)
 		qdel(I)
 		for (var/mob/i in GLOB.player_list)
 			if (istype (i, /mob/living/carbon/human/))
