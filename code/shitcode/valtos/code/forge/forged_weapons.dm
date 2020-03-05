@@ -99,21 +99,6 @@
 	attack_verb = list("бьёт", "ударяет")
 	armour_penetration = 5
 
-
-/obj/item/forged
-	icon = 'code/shitcode/valtos/icons/forge/forged_weapons.dmi'
-	lefthand_file = 'code/shitcode/valtos/icons/forge/lefthand.dmi'
-	righthand_file = 'code/shitcode/valtos/icons/forge/righthand.dmi'
-	var/datum/reagent/reagent_type
-	var/weapon_type = MELEE_TYPE_GREATSWORD
-	var/identifier = FORGED_MELEE_TWOHANDED
-	var/stabby = 0
-	var/speed = CLICK_CD_MELEE
-	var/list/special_traits
-	var/radioactive = FALSE
-	var/fire = FALSE
-
-
 /obj/item/forged/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	return ..()
