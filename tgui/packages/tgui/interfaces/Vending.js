@@ -26,7 +26,7 @@ export const Vending = props => {
   }
   return (
     <Fragment>
-      {data.onstation && (
+      {!!data.onstation && (
         <Section title="Пользователь">
           {data.user && (
             <Box>
