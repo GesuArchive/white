@@ -176,7 +176,6 @@
 	var/hulk_verb = pick("ломает","крушит")
 	if(check_shields(user, 15, "the [hulk_verb]ing"))
 		return
-	..()
 	playsound(loc, user.dna.species.attack_sound, 25, TRUE, -1)
 	var/message = "[user] [hulk_verb] [src]!"
 	visible_message("<span class='danger'>[message]</span>", \
