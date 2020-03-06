@@ -44,11 +44,10 @@
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
-	if((nutrition < NUTRITION_LEVEL_STARVING && prob(2)) || (nutrition < NUTRITION_LEVEL_HUNGRY && prob(1)))
-		to_chat(src, "<span class='warning'>[pick("Голодно...", "Кушать хочу...", "Вот бы что-нибудь съесть...", "Мой живот урчит...")]</span>")
-		take_overall_damage(stamina = 25)
-
 	if(stat != DEAD)
+		if((nutrition < NUTRITION_LEVEL_STARVING && prob(2)) || (nutrition < NUTRITION_LEVEL_HUNGRY && prob(1)))
+			to_chat(src, "<span class='warning'>[pick("Голодно...", "Кушать хочу...", "Вот бы что-нибудь съесть...", "Мой живот урчит...")]</span>")
+			take_overall_damage(stamina = 25)
 		return 1
 
 
