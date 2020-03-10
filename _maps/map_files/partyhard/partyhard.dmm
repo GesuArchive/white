@@ -2781,7 +2781,7 @@
 /area/security/brig)
 "gA" = (
 /obj/structure/table,
-/obj/machinery/computer/libraryconsole/bookmanagement,
+/obj/machinery/computer/bookmanagement,
 /obj/machinery/light{
 	dir = 1;
 	light_color = "#e8eaff"

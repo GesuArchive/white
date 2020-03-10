@@ -7920,7 +7920,7 @@
 /area/centcom/ferry)
 "AB" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/libraryconsole/bookmanagement,
+/obj/machinery/computer/bookmanagement,
 /turf/open/floor/wood,
 /area/centcom/holding)
 "AC" = (

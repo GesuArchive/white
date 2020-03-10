@@ -230,7 +230,7 @@
 /turf/open/floor/engine,
 /area/security/prison)
 "aF" = (
-/obj/machinery/computer/libraryconsole/bookmanagement,
+/obj/machinery/computer/bookmanagement,
 /obj/structure/table,
 /obj/machinery/newscaster{
 	pixel_x = -32

@@ -29099,7 +29099,7 @@
 	pixel_x = -32
 	},
 /obj/structure/table/wood,
-/obj/machinery/computer/libraryconsole/bookmanagement,
+/obj/machinery/computer/bookmanagement,
 /obj/machinery/light_switch{
 	pixel_y = -24
 	},
