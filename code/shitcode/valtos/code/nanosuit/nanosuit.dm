@@ -842,10 +842,10 @@
 	var/picked_hit_type = pick("бьёт", "пинает")
 	var/bonus_damage = 10
 	var/quick = FALSE
-	if(D.resting || D.lying)//we can hit ourselves
+	if(D.resting || !(D.mobility_flags & MOBILITY_STAND))//we can hit ourselves
 		bonus_damage += 5
 		picked_hit_type = "топчется по"
-		if(A.zone_selected == BODY_ZONE_HEAD && D.get_bodypart(BODY_ZONE_HEAD) && (!A.resting || !A.lying))
+		if(A.zone_selected == BODY_ZONE_HEAD && D.get_bodypart(BODY_ZONE_HEAD) && (!A.resting || (A.mobility_flags & MOBILITY_STAND)))
 			D.add_splatter_floor(D.loc)
 			D.apply_damage(10, BRAIN)
 			bonus_damage += 5
@@ -870,14 +870,14 @@
 			D.Paralyze(60)
 			D.visible_message("<span class='warning'>[A] хуярит [D] так, что тот охуевает!!", \
 							"<span class='userdanger'>[A] хуярит меня так, что ты охуеваешь!!</span>")
-		else if(A.resting && !D.lying) //but we can't legsweep ourselves!
+		else if(A.resting && (D.mobility_flags & MOBILITY_STAND)) //but we can't legsweep ourselves!
 			D.visible_message("<span class='warning'>[A] ломает колено [D]!", \
 								"<span class='userdanger'>[A] ломает тебе колено!</span>")
 			playsound(get_turf(A), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 			bonus_damage += 5
 			D.Paralyze(60)
 			log_combat(A, D, "nanosuit leg swept")
-	if(!A.resting || !A.lying)
+	if(!A.resting || (A.mobility_flags & MOBILITY_STAND))
 		if(prob(30))
 			quick = TRUE
 			A.changeNext_move(CLICK_CD_RAPID)
