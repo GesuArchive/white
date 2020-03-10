@@ -44,6 +44,7 @@ GLOBAL_LIST_EMPTY(chempiles)
 		qdel(src)
 
 /obj/effect/decal/cleanable/chempile/Crossed(mob/mover)
+	. = ..()
 	if(isliving(mover))
 		var/mob/living/M = mover
 		var/protection = 1

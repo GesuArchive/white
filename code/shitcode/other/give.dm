@@ -38,7 +38,7 @@
 				to_chat(usr,"<span class='warning'>[name] seem to have given up on giving [I] to you.</span>")
 				return
 
-			if(src.lying || src.handcuffed)
+			if(!(src.mobility_flags & MOBILITY_STAND) || src.handcuffed)
 				to_chat(usr,"<span class='warning'>He is restrained.</span>")
 				return
 

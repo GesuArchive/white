@@ -301,7 +301,7 @@
 
 			msg += "</span>"
 
-			if(HAS_TRAIT(user, TRAIT_SPIRITUAL) && mind?.isholy)
+			if(HAS_TRAIT(user, TRAIT_SPIRITUAL) && mind?.holy_role)
 				msg += "От н[t_ego] веет святым духом.\n"
 				SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "religious_comfort", /datum/mood_event/religiously_comforted)
 

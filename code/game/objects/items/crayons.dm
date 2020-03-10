@@ -366,12 +366,6 @@
 
 	var/list/turf/affected_turfs = list()
 
-	if(gang) // hippie start -- gang spraying is done differently
-		if(gang_final(user, target, affected_turfs))
-			return
-		actually_paints = FALSE // skip the next if check
-	// hippie end
-
 	if(actually_paints)
 		var/obj/effect/decal/cleanable/crayon/C
 		if(gang_mode)

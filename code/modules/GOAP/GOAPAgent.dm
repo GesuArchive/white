@@ -50,13 +50,11 @@ GLOBAL_LIST_INIT(dangerous_turfs, typecacheof(list(
 		info = new info()
 	else
 		CRASH("GOAP AI created without info provider")
-		return
 
 	if(ispath(planner))
 		planner = new planner()
 	else
 		CRASH("GOAP AI created without planner")
-		return
 
 	START_PROCESSING(SSgoap, src)
 

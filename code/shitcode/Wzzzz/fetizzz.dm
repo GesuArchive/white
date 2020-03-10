@@ -138,8 +138,8 @@
 	punchdamagelow = 1
 	punchstunthreshold = 0
 	siemens_coeff = 10
-	mutant_heart = /obj/item/organ/heart/xyz
-	mutant_brain = /obj/item/organ/brain/xyz
+	//mutant_heart = /obj/item/organ/heart/xyz
+	//mutant_brain = /obj/item/organ/brain/xyz
 	mutantliver = /obj/item/organ/liver/fly/xyz
 	//var/ara = rand(0, 15)
 	armor = 7.5

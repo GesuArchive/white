@@ -159,7 +159,6 @@
 			install_suppressor(A)
 			return
 	*/
-	return FALSE
 
 /obj/item/gun/energy/cellgun/attack_self(mob/living/user)
 	if(ammo_type.len > 1)
