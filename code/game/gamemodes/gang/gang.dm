@@ -26,7 +26,7 @@ GLOBAL_VAR_INIT(deaths_during_shift, 0)
 	announce_span = "danger"
 	announce_text = "Grove For Lyfe!"
 	reroll_friendly = FALSE
-	restricted_jobs = list("Cyborg", "AI", "Prisoner","Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Head of Personnel")//N O
+	restricted_jobs = list("Cyborg", "AI", "Prisoner","International Officer", "Russian Officer", "Warden", "Detective", "Head of Security", "Captain", "Head of Personnel")//N O
 	protected_jobs = list()
 	var/check_counter = 0
 	var/endtime = null
