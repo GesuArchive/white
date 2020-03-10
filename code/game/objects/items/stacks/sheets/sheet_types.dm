@@ -89,7 +89,8 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	new/datum/stack_recipe("iron door", /obj/structure/mineral_door/iron, 20, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("floodlight frame", /obj/structure/floodlight_frame, 5, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("voting box", /obj/structure/votebox, 15, time = 50), \
-	new/datum/stack_recipe("pestle", /obj/item/pestle, 1, time = 50)
+	new/datum/stack_recipe("pestle", /obj/item/pestle, 1, time = 50), \
+	new/datum/stack_recipe("hygienebot assembly", /obj/item/bot_assembly/hygienebot, 2, time = 50)
 ))
 
 /obj/item/stack/sheet/metal
@@ -155,7 +156,7 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 	singular_name = "plasteel sheet"
 	desc = "This sheet is an alloy of iron and plasma."
 	icon_state = "sheet-plasteel"
-	item_state = "sheet-metal"
+	item_state = "sheet-plasteel"
 	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT, /datum/material/plasma=MINERAL_MATERIAL_AMOUNT)
 	throwforce = 10
 	flags_1 = CONDUCT_1
@@ -542,7 +543,10 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 	icon_state = "sheet-brass"
 	item_state = "sheet-brass"
 	icon = 'icons/obj/stack_objects.dmi'
+	lefthand_file = 'icons/mob/inhands/misc/sheets_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/sheets_righthand.dmi'
 	resistance_flags = FIRE_PROOF | ACID_PROOF
+	force = 5
 	throwforce = 10
 	max_amount = 50
 	throw_speed = 1

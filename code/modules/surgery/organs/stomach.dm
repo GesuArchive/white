@@ -45,6 +45,9 @@
 	if(H.nutrition <= 50)
 		applyOrganDamage(1)
 
+/obj/item/organ/stomach/get_availability(datum/species/S)
+	return !(NOSTOMACH in S.species_traits)
+
 /obj/item/organ/stomach/proc/handle_disgust(mob/living/carbon/human/H)
 	if(H.disgust)
 		var/pukeprob = 5 + 0.05 * H.disgust

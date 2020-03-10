@@ -4,7 +4,7 @@
 	icon = 'icons/obj/chairs.dmi'
 	icon_state = "chair"
 	anchored = TRUE
-	can_buckle = 1
+	can_buckle = TRUE
 	buckle_lying = 0 //you sit in a chair, not lay
 	resistance_flags = NONE
 	max_integrity = 250
@@ -18,7 +18,7 @@
 /obj/structure/chair/examine(mob/user)
 	. = ..()
 	. += "<span class='notice'>Удерживается вместе парочкой <b>болтов</b>.</span>"
-	if(!has_buckled_mobs())
+	if(!has_buckled_mobs() && can_buckle)
 		. += "<span class='notice'>Перетащите свой спрайт, чтобы сидеть в нем.</span>"
 
 /obj/structure/chair/Initialize()
@@ -227,7 +227,7 @@
 	name = "табуретка"
 	desc = "Для жопы."
 	icon_state = "stool"
-	can_buckle = 0
+	can_buckle = FALSE
 	buildstackamount = 1
 	item_chair = /obj/item/chair/stool
 

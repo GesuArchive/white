@@ -336,10 +336,10 @@
 			var/cyberimp_detect
 			for(var/obj/item/organ/cyberimp/CI in internal_organs)
 				if(CI.status == ORGAN_ROBOTIC && !CI.syndicate_implant)
-					cyberimp_detect += "[name] модифицировано [CI.name]."
+					cyberimp_detect += "[!cyberimp_detect ? "[CI.ru_get_examine_string(user)]" : ", [CI.ru_get_examine_string(user)]"]"
 			if(cyberimp_detect)
-				. += "Обнаружены кибернетические модификации:"
-				. += cyberimp_detect
+				. += "<span class='notice ml-1'>Обнаружены кибернетические модификации:</span>"
+				. += "<span class='notice ml-2'>[cyberimp_detect]</span>"
 			if(R)
 				var/health_r = R.fields["p_stat"]
 				. += "<a href='?src=[REF(src)];hud=m;p_stat=1'>\[[health_r]\]</a>"
@@ -349,7 +349,8 @@
 			if(R)
 				. += "<a href='?src=[REF(src)];hud=m;evaluation=1'>\[Medical evaluation\]</a><br>"
 			if(traitstring)
-				. += "<span class='info'>Выявленные физиологические признаки:\n[traitstring]"
+				. += "<span class='notice ml-1'>Выявленные физиологические признаки:</span>"
+				. += "<span class='notice ml-2'>[traitstring]</span>"
 
 		if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
 			if(!user.stat && user != src)

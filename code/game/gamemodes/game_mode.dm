@@ -51,6 +51,7 @@
 	var/gamemode_ready = FALSE //Is the gamemode all set up and ready to start checking for ending conditions.
 	var/setup_error		//What stopepd setting up the mode.
 
+
 /datum/game_mode/proc/announce() //Shows the gamemode's name and a fast description.
 	message_admins("<b>The gamemode is: <span class='[announce_span]'>[name]</span>!</b>")
 	message_admins("<b>[announce_text]</b>")
