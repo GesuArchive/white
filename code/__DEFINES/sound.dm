@@ -94,7 +94,7 @@
 
 #define SPOOKY list('sound/ambience/ambimo1.ogg','sound/ambience/ambimo2.ogg')
 
-#define SPACE list('sound/ambience/white/ambispace1.ogg', 'sound/ambience/white/ambispace2.ogg')
+#define SPACE list('sound/ambience/white/ambispace1.ogg', 'sound/ambience/white/ambispace2.ogg', 'sound/ambience/white/ambispace3.ogg')
 
 #define MAINTENANCE list('sound/ambience/white/ambimaint1.ogg', 'sound/ambience/white/ambimaint2.ogg')
 
