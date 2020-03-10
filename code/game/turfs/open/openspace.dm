@@ -10,6 +10,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	plane           = OPENSPACE_BACKDROP_PLANE
 	mouse_opacity 	= MOUSE_OPACITY_TRANSPARENT
 	layer           = SPLASHSCREEN_LAYER
+	intact = 0
 
 /turf/open/openspace
 	name = "открытое пространство"
@@ -43,6 +44,11 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/Destroy()
 	vis_contents.len = 0
 	return ..()
+
+/turf/open/openspace/can_have_cabling()
+	if(locate(/obj/structure/lattice/catwalk, src))
+		return TRUE
+	return FALSE
 
 /turf/open/openspace/update_multiz(prune_on_fail = FALSE, init = FALSE)
 	. = ..()

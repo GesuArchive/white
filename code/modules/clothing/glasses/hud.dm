@@ -223,3 +223,16 @@
 	if(. & EMP_PROTECT_SELF)
 		return
 	thermal_overload()
+
+/obj/item/clothing/glasses/hud/spacecop
+	name = "police aviators"
+	desc = "For thinking you look cool while brutalizing protestors and minorities."
+	icon_state = "bigsunglasses"
+	hud_type = ANTAG_HUD_GANGSTER
+
+/obj/item/clothing/glasses/hud/spacecop/hidden // for the undercover cop
+	name = "sunglasses"
+	desc = "These sunglasses are special, and let you view potential criminals."
+	icon_state = "sun"
+	item_state = "sunglasses"
+

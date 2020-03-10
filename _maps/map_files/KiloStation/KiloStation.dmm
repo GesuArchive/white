@@ -8054,6 +8054,8 @@
 	pixel_y = 2
 	},
 /obj/structure/toilet{
+	cistern = 1;
+	icon_state = "toilet01";
 	pixel_y = 16
 	},
 /obj/effect/turf_decal/tile/neutral{
@@ -48855,7 +48857,7 @@
 	dir = 1
 	},
 /obj/structure/table/wood,
-/obj/machinery/computer/libraryconsole/bookmanagement{
+/obj/machinery/computer/bookmanagement{
 	pixel_y = 5
 	},
 /obj/machinery/light{
@@ -58121,7 +58123,7 @@
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/locker)
 "bJz" = (
-/obj/machinery/computer/libraryconsole/bookmanagement,
+/obj/machinery/computer/bookmanagement,
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/red,
@@ -86854,6 +86856,8 @@
 	pixel_y = 2
 	},
 /obj/structure/toilet{
+	cistern = 1;
+	icon_state = "toilet01";
 	pixel_y = 16
 	},
 /obj/effect/turf_decal/tile/neutral{
@@ -87942,7 +87946,7 @@
 /area/engine/engineering)
 "cEr" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/libraryconsole/bookmanagement{
+/obj/machinery/computer/bookmanagement{
 	pixel_y = 5
 	},
 /obj/effect/turf_decal/tile/neutral,
@@ -90447,6 +90451,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/storage/bag/trash,
 /turf/open/floor/plasteel/dark,
 /area/security/prison)
 "cIq" = (
@@ -93621,6 +93626,8 @@
 	pixel_y = 2
 	},
 /obj/structure/toilet{
+	cistern = 1;
+	icon_state = "toilet01";
 	pixel_y = 16
 	},
 /obj/effect/turf_decal/tile/neutral{
