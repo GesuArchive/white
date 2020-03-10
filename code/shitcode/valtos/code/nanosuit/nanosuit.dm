@@ -345,11 +345,11 @@
 			return TRUE
 		else
 			user.visible_message("<span class='warning'>Защита [user] не смогла отразить [attack_text].</span>")
-			return FALSE
 			if(damage && attack_type == PROJECTILE_ATTACK && P.damage_type != STAMINA && prob(50))
 				var/datum/effect_system/spark_spread/s = new
 				s.set_up(1, 1, src)
 				s.start()
+			return FALSE
 	kill_cloak()
 	if(user.health < 100 && current_charges)
 		addtimer(CALLBACK(src, .proc/addmedicalcharge), medical_delay,TIMER_UNIQUE|TIMER_OVERRIDE)
