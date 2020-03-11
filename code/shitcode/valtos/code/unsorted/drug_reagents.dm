@@ -276,8 +276,6 @@
 	var/turf/T = locate(C.x + pick(-1, 1), C.y + pick(-1, 1), C.z)
 	brain = new(T, C)
 
-#define WAVE_BOUND 2
-
 /datum/reagent/drug/grape_blast/on_mob_life(mob/living/carbon/H)
 	if(!H && !H.hud_used)
 		return
@@ -313,7 +311,7 @@
 						animate(whole_screen, transform = turn(matrix(), rotation*rand(0.5,5)), time = 50, easing = QUAD_EASING)
 						animate(whole_screen, transform = matrix()*1.5, time = 40, easing = BOUNCE_EASING)
 					if(prob(15))
-						whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = WAVE_BOUND)
+						whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = WAVE_BOUNDED)
 						animate(whole_screen.filters[whole_screen.filters.len], size = rand(1,3), time = 30, easing = QUAD_EASING, loop = -1)
 						to_chat(H, "<span class='notice'>Я чувствую, что реальность тает ...</span>")
 						addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
@@ -557,7 +555,7 @@
 								animate(transform = turn(matrix(), -rotation), time = 100, easing = BACK_EASING)
 							if(prob(13))
 								H.Jitter(100)
-								whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = WAVE_BOUND)
+								whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = WAVE_BOUNDED)
 								animate(whole_screen, transform = matrix()*2, time = 40, easing = BOUNCE_EASING)
 								addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
 							addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 600)
@@ -598,8 +596,6 @@
 	if(prob(5))
 		to_chat(H, "<b><big>[readable_corrupted_text(high_message)]</big></b>")
 	..()
-
-#undef WAVE_BOUND
 
 /datum/reagent/drug/labebium/proc/PlaySpook(mob/living/carbon/C, soundfile, environment = 0, vary = TRUE)
 	var/sound/sound = sound(soundfile)
