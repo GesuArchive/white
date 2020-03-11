@@ -78,12 +78,6 @@ function clamp(val, min, max) {
     return Math.max(min, Math.min(val, max))
 }
 
-function outerHTML(el) {
-    var wrap = document.createElement('div');
-    wrap.appendChild(el.cloneNode(true));
-    return wrap.innerHTML;
-}
-
 //Polyfill for fucking date now because of course IE8 and below don't support it
 if (!Date.now) {
     Date.now = function now() {
@@ -181,55 +175,62 @@ function replaceRegex() {
     $(this).removeAttr('replaceRegex');
 }
 
-//Actually turns the highlight term match into appropriate html
-function addHighlightMarkup(match) {
-    var extra = '';
-    if (opts.highlightColor) {
-        extra += ' style="background-color: ' + opts.highlightColor + '"';
-    }
-    return '<span class="highlight"' + extra + '>' + match + '</span>';
+// Get a highlight markup span
+function createHighlightMarkup() {
+	var extra = '';
+	if (opts.highlightColor) {
+		extra += ' style="background-color: ' + opts.highlightColor + '"';
+	}
+	return '<span class="highlight"' + extra + '></span>';
 }
 
-//Highlights words based on user settings
+// Get all child text nodes that match a regex pattern
+function getTextNodes(elem, pattern) {
+	var result = $([]);
+	$(elem).contents().each(function(idx, child) {
+		if (child.nodeType === 3 && /\S/.test(child.nodeValue) && pattern.test(child.nodeValue)) {
+			result = result.add(child);
+		}
+		else {
+			result = result.add(getTextNodes(child, pattern));
+		}
+	});
+	return result;
+}
+
+// Highlight all text terms matching the registered regex patterns
 function highlightTerms(el) {
-    if (el.children.length > 0) {
-        for (var h = 0; h < el.children.length; h++) {
-            highlightTerms(el.children[h]);
-        }
-    }
+	var pattern = new RegExp("(" + opts.highlightTerms.join('|') + ")", 'gi');
+	var nodes = getTextNodes(el, pattern);
 
-    var hasTextNode = false;
-    for (var node = 0; node < el.childNodes.length; node++) {
-        if (el.childNodes[node].nodeType === 3) {
-            hasTextNode = true;
-            break;
-        }
-    }
+	nodes.each(function (idx, node) {
+		var content = $(node).text();
+		var parent = $(node).parent();
+		var pre = $(node.previousSibling);
+		$(node).remove();
+		content.split(pattern).forEach(function (chunk) {
+			// Get our highlighted span/text node
+			var toInsert = null;
+			if (pattern.test(chunk)) {
+				var tmpElem = $(createHighlightMarkup());
+				tmpElem.text(chunk);
+				toInsert = tmpElem;
+			}
+			else {
+				toInsert = document.createTextNode(chunk);
+			}
 
-    if (hasTextNode) { //If element actually has text
-        var newText = '';
-        for (var c = 0; c < el.childNodes.length; c++) { //Each child element
-            if (el.childNodes[c].nodeType === 3) { //Is it text only?
-                var words = el.childNodes[c].data.split(' ');
-                for (var w = 0; w < words.length; w++) { //Each word in the text
-                    var newWord = null;
-                    for (var i = 0; i < opts.highlightTerms.length; i++) { //Each highlight term
-                        if (opts.highlightTerms[i] && words[w].toLowerCase().indexOf(opts.highlightTerms[i].toLowerCase()) > -1) { //If a match is found
-                            newWord = words[w].replace("<", "&lt;").replace(new RegExp(opts.highlightTerms[i], 'gi'), addHighlightMarkup);
-                            break;
-                        }
-                        if (window.console)
-                            console.log(newWord)
-                    }
-                    newText += newWord || words[w].replace("<", "&lt;");
-                    newText += w >= words.length ? '' : ' ';
-                }
-            } else { //Every other type of element
-                newText += outerHTML(el.childNodes[c]);
-            }
-        }
-        el.innerHTML = newText;
-    }
+			// Insert back into our element
+			if (pre.length == 0) {
+				var result = parent.prepend(toInsert);
+				pre = $(result[0].firstChild);
+			}
+			else {
+				pre.after(toInsert);
+				pre = $(pre[0].nextSibling);
+			}
+		});
+	});
 }
 
 function iconError(E) {
@@ -250,180 +251,180 @@ function iconError(E) {
 
 //Send a message to the client
 function output(message, flag) {
-    if (typeof message === 'undefined') {
-        return;
-    }
-    if (typeof flag === 'undefined') {
-        flag = '';
-    }
+	if (typeof message === 'undefined') {
+		return;
+	}
+	if (typeof flag === 'undefined') {
+		flag = '';
+	}
 
-    if (flag !== 'internal')
-        opts.lastPang = Date.now();
+	if (flag !== 'internal')
+		opts.lastPang = Date.now();
 
-    message = byondDecode(message).trim();
+	message = byondDecode(message).trim();
 
-    //The behemoth of filter-code (for Admin message filters)
-    //Note: This is proooobably hella inefficient
-    var filteredOut = false;
-    if (opts.hasOwnProperty('showMessagesFilters') && !opts.showMessagesFilters['All'].show) {
-        //Get this filter type (defined by class on message)
-        var messageHtml = $.parseHTML(message),
-            messageClasses;
-        if (opts.hasOwnProperty('filterHideAll') && opts.filterHideAll) {
-            var internal = false;
-            messageClasses = (!!$(messageHtml).attr('class') ? $(messageHtml).attr('class').split(/\s+/) : false);
-            if (messageClasses) {
-                for (var i = 0; i < messageClasses.length; i++) { //Every class
-                    if (messageClasses[i] == 'internal') {
-                        internal = true;
-                        break;
-                    }
-                }
-            }
-            if (!internal) {
-                filteredOut = 'All';
-            }
-        } else {
-            //If the element or it's child have any classes
-            if (!!$(messageHtml).attr('class') || !!$(messageHtml).children().attr('class')) {
-                messageClasses = $(messageHtml).attr('class').split(/\s+/);
-                if (!!$(messageHtml).children().attr('class')) {
-                    messageClasses = messageClasses.concat($(messageHtml).children().attr('class').split(/\s+/));
-                }
-                var tempCount = 0;
-                for (var i = 0; i < messageClasses.length; i++) { //Every class
-                    var thisClass = messageClasses[i];
-                    $.each(opts.showMessagesFilters, function(key, val) { //Every filter
-                        if (key !== 'All' && val.show === false && typeof val.match != 'undefined') {
-                            for (var i = 0; i < val.match.length; i++) {
-                                var matchClass = val.match[i];
-                                if (matchClass == thisClass) {
-                                    filteredOut = key;
-                                    break;
-                                }
-                            }
-                        }
-                        if (filteredOut) return false;
-                    });
-                    if (filteredOut) break;
-                    tempCount++;
-                }
-            } else {
-                if (!opts.showMessagesFilters['Misc'].show) {
-                    filteredOut = 'Misc';
-                }
-            }
-        }
-    }
+	//The behemoth of filter-code (for Admin message filters)
+	//Note: This is proooobably hella inefficient
+	var filteredOut = false;
+	if (opts.hasOwnProperty('showMessagesFilters') && !opts.showMessagesFilters['All'].show) {
+		//Get this filter type (defined by class on message)
+		var messageHtml = $.parseHTML(message),
+			messageClasses;
+		if (opts.hasOwnProperty('filterHideAll') && opts.filterHideAll) {
+			var internal = false;
+			messageClasses = (!!$(messageHtml).attr('class') ? $(messageHtml).attr('class').split(/\s+/) : false);
+			if (messageClasses) {
+				for (var i = 0; i < messageClasses.length; i++) { //Every class
+					if (messageClasses[i] == 'internal') {
+						internal = true;
+						break;
+					}
+				}
+			}
+			if (!internal) {
+				filteredOut = 'All';
+			}
+		} else {
+			//If the element or it's child have any classes
+			if (!!$(messageHtml).attr('class') || !!$(messageHtml).children().attr('class')) {
+				messageClasses = $(messageHtml).attr('class').split(/\s+/);
+				if (!!$(messageHtml).children().attr('class')) {
+					messageClasses = messageClasses.concat($(messageHtml).children().attr('class').split(/\s+/));
+				}
+				var tempCount = 0;
+				for (var i = 0; i < messageClasses.length; i++) { //Every class
+					var thisClass = messageClasses[i];
+					$.each(opts.showMessagesFilters, function(key, val) { //Every filter
+						if (key !== 'All' && val.show === false && typeof val.match != 'undefined') {
+							for (var i = 0; i < val.match.length; i++) {
+								var matchClass = val.match[i];
+								if (matchClass == thisClass) {
+									filteredOut = key;
+									break;
+								}
+							}
+						}
+						if (filteredOut) return false;
+					});
+					if (filteredOut) break;
+					tempCount++;
+				}
+			} else {
+				if (!opts.showMessagesFilters['Misc'].show) {
+					filteredOut = 'Misc';
+				}
+			}
+		}
+	}
 
-    //Stuff we do along with appending a message
-    var atBottom = false;
-    if (!filteredOut) {
-        var bodyHeight = $('body').height();
-        var messagesHeight = $messages.outerHeight();
-        var scrollPos = $('body,html').scrollTop();
+	//Stuff we do along with appending a message
+	var atBottom = false;
+	if (!filteredOut) {
+		var bodyHeight = $('body').height();
+		var messagesHeight = $messages.outerHeight();
+		var scrollPos = $('body,html').scrollTop();
 
-        //Should we snap the output to the bottom?
-        if (bodyHeight + scrollPos >= messagesHeight - opts.scrollSnapTolerance) {
-            atBottom = true;
-            if ($('#newMessages').length) {
-                $('#newMessages').remove();
-            }
-            //If not, put the new messages box in
-        } else {
-            if ($('#newMessages').length) {
-                var messages = $('#newMessages .number').text();
-                messages = parseInt(messages);
-                messages++;
-                $('#newMessages .number').text(messages);
-                if (messages == 2) {
-                    $('#newMessages .messageWord').append('s');
-                }
-            } else {
-                $messages.after('<a href="#" id="newMessages"><span class="number">1</span> new <span class="messageWord">message</span> <i class="icon-double-angle-down"></i></a>');
-            }
-        }
-    }
+		//Should we snap the output to the bottom?
+		if (bodyHeight + scrollPos >= messagesHeight - opts.scrollSnapTolerance) {
+			atBottom = true;
+			if ($('#newMessages').length) {
+				$('#newMessages').remove();
+			}
+		//If not, put the new messages box in
+		} else {
+			if ($('#newMessages').length) {
+				var messages = $('#newMessages .number').text();
+				messages = parseInt(messages);
+				messages++;
+				$('#newMessages .number').text(messages);
+				if (messages == 2) {
+					$('#newMessages .messageWord').append('s');
+				}
+			} else {
+				$messages.after('<a href="#" id="newMessages"><span class="number">1</span> new <span class="messageWord">message</span> <i class="icon-double-angle-down"></i></a>');
+			}
+		}
+	}
 
-    opts.messageCount++;
+	opts.messageCount++;
 
-    //Pop the top message off if history limit reached
-    if (opts.messageCount >= opts.messageLimit) {
-        $messages.children('div.entry:first-child').remove();
-        opts.messageCount--; //I guess the count should only ever equal the limit
-    }
+	//Pop the top message off if history limit reached
+	if (opts.messageCount >= opts.messageLimit) {
+		$messages.children('div.entry:first-child').remove();
+		opts.messageCount--; //I guess the count should only ever equal the limit
+	}
 
-    // Create the element - if combining is off, we use it, and if it's on, we
-    // might discard it bug need to check its text content. Some messages vary
-    // only in HTML markup, have the same text content, and should combine.
-    var entry = document.createElement('div');
-    entry.innerHTML = message;
-    var trimmed_message = entry.textContent || entry.innerText || "";
+	// Create the element - if combining is off, we use it, and if it's on, we
+	// might discard it bug need to check its text content. Some messages vary
+	// only in HTML markup, have the same text content, and should combine.
+	var entry = document.createElement('div');
+	entry.innerHTML = message;
+	var trimmed_message = entry.textContent || entry.innerText || "";
 
-    var handled = false;
-    if (opts.messageCombining) {
-        var lastmessages = $messages.children('div.entry:last-child').last();
-        if (lastmessages.length && $last_message && $last_message == trimmed_message) {
-            var badge = lastmessages.children('.r').last();
-            if (badge.length) {
-                badge = badge.detach();
-                badge.text(parseInt(badge.text()) + 1);
-            } else {
-                badge = $('<span/>', { 'class': 'r', 'text': 2 });
-            }
-            lastmessages.html(message);
-            lastmessages.find('[replaceRegex]').each(replaceRegex);
-            lastmessages.append(badge);
-            badge.animate({
-                "font-size": "0.9em"
-            }, 100, function() {
-                badge.animate({
-                    "font-size": "0.7em"
-                }, 100);
-            });
-            opts.messageCount--;
-            handled = true;
-        }
-    }
+	var handled = false;
+	if (opts.messageCombining) {
+		var lastmessages = $messages.children('div.entry:last-child').last();
+		if (lastmessages.length && $last_message && $last_message == trimmed_message) {
+			var badge = lastmessages.children('.r').last();
+			if (badge.length) {
+				badge = badge.detach();
+				badge.text(parseInt(badge.text()) + 1);
+			} else {
+				badge = $('<span/>', {'class': 'r', 'text': 2});
+			}
+			lastmessages.html(message);
+			lastmessages.find('[replaceRegex]').each(replaceRegex);
+			lastmessages.append(badge);
+			badge.animate({
+				"font-size": "0.9em"
+			}, 100, function() {
+				badge.animate({
+					"font-size": "0.7em"
+				}, 100);
+			});
+			opts.messageCount--;
+			handled = true;
+		}
+	}
 
-    if (!handled) {
-        //Actually append the message
-        entry.className = 'entry';
+	if (!handled) {
+		//Actually append the message
+		entry.className = 'entry';
 
-        if (filteredOut) {
-            entry.className += ' hidden';
-            entry.setAttribute('data-filter', filteredOut);
-        }
+		if (filteredOut) {
+			entry.className += ' hidden';
+			entry.setAttribute('data-filter', filteredOut);
+		}
 
-        $(entry).find('[replaceRegex]').each(replaceRegex);
+		$(entry).find('[replaceRegex]').each(replaceRegex);
 
-        $last_message = trimmed_message;
-        $messages[0].appendChild(entry);
-        $(entry).find("img.icon").error(iconError);
+		$last_message = trimmed_message;
+		$messages[0].appendChild(entry);
+		$(entry).find("img.icon").error(iconError);
 
-        var to_linkify = $(entry).find(".linkify");
-        if (typeof Node === 'undefined') {
-            // Linkify fallback for old IE
-            for (var i = 0; i < to_linkify.length; ++i) {
-                to_linkify[i].innerHTML = linkify_fallback(to_linkify[i].innerHTML);
-            }
-        } else {
-            // Linkify for modern IE versions
-            for (var i = 0; i < to_linkify.length; ++i) {
-                linkify_node(to_linkify[i]);
-            }
-        }
+		var to_linkify = $(entry).find(".linkify");
+		if (typeof Node === 'undefined') {
+			// Linkify fallback for old IE
+			for(var i = 0; i < to_linkify.length; ++i) {
+				to_linkify[i].innerHTML = linkify_fallback(to_linkify[i].innerHTML);
+			}
+		} else {
+			// Linkify for modern IE versions
+			for(var i = 0; i < to_linkify.length; ++i) {
+				linkify_node(to_linkify[i]);
+			}
+		}
 
-        //Actually do the snap
-        //Stuff we can do after the message shows can go here, in the interests of responsiveness
-        if (opts.highlightTerms && opts.highlightTerms.length > 0) {
-            highlightTerms(entry);
-        }
-    }
+		//Actually do the snap
+		//Stuff we can do after the message shows can go here, in the interests of responsiveness
+		if (opts.highlightTerms && opts.highlightTerms.length > 0) {
+			highlightTerms($(entry));
+		}
+	}
 
-    if (!filteredOut && atBottom) {
-        $('body,html').scrollTop($messages.outerHeight());
-    }
+	if (!filteredOut && atBottom) {
+		$('body,html').scrollTop($messages.outerHeight());
+	}
 }
 
 function internalOutput(message, flag) {
@@ -752,15 +753,11 @@ $(function() {
 		internalOutput('<span class="internal boldnshit">Загружено отображение пинга: '+(opts.pingDisabled ? 'hidden' : 'visible')+'</span>', 'internal');
 	}
 	if (savedConfig.shighlightTerms) {
-		var savedTerms = $.parseJSON(savedConfig.shighlightTerms);
-		var actualTerms = '';
-		for (var i = 0; i < savedTerms.length; i++) {
-			if (savedTerms[i]) {
-				actualTerms += savedTerms[i] + ', ';
-			}
-		}
+		var savedTerms = $.parseJSON(savedConfig.shighlightTerms).filter(function (entry) {
+			return entry !== null && /\S/.test(entry);
+		});
+		var actualTerms = savedTerms.length != 0 ? savedTerms.join(', ') : null;
 		if (actualTerms) {
-			actualTerms = actualTerms.substring(0, actualTerms.length - 2);
 			internalOutput('<span class="internal boldnshit">Загружена подсветка слов: ' + actualTerms+'</span>', 'internal');
 			opts.highlightTerms = savedTerms;
 		}
@@ -1062,20 +1059,12 @@ $(function() {
 	$('body').on('submit', '#highlightTermForm', function(e) {
 		e.preventDefault();
 
-		var count = 0;
-		while (count < opts.highlightLimit) {
+		opts.highlightTerms = [];
+		for (var count = 0; count < opts.highlightLimit; count++) {
 			var term = $('#highlightTermInput'+count).val();
-			if (term) {
-				term = term.trim();
-				if (term === '') {
-					opts.highlightTerms[count] = null;
-				} else {
-					opts.highlightTerms[count] = term.toLowerCase();
-				}
-			} else {
-				opts.highlightTerms[count] = null;
+			if (term !== null && /\S/.test(term)) {
+				opts.highlightTerms.push(term.trim().toLowerCase());
 			}
-			count++;
 		}
 
 		var color = $('#highlightColor').val();
