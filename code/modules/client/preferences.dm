@@ -641,6 +641,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<br>"
 			dat += "<b>Слышать Admin MIDIs:</b> <a href='?_src_=prefs;preference=hear_midis'>[(toggles & SOUND_MIDI) ? "Вкл":"Выкл"]</a><br>"
 			dat += "<b>Слышать Lobby Music:</b> <a href='?_src_=prefs;preference=lobby_music'>[(toggles & SOUND_LOBBY) ? "Вкл":"Выкл"]</a><br>"
+			dat += "<b>Проигрывать звук окончания раунда:</b> <a href='?_src_=prefs;preference=endofround_sounds'>[(toggles & SOUND_ENDOFROUND) ? "Вкл":"Выкл"]</a><br>"
 			dat += "<b>Видеть PR:</b> <a href='?_src_=prefs;preference=pull_requests'>[(chat_toggles & CHAT_PULLR) ? "Вкл":"Выкл"]</a><br>"
 			dat += "<br>"
 
@@ -1647,6 +1648,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						user.client.playtitlemusic()
 					else
 						user.stop_sound_channel(CHANNEL_LOBBYMUSIC)
+
+				if("endofround_sounds")
+					toggles ^= SOUND_ENDOFROUND
 
 				if("ghost_ears")
 					chat_toggles ^= CHAT_GHOSTEARS
