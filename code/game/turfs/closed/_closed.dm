@@ -56,7 +56,8 @@
 	name = "White Dream"
 	icon = 'icons/protocol_c.dmi'
 	icon_state = "blank"
-	layer = FLY_LAYER
+	layer = SPLASHSCREEN_LAYER
+	plane = SPLASHSCREEN_PLANE
 	bullet_bounce_sound = null
 
 /turf/closed/indestructible/splashscreen/New()

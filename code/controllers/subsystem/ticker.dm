@@ -654,6 +654,10 @@ SUBSYSTEM_DEF(ticker)
 	update_everything_flag_in_db()
 	if(!round_end_sound)
 		round_end_sound = pick('sound/roundend/logoff.ogg', 'code/shitcode/valtos/sounds/group_masturbation.ogg')
+	///The reference to the end of round sound that we have chosen.
+	var/sound/end_of_round_sound_ref = sound(round_end_sound)
+	for(var/mob/M in GLOB.player_list)
+		if(M.client.prefs?.toggles & SOUND_ENDOFROUND)
+			SEND_SOUND(M.client, end_of_round_sound_ref)
 
-	SEND_SOUND(world, sound(round_end_sound))
 	text2file(login_music, "data/last_round_lobby_music.txt")
