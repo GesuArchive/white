@@ -267,7 +267,7 @@ BLIND     // can't see anything
 	GLOB.female_clothing_icons[index] = female_clothing_icon
 
 /obj/item/clothing/under/verb/toggle()
-	set name = "Adjust Suit Sensors"
+	set name = "Переключить сенсоры костюма"
 	set category = "ОБЪЕКТ"
 	set src in usr
 	var/mob/M = usr

@@ -1,6 +1,6 @@
 /mob/living/carbon/verb/give()
 	set category = "IC"
-	set name = "Give"
+	set name = "Дать"
 	set src in view(1)
 
 	if(src == usr)

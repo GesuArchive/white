@@ -136,10 +136,10 @@
 	return !AM.anchored
 
 /datum/component/simple_rotation/proc/default_after_rotation(mob/user, rotation_type)
-	to_chat(user,"<span class='notice'>You [rotation_type == ROTATION_FLIP ? "flip" : "rotate"] [parent].</span>")
+	to_chat(user,"<span class='notice'>[rotation_type == ROTATION_FLIP ? "Переворачиваю" : "Поворачиваю"] [parent].</span>")
 
 /atom/movable/proc/simple_rotate_clockwise()
-	set name = "Rotate Clockwise"
+	set name = "Повернуть по часовой"
 	set category = "ОБЪЕКТ"
 	set src in oview(1)
 	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
@@ -147,7 +147,7 @@
 		rotcomp.HandRot(null,usr,ROTATION_CLOCKWISE)
 
 /atom/movable/proc/simple_rotate_counterclockwise()
-	set name = "Rotate Counter-Clockwise"
+	set name = "Повернуть против часовой"
 	set category = "ОБЪЕКТ"
 	set src in oview(1)
 	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
@@ -155,7 +155,7 @@
 		rotcomp.HandRot(null,usr,ROTATION_COUNTERCLOCKWISE)
 
 /atom/movable/proc/simple_rotate_flip()
-	set name = "Flip"
+	set name = "Перевернуть"
 	set category = "ОБЪЕКТ"
 	set src in oview(1)
 	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)

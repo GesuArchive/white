@@ -772,7 +772,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 /obj/item/pda/verb/verb_remove_id()
 	set category = "ОБЪЕКТ"
-	set name = "Eject ID"
+	set name = "Изъять ID"
 	set src in usr
 
 	if(id)
@@ -782,14 +782,14 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 /obj/item/pda/verb/verb_remove_pen()
 	set category = "ОБЪЕКТ"
-	set name = "Remove Pen"
+	set name = "Изъять ручку"
 	set src in usr
 
 	remove_pen(usr)
 
 /obj/item/pda/verb/verb_eject_cart()
 	set category = "ОБЪЕКТ"
-	set name = "Eject Cartridge"
+	set name = "Изъять картридж"
 	set src in usr
 
 	eject_cart(usr)

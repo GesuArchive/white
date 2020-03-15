@@ -1216,7 +1216,7 @@
 
 ///Show the language menu for this mob
 /mob/verb/open_language_menu()
-	set name = "Open Language Menu"
+	set name = "Мои языки"
 	set category = "IC"
 
 	var/datum/language_holder/H = get_language_holder()

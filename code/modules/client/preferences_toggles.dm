@@ -79,7 +79,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Ghost/chatterbox, toggle_ghost_pda)()
 	return C.prefs.chat_toggles & CHAT_GHOSTPDA
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Ghost/chatterbox, toggle_ghost_laws)()
-	set name = "Show/Hide GhostLaws"
+	set name = " 🔄 Законы призраков"
 	set category = "НАСТРОЙКИ"
 	set desc = "See All Law Changes"
 	usr.client.prefs.chat_toggles ^= CHAT_GHOSTLAWS
@@ -145,8 +145,8 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Sound, toggletitlemusic)()
 
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Sound, toggleendofroundsounds)()
-	set name = "Hear/Silence End of Round Sounds"
-	set category = "Preferences"
+	set name = " 🔄 Музыка конца раунда"
+	set category = "НАСТРОЙКИ"
 	set desc = "Hear Round End Sounds"
 	usr.client.prefs.toggles ^= SOUND_ENDOFROUND
 	usr.client.prefs.save_preferences()
