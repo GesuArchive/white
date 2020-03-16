@@ -4,8 +4,8 @@
 *
 ******************************************/
 
-@font-face {font-family: "Hooge";  src: url("https://station13.ru/ins/hooge.ttf");}
-@font-face {font-family: "Avenir"; src: url("https://station13.ru/ins/16846.ttf");}
+@font-face {font-family: "Hooge";  src: url("Hooge.ttf");}
+@font-face {font-family: "Avenir"; src: url("Avenir.ttf");}
 
 html, body {
 	padding: 0;
