@@ -259,7 +259,7 @@ a.popt {text-decoration: none;}
 /* OUTPUT COLORS */
 .highlight {background: yellow;}
 
-h1, h2, h3, h4, h5, h6	{color: #0000ff;font-family: 'Hooge';}
+h1, h2, h3, h4, h5, h6	{color: #0000ff;font-family: "Hooge", sans-serif;}
 h1.alert, h2.alert		{color: #000000;}
 
 em						{font-style: normal;	font-weight: bold;}
