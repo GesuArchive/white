@@ -4,7 +4,8 @@
 *
 ******************************************/
 
-@font-face {font-family: "Hooge";src: url("https://station13.ru/ins/hooge.ttf");}
+@font-face {font-family: "Hooge";  src: url("https://station13.ru/ins/hooge.ttf");}
+@font-face {font-family: "Avenir"; src: url("https://station13.ru/ins/16846.ttf");}
 
 html, body {
 	padding: 0;
@@ -14,7 +15,7 @@ html, body {
 }
 body {
 	background: #fff;
-	font-family: Verdana, sans-serif;
+	font-family: "Avenir", sans-serif;
 	font-size: 13px;
 	line-height: 1.2;
 	overflow-x: hidden;
