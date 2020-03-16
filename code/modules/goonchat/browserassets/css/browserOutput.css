@@ -4,7 +4,7 @@
 *
 ******************************************/
 
-@import url('https://fonts.googleapis.com/css?family=Arimo&display=swap&subset=cyrillic,cyrillic-ext,latin-ext');
+@font-face {font-family: "Hooge";src: url("https://station13.ru/ins/hooge.ttf");}
 
 html, body {
 	padding: 0;
@@ -261,7 +261,7 @@ a.popt {text-decoration: none;}
 /* OUTPUT COLORS */
 .highlight {background: yellow;}
 
-h1, h2, h3, h4, h5, h6	{color: #a4bad6;font-family: 'Arimo';}
+h1, h2, h3, h4, h5, h6	{color: #a4bad6;font-family: 'Hooge';}
 h1.alert, h2.alert		{color: #a4bad6;}
 
 em						{font-style: normal;	font-weight: bold;}
