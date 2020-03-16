@@ -538,6 +538,7 @@ GLOBAL_LIST_EMPTY(asset_datums)
 		"browserOutput.css"	       = 'code/modules/goonchat/browserassets/css/browserOutput.css',
 		"browserOutput_white.css"  = 'code/modules/goonchat/browserassets/css/browserOutput_white.css',
 		"Avenir.ttf"  			   = 'code/modules/goonchat/browserassets/fonts/Avenir.ttf',
+		"Avenir.eot"  			   = 'code/modules/goonchat/browserassets/fonts/Avenir.eot',
 		"Hooge.ttf"  			   = 'code/modules/goonchat/browserassets/fonts/Hooge.ttf'
 	)
 
