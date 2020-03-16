@@ -79,9 +79,12 @@
 	smooth = SMOOTH_TRUE
 
 /turf/closed/indestructible/syndicate
+	name = "пластитановая стена"
+	desc = "Зловещая стена со пластитановым покрытием."
 	icon = 'icons/turf/walls/plastitanium_wall.dmi'
 	icon_state = "map-shuttle"
 	smooth = SMOOTH_MORE
+	canSmoothWith = list(/turf/closed/indestructible/syndicate, /turf/closed/wall/mineral/plastitanium/interior)
 
 /turf/closed/indestructible/riveted/uranium
 	icon = 'icons/turf/walls/uranium_wall.dmi'
