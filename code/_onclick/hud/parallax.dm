@@ -358,7 +358,10 @@
 	var/turf/posobj = get_turf(C.eye)
 	if(!posobj)
 		return
-	invisibility = is_station_level(posobj.z) ? 0 : INVISIBILITY_ABSTRACT
+	if((SSmapping.config.map_name == "Unit Station" && posobj.z == 2) || (is_station_level(posobj.z) && SSmapping.config.map_name != "Unit Station"))
+		invisibility = 0
+	else
+		invisibility = INVISIBILITY_ABSTRACT
 
 /obj/screen/parallax_layer/planet/update_o()
 	if (icon_state == "planet_gensokyo" || icon_state == "planet_lavaland")
@@ -381,8 +384,11 @@
 	layer = 5
 
 /obj/screen/parallax_layer/ice_surface/update_status(mob/M)
-	var/turf/T = get_turf(M)
-	if(is_centcom_level(T.z) || (is_station_level(T.z) && T.z == 3))
+	var/client/C = M.client
+	var/turf/posobj = get_turf(C.eye)
+	if(!posobj)
+		return
+	if((SSmapping.config.map_name == "Unit Station" && posobj.z == 3) || is_centcom_level(posobj.z))
 		invisibility = 0
 	else
 		invisibility = INVISIBILITY_ABSTRACT
@@ -394,8 +400,11 @@
 	layer = 6
 
 /obj/screen/parallax_layer/clouds/update_status(mob/M)
-	var/turf/T = get_turf(M)
-	if(is_centcom_level(T.z))
+	var/client/C = M.client
+	var/turf/posobj = get_turf(C.eye)
+	if(!posobj)
+		return
+	if((SSmapping.config.map_name == "Unit Station" && posobj.z == 3) || is_centcom_level(posobj.z))
 		invisibility = 0
 	else
 		invisibility = INVISIBILITY_ABSTRACT
