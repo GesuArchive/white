@@ -5,13 +5,7 @@
 ******************************************/
 
 @font-face {font-family: "Hooge";  src: url("Hooge.ttf");}
-
-@font-face {
-	font-family: "Avenir";
-	src: url('Avenir.eot');
-	src: url('Avenir.eot?#iefix') format('embedded-opentype'),
-	url("Avenir.ttf") format('truetype');
-}
+@font-face {font-family: "Avenir"; src: url('Avenir.woff');}
 
 html, body {
 	padding: 0;

@@ -5,7 +5,7 @@
 ******************************************/
 
 @font-face {font-family: "Hooge";  src: url("Hooge.ttf");}
-@font-face {font-family: "Avenir"; src: url("Avenir.ttf");}
+@font-face {font-family: "Avenir"; src: url('Avenir.woff');}
 
 html, body {
 	padding: 0;
