@@ -8,7 +8,7 @@
 	var/last_parallax_shift //world.time of last update
 	var/parallax_throttle = 0 //ds between updates
 	var/parallax_movedir = 0
-	var/parallax_layers_max = 6
+	var/parallax_layers_max = 7
 	var/parallax_animate_timer
 
 /datum/hud/proc/create_parallax(mob/viewmob)
@@ -71,7 +71,7 @@
 		switch(C.prefs.parallax)
 			if (PARALLAX_INSANE)
 				C.parallax_throttle = FALSE
-				C.parallax_layers_max = 6
+				C.parallax_layers_max = 7
 				return TRUE
 
 			if (PARALLAX_MED)
@@ -89,7 +89,7 @@
 
 	//This is high parallax.
 	C.parallax_throttle = PARALLAX_DELAY_DEFAULT
-	C.parallax_layers_max = 6
+	C.parallax_layers_max = 7
 	return TRUE
 
 /datum/hud/proc/update_parallax_pref(mob/viewmob)
