@@ -30,6 +30,8 @@
 /turf/open/space/basic/planet/Initialize()
 	. = ..()
 	icon_state = "void"
+	temperature = TCRYO
+	air = new
 
 /turf/open/space/basic/planet/cliffs
 	name = "обрыв"
@@ -41,6 +43,8 @@
 	aaaa = icon_state
 	. = ..()
 	icon_state = aaaa
+	temperature = TCRYO
+	air = new
 
 /area/centcom/outdoors/Initialize()
 	. = ..()
