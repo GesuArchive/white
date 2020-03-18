@@ -73,6 +73,7 @@
 	desc = "Головной дисплей, способный анализировать целостность и состояние робототехники и экзокостюмов."
 	icon_state = "diagnostichud"
 	hud_type = DATA_HUD_DIAGNOSTIC_BASIC
+	hud_trait = TRAIT_DIAGNOSTIC_HUD
 	glass_colour_type = /datum/client_colour/glass_colour/lightorange
 
 /obj/item/clothing/glasses/hud/diagnostic/night

@@ -14,7 +14,8 @@
 	name = "dual-port air vent"
 	desc = "К нему прикручены вентиль и помпа. Тут два порта."
 
-	level = 1
+	hide = TRUE
+
 	var/frequency = 0
 	var/id = null
 	var/datum/radio_frequency/radio_connection

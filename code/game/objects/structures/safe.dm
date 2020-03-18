@@ -196,16 +196,10 @@ FLOOR SAFES
 	name = "floor safe"
 	icon_state = "floorsafe"
 	density = FALSE
-	level = 1	//underfloor
 	layer = LOW_OBJ_LAYER
 
 
 /obj/structure/safe/floor/Initialize(mapload)
 	. = ..()
-	if(mapload)
-		var/turf/T = loc
-		hide(T.intact)
 
-
-/obj/structure/safe/floor/hide(var/intact)
-	invisibility = intact ? INVISIBILITY_MAXIMUM : 0
+	AddElement(/datum/element/undertile)

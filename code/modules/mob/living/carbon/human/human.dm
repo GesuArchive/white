@@ -160,8 +160,11 @@
 	if(ITEM_SLOT_FEET in obscured)
 		dat += "<tr><td><font color=grey><B>Обувь:</B></font></td><td><font color=grey>Скрыто</font></td></tr>"
 	else
-		dat += "<tr><td><B>Обувь:</B></td><td><A href='?src=[REF(src)];item=[ITEM_SLOT_FEET]'>[(shoes && !(shoes.item_flags & ABSTRACT))		? shoes		: "<font color=grey>Ничего</font>"]</A></td></tr>"
+		dat += "<tr><td><B>Shoes:</B></td><td><A href='?src=[REF(src)];item=[ITEM_SLOT_FEET]'>[(shoes && !(shoes.item_flags & ABSTRACT))		? shoes		: "<font color=grey>Ничего</font>"]</A>"
+		if(shoes && shoes.can_be_tied && shoes.tied != SHOES_KNOTTED)
+			dat += "&nbsp;<A href='?src=[REF(src)];shoes=[ITEM_SLOT_FEET]'>[shoes.tied ? "Расслабить шнурки" : "Связать шнурки"]</A>"
 
+		dat += "</td></tr>"
 	if(ITEM_SLOT_GLOVES in obscured)
 		dat += "<tr><td><font color=grey><B>Gloves:</B></font></td><td><font color=grey>Скрыто</font></td></tr>"
 	else
@@ -272,6 +275,9 @@
 			update_inv_w_uniform()
 			update_body()
 
+	var/mob/living/user = usr
+	if(istype(user) && href_list["shoes"] && (user.mobility_flags & MOBILITY_USE)) // we need to be on the ground, so we'll be a bit looser
+		shoes.handle_tying(usr)
 
 ///////HUDs///////
 	if(href_list["hud"])
@@ -421,16 +427,12 @@
 				if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD))
 					return
 				to_chat(usr, "<b>Имя:</b> [R.fields["name"]]	<b>Статус:</b> [R.fields["criminal"]]")
-				to_chat(usr, "<b>Незначительные преступления:</b>")
-				for(var/datum/data/crime/c in R.fields["mi_crim"])
+				for(var/datum/data/crime/c in R.fields["crim"])
 					to_chat(usr, "<b>Преступление:</b> [c.crimeName]")
-					to_chat(usr, "<b>Детали:</b> [c.crimeDetails]")
-					to_chat(usr, "Добавлено [c.author] в [c.time]")
-					to_chat(usr, "----------")
-					to_chat(usr, "<b>Серьёзные преступления:</b>")
-				for(var/datum/data/crime/c in R.fields["ma_crim"])
-					to_chat(usr, "<b>Преступление:</b> [c.crimeName]")
-					to_chat(usr, "<b>Детали:</b> [c.crimeDetails]")
+					if (c.crimeDetails)
+						to_chat(usr, "<b>Детали:</b> [c.crimeDetails]")
+					else
+						to_chat(usr, "<b>Детали:</b> <A href='?src=[REF(src)];hud=s;add_details=1;cdataid=[c.dataId]'>\[Добавить]</A>")
 					to_chat(usr, "Добавлено [c.author] в [c.time]")
 					to_chat(usr, "----------")
 				to_chat(usr, "<b>Заметки:</b> [R.fields["notes"]]")
@@ -469,34 +471,31 @@
 				return
 
 			if(href_list["add_crime"])
-				switch(alert("Какое преступление вы хотели бы добавить?","Security HUD","Незначительное преступление","Серьёзное преступление","Отмена"))
-					if("Незначительное преступление")
-						var/t1 = stripped_input("Пожалуйста, введите имена мелких преступлений:", "Security HUD", "", null)
-						var/t2 = stripped_multiline_input("Пожалуйста, введите мелкие детали преступления:", "Security HUD", "", null)
-						if(!R || !t1 || !t2 || !allowed_access)
-							return
-						if(!H.canUseHUD())
-							return
-						if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD))
-							return
-						var/crime = GLOB.data_core.createCrimeEntry(t1, t2, allowed_access, station_time_timestamp())
-						GLOB.data_core.addMinorCrime(R.fields["id"], crime)
-						investigate_log("New Minor Crime: <strong>[t1]</strong>: [t2] | Added to [R.fields["name"]] by [key_name(usr)]", INVESTIGATE_RECORDS)
-						to_chat(usr, "<span class='notice'>Успешно добавлено незначительное преступление.</span>")
-						return
-					if("Серьёзное преступление")
-						var/t1 = stripped_input("Пожалуйста, введите основные имена преступлений:", "Security HUD", "", null)
-						var/t2 = stripped_multiline_input("Пожалуйста, введите основные детали преступления:", "Security HUD", "", null)
-						if(!R || !t1 || !t2 || !allowed_access)
-							return
-						if(!H.canUseHUD())
-							return
-						if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD))
-							return
-						var/crime = GLOB.data_core.createCrimeEntry(t1, t2, allowed_access, station_time_timestamp())
-						GLOB.data_core.addMajorCrime(R.fields["id"], crime)
-						investigate_log("New Major Crime: <strong>[t1]</strong>: [t2] | Added to [R.fields["name"]] by [key_name(usr)]", INVESTIGATE_RECORDS)
-						to_chat(usr, "<span class='notice'>Успешно добавлено серьёзное преступление.</span>")
+				var/t1 = stripped_input("Введите название преступления:", "Security HUD", "", null)
+				if(!R || !t1 || !allowed_access)
+					return
+				if(!H.canUseHUD())
+					return
+				if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD))
+					return
+				var/crime = GLOB.data_core.createCrimeEntry(t1, null, allowed_access, station_time_timestamp())
+				GLOB.data_core.addCrime(R.fields["id"], crime)
+				investigate_log("New Crime: <strong>[t1]</strong> | Added to [R.fields["name"]] by [key_name(usr)]", INVESTIGATE_RECORDS)
+				to_chat(usr, "<span class='notice'>Успешно добавили преступление.</span>")
+				return
+
+			if(href_list["add_details"])
+				var/t1 = stripped_input(usr, "Пожалуйста, введите основные детали преступлений:", "Secure. records", "", null)
+				if(!R || !t1 || !allowed_access)
+					return
+				if(!H.canUseHUD())
+					return
+				if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD))
+					return
+				if(href_list["cdataid"])
+					GLOB.data_core.addCrimeDetails(R.fields["id"], href_list["cdataid"], t1)
+					investigate_log("New Crime details: [t1] | Added to [R.fields["name"]] by [key_name(usr)]", INVESTIGATE_RECORDS)
+					to_chat(usr, "<span class='notice'>Успешно добавлены детали.</span>")
 				return
 
 			if(href_list["view_comment"])
@@ -729,8 +728,8 @@
 	remove_atom_colour(TEMPORARY_COLOUR_PRIORITY, "#000000")
 	cut_overlay(MA)
 
-/mob/living/carbon/human/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
-	if(!(mobility_flags & MOBILITY_UI))
+/mob/living/carbon/human/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE, floor_okay=FALSE)
+	if(!(mobility_flags & MOBILITY_UI) && !floor_okay)
 		to_chat(src, "<span class='warning'>Не могу это сделать!</span>")
 		return FALSE
 	if(!Adjacent(M) && (M.loc != src))

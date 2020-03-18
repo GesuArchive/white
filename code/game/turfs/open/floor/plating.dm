@@ -69,10 +69,9 @@
 	else if(istype(C, /obj/item/stack/tile))
 		if(!broken && !burnt)
 			for(var/obj/O in src)
-				if(O.level == 1) //ex. pipes laid underneath a tile
-					for(var/M in O.buckled_mobs)
-						to_chat(user, "<span class='warning'>Кто-то пристёгнут к <b>[O]</b>! Надо бы убрать [M] нахуй.</span>")
-						return
+				for(var/M in O.buckled_mobs)
+					to_chat(user, "<span class='warning'>Кто-то пристёгнут к <b>[O]</b>! Надо бы убрать [M] нахуй.</span>")
+					return
 			var/obj/item/stack/tile/W = C
 			if(!W.use(1))
 				return
