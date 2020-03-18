@@ -233,7 +233,7 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 	log_world("\[[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")]\] Client: [(src.owner.key ? src.owner.key : src.owner)] triggered JS error: [error]")
 
 //Global chat procs
-/proc/to_chat_immediate(target, message, handle_whitespace = TRUE, trailing_newline = FALSE, confidential = FALSE)
+/proc/to_chat_immediate(target, message, handle_whitespace = TRUE, trailing_newline = TRUE, confidential = FALSE)
 	if(!target || !message)
 		return
 

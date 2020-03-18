@@ -18,7 +18,7 @@ SUBSYSTEM_DEF(chat)
 			return
 
 
-/datum/controller/subsystem/chat/proc/queue(target, message, handle_whitespace = TRUE, trailing_newline = FALSE, confidential = TRUE)
+/datum/controller/subsystem/chat/proc/queue(target, message, handle_whitespace = TRUE, trailing_newline = TRUE, confidential = TRUE)
 	if(!target || !message)
 		return
 
