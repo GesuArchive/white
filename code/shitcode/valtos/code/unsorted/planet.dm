@@ -69,10 +69,13 @@
 	var/_x = rand(min,max)
 	var/_y = rand(min,max)
 
-	var/turf/T = locate(_x, _y, _z)
 	if(isliving(AM))
 		var/mob/living/M = AM
+		if(M.is_flying())
+			return
 		M.apply_damage(rand(100, 200), BRUTE)
 		M.Paralyze(120)
 		to_chat(M, "<big>БЛЯТЬ!</big>")
+
+	var/turf/T = locate(_x, _y, _z)
 	AM.forceMove(T)
