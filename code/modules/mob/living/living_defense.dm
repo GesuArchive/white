@@ -198,7 +198,7 @@
 					visible_message("<span class='danger'><b>[user]</b> хватает <b>[src]</b> крепче!</span>", \
 									"<span class='userdanger'><b>[user]</b> хватает меня крепче!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", null, user)
 					to_chat(user, "<span class='danger'>Хватаю [src] крепче!</span>")
-					drop_all_held_items()
+				drop_all_held_items()
 				stop_pulling()
 				log_combat(user, src, "grabbed", addition="aggressive grab[add_log]")
 			if(GRAB_NECK)
