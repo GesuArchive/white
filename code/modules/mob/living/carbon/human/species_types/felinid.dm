@@ -2,7 +2,7 @@
 /datum/species/human/felinid
 	name = "Felinid"
 	id = "felinid"
-	say_mod = "meows"
+	say_mod = "мяукает"
 	limbs_id = "human"
 
 	mutant_bodyparts = list("ears", "tail_human")
@@ -99,7 +99,7 @@
 		kitty_ears.Insert(H, TRUE, FALSE) //Gives nonhumans cat tail and ears
 		kitty_tail.Insert(H, TRUE, FALSE)
 	if(!silent)
-		to_chat(H, "<span class='boldnotice'>Something is nya~t right.</span>")
+		to_chat(H, "<span class='boldnotice'>Мяу!</span>")
 		playsound(get_turf(H), 'sound/effects/meow1.ogg', 50, TRUE, -1)
 
 /proc/purrbation_remove(mob/living/carbon/human/H, silent = FALSE)
@@ -121,4 +121,4 @@
 				var/obj/item/organ/new_ears = new target_species.mutantears
 				new_ears.Insert(H, TRUE, FALSE)
 	if(!silent)
-		to_chat(H, "<span class='boldnotice'>You are no longer a cat.</span>")
+		to_chat(H, "<span class='boldnotice'>Я больше не кот.</span>")
