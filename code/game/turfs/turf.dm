@@ -430,10 +430,7 @@
 				var/atom/movable/AM = A
 				if(!AM.ex_check(explosion_id))
 					continue
-			if(isliving(A) && prikolist)
-				var/mob/living/L = A
-				L.lastattackerckey = prikolist
-			A.ex_act(severity, target, prikolist)
+			A.ex_act(severity, target)
 			CHECK_TICK
 
 /turf/narsie_act(force, ignore_mobs, probability = 20)
