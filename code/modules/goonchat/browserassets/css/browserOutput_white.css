@@ -15,7 +15,7 @@ html, body {
 }
 body {
 	background: #fff;
-	font-family: "Avenir", sans-serif;
+	font-family: "Verdana", sans-serif;
 	font-size: 13px;
 	line-height: 1.2;
 	overflow-x: hidden;
@@ -274,7 +274,7 @@ em						{font-style: normal;	font-weight: bold;}
 
 .name					{					font-weight: bold;}
 
-.say					{}
+.say					{font-family: "Avenir"}
 .deadsay				{color: #5c00e6;}
 .binarysay				{color: #20c20e;	background-color: #000000;	display: block;}
 .binarysay a			{color: #00ff00;}
