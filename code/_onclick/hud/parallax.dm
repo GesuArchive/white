@@ -95,9 +95,9 @@
 	C.parallax_layers_max = 7
 	return TRUE
 
-/datum/hud/proc/update_parallax_pref(mob/viewmob)
+/datum/hud/proc/update_parallax_pref(mob/viewmob, forced_parallax = FALSE)
 	remove_parallax(viewmob)
-	create_parallax(viewmob)
+	create_parallax(viewmob, forced_parallax)
 	update_parallax()
 
 // This sets which way the current shuttle is moving (returns true if the shuttle has stopped moving so the caller can append their animation)
