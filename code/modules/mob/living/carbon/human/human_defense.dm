@@ -725,9 +725,9 @@
 			no_damage = TRUE
 		var/isdisabled = " "
 		if(LB.is_disabled())
-			isdisabled = "ПАРАЛИЧ"
+			isdisabled = "\[ПАРАЛИЧ\]"
 
-		message_ready += "<tr><td>[r_uppertext(LB.name)]</td><td><span class='[no_damage ? "notice" : "warning"]'>\[[isdisabled]\] \[[r_uppertext(status)]\]</span></td></tr>"
+		message_ready += "<tr><td>\t <b>[r_uppertext(LB.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "notice" : "warning"]'>[r_uppertext(status)]</span>\]</td></tr>"
 
 		for(var/obj/item/I in LB.embedded_objects)
 			if(I.is_embed_harmless())
@@ -735,12 +735,12 @@
 			else
 				message_ready += "<tr><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] торчит из моей [LB.name]!</a></tr>"
 
+	for(var/t in missing)
+		message_ready += "<tr><td>\t <b>[ru_exam_parse_zone(parse_zone(t))]:</b></td><td><span class='boldannounce'>\[ОТСУТСТВУЕТ\]</span></td></tr>"
+
 	message_ready += "</table>"
 
 	to_chat(src, message_ready)
-
-	for(var/t in missing)
-		to_chat(src, "<span class='boldannounce'>[ru_exam_parse_zone(t)]: \[ОТСУТСТВУЕТ\]</span>")
 
 	if(bleed_rate)
 		to_chat(src, "<span class='danger'>Истекаю кровью!</span>")
