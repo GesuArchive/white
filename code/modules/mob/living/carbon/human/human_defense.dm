@@ -679,6 +679,8 @@
 
 	var/list/missing = list(BODY_ZONE_HEAD, BODY_ZONE_CHEST, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 
+	var/message_ready = "<table>"
+
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/LB = X
 		missing -= LB.body_zone
@@ -728,13 +730,18 @@
 				isdisabled += ""
 			else
 				isdisabled += " И "
-		to_chat(src, "\t <span class='[no_damage ? "notice" : "warning"]'>[r_uppertext(LB.name)]:[isdisabled][status].</span>")
+
+		message_ready += "<tr><td>[r_uppertext(LB.name)]</td><td><span class='[no_damage ? "notice" : "warning"]'>[isdisabled][status].</span></td></tr>"
 
 		for(var/obj/item/I in LB.embedded_objects)
 			if(I.is_embed_harmless())
-				to_chat(src, "\t <a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] прицепился к [LB.name]!</a>")
+				message_ready += "<tr><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] прицепился к [LB.name]!</a></tr>"
 			else
-				to_chat(src, "\t <a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] торчит из моей [LB.name]!</a>")
+				message_ready += "<tr><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] торчит из моей [LB.name]!</a></tr>"
+
+	message_ready += "</table>"
+
+	to_chat(src, message_ready)
 
 	for(var/t in missing)
 		to_chat(src, "<span class='boldannounce'>[ru_exam_parse_zone(t)]: \[ОТСУТСТВУЕТ\]</span>")
