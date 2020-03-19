@@ -84,7 +84,7 @@
 		C.use(1)
 		update_clothes_damaged_state(FALSE)
 		obj_integrity = max_integrity
-		to_chat(user, "<span class='notice'>You fix the damage on [src] with [C].</span>")
+		to_chat(user, "<span class='notice'>Чиню повреждения [src] используя [C].</span>")
 		return 1
 	return ..()
 
@@ -118,72 +118,72 @@
 	. = ..()
 	switch (max_heat_protection_temperature)
 		if (400 to 1000)
-			. += "[src] offers the wearer limited protection from fire."
+			. += "[src] немного защищает от огня."
 		if (1001 to 1600)
-			. += "[src] offers the wearer some protection from fire."
+			. += "[src] может защитить от огня."
 		if (1601 to 35000)
-			. += "[src] offers the wearer robust protection from fire."
+			. += "[src] неплохо защищает от огня."
 	if(damaged_clothes)
-		. += "<span class='warning'>It looks damaged!</span>"
+		. += "<span class='warning'>Повреждено! Ну дела...</span>"
 	var/datum/component/storage/pockets = GetComponent(/datum/component/storage)
 	if(pockets)
 		var/list/how_cool_are_your_threads = list("<span class='notice'>")
 		if(pockets.attack_hand_interact)
-			how_cool_are_your_threads += "[src]'s storage opens when clicked.\n"
+			how_cool_are_your_threads += "[src] показывает хранилище при клике.\n"
 		else
-			how_cool_are_your_threads += "[src]'s storage opens when dragged to yourself.\n"
+			how_cool_are_your_threads += "[src] показывает хранилище при перетягивании на себя.\n"
 		if (pockets.can_hold?.len) // If pocket type can hold anything, vs only specific items
-			how_cool_are_your_threads += "[src] can store [pockets.max_items] <a href='?src=[REF(src)];show_valid_pocket_items=1'>item\s</a>.\n"
+			how_cool_are_your_threads += "[src] может хранить [pockets.max_items] <a href='?src=[REF(src)];show_valid_pocket_items=1'>предметов</a>.\n"
 		else
-			how_cool_are_your_threads += "[src] can store [pockets.max_items] item\s that are [weightclass2text(pockets.max_w_class)] or smaller.\n"
+			how_cool_are_your_threads += "[src] может хранить [pockets.max_items] размера [weightclass2text(pockets.max_w_class)] или меньше.\n"
 		if(pockets.quickdraw)
-			how_cool_are_your_threads += "You can quickly remove an item from [src] using Alt-Click.\n"
+			how_cool_are_your_threads += "Могу быстро вытащить предмет из [src] используя Alt-Клик.\n"
 		if(pockets.silent)
-			how_cool_are_your_threads += "Adding or removing items from [src] makes no noise.\n"
+			how_cool_are_your_threads += "Добавление или изъятие предметов из [src] не издаёт шума.\n"
 		how_cool_are_your_threads += "</span>"
 		. += how_cool_are_your_threads.Join()
 
 	if(LAZYLEN(armor_list))
 		armor_list.Cut()
 	if(armor.bio)
-		armor_list += list("TOXIN" = armor.bio)
+		armor_list += list("ТОКСИНОСТОЙКОСТЬ" = armor.bio)
 	if(armor.bomb)
-		armor_list += list("EXPLOSIVE" = armor.bomb)
+		armor_list += list("ВЗРЫВОСТОЙКОСТЬ" = armor.bomb)
 	if(armor.bullet)
-		armor_list += list("BULLET" = armor.bullet)
+		armor_list += list("ПУЛЕСТОЙКОСТЬ" = armor.bullet)
 	if(armor.energy)
-		armor_list += list("ENERGY" = armor.energy)
+		armor_list += list("ЭНЕРГОСТОЙКОСТЬ" = armor.energy)
 	if(armor.laser)
-		armor_list += list("LASER" = armor.laser)
+		armor_list += list("ЛАЗЕРОСТОЙКОСТЬ" = armor.laser)
 	if(armor.magic)
-		armor_list += list("MAGIC" = armor.magic)
+		armor_list += list("МАГИСТОЙКОСТЬ" = armor.magic)
 	if(armor.melee)
-		armor_list += list("MELEE" = armor.melee)
+		armor_list += list("УДАРОСТОЙКОСТЬ" = armor.melee)
 	if(armor.rad)
-		armor_list += list("RADIATION" = armor.rad)
+		armor_list += list("РАДИАЦИСТОЙКОСТЬ" = armor.rad)
 
 	if(LAZYLEN(durability_list))
 		durability_list.Cut()
 	if(armor.fire)
-		durability_list += list("FIRE" = armor.fire)
+		durability_list += list("ОГНЕСТОЙКОСТЬ" = armor.fire)
 	if(armor.acid)
-		durability_list += list("ACID" = armor.acid)
+		durability_list += list("КИСЛОСТОЙКОСТЬ" = armor.acid)
 
 	if(LAZYLEN(armor_list) || LAZYLEN(durability_list))
-		. += "<span class='notice'>It has a <a href='?src=[REF(src)];list_armor=1'>tag</a> listing its protection classes.</span>"
+		. += "<span class='notice'>Здесь есть <a href='?src=[REF(src)];list_armor=1'>бирка</a> с описанием защитных свойств.</span>"
 
 /obj/item/clothing/Topic(href, href_list)
 	. = ..()
 
 	if(href_list["list_armor"])
-		var/list/readout = list("<span class='notice'><u><b>PROTECTION CLASSES (I-X)</u></b>")
+		var/list/readout = list("<span class='notice'><u><b>ЗАЩИТНЫЕ КЛАССЫ (I-X)</u></b>")
 		if(LAZYLEN(armor_list))
-			readout += "\n<b>ARMOR</b>"
+			readout += "\n<b>БРОНЯ</b>"
 			for(var/dam_type in armor_list)
 				var/armor_amount = armor_list[dam_type]
 				readout += "\n[dam_type] [armor_to_protection_class(armor_amount)]" //e.g. BOMB IV
 		if(LAZYLEN(durability_list))
-			readout += "\n<b>DURABILITY</b>"
+			readout += "\n<b>ПРОЧНОСТЬ</b>"
 			for(var/dam_type in durability_list)
 				var/durability_amount = durability_list[dam_type]
 				readout += "\n[dam_type] [armor_to_protection_class(durability_amount)]" //e.g. FIRE II
@@ -229,7 +229,7 @@
 		update_clothes_damaged_state(TRUE)
 	if(ismob(loc)) //It's not important enough to warrant a message if nobody's wearing it
 		var/mob/M = loc
-		to_chat(M, "<span class='warning'>Your [name] starts to fall apart!</span>")
+		to_chat(M, "<span class='warning'>Мой [name] начинает распадаться на части!</span>")
 
 /obj/item/clothing/proc/update_clothes_damaged_state(damaging = TRUE)
 	var/index = "[REF(initial(icon))]-[initial(icon_state)]"
@@ -276,32 +276,32 @@ BLIND     // can't see anything
 	if (!can_use(M))
 		return
 	if(src.has_sensor == LOCKED_SENSORS)
-		to_chat(usr, "The controls are locked.")
+		to_chat(usr, "Элементы управления заблокированы.")
 		return 0
 	if(src.has_sensor == BROKEN_SENSORS)
-		to_chat(usr, "The sensors have shorted out!")
+		to_chat(usr, "Датчики замкнули!")
 		return 0
 	if(src.has_sensor <= NO_SENSORS)
-		to_chat(usr, "This suit does not have any sensors.")
+		to_chat(usr, "Этот костюм не имеет никаких датчиков.")
 		return 0
 
-	var/list/modes = list("Off", "Binary vitals", "Exact vitals", "Tracking beacon")
-	var/switchMode = input("Select a sensor mode:", "Suit Sensor Mode", modes[sensor_mode + 1]) in modes
+	var/list/modes = list("Выкл", "Примерные показатели", "Точные показатели", " + отслеживание")
+	var/switchMode = input("Выбери режим работы:", "Режим работы", modes[sensor_mode + 1]) in modes
 	if(get_dist(usr, src) > 1)
-		to_chat(usr, "<span class='warning'>You have moved too far away!</span>")
+		to_chat(usr, "<span class='warning'>Я слишком далеко блять!</span>")
 		return
 	sensor_mode = modes.Find(switchMode) - 1
 
 	if (src.loc == usr)
 		switch(sensor_mode)
 			if(0)
-				to_chat(usr, "<span class='notice'>You disable your suit's remote sensing equipment.</span>")
+				to_chat(usr, "<span class='notice'>Отключаю работу сенсоров костюма.</span>")
 			if(1)
-				to_chat(usr, "<span class='notice'>Your suit will now only report whether you are alive or dead.</span>")
+				to_chat(usr, "<span class='notice'>Мой костюм теперь будет сообщать только о том, жив я или мёртв.</span>")
 			if(2)
-				to_chat(usr, "<span class='notice'>Your suit will now only report your exact vital lifesigns.</span>")
+				to_chat(usr, "<span class='notice'>Мой костюм теперь будет сообщать только мои точные жизненные признаки.</span>")
 			if(3)
-				to_chat(usr, "<span class='notice'>Your suit will now report your exact vital lifesigns as well as your coordinate position.</span>")
+				to_chat(usr, "<span class='notice'>Мой костюм теперь сообщает о моих точных жизненных знаках, а также о моих координатах.</span>")
 
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
@@ -321,7 +321,7 @@ BLIND     // can't see anything
 			rolldown()
 
 /obj/item/clothing/under/verb/jumpsuit_adjust()
-	set name = "Adjust Jumpsuit Style"
+	set name = "Поправить костюм"
 	set category = null
 	set src in usr
 	rolldown()
@@ -330,12 +330,12 @@ BLIND     // can't see anything
 	if(!can_use(usr))
 		return
 	if(!can_adjust)
-		to_chat(usr, "<span class='warning'>You cannot wear this suit any differently!</span>")
+		to_chat(usr, "<span class='warning'>А тут некуда поправлять!</span>")
 		return
 	if(toggle_jumpsuit_adjust())
-		to_chat(usr, "<span class='notice'>You adjust the suit to wear it more casually.</span>")
+		to_chat(usr, "<span class='notice'>Теперь буду носить его как модник.</span>")
 	else
-		to_chat(usr, "<span class='notice'>You adjust the suit back to normal.</span>")
+		to_chat(usr, "<span class='notice'>Теперь буду носить как обычно.</span>")
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
 		H.update_inv_w_uniform()
@@ -362,7 +362,7 @@ BLIND     // can't see anything
 
 	visor_toggling()
 
-	to_chat(user, "<span class='notice'>You adjust \the [src] [up ? "up" : "down"].</span>")
+	to_chat(user, "<span class='notice'>[up ? "Поднимаю" : "Опускаю"] забрало [src].</span>")
 
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
