@@ -285,3 +285,4 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_JEWISH		"jewish"
 #define TRAIT_UKRAINISH		"ukrainish"
 #define STICKY_NODROP "sticky-nodrop" //sticky nodrop sounds like a bad soundcloud rapper's name
+#define VR_ZONE_TRAIT "vr-zone-trait"

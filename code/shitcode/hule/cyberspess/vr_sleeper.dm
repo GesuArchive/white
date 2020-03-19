@@ -17,6 +17,11 @@
 	var/allow_creating_vr_humans = TRUE //So you can have vr_sleepers that always spawn you as a specific person or 1 life/chance vr games
 	var/only_current_user_can_interact = FALSE
 
+/obj/item/circuitboard/machine/vr_sleeper
+	name = "VR Sleeper (Computer Board)"
+	icon_state = "command"
+	build_path = /obj/machinery/vr_sleeper
+
 /obj/machinery/vr_sleeper/Initialize()
 	. = ..()
 	sparks = new /datum/effect_system/spark_spread()
@@ -83,57 +88,60 @@
 			return
 	close_machine(target)
 
-/obj/machinery/vr_sleeper/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "vr_sleeper", "VR Sleeper", 475, 340, master_ui, state)
-		ui.open()
+/obj/machinery/vr_sleeper/proc/menu_gen()
+	var/output = ""
+	output += "<p><a href='byond://?src=[REF(src)];vr_connect=1'>Присоединиться</a></p>"
+	output += "<p><a href='byond://?src=[REF(src)];delete_avatar=1'>Удалить персонажа</a></p>"
+	output += "<p><a href='byond://?src=[REF(src)];toggle_open=1'>Открыть/Закрыть</a></p>"
+	var/datum/browser/popup = new(src, "vrmenu", "<div align='center'>Виртуальность</div>", 265, 265)
+	popup.set_content(output)
+	popup.open(FALSE)
 
-/obj/machinery/vr_sleeper/ui_act(action, params)
+/obj/machinery/vr_sleeper/Topic(href, href_list[])
 	if(..())
 		return
-	switch(action)
-		if("vr_connect")
-			var/mob/living/carbon/human/human_occupant = occupant
-			if(human_occupant && human_occupant.mind && usr == occupant)
-				to_chat(occupant, "<span class='warning'>Transferring to virtual reality...</span>")
-				if(vr_human && vr_human.stat == CONSCIOUS && !vr_human.real_mind)
-					SStgui.close_user_uis(occupant, src)
-					if(istype(human_occupant, /mob/living/carbon/human/virtual_reality))
-						var/mob/living/carbon/human/virtual_reality/vr_human_occupant = human_occupant
-						vr_human.real_mind = vr_human_occupant.real_mind
-					else
-						vr_human.real_mind = human_occupant.mind
-					vr_human.ckey = human_occupant.ckey
-					to_chat(vr_human, "<span class='notice'>Transfer successful! You are now playing as [vr_human] in VR!</span>")
+	if(href_list["vr_connect"])
+		var/mob/living/carbon/human/human_occupant = occupant
+		if(human_occupant && human_occupant.mind && usr == occupant)
+			to_chat(occupant, "<span class='warning'>Transferring to virtual reality...</span>")
+			if(vr_human && vr_human.stat == CONSCIOUS && !vr_human.real_mind)
+				SStgui.close_user_uis(occupant, src)
+				if(istype(human_occupant, /mob/living/carbon/human/virtual_reality))
+					var/mob/living/carbon/human/virtual_reality/vr_human_occupant = human_occupant
+					vr_human.real_mind = vr_human_occupant.real_mind
 				else
-					if(allow_creating_vr_humans)
-						to_chat(occupant, "<span class='warning'>Virtual avatar not found, attempting to create one...</span>")
-						var/obj/effect/landmark/vr_spawn/V = get_vr_spawnpoint()
-						var/turf/T = get_turf(V)
-						if(T)
-							SStgui.close_user_uis(occupant, src)
-							build_virtual_human(occupant, T, V.vr_outfit)
-							to_chat(vr_human, "<span class='notice'>Transfer successful! You are now playing as [vr_human] in VR!</span>")
-						else
-							to_chat(occupant, "<span class='warning'>Virtual world misconfigured, aborting transfer</span>")
-					else
-						to_chat(occupant, "<span class='warning'>The virtual world does not support the creation of new virtual avatars, aborting transfer</span>")
-			return TRUE
-		if("delete_avatar")
-			if(!occupant || usr == occupant)
-				if(vr_human)
-					cleanup_vr_human()
+					vr_human.real_mind = human_occupant.mind
+				vr_human.ckey = human_occupant.ckey
+				to_chat(vr_human, "<span class='notice'>Transfer successful! You are now playing as [vr_human] in VR!</span>")
 			else
-				to_chat(usr, "<span class='warning'>The VR Sleeper's safeties prevent you from doing that.</span>")
-			return TRUE
-		if("toggle_open")
-			if(state_open)
-				close_machine()
-			else if ((!occupant || usr == occupant) || !only_current_user_can_interact)
-				open_machine()
-			return TRUE
+				if(allow_creating_vr_humans)
+					to_chat(occupant, "<span class='warning'>Virtual avatar not found, attempting to create one...</span>")
+					var/obj/effect/landmark/vr_spawn/V = get_vr_spawnpoint()
+					var/turf/T = get_turf(V)
+					if(T)
+						SStgui.close_user_uis(occupant, src)
+						build_virtual_human(occupant, T, V.vr_outfit)
+						to_chat(vr_human, "<span class='notice'>Transfer successful! You are now playing as [vr_human] in VR!</span>")
+					else
+						to_chat(occupant, "<span class='warning'>Virtual world misconfigured, aborting transfer</span>")
+				else
+					to_chat(occupant, "<span class='warning'>The virtual world does not support the creation of new virtual avatars, aborting transfer</span>")
+		return TRUE
+	if(href_list["delete_avatar"])
+		if(!occupant || usr == occupant)
+			if(vr_human)
+				cleanup_vr_human()
+		else
+			to_chat(usr, "<span class='warning'>The VR Sleeper's safeties prevent you from doing that.</span>")
+		return TRUE
+	if(href_list["toggle_open"])
+		if(state_open)
+			close_machine()
+		else if ((!occupant || usr == occupant) || !only_current_user_can_interact)
+			open_machine()
+		return TRUE
 
+/*
 /obj/machinery/vr_sleeper/ui_data(mob/user)
 	var/list/data = list()
 	if(vr_human && !QDELETED(vr_human))
@@ -153,9 +161,10 @@
 	data["emagged"] = you_die_in_the_game_you_die_for_real
 	data["isoccupant"] = (user == occupant)
 	return data
+*/
 
 /obj/machinery/vr_sleeper/proc/get_vr_spawnpoint() //proc so it can be overridden for team games or something
-	return safepick(GLOB.vr_spawnpoints[vr_category])
+	return pick(GLOB.vr_spawnpoints[vr_category])
 
 /obj/machinery/vr_sleeper/proc/build_spawnpoints() // used to rebuild the list for admins if need be
 	GLOB.vr_spawnpoints = list()
