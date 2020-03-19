@@ -6,7 +6,9 @@
 
 /turf/open/floor/dz/normal
 	name = "пол"
-	icon_state = "open"
+	icon_state = "clear"
+	plane = -95
+	layer = 1.8
 
 /turf/open/floor/dz/pre_exit
 	name = "зона выхода"
