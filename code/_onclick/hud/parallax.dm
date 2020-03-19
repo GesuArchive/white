@@ -11,13 +11,16 @@
 	var/parallax_layers_max = 7
 	var/parallax_animate_timer
 
-/datum/hud/proc/create_parallax(mob/viewmob)
+/datum/hud/proc/create_parallax(mob/viewmob, forced_parallax = FALSE)
 	var/mob/screenmob = viewmob || mymob
 	var/client/C = screenmob.client
 	if (!apply_parallax_pref(viewmob)) //don't want shit computers to crash when specing someone with insane parallax, so use the viewer's pref
 		return
 
-	if(!length(C.parallax_layers_cached))
+	if(forced_parallax)
+		C.parallax_layers_cached = list()
+		C.parallax_layers_cached += new /obj/screen/parallax_layer/cyberspess(null, C.view)
+	else if(!length(C.parallax_layers_cached))
 		C.parallax_layers_cached = list()
 		C.parallax_layers_cached += new SSparallax.random_space(null, C.view)
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_2(null, C.view)
@@ -408,3 +411,8 @@
 		invisibility = 0
 	else
 		invisibility = INVISIBILITY_ABSTRACT
+
+/obj/screen/parallax_layer/cyberspess
+	icon_state = "cyberspess"
+	speed = 4
+	layer = 1
