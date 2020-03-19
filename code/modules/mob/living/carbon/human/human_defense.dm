@@ -697,9 +697,9 @@
 				burndamage += rand(30,40)
 
 		if(HAS_TRAIT(src, TRAIT_SELF_AWARE))
-			status = "\[ФИЗИЧЕСКИЙ: [brutedamage]\] \[ОЖОГИ:[burndamage]\]"
+			status = "ФИЗИЧЕСКИЙ: [brutedamage]\] \[ОЖОГИ:[burndamage]"
 			if(!brutedamage && !burndamage)
-				status = "\[НЕТ УРОНА\]"
+				status = "НЕТ УРОНА"
 
 		else
 			if(brutedamage > 0)
@@ -719,19 +719,15 @@
 				status += LB.light_burn_msg
 
 			if(status == "")
-				status = "\[НОРМАЛЬНО\]"
+				status = "НОРМАЛЬНО"
 		var/no_damage
-		if(status == "\[НОРМАЛЬНО\]" || status == "\[НЕТ УРОНА\]")
+		if(status == "НОРМАЛЬНО" || status == "НЕТ УРОНА")
 			no_damage = TRUE
 		var/isdisabled = " "
 		if(LB.is_disabled())
-			isdisabled = " \[ПАРАЛИЧ\] "
-			if(no_damage)
-				isdisabled += ""
-			else
-				isdisabled += " И "
+			isdisabled = "ПАРАЛИЧ"
 
-		message_ready += "<tr><td>[r_uppertext(LB.name)]</td><td><span class='[no_damage ? "notice" : "warning"]'>[isdisabled][status].</span></td></tr>"
+		message_ready += "<tr><td>[r_uppertext(LB.name)]</td><td><span class='[no_damage ? "notice" : "warning"]'>\[[isdisabled]\] \[[r_uppertext(status)]\]</span></td></tr>"
 
 		for(var/obj/item/I in LB.embedded_objects)
 			if(I.is_embed_harmless())
