@@ -9,6 +9,9 @@
 
 	..()
 
+	if(client)
+		client.change_view("19x15")
+
 	var/motd = global.config.motd
 	if(motd)
 		to_chat(src, "<div class=\"motd\">[motd]</div>", handle_whitespace=FALSE)
