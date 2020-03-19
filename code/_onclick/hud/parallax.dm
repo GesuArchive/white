@@ -388,7 +388,7 @@
 	var/turf/posobj = get_turf(C.eye)
 	if(!posobj)
 		return
-	if((SSmapping.config.map_name == "Unit Station" && posobj.z == 4) || is_centcom_level(posobj.z))
+	if((SSmapping.config.map_name == "Unit Station" && posobj.z == 3) || is_centcom_level(posobj.z))
 		invisibility = 0
 	else
 		invisibility = INVISIBILITY_ABSTRACT
@@ -404,7 +404,7 @@
 	var/turf/posobj = get_turf(C.eye)
 	if(!posobj)
 		return
-	if((SSmapping.config.map_name == "Unit Station" && posobj.z == 4) || is_centcom_level(posobj.z))
+	if((SSmapping.config.map_name == "Unit Station" && posobj.z == 3) || is_centcom_level(posobj.z))
 		invisibility = 0
 	else
 		invisibility = INVISIBILITY_ABSTRACT
