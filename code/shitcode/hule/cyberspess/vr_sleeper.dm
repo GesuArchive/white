@@ -88,12 +88,13 @@
 			return
 	close_machine(target)
 
-/obj/machinery/vr_sleeper/proc/menu_gen()
+
+/obj/machinery/vr_sleeper/ui_interact(mob/user)
 	var/output = ""
 	output += "<p><a href='byond://?src=[REF(src)];vr_connect=1'>Присоединиться</a></p>"
 	output += "<p><a href='byond://?src=[REF(src)];delete_avatar=1'>Удалить персонажа</a></p>"
 	output += "<p><a href='byond://?src=[REF(src)];toggle_open=1'>Открыть/Закрыть</a></p>"
-	var/datum/browser/popup = new(src, "vrmenu", "<div align='center'>Виртуальность</div>", 265, 265)
+	var/datum/browser/popup = new(user, "vrmenu", "<div align='center'>Виртуальность</div>", 265, 265)
 	popup.set_content(output)
 	popup.open(FALSE)
 
