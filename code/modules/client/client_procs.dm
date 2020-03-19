@@ -914,11 +914,11 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 				if("South")
 					movement_keys[key] = SOUTH
 
-/client/proc/change_view(new_size)
+/client/proc/change_view(new_size, forced = FALSE)
 	if (isnull(new_size))
 		CRASH("change_view called without argument.")
 
-	if(prefs && !prefs.widescreenpref && new_size == CONFIG_GET(string/default_view))
+	if(prefs && !prefs.widescreenpref && new_size == CONFIG_GET(string/default_view) && !forced)
 		new_size = CONFIG_GET(string/default_view_square)
 
 	view = new_size

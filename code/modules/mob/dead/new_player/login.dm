@@ -10,7 +10,7 @@
 	..()
 
 	if(client)
-		client.change_view("19x15")
+		client.change_view("19x15", TRUE)
 
 	var/motd = global.config.motd
 	if(motd)
