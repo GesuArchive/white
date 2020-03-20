@@ -23,7 +23,7 @@
 	. = ..()
 	if(!.)
 		var/obj/item/held_item = get_active_held_item()
-		to_chat(usr, "<span class='warning'>Your other hand is too busy holding [held_item].</span>")
+		to_chat(usr, "<span class='warning'>Моя другая рука слишком занята [held_item].</span>")
 		return
 
 	if(!held_index)
@@ -245,15 +245,15 @@
 		if(handcuffed)
 			var/obj/item/restraints/O = src.get_item_by_slot(ITEM_SLOT_HANDCUFFED)
 			buckle_cd = O.breakouttime
-		visible_message("<span class='warning'>[src] attempts to unbuckle [p_them()]self!</span>", \
-					"<span class='notice'>You attempt to unbuckle yourself... (This will take around [round(buckle_cd/600,1)] minute\s, and you need to stay still.)</span>")
+		visible_message("<span class='warning'>[src] пытается выбраться из наручников!</span>", \
+					"<span class='notice'>Пытаюсь выбраться из наручников... (займёт примерно [round(buckle_cd/600,1)] минут, и надо не двигаться.)</span>")
 		if(do_after(src, buckle_cd, 0, target = src))
 			if(!buckled)
 				return
 			buckled.user_unbuckle_mob(src,src)
 		else
 			if(src && buckled)
-				to_chat(src, "<span class='warning'>You fail to unbuckle yourself!</span>")
+				to_chat(src, "<span class='warning'>Не получилось выбраться из наручников!</span>")
 	else
 		buckled.user_unbuckle_mob(src,src)
 
@@ -261,12 +261,12 @@
 	fire_stacks -= 5
 	Paralyze(60, TRUE, TRUE)
 	spin(32,2)
-	visible_message("<span class='danger'>[src] rolls on the floor, trying to put [p_them()]self out!</span>", \
-		"<span class='notice'>You stop, drop, and roll!</span>")
+	visible_message("<span class='danger'>[src] катается по полу пытаясь сбросить пламя!</span>", \
+		"<span class='notice'>Я останавливаюсь, падаю и катаюсь по полу!</span>")
 	sleep(30)
 	if(fire_stacks <= 0)
-		visible_message("<span class='danger'>[src] has successfully extinguished [p_them()]self!</span>", \
-			"<span class='notice'>You extinguish yourself.</span>")
+		visible_message("<span class='danger'>[src] успешно тушит себя!</span>", \
+			"<span class='notice'>Фух! Мне удалось потушить себя.</span>")
 		ExtinguishMob()
 	return
 
@@ -291,26 +291,26 @@
 
 /mob/living/carbon/proc/cuff_resist(obj/item/I, breakouttime = 600, cuff_break = 0)
 	if(I.item_flags & BEING_REMOVED)
-		to_chat(src, "<span class='warning'>You're already attempting to remove [I]!</span>")
+		to_chat(src, "<span class='warning'>Я уже пытаюсь снять [I]!</span>")
 		return
 	I.item_flags |= BEING_REMOVED
 	breakouttime = I.breakouttime
 	if(!cuff_break)
-		visible_message("<span class='warning'>[src] attempts to remove [I]!</span>")
-		to_chat(src, "<span class='notice'>You attempt to remove [I]... (This will take around [DisplayTimeText(breakouttime)] and you need to stand still.)</span>")
+		visible_message("<span class='warning'>[src] пытается снять [I]!</span>")
+		to_chat(src, "<span class='notice'>Пытаюсь снять [I]... (это займёт примерно [DisplayTimeText(breakouttime)] и надо бы не двигаться.)</span>")
 		if(do_after(src, breakouttime, 0, target = src))
 			. = clear_cuffs(I, cuff_break)
 		else
-			to_chat(src, "<span class='warning'>You fail to remove [I]!</span>")
+			to_chat(src, "<span class='warning'>Не получилось снять [I]!</span>")
 
 	else if(cuff_break == FAST_CUFFBREAK)
 		breakouttime = 50
-		visible_message("<span class='warning'>[src] is trying to break [I]!</span>")
-		to_chat(src, "<span class='notice'>You attempt to break [I]... (This will take around 5 seconds and you need to stand still.)</span>")
+		visible_message("<span class='warning'>[src] пытается разорвать [I]!</span>")
+		to_chat(src, "<span class='notice'>Пытаюсь разорвать [I]... (это займёт примерно 5 секунд, надо бы не двигаться.)</span>")
 		if(do_after(src, breakouttime, 0, target = src))
 			. = clear_cuffs(I, cuff_break)
 		else
-			to_chat(src, "<span class='warning'>You fail to break [I]!</span>")
+			to_chat(src, "<span class='warning'>У меня не вышло разорвать [I]!</span>")
 
 	else if(cuff_break == INSTANT_CUFFBREAK)
 		. = clear_cuffs(I, cuff_break)
@@ -352,8 +352,8 @@
 		return FALSE
 	if(I != handcuffed && I != legcuffed)
 		return FALSE
-	visible_message("<span class='danger'>[src] manages to [cuff_break ? "break" : "remove"] [I]!</span>")
-	to_chat(src, "<span class='notice'>You successfully [cuff_break ? "break" : "remove"] [I].</span>")
+	visible_message("<span class='danger'>[src] успешно [cuff_break ? "разрывает" : "снимает"] [I]!</span>")
+	to_chat(src, "<span class='notice'>Я успешно [cuff_break ? "разрываю" : "снимаю"] [I].</span>")
 
 	if(cuff_break)
 		. = !((I == handcuffed) || (I == legcuffed))
@@ -432,21 +432,21 @@
 
 	if(nutrition < 100 && !blood)
 		if(message)
-			visible_message("<span class='warning'>[src] dry heaves!</span>", \
-							"<span class='userdanger'>You try to throw up, but there's nothing in your stomach!</span>")
+			visible_message("<span class='warning'>[src] корчится в рвотном позыве!</span>", \
+							"<span class='userdanger'>Рвота не идёт, ведь мой желудок пуст!</span>")
 		if(stun)
 			Paralyze(200)
 		return TRUE
 
 	if(is_mouth_covered()) //make this add a blood/vomit overlay later it'll be hilarious
 		if(message)
-			visible_message("<span class='danger'>[src] throws up all over [p_them()]self!</span>", \
-							"<span class='userdanger'>You throw up all over yourself!</span>")
+			visible_message("<span class='danger'>[src] заблёвывает себя!</span>", \
+							"<span class='userdanger'>Заблевываю себя. Заебись!</span>")
 			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "vomit", /datum/mood_event/vomitself)
 		distance = 0
 	else
 		if(message)
-			visible_message("<span class='danger'>[src] throws up!</span>", "<span class='userdanger'>You throw up!</span>")
+			visible_message("<span class='danger'>[src] блюёт!</span>", "<span class='userdanger'>Блюю!</span>")
 			if(!isflyperson(src))
 				SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "vomit", /datum/mood_event/vomit)
 
@@ -855,7 +855,7 @@
 			O.Remove(src)
 			O.forceMove(drop_location())
 	if(organs_amt)
-		to_chat(user, "<span class='notice'>You retrieve some of [src]\'s internal organs!</span>")
+		to_chat(user, "<span class='notice'>Мне удалось достать несколько внутренних органов из [src]!</span>")
 
 /mob/living/carbon/ExtinguishMob()
 	for(var/X in get_equipped_items())

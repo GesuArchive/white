@@ -63,7 +63,7 @@
 					I.attack_hand(src)
 					if(get_active_held_item() == I) //if our attack_hand() picks up the item...
 						visible_message("<span class='warning'><b>[src]</b> ловит <b>[I.name]</b>!</span>", \
-										"<span class='userdanger'>Ловлю <b>[I.name]</b> в воздухе!</span>")
+										"<span class='userdanger'>Ловлю <b>[I.name]</b>!</span>")
 						throw_mode_off()
 						return 1
 	..()

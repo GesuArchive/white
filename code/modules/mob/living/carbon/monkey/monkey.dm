@@ -1,6 +1,6 @@
 /mob/living/carbon/monkey
 	name = "monkey"
-	verb_say = "chimpers"
+	verb_say = "выкрикивает"
 	initial_language_holder = /datum/language_holder/monkey
 	icon = 'icons/mob/monkey.dmi'
 	icon_state = "monkey1"
@@ -123,7 +123,7 @@
 
 /mob/living/carbon/monkey/can_use_guns(obj/item/G)
 	if(G.trigger_guard == TRIGGER_GUARD_NONE)
-		to_chat(src, "<span class='warning'>You are unable to fire this!</span>")
+		to_chat(src, "<span class='warning'>А я не умею!</span>")
 		return FALSE
 	return TRUE
 

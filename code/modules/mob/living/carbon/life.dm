@@ -264,22 +264,22 @@
 				// At lower pp, give out a little warning
 				SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "smell")
 				if(prob(5))
-					to_chat(src, "<span class='notice'>There is an unpleasant smell in the air.</span>")
+					to_chat(src, "<span class='notice'>Здесь неприятно пахнет.</span>")
 			if(5 to 20)
 				//At somewhat higher pp, warning becomes more obvious
 				if(prob(15))
-					to_chat(src, "<span class='warning'>You smell something horribly decayed inside this room.</span>")
+					to_chat(src, "<span class='warning'>Здесь точно что-то гниёт и неплохо так отдаёт запахом.</span>")
 					SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/bad_smell)
 			if(15 to 30)
 				//Small chance to vomit. By now, people have internals on anyway
 				if(prob(5))
-					to_chat(src, "<span class='warning'>The stench of rotting carcasses is unbearable!</span>")
+					to_chat(src, "<span class='warning'>Запах гниющей плоти бьёт мне прямо в нос!</span>")
 					SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/nauseating_stench)
 					vomit()
 			if(30 to INFINITY)
 				//Higher chance to vomit. Let the horror start
 				if(prob(25))
-					to_chat(src, "<span class='warning'>The stench of rotting carcasses is unbearable!</span>")
+					to_chat(src, "<span class='warning'>Запашок непередаваемый!</span>")
 					SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/nauseating_stench)
 					vomit()
 			else
@@ -539,16 +539,16 @@ All effects don't start immediately, but rather get worse over time; the rate is
 		if(drunkenness >= 81)
 			adjustToxLoss(1)
 			if(prob(5) && !stat)
-				to_chat(src, "<span class='warning'>Maybe you should lie down for a bit...</span>")
+				to_chat(src, "<span class='warning'>Надо полежать...</span>")
 
 		if(drunkenness >= 91)
 			adjustToxLoss(1)
 			adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.4)
 			if(prob(20) && !stat)
 				if(SSshuttle.emergency.mode == SHUTTLE_DOCKED && is_station_level(z)) //QoL mainly
-					to_chat(src, "<span class='warning'>You're so tired... but you can't miss that shuttle...</span>")
+					to_chat(src, "<span class='warning'>Уф, надо бы поспать... но я не могу упустить этот шаттл...</span>")
 				else
-					to_chat(src, "<span class='warning'>Just a quick nap...</span>")
+					to_chat(src, "<span class='warning'>Немного вздремнём...</span>")
 					Sleeping(900)
 
 		if(drunkenness >= 101)
@@ -708,7 +708,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 		return
 	adjustToxLoss(4, TRUE,  TRUE)
 	if(prob(30))
-		to_chat(src, "<span class='warning'>You feel a stabbing pain in your abdomen!</span>")
+		to_chat(src, "<span class='warning'>Ощущаю острую боль в области живота!</span>")
 
 /////////////
 //CREMATION//
@@ -736,11 +736,11 @@ All effects don't start immediately, but rather get worse over time; the rate is
 				if(limb.cremation_progress >= 100)
 					if(limb.status == BODYPART_ORGANIC) //Non-organic limbs don't burn
 						limb.drop_limb()
-						limb.visible_message("<span class='warning'>[src]'s [limb.name] crumbles into ash!</span>")
+						limb.visible_message("<span class='warning'>[capitalize(limb.name)] <b>[src]</b> обращается в пепел!</span>")
 						qdel(limb)
 					else
 						limb.drop_limb()
-						limb.visible_message("<span class='warning'>[src]'s [limb.name] detaches from [p_their()] body!</span>")
+						limb.visible_message("<span class='warning'>[capitalize(limb.name)] <b>[src]</b> отлетает от тела!</span>")
 	if(still_has_limbs)
 		return
 
@@ -752,17 +752,17 @@ All effects don't start immediately, but rather get worse over time; the rate is
 			if(head.cremation_progress >= 100)
 				if(head.status == BODYPART_ORGANIC) //Non-organic limbs don't burn
 					head.drop_limb()
-					head.visible_message("<span class='warning'>[src]'s head crumbles into ash!</span>")
+					head.visible_message("<span class='warning'>Голова <b>[src]</b> обращается в пепел!</span>")
 					qdel(head)
 				else
 					head.drop_limb()
-					head.visible_message("<span class='warning'>[src]'s head detaches from [p_their()] body!</span>")
+					head.visible_message("<span class='warning'>Голова <b>[src]</b> отлетает от тела!</span>")
 		return
 
 	//Nothing left: dust the body, drop the items (if they're flammable they'll burn on their own)
 	chest.cremation_progress += rand(2,5)
 	if(chest.cremation_progress >= 100)
-		visible_message("<span class='warning'>[src]'s body crumbles into a pile of ash!</span>")
+		visible_message("<span class='warning'><b>[src]</b> обращается в пепел!</span>")
 		dust(TRUE, TRUE)
 
 ////////////////
