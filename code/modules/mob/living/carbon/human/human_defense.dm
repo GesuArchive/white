@@ -736,7 +736,7 @@
 				message_ready += "<tr><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] торчит из моей [LB.name]!</a></tr>"
 
 	for(var/t in missing)
-		message_ready += "<tr><td>\t <b>[r_uppertext(ru_exam_parse_zone(parse_zone(t)))]:</b></td><td><span class='boldannounce'>\[ОТСУТСТВУЕТ\]</span></td></tr>"
+		message_ready += "<tr><td>\t <b>[r_uppertext(ru_exam_parse_zone(parse_zone(t)))]:</b></td><td>\[<span class='boldannounce'>ОТСУТСТВУЕТ</span>\]</td></tr>"
 
 	message_ready += "</table>"
 
