@@ -146,28 +146,28 @@
 	if(LAZYLEN(armor_list))
 		armor_list.Cut()
 	if(armor.bio)
-		armor_list += list("ТОКСИНОСТОЙКОСТЬ" = armor.bio)
+		armor_list += list("ТОКСИНЫ" = armor.bio)
 	if(armor.bomb)
-		armor_list += list("ВЗРЫВОСТОЙКОСТЬ" = armor.bomb)
+		armor_list += list("ВЗРЫВЫ" = armor.bomb)
 	if(armor.bullet)
-		armor_list += list("ПУЛЕСТОЙКОСТЬ" = armor.bullet)
+		armor_list += list("ПУЛИ" = armor.bullet)
 	if(armor.energy)
-		armor_list += list("ЭНЕРГОСТОЙКОСТЬ" = armor.energy)
+		armor_list += list("ЭНЕРГЕТИЧЕСКОЕ" = armor.energy)
 	if(armor.laser)
-		armor_list += list("ЛАЗЕРОСТОЙКОСТЬ" = armor.laser)
+		armor_list += list("ЛАЗЕР" = armor.laser)
 	if(armor.magic)
-		armor_list += list("МАГИСТОЙКОСТЬ" = armor.magic)
+		armor_list += list("МАГИЯ" = armor.magic)
 	if(armor.melee)
-		armor_list += list("УДАРОСТОЙКОСТЬ" = armor.melee)
+		armor_list += list("УДАРЫ" = armor.melee)
 	if(armor.rad)
-		armor_list += list("РАДИАЦИСТОЙКОСТЬ" = armor.rad)
+		armor_list += list("РАДИАЦИЯ" = armor.rad)
 
 	if(LAZYLEN(durability_list))
 		durability_list.Cut()
 	if(armor.fire)
-		durability_list += list("ОГНЕСТОЙКОСТЬ" = armor.fire)
+		durability_list += list("ОГОНЬ" = armor.fire)
 	if(armor.acid)
-		durability_list += list("КИСЛОСТОЙКОСТЬ" = armor.acid)
+		durability_list += list("КИСЛОТА" = armor.acid)
 
 	if(LAZYLEN(armor_list) || LAZYLEN(durability_list))
 		. += "<span class='notice'>Здесь есть <a href='?src=[REF(src)];list_armor=1'>бирка</a> с описанием защитных свойств.</span>"
@@ -176,18 +176,18 @@
 	. = ..()
 
 	if(href_list["list_armor"])
-		var/list/readout = list("<span class='notice'><u><b>ЗАЩИТНЫЕ КЛАССЫ (I-X)</u></b>")
+		var/list/readout = list("<table><span class='notice'><u><b>ЗАЩИТНЫЕ КЛАССЫ (I-X)</u></b>")
 		if(LAZYLEN(armor_list))
-			readout += "\n<b>БРОНЯ</b>"
+			readout += "<tr><b>БРОНЯ:</b></tr>"
 			for(var/dam_type in armor_list)
 				var/armor_amount = armor_list[dam_type]
-				readout += "\n[dam_type] [armor_to_protection_class(armor_amount)]" //e.g. BOMB IV
+				readout += "<tr>\t[dam_type]</tr><tr>[armor_to_protection_class(armor_amount)]</tr>" //e.g. BOMB IV
 		if(LAZYLEN(durability_list))
-			readout += "\n<b>ПРОЧНОСТЬ</b>"
+			readout += "<tr><b>СТОЙКОСТЬ:</b></tr>"
 			for(var/dam_type in durability_list)
 				var/durability_amount = durability_list[dam_type]
-				readout += "\n[dam_type] [armor_to_protection_class(durability_amount)]" //e.g. FIRE II
-		readout += "</span>"
+				readout += "<tr>\t[dam_type]</tr><tr>[armor_to_protection_class(durability_amount)]</tr>" //e.g. FIRE II
+		readout += "</span><table>"
 
 		to_chat(usr, "[readout.Join()]")
 
