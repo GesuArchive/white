@@ -176,7 +176,7 @@
 	. = ..()
 
 	if(href_list["list_armor"])
-		var/list/readout = list("<table><span class='notice'><u><b>ЗАЩИТНЫЕ КЛАССЫ (I-X)</u></b>")
+		var/list/readout = list("<table><span class='notice'><u><b>ЗАЩИТНЫЕ КЛАССЫ (I-X)</u></b></span>")
 		if(LAZYLEN(armor_list))
 			readout += "<tr><b>БРОНЯ:</b></tr>"
 			for(var/dam_type in armor_list)
