@@ -1564,7 +1564,7 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/terrorship)
 "eX" = (
-/mob/living/simple_animal/hostile/megafauna/dragon/space_dragon{
+/mob/living/simple_animal/hostile/space_dragon{
 	faction = list("Syndicate");
 	health = 550;
 	name = "Ванечка"
