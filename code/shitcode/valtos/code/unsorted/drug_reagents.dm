@@ -116,7 +116,7 @@
 	var/high_message = pick("Я чувствую, что у меня есть силы.", "Я готов.", "Я чувствую, что могу довести это до предела.")
 	if(prob(5))
 		to_chat(M, "<span class='notice'>[high_message]</span>")
-	M.add_movespeed_modifier(type, update=TRUE, priority=100, multiplicative_slowdown=-2, blacklisted_movetypes=(FLYING|FLOATING))
+	M.add_movespeed_modifier(type, update=TRUE)
 	M.AdjustUnconscious(-100, 0)
 	M.AdjustStun(-100, 0)
 	M.AdjustParalyzed(-100, 0)
