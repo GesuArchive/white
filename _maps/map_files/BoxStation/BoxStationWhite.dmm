@@ -118,7 +118,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "arrival_kpp_out";
-	name = "ставни КПП"
+	name = "???????????? ??????"
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
@@ -127,7 +127,7 @@
 /obj/effect/turf_decal/tile/neutral,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "arrival_kpp_out";
-	name = "ставни КПП"
+	name = "???????????? ??????"
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
@@ -167,7 +167,7 @@
 /obj/machinery/door/airlock/public/glass,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "arrival_kpp_lounge_out";
-	name = "ставни КПП"
+	name = "???????????? ??????"
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
@@ -176,7 +176,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "arrival_kpp_lounge_in";
-	name = "ставни КПП"
+	name = "???????????? ??????"
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
@@ -184,7 +184,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "arrival_kpp_lounge_in";
-	name = "ставни КПП"
+	name = "???????????? ??????"
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -272,7 +272,7 @@
 "aaQ" = (
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "arrival_kpp_in";
-	name = "ставни КПП"
+	name = "???????????? ??????"
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
@@ -306,7 +306,7 @@
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "arrival_kpp_in";
-	name = "ставни КПП"
+	name = "???????????? ??????"
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
@@ -339,14 +339,14 @@
 	},
 /obj/machinery/button/door{
 	id = "arrival_kpp_out";
-	name = "внешние ставни";
+	name = "?????????????? ????????????";
 	pixel_x = 24;
 	pixel_y = 4;
 	req_access_txt = "1"
 	},
 /obj/machinery/button/door{
 	id = "arrival_kpp_in";
-	name = "внутренние ставни";
+	name = "???????????????????? ????????????";
 	pixel_x = 24;
 	pixel_y = -4;
 	req_access_txt = "1"
@@ -359,7 +359,7 @@
 	},
 /obj/machinery/button/door{
 	id = "arrival_kpp_out";
-	name = "внешние ставни";
+	name = "?????????????? ????????????";
 	pixel_x = 24;
 	pixel_y = 4;
 	req_access_txt = "1"
@@ -372,7 +372,7 @@
 	},
 /obj/machinery/button/door{
 	id = "arrival_kpp_in";
-	name = "внутренние ставни";
+	name = "???????????????????? ????????????";
 	pixel_x = 24;
 	pixel_y = -4;
 	req_access_txt = "1"
@@ -393,14 +393,14 @@
 	},
 /obj/machinery/button/door{
 	id = "arrival_kpp_lounge_in";
-	name = "внутренние ставни лобби";
+	name = "???????????????????? ???????????? ??????????";
 	pixel_x = 24;
 	pixel_y = 4;
 	req_access_txt = "1"
 	},
 /obj/machinery/button/door{
 	id = "arrival_kpp_lounge_out";
-	name = "внешние ставни лобби";
+	name = "?????????????? ???????????? ??????????";
 	pixel_x = 24;
 	pixel_y = -4;
 	req_access_txt = "1"
@@ -415,14 +415,14 @@
 	},
 /obj/machinery/button/door{
 	id = "arrival_kpp_lounge_in";
-	name = "внутренние ставни лобби";
+	name = "???????????????????? ???????????? ??????????";
 	pixel_x = 24;
 	pixel_y = 4;
 	req_access_txt = "1"
 	},
 /obj/machinery/button/door{
 	id = "arrival_kpp_lounge_out";
-	name = "внешние ставни лобби";
+	name = "?????????????? ???????????? ??????????";
 	pixel_x = 24;
 	pixel_y = -4;
 	req_access_txt = "1"
@@ -480,7 +480,7 @@
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "arrival_kpp_lounge_in";
-	name = "ставни КПП"
+	name = "???????????? ??????"
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -494,13 +494,13 @@
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/northleft{
 	dir = 2;
-	name = "Торговая Стойка";
+	name = "???????????????? ????????????";
 	req_access_txt = "209"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "trader_office";
-	name = "ставни торгового офиса"
+	name = "???????????? ?????????????????? ??????????"
 	},
 /turf/open/floor/plating,
 /area/vacant_room/office)
@@ -508,12 +508,12 @@
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/northleft{
 	dir = 4;
-	name = "Торговая Стойка";
+	name = "???????????????? ????????????";
 	req_access_txt = "209"
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "trader_office";
-	name = "ставни торгового офиса"
+	name = "???????????? ?????????????????? ??????????"
 	},
 /turf/open/floor/plating,
 /area/vacant_room/office)
@@ -522,12 +522,12 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/public/glass{
-	name = "Офис Торговца";
+	name = "???????? ????????????????";
 	req_access_txt = "209"
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "trader_office";
-	name = "ставни торгового офиса"
+	name = "???????????? ?????????????????? ??????????"
 	},
 /turf/open/floor/wood,
 /area/vacant_room/office)
@@ -537,7 +537,7 @@
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "trader_office";
-	name = "ставни торгового офиса"
+	name = "???????????? ?????????????????? ??????????"
 	},
 /turf/open/floor/plating,
 /area/vacant_room/office)
@@ -548,7 +548,7 @@
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/button/door{
 	id = "trader_office";
-	name = "блокировка";
+	name = "????????????????????";
 	pixel_x = 24;
 	req_access_txt = "209"
 	},
@@ -558,16 +558,15 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "trader_office";
-	name = "ставни торгового офиса"
+	name = "???????????? ?????????????????? ??????????"
 	},
 /turf/open/floor/plating,
 /area/vacant_room/office)
 "abo" = (
 /obj/machinery/button/door{
 	id = "trader_office";
-	name = "блокировка";
+	name = "????????????????????";
 	pixel_x = 24;
-	pixel_y = 0;
 	req_access_txt = "209"
 	},
 /turf/open/floor/plasteel,
@@ -772,7 +771,7 @@
 "abU" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/components/binary/pump/on{
-	name = "Сжигатель, сброс в космос";
+	name = "??????????????????, ?????????? ?? ????????????";
 	target_pressure = 4500
 	},
 /turf/open/space/basic,
@@ -907,7 +906,6 @@
 	dir = 4
 	},
 /obj/machinery/computer/shuttle/ferry/request/trader{
-	icon_state = "computer";
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -918,7 +916,6 @@
 	dwidth = 2;
 	height = 5;
 	id = "trader_transport_station";
-	json_key = null;
 	name = "Trader Transport Station";
 	width = 5
 	},
@@ -2597,7 +2594,6 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
 /obj/machinery/camera/autoname{
-	icon_state = "camera";
 	dir = 5
 	},
 /turf/open/floor/plasteel,
@@ -2868,7 +2864,6 @@
 	dir = 4
 	},
 /obj/machinery/computer/camera_advanced/xenobio{
-	icon_state = "computer";
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/purple{
@@ -2908,7 +2903,6 @@
 "agP" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
 /obj/machinery/computer/camera_advanced/xenobio{
-	icon_state = "computer";
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -2977,8 +2971,7 @@
 	dir = 1
 	},
 /obj/structure/sign/warning/deathsposal{
-	pixel_x = -31;
-	pixel_y = 0
+	pixel_x = -31
 	},
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
@@ -2992,11 +2985,11 @@
 /obj/structure/table/glass,
 /obj/item/storage/box/monkeycubes,
 /obj/machinery/button/door{
+	id = "xenobiomain";
 	name = "Containment Blast Doors";
 	pixel_x = 1;
 	pixel_y = -26;
-	req_access_txt = "55";
-	id = "xenobiomain"
+	req_access_txt = "55"
 	},
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
@@ -3024,11 +3017,11 @@
 	pixel_y = -2
 	},
 /obj/machinery/button/door{
+	id = "xenobiomain";
 	name = "Containment Blast Doors";
 	pixel_x = 1;
 	pixel_y = -26;
-	req_access_txt = "55";
-	id = "xenobiomain"
+	req_access_txt = "55"
 	},
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
@@ -3087,7 +3080,6 @@
 	},
 /obj/structure/reagent_dispensers/watertank,
 /obj/machinery/camera/autoname{
-	icon_state = "camera";
 	dir = 1
 	},
 /turf/open/floor/plasteel,
@@ -3200,7 +3192,6 @@
 	pressure_checks = 0
 	},
 /obj/machinery/camera/autoname{
-	icon_state = "camera";
 	dir = 4
 	},
 /turf/open/floor/plasteel/freezer,
@@ -3338,19 +3329,17 @@
 /area/engine/engineering)
 "ahG" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
-	name = "killroom vent";
-	icon_state = "vent_map_siphon_on-2";
 	dir = 1;
-	external_pressure_bound = 120
+	external_pressure_bound = 120;
+	name = "killroom vent"
 	},
 /turf/open/floor/plasteel/freezer,
 /area/science/xenobiology)
 "ahH" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
-	name = "killroom vent";
-	icon_state = "vent_map_siphon_on-2";
 	dir = 1;
-	external_pressure_bound = 120
+	external_pressure_bound = 120;
+	name = "killroom vent"
 	},
 /obj/machinery/light,
 /turf/open/floor/plasteel/freezer,
@@ -3407,7 +3396,6 @@
 /area/science/xenobiology)
 "ahN" = (
 /obj/machinery/camera/autoname{
-	icon_state = "camera";
 	dir = 8
 	},
 /turf/open/floor/engine,
@@ -3434,8 +3422,7 @@
 /area/science/mixing)
 "ahR" = (
 /obj/machinery/camera/autoname{
-	dir = 4;
-	icon_state = "camera"
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/white,
@@ -3908,7 +3895,6 @@
 	dir = 8
 	},
 /obj/machinery/camera/autoname{
-	icon_state = "camera";
 	dir = 5
 	},
 /turf/open/floor/engine,
@@ -3980,7 +3966,6 @@
 	dir = 4
 	},
 /obj/machinery/camera/autoname{
-	icon_state = "camera";
 	dir = 8
 	},
 /turf/open/floor/engine,
@@ -4280,8 +4265,7 @@
 "ajz" = (
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = -12;
-	pixel_y = 0
+	pixel_x = -12
 	},
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
@@ -4691,7 +4675,6 @@
 /area/maintenance/starboard/aft)
 "akp" = (
 /obj/machinery/camera/autoname{
-	icon_state = "camera";
 	dir = 5
 	},
 /turf/open/floor/engine,
@@ -4760,7 +4743,6 @@
 	},
 /obj/machinery/light,
 /obj/machinery/camera/autoname{
-	icon_state = "camera";
 	dir = 1
 	},
 /obj/structure/cable,
@@ -5080,7 +5062,7 @@
 "alf" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 1;
-	name = "Микс в Дистрибуцию"
+	name = "???????? ?? ??????????????????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -6485,7 +6467,7 @@
 "aoL" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 1;
-	name = "Воздух, выход"
+	name = "????????????, ??????????"
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -6554,7 +6536,7 @@
 /area/maintenance/port/fore)
 "aoZ" = (
 /obj/machinery/atmospherics/components/binary/valve/digital{
-	name = "Сброс отходов"
+	name = "?????????? ??????????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -6703,7 +6685,7 @@
 "apw" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 4;
-	name = "Воздух, вход"
+	name = "????????????, ????????"
 	},
 /obj/effect/landmark/blobstart,
 /obj/effect/turf_decal/stripes/line{
@@ -10418,9 +10400,6 @@
 /turf/closed/wall,
 /area/maintenance/port/fore)
 "azJ" = (
-/obj/machinery/gateway{
-	dir = 9
-	},
 /obj/effect/turf_decal/bot_white/right,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -10441,9 +10420,6 @@
 /turf/open/floor/plasteel/dark,
 /area/gateway)
 "azL" = (
-/obj/machinery/gateway{
-	dir = 5
-	},
 /obj/effect/turf_decal/bot_white/left,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -10458,9 +10434,6 @@
 /turf/open/floor/plasteel/dark,
 /area/gateway)
 "azM" = (
-/obj/machinery/gateway{
-	dir = 1
-	},
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -11005,9 +10978,6 @@
 /turf/closed/wall/r_wall,
 /area/ai_monitored/nuke_storage)
 "aBd" = (
-/obj/machinery/gateway{
-	dir = 8
-	},
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -11025,9 +10995,6 @@
 /turf/open/floor/plasteel/dark,
 /area/gateway)
 "aBf" = (
-/obj/machinery/gateway{
-	dir = 4
-	},
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -11365,9 +11332,6 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/nuke_storage)
 "aBX" = (
-/obj/machinery/gateway{
-	dir = 10
-	},
 /obj/effect/turf_decal/bot_white/left,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -11382,9 +11346,6 @@
 /turf/open/floor/plasteel/dark,
 /area/gateway)
 "aBY" = (
-/obj/machinery/gateway{
-	dir = 6
-	},
 /obj/effect/turf_decal/bot_white/right,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -11399,7 +11360,6 @@
 /turf/open/floor/plasteel/dark,
 /area/gateway)
 "aBZ" = (
-/obj/machinery/gateway,
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -17441,7 +17401,7 @@
 /area/hallway/secondary/exit)
 "aXH" = (
 /obj/machinery/atmospherics/components/binary/pump{
-	name = "Микс в Порт"
+	name = "???????? ?? ????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -21265,7 +21225,7 @@
 "bmB" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 8;
-	name = "Воздух, дистрибуция"
+	name = "????????????, ??????????????????????"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/visible,
 /turf/open/floor/plasteel,
@@ -21479,7 +21439,7 @@
 "bnf" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 8;
-	name = "Микс, Выход из хранилища"
+	name = "????????, ?????????? ???? ??????????????????"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/visible,
 /turf/open/floor/plasteel,
@@ -21494,7 +21454,7 @@
 "bnh" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 1;
-	name = "N2, Выход из хранилища"
+	name = "N2, ?????????? ???? ??????????????????"
 	},
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -21567,7 +21527,7 @@
 "bno" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 1;
-	name = "O2, Выход из хранилища"
+	name = "O2, ?????????? ???? ??????????????????"
 	},
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -21674,7 +21634,7 @@
 "bnD" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 1;
-	name = "Неотфильтрованное, в Микс или Космос"
+	name = "??????????????????????????????????, ?? ???????? ?????? ????????????"
 	},
 /obj/machinery/atmospherics/pipe/simple/green/visible{
 	dir = 4
@@ -21750,7 +21710,7 @@
 "bnM" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 8;
-	name = "Воздух, Вывод из отсека"
+	name = "????????????, ?????????? ???? ????????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -21760,7 +21720,7 @@
 	},
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 8;
-	name = "Микс в Космос"
+	name = "???????? ?? ????????????"
 	},
 /turf/open/floor/plating/airless,
 /area/maintenance/port/aft)
@@ -21875,7 +21835,7 @@
 "bop" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 4;
-	name = "Ввод в отсек, в фильтр"
+	name = "???????? ?? ??????????, ?? ????????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -21913,7 +21873,7 @@
 	},
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 1;
-	name = "Воздух, Выход из хранилища"
+	name = "????????????, ?????????? ???? ??????????????????"
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -21993,7 +21953,7 @@
 "boA" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 1;
-	name = "Сжигатель, выход"
+	name = "??????????????????, ??????????"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -22126,7 +22086,7 @@
 /area/quartermaster/office)
 "boV" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
-	name = "Получение отходов"
+	name = "?????????????????? ??????????????"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -22136,20 +22096,20 @@
 "bpc" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 8;
-	name = "Микс, в фильтр"
+	name = "????????, ?? ????????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "bpf" = (
 /obj/machinery/atmospherics/components/binary/pump{
-	name = "Воздух, выход"
+	name = "????????????, ??????????"
 	},
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/ai_monitored/turret_protected/aisat/atmos)
 "bpg" = (
 /obj/machinery/atmospherics/components/binary/pump{
-	name = "Воздух в Микс"
+	name = "???????????? ?? ????????"
 	},
 /obj/machinery/atmospherics/pipe/simple/yellow/visible{
 	dir = 4
@@ -22158,7 +22118,7 @@
 /area/engine/atmos)
 "bpi" = (
 /obj/machinery/atmospherics/components/binary/pump{
-	name = "Воздух в Порт"
+	name = "???????????? ?? ????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -22167,7 +22127,7 @@
 	pixel_x = -27
 	},
 /obj/machinery/atmospherics/components/binary/pump{
-	name = "Воздух в Порт"
+	name = "???????????? ?? ????????"
 	},
 /obj/machinery/light{
 	dir = 8
@@ -22179,7 +22139,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/components/binary/pump{
-	name = "помпа"
+	name = "??????????"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
@@ -22401,7 +22361,7 @@
 	},
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 8;
-	name = "Дистрибуция в Отходы"
+	name = "?????????????????????? ?? ????????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -22643,7 +22603,7 @@
 "brm" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 8;
-	name = "N2O, Выход из хранилища"
+	name = "N2O, ?????????? ???? ??????????????????"
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -22657,7 +22617,7 @@
 	},
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 8;
-	name = "Плазма, Выход из хранилища"
+	name = "????????????, ?????????? ???? ??????????????????"
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -22695,7 +22655,7 @@
 "brt" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 8;
-	name = "CO2, Выход из хранилища"
+	name = "CO2, ?????????? ???? ??????????????????"
 	},
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
@@ -22757,7 +22717,7 @@
 	},
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 4;
-	name = "Неотсортированное в Микс"
+	name = "?????????????????????????????????? ?? ????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -22769,7 +22729,7 @@
 /area/maintenance/starboard)
 "brH" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
-	name = "Газ в Камеру сжигателя"
+	name = "?????? ?? ???????????? ??????????????????"
 	},
 /obj/machinery/light/small{
 	dir = 8
@@ -22849,7 +22809,7 @@
 "brP" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 1;
-	name = "Газ из Камеры сжигателя"
+	name = "?????? ???? ???????????? ??????????????????"
 	},
 /obj/structure/sign/warning/fire{
 	pixel_x = 32
@@ -22885,7 +22845,7 @@
 	},
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 1;
-	name = "Микс в Сжигатель"
+	name = "???????? ?? ??????????????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -22921,14 +22881,14 @@
 /obj/machinery/atmospherics/pipe/simple/yellow/visible,
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 4;
-	name = "Микс в Двигатель"
+	name = "???????? ?? ??????????????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "bse" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 8;
-	name = "Микс в Миниспутник"
+	name = "???????? ?? ??????????????????????"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
@@ -22994,7 +22954,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 4;
-	name = "помпа"
+	name = "??????????"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
@@ -23002,7 +22962,7 @@
 "bsD" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 8;
-	name = "Микс в Космос"
+	name = "???????? ?? ????????????"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -23011,14 +22971,14 @@
 "bsE" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 8;
-	name = "Микс в Порт"
+	name = "???????? ?? ????????"
 	},
 /obj/machinery/light/small,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "bsF" = (
 /obj/machinery/atmospherics/components/binary/pump{
-	name = "Микс в Миниспутник"
+	name = "???????? ?? ??????????????????????"
 	},
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
@@ -23026,13 +22986,13 @@
 "bsG" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 1;
-	name = "Чистоту в Микс"
+	name = "?????????????? ?? ????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "bsI" = (
 /obj/machinery/atmospherics/components/binary/pump{
-	name = "Чистоту в Порт"
+	name = "?????????????? ?? ????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -23045,14 +23005,14 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/components/binary/pump{
-	name = "Порт в Фильтр"
+	name = "???????? ?? ????????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "bsM" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 8;
-	name = "Порт в Фильтр"
+	name = "???????? ?? ????????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -23062,7 +23022,7 @@
 /area/science/robotics/lab)
 "bsP" = (
 /obj/structure/table/optable{
-	name = "Robotics Operating стол"
+	name = "Robotics Operating ????????"
 	},
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel/dark,
@@ -23091,7 +23051,7 @@
 /area/science/robotics/lab)
 "bsU" = (
 /obj/structure/table/optable{
-	name = "Robotics Operating стол"
+	name = "Robotics Operating ????????"
 	},
 /obj/item/surgical_drapes,
 /turf/open/floor/plating,
@@ -23099,7 +23059,7 @@
 "bsV" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 4;
-	name = "N2 в Чистоту"
+	name = "N2 ?? ??????????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -23113,7 +23073,7 @@
 	},
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 1;
-	name = "O2 в Чистоту"
+	name = "O2 ?? ??????????????"
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -65028,8 +64988,8 @@ aqR
 awb
 axt
 ayG
-azJ
-aBd
+aBY
+aBf
 aBX
 aDi
 aEQ
@@ -65285,7 +65245,7 @@ arP
 avZ
 axt
 ayG
-azM
+aBf
 aBg
 aBZ
 aDx
@@ -65542,7 +65502,7 @@ arP
 awc
 axt
 ayG
-azL
+aBX
 aBf
 aBY
 aDw
