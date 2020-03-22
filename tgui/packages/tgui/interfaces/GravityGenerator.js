@@ -11,56 +11,61 @@ export const GravityGenerator = props => {
     on,
     operational,
   } = data;
+
+  if (!operational) {
+    return (
+      <Section>
+        <NoticeBox textAlign="center">
+          No data available
+        </NoticeBox>
+      </Section>
+    );
+  }
+
   return (
     <Fragment>
       <Section>
-        {!operational && (
-          <NoticeBox textAlign="center">
-            No data available
-          </NoticeBox>
-        ) || (
-          <LabeledList>
-            <LabeledList.Item label="Рубильник">
-              <Button
-                icon={breaker ? 'power-off' : 'times'}
-                content={breaker ? 'Вкл' : 'Выкл'}
-                selected={breaker}
-                disabled={!operational}
-                onClick={() => act('gentoggle')} />
-            </LabeledList.Item>
-            <LabeledList.Item label="Гравитация">
-              <ProgressBar
-                value={charge_count / 100}
-                ranges={{
-                  good: [0.7, Infinity],
-                  average: [0.3, 0.7],
-                  bad: [-Infinity, 0.3],
-                }} />
-            </LabeledList.Item>
-            <LabeledList.Item label="Заряд">
-              {charging_state === 0 && (
-                on && (
-                  <Box color="good">
-                    Полностью заряжено
-                  </Box>
-                ) || (
-                  <Box color="bad">
-                    Не заряжается
-                  </Box>
-                ))}
-              {charging_state === 1 && (
-                <Box color="average">
-                  Заряжается
+        <LabeledList>
+          <LabeledList.Item label="Рубильник">
+            <Button
+              icon={breaker ? 'power-off' : 'times'}
+              content={breaker ? 'Вкл' : 'Выкл'}
+              selected={breaker}
+              disabled={!operational}
+              onClick={() => act('gentoggle')} />
+          </LabeledList.Item>
+          <LabeledList.Item label="Гравитация">
+            <ProgressBar
+              value={charge_count / 100}
+              ranges={{
+                good: [0.7, Infinity],
+                average: [0.3, 0.7],
+                bad: [-Infinity, 0.3],
+              }} />
+          </LabeledList.Item>
+          <LabeledList.Item label="Заряд">
+            {charging_state === 0 && (
+              on && (
+                <Box color="good">
+                  Полностью заряжено
                 </Box>
-              )}
-              {charging_state === 2 && (
-                <Box color="average">
-                  Разряжается
+              ) || (
+                <Box color="bad">
+                  Не заряжается
                 </Box>
-              )}
-            </LabeledList.Item>
-          </LabeledList>
-        )}
+              ))}
+            {charging_state === 1 && (
+              <Box color="average">
+                Заряжается
+              </Box>
+            )}
+            {charging_state === 2 && (
+              <Box color="average">
+                Разряжается
+              </Box>
+            )}
+          </LabeledList.Item>
+        </LabeledList>
       </Section>
       {operational && charging_state !== 0 && (
         <NoticeBox textAlign="center">

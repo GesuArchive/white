@@ -62,10 +62,6 @@
 	playsound(src, "rustle", 50, TRUE, -5)
 	qdel(user)
 
-/obj/item/storage/backpack/holding/singularity_act(current_size)
-	var/dist = max((current_size - 2),1)
-	explosion(src.loc,(dist),(dist*2),(dist*4))
-
 /obj/item/storage/backpack/santabag
 	name = "подарочный мешок Санты"
 	desc = "Космический Санта использует это, чтобы доставить подарки всем хорошим детям в пространстве в Рождество! Вау, он довольно большой!"

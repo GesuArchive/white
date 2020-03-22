@@ -238,6 +238,7 @@
 	desc = "Классический костюм броней, очень эффективен при остановке атак ближнего боя."
 	icon_state = "knight_green"
 	item_state = "knight_green"
+	allowed = list(/obj/item/nullrod, /obj/item/claymore, /obj/item/banner, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman)
 
 /obj/item/clothing/suit/armor/riot/knight/yellow
 	icon_state = "knight_yellow"
