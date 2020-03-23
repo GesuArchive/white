@@ -433,11 +433,10 @@
 		if(aux_zone)
 			aux = image(limb.icon, "[aux_zone]", -aux_layer, image_dir)
 			. += aux
+		if(should_draw_white)
+			limb.icon = 'code/shitcode/valtos/icons/hephaestus_athena.dmi'
+			limb.icon_state = "[body_zone]"
 		return
-
-	if(should_draw_white)
-		limb.icon = 'code/shitcode/valtos/icons/hephaestus_athena.dmi'
-		limb.icon_state = "[body_zone]"
 
 	if(should_draw_greyscale)
 		var/draw_color = mutation_color || species_color || (skin_tone && skintone2hex(skin_tone))
