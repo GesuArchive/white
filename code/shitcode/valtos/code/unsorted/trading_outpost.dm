@@ -261,7 +261,7 @@
 	var/tier = 1
 	var/exp = 0
 
-/obj/structure/punching_bag/examine(mob/user)
+/obj/structure/punching_bag/trader/examine(mob/user)
 	. = ..()
 	. += "<span class='notice'>Производительность: <b>[tier]</b></span>"
 	. += "<span class='notice'>Опыт: <b>[exp]</b></span>"
