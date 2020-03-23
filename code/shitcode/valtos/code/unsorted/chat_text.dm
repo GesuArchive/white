@@ -21,39 +21,33 @@
 
 /obj/effect/chat_text/New(var/atom/desired_loc,var/desired_text,var/bypass_length=FALSE)
 
-	if(ismob(desired_loc))
+	owner = desired_loc
 
-		owner = desired_loc
+	for(var/obj/effect/chat_text/CT in owner.stored_chat_text)
+		animate(CT,pixel_y = CT.pixel_y + 8,time = 5)
 
-		for(var/obj/effect/chat_text/CT in owner.stored_chat_text)
-			animate(CT,pixel_y = CT.pixel_y + 8,time = 5)
+	owner.stored_chat_text += src
 
-		owner.stored_chat_text += src
+	src.alpha = 0
+	src.pixel_y = -8
+	animate(src,pixel_y = 0, alpha = 255, time = 5)
+	forceMove(get_turf(desired_loc))
 
-		src.alpha = 0
-		src.pixel_y = -8
-		animate(src,pixel_y = 0, alpha = 255, time = 5)
-		forceMove(get_turf(desired_loc))
+	maptext_width = 32*CEILING(10*0.75,2)
+	maptext_x = -(maptext_width-32)*0.5
+	maptext_y = 32*0.75
 
-		maptext_width = 32*CEILING(10*0.75,2)
-		maptext_x = -(maptext_width-32)*0.5
-		maptext_y = 32*0.75
+	if(!bypass_length && length(desired_text) >= 52) //52 is a magic number because reasons.
+		desired_text = copytext_char(desired_text,1,52) + "..."
 
-		if(!bypass_length && length(desired_text) >= 52) //52 is a magic number because reasons.
-			desired_text = copytext(desired_text,1,52) + "..."
+	maptext = "<center><font color='white' style='-dm-text-outline: 1 black'>[html_decode(desired_text)]</font></center>"
 
-		maptext = "<center><font color='white' style='-dm-text-outline: 1 black'>[html_decode(desired_text)]</font></center>"
-
-		spawn(50)
-			animate(src,alpha=0,time=10)
-			sleep(10)
-			if(src)
-				qdel(src)
+	spawn(50)
+		animate(src,alpha=0,time=10)
+		sleep(10)
+		if(src)
+			qdel(src)
 
 
 
-		return ..()
-	else
-		qdel(src)
-
-	return FALSE
+	return ..()
