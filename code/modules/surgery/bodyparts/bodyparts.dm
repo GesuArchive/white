@@ -412,9 +412,6 @@
 				limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
 			else
 				limb.icon_state = "[species_id]_[body_zone]"
-		if(should_draw_white)
-			limb.icon = 'code/shitcode/valtos/icons/hephaestus_athena.dmi'
-			limb.icon_state = "[body_zone]"
 		// hippie start -- Hippie races (e.g. Avians)
 		if(should_draw_hippie)
 			limb.icon = 'code/shitcode/valtos/icons/dwarfs/mutant_bodyparts.dmi'
@@ -438,6 +435,9 @@
 			. += aux
 		return
 
+	if(should_draw_white)
+		limb.icon = 'code/shitcode/valtos/icons/hephaestus_athena.dmi'
+		limb.icon_state = "[body_zone]"
 
 	if(should_draw_greyscale)
 		var/draw_color = mutation_color || species_color || (skin_tone && skintone2hex(skin_tone))
