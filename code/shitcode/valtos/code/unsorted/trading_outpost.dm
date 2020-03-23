@@ -256,10 +256,15 @@
 
 /obj/structure/punching_bag/trader
 	name = "farm bag"
-	desc = "A farm bag. Can you get to speed level 4???"
+	desc = "Лучшее, что создало человечество. Работает на счёте древних шизов."
 	anchored = FALSE
 	var/tier = 1
 	var/exp = 0
+
+/obj/structure/punching_bag/examine(mob/user)
+	. = ..()
+	. += "<span class='notice'>Производительность: <b>[tier]</b></span>"
+	. += "<span class='notice'>Опыт: <b>[exp]</b></span>"
 
 /obj/structure/punching_bag/trader/attack_hand(mob/user as mob)
 	. = ..()
