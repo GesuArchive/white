@@ -3345,6 +3345,7 @@
 #include "code\shitcode\valtos\code\uniforms\russian.dm"
 #include "code\shitcode\valtos\code\unsorted\chat_text.dm"
 #include "code\shitcode\valtos\code\unsorted\christmas.dm"
+#include "code\shitcode\valtos\code\unsorted\custom_races.dm"
 #include "code\shitcode\valtos\code\unsorted\dakis.dm"
 #include "code\shitcode\valtos\code\unsorted\drug_reagents.dm"
 #include "code\shitcode\valtos\code\unsorted\drugs.dm"
