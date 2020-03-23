@@ -33,7 +33,6 @@
 
 /datum/species/android/athena
 	name = "Athena"
-	should_draw_white = TRUE
 
 /datum/species/android/athena/on_species_gain(mob/living/carbon/C)
 	C.draw_white_parts()
