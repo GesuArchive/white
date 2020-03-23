@@ -709,7 +709,7 @@
 			if(brutedamage > (limb_max_damage*0.8))
 				status = LB.heavy_brute_msg
 			if(brutedamage > 0 && burndamage > 0)
-				status += "\] И \["
+				status += "\]</span> И <span class='warning'>\["
 
 			if(burndamage > (limb_max_damage*0.8))
 				status += LB.heavy_burn_msg
