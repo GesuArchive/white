@@ -157,7 +157,7 @@
 	// voice muffling
 	if(stat == UNCONSCIOUS)
 		if(type & MSG_AUDIBLE) //audio
-			to_chat(src, "<I>... You can almost hear something ...</I>")
+			to_chat(src, "<I>... кто-то что-то говорит ...</I>")
 		return
 	to_chat(src, msg)
 
