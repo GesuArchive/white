@@ -181,12 +181,12 @@
 			readout += "<tr><b>БРОНЯ:</b></tr>"
 			for(var/dam_type in armor_list)
 				var/armor_amount = armor_list[dam_type]
-				readout += "<tr>\t[dam_type]</tr><tr>[armor_to_protection_class(armor_amount)]</tr>" //e.g. BOMB IV
+				readout += "<tr><td>\t[dam_type]</td><td>[armor_to_protection_class(armor_amount)]</td></tr>" //e.g. BOMB IV
 		if(LAZYLEN(durability_list))
 			readout += "<tr><b>СТОЙКОСТЬ:</b></tr>"
 			for(var/dam_type in durability_list)
 				var/durability_amount = durability_list[dam_type]
-				readout += "<tr>\t[dam_type]</tr><tr>[armor_to_protection_class(durability_amount)]</tr>" //e.g. FIRE II
+				readout += "<tr><td>\t[dam_type]</td><td>[armor_to_protection_class(durability_amount)]</td></tr>" //e.g. FIRE II
 		readout += "</span><table>"
 
 		to_chat(usr, "[readout.Join()]")
