@@ -6,10 +6,12 @@
 /datum/species/android/athena
 	name = "Athena"
 	id = "athena"
+	limbs_id = null
 
 /datum/species/android/athena/on_species_gain(mob/living/carbon/C)
-	C.draw_white_parts()
 	. = ..()
+	C.draw_white_parts()
+	C.update_body()
 
 /mob/living/carbon/proc/draw_white_parts(undo = FALSE)
 	if(!undo)
