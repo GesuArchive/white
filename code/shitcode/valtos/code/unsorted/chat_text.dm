@@ -19,7 +19,7 @@
 
 	return ..()
 
-/obj/effect/chat_text/New(var/atom/desired_loc,var/desired_text,var/bypass_length=FALSE)
+/obj/effect/chat_text/New(var/atom/desired_loc, var/desired_text, var/bypass_length=FALSE)
 
 	owner = desired_loc
 
@@ -40,7 +40,7 @@
 	if(!bypass_length && length(desired_text) >= 52) //52 is a magic number because reasons.
 		desired_text = copytext_char(desired_text,1,52) + "..."
 
-	maptext = "<center><font color='white' style='-dm-text-outline: 1 black'>[html_decode(desired_text)]</font></center>"
+	maptext = "<center><font color='white' style='text-shadow: 0 0 1px black;'>[html_decode(desired_text)]</font></center>"
 
 	spawn(50)
 		animate(src,alpha=0,time=10)
