@@ -141,7 +141,7 @@
 
 	var/list/dat = list()
 	dat +="<div class='statusDisplay' style='text-align:center'>"
-	dat += "<b><A href='?src=[REF(src)];action=toggle'>[!active ? "СТОП" : "СТАРТ"]<b></A><br>"
+	dat += "<b><A href='?src=[REF(src)];action=toggle'>[!active ? "СТАРТ" : "СТОП"]<b></A><br>"
 	dat += "</div><br>"
 	dat += "<A href='?src=[REF(src)];action=select'> Выбрать трек</A><br>"
 	dat += "<A href='?src=[REF(src)];action=volume'> Громкость</A><br>"
