@@ -83,6 +83,8 @@
 	/// Last appearance of the atom for demo saving purposes
 	var/image/demo_last_appearance
 
+	var/list/stored_chat_text = list() //experiment
+
 /**
   * Called when an atom is created in byond (built in engine proc)
   *
