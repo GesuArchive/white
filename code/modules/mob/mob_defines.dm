@@ -210,5 +210,3 @@
 	var/list/emotes_used
 
 	vis_flags = VIS_INHERIT_PLANE //when this be added to vis_contents of something it inherit something.plane, important for visualisation of mob in openspace.
-
-	var/list/stored_chat_text = list() //experiment
