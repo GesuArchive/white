@@ -84,6 +84,7 @@
 	var/image/demo_last_appearance
 
 	var/list/stored_chat_text = list() //experiment
+	var/name_color = ""
 
 /**
   * Called when an atom is created in byond (built in engine proc)
