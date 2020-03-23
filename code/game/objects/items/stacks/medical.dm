@@ -1,6 +1,6 @@
 /obj/item/stack/medical
-	name = "medical pack"
-	singular_name = "medical pack"
+	name = "медипак"
+	singular_name = "медипак"
 	icon = 'icons/obj/stack_objects.dmi'
 	amount = 6
 	max_amount = 6
@@ -27,12 +27,12 @@
 		return
 	if(M == user)
 		if(!silent)
-			user.visible_message("<span class='notice'>[user] starts to apply \the [src] on [user.p_them()]self...</span>", "<span class='notice'>You begin applying \the [src] on yourself...</span>")
+			user.visible_message("<span class='notice'><b>[user]</b> начинает применять <b>[src]</b> на себе...</span>", "<span class='notice'>Начинаю применять <b>[src]</b> на себе...</span>")
 		if(!do_mob(user, M, self_delay, extra_checks=CALLBACK(M, /mob/living/proc/can_inject, user, TRUE)))
 			return
 	else if(other_delay)
 		if(!silent)
-			user.visible_message("<span class='notice'>[user] starts to apply \the [src] on [M].</span>", "<span class='notice'>You begin applying \the [src] on [M]...</span>")
+			user.visible_message("<span class='notice'><b>[user]</b> начинает прмиенять <b>[src]</b> на <b>[M]</b>.</span>", "<span class='notice'>Начинаю применять <b>[src]</b> на <b>[M]</b>...</span>")
 		if(!do_mob(user, M, other_delay, extra_checks=CALLBACK(M, /mob/living/proc/can_inject, user, TRUE)))
 			return
 
@@ -49,13 +49,13 @@
 /obj/item/stack/medical/proc/heal_carbon(mob/living/carbon/C, mob/user, brute, burn)
 	var/obj/item/bodypart/affecting = C.get_bodypart(check_zone(user.zone_selected))
 	if(!affecting) //Missing limb?
-		to_chat(user, "<span class='warning'>[C] doesn't have \a [parse_zone(user.zone_selected)]!</span>")
+		to_chat(user, "<span class='warning'>А у <b>[C]</b> совсем отсутствует <b>[ru_exam_parse_zone(parse_zone(user.zone_selected))]</b>!</span>")
 		return
 	if(affecting.status != BODYPART_ORGANIC) //Limb must be organic to be healed - RR
-		to_chat(user, "<span class='warning'>\The [src] won't work on a robotic limb!</span>")
+		to_chat(user, "<span class='warning'><b>[src]</b> не будет работать на механической конечности!</span>")
 		return
 	if(affecting.brute_dam && brute || affecting.burn_dam && burn)
-		user.visible_message("<span class='green'>[user] applies \the [src] on [C]'s [affecting.name].</span>", "<span class='green'>You apply \the [src] on [C]'s [affecting.name].</span>")
+		user.visible_message("<span class='green'><b>[user]</b> применяет <b>[sklonenie(src.name, VINITELNI, src.gender)]</b> на <b>[affecting.name] [C]</b>.</span>", "<span class='green'>Применяю <b>[sklonenie(src.name, VINITELNI, src.gender)]</b> на <b>[affecting.name] [C]</b>.</span>")
 		var/brute2heal = brute
 		var/burn2heal = burn
 		var/skill_mod = user?.mind?.get_skill_modifier(/datum/skill/medical, SKILL_SPEED_MODIFIER)
@@ -65,13 +65,13 @@
 		if(affecting.heal_damage(brute2heal, burn2heal))
 			C.update_damage_overlays()
 		return TRUE
-	to_chat(user, "<span class='warning'>[C]'s [affecting.name] can not be healed with \the [src]!</span>")
+	to_chat(user, "<span class='warning'><b>[capitalize(affecting.name)] [C]</b> не может быть вылечена при помощи [src]!</span>")
 
 
 /obj/item/stack/medical/bruise_pack
-	name = "bruise pack"
-	singular_name = "bruise pack"
-	desc = "A therapeutic gel pack and bandages designed to treat blunt-force trauma."
+	name = "гель и пластыри"
+	singular_name = "гель и пластыри"
+	desc = "Терапевтический гель и пластыри, предназначенные для лечения травм."
 	icon_state = "brutepack"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -81,32 +81,32 @@
 
 /obj/item/stack/medical/bruise_pack/heal(mob/living/M, mob/user)
 	if(M.stat == DEAD)
-		to_chat(user, "<span class='warning'>[M] is dead! You can not help [M.p_them()].</span>")
+		to_chat(user, "<span class='warning'><b>[M]</b> совсем мёртв! Одним пластырем тут не обойтись.</span>")
 		return
 	if(isanimal(M))
 		var/mob/living/simple_animal/critter = M
 		if (!(critter.healable))
-			to_chat(user, "<span class='warning'>You cannot use \the [src] on [M]!</span>")
+			to_chat(user, "<span class='warning'>Не могу использовать <b>[src]</b> на <b>[M]</b>!</span>")
 			return FALSE
 		else if (critter.health == critter.maxHealth)
-			to_chat(user, "<span class='notice'>[M] is at full health.</span>")
+			to_chat(user, "<span class='notice'><b>[M]</b> и так в полном здравии.</span>")
 			return FALSE
-		user.visible_message("<span class='green'>[user] applies \the [src] on [M].</span>", "<span class='green'>You apply \the [src] on [M].</span>")
+		user.visible_message("<span class='green'><b>[user]</b> применяет <b>[sklonenie(src.name, VINITELNI, src.gender)]</b> на <b>[M]</b>.</span>", "<span class='green'>Применяю <b>[sklonenie(src.name, VINITELNI, src.gender)]</b> на <b>[M]</b>.</span>")
 		M.heal_bodypart_damage((heal_brute/2))
 		return TRUE
 	if(iscarbon(M))
 		return heal_carbon(M, user, heal_brute, 0)
-	to_chat(user, "<span class='warning'>You can't heal [M] with the \the [src]!</span>")
+	to_chat(user, "<span class='warning'>Не могу лечить <b>[M]</b> при помощи <b>геля и бинтов</b>!</span>")
 
 /obj/item/stack/medical/bruise_pack/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] is bludgeoning [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return (BRUTELOSS)
 
 /obj/item/stack/medical/gauze
-	name = "medical gauze"
-	desc = "A roll of elastic cloth that is extremely effective at stopping bleeding, but does not heal wounds."
+	name = "медицинский бинт"
+	desc = "Рулон эластичной ткани, который чрезвычайно эффективен при остановке кровотечения, но не заживает раны."
 	gender = PLURAL
-	singular_name = "medical gauze"
+	singular_name = "медицинская марля"
 	icon_state = "gauze"
 	var/stop_bleeding = 1800
 	self_delay = 20
@@ -122,19 +122,19 @@
 		var/mob/living/carbon/human/H = M
 		if(!H.bleedsuppress && H.bleed_rate) //so you can't stack bleed suppression
 			H.suppress_bloodloss(stop_bleeding)
-			to_chat(user, "<span class='notice'>You stop the bleeding of [M]!</span>")
+			to_chat(user, "<span class='notice'>Останавливаю кровотечение у <b>[M]</b>!</span>")
 			return TRUE
-	to_chat(user, "<span class='warning'>You can not use \the [src] on [M]!</span>")
+	to_chat(user, "<span class='warning'>Не могу использовать <b>[src]</b> на <b>[M]</b>!</span>")
 
 /obj/item/stack/medical/gauze/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_WIRECUTTER || I.get_sharpness())
 		if(get_amount() < 2)
-			to_chat(user, "<span class='warning'>You need at least two gauzes to do this!</span>")
+			to_chat(user, "<span class='warning'>На как минимум два кусочка бинта!</span>")
 			return
 		new /obj/item/stack/sheet/cloth(user.drop_location())
-		user.visible_message("<span class='notice'>[user] cuts [src] into pieces of cloth with [I].</span>", \
-					 "<span class='notice'>You cut [src] into pieces of cloth with [I].</span>", \
-					 "<span class='hear'>You hear cutting.</span>")
+		user.visible_message("<span class='notice'><b>[user]</b> нарезает <b>[src]</b> на куски ткани при помощи <b>[I]</b>.</span>", \
+					 "<span class='notice'>Нарезаю <b>[src]</b> на куски ткани при помощи <b>[I]</b>.</span>", \
+					 "<span class='hear'>Слышу как что-то режет ткань.</span>")
 		use(2)
 	else
 		return ..()
@@ -144,9 +144,9 @@
 	return OXYLOSS
 
 /obj/item/stack/medical/gauze/improvised
-	name = "improvised gauze"
-	singular_name = "improvised gauze"
-	desc = "A roll of cloth roughly cut from something that can stop bleeding, but does not heal wounds."
+	name = "импровизированный бинт"
+	singular_name = "импровизированный бинт"
+	desc = "Рулон ткани грубо отрезан от чего-то, что может остановить кровотечение, но не заживает раны."
 	stop_bleeding = 900
 
 /obj/item/stack/medical/gauze/cyborg
@@ -155,10 +155,10 @@
 	cost = 250
 
 /obj/item/stack/medical/ointment
-	name = "ointment"
-	desc = "Used to treat those nasty burn wounds."
-	gender = PLURAL
-	singular_name = "ointment"
+	name = "мазь"
+	desc = "Используется для лечения этих неприятных ожоговых ран."
+	gender = FEMALE
+	singular_name = "мазь"
 	icon_state = "ointment"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -168,21 +168,21 @@
 
 /obj/item/stack/medical/ointment/heal(mob/living/M, mob/user)
 	if(M.stat == DEAD)
-		to_chat(user, "<span class='warning'>[M] is dead! You can not help [M.p_them()].</span>")
+		to_chat(user, "<span class='warning'><b>[M]</b> совсем мёртв! Одной мазью тут не обойтись.</span>")
 		return
 	if(iscarbon(M))
 		return heal_carbon(M, user, 0, heal_burn)
-	to_chat(user, "<span class='warning'>You can't heal [M] with the \the [src]!</span>")
+	to_chat(user, "<span class='warning'>Не могу лечить <b>[M]</b> при помощи <b>мази</b>!</span>")
 
 /obj/item/stack/medical/ointment/suicide_act(mob/living/user)
 	user.visible_message("<span class='suicide'>[user] is squeezing \the [src] into [user.p_their()] mouth! [user.p_do(TRUE)]n't [user.p_they()] know that stuff is toxic?</span>")
 	return TOXLOSS
 
 /obj/item/stack/medical/suture
-	name = "suture"
-	desc = "Sterile sutures used to seal up cuts and lacerations."
-	gender = PLURAL
-	singular_name = "suture"
+	name = "хирургическая нить"
+	desc = "Стерильные швы используются для герметизации порезов и разрывов."
+	gender = FEMALE
+	singular_name = "нить"
 	icon_state = "suture"
 	self_delay = 30
 	other_delay = 10
@@ -193,38 +193,38 @@
 	grind_results = list(/datum/reagent/medicine/spaceacillin = 2)
 
 /obj/item/stack/medical/suture/medicated
-	name = "medicated suture"
+	name = "лечебная хирургическая нить"
 	icon_state = "suture_purp"
-	desc = "A suture infused with drugs that speed up wound healing of the treated laceration."
+	desc = "Нить, наполненная лекарственными средствами, ускоряющими заживление раны на обработанной ране."
 	heal_brute = 15
 	grind_results = list(/datum/reagent/medicine/polypyr = 2)
 
 /obj/item/stack/medical/suture/heal(mob/living/M, mob/user)
 	. = ..()
 	if(M.stat == DEAD)
-		to_chat(user, "<span class='warning'>[M] is dead! You can not help [M.p_them()].</span>")
+		to_chat(user, "<span class='warning'><b>[M]</b> совсем мёртв! Одной иглой тут не обойтись.</span>")
 		return
 	if(iscarbon(M))
 		return heal_carbon(M, user, heal_brute, 0)
 	if(isanimal(M))
 		var/mob/living/simple_animal/critter = M
 		if (!(critter.healable))
-			to_chat(user, "<span class='warning'>You cannot use \the [src] on [M]!</span>")
+			to_chat(user, "<span class='warning'>Не могу использовать <b>[src]</b> на <b>[M]</b>!</span>")
 			return FALSE
 		else if (critter.health == critter.maxHealth)
-			to_chat(user, "<span class='notice'>[M] is at full health.</span>")
+			to_chat(user, "<span class='notice'><b>[M]</b> в полном здравии.</span>")
 			return FALSE
-		user.visible_message("<span class='green'>[user] applies \the [src] on [M].</span>", "<span class='green'>You apply \the [src] on [M].</span>")
+		user.visible_message("<span class='green'><b>[user]</b> применяет <b>[sklonenie(src.name, VINITELNI, src.gender)]</b> на <b>[M]</b>.</span>", "<span class='green'>Применяю <b>[sklonenie(src.name, VINITELNI, src.gender)]</b> на <b>[M]</b>.</span>")
 		M.heal_bodypart_damage(heal_brute)
 		return TRUE
 
-	to_chat(user, "<span class='warning'>You can't heal [M] with the \the [src]!</span>")
+	to_chat(user, "<span class='warning'>Не могу лечить <b>[M]</b> при помощи <b>хирургической нити</b>!</span>")
 
 /obj/item/stack/medical/mesh
-	name = "regenerative mesh"
-	desc = "A bacteriostatic mesh used to dress burns."
+	name = "регенеративная сетка"
+	desc = "Бактериостатическая сетка используется для прижигания ожогов."
 	gender = PLURAL
-	singular_name = "regenerative mesh"
+	singular_name = "регенеративная сетка"
 	icon_state = "regen_mesh"
 	self_delay = 30
 	other_delay = 10
@@ -250,46 +250,46 @@
 /obj/item/stack/medical/mesh/heal(mob/living/M, mob/user)
 	. = ..()
 	if(M.stat == DEAD)
-		to_chat(user, "<span class='warning'>[M] is dead! You can not help [M.p_them()].</span>")
+		to_chat(user, "<span class='warning'><b>[M]</b> совсем мёртв! Одной сеткой тут не обойтись.</span>")
 		return
 	if(iscarbon(M))
 		return heal_carbon(M, user, 0, heal_burn)
-	to_chat(user, "<span class='warning'>You can't heal [M] with the \the [src]!</span>")
+	to_chat(user, "<span class='warning'>Не могу лечить <b>[M]</b> при помощи <b>регенеративной сетки</b>!</span>")
 
 
 /obj/item/stack/medical/mesh/try_heal(mob/living/M, mob/user, silent = FALSE)
 	if(!is_open)
-		to_chat(user, "<span class='warning'>You need to open [src] first.</span>")
+		to_chat(user, "<span class='warning'>Надо бы открыть <b>[src]</b> сначала.</span>")
 		return
 	. = ..()
 
 /obj/item/stack/medical/mesh/AltClick(mob/living/user)
 	if(!is_open)
-		to_chat(user, "<span class='warning'>You need to open [src] first.</span>")
+		to_chat(user, "<span class='warning'>Надо бы открыть <b>[src]</b> сначала.</span>")
 		return
 	. = ..()
 
 /obj/item/stack/medical/mesh/attack_hand(mob/user)
 	if(!is_open & user.get_inactive_held_item() == src)
-		to_chat(user, "<span class='warning'>You need to open [src] first.</span>")
+		to_chat(user, "<span class='warning'>Надо бы открыть <b>[src]</b> сначала.</span>")
 		return
 	. = ..()
 
 /obj/item/stack/medical/mesh/attack_self(mob/user)
 	if(!is_open)
 		is_open = TRUE
-		to_chat(user, "<span class='notice'>You open the sterile mesh package.</span>")
+		to_chat(user, "<span class='notice'>Открываю стерильную упаковку сетки.</span>")
 		update_icon()
 		playsound(src, 'sound/items/poster_ripped.ogg', 20, TRUE)
 		return
 	. = ..()
 
 /obj/item/stack/medical/mesh/advanced
-	name = "advanced regenerative mesh"
-	desc = "An advanced mesh made with aloe extracts and sterilizing chemicals, used to treat burns."
+	name = "продвинутая регенеративная сетка"
+	desc = "Передовая сетка из экстрактов алоэ и стерилизующих химикатов, используемых для лечения ожогов."
 
-	gender = PLURAL
-	singular_name = "advanced regenerative mesh"
+	gender = FEMALE
+	singular_name = "продвинутая регенеративная сетка"
 	icon_state = "aloe_mesh"
 	heal_burn = 15
 	grind_results = list(/datum/reagent/consumable/aloejuice = 1)
@@ -301,8 +301,8 @@
 		return ..()
 
 /obj/item/stack/medical/aloe
-	name = "aloe cream"
-	desc = "A healing paste you can apply on wounds."
+	name = "крем алоэ"
+	desc = "Целебную пасту можно наносить на раны."
 
 	icon_state = "aloe_paste"
 	self_delay = 20
@@ -316,23 +316,23 @@
 /obj/item/stack/medical/aloe/heal(mob/living/M, mob/user)
 	. = ..()
 	if(M.stat == DEAD)
-		to_chat(user, "<span class='warning'>[M] is dead! You can not help [M.p_them()].</span>")
+		to_chat(user, "<span class='warning'><b>[M]</b> совсем мёртв! Одной сеткой тут не обойтись.</span>")
 		return FALSE
 	if(iscarbon(M))
 		return heal_carbon(M, user, heal, heal)
 	if(isanimal(M))
 		var/mob/living/simple_animal/critter = M
 		if (!(critter.healable))
-			to_chat(user, "<span class='warning'>You cannot use \the [src] on [M]!</span>")
+			to_chat(user, "<span class='warning'>Не могу использовать <b>[src]</b> на <b>[M]</b>!</span>")
 			return FALSE
 		else if (critter.health == critter.maxHealth)
-			to_chat(user, "<span class='notice'>[M] is at full health.</span>")
+			to_chat(user, "<span class='notice'><b>[M]</b> в полном здравии.</span>")
 			return FALSE
-		user.visible_message("<span class='green'>[user] applies \the [src] on [M].</span>", "<span class='green'>You apply \the [src] on [M].</span>")
+		user.visible_message("<span class='green'><b>[user]</b> применяет <b>[sklonenie(src.name, VINITELNI, src.gender)]</b> на <b>[M]</b>.</span>", "<span class='green'>Применяю <b>[sklonenie(src.name, VINITELNI, src.gender)]</b> на <b>[M]</b>.</span>")
 		M.heal_bodypart_damage(heal, heal)
 		return TRUE
 
-	to_chat(user, "<span class='warning'>You can't heal [M] with the \the [src]!</span>")
+	to_chat(user, "<span class='warning'>Не могу лечить <b>[M]</b> при помощи <b>крема алоэ</b>!</span>")
 
 
 	/*
