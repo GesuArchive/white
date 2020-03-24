@@ -34,7 +34,7 @@
 
 /datum/reagent/blob/pressurized_slime
 	name = "Pressurized Slime"
-	taste_description = "a sponge"
+	taste_description = "губка"
 	color = "#AAAABB"
 
 /datum/reagent/blob/pressurized_slime/reaction_mob(mob/living/M, method=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/O)

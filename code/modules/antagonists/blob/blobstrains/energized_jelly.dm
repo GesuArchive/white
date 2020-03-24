@@ -23,7 +23,7 @@
 
 /datum/reagent/blob/energized_jelly
 	name = "Energized Jelly"
-	taste_description = "gelatin"
+	taste_description = "желатин"
 	color = "#EFD65A"
 
 /datum/reagent/blob/energized_jelly/reaction_mob(mob/living/M, method=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/O)

@@ -26,7 +26,7 @@
 
 /datum/reagent/blob/synchronous_mesh
 	name = "Synchronous Mesh"
-	taste_description = "toxic mold"
+	taste_description = "токсичная плесень"
 	color = "#65ADA2"
 
 /datum/reagent/blob/synchronous_mesh/reaction_mob(mob/living/M, method=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/O)

@@ -10,7 +10,7 @@
 	name = "Helbital"
 	description = "Named after the norse goddess Hel, this medicine heals the patient's bruises the closer they are to death. Patients will find the medicine 'aids' their healing if not near death by causing asphyxiation."
 	color = "#9400D3"
-	taste_description = "cold and lifeless"
+	taste_description = "холод и безжизненность"
 	overdose_threshold = 35
 	reagent_state = SOLID
 	var/helbent = FALSE
@@ -82,7 +82,7 @@
 	name = "Libital"
 	description = "A bruise reliever. Does minor liver damage."
 	color = "#ECEC8D" // rgb: 236	236	141
-	taste_description = "bitter with a hint of alcohol"
+	taste_description = "горький с оттенком алкоголя"
 	reagent_state = SOLID
 
 /datum/reagent/medicine/C2/libital/on_mob_life(mob/living/carbon/M)

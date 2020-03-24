@@ -21,7 +21,7 @@
 
 /datum/reagent/blob/reactive_spines
 	name = "Reactive Spines"
-	taste_description = "rock"
+	taste_description = "камень"
 	color = "#9ACD32"
 
 /datum/reagent/blob/reactive_spines/reaction_mob(mob/living/M, method=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/O)

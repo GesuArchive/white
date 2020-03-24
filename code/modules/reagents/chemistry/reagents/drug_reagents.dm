@@ -1,7 +1,7 @@
 /datum/reagent/drug
 	name = "Drug"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
-	taste_description = "bitterness"
+	taste_description = "горечь"
 	var/trippy = TRUE //Does this drug make you trip?
 
 /datum/reagent/drug/on_mob_end_metabolize(mob/living/M)
@@ -38,7 +38,7 @@
 	reagent_state = LIQUID
 	color = "#60A584" // rgb: 96, 165, 132
 	addiction_threshold = 10
-	taste_description = "smoke"
+	taste_description = "дым"
 	trippy = FALSE
 	overdose_threshold=15
 	metabolization_rate = 0.125 * REAGENTS_METABOLISM
@@ -252,7 +252,7 @@
 	color = "#FAFAFA"
 	overdose_threshold = 20
 	addiction_threshold = 10
-	taste_description = "salt" // because they're bathsalts?
+	taste_description = "соль" // because they're bathsalts?
 	var/datum/brain_trauma/special/psychotic_brawling/bath_salts/rage
 
 /datum/reagent/drug/bath_salts/on_mob_metabolize(mob/living/L)
@@ -370,7 +370,7 @@
 	color = "#EE35FF"
 	addiction_threshold = 10
 	overdose_threshold = 20
-	taste_description = "paint thinner"
+	taste_description = "растворитель для краски"
 
 /datum/reagent/drug/happiness/on_mob_metabolize(mob/living/L)
 	..()

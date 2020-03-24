@@ -4,7 +4,7 @@
     description = "Они называют меня газообразной глиной."
     color = "#bfe8a7" // rgb: 191, 232, 167
     metabolization_rate = 0.9 * REAGENTS_METABOLISM
-    taste_description = "wet hot dogs"
+    taste_description = "мокрые хот-доги"
 
 /datum/reagent/drug/burpinate/on_mob_life(mob/living/M)
     if(ishuman(M))
@@ -266,7 +266,7 @@
 	description = "Сок очень особенных фруктов, концентрированный и продаваемый у вашего местного продавца А1."
 	color = "#ffffe6"
 	reagent_state = LIQUID
-	taste_description = "artificial grape"
+	taste_description = "искусственный виноград"
 	var/obj/effect/hallucination/simple/druggy/brain
 	var/bad_trip = FALSE
 	var/badtrip_cooldown = 0

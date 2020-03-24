@@ -84,7 +84,7 @@
 	name = "Razrivozhopoebin"
 	description = "FUCK!"
 	color = "#f0f0f0"
-	taste_description = "cum"
+	taste_description = "смерма"
 
 /datum/chemical_reaction/reagent_explosion/razrivozhopoebin
 	results = list(/datum/reagent/razrivozhopoebin = 4)

@@ -4,7 +4,7 @@
 	color = "#880000"
 	nutriment_factor = 1 * REAGENTS_METABOLISM
 	boozepwr = 75
-	taste_description = "berry and Russia"
+	taste_description = "вишня и Россия"
 	glass_name = "glass of boyar"
 	glass_desc = "Glass of berry alcohol. "
 

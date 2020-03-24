@@ -989,11 +989,11 @@
 				var/percent = tastes[taste_desc]/total_taste * 100
 				if(percent < minimum_percent)
 					continue
-				var/intensity_desc = "a hint of"
+				var/intensity_desc = "намек на"
 				if(percent > minimum_percent * 2 || percent == 100)
 					intensity_desc = ""
 				else if(percent > minimum_percent * 3)
-					intensity_desc = "the strong flavor of"
+					intensity_desc = "сильный аромат"
 				if(intensity_desc != "")
 					out += "[intensity_desc] [taste_desc]"
 				else

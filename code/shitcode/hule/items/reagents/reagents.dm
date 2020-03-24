@@ -3,7 +3,7 @@
 	description = "A powerful psychotic toxin. Can cause a personality split."
 	color = "#00FF00"
 	toxpwr = 0
-	taste_description = "sourness"
+	taste_description = "кислотность"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
 
 /datum/reagent/toxin/hyperpsy/on_mob_add(mob/M)
@@ -34,7 +34,7 @@
 	description = "Powerful toxin that causes paralysis."
 	color = "#0064C8"
 	toxpwr = 0
-	taste_description = "laifweeb"
+	taste_description = "лайфвеб"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
 
 /datum/reagent/toxin/nptox/on_mob_add(mob/M)

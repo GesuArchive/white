@@ -34,7 +34,7 @@
 	description = "Говно?"
 	color = "#4B3320"
 	toxpwr = 2.5
-	taste_description = "poo"
+	taste_description = "говно"
 
 /datum/reagent/toxin/poo/on_mob_life(mob/living/carbon/C)
 	C.adjustPlasma(1)

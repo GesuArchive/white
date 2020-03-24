@@ -28,7 +28,7 @@
 //does massive brute and burn damage, but can only expand manually
 /datum/reagent/blob/networked_fibers
 	name = "Networked Fibers"
-	taste_description = "efficiency"
+	taste_description = "эффективность"
 	color = "#4F4441"
 
 /datum/reagent/blob/networked_fibers/reaction_mob(mob/living/M, method=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/O)
