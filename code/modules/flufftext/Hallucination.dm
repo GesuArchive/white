@@ -239,8 +239,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 /obj/effect/hallucination/simple/xeno/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	update_icon("alienh_pounce")
 	if(hit_atom == target && target.stat!=DEAD)
-		var/mob/living/carbon/human/TA = target
-		TA.Paralyze(100)
+		target.Paralyze(100)
 		target.visible_message("<span class='danger'>[target] flails around wildly.</span>","<span class='userdanger'>[name] pounces on you!</span>")
 
 /datum/hallucination/xeno_attack
@@ -327,9 +326,8 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		shake_camera(target, 2, 1)
 		if(bubblegum.Adjacent(target) && !charged)
 			charged = TRUE
-			var/mob/living/carbon/human/TA = target
-			TA.Paralyze(80)
-			TA.adjustStaminaLoss(40)
+			target.Paralyze(80)
+			target.adjustStaminaLoss(40)
 			step_away(target, bubblegum)
 			shake_camera(target, 4, 3)
 			target.visible_message("<span class='warning'>[target] jumps backwards, falling on the ground!</span>","<span class='userdanger'>[bubblegum] slams into you!</span>")
@@ -1103,8 +1101,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 /obj/effect/hallucination/danger/lava/Crossed(atom/movable/AM)
 	. = ..()
 	if(AM == target)
-		var/mob/living/carbon/human/TA = target
-		TA.adjustStaminaLoss(20)
+		target.adjustStaminaLoss(20)
 		new /datum/hallucination/fire(target)
 
 /obj/effect/hallucination/danger/chasm
@@ -1121,8 +1118,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		if(istype(target, /obj/effect/dummy/phased_mob))
 			return
 		to_chat(target, "<span class='userdanger'>You fall into the chasm!</span>")
-		var/mob/living/carbon/human/TA = target
-		TA.Paralyze(40)
+		target.Paralyze(40)
 		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, target, "<span class='notice'>It's surprisingly shallow.</span>"), 15)
 		QDEL_IN(src, 30)
 
