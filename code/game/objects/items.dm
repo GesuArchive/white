@@ -221,7 +221,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 /obj/item/examine(mob/user) //This might be spammy. Remove?
 	. = ..()
 
-	. += "Это [weightclass2text(w_class)] предмет."
+	. += "Это [weightclass2text(w_class)] размера предмет."
 
 	if(resistance_flags & INDESTRUCTIBLE)
 		. += "[src] выглядит сверхкрепким и практически неуязвимым!"

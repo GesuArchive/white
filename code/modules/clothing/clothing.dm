@@ -135,7 +135,7 @@
 		if (pockets.can_hold?.len) // If pocket type can hold anything, vs only specific items
 			how_cool_are_your_threads += "[src] может хранить [pockets.max_items] <a href='?src=[REF(src)];show_valid_pocket_items=1'>предметов</a>.\n"
 		else
-			how_cool_are_your_threads += "[src] может хранить [pockets.max_items] размера [weightclass2text(pockets.max_w_class)] или меньше.\n"
+			how_cool_are_your_threads += "[src] может хранить [pockets.max_items] [weightclass2text(pockets.max_w_class)] размера или меньше.\n"
 		if(pockets.quickdraw)
 			how_cool_are_your_threads += "Могу быстро вытащить предмет из [src] используя Alt-Клик.\n"
 		if(pockets.silent)

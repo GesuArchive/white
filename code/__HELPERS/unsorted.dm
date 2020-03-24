@@ -1293,17 +1293,17 @@ GLOBAL_REAL_VAR(list/stack_trace_storage)
 /proc/weightclass2text(var/w_class)
 	switch(w_class)
 		if(WEIGHT_CLASS_TINY)
-			. = "ничтожный"
+			. = "маленького"
 		if(WEIGHT_CLASS_SMALL)
-			. = "небольшой"
+			. = "небольшого"
 		if(WEIGHT_CLASS_NORMAL)
-			. = "средний"
+			. = "средннего"
 		if(WEIGHT_CLASS_BULKY)
-			. = "большой"
+			. = "большого"
 		if(WEIGHT_CLASS_HUGE)
-			. = "огромный"
+			. = "огромного"
 		if(WEIGHT_CLASS_GIGANTIC)
-			. = "гигантский"
+			. = "гигантского"
 		else
 			. = ""
 
