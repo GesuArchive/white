@@ -37,7 +37,7 @@
 	maptext_x = -(maptext_width-32)*0.5
 	maptext_y = 32*0.75
 
-	if(!bypass_length && length(desired_text) >= 52) //52 is a magic number because reasons.
+	if(!bypass_length && length_char(desired_text) >= 52) //52 is a magic number because reasons.
 		desired_text = copytext_char(desired_text,1,52) + "..."
 
 	maptext = "<center><font color='white' style='text-shadow: 0 0 3px black;'>[html_decode(desired_text)]</font></center>"
