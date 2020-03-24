@@ -5,7 +5,7 @@
 
 /datum/species/android/athena
 	name = "Athena"
-	id = "athena"
+	id = "athena_s"
 	limbs_id = null
 
 /datum/species/android/athena/on_species_gain(mob/living/carbon/C)

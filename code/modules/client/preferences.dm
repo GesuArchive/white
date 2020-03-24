@@ -1319,8 +1319,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 					var/list/custom_races = list()
 
-					if(user.key == "WoofWoof322" || user.key == "Valtosss")
-						custom_races += "athena"
+					if(user.key == "WoofWoof322")
+						custom_races += "athena_s"
 
 					var/result = input(user, "Select a species", "Species Selection") as null|anything in GLOB.roundstart_races + custom_races
 
