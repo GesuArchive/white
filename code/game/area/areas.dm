@@ -574,6 +574,9 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!L.ckey)
 		return
 
+	if(prob(15))
+		L.name_color = pick(GLOB.safe_name_colors)
+
 	// Ambience goes down here -- make sure to list each area separately for ease of adding things in later, thanks! Note: areas adjacent to each other should have the same sounds to prevent cutoff when possible.- LastyScratch
 	if(L.client && !L.client.ambience_playing && L.client.prefs.toggles & SOUND_SHIP_AMBIENCE)
 		L.client.ambience_playing = 1
@@ -586,7 +589,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		var/sound = pick(ambientsounds)
 
 		if(!L.client.played)
-			SEND_SOUND(L, sound(sound, repeat = TRUE, wait = 0, volume = 7, channel = CHANNEL_AMBIENCE))
+			SEND_SOUND(L, sound(sound, repeat = TRUE, wait = 0, volume = 5, channel = CHANNEL_AMBIENCE))
 			L.client.played = TRUE
 			addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), 7200)
 
