@@ -1,6 +1,6 @@
 // source - https://github.com/BurgerLUA/burgerstation/blob/2eb9553859cf3491d1170316dbf658da454bbcb1/code/_core/obj/overlay/chat_text.dm
 
-/obj/effect/hallucination/chat_text
+/obj/effect/chat_text
 	name = "overlay"
 	desc = "overlay object"
 	plane = 23
@@ -11,7 +11,7 @@
 
 	mouse_opacity = 0
 
-/obj/effect/hallucination/chat_text/Destroy()
+/obj/effect/chat_text/Destroy()
 
 	if(owner)
 		owner.stored_chat_text -= src
@@ -19,15 +19,11 @@
 
 	return ..()
 
-/obj/effect/hallucination/chat_text/New(mob/T, var/atom/desired_loc, var/desired_text, var/datum/language, var/bypass_length = FALSE)
-
-	desired_text = lang_treat(desired_loc, language, desired_text)
-
-	target = T
+/obj/effect/chat_text/New(var/atom/desired_loc, var/desired_text, var/bypass_length=FALSE)
 
 	owner = desired_loc
 
-	for(var/obj/effect/hallucination/chat_text/CT in owner.stored_chat_text)
+	for(var/obj/effect/chat_text/CT in owner.stored_chat_text)
 		animate(CT,pixel_y = CT.pixel_y + 8,time = 5)
 
 	owner.stored_chat_text += src

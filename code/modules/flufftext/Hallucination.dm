@@ -81,7 +81,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 /obj/effect/hallucination
 	invisibility = INVISIBILITY_OBSERVER
 	anchored = TRUE
-	var/mob/target = null
+	var/mob/living/carbon/target = null
 
 /obj/effect/hallucination/simple
 	var/image_icon = 'icons/mob/alien.dmi'

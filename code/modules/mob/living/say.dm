@@ -224,6 +224,8 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	proverka_na_detey(message, src)
 
+	new /obj/effect/chat_text(src, message)
+
 	send_speech(message, message_range, src, bubble_type, spans, language, message_mode)
 
 	if(succumbed)
@@ -246,8 +248,6 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	else
 		deaf_message = "<span class='notice'>Я не слышу себя!</span>"
 		deaf_type = 2 // Since you should be able to hear yourself without looking
-
-	new /obj/effect/hallucination/chat_text(src, speaker, raw_message, message_language)
 
 	// Recompose message for AI hrefs, language incomprehension.
 	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mode)
