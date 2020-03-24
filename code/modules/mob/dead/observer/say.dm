@@ -38,6 +38,9 @@
 		else
 			to_follow = V.source
 	var/link = FOLLOW_LINK(src, to_follow)
+
+	new /obj/effect/hallucination/chat_text(src, speaker, raw_message, message_language)
+
 	// Recompose the message, because it's scrambled by default
 	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mode)
 	to_chat(src, "[link] [message]")

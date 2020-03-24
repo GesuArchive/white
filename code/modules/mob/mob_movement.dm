@@ -150,7 +150,7 @@
 	if(P && !ismob(P) && P.density)
 		mob.setDir(turn(mob.dir, 180))
 
-	for(var/obj/effect/chat_text/CT in mob.stored_chat_text)
+	for(var/obj/effect/hallucination/chat_text/CT in mob.stored_chat_text)
 		CT.glide_size = mob.glide_size
 		CT.forceMove(mob.loc)
 
