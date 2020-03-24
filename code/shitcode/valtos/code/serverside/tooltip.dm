@@ -13,7 +13,8 @@
 /obj/screen/tooltip
 	name = ""
 	screen_loc = "SOUTH+1,CENTER-4:16"
-	maptext_width = 256
+	maptext_width = 480
+	maptext_x = -112
 	maptext_y = 16
 	layer = 23
 	plane = 23
