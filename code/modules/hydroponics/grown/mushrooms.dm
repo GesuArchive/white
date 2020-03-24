@@ -329,7 +329,7 @@
 	desc = "<I>Mycena Umbra</I>: This species of mushroom emits shadow instead of light."
 	icon_state = "shadowshroom"
 	effect_path = /obj/structure/glowshroom/shadowshroom
-	tastes = list("shadow" = 1, "mushroom" = 1)
+	tastes = list("shadow" = 1, "грибы" = 1)
 	wine_power = 60
 
 /obj/item/reagent_containers/food/snacks/grown/mushroom/glowshroom/shadowshroom/attack_self(mob/user)

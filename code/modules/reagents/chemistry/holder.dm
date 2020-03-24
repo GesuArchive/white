@@ -999,7 +999,7 @@
 				else
 					out += "[taste_desc]"
 
-	return english_list(out, "something indescribable")
+	return english_list(out, "что-то неописуемое")
 
 /// Applies heat to this holder
 /datum/reagents/proc/expose_temperature(temperature, coeff=0.02)

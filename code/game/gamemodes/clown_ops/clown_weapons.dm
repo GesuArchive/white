@@ -165,7 +165,7 @@
 	bitesize = 1
 	customfoodfilling = FALSE
 	seed = null
-	tastes = list("explosives" = 10)
+	tastes = list("взрывчатка" = 10)
 	list_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 1)
 
 /obj/item/grown/bananapeel/bombanana

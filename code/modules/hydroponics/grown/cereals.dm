@@ -23,7 +23,7 @@
 	bitesize_mod = 2
 	foodtype = GRAIN
 	grind_results = list(/datum/reagent/consumable/flour = 0)
-	tastes = list("wheat" = 1)
+	tastes = list("пшеница" = 1)
 	distill_reagent = /datum/reagent/consumable/ethanol/beer
 
 // Oat

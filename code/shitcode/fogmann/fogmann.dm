@@ -109,7 +109,7 @@ obj/item/banner/engineering/atmos/mundane
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/toxin/carpotoxin = 3)
 	bitesize = 2
 	filling_color = "#000000"
-	tastes = list("fish" = 1, "tomato" = 1)
+	tastes = list("рыба" = 1, "томаты" =1)
 	foodtype = MEAT
 
 /obj/item/reagent_containers/food/snacks/carpmeat/dry
@@ -120,7 +120,7 @@ obj/item/banner/engineering/atmos/mundane
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/toxin/carpotoxin = 1)
 	bitesize = 2
 	filling_color = "#FA8072"
-	tastes = list("fish" = 1)
+	tastes = list("рыба" = 1)
 	foodtype = MEAT
 
 /datum/crafting_recipe/dryfish

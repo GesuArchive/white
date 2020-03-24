@@ -1884,7 +1884,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	taste_description = "плохой код"
 	can_synth = FALSE
 	var/list/names = list("null fruit" = 1) //Names of the fruits used. Associative list where name is key, value is the percentage of that fruit.
-	var/list/tastes = list("bad coding" = 1) //List of tastes. See above.
+	var/list/tastes = list("плохой код" = 1) //List of tastes. See above.
 
 /datum/reagent/consumable/ethanol/fruit_wine/on_new(list/data)
 	names = data["names"]

@@ -110,7 +110,7 @@
 	item_state = "bluespace_peel"
 	trash = /obj/item/grown/bananapeel/bluespace
 	filling_color = "#0000FF"
-	tastes = list("banana" = 1)
+	tastes = list("банан" = 1)
 	wine_power = 60
 	wine_flavor = "slippery hypercubes"
 

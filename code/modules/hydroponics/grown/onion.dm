@@ -23,7 +23,7 @@
 	icon_state = "onion"
 	filling_color = "#C0C9A0"
 	bitesize_mod = 2
-	tastes = list("onions" = 1)
+	tastes = list("лук" = 1)
 	slice_path = /obj/item/reagent_containers/food/snacks/onion_slice
 	slices_num = 2
 	wine_power = 30

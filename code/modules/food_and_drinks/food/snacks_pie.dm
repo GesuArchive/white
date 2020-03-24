@@ -6,7 +6,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	volume = 80
 	list_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("pie" = 1)
+	tastes = list("пирог" = 1)
 	foodtype = GRAIN
 
 /obj/item/reagent_containers/food/snacks/pie/plain
@@ -15,7 +15,7 @@
 	icon_state = "pie"
 	custom_food_type = /obj/item/reagent_containers/food/snacks/customizable/pie
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("pie" = 1)
+	tastes = list("пирог" = 1)
 	foodtype = GRAIN
 
 /obj/item/reagent_containers/food/snacks/pie/cream
@@ -25,7 +25,7 @@
 	trash = /obj/item/trash/plate
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/vitamin = 2)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/banana = 5, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("pie" = 1)
+	tastes = list("пирог" = 1)
 	foodtype = GRAIN | DAIRY | SUGAR
 	var/stunning = TRUE
 
@@ -61,7 +61,7 @@
 	icon_state = "berryclafoutis"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 2)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/berryjuice = 5, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("pie" = 1, "blackberries" = 1)
+	tastes = list("пирог" = 1, "ежевика" = 1)
 	foodtype = GRAIN | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/pie/bearypie
@@ -70,7 +70,7 @@
 	icon_state = "bearypie"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/vitamin = 3)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/vitamin = 3)
-	tastes = list("pie" = 1, "meat" = 1, "salmon" = 1)
+	tastes = list("пирог" = 1, "мясо" = 1, "лосось" = 1)
 	foodtype = GRAIN | SUGAR | MEAT | FRUIT
 
 /obj/item/reagent_containers/food/snacks/pie/meatpie
@@ -78,7 +78,7 @@
 	icon_state = "meatpie"
 	desc = "An old barber recipe, very delicious!"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("pie" = 1, "meat" = 1)
+	tastes = list("пирог" = 1, "мясо" = 1)
 	foodtype = GRAIN | MEAT
 
 /obj/item/reagent_containers/food/snacks/pie/tofupie
@@ -86,7 +86,7 @@
 	icon_state = "meatpie"
 	desc = "A delicious tofu pie."
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("pie" = 1, "tofu" = 1)
+	tastes = list("пирог" = 1, "тофу" = 1)
 	foodtype = GRAIN
 
 /obj/item/reagent_containers/food/snacks/pie/amanita_pie
@@ -96,7 +96,7 @@
 	bitesize = 4
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 4)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/toxin/amatoxin = 3, /datum/reagent/drug/mushroomhallucinogen = 1, /datum/reagent/consumable/nutriment/vitamin = 4)
-	tastes = list("pie" = 1, "mushroom" = 1)
+	tastes = list("пирог" = 1, "грибы" = 1)
 	foodtype = GRAIN | VEGETABLES | TOXIC | GROSS
 
 /obj/item/reagent_containers/food/snacks/pie/plump_pie
@@ -104,7 +104,7 @@
 	desc = "I bet you love stuff made out of plump helmets!"
 	icon_state = "plump_pie"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 4)
-	tastes = list("pie" = 1, "mushroom" = 1)
+	tastes = list("пирог" = 1, "грибы" = 1)
 	foodtype = GRAIN | VEGETABLES
 
 /obj/item/reagent_containers/food/snacks/pie/plump_pie/Initialize()
@@ -123,7 +123,7 @@
 	desc = "A delicious meatpie. Probably heretical."
 	trash = /obj/item/trash/plate
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("pie" = 1, "meat" = 1, "acid" = 1)
+	tastes = list("пирог" = 1, "мясо" = 1, "кислота" = 1)
 	foodtype = GRAIN | MEAT
 
 /obj/item/reagent_containers/food/snacks/pie/applepie
@@ -131,7 +131,7 @@
 	desc = "A pie containing sweet sweet love...or apple."
 	icon_state = "applepie"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 3)
-	tastes = list("pie" = 1, "apple" = 1)
+	tastes = list("пирог" = 1, "яблоко" = 1)
 	foodtype = GRAIN | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/pie/cherrypie
@@ -150,7 +150,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/pumpkinpieslice
 	slices_num = 5
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("pie" = 1, "pumpkin" = 1)
+	tastes = list("пирог" = 1, "тыква" = 1)
 	foodtype = GRAIN | VEGETABLES
 
 /obj/item/reagent_containers/food/snacks/pumpkinpieslice
@@ -161,7 +161,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#FFA500"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
-	tastes = list("pie" = 1, "pumpkin" = 1)
+	tastes = list("пирог" = 1, "тыква" = 1)
 	foodtype = GRAIN | VEGETABLES
 
 /obj/item/reagent_containers/food/snacks/pie/appletart
@@ -170,7 +170,7 @@
 	icon_state = "gappletart"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 4)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/gold = 5, /datum/reagent/consumable/nutriment/vitamin = 4)
-	tastes = list("pie" = 1, "apple" = 1, "expensive metal" = 1)
+	tastes = list("пирог" = 1, "яблоко" = 1, "дорогой металл" = 1)
 	foodtype = GRAIN | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/pie/grapetart
@@ -179,7 +179,7 @@
 	icon_state = "grapetart"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 4)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 4)
-	tastes = list("pie" = 1, "grape" = 1)
+	tastes = list("пирог" = 1, "виноград" = 1)
 	foodtype = GRAIN | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/pie/mimetart
@@ -188,7 +188,7 @@
 	icon_state = "mimetart"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/consumable/nothing = 10)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("nothing" = 3)
+	tastes = list("ничего" = 3)
 	foodtype = GRAIN
 
 /obj/item/reagent_containers/food/snacks/pie/berrytart
@@ -197,7 +197,7 @@
 	icon_state = "berrytart"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 4)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("pie" = 1, "berries" = 2)
+	tastes = list("пирог" = 1, "ягоды" = 2)
 	foodtype = GRAIN | FRUIT
 
 /obj/item/reagent_containers/food/snacks/pie/cocolavatart
@@ -206,7 +206,7 @@
 	icon_state = "cocolavatart"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 4)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 4)
-	tastes = list("pie" = 1, "dark chocolate" = 3)
+	tastes = list("пирог" = 1, "тёмный шоколад" = 3)
 	foodtype = GRAIN | SUGAR
 
 /obj/item/reagent_containers/food/snacks/pie/blumpkinpie
@@ -216,7 +216,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/blumpkinpieslice
 	slices_num = 5
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 6)
-	tastes = list("pie" = 1, "a mouthful of pool water" = 1)
+	tastes = list("пирог" = 1, "глоток воды в бассейне" = 1)
 	foodtype = GRAIN | VEGETABLES
 
 /obj/item/reagent_containers/food/snacks/blumpkinpieslice
@@ -227,7 +227,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#1E90FF"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
-	tastes = list("pie" = 1, "a mouthful of pool water" = 1)
+	tastes = list("пирог" = 1, "глоток воды в бассейне" = 1)
 	foodtype = GRAIN | VEGETABLES
 
 /obj/item/reagent_containers/food/snacks/pie/dulcedebatata
@@ -237,7 +237,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/dulcedebatataslice
 	slices_num = 5
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 8)
-	tastes = list("jelly" = 1, "sweet potato" = 1)
+	tastes = list("желе" =1, "сладкая картоха" = 1)
 	foodtype = GRAIN | VEGETABLES | SUGAR
 
 /obj/item/reagent_containers/food/snacks/dulcedebatataslice
@@ -248,7 +248,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#8B4513"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
-	tastes = list("jelly" = 1, "sweet potato" = 1)
+	tastes = list("желе" =1, "сладкая картоха" = 1)
 	foodtype = GRAIN | VEGETABLES | SUGAR
 
 /obj/item/reagent_containers/food/snacks/pie/frostypie
@@ -256,7 +256,7 @@
 	desc = "Tastes like blue and cold."
 	icon_state = "frostypie"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 6)
-	tastes = list("mint" = 1, "pie" = 1)
+	tastes = list("мята" = 1, "пирог" = 1)
 	foodtype = GRAIN | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/pie/baklava
@@ -266,7 +266,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/baklavaslice
 	slices_num = 6
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/vitamin = 6)
-	tastes = list("nuts" = 1, "pie" = 1)
+	tastes = list("орехи" = 1, "пирог" = 1)
 	foodtype = GRAIN
 
 /obj/item/reagent_containers/food/snacks/baklavaslice
@@ -276,5 +276,5 @@
 	icon_state = "baklavaslice"
 	trash = /obj/item/trash/plate
 	filling_color = "#1E90FF"
-	tastes = list("nuts" = 1, "pie" = 1)
+	tastes = list("орехи" = 1, "пирог" = 1)
 	foodtype = GRAIN

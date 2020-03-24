@@ -27,7 +27,7 @@
 	bitesize_mod = 2
 	foodtype = FRUIT
 	juice_results = list(/datum/reagent/consumable/berryjuice = 0)
-	tastes = list("berry" = 1)
+	tastes = list("ягода" = 1)
 	distill_reagent = /datum/reagent/consumable/ethanol/gin
 
 // Poison Berries
@@ -219,7 +219,7 @@
 	bitesize_mod = 2
 	foodtype = FRUIT
 	juice_results = list(/datum/reagent/consumable/grapejuice = 0)
-	tastes = list("grape" = 1)
+	tastes = list("виноград" = 1)
 	distill_reagent = /datum/reagent/consumable/ethanol/wine
 
 // Green Grapes

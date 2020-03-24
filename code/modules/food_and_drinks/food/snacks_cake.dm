@@ -5,7 +5,7 @@
 	bitesize = 3
 	volume = 80
 	list_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("cake" = 1)
+	tastes = list("торт" = 1)
 	foodtype = GRAIN | DAIRY
 
 /obj/item/reagent_containers/food/snacks/cakeslice
@@ -13,7 +13,7 @@
 	trash = /obj/item/trash/plate
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 1)
 	customfoodfilling = 0 //to avoid infinite cake-ception
-	tastes = list("cake" = 1)
+	tastes = list("торт" = 1)
 	foodtype = GRAIN | DAIRY
 
 /obj/item/reagent_containers/food/snacks/store/cake/plain
@@ -22,7 +22,7 @@
 	icon_state = "plaincake"
 	custom_food_type = /obj/item/reagent_containers/food/snacks/customizable/cake
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("sweetness" = 2,"cake" = 5)
+	tastes = list("сладость" = 2,"торт" = 5)
 	foodtype = GRAIN | DAIRY | SUGAR
 
 /obj/item/reagent_containers/food/snacks/cakeslice/plain
@@ -31,7 +31,7 @@
 	icon_state = "plaincake_slice"
 	filling_color = "#FFD700"
 	customfoodfilling = 1
-	tastes = list("sweetness" = 2,"cake" = 5)
+	tastes = list("сладость" = 2,"торт" = 5)
 	foodtype = GRAIN | DAIRY | SUGAR
 
 /obj/item/reagent_containers/food/snacks/store/cake/carrot
@@ -42,7 +42,7 @@
 	slices_num = 5
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/medicine/oculine = 5, /datum/reagent/consumable/nutriment/vitamin = 10)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/medicine/oculine = 10, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("cake" = 5, "sweetness" = 2, "carrot" = 1)
+	tastes = list("торт" = 5, "сладость" = 2, "морковь" = 1)
 	foodtype = GRAIN | DAIRY | VEGETABLES | SUGAR
 
 /obj/item/reagent_containers/food/snacks/cakeslice/carrot
@@ -51,7 +51,7 @@
 	icon_state = "carrotcake_slice"
 	filling_color = "#FFA500"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/medicine/oculine = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("cake" = 5, "sweetness" = 2, "carrot" = 1)
+	tastes = list("торт" = 5, "сладость" = 2, "морковь" = 1)
 	foodtype = GRAIN | DAIRY | VEGETABLES | SUGAR
 
 /obj/item/reagent_containers/food/snacks/store/cake/brain
@@ -62,7 +62,7 @@
 	slices_num = 5
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/medicine/mannitol = 10, /datum/reagent/consumable/nutriment/vitamin = 10)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/medicine/mannitol = 10, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("cake" = 5, "sweetness" = 2, "brains" = 1)
+	tastes = list("торт" = 5, "сладость" = 2, "мозги" = 1)
 	foodtype = GRAIN | DAIRY | MEAT | GROSS | SUGAR
 
 /obj/item/reagent_containers/food/snacks/cakeslice/brain
@@ -71,7 +71,7 @@
 	icon_state = "braincakeslice"
 	filling_color = "#FF69B4"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/medicine/mannitol = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("cake" = 5, "sweetness" = 2, "brains" = 1)
+	tastes = list("торт" = 5, "сладость" = 2, "мозги" = 1)
 	foodtype = GRAIN | DAIRY | MEAT | GROSS | SUGAR
 
 /obj/item/reagent_containers/food/snacks/store/cake/cheese
@@ -81,7 +81,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/cheese
 	slices_num = 5
 	bonus_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 10)
-	tastes = list("cake" = 4, "cream cheese" = 3)
+	tastes = list("торт" = 4, "сливочный сыр" = 3)
 	foodtype = GRAIN | DAIRY
 
 /obj/item/reagent_containers/food/snacks/cakeslice/cheese
@@ -89,7 +89,7 @@
 	desc = "Slice of pure cheestisfaction."
 	icon_state = "cheesecake_slice"
 	filling_color = "#FFFACD"
-	tastes = list("cake" = 4, "cream cheese" = 3)
+	tastes = list("торт" = 4, "сливочный сыр" = 3)
 	foodtype = GRAIN | DAIRY
 
 /obj/item/reagent_containers/food/snacks/store/cake/orange
@@ -99,7 +99,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/orange
 	slices_num = 5
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 10)
-	tastes = list("cake" = 5, "sweetness" = 2, "oranges" = 2)
+	tastes = list("торт" = 5, "сладость" = 2, "апельсины" = 2)
 	foodtype = GRAIN | DAIRY | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/cakeslice/orange
@@ -107,7 +107,7 @@
 	desc = "Just a slice of cake, it is enough for everyone."
 	icon_state = "orangecake_slice"
 	filling_color = "#FFA500"
-	tastes = list("cake" = 5, "sweetness" = 2, "oranges" = 2)
+	tastes = list("торт" = 5, "сладость" = 2, "апельсины" = 2)
 	foodtype = GRAIN | DAIRY | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/store/cake/lime
@@ -117,7 +117,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/lime
 	slices_num = 5
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 10)
-	tastes = list("cake" = 5, "sweetness" = 2, "unbearable sourness" = 2)
+	tastes = list("торт" = 5, "сладость" = 2, "невыносимая кислинка" = 2)
 	foodtype = GRAIN | DAIRY | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/cakeslice/lime
@@ -125,7 +125,7 @@
 	desc = "Just a slice of cake, it is enough for everyone."
 	icon_state = "limecake_slice"
 	filling_color = "#00FF00"
-	tastes = list("cake" = 5, "sweetness" = 2, "unbearable sourness" = 2)
+	tastes = list("торт" = 5, "сладость" = 2, "невыносимая кислинка" = 2)
 	foodtype = GRAIN | DAIRY | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/store/cake/lemon
@@ -135,7 +135,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/lemon
 	slices_num = 5
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 10)
-	tastes = list("cake" = 5, "sweetness" = 2, "sourness" = 2)
+	tastes = list("торт" = 5, "сладость" = 2, "кислинка" = 2)
 	foodtype = GRAIN | DAIRY | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/cakeslice/lemon
@@ -143,7 +143,7 @@
 	desc = "Just a slice of cake, it is enough for everyone."
 	icon_state = "lemoncake_slice"
 	filling_color = "#FFEE00"
-	tastes = list("cake" = 5, "sweetness" = 2, "sourness" = 2)
+	tastes = list("торт" = 5, "сладость" = 2, "кислинка" = 2)
 	foodtype = GRAIN | DAIRY | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/store/cake/chocolate
@@ -153,7 +153,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/chocolate
 	slices_num = 5
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 10)
-	tastes = list("cake" = 5, "sweetness" = 1, "chocolate" = 4)
+	tastes = list("торт" = 5, "сладость" = 1, "шоколад" = 4)
 	foodtype = GRAIN | DAIRY | JUNKFOOD | SUGAR
 
 /obj/item/reagent_containers/food/snacks/cakeslice/chocolate
@@ -161,7 +161,7 @@
 	desc = "Just a slice of cake, it is enough for everyone."
 	icon_state = "chocolatecake_slice"
 	filling_color = "#A0522D"
-	tastes = list("cake" = 5, "sweetness" = 1, "chocolate" = 4)
+	tastes = list("торт" = 5, "сладость" = 1, "шоколад" = 4)
 	foodtype = GRAIN | DAIRY | JUNKFOOD | SUGAR
 
 /obj/item/reagent_containers/food/snacks/store/cake/birthday
@@ -172,7 +172,7 @@
 	slices_num = 5
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 7, /datum/reagent/consumable/sprinkles = 10, /datum/reagent/consumable/nutriment/vitamin = 5)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/sprinkles = 10, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("cake" = 5, "sweetness" = 1)
+	tastes = list("торт" = 5, "сладость" = 1)
 	foodtype = GRAIN | DAIRY | JUNKFOOD | SUGAR
 
 /obj/item/reagent_containers/food/snacks/store/cake/birthday/microwave_act(obj/machinery/microwave/M) //super sekrit club
@@ -185,7 +185,7 @@
 	icon_state = "birthdaycakeslice"
 	filling_color = "#DC143C"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/sprinkles = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("cake" = 5, "sweetness" = 1)
+	tastes = list("торт" = 5, "сладость" = 1)
 	foodtype = GRAIN | DAIRY | JUNKFOOD | SUGAR
 
 /obj/item/reagent_containers/food/snacks/store/cake/birthday/energy
@@ -196,7 +196,7 @@
 	hitsound = 'sound/weapons/blade1.ogg'
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/birthday/energy
 	list_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/sprinkles = 10, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/pwr_game = 10, /datum/reagent/consumable/liquidelectricity = 10)
-	tastes = list("cake" = 3, "a Vlad's Salad" = 1)
+	tastes = list("торт" = 3, "a Vlad's Salad" = 1)
 
 /obj/item/reagent_containers/food/snacks/store/cake/birthday/energy/proc/energy_bite(mob/living/user)
 	to_chat(user, "<font color='red' size='5'>As you eat the cake, you accidentally hurt yourself on the embedded energy sword!</font>")
@@ -221,7 +221,7 @@
 	hitsound = 'sound/weapons/blade1.ogg'
 	filling_color = "#00FF00"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/sprinkles = 2, /datum/reagent/consumable/nutriment/vitamin = 1,  /datum/reagent/consumable/pwr_game = 2, /datum/reagent/consumable/liquidelectricity = 2)
-	tastes = list("cake" = 3, "a Vlad's Salad" = 1)
+	tastes = list("торт" = 3, "a Vlad's Salad" = 1)
 
 /obj/item/reagent_containers/food/snacks/cakeslice/birthday/energy/proc/energy_bite(mob/living/user)
 	to_chat(user, "<font color='red' size='5'>As you eat the cake slice, you accidentally hurt yourself on the embedded energy dagger!</font>")
@@ -241,7 +241,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/apple
 	slices_num = 5
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 10)
-	tastes = list("cake" = 5, "sweetness" = 1, "apple" = 1)
+	tastes = list("торт" = 5, "сладость" = 1, "яблоко" = 1)
 	foodtype = GRAIN | DAIRY | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/cakeslice/apple
@@ -249,7 +249,7 @@
 	desc = "A slice of heavenly cake."
 	icon_state = "applecakeslice"
 	filling_color = "#FF4500"
-	tastes = list("cake" = 5, "sweetness" = 1, "apple" = 1)
+	tastes = list("торт" = 5, "сладость" = 1, "яблоко" = 1)
 	foodtype = GRAIN | DAIRY | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/cakeslice/custom
@@ -264,7 +264,7 @@
 	icon_state = "slimecake"
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/slimecake
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 3)
-	tastes = list("cake" = 5, "sweetness" = 1, "slime" = 1)
+	tastes = list("торт" = 5, "сладость" = 1, "слаймы" =1)
 	foodtype = GRAIN | DAIRY | SUGAR
 
 /obj/item/reagent_containers/food/snacks/cakeslice/slimecake
@@ -272,7 +272,7 @@
 	desc = "A slice of slime cake."
 	icon_state = "slimecake_slice"
 	filling_color = "#00FFFF"
-	tastes = list("cake" = 5, "sweetness" = 1, "slime" = 1)
+	tastes = list("торт" = 5, "сладость" = 1, "слаймы" =1)
 	foodtype = GRAIN | DAIRY | SUGAR
 
 /obj/item/reagent_containers/food/snacks/store/cake/pumpkinspice
@@ -281,7 +281,7 @@
 	icon_state = "pumpkinspicecake"
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/pumpkinspice
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("cake" = 5, "sweetness" = 1, "pumpkin" = 1)
+	tastes = list("торт" = 5, "сладость" = 1, "тыква" = 1)
 	foodtype = GRAIN | DAIRY | VEGETABLES | SUGAR
 
 /obj/item/reagent_containers/food/snacks/cakeslice/pumpkinspice
@@ -289,7 +289,7 @@
 	desc = "A spicy slice of pumpkin goodness."
 	icon_state = "pumpkinspicecakeslice"
 	filling_color = "#FFD700"
-	tastes = list("cake" = 5, "sweetness" = 1, "pumpkin" = 1)
+	tastes = list("торт" = 5, "сладость" = 1, "тыква" = 1)
 	foodtype = GRAIN | DAIRY | VEGETABLES | SUGAR
 
 /obj/item/reagent_containers/food/snacks/store/cake/bsvc // blackberry strawberries vanilla cake
@@ -298,7 +298,7 @@
 	icon_state = "blackbarry_strawberries_cake_vanilla_cake"
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/bsvc
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 14, /datum/reagent/consumable/nutriment/vitamin = 4)
-	tastes = list("blackberry" = 2, "strawberries" = 2, "vanilla" = 2, "sweetness" = 2, "cake" = 3)
+	tastes = list("ежевика" = 2, "клубника" = 2, "ваниль" = 2, "сладость" = 2, "торт" = 3)
 	foodtype = GRAIN | DAIRY | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/cakeslice/bsvc
@@ -306,7 +306,7 @@
 	desc = "Just a slice of cake  filled with assortment of blackberries and strawberries!"
 	icon_state = "blackbarry_strawberries_cake_vanilla_slice"
 	filling_color = "#FFD700"
-	tastes = list("blackberry" = 2, "strawberries" = 2, "vanilla" = 2, "sweetness" = 2,"cake" = 3)
+	tastes = list("ежевика" = 2, "клубника" = 2, "ваниль" = 2, "сладость" = 2,"торт" = 3)
 	foodtype = GRAIN | DAIRY | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/store/cake/bscc // blackbarry strawberries chocolate cake
@@ -315,7 +315,7 @@
 	icon_state = "blackbarry_strawberries_cake_coco_cake"
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/bscc
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 14, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/consumable/coco = 5)
-	tastes = list("blackberry" = 2, "strawberries" = 2, "chocolate" = 2, "sweetness" = 2,"cake" = 3)
+	tastes = list("ежевика" = 2, "клубника" = 2, "шоколад" = 2, "сладость" = 2,"торт" = 3)
 	foodtype = GRAIN | DAIRY | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/cakeslice/bscc
@@ -323,7 +323,7 @@
 	desc = "Just a slice of cake  filled with assortment of blackberries and strawberries!"
 	icon_state = "blackbarry_strawberries_cake_coco_slice"
 	filling_color = "#FFD700"
-	tastes = list("blackberry" = 2, "strawberries" = 2, "chocolate" = 2, "sweetness" = 2,"cake" = 3)
+	tastes = list("ежевика" = 2, "клубника" = 2, "шоколад" = 2, "сладость" = 2,"торт" = 3)
 	foodtype = GRAIN | DAIRY | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/store/cake/holy_cake
@@ -332,7 +332,7 @@
 	icon_state = "holy_cake"
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/holy_cake_slice
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 3, /datum/reagent/water/holywater = 10)
-	tastes = list("cake" = 5, "sweetness" = 1, "clouds" = 1)
+	tastes = list("торт" = 5, "сладость" = 1, "облака" = 1)
 	foodtype = GRAIN | DAIRY | SUGAR
 
 /obj/item/reagent_containers/food/snacks/cakeslice/holy_cake_slice
@@ -340,7 +340,7 @@
 	desc = "A slice of heavenly cake."
 	icon_state = "holy_cake_slice"
 	filling_color = "#00FFFF"
-	tastes = list("cake" = 5, "sweetness" = 1, "clouds" = 1)
+	tastes = list("торт" = 5, "сладость" = 1, "облака" = 1)
 	foodtype = GRAIN | DAIRY | SUGAR
 
 /obj/item/reagent_containers/food/snacks/store/cake/pound_cake
@@ -350,7 +350,7 @@
 	slices_num = 7 //Its ment to feed the party
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/pound_cake_slice
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 60)
-	tastes = list("cake" = 5, "sweetness" = 1, "batter" = 1)
+	tastes = list("торт" = 5, "сладость" = 1, "кляр" = 1)
 	foodtype = GRAIN | DAIRY | SUGAR | JUNKFOOD
 
 /obj/item/reagent_containers/food/snacks/cakeslice/pound_cake_slice
@@ -358,7 +358,7 @@
 	desc = "A slice of condensed cake made for filling people up quickly."
 	icon_state = "pound_cake_slice"
 	filling_color = "#00FFFF"
-	tastes = list("cake" = 5, "sweetness" = 5, "batter" = 1)
+	tastes = list("торт" = 5, "сладость" = 5, "кляр" = 1)
 	foodtype = GRAIN | DAIRY | SUGAR | JUNKFOOD
 
 /obj/item/reagent_containers/food/snacks/store/cake/hardware_cake
@@ -367,7 +367,7 @@
 	icon_state = "hardware_cake"
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/hardware_cake_slice
 	bonus_reagents = list(/datum/reagent/toxin/acid = 15, /datum/reagent/fuel/oil = 15)
-	tastes = list("acid" = 3, "metal" = 4, "glass" = 5)
+	tastes = list("кислота" = 3, "металл" = 4, "стекло" = 5)
 	foodtype = GRAIN | GROSS
 
 /obj/item/reagent_containers/food/snacks/cakeslice/hardware_cake_slice
@@ -375,7 +375,7 @@
 	desc = "A slice of electronic boards and some acid."
 	icon_state = "hardware_cake_slice"
 	filling_color = "#00FFFF"
-	tastes = list("acid" = 3, "metal" = 4, "glass" = 5)
+	tastes = list("кислота" = 3, "металл" = 4, "стекло" = 5)
 	foodtype = GRAIN | GROSS
 
 /obj/item/reagent_containers/food/snacks/store/cake/vanilla_cake
@@ -384,7 +384,7 @@
 	icon_state = "vanillacake"
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/vanilla_slice
 	bonus_reagents = list(/datum/reagent/consumable/sugar = 15, /datum/reagent/consumable/vanilla = 15)
-	tastes = list("cake" = 1, "sugar" = 1, "vanilla" = 10)
+	tastes = list("торт" = 1, "сахар" = 1, "ваниль" = 10)
 	foodtype = GRAIN | SUGAR | DAIRY
 
 /obj/item/reagent_containers/food/snacks/cakeslice/vanilla_slice
@@ -392,7 +392,7 @@
 	desc = "A slice of vanilla frosted cake."
 	icon_state = "vanillacake_slice"
 	filling_color = "#00FFFF"
-	tastes = list("cake" = 1, "sugar" = 1, "vanilla" = 10)
+	tastes = list("торт" = 1, "сахар" = 1, "ваниль" = 10)
 	foodtype = GRAIN | SUGAR | DAIRY
 
 /obj/item/reagent_containers/food/snacks/store/cake/clown_cake
@@ -401,7 +401,7 @@
 	icon_state = "clowncake"
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/clown_slice
 	bonus_reagents = list(/datum/reagent/consumable/sugar = 15)
-	tastes = list("cake" = 1, "sugar" = 1, "joy" = 10)
+	tastes = list("торт" = 1, "сахар" = 1, "радость" = 10)
 	foodtype = GRAIN | SUGAR | DAIRY
 
 /obj/item/reagent_containers/food/snacks/cakeslice/clown_slice
@@ -409,7 +409,7 @@
 	desc = "A slice of bad jokes, and silly props."
 	icon_state = "clowncake_slice"
 	filling_color = "#00FFFF"
-	tastes = list("cake" = 1, "sugar" = 1, "joy" = 10)
+	tastes = list("торт" = 1, "сахар" = 1, "радость" = 10)
 	foodtype = GRAIN | SUGAR | DAIRY
 
 /obj/item/reagent_containers/food/snacks/store/cake/trumpet
@@ -419,7 +419,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/trumpet
 	bonus_reagents = list(/datum/reagent/medicine/polypyr = 15, /datum/reagent/consumable/cream = 5, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/berryjuice = 5)
 	filling_color = "#7A3D80"
-	tastes = list("cake" = 4, "violets" = 2, "jam" = 2)
+	tastes = list("торт" = 4, "фиалки" = 2, "варенье" = 2)
 	foodtype = GRAIN | DAIRY | FRUIT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/cakeslice/trumpet
@@ -427,5 +427,5 @@
 	desc = "A spaceman's trumpet frosted cake."
 	icon_state = "trumpetcakeslice"
 	filling_color = "#7A3D80"
-	tastes = list("cake" = 4, "violets" = 2, "jam" = 2)
+	tastes = list("торт" = 4, "фиалки" = 2, "варенье" = 2)
 	foodtype = GRAIN | DAIRY | FRUIT | SUGAR

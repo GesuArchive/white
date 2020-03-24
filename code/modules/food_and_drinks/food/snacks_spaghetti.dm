@@ -7,7 +7,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
 	cooked_type = /obj/item/reagent_containers/food/snacks/spaghetti/boiledspaghetti
 	filling_color = "#F0E68C"
-	tastes = list("pasta" = 1)
+	tastes = list("макароны" = 1)
 	foodtype = GRAIN
 
 /obj/item/reagent_containers/food/snacks/spaghetti/Initialize()
@@ -38,7 +38,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/tomatojuice = 10, /datum/reagent/consumable/nutriment/vitamin = 4)
 	cooked_type = null
 	filling_color = "#DC143C"
-	tastes = list("pasta" = 1, "tomato" = 1)
+	tastes = list("макароны" = 1, "томаты" =1)
 	foodtype = GRAIN | VEGETABLES
 
 /obj/item/reagent_containers/food/snacks/spaghetti/copypasta
@@ -51,7 +51,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 12, /datum/reagent/consumable/tomatojuice = 20, /datum/reagent/consumable/nutriment/vitamin = 8)
 	cooked_type = null
 	filling_color = "#DC143C"
-	tastes = list("pasta" = 1, "tomato" = 1)
+	tastes = list("макароны" = 1, "томаты" =1)
 	foodtype = GRAIN | VEGETABLES
 
 /obj/item/reagent_containers/food/snacks/spaghetti/meatballspaghetti
@@ -62,7 +62,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 4)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 4)
 	cooked_type = null
-	tastes = list("pasta" = 1, "tomato" = 1, "meat" = 1)
+	tastes = list("макароны" = 1, "томаты" =1, "мясо" = 1)
 	foodtype = GRAIN | MEAT
 
 /obj/item/reagent_containers/food/snacks/spaghetti/spesslaw
@@ -73,7 +73,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 6)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 6)
 	cooked_type = null
-	tastes = list("pasta" = 1, "tomato" = 1, "meat" = 1)
+	tastes = list("макароны" = 1, "томаты" =1, "мясо" = 1)
 
 /obj/item/reagent_containers/food/snacks/spaghetti/chowmein
 	name = "chow mein"
@@ -83,7 +83,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 4)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 7, /datum/reagent/consumable/nutriment/vitamin = 6)
 	cooked_type = null
-	tastes = list("noodle" = 1, "tomato" = 1)
+	tastes = list("лапша" = 1, "томаты" =1)
 
 /obj/item/reagent_containers/food/snacks/spaghetti/beefnoodle
 	name = "beef noodle"
@@ -92,7 +92,7 @@
 	trash = /obj/item/reagent_containers/glass/bowl
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/liquidgibs = 3)
 	cooked_type = null
-	tastes = list("noodle" = 1, "meat" = 1)
+	tastes = list("лапша" = 1, "мясо" = 1)
 	foodtype = GRAIN | MEAT
 
 /obj/item/reagent_containers/food/snacks/spaghetti/butternoodles
@@ -102,5 +102,5 @@
 	trash = /obj/item/trash/plate
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 1)
 	cooked_type = null
-	tastes = list("noodle" = 1, "butter" = 1)
+	tastes = list("лапша" = 1, "масло" = 1)
 	foodtype = GRAIN | DAIRY

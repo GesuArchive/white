@@ -52,7 +52,7 @@ All foods are distributed among various categories. Use common sense.
 	var/junkiness = 0  //for junk food. used to lower human satiety.
 	var/list/bonus_reagents //the amount of reagents (usually nutriment and vitamin) added to crafted/cooked snacks, on top of the ingredients reagents.
 	var/customfoodfilling = 1 // whether it can be used as filling in custom food
-	var/list/tastes  // for example list("crisps" = 2, "salt" = 1)
+	var/list/tastes  // for example list("crisps" = 2, "соль" = 1)
 
 	//Placeholder for effect that trigger on eating that aren't tied to reagents.
 

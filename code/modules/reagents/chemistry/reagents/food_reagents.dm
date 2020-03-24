@@ -55,8 +55,8 @@
 	..()
 
 /datum/reagent/consumable/nutriment/on_new(list/supplied_data)
-	// taste data can sometimes be ("salt" = 3, "chips" = 1)
-	// and we want it to be in the form ("salt" = 0.75, "chips" = 0.25)
+	// taste data can sometimes be ("соль" = 3, "чипсы" = 1)
+	// and we want it to be in the form ("соль" = 0.75, "чипсы" = 0.25)
 	// which is called "normalizing"
 	if(!supplied_data)
 		supplied_data = data
