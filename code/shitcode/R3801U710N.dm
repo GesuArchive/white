@@ -8,9 +8,9 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 		A.zashkvareno = 1
 		A.visible_message("<span class='danger'>[A.name] зашкваривается от петушиного касания!</span>")
 		if(prob(50))
-			A.name = "Петушиный " + A.name
+			A.name = "петушиный " + A.name
 		else
-			A.name = "Зашкваренный " + A.name
+			A.name = "зашкваренный " + A.name
 
 		if(istype(A, /obj))
 			var/obj/O = A
