@@ -17,7 +17,7 @@
 	name = "Senior Engineer's cloak"
 	desc = "Trust me - i'm an ENGINEER!!!"
 	armor = list("melee" = 15, "bullet" = 10, "laser" = 5, "energy" = 10, "bomb" = 20, "bio" = 10, "rad" = 50, "fire" = 20, "acid" = 20)
-	icon_state = "cecloakadv"
+	icon_state = "cecloak"
 
 
 /obj/structure/displaycase/winner
