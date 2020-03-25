@@ -322,9 +322,9 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 /datum/objective/jailbreak/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Ensure that [target.name], the [!target_role_type ? target.assigned_role : target.special_role] escapes alive and out of custody."
+		explanation_text = "Убедиться в том, что [target.name], на должноости [!target_role_type ? target.assigned_role : target.special_role] сбежит живым и вне заключения."
 	else
-		explanation_text = "Free Objective"
+		explanation_text = "Развлекаться"
 
 /datum/objective/jailbreak/admin_edit(mob/admin)
 	admin_simple_target_pick(admin)
@@ -338,9 +338,9 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 /datum/objective/jailbreak/detain/update_explanation_text()
 	..()
 	if(target && target.current)
-		explanation_text = "Ensure that [target.name], the [!target_role_type ? target.assigned_role : target.special_role] is delivered to nanotrasen alive and in custody."
+		explanation_text = "Убедиться в том, что [target.name], на должноости [!target_role_type ? target.assigned_role : target.special_role] будет доставлен в зоне заключения и в наручниках."
 	else
-		explanation_text = "Free Objective"
+		explanation_text = "Развлекаться"
 
 /datum/objective/hijack
 	name = "hijack"
