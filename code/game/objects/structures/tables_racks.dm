@@ -60,7 +60,7 @@
 		if(isliving(user.pulling))
 			var/mob/living/pushed_mob = user.pulling
 			if(pushed_mob.buckled)
-				to_chat(user, "<span class='warning'>[pushed_mob] прикован к [pushed_mob.buckled]!</span>")
+				to_chat(user, "<span class='warning'><b>[pushed_mob]</b> прикован к <b>[pushed_mob.buckled]</b>!</span>")
 				return
 			if(user.a_intent == INTENT_GRAB)
 				if(user.grab_state < GRAB_AGGRESSIVE)
@@ -71,8 +71,8 @@
 				else
 					tablepush(user, pushed_mob)
 			if(user.a_intent == INTENT_HELP)
-				pushed_mob.visible_message("<span class='notice'>[user] начинает укладывать [pushed_mob] на [src]...</span>", \
-									"<span class='userdanger'>[user] начинает укладывать [pushed_mob] на [src]...</span>")
+				pushed_mob.visible_message("<span class='notice'><b>[user]</b> начинает укладывать <b>[pushed_mob]</b> на <b>[src]</b>...</span>", \
+									"<span class='userdanger'><b>[user]</b> начинает укладывать <b>меня</b> на <b>[src]</b>...</span>")
 				if(do_after(user, 35, target = pushed_mob))
 					tableplace(user, pushed_mob)
 				else
@@ -81,8 +81,8 @@
 		else if(user.pulling.pass_flags & PASSTABLE)
 			user.Move_Pulled(src)
 			if (user.pulling.loc == loc)
-				user.visible_message("<span class='notice'>[user] кладёт [user.pulling] на [src].</span>",
-					"<span class='notice'>Кладу на [user.pulling] на [src].</span>")
+				user.visible_message("<span class='notice'><b>[user]</b> кладёт <b>[user.pulling]</b> на <b>[src]</b>.</span>",
+					"<span class='notice'>Кладу на <b>[user.pulling]</b> на <b>[src]</b>.</span>")
 				user.stop_pulling()
 	return ..()
 
@@ -108,8 +108,8 @@
 /obj/structure/table/proc/tableplace(mob/living/user, mob/living/pushed_mob)
 	pushed_mob.forceMove(loc)
 	pushed_mob.set_resting(TRUE, TRUE)
-	pushed_mob.visible_message("<span class='notice'>[user] кладет [pushed_mob] на [src].</span>", \
-								"<span class='notice'>[user] кладет [pushed_mob] на [src].</span>")
+	pushed_mob.visible_message("<span class='notice'><b>[user]</b> кладет <b>[pushed_mob]</b> на <b>[src]</b>.</span>", \
+								"<span class='notice'><b>[user]</b> кладет <b>[pushed_mob]</b> на <b>[src]</b>.</span>")
 	log_combat(user, pushed_mob, "places", null, "onto [src]")
 
 /obj/structure/table/proc/tablepush(mob/living/user, mob/living/pushed_mob)
@@ -131,8 +131,8 @@
 	if(user.mind?.martial_art.smashes_tables && user.mind?.martial_art.can_use(user))
 		deconstruct(FALSE)
 	playsound(pushed_mob, 'sound/effects/tableslam.ogg', 90, TRUE)
-	pushed_mob.visible_message("<span class='danger'>[user] укладывает [pushed_mob] на [src]!</span>", \
-								"<span class='userdanger'>[user] прикладывает меня на [src]!</span>")
+	pushed_mob.visible_message("<span class='danger'><b>[user]</b> укладывает <b>[pushed_mob]</b> на <b>[src]</b>!</span>", \
+								"<span class='userdanger'><b>[user]</b> прикладывает меня на <b>[src]</b>!</span>")
 	log_combat(user, pushed_mob, "tabled", null, "onto [src]")
 	SEND_SIGNAL(pushed_mob, COMSIG_ADD_MOOD_EVENT, "table", /datum/mood_event/table)
 
@@ -144,21 +144,21 @@
 	if(user.mind?.martial_art.smashes_tables && user.mind?.martial_art.can_use(user))
 		deconstruct(FALSE)
 	playsound(pushed_mob, 'sound/effects/tableheadsmash.ogg', 90, TRUE)
-	pushed_mob.visible_message("<span class='danger'>[user] хуярит голову [pushed_mob] об [src]!</span>",
-								"<span class='userdanger'>[user] бьёт моей головой об [src]</span>")
-	log_combat(user, pushed_mob, "head slammed", null, "against [src]")
+	pushed_mob.visible_message("<span class='danger'><b>[user]</b> хуярит голову <b>[pushed_mob]</b> об <b>[src]</b>!</span>",
+								"<span class='userdanger'><b>[user]</b> бьёт моей головой об <b>[src]</b>!</span>")
+	log_combat(user, pushed_mob, "head slammed", null, "against <b>[src]</b>")
 	SEND_SIGNAL(pushed_mob, COMSIG_ADD_MOOD_EVENT, "table", /datum/mood_event/table_headsmash)
 
 /obj/structure/table/attackby(obj/item/I, mob/user, params)
 	if(!(flags_1 & NODECONSTRUCT_1) && user.a_intent != INTENT_HELP)
 		if(I.tool_behaviour == TOOL_SCREWDRIVER && deconstruction_ready)
-			to_chat(user, "<span class='notice'>Начинаю раскручивать [src]...</span>")
+			to_chat(user, "<span class='notice'>Начинаю раскручивать <b>[src]</b>...</span>")
 			if(I.use_tool(src, user, 20, volume=50))
 				deconstruct(TRUE)
 			return
 
 		if(I.tool_behaviour == TOOL_WRENCH && deconstruction_ready)
-			to_chat(user, "<span class='notice'>Начинаю разбирать [src]...</span>")
+			to_chat(user, "<span class='notice'>Начинаю разбирать <b>[src]</b>...</span>")
 			if(I.use_tool(src, user, 40, volume=50))
 				playsound(src.loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 				deconstruct(TRUE, 1)
@@ -171,7 +171,7 @@
 				var/obj/item/item = x
 				AfterPutItemOnTable(item, user)
 			SEND_SIGNAL(I, COMSIG_TRY_STORAGE_QUICK_EMPTY, drop_location())
-			user.visible_message("<span class='notice'>[user] опустошает [I] на [src].</span>")
+			user.visible_message("<span class='notice'><b>[user]</b> опустошает <b>[I]</b> на <b>[src]</b>.</span>")
 			return
 		// If the tray IS empty, continue on (tray will be placed on the table like other items)
 
@@ -290,7 +290,7 @@
 		table_shatter(M)
 
 /obj/structure/table/glass/proc/table_shatter(mob/living/L)
-	visible_message("<span class='warning'>[src] ломается!</span>",
+	visible_message("<span class='warning'><b>[src]</b> ломается!</span>",
 		"<span class='danger'>Слышу звук ломающегося стекла.</span>")
 	var/turf/T = get_turf(src)
 	playsound(T, "shatter", 50, TRUE)
@@ -512,7 +512,7 @@
 /obj/structure/table/optable/tablepush(mob/living/user, mob/living/pushed_mob)
 	pushed_mob.forceMove(loc)
 	pushed_mob.set_resting(TRUE, TRUE)
-	visible_message("<span class='notice'>[user] кладет [pushed_mob] на [src].</span>")
+	visible_message("<span class='notice'><b>[user]</b> кладет [pushed_mob] на <b>[src]</b>.</span>")
 	check_patient()
 
 /obj/structure/table/optable/proc/check_patient()
@@ -586,7 +586,7 @@
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	user.do_attack_animation(src, ATTACK_EFFECT_KICK)
-	user.visible_message("<span class='danger'>[user] пинает [src].</span>", null, null, COMBAT_MESSAGE_RANGE)
+	user.visible_message("<span class='danger'><b>[user]</b> пинает <b>[src]</b>.</span>", null, null, COMBAT_MESSAGE_RANGE)
 	take_damage(rand(4,8), BRUTE, "melee", 1)
 
 /obj/structure/rack/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
@@ -640,7 +640,7 @@
 		if(!user.temporarilyRemoveItemFromInventory(src))
 			return
 		var/obj/structure/rack/R = new /obj/structure/rack(user.loc)
-		user.visible_message("<span class='notice'>[user] собирает [R].\
+		user.visible_message("<span class='notice'><b>[user]</b> собирает [R].\
 			</span>", "<span class='notice'>Собираю [R].</span>")
 		R.add_fingerprint(user)
 		qdel(src)

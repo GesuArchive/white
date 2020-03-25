@@ -15,6 +15,35 @@
 	var/workdir = "up"
 	var/datum/looping_sound/effector_vaper/soundloop
 
+/obj/machinery/effector/attack_hand(mob/living/user)
+	if(Adjacent(user) && user.pulling)
+		if(isliving(user.pulling))
+			var/mob/living/pushed_mob = user.pulling
+			if(pushed_mob.buckled)
+				to_chat(user, "<span class='warning'><b>[pushed_mob]</b> прикован к <b>[pushed_mob.buckled]</b>!</span>")
+				return
+			if(user.a_intent == INTENT_GRAB)
+				if(user.grab_state < GRAB_AGGRESSIVE)
+					to_chat(user, "<span class='warning'>Надо бы посильнее взять!</span>")
+					return
+				if(user.grab_state >= GRAB_NECK)
+					user.emote("laugh")
+					pushed_mob.visible_message("<span class='notice'><b>[user]</b> пытается принудить <b>[pushed_mob]</b> подышать паром над <b>парилкой</b>...</span>", \
+									"<span class='userdanger'><b>[user]</b> пытается приставить <b>мою голову</b> к <b>парилке</b>...</span>")
+					if(do_after(user, 35, target = pushed_mob))
+						pushed_mob.Knockdown(10)
+						pushed_mob.apply_damage(30, BURN, BODY_ZONE_HEAD)
+						pushed_mob.apply_damage(60, STAMINA)
+						pushed_mob.emote("scream")
+						playsound(pushed_mob, 'sound/machines/shower/shower_mid1.ogg', 90, TRUE)
+						pushed_mob.visible_message("<span class='danger'><b>[user]</b> принуждает <b>[pushed_mob]</b> вкусить свежий пар!</span>",
+									"<span class='userdanger'><b>[user]</b> принуждает меня вкусить свежий пар!</span>")
+						log_combat(user, pushed_mob, "head fried", null, "against <b>[src]</b>")
+						SEND_SIGNAL(pushed_mob, COMSIG_ADD_MOOD_EVENT, "table", /datum/mood_event/table_headsmash)
+					else
+						return
+	return ..()
+
 /obj/machinery/effector/Destroy()
 	QDEL_NULL(soundloop)
 	return ..()
