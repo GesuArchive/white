@@ -38868,7 +38868,7 @@
 "bQa" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/components/binary/pump/on{
-	!INVALID_VAR! = "Сжигатель, сброс в космос";
+	name = "Сжигатель, сброс в космос";
 	target_pressure = 4500
 	},
 /turf/open/space/basic,
