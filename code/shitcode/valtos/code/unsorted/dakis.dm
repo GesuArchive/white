@@ -4,9 +4,9 @@
 //////////////////////////////////
 
 /obj/item/storage/daki
-	name = "dakimakura"
+	name = "дакимакура"
 	var/custom_name = null
-	desc = "A large pillow depicting a girl in a compromising position. Featuring as many dimensions as you."
+	desc = "Большая подушка с изображением девушки в компрометирующей позе."
 	icon = 'code/shitcode/valtos/icons/daki.dmi'
 	lefthand_file = 'code/shitcode/valtos/icons/lefthand.dmi'
 	righthand_file = 'code/shitcode/valtos/icons/righthand.dmi'
@@ -26,7 +26,7 @@
 /obj/item/storage/daki/attack_self(mob/living/user)
 	var/body_choice
 	if(icon_state == "daki_base")
-		body_choice = input("Pick a body.") in list(
+		body_choice = input("Выбери же образ.") in list(
 		"Callie",
 		"Casca",
 		"Chaika",
@@ -55,27 +55,27 @@
 		"Yoko")
 
 		icon_state = "daki_[body_choice]"
-		custom_name = stripped_input(user, "What's her name?")
+		custom_name = stripped_input(user, "Как её зовут?")
 		if(length(custom_name) > MAX_NAME_LEN)
-			to_chat(user, "<span class='danger'>Name is too long!</span>")
+			to_chat(user, "<span class='danger'>Имя слишком длинное!</span>")
 			return FALSE
 		if(custom_name)
 			name = custom_name + " " + name
-			desc = "A large pillow depicting [custom_name] in a compromising position. Featuring as many dimensions as you."
+			desc = "Большая подушка с изображением [custom_name] в компрометирующей позе."
 	else
 		if(!spam_flag)
 			spam_flag = 1
 			if(user.a_intent == "help")
-				user.visible_message("<span class='notice'>[user] hugs the [name].</span>")
+				user.visible_message("<span class='notice'><b>[user]</b> обнимает <b>дакимакуру [custom_name]</b>.</span>")
 				playsound(src.loc, "rustle", 50, 1, -5)
 			if(user.a_intent == "disarm")
-				user.visible_message("<span class='notice'>[user] kisses the [name].</span>")
+				user.visible_message("<span class='notice'><b>[user]</b>] kisses the <b>дакимакуру [custom_name]</b>.</span>")
 				playsound(src.loc, "rustle", 50, 1, -5)
 			if(user.a_intent == "grab")
-				user.visible_message("<span class='warning'>[user] holds the [name]!</span>")
+				user.visible_message("<span class='warning'><b>[user]</b> holds the <b>дакимакуру [custom_name]</b>!</span>")
 				playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 			if(user.a_intent == "harm")
-				user.visible_message("<span class='danger'>[user] punches the [name]!</span>")
+				user.visible_message("<span class='danger'><b>[user]</b> бьёт <b>дакимакуру [custom_name]</b>!</span>")
 				playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 			spawn(cooldowntime)
 				spam_flag = 0
