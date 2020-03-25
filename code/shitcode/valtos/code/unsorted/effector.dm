@@ -34,6 +34,7 @@
 					if(do_after(user, 35, target = pushed_mob) && temp_cd == 30)
 						if(temp_cd < 30)
 							return
+						temp_cd = 0
 						pushed_mob.Knockdown(10)
 						pushed_mob.apply_damage(30, BURN, BODY_ZONE_HEAD)
 						pushed_mob.apply_damage(60, STAMINA)
