@@ -8,7 +8,6 @@
 			. = "невероятный [src.name]"
 		else
 			. = "[src.name]"
-	. = "[src.name]"
 	var/list/override = list(gender == PLURAL ? " " : " ", " ", "[name]")
 	if(article)
 		. = "[src.name]"
