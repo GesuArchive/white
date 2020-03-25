@@ -14,6 +14,7 @@
 	var/workout = TRUE
 	var/workdir = "up"
 	var/datum/looping_sound/effector_vaper/soundloop
+	var/temp_cd = 30
 
 /obj/machinery/effector/attack_hand(mob/living/user)
 	if(Adjacent(user) && user.pulling)
@@ -28,9 +29,11 @@
 					return
 				if(user.grab_state >= GRAB_NECK)
 					user.emote("laugh")
-					pushed_mob.visible_message("<span class='notice'><b>[user]</b> пытается принудить <b>[pushed_mob]</b> подышать паром над <b>парилкой</b>...</span>", \
+					pushed_mob.visible_message("<span class='warning'><b>[user]</b> пытается принудить <b>[pushed_mob]</b> подышать паром над <b>парилкой</b>...</span>", \
 									"<span class='userdanger'><b>[user]</b> пытается приставить <b>мою голову</b> к <b>парилке</b>...</span>")
-					if(do_after(user, 35, target = pushed_mob))
+					if(do_after(user, 35, target = pushed_mob) && temp_cd == 30)
+						if(temp_cd < 30)
+							return
 						pushed_mob.Knockdown(10)
 						pushed_mob.apply_damage(30, BURN, BODY_ZONE_HEAD)
 						pushed_mob.apply_damage(60, STAMINA)
@@ -49,6 +52,8 @@
 	return ..()
 
 /obj/machinery/effector/process()
+	if(temp_cd < 30)
+		temp_cd++
 	if(workout)
 		soundloop = new(list(src), TRUE)
 		soundloop.start()
