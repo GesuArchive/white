@@ -41,5 +41,7 @@
 
 /obj/effect/vaper_smoke/Initialize()
 	. = ..()
-	spawn(80)
-		qdel(src)
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/vaper_smoke/LateInitialize()
+	QDEL_IN(src, 80)
