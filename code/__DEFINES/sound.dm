@@ -70,7 +70,8 @@
 #define REEBE list('sound/ambience/ambireebe1.ogg', 'sound/ambience/ambireebe2.ogg', 'sound/ambience/ambireebe3.ogg')
 */
 
-#define GENERIC list('sound/ambience/white/ambi1.ogg','sound/ambience/white/ambi2.ogg','sound/ambience/white/ambi3.ogg')
+#define GENERIC list('sound/ambience/white/ambi1.ogg','sound/ambience/white/ambi2.ogg','sound/ambience/white/ambi3.ogg',\
+					 'sound/ambience/white/ambi4.ogg','sound/ambience/white/ambi5.ogg','sound/ambience/white/ambi6.ogg')
 
 #define HOLY list('sound/ambience/white/ambichurch1.ogg')
 
