@@ -722,12 +722,13 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "abM" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
-	dir = 5
+/obj/structure/rack,
+/obj/effect/spawner/lootdrop/maintenance,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 6
 	},
-/turf/open/space/basic,
-/area/space/nearstation)
+/turf/open/floor/plating,
+/area/maintenance/aft)
 "abN" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/orange/visible{
@@ -35280,6 +35281,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/yellow/visible,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "bHR" = (
@@ -35287,14 +35291,17 @@
 	pixel_y = -32
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "bHS" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 6
-	},
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "bHT" = (
@@ -35618,21 +35625,13 @@
 /area/engine/atmos)
 "bIJ" = (
 /obj/machinery/atmospherics/pipe/simple/yellow/visible,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
 /turf/closed/wall,
 /area/maintenance/disposal/incinerator)
 "bIK" = (
-/obj/machinery/door/airlock/atmos{
-	name = "Turbine Access";
-	req_access_txt = "24"
-	},
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 5
 	},
-/turf/open/floor/plating,
+/turf/closed/wall,
 /area/maintenance/disposal/incinerator)
 "bIL" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -41893,6 +41892,17 @@
 /obj/machinery/shieldgen,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"bXE" = (
+/obj/machinery/door/airlock/atmos{
+	name = "Turbine Access";
+	req_access_txt = "24"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/maintenance/disposal/incinerator)
 
 (1,1,1) = {"
 aaa
@@ -77275,7 +77285,7 @@ abI
 abJ
 abK
 abJ
-abM
+abJ
 abO
 bKE
 abO
@@ -77285,11 +77295,11 @@ bOy
 bMP
 bMP
 bMP
-aaa
-aaa
-aaa
-aaa
-abN
+abJ
+abJ
+abJ
+abJ
+bSr
 aaa
 aaa
 aaa
@@ -77532,7 +77542,7 @@ bsg
 btG
 bsg
 bqU
-abN
+abU
 bpu
 bKD
 bpu
@@ -77546,7 +77556,7 @@ aaa
 aaa
 aaa
 aaa
-abN
+abU
 aaa
 aaa
 aaa
@@ -77789,7 +77799,7 @@ bES
 bFP
 bGS
 bqU
-abH
+abU
 bpB
 bKF
 bpu
@@ -77799,11 +77809,11 @@ aNj
 aNj
 aNj
 aNj
-abJ
-abJ
-abJ
-abJ
-bSr
+abU
+abU
+abU
+abU
+abU
 abU
 abU
 abU
@@ -79330,8 +79340,8 @@ bDR
 bdz
 bfg
 bdz
-bDT
-bXs
+abM
+abS
 bJC
 bLQ
 bLQ
@@ -79845,7 +79855,7 @@ bfg
 bFS
 bGT
 bHR
-abS
+bIK
 bJE
 bLQ
 bKL
@@ -80102,7 +80112,7 @@ bfg
 bFT
 bGU
 bHS
-bIK
+bXE
 bJF
 bKJ
 bLS
