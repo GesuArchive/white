@@ -37,6 +37,11 @@
 	suffix = "compact_central.dmm"
 	name = "Compact Central"
 
+/datum/map_template/ruin/station/bridge/interesting
+	id = "interesting_central"
+	suffix = "interesting_central.dmm"
+	name = "Interesting Central"
+
 /datum/map_template/ruin/station/engine
 	id = "engine_sm"
 	suffix = "engine_sm.dmm"
