@@ -91,7 +91,7 @@
 		else if (critter.health == critter.maxHealth)
 			to_chat(user, "<span class='notice'><b>[M]</b> и так в полном здравии.</span>")
 			return FALSE
-		user.visible_message("<span class='green'><b>[user]</b> применяет <b>[sklonenie(src.name, VINITELNI, src.gender)]</b> на <b>[M]</b>.</span>", "<span class='green'>Применяю <b>[sklonenie(src.name, VINITELNI, src.gender)]</b> на <b>[M]</b>.</span>")
+		user.visible_message("<span class='green'><b>[user]</b> применяет <b>гель и пластыри</b> на <b>[M]</b>.</span>", "<span class='green'>Применяю <b>гель и пластыри</b> на <b>[M]</b>.</span>")
 		M.heal_bodypart_damage((heal_brute/2))
 		return TRUE
 	if(iscarbon(M))
@@ -209,12 +209,12 @@
 	if(isanimal(M))
 		var/mob/living/simple_animal/critter = M
 		if (!(critter.healable))
-			to_chat(user, "<span class='warning'>Не могу использовать <b>[src]</b> на <b>[M]</b>!</span>")
+			to_chat(user, "<span class='warning'>Не могу использовать <b>хирургическую нить</b> на <b>[M]</b>!</span>")
 			return FALSE
 		else if (critter.health == critter.maxHealth)
 			to_chat(user, "<span class='notice'><b>[M]</b> в полном здравии.</span>")
 			return FALSE
-		user.visible_message("<span class='green'><b>[user]</b> применяет <b>[sklonenie(src.name, VINITELNI, src.gender)]</b> на <b>[M]</b>.</span>", "<span class='green'>Применяю <b>[sklonenie(src.name, VINITELNI, src.gender)]</b> на <b>[M]</b>.</span>")
+		user.visible_message("<span class='green'><b>[user]</b> применяет <b>хирургическую нить</b> на <b>[M]</b>.</span>", "<span class='green'>Применяю <b>хирургическую нить</b> на <b>[M]</b>.</span>")
 		M.heal_bodypart_damage(heal_brute)
 		return TRUE
 
@@ -328,7 +328,7 @@
 		else if (critter.health == critter.maxHealth)
 			to_chat(user, "<span class='notice'><b>[M]</b> в полном здравии.</span>")
 			return FALSE
-		user.visible_message("<span class='green'><b>[user]</b> применяет <b>[sklonenie(src.name, VINITELNI, src.gender)]</b> на <b>[M]</b>.</span>", "<span class='green'>Применяю <b>[sklonenie(src.name, VINITELNI, src.gender)]</b> на <b>[M]</b>.</span>")
+		user.visible_message("<span class='green'><b>[user]</b> применяет <b>крем алоэ</b> на <b>[M]</b>.</span>", "<span class='green'>Применяю <b>крем алоэ</b> на <b>[M]</b>.</span>")
 		M.heal_bodypart_damage(heal, heal)
 		return TRUE
 
