@@ -586,10 +586,16 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		return //General ambience check is below the ship ambience so one can play without the other
 
 	if(prob(35))
-		var/sound = pick(ambientsounds)
-
 		if(!L.client.played)
-			SEND_SOUND(L, sound(sound, repeat = TRUE, wait = 0, volume = 5, channel = CHANNEL_AMBIENCE))
+
+			var/sound/S = sound(pick(ambientsounds))
+			S.repeat = TRUE
+			S.channel = CHANNEL_AMBIENCE
+			S.wait = TRUE
+			S.volume = 5
+			S.status = SOUND_STREAM
+
+			SEND_SOUND(L, S)
 			L.client.played = TRUE
 			addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), 7200)
 
