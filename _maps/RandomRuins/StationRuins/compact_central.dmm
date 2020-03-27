@@ -3375,6 +3375,9 @@
 /obj/machinery/vending/cola/random,
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
+"ia" = (
+/turf/closed/wall,
+/area/storage/tech)
 "ib" = (
 /obj/machinery/computer/bounty{
 	dir = 1
@@ -4299,7 +4302,7 @@ as
 fM
 gt
 aj
-ab
+ia
 "}
 (9,1,1) = {"
 ab
@@ -4337,7 +4340,7 @@ as
 fO
 gt
 aj
-ab
+ia
 "}
 (10,1,1) = {"
 ab
@@ -4375,7 +4378,7 @@ as
 fS
 jQ
 jX
-ab
+ia
 "}
 (11,1,1) = {"
 ab
@@ -4413,7 +4416,7 @@ as
 fT
 gt
 aj
-ab
+ia
 "}
 (12,1,1) = {"
 ab
@@ -4451,7 +4454,7 @@ as
 fU
 gt
 aj
-ab
+ia
 "}
 (13,1,1) = {"
 ab
@@ -4489,7 +4492,7 @@ ey
 fj
 gt
 aj
-ab
+ia
 "}
 (14,1,1) = {"
 ab
@@ -4527,7 +4530,7 @@ bN
 fj
 gt
 jY
-ab
+ia
 "}
 (15,1,1) = {"
 ab
@@ -4565,7 +4568,7 @@ ey
 fj
 gt
 jV
-ab
+ia
 "}
 (16,1,1) = {"
 ab
@@ -4603,7 +4606,7 @@ ey
 fj
 gt
 aj
-ab
+ia
 "}
 (17,1,1) = {"
 ab
@@ -4641,7 +4644,7 @@ ai
 cW
 gt
 aI
-ab
+ia
 "}
 (18,1,1) = {"
 ac

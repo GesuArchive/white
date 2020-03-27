@@ -15,6 +15,9 @@
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
+"ad" = (
+/turf/closed/wall,
+/area/storage/tech)
 "an" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/public/glass{
@@ -4551,7 +4554,7 @@ hA
 bs
 hg
 aH
-ab
+ad
 "}
 (9,1,1) = {"
 ab
@@ -4589,7 +4592,7 @@ hA
 br
 hg
 aH
-ab
+ad
 "}
 (10,1,1) = {"
 ab
@@ -4627,7 +4630,7 @@ hA
 bd
 kM
 kT
-ab
+ad
 "}
 (11,1,1) = {"
 ab
@@ -4665,7 +4668,7 @@ hA
 kB
 hg
 aH
-ab
+ad
 "}
 (12,1,1) = {"
 ab
@@ -4703,7 +4706,7 @@ ks
 kC
 hg
 aH
-ab
+ad
 "}
 (13,1,1) = {"
 ab
@@ -4741,7 +4744,7 @@ hA
 kD
 hg
 aH
-ab
+ad
 "}
 (14,1,1) = {"
 ab
@@ -4779,7 +4782,7 @@ aD
 dD
 hg
 kU
-ab
+ad
 "}
 (15,1,1) = {"
 ab
@@ -4817,7 +4820,7 @@ aD
 dD
 hg
 kR
-ab
+ad
 "}
 (16,1,1) = {"
 ab
@@ -4855,7 +4858,7 @@ aD
 dD
 hg
 aH
-ab
+ad
 "}
 (17,1,1) = {"
 ab
@@ -4893,7 +4896,7 @@ kt
 kE
 hg
 bl
-ab
+ad
 "}
 (18,1,1) = {"
 an

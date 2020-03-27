@@ -188,6 +188,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"ax" = (
+/turf/closed/wall/r_wall,
+/area/storage/tech)
 "az" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -4541,7 +4544,7 @@ ip
 nt
 gF
 dF
-ip
+ax
 "}
 (9,1,1) = {"
 ab
@@ -4579,7 +4582,7 @@ ip
 gD
 gE
 hS
-ip
+ax
 "}
 (10,1,1) = {"
 ab
@@ -4617,7 +4620,7 @@ nl
 gE
 gE
 hR
-ip
+ax
 "}
 (11,1,1) = {"
 ab
@@ -4655,7 +4658,7 @@ nm
 gU
 nu
 hT
-ip
+ax
 "}
 (12,1,1) = {"
 ab
@@ -4693,7 +4696,7 @@ ip
 gD
 gU
 gD
-ip
+ax
 "}
 (13,1,1) = {"
 ab
@@ -4731,7 +4734,7 @@ ip
 gD
 gF
 dF
-ip
+ax
 "}
 (14,1,1) = {"
 ab
@@ -4769,7 +4772,7 @@ ip
 gD
 gU
 gD
-ip
+ax
 "}
 (15,1,1) = {"
 ab
@@ -4807,7 +4810,7 @@ gU
 gD
 gU
 gD
-ip
+ax
 "}
 (16,1,1) = {"
 ab
@@ -4845,7 +4848,7 @@ ns
 hV
 hp
 nw
-ip
+ax
 "}
 (17,1,1) = {"
 ab
@@ -4883,7 +4886,7 @@ ip
 ip
 nv
 ip
-ip
+ax
 "}
 (18,1,1) = {"
 ac
