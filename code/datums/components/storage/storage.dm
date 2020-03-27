@@ -668,9 +668,9 @@
 		if(M == viewing)
 			to_chat(usr, "<span class='notice'>Кладу [sklonenie(I.name, VINITELNI, I.gender)] [insert_preposition] [parent].</span>")
 		else if(in_range(M, viewing)) //If someone is standing close enough, they can tell what it is...
-			viewing.show_message("<span class='notice'>[M] кладёт [sklonenie(I.name, VINITELNI, I.gender)] [insert_preposition] [parent].</span>", MSG_VISUAL)
+			viewing.show_message("<span class='notice'><b>[M]</b> кладёт <b>[sklonenie(I.name, VINITELNI, I.gender)]</b> [insert_preposition] <b>[parent]</b>.</span>", MSG_VISUAL)
 		else if(I && I.w_class >= 3) //Otherwise they can only see large or normal items from a distance...
-			viewing.show_message("<span class='notice'>[M] кладёт [sklonenie(I.name, VINITELNI, I.gender)] [insert_preposition] [parent].</span>", MSG_VISUAL)
+			viewing.show_message("<span class='notice'><b>[M]</b> кладёт <b>[sklonenie(I.name, VINITELNI, I.gender)]</b> [insert_preposition] <b>[parent]</b>.</span>", MSG_VISUAL)
 
 /datum/component/storage/proc/update_icon()
 	if(isobj(parent))

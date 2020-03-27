@@ -40,7 +40,7 @@
 				to_chat(user, "<span class='danger'>You unlock the [src.name]!</span>")
 				return
 		else
-			to_chat(user, "<span class='danger'>Access Denied.</span>")
+			to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
 			return
 	if(!locked)
 		return ..()

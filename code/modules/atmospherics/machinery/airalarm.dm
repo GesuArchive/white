@@ -824,7 +824,7 @@
 			to_chat(user, "<span class='notice'>Я [ locked ? "блокирую" : "разблокирую"] интерфейс контроллера воздуха.</span>")
 			updateUsrDialog()
 		else
-			to_chat(user, "<span class='danger'>Access denied.</span>")
+			to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
 	return
 
 /obj/machinery/airalarm/emag_act(mob/user)
