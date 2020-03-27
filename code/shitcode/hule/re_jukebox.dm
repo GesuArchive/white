@@ -145,7 +145,7 @@
 	dat += "</div><br>"
 	dat += "<A href='?src=[REF(src)];action=select'> Выбрать трек</A><br>"
 	dat += "<A href='?src=[REF(src)];action=volume'> Громкость</A><br>"
-	dat += "<A href='?src=[REF(src)];action=env'> Объёмный звук [!env_sound ? "ВКЛ" : "ВЫКЛ"]</A><br>"
+	dat += "<A href='?src=[REF(src)];action=env'> Объёмный звук [!env_sound ? "ВЫКЛ" : "ВКЛ"]</A><br>"
 
 	if(selection)
 		if(selection.song_name)

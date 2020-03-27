@@ -580,7 +580,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	// Ambience goes down here -- make sure to list each area separately for ease of adding things in later, thanks! Note: areas adjacent to each other should have the same sounds to prevent cutoff when possible.- LastyScratch
 	if(L.client && !L.client.ambience_playing && L.client.prefs.toggles & SOUND_SHIP_AMBIENCE)
 		L.client.ambience_playing = 1
-		SEND_SOUND(L, sound('sound/ambience/shipambience.ogg', repeat = 1, wait = 0, volume = 35, channel = CHANNEL_BUZZ))
+		SEND_SOUND(L, sound('sound/ambience/shipambience.ogg', repeat = 1, wait = 0, volume = 15, channel = CHANNEL_BUZZ))
 
 	if(!(L.client && (L.client.prefs.toggles & SOUND_AMBIENCE)))
 		return //General ambience check is below the ship ambience so one can play without the other
@@ -591,13 +591,13 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 			var/sound/S = sound(pick(ambientsounds))
 			S.repeat = TRUE
 			S.channel = CHANNEL_AMBIENCE
-			S.wait = TRUE
+			S.wait = FALSE
 			S.volume = 5
 			S.status = SOUND_STREAM
 
 			SEND_SOUND(L, S)
 			L.client.played = TRUE
-			addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), 7200)
+			addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), 1200)
 
 ///Divides total beauty in the room by roomsize to allow us to get an average beauty per tile.
 /area/proc/update_beauty()
