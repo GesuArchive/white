@@ -1,6 +1,6 @@
 /obj/effect/accelerated_particle
-	name = "Accelerated Particles"
-	desc = "Small things moving very fast."
+	name = "ускоренные частицы"
+	desc = "Мелкие вещи движущиеся очень быстро."
 	icon = 'icons/obj/machines/particle_accelerator.dmi'
 	icon_state = "particle"
 	anchored = TRUE

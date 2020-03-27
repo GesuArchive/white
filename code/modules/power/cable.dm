@@ -12,8 +12,8 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 // Definitions
 ////////////////////////////////
 /obj/structure/cable
-	name = "power cable"
-	desc = "A flexible, superconducting insulated cable for heavy-duty power transfer."
+	name = "силовой кабель"
+	desc = "Гибкий сверхпроводящий изолированный кабель для передачи электроэнергии в тяжелых условиях."
 	icon = 'icons/obj/power_cond/layer_cable.dmi'
 	icon_state = "l2-1-2-4-8-node"
 	color = "yellow"
@@ -143,16 +143,16 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	if(W.tool_behaviour == TOOL_WIRECUTTER)
 		if (shock(user, 50))
 			return
-		user.visible_message("<span class='notice'>[user] cuts the cable.</span>", "<span class='notice'>You cut the cable.</span>")
+		user.visible_message("<span class='notice'><b>[user]</b> отрезает кабель.</span>", "<span class='notice'>Отрезаю кабель.</span>")
 		investigate_log("was cut by [key_name(usr)] in [AREACOORD(src)]", INVESTIGATE_WIRES)
 		deconstruct()
 		return
 
 	else if(W.tool_behaviour == TOOL_MULTITOOL)
 		if(powernet && (powernet.avail > 0))		// is it powered?
-			to_chat(user, "<span class='danger'>Total power: [DisplayPower(powernet.avail)]\nLoad: [DisplayPower(powernet.load)]\nExcess power: [DisplayPower(surplus())]</span>")
+			to_chat(user, "<span class='danger'>Суммарная мощность: [DisplayPower(powernet.avail)]\nНагрузка: [DisplayPower(powernet.load)]\nИзлишки: [DisplayPower(surplus())]</span>")
 		else
-			to_chat(user, "<span class='danger'>The cable is not powered.</span>")
+			to_chat(user, "<span class='danger'>Кабель не подключен.</span>")
 		shock(user, 5, 0.2)
 
 	add_fingerprint(user)
@@ -372,7 +372,7 @@ GLOBAL_LIST_INIT(cable_coil_recipes, list(new/datum/stack_recipe("cable restrain
 											new/datum/stack_recipe("cable bridge", /obj/structure/cable_bridge, 15)))
 
 /obj/item/stack/cable_coil
-	name = "cable coil"
+	name = "моток кабеля"
 	custom_price = 75
 	gender = NEUTER //That's a cable coil sounds better than that's some cable coils
 	icon = 'icons/obj/power.dmi'
@@ -385,7 +385,7 @@ GLOBAL_LIST_INIT(cable_coil_recipes, list(new/datum/stack_recipe("cable restrain
 	merge_type = /obj/item/stack/cable_coil // This is here to let its children merge between themselves
 	color = "yellow"
 	var/cable_color = "yellow"
-	desc = "A coil of insulated power cable."
+	desc = "Катушка изолированного силового кабеля."
 	throwforce = 0
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 3
@@ -409,7 +409,7 @@ GLOBAL_LIST_INIT(cable_coil_recipes, list(new/datum/stack_recipe("cable restrain
 
 /obj/item/stack/cable_coil/examine(mob/user)
 	. = ..()
-	. += "<b>Ctrl+Click</b> to change the layer you are placing on."
+	. += "<b>Ctrl+Клик</b> для смены слоя."
 
 /obj/item/stack/cable_coil/suicide_act(mob/user)
 	if(locate(/obj/structure/chair/stool) in get_turf(user))
@@ -461,7 +461,7 @@ GLOBAL_LIST_INIT(cable_coil_recipes, list(new/datum/stack_recipe("cable restrain
 	var/obj/item/bodypart/affecting = H.get_bodypart(check_zone(user.zone_selected))
 	if(affecting && affecting.status == BODYPART_ROBOTIC)
 		if(user == H)
-			user.visible_message("<span class='notice'>[user] starts to fix some of the wires in [H]'s [affecting.name].</span>", "<span class='notice'>You start fixing some of the wires in [H == user ? "your" : "[H]'s"] [affecting.name].</span>")
+			user.visible_message("<span class='notice'><b>[user]</b> начинает исправлять проводку <b>[H]</b> на [affecting.name].</span>", "<span class='notice'>Начинаю исправлять проводку на [H == user ? "моей" : "<b>[H]</b>"] [affecting.name].</span>")
 			if(!do_mob(user, H, 50))
 				return
 		if(item_heal_robotic(H, user, 0, 15))
@@ -473,7 +473,7 @@ GLOBAL_LIST_INIT(cable_coil_recipes, list(new/datum/stack_recipe("cable restrain
 
 /obj/item/stack/cable_coil/update_icon()
 	icon_state = "[initial(item_state)][amount < 3 ? amount : ""]"
-	name = "cable [amount < 3 ? "piece" : "coil"]"
+	name = "[amount < 3 ? "кусочек" : "моток"] кабеля"
 
 //add cables to the stack
 /obj/item/stack/cable_coil/proc/give(extra)
@@ -494,20 +494,20 @@ GLOBAL_LIST_INIT(cable_coil_recipes, list(new/datum/stack_recipe("cable restrain
 		return
 
 	if(!isturf(T) || T.intact || !T.can_have_cabling())
-		to_chat(user, "<span class='warning'>You can only lay cables on catwalks and plating!</span>")
+		to_chat(user, "<span class='warning'>Кабель можно проложить только по полу!</span>")
 		return
 
 	if(get_amount() < 1) // Out of cable
-		to_chat(user, "<span class='warning'>There is no cable left!</span>")
+		to_chat(user, "<span class='warning'>Кабель закончился!</span>")
 		return
 
 	if(get_dist(T,user) > 1) // Too far
-		to_chat(user, "<span class='warning'>You can't lay cable at a place that far away!</span>")
+		to_chat(user, "<span class='warning'>Я не могу проложить кабель так далеко!</span>")
 		return
 
 	for(var/obj/structure/cable/C in T)
 		if(target_type == C.type)
-			to_chat(user, "<span class='warning'>There's already a cable at that position!</span>")
+			to_chat(user, "<span class='warning'>Здесь уже есть кабель!</span>")
 			return
 
 	var/obj/structure/cable/C = new target_type(T)
@@ -550,8 +550,8 @@ GLOBAL_LIST_INIT(cable_coil_recipes, list(new/datum/stack_recipe("cable restrain
 	cost = 1
 
 /obj/structure/cable_bridge
-	name = "cable bridge"
-	desc = "A bridge to connect different cable layers, or link terminals to incompatible cable layers."
+	name = "переходник"
+	desc = "Мост для соединения различных кабельных слоев или связывания клемм с несовместимыми кабельными слоями."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "cable_bridge"
 	layer = WIRE_LAYER + 0.02 //Above all the cables but below terminals

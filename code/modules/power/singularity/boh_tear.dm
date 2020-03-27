@@ -2,8 +2,8 @@
 /// The BoH tear is a stationary singularity with a really high gravitational pull, which collapses briefly after being created
 /// The BoH isn't deleted for 10 minutes (only moved to nullspace) so that admins may retrieve the things back in case of a grief
 /obj/singularity/boh_tear
-	name = "tear in the fabric of reality"
-	desc = "Your own comprehension of reality starts bending as you stare this."
+	name = "разрыв в ткани реальности"
+	desc = "Моё собственное понимание реальности начинает изгибаться, когда я на это смотрю."
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "boh_tear"
 	pixel_x = -32
@@ -42,7 +42,7 @@
 /obj/singularity/boh_tear/attack_tk(mob/living/user)
 	if(!istype(user))
 		return
-	to_chat(user, "<span class='userdanger'>You don't feel like you are real anymore.</span>")
+	to_chat(user, "<span class='userdanger'>Я больше не чувствую себя настоящим.</span>")
 	user.dust_animation()
 	user.spawn_dust()
 	addtimer(CALLBACK(src, .proc/consume, user), 5)
