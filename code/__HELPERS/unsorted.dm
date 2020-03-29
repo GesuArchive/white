@@ -645,69 +645,53 @@ Turf and target are separate in case you want to teleport some distance from a t
 
 /proc/parse_zone(zone)
 	if(zone == BODY_ZONE_PRECISE_R_HAND)
-		return "right hand"
+		return "правая кисть"
 	else if (zone == BODY_ZONE_PRECISE_L_HAND)
-		return "left hand"
+		return "левая кисть"
 	else if (zone == BODY_ZONE_L_ARM)
-		return "left arm"
+		return "левая рука"
 	else if (zone == BODY_ZONE_R_ARM)
-		return "right arm"
+		return "правая рука"
 	else if (zone == BODY_ZONE_L_LEG)
-		return "left leg"
+		return "левая нога"
 	else if (zone == BODY_ZONE_R_LEG)
-		return "right leg"
+		return "правая нога"
 	else if (zone == BODY_ZONE_PRECISE_L_FOOT)
-		return "left foot"
+		return "левая ступня"
 	else if (zone == BODY_ZONE_PRECISE_R_FOOT)
-		return "right foot"
+		return "правая ступня"
 	else
 		return zone
 
 /proc/ru_parse_zone(zone)
-	if(zone == "right hand")
+	if(zone == "правая кисть")
 		return "правую кисть"
-	else if (zone == "left hand")
+	else if (zone == "левая кисть")
 		return "левую кисть"
-	else if (zone == "left arm")
+	else if (zone == "левая рука")
 		return "левую руку"
-	else if (zone == "right arm")
+	else if (zone == "правая рука")
 		return "правую руку"
-	else if (zone == "left leg")
+	else if (zone == "левая нога")
 		return "левую ногу"
-	else if (zone == "right leg")
+	else if (zone == "правая нога")
 		return "правую ногу"
-	else if (zone == "left foot")
+	else if (zone == "левая ступня")
 		return "левую ступню"
-	else if (zone == "right foot")
+	else if (zone == "правая ступня")
 		return "правую ступню"
-	else if (zone == "chest")
+	else if (zone == "грудь")
 		return "грудь"
-	else if (zone == "mouth")
+	else if (zone == "рот")
 		return "рот"
-	else if (zone == "groin")
+	else if (zone == "пах")
 		return "пах"
-	else if (zone == "head")
+	else if (zone == "голова")
 		return "голову"
 	else
 		return zone
 
 /proc/ru_exam_parse_zone(zone)
-	if(zone == "right hand")
-		return "правая кисть"
-	else if (zone == "left hand")
-		return "левая кисть"
-	else if (zone == "left arm")
-		return "левая рука"
-	else if (zone == "right arm")
-		return "правая рука"
-	else if (zone == "left leg")
-		return "левая нога"
-	else if (zone == "right leg")
-		return "правая нога"
-	else if (zone == "left foot")
-		return "левая ступня"
-	else if (zone == "right foot")
-		return "правая ступня"
 	else if (zone == "chest")
 		return "грудь"
 	else if (zone == "mouth")

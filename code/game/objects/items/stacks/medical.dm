@@ -1,5 +1,6 @@
 /obj/item/stack/medical
 	name = "медипак"
+	var/skloname = "медипак"
 	singular_name = "медипак"
 	icon = 'icons/obj/stack_objects.dmi'
 	amount = 6
@@ -27,12 +28,12 @@
 		return
 	if(M == user)
 		if(!silent)
-			user.visible_message("<span class='notice'><b>[user]</b> начинает применять <b>[src]</b> на себе...</span>", "<span class='notice'>Начинаю применять <b>[src]</b> на себе...</span>")
+			user.visible_message("<span class='notice'><b>[user]</b> начинает применять <b>[skloname]</b> на себе...</span>", "<span class='notice'>Начинаю применять <b>[skloname]</b> на себе...</span>")
 		if(!do_mob(user, M, self_delay, extra_checks=CALLBACK(M, /mob/living/proc/can_inject, user, TRUE)))
 			return
 	else if(other_delay)
 		if(!silent)
-			user.visible_message("<span class='notice'><b>[user]</b> начинает прмиенять <b>[src]</b> на <b>[M]</b>.</span>", "<span class='notice'>Начинаю применять <b>[src]</b> на <b>[M]</b>...</span>")
+			user.visible_message("<span class='notice'><b>[user]</b> начинает прмиенять <b>[skloname]</b> на <b>[M]</b>.</span>", "<span class='notice'>Начинаю применять <b>[skloname]</b> на <b>[M]</b>...</span>")
 		if(!do_mob(user, M, other_delay, extra_checks=CALLBACK(M, /mob/living/proc/can_inject, user, TRUE)))
 			return
 
@@ -55,7 +56,7 @@
 		to_chat(user, "<span class='warning'><b>[src]</b> не будет работать на механической конечности!</span>")
 		return
 	if(affecting.brute_dam && brute || affecting.burn_dam && burn)
-		user.visible_message("<span class='green'><b>[user]</b> применяет <b>[sklonenie(src.name, VINITELNI, src.gender)]</b> на <b>[affecting.name] [C]</b>.</span>", "<span class='green'>Применяю <b>[sklonenie(src.name, VINITELNI, src.gender)]</b> на <b>[affecting.name] [C]</b>.</span>")
+		user.visible_message("<span class='green'><b>[user]</b> применяет <b>[skloname]</b> на <b>[ru_parse_zone(affecting.name)] [C]</b>.</span>", "<span class='green'>Применяю <b>[skloname]</b> на <b>[ru_parse_zone(affecting.name)] [C]</b>.</span>")
 		var/brute2heal = brute
 		var/burn2heal = burn
 		var/skill_mod = user?.mind?.get_skill_modifier(/datum/skill/medical, SKILL_SPEED_MODIFIER)
@@ -71,6 +72,7 @@
 /obj/item/stack/medical/bruise_pack
 	name = "гель и пластыри"
 	singular_name = "гель и пластыри"
+	skloname = "гель и пластыри"
 	desc = "Терапевтический гель и пластыри, предназначенные для лечения травм."
 	icon_state = "brutepack"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -104,6 +106,7 @@
 
 /obj/item/stack/medical/gauze
 	name = "медицинский бинт"
+	skloname = "медицинский бинт"
 	desc = "Рулон эластичной ткани, который чрезвычайно эффективен при остановке кровотечения, но не заживает раны."
 	gender = PLURAL
 	singular_name = "медицинская марля"
@@ -145,6 +148,7 @@
 
 /obj/item/stack/medical/gauze/improvised
 	name = "импровизированный бинт"
+	skloname = "импровизированный бинт"
 	singular_name = "импровизированный бинт"
 	desc = "Рулон ткани грубо отрезан от чего-то, что может остановить кровотечение, но не заживает раны."
 	stop_bleeding = 900
@@ -156,6 +160,7 @@
 
 /obj/item/stack/medical/ointment
 	name = "мазь"
+	skloname = "мазь"
 	desc = "Используется для лечения этих неприятных ожоговых ран."
 	gender = FEMALE
 	singular_name = "мазь"
@@ -180,6 +185,7 @@
 
 /obj/item/stack/medical/suture
 	name = "хирургическая нить"
+	skloname = "хирургическую нить"
 	desc = "Стерильные швы используются для герметизации порезов и разрывов."
 	gender = FEMALE
 	singular_name = "нить"
@@ -194,6 +200,7 @@
 
 /obj/item/stack/medical/suture/medicated
 	name = "лечебная хирургическая нить"
+	skloname = "лечебную хирургическую нить"
 	icon_state = "suture_purp"
 	desc = "Нить, наполненная лекарственными средствами, ускоряющими заживление раны на обработанной ране."
 	heal_brute = 15
@@ -222,6 +229,7 @@
 
 /obj/item/stack/medical/mesh
 	name = "регенеративная сетка"
+	skloname = "регенеративную сетку"
 	desc = "Бактериостатическая сетка используется для прижигания ожогов."
 	gender = PLURAL
 	singular_name = "регенеративная сетка"
@@ -286,6 +294,7 @@
 
 /obj/item/stack/medical/mesh/advanced
 	name = "продвинутая регенеративная сетка"
+	skloname = "продвинутую регенеративную сетку"
 	desc = "Передовая сетка из экстрактов алоэ и стерилизующих химикатов, используемых для лечения ожогов."
 
 	gender = FEMALE
@@ -302,6 +311,7 @@
 
 /obj/item/stack/medical/aloe
 	name = "крем алоэ"
+	skloname = "крем алоэ"
 	desc = "Целебную пасту можно наносить на раны."
 
 	icon_state = "aloe_paste"
