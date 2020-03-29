@@ -372,7 +372,7 @@
 			user << browse(null, "window=AMcontrol")
 			return
 
-	var/dat = ""
+	var/dat = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">"
 	dat += "Панель управления антивеществом<BR>"
 	dat += "<A href='?src=[REF(src)];close=1'>Закрыть</A><BR>"
 	dat += "<A href='?src=[REF(src)];refresh=1'>Обновить</A><BR>"
