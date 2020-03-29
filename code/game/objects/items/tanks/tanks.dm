@@ -1,6 +1,6 @@
 /obj/item/tank
 	name = "tank"
-	icon = 'code/shitcodes/valtos/icons/tank.dmi'
+	icon = 'code/shitcode/valtos/icons/tank.dmi'
 	lefthand_file = 'icons/mob/inhands/equipment/tanks_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tanks_righthand.dmi'
 	flags_1 = CONDUCT_1
