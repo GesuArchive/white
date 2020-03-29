@@ -692,7 +692,7 @@ Turf and target are separate in case you want to teleport some distance from a t
 		return zone
 
 /proc/ru_exam_parse_zone(zone)
-	else if (zone == "chest")
+	if (zone == "chest")
 		return "грудь"
 	else if (zone == "mouth")
 		return "рот"
