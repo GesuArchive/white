@@ -670,11 +670,13 @@
 /turf/closed/wall/r_wall,
 /area/bridge)
 "bG" = (
-/obj/item/radio/intercom{
-	dir = 8;
-	pixel_x = -28
+/obj/machinery/newscaster{
+	pixel_y = 32
 	},
-/turf/open/floor/plasteel/dark,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "bH" = (
 /obj/structure/cable,
@@ -1055,6 +1057,9 @@
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "cv" = (
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/plasteel/freezer,
 /area/crew_quarters/heads/captain)
 "cw" = (
@@ -1095,6 +1100,7 @@
 	c_tag = "Captain's Quarters";
 	dir = 1
 	},
+/obj/machinery/light/small,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "cC" = (
@@ -1318,6 +1324,9 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
 "de" = (
@@ -1982,6 +1991,18 @@
 /obj/item/storage/lockbox/medal,
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
+"if" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "ih" = (
 /turf/open/floor/carpet,
 /area/bridge/meeting_room)
@@ -2167,9 +2188,6 @@
 /obj/structure/mirror{
 	pixel_x = 28
 	},
-/obj/machinery/light/small{
-	dir = 1
-	},
 /turf/open/floor/plasteel/freezer,
 /area/crew_quarters/heads/captain)
 "jS" = (
@@ -2225,6 +2243,9 @@
 	},
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
 "ka" = (
@@ -2502,6 +2523,7 @@
 "nr" = (
 /obj/structure/rack,
 /obj/item/dice/d6/space,
+/obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "ns" = (
@@ -3153,7 +3175,6 @@
 /area/hallway/primary/central)
 "oW" = (
 /obj/structure/chair{
-	dir = 2;
 	name = "Engineering Station"
 	},
 /turf/open/floor/plasteel,
@@ -3172,7 +3193,6 @@
 "oZ" = (
 /obj/structure/cable,
 /obj/structure/chair{
-	dir = 2;
 	name = "Command Station"
 	},
 /turf/open/floor/plasteel,
@@ -3190,7 +3210,6 @@
 /area/bridge)
 "pc" = (
 /obj/structure/chair{
-	dir = 2;
 	name = "Crew Station"
 	},
 /turf/open/floor/plasteel,
@@ -3636,6 +3655,9 @@
 	},
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
+	},
+/obj/item/radio/intercom{
+	pixel_y = 20
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -4241,6 +4263,22 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"Nv" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	layer = 2.9
+	},
+/obj/effect/turf_decal/bot,
+/obj/structure/cable,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/heads/hop)
+"XI" = (
+/obj/machinery/status_display/ai,
+/turf/closed/wall/r_wall,
+/area/hallway/primary/central)
 
 (1,1,1) = {"
 ab
@@ -4289,7 +4327,7 @@ eb
 aM
 af
 cW
-bG
+aP
 oN
 qb
 aj
@@ -5196,11 +5234,11 @@ ab
 ab
 an
 an
-mA
+bG
 aj
 jo
 du
-dw
+Nv
 dw
 dB
 dC
@@ -5424,7 +5462,7 @@ ab
 ab
 ab
 ab
-db
+aj
 aj
 eg
 jI
@@ -5436,7 +5474,7 @@ cV
 dd
 dp
 jI
-pn
+if
 aj
 aj
 qj
@@ -5477,8 +5515,8 @@ dt
 ai
 aj
 bc
-bh
-be
+XI
+gG
 gG
 gG
 gG
@@ -5500,7 +5538,7 @@ ab
 ab
 ab
 ab
-aj
+db
 aj
 aj
 eg
@@ -5606,7 +5644,7 @@ aj
 jo
 aA
 aj
-aj
+eD
 aj
 cw
 "}
