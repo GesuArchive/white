@@ -10,16 +10,19 @@
 	color = "#FF00FF"
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
 	overdose_threshold = 15
+	var/rd = 0
 
 /datum/reagent/viagra/on_mob_add(mob/living/L)
 	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		rd = roll_stat_dice(H.fate_luck)
 		to_chat(L, "<span class='notice'>ЧУВСТВУЮ СИЛУ И БЕЗЗАБОТСТВО!</span>")
 
 /datum/reagent/viagra/on_mob_life(mob/living/L)
 	if(ishuman(L))
 		var/mob/living/carbon/human/N = L
-		N.dstats[MOB_STR] = N.bstats[MOB_STR] + volume * 2
-		N.dstats[MOB_INT] = N.bstats[MOB_INT] - volume
+		N.current_fate[MOB_STR] = CEILING(N.base_fate[MOB_STR] + rd, 4)
+		N.current_fate[MOB_INT] = CEILING(N.base_fate[MOB_INT] + rd, 1)
 		N.recalculate_stats()
 	. = ..()
 
@@ -48,17 +51,20 @@
 	color = "#FFFFFF"
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
 	overdose_threshold = 15
+	var/rd = 0
 
 /datum/reagent/askorbinka/on_mob_add(mob/living/L)
 	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		rd = roll_stat_dice(H.fate_luck)
 		to_chat(L, "<span class='notice'>Ням!</span>")
 
 /datum/reagent/askorbinka/on_mob_life(mob/living/L)
 	if(ishuman(L))
 		var/mob/living/carbon/human/N = L
-		N.dstats[MOB_STR] = N.bstats[MOB_STR] - volume
-		N.dstats[MOB_INT] = N.bstats[MOB_INT] + volume * 2
-		N.dstats[MOB_DEX] = N.bstats[MOB_DEX] + volume
+		N.current_fate[MOB_STR] = CEILING(N.base_fate[MOB_INT] + rd, 2)
+		N.current_fate[MOB_INT] = CEILING(N.base_fate[MOB_INT] + rd, 4)
+		N.current_fate[MOB_DEX] = CEILING(N.base_fate[MOB_INT] + rd, 4)
 		N.recalculate_stats()
 
 /datum/reagent/askorbinka/overdose_process(mob/living/M)

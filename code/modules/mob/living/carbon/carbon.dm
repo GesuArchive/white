@@ -834,10 +834,6 @@
 	var/obj/item/organ/brain/BR = getorgan(/obj/item/organ/brain)
 	if(QDELETED(BR) || (BR.organ_flags & ORGAN_FAILING) || BR.suicided)
 		return
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		if((getFireLoss() >= FLOOR((MAX_REVIVE_FIRE_DAMAGE*(H.dstats[MOB_STR]+H.dstats[MOB_STM]))/20,1)) || (getBruteLoss() >= FLOOR((MAX_REVIVE_BRUTE_DAMAGE*(H.dstats[MOB_STR]+H.dstats[MOB_STM]))/20,1)))
-			return
 	return TRUE
 
 /mob/living/carbon/harvest(mob/living/user)

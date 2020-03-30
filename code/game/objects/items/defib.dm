@@ -576,10 +576,6 @@
 					failed = "<span class='warning'>[req_defib ? "[defib]" : "[src]"] buzzes: Resuscitation failed - Patient's heart too damaged, replace or repair and try again.</span>"
 				else if(total_burn >= MAX_REVIVE_FIRE_DAMAGE || total_brute >= MAX_REVIVE_BRUTE_DAMAGE || HAS_TRAIT(H, TRAIT_HUSK))
 					failed = "<span class='warning'>[req_defib ? "[defib]" : "[src]"] buzzes: Resuscitation failed - Tissue damage too severe, repair and try again.</span>"
-				else if (ishuman(H))
-					var/mob/living/carbon/human/RH = H
-					if(total_burn >= FLOOR((MAX_REVIVE_FIRE_DAMAGE*(RH.dstats[MOB_STR]+RH.dstats[MOB_STM]))/20,1) || total_brute >= FLOOR((MAX_REVIVE_BRUTE_DAMAGE*(RH.dstats[MOB_STR]+RH.dstats[MOB_STM]))/20,1) || HAS_TRAIT(H, TRAIT_HUSK))
-						failed = "<span class='warning'>[req_defib ? "[defib]" : "[src]"] buzzes: Resuscitation failed - Tissue damage too severe, repair and try again.</span>"
 				else
 					var/obj/item/organ/brain/BR = H.getorgan(/obj/item/organ/brain)
 					if(BR)

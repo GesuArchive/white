@@ -189,7 +189,13 @@ GLOBAL_LIST_EMPTY(species_list)
 
 	if(ishuman(user) && time != 0)
 		var/mob/living/carbon/human/H = user
-		time = FLOOR((time/(H.dstats[MOB_INT] + H.dstats[MOB_DEX])) * 20, 1)
+		switch(roll_stat_dice(H.current_fate[MOB_INT] + H.current_fate[MOB_DEX] + H.fate_luck))
+			if(-4)
+				time = time * 2
+			if(-3 to 3)
+				time = time
+			if(4)
+				time = time / 2
 
 	var/user_loc = user.loc
 
@@ -265,7 +271,13 @@ GLOBAL_LIST_EMPTY(species_list)
 
 	if(ishuman(user) && delay != 0)
 		var/mob/living/carbon/human/H = user
-		delay = FLOOR((delay/(H.dstats[MOB_INT] + H.dstats[MOB_DEX])) * 20, 1)
+		switch(roll_stat_dice(H.current_fate[MOB_INT] + H.current_fate[MOB_DEX] + H.fate_luck))
+			if(-4)
+				delay = delay * 2
+			if(-3 to 3)
+				delay = delay
+			if(4)
+				delay = delay / 2
 
 	var/datum/progressbar/progbar
 	if (progress)
@@ -320,7 +332,13 @@ GLOBAL_LIST_EMPTY(species_list)
 		return 0
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		time = FLOOR((time/(H.dstats[MOB_INT] + H.dstats[MOB_DEX])) * 20, 1)
+		switch(roll_stat_dice(H.current_fate[MOB_INT] + H.current_fate[MOB_DEX] + H.fate_luck))
+			if(-4)
+				time = time * 2
+			if(-3 to 3)
+				time = time
+			if(4)
+				time = time / 2
 	if(!islist(targets))
 		targets = list(targets)
 	var/user_loc = user.loc
