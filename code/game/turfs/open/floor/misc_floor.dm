@@ -9,11 +9,6 @@
 	icon_state = "rockvault"
 	floor_tile = /obj/item/stack/tile/plasteel
 
-/turf/open/floor/vault/russian
-	icon_state = "rockvault"
-	floor_tile = /obj/item/stack/tile/plasteel
-	baseturfs = /turf/open/openspace
-
 //Circuit flooring, glows a little
 /turf/open/floor/circuit
 	icon = 'icons/turf/floors.dmi'

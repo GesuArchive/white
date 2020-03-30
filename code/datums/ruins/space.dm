@@ -12,12 +12,6 @@
 	description = "In case society crumbles, we will be able to restore our zoos to working order with the breeding stock kept in these 100% secure and unbreachable storage facilities. \
 	At no point has anything escaped. That's our story, and we're sticking to it."
 
-/datum/map_template/ruin/space/russians
-	name = "Russian Command Post"
-	id = "russians"
-	description = "Cyka blyat."
-	suffix = "space_russians.dmm"
-
 /datum/map_template/ruin/space/asteroid1
 	id = "asteroid1"
 	suffix = "asteroid1.dmm"
@@ -307,7 +301,7 @@
 	suffix = "forgottenship.dmm"
 	name = "Syndicate Forgotten Ship"
 	description = "Seemingly abandoned ship went of course right into NT controlled space. It seems that malfunction caused most systems to turn off, except for sleepers."
-  
+
 /datum/map_template/ruin/space/hellfactory
 	id = "hellfactory"
 	suffix = "hellfactory.dmm"
