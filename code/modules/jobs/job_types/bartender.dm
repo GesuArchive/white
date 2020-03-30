@@ -8,7 +8,6 @@
 	spawn_positions = 1
 	supervisors = "главе персонала"
 	selection_color = "#bbe291"
-	exp_type_department = EXP_TYPE_SERVICE // This is so the jobs menu can work properly
 
 	outfit = /datum/outfit/job/bartender
 
