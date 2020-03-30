@@ -630,7 +630,7 @@
 	dir = 1
 	},
 /obj/structure/table,
-/obj/item/modular_computer/laptop/preset/civillian,
+/obj/item/modular_computer/laptop/preset/civilian,
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/terrorship)
 "bT" = (
