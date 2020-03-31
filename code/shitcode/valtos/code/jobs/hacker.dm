@@ -48,12 +48,13 @@
 	ADD_TRAIT(H, TRAIT_HACKER, JOB_TRAIT)
 	H.add_client_colour(/datum/client_colour/hacker)
 	H.hud_list[HACKER_HUD].icon = null
+	H.alpha = 75
+	H.verbs += /mob/living/carbon/proc/immortality
+	M.AddSpell(/obj/effect/proc_holder/spell/self/hacker_heal)
+	M.AddSpell(/obj/effect/proc_holder/spell/targeted/remove_retard)
+	SEND_SOUND(M, 'code/shitcode/valtos/sounds/hacker_hello.ogg', 100)
 	spawn(50)
 		H.hud_used.update_parallax_pref(H, TRUE)
-		H.alpha = 75
-		H.verbs += /mob/living/carbon/proc/immortality
-		H.AddSpell(/obj/effect/proc_holder/spell/self/hacker_heal)
-		H.AddSpell(/obj/effect/proc_holder/spell/targeted/remove_retard)
 
 /datum/client_colour/hacker
 	colour = list(rgb(255,35,65), rgb(-65,200,45), rgb(-65,-35,255), rgb(0,0,0))
@@ -96,6 +97,11 @@
 	color = "#00ffff"
 	name = "гипершлем"
 	desc = "А ты заслуживаешь это?"
+	flags_inv = 0
+	mob_overlay_icon = null
+	slowdown = -1
+	strip_delay = 1300
+	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 
 /obj/effect/proc_holder/spell/self/hacker_heal
 	name = "Источник силы"
@@ -107,7 +113,7 @@
 	invocation = "Уёбки, сука!"
 	invocation_type = "whisper"
 	school = "restoration"
-	sound = 'code/shitcode/valtos/sounds/mechanized/kr1.wav'
+	sound = 'code/shitcode/valtos/sounds/hacker_heal.ogg'
 	action_icon_state = "spacetime"
 
 /obj/effect/proc_holder/spell/self/hacker_heal/cast(list/targets, mob/living/carbon/human/user)

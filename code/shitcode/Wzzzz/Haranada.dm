@@ -433,13 +433,14 @@
 	icon_state = "hardsuit0-hacker_rig"
 	clothing_flags = STOPSPRESSUREDAMAGE
 	item_state = "hardsuit0-hacker_rig"
-	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
+	resistance_flags = INDESTRUCTIBLE
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
-	armor = list("melee" = 60, "bullet" = 50, "laser" = 100,"energy" = 100, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 50, "acid" = 50)
+	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	slowdown = -1
 	color = "#00ffff"
+	strip_delay = 1300
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_engineer_rig
 	name = "ert engineer hardsuit helmet"
