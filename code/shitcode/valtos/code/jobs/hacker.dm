@@ -52,7 +52,7 @@
 	H.verbs += /mob/living/carbon/proc/immortality
 	M.AddSpell(/obj/effect/proc_holder/spell/self/hacker_heal)
 	M.AddSpell(/obj/effect/proc_holder/spell/targeted/remove_retard)
-	SEND_SOUND(M, 'code/shitcode/valtos/sounds/hacker_hello.ogg', 100)
+	SEND_SOUND(M, 'code/shitcode/valtos/sounds/hacker_hello.ogg')
 	spawn(50)
 		H.hud_used.update_parallax_pref(H, TRUE)
 
