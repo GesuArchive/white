@@ -46,10 +46,11 @@
 
 /datum/job/hacker/after_spawn(mob/living/carbon/human/H, mob/M)
 	ADD_TRAIT(H, TRAIT_HACKER, JOB_TRAIT)
+	ADD_TRAIT(H, TRAIT_PACIFISM, JOB_TRAIT)
 	H.add_client_colour(/datum/client_colour/hacker)
 	H.hud_list[HACKER_HUD].icon = null
 	H.alpha = 75
-	H.verbs += /mob/living/carbon/proc/immortality
+	H.verbs += /mob/living/carbon/proc/hackers_immortality
 	M.AddSpell(/obj/effect/proc_holder/spell/self/hacker_heal)
 	M.AddSpell(/obj/effect/proc_holder/spell/targeted/remove_retard)
 	SEND_SOUND(M, 'code/shitcode/valtos/sounds/hacker_hello.ogg')
@@ -108,8 +109,8 @@
 	desc = "Восполняет недостатки в теле."
 	human_req = TRUE
 	clothes_req = FALSE
-	charge_max = 100
-	cooldown_min = 50
+	charge_max = 600
+	cooldown_min = 600
 	invocation = "Уёбки, сука!"
 	invocation_type = "whisper"
 	school = "restoration"
@@ -126,14 +127,14 @@
 	desc = "При помощи этого я могу уничтожать тех, кто портит систему."
 	school = "destruction"
 	charge_type = "recharge"
-	charge_max	= 150
+	charge_max	= 6000
 	charge_counter = 0
 	clothes_req = FALSE
 	stat_allowed = FALSE
 	invocation = "Исчезни, пидор!"
 	invocation_type = "shout"
-	range = 7
-	cooldown_min = 30
+	range = 4
+	cooldown_min = 6000
 	selection_type = "range"
 	action_icon_state = "spacetime"
 
@@ -156,11 +157,11 @@
 	if(do_after(user, 50, target = target))
 		user.whisper(md5("Цель: [target]"))
 		if(do_after(user, 30, target = target))
-			user.whisper(md5("Метод: удаление"))
+			user.whisper(md5("Метод: удаление [target]"))
 			if(do_after(user, 30, target = target))
 				user.say("Эй, [target], тебе сейчас будет пиздец!")
 				if(do_after(user, 60, target = target))
-					user.whisper(md5("Удаление..."))
+					user.whisper(md5("Удаление  [target]..."))
 					target.emote("scream")
 					target.visible_message("<span class='danger'><b>[target]</b> исчезает!</span>", \
 									"<span class='danger'>Мне пиздец!</span>")
@@ -169,3 +170,36 @@
 						qdel(target.client)
 						spawn(5)
 							target.dust(TRUE,TRUE)
+
+/mob/living/carbon/proc/hackers_immortality()
+	set category = "МАГИЯ"
+	set name = "Бессмертие"
+
+	var/mob/living/carbon/C = usr
+	if(!C.stat)
+		to_chat(C, "<span class='notice'>А я ещё не умер!</span>")
+		return
+	if(C.has_status_effect(STATUS_EFFECT_HACKERS_IMMORTALITY))
+		to_chat(C, "<span class='warning'>А я уже воскрешаюсь!</span>")
+		return
+	C.apply_status_effect(STATUS_EFFECT_HACKERS_IMMORTALITY)
+	return 1
+
+/datum/status_effect/hackers_revive
+	id = "hackers_revive"
+	duration = 200
+	alert_type = /obj/screen/alert/status_effect/hackers_revive
+
+/datum/status_effect/hackers_revive/on_apply()
+	to_chat(owner, "<span class='notice'>Смерть не мой конец! Сейчас восстановимся...</span>")
+	return ..()
+
+/datum/status_effect/hackers_revive/on_remove()
+	owner.revive(full_heal = TRUE, admin_revive = TRUE)
+	owner.visible_message("<span class='warning'><b>[owner]</b> восстаёт из мёртвых!</span>", "<span class='notice'>Я регенерирую полностью.</span>")
+	owner.update_mobility()
+
+/obj/screen/alert/status_effect/hackers_revive
+	name = "Цифровое бессмертие"
+	desc = "Мне не страшна смерть!"
+	icon_state = "shadow_mend"
