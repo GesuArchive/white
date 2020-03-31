@@ -376,7 +376,7 @@
 		adjustStaminaLoss(shock_damage)
 	visible_message(
 		"<span class='danger'><b>[src]</b> ловит разряд тока от <b>[source]</b>!</span>", \
-		"<span class='userdanger'>меня ударило током! <b>ЭТО ОЧЕНЬ БОЛЬНО!</b></span>", \
+		"<span class='userdanger'>Меня ударило током! <b>ЭТО ОЧЕНЬ БОЛЬНО!</b></span>", \
 		"<span class='italics'>Слышу щёлканье электрических разрядов.</span>" \
 	)
 	return shock_damage

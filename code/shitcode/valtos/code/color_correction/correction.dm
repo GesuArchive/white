@@ -4,4 +4,5 @@
 
 /mob/living/Initialize()
 	. = ..()
+	overlay_fullscreen("noise", /obj/screen/fullscreen/noisescreen)
 	add_client_colour(/datum/client_colour/correction)

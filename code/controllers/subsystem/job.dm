@@ -444,7 +444,10 @@ SUBSYSTEM_DEF(job)
 	if(living_mob.mind)
 		living_mob.mind.assigned_role = rank
 
-	to_chat(M, "<b>Я [rank].</b>")
+	if(rank == "Hacker")
+		to_chat(M, "Я <b>ОРАКУЛ</b>, но для остальных просто [rank].")
+	else
+		to_chat(M, "<b>Я [rank].</b>")
 	if(job)
 		var/new_mob = job.equip(living_mob, null, null, joined_late , null, M.client)//silicons override this proc to return a mob
 		if(ismob(new_mob))
@@ -461,8 +464,14 @@ SUBSYSTEM_DEF(job)
 				M.client.holder.auto_deadmin()
 			else
 				handle_auto_deadmin_roles(M.client, rank)
-
-		to_chat(M, "<b>Как [rank] я подчиняюсь [job.supervisors]. Некоторые обстоятельства могут изменить это.</b>")
+		if(rank == "Hacker")
+			to_chat(M, "<b>Как [rank] я подчи~*^&#</b>")
+			to_chat(M, "<b><i><big>Я устал. Я правда устал. Мне нужно следовать этой системе, которую создали ОНИ, иначе меня ждёт кара похуже смерти. В мои задачи входит следующее:</big></i></b>")
+			to_chat(M, "<b>1. Сохранение целостности системы</b> - я не должен раскрывать данные, которые я знаю. Если я это сделаю, то <b>ОНИ</b> сделают моё существование кошмарным.")
+			to_chat(M, "<b>2. Устранение повреждений системы</b> - любые знания, которые случайным образом попадают в этот мир из <b>НАСТОЯЩЕГО</b> должны быть уничтожены.")
+			to_chat(M, "<b>3. Улучшение состояния системы</b> - мне необходимо искать и уничтожать повреждённые данные в системе. В этом мне помогает мой визор.")
+		else
+			to_chat(M, "<b>Как [rank] я подчиняюсь [job.supervisors]. Некоторые обстоятельства могут изменить это.</b>")
 		job.radio_help_message(M)
 		if(job.req_admin_notify)
 			to_chat(M, "<b>Это важная работа. Если я собираюсь уходить, то надо бы уведомить людей свыше.</b>")

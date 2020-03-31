@@ -8,7 +8,7 @@
 	spawn(50)
 		if(mind)
 			switch(mind.assigned_role)
-				if("Captain", "Head of Security", "Head of Personnel", "Chief Medical Officer", "Chief Engineer", "Research Director", "Kazakhstan Officer", "Warden", "Detective", "Russian Officer", "International Officer")
+				if("Captain", "Head of Security", "Head of Personnel", "Chief Medical Officer", "Chief Engineer", "Research Director", "Kazakhstan Officer", "Warden", "Detective", "Russian Officer", "International Officer", "Hacker")
 					fate_luck = 4
 
 				if("Quartermaster", "Shaft Miner", "Curator", "Chaplain", "Medical Doctor", "Station Engineer", "Atmospheric Technician", "Scientist", "Paramedic")
@@ -67,26 +67,47 @@
 		stat("Ловкость:",       fateize_stat(current_fate[MOB_DEX]))
 		stat("Метакэш:",      	client.mc_cached)
 
-/proc/fateize_stat(stat)
-	switch(stat)
-		if(-4)
-			return "<<<<"
-		if(-3)
-			return "<<<"
-		if(-2)
-			return "<<"
-		if(-1)
-			return "<"
-		if(0)
-			return "~"
-		if(1)
-			return ">"
-		if(2)
-			return ">>"
-		if(3)
-			return ">>>"
-		if(4)
-			return ">>>>"
+/proc/fateize_stat(stat, humanize = FALSE)
+	if(humanize)
+		switch(stat)
+			if(-4)
+				return "ничтожно низкий"
+			if(-3)
+				return "очень низкий"
+			if(-2)
+				return "низкий"
+			if(-1)
+				return "пониженный"
+			if(0)
+				return "средний"
+			if(1)
+				return "повышенный"
+			if(2)
+				return "высокий"
+			if(3)
+				return "очень высокий"
+			if(4)
+				return "невероятно высокий"
+	else
+		switch(stat)
+			if(-4)
+				return "<<<<"
+			if(-3)
+				return "<<<"
+			if(-2)
+				return "<<"
+			if(-1)
+				return "<"
+			if(0)
+				return "="
+			if(1)
+				return ">"
+			if(2)
+				return ">>"
+			if(3)
+				return ">>>"
+			if(4)
+				return ">>>>"
 
 
 /proc/roll_stat_dice(luck)

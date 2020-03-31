@@ -223,7 +223,7 @@
 	holder.icon_state = "hudno_id"
 	if(wear_id?.GetID())
 		var/jobid = ckey(wear_id.GetJobName())
-		if(jobid == "russianofficer" || jobid == "kazakhstanofficer" || jobid == "internationalofficer")
+		if(jobid == "russianofficer" || jobid == "kazakhstanofficer" || jobid == "internationalofficer" || jobid == "trader" || jobid == "hacker")
 			holder.icon = 'code/shitcode/valtos/icons/hud.dmi'
 		holder.icon_state = "hud[ckey(wear_id.GetJobName())]"
 	sec_hud_set_security_status()

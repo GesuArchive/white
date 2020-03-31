@@ -395,9 +395,9 @@
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/medical_rig
 
 /obj/item/clothing/glasses/hud/wzzzz/hacker_rig
-	name = "hacker googless"
-	desc = "Do you deserve that?"
-	alt_desc = "Do you deserve that?"
+	name = "хакочки"
+	desc = "А ты заслуживаешь это?"
+	alt_desc = "Глупая свинья."
 	icon_state = "hardsuit1-hacker_rig"
 	item_state = "hardsuit1-hacker_rig"
 	darkness_view = 10
@@ -406,7 +406,7 @@
 	flash_protect = 3
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
-	hud_type = DATA_HUD_DIAGNOSTIC_BASIC | DATA_HUD_SECURITY_ADVANCED | 2 | 5 | DATA_HUD_DIAGNOSTIC_BASIC
+	hud_type = DATA_HUD_SECURITY_ADVANCED | DATA_HUD_SECURITY_ADVANCED | DATA_HUD_SECURITY_ADVANCED | DATA_HUD_HACKER
 	vision_flags = SEE_MOBS | SEE_TURFS
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 	hud_trait = TRAIT_SECURITY_HUD
@@ -427,9 +427,9 @@
     //        DHUD.remove_hud_from(user)
 
 /obj/item/clothing/suit/space/wzzzz/hacker_rig
-	name = "hacker suit"
-	desc = "Do you deserve this hardsuit?"
-	alt_desc = "Do you deserve this hardsuit?"
+	name = "интересный костюм"
+	desc = "А ты заслуживаешь этот костюм?"
+	alt_desc = "Глупая свинья."
 	icon_state = "hardsuit0-hacker_rig"
 	clothing_flags = STOPSPRESSUREDAMAGE
 	item_state = "hardsuit0-hacker_rig"
@@ -438,11 +438,8 @@
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 100,"energy" = 100, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 50, "acid" = 50)
-
-
-
-
-
+	slowdown = -1
+	color = "#00ffff"
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_engineer_rig
 	name = "ert engineer hardsuit helmet"

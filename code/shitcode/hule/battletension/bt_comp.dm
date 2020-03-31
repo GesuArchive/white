@@ -47,6 +47,8 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	if(SSbtension.forced_tension && tension <= 50)
 		tension = 50
+	else if(HAS_TRAIT(owner, TRAIT_HACKER))
+		tension = 10
 
 	if(tension <= 0 && bm)
 		bm.volume = 0
