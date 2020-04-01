@@ -109,6 +109,97 @@
 			if(4)
 				return ">>>>"
 
+/proc/return_damage_string(luck)
+	switch(luck)
+		if(-4)
+			return " невероятно слабо"
+		if(-3)
+			return " слабо"
+		if(-2)
+			return " несильно"
+		if(-1)
+			return " слегка слабо"
+		if(0)
+			return ""
+		if(1)
+			return " немного сильно"
+		if(2)
+			return " сильно"
+		if(3)
+			return " очень сильно"
+		if(4)
+			return " невероятно сильно"
+
+/proc/return_miss_string(luck)
+	switch(luck)
+		if(-4)
+			return " глупо"
+		if(-3)
+			return " тупо"
+		if(-2)
+			return " странно"
+		if(-1)
+			return " неправильно"
+		if(0)
+			return " как обычно"
+		if(1)
+			return " невезуче"
+		if(2)
+			return " удивительно"
+		if(3)
+			return " подозрительно"
+		if(4)
+			return " невозможно странно"
+
+/proc/roll_damage_dice(force, luck)
+	var/bb = 0
+	if(luck < -4)
+		luck = 1
+	switch(roll(luck, 20))
+		if(1)
+			bb = force / 3
+		if(2 to 3)
+			bb = force / 2
+		if(4 to 9)
+			bb = force / 1.5
+		if(10 to 15)
+			bb = force / 1.25
+		if(16 to 25)
+			bb = force
+		if(26 to 30)
+			bb = force * 1.5
+		if(31 to 47)
+			bb = force * 2
+		if(48 to 65)
+			bb = force * 3
+		if(66 to INFINITY)
+			bb = force * 4
+	return bb
+
+/proc/roll_miss_dice(luck)
+	var/bb = 0
+	if(luck < -4)
+		luck = 1
+	switch(roll(luck, 20))
+		if(1)
+			bb = 100
+		if(2 to 3)
+			bb = 90
+		if(4 to 9)
+			bb = 80
+		if(10 to 15)
+			bb = 70
+		if(16 to 25)
+			bb = 50
+		if(26 to 30)
+			bb = 30
+		if(31 to 47)
+			bb = 20
+		if(48 to 65)
+			bb = 10
+		if(66 to INFINITY)
+			bb = 0
+	return bb
 
 /proc/roll_stat_dice(luck)
 	var/bb = 0
