@@ -99,7 +99,10 @@
 		user.client.give_award(/datum/award/achievement/misc/selfouch, user)
 
 	user.do_attack_animation(M)
-	M.attacked_by(src, user)
+	if(prob(50))
+		M.attacked_by(src, user)
+	else
+		M.attacked_by(src, M)
 
 	log_combat(user, M, "атакует", src.name, "(INTENT: [uppertext(user.a_intent)]) (DAMTYPE: [uppertext(damtype)])")
 	add_fingerprint(user)
@@ -130,7 +133,10 @@
 /mob/living/attacked_by(obj/item/I, mob/living/user)
 	send_item_attack_message(I, user)
 	if(I.force)
-		apply_damage(I.force, I.damtype)
+		var/testforce = I.force
+		if(prob(50))
+			testforce = I.force * 2
+		apply_damage(testforce, I.damtype)
 
 		if(I.damtype == BRUTE)
 			if(prob(33))
