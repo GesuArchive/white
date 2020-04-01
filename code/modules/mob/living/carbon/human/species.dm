@@ -1336,7 +1336,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		var/dam_dice_rolled = roll_stat_dice(user.current_fate[MOB_STR] + user.current_fate[MOB_DEX] + user.fate_luck)
 
-		var/damage = roll_damage_dice(rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh), roll_damage_dice(dam_dice_rolled))
+		var/damage = roll_damage_dice(rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh), dam_dice_rolled)
 
 		var/obj/item/bodypart/affecting = target.get_bodypart(ran_zone(user.zone_selected))
 
