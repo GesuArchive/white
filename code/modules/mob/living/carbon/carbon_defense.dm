@@ -178,8 +178,8 @@
 					updatehealth()
 		return 1
 
-/mob/living/carbon/proc/dismembering_strike(mob/living/attacker, dam_zone)
-	if(!attacker.limb_destroyer)
+/mob/living/carbon/proc/dismembering_strike(mob/living/attacker, dam_zone, rl = FALSE)
+	if(!attacker.limb_destroyer && !rl)
 		return dam_zone
 	var/obj/item/bodypart/affecting
 	if(dam_zone && attacker.client)

@@ -1372,7 +1372,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		user.dna.species.spec_unarmedattacked(user, target)
 
 		if(user.limb_destroyer || dam_dice_rolled == 4)
-			target.dismembering_strike(user, affecting.body_zone)
+			target.dismembering_strike(user, affecting.body_zone, TRUE)
 
 		if(atk_verb == ATTACK_EFFECT_KICK)//kicks deal 1.5x raw damage
 			target.apply_damage(damage*1.5, user.dna.species.attack_type, affecting, armor_block)
@@ -1385,7 +1385,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if((target.stat != DEAD) && damage >= user.dna.species.punchstunthreshold)
 			target.visible_message("<span class='danger'>[user] валит [target] на пол!</span>", \
 							"<span class='userdanger'>[user] валит меня на пол!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, "<span class='danger'>Укладываю [target] поспать!</span>")
+			to_chat(user, "<span class='danger'>Укладываю [target] полежать!</span>")
 			var/knockdown_duration = 40 + (target.getStaminaLoss() + (target.getBruteLoss()*0.5))*0.8 //50 total damage = 40 base stun + 40 stun modifier = 80 stun duration, which is the old base duration
 			target.apply_effect(knockdown_duration, EFFECT_KNOCKDOWN, armor_block)
 			target.forcesay(GLOB.hit_appends)
@@ -1460,7 +1460,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 							break
 			if((!target_table && !target_collateral_human && !target_disposal_bin) || directional_blocked)
 				target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
-				user.visible_message("<span class='danger'>[user.name] толкает [target.name], повалив на пол!</span>",
+				target.visible_message("<span class='danger'>[user.name] толкает [target.name], повалив на пол!</span>",
 					"<span class='danger'>Меня толкает [target.name], повалив на пол!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, user)
 				to_chat(user, "<span class='danger'>Толкаю [target.name], повалив на пол!</span>")
 				log_combat(user, target, "shoved", "knocking them down")
@@ -1481,7 +1481,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			else if(target_disposal_bin)
 				target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
 				target.forceMove(target_disposal_bin)
-				user.visible_message("<span class='danger'>[user.name] толкает [target.name] в [target_disposal_bin]!</span>",
+				target.visible_message("<span class='danger'>[user.name] толкает [target.name] в [target_disposal_bin]!</span>",
 					"<span class='danger'>Меня толкает [target.name] в [target_disposal_bin]!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, user)
 				to_chat(user, "<span class='danger'>Толкаю [target.name] прямо в [target_disposal_bin]!</span>")
 				log_combat(user, target, "shoved", "into [target_disposal_bin] (disposal bin)")

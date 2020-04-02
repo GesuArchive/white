@@ -5,10 +5,25 @@
 	icon = 'code/shitcode/valtos/icons/dz-031.dmi'
 
 /turf/open/floor/dz/normal
-	name = "пол"
-	icon_state = "clear"
-	plane = -95
-	layer = 1.8
+	name = "киберпространство"
+	icon_state = "open"
+	plane = PLANE_SPACE
+	layer = SPACE_LAYER
+	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	vis_flags = VIS_INHERIT_ID
+
+/turf/open/floor/dz/normal/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
+	vis_contents.Cut()
+	visibilityChanged()
+
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
+	ComponentInitialize()
+
+	return INITIALIZE_HINT_NORMAL
 
 /turf/open/floor/dz/pre_exit
 	name = "зона выхода"
@@ -41,3 +56,16 @@
 
 /obj/structure/sign/dz/end
 	icon_state = "dz3"
+
+/area/cyberspace
+	name = "Киберпространство"
+	icon_state = "maint_bar"
+	has_gravity = STANDARD_GRAVITY
+
+/area/cyberspace/exit
+	name = "Выход"
+	icon_state = "maint_eva"
+
+/area/cyberspace/border
+	name = "Граница киберпространства"
+	icon_state = "maint_sec"

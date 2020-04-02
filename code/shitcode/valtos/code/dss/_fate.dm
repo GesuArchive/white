@@ -182,21 +182,21 @@
 		luck = 1
 	switch(roll(luck, 20))
 		if(1)
-			bb = 100
+			bb = 60
 		if(2 to 3)
-			bb = 90
-		if(4 to 9)
-			bb = 80
-		if(10 to 15)
-			bb = 70
-		if(16 to 25)
 			bb = 50
-		if(26 to 30)
+		if(4 to 9)
+			bb = 40
+		if(10 to 15)
 			bb = 30
-		if(31 to 47)
+		if(16 to 25)
 			bb = 20
-		if(48 to 65)
+		if(26 to 30)
+			bb = 15
+		if(31 to 47)
 			bb = 10
+		if(48 to 65)
+			bb = 5
 		if(66 to INFINITY)
 			bb = 0
 	return bb
