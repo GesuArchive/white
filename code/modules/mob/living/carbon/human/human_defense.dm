@@ -122,8 +122,8 @@
   return FALSE
 
 /mob/living/carbon/human/proc/check_block()
-	if(roll_stat_dice(current_fate[MOB_DEX] + fate_luck) == 4)
-		playsound(src, 'code/shitcode/valtos/sounds/block_hand.ogg')
+	if(roll_stat_dice(current_fate[MOB_DEX] + fate_luck) == 4 && stat == CONSCIOUS)
+		playsound(src, 'code/shitcode/valtos/sounds/block_hand.ogg', 100)
 		return TRUE
 	if(mind)
 		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && in_throw_mode && !incapacitated(FALSE, TRUE))

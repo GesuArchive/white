@@ -157,23 +157,23 @@
 		luck = 1
 	switch(roll(luck, 20))
 		if(1)
-			bb = force / 3
+			bb = force / 0.5
 		if(2 to 3)
-			bb = force / 2
+			bb = force / 0.6
 		if(4 to 9)
-			bb = force / 1.5
+			bb = force / 0.8
 		if(10 to 15)
-			bb = force / 1.25
+			bb = force * 0.9
 		if(16 to 25)
 			bb = force
 		if(26 to 30)
-			bb = force * 1.5
+			bb = force * 1.1
 		if(31 to 47)
-			bb = force * 2
+			bb = force * 1.2
 		if(48 to 65)
-			bb = force * 3
+			bb = force * 1.3
 		if(66 to INFINITY)
-			bb = force * 4
+			bb = force * 1.5
 	return bb
 
 /proc/roll_miss_dice(luck)

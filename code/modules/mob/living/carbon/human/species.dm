@@ -1334,20 +1334,20 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			else
 				user.do_attack_animation(target, ATTACK_EFFECT_PUNCH)
 
-		var/dam_dice_rolled = roll_stat_dice(user.current_fate[MOB_STR] + user.current_fate[MOB_DEX] + user.fate_luck)
+		var/dam_dice_rolled = roll_stat_dice(user.current_fate[MOB_STR] + user.current_fate[MOB_DEX])
 
-		var/damage = roll_damage_dice(rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh), dam_dice_rolled)
+		var/damage = roll_damage_dice(rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh), dam_dice_rolled + user.fate_luck)
 
 		var/obj/item/bodypart/affecting = target.get_bodypart(ran_zone(user.zone_selected))
 
-		var/mis_dice_rolled = roll_stat_dice(user.current_fate[MOB_INT] + user.current_fate[MOB_DEX] + user.fate_luck)
+		var/mis_dice_rolled = roll_stat_dice(user.current_fate[MOB_INT] + user.current_fate[MOB_DEX])
 
 		var/miss_chance = 100//calculate the odds that a punch misses entirely. considers stamina and brute damage of the puncher. punches miss by default to prevent weird cases
 		if(user.dna.species.punchdamagelow)
 			if(atk_verb == ATTACK_EFFECT_KICK) //kicks never miss (provided your species deals more than 0 damage)
 				miss_chance = 0
 			else
-				miss_chance =  roll_miss_dice(mis_dice_rolled)
+				miss_chance =  roll_miss_dice(mis_dice_rolled + user.fate_luck)
 
 		if(!damage || !affecting || prob(miss_chance))//future-proofing for species that have 0 damage/weird cases where no zone is targeted
 			playsound(target.loc, user.dna.species.miss_sound, 25, TRUE, -1)
