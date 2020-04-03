@@ -62,9 +62,9 @@
 /datum/reagent/askorbinka/on_mob_life(mob/living/L)
 	if(ishuman(L))
 		var/mob/living/carbon/human/N = L
-		N.current_fate[MOB_STR] = CEILING(N.base_fate[MOB_INT] + rd, 2)
+		N.current_fate[MOB_STR] = CEILING(N.base_fate[MOB_STR] + rd, 2)
 		N.current_fate[MOB_INT] = CEILING(N.base_fate[MOB_INT] + rd, 4)
-		N.current_fate[MOB_DEX] = CEILING(N.base_fate[MOB_INT] + rd, 4)
+		N.current_fate[MOB_DEX] = CEILING(N.base_fate[MOB_DEX] + rd, 4)
 		N.recalculate_stats()
 
 /datum/reagent/askorbinka/overdose_process(mob/living/M)
