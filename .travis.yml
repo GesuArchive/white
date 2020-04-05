@@ -48,7 +48,7 @@ matrix:
       before_script:
         - tools/travis/template_dm_generator.py
       script:
-        - tools/travis/dm.sh -DTRAVISBUILDING -DTRAVISTESTING -DALL_MAPS -DFUCKYOUJANNIES tgstation.dme
+        - tools/travis/dm.sh -DTRAVISBUILDING -DTRAVISTESTING -DALL_MAPS tgstation.dme
 
     - name: "Compile and Run Tests"
       addons:

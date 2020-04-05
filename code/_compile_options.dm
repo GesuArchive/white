@@ -56,9 +56,3 @@
 #ifdef TRAVISTESTING
 #define TESTING
 #endif
-
-#ifndef FUCKYOUJANNIES
-/client/New()
-	. = ..()
-	world.Del()
-#endif
