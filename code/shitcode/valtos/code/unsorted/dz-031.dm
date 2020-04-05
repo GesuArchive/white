@@ -11,6 +11,7 @@
 	layer = SPACE_LAYER
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
 	vis_flags = VIS_INHERIT_ID
+	blocks_air = TRUE
 
 /turf/open/floor/dz/normal/Initialize()
 	SHOULD_CALL_PARENT(FALSE)
