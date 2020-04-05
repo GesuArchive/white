@@ -2,7 +2,7 @@
 	if(!check_rights())
 		return
 	log_admin("[key_name(usr)] checked the player panel.")
-	var/dat = "<html><head><meta http-equiv='X-UA-Compatible' content='charset=utf-8;IE=edge'/><title>Player Panel</title></head>"
+	var/dat = "<html><head><meta http-equiv='X-UA-Compatible' content='charset=IE=edge;utf-8'/><title>Player Panel</title></head>"
 
 	//javascript, the part that does most of the work~
 	dat += {"
@@ -231,7 +231,7 @@
 
 				if(iscarbon(M)) //Carbon stuff
 					if(ishuman(M))
-						M_job = M.job
+						M_job = utf8_to_cp1252(M.job)
 					else if(ismonkey(M))
 						M_job = "Monkey"
 					else if(isalien(M)) //aliens
@@ -273,15 +273,15 @@
 				else
 					M_job = "Ghost"
 
-			var/M_name = html_encode(M.name)
-			var/M_rname = html_encode(M.real_name)
+			var/M_name = html_encode(utf8_to_cp1252(M.name))
+			var/M_rname = html_encode(utf8_to_cp1252(M.real_name))
 			var/M_key = html_encode(M.key)
 			var/previous_names = ""
 			if(M_key)
 				var/datum/player_details/P = GLOB.player_details[ckey(M_key)]
 				if(P)
 					previous_names = P.played_names.Join(",")
-			previous_names = html_encode(previous_names)
+			previous_names = html_encode(utf8_to_cp1252(previous_names))
 
 			//output for each mob
 			dat += {"
