@@ -597,7 +597,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 
 			SEND_SOUND(L, S)
 			L.client.played = TRUE
-			addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), 1200)
+			addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), 300)
 
 ///Divides total beauty in the room by roomsize to allow us to get an average beauty per tile.
 /area/proc/update_beauty()
