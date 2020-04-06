@@ -415,10 +415,13 @@
 
 /obj/screen/parallax_layer/cyberspess
 	icon_state = "cyberspess"
+	color = "#ff3333"
 	speed = 4
 	layer = 1
 
 /obj/screen/parallax_layer/mazespace
 	icon_state = "mazespace"
-	speed = 1
+	color = "#ff3333"
+	speed = 16
+	alpha = 75
 	layer = 2
