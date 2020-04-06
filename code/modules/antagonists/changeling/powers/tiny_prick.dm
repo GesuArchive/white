@@ -59,7 +59,7 @@
 		return
 	to_chat(user, "<span class='notice'>We stealthily sting [target.name].</span>")
 	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/changeling))
-		to_chat(target, "<span class='warning'>You feel a tiny prick.</span>")
+		to_chat(target, "<span class='warning'>Чувствую небольшое покалывание.</span>")
 	return 1
 
 

@@ -149,7 +149,7 @@
 		if(M.can_inject(user, 1))
 			to_chat(user, "<span class='warning'>You stab [M] with the pen.</span>")
 			if(!stealth)
-				to_chat(M, "<span class='danger'>You feel a tiny prick!</span>")
+				to_chat(M, "<span class='danger'>Чувствую небольшое покалывание!</span>")
 			. = 1
 
 		log_combat(user, M, "втыкает", src)

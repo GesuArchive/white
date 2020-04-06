@@ -160,7 +160,7 @@
 	if(!host_mob.client) //less brainpower
 		points *= 0.25
 	SSresearch.science_tech.add_point_list(list(TECHWEB_POINT_TYPE_GENERIC = points))
-	
+
 /datum/nanite_program/researchplus
 	name = "Neural Network"
 	desc = "The nanites link the host's brains together forming a neural research network, that becomes more efficient with the amount of total hosts."
@@ -184,7 +184,7 @@
 		SSnanites.neural_network_count--
 	else
 		SSnanites.neural_network_count -= 0.25
-	
+
 /datum/nanite_program/researchplus/active_effect()
 	if(!iscarbon(host_mob))
 		return
@@ -276,7 +276,7 @@
 		infectee.AddComponent(/datum/component/nanites, 5)
 		SEND_SIGNAL(infectee, COMSIG_NANITE_SYNC, nanites)
 		infectee.investigate_log("was infected by a nanite cluster by [key_name(host_mob)] at [AREACOORD(infectee)].", INVESTIGATE_NANITES)
-		to_chat(infectee, "<span class='warning'>You feel a tiny prick.</span>")
+		to_chat(infectee, "<span class='warning'>Чувствую небольшое покалывание.</span>")
 
 /datum/nanite_program/mitosis
 	name = "Mitosis"
