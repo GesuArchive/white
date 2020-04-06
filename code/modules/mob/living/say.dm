@@ -224,7 +224,8 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	proverka_na_detey(message, src)
 
-	new /obj/effect/chat_text(src, message)
+	if(GLOB.chat_bubbles)
+		new /obj/effect/chat_text(src, message)
 
 	send_speech(message, message_range, src, bubble_type, spans, language, message_mode)
 

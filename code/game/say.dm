@@ -27,7 +27,8 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if(!language)
 		language = get_selected_language()
 
-	new /obj/effect/chat_text(src, message)
+	if(GLOB.chat_bubbles)
+		new /obj/effect/chat_text(src, message)
 
 	send_speech(message, 7, src, , spans, message_language=language)
 

@@ -1,5 +1,7 @@
 // source - https://github.com/BurgerLUA/burgerstation/blob/2eb9553859cf3491d1170316dbf658da454bbcb1/code/_core/obj/overlay/chat_text.dm
 
+GLOBAL_VAR_INIT(chat_bubbles, FALSE)
+
 /obj/effect/chat_text
 	name = "overlay"
 	desc = "overlay object"
