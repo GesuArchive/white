@@ -20,6 +20,7 @@
 	if(forced_parallax)
 		C.parallax_layers_cached = list()
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/cyberspess(null, C.view)
+		C.parallax_layers_cached += new /obj/screen/parallax_layer/mazespace(null, C.view)
 	else if(!length(C.parallax_layers_cached))
 		C.parallax_layers_cached = list()
 		C.parallax_layers_cached += new SSparallax.random_space(null, C.view)
@@ -416,3 +417,8 @@
 	icon_state = "cyberspess"
 	speed = 4
 	layer = 1
+
+/obj/screen/parallax_layer/mazespace
+	icon_state = "mazespace"
+	speed = 1
+	layer = 2
