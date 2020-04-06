@@ -235,9 +235,9 @@ GLOBAL_VAR(restart_counter)
 		if (usr)
 			log_admin("[key_name(usr)] Has requested an immediate world restart via client side debugging tools")
 			message_admins("[key_name_admin(usr)] Has requested an immediate world restart via client side debugging tools")
-		to_chat(world, "<span class='boldannounce'>Rebooting World immediately due to host request.</span>")
+		to_chat(world, "<span class='boldannounce'>Немедленная перезагрузка по требованию сервера.</span>")
 	else
-		to_chat(world, "<span class='boldannounce'>Rebooting world...</span>")
+		to_chat(world, "<span class='boldannounce'>Конец!</span>")
 		Master.Shutdown()	//run SS shutdowns
 
 	TgsReboot()
