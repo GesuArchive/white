@@ -11,8 +11,8 @@
 
 
 /obj/item/multitool
-	name = "multitool"
-	desc = "Used for pulsing wires to test which to cut. Not recommended by doctors."
+	name = "мультитул"
+	desc = "Используется для прозвона проводов и подачи импульсов на них. Не рекомендуется врачами."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "multitool"
 	item_state = "multitool"
@@ -35,7 +35,7 @@
 
 /obj/item/multitool/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Its buffer [buffer ? "contains [buffer]." : "is empty."]</span>"
+	. += "<span class='notice'>Буффер [buffer ? "содержит [buffer]." : "пуст."]</span>"
 
 /obj/item/multitool/suicide_act(mob/living/carbon/user)
 	user.visible_message("<span class='suicide'>[user] puts the [src] to [user.p_their()] chest. It looks like [user.p_theyre()] trying to pulse [user.p_their()] heart off!</span>")
@@ -162,15 +162,15 @@
 	return 1
 
 /obj/item/multitool/abductor
-	name = "alien multitool"
-	desc = "An omni-technological interface."
+	name = "чужеродный мультитул"
+	desc = "Омни-технологический интерфейс."
 	icon = 'icons/obj/abductor.dmi'
 	icon_state = "multitool"
 	toolspeed = 0.1
 
 /obj/item/multitool/cyborg
-	name = "electronic multitool"
-	desc = "Optimised version of a regular multitool. Streamlines processes handled by its internal microchip."
+	name = "электромультитул"
+	desc = "Оптимизированная версия обычного мультитула. Упрощает процессы, обрабатываемые его внутренним микрочипом."
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "multitool_cyborg"
 	toolspeed = 0.5
