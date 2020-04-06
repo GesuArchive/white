@@ -176,7 +176,7 @@
 	. = ..()
 
 	if(href_list["list_armor"])
-		var/list/readout = list("<table><span class='notice'><u><b>ЗАЩИТНЫЕ КЛАССЫ (I-X)</u></b></span>")
+		var/list/readout = list("<table><tr><span class='notice'><u><b>ЗАЩИТНЫЕ КЛАССЫ (I-X)</u></b></span></tr>")
 		if(LAZYLEN(armor_list))
 			readout += "<tr><b>БРОНЯ:</b></tr>"
 			for(var/dam_type in armor_list)
@@ -187,7 +187,7 @@
 			for(var/dam_type in durability_list)
 				var/durability_amount = durability_list[dam_type]
 				readout += "<tr><td>\t[dam_type]</td><td>[armor_to_protection_class(durability_amount)]</td></tr>" //e.g. FIRE II
-		readout += "</span><table>"
+		readout += "</span></table>"
 
 		to_chat(usr, "[readout.Join()]")
 
