@@ -1322,6 +1322,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(user.key == "WoofWoof322")
 						custom_races += "athena_s"
 
+					if(user.key == "Arsenay")
+						custom_races += "aandroid"
+
 					var/result = input(user, "Select a species", "Species Selection") as null|anything in GLOB.roundstart_races + custom_races
 
 					if(result)

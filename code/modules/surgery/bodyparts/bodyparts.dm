@@ -434,8 +434,8 @@
 			aux = image(limb.icon, "[aux_zone]", -aux_layer, image_dir)
 			. += aux
 		if(should_draw_white)
-			limb.icon = 'code/shitcode/valtos/icons/hephaestus_athena.dmi'
-			limb.icon_state = "[body_zone]"
+			limb.icon = 'code/shitcode/valtos/icons/android_skins.dmi'
+			limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
 		return
 
 	if(should_draw_greyscale)
