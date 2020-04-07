@@ -4168,7 +4168,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation)
 "hs" = (
-/obj/machinery/plantgenes,
+/obj/item/secateurs,
 /turf/open/floor/plating{
 	icon_state = "platingdmg2"
 	},

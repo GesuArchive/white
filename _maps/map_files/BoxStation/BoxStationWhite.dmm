@@ -10518,9 +10518,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/plantgenes{
-	pixel_y = 6
-	},
+/obj/item/secateurs,
 /obj/structure/table,
 /turf/open/floor/plasteel,
 /area/hydroponics)

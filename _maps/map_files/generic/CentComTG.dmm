@@ -6893,7 +6893,7 @@
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/ert)
 "pE" = (
-/obj/machinery/plantgenes/seedvault,
+/obj/item/secateurs,
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},

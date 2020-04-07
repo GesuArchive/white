@@ -39741,9 +39741,7 @@
 	},
 /area/hallway/primary/starboard)
 "uuj" = (
-/obj/machinery/plantgenes{
-	pixel_y = 6
-	},
+/obj/item/secateurs,
 /obj/effect/turf_decal/bot,
 /obj/structure/table/glass,
 /obj/effect/turf_decal/tile/neutral{

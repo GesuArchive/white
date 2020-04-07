@@ -6139,7 +6139,7 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/supply)
 "uN" = (
-/obj/machinery/plantgenes/seedvault,
+/obj/item/secateurs,
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
