@@ -12,7 +12,7 @@ GLOBAL_PROTECT(whitelist)
 			continue
 		if(prob(50))
 			continue
-		GLOB.whitelist += ckey(line)
+		GLOB.whitelist += line
 
 	if(!GLOB.whitelist.len)
 		GLOB.whitelist = null
