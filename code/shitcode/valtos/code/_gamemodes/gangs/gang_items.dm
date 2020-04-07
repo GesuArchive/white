@@ -406,7 +406,7 @@
 		gang.territories -= territory.type
 		gang.new_territories -= territory.type
 		gang.lost_territories |= list(territory.type = territory.name)
-	return ..() 
+	return ..()
 
 /obj/item/toy/crayon/spraycan/gang
 	//desc = "A modified container containing suspicious paint."
@@ -474,7 +474,7 @@
 	name = "Fragmentation Grenade"
 	id = "frag nade"
 	cost = 18
-	item_path = /obj/item/grenade/syndieminibomb/concussion/frag
+	item_path = /obj/item/grenade/frag/mega
 
 /obj/item/reagent_containers/syringe/nanoboost
 	name = "Nanobooster"

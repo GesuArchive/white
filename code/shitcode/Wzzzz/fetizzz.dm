@@ -80,7 +80,7 @@
 	back = /obj/item/storage/backpack/duffelbag/syndie
 	l_pocket = /obj/item/tank/internals/emergency_oxygen
 	r_pocket = /obj/item/kitchen/knife/combat
-	belt = /obj/item/grenade/syndieminibomb/concussion/frag
+	belt = /obj/item/grenade/frag/mega
 	suit_store = /obj/item/tank/internals/oxygen/red
 	r_hand = /obj/item/kitchen/knife/combat/survival
 	backpack_contents = list(/obj/item/clothing/head/helmet/blueshirt=1,
@@ -92,7 +92,7 @@
 	/obj/item/grenade/flashbang=1,
 	/obj/item/clothing/mask/balaclava/wzzzz/balaclavager/black=1,
 	/obj/item/clothing/suit/armor/vest=1,
-	/obj/item/grenade/syndieminibomb/concussion/frag=1)
+	/obj/item/grenade/frag/mega=1)
 	id = /obj/item/card/id/syndicate
 
 /datum/outfit/wzzzz/spa_eng

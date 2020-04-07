@@ -1218,7 +1218,7 @@
 		/obj/item/stack/rods/twentyfive = 1.#INF,
 		/obj/item/gun/ballistic/crossbow = 1.#INF,
 		/obj/item/grenade/iedcasing = 1.#INF,
-		/obj/item/grenade/syndieminibomb/concussion/frag = 1.#INF,
+		/obj/item/grenade/frag/mega = 1.#INF,
 		/obj/item/grenade/c4/x4 = 1.#INF,
 		/obj/item/spear = 1.#INF,
 		/obj/item/gun/ballistic/automatic/wt550/wzzzz/german = 1.#INF,
@@ -1377,7 +1377,7 @@
 	reagents = list(/datum/reagent/napalm = 100)
 
 /obj/item/spear/explosive/wzzzz
-	explosive = /obj/item/grenade/syndieminibomb/concussion/frag
+	explosive = /obj/item/grenade/frag/mega
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/null
 	name = "hardsuit helmet"

@@ -470,7 +470,7 @@
 		if(/obj/item/toy/crayon/spraycan/gang)
 			var/obj/item/toy/crayon/spraycan/gang/SC = I
 			value = 1 + round(SC.charges/9)
-		if(/obj/item/grenade/syndieminibomb/concussion/frag)
+		if(/obj/item/grenade/frag/mega)
 			value = 13
 		if(/obj/item/clothing/shoes/combat/gang)
 			value = 9
