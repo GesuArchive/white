@@ -209,7 +209,7 @@
 			return null
 
 		if (C) //user is already connected!.
-			to_chat(C, "Возможно у вас проблемы. Если повторилось, то @Valtos#7828 поможет решить проблему.", confidential = TRUE)
+			to_chat(C, "Возможно у вас проблемы. Если повторилось, то @Valtos#9999 поможет решить проблему.", confidential = TRUE)
 
 		var/desc = "\nПопробуйте лучше, ([bannedckey]). Метка:\n[html_decode(ban["message"])]\nВыдан [ban["admin"]]\n"
 		. = list("reason" = "Stickyban", "desc" = desc)
