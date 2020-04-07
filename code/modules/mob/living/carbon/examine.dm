@@ -47,10 +47,10 @@
 		var/obj/item/bodypart/BP = X
 		var/damage_text
 		if(!(BP.get_damage(include_stamina = FALSE) >= BP.max_damage)) //Stamina is disabling the limb
-			damage_text = "limp and lifeless"
+			damage_text = "вялая"
 		else
 			damage_text = (BP.brute_dam >= BP.burn_dam) ? BP.heavy_brute_msg : BP.heavy_burn_msg
-		msg += "<B>[capitalize(t_his)] [BP.name] is [damage_text]!</B>\n"
+		msg += "<B>[capitalize(t_ego)] [BP.name] [damage_text]!</B>\n"
 
 	for(var/t in missing)
 		if(t==BODY_ZONE_HEAD)
