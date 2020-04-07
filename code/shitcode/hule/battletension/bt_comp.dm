@@ -4,6 +4,10 @@
 #define MORTAL "mortal"
 #define NAZIST "nazist"
 
+/area
+	var/area_tension = 0
+	var/forced_area_tension = FALSE
+
 PROCESSING_SUBSYSTEM_DEF(btension)
 	name = "Battle Tension"
 	priority = 15
@@ -45,7 +49,14 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		pick_sound()
 		return
 
-	if(SSbtension.forced_tension && tension <= 50)
+	var/area/AR = get_area(owner)
+
+	if(AR.area_tension || AR.forced_area_tension)
+		if(tension < AR.area_tension)
+			tension++
+		if(prob(5))
+			AR.area_tension--
+	else if(SSbtension.forced_tension && tension <= 50)
 		tension = 50
 	else if(HAS_TRAIT(owner, TRAIT_HACKER))
 		tension = 10
@@ -72,6 +83,12 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 			tension = 80
 
 /datum/component/battletension/proc/bulletact_react(datum/source, obj/projectile/P, def_zone)
+
+
+	var/area/AR = get_area(P)
+
+	AR.area_tension += I.force * 1.2
+
 	create_tension(P.damage)
 
 	if(!P.firer || P.firer == owner)
@@ -84,6 +101,11 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 
 /datum/component/battletension/proc/attackby_react(datum/source, obj/item/I, mob/user)
+
+	var/area/AR = get_area(user)
+
+	AR.area_tension += I.force * 1.2
+
 	create_tension(I.force * 1.2)
 
 	if(!user || user == owner)
