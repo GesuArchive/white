@@ -87,7 +87,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	var/area/AR = get_area(P)
 
-	AR.area_tension += I.force * 1.2
+	AR.area_tension += P.damage
 
 	create_tension(P.damage)
 
