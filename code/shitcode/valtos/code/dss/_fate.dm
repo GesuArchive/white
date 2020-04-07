@@ -2,8 +2,10 @@
 	var/list/current_fate = list(MOB_STR = 0, MOB_STM = 0, MOB_INT = 0, MOB_DEX = 0)
 	var/list/base_fate    = list(MOB_STR = 0, MOB_STM = 0, MOB_INT = 0, MOB_DEX = 0)
 	var/fate_luck = 1
+	var/isstatee = FALSE
 
 /mob/living/carbon/human/proc/StatsInit()
+	if(!isstatee) return
 	// аугментируем статы согласно ролям
 	spawn(50)
 		if(mind)
@@ -41,8 +43,8 @@
 
 /mob/living/carbon/human/proc/recalculate_stats()
 	// калькулируем модификаторы
-	if(!dna || !dna.species)
-		return
+	if(!isstatee) return
+	if(!dna || !dna.species) return
 
 /mob/living/carbon/human/proc/get_stats()
 	return list(MOB_STR = current_fate[MOB_STR], MOB_STM = current_fate[MOB_STM], MOB_INT = current_fate[MOB_INT], MOB_DEX = current_fate[MOB_DEX])
@@ -61,10 +63,11 @@
 	..()
 	if(statpanel("ИГРА"))
 		stat(null, null)
-		stat("Сила:",			fateize_stat(current_fate[MOB_STR]))
-		stat("Выносливость:",   fateize_stat(current_fate[MOB_STM]))
-		stat("Интеллект:",      fateize_stat(current_fate[MOB_INT]))
-		stat("Ловкость:",       fateize_stat(current_fate[MOB_DEX]))
+		if(isstatee)
+			stat("Сила:",			fateize_stat(current_fate[MOB_STR]))
+			stat("Выносливость:",   fateize_stat(current_fate[MOB_STM]))
+			stat("Интеллект:",      fateize_stat(current_fate[MOB_INT]))
+			stat("Ловкость:",       fateize_stat(current_fate[MOB_DEX]))
 		stat("Метакэш:",      	client.mc_cached)
 
 /proc/fateize_stat(stat, humanize = FALSE)

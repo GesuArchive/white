@@ -1336,26 +1336,31 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			else
 				user.do_attack_animation(target, ATTACK_EFFECT_PUNCH)
 
-		var/dam_dice_rolled = roll_stat_dice(user.current_fate[MOB_STR] + user.current_fate[MOB_DEX])
+		//var/dam_dice_rolled = roll_stat_dice(user.current_fate[MOB_STR] + user.current_fate[MOB_DEX])
 
-		var/damage = roll_damage_dice(rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh), dam_dice_rolled + user.fate_luck)
+		var/damage = rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh)
 
 		var/obj/item/bodypart/affecting = target.get_bodypart(ran_zone(user.zone_selected))
 
-		var/mis_dice_rolled = roll_stat_dice(user.current_fate[MOB_INT] + user.current_fate[MOB_DEX])
+		//var/mis_dice_rolled = roll_stat_dice(user.current_fate[MOB_INT] + user.current_fate[MOB_DEX])
 
 		var/miss_chance = 100//calculate the odds that a punch misses entirely. considers stamina and brute damage of the puncher. punches miss by default to prevent weird cases
 		if(user.dna.species.punchdamagelow)
 			if(atk_verb == ATTACK_EFFECT_KICK) //kicks never miss (provided your species deals more than 0 damage)
 				miss_chance = 0
 			else
-				miss_chance =  roll_miss_dice(mis_dice_rolled + user.fate_luck)
+				miss_chance = min((user.dna.species.punchdamagehigh/user.dna.species.punchdamagelow) + user.getStaminaLoss() + (user.getBruteLoss()*0.5), 100) //old base chance for a miss + various damage. capped at 100 to prevent weirdness in prob()
 
 		if(!damage || !affecting || prob(miss_chance))//future-proofing for species that have 0 damage/weird cases where no zone is targeted
 			playsound(target.loc, user.dna.species.miss_sound, 25, TRUE, -1)
-			target.visible_message("<span class='danger'>[user][return_miss_string(mis_dice_rolled)] [atk_verb] мимо [target]!</span>",\
-							"<span class='userdanger'>[user][return_miss_string(mis_dice_rolled)] [atk_verb] мимо меня!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, "<span class='warning'>Промахиваюсь[return_miss_string(mis_dice_rolled)] пытаясь ударить [target]!</span>")
+			target.visible_message("<span class='danger'>[user] [atk_verb] мимо [target]!</span>",\
+							"<span class='userdanger'>[user] [atk_verb] мимо меня!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, user)
+			to_chat(user, "<span class='warning'>Промахиваюсь пытаясь ударить [target]!</span>")
+
+			//target.visible_message("<span class='danger'>[user][return_miss_string(mis_dice_rolled)] [atk_verb] мимо [target]!</span>",\
+			//				"<span class='userdanger'>[user][return_miss_string(mis_dice_rolled)] [atk_verb] мимо меня!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, user)
+			//to_chat(user, "<span class='warning'>Промахиваюсь[return_miss_string(mis_dice_rolled)] пытаясь ударить [target]!</span>")
+
 			log_combat(user, target, "attempted to punch")
 			return FALSE
 
@@ -1365,15 +1370,19 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		playsound(target.loc, user.dna.species.attack_sound, 25, TRUE, -1)
 
-		target.visible_message("<span class='danger'>[user][return_damage_string(dam_dice_rolled)] [atk_verb] [target]!</span>", \
-					"<span class='userdanger'>[user][return_damage_string(dam_dice_rolled)] [atk_verb] меня!</span>", "<span class='hear'>Слышу как что-то [return_damage_string(dam_dice_rolled)] бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, "<span class='danger'>Бью[return_damage_string(dam_dice_rolled)] [target]!</span>")
+		target.visible_message("<span class='danger'>[user] [atk_verb] [target]!</span>", \
+					"<span class='userdanger'>[user] [atk_verb] меня!</span>", "<span class='hear'>Слышу как что-то бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, user)
+		to_chat(user, "<span class='danger'>Бью [target]!</span>")
+
+		//target.visible_message("<span class='danger'>[user][return_damage_string(dam_dice_rolled)] [atk_verb] [target]!</span>", \
+		//			"<span class='userdanger'>[user][return_damage_string(dam_dice_rolled)] [atk_verb] меня!</span>", "<span class='hear'>Слышу как что-то [return_damage_string(dam_dice_rolled)] бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, user)
+		//to_chat(user, "<span class='danger'>Бью[return_damage_string(dam_dice_rolled)] [target]!</span>")
 
 		target.lastattacker = user.real_name
 		target.lastattackerckey = user.ckey
 		user.dna.species.spec_unarmedattacked(user, target)
 
-		if(user.limb_destroyer || dam_dice_rolled == 4)
+		if(user.limb_destroyer)
 			target.dismembering_strike(user, affecting.body_zone, TRUE)
 
 		if(atk_verb == ATTACK_EFFECT_KICK)//kicks deal 1.5x raw damage
