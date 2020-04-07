@@ -104,7 +104,7 @@
 				Lines += "\t[C.key] - ([round(C.avgping, 1)]мс)"
 
 	for(var/line in GLOB.whitelist)
-		msg += "\t[line] - ([rand(10, 50)]мс)\n"
+		Lines += "\t[line] - ([rand(10, 50)]мс)"
 
 	for(var/line in sortList(Lines))
 		msg += "[line]\n"
