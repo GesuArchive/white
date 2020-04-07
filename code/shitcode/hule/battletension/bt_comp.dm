@@ -53,9 +53,11 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	if(AR.area_tension || AR.forced_area_tension)
 		if(tension < AR.area_tension)
-			tension++
-		if(prob(5))
+			tension += 2
+		if(prob(15) && !AR.forced_area_tension)
 			AR.area_tension--
+			if(AR.area_tension > 120)
+				AR.area_tension = 120
 	else if(SSbtension.forced_tension && tension <= 50)
 		tension = 50
 	else if(HAS_TRAIT(owner, TRAIT_HACKER))
@@ -83,7 +85,6 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 			tension = 80
 
 /datum/component/battletension/proc/bulletact_react(datum/source, obj/projectile/P, def_zone)
-
 
 	var/area/AR = get_area(P)
 
