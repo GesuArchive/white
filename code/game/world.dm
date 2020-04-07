@@ -56,8 +56,8 @@ GLOBAL_VAR(restart_counter)
 #endif
 
 	LoadVerbs(/datum/verbs/menu)
-	if(CONFIG_GET(flag/usewhitelist))
-		load_whitelist()
+
+	load_whitelist()
 
 	load_whitelist_exrp()
 
