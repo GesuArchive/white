@@ -63,12 +63,13 @@
 	playsound(get_turf(A), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 	if((D.mobility_flags & MOBILITY_STAND))
 		D.apply_damage(10, A.dna.species.attack_type, BODY_ZONE_HEAD)
+		D.apply_damage(40, STAMINA, BODY_ZONE_HEAD)
 		D.Knockdown(40)
 		D.visible_message("<span class='warning'><b>[A]</b> пинает <b>[D]</b> в голову!</span>", \
 					"<span class='userdanger'><b>[A]</b> пинает меня в ебало и я падаю!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-	if(!(D.mobility_flags & MOBILITY_STAND))
+	else
 		D.apply_damage(5, A.dna.species.attack_type, BODY_ZONE_HEAD)
-		D.adjustStaminaLoss(40)
+		D.apply_damage(40, STAMINA, BODY_ZONE_HEAD)
 		D.drop_all_held_items()
 		D.visible_message("<span class='warning'><b>[A]</b> пинает <b>[D]</b> в голову!</span>", \
 					"<span class='userdanger'><b>[A]</b> пинает меня в ебало!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, A)
