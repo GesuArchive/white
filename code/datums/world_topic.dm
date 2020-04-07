@@ -221,6 +221,9 @@
 			msg += "\t[C.holder.fakekey]\n"
 		else
 			msg += "\t[C.key]\n"
+	for(var/cc in GLOB.whitelist)
+		n++
+		msg += "\t[cc]\n"
 	msg += "Всего: [n]"
 	return msg
 
