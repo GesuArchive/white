@@ -53,15 +53,13 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	if(AR.area_tension || AR.forced_area_tension)
 		if(tension < AR.area_tension)
-			tension += 2
+			tension += 3
 		if(prob(15) && !AR.forced_area_tension)
 			AR.area_tension--
-			if(AR.area_tension > 120)
-				AR.area_tension = 120
-	else if(SSbtension.forced_tension && tension <= 50)
-		tension = 50
-	else if(HAS_TRAIT(owner, TRAIT_HACKER))
-		tension = 10
+			if(AR.area_tension > 50)
+				AR.area_tension = 50
+	else if((HAS_TRAIT(owner, TRAIT_HACKER) || SSbtension.forced_tension) && tension <= 20)
+		tension += 3
 
 	if(tension <= 0 && bm)
 		bm.volume = 0
