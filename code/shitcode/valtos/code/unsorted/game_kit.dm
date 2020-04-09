@@ -22,7 +22,7 @@ THAT STUPID GAME KIT
 	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
 
 /obj/item/game_kit/proc/update()
-	var/dat = text("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><CENTER><B>Игровое поле</B></CENTER><BR><a href='?src=\ref[];mode=hia'>[]</a> <a href='?src=\ref[];mode=remove'>СБРОСИТЬ</a><HR><table width= 256  border= 0  height= 256  cellspacing= 0  cellpadding= 0 >", src, (src.selected ? text("Выбрано: []", src.selected) : "Ничего не выбрано"), src)
+	var/dat = text("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><CENTER><B>Игровое поле</B></CENTER><BR><a href='?src=\ref[];mode=hia'>[]</a> <a href='?src=\ref[];mode=remove'>Х</a><HR><table width= 256  border= 0  height= 256  cellspacing= 0  cellpadding= 0 >", src, (src.selected ? text("Выбрано: []", src.selected) : "Ничего не выбрано"), src)
 	for (var/y = 1 to 8)
 		dat += "<tr>"
 
@@ -91,7 +91,7 @@ THAT STUPID GAME KIT
 			src.selected = href_list["s_piece"]
 		else if (href_list["mode"])
 			if (href_list["mode"] == "remove")
-				src.selected = "remove"
+				src.selected = "удаление"
 			else
 				src.selected = null
 		else if (href_list["s_board"])
@@ -124,7 +124,7 @@ THAT STUPID GAME KIT
 								src.board_stat = text("[][][]", copytext(src.board_stat, 1, place), src.selected, copytext(src.board_stat, place + 2, 129))
 					src.selected = null
 				else
-					if (src.selected == "remove")
+					if (src.selected == "удаление")
 						var/place = ((ty - 1) * 8 + tx) * 2 - 1
 						if (place == 1)
 							src.board_stat = text("BB[]", copytext(src.board_stat, 3, 129))
