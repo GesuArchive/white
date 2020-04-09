@@ -170,6 +170,9 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	if(!owner || !owner.client || !owner.client.prefs)
 		return
 
+	if(owner.client.prefs.btvolume == null)
+		owner.client.prefs.btvolume = 50
+
 	var/list/result = list()
 	var/list/genres = owner.client.prefs.btprefsnew
 
