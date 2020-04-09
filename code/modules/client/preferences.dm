@@ -112,6 +112,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/action_buttons_screen_locs = list()
 
 	var/list/btprefsnew = list()
+	var/btvolume = 50
 	var/en_names = FALSE
 
 /datum/preferences/New(client/C)

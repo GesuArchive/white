@@ -71,7 +71,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		tension--
 
 	if(bm)
-		bm.volume = tension
+		bm.volume = min(tension, owner.client.prefs.btvolume)
 		bm.status = SOUND_UPDATE
 		SEND_SOUND(owner, bm)
 
@@ -217,13 +217,21 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		else
 			menu += genre + " OFF"
 
+	menu += "Громкость: [prefs.btvolume]%"
+
 	var/selected = input("BT Customization") as null|anything in menu
 	if(!selected)
 		return
 
 	selected = splittext(selected, " ")[1]
 
-	if(selected in settings)
+
+	if(selected == "Громкость:")
+		var/new_volume = input(usr, "Громкость", null) as num|null
+		if(new_volume)
+			prefs.btvolume = max(0, min(100, new_volume))
+			to_chat(usr, "<span class='danger'>Выбрана максимальная громкость в [prefs.btvolume]%.</span>")
+	else if(selected in settings)
 		settings -= selected
 		to_chat(usr, "<span class='danger'>Больше не хочу [selected].</span>")
 	else

@@ -199,6 +199,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["pda_color"]			>> pda_color
 	S["fullscreen"]	    	>> fullscreen
 	S["btprefsnew"]			>> btprefsnew
+	S["btvolume"]			>> btvolume
 
 	// Custom hotkeys
 	S["key_bindings"]		>> key_bindings
@@ -286,6 +287,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["key_bindings"], key_bindings)
 	WRITE_FILE(S["fullscreen"], fullscreen)
 	WRITE_FILE(S["btprefsnew"], btprefsnew)
+	WRITE_FILE(S["btvolume"], btvolume)
 	return TRUE
 
 /datum/preferences/proc/load_character(slot)
