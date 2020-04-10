@@ -205,7 +205,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					old_group = namedata["group"]
 				else if(old_group != namedata["group"])
 					old_group = namedata["group"]
-					dat += "<br>"
 				dat += "<tr><td><b>[namedata["pref_name"]]:</b></td><td align='right'><a href ='?_src_=prefs;preference=[custom_name_id];task=input'>[custom_names[custom_name_id]]</a></td></tr>"
 
 			dat += "<tr><td><b>Всегда случайное:</b></td><td align='right'><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_NAME]'>[(randomise[RANDOM_NAME]) ? "Да" : "Нет"]</a></td></tr>"
@@ -229,7 +228,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "<tr><td><b>Всегда случайный пол:</b></td><td align='right'><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_GENDER]'>[(randomise[RANDOM_GENDER]) ? "Да" : "Нет"]</A></td></tr>"
 					dat += "<tr><td><b>Когда антагонист:</b></td><td align='right'><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_GENDER_ANTAG]'>[(randomise[RANDOM_GENDER_ANTAG]) ? "Да" : "Нет"]</A></td></tr>"
 
-			dat += "<tr><td><b>Возраст:</b>/td><td align='right'><a href='?_src_=prefs;preference=age;task=input'>[age]</a></td></tr>"
+			dat += "<tr><td><b>Возраст:</b></td><td align='right'><a href='?_src_=prefs;preference=age;task=input'>[age]</a></td></tr>"
 			if(randomise[RANDOM_BODY] || randomise[RANDOM_BODY_ANTAG]) //doesn't work unless random body
 				dat += "<tr><td><b>Всегда случайный возраст:</b></td><td align='right'><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_AGE]'>[(randomise[RANDOM_AGE]) ? "Да" : "Нет"]</A></td></tr>"
 				dat += "<tr><td><b>Когда антагонист:</b></td><td align='right'><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_AGE_ANTAG]'>[(randomise[RANDOM_AGE_ANTAG]) ? "Да" : "Нет"]</A></td></tr>"
@@ -255,22 +254,22 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SPECIES]'>[(randomise[RANDOM_SPECIES]) ? "Да" : "Нет"]</A></td></tr>"
 
 			dat += "<tr><td><b>Бельё:</b></td><td align='right'><a href='?_src_=prefs;preference=underwear;task=input'>[underwear]</a></td>"
-			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERWEAR]'>[(randomise[RANDOM_UNDERWEAR]) ? "Блок" : "Разблок"]</A></td></tr>"
+			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERWEAR]'>[(randomise[RANDOM_UNDERWEAR]) ? "Заблокировано" : "Разблокировано"]</A></td></tr>"
 
 			dat += "<tr><td><b>Цвет белья:</b></td><td align='right'><span style='border: 1px solid #161616; background-color: #[underwear_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=underwear_color;task=input'>Изменить</a></td>"
-			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERWEAR_COLOR]'>[(randomise[RANDOM_UNDERWEAR_COLOR]) ? "Блок" : "Разблок"]</A></td></tr>"
+			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERWEAR_COLOR]'>[(randomise[RANDOM_UNDERWEAR_COLOR]) ? "Заблокировано" : "Разблокировано"]</A></td></tr>"
 
 			dat += "<tr><td><b>Рубаха:</b></td><td align='right'><a href='?_src_=prefs;preference=undershirt;task=input'>[undershirt]</a></td>"
-			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERSHIRT]'>[(randomise[RANDOM_UNDERSHIRT]) ? "Блок" : "Разблок"]</A></td></tr>"
+			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERSHIRT]'>[(randomise[RANDOM_UNDERSHIRT]) ? "Заблокировано" : "Разблокировано"]</A></td></tr>"
 
 			dat += "<tr><td><b>Носки:</b></td><td  align='right'><a href='?_src_=prefs;preference=socks;task=input'>[socks]</a></td>"
-			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SOCKS]'>[(randomise[RANDOM_SOCKS]) ? "Блок" : "Разблок"]</A></td></tr>"
+			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SOCKS]'>[(randomise[RANDOM_SOCKS]) ? "Заблокировано" : "Разблокировано"]</A></td></tr>"
 
 			dat += "<tr><td><b>Рюкзак:</b></td><td align='right'><a href='?_src_=prefs;preference=bag;task=input'>[backpack]</a></td>"
-			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_BACKPACK]'>[(randomise[RANDOM_BACKPACK]) ? "Блок" : "Разблок"]</A></td></tr>"
+			dat += "<td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_BACKPACK]'>[(randomise[RANDOM_BACKPACK]) ? "Заблокировано" : "Разблокировано"]</A></td></tr>"
 
 			dat += "<tr><td><b>Комбез:</b></td><td align='right'><a href='?_src_=prefs;preference=suit;task=input'>[jumpsuit_style]</a></td>"
-			dat += "><td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_JUMPSUIT_STYLE]'>[(randomise[RANDOM_JUMPSUIT_STYLE]) ? "Блок" : "Разблок"]</A></td></tr>"
+			dat += "><td><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_JUMPSUIT_STYLE]'>[(randomise[RANDOM_JUMPSUIT_STYLE]) ? "Заблокировано" : "Разблокировано"]</A></td></tr>"
 
 			dat += "<tr><td><b>Аплинк:</b></td><td align='right'><a href='?_src_=prefs;preference=uplink_loc;task=input'>[uplink_spawn_loc]</a></td></tr>"
 
@@ -285,16 +284,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(use_skintones)
 
 				dat += "<tr><td><b>Цвет кожи:</b></td><td align='right'><a href='?_src_=prefs;preference=s_tone;task=input'>[skin_tone]</a>"
-				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SKIN_TONE]'>[(randomise[RANDOM_SKIN_TONE]) ? "Блок" : "Разблок"]</A></td></tr>"
+				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SKIN_TONE]'>[(randomise[RANDOM_SKIN_TONE]) ? "Заблокировано" : "Разблокировано"]</A></td></tr>"
 
-			var/mutant_colors
 			if((MUTCOLORS in pref_species.species_traits) || (MUTCOLORS_PARTSONLY in pref_species.species_traits))
 
 				dat += "<tr><td><b>Мутацвет:</b></td><td align='right'>"
 
 				dat += "<span style='border: 1px solid #161616; background-color: #[features["mcolor"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=mutant_color;task=input'>Изменить</a></td></tr>"
-
-				mutant_colors = TRUE
 
 			if(istype(pref_species, /datum/species/ethereal)) //not the best thing to do tbf but I dont know whats better.
 
@@ -307,7 +303,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				dat += "<tr><td><b>Цвет глаз:</b></td><td align='right'>"
 				dat += "<span style='border: 1px solid #161616; background-color: #[eye_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=eyes;task=input'>Изменить</a>"
-				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_EYE_COLOR]'>[(randomise[RANDOM_EYE_COLOR]) ? "Блок" : "Разблок"]</A></td></tr>"
+				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_EYE_COLOR]'>[(randomise[RANDOM_EYE_COLOR]) ? "Заблокировано" : "Разблокировано"]</A></td></tr>"
 
 			if(HAIR in pref_species.species_traits)
 
@@ -315,23 +311,23 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				dat += "<a href='?_src_=prefs;preference=hairstyle;task=input'>[hairstyle]</a>"
 				dat += "<a href='?_src_=prefs;preference=previous_hairstyle;task=input'>&lt;</a> <a href='?_src_=prefs;preference=next_hairstyle;task=input'>&gt;</a>"
-				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_HAIRSTYLE]'>[(randomise[RANDOM_HAIRSTYLE]) ? "Блок" : "Разблок"]</A></td></tr>"
+				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_HAIRSTYLE]'>[(randomise[RANDOM_HAIRSTYLE]) ? "Заблокировано" : "Разблокировано"]</A></td></tr>"
 
 				dat += "<tr><td><b>Цвет причёски:</b></td><td align='right'>"
 
 				dat += "<br><span style='border:1px solid #161616; background-color: #[hair_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=hair;task=input'>Изменить</a>"
-				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_HAIR_COLOR]'>[(randomise[RANDOM_HAIR_COLOR]) ? "Блок" : "Разблок"]</A></td></tr>"
+				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_HAIR_COLOR]'>[(randomise[RANDOM_HAIR_COLOR]) ? "Заблокировано" : "Разблокировано"]</A></td></tr>"
 
 				dat += "<tr><td><b>Борода:</b></td><td align='right'>"
 
 				dat += "<a href='?_src_=prefs;preference=facial_hairstyle;task=input'>[facial_hairstyle]</a>"
 				dat += "<a href='?_src_=prefs;preference=previous_facehairstyle;task=input'>&lt;</a> <a href='?_src_=prefs;preference=next_facehairstyle;task=input'>&gt;</a>"
-				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_FACIAL_HAIRSTYLE]'>[(randomise[RANDOM_FACIAL_HAIRSTYLE]) ? "Блок" : "Разблок"]</A></td></tr>"
+				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_FACIAL_HAIRSTYLE]'>[(randomise[RANDOM_FACIAL_HAIRSTYLE]) ? "Заблокировано" : "Разблокировано"]</A></td></tr>"
 
 				dat += "<tr><td><b>Цвет бороды:</b></td><td align='right'>"
 
 				dat += "<br><span style='border: 1px solid #161616; background-color: #[facial_hair_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=facial;task=input'>Изменить</a>"
-				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_FACIAL_HAIR_COLOR]'>[(randomise[RANDOM_FACIAL_HAIR_COLOR]) ? "Блок" : "Разблок"]</A></td></tr>"
+				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_FACIAL_HAIR_COLOR]'>[(randomise[RANDOM_FACIAL_HAIR_COLOR]) ? "Заблокировано" : "Разблокировано"]</A></td></tr>"
 
 			//Mutant stuff
 
