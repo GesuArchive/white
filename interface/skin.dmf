@@ -220,7 +220,7 @@ window "preferences_window"
 	elem "preferences_window"
 		type = MAIN
 		pos = 64,64
-		size = 700x640
+		size = 1170x640
 		anchor1 = none
 		anchor2 = none
 		is-visible = false
@@ -229,15 +229,15 @@ window "preferences_window"
 	elem "preferences_browser"
 		type = BROWSER
 		pos = 0,0
-		size = 530x640
+		size = 1000x640
 		anchor1 = 0,0
 		anchor2 = 76,100
 		saved-params = ""
 		can-scroll = vertical
 	elem "character_preview_map"
 		type = MAP
-		pos = 530,0
-		size = 170x640
+		pos = 1000,0
+		size = 1170x640
 		anchor1 = 76,0
 		anchor2 = 100,100
 		right-click = true
