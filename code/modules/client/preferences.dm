@@ -190,7 +190,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			else
 				dat += "</table>"
 			dat += "<table width='100%'>"
-			dat += "<h2 class='statusDisplay'><center>Личность</center></h2>"
 			if(is_banned_from(user.ckey, "Appearance"))
 				dat += "<b>Тебе нельзя. Ты всё ещё можешь настраивать персонажей, но в любом случае получишь случайную внешность и имя.</b><br>"
 			dat += "<td align='right' width='360px' valign='top'>"
@@ -330,8 +329,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_FACIAL_HAIR_COLOR]'>[(randomise[RANDOM_FACIAL_HAIR_COLOR]) ? "🔓" : "🔒"]</A></td></tr>"
 
 			//Mutant stuff
-
-			dat += "</table><h3 class='statusDisplay'>Мутации</h3><table width='400px' class='block'>"
 
 			if("tail_lizard" in pref_species.default_features)
 
@@ -511,7 +508,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			for (var/i in GLOB.special_roles)
 				if(is_banned_from(user.ckey, i))
-					dat += "<tr><td><b>[capitalize(i)]:</b></td><td><a href='?_src_=prefs;bancheck=[i]'>БАНЕЦ</a><br>"
+					dat += "<tr><td><b>[capitalize(i)]:</b></td><td><a href='?_src_=prefs;bancheck=[i]'>БАНЕЦ</a></td></tr>"
 				else
 					var/days_remaining = null
 					if(ispath(GLOB.special_roles[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
@@ -520,31 +517,28 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						days_remaining = temp_mode.get_remaining_days(user.client)
 
 					if(days_remaining)
-						dat += "<tr><td><b>[capitalize(i)]:</b></td><td><font color=red> \[Через [days_remaining] дней]</font><br>"
+						dat += "<tr><td><b>[capitalize(i)]:</b></td><td><font color=red> \[Через [days_remaining] дней]</font></td></tr>"
 					else
-						dat += "<tr><td><b>[capitalize(i)]:</b></td><td><a href='?_src_=prefs;preference=be_special;be_special_type=[i]'>[(i in be_special) ? "Да" : "Нет"]</a><br>"
-			dat += "<tr><td><b>Посреди раунда:</b></td><td><a href='?_src_=prefs;preference=allow_midround_antag'>[(toggles & MIDROUND_ANTAG) ? "Да" : "Нет"]</a><br>"
+						dat += "<tr><td><b>[capitalize(i)]:</b></td><td><a href='?_src_=prefs;preference=be_special;be_special_type=[i]'>[(i in be_special) ? "Да" : "Нет"]</a></td></tr>"
+			dat += "<tr><td><b>Посреди раунда:</b></td><td><a href='?_src_=prefs;preference=allow_midround_antag'>[(toggles & MIDROUND_ANTAG) ? "Да" : "Нет"]</a></td></tr>"
 			dat += "</table></td></tr></table>"
 		if(2) //OOC Preferences
-			dat += "<table><tr><td width='340px' height='300px' valign='top'>"
-			dat += "<h2>Настройки OOC</h2>"
-			dat += "<b>Мигание окна:</b> <a href='?_src_=prefs;preference=winflash'>[(windowflashing) ? "Вкл":"Выкл"]</a><br>"
-			dat += "<br>"
-			dat += "<b>Слышать Admin MIDIs:</b> <a href='?_src_=prefs;preference=hear_midis'>[(toggles & SOUND_MIDI) ? "Вкл":"Выкл"]</a><br>"
-			dat += "<b>Слышать Lobby Music:</b> <a href='?_src_=prefs;preference=lobby_music'>[(toggles & SOUND_LOBBY) ? "Вкл":"Выкл"]</a><br>"
-			dat += "<b>Проигрывать звук окончания раунда:</b> <a href='?_src_=prefs;preference=endofround_sounds'>[(toggles & SOUND_ENDOFROUND) ? "Вкл":"Выкл"]</a><br>"
-			dat += "<b>Видеть PR:</b> <a href='?_src_=prefs;preference=pull_requests'>[(chat_toggles & CHAT_PULLR) ? "Вкл":"Выкл"]</a><br>"
-			dat += "<br>"
-
+			dat += "<table><tr><td width='340px' height='300px' valign='top'><table>"
+			dat += "<tr><td><h2>Настройки OOC</h2></td></tr>"
+			dat += "<tr><td><b>Мигание окна:</b></td><td><a href='?_src_=prefs;preference=winflash'>[(windowflashing) ? "Вкл":"Выкл"]</a></td></tr>"
+			dat += "<tr><td><b>Слышать Admin MIDIs:</b></td><td><a href='?_src_=prefs;preference=hear_midis'>[(toggles & SOUND_MIDI) ? "Вкл":"Выкл"]</a></td></tr>"
+			dat += "<tr><td><b>Слышать Lobby Music:</b></td><td><a href='?_src_=prefs;preference=lobby_music'>[(toggles & SOUND_LOBBY) ? "Вкл":"Выкл"]</a></td></tr>"
+			dat += "<tr><td><b>Проигрывать звук окончания раунда:</b></td><td><a href='?_src_=prefs;preference=endofround_sounds'>[(toggles & SOUND_ENDOFROUND) ? "Вкл":"Выкл"]</a></td></tr>"
+			dat += "<tr><td><b>Видеть PR:</b></td><td><a href='?_src_=prefs;preference=pull_requests'>[(chat_toggles & CHAT_PULLR) ? "Вкл":"Выкл"]</a></td></tr>"
 
 			if(user.client)
 				if(unlock_content)
-					dat += "<b>BYOND Membership Publicity:</b> <a href='?_src_=prefs;preference=publicity'>[(toggles & MEMBER_PUBLIC) ? "Public" : "Hidden"]</a><br>"
+					dat += "<tr><td><b>BYOND Membership Publicity:</b></td><td><a href='?_src_=prefs;preference=publicity'>[(toggles & MEMBER_PUBLIC) ? "Public" : "Hidden"]</a></td></tr>"
 
 				if(unlock_content || check_rights_for(user.client, R_ADMIN) || check_donations(user.client.ckey))
-					dat += "<b>Цвет OOC:</b> <span style='border: 1px solid #161616; background-color: [ooccolor ? ooccolor : GLOB.normal_ooc_colour];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=ooccolor;task=input'>Change</a><br>"
+					dat += "<tr><td><b>Цвет OOC:</b></td><td><span style='border: 1px solid #161616; background-color: [ooccolor ? ooccolor : GLOB.normal_ooc_colour];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=ooccolor;task=input'>Change</a></td></tr>"
 
-			dat += "</td>"
+			dat += "</table></td>"
 
 			if(user.client.holder)
 				dat +="<td width='300px' height='300px' valign='top'>"
@@ -607,34 +601,33 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				var/datum/keybinding/kb = GLOB.keybindings_by_name[name]
 				kb_categories[kb.category] += list(kb)
 
-			dat += "<style>label { display: inline-block; width: 200px; }</style><body>"
+			dat += "<body><table>"
 
 			for (var/category in kb_categories)
-				dat += "<h3>[category]</h3>"
+				dat += "<tr><td><h3>[category]</h3></td></tr>"
 				for (var/i in kb_categories[category])
 					var/datum/keybinding/kb = i
 					if(!length(user_binds[kb.name]))
-						dat += "<label>[kb.full_name]</label> <a href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name];old_key=["Unbound"]'>Unbound</a>"
+						dat += "<tr><td>[kb.full_name]</td><td><a href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name];old_key=["Unbound"]'>НЕТ</a></td>"
 						var/list/default_keys = hotkeys ? kb.hotkey_keys : kb.classic_keys
 						if(LAZYLEN(default_keys))
-							dat += "| Default: [default_keys.Join(", ")]"
-						dat += "<br>"
+							dat += "<td>Стандартно: [default_keys.Join(", ")]</td>"
+						dat += "</tr>"
 					else
 						var/bound_key = user_binds[kb.name][1]
-						dat += "<label>[kb.full_name]</label> <a href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name];old_key=[bound_key]'>[bound_key]</a>"
+						dat += "<tr><td>[kb.full_name]</td><td><a href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name];old_key=[bound_key]'>[bound_key]</a></td>"
 						for(var/bound_key_index in 2 to length(user_binds[kb.name]))
 							bound_key = user_binds[kb.name][bound_key_index]
-							dat += " | <a href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name];old_key=[bound_key]'>[bound_key]</a>"
+							dat += "<td><a href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name];old_key=[bound_key]'>[bound_key]</a></td>"
 						if(length(user_binds[kb.name]) < MAX_KEYS_PER_KEYBIND)
-							dat += "| <a href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name]'>Add Secondary</a>"
+							dat += "<td><a href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name]'>Альт</a></td>"
 						var/list/default_keys = hotkeys ? kb.classic_keys : kb.hotkey_keys
 						if(LAZYLEN(default_keys))
-							dat += "| Default: [default_keys.Join(", ")]"
-						dat += "<br>"
+							dat += "<td>Стандартно: [default_keys.Join(", ")]</td>"
+						dat += "</tr>"
 
-			dat += "<br><br>"
-			dat += "<a href ='?_src_=prefs;preference=keybindings_reset'>\[Сбросить до стандартных\]</a>"
-			dat += "</body>"
+			dat += "<tr><td><a href ='?_src_=prefs;preference=keybindings_reset'>\[Сбросить до стандартных\]</a></td></tr>"
+			dat += "</table></body>"
 	dat += "<hr><center>"
 
 	if(!IsGuestKey(user.key))
@@ -645,7 +638,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	dat += "</center>"
 
 	winshow(user, "preferences_window", TRUE)
-	var/datum/browser/popup = new(user, "preferences_browser", "<div align='center'>Настройки</div>", 1000, 770)
+	var/datum/browser/popup = new(user, "preferences_browser_new", "<div align='center'>Настройки</div>", 1200, 770)
 	popup.set_content(dat.Join())
 	popup.open(FALSE)
 	onclose(user, "preferences_window", src)

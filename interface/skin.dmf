@@ -226,7 +226,7 @@ window "preferences_window"
 		is-visible = false
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
-	elem "preferences_browser"
+	elem "preferences_browser_new"
 		type = BROWSER
 		pos = 0,0
 		size = 960x640
