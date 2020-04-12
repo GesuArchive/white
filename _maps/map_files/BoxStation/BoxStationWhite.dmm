@@ -15279,7 +15279,7 @@
 /turf/closed/wall,
 /area/quartermaster/sorting)
 "aMG" = (
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/medical/pharmacy)
 "aMH" = (
 /obj/structure/sign/departments/medbay/alt,
@@ -16946,7 +16946,7 @@
 /area/medical/pharmacy)
 "aQt" = (
 /obj/machinery/smartfridge/chemistry/preloaded,
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/medical/pharmacy)
 "aQu" = (
 /obj/machinery/holopad,
@@ -18584,7 +18584,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/medical/psychology)
 "aUi" = (
 /obj/structure/disposalpipe/segment,
@@ -18904,7 +18904,7 @@
 /area/medical/medbay/central)
 "aUV" = (
 /obj/machinery/status_display/evac,
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/medical/medbay/central)
 "aUW" = (
 /obj/machinery/door/firedoor,
@@ -25234,7 +25234,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/crew_quarters/heads/cmo)
 "bjz" = (
 /obj/structure/disposalpipe/segment{
@@ -26987,7 +26987,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/medical/medbay/central)
 "bnA" = (
 /obj/structure/rack,
@@ -37118,10 +37118,10 @@
 /area/maintenance/starboard/aft)
 "bMb" = (
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
 	dir = 4
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "bMc" = (
@@ -39135,7 +39135,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/airless,
-/area/space/nearstation)
+/area/maintenance/disposal/incinerator)
 "bQG" = (
 /obj/structure/lattice/catwalk,
 /turf/closed/wall/r_wall,
@@ -41856,12 +41856,12 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/maintenance/disposal/incinerator)
 "bXy" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/visible,
 /turf/open/space,
-/area/space/nearstation)
+/area/maintenance/disposal/incinerator)
 "bXz" = (
 /obj/machinery/shieldgen,
 /turf/open/floor/plating,
@@ -41901,6 +41901,27 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/disposal/incinerator)
+"egj" = (
+/turf/closed/wall/r_wall,
+/area/medical/morgue)
+"lFb" = (
+/turf/closed/wall/r_wall,
+/area/medical/sleeper)
+"pbZ" = (
+/turf/closed/wall/r_wall,
+/area/medical/psychology)
+"pmr" = (
+/turf/closed/wall/r_wall,
+/area/crew_quarters/heads/cmo)
+"pSC" = (
+/turf/closed/wall/r_wall,
+/area/security/checkpoint/medical)
+"qJT" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+	dir = 4
+	},
+/turf/closed/wall/r_wall,
+/area/medical/sleeper)
 
 (1,1,1) = {"
 aaa
@@ -75452,18 +75473,18 @@ aMG
 aMG
 aXh
 aYj
-aTV
+bmj
 baa
-aZe
-aZe
-aZe
-aZe
-aZe
-aZe
+lFb
+lFb
+lFb
+lFb
+lFb
+lFb
 bhQ
-bia
-aZe
-bgB
+qJT
+lFb
+bmh
 bnr
 bou
 bpD
@@ -75720,7 +75741,7 @@ bgw
 bhR
 bjf
 bkD
-bgB
+bmh
 bns
 boC
 bpE
@@ -75977,7 +75998,7 @@ bgx
 bhS
 bjg
 bkE
-bgB
+bmh
 bnr
 bou
 bpF
@@ -76234,7 +76255,7 @@ bgy
 bhT
 bjh
 bkF
-bgB
+bmh
 bnr
 boD
 bpG
@@ -76491,7 +76512,7 @@ bgz
 bhU
 bag
 bkG
-bgB
+bmh
 bnr
 boE
 bpH
@@ -76748,7 +76769,7 @@ bgA
 bhV
 bji
 bkH
-bgB
+bmh
 bnr
 boE
 bpI
@@ -77005,7 +77026,7 @@ bgB
 bhW
 aZe
 aZe
-bgB
+bmh
 bnr
 boE
 bpJ
@@ -77246,7 +77267,7 @@ aNU
 aNU
 aNU
 aSI
-aTV
+bmj
 aUU
 aWc
 aXo
@@ -77262,7 +77283,7 @@ bgC
 bhX
 bjj
 bkI
-bgB
+bmh
 bnr
 boF
 abC
@@ -77519,7 +77540,7 @@ bgD
 bhY
 bjk
 bkJ
-bgB
+bmh
 bnr
 bfg
 abD
@@ -77776,7 +77797,7 @@ bgE
 bhZ
 bjl
 bkK
-bgB
+bmh
 bnr
 bfg
 abD
@@ -78789,7 +78810,7 @@ aQz
 aRD
 aSL
 aUa
-aTV
+bmj
 aNU
 aXr
 aYt
@@ -79039,14 +79060,14 @@ aah
 aJg
 aJg
 aLN
-aML
+pSC
 aNW
 aNW
 aNW
-aML
-aML
-aML
-aTV
+pSC
+pSC
+pSC
+bmj
 aNU
 aXr
 aYt
@@ -79296,7 +79317,7 @@ aah
 aKo
 aJg
 aJg
-aML
+pSC
 aNX
 aPg
 aQA
@@ -79553,7 +79574,7 @@ aah
 aJg
 aJg
 aJg
-aML
+pSC
 aNY
 aPh
 aQB
@@ -79810,7 +79831,7 @@ aah
 aJg
 aKY
 aJg
-aML
+pSC
 aNZ
 aPi
 aQC
@@ -80067,7 +80088,7 @@ aah
 aJg
 aIj
 aJg
-aML
+pSC
 aML
 aML
 aML
@@ -80324,7 +80345,7 @@ aah
 aJg
 aIj
 aJg
-aMM
+egj
 aOa
 aPj
 aPj
@@ -80581,7 +80602,7 @@ aah
 aJg
 aIj
 aLO
-aMM
+egj
 aOb
 aOb
 aOb
@@ -80838,7 +80859,7 @@ aah
 aJg
 aIj
 aLP
-aMM
+egj
 aOc
 aOb
 aQD
@@ -81352,7 +81373,7 @@ aah
 aJg
 aJg
 aLR
-aMM
+egj
 aOb
 aPj
 aPj
@@ -81609,7 +81630,7 @@ aah
 aKm
 aKm
 aKm
-aMM
+egj
 aOe
 aPl
 aPl
@@ -81866,7 +81887,7 @@ aJc
 aJg
 aJg
 aJg
-aMM
+egj
 aOf
 aOb
 aQE
@@ -81888,7 +81909,7 @@ bfx
 bfx
 bju
 bkW
-beu
+pmr
 bnz
 boM
 bpM
@@ -82123,11 +82144,11 @@ aJP
 aJg
 aJg
 aJg
-aMM
-aMM
-aMM
-aMM
-aMM
+egj
+egj
+egj
+egj
+egj
 aSV
 aUh
 aVg
@@ -82145,7 +82166,7 @@ bgO
 bij
 bjv
 bkX
-beu
+pmr
 bnA
 blZ
 bpM
@@ -82402,7 +82423,7 @@ bgP
 bik
 bfy
 bkY
-beu
+pmr
 bnA
 blZ
 bpM
@@ -82659,7 +82680,7 @@ bgQ
 bfy
 bjw
 bkZ
-beu
+pmr
 bnB
 blZ
 bpM
@@ -82916,7 +82937,7 @@ bgR
 bil
 bjx
 bla
-beu
+pmr
 bnC
 blZ
 bpM
@@ -83167,13 +83188,13 @@ bav
 bbr
 aVm
 aVm
-beu
-beu
-beu
-beu
+pmr
+pmr
+pmr
+pmr
 bjy
-beu
-beu
+pmr
+pmr
 bnl
 blZ
 bpM
@@ -83415,11 +83436,11 @@ aQI
 aRH
 aSW
 aUh
-aVg
-aVg
+pbZ
+pbZ
 aZh
-aVg
-aVg
+pbZ
+pbZ
 baw
 bbs
 aVm
@@ -83452,9 +83473,9 @@ bnX
 bnX
 bIa
 bIa
-bIa
-bIa
 bMa
+bIa
+bIa
 bIa
 bIa
 bIa
@@ -83709,9 +83730,9 @@ bGc
 bGh
 bGh
 bGh
-bGh
-bGh
 bMb
+bGh
+bJb
 bGh
 bJb
 bJb
