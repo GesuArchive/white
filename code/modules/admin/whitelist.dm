@@ -15,7 +15,7 @@ GLOBAL_PROTECT(whitelist)
 		GLOB.whitelist += line
 
 	if(!GLOB.whitelist.len)
-		GLOB.whitelist = null
+		GLOB.whitelist = 0
 
 /proc/check_whitelist(var/ckey)
 	if(!GLOB.whitelist)
