@@ -172,6 +172,13 @@ SUBSYSTEM_DEF(shuttle)
 	WARNING("couldn't find dock with id: [id]")
 
 /datum/controller/subsystem/shuttle/proc/canEvac(mob/user)
+	var/datum/station_state/end_state = new /datum/station_state()
+	end_state.count()
+	var/station_integrity = min(PERCENT(GLOB.start_state.score(end_state)), 100)
+	if(station_integrity > 85)
+		to_chat(user, "<span class='alert'>Состояние станции удовлетворительное. Улетать пока нет смысла.</span>")
+		return FALSE
+
 	var/srd = CONFIG_GET(number/shuttle_refuel_delay)
 	if(world.time - SSticker.round_start_time < srd)
 		to_chat(user, "<span class='alert'>The emergency shuttle is refueling. Please wait [DisplayTimeText(srd - (world.time - SSticker.round_start_time))] before trying again.</span>")
