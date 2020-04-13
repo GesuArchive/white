@@ -37,18 +37,10 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("[global.config.directory]
 
 			if(ishuman(target))
 				var/mob/living/carbon/human/H = target
-				var/turf/T = get_step(get_step(H, NORTH), NORTH)
-				T.Beam(target, icon_state="lightning[rand(1,12)]", time = 4.7)
-				H.adjustFireLoss(47)
-				H.electrocution_animation(47)
 				H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 199, 199)
 				H.gain_trauma(/datum/brain_trauma/severe/mute, TRAUMA_RESILIENCE_SURGERY)
 				message_admins("Дружок [target.ckey] насрал на ИС. [ADMIN_COORDJMP(target)]")
 			if(target.ckey in GLOB.neobuchaemie_debili)
 				target.gib()
 
-			spawn(30)
-				qdel(target.client)
-
-			to_chat(target, "<span class='userdanger'>You have been automatically punished for your sins!</span>")
 			return
