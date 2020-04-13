@@ -3418,6 +3418,7 @@
 "aiP" = (
 /obj/structure/chair/office,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/mob/living/simple_animal/pig,
 /turf/open/floor/plasteel/grimy,
 /area/security/detectives_office)
 "aiQ" = (
@@ -11687,7 +11688,7 @@
 /turf/open/floor/plasteel/dark,
 /area/chapel/main)
 "aDt" = (
-/obj/structure/table/wood,
+/obj/structure/altar_of_gods,
 /turf/open/floor/plasteel/dark,
 /area/chapel/main)
 "aDu" = (

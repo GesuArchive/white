@@ -3361,6 +3361,7 @@
 #include "code\shitcode\valtos\code\unsorted\katana.dm"
 #include "code\shitcode\valtos\code\unsorted\keybindings_reset.dm"
 #include "code\shitcode\valtos\code\unsorted\palputinum.dm"
+#include "code\shitcode\valtos\code\unsorted\pig.dm"
 #include "code\shitcode\valtos\code\unsorted\planet.dm"
 #include "code\shitcode\valtos\code\unsorted\poo.dm"
 #include "code\shitcode\valtos\code\unsorted\rusprikols.dm"
