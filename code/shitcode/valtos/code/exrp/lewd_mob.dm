@@ -4,7 +4,7 @@
 /mob/living/carbon/human/has_lips()
 	return 1
 
-/mob/living/carbon/human/New(var/new_loc, var/new_species_name = null, var/delay_ready_dna=0)
+/mob/living/New(var/new_loc, var/new_species_name = null, var/delay_ready_dna=0)
 	. = ..()
 	sexual_potency = (prob(80) ? rand(9, 14) : pick(rand(5, 13), rand(15, 20)))
 	lust_tolerance = (prob(80) ? rand(150, 300) : pick(rand(10, 100), rand(350,600)))

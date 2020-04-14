@@ -17,7 +17,7 @@
 	else
 		playsound(get_turf(src), "code/shitcode/valtos/sounds/exrp/interactions/moan_[gender == FEMALE ? "f" : "m"][moan].ogg", 70, 1, 0)
 
-/mob/proc/cum(var/mob/living/carbon/partner, var/target_orifice)
+/mob/proc/cum(var/mob/living/partner, var/target_orifice)
 
 	var/message
 	if(has_penis())
@@ -102,16 +102,16 @@
 /mob/var/last_partner
 /mob/var/last_orifice
 
-/mob/proc/is_fucking(var/mob/living/carbon/partner, var/orifice)
+/mob/proc/is_fucking(var/mob/living/partner, var/orifice)
 	if(partner == last_partner && orifice == last_orifice)
 		return 1
 	return 0
 
-/mob/proc/set_is_fucking(var/mob/living/carbon/partner, var/orifice)
+/mob/proc/set_is_fucking(var/mob/living/partner, var/orifice)
 	last_partner = partner
 	last_orifice = orifice
 
-/mob/living/carbon/proc/do_sex(var/mob/living/carbon/partner, var/action_to_do) // собак ебать будете в другом билде
+/mob/living/proc/do_sex(var/mob/living/partner, var/action_to_do) // собак ебать будете в другом билде
 	var/message
 	var/lust_increase = 0
 	var/c_target = null
@@ -266,7 +266,7 @@
 			else
 				message = pick(list("видит, что [partner] голоден и срочно принимается кормить булочками его.", "хочет накормить [partner] булочками."))
 				set_is_fucking(partner , GRINDING_FACE_WITH_ANUS)
-	
+
 		if ("do_grindface")
 			lust_increase = 1
 			c_target = null
@@ -340,45 +340,3 @@
 		cum(partner, orifice)
 	else
 		moan()
-
-/obj/item/dildo
-	name = "dildo"
-	desc = "Пиздец."
-	icon = 'code/shitcode/valtos/icons/exrp/samurai.dmi'
-	icon_state = "dildo"
-	item_state = "c_tube"
-	throwforce = 0
-	force = 1000
-	w_class = 1
-	throw_speed = 3
-	throw_range = 15
-	attack_verb = list("тесачит")
-
-	var/hole = CUM_TARGET_VAGINA
-	var/pleasure = 5
-
-/obj/item/dildo/Initialize()
-	. = ..()
-	force = rand(100,1000)
-	desc = "Приблизительный провал окажется равным <b>[force]</b>."
-
-/obj/item/dildo/attack(mob/living/carbon/human/M, mob/living/carbon/human/user)
-	var/message = ""
-	if(istype(M, /mob/living/carbon/human) && user.zone_selected == "groin" && M.is_nude())
-		if (hole == CUM_TARGET_VAGINA && M.has_vagina())
-			message = (user == M) ?  "fucks their own pussy with \the [src]" : pick(list("fucks [M] right in the pussy with \the [src]", "jams \the [src] right into [M]"))
-		else if (hole == CUM_TARGET_ANUS && M.has_anus())
-			message = (user == M) ? "fucks their own ass with \the [src]" : "fucks [M]'s asshole with \the [src]"
-	if(message)
-		user.visible_message("<font color=purple>[user] [message].</font>")
-		M.handle_post_sex(pleasure, null, user)
-		playsound(loc, "code/shitcode/valtos/sounds/exrp/interactions/bang[rand(4, 6)].ogg", 70, 1, -1)
-	else
-		return ..()
-
-/obj/item/dildo/attack_self(mob/user as mob)
-	if(hole == CUM_TARGET_VAGINA)
-		hole = CUM_TARGET_ANUS
-	else
-		hole = CUM_TARGET_VAGINA
-	to_chat(user, "<span class='warning'>Hmmm. Maybe we should put it in \a [hole]?</span>")
