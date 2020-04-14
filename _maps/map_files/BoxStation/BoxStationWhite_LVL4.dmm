@@ -69,10 +69,10 @@
 	width = 32
 	},
 /turf/open/floor/grass/snow,
-/area/icemoon/underground/explored)
+/area/icemoon/underground/unexplored)
 "by" = (
 /turf/open/floor/grass/snow,
-/area/icemoon/underground/explored)
+/area/icemoon/underground/unexplored)
 "bC" = (
 /obj/machinery/door/airlock/external{
 	name = "Escape Pod One"
@@ -105,7 +105,7 @@
 	width = 5
 	},
 /turf/open/floor/grass/snow,
-/area/icemoon/underground/explored)
+/area/icemoon/underground/unexplored)
 "dd" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -133,7 +133,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/icemoon/underground/explored)
+/area/icemoon/underground/unexplored)
 "ea" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -165,7 +165,7 @@
 	width = 3
 	},
 /turf/open/floor/grass/snow,
-/area/icemoon/underground/explored)
+/area/icemoon/underground/unexplored)
 "ex" = (
 /obj/structure/ladder,
 /turf/open/floor/plating,
@@ -313,7 +313,7 @@
 	width = 7
 	},
 /turf/open/floor/grass/snow,
-/area/icemoon/underground/explored)
+/area/icemoon/underground/unexplored)
 "lu" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 9
@@ -562,7 +562,7 @@
 /area/hallway/secondary/entry)
 "va" = (
 /turf/closed/wall,
-/area/icemoon/underground/explored)
+/area/icemoon/underground/unexplored)
 "vh" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -1067,7 +1067,7 @@
 	width = 5
 	},
 /turf/open/floor/grass/snow,
-/area/icemoon/underground/explored)
+/area/icemoon/underground/unexplored)
 "Nt" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -1093,7 +1093,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/icemoon/underground/explored)
+/area/icemoon/underground/unexplored)
 "NX" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/door/airlock/external{
@@ -1121,7 +1121,7 @@
 /area/construction/mining/aux_base)
 "OB" = (
 /turf/closed/mineral/random/snow,
-/area/icemoon/underground/explored)
+/area/icemoon/underground/unexplored)
 "OC" = (
 /obj/machinery/camera{
 	c_tag = "Arrivals Escape Pod 1";
@@ -1179,7 +1179,7 @@
 	width = 35
 	},
 /turf/open/floor/grass/snow,
-/area/icemoon/underground/explored)
+/area/icemoon/underground/unexplored)
 "RU" = (
 /turf/open/floor/plating,
 /area/hallway/secondary/exit)
