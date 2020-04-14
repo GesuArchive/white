@@ -1089,11 +1089,8 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/austation)
 "ck" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/turf/open/floor/plasteel/white,
-/area/ruin/space/has_grav/austation)
+/turf/open/space/basic,
+/area/space)
 "cl" = (
 /obj/structure/table/glass,
 /obj/machinery/reagentgrinder{
@@ -2993,8 +2990,8 @@
 "fp" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/template_noop,
-/area/template_noop)
+/turf/open/space/basic,
+/area/space/nearstation)
 "fq" = (
 /obj/effect/turf_decal/delivery,
 /obj/structure/cable,
@@ -4961,8 +4958,8 @@
 	name = "Autism Station";
 	roundstart_template = /datum/map_template/shuttle/ruin/explorer_mini
 	},
-/turf/template_noop,
-/area/template_noop)
+/turf/open/space/basic,
+/area/space)
 "jr" = (
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plating/airless,
@@ -5142,8 +5139,8 @@
 /area/ruin/space/has_grav/austation)
 "jQ" = (
 /obj/structure/lattice,
-/turf/template_noop,
-/area/template_noop)
+/turf/open/space/basic,
+/area/space/nearstation)
 "jR" = (
 /obj/machinery/light,
 /turf/open/floor/plasteel,
@@ -5166,8 +5163,8 @@
 /area/ruin/space/has_grav/austation)
 "jY" = (
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/template_noop)
+/turf/open/space/basic,
+/area/space/nearstation)
 "jZ" = (
 /obj/structure/fluff/oldturret,
 /turf/open/floor/plating/asteroid/airless,
@@ -5390,11 +5387,11 @@ ac
 ab
 jQ
 jQ
-aa
-aa
-aa
-aa
-aa
+ck
+ck
+ck
+ck
+ck
 aa
 "}
 (5,1,1) = {"
@@ -5442,11 +5439,11 @@ ac
 ac
 ab
 jQ
-aa
-aa
-aa
-aa
-aa
+ck
+ck
+ck
+ck
+ck
 aa
 "}
 (6,1,1) = {"
@@ -5494,11 +5491,11 @@ ac
 ac
 ab
 jQ
-aa
-aa
-aa
-aa
-aa
+ck
+ck
+ck
+ck
+ck
 aa
 "}
 (7,1,1) = {"
@@ -5546,11 +5543,11 @@ ac
 ac
 ab
 ho
-aa
-aa
-aa
-aa
-aa
+ck
+ck
+ck
+ck
+ck
 aa
 "}
 (8,1,1) = {"
@@ -5598,11 +5595,11 @@ ac
 ac
 ab
 fp
-aa
-aa
-aa
-aa
-aa
+ck
+ck
+ck
+ck
+ck
 aa
 "}
 (9,1,1) = {"
@@ -5650,11 +5647,11 @@ ad
 ac
 ab
 fp
-aa
-aa
-aa
-aa
-aa
+ck
+ck
+ck
+ck
+ck
 aa
 "}
 (10,1,1) = {"
@@ -5676,7 +5673,7 @@ ac
 ac
 bl
 bN
-ck
+dH
 cG
 da
 ak
@@ -5702,11 +5699,11 @@ ad
 ac
 ac
 fp
-aa
-aa
-aa
-aa
-aa
+ck
+ck
+ck
+ck
+ck
 aa
 "}
 (11,1,1) = {"
@@ -5754,11 +5751,11 @@ ad
 ac
 ac
 fp
-aa
-aa
+ck
+ck
 jq
-aa
-aa
+ck
+ck
 aa
 "}
 (12,1,1) = {"
@@ -5807,10 +5804,10 @@ ac
 ac
 fp
 fp
-aa
-aa
-aa
-aa
+ck
+ck
+ck
+ck
 aa
 "}
 (13,1,1) = {"
@@ -5859,10 +5856,10 @@ ac
 ac
 ac
 fp
-aa
-aa
-aa
-aa
+ck
+ck
+ck
+ck
 aa
 "}
 (14,1,1) = {"
@@ -5912,9 +5909,9 @@ ac
 ac
 fp
 fp
-aa
-aa
-aa
+ck
+ck
+ck
 aa
 "}
 (15,1,1) = {"
@@ -5964,9 +5961,9 @@ ad
 ad
 ad
 fp
-aa
-aa
-aa
+ck
+ck
+ck
 aa
 "}
 (16,1,1) = {"
@@ -6016,9 +6013,9 @@ fo
 fq
 fr
 fp
-aa
-aa
-aa
+ck
+ck
+ck
 aa
 "}
 (17,1,1) = {"
@@ -6069,8 +6066,8 @@ eP
 jB
 jY
 jQ
-aa
-aa
+ck
+ck
 aa
 "}
 (18,1,1) = {"
@@ -6121,8 +6118,8 @@ ad
 ad
 jY
 jQ
-aa
-aa
+ck
+ck
 aa
 "}
 (19,1,1) = {"
@@ -6173,8 +6170,8 @@ jr
 jD
 jY
 jQ
-aa
-aa
+ck
+ck
 aa
 "}
 (20,1,1) = {"
@@ -6225,8 +6222,8 @@ jr
 jD
 jY
 jQ
-aa
-aa
+ck
+ck
 aa
 "}
 (21,1,1) = {"
@@ -6278,7 +6275,7 @@ jE
 jY
 jQ
 jQ
-aa
+ck
 aa
 "}
 (22,1,1) = {"
@@ -6330,7 +6327,7 @@ ad
 ad
 ac
 jQ
-aa
+ck
 aa
 "}
 (23,1,1) = {"

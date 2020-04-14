@@ -1,11 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space)
-"ab" = (
-/obj/structure/lattice,
-/turf/open/space,
-/area/space/nearstation)
 "ac" = (
 /turf/closed/wall/r_wall,
 /area/security/prison)
@@ -16,15 +12,11 @@
 /area/security/prison)
 "ae" = (
 /obj/structure/lattice/catwalk,
-/turf/open/space,
-/area/space/nearstation)
-"af" = (
-/obj/structure/grille,
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space/nearstation)
 "ag" = (
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space/nearstation)
 "ah" = (
 /obj/structure/sign/warning/securearea{
@@ -36,7 +28,7 @@
 /obj/structure/sign/warning/securearea{
 	pixel_y = -32
 	},
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space/nearstation)
 "aj" = (
 /obj/machinery/computer/bookmanagement,
@@ -310,14 +302,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
-"aY" = (
-/obj/structure/lattice,
-/obj/structure/grille,
-/turf/open/space,
-/area/space/nearstation)
 "aZ" = (
 /obj/structure/grille,
-/turf/open/space,
+/turf/open/openspace,
 /area/space/nearstation)
 "ba" = (
 /turf/closed/wall/r_wall,
@@ -498,7 +485,7 @@
 /obj/structure/sign/warning/securearea{
 	pixel_y = -32
 	},
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space/nearstation)
 "bC" = (
 /obj/structure/closet/bombcloset/security,
@@ -554,7 +541,7 @@
 	pixel_y = -32
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/space,
+/turf/open/openspace,
 /area/space/nearstation)
 "bL" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -4299,7 +4286,7 @@
 	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
 	width = 3
 	},
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space)
 "jo" = (
 /obj/docking_port/stationary/random{
@@ -4307,7 +4294,7 @@
 	id = "pod_lavaland3";
 	name = "lavaland"
 	},
-/turf/open/space,
+/turf/open/openspace,
 /area/space/nearstation)
 "jp" = (
 /obj/machinery/camera/motion{
@@ -5211,7 +5198,7 @@
 "le" = (
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space/nearstation)
 "lf" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
@@ -6961,17 +6948,17 @@ aS
 aS
 aS
 aS
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+aZ
+aZ
+aZ
+aZ
+aZ
+aZ
+aZ
+aZ
+aZ
+aZ
+aZ
 le
 le
 le
@@ -7005,7 +6992,7 @@ aS
 aS
 aS
 aS
-af
+aZ
 aS
 ag
 aS
@@ -7049,7 +7036,7 @@ aS
 aS
 aS
 aS
-af
+aZ
 bB
 aD
 df
@@ -7093,7 +7080,7 @@ aS
 aS
 aS
 aS
-af
+aZ
 aS
 aD
 dg
@@ -7137,7 +7124,7 @@ aS
 aS
 aS
 aS
-af
+aZ
 ag
 aD
 dx
@@ -7181,7 +7168,7 @@ aS
 aS
 aS
 aS
-af
+aZ
 aS
 aD
 by
@@ -7221,11 +7208,11 @@ aS
 aS
 aS
 aS
-af
-af
-af
-af
-af
+aZ
+aZ
+aZ
+aZ
+aZ
 aS
 ad
 ap
@@ -7265,7 +7252,7 @@ aS
 aS
 aS
 aS
-af
+aZ
 ag
 ag
 ag
@@ -7305,11 +7292,11 @@ aS
 aS
 "}
 (9,1,1) = {"
-af
-af
-af
-af
-af
+aZ
+aZ
+aZ
+aZ
+aZ
 ag
 ac
 ac
@@ -7349,7 +7336,7 @@ aS
 aS
 "}
 (10,1,1) = {"
-af
+aZ
 ag
 ag
 ag
@@ -7393,7 +7380,7 @@ aS
 aS
 "}
 (11,1,1) = {"
-af
+aZ
 ah
 ac
 ac
@@ -7437,7 +7424,7 @@ aS
 aS
 "}
 (12,1,1) = {"
-af
+aZ
 ag
 ad
 aj
@@ -7481,7 +7468,7 @@ aS
 aS
 "}
 (13,1,1) = {"
-af
+aZ
 aS
 ac
 ak
@@ -7525,7 +7512,7 @@ aS
 aS
 "}
 (14,1,1) = {"
-af
+aZ
 ag
 ad
 al
@@ -7569,7 +7556,7 @@ aS
 aS
 "}
 (15,1,1) = {"
-af
+aZ
 aS
 ac
 am
@@ -7613,7 +7600,7 @@ aS
 aS
 "}
 (16,1,1) = {"
-af
+aZ
 ag
 ad
 an
@@ -7657,7 +7644,7 @@ aS
 aS
 "}
 (17,1,1) = {"
-af
+aZ
 aS
 ac
 ac
@@ -7701,7 +7688,7 @@ aS
 aS
 "}
 (18,1,1) = {"
-af
+aZ
 ag
 ag
 ad
@@ -7745,8 +7732,8 @@ aS
 aS
 "}
 (19,1,1) = {"
-af
-af
+aZ
+aZ
 ai
 ac
 ac
@@ -7790,7 +7777,7 @@ aS
 "}
 (20,1,1) = {"
 aS
-af
+aZ
 ag
 ag
 ag
@@ -7834,9 +7821,9 @@ ij
 "}
 (21,1,1) = {"
 aS
-af
-af
-af
+aZ
+aZ
+aZ
 ag
 ac
 aB
@@ -7880,7 +7867,7 @@ ij
 aS
 aS
 aS
-af
+aZ
 aS
 ac
 ap
@@ -7924,7 +7911,7 @@ ij
 aS
 aS
 aS
-af
+aZ
 ag
 ac
 aC
@@ -7968,7 +7955,7 @@ ij
 aS
 aS
 aS
-af
+aZ
 aS
 ac
 ay
@@ -8012,7 +7999,7 @@ aS
 aS
 aS
 aS
-af
+aZ
 ag
 ac
 aB
@@ -8056,8 +8043,8 @@ aS
 aS
 aS
 aS
-af
-af
+aZ
+aZ
 ac
 aD
 aP
@@ -8338,7 +8325,7 @@ ay
 ap
 ac
 ag
-ab
+ag
 aR
 bU
 cs
@@ -8381,7 +8368,7 @@ ac
 ac
 ac
 ac
-aY
+le
 aS
 aR
 bV
@@ -8421,10 +8408,10 @@ ag
 ag
 ag
 ag
-ab
+ag
 aS
-ab
-ab
+ag
+ag
 aZ
 aS
 aR
@@ -8465,11 +8452,11 @@ aS
 aS
 aS
 aS
-ab
+ag
 aS
-ab
-ab
-aY
+ag
+ag
+le
 aS
 aR
 bX
@@ -8509,11 +8496,11 @@ aS
 aS
 aS
 aS
-ab
+ag
 aS
-ab
-ab
-aY
+ag
+ag
+le
 aS
 aR
 bY
@@ -8553,10 +8540,10 @@ aS
 aS
 aS
 aS
-ab
+ag
 aS
-ab
-ab
+ag
+ag
 aZ
 aS
 aR
@@ -8597,10 +8584,10 @@ aS
 aS
 aS
 aS
-ab
+ag
 aS
-ab
-ab
+ag
+ag
 aZ
 aS
 aR
@@ -8641,12 +8628,12 @@ aS
 aS
 aS
 aS
-ab
+ag
 aS
-ab
-ab
-aY
-ab
+ag
+ag
+le
+ag
 aR
 cb
 cv
@@ -8684,10 +8671,10 @@ aS
 aS
 aS
 aS
-ab
-ab
-ab
-ab
+ag
+ag
+ag
+ag
 jp
 ba
 bc
@@ -8730,8 +8717,8 @@ aS
 aS
 aS
 aS
-ab
-ab
+ag
+ag
 aS
 bb
 bp
@@ -8775,7 +8762,7 @@ aS
 aS
 aS
 aS
-ab
+ag
 aS
 bc
 bq
@@ -8819,7 +8806,7 @@ aS
 aS
 aS
 aS
-ab
+ag
 aS
 bb
 bq
@@ -8861,10 +8848,10 @@ aS
 aS
 aS
 aS
-ab
-ab
-ab
-ab
+ag
+ag
+ag
+ag
 bc
 bq
 bE
@@ -8908,7 +8895,7 @@ aS
 aS
 aS
 aS
-ab
+ag
 bb
 br
 bp
@@ -8948,11 +8935,11 @@ aS
 aS
 aS
 aS
-ab
-ab
-ab
-ab
-ab
+ag
+ag
+ag
+ag
+ag
 bd
 bd
 bd
@@ -8996,7 +8983,7 @@ aS
 aS
 aS
 aS
-ab
+ag
 bd
 bs
 bF
@@ -9036,11 +9023,11 @@ aS
 aS
 aS
 aS
-ab
-ab
-ab
-ab
-ab
+ag
+ag
+ag
+ag
+ag
 be
 bt
 bG
@@ -9084,7 +9071,7 @@ aS
 aS
 aS
 aS
-ab
+ag
 be
 bu
 bH
@@ -9123,12 +9110,12 @@ aS
 aS
 aS
 ae
-ab
-ab
-ab
-ab
-ab
-ab
+ag
+ag
+ag
+ag
+ag
+ag
 be
 bv
 bI
@@ -9172,7 +9159,7 @@ aS
 aS
 aS
 aS
-ab
+ag
 bd
 bw
 bJ
@@ -9265,7 +9252,7 @@ aS
 aS
 aS
 aS
-ab
+ag
 bc
 dv
 dT
@@ -9307,9 +9294,9 @@ aS
 aS
 aS
 aS
-ab
-ab
-ab
+ag
+ag
+ag
 bc
 dw
 dU
@@ -9394,7 +9381,7 @@ aS
 aS
 aS
 aS
-ab
+ag
 ae
 iR
 iS
@@ -9432,8 +9419,8 @@ aS
 aS
 aS
 aS
-ab
-ab
+ag
+ag
 ae
 ae
 ae
@@ -9482,10 +9469,10 @@ aS
 aS
 aS
 ae
-ab
-ab
-ab
-ab
+ag
+ag
+ag
+ag
 bb
 aa
 jn
@@ -9527,7 +9514,7 @@ aS
 aS
 aS
 aS
-ab
+ag
 aS
 aS
 ba

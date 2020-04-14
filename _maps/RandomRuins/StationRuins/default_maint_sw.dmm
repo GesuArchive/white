@@ -40,11 +40,11 @@
 /turf/closed/wall,
 /area/maintenance/port/aft)
 "i" = (
-/turf/open/space,
+/turf/open/openspace,
 /area/space)
 "j" = (
 /obj/structure/lattice,
-/turf/open/space,
+/turf/open/openspace,
 /area/space/nearstation)
 "k" = (
 /obj/machinery/door/airlock/maintenance{
@@ -60,7 +60,7 @@
 /area/maintenance/port/aft)
 "l" = (
 /obj/item/stack/tile/plasteel,
-/turf/open/space,
+/turf/open/openspace,
 /area/space/nearstation)
 "m" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,

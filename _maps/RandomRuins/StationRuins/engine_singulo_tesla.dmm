@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space)
 "ab" = (
 /turf/template_noop,
@@ -134,10 +134,6 @@
 	},
 /turf/closed/wall,
 /area/engine/engineering)
-"aw" = (
-/obj/structure/lattice,
-/turf/open/space,
-/area/space/nearstation)
 "ax" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/door/airlock/external{
@@ -306,7 +302,7 @@
 /area/engine/engineering)
 "aQ" = (
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space/nearstation)
 "aR" = (
 /turf/open/floor/plating/airless,
@@ -540,7 +536,7 @@
 "bE" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space)
 "bF" = (
 /obj/effect/turf_decal/stripes/line{
@@ -606,7 +602,7 @@
 /area/space)
 "bN" = (
 /obj/item/wrench,
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space)
 "bO" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -629,7 +625,7 @@
 /area/engine/engineering)
 "bR" = (
 /obj/item/weldingtool,
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space)
 "bS" = (
 /obj/machinery/the_singularitygen/tesla,
@@ -658,11 +654,11 @@
 /area/engine/engineering)
 "bX" = (
 /obj/item/wirecutters,
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space)
 "bY" = (
 /obj/item/screwdriver,
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space)
 "bZ" = (
 /obj/structure/cable,
@@ -696,14 +692,14 @@
 	c_tag = "Engineering Singularity Northwest";
 	network = list("ss13","engine")
 	},
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space)
 "cf" = (
 /obj/machinery/camera/emp_proof{
 	c_tag = "Engineering Singularity Northeast";
 	network = list("ss13","engine")
 	},
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space)
 "cg" = (
 /obj/effect/turf_decal/stripes/line{
@@ -727,7 +723,7 @@
 "ci" = (
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/open/space,
+/turf/open/openspace,
 /area/space/nearstation)
 "cj" = (
 /turf/closed/wall/r_wall,
@@ -768,7 +764,7 @@
 /area/engine/engineering)
 "Bx" = (
 /obj/structure/lattice/catwalk,
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space)
 "OM" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -796,17 +792,17 @@ ab
 ab
 ab
 aa
-aw
+aQ
 aa
 aa
-aw
+aQ
 aa
 aa
-aw
+aQ
 aa
 aa
 aa
-aw
+aQ
 aQ
 aa
 aa
@@ -835,7 +831,7 @@ aa
 aa
 aa
 aa
-aw
+aQ
 aa
 aa
 aa
@@ -1035,7 +1031,7 @@ ci
 cj
 ci
 aa
-aw
+aQ
 aa
 aa
 "}

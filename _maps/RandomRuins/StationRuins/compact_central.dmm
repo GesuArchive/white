@@ -670,7 +670,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "bM" = (
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space)
 "bN" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -2998,7 +2998,7 @@
 /area/maintenance/central/secondary)
 "hb" = (
 /obj/structure/lattice/catwalk,
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space/nearstation)
 "hc" = (
 /obj/structure/chair/comfy/brown{
@@ -3974,7 +3974,7 @@
 /area/hallway/primary/central)
 "yh" = (
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space/nearstation)
 "zb" = (
 /obj/effect/spawner/structure/window/reinforced,
