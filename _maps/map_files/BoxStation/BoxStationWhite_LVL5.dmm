@@ -40,11 +40,19 @@
 /turf/open/floor/plating,
 /area/boxplanet/underground)
 "ba" = (
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/plating,
 /area/boxplanet/surface)
 "bP" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/solar/port/aft)
 "cb" = (
@@ -234,6 +242,10 @@
 "ld" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/solar/starboard/aft)
 "lp" = (
@@ -336,6 +348,10 @@
 /area/maintenance/starboard/fore)
 "qt" = (
 /obj/structure/lattice/catwalk,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/solar/starboard/aft)
 "qw" = (
@@ -432,6 +448,10 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/surface)
 "tI" = (
@@ -463,6 +483,10 @@
 /area/maintenance/port/aft)
 "uV" = (
 /obj/structure/disposalpipe/trunk/multiz/down,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/surface)
 "va" = (
@@ -561,6 +585,10 @@
 "Ag" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/solar/starboard/fore)
 "Au" = (
@@ -629,6 +657,10 @@
 "CF" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/solar/port/fore)
 "CZ" = (
@@ -650,6 +682,10 @@
 /area/maintenance/starboard/fore)
 "DB" = (
 /obj/structure/lattice/catwalk,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/solar/port/aft)
 "DH" = (
@@ -676,6 +712,14 @@
 /obj/machinery/light/small,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
+"Ey" = (
+/obj/structure/lattice,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
+/turf/open/floor/plating/asteroid/snow/icemoon,
+/area/boxplanet/surface)
 "EU" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating/airless,
@@ -710,6 +754,10 @@
 /area/solar/port/fore)
 "HL" = (
 /obj/structure/lattice/catwalk,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/surface)
 "Ia" = (
@@ -739,6 +787,10 @@
 /area/boxplanet/underground)
 "JB" = (
 /obj/structure/lattice/catwalk,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/solar/starboard/fore)
 "JD" = (
@@ -822,6 +874,10 @@
 /area/boxplanet/underground)
 "NH" = (
 /obj/structure/lattice/catwalk,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/solar/port/fore)
 "NM" = (
@@ -862,6 +918,13 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"PK" = (
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
+/turf/open/floor/plating/asteroid/snow/icemoon,
+/area/boxplanet/surface)
 "Qy" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/door/airlock/external{
@@ -970,6 +1033,10 @@
 "Vh" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/surface)
 "Vv" = (
@@ -7844,9 +7911,9 @@ Fb
 Fb
 Fb
 tZ
-tZ
-tZ
-tZ
+Fb
+Fb
+Fb
 tZ
 tZ
 tZ
@@ -8101,9 +8168,9 @@ Fb
 Fb
 Fb
 Fb
-tZ
-tZ
-tZ
+Fb
+Fb
+Fb
 tZ
 tZ
 tZ
@@ -8358,9 +8425,9 @@ Fb
 Fb
 Fb
 Fb
-tZ
-tZ
-tZ
+Fb
+Fb
+Fb
 tZ
 tZ
 tZ
@@ -8615,9 +8682,9 @@ Fb
 Fb
 Fb
 Fb
-tZ
-tZ
-tZ
+Fb
+Fb
+Fb
 tZ
 tZ
 tZ
@@ -16568,9 +16635,9 @@ Vb
 oy
 oy
 Fb
-Fb
-Fb
-Fb
+PK
+PK
+PK
 Fc
 wQ
 wQ
@@ -16823,8 +16890,8 @@ Vb
 CF
 Vb
 Fb
-oy
-Fb
+Ey
+PK
 Sz
 CZ
 CZ
@@ -17079,7 +17146,7 @@ Fb
 Fb
 CF
 Fb
-Fb
+PK
 Sz
 Sz
 Sz
@@ -17593,7 +17660,7 @@ Fb
 Fb
 CF
 Fb
-Fb
+PK
 Sz
 Sz
 Sz
@@ -17851,8 +17918,8 @@ Vb
 CF
 Vb
 Fb
-oy
-Fb
+Ey
+PK
 Sz
 CZ
 CZ
@@ -18110,7 +18177,7 @@ Vb
 oy
 oy
 Fb
-Fb
+PK
 Fc
 wQ
 wQ
@@ -19223,9 +19290,9 @@ oy
 oy
 oy
 oy
-oy
+Ey
 Vh
-oy
+Ey
 oy
 oy
 oy
@@ -19479,11 +19546,11 @@ Fc
 Fb
 Fb
 Fb
-Fb
+PK
 EU
 kx
 EU
-Fb
+PK
 Fb
 Fb
 Fb
@@ -19736,11 +19803,11 @@ Fc
 Fc
 Fb
 Fb
-Fb
+PK
 EU
 zb
 EU
-Fb
+PK
 Fb
 Fb
 Fb
@@ -19992,13 +20059,13 @@ wQ
 wQ
 Fc
 Fc
-Fb
+PK
 EU
 EU
 ZC
 EU
 EU
-Fb
+PK
 Fb
 Fb
 Fb
@@ -20255,7 +20322,7 @@ Hq
 zb
 tI
 JF
-Fb
+PK
 Fb
 Fb
 Fb
@@ -20512,7 +20579,7 @@ rA
 ZV
 ZV
 JF
-Fb
+PK
 Fb
 Fb
 Fb
@@ -20769,7 +20836,7 @@ QI
 zb
 AE
 JF
-Fb
+PK
 Fb
 Fb
 Fb
@@ -21027,7 +21094,7 @@ ts
 JF
 JF
 cb
-Fb
+PK
 Fb
 Fb
 Fb
@@ -21284,7 +21351,7 @@ iD
 ML
 Nn
 KG
-Fb
+PK
 Fb
 Fb
 Fb
@@ -21541,8 +21608,8 @@ iD
 ML
 Ba
 KG
-Fb
-Fb
+PK
+PK
 Fb
 Fb
 Fb
@@ -21782,11 +21849,11 @@ wQ
 wQ
 wQ
 cb
-re
-re
-re
-re
-ML
+xd
+xd
+xd
+xd
+cb
 ML
 ML
 ML
@@ -39964,9 +40031,9 @@ Fb
 Fb
 Fb
 Fb
-Fb
-Fb
-Fb
+PK
+PK
+PK
 Fc
 wQ
 wQ
@@ -40219,8 +40286,8 @@ Fb
 Fb
 Fb
 Fb
-oy
-oy
+Ey
+Ey
 ac
 ac
 ac
@@ -41247,8 +41314,8 @@ Fb
 Fb
 Fb
 Fb
-Fb
-Fb
+PK
+PK
 ac
 fv
 yV
@@ -41500,10 +41567,10 @@ oy
 oy
 oy
 oy
-oy
-oy
-oy
-oy
+Ey
+Ey
+Ey
+Ey
 UI
 UI
 UI
@@ -41755,8 +41822,8 @@ Fb
 oy
 Fb
 Fb
-Fb
-Fb
+PK
+PK
 DH
 iY
 iY
@@ -42011,7 +42078,7 @@ Fb
 Fb
 oy
 Fb
-Fb
+PK
 DH
 DH
 DH
@@ -42525,7 +42592,7 @@ Fb
 Fb
 oy
 Fb
-Fb
+PK
 DH
 DH
 DH
@@ -42783,8 +42850,8 @@ Fb
 oy
 Fb
 Fb
-Fb
-Fb
+PK
+PK
 DH
 iY
 iY
@@ -43042,9 +43109,9 @@ oy
 oy
 oy
 oy
-oy
-oy
-oy
+Ey
+Ey
+Ey
 Fc
 wQ
 wQ
@@ -45452,10 +45519,10 @@ wQ
 wQ
 wQ
 Fc
-Fb
-Fb
-Fb
-Fb
+PK
+PK
+PK
+PK
 Fb
 Fb
 Fb
@@ -46483,7 +46550,7 @@ Mu
 Ul
 Ul
 lL
-Fb
+PK
 Fb
 Fb
 Fb
@@ -46740,7 +46807,7 @@ Ul
 Ul
 yO
 lL
-Fb
+PK
 Fb
 Fb
 Fb
@@ -46997,7 +47064,7 @@ Ul
 rp
 za
 lL
-Fb
+PK
 Fb
 Fb
 Fb
@@ -47254,7 +47321,7 @@ hP
 hP
 hP
 Tx
-Fb
+PK
 Fb
 Fb
 Fb
@@ -47510,8 +47577,8 @@ wQ
 Fc
 uV
 tF
-Fb
-Fb
+PK
+PK
 Fb
 Fb
 Fb
@@ -50326,7 +50393,7 @@ wQ
 wQ
 wQ
 Fc
-Fb
+PK
 Fb
 Fb
 Fb
@@ -50584,8 +50651,8 @@ Ie
 Ie
 Ie
 Yr
-Fb
-Fb
+PK
+PK
 Fb
 Fb
 oy
@@ -50843,7 +50910,7 @@ SP
 Yr
 Yr
 Yr
-Fb
+PK
 Fb
 oy
 Fb
@@ -51357,7 +51424,7 @@ QG
 Yr
 Yr
 Yr
-Fb
+PK
 Fb
 oy
 Fb
@@ -51612,8 +51679,8 @@ Ie
 Ie
 Ie
 Yr
-Fb
-Fb
+PK
+PK
 Fb
 Fb
 oy
@@ -51868,7 +51935,7 @@ wQ
 wQ
 wQ
 Fc
-Fb
+PK
 Fb
 Fb
 Fb
