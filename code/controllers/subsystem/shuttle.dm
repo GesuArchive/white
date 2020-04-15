@@ -201,6 +201,8 @@ SUBSYSTEM_DEF(shuttle)
 	end_state.count()
 	var/station_integrity = min(PERCENT(GLOB.start_state.score(end_state)), 100)
 	if(station_integrity > 90)
+		if(world.time - SSticker.round_start_time < 36000)
+			return TRUE
 		to_chat(user, "<span class='alert'>Состояние станции удовлетворительное. Улетать пока нет смысла.</span>")
 		return FALSE
 
