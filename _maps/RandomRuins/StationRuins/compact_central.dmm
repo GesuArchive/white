@@ -671,7 +671,7 @@
 /area/hallway/primary/central)
 "bM" = (
 /turf/open/openspace,
-/area/space)
+/area/boxplanet/underground/explored)
 "bN" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -2999,7 +2999,7 @@
 "hb" = (
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "hc" = (
 /obj/structure/chair/comfy/brown{
 	dir = 8
@@ -3975,7 +3975,7 @@
 "yh" = (
 /obj/structure/lattice,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "zb" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,

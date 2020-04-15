@@ -4,10 +4,10 @@
 /area/boxplanet/underground/unexplored)
 "v" = (
 /obj/structure/ladder,
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon/caves,
 /area/boxplanet/underground/unexplored)
 "S" = (
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon/caves,
 /area/boxplanet/underground/unexplored)
 "U" = (
 /obj/structure/ladder,

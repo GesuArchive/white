@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
 /turf/open/openspace,
-/area/space)
+/area/boxplanet/underground/explored)
 "ab" = (
 /turf/template_noop,
 /area/template_noop)
@@ -303,10 +303,7 @@
 "aQ" = (
 /obj/structure/lattice,
 /turf/open/openspace,
-/area/space/nearstation)
-"aR" = (
-/turf/open/floor/plating/airless,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "aS" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -319,7 +316,7 @@
 	state = 2
 	},
 /turf/open/floor/plating/airless,
-/area/space)
+/area/boxplanet/underground/explored)
 "aU" = (
 /obj/structure/sign/warning/electricshock,
 /turf/closed/wall/r_wall,
@@ -537,7 +534,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
 /turf/open/openspace,
-/area/space)
+/area/boxplanet/underground/explored)
 "bF" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -599,11 +596,11 @@
 /area/engine/engineering)
 "bM" = (
 /turf/open/floor/plating/airless,
-/area/space)
+/area/boxplanet/underground/explored)
 "bN" = (
 /obj/item/wrench,
 /turf/open/openspace,
-/area/space)
+/area/boxplanet/underground/explored)
 "bO" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -626,15 +623,15 @@
 "bR" = (
 /obj/item/weldingtool,
 /turf/open/openspace,
-/area/space)
+/area/boxplanet/underground/explored)
 "bS" = (
 /obj/machinery/the_singularitygen/tesla,
 /turf/open/floor/plating/airless,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "bT" = (
 /obj/machinery/the_singularitygen,
 /turf/open/floor/plating/airless,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "bU" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -646,7 +643,7 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/space)
+/area/boxplanet/underground/explored)
 "bW" = (
 /obj/structure/particle_accelerator/fuel_chamber,
 /obj/structure/cable,
@@ -655,11 +652,11 @@
 "bX" = (
 /obj/item/wirecutters,
 /turf/open/openspace,
-/area/space)
+/area/boxplanet/underground/explored)
 "bY" = (
 /obj/item/screwdriver,
 /turf/open/openspace,
-/area/space)
+/area/boxplanet/underground/explored)
 "bZ" = (
 /obj/structure/cable,
 /turf/open/floor/engine,
@@ -693,14 +690,14 @@
 	network = list("ss13","engine")
 	},
 /turf/open/openspace,
-/area/space)
+/area/boxplanet/underground/explored)
 "cf" = (
 /obj/machinery/camera/emp_proof{
 	c_tag = "Engineering Singularity Northeast";
 	network = list("ss13","engine")
 	},
 /turf/open/openspace,
-/area/space)
+/area/boxplanet/underground/explored)
 "cg" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -724,10 +721,10 @@
 /obj/structure/lattice,
 /obj/structure/grille,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "cj" = (
 /turf/closed/wall/r_wall,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "ck" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Telecoms Satellite Monitoring";
@@ -765,7 +762,7 @@
 "Bx" = (
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/space)
+/area/boxplanet/underground/explored)
 "OM" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -1015,7 +1012,7 @@ ab
 ab
 ab
 ab
-aR
+bM
 aQ
 aa
 aa
@@ -1328,9 +1325,9 @@ bE
 aa
 aa
 aa
-aR
+bM
 bS
-aR
+bM
 aQ
 aQ
 aT
@@ -1356,9 +1353,9 @@ bE
 aa
 aa
 bN
-aR
-aR
-aR
+bM
+bM
+bM
 aa
 aa
 aa
@@ -1384,9 +1381,9 @@ bE
 aT
 aQ
 aQ
-aR
+bM
 bT
-aR
+bM
 aa
 aa
 aa

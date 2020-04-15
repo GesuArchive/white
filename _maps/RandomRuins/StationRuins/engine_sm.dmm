@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
 /turf/open/openspace,
-/area/space)
+/area/boxplanet/underground/explored)
 "ab" = (
 /turf/template_noop,
 /area/template_noop)
@@ -892,7 +892,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "dj" = (
 /obj/structure/closet/firecloset,
 /turf/open/floor/plasteel/dark,
@@ -910,7 +910,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "dm" = (
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "engsm";
@@ -1007,21 +1007,21 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /obj/structure/lattice,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "dw" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
 	},
 /obj/structure/lattice,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "dx" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "dy" = (
 /obj/structure/table,
 /obj/item/pipe_dispenser,
@@ -1102,14 +1102,14 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "dJ" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 10
 	},
 /obj/structure/lattice,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "dK" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 6
@@ -1167,7 +1167,7 @@
 "dR" = (
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "dS" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible{
 	dir = 5
@@ -1252,7 +1252,7 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "ed" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 9
@@ -1262,7 +1262,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "ee" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/junction{
 	dir = 8
@@ -1337,7 +1337,7 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /obj/structure/lattice,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "em" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -1397,7 +1397,7 @@
 /area/engine/engineering)
 "eu" = (
 /turf/closed/wall/r_wall,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "ev" = (
 /obj/item/wrench,
 /obj/item/weldingtool,
@@ -1421,12 +1421,12 @@
 "ey" = (
 /obj/structure/lattice,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "ez" = (
 /obj/structure/lattice,
 /obj/structure/grille,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "eA" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -1464,7 +1464,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "eE" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -1713,7 +1713,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "fn" = (
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel/dark,
@@ -1722,7 +1722,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "fp" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 1

@@ -240,7 +240,7 @@
 /turf/closed/mineral/random/snow
 	name = "заснеженный склон горы"
 	icon = 'icons/turf/mining.dmi'
-	smooth_icon = 'icons/turf/walls/rock_wall.dmi'
+	smooth_icon = 'icons/turf/walls/icerock_wall.dmi'
 	icon_state = "rock2"
 	smooth = SMOOTH_MORE|SMOOTH_BORDER
 	canSmoothWith = list (/turf/closed)

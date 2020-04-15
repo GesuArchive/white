@@ -68,10 +68,13 @@
 	name = "BoxStation emergency evac bay";
 	width = 32
 	},
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/underground/unexplored)
 "by" = (
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
+/area/boxplanet/underground/unexplored)
+"bA" = (
+/turf/open/openspace,
 /area/boxplanet/underground/unexplored)
 "bC" = (
 /obj/machinery/door/airlock/external{
@@ -104,7 +107,7 @@
 	name = "Trader Transport Station";
 	width = 5
 	},
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/underground/unexplored)
 "dd" = (
 /obj/effect/turf_decal/tile/blue{
@@ -164,7 +167,7 @@
 	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
 	width = 3
 	},
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/underground/unexplored)
 "ex" = (
 /obj/structure/ladder,
@@ -312,7 +315,7 @@
 	roundstart_template = /datum/map_template/shuttle/arrival/box;
 	width = 7
 	},
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/underground/unexplored)
 "lu" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -907,7 +910,7 @@
 	id = "pod_lavaland2";
 	name = "lavaland"
 	},
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/space/nearstation)
 "Ie" = (
 /obj/structure/closet/emcloset,
@@ -1066,7 +1069,7 @@
 	name = "port bay 2";
 	width = 5
 	},
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/underground/unexplored)
 "Nt" = (
 /obj/effect/turf_decal/tile/red{
@@ -1138,6 +1141,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "OX" = (
+/obj/structure/lattice/catwalk,
 /turf/open/openspace,
 /area/maintenance/starboard/aft)
 "Pd" = (
@@ -1153,7 +1157,7 @@
 	id = "pod_lavaland1";
 	name = "lavaland"
 	},
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/space/nearstation)
 "QJ" = (
 /obj/machinery/vending/coffee,
@@ -1178,7 +1182,7 @@
 	roundstart_template = /datum/map_template/shuttle/mining_common/meta;
 	width = 35
 	},
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/underground/unexplored)
 "RU" = (
 /turf/open/floor/plating,
@@ -1347,7 +1351,7 @@
 /area/construction/mining/aux_base)
 "WR" = (
 /obj/structure/lattice,
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/space/nearstation)
 "Xo" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -25538,17 +25542,17 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 OB
 OB
 OB
@@ -25795,17 +25799,17 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 OB
 OB
 OB
@@ -26052,17 +26056,17 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 OB
 OB
 OB
@@ -26309,17 +26313,17 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 OB
 OB
 OB
@@ -26566,17 +26570,17 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 OB
 OB
 OB
@@ -26823,17 +26827,17 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 OB
 OB
 OB
@@ -27080,17 +27084,17 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 OB
 OB
 OB
@@ -27337,17 +27341,17 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 OB
 OB
 OB
@@ -27594,17 +27598,17 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 OB
 OB
 OB
@@ -27851,17 +27855,17 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 OB
 OB
 OB
@@ -28108,17 +28112,17 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
+bA
 OB
 OB
 OB

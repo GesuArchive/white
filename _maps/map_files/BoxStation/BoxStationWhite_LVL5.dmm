@@ -37,7 +37,7 @@
 "bP" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/solar/port/aft)
 "cb" = (
 /turf/closed/wall,
@@ -89,7 +89,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/surface)
 "hP" = (
 /turf/closed/wall,
@@ -186,7 +186,7 @@
 "ld" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/solar/starboard/aft)
 "lp" = (
 /obj/structure/sign/warning/electricshock,
@@ -238,8 +238,8 @@
 /area/maintenance/solars/port/fore)
 "oy" = (
 /obj/structure/lattice,
-/turf/open/floor/grass/snow,
-/area/space/nearstation)
+/turf/open/floor/plating/asteroid/snow/icemoon,
+/area/boxplanet/surface)
 "oN" = (
 /obj/machinery/door/airlock/external{
 	name = "External Access";
@@ -276,15 +276,15 @@
 /area/maintenance/starboard/aft)
 "pF" = (
 /obj/structure/grille,
-/turf/open/floor/grass/snow,
-/area/space/nearstation)
+/turf/open/floor/plating/asteroid/snow/icemoon,
+/area/boxplanet/surface)
 "qo" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "qt" = (
 /obj/structure/lattice/catwalk,
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/solar/starboard/aft)
 "qw" = (
 /obj/machinery/light/small{
@@ -352,8 +352,8 @@
 /area/maintenance/solars/port/fore)
 "td" = (
 /obj/item/stack/rods,
-/turf/open/floor/grass/snow,
-/area/space/nearstation)
+/turf/open/floor/plating/asteroid/snow/icemoon,
+/area/boxplanet/surface)
 "tp" = (
 /obj/structure/sign/warning/vacuum/external{
 	pixel_x = -32
@@ -376,7 +376,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/surface)
 "tI" = (
 /obj/machinery/power/solar_control{
@@ -407,7 +407,7 @@
 /area/maintenance/port/aft)
 "uV" = (
 /obj/structure/disposalpipe/trunk/multiz/down,
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/surface)
 "vc" = (
 /obj/machinery/door/airlock/external{
@@ -422,8 +422,8 @@
 "vk" = (
 /obj/structure/grille,
 /obj/structure/lattice,
-/turf/open/floor/grass/snow,
-/area/space/nearstation)
+/turf/open/floor/plating/asteroid/snow/icemoon,
+/area/boxplanet/surface)
 "vr" = (
 /obj/machinery/power/terminal,
 /obj/machinery/light/small{
@@ -453,8 +453,8 @@
 "xz" = (
 /obj/structure/lattice,
 /obj/item/stack/cable_coil,
-/turf/open/floor/grass/snow,
-/area/space/nearstation)
+/turf/open/floor/plating/asteroid/snow/icemoon,
+/area/boxplanet/surface)
 "xT" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Starboard Bow Solar Access";
@@ -493,7 +493,7 @@
 "Ag" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/solar/starboard/fore)
 "Au" = (
 /obj/effect/spawner/lootdrop/maintenance,
@@ -549,12 +549,13 @@
 "CF" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/solar/port/fore)
 "CZ" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/solars/port/fore)
 "Dd" = (
+/obj/structure/lattice/catwalk,
 /turf/open/openspace,
 /area/maintenance/starboard/aft)
 "Ds" = (
@@ -569,7 +570,7 @@
 /area/maintenance/starboard/fore)
 "DB" = (
 /obj/structure/lattice/catwalk,
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/solar/port/aft)
 "DH" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -600,7 +601,7 @@
 /turf/open/floor/plating/airless,
 /area/maintenance/solars/port/aft)
 "Fb" = (
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/surface)
 "Fc" = (
 /turf/closed/mineral/random/snow,
@@ -619,10 +620,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/solars/port/aft)
-"Hw" = (
-/obj/structure/lattice/catwalk,
-/turf/open/floor/grass/snow,
-/area/boxplanet/surface)
 "Hy" = (
 /turf/open/floor/plating,
 /area/maintenance/solars/starboard/fore)
@@ -633,8 +630,8 @@
 /area/solar/port/fore)
 "HL" = (
 /obj/structure/lattice/catwalk,
-/turf/open/floor/grass/snow,
-/area/space/nearstation)
+/turf/open/floor/plating/asteroid/snow/icemoon,
+/area/boxplanet/surface)
 "Ie" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/solars/starboard/aft)
@@ -646,11 +643,11 @@
 /obj/structure/disposalpipe/trunk/multiz/down{
 	dir = 8
 	},
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/surface)
 "JB" = (
 /obj/structure/lattice/catwalk,
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/solar/starboard/fore)
 "JD" = (
 /obj/machinery/power/terminal{
@@ -725,7 +722,7 @@
 /area/boxplanet/underground)
 "NH" = (
 /obj/structure/lattice/catwalk,
-/turf/open/floor/grass/snow,
+/turf/open/floor/plating/asteroid/snow/icemoon,
 /area/solar/port/fore)
 "Od" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
@@ -743,8 +740,8 @@
 "OQ" = (
 /obj/structure/lattice,
 /obj/structure/grille/broken,
-/turf/open/floor/grass/snow,
-/area/space/nearstation)
+/turf/open/floor/plating/asteroid/snow/icemoon,
+/area/boxplanet/surface)
 "Pc" = (
 /obj/structure/chair/stool{
 	pixel_y = 8
@@ -867,6 +864,11 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/airless/solarpanel,
 /area/solar/port/fore)
+"Vh" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/turf/open/floor/plating/asteroid/snow/icemoon,
+/area/boxplanet/surface)
 "Vv" = (
 /obj/structure/rack,
 /obj/item/tank/internals/emergency_oxygen,
@@ -18851,7 +18853,7 @@ Fb
 oy
 Fb
 Fb
-DB
+HL
 Fb
 Fb
 oy
@@ -19108,7 +19110,7 @@ oy
 oy
 oy
 oy
-bP
+Vh
 oy
 oy
 oy
@@ -24777,12 +24779,12 @@ wQ
 wQ
 wQ
 wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
+Fc
+Fc
+Fc
+Fc
+Fc
+Fc
 Fc
 Fb
 Fb
@@ -25034,14 +25036,14 @@ wQ
 wQ
 wQ
 wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
 Fc
-Fc
+Fb
+Fb
+Fb
+Fb
+Fb
+Fb
+Fb
 Fb
 Fb
 Fb
@@ -25288,17 +25290,17 @@ wQ
 wQ
 wQ
 wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
 Fc
+Fc
+Fc
+Fc
+Fb
+Fb
+tZ
+tZ
+tZ
+tZ
+Fb
 Fb
 Fb
 Fb
@@ -25545,17 +25547,17 @@ wQ
 wQ
 wQ
 wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
 Fc
+Fb
+Fb
+Fb
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
 Fb
 Fb
 Fb
@@ -25802,17 +25804,17 @@ wQ
 wQ
 wQ
 wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
 Fc
+Fb
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
 Fb
 Fb
 Fb
@@ -26059,18 +26061,18 @@ wQ
 wQ
 wQ
 wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
 Fc
-Fc
+Fb
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+Fb
 Fb
 Fb
 Fb
@@ -26316,18 +26318,18 @@ wQ
 wQ
 wQ
 wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
 Fc
+Fb
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+Fb
 Fb
 Fb
 Fb
@@ -26573,18 +26575,18 @@ wQ
 wQ
 wQ
 wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
 Fc
+Fb
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+Fb
+Fb
 Fb
 Fb
 Fb
@@ -26830,18 +26832,18 @@ wQ
 wQ
 wQ
 wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
 Fc
+Fb
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+Fb
+Fb
+Fb
 Fb
 Fb
 Fb
@@ -27087,17 +27089,17 @@ wQ
 wQ
 wQ
 wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
+Fc
+Fb
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+Fb
+Fb
 Fc
 Fc
 Fc
@@ -27344,18 +27346,18 @@ wQ
 wQ
 wQ
 wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
+Fc
+Fb
+Fb
+tZ
+tZ
+tZ
+tZ
+Fb
+Fb
+Fb
+Fc
+Fc
 wQ
 Fc
 Fb
@@ -27601,17 +27603,17 @@ wQ
 wQ
 wQ
 wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
+Fc
+Fc
+Fb
+Fb
+Fb
+Fb
+Fb
+Fb
+Fc
+Fc
+Fc
 wQ
 wQ
 Fc
@@ -27859,14 +27861,14 @@ wQ
 wQ
 wQ
 wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
+Fc
+Fc
+Fc
+Fc
+Fc
+Fc
+Fc
+Fc
 wQ
 wQ
 wQ
@@ -45596,7 +45598,7 @@ hP
 hP
 lL
 lL
-Hw
+HL
 Fb
 Fb
 Fb
@@ -45853,7 +45855,7 @@ nJ
 pc
 Hl
 PB
-Hw
+HL
 Fb
 Fb
 Fb
@@ -46110,7 +46112,7 @@ hP
 hP
 PB
 lL
-Hw
+HL
 Fb
 Fb
 Fb

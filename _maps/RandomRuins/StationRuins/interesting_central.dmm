@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
 /turf/open/openspace,
-/area/space)
+/area/boxplanet/underground/explored)
 "ab" = (
 /turf/template_noop,
 /area/template_noop)
@@ -441,7 +441,7 @@
 "bi" = (
 /obj/structure/lattice,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "bj" = (
 /obj/effect/landmark/event_spawn,
 /obj/structure/cable,
@@ -1377,7 +1377,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "dj" = (
 /obj/machinery/photocopier,
 /obj/structure/disposalpipe/segment{
@@ -2757,7 +2757,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "nX" = (
 /obj/structure/chair{
 	dir = 8;
@@ -2780,7 +2780,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "oa" = (
 /obj/machinery/airalarm{
 	dir = 4;

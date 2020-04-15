@@ -8,11 +8,11 @@
 "ac" = (
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "ad" = (
 /obj/structure/lattice,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "ae" = (
 /turf/closed/wall/r_wall,
 /area/security/prison)
@@ -312,7 +312,7 @@
 	pixel_y = -32
 	},
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "aL" = (
 /obj/machinery/door/window/westleft{
 	dir = 4;
@@ -492,11 +492,11 @@
 /obj/structure/lattice,
 /obj/structure/grille,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "bd" = (
 /obj/structure/grille,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "be" = (
 /turf/closed/wall/r_wall,
 /area/security/main)
@@ -906,7 +906,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "bW" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -2440,7 +2440,7 @@
 	name = "lavaland"
 	},
 /turf/open/openspace,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "eJ" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable,
