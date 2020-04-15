@@ -479,6 +479,11 @@
 	if(dir != UP && dir != DOWN)
 		return FALSE
 	var/turf/target = get_step_multiz(src, dir)
+	if(isliving(src))
+		if(!(movement_type & FLYING))
+			if(feedback)
+				to_chat(src, "<span class='warning'>Я не в состоянии летать!</span>")
+			return FALSE
 	if(!target)
 		if(feedback)
 			to_chat(src, "<span class='warning'>ПОТОЛОК!</span>")
