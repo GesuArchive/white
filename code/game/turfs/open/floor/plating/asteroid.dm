@@ -416,18 +416,34 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 	icon_state = "snow_dug"
 	dug = TRUE
 
-/turf/open/floor/plating/asteroid/snow/icemoon/caves/getDug()
-	var/turf/T = below()
-	var/area/A = get_area(T)
-	if(!istype(A, /area/boxplanet))
-		visible_message("<span class='danger'><b>[src]</b> уже достаточно раскопан!.</span>", vision_distance = 2)
-		return FALSE
-	if(istype(T, /turf/closed/mineral))
-		ChangeTurf(/turf/open/openspace, flags = CHANGETURF_INHERIT_AIR)
-		T.ChangeTurf(/turf/open/floor/plating/asteroid/snow/icemoon/caves, flags = CHANGETURF_INHERIT_AIR)
-		new /obj/structure/stairs/north(T)
-	if(istype(T, /turf/open))
-		ChangeTurf(/turf/open/openspace, flags = CHANGETURF_INHERIT_AIR)
+/turf/open/floor/plating/asteroid/snow/icemoon/can_dig(mob/user)
+	return TRUE
+
+/turf/open/floor/plating/asteroid/snow/icemoon/getDug()
+	if(!dug)
+		new digResult(src, 5)
+		if(postdig_icon_change)
+			if(!postdig_icon)
+				icon_plating = "[environment_type]_dug"
+				icon_state = "[environment_type]_dug"
+		dug = TRUE
+	else
+
+		if(last_act + (40 * I.toolspeed) > world.time)
+			return
+		last_act = world.time
+
+		var/turf/T = below()
+		var/area/A = get_area(T)
+		if(!istype(A, /area/boxplanet))
+			visible_message("<span class='danger'><b>[src]</b> уже достаточно раскопан!.</span>", vision_distance = 2)
+			return FALSE
+		if(istype(T, /turf/closed/mineral))
+			ChangeTurf(/turf/open/openspace, flags = CHANGETURF_INHERIT_AIR)
+			T.ChangeTurf(/turf/open/floor/plating/asteroid/snow/icemoon/caves, flags = CHANGETURF_INHERIT_AIR)
+			new /obj/structure/stairs/north(T)
+		if(istype(T, /turf/open))
+			ChangeTurf(/turf/open/openspace, flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/lava/plasma/ice_moon
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
