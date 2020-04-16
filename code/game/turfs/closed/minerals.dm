@@ -256,6 +256,27 @@
 		/turf/closed/mineral/silver/ice/icemoon = 12, /turf/closed/mineral/plasma/ice/icemoon = 20, /turf/closed/mineral/iron/ice/icemoon = 40,
 		/turf/closed/mineral/gibtonite/ice/icemoon = 4, /turf/open/floor/plating/asteroid/airless/cave/snow = 1, /turf/closed/mineral/bscrystal/ice/icemoon = 1)
 
+/turf/closed/mineral/random/snow/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/shovel))
+		var/turf/T = user.loc
+		if (!isturf(T))
+			return
+
+		if(last_act + (40 * I.toolspeed) > world.time)
+			return
+		last_act = world.time
+		to_chat(user, "<span class='notice'>Начинаю выкапывать лестницу наверх...</span>")
+
+		if(I.use_tool(src, user, 40, volume=50))
+			if(ismineralturf(src))
+				to_chat(user, "<span class='notice'>Выкапываю лестницу наверх.</span>")
+				gets_drilled(user, TRUE)
+				var/turf/TA = abowe()
+				TA.ChangeTurf(/turf/open/openspace, flags = CHANGETURF_INHERIT_AIR)
+				var/obj/L = new /obj/structure/stairs(T)
+				L.dir = user.dir
+	. = ..()
+
 /turf/closed/mineral/random/snow/no_caves
 	mineralSpawnChanceList = list(
 		/turf/closed/mineral/uranium/ice/icemoon = 5, /turf/closed/mineral/diamond/ice/icemoon = 1, /turf/closed/mineral/gold/ice/icemoon = 10, /turf/closed/mineral/titanium/ice/icemoon = 11,
