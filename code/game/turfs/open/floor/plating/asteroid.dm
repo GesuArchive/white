@@ -428,11 +428,6 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 				icon_state = "[environment_type]_dug"
 		dug = TRUE
 	else
-
-		if(last_act + (40 * I.toolspeed) > world.time)
-			return
-		last_act = world.time
-
 		var/turf/T = below()
 		var/area/A = get_area(T)
 		if(!istype(A, /area/boxplanet))
