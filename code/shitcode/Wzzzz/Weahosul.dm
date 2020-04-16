@@ -260,3 +260,4 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
 	sharpness = 2
 	resistance_flags = LAVA_PROOF|FIRE_PROOF|ACID_PROOF|INDESTRUCTIBLE|FREEZE_PROOF 
 	block_chance = 25
+	
