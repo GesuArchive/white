@@ -264,7 +264,7 @@
 
 		var/turf/TA = above()
 		var/area/AA = get_turf(TA)
-		if(istype(TA, /turf/closed/wall) || !istype(AA, /area/boxplanet))
+		if(!istype(AA, /area/boxplanet))
 			to_chat(user, "<span class='notice'>Наверху что-то очень твёрдое!</span>")
 			return
 
