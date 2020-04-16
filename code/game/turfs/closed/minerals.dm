@@ -271,7 +271,7 @@
 			if(ismineralturf(src))
 				to_chat(user, "<span class='notice'>Выкапываю лестницу наверх.</span>")
 				gets_drilled(user, TRUE)
-				var/turf/TA = abowe()
+				var/turf/TA = above()
 				TA.ChangeTurf(/turf/open/openspace, flags = CHANGETURF_INHERIT_AIR)
 				var/obj/L = new /obj/structure/stairs(T)
 				L.dir = user.dir
