@@ -220,25 +220,25 @@ window "preferences_window"
 	elem "preferences_window"
 		type = MAIN
 		pos = 64,64
-		size = 700x640
+		size = 1200x640
 		anchor1 = none
 		anchor2 = none
 		is-visible = false
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
-	elem "preferences_browser"
+	elem "preferences_browser_new"
 		type = BROWSER
 		pos = 0,0
-		size = 530x640
+		size = 960x640
 		anchor1 = 0,0
-		anchor2 = 76,100
+		anchor2 = 80,100
 		saved-params = ""
 		can-scroll = vertical
 	elem "character_preview_map"
 		type = MAP
-		pos = 530,0
-		size = 170x640
-		anchor1 = 76,0
+		pos = 960,0
+		size = 240x640
+		anchor1 = 80,0
 		anchor2 = 100,100
 		right-click = true
 		saved-params = "zoom;letterbox;zoom-mode"

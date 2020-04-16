@@ -39,7 +39,7 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 
 
 /obj/projectile/bullet/pisun
-	name = "leather bullet"
+	name = "кожаная пуля"
 	damage = 0
 
 /obj/item/ammo_casing/energy/pisun

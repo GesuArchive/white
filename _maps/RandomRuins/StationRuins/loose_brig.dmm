@@ -1,18 +1,18 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space)
 "ab" = (
 /turf/template_noop,
 /area/template_noop)
 "ac" = (
 /obj/structure/lattice/catwalk,
-/turf/open/space,
-/area/space/nearstation)
+/turf/open/openspace,
+/area/boxplanet/underground/explored)
 "ad" = (
 /obj/structure/lattice,
-/turf/open/space,
-/area/space/nearstation)
+/turf/open/openspace,
+/area/boxplanet/underground/explored)
 "ae" = (
 /turf/closed/wall/r_wall,
 /area/security/prison)
@@ -311,8 +311,8 @@
 /obj/structure/sign/warning/securearea{
 	pixel_y = -32
 	},
-/turf/open/space,
-/area/space/nearstation)
+/turf/open/openspace,
+/area/boxplanet/underground/explored)
 "aL" = (
 /obj/machinery/door/window/westleft{
 	dir = 4;
@@ -491,12 +491,12 @@
 "bc" = (
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/open/space,
-/area/space/nearstation)
+/turf/open/openspace,
+/area/boxplanet/underground/explored)
 "bd" = (
 /obj/structure/grille,
-/turf/open/space,
-/area/space/nearstation)
+/turf/open/openspace,
+/area/boxplanet/underground/explored)
 "be" = (
 /turf/closed/wall/r_wall,
 /area/security/main)
@@ -905,8 +905,8 @@
 	pixel_y = -32
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/space,
-/area/space/nearstation)
+/turf/open/openspace,
+/area/boxplanet/underground/explored)
 "bW" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -2431,7 +2431,7 @@
 	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
 	width = 3
 	},
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space)
 "eI" = (
 /obj/docking_port/stationary/random{
@@ -2439,8 +2439,8 @@
 	id = "pod_lavaland3";
 	name = "lavaland"
 	},
-/turf/open/space,
-/area/space/nearstation)
+/turf/open/openspace,
+/area/boxplanet/underground/explored)
 "eJ" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable,

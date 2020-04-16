@@ -1,11 +1,12 @@
 {
     "map_name": "Box Station",
     "map_path": "map_files/BoxStation",
-    "map_file": "BoxStationWhite.dmm",
+    "map_file": ["BoxStationWhite_LVL2.dmm", "BoxStationWhite_LVL3.dmm", "BoxStationWhite_LVL4.dmm", "BoxStationWhite_LVL5.dmm"],
     "shuttles": {
 	    "cargo": "cargo_box",
 	    "ferry": "ferry_fancy",
 	    "whiteship": "whiteship_box",
 	    "emergency": "emergency_box"
-    }
+    },
+	"traits": [{"Up" : 1, "Linkage" : "Cross"}, {"Up": 1, "Down" : -1, "Baseturf" : "/turf/open/openspace", "Linkage" : "Cross"}, {"Up": 1, "Down" : -1, "Baseturf" : "/turf/open/openspace", "Linkage" : "Cross"}, {"Down" : -1, "Baseturf" : "/turf/open/openspace", "Linkage" : "Cross"}]
 }

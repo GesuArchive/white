@@ -197,18 +197,21 @@
 /obj/effect/turf_decal/plaque{
 	icon_state = "L1"
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "aC" = (
 /obj/effect/turf_decal/plaque{
 	icon_state = "L3"
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "aD" = (
 /obj/effect/turf_decal/plaque{
 	icon_state = "L5"
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "aE" = (
@@ -219,17 +222,29 @@
 /obj/effect/turf_decal/plaque{
 	icon_state = "L9"
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "aG" = (
 /obj/effect/turf_decal/plaque{
 	icon_state = "L11"
 	},
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "aH" = (
 /obj/effect/turf_decal/plaque{
 	icon_state = "L13"
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -655,8 +670,8 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "bM" = (
-/turf/open/space/basic,
-/area/space)
+/turf/open/openspace,
+/area/boxplanet/underground/explored)
 "bN" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -1676,13 +1691,13 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
+/obj/structure/cable,
 /obj/machinery/power/apc{
 	areastring = "/area/maintenance/central";
 	dir = 1;
 	name = "Central Maintenance APC";
-	pixel_y = -23
+	pixel_y = 23
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "eh" = (
@@ -1717,9 +1732,7 @@
 /turf/open/floor/plasteel,
 /area/bridge)
 "ek" = (
-/obj/machinery/door/firedoor,
-/obj/effect/turf_decal/tile/blue,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/stairs/right,
 /area/hallway/primary/central)
 "el" = (
 /obj/structure/cable,
@@ -1768,11 +1781,8 @@
 /area/hallway/primary/central)
 "eq" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
+/turf/open/floor/wood,
+/area/crew_quarters/heads/captain)
 "er" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/blue{
@@ -1890,6 +1900,9 @@
 	dir = 4
 	},
 /obj/machinery/pdapainter,
+/obj/machinery/keycard_auth{
+	pixel_x = -24
+	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
 "eI" = (
@@ -2571,11 +2584,11 @@
 /area/hallway/primary/central)
 "ge" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -2706,15 +2719,16 @@
 /area/hallway/primary/central)
 "gu" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/tile/blue{
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
+/obj/structure/table/wood,
+/obj/item/camera,
+/obj/item/storage/photo_album{
+	pixel_y = -10
 	},
-/obj/effect/turf_decal/tile/blue,
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
+/turf/open/floor/wood,
+/area/crew_quarters/heads/captain)
 "gv" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/effect/turf_decal/tile/yellow{
@@ -2884,7 +2898,10 @@
 	pixel_y = 23
 	},
 /obj/structure/cable,
-/turf/open/floor/wood,
+/obj/structure/table/wood,
+/obj/item/stamp/captain,
+/obj/effect/spawner/lootdrop/minor/kittyears_or_rabbitears,
+/turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "gN" = (
 /obj/machinery/requests_console{
@@ -2901,11 +2918,10 @@
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "gO" = (
-/obj/structure/table/wood,
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/stamp/captain,
+/obj/machinery/computer/card,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "gP" = (
@@ -2952,13 +2968,7 @@
 /turf/closed/wall/r_wall,
 /area/crew_quarters/heads/captain)
 "gW" = (
-/obj/structure/cable,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/command{
-	name = "Captain's Office";
-	req_access_txt = "20"
-	},
-/turf/open/floor/plasteel,
+/turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "gX" = (
 /obj/structure/disposalpipe/segment,
@@ -2987,12 +2997,13 @@
 /turf/open/floor/plating,
 /area/maintenance/central/secondary)
 "hb" = (
-/turf/open/floor/plating,
-/area/maintenance/central/secondary)
+/obj/structure/lattice/catwalk,
+/turf/open/openspace,
+/area/boxplanet/underground/explored)
 "hc" = (
-/obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/minor/kittyears_or_rabbitears,
-/obj/item/disk/nuclear,
+/obj/structure/chair/comfy/brown{
+	dir = 8
+	},
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "hd" = (
@@ -3008,9 +3019,6 @@
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "hf" = (
-/obj/structure/chair/comfy/brown{
-	dir = 8
-	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
 	},
@@ -3018,16 +3026,7 @@
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "hg" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = 28;
-	pixel_y = 5
-	},
-/obj/structure/displaycase/winner/robust,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/stairs/left,
 /area/hallway/primary/central)
 "hh" = (
 /obj/machinery/holopad,
@@ -3104,25 +3103,9 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "hs" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/obj/structure/cable,
-/obj/machinery/power/apc{
-	areastring = "/area/hallway/primary/central";
-	dir = 1;
-	name = "Compact Central Hall APC";
-	pixel_y = 23
-	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/stairs/medium,
 /area/hallway/primary/central)
 "ht" = (
-/obj/machinery/camera/autoname{
-	dir = 4
-	},
-/turf/open/floor/wood,
-/area/crew_quarters/heads/captain)
-"hu" = (
 /obj/machinery/door/window{
 	base_state = "right";
 	dir = 8;
@@ -3130,6 +3113,9 @@
 	name = "Captain's Desk Door";
 	req_access_txt = "20"
 	},
+/turf/open/floor/carpet,
+/area/crew_quarters/heads/captain)
+"hu" = (
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -24
@@ -3142,6 +3128,7 @@
 	dir = 1;
 	pixel_y = -22
 	},
+/obj/structure/filingcabinet,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "hw" = (
@@ -3327,6 +3314,10 @@
 	pixel_x = 32;
 	pixel_y = 36
 	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "hU" = (
@@ -3476,15 +3467,13 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "ij" = (
-/obj/machinery/computer/card{
-	dir = 8
-	},
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 27
 	},
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
+/obj/machinery/suit_storage_unit/captain,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "ik" = (
@@ -3533,20 +3522,22 @@
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "ir" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 5
+	},
+/obj/structure/chair/comfy/brown{
+	dir = 4
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "is" = (
-/obj/structure/chair/comfy/brown{
-	dir = 4
-	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/open/floor/wood,
+/obj/structure/table/wood,
+/obj/item/pinpointer/nuke,
+/obj/item/disk/nuclear,
+/turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "it" = (
 /obj/structure/disposalpipe/segment{
@@ -3622,6 +3613,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/autoname,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "iA" = (
@@ -3917,13 +3909,49 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
+"oF" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/command{
+	name = "Captain's Office";
+	req_access_txt = "20"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
+/area/crew_quarters/heads/captain)
+"pR" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "qJ" = (
 /obj/machinery/status_display/evac,
 /turf/closed/wall/r_wall,
 /area/ai_monitored/turret_protected/ai_upload)
+"qY" = (
+/obj/machinery/power/apc{
+	areastring = "/area/hallway/primary/central";
+	dir = 1;
+	name = "Compact Central Hall APC";
+	pixel_y = 23
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "rN" = (
 /obj/machinery/status_display/evac,
 /turf/closed/wall/r_wall,
+/area/hallway/primary/central)
+"wd" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "wx" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -3937,10 +3965,26 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/central/secondary)
+"wW" = (
+/obj/machinery/camera/autoname,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "yh" = (
 /obj/structure/lattice,
-/turf/open/space/basic,
-/area/space/nearstation)
+/turf/open/openspace,
+/area/boxplanet/underground/explored)
+"zb" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/maintenance/central)
+"zS" = (
+/obj/effect/turf_decal/tile/yellow,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "AU" = (
 /obj/machinery/light{
 	dir = 8
@@ -3953,6 +3997,48 @@
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
+"DM" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"EZ" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"FE" = (
+/obj/structure/cable,
+/obj/structure/bed/dogbed/renault,
+/mob/living/simple_animal/pet/fox/Renault{
+	faction = list("neutral","silicon")
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/heads/captain)
+"Im" = (
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = 28;
+	pixel_y = 5
+	},
+/obj/effect/turf_decal/tile/blue,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"KS" = (
+/obj/structure/cable,
+/obj/structure/table/wood,
+/obj/item/storage/lockbox/medal,
+/turf/open/floor/wood,
+/area/crew_quarters/heads/captain)
+"LY" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/structure/displaycase/winner/robust,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "On" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -3985,6 +4071,11 @@
 /obj/machinery/status_display/evac,
 /turf/open/floor/plating,
 /area/bridge)
+"Vh" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/blue,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "Yy" = (
 /obj/structure/chair/comfy/black{
 	dir = 8
@@ -4046,8 +4137,8 @@ av
 aS
 bf
 bl
-aj
-aj
+aA
+hg
 aj
 aj
 aj
@@ -4084,8 +4175,8 @@ aw
 aT
 bg
 bm
-aj
-aj
+aA
+hs
 aj
 aj
 aj
@@ -4122,8 +4213,8 @@ ax
 aU
 aj
 az
-az
-az
+pR
+ek
 go
 az
 bC
@@ -4160,12 +4251,12 @@ ay
 aj
 cZ
 ep
+aE
 ep
 ep
 ep
 ep
-ep
-ep
+aE
 ep
 az
 aj
@@ -4200,8 +4291,8 @@ ep
 ep
 bM
 yh
-bM
-bM
+hb
+hb
 yh
 bM
 ep
@@ -4234,7 +4325,7 @@ ab
 ab
 al
 cZ
-ep
+aE
 bM
 bM
 bs
@@ -4243,7 +4334,7 @@ bs
 bs
 bM
 bM
-ep
+aE
 ai
 aj
 ar
@@ -4311,14 +4402,14 @@ ab
 al
 cZ
 ep
-bM
+hb
 bs
 bP
 cz
 cz
 cd
 bs
-bM
+hb
 ep
 iA
 aj
@@ -4349,14 +4440,14 @@ ab
 ai
 cZ
 ep
-bM
+hb
 bs
 cc
 hm
 cz
 cc
 bs
-bM
+hb
 ep
 ih
 aj
@@ -4462,7 +4553,7 @@ az
 ai
 aj
 cZ
-ep
+aE
 bM
 bM
 cf
@@ -4471,7 +4562,7 @@ hC
 cf
 bM
 bM
-ep
+aE
 ai
 aj
 ar
@@ -4508,7 +4599,7 @@ hB
 hG
 cf
 yh
-ep
+bM
 ep
 em
 aA
@@ -4547,11 +4638,11 @@ hz
 cf
 ep
 ep
-hs
+ep
+qY
 aj
 aj
-aj
-ar
+LY
 bx
 bx
 cx
@@ -4585,7 +4676,7 @@ id
 if
 el
 ge
-gt
+EZ
 aB
 aV
 aj
@@ -4621,9 +4712,9 @@ cf
 cf
 cf
 qJ
-iA
+wW
 aj
-gt
+aj
 aC
 aW
 aj
@@ -4653,15 +4744,15 @@ ai
 aj
 aj
 aj
-aK
+ar
 fY
 gn
 ar
-ar
-aK
+wd
+hg
 aj
 aj
-gt
+aj
 aD
 aX
 aj
@@ -4691,12 +4782,12 @@ aj
 hS
 aZ
 aj
-aA
 aj
 aj
 aj
 aj
 aA
+hs
 aj
 aj
 gt
@@ -4729,15 +4820,15 @@ aj
 aj
 aj
 hr
-ek
+cZ
 hy
 bV
 ig
-cZ
+DM
 ek
 hT
-aj
-gt
+Im
+Vh
 aF
 bX
 aj
@@ -4771,11 +4862,11 @@ dP
 dP
 dP
 dP
-dP
-dP
-ga
-aj
-gt
+es
+es
+es
+es
+es
 aG
 ba
 aj
@@ -4809,11 +4900,11 @@ dV
 ha
 hj
 hj
-dV
-dP
+eW
+KS
 gu
 eq
-gt
+oF
 aH
 bb
 aj
@@ -4846,13 +4937,13 @@ wy
 eh
 im
 hF
-hb
+dV
 eW
-es
+FE
+gW
 gW
 es
-hg
-aj
+ai
 aj
 aj
 hP
@@ -4862,7 +4953,7 @@ dC
 dC
 dC
 dC
-dC
+zb
 dC
 dC
 dL
@@ -4888,18 +4979,18 @@ gZ
 hI
 hK
 ir
+gW
 es
-es
-er
-aA
-bZ
+az
+aj
+ca
 ep
 ep
 bM
 yh
-bM
+hb
 yh
-bM
+hb
 yh
 bM
 dC
@@ -4929,8 +5020,8 @@ is
 ht
 es
 iz
-aj
-ca
+aA
+zS
 ep
 bM
 bM
@@ -5008,7 +5099,7 @@ az
 bc
 ca
 ep
-bM
+hb
 af
 ag
 bh
@@ -5084,7 +5175,7 @@ az
 aj
 dg
 ep
-bM
+hb
 af
 cb
 bh
@@ -5201,9 +5292,9 @@ ep
 ep
 bM
 yh
-bM
+hb
 yh
-bM
+hb
 yh
 bM
 dC
@@ -5261,7 +5352,7 @@ ab
 aj
 aj
 aj
-ar
+hg
 gs
 gE
 bW
@@ -5299,7 +5390,7 @@ ab
 aQ
 bd
 aj
-aj
+hs
 aj
 aj
 aj
@@ -5337,7 +5428,7 @@ ab
 aj
 aj
 aj
-aj
+ek
 bC
 aj
 aj

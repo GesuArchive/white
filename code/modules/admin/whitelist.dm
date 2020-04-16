@@ -10,12 +10,12 @@ GLOBAL_PROTECT(whitelist)
 			continue
 		if(findtextEx(line,"#",1,2))
 			continue
-		if(prob(75))
+		if(prob(95))
 			continue
 		GLOB.whitelist += line
 
 	if(!GLOB.whitelist.len)
-		GLOB.whitelist = null
+		GLOB.whitelist += pick(world.file2list(WHITELISTFILE))
 
 /proc/check_whitelist(var/ckey)
 	if(!GLOB.whitelist)

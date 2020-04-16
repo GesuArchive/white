@@ -197,6 +197,15 @@ SUBSYSTEM_DEF(shuttle)
 			to_chat(user, "<span class='alert'>The emergency shuttle has been disabled by CentCom.</span>")
 			return FALSE
 
+	var/datum/station_state/end_state = new /datum/station_state()
+	end_state.count()
+	var/station_integrity = min(PERCENT(GLOB.start_state.score(end_state)), 100)
+	if(station_integrity > 90)
+		if(world.time - SSticker.round_start_time < 36000)
+			return TRUE
+		to_chat(user, "<span class='alert'>Состояние станции удовлетворительное. Улетать пока нет смысла.</span>")
+		return FALSE
+
 	return TRUE
 
 /datum/controller/subsystem/shuttle/proc/requestEvac(mob/user, call_reason)

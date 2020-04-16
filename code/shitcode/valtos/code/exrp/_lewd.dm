@@ -86,22 +86,22 @@
 			to_chat(user, "<span class='warning'>.</span>")
 			return 0
 		if(require_target_naked && !target.is_nude())
-			if(!silent) to_chat(user, "<span class = 'warning'>TARGET мешает одежда.</span>")
+			if(!silent) to_chat(user, "<span class = 'warning'>Цели мешает одежда.</span>")
 			return 0
 		if(require_target_penis && !target.has_penis())
-			if(!silent) to_chat(user, "<span class = 'warning'>У TARGET нет огурца.</span>")
+			if(!silent) to_chat(user, "<span class = 'warning'>У цели нет огурца.</span>")
 			return 0
 		if(require_target_anus && !target.has_anus())
-			if(!silent) to_chat(user, "<span class = 'warning'>У TARGET нет шоколадницы.</span>")
+			if(!silent) to_chat(user, "<span class = 'warning'>У цели нет шоколадницы.</span>")
 			return 0
 		if(require_target_vagina && !target.has_vagina())
-			if(!silent) to_chat(user, "<span class = 'warning'>У TARGET нет пельмешка.</span>")
+			if(!silent) to_chat(user, "<span class = 'warning'>У цели нет пельмешка.</span>")
 			return 0
 		return 1
 	return 0
 
 /datum/interaction/lewd/post_interaction(var/mob/user, var/mob/target)
-	spawn (5)
+	spawn(1)
 		cooldaun = 0
 	if(user_refactory_cost)   user.refactory_period += user_refactory_cost
 	if(target_refactory_cost) target.refactory_period += target_refactory_cost

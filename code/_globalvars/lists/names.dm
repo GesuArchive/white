@@ -46,7 +46,7 @@ List of configurable names in preferences and their metadata
 	),
 */
 GLOBAL_LIST_INIT(preferences_custom_names, list(
-	"human" = list("pref_name" = "Запасное имя", "qdesc" = "backup human name, used in the event you are assigned a command role as another species", "allow_numbers" = FALSE , "group" = "backup_human", "allow_null" = FALSE),
+	"human" = list("pref_name" = "Запасное", "qdesc" = "backup human name, used in the event you are assigned a command role as another species", "allow_numbers" = FALSE , "group" = "backup_human", "allow_null" = FALSE),
 	"clown" = list("pref_name" = "Клоун" , "qdesc" = "clown name", "allow_numbers" = FALSE , "group" = "fun", "allow_null" = FALSE),
 	"mime" = list("pref_name" = "Мим", "qdesc" = "mime name" , "allow_numbers" = FALSE , "group" = "fun", "allow_null" = FALSE),
 	"cyborg" = list("pref_name" = "Киборг", "qdesc" = "cyborg name (Leave empty to use default naming scheme)", "allow_numbers" = TRUE , "group" = "silicons", "allow_null" = TRUE),

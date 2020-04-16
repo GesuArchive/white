@@ -1,6 +1,7 @@
 /mob/living/simple_animal/mouse
-	name = "mouse"
-	desc = "It's a nasty, ugly, evil, disease-ridden rodent."
+	name = "мышь"
+	desc = "Это гадкий, уродливый, злой, заразный грызун."
+	icon = 'code/shitcode/valtos/icons/animal.dmi'
 	icon_state = "mouse_gray"
 	icon_living = "mouse_gray"
 	icon_dead = "mouse_gray_dead"
@@ -153,8 +154,8 @@
 	gold_core_spawnable = NO_SPAWN
 
 /obj/item/reagent_containers/food/snacks/deadmouse
-	name = "dead mouse"
-	desc = "It looks like somebody dropped the bass on it. A lizard's favorite meal."
+	name = "дохлая мышь"
+	desc = "Похоже кто-то уронил на неё баллон. Любимое блюдо ящеров."
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "mouse_gray_dead"
 	bitesize = 3

@@ -1,7 +1,7 @@
 /mob/proc/try_interaction()
 	return
 
-/mob/living/carbon/human/MouseDrop_T(mob/M as mob, mob/user as mob)
+/mob/living/MouseDrop_T(mob/M as mob, mob/user as mob)
 	. = ..()
 	if(M == src || src == usr || M != usr)
 		return
@@ -13,7 +13,7 @@
 
 	user.try_interaction(src)
 
-/mob/living/carbon/human/try_interaction(var/mob/partner)
+/mob/living/try_interaction(var/mob/partner)
 
 	var/dat = "<B><HR><FONT size=3>Взаимодействие с [partner]...</FONT></B><HR>"
 
