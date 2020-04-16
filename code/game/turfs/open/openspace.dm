@@ -55,8 +55,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	var/turf/T = below()
 	if(!T || istype(T, /turf/closed/wall))
 		vis_contents.len = 0
-		if(prune_on_fail)
-			ChangeTurf(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
+		ChangeTurf(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
 		return FALSE
 	if(istype(T, /turf/closed))
 		vis_contents.len = 0
