@@ -752,6 +752,7 @@
 	pixel_x = 30
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/structure/ladder,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
 "ayP" = (

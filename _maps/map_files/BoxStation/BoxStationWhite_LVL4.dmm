@@ -248,6 +248,12 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/hallway/secondary/exit)
+"ht" = (
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/tcommsat/computer)
 "hz" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -475,6 +481,9 @@
 	},
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
+"pc" = (
+/turf/closed/wall/r_wall,
+/area/tcommsat/server)
 "pd" = (
 /obj/machinery/light{
 	dir = 1
@@ -519,6 +528,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
+"ro" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/tcommsat/server)
 "rH" = (
 /obj/machinery/camera{
 	c_tag = "Arrivals Bay 3 & 4";
@@ -541,6 +554,10 @@
 	},
 /turf/open/floor/plating,
 /area/hallway/secondary/exit)
+"rS" = (
+/obj/effect/turf_decal/trimline/yellow/filled/corner,
+/turf/open/floor/plasteel,
+/area/tcommsat/computer)
 "se" = (
 /obj/structure/rospilovo/water/bochka/kap,
 /turf/open/floor/plating/asteroid/snow/icemoon/caves,
@@ -576,6 +593,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
+"tN" = (
+/obj/effect/turf_decal/trimline/yellow/filled/warning,
+/turf/open/floor/plasteel,
+/area/tcommsat/computer)
 "tS" = (
 /obj/machinery/atmospherics/pipe/simple/multiz,
 /turf/open/floor/plating,
@@ -617,6 +638,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
+"uy" = (
+/obj/structure/ladder,
+/turf/open/floor/plating,
+/area/tcommsat/computer)
 "uB" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -695,6 +720,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
+"xz" = (
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"xN" = (
+/obj/machinery/telecomms/relay/preset/auto,
+/turf/open/floor/circuit/telecomms/mainframe,
+/area/tcommsat/server)
 "xQ" = (
 /obj/machinery/camera{
 	c_tag = "Arrivals Escape Pod 2";
@@ -897,6 +929,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
+"Fm" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Telecommunications";
+	req_access_txt = "61"
+	},
+/turf/open/floor/plating,
+/area/tcommsat/computer)
 "Fo" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -934,6 +973,10 @@
 /obj/item/shovel,
 /turf/open/floor/plating/asteroid/snow/icemoon/caves,
 /area/boxplanet/underground/unexplored)
+"Gb" = (
+/obj/structure/flora/grass/both,
+/turf/open/floor/plating/asteroid/snow/icemoon,
+/area/boxplanet/surface)
 "Gx" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /obj/effect/turf_decal/tile/yellow{
@@ -948,6 +991,13 @@
 /obj/structure/rack,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
+"GF" = (
+/obj/machinery/light,
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/tcommsat/computer)
 "GN" = (
 /obj/structure/cable/multilayer/multiz,
 /turf/open/floor/plating,
@@ -1102,6 +1152,12 @@
 /obj/structure/lattice,
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/surface)
+"Kh" = (
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/tcommsat/computer)
 "Ki" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -1278,6 +1334,13 @@
 "Pp" = (
 /turf/closed/wall,
 /area/maintenance/port)
+"PC" = (
+/obj/machinery/door/airlock/engineering/glass{
+	name = "Server Room";
+	req_access_txt = "61"
+	},
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/server)
 "PO" = (
 /obj/docking_port/stationary/random{
 	dir = 8;
@@ -1355,6 +1418,9 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
+"SN" = (
+/turf/open/floor/circuit/telecomms/mainframe,
+/area/tcommsat/server)
 "SO" = (
 /obj/structure/disposalpipe/trunk/multiz/down,
 /turf/open/floor/plating,
@@ -1393,6 +1459,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
+"UU" = (
+/turf/closed/wall/r_wall,
+/area/tcommsat/computer)
 "UW" = (
 /obj/structure/closet/emcloset,
 /obj/effect/turf_decal/stripes/line{
@@ -1404,6 +1473,12 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on,
 /turf/open/floor/plasteel,
 /area/construction/mining/aux_base)
+"Vj" = (
+/obj/effect/turf_decal/trimline/yellow/filled/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/tcommsat/computer)
 "Vs" = (
 /obj/machinery/holopad,
 /turf/open/floor/plasteel,
@@ -7130,7 +7205,7 @@ tY
 tY
 tY
 tY
-tY
+Gb
 tY
 tY
 tY
@@ -7632,7 +7707,7 @@ tY
 tY
 tY
 tY
-tY
+Gb
 tY
 tY
 tY
@@ -8389,7 +8464,7 @@ OB
 mv
 tY
 tY
-tY
+Gb
 tY
 mv
 mv
@@ -9710,7 +9785,7 @@ tY
 tY
 tY
 tY
-tY
+Gb
 tY
 tY
 tY
@@ -12533,7 +12608,7 @@ tY
 tY
 tY
 tY
-tY
+Gb
 tY
 tY
 tY
@@ -28498,12 +28573,12 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-Jf
-Jf
-Jf
+IR
+IR
+IR
+IR
+IR
+IR
 IR
 Jf
 Jf
@@ -28751,12 +28826,12 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-OB
-OB
-OB
+pc
+pc
+pc
+UU
+Fm
+UU
 OB
 Jf
 FT
@@ -29007,14 +29082,14 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
+pc
+pc
+SN
+ro
+rS
+ht
+UU
+UU
 OB
 Jf
 Jf
@@ -29264,14 +29339,14 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
+pc
+xN
+xz
+PC
+tN
+uy
+GF
+UU
 OB
 Jf
 Jf
@@ -29521,14 +29596,14 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
-OB
+pc
+pc
+SN
+ro
+Vj
+Kh
+UU
+UU
 OB
 Jf
 Jf
@@ -29779,12 +29854,12 @@ OB
 OB
 OB
 OB
-OB
-OB
-OB
-OB
-OB
-OB
+pc
+pc
+pc
+UU
+UU
+UU
 OB
 OB
 Jf

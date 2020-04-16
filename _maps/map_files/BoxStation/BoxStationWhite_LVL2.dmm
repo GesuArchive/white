@@ -2,14 +2,77 @@
 "a" = (
 /turf/closed/mineral/random/snow,
 /area/boxplanet/underground/unexplored)
+"b" = (
+/obj/machinery/telecomms/relay/preset/auto,
+/turf/open/floor/circuit/telecomms/mainframe,
+/area/tcommsat/server)
+"g" = (
+/obj/machinery/light,
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/tcommsat/computer)
+"h" = (
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/tcommsat/computer)
+"l" = (
+/turf/closed/wall/r_wall,
+/area/tcommsat/server)
+"m" = (
+/obj/effect/turf_decal/trimline/yellow/filled/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/tcommsat/computer)
+"p" = (
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/tcommsat/computer)
 "v" = (
 /obj/structure/ladder,
 /turf/open/floor/plating/asteroid/snow/icemoon/caves,
 /area/boxplanet/underground/unexplored)
+"w" = (
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"B" = (
+/obj/effect/turf_decal/trimline/yellow/filled/corner,
+/turf/open/floor/plasteel,
+/area/tcommsat/computer)
+"C" = (
+/turf/closed/wall/r_wall,
+/area/tcommsat/computer)
+"D" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Telecommunications";
+	req_access_txt = "61"
+	},
+/turf/open/floor/plating,
+/area/tcommsat/computer)
+"F" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/tcommsat/server)
 "H" = (
 /obj/item/pickaxe,
 /turf/open/floor/plating/asteroid/snow/icemoon/caves,
 /area/boxplanet/underground/unexplored)
+"K" = (
+/obj/machinery/door/airlock/engineering/glass{
+	name = "Server Room";
+	req_access_txt = "61"
+	},
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/server)
+"R" = (
+/turf/open/floor/circuit/telecomms/mainframe,
+/area/tcommsat/server)
 "S" = (
 /turf/open/floor/plating/asteroid/snow/icemoon/caves,
 /area/boxplanet/underground/unexplored)
@@ -17,6 +80,14 @@
 /obj/structure/ladder,
 /turf/closed/mineral/random/snow,
 /area/boxplanet/underground/unexplored)
+"X" = (
+/obj/effect/turf_decal/trimline/yellow/filled/warning,
+/turf/open/floor/plasteel,
+/area/tcommsat/computer)
+"Z" = (
+/obj/structure/ladder,
+/turf/open/floor/plating,
+/area/tcommsat/computer)
 
 (1,1,1) = {"
 a
@@ -27167,12 +27238,12 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-S
+l
+l
+l
+C
+C
+C
 S
 S
 S
@@ -27423,14 +27494,14 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-S
-S
-S
+l
+l
+R
+F
+B
+p
+C
+C
 S
 S
 S
@@ -27680,14 +27751,14 @@ a
 a
 a
 a
-a
-a
-a
-a
-S
-S
-S
-S
+l
+b
+w
+K
+X
+Z
+g
+C
 S
 S
 S
@@ -27937,14 +28008,14 @@ a
 a
 a
 a
-a
-a
-a
-a
-S
-S
-S
-S
+l
+l
+R
+F
+m
+h
+C
+C
 S
 S
 S
@@ -28195,12 +28266,12 @@ a
 a
 a
 a
-a
-a
-a
-S
-S
-S
+l
+l
+l
+C
+D
+C
 S
 S
 S
