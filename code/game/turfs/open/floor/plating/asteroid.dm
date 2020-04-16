@@ -423,14 +423,16 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 		var/turf/T = below()
 		var/area/A = get_area(T)
 		if(!istype(A, /area/boxplanet))
-			to_chat(user, "<span class='danger'><b>[src]</b> уже достаточно раскопан!.</span>")
+			to_chat(user, "<span class='danger'><b>[capitalize(src)]</b> уже достаточно раскопан!</span>")
 			return FALSE
+		var/dir_to_dig = get_dir(src, user.loc)
+
 		if(do_after(user, 60, target = src))
 			if(istype(T, /turf/closed/mineral))
 				ChangeTurf(/turf/open/openspace, flags = CHANGETURF_INHERIT_AIR)
 				T.ChangeTurf(/turf/open/floor/plating/asteroid/snow/icemoon/caves, flags = CHANGETURF_INHERIT_AIR)
 				var/obj/L = new /obj/structure/stairs(T)
-				L.dir = user.dir
+				L.dir = dir_to_dig
 			if(istype(T, /turf/open))
 				ChangeTurf(/turf/open/openspace, flags = CHANGETURF_INHERIT_AIR)
 

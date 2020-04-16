@@ -263,8 +263,7 @@
 			return
 
 		var/turf/TA = above()
-		var/area/AA = get_turf(TA)
-		if(!istype(AA, /area/boxplanet))
+		if(istype(T, /turf/closed/wall) || istype(T, /turf/open/floor/plasteel))
 			to_chat(user, "<span class='notice'>Наверху что-то очень твёрдое!</span>")
 			return
 
@@ -273,13 +272,15 @@
 		last_act = world.time
 		to_chat(user, "<span class='notice'>Начинаю выкапывать лестницу наверх...</span>")
 
+		var/dir_to_dig = get_dir(user.loc, src)
+
 		if(I.use_tool(src, user, 40, volume=50))
 			if(ismineralturf(src))
 				to_chat(user, "<span class='notice'>Выкапываю лестницу наверх.</span>")
 				gets_drilled(user, TRUE)
 				TA.ChangeTurf(/turf/open/openspace, flags = CHANGETURF_INHERIT_AIR)
 				var/obj/L = new /obj/structure/stairs(src)
-				L.dir = user.dir
+				L.dir = dir_to_dig
 	. = ..()
 
 /turf/closed/mineral/random/snow/no_caves
