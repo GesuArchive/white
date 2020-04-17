@@ -165,6 +165,3 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	name = "открытое пространство"
 	baseturfs = /turf/open/openspace/icemoon
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
-
-/turf/open/openspace/icemoon/can_zFall(atom/movable/A, levels = 1, turf/target)
-	return TRUE
