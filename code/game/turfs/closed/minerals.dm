@@ -263,7 +263,7 @@
 			return
 
 		var/turf/TA = above()
-		if(istype(T, /turf/closed/wall) || istype(T, /turf/open/floor/plasteel))
+		if(istype(TA, /turf/closed/wall) || istype(TA, /turf/open/floor/plasteel))
 			to_chat(user, "<span class='notice'>Наверху что-то очень твёрдое!</span>")
 			return
 
