@@ -118,7 +118,7 @@ SUBSYSTEM_DEF(mapping)
 		// needs to be whitelisted for underground too so place_below ruins work
 		seedRuins(planet_ruins, CONFIG_GET(number/icemoon_budget), list(/area/boxplanet/underground/unexplored), ice_ruins_templates)
 		for (var/ice_z in planet_ruins)
-			spawn_rivers(ice_z, 4, /turf/open/openspace/icemoon, /area/boxplanet/underground/unexplored)
+			spawn_rivers(ice_z, 6, /turf/open/floor/plating/asteroid/snow/icemoon/caves, /area/boxplanet/underground/unexplored)
 
 
 	// Generate deep space ruins
