@@ -427,7 +427,7 @@
 /area/tcommsat/server)
 "re" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/maintenance/port/aft)
 "rg" = (
 /obj/machinery/camera{
@@ -528,7 +528,7 @@
 /turf/open/floor/plating,
 /area/maintenance/solars/port/fore)
 "tZ" = (
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/surface)
 "uS" = (
 /obj/machinery/space_heater,
@@ -589,7 +589,7 @@
 /turf/closed/mineral/random/snow,
 /area/boxplanet/underground)
 "xd" = (
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/maintenance/port/aft)
 "xf" = (
 /obj/structure/table/wood,
@@ -748,7 +748,7 @@
 /area/maintenance/solars/port/fore)
 "Dd" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/maintenance/starboard/aft)
 "Ds" = (
 /obj/machinery/power/apc{

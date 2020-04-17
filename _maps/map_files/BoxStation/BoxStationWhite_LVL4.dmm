@@ -296,7 +296,7 @@
 "iS" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/door/firedoor,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/hallway/secondary/entry)
 "iX" = (
 /obj/machinery/effector,
@@ -306,7 +306,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/hallway/secondary/entry)
 "jo" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -379,7 +379,7 @@
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/boxplanet/surface)
 "mx" = (
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/hallway/secondary/entry)
 "mT" = (
 /obj/structure/rospilovo/water/bochka,
@@ -436,7 +436,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
 "oC" = (
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/unexplored)
 "oD" = (
 /obj/machinery/vending/snack/random,
@@ -788,7 +788,7 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "zR" = (
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/hallway/secondary/exit)
 "zX" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -846,7 +846,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
 "CI" = (
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/surface)
 "CM" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -1088,7 +1088,7 @@
 /obj/structure/railing{
 	dir = 6
 	},
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/hallway/secondary/exit)
 "II" = (
 /obj/machinery/door/airlock/maintenance{
@@ -1218,7 +1218,7 @@
 /area/hallway/secondary/entry)
 "Mk" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/hallway/secondary/entry)
 "MB" = (
 /obj/structure/rospilovo/bochka,
@@ -1325,7 +1325,7 @@
 /area/hallway/secondary/entry)
 "OX" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/maintenance/starboard/aft)
 "Pd" = (
 /obj/effect/turf_decal/stripes/line,
@@ -1581,7 +1581,7 @@
 	icon_state = "railing";
 	dir = 4
 	},
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/hallway/secondary/exit)
 "XM" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{

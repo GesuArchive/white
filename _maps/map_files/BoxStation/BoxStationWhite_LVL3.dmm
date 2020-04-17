@@ -1230,7 +1230,7 @@
 "aNC" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/orange/visible,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "aND" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/toxin_input{
@@ -1916,7 +1916,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "bgq" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible{
@@ -2345,7 +2345,7 @@
 /obj/structure/transit_tube/curved{
 	dir = 4
 	},
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "btN" = (
 /obj/machinery/space_heater,
@@ -2411,9 +2411,10 @@
 /turf/open/floor/plasteel/grimy,
 /area/security/detectives_office)
 "bvB" = (
-/obj/machinery/atmospherics/pipe/simple/supplymain/hidden,
-/turf/open/floor/plating,
-/area/maintenance/port/fore)
+/obj/machinery/atmospherics/pipe/simple/yellow/visible,
+/obj/structure/lattice/catwalk,
+/turf/open/openspace/icemoon,
+/area/boxplanet/underground/explored)
 "bvM" = (
 /obj/item/cigbutt,
 /obj/effect/turf_decal/stripes/line{
@@ -2690,7 +2691,7 @@
 /turf/open/floor/plating,
 /area/storage/emergency/port)
 "bFY" = (
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "bGc" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -4123,7 +4124,7 @@
 	name = "Cargo Bay";
 	width = 12
 	},
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/surface)
 "cCl" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
@@ -4674,7 +4675,7 @@
 /obj/machinery/atmospherics/pipe/simple/orange/visible{
 	dir = 9
 	},
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "cRD" = (
 /obj/effect/turf_decal/stripes/line{
@@ -6469,7 +6470,7 @@
 "dZe" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/visible,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/maintenance/disposal/incinerator)
 "dZj" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
@@ -7228,7 +7229,6 @@
 /turf/open/floor/plasteel/white,
 /area/medical/psychology)
 "ewp" = (
-/obj/structure/cable,
 /obj/structure/cable/multilayer/multiz,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
@@ -8492,7 +8492,7 @@
 /obj/machinery/atmospherics/pipe/simple/yellow/visible{
 	dir = 5
 	},
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "fbZ" = (
 /obj/machinery/disposal/bin,
@@ -10044,11 +10044,11 @@
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "gbc" = (
-/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/yellow/visible{
 	dir = 6
 	},
-/turf/open/openspace,
+/obj/structure/lattice/catwalk,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "gbt" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -10832,7 +10832,7 @@
 "gxv" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "gxE" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
@@ -11662,7 +11662,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/simple/yellow/visible,
 /obj/structure/cable,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "gWD" = (
 /obj/machinery/vending/wardrobe/chem_wardrobe,
@@ -12443,7 +12443,7 @@
 "hvq" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/yellow/visible,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "hvD" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer/on,
@@ -15207,7 +15207,7 @@
 	target_pressure = 4500
 	},
 /obj/structure/lattice,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/maintenance/disposal/incinerator)
 "jaw" = (
 /obj/machinery/portable_atmospherics/canister/air,
@@ -15256,7 +15256,7 @@
 /area/ai_monitored/turret_protected/aisat_interior)
 "jcj" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "jcm" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/visible{
@@ -15277,7 +15277,7 @@
 /obj/machinery/atmospherics/pipe/simple/yellow/visible{
 	dir = 4
 	},
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "jcV" = (
 /obj/structure/disposalpipe/segment,
@@ -17351,7 +17351,7 @@
 /obj/structure/sign/warning/docking{
 	pixel_y = 32
 	},
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "kuB" = (
 /obj/machinery/rnd/server,
@@ -18729,7 +18729,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "ljZ" = (
 /obj/machinery/portable_atmospherics/canister/toxins,
@@ -20513,7 +20513,7 @@
 /area/medical/medbay/central)
 "mmu" = (
 /obj/effect/landmark/stationroom/bar,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "mmG" = (
 /turf/closed/wall/r_wall,
@@ -21420,7 +21420,7 @@
 /area/maintenance/aft)
 "mPn" = (
 /obj/effect/landmark/stationroom/maint_sw,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "mPD" = (
 /obj/structure/disposalpipe/segment,
@@ -21563,7 +21563,7 @@
 /obj/structure/transit_tube/curved/flipped{
 	dir = 1
 	},
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "mVf" = (
 /obj/structure/disposalpipe/segment,
@@ -22011,7 +22011,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/orange/visible,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "njM" = (
 /obj/machinery/camera{
@@ -22812,7 +22812,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/orange/visible,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "nPx" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
@@ -23691,7 +23691,7 @@
 /obj/machinery/atmospherics/pipe/simple/yellow/visible{
 	dir = 10
 	},
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "opB" = (
 /obj/structure/table,
@@ -24011,7 +24011,7 @@
 "oBS" = (
 /obj/structure/lattice,
 /obj/structure/transit_tube/crossing/horizontal,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "oCb" = (
 /obj/machinery/light,
@@ -26028,6 +26028,11 @@
 /obj/item/bedsheet/dorms,
 /turf/open/floor/wood,
 /area/crew_quarters/dorms)
+"pBp" = (
+/obj/structure/transit_tube/horizontal,
+/obj/structure/lattice/catwalk,
+/turf/open/openspace/icemoon,
+/area/boxplanet/underground/explored)
 "pBr" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -28318,14 +28323,14 @@
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/yellow/visible,
 /obj/structure/transit_tube/crossing/horizontal,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "qWO" = (
 /obj/structure/chair/stool,
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
 "qWP" = (
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/surface)
 "qWS" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
@@ -29351,9 +29356,9 @@
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
 "rJn" = (
-/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/cyan/visible,
-/turf/open/openspace,
+/obj/structure/lattice/catwalk,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "rJy" = (
 /obj/effect/spawner/structure/window,
@@ -29573,7 +29578,7 @@
 	dir = 10
 	},
 /obj/structure/lattice,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "rOy" = (
 /obj/effect/spawner/structure/window/reinforced/tinted,
@@ -31396,9 +31401,9 @@
 /turf/open/floor/engine/co2,
 /area/engine/atmos)
 "sRu" = (
-/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/green/visible,
-/turf/open/openspace,
+/obj/structure/lattice/catwalk,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "sRU" = (
 /obj/effect/landmark/blobstart,
@@ -31826,7 +31831,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/engine/atmos)
 "tiJ" = (
 /obj/structure/bed,
@@ -31925,7 +31930,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/visible{
 	dir = 4
 	},
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "tkS" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
@@ -32158,7 +32163,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/visible,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/engine/atmos)
 "tpj" = (
 /obj/machinery/light/small{
@@ -33413,7 +33418,7 @@
 /obj/machinery/atmospherics/pipe/simple/orange/visible{
 	dir = 4
 	},
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "ucb" = (
 /obj/structure/closet,
@@ -34330,7 +34335,7 @@
 /area/quartermaster/office)
 "uCP" = (
 /obj/machinery/atmospherics/pipe/simple/orange/visible,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "uDg" = (
 /obj/machinery/light{
@@ -34512,7 +34517,7 @@
 "uHc" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "uHl" = (
 /obj/machinery/door/airlock{
@@ -35395,7 +35400,7 @@
 /area/security/courtroom)
 "vnq" = (
 /obj/structure/lattice,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "vns" = (
 /obj/structure/disposalpipe/segment{
@@ -36301,7 +36306,7 @@
 /obj/machinery/atmospherics/pipe/simple/orange/visible{
 	dir = 10
 	},
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "vTk" = (
 /obj/machinery/light{
@@ -36550,7 +36555,7 @@
 "waz" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "wbd" = (
 /obj/item/radio/intercom{
@@ -36616,7 +36621,7 @@
 	dir = 5
 	},
 /obj/structure/lattice,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "wcj" = (
 /obj/machinery/requests_console{
@@ -37203,7 +37208,7 @@
 /area/medical/medbay/central)
 "wsN" = (
 /obj/structure/transit_tube/horizontal,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "wtp" = (
 /obj/machinery/recharge_station,
@@ -38183,7 +38188,7 @@
 /obj/item/airlock_painter,
 /obj/structure/lattice,
 /obj/structure/closet,
-/turf/open/openspace,
+/turf/open/openspace/icemoon,
 /area/boxplanet/underground/explored)
 "wVX" = (
 /obj/machinery/portable_atmospherics/canister,
@@ -40040,9 +40045,10 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "ycv" = (
-/obj/structure/ladder,
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
-/area/boxplanet/underground/unexplored)
+/obj/machinery/atmospherics/pipe/simple/orange/visible,
+/obj/structure/lattice/catwalk,
+/turf/open/openspace/icemoon,
+/area/boxplanet/underground/explored)
 "yde" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
@@ -56602,7 +56608,7 @@ rBe
 rBe
 rBe
 qsI
-uJY
+gdo
 ewp
 uJY
 uJY
@@ -56860,8 +56866,8 @@ rBe
 rBe
 qsI
 jdP
-bvB
-bvB
+gmm
+gmm
 jJv
 eNV
 vsx
@@ -64417,9 +64423,9 @@ bFY
 bFY
 bFY
 bFY
-rBe
-rBe
-rBe
+bFY
+bFY
+bFY
 rBe
 rBe
 rBe
@@ -64676,10 +64682,10 @@ bFY
 bFY
 bFY
 bFY
-rBe
-rBe
-rBe
-rBe
+bFY
+bFY
+bFY
+bFY
 rBe
 rBe
 rBe
@@ -64933,10 +64939,10 @@ bFY
 bFY
 bFY
 bFY
-rBe
-rBe
-rBe
-rBe
+bFY
+bFY
+bFY
+bFY
 rBe
 rBe
 rBe
@@ -65192,8 +65198,8 @@ bFY
 bFY
 bFY
 bFY
-rBe
-rBe
+bFY
+bFY
 rBe
 rBe
 rBe
@@ -65451,7 +65457,7 @@ bFY
 bFY
 bFY
 bFY
-rBe
+bFY
 rBe
 rBe
 rBe
@@ -65709,7 +65715,7 @@ bFY
 bFY
 bFY
 bFY
-rBe
+bFY
 rBe
 rBe
 rBe
@@ -66224,7 +66230,7 @@ bFY
 bFY
 bFY
 bFY
-rBe
+bFY
 rBe
 rBe
 rBe
@@ -66481,8 +66487,8 @@ bFY
 bFY
 bFY
 bFY
-rBe
-rBe
+bFY
+bFY
 rBe
 rBe
 rBe
@@ -66739,7 +66745,7 @@ bFY
 bFY
 bFY
 bFY
-rBe
+bFY
 rBe
 rBe
 rBe
@@ -66996,7 +67002,7 @@ bFY
 bFY
 bFY
 bFY
-rBe
+bFY
 rBe
 rBe
 rBe
@@ -67253,7 +67259,7 @@ bFY
 bFY
 bFY
 bFY
-rBe
+bFY
 rBe
 rBe
 rBe
@@ -67510,7 +67516,7 @@ bFY
 bFY
 bFY
 bFY
-rBe
+bFY
 rBe
 rBe
 rBe
@@ -67767,7 +67773,7 @@ bFY
 bFY
 bFY
 bFY
-rBe
+bFY
 rBe
 rBe
 rBe
@@ -68024,7 +68030,7 @@ bFY
 bFY
 bFY
 bFY
-rBe
+bFY
 rBe
 rBe
 rBe
@@ -68281,7 +68287,7 @@ bFY
 bFY
 bFY
 bFY
-rBe
+bFY
 rBe
 rBe
 rBe
@@ -68538,7 +68544,7 @@ bFY
 bFY
 bFY
 bFY
-rBe
+bFY
 rBe
 rBe
 rBe
@@ -68795,7 +68801,7 @@ bFY
 bFY
 bFY
 bFY
-rBe
+bFY
 rBe
 rBe
 rBe
@@ -69052,7 +69058,7 @@ bFY
 bFY
 bFY
 bFY
-rBe
+bFY
 rBe
 rBe
 rBe
@@ -72361,7 +72367,7 @@ lHb
 apO
 apO
 mpj
-vnq
+jcj
 gVe
 gVe
 gVe
@@ -72875,7 +72881,7 @@ irH
 eZA
 eXu
 rMk
-vnq
+jcj
 wtL
 czI
 uTb
@@ -73132,7 +73138,7 @@ jCn
 jBB
 aVJ
 chk
-hvq
+bvB
 ayc
 oIY
 nrD
@@ -73903,7 +73909,7 @@ lHb
 cyz
 qCF
 rMk
-vnq
+jcj
 wtL
 qbC
 tOE
@@ -74160,7 +74166,7 @@ weF
 jBB
 jvZ
 chk
-hvq
+bvB
 ayc
 aKi
 uGX
@@ -74417,7 +74423,7 @@ ufu
 cyz
 lHb
 rMk
-vnq
+jcj
 gVe
 gVe
 gVe
@@ -74931,7 +74937,7 @@ oNv
 mtt
 sNb
 rMk
-vnq
+jcj
 wtL
 lfn
 jaw
@@ -75197,7 +75203,7 @@ gVe
 bFY
 bFY
 bFY
-bFY
+jcj
 ubY
 vnq
 bFY
@@ -75445,7 +75451,7 @@ mpj
 mpj
 vpK
 mpj
-vnq
+jcj
 gVe
 gVe
 gVe
@@ -75454,7 +75460,7 @@ gVe
 bFY
 bFY
 bFY
-bFY
+jcj
 ubY
 vnq
 bFY
@@ -75702,7 +75708,7 @@ aNC
 rSX
 sHG
 rSX
-aNC
+ycv
 uCP
 uCP
 aNC
@@ -75711,7 +75717,7 @@ aNC
 aNC
 aNC
 aNC
-aNC
+ycv
 cRi
 bFY
 bFY
@@ -75959,16 +75965,16 @@ vnq
 lwm
 pVv
 lwm
-bFY
-bFY
-bFY
+jcj
+jcj
+jcj
 vnq
 vnq
 bFY
 bFY
 bFY
 bFY
-bFY
+jcj
 vnq
 bFY
 bFY
@@ -76218,14 +76224,14 @@ vaA
 lwm
 lwm
 lwm
+jcj
 vnq
 vnq
 vnq
 vnq
 vnq
 vnq
-vnq
-vnq
+jcj
 vnq
 vnq
 vnq
@@ -76475,23 +76481,23 @@ pVv
 ubu
 pVv
 uGU
-bFY
-vnq
-bFY
-bFY
-bFY
-bFY
-bFY
-bFY
-vnq
-bFY
-bFY
-bFY
-vnq
-bFY
-wsN
-bFY
-vnq
+jcj
+jcj
+jcj
+jcj
+jcj
+jcj
+jcj
+jcj
+jcj
+jcj
+jcj
+jcj
+jcj
+jcj
+pBp
+jcj
+jcj
 waz
 rKn
 rKn
@@ -76732,14 +76738,14 @@ pVv
 lwm
 lwm
 lwm
-bFY
+jcj
 vnq
 bFY
 bFY
 bFY
 bFY
 bFY
-bFY
+jcj
 vnq
 bFY
 bFY
@@ -76987,16 +76993,16 @@ vnq
 lwm
 pVv
 lwm
-vnq
+jcj
 gbc
-hvq
+bvB
 hvq
 fbN
 bFY
 bFY
 bFY
 bFY
-bFY
+jcj
 vnq
 bFY
 bFY
@@ -77253,7 +77259,7 @@ hvq
 hvq
 hvq
 hvq
-hvq
+bvB
 hvq
 hvq
 hvq
@@ -77510,7 +77516,7 @@ bFY
 bFY
 bFY
 bFY
-bFY
+jcj
 bFY
 bFY
 bFY
@@ -86376,9 +86382,9 @@ lkb
 cnx
 cnx
 cnx
-cnx
-cnx
-cnx
+rKn
+rKn
+rKn
 cnx
 cnx
 cnx
@@ -86633,9 +86639,9 @@ lkb
 cnx
 cnx
 cnx
-cnx
-ycv
-cnx
+rKn
+qJy
+rKn
 cnx
 cnx
 cnx
@@ -86890,9 +86896,9 @@ lkb
 cnx
 cnx
 cnx
-cnx
-cnx
-cnx
+rKn
+rKn
+rKn
 cnx
 cnx
 cnx
