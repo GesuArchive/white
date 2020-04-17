@@ -60,6 +60,7 @@ SUBSYSTEM_DEF(shuttle)
 	var/datum/map_template/shuttle/preview_template
 
 	var/datum/turf_reservation/preview_reservation
+	var/last_counted_integrity = 100
 
 /datum/controller/subsystem/shuttle/Initialize(timeofday)
 	ordernum = rand(1, 9000)
@@ -174,7 +175,7 @@ SUBSYSTEM_DEF(shuttle)
 /datum/controller/subsystem/shuttle/proc/canEvac(mob/user)
 	var/srd = CONFIG_GET(number/shuttle_refuel_delay)
 	if(world.time - SSticker.round_start_time < srd)
-		to_chat(user, "<span class='alert'>The emergency shuttle is refueling. Please wait [DisplayTimeText(srd - (world.time - SSticker.round_start_time))] before trying again.</span>")
+		to_chat(user, "<span class='alert'>Эвакуационный шаттл всё ещё готовится. Подождите [DisplayTimeText(srd - (world.time - SSticker.round_start_time))] перед очередной попыткой.</span>")
 		return FALSE
 
 	switch(emergency.mode)
@@ -197,12 +198,13 @@ SUBSYSTEM_DEF(shuttle)
 			to_chat(user, "<span class='alert'>The emergency shuttle has been disabled by CentCom.</span>")
 			return FALSE
 
+	if(world.time - SSticker.round_start_time > 36000)
+		return TRUE
+
 	var/datum/station_state/end_state = new /datum/station_state()
 	end_state.count()
 	var/station_integrity = min(PERCENT(GLOB.start_state.score(end_state)), 100)
-	if(station_integrity > 90)
-		if(world.time - SSticker.round_start_time < 36000)
-			return TRUE
+	if(station_integrity > 98)
 		to_chat(user, "<span class='alert'>Состояние станции удовлетворительное. Улетать пока нет смысла.</span>")
 		return FALSE
 
