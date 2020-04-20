@@ -1,9 +1,9 @@
 /datum/blackmarket_item/weapon
-	category = "Weapons"
+	category = "Оружия"
 
 /datum/blackmarket_item/weapon/bear_trap
-	name = "Bear Trap"
-	desc = "Get the janitor back at his own game with this affordable prank kit."
+	name = "Медвежий капкан"
+	desc = "Ловушка уборщика"
 	item = /obj/item/restraints/legcuffs/beartrap
 
 	price_min = 300
@@ -12,10 +12,8 @@
 	availability_prob = 40
 
 /datum/blackmarket_item/weapon/shotgun_dart
-	name = "Shotgun Dart"
-	desc = "These handy darts can be filled up with any chemical and be shot with a shotgun! \
-	Prank your friends by shooting them with laughter! \
-	Not recommended for comercial use."
+	name = "Дарт для дробовика"
+	desc = "Аналог шприца только для дробовика"
 	item = /obj/item/ammo_casing/shotgun/dart
 
 	price_min = 10
@@ -25,8 +23,8 @@
 	availability_prob = 40
 
 /datum/blackmarket_item/weapon/bone_spear
-	name = "Bone Spear"
-	desc = "Authentic tribal spear, made from real bones! A steal at any price, especially if you're a caveman."
+	name = "Костяное копьё"
+	desc = "Любимое копьё пещерных людей"
 	item = /obj/item/spear/bonespear
 
 	price_min = 200
@@ -35,8 +33,8 @@
 	availability_prob = 60
 
 /datum/blackmarket_item/weapon/emp_grenade
-	name = "EMP Grenade"
-	desc = "Use this grenade for SHOCKING results!"
+	name = "EMP граната"
+	desc = "Бахает красиво а бесит ещё больше"
 	item = /obj/item/grenade/empgrenade
 
 	price_min = 100
@@ -45,8 +43,8 @@
 	availability_prob = 50
 
 /datum/blackmarket_item/weapon/reverse_bear_trap
-	name = "Reverse Bear Trap"
-	desc = "A horrifying set of shut metal jaws, rigged to a kitchen timer and secured by padlock to a head-mounted clamp. To apply, hit someone with it."
+	name = "Сломанная медвежья ловушка"
+	desc = "Ловушка для уборщика"
 	item = /obj/item/reverse_bear_trap
 
 	price_min = 500

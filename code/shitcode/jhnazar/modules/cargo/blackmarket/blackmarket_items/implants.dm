@@ -1,118 +1,118 @@
 /datum/blackmarket_item/implants
-	category = "Implants"
+	category = "Импланты"
 
 /datum/blackmarket_item/implants/autosurgeon/thermal_eyes
-	name = "Thermal Eye's"
-	desc = "This autosurgeon contains Thermal Eye's"
+	name = "Термальные глаза"
+	desc = "Термальные глаза в комплекте с АвтоХирургом"
 	item = /obj/item/autosurgeon/syndicate/thermal_eyes
 	stock_min = 1
 	stock_max = 5
 
 	price_min = 1000
 	price_max = 5000
-	availability_prob = 50
+	availability_prob = 30
 
 /datum/blackmarket_item/implants/autosurgeon/xray_eyes
-	name = "Xray Eye's"
-	desc = "This autosurgeon contains Xray Eye's"
+	name = "Х-рей Глаза"
+	desc = "Х-рей глаза в комплекте с Автохирургом"
 	item = /obj/item/autosurgeon/syndicate/xray_eyes
 	stock_min = 1
 	stock_max = 5
 
 	price_min = 5000
 	price_max = 10000
-	availability_prob = 50
+	availability_prob = 30
 
 /datum/blackmarket_item/implants/autosurgeon/anti_stun
-	name = "Anti Stun Implant"
-	desc = "This autosurgeon contains Anti Stun Implant"
+	name = "Имплант Анти-Оглушения"
+	desc = "При доставке на станции будет находится в АвтоХирурге"
 	item = /obj/item/autosurgeon/syndicate/anti_stun
 	stock_min = 1
 	stock_max = 5
 
 	price_min = 500
 	price_max = 1500
-	availability_prob = 70
+	availability_prob = 30
 
 /datum/blackmarket_item/implants/autosurgeon/reviver
-	name = "Reviver Implant"
-	desc = "This autosurgeon contains Reviver Implant"
+	name = "Имплант возрождения"
+	desc = "В комплекте с АвтоХирургом"
 	item = /obj/item/autosurgeon/syndicate/reviver
 	stock_min = 1
 	stock_max = 5
 
 	price_min = 5000
 	price_max = 10000
-	availability_prob = 50
+	availability_prob = 30
 
 /datum/blackmarket_item/implants/autosurgeon/breathing_tube
-	name = "Breathing Tube Implant"
-	desc = "This autosurgeon contains Breathing Tube Implant"
+	name = "Дыхательная трубка"
+	desc = "Не забудьте нажать на кнопочку в АвтоХирурге чтобы применить"
 	item = /obj/item/autosurgeon/breathing_tube
 	stock_min = 1
 	stock_max = 5
 
 	price_min = 1000
 	price_max = 5000
-	availability_prob = 50
+	availability_prob = 30
 
 /datum/blackmarket_item/implants/autosurgeon/hud/medical
-	name = "Medical HUD implant"
-	desc = "This autosurgeon contains Medical HUD implant"
+	name = "Медицинский ХУД"
+	desc = "Медицинский ХУД для глаз. К сожалению не помогает видеть людей голыми..."
 	item = /obj/item/autosurgeon/hud/medical
 	stock_min = 1
 	stock_max = 5
 
 	price_min = 500
 	price_max = 1000
-	availability_prob = 50
+	availability_prob = 30
 
 /datum/blackmarket_item/implants/autosurgeon/hud/security
-	name = "Security HUD implant"
-	desc = "This autosurgeon contains Security HUD implant"
+	name = "ХУД Службы Безопастности"
+	desc = "Худ Службы Безопасности для нахождения потенциальных нарушителей"
 	item = /obj/item/autosurgeon/hud/security
 	stock_min = 1
 	stock_max = 5
 
 	price_min = 500
 	price_max = 1000
-	availability_prob = 50
+	availability_prob = 30
 
 /datum/blackmarket_item/implants/autosurgeon/hud/diagnostic
-	name = "Diagnostic HUD implant"
-	desc = "This autosurgeon contains Diagnostic HUD implant"
+	name = "Диагностирующий ХУД"
+	desc = "С помощью него можно с лёгкостью узнать какую дрянь ты пьёшь"
 	item = /obj/item/autosurgeon/hud/diagnostic
 	stock_min = 1
 	stock_max = 5
 
 	price_min = 500
 	price_max = 1000
-	availability_prob = 50
+	availability_prob = 30
 
 /datum/blackmarket_item/implants/autosurgeon/nutriment
-	name = "Nutriment pump implant"
-	desc = "This autosurgeon contains Nutriment pump implant"
+	name = "Питательная трубка"
+	desc = "Для замены желудка. Кому он нужен?"
 	item = /obj/item/autosurgeon/nutriment
 	stock_min = 1
 	stock_max = 5
 
 	price_min = 1000
 	price_max = 5000
-	availability_prob = 50
+	availability_prob = 30
 
 /datum/blackmarket_item/implants/autosurgeon/nutriment/plus
-	name = "Nutriment pump implant PLUS"
-	desc = "This autosurgeon contains Nutriment pump implant PLUS"
+	name = "Питательная трубка ПЛЮС"
+	desc = "Более улучшенная версия питательной трубки"
 	item = /obj/item/autosurgeon/nutriment/plus
 	stock_min = 1
 	stock_max = 5
 
 	price_min = 5000
 	price_max = 10000
-	availability_prob = 50
+	availability_prob = 30
 
 /datum/blackmarket_item/implants/autosurgeon/thrusters
-	name = "Thrusters Implant"
+	name = "Thrusters Implant" //хз как переводить. пускай так и будет
 	desc = "This autosurgeon contains Thrusters Implant"
 	item = /obj/item/autosurgeon/thrusters
 	stock_min = 1
@@ -120,40 +120,40 @@
 
 	price_min = 1000
 	price_max = 5000
-	availability_prob = 50
+	availability_prob = 30
 
 /datum/blackmarket_item/implants/autosurgeon/toolset
-	name = "Engineering Toolset Implant"
-	desc = "This autosurgeon contains Toolset Implant"
+	name = "Инженерный набор инструментов"
+	desc = "Не требует пояса для инструментов ведь все инструменты теперь в твоей руке"
 	item = /obj/item/autosurgeon/arm/toolset
 	stock_min = 1
 	stock_max = 5
 
 	price_min = 100
 	price_max = 500
-	availability_prob = 50
+	availability_prob = 30
 
 /datum/blackmarket_item/implants/autosurgeon/medibeam
-	name = "Medibeam Implant"
-	desc = "This autosurgeon contains Medibeam Implant"
+	name = "Медицинский луч"
+	desc = "Рука стреляющая лазерами. КРУТО!"
 	item = /obj/item/autosurgeon/arm/medibeam
 	stock_min = 1
 	stock_max = 5
 
 	price_min = 5000
 	price_max = 10000
-	availability_prob = 50
+	availability_prob = 30
 
 /datum/blackmarket_item/implants/autosurgeon/surgery
-	name = "Surgery Toolset Implant"
-	desc = "This autosurgeon contains Surgery Toolset Implant"
+	name = "Набор инструментов для Хирургии"
+	desc = "Содержит базовые инструменты для хирургии, но в руке"
 	item = /obj/item/autosurgeon/arm/surgery
 	stock_min = 1
 	stock_max = 5
 
 	price_min = 100
 	price_max = 5000
-	availability_prob = 50
+	availability_prob = 30
 
 
 

@@ -1,18 +1,18 @@
 /datum/blackmarket_item/clothing
-	category = "Clothing"
+	category = "Одежда"
 
 /datum/blackmarket_item/clothing/ninja_mask
-	name = "Space Ninja Mask"
-	desc = "Apart from being acid, lava, fireproof and being hard to take off someone it does nothing special on it's own."
+	name = "Маска космического ниндзи"
+	desc = "Маска сделанная со стилем"
 	item = /obj/item/clothing/mask/gas/space_ninja
 
 	price_min = 200
-	price_max = 500
-	stock_max = 3
+	price_max = 5000
+	stock_max = 1
 	availability_prob = 40
 
 /datum/blackmarket_item/clothing/durathread_vest
-	name = "Durathread Vest"
+	name = "Дюрасталевый бронежилет"
 	desc = "Don't let them tell you this stuff is \"Like asbestos\" or \"Pulled from the market for safety concerns\". It could be the difference between a robusting and a retaliation."
 	item = /obj/item/clothing/suit/armor/vest/durathread
 
@@ -22,7 +22,7 @@
 	availability_prob = 50
 
 /datum/blackmarket_item/clothing/durathread_helmet
-	name = "Durathread Helmet"
+	name = "Дюратсалевый шлем"
 	desc = "Customers ask why it's called a helmet when it's just made from armoured fabric and I always say the same thing: No refunds."
 	item = /obj/item/clothing/head/helmet/durathread
 
@@ -32,8 +32,8 @@
 	availability_prob = 50
 
 /datum/blackmarket_item/clothing/full_spacesuit_set
-	name = "\improper Nanotrasen Branded Spacesuit Box"
-	desc = "A few boxes of \"Old Style\" space suits fell off the back of a space truck."
+	name = "Устаревший космический костюм НТ"
+	desc = "Космический костюм НТ устаревшего вида"
 	item = /obj/item/storage/box
 
 	price_min = 1500
@@ -43,25 +43,26 @@
 
 /datum/blackmarket_item/clothing/full_spacesuit_set/spawn_item(loc)
 	var/obj/item/storage/box/B = ..()
-	B.name = "Spacesuit Box"
-	B.desc = "It has a NT logo on it."
+	B.name = "Коробка с космическим костюмом"
+	B.desc = "На коробке надпись НТ"
 	new /obj/item/clothing/suit/space(B)
 	new /obj/item/clothing/head/helmet/space(B)
 	return B
 
 /datum/blackmarket_item/clothing/chameleon_hat
-	name = "Chameleon Hat"
-	desc = "Pick any hat you want with this Handy device. Not Quality Tested."
+	name = "Шляпа-Хамелеон"
+	desc = "Очень модная шляпа"
 	item = /obj/item/clothing/head/chameleon/broken
 
 	price_min = 100
-	price_max = 200
-	stock_max = 2
+	price_max = 2000
+	stock_min = 1
+	stock_max = 10
 	availability_prob = 70
 
 /datum/blackmarket_item/clothing/combatmedic_suit
-	name = "Combat Medic hardsuit"
-	desc = "A discarded combat medic hardsuit, found in the ruins of a carpet bombed xeno hive. Definately used, but as sturdy as an anchor."
+	name = "Скафандр Боевого медика"
+	desc = "Этот скафандр был найден в уничтоженном гнезде ксеноморфов. Судьба носителя неизвестна, но этот скафандр до сих пор соответсвует стандартам боевых скафандров"
 	item = /obj/item/clothing/suit/space/hardsuit/combatmedic
 
 	price_min = 5500
