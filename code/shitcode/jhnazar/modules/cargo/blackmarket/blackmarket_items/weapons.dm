@@ -64,7 +64,7 @@
 /datum/blackmarket_item/weapon/melee/hsword
 	name = "Случайное священное оружие ближнего боя"
 	desc = "При заказе вам будет выдано случайное священное оружие ближнего боя. Да прибудет с вами бог!"
-	item = /obj/item/nullrod
+	item = /obj/item/nullrod/claymore/vanya
 
 	price_min = 10000
 	price_max = 20000
