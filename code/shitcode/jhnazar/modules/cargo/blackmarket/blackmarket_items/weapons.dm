@@ -5,15 +5,14 @@
 	desc = "При заказе вам будет выдано случайное энергетическое оружие ближнего боя"
 	item = /obj/item/melee/transforming/energy/sword
 
-	price_min = 10000
+	price_min = 20000
 	price_max = 50000
 	stock_min = 1
 	stock_max = 5
 	availability_prob = 100 // 30
 
-/datum/blackmarket_item/weapon/melee/energy/esword/spawn_item(loc)	//Если мечи сломались или не спавнит, то вот этот датум его больше всего сломал
-	var/esword = pick(list(/obj/item/melee/transforming/energy/axe,	//Сюда же впиливать оружия ближнего боя только если они энергетические
-			/obj/item/melee/transforming/energy/sword,
+/datum/blackmarket_item/weapon/melee/energy/esword/spawn_item(loc)		//Если мечи сломались или не спавнит, то вот этот датум его больше всего сломал
+	var/esword = pick(list(/obj/item/melee/transforming/energy/sword,	//Сюда же впиливать оружия ближнего боя только если они энергетические
 			/obj/item/melee/transforming/energy/sword/saber/red,
 			/obj/item/melee/transforming/energy/sword/saber/blue,
 			/obj/item/melee/transforming/energy/sword/saber/green,
@@ -35,7 +34,7 @@
 	stock_max = 5
 	availability_prob = 100 // 30
 
-/datum/blackmarket_item/weapon/melee/energy/psword/spawn_item(loc)	//Если мечи сломались или не спавнит, то вот этот датум его больше всего сломал
+/datum/blackmarket_item/weapon/melee/psword/spawn_item(loc)	//Если мечи сломались или не спавнит, то вот этот датум его больше всего сломал
 	var/psword = pick(list(/obj/item/melee/sabre,					//Сюда же впиливать оружия ближнего боя только если они физические
 			/obj/item/melee/classic_baton,							//Мало. добавлю больше. Мб
 			/obj/item/melee/classic_baton/telescopic,
@@ -72,8 +71,8 @@
 	stock_max = 5
 	availability_prob = 100 // 30
 
-/datum/blackmarket_item/weapon/melee/energy/hsword/spawn_item(loc)	//Если мечи сломались или не спавнит, то вот этот датум его больше всего сломал
-	var/hsword = pick(list(/obj/item/nullrod/godhand,				//Сюда же впиливать оружия ближнего боя только если они священные
+/datum/blackmarket_item/weapon/melee/hsword/spawn_item(loc)	//Если мечи сломались или не спавнит, то вот этот датум его больше всего сломал
+	var/hsword = pick(list(/obj/item/nullrod/godhand,		//Сюда же впиливать оружия ближнего боя только если они священные
 			/obj/item/nullrod/staff,
 			/obj/item/nullrod/claymore,
 			/obj/item/nullrod/claymore/darkblade,
