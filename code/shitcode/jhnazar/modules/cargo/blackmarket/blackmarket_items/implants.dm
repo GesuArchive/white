@@ -1,22 +1,6 @@
 /datum/blackmarket_item/implants
 	category = "Implants"
 
-/datum/blackmarket_item/implants/autosurgeon
-	name = "Empty Autosurgeon"
-	desc = "Empty Autosurgeon"
-	item = /obj/item/autosurgeon
-	stock_min = 1
-	stock_max = 5
-
-	price_min = 100
-	price_max = 500
-	availability_prob = 100
-
-	/datum/blackmarket_item/implants/autosurgeon/spawn_item(loc)
-		var/autosurgeon = pick(list(/obj/item/autosurgeon,
-				/obj/item/autosurgeon/syndicate))
-		return new autosurgeon(loc)
-
 /datum/blackmarket_item/implants/autosurgeon/thermal_eyes
 	name = "Thermal Eye's"
 	desc = "This autosurgeon contains Thermal Eye's"
