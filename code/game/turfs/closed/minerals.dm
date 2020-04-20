@@ -297,6 +297,9 @@
 	icon_state = "rock_labor"
 
 /turf/closed/mineral/random/snow/underground
+	icon = 'icons/turf/mining.dmi'
+	smooth_icon = 'code/shitcode/valtos/icons/caves_deep.dmi'
+	icon_state = "caves"
 	mineralSpawnChanceList = list(
 		/turf/closed/mineral/uranium/ice/icemoon = 5, /turf/closed/mineral/diamond/ice/icemoon = 1, /turf/closed/mineral/gold/ice/icemoon = 10, /turf/closed/mineral/titanium/ice/icemoon = 11,
 		/turf/closed/mineral/silver/ice/icemoon = 12, /turf/closed/mineral/plasma/ice/icemoon = 20, /turf/closed/mineral/iron/ice/icemoon = 40,

@@ -2501,6 +2501,11 @@
 /obj/machinery/status_display/evac,
 /turf/closed/wall,
 /area/crew_quarters/locker)
+"bzK" = (
+/obj/structure/cable,
+/obj/structure/ladder,
+/turf/open/floor/plasteel,
+/area/quartermaster/qm)
 "bzT" = (
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=2";
@@ -3487,7 +3492,7 @@
 /area/engine/engineering)
 "cjt" = (
 /obj/effect/landmark/stationroom/engine,
-/turf/closed/mineral/random/snow,
+/turf/closed/mineral/random/snow/underground,
 /area/boxplanet/underground/explored)
 "cjF" = (
 /obj/machinery/atmospherics/components/binary/valve/digital{
@@ -15370,6 +15375,7 @@
 /area/engine/atmos)
 "jfa" = (
 /obj/effect/landmark/event_spawn,
+/obj/structure/ladder,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "jfr" = (
@@ -18756,7 +18762,7 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "lkb" = (
-/turf/closed/mineral/random/snow,
+/turf/closed/mineral/random/snow/underground,
 /area/boxplanet/underground/unexplored)
 "lki" = (
 /obj/structure/disposalpipe/segment,
@@ -29159,7 +29165,7 @@
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "rBe" = (
-/turf/closed/mineral/random/snow,
+/turf/closed/mineral/random/snow/underground,
 /area/boxplanet/underground/explored)
 "rBE" = (
 /obj/structure/closet,
@@ -61027,7 +61033,7 @@ fWF
 fWF
 bnT
 ajo
-tHf
+bzK
 pbq
 seC
 bFY

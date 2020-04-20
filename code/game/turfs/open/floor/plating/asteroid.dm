@@ -413,8 +413,13 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 
 /turf/open/floor/plating/asteroid/snow/icemoon/caves
-	icon_state = "snow_dug"
+	icon_state = "caves1"
+	icon = 'code/shitcode/valtos/icons/caves_floor.dmi'
 	dug = TRUE
+
+/turf/open/floor/plating/asteroid/snow/icemoon/caves/Initialize()
+	. = ..()
+	icon_state = "caves[rand(1,6)]"
 
 /turf/open/floor/plating/asteroid/snow/icemoon/can_dig(mob/user)
 	if(!dug)
