@@ -242,7 +242,7 @@
 	icon = 'icons/turf/mining.dmi'
 	smooth_icon = 'icons/turf/walls/icerock_wall.dmi'
 	icon_state = "rock2"
-	smooth = SMOOTH_FALSE
+	smooth = SMOOTH_MORE|SMOOTH_BORDER
 	canSmoothWith = list (/turf/closed)
 	defer_change = TRUE
 	environment_type = "snow"
