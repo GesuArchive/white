@@ -11,27 +11,6 @@
 	stock_max = 3
 	availability_prob = 40
 
-/datum/blackmarket_item/weapon/shotgun_dart
-	name = "Дарт для дробовика"
-	desc = "Аналог шприца только для дробовика"
-	item = /obj/item/ammo_casing/shotgun/dart
-
-	price_min = 10
-	price_max = 50
-	stock_min = 10
-	stock_max = 60
-	availability_prob = 40
-
-/datum/blackmarket_item/weapon/bone_spear
-	name = "Костяное копьё"
-	desc = "Любимое копьё пещерных людей"
-	item = /obj/item/spear/bonespear
-
-	price_min = 200
-	price_max = 300
-	stock_max = 3
-	availability_prob = 60
-
 /datum/blackmarket_item/weapon/emp_grenade
 	name = "EMP граната"
 	desc = "Бахает красиво а бесит ещё больше"
