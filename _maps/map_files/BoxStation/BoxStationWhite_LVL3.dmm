@@ -2497,6 +2497,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
+"bzA" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "bzG" = (
 /obj/machinery/status_display/evac,
 /turf/closed/wall,
@@ -6625,6 +6631,19 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"egt" = (
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
+/obj/machinery/suit_storage_unit/mining,
+/turf/open/floor/plasteel,
+/area/quartermaster/miningdock)
 "egC" = (
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall,
@@ -9304,6 +9323,14 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
+"fDE" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/electrical{
+	pixel_x = 1;
+	pixel_y = -1
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "fDW" = (
 /obj/structure/rack,
 /obj/effect/spawner/lootdrop/maintenance,
@@ -15019,6 +15046,14 @@
 /obj/machinery/light/small,
 /turf/open/floor/plating,
 /area/maintenance/port)
+"iUE" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Electrical Maintenance";
+	req_access_txt = "11"
+	},
+/obj/effect/mapping_helpers/airlock/abandoned,
+/turf/open/floor/plating,
+/area/maintenance/department/electrical)
 "iUK" = (
 /obj/machinery/light,
 /turf/open/floor/plasteel,
@@ -15113,6 +15148,12 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"iXC" = (
+/obj/effect/spawner/lootdrop/maintenance,
+/obj/structure/closet,
+/obj/effect/decal/cleanable/cobweb,
+/turf/open/floor/plating/airless,
+/area/maintenance/starboard/fore)
 "iXT" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -17098,9 +17139,11 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "kkH" = (
-/obj/machinery/suit_storage_unit/mining,
-/turf/open/floor/plasteel,
-/area/quartermaster/miningdock)
+/obj/machinery/door/airlock/maintenance{
+	req_access_txt = "12"
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "klk" = (
 /obj/structure/closet/secure_closet/medical3,
 /obj/machinery/camera{
@@ -21732,6 +21775,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
+"nax" = (
+/turf/closed/wall,
+/area/boxplanet/underground/unexplored)
 "nbv" = (
 /obj/machinery/button/door{
 	id = "qm_warehouse";
@@ -23010,6 +23056,9 @@
 /obj/structure/sign/warning/biohazard,
 /turf/closed/wall,
 /area/medical/virology)
+"nUP" = (
+/turf/open/openspace/icemoon,
+/area/boxplanet/underground/unexplored)
 "nVf" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 10
@@ -23947,10 +23996,7 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "ozQ" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/turf/open/floor/plating,
+/turf/open/openspace/icemoon,
 /area/maintenance/starboard/fore)
 "ozR" = (
 /obj/structure/sign/warning/electricshock,
@@ -24849,6 +24895,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/fitness)
+"oWa" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "oWi" = (
 /obj/machinery/button/door{
 	id = "xenobio2";
@@ -26333,6 +26383,12 @@
 /obj/structure/sign/warning/radiation/rad_area,
 /turf/closed/wall,
 /area/engine/engineering)
+"pKx" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/openspace/icemoon,
+/area/maintenance/starboard/fore)
 "pKE" = (
 /obj/structure/rack,
 /obj/item/clothing/shoes/magboots,
@@ -28506,7 +28562,7 @@
 /turf/open/floor/circuit,
 /area/ai_monitored/nuke_storage)
 "rcA" = (
-/obj/structure/closet/crate,
+/obj/structure/tank_dispenser/oxygen,
 /turf/open/floor/plasteel,
 /area/quartermaster/miningdock)
 "rcS" = (
@@ -29330,18 +29386,9 @@
 /turf/open/floor/plating,
 /area/maintenance/port)
 "rIi" = (
-/obj/effect/turf_decal/tile/brown{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 8
-	},
-/obj/machinery/suit_storage_unit/mining,
-/turf/open/floor/plasteel,
-/area/quartermaster/miningdock)
+/obj/structure/lattice/catwalk,
+/turf/open/openspace/icemoon,
+/area/maintenance/starboard/fore)
 "rIB" = (
 /turf/open/floor/wood,
 /area/lawoffice)
@@ -61807,7 +61854,7 @@ scG
 wgq
 rCl
 gUo
-bFY
+cPh
 cPh
 cPh
 cPh
@@ -62065,8 +62112,8 @@ uTC
 myZ
 gUo
 cPh
-cPh
-rIi
+egt
+wJR
 wJR
 src
 usx
@@ -62326,7 +62373,7 @@ sdX
 tbd
 tbd
 kgU
-kkH
+tbd
 hIs
 vnq
 vnq
@@ -81289,7 +81336,7 @@ lkb
 lkb
 vOh
 eBR
-eBR
+bzA
 eBR
 eBR
 eBR
@@ -86165,7 +86212,7 @@ lkb
 lkb
 lkb
 vOh
-ozQ
+eBR
 eBR
 eBR
 eBR
@@ -86422,7 +86469,7 @@ lkb
 lkb
 lkb
 vOh
-eXB
+kkH
 eXB
 eXB
 eXB
@@ -86678,9 +86725,9 @@ lkb
 lkb
 lkb
 lkb
-lkb
-lkb
-lkb
+eXB
+eBR
+eXB
 lkb
 eXB
 eBR
@@ -86935,9 +86982,9 @@ lkb
 lkb
 lkb
 lkb
-lkb
-lkb
-lkb
+eXB
+eBR
+eXB
 lkb
 eXB
 eBR
@@ -87192,9 +87239,9 @@ lkb
 lkb
 lkb
 lkb
-lkb
-lkb
-lkb
+eXB
+eBR
+eXB
 lkb
 eXB
 eBR
@@ -87449,9 +87496,9 @@ lkb
 lkb
 lkb
 lkb
-lkb
-lkb
-lkb
+eXB
+eBR
+eXB
 lkb
 eXB
 eRm
@@ -87706,12 +87753,12 @@ lkb
 lkb
 lkb
 lkb
-lkb
-lkb
-lkb
+eXB
+eBR
+eXB
 lkb
 eXB
-eXB
+oWa
 eXB
 eXB
 eXB
@@ -87963,15 +88010,15 @@ lkb
 lkb
 lkb
 lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
+eXB
+eBR
+eXB
+eXB
+eXB
+eBR
+eBR
+eBR
+eBR
 vgv
 sLx
 aZA
@@ -88220,22 +88267,22 @@ lkb
 lkb
 lkb
 lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
+eXB
+eBR
+ozQ
+ozQ
+ozQ
+rIi
+ozQ
+ozQ
+eBR
 vgv
 vgv
 vgv
 vgv
 vgv
 vgv
-vgv
+iUE
 vgv
 vgv
 pmc
@@ -88477,24 +88524,24 @@ lkb
 lkb
 lkb
 lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-mGX
-lkb
-lkb
-lkb
-mGX
+eXB
+eBR
+rIi
+rIi
+rIi
+rIi
+ozQ
+ozQ
+eBR
+eXB
 lkb
 lkb
 lkb
 mGX
+eXB
+eBR
+eBR
+eXB
 pmc
 vLJ
 pmc
@@ -88734,24 +88781,24 @@ lkb
 lkb
 lkb
 lkb
+eXB
+eBR
+ozQ
+ozQ
+ozQ
+ozQ
+ozQ
+ozQ
+eBR
+eXB
 lkb
 lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
+nax
 mGX
-lkb
-lkb
-lkb
-mGX
-lkb
-lkb
-lkb
-mGX
+eXB
+eBR
+fhJ
+eXB
 pmc
 nNR
 pmc
@@ -88991,31 +89038,31 @@ lkb
 lkb
 lkb
 lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-mGX
-lkb
-lkb
-lkb
-jAa
-lkb
-lkb
-lkb
-mGX
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
+eXB
+hkV
+rIi
+rIi
+rIi
+rIi
+rIi
+rIi
+eBR
+eXB
+eXB
+eXB
+eXB
+iXC
+eXB
+eBR
+ceB
+eXB
+nUP
+nUP
+nUP
+nUP
+nUP
+nUP
+nUP
 tBW
 xTw
 eSc
@@ -89248,31 +89295,31 @@ lkb
 lkb
 lkb
 lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-mGX
-lkb
-lkb
-lkb
-jAa
-lkb
-lkb
-lkb
-mGX
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
+eXB
+eXB
+ozQ
+pKx
+ozQ
+ozQ
+ozQ
+ozQ
+eBR
+eXB
+eBR
+eBR
+eBR
+eBR
+eBR
+eBR
+eXB
+eXB
+nUP
+nUP
+nUP
+nUP
+nUP
+nUP
+nUP
 tBW
 mUh
 lRR
@@ -89506,31 +89553,31 @@ lkb
 lkb
 lkb
 lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-jAa
-lkb
-lkb
-lkb
-mGX
-lkb
-lkb
-lkb
-mGX
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-tBW
+eXB
+eXB
+eXB
+eXB
+eXB
+eXB
+eXB
+eBR
+eBR
+eBR
+eXB
+eXB
+eXB
+eXB
+eBR
+fDE
+eXB
+nUP
+nUP
+nUP
+nUP
+nUP
+nUP
+nUP
+leE
 oLA
 cqT
 vOs
@@ -89769,25 +89816,25 @@ lkb
 lkb
 lkb
 lkb
-lkb
+eXB
+eXB
+eXB
+eXB
+eXB
 lkb
 mGX
-lkb
-lkb
-lkb
-mGX
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-tBW
+eXB
+eBR
+lqA
+eXB
+nUP
+nUP
+nUP
+nUP
+nUP
+nUP
+nUP
+leE
 fhV
 hfi
 jFs
@@ -90033,23 +90080,23 @@ lkb
 lkb
 lkb
 mGX
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
+eXB
+eBR
+eBR
+eXB
+eXB
+eXB
+eXB
+eXB
+oWa
+oWa
+eXB
 tBW
 tBW
 tBW
 tBW
 tBW
-tBW
+kkH
 tBW
 tBW
 tBW
@@ -90290,24 +90337,24 @@ lkb
 lkb
 lkb
 mGX
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
+eXB
+eBR
+eBR
+eBR
+eBR
+eBR
+bzA
+eBR
+eBR
+eBR
+eBR
+eBR
+eBR
+eBR
+eBR
+eBR
+eBR
+eXB
 lkb
 lkb
 lkb
@@ -90547,24 +90594,24 @@ lkb
 lkb
 lkb
 lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
-lkb
+eXB
+eXB
+eXB
+eXB
+eXB
+eXB
+eXB
+eXB
+eXB
+eXB
+eXB
+eXB
+eXB
+eXB
+eXB
+eXB
+eXB
+eXB
 lkb
 lkb
 lkb
