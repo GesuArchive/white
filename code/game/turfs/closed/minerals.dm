@@ -251,10 +251,7 @@
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 
 	mineralChance = 10
-	mineralSpawnChanceList = list(
-		/turf/closed/mineral/uranium/ice/icemoon = 5, /turf/closed/mineral/diamond/ice/icemoon = 1, /turf/closed/mineral/gold/ice/icemoon = 10, /turf/closed/mineral/titanium/ice/icemoon = 11,
-		/turf/closed/mineral/silver/ice/icemoon = 12, /turf/closed/mineral/plasma/ice/icemoon = 20, /turf/closed/mineral/iron/ice/icemoon = 40,
-		/turf/closed/mineral/gibtonite/ice/icemoon = 4, /turf/open/floor/plating/asteroid/airless/cave/snow = 1, /turf/closed/mineral/bscrystal/ice/icemoon = 1)
+	mineralSpawnChanceList = null
 
 /turf/closed/mineral/random/snow/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/shovel))
@@ -297,6 +294,7 @@
 	icon_state = "rock_labor"
 
 /turf/closed/mineral/random/snow/underground
+	name = "каменистая порода"
 	icon = 'icons/turf/mining.dmi'
 	smooth_icon = 'code/shitcode/valtos/icons/caves_deep.dmi'
 	icon_state = "caves"
@@ -353,7 +351,7 @@
 /turf/closed/mineral/iron/ice
 	environment_type = "snow_cavern"
 	icon_state = "icerock_iron"
-	smooth_icon = 'icons/turf/walls/icerock_wall.dmi'
+	smooth_icon = 'code/shitcode/valtos/icons/caves_deep.dmi'
 	turf_type = /turf/open/floor/plating/asteroid/snow/ice
 	baseturfs = /turf/open/floor/plating/asteroid/snow/ice
 	initial_gas_mix = FROZEN_ATMOS
@@ -379,7 +377,7 @@
 /turf/closed/mineral/uranium/ice
 	environment_type = "snow_cavern"
 	icon_state = "icerock_Uranium"
-	smooth_icon = 'icons/turf/walls/icerock_wall.dmi'
+	smooth_icon = 'code/shitcode/valtos/icons/caves_deep.dmi'
 	turf_type = /turf/open/floor/plating/asteroid/snow/ice
 	baseturfs = /turf/open/floor/plating/asteroid/snow/ice
 	initial_gas_mix = FROZEN_ATMOS
@@ -405,7 +403,7 @@
 /turf/closed/mineral/diamond/ice
 	environment_type = "snow_cavern"
 	icon_state = "icerock_diamond"
-	smooth_icon = 'icons/turf/walls/icerock_wall.dmi'
+	smooth_icon = 'code/shitcode/valtos/icons/caves_deep.dmi'
 	turf_type = /turf/open/floor/plating/asteroid/snow/ice
 	baseturfs = /turf/open/floor/plating/asteroid/snow/ice
 	initial_gas_mix = FROZEN_ATMOS
@@ -431,7 +429,7 @@
 /turf/closed/mineral/gold/ice
 	environment_type = "snow_cavern"
 	icon_state = "icerock_gold"
-	smooth_icon = 'icons/turf/walls/icerock_wall.dmi'
+	smooth_icon = 'code/shitcode/valtos/icons/caves_deep.dmi'
 	turf_type = /turf/open/floor/plating/asteroid/snow/ice
 	baseturfs = /turf/open/floor/plating/asteroid/snow/ice
 	initial_gas_mix = FROZEN_ATMOS
@@ -457,7 +455,7 @@
 /turf/closed/mineral/silver/ice
 	environment_type = "snow_cavern"
 	icon_state = "icerock_silver"
-	smooth_icon = 'icons/turf/walls/icerock_wall.dmi'
+	smooth_icon = 'code/shitcode/valtos/icons/caves_deep.dmi'
 	turf_type = /turf/open/floor/plating/asteroid/snow/ice
 	baseturfs = /turf/open/floor/plating/asteroid/snow/ice
 	initial_gas_mix = FROZEN_ATMOS
@@ -483,7 +481,7 @@
 /turf/closed/mineral/titanium/ice
 	environment_type = "snow_cavern"
 	icon_state = "icerock_titanium"
-	smooth_icon = 'icons/turf/walls/icerock_wall.dmi'
+	smooth_icon = 'code/shitcode/valtos/icons/caves_deep.dmi'
 	turf_type = /turf/open/floor/plating/asteroid/snow/ice
 	baseturfs = /turf/open/floor/plating/asteroid/snow/ice
 	initial_gas_mix = FROZEN_ATMOS
@@ -509,7 +507,7 @@
 /turf/closed/mineral/plasma/ice
 	environment_type = "snow_cavern"
 	icon_state = "icerock_plasma"
-	smooth_icon = 'icons/turf/walls/icerock_wall.dmi'
+	smooth_icon = 'code/shitcode/valtos/icons/caves_deep.dmi'
 	turf_type = /turf/open/floor/plating/asteroid/snow/ice
 	baseturfs = /turf/open/floor/plating/asteroid/snow/ice
 	initial_gas_mix = FROZEN_ATMOS
@@ -529,7 +527,7 @@
 /turf/closed/mineral/bananium/ice
 	environment_type = "snow_cavern"
 	icon_state = "icerock_Bananium"
-	smooth_icon = 'icons/turf/walls/icerock_wall.dmi'
+	smooth_icon = 'code/shitcode/valtos/icons/caves_deep.dmi'
 	turf_type = /turf/open/floor/plating/asteroid/snow/ice
 	baseturfs = /turf/open/floor/plating/asteroid/snow/ice
 	initial_gas_mix = FROZEN_ATMOS
@@ -556,7 +554,7 @@
 /turf/closed/mineral/bscrystal/ice
 	environment_type = "snow_cavern"
 	icon_state = "icerock_BScrystal"
-	smooth_icon = 'icons/turf/walls/icerock_wall.dmi'
+	smooth_icon = 'code/shitcode/valtos/icons/caves_deep.dmi'
 	turf_type = /turf/open/floor/plating/asteroid/snow/ice
 	baseturfs = /turf/open/floor/plating/asteroid/snow/ice
 	initial_gas_mix = FROZEN_ATMOS
@@ -727,7 +725,7 @@
 /turf/closed/mineral/gibtonite/ice
 	environment_type = "snow_cavern"
 	icon_state = "icerock_Gibtonite"
-	smooth_icon = 'icons/turf/walls/icerock_wall.dmi'
+	smooth_icon = 'code/shitcode/valtos/icons/caves_deep.dmi'
 	turf_type = /turf/open/floor/plating/asteroid/snow/ice
 	baseturfs = /turf/open/floor/plating/asteroid/snow/ice
 	initial_gas_mix = FROZEN_ATMOS
