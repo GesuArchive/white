@@ -37,6 +37,8 @@
 /mob/living/simple_animal/hostile/skeleton/vanya
 	name = "skeleton archer"
 	icon = 'code/shitcode/Wzzzz/e.dmi'
+	faction = list("mining")
+	weather_immunities = list("ash")
 	icon_state = "bownner"
 	icon_living = "bownner"
 	icon_dead = "bownner"
@@ -46,7 +48,11 @@
 	ranged_message = "stares"
 	ranged_cooldown_time = 40
 	vision_range = 7
-	loot = list(/obj/effect/decal/remains/human, /obj/item/storage/backpack/magspear_quiver, /obj/item/stack/rods/ten)
+	loot = list(/obj/effect/decal/remains/human, /obj/item/stack/rods)
+	
+/mob/living/simple_animal/hostile/skeleton/vanya/Initialize(mapload)
+	. = ..()
+	apply_status_effect(STATUS_EFFECT_CRUSHERDAMAGETRACKING)
 	
 /mob/living/simple_animal/hostile/vanya
 	icon = 'code/shitcode/Wzzzz/e.dmi'
@@ -59,11 +65,12 @@
 	icon_dead = "nicemeals"
 	gender = NEUTER
 	speak_chance = 0
+	weather_immunities = list("ash")
 	turns_per_move = 1
 	maxHealth = 300
 	health = 300
 	see_in_dark = 0
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 10, /obj/item/stack/sheet/bone = 5)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 4, /obj/item/stack/sheet/bone = 2)
 	response_help_continuous = "prods"
 	response_help_simple = "prod"
 	response_disarm_continuous = "pushes aside"
@@ -76,12 +83,15 @@
 	attack_verb_simple = "slam"
 	attack_sound = 'sound/effects/blobattack.ogg'
 	ventcrawler = VENTCRAWLER_ALWAYS
-	faction = list("plants")
+	faction = list("plants","mining")
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 150
 	maxbodytemp = 800
 	gold_core_spawnable = HOSTILE_SPAWN
-	faction = list("plants")
+	
+/mob/living/simple_animal/hostile/vanya/killermeat/Initialize(mapload)
+	. = ..()
+	apply_status_effect(STATUS_EFFECT_CRUSHERDAMAGETRACKING)
 	
 /mob/living/simple_animal/hostile/vanya/leech
 	name = "Leechs"
@@ -94,6 +104,8 @@
 	turns_per_move = 2
 	maxHealth = 50
 	health = 50
+	faction = list("mining")
+	weather_immunities = list("ash")
 	see_in_dark = 1
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly = 1)
 	response_help_continuous = "prods"
@@ -113,6 +125,10 @@
 	maxbodytemp = 800
 	gold_core_spawnable = HOSTILE_SPAWN
 	
+/mob/living/simple_animal/hostile/vanya/leech/Initialize(mapload)
+	. = ..()
+	apply_status_effect(STATUS_EFFECT_CRUSHERDAMAGETRACKING)
+	
 /mob/living/simple_animal/hostile/faithless/vanya/chort
 	name = "Imp"
 	desc = "Imp?"
@@ -124,9 +140,11 @@
 	speak_chance = 0
 	turns_per_move = 2
 	maxHealth = 150
+	faction = list("mining")
+	weather_immunities = list("lava","ash")
 	health = 150
 	see_in_dark = 3
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/human = 7)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/human = 3)
 	response_help_continuous = "prods"
 	response_help_simple = "prod"
 	response_disarm_continuous = "pushes aside"
@@ -144,6 +162,10 @@
 	maxbodytemp = 800
 	gold_core_spawnable = HOSTILE_SPAWN
 	
+/mob/living/simple_animal/hostile/faithless/vanya/chort/Initialize(mapload)
+	. = ..()
+	apply_status_effect(STATUS_EFFECT_CRUSHERDAMAGETRACKING)
+	
 /mob/living/simple_animal/hostile/faithless/vanya/drown
 	name = "Drowned"
 	desc = "Blue skin, yellow eyes...that's undead?"
@@ -151,13 +173,15 @@
 	icon_state = "blyadina"
 	icon_living = "blyadina"
 	icon_dead = "blyadinas"
+	faction = list("mining")
+	weather_immunities = list("ash")
 	gender = MALE
 	speak_chance = 0
 	turns_per_move = 1
 	maxHealth = 200
 	health = 200
 	see_in_dark = 100
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly = 5)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly = 2)
 	response_help_continuous = "prods"
 	response_help_simple = "prod"
 	response_disarm_continuous = "pushes aside"
@@ -174,3 +198,8 @@
 	minbodytemp = 0
 	maxbodytemp = 50
 	gold_core_spawnable = HOSTILE_SPAWN
+
+/mob/living/simple_animal/hostile/faithless/vanya/drown/Initialize(mapload)
+	. = ..()
+	apply_status_effect(STATUS_EFFECT_CRUSHERDAMAGETRACKING)
+	
