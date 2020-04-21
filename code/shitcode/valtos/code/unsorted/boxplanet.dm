@@ -66,17 +66,18 @@
 		cooldown = world.time
 		if(max_spawn > spawned_mobs)
 			spawned_mobs++
+			var/turf/T = get_turf(src)
 			switch(rand(1, 5))
 				if(1)
-					new /mob/living/simple_animal/hostile/skeleton/vanya(src)
+					new /mob/living/simple_animal/hostile/skeleton/vanya(T)
 				if(2)
-					new /mob/living/simple_animal/hostile/vanya/killermeat(src)
+					new /mob/living/simple_animal/hostile/vanya/killermeat(T)
 				if(3)
-					new /mob/living/simple_animal/hostile/vanya/leech(src)
+					new /mob/living/simple_animal/hostile/vanya/leech(T)
 				if(4)
-					new /mob/living/simple_animal/hostile/faithless/vanya/chort(src)
+					new /mob/living/simple_animal/hostile/faithless/vanya/chort(T)
 				if(5)
-					new /mob/living/simple_animal/hostile/faithless/vanya/drown(src)
+					new /mob/living/simple_animal/hostile/faithless/vanya/drown(T)
 		else
 			STOP_PROCESSING(SSobj, src)
 
