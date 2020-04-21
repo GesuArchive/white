@@ -4641,3 +4641,42 @@
 	obj_integrity = 25000
 	toolspeed = 10
 	uses = 10000
+	
+/obj/item/clothing/head/helmet/wzzzz/metallichelmet
+	name = "metallic helmet"
+	desc = "Stylish medieval helmet"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hats.dmi'
+	icon_state = "metallichelmet"
+	item_state = "metallichelmet"	
+	dynamic_hair_suffix = ""
+	flags_inv = HIDEEARS|HIDEHAIR
+	visor_flags_inv = HIDEEARS|HIDEHAIR
+	resistance_flags = NONE
+	armor = list("melee" = 50, "bullet" = 20, "laser" = 20,"energy" = 10, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 50)
+	
+/obj/item/clothing/head/helmet/wzzzz/coif
+	name = "coif"
+	desc = "Medieval balaclava"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hats.dmi'
+	icon_state = "coif"
+	item_state = "coif"	
+	dynamic_hair_suffix = ""
+	flags_inv = HIDEEARS|HIDEHAIR
+	visor_flags_inv = HIDEEARS|HIDEHAIR
+	resistance_flags = NONE
+	armor = list("melee" = 20, "bullet" = 10, "laser" = 5,"energy" = 5, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 20)
+
+/obj/item/clothing/head/helmet/wzzzz/coif_helmet
+	name = "coif helmet"
+	desc = "Medieval balaclava with helmet"
+	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hats.dmi'
+	icon_state = "coif_helmet"
+	item_state = "coif_helmet"	
+	dynamic_hair_suffix = ""
+	flags_inv = HIDEEARS|HIDEHAIR
+	visor_flags_inv = HIDEEARS|HIDEHAIR
+	resistance_flags = NONE
+	armor = list("melee" = 50, "bullet" = 20, "laser" = 20,"energy" = 10, "bomb" = 35, "bio" = 0, "rad" = 0, "fire" = 40, "acid" = 40)
