@@ -119,7 +119,7 @@
 	icon = 'code/shitcode/Wzzzz/e.dmi'
 	icon_state = "chort"
 	icon_living = "chort"
-	icon_dead = "chort"
+	icon_dead = "chorts"
 	gender = MALE
 	speak_chance = 0
 	turns_per_move = 2
@@ -150,7 +150,7 @@
 	icon = 'code/shitcode/Wzzzz/e.dmi'
 	icon_state = "blyadina"
 	icon_living = "blyadina"
-	icon_dead = "blyadina"
+	icon_dead = "blyadinas"
 	gender = MALE
 	speak_chance = 0
 	turns_per_move = 1
