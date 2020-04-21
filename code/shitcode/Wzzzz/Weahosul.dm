@@ -258,3 +258,4 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
 	force_on = 27
 	righthand_file = 'code/shitcode/Wzzzz/icons/Weear.dmi'
 	armour_penetration = 0
+	
