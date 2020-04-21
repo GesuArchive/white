@@ -17,6 +17,7 @@
 			/obj/item/melee/transforming/energy/sword/saber/blue,
 			/obj/item/melee/transforming/energy/sword/saber/green,
 			/obj/item/melee/transforming/energy/sword/saber/purple,
+			/obj/item/melee/transforming/energy/sword/bananium,
 			/obj/item/melee/transforming/energy/sword/pirate,
 			/obj/item/melee/transforming/energy/blade,
 			/obj/item/melee/transforming/energy/blade/hardlight,
@@ -29,14 +30,14 @@
 	item = /obj/item/melee/classic_baton/dildon
 
 	price_min = 10000
-	price_max = 20000
+	price_max = 25000
 	stock_min = 1
 	stock_max = 5
 	availability_prob = 100 // 30
 
-/datum/blackmarket_item/weapon/melee/psword/spawn_item(loc)	//Если мечи сломались или не спавнит, то вот этот датум его больше всего сломал
+/datum/blackmarket_item/weapon/melee/psword/spawn_item(loc)			//Если мечи сломались или не спавнит, то вот этот датум его больше всего сломал
 	var/psword = pick(list(/obj/item/melee/sabre,					//Сюда же впиливать оружия ближнего боя только если они физические
-			/obj/item/melee/classic_baton,							//Мало. добавлю больше. Мб
+			/obj/item/melee/classic_baton,
 			/obj/item/melee/classic_baton/telescopic,
 			/obj/item/melee/cleric_mace,
 			/obj/item/spear/grey_tide,
@@ -57,13 +58,14 @@
 			/obj/item/melee/flyswatter,								//Да
 			/obj/item/extendohand,
 			/obj/item/gohei,
-			/obj/item/vibro_weapon))
+			/obj/item/vibro_weapon,
+			/obj/item/chainsaw))
 	return new psword(loc)
 
 /datum/blackmarket_item/weapon/melee/hsword
 	name = "Случайное священное оружие ближнего боя"
 	desc = "При заказе вам будет выдано случайное священное оружие ближнего боя. Да прибудет с вами бог!"
-	item = /obj/item/nullrod/claymore/vanya
+	item = /obj/item/nullrod
 
 	price_min = 10000
 	price_max = 20000
