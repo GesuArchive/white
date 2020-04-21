@@ -286,9 +286,7 @@
 	switch(current_cycle)
 		if(1 to 20)
 			high_message = pick("Черт возьми, я так чертовски счастлив ...", "Что, черт возьми, происходит?", "Где я?")
-			if(prob(15))
-				H.dna.add_mutation(SMILE)
-			else if(prob(30)) //blurry eyes and talk like an idiot
+			if(prob(30)) //blurry eyes and talk like an idiot
 				H.blur_eyes(2)
 				H.derpspeech++
 		if(31 to INFINITY)
@@ -503,9 +501,7 @@
 			switch(current_cycle)
 				if(1 to 20)
 					high_message = "БЛЯТЬ! ТОЛЬКО НЕ ОВОЩИ!!!"
-					if(prob(15))
-						H.dna.add_mutation(SMILE)
-					else if(prob(30))
+					if(prob(30))
 						H.derpspeech++
 						H.cultslurring++
 					if(!tripsoundstarted)
