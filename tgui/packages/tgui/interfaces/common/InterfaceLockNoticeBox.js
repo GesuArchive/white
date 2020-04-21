@@ -1,16 +1,32 @@
+import { useBackend } from '../../backend';
 import { Button, Flex, NoticeBox } from '../../components';
 
-export const InterfaceLockNoticeBox = props => {
+/**
+ * This component by expects the following fields to be returned
+ * from ui_data:
+ *
+ * - siliconUser: boolean
+ * - locked: boolean
+ *
+ * And expects the following ui_act action to be implemented:
+ *
+ * - lock - for toggling the lock as a silicon user.
+ *
+ * All props can be redefined if you want custom behavior, but
+ * it's preferred to stick to defaults.
+ */
+export const InterfaceLockNoticeBox = (props, context) => {
+  const { act, data } = useBackend(context);
   const {
-    siliconUser,
-    locked,
-    onLockStatusChange,
-    accessText,
+    siliconUser = data.siliconUser,
+    locked = data.locked,
+    onLockStatusChange = () => act('lock'),
+    accessText = 'an ID card',
   } = props;
   // For silicon users
   if (siliconUser) {
     return (
-      <NoticeBox>
+      <NoticeBox color={siliconUser && 'grey'}>
         <Flex align="center">
           <Flex.Item>
             Состояние блокировки интерфейса:
@@ -19,7 +35,7 @@ export const InterfaceLockNoticeBox = props => {
           <Flex.Item>
             <Button
               m={0}
-              color="gray"
+              color={locked ? 'red' : 'green'}
               icon={locked ? 'lock' : 'unlock'}
               content={locked ? 'Заблокирован' : 'Разблокирован'}
               onClick={() => {
@@ -35,8 +51,8 @@ export const InterfaceLockNoticeBox = props => {
   // For everyone else
   return (
     <NoticeBox>
-      Проведите {accessText || 'картой'}{' '}
-      для {locked ? 'разблокировки' : 'блокировки'} этого интерфейса.
+      Проведите  {accessText}{' '}
+      для {locked ? 'разблокировки' : 'блокировки'} this interface.
     </NoticeBox>
   );
 };

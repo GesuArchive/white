@@ -1,9 +1,10 @@
 import { Fragment } from 'inferno';
 import { useBackend } from '../backend';
 import { Box, Button, LabeledList, NoticeBox, Section } from '../components';
+import { Window } from '../layouts';
 
-export const BluespaceArtillery = props => {
-  const { act, data } = useBackend(props);
+export const BluespaceArtillery = (props, context) => {
+  const { act, data } = useBackend(context);
   const {
     notice,
     connected,
@@ -11,68 +12,70 @@ export const BluespaceArtillery = props => {
     target,
   } = data;
   return (
-    <Fragment>
-      {!!notice && (
-        <NoticeBox>
-          {notice}
-        </NoticeBox>
-      )}
-      {connected ? (
-        <Fragment>
-          <Section
-            title="Цель"
-            buttons={(
-              <Button
-                icon="crosshairs"
-                disabled={!unlocked}
-                onClick={() => act('recalibrate')} />
-            )}>
-            <Box
-              color={target ? 'average' : 'bad'}
-              fontSize="25px">
-              {target || 'Нет цели'}
-            </Box>
-          </Section>
-          <Section>
-            {unlocked ? (
-              <Box style={{ margin: 'auto' }}>
+    <Window>
+      <Window.Content>
+        {!!notice && (
+          <NoticeBox>
+            {notice}
+          </NoticeBox>
+        )}
+        {connected ? (
+          <Fragment>
+            <Section
+              title="Цель"
+              buttons={(
                 <Button
-                  fluid
-                  content="ОГОНЬ"
-                  color="bad"
-                  disabled={!target}
-                  fontSize="30px"
-                  textAlign="center"
-                  lineHeight="46px"
-                  onClick={() => act('fire')} />
+                  icon="crosshairs"
+                  disabled={!unlocked}
+                  onClick={() => act('recalibrate')} />
+              )}>
+              <Box
+                color={target ? 'average' : 'bad'}
+                fontSize="25px">
+                {target || 'Нет цели'}
               </Box>
-            ) : (
-              <Fragment>
-                <Box
-                  color="bad"
-                  fontSize="18px">
-                  Блюспейс артиллерия заблокирована
+            </Section>
+            <Section>
+              {unlocked ? (
+                <Box style={{ margin: 'auto' }}>
+                  <Button
+                    fluid
+                    content="ОГОНЬ"
+                    color="bad"
+                    disabled={!target}
+                    fontSize="30px"
+                    textAlign="center"
+                    lineHeight="46px"
+                    onClick={() => act('fire')} />
                 </Box>
-                <Box mt={1}>
-                  Ожидается разблокировка от, как минимум, двух
-                  авторизованных людей на станции.
-                </Box>
-              </Fragment>
-            )}
+              ) : (
+                <Fragment>
+                  <Box
+                    color="bad"
+                    fontSize="18px">
+                    Блюспейс артиллерия заблокирована.
+                  </Box>
+                  <Box mt={1}>
+                    Ожидается разблокировка от, как минимум, двух
+                    авторизованных людей на станции.
+                  </Box>
+                </Fragment>
+              )}
+            </Section>
+          </Fragment>
+        ) : (
+          <Section>
+            <LabeledList>
+              <LabeledList.Item label="Сборка">
+                <Button
+                  icon="wrench"
+                  content="Завершить сборку"
+                  onClick={() => act('build')} />
+              </LabeledList.Item>
+            </LabeledList>
           </Section>
-        </Fragment>
-      ) : (
-        <Section>
-          <LabeledList>
-            <LabeledList.Item label="Сборка">
-              <Button
-                icon="wrench"
-                content="Завершить сборку"
-                onClick={() => act('build')} />
-            </LabeledList.Item>
-          </LabeledList>
-        </Section>
-      )}
-    </Fragment>
+        )}
+      </Window.Content>
+    </Window>
   );
 };
