@@ -1,52 +1,53 @@
 import { toTitleCase } from 'common/string';
-import { Fragment } from 'inferno';
-import { act } from '../byond';
 import { Box, Button, Section, Table } from '../components';
+import { useBackend } from '../backend';
+import { Window } from '../layouts';
 
-export const OreBox = props => {
-  const { state } = props;
-  const { config, data } = state;
-  const { ref } = config;
+export const OreBox = (props, context) => {
+  const { act, data } = useBackend(context);
   const { materials } = data;
   return (
-    <Fragment>
-      <Section
-        title="Руда"
-        buttons={(
-          <Button
-            content="Пусто"
-            onClick={() => act(ref, 'removeall')} />
-        )}>
-        <Table>
-          <Table.Row header>
-            <Table.Cell>
-              Руда
-            </Table.Cell>
-            <Table.Cell collapsing textAlign="right">
-              Количество
-            </Table.Cell>
-          </Table.Row>
-          {materials.map(material => (
-            <Table.Row key={material.type}>
+    <Window resizable>
+      <Window.Content scrollable>
+        <Section
+          title="Руда"
+          buttons={(
+            <Button
+              content="Пусто"
+              onClick={() => act('removeall')} />
+          )}>
+          <Table>
+            <Table.Row header>
               <Table.Cell>
-                {toTitleCase(material.name)}
+                Руда
               </Table.Cell>
               <Table.Cell collapsing textAlign="right">
-                <Box color="label" inline>
-                  {material.amount}
-                </Box>
+                Количество
               </Table.Cell>
             </Table.Row>
-          ))}
-        </Table>
-      </Section>
-      <Section>
-        <Box>
-          Все руды будут размещены здесь, когда вы носите шахтёрскую сумочку
-          на поясе или в кармане при перетаскивании коробки с рудой.<br />
-          Гибтонит не принимается.
-        </Box>
-      </Section>
-    </Fragment>
+            {materials.map(material => (
+              <Table.Row key={material.type}>
+                <Table.Cell>
+                  {toTitleCase(material.name)}
+                </Table.Cell>
+                <Table.Cell collapsing textAlign="right">
+                  <Box color="label" inline>
+                    {material.amount}
+                  </Box>
+                </Table.Cell>
+              </Table.Row>
+            ))}
+          </Table>
+        </Section>
+        <Section>
+          <Box>
+            Все руды будут размещены здесь, когда вы носите шахтёрскую сумочку
+            на поясе или в кармане при перетаскивании коробки с рудой.
+            <br />
+            Гибтонит не принимается.
+          </Box>
+        </Section>
+      </Window.Content>
+    </Window>
   );
 };

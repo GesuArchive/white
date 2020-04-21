@@ -202,6 +202,7 @@
 	name = "пассажирское сиденье"
 	desc = "Удобное, безопасное сиденье. У этого есть более крепкая выглядящая система коробления, для более гладких полетов."
 	icon_state = "shuttle_chair"
+	buildstacktype = /obj/item/stack/sheet/mineral/titanium
 
 /obj/structure/chair/comfy/shuttle/GetArmrest()
 	return mutable_appearance('icons/obj/chairs.dmi', "shuttle_chair_armrest")

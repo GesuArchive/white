@@ -111,7 +111,7 @@
 			if("Cook")
 				heirloom_type = pick(/obj/item/reagent_containers/food/condiment/saltshaker, /obj/item/kitchen/rollingpin, /obj/item/clothing/head/chefhat)
 			if("Botanist")
-				heirloom_type = pick(/obj/item/cultivator, /obj/item/reagent_containers/glass/bucket, /obj/item/storage/bag/plants, /obj/item/toy/plush/beeplushie)
+				heirloom_type = pick(/obj/item/cultivator, /obj/item/reagent_containers/glass/bucket, /obj/item/toy/plush/beeplushie)
 			if("Bartender")
 				heirloom_type = pick(/obj/item/reagent_containers/glass/rag, /obj/item/clothing/head/that, /obj/item/reagent_containers/food/drinks/shaker)
 			if("Curator")
@@ -185,14 +185,15 @@
 		/obj/item/dice/d20)
 	heirloom = new heirloom_type(get_turf(quirk_holder))
 	var/list/slots = list(
-		"в вашем левом кармане" = ITEM_SLOT_LPOCKET,
-		"в вашем правом кармане" = ITEM_SLOT_RPOCKET,
-		"в вашей сумке" = ITEM_SLOT_BACKPACK
+		"в левом кармане" = ITEM_SLOT_LPOCKET,
+		"в правом кармане" = ITEM_SLOT_RPOCKET,
+		"в сумке" = ITEM_SLOT_BACKPACK,
+		"в руках" = ITEM_SLOT_HANDS
 	)
 	where = H.equip_in_one_of_slots(heirloom, slots, FALSE) || "у ваших ног"
 
 /datum/quirk/family_heirloom/post_add()
-	if(where == "в вашей сумке")
+	if(where == "в сумке")
 		var/mob/living/carbon/human/H = quirk_holder
 		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
 
