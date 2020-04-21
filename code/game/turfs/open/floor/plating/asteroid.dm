@@ -416,6 +416,7 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 	icon_state = "caves1"
 	icon = 'code/shitcode/valtos/icons/caves_floor.dmi'
 	dug = TRUE
+	color = "#555555"
 
 /turf/open/floor/plating/asteroid/snow/icemoon/caves/Initialize()
 	. = ..()

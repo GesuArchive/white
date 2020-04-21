@@ -44,6 +44,7 @@
 	desc = "АААААААААААААААААААААААААААА"
 	icon = 'code/shitcode/valtos/icons/mineflora.dmi'
 	icon_state = null
+	pixel_x = 0
 
 /obj/structure/flora/tree/boxplanet/kartoshmel
 	name = "картошмель"
@@ -97,6 +98,7 @@
 			H.adjustFireLoss(-25)
 			H.remove_CC()
 			H.bodytemperature = H.get_body_temp_normal()
+			visible_message("<span class='notice'>[H] прикасается рукой к растению и его раны начинают затягиваться.</span>")
 		else
 			visible_message("<span class='warning'>Похоже, что эта штука помогает только людям, но не животным. <b>[capitalize(user)]</b> поедает гликодил.</span>")
 			qdel(src)
