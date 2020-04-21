@@ -79,25 +79,6 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/attackby(obj/item/A, mob/us
 
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/update_icon(var/add_scope = FALSE)
 	if (bolt_locked == FALSE)
-		icon_state = "kar98k_open"
-		item_state = "kar98k_open"
-		icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
-		slot_flags = ITEM_SLOT_BACK
-		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
-		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
-		mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
-		fire_sound = 'code/shitcode/Wzzzz/kar_shot.ogg'
-		return
-	else
-		icon_state = "kar98k"
-		item_state = "kar98k"
-		icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
-		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
-		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
-		mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
-		fire_sound = 'code/shitcode/Wzzzz/kar_shot.ogg'
-		return
-	if (bolt_locked == FALSE)
 		icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
 		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
