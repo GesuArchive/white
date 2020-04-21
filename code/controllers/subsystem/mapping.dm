@@ -116,7 +116,7 @@ SUBSYSTEM_DEF(mapping)
 	var/list/planet_ruins = levels_by_trait(ZTRAIT_STATION)
 	if (planet_ruins.len)
 		// needs to be whitelisted for underground too so place_below ruins work
-		seedRuins(planet_ruins, CONFIG_GET(number/icemoon_budget), list(/area/boxplanet/underground/unexplored), ice_ruins_templates)
+		seedRuins(planet_ruins, CONFIG_GET(number/lavaland_budget), list(/area/boxplanet/underground/unexplored), lava_ruins_templates)
 		for (var/ice_z in planet_ruins)
 			spawn_rivers(ice_z, 6, /turf/open/floor/plating/asteroid/snow/icemoon/caves, /area/boxplanet/underground/unexplored)
 

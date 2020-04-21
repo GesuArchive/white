@@ -20,7 +20,7 @@
 	id = "miningsite"
 	description = "Ruins of a site where people once mined with primitive tools for ore."
 	suffix = "icemoon_surface_mining_site.dmm"
-	always_place = TRUE
+	always_place = FALSE
 	always_spawn_with = list(/datum/map_template/ruin/icemoon/underground/mining_site_below = PLACE_BELOW)
 
 /datum/map_template/ruin/icemoon/underground/mining_site_below
