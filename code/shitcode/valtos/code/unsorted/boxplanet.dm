@@ -51,6 +51,7 @@
 	icon_state = "kartoshmel"
 	var/spawned_mobs = 0
 	var/max_spawn = 3
+	var/cooldown = 0
 
 /obj/structure/flora/tree/boxplanet/kartoshmel/Initialize()
 	. = ..()
@@ -94,7 +95,7 @@
 			H.adjustBruteLoss(-25)
 			H.adjustFireLoss(-25)
 			H.remove_CC()
-			H.bodytemperature = owner.get_body_temp_normal()
+			H.bodytemperature = H.get_body_temp_normal()
 		else
 			visible_message("<span class='warning'>Похоже, что эта штука помогает только людям, но не животным. <b>[capitalize(user)]</b> поедает гликодил.</span>")
 			qdel(src)
@@ -110,6 +111,7 @@
 	light_color = "#00aaff"
 	light_power = 1
 	light_range = 5
+	var/cooldown = 0
 
 /obj/structure/flora/tree/boxplanet/svetosvin/Initialize()
 	. = ..()
