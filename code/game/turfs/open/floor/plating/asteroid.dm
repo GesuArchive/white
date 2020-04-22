@@ -178,7 +178,7 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 	name = "снег"
 	desc = "Холодный."
 	icon = 'icons/turf/snow.dmi'
-	baseturfs = /turf/open/floor/plating/asteroid/snow/icemoon/caves
+	baseturfs = /turf/open/floor/plating/asteroid/boxplanet/caves
 	icon_state = "snow"
 	icon_plating = "snow"
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
@@ -196,7 +196,7 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 
 	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2, /obj/effect/step_trigger/ambush = 1)
 	data_having_type = /turf/open/floor/plating/asteroid/airless/cave/snow/has_data
-	turf_type = /turf/open/floor/plating/asteroid/snow/icemoon/caves
+	turf_type = /turf/open/floor/plating/asteroid/boxplanet/caves
 
 /turf/open/floor/plating/asteroid/airless/cave/snow/underground
 	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2, /obj/effect/step_trigger/ambush = 1)
