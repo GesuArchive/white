@@ -89,6 +89,11 @@
 	maxbodytemp = 800
 	gold_core_spawnable = HOSTILE_SPAWN
 	
+/mob/living/simple_animal/hostile/vanya/killermeat/Moved(atom/OldLoc, Dir, Forced = FALSE)
+	if(Dir)
+		new /obj/effect/decal/cleanable/blood/splatter(src.loc)
+	return ..()
+	
 /mob/living/simple_animal/hostile/vanya/killermeat/Initialize(mapload)
 	. = ..()
 	apply_status_effect(STATUS_EFFECT_CRUSHERDAMAGETRACKING)
