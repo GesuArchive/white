@@ -10,5 +10,5 @@
     },
 	"traits": [{"Up" : 1, "Linkage" : null}, {"Up": 1, "Down" : -1, "Baseturf" : "/turf/open/openspace/boxplanet", "Linkage" : null}, {"Up": 1, "Down" : -1, "Baseturf" : "/turf/open/openspace/boxplanet", "Linkage" : null}, {"Down" : -1, "Baseturf" : "/turf/open/openspace/boxplanet", "Linkage" : null}],
 	"minetype": "nothing",
-	"space_ruin_levels": 1
+	"space_ruin_levels": 5
 }
