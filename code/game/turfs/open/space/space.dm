@@ -1,3 +1,8 @@
+/turf/open
+	var/destination_z
+	var/destination_x
+	var/destination_y
+
 /turf/open/space
 	icon = 'icons/turf/space.dmi'
 	icon_state = "0"
@@ -7,10 +12,6 @@
 	temperature = TCMB
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 700000
-
-	var/destination_z
-	var/destination_x
-	var/destination_y
 
 	var/static/datum/gas_mixture/immutable/space/space_gas = new
 	plane = PLANE_SPACE
@@ -59,7 +60,7 @@
 	return INITIALIZE_HINT_NORMAL
 
 //ATTACK GHOST IGNORING PARENT RETURN VALUE
-/turf/open/space/attack_ghost(mob/dead/observer/user)
+/turf/open/attack_ghost(mob/dead/observer/user)
 	if(destination_z)
 		var/turf/T = locate(destination_x, destination_y, destination_z)
 		user.forceMove(T)
