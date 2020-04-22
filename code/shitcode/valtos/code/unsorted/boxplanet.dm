@@ -141,6 +141,7 @@
 		amb_chance = 0
 		var/msg = pick("ЗАСАДА!", "ЗДЕСЬ КТО-ТО ЕСТЬ!", "МОНСТРЫ!")
 		A.visible_message("<span class='userdanger'>[msg]</span>")
+		playsound(A.loc, 'code/shitcode/valtos/sounds/ambush.ogg', 50)
 		for(var/obj/structure/flora/tree/boxplanet/kartoshmel/K in orange(7, src))
 			K.spawned_mobs = 0
 			START_PROCESSING(SSobj, K)
