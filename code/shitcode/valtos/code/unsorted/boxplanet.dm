@@ -144,13 +144,14 @@
 	if(prob(amb_chance))
 		amb_chance = 0
 		var/msg = pick("ЗАСАДА!", "ЗДЕСЬ КТО-ТО ЕСТЬ!", "МОНСТРЫ!")
-		A.visible_message("<span class='userdanger'>[msg]</span>")
+		var/turf/T = get_turf(A)
+		T.visible_message("<span class='userdanger'>[msg]</span>")
 		playsound(A.loc, 'code/shitcode/valtos/sounds/ambush.ogg', 50)
 		for(var/obj/structure/flora/tree/boxplanet/kartoshmel/K in orange(7, src))
 			K.spawned_mobs = 0
 			START_PROCESSING(SSobj, K)
 	else
-		amb_chance += 5
+		amb_chance += 10
 
 ///////////////////////////////////////////////
 
@@ -233,7 +234,7 @@
 						  /mob/living/simple_animal/hostile/asteroid/polarbear = 30, /obj/structure/spawner/ice_moon/polarbear = 3, \
 						  SPAWN_MEGAFAUNA = 6, /mob/living/simple_animal/hostile/asteroid/goldgrub = 10)
 
-	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2, /obj/effect/step_trigger/ambush = 1)
+	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2, /obj/effect/step_trigger/ambush = 2)
 	data_having_type = /turf/open/floor/plating/asteroid/airless/cave/boxplanet/has_data
 	turf_type = /turf/open/floor/plating/asteroid/boxplanet/caves
 
