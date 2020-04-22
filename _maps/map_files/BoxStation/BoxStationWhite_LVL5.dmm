@@ -99,7 +99,9 @@
 "dI" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable,
-/turf/open/floor/plasteel/airless/solarpanel,
+/turf/open/floor/plasteel/airless/solarpanel{
+	initial_gas_mix = "o2=22;n2=82;TEMP=180"
+	},
 /area/solar/port/aft)
 "dT" = (
 /obj/structure/table/wood,
@@ -255,7 +257,9 @@
 	name = "Port Solar Array"
 	},
 /obj/structure/cable,
-/turf/open/floor/plasteel/airless/solarpanel,
+/turf/open/floor/plasteel/airless/solarpanel{
+	initial_gas_mix = "o2=22;n2=82;TEMP=180"
+	},
 /area/solar/port/aft)
 "jM" = (
 /obj/structure/fence/corner{
@@ -382,7 +386,9 @@
 	name = "Port Auxiliary Solar Array"
 	},
 /obj/structure/cable,
-/turf/open/floor/plasteel/airless/solarpanel,
+/turf/open/floor/plasteel/airless/solarpanel{
+	initial_gas_mix = "o2=22;n2=82;TEMP=180"
+	},
 /area/solar/starboard/fore)
 "pc" = (
 /obj/effect/decal/cleanable/dirt,
@@ -739,7 +745,9 @@
 "Ca" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable,
-/turf/open/floor/plasteel/airless/solarpanel,
+/turf/open/floor/plasteel/airless/solarpanel{
+	initial_gas_mix = "o2=22;n2=82;TEMP=180"
+	},
 /area/solar/starboard/aft)
 "Cw" = (
 /turf/open/floor/plasteel/dark/telecomms,
@@ -846,7 +854,9 @@
 "HA" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable,
-/turf/open/floor/plasteel/airless/solarpanel,
+/turf/open/floor/plasteel/airless/solarpanel{
+	initial_gas_mix = "o2=22;n2=82;TEMP=180"
+	},
 /area/solar/port/fore)
 "HL" = (
 /obj/structure/lattice/catwalk,
@@ -1139,7 +1149,9 @@
 	name = "Port Auxiliary Solar Array"
 	},
 /obj/structure/cable,
-/turf/open/floor/plasteel/airless/solarpanel,
+/turf/open/floor/plasteel/airless/solarpanel{
+	initial_gas_mix = "o2=22;n2=82;TEMP=180"
+	},
 /area/solar/port/fore)
 "Vh" = (
 /obj/structure/lattice/catwalk,
@@ -1198,7 +1210,9 @@
 	name = "Starboard Solar Array"
 	},
 /obj/structure/cable,
-/turf/open/floor/plasteel/airless/solarpanel,
+/turf/open/floor/plasteel/airless/solarpanel{
+	initial_gas_mix = "o2=22;n2=82;TEMP=180"
+	},
 /area/solar/starboard/aft)
 "Xh" = (
 /obj/structure/lattice/catwalk,
@@ -1222,7 +1236,9 @@
 "ZB" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable,
-/turf/open/floor/plasteel/airless/solarpanel,
+/turf/open/floor/plasteel/airless/solarpanel{
+	initial_gas_mix = "o2=22;n2=82;TEMP=180"
+	},
 /area/solar/starboard/fore)
 "ZC" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -26113,7 +26129,7 @@ iU
 iU
 iU
 iU
-iU
+Fb
 Fb
 Fb
 Fb
@@ -26369,8 +26385,8 @@ iU
 iU
 iU
 iU
-iU
-iU
+Fb
+Fb
 Fb
 Fb
 Fb
@@ -26626,7 +26642,7 @@ iU
 iU
 iU
 iU
-iU
+Fb
 Fb
 Fb
 Fb
@@ -26876,14 +26892,14 @@ wQ
 wQ
 Fc
 Fb
+Fb
 iU
 iU
 iU
 iU
 iU
 iU
-iU
-iU
+Fb
 Fb
 sD
 Fb
@@ -27133,13 +27149,13 @@ wQ
 wQ
 Fc
 Fb
+Fb
 iU
 iU
-iU
-iU
-iU
-iU
-iU
+Fb
+Fb
+Fb
+Fb
 Fb
 Fb
 WC
@@ -27390,13 +27406,13 @@ wQ
 zX
 yO
 Fb
-iU
-iU
-iU
-iU
-iU
-iU
-iU
+Fb
+Fb
+Fb
+Fb
+Fb
+Fb
+Fb
 Fb
 Fb
 Fc
@@ -27648,10 +27664,10 @@ lE
 Fc
 fd
 Fb
-iU
-iU
-iU
-iU
+Fb
+Fb
+Fb
+Fb
 Fb
 Fb
 Fb

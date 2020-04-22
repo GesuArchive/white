@@ -7,11 +7,11 @@
 /area/template_noop)
 "ac" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/template_noop,
 /area/boxplanet/underground/explored)
 "ad" = (
 /obj/structure/lattice,
-/turf/open/openspace,
+/turf/template_noop,
 /area/boxplanet/underground/explored)
 "ae" = (
 /turf/closed/wall/r_wall,
@@ -311,7 +311,7 @@
 /obj/structure/sign/warning/securearea{
 	pixel_y = -32
 	},
-/turf/open/openspace,
+/turf/template_noop,
 /area/boxplanet/underground/explored)
 "aL" = (
 /obj/machinery/door/window/westleft{
@@ -491,11 +491,11 @@
 "bc" = (
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/open/openspace,
+/turf/template_noop,
 /area/boxplanet/underground/explored)
 "bd" = (
 /obj/structure/grille,
-/turf/open/openspace,
+/turf/template_noop,
 /area/boxplanet/underground/explored)
 "be" = (
 /turf/closed/wall/r_wall,
@@ -905,7 +905,7 @@
 	pixel_y = -32
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/template_noop,
 /area/boxplanet/underground/explored)
 "bW" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -3445,6 +3445,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/security/prison)
+"hb" = (
+/obj/structure/lattice/catwalk,
+/turf/open/openspace/boxplanet/caves,
+/area/boxplanet/underground/explored)
 "hf" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -3822,6 +3826,10 @@
 /obj/effect/landmark/start/prisoner,
 /turf/open/floor/plasteel,
 /area/security/prison)
+"CI" = (
+/obj/structure/lattice,
+/turf/open/openspace/boxplanet/caves,
+/area/boxplanet/underground/explored)
 
 (1,1,1) = {"
 ab
@@ -4509,9 +4517,9 @@ ab
 ad
 ad
 ab
-ad
-ad
-ad
+CI
+CI
+CI
 ab
 ab
 ab
@@ -4593,7 +4601,7 @@ ab
 ab
 ab
 ab
-ad
+CI
 ae
 bZ
 cC
@@ -4634,10 +4642,10 @@ ab
 ab
 ab
 ab
-ac
-ad
-ad
-ad
+hb
+CI
+CI
+CI
 ak
 lT
 ay
@@ -4809,11 +4817,11 @@ ab
 ab
 ab
 ab
-ac
-ad
-ad
-ad
-ad
+hb
+CI
+CI
+CI
+CI
 ak
 ah
 cF
@@ -4945,7 +4953,7 @@ ab
 ab
 ab
 ab
-ad
+CI
 ae
 ce
 cH
@@ -4984,12 +4992,12 @@ ab
 ab
 ab
 ab
-ac
-ad
-ad
-ad
-ad
-ad
+hb
+CI
+CI
+CI
+CI
+CI
 ak
 lT
 af
@@ -5033,7 +5041,7 @@ ab
 ab
 ab
 ab
-ad
+CI
 ae
 ai
 cD

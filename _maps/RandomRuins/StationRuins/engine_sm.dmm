@@ -1,7 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/turf/open/openspace,
-/area/boxplanet/underground/explored)
 "ab" = (
 /turf/template_noop,
 /area/template_noop)
@@ -890,8 +887,11 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 6
 	},
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "dj" = (
 /obj/structure/closet/firecloset,
@@ -908,8 +908,11 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 10
 	},
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "dm" = (
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -1000,27 +1003,21 @@
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/engine/engineering)
-"dv" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple,
-/obj/structure/lattice,
-/turf/open/openspace,
-/area/boxplanet/surface)
 "dw" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
 	},
-/obj/structure/lattice,
-/turf/open/openspace,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "dx" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "dy" = (
 /obj/structure/table,
@@ -1100,15 +1097,17 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "dJ" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 10
 	},
-/obj/structure/lattice,
-/turf/open/openspace,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "dK" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -1166,7 +1165,7 @@
 /area/engine/engineering)
 "dR" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/open/openspace/boxplanet/caves,
 /area/boxplanet/underground/explored)
 "dS" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible{
@@ -1250,8 +1249,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "ed" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
@@ -1260,8 +1258,7 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 6
 	},
-/obj/structure/lattice,
-/turf/open/openspace,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "ee" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/junction{
@@ -1278,10 +1275,7 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "eg" = (
-/obj/machinery/airalarm{
-	dir = 4;
-	pixel_x = -22
-	},
+/obj/structure/table,
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
 "eh" = (
@@ -1335,8 +1329,7 @@
 	},
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
-/obj/structure/lattice,
-/turf/open/openspace,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "em" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
@@ -1395,9 +1388,6 @@
 	},
 /turf/open/floor/engine,
 /area/engine/engineering)
-"eu" = (
-/turf/closed/wall/r_wall,
-/area/boxplanet/underground/explored)
 "ev" = (
 /obj/item/wrench,
 /obj/item/weldingtool,
@@ -1419,13 +1409,10 @@
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
 "ey" = (
-/obj/structure/lattice,
-/turf/open/openspace,
+/turf/closed/wall,
 /area/boxplanet/underground/explored)
 "ez" = (
-/obj/structure/lattice,
-/obj/structure/grille,
-/turf/open/openspace,
+/turf/closed/mineral/random/snow/underground,
 /area/boxplanet/underground/explored)
 "eA" = (
 /obj/effect/turf_decal/stripes/line{
@@ -1462,8 +1449,11 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 9
 	},
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "eE" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -1711,18 +1701,12 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 5
 	},
-/obj/structure/lattice,
-/turf/open/openspace,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "fn" = (
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
-"fo" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
-/area/boxplanet/surface)
 "fp" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 1
@@ -1764,13 +1748,23 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
+"gP" = (
+/obj/machinery/airalarm{
+	dir = 4;
+	pixel_x = -22
+	},
+/turf/open/floor/plasteel/dark,
+/area/engine/engineering)
 "tB" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "KZ" = (
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 
 (1,1,1) = {"
@@ -1781,25 +1775,25 @@ ab
 ab
 ab
 ab
-aa
-ey
-aa
-aa
-ey
-aa
-aa
-ey
-aa
-aa
-aa
 ey
 ey
-aa
-aa
-aa
-aa
-aa
-aa
+ey
+ey
+ey
+ey
+ey
+ey
+ey
+ey
+ey
+ey
+ez
+ez
+ez
+ez
+ez
+ez
+ez
 "}
 (2,1,1) = {"
 ab
@@ -1819,15 +1813,15 @@ dI
 di
 dI
 KZ
-fo
-aa
+KZ
 ey
-aa
-aa
-aa
-aa
-aa
-aa
+ez
+ez
+ez
+ez
+ez
+ez
+ez
 "}
 (3,1,1) = {"
 ab
@@ -1838,24 +1832,24 @@ ab
 ab
 ab
 di
-dv
-dv
-dv
-dv
-dv
-dv
-dv
-dv
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 fm
 KZ
-aa
+ey
 ez
 ez
 ez
-aa
-aa
-aa
-aa
+ez
+ez
+ez
+ez
 "}
 (4,1,1) = {"
 ab
@@ -1866,24 +1860,24 @@ ab
 ab
 ab
 dl
-dv
-dv
-dv
-dv
-dv
-dv
-dv
-dv
-dv
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 dI
-aa
+ey
 ez
-eu
 ez
-aa
-aa
-aa
-aa
+ez
+ez
+ez
+ez
+ez
 "}
 (5,1,1) = {"
 ab
@@ -1894,24 +1888,24 @@ ab
 ab
 ab
 di
-dv
-dv
 ec
 ec
 ec
 ec
 ec
-dv
-dv
+ec
+ec
+ec
+ec
 eD
 ey
 ez
-eu
 ez
-aa
-aa
-aa
-aa
+ez
+ez
+ez
+ez
+ez
 "}
 (6,1,1) = {"
 ab
@@ -1922,24 +1916,24 @@ ab
 ab
 ab
 dl
-dv
-dv
 ec
-dv
-dv
-dv
 ec
-dv
-dv
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 dI
-aa
+ey
 ez
-eu
 ez
-aa
-aa
-aa
-aa
+ez
+ez
+ez
+ez
+ez
 "}
 (7,1,1) = {"
 ab
@@ -1950,24 +1944,24 @@ ab
 ab
 ab
 di
-dv
-dv
 ec
-dv
 ec
-dv
 ec
-dv
-dv
+ec
+ec
+ec
+ec
+ec
+ec
 eD
 ey
 ez
-eu
 ez
-aa
-aa
-aa
-aa
+ez
+ez
+ez
+ez
+ez
 "}
 (8,1,1) = {"
 ab
@@ -1978,24 +1972,24 @@ ab
 ab
 ab
 dl
-dv
-dv
 ec
-dv
-dv
-dv
 ec
-dv
-dv
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 dI
-aa
+ey
 ez
-eu
 ez
-aa
-aa
-aa
-aa
+ez
+ez
+ez
+ez
+ez
 "}
 (9,1,1) = {"
 ab
@@ -2006,24 +2000,24 @@ ab
 ab
 ab
 di
-dv
-dv
 ec
 ec
 ec
 ec
 ec
-dv
-dv
+ec
+ec
+ec
+ec
 eD
 ey
 ez
-eu
 ez
-aa
-ey
-aa
-aa
+ez
+ez
+ez
+ez
+ez
 "}
 (10,1,1) = {"
 ab
@@ -2034,24 +2028,24 @@ bb
 bb
 ad
 dl
-dv
-dv
-dv
-dv
-dv
-dv
-dv
-dv
-dv
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 dI
-aa
-ez
-eu
-ez
-aa
 ey
-aa
-aa
+ez
+ez
+ez
+ez
+ez
+ez
+ez
 "}
 (11,1,1) = {"
 ab
@@ -2066,20 +2060,20 @@ dw
 dJ
 ed
 el
-dv
-dv
-dv
-dv
-dv
+ec
+ec
+ec
+ec
+ec
 eD
 ey
 ez
-eu
 ez
-ey
-ey
-ey
-ey
+ez
+ez
+ez
+ez
+ez
 "}
 (12,1,1) = {"
 ab
@@ -2099,15 +2093,15 @@ dl
 eD
 dl
 eD
-fo
-aa
-ez
-ez
-ez
-aa
+KZ
 ey
-aa
-aa
+ez
+ez
+ez
+ez
+ez
+ez
+ez
 "}
 (13,1,1) = {"
 ab
@@ -2124,18 +2118,18 @@ ee
 em
 em
 eQ
-ey
-ey
-ey
-ey
-aa
-ey
-aa
-aa
-aa
-ey
-aa
-aa
+bb
+bb
+bb
+bb
+bb
+ad
+ad
+ez
+ez
+ez
+ez
+ez
 "}
 (14,1,1) = {"
 aq
@@ -2153,17 +2147,17 @@ aJ
 dk
 eR
 eQ
+eg
+bN
+gP
+bN
+bN
 ad
-ad
-ad
-ad
-ad
-ad
-aa
 ez
 ez
 ez
-aa
+ez
+ez
 "}
 (15,1,1) = {"
 ar
@@ -2183,15 +2177,15 @@ eS
 ar
 dT
 bN
-eg
+bN
 bN
 ev
 ad
-aa
 ez
-eu
 ez
-aa
+ez
+ez
+ez
 "}
 (16,1,1) = {"
 as
@@ -2215,11 +2209,11 @@ fp
 bN
 bN
 ad
-aa
 ez
-eu
 ez
-aa
+ez
+ez
+ez
 "}
 (17,1,1) = {"
 at
@@ -2243,11 +2237,11 @@ dV
 dV
 ew
 ad
-ey
 ez
-eu
 ez
-ey
+ez
+ez
+ez
 "}
 (18,1,1) = {"
 ad
@@ -2271,11 +2265,11 @@ fq
 fq
 fj
 ad
-aa
 ez
-eu
 ez
-aa
+ez
+ez
+ez
 "}
 (19,1,1) = {"
 ad
@@ -2299,11 +2293,11 @@ bN
 bN
 fu
 ad
-ey
 ez
-eu
 ez
-aa
+ez
+ez
+ez
 "}
 (20,1,1) = {"
 av
@@ -2327,11 +2321,11 @@ bN
 eq
 fu
 ad
-aa
 ez
-eu
 ez
-aa
+ez
+ez
+ez
 "}
 (21,1,1) = {"
 tB
@@ -2355,11 +2349,11 @@ fk
 ft
 fv
 ad
-aa
 ez
-eu
 ez
-aa
+ez
+ez
+ez
 "}
 (22,1,1) = {"
 aw
@@ -2383,11 +2377,11 @@ bN
 es
 fu
 ad
-ey
 ez
-eu
 ez
-aa
+ez
+ez
+ez
 "}
 (23,1,1) = {"
 ad
@@ -2411,11 +2405,11 @@ bN
 bN
 fu
 ad
-ey
 ez
-eu
 ez
-aa
+ez
+ez
+ez
 "}
 (24,1,1) = {"
 ad
@@ -2439,11 +2433,11 @@ fr
 fj
 fj
 ad
-aa
 ez
-eu
 ez
-aa
+ez
+ez
+ez
 "}
 (25,1,1) = {"
 tB
@@ -2467,11 +2461,11 @@ dV
 dV
 ew
 ad
-ey
 ez
-eu
 ez
-ey
+ez
+ez
+ez
 "}
 (26,1,1) = {"
 tB
@@ -2495,11 +2489,11 @@ fs
 bN
 bN
 ad
-ey
 ez
-eu
 ez
-aa
+ez
+ez
+ez
 "}
 (27,1,1) = {"
 ad
@@ -2523,11 +2517,11 @@ de
 bN
 ex
 ad
-ey
 ez
-eu
 ez
-aa
+ez
+ez
+ez
 "}
 (28,1,1) = {"
 tB
@@ -2551,11 +2545,11 @@ ad
 ad
 ad
 ad
-aa
 ez
 ez
 ez
-aa
+ez
+ez
 "}
 (29,1,1) = {"
 ax
@@ -2575,15 +2569,15 @@ dN
 dQ
 eb
 dR
-aa
-ey
-aa
-aa
-aa
-aa
-ey
-aa
-aa
+ez
+ez
+ez
+ez
+ez
+ez
+ez
+ez
+ez
 "}
 (30,1,1) = {"
 ab
@@ -2603,15 +2597,15 @@ ad
 dR
 dR
 dR
-ey
-ey
-ey
-ey
-ey
-ey
-ey
-ey
-ey
+ez
+ez
+ez
+ez
+ez
+ez
+ez
+ez
+ez
 "}
 (31,1,1) = {"
 ab
@@ -2628,18 +2622,18 @@ cW
 dj
 dA
 ad
-aa
-aa
-ey
-aa
-ey
-eu
 ez
-aa
-aa
-ey
-aa
-aa
+ez
+ez
+ez
+ez
+ez
+ez
+ez
+ez
+ez
+ez
+ez
 "}
 (32,1,1) = {"
 ab
@@ -2656,16 +2650,16 @@ tB
 tB
 tB
 ad
-ey
-ey
-ey
-ey
-ey
-eu
 ez
-aa
-aa
-ey
-aa
-aa
+ez
+ez
+ez
+ez
+ez
+ez
+ez
+ez
+ez
+ez
+ez
 "}
