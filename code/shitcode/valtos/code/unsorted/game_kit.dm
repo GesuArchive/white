@@ -10,7 +10,7 @@ THAT STUPID GAME KIT
 	var/selected = null
 	var/board_stat = null
 	var/data = ""
-	var/base_url = "http://svn.slurm.us/public/spacestation13/misc/game_kit"
+	//var/base_url = "http://svn.slurm.us/public/spacestation13/misc/game_kit"
 	item_state = "chess"
 	w_class = WEIGHT_CLASS_NORMAL
 	desc = "Шашки или шахматы? Да какая разница, всё равно в это никто не будет играть."
@@ -33,23 +33,23 @@ THAT STUPID GAME KIT
 			dat += "<td>"
 			dat += "<td style='background-color:[tilecolor]' width=32 height=32>"
 			if (piece != "BB")
-				dat += "<a href='?src=\ref[src];s_board=[x] [y]'><img src='[base_url]/board_[piece].png' width=32 height=32 border=0>"
+				dat += "<a href='?src=\ref[src];s_board=[x] [y]'><img src='board_[piece].png' width=32 height=32 border=0>"
 			else
-				dat += "<a href='?src=\ref[src];s_board=[x] [y]'><img src='[base_url]/board_none.png' width=32 height=32 border=0>"
+				dat += "<a href='?src=\ref[src];s_board=[x] [y]'><img src='board_none.png' width=32 height=32 border=0>"
 			dat += "</td>"
 
 		dat += "</tr>"
 
 	dat += "</table><HR><B>Шашки:</B><BR>"
 	for (var/piece in list("CB", "CR"))
-		dat += "<a href='?src=\ref[src];s_piece=[piece]'><img src='[base_url]/board_[piece].png' width=32 height=32 border=0></a>"
+		dat += "<a href='?src=\ref[src];s_piece=[piece]'><img src='board_[piece].png' width=32 height=32 border=0></a>"
 
 	dat += "<HR><B>Фигуры:</B><BR>"
 	for (var/piece in list("WP", "WK", "WQ", "WI", "WN", "WR"))
-		dat += "<a href='?src=\ref[src];s_piece=[piece]'><img src='[base_url]/board_[piece].png' width=32 height=32 border=0></a>"
+		dat += "<a href='?src=\ref[src];s_piece=[piece]'><img src='board_[piece].png' width=32 height=32 border=0></a>"
 	dat += "<br>"
 	for (var/piece in list("BP", "BK", "BQ", "BI", "BN", "BR"))
-		dat += "<a href='?src=\ref[src];s_piece=[piece]'><img src='[base_url]/board_[piece].png' width=32 height=32 border=0></a>"
+		dat += "<a href='?src=\ref[src];s_piece=[piece]'><img src='board_[piece].png' width=32 height=32 border=0></a>"
 	src.data = dat
 
 /obj/item/game_kit/MouseDrop(atom/over_object)
@@ -76,6 +76,8 @@ THAT STUPID GAME KIT
 	if (!(src.data))
 		update()
 	user.machine = src
+	var/datum/asset/stuff = get_asset_datum(/datum/asset/simple/game_kit)
+	stuff.send(user)
 	user << browse(src.data, "window=game_kit;size=300x550")
 	onclose(user, "game_kit")
 	add_fingerprint(user)

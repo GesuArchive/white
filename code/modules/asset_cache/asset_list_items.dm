@@ -372,3 +372,22 @@
 		"dna_undiscovered.gif"	= 'html/dna_undiscovered.gif',
 		"dna_extra.gif" 		= 'html/dna_extra.gif'
 	)
+
+/datum/asset/simple/game_kit
+	assets = list(
+		"board_BI.png"			= 'code/shitcode/valtos/icons/gk/board_BI.png',
+		"board_BK.png"			= 'code/shitcode/valtos/icons/gk/board_BK.png',
+		"board_BN.png" 			= 'code/shitcode/valtos/icons/gk/board_BN.png',
+		"board_BP.png" 			= 'code/shitcode/valtos/icons/gk/board_BP.png',
+		"board_BQ.png" 			= 'code/shitcode/valtos/icons/gk/board_BQ.png',
+		"board_BR.png" 			= 'code/shitcode/valtos/icons/gk/board_BR.png',
+		"board_CB.png" 			= 'code/shitcode/valtos/icons/gk/board_CB.png',
+		"board_CR.png" 			= 'code/shitcode/valtos/icons/gk/board_CR.png',
+		"board_none.png" 		= 'code/shitcode/valtos/icons/gk/board_none.png',
+		"board_WI.png" 			= 'code/shitcode/valtos/icons/gk/board_WI.png',
+		"board_WK.png" 			= 'code/shitcode/valtos/icons/gk/board_WK.png',
+		"board_WN.png" 			= 'code/shitcode/valtos/icons/gk/board_WN.png',
+		"board_WP.png" 			= 'code/shitcode/valtos/icons/gk/board_WP.png',
+		"board_WQ.png" 			= 'code/shitcode/valtos/icons/gk/board_WQ.png',
+		"board_WR.png" 			= 'code/shitcode/valtos/icons/gk/board_WR.png'
+	)
