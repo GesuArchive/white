@@ -73,7 +73,7 @@ SUBSYSTEM_DEF(mapping)
 	// Create space ruin levels
 	while (space_levels_so_far < config.space_ruin_levels)
 		++space_levels_so_far
-		add_new_zlevel("Empty Area [space_levels_so_far]", ZTRAITS_SPACE)
+		add_new_zlevel("Empty Area [space_levels_so_far]", ZTRAITS_SPACE + list(ZTRAIT_BASETURF = /turf/open/floor/plating/asteroid/snow))
 	// and one level with no ruins
 	for (var/i in 1 to config.space_empty_levels)
 		++space_levels_so_far
