@@ -50,13 +50,14 @@
 	name = "картошмель"
 	desc = "Удивительное растение, которое... Будем честны - какая-то непонятная херобора торчащая из земли и убивающая своим присутствием всех вокруг."
 	icon_state = "kartoshmel"
+	var/mob_type
 	var/spawned_mobs = 0
 	var/max_spawn = 3
 	var/cooldown = 0
 
 /obj/structure/flora/tree/boxplanet/kartoshmel/Initialize()
+	mob_type = rand(1, 5)
 	. = ..()
-	START_PROCESSING(SSobj, src)
 
 /obj/structure/flora/tree/boxplanet/kartoshmel/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -68,7 +69,7 @@
 		if(max_spawn > spawned_mobs)
 			spawned_mobs++
 			var/turf/T = get_turf(src)
-			switch(rand(1, 5))
+			switch(mob_type)
 				if(1)
 					new /mob/living/simple_animal/hostile/skeleton/vanya(T)
 				if(2)
@@ -128,3 +129,21 @@
 	if(cooldown < world.time - 60)
 		cooldown = world.time
 		radiation_pulse(src, 25, 2)
+
+/obj/effect/step_trigger/ambush
+	mobs_only = TRUE
+	var/amb_chance = 0
+
+/obj/effect/step_trigger/ambush/Trigger(atom/A)
+	if(!ishuman(A))
+		return
+	if(prob(amb_chance))
+		amb_chance = 0
+		var/mob/living/carbon/human/H = A
+		var/msg = pick("ЗАСАДА!", "ЗДЕСЬ КТО-ТО ЕСТЬ!", "МОНСТРЫ!")
+		visible_message("<span class='userdanger'>[msg]</span>")
+		for(/obj/structure/flora/tree/boxplanet/kartoshmel/K in orange(7, src))
+			K.spawned_mobs = 0
+			START_PROCESSING(SSobj, K)
+	else
+		amb_chance += 5

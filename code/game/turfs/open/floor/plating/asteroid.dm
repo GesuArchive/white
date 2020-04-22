@@ -194,12 +194,12 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 						  /mob/living/simple_animal/hostile/asteroid/polarbear = 30, /obj/structure/spawner/ice_moon/polarbear = 3, \
 						  SPAWN_MEGAFAUNA = 6, /mob/living/simple_animal/hostile/asteroid/goldgrub = 10)
 
-	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2)
+	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2, /obj/effect/step_trigger/ambush = 1)
 	data_having_type = /turf/open/floor/plating/asteroid/airless/cave/snow/has_data
 	turf_type = /turf/open/floor/plating/asteroid/snow/icemoon/caves
 
 /turf/open/floor/plating/asteroid/airless/cave/snow/underground
-	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2)
+	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2, /obj/effect/step_trigger/ambush = 1)
 	mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 50, /obj/structure/spawner/lavaland/goliath = 3, \
 		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 10, /obj/structure/spawner/lavaland/icewatcher = 2, \
 		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/icewing = 30, \
