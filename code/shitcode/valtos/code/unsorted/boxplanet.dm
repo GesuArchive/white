@@ -140,7 +140,7 @@
 	if(prob(amb_chance))
 		amb_chance = 0
 		var/msg = pick("ЗАСАДА!", "ЗДЕСЬ КТО-ТО ЕСТЬ!", "МОНСТРЫ!")
-		visible_message("<span class='userdanger'>[msg]</span>")
+		A.visible_message("<span class='userdanger'>[msg]</span>")
 		for(var/obj/structure/flora/tree/boxplanet/kartoshmel/K in orange(7, src))
 			K.spawned_mobs = 0
 			START_PROCESSING(SSobj, K)
