@@ -28,7 +28,7 @@
 /area/hallway/secondary/entry)
 "az" = (
 /obj/item/pickaxe,
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/boxplanet/underground/unexplored)
 "aY" = (
 /obj/item/radio/intercom{
@@ -72,10 +72,10 @@
 	name = "BoxStation emergency evac bay";
 	width = 32
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/underground/unexplored)
 "by" = (
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/underground/unexplored)
 "bA" = (
 /turf/closed/mineral/random/snow/underground,
@@ -139,7 +139,7 @@
 	set_cap = 1;
 	set_luminosity = 4
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "cT" = (
 /obj/machinery/door/airlock/mining/glass{
@@ -217,7 +217,7 @@
 	set_cap = 1;
 	set_luminosity = 4
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "ex" = (
 /obj/structure/ladder,
@@ -225,7 +225,7 @@
 /area/maintenance/starboard/aft)
 "eT" = (
 /obj/structure/lattice,
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/space/nearstation)
 "fj" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -346,7 +346,7 @@
 "iS" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/door/firedoor,
-/turf/open/openspace/icemoon,
+/turf/open/openspace/boxplanet,
 /area/hallway/secondary/entry)
 "iX" = (
 /obj/machinery/effector,
@@ -356,7 +356,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/openspace/icemoon,
+/turf/open/openspace/boxplanet,
 /area/hallway/secondary/entry)
 "jo" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -383,7 +383,7 @@
 /area/hallway/secondary/exit)
 "kL" = (
 /obj/machinery/light,
-/turf/open/openspace/icemoon,
+/turf/open/openspace/boxplanet,
 /area/quartermaster/storage)
 "kQ" = (
 /obj/docking_port/stationary{
@@ -395,7 +395,7 @@
 	roundstart_template = /datum/map_template/shuttle/arrival/box;
 	width = 7
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/underground/unexplored)
 "lu" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -430,14 +430,14 @@
 	set_cap = 1;
 	set_luminosity = 4
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "mx" = (
-/turf/open/openspace/icemoon,
+/turf/open/openspace/boxplanet,
 /area/hallway/secondary/entry)
 "mT" = (
 /obj/structure/rospilovo/water/bochka,
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/boxplanet/underground/unexplored)
 "nz" = (
 /obj/structure/closet/emcloset,
@@ -466,11 +466,11 @@
 /area/construction/mining/aux_base)
 "ol" = (
 /obj/effect/spawner/lootdrop/maintenance/two,
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/boxplanet/underground/unexplored)
 "op" = (
 /obj/structure/rospilovo/bochka/red,
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/boxplanet/underground/unexplored)
 "oq" = (
 /obj/machinery/door/airlock/maintenance{
@@ -490,7 +490,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
 "oC" = (
-/turf/open/openspace/icemoon,
+/turf/open/openspace/boxplanet,
 /area/maintenance/port/aft)
 "oD" = (
 /obj/machinery/vending/snack/random,
@@ -626,7 +626,7 @@
 /area/tcommsat/computer)
 "se" = (
 /obj/structure/rospilovo/water/bochka/kap,
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/boxplanet/underground/unexplored)
 "sp" = (
 /obj/effect/turf_decal/stripes/line{
@@ -672,7 +672,7 @@
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "tY" = (
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "ub" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -735,7 +735,7 @@
 /area/hallway/secondary/entry)
 "vl" = (
 /obj/item/pickaxe,
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "vm" = (
 /obj/structure/closet/toolcloset,
@@ -865,7 +865,7 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "zR" = (
-/turf/open/openspace/icemoon,
+/turf/open/openspace/boxplanet,
 /area/hallway/secondary/exit)
 "zX" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -916,7 +916,7 @@
 	set_cap = 1;
 	set_luminosity = 4
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/underground/unexplored)
 "BN" = (
 /obj/machinery/door/airlock/maintenance{
@@ -926,7 +926,7 @@
 /area/hallway/secondary/exit)
 "Cq" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/icemoon,
+/turf/open/openspace/boxplanet,
 /area/quartermaster/storage)
 "Cs" = (
 /obj/machinery/door/airlock/external{
@@ -943,7 +943,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
 "CI" = (
-/turf/open/openspace/icemoon,
+/turf/open/openspace/boxplanet/caves,
 /area/boxplanet/surface)
 "CM" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -1016,7 +1016,7 @@
 	set_cap = 1;
 	set_luminosity = 4
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "EJ" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
@@ -1081,11 +1081,11 @@
 /area/hallway/secondary/exit)
 "FT" = (
 /obj/item/shovel,
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/boxplanet/underground/unexplored)
 "Gb" = (
 /obj/structure/flora/grass/both,
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "Gl" = (
 /obj/structure/closet/emcloset,
@@ -1176,7 +1176,7 @@
 	id = "pod_lavaland2";
 	name = "lavaland"
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "Ie" = (
 /obj/structure/closet/emcloset,
@@ -1209,7 +1209,7 @@
 /obj/structure/railing{
 	dir = 6
 	},
-/turf/open/openspace/icemoon,
+/turf/open/openspace/boxplanet,
 /area/hallway/secondary/exit)
 "II" = (
 /obj/machinery/door/airlock/maintenance{
@@ -1258,7 +1258,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "Jf" = (
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/boxplanet/underground/unexplored)
 "Jy" = (
 /obj/structure/sign/warning/vacuum/external{
@@ -1271,7 +1271,7 @@
 /area/hallway/secondary/exit)
 "Jz" = (
 /obj/structure/lattice,
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "Kh" = (
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
@@ -1332,7 +1332,7 @@
 /area/hallway/secondary/exit)
 "LM" = (
 /obj/effect/spawner/lootdrop/grille_or_trash,
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/boxplanet/underground/unexplored)
 "LP" = (
 /obj/structure/sign/warning/docking,
@@ -1350,11 +1350,11 @@
 /area/hallway/secondary/entry)
 "Mk" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/icemoon,
+/turf/open/openspace/boxplanet,
 /area/hallway/secondary/entry)
 "MB" = (
 /obj/structure/rospilovo/bochka,
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/boxplanet/underground/unexplored)
 "MP" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -1378,7 +1378,7 @@
 	name = "port bay 2";
 	width = 5
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/underground/unexplored)
 "Nn" = (
 /obj/effect/turf_decal/tile/brown,
@@ -1458,6 +1458,11 @@
 /obj/machinery/light/small,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
+"OM" = (
+/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/structure/mineral_door/iron,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
+/area/boxplanet/underground/unexplored)
 "OP" = (
 /obj/structure/closet/emcloset,
 /obj/effect/turf_decal/stripes/line{
@@ -1467,7 +1472,7 @@
 /area/hallway/secondary/entry)
 "OX" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/icemoon,
+/turf/open/openspace/boxplanet,
 /area/maintenance/starboard/aft)
 "Pd" = (
 /obj/effect/turf_decal/stripes/line,
@@ -1489,10 +1494,10 @@
 	id = "pod_lavaland1";
 	name = "lavaland"
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "PR" = (
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/boxplanet/surface)
 "QA" = (
 /obj/structure/rack,
@@ -1514,7 +1519,7 @@
 /area/maintenance/port/fore)
 "Ri" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/icemoon,
+/turf/open/openspace/boxplanet,
 /area/maintenance/port/aft)
 "Rs" = (
 /obj/machinery/light/small{
@@ -1526,7 +1531,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/open/openspace/icemoon,
+/turf/open/openspace/boxplanet,
 /area/quartermaster/storage)
 "Rz" = (
 /obj/structure/table,
@@ -1555,7 +1560,7 @@
 	set_cap = 1;
 	set_luminosity = 4
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/boxplanet/surface)
 "RC" = (
 /obj/structure/table,
@@ -1565,6 +1570,9 @@
 "RU" = (
 /turf/open/floor/plating,
 /area/hallway/secondary/exit)
+"RY" = (
+/turf/open/openspace/boxplanet/surface,
+/area/boxplanet/surface)
 "Sc" = (
 /obj/item/beacon,
 /obj/machinery/camera{
@@ -1601,7 +1609,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/openspace/icemoon,
+/turf/open/openspace/boxplanet,
 /area/quartermaster/storage)
 "Tf" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -1757,14 +1765,14 @@
 /area/construction/mining/aux_base)
 "WR" = (
 /obj/structure/lattice,
-/turf/open/floor/plating/asteroid/snow/icemoon,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
 /area/space/nearstation)
 "Xo" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
 "XC" = (
-/turf/open/openspace/icemoon,
+/turf/open/openspace/boxplanet,
 /area/quartermaster/storage)
 "XF" = (
 /obj/structure/lattice/catwalk,
@@ -1772,7 +1780,7 @@
 	icon_state = "railing";
 	dir = 4
 	},
-/turf/open/openspace/icemoon,
+/turf/open/openspace/boxplanet,
 /area/hallway/secondary/exit)
 "XM" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -25975,12 +25983,12 @@ OB
 bA
 bA
 bA
-CI
-CI
-CI
-CI
-CI
-CI
+RY
+RY
+RY
+RY
+RY
+RY
 bA
 bA
 OB
@@ -26230,15 +26238,15 @@ OB
 OB
 OB
 bA
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
 bA
 bA
 OB
@@ -26487,16 +26495,16 @@ OB
 OB
 bA
 bA
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
 bA
 OB
 OB
@@ -26743,17 +26751,17 @@ OB
 OB
 OB
 bA
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
 bA
 OB
 OB
@@ -27000,17 +27008,17 @@ OB
 OB
 OB
 bA
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
 bA
 OB
 OB
@@ -27257,17 +27265,17 @@ OB
 OB
 OB
 bA
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
 bA
 OB
 OB
@@ -27514,17 +27522,17 @@ OB
 OB
 OB
 bA
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
 bA
 OB
 OB
@@ -27771,17 +27779,17 @@ OB
 OB
 OB
 bA
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
 bA
 OB
 OB
@@ -28028,16 +28036,16 @@ OB
 OB
 OB
 bA
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
-CI
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
 bA
 bA
 OB
@@ -28287,13 +28295,13 @@ OB
 bA
 bA
 bA
-CI
-CI
-CI
-CI
-CI
-CI
-CI
+RY
+RY
+RY
+RY
+RY
+RY
+RY
 bA
 bA
 OB
@@ -28544,12 +28552,12 @@ OB
 OB
 OB
 bA
-CI
-CI
-CI
-CI
-CI
-CI
+RY
+RY
+RY
+RY
+RY
+RY
 bA
 bA
 OB
@@ -52133,7 +52141,7 @@ OB
 OB
 OB
 OB
-LM
+OM
 OB
 Jf
 Jf

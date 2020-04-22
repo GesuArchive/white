@@ -1,3 +1,5 @@
+///////////////////////////////////////////////
+
 /area/boxplanet
 	icon_state = "mining"
 	has_gravity = STANDARD_GRAVITY
@@ -38,6 +40,8 @@
 /area/boxplanet/underground/explored
 	name = "Подземелье"
 	flora_allowed = FALSE
+
+///////////////////////////////////////////////
 
 /obj/structure/flora/tree/boxplanet
 	name = "что-то"
@@ -147,3 +151,144 @@
 			START_PROCESSING(SSobj, K)
 	else
 		amb_chance += 5
+
+///////////////////////////////////////////////
+
+/turf/open/floor/plating/asteroid/boxplanet/caves
+	name = "затвердевшая грязь"
+	desc = "Неприятная."
+	icon_state = "caves1"
+	baseturfs = /turf/open/openspace/boxplanet/caves
+	icon = 'code/shitcode/valtos/icons/caves_floor.dmi'
+	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
+	dug = TRUE
+
+/turf/open/floor/plating/asteroid/boxplanet/caves/Initialize()
+	. = ..()
+	icon_state = "caves[rand(1,6)]"
+
+/turf/open/floor/plating/asteroid/boxplanet/can_dig(mob/user)
+	if(!dug)
+		return TRUE
+	else if(user)
+		var/turf/T = below()
+		var/area/A = get_area(T)
+		if(!istype(A, /area/boxplanet))
+			to_chat(user, "<span class='danger'><b>[capitalize(src)]</b> уже достаточно раскопан!</span>")
+			return FALSE
+		var/dir_to_dig = get_dir(src, user.loc)
+
+		if(do_after(user, 60, target = src))
+			if(istype(T, /turf/closed/mineral))
+				ChangeTurf(/turf/open/openspace/boxplanet/caves, flags = CHANGETURF_INHERIT_AIR)
+				T.ChangeTurf(/turf/open/floor/plating/asteroid/boxplanet/caves, flags = CHANGETURF_INHERIT_AIR)
+				var/obj/L = new /obj/structure/stairs(T)
+				L.dir = dir_to_dig
+			if(istype(T, /turf/open))
+				ChangeTurf(/turf/open/openspace/boxplanet/caves, flags = CHANGETURF_INHERIT_AIR)
+
+/turf/open/floor/plating/asteroid/boxplanet/surface
+	name = "снег"
+	desc = "Выглядит холодным."
+	icon = 'icons/turf/snow.dmi'
+	baseturfs = /turf/open/openspace/boxplanet/surface
+	icon_state = "snow"
+	icon_plating = "snow"
+	initial_gas_mix = FROZEN_ATMOS
+	slowdown = 2
+	environment_type = "snow"
+	flags_1 = NONE
+	planetary_atmos = TRUE
+	broken_states = list("snow_dug")
+	burnt_states = list("snow_dug")
+	bullet_sizzle = TRUE
+	bullet_bounce_sound = null
+	digResult = /obj/item/stack/sheet/mineral/snow
+
+/turf/open/floor/plating/asteroid/boxplanet/surface/burn_tile()
+	if(!burnt)
+		visible_message("<span class='danger'>[src] тает!.</span>")
+		slowdown = 0
+		burnt = TRUE
+		icon_state = "snow_dug"
+		return TRUE
+	return FALSE
+
+/turf/open/floor/plating/asteroid/airless/cave/boxplanet
+	name = "затвердевшая грязь"
+	desc = "Неприятная."
+	icon = 'code/shitcode/valtos/icons/caves_floor.dmi'
+	baseturfs = /turf/open/floor/plating/asteroid/boxplanet/caves
+	icon_state = "caves1"
+	icon_plating = "caves1"
+	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
+	slowdown = 0
+	flags_1 = NONE
+	planetary_atmos = TRUE
+	burnt_states = list("snow_dug")
+	bullet_sizzle = TRUE
+	bullet_bounce_sound = null
+	digResult = /obj/item/stack/sheet/mineral/snow
+	mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/wolf = 50, /obj/structure/spawner/ice_moon = 3, \
+						  /mob/living/simple_animal/hostile/asteroid/polarbear = 30, /obj/structure/spawner/ice_moon/polarbear = 3, \
+						  SPAWN_MEGAFAUNA = 6, /mob/living/simple_animal/hostile/asteroid/goldgrub = 10)
+
+	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2, /obj/effect/step_trigger/ambush = 1)
+	data_having_type = /turf/open/floor/plating/asteroid/airless/cave/boxplanet/has_data
+	turf_type = /turf/open/floor/plating/asteroid/boxplanet/caves
+
+/turf/open/floor/plating/asteroid/airless/cave/boxplanet/has_data //subtype for producing a tunnel with given data
+	has_data = TRUE
+
+/turf/open/floor/plating/asteroid/airless/cave/boxplanet/make_tunnel(dir, pick_tunnel_width)
+	pick_tunnel_width = list("1" = 6, "2" = 4, "3" = 3, "4" = 2, "5" = 1)
+	..()
+
+///////////////////////////////////////////////
+
+/turf/open/openspace/boxplanet
+	name = "открытое пространство"
+	baseturfs = /turf/open/openspace/boxplanet
+
+/turf/open/openspace/boxplanet/surface
+	initial_gas_mix = FROZEN_ATMOS
+
+/turf/open/openspace/boxplanet/caves
+	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
+
+///////////////////////////////////////////////
+
+/obj/machinery/power_restarter
+	name = "большой ржавый рубильник"
+	desc = "Если приглядеться, то за толстым слоем ржавчины и крови можно разглядеть надпись \"ПЕРЕЗАГРУЗКА ЭНЕРГОСЕТИ\". К чему бы это?"
+	icon = 'code/shitcode/valtos/icons/switch.dmi'
+	icon_state = "switch-off"
+	var/is_turned = FALSE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+
+/obj/machinery/power_restarter/attackby(obj/item/W, mob/user, params)
+	electrocute_mob(user, get_area(src), src, 1.7, TRUE)
+	return
+
+/obj/machinery/power_restarter/attack_hand(mob/user)
+	. = ..()
+	if(.)
+		return
+	add_fingerprint(user)
+	if(is_turned)
+		to_chat(user, "<span class='danger'>Рубильник не поддаётся!</span>")
+		return
+	user.visible_message("<span class='warning'><b>[user]</b> дёргает рубильник!</span>")
+	is_turned = TRUE
+	icon_state = "switch-on"
+	SSmachines.makepowernets()
+	log_admin("[key_name(user)] has remade the powernet. Рубильник called.")
+	message_admins("[key_name_admin(user)] has remade the powernets. Рубильник called.")
+	use_power(5)
+	playsound(src.loc, 'code/shitcode/valtos/sounds/leveron.ogg', 50, TRUE)
+	spawn(3000)
+		icon_state = "switch-off"
+		is_turned = FALSE
+		playsound(src.loc, 'code/shitcode/valtos/sounds/leveroff.ogg', 90, TRUE)
+		var/turf/T = get_turf(src)
+		T.visible_message("<span class='notice'><b>[src]</b> возвращается на место!</span>")

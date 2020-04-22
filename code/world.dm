@@ -12,7 +12,7 @@
   */
 /world
 	mob = /mob/dead/new_player
-	turf = /turf/open/floor/plating/asteroid/snow
+	turf = /turf/open/space/basic
 	area = /area/space
 	view = "15x15"
 	hub = "Exadv1.spacestation13"
