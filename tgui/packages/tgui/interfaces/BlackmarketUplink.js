@@ -69,15 +69,15 @@ export const BlackMarketUplink = (props, context) => {
                   </Flex.Item>
                   <Flex.Item color="label">
                     {item.amount
-                      ? item.amount + " in stock"
-                      : "Out of stock"}
+                      ? item.amount + " шт."
+                      : "нет в наличии"}
                   </Flex.Item>
                   <Flex.Item>
                     {formatMoney(item.cost) + ' cr'}
                   </Flex.Item>
                   <Flex.Item>
                     <Button
-                      content="Buy"
+                      content="Купить"
                       disabled={!item.amount || item.cost > money}
                       onClick={() => act('select', {
                         item: item.id,
@@ -141,7 +141,7 @@ const ShipmentSelector = (props, context) => {
         })}
       </Flex>
       <Button
-        content="Cancel"
+        content="Отмена"
         color="bad"
         onClick={() => act('cancel')} />
     </Modal>
