@@ -94,6 +94,6 @@ GLOBAL_VAR_INIT(chat_bubbles, FALSE)
 				if(C.mob.can_hear() && C.mob.has_language(message_language) && GLOB.chat_bubbles)
 					C.images -= S
 				else if(isobserver(C.mob))
-					C.images += S
+					C.images -= S
 			L.chattext.chats -= S
 			qdel(S)
