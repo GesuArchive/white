@@ -79,8 +79,7 @@ GLOBAL_LIST_INIT(meteors_rain_catastrophic, list(/obj/effect/meteor_rain/medium=
 /proc/spawn_meteor_rain(list/meteortypes)
 	var/turf/T = locate(rand(1, 255), rand(1, 255), 5)
 	var/Me = pickweight(meteortypes)
-	var/obj/effect/meteor/M = new Me(pickedstart, pickedgoal)
-	M.dest = pickedgoal
+	new Me(T)
 
 /obj/effect/meteor_rain
 	name = "метеор"
