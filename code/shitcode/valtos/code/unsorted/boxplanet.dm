@@ -245,6 +245,13 @@
 	pick_tunnel_width = list("1" = 6, "2" = 4, "3" = 3, "4" = 2, "5" = 1)
 	..()
 
+/turf/open/floor/plating/asteroid/boxplanet/ex_act(severity, target, prikolist)
+	..()
+	if(severity == 1)
+		var/turf/T = below()
+		T.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
+	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
+
 ///////////////////////////////////////////////
 
 /turf/open/openspace/boxplanet
