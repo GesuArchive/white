@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/open/openspace,
+/turf/open/openspace/boxplanet/caves,
 /area/boxplanet/underground/explored)
 "ab" = (
 /turf/template_noop,
@@ -2392,7 +2392,7 @@
 /area/bridge/meeting_room)
 "gx" = (
 /obj/structure/lattice,
-/turf/open/openspace,
+/turf/open/openspace/boxplanet/caves,
 /area/boxplanet/underground/explored)
 "gy" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,

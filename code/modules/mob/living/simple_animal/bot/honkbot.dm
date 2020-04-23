@@ -313,7 +313,7 @@ Maintenance panel panel is [open ? "opened" : "closed"]"},
 				oldtarget_name = C.name
 				bike_horn()
 				speak("Honk!")
-				visible_message("<b>[src]</b> starts chasing [C.name]!")
+				visible_message("<b>[capitalize(src)]</b> starts chasing [C.name]!")
 				mode = BOT_HUNT
 				INVOKE_ASYNC(src, .proc/handle_automated_action)
 				break

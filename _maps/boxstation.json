@@ -8,6 +8,7 @@
 	    "whiteship": "whiteship_box",
 	    "emergency": "emergency_box"
     },
-	"traits": [{"Up" : 1, "Linkage" : null}, {"Up": 1, "Down" : -1, "Baseturf" : "/turf/open/openspace", "Linkage" : null}, {"Up": 1, "Down" : -1, "Baseturf" : "/turf/open/openspace", "Linkage" : null}, {"Down" : -1, "Baseturf" : "/turf/open/openspace", "Linkage" : "Cross"}],
-	"minetype": "nothing"
+	"traits": [{"Up" : 1, "Linkage" : null}, {"Up": 1, "Down" : -1, "Baseturf" : "/turf/open/openspace/boxplanet", "Linkage" : null}, {"Up": 1, "Down" : -1, "Baseturf" : "/turf/open/openspace/boxplanet", "Linkage" : null}, {"Down" : -1, "Baseturf" : "/turf/open/openspace/boxplanet", "Linkage" : null}],
+	"minetype": "nothing",
+	"space_ruin_levels": 5
 }

@@ -12,11 +12,11 @@
 /area/security/prison)
 "ae" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/template_noop,
 /area/space/nearstation)
 "ag" = (
 /obj/structure/lattice,
-/turf/open/openspace,
+/turf/template_noop,
 /area/space/nearstation)
 "ah" = (
 /obj/structure/sign/warning/securearea{
@@ -28,7 +28,7 @@
 /obj/structure/sign/warning/securearea{
 	pixel_y = -32
 	},
-/turf/open/openspace,
+/turf/template_noop,
 /area/space/nearstation)
 "aj" = (
 /obj/machinery/computer/bookmanagement,
@@ -304,7 +304,7 @@
 /area/security/prison)
 "aZ" = (
 /obj/structure/grille,
-/turf/open/openspace,
+/turf/template_noop,
 /area/space/nearstation)
 "ba" = (
 /turf/closed/wall/r_wall,
@@ -485,7 +485,7 @@
 /obj/structure/sign/warning/securearea{
 	pixel_y = -32
 	},
-/turf/open/openspace,
+/turf/template_noop,
 /area/space/nearstation)
 "bC" = (
 /obj/structure/closet/bombcloset/security,
@@ -541,7 +541,7 @@
 	pixel_y = -32
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/template_noop,
 /area/space/nearstation)
 "bL" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -5198,7 +5198,7 @@
 "le" = (
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/open/openspace,
+/turf/template_noop,
 /area/space/nearstation)
 "lf" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{

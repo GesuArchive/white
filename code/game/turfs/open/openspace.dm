@@ -59,7 +59,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 		return FALSE
 	if(istype(T, /turf/closed))
 		vis_contents.len = 0
-		ChangeTurf(/turf/open/floor/plating/asteroid/snow/icemoon/caves, flags = CHANGETURF_INHERIT_AIR)
+		ChangeTurf(/turf/open/floor/plating/asteroid/boxplanet/caves, flags = CHANGETURF_INHERIT_AIR)
 		return FALSE
 	if(init)
 		vis_contents += T

@@ -178,7 +178,7 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 	name = "снег"
 	desc = "Холодный."
 	icon = 'icons/turf/snow.dmi'
-	baseturfs = /turf/open/floor/plating/asteroid/snow/icemoon/caves
+	baseturfs = /turf/open/floor/plating/asteroid/boxplanet/caves
 	icon_state = "snow"
 	icon_plating = "snow"
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
@@ -196,7 +196,7 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 
 	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2, /obj/effect/step_trigger/ambush = 1)
 	data_having_type = /turf/open/floor/plating/asteroid/airless/cave/snow/has_data
-	turf_type = /turf/open/floor/plating/asteroid/snow/icemoon/caves
+	turf_type = /turf/open/floor/plating/asteroid/boxplanet/caves
 
 /turf/open/floor/plating/asteroid/airless/cave/snow/underground
 	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2, /obj/effect/step_trigger/ambush = 1)
@@ -410,37 +410,6 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 /turf/open/floor/plating/asteroid/snow/icemoon
 	baseturfs = /turf/open/openspace/icemoon
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
-
-/turf/open/floor/plating/asteroid/snow/icemoon/caves
-	name = "затвердевшая грязь"
-	icon_state = "caves1"
-	icon = 'code/shitcode/valtos/icons/caves_floor.dmi'
-	dug = TRUE
-	color = "#555555"
-
-/turf/open/floor/plating/asteroid/snow/icemoon/caves/Initialize()
-	. = ..()
-	icon_state = "caves[rand(1,6)]"
-
-/turf/open/floor/plating/asteroid/snow/icemoon/can_dig(mob/user)
-	if(!dug)
-		return TRUE
-	else if(user)
-		var/turf/T = below()
-		var/area/A = get_area(T)
-		if(!istype(A, /area/boxplanet))
-			to_chat(user, "<span class='danger'><b>[capitalize(src)]</b> уже достаточно раскопан!</span>")
-			return FALSE
-		var/dir_to_dig = get_dir(src, user.loc)
-
-		if(do_after(user, 60, target = src))
-			if(istype(T, /turf/closed/mineral))
-				ChangeTurf(/turf/open/openspace, flags = CHANGETURF_INHERIT_AIR)
-				T.ChangeTurf(/turf/open/floor/plating/asteroid/snow/icemoon/caves, flags = CHANGETURF_INHERIT_AIR)
-				var/obj/L = new /obj/structure/stairs(T)
-				L.dir = dir_to_dig
-			if(istype(T, /turf/open))
-				ChangeTurf(/turf/open/openspace, flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/lava/plasma/ice_moon
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS

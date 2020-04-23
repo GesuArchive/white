@@ -120,7 +120,7 @@
 			playsound(src,'sound/weapons/saberon.ogg',50,TRUE,-1)
 			visible_message("<span class='warning'>[src] ignites his energy swords!</span>")
 			icon_state = "grievous-c"
-			visible_message("<b>[src]</b> points at [C.name]!")
+			visible_message("<b>[capitalize(src)]</b> points at [C.name]!")
 			mode = BOT_HUNT
 			INVOKE_ASYNC(src, .proc/handle_automated_action)
 			break

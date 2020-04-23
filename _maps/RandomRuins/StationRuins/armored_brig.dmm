@@ -7,14 +7,14 @@
 /area/template_noop)
 "ac" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/template_noop,
 /area/boxplanet/underground/explored)
 "ae" = (
 /turf/closed/wall/r_wall,
 /area/security/prison)
 "ag" = (
 /obj/structure/lattice,
-/turf/open/openspace,
+/turf/template_noop,
 /area/boxplanet/underground/explored)
 "ah" = (
 /obj/structure/sign/warning/securearea{
@@ -35,7 +35,7 @@
 /obj/structure/sign/warning/securearea{
 	pixel_y = -32
 	},
-/turf/open/openspace,
+/turf/template_noop,
 /area/boxplanet/underground/explored)
 "ak" = (
 /obj/machinery/computer/bookmanagement,
@@ -321,7 +321,7 @@
 /area/security/prison)
 "bd" = (
 /obj/structure/grille,
-/turf/open/openspace,
+/turf/template_noop,
 /area/boxplanet/underground/explored)
 "be" = (
 /turf/closed/wall/r_wall,
@@ -510,7 +510,7 @@
 /obj/structure/sign/warning/securearea{
 	pixel_y = -32
 	},
-/turf/open/openspace,
+/turf/template_noop,
 /area/boxplanet/underground/explored)
 "bG" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -623,7 +623,7 @@
 	pixel_y = -32
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/template_noop,
 /area/boxplanet/underground/explored)
 "bW" = (
 /obj/structure/cable,
@@ -5280,7 +5280,7 @@
 "kL" = (
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/open/openspace,
+/turf/template_noop,
 /area/boxplanet/underground/explored)
 "kN" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{

@@ -8,7 +8,7 @@
 /area/tcommsat/server)
 "d" = (
 /obj/structure/ladder,
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/boxplanet/underground/unexplored)
 "g" = (
 /obj/machinery/light,
@@ -46,7 +46,7 @@
 /area/boxplanet/underground/unexplored)
 "v" = (
 /obj/structure/ladder,
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/boxplanet/underground/explored)
 "w" = (
 /turf/open/floor/plasteel/dark/telecomms,
@@ -74,10 +74,10 @@
 /area/boxplanet/underground/explored)
 "H" = (
 /obj/item/pickaxe,
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/boxplanet/underground/unexplored)
 "I" = (
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/boxplanet/underground/explored)
 "K" = (
 /obj/machinery/door/airlock/engineering/glass{
@@ -99,7 +99,7 @@
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/tcommsat/server)
 "S" = (
-/turf/open/floor/plating/asteroid/snow/icemoon/caves,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/boxplanet/underground/unexplored)
 "U" = (
 /obj/structure/ladder,
