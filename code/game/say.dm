@@ -27,9 +27,6 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if(!language)
 		language = get_selected_language()
 
-	if(GLOB.chat_bubbles)
-		new /obj/effect/chat_text(src, message)
-
 	send_speech(message, 7, src, , spans, message_language=language)
 
 /atom/movable/proc/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)

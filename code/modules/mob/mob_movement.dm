@@ -150,11 +150,6 @@
 	if(P && !ismob(P) && P.density)
 		mob.setDir(turn(mob.dir, 180))
 
-	if(GLOB.chat_bubbles)
-		for(var/obj/effect/chat_text/CT in mob.stored_chat_text)
-			CT.glide_size = mob.glide_size
-			CT.forceMove(mob.loc)
-
 /**
   * Checks to see if you're being grabbed and if so attempts to break it
   *
