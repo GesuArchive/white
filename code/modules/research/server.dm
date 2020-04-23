@@ -153,7 +153,7 @@
 			var/obj/machinery/rnd/server/S = locate(href_list["toggle"]) in SSresearch.servers
 			S.toggle_disable()
 		else
-			to_chat(usr, "<span class='danger'>Access Denied.</span>")
+			to_chat(usr, "<span class='danger'>Доступ запрещён.</span>")
 
 	updateUsrDialog()
 	return

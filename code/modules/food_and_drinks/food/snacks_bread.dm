@@ -3,7 +3,7 @@
 	icon = 'icons/obj/food/burgerbread.dmi'
 	volume = 80
 	slices_num = 5
-	tastes = list("bread" = 10)
+	tastes = list("хлеб" = 10)
 	foodtype = GRAIN
 
 /obj/item/reagent_containers/food/snacks/store/bread/Initialize()
@@ -32,7 +32,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 10)
 	custom_food_type = /obj/item/reagent_containers/food/snacks/customizable/bread
 	slice_path = /obj/item/reagent_containers/food/snacks/breadslice/plain
-	tastes = list("bread" = 10)
+	tastes = list("хлеб" = 10)
 	foodtype = GRAIN
 
 /obj/item/reagent_containers/food/snacks/breadslice/plain
@@ -42,6 +42,15 @@
 	customfoodfilling = 1
 	foodtype = GRAIN
 
+/obj/item/reagent_containers/food/snacks/breadslice/moldy
+	name = "moldy bread slice"
+	desc = "Entire stations have been ripped apart over arguing whether this is still good to eat."
+	icon_state = "moldybreadslice"
+	customfoodfilling = 0
+	bonus_reagents = list(/datum/reagent/consumable/mold = 10)
+	tastes = list("decaying fungus" = 1)
+	foodtype = GROSS
+
 /obj/item/reagent_containers/food/snacks/store/bread/meat
 	name = "meatbread loaf"
 	desc = "The culinary base of every self-respecting eloquen/tg/entleman."
@@ -49,7 +58,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/breadslice/meat
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 10)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 30, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("bread" = 10, "meat" = 10)
+	tastes = list("хлеб" = 10, "мясо" = 10)
 	foodtype = GRAIN | MEAT
 
 /obj/item/reagent_containers/food/snacks/breadslice/meat
@@ -65,7 +74,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/breadslice/xenomeat
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 10)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 30, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("bread" = 10, "acid" = 10)
+	tastes = list("хлеб" = 10, "кислота" = 10)
 	foodtype = GRAIN | MEAT
 
 /obj/item/reagent_containers/food/snacks/breadslice/xenomeat
@@ -83,7 +92,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/breadslice/spidermeat
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 10)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 30, /datum/reagent/toxin = 15, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("bread" = 10, "cobwebs" = 5)
+	tastes = list("хлеб" = 10, "паутина" = 5)
 	foodtype = GRAIN | MEAT | TOXIC
 
 /obj/item/reagent_containers/food/snacks/breadslice/spidermeat
@@ -101,7 +110,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/breadslice/banana
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/banana = 20)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/banana = 20)
-	tastes = list("bread" = 10) // bananjuice will also flavour
+	tastes = list("хлеб" = 10) // bananjuice will also flavour
 	foodtype = GRAIN | FRUIT
 
 
@@ -120,7 +129,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/breadslice/tofu
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 10)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("bread" = 10, "tofu" = 10)
+	tastes = list("хлеб" = 10, "тофу" = 10)
 	foodtype = GRAIN | VEGETABLES
 
 /obj/item/reagent_containers/food/snacks/breadslice/tofu
@@ -138,7 +147,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/breadslice/creamcheese
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 5)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("bread" = 10, "cheese" = 10)
+	tastes = list("хлеб" = 10, "сыр" = 10)
 	foodtype = GRAIN | DAIRY
 
 /obj/item/reagent_containers/food/snacks/breadslice/creamcheese
@@ -156,7 +165,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/breadslice/mimana
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 5)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/toxin/mutetoxin = 5, /datum/reagent/consumable/nothing = 5, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("bread" = 10, "silence" = 10)
+	tastes = list("хлеб" = 10, "молчание" = 10)
 	foodtype = GRAIN | FRUIT
 
 /obj/item/reagent_containers/food/snacks/breadslice/mimana
@@ -185,7 +194,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	attack_verb = list("touche'd")
-	tastes = list("bread" = 1)
+	tastes = list("хлеб" = 1)
 	foodtype = GRAIN
 
 /obj/item/reagent_containers/food/snacks/garlicbread
@@ -197,7 +206,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 2)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/consumable/garlic = 2)
 	bitesize = 3
-	tastes = list("bread" = 1, "garlic" = 1, "butter" = 1)
+	tastes = list("хлеб" = 1, "чеснок" = 1, "масло" = 1)
 	foodtype = GRAIN
 
 /obj/item/reagent_containers/food/snacks/deepfryholder
@@ -273,7 +282,7 @@
 	filling_color = "#F0E68C"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("butter" = 1, "biscuit" = 1)
+	tastes = list("масло" = 1, "бисквит" = 1)
 	foodtype = GRAIN | BREAKFAST
 
 /obj/item/reagent_containers/food/snacks/butterdog
@@ -285,7 +294,7 @@
 	filling_color = "#F1F49A"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("butter", "exotic butter")
+	tastes = list("масло", "экзотическое масло")
 	foodtype = GRAIN | DAIRY
 
 /obj/item/reagent_containers/food/snacks/butterdog/ComponentInitialize()

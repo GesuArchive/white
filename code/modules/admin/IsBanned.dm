@@ -87,8 +87,8 @@
 						continue
 				var/expires = "Навсегда."
 				if(i["expiration_time"])
-					expires = "Блокировка на [DisplayTimeText(text2num(i["duration"]) MINUTES)] заканчивается в [i["expiration_time"]]."
-				var/desc = {"Доступ запрещён, ([i["key"]]). \nМетка: [html_decode(i["reason"])]. \nБлокировка #[i["id"]] выдана [i["admin_key"]] в [i["bantime"]] во время раунда [i["round_id"]]. \n[expires]"}
+					expires = "Блокировка на [DisplayTimeText(text2num(i["duration"]) MINUTES)] заканчивается в [i["expiration_time"]] по серверному времени."
+				var/desc = {"Доступ запрещён, ([i["key"]]). \nМетка: [html_decode(i["reason"])]. \nБлокировка #[i["id"]] выдана [i["bantime"]] во время раунда [i["round_id"]]. \n[expires]"}
 				log_access("Failed Login: [key] [computer_id] [address] - Banned (#[i["id"]])")
 				return list("reason"="Banned","desc"="[desc]")
 	if (admin)
@@ -209,7 +209,7 @@
 			return null
 
 		if (C) //user is already connected!.
-			to_chat(C, "Возможно у вас проблемы. Если повторилось, то @Valtos#7828 поможет решить проблему.", confidential = TRUE)
+			to_chat(C, "Возможно у вас проблемы. Если повторилось, то @Valtos#9999 поможет решить проблему.", confidential = TRUE)
 
 		var/desc = "\nПопробуйте лучше, ([bannedckey]). Метка:\n[html_decode(ban["message"])]\nВыдан [ban["admin"]]\n"
 		. = list("reason" = "Stickyban", "desc" = desc)

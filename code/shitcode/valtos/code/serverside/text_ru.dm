@@ -48,6 +48,16 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 		t += ascii2text(a + 848)
 	return t
 
+/proc/utf8_to_cp1252(text) //костыль для кривой плеерпанели
+	var/t = ""
+	for(var/i = 1, i <= length(text), i++)
+		var/a = text2ascii(text, i)
+		if (a < 1040 || a > 1105)
+			t += ascii2text(a)
+			continue
+		t += ascii2text(a - 848)
+	return t
+
 /proc/r_lowertext(text)
 	var/t = ""
 	for(var/i = 1, i <= length(text), i++)

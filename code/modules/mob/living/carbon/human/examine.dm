@@ -6,13 +6,46 @@
 	var/t_a 	= ru_a()
 
 	var/obscure_name
+	var/true_info = FALSE
 
 	if(isliving(user))
 		var/mob/living/L = user
 		if(HAS_TRAIT(L, TRAIT_PROSOPAGNOSIA))
 			obscure_name = TRUE
+		if(HAS_TRAIT(L, TRAIT_HACKER))
+			true_info = TRUE
 
-	. = list("<span class='info'>*---------*\nЭто же <EM>[!obscure_name ? name : "Unknown"]</EM>!")
+	. = list("<span class='info'>*---------*")
+
+	if(true_info)
+		. += "ОБЪЕКТ: <EM>[name]</EM>."
+		var/is_weapon = FALSE
+		for(var/I in get_contents())
+			if(istype(I, /obj/item/gun) || istype(I, /obj/item/melee))
+				hud_list[HACKER_HUD].add_overlay("node_weapon")
+				is_weapon = TRUE
+				break
+		if(is_weapon)
+			. += "<span class='warning'><big>Обнаружено оружие.</big></span>"
+		else
+			hud_list[HACKER_HUD].cut_overlay("node_weapon")
+
+		if(!mind?.antag_datums)
+			hud_list[HACKER_HUD].cut_overlay("node_enemy")
+			hud_list[HACKER_HUD].add_overlay("node_neutral")
+		else
+			hud_list[HACKER_HUD].cut_overlay("node_neutral")
+			hud_list[HACKER_HUD].add_overlay("node_enemy")
+
+		if(stat == DEAD)
+			hud_list[HACKER_HUD].add_overlay("node_dead")
+		else
+			hud_list[HACKER_HUD].cut_overlay("node_dead")
+	else
+		. += "Это же <EM>[!obscure_name ? name : "Unknown"]</EM>!"
+
+	if(user.stat == CONSCIOUS)
+		visible_message("<span class='small'><b>[user]</b> смотрит на <b>[!obscure_name ? name : "Unknown"]</b>.</span>", null, null, COMBAT_MESSAGE_RANGE)
 
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
@@ -154,7 +187,7 @@
 			disabled += BP
 		missing -= BP.body_zone
 		for(var/obj/item/I in BP.embedded_objects)
-			if(I.is_embed_harmless())
+			if(I.isEmbedHarmless())
 				msg += "<B>Из [t_ego] [BP.name] торчит [icon2html(I, user)] [I]!</B>\n"
 			else
 				msg += "<B>У н[t_ego] застрял [icon2html(I, user)] [I] в [BP.name]!</B>\n"
@@ -163,10 +196,10 @@
 		var/obj/item/bodypart/BP = X
 		var/damage_text
 		if(!(BP.get_damage(include_stamina = FALSE) >= BP.max_damage)) //Stamina is disabling the limb
-			damage_text = "вялый и безжизненный"
+			damage_text = "выглядит бледновато"
 		else
 			damage_text = (BP.brute_dam >= BP.burn_dam) ? BP.heavy_brute_msg : BP.heavy_burn_msg
-		msg += "<B>[t_ego] [BP.name] [damage_text]!</B>\n"
+		msg += "<B>[ru_ego(TRUE)] [BP.name] [damage_text]!</B>\n"
 
 	//stores missing limbs
 	var/l_limbs_missing = 0
@@ -298,7 +331,7 @@
 
 			msg += "</span>"
 
-			if(HAS_TRAIT(user, TRAIT_SPIRITUAL) && mind?.isholy)
+			if(HAS_TRAIT(user, TRAIT_SPIRITUAL) && mind?.holy_role)
 				msg += "От н[t_ego] веет святым духом.\n"
 				SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "religious_comfort", /datum/mood_event/religiously_comforted)
 
@@ -333,10 +366,10 @@
 			var/cyberimp_detect
 			for(var/obj/item/organ/cyberimp/CI in internal_organs)
 				if(CI.status == ORGAN_ROBOTIC && !CI.syndicate_implant)
-					cyberimp_detect += "[name] модифицировано [CI.name]."
+					cyberimp_detect += "[!cyberimp_detect ? "[CI.ru_get_examine_string(user)]" : ", [CI.ru_get_examine_string(user)]"]"
 			if(cyberimp_detect)
-				. += "Обнаружены кибернетические модификации:"
-				. += cyberimp_detect
+				. += "<span class='notice ml-1'>Обнаружены кибернетические модификации:</span>"
+				. += "<span class='notice ml-2'>[cyberimp_detect]</span>"
 			if(R)
 				var/health_r = R.fields["p_stat"]
 				. += "<a href='?src=[REF(src)];hud=m;p_stat=1'>\[[health_r]\]</a>"
@@ -346,7 +379,8 @@
 			if(R)
 				. += "<a href='?src=[REF(src)];hud=m;evaluation=1'>\[Medical evaluation\]</a><br>"
 			if(traitstring)
-				. += "<span class='info'>Выявленные физиологические признаки:\n[traitstring]"
+				. += "<span class='notice ml-1'>Выявленные физиологические признаки:</span>"
+				. += "<span class='notice ml-2'>[traitstring]</span>"
 
 		if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
 			if(!user.stat && user != src)
@@ -364,6 +398,13 @@
 					"<a href='?src=[REF(src)];hud=s;view_comment=1'>\[Просмотреть комментарии\]</a> ",
 					"<a href='?src=[REF(src)];hud=s;add_comment=1'>\[Добавить комментарий\]</a> "), "")
 	else if(isobserver(user) && traitstring)
+		. += "<span class='info'><b>Черты:</b> [traitstring]</span>"
+	if(true_info)
+		. += "\n<span class='info'><b>Судьба:</b>"
+		. += "Уровень <b>силы</b> [fateize_stat(current_fate[MOB_STR], TRUE)]."
+		. += "Уровень <b>выносливости</b> [fateize_stat(current_fate[MOB_STM], TRUE)]."
+		. += "Уровень <b>интеллекта</b> [fateize_stat(current_fate[MOB_INT], TRUE)]."
+		. += "Уровень <b>ловкости</b> [fateize_stat(current_fate[MOB_DEX], TRUE)].</span>\n"
 		. += "<span class='info'><b>Черты:</b> [traitstring]</span>"
 	. += "<span class='info'>*---------*</span>"
 

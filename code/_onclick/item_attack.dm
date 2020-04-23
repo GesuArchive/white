@@ -99,6 +99,7 @@
 		user.client.give_award(/datum/award/achievement/misc/selfouch, user)
 
 	user.do_attack_animation(M)
+
 	M.attacked_by(src, user)
 
 	log_combat(user, M, "атакует", src.name, "(INTENT: [uppertext(user.a_intent)]) (DAMTYPE: [uppertext(damtype)])")
@@ -121,8 +122,8 @@
 
 /obj/attacked_by(obj/item/I, mob/living/user)
 	if(I.force)
-		user.visible_message("<span class='danger'>[user] бьёт [src] [sklonenie(I.name, TVORITELNI, I.gender)]!</span>", \
-					"<span class='danger'>Бью [src] [sklonenie(I.name, TVORITELNI, I.gender)]!</span>", null, COMBAT_MESSAGE_RANGE)
+		user.visible_message("<span class='danger'><b>[user]</b> бьёт <b>[src] [sklonenie(I.name, TVORITELNI, I.gender)]</b>!</span>", \
+					"<span class='danger'>Бью <b>[src] [sklonenie(I.name, TVORITELNI, I.gender)]</b>!</span>", null, COMBAT_MESSAGE_RANGE)
 		//only witnesses close by and the victim see a hit message.
 		log_combat(user, src, "атакует", I)
 	take_damage(I.force, I.damtype, "melee", 1)
@@ -131,7 +132,6 @@
 	send_item_attack_message(I, user)
 	if(I.force)
 		apply_damage(I.force, I.damtype)
-
 		if(I.damtype == BRUTE)
 			if(prob(33))
 				I.add_mob_blood(src)
@@ -178,13 +178,15 @@
 		message_verb = "[pick(I.attack_verb)]"
 	else if(!I.force)
 		return
-	var/message_hit_area = ""
+	if(prob(1))
+		message_verb = "[gvorno()] [message_verb]"
+	var/message_hit_area = null
 	if(hit_area)
 		message_hit_area = "[ru_parse_zone(hit_area)]"
-	var/attack_message = "[src] [message_verb] в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
-	var/attack_message_local = "[capitalize(message_verb)] [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
+	var/attack_message = "<b>[src]</b> [message_verb] в [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>!"
+	var/attack_message_local = "[capitalize(message_verb)] [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>!"
 	if(user in viewers(src, null))
-		attack_message = "<b>[user]</b> [message_verb] <b>[sklonenie(src.name, VINITELNI, gender)]</b> в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
+		attack_message = "<b>[user]</b> [message_verb] <b>[sklonenie(src.name, VINITELNI, gender)]</b> [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
 		attack_message_local = "<b>[user]</b> [message_verb] <b>меня</b> в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
 	if(user == src)
 		attack_message_local = "Моё великолепие [message_verb] себя в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]"

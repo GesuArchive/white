@@ -57,7 +57,7 @@
 	else if(istype(I, /obj/item/forged))
 		R = I
 
-	else if(istype(I, /obj/item/twohanded/forged))
+	else if(istype(I, /obj/item/forged))
 		R = I
 
 	else if(istype(I, /obj/item/ammo_casing/forged))
@@ -181,9 +181,6 @@
 
 				var/obj/item/forged/R
 				if(istype(loaded, /obj/item/forged))
-					R = loaded
-
-				else if(istype(loaded, /obj/item/twohanded/forged))
 					R = loaded
 
 				else if(istype(loaded, /obj/item/ammo_casing/forged))

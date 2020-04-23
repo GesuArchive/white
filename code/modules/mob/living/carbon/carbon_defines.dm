@@ -3,7 +3,7 @@
 	gender = MALE
 	pressure_resistance = 15
 	possible_a_intents = list(INTENT_HELP, INTENT_HARM)
-	hud_possible = list(HEALTH_HUD,STATUS_HUD,ANTAG_HUD,GLAND_HUD,NANITE_HUD,DIAG_NANITE_FULL_HUD)
+	hud_possible = list(HEALTH_HUD,STATUS_HUD,ANTAG_HUD,GLAND_HUD,NANITE_HUD,DIAG_NANITE_FULL_HUD,HACKER_HUD)
 	has_limbs = 1
 	held_items = list(null, null)
 	var/list/internal_organs		= list()	///List of [/obj/item/organ] in the mob. They don't go in the contents for some reason I don't want to know.
@@ -24,7 +24,7 @@
 	var/obj/item/clothing/head = null
 
 	var/obj/item/clothing/gloves = null ///only used by humans
-	var/obj/item/clothing/shoes = null ///only used by humans.
+	var/obj/item/clothing/shoes/shoes = null ///only used by humans.
 	var/obj/item/clothing/glasses/glasses = null ///only used by humans.
 	var/obj/item/clothing/ears = null ///only used by humans.
 
@@ -69,3 +69,6 @@
 	var/heat_protection = 0 // No heat protection
 	/// Protection (insulation) from the cold, Value 0-1 corresponding to the percentage of protection
 	var/cold_protection = 0 // No cold protection
+
+	/// Timer id of any transformation
+	var/transformation_timer

@@ -8,16 +8,20 @@
 	var/last_parallax_shift //world.time of last update
 	var/parallax_throttle = 0 //ds between updates
 	var/parallax_movedir = 0
-	var/parallax_layers_max = 6
+	var/parallax_layers_max = 7
 	var/parallax_animate_timer
 
-/datum/hud/proc/create_parallax(mob/viewmob)
+/datum/hud/proc/create_parallax(mob/viewmob, forced_parallax = FALSE)
 	var/mob/screenmob = viewmob || mymob
 	var/client/C = screenmob.client
 	if (!apply_parallax_pref(viewmob)) //don't want shit computers to crash when specing someone with insane parallax, so use the viewer's pref
 		return
 
-	if(!length(C.parallax_layers_cached))
+	if(forced_parallax)
+		C.parallax_layers_cached = list()
+		C.parallax_layers_cached += new /obj/screen/parallax_layer/cyberspess(null, C.view)
+		C.parallax_layers_cached += new /obj/screen/parallax_layer/mazespace(null, C.view)
+	else if(!length(C.parallax_layers_cached))
 		C.parallax_layers_cached = list()
 		C.parallax_layers_cached += new SSparallax.random_space(null, C.view)
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_2(null, C.view)
@@ -71,7 +75,7 @@
 		switch(C.prefs.parallax)
 			if (PARALLAX_INSANE)
 				C.parallax_throttle = FALSE
-				C.parallax_layers_max = 6
+				C.parallax_layers_max = 7
 				return TRUE
 
 			if (PARALLAX_MED)
@@ -89,12 +93,12 @@
 
 	//This is high parallax.
 	C.parallax_throttle = PARALLAX_DELAY_DEFAULT
-	C.parallax_layers_max = 6
+	C.parallax_layers_max = 7
 	return TRUE
 
-/datum/hud/proc/update_parallax_pref(mob/viewmob)
+/datum/hud/proc/update_parallax_pref(mob/viewmob, forced_parallax = FALSE)
 	remove_parallax(viewmob)
-	create_parallax(viewmob)
+	create_parallax(viewmob, forced_parallax)
 	update_parallax()
 
 // This sets which way the current shuttle is moving (returns true if the shuttle has stopped moving so the caller can append their animation)
@@ -354,8 +358,11 @@
 	layer = 4
 
 /obj/screen/parallax_layer/planet/update_status(mob/M)
-	var/turf/T = get_turf(M)
-	if(is_station_level(T.z) || (is_station_level(T.z) && T.z == 3))
+	var/client/C = M.client
+	var/turf/posobj = get_turf(C.eye)
+	if(!posobj)
+		return
+	if((SSmapping.config.map_name == "Unit Station" && posobj.z == 2) || (is_station_level(posobj.z) && SSmapping.config.map_name != "Unit Station"))
 		invisibility = 0
 	else
 		invisibility = INVISIBILITY_ABSTRACT
@@ -381,8 +388,11 @@
 	layer = 5
 
 /obj/screen/parallax_layer/ice_surface/update_status(mob/M)
-	var/turf/T = get_turf(M)
-	if(is_centcom_level(T.z) || (is_station_level(T.z) && T.z == 3))
+	var/client/C = M.client
+	var/turf/posobj = get_turf(C.eye)
+	if(!posobj)
+		return
+	if((SSmapping.config.map_name == "Unit Station" && posobj.z == 3) || is_centcom_level(posobj.z))
 		invisibility = 0
 	else
 		invisibility = INVISIBILITY_ABSTRACT
@@ -394,8 +404,24 @@
 	layer = 6
 
 /obj/screen/parallax_layer/clouds/update_status(mob/M)
-	var/turf/T = get_turf(M)
-	if(is_centcom_level(T.z))
+	var/client/C = M.client
+	var/turf/posobj = get_turf(C.eye)
+	if(!posobj)
+		return
+	if((SSmapping.config.map_name == "Unit Station" && posobj.z == 3) || is_centcom_level(posobj.z))
 		invisibility = 0
 	else
 		invisibility = INVISIBILITY_ABSTRACT
+
+/obj/screen/parallax_layer/cyberspess
+	icon_state = "cyberspess"
+	color = "#ff3333"
+	speed = 4
+	layer = 1
+
+/obj/screen/parallax_layer/mazespace
+	icon_state = "mazespace"
+	color = "#ff3333"
+	speed = 16
+	alpha = 75
+	layer = 2

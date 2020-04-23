@@ -9,11 +9,6 @@
 	icon_state = "rockvault"
 	floor_tile = /obj/item/stack/tile/plasteel
 
-/turf/open/floor/vault/russian
-	icon_state = "rockvault"
-	floor_tile = /obj/item/stack/tile/plasteel
-	baseturfs = /turf/open/openspace
-
 //Circuit flooring, glows a little
 /turf/open/floor/circuit
 	icon = 'icons/turf/floors.dmi'
@@ -178,3 +173,10 @@
 	custom_materials = list(/datum/material/plastic=500)
 	floor_tile = /obj/item/stack/tile/plastic
 	broken_states = list("plastic-damaged1","plastic-damaged2")
+
+/turf/open/floor/eighties
+	name = "retro floor"
+	desc = "This one takes you back."
+	icon_state = "eighties"
+	floor_tile = /obj/item/stack/tile/eighties
+	broken_states = list("damaged")

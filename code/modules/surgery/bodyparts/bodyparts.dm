@@ -87,14 +87,16 @@
 		var/mob/living/carbon/human/H = C
 		if(HAS_TRAIT(C, TRAIT_LIMBATTACHMENT))
 			if(!H.get_bodypart(body_zone) && !animal_origin)
+				user.temporarilyRemoveItemFromInventory(src, TRUE)
+				if(!attach_limb(C))
+					to_chat(user, "<span class='warning'>[H]'s body rejects [src]!</span>")
+					forceMove(H.loc)
 				if(H == user)
 					H.visible_message("<span class='warning'>[H] впихивает [src] в себя!</span>",\
 					"<span class='notice'>Впихиваю [src] в себя и оно вроде как стоит как надо!</span>")
 				else
 					H.visible_message("<span class='warning'>[user] впихивает [src] в [H]!</span>",\
 					"<span class='notice'>[user] впихивает в меня [src] и оно вроде стоит как надо!</span>")
-				user.temporarilyRemoveItemFromInventory(src, TRUE)
-				attach_limb(C)
 				return
 	..()
 
@@ -431,8 +433,10 @@
 		if(aux_zone)
 			aux = image(limb.icon, "[aux_zone]", -aux_layer, image_dir)
 			. += aux
+		if(should_draw_white)
+			limb.icon = 'code/shitcode/valtos/icons/android_skins.dmi'
+			limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
 		return
-
 
 	if(should_draw_greyscale)
 		var/draw_color = mutation_color || species_color || (skin_tone && skintone2hex(skin_tone))

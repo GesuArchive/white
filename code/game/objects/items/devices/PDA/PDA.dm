@@ -772,7 +772,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 /obj/item/pda/verb/verb_remove_id()
 	set category = "ОБЪЕКТ"
-	set name = "Eject ID"
+	set name = "Изъять ID"
 	set src in usr
 
 	if(id)
@@ -782,14 +782,14 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 /obj/item/pda/verb/verb_remove_pen()
 	set category = "ОБЪЕКТ"
-	set name = "Remove Pen"
+	set name = "Изъять ручку"
 	set src in usr
 
 	remove_pen(usr)
 
 /obj/item/pda/verb/verb_eject_cart()
 	set category = "ОБЪЕКТ"
-	set name = "Eject Cartridge"
+	set name = "Изъять картридж"
 	set src in usr
 
 	eject_cart(usr)
@@ -924,12 +924,12 @@ GLOBAL_LIST_EMPTY(PDAs)
 		switch(scanmode)
 
 			if(PDA_SCANNER_MEDICAL)
-				C.visible_message("<span class='alert'>[user] has analyzed [C]'s vitals!</span>")
+				C.visible_message("<span class='notice'>[user] analyzes [C]'s vitals.</span>")
 				healthscan(user, C, 1)
 				add_fingerprint(user)
 
 			if(PDA_SCANNER_HALOGEN)
-				C.visible_message("<span class='warning'>[user] has analyzed [C]'s radiation levels!</span>")
+				C.visible_message("<span class='notice'>[user] analyzes [C]'s radiation levels.</span>")
 
 				user.show_message("<span class='notice'>Analyzing Results for [C]:</span>")
 				if(C.radiation)

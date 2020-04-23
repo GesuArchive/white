@@ -40,7 +40,7 @@
 				to_chat(user, "<span class='danger'>You unlock the [src.name]!</span>")
 				return
 		else
-			to_chat(user, "<span class='danger'>Access Denied.</span>")
+			to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
 			return
 	if(!locked)
 		return ..()
@@ -54,7 +54,7 @@
 		desc += "It appears to be broken."
 		icon_state = src.icon_broken
 		if(user)
-			visible_message("<span class='warning'>\The [src] has been broken by [user] with an electromagnetic card!</span>")
+			visible_message("<span class='warning'>\The [src] is broken by [user] with an electromagnetic card!</span>")
 			return
 
 /obj/item/storage/lockbox/Entered()

@@ -73,7 +73,7 @@
 
 // Eject ID card from computer, if it has ID slot with card inside.
 /obj/machinery/modular_computer/proc/eject_id()
-	set name = "Eject ID"
+	set name = "Изъять ID"
 	set category = "ОБЪЕКТ"
 
 	if(cpu)

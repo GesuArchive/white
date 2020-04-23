@@ -292,9 +292,9 @@ Auto Patrol: []"},
 	log_combat(src,C,"stunned")
 	if(declare_arrests)
 		var/area/location = get_area(src)
-		speak("[arrest_type ? "Detaining" : "Arresting"] level [threat] scumbag [C] in [location].", radio_channel)
-	C.visible_message("<span class='danger'>[src] has stunned [C]!</span>",\
-							"<span class='userdanger'>[src] has stunned you!</span>")
+		speak("[arrest_type ? "Detaining" : "Arresting"] level [threat] scumbag <b>[C]</b> in [location].", radio_channel)
+	C.visible_message("<span class='danger'>[src] stuns [C]!</span>",\
+							"<span class='userdanger'>[src] stuns you!</span>")
 
 /mob/living/simple_animal/bot/secbot/handle_automated_action()
 	if(!..())
@@ -428,7 +428,7 @@ Auto Patrol: []"},
 				playsound(src, pick('sound/voice/ed209_20sec.ogg', 'sound/voice/edplaceholder.ogg'), 50, FALSE)
 			else
 				playsound(src, pick('sound/voice/beepsky/criminal.ogg', 'sound/voice/beepsky/justice.ogg', 'sound/voice/beepsky/freeze.ogg'), 50, FALSE)
-			visible_message("<b>[src]</b> points at [C.name]!")
+			visible_message("<b>[capitalize(src)]</b> points at [C.name]!")
 			mode = BOT_HUNT
 			INVOKE_ASYNC(src, .proc/handle_automated_action)
 			break

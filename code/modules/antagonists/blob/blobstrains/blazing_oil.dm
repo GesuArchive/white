@@ -28,7 +28,7 @@
 
 /datum/reagent/blob/blazing_oil
 	name = "Blazing Oil"
-	taste_description = "burning oil"
+	taste_description = "горящее масло"
 	color = "#B68D00"
 
 /datum/reagent/blob/blazing_oil/reaction_mob(mob/living/M, method=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/O)

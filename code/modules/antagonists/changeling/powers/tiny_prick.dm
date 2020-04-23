@@ -20,7 +20,6 @@
 	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
 	changeling.chosen_sting = src
 
-	user.hud_used.lingstingdisplay.icon = icon_icon
 	user.hud_used.lingstingdisplay.icon_state = button_icon_state
 	user.hud_used.lingstingdisplay.invisibility = 0
 
@@ -60,7 +59,7 @@
 		return
 	to_chat(user, "<span class='notice'>We stealthily sting [target.name].</span>")
 	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/changeling))
-		to_chat(target, "<span class='warning'>You feel a tiny prick.</span>")
+		to_chat(target, "<span class='warning'>Чувствую небольшое покалывание.</span>")
 	return 1
 
 

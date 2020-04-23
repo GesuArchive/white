@@ -11,13 +11,6 @@
 /datum/module_picker/New()
 	possible_modules = get_malf_modules()
 
-/// Removes all malfunction-related abilities from the target AI.
-/datum/module_picker/proc/remove_malf_verbs(mob/living/silicon/ai/AI)
-	for(var/datum/AI_Module/AM in possible_modules)
-		for(var/datum/action/A in AI.actions)
-			if(istype(A, initial(AM.power_type)))
-				qdel(A)
-
 /proc/cmp_malfmodules_priority(datum/AI_Module/A, datum/AI_Module/B)
 	return B.cost - A.cost
 
@@ -41,13 +34,13 @@
 									datum/tgui/master_ui = null, datum/ui_state/state = GLOB.always_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
-		ui = new(user, src, ui_key, "malfunction_module_picker", name, ui_x, ui_y, master_ui, state)
+		ui = new(user, src, ui_key, "MalfunctionModulePicker", name, ui_x, ui_y, master_ui, state)
 		ui.open()
 
 /datum/module_picker/ui_data(mob/user)
 	var/list/data = list()
-	data["processing_time"] = processing_time
-	data["compact_mode"] = compact_mode
+	data["processingTime"] = processing_time
+	data["compactMode"] = compact_mode
 	return data
 
 /datum/module_picker/ui_static_data(mob/user)
@@ -130,3 +123,4 @@
 				action.desc = "[initial(action.desc)] It has [action.uses] use\s remaining."
 				action.UpdateButtonIcon()
 	processing_time -= AM.cost
+	SSblackbox.record_feedback("nested tally", "malfunction_modules_bought", 1, list("[initial(AM.name)]", "[AM.cost]"))

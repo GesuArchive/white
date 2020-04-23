@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/open/space/basic,
-/area/space)
+/turf/closed/wall,
+/area/boxplanet/underground/explored)
 "ab" = (
 /turf/template_noop,
 /area/template_noop)
@@ -50,7 +50,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "ak" = (
 /obj/structure/rack,
@@ -134,17 +134,13 @@
 	},
 /turf/closed/wall,
 /area/engine/engineering)
-"aw" = (
-/obj/structure/lattice,
-/turf/open/space,
-/area/space/nearstation)
 "ax" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/door/airlock/external{
 	name = "Engineering External Access";
 	req_access_txt = "10;13"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "ay" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
@@ -153,7 +149,7 @@
 	req_access_txt = "10;13"
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "az" = (
 /obj/machinery/atmospherics/pipe/simple/orange/hidden{
@@ -179,7 +175,7 @@
 	pixel_x = 32
 	},
 /obj/structure/fans/tiny,
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "aC" = (
 /obj/structure/sign/warning/vacuum/external{
@@ -187,7 +183,7 @@
 	},
 /obj/structure/cable,
 /obj/structure/fans/tiny,
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "aD" = (
 /obj/structure/table,
@@ -213,7 +209,7 @@
 	name = "Engineering External Access";
 	req_access_txt = "10;13"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "aF" = (
 /obj/effect/turf_decal/stripes/line{
@@ -240,21 +236,21 @@
 	req_access_txt = "10;13"
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "aI" = (
 /obj/machinery/power/emitter/welded{
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/open/floor/plating/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "aJ" = (
 /obj/machinery/power/emitter/welded{
 	dir = 8
 	},
 /obj/structure/cable,
-/turf/open/floor/plating/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "aK" = (
 /obj/effect/turf_decal/stripes/line{
@@ -304,13 +300,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
-"aQ" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/space/nearstation)
-"aR" = (
-/turf/open/floor/plating/airless,
-/area/space/nearstation)
 "aS" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -322,8 +311,10 @@
 	anchored = 1;
 	state = 2
 	},
+/obj/effect/turf_decal/stripes/box,
+/obj/effect/turf_decal/trimline/yellow,
 /turf/open/floor/plating/airless,
-/area/space)
+/area/engine/engineering)
 "aU" = (
 /obj/structure/sign/warning/electricshock,
 /turf/closed/wall/r_wall,
@@ -408,7 +399,10 @@
 /area/engine/engineering)
 "bj" = (
 /obj/structure/cable,
-/turf/open/floor/plating/airless,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bk" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -423,7 +417,7 @@
 "bm" = (
 /obj/machinery/power/tesla_coil,
 /obj/structure/cable,
-/turf/open/floor/plating/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bn" = (
 /obj/machinery/power/grounding_rod,
@@ -431,7 +425,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/turf/open/floor/plating/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bo" = (
 /obj/structure/cable,
@@ -458,7 +452,7 @@
 	dir = 8
 	},
 /obj/structure/closet/emcloset/anchored,
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bs" = (
 /obj/machinery/power/grounding_rod,
@@ -466,12 +460,12 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/open/floor/plating/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bt" = (
 /obj/machinery/power/rad_collector,
 /obj/structure/cable,
-/turf/open/floor/plating/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bu" = (
 /obj/structure/grille,
@@ -484,12 +478,12 @@
 	network = list("ss13","engine")
 	},
 /obj/structure/cable,
-/turf/open/floor/plating/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bw" = (
 /obj/machinery/light,
 /obj/structure/cable,
-/turf/open/floor/plating/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bx" = (
 /obj/structure/closet/radiation,
@@ -502,7 +496,7 @@
 	network = list("ss13","engine")
 	},
 /obj/structure/cable,
-/turf/open/floor/plating/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bz" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
@@ -538,10 +532,9 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "bE" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/space/basic,
-/area/space)
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
 "bF" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -602,12 +595,16 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "bM" = (
-/turf/open/floor/plating/airless,
-/area/space)
+/obj/effect/light_emitter{
+	set_cap = 1;
+	set_luminosity = 4
+	},
+/turf/open/floor/plating/asteroid/boxplanet/surface,
+/area/boxplanet/surface)
 "bN" = (
 /obj/item/wrench,
-/turf/open/space/basic,
-/area/space)
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
 "bO" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -625,20 +622,26 @@
 /area/engine/engineering)
 "bQ" = (
 /obj/machinery/power/grounding_rod,
-/turf/open/floor/plating/airless,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "bR" = (
 /obj/item/weldingtool,
-/turf/open/space/basic,
-/area/space)
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
 "bS" = (
 /obj/machinery/the_singularitygen/tesla,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
 /turf/open/floor/plating/airless,
-/area/space/nearstation)
+/area/engine/engineering)
 "bT" = (
 /obj/machinery/the_singularitygen,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
 /turf/open/floor/plating/airless,
-/area/space/nearstation)
+/area/engine/engineering)
 "bU" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -650,7 +653,7 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/space)
+/area/engine/engineering)
 "bW" = (
 /obj/structure/particle_accelerator/fuel_chamber,
 /obj/structure/cable,
@@ -658,12 +661,12 @@
 /area/engine/engineering)
 "bX" = (
 /obj/item/wirecutters,
-/turf/open/space/basic,
-/area/space)
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
 "bY" = (
 /obj/item/screwdriver,
-/turf/open/space/basic,
-/area/space)
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
 "bZ" = (
 /obj/structure/cable,
 /turf/open/floor/engine,
@@ -696,15 +699,15 @@
 	c_tag = "Engineering Singularity Northwest";
 	network = list("ss13","engine")
 	},
-/turf/open/space/basic,
-/area/space)
+/turf/open/floor/engine,
+/area/engine/engineering)
 "cf" = (
 /obj/machinery/camera/emp_proof{
 	c_tag = "Engineering Singularity Northeast";
 	network = list("ss13","engine")
 	},
-/turf/open/space/basic,
-/area/space)
+/turf/open/floor/engine,
+/area/engine/engineering)
 "cg" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -724,14 +727,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
-"ci" = (
-/obj/structure/lattice,
-/obj/structure/grille,
-/turf/open/space,
-/area/space/nearstation)
 "cj" = (
-/turf/closed/wall/r_wall,
-/area/space/nearstation)
+/turf/closed/mineral/random/snow/underground,
+/area/boxplanet/underground/explored)
 "ck" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Telecoms Satellite Monitoring";
@@ -746,15 +744,41 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
+"cp" = (
+/obj/structure/cable,
+/obj/machinery/power/floodlight,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
 "du" = (
 /obj/structure/sign/warning/radiation/rad_area,
 /turf/closed/wall/r_wall,
+/area/engine/engineering)
+"hM" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/trimline/yellow,
+/turf/open/floor/plating/airless,
 /area/engine/engineering)
 "py" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
+/area/engine/engineering)
+"rI" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/engine/engineering)
+"xC" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/yellow,
+/turf/open/floor/plating/airless,
 /area/engine/engineering)
 "xH" = (
 /obj/machinery/door/airlock/external{
@@ -767,13 +791,54 @@
 /turf/open/floor/plating/airless,
 /area/engine/engineering)
 "Bx" = (
-/obj/structure/lattice/catwalk,
-/turf/open/space/basic,
-/area/space)
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"GV" = (
+/obj/effect/turf_decal/box,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"Is" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"Jm" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"JX" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/yellow,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
 "OM" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/engine/engineering)
+"Qx" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/yellow,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"RC" = (
+/turf/open/floor/plating/airless,
+/area/boxplanet/underground/explored)
+"Sn" = (
+/turf/open/floor/plating/asteroid/boxplanet/surface,
+/area/boxplanet/surface)
+"Wr" = (
+/turf/closed/wall/r_wall,
+/area/boxplanet/underground/explored)
 "WL" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -786,6 +851,16 @@
 /obj/structure/sign/warning/securearea,
 /turf/closed/wall/r_wall,
 /area/engine/engineering)
+"YP" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating/airless,
+/area/engine/engineering)
+"Zf" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/engine/engineering)
 
 (1,1,1) = {"
 ab
@@ -796,24 +871,24 @@ ab
 ab
 ab
 aa
-aw
-aa
-aa
-aw
-aa
-aa
-aw
-aa
-aa
-aa
-aw
-aQ
 aa
 aa
 aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+Wr
+cj
+cj
+cj
+cj
+cj
+cj
+cj
 "}
 (2,1,1) = {"
 ab
@@ -823,25 +898,25 @@ ab
 ab
 ab
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aw
-aa
-aa
-aa
-aa
-aa
-aa
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+Wr
+cj
+cj
+cj
+cj
+cj
+cj
+cj
 "}
 (3,1,1) = {"
 ab
@@ -851,25 +926,25 @@ ab
 ab
 ab
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ci
-ci
-ci
-aa
-aa
-aa
-aa
+bM
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+bM
+Wr
+cj
+cj
+cj
+cj
+cj
+cj
+cj
 "}
 (4,1,1) = {"
 ab
@@ -879,25 +954,25 @@ ab
 ab
 ab
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ci
+bM
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+bM
+Wr
 cj
-ci
-aa
-aa
-aa
-aa
+cj
+cj
+cj
+cj
+cj
+cj
 "}
 (5,1,1) = {"
 ab
@@ -907,25 +982,25 @@ ab
 ab
 ab
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ci
+bM
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+bM
+Wr
 cj
-ci
-aa
-aa
-aa
-aa
+cj
+cj
+cj
+cj
+cj
+cj
 "}
 (6,1,1) = {"
 ab
@@ -935,25 +1010,25 @@ ab
 ab
 ab
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ci
+bM
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+bM
+Wr
 cj
-ci
-aa
-aa
-aa
-aa
+cj
+cj
+cj
+cj
+cj
+cj
 "}
 (7,1,1) = {"
 ab
@@ -963,25 +1038,25 @@ ab
 ab
 ab
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ci
+bM
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+bM
+Wr
 cj
-ci
-aa
-aa
-aa
-aa
+cj
+cj
+cj
+cj
+cj
+cj
 "}
 (8,1,1) = {"
 ab
@@ -991,25 +1066,25 @@ ab
 ab
 ab
 ab
-aQ
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ci
+bM
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+Sn
+bM
+ad
+ad
+ad
+ad
+ad
 cj
-ci
-aa
-aa
-aa
-aa
+cj
+cj
 "}
 (9,1,1) = {"
 ab
@@ -1019,25 +1094,25 @@ ab
 ab
 ab
 ab
-aR
-aQ
-aa
-aa
-aa
-aa
-aQ
-aa
-aa
-aa
-aa
-aa
-ci
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+xH
+yi
+yi
+yi
+ad
 cj
-ci
-aa
-aw
-aa
-aa
+cj
+cj
 "}
 (10,1,1) = {"
 ab
@@ -1061,11 +1136,11 @@ ad
 aU
 ad
 WN
-aQ
-aQ
-aa
-aa
-aa
+yi
+ad
+cj
+cj
+cj
 "}
 (11,1,1) = {"
 ab
@@ -1089,11 +1164,11 @@ bu
 bu
 bu
 ad
-aa
-aa
-aa
-aa
-aa
+yi
+ad
+cj
+cj
+cj
 "}
 (12,1,1) = {"
 ab
@@ -1103,8 +1178,8 @@ cb
 ax
 aB
 aE
-yi
-yi
+as
+as
 aI
 bm
 bm
@@ -1114,14 +1189,14 @@ bt
 bt
 bt
 aI
-bj
-bj
+bZ
+bZ
 xH
 yi
-aa
-aa
-aa
-aa
+xH
+RC
+cj
+cj
 "}
 (13,1,1) = {"
 ab
@@ -1132,24 +1207,24 @@ du
 ad
 ad
 ce
-aa
-yi
-yi
-yi
-yi
+as
+as
+as
+as
+as
 bQ
-yi
-yi
-yi
-yi
-yi
-bj
+as
+as
+as
+as
+as
+bZ
 ad
 ad
-bu
-aa
-aa
-aa
+ad
+cj
+cj
+cj
 "}
 (14,1,1) = {"
 aP
@@ -1159,25 +1234,25 @@ aY
 aK
 aM
 ad
-aa
-aa
-aQ
-Bx
-Bx
-Bx
-Bx
-Bx
-Bx
-Bx
-aQ
-aa
+aG
+aG
+aG
+aG
+aG
+aG
+aG
+aG
+aG
+aG
+aG
+aG
 bj
 bv
 ad
 bu
-aa
-aa
-aa
+cj
+cj
+cj
 "}
 (15,1,1) = {"
 aS
@@ -1190,22 +1265,22 @@ bz
 bE
 bE
 bE
+cp
 bE
 bE
 bE
 bE
 bE
-bE
-bE
-aQ
-aa
-aQ
-bj
+cp
+yi
+yi
+Zf
+bZ
 ad
 bu
-aa
-aa
-aa
+cj
+cj
+cj
 "}
 (16,1,1) = {"
 aV
@@ -1215,25 +1290,25 @@ aZ
 cb
 ba
 WL
-aa
+yi
 bE
-aQ
-bM
-bM
-aQ
-bM
-aa
-bM
-bM
-aQ
-aa
-aQ
+yi
+yi
+yi
+yi
+yi
+yi
+yi
+yi
+yi
+yi
+Zf
 bw
 ad
 bu
-aQ
-aa
-aa
+cj
+cj
+cj
 "}
 (17,1,1) = {"
 ag
@@ -1246,22 +1321,22 @@ WL
 OM
 bE
 aT
-aa
-aa
+Is
+Is
 aT
-aa
-aa
-aa
-aa
+yi
+yi
+yi
+yi
 aT
-aQ
-aQ
-bj
+yi
+Zf
+bZ
 ad
 du
-aQ
-aa
-aa
+cj
+cj
+cj
 "}
 (18,1,1) = {"
 du
@@ -1273,23 +1348,23 @@ WL
 WL
 OM
 bE
-aa
-aa
-aa
-aQ
-aa
-aa
-aa
+yi
+yi
+yi
+YP
+yi
+yi
+yi
 bY
-aa
-aa
-aa
-bj
+YP
+yi
+Zf
+bZ
 ad
 bu
-aQ
-aa
-aa
+cj
+cj
+cj
 "}
 (19,1,1) = {"
 ad
@@ -1301,23 +1376,23 @@ bd
 bf
 OM
 bE
-aa
-aa
-aa
-aQ
-aa
-aa
-aa
-aa
-aa
-aa
-aQ
-bj
+yi
+yi
+yi
+YP
+yi
+yi
+yi
+yi
+YP
+yi
+Zf
+bZ
 ad
 bu
-aa
-aa
-aa
+cj
+cj
+cj
 "}
 (20,1,1) = {"
 au
@@ -1329,23 +1404,23 @@ bc
 bg
 OM
 bE
-aa
-aa
-aa
-aR
+yi
+yi
+yi
+JX
 bS
-aR
-aQ
-aQ
+xC
+Jm
+Jm
 aT
-aQ
-aQ
-bj
+yi
+Zf
+bZ
 ad
 bu
-aa
-aa
-aa
+cj
+cj
+cj
 "}
 (21,1,1) = {"
 ad
@@ -1357,23 +1432,23 @@ bi
 bC
 OM
 bE
-aa
-aa
+yi
+yi
 bN
-aR
-aR
-aR
-aa
-aa
-aa
-aa
-aQ
+Bx
+GV
+YP
+yi
+yi
+yi
+yi
+Zf
 bw
 ad
 bu
-aa
-aa
-aa
+cj
+cj
+cj
 "}
 (22,1,1) = {"
 af
@@ -1386,22 +1461,22 @@ bg
 OM
 bE
 aT
-aQ
-aQ
-aR
+Is
+Is
+Qx
 bT
-aR
-aa
-aa
-aa
-aa
-aa
-bj
+hM
+yi
+yi
+yi
+yi
+Zf
+bZ
 ad
 bu
-aa
-aa
-aa
+cj
+cj
+cj
 "}
 (23,1,1) = {"
 ad
@@ -1413,23 +1488,23 @@ aG
 bh
 OM
 bE
-aa
-aa
-aa
-aa
-aa
-aQ
+Bx
+yi
+yi
+yi
+yi
+Bx
 bX
-aa
-aa
-aa
-aa
-bj
+yi
+yi
+yi
+Zf
+bZ
 ad
 bu
-aQ
-aa
-aa
+cj
+cj
+cj
 "}
 (24,1,1) = {"
 du
@@ -1441,23 +1516,23 @@ WL
 WL
 OM
 bE
-aa
-aa
-aa
+Bx
+yi
+yi
 bR
-aa
-aQ
-aa
-aa
-aa
-aa
-aa
-bj
+yi
+Bx
+yi
+yi
+yi
+yi
+Zf
+bZ
 ad
 bu
-aQ
-aa
-aa
+cj
+cj
+cj
 "}
 (25,1,1) = {"
 bx
@@ -1470,22 +1545,22 @@ WL
 OM
 bE
 aT
-aa
-aa
-aa
-aa
+yi
+yi
+yi
+yi
 aT
-aa
-aa
+Jm
+Jm
 aT
-aQ
-aQ
-bj
+yi
+Zf
+bZ
 ad
 du
-aQ
-aa
-aa
+cj
+cj
+cj
 "}
 (26,1,1) = {"
 cb
@@ -1495,25 +1570,25 @@ cb
 cb
 ba
 WL
-aa
+yi
 bE
-aQ
-bM
-bM
-aa
-bM
-aQ
-bM
-bM
-aQ
-aa
-aQ
+yi
+yi
+yi
+yi
+yi
+yi
+yi
+yi
+yi
+yi
+Zf
 bw
 ad
 bu
-aQ
-aa
-aa
+cj
+cj
+cj
 "}
 (27,1,1) = {"
 cb
@@ -1526,22 +1601,22 @@ bz
 bE
 bE
 bE
+cp
 bE
 bE
 bE
 bE
 bE
-bE
-bE
-aQ
-aa
-aQ
-bj
+cp
+yi
+yi
+Zf
+bZ
 ad
 bu
-aa
-aa
-aa
+cj
+cj
+cj
 "}
 (28,1,1) = {"
 ae
@@ -1551,25 +1626,25 @@ bq
 py
 be
 ad
-aa
-aa
-aQ
-Bx
-Bx
-Bx
-Bx
-Bx
-Bx
-Bx
-aQ
-aa
-bj
+bd
+bd
+bd
+bd
+bd
+bd
+bd
+bd
+bd
+bd
+bd
+bd
+rI
 by
 ad
 bu
-aa
-aa
-aa
+cj
+cj
+cj
 "}
 (29,1,1) = {"
 aX
@@ -1580,24 +1655,24 @@ du
 ad
 ad
 cf
-aa
-yi
-yi
-yi
-yi
+as
+as
+as
+as
+as
 bQ
-yi
-yi
-yi
-yi
-yi
-bj
+as
+as
+as
+as
+as
+bZ
 ad
 ad
 bu
-aa
-aa
-aa
+cj
+cj
+cj
 "}
 (30,1,1) = {"
 ab
@@ -1607,8 +1682,8 @@ co
 ay
 aC
 aH
-bj
-bj
+bZ
+bZ
 aJ
 bm
 bm
@@ -1618,14 +1693,14 @@ bt
 bt
 bt
 aJ
-bj
-bj
+bZ
+bZ
 xH
 yi
-aa
-aa
-aa
-aa
+cj
+cj
+cj
+cj
 "}
 (31,1,1) = {"
 ab
@@ -1649,11 +1724,11 @@ bu
 bu
 bu
 ad
-aQ
-aa
-aa
-aa
-aa
+cj
+cj
+cj
+cj
+cj
 "}
 (32,1,1) = {"
 ab
@@ -1677,9 +1752,9 @@ ad
 aU
 ad
 WN
-aQ
-aQ
-aQ
-aa
-aa
+cj
+cj
+cj
+cj
+cj
 "}

@@ -395,9 +395,9 @@
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/medical_rig
 
 /obj/item/clothing/glasses/hud/wzzzz/hacker_rig
-	name = "hacker googless"
-	desc = "Do you deserve that?"
-	alt_desc = "Do you deserve that?"
+	name = "хакочки"
+	desc = "А ты заслуживаешь это?"
+	alt_desc = "Глупая свинья."
 	icon_state = "hardsuit1-hacker_rig"
 	item_state = "hardsuit1-hacker_rig"
 	darkness_view = 10
@@ -406,7 +406,7 @@
 	flash_protect = 3
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
-	hud_type = DATA_HUD_DIAGNOSTIC_BASIC | DATA_HUD_SECURITY_ADVANCED | 2 | 5 | DATA_HUD_DIAGNOSTIC_BASIC
+	hud_type = DATA_HUD_SECURITY_ADVANCED | DATA_HUD_SECURITY_ADVANCED | DATA_HUD_SECURITY_ADVANCED | DATA_HUD_HACKER
 	vision_flags = SEE_MOBS | SEE_TURFS
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 	hud_trait = TRAIT_SECURITY_HUD
@@ -427,22 +427,20 @@
     //        DHUD.remove_hud_from(user)
 
 /obj/item/clothing/suit/space/wzzzz/hacker_rig
-	name = "hacker suit"
-	desc = "Do you deserve this hardsuit?"
-	alt_desc = "Do you deserve this hardsuit?"
+	name = "интересный костюм"
+	desc = "А ты заслуживаешь этот костюм?"
+	alt_desc = "Глупая свинья."
 	icon_state = "hardsuit0-hacker_rig"
 	clothing_flags = STOPSPRESSUREDAMAGE
 	item_state = "hardsuit0-hacker_rig"
-	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
+	resistance_flags = INDESTRUCTIBLE
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
 	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
-	armor = list("melee" = 60, "bullet" = 50, "laser" = 100,"energy" = 100, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 50, "acid" = 50)
-
-
-
-
-
+	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+	slowdown = -1
+	color = "#00ffff"
+	strip_delay = 1300
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_engineer_rig
 	name = "ert engineer hardsuit helmet"
@@ -1199,7 +1197,7 @@
 		/obj/item/kitchen/knife/wzzzz/german = 1.#INF,
 		/obj/item/restraints/legcuffs/bola/tactical = 1.#INF,
 		/obj/item/restraints/legcuffs/bola = 1.#INF,
-		/obj/item/twohanded/required/chainsaw = 1.#INF,
+		/obj/item/chainsaw = 1.#INF,
 		/obj/item/storage/belt/bandolier = 1.#INF,
 		/obj/item/storage/backpack/fireproof = 1.#INF,
 		/obj/item/clothing/shoes/jackboots = 1.#INF,
@@ -1220,9 +1218,9 @@
 		/obj/item/stack/rods/twentyfive = 1.#INF,
 		/obj/item/gun/ballistic/crossbow = 1.#INF,
 		/obj/item/grenade/iedcasing = 1.#INF,
-		/obj/item/grenade/syndieminibomb/concussion/frag = 1.#INF,
+		/obj/item/grenade/frag/mega = 1.#INF,
 		/obj/item/grenade/c4/x4 = 1.#INF,
-		/obj/item/twohanded/spear = 1.#INF,
+		/obj/item/spear = 1.#INF,
 		/obj/item/gun/ballistic/automatic/wt550/wzzzz/german = 1.#INF,
 		/obj/item/gun/ballistic/shotgun/doublebarrel = 1.#INF,
 		/obj/item/ammo_casing/caseless/rocket = 1.#INF,
@@ -1234,7 +1232,7 @@
 		/obj/item/storage/box/lethalshot = 1.#INF,
 		/obj/item/ammo_box/magazine/m12g = 1.#INF,
 		/obj/item/gun/ballistic/shotgun/bulldog/unrestricted = 1.#INF,
-		/obj/item/twohanded/spear/explosive/wzzzz = 1.#INF,
+		/obj/item/spear/explosive/wzzzz = 1.#INF,
 		/obj/item/gun/ballistic/automatic/tommygun = 1.#INF,
 		/obj/item/ammo_box/magazine/tommygunm45 = 1.#INF,
 		/obj/item/gun/ballistic/shotgun/lethal = 1.#INF,
@@ -1308,7 +1306,7 @@
 		/obj/item/shovel = 1.#INF,
 		/obj/item/shovel/serrated = 1.#INF,
 		/obj/item/pickaxe = 1.#INF,
-		/obj/item/twohanded/fireaxe = 1.#INF,
+		/obj/item/fireaxe = 1.#INF,
 		/obj/item/melee/sabre/wzzzz/german = 1.#INF,
 		/obj/item/melee/wzzzz/club = 1.#INF,
 		/obj/item/melee/classic_baton/wzzzz/german = 1.#INF,
@@ -1378,8 +1376,8 @@
 /obj/item/reagent_containers/food/drinks/bottle/molotov/wzzzz
 	reagents = list(/datum/reagent/napalm = 100)
 
-/obj/item/twohanded/spear/explosive/wzzzz
-	explosive = /obj/item/grenade/syndieminibomb/concussion/frag
+/obj/item/spear/explosive/wzzzz
+	explosive = /obj/item/grenade/frag/mega
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/null
 	name = "hardsuit helmet"
@@ -1436,7 +1434,7 @@
 
 /obj/item/kitchen/knife/butcher/free
 	custom_price = 0
-	
+
 /obj/item/lighter/greyscale/free
 	custom_price = 0
 

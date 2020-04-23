@@ -1,18 +1,18 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space)
 "ab" = (
 /turf/template_noop,
 /area/template_noop)
 "ac" = (
 /obj/structure/lattice/catwalk,
-/turf/open/space,
-/area/space/nearstation)
+/turf/template_noop,
+/area/boxplanet/underground/explored)
 "ad" = (
 /obj/structure/lattice,
-/turf/open/space,
-/area/space/nearstation)
+/turf/template_noop,
+/area/boxplanet/underground/explored)
 "ae" = (
 /turf/closed/wall/r_wall,
 /area/security/prison)
@@ -311,8 +311,8 @@
 /obj/structure/sign/warning/securearea{
 	pixel_y = -32
 	},
-/turf/open/space,
-/area/space/nearstation)
+/turf/template_noop,
+/area/boxplanet/underground/explored)
 "aL" = (
 /obj/machinery/door/window/westleft{
 	dir = 4;
@@ -491,12 +491,12 @@
 "bc" = (
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/open/space,
-/area/space/nearstation)
+/turf/template_noop,
+/area/boxplanet/underground/explored)
 "bd" = (
 /obj/structure/grille,
-/turf/open/space,
-/area/space/nearstation)
+/turf/template_noop,
+/area/boxplanet/underground/explored)
 "be" = (
 /turf/closed/wall/r_wall,
 /area/security/main)
@@ -905,8 +905,8 @@
 	pixel_y = -32
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/space,
-/area/space/nearstation)
+/turf/template_noop,
+/area/boxplanet/underground/explored)
 "bW" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -2431,7 +2431,7 @@
 	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
 	width = 3
 	},
-/turf/open/space/basic,
+/turf/open/openspace,
 /area/space)
 "eI" = (
 /obj/docking_port/stationary/random{
@@ -2439,8 +2439,8 @@
 	id = "pod_lavaland3";
 	name = "lavaland"
 	},
-/turf/open/space,
-/area/space/nearstation)
+/turf/open/openspace,
+/area/boxplanet/underground/explored)
 "eJ" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable,
@@ -3445,6 +3445,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/security/prison)
+"hb" = (
+/obj/structure/lattice/catwalk,
+/turf/open/openspace/boxplanet/caves,
+/area/boxplanet/underground/explored)
 "hf" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -3822,8 +3826,19 @@
 /obj/effect/landmark/start/prisoner,
 /turf/open/floor/plasteel,
 /area/security/prison)
+"CI" = (
+/obj/structure/lattice,
+/turf/open/openspace/boxplanet/caves,
+/area/boxplanet/underground/explored)
 
 (1,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -3896,8 +3911,22 @@ ab
 ab
 ab
 ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (3,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -3970,8 +3999,22 @@ ab
 ab
 ab
 ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (5,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4044,6 +4087,13 @@ ab
 ab
 ab
 ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (7,1,1) = {"
 ab
@@ -4061,12 +4111,19 @@ ab
 ab
 ab
 ab
-ad
-ad
 ab
-ad
-ad
-ad
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4098,16 +4155,23 @@ ab
 ab
 ab
 ab
-ae
-ae
-ae
-ae
-ak
-ak
-ae
-ae
-ad
-ad
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4134,7 +4198,410 @@ ab
 ab
 ab
 ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+"}
+(10,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+"}
+(11,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+"}
+(12,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+"}
+(13,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+"}
+(14,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+"}
+(15,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+"}
+(16,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ad
+ad
+ab
+CI
+CI
+CI
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+"}
+(17,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ae
+ae
+ae
+ae
+ak
+ak
+ae
+ae
+ad
+ad
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+"}
+(18,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+CI
 ae
 bZ
 cC
@@ -4156,7 +4623,7 @@ ab
 ab
 ab
 "}
-(10,1,1) = {"
+(19,1,1) = {"
 ab
 ab
 ab
@@ -4168,10 +4635,17 @@ ab
 ab
 ab
 ab
-ac
-ad
-ad
-ad
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+hb
+CI
+CI
+CI
 ak
 lT
 ay
@@ -4193,7 +4667,14 @@ iz
 iz
 ab
 "}
-(11,1,1) = {"
+(20,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4230,7 +4711,14 @@ df
 dh
 iz
 "}
-(12,1,1) = {"
+(21,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4267,7 +4755,14 @@ am
 di
 iz
 "}
-(13,1,1) = {"
+(22,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4304,7 +4799,7 @@ dg
 dr
 iz
 "}
-(14,1,1) = {"
+(23,1,1) = {"
 ab
 ab
 ab
@@ -4315,11 +4810,18 @@ ab
 ab
 ab
 ab
-ac
-ad
-ad
-ad
-ad
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+hb
+CI
+CI
+CI
+CI
 ak
 ah
 cF
@@ -4341,7 +4843,14 @@ fw
 iz
 iz
 "}
-(15,1,1) = {"
+(24,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4378,7 +4887,14 @@ jd
 js
 ab
 "}
-(16,1,1) = {"
+(25,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4415,7 +4931,7 @@ iO
 js
 ab
 "}
-(17,1,1) = {"
+(26,1,1) = {"
 ab
 ab
 ab
@@ -4430,7 +4946,14 @@ ab
 ab
 ab
 ab
-ad
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+CI
 ae
 ce
 cH
@@ -4452,7 +4975,7 @@ je
 js
 ab
 "}
-(18,1,1) = {"
+(27,1,1) = {"
 ab
 ab
 ab
@@ -4462,12 +4985,19 @@ ab
 ab
 ab
 ab
-ac
-ad
-ad
-ad
-ad
-ad
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+hb
+CI
+CI
+CI
+CI
+CI
 ak
 lT
 af
@@ -4489,7 +5019,7 @@ fw
 iz
 ab
 "}
-(19,1,1) = {"
+(28,1,1) = {"
 ab
 ab
 ab
@@ -4504,7 +5034,14 @@ ab
 ab
 ab
 ab
-ad
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+CI
 ae
 ai
 cD
@@ -4526,7 +5063,14 @@ am
 iz
 ab
 "}
-(20,1,1) = {"
+(29,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4563,7 +5107,14 @@ an
 iz
 ab
 "}
-(21,1,1) = {"
+(30,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4600,7 +5151,14 @@ am
 iz
 ab
 "}
-(22,1,1) = {"
+(31,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4637,7 +5195,14 @@ fw
 iz
 ab
 "}
-(23,1,1) = {"
+(32,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4674,7 +5239,14 @@ jh
 js
 ab
 "}
-(24,1,1) = {"
+(33,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4711,7 +5283,14 @@ iO
 js
 ab
 "}
-(25,1,1) = {"
+(34,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4748,7 +5327,14 @@ ji
 js
 ab
 "}
-(26,1,1) = {"
+(35,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4785,7 +5371,14 @@ fw
 iz
 ab
 "}
-(27,1,1) = {"
+(36,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4822,7 +5415,14 @@ jj
 jt
 ab
 "}
-(28,1,1) = {"
+(37,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4859,7 +5459,14 @@ jk
 ju
 ab
 "}
-(29,1,1) = {"
+(38,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4896,7 +5503,14 @@ jl
 jv
 ab
 "}
-(30,1,1) = {"
+(39,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4933,7 +5547,14 @@ go
 gr
 ab
 "}
-(31,1,1) = {"
+(40,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -4970,7 +5591,14 @@ iH
 iH
 ab
 "}
-(32,1,1) = {"
+(41,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5007,7 +5635,14 @@ gq
 gs
 ab
 "}
-(33,1,1) = {"
+(42,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5044,7 +5679,14 @@ fw
 iz
 ab
 "}
-(34,1,1) = {"
+(43,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5081,7 +5723,14 @@ iX
 iz
 ab
 "}
-(35,1,1) = {"
+(44,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5118,7 +5767,14 @@ jn
 iz
 ab
 "}
-(36,1,1) = {"
+(45,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5155,7 +5811,14 @@ jo
 iz
 ab
 "}
-(37,1,1) = {"
+(46,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5192,7 +5855,14 @@ ab
 ab
 ab
 "}
-(38,1,1) = {"
+(47,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5229,7 +5899,14 @@ ab
 ab
 ab
 "}
-(39,1,1) = {"
+(48,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5266,7 +5943,14 @@ ab
 ab
 ab
 "}
-(40,1,1) = {"
+(49,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5303,7 +5987,14 @@ ab
 ab
 ab
 "}
-(41,1,1) = {"
+(50,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5340,7 +6031,14 @@ ab
 ab
 ab
 "}
-(42,1,1) = {"
+(51,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5377,7 +6075,14 @@ ab
 ab
 ab
 "}
-(43,1,1) = {"
+(52,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5414,7 +6119,14 @@ ab
 ab
 ab
 "}
-(44,1,1) = {"
+(53,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5451,7 +6163,14 @@ ab
 ab
 ab
 "}
-(45,1,1) = {"
+(54,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5488,7 +6207,14 @@ ab
 ab
 ab
 "}
-(46,1,1) = {"
+(55,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5525,7 +6251,14 @@ ab
 ab
 ab
 "}
-(47,1,1) = {"
+(56,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5562,7 +6295,14 @@ ab
 ab
 ab
 "}
-(48,1,1) = {"
+(57,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5599,7 +6339,14 @@ ab
 ab
 ab
 "}
-(49,1,1) = {"
+(58,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5636,7 +6383,14 @@ ab
 ab
 ab
 "}
-(50,1,1) = {"
+(59,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -5673,7 +6427,7 @@ ab
 ab
 ab
 "}
-(51,1,1) = {"
+(60,1,1) = {"
 ab
 ab
 ab
@@ -5681,36 +6435,6 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-aa
-aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-"}
-(52,1,1) = {"
 ab
 ab
 ab
@@ -5747,7 +6471,58 @@ ab
 ab
 ab
 "}
-(53,1,1) = {"
+(61,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+"}
+(62,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab

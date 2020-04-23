@@ -32,33 +32,33 @@
 		if((organ_flags & ORGAN_FAILING))
 			switch(s_type)
 				if("int")
-					M.dstats[MOB_INT] = M.bstats[MOB_INT] - 15
+					M.current_fate[MOB_INT] = -4
 				if("str")
-					M.dstats[MOB_STR] = M.bstats[MOB_STR] - 15
+					M.current_fate[MOB_STR] = -4
 				if("stm")
-					M.dstats[MOB_STM] = M.bstats[MOB_STM] - 15
+					M.current_fate[MOB_STM] = -4
 				if("dex")
-					M.dstats[MOB_DEX] = M.bstats[MOB_DEX] - 15
+					M.current_fate[MOB_DEX] = -4
 		else
 			switch(s_type)
 				if("int")
-					M.dstats[MOB_INT] = M.bstats[MOB_INT]
+					M.current_fate[MOB_INT] = M.base_fate[MOB_INT]
 				if("str")
-					M.dstats[MOB_STR] = M.bstats[MOB_STR]
+					M.current_fate[MOB_STR] = M.base_fate[MOB_STR]
 				if("stm")
-					M.dstats[MOB_STM] = M.bstats[MOB_STM]
+					M.current_fate[MOB_STM] = M.base_fate[MOB_STM]
 				if("dex")
-					M.dstats[MOB_DEX] = M.bstats[MOB_DEX]
+					M.current_fate[MOB_DEX] = M.base_fate[MOB_DEX]
 	else
 		switch(s_type)
 			if("int")
-				M.dstats[MOB_INT] = M.bstats[MOB_INT] + 15
+				M.current_fate[MOB_INT] = 4
 			if("str")
-				M.dstats[MOB_STR] = M.bstats[MOB_STR] + 15
+				M.current_fate[MOB_STR] = 4
 			if("stm")
-				M.dstats[MOB_STM] = M.bstats[MOB_STM] + 15
+				M.current_fate[MOB_STM] = 4
 			if("dex")
-				M.dstats[MOB_DEX] = M.bstats[MOB_DEX] + 15
+				M.current_fate[MOB_DEX] = 4
 	M.recalculate_stats()
 	return
 
@@ -66,29 +66,29 @@
 	. = ..()
 	switch(s_type)
 		if("int")
-			M.dstats[MOB_INT] = M.bstats[MOB_INT]
+			M.current_fate[MOB_INT] = M.base_fate[MOB_INT]
 		if("str")
-			M.dstats[MOB_STR] = M.bstats[MOB_STR]
+			M.current_fate[MOB_STR] = M.base_fate[MOB_STR]
 		if("stm")
-			M.dstats[MOB_STM] = M.bstats[MOB_STM]
+			M.current_fate[MOB_STM] = M.base_fate[MOB_STM]
 		if("dex")
-			M.dstats[MOB_DEX] = M.bstats[MOB_DEX]
+			M.current_fate[MOB_DEX] = M.base_fate[MOB_DEX]
 	M.recalculate_stats()
 
 /obj/item/organ/cyberimp/brain/stats/Insert(mob/living/carbon/human/M)
 	. = ..()
 	switch(s_type)
 		if("int")
-			M.dstats[MOB_INT] = M.bstats[MOB_INT] + 15
+			M.current_fate[MOB_INT] = 4
 			to_chat(M, "<span class='notice'>Мои мозги работают быстрее!</span>")
 		if("str")
-			M.dstats[MOB_STR] = M.bstats[MOB_STR] + 15
+			M.current_fate[MOB_STR] = 4
 			to_chat(M, "<span class='notice'><b>Я ОЩУЩАЮ СИЛУ!</b></span>")
 		if("stm")
-			M.dstats[MOB_STM] = M.bstats[MOB_STM] + 15
+			M.current_fate[MOB_STM] = 4
 			to_chat(M, "<span class='notice'>Моя кожа каменеет, а кровь начинает кипеть!</span>")
 		if("dex")
-			M.dstats[MOB_DEX] = M.bstats[MOB_DEX] + 15
+			M.current_fate[MOB_DEX] = 4
 			to_chat(M, "<span class='notice'>Я чувствую, что могу дотрогнуться локтём до носа!</span>")
 	M.recalculate_stats()
 

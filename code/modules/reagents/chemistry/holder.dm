@@ -844,7 +844,13 @@
 
 	return FALSE
 
-/// Check if this holder contains this reagent
+
+/*
+Check if this holder contains this reagent.
+Reagent takes a PATH to a reagent.
+Amount checks for having a specific amount of that chemical.
+Needs matabolizing takes into consideration if the chemical is matabolizing when it's checked.
+*/
 /datum/reagents/proc/has_reagent(reagent, amount = -1, needs_metabolizing = FALSE)
 	var/list/cached_reagents = reagent_list
 	for(var/_reagent in cached_reagents)
@@ -989,17 +995,17 @@
 				var/percent = tastes[taste_desc]/total_taste * 100
 				if(percent < minimum_percent)
 					continue
-				var/intensity_desc = "a hint of"
+				var/intensity_desc = "намек на"
 				if(percent > minimum_percent * 2 || percent == 100)
 					intensity_desc = ""
 				else if(percent > minimum_percent * 3)
-					intensity_desc = "the strong flavor of"
+					intensity_desc = "сильный аромат"
 				if(intensity_desc != "")
 					out += "[intensity_desc] [taste_desc]"
 				else
 					out += "[taste_desc]"
 
-	return english_list(out, "something indescribable")
+	return english_list(out, "что-то неописуемое")
 
 /// Applies heat to this holder
 /datum/reagents/proc/expose_temperature(temperature, coeff=0.02)

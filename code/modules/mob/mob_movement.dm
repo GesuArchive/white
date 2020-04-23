@@ -150,6 +150,11 @@
 	if(P && !ismob(P) && P.density)
 		mob.setDir(turn(mob.dir, 180))
 
+	if(GLOB.chat_bubbles)
+		for(var/obj/effect/chat_text/CT in mob.stored_chat_text)
+			CT.glide_size = mob.glide_size
+			CT.forceMove(mob.loc)
+
 /**
   * Checks to see if you're being grabbed and if so attempts to break it
   *
@@ -267,7 +272,7 @@
   * You can move in space if you have a spacewalk ability
   */
 /mob/Process_Spacemove(movement_dir = 0)
-	if(spacewalk || ..())
+	if(HAS_TRAIT(src, TRAIT_SPACEWALK) || ..())
 		return TRUE
 	var/atom/movable/backup = get_spacemove_backup()
 	if(backup)
@@ -328,9 +333,9 @@
 /mob/proc/update_gravity(has_gravity, override=FALSE)
 	var/speed_change = max(0, has_gravity - STANDARD_GRAVITY)
 	if(!speed_change)
-		remove_movespeed_modifier(MOVESPEED_ID_MOB_GRAVITY, update=TRUE)
+		remove_movespeed_modifier(/datum/movespeed_modifier/gravity)
 	else
-		add_movespeed_modifier(MOVESPEED_ID_MOB_GRAVITY, update=TRUE, priority=100, override=TRUE, multiplicative_slowdown=speed_change, blacklisted_movetypes=FLOATING)
+		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/gravity, multiplicative_slowdown=speed_change)
 
 //bodypart selection verbs - Cyberboss
 //8:repeated presses toggles through head - eyes - mouth
@@ -455,32 +460,37 @@
 
 ///Moves a mob upwards in z level
 /mob/verb/up()
-	set name = "Move Upwards"
+	set name = "Выше"
 	set category = "IC"
 
 	if(zMove(UP, TRUE))
-		to_chat(src, "<span class='notice'>You move upwards.</span>")
+		to_chat(src, "<span class='notice'>Поднимаюсь.</span>")
 
 ///Moves a mob down a z level
 /mob/verb/down()
-	set name = "Move Down"
+	set name = "Ниже"
 	set category = "IC"
 
 	if(zMove(DOWN, TRUE))
-		to_chat(src, "<span class='notice'>You move down.</span>")
+		to_chat(src, "<span class='notice'>Опускаюсь.</span>")
 
 ///Move a mob between z levels, if it's valid to move z's on this turf
 /mob/proc/zMove(dir, feedback = FALSE)
 	if(dir != UP && dir != DOWN)
 		return FALSE
 	var/turf/target = get_step_multiz(src, dir)
+	if(isliving(src))
+		if(!(movement_type & FLYING))
+			if(feedback)
+				to_chat(src, "<span class='warning'>Я не в состоянии летать!</span>")
+			return FALSE
 	if(!target)
 		if(feedback)
-			to_chat(src, "<span class='warning'>There's nothing in that direction!</span>")
+			to_chat(src, "<span class='warning'>ПОТОЛОК!</span>")
 		return FALSE
 	if(!canZMove(dir, target))
 		if(feedback)
-			to_chat(src, "<span class='warning'>You couldn't move there!</span>")
+			to_chat(src, "<span class='warning'>Не могу!</span>")
 		return FALSE
 	forceMove(target)
 	return TRUE

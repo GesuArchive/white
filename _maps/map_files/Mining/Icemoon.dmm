@@ -2242,7 +2242,7 @@
 /turf/open/floor/plasteel,
 /area/mine/laborcamp)
 "mL" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-10"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2403,7 +2403,7 @@
 /area/mine/laborcamp)
 "pi" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/machinery/camera{
@@ -3146,7 +3146,7 @@
 /turf/open/floor/plasteel/dark,
 /area/mine/laborcamp)
 "Gn" = (
-/obj/item/twohanded/required/kirbyplants/random,
+/obj/item/kirbyplants/random,
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
 "Gp" = (
@@ -3351,7 +3351,7 @@
 /turf/open/floor/plasteel,
 /area/mine/laborcamp)
 "Lg" = (
-/obj/item/twohanded/required/kirbyplants/random,
+/obj/item/kirbyplants/random,
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
@@ -3394,7 +3394,7 @@
 /area/mine/eva)
 "LU" = (
 /obj/structure/table,
-/obj/machinery/computer/libraryconsole/bookmanagement,
+/obj/machinery/computer/bookmanagement,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/mine/laborcamp)

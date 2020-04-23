@@ -28,7 +28,7 @@ mob/living/carbon/alien/humanoid/royal/queen/tamed
 		..()
 
 /mob/living/carbon/alien/humanoid/royal/queen/tamed/canUseTopic(atom/movable/M, be_close=FALSE, no_dextery=FALSE)
-	if(incapacitated() || lying )
+	if(incapacitated() || !(mobility_flags & MOBILITY_STAND) )
 		to_chat(src, "<span class='warning'>You can't do that right now!</span>")
 		return FALSE
 	if(!Adjacent(M) && (M.loc != src))

@@ -78,7 +78,7 @@ interface with the mining shuttle at the landing site if a mobile beacon is also
 	usr.set_machine(src)
 	add_fingerprint(usr)
 	if(!allowed(usr))
-		to_chat(usr, "<span class='danger'>Access denied.</span>")
+		to_chat(usr, "<span class='danger'>Доступ запрещён.</span>")
 		return
 
 	if(href_list["move"])
@@ -157,7 +157,7 @@ interface with the mining shuttle at the landing site if a mobile beacon is also
 			var/turf/place = colony_turfs[i]
 			if(!place)
 				return BAD_COORDS
-			if(!istype(place.loc, /area/lavaland/surface))
+			if(!istype(place.loc, /area/lavaland/surface) && !istype(place.loc, /area/icemoon/surface))
 				return BAD_AREA
 			if(disallowed_turf_types[place.type])
 				return BAD_TURF

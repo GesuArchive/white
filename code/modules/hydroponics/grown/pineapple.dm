@@ -31,5 +31,5 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = FRUIT | PINEAPPLE
 	juice_results = list(/datum/reagent/consumable/pineapplejuice = 0)
-	tastes = list("pineapple" = 1)
+	tastes = list("ананас" = 1)
 	wine_power = 40

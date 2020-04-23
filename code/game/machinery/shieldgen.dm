@@ -189,7 +189,7 @@
 		else if(obj_flags & EMAGGED)
 			to_chat(user, "<span class='danger'>Error, access controller damaged!</span>")
 		else
-			to_chat(user, "<span class='danger'>Access denied.</span>")
+			to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
 
 	else
 		return ..()
@@ -352,7 +352,7 @@
 		else if(obj_flags & EMAGGED)
 			to_chat(user, "<span class='danger'>Error, access controller damaged!</span>")
 		else
-			to_chat(user, "<span class='danger'>Access denied.</span>")
+			to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
 
 	else
 		add_fingerprint(user)

@@ -340,7 +340,7 @@
 /obj/machinery/light/update_overlays()
 	. = ..()
 	if(on && status == LIGHT_OK)
-		var/mutable_appearance/glowybit = mutable_appearance(overlayicon, base_state, ABOVE_LIGHTING_LAYER, ABOVE_LIGHTING_PLANE)
+		var/mutable_appearance/glowybit = mutable_appearance(overlayicon, base_state, layer, EMISSIVE_PLANE)
 		glowybit.alpha = clamp(light_power*250, 30, 200)
 		. += glowybit
 
@@ -644,8 +644,12 @@
 		if(istype(H))
 			var/datum/species/ethereal/eth_species = H.dna?.species
 			if(istype(eth_species))
+				var/datum/species/ethereal/E = H.dna.species
+				if(E.drain_time > world.time)
+					return
 				to_chat(H, "<span class='notice'>You start channeling some power through the [fitting] into your body.</span>")
-				if(do_after(user, 50, target = src))
+				E.drain_time = world.time + 30
+				if(do_after(user, 30, target = src))
 					var/obj/item/organ/stomach/ethereal/stomach = H.getorganslot(ORGAN_SLOT_STOMACH)
 					if(istype(stomach))
 						to_chat(H, "<span class='notice'>You receive some charge from the [fitting].</span>")

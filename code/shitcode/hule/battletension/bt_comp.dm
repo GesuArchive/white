@@ -4,6 +4,10 @@
 #define MORTAL "mortal"
 #define NAZIST "nazist"
 
+/area
+	var/area_tension = 0
+	var/forced_area_tension = FALSE
+
 PROCESSING_SUBSYSTEM_DEF(btension)
 	name = "Battle Tension"
 	priority = 15
@@ -45,8 +49,17 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		pick_sound()
 		return
 
-	if(SSbtension.forced_tension && tension <= 50)
-		tension = 50
+	var/area/AR = get_area(owner)
+
+	if(AR.area_tension || AR.forced_area_tension)
+		if(tension < AR.area_tension)
+			tension += 3
+		if(prob(30) && !AR.forced_area_tension)
+			AR.area_tension--
+			if(AR.area_tension > 30)
+				AR.area_tension = 30
+	else if((HAS_TRAIT(owner, TRAIT_HACKER) || SSbtension.forced_tension) && tension <= 20)
+		tension += 3
 
 	if(tension <= 0 && bm)
 		bm.volume = 0
@@ -58,7 +71,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		tension--
 
 	if(bm)
-		bm.volume = tension
+		bm.volume = min(tension, owner.client.prefs.btvolume)
 		bm.status = SOUND_UPDATE
 		SEND_SOUND(owner, bm)
 
@@ -70,6 +83,11 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 			tension = 80
 
 /datum/component/battletension/proc/bulletact_react(datum/source, obj/projectile/P, def_zone)
+
+	var/area/AR = get_area(P)
+
+	AR.area_tension += P.damage
+
 	create_tension(P.damage)
 
 	if(!P.firer || P.firer == owner)
@@ -82,6 +100,11 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 
 /datum/component/battletension/proc/attackby_react(datum/source, obj/item/I, mob/user)
+
+	var/area/AR = get_area(user)
+
+	AR.area_tension += I.force * 1.2
+
 	create_tension(I.force * 1.2)
 
 	if(!user || user == owner)
@@ -147,11 +170,14 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	if(!owner || !owner.client || !owner.client.prefs)
 		return
 
+	if(owner.client.prefs.btvolume == null)
+		owner.client.prefs.btvolume = 50
+
 	var/list/result = list()
 	var/list/genres = owner.client.prefs.btprefsnew
 
-	var/list/bm_prikol = list('cfg/battle_music/prikol/Battlefield.ogg', 'cfg/battle_music/prikol/gladiator.ogg', 'cfg/battle_music/prikol/Ketchup.ogg')
-	var/list/bm_techno = list('cfg/battle_music/techno/03 NARC.ogg', 'cfg/battle_music/techno/Acid-Notation - The Yanderes Puppet Show.ogg', 'cfg/battle_music/techno/Carpenter Brut - Roller Mobster.ogg', 'cfg/battle_music/techno/M O O N - Hydrogen.ogg', 'cfg/battle_music/techno/Protector 101 - Hardware.ogg', 'cfg/battle_music/techno/Street Cleaner - Murdercycle.ogg', 'cfg/battle_music/techno/Umwelt - Faceless Power.ogg')
+	var/list/bm_prikol = list('cfg/battle_music/prikol/Battlefield.ogg', 'cfg/battle_music/prikol/gladiator.ogg', 'cfg/battle_music/prikol/Ketchup.ogg', 'cfg/battle_music/prikol/HIJACKED_GOVNOVOZ.ogg')
+	var/list/bm_techno = list('cfg/battle_music/techno/03 NARC.ogg', 'cfg/battle_music/techno/Acid-Notation - The Yanderes Puppet Show.ogg', 'cfg/battle_music/techno/Carpenter Brut - Roller Mobster.ogg', 'cfg/battle_music/techno/M O O N - Hydrogen.ogg', 'cfg/battle_music/techno/Protector 101 - Hardware.ogg', 'cfg/battle_music/techno/Street Cleaner - Murdercycle.ogg', 'cfg/battle_music/techno/Umwelt - Faceless Power.ogg', 'cfg/battle_music/techno/Overpass.ogg')
 	var/list/bm_touhou = list('cfg/battle_music/touhou/80sspark.ogg', 'cfg/battle_music/touhou/badapple.ogg', 'cfg/battle_music/touhou/Galaxy Collapse.ogg', 'cfg/battle_music/touhou/Night of Bad Times.ogg', 'cfg/battle_music/touhou/owenwasher.ogg')
 	var/list/bm_mortal = list('cfg/battle_music/mortal/unstoppable.ogg')
 	var/list/bm_nazist = list('cfg/battle_music/nazist/German Military Marches - Lore, Lore, Lore.ogg')
@@ -194,13 +220,21 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		else
 			menu += genre + " OFF"
 
+	menu += "Громкость: [prefs.btvolume]%"
+
 	var/selected = input("BT Customization") as null|anything in menu
 	if(!selected)
 		return
 
 	selected = splittext(selected, " ")[1]
 
-	if(selected in settings)
+
+	if(selected == "Громкость:")
+		var/new_volume = input(usr, "Громкость", null) as num|null
+		if(new_volume)
+			prefs.btvolume = max(0, min(100, new_volume))
+			to_chat(usr, "<span class='danger'>Выбрана максимальная громкость в [prefs.btvolume]%.</span>")
+	else if(selected in settings)
 		settings -= selected
 		to_chat(usr, "<span class='danger'>Больше не хочу [selected].</span>")
 	else

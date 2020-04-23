@@ -29,6 +29,7 @@
 		qdel(src)
 
 /obj/structure/boobytrap/Crossed(atom/movable/AM as mob|obj)
+	. = ..()
 	if(ismob(AM))
 		var/mob/MM = AM
 		if(MM.movement_type & FLYING)

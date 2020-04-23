@@ -20,16 +20,15 @@
 	GLOB.carbon_list -= src
 
 /mob/living/carbon/swap_hand(held_index)
+	. = ..()
+	if(!.)
+		var/obj/item/held_item = get_active_held_item()
+		to_chat(usr, "<span class='warning'>Моя другая рука слишком занята [held_item].</span>")
+		return
+
 	if(!held_index)
 		held_index = (active_hand_index % held_items.len)+1
 
-	var/obj/item/item_in_hand = src.get_active_held_item()
-	if(item_in_hand) //this segment checks if the item in your hand is twohanded.
-		var/obj/item/twohanded/TH = item_in_hand
-		if(istype(TH))
-			if(TH.wielded == 1)
-				to_chat(usr, "<span class='warning'>Твои руки заняты твоим [TH.name].</span>")
-				return
 	var/oindex = active_hand_index
 	active_hand_index = held_index
 	if(hud_used)
@@ -134,24 +133,19 @@
 				if(HAS_TRAIT(src, TRAIT_PACIFISM))
 					to_chat(src, "<span class='notice'>Аккуратно отпускаю <b>[throwable_mob]</b>.</span>")
 					return
-				var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
-				var/turf/end_T = get_turf(target)
-				if(start_T && end_T)
-					log_combat(src, throwable_mob, "thrown", addition="grab from tile in [AREACOORD(start_T)] towards tile at [AREACOORD(end_T)]")
-
-	else if(!(I.item_flags & ABSTRACT) && !HAS_TRAIT(I, TRAIT_NODROP))
-		thrown_thing = I
-		dropItemToGround(I, silent = TRUE)
-
-		if(HAS_TRAIT(src, TRAIT_PACIFISM) && I.throwforce)
-			to_chat(src, "<span class='notice'>Аккуратно кладу <b>[I.name]</b> на пол.</span>")
-			return
+	else
+		thrown_thing = I.on_thrown(src, target)
 
 	if(thrown_thing)
+		if(isliving(thrown_thing))
+			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
+			var/turf/end_T = get_turf(target)
+			if(start_T && end_T)
+				log_combat(src, thrown_thing, "thrown", addition="grab from tile in [AREACOORD(start_T)] towards tile at [AREACOORD(end_T)]")
 		visible_message("<span class='danger'><b>[src]</b> кидает <b>[thrown_thing.name]</b>.</span>", \
 						"<span class='danger'>Кидаю <b>[thrown_thing.name]</b>.</span>")
-		log_message("has thrown [thrown_thing.name]", LOG_ATTACK)
 		playsound(get_turf(src), 'code/shitcode/valtos/sounds/throw.wav', 50, TRUE)
+		log_message("has thrown [thrown_thing]", LOG_ATTACK)
 		newtonian_move(get_dir(target, src))
 		thrown_thing.safe_throw_at(target, thrown_thing.throw_range, thrown_thing.throw_speed, src, null, null, null, move_force)
 
@@ -226,8 +220,19 @@
 								"<span class='userdanger'>[usr] [internal ? "opens" : "closes"] the valve on your [ITEM.name].</span>", null, null, usr)
 				to_chat(usr, "<span class='notice'>You [internal ? "open" : "close"] the valve on [src]'s [ITEM.name].</span>")
 
-/mob/living/carbon/fall(forced)
-    loc.handle_fall(src, forced)//it's loc so it doesn't call the mob's handle_fall which does nothing
+	if(href_list["embedded_object"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+		var/obj/item/bodypart/L = locate(href_list["embedded_limb"]) in bodyparts
+		if(!L)
+			return
+		var/obj/item/I = locate(href_list["embedded_object"]) in L.embedded_objects
+		if(!I || I.loc != src) //no item, no limb, or item is not in limb or in the person anymore
+			return
+		SEND_SIGNAL(src, COMSIG_CARBON_EMBED_RIP, I, L)
+		return
+
+/mob/living/carbon/on_fall()
+	. = ..()
+	loc.handle_fall(src)//it's loc so it doesn't call the mob's handle_fall which does nothing
 
 /mob/living/carbon/is_muzzled()
 	return(istype(src.wear_mask, /obj/item/clothing/mask/muzzle))
@@ -246,15 +251,15 @@
 		if(handcuffed)
 			var/obj/item/restraints/O = src.get_item_by_slot(ITEM_SLOT_HANDCUFFED)
 			buckle_cd = O.breakouttime
-		visible_message("<span class='warning'>[src] attempts to unbuckle [p_them()]self!</span>", \
-					"<span class='notice'>You attempt to unbuckle yourself... (This will take around [round(buckle_cd/600,1)] minute\s, and you need to stay still.)</span>")
+		visible_message("<span class='warning'>[src] пытается выбраться из наручников!</span>", \
+					"<span class='notice'>Пытаюсь выбраться из наручников... (займёт примерно [round(buckle_cd/600,1)] минут, и надо не двигаться.)</span>")
 		if(do_after(src, buckle_cd, 0, target = src))
 			if(!buckled)
 				return
 			buckled.user_unbuckle_mob(src,src)
 		else
 			if(src && buckled)
-				to_chat(src, "<span class='warning'>You fail to unbuckle yourself!</span>")
+				to_chat(src, "<span class='warning'>Не получилось выбраться из наручников!</span>")
 	else
 		buckled.user_unbuckle_mob(src,src)
 
@@ -262,12 +267,12 @@
 	fire_stacks -= 5
 	Paralyze(60, TRUE, TRUE)
 	spin(32,2)
-	visible_message("<span class='danger'>[src] rolls on the floor, trying to put [p_them()]self out!</span>", \
-		"<span class='notice'>You stop, drop, and roll!</span>")
+	visible_message("<span class='danger'>[src] катается по полу пытаясь сбросить пламя!</span>", \
+		"<span class='notice'>Я останавливаюсь, падаю и катаюсь по полу!</span>")
 	sleep(30)
 	if(fire_stacks <= 0)
-		visible_message("<span class='danger'>[src] has successfully extinguished [p_them()]self!</span>", \
-			"<span class='notice'>You extinguish yourself.</span>")
+		visible_message("<span class='danger'>[src] успешно тушит себя!</span>", \
+			"<span class='notice'>Фух! Мне удалось потушить себя.</span>")
 		ExtinguishMob()
 	return
 
@@ -292,26 +297,26 @@
 
 /mob/living/carbon/proc/cuff_resist(obj/item/I, breakouttime = 600, cuff_break = 0)
 	if(I.item_flags & BEING_REMOVED)
-		to_chat(src, "<span class='warning'>You're already attempting to remove [I]!</span>")
+		to_chat(src, "<span class='warning'>Я уже пытаюсь снять [I]!</span>")
 		return
 	I.item_flags |= BEING_REMOVED
 	breakouttime = I.breakouttime
 	if(!cuff_break)
-		visible_message("<span class='warning'>[src] attempts to remove [I]!</span>")
-		to_chat(src, "<span class='notice'>You attempt to remove [I]... (This will take around [DisplayTimeText(breakouttime)] and you need to stand still.)</span>")
+		visible_message("<span class='warning'>[src] пытается снять [I]!</span>")
+		to_chat(src, "<span class='notice'>Пытаюсь снять [I]... (это займёт примерно [DisplayTimeText(breakouttime)] и надо бы не двигаться.)</span>")
 		if(do_after(src, breakouttime, 0, target = src))
 			. = clear_cuffs(I, cuff_break)
 		else
-			to_chat(src, "<span class='warning'>You fail to remove [I]!</span>")
+			to_chat(src, "<span class='warning'>Не получилось снять [I]!</span>")
 
 	else if(cuff_break == FAST_CUFFBREAK)
 		breakouttime = 50
-		visible_message("<span class='warning'>[src] is trying to break [I]!</span>")
-		to_chat(src, "<span class='notice'>You attempt to break [I]... (This will take around 5 seconds and you need to stand still.)</span>")
+		visible_message("<span class='warning'>[src] пытается разорвать [I]!</span>")
+		to_chat(src, "<span class='notice'>Пытаюсь разорвать [I]... (это займёт примерно 5 секунд, надо бы не двигаться.)</span>")
 		if(do_after(src, breakouttime, 0, target = src))
 			. = clear_cuffs(I, cuff_break)
 		else
-			to_chat(src, "<span class='warning'>You fail to break [I]!</span>")
+			to_chat(src, "<span class='warning'>У меня не вышло разорвать [I]!</span>")
 
 	else if(cuff_break == INSTANT_CUFFBREAK)
 		. = clear_cuffs(I, cuff_break)
@@ -353,8 +358,8 @@
 		return FALSE
 	if(I != handcuffed && I != legcuffed)
 		return FALSE
-	visible_message("<span class='danger'>[src] manages to [cuff_break ? "break" : "remove"] [I]!</span>")
-	to_chat(src, "<span class='notice'>You successfully [cuff_break ? "break" : "remove"] [I].</span>")
+	visible_message("<span class='danger'>[src] успешно [cuff_break ? "разрывает" : "снимает"] [I]!</span>")
+	to_chat(src, "<span class='notice'>Я успешно [cuff_break ? "разрываю" : "снимаю"] [I].</span>")
 
 	if(cuff_break)
 		. = !((I == handcuffed) || (I == legcuffed))
@@ -433,21 +438,21 @@
 
 	if(nutrition < 100 && !blood)
 		if(message)
-			visible_message("<span class='warning'>[src] dry heaves!</span>", \
-							"<span class='userdanger'>You try to throw up, but there's nothing in your stomach!</span>")
+			visible_message("<span class='warning'>[src] корчится в рвотном позыве!</span>", \
+							"<span class='userdanger'>Рвота не идёт, ведь мой желудок пуст!</span>")
 		if(stun)
 			Paralyze(200)
 		return TRUE
 
 	if(is_mouth_covered()) //make this add a blood/vomit overlay later it'll be hilarious
 		if(message)
-			visible_message("<span class='danger'>[src] throws up all over [p_them()]self!</span>", \
-							"<span class='userdanger'>You throw up all over yourself!</span>")
+			visible_message("<span class='danger'>[src] заблёвывает себя!</span>", \
+							"<span class='userdanger'>Заблевываю себя. Заебись!</span>")
 			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "vomit", /datum/mood_event/vomitself)
 		distance = 0
 	else
 		if(message)
-			visible_message("<span class='danger'>[src] throws up!</span>", "<span class='userdanger'>You throw up!</span>")
+			visible_message("<span class='danger'>[src] блюёт!</span>", "<span class='userdanger'>Блюю!</span>")
 			if(!isflyperson(src))
 				SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "vomit", /datum/mood_event/vomit)
 
@@ -496,9 +501,9 @@
 /mob/living/carbon/update_mobility()
 	. = ..()
 	if(!(mobility_flags & MOBILITY_STAND))
-		add_movespeed_modifier(MOVESPEED_ID_CARBON_CRAWLING, TRUE, multiplicative_slowdown = CRAWLING_ADD_SLOWDOWN)
+		add_movespeed_modifier(/datum/movespeed_modifier/carbon_crawling)
 	else
-		remove_movespeed_modifier(MOVESPEED_ID_CARBON_CRAWLING, TRUE)
+		remove_movespeed_modifier(/datum/movespeed_modifier/carbon_crawling)
 
 //Updates the mob's health from bodyparts and mob damage variables
 /mob/living/carbon/updatehealth()
@@ -521,9 +526,9 @@
 
 	med_hud_set_health()
 	if(stat == SOFT_CRIT)
-		add_movespeed_modifier(MOVESPEED_ID_CARBON_SOFTCRIT, TRUE, multiplicative_slowdown = SOFTCRIT_ADD_SLOWDOWN)
+		add_movespeed_modifier(/datum/movespeed_modifier/carbon_softcrit)
 	else
-		remove_movespeed_modifier(MOVESPEED_ID_CARBON_SOFTCRIT, TRUE)
+		remove_movespeed_modifier(/datum/movespeed_modifier/carbon_softcrit)
 
 /mob/living/carbon/update_stamina()
 	var/stam = getStaminaLoss()
@@ -531,6 +536,7 @@
 		enter_stamcrit()
 	else if(stam_paralyzed)
 		stam_paralyzed = FALSE
+		REMOVE_TRAIT(src,TRAIT_INCAPACITATED, STAMINA)
 	else
 		return
 	update_health_hud()
@@ -839,10 +845,6 @@
 	var/obj/item/organ/brain/BR = getorgan(/obj/item/organ/brain)
 	if(QDELETED(BR) || (BR.organ_flags & ORGAN_FAILING) || BR.suicided)
 		return
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		if((getFireLoss() >= FLOOR((MAX_REVIVE_FIRE_DAMAGE*(H.dstats[MOB_STR]+H.dstats[MOB_STM]))/20,1)) || (getBruteLoss() >= FLOOR((MAX_REVIVE_BRUTE_DAMAGE*(H.dstats[MOB_STR]+H.dstats[MOB_STM]))/20,1)))
-			return
 	return TRUE
 
 /mob/living/carbon/harvest(mob/living/user)
@@ -856,13 +858,14 @@
 			O.Remove(src)
 			O.forceMove(drop_location())
 	if(organs_amt)
-		to_chat(user, "<span class='notice'>You retrieve some of [src]\'s internal organs!</span>")
+		to_chat(user, "<span class='notice'>Мне удалось достать несколько внутренних органов из [src]!</span>")
 
 /mob/living/carbon/ExtinguishMob()
 	for(var/X in get_equipped_items())
 		var/obj/item/I = X
 		I.acid_level = 0 //washes off the acid on our clothes
 		I.extinguish() //extinguishes our clothes
+		I.cut_overlay(GLOB.fire_overlay, TRUE)
 	..()
 
 /mob/living/carbon/fakefire(var/fire_icon = "Generic_mob_burning")

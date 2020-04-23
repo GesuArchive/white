@@ -219,7 +219,7 @@
 							datum/tgui/master_ui = null, datum/ui_state/state = GLOB.physical_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "wires", "[holder.name] Wires", 350, 150 + wires.len * 30, master_ui, state)
+		ui = new(user, src, ui_key, "Wires", "[holder.name] Wires", 350, 150 + wires.len * 30, master_ui, state)
 		ui.open()
 
 /datum/wires/ui_data(mob/user)
@@ -232,7 +232,7 @@
 		reveal_wires = TRUE
 
 	// Same for anyone with an abductor multitool.
-	else if(user.is_holding_item_of_type(/obj/item/multitool/abductor))
+	else if(user.is_holding_item_of_type(/obj/item/multitool/abductor) || HAS_TRAIT(user, TRAIT_HACKER))
 		reveal_wires = TRUE
 
 	// Station blueprints do that too, but only if the wires are not randomized.

@@ -99,50 +99,18 @@
 	attack_verb = list("бьёт", "ударяет")
 	armour_penetration = 5
 
-
-/obj/item/twohanded/forged
-	icon = 'code/shitcode/valtos/icons/forge/forged_weapons.dmi'
-	lefthand_file = 'code/shitcode/valtos/icons/forge/lefthand.dmi'
-	righthand_file = 'code/shitcode/valtos/icons/forge/righthand.dmi'
-	var/datum/reagent/reagent_type
-	var/weapon_type = MELEE_TYPE_GREATSWORD
-	var/identifier = FORGED_MELEE_TWOHANDED
-	var/stabby = 0
-	var/speed = CLICK_CD_MELEE
-	var/list/special_traits
-	var/radioactive = FALSE
-	var/fire = FALSE
-
-
-/obj/item/twohanded/forged/Destroy()
+/obj/item/forged/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
 
-/obj/item/twohanded/forged/process()
+/obj/item/forged/process()
 	if(prob(50) && radioactive)
 		radiation_pulse(src, 200, 0.5)
 	if(fire)
 		open_flame()
 
-
-/obj/item/twohanded/forged/proc/assign_properties()
-	if(reagent_type && weapon_type)
-		special_traits = list()
-		name = name += " ([reagent_type.name])"
-		color = reagent_type.color
-		force_wielded = max(0.1, (reagent_type.density * weapon_type))
-		force_unwielded = max(0.1, force_wielded / 3)
-		throwforce = force_unwielded
-		speed = max(CLICK_CD_RAPID, (reagent_type.density * weapon_type))
-		for(var/I in reagent_type.special_traits)
-			var/datum/special_trait/S = new I
-			LAZYADD(special_traits, S)
-			S.on_apply(src, identifier)
-		armour_penetration += force_wielded * 0.2
-
-
-/obj/item/twohanded/forged/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+/obj/item/forged/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	user.changeNext_move(speed)
 	if(iscarbon(target) && reagent_type && proximity_flag)
 		var/mob/living/carbon/C = target
@@ -160,7 +128,7 @@
 				A.on_hit(target, user, src, FORGED_MELEE_TWOHANDED)
 	..()
 
-/obj/item/twohanded/forged/greatsword
+/obj/item/forged/greatsword
 	name = "forged greatsword"
 	desc = "A custom greatsword forged from solid ingots"
 	icon_state = "forged_greatsword"
@@ -176,14 +144,14 @@
 	attack_verb = list("нанизывает", "пробивает", "втыкает", "рубит", "кромсает", "протыкает")
 
 
-/obj/item/twohanded/forged/greatsword/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+/obj/item/forged/greatsword/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	..()
 	if(iscarbon(user) && proximity_flag)
 		var/mob/living/carbon/CU = user
 		CU.adjustStaminaLoss(10)
 
 
-/obj/item/twohanded/forged/warhammer
+/obj/item/forged/warhammer
 	name = "forged warhammer"
 	desc = "A custom warhammer forged from solid ingots"
 	icon_state = "forged_hammer0"
@@ -197,11 +165,11 @@
 	attack_verb = list("уничтожает", "молотит", "ударяет", "долбит", "разбивает")
 	armour_penetration = 10
 
-/obj/item/twohanded/forged/warhammer/update_icon()
-	icon_state = "forged_hammer[wielded]"
+/obj/item/forged/warhammer/update_icon()
+	icon_state = "forged_hammer_1"
 	return
 
-/obj/item/twohanded/forged/warhammer/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+/obj/item/forged/warhammer/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	..()
 	if(iscarbon(user) && proximity_flag && target)
 		var/mob/living/carbon/CU = user
@@ -209,7 +177,7 @@
 
 	if(iswallturf(target) && proximity_flag)
 		var/turf/closed/wall/W = target
-		var/chance = (force_wielded + W.hardness * 0.5)//>lower hardness = stronger wall
+		var/chance = (W.hardness * 0.5)//>lower hardness = stronger wall
 		if(chance < 10)
 			return FALSE
 

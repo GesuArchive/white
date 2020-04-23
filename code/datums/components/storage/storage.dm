@@ -217,7 +217,7 @@
 	var/list/rejections = list()
 	while(do_after(M, 10, TRUE, parent, FALSE, CALLBACK(src, .proc/handle_mass_pickup, things, I.loc, rejections, progress)))
 		stoplag(1)
-	qdel(progress)
+	progress.end_progress()
 	to_chat(M, "<span class='notice'>Собираю всё что могу [insert_preposition] [parent].</span>")
 
 /datum/component/storage/proc/handle_mass_item_insertion(list/things, datum/component/storage/src_object, mob/user, datum/progressbar/progress)
@@ -275,7 +275,7 @@
 	var/datum/progressbar/progress = new(M, length(things), T)
 	while (do_after(M, 10, TRUE, T, FALSE, CALLBACK(src, .proc/mass_remove_from_storage, T, things, progress)))
 		stoplag(1)
-	qdel(progress)
+	progress.end_progress()
 
 /datum/component/storage/proc/mass_remove_from_storage(atom/target, list/things, datum/progressbar/progress, trigger_on_found = TRUE)
 	var/atom/real_location = real_location()
@@ -668,9 +668,9 @@
 		if(M == viewing)
 			to_chat(usr, "<span class='notice'>Кладу [sklonenie(I.name, VINITELNI, I.gender)] [insert_preposition] [parent].</span>")
 		else if(in_range(M, viewing)) //If someone is standing close enough, they can tell what it is...
-			viewing.show_message("<span class='notice'>[M] кладёт [sklonenie(I.name, VINITELNI, I.gender)] [insert_preposition] [parent].</span>", MSG_VISUAL)
+			viewing.show_message("<span class='notice'><b>[M]</b> кладёт <b>[sklonenie(I.name, VINITELNI, I.gender)]</b> [insert_preposition] <b>[parent]</b>.</span>", MSG_VISUAL)
 		else if(I && I.w_class >= 3) //Otherwise they can only see large or normal items from a distance...
-			viewing.show_message("<span class='notice'>[M] кладёт [sklonenie(I.name, VINITELNI, I.gender)] [insert_preposition] [parent].</span>", MSG_VISUAL)
+			viewing.show_message("<span class='notice'><b>[M]</b> кладёт <b>[sklonenie(I.name, VINITELNI, I.gender)]</b> [insert_preposition] <b>[parent]</b>.</span>", MSG_VISUAL)
 
 /datum/component/storage/proc/update_icon()
 	if(isobj(parent))

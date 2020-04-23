@@ -4635,3 +4635,9 @@
 /obj/item/clothing/head/helmet/wzzzz/swathelm/black
 	icon_state = "swathelmb"
 	item_state = "swathelmb"
+
+/obj/item/soap/syndie/wzzzz
+	cleanspeed = 100
+	obj_integrity = 25000
+	toolspeed = 10
+	uses = 10000

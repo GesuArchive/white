@@ -55,23 +55,18 @@
 		var/datum/bank_account/D = SSeconomy.get_dep_account(account_job.paycheck_department)
 		if(D)
 			if(!transfer_money(D, money_to_transfer))
-				bank_card_talk("ERROR: Payday aborted, departmental funds insufficient.")
+				bank_card_talk("ERROR: Зарплата отменена. Недостаточно средстве на счету отдела.")
 				return FALSE
 			else
-				bank_card_talk("Payday processed, account now holds [account_balance] cr.")
+				bank_card_talk("Зарплата выдана, текущий баланс: [account_balance] кр.")
 				return TRUE
-	bank_card_talk("ERROR: Payday aborted, unable to contact departmental account.")
+	bank_card_talk("ERROR: Зарплата не выдана. Невозможно связаться с аккаунтом отдела.")
 	return FALSE
 
 /datum/bank_account/proc/bank_card_talk(message, force)
 	if(!message || !bank_cards.len)
 		return
 	for(var/obj/A in bank_cards)
-		var/icon_source = A
-		if(istype(A, /obj/item/card/id))
-			var/obj/item/card/id/id_card = A
-			if(id_card.uses_overlays)
-				icon_source = id_card.get_cached_flat_icon()
 		var/mob/card_holder = recursive_loc_check(A, /mob)
 		if(ismob(card_holder)) //If on a mob
 			if(card_holder.client && !(card_holder.client.prefs.chat_toggles & CHAT_BANKCARD) && !force)
@@ -79,13 +74,13 @@
 
 			card_holder.playsound_local(get_turf(card_holder), 'sound/machines/twobeep_high.ogg', 50, TRUE)
 			if(card_holder.can_hear())
-				to_chat(card_holder, "[icon2html(icon_source, card_holder)] <span class='notice'>[message]</span>")
+				to_chat(card_holder, "Карта: <span class='notice'>[message]</span>")
 		else if(isturf(A.loc)) //If on the ground
 			for(var/mob/M in hearers(1,get_turf(A)))
 				if(M.client && !(M.client.prefs.chat_toggles & CHAT_BANKCARD) && !force)
 					return
 				playsound(A, 'sound/machines/twobeep_high.ogg', 50, TRUE)
-				A.audible_message("[icon2html(icon_source, hearers(A))] <span class='notice'>[message]</span>", null, 1)
+				A.audible_message("Карта: <span class='notice'>[message]</span>", null, 1)
 				break
 		else
 			for(var/mob/M in A.loc) //If inside a container with other mobs (e.g. locker)
@@ -93,7 +88,7 @@
 					return
 				M.playsound_local(get_turf(M), 'sound/machines/twobeep_high.ogg', 50, TRUE)
 				if(M.can_hear())
-					to_chat(M, "[icon2html(icon_source, M)] <span class='notice'>[message]</span>")
+					to_chat(M, "Карта: <span class='notice'>[message]</span>")
 
 /datum/bank_account/department
 	account_holder = "Guild Credit Agency"

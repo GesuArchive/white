@@ -17,7 +17,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 7)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 10)
 	custom_food_type = /obj/item/reagent_containers/food/snacks/customizable/shaurma
-	tastes = list("torilla" = 2, "meat" = 3)
+	tastes = list("torilla" = 2, "мясо" = 3)
 	foodtype = MEAT | VEGETABLES
 
 /datum/crafting_recipe/food/shaurma

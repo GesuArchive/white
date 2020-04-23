@@ -34,7 +34,7 @@
 	description = "Говно?"
 	color = "#4B3320"
 	toxpwr = 2.5
-	taste_description = "poo"
+	taste_description = "говно"
 
 /datum/reagent/toxin/poo/on_mob_life(mob/living/carbon/C)
 	C.adjustPlasma(1)
@@ -90,7 +90,7 @@
 	return COMPONENT_EXNAME_CHANGED
 
 /obj/effect/decal/cleanable/poo
-	name = "poo"
+	name = "шоколадный каток"
 	desc = "И кто это тут размазал?"
 	icon = 'code/shitcode/valtos/icons/poo.dmi'
 	icon_state = "splat1"
@@ -113,7 +113,7 @@
 		var/mutable_appearance/pooverlay = mutable_appearance('code/shitcode/valtos/icons/poo.dmi')
 		//H.Paralyze(5) //splat!
 		H.adjust_blurriness(1)
-		H.visible_message("<span class='warning'>[H] is pooed by [src]!</span>", "<span class='userdanger'>You've been pooed by [src]!</span>")
+		H.visible_message("<span class='warning'><b>[H]</b> ловит <b>[src]</b> своим телом!</span>", "<span class='userdanger'>Ловлю <b>[src]</b> своим телом!</span>")
 		playsound(H, "desceration", 50, TRUE)
 		if(!H.pooed) // one layer at a time
 			pooverlay.icon_state = "facepoo"
@@ -137,7 +137,7 @@
 	if(. && ishuman(user))
 		var/mob/living/carbon/H = user
 		if(HAS_TRAIT(H, TRAIT_LIGHT_POOER) && H.nutrition >= NUTRITION_LEVEL_WELL_FED)
-			H.visible_message("<span class='notice'>[H] профессионально выдавливает остроконечный снаряд!</span>", \
+			H.visible_message("<span class='notice'><b>[H]</b> срёт себе прямо в руку!</span>", \
 					"<span class='notice'>Выдавливаю какаху из своего тела.</span>")
 			playsound(H, 'code/shitcode/valtos/sounds/poo2.ogg', 25, 1) //silence hunter
 			var/obj/item/reagent_containers/food/snacks/poo/P = new(get_turf(H))
@@ -148,7 +148,7 @@
 			SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 			return
 		else if (H.nutrition >= NUTRITION_LEVEL_FULL)
-			H.visible_message("<span class='notice'>[H] нежно выдавливает какулину!</span>", \
+			H.visible_message("<span class='notice'><b>[H]</b> срёт на пол!</span>", \
 					"<span class='notice'>Выдавливаю какаху из своего тела.</span>")
 			playsound(H, 'code/shitcode/valtos/sounds/poo2.ogg', 50, 1)
 			new /obj/item/reagent_containers/food/snacks/poo(H.loc)
@@ -156,9 +156,8 @@
 			SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 			return
 		else
-			H.visible_message("<span class='notice'>[H] страдает!</span>", \
+			H.visible_message("<span class='notice'><b>[H]</b> тужится!</span>", \
 					"<span class='notice'>Вам нечем какать.</span>")
-			H.Paralyze(80)
 			H.adjust_blurriness(1)
 			SSblackbox.record_feedback("tally", "poo", 1, "Poo Creation Failed")
 			return

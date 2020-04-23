@@ -5,7 +5,7 @@
     color = "#FAFAFA"
     overdose_threshold = 20
     addiction_threshold = 10
-    taste_description = "salt"
+    taste_description = "соль"
     var/datum/martial_art/psychotic_brawling/pb
 
 /datum/reagent/drug/psychosis_drug/on_mob_add(mob/M)

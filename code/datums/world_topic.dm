@@ -32,8 +32,15 @@
 		if(!key_cvalid) //хочу спать
 			return "Bad Key"
 	input -= "key"
-	. = Run(input)
-	if(islist(.))
+	if(require_comms_key && !key_valid)
+		. = "Bad Key"
+		if (input["format"] == "json")
+			. = list("error" = .)
+	else
+		. = Run(input)
+	if (input["format"] == "json")
+		. = json_encode(.)
+	else if(islist(.))
 		. = list2params(.)
 
 /datum/world_topic/proc/Run(list/input)
@@ -148,7 +155,7 @@
 	.["ai"] = CONFIG_GET(flag/allow_ai)
 	.["host"] = world.host ? world.host : null
 	.["round_id"] = GLOB.round_id
-	.["players"] = CONFIG_GET(number/spp) + GLOB.clients.len
+	.["players"] = GLOB.whitelist.len + GLOB.clients.len
 	.["revision"] = GLOB.revdata.commit
 	.["revision_date"] = GLOB.revdata.date
 
@@ -193,7 +200,7 @@
 	log = FALSE
 
 /datum/world_topic/players/Run(list/input)
-	return CONFIG_GET(number/spp) + GLOB.player_list.len
+	return GLOB.whitelist.len + GLOB.player_list.len
 
 /datum/world_topic/adminwho
 	keyword = "adminwho"
@@ -221,6 +228,9 @@
 			msg += "\t[C.holder.fakekey]\n"
 		else
 			msg += "\t[C.key]\n"
+	for(var/cc in GLOB.whitelist)
+		n++
+		msg += "\t[cc]\n"
 	msg += "Всего: [n]"
 	return msg
 

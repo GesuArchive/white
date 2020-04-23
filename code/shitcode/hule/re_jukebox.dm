@@ -72,16 +72,16 @@
 		var/turf/MT = get_turf(M)
 
 		if(env_sound)
-			M.jukebox_music.falloff = 4
+			M.jukebox_music.falloff = 12
 
 			M.jukebox_music.y = 1
 			var/dx = T.x - MT.x // Hearing from the right/left
 			M.jukebox_music.x = dx
-			var/dz = T.y - MT.y // Hearing from infront/behind
-			M.jukebox_music.z = dz
+			var/dy = T.y - MT.y // Hearing from infront/behind
+			M.jukebox_music.z = dy
 
 		else
-			M.jukebox_music.falloff = 2
+			M.jukebox_music.falloff = 8
 
 			M.jukebox_music.x = 0
 			M.jukebox_music.y = 1
@@ -141,11 +141,11 @@
 
 	var/list/dat = list()
 	dat +="<div class='statusDisplay' style='text-align:center'>"
-	dat += "<b><A href='?src=[REF(src)];action=toggle'>[!active ? "СТОП" : "СТАРТ"]<b></A><br>"
+	dat += "<b><A href='?src=[REF(src)];action=toggle'>[!active ? "СТАРТ" : "СТОП"]<b></A><br>"
 	dat += "</div><br>"
 	dat += "<A href='?src=[REF(src)];action=select'> Выбрать трек</A><br>"
 	dat += "<A href='?src=[REF(src)];action=volume'> Громкость</A><br>"
-	dat += "<A href='?src=[REF(src)];action=env'> Объёмный звук [!env_sound ? "ВКЛ" : "ВЫКЛ"]</A><br>"
+	dat += "<A href='?src=[REF(src)];action=env'> Объёмный звук [!env_sound ? "ВЫКЛ" : "ВКЛ"]</A><br>"
 
 	if(selection)
 		if(selection.song_name)
@@ -218,7 +218,7 @@
 		var/sound/S = sound(selection.song_path)
 		S.repeat = 1
 		S.channel = CHANNEL_CUSTOM_JUKEBOX
-		S.falloff = 2
+		S.falloff = 12
 		S.wait = 0
 		S.volume = 0
 		S.status = 0 //SOUND_STREAM

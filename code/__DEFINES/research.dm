@@ -27,13 +27,13 @@
 #define RDSCREEN_NOBREAK "<NO_HTML_BREAK>"
 
 ///Sanity check defines for when these devices aren't connected or no disk is inserted
-#define RDSCREEN_TEXT_NO_PROTOLATHE "<div><h3>No Protolathe Linked!</h3></div><br>"
-#define RDSCREEN_TEXT_NO_IMPRINTER "<div><h3>No Circuit Imprinter Linked!</h3></div><br>"
-#define RDSCREEN_TEXT_NO_DECONSTRUCT "<div><h3>No Destructive Analyzer Linked!</h3></div><br>"
-#define RDSCREEN_TEXT_NO_TDISK "<div><h3>No Technology Disk Inserted!</h3></div><br>"
-#define RDSCREEN_TEXT_NO_DDISK "<div><h3>No Design Disk Inserted!</h3></div><br>"
-#define RDSCREEN_TEXT_NO_SNODE "<div><h3>No Technology Node Selected!</h3></div><br>"
-#define RDSCREEN_TEXT_NO_SDESIGN "<div><h3>No Design Selected!</h3></div><br>"
+#define RDSCREEN_TEXT_NO_PROTOLATHE "<div><h3>Протолат не привязан!</h3></div><br>"
+#define RDSCREEN_TEXT_NO_IMPRINTER "<div><h3>Circuit Imprinter не привязан!</h3></div><br>"
+#define RDSCREEN_TEXT_NO_DECONSTRUCT "<div><h3>Разрушающий анализатор не привязан!</h3></div><br>"
+#define RDSCREEN_TEXT_NO_TDISK "<div><h3>Не обнаружено диска с технологиями!</h3></div><br>"
+#define RDSCREEN_TEXT_NO_DDISK "<div><h3>Не обнаружено диска с дизайнами!</h3></div><br>"
+#define RDSCREEN_TEXT_NO_SNODE "<div><h3>Не выбрана технологическая ветвь!</h3></div><br>"
+#define RDSCREEN_TEXT_NO_SDESIGN "<div><h3>Не выбран дизайн!</h3></div><br>"
 
 #define RDSCREEN_UI_LATHE_CHECK if(QDELETED(linked_lathe)) { return RDSCREEN_TEXT_NO_PROTOLATHE }
 #define RDSCREEN_UI_IMPRINTER_CHECK if(QDELETED(linked_imprinter)) { return RDSCREEN_TEXT_NO_IMPRINTER }

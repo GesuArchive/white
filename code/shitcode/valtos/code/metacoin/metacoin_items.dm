@@ -109,6 +109,18 @@
 		AAA.update_metabalance_cache()
 	to_chat(world, "<BR><BR><BR><center><span class='big bold'>[C.ckey] уничтожает банк метакэша.</span></center><BR><BR><BR>")
 
+/datum/metacoin_shop_item/respawn_me
+	name = "Перерождение"
+	icon_state = "rjaka"
+	cost = 100
+	id = "respawn_me"
+	enabled = TRUE
+
+/datum/metacoin_shop_item/respawn_me/after_buy(client/C)
+	to_chat(C, "<span class='notice'>Теперь ты можешь переродиться один раз в этом раунде. Не забудь поменять имя и забыть старые обиды.</span>")
+	C.is_respawned = FALSE
+	return
+
 /datum/metacoin_shop_item/only_one //you can only buy this item once
 	name = "only one"
 	cost = 0 //gl with that one

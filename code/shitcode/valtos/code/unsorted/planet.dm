@@ -26,10 +26,13 @@
 	baseturfs = /turf/open/space/basic/planet
 	flags_1 = NOJAUNT_1
 	explosion_block = INFINITY
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 
 /turf/open/space/basic/planet/Initialize()
 	. = ..()
 	icon_state = "void"
+	temperature = TCRYO
+	air = new
 
 /turf/open/space/basic/planet/cliffs
 	name = "обрыв"
@@ -41,6 +44,8 @@
 	aaaa = icon_state
 	. = ..()
 	icon_state = aaaa
+	temperature = TCRYO
+	air = new
 
 /area/centcom/outdoors/Initialize()
 	. = ..()
@@ -69,10 +74,13 @@
 	var/_x = rand(min,max)
 	var/_y = rand(min,max)
 
-	var/turf/T = locate(_x, _y, _z)
 	if(isliving(AM))
 		var/mob/living/M = AM
+		if(M.is_flying())
+			return
 		M.apply_damage(rand(100, 200), BRUTE)
 		M.Paralyze(120)
 		to_chat(M, "<big>БЛЯТЬ!</big>")
+
+	var/turf/T = locate(_x, _y, _z)
 	AM.forceMove(T)

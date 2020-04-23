@@ -12,48 +12,39 @@ export const Autodoc = props => {
           <Tabs.Tab
             key="head"
             label="Голова"
-            onClick={() => act('target', { part: "head" })}>
-          </Tabs.Tab>
+            onClick={() => act('target', { part: "head" })} />
           <Tabs.Tab
             key="chest"
             label="Грудь"
-            onClick={() => act('target', { part: "chest" })}>
-          </Tabs.Tab>
+            onClick={() => act('target', { part: "chest" })} />
           <Tabs.Tab
             key="l_arm"
             label="Л. рука"
-            onClick={() => act('target', { part: "l_arm" })}>
-          </Tabs.Tab>
+            onClick={() => act('target', { part: "l_arm" })} />
           <Tabs.Tab
             key="r_arm"
             label="П. рука"
-            onClick={() => act('target', { part: "r_arm" })}>
-          </Tabs.Tab>
+            onClick={() => act('target', { part: "r_arm" })} />
           <Tabs.Tab
             key="l_leg"
             label="Л. нога"
-            onClick={() => act('target', { part: "l_leg" })}>
-          </Tabs.Tab>
+            onClick={() => act('target', { part: "l_leg" })} />
           <Tabs.Tab
             key="r_leg"
             label="П. нога"
-            onClick={() => act('target', { part: "r_leg" })}>
-          </Tabs.Tab>
+            onClick={() => act('target', { part: "r_leg" })} />
           <Tabs.Tab
             key="groin"
             label="Пах"
-            onClick={() => act('target', { part: "groin" })}>
-          </Tabs.Tab>
+            onClick={() => act('target', { part: "groin" })} />
           <Tabs.Tab
             key="eyes"
             label="Глаза"
-            onClick={() => act('target', { part: "eyes" })}>
-          </Tabs.Tab>
+            onClick={() => act('target', { part: "eyes" })} />
           <Tabs.Tab
             key="mouth"
             label="Рот"
-            onClick={() => act('target', { part: "mouth" })}>
-          </Tabs.Tab>
+            onClick={() => act('target', { part: "mouth" })} />
         </Tabs>
         <Section>
           {operations.map(op => (

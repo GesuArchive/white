@@ -79,7 +79,7 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/geiger_counter = 1,
 		/obj/item/analyzer = 1,
 		/obj/item/mop = 1,
-		/obj/item/twohanded/broom = 1,
+		/obj/item/pushbroom = 1,
 		/obj/item/reagent_containers/glass/bucket = 1,
 		/obj/item/toy/crayon/spraycan = 1,
 		) = 1,
@@ -98,6 +98,7 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/clothing/glasses/science = 1,
 		/obj/item/clothing/glasses/meson = 1,
 		/obj/item/storage/belt/fannypack = 1,
+		/obj/item/clothing/gloves/tackler/offbrand = 1,
 		) = 1,
 
 	list(//construction and crafting
@@ -115,7 +116,7 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/assembly/timer = 1,
 		/obj/item/assembly/igniter = 1,
 		/obj/item/assembly/health = 1,
-
+		/obj/item/book/granter/crafting_recipe/cookbook = 1, 
 		/obj/item/stack/packageWrap = 1,
 		) = 1,
 
@@ -161,9 +162,9 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		/obj/item/roller = 1,
 		/obj/item/restraints/legcuffs/bola = 1,
 		/obj/item/restraints/handcuffs/cable = 1,
-		/obj/item/twohanded/spear = 1,
+		/obj/item/spear = 1,
 		/obj/item/shield/riot/buckler = 1,
-		/obj/item/grenade/iedcasing = 1,
+		/obj/item/grenade/iedcasing/spawned = 1,
 		/obj/item/melee/baton/cattleprod = 1,
 		/obj/item/throwing_star = 1,
 		) = 8,
@@ -190,6 +191,7 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 	list(//construction and crafting
 		/obj/item/stock_parts/cell/high = 1,
 		/obj/item/stack/sheet/mineral/wood/fifty = 1,
+		/obj/item/stack/sheet/palputinum/ten = 1,
 		/obj/item/beacon = 1,
 		/obj/item/weaponcrafting/receiver = 1,
 		/obj/item/paper/fluff/stations/soap =1, //recipes count as crafting.
@@ -263,3 +265,21 @@ GLOBAL_LIST_INIT(maintenance_loot, list(
 	GLOB.uncommon_loot = maint_uncommon_weight,
 	GLOB.oddity_loot = maint_oddity_weight,
 	))
+
+GLOBAL_LIST_INIT(ratking_trash, list(//Garbage: used by the regal rat mob when spawning garbage.
+			/obj/item/cigbutt,
+			/obj/item/trash/cheesie,
+			/obj/item/trash/candy,
+			/obj/item/trash/chips,
+			/obj/item/trash/pistachios,
+			/obj/item/trash/plate,
+			/obj/item/trash/popcorn,
+			/obj/item/trash/raisins,
+			/obj/item/trash/sosjerky,
+			/obj/item/trash/syndi_cakes))
+
+GLOBAL_LIST_INIT(ratking_coins, list(//Coins: Used by the regal rat mob when spawning coins.
+			/obj/item/coin/iron,
+			/obj/item/coin/silver,
+			/obj/item/coin/plastic,
+			/obj/item/coin/titanium))

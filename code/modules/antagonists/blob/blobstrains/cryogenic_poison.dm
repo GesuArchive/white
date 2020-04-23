@@ -14,7 +14,7 @@
 	name = "Cryogenic Poison"
 	description = "will inject targets with a freezing poison that does high damage over time."
 	color = "#8BA6E9"
-	taste_description = "brain freeze"
+	taste_description = "заморозка мозгов"
 
 /datum/reagent/blob/cryogenic_poison/reaction_mob(mob/living/M, method=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/O)
 	reac_volume = ..()

@@ -113,6 +113,14 @@ SUBSYSTEM_DEF(mapping)
 		for (var/ice_z in ice_ruins_underground)
 			spawn_rivers(ice_z, 4, /turf/open/lava/plasma/ice_moon, /area/icemoon/underground/unexplored)
 
+	var/list/planet_ruins = levels_by_trait(ZTRAIT_STATION)
+	if (planet_ruins.len)
+		// needs to be whitelisted for underground too so place_below ruins work
+		seedRuins(planet_ruins, CONFIG_GET(number/lavaland_budget), list(/area/boxplanet/underground/unexplored), lava_ruins_templates)
+		for (var/ice_z in planet_ruins)
+			spawn_rivers(ice_z, 6, /turf/open/floor/plating/asteroid/boxplanet/caves, /area/boxplanet/underground/unexplored)
+
+
 	// Generate deep space ruins
 	var/list/space_ruins = levels_by_trait(ZTRAIT_SPACE_RUINS)
 	if (space_ruins.len)
@@ -289,11 +297,13 @@ SUBSYSTEM_DEF(mapping)
 	else if (config.minetype == "icemoon")
 		LoadGroup(FailedZs, "Ice moon Underground", "map_files/Mining", "IcemoonUnderground.dmm", default_traits = ZTRAITS_ICEMOON_UNDERGROUND)
 		LoadGroup(FailedZs, "Ice moon", "map_files/Mining", "Icemoon.dmm", default_traits = ZTRAITS_ICEMOON)
+	else if (config.minetype == "nothing")
+		current_mining = "nothing"
 	else if (!isnull(config.minetype))
 		INIT_ANNOUNCE("WARNING: An unknown minetype '[config.minetype]' was set! This is being ignored! Update the maploader code!")
 
 	// reset the mining map to random so if an admin sets the mining map it isn't stuck to that forever
-	GLOB.next_mining_map = "random"
+	GLOB.next_mining_map = "nothing"
 	var/datum/map_config/VM = load_map_config()
 	SSmapping.changemap(VM)
 #endif
@@ -512,18 +522,6 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 		message_admins("Loading [away_name] failed!")
 		return
 
-
-	if(GLOB.the_gateway)
-		//Link any found away gate with station gate
-		var/obj/machinery/gateway/centeraway/new_gate
-		for(var/obj/machinery/gateway/centeraway/G in GLOB.machines)
-			if(G.z == away_level.z_value) //I'll have to refactor gateway shitcode before multi-away support.
-				new_gate = G
-				break
-		//Link station gate with away gate and remove wait time.
-		GLOB.the_gateway.awaygate = new_gate
-		GLOB.the_gateway.wait = world.time
-
 /datum/controller/subsystem/mapping/proc/RequestBlockReservation(width, height, z, type = /datum/turf_reservation, turf_type_override)
 	UNTIL((!z || reservation_ready["[z]"]) && !clearing_reserved_turfs)
 	var/datum/turf_reservation/reserve = new type
@@ -579,6 +577,7 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 
 //DO NOT CALL THIS PROC DIRECTLY, CALL wipe_reservations().
 /datum/controller/subsystem/mapping/proc/do_wipe_turf_reservations()
+	PRIVATE_PROC(TRUE)
 	UNTIL(initialized)							//This proc is for AFTER init, before init turf reservations won't even exist and using this will likely break things.
 	for(var/i in turf_reservations)
 		var/datum/turf_reservation/TR = i

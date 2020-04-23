@@ -20,7 +20,7 @@
 
 /datum/reagent/blob/explosive_lattice
 	name = "Explosive Lattice"
-	taste_description = "the bomb"
+	taste_description = "бомба"
 	color = "#8B2500"
 
 /datum/reagent/blob/explosive_lattice/reaction_mob(mob/living/M, method=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/O)

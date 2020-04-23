@@ -4,6 +4,8 @@
 	max_integrity = 300
 	interaction_flags_atom = INTERACT_ATOM_ATTACK_HAND | INTERACT_ATOM_UI_INTERACT
 	layer = BELOW_OBJ_LAYER
+	flags_ricochet = RICOCHET_HARD
+	ricochet_chance_mod = 0.5
 
 	var/climb_time = 20
 	var/climb_stun = 20
@@ -36,7 +38,7 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		user.do_attack_animation(src)
 		structureclimber.Paralyze(40)
-		structureclimber.visible_message("<span class='warning'><b>[structureclimber]</b> сваливается с <b>[src.name]</b>.", "Ты упал с [src.name]!", "Ты видишь как [structureclimber] падает с [src.name].</span>")
+		structureclimber.visible_message("<span class='warning'><b>[structureclimber]</b> сваливается с <b>[src.name]</b>.", "Падаю с [src.name]!", "Вижу как [structureclimber] падает с [src.name].</span>")
 
 /obj/structure/ui_act(action, params)
 	. = ..()

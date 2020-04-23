@@ -3,9 +3,9 @@
 //defaults to box
 //  -Cyberboss
 
-GLOBAL_LIST_INIT(mining_maps, list("lavaland" = 1, "icemoon" = 1, "random" = 0))
-GLOBAL_VAR_INIT(current_mining_map, "random")
-GLOBAL_VAR_INIT(next_mining_map, "random")
+GLOBAL_LIST_INIT(mining_maps, list("lavaland" = 1, "icemoon" = 1, "nothing" = 1, "random" = 0))
+GLOBAL_VAR_INIT(current_mining_map, "nothing")
+GLOBAL_VAR_INIT(next_mining_map, "nothing")
 
 /datum/map_config
 	// Metadata

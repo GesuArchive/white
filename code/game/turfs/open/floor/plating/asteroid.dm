@@ -53,6 +53,9 @@
 /turf/open/floor/plating/asteroid/MakeDry()
 	return
 
+/turf/open/floor/plating/asteroid/crush()
+	return
+
 /turf/open/floor/plating/asteroid/attackby(obj/item/W, mob/user, params)
 	. = ..()
 	if(!.)
@@ -175,7 +178,7 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 	name = "снег"
 	desc = "Холодный."
 	icon = 'icons/turf/snow.dmi'
-	baseturfs = /turf/open/floor/plating/asteroid/snow/icemoon
+	baseturfs = /turf/open/floor/plating/asteroid/boxplanet/caves
 	icon_state = "snow"
 	icon_plating = "snow"
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
@@ -191,12 +194,12 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 						  /mob/living/simple_animal/hostile/asteroid/polarbear = 30, /obj/structure/spawner/ice_moon/polarbear = 3, \
 						  SPAWN_MEGAFAUNA = 6, /mob/living/simple_animal/hostile/asteroid/goldgrub = 10)
 
-	flora_spawn_list = list(/obj/structure/flora/tree/pine = 2, /obj/structure/flora/rock/icy = 2, /obj/structure/flora/rock/pile/icy = 2, /obj/structure/flora/grass/both = 12)
+	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2, /obj/effect/step_trigger/ambush = 1)
 	data_having_type = /turf/open/floor/plating/asteroid/airless/cave/snow/has_data
-	turf_type = /turf/open/floor/plating/asteroid/snow/icemoon
+	turf_type = /turf/open/floor/plating/asteroid/boxplanet/caves
 
 /turf/open/floor/plating/asteroid/airless/cave/snow/underground
-	flora_spawn_list = list(/obj/structure/flora/rock/icy = 6, /obj/structure/flora/rock/pile/icy = 6)
+	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2, /obj/effect/step_trigger/ambush = 1)
 	mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 50, /obj/structure/spawner/lavaland/goliath = 3, \
 		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 10, /obj/structure/spawner/lavaland/icewatcher = 2, \
 		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/icewing = 30, \
@@ -313,8 +316,7 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 			if(!A.tunnel_allowed)
 				sanity = 0
 				return
-	if(is_mining_level(z))
-		SpawnFlora(T)	//No space mushrooms, cacti.
+	SpawnFlora(T)	//No space mushrooms, cacti.
 	SpawnTerrain(T)
 	SpawnMonster(T)		//Checks for danger area.
 	T.ChangeTurf(turf_type, null, CHANGETURF_IGNORE_AIR)
@@ -390,6 +392,7 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 	environment_type = "snow"
 	flags_1 = NONE
 	planetary_atmos = TRUE
+	broken_states = list("snow_dug")
 	burnt_states = list("snow_dug")
 	bullet_sizzle = TRUE
 	bullet_bounce_sound = null
@@ -405,7 +408,7 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 	return FALSE
 
 /turf/open/floor/plating/asteroid/snow/icemoon
-	baseturfs = /turf/open/floor/plating/asteroid/snow/icemoon
+	baseturfs = /turf/open/openspace/icemoon
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 
 /turf/open/lava/plasma/ice_moon

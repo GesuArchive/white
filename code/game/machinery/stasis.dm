@@ -21,7 +21,7 @@
 
 /obj/machinery/stasis/Initialize()
 	. = ..()
-	for(var/direction in GLOB.cardinals)
+	for(var/direction in GLOB.alldirs)
 		op_computer = locate(/obj/machinery/computer/operating, get_step(src, direction))
 		if(op_computer)
 			op_computer.sbed = src
@@ -161,9 +161,4 @@
 /obj/machinery/stasis/nap_violation(mob/violator)
 	unbuckle_mob(violator, TRUE)
 
-/obj/machinery/stasis/attack_robot(mob/user)
-	if(Adjacent(user) && occupant)
-		unbuckle_mob(occupant)
-	else
-		..()
 #undef STASIS_TOGGLE_COOLDOWN

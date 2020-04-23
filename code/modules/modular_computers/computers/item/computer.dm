@@ -91,7 +91,7 @@
 
 // Eject ID card from computer, if it has ID slot with card inside.
 /obj/item/modular_computer/proc/eject_id()
-	set name = "Eject ID"
+	set name = "Изъять ID"
 	set category = "ОБЪЕКТ"
 	set src in view(1)
 
@@ -413,7 +413,7 @@
 			to_chat(user, "<span class='warning'>Remove all components from \the [src] before disassembling it.</span>")
 			return
 		new /obj/item/stack/sheet/metal( get_turf(src.loc), steel_sheet_cost )
-		physical.visible_message("<span class='notice'>\The [src] has been disassembled by [user].</span>")
+		physical.visible_message("<span class='notice'>\The [src] is disassembled by [user].</span>")
 		relay_qdel()
 		qdel(src)
 		return

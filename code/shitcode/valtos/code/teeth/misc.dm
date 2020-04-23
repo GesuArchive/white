@@ -99,6 +99,8 @@
 				var/armor = H.run_armor_check(O, "melee")
 				H.apply_damage(rand(1,5), BRUTE, O, armor)
 				playsound(H, 'code/shitcode/valtos/sounds/tear.ogg', 40, 1, -1) //RIP AND TEAR. RIP AND TEAR.
+				if(H.client)
+					inc_metabalance(H, METACOIN_TEETH_REWARD, reason="МОЙ ЗУБИК!")
 				H.emote("scream")
 			else
 				to_chat(user, "<span class='notice'>Не вышло вырвать зуб...</span>")

@@ -10,7 +10,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sugar = 3)
 	junkiness = 25
 	filling_color = "#D2691E"
-	tastes = list("candy" = 1)
+	tastes = list("конфета" = 1)
 	foodtype = JUNKFOOD | SUGAR
 
 /obj/item/reagent_containers/food/snacks/candy/bronx
@@ -23,8 +23,9 @@
 	junkiness = 10
 	bitesize = 10
 	filling_color = "#e4d4b7"
-	tastes = list("candy" = 5, "weight loss" = 4, "insect larva" = 1)
+	tastes = list("конфета" = 5, "потеря веса" = 4, "личинка насекомых" = 1)
 	foodtype = JUNKFOOD | RAW | GROSS
+	custom_premium_price = 800
 	var/revelation = FALSE
 
 /obj/item/reagent_containers/food/snacks/candy/bronx/On_Consume(mob/living/eater)
@@ -50,7 +51,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/sodiumchloride = 2)
 	junkiness = 25
 	filling_color = "#8B0000"
-	tastes = list("dried meat" = 1)
+	tastes = list("сушеное мясо" = 1)
 	foodtype = JUNKFOOD | MEAT | SUGAR
 
 /obj/item/reagent_containers/food/snacks/sosjerky/healthy
@@ -68,7 +69,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/sodiumchloride = 1)
 	junkiness = 20
 	filling_color = "#FFD700"
-	tastes = list("salt" = 1, "crisps" = 1)
+	tastes = list("соль" = 1, "чипсы" = 1)
 	foodtype = JUNKFOOD | FRIED
 
 /obj/item/reagent_containers/food/snacks/no_raisin
@@ -79,7 +80,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/sugar = 4)
 	junkiness = 25
 	filling_color = "#8B0000"
-	tastes = list("dried raisins" = 1)
+	tastes = list("сушеный изюм" = 1)
 	foodtype = JUNKFOOD | FRUIT | SUGAR
 	custom_price = 90
 
@@ -122,7 +123,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sugar = 3)
 	junkiness = 25
 	filling_color = "#FFD700"
-	tastes = list("cheese" = 5, "crisps" = 2)
+	tastes = list("сыр" = 5, "чипсы" = 2)
 	foodtype = JUNKFOOD | DAIRY | SUGAR
 	custom_price = 45
 
@@ -133,7 +134,7 @@
 	trash = /obj/item/trash/syndi_cakes
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/doctor_delight = 5)
 	filling_color = "#F5F5DC"
-	tastes = list("sweetness" = 3, "cake" = 1)
+	tastes = list("сладость" = 3, "торт" = 1)
 	foodtype = GRAIN | FRUIT | VEGETABLES
 
 /obj/item/reagent_containers/food/snacks/energybar
@@ -143,5 +144,5 @@
 	trash = /obj/item/trash/energybar
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/liquidelectricity = 3)
 	filling_color = "#97ee63"
-	tastes = list("pure electricity" = 3, "fitness" = 2)
+	tastes = list("электричество" = 3, "фитнес" = 2)
 	foodtype = TOXIC

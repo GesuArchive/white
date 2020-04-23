@@ -35,9 +35,6 @@
 	stack_trace("Ghostize was called on a virtual reality mob")
 
 /mob/living/carbon/human/virtual_reality/ghost()
-	set category = "OOC"
-	set name = "Ghost"
-	set desc = "Relinquish your life and enter the land of the dead."
 	revert_to_reality(FALSE)
 
 /mob/living/carbon/human/virtual_reality/proc/check_area()

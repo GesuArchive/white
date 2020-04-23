@@ -161,6 +161,9 @@
 		screen_obj.icon_state = "mood[mood_level]"
 		return
 
+	if(prob(15))
+		owner.name_color = pick(GLOB.safe_name_colors)
+
 	for(var/i in conflicting_moodies)
 		var/datum/mood_event/event = i
 		if(abs(event.mood_change) == highest_absolute_mood)
@@ -205,27 +208,27 @@
 	switch(sanity)
 		if(SANITY_INSANE to SANITY_CRAZY)
 			setInsanityEffect(MAJOR_INSANITY_PEN)
-			master.add_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE, 100, override=TRUE, multiplicative_slowdown=1, movetypes=(~FLYING))
+			master.add_movespeed_modifier(/datum/movespeed_modifier/sanity/insane)
 			sanity_level = 6
 		if(SANITY_CRAZY to SANITY_UNSTABLE)
 			setInsanityEffect(MINOR_INSANITY_PEN)
-			master.add_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE, 100, override=TRUE, multiplicative_slowdown=0.5, movetypes=(~FLYING))
+			master.add_movespeed_modifier(/datum/movespeed_modifier/sanity/crazy)
 			sanity_level = 5
 		if(SANITY_UNSTABLE to SANITY_DISTURBED)
 			setInsanityEffect(0)
-			master.add_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE, 100, override=TRUE, multiplicative_slowdown=0.25, movetypes=(~FLYING))
+			master.add_movespeed_modifier(/datum/movespeed_modifier/sanity/disturbed)
 			sanity_level = 4
 		if(SANITY_DISTURBED to SANITY_NEUTRAL)
 			setInsanityEffect(0)
-			master.remove_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE)
+			master.remove_movespeed_modifier(MOVESPEED_ID_SANITY)
 			sanity_level = 3
 		if(SANITY_NEUTRAL+1 to SANITY_GREAT+1) //shitty hack but +1 to prevent it from responding to super small differences
 			setInsanityEffect(0)
-			master.remove_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE)
+			master.remove_movespeed_modifier(MOVESPEED_ID_SANITY)
 			sanity_level = 2
 		if(SANITY_GREAT+1 to INFINITY)
 			setInsanityEffect(0)
-			master.remove_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE)
+			master.remove_movespeed_modifier(MOVESPEED_ID_SANITY)
 			sanity_level = 1
 	update_mood_icon()
 

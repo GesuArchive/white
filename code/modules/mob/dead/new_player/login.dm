@@ -1,4 +1,6 @@
 /mob/dead/new_player/Login()
+	if(!client)
+		return
 	if(CONFIG_GET(flag/use_exp_tracking))
 		client.set_exp_from_db()
 		client.set_db_player_flags()
@@ -7,7 +9,14 @@
 		mind.active = 1
 		mind.current = src
 
-	..()
+	. = ..()
+	if(!. || !client)
+		return FALSE
+
+	if(client)
+		client.change_view("19x15", TRUE)
+		spawn(10) // дублируем на случай init-time
+			client.fit_viewport()
 
 	var/motd = global.config.motd
 	if(motd)

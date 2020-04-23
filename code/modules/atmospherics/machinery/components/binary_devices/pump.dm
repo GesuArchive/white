@@ -31,13 +31,13 @@
 	ui_y = 115
 
 /obj/machinery/atmospherics/components/binary/pump/CtrlClick(mob/user)
-	if(user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
+	if(can_interact(user))
 		on = !on
 		update_icon()
 	return ..()
 
 /obj/machinery/atmospherics/components/binary/pump/AltClick(mob/user)
-	if(user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
+	if(can_interact(user))
 		target_pressure = MAX_OUTPUT_PRESSURE
 		update_icon()
 	return ..()
@@ -100,7 +100,7 @@
 																datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
-		ui = new(user, src, ui_key, "atmos_pump", name, ui_x, ui_y, master_ui, state)
+		ui = new(user, src, ui_key, "AtmosPump", name, ui_x, ui_y, master_ui, state)
 		ui.open()
 
 /obj/machinery/atmospherics/components/binary/pump/ui_data()
@@ -123,10 +123,6 @@
 			if(pressure == "max")
 				pressure = MAX_OUTPUT_PRESSURE
 				. = TRUE
-			else if(pressure == "input")
-				pressure = input("New output pressure (0-[MAX_OUTPUT_PRESSURE] kPa):", name, target_pressure) as num|null
-				if(!isnull(pressure) && !..())
-					. = TRUE
 			else if(text2num(pressure) != null)
 				pressure = text2num(pressure)
 				. = TRUE

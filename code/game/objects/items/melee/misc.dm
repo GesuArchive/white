@@ -31,7 +31,7 @@
 
 /obj/item/melee/synthetic_arm_blade
 	name = "synthetic arm blade"
-	desc = "A grotesque blade that on closer inspection seems made of synthetic flesh, it still feels like it would hurt very badly as a weapon."
+	desc = "A grotesque blade that on closer inspection seems to be made out of synthetic flesh, it still feels like it would hurt very badly as a weapon."
 	icon = 'icons/obj/changeling_items.dmi'
 	icon_state = "arm_blade"
 	item_state = "arm_blade"
@@ -57,7 +57,7 @@
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	flags_1 = CONDUCT_1
 	obj_flags = UNIQUE_RENAME
-	force = 15
+	force = 22
 	throwforce = 10
 	w_class = WEIGHT_CLASS_BULKY
 	block_chance = 50
@@ -292,7 +292,7 @@
 
 			playsound(get_turf(src), on_stun_sound, 75, TRUE, -1)
 			target.Knockdown(knockdown_time_carbon)
-			target.apply_damage(stamina_damage, STAMINA)
+			target.apply_damage(stamina_damage, STAMINA, BODY_ZONE_CHEST)
 			additional_effects_carbon(target, user)
 
 			log_combat(user, target, "stunned", src)
@@ -647,7 +647,7 @@
 	item_state = "mace_greyscale"
 	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
-	material_flags = MATERIAL_ADD_PREFIX | MATERIAL_COLOR //Material type changes the prefix as well as the color.
+	material_flags = MATERIAL_ADD_PREFIX | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS //Material type changes the prefix as well as the color.
 	custom_materials = list(/datum/material/iron = 12000)  //Defaults to an Iron Mace.
 	slot_flags = ITEM_SLOT_BELT
 	force = 14

@@ -4,7 +4,6 @@
   * A grouping of tiles into a logical space, mostly used by map editors
   */
 /area
-	level = null
 	name = "Space"
 	icon = 'icons/turf/areas.dmi'
 	icon_state = "unknown"
@@ -575,21 +574,30 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!L.ckey)
 		return
 
+	if(prob(15))
+		L.name_color = pick(GLOB.safe_name_colors)
+
 	// Ambience goes down here -- make sure to list each area separately for ease of adding things in later, thanks! Note: areas adjacent to each other should have the same sounds to prevent cutoff when possible.- LastyScratch
 	if(L.client && !L.client.ambience_playing && L.client.prefs.toggles & SOUND_SHIP_AMBIENCE)
 		L.client.ambience_playing = 1
-		SEND_SOUND(L, sound('sound/ambience/shipambience.ogg', repeat = 1, wait = 0, volume = 35, channel = CHANNEL_BUZZ))
+		SEND_SOUND(L, sound('sound/ambience/shipambience.ogg', repeat = 1, wait = 0, volume = 15, channel = CHANNEL_BUZZ))
 
 	if(!(L.client && (L.client.prefs.toggles & SOUND_AMBIENCE)))
 		return //General ambience check is below the ship ambience so one can play without the other
 
 	if(prob(35))
-		var/sound = pick(ambientsounds)
-
 		if(!L.client.played)
-			SEND_SOUND(L, sound(sound, repeat = TRUE, wait = 0, volume = 7, channel = CHANNEL_AMBIENCE))
+
+			var/sound/S = sound(pick(ambientsounds))
+			S.repeat = TRUE
+			S.channel = CHANNEL_AMBIENCE
+			S.wait = FALSE
+			S.volume = 5
+			S.status = SOUND_STREAM
+
+			SEND_SOUND(L, S)
 			L.client.played = TRUE
-			addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), 7200)
+			addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), 300)
 
 ///Divides total beauty in the room by roomsize to allow us to get an average beauty per tile.
 /area/proc/update_beauty()

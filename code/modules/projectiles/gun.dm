@@ -74,6 +74,7 @@
 
 	var/automatic = 0 //can gun use it, 0 is no, anything above 0 is the delay between clicks in ds
 	var/pb_knockback = 0
+	hud_possible = list(HACKER_HUD)
 
 /obj/item/gun/Initialize()
 	. = ..()
@@ -432,8 +433,8 @@
 		if(I.use_tool(src, user, FIRING_PIN_REMOVAL_DELAY, volume = 50))
 			if(!pin) //check to see if the pin is still there, or we can spam messages by clicking multiple times during the tool delay
 				return
-			user.visible_message("<span class='notice'>[pin] was pried out of [src] by [user], destroying the pin in the process.</span>",
-								"<span class='warning'>You pried [pin] out with [I], destroying the pin in the process.</span>", null, 3)
+			user.visible_message("<span class='notice'>[pin] is pried out of [src] by [user], destroying the pin in the process.</span>",
+								"<span class='warning'>You pry [pin] out with [I], destroying the pin in the process.</span>", null, 3)
 			QDEL_NULL(pin)
 			return TRUE
 
@@ -450,8 +451,8 @@
 		if(I.use_tool(src, user, FIRING_PIN_REMOVAL_DELAY, 5, volume = 50))
 			if(!pin) //check to see if the pin is still there, or we can spam messages by clicking multiple times during the tool delay
 				return
-			user.visible_message("<span class='notice'>[pin] was spliced out of [src] by [user], melting part of the pin in the process.</span>",
-								"<span class='warning'>You spliced [pin] out of [src] with [I], melting part of the pin in the process.</span>", null, 3)
+			user.visible_message("<span class='notice'>[pin] is spliced out of [src] by [user], melting part of the pin in the process.</span>",
+								"<span class='warning'>You splice [pin] out of [src] with [I], melting part of the pin in the process.</span>", null, 3)
 			QDEL_NULL(pin)
 			return TRUE
 
@@ -467,8 +468,8 @@
 		if(I.use_tool(src, user, FIRING_PIN_REMOVAL_DELAY, volume = 50))
 			if(!pin) //check to see if the pin is still there, or we can spam messages by clicking multiple times during the tool delay
 				return
-			user.visible_message("<span class='notice'>[pin] was ripped out of [src] by [user], mangling the pin in the process.</span>",
-								"<span class='warning'>You ripped [pin] out of [src] with [I], mangling the pin in the process.</span>", null, 3)
+			user.visible_message("<span class='notice'>[pin] is ripped out of [src] by [user], mangling the pin in the process.</span>",
+								"<span class='warning'>You rip [pin] out of [src] with [I], mangling the pin in the process.</span>", null, 3)
 			QDEL_NULL(pin)
 			return TRUE
 

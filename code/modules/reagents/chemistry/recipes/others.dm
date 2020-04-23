@@ -49,6 +49,15 @@
 	for(var/i = 1, i <= created_volume, i++)
 		new /obj/item/stack/sheet/mineral/gold(location)
 
+/datum/chemical_reaction/uraniumsolidification
+	required_reagents = list(/datum/reagent/consumable/frostoil = 5, /datum/reagent/uranium = 20, /datum/reagent/potassium = 1)
+	mob_react = FALSE
+
+/datum/chemical_reaction/uraniumsolidification/on_reaction(datum/reagents/holder, created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i = 1, i <= created_volume, i++)
+		new /obj/item/stack/sheet/mineral/uranium(location)
+
 /datum/chemical_reaction/capsaicincondensation
 	results = list(/datum/reagent/consumable/condensedcapsaicin = 5)
 	required_reagents = list(/datum/reagent/consumable/capsaicin = 1, /datum/reagent/consumable/ethanol = 5)
@@ -424,8 +433,13 @@
 	required_reagents = list(/datum/reagent/monkey_powder = 30, /datum/reagent/water = 1)
 
 /datum/chemical_reaction/monkey/on_reaction(datum/reagents/holder, created_volume)
-	var/location = get_turf(holder.my_atom)
-	new /mob/living/carbon/monkey(location)
+	var/obj/item/reagent_containers/food/snacks/monkeycube/cube = holder.my_atom
+	if(istype(cube))
+		cube.Expand()
+	else
+		var/location = get_turf(holder.my_atom)
+		new /mob/living/carbon/monkey(location)
+
 //water electrolysis
 /datum/chemical_reaction/electrolysis
 	results = list(/datum/reagent/oxygen = 10, /datum/reagent/hydrogen = 20)
@@ -563,3 +577,12 @@
 	results = list(/datum/reagent/water/holywater = 1)
 	required_reagents = list(/datum/reagent/water/hollowwater = 1)
 	required_catalysts = list(/datum/reagent/water/holywater = 1)
+
+/datum/chemical_reaction/gravy
+	results = list(/datum/reagent/consumable/gravy = 3)
+	required_reagents = list(/datum/reagent/consumable/milk = 1, /datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/flour = 1)
+
+/datum/chemical_reaction/metalgen_other
+	required_reagents = list(/datum/reagent/iron = 1, /datum/reagent/medicine/C2/helbital = 1, /datum/reagent/cryostylane = 1, /datum/reagent/baldium = 1, /datum/reagent/blood = 1, /datum/reagent/stable_plasma = 1, /datum/reagent/impedrezene = 1, /datum/reagent/cellulose = 1, /datum/reagent/pyrosium = 1)
+	required_catalysts= list(/datum/reagent/toxin/poo = 1)
+	results = list(/datum/reagent/metalgen = 5)

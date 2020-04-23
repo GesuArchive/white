@@ -41,9 +41,12 @@
 	if(is_banned_from(user.key, banType))
 		to_chat(user, "<span class='warning'>You are jobanned!</span>")
 		return
+	if(!allow_spawn(user))
+		return
 	if(QDELETED(src) || QDELETED(user))
 		return
 	var/ghost_role = alert("Become [mob_name]? (Warning, You can no longer be revived!)",,"Yes","No")
+
 	if(ghost_role == "No" || !loc)
 		return
 	log_game("[key_name(user)] became [mob_name]")
@@ -64,6 +67,9 @@
 	if(!LAZYLEN(spawners))
 		GLOB.mob_spawners -= name
 	return ..()
+
+/obj/effect/mob_spawn/proc/allow_spawn(mob/user) //Override this to add spawn limits to a ghost role
+	return TRUE
 
 /obj/effect/mob_spawn/proc/special(mob/M)
 	return
@@ -215,6 +221,8 @@
 
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
+		if(H.age)
+			W.registered_age = H.age
 		if(id_access)
 			for(var/jobtype in typesof(/datum/job))
 				var/datum/job/J = new jobtype
@@ -400,6 +408,14 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/reagent
 	id = /obj/item/card/id
 
+/datum/outfit/spacebartender/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+
+	var/obj/item/card/id/W = H.wear_id
+	if(H.age < AGE_MINOR)
+		W.registered_age = AGE_MINOR
+		to_chat(H, "<span class='notice'>You're not technically old enough to access or serve alcohol, but your ID has been discreetly modified to display your age as [AGE_MINOR]. Try to keep that a secret!</span>")
+
 /obj/effect/mob_spawn/human/beach
 	outfit = /datum/outfit/beachbum
 
@@ -469,7 +485,7 @@
 	glasses = /obj/item/clothing/glasses/eyepatch
 	mask = /obj/item/clothing/mask/cigarette/cigar/cohiba
 	head = /obj/item/clothing/head/centhat
-	gloves = /obj/item/clothing/gloves/combat
+	gloves = /obj/item/clothing/gloves/tackler/combat
 	shoes = /obj/item/clothing/shoes/combat/swat
 	r_pocket = /obj/item/lighter
 	id = /obj/item/card/id
@@ -486,7 +502,7 @@
 	uniform = /obj/item/clothing/under/rank/security/officer
 	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/combat
-	gloves = /obj/item/clothing/gloves/combat
+	gloves = /obj/item/clothing/gloves/tackler/combat
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
 	head = /obj/item/clothing/head/helmet/swat/nanotrasen
 	back = /obj/item/storage/backpack/security

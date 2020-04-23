@@ -1,6 +1,13 @@
 ////////////////////////////////////////
 //////////////MISC Boards///////////////
 ////////////////////////////////////////
+/datum/design/board/electrolyzer
+	name = "Machine Design (Electrolyzer Board)"
+	desc = "The circuit board for an electrolyzer."
+	id = "electrolyzer"
+	build_path = /obj/item/circuitboard/machine/electrolyzer
+	category = list ("Engineering Machinery")
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/board/smes
 	name = "Machine Design (SMES Board)"
@@ -475,14 +482,6 @@
 	category = list ("Misc. Machinery")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
-/datum/design/board/plantgenes
-	name = "Machine Design (Plant DNA Manipulator Board)"
-	desc = "The circuit board for a plant DNA manipulator."
-	id = "plantgenes"
-	build_path = /obj/item/circuitboard/machine/plantgenes
-	category = list ("Hydroponics Machinery")
-	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
-
 /datum/design/board/ntnet_relay
 	name = "Machine Design (NTNet Relay Board)"
 	desc = "The circuit board for a wireless network relay."
@@ -610,3 +609,11 @@
 	build_path = /obj/item/circuitboard/machine/medipen_refiller
 	category = list ("Medical Machinery")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
+/datum/design/board/sheetifier
+	name = "Sheetifier"
+	desc = "This machine turns weird things into sheets."
+	id = "sheetifier"
+	build_path = /obj/item/circuitboard/machine/sheetifier
+	category = list ("Misc. Machinery")
+	departmental_flags = DEPARTMENTAL_FLAG_ALL

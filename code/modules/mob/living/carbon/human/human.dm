@@ -160,8 +160,11 @@
 	if(ITEM_SLOT_FEET in obscured)
 		dat += "<tr><td><font color=grey><B>Обувь:</B></font></td><td><font color=grey>Скрыто</font></td></tr>"
 	else
-		dat += "<tr><td><B>Обувь:</B></td><td><A href='?src=[REF(src)];item=[ITEM_SLOT_FEET]'>[(shoes && !(shoes.item_flags & ABSTRACT))		? shoes		: "<font color=grey>Ничего</font>"]</A></td></tr>"
+		dat += "<tr><td><B>Shoes:</B></td><td><A href='?src=[REF(src)];item=[ITEM_SLOT_FEET]'>[(shoes && !(shoes.item_flags & ABSTRACT))		? shoes		: "<font color=grey>Ничего</font>"]</A>"
+		if(shoes && shoes.can_be_tied && shoes.tied != SHOES_KNOTTED)
+			dat += "&nbsp;<A href='?src=[REF(src)];shoes=[ITEM_SLOT_FEET]'>[shoes.tied ? "Расслабить шнурки" : "Связать шнурки"]</A>"
 
+		dat += "</td></tr>"
 	if(ITEM_SLOT_GLOVES in obscured)
 		dat += "<tr><td><font color=grey><B>Gloves:</B></font></td><td><font color=grey>Скрыто</font></td></tr>"
 	else
@@ -171,8 +174,14 @@
 		dat += "<tr><td><font color=grey><B>Одежда:</B></font></td><td><font color=grey>Скрыто</font></td></tr>"
 	else
 		dat += "<tr><td><B>Одежда:</B></td><td><A href='?src=[REF(src)];item=[ITEM_SLOT_ICLOTHING]'>[(w_uniform && !(w_uniform.item_flags & ABSTRACT)) ? w_uniform : "<font color=grey>Ничего</font>"]</A></td></tr>"
+		if(w_uniform)
+			var/obj/item/clothing/under/U = w_uniform
+			if (U.can_adjust)
+				dat += "&nbsp;<A href='?src=[REF(src)];toggle_uniform=[ITEM_SLOT_ICLOTHING]'>Поправить</A>"
+		dat += "</td></tr>"
 
-	if((w_uniform == null && !(dna && dna.species.nojumpsuit)) || (ITEM_SLOT_ICLOTHING in obscured))
+	var/obj/item/bodypart/O = get_bodypart(BODY_ZONE_CHEST)
+	if((w_uniform == null && !(dna && dna.species.nojumpsuit) && !(O && O.status == BODYPART_ROBOTIC)) || (ITEM_SLOT_ICLOTHING in obscured))
 		dat += "<tr><td><font color=grey>&nbsp;&#8627;<B>Карманы:</B></font></td></tr>"
 		dat += "<tr><td><font color=grey>&nbsp;&#8627;<B>ID:</B></font></td></tr>"
 		dat += "<tr><td><font color=grey>&nbsp;&#8627;<B>Пояс:</B></font></td></tr>"
@@ -216,7 +225,7 @@
 		var/obj/item/I = locate(href_list["embedded_object"]) in L.embedded_objects
 		if(!I || I.loc != src) //no item, no limb, or item is not in limb or in the person anymore
 			return
-		SEND_SIGNAL(src, COMSIG_HUMAN_EMBED_RIP, I, L)
+		SEND_SIGNAL(src, COMSIG_CARBON_EMBED_RIP, I, L)
 		return
 
 	if(href_list["item"]) //canUseTopic check for this is handled by mob/Topic()
@@ -256,6 +265,19 @@
 		else
 			// Display a warning if the user mocks up
 			to_chat(src, "<span class='warning'>Кто-то шарится в моём [pocket_side] кармане!</span>")
+
+	if(href_list["toggle_uniform"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+		var/obj/item/clothing/under/U = get_item_by_slot(ITEM_SLOT_ICLOTHING)
+		to_chat(src, "<span class='notice'>[usr.name] is trying to adjust your [U].</span>")
+		if(do_mob(usr, src, U.strip_delay/2))
+			to_chat(src, "<span class='notice'>[usr.name] successfully adjusted your [U].</span>")
+			U.toggle_jumpsuit_adjust()
+			update_inv_w_uniform()
+			update_body()
+
+	var/mob/living/user = usr
+	if(istype(user) && href_list["shoes"] && (user.mobility_flags & MOBILITY_USE)) // we need to be on the ground, so we'll be a bit looser
+		shoes.handle_tying(usr)
 
 ///////HUDs///////
 	if(href_list["hud"])
@@ -405,16 +427,12 @@
 				if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD))
 					return
 				to_chat(usr, "<b>Имя:</b> [R.fields["name"]]	<b>Статус:</b> [R.fields["criminal"]]")
-				to_chat(usr, "<b>Незначительные преступления:</b>")
-				for(var/datum/data/crime/c in R.fields["mi_crim"])
+				for(var/datum/data/crime/c in R.fields["crim"])
 					to_chat(usr, "<b>Преступление:</b> [c.crimeName]")
-					to_chat(usr, "<b>Детали:</b> [c.crimeDetails]")
-					to_chat(usr, "Добавлено [c.author] в [c.time]")
-					to_chat(usr, "----------")
-					to_chat(usr, "<b>Серьёзные преступления:</b>")
-				for(var/datum/data/crime/c in R.fields["ma_crim"])
-					to_chat(usr, "<b>Преступление:</b> [c.crimeName]")
-					to_chat(usr, "<b>Детали:</b> [c.crimeDetails]")
+					if (c.crimeDetails)
+						to_chat(usr, "<b>Детали:</b> [c.crimeDetails]")
+					else
+						to_chat(usr, "<b>Детали:</b> <A href='?src=[REF(src)];hud=s;add_details=1;cdataid=[c.dataId]'>\[Добавить]</A>")
 					to_chat(usr, "Добавлено [c.author] в [c.time]")
 					to_chat(usr, "----------")
 				to_chat(usr, "<b>Заметки:</b> [R.fields["notes"]]")
@@ -453,34 +471,31 @@
 				return
 
 			if(href_list["add_crime"])
-				switch(alert("Какое преступление вы хотели бы добавить?","Security HUD","Незначительное преступление","Серьёзное преступление","Отмена"))
-					if("Незначительное преступление")
-						var/t1 = stripped_input("Пожалуйста, введите имена мелких преступлений:", "Security HUD", "", null)
-						var/t2 = stripped_multiline_input("Пожалуйста, введите мелкие детали преступления:", "Security HUD", "", null)
-						if(!R || !t1 || !t2 || !allowed_access)
-							return
-						if(!H.canUseHUD())
-							return
-						if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD))
-							return
-						var/crime = GLOB.data_core.createCrimeEntry(t1, t2, allowed_access, station_time_timestamp())
-						GLOB.data_core.addMinorCrime(R.fields["id"], crime)
-						investigate_log("New Minor Crime: <strong>[t1]</strong>: [t2] | Added to [R.fields["name"]] by [key_name(usr)]", INVESTIGATE_RECORDS)
-						to_chat(usr, "<span class='notice'>Успешно добавлено незначительное преступление.</span>")
-						return
-					if("Серьёзное преступление")
-						var/t1 = stripped_input("Пожалуйста, введите основные имена преступлений:", "Security HUD", "", null)
-						var/t2 = stripped_multiline_input("Пожалуйста, введите основные детали преступления:", "Security HUD", "", null)
-						if(!R || !t1 || !t2 || !allowed_access)
-							return
-						if(!H.canUseHUD())
-							return
-						if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD))
-							return
-						var/crime = GLOB.data_core.createCrimeEntry(t1, t2, allowed_access, station_time_timestamp())
-						GLOB.data_core.addMajorCrime(R.fields["id"], crime)
-						investigate_log("New Major Crime: <strong>[t1]</strong>: [t2] | Added to [R.fields["name"]] by [key_name(usr)]", INVESTIGATE_RECORDS)
-						to_chat(usr, "<span class='notice'>Успешно добавлено серьёзное преступление.</span>")
+				var/t1 = stripped_input("Введите название преступления:", "Security HUD", "", null)
+				if(!R || !t1 || !allowed_access)
+					return
+				if(!H.canUseHUD())
+					return
+				if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD))
+					return
+				var/crime = GLOB.data_core.createCrimeEntry(t1, null, allowed_access, station_time_timestamp())
+				GLOB.data_core.addCrime(R.fields["id"], crime)
+				investigate_log("New Crime: <strong>[t1]</strong> | Added to [R.fields["name"]] by [key_name(usr)]", INVESTIGATE_RECORDS)
+				to_chat(usr, "<span class='notice'>Успешно добавили преступление.</span>")
+				return
+
+			if(href_list["add_details"])
+				var/t1 = stripped_input(usr, "Пожалуйста, введите основные детали преступлений:", "Secure. records", "", null)
+				if(!R || !t1 || !allowed_access)
+					return
+				if(!H.canUseHUD())
+					return
+				if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD))
+					return
+				if(href_list["cdataid"])
+					GLOB.data_core.addCrimeDetails(R.fields["id"], href_list["cdataid"], t1)
+					investigate_log("New Crime details: [t1] | Added to [R.fields["name"]] by [key_name(usr)]", INVESTIGATE_RECORDS)
+					to_chat(usr, "<span class='notice'>Успешно добавлены детали.</span>")
 				return
 
 			if(href_list["view_comment"])
@@ -713,8 +728,8 @@
 	remove_atom_colour(TEMPORARY_COLOUR_PRIORITY, "#000000")
 	cut_overlay(MA)
 
-/mob/living/carbon/human/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
-	if(!(mobility_flags & MOBILITY_UI))
+/mob/living/carbon/human/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE, floor_okay=FALSE)
+	if(!(mobility_flags & MOBILITY_UI) && !floor_okay)
 		to_chat(src, "<span class='warning'>Не могу это сделать!</span>")
 		return FALSE
 	if(!Adjacent(M) && (M.loc != src))
@@ -967,17 +982,19 @@
 			message_admins(msg)
 			admin_ticket_log(src, msg)
 
+
 /mob/living/carbon/human/MouseDrop_T(mob/living/target, mob/living/user)
-	if(pulling == target && grab_state >= GRAB_AGGRESSIVE && stat == CONSCIOUS)
-		//If they dragged themselves and we're currently aggressively grabbing them try to piggyback
-		if(user == target && can_piggyback(target))
+	if(pulling != target || grab_state != GRAB_AGGRESSIVE || stat != CONSCIOUS || a_intent != INTENT_GRAB)
+		return ..()
+
+	//If they dragged themselves and we're currently aggressively grabbing them try to piggyback
+	if(user == target)
+		if(can_piggyback(target))
 			piggyback(target)
-			return
-		//If you dragged them to you and you're aggressively grabbing try to fireman carry them
-		else if(user != target && can_be_firemanned(target))
-			fireman_carry(target)
-			return
-	. = ..()
+	//If you dragged them to you and you're aggressively grabbing try to fireman carry them
+	else if(can_be_firemanned(target))
+		fireman_carry(target)
+
 
 //src is the user that will be carrying, target is the mob to be carried
 /mob/living/carbon/human/proc/can_piggyback(mob/living/carbon/target)
@@ -1002,7 +1019,7 @@
 		//(Using your gloves' nanochips, you/You) ( /quickly/expertly) start to lift Grey Tider onto your back(, while assisted by the nanochips in your gloves../...)
 		if(do_after(src, carrydelay, TRUE, target))
 			//Second check to make sure they're still valid to be carried
-			if(can_be_firemanned(target) && !incapacitated(FALSE, TRUE))
+			if(can_be_firemanned(target) && !incapacitated(FALSE, TRUE) && !target.buckled)
 				buckle_mob(target, TRUE, TRUE, 90, 1, 0)
 				return
 		visible_message("<span class='warning'>[src] не может поднять [target]!</span>")
@@ -1066,7 +1083,7 @@
 	return FALSE
 
 /mob/living/carbon/human/proc/clear_shove_slowdown()
-	remove_movespeed_modifier(MOVESPEED_ID_SHOVE)
+	remove_movespeed_modifier(/datum/movespeed_modifier/shove)
 	var/active_item = get_active_held_item()
 	if(is_type_in_typecache(active_item, GLOB.shove_disarming_types))
 		visible_message("<span class='warning'>[src.name] возвращает свой захват [active_item]!</span>", "<span class='warning'>Возвращаю свой захват [active_item]</span>", null, COMBAT_MESSAGE_RANGE)
@@ -1079,17 +1096,16 @@
 	. = ..()
 	dna?.species.spec_updatehealth(src)
 	if(HAS_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN))
-		remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN)
-		remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN_FLYING)
+		remove_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown)
+		remove_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown_flying)
 		return
 	var/health_deficiency = max((maxHealth - health), staminaloss)
 	if(health_deficiency >= 40)
-		add_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN, override = TRUE, multiplicative_slowdown = (health_deficiency / 75), blacklisted_movetypes = FLOATING|FLYING)
-		add_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN_FLYING, override = TRUE, multiplicative_slowdown = (health_deficiency / 25), movetypes = FLOATING)
+		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown, TRUE, multiplicative_slowdown = health_deficiency / 75)
+		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown_flying, TRUE, multiplicative_slowdown = health_deficiency / 25)
 	else
-		remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN)
-		remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN_FLYING)
-
+		remove_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown)
+		remove_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown_flying)
 
 /mob/living/carbon/human/washed(var/atom/washer)
 	. = ..()
@@ -1109,12 +1125,12 @@
 	if(gloves && !(HIDEGLOVES in obscured) && gloves.washed(washer))
 		SEND_SIGNAL(src, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_STRENGTH_BLOOD)
 
-/mob/living/carbon/human/adjust_nutrition(var/change) //Honestly FUCK the oldcoders for putting nutrition on /mob someone else can move it up because holy hell I'd have to fix SO many typechecks
+/mob/living/carbon/human/adjust_nutrition(change) //Honestly FUCK the oldcoders for putting nutrition on /mob someone else can move it up because holy hell I'd have to fix SO many typechecks
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
 		return FALSE
 	return ..()
 
-/mob/living/carbon/human/set_nutrition(var/change) //Seriously fuck you oldcoders.
+/mob/living/carbon/human/set_nutrition(change) //Seriously fuck you oldcoders.
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
 		return FALSE
 	return ..()

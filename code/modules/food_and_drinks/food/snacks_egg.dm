@@ -8,7 +8,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/sugar = 2, /datum/reagent/consumable/coco = 2)
 	filling_color = "#A0522D"
-	tastes = list("chocolate" = 4, "sweetness" = 1)
+	tastes = list("шоколад" = 4, "сладость" = 1)
 	foodtype = JUNKFOOD | SUGAR
 
 /obj/item/reagent_containers/food/snacks/egg
@@ -94,7 +94,7 @@
 	bitesize = 1
 	filling_color = "#FFFFF0"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
-	tastes = list("egg" = 4, "salt" = 1, "pepper" = 1)
+	tastes = list("яйцо" = 4, "соль" = 1, "перец" = 1)
 	foodtype = MEAT | FRIED | BREAKFAST
 
 /obj/item/reagent_containers/food/snacks/boiledegg
@@ -104,7 +104,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
 	filling_color = "#FFFFF0"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("egg" = 1)
+	tastes = list("яйцо" = 1)
 	foodtype = MEAT | BREAKFAST
 
 /obj/item/reagent_containers/food/snacks/omelette	//FUCK THIS
@@ -116,7 +116,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 1)
 	bitesize = 1
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("egg" = 1, "cheese" = 1)
+	tastes = list("яйцо" = 1, "сыр" = 1)
 	foodtype = MEAT | BREAKFAST | DAIRY
 
 /obj/item/reagent_containers/food/snacks/omelette/attackby(obj/item/W, mob/user, params)
@@ -145,6 +145,6 @@
 	trash = /obj/item/trash/plate
 	w_class = WEIGHT_CLASS_NORMAL
 	list_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 4)
-	tastes = list("egg" = 1, "bacon" = 1, "bun" = 1)
+	tastes = list("яйцо" = 1, "бекон" = 1, "булка" = 1)
 
 	foodtype = MEAT | BREAKFAST | GRAIN

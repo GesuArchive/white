@@ -3,8 +3,8 @@
 	config_tag = "nuclear"
 	report_type = "nuclear"
 	false_report_weight = 10
-	required_players = 30 // 30 players - 3 players to be the nuke ops = 27 players remaining
-	required_enemies = 2
+	required_players = 5 // 30 players - 3 players to be the nuke ops = 27 players remaining
+	required_enemies = 1
 	recommended_enemies = 5
 	antag_flag = ROLE_OPERATIVE
 	enemy_minimum_age = 14
@@ -24,7 +24,7 @@
 	var/leader_antag_datum_type = /datum/antagonist/nukeop/leader
 
 /datum/game_mode/nuclear/pre_setup()
-	var/n_agents = min(round(num_players() / 10), antag_candidates.len, agents_possible)
+	var/n_agents = min(round(num_players() / 5), antag_candidates.len, agents_possible)
 	if(n_agents >= required_enemies)
 		for(var/i = 0, i < n_agents, ++i)
 			var/datum/mind/new_op = pick_n_take(antag_candidates)
@@ -115,7 +115,7 @@
 
 	uniform = /obj/item/clothing/under/syndicate
 	shoes = /obj/item/clothing/shoes/combat
-	gloves = /obj/item/clothing/gloves/combat
+	gloves =  /obj/item/clothing/gloves/combat
 	back = /obj/item/storage/backpack/fireproof
 	ears = /obj/item/radio/headset/syndicate/alt
 	l_pocket = /obj/item/pinpointer/nuke/syndicate

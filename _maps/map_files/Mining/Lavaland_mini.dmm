@@ -1748,7 +1748,7 @@
 /turf/open/floor/plating,
 /area/mine/laborcamp)
 "rV" = (
-/obj/item/twohanded/required/kirbyplants/random,
+/obj/item/kirbyplants/random,
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
@@ -3899,7 +3899,7 @@
 /turf/open/floor/plasteel,
 /area/mine/laborcamp)
 "Rd" = (
-/obj/item/twohanded/required/kirbyplants/random,
+/obj/item/kirbyplants/random,
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
 "Rr" = (

@@ -32,5 +32,5 @@
 						text2num(result["values"][MOB_STM]),\
 						text2num(result["values"][MOB_INT]),\
 						text2num(result["values"][MOB_DEX]))
-			log_admin("[key_name(usr)] modified the stats on [M] ([type]) to STR: [M.bstats[MOB_STR]], STM: [M.bstats[MOB_STM]], INT: [M.bstats[MOB_INT]], DEX: [M.bstats[MOB_DEX]]")
-			message_admins("<span class='notice'>[key_name_admin(usr)] modified the stats on [M] ([type]) to STR: [M.bstats[MOB_STR]], STM: [M.bstats[MOB_STM]], INT: [M.bstats[MOB_INT]], DEX: [M.bstats[MOB_DEX]]</span>")
+			log_admin("[key_name(usr)] modified the stats on [M] ([type]) to STR: [M.current_fate[MOB_STR]], STM: [M.current_fate[MOB_STM]], INT: [M.current_fate[MOB_INT]], DEX: [M.current_fate[MOB_DEX]]")
+			message_admins("<span class='notice'>[key_name_admin(usr)] modified the stats on [M] ([type]) to STR: [M.current_fate[MOB_STR]], STM: [M.current_fate[MOB_STM]], INT: [M.current_fate[MOB_INT]], DEX: [M.current_fate[MOB_DEX]]</span>")

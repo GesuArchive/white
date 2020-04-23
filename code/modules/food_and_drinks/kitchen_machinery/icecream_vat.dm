@@ -215,7 +215,7 @@
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "icecream_cone_waffle" //default for admin-spawned cones, href_list["cone"] should overwrite this all the time
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4)
-	tastes = list("cream" = 2, "waffle" = 1)
+	tastes = list("пломбир" = 2, "вафля" = 1)
 	var/ice_creamed = 0
 	var/cone_type
 	bitesize = 4

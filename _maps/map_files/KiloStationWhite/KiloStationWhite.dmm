@@ -3295,7 +3295,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-10"
 	},
 /turf/open/floor/plasteel/showroomfloor,
@@ -8846,7 +8846,7 @@
 /turf/open/floor/plasteel/dark,
 /area/maintenance/starboard/fore)
 "anY" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/effect/turf_decal/tile/neutral,
@@ -11665,7 +11665,7 @@
 /area/maintenance/starboard/fore)
 "asq" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/libraryconsole/bookmanagement{
+/obj/machinery/computer/bookmanagement{
 	pixel_y = 5
 	},
 /obj/effect/turf_decal/tile/neutral,
@@ -12411,7 +12411,7 @@
 /turf/open/floor/plasteel/dark,
 /area/maintenance/starboard/fore)
 "atJ" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/effect/turf_decal/tile/neutral,
@@ -15399,7 +15399,7 @@
 /turf/open/floor/plasteel/dark,
 /area/medical/morgue)
 "axT" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/effect/turf_decal/stripes/corner{
@@ -19352,7 +19352,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-10"
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer1{
@@ -20887,7 +20887,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /turf/open/floor/plasteel/dark,
@@ -20923,7 +20923,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-22"
 	},
 /obj/machinery/light,
@@ -22247,7 +22247,7 @@
 /turf/open/floor/plasteel/dark,
 /area/chapel/main)
 "aHy" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/effect/turf_decal/tile/neutral{
@@ -22470,7 +22470,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/corner,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-16"
 	},
 /turf/open/floor/plasteel,
@@ -22494,7 +22494,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	desc = "After his promotion, he was transferred to Kilo Station to serve as the gateway's protector.";
 	icon_state = "plant-21";
 	name = "rodger"
@@ -23198,7 +23198,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-10"
 	},
 /obj/effect/turf_decal/stripes/corner{
@@ -23330,7 +23330,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /turf/open/floor/plasteel/dark,
@@ -23364,7 +23364,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-16"
 	},
 /obj/effect/turf_decal/box/corners{
@@ -23428,7 +23428,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-10"
 	},
 /obj/machinery/button/door{
@@ -24112,7 +24112,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /turf/open/floor/plasteel/showroomfloor,
@@ -24685,7 +24685,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "applebush"
 	},
 /turf/open/floor/plasteel/dark/corner{
@@ -25271,7 +25271,7 @@
 /area/maintenance/port)
 "aLL" = (
 /obj/effect/decal/cleanable/cobweb,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-03"
 	},
 /obj/effect/turf_decal/stripes/corner{
@@ -25281,7 +25281,7 @@
 /turf/open/floor/wood,
 /area/maintenance/port)
 "aLM" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/effect/turf_decal/stripes/corner{
@@ -25929,7 +25929,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/effect/turf_decal/tile/red{
@@ -28364,7 +28364,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-10"
 	},
 /obj/effect/turf_decal/stripes/corner{
@@ -28980,7 +28980,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/effect/turf_decal/stripes/corner,
@@ -29041,7 +29041,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/purple,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-10"
 	},
 /obj/machinery/button/door{
@@ -29996,7 +29996,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/machinery/light{
@@ -30105,7 +30105,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/machinery/airalarm{
@@ -30769,7 +30769,7 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/medical/medbay/central)
 "aSM" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-18"
 	},
 /obj/effect/turf_decal/tile/blue,
@@ -30860,7 +30860,7 @@
 /turf/open/floor/wood,
 /area/crew_quarters/bar)
 "aSU" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /turf/open/floor/wood,
@@ -30915,7 +30915,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-17";
 	pixel_x = 8;
 	pixel_y = 3
@@ -31975,7 +31975,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-02";
 	pixel_y = 3
 	},
@@ -34305,7 +34305,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-18"
 	},
 /obj/effect/turf_decal/stripes/corner{
@@ -34614,7 +34614,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-10"
 	},
 /obj/structure/disposalpipe/segment{
@@ -35181,7 +35181,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-18"
 	},
 /obj/machinery/light_switch{
@@ -35885,7 +35885,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-18"
 	},
 /obj/effect/turf_decal/stripes/corner{
@@ -36064,7 +36064,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/effect/turf_decal/stripes/corner,
@@ -39283,7 +39283,7 @@
 	},
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/neutral,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-10"
 	},
 /obj/effect/turf_decal/stripes/corner{
@@ -39485,7 +39485,7 @@
 	},
 /area/ai_monitored/turret_protected/ai_upload)
 "bfh" = (
-/obj/item/twohanded/required/kirbyplants/photosynthetic,
+/obj/item/kirbyplants/photosynthetic,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -41197,7 +41197,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-18"
 	},
 /obj/machinery/camera{
@@ -42504,7 +42504,7 @@
 	dir = 1
 	},
 /obj/structure/table/wood,
-/obj/machinery/computer/libraryconsole/bookmanagement{
+/obj/machinery/computer/bookmanagement{
 	pixel_y = 5
 	},
 /obj/machinery/light{
@@ -43684,7 +43684,7 @@
 /turf/open/floor/plasteel/grimy,
 /area/library)
 "blo" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/machinery/light_switch{
@@ -45646,7 +45646,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -45985,7 +45985,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-14"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
@@ -46279,7 +46279,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/item/twohanded/required/kirbyplants,
+/obj/item/kirbyplants,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -46295,7 +46295,7 @@
 "bpd" = (
 /obj/effect/turf_decal/stripes/corner,
 /obj/effect/turf_decal/tile/neutral,
-/obj/item/twohanded/required/kirbyplants,
+/obj/item/kirbyplants,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -46453,9 +46453,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/machinery/plantgenes{
-	pixel_y = 5
-	},
+/obj/item/secateurs,
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
 "bpp" = (
@@ -46504,9 +46502,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/machinery/plantgenes{
-	pixel_y = 5
-	},
+/obj/item/secateurs,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
@@ -47309,7 +47305,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-10"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -47842,7 +47838,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /turf/open/floor/plasteel,
@@ -48580,7 +48576,7 @@
 	},
 /area/maintenance/central)
 "brW" = (
-/obj/item/twohanded/required/kirbyplants,
+/obj/item/kirbyplants,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
@@ -49444,7 +49440,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/cobweb,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -49672,7 +49668,7 @@
 /turf/open/floor/plating,
 /area/maintenance/central)
 "btz" = (
-/obj/item/twohanded/required/kirbyplants,
+/obj/item/kirbyplants,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
@@ -49742,7 +49738,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/item/twohanded/required/kirbyplants,
+/obj/item/kirbyplants,
 /obj/machinery/power/apc/highcap/ten_k{
 	dir = 8;
 	name = "Bridge APC";
@@ -50191,7 +50187,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-03"
 	},
 /obj/machinery/light{
@@ -50309,7 +50305,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-16"
 	},
 /turf/open/floor/plasteel/dark,
@@ -50387,7 +50383,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/structure/spider/stickyweb,
@@ -50879,7 +50875,7 @@
 /turf/open/floor/plating,
 /area/maintenance/central)
 "bvi" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/effect/turf_decal/tile/neutral{
@@ -51299,7 +51295,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -52039,7 +52035,7 @@
 /turf/open/floor/plasteel,
 /area/security/courtroom)
 "bwI" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-22"
 	},
 /obj/effect/turf_decal/tile/neutral{
@@ -52256,7 +52252,7 @@
 /obj/structure/noticeboard{
 	pixel_y = 30
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-17";
 	pixel_x = -8;
 	pixel_y = 3
@@ -52416,7 +52412,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/effect/turf_decal/stripes/corner{
@@ -52969,7 +52965,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-14"
 	},
 /turf/open/floor/plasteel/showroomfloor,
@@ -52989,7 +52985,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-16"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
@@ -53139,7 +53135,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "applebush"
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
@@ -53219,7 +53215,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-16"
 	},
 /obj/structure/extinguisher_cabinet{
@@ -53431,7 +53427,7 @@
 	icon_state = "box_corners";
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants,
+/obj/item/kirbyplants,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 24
 	},
@@ -54298,7 +54294,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-03"
 	},
 /obj/structure/disposalpipe/segment,
@@ -54315,7 +54311,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-16"
 	},
 /turf/open/floor/plasteel/showroomfloor,
@@ -54759,7 +54755,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/effect/turf_decal/stripes/corner{
@@ -55770,7 +55766,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
 "bBA" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-10"
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer1{
@@ -56152,7 +56148,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/structure/disposalpipe/segment,
@@ -56964,7 +56960,7 @@
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "bDr" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-22"
 	},
 /turf/open/floor/plasteel/dark,
@@ -57154,7 +57150,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-22"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -57581,7 +57577,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/machinery/airalarm{
@@ -58922,7 +58918,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /turf/open/floor/plasteel/dark/corner{
@@ -59600,7 +59596,7 @@
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/storage)
 "bGO" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/machinery/firealarm{
@@ -60352,7 +60348,7 @@
 /turf/open/floor/plasteel/dark/corner,
 /area/hallway/primary/starboard)
 "bIc" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/effect/turf_decal/tile/neutral,
@@ -61021,7 +61017,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants,
+/obj/item/kirbyplants,
 /turf/open/floor/plasteel/dark,
 /area/security/courtroom)
 "bIZ" = (
@@ -62099,7 +62095,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/effect/turf_decal/stripes/corner,
@@ -62232,7 +62228,7 @@
 	icon_state = "pipe11-1";
 	dir = 9
 	},
-/obj/item/twohanded/required/kirbyplants,
+/obj/item/kirbyplants,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -62405,7 +62401,7 @@
 	icon_state = "pipe11-1";
 	dir = 6
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-22"
 	},
 /turf/open/floor/plasteel,
@@ -63343,7 +63339,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -64020,7 +64016,7 @@
 	icon_state = "pipe11-1";
 	dir = 10
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-16"
 	},
 /turf/open/floor/plasteel,
@@ -64177,7 +64173,7 @@
 	icon_state = "pipe11-1";
 	dir = 6
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-16"
 	},
 /turf/open/floor/plasteel/dark/corner{
@@ -66084,7 +66080,7 @@
 "bQk" = (
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/red,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-02";
 	pixel_y = 3
 	},
@@ -66394,7 +66390,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/neutral,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/structure/extinguisher_cabinet{
@@ -66594,7 +66590,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/effect/turf_decal/stripes/corner{
@@ -67120,7 +67116,7 @@
 /turf/closed/wall/rust,
 /area/hallway/primary/central)
 "bRJ" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/effect/turf_decal/tile/blue{
@@ -67408,7 +67404,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/neutral,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-03"
 	},
 /obj/structure/cable{
@@ -67685,7 +67681,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/machinery/firealarm{
@@ -67938,7 +67934,7 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/prison)
 "bSJ" = (
-/obj/machinery/computer/libraryconsole/bookmanagement,
+/obj/machinery/computer/bookmanagement,
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/red,
@@ -67994,7 +67990,7 @@
 	pixel_y = 22;
 	prison_radio = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-17";
 	pixel_x = -8;
 	pixel_y = 3
@@ -68121,7 +68117,7 @@
 	},
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/structure/extinguisher_cabinet{
@@ -68238,7 +68234,7 @@
 /obj/item/radio/intercom{
 	pixel_x = -28
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-02";
 	pixel_y = 3
 	},
@@ -69250,7 +69246,7 @@
 	dir = 4;
 	pixel_x = -22
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /turf/open/floor/plasteel/dark,
@@ -70633,7 +70629,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/machinery/power/apc/highcap/five_k{
@@ -70914,7 +70910,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-02";
 	pixel_y = 3
 	},
@@ -71031,7 +71027,7 @@
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/stripes/corner,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-11"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -71360,7 +71356,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-02";
 	pixel_y = 3
 	},
@@ -72935,7 +72931,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /turf/open/floor/plasteel/dark,
@@ -73667,7 +73663,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
@@ -74693,7 +74689,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-16"
 	},
 /obj/effect/turf_decal/stripes/corner{
@@ -75034,7 +75030,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-02";
 	pixel_y = 3
 	},
@@ -76365,7 +76361,7 @@
 	dir = 1
 	},
 /obj/machinery/light,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/structure/sign/warning/electricshock{
@@ -77107,7 +77103,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /turf/open/floor/plasteel/dark,
@@ -78399,7 +78395,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-03"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -78638,7 +78634,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/yellow,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/machinery/light,
@@ -78980,7 +78976,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-02";
 	pixel_y = 3
 	},
@@ -79760,7 +79756,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/red,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/structure/noticeboard{
@@ -80452,7 +80448,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-10"
 	},
 /turf/open/floor/plasteel,
@@ -81178,7 +81174,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/machinery/light_switch{
@@ -82186,7 +82182,7 @@
 	},
 /area/hallway/secondary/entry)
 "clw" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "applebush"
 	},
 /obj/effect/turf_decal/tile/blue{
@@ -83008,7 +83004,7 @@
 /obj/machinery/cell_charger,
 /obj/item/stock_parts/cell/hyper,
 /obj/item/stack/cable_coil,
-/obj/item/twohanded/rcl/pre_loaded,
+/obj/item/rcl/pre_loaded,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
@@ -83248,7 +83244,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/yellow,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /obj/effect/turf_decal/stripes/corner{
@@ -84172,7 +84168,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/structure/cable{
@@ -85418,7 +85414,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-02";
 	pixel_y = 3
 	},
@@ -85653,7 +85649,7 @@
 	},
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/stripes/corner,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /turf/open/floor/plasteel/showroomfloor,
@@ -85705,7 +85701,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-02";
 	pixel_y = 3
 	},
@@ -86049,7 +86045,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-03"
 	},
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
@@ -86594,7 +86590,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/corner,
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /turf/open/floor/plasteel/showroomfloor,
@@ -86619,7 +86615,7 @@
 	icon_state = "pipe11-1";
 	dir = 9
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-02";
 	pixel_y = 3
 	},
@@ -86786,7 +86782,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /turf/open/floor/plasteel,
@@ -86862,7 +86858,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/effect/turf_decal/tile/neutral{
@@ -87222,8 +87218,8 @@
 /obj/item/stack/cable_coil,
 /obj/item/electronics/apc,
 /obj/item/electronics/apc,
-/obj/item/twohanded/rcl/pre_loaded,
-/obj/item/twohanded/rcl/pre_loaded,
+/obj/item/rcl/pre_loaded,
+/obj/item/rcl/pre_loaded,
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
 "csz" = (
@@ -91954,7 +91950,7 @@
 /turf/open/floor/plasteel,
 /area/security/processing)
 "czG" = (
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-02";
 	pixel_y = 3
 	},
@@ -93094,7 +93090,7 @@
 /obj/machinery/status_display/ai{
 	pixel_x = 32
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
 /turf/open/floor/plasteel,
@@ -93392,7 +93388,7 @@
 /obj/structure/noticeboard{
 	pixel_y = 28
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-05"
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -93415,7 +93411,7 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/visible{
 	dir = 4
 	},
-/obj/item/twohanded/required/kirbyplants{
+/obj/item/kirbyplants{
 	icon_state = "plant-03"
 	},
 /obj/effect/turf_decal/stripes/line{

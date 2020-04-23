@@ -17,7 +17,7 @@
 	name = "Senior Engineer's cloak"
 	desc = "Trust me - i'm an ENGINEER!!!"
 	armor = list("melee" = 15, "bullet" = 10, "laser" = 5, "energy" = 10, "bomb" = 20, "bio" = 10, "rad" = 50, "fire" = 20, "acid" = 20)
-	icon_state = "cecloakadv"
+	icon_state = "cecloak"
 
 
 /obj/structure/displaycase/winner
@@ -84,7 +84,7 @@
 		update_icon()
 
 /obj/structure/displaycase/winner/robust
-	start_showpieces = list("type" = /obj/item/extinguisher/robust, "trophy_message" = "Glory to <span class='boldnotice'>" + ROBUST_WINER_CKEY + "</span>!", "need_key" = ROBUST_WINER_CKEY)
+	start_showpieces = list(list("type" = /obj/item/extinguisher/robust, "trophy_message" = "Glory to <span class='boldnotice'>" + ROBUST_WINER_CKEY + "</span>!", "need_key" = ROBUST_WINER_CKEY))
 
 /obj/structure/displaycase/winner/engineer
-	start_showpieces = list("type" = /obj/item/clothing/neck/cloak/engineer_winer, "trophy_message" = "Glory to <span class='boldnotice'>" + ENGINEER_WINER_CKEY + "</span>!", "need_key" = ENGINEER_WINER_CKEY)
+	start_showpieces = list(list("type" = /obj/item/clothing/neck/cloak/engineer_winer, "trophy_message" = "Glory to <span class='boldnotice'>" + ENGINEER_WINER_CKEY + "</span>!", "need_key" = ENGINEER_WINER_CKEY))

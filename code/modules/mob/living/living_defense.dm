@@ -1,9 +1,14 @@
 
-/mob/living/proc/run_armor_check(def_zone = null, attack_flag = "melee", absorb_text = null, soften_text = null, armour_penetration, penetrated_text)
+/mob/living/proc/run_armor_check(def_zone = null, attack_flag = "melee", absorb_text = null, soften_text = null, silent=FALSE, armour_penetration, penetrated_text)
 	var/armor = getarmor(def_zone, attack_flag)
 
+	if(armor <= 0)
+		return armor
+	if(silent)
+		return max(0, armor - armour_penetration)
+
 	//the if "armor" check is because this is used for everything on /living, including humans
-	if(armor > 0 && armour_penetration)
+	if(armour_penetration)
 		armor = max(0, armor - armour_penetration)
 		if(penetrated_text)
 			to_chat(src, "<span class='userdanger'>[penetrated_text]</span>")
@@ -14,13 +19,12 @@
 			to_chat(src, "<span class='notice'>[absorb_text]</span>")
 		else
 			to_chat(src, "<span class='notice'>Моя броня поглотила удар!</span>")
-	else if(armor > 0)
+	else
 		if(soften_text)
 			to_chat(src, "<span class='warning'>[soften_text]</span>")
 		else
 			to_chat(src, "<span class='warning'>Моя броня смягчает удар!</span>")
 	return armor
-
 
 /mob/living/proc/getarmor(def_zone, type)
 	return 0
@@ -88,7 +92,9 @@
 		if(!blocked)
 			visible_message("<span class='danger'>В <b>[src]</b> попадает <b>[I.name]</b>!</span>", \
 							"<span class='userdanger'>В <b>меня</b> попадает [I.name]!</span>")
-			var/armor = run_armor_check(zone, "melee", "Моя броня защищает вашу [ru_parse_zone(parse_zone(zone))].", "Моя броня смягчает удар в [ru_parse_zone(parse_zone(zone))].",I.armour_penetration)
+			if(!I.throwforce)
+				return
+			var/armor = run_armor_check(zone, "melee", "Моя броня отражает попадание в [ru_parse_zone(parse_zone(zone))].", "Моя броня смягчает попадание в [ru_parse_zone(parse_zone(zone))].",I.armour_penetration)
 			apply_damage(I.throwforce, dtype, zone, armor)
 
 			if(I.thrownby)
@@ -196,7 +202,7 @@
 					visible_message("<span class='danger'><b>[user]</b> хватает <b>[src]</b> крепче!</span>", \
 									"<span class='userdanger'><b>[user]</b> хватает меня крепче!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", null, user)
 					to_chat(user, "<span class='danger'>Хватаю [src] крепче!</span>")
-					drop_all_held_items()
+				drop_all_held_items()
 				stop_pulling()
 				log_combat(user, src, "grabbed", addition="aggressive grab[add_log]")
 			if(GRAB_NECK)
@@ -374,7 +380,7 @@
 		adjustStaminaLoss(shock_damage)
 	visible_message(
 		"<span class='danger'><b>[src]</b> ловит разряд тока от <b>[source]</b>!</span>", \
-		"<span class='userdanger'>меня ударило током! <b>ЭТО ОЧЕНЬ БОЛЬНО!</b></span>", \
+		"<span class='userdanger'>Меня ударило током! <b>ЭТО ОЧЕНЬ БОЛЬНО!</b></span>", \
 		"<span class='italics'>Слышу щёлканье электрических разрядов.</span>" \
 	)
 	return shock_damage

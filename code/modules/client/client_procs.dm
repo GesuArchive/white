@@ -39,11 +39,8 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	// asset_cache
 	var/asset_cache_job
 	if(href_list["asset_cache_confirm_arrival"])
-		asset_cache_job = round(text2num(href_list["asset_cache_confirm_arrival"]))
-		//because we skip the limiter, we have to make sure this is a valid arrival and not somebody tricking us
-		//	into letting append to a list without limit.
-		if (asset_cache_job > 0 && asset_cache_job <= last_asset_job && !(asset_cache_job in completed_asset_jobs))
-			completed_asset_jobs += asset_cache_job
+		asset_cache_job = asset_cache_confirm_arrival(href_list["asset_cache_confirm_arrival"])
+		if (!asset_cache_job)
 			return
 
 	var/mtl = CONFIG_GET(number/minute_topic_limit)
@@ -86,6 +83,10 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if (asset_cache_job && (asset_cache_job in completed_asset_jobs))
 		to_chat(src, "<span class='danger'>An error has been detected in how your client is receiving resources. Attempting to correct.... (If you keep seeing these messages you might want to close byond and reconnect)</span>")
 		src << browse("...", "window=asset_cache_browser")
+		return
+	if (href_list["asset_cache_preload_data"])
+		asset_cache_preload_data(href_list["asset_cache_preload_data"])
+		return
 
 	// Keypress passthrough
 	if(href_list["__keydown"])
@@ -388,6 +389,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	if (isnum(cached_player_age) && cached_player_age == -1) //first connection
 		if (nnpa >= 0)
 			message_admins("New user: [key_name_admin(src)] is connecting here for the first time.")
+			force_dark_theme()
 			if (CONFIG_GET(flag/irc_first_connection_alert))
 				send2tgs_adminless_only("New-user", "[key_name(src)] is connecting for the first time!")
 	else if (isnum(cached_player_age) && cached_player_age < nnpa)
@@ -475,6 +477,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	GLOB.directory -= ckey
 	log_access("Logout: [key_name(src)]")
 	GLOB.ahelp_tickets.ClientLogout(src)
+	SSserver_maint.UpdateHubStatus()
 	if(credits)
 		QDEL_LIST(credits)
 	webhook_send_status_update("client_logoff","[src.key]")
@@ -607,6 +610,9 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	var/datum/DBQuery/query_log_connection = SSdbcore.NewQuery("INSERT INTO `[format_table_name("connection_log")]` (`id`,`datetime`,`server_ip`,`server_port`,`round_id`,`ckey`,`ip`,`computerid`) VALUES(null,Now(),INET_ATON(IF('[world.internet_address]' LIKE '', '0', '[world.internet_address]')),'[world.port]','[GLOB.round_id]','[sql_ckey]',INET_ATON('[sql_ip]'),'[sql_computerid]')")
 	query_log_connection.Execute()
 	qdel(query_log_connection)
+
+	SSserver_maint.UpdateHubStatus()
+
 	if(new_player)
 		player_age = -1
 	. = player_age
@@ -861,8 +867,13 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		'html/browser/playeroptions.css',
 		)
 	spawn (10) //removing this spawn causes all clients to not get verbs.
+
+		//load info on what assets the client has
+		src << browse('code/modules/asset_cache/validate_assets.html', "window=asset_cache_browser")
+
 		//Precache the client with all other assets slowly, so as to not block other browse() calls
-		getFilesSlow(src, SSassets.preload, register_asset = FALSE)
+		addtimer(CALLBACK(GLOBAL_PROC, /proc/getFilesSlow, src, SSassets.preload, FALSE), 5 SECONDS)
+
 		#if (PRELOAD_RSC == 0)
 		for (var/name in GLOB.vox_sounds)
 			var/file = GLOB.vox_sounds[name]
@@ -914,11 +925,11 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 				if("South")
 					movement_keys[key] = SOUTH
 
-/client/proc/change_view(new_size)
+/client/proc/change_view(new_size, forced = FALSE)
 	if (isnull(new_size))
 		CRASH("change_view called without argument.")
 
-	if(prefs && !prefs.widescreenpref && new_size == CONFIG_GET(string/default_view))
+	if(prefs && !prefs.widescreenpref && new_size == CONFIG_GET(string/default_view) && !forced)
 		new_size = CONFIG_GET(string/default_view_square)
 
 	view = new_size

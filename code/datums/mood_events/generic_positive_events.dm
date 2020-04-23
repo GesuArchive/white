@@ -162,7 +162,7 @@
 	timeout = 5 MINUTES
 
 /datum/mood_event/pet_borg
-	description = "<span class='nicegreen'>I just love my robotical friends!</span>\n"
+	description = "<span class='nicegreen'>I just love my robotic friends!</span>\n"
 	mood_change = 3
 	timeout = 5 MINUTES
 
@@ -189,3 +189,7 @@
 /datum/mood_event/area/add_effects(_mood_change, _description)
 	mood_change = _mood_change
 	description = _description
+
+/datum/mood_event/confident_mane
+	description = "<span class='nicegreen'>I'm feeling confident with a head full of hair.</span>\n"
+	mood_change = 2

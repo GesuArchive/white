@@ -371,7 +371,7 @@
 	if(check_friendly_fire)
 		for(var/turf/T in getline(src,A)) // Not 100% reliable but this is faster than simulating actual trajectory
 			for(var/mob/living/L in T)
-				if(L == src || L == A || L.stat)
+				if(L == src || L == A)
 					continue
 				if(faction_check_mob(L) && !attack_same)
 					return TRUE
@@ -391,21 +391,20 @@
 	ranged_cooldown = world.time + ranged_cooldown_time
 
 
-/mob/living/simple_animal/hostile/proc/Shoot(atom/targeted_atom, spread=0)
+/mob/living/simple_animal/hostile/proc/Shoot(atom/targeted_atom)
 	if( QDELETED(targeted_atom) || targeted_atom == targets_from.loc || targeted_atom == targets_from )
 		return
 	var/turf/startloc = get_turf(targets_from)
 	if(casingtype)
 		var/obj/item/ammo_casing/casing = new casingtype(startloc)
 		playsound(src, projectilesound, 100, TRUE)
-		casing.fire_casing(targeted_atom, src, null, null, null, ran_zone(), spread,  src)
+		casing.fire_casing(targeted_atom, src, null, null, null, ran_zone(), 0,  src)
 	else if(projectiletype)
 		var/obj/projectile/P = new projectiletype(startloc)
 		playsound(src, projectilesound, 100, TRUE)
 		P.starting = startloc
 		P.firer = src
 		P.fired_from = src
-		P.spread = spread
 		P.yo = targeted_atom.y - startloc.y
 		P.xo = targeted_atom.x - startloc.x
 		if(AIStatus != AI_ON)//Don't want mindless mobs to have their movement screwed up firing in space
@@ -570,3 +569,10 @@ mob/living/simple_animal/hostile/proc/DestroySurroundings() // for use with mega
 				. += M
 			else if (M.loc.type in hostile_machines)
 				. += M.loc
+
+/mob/living/simple_animal/hostile/tamed(whomst)
+	if(isliving(whomst))
+		var/mob/living/fren = whomst
+		friends = fren
+		faction = fren.faction.Copy()
+	return ..()

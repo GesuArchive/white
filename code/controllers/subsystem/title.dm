@@ -71,6 +71,8 @@ SUBSYSTEM_DEF(title)
 		var/F = file("data/previous_title.dat")
 		WRITE_FILE(F, file_path)
 
+	SStitle.icon = 'icons/end.png'
+
 	for(var/thing in GLOB.clients)
 		if(!thing)
 			continue

@@ -91,11 +91,11 @@
 			owner.dizziness += 10
 			fail = TRUE
 		if(3)
-			to_chat(owner, "<span class='userdanger'>You feel your heart lurching in your chest...</span>")
+			to_chat(owner, "<span class='userdanger'>Чувствую биение собственного сердца...</span>")
 			owner.Stun(20)
 			shake_camera(owner, 15, 1)
 		if(4)
-			to_chat(owner, "<span class='warning'>You faint.</span>")
+			to_chat(owner, "<span class='warning'>Ощущаю слабость.</span>")
 			owner.Unconscious(80)
 			fail = TRUE
 	return fail

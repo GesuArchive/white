@@ -56,8 +56,8 @@ GLOBAL_VAR(restart_counter)
 #endif
 
 	LoadVerbs(/datum/verbs/menu)
-	if(CONFIG_GET(flag/usewhitelist))
-		load_whitelist()
+
+	load_whitelist()
 
 	load_whitelist_exrp()
 
@@ -235,9 +235,9 @@ GLOBAL_VAR(restart_counter)
 		if (usr)
 			log_admin("[key_name(usr)] Has requested an immediate world restart via client side debugging tools")
 			message_admins("[key_name_admin(usr)] Has requested an immediate world restart via client side debugging tools")
-		to_chat(world, "<span class='boldannounce'>Rebooting World immediately due to host request.</span>")
+		to_chat(world, "<span class='boldannounce'>Немедленная перезагрузка по требованию сервера.</span>")
 	else
-		to_chat(world, "<span class='boldannounce'>Rebooting world...</span>")
+		to_chat(world, "<span class='boldannounce'>Конец!</span>")
 		Master.Shutdown()	//run SS shutdowns
 
 	TgsReboot()
@@ -284,7 +284,7 @@ GLOBAL_VAR(restart_counter)
 		server_name = CONFIG_GET(string/servername)
 		s += "[special_string]"
 
-	s += "<a href=\"https://discord.gg/BNUgzsT\"><big><b>[server_name]: Furry ERP 18+</b></big></br>"
+	s += "<a href=\"https://discord.gg/BNUgzsT\"><big><b>[server_name]: Green Edition</b></big></br>"
 	s += "<img src=\"https://hub.station13.ru/o/?=[world.time]\"></a>"
 
 	var/players = GLOB.clients.len

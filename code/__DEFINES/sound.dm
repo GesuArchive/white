@@ -70,7 +70,9 @@
 #define REEBE list('sound/ambience/ambireebe1.ogg', 'sound/ambience/ambireebe2.ogg', 'sound/ambience/ambireebe3.ogg')
 */
 
-#define GENERIC list('sound/ambience/white/ambi1.ogg','sound/ambience/white/ambi2.ogg','sound/ambience/white/ambi3.ogg')
+#define GENERIC list('sound/ambience/white/ambi4.ogg','sound/ambience/white/ambi5.ogg','sound/ambience/white/ambi6.ogg',\
+					 'sound/ambience/white/ambi7.ogg','sound/ambience/white/ambi8.ogg','sound/ambience/white/ambi9.ogg',\
+					 'sound/ambience/white/ambi10.ogg','sound/ambience/white/ambi11.ogg')
 
 #define HOLY list('sound/ambience/white/ambichurch1.ogg')
 
@@ -94,7 +96,7 @@
 
 #define SPOOKY list('sound/ambience/ambimo1.ogg','sound/ambience/ambimo2.ogg')
 
-#define SPACE list('sound/ambience/white/ambispace1.ogg', 'sound/ambience/white/ambispace2.ogg')
+#define SPACE list('sound/ambience/white/ambispace1.ogg', 'sound/ambience/white/ambispace2.ogg', 'sound/ambience/white/ambispace3.ogg')
 
 #define MAINTENANCE list('sound/ambience/white/ambimaint1.ogg', 'sound/ambience/white/ambimaint2.ogg')
 

@@ -67,9 +67,7 @@
 				F.force = F.force * 1.3
 				F.throwforce = F.throwforce * 1.3
 			if(FORGED_MELEE_TWOHANDED)
-				var/obj/item/twohanded/forged/F = I
-				F.force_unwielded = F.force_unwielded * 1.3
-				F.force_wielded = F.force_wielded * 1.3
+				var/obj/item/forged/F = I
 				F.throwforce = F.throwforce * 1.3
 			if(FORGED_BULLET_CASING)
 				var/obj/projectile/bullet/forged/F = I
@@ -92,7 +90,7 @@
 				if(F.sharpness == IS_SHARP)
 					F.sharpness = IS_SHARP_ACCURATE
 			if(FORGED_MELEE_TWOHANDED)
-				var/obj/item/twohanded/forged/F = I
+				var/obj/item/forged/F = I
 				F.armour_penetration += 10
 				F.stabby += TRANSFER_SHARP_BONUS
 				if(F.sharpness == IS_SHARP)
@@ -115,7 +113,7 @@
 				F.radioactive = TRUE
 				START_PROCESSING(SSobj, F)
 			if(FORGED_MELEE_TWOHANDED)
-				var/obj/item/twohanded/forged/F = I
+				var/obj/item/forged/F = I
 				F.radioactive = TRUE
 				START_PROCESSING(SSobj, F)
 			if(FORGED_BULLET_CASING)
@@ -203,9 +201,7 @@
 				F.speed = rand(CLICK_CD_RAPID, CLICK_CD_MELEE * 5)
 				F.stabby = rand(TRANSFER_BLUNT, TRANSFER_SHARPEST)
 			if(FORGED_MELEE_TWOHANDED)
-				var/obj/item/twohanded/forged/F = I
-				F.force_wielded = rand(1, 80)
-				F.force_unwielded = max(0.1, F.force_wielded / 3)
+				var/obj/item/forged/F = I
 				F.speed = rand(CLICK_CD_RAPID, CLICK_CD_MELEE * 5)
 				F.stabby = rand(TRANSFER_BLUNT, TRANSFER_SHARPEST)
 			if(FORGED_BULLET_CASING)
@@ -230,7 +226,7 @@
 				F.add_overlay(GLOB.fire_overlay, TRUE)
 				START_PROCESSING(SSobj, I)
 			if(FORGED_MELEE_TWOHANDED)
-				var/obj/item/twohanded/forged/F = I
+				var/obj/item/forged/F = I
 				F.fire = TRUE
 				F.add_overlay(GLOB.fire_overlay, TRUE)
 				START_PROCESSING(SSobj, I)
@@ -328,7 +324,7 @@
 
 			if(FORGED_MELEE_TWOHANDED)
 				if(user)
-					var/obj/item/twohanded/forged/F = I
+					var/obj/item/forged/F = I
 					splash(1, F, user, TOUCH, 2)
 
 			if(FORGED_BULLET_CASING)

@@ -4,7 +4,7 @@
     description = "Они называют меня газообразной глиной."
     color = "#bfe8a7" // rgb: 191, 232, 167
     metabolization_rate = 0.9 * REAGENTS_METABOLISM
-    taste_description = "wet hot dogs"
+    taste_description = "мокрые хот-доги"
 
 /datum/reagent/drug/burpinate/on_mob_life(mob/living/M)
     if(ishuman(M))
@@ -116,7 +116,7 @@
 	var/high_message = pick("Я чувствую, что у меня есть силы.", "Я готов.", "Я чувствую, что могу довести это до предела.")
 	if(prob(5))
 		to_chat(M, "<span class='notice'>[high_message]</span>")
-	M.add_movespeed_modifier(type, update=TRUE, priority=100, multiplicative_slowdown=-2, blacklisted_movetypes=(FLYING|FLOATING))
+	M.add_movespeed_modifier(type, update=TRUE)
 	M.AdjustUnconscious(-100, 0)
 	M.AdjustStun(-100, 0)
 	M.AdjustParalyzed(-100, 0)
@@ -266,7 +266,7 @@
 	description = "Сок очень особенных фруктов, концентрированный и продаваемый у вашего местного продавца А1."
 	color = "#ffffe6"
 	reagent_state = LIQUID
-	taste_description = "artificial grape"
+	taste_description = "искусственный виноград"
 	var/obj/effect/hallucination/simple/druggy/brain
 	var/bad_trip = FALSE
 	var/badtrip_cooldown = 0
@@ -286,9 +286,7 @@
 	switch(current_cycle)
 		if(1 to 20)
 			high_message = pick("Черт возьми, я так чертовски счастлив ...", "Что, черт возьми, происходит?", "Где я?")
-			if(prob(15))
-				H.dna.add_mutation(SMILE)
-			else if(prob(30)) //blurry eyes and talk like an idiot
+			if(prob(30)) //blurry eyes and talk like an idiot
 				H.blur_eyes(2)
 				H.derpspeech++
 		if(31 to INFINITY)
@@ -311,7 +309,7 @@
 						animate(whole_screen, transform = turn(matrix(), rotation*rand(0.5,5)), time = 50, easing = QUAD_EASING)
 						animate(whole_screen, transform = matrix()*1.5, time = 40, easing = BOUNCE_EASING)
 					if(prob(15))
-						whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = "WAVE_BOUNDED")
+						whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = WAVE_BOUNDED)
 						animate(whole_screen.filters[whole_screen.filters.len], size = rand(1,3), time = 30, easing = QUAD_EASING, loop = -1)
 						to_chat(H, "<span class='notice'>Я чувствую, что реальность тает ...</span>")
 						addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
@@ -503,9 +501,7 @@
 			switch(current_cycle)
 				if(1 to 20)
 					high_message = "БЛЯТЬ! ТОЛЬКО НЕ ОВОЩИ!!!"
-					if(prob(15))
-						H.dna.add_mutation(SMILE)
-					else if(prob(30))
+					if(prob(30))
 						H.derpspeech++
 						H.cultslurring++
 					if(!tripsoundstarted)
@@ -555,7 +551,7 @@
 								animate(transform = turn(matrix(), -rotation), time = 100, easing = BACK_EASING)
 							if(prob(13))
 								H.Jitter(100)
-								whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = "WAVE_BOUNDED")
+								whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = WAVE_BOUNDED)
 								animate(whole_screen, transform = matrix()*2, time = 40, easing = BOUNCE_EASING)
 								addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
 							addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 600)
@@ -660,7 +656,7 @@
 	if(prob(1) && C.client)
 		if(!phrases.len)
 			phrases = list("Мяу", "Кря")
-		to_chat(C.client, "<b>[name]</b> говорит, <big>\"[readable_corrupted_text(pick(phrases))]\"</big>")
+		to_chat(C.client, "<b>[name]</b> <i>говорит</i>, <big>\"[readable_corrupted_text(pick(phrases))]\"</big>")
 	animate(src, color = color_matrix_rotate_hue(rand(0, 360)), transform = matrix()*rand(1,3), time = 200, pixel_x = rand(-64,64), pixel_y = rand(-64,64), easing = CIRCULAR_EASING)
 	QDEL_IN(src, rand(40, 200))
 

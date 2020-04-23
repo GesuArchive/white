@@ -26,6 +26,10 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	spans |= speech_span
 	if(!language)
 		language = get_selected_language()
+
+	if(GLOB.chat_bubbles)
+		new /obj/effect/chat_text(src, message)
+
 	send_speech(message, 7, src, , spans, message_language=language)
 
 /atom/movable/proc/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
@@ -35,10 +39,12 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		speaker.TTS.generate_tts(raw_message)
 
 /atom/movable/proc/can_speak()
+	SHOULD_BE_PURE(TRUE)
 	return 1
 
 /atom/movable/proc/send_speech(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language = null, message_mode)
 	var/rendered = compose_message(src, message_language, message, , spans, message_mode)
+
 	for(var/_AM in get_hearers_in_view(range, source))
 		var/atom/movable/AM = _AM
 		AM.Hear(rendered, src, message_language, message, , spans, message_mode)
@@ -48,7 +54,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	//Basic span
 	var/spanpart1 = "<span class='[radio_freq ? get_radio_span(radio_freq) : "game say"]'>"
 	//Start name span.
-	var/spanpart2 = "<span class='name'>"
+	var/spanpart2 = "<span class='name' [speaker.name_color ? "style='color: [speaker.name_color]'" : ""]>"
 	//Radio freq/name display
 	var/freqpart = radio_freq ? "\[[get_radio_name(radio_freq)]\] " : ""
 	//Speaker name
@@ -94,7 +100,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		spans |= SPAN_YELL
 
 	var/spanned = attach_spans(input, spans)
-	return "[say_mod(input, message_mode)], \"[spanned]\""
+	return "<i>[say_mod(input, message_mode)]</i>, \"[spanned]\""
 
 /atom/movable/proc/lang_treat(atom/movable/speaker, datum/language/language, raw_message, list/spans, message_mode)
 	if(has_language(language))

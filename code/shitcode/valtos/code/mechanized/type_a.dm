@@ -49,11 +49,6 @@
 	enter_delay = 150
 	exit_delay = 100
 	hud_possible = list (DIAG_STAT_HUD, DIAG_BATT_HUD, DIAG_MECH_HUD, DIAG_TRACK_HUD)
-	mouse_pointer = 'icons/mecha/mecha_mouse.dmi'
-
-/obj/mecha/mechanized/restore_equipment()
-	mouse_pointer = 'icons/mecha/mecha_mouse.dmi'
-	. = ..()
 
 /obj/item/mecha_parts/mecha_equipment/drill/lance
 	name = "энергокопьё KR1"

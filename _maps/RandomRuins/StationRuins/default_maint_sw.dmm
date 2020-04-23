@@ -40,12 +40,12 @@
 /turf/closed/wall,
 /area/maintenance/port/aft)
 "i" = (
-/turf/open/space,
-/area/space)
+/turf/open/openspace/boxplanet/caves,
+/area/boxplanet/underground/explored)
 "j" = (
 /obj/structure/lattice,
-/turf/open/space,
-/area/space/nearstation)
+/turf/open/openspace/boxplanet/caves,
+/area/boxplanet/underground/explored)
 "k" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Incinerator Access";
@@ -60,8 +60,8 @@
 /area/maintenance/port/aft)
 "l" = (
 /obj/item/stack/tile/plasteel,
-/turf/open/space,
-/area/space/nearstation)
+/turf/open/openspace/boxplanet/caves,
+/area/boxplanet/underground/explored)
 "m" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/effect/spawner/structure/window/reinforced,
@@ -69,25 +69,25 @@
 /area/maintenance/port/aft)
 "n" = (
 /turf/open/floor/plating/airless,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "o" = (
 /obj/item/weldingtool,
 /turf/open/floor/plating/airless,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "p" = (
 /obj/item/stack/sheet/metal,
 /turf/open/floor/plating/airless,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "q" = (
 /obj/item/stack/cable_coil{
 	amount = 5
 	},
 /turf/open/floor/plating/airless,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "r" = (
 /obj/item/clothing/head/hardhat,
 /turf/open/floor/plating/airless,
-/area/space/nearstation)
+/area/boxplanet/underground/explored)
 "s" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 5

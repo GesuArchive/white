@@ -39,7 +39,7 @@
 		temp_reagents.my_atom = H
 
 		source.reagents.trans_to(temp_reagents, split)
-		H.applyChemicals(temp_reagents)
+		H.apply_chemicals(temp_reagents)
 
 		temp_reagents.clear_reagents()
 		qdel(temp_reagents)
