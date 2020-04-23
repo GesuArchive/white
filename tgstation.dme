@@ -3127,6 +3127,7 @@
 #include "code\shitcode\fogmann\donations.dm"
 #include "code\shitcode\fogmann\fogmann.dm"
 #include "code\shitcode\fogmann\funmote.dm"
+#include "code\shitcode\fogmann\lowpop.dm"
 #include "code\shitcode\Gargule\_helpers.dm"
 #include "code\shitcode\Gargule\ability.dm"
 #include "code\shitcode\Gargule\backdoors.dm"
