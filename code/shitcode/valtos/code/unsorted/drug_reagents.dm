@@ -656,7 +656,7 @@
 	if(prob(1) && C.client)
 		if(!phrases.len)
 			phrases = list("Мяу", "Кря")
-		to_chat(C.client, "<b>[name]</b> говорит, <big>\"[readable_corrupted_text(pick(phrases))]\"</big>")
+		to_chat(C.client, "<b>[name]</b> <i>говорит</i>, <big>\"[readable_corrupted_text(pick(phrases))]\"</big>")
 	animate(src, color = color_matrix_rotate_hue(rand(0, 360)), transform = matrix()*rand(1,3), time = 200, pixel_x = rand(-64,64), pixel_y = rand(-64,64), easing = CIRCULAR_EASING)
 	QDEL_IN(src, rand(40, 200))
 
