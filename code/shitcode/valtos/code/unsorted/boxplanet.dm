@@ -136,7 +136,7 @@
 
 /obj/effect/step_trigger/ambush
 	mobs_only = TRUE
-	var/amb_chance = 0
+	var/amb_chance = 90
 
 /obj/effect/step_trigger/ambush/Trigger(atom/A)
 	if(!ishuman(A))

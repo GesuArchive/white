@@ -97,8 +97,9 @@ GLOBAL_LIST_INIT(meteors_rain_catastrophic, list(/obj/effect/meteor_rain/medium=
 	var/turf/T = get_turf(src)
 	if(istype(T, /turf/open/openspace))
 		z--
-	spawn(rand(5, 10))
+	spawn(rand(2, 5))
 		explosion(src.loc, hit_power, hit_power * 1.5, hit_power * 2, hit_power * 3, 0)
+		qdel(src)
 
 /obj/effect/meteor_rain/medium
 	name = "метеор"
