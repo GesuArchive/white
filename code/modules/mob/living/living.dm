@@ -11,6 +11,11 @@
 	killcounter = new /datum/cs_killcounter
 	killcounter.owner = src
 
+	if(name != last_heard_name)
+		var/num = hex2num(copytext(md5(name), 1, 7))
+		last_used_color = hsv2rgb(num % 360, (num / 360) % 10 / 100 + 0.18, num / 360 / 10 % 15 / 100 + 0.55)
+		last_heard_name = name
+
 	AddComponent(/datum/component/battletension)
 
 /mob/living/prepare_huds()
