@@ -119,7 +119,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/gear = list()
 	var/list/purchased_gear = list()
 	var/list/equipped_gear = list()
-	var/gear_tab = "General"
+	var/gear_tab = "Основное"
 
 /datum/preferences/New(client/C)
 	parent = C
