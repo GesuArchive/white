@@ -201,6 +201,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["btprefsnew"]			>> btprefsnew
 	S["btvolume"]			>> btvolume
 
+	S["purchased_gear"]		>> purchased_gear
+	S["equipped_gear"]		>> equipped_gear
+
 	// Custom hotkeys
 	S["key_bindings"]		>> key_bindings
 
@@ -237,6 +240,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	pda_color		= sanitize_hexcolor(pda_color, 6, 1, initial(pda_color))
 	key_bindings 	= sanitize_islist(key_bindings, list())
 
+	if(!purchased_gear)
+		purchased_gear = list()
+	if(!equipped_gear)
+		equipped_gear = list()
 
 	return TRUE
 
@@ -288,6 +295,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["fullscreen"], fullscreen)
 	WRITE_FILE(S["btprefsnew"], btprefsnew)
 	WRITE_FILE(S["btvolume"], btvolume)
+	WRITE_FILE(S["purchased_gear"], purchased_gear)
+	WRITE_FILE(S["equipped_gear"], equipped_gear)
 	return TRUE
 
 /datum/preferences/proc/load_character(slot)
