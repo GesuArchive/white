@@ -6,4 +6,4 @@
 
 /datum/gear/uniform/skirt
 	subtype_path = /datum/gear/uniform/skirt
-	cost = 1600
+	cost = 160

@@ -413,7 +413,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "</table></td></table>"
 
-		if(2) //Loadout
+		if(1) //Loadout
 			var/list/type_blacklist = list()
 			if(equipped_gear && equipped_gear.len)
 				for(var/i = 1, i <= equipped_gear.len, i++)
@@ -449,10 +449,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<tr><td colspan=4><hr></td></tr>"
 
 			dat += "<tr><td colspan=4><hr></td></tr>"
-			dat += "<tr><td><b>Name</b></td>"
-			dat += "<td><b>Cost</b></td>"
-			dat += "<td><b>Restricted Jobs</b></td>"
-			dat += "<td><b>Description</b></td></tr>"
+			dat += "<tr><td><b>Имя</b></td>"
+			dat += "<td><b>Цена</b></td>"
+			dat += "<td><b>Запретные должности</b></td>"
+			dat += "<td><b>Описание</b></td></tr>"
 			dat += "<tr><td colspan=4><hr></td></tr>"
 			for(var/gear_name in LC.gear)
 				var/datum/gear/G = LC.gear[gear_name]
@@ -461,11 +461,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<tr style='vertical-align:top;'><td width=15%>[G.display_name]\n"
 				if(G.display_name in purchased_gear)
 					if(G.sort_category == "OOC")
-						dat += "<i>Purchased.</i></td>"
+						dat += "<i>Куплено.</i></td>"
 					else
-						dat += "<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.display_name]'>Equip</a></td>"
+						dat += "<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.display_name]'>В экипировку</a></td>"
 				else
-					dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Purchase</a></td>"
+					dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить</a></td>"
 				dat += "<td width = 5% style='vertical-align:top'>[G.cost]</td><td>"
 				if(G.allowed_roles)
 					dat += "<font size=2>"
