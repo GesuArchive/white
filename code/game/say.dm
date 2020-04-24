@@ -56,7 +56,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		var/mob/living/L = speaker
 		if(L.name != L.last_heard_name) // generate color based on name, skip if already generated
 			var/num = hex2num(copytext(md5(L.name), 1, 7))
-			L.last_used_color = hsv2rgb(num % 360, (num / 360) % 10 / 100 + 0.18, num / 360 / 10 % 15 / 100 + 0.35)
+			L.last_used_color = hsv2rgb(num % 360, (num / 360) % 10 / 100 + 0.48, num / 360 / 10 % 15 / 100 + 0.35)
 			L.last_heard_name = L.name
 		spanpart2 = "<span class='name' [L.last_used_color ? "style='color: [L.last_used_color]'" : ""]>"
 	//Radio freq/name display
