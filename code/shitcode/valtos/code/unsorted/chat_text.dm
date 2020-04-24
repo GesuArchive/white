@@ -61,7 +61,7 @@ GLOBAL_VAR_INIT(chat_bubbles, FALSE)
 	S.loc = L
 	S.layer = FLY_LAYER
 
-	S.maptext = "<span class='pixel c ol' style='color: [L.last_used_color]'>[message]</span>"
+	S.maptext = "<span class='pixel c ol' style='color: white'>[message]</span>"
 	S.pixel_x = -1.5 * L.bound_width
 	S.pixel_y = L.bound_height
 
