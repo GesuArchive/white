@@ -61,11 +61,6 @@ GLOBAL_VAR_INIT(chat_bubbles, FALSE)
 	S.loc = L
 	S.layer = FLY_LAYER
 
-	if(L.name != L.last_heard_name) // generate color based on name, skip if already generated
-		var/num = hex2num(copytext(md5(L.name), 1, 7))
-		L.last_used_color = hsv2rgb(num % 360, (num / 360) % 10 / 100 + 0.18, num / 360 / 10 % 15 / 100 + 0.85)
-		L.last_heard_name = L.name
-
 	S.maptext = "<span class='pixel c ol' style='color: [L.last_used_color]'>[message]</span>"
 	S.pixel_x = -1.5 * L.bound_width
 	S.pixel_y = L.bound_height
