@@ -11,8 +11,6 @@
 	killcounter = new /datum/cs_killcounter
 	killcounter.owner = src
 
-	name_color = pick(GLOB.safe_name_colors)
-
 	AddComponent(/datum/component/battletension)
 
 /mob/living/prepare_huds()

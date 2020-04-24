@@ -51,7 +51,10 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	//Basic span
 	var/spanpart1 = "<span class='[radio_freq ? get_radio_span(radio_freq) : "game say"]'>"
 	//Start name span.
-	var/spanpart2 = "<span class='name' [speaker.name_color ? "style='color: [speaker.name_color]'" : ""]>"
+	var/spanpart2 = "<span class='name'>"
+	if(isliving(speaker))
+		var/mob/living/L = speaker
+		spanpart2 = "<span class='name' [L.last_used_color ? "style='color: [L.last_used_color]'" : ""]>"
 	//Radio freq/name display
 	var/freqpart = radio_freq ? "\[[get_radio_name(radio_freq)]\] " : ""
 	//Speaker name

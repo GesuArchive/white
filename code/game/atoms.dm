@@ -94,8 +94,6 @@
 	///Mobs that are currently do_after'ing this atom, to be cleared from on Destroy()
 	var/list/targeted_by
 
-	var/name_color = ""
-
 /**
   * Called when an atom is created in byond (built in engine proc)
   *

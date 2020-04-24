@@ -161,9 +161,6 @@
 		screen_obj.icon_state = "mood[mood_level]"
 		return
 
-	if(prob(15))
-		owner.name_color = pick(GLOB.safe_name_colors)
-
 	for(var/i in conflicting_moodies)
 		var/datum/mood_event/event = i
 		if(abs(event.mood_change) == highest_absolute_mood)
