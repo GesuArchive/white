@@ -107,7 +107,7 @@
 /obj/item/clothing/under/color/pink
 	name = "розовый комбинезон"
 	icon_state = "pink"
-	desc = "Just looking at this makes you feel <i>fabulous</i>."
+	desc = "Достаточно посмотреть на этот костюм и почувствовать себя <i>неповторимым</i> парнем на деревне."
 	item_state = "p_suit"
 
 /obj/item/clothing/under/color/jumpskirt/pink

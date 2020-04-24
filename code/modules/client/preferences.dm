@@ -131,7 +131,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if(istype(C))
 		if(!IsGuestKey(C.key))
 			load_path(C.ckey)
-			max_save_slots = 8
+			max_save_slots = 3
 	var/loaded_preferences_successfully = load_preferences()
 	if(loaded_preferences_successfully)
 		if(load_character())
@@ -428,7 +428,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			var/fcolor =  "#3366CC"
 			var/metabalance = user.client.get_metabalance()
 			dat += "<table align='center' width='100%'>"
-			dat += "<tr><td colspan=4><center><b>Current balance: <font color='[fcolor]'>[metabalance]</font> [CONFIG_GET(string/metacurrency_name)]s.</b> \[<a href='?_src_=prefs;preference=gear;clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
+			dat += "<tr><td colspan=4><center><b>Баланс: <font color='[fcolor]'>[metabalance]</font> метакэша.</b> \[<a href='?_src_=prefs;preference=gear;clear_loadout=1'>Снять надетое</a>\]</center></td></tr>"
 			dat += "<tr><td colspan=4><center><b>"
 
 			var/firstcat = 1
@@ -449,21 +449,21 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<tr><td colspan=4><hr></td></tr>"
 
 			dat += "<tr><td colspan=4><hr></td></tr>"
-			dat += "<tr><td><b>Имя</b></td>"
+			dat += "<tr><td><b>Название</b></td>"
 			dat += "<td><b>Цена</b></td>"
-			dat += "<td><b>Запретные должности</b></td>"
+			dat += "<td><b>Только для</b></td>"
 			dat += "<td><b>Описание</b></td></tr>"
 			dat += "<tr><td colspan=4><hr></td></tr>"
 			for(var/gear_name in LC.gear)
 				var/datum/gear/G = LC.gear[gear_name]
 				var/ticked = (G.display_name in equipped_gear)
 
-				dat += "<tr style='vertical-align:top;'><td width=15%>[G.display_name]\n"
+				dat += "<tr style='vertical-align:top;'><td width=30%>[G.display_name]\n"
 				if(G.display_name in purchased_gear)
 					if(G.sort_category == "OOC")
 						dat += "<i>Куплено.</i></td>"
 					else
-						dat += "<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.display_name]'>В экипировку</a></td>"
+						dat += "<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.display_name]'>Экипировать</a></td>"
 				else
 					dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить</a></td>"
 				dat += "<td width = 5% style='vertical-align:top'>[G.cost]</td><td>"
