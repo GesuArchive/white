@@ -31,8 +31,7 @@
 /datum/blackmarket_item/medicine/fire
 	name = "Аптечка от ожогов"
 	desc = "Состоит из медикаментов лечащих ожоги"
-	item = /obj/item/storage/firstaid/burn
-
+	item = /obj/item/storage/firstaid/fire
 	stock_min = 1
 	stock_max = 10
 	price_min = 100
