@@ -134,6 +134,38 @@
 		cooldown = world.time
 		radiation_pulse(src, 25, 2)
 
+/obj/effect/flora_spawner
+	invisibility = SEE_INVISIBLE_OBSERVER
+	icon = 'code/shitcode/valtos/icons/mineflora.dmi'
+	icon_state = "kartoshmel"
+	maptext = "GENERATOR"
+	var/generating_type = /obj/structure/flora/tree/boxplanet/kartoshmel
+	var/planted_things = 0
+	var/cooldown = 0
+
+/obj/effect/flora_spawner/process()
+	if(cooldown < world.time - 120)
+		cooldown = world.time
+		if(prob(100 - planted_things * 10))
+			for(var/turf/T in RANGE_TURFS(rand(1, 7), get_turf(src)))
+				if(istype(T, /turf/open/floor/plating/asteroid/boxplanet/caves))
+					if(T.contents.len)
+						continue
+					new generating_type(T)
+					planted_things++
+	if(planted_things >= 10)
+		STOP_PROCESSING(SSobj, src)
+		qdel(src)
+
+/obj/effect/flora_spawner/Initialize()
+	. = ..()
+	generating_type = pick(/obj/structure/flora/tree/boxplanet/kartoshmel, /obj/structure/flora/tree/boxplanet/glikodil, /obj/structure/flora/tree/boxplanet/svetosvin)
+	START_PROCESSING(SSobj, src)
+
+/obj/effect/flora_spawner/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	return ..()
+
 /obj/effect/step_trigger/ambush
 	mobs_only = TRUE
 	var/amb_chance = 90
@@ -230,11 +262,9 @@
 	bullet_sizzle = TRUE
 	bullet_bounce_sound = null
 	digResult = /obj/item/stack/sheet/mineral/snow
-	mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/wolf = 50, /obj/structure/spawner/ice_moon = 3, \
-						  /mob/living/simple_animal/hostile/asteroid/polarbear = 30, /obj/structure/spawner/ice_moon/polarbear = 3, \
-						  SPAWN_MEGAFAUNA = 6, /mob/living/simple_animal/hostile/asteroid/goldgrub = 10)
-
-	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2, /obj/effect/step_trigger/ambush = 2)
+	mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/wolf = 1)
+	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2)
+	terrain_spawn_list = list(/obj/effect/step_trigger/ambush = 2, /obj/effect/flora_spawner = 1)
 	data_having_type = /turf/open/floor/plating/asteroid/airless/cave/boxplanet/has_data
 	turf_type = /turf/open/floor/plating/asteroid/boxplanet/caves
 
@@ -242,7 +272,7 @@
 	has_data = TRUE
 
 /turf/open/floor/plating/asteroid/airless/cave/boxplanet/make_tunnel(dir, pick_tunnel_width)
-	pick_tunnel_width = list("1" = 6, "2" = 4, "3" = 3, "4" = 2, "5" = 1)
+	pick_tunnel_width = list("1" = 4, "2" = 5, "3" = 3, "4" = 3, "5" = 2)
 	..()
 
 /turf/open/floor/plating/asteroid/boxplanet/ex_act(severity, target, prikolist)
