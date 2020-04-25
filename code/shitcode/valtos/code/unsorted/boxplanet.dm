@@ -134,9 +134,42 @@
 		cooldown = world.time
 		radiation_pulse(src, 25, 2)
 
+/obj/effect/flora_spawner
+	invisibility = SEE_INVISIBLE_OBSERVER
+	icon = 'code/shitcode/valtos/icons/mineflora.dmi'
+	icon_state = "kartoshmel"
+	maptext = "GENERATOR"
+	var/generating_type = /obj/structure/flora/tree/boxplanet/kartoshmel
+	var/planted_things = 0
+	var/cooldown = 0
+
+/obj/effect/flora_spawner/process()
+	if(cooldown < world.time - 120)
+		cooldown = world.time
+		if(prob(100 - (planted_things * 10)))
+			var/list/possible_turfs = list()
+			for(var/turf/T in RANGE_TURFS(7, src))
+				if(istype(T, /turf/open/floor/plating/asteroid/boxplanet/caves))
+					possible_turfs += T
+			new generating_type(pick(possible_turfs))
+			planted_things++
+			return
+	if(planted_things >= 10)
+		STOP_PROCESSING(SSobj, src)
+		qdel(src)
+
+/obj/effect/flora_spawner/Initialize()
+	. = ..()
+	generating_type = pick(/obj/structure/flora/tree/boxplanet/kartoshmel, /obj/structure/flora/tree/boxplanet/glikodil, /obj/structure/flora/tree/boxplanet/svetosvin)
+	START_PROCESSING(SSobj, src)
+
+/obj/effect/flora_spawner/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	return ..()
+
 /obj/effect/step_trigger/ambush
 	mobs_only = TRUE
-	var/amb_chance = 0
+	var/amb_chance = 90
 
 /obj/effect/step_trigger/ambush/Trigger(atom/A)
 	if(!ishuman(A))
@@ -144,13 +177,14 @@
 	if(prob(amb_chance))
 		amb_chance = 0
 		var/msg = pick("ЗАСАДА!", "ЗДЕСЬ КТО-ТО ЕСТЬ!", "МОНСТРЫ!")
-		A.visible_message("<span class='userdanger'>[msg]</span>")
+		var/turf/T = get_turf(A)
+		T.visible_message("<span class='userdanger'>[msg]</span>")
 		playsound(A.loc, 'code/shitcode/valtos/sounds/ambush.ogg', 50)
 		for(var/obj/structure/flora/tree/boxplanet/kartoshmel/K in orange(7, src))
 			K.spawned_mobs = 0
 			START_PROCESSING(SSobj, K)
 	else
-		amb_chance += 5
+		amb_chance += 10
 
 ///////////////////////////////////////////////
 
@@ -172,13 +206,13 @@
 		return TRUE
 	else if(user)
 		var/turf/T = below()
-		var/area/A = get_area(T)
-		if(!istype(A, /area/boxplanet))
-			to_chat(user, "<span class='danger'><b>[capitalize(src)]</b> уже достаточно раскопан!</span>")
-			return FALSE
 		var/dir_to_dig = get_dir(src, user.loc)
 
 		if(do_after(user, 60, target = src))
+			var/area/A = get_area(T)
+			if(!istype(A, /area/boxplanet))
+				ChangeTurf(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
+				to_chat(user, "<span class='danger'><b>[capitalize(src)]</b> уже достаточно раскопан!</span>")
 			if(istype(T, /turf/closed/mineral))
 				ChangeTurf(/turf/open/openspace/boxplanet/caves, flags = CHANGETURF_INHERIT_AIR)
 				T.ChangeTurf(/turf/open/floor/plating/asteroid/boxplanet/caves, flags = CHANGETURF_INHERIT_AIR)
@@ -229,11 +263,9 @@
 	bullet_sizzle = TRUE
 	bullet_bounce_sound = null
 	digResult = /obj/item/stack/sheet/mineral/snow
-	mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/wolf = 50, /obj/structure/spawner/ice_moon = 3, \
-						  /mob/living/simple_animal/hostile/asteroid/polarbear = 30, /obj/structure/spawner/ice_moon/polarbear = 3, \
-						  SPAWN_MEGAFAUNA = 6, /mob/living/simple_animal/hostile/asteroid/goldgrub = 10)
-
-	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2, /obj/effect/step_trigger/ambush = 1)
+	mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/wolf = 1)
+	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2)
+	terrain_spawn_list = list(/obj/effect/step_trigger/ambush = 2, /obj/effect/flora_spawner = 1)
 	data_having_type = /turf/open/floor/plating/asteroid/airless/cave/boxplanet/has_data
 	turf_type = /turf/open/floor/plating/asteroid/boxplanet/caves
 
@@ -241,8 +273,15 @@
 	has_data = TRUE
 
 /turf/open/floor/plating/asteroid/airless/cave/boxplanet/make_tunnel(dir, pick_tunnel_width)
-	pick_tunnel_width = list("1" = 6, "2" = 4, "3" = 3, "4" = 2, "5" = 1)
+	pick_tunnel_width = list("1" = 4, "2" = 5, "3" = 3, "4" = 3, "5" = 2)
 	..()
+
+/turf/open/floor/plating/asteroid/boxplanet/ex_act(severity, target, prikolist)
+	..()
+	if(severity == 1)
+		var/turf/T = below()
+		T.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
+	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 ///////////////////////////////////////////////
 

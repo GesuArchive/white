@@ -8757,7 +8757,7 @@
 	},
 /area/maintenance/starboard/aft)
 "fjf" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /turf/open/floor/plating,
 /area/maintenance/port)
 "fjp" = (
@@ -8950,7 +8950,7 @@
 /turf/open/floor/plating,
 /area/ai_monitored/turret_protected/aisat/hallway)
 "fpf" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /turf/open/floor/plating,
 /area/quartermaster/storage)
 "fpl" = (
@@ -9002,6 +9002,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/science/robotics/mechbay)
+"fre" = (
+/obj/effect/spawner/structure/window/ice,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "frv" = (
 /obj/machinery/holopad,
 /turf/open/floor/plasteel,
@@ -9088,7 +9092,7 @@
 /area/quartermaster/storage)
 "fvd" = (
 /obj/structure/sign/warning/vacuum/external,
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /turf/open/floor/plating,
 /area/quartermaster/storage)
 "fvw" = (
@@ -22018,6 +22022,10 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
+"nhk" = (
+/obj/effect/flora_spawner,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
+/area/boxplanet/underground/explored)
 "nhu" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -23395,6 +23403,10 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/sleeper)
+"ofl" = (
+/obj/effect/spawner/structure/window/ice,
+/turf/open/floor/plating,
+/area/quartermaster/miningdock)
 "ofq" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -25005,6 +25017,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 6
 	},
+/obj/structure/ladder,
 /turf/open/floor/plating,
 /area/maintenance/port)
 "oXP" = (
@@ -30319,8 +30332,8 @@
 /turf/open/floor/plasteel,
 /area/storage/tools)
 "siG" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
+/obj/effect/spawner/structure/window/ice,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "siK" = (
@@ -37349,6 +37362,10 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/plasteel,
 /area/crew_quarters/locker)
+"wvJ" = (
+/obj/effect/spawner/structure/window/ice,
+/turf/open/floor/plating,
+/area/quartermaster/qm)
 "wvN" = (
 /obj/item/radio/intercom{
 	pixel_y = -29
@@ -55480,7 +55497,7 @@ rBe
 rBe
 fRB
 rKn
-rKn
+nhk
 rKn
 rKn
 rBe
@@ -60098,7 +60115,7 @@ mwS
 cPh
 bFY
 bFY
-wEu
+fre
 kbo
 dbZ
 vaE
@@ -60343,7 +60360,7 @@ rSY
 uvB
 gUo
 gUo
-seC
+wvJ
 gUo
 gUo
 kud
@@ -60612,7 +60629,7 @@ olt
 bFY
 bFY
 bFY
-wEu
+fre
 iDV
 bsV
 vaE
@@ -60859,7 +60876,7 @@ gUo
 aNh
 tHf
 slH
-seC
+wvJ
 bFY
 bFY
 bFY
@@ -61116,14 +61133,14 @@ bnT
 ajo
 bzK
 pbq
-seC
+wvJ
 bFY
 bFY
-hIs
-hIs
+ofl
+ofl
 jFD
-hIs
-hIs
+ofl
+ofl
 bFY
 bFY
 rUt
@@ -61373,14 +61390,14 @@ seC
 nsm
 shA
 cQM
-seC
+wvJ
 vnq
 vnq
-hIs
+ofl
 exI
 kgU
 ykb
-hIs
+ofl
 bFY
 bFY
 rUt
@@ -61630,14 +61647,14 @@ seC
 xaq
 hjn
 aOK
-seC
+wvJ
 bFY
 bFY
-hIs
+ofl
 srr
 kgU
 oce
-hIs
+ofl
 bFY
 bFY
 rUt
@@ -62408,10 +62425,10 @@ tbd
 tbd
 kgU
 tbd
-hIs
+ofl
 vnq
 vnq
-wEu
+fre
 oRV
 uJn
 uJn
@@ -62665,10 +62682,10 @@ xqS
 qTc
 bfD
 cwa
-hIs
+ofl
 bFY
 bFY
-wEu
+fre
 fBj
 uJn
 uJn
@@ -62922,10 +62939,10 @@ dKL
 kgU
 kgU
 rcA
-hIs
+ofl
 vnq
 vnq
-wEu
+fre
 uJn
 uJn
 sgo
@@ -63694,8 +63711,8 @@ cPh
 cPh
 cPh
 cPh
-wEu
-wEu
+fre
+fre
 rUt
 uJn
 wEu
@@ -64498,7 +64515,7 @@ cuQ
 aPz
 gzK
 jCS
-wEu
+fre
 bXf
 bXf
 bXf
@@ -95550,7 +95567,7 @@ rKn
 rKn
 rKn
 rKn
-rKn
+nhk
 rKn
 rKn
 rKn

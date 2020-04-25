@@ -391,3 +391,8 @@
 		"board_WQ.png" 			= 'code/shitcode/valtos/icons/gk/board_WQ.png',
 		"board_WR.png" 			= 'code/shitcode/valtos/icons/gk/board_WR.png'
 	)
+
+/datum/asset/simple/white_mix
+	assets = list(
+		"zdoh.png"				= 'code/shitcode/valtos/icons/zdoh.png'
+	)

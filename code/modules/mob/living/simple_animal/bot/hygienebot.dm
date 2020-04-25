@@ -198,7 +198,7 @@
 			oldtarget_name = H.name
 			speak("Unhygienic client found. Please stand still so I can clean you.")
 			playsound(loc, 'sound/effects/hygienebot_happy.ogg', 60, 1)
-			visible_message("<b>[src]</b> points at [H.name]!")
+			visible_message("<b>[capitalize(src)]</b> points at [H.name]!")
 			mode = BOT_HUNT
 			INVOKE_ASYNC(src, .proc/handle_automated_action)
 			break

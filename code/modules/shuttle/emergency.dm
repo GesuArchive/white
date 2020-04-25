@@ -481,7 +481,7 @@
 	height = 4
 	var/target_area = /area/lavaland/surface/outdoors
 	var/gensokyo_area = /area/mine/unexplored/gensokyo
-	var/icemoon_area = /area/icemoon/surface/outdoors/unexplored
+	var/icemoon_area = /area/space // lol
 	var/edge_distance = 16
 	// Minimal distance from the map edge, setting this too low can result in shuttle landing on the edge and getting "sliced"
 

@@ -224,9 +224,6 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	proverka_na_detey(message, src)
 
-	if(GLOB.chat_bubbles)
-		new /obj/effect/chat_text(src, message)
-
 	send_speech(message, message_range, src, bubble_type, spans, language, message_mode)
 
 	if(succumbed)
@@ -299,7 +296,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		if(M.client)
 			speech_bubble_recipients.Add(M.client)
 	var/image/I = image('icons/mob/talk.dmi', src, "[bubble_type][say_test(message)]", FLY_LAYER)
-	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
+	INVOKE_ASYNC(GLOBAL_PROC, /.proc/show_speech_text, message, message_language, src, speech_bubble_recipients, 40)
 	INVOKE_ASYNC(GLOBAL_PROC, /.proc/flick_overlay, I, speech_bubble_recipients, 30)
 
 /mob/proc/binarycheck()

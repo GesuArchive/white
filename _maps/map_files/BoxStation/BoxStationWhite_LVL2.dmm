@@ -35,6 +35,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
+"o" = (
+/obj/effect/flora_spawner,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
+/area/boxplanet/underground/unexplored)
 "p" = (
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 4
@@ -9532,7 +9536,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -9991,7 +9995,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -11045,7 +11049,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -12088,7 +12092,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -16960,7 +16964,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -17487,7 +17491,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -19513,7 +19517,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 a
@@ -20843,7 +20847,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -22921,7 +22925,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -24399,7 +24403,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -25402,7 +25406,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -26276,7 +26280,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -26957,7 +26961,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -27166,7 +27170,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -29211,7 +29215,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -29286,7 +29290,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -29588,6 +29592,7 @@ S
 S
 S
 S
+o
 S
 S
 S
@@ -29605,8 +29610,7 @@ S
 S
 S
 S
-S
-S
+o
 S
 S
 S
@@ -30302,7 +30306,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -31572,7 +31576,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -33914,7 +33918,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -34474,7 +34478,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -38354,7 +38358,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -39090,7 +39094,7 @@ a
 S
 S
 S
-S
+o
 S
 S
 S
@@ -46998,31 +47002,7 @@ S
 S
 S
 S
-S
-S
-S
-S
-S
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+o
 S
 S
 S
@@ -47047,6 +47027,30 @@ a
 a
 a
 a
+S
+S
+S
+S
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
 a
 a
 a
@@ -47059,7 +47063,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S
@@ -48044,7 +48048,7 @@ S
 S
 S
 S
-S
+o
 S
 S
 S

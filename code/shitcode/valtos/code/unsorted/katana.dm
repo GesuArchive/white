@@ -89,15 +89,15 @@
 	if(istype(W, /obj/item/stock_parts/cell))
 		var/obj/item/stock_parts/cell/C = W
 		if(cell)
-			to_chat(user, "<span class='warning'><b>[src]</b> уже имеет батарейку!</span>")
+			to_chat(user, "<span class='warning'><b>[capitalize(src)]</b> уже имеет батарейку!</span>")
 		else
 			if(C.maxcharge < cell_hit_cost)
-				to_chat(user, "<span class='notice'><b>[src]</b> требует более мощный источник питания.</span>")
+				to_chat(user, "<span class='notice'><b>[capitalize(src)]</b> требует более мощный источник питания.</span>")
 				return
 			if(!user.transferItemToLoc(W, src))
 				return
 			cell = W
-			to_chat(user, "<span class='notice'>Вставляю батарейку в <b>[src]</b>.</span>")
+			to_chat(user, "<span class='notice'>Вставляю батарейку в <b>[capitalize(src)]</b>.</span>")
 			update_icon()
 
 	else if(W.tool_behaviour == TOOL_SCREWDRIVER)
@@ -120,14 +120,14 @@
 /obj/item/melee/sabre/security/proc/toggle_on(mob/user)
 	if(cell && cell.charge > cell_hit_cost)
 		turned_on = !turned_on
-		to_chat(user, "<span class='notice'><b>[src]</b> теперь [turned_on ? "ключена" : "отключена"].</span>")
+		to_chat(user, "<span class='notice'><b>[capitalize(src)]</b> теперь [turned_on ? "включена" : "отключена"].</span>")
 		playsound(src, "sparks", 75, TRUE, -1)
 	else
 		turned_on = FALSE
 		if(!cell)
-			to_chat(user, "<span class='warning'><b>[src]</b> не имеет источника энергии!</span>")
+			to_chat(user, "<span class='warning'><b>[capitalize(src)]</b> не имеет источника энергии!</span>")
 		else
-			to_chat(user, "<span class='warning'><b>[src]</b> разрядилась.</span>")
+			to_chat(user, "<span class='warning'><b>[capitalize(src)]</b> разрядилась.</span>")
 	update_icon()
 	add_fingerprint(user)
 
