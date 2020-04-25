@@ -149,8 +149,9 @@
 		if(prob(100 - (planted_things * 10)))
 			for(var/turf/T in RANGE_TURFS(7, src))
 				if(istype(T, /turf/open/floor/plating/asteroid/boxplanet/caves))
-					if(T.contents.len)
-						continue
+					for(var/obj/O in T.contents.len)
+						if(istype(O, /obj/structure/flora/tree/boxplanet))
+							continue
 					new generating_type(T)
 					planted_things++
 	if(planted_things >= 10)
