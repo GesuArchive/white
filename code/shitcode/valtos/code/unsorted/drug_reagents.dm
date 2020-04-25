@@ -285,7 +285,7 @@
 	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"], H.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], H.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], H.hud_used.plane_masters["[PLANE_SPACE]"])
 	switch(current_cycle)
 		if(1 to 20)
-			high_message = pick("Черт возьми, я так чертовски счастлив ...", "Что, черт возьми, происходит?", "Где я?")
+			high_message = pick("Черт возьми, я так чертовски счастлив...", "Что, черт возьми, происходит?", "Где я?")
 			if(prob(30)) //blurry eyes and talk like an idiot
 				H.blur_eyes(2)
 				H.derpspeech++
@@ -298,7 +298,7 @@
 					if(S.len <= 3)
 						PlaySpook(H, S.file, 23)
 						sounds = list()
-			high_message = pick("Я чувствую, что летаю!", "Я чувствую, что что-то плавает в моих легких...", "Я вижу слова, которые я говорю ...")
+			high_message = pick("Я чувствую, что летаю!", "Я чувствую, что что-то плавает в моих легких...", "Я вижу слова, которые я говорю...")
 			if(prob(25))
 				var/rotation = max(min(round(current_cycle/4), 20),125)
 				for(var/obj/screen/plane_master/whole_screen in screens)
@@ -311,7 +311,7 @@
 					if(prob(15))
 						whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = WAVE_BOUNDED)
 						animate(whole_screen.filters[whole_screen.filters.len], size = rand(1,3), time = 30, easing = QUAD_EASING, loop = -1)
-						to_chat(H, "<span class='notice'>Я чувствую, что реальность тает ...</span>")
+						to_chat(H, "<span class='notice'>Я чувствую, что реальность тает...</span>")
 						addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
 				high_message = pick("Ебена мать...", "Реальность не существует, человек.", "...", "Никто не летает вокруг солнца.")
 			else if(prob(5))
