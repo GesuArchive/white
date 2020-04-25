@@ -94,10 +94,6 @@
 	///Mobs that are currently do_after'ing this atom, to be cleared from on Destroy()
 	var/list/targeted_by
 
-	var/list/stored_chat_text = list() //experiment
-
-	var/name_color = ""
-
 /**
   * Called when an atom is created in byond (built in engine proc)
   *

@@ -38,7 +38,7 @@
 	update_metabalance_cache()
 	qdel(query_set_metacoins)
 	if(ann)
-		to_chat(src, "<span class='rose bold'>Your new metacoin balance is [mc_count]!</span>")
+		to_chat(src, "<span class='rose bold'>Мой новый баланс [mc_count] метакэша!</span>")
 
 /proc/inc_metabalance(mob/M, mc_count, ann=TRUE, reason=null)
 	if(mc_count > 0 && !M.client)
@@ -52,11 +52,6 @@
 			to_chat(M, "<span class='rose bold'>[reason] [mc_count >= 0 ? "Получено" : "Потеряно"] [abs(mc_count)] метакэша!</span>")
 		else
 			to_chat(M, "<span class='rose bold'>[mc_count >= 0 ? "Получено" : "Потеряно"] [abs(mc_count)] метакэша!</span>")
-
-
-
-
-
 
 // PROCS FOR HANDLING CHECKING WHAT ITEMS USER HAS
 

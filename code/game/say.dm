@@ -27,9 +27,6 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if(!language)
 		language = get_selected_language()
 
-	if(GLOB.chat_bubbles)
-		new /obj/effect/chat_text(src, message)
-
 	send_speech(message, 7, src, , spans, message_language=language)
 
 /atom/movable/proc/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
@@ -54,7 +51,14 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	//Basic span
 	var/spanpart1 = "<span class='[radio_freq ? get_radio_span(radio_freq) : "game say"]'>"
 	//Start name span.
-	var/spanpart2 = "<span class='name' [speaker.name_color ? "style='color: [speaker.name_color]'" : ""]>"
+	var/spanpart2 = "<span class='name'>"
+	if(isliving(speaker))
+		var/mob/living/L = speaker
+		if(L.name != L.last_heard_name) // generate color based on name, skip if already generated
+			var/num = hex2num(copytext(md5(L.name), 1, 7))
+			L.last_used_color = hsv2rgb(num % 360, (num / 360) % 10 / 100 + 0.48, num / 360 / 10 % 15 / 100 + 0.35)
+			L.last_heard_name = L.name
+		spanpart2 = "<span class='name' [L.last_used_color ? "style='color: [L.last_used_color]'" : ""]>"
 	//Radio freq/name display
 	var/freqpart = radio_freq ? "\[[get_radio_name(radio_freq)]\] " : ""
 	//Speaker name

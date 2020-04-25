@@ -1,53 +1,94 @@
-// source - https://github.com/BurgerLUA/burgerstation/blob/2eb9553859cf3491d1170316dbf658da454bbcb1/code/_core/obj/overlay/chat_text.dm
+///////////////////////////////////////////////////////////
 
 GLOBAL_VAR_INIT(chat_bubbles, FALSE)
 
-/obj/effect/chat_text
-	name = "overlay"
-	desc = "overlay object"
-	plane = 23
+/**
+  * Converts a color from HSV space to RGB
+  *
+  * Arguments:
+  * * hue - Hue of color
+  * * sat - Saturation of color
+  * * val - Value of color
+  */
+/proc/hsv2rgb(var/hue, var/sat, var/val)
+	val *= 255
+	if(sat <= 0)
+		return rgb(val, val, val)
+	hue %= 360
+	hue /= 60
+	var/i = round(hue)
+	var/f = hue - i
+	var/p = val * (1 - sat)
+	var/q = val * (1 - sat * f)
+	var/t = val * (1 - sat * (1 - f))
+	switch(i)
+		if(0)
+			return rgb(val, t, p)
+		if(1)
+			return rgb(q, val, p)
+		if(2)
+			return rgb(p, val, t)
+		if(3)
+			return rgb(p, q, val)
+		if(4)
+			return rgb(t, p, val)
+		else
+			return rgb(val, p, q)
 
-	icon = null
+/mob/living
+	// Vars used for Runescape-Style Chat
+	/// Stores the current visible chats
+	var/obj/chattext/chattext = new
+	/// Stores the last name heard
+	var/last_heard_name = null
+	/// Stores the last used color
+	var/last_used_color = null
 
-	var/mob/owner
+/obj/chattext
+	var/list/chats = list()
 
-	mouse_opacity = 0
+/image/speech_text
+	maptext_width = (32 * 4)
+	alpha = 0
 
-/obj/effect/chat_text/Destroy()
+/proc/show_speech_text(message, message_language, mob/living/L, var/list/show_to, duration)
+	if(!istype(L))
+		return
 
-	if(owner)
-		owner.stored_chat_text -= src
-		owner = null
+	message = copytext(message, 1, 160) // no super long messages
 
-	return ..()
+	var/image/speech_text/S = new // create invisible object, bind it to speaking mob
+	S.loc = L
+	S.layer = FLY_LAYER
 
-/obj/effect/chat_text/New(var/atom/desired_loc, var/desired_text, var/bypass_length=FALSE)
+	S.maptext = "<span class='pixel c ol' style='color: white'>[message]</span>"
+	S.pixel_x = -1.5 * L.bound_width
+	S.pixel_y = L.bound_height
 
-	owner = desired_loc
+	for(var/client/C in show_to)
+		if(C.mob.can_hear() && C.mob.has_language(message_language) && GLOB.chat_bubbles)
+			C.images += S
+		else if(isobserver(C.mob))
+			C.images += S
 
-	for(var/obj/effect/chat_text/CT in owner.stored_chat_text)
-		animate(CT,pixel_y = CT.pixel_y + 8,time = 5)
+	L.chattext.chats += S
+	for(var/image/I in L.chattext.chats)
+		if(I != S)
+			var/client/who = null // we need a client to run MeasureText, don't ask me why
+			if(length(GLOB.clients))
+				who = GLOB.clients[1]
+				var/new_y = I.pixel_y + text2num(splittext(who.MeasureText(S.maptext, width = S.maptext_width), "x")[2])
+				animate(I, pixel_y = new_y, time=2)
 
-	owner.stored_chat_text += src
-
-	src.alpha = 0
-	src.pixel_y = -8
-	animate(src,pixel_y = 0, alpha = 255, time = 5)
-	forceMove(get_turf(desired_loc))
-
-	maptext_width = 32*CEILING(10*0.75,2)
-	maptext_x = -(maptext_width-32)*0.5
-	maptext_y = 32*0.75
-
-	if(!bypass_length && length_char(desired_text) >= 52) //52 is a magic number because reasons.
-		desired_text = copytext_char(desired_text,1,52) + "..."
-
-	maptext = "<center><font color='white' style='text-shadow: 0 0 3px black;'>[html_decode(desired_text)]</font></center>"
-
-	spawn(50)
-		animate(src,alpha=0,time=10)
-		sleep(10)
-		if(src)
-			qdel(src)
-
-	return ..()
+	animate(S, alpha = 255, time=1)
+	spawn(duration)
+		var/new_y = S.pixel_y + 10
+		animate(S, alpha = 0, pixel_y = new_y, time = 4)
+		spawn(4)
+			for(var/client/C in show_to)
+				if(C.mob.can_hear() && C.mob.has_language(message_language) && GLOB.chat_bubbles)
+					C.images -= S
+				else if(isobserver(C.mob))
+					C.images -= S
+			L.chattext.chats -= S
+			qdel(S)

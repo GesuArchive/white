@@ -19,6 +19,7 @@ GLOBAL_LIST_INIT(atmos_pipe_recipes, list(
 		new /datum/pipe_info/pipe("Manifold",			/obj/machinery/atmospherics/pipe/manifold),
 		new /datum/pipe_info/pipe("4-Way Manifold",		/obj/machinery/atmospherics/pipe/manifold4w),
 		new /datum/pipe_info/pipe("Layer Manifold",		/obj/machinery/atmospherics/pipe/layer_manifold),
+		new /datum/pipe_info/pipe("MultiZ Pipe",		/obj/machinery/atmospherics/pipe/simple/multiz, PIPE_ONEDIR),
 	),
 	"Devices" = list(
 		new /datum/pipe_info/pipe("Connector",			/obj/machinery/atmospherics/components/unary/portables_connector),
@@ -54,6 +55,8 @@ GLOBAL_LIST_INIT(disposal_pipe_recipes, list(
 		new /datum/pipe_info/disposal("Bin",			/obj/machinery/disposal/bin, PIPE_ONEDIR),
 		new /datum/pipe_info/disposal("Outlet",			/obj/structure/disposaloutlet),
 		new /datum/pipe_info/disposal("Chute",			/obj/machinery/disposal/deliveryChute),
+		new /datum/pipe_info/disposal("Trunk To Up",	/obj/structure/disposalpipe/trunk/multiz),
+		new /datum/pipe_info/disposal("Trunk To Down",	/obj/structure/disposalpipe/trunk/multiz/down),
 	)
 ))
 

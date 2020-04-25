@@ -1233,6 +1233,10 @@
 	},
 /turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/boxplanet/surface)
+"Iw" = (
+/obj/effect/flora_spawner,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
+/area/boxplanet/underground/unexplored)
 "IE" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
@@ -7232,7 +7236,7 @@ Jf
 Jf
 Jf
 Jf
-Jf
+Iw
 Jf
 Jf
 Jf
@@ -10315,7 +10319,7 @@ Jf
 Jf
 Jf
 Jf
-Jf
+Iw
 Jf
 Jf
 Jf
@@ -12626,7 +12630,7 @@ Jf
 Jf
 Jf
 Jf
-Jf
+Iw
 Jf
 Jf
 Jf
@@ -27003,7 +27007,7 @@ Jf
 Jf
 Jf
 Jf
-Jf
+Iw
 Jf
 Jf
 Jf
@@ -27823,7 +27827,7 @@ OB
 OB
 Jf
 Jf
-Jf
+Iw
 Jf
 Jf
 OB
@@ -32371,7 +32375,7 @@ OB
 OB
 Jf
 Jf
-Jf
+Iw
 Jf
 Jf
 OB
@@ -41109,7 +41113,7 @@ Jf
 Jf
 Jf
 Jf
-Jf
+Iw
 Jf
 Jf
 OB
@@ -55794,7 +55798,7 @@ Jf
 Jf
 Jf
 Jf
-Jf
+Iw
 Jf
 Jf
 Jf

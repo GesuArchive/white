@@ -15,7 +15,7 @@ GLOBAL_PROTECT(whitelist)
 		GLOB.whitelist += line
 
 	if(!GLOB.whitelist.len)
-		GLOB.whitelist += pick(world.file2list(WHITELISTFILE))
+		GLOB.whitelist = pick(list("CoomerAI"), list("DoomerAI"), list("ZoomerAI"))
 
 /proc/check_whitelist(var/ckey)
 	if(!GLOB.whitelist)

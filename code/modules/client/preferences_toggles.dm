@@ -16,7 +16,7 @@
 	set name = " #️⃣ Preferences"
 	set category = "ОСОБЕННОЕ"
 	set desc = "Open Game Preferences Window"
-	usr.client.prefs.current_tab = 1
+	usr.client.prefs.current_tab = 2
 	usr.client.prefs.ShowChoices(usr)
 
 //toggles
