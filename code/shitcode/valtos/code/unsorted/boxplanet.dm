@@ -146,8 +146,8 @@
 /obj/effect/flora_spawner/process()
 	if(cooldown < world.time - 120)
 		cooldown = world.time
-		if(prob(100 - planted_things * 10))
-			for(var/turf/T in RANGE_TURFS(rand(1, 7), get_turf(src)))
+		if(prob(100 - (planted_things * 10)))
+			for(var/turf/T in RANGE_TURFS(7, src))
 				if(istype(T, /turf/open/floor/plating/asteroid/boxplanet/caves))
 					if(T.contents.len)
 						continue
