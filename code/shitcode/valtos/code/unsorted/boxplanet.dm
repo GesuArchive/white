@@ -147,7 +147,7 @@
 	if(cooldown < world.time - 120)
 		cooldown = world.time
 		if(prob(100 - (planted_things * 10)))
-			var/list/possible_turfs
+			var/list/possible_turfs = list()
 			for(var/turf/T in RANGE_TURFS(7, src))
 				if(istype(T, /turf/open/floor/plating/asteroid/boxplanet/caves))
 					possible_turfs += T
