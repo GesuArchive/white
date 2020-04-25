@@ -151,10 +151,11 @@
 				if(istype(T, /turf/open/floor/plating/asteroid/boxplanet/caves))
 					for(var/obj/O in T.contents.len)
 						if(istype(O, /obj/structure/flora/tree/boxplanet))
-							continue
-					new generating_type(T)
-					planted_things++
-					return
+							return
+						else
+							new generating_type(T)
+							planted_things++
+							return
 	if(planted_things >= 10)
 		STOP_PROCESSING(SSobj, src)
 		qdel(src)
