@@ -19,7 +19,15 @@
 
 /obj/item/paxe/Initialize()
 	. = ..()
+	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
+
+/obj/item/paxe/ComponentInitialize()
+	. = ..()
 	AddComponent(/datum/component/butchering, 60, 110)
+	AddComponent(/datum/component/two_handed, require_twohands=TRUE)
+
+/obj/item/paxe/proc/on_wield(obj/item/source, mob/user)
+	wielded = TRUE
 
 /obj/item/paxee
 	name = "poleaxe of law"
@@ -40,10 +48,19 @@
 	max_integrity = 200
 	var/charged = TRUE
 	var/recharge_time = 600
+	var/wielded = TRUE
 
 /obj/item/paxee/Initialize()
 	. = ..()
+	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
+
+/obj/item/paxee/ComponentInitialize()
+	. = ..()
 	AddComponent(/datum/component/butchering, 60, 110)
+	AddComponent(/datum/component/two_handed, require_twohands=TRUE)
+
+/obj/item/paxee/proc/on_wield(obj/item/source, mob/user)
+	wielded = TRUE
 
 /obj/item/paxee/attack_self(mob/user)
 	if (charged)
