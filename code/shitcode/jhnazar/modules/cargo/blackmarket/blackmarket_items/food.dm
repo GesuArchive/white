@@ -1,7 +1,7 @@
 /datum/blackmarket_item/food
 	category = "Еда"
 
-/datum/blackmarket_item/consumable/donk_pocket_box
+/datum/blackmarket_item/food/donk_pocket_box
 	name = "Коробка Донк-Покетов"
 	desc = "Хорошо упакованная коробка с самой любимой закуской любого космонавтика"
 	item = /obj/item/storage/box/donkpockets
@@ -12,7 +12,7 @@
 	price_max = 500
 	availability_prob = 100
 
-	/datum/blackmarket_item/consumable/donk_pocket_box/spawn_item(loc)
+	/datum/blackmarket_item/food/donk_pocket_box/spawn_item(loc)
 		var/donkpockets = pick(list(/obj/item/storage/box/donkpockets,
 				/obj/item/storage/box/donkpockets/donkpocketspicy,
 				/obj/item/storage/box/donkpockets/donkpocketteriyaki,
