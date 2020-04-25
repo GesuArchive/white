@@ -16,6 +16,7 @@
 	sharpness = IS_SHARP
 	custom_materials = list(MAT_METAL=5000)
 	max_integrity = 200
+	var/wielded = TRUE
 
 /obj/item/paxe/Initialize()
 	. = ..()
