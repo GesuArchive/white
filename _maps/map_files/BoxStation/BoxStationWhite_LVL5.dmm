@@ -957,6 +957,10 @@
 "ML" = (
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"MN" = (
+/obj/effect/flora_spawner,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
+/area/boxplanet/underground)
 "MZ" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access_txt = "12"
@@ -18072,7 +18076,7 @@ zX
 zX
 zX
 zX
-zX
+MN
 Bo
 zX
 zX
@@ -22965,7 +22969,7 @@ wQ
 Kn
 zX
 zX
-zX
+MN
 zX
 zX
 JX
@@ -40432,7 +40436,7 @@ zX
 zX
 zX
 zX
-zX
+MN
 zX
 zX
 zX
@@ -44568,7 +44572,7 @@ zX
 zX
 zX
 zX
-zX
+MN
 zX
 zX
 zX

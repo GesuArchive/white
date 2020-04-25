@@ -22022,6 +22022,10 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
+"nhk" = (
+/obj/effect/flora_spawner,
+/turf/open/floor/plating/asteroid/boxplanet/caves,
+/area/boxplanet/underground/explored)
 "nhu" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -55493,7 +55497,7 @@ rBe
 rBe
 fRB
 rKn
-rKn
+nhk
 rKn
 rKn
 rBe
@@ -95563,7 +95567,7 @@ rKn
 rKn
 rKn
 rKn
-rKn
+nhk
 rKn
 rKn
 rKn
