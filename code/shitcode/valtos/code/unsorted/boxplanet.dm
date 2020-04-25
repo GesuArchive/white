@@ -150,10 +150,7 @@
 			var/list/possible_turfs
 			for(var/turf/T in RANGE_TURFS(7, src))
 				if(istype(T, /turf/open/floor/plating/asteroid/boxplanet/caves))
-					for(var/obj/O in T.contents.len)
-						if(istype(O, /obj/structure/flora/tree/boxplanet))
-							return
-						possible_turfs += T
+					possible_turfs += T
 			new generating_type(pick(possible_turfs))
 			planted_things++
 			return
