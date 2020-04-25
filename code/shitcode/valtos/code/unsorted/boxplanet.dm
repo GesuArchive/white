@@ -173,13 +173,13 @@
 		return TRUE
 	else if(user)
 		var/turf/T = below()
-		var/area/A = get_area(T)
-		if(!istype(A, /area/boxplanet))
-			to_chat(user, "<span class='danger'><b>[capitalize(src)]</b> уже достаточно раскопан!</span>")
-			return FALSE
 		var/dir_to_dig = get_dir(src, user.loc)
 
 		if(do_after(user, 60, target = src))
+			var/area/A = get_area(T)
+			if(!istype(A, /area/boxplanet))
+				ChangeTurf(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
+				to_chat(user, "<span class='danger'><b>[capitalize(src)]</b> уже достаточно раскопан!</span>")
 			if(istype(T, /turf/closed/mineral))
 				ChangeTurf(/turf/open/openspace/boxplanet/caves, flags = CHANGETURF_INHERIT_AIR)
 				T.ChangeTurf(/turf/open/floor/plating/asteroid/boxplanet/caves, flags = CHANGETURF_INHERIT_AIR)
