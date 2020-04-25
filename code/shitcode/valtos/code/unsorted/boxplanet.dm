@@ -154,6 +154,7 @@
 							continue
 					new generating_type(T)
 					planted_things++
+					return
 	if(planted_things >= 10)
 		STOP_PROCESSING(SSobj, src)
 		qdel(src)
