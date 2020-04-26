@@ -133,6 +133,10 @@
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
+"ga" = (
+/obj/effect/landmark/carpspawn,
+/turf/open/floor/plating/asteroid/boxplanet/surface,
+/area/boxplanet/surface)
 "gq" = (
 /turf/open/floor/plating,
 /area/maintenance/solars/starboard/aft)
@@ -258,6 +262,10 @@
 	initial_gas_mix = "o2=22;n2=82;TEMP=180"
 	},
 /area/solar/port/aft)
+"jx" = (
+/obj/effect/landmark/carpspawn,
+/turf/open/openspace/boxplanet/surface,
+/area/boxplanet/surface)
 "jM" = (
 /obj/structure/fence/corner{
 	dir = 1
@@ -5977,7 +5985,7 @@ Fb
 Fb
 Fb
 Fb
-Fb
+ga
 Fb
 Fb
 Fb
@@ -7314,7 +7322,7 @@ Fb
 Fb
 fd
 Fb
-Fb
+ga
 Fb
 Fb
 Fb
@@ -16375,7 +16383,7 @@ Fb
 Fb
 Fb
 Fb
-Fb
+ga
 Fb
 Fb
 Fb
@@ -22356,7 +22364,7 @@ Fb
 Fb
 Fb
 Fb
-Fb
+ga
 Fb
 Fb
 Fb
@@ -29057,7 +29065,7 @@ Fb
 Fb
 Fb
 Fb
-Fb
+ga
 Fb
 Fb
 Fb
@@ -34895,7 +34903,7 @@ Fb
 Fb
 Fb
 Fb
-Fb
+ga
 Fb
 Fb
 Fb
@@ -44722,7 +44730,7 @@ Fb
 Fb
 Fb
 Fb
-Fb
+ga
 Fb
 Fb
 Fb
@@ -54665,7 +54673,7 @@ Fb
 Fb
 Fb
 Fb
-Fb
+ga
 Fb
 Fb
 Fb
@@ -55065,7 +55073,7 @@ iU
 iU
 iU
 iU
-iU
+jx
 iU
 iU
 iU
@@ -61267,7 +61275,7 @@ Fb
 Fb
 Fb
 Fb
-Fb
+ga
 Fb
 Fb
 Fb
