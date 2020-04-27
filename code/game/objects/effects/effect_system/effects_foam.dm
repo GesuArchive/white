@@ -39,7 +39,7 @@
 	if(hotspot && istype(T) && T.air)
 		qdel(hotspot)
 		var/datum/gas_mixture/G = T.air
-		if(G.gases[/datum/gas/plasma])
+		if(G.get_moles(/datum/gas/plasma))
 			var/plas_amt = min(30,G.get_moles(/datum/gas/plasma)) //Absorb some plasma
 			G.adjust_moles(/datum/gas/plasma, -plas_amt)
 			absorbed_plasma += plas_amt

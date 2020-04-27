@@ -226,7 +226,7 @@
 				emote(pick("giggle","laugh"))
 			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "chemical_euphoria", /datum/mood_event/chemical_euphoria)
 		if(SA_partialpressure > safe_tox_max*3)
-			var/ratio = (breath_gases[/datum/gas/nitrous_oxide][MOLES]/safe_tox_max)
+			var/ratio = (breath.get_moles(/datum/gas/nitrous_oxide)/safe_tox_max)
 			adjustToxLoss(clamp(ratio, MIN_TOXIC_GAS_DAMAGE, MAX_TOXIC_GAS_DAMAGE))
 			throw_alert("too_much_tox", /obj/screen/alert/too_much_tox)
 		else
@@ -236,7 +236,7 @@
 
 	//BZ (Facepunch port of their Agent B)
 	if(breath.get_moles(/datum/gas/bz))
-		var/bz_partialpressure = (breath.get_moles(/datum/gas/bz)/breath.total_moles())*breath_pressu
+		var/bz_partialpressure = (breath.get_moles(/datum/gas/bz)/breath.total_moles())*breath_pressure
 		if(bz_partialpressure > 1)
 			hallucination += 10
 		else if(bz_partialpressure > 0.01)
@@ -305,7 +305,7 @@
 //Fourth and final link in a breath chain
 /mob/living/carbon/proc/handle_breath_temperature(datum/gas_mixture/breath)
 	// The air you breathe out should match your body temperature
-	breath.temperature = bodytemperature
+	breath.return_temperature() = bodytemperature
 
 /mob/living/carbon/proc/get_breath_from_internal(volume_needed)
 	if(internal)

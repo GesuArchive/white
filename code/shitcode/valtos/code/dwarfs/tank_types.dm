@@ -16,5 +16,4 @@
 
 
 /obj/item/tank/internals/dwarf/populate_gas()
-	air_contents.assert_gas(/datum/gas/carbon_dioxide)
-	air_contents.gases[/datum/gas/carbon_dioxide][MOLES] = (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)
+	air_contents.set_moles(/datum/gas/carbon_dioxide, (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))

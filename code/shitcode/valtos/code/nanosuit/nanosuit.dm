@@ -769,8 +769,8 @@
 			stat("Radiation Levels:","[NS.radon?"[radiation] rads":"offline"]")
 			stat("Body Temperature:","[NS.healthon?"["[bodytemperature-T0C] degrees C ([bodytemperature*1.8-459.67] degrees F)"]":"offline"]")
 			stat("Atmospheric Pressure:","[NS.atmoson?"[pressure] kPa":"offline"]")
-			stat("Atmoshperic Temperature:","[NS.atmoson?"<span class='[environment.temperature > FIRE_IMMUNITY_MAX_TEMP_PROTECT?"alert":"info"]'>[round(environment.temperature-T0C, 0.01)] &deg;C ([round(environment.temperature, 0.01)] K)</span>":"offline"]")
-			stat("Atmospheric Thermal Energy:","[NS.atmoson?"[THERMAL_ENERGY(environment)/1000] kJ":"offline"]")
+			stat("Atmoshperic Temperature:","[NS.atmoson?"<span class='[environment.return_temperature() > FIRE_IMMUNITY_MAX_TEMP_PROTECT?"alert":"info"]'>[round(environment.return_temperature()-T0C, 0.01)] &deg;C ([round(environment.return_temperature(), 0.01)] K)</span>":"offline"]")
+			//stat("Atmospheric Thermal Energy:","[NS.atmoson?"[THERMAL_ENERGY(environment)/1000] kJ":"offline"]")
 
 /mob/living/carbon/human/Move(NewLoc, direct)
 	. = ..()
@@ -1073,8 +1073,7 @@
 
 /obj/item/tank/internals/emergency_oxygen/recharge/New()
 	..()
-	air_contents.assert_gas(/datum/gas/oxygen)
-	air_contents.gases[/datum/gas/oxygen][MOLES] = (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)
+	air_contents.set_moles(/datum/gas/oxygen, (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/internals/emergency_oxygen/recharge/process()
 	if(ishuman(loc))
@@ -1085,9 +1084,8 @@
 			return
 		else
 			sleep(10)
-			if(air_contents.gases[/datum/gas/oxygen][MOLES] < (10*moles_val))
-				air_contents.assert_gas(/datum/gas/oxygen)
-				air_contents.gases[/datum/gas/oxygen][MOLES] = clamp(air_contents.total_moles()+moles_val,0,(10*moles_val))
+			if(air_contents.get_moles(/datum/gas/oxygen) < (10*moles_val))
+				air_contents.set_moles(/datum/gas/oxygen, clamp(air_contents.total_moles()+moles_val,0,(10*moles_val)))
 		if(air_contents.return_pressure() != initial(distribute_pressure))
 			distribute_pressure = initial(distribute_pressure)
 

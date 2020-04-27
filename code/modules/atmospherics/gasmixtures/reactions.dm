@@ -118,7 +118,7 @@ nobiliumsuppression = INFINITY
 
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature((temperature*old_heat_capacity + energy_released)/new_heat_capacity
+			air.set_temperature((temperature*old_heat_capacity + energy_released)/new_heat_capacity)
 		return REACTING
 	return NO_REACTION
 
@@ -146,7 +146,7 @@ nobiliumsuppression = INFINITY
 	var/initial_trit = air.get_moles(/datum/gas/tritium)// Yogs
 	if(air.get_moles(/datum/gas/oxygen) < initial_trit || MINIMUM_TRIT_OXYBURN_ENERGY > (temperature * old_heat_capacity))// Yogs -- Maybe a tiny performance boost? I'unno
 		burned_fuel = air.get_moles(/datum/gas/oxygen)/TRITIUM_BURN_OXY_FACTOR
-		ir.adjust_moles(/datum/gas/tritium, -burned_fuel)
+		air.adjust_moles(/datum/gas/tritium, -burned_fuel)
 	else
 		burned_fuel = initial_trit // Yogs -- Conservation of Mass fix
 		air.set_moles(/datum/gas/tritium, air.get_moles(/datum/gas/tritium) * (1 - 1/TRITIUM_BURN_TRIT_FACTOR)) // Yogs -- Maybe a tiny performance boost? I'unno
@@ -300,7 +300,7 @@ datum/gas_reaction/freonfire/react(datum/gas_mixture/air, datum/holder)
 	if(energy_released < 0)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature((temperature*old_heat_capacity + energy_released)/new_heat_capacity
+			air.set_temperature((temperature*old_heat_capacity + energy_released)/new_heat_capacity)
 
 /datum/gas_reaction/h2fire
 	priority = -2 //fire should ALWAYS be last, but tritium fires happen before plasma fires
@@ -340,7 +340,7 @@ datum/gas_reaction/freonfire/react(datum/gas_mixture/air, datum/holder)
 	if(energy_released > 0)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature((temperature*old_heat_capacity + energy_released)/new_heat_capacity
+			air.set_temperature((temperature*old_heat_capacity + energy_released)/new_heat_capacity)
 
 	//let the floor know a fire is happening
 	if(istype(location))
@@ -381,7 +381,7 @@ datum/gas_reaction/freonfire/react(datum/gas_mixture/air, datum/holder)
 	if(energy_released > 0)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature((temperature*old_heat_capacity + energy_released)/new_heat_capacity
+			air.set_temperature((temperature*old_heat_capacity + energy_released)/new_heat_capacity)
 
 //fusion: a terrible idea that was fun but broken. Now reworked to be less broken and more interesting. Again (and again, and again). Again!
 //Fusion Rework Counter: Please increment this if you make a major overhaul to this system again.
@@ -401,14 +401,6 @@ datum/gas_reaction/freonfire/react(datum/gas_mixture/air, datum/holder)
 		/datum/gas/hydrogen = FUSION_MOLE_THRESHOLD)
 
 /datum/gas_reaction/fusion/react(datum/gas_mixture/air, datum/holder)
-	//Yogs start -- Cold Fusion
-	if(air.return_temperature() < FUSION_TEMPERATURE_THRESHOLD)
-		if(!air.get_moles(/datum/gas/dilithium))
-			return
-		if(air.return_temperature() < (FUSION_TEMPERATURE_THRESHOLD - FUSION_TEMPERATURE_THRESHOLD_MINIMUM) * NUM_E**( - air.get_moles(/datum/gas/dilithium) * DILITHIUM_LAMBDA) + FUSION_TEMPERATURE_THRESHOLD_MINIMUM)
-			// This is an exponential decay equation, actually. Horizontal Asymptote is FUSION_TEMPERATURE_THRESHOLD_MINIMUM.
-			return
-	//Yogs End
 	var/turf/open/location
 	if (istype(holder,/datum/pipeline)) //Find the tile the reaction is occuring on, or a random part of the network if it's a pipenet.
 		var/datum/pipeline/fusion_pipenet = holder
@@ -503,7 +495,7 @@ datum/gas_reaction/freonfire/react(datum/gas_mixture/air, datum/holder)
 	if(energy_used > 0)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature(max(((temperature * old_heat_capacity + energy_used) / new_heat_capacity),TCMB) //the air heats up when reacting
+			air.set_temperature(max(((temperature * old_heat_capacity + energy_used) / new_heat_capacity),TCMB)) //the air heats up when reacting
 		return REACTING
 
 /datum/gas_reaction/nitrylformation //The formation of nitryl. Endothermic. Requires bz.
@@ -607,7 +599,7 @@ datum/gas_reaction/freonfire/react(datum/gas_mixture/air, datum/holder)
 	if(energy_used > 0)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature(max(((temperature * old_heat_capacity - energy_used) / new_heat_capacity),TCMB)
+			air.set_temperature(max(((temperature * old_heat_capacity - energy_used) / new_heat_capacity),TCMB))
 		return REACTING
 
 /datum/gas_reaction/freonformation
@@ -638,7 +630,7 @@ datum/gas_reaction/freonfire/react(datum/gas_mixture/air, datum/holder)
 	if(energy_used > 0)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature(max(((temperature*old_heat_capacity - energy_used)/new_heat_capacity),TCMB)
+			air.set_temperature(max(((temperature*old_heat_capacity - energy_used)/new_heat_capacity),TCMB))
 		return REACTING
 
 /datum/gas_reaction/stimformation //Stimulum formation follows a strange pattern of how effective it will be at a given temperature, having some multiple peaks and some large dropoffs. Exo and endo thermic.
@@ -757,5 +749,5 @@ datum/gas_reaction/freonfire/react(datum/gas_mixture/air, datum/holder)
 	if(energy_released)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature(clamp((air.temperature*old_heat_capacity + energy_released)/new_heat_capacity,TCMB,INFINITY)
+			air.set_temperature(clamp((air.return_temperature()*old_heat_capacity + energy_released)/new_heat_capacity,TCMB,INFINITY))
 		return REACTING

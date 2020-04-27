@@ -107,7 +107,7 @@
 
 		if(pressure_delta > 0)
 			if(air_contents.return_temperature() > 0)
-				var/transfer_moles = pressure_delta*environment.volume/(air_contents.return_temperature() * R_IDEAL_GAS_EQUATION)
+				var/transfer_moles = pressure_delta*environment.return_volume()/(air_contents.return_temperature() * R_IDEAL_GAS_EQUATION)
 
 				var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
 
@@ -122,7 +122,7 @@
 			pressure_delta = min(pressure_delta, (internal_pressure_bound - air_contents.return_pressure()))
 
 		if(pressure_delta > 0 && environment.return_temperature() > 0)
-			var/transfer_moles = pressure_delta * air_contents.volume / (environment.return_temperature() * R_IDEAL_GAS_EQUATION)
+			var/transfer_moles = pressure_delta * air_contents.return_volume() / (environment.return_temperature() * R_IDEAL_GAS_EQUATION)
 
 			var/datum/gas_mixture/removed = loc.remove_air(transfer_moles)
 			if (isnull(removed)) // in space

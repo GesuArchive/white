@@ -138,7 +138,7 @@
 	for(var/obj/machinery/atmospherics/pipe/member in members)
 		member.air_temporary = new
 		member.air_temporary.set_volume(member.volume)
-		member.air_temporary.copy_from(air, member.volume/air.volume)
+		member.air_temporary.copy_from(air, member.volume/air.return_volume())
 
 		member.air_temporary.set_temperature(air.return_temperature())
 
@@ -231,7 +231,7 @@
 
 	for(var/i in GL)
 		var/datum/gas_mixture/G = i
-		total_gas_mixture.volume += G.volume
+		total_gas_mixture.set_volume(G.return_volume() + total_gas_mixture.return_volume())
 		total_gas_mixture.merge(G)
 		total_volume += G.return_volume()
 
@@ -239,5 +239,5 @@
 		//Update individual gas_mixtures by volume ratio
 		for(var/i in GL)
 			var/datum/gas_mixture/G = i
-			G.copy_from(total_gas_mixture, G.volume/total_gas_mixture.volume)
+			G.copy_from(total_gas_mixture, G.return_volume()/total_gas_mixture.return_volume())
 			G.multiply(G.return_volume()/total_volume)

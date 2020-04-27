@@ -244,7 +244,7 @@
 		else
 			SEND_SIGNAL(owner, COMSIG_CLEAR_MOOD_EVENT, "chemical_euphoria")
 		if(SA_pp > safe_toxins_max*3)
-			var/ratio = (breath_gases[/datum/gas/nitrous_oxide][MOLES]/safe_toxins_max)
+			var/ratio = (breath.get_moles(/datum/gas/nitrous_oxide)/safe_toxins_max)
 			H.apply_damage_type(clamp(ratio, tox_breath_dam_min, tox_breath_dam_max), tox_damage_type)
 			H.throw_alert("too_much_tox", /obj/screen/alert/too_much_tox)
 		else
@@ -412,7 +412,7 @@
 				to_chat(H, "<span class='warning'>You feel [hot_message] in your [name]!</span>")
 
 	// The air you breathe out should match your body temperature
-	breath.temperature = H.bodytemperature
+	breath.return_temperature() = H.bodytemperature
 
 /obj/item/organ/lungs/on_life()
 	. = ..()
