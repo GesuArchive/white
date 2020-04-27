@@ -49,7 +49,7 @@
 
 	// That last one put us over the limit, remove some of it
 	while(gasmix.return_pressure() > target_pressure)
-		gaslist[gastype][MOLES] -= gaslist[gastype][MOLES] * 0.1
+		gasmix.adjust_moles(gaslist[gastype], -gasmix.get_moles(gaslist[gastype]) * 0.1)
 	gasmix.set_moles(gaslist[gastype], FLOOR(gasmix.get_moles(gaslist[gastype]), 0.1))
 
 	// Now finally lets make that string
