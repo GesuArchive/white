@@ -45,6 +45,7 @@ SUBSYSTEM_DEF(air)
 	var/list/queued_for_activation
 
 	var/log_explosive_decompression = TRUE // If things get spammy, admemes can turn this off.
+	var/list/atmos_gen
 
 /datum/controller/subsystem/air/stat_entry(msg)
 	msg += "C:{"
