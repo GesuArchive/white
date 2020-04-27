@@ -450,8 +450,8 @@ GENE SCANNER
 
 		render_list += "<span class='[abs(n2_concentration - N2STANDARD) < 20 ? "info" : "alert"]'>Азот: [round(n2_concentration*100, 0.01)] % ([round(environment.get_moles(/datum/gas/nitrogen), 0.01)] mol)</span>\
 			\n<span class='[abs(o2_concentration - O2STANDARD) < 2 ? "info" : "alert"]'>Кислород: [round(o2_concentration*100, 0.01)] % ([round(environment.get_moles(/datum/gas/oxygen), 0.01)] mol)</span>\
-			\n<span class='[co2_concentration > 0.01 ? "alert" : "info"]'>CO2: [round(co2_concentration*100, 0.01)] % ([environment.get_moles(/datum/gas/carbon_dioxide), 0.01)] mol)</span>\
-			\n<span class='[plasma_concentration > 0.005 ? "alert" : "info"]'>Плазма: [round(plasma_concentration*100, 0.01)] % ([environment.get_moles(/datum/gas/plasma), 0.01)] mol)</span>\n"
+			\n<span class='[co2_concentration > 0.01 ? "alert" : "info"]'>CO2: [round(co2_concentration*100, 0.01)] % ([round(environment.get_moles(/datum/gas/carbon_dioxide), 0.01)] mol)</span>\
+			\n<span class='[plasma_concentration > 0.005 ? "alert" : "info"]'>Плазма: [round(plasma_concentration*100, 0.01)] % ([round(environment.get_moles(/datum/gas/plasma), 0.01)] mol)</span>\n"
 
 		for(var/id in environment.get_gases())
 			if(id in GLOB.hardcoded_gases)
