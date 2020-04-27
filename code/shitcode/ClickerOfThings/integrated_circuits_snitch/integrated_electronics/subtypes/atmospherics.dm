@@ -353,7 +353,7 @@ obj/item/integrated_circuit/atmospherics/connector/proc/portableConnectorReturnA
 
 	//Negative Kelvins are an anomaly and should be normalized if encountered
 	if(source_air.return_temperature() < TCMB)
-		source_air.return_temperature() = TCMB
+		source_air.set_temperature(TCMB)
 
 	transfer_moles = (pressure_delta*contaminated_air.return_volume()/(source_air.return_temperature() * R_IDEAL_GAS_EQUATION))*PUMP_EFFICIENCY
 

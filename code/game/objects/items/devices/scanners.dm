@@ -442,7 +442,6 @@ GENE SCANNER
 	render_list += "<span class='info'><B>Результат:</B></span>\
 				 \n<span class='[abs(pressure - ONE_ATMOSPHERE) < 10 ? "info" : "alert"]'>Давление: [round(pressure, 0.01)] кПа</span>\n"
 	if(total_moles)
-		environment.assert_gases(arglist(GLOB.hardcoded_gases))
 		var/o2_concentration = environment.get_moles(/datum/gas/oxygen)/total_moles
 		var/n2_concentration = environment.get_moles(/datum/gas/nitrogen)/total_moles
 		var/co2_concentration = environment.get_moles(/datum/gas/carbon_dioxide)/total_moles

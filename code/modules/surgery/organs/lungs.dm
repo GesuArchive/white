@@ -412,7 +412,7 @@
 				to_chat(H, "<span class='warning'>You feel [hot_message] in your [name]!</span>")
 
 	// The air you breathe out should match your body temperature
-	breath.return_temperature() = H.bodytemperature
+	breath.set_temperature(H.bodytemperature)
 
 /obj/item/organ/lungs/on_life()
 	. = ..()

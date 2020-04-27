@@ -488,9 +488,9 @@ datum/gas_reaction/freonfire/react(datum/gas_mixture/air, datum/holder)
 		return NO_REACTION
 	if (temperature > 250) //maximum allowed temperature for the reaction
 		return NO_REACTION
-	air.adjust_moles(/datum/gas/oxygen) -= heat_efficency
-	air.adjust_moles(/datum/gas/nitrogen) -= heat_efficency * 2
-	air.adjust_moles(/datum/gas/nitrous_oxide) += heat_efficency
+	air.adjust_moles(/datum/gas/oxygen, -heat_efficency)
+	air.adjust_moles(/datum/gas/nitrogen, -heat_efficency * 2)
+	air.adjust_moles(/datum/gas/nitrous_oxide, heat_efficency)
 
 	if(energy_used > 0)
 		var/new_heat_capacity = air.heat_capacity()
