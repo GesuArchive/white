@@ -107,3 +107,34 @@
 	key = "wink"
 	key_third_person = "winks"
 	message = "подмигивает."
+
+/datum/emote/living/carbon/circle
+	key = "circle"
+	key_third_person = "circles"
+	restraint_check = TRUE
+
+/datum/emote/living/carbon/circle/run_emote(mob/user, params, type_override, intentional)
+	. = ..()
+	var/obj/item/circlegame/N = new(user)
+	if(user.put_in_hands(N))
+		to_chat(user, "<span class='notice'>Изображаю круг рукой.</span>")
+	else
+		qdel(N)
+		to_chat(user, "<span class='warning'>Да у меня и рук нет, пиздец.</span>")
+
+/datum/emote/living/carbon/slap
+	key = "slap"
+	key_third_person = "slaps"
+	restraint_check = TRUE
+
+/datum/emote/living/carbon/slap/run_emote(mob/user, params, type_override, intentional)
+	. = ..()
+	if(!.)
+		return
+	var/obj/item/slapper/N = new(user)
+	if(user.put_in_hands(N))
+		to_chat(user, "<span class='notice'>Готовлюсь шлёпать.</span>")
+	else
+		qdel(N)
+		to_chat(user, "<span class='warning'>Пока не могу шлёпать.</span>")
+
