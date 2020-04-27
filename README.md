@@ -39,6 +39,7 @@ P.S. Обратите внимание: карты сборок /tg/ и White Dr
 Пожалуйста, смотрите [CONTRIBUTING.md](.github/CONTRIBUTING.md)
 
 ## Лицензия (переводено с английского)
+The TGS3 API is licensed as a subproject under the MIT license.
 
 Весь код после [commit'а 333c566b88108de218d882840e61928a9b759d8f в 2014/31/12 в 4:38 PM PST](https://github.com/tgstation/tgstation/commit/333c566b88108de218d882840e61928a9b759d8f) лицензируется под [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html).
 
