@@ -8,6 +8,8 @@
 #define CHAT_MESSAGE_MAX_LENGTH		110 // characters
 #define WXH_TO_HEIGHT(x)			text2num(copytext((x), findtextEx((x), "x") + 1)) // thanks lummox
 
+GLOBAL_VAR_INIT(chat_bubbles, FALSE)
+
 /**
   * # Chat Message Overlay
   *
@@ -234,3 +236,28 @@
 			return "#[num2hex(x, 2)][num2hex(m, 2)][num2hex(c, 2)]"
 		if(5)
 			return "#[num2hex(c, 2)][num2hex(m, 2)][num2hex(x, 2)]"
+
+/proc/hsv2rgb(var/hue, var/sat, var/val)
+	val *= 255
+	if(sat <= 0)
+		return rgb(val, val, val)
+	hue %= 360
+	hue /= 60
+	var/i = round(hue)
+	var/f = hue - i
+	var/p = val * (1 - sat)
+	var/q = val * (1 - sat * f)
+	var/t = val * (1 - sat * (1 - f))
+	switch(i)
+		if(0)
+			return rgb(val, t, p)
+		if(1)
+			return rgb(q, val, p)
+		if(2)
+			return rgb(p, val, t)
+		if(3)
+			return rgb(p, q, val)
+		if(4)
+			return rgb(t, p, val)
+		else
+			return rgb(val, p, q)

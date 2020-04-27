@@ -136,3 +136,8 @@
 	var/icon/held_rh = 'icons/mob/pets_held_rh.dmi'
 	var/icon/head_icon = 'icons/mob/pets_held.dmi'//what it looks like on your head
 	var/held_state = ""//icon state for the above
+
+	/// Stores the last name heard
+	var/last_heard_name = null
+	/// Stores the last used color
+	var/last_used_color = null
