@@ -17,7 +17,7 @@
 	name = "таблетка Хохломицина"
 	desc = "ПИЗДЕЦ."
 	icon_state = "pill17"
-	list_reagents = list(/datum/reagent/toxin/hohlomicin = 3)
+	list_reagents = list(/datum/reagent/toxin/hohlomicin = 5)
 
 
 
