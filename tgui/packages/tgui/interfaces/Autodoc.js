@@ -1,51 +1,54 @@
 import { Fragment } from 'inferno';
 import { useBackend } from '../backend';
 import { Button, LabeledList, NoticeBox, Section, Tabs, Box } from '../components';
+import { Window } from '../layouts';
 
-export const Autodoc = props => {
-  const { act, data } = useBackend(props);
+// мне лень писать нормально на этом языке древних шизов, так что так
+
+export const Autodoc = (props, context) => {
+  const { act, data } = useBackend(context);
   const operations = data.surgeries;
   if (data.mode === 1) {
     return (
-      <Fragment>
-        <Tabs>
+      <Window>
+        <Section>
           <Tabs.Tab
             key="head"
-            label="Голова"
+            content="Голова"
             onClick={() => act('target', { part: "head" })} />
           <Tabs.Tab
             key="chest"
-            label="Грудь"
+            content="Грудь"
             onClick={() => act('target', { part: "chest" })} />
           <Tabs.Tab
             key="l_arm"
-            label="Л. рука"
+            content="Л. рука"
             onClick={() => act('target', { part: "l_arm" })} />
           <Tabs.Tab
             key="r_arm"
-            label="П. рука"
+            content="П. рука"
             onClick={() => act('target', { part: "r_arm" })} />
           <Tabs.Tab
             key="l_leg"
-            label="Л. нога"
+            content="Л. нога"
             onClick={() => act('target', { part: "l_leg" })} />
           <Tabs.Tab
             key="r_leg"
-            label="П. нога"
+            content="П. нога"
             onClick={() => act('target', { part: "r_leg" })} />
           <Tabs.Tab
             key="groin"
-            label="Пах"
+            content="Пах"
             onClick={() => act('target', { part: "groin" })} />
           <Tabs.Tab
             key="eyes"
-            label="Глаза"
+            content="Глаза"
             onClick={() => act('target', { part: "eyes" })} />
           <Tabs.Tab
             key="mouth"
-            label="Рот"
+            content="Рот"
             onClick={() => act('target', { part: "mouth" })} />
-        </Tabs>
+        </Section>
         <Section>
           {operations.map(op => (
             <Button
@@ -62,11 +65,11 @@ export const Autodoc = props => {
             content="Начать операцию"
             onClick={() => act('start')} />
         </Section>
-      </Fragment>
+      </Window>
     );
   } else if (data.mode === 2) {
     return (
-      <Fragment>
+      <Window>
         <Section textAlign="center" title={'Операция: ' + data.s_name}>
           {data.steps.map(step => (
             <Box
@@ -80,7 +83,7 @@ export const Autodoc = props => {
         <NoticeBox textAlign="center">
           Выполняется операция
         </NoticeBox>
-      </Fragment>
+      </Window>
     );
   } else {
     return (
