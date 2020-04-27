@@ -23,6 +23,8 @@
 	assemblytype = /obj/structure/firelock_frame
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 10, "bio" = 100, "rad" = 100, "fire" = 95, "acid" = 70)
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN_SILICON | INTERACT_MACHINE_REQUIRES_SILICON | INTERACT_MACHINE_OPEN
+	air_tight = TRUE
+	var/emergency_close_timer = 0
 	var/nextstate = null
 	var/boltslocked = TRUE
 	var/list/affecting_areas
@@ -83,6 +85,15 @@
 	. = ..()
 	if(.)
 		return
+
+	if(!welded && !operating && !(machine_stat & NOPOWER) && (!density || allow_hand_open(user)))
+		add_fingerprint(user)
+		if(density)
+			emergency_close_timer = world.time + 30 // prevent it from instaclosing again if in space
+			open()
+		else
+			close()
+		return TRUE
 	if(operating || !density)
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
@@ -137,9 +148,26 @@
 		return
 
 	if(density)
+		if(is_holding_pressure())
+			// tell the user that this is a bad idea, and have a do_after as well
+			to_chat(user, "<span class='warning'>As you begin crowbarring \the [src] a gush of air blows in your face... maybe you should reconsider?</span>")
+			if(!do_after(user, 15, TRUE, src)) // give them a few seconds to reconsider their decision.
+				return
+			log_game("[key_name_admin(user)] has opened a firelock with a pressure difference at [AREACOORD(loc)]") // there bibby I made it logged just for you. Enjoy.
+			// since we have high-pressure-ness, close all other firedoors on the tile
+			whack_a_mole()
+		if(welded || operating || !density)
+			return // in case things changed during our do_after
+		emergency_close_timer = world.time + 60 // prevent it from instaclosing again if in space
 		open()
 	else
 		close()
+
+/obj/machinery/door/firedoor/proc/allow_hand_open(mob/user)
+	var/area/A = get_area(src)
+	if(A && A.fire)
+		return FALSE
+	return !is_holding_pressure()
 
 /obj/machinery/door/firedoor/attack_ai(mob/user)
 	add_fingerprint(user)
@@ -190,6 +218,13 @@
 /obj/machinery/door/firedoor/close()
 	. = ..()
 	latetoggle()
+
+/obj/machinery/door/firedoor/proc/emergency_pressure_stop(consider_timer = TRUE)
+	set waitfor = 0
+	if(density || operating || welded)
+		return
+	if(world.time >= emergency_close_timer || !consider_timer)
+		close()
 
 /obj/machinery/door/firedoor/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
@@ -254,6 +289,18 @@
 	assemblytype = /obj/structure/firelock_frame/heavy
 	max_integrity = 550
 
+/obj/machinery/door/firedoor/window
+	name = "window shutter"
+	icon = 'icons/obj/doors/doorfirewindow.dmi'
+	desc = "A second window that slides in when the original window is broken, designed to protect against hull breaches. Truly a work of genius by NT engineers."
+	glass = TRUE
+	explosion_block = 0
+	max_integrity = 50
+	resistance_flags = 0 // not fireproof
+	heat_proof = FALSE
+
+/obj/machinery/door/firedoor/window/allow_hand_open()
+	return TRUE
 
 /obj/item/electronics/firelock
 	name = "firelock circuitry"
