@@ -78,7 +78,7 @@
 		volume = location.air.reaction_results["fire"]*FIRE_GROWTH_RATE
 		temperature = location.air.return_temperature()
 	else
-		var/datum/gas_mixture/affected = location.air.remove_ratio(volume/location.air.return_temperature())
+		var/datum/gas_mixture/affected = location.air.remove_ratio(volume/location.air.return_volume())
 		if(affected) //in case volume is 0
 			affected.set_temperature(temperature)
 			affected.react(src)

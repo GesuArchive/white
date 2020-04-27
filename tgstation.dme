@@ -3390,6 +3390,7 @@
 #include "code\shitcode\valtos\code\unsorted\rusprikols.dm"
 #include "code\shitcode\valtos\code\unsorted\sobr.dm"
 #include "code\shitcode\valtos\code\unsorted\trading_outpost.dm"
+#include "code\shitcode\valtos\code\unsorted\winds.dm"
 #include "code\shitcode\valtos\code\wzvendor\izanvend.dm"
 #include "code\shitcode\Wzzzz\Arrigami.dm"
 #include "code\shitcode\Wzzzz\Bealirigan.dm"
