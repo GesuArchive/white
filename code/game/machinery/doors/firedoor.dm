@@ -163,6 +163,54 @@
 	else
 		close()
 
+/obj/machinery/door/firedoor/proc/whack_a_mole(reconsider_immediately = FALSE)
+	set waitfor = 0
+	for(var/cdir in GLOB.cardinals)
+		if((flags_1 & ON_BORDER_1) && cdir != dir)
+			continue
+		whack_a_mole_part(get_step(src, cdir), reconsider_immediately)
+	if(flags_1 & ON_BORDER_1)
+		whack_a_mole_part(get_turf(src), reconsider_immediately)
+
+/obj/machinery/door/firedoor/proc/whack_a_mole_part(turf/start_point, reconsider_immediately)
+	set waitfor = 0
+	var/list/doors_to_close = list()
+	var/list/turfs = list()
+	turfs[start_point] = 1
+	for(var/i = 1; (i <= turfs.len && i <= 11); i++) // check up to 11 turfs.
+		var/turf/open/T = turfs[i]
+		if(istype(T, /turf/open/space))
+			return -1
+		for(var/T2 in T.atmos_adjacent_turfs)
+			if(turfs[T2])
+				continue
+			var/is_cut_by_unopen_door = FALSE
+			for(var/obj/machinery/door/firedoor/FD in T2)
+				if((FD.flags_1 & ON_BORDER_1) && get_dir(T2, T) != FD.dir)
+					continue
+				if(FD.operating || FD == src || FD.welded || FD.density)
+					continue
+				doors_to_close += FD
+				is_cut_by_unopen_door = TRUE
+
+			for(var/obj/machinery/door/firedoor/FD in T)
+				if((FD.flags_1 & ON_BORDER_1) && get_dir(T, T2) != FD.dir)
+					continue
+				if(FD.operating || FD == src || FD.welded || FD.density)
+					continue
+				doors_to_close += FD
+				is_cut_by_unopen_door= TRUE
+			if(!is_cut_by_unopen_door)
+				turfs[T2] = 1
+	if(turfs.len > 10)
+		return // too big, don't bother
+	for(var/obj/machinery/door/firedoor/FD in doors_to_close)
+		FD.emergency_pressure_stop(FALSE)
+		if(reconsider_immediately)
+			var/turf/open/T = FD.loc
+			if(istype(T))
+				T.ImmediateCalculateAdjacentTurfs()
+
 /obj/machinery/door/firedoor/proc/allow_hand_open(mob/user)
 	var/area/A = get_area(src)
 	if(A && A.fire)
@@ -290,9 +338,9 @@
 	max_integrity = 550
 
 /obj/machinery/door/firedoor/window
-	name = "window shutter"
-	icon = 'icons/obj/doors/doorfirewindow.dmi'
-	desc = "A second window that slides in when the original window is broken, designed to protect against hull breaches. Truly a work of genius by NT engineers."
+	name = "запасное окно"
+	icon = 'code/shitcode/valtos/icons/doorfirewindow.dmi'
+	desc = "Автоматически закрывается при повреждении основного окна. Гениальная разработка наших инженеров."
 	glass = TRUE
 	explosion_block = 0
 	max_integrity = 50

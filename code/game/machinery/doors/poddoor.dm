@@ -15,6 +15,7 @@
 	resistance_flags = FIRE_PROOF
 	damage_deflection = 70
 	poddoor = TRUE
+	air_tight = TRUE
 
 /obj/machinery/door/poddoor/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
 	id = "[idnum][id]"
