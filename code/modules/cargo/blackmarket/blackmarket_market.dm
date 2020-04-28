@@ -51,3 +51,9 @@
 	shipping = list(SHIPPING_METHOD_LTSRBT	=50,
 					SHIPPING_METHOD_LAUNCH	=10,
 					SHIPPING_METHOD_TELEPORT=75)
+
+/datum/blackmarket_market/syndiemarket
+	name = "Синди Маркет"
+	shipping = list(SHIPPING_METHOD_LTSRBT	=50,
+				SHIPPING_METHOD_LAUNCH	=10,
+				SHIPPING_METHOD_TELEPORT=75)
