@@ -1,18 +1,19 @@
-// Цены будут как можно дороже. Ведь получить шнягу для робаста почти за ни за что хуёво в плане баланса
+/datum/blackmarket_item/melee
+	category = "Ближний бой"
 
-/datum/blackmarket_item/weapon/melee/energy/esword
+/datum/blackmarket_item/melee/energy/esword
 	name = "Случайное энергетическое оружие ближнего боя"
 	desc = "При заказе вам будет выдано случайное энергетическое оружие ближнего боя"
 	item = /obj/item/melee/transforming/energy/sword
 
-	price_min = 20000
-	price_max = 50000
+	price_min = 5000
+	price_max = 20000
 	stock_min = 1
 	stock_max = 5
-	availability_prob = 100 // 30
+	availability_prob = 100
 
-/datum/blackmarket_item/weapon/melee/energy/esword/spawn_item(loc)		//Если мечи сломались или не спавнит, то вот этот датум его больше всего сломал
-	var/esword = pick(list(/obj/item/melee/transforming/energy/sword,	//Сюда же впиливать оружия ближнего боя только если они энергетические
+/datum/blackmarket_item/melee/energy/esword/spawn_item(loc)
+	var/esword = pick(list(/obj/item/melee/transforming/energy/sword,
 			/obj/item/melee/transforming/energy/sword/saber/red,
 			/obj/item/melee/transforming/energy/sword/saber/blue,
 			/obj/item/melee/transforming/energy/sword/saber/green,
@@ -24,19 +25,19 @@
 			/obj/item/dualsaber))
 	return new esword(loc)
 
-/datum/blackmarket_item/weapon/melee/psword
+/datum/blackmarket_item/melee/psword
 	name = "Случайное физическое оружие ближнего боя"
 	desc = "При заказе вам будет выдано случайное физичекое оружие ближнего боя. Внимание! Оружие в данном товаре может не оправдать ваши желания"
 	item = /obj/item/melee/classic_baton/dildon
 
-	price_min = 10000
-	price_max = 25000
+	price_min = 1000
+	price_max = 15000
 	stock_min = 1
 	stock_max = 5
-	availability_prob = 100 // 30
+	availability_prob = 100
 
-/datum/blackmarket_item/weapon/melee/psword/spawn_item(loc)			//Если мечи сломались или не спавнит, то вот этот датум его больше всего сломал
-	var/psword = pick(list(/obj/item/melee/sabre,					//Сюда же впиливать оружия ближнего боя только если они физические
+/datum/blackmarket_item/melee/psword/spawn_item(loc)
+	var/psword = pick(list(/obj/item/melee/sabre,
 			/obj/item/melee/classic_baton,
 			/obj/item/melee/classic_baton/telescopic,
 			/obj/item/melee/cleric_mace,
@@ -55,26 +56,26 @@
 			/obj/item/mounted_chainsaw,
 			/obj/item/tailclub,
 			/obj/item/melee/baseball_bat/ablative,
-			/obj/item/melee/flyswatter,								//Да
+			/obj/item/melee/flyswatter,									//Да
 			/obj/item/extendohand,
 			/obj/item/gohei,
 			/obj/item/vibro_weapon,
 			/obj/item/chainsaw))
 	return new psword(loc)
 
-/datum/blackmarket_item/weapon/melee/hsword
+/datum/blackmarket_item/melee/hsword
 	name = "Случайное священное оружие ближнего боя"
 	desc = "При заказе вам будет выдано случайное священное оружие ближнего боя. Да прибудет с вами бог!"
 	item = /obj/item/nullrod
 
-	price_min = 10000
-	price_max = 20000
+	price_min = 5000
+	price_max = 10000
 	stock_min = 1
 	stock_max = 5
-	availability_prob = 100 // 30
+	availability_prob = 100
 
-/datum/blackmarket_item/weapon/melee/hsword/spawn_item(loc)	//Если мечи сломались или не спавнит, то вот этот датум его больше всего сломал
-	var/hsword = pick(list(/obj/item/nullrod/godhand,		//Сюда же впиливать оружия ближнего боя только если они священные
+/datum/blackmarket_item/melee/hsword/spawn_item(loc)
+	var/hsword = pick(list(/obj/item/nullrod/godhand,
 			/obj/item/nullrod/staff,
 			/obj/item/nullrod/claymore,
 			/obj/item/nullrod/claymore/darkblade,
