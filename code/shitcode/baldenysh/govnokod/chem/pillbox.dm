@@ -9,7 +9,7 @@
 	illustration = "haloperidol"
 	w_class = WEIGHT_CLASS_TINY
 	var/blister_type = /obj/item/storage/blister
-	//custom_price = 100
+	custom_price = 200
 
 /obj/item/storage/box/pillbox/ComponentInitialize()
 	. = ..()
