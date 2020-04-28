@@ -24,6 +24,24 @@
 		if(categories && categories.len)
 			viewing_category = categories[1]
 
+/obj/item/blackmarket_uplink/emag_act(mob/user)
+	if(obj_flags & EMAGGED)
+		return
+	if(user)
+		user.visible_message("<span class='warning'>[user] swipes a suspicious card through [src]!</span>",
+		"<span class='notice'>You adjust [src]'s routing and receiver spectrum, unlocking special supplies and contraband.</span>")
+
+	obj_flags |= EMAGGED
+	if(EMAGGED)
+		accessible_markets = list(/datum/blackmarket_market/blackmarket,
+				/datum/blackmarket_market/syndiemarket)
+
+		/datum/blackmarket_market/syndiemarket
+			name = "Синди Маркет"
+			shipping = list(SHIPPING_METHOD_LTSRBT	=50,
+							SHIPPING_METHOD_LAUNCH	=10,
+							SHIPPING_METHOD_TELEPORT=75)
+
 /obj/item/blackmarket_uplink/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/holochip) || istype(I, /obj/item/stack/spacecash) || istype(I, /obj/item/coin))
 		var/worth = I.get_item_credit_value()
