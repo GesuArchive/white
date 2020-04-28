@@ -46,11 +46,14 @@
 			/obj/item/spear/bonespear,
 			/obj/item/melee/baton/boomerang,
 			/obj/item/melee/baton/cattleprod,
+			/obj/item/melee/sabre/wzzzz/marine
 			/obj/item/melee/baton,
 			/obj/item/melee/powerfist,
+			/obj/item/melee/sabre/wzzzz/german
 			/obj/item/sord,
 			/obj/item/claymore,
 			/obj/item/claymore/highlander,
+			/obj/item/kitchen/knife/butcher/wzzzz/machete
 			/obj/item/katana,
 			/obj/item/switchblade,
 			/obj/item/mounted_chainsaw,
