@@ -1635,7 +1635,7 @@
 #include "code\modules\cargo\blackmarket\blackmarket_items\17clothing.dm"
 #include "code\modules\cargo\blackmarket\blackmarket_items\18tools.dm"
 #include "code\modules\cargo\blackmarket\blackmarket_items\19misc.dm"
-#include "code\modules\cargo\blackmarket\blackmarket_items\21syndicate.dm"
+#include "code\modules\cargo\blackmarket\syndiemarket_items\11syndicate.dm"
 #include "code\modules\cargo\bounties\assistant.dm"
 #include "code\modules\cargo\bounties\botany.dm"
 #include "code\modules\cargo\bounties\chef.dm"

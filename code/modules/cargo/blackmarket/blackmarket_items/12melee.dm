@@ -1,4 +1,5 @@
 /datum/blackmarket_item/melee
+	markets = list(/datum/blackmarket_market/blackmarket)
 	category = "Ближний бой"
 
 /datum/blackmarket_item/melee/energy/esword

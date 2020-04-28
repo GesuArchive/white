@@ -1,4 +1,5 @@
 /datum/blackmarket_item/ammo
+	markets = list(/datum/blackmarket_market/blackmarket)
 	category = "Патроны"
 
 /datum/blackmarket_item/ammo/m10mm

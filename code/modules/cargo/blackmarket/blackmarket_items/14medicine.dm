@@ -1,4 +1,5 @@
 /datum/blackmarket_item/medicine
+	markets = list(/datum/blackmarket_market/blackmarket)
 	category = "Медицина"
 
 /datum/blackmarket_item/medicine/firstaid

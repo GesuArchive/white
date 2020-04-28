@@ -1,4 +1,5 @@
 /datum/blackmarket_item/clothing
+	markets = list(/datum/blackmarket_market/blackmarket)
 	category = "Одежда"
 
 /datum/blackmarket_item/clothing/ninja_mask

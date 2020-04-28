@@ -1,4 +1,5 @@
 /datum/blackmarket_item/tool
+	markets = list(/datum/blackmarket_market/blackmarket)
 	category = "Инструменты"
 
 /datum/blackmarket_item/tool/caravan_wrench

@@ -38,7 +38,7 @@
 		var/price = I.price + shipping[method]
 		// I can't get the price of the item and shipping in a clean way to the UI, so I have to do this.
 		if(uplink.money < price)
-			to_chat("<span class='warning'>You don't have enough credits in [uplink] for [I] with [method] shipping.</span>")
+			to_chat("<span class='warning'>У вас недостаточно кредитов в [uplink] для [I] с [method] доставки.</span>")
 			return FALSE
 
 		if(I.buy(uplink, user, method))
@@ -47,7 +47,7 @@
 		return FALSE
 
 /datum/blackmarket_market/blackmarket
-	name = "Black Market"
+	name = "Чёрный Рынок"
 	shipping = list(SHIPPING_METHOD_LTSRBT	=50,
 					SHIPPING_METHOD_LAUNCH	=10,
 					SHIPPING_METHOD_TELEPORT=75)

@@ -1,5 +1,5 @@
 /obj/item/blackmarket_uplink
-	name = "Black Market Uplink"
+	name = "Терминал Чёрного Рынка"
 	icon = 'icons/obj/blackmarket.dmi'
 	icon_state = "uplink"
 
@@ -28,8 +28,8 @@
 	if(obj_flags & EMAGGED)
 		return
 	if(user)
-		user.visible_message("<span class='warning'>[user] swipes a suspicious card through [src]!</span>",
-		"<span class='notice'>You adjust [src]'s routing and receiver spectrum, unlocking special supplies and contraband.</span>")
+		user.visible_message("<span class='warning'>[user] прижимает странную карту по экрану [src]'а!</span>",
+		"<span class='notice'>Вы перенастроили частоты аплинка и открыли новый маркет в аплинке</span>")
 
 	obj_flags |= EMAGGED
 	if(EMAGGED)
@@ -46,9 +46,9 @@
 	if(istype(I, /obj/item/holochip) || istype(I, /obj/item/stack/spacecash) || istype(I, /obj/item/coin))
 		var/worth = I.get_item_credit_value()
 		if(!worth)
-			to_chat(user, "<span class='warning'>[I] doesn't seem to be worth anything!</span>")
+			to_chat(user, "<span class='warning'>[I] кажется, ничего не стоит!</span>")
 		money += worth
-		to_chat(user, "<span class='notice'>You slot [I] into [src] and it reports a total of [money] credits inserted.</span>")
+		to_chat(user, "<span class='notice'>Вы вкладываете [I] в [src] и оно показывают сумму в [money] кредитов на счету аплинка.</span>")
 		qdel(I)
 		return
 	. = ..()
@@ -57,21 +57,21 @@
 	if(!isliving(user) || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return
 
-	var/amount_to_remove =  FLOOR(input(user, "How much do you want to withdraw? Current Amount: [money]", "Withdraw Funds", 5) as num|null, 1)
+	var/amount_to_remove =  FLOOR(input(user, "Сколько вы хотите снять со счёта? Текущее значение: [money]", "Снять средства", 5) as num|null, 1)
 	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return
 
 	if(!amount_to_remove || amount_to_remove < 0)
 		return
 	if(amount_to_remove > money)
-		to_chat(user, "<span class='warning'>There is only [money] credits in [src]</span>")
+		to_chat(user, "<span class='warning'>На данный момент [money] кредитов в [src]</span>")
 		return
 
 	var/obj/item/holochip/holochip = new (user.drop_location(), amount_to_remove)
 	money -= amount_to_remove
-	holochip.name = "washed " + holochip.name
+	holochip.name = "отмытые " + holochip.name
 	user.put_in_hands(holochip)
-	to_chat(user, "<span class='notice'>You withdraw [amount_to_remove] credits into a holochip.</span>")
+	to_chat(user, "<span class='notice'>Вы снимаете [amount_to_remove] кредитов и вам выдаётся голочип.</span>")
 
 /obj/item/blackmarket_uplink/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
@@ -169,7 +169,7 @@
 			selected_item = null
 
 /datum/crafting_recipe/blackmarket_uplink
-	name = "Black Market Uplink"
+	name = "Терминал Чёрного Рынка"
 	result = /obj/item/blackmarket_uplink
 	time = 30
 	tools = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_MULTITOOL)

@@ -1,4 +1,5 @@
 /datum/blackmarket_item/implants
+	markets = list(/datum/blackmarket_market/blackmarket)
 	category = "Импланты"
 
 /datum/blackmarket_item/implants/autosurgeon/thermal_eyes
@@ -10,7 +11,7 @@
 
 	price_min = 1000
 	price_max = 5000
-	availability_prob = 30
+	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/xray_eyes
 	name = "Х-рей Глаза"
@@ -21,7 +22,7 @@
 
 	price_min = 5000
 	price_max = 10000
-	availability_prob = 30
+	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/anti_stun
 	name = "Имплант Анти-Оглушения"
@@ -32,7 +33,7 @@
 
 	price_min = 500
 	price_max = 1500
-	availability_prob = 30
+	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/reviver
 	name = "Имплант возрождения"
@@ -43,7 +44,7 @@
 
 	price_min = 5000
 	price_max = 10000
-	availability_prob = 30
+	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/breathing_tube
 	name = "Дыхательная трубка"
@@ -54,7 +55,7 @@
 
 	price_min = 1000
 	price_max = 5000
-	availability_prob = 30
+	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/hud/medical
 	name = "Медицинский ХУД"
@@ -65,7 +66,7 @@
 
 	price_min = 500
 	price_max = 1000
-	availability_prob = 30
+	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/hud/security
 	name = "ХУД Службы Безопастности"
@@ -76,7 +77,7 @@
 
 	price_min = 500
 	price_max = 1000
-	availability_prob = 30
+	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/hud/diagnostic
 	name = "Диагностирующий ХУД"
@@ -87,7 +88,7 @@
 
 	price_min = 500
 	price_max = 1000
-	availability_prob = 30
+	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/nutriment
 	name = "Питательная трубка"
@@ -98,7 +99,7 @@
 
 	price_min = 1000
 	price_max = 5000
-	availability_prob = 30
+	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/nutriment/plus
 	name = "Питательная трубка ПЛЮС"
@@ -109,7 +110,7 @@
 
 	price_min = 5000
 	price_max = 10000
-	availability_prob = 30
+	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/thrusters
 	name = "Thrusters Implant" //хз как переводить. пускай так и будет
@@ -120,7 +121,7 @@
 
 	price_min = 1000
 	price_max = 5000
-	availability_prob = 30
+	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/toolset
 	name = "Инженерный набор инструментов"
@@ -131,7 +132,7 @@
 
 	price_min = 100
 	price_max = 500
-	availability_prob = 30
+	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/medibeam
 	name = "Медицинский луч"
@@ -142,7 +143,7 @@
 
 	price_min = 5000
 	price_max = 10000
-	availability_prob = 30
+	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/surgery
 	name = "Набор инструментов для Хирургии"
@@ -153,7 +154,7 @@
 
 	price_min = 100
 	price_max = 5000
-	availability_prob = 30
+	availability_prob = 50
 
 
 
