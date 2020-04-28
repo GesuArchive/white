@@ -457,7 +457,7 @@ GENE SCANNER
 				continue
 			var/gas_concentration = environment.get_moles(id)/total_moles
 			render_list += "<span class='alert'>[GLOB.meta_gas_info[id][META_GAS_NAME]]: [round(gas_concentration*100, 0.01)] % ([round(environment.get_moles(id), 0.01)] mol)</span>\n"
-		render_list += "<span class='info'>Температура: [round(return_temperature()-T0C, 0.01)] &deg;C ([round(return_temperature(), 0.01)] K)</span>\n"
+		render_list += "<span class='info'>Температура: [round(environment.return_temperature()-T0C, 0.01)] &deg;C ([round(environment.return_temperature(), 0.01)] K)</span>\n"
 	to_chat(user, jointext(render_list, ""), trailing_newline = FALSE) // we handled the last <br> so we don't need handholding
 
 /obj/item/analyzer/AltClick(mob/user) //Barometer output for measuring when the next storm happens
