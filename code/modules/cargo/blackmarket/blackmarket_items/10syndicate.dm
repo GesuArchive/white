@@ -1,9 +1,9 @@
 /datum/blackmarket_item/syndicate
 	category = "Синдикат"
 
-/datum/blackmarket_item/syndicate/1tc
+/datum/blackmarket_item/syndicate/tc1
 	name = "1 TC"
-	desc = "[Информация Удалена]"
+	desc = "Информация Удалена"
 	item = /obj/item/stack/telecrystal
 
 	price_min = 25000
@@ -12,9 +12,9 @@
 	stock_max = 10
 	availability_prob = 100
 
-/datum/blackmarket_item/syndicate/5tc
+/datum/blackmarket_item/syndicate/tc5
 	name = "5 TC"
-	desc = "[Информация Удалена]"
+	desc = "Информация Удалена"
 	item = /obj/item/stack/telecrystal/five
 
 	price_min = 125000
@@ -23,9 +23,9 @@
 	stock_max = 4
 	availability_prob = 100
 
-/datum/blackmarket_item/syndicate/20tc
+/datum/blackmarket_item/syndicate/tc20
 	name = "20 TC"
-	desc = "[Информация Удалена]"
+	desc = "Информация Удалена"
 	item = /obj/item/stack/telecrystal/twenty
 
 	price_min = 500000

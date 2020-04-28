@@ -13,7 +13,7 @@
 	availability_prob = 100
 
 /datum/blackmarket_item/ammo/m10mm/spawn_item(loc)
-	var/pistolammo pick(list(/obj/item/ammo_box/magazine/m10mm,
+	var/pistolammo = pick(list(/obj/item/ammo_box/magazine/m10mm,
 			/obj/item/ammo_box/magazine/m10mm/fire,
 			/obj/item/ammo_box/magazine/m10mm/hp,
 			/obj/item/ammo_box/magazine/m10mm/ap,
@@ -54,7 +54,7 @@
 	availability_prob = 100
 
 /datum/blackmarket_item/ammo/a357/spawn_item(loc)
-	var/a357ammo pick(list(/obj/item/ammo_box/a357,
+	var/a3579ammo = pick(list(/obj/item/ammo_box/a357,
 			/obj/item/ammo_box/a357/match))
 	return new a3579ammo
 
@@ -70,7 +70,7 @@
 	availability_prob = 100
 
 /datum/blackmarket_item/ammo/c38/spawn_item(loc)
-	var/c38ammo pick(list(/obj/item/ammo_box/c38,
+	var/c38ammo = pick(list(/obj/item/ammo_box/c38,
 			/obj/item/ammo_box/c38/trac,
 			/obj/item/ammo_box/c38/match,
 			/obj/item/ammo_box/c38/match/bouncy,
@@ -91,7 +91,7 @@
 	availability_prob = 100
 
 /datum/blackmarket_item/ammo/wt550m9/spawn_item(loc)
-	var/wt550m9ammo pick(list(/obj/item/ammo_box/magazine/wt550m9,
+	var/wt550m9ammo = pick(list(/obj/item/ammo_box/magazine/wt550m9,
 			/obj/item/ammo_box/magazine/wt550m9/wtap,
 			/obj/item/ammo_box/magazine/wt550m9/wtic))
 	return new wt550m9ammo
@@ -108,7 +108,7 @@
 	availability_prob = 100
 
 /datum/blackmarket_item/ammo/smgm9mm/spawn_item(loc)
-	var/smgammo9mm pick(list(/obj/item/ammo_box/magazine/smgm9mm,
+	var/smgammo9mm = pick(list(/obj/item/ammo_box/magazine/smgm9mm,
 			/obj/item/ammo_box/magazine/smgm9mm/ap,
 			/obj/item/ammo_box/magazine/smgm9mm/fire))
 	return new smgammo9mm
@@ -157,7 +157,7 @@
 	stock_max = 50
 	availability_prob = 100
 
-/datum/blackmarket_item/ammo/5.56mm/toploader
+/datum/blackmarket_item/ammo/m556mmtoploader
 	name = "Toploader магазин калибра (5.56mm)"
 	desc = "Магазин для винтовок калибром 5.56мм"
 	item = /obj/item/ammo_box/magazine/m556
@@ -168,7 +168,7 @@
 	stock_max = 50
 	availability_prob = 100
 
-/datum/blackmarket_item/ammo/5.56mm/rifle
+/datum/blackmarket_item/ammo/m556mmrifle
 	name = "Винтовочный магазин калибра (5.56mm)"
 	desc = "Магазин для винтовок калибром 5.56мм"
 	item = /obj/item/ammo_box/magazine/m556/arg/wzzzz
@@ -191,7 +191,7 @@
 	availability_prob = 100
 
 /datum/blackmarket_item/ammo/m12g/spawn_item(loc)
-	var/bulldogammo pick(list(/obj/item/ammo_box/magazine/m12g,
+	var/bulldogammo = pick(list(/obj/item/ammo_box/magazine/m12g,
 			/obj/item/ammo_box/magazine/m12g/stun,
 			/obj/item/ammo_box/magazine/m12g/slug,
 			/obj/item/ammo_box/magazine/m12g/dragon,
@@ -212,7 +212,7 @@
 	availability_prob = 100
 
 /datum/blackmarket_item/ammo/mm712x82/spawn_item(loc)
-	var/lmgammo pick(list(/obj/item/ammo_box/magazine/mm712x82,
+	var/lmgammo = pick(list(/obj/item/ammo_box/magazine/mm712x82,
 			/obj/item/ammo_box/magazine/mm712x82/hollow,
 			/obj/item/ammo_box/magazine/mm712x82/ap,
 			/obj/item/ammo_box/magazine/mm712x82/incen,
