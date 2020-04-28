@@ -57,13 +57,13 @@
 	w_class = WEIGHT_CLASS_TINY
 
 	var/icon/base_icon = null
+	var/list/pill_list = list()
 
 	var/pill_state = "round"
 	var/pill_type = /obj/item/reagent_containers/pill/haloperidol
 	var/max_pills = 5
 	var/list/pill_pos_x = list(-4, -5, 3, 2, 10)
 	var/list/pill_pos_y = list(-7, 1, 0, 8, 7)
-	var/list/pill_list = list()
 
 /obj/item/storage/blister/ComponentInitialize()
 	. = ..()

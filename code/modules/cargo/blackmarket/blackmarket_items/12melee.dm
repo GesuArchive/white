@@ -49,6 +49,7 @@
 			/obj/item/melee/baton,
 			/obj/item/melee/powerfist,
 			/obj/item/sord,
+			/obj/item/paxe,
 			/obj/item/claymore,
 			/obj/item/claymore/highlander,
 			/obj/item/katana,
