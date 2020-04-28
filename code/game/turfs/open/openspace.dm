@@ -55,11 +55,11 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	var/turf/T = below()
 	if(!T || istype(T, /turf/closed/wall))
 		vis_contents.len = 0
-		ChangeTurf(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
+		ChangeTurf(/turf/open/floor/plating)
 		return FALSE
 	if(istype(T, /turf/closed))
 		vis_contents.len = 0
-		ChangeTurf(/turf/open/floor/plating/asteroid/boxplanet/caves, flags = CHANGETURF_INHERIT_AIR)
+		ChangeTurf(/turf/open/floor/plating/asteroid/boxplanet/caves)
 		return FALSE
 	if(init)
 		vis_contents += T
@@ -134,7 +134,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 				qdel(L)
 				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 				to_chat(user, "<span class='notice'>You build a floor.</span>")
-				PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
+				PlaceOnTop(/turf/open/floor/plating)
 			else
 				to_chat(user, "<span class='warning'>You need one floor tile to build a floor!</span>")
 		else
@@ -157,7 +157,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	switch(passed_mode)
 		if(RCD_FLOORWALL)
 			to_chat(user, "<span class='notice'>You build a floor.</span>")
-			PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
+			PlaceOnTop(/turf/open/floor/plating)
 			return TRUE
 	return FALSE
 

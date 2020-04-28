@@ -211,15 +211,15 @@
 		if(do_after(user, 60, target = src))
 			var/area/A = get_area(T)
 			if(!istype(A, /area/boxplanet))
-				ChangeTurf(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
+				ChangeTurf(/turf/open/floor/plating)
 				to_chat(user, "<span class='danger'><b>[capitalize(src)]</b> уже достаточно раскопан!</span>")
 			if(istype(T, /turf/closed/mineral))
-				ChangeTurf(/turf/open/openspace/boxplanet/caves, flags = CHANGETURF_INHERIT_AIR)
-				T.ChangeTurf(/turf/open/floor/plating/asteroid/boxplanet/caves, flags = CHANGETURF_INHERIT_AIR)
+				ChangeTurf(/turf/open/openspace/boxplanet/caves)
+				T.ChangeTurf(/turf/open/floor/plating/asteroid/boxplanet/caves)
 				var/obj/L = new /obj/structure/stairs(T)
 				L.dir = dir_to_dig
 			if(istype(T, /turf/open))
-				ChangeTurf(/turf/open/openspace/boxplanet/caves, flags = CHANGETURF_INHERIT_AIR)
+				ChangeTurf(/turf/open/openspace/boxplanet/caves)
 
 /turf/open/floor/plating/asteroid/boxplanet/surface
 	name = "снег"
@@ -280,8 +280,8 @@
 	..()
 	if(severity == 1)
 		var/turf/T = below()
-		T.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
-	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
+		T.ScrapeAway()
+	ScrapeAway()
 
 ///////////////////////////////////////////////
 
