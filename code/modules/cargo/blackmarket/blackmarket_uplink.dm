@@ -32,9 +32,15 @@
 		"<span class='notice'>Вы перенастроили частоты аплинка и открыли новый маркет в аплинке</span>")
 
 	obj_flags |= EMAGGED
+	if(EMAGGED)
+		accessible_markets = list(/datum/blackmarket_market/blackmarket,
+				/datum/blackmarket_market/syndiemarket)
 
-	accessible_markets = list(/datum/blackmarket_market/blackmarket,
-			/datum/blackmarket_market/syndiemarket)
+		/datum/blackmarket_market/syndiemarket
+			name = "Синди Маркет"
+			shipping = list(SHIPPING_METHOD_LTSRBT	=50,
+							SHIPPING_METHOD_LAUNCH	=10,
+							SHIPPING_METHOD_TELEPORT=75)
 
 /obj/item/blackmarket_uplink/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/holochip) || istype(I, /obj/item/stack/spacecash) || istype(I, /obj/item/coin))
