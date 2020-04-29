@@ -25,7 +25,7 @@
 					/obj/item/reagent_containers/medigel/libital = 2,
 					/obj/item/reagent_containers/medigel/aiuri = 2,
 					/obj/item/reagent_containers/medigel/sterilizine = 1,
-					/obj/item/storage/pillbox = 3)
+					/obj/item/storage/box/pillbox = 3)
 	contraband = list(/obj/item/reagent_containers/pill/tox = 3,
 						/obj/item/reagent_containers/pill/morphine = 4,
 						/obj/item/reagent_containers/pill/multiver = 6,
@@ -40,7 +40,7 @@
 					/obj/item/storage/firstaid/advanced = 2,
 					/obj/item/shears = 1,
 					/obj/item/plunger/reinforced = 2,
-					/obj/item/storage/pillbox/hohlomicin = 1)
+					/obj/item/storage/box/pillbox/hohlomicin = 1)
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
 	resistance_flags = FIRE_PROOF
 	refill_canister = /obj/item/vending_refill/medical
