@@ -31020,11 +31020,9 @@
 /turf/open/floor/plating,
 /area/engine/engine_smes)
 "cjN" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/engine/engineering)
+/obj/machinery/power_restarter,
+/turf/closed/wall,
+/area/engine/engine_smes)
 "cjO" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -31982,17 +31980,6 @@
 /obj/item/stack/sheet/glass/fifty,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
-"cpt" = (
-/obj/structure/table,
-/obj/item/clothing/gloves/color/yellow,
-/obj/item/storage/toolbox/electrical{
-	pixel_y = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 5
-	},
-/turf/open/floor/plasteel,
-/area/engine/engineering)
 "cpE" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 5
@@ -32058,21 +32045,6 @@
 "cpX" = (
 /obj/structure/table,
 /obj/item/stack/rods/fifty,
-/turf/open/floor/plasteel,
-/area/engine/engineering)
-"cpZ" = (
-/obj/structure/table,
-/obj/item/storage/toolbox/mechanical{
-	pixel_y = 5
-	},
-/obj/item/flashlight{
-	pixel_x = 1;
-	pixel_y = 5
-	},
-/obj/item/flashlight{
-	pixel_x = 1;
-	pixel_y = 5
-	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "cqn" = (
@@ -68558,8 +68530,8 @@ cjJ
 cjJ
 cnZ
 rIY
-cpt
-cpZ
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -68815,8 +68787,8 @@ cmG
 cnt
 pWb
 pFd
-cjN
-cgR
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -70351,7 +70323,7 @@ cjJ
 kul
 cSR
 cSV
-kul
+cjN
 kul
 cTf
 prz

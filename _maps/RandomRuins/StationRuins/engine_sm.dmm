@@ -18,6 +18,9 @@
 /obj/item/storage/toolbox/electrical{
 	pixel_y = 5
 	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 5
+	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "ao" = (
@@ -28,11 +31,11 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "aq" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/effect/spawner/structure/window/plasma/reinforced,
-/turf/open/floor/plating,
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "ar" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -41,16 +44,17 @@
 /turf/closed/wall/r_wall,
 /area/engine/engineering)
 "as" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 9
+/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+	dir = 4
 	},
-/obj/effect/spawner/structure/window/plasma/reinforced,
-/turf/open/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/turf/open/floor/plasteel,
 /area/engine/engineering)
 "at" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/obj/effect/spawner/structure/window/plasma/reinforced,
-/turf/open/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
 /area/engine/engineering)
 "au" = (
 /turf/open/floor/plasteel,
@@ -70,10 +74,10 @@
 	name = "Supermatter Engine Room";
 	req_access_txt = "10"
 	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/engine,
 /area/engine/engineering)
 "ax" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/closet/radiation,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
@@ -84,19 +88,20 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "aH" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/engineering/glass{
+	name = "Supermatter Engine Room";
+	req_access_txt = "10"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/obj/effect/spawner/structure/window/plasma/reinforced,
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/engine/engineering)
 "aI" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/effect/spawner/structure/window/plasma/reinforced,
-/turf/open/floor/plating,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/turf/open/floor/plasteel,
 /area/engine/engineering)
 "aJ" = (
 /obj/effect/turf_decal/stripes/line{
@@ -105,9 +110,6 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "aK" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 4
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
@@ -127,13 +129,6 @@
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/green/visible{
 	dir = 4
-	},
-/turf/open/floor/engine,
-/area/engine/engineering)
-"aN" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
 	},
 /turf/open/floor/engine,
 /area/engine/engineering)
@@ -163,9 +158,6 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "aQ" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden{
-	dir = 1
-	},
 /obj/structure/table/reinforced,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/flashlight,
@@ -173,6 +165,9 @@
 	dir = 1
 	},
 /obj/item/pipe_dispenser,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+	dir = 6
+	},
 /turf/open/floor/engine,
 /area/engine/engineering)
 "aR" = (
@@ -322,7 +317,6 @@
 /turf/closed/wall/r_wall,
 /area/engine/supermatter)
 "bi" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
@@ -387,9 +381,11 @@
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
 "bA" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 10
 	},
 /turf/open/floor/engine,
 /area/engine/engineering)
@@ -503,13 +499,15 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "bR" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering/glass{
 	name = "Supermatter Engine Room";
 	req_access_txt = "10"
 	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
 /turf/open/floor/engine,
 /area/engine/engineering)
 "bS" = (
@@ -2027,7 +2025,7 @@ ab
 (12,1,1) = {"
 ab
 ab
-au
+at
 au
 cu
 ac
@@ -2054,8 +2052,8 @@ ab
 "}
 (13,1,1) = {"
 ab
+tB
 aH
-aw
 tB
 ad
 ad
@@ -2081,8 +2079,8 @@ ab
 ab
 "}
 (14,1,1) = {"
-aq
-aI
+tB
+tB
 bA
 cc
 cc
@@ -2109,7 +2107,7 @@ ab
 ab
 "}
 (15,1,1) = {"
-ar
+ad
 aK
 bC
 cA
@@ -2137,8 +2135,8 @@ ab
 ab
 "}
 (16,1,1) = {"
-as
-aL
+tB
+da
 bD
 cd
 cv
@@ -2165,8 +2163,8 @@ ab
 ab
 "}
 (17,1,1) = {"
-at
-aN
+tB
+da
 bD
 aM
 be
@@ -2306,7 +2304,7 @@ ab
 "}
 (22,1,1) = {"
 aw
-aL
+aq
 bD
 aR
 bj
@@ -2558,8 +2556,8 @@ ab
 "}
 (31,1,1) = {"
 ab
-aF
-ao
+as
+aI
 aZ
 au
 cO
