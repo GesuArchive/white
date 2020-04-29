@@ -15,7 +15,8 @@
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 2
-	STR.set_holdable(list(blister_type))
+	STR.set_holdable(list(/obj/item/storage/blister))
+	STR.exception_hold = /obj/item/storage/blister
 
 	STR.locked = TRUE
 
@@ -57,7 +58,6 @@
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
 
-	var/icon/base_icon = null
 	var/list/pill_list = list(
 								list(pilltype = /obj/item/reagent_containers/pill/haloperidol, pillstate = "round", posx = -4, posy = -7),
 								list(pilltype = /obj/item/reagent_containers/pill/haloperidol, pillstate = "round", posx = -5, posy = 1),
@@ -78,17 +78,21 @@
 /obj/item/storage/blister/PopulateContents()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 
-	base_icon = icon(icon, "foilplastic")
 	for(var/i = 1 to STR.max_items)
 		var/pill_type = pill_list[i]["pilltype"]
 		pill_list[i]["pillobj"] = new pill_type(src)
 		var/list/curitem = pill_list[i]
 		var/obj/curobj = curitem["pillobj"]
-		base_icon.Blend(icon(curobj.icon, curobj.icon_state), ICON_OVERLAY, curitem["posx"], curitem["posy"])
-		base_icon.Blend(icon(icon, curitem["pillstate"]), ICON_OVERLAY, curitem["posx"], curitem["posy"])
 
-	icon = fcopy_rsc(base_icon)
+		var/list/overlays = list()
+		overlays.Add(image(icon = curobj.icon, icon_state = curobj.icon_state, pixel_x = curitem["posx"], pixel_y = curitem["posy"]))
+		overlays.Add(image(icon = icon, icon_state = curitem["pillstate"], pixel_x = curitem["posx"], pixel_y = curitem["posy"]))
 
+		pill_list[i]["overlays"] = overlays
+
+		add_overlay(overlays)
+
+	STR.max_items = 0
 	STR.set_holdable(list())
 
 /obj/item/storage/blister/Exited(atom/movable/thing, atom/newLoc)
@@ -103,17 +107,13 @@
 	if(!curitem)
 		return
 
-	var/icon/pill_mask = icon(initial(icon), curitem["pillstate"]+"_mask")
+	cut_overlay(curitem["overlays"])
 
-	pill_mask.Shift(EAST, curitem["posx"]-1)
-	pill_mask.Shift(NORTH, curitem["posy"]-1)
+	var/list/overlays_broken = list()
+	overlays_broken.Add(image(icon = initial(icon), icon_state = "foil_broken", pixel_x = curitem["posx"], pixel_y = curitem["posy"]))
+	overlays_broken.Add(image(icon = initial(icon), icon_state = curitem["pillstate"]+"_broken", pixel_x = curitem["posx"], pixel_y = curitem["posy"]))
 
-	pill_mask.Opaque("#fff")
-	pill_mask.BecomeAlphaMask()
-	base_icon.AddAlphaMask(pill_mask)
-	base_icon.Blend(icon(initial(icon), curitem["pillstate"]+"_broken"), ICON_OVERLAY, curitem["posx"], curitem["posy"])
-
-	icon = fcopy_rsc(base_icon)
+	add_overlay(overlays_broken)
 
 	pill_list.Remove(curitem)
 
