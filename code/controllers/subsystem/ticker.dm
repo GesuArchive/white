@@ -636,11 +636,6 @@ SUBSYSTEM_DEF(ticker)
 
 	var/statspage = CONFIG_GET(string/roundstatsurl)
 	var/gamelogloc = CONFIG_GET(string/gamelogurl)
-	var/demopage = CONFIG_GET(string/demopage)
-
-	if(GLOB.round_id && demopage)
-		to_chat(world, "<span class='info'>Реплей раунда просмотреть <a href=\"[demopage][GLOB.round_id]\">можно тут!</a></span>")
-		world.shelleo("cd data && screen -dmS copyscripto python3 dp.py [GLOB.round_id]")
 
 	if(statspage)
 		to_chat(world, "<span class='info'>Статистику по раундам вы можете найти на <a href=\"[statspage][GLOB.round_id]\">нашем сайте!</a></span>")

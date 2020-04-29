@@ -147,6 +147,9 @@
 
 /datum/world_topic/status/Run(list/input)
 	. = list()
+	var/wl = 1
+	if(GLOB.whitelist)
+		wl = GLOB.whitelist.len
 	.["version"] = GLOB.game_version
 	.["mode"] = GLOB.master_mode
 	.["respawn"] = config ? !CONFIG_GET(flag/norespawn) : FALSE
@@ -155,7 +158,7 @@
 	.["ai"] = CONFIG_GET(flag/allow_ai)
 	.["host"] = world.host ? world.host : null
 	.["round_id"] = GLOB.round_id
-	.["players"] = GLOB.whitelist.len + GLOB.clients.len
+	.["players"] = wl + GLOB.clients.len
 	.["revision"] = GLOB.revdata.commit
 	.["revision_date"] = GLOB.revdata.date
 	.["hub"] = GLOB.hub_visibility

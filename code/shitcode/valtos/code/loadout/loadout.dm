@@ -21,7 +21,7 @@ GLOBAL_LIST_EMPTY(gear_datums)
 			continue
 
 		if(!use_name)
-			WARNING("Loadout - Missing display name: [G]")
+			//WARNING("Loadout - Missing display name: [G]")
 			continue
 		if(!initial(G.cost))
 			WARNING("Loadout - Missing cost: [G]")
