@@ -7,7 +7,7 @@
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	illustration = "haloperidol"
-	w_class = WEIGHT_CLASS_TINY
+	w_class = WEIGHT_CLASS_SMALL
 	var/blister_type = /obj/item/storage/blister
 	custom_price = 200
 
@@ -16,7 +16,6 @@
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 2
 	STR.set_holdable(list(/obj/item/storage/blister))
-	STR.exception_hold = /obj/item/storage/blister
 
 	STR.locked = TRUE
 
