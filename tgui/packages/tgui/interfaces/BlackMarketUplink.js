@@ -20,7 +20,7 @@ export const BlackMarketUplink = (props, context) => {
       <ShipmentSelector />
       <Window.Content scrollable>
         <Section
-          title="терминал Чёрного Рынка"
+          title="Black Market Uplink"
           buttons={(
             <Box inline bold>
               <AnimatedNumber
