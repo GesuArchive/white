@@ -129,6 +129,7 @@
 	var/datum/pipeline/P = returnPipenet(A)
 	if(!P)
 		CRASH("null.addMember() called by [type] on [COORD(src)]")
+		return
 	P.addMember(A, src)
 
 
@@ -138,7 +139,9 @@
 	for(var/obj/machinery/atmospherics/pipe/member in members)
 		member.air_temporary = new
 		member.air_temporary.set_volume(member.volume)
-		member.air_temporary.copy_from(air, member.volume/air.return_volume())
+		member.air_temporary.copy_from(air)
+
+		member.air_temporary.multiply(member.volume/air.return_volume())
 
 		member.air_temporary.set_temperature(air.return_temperature())
 
@@ -190,7 +193,7 @@
 
 	else
 		if((target.heat_capacity>0) && (partial_heat_capacity>0))
-			var/delta_temperature = air.return_temperature() - target_temperature
+			var/delta_temperature = air.return_temperature() - target.temperature
 
 			var/heat = thermal_conductivity*delta_temperature* \
 				(partial_heat_capacity*target.heat_capacity/(partial_heat_capacity+target.heat_capacity))
@@ -231,7 +234,6 @@
 
 	for(var/i in GL)
 		var/datum/gas_mixture/G = i
-		total_gas_mixture.set_volume(G.return_volume() + total_gas_mixture.return_volume())
 		total_gas_mixture.merge(G)
 		total_volume += G.return_volume()
 
@@ -239,5 +241,5 @@
 		//Update individual gas_mixtures by volume ratio
 		for(var/i in GL)
 			var/datum/gas_mixture/G = i
-			G.copy_from(total_gas_mixture, G.return_volume()/total_gas_mixture.return_volume())
+			G.copy_from(total_gas_mixture)
 			G.multiply(G.return_volume()/total_volume)
