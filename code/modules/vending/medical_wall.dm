@@ -10,8 +10,7 @@
 					/obj/item/reagent_containers/pill/multiver = 2,
 					/obj/item/reagent_containers/medigel/libital = 2,
 					/obj/item/reagent_containers/medigel/aiuri = 2,
-					/obj/item/reagent_containers/medigel/sterilizine = 1,
-					/obj/item/storage/box/pillbox = 2)
+					/obj/item/reagent_containers/medigel/sterilizine = 1)
 	contraband = list(/obj/item/reagent_containers/pill/tox = 2,
 	                  /obj/item/reagent_containers/pill/morphine = 2,
 	                  /obj/item/storage/box/gum/happiness = 1)

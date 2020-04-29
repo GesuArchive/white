@@ -14,14 +14,4 @@
 
 
 
-/obj/item/reagent_containers/pill/hohlomicin
-	name = "таблетка Хохломицина"
-	desc = "ПИЗДЕЦ."
-	icon_state = "pill_syndie"
-	list_reagents = list(/datum/reagent/toxin/hohlomicin = 5)
 
-/obj/item/reagent_containers/pill/haloperidol
-	name = "таблетка Галоперидола"
-	desc = "Шутки кончились."
-	icon_state = "pill9"
-	list_reagents = list(/datum/reagent/medicine/haloperidol = 5)
