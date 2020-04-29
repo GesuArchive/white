@@ -2,7 +2,8 @@
 	name = "лист палпутинума"
 	desc = "Вскрытие туза в комплект не входит"
 	singular_name = "лист палпутинума"
-	icon_state = "sheet-meat"
+	icon = 'code/shitcode/baldenysh/icons/obj/stack.dmi'
+	icon_state = "sheet-pyramid"
 	material_flags = MATERIAL_COLOR
 	custom_materials = list(/datum/material/palputinum = MINERAL_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/sheet/palputinum
