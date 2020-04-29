@@ -29557,8 +29557,9 @@
 	},
 /obj/machinery/light/small,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 10
+	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "cdN" = (
@@ -37511,10 +37512,14 @@
 /turf/open/floor/plating,
 /area/maintenance/fore/secondary)
 "jsv" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+	dir = 10
+	},
 /turf/open/floor/plating,
-/area/maintenance/starboard/aft)
+/area/maintenance/aft)
 "jsw" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
@@ -41479,11 +41484,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
-/turf/open/floor/plating,
-/area/maintenance/aft)
-"wju" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "wkN" = (
@@ -81880,7 +81880,7 @@ bNd
 bzs
 bzs
 bJs
-bFo
+jsv
 ceH
 fVu
 cfn
@@ -82394,7 +82394,7 @@ bZQ
 caP
 cbO
 ccJ
-wju
+bLS
 hJq
 cfp
 aap
@@ -84461,7 +84461,7 @@ aaa
 cOT
 ccq
 czY
-jsv
+cOT
 aaa
 aaa
 aaa
