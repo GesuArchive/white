@@ -671,7 +671,7 @@
 /area/hallway/primary/central)
 "bM" = (
 /turf/open/openspace/boxplanet/caves,
-/area/boxplanet/underground/explored)
+/area/template_noop)
 "bN" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -2131,6 +2131,7 @@
 	codes_txt = "patrol;next_patrol=Stbd";
 	location = "HOP"
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "fg" = (
@@ -2998,8 +2999,8 @@
 /area/maintenance/central/secondary)
 "hb" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/boxplanet/caves,
-/area/boxplanet/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "hc" = (
 /obj/structure/chair/comfy/brown{
 	dir = 8
@@ -3638,6 +3639,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "je" = (
@@ -3974,8 +3976,8 @@
 /area/hallway/primary/central)
 "yh" = (
 /obj/structure/lattice,
-/turf/open/openspace/boxplanet/caves,
-/area/boxplanet/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "zb" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -4032,6 +4034,11 @@
 /obj/item/storage/lockbox/medal,
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
+"LR" = (
+/obj/machinery/door/firedoor,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "LY" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -4289,12 +4296,12 @@ az
 cZ
 ep
 ep
-bM
+ab
 yh
 hb
 hb
 yh
-bM
+ab
 ep
 ep
 aA
@@ -4326,14 +4333,14 @@ ab
 al
 cZ
 aE
-bM
-bM
+ab
+ab
 bs
 bs
 bs
 bs
-bM
-bM
+ab
+ab
 aE
 ai
 aj
@@ -4516,14 +4523,14 @@ ab
 az
 cZ
 ep
-bM
+ab
 bs
 bs
 hw
 cz
 bs
 bs
-bM
+ab
 ep
 fZ
 aj
@@ -4554,14 +4561,14 @@ ai
 aj
 cZ
 aE
-bM
-bM
+ab
+ab
 cf
 hx
 hC
 cf
-bM
-bM
+ab
+ab
 aE
 ai
 aj
@@ -4599,7 +4606,7 @@ hB
 hG
 cf
 yh
-bM
+ab
 ep
 em
 aA
@@ -4631,7 +4638,7 @@ aj
 aj
 cZ
 ep
-bM
+ab
 cf
 hz
 hz
@@ -4669,7 +4676,7 @@ aj
 aj
 cZ
 aE
-bM
+ab
 bs
 hA
 id
@@ -4986,13 +4993,13 @@ aj
 ca
 ep
 ep
-bM
+ab
 yh
 hb
 yh
 hb
 yh
-bM
+ab
 dC
 eg
 hN
@@ -5023,8 +5030,8 @@ iz
 aA
 zS
 ep
-bM
-bM
+ab
+ab
 af
 af
 cO
@@ -5251,8 +5258,8 @@ az
 aj
 ca
 ep
-bM
-bM
+ab
+ab
 af
 af
 af
@@ -5290,13 +5297,13 @@ aA
 bZ
 ep
 ep
-bM
+ab
 yh
 hb
 yh
 hb
 yh
-bM
+ab
 dC
 hN
 hN
@@ -5400,21 +5407,21 @@ aj
 aA
 aj
 ew
-hS
+jS
 ff
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aA
-aj
+gt
+gt
+gt
+gt
+gt
+gt
+gt
+gt
+LR
+gt
 iL
 aj
-gt
+aj
 aj
 aj
 jU
@@ -5438,7 +5445,7 @@ aj
 aA
 aj
 ex
-aj
+gt
 fg
 aj
 fW
@@ -5452,7 +5459,7 @@ hY
 iv
 aS
 aj
-gt
+aj
 jD
 jN
 aj
@@ -5476,7 +5483,7 @@ ab
 ab
 ab
 ad
-ad
+km
 ad
 ab
 ab

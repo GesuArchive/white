@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/open/openspace,
+/turf/template_noop,
 /area/space)
 "ab" = (
 /turf/template_noop,
@@ -8,11 +8,11 @@
 "ac" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/boxplanet/underground/explored)
+/area/template_noop)
 "ad" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/boxplanet/underground/explored)
+/area/template_noop)
 "ae" = (
 /turf/closed/wall/r_wall,
 /area/security/prison)
@@ -312,7 +312,7 @@
 	pixel_y = -32
 	},
 /turf/template_noop,
-/area/boxplanet/underground/explored)
+/area/template_noop)
 "aL" = (
 /obj/machinery/door/window/westleft{
 	dir = 4;
@@ -492,11 +492,11 @@
 /obj/structure/lattice,
 /obj/structure/grille,
 /turf/template_noop,
-/area/boxplanet/underground/explored)
+/area/template_noop)
 "bd" = (
 /obj/structure/grille,
 /turf/template_noop,
-/area/boxplanet/underground/explored)
+/area/template_noop)
 "be" = (
 /turf/closed/wall/r_wall,
 /area/security/main)
@@ -906,7 +906,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/boxplanet/underground/explored)
+/area/template_noop)
 "bW" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -2431,7 +2431,7 @@
 	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
 	width = 3
 	},
-/turf/open/openspace,
+/turf/template_noop,
 /area/space)
 "eI" = (
 /obj/docking_port/stationary/random{
@@ -2439,8 +2439,8 @@
 	id = "pod_lavaland3";
 	name = "lavaland"
 	},
-/turf/open/openspace,
-/area/boxplanet/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "eJ" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable,
@@ -3448,7 +3448,7 @@
 "hb" = (
 /obj/structure/lattice/catwalk,
 /turf/open/openspace/boxplanet/caves,
-/area/boxplanet/underground/explored)
+/area/template_noop)
 "hf" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -3829,7 +3829,7 @@
 "CI" = (
 /obj/structure/lattice,
 /turf/open/openspace/boxplanet/caves,
-/area/boxplanet/underground/explored)
+/area/template_noop)
 
 (1,1,1) = {"
 ab

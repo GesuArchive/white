@@ -887,12 +887,8 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 6
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
-/turf/open/floor/plating/asteroid/boxplanet/surface,
-/area/boxplanet/surface)
+/turf/template_noop,
+/area/template_noop)
 "dj" = (
 /obj/structure/closet/firecloset,
 /turf/open/floor/plasteel/dark,
@@ -904,16 +900,6 @@
 	},
 /turf/open/floor/engine,
 /area/engine/engineering)
-"dl" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
-	dir = 10
-	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
-/turf/open/floor/plating/asteroid/boxplanet/surface,
-/area/boxplanet/surface)
 "dm" = (
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "engsm";
@@ -1003,22 +989,12 @@
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/engine/engineering)
-"dw" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
-	dir = 4
-	},
-/turf/open/floor/plating/asteroid/boxplanet/surface,
-/area/boxplanet/surface)
 "dx" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
-/turf/open/floor/plating/asteroid/boxplanet/surface,
-/area/boxplanet/surface)
+/turf/template_noop,
+/area/template_noop)
 "dy" = (
 /obj/structure/table,
 /obj/item/pipe_dispenser,
@@ -1093,22 +1069,12 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/engine/supermatter)
-"dI" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
-	dir = 5
-	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
-/turf/open/floor/plating/asteroid/boxplanet/surface,
-/area/boxplanet/surface)
 "dJ" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 10
 	},
-/turf/open/floor/plating/asteroid/boxplanet/surface,
-/area/boxplanet/surface)
+/turf/template_noop,
+/area/template_noop)
 "dK" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 6
@@ -1165,8 +1131,8 @@
 /area/engine/engineering)
 "dR" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/boxplanet/caves,
-/area/boxplanet/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "dS" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible{
 	dir = 5
@@ -1249,8 +1215,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
-/turf/open/floor/plating/asteroid/boxplanet/surface,
-/area/boxplanet/surface)
+/turf/template_noop,
+/area/template_noop)
 "ed" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 9
@@ -1258,8 +1224,8 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 6
 	},
-/turf/open/floor/plating/asteroid/boxplanet/surface,
-/area/boxplanet/surface)
+/turf/template_noop,
+/area/template_noop)
 "ee" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/junction{
 	dir = 8
@@ -1329,8 +1295,8 @@
 	},
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
-/turf/open/floor/plating/asteroid/boxplanet/surface,
-/area/boxplanet/surface)
+/turf/template_noop,
+/area/template_noop)
 "em" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -1408,12 +1374,6 @@
 /obj/item/flashlight,
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
-"ey" = (
-/turf/closed/wall,
-/area/boxplanet/underground/explored)
-"ez" = (
-/turf/closed/mineral/random/snow/underground,
-/area/boxplanet/underground/explored)
 "eA" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -1449,12 +1409,8 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 9
 	},
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
-/turf/open/floor/plating/asteroid/boxplanet/surface,
-/area/boxplanet/surface)
+/turf/template_noop,
+/area/template_noop)
 "eE" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -1701,8 +1657,8 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 5
 	},
-/turf/open/floor/plating/asteroid/boxplanet/surface,
-/area/boxplanet/surface)
+/turf/template_noop,
+/area/template_noop)
 "fn" = (
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel/dark,
@@ -1759,13 +1715,6 @@
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /turf/open/floor/plating,
 /area/engine/engineering)
-"KZ" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
-/turf/open/floor/plating/asteroid/boxplanet/surface,
-/area/boxplanet/surface)
 
 (1,1,1) = {"
 ab
@@ -1775,25 +1724,25 @@ ab
 ab
 ab
 ab
-ey
-ey
-ey
-ey
-ey
-ey
-ey
-ey
-ey
-ey
-ey
-ey
-ez
-ez
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (2,1,1) = {"
 ab
@@ -1803,25 +1752,25 @@ ab
 ab
 ab
 ab
-KZ
+ab
 di
-dI
+fm
 di
-dI
+fm
 di
-dI
+fm
 di
-dI
-KZ
-KZ
-ey
-ez
-ez
-ez
-ez
-ez
-ez
-ez
+fm
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (3,1,1) = {"
 ab
@@ -1841,15 +1790,15 @@ ec
 ec
 ec
 fm
-KZ
-ey
-ez
-ez
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (4,1,1) = {"
 ab
@@ -1859,7 +1808,7 @@ ab
 ab
 ab
 ab
-dl
+dJ
 ec
 ec
 ec
@@ -1869,15 +1818,15 @@ ec
 ec
 ec
 ec
-dI
-ey
-ez
-ez
-ez
-ez
-ez
-ez
-ez
+fm
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (5,1,1) = {"
 ab
@@ -1898,14 +1847,14 @@ ec
 ec
 ec
 eD
-ey
-ez
-ez
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (6,1,1) = {"
 ab
@@ -1915,7 +1864,7 @@ ab
 ab
 ab
 ab
-dl
+dJ
 ec
 ec
 ec
@@ -1925,15 +1874,15 @@ ec
 ec
 ec
 ec
-dI
-ey
-ez
-ez
-ez
-ez
-ez
-ez
-ez
+fm
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (7,1,1) = {"
 ab
@@ -1954,14 +1903,14 @@ ec
 ec
 ec
 eD
-ey
-ez
-ez
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (8,1,1) = {"
 ab
@@ -1971,7 +1920,7 @@ ab
 ab
 ab
 ab
-dl
+dJ
 ec
 ec
 ec
@@ -1981,15 +1930,15 @@ ec
 ec
 ec
 ec
-dI
-ey
-ez
-ez
-ez
-ez
-ez
-ez
-ez
+fm
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (9,1,1) = {"
 ab
@@ -2010,14 +1959,14 @@ ec
 ec
 ec
 eD
-ey
-ez
-ez
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (10,1,1) = {"
 ab
@@ -2027,7 +1976,7 @@ ab
 bb
 bb
 ad
-dl
+dJ
 ec
 ec
 ec
@@ -2037,15 +1986,15 @@ ec
 ec
 ec
 ec
-dI
-ey
-ez
-ez
-ez
-ez
-ez
-ez
-ez
+fm
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (11,1,1) = {"
 ab
@@ -2055,8 +2004,8 @@ eB
 bb
 br
 ad
-KZ
-dw
+ab
+dx
 dJ
 ed
 el
@@ -2066,14 +2015,14 @@ ec
 ec
 ec
 eD
-ey
-ez
-ez
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (12,1,1) = {"
 ab
@@ -2083,25 +2032,25 @@ au
 cu
 ac
 bB
-KZ
+ab
 dx
-KZ
+ab
 dx
-dl
+dJ
 eD
-dl
+dJ
 eD
-dl
+dJ
 eD
-KZ
-ey
-ez
-ez
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (13,1,1) = {"
 ab
@@ -2125,11 +2074,11 @@ bb
 bb
 ad
 ad
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
 "}
 (14,1,1) = {"
 aq
@@ -2153,11 +2102,11 @@ gP
 bN
 bN
 ad
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
 "}
 (15,1,1) = {"
 ar
@@ -2181,11 +2130,11 @@ bN
 bN
 ev
 ad
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
 "}
 (16,1,1) = {"
 as
@@ -2209,11 +2158,11 @@ fp
 bN
 bN
 ad
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
 "}
 (17,1,1) = {"
 at
@@ -2237,11 +2186,11 @@ dV
 dV
 ew
 ad
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
 "}
 (18,1,1) = {"
 ad
@@ -2265,11 +2214,11 @@ fq
 fq
 fj
 ad
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
 "}
 (19,1,1) = {"
 ad
@@ -2293,11 +2242,11 @@ bN
 bN
 fu
 ad
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
 "}
 (20,1,1) = {"
 av
@@ -2321,11 +2270,11 @@ bN
 eq
 fu
 ad
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
 "}
 (21,1,1) = {"
 tB
@@ -2349,11 +2298,11 @@ fk
 ft
 fv
 ad
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
 "}
 (22,1,1) = {"
 aw
@@ -2377,11 +2326,11 @@ bN
 es
 fu
 ad
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
 "}
 (23,1,1) = {"
 ad
@@ -2405,11 +2354,11 @@ bN
 bN
 fu
 ad
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
 "}
 (24,1,1) = {"
 ad
@@ -2433,11 +2382,11 @@ fr
 fj
 fj
 ad
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
 "}
 (25,1,1) = {"
 tB
@@ -2461,11 +2410,11 @@ dV
 dV
 ew
 ad
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
 "}
 (26,1,1) = {"
 tB
@@ -2489,11 +2438,11 @@ fs
 bN
 bN
 ad
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
 "}
 (27,1,1) = {"
 ad
@@ -2517,11 +2466,11 @@ de
 bN
 ex
 ad
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
 "}
 (28,1,1) = {"
 tB
@@ -2545,11 +2494,11 @@ ad
 ad
 ad
 ad
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
 "}
 (29,1,1) = {"
 ax
@@ -2569,15 +2518,15 @@ dN
 dQ
 eb
 dR
-ez
-ez
-ez
-ez
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (30,1,1) = {"
 ab
@@ -2597,15 +2546,15 @@ ad
 dR
 dR
 dR
-ez
-ez
-ez
-ez
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (31,1,1) = {"
 ab
@@ -2622,18 +2571,18 @@ cW
 dj
 dA
 ad
-ez
-ez
-ez
-ez
-ez
-ez
-ez
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}
 (32,1,1) = {"
 ab
@@ -2650,16 +2599,16 @@ tB
 tB
 tB
 ad
-ez
-ez
-ez
-ez
-ez
-ez
-ez
-ez
-ez
-ez
-ez
-ez
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 "}

@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/open/openspace,
+/turf/template_noop,
 /area/space)
 "ac" = (
 /turf/closed/wall/r_wall,
@@ -13,23 +13,17 @@
 "ae" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/space/nearstation)
+/area/template_noop)
 "ag" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/space/nearstation)
+/area/template_noop)
 "ah" = (
 /obj/structure/sign/warning/securearea{
 	pixel_y = -32
 	},
 /turf/template_noop,
 /area/template_noop)
-"ai" = (
-/obj/structure/sign/warning/securearea{
-	pixel_y = -32
-	},
-/turf/template_noop,
-/area/space/nearstation)
 "aj" = (
 /obj/machinery/computer/bookmanagement,
 /obj/structure/table,
@@ -305,7 +299,7 @@
 "aZ" = (
 /obj/structure/grille,
 /turf/template_noop,
-/area/space/nearstation)
+/area/template_noop)
 "ba" = (
 /turf/closed/wall/r_wall,
 /area/security/main)
@@ -486,7 +480,7 @@
 	pixel_y = -32
 	},
 /turf/template_noop,
-/area/space/nearstation)
+/area/template_noop)
 "bC" = (
 /obj/structure/closet/bombcloset/security,
 /turf/open/floor/plasteel/showroomfloor,
@@ -542,7 +536,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/space/nearstation)
+/area/template_noop)
 "bL" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 5
@@ -4286,7 +4280,7 @@
 	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
 	width = 3
 	},
-/turf/open/openspace,
+/turf/template_noop,
 /area/space)
 "jo" = (
 /obj/docking_port/stationary/random{
@@ -4294,8 +4288,8 @@
 	id = "pod_lavaland3";
 	name = "lavaland"
 	},
-/turf/open/openspace,
-/area/space/nearstation)
+/turf/template_noop,
+/area/template_noop)
 "jp" = (
 /obj/machinery/camera/motion{
 	c_tag = "Armory - External";
@@ -5199,7 +5193,7 @@
 /obj/structure/lattice,
 /obj/structure/grille,
 /turf/template_noop,
-/area/space/nearstation)
+/area/template_noop)
 "lf" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
 	dir = 8
@@ -7734,7 +7728,7 @@ aS
 (19,1,1) = {"
 aZ
 aZ
-ai
+ah
 ac
 ac
 ac

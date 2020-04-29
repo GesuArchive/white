@@ -140,8 +140,8 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "x" = (
-/turf/open/openspace/boxplanet/caves,
-/area/boxplanet/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "y" = (
 /obj/structure/cable,
 /turf/open/floor/plating,

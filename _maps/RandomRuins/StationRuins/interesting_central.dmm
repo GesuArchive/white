@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
 /turf/open/openspace/boxplanet/caves,
-/area/boxplanet/underground/explored)
+/area/template_noop)
 "ab" = (
 /turf/template_noop,
 /area/template_noop)
@@ -440,8 +440,8 @@
 /area/hallway/primary/central)
 "bi" = (
 /obj/structure/lattice,
-/turf/open/openspace/boxplanet/caves,
-/area/boxplanet/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "bj" = (
 /obj/effect/landmark/event_spawn,
 /obj/structure/cable,
@@ -1376,8 +1376,8 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/boxplanet/caves,
-/area/boxplanet/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "dj" = (
 /obj/machinery/photocopier,
 /obj/structure/disposalpipe/segment{
@@ -2756,8 +2756,8 @@
 "nW" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/boxplanet/caves,
-/area/boxplanet/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "nX" = (
 /obj/structure/chair{
 	dir = 8;
@@ -2779,8 +2779,8 @@
 "nZ" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/boxplanet/caves,
-/area/boxplanet/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "oa" = (
 /obj/machinery/airalarm{
 	dir = 4;
@@ -2834,6 +2834,7 @@
 "oh" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "oi" = (
@@ -3397,11 +3398,13 @@
 	location = "HOP"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "pw" = (
 /obj/effect/landmark/event_spawn,
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "px" = (
@@ -3642,6 +3645,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "qb" = (
@@ -4276,6 +4280,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
+"NK" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "XI" = (
 /obj/machinery/status_display/ai,
 /turf/closed/wall/r_wall,
@@ -4669,25 +4678,25 @@ eb
 aj
 jo
 af
-aa
+ab
 bi
 bi
-aa
-aa
+ab
+ab
 bi
 bi
-aa
+ab
 nU
 ou
 gg
 nU
-aa
+ab
 bi
 bi
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
 an
 cs
 jo
@@ -4707,23 +4716,23 @@ eb
 aj
 jo
 af
-aa
+ab
 bi
 bi
-aa
-aa
+ab
+ab
 bi
 bi
-aa
+ab
 nU
 ou
 pR
 nU
-aa
+ab
 bi
 bi
-aa
-aa
+ab
+ab
 bi
 bi
 an
@@ -4801,7 +4810,7 @@ nV
 oF
 ny
 ny
-aa
+ab
 af
 qH
 of
@@ -4839,7 +4848,7 @@ nX
 oK
 pf
 ny
-aa
+ab
 af
 qH
 qR
@@ -4877,7 +4886,7 @@ nq
 oW
 pg
 pK
-aa
+ab
 an
 qH
 qR
@@ -4915,7 +4924,7 @@ op
 oX
 ph
 ny
-aa
+ab
 an
 qH
 qR
@@ -4991,7 +5000,7 @@ nJ
 oZ
 pq
 ny
-aa
+ab
 af
 az
 qR
@@ -5067,7 +5076,7 @@ oy
 pb
 pH
 ny
-aa
+ab
 bh
 no
 dO
@@ -5105,7 +5114,7 @@ oz
 pc
 pI
 pK
-aa
+ab
 gG
 gG
 gG
@@ -5143,7 +5152,7 @@ oA
 pd
 pJ
 ny
-aa
+ab
 cl
 jQ
 kh
@@ -5181,7 +5190,7 @@ oB
 pe
 ny
 ny
-aa
+ab
 gG
 gG
 gG
@@ -5244,18 +5253,18 @@ dw
 dB
 dC
 bi
-aa
+ab
 di
-aa
+ab
 nU
 pR
 pR
 nU
-aa
+ab
 bi
 bi
-aa
-aa
+ab
+ab
 bi
 bi
 cn
@@ -5282,20 +5291,20 @@ dA
 dB
 dC
 bi
-aa
+ab
 di
-aa
+ab
 nU
 pR
 pR
 nU
-aa
+ab
 bi
 bi
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
 gG
 cq
 ct
@@ -5590,20 +5599,20 @@ jS
 jS
 jS
 pu
-jS
+NK
 pv
 oh
-jS
-jS
-jS
-jS
-jS
-jS
+NK
+NK
+NK
+NK
+NK
+NK
 pw
-jS
-jS
+NK
+NK
 qa
-jS
+NK
 px
 py
 px
@@ -5628,7 +5637,7 @@ aj
 aj
 aj
 ex
-aj
+jo
 fg
 aA
 aj
@@ -5642,7 +5651,7 @@ kj
 lr
 eb
 aj
-jo
+aj
 aA
 aj
 eD
@@ -5666,7 +5675,7 @@ ab
 ab
 ab
 ad
-ad
+ni
 ad
 ab
 ab
