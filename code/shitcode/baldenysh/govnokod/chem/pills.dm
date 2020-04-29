@@ -14,4 +14,4 @@
 	name = "таблетка Антиголя"
 	desc = "Выводит алкоголь из организма."
 	icon_state = "pill7"
-	list_reagents = list(/datum/reagent/medicine/haloperidol = 5)
+	list_reagents = list(/datum/reagent/medicine/antihol = 5)

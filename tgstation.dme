@@ -3083,6 +3083,7 @@
 #include "code\shitcode\baldenysh\govnokod\chem\pills.dm"
 #include "code\shitcode\baldenysh\govnokod\chem\reagents.dm"
 #include "code\shitcode\baldenysh\govnokod\clothing\masks\cheap_breathmask.dm"
+#include "code\shitcode\baldenysh\govnokod\foods\food.dm"
 #include "code\shitcode\baldenysh\govnokod\storage\blister.dm"
 #include "code\shitcode\baldenysh\govnokod\storage\pillpack.dm"
 #include "code\shitcode\ClickerOfThings\duckgame_weapon\dg_weapons.dm"
