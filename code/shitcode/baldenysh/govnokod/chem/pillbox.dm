@@ -105,18 +105,8 @@
 
 	var/icon/pill_mask = icon(initial(icon), curitem["pillstate"]+"_mask")
 
-	if(curitem["posx"] < 0)
-		pill_mask.Shift(WEST, abs(curitem["posx"]))
-	else
-		pill_mask.Shift(EAST, curitem["posx"])
-
-	if(curitem["posy"] < 0)
-		pill_mask.Shift(SOUTH, abs(curitem["posy"]))
-	else
-		pill_mask.Shift(NORTH, curitem["posy"])
-
-	pill_mask.Shift(SOUTH, 1)
-	pill_mask.Shift(WEST, 1)
+	pill_mask.Shift(EAST, curitem["posx"]-1)
+	pill_mask.Shift(NORTH, curitem["posy"]-1)
 
 	pill_mask.Opaque("#fff")
 	pill_mask.BecomeAlphaMask()
