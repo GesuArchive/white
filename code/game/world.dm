@@ -271,7 +271,7 @@ GLOBAL_VAR(restart_counter)
 
 	log_world("World rebooted at [time_stamp()]")
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
-	shelleo("curl -X POST http://localhost:3333/reboot-white")
+	shelleo("curl -X POST http://localhost:3636/reboot-white")
 	..()
 
 /world/Del()
