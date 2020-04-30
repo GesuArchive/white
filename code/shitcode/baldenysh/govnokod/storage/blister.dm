@@ -101,7 +101,7 @@
 /obj/item/storage/blister/psicodine
 	name = "блистерная упаковка (Псикодин)"
 	pill_list = list(
-					list(pilltype = /obj/item/reagent_containers/pill/psicodine, pillstate = "long", posx = -5, posy = -5,
+					list(pilltype = /obj/item/reagent_containers/pill/psicodine, pillstate = "long", posx = -5, posy = -5),
 					list(pilltype = /obj/item/reagent_containers/pill/psicodine, pillstate = "long", posx = 0, posy = 1),
 					list(pilltype = /obj/item/reagent_containers/pill/psicodine, pillstate = "long", posx = 5, posy = 7)
 					)
