@@ -195,7 +195,7 @@
 	update_icon()
 
 /obj/item/storage/belt/security
-	name = "пояс секьюрити"
+	name = "пояс офицера"
 	desc = "Может хранить наручники, флэшки, но не преступников."
 	icon_state = "securitybelt"
 	item_state = "security"//Could likely use a better one.
@@ -235,8 +235,8 @@
 	update_icon()
 
 /obj/item/storage/belt/security/webbing
-	name = "разгрузка секьюрити"
-	desc = "Уникальный и универсальный нагрудник, способный удерживать снаряжение секьюрити."
+	name = "разгрузка офицера"
+	desc = "Уникальный и универсальный нагрудник, способный удерживать снаряжение офицера."
 	icon_state = "securitywebbing"
 	item_state = "securitywebbing"
 	content_overlays = FALSE

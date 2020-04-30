@@ -115,7 +115,7 @@
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/sec
-	name = "кепка секьюрити"
+	name = "кепка офицера"
 	desc = "Это прочная бейсбольная шапка со вкусом красного цвета."
 	icon_state = "secsoft"
 	soft_type = "sec"

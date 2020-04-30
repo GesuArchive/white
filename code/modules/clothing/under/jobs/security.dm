@@ -14,7 +14,7 @@
 	mob_overlay_icon = 'icons/mob/clothing/under/security.dmi'
 
 /obj/item/clothing/under/rank/security/officer
-	name = "комбинезон секьюрити"
+	name = "комбинезон офицера"
 	desc = "Тактический защитный комбинезон для офицеров в комплекте с ремнем безопасности Нанотрейзен."
 	icon_state = "rsecurity"
 	item_state = "r_suit"
@@ -25,13 +25,13 @@
 	random_sensor = FALSE
 
 /obj/item/clothing/under/rank/security/officer/grey
-	name = "серый комбинезон секьюрити"
+	name = "серый комбинезон офицера"
 	desc = "Тактическая реликвия прошлых лет до того, как Нанотрейзен решил, что покрасить костюмы в красный цвет дешевле, чем смывать кровь."
 	icon_state = "security"
 	item_state = "gy_suit"
 
 /obj/item/clothing/under/rank/security/officer/skirt
-	name = "юбкомбез секьюрити"
+	name = "юбкомбез офицера"
 	desc = "Защитный \"тактический\" комбинезон с юбкой вместо штанов."
 	icon_state = "secskirt"
 	item_state = "r_suit"
@@ -47,7 +47,7 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/security/officer/formal
-	name = "костюм секьюрити офицера"
+	name = "костюм офицера"
 	desc = "Новейшие модные костюмы для охраны."
 	icon_state = "officerblueclothes"
 	item_state = "officerblueclothes"
@@ -62,7 +62,7 @@
 	custom_price = 200
 
 /obj/item/clothing/under/rank/security/warden
-	name = "костюм секьюрити"
+	name = "костюм офицера"
 	desc = "Формальный защитный костюм для офицеров в комплекте с пряжкой на поясе Нанотрейзен."
 	icon_state = "rwarden"
 	item_state = "r_suit"
@@ -73,7 +73,7 @@
 	random_sensor = FALSE
 
 /obj/item/clothing/under/rank/security/warden/grey
-	name = "серый костюм секьюрити"
+	name = "серый костюм офицера"
 	desc = "Классическая реликвия прошлых лет до того, как Нанотрейзен решил, что покрасить костюмы в красный цвет дешевле, чем смывать кровь."
 	icon_state = "warden"
 	item_state = "gy_suit"

@@ -106,13 +106,13 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	recalculateChannels()
 
 /obj/item/radio/headset/headset_sec
-	name = "гарнитура секьюрити"
+	name = "гарнитура офицера"
 	desc = "Это используется вашими элитными силами безопасности."
 	icon_state = "sec_headset"
 	keyslot = new /obj/item/encryptionkey/headset_sec
 
 /obj/item/radio/headset/headset_sec/alt
-	name = "гарнитура-бабочка секьюрити"
+	name = "гарнитура-бабочка офицера"
 	desc = "Это используется вашими элитными силами безопасности. Защищает уши от светошумовых гранат."
 	icon_state = "sec_headset_alt"
 	item_state = "sec_headset_alt"
@@ -153,7 +153,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 /obj/item/radio/headset/headset_srvsec
 	name = "гарнитура закона и порядка"
-	desc = "В гарнитуре системы уголовного правосудия ключ шифрования представляет собой две отдельные, но не менее важные группы. Секьюрити, которые расследуют преступления, и секьюрити, которые предоставляют услуги. Это их связь."
+	desc = "В гарнитуре системы уголовного правосудия ключ шифрования представляет собой две отдельные, но не менее важные группы. Служба безопасности, которая расследует преступления, и секьюрити, которые предоставляют услуги. Это их связь."
 	icon_state = "srvsec_headset"
 	keyslot = new /obj/item/encryptionkey/headset_srvsec
 
@@ -195,13 +195,13 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	keyslot = new /obj/item/encryptionkey/heads/rd
 
 /obj/item/radio/headset/heads/hos
-	name = "гарнитура главы секьюрити"
+	name = "гарнитура главы безопасности"
 	desc = "Гарнитура человека, отвечающего за поддержание порядка и охрану станции."
 	icon_state = "com_headset"
 	keyslot = new /obj/item/encryptionkey/heads/hos
 
 /obj/item/radio/headset/heads/hos/alt
-	name = "гарнитура-бабочка главы секьюрити"
+	name = "гарнитура-бабочка главы безопасности"
 	desc = "Гарнитура человека, отвечающего за поддержание порядка и охрану станции. Защищает уши от светошумовых гранат."
 	icon_state = "com_headset_alt"
 	item_state = "com_headset_alt"

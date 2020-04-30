@@ -48,7 +48,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF
 	item_flags = NO_MAT_REDEMPTION
-	
+
 /obj/item/storage/backpack/holding
 	name = "сумка хранения"
 	desc = "Рюкзак, который открывает портал в локализованный карман блюспейс пространства."
@@ -142,7 +142,7 @@
 	item_state = "medicalpack"
 
 /obj/item/storage/backpack/security
-	name = "рюкзак секьюрити"
+	name = "рюкзак офицера"
 	desc = "Это очень прочный рюкзак."
 	icon_state = "securitypack"
 	item_state = "securitypack"
@@ -288,7 +288,7 @@
 	item_state = "satchel-hyd"
 
 /obj/item/storage/backpack/satchel/sec
-	name = "сумка секьюрити"
+	name = "сумка офицера"
 	desc = "Надежная сумка для нужд, связанных с безопасностью."
 	icon_state = "satchel-sec"
 	item_state = "satchel-sec"
@@ -379,7 +379,7 @@
 	new /obj/item/razor(src)
 
 /obj/item/storage/backpack/duffelbag/sec
-	name = "вещмешок для секьюрити"
+	name = "вещмешок для офицера"
 	desc = "Большая сумка для хранения дополнительных охранных принадлежностей и боеприпасов."
 	icon_state = "duffel-sec"
 	item_state = "duffel-sec"

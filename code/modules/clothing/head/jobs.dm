@@ -235,7 +235,7 @@
 		speech_args[SPEECH_MESSAGE] = message
 
 /obj/item/clothing/head/beret/sec
-	name = "берет секьюрити"
+	name = "офицерский берет"
 	desc = "Крепкий берет с эмблемой безопасности на нем. Использует армированную ткань для обеспечения достаточной защиты."
 	icon_state = "beret_badge"
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 40, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 50)

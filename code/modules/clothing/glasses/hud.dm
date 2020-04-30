@@ -95,7 +95,7 @@
 	tint = 1
 
 /obj/item/clothing/glasses/hud/security
-	name = "HUD секьюрити"
+	name = "HUD офицера"
 	desc = "Главный дисплей, который сканирует гуманоидов в поле зрения и предоставляет точные данные о состоянии их идентификатора и записях безопасности."
 	icon_state = "securityhud"
 	hud_type = DATA_HUD_SECURITY_ADVANCED
@@ -103,8 +103,8 @@
 	glass_colour_type = /datum/client_colour/glass_colour/red
 
 /obj/item/clothing/glasses/hud/security/chameleon
-	name = "хамелеонный HUD секьюрити"
-	desc = "Украденный HUD секьюрити, интегрированный с технологией хамелеона Синдиката. Обеспечивает защиту от вспышек."
+	name = "хамелеонный HUD офицера"
+	desc = "Украденный HUD офицера, интегрированный с технологией хамелеона Синдиката. Обеспечивает защиту от вспышек."
 	flash_protect = FLASH_PROTECTION_FLASH
 
 	// Yes this code is the same as normal chameleon glasses, but we don't
@@ -132,7 +132,7 @@
 	icon_state = "hudpatch"
 
 /obj/item/clothing/glasses/hud/security/sunglasses
-	name = "солнцезащитный секьюрити HUD"
+	name = "солнцезащитный HUD офицера"
 	desc = "Солнцезащитные очки с защитой от вспышек и HUD."
 	icon_state = "sunhudsec"
 	darkness_view = 1
@@ -141,7 +141,7 @@
 	glass_colour_type = /datum/client_colour/glass_colour/darkred
 
 /obj/item/clothing/glasses/hud/security/night
-	name = "секьюрити HUD с ПНВ"
+	name = "HUD офицера с ПНВ"
 	desc = "Усовершенствованный головной дисплей, который обеспечивает идентификационные данные и видение в полной темноте."
 	icon_state = "securityhudnight"
 	darkness_view = 8

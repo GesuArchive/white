@@ -111,7 +111,7 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	if(freq == "Common")
 		return "Основной"
 	else if (freq == "Security")
-		return "Секьюрити"
+		return "Безопасность"
 	else if (freq == "Engineering")
 		return "Инженерия"
 	else if (freq == "Command")
@@ -165,8 +165,8 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 
 /proc/difilexish(message)
 	if(prob(25))
-		message = "Таки-[message]"
-	message = replacetext_char(message, "р", "г")
+		message = "Таки... [message]"
+	message = replacetext_char(message, "р", "г'")
 	return message
 
 /proc/ukrainish(message)
