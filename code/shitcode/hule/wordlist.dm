@@ -30,7 +30,8 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("[global.config.directory]
 
 			if(target.client)
 				inc_metabalance(target, METACOIN_BADWORDS_REWARD, reason="[r_uppertext(W)]...")
-				target.client.prefs.muted |= MUTE_IC
+				if(!ishuman(target))
+					target.client.prefs.muted |= MUTE_IC
 
 			playsound(target.loc,'code/shitcode/hule/SFX/rjach.ogg', 200, 7, pressure_affected = FALSE)
 
