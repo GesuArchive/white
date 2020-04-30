@@ -61,7 +61,7 @@
 
 /obj/item/storage/box/pillpack/antihol
 	name = "Антиголь"
-	illustration = "haloperidol" //todo
+	illustration = "antihol"
 	custom_price = 100
 	blister_list = list(
 						/obj/item/storage/blister/antihol,
@@ -70,7 +70,7 @@
 
 /obj/item/storage/box/pillpack/psicodine
 	name = "Псикодин"
-	illustration = "haloperidol" //todo
+	illustration = "psicodine"
 	custom_price = 300
 	blister_list = list(
 						/obj/item/storage/blister/psicodine,
@@ -79,7 +79,7 @@
 
 /obj/item/storage/box/pillpack/potassiodide
 	name = "Йодид калия"
-	illustration = "haloperidol" //todo
+	illustration = "potassiodide"
 	custom_price = 100
 	blister_list = list(
 						/obj/item/storage/blister/potassiodide
@@ -87,7 +87,7 @@
 
 /obj/item/storage/box/pillpack/stimulant
 	name = "Стимулянты"
-	illustration = "haloperidol" //todo
+	illustration = "stimulant"
 	custom_price = 1000
 	blister_list = list(
 						/obj/item/storage/blister/stimulant
