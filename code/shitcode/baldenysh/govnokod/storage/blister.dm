@@ -1,7 +1,7 @@
 /obj/item/storage/blister
 	name = "блистерная упаковка"
 	desc = "Прозрачная."
-	icon = 'code/shitcode/baldenysh/icons/obj/pillstorage.dmi'
+	icon = 'code/shitcode/baldenysh/icons/obj/blister.dmi'
 	icon_state = "foilplastic"
 	item_state = null
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -94,17 +94,16 @@
 /obj/item/storage/blister/stimulant
 	name = "блистерная упаковка (Стимулянты)"
 	pill_list = list(
-					list(pilltype = /obj/item/reagent_containers/pill/stimulant, pillstate = "long", posx = -6, posy = -4),
-					list(pilltype = /obj/item/reagent_containers/pill/stimulant, pillstate = "long", posx = 4, posy = 8)
+					list(pilltype = /obj/item/reagent_containers/pill/stimulant, pillstate = "long", posx = -5, posy = -5),
+					list(pilltype = /obj/item/reagent_containers/pill/stimulant, pillstate = "long", posx = 5, posy = 7)
 					)
-	custom_price = 1000
 
 /obj/item/storage/blister/psicodine
 	name = "блистерная упаковка (Псикодин)"
 	pill_list = list(
-					list(pilltype = /obj/item/reagent_containers/pill/psicodine, pillstate = "long", posx = -6, posy = -4),
-					list(pilltype = /obj/item/reagent_containers/pill/psicodine, pillstate = "long", posx = -1, posy = 2),
-					list(pilltype = /obj/item/reagent_containers/pill/psicodine, pillstate = "long", posx = 4, posy = 8)
+					list(pilltype = /obj/item/reagent_containers/pill/psicodine, pillstate = "long", posx = -5, posy = -5,
+					list(pilltype = /obj/item/reagent_containers/pill/psicodine, pillstate = "long", posx = 0, posy = 1),
+					list(pilltype = /obj/item/reagent_containers/pill/psicodine, pillstate = "long", posx = 5, posy = 7)
 					)
 
 /obj/item/storage/blister/potassiodide

@@ -36,7 +36,7 @@
 
 					)
 	premium = list(
-					/obj/item/storage/blister/stimulant = 1
+					/obj/item/storage/box/pillpack/stimulant = 1
 
 					)
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
