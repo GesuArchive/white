@@ -2,7 +2,7 @@
 	if(stat == DEAD)
 		return
 
-	var/sound/S = null
+	var/sound/S
 	S.channel = CHANNEL_BATTLETENSION
 	S.volume = 0
 	DIRECT_OUTPUT(src, S)
