@@ -248,7 +248,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		deaf_type = 2 // Since you should be able to hear yourself without looking
 
 	// Create map text prior to modifying message for goonchat
-	if (client?.prefs.chat_on_map && stat != UNCONSCIOUS && (client.prefs.see_chat_non_mob || ismob(speaker)) && can_hear() || isdead(src))
+	if (client?.prefs.chat_on_map && stat != UNCONSCIOUS && (client.prefs.see_chat_non_mob || ismob(speaker)) && can_hear() || isdead(src) || GLOB.chat_bubbles)
 		create_chat_message(speaker, message_language, raw_message, spans, message_mode)
 
 	// Recompose message for AI hrefs, language incomprehension.
