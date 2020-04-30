@@ -49,6 +49,12 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		pick_sound()
 		return
 
+	if(owner.stat == DEAD)
+		bm.volume = 0
+		bm.status = SOUND_UPDATE
+		SEND_SOUND(owner, bm)
+		return
+
 	var/area/AR = get_area(owner)
 
 	if(AR.area_tension || AR.forced_area_tension)
