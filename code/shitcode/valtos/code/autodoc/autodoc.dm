@@ -113,13 +113,13 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	avg = round(list_avg(P), 1)
 	switch(avg)
 		if(2)
-			speed_mult = 3.5
+			speed_mult = 0.9
 		if(3)
-			speed_mult = 2.5
+			speed_mult = 0.7
 		if(4)
-			speed_mult = 1.5
+			speed_mult = 0.5
 		else
-			speed_mult = 1
+			speed_mult = 0.2
 	for(var/obj/item/stock_parts/matter_bin/M in component_parts)
 		P += M.get_part_rating()
 	max_storage = round(list_avg(P), 1)
