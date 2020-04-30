@@ -58,7 +58,7 @@
 	if(mind && mind.name && mind.active && !istype(T.loc, /area/ctf))
 		deadchat_broadcast(" помер в <b>[get_area_name(T)]</b>.", "<b>[mind.name]</b>", follow_target = src, turf_target = T, message_type=DEADCHAT_DEATHRATTLE)
 	if(mind)
-		mind.store_memory("Time of death: [tod]", 0)
+		mind.store_memory("Время смерти: [tod]", 0)
 	remove_from_alive_mob_list()
 	if(!gibbed && !was_dead_before)
 		add_to_dead_mob_list()

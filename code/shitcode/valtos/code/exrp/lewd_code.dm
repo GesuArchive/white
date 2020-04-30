@@ -314,7 +314,7 @@
 				set_is_fucking(partner , THIGH_SMOTHERING)
 			partner.adjustOxyLoss(1)
 
-	visible_message("<b>[capitalize(src)]</b> [message]")
+	visible_message("<b>[capitalize(src.name)]</b> [message]")
 	playsound(get_turf(src), stp, 50, 1, -1)
 	handle_post_sex(lust_increase, c_target, partner)
 	partner.handle_post_sex(lust_increase, c_target, src)
@@ -323,8 +323,8 @@
 
 /mob/proc/get_shoes()
 	var/obj/A = get_item_by_slot(ITEM_SLOT_FEET)
-	if(findtext (A.name,"the"))
-		return copytext(A.name, 3, (length(A.name)) + 1)
+	if(findtext_char(A.name,"the"))
+		return copytext_char(A.name, 3, (length(A.name)) + 1)
 	else
 		return A.name
 

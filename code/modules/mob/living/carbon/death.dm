@@ -2,7 +2,10 @@
 	if(stat == DEAD)
 		return
 
-	DIRECT_OUTPUT(src, sound(null))
+	var/sound/S = null
+	S.channel = CHANNEL_BATTLETENSION
+	S.volume = 0
+	DIRECT_OUTPUT(src, S)
 
 	silent = FALSE
 	losebreath = 0

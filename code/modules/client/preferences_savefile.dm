@@ -202,7 +202,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["pda_color"]			>> pda_color
 	S["fullscreen"]	    	>> fullscreen
 	S["btprefsnew"]			>> btprefsnew
-	S["btvolume"]			>> btvolume
+	S["btvolume_max"]		>> btvolume_max
 
 	S["purchased_gear"]		>> purchased_gear
 	S["equipped_gear"]		>> equipped_gear
@@ -303,7 +303,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["key_bindings"], key_bindings)
 	WRITE_FILE(S["fullscreen"], fullscreen)
 	WRITE_FILE(S["btprefsnew"], btprefsnew)
-	WRITE_FILE(S["btvolume"], btvolume)
+	WRITE_FILE(S["btvolume_max"], btvolume_max)
 	WRITE_FILE(S["purchased_gear"], purchased_gear)
 	WRITE_FILE(S["equipped_gear"], equipped_gear)
 	return TRUE

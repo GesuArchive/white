@@ -71,7 +71,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		tension--
 
 	if(bm)
-		bm.volume = min(tension, owner.client.prefs.btvolume)
+		bm.volume = min(tension, owner.client.prefs.btvolume_max)
 		bm.status = SOUND_UPDATE
 		SEND_SOUND(owner, bm)
 
@@ -170,9 +170,6 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	if(!owner || !owner.client || !owner.client.prefs)
 		return
 
-	if(owner.client.prefs.btvolume == null)
-		owner.client.prefs.btvolume = 50
-
 	var/list/result = list()
 	var/list/genres = owner.client.prefs.btprefsnew
 
@@ -205,7 +202,8 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	var/list/genres = list(PRIKOL, TECHNO, TOUHOU, MORTAL, NAZIST)
 	var/settings
 
-	if(prefs.btprefsnew == null)
+	if(prefs.btvolume_max == null)
+		prefs.btvolume_max = 10
 		prefs.btprefsnew = genres
 		prefs.save_preferences()
 
@@ -220,7 +218,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		else
 			menu += genre + " OFF"
 
-	menu += "Громкость: [prefs.btvolume]%"
+	menu += "Громкость: [prefs.btvolume_max]%"
 
 	var/selected = input("BT Customization") as null|anything in menu
 	if(!selected)
@@ -232,8 +230,8 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	if(selected == "Громкость:")
 		var/new_volume = input(usr, "Громкость", null) as num|null
 		if(new_volume)
-			prefs.btvolume = max(0, min(100, new_volume))
-			to_chat(usr, "<span class='danger'>Выбрана максимальная громкость в [prefs.btvolume]%.</span>")
+			prefs.btvolume_max = max(0, min(100, new_volume))
+			to_chat(usr, "<span class='danger'>Выбрана максимальная громкость в [prefs.btvolume_max]%.</span>")
 	else if(selected in settings)
 		settings -= selected
 		to_chat(usr, "<span class='danger'>Больше не хочу [selected].</span>")

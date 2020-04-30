@@ -7,8 +7,8 @@
 
 // Отрицательные награды
 #define METACOIN_TEETH_REWARD      		-5   // потеря зубика
-#define METACOIN_SUPERDEATH_REWARD      -50  // смерть от суперматерии
-#define METACOIN_BADWORDS_REWARD        -90  // сказал плохое слово
-#define METACOIN_NUKEDEATH_REWARD       -150 // смерть от ядерной бомбы
-#define METACOIN_CHASM_REWARD 			-250 // падение в пропасть
-#define METACOIN_SUICIDE_REWARD      	-300 // суицид
+#define METACOIN_SUPERDEATH_REWARD      -30  // смерть от суперматерии
+#define METACOIN_BADWORDS_REWARD        -40  // сказал плохое слово
+#define METACOIN_NUKEDEATH_REWARD       -60 // смерть от ядерной бомбы
+#define METACOIN_CHASM_REWARD 			-90 // падение в пропасть
+#define METACOIN_SUICIDE_REWARD      	-100 // суицид
