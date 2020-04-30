@@ -6,6 +6,7 @@
 	item_state = null
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	custom_materials = list(/datum/material/plastic = 100)
 	w_class = WEIGHT_CLASS_TINY
 
 	var/list/pill_list = list()
