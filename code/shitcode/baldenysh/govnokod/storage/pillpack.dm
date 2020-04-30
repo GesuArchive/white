@@ -1,7 +1,7 @@
 /obj/item/storage/box/pillpack
 	name = "пачка таблеток"
 	desc = "Картонная пачка."
-	icon = 'code/shitcode/baldenysh/icons/obj/pillstorage.dmi'
+	icon = 'code/shitcode/baldenysh/icons/obj/pillpack.dmi'
 	icon_state = "pillpack"
 	item_state = "syringe_kit"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -85,7 +85,13 @@
 						/obj/item/storage/blister/potassiodide
 						)
 
-
+/obj/item/storage/box/pillpack/stimulant
+	name = "Стимулянты"
+	illustration = "haloperidol" //todo
+	custom_price = 1000
+	blister_list = list(
+						/obj/item/storage/blister/stimulant
+						)
 
 
 

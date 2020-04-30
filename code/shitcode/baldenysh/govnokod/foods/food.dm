@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/food/snacks/lcube
 	name = "Куб личинок в панировке"
-	desc = "Мы - одна галактика. Мираторг. \n Лучше бы разогреть перед употреблением."
+	desc = "Мы - одна галактика. Мираторг."
 	icon = 'code/shitcode/baldenysh/icons/obj/foods.dmi'
 	icon_state = "lcube"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4)
@@ -19,7 +19,7 @@
 	foodtype = MEAT | FRIED
 
 /obj/item/storage/box/lcubes
-	name = "упаковка спресованных личинок в панировке"
+	name = "Упаковка спрессованных личинок в панировке"
 	desc = "Обязательно разогреть в микроволновке перед употреблением."
 	icon = 'code/shitcode/baldenysh/icons/obj/foods.dmi'
 	icon_state = "plasticbox"
