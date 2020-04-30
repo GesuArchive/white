@@ -38420,6 +38420,14 @@
 /obj/machinery/nuclearbomb/beer,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
+"mjw" = (
+/obj/machinery/door/window/eastright{
+	name = "Hydroponics Delivery";
+	req_access_txt = "35"
+	},
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/hydroponics)
 "mtI" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/yellow/visible{
@@ -39094,6 +39102,16 @@
 	},
 /turf/open/floor/plasteel,
 /area/medical/chemistry)
+"oCX" = (
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;dir=2";
+	freq = 1400;
+	location = "Hydroponics"
+	},
+/obj/structure/plasticflaps/opaque,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plasteel,
+/area/hydroponics)
 "oEV" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -81565,8 +81583,8 @@ aDX
 alP
 aGH
 avI
-aaa
-aaa
+oCX
+mjw
 aaa
 aaa
 aaa
