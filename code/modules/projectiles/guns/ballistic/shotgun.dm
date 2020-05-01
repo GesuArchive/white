@@ -63,13 +63,6 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/com
 	w_class = WEIGHT_CLASS_HUGE
 
-/obj/item/gun/ballistic/shotgun/automatic/combat/compact
-	name = "укороченный боевой дробовик"
-	desc = "Мелкая версия боевого дробовика. Для близких встреч."
-	icon_state = "cshotgunc"
-	mag_type = /obj/item/ammo_box/magazine/internal/shot/com/compact
-	w_class = WEIGHT_CLASS_BULKY
-
 //Dual Feed Shotgun
 
 /obj/item/gun/ballistic/shotgun/automatic/dual_tube
