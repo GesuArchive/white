@@ -45,6 +45,7 @@
 /datum/blackmarket_item/tool/brped
 	name = "РПЕД с деталями"
 	desc = "РПЕД содержащий передовые запчасти для машин"
+	item = /obj/item/storage/part_replacer/bluespace/tier3
 
 	price_min = 5000
 	price_max = 15000
@@ -53,19 +54,19 @@
 	availability_prob = 100
 
 /datum/blackmarket_item/tool/brped/spawn_item(loc)
-	var/brped = lis(pick(/obj/item/storage/part_replacer/bluespace/tier3,
+	var/rped = pick(list(/obj/item/storage/part_replacer/bluespace/tier3,
 			/obj/item/storage/part_replacer/bluespace/tier4))
-	return new brped
+	return new rped(loc)
 
 /datum/blackmarket_item/tool/toolbox
 	name = "Случайный Тулбокс"
 	desc = "Может содержать синдикатовский тулбокс"
 	item = /obj/item/storage/toolbox
 
-	price_min = 500
+	price_min = 100
 	price_max = 1000
 	stock_min = 1
-	stock_max = 10
+	stock_max = 25
 	availability_prob = 100
 
 /datum/blackmarket_item/tool/toolbox/spawn_item(loc)
@@ -75,9 +76,8 @@
 			/obj/item/storage/toolbox/mechanical/old,
 			/obj/item/storage/toolbox/mechanical/old/clean,
 			/obj/item/storage/toolbox/electrical,
-			/obj/item/storage/toolbox/syndicate,
-			/obj/item/storage/toolbox/artistic))
-	return new toolbox
+			/obj/item/storage/toolbox/syndicate))
+	return new toolbox(loc)
 
 
 /datum/blackmarket_item/tool/thermite_bottle

@@ -5,6 +5,7 @@
 /datum/blackmarket_item/misc/allresources
 	name = "Шкаф со всеми ресурсами"
 	desc = "Все возможные ресурсы только для вас!"
+	item = /obj/structure/closet/syndicate/resources/everything
 
 	price_min = 50000
 	price_max = 200000
@@ -51,7 +52,6 @@
 /datum/blackmarket_item/misc/emag
 	name = "Криптографическая хуйня"
 	desc = "Чё это блять?"
-	item = /obj/item/card/emag 
 
 	price_min = 10000
 	price_max = 25000

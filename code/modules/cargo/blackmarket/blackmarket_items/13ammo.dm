@@ -19,7 +19,7 @@
 			/obj/item/ammo_box/magazine/m10mm/hp,
 			/obj/item/ammo_box/magazine/m10mm/ap,
 			/obj/item/ammo_box/magazine/m45))
-	return new pistolammo
+	return new pistolammo(loc)
 
 /datum/blackmarket_item/ammo/m9mm
 	name = "Пистолетный магазин (9mm)"
@@ -57,7 +57,7 @@
 /datum/blackmarket_item/ammo/a357/spawn_item(loc)
 	var/a3579ammo = pick(list(/obj/item/ammo_box/a357,
 			/obj/item/ammo_box/a357/match))
-	return new a3579ammo
+	return new a3579ammo(loc)
 
 /datum/blackmarket_item/ammo/c38
 	name = "Быстрый сьёмный магазин для револьвера (.38)"
@@ -78,7 +78,7 @@
 			/obj/item/ammo_box/c38/dumdum,
 			/obj/item/ammo_box/c38/hotshot,
 			/obj/item/ammo_box/c38/iceblox))
-	return new c38ammo
+	return new c38ammo(loc)
 
 /datum/blackmarket_item/ammo/wt550m9
 	name = "Магазин для СМГ (4.6x30mm)"
@@ -95,7 +95,7 @@
 	var/wt550m9ammo = pick(list(/obj/item/ammo_box/magazine/wt550m9,
 			/obj/item/ammo_box/magazine/wt550m9/wtap,
 			/obj/item/ammo_box/magazine/wt550m9/wtic))
-	return new wt550m9ammo
+	return new wt550m9ammo(loc)
 
 /datum/blackmarket_item/ammo/smgm9mm
 	name = "Магазин для СМГ (9мм)"
@@ -112,7 +112,7 @@
 	var/smgammo9mm = pick(list(/obj/item/ammo_box/magazine/smgm9mm,
 			/obj/item/ammo_box/magazine/smgm9mm/ap,
 			/obj/item/ammo_box/magazine/smgm9mm/fire))
-	return new smgammo9mm
+	return new smgammo9mm(loc)
 
 /datum/blackmarket_item/ammo/smgm9mm
 	name = "Магазин для СМГ (.45)"
@@ -199,7 +199,7 @@
 			/obj/item/ammo_box/magazine/m12g/bioterror,
 			/obj/item/ammo_box/magazine/m12g/meteor,
 			/obj/item/ammo_box/magazine/m12g/limitka))
-	return new bulldogammo
+	return new bulldogammo(loc)
 
 /datum/blackmarket_item/ammo/mm712x82
 	name = "Коробочный магазин (7.12x82mm)"
@@ -218,7 +218,7 @@
 			/obj/item/ammo_box/magazine/mm712x82/ap,
 			/obj/item/ammo_box/magazine/mm712x82/incen,
 			/obj/item/ammo_box/magazine/mm712x82/match))
-	return new lmgammo
+	return new lmgammo(loc)
 
 /datum/blackmarket_item/ammo/egunrecharge
 	name = "Энергетический самозаряжающийся магазин"
@@ -246,4 +246,4 @@
 	var/sniperammo = pick(list(/obj/item/ammo_box/magazine/sniper_rounds,
 			/obj/item/ammo_box/magazine/sniper_rounds/soporific,
 			/obj/item/ammo_box/magazine/sniper_rounds/penetrator))
-	return new sniperammo
+	return new sniperammo(loc)

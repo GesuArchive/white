@@ -66,7 +66,7 @@
 			/obj/item/gun/energy/tesla_revolver,
 			/obj/item/gun/energy/kinetic_accelerator/crossbow,
 			/obj/item/gun/energy/kinetic_accelerator/crossbow/large))
-	return new egun
+	return new egun(loc)
 
 /datum/blackmarket_item/weapon/tgun
 	name = "Случайное Тазер/Дизаблер"
@@ -83,6 +83,6 @@
 	var/tgun = pick(list(/obj/item/gun/energy/taser,
 			/obj/item/gun/energy/e_gun/advtaser,
 			/obj/item/gun/energy/disabler))
-	return new tgun
+	return new tgun(loc)
 
 
