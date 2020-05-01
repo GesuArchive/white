@@ -3079,6 +3079,7 @@
 #include "code\shitcode\R3801U710N.dm"
 #include "code\shitcode\webhook.dm"
 #include "code\shitcode\adept\cerebullum_altering_pill.dm"
+#include "code\shitcode\baldenysh\govnokod\boombox.dm"
 #include "code\shitcode\baldenysh\govnokod\vending.dm"
 #include "code\shitcode\baldenysh\govnokod\chem\pills.dm"
 #include "code\shitcode\baldenysh\govnokod\chem\reagents.dm"
