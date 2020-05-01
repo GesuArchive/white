@@ -395,7 +395,13 @@
 				for(var/I in contents)
 					var/atom/A = I
 					if(!QDELETED(A))
-						A.ex_act(severity)
+						switch(severity)
+							if(EXPLODE_DEVASTATE)
+								SSexplosions.highobj += A
+							if(EXPLODE_HEAVY)
+								SSexplosions.medobj += A
+							if(EXPLODE_LIGHT)
+								SSexplosions.lowobj += A
 				gib()
 				return
 			else
@@ -824,7 +830,7 @@
 		to_chat(src, "<span class='info'>Похоже [damaged_message] [damaged_plural ? "имеет" : "имеют"] повреждения.</span>")
 
 	if(roundstart_quirks.len)
-		to_chat(src, "<span class='notice'>Я имею черты: [get_trait_string()].</span>")
+		to_chat(src, "<span class='notice'>Я имею черты: [get_trait_string(FALSE, CAT_QUIRK_ALL)].</span>")
 
 /mob/living/carbon/human/damage_clothes(damage_amount, damage_type = BRUTE, damage_flag = 0, def_zone)
 	if(damage_type != BRUTE && damage_type != BURN)

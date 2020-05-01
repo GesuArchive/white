@@ -191,7 +191,7 @@ GENE SCANNER
 				trauma_text += trauma_desc
 			render_list += "<span class='alert ml-1'>Церебральные травмы обнаружены: пациент страдает от [english_list(trauma_text)].</span>\n"
 		if(C.roundstart_quirks.len)
-			render_list += "<span class='info ml-1'>Пациент имеет данные психологические черты: [C.get_trait_string()].</span>\n"
+			render_list += "<span class='info ml-1'>Пациент имеет данные психологические черты: [C.get_trait_string(FALSE, CAT_QUIRK_ALL)].</span>\n"
 	if(advanced)
 		render_list += "<span class='info ml-1'>Уровень активности мозга: [(200 - M.getOrganLoss(ORGAN_SLOT_BRAIN))/2]%.</span>\n"
 
