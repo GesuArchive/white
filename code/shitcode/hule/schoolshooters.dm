@@ -29,7 +29,7 @@
 /datum/outfit/schoolshooter/typetwo
 	name = "Schoolshooter 2"
 
-	suit_store = /obj/item/gun/ballistic/shotgun/automatic/combat/compact
+	suit_store = /obj/item/gun/ballistic/shotgun/automatic/combat
 	backpack_contents = list(
 								/obj/item/grenade/iedcasing = 3,
 								/obj/item/storage/box/lethalshot = 3,
