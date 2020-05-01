@@ -11,10 +11,10 @@
 	var/list/rangers = list()
 	var/sound/bbsound = null
 	var/active = FALSE
+	var/env_sound = FALSE
 	var/obj/item/card/music/disk
 	var/playing_range = 12
 	var/volume = 100
-	var/env_sound = 0
 	var/bbchannel = 0
 
 /obj/item/boombox/single
@@ -150,7 +150,7 @@
 	active = TRUE
 
 /obj/item/boombox/proc/stopsound()
-	for(var/mob/M in rangers)
+	for(var/mob/M)
 		if(!M.client)
 			continue
 
@@ -190,7 +190,9 @@
 							"<span class='notice'>Вставляю диск в музыкальный автомат.</span>")
 		playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 		return TRUE
-/*
+
+
+
 /obj/item/boombox/attack_self(mob/user)
 	. = ..()
 	ui_interact(user)
@@ -219,8 +221,55 @@
 	var/datum/browser/popup = new(user, "vending", "[name]", 400, 350)
 	popup.set_content(dat.Join())
 	popup.open()
-*/
 
+/obj/item/boombox/Topic(href, href_list)
+	if(..())
+		return
+	add_fingerprint(usr)
+	switch(href_list["action"])
+		if("toggle")
+			if (QDELETED(src))
+				return
+			if(!active)
+				startsound()
+			else if(active)
+				stopsound()
+
+		if("select")
+			var/list/available = list()
+			for(var/datum/track/S in songs)
+				available[S.song_name] = S
+
+			if(disk)
+				if(disk.data)
+					available[disk.data.song_name] = disk.data
+
+			var/selected = input(usr, "Выбирай мудро", "Трек:") as null|anything in available
+			if(QDELETED(src) || !selected || !istype(available[selected], /datum/track))
+				return
+			if(active)
+				stopsound()
+			selection = available[selected]
+
+		if("eject")
+			if(disk)
+				disk.loc = src.loc
+				if(active)
+					stopsound()
+				if(selection == disk.data)
+					selection = null
+				disk = null
+
+		if("volume")
+			var/new_volume = input(usr, "Громкость", null) as num|null
+			if(new_volume)
+				set_volume(clamp(new_volume, 0, 100))
+
+		if("env")
+			env_sound = !env_sound
+
+	updateUsrDialog()
+/*
 /obj/item/boombox/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
@@ -231,7 +280,7 @@
 	var/list/data = list()
 
 	data["active"] = active
-	data["disk"] = disk
+	data["disk"] = 0 disk ? 1 : 0
 	data["volume"] = volume
 	data["name"] = selection ? selection.song_name : "Ничего"
 	data["length"] = selection ? (selection.song_length ? selection.song_length : 0) : 0
@@ -245,8 +294,6 @@
 	. = TRUE
 	switch(action)
 		if("toggle")
-			if (QDELETED(src))
-				return
 			if(!active)
 				startsound()
 			else
@@ -283,5 +330,4 @@
 
 		if("env")
 			env_sound = !env_sound
-
-
+*/
