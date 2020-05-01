@@ -172,7 +172,7 @@
 	active = FALSE
 
 /obj/item/boombox/proc/set_volume(var/vol)
-	bbsound = vol
+	volume = vol
 	for(var/mob/M in rangers)
 		if(!M.client)
 			continue
