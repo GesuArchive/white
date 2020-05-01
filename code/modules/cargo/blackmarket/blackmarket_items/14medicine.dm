@@ -149,3 +149,14 @@
 	price_min = 250
 	price_max = 550
 	availability_prob = 30
+
+/datum/blackmarket_item/medicine/sleeperboard
+	name = "Плата Слипера"
+	desc = "Плата слипера которого заменила крио-камера"
+	item = /obj/item/circuitboard/machine/sleeper
+
+	stock_min = 1
+	stock_max = 3
+	price_min = 2500
+	price_max = 10000
+	availability_prob = 70

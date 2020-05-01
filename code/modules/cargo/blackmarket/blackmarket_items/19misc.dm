@@ -2,25 +2,15 @@
 	markets = list(/datum/blackmarket_market/blackmarket)
 	category = "Прочее"
 
-/datum/blackmarket_item/misc/cap_gun
-	name = "Игрушечный пистолет"
-	desc = "Пистолет для пранков"
-	item = /obj/item/toy/gun
+/datum/blackmarket_item/misc/allresources
+	name = "Шкаф со всеми ресурсами"
+	desc = "Все возможные ресурсы только для вас!"
 
-	price_min = 50
-	price_max = 200
-	stock_max = 6
-	availability_prob = 80
-
-/datum/blackmarket_item/misc/shoulder_holster
-	name = "Кобура"
-	desc = "Для истинных кокбоев"
-	item = /obj/item/storage/belt/holster
-
-	price_min = 400
-	price_max = 800
-	stock_max = 8
-	availability_prob = 60
+	price_min = 50000
+	price_max = 200000
+	stock_min = 3
+	stock_max = 1
+	availability_prob = 100
 
 /datum/blackmarket_item/misc/holywater
 	name = "Склянка священной воды"
@@ -57,3 +47,14 @@
 	price_max = 1000
 	stock_max = 2
 	availability_prob = 30
+
+/datum/blackmarket_item/misc/emag
+	name = "Криптографическая хуйня"
+	desc = "Чё это блять?"
+	item = /obj/item/card/emag 
+
+	price_min = 10000
+	price_max = 25000
+	stock_min = 1
+	stock_max = 2
+	availability_prob = 50

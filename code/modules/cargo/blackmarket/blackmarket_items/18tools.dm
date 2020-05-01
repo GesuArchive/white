@@ -10,7 +10,7 @@
 
 	price_min = 400
 	price_max = 800
-	availability_prob = 20
+	availability_prob = 100
 
 /datum/blackmarket_item/tool/caravan_wirecutters
 	name = "Экспериментальные кусачки"
@@ -20,7 +20,7 @@
 
 	price_min = 400
 	price_max = 800
-	availability_prob = 20
+	availability_prob = 100
 
 /datum/blackmarket_item/tool/caravan_screwdriver
 	name = "Экспериментальная отвёртка"
@@ -30,7 +30,7 @@
 
 	price_min = 400
 	price_max = 800
-	availability_prob = 20
+	availability_prob = 100
 
 /datum/blackmarket_item/tool/caravan_crowbar
 	name = "Экспериментальный ломик"
@@ -40,30 +40,48 @@
 
 	price_min = 400
 	price_max = 800
-	availability_prob = 20
+	availability_prob = 100
 
-/datum/blackmarket_item/tool/binoculars
-	name = "Бинокли"
-	desc = "С помощью биноклей можно видеть дальше чем может видеть обычный глаз человека"
-	item = /obj/item/binoculars
-	stock = 1
+/datum/blackmarket_item/tool/brped
+	name = "РПЕД с деталями"
+	desc = "РПЕД содержащий передовые запчасти для машин"
 
-	price_min = 400
-	price_max = 960
-	availability_prob = 30
+	price_min = 5000
+	price_max = 15000
+	stock_min = 1
+	stock_max = 10
+	availability_prob = 100
 
-/datum/blackmarket_item/tool/riot_shield
-	name = "Щит спецназа"
-	desc = "Для защиты от бунта"
-	item = /obj/item/shield/riot
+/datum/blackmarket_item/tool/brped/spawn_item(loc)
+	var/brped = lis(pick(/obj/item/storage/part_replacer/bluespace/tier3,
+			/obj/item/storage/part_replacer/bluespace/tier4))
+	return new brped
 
-	price_min = 450
-	price_max = 650
-	stock_max = 2
-	availability_prob = 50
+/datum/blackmarket_item/tool/toolbox
+	name = "Случайный Тулбокс"
+	desc = "Может содержать синдикатовский тулбокс"
+	item = /obj/item/storage/toolbox
+
+	price_min = 500
+	price_max = 1000
+	stock_min = 1
+	stock_max = 10
+	availability_prob = 100
+
+/datum/blackmarket_item/tool/toolbox/spawn_item(loc)
+	var/toolbox = pick(list(/obj/item/storage/toolbox/emergency,
+			/obj/item/storage/toolbox/emergency/old,
+			/obj/item/storage/toolbox/mechanical,
+			/obj/item/storage/toolbox/mechanical/old,
+			/obj/item/storage/toolbox/mechanical/old/clean,
+			/obj/item/storage/toolbox/electrical,
+			/obj/item/storage/toolbox/syndicate,
+			/obj/item/storage/toolbox/artistic))
+	return new toolbox
+
 
 /datum/blackmarket_item/tool/thermite_bottle
-	name = "Бцтылочка с термитом"
+	name = "Бутылочка с термитом"
 	desc = "Дыроёб"
 	item = /obj/item/reagent_containers/glass/bottle/thermite
 
