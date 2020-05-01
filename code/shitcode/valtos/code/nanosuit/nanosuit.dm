@@ -984,7 +984,7 @@
 		return
 	return ..()
 
-/obj/item/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback)
+/obj/item/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, quickstart = TRUE)
 	if(thrower && ishuman(thrower))
 		var/mob/living/carbon/human/H = thrower
 		if(istype(H.wear_suit, /obj/item/clothing/suit/space/hardsuit/nano))
