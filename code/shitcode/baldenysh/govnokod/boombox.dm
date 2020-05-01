@@ -269,7 +269,7 @@
 		if("volume")
 			var/new_volume = input(usr, "Громкость", null) as num|null
 			if(new_volume)
-				set_volume(clamp(new_volume, 0, 100))
+				set_volume(max(0, min(100, new_volume)))
 
 		if("env")
 			env_sound = !env_sound
