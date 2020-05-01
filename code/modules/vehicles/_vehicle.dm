@@ -73,7 +73,7 @@
 /obj/vehicle/proc/driver_amount()
 	return return_amount_of_controllers_with_flag(VEHICLE_CONTROL_DRIVE)
 
-/obj/vehicle/proc/is_driver(mob/M)
+/obj/vehicle/proc/is_driver(mob/M, control_flags)
 	add_control_flags(M, control_flags)
 	return is_occupant(M) && occupants[M] & VEHICLE_CONTROL_DRIVE
 
