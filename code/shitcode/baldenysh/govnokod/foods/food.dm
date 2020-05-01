@@ -4,7 +4,7 @@
 	icon = 'code/shitcode/baldenysh/icons/obj/foods.dmi'
 	icon_state = "lcube"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4)
-	cooked_type = /obj/item/reagent_containers/food/snacks/donkpocket/warm
+	cooked_type = /obj/item/reagent_containers/food/snacks/lcube/warm
 	filling_color = "#FFF"
 	tastes = list("мясо" = 1, "личинки" = 2)
 	foodtype = MEAT | GROSS
