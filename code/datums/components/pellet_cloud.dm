@@ -204,11 +204,11 @@
 	for(var/atom/target in targets_hit)
 		var/num_hits = targets_hit[target]
 		if(num_hits > 1)
-			target.visible_message("<span class='danger'>[target] is hit by [num_hits] [proj_name]s!</span>", null, null, COMBAT_MESSAGE_RANGE, target)
-			to_chat(target, "<span class='userdanger'>You're hit by [num_hits] [proj_name]s!</span>")
+			target.visible_message("<span class='danger'>В <b>[target]</b> попадает [num_hits] <b>[proj_name]</b>!</span>", null, null, COMBAT_MESSAGE_RANGE, target)
+			to_chat(target, "<span class='userdanger'>В меня попадает [num_hits] <b>[proj_name]</b>!</span>")
 		else
-			target.visible_message("<span class='danger'>[target] is hit by a [proj_name]!</span>", null, null, COMBAT_MESSAGE_RANGE, target)
-			to_chat(target, "<span class='userdanger'>You're hit by [num_hits] [proj_name]s!</span>")
+			target.visible_message("<span class='danger'>В <b>[target]</b> попадает [proj_name]!</span>", null, null, COMBAT_MESSAGE_RANGE, target)
+			to_chat(target, "<span class='userdanger'>В меня попадает [num_hits] [proj_name]s!</span>")
 
 	for(var/M in purple_hearts)
 		var/mob/living/martyr = M
