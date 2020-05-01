@@ -17,13 +17,19 @@
 	var/volume = 100
 	var/bbchannel = 0
 
+/proc/open_sound_channel_for_boombox()
+	var/static/next_channel = CHANNEL_HIGHEST_AVAILABLE
+	. = ++next_channel
+	if(next_channel > CHANNEL_BOOMBOX_AVAILABLE)
+		next_channel = CHANNEL_HIGHEST_AVAILABLE + 1
+
 /obj/item/boombox/single
 	desc = "ти гомик."
 
 /obj/item/boombox/Initialize()
 	. = ..()
 
-	bbchannel = open_sound_channel()
+	bbchannel = open_sound_channel_for_boombox()
 
 	START_PROCESSING(SSobj, src)
 
