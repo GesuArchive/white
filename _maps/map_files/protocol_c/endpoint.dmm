@@ -143,9 +143,6 @@
 /area/centcom/ferry)
 "aw" = (
 /obj/structure/dresser,
-/obj/structure/sign/plaques/golden/captain{
-	pixel_x = 32
-	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -13379,7 +13376,6 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "SW" = (
-/obj/structure/sign/basic,
 /turf/closed/indestructible/syndicate,
 /area/trading_outpost)
 "SY" = (
