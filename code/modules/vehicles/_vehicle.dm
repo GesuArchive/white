@@ -74,6 +74,7 @@
 	return return_amount_of_controllers_with_flag(VEHICLE_CONTROL_DRIVE)
 
 /obj/vehicle/proc/is_driver(mob/M)
+	add_control_flags(M, control_flags)
 	return is_occupant(M) && occupants[M] & VEHICLE_CONTROL_DRIVE
 
 /obj/vehicle/proc/is_occupant(mob/M)
@@ -83,7 +84,6 @@
 	if(!istype(M) || occupants[M])
 		return FALSE
 	occupants[M] = NONE
-	add_control_flags(M, control_flags)
 	after_add_occupant(M)
 	grant_passenger_actions(M)
 	return TRUE
