@@ -463,9 +463,6 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "ba" = (
-/obj/structure/sign/plaques/golden{
-	pixel_y = 32
-	},
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
