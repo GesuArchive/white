@@ -11,6 +11,7 @@
 	var/modifies_speech = FALSE
 	var/static/list/languages_possible_base = typecacheof(list(
 		/datum/language/common,
+		/datum/language/uncommon,
 		/datum/language/draconic,
 		/datum/language/codespeak,
 		/datum/language/monkey,
@@ -59,10 +60,14 @@
 /obj/item/organ/tongue/lizard/handle_speech(datum/source, list/speech_args)
 	var/static/regex/lizard_hiss = new("с+", "g")
 	var/static/regex/lizard_hiSS = new("С+", "g")
+	var/static/regex/lizard_kss = new("к+", "g")
+	var/static/regex/lizard_kSS = new("К+", "g")
 	var/message = speech_args[SPEECH_MESSAGE]
 	if(message[1] != "*")
 		message = lizard_hiss.Replace_char(message, "ссс")
-		message = lizard_hiSS.Replace_char(message, "ССС")
+		message = lizard_hiSS.Replace_char(message, "КСС")
+		message = lizard_kss.Replace_char(message, "ксс")
+		message = lizard_kSS.Replace_char(message, "КСС")
 	speech_args[SPEECH_MESSAGE] = message
 
 /obj/item/organ/tongue/fly

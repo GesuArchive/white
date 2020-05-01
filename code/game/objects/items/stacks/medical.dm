@@ -278,7 +278,7 @@
 	. = ..()
 
 /obj/item/stack/medical/mesh/attack_hand(mob/user)
-	if(!is_open & user.get_inactive_held_item() == src)
+	if(!is_open && user.get_inactive_held_item() == src)
 		to_chat(user, "<span class='warning'>Надо бы открыть <b>[src]</b> сначала.</span>")
 		return
 	. = ..()
