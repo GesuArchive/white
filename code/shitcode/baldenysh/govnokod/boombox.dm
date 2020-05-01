@@ -13,6 +13,7 @@
 	var/active = FALSE
 	var/obj/item/card/music/disk
 	var/playing_range = 12
+	var/volume = 100
 	var/env_sound = 0
 	var/bbchannel = 0
 
@@ -118,7 +119,7 @@
 				S.y = 1
 				S.z = 1
 
-			S.volume = bbsound.volume
+			S.volume = volume
 			S.status = SOUND_UPDATE
 			SEND_SOUND(M, S)
 			return
@@ -140,7 +141,7 @@
 
 	bbsound = S
 
-	for(var/mob/M)
+	for(var/mob/M) //у кого не лагает тот лох
 		if(!M.client)
 			continue
 		SEND_SOUND(M, bbsound)
@@ -165,7 +166,7 @@
 	active = FALSE
 
 /obj/item/boombox/proc/set_volume(var/vol)
-	bbsound.volume = vol
+	bbsound = vol
 	for(var/mob/M in rangers)
 		if(!M.client)
 			continue
@@ -188,9 +189,8 @@
 		user.visible_message("<span class='notice'>[user] вставляет диск в музыкальный автомат.</span>", \
 							"<span class='notice'>Вставляю диск в музыкальный автомат.</span>")
 		playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
-		updateUsrDialog()
 		return TRUE
-
+/*
 /obj/item/boombox/attack_self(mob/user)
 	. = ..()
 	ui_interact(user)
@@ -219,22 +219,38 @@
 	var/datum/browser/popup = new(user, "vending", "[name]", 400, 350)
 	popup.set_content(dat.Join())
 	popup.open()
+*/
 
+/obj/item/boombox/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
+	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
+	if(!ui)
+		ui = new(user, src, ui_key, "BoomBox", name, 400, 350, master_ui, state)
+		ui.open()
 
-/obj/item/boombox/Topic(href, href_list)
+/obj/item/boombox/ui_data(mob/user)
+	var/list/data = list()
+
+	data["active"] = active
+	data["disk"] = disk
+	data["volume"] = volume
+	data["name"] = selection ? selection.song_name : "Ничего"
+	data["length"] = selection ? (selection.song_length ? selection.song_length : 0) : 0
+	data["env"] = env_sound
+
+	return data
+
+/obj/item/boombox/ui_act(action, params)
 	if(..())
 		return
-	add_fingerprint(usr)
-	switch(href_list["action"])
+	. = TRUE
+	switch(action)
 		if("toggle")
 			if (QDELETED(src))
 				return
 			if(!active)
 				startsound()
-				updateUsrDialog()
-			else if(active)
+			else
 				stopsound()
-				updateUsrDialog()
 
 		if("select")
 			var/list/available = list()
@@ -251,7 +267,10 @@
 			if(active)
 				stopsound()
 			selection = available[selected]
-			updateUsrDialog()
+
+		if("change_volume")
+			var/target = text2num(params["volume"])
+			set_volume(clamp(target, 0, 100))
 
 		if("eject")
 			if(disk)
@@ -262,18 +281,7 @@
 					selection = null
 				disk = null
 
-			updateUsrDialog()
-
-		if("volume")
-			var/new_volume = input(usr, "Громкость", null) as num|null
-			if(new_volume)
-				set_volume(max(0, min(100, new_volume)))
-			updateUsrDialog()
-
 		if("env")
 			env_sound = !env_sound
-			updateUsrDialog()
-
-
 
 
