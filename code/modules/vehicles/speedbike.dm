@@ -49,7 +49,6 @@
 	max_occupants = 3
 	max_buckled_mobs = 4
 	var/crash_all = FALSE //CHAOS
-	var/default_driver_move = TRUE
 	pixel_y = -48
 	pixel_x = -48
 
