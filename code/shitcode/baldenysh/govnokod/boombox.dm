@@ -132,7 +132,7 @@
 	S.channel = bbchannel//CHANNEL_CUSTOM_JUKEBOX
 	S.falloff = 8
 	S.wait = 0
-	S.volume = 100
+	S.volume = 0
 	S.status = 0 //SOUND_STREAM
 
 	S.x = 0
