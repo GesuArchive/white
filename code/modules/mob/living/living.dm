@@ -853,11 +853,11 @@
 // Override if a certain type of mob should be behave differently when stripping items (can't, for example)
 /mob/living/stripPanelUnequip(obj/item/what, mob/who, where)
 	if(!what.canStrip(who))
-		to_chat(src, "<span class='warning'>You can't remove \the [what.name], it appears to be stuck!</span>")
+		to_chat(src, "<span class='warning'>Не получается снять <b>[what.name]</b>, похоже оно приделано намертво!</span>")
 		return
-	who.visible_message("<span class='warning'>[src] tries to remove [who]'s [what.name].</span>", \
-					"<span class='userdanger'>[src] tries to remove your [what.name].</span>", null, null, src)
-	to_chat(src, "<span class='danger'>You try to remove [who]'s [what.name]...</span>")
+	who.visible_message("<span class='warning'><b>[src]</b> пытается снять <b>[what.name]</b> с <b>[who]</b>.</span>", \
+					"<span class='userdanger'><b>[src]</b> пытается снять с меня <b>[what.name]</b>.</span>", null, null, src)
+	to_chat(src, "<span class='danger'>Пытаюсь снять <b>[what.name]</b> с <b>[who]</b>...</span>")
 	what.add_fingerprint(src)
 	if(do_mob(src, who, what.strip_delay))
 		if(what && Adjacent(who))
@@ -882,7 +882,7 @@
 /mob/living/stripPanelEquip(obj/item/what, mob/who, where)
 	what = src.get_active_held_item()
 	if(what && (HAS_TRAIT(what, TRAIT_NODROP)))
-		to_chat(src, "<span class='warning'>You can't put \the [what.name] on [who], it's stuck to your hand!</span>")
+		to_chat(src, "<span class='warning'>Не могу надеть <b>[what.name]</b> на <b>[who]</b>, оно застряло в моей руке!</span>")
 		return
 	if(what)
 		var/list/where_list
@@ -895,12 +895,12 @@
 			final_where = where
 
 		if(!what.mob_can_equip(who, src, final_where, TRUE, TRUE))
-			to_chat(src, "<span class='warning'>\The [what.name] doesn't fit in that place!</span>")
+			to_chat(src, "<span class='warning'>Похоже <b>[what.name]</b> не подходит к этому месту!</span>")
 			return
 
-		who.visible_message("<span class='notice'>[src] tries to put [what] on [who].</span>", \
-						"<span class='notice'>[src] tries to put [what] on you.</span>", null, null, src)
-		to_chat(src, "<span class='notice'>You try to put [what] on [who]...</span>")
+		who.visible_message("<span class='notice'><b>[src]</b> пытается надеть <b>[what]</b> на <b>[who]</b>.</span>", \
+						"<span class='notice'><b>[src]</b> пытается надеть <b>[what]</b> на меня.</span>", null, null, src)
+		to_chat(src, "<span class='notice'>Пытаюсь надеть <b>[what]</b> на <b>[who]</b>...</span>")
 		if(do_mob(src, who, what.equip_delay_other))
 			if(what && Adjacent(who) && what.mob_can_equip(who, src, final_where, TRUE, TRUE))
 				if(temporarilyRemoveItemFromInventory(what))
