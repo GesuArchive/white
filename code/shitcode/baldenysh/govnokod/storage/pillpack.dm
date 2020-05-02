@@ -93,7 +93,7 @@
 						/obj/item/storage/blister/stimulant
 						)
 
-/obj/item/storage/box/pillpack/stimulant
+/obj/item/storage/box/pillpack/aspirin
 	name = "Аспирин"
 	illustration = "aspirin"
 	custom_price = 400
