@@ -1,4 +1,4 @@
- //needs gtts module and ffmpeg
+ //needs gtts python module
 
 #define TTS_PATH "code/shitcode/hule/tts"
 
@@ -12,34 +12,8 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	flags = SS_NO_INIT
 	wait = 10
 
-/*
-/proc/tts_files(var/filename, var/msg, var/lang)
-	if(fexists("[TTS_PATH]/voiceq.txt"))
-		fdel("[TTS_PATH]/voiceq.txt")
-
-	var/list/paramslist = list()
-
-	paramslist["msg"] = msg
-	paramslist["name"] = filename
-	paramslist["lang"] = lang
-
-	var/params = list2params(paramslist)
-
-	params = replacetext(params, "&", "\n")
-
-	text2file(params,"[TTS_PATH]/voiceq.txt")
-
-	if(world.system_type == UNIX)
-		world.shelleo("python3 [TTS_PATH]/tts_files.py")
-	else
-		world.shelleo("python [TTS_PATH]/tts_files.py")
-*/
-
 /proc/tts_args(var/name, var/msg, var/lang)
-	if(world.system_type == UNIX)
-		world.shelleo("python3 \"[TTS_PATH]/tts_args.py\" \"[name]\" \"[msg]\" \"[lang]\"")
-	else
-		world.shelleo("python \"[TTS_PATH]/tts_args.py\" \"[name]\" \"[msg]\" \"[lang]\"")
+	world.shelleo("gtts-cli \'[msg]\' -l [lang] -o [TTS_PATH]/lines/[name].ogg ")
 
 /atom/movable/proc/tts(var/msg, var/lang=GLOB.tts_settings[1], var/freq)
 	var/namae
