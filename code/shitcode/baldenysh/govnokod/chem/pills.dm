@@ -15,3 +15,9 @@
 	desc = "Выводит алкоголь из организма."
 	icon_state = "pill7"
 	list_reagents = list(/datum/reagent/medicine/antihol = 5)
+
+/obj/item/reagent_containers/pill/aspirin
+	name = "таблетка Аспирина"
+	desc = "Увеличивает скорость метаболизма и сопротивляемость температурам."
+	icon_state = "pill9"
+	list_reagents = list(/datum/reagent/medicine/aspirin = 10)

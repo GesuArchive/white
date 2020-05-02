@@ -93,5 +93,12 @@
 						/obj/item/storage/blister/stimulant
 						)
 
-
+/obj/item/storage/box/pillpack/stimulant
+	name = "Аспирин"
+	illustration = "aspirin"
+	custom_price = 400
+	blister_list = list(
+						/obj/item/storage/blister/aspirin,
+						/obj/item/storage/blister/aspirin
+						)
 

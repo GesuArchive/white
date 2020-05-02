@@ -117,3 +117,12 @@
 					list(pilltype = /obj/item/reagent_containers/pill/potassiodide, pillstate = "round", posx = 10, posy = 7)
 					)
 
+/obj/item/storage/blister/aspirin
+	name = "блистерная упаковка (Аспирин)"
+	pill_list = list(
+					list(pilltype = /obj/item/reagent_containers/pill/aspirin, pillstate = "round", posx = -4, posy = -7),
+					list(pilltype = /obj/item/reagent_containers/pill/aspirin, pillstate = "round", posx = -5, posy = 1),
+					list(pilltype = /obj/item/reagent_containers/pill/aspirin, pillstate = "round", posx = 3, posy = 0),
+					list(pilltype = /obj/item/reagent_containers/pill/aspirin, pillstate = "round", posx = 2, posy = 8),
+					list(pilltype = /obj/item/reagent_containers/pill/aspirin, pillstate = "round", posx = 10, posy = 7)
+					)
