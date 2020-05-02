@@ -111,3 +111,21 @@
 			/obj/item/nullrod/spear))
 	return new hsword(loc)
 
+/datum/blackmarket_item/melee/crusaderpack
+	name = "Набор крестоносца"
+	desc = "Набор священного воина"
+	item = /obj/item/storage/box
+
+	price_min = 1000
+	price_max = 5000
+	stock_max = 3
+	availability_prob = 70
+
+/datum/blackmarket_item/melee/crusaderpack/spawn_item(loc)
+	var/obj/item/storage/box/B = ..()
+	B.name = "Набор Крестонсца"
+	B.desc = "DEUS VULT!"
+	new /obj/item/clothing/head/helmet/plate/crusader(B)
+	new /obj/item/clothing/suit/armor/plate/crusader(B)
+	new /obj/item/paxee(B)
+	return B
