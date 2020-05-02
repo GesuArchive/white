@@ -17,7 +17,6 @@ GLOBAL_LIST_INIT(anonists, list("valtosss","baldenysh","maxsc","alexs410","alex1
 	var/infofile = "data/player_saves/[ckey[1]]/[ckey]/locinfo.fackuobema"
 	var/curtime = world.realtime
 
-
 	if(fexists(infofile))
 		var/list/params = world.file2list(infofile)
 		if(daysSince(params[1]) > 1)
@@ -36,5 +35,3 @@ GLOBAL_LIST_INIT(anonists, list("valtosss","baldenysh","maxsc","alexs410","alex1
 	var/list/non_pindos_countries = list("Russia", "Ukraine", "Kazakhstan", "Belarus", "Japan", "HTTP Is Not Received")
 	if(!(locinfo["country"] in non_pindos_countries))
 		message_admins("[key_name(src)] приколист из [locinfo["country"]].")
-
-
