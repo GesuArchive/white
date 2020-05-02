@@ -5,4 +5,4 @@
 
 /datum/emote/living/snort/run_emote(mob/user, params)
 	. = ..()
-	playsound(H, 'code/shitcode/baldenysh/sounds/snort.ogg', 50, 1)
+	playsound(user, 'code/shitcode/baldenysh/sounds/snort.ogg', 50, 1)
