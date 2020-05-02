@@ -18,7 +18,7 @@ GLOBAL_LIST_INIT(anonists, list("valtosss","baldenysh","maxsc","alexs410","alex1
 
 	if(fexists(infofile))
 		var/list/params = world.file2list(infofile)
-		if(daysSince(params[1]) > 1)
+		if(daysSince(text2num(params[1])) > 1)
 			fdel(infofile)
 		else
 			return list("country" = params[2], "city" = params[3])
