@@ -12,7 +12,8 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	flags = SS_NO_INIT
 	wait = 10
 
-/proc/tts_core(var/msg, var/filename, var/lang)
+/*
+/proc/tts_files(var/filename, var/msg, var/lang)
 	if(fexists("[TTS_PATH]/voiceq.txt"))
 		fdel("[TTS_PATH]/voiceq.txt")
 
@@ -29,9 +30,16 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	text2file(params,"[TTS_PATH]/voiceq.txt")
 
 	if(world.system_type == UNIX)
-		world.shelleo("python3 [TTS_PATH]/tts.py")
+		world.shelleo("python3 [TTS_PATH]/tts_files.py")
 	else
-		world.shelleo("python [TTS_PATH]/tts.py")
+		world.shelleo("python [TTS_PATH]/tts_files.py")
+*/
+
+/proc/tts_args(var/name, var/msg, var/lang)
+	if(world.system_type == UNIX)
+		world.shelleo("python3 \"[TTS_PATH]/tts_args.py\" \"[name]\" \"[msg]\" \"[lang]\"")
+	else
+		world.shelleo("python \"[TTS_PATH]/tts_args.py\" \"[name]\" \"[msg]\" \"[lang]\"")
 
 /atom/movable/proc/tts(var/msg, var/lang=GLOB.tts_settings[1], var/freq)
 	var/namae
@@ -41,18 +49,16 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 		var/mob/etot = src
 		namae = etot.ckey
 
-	tts_core(msg, namae, lang)
+	tts_args(namae, msg, lang)
 
 	if(fexists("[TTS_PATH]/lines/[namae].ogg"))
 		for(var/mob/M in range(13))
 			var/turf/T = get_turf(src)
 			M.playsound_local(T, "[TTS_PATH]/lines/[namae].ogg", 100, channel = TTS.assigned_channel, frequency = freq)
-		fdel("[TTS_PATH]/lines/[namae].ogg")
-		fdel("[TTS_PATH]/conv/[namae].mp3")
 
 /proc/to_tts(target, message)
 	spawn(0)
-		tts_core(message, "announcer", "ru")
+		tts_args("announcer", message,  "ru")
 		if(fexists("[TTS_PATH]/lines/announcer.ogg"))
 			var/mob/M = target
 			var/turf/T = get_turf(target)
@@ -78,7 +84,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	var/lang
 
 	var/charcd = 0.2 //ticks for one char
-	var/maxchars = 256 //sasai kudosai
+	var/maxchars = 128 //sasai kudosai
 
 	var/assigned_channel
 	var/frequency = 1
