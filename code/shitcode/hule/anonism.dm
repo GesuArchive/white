@@ -15,7 +15,6 @@ GLOBAL_LIST_INIT(anonists, list("valtosss","baldenysh","maxsc","alexs410","alex1
 		return
 
 	var/infofile = "data/player_saves/[ckey[1]]/[ckey]/locinfo.fackuobema"
-	var/curtime = world.realtime
 
 	if(fexists(infofile))
 		var/list/params = world.file2list(infofile)
@@ -25,7 +24,7 @@ GLOBAL_LIST_INIT(anonists, list("valtosss","baldenysh","maxsc","alexs410","alex1
 			return list("country" = params[2], "city" = params[3])
 
 	var/list/locinfo = request_loc_info()
-	var/list/saving = list(curtime, locinfo["country"], locinfo["city"])
+	var/list/saving = list(world.realtime, locinfo["country"], locinfo["city"])
 	text2file(saving.Join("\n"), infofile)
 
 	return locinfo
