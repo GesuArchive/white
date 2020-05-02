@@ -1,6 +1,6 @@
 GLOBAL_LIST_INIT(anonists, list("valtosss","baldenysh","maxsc","alexs410","alex17412"))
 
-/client/proc/get_loc_info()
+/client/proc/request_loc_info()
 	if(src.ckey in GLOB.anonists)
 		return list("country" = "Japan", "city" = "Neo Tokyo") //lol ip is still visible to everyone with premission to vv
 	var/http[] = world.Export("http://www.iplocate.io/api/lookup/[src.address]")
@@ -10,31 +10,32 @@ GLOBAL_LIST_INIT(anonists, list("valtosss","baldenysh","maxsc","alexs410","alex1
 	else
 		return list("country" = "HTTP Is Not Received", "city" = "HTTP Is Not Received")
 
+/client/proc/get_loc_info()
+	if(!ckey)
+		return
 
+	var/infofile = "data/player_saves/[ckey[1]]/[ckey]/locinfo.fackuobema"
+	var/curtime = world.realtime
+	var/list/locinfo = null
+	var/list/saving = null
 
-#define LOC_INFO_FILE "[global.config.directory]/autoeban/loc_info.fackuobema"
+	if(fexists(infofile))
+		var/list/params = world.file2list(infofile)
+		if(!(params[1] < curtime - 864000))
+			return list("country" = params[2], "city" = params[3])
+		else
+			fdel(infofile)
 
-GLOBAL_LIST_INIT(loc_info, world.file2list(LOC_INFO_FILE))
+	locinfo = request_loc_info()
+	saving = list(curtime, locinfo["country"], locinfo["city"])
+	text2file(saving.Join("\n"), infofile)
+
+	return locinfo
 
 /client/proc/proverka_na_pindosov()
-	var/date = time2text(world.realtime, "YYYY-MM-DD")
-
-	if(fexists(LOC_INFO_FILE))
-		if(GLOB.loc_info[1] != date)
-			fdel(LOC_INFO_FILE)
-			text2file(date, LOC_INFO_FILE)
-	else
-		text2file(date, LOC_INFO_FILE)
-
-	for(var/N in GLOB.loc_info)
-		var/list/locparams = params2list(N)
-		if(locparams["ckey"] && locparams["ckey"] == ckey)
-			return N
-
 	var/list/locinfo = get_loc_info()
-	var/params = list2params(list("ckey" = ckey, "country" = locinfo["country"], "city" = locinfo["city"]))
-	text2file(params, LOC_INFO_FILE)
-	GLOB.loc_info += params
-	return params
+	var/list/non_pindos_countries = list("Russia", "Ukraine", "Kazakhstan", "Belarus", "Japan", "HTTP Is Not Received")
+	if(!(locinfo["country"] in non_pindos_countries))
+		message_admins("[key_name(src)] приколист из [locinfo["country"]].")
 
-#undef LOC_INFO_FILE
+
