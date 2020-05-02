@@ -11,7 +11,9 @@ lang = sys.argv[3]
 
 path = path[:-11] #removes tts_args.py
 
-msg = unquote_plus(msg, 'utf-8')
+with open(str(path)+"test.txt", "a") as myfile:
+    myfile.write(msg)
+    myfile.write("\n")
 
 mp3_fp = BytesIO()
 
