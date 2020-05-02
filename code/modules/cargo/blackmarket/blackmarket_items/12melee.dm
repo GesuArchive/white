@@ -127,5 +127,5 @@
 	B.desc = "DEUS VULT!"
 	new /obj/item/clothing/head/helmet/plate/crusader(B)
 	new /obj/item/clothing/suit/armor/plate/crusader(B)
-	new  /obj/item/paxee
+	new /obj/item/paxee(B)
 	return B
