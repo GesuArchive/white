@@ -11,8 +11,6 @@ lang = sys.argv[3]
 
 path = path[:-11] #removes tts_args.py
 
-msg = unquote_plus(msg, 'UTF-8')
-
 mp3_fp = BytesIO()
 
 tts = gTTS(msg, lang=lang)

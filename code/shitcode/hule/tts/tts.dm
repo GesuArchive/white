@@ -36,7 +36,6 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 */
 
 /proc/tts_args(var/name, var/msg, var/lang)
-	msg = url_encode(msg)
 	if(world.system_type == UNIX)
 		world.shelleo("python3 \"[TTS_PATH]/tts_args.py\" \"[name]\" \"[msg]\" \"[lang]\"")
 	else
