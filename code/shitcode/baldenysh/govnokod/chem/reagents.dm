@@ -24,16 +24,16 @@
 	M.metabolism_efficiency *= 1.6
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		H.bleed_mod *= 2
-		H.heat_mod *= 0.5
+		H.physiology.bleed_mod *= 2
+		H.physiology.heat_mod *= 0.5
 
 /datum/reagent/medicine/aspirin/on_mob_end_metabolize(mob/living/M)
 	..()
 	M.metabolism_efficiency *= 0.625
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		H.bleed_mod *= 0.5
-		H.heat_mod *= 2
+		H.physiology.bleed_mod *= 0.5
+		H.physiology.heat_mod *= 2
 
 
 
