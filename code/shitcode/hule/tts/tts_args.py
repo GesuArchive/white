@@ -13,10 +13,6 @@ path = path[:-11] #removes tts_args.py
 
 msg = unquote_plus(msg, 'utf-8')
 
-with open(str(path)+'test2.txt', 'r+') as myfile:
-    myfile.write(msg)
-
-
 mp3_fp = BytesIO()
 
 tts = gTTS(msg, lang=lang)
