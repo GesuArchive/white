@@ -1,7 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/turf/open/openspace/boxplanet/caves,
-/area/template_noop)
 "ab" = (
 /turf/template_noop,
 /area/template_noop)
@@ -4748,7 +4745,7 @@ ax
 "}
 (13,1,1) = {"
 ab
-aa
+ab
 an
 jd
 dT
@@ -4786,7 +4783,7 @@ ax
 "}
 (14,1,1) = {"
 ab
-aa
+ab
 af
 aj
 aj
@@ -5166,7 +5163,7 @@ ab
 "}
 (24,1,1) = {"
 ab
-aa
+ab
 af
 aj
 aj
@@ -5204,7 +5201,7 @@ ab
 "}
 (25,1,1) = {"
 ab
-aa
+ab
 an
 aA
 aA
