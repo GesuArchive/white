@@ -1,10 +1,10 @@
-GLOBAL_LIST_INIT(bad_words, world.file2list("config/autoeban/bad_words.fackuobema"))
+GLOBAL_LIST_INIT(bad_words, world.file2list("cfg/autoeban/bad_words.fackuobema"))
 
-GLOBAL_LIST_INIT(exc_start, world.file2list("config/autoeban/exc_start.fackuobema"))
-GLOBAL_LIST_INIT(exc_end, world.file2list("config/autoeban/exc_end.fackuobema"))
-GLOBAL_LIST_INIT(exc_full, world.file2list("config/autoeban/exc_full.fackuobema"))
+GLOBAL_LIST_INIT(exc_start, world.file2list("cfg/autoeban/exc_start.fackuobema"))
+GLOBAL_LIST_INIT(exc_end, world.file2list("cfg/autoeban/exc_end.fackuobema"))
+GLOBAL_LIST_INIT(exc_full, world.file2list("cfg/autoeban/exc_full.fackuobema"))
 
-GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("config/autoeban/debix_list.fackuobema"))
+GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.fackuobema"))
 
 /proc/proverka_na_detey(var/msg, var/mob/target)
 	msg = r_lowertext(msg)
