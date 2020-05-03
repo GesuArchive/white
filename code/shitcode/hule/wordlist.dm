@@ -10,7 +10,7 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 	msg = r_lowertext(msg)
 	for(var/W in GLOB.bad_words)
 		W = r_lowertext(W)
-		if(findtext_char(msg, W) && isliving(target))
+		if(findtext_char(msg, W) && isliving(target) && W != "")
 			var/list/ML = splittext(msg, " ")
 
 			if(W in GLOB.exc_start)
