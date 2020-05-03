@@ -161,7 +161,7 @@
 			continue
 
 		for(var/sound/S in M.client.SoundQuery())
-			if(S.file == bbsound.file)
+			if(bbsound && S.file == bbsound.file)
 				M.stop_sound_channel(bbchannel)
 				break
 
