@@ -33,6 +33,8 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("[global.config.directory]
 				if(!ishuman(target))
 					target.client.prefs.muted |= MUTE_IC
 
+			message_admins("Дружок [target.ckey] насрал на ИС словом \"[W]\". [ADMIN_COORDJMP(target)]")
+
 			playsound(target.loc,'code/shitcode/hule/SFX/rjach.ogg', 200, 7, pressure_affected = FALSE)
 
 			if(GLOB.clients.len <= 20)
@@ -42,7 +44,6 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("[global.config.directory]
 				var/mob/living/carbon/human/H = target
 				H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 199, 199)
 				H.gain_trauma(/datum/brain_trauma/severe/mute, TRAUMA_RESILIENCE_SURGERY)
-				message_admins("Дружок [target.ckey] насрал на ИС. [ADMIN_COORDJMP(target)]")
 			if(target.ckey in GLOB.neobuchaemie_debili)
 				target.gib()
 
