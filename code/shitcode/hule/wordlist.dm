@@ -35,6 +35,9 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("[global.config.directory]
 
 			playsound(target.loc,'code/shitcode/hule/SFX/rjach.ogg', 200, 7, pressure_affected = FALSE)
 
+			if(GLOB.clients.len <= 20)
+				return
+
 			if(ishuman(target))
 				var/mob/living/carbon/human/H = target
 				H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 199, 199)

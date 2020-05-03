@@ -127,7 +127,6 @@
 	dir = 4;
 	icon_state = "fence";
 	pixel_x = 16;
-	tag = "icon-fence (EAST)"
 	},
 /obj/structure/flora/ausbushes/grassybush,
 /turf/open/floor/grass,
@@ -203,7 +202,6 @@
 	dir = 4;
 	icon_state = "fence";
 	pixel_x = 16;
-	tag = "icon-fence (EAST)"
 	},
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/grass,
@@ -324,7 +322,6 @@
 /area/prisonv2)
 "bm" = (
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (SOUTHWEST)";
 	icon_state = "trubas";
 	dir = 10
 	},
@@ -336,7 +333,6 @@
 /area/prisonv2)
 "bo" = (
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (SOUTHEAST)";
 	icon_state = "trubas";
 	dir = 6
 	},
@@ -371,7 +367,6 @@
 	dir = 4;
 	icon_state = "fence";
 	pixel_x = 16;
-	tag = "icon-fence (EAST)"
 	},
 /obj/structure/flora/junglebush/b,
 /turf/open/floor/grass,
@@ -445,7 +440,6 @@
 	dir = 4;
 	icon_state = "fence";
 	pixel_x = 16;
-	tag = "icon-fence (EAST)"
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/grass,
@@ -458,7 +452,6 @@
 	dir = 8
 	},
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (NORTH)";
 	icon_state = "trubas";
 	dir = 1
 	},
@@ -469,7 +462,6 @@
 	dir = 4
 	},
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (NORTH)";
 	icon_state = "trubas";
 	dir = 1
 	},
@@ -506,7 +498,7 @@
 /area/prisonv2)
 "bO" = (
 /obj/structure/chair/prison/wood{
-	tag = "icon-chair (NORTH)";
+
 	icon_state = "chair";
 	dir = 1
 	},
@@ -564,7 +556,6 @@
 	dir = 4;
 	icon_state = "fence";
 	pixel_x = 16;
-	tag = "icon-fence (EAST)"
 	},
 /obj/structure/flora/junglebush/b,
 /obj/structure/flora/ausbushes/grassybush,
@@ -745,7 +736,6 @@
 	dir = 4;
 	icon_state = "fence";
 	pixel_x = 16;
-	tag = "icon-fence (EAST)"
 	},
 /obj/structure/flora/junglebush/b,
 /obj/structure/flora/ausbushes/brflowers,
@@ -876,7 +866,7 @@
 /area/prisonv2)
 "dd" = (
 /obj/machinery/door/airlock/prison/cell{
-	id_tag = "cell5";
+
 	name = "CELL 5"
 	},
 /obj/machinery/door/poddoor/shutters/prison,
@@ -884,7 +874,7 @@
 /area/prisonv2)
 "de" = (
 /obj/machinery/door/airlock/prison/cell{
-	id_tag = "cell4";
+
 	name = "CELL 4"
 	},
 /obj/machinery/door/poddoor/shutters/prison,
@@ -892,7 +882,7 @@
 /area/prisonv2)
 "df" = (
 /obj/machinery/door/airlock/prison/cell{
-	id_tag = "cell3";
+
 	name = "CELL 3"
 	},
 /obj/machinery/door/poddoor/shutters/prison,
@@ -900,7 +890,7 @@
 /area/prisonv2)
 "dg" = (
 /obj/machinery/door/airlock/prison/cell{
-	id_tag = "cell2";
+
 	name = "CELL 2"
 	},
 /obj/machinery/door/poddoor/shutters/prison,
@@ -908,7 +898,7 @@
 /area/prisonv2)
 "dh" = (
 /obj/machinery/door/airlock/prison/cell{
-	id_tag = "cell1";
+
 	name = "CELL 1"
 	},
 /obj/machinery/door/poddoor/shutters/prison,
@@ -1234,7 +1224,6 @@
 /area/prisonv2)
 "ei" = (
 /obj/structure/prison/fence{
-	tag = "icon-fence (NORTH)";
 	icon_state = "fence";
 	dir = 1
 	},
@@ -1243,7 +1232,6 @@
 /area/prisonv2)
 "ej" = (
 /obj/structure/prison/fence{
-	tag = "icon-fence (NORTH)";
 	icon_state = "fence";
 	dir = 1
 	},
@@ -1262,7 +1250,6 @@
 /area/prisonv2out)
 "em" = (
 /obj/structure/prison/fence{
-	tag = "icon-fence (NORTH)";
 	icon_state = "fence";
 	dir = 1
 	},
@@ -1509,7 +1496,7 @@
 /area/prisonv2)
 "fd" = (
 /obj/structure/chair/prison/wood{
-	tag = "icon-chair (EAST)";
+
 	icon_state = "chair";
 	dir = 4
 	},
@@ -1526,7 +1513,7 @@
 /area/prisonv2)
 "fg" = (
 /obj/structure/chair/prison/wood{
-	tag = "icon-chair (WEST)";
+
 	icon_state = "chair";
 	dir = 8
 	},
@@ -1542,7 +1529,6 @@
 /area/prisonv2)
 "fj" = (
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (EAST)";
 	icon_state = "trubas";
 	dir = 4
 	},
@@ -1602,7 +1588,6 @@
 	dir = 4
 	},
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (EAST)";
 	icon_state = "trubas";
 	dir = 4
 	},
@@ -1610,7 +1595,6 @@
 /area/prisonv2)
 "fs" = (
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (EAST)";
 	icon_state = "trubas";
 	dir = 4
 	},
@@ -1618,7 +1602,7 @@
 /area/prisonv2)
 "ft" = (
 /obj/structure/holohoop{
-	tag = "icon-hoop (EAST)";
+
 	icon_state = "hoop";
 	dir = 4
 	},
@@ -1630,7 +1614,7 @@
 /area/prisonv2)
 "fw" = (
 /obj/structure/holohoop{
-	tag = "icon-hoop (WEST)";
+
 	icon_state = "hoop";
 	dir = 8
 	},
@@ -1750,7 +1734,7 @@
 /area/prisonv2)
 "fR" = (
 /obj/structure/chair/prison/wood{
-	tag = "icon-chair (NORTH)";
+
 	icon_state = "chair";
 	dir = 1
 	},
@@ -1793,7 +1777,7 @@
 	anchored = 1;
 	dir = 1;
 	icon_state = "venus";
-	tag = "icon-venus (NORTH)"
+
 	},
 /turf/open/floor/trot,
 /area/prisonv2)
@@ -1865,7 +1849,6 @@
 /area/prisonv2)
 "gl" = (
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (EAST)";
 	icon_state = "trubas";
 	dir = 4
 	},
@@ -1889,7 +1872,6 @@
 /area/prisonv2)
 "gp" = (
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (NORTH)";
 	icon_state = "trubas";
 	dir = 1
 	},
@@ -1902,7 +1884,6 @@
 /area/prisonv2)
 "gr" = (
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (NORTHEAST)";
 	icon_state = "trubas";
 	dir = 5
 	},
@@ -2102,7 +2083,7 @@
 /area/prisonv2)
 "gQ" = (
 /obj/structure/chair/prison/wood{
-	tag = "icon-chair (EAST)";
+
 	icon_state = "chair";
 	dir = 4
 	},
@@ -2110,7 +2091,7 @@
 /area/prisonv2)
 "gR" = (
 /obj/structure/chair/prison/wood{
-	tag = "icon-chair (WEST)";
+
 	icon_state = "chair";
 	dir = 8
 	},
@@ -2877,7 +2858,6 @@
 	dir = 4
 	},
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (SOUTHEAST)";
 	icon_state = "trubas";
 	dir = 6
 	},
@@ -2974,7 +2954,6 @@
 	dir = 4
 	},
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (EAST)";
 	icon_state = "trubas";
 	dir = 4
 	},
@@ -3059,7 +3038,6 @@
 /area/prisonv2)
 "jP" = (
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (EAST)";
 	icon_state = "trubas";
 	dir = 4
 	},
@@ -3142,7 +3120,6 @@
 "kb" = (
 /obj/item/storage/box/rndboards,
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (EAST)";
 	icon_state = "trubas";
 	dir = 4
 	},
@@ -3247,7 +3224,6 @@
 	id_target = "down22"
 	},
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (SOUTHWEST)";
 	icon_state = "trubas";
 	dir = 10
 	},
@@ -3260,7 +3236,6 @@
 	id_target = "down22"
 	},
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (NORTH)";
 	icon_state = "trubas";
 	dir = 1
 	},
@@ -3274,7 +3249,6 @@
 	id_target = "down22"
 	},
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (NORTH)";
 	icon_state = "trubas";
 	dir = 1
 	},
@@ -3287,12 +3261,10 @@
 	id_target = "down22"
 	},
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (NORTH)";
 	icon_state = "trubas";
 	dir = 1
 	},
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (SOUTHEAST)";
 	icon_state = "trubas";
 	dir = 6
 	},
@@ -3301,7 +3273,6 @@
 "kw" = (
 /obj/effect/decal/tuman,
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (NORTH)";
 	icon_state = "trubas";
 	dir = 1
 	},
@@ -3311,7 +3282,6 @@
 /obj/item/trash/can,
 /obj/effect/decal/tuman,
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (NORTH)";
 	icon_state = "trubas";
 	dir = 1
 	},
@@ -3324,7 +3294,6 @@
 	id_target = "down22"
 	},
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (SOUTHEAST)";
 	icon_state = "trubas";
 	dir = 6
 	},
@@ -3382,7 +3351,7 @@
 /area/prisonv2)
 "kG" = (
 /obj/structure/chair/prison/wood{
-	tag = "icon-chair (EAST)";
+
 	icon_state = "chair";
 	dir = 4
 	},
@@ -3397,7 +3366,7 @@
 /area/prisonv2)
 "kI" = (
 /obj/structure/chair/prison/wood{
-	tag = "icon-chair (WEST)";
+
 	icon_state = "chair";
 	dir = 8
 	},
@@ -3413,7 +3382,6 @@
 "kK" = (
 /obj/structure/table/prison,
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (EAST)";
 	icon_state = "trubas";
 	dir = 4
 	},
@@ -3613,7 +3581,7 @@
 /area/prisonv2)
 "ll" = (
 /obj/machinery/door/airlock/prison/cell{
-	id_tag = "cell6";
+
 	name = "CELL 6"
 	},
 /obj/machinery/door/poddoor/shutters/prison,
@@ -3621,7 +3589,7 @@
 /area/prisonv2)
 "lm" = (
 /obj/machinery/door/airlock/prison/cell{
-	id_tag = "cell7";
+
 	name = "CELL 7"
 	},
 /obj/machinery/door/poddoor/shutters/prison,
@@ -3629,7 +3597,7 @@
 /area/prisonv2)
 "ln" = (
 /obj/machinery/door/airlock/prison/cell{
-	id_tag = "cell8";
+
 	name = "CELL 8"
 	},
 /obj/machinery/door/poddoor/shutters/prison,
@@ -3637,7 +3605,7 @@
 /area/prisonv2)
 "lo" = (
 /obj/machinery/door/airlock/prison/cell{
-	id_tag = "cell9";
+
 	name = "CELL 9"
 	},
 /obj/machinery/door/poddoor/shutters/prison,
@@ -3645,7 +3613,7 @@
 /area/prisonv2)
 "lp" = (
 /obj/machinery/door/airlock/prison/cell{
-	id_tag = "cell10";
+
 	name = "CELL 10"
 	},
 /obj/machinery/door/poddoor/shutters/prison,
@@ -3932,7 +3900,6 @@
 	id_target = "down22"
 	},
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (NORTHWEST)";
 	icon_state = "trubas";
 	dir = 9
 	},
@@ -3964,7 +3931,6 @@
 	id_target = "down22"
 	},
 /obj/structure/prison/pipe{
-	tag = "icon-trubas (NORTHEAST)";
 	icon_state = "trubas";
 	dir = 5
 	},

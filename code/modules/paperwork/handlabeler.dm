@@ -71,7 +71,7 @@
 	if(mode)
 		to_chat(user, "<span class='notice'>Включаю <b>[src]</b>.</span>")
 		//Now let them chose the text.
-		var/str = reject_bad_text(stripped_input(user, "Текст?", "Метка","", MAX_NAME_LEN, ascii_only = FALSE))
+		var/str = reject_bad_text(stripped_input(user, "Текст?", "Метка","", MAX_NAME_LEN), ascii_only = FALSE)
 		if(!str || !length(str))
 			to_chat(user, "<span class='warning'>Неправильный текст!</span>")
 			return
