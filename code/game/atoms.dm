@@ -89,8 +89,6 @@
 
 	var/list/alternate_appearances
 
-	/// Last appearance of the atom for demo saving purposes
-	var/image/demo_last_appearance
 	///Mobs that are currently do_after'ing this atom, to be cleared from on Destroy()
 	var/list/targeted_by
 
