@@ -28,7 +28,8 @@
 					/obj/item/storage/box/pillpack/potassiodide = 3,
 					/obj/item/storage/box/pillpack/haloperidol = 3,
 					/obj/item/storage/box/pillpack/antihol = 4,
-					/obj/item/storage/box/pillpack/psicodine = 2
+					/obj/item/storage/box/pillpack/psicodine = 2,
+					/obj/item/storage/box/pillpack/aspirin = 3
 
 					)
 	contraband = list(
