@@ -3084,6 +3084,7 @@
 #include "code\shitcode\adept\cerebullum_altering_pill.dm"
 #include "code\shitcode\baldenysh\govnokod\adminverbs.dm"
 #include "code\shitcode\baldenysh\govnokod\boombox.dm"
+#include "code\shitcode\baldenysh\govnokod\combat.dm"
 #include "code\shitcode\baldenysh\govnokod\emotes.dm"
 #include "code\shitcode\baldenysh\govnokod\vending.dm"
 #include "code\shitcode\baldenysh\govnokod\chem\pills.dm"
