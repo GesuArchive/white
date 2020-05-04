@@ -96,11 +96,11 @@
 		return ..()
 
 /obj/item/extinguisher/proc/babah(mob/living/H)
-	var/bang_turf = get_turf(src)
+	var/turf/bang_turf = get_turf(src)
 	if(!bang_turf)
 		return
 
-	if(isopenturf(T))
+	if(isopenturf(bang_turf))
 		var/turf/open/theturf = bang_turf
 		theturf.MakeSlippery(TURF_WET_WATER, min_wet_time = 10 SECONDS, wet_time_to_add = 5 SECONDS)
 
