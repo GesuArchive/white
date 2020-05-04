@@ -52,7 +52,7 @@
 /datum/aoe_melee/swing/proc/start_attack(atom/attacked, atom/movable/attacker)
 	pre_attack(attacked, attacker)
 
-	var/rotations = (attack_cone/deg_between_hits) - 1
+	var/rotations = attack_cone/deg_between_hits
 
 	flick_overlay_view(anim_img, attacker, time_per_action*rotations*segments_per_action)
 
@@ -113,4 +113,15 @@
 	. = ..()
 	SW.start_attack(AM, user)
 
+/obj/item/fireaxe/ayetest
+	name = "anime tonop"
+	var/datum/aoe_melee/swing/SW = null
 
+/obj/item/fireaxe/ayetest/Initialize()
+	. = ..()
+	SW = new(src)
+	SW.init_img_turn = 90
+
+/obj/item/fireaxe/ayetest/afterattack(atom/movable/AM, mob/living/user, proximity)
+	. = ..()
+	SW.start_attack(AM, user)
