@@ -25217,6 +25217,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
 "bSh" = (
@@ -26582,6 +26583,7 @@
 /area/science/research)
 "bWs" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
 "bWt" = (
@@ -26591,6 +26593,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 6
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
 "bWu" = (
@@ -26602,12 +26605,14 @@
 	dir = 4
 	},
 /obj/machinery/navbeacon/wayfinding,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
 "bWv" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
 "bWw" = (
@@ -26709,6 +26714,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/aft)
 "bWL" = (
@@ -27028,6 +27034,7 @@
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
 "bXG" = (
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
 "bXH" = (
@@ -27877,6 +27884,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/tcommsat/computer)
 "cao" = (
@@ -42305,6 +42313,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
+"vfh" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/tcommsat/computer)
 "vgF" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -70752,7 +70767,7 @@ bQb
 bZv
 bSd
 bXG
-bOC
+vfh
 bWt
 cBK
 bVJ
