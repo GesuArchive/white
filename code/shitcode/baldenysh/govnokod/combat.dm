@@ -1,82 +1,3 @@
-/atom/movable/proc/do_item_swing_animation(atom/A, obj/item/used_item, radius = 26, initial_turn = 0, conedeg = 180, speed = 10, clockwise = 1, segments = 9, parallel = TRUE)
-	var/image/I
-	if(!used_item)
-		return
-	I = image(icon = used_item, loc = A, layer = A.layer + 0.1)
-	I.plane = GAME_PLANE
-
-	I.transform *= 0.75
-	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
-
-	var/direction = get_dir(src, A)
-	var/offset_angle = 0
-
-	switch(direction)
-		if(NORTHEAST)
-			offset_angle = 45
-		if(EAST)
-			offset_angle = 90
-		if(SOUTHEAST)
-			offset_angle = 135
-		if(SOUTH)
-			offset_angle = 180
-		if(SOUTHWEST)
-			offset_angle = 225
-		if(WEST)
-			offset_angle = 270
-		if(NORTHWEST)
-			offset_angle = 315
-
-	I.transform = I.transform.Turn(initial_turn + offset_angle)
-
-	var/matrix/init = matrix(I.transform)
-	var/matrix/shift = matrix(I.transform)
-
-	if(direction & NORTH)
-		shift.Translate(0, radius)
-	else if(direction & SOUTH)
-		shift.Translate(0, -radius)
-	if(direction & EAST)
-		shift.Translate(radius, 0)
-	else if(direction & WEST)
-		shift.Translate(-radius, 0)
-
-	I.transform = shift
-
-	if(!I)
-		return
-
-	flick_overlay_view(I, src, speed)
-
-	if(!segments)
-		return
-
-	var/segment = conedeg/segments
-	var/startdeg = (360-conedeg/2) + offset_angle
-
-	if(!clockwise)
-		segment = -segment
-		startdeg = conedeg/2 + offset_angle
-
-	var/list/matrices = list()
-	matrices += init
-
-	for(var/i in 1 to segments)
-		var/matrix/M = matrix(I.transform)
-		M.Turn(startdeg + segment*i)
-		matrices += M
-
-	speed /= segments
-
-	if(parallel)
-		animate(I, transform = matrices[1], time = speed, 1 , flags = ANIMATION_PARALLEL)
-	else
-		animate(I, transform = matrices[1], time = speed, 1)
-
-	for(var/i in 2 to segments)
-		I.loc = loc
-		animate(transform = matrices[i], time = speed)
-
 /datum/aoe_melee
 	var/obj/item/master = null
 
@@ -85,14 +6,20 @@
 
 /datum/aoe_melee/swing
 	var/cur_angle = 0
+
 	var/attack_cone = 180
+	var/deg_between_hits = 45
+
 	var/clockwise = TRUE
 	var/segments_per_action = 6
 	var/speed_per_action = 1
-	var/anim_flags = ANIMATION_PARALLEL
-	var/radius = 26
-	var/init_turn = -45
+
 	var/image/anim_img = null
+	var/anim_size_mod = 0.75
+	var/init_img_turn = -45
+	var/radius = 26
+
+	var/anim_flags = ANIMATION_PARALLEL
 
 	var/hitproc_debug = TRUE
 
@@ -102,13 +29,15 @@
 	anim_img.plane = GAME_PLANE
 	anim_img.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 
-	var/direction = get_dir(attacker, attacked)
+	//anim_img.transform = anim_img.transform.Turn(init_img_turn)
+
+	var/direction = get_dir(attacked, attacker)
 	var/offset_angle = dir2angle(direction)
 	cur_angle = offset_angle
 
-	anim_img.transform = anim_img.transform.Turn(init_turn + dir2angle(direction))
+	anim_img.transform = anim_img.transform.Turn(init_img_turn + dir2angle(direction))
 
-	anim_img.transform *= 0.75
+	anim_img.transform *= anim_size_mod
 
 	var/matrix/shift = matrix(anim_img.transform)
 
@@ -126,7 +55,9 @@
 /datum/aoe_melee/swing/proc/start_attack(atom/attacked, atom/movable/attacker)
 	pre_attack(attacked, attacker)
 
-	flick_overlay_view(anim_img, attacker, speed_per_action*10)
+	var/rotations = attack_cone/deg_between_hits
+
+	flick_overlay_view(anim_img, attacker, speed_per_action*rotations*segments_per_action)
 
 	var/half_cone = attack_cone/2
 
@@ -138,19 +69,22 @@
 
 	animate(anim_img, transform = matrix(anim_img.transform), time = speed_per_action, 1 , flags = anim_flags)
 	hitproc(get_step(master, angle2dir(cur_angle)))
-	rotate(45)
-	hitproc(get_step(master, angle2dir(cur_angle)))
-	rotate(45)
-	hitproc(get_step(master, angle2dir(cur_angle)))
+
+	for(var/i in 2 to rotations)
+		rotate(deg_between_hits)
+		hitproc(get_step(master, angle2dir(cur_angle)))
 
 /datum/aoe_melee/swing/proc/hitproc(turf/loc)
 	if(hitproc_debug)
 		new /obj/item/wrench(loc)
+		return
 	return
 
 /datum/aoe_melee/swing/proc/rotate(angle)
 	if(clockwise)
 		angle = -angle
+
+	cur_angle += angle
 
 	var/list/matrices = generate_turn_matrices(anim_img, angle)
 	for(var/matrix/mtrx in matrices)
