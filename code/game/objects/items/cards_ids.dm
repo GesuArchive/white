@@ -479,12 +479,31 @@ update_label()
 	registered_name = "Captain"
 	assignment = "Captain"
 	registered_age = null
+	var/first_try = TRUE
 
 /obj/item/card/id/captains_spare/Initialize()
 	var/datum/job/captain/J = new/datum/job/captain
 	access = J.get_access()
 	. = ..()
 	update_label()
+
+/obj/item/card/id/captains_spare/attack_hand(mob/user)
+	. = ..()
+	if(.)
+		return
+	if(iscarbon(user) && first_try && !HAS_TRAIT(user.mind, TRAIT_DISK_VERIFIER))
+		var/mob/living/carbon/C = user
+		to_chat(C, "<span class='warning'>Пытаюсь подобрать карту... Что может пойти не тка~</span>")
+		if(do_after(C, 30, target = src))
+			to_chat(C, "<span class='userdanger'>КАРТА БЫЛА ЗАМИНИРОВАНА! СУКА!</span>")
+			electrocute_mob(user, get_area(src))
+			playsound(loc, 'sound/weapons/slice.ogg', 25, TRUE, -1)
+			var/which_hand = BODY_ZONE_L_ARM
+			if(!(C.active_hand_index % 2))
+				which_hand = BODY_ZONE_R_ARM
+			var/obj/item/bodypart/chopchop = C.get_bodypart(which_hand)
+			chopchop.dismember()
+			first_try = FALSE
 
 /obj/item/card/id/captains_spare/update_label() //so it doesn't change to Captain's ID card (Captain) on a sneeze
 	if(registered_name == "Captain")
