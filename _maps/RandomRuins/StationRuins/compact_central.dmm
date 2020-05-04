@@ -2441,7 +2441,6 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
-/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/gravity_generator)
 "fK" = (
@@ -4053,15 +4052,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
-"nz" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
 "nM" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -4184,6 +4174,15 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/template_noop)
+"yl" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "zb" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -5329,7 +5328,7 @@ hO
 dy
 gF
 aj
-nz
+yl
 ab
 "}
 (25,1,1) = {"
@@ -5367,7 +5366,7 @@ hO
 dy
 gG
 aj
-nz
+yl
 ab
 "}
 (26,1,1) = {"
@@ -5443,7 +5442,7 @@ fF
 fI
 gF
 aj
-nz
+yl
 ab
 "}
 (28,1,1) = {"
@@ -5557,7 +5556,7 @@ dW
 dW
 gF
 aj
-nz
+yl
 ab
 "}
 (31,1,1) = {"
