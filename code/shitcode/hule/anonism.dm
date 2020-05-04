@@ -21,11 +21,15 @@ GLOBAL_LIST_INIT(anonists, list("valtosss","baldenysh","maxsc","alexs410","alex1
 		if(daysSince(text2num(params[1])) > 1)
 			fdel(infofile)
 		else
+			if(!params[2])
+				params[2] = "No Info"
 			if(!params[3])
 				params[3] = "No Info"
 			return list("country" = params[2], "city" = params[3])
 
 	var/list/locinfo = request_loc_info()
+	if(!locinfo["country"])
+		locinfo["country"] = "No Info"
 	if(!locinfo["city"])
 		locinfo["city"] = "No Info"
 	var/list/saving = list(world.realtime, locinfo["country"], locinfo["city"])
@@ -35,6 +39,6 @@ GLOBAL_LIST_INIT(anonists, list("valtosss","baldenysh","maxsc","alexs410","alex1
 
 /client/proc/proverka_na_pindosov()
 	var/list/locinfo = get_loc_info()
-	var/list/non_pindos_countries = list("Russia", "Ukraine", "Kazakhstan", "Belarus", "Japan", "HTTP Is Not Received")
+	var/list/non_pindos_countries = list("Russia", "Ukraine", "Kazakhstan", "Belarus", "Japan", "HTTP Is Not Received", "No Info")
 	if(!(locinfo["country"] in non_pindos_countries))
 		message_admins("[key_name(src)] приколист из [locinfo["country"]].")
