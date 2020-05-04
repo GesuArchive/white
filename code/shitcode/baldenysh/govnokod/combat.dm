@@ -12,7 +12,7 @@
 
 	var/clockwise = TRUE
 	var/segments_per_action = 6
-	var/speed_per_action = 0.15
+	var/time_per_action = 0.15
 
 	var/image/anim_img = null
 	var/anim_size_mod = 0.75
@@ -29,13 +29,10 @@
 	anim_img.plane = GAME_PLANE
 	anim_img.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 
-	//anim_img.transform = anim_img.transform.Turn(init_img_turn)
-
 	var/direction = get_dir(attacked, attacker)
-	var/offset_angle = dir2angle(direction)
-	cur_angle = offset_angle
+	cur_angle = dir2angle(direction)
 
-	anim_img.transform = anim_img.transform.Turn(init_img_turn + dir2angle(direction))
+	anim_img.transform = anim_img.transform.Turn(init_img_turn + cur_angle)
 
 	anim_img.transform *= anim_size_mod
 
@@ -55,9 +52,9 @@
 /datum/aoe_melee/swing/proc/start_attack(atom/attacked, atom/movable/attacker)
 	pre_attack(attacked, attacker)
 
-	var/rotations = attack_cone/deg_between_hits
+	var/rotations = (attack_cone/deg_between_hits) - 1
 
-	flick_overlay_view(anim_img, attacker, speed_per_action*rotations*segments_per_action)
+	flick_overlay_view(anim_img, attacker, time_per_action*rotations*segments_per_action)
 
 	var/half_cone = attack_cone/2
 
@@ -67,12 +64,14 @@
 	anim_img.transform = anim_img.transform.Turn(half_cone)
 	cur_angle += half_cone
 
-	animate(anim_img, transform = matrix(anim_img.transform), time = speed_per_action, 1 , flags = anim_flags)
+	animate(anim_img, transform = matrix(anim_img.transform), time = time_per_action, 1, flags = anim_flags)
 	hitproc(get_step(master, angle2dir(cur_angle)))
 
-	for(var/i in 2 to rotations)
+	for(var/i in 1 to rotations)
 		rotate(deg_between_hits)
-		hitproc(get_step(master, angle2dir(cur_angle)))
+		var/local_angle = cur_angle
+		spawn(time_per_action*segments_per_action*i)
+			hitproc(get_step(master, angle2dir(local_angle)))
 
 /datum/aoe_melee/swing/proc/hitproc(turf/loc)
 	if(hitproc_debug)
@@ -88,7 +87,7 @@
 
 	var/list/matrices = generate_turn_matrices(anim_img, angle)
 	for(var/matrix/mtrx in matrices)
-		animate(transform = mtrx, time = speed_per_action)
+		animate(transform = mtrx, time = time_per_action)
 
 /datum/aoe_melee/swing/proc/generate_turn_matrices(image/img, angle)
 	var/list/matrices = list()
