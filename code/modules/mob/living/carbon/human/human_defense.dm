@@ -706,7 +706,7 @@
 				burndamage += rand(30,40)
 
 		if(HAS_TRAIT(src, TRAIT_SELF_AWARE))
-			status = "ФИЗИЧЕСКИЙ: [brutedamage]\] \[ОЖОГИ:[burndamage]"
+			status = "ФИЗИЧЕСКИЙ: [brutedamage]</span>\] И \[<span class='warning'>ОЖОГИ: [burndamage]"
 			if(!brutedamage && !burndamage)
 				status = "НЕТ УРОНА"
 
