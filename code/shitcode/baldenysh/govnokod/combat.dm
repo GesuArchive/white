@@ -12,7 +12,7 @@
 
 	var/clockwise = TRUE
 	var/segments_per_action = 6
-	var/speed_per_action = 1
+	var/speed_per_action = 0.15
 
 	var/image/anim_img = null
 	var/anim_size_mod = 0.75
