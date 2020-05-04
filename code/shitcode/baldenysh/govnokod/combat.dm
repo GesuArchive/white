@@ -22,6 +22,7 @@
 	var/anim_flags = ANIMATION_PARALLEL
 
 	var/hitproc_debug = TRUE
+	var/hitproc_obj = /obj/item/wrench
 
 /datum/aoe_melee/swing/proc/pre_attack(atom/attacked, atom/movable/attacker)
 	anim_img = image(icon = master, loc = attacker, layer = attacker.layer + 0.1)
@@ -75,7 +76,7 @@
 
 /datum/aoe_melee/swing/proc/hitproc(turf/loc)
 	if(hitproc_debug)
-		new /obj/item/wrench(loc)
+		new hitproc_obj(loc)
 		return
 	return
 
