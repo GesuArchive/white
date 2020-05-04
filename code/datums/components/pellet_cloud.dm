@@ -33,7 +33,7 @@
 	var/mob/living/shooter /// for if we're an ammo casing being fired
 
 /datum/component/pellet_cloud/Initialize(projectile_type=/obj/item/shrapnel, magnitude=5)
-	if(!isammocasing(parent) && !isgrenade(parent) && !islandmine(parent) && !istype(/obj/item/extinguisher))
+	if(!isammocasing(parent) && !isgrenade(parent) && !islandmine(parent) && !istype(parent, /obj/item/extinguisher))
 		return COMPONENT_INCOMPATIBLE
 
 	if(magnitude < 1)
