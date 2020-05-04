@@ -74,6 +74,9 @@
 		return SHAME
 
 /obj/item/extinguisher/attack_self(mob/user)
+	if(broken)
+		to_chat(user, "<span class='warning'>Не хочет переключаться!</span>")
+		return
 	safety = !safety
 	src.icon_state = "[sprite_name][!safety]"
 	to_chat(user, "Предохранитель [safety ? "включен" : "отключен"].")
@@ -97,17 +100,27 @@
 	if(!bang_turf)
 		return
 
-	new /obj/effect/particle_effect/foam(bang_turf)
+	if(isopenturf(T))
+		var/turf/open/theturf = bang_turf
+		theturf.MakeSlippery(TURF_WET_WATER, min_wet_time = 10 SECONDS, wet_time_to_add = 5 SECONDS)
 
 	if(prob(75))
 		force = 8 // как вы вообще этим бить собрались
+		icon = 'code/shitcode/valtos/icons/balon.dmi'
+		icon_state = item_state
+		reagents.clear_reagents()
+		max_water = 0
 		for(var/mob/living/M in get_hearers_in_view(5, bang_turf))
-			M.visible_message("<span class='warning'>Похоже пронесло...</span>")
+			to_chat(M, "<span class='warning'>Похоже пронесло...</span>")
 		return
 
 	playsound(bang_turf, 'sound/weapons/flashbang.ogg', 100, TRUE, 8, 0.9)
 
 	new /obj/effect/dummy/lighting_obj (bang_turf, LIGHT_COLOR_WHITE, (5), 4, 2)
+
+	AddComponent(/datum/component/pellet_cloud, projectile_type=/obj/projectile/bullet/pellet/shotgun_rubbershot, magnitude=5)
+	// в петушителях находятся шарики для тактического вспенивания содержимого внутри (а также для использования в качестве ручной гранаты при окопных войнах)
+	SEND_SIGNAL(src, COMSIG_GRENADE_PRIME)
 
 	explosion(bang_turf, 0, 0, 2, 0)
 
@@ -138,6 +151,7 @@
 		if(prob(10) && !broken)
 			to_chat(user, "<span class='userdanger'>Щас ебанёт кажись...</span>")
 			playsound(get_turf(src), 'code/shitcode/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
+			new /obj/effect/particle_effect/smoke(get_turf(src))
 			spawn(rand(10, 50))
 				babah(user)
 			broken = TRUE

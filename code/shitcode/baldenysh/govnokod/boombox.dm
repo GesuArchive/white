@@ -18,7 +18,7 @@
 	var/bbchannel = 0
 
 /proc/open_sound_channel_for_boombox()
-	var/static/next_channel = CHANNEL_HIGHEST_AVAILABLE
+	var/static/next_channel = CHANNEL_HIGHEST_AVAILABLE + 1
 	. = ++next_channel
 	if(next_channel > CHANNEL_BOOMBOX_AVAILABLE)
 		next_channel = CHANNEL_HIGHEST_AVAILABLE + 1
@@ -274,7 +274,7 @@
 		if("env")
 			env_sound = !env_sound
 
-	updateUsrDialog()
+	ui_interact(usr) // updateUsrDialog()
 /*
 /obj/item/boombox/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)

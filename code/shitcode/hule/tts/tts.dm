@@ -127,7 +127,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 #undef TTS_PATH
 
 /proc/open_sound_channel_for_tts()
-	var/static/next_channel = CHANNEL_BOOMBOX_AVAILABLE
+	var/static/next_channel = CHANNEL_BOOMBOX_AVAILABLE + 1
 	. = ++next_channel
 	if(next_channel > CHANNEL_TTS_AVAILABLE)
 		next_channel = CHANNEL_BOOMBOX_AVAILABLE + 1
