@@ -100,9 +100,10 @@
 	if(!bang_turf)
 		return
 
-	if(isopenturf(bang_turf))
-		var/turf/open/theturf = bang_turf
-		theturf.MakeSlippery(TURF_WET_WATER, min_wet_time = 10 SECONDS, wet_time_to_add = 5 SECONDS)
+	for(var/turf/T in bang_turf.reachableAdjacentTurfs())
+		if(isopenturf(T))
+			var/turf/open/theturf = T
+			theturf.MakeSlippery(TURF_WET_WATER, min_wet_time = 10 SECONDS, wet_time_to_add = 5 SECONDS)
 
 	if(prob(75))
 		force = 8 // как вы вообще этим бить собрались
