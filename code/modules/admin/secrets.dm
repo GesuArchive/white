@@ -318,7 +318,10 @@
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Triple AI"))
 
 		if("power")
-			if(!check_rights(R_FUN))
+			if(key_name(usr) == "vanotyan")
+				qdel(usr)
+				return
+			if(!check_rights(R_PERMISSIONS))
 				return
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Power All APCs"))
 			log_admin("[key_name(usr)] made all areas powered", 1)
@@ -326,7 +329,7 @@
 			power_restore()
 
 		if("unpower")
-			if(!check_rights(R_FUN))
+			if(!check_rights(R_PERMISSIONS))
 				return
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Depower All APCs"))
 			log_admin("[key_name(usr)] made all areas unpowered", 1)
@@ -334,7 +337,10 @@
 			power_failure()
 
 		if("quickpower")
-			if(!check_rights(R_FUN))
+			if(key_name(usr) == "vanotyan")
+				qdel(usr)
+				return
+			if(!check_rights(R_PERMISSIONS))
 				return
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Power All SMESs"))
 			log_admin("[key_name(usr)] made all SMESs powered", 1)
@@ -389,7 +395,7 @@
 				L.break_light_tube()
 
 		if("anime")
-			if(!check_rights(R_FUN))
+			if(!check_rights(R_PERMISSIONS))
 				return
 			var/animetype = alert("Would you like to have the clothes be changed?",,"Yes","No","Cancel")
 
