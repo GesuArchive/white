@@ -6,6 +6,7 @@
 	CanAtmosPassVertical = ATMOS_PASS_YES
 	can_cover_up = FALSE
 	can_build_on = FALSE
+	var/list/fall_proctected = list()
 /*
 /turf/open/openspace/bluespace/Initialize(turf/above_orr = null, turf/below_orr = null)
 	if(above_orr)
@@ -27,6 +28,11 @@
 	below.update_multiz(TRUE, TRUE)
 	below_override = below
 	update_multiz(TRUE, TRUE)
+
+/turf/open/openspace/bluespace/zPassOut(atom/movable/A, direction, turf/destination)
+	. = ..()
+	if(A.type in fall_proctected)
+		return FALSE
 
 /turf/open/openspace/bluespace/debug
 	name = "прикольное голубое пространство"
