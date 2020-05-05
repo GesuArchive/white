@@ -7,7 +7,7 @@
 	lefthand_file = 'code/shitcode/hule/icons/onmob/ballistic_l.dmi'
 	righthand_file = 'code/shitcode/hule/icons/onmob/ballistic_r.dmi'
 	pin = /obj/item/firing_pin
-	mag_type = /obj/item/ammo_box/magazine/pistolm9mm
+	mag_type = /obj/item/ammo_box/magazine/m9mm
 	burst_size = 1
 	fire_delay = 0.5
 /*
@@ -22,9 +22,9 @@
 	shoes = /obj/item/clothing/shoes/combat
 	head = /obj/item/clothing/head/soft/black
 	l_pocket = /obj/item/switchblade
-	r_pocket = /obj/item/ammo_box/magazine/pistolm9mm
+	r_pocket = /obj/item/ammo_box/magazine/m9mm
 	back = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/ammo_box/c9mm = 1, /obj/item/ammo_box/magazine/pistolm9mm = 1,
+	backpack_contents = list(/obj/item/ammo_box/c9mm = 1, /obj/item/ammo_box/magazine/m9mm = 1,
 							, /obj/item/grenade/syndieminibomb/concussion = 3, /obj/item/grenade/c4 = 2)
 
 */

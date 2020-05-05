@@ -46,7 +46,7 @@
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/assembly/flash/handheld
 	suit_store = /obj/item/pda/security
-	backpack_contents = list(/obj/item/melee/classic_baton/dildon=1, /obj/item/modular_computer/tablet/preset/advanced=1, /obj/item/pipe_dispenser=1, /obj/item/ammo_box/magazine/pistolm9mm=2)
+	backpack_contents = list(/obj/item/melee/classic_baton/dildon=1, /obj/item/modular_computer/tablet/preset/advanced=1, /obj/item/pipe_dispenser=1, /obj/item/ammo_box/magazine/m9mm=2)
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec

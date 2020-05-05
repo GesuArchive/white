@@ -1239,7 +1239,7 @@
 		/obj/item/ammo_box/magazine/uzim9mm = 1.#INF,
 		/obj/item/gun/ballistic/automatic/mini_uzi = 1.#INF,
 		/obj/item/gun/ballistic/automatic/pistol/APS = 1.#INF,
-		/obj/item/ammo_box/magazine/pistolm9mm = 1.#INF,
+		/obj/item/ammo_box/magazine/m9mm = 1.#INF,
 		/obj/item/gun/ballistic/automatic/pistol/makarov = 1.#INF,
 		/obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted = 1.#INF,
 		/obj/item/ammo_box/a40mm = 1.#INF,

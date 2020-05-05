@@ -17,10 +17,10 @@
 	name = "Schoolshooter 1"
 
 	suit_store = /obj/item/gun/ballistic/automatic/m90/columbine
-	r_pocket = /obj/item/ammo_box/magazine/pistolm9mm
+	r_pocket = /obj/item/ammo_box/magazine/m9mm
 	backpack_contents = list(
 								/obj/item/ammo_box/c9mm = 1,
-								/obj/item/ammo_box/magazine/pistolm9mm = 1,
+								/obj/item/ammo_box/magazine/m9mm = 1,
 								/obj/item/grenade/iedcasing = 3,
 								/obj/item/grenade/c4 = 2,
 								/obj/item/book/granter/martial/cqc = 1

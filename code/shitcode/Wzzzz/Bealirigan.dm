@@ -27,9 +27,9 @@
 	new /obj/item/ammo_box/a762	(src)
 	new /obj/item/ammo_box/a762	(src)
 	new /obj/item/gun/ballistic/automatic/pistol/APS(src)
-	new /obj/item/ammo_box/magazine/pistolm9mm(src)
+	new /obj/item/ammo_box/magazine/m9mm(src)
 	new /obj/item/grenade/flashbang	(src)
-	new /obj/item/ammo_box/magazine/pistolm9mm(src)
+	new /obj/item/ammo_box/magazine/m9mm(src)
 	new /obj/item/storage/pill_bottle/wzzzz/soldier(src)
 
 /obj/item/storage/belt/military/army/wzzzz/range
@@ -140,7 +140,7 @@
 /obj/item/storage/belt/military/assault/wzzzz/terr2
 
 /obj/item/storage/belt/military/assault/wzzzz/terr2/PopulateContents()
-	new /obj/item/ammo_box/magazine/pistolm9mm(src)
+	new /obj/item/ammo_box/magazine/m9mm(src)
 	new /obj/item/ammo_box/magazine/m12g/slug(src)
 	new /obj/item/ammo_box/magazine/m12g/slug(src)
 	new /obj/item/grenade/smokebomb(src)
