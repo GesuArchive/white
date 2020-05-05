@@ -479,6 +479,7 @@ update_label()
 	registered_name = "Captain"
 	assignment = "Captain"
 	registered_age = null
+	anchored = TRUE
 	var/first_try = TRUE
 
 /obj/item/card/id/captains_spare/Initialize()
@@ -504,10 +505,11 @@ update_label()
 			var/obj/item/bodypart/chopchop = C.get_bodypart(which_hand)
 			chopchop.dismember()
 			first_try = FALSE
-			return
-		else
-			electrocute_mob(user, get_area(src))
-			return
+			anchored = FALSE
+	else if (HAS_TRAIT(user.mind, TRAIT_DISK_VERIFIER))
+		to_chat(C, "<span class='notice'>Карта разминирована.</span>")
+		first_try = FALSE
+		anchored = FALSE
 
 /obj/item/card/id/captains_spare/update_label() //so it doesn't change to Captain's ID card (Captain) on a sneeze
 	if(registered_name == "Captain")
