@@ -13,11 +13,6 @@ GLOBAL_LIST_INIT(meteors_rain_catastrophic, list(/obj/effect/meteor_rain/medium=
 	max_occurrences = 12
 	earliest_start = 25 MINUTES
 
-/datum/round_event_control/meteor_rain/canSpawnEvent(players, gamemode)
-	if(SSmapping.config?.map_name != "Deep Box Station")
-		return FALSE
-	return ..()
-
 /datum/round_event_control/meteor_rain/threatening
 	name = "Meteor Rain: Threatening"
 	typepath = /datum/round_event/meteor_rain/threatening

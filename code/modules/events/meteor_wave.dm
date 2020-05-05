@@ -8,11 +8,6 @@
 	max_occurrences = 12
 	earliest_start = 25 MINUTES
 
-/datum/round_event_control/meteor_wave/canSpawnEvent(players, gamemode)
-	if(SSmapping.config?.map_name == "Deep Box Station")
-		return FALSE
-	return ..()
-
 /datum/round_event/meteor_wave
 	startWhen		= 6
 	endWhen			= 66
