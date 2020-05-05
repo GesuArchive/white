@@ -7,22 +7,7 @@
 	can_cover_up = FALSE
 	can_build_on = FALSE
 	var/list/fall_proctected = list()
-/*
-/turf/open/openspace/bluespace/Initialize(turf/above_orr = null, turf/below_orr = null)
-	if(above_orr)
-		above_override = above_orr
 
-	if(below_orr)
-		below_override = below_orr
-
-	..()
-
-/turf/open/openspace/bluespace/above()
-	return above_override
-
-/turf/open/openspace/bluespace/below()
-	return below_override
-*/
 /turf/open/openspace/bluespace/proc/rift(turf/below)
 	below.above_override = src
 	below.update_multiz(TRUE, TRUE)
