@@ -110,9 +110,11 @@
 	. = ..()
 	SW = new(src)
 
-/obj/item/claymore/aoetest/afterattack(atom/movable/AM, mob/living/user, proximity)
+/obj/item/claymore/aoetest/pre_attack(atom/movable/AM, mob/living/user, proximity)
 	. = ..()
-	SW.start_attack(AM, user)
+	if(isturf(AM))
+		SW.start_attack(AM, user)
+		. = TRUE
 
 /obj/item/fireaxe/ayetest
 	name = "anime tonop"
@@ -123,6 +125,8 @@
 	SW = new(src)
 	SW.init_img_turn = 90
 
-/obj/item/fireaxe/ayetest/afterattack(atom/movable/AM, mob/living/user, proximity)
+/obj/item/fireaxe/ayetest/pre_attack(atom/movable/AM, mob/living/user, proximity)
 	. = ..()
-	SW.start_attack(AM, user)
+	if(isturf(AM))
+		SW.start_attack(AM, user)
+		. = TRUE
