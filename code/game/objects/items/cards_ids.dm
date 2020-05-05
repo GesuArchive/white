@@ -479,6 +479,7 @@ update_label()
 	registered_name = "Captain"
 	assignment = "Captain"
 	registered_age = null
+	anchored = TRUE
 	var/first_try = TRUE
 
 /obj/item/card/id/captains_spare/Initialize()
@@ -494,7 +495,7 @@ update_label()
 	if(iscarbon(user) && first_try && !HAS_TRAIT(user.mind, TRAIT_DISK_VERIFIER))
 		var/mob/living/carbon/C = user
 		to_chat(C, "<span class='warning'>Пытаюсь подобрать карту... Что может пойти не тка~</span>")
-		if(do_after(C, 30, target = src))
+		if(do_after(C, 10, target = src))
 			to_chat(C, "<span class='userdanger'>КАРТА БЫЛА ЗАМИНИРОВАНА! СУКА!</span>")
 			electrocute_mob(user, get_area(src))
 			playsound(loc, 'sound/weapons/slice.ogg', 25, TRUE, -1)
@@ -504,6 +505,11 @@ update_label()
 			var/obj/item/bodypart/chopchop = C.get_bodypart(which_hand)
 			chopchop.dismember()
 			first_try = FALSE
+			anchored = FALSE
+	else if (HAS_TRAIT(user.mind, TRAIT_DISK_VERIFIER))
+		to_chat(user, "<span class='notice'>Карта разминирована.</span>")
+		first_try = FALSE
+		anchored = FALSE
 
 /obj/item/card/id/captains_spare/update_label() //so it doesn't change to Captain's ID card (Captain) on a sneeze
 	if(registered_name == "Captain")
