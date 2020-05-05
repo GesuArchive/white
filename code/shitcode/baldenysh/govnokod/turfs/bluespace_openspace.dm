@@ -32,7 +32,6 @@
 	below_override.CanAtmosPassVertical = initial(below_override.CanAtmosPassVertical)
 	below_override.update_multiz()
 
-
 	below_override = null
 	update_multiz()
 
@@ -50,12 +49,15 @@
 	var/turf/below = get_turf(get_step(get_step(src, NORTH), NORTH))
 	rift(below)
 
-/turf/open/openspace/bluespace/debug/s
+/turf/open/openspace/bluespace/crossprikol
 	name = "прикольное голубое пространство"
 
-/turf/open/openspace/bluespace/debug/s/Initialize()
+/turf/open/openspace/bluespace/crossprikol/Initialize()
+	..()
+
 	var/turf/below = get_turf(get_step(get_step(src, NORTH), NORTH))
 	rift(below)
 
-	..()
+	var/turf/open/openspace/bluespace/prikol = below.ChangeTurf(/turf/open/openspace/bluespace)
+	prikol.rift(src)
 
