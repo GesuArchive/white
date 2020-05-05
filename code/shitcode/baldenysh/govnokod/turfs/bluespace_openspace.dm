@@ -49,15 +49,11 @@
 	var/turf/below = get_turf(get_step(get_step(src, NORTH), NORTH))
 	rift(below)
 
-/turf/open/openspace/bluespace/crossprikol
-	name = "прикольное голубое пространство"
+/turf/open/openspace/bluespace/debug/reverse
+	name = "реверсивное прикольное голубое пространство"
 
-/turf/open/openspace/bluespace/crossprikol/Initialize()
+/turf/open/openspace/bluespace/debug/reverse/Initialize()
 	..()
 
-	var/turf/below = get_turf(get_step(get_step(src, NORTH), NORTH))
+	var/turf/below = get_turf(get_step(get_step(src, SOUTH), SOUTH))
 	rift(below)
-
-	var/turf/open/openspace/bluespace/prikol = below.ChangeTurf(/turf/open/openspace/bluespace)
-	prikol.rift(src)
-
