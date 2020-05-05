@@ -8,6 +8,8 @@
 	return get_step(ref, dir)
 
 /proc/get_dir_multiz(turf/us, turf/them)
+	return get_dir_multiz_override(us, them)
+/*
 	us = get_turf(us)
 	them = get_turf(them)
 	if(!us || !them)
@@ -26,7 +28,7 @@
 			else
 				return get_dir(us, them)
 		return (dir | get_dir(us, them))
-
+*/
 /turf/proc/above()
 	return get_step_multiz(src, UP)
 
