@@ -234,7 +234,7 @@
 	var/spread_cooldown = 0
 
 /datum/nanite_program/spreading/active_effect()
-	if(spread_cooldown < world.time)
+	if(world.time < spread_cooldown)
 		return
 	spread_cooldown = world.time + 50
 	var/list/mob/living/target_hosts = list()

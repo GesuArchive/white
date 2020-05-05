@@ -62,7 +62,8 @@
 	rapid = 3
 	casingtype = /obj/item/ammo_casing/c9mm
 	loot = list(/obj/effect/mob_spawn/human/corpse/russian/ranged/officer,
-				/obj/item/gun/ballistic/automatic/pistol/APS)
+				/obj/item/gun/ballistic/automatic/pistol/aps)
+
 
 /mob/living/simple_animal/hostile/russian/ranged/officer/Aggro()
 	..()

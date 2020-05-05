@@ -1,4 +1,4 @@
-// 10mm (Stechkin)
+// 10mm
 
 /obj/item/ammo_casing/c10mm
 	name = "10mm bullet casing"
@@ -21,7 +21,7 @@
 	desc = "A 10mm поджигающая пуля casing."
 	projectile_type = /obj/projectile/bullet/incendiary/c10mm
 
-// 9mm (Stechkin APS)
+// 9mm (Makarov and Stechkin APS)
 
 /obj/item/ammo_casing/c9mm
 	name = "9mm bullet casing"
@@ -34,7 +34,12 @@
 	desc = "A 9mm ББ пуля casing."
 	projectile_type =/obj/projectile/bullet/c9mm_ap
 
-/obj/item/ammo_casing/c9mm/inc
+/obj/item/ammo_casing/c9mm/hp
+	name = "9mm hollow-point bullet casing"
+	desc = "A 10mm hollow-point bullet casing."
+	projectile_type = /obj/projectile/bullet/c9mm_hp
+
+/obj/item/ammo_casing/c9mm/fire
 	name = "9mm поджигающая пуля casing"
 	desc = "A 9mm поджигающая пуля casing."
 	projectile_type = /obj/projectile/bullet/incendiary/c9mm
