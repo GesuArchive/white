@@ -507,7 +507,7 @@ update_label()
 			first_try = FALSE
 			anchored = FALSE
 	else if (HAS_TRAIT(user.mind, TRAIT_DISK_VERIFIER))
-		to_chat(C, "<span class='notice'>Карта разминирована.</span>")
+		to_chat(user, "<span class='notice'>Карта разминирована.</span>")
 		first_try = FALSE
 		anchored = FALSE
 
