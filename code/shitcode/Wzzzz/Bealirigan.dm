@@ -26,7 +26,7 @@
 /obj/item/storage/belt/military/army/wzzzz/PopulateContents()
 	new /obj/item/ammo_box/a762	(src)
 	new /obj/item/ammo_box/a762	(src)
-	new /obj/item/gun/ballistic/automatic/pistol/APS(src)
+	new /obj/item/gun/ballistic/automatic/pistol/aps(src)
 	new /obj/item/ammo_box/magazine/m9mm(src)
 	new /obj/item/grenade/flashbang	(src)
 	new /obj/item/ammo_box/magazine/m9mm(src)
