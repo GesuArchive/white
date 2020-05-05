@@ -79,11 +79,7 @@
 	rapid = 3
 	casingtype = /obj/item/ammo_casing/c9mm
 	loot = list(/obj/effect/mob_spawn/human/corpse/russian/ranged/officer,
-				/obj/item/gun/ballistic/automatic/pistol/APS)
-	casingtype = /obj/item/ammo_casing/a762
-	harm_intent_damage = 5
-	melee_damage_lower = 15
-	melee_damage_upper = 15
+				/obj/item/gun/ballistic/automatic/pistol/aps)
 
 
 /mob/living/simple_animal/hostile/russian/death()

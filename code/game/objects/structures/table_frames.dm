@@ -13,7 +13,7 @@
 	name = "рама стола"
 	desc = "Четыре металлические ножки с четырьмя каркасными стержнями для стола. Вы могли бы легко пройти через это."
 	icon = 'icons/obj/structures.dmi'
-	icon_state = "table_frame"
+	icon_state = "nu_table_frame"
 	density = FALSE
 	anchored = FALSE
 	layer = PROJECTILE_HIT_THRESHHOLD_LAYER
@@ -76,7 +76,7 @@
 /obj/structure/table_frame/wood
 	name = "деревянная рама стола"
 	desc = "Четыре деревянные ножки с четырьмя обрамляющими деревянными стержнями для деревянного стола. Вы могли бы легко пройти через это."
-	icon_state = "wood_frame"
+	icon_state = "nu_wood_frame"
 	framestack = /obj/item/stack/sheet/mineral/wood
 	framestackamount = 2
 	resistance_flags = FLAMMABLE
