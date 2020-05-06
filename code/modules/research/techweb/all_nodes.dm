@@ -555,7 +555,7 @@
 	display_name = "Botanical Engineering"
 	description = "Botanical tools"
 	prereq_ids = list("adv_engi", "biotech")
-	design_ids = list("portaseeder", "discplantgene", "flora_gun", "hydro_tray", "biogenerator", "seed_extractor")
+	design_ids = list("portaseeder", "diskplantgene", "flora_gun", "hydro_tray", "biogenerator", "seed_extractor")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 	export_price = 5000
 
@@ -1167,6 +1167,15 @@
 	export_price = 2500
 	hidden = TRUE
 	experimental = TRUE
+
+/datum/techweb_node/drone_robotics
+	id = "drone_robotics"
+	starting_node = TRUE
+	display_name = "Drone research"
+	description = "Little robots that help out here and there. Immensely useful."
+	prereq_ids = list("base")
+	design_ids = list("maint_drone")
+
 
 //Helpers for debugging/balancing the techweb in its entirety!
 /proc/total_techweb_exports()
