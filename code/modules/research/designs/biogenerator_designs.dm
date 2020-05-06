@@ -18,22 +18,6 @@
 	build_path = /obj/item/reagent_containers/food/condiment/soymilk
 	category = list("initial","Food")
 
-/datum/design/ethanol
-	name = "10u Ethanol"
-	id = "ethanol"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 30)
-	make_reagents = list(/datum/reagent/consumable/ethanol = 10)
-	category = list("initial","Food")
-
-/datum/design/cream
-	name = "10u Cream"
-	id = "cream"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 30)
-	make_reagents = list(/datum/reagent/consumable/cream = 10)
-	category = list("initial","Food")
-
 /datum/design/black_pepper
 	name = "Black Pepper"
 	id = "black_pepper"
@@ -56,6 +40,30 @@
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass= 150)
 	build_path = /obj/item/reagent_containers/food/condiment/flour
+	category = list("initial","Food")
+
+/datum/design/ethanol
+	name = "10u Ethanol"
+	id = "ethanol"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass= 30)
+	make_reagents = list(/datum/reagent/consumable/ethanol = 10)
+	category = list("initial","Food")
+
+/datum/design/cream
+	name = "10u Cream"
+	id = "cream"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass= 30)
+	make_reagents = list(/datum/reagent/consumable/cream = 10)
+	category = list("initial","Food")
+
+/datum/design/strange_seed
+	name = "Pack of strange seeds"
+	id = "strange_seed"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 5000)
+	build_path = /obj/item/seeds/random
 	category = list("initial","Food")
 
 /datum/design/monkey_cube
