@@ -170,7 +170,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	S.environment = 0
 
 	var/track_name = replacetext(replacetext(soundpath, ".ogg", ""), "cfg/battle_music/prikol/", "")
-	to_chat(owner, "<b>Текущий трек:<i>[tmusic]</i></b>. <a href='?src=[REF(R)];switch=1'>Переключить.</a>")
+	to_chat(owner, "<b>Текущий трек:<i>[track_name]</i></b>. <a href='?src=[REF(src)];switch=1'>Переключить.</a>")
 
 	bm = S
 	SEND_SOUND(owner, bm)
