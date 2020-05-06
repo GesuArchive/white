@@ -3,6 +3,7 @@
 	desc = "Невероятная коллекция запрещённых вещей в одном месте."
 	icon = 'code/shitcode/valtos/icons/vending.dmi'
 	icon_state = "trading"
+	density = TRUE
 	var/list/guns = list(/obj/item/gun/ballistic/automatic/l6_saw/unrestricted/wzzzz/mg34, /obj/item/gun/energy/taser/wzzzz/carbine, /obj/item/gun/ballistic/automatic/wt550/wzzzz/german)
 
 	var/list/melees = list(/obj/item/melee/cultblade/wzzzz/great,
