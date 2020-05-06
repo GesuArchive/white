@@ -15,7 +15,11 @@
 					/obj/item/cultivator = 3,
 					/obj/item/shovel/spade = 3,
 					/obj/item/secateurs = 3,
-					/obj/item/plant_analyzer = 4)
+					/obj/item/plant_analyzer = 4,
+					/obj/machinery/plantgenes = 1,
+					/obj/item/disk/plantgene = 20,
+					/obj/machinery/chem_dispenser = 1
+					)
 	contraband = list(/obj/item/reagent_containers/glass/bottle/ammonia = 10,
 					  /obj/item/reagent_containers/glass/bottle/diethylamine = 5)
 	refill_canister = /obj/item/vending_refill/hydronutrients
