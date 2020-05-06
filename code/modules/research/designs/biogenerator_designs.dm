@@ -3,19 +3,19 @@
 ///////////////////////////////////
 
 /datum/design/milk
-	name = "10u Milk"
+	name = "Milk"
 	id = "milk"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 20)
-	make_reagents = list(/datum/reagent/consumable/milk = 10)
+	materials = list(/datum/material/biomass= 100)
+	build_path = /obj/item/reagent_containers/food/condiment/milk
 	category = list("initial","Food")
 
 /datum/design/soymilk
-	name = "10u Soy Milk"
+	name = "Soy Milk"
 	id = "soymilk"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 20)
-	make_reagents = list(/datum/reagent/consumable/soymilk = 10)
+	materials = list(/datum/material/biomass= 100 )
+	build_path = /obj/item/reagent_containers/food/condiment/soymilk
 	category = list("initial","Food")
 
 /datum/design/ethanol
@@ -35,27 +35,27 @@
 	category = list("initial","Food")
 
 /datum/design/black_pepper
-	name = "10u Black Pepper"
+	name = "Black Pepper"
 	id = "black_pepper"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 25)
-	make_reagents = list(/datum/reagent/consumable/blackpepper = 10)
+	materials = list(/datum/material/biomass= 50)
+	build_path = /obj/item/reagent_containers/food/condiment/peppermill
 	category = list("initial","Food")
 
 /datum/design/enzyme
-	name = "10u Universal Enzyme"
+	name = "Universal Enzyme"
 	id = "enzyme"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 30)
-	make_reagents = list(/datum/reagent/consumable/enzyme = 10)
+	materials = list(/datum/material/biomass= 150)
+	build_path = /obj/item/reagent_containers/food/condiment/enzyme
 	category = list("initial","Food")
 
 /datum/design/flour
-	name = "10u Flour"
+	name = "Flour"
 	id = "flour_sack"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 30)
-	make_reagents = list(/datum/reagent/consumable/flour = 10)
+	materials = list(/datum/material/biomass= 150)
+	build_path = /obj/item/reagent_containers/food/condiment/flour
 	category = list("initial","Food")
 
 /datum/design/monkey_cube
