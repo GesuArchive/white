@@ -11,7 +11,6 @@
 	can_build_on = FALSE
 	requires_activation = TRUE
 
-	var/tunnel_icon_state = "tunnel"
 	var/list/fall_proctected = list()
 /*
 /turf/open/openspace/bluespace/Initialize(turf/rift_to = null)
