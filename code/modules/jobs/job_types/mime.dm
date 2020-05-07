@@ -33,6 +33,7 @@
 	head = /obj/item/clothing/head/frenchberet
 	suit = /obj/item/clothing/suit/toggle/suspenders
 	backpack_contents = list(
+		/obj/item/modular_computer/tablet/preset/cheap=1,
 		/obj/item/stamp/mime = 1,
 		/obj/item/book/mimery = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing = 1

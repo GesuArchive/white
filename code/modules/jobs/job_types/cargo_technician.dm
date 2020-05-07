@@ -26,4 +26,5 @@
 	ears = /obj/item/radio/headset/headset_cargo
 	uniform = /obj/item/clothing/under/rank/cargo/tech
 	l_hand = /obj/item/export_scanner
+	backpack_contents = list(/obj/item/modular_computer/tablet/preset/cheap=1)
 

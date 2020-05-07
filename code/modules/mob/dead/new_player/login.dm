@@ -18,16 +18,32 @@
 		spawn(10) // дублируем на случай init-time
 			client.fit_viewport()
 
+	var/list/locinfo = client.get_loc_info()
+
+	to_chat(src, "<div class='greenannounce'> ================================</div>")
+	sleep(5)
+	to_chat(src, "<div class='greenannounce'> >> WHITE DREAM UAC</div>")
+	sleep(5)
+	to_chat(src, "<div class='greenannounce'> >> ПОЛЬЗОВАТЕЛЬ: [capitalize(client.ckey)]</div>")
+	sleep(5)
+	to_chat(src, "<div class='greenannounce'> >> СТРАНА: [capitalize(locinfo["country"])]</div>")
+	sleep(5)
+	to_chat(src, "<div class='greenannounce'> >> ИГРОВОЕ ВРЕМЯ: [capitalize(client.get_exp_living())]</div>")
+	sleep(5)
+	to_chat(src, "<div class='greenannounce'> >> ВХОД РАЗРЕШЁН</div>")
+	sleep(5)
+	to_chat(src, "<div class='greenannounce'> ================================</div>")
+
 	var/motd = global.config.motd
 	if(motd)
 		to_chat(src, "<div class=\"motd\">[motd]</div>", handle_whitespace=FALSE)
 
 	if(GLOB.admin_notice)
-		to_chat(src, "<span class='notice'><b>Admin Notice:</b>\n \t [GLOB.admin_notice]</span>")
+		to_chat(src, "<span class='notice'><b>ВАЖНАЯ ЗАМЕТКА:</b>\n \t [GLOB.admin_notice]</span>")
 
 	var/spc = CONFIG_GET(number/soft_popcap)
 	if(spc && living_player_count() >= spc)
-		to_chat(src, "<span class='notice'><b>Server Notice:</b>\n \t [CONFIG_GET(string/soft_popcap_message)]</span>")
+		to_chat(src, "<span class='notice'><b>Сервер сообщает:</b>\n \t [CONFIG_GET(string/soft_popcap_message)]</span>")
 
 	sight |= SEE_TURFS
 

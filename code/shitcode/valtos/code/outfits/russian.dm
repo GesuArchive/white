@@ -12,7 +12,7 @@
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/assembly/flash/handheld
 	suit_store = /obj/item/pda/security
-	backpack_contents = list(/obj/item/melee/baton/loaded=1, /obj/item/ammo_box/magazine/traumatic=1)
+	backpack_contents = list(/obj/item/modular_computer/tablet/preset/cheap=1, /obj/item/melee/baton/loaded=1, /obj/item/ammo_box/magazine/traumatic=1)
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec
