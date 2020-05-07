@@ -21,9 +21,6 @@
 	var/target_y = 100
 	var/target_z = 2
 
-	var/icon_state_on = "emitter_+a"
-	var/icon_state_underpowered = "emitter_+u"
-
 /obj/machinery/prikol_teleporter/Destroy()
 	start_collapse()
 	return ..()
