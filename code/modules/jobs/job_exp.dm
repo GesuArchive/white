@@ -130,11 +130,11 @@ GLOBAL_PROTECT(exp_to_update)
 
 /proc/get_exp_format(expnum)
 	if(expnum > 60)
-		return num2text(round(expnum / 60)) + "h"
+		return num2text(round(expnum / 60)) + "ч"
 	else if(expnum > 0)
-		return num2text(expnum) + "m"
+		return num2text(expnum) + "м"
 	else
-		return "0h"
+		return "0ч"
 
 /datum/controller/subsystem/blackbox/proc/update_exp(mins, ann = FALSE)
 	if(!SSdbcore.Connect())
