@@ -18,7 +18,7 @@
 		spawn(10) // дублируем на случай init-time
 			client.fit_viewport()
 
-	var/list/locinfo = get_loc_info()
+	var/list/locinfo = client.get_loc_info()
 
 	to_chat(src, "<div class='greenannounce'> ================================</div>")
 	sleep(5)
@@ -28,7 +28,7 @@
 	sleep(5)
 	to_chat(src, "<div class='greenannounce'> >> СТРАНА: [capitalize(locinfo["country"])]</div>")
 	sleep(5)
-	to_chat(src, "<div class='greenannounce'> >> ИГРОВОЕ ВРЕМЯ: [capitalize(get_exp_living())]</div>")
+	to_chat(src, "<div class='greenannounce'> >> ИГРОВОЕ ВРЕМЯ: [capitalize(client.get_exp_living())]</div>")
 	sleep(5)
 	to_chat(src, "<div class='greenannounce'> >> ВХОД РАЗРЕШЁН</div>")
 	sleep(5)
