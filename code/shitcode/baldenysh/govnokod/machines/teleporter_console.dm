@@ -5,4 +5,4 @@
 	icon_keyboard = "teleport_key"
 	circuit = null
 
-	var/obj/machinery/bstransceiver/trx = null
+	var/obj/machinery/prikol_teleporter/trx = null
