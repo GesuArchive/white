@@ -14,6 +14,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/capsaicin = 1)
 	tastes = list("рыба" = 4, "кляр" = 1, "перцы" = 1)
 	foodtype = MEAT
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/carpmeat
 	name = "carp fillet"
@@ -24,6 +25,7 @@
 	filling_color = "#FA8072"
 	tastes = list("рыба" = 1)
 	foodtype = MEAT
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/carpmeat/Initialize()
 	. = ..()
@@ -43,6 +45,7 @@
 	filling_color = "#CD853F"
 	tastes = list("рыба" = 1, "панировочные сухари" = 1)
 	foodtype = MEAT
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/fishandchips
 	name = "fish and chips"
@@ -53,6 +56,7 @@
 	filling_color = "#FA8072"
 	tastes = list("рыба" = 1, "чипсы" = 1)
 	foodtype = MEAT | VEGETABLES | FRIED
+	value = FOOD_EXOTIC
 
 ////////////////////////////////////////////MEATS AND ALIKE////////////////////////////////////////////
 
@@ -64,6 +68,7 @@
 	filling_color = "#F0E68C"
 	tastes = list("тофу" = 1)
 	foodtype = VEGETABLES
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/tofu/prison
 	name = "soggy tofu"
@@ -80,6 +85,7 @@
 	filling_color = "#000000"
 	tastes = list("паутина" = 1)
 	foodtype = MEAT | TOXIC
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/cornedbeef
 	name = "corned beef and cabbage"
@@ -90,6 +96,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	tastes = list("мясо" = 1, "капуста" = 1)
 	foodtype = MEAT | VEGETABLES
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/bearsteak
 	name = "Filet migrawr"
@@ -100,6 +107,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/ethanol/manly_dorf = 5)
 	tastes = list("мясо" = 1, "лосось" = 1)
 	foodtype = MEAT | ALCOHOL
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/meatball
 	name = "meatball"
@@ -109,6 +117,7 @@
 	filling_color = "#800000"
 	tastes = list("мясо" = 1)
 	foodtype = MEAT
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/sausage
 	name = "sausage"
@@ -122,6 +131,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/salami
 	foodtype = MEAT | BREAKFAST
 	var/roasted = FALSE
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/sausage/Initialize()
 	. = ..()
@@ -135,6 +145,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	tastes = list("мясо" = 1, "дымок" = 1)
 	foodtype = MEAT
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/rawkhinkali
 	name = "raw khinkali"
@@ -144,6 +155,7 @@
 	cooked_type = /obj/item/reagent_containers/food/snacks/khinkali
 	tastes = list("мясо" = 1, "лук" = 1, "чеснок" = 1)
 	foodtype = MEAT
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/khinkali
 	name = "khinkali"
@@ -154,6 +166,7 @@
 	filling_color = "#F0F0F0"
 	tastes = list("мясо" = 1, "лук" = 1, "чеснок" = 1)
 	foodtype = MEAT
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/monkeycube
 	name = "monkey cube"
@@ -216,6 +229,7 @@
 	list_reagents = list(/datum/reagent/monkey_powder = 30, /datum/reagent/medicine/strange_reagent = 5)
 	tastes = list("джунгли" = 1, "бананы" = 1, "jimmies" = 1)
 	spawned_mob = /mob/living/simple_animal/hostile/gorilla
+	value = FOOD_ILLEGAL
 
 /obj/item/reagent_containers/food/snacks/enchiladas
 	name = "enchiladas"
@@ -227,6 +241,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/capsaicin = 6)
 	tastes = list("перцы" = 1, "мясо" = 3, "сыр" = 1, "сметана" = 1)
 	foodtype = MEAT
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/stewedsoymeat
 	name = "stewed soy meat"
@@ -238,6 +253,7 @@
 	filling_color = "#D2691E"
 	tastes = list("соя" = 1, "овощи" = 1)
 	foodtype = VEGETABLES
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/stewedsoymeat/Initialize()
 	. = ..()
@@ -253,6 +269,7 @@
 	filling_color = "#000000"
 	tastes = list("перцы" = 1, "паутина" = 1)
 	foodtype = MEAT
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/spidereggsham
 	name = "зелёный eggs and ham"
@@ -265,6 +282,7 @@
 	filling_color = "#7FFF00"
 	tastes = list("мясо" = 1, "зелёный цвет" = 1)
 	foodtype = MEAT
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/sashimi
 	name = "carp sashimi"
@@ -275,6 +293,7 @@
 	filling_color = "#FA8072"
 	tastes = list("рыба" = 1, "перцы" = 1)
 	foodtype = MEAT | TOXIC
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/nugget
 	name = "chicken nugget"
@@ -283,6 +302,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	tastes = list("\"цыплёнок\"" = 1)
 	foodtype = MEAT
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/nugget/Initialize()
 	. = ..()
@@ -299,6 +319,7 @@
 	filling_color = "#800000"
 	tastes = list("мясо" = 1, "масло" = 1)
 	foodtype = MEAT | DAIRY
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/bbqribs
 	name = "bbq ribs"
@@ -309,6 +330,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("мясо" = 3, "дымный соус" = 1)
 	foodtype = MEAT
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/meatclown
 	name = "meat clown"
@@ -339,6 +361,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 6)
 	tastes = list("нежное мясо" = 3, "металл" = 1)
 	foodtype = MEAT | GROSS
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/kebab/monkey
 	name = "meat-kebab"
@@ -346,6 +369,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("мясо" = 3, "металл" = 1)
 	foodtype = MEAT
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/kebab/tofu
 	name = "tofu-kebab"
@@ -353,7 +377,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	tastes = list("тофу" = 3, "металл" = 1)
 	foodtype = VEGETABLES
-
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/kebab/tail
 	name = "lizard-tail kebab"
@@ -361,6 +385,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("мясо" = 8, "металл" = 4, "чешуйки" = 1)
 	foodtype = MEAT
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/kebab/rat
 	name = "rat-kebab"
@@ -370,15 +395,18 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("крысятина" = 1, "металл" = 1)
 	foodtype = MEAT | GROSS
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/kebab/rat/double
 	name = "double rat-kebab"
 	icon_state = "doubleratkebab"
 	tastes = list("крысятина" = 2, "металл" = 1)
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/kebab/fiesta
 	name = "fiesta skewer"
 	icon_state = "fiestaskewer"
 	tastes = list("tex-mex" = 3, "тмин" = 2)
 	bonus_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/capsaicin = 3)
+	value = FOOD_EXOTIC

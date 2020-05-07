@@ -11,6 +11,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("сыр" = 1)
 	foodtype = DAIRY
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/royalcheese
 	name = "royal cheese"
@@ -29,6 +30,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("сыр" = 1)
 	foodtype = DAIRY
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/watermelonslice
 	name = "watermelon slice"
@@ -38,6 +40,7 @@
 	tastes = list("арбуз" = 1)
 	foodtype = FRUIT
 	juice_results = list(/datum/reagent/consumable/watermelonjuice = 5)
+	value = FOOD_WORTHLESS
 
 /obj/item/reagent_containers/food/snacks/candy_corn
 	name = "candy corn"
@@ -47,6 +50,7 @@
 	filling_color = "#FF8C00"
 	tastes = list("сладкий попкорн" = 1)
 	foodtype = JUNKFOOD | SUGAR
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/candy_corn/prison
 	name = "desiccated candy corn"
@@ -64,6 +68,7 @@
 	filling_color = "#A0522D"
 	tastes = list("шоколад" = 1)
 	foodtype = JUNKFOOD | SUGAR
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/hugemushroomslice
 	name = "huge mushroom slice"
@@ -72,6 +77,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("грибы" = 1)
 	foodtype = VEGETABLES
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/popcorn
 	name = "popcorn"
@@ -83,6 +89,7 @@
 	filling_color = "#FFEFD5"
 	tastes = list("попкорн" = 3, "масло" = 1)
 	foodtype = JUNKFOOD
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/popcorn/Initialize()
 	. = ..()
@@ -97,6 +104,7 @@
 	filling_color = "#D2B48C"
 	tastes = list("картоха" = 1)
 	foodtype = VEGETABLES | DAIRY
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/fries
 	name = "space fries"
@@ -107,6 +115,7 @@
 	filling_color = "#FFD700"
 	tastes = list("картофель фри" = 3, "соль" = 1)
 	foodtype = VEGETABLES | GRAIN | FRIED
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/fries/Initialize()
 	. = ..()
@@ -120,6 +129,7 @@
 	filling_color = "FFD700"
 	tastes = list("картоха" = 3, "valids" = 1)
 	foodtype = FRIED | VEGETABLES
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/tatortot/Initialize()
 	. = ..()
@@ -134,6 +144,7 @@
 	filling_color = "#DEB887"
 	tastes = list("соя" = 1)
 	foodtype = VEGETABLES
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/cheesyfries
 	name = "cheesy fries"
@@ -145,6 +156,7 @@
 	filling_color = "#FFD700"
 	tastes = list("картофель фри" = 3, "сыр" = 1)
 	foodtype = VEGETABLES | GRAIN | DAIRY
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/cheesyfries/Initialize()
 	. = ..()
@@ -157,6 +169,7 @@
 	list_reagents = list(/datum/reagent/toxin/bad_food = 30)
 	filling_color = "#8B4513"
 	foodtype = GROSS
+	value = FOOD_WORTHLESS
 
 /obj/item/reagent_containers/food/snacks/carrotfries
 	name = "carrot fries"
@@ -167,6 +180,7 @@
 	filling_color = "#FFA500"
 	tastes = list("морковка" = 3, "соль" = 1)
 	foodtype = VEGETABLES
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/carrotfries/Initialize()
 	. = ..()
@@ -182,6 +196,7 @@
 	filling_color = "#FF4500"
 	tastes = list("яблоко" = 2, "карамель" = 3)
 	foodtype = JUNKFOOD | FRUIT | SUGAR
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/mint
 	name = "mint"
@@ -192,6 +207,7 @@
 	list_reagents = list(/datum/reagent/toxin/minttoxin = 2)
 	filling_color = "#800000"
 	foodtype = TOXIC | SUGAR
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/eggwrap
 	name = "egg wrap"
@@ -202,6 +218,7 @@
 	filling_color = "#F0E68C"
 	tastes = list("яйцо" = 1)
 	foodtype = MEAT | GRAIN
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/spidereggs
 	name = "spider eggs"
@@ -211,6 +228,7 @@
 	filling_color = "#008000"
 	tastes = list("паутина" = 1)
 	foodtype = MEAT | TOXIC
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/spiderling
 	name = "spiderling"
@@ -220,6 +238,7 @@
 	filling_color = "#00800"
 	tastes = list("паутина" = 1, "кишочки" = 2)
 	foodtype = MEAT | TOXIC
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/spiderlollipop
 	name = "spider lollipop"
@@ -229,6 +248,7 @@
 	filling_color = "#00800"
 	tastes = list("паутина" = 1, "сахар" = 2)
 	foodtype = JUNKFOOD | SUGAR
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/chococoin
 	name = "chocolate coin"
@@ -239,6 +259,7 @@
 	filling_color = "#A0522D"
 	tastes = list("шоколад" = 1)
 	foodtype = JUNKFOOD | SUGAR
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/fudgedice
 	name = "fudge dice"
@@ -250,6 +271,7 @@
 	trash = /obj/item/dice/fudge
 	tastes = list("помадка" = 1)
 	foodtype = JUNKFOOD | SUGAR
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/chocoorange
 	name = "chocolate orange"
@@ -260,6 +282,7 @@
 	filling_color = "#A0522D"
 	tastes = list("шоколад" = 3, "апельсины" = 1)
 	foodtype = JUNKFOOD | SUGAR
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/eggplantparm
 	name = "eggplant parmigiana"
@@ -271,6 +294,7 @@
 	filling_color = "#BA55D3"
 	tastes = list("баклажан" = 3, "сыр" = 1)
 	foodtype = VEGETABLES | DAIRY
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/tortilla
 	name = "tortilla"
@@ -281,6 +305,7 @@
 	filling_color = "#FFEFD5"
 	tastes = list("плоская маисовая лепешка" = 1)
 	foodtype = GRAIN
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/burrito
 	name = "burrito"
@@ -291,6 +316,7 @@
 	filling_color = "#FFEFD5"
 	tastes = list("torilla" = 2, "мясо" = 3)
 	foodtype = GRAIN | MEAT
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/cheesyburrito
 	name = "cheesy burrito"
@@ -301,6 +327,7 @@
 	filling_color = "#FFD800"
 	tastes = list("torilla" = 2, "мясо" = 3, "сыр" = 1)
 	foodtype = GRAIN | MEAT | DAIRY
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/carneburrito
 	name = "carne asada burrito"
@@ -311,6 +338,7 @@
 	filling_color = "#A0522D"
 	tastes = list("torilla" = 2, "мясо" = 4)
 	foodtype = GRAIN | MEAT
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/fuegoburrito
 	name = "fuego plasma burrito"
@@ -321,6 +349,7 @@
 	filling_color = "#FF2000"
 	tastes = list("torilla" = 2, "мясо" = 3, "перцы" = 1)
 	foodtype = GRAIN | MEAT
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/yakiimo
 	name = "yaki imo"
@@ -331,6 +360,7 @@
 	filling_color = "#8B1105"
 	tastes = list("сладкая картоха" = 1)
 	foodtype = GRAIN | VEGETABLES | SUGAR
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/roastparsnip
 	name = "roast parsnip"
@@ -341,6 +371,7 @@
 	filling_color = "#FF5500"
 	tastes = list("пастернак" = 1)
 	foodtype = VEGETABLES
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/melonfruitbowl
 	name = "melon fruit bowl"
@@ -352,6 +383,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("арбуз" = 1)
 	foodtype = FRUIT
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/nachos
 	name = "nachos"
@@ -362,6 +394,7 @@
 	filling_color = "#F4A460"
 	tastes = list("начос" = 1)
 	foodtype = VEGETABLES | FRIED
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/cheesynachos
 	name = "cheesy nachos"
@@ -372,6 +405,7 @@
 	filling_color = "#FFD700"
 	tastes = list("начос" = 2, "сыр" = 1)
 	foodtype = VEGETABLES | FRIED | DAIRY
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/cubannachos
 	name = "Cuban nachos"
@@ -382,6 +416,7 @@
 	filling_color = "#DC143C"
 	tastes = list("начос" = 2, "перец" = 1)
 	foodtype = VEGETABLES | FRIED | DAIRY
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/melonkeg
 	name = "melon keg"
@@ -394,6 +429,7 @@
 	bitesize = 5
 	tastes = list("зерновой спирт" = 1, "фрукты" = 1)
 	foodtype = FRUIT | ALCOHOL
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/honeybar
 	name = "honey nut bar"
@@ -404,6 +440,7 @@
 	filling_color = "#F2CE91"
 	tastes = list("овес" = 3, "орешки" = 2, "мед" = 1)
 	foodtype = GRAIN | SUGAR
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/stuffedlegion
 	name = "stuffed legion"
@@ -413,6 +450,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/capsaicin = 2)
 	tastes = list("смерть" = 2, "камни" = 1, "мясо" = 1, "перцы" = 1)
 	foodtype = MEAT
+	value = FOOD_LEGENDARY
 
 /obj/item/reagent_containers/food/snacks/powercrepe
 	name = "Powercrepe"
@@ -428,9 +466,11 @@
 	w_class = WEIGHT_CLASS_BULKY
 	tastes = list("вишня" = 1, "креп" = 1)
 	foodtype = GRAIN | FRUIT | SUGAR
+	value = FOOD_LEGENDARY
 
 /obj/item/reagent_containers/food/snacks/chewable
 	slot_flags = ITEM_SLOT_MASK
+	value = FOOD_WORTHLESS
 	///How long it lasts before being deleted
 	var/succ_dur = 180
 	///The delay between each time it will handle reagents
@@ -576,6 +616,7 @@
 	list_reagents = list(/datum/reagent/consumable/sugar = 5, /datum/reagent/medicine/sal_acid = 2, /datum/reagent/medicine/oxandrolone = 2)	//Kek
 	tastes = list("конфета")
 	foodtype = JUNKFOOD
+	value = FOOD_WORTHLESS
 
 /obj/item/reagent_containers/food/snacks/gumball/Initialize()
 	. = ..()
@@ -605,6 +646,7 @@
 	filling_color = "F0D830"
 	tastes = list("тако" = 4, "мясо" = 2, "сыр" = 2, "салат" = 1)
 	foodtype = MEAT | DAIRY | GRAIN | VEGETABLES
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/taco/plain
 	desc = "A traditional taco with meat and cheese, minus the rabbit food."
@@ -622,6 +664,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/sodiumchloride = 10)
 	tastes = list("отруби" = 4, "причинычи" = 3, "соль" = 1)
 	foodtype = GRAIN | FRUIT | BREAKFAST
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/butter
 	name = "stick of butter"
@@ -631,6 +674,7 @@
 	filling_color = "#FFD700"
 	tastes = list("масло" = 1)
 	foodtype = DAIRY
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/butter/examine(mob/user)
 	. = ..()
@@ -656,6 +700,7 @@
 	desc = "delicious, golden, fatty goodness on a stick."
 	icon_state = "butteronastick"
 	trash = /obj/item/stack/rods
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/onionrings
 	name = "onion rings"
@@ -666,6 +711,7 @@
 	gender = PLURAL
 	tastes = list("кляр" = 3, "лук" = 1)
 	foodtype = VEGETABLES
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/pineappleslice
 	name = "pineapple slice"
@@ -675,6 +721,7 @@
 	juice_results = list(/datum/reagent/consumable/pineapplejuice = 3)
 	tastes = list("ананас" = 1)
 	foodtype = FRUIT | PINEAPPLE
+	value = FOOD_WORTHLESS
 
 /obj/item/reagent_containers/food/snacks/tinychocolate
 	name = "chocolate"
@@ -684,6 +731,7 @@
 	filling_color = "#A0522D"
 	tastes = list("шоколад" = 1)
 	foodtype = JUNKFOOD | SUGAR
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/canned
 	name = "Canned Air"
@@ -695,6 +743,7 @@
 	spillable = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
 	volume = 30
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/canned/proc/open_can(mob/user)
 	to_chat(user, "<span class='notice'>You pull back the tab of \the [src].</span>")
@@ -751,6 +800,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	tastes = list("сливочный сыр" = 4, "краб" = 3, "хрупкость" = 2)
 	foodtype = MEAT | DAIRY | GRAIN
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/cornchips
 	name = "boritos corn chips"
@@ -763,4 +813,4 @@
 	filling_color = "#ECA735"
 	tastes = list("жареная кукуруза" = 1)
 	foodtype = JUNKFOOD | FRIED
-
+	value = FOOD_JUNK
