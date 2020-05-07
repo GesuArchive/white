@@ -18,6 +18,7 @@
 	icon_state = "wishsoup"
 	list_reagents = list(/datum/reagent/water = 10)
 	tastes = list("мечты" = 1)
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/soup/wish/Initialize()
 	. = ..()
@@ -37,6 +38,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("мясо" = 1)
 	foodtype = MEAT
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/soup/slime
 	name = "slime soup"
@@ -46,6 +48,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/toxin/slimejelly = 5, /datum/reagent/water = 5, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("слаймы" =1)
 	foodtype = TOXIC | SUGAR
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/soup/blood
 	name = "tomato soup"
@@ -55,6 +58,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/blood = 10, /datum/reagent/water = 5, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("железо" = 1)
 	foodtype = GROSS
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/soup/wingfangchu
 	name = "wing fang chu"
@@ -65,6 +69,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/soysauce = 5, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("соя" = 1)
 	foodtype = MEAT
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/soup/clownstears
 	name = "clown's tears"
@@ -74,6 +79,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/banana = 5, /datum/reagent/water = 5, /datum/reagent/consumable/nutriment/vitamin = 8, /datum/reagent/consumable/clownstears = 10)
 	tastes = list("плохая шутка" = 1)
 	foodtype = FRUIT | SUGAR
+	value = FOOD_LEGENDARY
 
 /obj/item/reagent_containers/food/snacks/soup/vegetable
 	name = "vegetable soup"
@@ -82,6 +88,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("овощи" = 1)
 	foodtype = VEGETABLES
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/soup/nettle
 	name = "nettle soup"
@@ -90,6 +97,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/medicine/omnizine = 5, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("крапива" = 1)
 	foodtype = VEGETABLES
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/soup/mystery
 	name = "mystery soup"
@@ -98,6 +106,7 @@
 	var/extra_reagent = null
 	list_reagents = list(/datum/reagent/consumable/nutriment = 6)
 	tastes = list("хаос" = 1)
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/soup/mystery/Initialize()
 	. = ..()
@@ -114,6 +123,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/capsaicin = 1, /datum/reagent/consumable/tomatojuice = 2, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("перцы" = 1)
 	foodtype = VEGETABLES | MEAT
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/soup/coldchili
 	name = "cold chili"
@@ -123,6 +133,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/frostoil = 1, /datum/reagent/consumable/tomatojuice = 2, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("томаты" =1, "мята" = 1)
 	foodtype = VEGETABLES | MEAT
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/soup/clownchili
 	name = "chili con carnival"
@@ -132,6 +143,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/capsaicin = 1, /datum/reagent/consumable/tomatojuice = 2, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/banana = 1)
 	tastes = list("томаты" =1, "перцы" = 2, "нога клоуна" = 2, "немного веселья" = 2, "чьи-то родители" = 2)
 	foodtype = VEGETABLES | MEAT
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/soup/monkeysdelight
 	name = "monkey's delight"
@@ -141,6 +153,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/banana = 5, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("джунгли" = 1, "банан" = 1)
 	foodtype = FRUIT
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/soup/tomato
 	name = "tomato soup"
@@ -150,6 +163,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/tomatojuice = 10, /datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("томаты" =1)
 	foodtype = VEGETABLES
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/soup/tomato/eyeball
 	name = "eyeball soup"
@@ -158,6 +172,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/liquidgibs = 3)
 	tastes = list("томаты" =1, "squirming" = 1)
 	foodtype = MEAT | GROSS
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/soup/milo
 	name = "milosoup"
@@ -166,6 +181,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("сорго" = 1) // wtf is milo
 	foodtype = VEGETABLES
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/soup/mushroom
 	name = "chantrelle soup"
@@ -175,6 +191,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("грибы" = 1)
 	foodtype = VEGETABLES
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/soup/beet
 	name = "beet soup"
@@ -182,6 +199,7 @@
 	icon_state = "beetsoup"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 5)
 	foodtype = VEGETABLES
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/soup/beet/Initialize()
 	. = ..()
@@ -198,6 +216,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/drug/mushroomhallucinogen = 6)
 	tastes = list("желе" =1, "грибы" = 1)
 	foodtype = VEGETABLES
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/soup/amanitajelly
 	name = "amanita jelly"
@@ -208,6 +227,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/drug/mushroomhallucinogen = 3, /datum/reagent/toxin/amatoxin = 6)
 	tastes = list("желе" =1, "грибы" = 1)
 	foodtype = VEGETABLES | TOXIC
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/soup/stew
 	name = "stew"
@@ -219,6 +239,7 @@
 	volume = 100
 	tastes = list("томаты" =1, "морковь" = 1)
 	foodtype = VEGETABLES
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/soup/sweetpotato
 	name = "sweet potato soup"
@@ -227,6 +248,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("сладкая картоха" = 1)
 	foodtype = VEGETABLES | SUGAR
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/soup/beet/red
 	name = "красный beet soup"
@@ -243,6 +265,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("карамелизированный лук" = 1)
 	foodtype = VEGETABLES
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/soup/bisque
 	name = "bisque"
@@ -251,6 +274,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 6)
 	tastes = list("кремовая текстура" = 1, "краб" = 4)
 	foodtype = MEAT
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/soup/electron
 	name = "electron soup"
@@ -260,6 +284,7 @@
 	tastes = list("грибы" = 1, "электроны" = 4)
 	filling_color = "#CC2B52"
 	foodtype = VEGETABLES | TOXIC
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/soup/bungocurry
 	name = "bungo curry"
@@ -270,3 +295,4 @@
 	tastes = list("бунго" = 2, "горячее карри" = 4, "тропическая сладость" = 1)
 	filling_color = "#E6A625"
 	foodtype = VEGETABLES | FRUIT | DAIRY
+	value = FOOD_EXOTIC

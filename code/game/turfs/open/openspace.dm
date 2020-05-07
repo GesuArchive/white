@@ -11,80 +11,47 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	mouse_opacity 	= MOUSE_OPACITY_TRANSPARENT
 	layer           = SPLASHSCREEN_LAYER
 
-/turf/open/openspace
+/turf/open/transparent/openspace
 	name = "открытое пространство"
 	desc = "Смотри под ноги!"
 	icon_state = "transparent"
-	baseturfs = /turf/open/openspace
+	baseturfs = /turf/open/transparent/openspace
 	CanAtmosPassVertical = ATMOS_PASS_YES
 	//mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/can_cover_up = TRUE
 	var/can_build_on = TRUE
-	intact = 0
 
-/turf/open/openspace/airless
+/turf/open/transparent/openspace/airless
 	initial_gas_mix = AIRLESS_ATMOS
 
-/turf/open/openspace/debug/update_multiz()
+/turf/open/transparent/openspace/debug/update_multiz()
 	..()
 	return TRUE
 
-/turf/open/openspace/Initialize() // handle plane and layer here so that they don't cover other obs/turfs in Dream Maker
+///No bottom level for openspace.
+/turf/open/transparent/openspace/show_bottom_level()
+	return FALSE
+
+/turf/open/transparent/openspace/Initialize() // handle plane and layer here so that they don't cover other obs/turfs in Dream Maker
 	. = ..()
-	plane = OPENSPACE_PLANE
-	layer = OPENSPACE_LAYER
 
 	vis_contents += GLOB.openspace_backdrop_one_for_all //Special grey square for projecting backdrop darkness filter on it.
 
-	return INITIALIZE_HINT_LATELOAD
-
-/turf/open/openspace/LateInitialize()
-	update_multiz(TRUE, TRUE)
-
-/turf/open/openspace/Destroy()
-	vis_contents.len = 0
-	return ..()
-
-/turf/open/openspace/can_have_cabling()
+/turf/open/transparent/openspace/can_have_cabling()
 	if(locate(/obj/structure/lattice/catwalk, src))
 		return TRUE
 	return FALSE
 
-/turf/open/openspace/update_multiz(prune_on_fail = FALSE, init = FALSE)
-	. = ..()
-	var/turf/T = below()
-	if(!T || istype(T, /turf/closed/wall))
-		vis_contents.len = 0
-		ChangeTurf(/turf/open/floor/plating)
-		return FALSE
-	if(istype(T, /turf/closed))
-		vis_contents.len = 0
-		ChangeTurf(/turf/open/floor/plating/asteroid/boxplanet/caves)
-		return FALSE
-	if(init)
-		vis_contents += T
+/turf/open/transparent/openspace/zAirIn()
 	return TRUE
 
-/turf/open/openspace/multiz_turf_del(turf/T, dir)
-	if(dir != DOWN)
-		return
-	update_multiz()
-
-/turf/open/openspace/multiz_turf_new(turf/T, dir)
-	if(dir != DOWN)
-		return
-	update_multiz()
-
-/turf/open/openspace/zAirIn()
+/turf/open/transparent/openspace/zAirOut()
 	return TRUE
 
-/turf/open/openspace/zAirOut()
+/turf/open/transparent/openspace/zPassIn(atom/movable/A, direction, turf/source)
 	return TRUE
 
-/turf/open/openspace/zPassIn(atom/movable/A, direction, turf/source)
-	return TRUE
-
-/turf/open/openspace/zPassOut(atom/movable/A, direction, turf/destination)
+/turf/open/transparent/openspace/zPassOut(atom/movable/A, direction, turf/destination)
 	if(A.anchored)
 		return FALSE
 	for(var/obj/O in contents)
@@ -92,13 +59,13 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 			return FALSE
 	return TRUE
 
-/turf/open/openspace/proc/CanCoverUp()
+/turf/open/transparent/openspace/proc/CanCoverUp()
 	return can_cover_up
 
-/turf/open/openspace/proc/CanBuildHere()
+/turf/open/transparent/openspace/proc/CanBuildHere()
 	return can_build_on
 
-/turf/open/openspace/attackby(obj/item/C, mob/user, params)
+/turf/open/transparent/openspace/attackby(obj/item/C, mob/user, params)
 	..()
 	if(!CanBuildHere())
 		return
@@ -107,22 +74,22 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		var/obj/structure/lattice/catwalk/W = locate(/obj/structure/lattice/catwalk, src)
 		if(W)
-			to_chat(user, "<span class='warning'>There is already a catwalk here!</span>")
+			to_chat(user, "<span class='warning'>Здесь уже есть мостик!</span>")
 			return
 		if(L)
 			if(R.use(1))
-				to_chat(user, "<span class='notice'>You construct a catwalk.</span>")
+				to_chat(user, "<span class='notice'>Строю мостик.</span>")
 				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 				new/obj/structure/lattice/catwalk(src)
 			else
-				to_chat(user, "<span class='warning'>You need two rods to build a catwalk!</span>")
+				to_chat(user, "<span class='warning'>Нужно чуть больше прутьев для постройки мостика!</span>")
 			return
 		if(R.use(1))
-			to_chat(user, "<span class='notice'>You construct a lattice.</span>")
+			to_chat(user, "<span class='notice'>Устанавливаю подпорку.</span>")
 			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 			ReplaceWithLattice()
 		else
-			to_chat(user, "<span class='warning'>You need one rod to build a lattice.</span>")
+			to_chat(user, "<span class='warning'>Нужно чуть больше прутьев для постройки подпорки.</span>")
 		return
 	if(istype(C, /obj/item/stack/tile/plasteel))
 		if(!CanCoverUp())
@@ -133,14 +100,14 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 			if(S.use(1))
 				qdel(L)
 				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-				to_chat(user, "<span class='notice'>You build a floor.</span>")
-				PlaceOnTop(/turf/open/floor/plating)
+				to_chat(user, "<span class='notice'>Строю пол.</span>")
+				PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
 			else
-				to_chat(user, "<span class='warning'>You need one floor tile to build a floor!</span>")
+				to_chat(user, "<span class='warning'>Нужна плитка для постройки пола!</span>")
 		else
-			to_chat(user, "<span class='warning'>The plating is going to need some support! Place metal rods first.</span>")
+			to_chat(user, "<span class='warning'>Обшивке нужна подпорка для удержания её на месте.</span>")
 
-/turf/open/openspace/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
+/turf/open/transparent/openspace/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
 	if(!CanBuildHere())
 		return FALSE
 
@@ -153,11 +120,11 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 				return list("mode" = RCD_FLOORWALL, "delay" = 0, "cost" = 3)
 	return FALSE
 
-/turf/open/openspace/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
+/turf/open/transparent/openspace/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_FLOORWALL)
-			to_chat(user, "<span class='notice'>You build a floor.</span>")
-			PlaceOnTop(/turf/open/floor/plating)
+			to_chat(user, "<span class='notice'>Строю пол.</span>")
+			PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
 			return TRUE
 	return FALSE
 

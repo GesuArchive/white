@@ -29,7 +29,7 @@
 /obj/item/storage/belt/utility
 	name = "пояс с инструментами" //Carn: utility belt is nicer, but it bamboozles the text parsing.
 	desc = "Хранит инструменты."
-	icon_state = "utilitybelt"
+	icon_state = "utility"
 	item_state = "utility"
 	content_overlays = TRUE
 	custom_premium_price = 300
@@ -70,7 +70,7 @@
 /obj/item/storage/belt/utility/chief
 	name = "пояс старшего инженера" //"the Chief Engineer's toolbelt", because "Chief Engineer's toolbelt" is not a proper noun
 	desc = "Хранит инструменты, классно смотрится."
-	icon_state = "utilitybelt_ce"
+	icon_state = "utility_ce"
 	item_state = "utility_ce"
 
 /obj/item/storage/belt/utility/chief/full/PopulateContents()
@@ -123,7 +123,7 @@
 /obj/item/storage/belt/medical
 	name = "медицинский пояс"
 	desc = "Может хранить различные медицинские штуки."
-	icon_state = "medicalbelt"
+	icon_state = "medical"
 	item_state = "medical"
 
 /obj/item/storage/belt/medical/ComponentInitialize()
@@ -197,7 +197,7 @@
 /obj/item/storage/belt/security
 	name = "пояс офицера"
 	desc = "Может хранить наручники, флэшки, но не преступников."
-	icon_state = "securitybelt"
+	icon_state = "security"
 	item_state = "security"//Could likely use a better one.
 	content_overlays = TRUE
 

@@ -14,6 +14,7 @@
 	icon = 'icons/obj/food/pizzaspaghetti.dmi'
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	foodtype = GRAIN | DAIRY | VEGETABLES
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/pizza/margherita
 	name = "pizza margherita"
@@ -23,6 +24,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("корка" = 1, "томаты" =1, "сыр" = 1)
 	foodtype = GRAIN | VEGETABLES | DAIRY
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/pizza/margherita/robo/Initialize()
 	bonus_reagents += list(/datum/reagent/nanomachines = 70)
@@ -45,6 +47,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 30, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 8)
 	tastes = list("корка" = 1, "томаты" =1, "сыр" = 1, "мясо" = 1)
 	foodtype = GRAIN | VEGETABLES| DAIRY | MEAT
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/pizzaslice/meat
 	name = "meatpizza slice"
@@ -63,6 +66,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 30, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("корка" = 1, "томаты" =1, "сыр" = 1, "грибы" = 1)
 	foodtype = GRAIN | VEGETABLES | DAIRY
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/pizzaslice/mushroom
 	name = "mushroom pizza slice"
@@ -81,6 +85,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/medicine/oculine = 12, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("корка" = 1, "томаты" =2, "сыр" = 1, "морковь" = 1)
 	foodtype = GRAIN | VEGETABLES | DAIRY
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/pizzaslice/vegetable
 	name = "vegetable pizza slice"
@@ -99,6 +104,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/medicine/omnizine = 10, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("корка" = 1, "томаты" =1, "сыр" = 1, "мясо" = 1, "лень" = 1)
 	foodtype = GRAIN | VEGETABLES | DAIRY | MEAT | JUNKFOOD
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/pizzaslice/donkpocket
 	name = "donkpocket pizza slice"
@@ -117,6 +123,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/doctor_delight = 5, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("корка" = 1, "томаты" =1, "сыр" = 1, "мясо" = 1)
 	foodtype = GRAIN | VEGETABLES | DAIRY
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/pizzaslice/dank
 	name = "dank pizza slice"
@@ -134,6 +141,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 6)
 	tastes = list("корка" = 1, "томаты" =1, "сыр" = 1, "мясо" = 1)
 	foodtype = GRAIN | VEGETABLES | DAIRY
+	value = FOOD_EXOTIC
 
 /obj/item/reagent_containers/food/snacks/pizzaslice/sassysage
 	name = "sassysage pizza slice"
@@ -151,6 +159,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 6)
 	tastes = list("корка" = 1, "томаты" =1, "сыр" = 1, "ананас" = 2, "ветчина" = 2)
 	foodtype = GRAIN | VEGETABLES | DAIRY | MEAT | FRUIT | PINEAPPLE
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/pizzaslice/pineapple
 	name = "\improper Hawaiian pizza slice"
@@ -167,6 +176,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/pizzaslice/arnold
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 30, /datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/iron = 10, /datum/reagent/medicine/omnizine = 30)
 	tastes = list("корка" = 1, "томаты" =1, "сыр" = 1, "пепперони" = 2, "9-ти миллиметровые пули" = 2)
+	value = FOOD_ILLEGAL
 
 /obj/item/reagent_containers/food/snacks/proc/try_break_off(mob/living/M, mob/living/user) //maybe i give you a pizza maybe i break off your arm
 	var/obj/item/bodypart/l_arm = user.get_bodypart(BODY_ZONE_L_ARM)

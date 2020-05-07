@@ -10,6 +10,7 @@
 	filling_color = "#A0522D"
 	tastes = list("шоколад" = 4, "сладость" = 1)
 	foodtype = JUNKFOOD | SUGAR
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/egg
 	name = "egg"
@@ -21,6 +22,7 @@
 	foodtype = MEAT
 	grind_results = list()
 	var/static/chick_count = 0 //I copied this from the chicken_count (note the "en" in there) variable from chicken code.
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/egg/gland
 	desc = "An egg! It looks weird..."
@@ -96,6 +98,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	tastes = list("яйцо" = 4, "соль" = 1, "перец" = 1)
 	foodtype = MEAT | FRIED | BREAKFAST
+	value = FOOD_FAST
 
 /obj/item/reagent_containers/food/snacks/boiledegg
 	name = "boiled egg"
@@ -106,6 +109,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("яйцо" = 1)
 	foodtype = MEAT | BREAKFAST
+	value = FOOD_JUNK
 
 /obj/item/reagent_containers/food/snacks/omelette	//FUCK THIS
 	name = "omelette du fromage"
@@ -118,6 +122,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("яйцо" = 1, "сыр" = 1)
 	foodtype = MEAT | BREAKFAST | DAIRY
+	value = FOOD_RARE
 
 /obj/item/reagent_containers/food/snacks/omelette/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/kitchen/fork))
@@ -148,3 +153,4 @@
 	tastes = list("яйцо" = 1, "бекон" = 1, "булка" = 1)
 
 	foodtype = MEAT | BREAKFAST | GRAIN
+	value = FOOD_EXOTIC
