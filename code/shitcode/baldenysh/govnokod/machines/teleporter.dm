@@ -117,18 +117,3 @@
 /////////////////////////////////////////////////////////////////
 
 
-/*
-//search for unconnected panels and trackers in the computer powernet and connect them
-/obj/machinery/power/solar_control/proc/search_for_connected()
-	if(powernet)
-		for(var/obj/machinery/power/M in powernet.nodes)
-			if(istype(M, /obj/machinery/power/solar))
-				var/obj/machinery/power/solar/S = M
-				if(!S.control) //i.e unconnected
-					S.set_control(src)
-			else if(istype(M, /obj/machinery/power/tracker))
-				if(!connected_tracker) //if there's already a tracker connected to the computer don't add another
-					var/obj/machinery/power/tracker/T = M
-					if(!T.control) //i.e unconnected
-						T.set_control(src)
-*/
