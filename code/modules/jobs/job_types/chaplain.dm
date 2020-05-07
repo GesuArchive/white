@@ -124,6 +124,7 @@
 	ears = /obj/item/radio/headset/headset_srv
 	uniform = /obj/item/clothing/under/rank/civilian/chaplain
 	backpack_contents = list(
+		/obj/item/modular_computer/tablet/preset/cheap=1,
 		/obj/item/stamp/chap = 1,
 		/obj/item/camera/spooky = 1
 		)

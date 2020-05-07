@@ -9,4 +9,4 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	belt = /obj/item/gun/ballistic/automatic/pistol/makarov
 	suit_store = /obj/item/pda
-	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1, /obj/item/ammo_box/magazine/m9mm=4)
+	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1, /obj/item/ammo_box/magazine/m9mm=2)

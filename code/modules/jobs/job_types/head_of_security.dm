@@ -48,7 +48,7 @@
 	suit_store = /obj/item/gun/energy/e_gun
 	r_pocket = /obj/item/pda/heads/hos
 	l_pocket = /obj/item/restraints/handcuffs
-	backpack_contents = list(/obj/item/melee/baton/loaded=1)
+	backpack_contents = list(/obj/item/modular_computer/tablet/preset/cheap=1, /obj/item/melee/baton/loaded=1)
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec
