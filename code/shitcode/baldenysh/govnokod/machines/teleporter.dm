@@ -24,6 +24,10 @@
 	var/icon_state_on = "emitter_+a"
 	var/icon_state_underpowered = "emitter_+u"
 
+/obj/machinery/prikol_teleporter/Destroy()
+	start_collapse()
+	return ..()
+
 /obj/machinery/prikol_teleporter/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/simple_rotation, ROTATION_ALTCLICK | ROTATION_CLOCKWISE | ROTATION_COUNTERCLOCKWISE | ROTATION_VERBS, null, CALLBACK(src, .proc/can_be_rotated))
@@ -33,15 +37,6 @@
 		to_chat(user, "<span class='warning'>Он прикручен к полу!</span>")
 		return FALSE
 	return TRUE
-
-/obj/machinery/prikol_teleporter/should_have_node()
-	return anchored
-
-/obj/machinery/prikol_teleporter/update_icon_state()
-	if(active && powernet)
-		icon_state = avail(active_power_usage) ? icon_state_on : icon_state_underpowered
-	else
-		icon_state = initial(icon_state)
 
 /obj/machinery/prikol_teleporter/can_be_unfasten_wrench(mob/user, silent)
 	if(active)
@@ -121,6 +116,19 @@
 
 /////////////////////////////////////////////////////////////////
 
-/obj/machinery/prikol_teleporter/Destroy()
-	start_collapse()
-	return ..()
+
+/*
+//search for unconnected panels and trackers in the computer powernet and connect them
+/obj/machinery/power/solar_control/proc/search_for_connected()
+	if(powernet)
+		for(var/obj/machinery/power/M in powernet.nodes)
+			if(istype(M, /obj/machinery/power/solar))
+				var/obj/machinery/power/solar/S = M
+				if(!S.control) //i.e unconnected
+					S.set_control(src)
+			else if(istype(M, /obj/machinery/power/tracker))
+				if(!connected_tracker) //if there's already a tracker connected to the computer don't add another
+					var/obj/machinery/power/tracker/T = M
+					if(!T.control) //i.e unconnected
+						T.set_control(src)
+*/
