@@ -21,17 +21,11 @@
 	var/list/locinfo = client.get_loc_info()
 
 	to_chat(src, "<div class='greenannounce'> ================================</div>")
-	sleep(5)
 	to_chat(src, "<div class='greenannounce'> >> WHITE DREAM UAC</div>")
-	sleep(5)
 	to_chat(src, "<div class='greenannounce'> >> ПОЛЬЗОВАТЕЛЬ: [capitalize(client.ckey)]</div>")
-	sleep(5)
 	to_chat(src, "<div class='greenannounce'> >> СТРАНА: [capitalize(locinfo["country"])]</div>")
-	sleep(5)
 	to_chat(src, "<div class='greenannounce'> >> ИГРОВОЕ ВРЕМЯ: [capitalize(client.get_exp_living())]</div>")
-	sleep(5)
 	to_chat(src, "<div class='greenannounce'> >> ВХОД РАЗРЕШЁН</div>")
-	sleep(5)
 	to_chat(src, "<div class='greenannounce'> ================================</div>")
 
 	var/motd = global.config.motd
