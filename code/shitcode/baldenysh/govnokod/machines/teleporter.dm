@@ -3,12 +3,14 @@
 	desc = "Остался еще от распила космосовка."
 	icon = 'icons/obj/singularity.dmi'
 	icon_state = "emitter"
-	anchored = 1
-	use_power = 1
+
 	idle_power_usage = 10
 	active_power_usage = 1000
+	anchored = FALSE
+	density = TRUE
+	use_power = NO_POWER_USE
 
-	var/on = FALSE
+	var/active = FALSE
 
 	var/list/active_tiles = list()
 	var/turf/pointer = null
@@ -18,6 +20,43 @@
 	var/target_x = 100
 	var/target_y = 100
 	var/target_z = 2
+
+	var/icon_state_on = "emitter_+a"
+	var/icon_state_underpowered = "emitter_+u"
+
+/obj/machinery/prikol_teleporter/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/simple_rotation, ROTATION_ALTCLICK | ROTATION_CLOCKWISE | ROTATION_COUNTERCLOCKWISE | ROTATION_VERBS, null, CALLBACK(src, .proc/can_be_rotated))
+
+/obj/machinery/prikol_teleporter/proc/can_be_rotated(mob/user,rotation_type)
+	if (anchored)
+		to_chat(user, "<span class='warning'>Он прикручен к полу!</span>")
+		return FALSE
+	return TRUE
+
+/obj/machinery/prikol_teleporter/should_have_node()
+	return anchored
+
+/obj/machinery/prikol_teleporter/update_icon_state()
+	if(active && powernet)
+		icon_state = avail(active_power_usage) ? icon_state_on : icon_state_underpowered
+	else
+		icon_state = initial(icon_state)
+
+/obj/machinery/prikol_teleporter/can_be_unfasten_wrench(mob/user, silent)
+	if(active)
+		if(!silent)
+			to_chat(user, "<span class='warning'>Надо бы выключить <b>[src]</b> сначала!</span>")
+		return FAILED_UNFASTEN
+
+	return ..()
+
+/obj/machinery/prikol_teleporter/wrench_act(mob/living/user, obj/item/I)
+	..()
+	default_unfasten_wrench(user, I)
+	return TRUE
+
+////////////////////////////////////////////////////////////
 
 /obj/machinery/prikol_teleporter/proc/get_pointer()
 	if(!pointer)
@@ -43,7 +82,7 @@
 		BT.start_collapse()
 
 /obj/machinery/prikol_teleporter/proc/recursive_meksumportools()
-	if(!on)
+	if(!active)
 		start_collapse()
 		return FALSE
 
@@ -73,12 +112,14 @@
 		recursive_meksumportools()
 
 /obj/machinery/prikol_teleporter/proc/toggle()
-	on = !on
-	if(!on)
+	active = !active
+	if(!active)
 		start_collapse()
 	else
 		pointer_reset()
 		recursive_meksumportools()
+
+/////////////////////////////////////////////////////////////////
 
 /obj/machinery/prikol_teleporter/Destroy()
 	start_collapse()
