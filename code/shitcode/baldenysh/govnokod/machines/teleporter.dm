@@ -12,7 +12,7 @@
 
 	var/list/active_tiles = list()
 	var/turf/pointer = null
-	var/max_range = 10
+	var/max_range = 6
 	var/expansion_time = 5
 
 	var/target_x = 100
@@ -81,7 +81,7 @@
 	if(!on)
 		start_collapse()
 	else
-		reset_pointer()
+		pointer_reset()
 		recursive_meksumportools()
 
 /obj/machinery/prikol_teleporter/Destroy()
