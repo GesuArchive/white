@@ -7,7 +7,7 @@
 	. = ..()
 	playsound(user, 'code/shitcode/baldenysh/sounds/snort.ogg', 50, 1)
 
-/datum/emote/living/carbon/human/salute
+/datum/emote/living/carbon/human/rsalute
 	key = "rsalute"
 	key_third_person = "salutes"
 	message = "выполняет римский салют."
