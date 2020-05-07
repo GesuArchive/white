@@ -5,31 +5,54 @@
 	icon_state = "buruespess"
 	smooth = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_MORE
 	canSmoothWith = list(/turf/open/openspace/bluespace)
-	baseturfs = /turf/open/openspace
+	baseturfs = /turf/open/floor/plating
 	CanAtmosPassVertical = ATMOS_PASS_YES
 	can_cover_up = FALSE
 	can_build_on = FALSE
 	requires_activation = TRUE
 
 	var/list/fall_proctected = list()
-/*
-/turf/open/openspace/bluespace/Initialize(turf/rift_to = null)
-	if(rift_to)
-		rift(rift_to)
+	var/instability = 0
 
-	..()
-*/
+/turf/open/openspace/bluespace/LateInitialize()
+	return
+
+/turf/open/openspace/bluespace/process()
+	instability++
+
+	if(instability >= 30 && prob(instability/5))
+		collapse()
+		return PROCESS_KILL
+
 /turf/open/openspace/bluespace/Destroy()
 	close_rift()
 	return ..()
 
+/turf/open/openspace/bluespace/proc/start_collapse()
+	START_PROCESSING(SSobj, src)
+
+/turf/open/openspace/bluespace/proc/stop_collapse()
+	if(!instability)
+		return
+
+	STOP_PROCESSING(SSobj, src)
+	instability = 0
+
 /turf/open/openspace/bluespace/proc/rift(turf/below)
+	if(!below)
+		return FALSE
+
+	if(below_override)
+		close_rift()
+
 	below.above_override = src
 	below_override = below
 	below_override.CanAtmosPassVertical = ATMOS_PASS_YES
 
 	below.update_multiz(TRUE, TRUE)
 	update_multiz(TRUE, TRUE)
+
+	return TRUE
 
 /turf/open/openspace/bluespace/proc/close_rift()
 	if(!below_override)
@@ -40,7 +63,11 @@
 	below_override.update_multiz()
 
 	below_override = null
-	update_multiz()
+	//update_multiz()
+
+/turf/open/openspace/bluespace/proc/collapse()
+	close_rift()
+	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/openspace/bluespace/zPassOut(atom/movable/A, direction, turf/destination)
 	. = ..()
