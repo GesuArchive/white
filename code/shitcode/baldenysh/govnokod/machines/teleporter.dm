@@ -41,10 +41,6 @@
 /obj/machinery/prikol_teleporter/proc/start_collapse()
 	for(var/turf/open/openspace/bluespace/BT in active_tiles)
 		BT.start_collapse()
-		active_tiles -= BT
-
-	active_tiles = list()
-	pointer_reset()
 
 /obj/machinery/prikol_teleporter/proc/recursive_meksumportools()
 	if(!on)
