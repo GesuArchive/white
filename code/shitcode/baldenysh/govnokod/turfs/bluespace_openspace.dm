@@ -2,7 +2,7 @@
 	name = "голубое пространство"
 	desc = "голубое"
 	icon = 'code/shitcode/baldenysh/icons/turf/bluespace_openspace.dmi'
-	icon_state = "buruespess"
+	icon_state = "transparent"
 	smooth = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_MORE
 	canSmoothWith = list(/turf/open/openspace/bluespace)
 	baseturfs = /turf/open/floor/plating
@@ -28,6 +28,25 @@
 	close_rift()
 	return ..()
 
+/turf/open/openspace/bluespace/update_multiz(prune_on_fail = FALSE, init = FALSE)
+	var/turf/T = below()
+	/*
+	if(!T || istype(T, /turf/closed/wall))
+		vis_contents.len = 0
+		PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
+		return FALSE
+	if(istype(T, /turf/closed))
+		vis_contents.len = 0
+		PlaceOnTop(/turf/open/floor/plating/asteroid/boxplanet/caves, flags = CHANGETURF_INHERIT_AIR)
+		return FALSE
+	*/
+	if(init)
+		vis_contents += T
+	else
+		vis_contents.len = 0
+
+	return TRUE
+
 /turf/open/openspace/bluespace/proc/start_collapse()
 	START_PROCESSING(SSobj, src)
 
@@ -47,7 +66,8 @@
 
 	below.above_override = src
 	below_override = below
-	below_override.CanAtmosPassVertical = ATMOS_PASS_YES
+	if(istype(below, /turf/open))
+		below_override.CanAtmosPassVertical = ATMOS_PASS_YES
 
 	below.update_multiz(TRUE, TRUE)
 	update_multiz(TRUE, TRUE)
@@ -63,7 +83,7 @@
 	below_override.update_multiz()
 
 	below_override = null
-	//update_multiz()
+	update_multiz()
 
 /turf/open/openspace/bluespace/proc/collapse()
 	close_rift()
