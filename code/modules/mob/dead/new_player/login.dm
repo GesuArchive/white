@@ -20,24 +20,24 @@
 
 	var/list/locinfo = client.get_loc_info()
 
-	to_chat(src, "<div class='greenannounce'> ================================</div>")
-	to_chat(src, "<div class='greenannounce'> >> WHITE DREAM UAC</div>")
-	to_chat(src, "<div class='greenannounce'> >> ПОЛЬЗОВАТЕЛЬ: [capitalize(client.ckey)]</div>")
-	to_chat(src, "<div class='greenannounce'> >> СТРАНА: [capitalize(locinfo["country"])]</div>")
-	to_chat(src, "<div class='greenannounce'> >> ИГРОВОЕ ВРЕМЯ: [capitalize(client.get_exp_living())]</div>")
-	to_chat(src, "<div class='greenannounce'> >> ВХОД РАЗРЕШЁН</div>")
-	to_chat(src, "<div class='greenannounce'> ================================</div>")
+	to_chat(src, "<span class='greenannounce'> ================================</span>")
+	to_chat(src, "<span class='greenannounce'> >> WHITE DREAM UAC</span>")
+	to_chat(src, "<span class='greenannounce'> >> ПОЛЬЗОВАТЕЛЬ: [capitalize(client.ckey)]</span>")
+	to_chat(src, "<span class='greenannounce'> >> СТРАНА: [capitalize(locinfo["country"])]</span>")
+	to_chat(src, "<span class='greenannounce'> >> ИГРОВОЕ ВРЕМЯ: [capitalize(client.get_exp_living())]</span>")
+	to_chat(src, "<span class='greenannounce'> >> ВХОД РАЗРЕШЁН</span>")
+	to_chat(src, "<span class='greenannounce'> ================================</span>")
 
 	var/motd = global.config.motd
 	if(motd)
 		to_chat(src, "<div class=\"motd\">[motd]</div>", handle_whitespace=FALSE)
 
 	if(GLOB.admin_notice)
-		to_chat(src, "<span class='notice'><b>ВАЖНАЯ ЗАМЕТКА:</b>\n \t [GLOB.admin_notice]</span>")
+		to_chat(src, "<span class='notice'> >> <b>ВАЖНАЯ ЗАМЕТКА:</b>\n \t [GLOB.admin_notice]</span>")
 
 	var/spc = CONFIG_GET(number/soft_popcap)
 	if(spc && living_player_count() >= spc)
-		to_chat(src, "<span class='notice'><b>Сервер сообщает:</b>\n \t [CONFIG_GET(string/soft_popcap_message)]</span>")
+		to_chat(src, "<span class='notice'> >> <b>Сервер сообщает:</b>\n \t [CONFIG_GET(string/soft_popcap_message)]</span>")
 
 	sight |= SEE_TURFS
 
@@ -50,7 +50,7 @@
 			postfix = "через [DisplayTimeText(tl)]"
 		else
 			postfix = "скоро"
-		to_chat(src, "Пожалуйста, настройте своего персонажа и нажмите кнопку \"Готов\". Игра начнётся [postfix].")
+		to_chat(src, " >> Пожалуйста, настройте своего персонажа и нажмите кнопку \"Готов\". Игра начнётся [postfix].")
 
 	if (!GLOB.donators[ckey]) //It doesn't exist yet
 		load_donator(ckey)
