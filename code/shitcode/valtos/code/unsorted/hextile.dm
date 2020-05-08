@@ -2,6 +2,7 @@
 	name = "hex tile decal"
 	icon = 'code/shitcode/valtos/icons/decals.dmi'
 	icon_state = "hex_tile_corner"
+	alpha = 35
 
 /obj/effect/turf_decal/tile/hex/blue
 	name = "синий hex corner"
@@ -35,7 +36,7 @@
 /obj/effect/turf_decal/tile/hex/neutral
 	name = "neutral hex corner"
 	color = "#D4D4D4"
-	alpha = 50
+	alpha = 10
 
 /obj/effect/turf_decal/tile/hex/dark
 	name = "dark hex corner"
