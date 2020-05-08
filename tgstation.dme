@@ -3404,6 +3404,7 @@
 #include "code\shitcode\valtos\code\unsorted\effector.dm"
 #include "code\shitcode\valtos\code\unsorted\game_kit.dm"
 #include "code\shitcode\valtos\code\unsorted\great_stuff.dm"
+#include "code\shitcode\valtos\code\unsorted\hextile.dm"
 #include "code\shitcode\valtos\code\unsorted\implants.dm"
 #include "code\shitcode\valtos\code\unsorted\katana.dm"
 #include "code\shitcode\valtos\code\unsorted\keybindings_reset.dm"
