@@ -158,14 +158,14 @@
 	target_y = cy
 	target_z = cz
 
-/obj/machinery/power/bs_emitter/proc/toggle()
-	active = !active
-	if(!active)
-		start_collapse()
-		cur_load = 0
-	else
-		pointer_reset()
+/obj/machinery/power/bs_emitter/proc/turn_on()
+	pointer_reset()
+	cur_load = 0
+	active = TRUE
 
+/obj/machinery/power/bs_emitter/proc/turn_off()
+	start_collapse()
+	active = FALSE
 
 /////////////////////////////////////////////////////////////////
 
