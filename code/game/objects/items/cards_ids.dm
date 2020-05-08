@@ -504,6 +504,7 @@ update_label()
 				which_hand = BODY_ZONE_R_ARM
 			var/obj/item/bodypart/chopchop = C.get_bodypart(which_hand)
 			chopchop.dismember()
+			C.gain_trauma(/datum/brain_trauma/magic/stalker)
 			first_try = FALSE
 			anchored = FALSE
 	else if (HAS_TRAIT(user.mind, TRAIT_DISK_VERIFIER))
