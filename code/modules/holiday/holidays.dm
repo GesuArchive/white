@@ -230,6 +230,14 @@
 /datum/holiday/firefighter/getStationPrefix()
 	return pick("Горящий","Пылающий","Плазменный","Огненный")
 
+/datum/holiday/pobeda
+	name = "День Победы"
+	begin_day = 9
+	begin_month = MAY
+
+/datum/holiday/pobeda/getStationPrefix()
+	return pick("Ветеранский","Победный","Ряженый","Окопный","Дедовский")
+
 /datum/holiday/bee
 	name = "День пчёл"
 	begin_day = 20
