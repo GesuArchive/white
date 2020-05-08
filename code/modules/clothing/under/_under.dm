@@ -120,8 +120,8 @@
 				to_chat(user, "<span class='notice'>Прикрепляю <b>[I.name]</b> на <b>[src.name]</b>.</span>")
 
 			var/accessory_color = attached_accessory.icon_state
-			if(mob_overlay_icon)
-				accessory_overlay = mutable_appearance(mob_overlay_icon, "[accessory_color]")
+			if(I.mob_overlay_icon)
+				accessory_overlay = mutable_appearance(I.mob_overlay_icon, "[accessory_color]")
 			else
 				accessory_overlay = mutable_appearance('icons/mob/clothing/accessories.dmi', "[accessory_color]")
 
