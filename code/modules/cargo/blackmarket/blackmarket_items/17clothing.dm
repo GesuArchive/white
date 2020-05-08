@@ -37,10 +37,10 @@
 	desc = "Космический костюм НТ устаревшего вида"
 	item = /obj/item/storage/box
 
-	price_min = 1500
-	price_max = 4000
-	stock_max = 3
-	availability_prob = 30
+	price_min = 10000
+	price_max = 25000
+	stock_max = 1
+	availability_prob = 100
 
 /datum/blackmarket_item/clothing/full_spacesuit_set/spawn_item(loc)
 	var/obj/item/storage/box/B = ..()
@@ -49,6 +49,47 @@
 	new /obj/item/clothing/suit/space(B)
 	new /obj/item/clothing/head/helmet/space(B)
 	return B
+
+/datum/blackmarket_item/clothing/wzzzz/null
+	name = "Скафандр"
+	desc = "Улучшенная версия обыного скафандра"
+	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/null
+
+	price_min = 10000
+	price_max = 50000
+	stock_min = 1
+	stock_max = 5
+	availability_prob = 100
+
+/datum/blackmarket_item/clothing/wzzzz/void_explorer
+	name = "Скафандр исследователя космоса"
+	desc = "Улучшенная версия обыного скафандра"
+	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/void_explorer
+
+	price_min = 15000
+	price_max = 60000
+	stock_max = 2
+	availability_prob = 100
+
+/datum/blackmarket_item/clothing/combatmedic_suit
+	name = "Скафандр Боевого медика"
+	desc = "Этот скафандр был найден в уничтоженном гнезде ксеноморфов. Судьба носителя неизвестна, но этот скафандр до сих пор соответсвует стандартам боевых скафандров"
+	item = /obj/item/clothing/suit/space/hardsuit/combatmedic
+
+	price_min = 5500
+	price_max = 7000
+	stock_max = 1
+	availability_prob = 70
+
+/datum/blackmarket_item/clothing/wzzzz/security_rig
+	name = "Боевой скафандр СБ"
+	desc = "Обновлённая модель скафандра СБ"
+	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/security_rig
+
+	price_min = 100000
+	price_max = 500000
+	stock_max = 1
+	availability_prob = 100
 
 /datum/blackmarket_item/clothing/chameleon_hat
 	name = "Шляпа-Хамелеон"
@@ -61,15 +102,6 @@
 	stock_max = 10
 	availability_prob = 70
 
-/datum/blackmarket_item/clothing/combatmedic_suit
-	name = "Скафандр Боевого медика"
-	desc = "Этот скафандр был найден в уничтоженном гнезде ксеноморфов. Судьба носителя неизвестна, но этот скафандр до сих пор соответсвует стандартам боевых скафандров"
-	item = /obj/item/clothing/suit/space/hardsuit/combatmedic
-
-	price_min = 5500
-	price_max = 7000
-	stock_max = 1
-	availability_prob = 10
 
 /datum/blackmarket_item/clothing/petehat
 	name = "Коллекционная шляпа Пита"

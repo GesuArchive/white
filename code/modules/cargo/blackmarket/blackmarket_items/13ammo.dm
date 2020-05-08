@@ -17,14 +17,46 @@
 	var/pistolammo = pick(list(/obj/item/ammo_box/magazine/m10mm,
 			/obj/item/ammo_box/magazine/m10mm/fire,
 			/obj/item/ammo_box/magazine/m10mm/hp,
-			/obj/item/ammo_box/magazine/m10mm/ap,
-			/obj/item/ammo_box/magazine/m45))
+			/obj/item/ammo_box/magazine/m10mm/ap))
 	return new pistolammo(loc)
+
+/datum/blackmarket_item/ammo/wzzzz/mauser
+	name = "Магазин для Маузера (10mm)"
+	desc = "Магазин для Маузера"
+	item = /obj/item/ammo_box/magazine/wzzzz/mauser
+
+	price_min = 100
+	price_max = 500
+	stock_min = 1
+	stock_max = 50
+	availability_prob = 100
 
 /datum/blackmarket_item/ammo/m9mm
 	name = "Пистолетный магазин (9mm)"
 	desc = "Магазин калибра 9мм"
 	item = /obj/item/ammo_box/magazine/m9mm
+
+	price_min = 100
+	price_max = 500
+	stock_min = 1
+	stock_max = 50
+	availability_prob = 100
+
+/datum/blackmarket_item/ammo/wzzzz/mc9mmt
+	name = "top mounted magazine (9mm)"
+	desc = "не ебу как перевести поэтому вот вам так. Сами поймёте. далеко не дети..."
+	item = /obj/item/ammo_box/magazine/wt550m9/wzzzz/mc9mmt
+
+	price_min = 100
+	price_max = 500
+	stock_min = 1
+	stock_max = 50
+	availability_prob = 100
+
+/datum/blackmarket_item/ammo/wzzzz/luger
+	name = "Магазин для Люгера (9mm)"
+	desc = "Магазин для Люгера"
+	item = /obj/item/ammo_box/magazine/wzzzz/luger
 
 	price_min = 100
 	price_max = 500
@@ -138,8 +170,30 @@
 
 /datum/blackmarket_item/ammo/uzim9mm
 	name = "Магазин для УЗИ (9мм)"
-	desc = "магазин для УЗИ калибра 9мм"
+	desc = "Магазин для УЗИ калибра 9мм"
 	item = /obj/item/ammo_box/magazine/uzim9mm
+
+	price_min = 100
+	price_max = 500
+	stock_min = 1
+	stock_max = 50
+	availability_prob = 100
+
+/datum/blackmarket_item/ammo/wzzzz/mp40
+	name = "Магазин для МП-40 (9мм)"
+	desc = "Магазин для МП-40 калибра 9мм"
+	item = /obj/item/ammo_box/magazine/wzzzz/mp40
+
+	price_min = 100
+	price_max = 500
+	stock_min = 1
+	stock_max = 50
+	availability_prob = 100
+
+/datum/blackmarket_item/ammo/wzzzz/stg
+	name = "Магазин для СТГ"
+	desc = "Магазин для СТГ"
+	item = /obj/item/ammo_box/magazine/wzzzz/stg
 
 	price_min = 100
 	price_max = 500
@@ -151,6 +205,61 @@
 	name = "Винтовочный магазин (10mm)"
 	desc = "Магазин для винтовок калибра 10мм. Внимание! Не путать с пистолетным магазином!"
 	item = /obj/item/ammo_box/magazine/m10mm/rifle
+
+	price_min = 200
+	price_max = 600
+	stock_min = 1
+	stock_max = 50
+	availability_prob = 100
+
+/datum/blackmarket_item/ammo/wzzzz/assault_rifle
+	name = "Магазин для штурмовой винтовки"
+	desc = "Магазин для штурмовой винтовки калибра asr"
+	item = /obj/item/ammo_box/magazine/wzzzz/assault_rifle
+
+	price_min = 200
+	price_max = 600
+	stock_min = 1
+	stock_max = 50
+	availability_prob = 100
+
+/datum/blackmarket_item/ammo/wzzzz/g43
+	name = "Магазин для g43(5.56mm)"
+	desc = "Магазин для g43"
+	item = /obj/item/ammo_box/magazine/wzzzz/g43
+
+	price_min = 200
+	price_max = 600
+	stock_min = 1
+	stock_max = 50
+	availability_prob = 100
+
+/datum/blackmarket_item/ammo/wzzzz/fg42
+	name = "Магазин для fg42(5.56mm)"
+	desc = "Магазин для fg42"
+	item = /obj/item/ammo_box/magazine/wzzzz/fg42
+
+	price_min = 200
+	price_max = 600
+	stock_min = 1
+	stock_max = 50
+	availability_prob = 100
+
+/datum/blackmarket_item/ammo/wzzzz/carbine
+	name = "Магазин для боевого карабина(5.56mm)"
+	desc = "Магазин для боевого карабина"
+	item = /obj/item/ammo_box/magazine/wzzzz/carbine
+
+	price_min = 200
+	price_max = 600
+	stock_min = 1
+	stock_max = 50
+	availability_prob = 100
+
+/datum/blackmarket_item/ammo/wzzzz/a556carbine
+	name = "Магазин для Z8 Bulldog(6.8mm)"
+	desc = "Магазин для Z8 Bulldog"
+	item = /obj/item/ammo_box/magazine/wzzzz/a556carbine
 
 	price_min = 200
 	price_max = 600
@@ -224,6 +333,17 @@
 	name = "Энергетический самозаряжающийся магазин"
 	desc = "Магазин с самозарядкой для специальных энергетических винтовок"
 	item = /obj/item/ammo_box/magazine/recharge
+
+	price_min = 1000
+	price_max = 10000
+	stock_min = 1
+	stock_max = 10
+	availability_prob = 100
+
+/datum/blackmarket_item/ammo/sniper
+	name = "Магазин для kar98k(7.92x57mm)"
+	desc = "Магазин для kar98k"
+	item = /obj/item/ammo_box/magazine/wzzzz/a792x57
 
 	price_min = 1000
 	price_max = 10000

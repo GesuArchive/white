@@ -16,6 +16,7 @@
 /datum/blackmarket_item/weapon/pgun/spawn_item(loc)
 	var/pgun = pick(list(/obj/item/gun/ballistic/automatic/ar/wzzzz,
 			/obj/item/gun/ballistic/automatic/wzzzz/g43,
+			/obj/item/gun/ballistic/automatic/m90/unrestricted/wzzzz/z8,
 			/obj/item/gun/ballistic/automatic/surplus,
 			/obj/item/gun/ballistic/shotgun/riot,
 			/obj/item/gun/ballistic/automatic/pistol/makarov,
