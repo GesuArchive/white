@@ -39,7 +39,7 @@ export const NtosNetChat = (props, context) => {
                   overflowY="scroll">
                   <Button.Input
                     fluid
-                    content="New Channel..."
+                    content="Новый канал..."
                     onCommit={(e, value) => act('PRG_newchannel', {
                       new_channel_name: value,
                     })} />
@@ -67,7 +67,7 @@ export const NtosNetChat = (props, context) => {
                   <Button
                     fluid
                     bold
-                    content={"ADMIN MODE: " + (adminmode ? 'ON' : 'OFF')}
+                    content={"АДМИН: " + (adminmode ? 'ВКЛ' : 'ВЫКЛ')}
                     color={adminmode ? 'bad' : 'good'}
                     onClick={() => act('PRG_toggleadmin')} />
                 )}
@@ -95,10 +95,10 @@ export const NtosNetChat = (props, context) => {
                           mt={1}
                           bold
                           fontSize="18px">
-                          THIS CHANNEL IS PASSWORD PROTECTED
+                          ЭТОТ КАНАЛ ЗАЩИЩЁН ПАРОЛЕМ
                         </Box>
                         <Box mt={1}>
-                          INPUT PASSWORD TO ACCESS
+                          ВВЕДИТЕ ПАРОЛЬ
                         </Box>
                       </Box>
                     )
@@ -131,14 +131,14 @@ export const NtosNetChat = (props, context) => {
                   <Fragment>
                     <Button.Input
                       fluid
-                      content="Save log..."
+                      content="Сохранить лог..."
                       defaultValue="new_log"
                       onCommit={(e, value) => act('PRG_savelog', {
                         log_name: value,
                       })} />
                     <Button.Confirm
                       fluid
-                      content="Leave Channel"
+                      content="Покинуть канал"
                       onClick={() => act('PRG_leavechannel')} />
                   </Fragment>
                 )}
@@ -146,17 +146,17 @@ export const NtosNetChat = (props, context) => {
                   <Fragment>
                     <Button.Confirm
                       fluid
-                      content="Delete Channel"
+                      content="Удалить канал"
                       onClick={() => act('PRG_deletechannel')} />
                     <Button.Input
                       fluid
-                      content="Rename Channel..."
+                      content="Переименовать канал..."
                       onCommit={(e, value) => act('PRG_renamechannel', {
                         new_name: value,
                       })} />
                     <Button.Input
                       fluid
-                      content="Set Password..."
+                      content="Установить пароль..."
                       onCommit={(e, value) => act('PRG_setpassword', {
                         new_password: value,
                       })} />
