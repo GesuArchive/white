@@ -10,7 +10,7 @@
 	spawn(50)
 		if(mind)
 			switch(mind.assigned_role)
-				if("Captain", "Head of Security", "Head of Personnel", "Chief Medical Officer", "Chief Engineer", "Research Director", "Kazakhstan Officer", "Warden", "Detective", "Russian Officer", "International Officer", "Hacker")
+				if("Captain", "Head of Security", "Head of Personnel", "Chief Medical Officer", "Chief Engineer", "Research Director", "Veteran", "Warden", "Detective", "Russian Officer", "International Officer", "Hacker")
 					fate_luck = 4
 
 				if("Quartermaster", "Shaft Miner", "Curator", "Chaplain", "Medical Doctor", "Station Engineer", "Atmospheric Technician", "Scientist", "Paramedic")

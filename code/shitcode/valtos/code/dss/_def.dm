@@ -53,7 +53,7 @@
 					dstats[MOB_INT] += rand(1, 6)
 					dstats[MOB_DEX] += rand(3, 6)
 
-				if("Kazakhstan Officer")
+				if("Veteran")
 					dstats[MOB_STR] += rand(3, 7)
 					dstats[MOB_STM] += rand(4, 7)
 					dstats[MOB_INT] += rand(4, 7)

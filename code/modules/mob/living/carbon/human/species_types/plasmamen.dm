@@ -92,7 +92,7 @@
 		if("Russian Officer")
 			O = new /datum/outfit/plasmaman/security
 
-		if("Kazakhstan Officer")
+		if("Veteran")
 			O = new /datum/outfit/plasmaman/security
 
 		if("International Officer")

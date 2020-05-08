@@ -102,7 +102,7 @@
 			if (en_lang)
 				. = capitalize(pick(GLOB.first_names_male_en)) + " " + capitalize(pick(GLOB.last_names_en))
 			else
-				. = capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
+				. = capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names)) + "а"
 		else
 			if (en_lang)
 				. = capitalize(pick(GLOB.first_names_male_en)) + " " + capitalize(pick(GLOB.last_names_en))
