@@ -26,6 +26,9 @@
 		if(query_get_metacoins.NextRow())
 			mc_count = query_get_metacoins.item[1]
 
+	if(mc_count == null)
+		set_metacoin_count(0, FALSE)
+
 	qdel(query_get_metacoins)
 	return text2num(mc_count)
 

@@ -1,9 +1,9 @@
 // Положительные награды
-#define METACOIN_GREENTEXT_REWARD        25 // за гринтекст
-#define METACOIN_ESCAPE_REWARD           7  // за побег со станции
-#define METACOIN_SURVIVE_REWARD          5  // за выживание в раунде
-#define METACOIN_NOTSURVIVE_REWARD       2  // за смерть, если дождался конца раунда
-#define METACOIN_TENMINUTELIVING_REWARD  1  // за каждые 10 минут жизни
+#define METACOIN_GREENTEXT_REWARD        50 // за гринтекст
+#define METACOIN_ESCAPE_REWARD           9  // за побег со станции
+#define METACOIN_SURVIVE_REWARD          7  // за выживание в раунде
+#define METACOIN_NOTSURVIVE_REWARD       5  // за смерть, если дождался конца раунда
+#define METACOIN_TENMINUTELIVING_REWARD  2  // за каждые 10 минут жизни
 
 // Отрицательные награды
 #define METACOIN_TEETH_REWARD      		-5   // потеря зубика
