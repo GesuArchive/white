@@ -99,7 +99,7 @@
 
 	..()
 
-/obj/item/clothing/under/proc/attach_accessory(obj/item/I, mob/user, notifyAttach = 1)
+/obj/item/clothing/under/proc/attach_accessory(obj/item/I, mob/user, notifyAttach = 1, params)
 	. = FALSE
 	if(istype(I, /obj/item/clothing/accessory))
 		var/obj/item/clothing/accessory/A = I
@@ -121,6 +121,13 @@
 
 			var/accessory_color = attached_accessory.icon_state
 			accessory_overlay = mutable_appearance('icons/mob/clothing/accessories.dmi', "[accessory_color]")
+
+			var/list/click_params = params2list(params)
+			if(click_params && click_params["icon-x"] && click_params["icon-y"])
+				var/cx = clamp(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)
+				var/cy = clamp(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
+				accessory_overlay.transform = matrix(accessory_overlay.transform).Translate(cx, cy)
+
 			accessory_overlay.alpha = attached_accessory.alpha
 			accessory_overlay.color = attached_accessory.color
 

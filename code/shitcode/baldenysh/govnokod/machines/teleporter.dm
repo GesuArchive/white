@@ -40,7 +40,6 @@
 		if(!silent)
 			to_chat(user, "<span class='warning'>Надо бы выключить <b>[src]</b> сначала!</span>")
 		return FAILED_UNFASTEN
-
 	return ..()
 
 /obj/machinery/prikol_teleporter/wrench_act(mob/living/user, obj/item/I)

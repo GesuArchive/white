@@ -114,7 +114,7 @@
 	var/commended = FALSE
 
 //Pinning medals on people
-/obj/item/clothing/accessory/medal/attack(mob/living/carbon/human/M, mob/living/user)
+/obj/item/clothing/accessory/medal/attack(mob/living/carbon/human/M, mob/living/user, params)
 	if(ishuman(M) && (user.a_intent == INTENT_HELP))
 
 		if(M.wear_suit)
@@ -134,7 +134,7 @@
 			if(!commended && user != M)
 				input = stripped_input(user,"Напишите комментарий к награде. Это будет рассматриваться Нанотрейзеном в дальнейшем.", ,"", 140)
 			if(do_after(user, delay, target = M))
-				if(U.attach_accessory(src, user, 0)) //Attach it, do not notify the user of the attachment
+				if(U.attach_accessory(src, user, 0, params)) //Attach it, do not notify the user of the attachment
 					if(user == M)
 						to_chat(user, "<span class='notice'>Прикрепляю <b>[src.name]</b> на <b>[U]</b>.</span>")
 					else
