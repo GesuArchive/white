@@ -93,6 +93,8 @@
 	else if(avail(idle_power_usage))
 		add_load(idle_power_usage)
 
+	update_icon()
+
 ////////////////////////////////////////////////////////////
 
 /obj/machinery/power/bs_emitter/proc/get_pointer()
