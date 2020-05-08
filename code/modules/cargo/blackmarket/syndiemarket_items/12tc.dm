@@ -1,8 +1,8 @@
-/datum/blackmarket_item/tc
+/datum/blackmarket_item/stc
 	markets = list(/datum/blackmarket_market/syndiemarket)
 	category = "ТС"
 
-/datum/blackmarket_item/tc/tc1
+/datum/blackmarket_item/stc/tc1
 	name = "1 TC"
 	desc = "Информация Удалена"
 	item = /obj/item/stack/telecrystal
@@ -13,7 +13,7 @@
 	stock_max = 10
 	availability_prob = 100
 
-/datum/blackmarket_item/tc/tc5
+/datum/blackmarket_item/stc/tc5
 	name = "5 TC"
 	desc = "Информация Удалена"
 	item = /obj/item/stack/telecrystal/five
@@ -24,7 +24,7 @@
 	stock_max = 4
 	availability_prob = 100
 
-/datum/blackmarket_item/tc/tc20
+/datum/blackmarket_item/stc/tc20
 	name = "20 TC"
 	desc = "Информация Удалена"
 	item = /obj/item/stack/telecrystal/twenty
