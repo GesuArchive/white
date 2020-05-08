@@ -30,7 +30,6 @@ SUBSYSTEM_DEF(icon_smooth)
 			can_fire = 0
 
 /datum/controller/subsystem/icon_smooth/Initialize()
-	SStitle.set_image_state("smoothing")
 	smooth_zlevel(1,TRUE)
 	smooth_zlevel(2,TRUE)
 	var/queue = smooth_queue
@@ -50,5 +49,7 @@ SUBSYSTEM_DEF(icon_smooth)
 		T = AM.loc
 		if(T && AM)
 			T.add_blueprints(AM)
+
+	SStitle.set_load_state("smoothing")
 
 	return ..()

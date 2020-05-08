@@ -35,9 +35,9 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	var/tickdrift = 0
 
 	var/sleep_delta = 1
-	
+
 	///Only run ticker subsystems for the next n ticks.
-	var/skip_ticks = 0 
+	var/skip_ticks = 0
 
 	var/make_runtime = 0
 
@@ -197,7 +197,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
 	var/msg = "Мир создан за [time] секунд!"
-	SStitle.set_image_state("end")
+	SStitle.set_load_state("end")
 	spawn(10)
 		SStitle.afterload()
 	to_chat(world, "<span class='boldannounce'>[msg]</span>")
@@ -454,7 +454,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 				break
 			queue_node_flags = queue_node.flags
 			queue_node_priority = queue_node.queued_priority
-			
+
 			if (!(queue_node_flags & SS_TICKER) && skip_ticks)
 				queue_node = queue_node.queue_next
 				continue
@@ -598,7 +598,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 /datum/controller/master/proc/laggy_byond_map_update_incoming()
 	if (!skip_ticks)
 		skip_ticks = 1
-		
+
 
 /datum/controller/master/stat_entry()
 	if(!statclick)

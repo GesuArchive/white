@@ -6,7 +6,6 @@ SUBSYSTEM_DEF(assets)
 	var/list/preload = list()
 
 /datum/controller/subsystem/assets/Initialize(timeofday)
-	SStitle.set_image_state("assets")
 	for(var/type in typesof(/datum/asset))
 		var/datum/asset/A = type
 		if (type != initial(A._abstract))
@@ -16,4 +15,7 @@ SUBSYSTEM_DEF(assets)
 
 	for(var/client/C in GLOB.clients)
 		addtimer(CALLBACK(GLOBAL_PROC, .proc/getFilesSlow, C, preload, FALSE), 10)
+
+	SStitle.set_load_state("assets")
+
 	..()

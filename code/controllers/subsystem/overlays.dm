@@ -17,7 +17,7 @@ SUBSYSTEM_DEF(overlays)
 	stats = list()
 
 /datum/controller/subsystem/overlays/Initialize()
-	SStitle.set_image_state("overlays")
+	SStitle.set_load_state("overlays")
 	initialized = TRUE
 	fire(mc_check = FALSE)
 	return ..()

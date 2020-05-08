@@ -13,11 +13,11 @@ SUBSYSTEM_DEF(disease)
 		diseases = subtypesof(/datum/disease)
 
 /datum/controller/subsystem/disease/Initialize(timeofday)
-	SStitle.set_image_state("diseases")
 	var/list/all_common_diseases = diseases - typesof(/datum/disease/advance)
 	for(var/common_disease_type in all_common_diseases)
 		var/datum/disease/prototype = new common_disease_type()
 		archive_diseases[prototype.GetDiseaseID()] = prototype
+	SStitle.set_load_state("diseases")
 	return ..()
 
 /datum/controller/subsystem/disease/stat_entry(msg)

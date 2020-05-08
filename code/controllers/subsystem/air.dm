@@ -62,13 +62,13 @@ SUBSYSTEM_DEF(air)
 	..(msg)
 
 /datum/controller/subsystem/air/Initialize(timeofday)
-	SStitle.set_image_state("air")
 	extools_update_ssair()
 	map_loading = FALSE
 	setup_allturfs()
 	setup_atmos_machinery()
 	setup_pipenets()
 	gas_reactions = init_gas_reactions()
+	SStitle.set_load_state("air")
 	return ..()
 
 /datum/controller/subsystem/air/proc/extools_update_ssair()

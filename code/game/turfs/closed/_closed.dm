@@ -59,16 +59,18 @@
 
 /turf/closed/indestructible/splashscreen
 	name = "White Dream"
+	desc = "Cyberhell from ███████."
 	icon = 'icons/protocol_c.dmi'
 	icon_state = "blank"
 	layer = SPLASHSCREEN_LAYER
 	plane = SPLASHSCREEN_PLANE
 	bullet_bounce_sound = null
+	maptext_height = 480
+	maptext_width = 608
+	maptext_x = 4
 
 /turf/closed/indestructible/splashscreen/New()
 	SStitle.splash_turf = src
-	//if(SStitle.icon)
-	//	icon = SStitle.icon
 	..()
 
 /turf/closed/indestructible/splashscreen/vv_edit_var(var_name, var_value)
