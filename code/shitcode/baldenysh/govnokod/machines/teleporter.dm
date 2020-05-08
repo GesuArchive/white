@@ -118,6 +118,8 @@
 	for(var/turf/open/transparent/openspace/bluespace/BT in active_tiles)
 		BT.start_collapse()
 
+	active_tiles = list()
+
 /obj/machinery/power/bs_emitter/proc/recursive_meksumportools()
 	if(!active)
 		start_collapse()
