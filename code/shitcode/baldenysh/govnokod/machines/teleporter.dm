@@ -142,7 +142,7 @@
 		var/dx = BS.x - x
 		var/dy = BS.y - y
 
-		if(BS.rift(locate(target_x+dx, target_y+dy, target_z)))
+		if(BS.rift(locate(target_x+dx, target_y+dy, target_z)) && !(BS in active_tiles))
 			active_tiles += BS
 
 	if(!pointer_step())
