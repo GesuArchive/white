@@ -170,7 +170,8 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	S.environment = 0
 
 	var/track_name = copytext(replacetext("[S.file]", ".ogg", ""), 25)
-	to_chat(owner, "<span class='greenannounce'> >> <b>ТЕКУЩИЙ ТРЕКк: <i>[capitalize(track_name)]</i></b> \[<a href='?src=[REF(src)];switch=1'>ПЕРЕКЛЮЧИТЬ</a>\]</span>")
+	to_chat(owner, "<span class='greenannounce'> >> <b>ТЕКУЩИЙ ТРЕК: <i>[capitalize(track_name)]</i></b> \[<a href='?src=[REF(src)];switch=1'>ПЕРЕКЛЮЧИТЬ</a>\]</span>")
+	tension = 30
 
 	bm = S
 	SEND_SOUND(owner, bm)
