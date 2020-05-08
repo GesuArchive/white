@@ -2,8 +2,8 @@
 	title = "Russian Officer"
 	outfit = /datum/outfit/job/security/omon
 
-/datum/job/officer/kazakh
-	title = "Kazakhstan Officer"
+/datum/job/officer/veteran
+	title = "Veteran"
 	total_positions = 1
 	spawn_positions = 1
 	minimal_player_age = 28
@@ -16,5 +16,5 @@
 					ACCESS_ATMOSPHERICS, ACCESS_MINERAL_STOREROOM)
 	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_WEAPONS, ACCESS_MECH_SECURITY,
 					ACCESS_MINERAL_STOREROOM, ACCESS_ATMOSPHERICS, ACCESS_CONSTRUCTION, ACCESS_MECH_ENGINE, ACCESS_MINERAL_STOREROOM) // See /datum/job/officer/get_access()
-	outfit = /datum/outfit/job/security/kazakh
+	outfit = /datum/outfit/job/security/veteran
 

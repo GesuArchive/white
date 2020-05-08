@@ -32,21 +32,21 @@
 /datum/outfit/job/security
 	implants = list(/obj/item/implant/mindshield/)
 
-/datum/outfit/job/security/kazakh
-	name = "Kazakh Officer"
-	jobtype = /datum/job/officer/kazakh
+/datum/outfit/job/security/veteran
+	name = "Veteran"
+	jobtype = /datum/job/officer/veteran
 
 	belt = /obj/item/gun/ballistic/automatic/pistol/makarov
 	ears = /obj/item/radio/headset/headset_sec/alt/department/engi
-	uniform = /obj/item/clothing/under/rank/engineering/atmospheric_technician
+	uniform = /obj/item/clothing/under/rank/security/veteran
 	gloves = /obj/item/clothing/gloves/color/black
-	head = /obj/item/clothing/head/helmet/sec
-	suit = /obj/item/clothing/suit/armor/vest/alt
+	head = /obj/item/clothing/head/pirate/captain/veteran
+	suit = /obj/item/clothing/suit/security/officer/veteran
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/assembly/flash/handheld
 	suit_store = /obj/item/pda/security
-	backpack_contents = list(/obj/item/melee/classic_baton/dildon=1, /obj/item/modular_computer/tablet/preset/advanced=1, /obj/item/pipe_dispenser=1, /obj/item/ammo_box/magazine/m9mm=2)
+	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1, /obj/item/ammo_box/magazine/m9mm=2, /obj/item/clothing/accessory/medal/veteran = 5)
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec

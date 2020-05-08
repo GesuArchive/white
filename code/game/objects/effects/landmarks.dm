@@ -115,7 +115,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	if (prob(50)) //lazy bitch
 		name = "International Officer"
 		if (prob(75))
-			name = "Kazakhstan Officer"
+			name = "Veteran"
 	..()
 
 /obj/effect/landmark/start/botanist

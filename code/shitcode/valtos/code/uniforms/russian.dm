@@ -37,3 +37,36 @@
 	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/suits.dmi'
 	icon_state = "omon_armor"
+
+/obj/item/clothing/under/rank/security/veteran
+	desc = "Знаки отличия на этой форме говорят о том, что эта форма принадлежит <b>ВЕТЕРАНУ</b>."
+	name = "костюм ветерана"
+	icon_state = "wardenblueclothes"
+	item_state = "wardenblueclothes"
+	alt_covers_chest = TRUE
+
+/obj/item/clothing/suit/security/officer/veteran
+	name = "костюм ветерана"
+	desc = "Эта куртка предназначена для тех особых случаев, когда <b>ВЕТЕРАНУ НУЖНО НА ПАРАД</b>."
+	icon_state = "veteransuit"
+	item_state = "veteransuit"
+	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/suit.dmi'
+	icon = 'code/shitcode/valtos/icons/clothing/suits.dmi'
+
+/obj/item/clothing/head/pirate/captain/veteran
+	name = "шляпа ветерана"
+
+/obj/item/clothing/accessory/medal/veteran
+	name = "медаль"
+	desc = "Полностью золотая."
+	icon = 'code/shitcode/valtos/icons/clothing/accessory.dmi'
+	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/accessory.dmi'
+	icon_state = "medal"
+	item_state = ""
+	custom_materials = list(/datum/material/gold=8000)
+
+/obj/item/clothing/accessory/medal/veteran/Initialize()
+	. = ..()
+	var/krutite_baraban = pick("отвагу", "взятие жепы", "героизм", "исключительный онанизм", "особые заслуги", "500 кредитов", "красивые глаза", "доблесть", "приколы", "взятие за щёку", "ветеранство", "героин")
+	name = "[name] за [krutite_baraban]"
+	icon_state = "[icon_state][rand(1,2)]"
