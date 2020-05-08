@@ -390,7 +390,7 @@
 	if (!chambered)
 		. += "Патронник пуст."
 	if (bolt_locked)
-		. += "[bolt_wording] не передёрнут."
+		. += "[capitalize(bolt_wording)] не передёрнут."
 	if (suppressed)
 		. += "Похоже отсюда можно снять глушитель через <b>alt+клик</b>."
 

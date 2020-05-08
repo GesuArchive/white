@@ -43,7 +43,7 @@
 	icon_state = "kar98k"
 	item_state = "kar98k"
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction98
-	bolt_wording = "bolt"
+	bolt_wording = "болт винтовки"
 	w_class = WEIGHT_CLASS_BULKY
 	bolt_type = BOLT_TYPE_STANDARD
 	semi_auto = FALSE

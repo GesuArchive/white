@@ -4,7 +4,7 @@
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction
-	bolt_wording = "bolt"
+	bolt_wording = "болт винтовки"
 	bolt_type = BOLT_TYPE_STANDARD
 	semi_auto = FALSE
 	internal_magazine = TRUE

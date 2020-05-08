@@ -256,16 +256,16 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	. += "Это [weightclass2text(w_class)] размера предмет."
 
 	if(resistance_flags & INDESTRUCTIBLE)
-		. += "[src] выглядит сверхкрепким и практически неуязвимым!"
+		. += "[capitalize(src.name)] выглядит сверхкрепким и практически неуязвимым!"
 	else
 		if(resistance_flags & LAVA_PROOF)
-			. += "[src] выглядит устойчивым к сверхвысоким температурам! Похоже он выдержит даже магму."
+			. += "[capitalize(src.name)] выглядит устойчивым к сверхвысоким температурам! Похоже он выдержит даже магму."
 		if(resistance_flags & (ACID_PROOF | UNACIDABLE))
-			. += "[src] выглядит устойчивым к кислоте!"
+			. += "[capitalize(src.name)] выглядит устойчивым к кислоте!"
 		if(resistance_flags & FREEZE_PROOF)
-			. += "[src] выглядит устойчивым к холоду."
+			. += "[capitalize(src.name)] выглядит устойчивым к холоду."
 		if(resistance_flags & FIRE_PROOF)
-			. += "[src] выглядит устойчивым к огню."
+			. += "[capitalize(src.name)] выглядит устойчивым к огню."
 
 	if(!user.research_scanner)
 		return

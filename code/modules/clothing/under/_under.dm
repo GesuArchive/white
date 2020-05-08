@@ -105,7 +105,7 @@
 		var/obj/item/clothing/accessory/A = I
 		if(attached_accessory)
 			if(user)
-				to_chat(user, "<span class='warning'>[src] already has an accessory.</span>")
+				to_chat(user, "<span class='warning'><b>[src.name]</b> уже что-то имеет.</span>")
 			return
 		else
 
@@ -117,10 +117,13 @@
 				return
 
 			if(user && notifyAttach)
-				to_chat(user, "<span class='notice'>You attach [I] to [src].</span>")
+				to_chat(user, "<span class='notice'>Прикрепляю <b>[I.name]</b> на <b>[src.name]</b>.</span>")
 
 			var/accessory_color = attached_accessory.icon_state
-			accessory_overlay = mutable_appearance('icons/mob/clothing/accessories.dmi', "[accessory_color]")
+			if(mob_overlay_icon)
+				accessory_overlay = mutable_appearance(mob_overlay_icon, "[accessory_color]")
+			else
+				accessory_overlay = mutable_appearance('icons/mob/clothing/accessories.dmi', "[accessory_color]")
 
 			var/list/click_params = params2list(params)
 			if(click_params && click_params["icon-x"] && click_params["icon-y"])
@@ -149,9 +152,9 @@
 		var/obj/item/clothing/accessory/A = attached_accessory
 		attached_accessory.detach(src, user)
 		if(user.put_in_hands(A))
-			to_chat(user, "<span class='notice'>You detach [A] from [src].</span>")
+			to_chat(user, "<span class='notice'>Снимаю <b>[A.name]</b> с <b>[src.name]</b>.</span>")
 		else
-			to_chat(user, "<span class='notice'>You detach [A] from [src] and it falls on the floor.</span>")
+			to_chat(user, "<span class='notice'>Снимаю <b>[A.name]</b> с <b>[src.name]</b> и она падает на пол.</span>")
 
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
@@ -163,26 +166,26 @@
 /obj/item/clothing/under/examine(mob/user)
 	. = ..()
 	if(freshly_laundered)
-		. += "It looks fresh and clean."
+		. += "Выглядит свежим и чистым."
 	if(can_adjust)
 		if(adjusted == ALT_STYLE)
-			. += "Alt-click on [src] to wear it normally."
+			. += "Alt-клик на [src.name] чтобы носить нормально."
 		else
-			. += "Alt-click on [src] to wear it casually."
+			. += "Alt-клик on [src.name] чтобы носить как дебил."
 	if (has_sensor == BROKEN_SENSORS)
-		. += "Its sensors appear to be shorted out."
+		. += "Похоже, сенсоры на этой штуке повреждены."
 	else if(has_sensor > NO_SENSORS)
 		switch(sensor_mode)
 			if(SENSOR_OFF)
-				. += "Its sensors appear to be disabled."
+				. += "Сенсоры отключены."
 			if(SENSOR_LIVING)
-				. += "Its binary life sensors appear to be enabled."
+				. += "Сенсоры состояния ЖИВ/МЁРТВ работают."
 			if(SENSOR_VITALS)
-				. += "Its vital tracker appears to be enabled."
+				. += "Сенсоры жизненных показателей работают."
 			if(SENSOR_COORDS)
-				. += "Its vital tracker and tracking beacon appear to be enabled."
+				. += "Сенсоры жизненных показателей и местоположения работают."
 	if(attached_accessory)
-		. += "\A [attached_accessory] is attached to it."
+		. += "Вау! На этой штуке есть [attached_accessory]."
 
 /obj/item/clothing/under/rank
 	dying_key = DYE_REGISTRY_UNDER
