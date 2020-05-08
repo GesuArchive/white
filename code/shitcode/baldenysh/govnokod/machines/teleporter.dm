@@ -129,11 +129,11 @@
 	var/list/radius = circleviewturfs(pointer, currange)
 
 	for(var/turf/open/T in radius)
+		if(T in active_tiles)
+			return
 		var/turf/open/transparent/openspace/bluespace/BS
 		if(istype(T, /turf/open/transparent/openspace/bluespace))
 			BS = T
-			if(BS in active_tiles)
-				return
 			BS.stop_collapse()
 		else
 			BS = T.PlaceOnTop(/turf/open/transparent/openspace/bluespace, flags = CHANGETURF_INHERIT_AIR)
