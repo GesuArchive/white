@@ -62,7 +62,7 @@
 /obj/machinery/power/bs_emitter/wrench_act(mob/living/user, obj/item/I)
 	..()
 	if(default_unfasten_wrench(user, I))
-		if(!anchored)
+		if(anchored)
 			connect_to_network()
 		else
 			disconnect_from_network()
@@ -124,7 +124,7 @@
 		return FALSE
 
 	var/currange = get_dist_euclidian(get_step(src, dir), get_pointer())
-	var/list/radius = circlerangeturfs(pointer, currange)
+	var/list/radius = circleviewturfs(pointer, currange)
 
 	for(var/turf/open/T in radius)
 		var/turf/open/transparent/openspace/bluespace/BS
