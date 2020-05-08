@@ -80,7 +80,7 @@
 /obj/machinery/power/bs_emitter/process()
 	if(machine_stat & (BROKEN))
 		if(active)
-			toggle()
+			turn_off()
 		return
 
 	if(active)
@@ -89,7 +89,7 @@
 			if(!active_tiles.len)
 				recursive_meksumportools()
 		else
-			toggle()
+			turn_off()
 	else if(avail(idle_power_usage))
 		add_load(idle_power_usage)
 
@@ -122,7 +122,7 @@
 
 /obj/machinery/power/bs_emitter/proc/recursive_meksumportools()
 	if(!active)
-		start_collapse()
+		turn_off()
 		return FALSE
 
 	var/currange = get_dist_euclidian(get_step(src, dir), get_pointer())
