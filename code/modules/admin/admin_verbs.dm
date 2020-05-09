@@ -652,7 +652,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	set category = "ОСОБЕННОЕ"
 	set desc = "Regain your admin powers."
 
-	if(!isdead(src.mob))
+	if(!isdead(src.mob) && !(ckey in GLOB.anonists))
 		to_chat(src, "<span class='interface'>Тебе нельзя. Надо бы из тела выйти.</span>", confidential = TRUE)
 		return
 
