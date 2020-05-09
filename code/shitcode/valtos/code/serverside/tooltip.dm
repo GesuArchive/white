@@ -6,7 +6,7 @@
 			var/obj_name = A.name
 			if(mob.hud_used.tooltip.last_word == obj_name)
 				return
-			mob.hud_used.tooltip.maptext = "<span style='font-family: Arial; font-size: 8px; text-align: center;text-shadow: 1px 1px 2px black;background: #00000099;'>[r_uppertext(obj_name)]</span>"
+			mob.hud_used.tooltip.maptext = "<span class='maptext reallybig yell' style='text-align: center;'>[r_uppertext(obj_name)]</span>"
 	else if(mob.hud_used.tooltip)
 		mob.hud_used.tooltip.maptext = ""
 
@@ -15,7 +15,7 @@
 	screen_loc = "SOUTH+1,CENTER-4:16"
 	maptext_width = 480
 	maptext_x = -112
-	maptext_y = 16
+	maptext_y = 18
 	layer = 23
 	plane = 23
 
