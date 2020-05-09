@@ -114,6 +114,11 @@ SUBSYSTEM_DEF(title)
 				sm("")
 				sm("        > D̵̦̈́O̶̧̔͛͠N̸͂͜E̶͚͔̝͛͠ ̶̡̤̫̀͒D̷̲̞́͝͠O̸̩͍͍̍͐͘N̵̤͙̣̽E̸̩̺̙̐ ̶͙͇̣̏͌̔Ḍ̵̂̎͐O̴̭̪͕̒̈́͘Ǹ̶͖Ḛ̸̦̗́́")
 				sm("\n\n\n")
+				var/nn = 0
+				while(nn != 20)
+					sleep(1)
+					sm("\n")
+					nn++
 				cls()
 
 /datum/controller/subsystem/title/proc/sm(msg, newline = TRUE)
@@ -126,14 +131,14 @@ SUBSYSTEM_DEF(title)
 
 /datum/controller/subsystem/title/proc/cls()
 	if(splash_turf)
-		spawn(20)
-			splash_turf.maptext = ""
+		splash_turf.maptext = ""
 
 /datum/controller/subsystem/title/proc/afterload()
 	if(splash_turf)
-		splash_turf.icon_state = null
-		splash_turf.icon = icon
-		splash_turf.add_overlay('icons/wd_logo.png')
+		spawn(20)
+			splash_turf.icon_state = null
+			splash_turf.icon = icon
+			splash_turf.add_overlay('icons/wd_logo.png')
 
 /datum/controller/subsystem/title/vv_edit_var(var_name, var_value)
 	. = ..()
