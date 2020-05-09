@@ -79,8 +79,8 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 	tooltip = new /obj/screen/tooltip()
 	tooltip.hud = src
-	if (!(owner.client.prefs.w_toggles & TOOLTIP_USER_POS))
-		tooltip.screen_loc = "NORTH,CENTER-4:16"
+	if (owner.client.prefs.w_toggles & TOOLTIP_USER_POS)
+		tooltip.screen_loc = "SOUTH+1,CENTER-4:16"
 	infodisplay += tooltip
 
 	for(var/mytype in subtypesof(/obj/screen/plane_master))
