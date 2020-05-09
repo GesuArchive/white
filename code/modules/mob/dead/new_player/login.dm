@@ -28,9 +28,6 @@
 	to_chat(src, "<span class='greenannounce'> >> ВХОД РАЗРЕШЁН</span>")
 	to_chat(src, "<span class='greenannounce'> ================================</span>")
 
-	if(SSticker.state == GAME_STATE_PLAYING)
-		SStitle.uplayers()
-
 	var/motd = global.config.motd
 	if(motd)
 		to_chat(src, "<div class=\"motd\">[motd]</div>", handle_whitespace=FALSE)

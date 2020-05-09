@@ -170,9 +170,10 @@ SUBSYSTEM_DEF(title)
 
 	SStitle.icon = 'icons/end.png'
 
-	for(var/thing in GLOB.clients)
+	for(var/client/thing in GLOB.clients)
 		if(!thing)
 			continue
+		thing.fit_viewport()
 		var/obj/screen/splash/S = new(thing, FALSE)
 		S.Fade(FALSE,FALSE)
 
