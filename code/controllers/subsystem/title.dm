@@ -118,7 +118,6 @@ SUBSYSTEM_DEF(title)
 
 /datum/controller/subsystem/title/proc/sm(msg, newline = TRUE)
 	if(splash_turf)
-		sleep(1)
 		if(newline)
 			ctt += "[msg]\n"
 		else

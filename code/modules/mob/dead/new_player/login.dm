@@ -28,7 +28,8 @@
 	to_chat(src, "<span class='greenannounce'> >> ВХОД РАЗРЕШЁН</span>")
 	to_chat(src, "<span class='greenannounce'> ================================</span>")
 
-	SStitle.sm("@> USER [capitalize(client.ckey)] LOGGED IN")
+	if(SSticker.state != GAME_STATE_STARTUP)
+		SStitle.sm("@> USER [capitalize(client.ckey)] LOGGED IN")
 
 	var/motd = global.config.motd
 	if(motd)
