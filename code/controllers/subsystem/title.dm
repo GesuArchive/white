@@ -113,6 +113,7 @@ SUBSYSTEM_DEF(title)
 				sm("@> world.execute(white)")
 				sm("")
 				sm("        > D̵̦̈́O̶̧̔͛͠N̸͂͜E̶͚͔̝͛͠ ̶̡̤̫̀͒D̷̲̞́͝͠O̸̩͍͍̍͐͘N̵̤͙̣̽E̸̩̺̙̐ ̶͙͇̣̏͌̔Ḍ̵̂̎͐O̴̭̪͕̒̈́͘Ǹ̶͖Ḛ̸̦̗́́")
+				sm("\n\n\n")
 				cls()
 
 /datum/controller/subsystem/title/proc/sm(msg, newline = TRUE)
