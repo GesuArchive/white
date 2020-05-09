@@ -54,12 +54,12 @@ SUBSYSTEM_DEF(title)
 			if("init1")
 				sm("-------------------------------------------------------------------------------------------------")
 				sm("")
-				sm("	\[AN-[rand(1000, 9999)]\]:    ONLINE    \[9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08\]")
-				sm("	\[OR-[rand(1000, 9999)]\]:    ONLINE    \[7c7d31f4816deb275fc4101b94fdf7841037df407e062d4e897a42fd975e3a11\]")
-				sm("	\[NA-[rand(1000, 9999)]\]:    ONLINE    \[c7962f8eddec633e32eb7a3c800c851df1551edc6664a60f2b665c8b82be0cb8\]")
-				sm("	\[NM-[rand(1000, 9999)]\]:    ONLINE    \[53ae23b3ab3992a580ecd3ef63302212a359f6441cd1fdc9bef4156eaa0173f5\]")
-				sm("	\[DZ-[rand(1000, 9999)]\]:    ONLINE    \[7d1fc9ead962730d880e9f1047842017710f5b7f165778724ea638f13c93aa3c\]")
-				sm("	\[OI-[rand(1000, 9999)]\]:    ONLINE    \[404cdd7bc109c432f8cc2443b45bcfe95980f5107215c645236e577929ac3e52\]")
+				sm("\t\[AN-[rand(1000, 9999)]\]:    ONLINE    \[9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08\]")
+				sm("\t\[OR-[rand(1000, 9999)]\]:    ONLINE    \[7c7d31f4816deb275fc4101b94fdf7841037df407e062d4e897a42fd975e3a11\]")
+				sm("\t\[NA-[rand(1000, 9999)]\]:    ONLINE    \[c7962f8eddec633e32eb7a3c800c851df1551edc6664a60f2b665c8b82be0cb8\]")
+				sm("\t\[NM-[rand(1000, 9999)]\]:    ONLINE    \[53ae23b3ab3992a580ecd3ef63302212a359f6441cd1fdc9bef4156eaa0173f5\]")
+				sm("\t\[DZ-[rand(1000, 9999)]\]:    ONLINE    \[7d1fc9ead962730d880e9f1047842017710f5b7f165778724ea638f13c93aa3c\]")
+				sm("\t\[OI-[rand(1000, 9999)]\]:    ONLINE    \[404cdd7bc109c432f8cc2443b45bcfe95980f5107215c645236e577929ac3e52\]")
 				sm("")
 				sm("-------------------------------------------------------------------------------------------------")
 			if("init2")
@@ -132,6 +132,21 @@ SUBSYSTEM_DEF(title)
 /datum/controller/subsystem/title/proc/cls()
 	if(splash_turf)
 		splash_turf.maptext = ""
+
+/datum/controller/subsystem/title/proc/uplayers()
+	if(splash_turf)
+		var/list/caa = list()
+		var/tcc = ""
+		for(var/client/C in GLOB.clients)
+			if (C.holder)
+				caa += "\t#> USER <b>[C.key]</b> ONLINE\n"
+			else
+				caa += "\t@> USER [C.key] ONLINE\n"
+		for(var/line in GLOB.whitelist)
+			caa += "@> USER \t[line] ONLINE\n"
+		for(var/line in sortList(caa))
+			tcc += "[line]\n"
+		splash_turf.maptext = "<font style=\"font-size: 7px; -dm-text-outline: 1px black; font-family: 'Courier'; color:'#aaffaa'; \">[tcc]</font>"
 
 /datum/controller/subsystem/title/proc/afterload()
 	if(splash_turf)
