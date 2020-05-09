@@ -104,7 +104,7 @@ SUBSYSTEM_DEF(title)
 				sm("        > LIGHT               ", FALSE)
 			if("light")
 				sm("- DONE -")
-				sm("        > LIGHT               ", FALSE)
+				sm("        > SHUTTLE             ", FALSE)
 			if("shuttle")
 				sm("- DONE -")
 				sm("")
@@ -126,7 +126,8 @@ SUBSYSTEM_DEF(title)
 
 /datum/controller/subsystem/title/proc/cls()
 	if(splash_turf)
-		splash_turf.maptext = ""
+		spawn(20)
+			splash_turf.maptext = ""
 
 /datum/controller/subsystem/title/proc/afterload()
 	if(splash_turf)

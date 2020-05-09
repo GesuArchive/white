@@ -68,6 +68,7 @@
 	maptext_height = 480
 	maptext_width = 608
 	maptext_x = 4
+	maptext_y = 8
 
 /turf/closed/indestructible/splashscreen/New()
 	SStitle.splash_turf = src
