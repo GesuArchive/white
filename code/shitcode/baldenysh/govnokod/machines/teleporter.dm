@@ -4,21 +4,23 @@
 	icon = 'code/shitcode/baldenysh/icons/obj/teleporter.dmi'
 	icon_state = "teleporter"
 
-	anchored = FALSE
+	anchored = TRUE
 	density = TRUE
 
 	use_power = NO_POWER_USE
 	idle_power_usage = 10
-	active_power_usage = 10000
+	active_power_usage = 15000
 	var/cur_load = 0
 	var/optimization_mod = 1
 
 	var/active = FALSE
 
-	var/list/active_tiles = list()
 	var/turf/pointer = null
-	var/max_range = 6
+	var/list/active_tiles = list()
+
+	var/expanding = FALSE
 	var/expansion_time = 5
+	var/max_range = 6
 
 	var/target_x = 100
 	var/target_y = 100
@@ -26,6 +28,7 @@
 
 	var/icon_state_on = "teleporter_active"
 	var/icon_state_underpowered = "teleporter_underpowered"
+	var/icon_state_expanding = "teleporter_active"
 
 /obj/machinery/power/emitter/Initialize()
 	. = ..()
@@ -72,8 +75,10 @@
 	return anchored
 
 /obj/machinery/power/bs_emitter/update_icon_state()
+	if(expanding)
+		icon_state = icon_state_expanding
 	if(active && powernet)
-		icon_state = avail(active_power_usage) ? icon_state_on : icon_state_underpowered
+		icon_state = avail(cur_load*optimization_mod) ? icon_state_on : icon_state_underpowered
 	else
 		icon_state = initial(icon_state)
 
@@ -84,10 +89,10 @@
 		return
 
 	if(active)
-		if(avail(active_power_usage))
-			add_load(active_power_usage*optimization_mod)
+		if(avail(cur_load*optimization_mod))
+			add_load(cur_load*optimization_mod)
 			if(!active_tiles.len)
-				recursive_meksumportools()
+				start_exp()
 		else
 			turn_off()
 	else if(avail(idle_power_usage))
@@ -120,8 +125,6 @@
 	for(var/turf/open/transparent/openspace/bluespace/BT in active_tiles)
 		BT.start_collapse()
 
-	active_tiles = list()
-
 /obj/machinery/power/bs_emitter/proc/recursive_meksumportools()
 	if(!active)
 		turn_off()
@@ -132,7 +135,7 @@
 
 	for(var/turf/open/T in radius)
 		if(T in active_tiles)
-			return
+			continue
 		var/turf/open/transparent/openspace/bluespace/BS
 		if(istype(T, /turf/open/transparent/openspace/bluespace))
 			BS = T
@@ -141,6 +144,7 @@
 			BS = T.PlaceOnTop(/turf/open/transparent/openspace/bluespace, flags = CHANGETURF_INHERIT_AIR)
 
 		if(!BS)
+			stop_exp()
 			return
 
 		var/dx = BS.x - x
@@ -150,12 +154,20 @@
 			active_tiles += BS
 
 	if(!pointer_step())
+		stop_exp()
 		return
 
 	cur_load += active_power_usage*currange
 
 	spawn(expansion_time)
 		recursive_meksumportools()
+
+/obj/machinery/power/bs_emitter/proc/start_exp()
+	recursive_meksumportools()
+	expanding = TRUE
+
+/obj/machinery/power/bs_emitter/proc/stop_exp()
+	expanding = FALSE
 
 /obj/machinery/power/bs_emitter/proc/set_coords(cx,cy,cz)
 	target_x = cx
@@ -164,11 +176,13 @@
 
 /obj/machinery/power/bs_emitter/proc/turn_on()
 	pointer_reset()
-	cur_load = 0
 	active = TRUE
 
 /obj/machinery/power/bs_emitter/proc/turn_off()
+	if(expanding)
+		stop_exp()
 	start_collapse()
+	cur_load = 0
 	active = FALSE
 
 /////////////////////////////////////////////////////////////////
