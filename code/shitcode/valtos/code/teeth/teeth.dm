@@ -46,6 +46,8 @@
 	// gender = PLURAL
 	desc = "Вау, искуственные зубы?"
 	icon_state = "dentals"
+	custom_materials = list(/datum/material/iron = 250)
+	material_flags = MATERIAL_COLOR
 
 /obj/item/stack/teeth/replacement/Initialize()
 	. = ..()
