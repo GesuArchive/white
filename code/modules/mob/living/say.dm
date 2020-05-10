@@ -241,7 +241,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	var/deaf_type
 	if(speaker != src)
 		if(!radio_freq) //These checks have to be seperate, else people talking on the radio will make "You can't hear yourself!" appear when hearing people over the radio while deaf.
-			deaf_message = "<span class='name'>[capitalize(speaker)]</span> [speaker.verb_say] что-то, но я не могу понять что."
+			deaf_message = "<span class='name'>[capitalize(speaker.name)]</span> [speaker.verb_say] что-то, но я не могу понять что."
 			deaf_type = 1
 	else
 		deaf_message = "<span class='notice'>Я не слышу себя!</span>"
