@@ -72,6 +72,12 @@
 	pixel_x = -30
 	pixel_y = 24
 
+/turf/closed/indestructible/splashscreen/do_cring()
+	filters += filter(type = "displace", icon = 'code/shitcode/valtos/icons/cfas.png', x = 4, size = 16)
+	transform *= 1.1
+	animate(filters[1], x = -4, size = 24, time = 300, loop = -1, easing = SINE_EASING)
+	animate(size = 16, x = 4, time = 300)
+
 /turf/closed/indestructible/splashscreen/New()
 	SStitle.splash_turf = src
 	..()
