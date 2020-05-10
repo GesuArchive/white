@@ -151,6 +151,10 @@ SUBSYSTEM_DEF(title)
 /datum/controller/subsystem/title/proc/afterload()
 	if(splash_turf)
 		spawn(20)
+			splash_turf.filters += filter(type = "displace", icon = 'code/shitcode/valtos/icons/cfas.png', x = 4, size = 16)
+			splash_turf.transform *= 1.1
+			splash_turf.animate(filters[1], x = -4, size = 24, time = 300, loop = -1, easing = SINE_EASING)
+			splash_turf.animate(size = 16, x = 4, time = 300)
 			splash_turf.icon_state = null
 			splash_turf.icon = icon
 			splash_turf.add_overlay('icons/wd_logo.png')
