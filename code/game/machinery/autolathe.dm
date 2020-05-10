@@ -225,6 +225,14 @@
 		var/obj/item/stack/N = new being_built.build_path(A, multiplier)
 		N.update_icon()
 		N.autolathe_crafted(src)
+
+		if(length(picked_materials))
+			N.set_custom_materials(picked_materials, 1 / multiplier) //Ensure we get the non multiplied amount
+			for(var/x in picked_materials)
+				var/datum/material/M = x
+				if(!istype(M, /datum/material/glass) && !istype(M, /datum/material/iron))
+					user.client.give_award(/datum/award/achievement/misc/getting_an_upgrade, user)
+
 	else
 		for(var/i=1, i<=multiplier, i++)
 			var/obj/item/new_item = new being_built.build_path(A)

@@ -3094,6 +3094,7 @@
 #include "code\shitcode\baldenysh\govnokod\boombox.dm"
 #include "code\shitcode\baldenysh\govnokod\combat.dm"
 #include "code\shitcode\baldenysh\govnokod\emotes.dm"
+#include "code\shitcode\baldenysh\govnokod\procs.dm"
 #include "code\shitcode\baldenysh\govnokod\vending.dm"
 #include "code\shitcode\baldenysh\govnokod\chem\pills.dm"
 #include "code\shitcode\baldenysh\govnokod\chem\reagents.dm"

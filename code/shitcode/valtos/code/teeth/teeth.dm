@@ -47,7 +47,7 @@
 	desc = "Вау, искуственные зубы?"
 	icon_state = "dentals"
 	custom_materials = list(/datum/material/iron = 250)
-	material_flags = MATERIAL_COLOR
+	material_flags = MATERIAL_ADD_PREFIX | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS//Can change color and add prefix
 
 /obj/item/stack/teeth/replacement/Initialize()
 	. = ..()
