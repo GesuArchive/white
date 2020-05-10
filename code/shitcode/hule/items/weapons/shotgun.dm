@@ -157,4 +157,4 @@ obj/item/gun/ballistic/shotgun/makeshift/update_icon()
 /obj/item/ammo_box/magazine/makeshift/chad
 	start_empty = FALSE
 	max_ammo = 1488
-	/obj/item/ammo_casing/shotgun/bombslug //лимиткострел
+	ammo_type = /obj/item/ammo_casing/shotgun/bombslug //лимиткострел
