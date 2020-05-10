@@ -24,7 +24,7 @@
 		to_chat(usr,"<span class='warning'>Руки <b>[src]</b> полны.</span>")
 		return
 
-	switch(alert(src,"<b>[usr]</b> хочет дать мне <b>[I]</b>. Взять?",,"Да","Нет"))
+	switch(alert(src,"[usr] хочет дать мне [I]. Взять?",,"Да","Нет"))
 		if("Да")
 			if(!I || !usr)
 				return
