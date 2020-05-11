@@ -149,7 +149,7 @@
 			return
 		else if (H.nutrition >= NUTRITION_LEVEL_FULL)
 			if(H.get_item_by_slot(ITEM_SLOT_ICLOTHING))
-						H.visible_message("<span class='notice'><b>[H]</b> срёт себе в штаны!</span>", \
+				H.visible_message("<span class='notice'><b>[H]</b> срёт себе в штаны!</span>", \
 						"<span class='notice'>Сру себе в штаны.</span>")
 				playsound(H, 'code/shitcode/valtos/sounds/poo2.ogg', 50, 1)
 				H.nutrition -= 75
