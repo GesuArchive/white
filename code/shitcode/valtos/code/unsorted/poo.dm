@@ -135,7 +135,7 @@
 /datum/emote/living/poo/run_emote(mob/user, params)
 	. = ..()
 	if(. && ishuman(user))
-		var/mob/living/carbon/H = user
+		var/mob/living/carbon/human/H = user
 		if(HAS_TRAIT(H, TRAIT_LIGHT_POOER) && H.nutrition >= NUTRITION_LEVEL_WELL_FED)
 			H.visible_message("<span class='notice'><b>[H]</b> срёт себе прямо в руку!</span>", \
 					"<span class='notice'>Выдавливаю какаху из своего тела.</span>")
