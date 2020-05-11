@@ -317,7 +317,7 @@
 				set_is_fucking(partner , THIGH_SMOTHERING)
 			partner.adjustOxyLoss(1)
 
-	visible_message("<b>[capitalize(src.name)]</b> [message]")
+	visible_message("<span class='notice purple small'><b>[capitalize(src.name)]</b> [message]</span>")
 	playsound(get_turf(src), stp, 50, 1, -1)
 	handle_post_sex(lust_increase, c_target, partner)
 	partner.handle_post_sex(lust_increase, c_target, src)
