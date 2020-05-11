@@ -34,6 +34,7 @@
 	max_distance = 1
 	write_log_user = "ass-slapped"
 	write_log_target = "was ass-slapped by"
+	whitelisted = FALSE
 
 /datum/interaction/lewd/oral
 	command = "suckvag"

@@ -31,16 +31,16 @@
 
 // If I could have gotten away with using a tilde in the type path, I would have.
 /datum/interaction/lewd
-	command = "assslap"
-	description = "Шлёпнуть по заднице."
+	command = "test"
+	description = "Oof."
 	simple_message = null
 	simple_style = "danger"
-	interaction_sound = 'code/shitcode/valtos/sounds/exrp/interactions/slap.ogg'
+	interaction_sound = null
 	needs_physical_contact = 1
 	max_distance = 1
 
-	write_log_user = "ass-slapped"
-	write_log_target = "was ass-slapped by"
+	write_log_user = "tested"
+	write_log_target = "was tested by"
 
 	var/user_not_tired
 	var/target_not_tired
