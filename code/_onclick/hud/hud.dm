@@ -6,6 +6,7 @@
 
 // The default UI style is the first one in the list
 GLOBAL_LIST_INIT(available_ui_styles, list(
+	"Cyberspess" = 'icons/mob/screen_cyberspess.dmi',
 	"Midnight" = 'icons/mob/screen_midnight.dmi',
 	"Retro" = 'icons/mob/screen_retro.dmi',
 	"Plasmafire" = 'icons/mob/screen_plasmafire.dmi',
