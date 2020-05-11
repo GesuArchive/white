@@ -107,7 +107,7 @@
 	if(prefs && (prefs.toggles & SOUND_LOBBY))
 		var/tmusic = replacetext(replacetext(replacetext(SSticker.login_music, ".ogg", ""), "rare+", ""), "[global.config.directory]/title_music/sounds/", " ")
 		to_chat(src, "<center><b>Сейчас играет:<i>[tmusic]</i></b></center>")
-		SEND_SOUND(src, sound(SSticker.login_music, repeat = 0, wait = 0, volume = vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
+		SEND_SOUND(src, sound(SSticker.login_music, repeat = TRUE, wait = 0, volume = vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
 
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
