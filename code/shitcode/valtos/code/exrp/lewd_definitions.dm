@@ -24,6 +24,17 @@
 	else
 		user.visible_message("<span class='warning'>[user] целует [target] по-французки.</span>")
 
+/datum/interaction/lewd/assslap
+	command = "assslap"
+	description = "Шлёпнуть по заднице."
+	simple_message = "USER шлёпает TARGET по заднице!"
+	simple_style = "danger"
+	interaction_sound = 'code/shitcode/valtos/sounds/exrp/interactions/slap.ogg'
+	needs_physical_contact = 1
+	max_distance = 1
+	write_log_user = "ass-slapped"
+	write_log_target = "was ass-slapped by"
+
 /datum/interaction/lewd/oral
 	command = "suckvag"
 	description = "Отполировать пельмешку."

@@ -35,7 +35,7 @@
 /datum/interaction/lewd
 	command = "assslap"
 	description = "Шлёпнуть по заднице."
-	simple_message = "USER шлёпает TARGET по заднице!"
+	simple_message = null
 	simple_style = "danger"
 	interaction_sound = 'code/shitcode/valtos/sounds/exrp/interactions/slap.ogg'
 	needs_physical_contact = 1

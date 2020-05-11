@@ -25,7 +25,7 @@
 	make_interactions()
 	for(var/interaction_key in GLOB.interactions)
 		var/datum/interaction/I = GLOB.interactions[interaction_key]
-		if(ispath(I, /datum/interaction/lewd) && !CW)
+		if(ispath(I, /datum/interaction/lewd) && !CW || isstrictlytype(I, /datum/interaction/lewd))
 			continue
 		if(I.evaluate_user(src) && I.evaluate_target(src, partner))
 			dat += I.get_action_link_for(src, partner)
