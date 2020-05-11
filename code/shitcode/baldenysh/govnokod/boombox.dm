@@ -1,8 +1,8 @@
 /obj/item/boombox
 	name = "взрыв каробка"
-	desc = "пизда тваему интернет канекшону."
-	icon = 'code/shitcode/valtos/icons/jukeboxes.dmi'
-	icon_state = "default"
+	desc = "Магнитола, разыскиваемая в одном из смежных секторов. Почему-то бронзовая."
+	icon = 'code/shitcode/baldenysh/icons/obj/boombox.dmi'
+	icon_state = "magnitola"
 	verb_say = "констатирует"
 
 	var/list/songs = list()
@@ -17,6 +17,9 @@
 	var/volume = 100
 	var/bbchannel = 0
 
+	var/ui_x = 500
+	var/ui_y = 250
+
 /proc/open_sound_channel_for_boombox()
 	var/static/next_channel = CHANNEL_HIGHEST_AVAILABLE + 1
 	. = ++next_channel
@@ -24,7 +27,7 @@
 		next_channel = CHANNEL_HIGHEST_AVAILABLE + 1
 
 /obj/item/boombox/single
-	desc = "ти гомик."
+	desc = "Единственная и неповторимая."
 
 /obj/item/boombox/Initialize()
 	. = ..()
@@ -33,12 +36,13 @@
 
 	START_PROCESSING(SSobj, src)
 
-	icon_state = pick("default", "tall", "neon")
-
-	if(icon_state == "tall")
-		name = "младший [name]"
-
 	load_tracks()
+
+/obj/item/boombox/update_icon()
+	if(active)
+		icon_state = "magnitola_active"
+	else
+		icon_state = "magnitola"
 
 /obj/item/boombox/proc/load_tracks()
 	var/list/tracks = flist("[global.config.directory]/jukebox_music/sounds/")
@@ -192,12 +196,89 @@
 			return FALSE
 		if(!user.transferItemToLoc(I, src))
 			return FALSE
-		user.visible_message("<span class='notice'>[user] вставляет диск в музыкальный автомат.</span>", \
-							"<span class='notice'>Вставляю диск в музыкальный автомат.</span>")
+		user.visible_message("<span class='notice'>[user] вставляет диск в [src].</span>", \
+							"<span class='notice'>Вставляю диск в [src].</span>")
 		playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 		return TRUE
 
+/obj/item/boombox/proc/eject_disk(mob/user)
+	if(disk)
+		if(user)
+			user.put_in_hands(disk)
+		else
+			disk.forceMove(get_turf(src))
+		if(active)
+			stopsound()
+		if(selection == disk.data)
+			selection = null
+		disk = null
 
+
+
+
+/obj/item/boombox/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
+	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
+	if(!ui)
+		ui = new(user, src, ui_key, "BoomBox", name, ui_x, ui_y, master_ui, state)
+		ui.open()
+
+/obj/item/boombox/ui_data(mob/user)
+	var/list/data = list()
+
+	data["active"] = active
+	data["volume"] = volume
+	data["curtrack"] = selection ? selection.song_name : FALSE
+	data["curlength"] = selection ? (selection.song_length ? selection.song_length : FALSE) : FALSE
+	data["env"] = env_sound
+
+	data["disk"] = disk ? TRUE : FALSE
+	data["disktrack"] = disk ? disk.data.song_name : FALSE
+
+	return data
+
+/obj/item/boombox/ui_act(action, params)
+	if(..())
+		return
+	. = TRUE
+	switch(action)
+		if("toggle")
+			if(!active)
+				startsound()
+			else
+				stopsound()
+
+		if("select")
+			var/list/available = list()
+			for(var/datum/track/S in songs)
+				available[S.song_name] = S
+
+			if(disk)
+				if(disk.data)
+					available[disk.data.song_name] = disk.data
+
+			var/selected = input(usr, "Выбирай мудро", "Трек:") as null|anything in available
+			if(QDELETED(src) || !selected || !istype(available[selected], /datum/track))
+				return
+
+			if(active)
+				stopsound()
+
+			selection = available[selected]
+
+		if("change_volume")
+			var/target = text2num(params["volume"])
+			set_volume(clamp(target, 0, 100))
+
+		if("eject")
+			eject_disk(usr)
+
+		if("env")
+			env_sound = !env_sound
+
+	update_icon()
+
+
+/*
 
 /obj/item/boombox/attack_self(mob/user)
 	. = ..()
@@ -275,65 +356,4 @@
 			env_sound = !env_sound
 
 	ui_interact(usr) // updateUsrDialog()
-/*
-/obj/item/boombox/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "BoomBox", name, 400, 350, master_ui, state)
-		ui.open()
-
-/obj/item/boombox/ui_data(mob/user)
-	var/list/data = list()
-
-	data["active"] = active
-	data["disk"] = 0 disk ? 1 : 0
-	data["volume"] = volume
-	data["name"] = selection ? selection.song_name : "Ничего"
-	data["length"] = selection ? (selection.song_length ? selection.song_length : 0) : 0
-	data["env"] = env_sound
-
-	return data
-
-/obj/item/boombox/ui_act(action, params)
-	if(..())
-		return
-	. = TRUE
-	switch(action)
-		if("toggle")
-			if(!active)
-				startsound()
-			else
-				stopsound()
-
-		if("select")
-			var/list/available = list()
-			for(var/datum/track/S in songs)
-				available[S.song_name] = S
-
-			if(disk)
-				if(disk.data)
-					available[disk.data.song_name] = disk.data
-
-			var/selected = input(usr, "Выбирай мудро", "Трек:") as null|anything in available
-			if(QDELETED(src) || !selected || !istype(available[selected], /datum/track))
-				return
-			if(active)
-				stopsound()
-			selection = available[selected]
-
-		if("change_volume")
-			var/target = text2num(params["volume"])
-			set_volume(clamp(target, 0, 100))
-
-		if("eject")
-			if(disk)
-				disk.forceMove(get_turf(src))
-				if(active)
-					stopsound()
-				if(selection == disk.data)
-					selection = null
-				disk = null
-
-		if("env")
-			env_sound = !env_sound
 */
