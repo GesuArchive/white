@@ -8,8 +8,6 @@
 
 /mob/list_interaction_attributes()
 	var/dat = ..()
-	if (!check_rights_for(client, R_ADMIN) && !check_whitelist_exrp(ckey))
-		return dat
 	if(refactory_period)
 		dat += "<br>...не голоден."
 	if(is_nude())

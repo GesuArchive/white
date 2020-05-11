@@ -34,6 +34,7 @@ GLOBAL_LIST_EMPTY(interactions)
 	var/simple_style = "notice"
 	var/write_log_user
 	var/write_log_target
+	var/whitelisted = TRUE
 
 	var/interaction_sound
 	var/interaction_sound_age_pitch
@@ -99,6 +100,9 @@ GLOBAL_LIST_EMPTY(interactions)
 		return
 	if(!evaluate_target(user, target, silent=0))
 		return
+	if(whitelisted && (!check_rights_for(user.client, R_ADMIN) && !check_whitelist_exrp(user.ckey)))
+		return
+
 	cooldaun = 1
 
 	display_interaction(user, target)

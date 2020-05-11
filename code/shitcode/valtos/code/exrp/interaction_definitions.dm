@@ -6,6 +6,7 @@
 	write_log_user = "kissed"
 	write_log_target = "was kissed by"
 	needs_physical_contact = 1
+	whitelisted = FALSE
 
 datum/interaction/kiss/evaluate_user(var/mob/user, var/silent=1)
 	if(..())
@@ -20,6 +21,7 @@ datum/interaction/kiss/evaluate_user(var/mob/user, var/silent=1)
 	description = "Подбодрить."
 	require_user_mouth = 1
 	simple_message = "USER подбадривает TARGET!"
+	whitelisted = FALSE
 
 /datum/interaction/highfive
 	command = "highfive"
@@ -28,6 +30,7 @@ datum/interaction/kiss/evaluate_user(var/mob/user, var/silent=1)
 	simple_message = "USER даёт пятюню TARGET!"
 	interaction_sound = 'code/shitcode/valtos/sounds/exrp/interactions/slap.ogg'
 	needs_physical_contact = 1
+	whitelisted = FALSE
 
 /datum/interaction/fistbump
 	command = "fistbump"
@@ -35,6 +38,7 @@ datum/interaction/kiss/evaluate_user(var/mob/user, var/silent=1)
 	require_user_hands = 1
 	simple_message = "USER делает брофист с TARGET! О да!"
 	needs_physical_contact = 1
+	whitelisted = FALSE
 
 /datum/interaction/holdhand
 	command = "holdhand"
@@ -44,3 +48,4 @@ datum/interaction/kiss/evaluate_user(var/mob/user, var/silent=1)
 	max_distance = 25
 	needs_physical_contact = 1
 	max_distance = 25
+	whitelisted = FALSE
