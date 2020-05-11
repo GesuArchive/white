@@ -123,7 +123,7 @@
 			pooverlay.icon_state = "suitpoo"
 			H.add_overlay(pooverlay)
 			H.pooed = TRUE
-			SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "creampie", /datum/mood_event/creampie)
+			SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "pooed", /datum/mood_event/pooed)
 			SSblackbox.record_feedback("tally", "poo", 1, "Poo Splats")
 	qdel(src)
 
@@ -148,13 +148,28 @@
 			SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 			return
 		else if (H.nutrition >= NUTRITION_LEVEL_FULL)
-			H.visible_message("<span class='notice'><b>[H]</b> срёт на пол!</span>", \
-					"<span class='notice'>Выдавливаю какаху из своего тела.</span>")
-			playsound(H, 'code/shitcode/valtos/sounds/poo2.ogg', 50, 1)
-			new /obj/item/reagent_containers/food/snacks/poo(H.loc)
-			H.nutrition -= 75
-			SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
-			return
+			if(H.get_item_by_slot(ITEM_SLOT_ICLOTHING))
+						H.visible_message("<span class='notice'><b>[H]</b> срёт себе в штаны!</span>", \
+						"<span class='notice'>Сру себе в штаны.</span>")
+				playsound(H, 'code/shitcode/valtos/sounds/poo2.ogg', 50, 1)
+				H.nutrition -= 75
+				var/mutable_appearance/pooverlay = mutable_appearance('code/shitcode/valtos/icons/poo.dmi')
+				pooverlay.icon_state = "uniformpoo"
+				H.add_overlay(pooverlay)
+				pooverlay.icon_state = "suitpoo"
+				H.add_overlay(pooverlay)
+				H.pooed = TRUE
+				SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "pooed", /datum/mood_event/pooed)
+				SSblackbox.record_feedback("tally", "poo", 1, "Poo Self")
+				return
+			else
+				H.visible_message("<span class='notice'><b>[H]</b> срёт на пол!</span>", \
+						"<span class='notice'>Выдавливаю какаху из своего тела.</span>")
+				playsound(H, 'code/shitcode/valtos/sounds/poo2.ogg', 50, 1)
+				new /obj/item/reagent_containers/food/snacks/poo(H.loc)
+				H.nutrition -= 75
+				SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
+				return
 		else
 			H.visible_message("<span class='notice'><b>[H]</b> тужится!</span>", \
 					"<span class='notice'>Вам нечем какать.</span>")

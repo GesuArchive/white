@@ -32,6 +32,11 @@
 	mood_change = -2
 	timeout = 3 MINUTES
 
+/datum/mood_event/pooed
+	description = "<span class='warning'>Меня обмазали говном. На вкус как говно.</span>\n"
+	mood_change = -10
+	timeout = 10 MINUTES
+
 /datum/mood_event/slipped
 	description = "<span class='warning'>Опять подскальзываюсь. Надо быть аккуратней.</span>\n"
 	mood_change = -2
