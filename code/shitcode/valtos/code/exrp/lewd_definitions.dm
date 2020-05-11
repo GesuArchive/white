@@ -18,6 +18,7 @@
 	return 0
 
 /datum/interaction/lewd/kiss/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	if (user.lust >= 3)
 		user.visible_message("<span class='warning'>[user] делает глубокий и продолжительный поцелуй с [target].</span>")
 	else
@@ -38,6 +39,7 @@
 	write_log_target = "was sucked by"
 
 /datum/interaction/lewd/oral/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_oral")
 
 /datum/interaction/lewd/oral/blowjob
@@ -65,6 +67,7 @@
 	write_log_target = "was fucked by"
 
 /datum/interaction/lewd/fuck/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_vaginal")
 
 /datum/interaction/lewd/fuck/anal
@@ -77,6 +80,7 @@
 	write_log_target = "was ass-fucked by"
 
 /datum/interaction/lewd/fuck/anal/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_anal")
 
 /datum/interaction/lewd/finger
@@ -92,6 +96,7 @@
 	write_log_target = "was fingered by"
 
 /datum/interaction/lewd/finger/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_fingering")
 
 /datum/interaction/lewd/fingerass
@@ -107,6 +112,7 @@
 	write_log_target = "was fingered by"
 
 /datum/interaction/lewd/fingerass/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_fingerass")
 
 
@@ -122,6 +128,7 @@
 	write_log_target = "was face-fucked by"
 
 /datum/interaction/lewd/facefuck/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_facefuck")
 
 /datum/interaction/lewd/throatfuck
@@ -137,6 +144,7 @@
 	write_log_target = "was throat-fucked by"
 
 /datum/interaction/lewd/throatfuck/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_throatfuck")
 
 /datum/interaction/lewd/handjob
@@ -152,6 +160,7 @@
 	write_log_target = "was jerked-off by"
 
 /datum/interaction/lewd/handjob/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_handjob")
 
 /datum/interaction/lewd/breastfuck
@@ -168,6 +177,7 @@
 	write_log_target = "was breast-fucked by"
 
 /datum/interaction/lewd/breastfuck/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_breastfuck")
 
 /datum/interaction/lewd/mount
@@ -185,6 +195,7 @@
 	write_log_target = "was rode by"
 
 /datum/interaction/lewd/mount/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_mount")
 
 /datum/interaction/lewd/mountass
@@ -203,6 +214,7 @@
 	write_log_target = "was rode by"
 
 /datum/interaction/lewd/mountass/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_mountass")
 
 /datum/interaction/lewd/rimjob
@@ -218,6 +230,7 @@
 	write_log_target = "was rimmed by"
 
 /datum/interaction/lewd/rimjob/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_rimjob")
 
 /datum/interaction/lewd/mountface
@@ -233,6 +246,7 @@
 	write_log_target = "was made-to-rim by"
 
 /datum/interaction/lewd/mountface/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_mountface")
 
 /datum/interaction/lewd/grindface
@@ -245,6 +259,7 @@
 	write_log_target = "had feet grinded against their face by"
 
 /datum/interaction/lewd/grindface/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_grindface")
 
 /datum/interaction/lewd/grindmouth
@@ -257,6 +272,7 @@
 	write_log_target = "had feet grinding against their tongue by"
 
 /datum/interaction/lewd/grindmouth/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_grindmouth")
 
 /datum/interaction/lewd/nuts
@@ -271,6 +287,7 @@
 	write_log_target = "was made to suck nuts by"
 
 /datum/interaction/lewd/nuts/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_nuts")
 
 /datum/interaction/lewd/thighs
@@ -284,4 +301,5 @@
 	write_log_target = "was smothered by"
 
 /datum/interaction/lewd/thighs/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
 	user.do_sex(target, "do_thighs")

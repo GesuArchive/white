@@ -65,13 +65,13 @@ GLOBAL_LIST_EMPTY(interactions)
 
 	if(require_target_mouth)
 		if(!target.has_mouth())
-			if(!silent) to_chat(user, "<span class = 'warning'>У TARGET нет рта.</span>")
+			if(!silent) to_chat(user, "<span class = 'warning'>У <b>[target.name]</b> нет рта.</span>")
 			return 0
 		if(!target.mouth_is_free())
-			if(!silent) to_chat(user, "<span class = 'warning'>Рот TARGET прикрыт.</span>")
+			if(!silent) to_chat(user, "<span class = 'warning'>Рот <b>[target.name]</b> прикрыт.</span>")
 			return 0
 	if(require_target_hands && !target.has_hands())
-		if(!silent) to_chat(user, "<span class = 'warning'>У TARGET нет рук.</span>")
+		if(!silent) to_chat(user, "<span class = 'warning'>У <b>[target.name]</b> нет рук.</span>")
 		return 0
 	return 1
 
@@ -90,10 +90,10 @@ GLOBAL_LIST_EMPTY(interactions)
 	if(cooldaun)
 		return
 	if(get_dist(user, target) > max_distance)
-		to_chat(user, "<span class='warning'>TARGET слишком далеко.</span>")
+		to_chat(user, "<span class='warning'><b>[target.name]</b> слишком далеко.</span>")
 		return
 	if(needs_physical_contact && !(user.Adjacent(target) && target.Adjacent(user)))
-		to_chat(user, "<span class='warning'>Я не могу добраться до TARGET.</span>")
+		to_chat(user, "<span class='warning'>Я не могу добраться до <b>[target.name]</b>.</span>")
 		return
 	if(!evaluate_user(user, silent=0))
 		return

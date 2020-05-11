@@ -8,6 +8,8 @@
 
 /mob/list_interaction_attributes()
 	var/dat = ..()
+	if (!check_rights_for(client, R_ADMIN) && !check_whitelist_exrp(ckey))
+		return dat
 	if(refactory_period)
 		dat += "<br>...не голоден."
 	if(is_nude())
@@ -25,7 +27,6 @@
 	return dat
 
 /mob/living/Life()
-
 	if(refactory_period)
 		refactory_period--
 	return ..()
@@ -108,7 +109,6 @@
 	return ..()
 
 /datum/interaction/lewd/get_action_link_for(var/mob/user, var/mob/target)
-	if(user.stat == DEAD) return
 	return "<font color='#FF0000'><b>ШАЛОСТИ:</b></font> [..()]"
 
 #define CUM_TARGET_MOUTH "mouth"

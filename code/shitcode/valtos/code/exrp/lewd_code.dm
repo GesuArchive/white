@@ -112,6 +112,9 @@
 	last_orifice = orifice
 
 /mob/living/proc/do_sex(var/mob/living/partner, var/action_to_do) // собак ебать будете в другом билде
+
+	if(stat != CONSCIOUS) return
+
 	var/message
 	var/lust_increase = 0
 	var/c_target = null
