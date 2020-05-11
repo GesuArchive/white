@@ -53,13 +53,13 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			topiclimiter[MINUTE_COUNT] = 0
 		topiclimiter[MINUTE_COUNT] += 1
 		if (topiclimiter[MINUTE_COUNT] > mtl)
-			var/msg = "Your previous action was ignored because you've done too many in a minute."
+			var/msg = " >> Действия игнорируются. Слишком много действий было совершено до этого за секунду."
 			if (minute != topiclimiter[ADMINSWARNED_AT]) //only one admin message per-minute. (if they spam the admins can just boot/ban them)
 				topiclimiter[ADMINSWARNED_AT] = minute
-				msg += " Administrators have been informed."
+				msg += " Педали были проинформированы и уже выехали давать тебе пизды, крепись."
 				log_game("[key_name(src)] Has hit the per-minute topic limit of [mtl] topic calls in a given game minute")
 				message_admins("[ADMIN_LOOKUPFLW(usr)] [ADMIN_KICK(usr)] Has hit the per-minute topic limit of [mtl] topic calls in a given game minute")
-			to_chat(src, "<span class='danger'>[msg]</span>")
+			to_chat(src, "<span class='userdanger'>[msg]</span>")
 			return
 
 	var/stl = CONFIG_GET(number/second_topic_limit)
@@ -72,7 +72,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			topiclimiter[SECOND_COUNT] = 0
 		topiclimiter[SECOND_COUNT] += 1
 		if (topiclimiter[SECOND_COUNT] > stl)
-			to_chat(src, "<span class='danger'>Your previous action was ignored because you've done too many in a second</span>")
+			to_chat(src, "<span class='userdanger'> >> Действия игнорируются. Слишком много действий было совершено до этого за секунду. Сука?</span>")
 			return
 
 	//Logs all hrefs, except chat pings
@@ -177,11 +177,11 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(CONFIG_GET(flag/automute_on) && !holder && last_message == message)
 		src.last_message_count++
 		if(src.last_message_count >= SPAM_TRIGGER_AUTOMUTE)
-			to_chat(src, "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>")
+			to_chat(src, "<span class='userdanger'> >> Слыш, сука. Авто-мут был применён к твоей жопе, следующим шагом может стать авто-бан.</span>")
 			cmd_admin_mute(src, mute_type, 1)
 			return 1
 		if(src.last_message_count >= SPAM_TRIGGER_WARNING)
-			to_chat(src, "<span class='danger'>You are nearing the spam filter limit for identical messages.</span>")
+			to_chat(src, "<span class='userdanger'> >> Слыш, блять, спамер мамин. Сейчас тебя замутят, если не прекратишь свою хуйню.</span>")
 			return 0
 	else
 		last_message = message
@@ -409,7 +409,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	apply_clickcatcher()
 
 	if(prefs.lastchangelog != GLOB.changelog_hash) //bolds the changelog button on the interface so we know there are updates.
-		to_chat(src, "<span class='info'>You have unread updates in the changelog.</span>")
+		to_chat(src, "<span class='info'> >> У нас недавно были обновления. Не забудь прочитать список последних изменений.</span>")
 		if(CONFIG_GET(flag/aggressive_changelog))
 			changelog()
 		else
@@ -795,18 +795,18 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 			clicklimiter[MINUTE_COUNT] = 0
 		clicklimiter[MINUTE_COUNT] += 1+(ab)
 		if (clicklimiter[MINUTE_COUNT] > mcl)
-			var/msg = "Your previous click was ignored because you've done too many in a minute."
+			var/msg = " >> Действия игнорируются. Слишком много действий было совершено до этого за секунду."
 			if (minute != clicklimiter[ADMINSWARNED_AT]) //only one admin message per-minute. (if they spam the admins can just boot/ban them)
 				clicklimiter[ADMINSWARNED_AT] = minute
 
-				msg += " Administrators have been informed."
+				msg += "  Педали были проинформированы и уже выехали давать тебе пизды, крепись."
 				if (ab)
 					log_game("[key_name(src)] is using the middle click aimbot exploit")
 					message_admins("[ADMIN_LOOKUPFLW(usr)] [ADMIN_KICK(usr)] is using the middle click aimbot exploit</span>")
 					add_system_note("aimbot", "Is using the middle click aimbot exploit")
 				log_game("[key_name(src)] Has hit the per-minute click limit of [mcl] clicks in a given game minute")
 				message_admins("[ADMIN_LOOKUPFLW(usr)] [ADMIN_KICK(usr)] Has hit the per-minute click limit of [mcl] clicks in a given game minute")
-			to_chat(src, "<span class='danger'>[msg]</span>")
+			to_chat(src, "<span class='userdanger'>[msg]</span>")
 			return
 
 	var/scl = CONFIG_GET(number/second_click_limit)
@@ -819,7 +819,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 			clicklimiter[SECOND_COUNT] = 0
 		clicklimiter[SECOND_COUNT] += 1+(!!ab)
 		if (clicklimiter[SECOND_COUNT] > scl)
-			to_chat(src, "<span class='danger'>Your previous click was ignored because you've done too many in a second</span>")
+			to_chat(src, "<span class='danger'> >> Действия игнорируются. Слишком много действий было совершено до этого за секунду. Сука?</span>")
 			return
 
 	if (prefs.hotkeys)

@@ -744,6 +744,8 @@ $(function() {
 	}
 	if(savedConfig.slightmode == 'false'){
 		runByond('?_src_=chat&proc=swaptodarkmode');
+	} else {
+		runByond('?_src_=chat&proc=swaptolightmode');
 	}
 	if (savedConfig.spingDisabled) {
 		if (savedConfig.spingDisabled == 'true') {
