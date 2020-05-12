@@ -4,8 +4,6 @@
 *
 ******************************************/
 
-@font-face {font-family: "Hooge";  src: url("Hooge.ttf");}
-
 html, body {
 	padding: 0;
 	margin: 0;
@@ -258,7 +256,7 @@ a.popt {text-decoration: none;}
 /* OUTPUT COLORS */
 .highlight {background: yellow;}
 
-h1, h2, h3, h4, h5, h6	{color: #0000ff;font-family: "Hooge", sans-serif;}
+h1, h2, h3, h4, h5, h6	{color: #0000ff;font-family: "Verdana", sans-serif;}
 h1.alert, h2.alert		{color: #000000;}
 
 em						{font-style: normal;	font-weight: bold;}
@@ -361,7 +359,8 @@ h1.alert, h2.alert		{color: #000000;margin: 0 0 14px 0;}
 .robot					{font-family: "Courier New", cursive, sans-serif;}
 
 .command_headset		{font-weight: bold;	font-size: 160%;}
-.small					{font-size: 60%;}
+.tiny					{font-size: 60%;}
+.small					{font-size: 80%;}
 .big					{font-size: 185%;}
 .reallybig				{font-size: 245%;}
 .extremelybig			{font-size: 310%;}
