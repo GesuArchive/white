@@ -428,7 +428,7 @@
 /proc/pollCandidates(Question, jobbanType, datum/game_mode/gametypeCheck, be_special_flag = 0, poll_time = 300, ignore_category = null, flashwindow = TRUE, list/group = null)
 	var/time_passed = world.time
 	if (!Question)
-		Question = "Would you like to be a special role?"
+		Question = "Хочешь получить специальную роль?"
 	var/list/result = list()
 	for(var/m in group)
 		var/mob/M = m
