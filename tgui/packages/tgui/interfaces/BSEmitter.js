@@ -27,10 +27,10 @@ export const BSEmitter = (props, context) => {
             <LabeledList>
               <LabeledList.Item label="Портал">
                 {data.active
-                  ?(!data.expanding&&data.activeturfs ? "Открыт":"Открывается")
-                  :(data.activeturfs ? "Дестабилизирован" : "Закрыт")}
+                  ?(!data.expanding ? "Открыт":"Открывается")
+                  :"Закрыт"}
               </LabeledList.Item>
-              <LabeledList.Item label="Радиус портала: ">
+              <LabeledList.Item label="Радиус портала">
                 <NumberInput
                   value={data.radius}
                   width="59px"
@@ -42,7 +42,7 @@ export const BSEmitter = (props, context) => {
                     radius: value,
                   })} />
               </LabeledList.Item>
-              <LabeledList.Item label="X: ">
+              <LabeledList.Item label="X">
                 <NumberInput
                   value={data.t_x}
                   width="59px"
@@ -56,7 +56,7 @@ export const BSEmitter = (props, context) => {
                     newz: data.t_z,
                   })} />
               </LabeledList.Item>
-              <LabeledList.Item label="Y: ">
+              <LabeledList.Item label="Y">
                 <NumberInput
                   value={data.t_y}
                   width="59px"
@@ -70,20 +70,7 @@ export const BSEmitter = (props, context) => {
                     newz: data.t_z,
                   })} />
               </LabeledList.Item>
-              <LabeledList.Item label="Z: ">
-                <NumberInput
-                  value={data.t_z}
-                  width="59px"
-                  minValue={1}
-                  maxValue={16}
-                  step={1}
-                  stepPixelSize={10}
-                  onChange={(e, value) => act('setCoords', {
-                    newx: data.t_x,
-                    newy: data.t_y,
-                    newz: value,
-                  })} />
-              </LabeledList.Item>
+
             </LabeledList>
           ) : (
             <NoticeBox textAlign="center">

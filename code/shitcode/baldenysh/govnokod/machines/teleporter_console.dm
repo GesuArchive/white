@@ -33,7 +33,6 @@
 	if(BSE)
 		data["active"] = BSE.active
 		data["expanding"] = BSE.expanding
-		data["activeturfs"] = BSE.active_tiles.len ? TRUE : FALSE
 		data["powernet"] = BSE.powernet ? TRUE : FALSE
 		data["surplusKW"] = BSE.surplus()/1000
 		data["loadKW"] = BSE.cur_load/1000
@@ -48,7 +47,7 @@
 /obj/machinery/computer/bs_emitter/ui_act(action, params)
 	if(..())
 		return
-
+	. = TRUE
 	switch(action)
 		if("toggle")
 			if(BSE)
@@ -56,24 +55,24 @@
 					BSE.turn_off()
 				else
 					BSE.turn_on()
-				. = TRUE
 
 		if("reconnect")
 			locate_machinery()
-			. = TRUE
 
 		if("setCoords")
 			var/tx = text2num(params["newx"])
 			var/ty = text2num(params["newy"])
 			var/tz = text2num(params["newz"])
 			if(BSE)
+				if(BSE.expanding)
+					return
 				BSE.set_coords(tx, ty, tz)
-				. = TRUE
 
 		if("setRadius")
 			var/radius = text2num(params["radius"])
 			if(BSE)
+				if(BSE.expanding)
+					return
 				BSE.max_range = radius
-				. = TRUE
 
 

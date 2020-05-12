@@ -91,8 +91,6 @@
 	if(active)
 		if(avail(cur_load*optimization_mod))
 			add_load(cur_load*optimization_mod)
-			if(!active_tiles.len)
-				start_exp()
 		else
 			turn_off()
 	else if(avail(idle_power_usage))
@@ -125,6 +123,8 @@
 	for(var/turf/open/transparent/openspace/bluespace/BT in active_tiles)
 		BT.start_collapse()
 
+	active_tiles = list()
+
 /obj/machinery/power/bs_emitter/proc/recursive_meksumportools()
 	if(!active)
 		turn_off()
@@ -147,11 +147,18 @@
 			stop_exp()
 			return
 
-		var/dx = BS.x - x
-		var/dy = BS.y - y
-
-		if(BS.rift(locate(target_x+dx, target_y+dy, target_z)))
+		if(istype(BS, /turf/open/transparent/openspace/bluespace))
 			active_tiles += BS
+
+		var/tx = target_x + BS.x - x
+		var/ty = target_y + BS.y - y
+
+		if(tx < 0 || ty < 0)
+			BS.start_collapse()
+			stop_exp()
+			return
+
+		BS.rift(locate(tx, ty, target_z))
 
 	if(!pointer_step())
 		stop_exp()
@@ -177,6 +184,7 @@
 /obj/machinery/power/bs_emitter/proc/turn_on()
 	pointer_reset()
 	active = TRUE
+	start_exp()
 
 /obj/machinery/power/bs_emitter/proc/turn_off()
 	if(expanding)
