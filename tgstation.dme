@@ -3410,7 +3410,6 @@
 #include "code\shitcode\valtos\code\unsorted\implants.dm"
 #include "code\shitcode\valtos\code\unsorted\katana.dm"
 #include "code\shitcode\valtos\code\unsorted\keybindings_reset.dm"
-#include "code\shitcode\valtos\code\unsorted\meteor_rain.dm"
 #include "code\shitcode\valtos\code\unsorted\palputinum.dm"
 #include "code\shitcode\valtos\code\unsorted\pig.dm"
 #include "code\shitcode\valtos\code\unsorted\planet.dm"
