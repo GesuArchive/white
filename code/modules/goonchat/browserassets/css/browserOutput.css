@@ -364,7 +364,8 @@ h1.alert, h2.alert		{color: #aaaaaa; margin: 0 0 14px 0;}
 .robot					{font-family: "Courier New", cursive, sans-serif;}
 
 .command_headset		{font-weight: bold;	font-size: 160%;}
-.small					{font-size: 60%;}
+.tiny					{font-size: 60%;}
+.small					{font-size: 80%;}
 .big					{font-size: 185%;}
 .reallybig				{font-size: 245%;}
 .extremelybig			{font-size: 310%;}
