@@ -1,10 +1,10 @@
 /datum/map_template/ruin/space/bseruin
 	id = "bseruin"
-	prefix = "code/shitcode/baldenysh/map_templates/"
 	suffix = "bseruin.dmm"
 	name = "BSE Ruin"
 	always_place = TRUE
 	allow_duplicates = FALSE
+
 
 /area/ruin/space/has_grav/bseruin
 	name = "BSE Ruin"
@@ -29,3 +29,5 @@
 /area/ruin/space/has_grav/bseruin/backyard
 	name = "Building 3"
 	icon_state = "red"
+
+
