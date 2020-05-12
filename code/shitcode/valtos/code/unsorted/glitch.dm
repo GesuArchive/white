@@ -30,5 +30,6 @@
 
 /obj/projectile/magic/glitch/on_hit(atom/GA)
 	. = ..()
-	GA.glitch_me(count = -1)
+	if(!GA.glitched)
+		GA.glitch_me(count = -1)
 	qdel(src)

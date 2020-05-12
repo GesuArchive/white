@@ -153,13 +153,14 @@
 						"<span class='notice'>Сру себе в штаны.</span>")
 				playsound(H, 'code/shitcode/valtos/sounds/poo2.ogg', 50, 1)
 				H.nutrition -= 75
-				var/mutable_appearance/pooverlay = mutable_appearance('code/shitcode/valtos/icons/poo.dmi')
-				pooverlay.icon_state = "uniformpoo"
-				H.add_overlay(pooverlay)
-				pooverlay.icon_state = "suitpoo"
-				H.add_overlay(pooverlay)
-				H.pooed = TRUE
-				SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "pooed", /datum/mood_event/pooed)
+				if(!H.pooed)
+					var/mutable_appearance/pooverlay = mutable_appearance('code/shitcode/valtos/icons/poo.dmi')
+					pooverlay.icon_state = "uniformpoo"
+					H.add_overlay(pooverlay)
+					pooverlay.icon_state = "suitpoo"
+					H.add_overlay(pooverlay)
+					H.pooed = TRUE
+					SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "pooed", /datum/mood_event/pooed)
 				SSblackbox.record_feedback("tally", "poo", 1, "Poo Self")
 				return
 			else
