@@ -17,10 +17,10 @@
 	desc = "Внутри мутной жижи можно заметить генномодифицированных детей донбасса, потребляющих кристаллы аммиака и крутящих динамомашинки."
 	icon = 'icons/obj/machines/cloning.dmi'
 	icon_state = "pod_0"
-	base_icon = "pod_0"
+	base_icon = "pod"
 	circuit = /obj/item/circuitboard/machine/pacman/biogen
 	sheet_path = /obj/item/stack/ammonia_crystals
-	power_gen = 50000
+	power_gen = 40000
 	time_per_sheet = 60
 
 /obj/item/circuitboard/machine/pacman/biogen
