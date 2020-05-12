@@ -3,6 +3,8 @@
 	prefix = "code/shitcode/baldenysh/map_templates/"
 	suffix = "bseruin.dmm"
 	name = "BSE Ruin"
+	always_place = TRUE
+	allow_duplicates = FALSE
 
 /area/ruin/space/has_grav/bseruin
 	name = "BSE Ruin"
