@@ -13,31 +13,14 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
-"d" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 6
-	},
-/turf/closed/wall,
-/area/maintenance/port/aft)
-"e" = (
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/maintenance/port/aft)
 "f" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "g" = (
 /obj/structure/sign/warning/nosmoking{
 	pixel_x = -28
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
-/area/maintenance/port/aft)
-"h" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/closed/wall,
 /area/maintenance/port/aft)
 "i" = (
 /turf/template_noop,
@@ -45,7 +28,7 @@
 "j" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "k" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Incinerator Access";
@@ -55,45 +38,33 @@
 /obj/structure/barricade/wooden{
 	name = "wooden barricade (CLOSED)"
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "l" = (
 /obj/item/stack/tile/plasteel,
 /turf/template_noop,
 /area/template_noop)
-"m" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/maintenance/port/aft)
 "n" = (
 /turf/open/floor/plating/airless,
-/area/template_noop)
+/area/space/nearstation)
 "o" = (
 /obj/item/weldingtool,
 /turf/open/floor/plating/airless,
-/area/template_noop)
+/area/space/nearstation)
 "p" = (
 /obj/item/stack/sheet/metal,
 /turf/open/floor/plating/airless,
-/area/template_noop)
+/area/space/nearstation)
 "q" = (
 /obj/item/stack/cable_coil{
 	amount = 5
 	},
 /turf/open/floor/plating/airless,
-/area/template_noop)
+/area/space/nearstation)
 "r" = (
 /obj/item/clothing/head/hardhat,
 /turf/open/floor/plating/airless,
-/area/template_noop)
-"s" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 5
-	},
-/turf/closed/wall,
-/area/maintenance/port/aft)
+/area/space/nearstation)
 
 (1,1,1) = {"
 a
@@ -113,11 +84,11 @@ a
 "}
 (2,1,1) = {"
 a
-e
+f
 g
-e
-e
-e
+f
+f
+f
 c
 j
 i
@@ -129,7 +100,7 @@ c
 "}
 (3,1,1) = {"
 a
-e
+f
 c
 c
 c
@@ -145,7 +116,7 @@ c
 "}
 (4,1,1) = {"
 b
-e
+f
 c
 i
 i
@@ -161,7 +132,7 @@ c
 "}
 (5,1,1) = {"
 a
-e
+f
 c
 i
 i
@@ -177,7 +148,7 @@ c
 "}
 (6,1,1) = {"
 a
-e
+f
 c
 j
 j
@@ -193,7 +164,7 @@ c
 "}
 (7,1,1) = {"
 a
-e
+f
 c
 i
 i
@@ -209,7 +180,7 @@ c
 "}
 (8,1,1) = {"
 c
-e
+f
 c
 i
 i
@@ -225,7 +196,7 @@ c
 "}
 (9,1,1) = {"
 c
-e
+f
 c
 j
 j
@@ -241,7 +212,7 @@ a
 "}
 (10,1,1) = {"
 c
-e
+f
 c
 i
 i
@@ -256,18 +227,18 @@ i
 a
 "}
 (11,1,1) = {"
-d
+a
 f
-h
-h
-h
-h
-m
-m
-m
-m
-h
-h
-h
-s
+a
+a
+a
+a
+c
+c
+c
+c
+a
+a
+a
+a
 "}

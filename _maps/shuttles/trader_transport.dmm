@@ -40,9 +40,6 @@
 /obj/structure/shuttle/engine/propulsion,
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/transport)
-"f" = (
-/turf/template_noop,
-/area/shuttle/transport)
 "g" = (
 /obj/machinery/computer/shuttle/ferry/trader,
 /obj/effect/turf_decal/stripes/end{
@@ -84,7 +81,7 @@
 /area/shuttle/transport)
 
 (1,1,1) = {"
-f
+a
 a
 a
 a
@@ -92,7 +89,7 @@ e
 "}
 (2,1,1) = {"
 a
-a
+i
 b
 i
 a
@@ -106,13 +103,13 @@ d
 "}
 (4,1,1) = {"
 a
-a
+i
 h
 i
 a
 "}
 (5,1,1) = {"
-f
+a
 a
 a
 a

@@ -13,12 +13,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
-"d" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 6
-	},
-/turf/closed/wall,
-/area/maintenance/port/aft)
 "e" = (
 /obj/structure/table/wood,
 /obj/effect/turf_decal/stripes/line{
@@ -27,19 +21,10 @@
 /obj/item/clothing/under/wzzzz/victorianreddress,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
-"f" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/maintenance/port/aft)
 "g" = (
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-3"
 	},
-/area/maintenance/port/aft)
-"h" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/closed/wall,
 /area/maintenance/port/aft)
 "i" = (
 /turf/open/floor/partyhard/steel{
@@ -60,7 +45,6 @@
 /obj/structure/barricade/wooden{
 	name = "wooden barricade (CLOSED)"
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "l" = (
@@ -104,12 +88,6 @@
 	icon_state = "dd-10"
 	},
 /area/maintenance/port/aft)
-"s" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 5
-	},
-/turf/closed/wall,
-/area/maintenance/port/aft)
 "t" = (
 /obj/structure/chair/sofa,
 /turf/open/floor/partyhard/steel{
@@ -129,7 +107,6 @@
 	},
 /area/maintenance/port/aft)
 "w" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/barricade/wooden{
 	name = "wooden barricade (CLOSED)"
 	},
@@ -143,7 +120,6 @@
 /turf/template_noop,
 /area/template_noop)
 "y" = (
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "z" = (
@@ -328,7 +304,6 @@
 /obj/structure/sign/warning/nosmoking{
 	pixel_x = -28
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "W" = (
@@ -497,18 +472,18 @@ x
 a
 "}
 (11,1,1) = {"
-d
-f
-h
-h
-h
-h
+a
+y
+a
+a
+a
+a
 w
 w
-h
-h
-h
-h
-h
-s
+a
+a
+a
+a
+a
+a
 "}

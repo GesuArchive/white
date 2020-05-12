@@ -2709,9 +2709,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
-"nv" = (
-/turf/closed/wall,
-/area/ai_monitored/turret_protected/ai_upload)
 "nw" = (
 /obj/machinery/porta_turret/ai{
 	dir = 8
@@ -5411,7 +5408,7 @@ aj
 ip
 ip
 ip
-nv
+ip
 ip
 ax
 "}

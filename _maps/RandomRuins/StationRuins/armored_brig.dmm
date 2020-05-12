@@ -23,13 +23,13 @@
 /turf/template_noop,
 /area/template_noop)
 "ai" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
 	id = "hosspace";
 	name = "space shutters"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/security/prison)
 "ak" = (
 /obj/machinery/computer/bookmanagement,
@@ -332,15 +332,15 @@
 /turf/closed/wall/r_wall,
 /area/security/prison)
 "bg" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
+/turf/open/floor/engine,
 /area/security/main)
 "bh" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/closed/wall/r_wall,
 /area/security/prison)
 "bi" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/door/poddoor/preopen{
 	id = "hosspace";
 	name = "space shutters"
@@ -355,8 +355,8 @@
 /turf/open/floor/engine,
 /area/security/prison)
 "bk" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
+/turf/open/floor/engine,
 /area/security/prison)
 "bl" = (
 /obj/machinery/door/airlock/public/glass{
@@ -377,9 +377,9 @@
 /turf/closed/wall/r_wall,
 /area/security/execution/transfer)
 "bo" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/security/prison)
 "bp" = (
 /obj/machinery/light{
@@ -535,7 +535,7 @@
 /turf/open/floor/plating,
 /area/security/prison)
 "bI" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/door/poddoor/preopen{
 	id = "hosspace";
 	name = "space shutters"
@@ -989,7 +989,7 @@
 /turf/open/floor/engine,
 /area/security/main)
 "cs" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/crew_quarters/heads/hos)
@@ -1207,13 +1207,13 @@
 /turf/open/floor/engine,
 /area/security/prison)
 "cU" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
 	id = "hosspace";
 	name = "space shutters"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/security/prison/safe)
 "cV" = (
 /obj/machinery/shower{
@@ -1243,6 +1243,10 @@
 	},
 /turf/closed/wall/r_wall,
 /area/security/prison/safe)
+"cZ" = (
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
+/turf/open/floor/plating,
+/area/security/prison)
 "da" = (
 /obj/structure/bed,
 /obj/item/bedsheet/red,
@@ -1750,7 +1754,7 @@
 /area/security/main)
 "dV" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/crew_quarters/heads/hos)
@@ -1762,7 +1766,7 @@
 /area/crew_quarters/heads/hos)
 "dX" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/crew_quarters/heads/hos)
@@ -2279,20 +2283,20 @@
 /turf/open/floor/engine,
 /area/security/main)
 "eZ" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 5
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "fa" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "fb" = (
 /obj/effect/landmark/start/security_officer,
@@ -2312,20 +2316,20 @@
 /turf/open/floor/engine,
 /area/security/main)
 "fd" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "fe" = (
 /obj/structure/reagent_dispensers/peppertank,
 /turf/closed/wall/r_wall,
 /area/ai_monitored/security/armory)
 "ff" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/sign/warning/securearea{
 	pixel_x = -32
 	},
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/security/main)
 "fg" = (
 /obj/effect/landmark/start/head_of_security,
@@ -2335,8 +2339,8 @@
 /area/security/main)
 "fh" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
+/turf/open/floor/engine,
 /area/security/main)
 "fi" = (
 /obj/structure/disposalpipe/segment,
@@ -2660,7 +2664,7 @@
 /turf/open/floor/engine,
 /area/security/brig)
 "fS" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/security/warden)
@@ -2752,7 +2756,7 @@
 /turf/open/floor/engine,
 /area/security/warden)
 "gc" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/engine,
 /area/security/warden)
 "gd" = (
@@ -3205,7 +3209,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/engine,
 /area/security/warden)
 "gY" = (
@@ -3409,7 +3413,7 @@
 /obj/structure/sign/warning/electricshock{
 	pixel_x = -32
 	},
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/security/warden)
@@ -3962,7 +3966,7 @@
 /area/security/brig)
 "ir" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/security/brig)
@@ -3980,7 +3984,7 @@
 /area/security/brig)
 "it" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/security/brig)
@@ -4016,7 +4020,7 @@
 /turf/open/floor/engine,
 /area/security/brig)
 "ix" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/security/brig)
@@ -4425,7 +4429,7 @@
 	id = "Secure Gate";
 	name = "brig shutters"
 	},
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/security/brig)
@@ -4460,7 +4464,7 @@
 	id = "briggate";
 	name = "security blast door"
 	},
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/security/brig)
@@ -4491,7 +4495,7 @@
 /turf/open/floor/engine,
 /area/security/brig)
 "jo" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
 	id = "briggate";
@@ -5415,12 +5419,12 @@
 /turf/open/floor/engine,
 /area/security/prison)
 "ln" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/door/poddoor/preopen{
 	id = "Prison Gate";
 	name = "prison blast door"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/security/prison)
 "lo" = (
 /obj/structure/chair/office{
@@ -5839,8 +5843,8 @@
 /turf/open/floor/engine,
 /area/security/prison/safe)
 "mf" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
+/turf/open/floor/engine,
 /area/security/prison/safe)
 "mg" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
@@ -6587,21 +6591,21 @@
 /turf/open/floor/engine,
 /area/security/prison)
 "nB" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/machinery/door/poddoor/preopen{
 	id = "executionfireblast"
 	},
 /obj/machinery/door/firedoor,
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/security/execution/transfer)
 "nC" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/door/poddoor/preopen{
 	id = "executionfireblast"
 	},
 /obj/machinery/door/firedoor,
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/security/execution/transfer)
 "nD" = (
 /obj/machinery/door/poddoor/preopen{
@@ -6635,12 +6639,12 @@
 /turf/open/floor/engine,
 /area/security/prison)
 "nF" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/door/poddoor/preopen{
 	id = "hosspace";
 	name = "space shutters"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/security/execution/transfer)
 "nG" = (
 /obj/structure/table,
@@ -6972,12 +6976,12 @@
 /turf/open/floor/plating,
 /area/security/execution/transfer)
 "of" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/door/poddoor/preopen{
 	id = "hosspace";
 	name = "space shutters"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/security/prison)
 
 (1,1,1) = {"
@@ -7882,7 +7886,7 @@ ks
 kF
 kT
 li
-bk
+cZ
 hn
 lZ
 kG
@@ -7926,7 +7930,7 @@ kt
 kG
 kU
 fN
-bk
+cZ
 jD
 ma
 jD

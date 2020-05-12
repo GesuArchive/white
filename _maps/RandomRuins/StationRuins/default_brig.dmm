@@ -778,6 +778,12 @@
 /area/ai_monitored/security/armory)
 "cb" = (
 /obj/vehicle/ridden/secway,
+/obj/machinery/turretid{
+	lethal = 1;
+	name = "Armory Turret Control";
+	pixel_x = 27;
+	req_one_access_txt = "3"
+	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "cc" = (
@@ -908,6 +914,9 @@
 "ct" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
+	},
+/obj/machinery/porta_turret/armory{
+	density = 0
 	},
 /turf/open/floor/plasteel,
 /area/ai_monitored/security/armory)
@@ -2996,15 +3005,6 @@
 /area/security/brig)
 "gQ" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/security/brig)
-"gR" = (
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
@@ -7849,7 +7849,7 @@ bx
 hm
 hL
 ik
-gR
+gU
 iZ
 ju
 ij
@@ -8285,7 +8285,7 @@ ff
 eC
 ff
 eC
-gR
+gU
 hs
 hS
 ez
@@ -8373,7 +8373,7 @@ eH
 fg
 gc
 ff
-gR
+gU
 hs
 hL
 ip
@@ -8417,7 +8417,7 @@ fh
 fg
 gd
 gI
-gR
+gU
 hs
 hP
 in
@@ -8461,7 +8461,7 @@ fi
 fH
 ge
 ff
-gR
+gU
 hs
 hT
 ez
@@ -8505,7 +8505,7 @@ eH
 fI
 gf
 ff
-gR
+gU
 hs
 hN
 iq
@@ -8549,7 +8549,7 @@ fj
 fJ
 gg
 gJ
-gR
+gU
 hs
 hU
 ir
@@ -8593,7 +8593,7 @@ eH
 fK
 gh
 ff
-gR
+gU
 hs
 hN
 ez
@@ -8857,7 +8857,7 @@ fp
 fP
 gn
 ba
-gR
+gU
 ht
 ia
 iu
