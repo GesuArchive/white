@@ -885,8 +885,9 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 6
 	},
+/obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "dj" = (
 /obj/structure/closet/firecloset,
 /turf/open/floor/plasteel/dark,
@@ -991,8 +992,9 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
 	},
+/obj/structure/lattice,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "dy" = (
 /obj/structure/table,
 /obj/item/pipe_dispenser,
@@ -1071,8 +1073,9 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 10
 	},
+/obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "dK" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 6
@@ -1213,8 +1216,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
+/obj/structure/lattice,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "ed" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 9
@@ -1222,8 +1226,9 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 6
 	},
+/obj/structure/lattice,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "ee" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/junction{
 	dir = 8
@@ -1293,8 +1298,9 @@
 	},
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
+/obj/structure/lattice,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "em" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -1407,8 +1413,9 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 9
 	},
+/obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "eE" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -1655,8 +1662,9 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 5
 	},
+/obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "fn" = (
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel/dark,
@@ -1709,10 +1717,40 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
+"rX" = (
+/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating,
+/area/engine/engineering)
 "tB" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /turf/open/floor/plating,
 /area/engine/engineering)
+"wC" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space/nearstation)
+"AD" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 10
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
+"AK" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 5
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
+"LF" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space/nearstation)
 
 (1,1,1) = {"
 ab
@@ -1750,7 +1788,7 @@ ab
 ab
 ab
 ab
-ab
+LF
 di
 fm
 di
@@ -1759,8 +1797,8 @@ di
 fm
 di
 fm
-ab
-ab
+LF
+LF
 ab
 ab
 ab
@@ -1787,8 +1825,8 @@ ec
 ec
 ec
 ec
-fm
-ab
+AK
+LF
 ab
 ab
 ab
@@ -2002,9 +2040,9 @@ eB
 bb
 br
 ad
-ab
+LF
 dx
-dJ
+AD
 ed
 el
 ec
@@ -2030,17 +2068,17 @@ au
 cu
 ac
 bB
-ab
-dx
-ab
-dx
+LF
+wC
+LF
+wC
 dJ
 eD
 dJ
 eD
 dJ
 eD
-ab
+LF
 ab
 ab
 ab
@@ -2058,7 +2096,7 @@ tB
 ad
 ad
 ad
-tB
+rX
 bS
 dK
 ee
