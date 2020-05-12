@@ -32,4 +32,5 @@
 	. = ..()
 	if(!GA.glitched)
 		GA.glitch_me(count = -1)
+		glitched = TRUE
 	qdel(src)
