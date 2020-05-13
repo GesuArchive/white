@@ -3236,6 +3236,7 @@
 #include "code\shitcode\jhnazar\modules\surgery\organs\autosurgeon.dm"
 #include "code\shitcode\maxsc\axe.dm"
 #include "code\shitcode\maxsc\deadmin.dm"
+#include "code\shitcode\other\give.dm"
 #include "code\shitcode\other\telescience\telepad.dm"
 #include "code\shitcode\other\telescience\telesci_calc.dm"
 #include "code\shitcode\other\telescience\telesci_circuits.dm"

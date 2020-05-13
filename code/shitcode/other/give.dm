@@ -1,4 +1,4 @@
-/mob/living/carbon/verb/give()
+/mob/living/carbon/verb/give_verb()
 	set category = "IC"
 	set name = "Дать"
 	set src in view(1)
