@@ -479,7 +479,7 @@ GLOBAL_LIST_INIT(modulo_angle_to_dir, list(NORTH,NORTHEAST,EAST,SOUTHEAST,SOUTH,
 	var/c
 	for(var/i = 1 to length(str))
 		c= text2ascii(str,i)
-		r+= num2hex(c)
+		r+= num2hex(c, -1)
 	return r
 
 // Decodes hex to raw byte string.
@@ -490,7 +490,7 @@ GLOBAL_LIST_INIT(modulo_angle_to_dir, list(NORTH,NORTHEAST,EAST,SOUTHEAST,SOUTH,
 	var/r
 	var/c
 	for(var/i = 1 to length(str)/2)
-		c = hex2num(copytext(str,i*2-1,i*2+1), safe)
+		c = hex2num(copytext(str,i*2-1,i*2+1))
 		if(isnull(c))
 			return null
 		r += ascii2text(c)
