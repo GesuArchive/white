@@ -166,8 +166,8 @@
 	if(!receiving)
 		to_chat(src, "<span class='warning'>А у меня в руке ничего и нет!</span>")
 		return
-	visible_message("<span class='notice'><b>[src.name]</b> хочет дать тебе <b>[receiving.name]</b></span>", \
-					"<span class='notice'>Хочу дать <b>[receiving.name]</b></span>", null, 2)
+	visible_message("<span class='notice'><b>[src.name]</b> хочет дать мне <b>[receiving.name].</b></span>", \
+					"<span class='notice'>Хочу дать <b>[receiving.name]</b>.</span>", null, 2)
 	for(var/mob/living/carbon/C in orange(1, src))
 		if(!CanReach(C))
 			return
@@ -191,7 +191,7 @@
 		to_chat(src, "<span class='warning'><b>[giver.name]</b> слишком далеко!</span>")
 		return
 	if(!I || giver.get_active_held_item() != I)
-		to_chat(src, "<span class='warning'><b>[giver.name]</b> уже не хочет давать тебе это! </span>")
+		to_chat(src, "<span class='warning'><b>[giver.name]</b> уже не хочет давать мне это!</span>")
 		return
 	if(!get_empty_held_indexes())
 		to_chat(src, "<span class='warning'>Мои руки заняты!</span>")
