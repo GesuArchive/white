@@ -12,4 +12,4 @@
 //1:1 HUD layout stuff
 #define UI_BOXCRAFT "EAST-4:22,SOUTH+1:6"
 #define UI_BOXAREA "EAST-4:6,SOUTH+0:5"
-#define UI_BOXLANG "EAST-4:22,SOUTH+0:23"
+#define UI_BOXLANG "EAST-4:22,SOUTH+0:21"
