@@ -411,7 +411,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/poll_panel()
 	set name = "Server Poll Management"
-	set category = "Admin"
+	set category = "АДМИН"
 	if(!check_rights(R_POLL))
 		return
 	holder.poll_list_panel()
