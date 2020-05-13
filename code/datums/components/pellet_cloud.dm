@@ -232,8 +232,8 @@
 		var/num_hits = targets_hit[target]
 		UnregisterSignal(target, COMSIG_PARENT_QDELETING)
 		if(num_hits > 1)
-			target.visible_message("<span class='danger'>В <b>[target]</b> попадает [num_hits] <b>[proj_name]</b>!</span>", null, null, COMBAT_MESSAGE_RANGE, target)
-			to_chat(target, "<span class='userdanger'>В меня попадает [num_hits] <b>[proj_name]</b>!</span>")
+			target.visible_message("<span class='danger'>В <b>[target]</b> попадает [num_hits] <b>[copytext_char(proj_name, 1, -1)]и</b>!</span>", null, null, COMBAT_MESSAGE_RANGE, target)
+			to_chat(target, "<span class='userdanger'>В меня попадает [num_hits] <b>[copytext_char(proj_name, 1, -1)]и</b>!</span>")
 		else
 			target.visible_message("<span class='danger'>В <b>[target]</b> попадает [proj_name]!</span>", null, null, COMBAT_MESSAGE_RANGE, target)
 			to_chat(target, "<span class='userdanger'>В меня попадает [proj_name]s!</span>")
