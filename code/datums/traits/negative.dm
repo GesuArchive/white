@@ -8,6 +8,7 @@
 	gain_text = "<span class='danger'>Моя спина ОЧЕНЬ СИЛЬНО болит!</span>"
 	lose_text = "<span class='notice'>Моя спина чувствует себя лучше...</span>"
 	medical_record_text = "Сканирование пациента даёт показание, что его спина сильно болит."
+	hardcore_value = 4
 
 /datum/quirk/badback/on_process()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -23,6 +24,7 @@
 	gain_text = "<span class='danger'>Я чувствую онемение.</span>"
 	lose_text = "<span class='notice'>Я чувствую себя бодрым!</span>"
 	medical_record_text = " Пациенту необходима дополнительная помощь для переливания крови из-за её дефицита в его организме."
+	hardcore_value = 8
 
 /datum/quirk/blooddeficiency/on_process()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -39,6 +41,7 @@
 	gain_text = "<span class='danger'>Я ничего не видите!</span>"
 	lose_text = "<span class='notice'>Я чудесным образом снова видите!</span>"
 	medical_record_text = "Пациент имеет постоянную слепоту."
+	hardcore_value = 15
 
 /datum/quirk/blindness/add()
 	quirk_holder.become_blind(ROUNDSTART_TRAIT)
@@ -57,6 +60,7 @@
 	gain_text = "<span class='danger'>Я чувствую боль в голове.</span>"
 	lose_text = "<span class='notice'>Я чувствую, что голова перестала болеть.</span>"
 	medical_record_text = "Пациент имеет паразита в своей голове, который медленно пожирает его мозг, что в скором будущем может привести к гибели пациента."
+	hardcore_value = 12
 
 /datum/quirk/brainproblems/on_process()
 	quirk_holder.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.2)
@@ -69,6 +73,7 @@
 	gain_text = "<span class='danger'>Я не могу ничего слышать.</span>"
 	lose_text = "<span class='notice'>Теперь я снова слышите!</span>"
 	medical_record_text = "Улитка в ушах пациента повреждена и не подвергается лечению."
+	hardcore_value = 12
 
 /datum/quirk/depression
 	name = "Депрессивный"
@@ -79,6 +84,7 @@
 	lose_text = "<span class='notice'>Я больше не чувствую себя депрессивным.</span>" // если один это было так легко!
 	medical_record_text = "Пациент имеет серьёзное психическое заболевание, в результате чего у него возникают острые эпизоды депрессии."
 	mood_quirk = TRUE
+	hardcore_value = 1
 
 /datum/quirk/depression/on_process()
 	if(prob(0.05))
@@ -92,6 +98,7 @@
 	var/obj/item/heirloom
 	var/where
 	medical_record_text = "Пациент демонстрирует неестественную привязанность к его семейной реликвии."
+	hardcore_value = 1
 
 /datum/quirk/family_heirloom/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -220,6 +227,7 @@
 	gain_text = "<span class='danger'>Я чувствую себя слабым.</span>"
 	lose_text = "<span class='notice'>Я вновь чувствую себя крепким..</span>"
 	medical_record_text = "Пациент имеет очень слабые кости, рекомендуется кальцевая диета."
+	hardcore_value = 4
 
 /datum/quirk/heavy_sleeper
 	name = "Крепкий сон"
@@ -229,6 +237,7 @@
 	gain_text = "<span class='danger'>Я чувствую себя вялым.</span>"
 	lose_text = "<span class='notice'>Я вновь чувствую себя бодрым!</span>"
 	medical_record_text = "Пациент имеет отрицательные результаты качества сна и его трудно разбудить."
+	hardcore_value = 2
 
 /datum/quirk/hypersensitive
 	name = "Гиперчувствительный"
@@ -237,6 +246,7 @@
 	gain_text = "<span class='danger'>Я, кажется, хотите создать огромную проблему из всего.</span>"
 	lose_text = "<span class='notice'>Вам больше не хочется устраивать шумиху.</span>"
 	medical_record_text = "Пациент демонстрирует высокие перепады настроения."
+	hardcore_value = 3
 
 /datum/quirk/hypersensitive/add()
 	var/datum/component/mood/mood = quirk_holder.GetComponent(/datum/component/mood)
@@ -257,6 +267,7 @@
 	gain_text = "<span class='notice'>Даже мысль об алкоголе заставляет вашу голову кружится.</span>"
 	lose_text = "<span class='danger'>Я больше не страдаете от алкоголя.</span>"
 	medical_record_text = "Пациент демонстрирует низкую устойчивость к алкоголю."
+	hardcore_value = 3
 
 /datum/quirk/nearsighted //t. errorage
 	name = "Близорукий"
@@ -265,6 +276,7 @@
 	gain_text = "<span class='danger'>Вещи вдалеке кажутся мне сильно расплывчатыми.</span>"
 	lose_text = "<span class='notice'>Вещи вдалеке теперь видны более четко.</span>"
 	medical_record_text = "Пациенту необходимо носить пара очков, чтобы не страдать от близорукости."
+	hardcore_value = 5
 
 /datum/quirk/nearsighted/add()
 	quirk_holder.become_nearsighted(ROUNDSTART_TRAIT)
@@ -281,6 +293,7 @@
 	desc = "Насколько я помню, я всегда боюсь темноты. Будучи в темноте без света, я буду чувствовать страх и вести себя аккуратно"
 	value = -1
 	medical_record_text = "Пациент демонстрирует страх к темноте."
+	hardcore_value = 5
 
 /datum/quirk/nyctophobia/on_process()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -304,6 +317,7 @@
 	gain_text = "<span class='danger'>Я чувствую себя жутко, подумав о насилии!</span>"
 	lose_text = "<span class='notice'>Я чувствую, что я могу защитить себя вновь.</span>"
 	medical_record_text = "Пациент является пацифистом и не может заставить себя причинить вред кому-либо."
+	hardcore_value = 6
 
 /datum/quirk/paraplegic
 	name = "Инвалид"
@@ -313,6 +327,7 @@
 	gain_text = null // Handled by trauma.
 	lose_text = null
 	medical_record_text = "Пациент страдает параличом нижних конечностей.."
+	hardcore_value = 15
 
 /datum/quirk/paraplegic/add()
 	var/datum/brain_trauma/severe/paralysis/paraplegic/T = new()
@@ -326,7 +341,11 @@
 	var/turf/T = get_turf(quirk_holder)
 	var/obj/structure/chair/spawn_chair = locate() in T
 
-	var/obj/vehicle/ridden/wheelchair/wheels = new(T)
+	var/obj/vehicle/ridden/wheelchair/wheels
+	if(quirk_holder.client?.get_award_status(HARDCORE_RANDOM_SCORE) >= 5000) //More than 5k score? you unlock the gamer wheelchair.
+		wheels = new /obj/vehicle/ridden/wheelchair/gold(T)
+	else
+		wheels = new(T)
 	if(spawn_chair) // Makes spawning on the arrivals shuttle more consistent looking
 		wheels.setDir(spawn_chair.dir)
 
@@ -345,6 +364,7 @@
 	value = -1
 	mob_trait = TRAIT_POOR_AIM
 	medical_record_text = "У пациента сильная дрожь в обеих руках."
+	hardcore_value = 3
 
 /datum/quirk/prosopagnosia
 	name = "Прозопагнозия"
@@ -352,6 +372,7 @@
 	value = -1
 	mob_trait = TRAIT_PROSOPAGNOSIA
 	medical_record_text = "Пациент страдает от прозопагнозии и не может узнать лица."
+	hardcore_value = 5
 
 /datum/quirk/prosthetic_limb
 	name = "Протез конечности"
@@ -359,6 +380,7 @@
 	value = -1
 	var/slot_string = "limb"
 	medical_record_text = "Во время физического обследования у пациента был обнаружен протез."
+	hardcore_value = 3
 
 /datum/quirk/prosthetic_limb/on_spawn()
 	var/limb_slot = pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
@@ -394,6 +416,7 @@
 	gain_text = "<span class='danger'>Я чувствую себя неуверенно.</span>"
 	lose_text = "<span class='notice'>Теперь-то я могу убить всех нахуй блядь.</span>"
 	medical_record_text = "Пациент представляет собой неуверенную и наивную личность, и им легко манипулировать."
+	hardcore_value = 4
 
 /datum/quirk/insanity
 	name = "Синдром Диссоциации Реальности"
@@ -403,6 +426,7 @@
 	gain_text = "<span class='userdanger'>...</span>"
 	lose_text = "<span class='notice'>Я чувствую себя нормальным..</span>"
 	medical_record_text = "Пациент страдает от Синдрома Диссоциации Реальности, вызывающее у него тяжелые галлюцинации."
+	hardcore_value = 6
 
 /datum/quirk/insanity/on_process()
 	if(quirk_holder.reagents.has_reagent(/datum/reagent/toxin/mindbreaker, needs_metabolizing = TRUE))
@@ -427,6 +451,7 @@
 	gain_text = "<span class='danger'>Я начинаете волноваться насчёт мнения окружающих.</span>"
 	lose_text = "<span class='notice'>Вам стало легче говорить.</span>" //if only it were that easy!
 	medical_record_text = "Пациент, как правило, беспокоится о социальных связях и предпочитает избегать их."
+	hardcore_value = 4
 	var/dumb_thing = TRUE
 
 /datum/quirk/social_anxiety/on_process()
@@ -453,6 +478,7 @@
 	gain_text = "<span class='danger'>Внезапно я почувствовали тягу к наркотикам.</span>"
 	lose_text = "<span class='notice'>Мне стоит бросить принимать наркотики, подумали вы.</span>"
 	medical_record_text = "Пациент страдает от зависимости и тяжелых наркотиков."
+	hardcore_value = 4
 	var/drug_list = list(/datum/reagent/drug/crank, /datum/reagent/drug/krokodil, /datum/reagent/medicine/morphine, /datum/reagent/drug/happiness, /datum/reagent/drug/methamphetamine) //List of possible IDs
 	var/datum/reagent/reagent_type //!If this is defined, reagent_id will be unused and the defined reagent type will be instead.
 	var/datum/reagent/reagent_instance //! actual instanced version of the reagent
@@ -522,6 +548,7 @@
 	medical_record_text = "Пациент является курильщиком.."
 	reagent_type = /datum/reagent/drug/nicotine
 	accessory_type = /obj/item/lighter/greyscale
+	hardcore_value = 1
 
 /datum/quirk/junkie/smoker/on_spawn()
 	drug_container_type = pick(/obj/item/storage/fancy/cigarettes,
@@ -555,3 +582,4 @@
 	gain_text = "<span class='danger'>Столько вещей сейчас в голове...</span>"
 	lose_text = "<span class='notice'>Я чувствую себя гораздо спокойнее.</span>"
 	medical_record_text = "Психика пациента находится в уязвимом состоянии и не сможет больше оправиться после травмы."
+	hardcore_value = 9

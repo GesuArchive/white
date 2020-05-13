@@ -396,6 +396,7 @@
 /mob/proc/show_inv(mob/user)
 	return
 
+
 /**
   * Examine a mob
   *

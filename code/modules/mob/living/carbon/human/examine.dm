@@ -328,6 +328,10 @@
 					msg += "[t_on] смотрит в пустоту.\n"
 				if (HAS_TRAIT(src, TRAIT_DEAF))
 					msg += "[t_on] не реагирует на шум.\n"
+				if (bodytemperature > dna.species.bodytemp_heat_damage_limit)
+					msg += "[t_on] краснеет и хрипит.\n"
+				if (bodytemperature < dna.species.bodytemp_cold_damage_limit)
+					msg += "[t_on] дрожит.\n"
 
 			msg += "</span>"
 
@@ -407,6 +411,7 @@
 		. += "Уровень <b>ловкости</b> [fateize_stat(current_fate[MOB_DEX], TRUE)].</span>\n"
 		. += "<span class='info'><b>Черты:</b> [traitstring]</span>"
 	. += "<span class='info'>*---------*</span>"
+	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
 /mob/living/proc/status_effect_examines(pronoun_replacement) //You can include this in any mob's examine() to show the examine texts of status effects!
 	var/list/dat = list()

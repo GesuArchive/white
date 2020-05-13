@@ -36,7 +36,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		speaker.TTS.generate_tts(raw_message)
 
 /atom/movable/proc/can_speak()
-	SHOULD_BE_PURE(TRUE)
+	//SHOULD_BE_PURE(TRUE)
 	return 1
 
 /atom/movable/proc/send_speech(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language = null, message_mode)

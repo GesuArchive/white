@@ -1015,38 +1015,46 @@
 		carrydelay = 40
 		skills_space = "быстро"
 	if(can_be_firemanned(target) && !incapacitated(FALSE, TRUE))
-		visible_message("<span class='notice'>[src] начинает [skills_space] поднимать [target] на свою спину..</span>",
+		visible_message("<span class='notice'><b>[src]</b> начинает [skills_space] поднимать <b>[target]</b> на свою спину..</span>",
 		//Joe Medic starts quickly/expertly lifting Grey Tider onto their back..
-		"<span class='notice'>[carrydelay < 35 ? "Используя свои перчатки, я" : "Я"] [skills_space] начинаю поднимать [target] на свою спину[carrydelay == 40 ? ", пока мне помогают мои наночипы в них..." : "..."]</span>")
+		"<span class='notice'>[carrydelay < 35 ? "Используя свои перчатки, я" : "Я"] [skills_space] начинаю поднимать <b>[target]</b> на свою спину[carrydelay == 40 ? ", пока мне помогают мои наночипы в них..." : "..."]</span>")
 		//(Using your gloves' nanochips, you/You) ( /quickly/expertly) start to lift Grey Tider onto your back(, while assisted by the nanochips in your gloves../...)
 		if(do_after(src, carrydelay, TRUE, target))
 			//Second check to make sure they're still valid to be carried
 			if(can_be_firemanned(target) && !incapacitated(FALSE, TRUE) && !target.buckled)
-				buckle_mob(target, TRUE, TRUE, 90, 1, 0)
-				return
-		visible_message("<span class='warning'>[src] не может поднять [target]!</span>")
+				if(target.loc != loc)
+					var/old_density = density
+					density = FALSE
+					step_towards(target, loc)
+					density = old_density
+					if(target.loc == loc)
+						buckle_mob(target, TRUE, TRUE, 90, 1, 0)
+						return
+				else
+					buckle_mob(target, TRUE, TRUE, 90, 1, 0)
+		visible_message("<span class='warning'><b>[src]</b> не может поднять <b>[target]</b>!</span>")
 	else
-		to_chat(src, "<span class='warning'>Не могу поднять [target] пока [target.ru_who()] стоит!</span>")
+		to_chat(src, "<span class='warning'>Не могу поднять <b>[target]</b> пока [target.ru_who()] стоит!</span>")
 
 /mob/living/carbon/human/proc/piggyback(mob/living/carbon/target)
 	if(can_piggyback(target))
-		visible_message("<span class='notice'>[target] начинает взбираться на [src]...</span>")
+		visible_message("<span class='notice'><b>[target]</b> начинает взбираться на <b>[src]</b>...</span>")
 		if(do_after(target, 15, target = src))
 			if(can_piggyback(target))
 				if(target.incapacitated(FALSE, TRUE) || incapacitated(FALSE, TRUE))
-					target.visible_message("<span class='warning'>[target] не может взобраться на [src]!</span>")
+					target.visible_message("<span class='warning'><b>[target]</b> не может взобраться на <b>[src]</b>!</span>")
 					return
 				buckle_mob(target, TRUE, TRUE, FALSE, 0, 2)
 		else
-			visible_message("<span class='warning'>[target] проваливает попытку взобраться на [src]!</span>")
+			visible_message("<span class='warning'><b>[target]</b> проваливает попытку взобраться на <b>[src]</b>!</span>")
 	else
-		to_chat(target, "<span class='warning'>Не хочу взбираться на [src]!</span>")
+		to_chat(target, "<span class='warning'>Не хочу взбираться на <b>[src]</b>!</span>")
 
 /mob/living/carbon/human/buckle_mob(mob/living/target, force = FALSE, check_loc = TRUE, lying_buckle = FALSE, hands_needed = 0, target_hands_needed = 0)
 	if(!force)//humans are only meant to be ridden through piggybacking and special cases
 		return
 	if(!is_type_in_typecache(target, can_ride_typecache))
-		target.visible_message("<span class='warning'>[target] не понимает как взобраться на [src]...</span>")
+		target.visible_message("<span class='warning'><b>[target] не понимает как взобраться на <b>[src]</b>...</span>")
 		return
 	buckle_lying = lying_buckle
 	var/datum/component/riding/human/riding_datum = LoadComponent(/datum/component/riding/human)
@@ -1063,12 +1071,12 @@
 
 	if(hands_needed || target_hands_needed)
 		if(hands_needed && !equipped_hands_self)
-			src.visible_message("<span class='warning'>[src] не может схватиться за [target], потому что [src.ru_ego()] руки заняты!</span>",
-				"<span class='warning'>Не могу схватиться за [target], потому что мои руки заняты!</span>")
+			src.visible_message("<span class='warning'><b>[src]</b> не может схватиться за <b>[target]</b>, потому что [src.ru_ego()] руки заняты!</span>",
+				"<span class='warning'>Не могу схватиться за <b>[target]</b>, потому что мои руки заняты!</span>")
 			return
 		else if(target_hands_needed && !equipped_hands_target)
-			target.visible_message("<span class='warning'>[target] не может схватиться за [src], потому что [target.ru_ego()] руки заняты!</span>",
-				"<span class='warning'>Не могу схватиться за [src], потому что мои руки заняты!</span>")
+			target.visible_message("<span class='warning'><b>[target]</b> не может схватиться за <b>[src]</b>, потому что [target.ru_ego()] руки заняты!</span>",
+				"<span class='warning'>Не могу схватиться за <b>[src]</b>, потому что мои руки заняты!</span>")
 			return
 
 	stop_pulling()
@@ -1088,7 +1096,7 @@
 	remove_movespeed_modifier(/datum/movespeed_modifier/shove)
 	var/active_item = get_active_held_item()
 	if(is_type_in_typecache(active_item, GLOB.shove_disarming_types))
-		visible_message("<span class='warning'>[src.name] возвращает свой захват [active_item]!</span>", "<span class='warning'>Возвращаю свой захват [active_item]</span>", null, COMBAT_MESSAGE_RANGE)
+		visible_message("<span class='warning'><b>[src.name]</b> возвращает свой захват [active_item]!</span>", "<span class='warning'>Возвращаю свой захват [active_item]</span>", null, COMBAT_MESSAGE_RANGE)
 
 /mob/living/carbon/human/do_after_coefficent()
 	. = ..()
