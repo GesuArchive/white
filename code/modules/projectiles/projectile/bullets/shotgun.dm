@@ -60,16 +60,16 @@
 	var/tile_dropoff_s = 0.5
 
 /obj/projectile/bullet/pellet/shotgun_buckshot
-	name = "дробинка картечи"
+	name = "дробинки картечи"
 	damage = 12.5
 
 /obj/projectile/bullet/pellet/shotgun_rubbershot
-	name = "резиновая дробинка"
+	name = "резиновые дробинки"
 	damage = 3
 	stamina = 11
 
 /obj/projectile/bullet/pellet/shotgun_incapacitate
-	name = "обезвреживающая дробинка"
+	name = "обезвреживающие дробинки"
 	damage = 1
 	stamina = 6
 
