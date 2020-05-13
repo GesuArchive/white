@@ -28,7 +28,7 @@
 	icon_state = "storage"
 
 /area/ruin/space/has_grav/bseruin/backyard
-	name = "Building 3"
+	name = "Building 2 backyard"
 	icon_state = "red"
 
 
@@ -58,7 +58,7 @@
 	name = "Smuggler"
 	uniform = /obj/item/clothing/under/suit/charcoal
 	shoes = /obj/item/clothing/shoes/laceup
-	r_hand = /obj/item/storage/secure/briefcase
+	r_hand = /obj/item/storage/secure/briefcase/smuggler
 
 /obj/item/storage/secure/briefcase/smuggler/PopulateContents()
 	new /obj/item/modular_computer/laptop/preset/civilian
