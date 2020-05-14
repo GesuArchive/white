@@ -3111,7 +3111,6 @@
 #include "code\shitcode\baldenysh\govnokod\machines\generator.dm"
 #include "code\shitcode\baldenysh\govnokod\machines\teleporter.dm"
 #include "code\shitcode\baldenysh\govnokod\machines\teleporter_console.dm"
-#include "code\shitcode\baldenysh\govnokod\ntcad\ntcad.dm"
 #include "code\shitcode\baldenysh\govnokod\ruins\bseruin.dm"
 #include "code\shitcode\baldenysh\govnokod\storage\blister.dm"
 #include "code\shitcode\baldenysh\govnokod\storage\pillpack.dm"
