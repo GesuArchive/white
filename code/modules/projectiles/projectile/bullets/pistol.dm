@@ -10,7 +10,7 @@
 	armour_penetration = 40
 
 /obj/projectile/bullet/c9mm_hp
-	name = "9mm hollow-point bullet"
+	name = "9mm экспансивная пуля"
 	damage = 40
 	armour_penetration = -50
 

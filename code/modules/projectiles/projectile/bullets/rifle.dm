@@ -6,7 +6,7 @@
 	armour_penetration = 30
 
 /obj/projectile/bullet/a556/phasic
-	name = "5.56mm phasic bullet"
+	name = "5.56mm фазовая пуля"
 	icon_state = "gaussphase"
 	damage = 20
 	armour_penetration = 70

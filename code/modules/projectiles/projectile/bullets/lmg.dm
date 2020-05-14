@@ -34,7 +34,7 @@
 	armour_penetration = 75
 
 /obj/projectile/bullet/mm712x82_hp
-	name = "7.12x82mm трассирующая пуля"
+	name = "7.12x82mm экспансивная пуля"
 	damage = 60
 	armour_penetration = -60
 
