@@ -3105,6 +3105,7 @@
 #include "code\shitcode\baldenysh\govnokod\chem\reagents.dm"
 #include "code\shitcode\baldenysh\govnokod\clothing\masks\cheap_breathmask.dm"
 #include "code\shitcode\baldenysh\govnokod\combat\aoe_combat.dm"
+#include "code\shitcode\baldenysh\govnokod\combat\gloo.dm"
 #include "code\shitcode\baldenysh\govnokod\foods\food.dm"
 #include "code\shitcode\baldenysh\govnokod\items\stacks.dm"
 #include "code\shitcode\baldenysh\govnokod\machines\generator.dm"
