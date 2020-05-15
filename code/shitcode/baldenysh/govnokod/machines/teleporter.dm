@@ -177,9 +177,12 @@
 	expanding = FALSE
 
 /obj/machinery/power/bs_emitter/proc/set_coords(cx,cy,cz)
-	target_x = cx
-	target_y = cy
-	target_z = cz
+	if(cx > 0 && cx < 257)
+		target_x = cx
+	if(cy > 0 && cy < 257)
+		target_y = cy
+	if(cz > 0 && cz < 257)
+		target_z = cz
 
 /obj/machinery/power/bs_emitter/proc/turn_on()
 	pointer_reset()
