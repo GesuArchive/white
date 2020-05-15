@@ -2,7 +2,7 @@
 	icon_state = "passive_vent_map-2"
 
 	name = "passive vent"
-	desc = "It is an open vent."
+	desc = "Это вентиляция без помпы."
 
 	can_unwrench = TRUE
 	hide = TRUE
@@ -19,14 +19,12 @@
 
 /obj/machinery/atmospherics/components/unary/passive_vent/process_atmos()
 	..()
-	/*
 	var/datum/gas_mixture/external = loc.return_air()
 	var/datum/gas_mixture/internal = airs[1]
 
 	if(internal.equalize(external))
 		air_update_turf()
 		update_parents()
-	*/
 
 /obj/machinery/atmospherics/components/unary/passive_vent/can_crawl_through()
 	return TRUE
