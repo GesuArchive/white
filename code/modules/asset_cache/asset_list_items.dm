@@ -150,8 +150,7 @@
 		"browserOutput.js"         = 'code/modules/goonchat/browserassets/js/browserOutput.js',
 		"browserOutput.css"	       = 'code/modules/goonchat/browserassets/css/browserOutput.css',
 		"browserOutput_white.css"  = 'code/modules/goonchat/browserassets/css/browserOutput_white.css',
-		"Avenir.woff"  			   = 'code/modules/goonchat/browserassets/fonts/Avenir.woff',
-		"Hooge.ttf"  			   = 'code/modules/goonchat/browserassets/fonts/Hooge.ttf'
+		"didact.ttf"  			   = 'code/modules/goonchat/browserassets/fonts/didact.ttf'
 	)
 
 /datum/asset/simple/fontawesome

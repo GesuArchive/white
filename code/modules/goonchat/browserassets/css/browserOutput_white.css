@@ -4,6 +4,8 @@
 *
 ******************************************/
 
+@font-face {font-family: "Didact";  src: url("didact.ttf");}
+
 html, body {
 	padding: 0;
 	margin: 0;
@@ -256,7 +258,7 @@ a.popt {text-decoration: none;}
 /* OUTPUT COLORS */
 .highlight {background: yellow;}
 
-h1, h2, h3, h4, h5, h6	{color: #0000ff;font-family: "Verdana", sans-serif;}
+h1, h2, h3, h4, h5, h6	{color: #0000ff;font-family: "Didact", sans-serif;}
 h1.alert, h2.alert		{color: #000000;}
 
 em						{font-style: normal;	font-weight: bold;}
