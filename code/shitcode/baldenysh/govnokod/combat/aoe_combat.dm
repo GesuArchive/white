@@ -1,10 +1,23 @@
-/datum/aoe_melee
+/datum/component/aoe_melee
 	var/obj/item/master = null
 
-/datum/aoe_melee/New(mstr)
-	master = mstr
+/datum/component/aoe_melee/Initialize()
+	if(istype(parent, /obj/item))
+		master = parent
+	else
+		qdel(src)
 
-/datum/aoe_melee/swing
+/datum/component/aoe_melee/RegisterWithParent()
+	RegisterSignal(parent, COMSIG_ITEM_AFTERATTACK, .proc/start_attack)
+
+/datum/component/aoe_melee/UnregisterFromParent()
+	UnregisterSignal(parent, COMSIG_ITEM_AFTERATTACK)
+
+/datum/component/aoe_melee/proc/start_attack(atom/target, mob/user)
+	if(get_dist(user, target) <= master.reach)
+		return
+
+/datum/component/aoe_melee/swing
 	var/cur_angle = 0
 
 	var/attack_cone = 180
@@ -16,7 +29,7 @@
 
 	var/image/anim_img = null
 	var/anim_size_mod = 0.75
-	var/init_img_turn = -45
+	var/init_img_turn = 0
 	var/radius = 26
 
 	var/anim_flags = ANIMATION_PARALLEL
@@ -24,13 +37,15 @@
 	var/hitproc_debug = TRUE
 	var/hitproc_obj = /obj/item/wrench
 
-/datum/aoe_melee/swing/proc/pre_attack(atom/attacked, atom/movable/attacker)
-	anim_img = image(icon = master, loc = attacker, layer = attacker.layer + 0.1)
+/datum/component/aoe_melee/swing/proc/prepare_img(atom/target, mob/user)
+	anim_img = image(icon = master, loc = master.loc, layer = user.layer + 0.1)
+
 
 	anim_img.plane = GAME_PLANE
 	anim_img.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 
-	var/direction = get_dir(attacked, attacker)
+
+	var/direction = get_dir(user, target)
 	cur_angle = dir2angle(direction)
 
 	anim_img.transform = anim_img.transform.Turn(init_img_turn + cur_angle)
@@ -50,12 +65,14 @@
 
 	anim_img.transform = shift
 
-/datum/aoe_melee/swing/proc/start_attack(atom/attacked, atom/movable/attacker)
-	pre_attack(attacked, attacker)
+/datum/component/aoe_melee/swing/start_attack(atom/target, mob/user)
+	..()
+
+	prepare_img(target, user)
 
 	var/rotations = attack_cone/deg_between_hits
 
-	flick_overlay_view(anim_img, attacker, time_per_action*rotations*segments_per_action)
+	flick_overlay_view(anim_img, user, time_per_action*rotations*segments_per_action)
 
 	var/half_cone = attack_cone/2
 
@@ -74,13 +91,13 @@
 		spawn(time_per_action*segments_per_action*i)
 			hitproc(get_step(master, angle2dir(local_angle)))
 
-/datum/aoe_melee/swing/proc/hitproc(turf/loc)
+/datum/component/aoe_melee/swing/proc/hitproc(turf/loc)
 	if(hitproc_debug)
 		new hitproc_obj(loc)
 		return
 	return
 
-/datum/aoe_melee/swing/proc/rotate(angle)
+/datum/component/aoe_melee/swing/proc/rotate(angle)
 	if(clockwise)
 		angle = -angle
 
@@ -90,7 +107,7 @@
 	for(var/matrix/mtrx in matrices)
 		animate(transform = mtrx, time = time_per_action)
 
-/datum/aoe_melee/swing/proc/generate_turn_matrices(image/img, angle)
+/datum/component/aoe_melee/swing/proc/generate_turn_matrices(image/img, angle)
 	var/list/matrices = list()
 	var/segment = angle/segments_per_action
 
@@ -102,31 +119,22 @@
 	return matrices
 
 
+
+
+
 /obj/item/claymore/aoetest
 	name = "anime sord"
-	var/datum/aoe_melee/swing/SW = null
 
 /obj/item/claymore/aoetest/Initialize()
 	. = ..()
-	SW = new(src)
-
-/obj/item/claymore/aoetest/pre_attack(atom/movable/AM, mob/living/user, proximity)
-	. = ..()
-	if(isturf(AM))
-		SW.start_attack(AM, user)
-		. = TRUE
+	var/datum/component/aoe_melee/swing/SW = AddComponent(/datum/component/aoe_melee/swing)
+	SW.init_img_turn = -45
 
 /obj/item/fireaxe/ayetest
 	name = "anime tonop"
-	var/datum/aoe_melee/swing/SW = null
+	var/datum/component/aoe_melee/swing/SW = null
 
 /obj/item/fireaxe/ayetest/Initialize()
 	. = ..()
-	SW = new(src)
+	var/datum/component/aoe_melee/swing/SW = AddComponent(/datum/component/aoe_melee/swing)
 	SW.init_img_turn = 90
-
-/obj/item/fireaxe/ayetest/pre_attack(atom/movable/AM, mob/living/user, proximity)
-	. = ..()
-	if(isturf(AM))
-		SW.start_attack(AM, user)
-		. = TRUE
