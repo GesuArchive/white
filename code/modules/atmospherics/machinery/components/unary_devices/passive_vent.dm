@@ -22,7 +22,7 @@
 	var/datum/gas_mixture/external = loc.return_air()
 	var/datum/gas_mixture/internal = airs[1]
 
-	if(internal.equalize(external))
+	if(internal.share(external))
 		air_update_turf()
 		update_parents()
 

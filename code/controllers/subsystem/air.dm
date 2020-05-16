@@ -455,23 +455,3 @@ SUBSYSTEM_DEF(air)
 		return gas_string
 	var/datum/atmosphere/mix = atmos_gen[gas_string]
 	return mix.gas_string
-
-/datum/gas_mixture/proc/equalize(datum/gas_mixture/other)
-	. = FALSE
-	if(abs(return_temperature() - other.return_temperature()) > MINIMUM_TEMPERATURE_DELTA_TO_SUSPEND)
-		. = TRUE
-		var/self_heat_cap = heat_capacity()
-		var/other_heat_cap = other.heat_capacity()
-		var/new_temp = (return_temperature() * self_heat_cap + other.return_temperature() * other_heat_cap) / (self_heat_cap + other_heat_cap)
-		set_temperature(new_temp)
-		other.set_temperature(new_temp)
-
-	var/min_p_delta = 0.1
-	var/total_volume = return_volume() + other.return_volume()
-	for(var/gas_id in get_gases() + other.get_gases())
-		//math is under the assumption temperatures are equal
-		if(abs(get_moles(gas_id) / return_volume() - other.get_moles(gas_id) / other.return_volume()) > min_p_delta / (R_IDEAL_GAS_EQUATION * return_temperature()))
-			. = TRUE
-			var/total_moles = get_moles(gas_id) + other.get_moles(gas_id)
-			adjust_moles(gas_id, total_moles * (return_volume()/total_volume))
-			other.adjust_moles(gas_id, total_moles * (other.return_volume()/total_volume))
