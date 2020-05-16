@@ -3103,6 +3103,7 @@
 #include "code\shitcode\baldenysh\govnokod\chem\pills.dm"
 #include "code\shitcode\baldenysh\govnokod\chem\reactions.dm"
 #include "code\shitcode\baldenysh\govnokod\chem\reagents.dm"
+#include "code\shitcode\baldenysh\govnokod\clothing\underwear.dm"
 #include "code\shitcode\baldenysh\govnokod\clothing\masks\cheap_breathmask.dm"
 #include "code\shitcode\baldenysh\govnokod\combat\aoe_combat.dm"
 #include "code\shitcode\baldenysh\govnokod\combat\gloo.dm"
