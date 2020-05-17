@@ -24,13 +24,14 @@
 
 	var/pressure_delta = 10000
 
-	var/transfer_moles_1 = pressure_delta*external.return_volume()/(internal.return_temperature() * R_IDEAL_GAS_EQUATION)
-	var/transfer_moles_2 = pressure_delta*internal.return_volume()/(external.return_temperature() * R_IDEAL_GAS_EQUATION)
-	var/datum/gas_mixture/removed_1 = internal.remove(transfer_moles_1)
-	var/datum/gas_mixture/removed_2 = loc.remove_air(transfer_moles_2)
-	loc.assume_air(removed_1)
-	internal.merge(removed_2)
-	air_update_turf()
+	if(internal.return_temperature() > 0)
+		var/transfer_moles_1 = pressure_delta*external.return_volume()/(internal.return_temperature() * R_IDEAL_GAS_EQUATION)
+		var/transfer_moles_2 = pressure_delta*internal.return_volume()/(external.return_temperature() * R_IDEAL_GAS_EQUATION)
+		var/datum/gas_mixture/removed_1 = internal.remove(transfer_moles_1)
+		var/datum/gas_mixture/removed_2 = loc.remove_air(transfer_moles_2)
+		external.merge(removed_1)
+		internal.merge(removed_2)
+		air_update_turf()
 
 
 /obj/machinery/atmospherics/components/unary/passive_vent/can_crawl_through()
