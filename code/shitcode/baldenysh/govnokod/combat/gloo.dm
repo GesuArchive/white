@@ -1,5 +1,5 @@
 /datum/component/glooed
-	var/times_glooed = 0
+	var/gloo_applied = 0
 
 	var/obj_fullgloo = 3
 	var/carbon_fullgloo = 15
@@ -30,18 +30,18 @@
 	A.forceMove(G)
 	qdel(src)
 
-/datum/component/glooed/proc/get_glooed()
+/datum/component/glooed/proc/get_glooed(amount)
 	if(isitem(parent))
 		fullgloo()
 		return
 
-	times_glooed++
+	gloo_applied += amount
 
-	if(isobj(parent) && times_glooed == obj_fullgloo)
+	if(isobj(parent) && gloo_applied >= obj_fullgloo)
 		fullgloo()
 		return
 
-	if(iscarbon(parent) && times_glooed == carbon_fullgloo)
+	if(iscarbon(parent) && gloo_applied >= carbon_fullgloo)
 		fullgloo()
 		return
 
@@ -63,37 +63,16 @@
 		fullgloo()
 
 /obj/structure/spider/cocoon/gloo
-	name = "гелиопеновый кокон"
+	name = "нитропеновый кокон"
 	desc = "Something wrapped in geliofoam."
 
-/obj/projectile/bullet/gloo
-	name = "сгусток гелиопены"
-	damage = 3
-	damage_type = STAMINA
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "frozen_smoke_capsule"
 
-/obj/projectile/bullet/gloo/on_hit(atom/target)
-	. = ..()
 
-	if(ismovable(target) && !target.density)
-		var/atom/movable/M = target
-		if(M.anchored)
-			return
-		var/datum/component/glooed/G = M.GetComponent(/datum/component/glooed)
-		if(!G)
-			G = M.AddComponent(/datum/component/glooed)
-		G.get_glooed()
 
-		if(iscarbon(M))
-			G.get_glooed_carbon(def_zone)
-
-	else if(isturf(target))
-		return //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa где спрайты
 
 /obj/item/gun/gloogun
-	name = "ГИПС-пушка"
-	desc = "Прикол."
+	name = "нитропеническое ружье"
+	desc = "Невольно вспоминаешь своего деда глядя на такое."
 	fire_sound = 'sound/items/syringeproj.ogg'
 	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "chemsprayer"
@@ -103,25 +82,51 @@
 	automatic = TRUE
 	spread = 15
 	fire_delay = 0
-	var/obj/item/gloocan/bolon
+
+	var/obj/item/tank/bolon
+	var/moles_drawn = 10
+	var/debug = TRUE
 
 /obj/item/gun/gloogun/Initialize()
 	. = ..()
 	chambered = new /obj/item/ammo_casing/gloo(src)
 
 /obj/item/gun/gloogun/can_shoot()
-	if(bolon && bolon.cur_ammo)
-		return TRUE
-	return FALSE
+	return bolon
 
 /obj/item/gun/gloogun/process_chamber()
-	if(chambered && !chambered.BB && bolon && bolon.cur_ammo)
-		chambered.newshot()
+	if(chambered && !chambered.BB && bolon)
+		var/datum/gas_mixture/removed = bolon.air_contents.remove(moles_drawn)
+
+		var/co_amount = removed.get_moles(/datum/gas/carbon_dioxide)
+		var/o_amount = removed.get_moles(/datum/gas/oxygen)
+		var/n_amount = removed.get_moles(/datum/gas/nitrogen)
+
+		var/amount_mul = 0
+
+		if(debug)
+			amount_mul = round(min(n_amount/2, o_amount))
+			removed.adjust_moles(/datum/gas/nitrogen, -amount_mul*2)
+			removed.adjust_moles(/datum/gas/oxygen, -amount_mul)
+		else
+			amount_mul = round(min(n_amount, o_amount, co_amount/3))
+			removed.adjust_moles(/datum/gas/nitrogen, -amount_mul)
+			removed.adjust_moles(/datum/gas/oxygen, -amount_mul)
+			removed.adjust_moles(/datum/gas/carbon_dioxide, -amount_mul*3)
+
+		bolon.air_contents.merge(removed)
+
+		if(amount_mul)
+			chambered.newshot()
+
+			var/obj/projectile/bullet/gloo/GL = chambered.BB
+			GL.foam_str = amount_mul
 
 /obj/item/gun/gloogun/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/gloocan) && !bolon)
+	if(istype(I, /obj/item/tank) && !bolon)
 		bolon = I
 		I.forceMove(src)
+		process_chamber()
 	..()
 
 /obj/item/gun/gloogun/attack_self(mob/user)
@@ -130,36 +135,45 @@
 			user.put_in_hands(bolon)
 		else
 			bolon.forceMove(get_turf(src))
+		bolon = null
 	..()
 
+/*
+/obj/item/gun/gloogun/examine(mob/user)
+	. = ..()
+	if(bolon && get_shot_count())
+		. += "<span class=notice>Похоже, синтез пены можно произвести еще [get_shot_count()] раз.</span>"
+*/
+
 /obj/item/ammo_casing/gloo
-	name = "гелиопенический рекомбинатор"
-	desc = "Ааааааааааааааааааааааа"
+	name = "нитропенический рекомбинатор"
+	desc = "прив я умноые слово ааааааааааааааа"
 	projectile_type = /obj/projectile/bullet/gloo
 	caliber = "gloo"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "frozen_smoke_capsule"
 	firing_effect_type = null
 
-/obj/item/ammo_casing/gloo/ready_proj(atom/target, mob/living/user, quiet, zone_override = "")
-	if(!BB)
-		return
-	if(istype(loc, /obj/item/gun/gloogun))
-		var/obj/item/gun/gloogun/G = loc
-		if(!G.bolon || G.bolon.cur_ammo <= 0)
-			return
-		G.bolon.cur_ammo--
-	..()
+/obj/projectile/bullet/gloo
+	name = "сгусток нитропены"
+	damage = 3
+	damage_type = STAMINA
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "frozen_smoke_capsule"
 
+	var/foam_str = 1
 
-
-/obj/item/gloocan //зделать нормальный газовохимический некостыль потом когданибудь
-	name = "канистра (Гелиопена)"
-	icon = 'code/shitcode/valtos/icons/tank.dmi'
-	icon_state = "generic"
-	var/max_ammo = 77
-	var/cur_ammo = 77
-
-/obj/item/gloocan/examine(mob/user)
+/obj/projectile/bullet/gloo/on_hit(atom/target)
 	. = ..()
-	. += "<span class='notice'>Канистра заполнена на [round((cur_ammo/max_ammo)*100, 0.1)]%.</span>"
+
+	if(iscarbon(target) || isitem(target))
+		var/datum/component/glooed/G = target.GetComponent(/datum/component/glooed)
+		if(!G)
+			G = target.AddComponent(/datum/component/glooed)
+		G.get_glooed(foam_str)
+
+		if(iscarbon(target))
+			G.get_glooed_carbon(def_zone)
+
+	else if(isturf(target))
+		return //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa где спрайты
