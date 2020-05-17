@@ -22,18 +22,17 @@
 	var/datum/gas_mixture/external = loc.return_air()
 	var/datum/gas_mixture/internal = airs[1]
 
-	var/external_pressure = external.return_pressure()
-
 	var/pressure_delta = 10000
 
 	if(internal.return_temperature() > 0)
-		var/transfer_moles = pressure_delta*external.return_volume()/(internal.return_temperature() * R_IDEAL_GAS_EQUATION)
-		var/datum/gas_mixture/removed_1 = internal.remove(transfer_moles)
-		var/datum/gas_mixture/removed_2 = loc.remove_air(transfer_moles)
+		var/transfer_moles_1 = pressure_delta*external.return_volume()/(internal.return_temperature() * R_IDEAL_GAS_EQUATION)
+		var/transfer_moles_2 = pressure_delta * internal.return_volume() / (external.return_temperature() * R_IDEAL_GAS_EQUATION)
+		var/datum/gas_mixture/removed_1 = internal.remove(transfer_moles_1)
+		var/datum/gas_mixture/removed_2 = loc.remove_air(transfer_moles_2)
 		if (isnull(removed_2)) // in space
 			return
-		internal.merge(removed_2)
 		loc.assume_air(removed_1)
+		internal.merge(removed_2)
 		air_update_turf()
 
 
