@@ -80,12 +80,12 @@
 		var/atom/movable/M = target
 		if(M.anchored)
 			return
-		var/datum/component/glooed/G = target.GetComponent(/datum/component/glooed)
+		var/datum/component/glooed/G = M.GetComponent(/datum/component/glooed)
 		if(!G)
-			G = target.AddComponent(/datum/component/glooed)
+			G = M.AddComponent(/datum/component/glooed)
 		G.get_glooed()
 
-		if(iscarbon(target))
+		if(iscarbon(M))
 			G.get_glooed_carbon(def_zone)
 
 	else if(isturf(target))
