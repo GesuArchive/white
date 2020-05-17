@@ -30,9 +30,9 @@
 		var/datum/gas_mixture/removed_1 = internal.remove(transfer_moles_1)
 		var/datum/gas_mixture/removed_2 = loc.remove_air(transfer_moles_2)
 		loc.assume_air(removed_1)
-		loc.assume_air(removed_2)
-		internal.merge(removed_1)
-		external.merge(removed_2)
+		loc.merge(removed_2)
+		assume_air(removed_2)
+		merge(removed_1)
 		air_update_turf()
 
 
