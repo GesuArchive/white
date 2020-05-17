@@ -28,10 +28,8 @@
 	var/transfer_moles_2 = pressure_delta*internal.return_volume()/(external.return_temperature() * R_IDEAL_GAS_EQUATION)
 	var/datum/gas_mixture/removed_1 = internal.remove(transfer_moles_1)
 	var/datum/gas_mixture/removed_2 = loc.remove_air(transfer_moles_2)
-	external.assume_air(removed_1)
-	external.merge(removed_2)
-	internal.assume_air(removed_2)
-	internal.merge(removed_1)
+	loc.assume_air(removed_1)
+	internal.merge(removed_2)
 	air_update_turf()
 
 
