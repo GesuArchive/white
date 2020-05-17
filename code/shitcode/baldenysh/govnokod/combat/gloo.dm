@@ -1,6 +1,8 @@
 /datum/component/glooed
 	var/times_glooed = 0
-	var/fullgloo = 15
+
+	var/obj_fullgloo = 3
+	var/carbon_fullgloo = 15
 
 	var/head_glooed = FALSE
 	var/chest_glooed = FALSE
@@ -10,7 +12,7 @@
 	var/rleg_glooed = FALSE
 
 /datum/component/glooed/Initialize()
-	if(!iscarbon(parent))
+	if(!ismovable(parent))
 		qdel(src)
 
 /datum/component/glooed/RegisterWithParent()
@@ -23,16 +25,27 @@
 	qdel(src)
 
 /datum/component/glooed/proc/fullgloo()
-	var/mob/living/carbon/C = parent
-	var/obj/structure/spider/cocoon/gloo/G = new(get_turf(C))
-	C.forceMove(G)
+	var/atom/movable/A = parent
+	var/obj/structure/spider/cocoon/gloo/G = new(get_turf(A))
+	A.forceMove(G)
+	qdel(src)
 
-/datum/component/glooed/proc/get_glooed(def_zone)
+/datum/component/glooed/proc/get_glooed()
+	if(isitem(parent))
+		fullgloo()
+		return
+
 	times_glooed++
 
-	if(times_glooed == fullgloo)
+	if(isobj(parent) && times_glooed == obj_fullgloo)
 		fullgloo()
+		return
 
+	if(iscarbon(parent) && times_glooed == carbon_fullgloo)
+		fullgloo()
+		return
+
+/datum/component/glooed/proc/get_glooed_carbon(def_zone)
 	if(def_zone == BODY_ZONE_HEAD)
 		head_glooed = TRUE
 	if(def_zone == BODY_ZONE_CHEST)
@@ -49,7 +62,6 @@
 	if(head_glooed&&chest_glooed&&larm_glooed&&rarm_glooed&&lleg_glooed&&rleg_glooed)
 		fullgloo()
 
-
 /obj/structure/spider/cocoon/gloo
 	name = "гелиопеновый кокон"
 	desc = "Something wrapped in geliofoam."
@@ -64,14 +76,17 @@
 /obj/projectile/bullet/gloo/on_hit(atom/target)
 	. = ..()
 
-	if(iscarbon(target))
+	if(ismovable(target) && !target.density && !target.anchored)
 		var/datum/component/glooed/G = target.GetComponent(/datum/component/glooed)
 		if(!G)
 			G = target.AddComponent(/datum/component/glooed)
-		G.get_glooed(def_zone)
+		G.get_glooed()
 
-	else if(isopenturf(target))
-		return //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+		if(iscarbon(target))
+			G.get_glooed_carbon(def_zone)
+
+	else if(isturf(target))
+		return //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa где спрайты
 
 /obj/item/gun/gloogun
 	name = "ГИПС-пушка"
