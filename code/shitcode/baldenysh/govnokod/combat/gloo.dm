@@ -76,7 +76,10 @@
 /obj/projectile/bullet/gloo/on_hit(atom/target)
 	. = ..()
 
-	if(ismovable(target) && !target.density && !target.anchored)
+	if(ismovable(target) && !target.density)
+		var/atom/movable/M = target
+		if(M.anchored)
+			return
 		var/datum/component/glooed/G = target.GetComponent(/datum/component/glooed)
 		if(!G)
 			G = target.AddComponent(/datum/component/glooed)
