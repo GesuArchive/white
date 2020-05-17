@@ -32,7 +32,7 @@
 		loc.assume_air(removed_1)
 		loc.assume_air(removed_2)
 		internal.merge(removed_1)
-		internal.merge(removed_2)
+		external.merge(removed_2)
 		air_update_turf()
 
 
