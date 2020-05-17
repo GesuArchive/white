@@ -22,9 +22,20 @@
 	var/datum/gas_mixture/external = loc.return_air()
 	var/datum/gas_mixture/internal = airs[1]
 
-	if(internal.merge(external) && external.merge(internal))
+	var/external_pressure = external.return_pressure()
+
+	var/pressure_delta = 10000
+
+	if(internal.return_temperature() > 0)
+		var/transfer_moles = pressure_delta*external.return_volume()/(internal.return_temperature() * R_IDEAL_GAS_EQUATION)
+		var/datum/gas_mixture/removed_1 = internal.remove(transfer_moles)
+		var/datum/gas_mixture/removed_2 = loc.remove_air(transfer_moles)
+		if (isnull(removed_2)) // in space
+			return
+		internal.merge(removed_2)
+		loc.assume_air(removed_1)
 		air_update_turf()
-		update_parents()
+
 
 /obj/machinery/atmospherics/components/unary/passive_vent/can_crawl_through()
 	return TRUE
