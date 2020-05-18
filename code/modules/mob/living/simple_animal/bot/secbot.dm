@@ -267,7 +267,7 @@ Auto Patrol: []"},
 	if(!C.handcuffed)
 		C.handcuffed = new /obj/item/restraints/handcuffs/cable/zipties/used(C)
 		C.update_handcuffed()
-		playsound(src, "law", 50, FALSE)
+		playsound(src, "law_russian", 50, FALSE)
 		back_to_idle()
 
 /mob/living/simple_animal/bot/secbot/proc/stun_attack(mob/living/carbon/C, harm = FALSE)
@@ -427,7 +427,8 @@ Auto Patrol: []"},
 			if(ranged)
 				playsound(src, pick('sound/voice/ed209_20sec.ogg', 'sound/voice/edplaceholder.ogg'), 50, FALSE)
 			else
-				playsound(src, pick('sound/voice/beepsky/criminal.ogg', 'sound/voice/beepsky/justice.ogg', 'sound/voice/beepsky/freeze.ogg'), 50, FALSE)
+				//playsound(src, pick('sound/voice/beepsky/criminal.ogg', 'sound/voice/beepsky/justice.ogg', 'sound/voice/beepsky/freeze.ogg'), 50, FALSE)
+				playsound(loc, pick('code/shitcode/valtos/sounds/beepsky_russian/criminal.ogg', 'code/shitcode/valtos/sounds/beepsky_russian/justice.ogg', 'code/shitcode/valtos/sounds/beepsky_russian/freeze.ogg'), 50, FALSE)
 			visible_message("<b>[capitalize(src)]</b> points at [C.name]!")
 			mode = BOT_HUNT
 			INVOKE_ASYNC(src, .proc/handle_automated_action)
