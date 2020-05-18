@@ -85,7 +85,7 @@
 	var/datum/gas_mixture/removed = env.remove(moles_removed)
 
 	for(var/datum/gas/G in gas_moles_per_synth)
-		avail += removed.get_moles(G) * gas_moles_per_synth[G]
+		avail += removed.get_moles(G) / gas_moles_per_synth[G]
 
 	mod = round(min(avail))
 
