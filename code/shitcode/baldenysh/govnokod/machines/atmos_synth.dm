@@ -63,15 +63,12 @@
 			wrong_mix = TRUE
 			if(avail(idle_power_usage))
 				add_load(idle_power_usage)
-			else
-				toggle()
+
 		else
 			wrong_mix = FALSE
 			if(avail(active_power_usage*mod))
 				add_load(active_power_usage*mod)
 				do_synth(mod)
-			else
-				toggle()
 
 	else if(avail(idle_power_usage))
 		add_load(idle_power_usage)
