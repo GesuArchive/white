@@ -263,3 +263,26 @@ get_true_breath_pressure(pp) --> gas_pp = pp/breath_pp*total_moles()
 	to_chat(src, "Total time (new gas mixture): [total_time]ms")
 	to_chat(src, "Operations per second: [100000 / (total_time/1000)]")
 */
+
+	///Distributes the contents of two mixes equally between themselves
+	//Returns: bool indicating whether gases moved between the two mixes
+/datum/gas_mixture/proc/equalize(datum/gas_mixture/other)
+	. = FALSE
+	if(abs(return_temperature() - other.return_temperature()) > MINIMUM_TEMPERATURE_DELTA_TO_SUSPEND)
+		. = TRUE
+		var/self_heat_cap = heat_capacity()
+		var/other_heat_cap = other.heat_capacity()
+		var/new_temp = (return_temperature() * self_heat_cap + other.return_temperature() * other_heat_cap) / (self_heat_cap + other_heat_cap)
+		set_temperature(new_temp)
+		other.set_temperature(new_temp)
+
+	var/min_p_delta = 0.1
+	var/total_volume = return_volume() + other.return_volume()
+	var/list/gas_list = get_gases() | other.get_gases()
+	for(var/gas_id in gas_list)
+		//math is under the assumption temperatures are equal
+		if(abs(get_moles(gas_id) / return_volume() - other.get_moles(gas_id) / other.return_volume()) > min_p_delta / (R_IDEAL_GAS_EQUATION * return_temperature()))
+			. = TRUE
+			var/total_moles = get_moles(gas_id) + other.get_moles(gas_id)
+			set_moles(gas_id, total_moles * (return_volume()/total_volume))
+			other.set_moles(gas_id, total_moles * (other.return_volume()/total_volume))

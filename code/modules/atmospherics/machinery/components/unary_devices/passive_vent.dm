@@ -20,26 +20,12 @@
 /obj/machinery/atmospherics/components/unary/passive_vent/process_atmos()
 	..()
 
-	var/datum/gas_mixture/air_contents = airs[1]
-	var/datum/gas_mixture/environment = loc.return_air()
-	var/pressure_delta = 10000
+	var/datum/gas_mixture/external = loc.return_air()
+	var/datum/gas_mixture/internal = airs[1]
 
-	if(air_contents.return_temperature() > 0 && environment.return_temperature() > 0)
-		var/transfer_moles_1 = pressure_delta*environment.return_volume()/(air_contents.return_temperature() * R_IDEAL_GAS_EQUATION)
-
-		var/datum/gas_mixture/removed_1 = air_contents.remove(transfer_moles_1)
-
-		loc.assume_air(removed_1)
+	if(internal.equalize(external))
 		air_update_turf()
-
-		var/transfer_moles_2 = pressure_delta * air_contents.return_volume() / (environment.return_temperature() * R_IDEAL_GAS_EQUATION)
-		var/datum/gas_mixture/removed_2 = loc.remove_air(transfer_moles_2)
-		if (isnull(removed_2)) // in space
-			return
-
-		air_contents.merge(removed_2)
-		air_update_turf()
-	update_parents()
+		update_parents()
 
 /obj/machinery/atmospherics/components/unary/passive_vent/can_crawl_through()
 	return TRUE
