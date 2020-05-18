@@ -3109,6 +3109,7 @@
 #include "code\shitcode\baldenysh\govnokod\combat\gloo.dm"
 #include "code\shitcode\baldenysh\govnokod\foods\food.dm"
 #include "code\shitcode\baldenysh\govnokod\items\stacks.dm"
+#include "code\shitcode\baldenysh\govnokod\machines\atmos_synth.dm"
 #include "code\shitcode\baldenysh\govnokod\machines\generator.dm"
 #include "code\shitcode\baldenysh\govnokod\machines\teleporter.dm"
 #include "code\shitcode\baldenysh\govnokod\machines\teleporter_console.dm"

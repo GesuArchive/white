@@ -30,7 +30,7 @@
 	var/icon_state_underpowered = "teleporter_underpowered"
 	var/icon_state_expanding = "teleporter_active"
 
-/obj/machinery/power/emitter/Initialize()
+/obj/machinery/power/bs_emitter/Initialize()
 	. = ..()
 	if(anchored)
 		connect_to_network()
@@ -40,7 +40,7 @@
 	start_collapse()
 	return ..()
 
-/obj/machinery/power/emitter/examine(mob/user)
+/obj/machinery/power/bs_emitter/examine(mob/user)
 	. = ..()
 	if(machine_stat & (BROKEN))
 		. += "<span class='info'>Похоже, какая-то важная научная блюспейс штуковина была сломана. Данный агрегат теперь абсолютно бесполезен.</span>"
