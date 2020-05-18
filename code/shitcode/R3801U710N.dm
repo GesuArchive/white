@@ -10,7 +10,7 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 	if(!M || !M.client || !A || A.zashkvareno)
 		return
 
-	if(!M.ckey in GLOB.petushiniy_list || !M.client.petukh)
+	if(!((M.ckey in GLOB.petushiniy_list) || M.client.petukh))
 		return
 
 	A.zashkvareno = 1
