@@ -151,7 +151,7 @@
 	if(GLOB.whitelist)
 		wl = GLOB.whitelist.len
 	.["version"] = GLOB.game_version
-	.["mode"] = "extermination"//GLOB.master_mode
+	.["mode"] = GLOB.master_mode
 	.["respawn"] = config ? !CONFIG_GET(flag/norespawn) : FALSE
 	.["enter"] = GLOB.enter_allowed
 	.["vote"] = CONFIG_GET(flag/allow_vote_mode)
