@@ -105,6 +105,9 @@
 	for(var/i in 1 to mod)
 		new synth_type(T)
 
+	env.merge(removed)
+	air_update_turf()
+
 /obj/machinery/power/atmos_synthesizer/coalgen
 	name = "ГЕН-УГ-314А"
 	desc = "Собирает уголь, во хохма-то."
