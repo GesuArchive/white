@@ -3207,8 +3207,6 @@
 #include "code\shitcode\hule\items\clothing\masks.dm"
 #include "code\shitcode\hule\items\clothing\uniforms.dm"
 #include "code\shitcode\hule\items\reagents\reagents.dm"
-#include "code\shitcode\hule\items\tools\flextape.dm"
-#include "code\shitcode\hule\items\tools\rcbl.dm"
 #include "code\shitcode\hule\items\weapons\bombshot.dm"
 #include "code\shitcode\hule\items\weapons\books.dm"
 #include "code\shitcode\hule\items\weapons\brat.dm"
