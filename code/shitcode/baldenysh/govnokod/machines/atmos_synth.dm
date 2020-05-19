@@ -95,6 +95,9 @@
 	return mod
 
 /obj/machinery/power/atmos_synthesizer/proc/do_synth(mod)
+	if(!mod)
+		return
+
 	for(var/gas_type in gas_moles_per_synth)
 		internal.adjust_moles(gas_type, -gas_moles_per_synth[gas_type]*mod)
 
