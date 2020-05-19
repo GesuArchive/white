@@ -45,7 +45,7 @@
 	name = get_visible_name()
 
 	if(stat != DEAD)
-		if((nutrition < NUTRITION_LEVEL_STARVING && prob(2)) || (nutrition < NUTRITION_LEVEL_HUNGRY && prob(1)))
+		if(nutrition < NUTRITION_LEVEL_STARVING && prob(2))
 			to_chat(src, "<span class='warning'>[pick("Голодно...", "Кушать хочу...", "Вот бы что-нибудь съесть...", "Мой живот урчит...")]</span>")
 			take_overall_damage(stamina = 60)
 		return 1
