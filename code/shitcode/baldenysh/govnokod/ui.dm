@@ -10,10 +10,10 @@
 
 /datum/hud/proc/extend(mob/owner)
 	var/obj/screen/using
-	/*
+
 	if(!using)
 		return //потомушто недопилено
-	*/
+
 	using = new /obj/screen/ooc()
 	//using.icon = ui_style
 	using.screen_loc = ui_ooc
