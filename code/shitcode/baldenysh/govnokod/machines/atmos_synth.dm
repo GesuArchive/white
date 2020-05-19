@@ -10,14 +10,16 @@
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 100, "rad" = 100, "fire" = 80, "acid" = 10)
 	//circuit = /obj/item/circuitboard/machine/electrolyzer
 	use_power = NO_POWER_USE
-	idle_power_usage = 10
-	active_power_usage = 100
+	idle_power_usage = 100
+	active_power_usage = 200
 
 	var/synth_type = /obj/item/stack/sheet/cotton
 	var/list/gas_moles_per_synth = list(
 										/datum/gas/oxygen = 0.1
 										)
 	var/moles_removed = 5
+
+	var/datum/gas_mixture/internal
 
 	var/wrong_mix = FALSE
 
@@ -32,6 +34,7 @@
 		connect_to_network()
 
 /obj/machinery/power/atmos_synthesizer/Destroy()
+	release_gases()
 	disconnect_from_network()
 	return ..()
 
@@ -49,12 +52,12 @@
 
 /obj/machinery/power/atmos_synthesizer/process()
 	if(avail(idle_power_usage)&&anchored)
+		remove_gases()
 		var/mod = get_mod()
 
 		if(!mod)
 			wrong_mix = TRUE
 			add_load(idle_power_usage)
-
 		else
 			wrong_mix = FALSE
 			if(avail(active_power_usage*mod))
@@ -63,34 +66,40 @@
 			else
 				add_load(idle_power_usage)
 
+		release_gases()
+
+/obj/machinery/power/atmos_synthesizer/proc/remove_gases()
+	var/turf/T = get_turf(src)
+	var/datum/gas_mixture/env = T.return_air()
+	internal = env.remove(moles_removed)
+
+/obj/machinery/power/atmos_synthesizer/proc/release_gases()
+	if(!internal)
+		return
+	var/turf/T = get_turf(src)
+	var/datum/gas_mixture/env = T.return_air()
+	env.merge(internal)
+	air_update_turf()
+	internal = null
+
 /obj/machinery/power/atmos_synthesizer/proc/get_mod()
+	if(!internal)
+		return 0
 	var/mod = 0
 	var/list/avail = list()
 
-	var/turf/T = get_turf(src)
-	var/datum/gas_mixture/env = T.return_air()
-	var/datum/gas_mixture/removed = env.remove(moles_removed)
-
-	for(var/datum/gas/G in gas_moles_per_synth)
-		avail.Add(removed.get_moles(G) / gas_moles_per_synth[G])
+	for(var/gas_type in gas_moles_per_synth)
+		avail.Add(internal.get_moles(gas_type) / gas_moles_per_synth[gas_type])
 
 	mod = round(min(avail))
-
 	return mod
 
 /obj/machinery/power/atmos_synthesizer/proc/do_synth(mod)
-	var/turf/T = get_turf(src)
-	var/datum/gas_mixture/env = T.return_air()
-	var/datum/gas_mixture/removed = env.remove(moles_removed)
-
-	for(var/datum/gas/G in gas_moles_per_synth)
-		removed.adjust_moles(G, -gas_moles_per_synth[G]*mod)
+	for(var/gas_type in gas_moles_per_synth)
+		internal.adjust_moles(gas_type, -gas_moles_per_synth[gas_type]*mod)
 
 	for(var/i in 1 to mod)
-		new synth_type(T)
-
-	env.merge(removed)
-	air_update_turf()
+		new synth_type(get_turf(src))
 
 /obj/machinery/power/atmos_synthesizer/coalgen
 	name = "ГЕН-УГ-314А"
