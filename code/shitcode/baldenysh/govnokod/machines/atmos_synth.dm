@@ -38,13 +38,6 @@
 /obj/machinery/power/atmos_synthesizer/should_have_node()
 	return anchored
 
-/obj/machinery/power/atmos_synthesizer/can_be_unfasten_wrench(mob/user, silent)
-	if(active)
-		if(!silent)
-			to_chat(user, "<span class='warning'>Надо бы выключить <b>[src]</b> сначала!</span>")
-		return FAILED_UNFASTEN
-	return ..()
-
 /obj/machinery/power/atmos_synthesizer/wrench_act(mob/living/user, obj/item/I)
 	..()
 	if(default_unfasten_wrench(user, I))
