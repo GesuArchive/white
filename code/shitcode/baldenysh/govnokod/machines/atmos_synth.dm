@@ -19,7 +19,6 @@
 										)
 	var/moles_removed = 5
 
-	var/active = FALSE
 	var/wrong_mix = FALSE
 
 /obj/machinery/power/atmos_synthesizer/examine(mob/user)
@@ -56,27 +55,22 @@
 	return TRUE
 
 /obj/machinery/power/atmos_synthesizer/process()
-	if(active)
-		var/mod = get_moles_avail()
+	if(avail(idle_power_usage)&&anchored)
+		var/mod = get_mod()
 
 		if(!mod)
 			wrong_mix = TRUE
-			if(avail(idle_power_usage))
-				add_load(idle_power_usage)
+			add_load(idle_power_usage)
 
 		else
 			wrong_mix = FALSE
 			if(avail(active_power_usage*mod))
 				add_load(active_power_usage*mod)
 				do_synth(mod)
+			else
+				add_load(idle_power_usage)
 
-	else if(avail(idle_power_usage))
-		add_load(idle_power_usage)
-
-/obj/machinery/power/atmos_synthesizer/proc/toggle()
-	active = !active
-
-/obj/machinery/power/atmos_synthesizer/proc/get_moles_avail()
+/obj/machinery/power/atmos_synthesizer/proc/get_mod()
 	var/mod = 0
 	var/list/avail = list()
 
@@ -85,7 +79,7 @@
 	var/datum/gas_mixture/removed = env.remove(moles_removed)
 
 	for(var/datum/gas/G in gas_moles_per_synth)
-		avail += removed.get_moles(G) / gas_moles_per_synth[G]
+		avail.Add(removed.get_moles(G) / gas_moles_per_synth[G])
 
 	mod = round(min(avail))
 
