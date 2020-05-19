@@ -742,10 +742,10 @@ $(function() {
 		$("body").css('line-height', savedConfig.lineheight);
 		internalOutput('<span class="internal boldnshit">Загружена высота строки: '+savedConfig.lineheight+'</span>', 'internal');
 	}
-	if(savedConfig.slightmode == 'false'){
-		runByond('?_src_=chat&proc=swaptodarkmode');
-	} else {
+	if(savedConfig.slightmode){
 		runByond('?_src_=chat&proc=swaptolightmode');
+	} else {
+		runByond('?_src_=chat&proc=swaptodarkmode');
 	}
 	if (savedConfig.spingDisabled) {
 		if (savedConfig.spingDisabled == 'true') {
