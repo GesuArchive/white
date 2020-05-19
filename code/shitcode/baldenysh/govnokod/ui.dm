@@ -63,5 +63,5 @@
 /obj/screen/settings
 	name = "special"
 	icon = 'code/shitcode/baldenysh/icons/ui/midnight_extended.dmi'
-	icon_state = "special"
+	icon_state = "settings"
 	screen_loc = ui_settings
