@@ -3,7 +3,7 @@
 	desc = "Полностью стационарная автоматическая шаурмечница!"
 	density = TRUE
 	state_open = FALSE
-	icon = 'code/shitcode/valtos/icons/organdoc.dmi'
+	icon = 'code/shitcode/valtos/icons/autodoc.dmi'
 	icon_state = "organdoc_machine"
 	verb_say = "states"
 	idle_power_usage = 50
