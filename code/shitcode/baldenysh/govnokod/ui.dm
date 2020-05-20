@@ -37,13 +37,13 @@
 ////////////////////////////////////////////////////////////
 
 /mob/proc/get_all_verbs()
-	var/list/verbs = list()
+	var/list/verblist = list()
 	for(var/verb_M in verbs)
-		verbs += verb_M
+		verblist += verb_M
 	if(client)
 		for(var/verb_C in client.verbs)
-			verbs += verb_C
-	return verbs
+			verblist += verb_C
+	return verblist
 
 /mob/proc/get_verb_categories()
 	var/list/categories = list()
