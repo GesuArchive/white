@@ -84,19 +84,20 @@
 	icon_state = "ooc"
 	screen_loc = ui_game
 
-/obj/screen/game/Initialize()
-	. = ..()
-
 /obj/screen/game/Click()
 	ui_interact(usr)
 
 /obj/screen/game/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.always_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
-		ui = new(user, src, ui_key, "GameMenu", "Game", 700, 800, master_ui, state)
+		ui = new(user, src, ui_key, "GameMenu", "Игра", 400, 600, master_ui, state)
 		ui.open()
 
-/obj/screen/game/ui_data(mob/user) //переделать в ui_static_data потомушто да
+/obj/screen/game/ui_status(mob/user)
+	. = ..()
+	. = UI_INTERACTIVE
+
+/obj/screen/game/ui_data(mob/user)
 	var/list/data = list()
 
 	for(var/verb_to in user.verbs)
@@ -108,7 +109,7 @@
 /obj/screen/game/ui_act(action, params)
 	if(..())
 		return
-	call(usr.client, action)()
+	call(usr, action)()
 
 /obj/screen/special
 	name = "special"
