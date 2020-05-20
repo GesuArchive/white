@@ -3287,6 +3287,7 @@
 #include "code\shitcode\valtos\code\antagonists\bloodsucker\powers\v_distress.dm"
 #include "code\shitcode\valtos\code\antagonists\bloodsucker\powers\v_recuperate.dm"
 #include "code\shitcode\valtos\code\autodoc\autodoc.dm"
+#include "code\shitcode\valtos\code\autodoc\beedoc.dm"
 #include "code\shitcode\valtos\code\color_correction\correction.dm"
 #include "code\shitcode\valtos\code\color_correction\noise.dm"
 #include "code\shitcode\valtos\code\dss\_fate.dm"
