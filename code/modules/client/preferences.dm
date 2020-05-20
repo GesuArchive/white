@@ -126,6 +126,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	///This var stores the amount of points the owner will get for making it out alive.
 	var/hardcore_survival_score = 0
 
+	var/interface_hue = 0
+
 /datum/preferences/New(client/C)
 	parent = C
 
@@ -530,6 +532,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<tr><td><h3>Внутриигровое:</h3></td></tr>"
 			dat += "<tr><td><b>Сообщения ID-карты:</b></td><td align='right'><a href='?_src_=prefs;preference=income_pings'>[(chat_toggles & CHAT_BANKCARD) ? "Вкл" : "Выкл"]</a></td></tr>"
 			dat += "<tr><td><b>FPS:</b></td><td align='right'><a href='?_src_=prefs;preference=clientfps;task=input'>[clientfps]</a></td></tr>"
+			dat += "<tr><td><b>Оттенок интерфейса:</b></td><td align='right'><a href='?_src_=prefs;preference=interface_hue;task=input'>[interface_hue]</a></td></tr>"
 			dat += "<tr><td><b>Параллакс:</b></td><td align='right'><a href='?_src_=prefs;preference=parallaxdown' oncontextmenu='window.location.href=\"?_src_=prefs;preference=parallaxup\";return false;'>"
 			switch (parallax)
 				if (PARALLAX_LOW)
@@ -1497,6 +1500,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if (!isnull(desiredfps))
 						clientfps = desiredfps
 						parent.fps = desiredfps
+				if ("interface_hue")
+					var/desiredhue = input(user, "Введите значение сдвига. (0 = вернёт обычное значение, максимум 360)", "Character Preference", interface_hue)  as null|num
+					if (!isnull(desiredhue))
+						parent.unforce_custom_theme()
+						interface_hue = desiredhue
+						parent.force_custom_theme()
 				if("ui")
 					var/pickedui = input(user, "Choose your UI style.", "Character Preference", UI_style)  as null|anything in sortList(GLOB.available_ui_styles)
 					if(pickedui)
