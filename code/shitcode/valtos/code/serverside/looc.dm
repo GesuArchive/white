@@ -19,7 +19,7 @@
 	log_admin("[key_name(usr)] toggled Dead LOOC.")
 	message_admins("[key_name_admin(usr)] toggled Dead LOOC.")
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, "Toggle Dead LOOC|[GLOB.dlooc_allowed]")
-
+/*
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Chat, listen_looc)()
 	set name = " 🔄 LOOC"
 	set category = "НАСТРОЙКИ"
@@ -31,7 +31,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Chat, listen_looc)()
 
 /datum/verbs/menu/Settings/Chat/listen_looc/Get_checked(client/C)
 	return C.prefs.chat_toggles & CHAT_LOOC
-
+*/
 /client/verb/looc(msg as text)
 	set name = "LOOC"
 	set category = "OOC"
@@ -75,10 +75,11 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Chat, listen_looc)()
 			qdel(src)
 			return
 
+	/*
 	if(!prefs.chat_toggles & CHAT_LOOC)
 		to_chat(src, "<span class='danger'>Не хочу писать в LOOC.</span>")
 		return
-
+	*/
 
 	mob.log_talk("[key_name(src)]: [raw_msg]", LOG_LOOC)
 
@@ -93,10 +94,10 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Chat, listen_looc)()
 	for(var/mob/M in stuff_that_hears)
 		if((((M.client_mobs_in_contents) && (M.client_mobs_in_contents.len <= 0)) || !M.client_mobs_in_contents))
 			continue
-		if(M.client && (M.client.prefs.chat_toggles & CHAT_LOOC))
+		if(M.client) // && (M.client.prefs.chat_toggles & CHAT_LOOC)
 			clients_to_hear += M.client
 		for(var/mob/mob in M.client_mobs_in_contents)
-			if(mob.client && mob.client.prefs && (mob.client.prefs.chat_toggles & CHAT_LOOC))
+			if(mob.client && mob.client.prefs) // && (mob.client.prefs.chat_toggles & CHAT_LOOC)
 				clients_to_hear += mob.client
 
 	var/message_admin = "<span class='looc'>LOOC: [ADMIN_LOOKUPFLW(mob)]: [msg]</span>"
