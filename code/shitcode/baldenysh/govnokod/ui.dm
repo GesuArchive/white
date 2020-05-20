@@ -134,8 +134,10 @@
 	data["Основное"] = list()
 	for(var/verb_item in user.get_all_verbs())
 		if(verb_item:category && (verb_item:category in allowed_categories))
+			var/list/L = splittext("[verb_item]", "/")
+			var/verbpath = L[L.len]
 			if(findtext(verb_item:name, "🔄"))
-				data["Предпочтения"] += list(list(verb_item:name, verb_item))
+				data["Предпочтения"] += list(list(verb_item:name, verbpath, 0))
 			else
-				data["Основное"] += list(list(verb_item:name, verb_item))
+				data["Основное"] += list(list(verb_item:name, verbpath, 0))
 	return data
