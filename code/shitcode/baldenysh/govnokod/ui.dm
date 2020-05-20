@@ -39,9 +39,13 @@
 /mob/proc/get_all_verbs()
 	var/list/verblist = list()
 	for(var/verb_M in verbs)
+		if(verb_C in verblist)
+			continue
 		verblist += verb_M
 	if(client)
 		for(var/verb_C in client.verbs)
+			if(verb_C in verblist)
+				continue
 			verblist += verb_C
 	return verblist
 
