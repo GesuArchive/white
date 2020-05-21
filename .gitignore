@@ -223,4 +223,4 @@ config/game_options.txt
 !/config/title_music/sounds/exclude
 /config/title_screens/images/*
 !/config/title_screens/images/exclude
-_maps/_basemap.dm
+/_maps/_basemap.dm
