@@ -11,6 +11,7 @@
 
 /mob/verb/say_verb(message as text)
 	set name = "Say"
+	set hidden = 1
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='danger'>Не могу говорить.</span>")
@@ -32,6 +33,7 @@
 
 /mob/verb/whisper_verb(message as text)
 	set name = "Whisper"
+	set hidden = 1
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='danger'>Не могу шептать.</span>")
@@ -53,6 +55,7 @@
 
 /mob/verb/me_verb(message as text)
 	set name = "Me"
+	set hidden = 1
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='danger'>Не могу изображать.</span>")
