@@ -13,9 +13,6 @@
 		using.hud = src
 		infodisplay += using
 
-	if(!using)
-		return //потомушто недопилено
-
 	using = new /obj/screen/verbbutton/special()
 	//using.icon = ui_style
 	using.screen_loc = ui_special
