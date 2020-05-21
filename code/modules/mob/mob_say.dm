@@ -29,11 +29,14 @@
 
 	var/msg = input("", "Say") as null|text
 
-	if(speech_bubble_recipients.len)
-		remove_images_from_clients(I, speech_bubble_recipients)
-
 	if(msg)
+		if(speech_bubble_recipients.len)
+			remove_images_from_clients(I, speech_bubble_recipients)
 		say_verb(msg)
+	else if(speech_bubble_recipients.len)
+		animate(I, time = 7, loop = 1, alpha = 0)
+		spawn(7)
+			remove_images_from_clients(I, speech_bubble_recipients)
 
 /mob/verb/say_verb(message as text)
 	set name = "Say"
