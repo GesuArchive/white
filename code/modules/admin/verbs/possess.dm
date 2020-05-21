@@ -10,6 +10,7 @@
 
 /proc/possess(obj/O in world)
 	set name = "Possess Obj"
+	set category = null
 
 	if((O.obj_flags & DANGEROUS_POSSESSION) && CONFIG_GET(flag/forbid_singulo_possession))
 		to_chat(usr, "[O] is too powerful for you to possess.", confidential = TRUE)

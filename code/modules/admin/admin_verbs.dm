@@ -7,7 +7,8 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/deadmin,				/*destroys our own admin datum so we can play as a regular player*/
 	/client/proc/cmd_admin_say,			/*admin-only ooc chat*/
 	/client/proc/hide_verbs,			/*hides all our adminverbs*/
-	/client/proc/debug_variables_wrapper,		/*allows us to -see- the variables of any instance in the game. +VAREDIT needed to modify*/
+	/client/proc/debug_variables_wrapper,
+	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game. +VAREDIT needed to modify*/
 	/client/proc/dsay,					/*talk in deadchat using our ckey/fakekey*/
 	/client/proc/investigate_show,		/*various admintools for investigation. Such as a singulo grief-log*/
 	/client/proc/secrets,
@@ -174,7 +175,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/datum/admins/proc/create_or_modify_area,
 	/client/proc/set_stats,
 	)
-GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess_wrapper, /proc/release))
+GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess_wrapper, /proc/possess, /proc/release))
 GLOBAL_PROTECT(admin_verbs_possess)
 GLOBAL_LIST_INIT(admin_verbs_permissions, list(/client/proc/edit_admin_permissions, /client/proc/de_admin, /client/proc/adminwho,
 /client/proc/prikol_panel, /client/proc/retrieve_file, /client/proc/manage_lists))
