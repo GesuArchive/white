@@ -64,8 +64,7 @@
 								"IC", "OOC", "ОБЪЕКТ", "ПРИЗРАК", "ОСОБЕННОЕ", "НАСТРОЙКИ",
 								"АДМИН", "АС", "ДЕБАГ", "СЕРВЕР", "ФАН"
 							)
-	var/list/req_args = list()
-	var/ui_x = 600
+	var/ui_x = 450
 	var/ui_y = 600
 
 /obj/screen/verbbutton/Click()
@@ -82,16 +81,19 @@
 
 /obj/screen/verbbutton/ui_data(mob/user)
 	var/list/data = list()
+	data["verbs"] = list()
+
 	for(var/verb_item in user.get_all_verbs())
 		if(verb_item:category && (verb_item:category in allowed_categories))
 			var/list/L = splittext("[verb_item]", "/")
 			var/verbpath = L[L.len]
-			data[verb_item:category] += list(list(verb_item:name, verbpath, (verbpath in req_args)? TRUE : FALSE))
+			data["verbs"][verb_item:category] += list(list(verb_item:name, verbpath))
 	return data
 
 /obj/screen/verbbutton/ui_act(action, params)
 	if(..())
 		return
+
 	if(hascall(usr, action))
 		call(usr, action)()
 	else if (hascall(usr.client, action))
@@ -104,7 +106,7 @@
 	icon = 'code/shitcode/baldenysh/icons/ui/midnight_extended.dmi'
 	icon_state = "admin"
 	screen_loc = ui_admin
-	allowed_categories = list("АДМИН", "АС", "ДЕБАГ", "СЕРВЕР", "ФАН")
+	allowed_categories = list("АДМИН", "АС", "ДЕБАГ", "СЕРВЕР", "ФАН", "Mapping", "Profile")
 
 /obj/screen/verbbutton/admin/Click()
 	if(usr.client.holder)
@@ -115,8 +117,6 @@
 	icon = 'code/shitcode/baldenysh/icons/ui/midnight_extended.dmi'
 	icon_state = "main"
 	screen_loc = ui_main
-	ui_x = 400
-	ui_y = 500
 	allowed_categories = list("IC", "OOC", "ОБЪЕКТ", "ПРИЗРАК")
 
 /obj/screen/verbbutton/special
@@ -135,13 +135,15 @@
 
 /obj/screen/verbbutton/settings/ui_data(mob/user)
 	var/list/data = list()
-	data["Основное"] = list()
+	data["verbs"] = list()
+	data["verbs"]["Основное"] = list()
+
 	for(var/verb_item in user.get_all_verbs())
 		if(verb_item:category && (verb_item:category in allowed_categories))
 			var/list/L = splittext("[verb_item]", "/")
 			var/verbpath = L[L.len]
 			if(findtext(verb_item:name, "🔄"))
-				data["Предпочтения"] += list(list(verb_item:name, verbpath, 0))
+				data["verbs"]["Предпочтения"] += list(list(verb_item:name, verbpath))
 			else
-				data["Основное"] += list(list(verb_item:name, verbpath, 0))
+				data["verbs"]["Основное"] += list(list(verb_item:name, verbpath))
 	return data
