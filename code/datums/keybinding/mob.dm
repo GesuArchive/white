@@ -244,7 +244,8 @@
 
 /datum/keybinding/mob/say/down(client/user)
 	var/mob/M = user.mob
-	M.say_wrapper()
+	//M.say_wrapper()
+	call(M, "say_verb_wrapper")()
 	return TRUE
 
 /mob/verb/say_wrapper()

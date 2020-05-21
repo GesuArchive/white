@@ -17,13 +17,17 @@
 	if(!stat)
 		var/list/listening = get_hearers_in_view(9, src)
 		for(var/mob/M in listening)
+			if(!M.client)
+				continue
 			var/client/C = M.client
-			if(C && !C.prefs.chat_on_map)
-				speech_bubble_recipients.Add(C)
-		animate(I, time = 10, loop =-1, easing = SINE_EASING, alpha = 50)
+			speech_bubble_recipients.Add(C)
+
+		animate(I, time = 7, loop = -1, easing = SINE_EASING, alpha = 255)
+		animate(time = 7, alpha = 80)
+
 		flick_overlay(I, speech_bubble_recipients, 200)
 
-	var/msg = input(src, null, "Say") as text|null
+	var/msg = input("", "Say") as null|text
 
 	if(speech_bubble_recipients.len)
 		remove_images_from_clients(I, speech_bubble_recipients)
