@@ -311,6 +311,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["btvolume_max"], btvolume_max)
 	WRITE_FILE(S["purchased_gear"], purchased_gear)
 	WRITE_FILE(S["equipped_gear"], equipped_gear)
+	WRITE_FILE(S["interface_hue"], interface_hue)
 	return TRUE
 
 /datum/preferences/proc/load_character(slot)
