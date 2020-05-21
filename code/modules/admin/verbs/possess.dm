@@ -4,7 +4,7 @@
 	var/list/L = list()
 	for(var/obj/O in world)
 		L += O
-	var/target = input(src, null, "Possess Obj") as null|anything in L
+	var/target = input(usr, null, "Possess Obj") as null|anything in L
 	if(target)
 		possess(target)
 

@@ -5,7 +5,29 @@
 	set name = "Say"
 	set category = "IC"
 
+	var/list/speech_bubble_recipients = list()
+	var/bubble_type = "default"
+
+	if(isliving(src))
+		var/mob/living/L = src
+		bubble_type = L.bubble_icon
+
+	var/image/I = image('icons/mob/talk.dmi', src, "[bubble_type]0", FLY_LAYER)
+
+	if(stat)
+		var/list/listening = get_hearers_in_view(9, src)
+		for(var/mob/M in listening)
+			var/client/C = M.client
+			if(C && !C.prefs.chat_on_map)
+				speech_bubble_recipients.Add(C)
+		animate(I, time = 10, loop =-1, easing = SINE_EASING, alpha = 50)
+		flick_overlay(I, speech_bubble_recipients, 200)
+
 	var/msg = input(src, null, "Say") as text|null
+
+	if(speech_bubble_recipients.len)
+		remove_images_from_clients(I, speech_bubble_recipients)
+
 	if(msg)
 		say_verb(msg)
 
