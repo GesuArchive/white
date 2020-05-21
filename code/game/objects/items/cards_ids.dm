@@ -479,6 +479,9 @@ update_label()
 	registered_name = "Captain"
 	assignment = "Captain"
 	registered_age = null
+
+/obj/item/card/id/captains_spare/trap
+	desc = "К ней привязана какая-то микросхема..."
 	anchored = TRUE
 	var/first_try = TRUE
 
@@ -488,7 +491,7 @@ update_label()
 	. = ..()
 	update_label()
 
-/obj/item/card/id/captains_spare/attack_hand(mob/user)
+/obj/item/card/id/captains_spare/trap/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return

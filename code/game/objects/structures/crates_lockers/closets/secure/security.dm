@@ -34,7 +34,7 @@
 	new /obj/item/gun/energy/e_gun(src)
 	new /obj/item/door_remote/captain(src)
 	new /obj/item/storage/photo_album/Captain(src)
-	new /obj/item/card/id/captains_spare(src)
+	new /obj/item/card/id/captains_spare/trap(src)
 
 /obj/structure/closet/secure_closet/hop
 	name = "\proper head of personnel's locker"
