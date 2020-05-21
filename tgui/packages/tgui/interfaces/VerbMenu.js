@@ -1,11 +1,15 @@
 import { useBackend, useLocalState } from '../backend';
-import { Button, LabeledList, Tabs } from '../components';
+import { Button, LabeledList, Tabs, Input } from '../components';
 import { Window } from '../layouts';
 
 export const VerbMenu = (props, context) => {
   const { act, data } = useBackend(context);
-  const keys = Object.keys(data.verbs);
   const [tab, setTab] = useLocalState(context, 'tab', 0);
+  const [searchText, setSearchText] = useLocalState(context, 'searchText', '');
+  const keys = Object.keys(data.verbs);
+  const verbsByTab = data.verbs[keys[tab]];
+  const matchingVerbs = verbsByTab.filter((val, key) =>
+    val[0].toLowerCase().search(searchText.toLowerCase()) !== -1);
   return (
     <Window resizable>
       <Window.Content scrollable>
@@ -24,8 +28,13 @@ export const VerbMenu = (props, context) => {
             })}
           </Tabs>
         )}
+        <Input
+          fluid
+          mb={1}
+          placeholder="Поиск..."
+          onInput={(e, value) => setSearchText(value)} />
         <LabeledList>
-          {data.verbs[keys[tab]].map((val, key) => {
+          {matchingVerbs.map((val, key) => {
             return (
               <LabeledList.Item label={val[0]} key={key}>
                 <Button content={val[1]} onClick={() =>

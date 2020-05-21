@@ -500,6 +500,9 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		adminhelp(msg)
 
 /client/verb/adminhelp(msg as message)
+	set name = " ❗ Adminhelp"
+	set hidden = 1
+
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='danger'>Speech is currently admin-disabled.</span>", confidential = TRUE)
 		return
