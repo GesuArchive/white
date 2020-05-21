@@ -1,7 +1,12 @@
-/mob/verb/pray(msg as text)
+/mob/verb/pray_wrapper()
 	set category = "IC"
 	set name = "Молитва"
 
+	var/msg = input(src, null, "Молитва") as message|null
+	if(msg)
+		pray(msg)
+
+/mob/verb/pray(msg as text)
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='danger'>Не могу молиться.</span>", confidential = TRUE)
 		return

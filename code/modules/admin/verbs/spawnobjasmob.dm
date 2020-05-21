@@ -1,6 +1,13 @@
-/datum/admins/proc/spawn_objasmob(object as text)
+/datum/admins/proc/spawn_objasmob_wrapper()
 	set category = "ДЕБАГ"
 	set desc = "(obj path) Spawn object-mob"
+	set name = "Spawn object-mob"
+
+	var/msg = input(src, null, "Spawn object-mob") as text|null
+	if(msg)
+		spawn_objasmob(msg)
+
+/datum/admins/proc/spawn_objasmob(object as text)
 	set name = "Spawn object-mob"
 
 	if(!check_rights(R_SPAWN))

@@ -29,7 +29,7 @@ export const VerbMenu = (props, context) => {
             return (
               <LabeledList.Item label={val[0]} key={key}>
                 <Button content={val[1]} onClick={() =>
-                  act(val[1], { argtype: data.argtype })} />
+                  act(val[1])} />
               </LabeledList.Item>
             );
           })}

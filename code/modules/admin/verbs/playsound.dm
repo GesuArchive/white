@@ -1,5 +1,13 @@
+/client/proc/play_sound_wrapper()
+	set category = "ДЕБАГ"
+	set name = "Debug HUDs"
+	set desc = "Debug the data or antag HUDs"
+
+	var/msg = input(src, null, "Debug HUDs") as sound|null
+	if(msg)
+		play_sound(msg)
+
 /client/proc/play_sound(S as sound)
-	set category = "ФАН"
 	set name = "Play Global Sound"
 	if(!check_rights(R_SOUND))
 		return
@@ -41,8 +49,15 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Play Global Sound") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
-/client/proc/play_local_sound(S as sound)
+/client/proc/play_local_sound_wrapper()
 	set category = "ФАН"
+	set name = "Play Local Sound"
+
+	var/msg = input(src, null, "Play Local Sound") as sound|null
+	if(msg)
+		play_local_sound(msg)
+
+/client/proc/play_local_sound(S as sound)
 	set name = "Play Local Sound"
 	if(!check_rights(R_SOUND))
 		return
@@ -149,8 +164,15 @@
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Play Internet Sound")
 
-/client/proc/set_round_end_sound(S as sound)
+/client/proc/set_round_end_sound_wrapper()
 	set category = "ФАН"
+	set name = "Set Round End Sound"
+
+	var/msg = input(src, null, "Set Round End Sound") as sound|null
+	if(msg)
+		set_round_end_sound(msg)
+
+/client/proc/set_round_end_sound(S as sound)
 	set name = "Set Round End Sound"
 	if(!check_rights(R_SOUND))
 		return
