@@ -39,7 +39,7 @@
 /mob/proc/get_all_verbs()
 	var/list/verblist = list()
 	for(var/verb_M in verbs)
-		if(verb_C in verblist)
+		if(verb_M in verblist)
 			continue
 		verblist += verb_M
 	if(client)
