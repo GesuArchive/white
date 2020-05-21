@@ -244,15 +244,17 @@
 
 /datum/keybinding/mob/say/down(client/user)
 	var/mob/M = user.mob
-	//M.say_wrapper()
-	call(M, "say_verb_wrapper")()
+	M.say_wrapper()
 	return TRUE
 
 /mob/verb/say_wrapper()
 	set name = ".Say"
 	set hidden = TRUE
+	/*
 	var/message = input("", "Say \"text\"") as null|text
 	say_verb(message)
+	*/
+	call(src, "say_verb_wrapper")()
 
 /datum/keybinding/mob/me
 	hotkey_keys = list("F4")
