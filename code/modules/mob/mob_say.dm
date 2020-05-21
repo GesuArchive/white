@@ -14,7 +14,7 @@
 
 	var/image/I = image('icons/mob/talk.dmi', src, "[bubble_type]0", FLY_LAYER)
 
-	if(!stat)
+	if(!stat || stat == 1)
 		/*
 		var/list/listening = get_hearers_in_view(9, src)
 		for(var/mob/M in listening)
