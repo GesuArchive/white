@@ -589,17 +589,17 @@ so as to remain in compliance with the most up-to-date laws."
 //OBJECT-BASED
 
 /obj/screen/alert/restrained/buckled
-	name = "Buckled"
-	desc = "You've been buckled to something. Click the alert to unbuckle unless you're handcuffed."
+	name = "Пристегнут"
+	desc = "Ты пристегнут к чему-то или сидишь. Нажми, чтобы встать."
 	icon_state = "buckled"
 
 /obj/screen/alert/restrained/handcuffed
-	name = "Handcuffed"
-	desc = "You're handcuffed and can't act. If anyone drags you, you won't be able to move. Click the alert to free yourself."
+	name = "Закован"
+	desc = "На тебе надеты наручники и ты ничего не можешь делать. Не сможешь двигаться если тебя схватят. Нажми, чтобы попробовать освободиться."
 
 /obj/screen/alert/restrained/legcuffed
-	name = "Legcuffed"
-	desc = "You're legcuffed, which slows you down considerably. Click the alert to free yourself."
+	name = "Ноги связаны"
+	desc = "Ты замедлен из-за связанных ног. Нажми, чтобы попробовать освободиться."
 
 /obj/screen/alert/restrained/Click()
 	var/mob/living/L = usr
@@ -618,13 +618,13 @@ so as to remain in compliance with the most up-to-date laws."
 		return L.resist_buckle()
 
 /obj/screen/alert/shoes/untied
-	name = "Untied Shoes"
-	desc = "Your shoes are untied! Click the alert or your shoes to tie them."
+	name = "Шнурки развязаны"
+	desc = "Твои шнурки развязаны! Нажми, чтобы завязать."
 	icon_state = "shoealert"
 
 /obj/screen/alert/shoes/knotted
-	name = "Knotted Shoes"
-	desc = "Someone tied your shoelaces together! Click the alert or your shoes to undo the knot."
+	name = "Шнурки перевязаны"
+	desc = "Кто-то связал шнурки твоих ботинок друг с другом! Нажми, чтобы развязать."
 	icon_state = "shoealert"
 
 /obj/screen/alert/shoes/Click()
