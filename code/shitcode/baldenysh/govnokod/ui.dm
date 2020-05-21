@@ -84,7 +84,7 @@
 	data["verbs"] = list()
 
 	for(var/verb_item in user.get_all_verbs())
-		if(verb_item:category && (verb_item:category in allowed_categories))
+		if(!verb_item:hidden && verb_item:category && (verb_item:category in allowed_categories))
 			var/list/L = splittext("[verb_item]", "/")
 			var/verbpath = L[L.len]
 			data["verbs"][verb_item:category] += list(list(verb_item:name, verbpath))

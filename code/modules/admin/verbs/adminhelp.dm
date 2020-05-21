@@ -496,7 +496,8 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	set name = " ❗ Adminhelp"
 
 	var/msg = input(src, "Please describe your problem concisely and an admin will help as soon as they're able.", "Adminhelp contents") as message|null
-	adminhelp(msg)
+	if(msg)
+		adminhelp(msg)
 
 /client/verb/adminhelp(msg as message)
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems

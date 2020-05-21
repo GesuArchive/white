@@ -66,7 +66,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	)
 GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel))
 GLOBAL_PROTECT(admin_verbs_ban)
-GLOBAL_LIST_INIT(admin_verbs_sounds, list(/client/proc/play_local_sound, /client/proc/play_direct_mob_sound, /client/proc/play_sound, /client/proc/set_round_end_sound))
+GLOBAL_LIST_INIT(admin_verbs_sounds, list(/client/proc/play_local_sound_wrapper, /client/proc/play_direct_mob_sound, /client/proc/play_sound_wrapper, /client/proc/set_round_end_sound_wrapper))
 GLOBAL_PROTECT(admin_verbs_sounds)
 GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/invisimin,				/*allows our mob to go invisible/visible*/
@@ -124,7 +124,7 @@ GLOBAL_PROTECT(admin_verbs_server)
 	/client/proc/everyone_random,
 	/datum/admins/proc/toggleAI,
 	/client/proc/cmd_admin_delete,		/*delete an instance/object/mob/etc*/
-	/client/proc/cmd_debug_del_all,
+	/client/proc/cmd_debug_del_all_wrapper,
 	/client/proc/toggle_random_events,
 	/client/proc/forcerandomrotate,
 	/client/proc/adminchangemap,
@@ -142,7 +142,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/cmd_debug_make_powernets,
 	/client/proc/cmd_debug_mob_lists,
 	/client/proc/cmd_admin_delete,
-	/client/proc/cmd_debug_del_all,
+	/client/proc/cmd_debug_del_all_wrapper,
 	/client/proc/restart_controller,
 	/client/proc/enable_debug_verbs,
 	/client/proc/callproc,
@@ -160,7 +160,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/cmd_display_del_log,
 	/client/proc/outfit_manager,
 	/client/proc/modify_goals,
-	/client/proc/debug_huds,
+	/client/proc/debug_huds_wrapper,
 	/client/proc/map_template_load,
 	/client/proc/map_template_upload,
 	/client/proc/jump_to_ruin,
@@ -203,9 +203,9 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_admin_direct_narrate,
 	/client/proc/cmd_admin_world_narrate,
 	/client/proc/cmd_admin_local_narrate,
-	/client/proc/play_local_sound,
-	/client/proc/play_sound,
-	/client/proc/set_round_end_sound,
+	/client/proc/play_local_sound_wrapper,
+	/client/proc/play_sound_wrapper,
+	/client/proc/set_round_end_sound_wrapper,
 	/client/proc/cmd_admin_dress,
 	/client/proc/cmd_admin_gib_self,
 	/client/proc/drop_bomb,
@@ -234,7 +234,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_debug_make_powernets,
 	/client/proc/startSinglo,
 	/client/proc/cmd_debug_mob_lists,
-	/client/proc/cmd_debug_del_all,
+	/client/proc/cmd_debug_del_all_wrapper,
 	/client/proc/enable_debug_verbs,
 	/proc/possess,
 	/proc/release,
@@ -244,7 +244,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/toggle_nuke,
 	/client/proc/cmd_display_del_log,
 	/client/proc/toggle_combo_hud,
-	/client/proc/debug_huds
+	/client/proc/debug_huds_wrapper
 	))
 GLOBAL_PROTECT(admin_verbs_hideable)
 
