@@ -1,9 +1,17 @@
 //Speech verbs.
 
 ///Say verb
-/mob/verb/say_verb(message as text)
+/mob/verb/say_verb_wrapper()
 	set name = "Say"
 	set category = "IC"
+
+	var/msg = input(src, null, "Say") as text|null
+	if(msg)
+		say_verb(msg)
+
+/mob/verb/say_verb(message as text)
+	set name = "Say"
+
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='danger'>Не могу говорить.</span>")
 		return
@@ -14,9 +22,17 @@
 
 
 ///Whisper verb
-/mob/verb/whisper_verb(message as text)
+/mob/verb/whisper_verb_wrapper()
 	set name = "Whisper"
 	set category = "IC"
+
+	var/msg = input(src, null, "Whisper") as text|null
+	if(msg)
+		whisper_verb(msg)
+
+/mob/verb/whisper_verb(message as text)
+	set name = "Whisper"
+
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='danger'>Не могу шептать.</span>")
 		return
@@ -27,9 +43,16 @@
 	say(message, language) //only living mobs actually whisper, everything else just talks
 
 ///The me emote verb
-/mob/verb/me_verb(message as text)
+/mob/verb/me_verb_wrapper()
 	set name = "Me"
 	set category = "IC"
+
+	var/msg = input(src, null, "Me") as text|null
+	if(msg)
+		me_verb(msg)
+
+/mob/verb/me_verb(message as text)
+	set name = "Me"
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='danger'>Не могу изображать.</span>")

@@ -693,10 +693,16 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Unprison") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 ////////////////////////////////////////////////////////////////////////////////////////////////ADMIN HELPER PROCS
-
-/datum/admins/proc/spawn_atom(object as text)
+/datum/admins/proc/spawn_atom_wrapper()
 	set category = "ДЕБАГ"
 	set desc = "(atom path) Spawn an atom"
+	set name = "Spawn"
+
+	var/msg = input(src, null, "Spawn") as text|null
+	if(msg)
+		spawn_atom(msg)
+
+/datum/admins/proc/spawn_atom(object as text)
 	set name = "Spawn"
 
 	if(!check_rights(R_SPAWN) || !object)
