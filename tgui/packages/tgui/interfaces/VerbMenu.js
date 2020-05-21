@@ -4,7 +4,7 @@ import { Window } from '../layouts';
 
 export const VerbMenu = (props, context) => {
   const { act, data } = useBackend(context);
-  const keys = Object.keys(data);
+  const keys = Object.keys(data.verbs);
   const [tab, setTab] = useLocalState(context, 'tab', 0);
   return (
     <Window resizable>
@@ -25,11 +25,11 @@ export const VerbMenu = (props, context) => {
           </Tabs>
         )}
         <LabeledList>
-          {data[keys[tab]].map((val, key) => {
+          {data.verbs[keys[tab]].map((val, key) => {
             return (
               <LabeledList.Item label={val[0]} key={key}>
                 <Button content={val[1]} onClick={() =>
-                  act(val[1])} />
+                  act(val[1], { argtype: data.argtype })} />
               </LabeledList.Item>
             );
           })}
