@@ -93,7 +93,7 @@
 /obj/screen/verbbutton/ui_act(action, params)
 	if(..())
 		return
-
+	//регекс для поиска пидорасов: proc\/[\w\s]+\([\w\s]+as[\w\s]+\)[\w\s="]+set category
 	if(hascall(usr, action))
 		call(usr, action)()
 	else if (hascall(usr.client, action))

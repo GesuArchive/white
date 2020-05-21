@@ -732,9 +732,16 @@
 	log_admin("[key_name(usr)] spawned [amount] x [chosen] at [AREACOORD(usr)]")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/datum/admins/proc/podspawn_atom(object as text)
+/datum/admins/proc/podspawn_atom_wrapper()
 	set category = "ДЕБАГ"
 	set desc = "(atom path) Spawn an atom via supply drop"
+	set name = "Podspawn"
+
+	var/msg = input(src, null, "Podspawn") as text|null
+	if(msg)
+		podspawn_atom(msg)
+
+/datum/admins/proc/podspawn_atom(object as text)
 	set name = "Podspawn"
 
 	if(!check_rights(R_SPAWN))
@@ -759,9 +766,16 @@
 	log_admin("[key_name(usr)] pod-spawned [chosen] at [AREACOORD(usr)]")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Podspawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/datum/admins/proc/spawn_cargo(object as text)
+/datum/admins/proc/spawn_cargo_wrapper()
 	set category = "ДЕБАГ"
 	set desc = "(atom path) Spawn a cargo crate"
+	set name = "Spawn Cargo"
+
+	var/msg = input(src, null, "Spawn Cargo") as text|null
+	if(msg)
+		spawn_cargo(msg)
+
+/datum/admins/proc/spawn_cargo(object as text)
 	set name = "Spawn Cargo"
 
 	if(!check_rights(R_SPAWN))
