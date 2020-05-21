@@ -110,7 +110,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/huesoslist
 	))
 GLOBAL_PROTECT(admin_verbs_fun)
-GLOBAL_LIST_INIT(admin_verbs_spawn, list(/datum/admins/proc/spawn_atom_wrapper, /datum/admins/proc/podspawn_atom_wrapper, /datum/admins/proc/spawn_cargo_wrapper, /datum/admins/proc/spawn_objasmob, /client/proc/respawn_character, /datum/admins/proc/beaker_panel))
+GLOBAL_LIST_INIT(admin_verbs_spawn, list(/datum/admins/proc/spawn_atom_wrapper, /datum/admins/proc/podspawn_atom_wrapper, /datum/admins/proc/spawn_cargo_wrapper, /datum/admins/proc/spawn_objasmob_wrapper, /client/proc/respawn_character, /datum/admins/proc/beaker_panel))
 GLOBAL_PROTECT(admin_verbs_spawn)
 GLOBAL_LIST_INIT(admin_verbs_server, world.AVerbsServer())
 GLOBAL_PROTECT(admin_verbs_server)
@@ -147,7 +147,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/enable_debug_verbs,
 	/client/proc/callproc,
 	/client/proc/callproc_datum,
-	/client/proc/SDQL2_query,
+	/client/proc/SDQL2_query_wrapper,
 	/client/proc/test_movable_UI,
 	/client/proc/test_snap_UI,
 	/client/proc/debugNatureMapGenerator,

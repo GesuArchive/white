@@ -200,8 +200,15 @@
 		state = SDQL2_STATE_ERROR;\
 		CRASH("SDQL2 fatal error");};
 
-/client/proc/SDQL2_query(query_text as message)
+/client/proc/SDQL2_query_wrapper()
 	set category = "ДЕБАГ"
+	set name = "SDQL2 query"
+
+	var/msg = input(src, null, "Spawn object-mob") as message|null
+	if(msg)
+		SDQL2_query(msg)
+
+/client/proc/SDQL2_query(query_text as message)
 	if(!check_rights(R_DEBUG))  //Shouldn't happen... but just to be safe.
 		message_admins("<span class='danger'>ERROR: Non-admin [key_name(usr)] attempted to execute a SDQL query!</span>")
 		log_admin("Non-admin [key_name(usr)] attempted to execute a SDQL query!")
