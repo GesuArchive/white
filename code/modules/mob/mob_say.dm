@@ -15,13 +15,15 @@
 	var/image/I = image('icons/mob/talk.dmi', src, "[bubble_type]0", FLY_LAYER)
 
 	if(!stat)
-		var/list/listening = GLOB.clients//get_hearers_in_view(9, src)
+		/*
+		var/list/listening = get_hearers_in_view(9, src)
 		for(var/mob/M in listening)
 			if(!M.client)
 				continue
 			var/client/C = M.client
 			speech_bubble_recipients.Add(C)
-
+		*/
+		speech_bubble_recipients = GLOB.clients
 		I.alpha = 0
 		animate(I, time = 7, loop = -1, easing = SINE_EASING, alpha = 255)
 		animate(time = 7, alpha = 80)
