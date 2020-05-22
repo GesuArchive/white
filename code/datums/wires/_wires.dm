@@ -61,6 +61,31 @@
 
 /datum/wires/proc/randomize()
 	var/static/list/possible_colors = list(
+	"синий",
+	"коричневый",
+	"малиновый",
+	"бирюзовый",
+	"золотой",
+	"серый",
+	"зелёный",
+	"пурпурный",
+	"оранжевый",
+	"розовый",
+	"фиолетовый",
+	"красный",
+	"серебряный",
+	"лиловый",
+	"белый",
+	"жёлтый"
+	)
+
+	var/list/my_possible_colors = possible_colors.Copy()
+
+	for(var/wire in shuffle(wires))
+		colors[pick_n_take(my_possible_colors)] = wire
+
+/datum/wires/proc/get_wire_color(CC)
+	var/list/cocklors = list(
 	"синий" 	 = "blue",
 	"коричневый" = "brown",
 	"малиновый"  = "crimson",
@@ -78,11 +103,7 @@
 	"белый"		 = "white",
 	"жёлтый"	 = "yellow"
 	)
-
-	var/list/my_possible_colors = possible_colors.Copy()
-
-	for(var/wire in shuffle(wires))
-		colors[pick_n_take(my_possible_colors)] = wire
+	return cocklors[CC]
 
 /datum/wires/proc/shuffle_wires()
 	colors.Cut()
@@ -241,7 +262,7 @@
 
 	for(var/color in colors)
 		payload.Add(list(list(
-			"color" = colors[color],
+			"color" = get_wire_color(color),
 			"wire" = ((reveal_wires && !is_dud_color(color)) ? get_wire(color) : null),
 			"cut" = is_color_cut(color),
 			"attached" = is_attached(color)
