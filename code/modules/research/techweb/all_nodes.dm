@@ -1168,14 +1168,6 @@
 	hidden = TRUE
 	experimental = TRUE
 
-/datum/techweb_node/drone_robotics
-	id = "drone_robotics"
-	starting_node = TRUE
-	display_name = "Drone research"
-	description = "Little robots that help out here and there. Immensely useful."
-	prereq_ids = list("base")
-	design_ids = list("maint_drone")
-
 
 //Helpers for debugging/balancing the techweb in its entirety!
 /proc/total_techweb_exports()
