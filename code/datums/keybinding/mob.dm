@@ -222,7 +222,7 @@
 	return TRUE
 
 /datum/keybinding/client/ooc
-	hotkey_keys = list("F2")
+	hotkey_keys = list("F2", "O")
 	name = "ooc"
 	full_name = "OOC"
 	description = ""
@@ -237,7 +237,7 @@
 	ooc(message)
 
 /datum/keybinding/mob/say
-	hotkey_keys = list("F3")
+	hotkey_keys = list("F3", "T")
 	name = "say"
 	full_name = "Say"
 	description = ""
@@ -257,7 +257,7 @@
 	call(src, "say_verb_wrapper")()
 
 /datum/keybinding/mob/me
-	hotkey_keys = list("F4")
+	hotkey_keys = list("F4", "M")
 	name = "me"
 	full_name = "Me"
 	description = ""
