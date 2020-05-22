@@ -61,22 +61,22 @@
 
 /datum/wires/proc/randomize()
 	var/static/list/possible_colors = list(
-	"синий",
-	"коричневый",
-	"малиновый",
-	"бирюзовый",
-	"золотой",
-	"серый",
-	"зелёный",
-	"пурпурный",
-	"оранжевый",
-	"розовый",
-	"фиолетовый",
-	"красный",
-	"серебряный",
-	"лиловый",
-	"белый",
-	"жёлтый"
+	"синий" 	 = "blue",
+	"коричневый" = "brown",
+	"малиновый"  = "crimson",
+	"бирюзовый"  = "cyan",
+	"золотой"    = "gold",
+	"серый"		 = "grey",
+	"зелёный"	 = "green",
+	"пурпурный"  = "magenta",
+	"оранжевый"  = "orange",
+	"розовый"	 = "pink",
+	"фиолетовый" = "purple",
+	"красный"	 = "red",
+	"серебряный" = "silver",
+	"лиловый"	 = "violet",
+	"белый"		 = "white",
+	"жёлтый"	 = "yellow"
 	)
 
 	var/list/my_possible_colors = possible_colors.Copy()
@@ -219,7 +219,7 @@
 							datum/tgui/master_ui = null, datum/ui_state/state = GLOB.physical_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "Wires", "Проводка [holder.name]", 450, 150 + wires.len * 30, master_ui, state)
+		ui = new(user, src, ui_key, "Wires", "Проводка [holder.name]", 400, 150 + wires.len * 30, master_ui, state)
 		ui.open()
 
 /datum/wires/ui_data(mob/user)
@@ -241,7 +241,7 @@
 
 	for(var/color in colors)
 		payload.Add(list(list(
-			"color" = color,
+			"color" = colors[color],
 			"wire" = ((reveal_wires && !is_dud_color(color)) ? get_wire(color) : null),
 			"cut" = is_color_cut(color),
 			"attached" = is_attached(color)
