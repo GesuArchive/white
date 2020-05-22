@@ -152,8 +152,15 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 
 //TODO: merge the vievars version into this or something maybe mayhaps
-/client/proc/cmd_debug_del_all(object as text)
+/client/proc/cmd_debug_del_all_wrapper()
 	set category = "ДЕБАГ"
+	set name = "Del-All"
+
+	var/msg = input(src, null, "Del-All") as text|null
+	if(msg)
+		cmd_debug_del_all(msg)
+
+/client/proc/cmd_debug_del_all(object as text)
 	set name = "Del-All"
 
 	var/list/matches = get_fancy_list_of_atom_types()
@@ -713,10 +720,17 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 	usr << browse(replacetext(SSatoms.InitLog(), "\n", "<br>"), "window=initlog")
 
-/client/proc/debug_huds(i as num)
+/client/proc/debug_huds_wrapper()
 	set category = "ДЕБАГ"
 	set name = "Debug HUDs"
 	set desc = "Debug the data or antag HUDs"
+
+	var/msg = input(src, null, "Debug HUDs") as num|null
+	if(msg)
+		debug_huds(msg)
+
+/client/proc/debug_huds(i as num)
+	set name = "Debug HUDs"
 
 	if(!holder)
 		return

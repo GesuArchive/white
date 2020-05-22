@@ -128,7 +128,7 @@
 /area/ruin/space/has_grav/bseruin/asteroid)
 "ii" = (
 /obj/structure/cable,
-/obj/machinery/power/port_gen/pacman/super{
+/obj/machinery/power/port_gen/pacman/ecrys{
 	anchored = 1
 	},
 /turf/open/floor/plating,
@@ -313,10 +313,7 @@
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/bseruin/ntnet)
 "wr" = (
-/obj/item/stack/sheet/mineral/uranium{
-	amount = 10
-	},
-/obj/structure/closet/crate/radiation,
+/obj/machinery/power/port_gen/pacman/ecrys,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bseruin/shop)
 "wT" = (

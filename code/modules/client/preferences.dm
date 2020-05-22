@@ -140,6 +140,14 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			load_path(C.ckey)
 			max_save_slots = 3
 	var/loaded_preferences_successfully = load_preferences()
+
+	if(!key_bindings["T"])
+		key_bindings["T"] = list("say")
+	if(!key_bindings["M"])
+		key_bindings["M"] = list("me")
+	if(!key_bindings["O"])
+		key_bindings["O"] = list("ooc")
+
 	if(loaded_preferences_successfully)
 		if(load_character())
 			return

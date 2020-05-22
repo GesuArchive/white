@@ -1,124 +1,162 @@
-#define ui_game "EAST-1:28,SOUTH+2:8"
+#define ui_main "EAST-1:28,SOUTH+2:8"
 #define ui_special "EAST-1:44,SOUTH+2:8"
 #define ui_settings "EAST-1:44,SOUTH+2:24"
 #define ui_admin "EAST-1:28,SOUTH+2:24"
-/*
-/datum/hud
-	var/obj/screen/ooc_icon
-	var/obj/screen/special_icon
-	var/obj/screen/settings_icon
-	//var/obj/screen/object
-*/
+
 /datum/hud/proc/extend(mob/owner)
 	var/obj/screen/using
 
 	if(owner.client.holder)
-		using = new /obj/screen/admin()
+		using = new /obj/screen/verbbutton/admin()
 		//using.icon = ui_style
 		using.screen_loc = ui_admin
 		using.hud = src
 		infodisplay += using
 
-
-	if(!using)
-		return //потомушто недопилено
-
-	using = new /obj/screen/game()
-	//using.icon = ui_style
-	using.screen_loc = ui_game
-	using.hud = src
-	infodisplay += using
-
-	using = new /obj/screen/special()
+	using = new /obj/screen/verbbutton/special()
 	//using.icon = ui_style
 	using.screen_loc = ui_special
 	using.hud = src
 	infodisplay += using
 
-	using = new /obj/screen/settings()
+	using = new /obj/screen/verbbutton/settings()
 	//using.icon = ui_style
 	using.screen_loc = ui_settings
 	using.hud = src
 	infodisplay += using
 
-/obj/screen/admin
-	name = "secret"
-	icon = 'code/shitcode/baldenysh/icons/ui/midnight_extended.dmi'
-	icon_state = "ooc"
-	screen_loc = ui_admin
+	using = new /obj/screen/verbbutton/main()
+	//using.icon = ui_style
+	using.screen_loc = ui_main
+	using.hud = src
+	infodisplay += using
 
-/obj/screen/admin/Click()
-	if(!ismob(usr))
-		return
-	var/mob/M = usr
-	if(M.client.holder)
-		ui_interact(usr)
+////////////////////////////////////////////////////////////
 
-/obj/screen/admin/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.admin_state)
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "AdminMenu", "Admin Menu", 700, 800, master_ui, state)
-		ui.open()
+/mob/proc/get_all_verbs()
+	var/list/verblist = list()
+	for(var/verb_M in verbs)
+		if(verb_M in verblist)
+			continue
+		verblist += verb_M
+	/*
+	for(var/obj/item/I in contents)
+		for(var/verb_I in I.verbs)
+			if(verb_I in verblist)
+				continue
+			verblist += verb_I
+	*/
+	if(client)
+		for(var/verb_C in client.verbs)
+			if(verb_C in verblist)
+				continue
+			verblist += verb_C
+	return verblist
 
-/obj/screen/admin/ui_data(mob/user)
-	var/list/data = list()
+/mob/proc/get_verb_categories()
+	var/list/categories = list()
+	for(var/verb_item in get_all_verbs())
+		if(verb_item:category && !(verb_item:category in categories))
+			categories += verb_item:category
+	return categories
 
-	data["rights"] = user.client.holder.rank.rights
+/proc/text2color(text)
+	var/num = hex2num(copytext(md5(text), 1, 7))
+	var/rgb = hsv2rgb(num % 360, (num / 360) % 10 / 100 + 0.48, num / 360 / 10 % 15 / 100 + 0.35)
+	return rgb
 
-	return data
+///////////////////////////////////////////////////////////////////
 
-/obj/screen/admin/ui_act(action, params)
-	if(..())
-		return
-	var/client/C = usr.client
-	switch(action)
-		//default a/v
-		if("deadmin")
-			C.deadmin()
-		if("cmd_asay")
-			C.get_admin_say()
+/obj/screen/verbbutton
+	name = "Верб кнопка прикол"
+	var/list/allowed_categories = list(
+								"IC", "OOC", "ОБЪЕКТ", "ПРИЗРАК", "ОСОБЕННОЕ", "НАСТРОЙКИ",
+								"АДМИН", "АС", "ДЕБАГ", "СЕРВЕР", "ФАН"
+							)
+	var/ui_x = 450
+	var/ui_y = 400
 
-/obj/screen/game
-	name = "ooc"
-	icon = 'code/shitcode/baldenysh/icons/ui/midnight_extended.dmi'
-	icon_state = "ooc"
-	screen_loc = ui_game
-
-/obj/screen/game/Click()
+/obj/screen/verbbutton/Click()
 	ui_interact(usr)
 
-/obj/screen/game/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.always_state)
+/obj/screen/verbbutton/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.always_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
-		ui = new(user, src, ui_key, "GameMenu", "Игра", 400, 600, master_ui, state)
+		ui = new(user, src, ui_key, "VerbMenu", name, ui_x, ui_y, master_ui, state)
 		ui.open()
 
-/obj/screen/game/ui_status(mob/user)
-	. = ..()
-	. = UI_INTERACTIVE
+/obj/screen/verbbutton/ui_status(mob/user)
+	return UI_INTERACTIVE
 
-/obj/screen/game/ui_data(mob/user)
+/obj/screen/verbbutton/ui_data(mob/user)
 	var/list/data = list()
+	data["verbs"] = list()
 
-	for(var/verb_to in user.verbs)
-		if(verb_to:category)
-			data[verb_to:category] += list(list(verb_to:name, verb_to))
-
+	for(var/verb_item in user.get_all_verbs())
+		if(!verb_item:hidden && verb_item:category && (verb_item:category in allowed_categories))
+			var/list/L = splittext("[verb_item]", "/")
+			var/verbpath = L[L.len]
+			var/verbcolor = text2color(verbpath)
+			data["verbs"][verb_item:category] += list(list(verb_item:name, verbpath, verbcolor))
 	return data
 
-/obj/screen/game/ui_act(action, params)
+/obj/screen/verbbutton/ui_act(action, params)
 	if(..())
 		return
-	call(usr, action)()
+	//регекс для поиска пидорасов: proc\/[\w\s]+\([\w\s]+as[\w\s]+\)[\w\s="]+set category
+	if(hascall(usr, action))
+		call(usr, action)()
+	else if (hascall(usr.client, action))
+		call(usr.client, action)()
 
-/obj/screen/special
-	name = "special"
+////////////////////////////////////////////////////
+
+/obj/screen/verbbutton/admin
+	name = "Админ"
+	icon = 'code/shitcode/baldenysh/icons/ui/midnight_extended.dmi'
+	icon_state = "admin"
+	screen_loc = ui_admin
+	allowed_categories = list("АДМИН", "АС", "ДЕБАГ", "СЕРВЕР", "ФАН", "Mapping", "Profile")
+	ui_y = 500
+
+/obj/screen/verbbutton/admin/Click()
+	if(usr.client.holder)
+		ui_interact(usr)
+
+/obj/screen/verbbutton/main
+	name = "Действия"
+	icon = 'code/shitcode/baldenysh/icons/ui/midnight_extended.dmi'
+	icon_state = "main"
+	screen_loc = ui_main
+	allowed_categories = list("IC", "OOC", "ОБЪЕКТ", "ПРИЗРАК")
+	ui_y = 300
+
+/obj/screen/verbbutton/special
+	name = "Особое"
 	icon = 'code/shitcode/baldenysh/icons/ui/midnight_extended.dmi'
 	icon_state = "special"
 	screen_loc = ui_special
+	allowed_categories = list("ОСОБЕННОЕ")
 
-/obj/screen/settings
-	name = "settings"
+/obj/screen/verbbutton/settings
+	name = "Настройки"
 	icon = 'code/shitcode/baldenysh/icons/ui/midnight_extended.dmi'
 	icon_state = "settings"
 	screen_loc = ui_settings
+	allowed_categories = list("НАСТРОЙКИ")
+
+/obj/screen/verbbutton/settings/ui_data(mob/user)
+	var/list/data = list()
+	data["verbs"] = list()
+	data["verbs"]["Основное"] = list()
+
+	for(var/verb_item in user.get_all_verbs())
+		if(verb_item:category && (verb_item:category in allowed_categories))
+			var/list/L = splittext("[verb_item]", "/")
+			var/verbpath = L[L.len]
+			var/verbcolor = text2color(verbpath)
+			if(findtext(verb_item:name, "🔄"))
+				data["verbs"]["Предпочтения"] += list(list(verb_item:name, verbpath, verbcolor))
+			else
+				data["verbs"]["Основное"] += list(list(verb_item:name, verbpath, verbcolor))
+	return data

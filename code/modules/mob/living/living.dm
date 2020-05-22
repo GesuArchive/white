@@ -897,8 +897,13 @@
 		if(!what.mob_can_equip(who, src, final_where, TRUE, TRUE))
 			to_chat(src, "<span class='warning'>Похоже <b>[what.name]</b> не подходит к этому месту!</span>")
 			return
-
-		who.visible_message("<span class='notice'><b>[src]</b> пытается надеть <b>[what]</b> на <b>[who]</b>.</span>", \
+		if(istype(what,/obj/item/clothing))
+			var/obj/item/clothing/c = what
+			if(c.clothing_flags & DANGEROUS_OBJECT)
+				who.visible_message("<span class='danger'><b>[src]</b> пытается надеть <b>[what]</b> на <b>[who]</b>.</span>", \
+							"<span class='userdanger'><b>[src]</b> пытается надеть <b>[what]</b> на меня.</span>", null, null, src)
+			else
+				who.visible_message("<span class='notice'><b>[src]</b> пытается надеть <b>[what]</b> на <b>[who]</b>.</span>", \
 						"<span class='notice'><b>[src]</b> пытается надеть <b>[what]</b> на меня.</span>", null, null, src)
 		to_chat(src, "<span class='notice'>Пытаюсь надеть <b>[what]</b> на <b>[who]</b>...</span>")
 		if(do_mob(src, who, what.equip_delay_other))

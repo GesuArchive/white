@@ -617,20 +617,6 @@
 /obj/item/weldingtool,
 /turf/open/floor/plating,
 /area/engine/engineering)
-"bS" = (
-/obj/machinery/the_singularitygen/tesla,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/engine/engineering)
-"bT" = (
-/obj/machinery/the_singularitygen,
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/engine/engineering)
 "bU" = (
 /obj/structure/grille,
 /turf/open/floor/plating,
@@ -792,6 +778,7 @@
 /area/engine/engineering)
 "GV" = (
 /obj/effect/turf_decal/box,
+/obj/machinery/the_singularitygen/tesla,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "Is" = (
@@ -1396,7 +1383,7 @@ YT
 YT
 YT
 JX
-bS
+Is
 xC
 Jm
 Jm
@@ -1452,7 +1439,7 @@ aT
 Is
 Is
 Qx
-bT
+Jm
 hM
 YT
 YT

@@ -39,11 +39,8 @@
 
 /datum/component/aoe_melee/swing/proc/prepare_img(atom/target, mob/user)
 	anim_img = image(icon = master, loc = master.loc, layer = user.layer + 0.1)
-
-
 	anim_img.plane = GAME_PLANE
 	anim_img.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
-
 
 	var/direction = get_dir(user, target)
 	cur_angle = dir2angle(direction)
