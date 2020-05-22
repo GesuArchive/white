@@ -33,16 +33,12 @@ export const VerbMenu = (props, context) => {
           mb={1}
           placeholder="Поиск..."
           onInput={(e, value) => setSearchText(value)} />
-        <LabeledList>
-          {matchingVerbs.map((val, key) => {
-            return (
-              <LabeledList.Item label={val[0]} key={key}>
-                <Button content={val[1]} onClick={() =>
-                  act(val[1])} />
-              </LabeledList.Item>
-            );
-          })}
-        </LabeledList>
+        {matchingVerbs.map((val, key) => {
+          return (
+            <Button key={key} content={val[0]} onClick={() =>
+              act(val[1])} />
+          );
+        })}
       </Window.Content>
     </Window>
   );
