@@ -39,11 +39,13 @@
 		if(verb_M in verblist)
 			continue
 		verblist += verb_M
+	/*
 	for(var/obj/item/I in contents)
 		for(var/verb_I in I.verbs)
 			if(verb_I in verblist)
 				continue
 			verblist += verb_I
+	*/
 	if(client)
 		for(var/verb_C in client.verbs)
 			if(verb_C in verblist)
