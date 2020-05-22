@@ -693,17 +693,13 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Unprison") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 ////////////////////////////////////////////////////////////////////////////////////////////////ADMIN HELPER PROCS
-/datum/admins/proc/spawn_atom_wrapper()
-	set category = "ДЕБАГ"
-	set desc = "(atom path) Spawn an atom"
-	set name = "Spawn"
-
-	var/msg = input(src, null, "Spawn") as text|null
-	if(msg)
-		spawn_atom(msg)
-
 /datum/admins/proc/spawn_atom(object as text)
 	set name = "Spawn"
+	set category = "ДЕБАГ"
+	set desc = "(atom path) Spawn an atom"
+
+	if(!object)
+		object = input("", "Spawn") as null|text
 
 	if(!check_rights(R_SPAWN) || !object)
 		return
@@ -732,17 +728,13 @@
 	log_admin("[key_name(usr)] spawned [amount] x [chosen] at [AREACOORD(usr)]")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/datum/admins/proc/podspawn_atom_wrapper()
+/datum/admins/proc/podspawn_atom(object as text)
 	set category = "ДЕБАГ"
 	set desc = "(atom path) Spawn an atom via supply drop"
 	set name = "Podspawn"
 
-	var/msg = input(src, null, "Podspawn") as text|null
-	if(msg)
-		podspawn_atom(msg)
-
-/datum/admins/proc/podspawn_atom(object as text)
-	set name = "Podspawn"
+	if(!object)
+		object = input("", "Podspawn") as null|text
 
 	if(!check_rights(R_SPAWN))
 		return
@@ -766,17 +758,13 @@
 	log_admin("[key_name(usr)] pod-spawned [chosen] at [AREACOORD(usr)]")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Podspawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/datum/admins/proc/spawn_cargo_wrapper()
+/datum/admins/proc/spawn_cargo(object as text)
 	set category = "ДЕБАГ"
 	set desc = "(atom path) Spawn a cargo crate"
 	set name = "Spawn Cargo"
 
-	var/msg = input(src, null, "Spawn Cargo") as text|null
-	if(msg)
-		spawn_cargo(msg)
-
-/datum/admins/proc/spawn_cargo(object as text)
-	set name = "Spawn Cargo"
+	if(!object)
+		object = input("", "Spawn Cargo") as null|text
 
 	if(!check_rights(R_SPAWN))
 		return
