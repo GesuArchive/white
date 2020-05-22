@@ -255,11 +255,11 @@
 	if(mining_points)
 		. += "Вау, здесь же есть [mining_points] шахтёрских очков на разные штуки из шахтёрского инвентаря."
 	if(registered_account)
-		. += "Привязанный аккаунт принадлежит '[registered_account.account_holder]' и сообщает о балансе в размере [registered_account.account_balance] кредитов."
+		. += "Привязанный аккаунт принадлежит '[registered_account.account_holder]' и сообщает о балансе в размере <b>[registered_account.account_balance] кредитов</b>."
 		if(registered_account.account_job)
 			var/datum/bank_account/D = SSeconomy.get_dep_account(registered_account.account_job.paycheck_department)
 			if(D)
-				. += "Баланс [D.account_holder] составляет [D.account_balance] кредитов."
+				. += "Баланс [D.account_holder] составляет <b>[D.account_balance] кредитов</b>."
 		. += "<span class='info'>Alt-клик на ID-карте для снятия денег.</span>"
 		. += "<span class='info'>Похоже сюда можно вставлять голо-чипы, монетки и прочую валюту.</span>"
 		if(registered_account.account_holder == user.real_name)
@@ -490,6 +490,16 @@ update_label()
 	access = J.get_access()
 	. = ..()
 	update_label()
+
+/obj/item/card/id/captains_spare/trap/attackby(obj/item/I, mob/user, params)
+	if(I.tool_behaviour == TOOL_WIRECUTTER)
+		to_chat(user, "<span class='notice'>Начинаю обезвреживать карту. (это займёт примерно 15 минут и нужно не шевелиться)</span>")
+		if(do_after(C, 900, target = src))
+			to_chat(user, "<span class='notice'>Карта разминирована.</span>")
+			first_try = FALSE
+			anchored = FALSE
+	else
+		return ..()
 
 /obj/item/card/id/captains_spare/trap/attack_hand(mob/user)
 	. = ..()
