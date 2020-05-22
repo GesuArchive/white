@@ -9,7 +9,7 @@ export const VerbMenu = (props, context) => {
   const keys = Object.keys(data.verbs);
   const verbsByTab = data.verbs[keys[tab]];
   const matchingVerbs = verbsByTab.filter((val, key) =>
-    val[0].toLowerCase().search(searchText.toLowerCase()) !== -1);
+    val[0].toLowerCase().search(searchText.toLowerCase()) !== -1).sort();
   return (
     <Window resizable>
       <Window.Content scrollable>
@@ -35,8 +35,8 @@ export const VerbMenu = (props, context) => {
           onInput={(e, value) => setSearchText(value)} />
         {matchingVerbs.map((val, key) => {
           return (
-            <Button key={key} content={val[0]} onClick={() =>
-              act(val[1])} />
+            <Button key={key} content={<font color={val[2]}>{val[0]}</font>}
+              onClick={() => act(val[1])} />
           );
         })}
       </Window.Content>

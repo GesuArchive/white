@@ -60,6 +60,11 @@
 			categories += verb_item:category
 	return categories
 
+/proc/text2color(text)
+	var/num = hex2num(copytext(md5(text), 1, 7))
+	var/rgb = hsv2rgb(num % 360, (num / 360) % 10 / 100 + 0.48, num / 360 / 10 % 15 / 100 + 0.35)
+	return rgb
+
 ///////////////////////////////////////////////////////////////////
 
 /obj/screen/verbbutton
@@ -69,7 +74,7 @@
 								"АДМИН", "АС", "ДЕБАГ", "СЕРВЕР", "ФАН"
 							)
 	var/ui_x = 450
-	var/ui_y = 600
+	var/ui_y = 400
 
 /obj/screen/verbbutton/Click()
 	ui_interact(usr)
@@ -91,7 +96,8 @@
 		if(!verb_item:hidden && verb_item:category && (verb_item:category in allowed_categories))
 			var/list/L = splittext("[verb_item]", "/")
 			var/verbpath = L[L.len]
-			data["verbs"][verb_item:category] += list(list(verb_item:name, verbpath))
+			var/verbcolor = text2color(verbpath)
+			data["verbs"][verb_item:category] += list(list(verb_item:name, verbpath, verbcolor))
 	return data
 
 /obj/screen/verbbutton/ui_act(action, params)
@@ -111,6 +117,7 @@
 	icon_state = "admin"
 	screen_loc = ui_admin
 	allowed_categories = list("АДМИН", "АС", "ДЕБАГ", "СЕРВЕР", "ФАН", "Mapping", "Profile")
+	ui_y = 500
 
 /obj/screen/verbbutton/admin/Click()
 	if(usr.client.holder)
@@ -122,6 +129,7 @@
 	icon_state = "main"
 	screen_loc = ui_main
 	allowed_categories = list("IC", "OOC", "ОБЪЕКТ", "ПРИЗРАК")
+	ui_y = 300
 
 /obj/screen/verbbutton/special
 	name = "Особое"
@@ -146,8 +154,9 @@
 		if(verb_item:category && (verb_item:category in allowed_categories))
 			var/list/L = splittext("[verb_item]", "/")
 			var/verbpath = L[L.len]
+			var/verbcolor = text2color(verbpath)
 			if(findtext(verb_item:name, "🔄"))
-				data["verbs"]["Предпочтения"] += list(list(verb_item:name, verbpath))
+				data["verbs"]["Предпочтения"] += list(list(verb_item:name, verbpath, verbcolor))
 			else
-				data["verbs"]["Основное"] += list(list(verb_item:name, verbpath))
+				data["verbs"]["Основное"] += list(list(verb_item:name, verbpath, verbcolor))
 	return data
