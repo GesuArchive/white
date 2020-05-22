@@ -494,7 +494,7 @@ update_label()
 /obj/item/card/id/captains_spare/trap/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_WIRECUTTER)
 		to_chat(user, "<span class='notice'>Начинаю обезвреживать карту. (это займёт примерно 15 минут и нужно не шевелиться)</span>")
-		if(do_after(C, 900, target = src))
+		if(do_after(user, 900, target = src))
 			to_chat(user, "<span class='notice'>Карта разминирована.</span>")
 			first_try = FALSE
 			anchored = FALSE

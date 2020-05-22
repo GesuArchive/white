@@ -32,7 +32,7 @@ export const Wires = (props, context) => {
                         wire: wire.color,
                       })} />
                     <Button
-                      content={wire.attached ? 'Отсоед.' : 'Присоед.'}
+                      content={wire.attached ? 'Отсоединить' : 'Присоединить'}
                       onClick={() => act('attach', {
                         wire: wire.color,
                       })} />

@@ -61,22 +61,22 @@
 
 /datum/wires/proc/randomize()
 	var/static/list/possible_colors = list(
-	"blue",
-	"brown",
-	"crimson",
-	"cyan",
-	"gold",
-	"grey",
-	"green",
-	"magenta",
-	"orange",
-	"pink",
-	"purple",
-	"red",
-	"silver",
-	"violet",
-	"white",
-	"yellow"
+	"синий",
+	"коричневый",
+	"малиновый",
+	"бирюзовый",
+	"золотой",
+	"серый",
+	"зелёный",
+	"пурпурный",
+	"оранжевый",
+	"розовый",
+	"фиолетовый",
+	"красный",
+	"серебряный",
+	"лиловый",
+	"белый",
+	"жёлтый"
 	)
 
 	var/list/my_possible_colors = possible_colors.Copy()
@@ -219,7 +219,7 @@
 							datum/tgui/master_ui = null, datum/ui_state/state = GLOB.physical_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "Wires", "[holder.name] Wires", 350, 150 + wires.len * 30, master_ui, state)
+		ui = new(user, src, ui_key, "Wires", "Проводка [holder.name]", 450, 150 + wires.len * 30, master_ui, state)
 		ui.open()
 
 /datum/wires/ui_data(mob/user)
@@ -265,7 +265,7 @@
 				cut_color(target_wire)
 				. = TRUE
 			else
-				to_chat(L, "<span class='warning'>You need wirecutters!</span>")
+				to_chat(L, "<span class='warning'>Нужны кусачки!</span>")
 		if("pulse")
 			I = L.is_holding_tool_quality(TOOL_MULTITOOL)
 			if(I || IsAdminGhost(usr))
@@ -274,7 +274,7 @@
 				pulse_color(target_wire, L)
 				. = TRUE
 			else
-				to_chat(L, "<span class='warning'>You need a multitool!</span>")
+				to_chat(L, "<span class='warning'>Нужен мультитул!</span>")
 		if("attach")
 			if(is_attached(target_wire))
 				I = detach_assembly(target_wire)
@@ -292,6 +292,6 @@
 							A.forceMove(L.drop_location())
 						. = TRUE
 					else
-						to_chat(L, "<span class='warning'>You need an attachable assembly!</span>")
+						to_chat(L, "<span class='warning'>Нужна штука, которую я смогу прикрепить!</span>")
 
 #undef MAXIMUM_EMP_WIRES
