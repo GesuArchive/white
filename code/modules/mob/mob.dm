@@ -524,9 +524,17 @@
 /**
   * Add a note to the mind datum
   */
-/mob/verb/add_memory(msg as message)
+/mob/verb/add_memory_wrapper()
 	set name = " 📝 Добавить заметку"
 	set category = "IC"
+
+	var/msg = input("", "Добавить заметку") as null|message
+	if(msg)
+		add_memory(msg)
+
+/mob/verb/add_memory(msg as message)
+	set name = " 📝 Добавить заметку"
+	set hidden = 1
 	if(mind)
 		if (world.time < memory_throttle_time)
 			return
