@@ -29,6 +29,8 @@
 			C.parallax_layers_cached += new /obj/screen/parallax_layer/planet/high_definition/gensokyo(null, C.view)
 		else if (SSmapping.current_mining == "lavaland")
 			C.parallax_layers_cached += new /obj/screen/parallax_layer/planet/high_definition(null, C.view)
+		else if (SSmapping.current_mining == "icemoon")
+			C.parallax_layers_cached += new /obj/screen/parallax_layer/planet/high_definition/icemoon(null, C.view)
 		if(SSparallax.random_layer)
 			C.parallax_layers_cached += new SSparallax.random_layer
 		C.parallax_layers_cached += new /obj/screen/parallax_layer/layer_3(null, C.view)
@@ -368,7 +370,7 @@
 		invisibility = INVISIBILITY_ABSTRACT
 
 /obj/screen/parallax_layer/planet/update_o()
-	if (icon_state == "planet_gensokyo" || icon_state == "planet_lavaland")
+	if (icon_state == "planet_icemoon" || icon_state == "planet_lavaland")
 		return //Shit wont move
 	. = ..()
 
@@ -380,6 +382,9 @@
 
 /obj/screen/parallax_layer/planet/high_definition/gensokyo
 	icon_state = "planet_gensokyo"
+
+/obj/screen/parallax_layer/planet/high_definition/icemoon
+	icon_state = "planet_icemoon"
 
 /obj/screen/parallax_layer/ice_surface
 	icon_state = "ice_surface"
