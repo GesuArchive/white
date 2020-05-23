@@ -31,11 +31,8 @@
 
 /obj/item/boombox/Initialize()
 	. = ..()
-
 	bbchannel = open_sound_channel_for_boombox()
-
 	START_PROCESSING(SSobj, src)
-
 	load_tracks()
 
 /obj/item/boombox/update_icon()
@@ -163,16 +160,14 @@
 	for(var/mob/M)
 		if(!M.client)
 			continue
-
 		for(var/sound/S in M.client.SoundQuery())
 			if(bbsound && S.file == bbsound.file)
 				M.stop_sound_channel(bbchannel)
 				break
 
 	bbsound = null
-	playsound(src,'sound/machines/terminal_off.ogg',50,1)
+	playsound(get_turf(src),'sound/machines/terminal_off.ogg',50,1)
 	update_icon()
-
 	active = FALSE
 
 /obj/item/boombox/proc/set_volume(var/vol)
@@ -183,10 +178,8 @@
 		listener_update(M)
 
 /obj/item/boombox/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/card/music) && !disk)
-		if(disk_insert(user, I, disk))
-			disk = I
-		return
+	if(disk_insert(user, I, disk))
+		disk = I
 	return ..()
 
 /obj/item/boombox/proc/disk_insert(mob/user, obj/item/card/music/I, target)
@@ -198,7 +191,8 @@
 			return FALSE
 		user.visible_message("<span class='notice'>[user] вставляет диск в [src].</span>", \
 							"<span class='notice'>Вставляю диск в [src].</span>")
-		playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
+		playsound(get_turf(src), 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
+		ui_interact(user)
 		return TRUE
 
 /obj/item/boombox/proc/eject_disk(mob/user)
@@ -209,30 +203,36 @@
 			disk.forceMove(get_turf(src))
 		if(active)
 			stopsound()
+		else
+			playsound(get_turf(src), 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 		if(selection == disk.data)
 			selection = null
 		disk = null
 
-
-
-
-/obj/item/boombox/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
+/obj/item/boombox/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.always_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "BoomBox", name, ui_x, ui_y, master_ui, state)
 		ui.open()
 
+/obj/item/boombox/ui_status(mob/user)
+	if(get_dist(get_turf(src), user) < 1.5)
+		return UI_INTERACTIVE
+	else
+		return UI_CLOSE
+
 /obj/item/boombox/ui_data(mob/user)
 	var/list/data = list()
 
+	data["name"] = name
 	data["active"] = active
 	data["volume"] = volume
-	data["curtrack"] = selection ? selection.song_name : FALSE
-	data["curlength"] = selection ? (selection.song_length ? selection.song_length : FALSE) : FALSE
+	data["curtrack"] = selection && selection.song_name ? selection.song_name : FALSE
+	data["curlength"] = selection && selection.song_length ? selection.song_length : FALSE
 	data["env"] = env_sound
 
 	data["disk"] = disk ? TRUE : FALSE
-	data["disktrack"] = disk ? disk.data.song_name : FALSE
+	data["disktrack"] = disk && disk.data ? disk.data.song_name : FALSE
 
 	return data
 
@@ -246,114 +246,146 @@
 				startsound()
 			else
 				stopsound()
-
 		if("select")
 			var/list/available = list()
 			for(var/datum/track/S in songs)
 				available[S.song_name] = S
-
 			if(disk)
 				if(disk.data)
 					available[disk.data.song_name] = disk.data
-
 			var/selected = input(usr, "Выбирай мудро", "Трек:") as null|anything in available
 			if(QDELETED(src) || !selected || !istype(available[selected], /datum/track))
 				return
-
 			if(active)
 				stopsound()
-
 			selection = available[selected]
-
 		if("change_volume")
 			var/target = text2num(params["volume"])
 			set_volume(clamp(target, 0, 100))
-
 		if("eject")
 			eject_disk(usr)
-
 		if("env")
 			env_sound = !env_sound
-
 	update_icon()
 
+/obj/machinery/turntable
+	name = "музыкальный автомат"
+	desc = "Классический музыкальный проигрыватель."
+	icon = 'code/shitcode/valtos/icons/jukeboxes.dmi'
+	icon_state = "default"
+	verb_say = "констатирует"
+	density = TRUE
+	var/obj/item/boombox/bbox
 
-/*
-
-/obj/item/boombox/attack_self(mob/user)
+/obj/machinery/turntable/Initialize()
 	. = ..()
-	ui_interact(user)
+	icon_state = pick("default", "tall", "neon")
+	if(icon_state == "tall")
+		name = "младший [name]"
+	bbox = new(src)
+	bbox.name = name
 
-/obj/item/boombox/ui_interact(mob/user)
+/obj/machinery/turntable/ui_interact(mob/user)
+	bbox.ui_interact(user)
+
+/obj/machinery/turntable/attackby(obj/item/I, mob/user)
+	if(bbox.disk_insert(user, I, bbox.disk))
+		bbox.disk = I
+		return
+	return ..()
+
+/obj/machinery/turntable/donate
+	desc = "Классический музыкальный проигрыватель. Пахнет помидорами."
+
+/obj/machinery/turntable/donate/Initialize()
+	. = ..()
+	for(var/obj/machinery/turntable/donate/TT)
+		if(TT != src)
+			qdel(src)
+
+//переделать нафиг
+
+/obj/item/card/music
+	icon_state = "data_3"
+	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
+	w_class = 1.0
+	var/datum/track/data
+	var/uploader_ckey
+
+/obj/machinery/musicwriter
+	name = "записыватель мозговых импульсов МК-3"
+	icon = 'code/shitcode/valtos/icons/musicconsole.dmi'
+	icon_state = "off"
+	var/coin = 0
+	var/mob/retard //current user
+	var/retard_name
+	var/writing = 0
+
+/obj/machinery/musicwriter/attackby(obj/item/I, mob/user)
+	if(default_unfasten_wrench(user, I))
+		return
+	if(istype(I, /obj/item/coin))
+		user.dropItemToGround(I)
+		qdel(I)
+		coin++
+		return
+
+/obj/machinery/musicwriter/ui_interact(mob/user)
 	. = ..()
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return
+	if (!anchored)
+		to_chat(user,"<span class='warning'>Надо бы прикрутить!</span>")
+		return
+	if(!allowed(user))
+		to_chat(user,"<span class='warning'>Ошибка! Нет доступа.</span>")
+		user.playsound_local(src,'sound/misc/compiler-failure.ogg', 25, 1)
+		return
 
 	var/list/dat = list()
-	dat +="<div class='statusDisplay' style='text-align:center'>"
-	dat += "<b><A href='?src=[REF(src)];action=toggle'>[!active ? "СТАРТ" : "СТОП"]<b></A><br>"
-	dat += "</div><br>"
-	dat += "<A href='?src=[REF(src)];action=select'> Выбрать трек</A><br>"
-	dat += "<A href='?src=[REF(src)];action=volume'> Громкость</A><br>"
-	dat += "<A href='?src=[REF(src)];action=env'> Объёмный звук [!env_sound ? "ВЫКЛ" : "ВКЛ"]</A><br>"
 
-	if(selection)
-		if(selection.song_name)
-			dat += "<br>Трек: [selection.song_name]<br>"
-		if(selection.song_length)
-			dat += "Длина трека: [DisplayTimeText(selection.song_length)]<br><br>"
-	if(disk)
-		dat += "<br><br><br><A href='?src=[REF(src)];action=eject'>Изъять диск</A><br>"
+	if(writing)
+		dat += "Сканирование мозгов завершено. <br>Записываем мозги [retard_name]... Подождите!"
+	else if(!coin)
+		dat += "Вставьте монетку."
+	else
+		dat += "<A href='?src=[REF(src)];action=write'>Записать</A>"
 
 	var/datum/browser/popup = new(user, "vending", "[name]", 400, 350)
 	popup.set_content(dat.Join())
 	popup.open()
 
-/obj/item/boombox/Topic(href, href_list)
+/obj/machinery/musicwriter/Topic(href, href_list)
 	if(..())
 		return
 	add_fingerprint(usr)
 	switch(href_list["action"])
-		if("toggle")
-			if (QDELETED(src))
-				return
-			if(!active)
-				startsound()
-			else if(active)
-				stopsound()
+		if("write")
+			if(!writing && !retard && coin)
+				icon_state = "on"
+				writing = 1
+				retard = usr
+				retard_name = retard.name
+				var/N = sanitize(input("Название") as text|null)
+				//retard << "Please stand still while your data is uploading"
+				if(N)
+					var/sound/S = input("Файл") as sound|null
+					if(S)
+						var/datum/track/T = new()
+						var/obj/item/card/music/disk = new
+						T.song_path = S
+						//T.f_name = copytext(N, 1, 2)
+						T.song_name = N
+						disk.data = T
+						disk.name = "диск ([N])"
+						disk.loc = src.loc
+						disk.uploader_ckey = retard.ckey
+						var/mob/M = usr
+						message_admins("[M.real_name]([M.ckey]) uploaded <A HREF='?_src_=holder;listensound=\ref[S]'>sound</A> named as [N]. <A HREF='?_src_=holder;wipedata=\ref[disk]'>Wipe</A> data.")
+						coin--
 
-		if("select")
-			var/list/available = list()
-			for(var/datum/track/S in songs)
-				available[S.song_name] = S
-
-			if(disk)
-				if(disk.data)
-					available[disk.data.song_name] = disk.data
-
-			var/selected = input(usr, "Выбирай мудро", "Трек:") as null|anything in available
-			if(QDELETED(src) || !selected || !istype(available[selected], /datum/track))
-				return
-			if(active)
-				stopsound()
-			selection = available[selected]
-
-		if("eject")
-			if(disk)
-				disk.loc = src.loc
-				if(active)
-					stopsound()
-				if(selection == disk.data)
-					selection = null
-				disk = null
-
-		if("volume")
-			var/new_volume = input(usr, "Громкость", null) as num|null
-			if(new_volume)
-				set_volume(max(0, min(100, new_volume)))
-
-		if("env")
-			env_sound = !env_sound
-
-	ui_interact(usr) // updateUsrDialog()
-*/
+				icon_state = "off"
+				writing = 0
+				retard = null
+				retard_name = null

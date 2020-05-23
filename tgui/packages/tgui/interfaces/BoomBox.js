@@ -9,7 +9,7 @@ export const BoomBox = (props, context) => {
     <Window>
       <Window.Content>
         <Section
-          title="Взрыва каробка"
+          title={data.name}
           buttons={(
             <Fragment>
               <Button
