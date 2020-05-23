@@ -2,17 +2,24 @@
 "a" = (
 /turf/open/floor/plating/ice/icemoon,
 /area/icemoon/underground/explored)
+<<<<<<< HEAD
 "b" = (
 /obj/structure/flora/rock/icy,
 /turf/open/floor/plating/ice/icemoon,
 /area/icemoon/underground/explored)
+=======
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 "c" = (
 /obj/structure/ladder,
 /turf/open/floor/plating/ice/icemoon,
 /area/icemoon/underground/explored)
 "d" = (
 /turf/template_noop,
+<<<<<<< HEAD
 /area/template_noop)
+=======
+/area/icemoon/underground/unexplored)
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 "f" = (
 /obj/item/flashlight/lantern{
 	on = 1
@@ -104,7 +111,11 @@ a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+a
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -154,7 +165,10 @@ a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -162,7 +176,12 @@ a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+a
+a
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -213,13 +232,21 @@ a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+a
+a
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -230,7 +257,11 @@ d
 d
 a
 a
+<<<<<<< HEAD
 b
+=======
+a
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -262,7 +293,10 @@ a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -271,12 +305,21 @@ a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+a
+a
+a
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 d
 "}
@@ -345,7 +388,11 @@ a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+a
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -366,7 +413,10 @@ d
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -382,7 +432,12 @@ a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+a
+a
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -431,7 +486,11 @@ a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+a
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -453,7 +512,11 @@ a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+a
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -499,12 +562,20 @@ d
 (18,1,1) = {"
 d
 a
+<<<<<<< HEAD
 b
+=======
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+a
+a
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -517,7 +588,11 @@ a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+a
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -565,7 +640,11 @@ a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+a
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -615,7 +694,11 @@ a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+a
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -636,7 +719,10 @@ d
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -650,7 +736,12 @@ a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+a
+a
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
@@ -722,12 +813,20 @@ a
 a
 h
 a
+<<<<<<< HEAD
 b
+=======
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a
 a
+<<<<<<< HEAD
 b
+=======
+a
+a
+>>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 a
 a
 a

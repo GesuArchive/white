@@ -1,4 +1,6 @@
 #define CRYOMOBS 'icons/obj/cryo_mobs.dmi'
+///Max temperature allowed inside the cryotube, should break before reaching this heat
+#define MAX_TEMPERATURE 4000
 
 /obj/machinery/atmospherics/components/unary/cryo_cell
 	name = "cryo cell"
@@ -78,6 +80,16 @@
 /obj/machinery/atmospherics/components/unary/cryo_cell/Destroy()
 	QDEL_NULL(radio)
 	QDEL_NULL(beaker)
+	///Take the turf the cryotube is on
+	var/turf/T = get_turf(src)
+	if(T)
+		///Take the air composition of the turf
+		var/datum/gas_mixture/env = T.return_air()
+		///Take the air composition inside the cryotube
+		var/datum/gas_mixture/air1 = airs[1]
+		env.merge(air1)
+		T.air_update_turf()
+
 	return ..()
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/contents_explosion(severity, target)
@@ -185,11 +197,12 @@
 		return
 
 	var/mob/living/mob_occupant = occupant
+	if(mob_occupant.on_fire)
+		mob_occupant.ExtinguishMob()
 	if(!check_nap_violations())
 		return
 	if(mob_occupant.stat == DEAD) // We don't bother with dead people.
 		return
-
 	if(mob_occupant.health >= mob_occupant.getMaxHealth()) // Don't bother with fully healed people.
 		on = FALSE
 		update_icon()
@@ -248,6 +261,9 @@
 			mob_occupant.adjust_bodytemperature(heat / heat_capacity, TCMB)
 
 		air1.set_moles(/datum/gas/oxygen, max(0,air1.get_moles(/datum/gas/oxygen) - 0.5 / efficiency)) // Magically consume gas? Why not, we run on cryo magic.
+
+		if(air1.temperature > 2000)
+			take_damage(clamp((air1.temperature)/200, 10, 20), BURN)
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/relaymove(mob/user)
 	if(message_cooldown <= world.time)
@@ -479,3 +495,4 @@
 		SSair.add_to_rebuild_queue(src)
 
 #undef CRYOMOBS
+#undef MAX_TEMPERATURE

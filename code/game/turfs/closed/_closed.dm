@@ -166,6 +166,15 @@
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "icerock"
 
+/turf/closed/indestructible/rock/snow/ice/ore
+	icon = 'icons/turf/walls/icerock_wall.dmi'
+	icon_state = "icerock"
+	smooth = SMOOTH_MORE|SMOOTH_BORDER
+	canSmoothWith = list (/turf/closed)
+	pixel_x = -4
+	pixel_y = -4
+
+
 /turf/closed/indestructible/paper
 	name = "толстая бумажная стена"
 	desc = "Стена, покрытая непроницаемыми листами бумаги."

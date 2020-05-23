@@ -38,7 +38,6 @@
 		/datum/gas/carbon_dioxide=10,
 	)
 	restricted_gases = list(
-		/datum/gas/bz=10,
 		/datum/gas/miasma=10,
 		/datum/gas/plasma=0.1,
 		/datum/gas/water_vapor=0.1,
@@ -48,6 +47,6 @@
 	minimum_pressure = HAZARD_LOW_PRESSURE + 10
 	maximum_pressure = LAVALAND_EQUIPMENT_EFFECT_PRESSURE - 1
 
-	minimum_temp = BODYTEMP_COLD_DAMAGE_LIMIT + 1
-	maximum_temp = BODYTEMP_COLD_DAMAGE_LIMIT + 20
+	minimum_temp = 180
+	maximum_temp = 180
 
