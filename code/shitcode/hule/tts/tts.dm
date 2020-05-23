@@ -4,7 +4,6 @@
 
 GLOBAL_VAR_INIT(tts, FALSE)
 GLOBAL_LIST_INIT(tts_settings, list("ru"))//1-lang, 2-livingonly
-GLOBAL_LIST_EMPTY(tts_datums)
 
 PROCESSING_SUBSYSTEM_DEF(tts)
 	name = "Text To Speech"
@@ -15,7 +14,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 /proc/tts_args(var/name, var/msg, var/lang)
 	world.shelleo("gtts-cli \'[msg]\' -l [lang] -o [TTS_PATH]/lines/[name].ogg ")
 
-/atom/movable/proc/tts(var/msg, var/lang=GLOB.tts_settings[1], var/freq)
+/atom/proc/tts(var/msg, var/lang=GLOB.tts_settings[1], var/freq)
 	var/namae
 	if(!ismob(src))
 		namae = name
@@ -24,7 +23,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 		namae = etot.ckey
 
 	tts_args(namae, msg, lang)
-
+	var/datum/component/tts/TTS = GetComponent(/datum/component/tts)
 	if(fexists("[TTS_PATH]/lines/[namae].ogg"))
 		for(var/mob/M in range(13))
 			var/turf/T = get_turf(src)
@@ -39,6 +38,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 			M.playsound_local(T, "[TTS_PATH]/lines/announcer.ogg", 70, channel = CHANNEL_TTS_ANNOUNCER, frequency = 1)
 	return
 
+/*
 /atom/movable
 	var/datum/tts/TTS
 
@@ -86,6 +86,8 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 			owner.tts(msg, lang, freq = frequency)
 		else
 			owner.tts(msg, freq = frequency)
+
+*/
 
 /client/proc/anime_voiceover()
 	set category = "ФАН"
