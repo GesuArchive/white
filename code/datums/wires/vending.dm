@@ -20,12 +20,12 @@
 /datum/wires/vending/get_status()
 	var/obj/machinery/vending/V = holder
 	var/list/status = list()
-	status += "The orange light is [V.seconds_electrified ? "on" : "off"]."
-	status += "The red light is [V.shoot_inventory ? "off" : "blinking"]."
-	status += "The green light is [V.extended_inventory ? "on" : "off"]."
-	status += "A [V.scan_id ? "purple" : "yellow"] light is on."
-	status += "A white light is [V.age_restrictions ? "on" : "off"]."
-	status += "The speaker light is [V.shut_up ? "off" : "on"]."
+	status += "Оранжевый индикатор [V.seconds_electrified ? "горит" : "не горит"]."
+	status += "Красный индикатор [V.shoot_inventory ? "не горит" : "мигает"]."
+	status += "Зелёный индикатор [V.extended_inventory ? "горит" : "не горит"]."
+	status += "[V.scan_id ? "Фиолетовый" : "Жёлтый"] индикатор горит."
+	status += "Белый индикатор [V.age_restrictions ? "горит" : "не горит"]."
+	status += "Индикатор динамика [V.shut_up ? "не горит" : "горит"]."
 	return status
 
 /datum/wires/vending/on_pulse(wire)
