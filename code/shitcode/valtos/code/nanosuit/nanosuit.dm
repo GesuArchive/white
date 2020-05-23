@@ -1181,7 +1181,7 @@ mob/living/carbon/human/key_down(_key, client/user)
 	name = "CryNet Nanosuit"
 	desc = "Become a posthuman warrior. The items cannot be taken off once you wear them and alerts the crew of your position if equipped on station."
 	item = /obj/item/storage/box/syndie_kit/nanosuit
-	cost = 20
-	surplus = 10
+	cost = 30
+	surplus = 20
 	cant_discount = TRUE
 	exclude_modes = list(/datum/game_mode/nuclear)
