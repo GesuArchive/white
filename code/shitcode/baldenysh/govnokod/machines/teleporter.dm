@@ -185,6 +185,8 @@
 		target_z = cz
 
 /obj/machinery/power/bs_emitter/proc/turn_on()
+	if(!avail(50000))
+		return
 	pointer_reset()
 	active = TRUE
 	start_exp()
