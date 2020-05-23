@@ -11,8 +11,12 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	flags = SS_NO_INIT
 	wait = 10
 
+////////////////////////////////////////////////
+
 /proc/tts_args(var/name, var/msg, var/lang)
 	world.shelleo("gtts-cli \'[msg]\' -l [lang] -o [TTS_PATH]/lines/[name].ogg ")
+
+/////////////////////////////////////
 
 /atom/proc/tts(var/msg, var/lang=GLOB.tts_settings[1], var/freq)
 	var/namae
@@ -38,68 +42,15 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 			M.playsound_local(T, "[TTS_PATH]/lines/announcer.ogg", 70, channel = CHANNEL_TTS_ANNOUNCER, frequency = 1)
 	return
 
-/*
-/atom/movable
-	var/datum/tts/TTS
-
-/atom/movable/proc/grant_tts()
-	if(!TTS)
-		TTS = new /datum/tts
-		TTS.owner = src
-
-/atom/movable/proc/remove_tts()
-	if(TTS)
-		qdel(TTS)
-
-/datum/tts
-	var/atom/movable/owner
-	var/cooldown = 0
-	var/createtts = 0 //create tts on hear
-	var/lang
-
-	var/charcd = 0.2 //ticks for one char
-	var/maxchars = 128 //sasai kudosai
-
-	var/assigned_channel
-	var/frequency = 1
-
-/datum/tts/New()
-	. = ..()
-	assigned_channel = open_sound_channel_for_tts()
-	GLOB.tts_datums += src
-	START_PROCESSING(SStts, src)
-
-/datum/tts/Destroy()
-	GLOB.tts_datums -= src
-	STOP_PROCESSING(SStts, src)
-	. = ..()
-
-/datum/tts/process()
-	if(cooldown > 0)
-		cooldown--
-
-/datum/tts/proc/generate_tts(msg)
-	if(cooldown <= 0)
-		msg = trim(msg, maxchars)
-		cooldown = length(msg)*charcd
-		if(lang)
-			owner.tts(msg, lang, freq = frequency)
-		else
-			owner.tts(msg, freq = frequency)
-
-*/
+////////////////////////////////////////
 
 /client/proc/anime_voiceover()
 	set category = "ФАН"
 	set name = "ANIME VO"
 
-
 	if(!(ckey in GLOB.anonists))
 		return
-/*
-	if(!check_rights())
-		return
-*/
+
 	var/list/menu = list("Cancel", "Toggle TTS", "Change Lang")
 
 	var/selected = input("Main Menu", "ANIME VOICEOVER", "Cancel") as null|anything in menu
