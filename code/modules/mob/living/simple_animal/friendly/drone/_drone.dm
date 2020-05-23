@@ -113,14 +113,16 @@
 	var/hacked = FALSE
 	/// Flavor text announced to drones on [/mob/proc/Login]
 	var/flavortext = \
-	"\n<big><span class='warning'>DO NOT INTERFERE WITH THE ROUND AS A DRONE OR YOU WILL BE DRONE BANNED</span></big>\n"+\
-	"<span class='notice'>Drones are a ghost role that are allowed to fix the station and build things. Interfering with the round as a drone is against the rules.</span>\n"+\
-	"<span class='notice'>Actions that constitute interference include, but are not limited to:</span>\n"+\
-	"<span class='notice'>     - Interacting with round critical objects (IDs, weapons, contraband, powersinks, bombs, etc.)</span>\n"+\
-	"<span class='notice'>     - Interacting with living beings (communication, attacking, healing, etc.)</span>\n"+\
-	"<span class='notice'>     - Interacting with non-living beings (dragging bodies, looting bodies, etc.)</span>\n"+\
-	"<span class='warning'>These rules are at admin discretion and will be heavily enforced.</span>\n"+\
-	"<span class='warning'><u>If you do not have the regular drone laws, follow your laws to the best of your ability.</u></span>"
+	"\n<big><span class='warning'>Не нарушайте правила для дронов указанные ниже. Нарушение данных правил карается пермой дронов </span></big>\n"+\
+	"<span class='notice'>Будучи дроном вы ДОЛЖНЫ И ТОЛЬКО ДОЛЖНЫ производить ремонт станции. Любое вмешательство дрона в раунд карается пермой</span>\n"+\
+	"<span class='notice'>Действия по которым дают по попе</span>\n"+\
+	"<span class='notice'>     - Использование критически важных вещей (ИД-карты, оружия, контрабанда, вещи синдиката и прочее.)</span>\n"+\
+	"<span class='notice'>     - Взаимодействие с живыми существами (общение, лечение, избиение и прочее.)</span>\n"+\
+	"<span class='notice'>     - Взаимодействие с НЕ живыми существами (перенос трупов, лутание вещей мертвого человека и прочее)</span>\n"+\
+	"<span class='warning'>За любой ваш проёб администрация в праве пермануть вам дрона. Разбан дрона производится отправкой фото себя в чулках с табличкой своего сикея</span>\n"+\
+	"<span class='warning'>ЕРП с дронами разрешено\n"+\
+	"<span class='warning'>ЕРП с живыми существами запрещено\n"+\
+	"<span class='warning'><u>Даже если ты умудрился заспавнится без правил для силиконов ты должен подчинятся правилам которые указаны выше.</u></span>"
 
 /mob/living/simple_animal/drone/Initialize()
 	. = ..()
