@@ -262,8 +262,8 @@
 
 		air1.set_moles(/datum/gas/oxygen, max(0,air1.get_moles(/datum/gas/oxygen) - 0.5 / efficiency)) // Magically consume gas? Why not, we run on cryo magic.
 
-		if(air1.temperature > 2000)
-			take_damage(clamp((air1.temperature)/200, 10, 20), BURN)
+		if(air1.return_temperature() > 2000)
+			take_damage(clamp((air1.return_temperature())/200, 10, 20), BURN)
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/relaymove(mob/user)
 	if(message_cooldown <= world.time)
