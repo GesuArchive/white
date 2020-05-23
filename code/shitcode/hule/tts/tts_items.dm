@@ -7,13 +7,13 @@
 
 /obj/item/organ/ears/cat/tts/Insert(mob/living/carbon/C, special = 0, drop_if_replaced = TRUE)
 	..()
-	var/datum/component/tts/TTS = GetComponent(/datum/component/tts)
+	var/datum/component/tts/TTS = C.GetComponent(/datum/component/tts)
 	if(TTS)
 		TTS.creation = 1
 
 /obj/item/organ/ears/cat/tts/Remove(mob/living/carbon/C,  special = 0)
 	..()
-	var/datum/component/tts/TTS = GetComponent(/datum/component/tts)
+	var/datum/component/tts/TTS = C.GetComponent(/datum/component/tts)
 	if(TTS)
 		TTS.creation = 0
 
