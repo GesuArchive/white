@@ -5,18 +5,20 @@
 	icon_state = "kitty"
 	damage_multiplier = 5
 
-/obj/item/organ/ears/cat/tts/Insert(mob/living/carbon/human/H, special = 0, drop_if_replaced = TRUE)
+/obj/item/organ/ears/cat/tts/Insert(mob/living/carbon/C, special = 0, drop_if_replaced = TRUE)
 	..()
-	if(H.TTS)
-		H.TTS.createtts = 1
+	var/datum/component/tts/TTS = C.GetComponent(/datum/component/tts)
+	if(TTS)
+		TTS.creation = 1
 
-/obj/item/organ/ears/cat/tts/Remove(mob/living/carbon/human/H,  special = 0)
+/obj/item/organ/ears/cat/tts/Remove(mob/living/carbon/C,  special = 0)
 	..()
-	if(H.TTS)
-		H.TTS.createtts = 0
+	var/datum/component/tts/TTS = C.GetComponent(/datum/component/tts)
+	if(TTS)
+		TTS.creation = 0
 
-/obj/item/organ/ears/cat/tts/attack(mob/living/carbon/human/H, mob/living/carbon/human/user, obj/target)
-	if(H == user && istype(H))
+/obj/item/organ/ears/cat/tts/attack(mob/living/carbon/C, mob/living/carbon/human/user, obj/target)
+	if(C == user && istype(C))
 		playsound(user,'sound/effects/singlebeat.ogg',40,1)
 		user.temporarilyRemoveItemFromInventory(src, TRUE)
 		Insert(user)
