@@ -1,5 +1,3 @@
-GLOBAL_LIST_EMPTY(tts_comps)
-
 /datum/component/tts
 	var/mob/owner
 
@@ -20,11 +18,6 @@ GLOBAL_LIST_EMPTY(tts_comps)
 
 	owner = parent
 	assigned_channel = open_sound_channel_for_tts()
-	GLOB.tts_comps += src
-	. = ..()
-
-/datum/component/tts/Destroy()
-	GLOB.tts_comps -= src
 	. = ..()
 
 /datum/component/tts/RegisterWithParent()
