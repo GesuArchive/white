@@ -294,6 +294,11 @@
 		return
 	return ..()
 
+/obj/machinery/turntable/wrench_act(mob/living/user, obj/item/I)
+	..()
+	default_unfasten_wrench(user, I)
+	return TRUE
+
 /obj/machinery/turntable/donate
 	desc = "Классический музыкальный проигрыватель. Пахнет помидорами."
 
