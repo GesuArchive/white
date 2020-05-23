@@ -216,6 +216,8 @@
 		ui.open()
 
 /obj/item/boombox/ui_status(mob/user)
+	if(!isliving(user))
+		return UI_UPDATE
 	if(get_dist(get_turf(src), user) < 1.5)
 		return UI_INTERACTIVE
 	else
