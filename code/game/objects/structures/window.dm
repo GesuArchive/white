@@ -595,6 +595,30 @@
 	canSmoothWith = list(/obj/structure/window/fulltile, /obj/structure/window/reinforced/fulltile, /obj/structure/window/reinforced/tinted/fulltile, /obj/structure/window/plasma/fulltile, /obj/structure/window/plasma/reinforced/fulltile)
 	glass_amount = 2
 
+/obj/structure/window/fulltile/attackby(obj/item/W, mob/user, params)
+	if(is_glass_sheet(W))
+		var/obj/item/stack/ST = W
+		if (ST.get_amount() < 2)
+			to_chat(user, "<span class='warning'>Надо бы хотя бы парочку листов стекла!</span>")
+			return
+		if(!anchored)
+			to_chat(user, "<span class='warning'>Надо бы прикрутить [src] к полу!</span>")
+			return
+		for(var/obj/machinery/door/firedoor/window/FD in loc)
+			to_chat(user, "<span class='warning'>Здесь уже есть окно!</span>")
+			return
+		to_chat(user, "<span class='notice'>Начинаю ставить запасное окно...</span>")
+		if(do_after(user,30, target = src))
+			if(!src.loc || !anchored)
+				return
+			for(var/obj/machinery/door/firedoor/window/FD in loc)
+				to_chat(user, "<span class='warning'>Здесь уже есть запасное окно!</span>")
+				return
+			new/obj/machinery/door/firedoor/window(drop_location())
+			ST.use(2)
+			to_chat(user, "<span class='notice'>Ставлю запасное окно на [src].</span>")
+	. = ..()
+
 /obj/structure/window/fulltile/unanchored
 	anchored = FALSE
 
