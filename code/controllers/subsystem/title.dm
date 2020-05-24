@@ -8,6 +8,7 @@ SUBSYSTEM_DEF(title)
 	var/icon/previous_icon
 	var/turf/closed/indestructible/splashscreen/splash_turf
 	var/ctt = ""
+	var/enabled_shit = TRUE
 
 /datum/controller/subsystem/title/Initialize()
 	if(file_path && icon)
@@ -39,7 +40,7 @@ SUBSYSTEM_DEF(title)
 
 	icon = new(fcopy_rsc(file_path))
 
-	if(splash_turf)
+	if(splash_turf && enabled_shit)
 		splash_turf.icon = 'icons/protocol_c.dmi'
 		splash_turf.icon_state = "blank"
 		set_load_state("init1")
@@ -49,7 +50,7 @@ SUBSYSTEM_DEF(title)
 	return ..()
 
 /datum/controller/subsystem/title/proc/set_load_state(state)
-	if(splash_turf)
+	if(splash_turf && enabled_shit)
 		switch(state)
 			if("init1")
 				sm("-------------------------------------------------------------------------------------------------")
@@ -122,7 +123,7 @@ SUBSYSTEM_DEF(title)
 				cls()
 
 /datum/controller/subsystem/title/proc/sm(msg, newline = TRUE)
-	if(splash_turf)
+	if(splash_turf && enabled_shit)
 		if(newline)
 			ctt += "[msg]\n"
 		else
@@ -130,11 +131,11 @@ SUBSYSTEM_DEF(title)
 		splash_turf.maptext = "<font style=\"font-size: 7px; -dm-text-outline: 1px black; font-family: 'Courier'; color:'#aaffaa'; \">[ctt]</font>"
 
 /datum/controller/subsystem/title/proc/cls()
-	if(splash_turf)
+	if(splash_turf && enabled_shit)
 		splash_turf.maptext = ""
 
 /datum/controller/subsystem/title/proc/uplayers()
-	if(splash_turf)
+	if(splash_turf && enabled_shit)
 		var/list/caa = list()
 		var/tcc = ""
 		for(var/client/C in GLOB.clients)
@@ -149,12 +150,11 @@ SUBSYSTEM_DEF(title)
 		splash_turf.maptext = "<font style=\"font-size: 7px; -dm-text-outline: 1px black; font-family: 'Courier'; color:'#aaffaa'; \">[tcc]</font>"
 
 /datum/controller/subsystem/title/proc/afterload()
-	if(splash_turf)
-		spawn(20)
-			splash_turf.do_cring()
-			splash_turf.icon_state = null
-			splash_turf.icon = icon
-			splash_turf.add_overlay('icons/wd_logo.png')
+	if(splash_turf && enabled_shit)
+		splash_turf.do_cring()
+		splash_turf.icon_state = null
+		splash_turf.icon = icon
+		splash_turf.add_overlay('icons/wd_logo.png')
 
 /datum/controller/subsystem/title/vv_edit_var(var_name, var_value)
 	. = ..()

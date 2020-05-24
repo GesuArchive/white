@@ -20,13 +20,13 @@
 
 	var/list/locinfo = client.get_loc_info()
 
-	to_chat(src, "<span class='greenannounce'> ================================</span>")
-	to_chat(src, "<span class='greenannounce'> >> WHITE DREAM UAC</span>")
-	to_chat(src, "<span class='greenannounce'> >> ПОЛЬЗОВАТЕЛЬ: [capitalize(client.ckey)]</span>")
-	to_chat(src, "<span class='greenannounce'> >> СТРАНА: [capitalize(locinfo["country"])]</span>")
-	to_chat(src, "<span class='greenannounce'> >> ИГРОВОЕ ВРЕМЯ: [capitalize(client.get_exp_living())]</span>")
-	to_chat(src, "<span class='greenannounce'> >> ВХОД РАЗРЕШЁН</span>")
-	to_chat(src, "<span class='greenannounce'> ================================</span>")
+	to_chat(src,  {"<span class='greenannounce'> ================================</span>
+					<span class='greenannounce'> >> WHITE DREAM UAC</span>
+					<span class='greenannounce'> >> ПОЛЬЗОВАТЕЛЬ: [capitalize(client.ckey)]</span>
+					<span class='greenannounce'> >> СТРАНА: [capitalize(locinfo["country"])]</span>
+					<span class='greenannounce'> >> ИГРОВОЕ ВРЕМЯ: [capitalize(client.get_exp_living())]</span>
+					<span class='greenannounce'> >> ВХОД РАЗРЕШЁН</span>
+					<span class='greenannounce'> ================================</span>"})
 
 	var/motd = global.config.motd
 	if(motd)

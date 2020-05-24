@@ -75,7 +75,7 @@
 		body += "<a href='?_src_=holder;[HrefToken()];modantagrep=set;mob=[REF(M)]'>\[set\]</a> "
 		body += "<a href='?_src_=holder;[HrefToken()];modantagrep=zero;mob=[REF(M)]'>\[zero\]</a>"
 		var/metabalance = M.client.get_metabalance()
-		body += "<br><b>ХРЫВНИ</b>: [metabalance] "
+		body += "<br><br><b>MetaCash</b>: [metabalance] <br>"
 		var/full_version = "Unknown"
 		if(M.client.byond_version)
 			full_version = "[M.client.byond_version].[M.client.byond_build ? M.client.byond_build : "xxx"]"

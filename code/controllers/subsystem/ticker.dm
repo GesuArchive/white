@@ -653,8 +653,6 @@ SUBSYSTEM_DEF(ticker)
 	else if(gamelogloc)
 		to_chat(world, "<span class='info'>Round logs can be located <a href=\"[gamelogloc]\">at this website!</a></span>")
 
-	sleep(20)
-
 	log_game("<span class='boldannounce'>Пересоздаём мир. [reason]</span>")
 
 	world.Reboot()
