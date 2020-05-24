@@ -346,6 +346,7 @@
 	max_integrity = 50
 	resistance_flags = 0 // not fireproof
 	heat_proof = FALSE
+	assemblytype = /obj/item/shard // yeah
 
 /obj/machinery/door/firedoor/window/allow_hand_open()
 	return TRUE
