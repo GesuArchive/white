@@ -493,11 +493,15 @@ update_label()
 
 /obj/item/card/id/captains_spare/trap/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_WIRECUTTER)
-		to_chat(user, "<span class='notice'>Начинаю обезвреживать карту. (это займёт примерно 15 минут и нужно не шевелиться)</span>")
-		if(do_after(user, 900, target = src))
+		to_chat(user, "<span class='notice'>Начинаю обезвреживать карту. (это займёт примерно 10 минут и нужно не шевелиться)</span>")
+		if(do_after(user, 6000, target = src))
 			to_chat(user, "<span class='notice'>Карта разминирована.</span>")
 			first_try = FALSE
 			anchored = FALSE
+		else
+			var/mob/living/carbon/C = user
+			C.gain_trauma(/datum/brain_trauma/magic/stalker)
+			to_chat(user, "<span class='userdanger'>ПРОБЛЕМЫ!</span>")
 	else
 		return ..()
 
