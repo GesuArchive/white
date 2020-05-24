@@ -614,8 +614,7 @@
 			for(var/obj/machinery/door/firedoor/window/FD in loc)
 				to_chat(user, "<span class='warning'>Здесь уже есть запасное окно!</span>")
 				return
-			var/obj/structure/window/WD
-			WD = new/obj/machinery/door/firedoor/window(drop_location())
+			new/obj/machinery/door/firedoor/window(drop_location())
 			ST.use(2)
 			to_chat(user, "<span class='notice'>Ставлю [WD] на [src].</span>")
 	. = ..()
