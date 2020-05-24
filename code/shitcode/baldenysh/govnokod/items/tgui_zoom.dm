@@ -1,4 +1,4 @@
-/obj/item/clothing/glasses/monocle/zoom
+/obj/item/clothing/glasses/monocle/map
 	name = "amplification lens"
 	var/ui_x = 350
 	var/ui_y = 350
@@ -13,16 +13,16 @@
 
 	var/map_range = 12
 
-/obj/item/clothing/glasses/monocle/zoom/equipped(mob/living/carbon/human/user, slot)
+/obj/item/clothing/glasses/monocle/map/equipped(mob/living/carbon/human/user, slot)
 	..()
 	if(slot == ITEM_SLOT_EYES)
 		ui_interact(user)
 		START_PROCESSING(SSfastprocess, src)
 
-/obj/item/clothing/glasses/monocle/zoom/interact(mob/user)
+/obj/item/clothing/glasses/monocle/map/interact(mob/user)
 	return FALSE
 
-/obj/item/clothing/glasses/monocle/zoom/Initialize()
+/obj/item/clothing/glasses/monocle/map/Initialize()
 	. = ..()
 	map_name = "monocle_[REF(src)]_map"
 
@@ -40,7 +40,7 @@
 	cam_background.assigned_map = map_name
 	cam_background.del_on_map_removal = FALSE
 
-/obj/item/clothing/glasses/monocle/zoom/Destroy()
+/obj/item/clothing/glasses/monocle/map/Destroy()
 	STOP_PROCESSING(SSfastprocess, src)
 
 	qdel(cam_screen)
@@ -48,7 +48,7 @@
 	qdel(cam_background)
 	return ..()
 
-/obj/item/clothing/glasses/monocle/zoom/process()
+/obj/item/clothing/glasses/monocle/map/process()
 	if(!iscarbon(loc))
 		return PROCESS_KILL
 	var/mob/living/carbon/C = loc
@@ -56,7 +56,7 @@
 	if(C.glasses != src)
 		return PROCESS_KILL
 
-/obj/item/clothing/glasses/monocle/zoom/ui_interact(\
+/obj/item/clothing/glasses/monocle/map/ui_interact(\
 		mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, \
 		datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
 
@@ -66,7 +66,7 @@
 		user.client.register_map_obj(cam_plane_master)
 		user.client.register_map_obj(cam_background)
 
-		ui = new(user, src, ui_key, "ZoomWindow", name, ui_x, ui_y, master_ui, state)
+		ui = new(user, src, ui_key, "MapWindow", name, ui_x, ui_y, master_ui, state)
 		ui.open()
 
 	var/list/visible_turfs = list()
@@ -81,16 +81,16 @@
 	cam_background.icon_state = "clear"
 	cam_background.fill_rect(1, 1, size_x, size_y)
 
-/obj/item/clothing/glasses/monocle/zoom/ui_static_data()
+/obj/item/clothing/glasses/monocle/map/ui_static_data()
 	var/list/data = list()
 	data["mapRef"] = map_name
 	return data
 
-/obj/item/clothing/glasses/monocle/zoom/ui_close(mob/user)
+/obj/item/clothing/glasses/monocle/map/ui_close(mob/user)
 	if(user && user.client)
 		user.client.clear_map(map_name)
 
-/obj/item/clothing/glasses/monocle/zoom/ui_status(mob/user)
+/obj/item/clothing/glasses/monocle/map/ui_status(mob/user)
 	. = ..()
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user

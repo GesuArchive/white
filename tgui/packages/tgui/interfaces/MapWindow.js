@@ -3,7 +3,7 @@ import { Button, ByondUi, Input, Section } from '../components';
 import { Window } from '../layouts';
 
 
-export const ZoomWindow = (props, context) => {
+export const MapWindow = (props, context) => {
   const { act, data, config } = useBackend(context);
 
   return (
