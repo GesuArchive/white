@@ -616,7 +616,7 @@
 				return
 			new/obj/machinery/door/firedoor/window(drop_location())
 			ST.use(2)
-			to_chat(user, "<span class='notice'>Ставлю [WD] на [src].</span>")
+			to_chat(user, "<span class='notice'>Ставлю запасное окно на [src].</span>")
 	. = ..()
 
 /obj/structure/window/fulltile/unanchored
