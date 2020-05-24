@@ -124,14 +124,11 @@
 /area/icemoon/underground/explored)
 "mi" = (
 /obj/effect/decal/remains/human,
-<<<<<<< HEAD
-=======
 /mob/living/simple_animal/hostile/construct/juggernaut/hostile{
 	health = 450;
 	maxHealth = 450;
 	name = "Right Hand of the Elder"
 	},
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 /turf/open/floor/engine/cult,
 /area/ruin/powered)
 "mI" = (
@@ -229,13 +226,8 @@
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "tN" = (
-<<<<<<< HEAD
-/turf/closed/mineral/random/snow/no_caves,
-/area/icemoon/underground/explored)
-=======
 /turf/closed/mineral/random/snow/more_caves,
 /area/icemoon/underground/unexplored)
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 "tX" = (
 /obj/structure/table/wood,
 /obj/structure/bedsheetbin,
@@ -362,14 +354,11 @@
 "EF" = (
 /obj/effect/decal/cleanable/blood/gibs/torso,
 /obj/effect/decal/remains/human,
-<<<<<<< HEAD
-=======
 /mob/living/simple_animal/hostile/construct/juggernaut/hostile{
 	health = 450;
 	maxHealth = 450;
 	name = "Left Hand of the Elder"
 	},
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 /turf/open/floor/engine/cult,
 /area/ruin/powered)
 "FR" = (
@@ -585,15 +574,6 @@ tN
 tN
 tN
 tN
-<<<<<<< HEAD
-Og
-Og
-Og
-Og
-Og
-Og
-oF
-=======
 tN
 tN
 tN
@@ -601,7 +581,6 @@ tN
 tN
 tN
 tN
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 tN
 tN
 tN
@@ -736,11 +715,7 @@ pc
 Og
 Og
 Og
-<<<<<<< HEAD
-Og
-=======
 tN
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 "}
 (6,1,1) = {"
 tN
@@ -770,11 +745,7 @@ Ei
 Og
 Rv
 Og
-<<<<<<< HEAD
-Og
-=======
 tN
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 "}
 (7,1,1) = {"
 tN
@@ -807,11 +778,7 @@ Og
 tN
 "}
 (8,1,1) = {"
-<<<<<<< HEAD
-Og
-=======
 tN
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 Og
 Og
 Og
@@ -841,11 +808,7 @@ Og
 tN
 "}
 (9,1,1) = {"
-<<<<<<< HEAD
-Og
-=======
 tN
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 Og
 Og
 Ei
@@ -932,11 +895,7 @@ Ei
 Ei
 Og
 Og
-<<<<<<< HEAD
-Og
-=======
 tN
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 "}
 (12,1,1) = {"
 tN
@@ -966,11 +925,7 @@ Ei
 Ei
 Ei
 Og
-<<<<<<< HEAD
-Og
-=======
 tN
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 "}
 (13,1,1) = {"
 tN
@@ -1000,11 +955,7 @@ Ei
 Ei
 Ei
 pI
-<<<<<<< HEAD
-Og
-=======
 tN
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 "}
 (14,1,1) = {"
 tN
@@ -1034,11 +985,7 @@ Ei
 Ei
 Ei
 Og
-<<<<<<< HEAD
-Og
-=======
 tN
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 "}
 (15,1,1) = {"
 tN
@@ -1068,11 +1015,7 @@ Ei
 Ei
 bY
 Og
-<<<<<<< HEAD
-pc
-=======
 tN
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 "}
 (16,1,1) = {"
 tN
@@ -1441,11 +1384,6 @@ tN
 tN
 tN
 tN
-<<<<<<< HEAD
-Og
-Og
-=======
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 tN
 tN
 tN
@@ -1457,25 +1395,15 @@ tN
 tN
 tN
 tN
-<<<<<<< HEAD
-Og
-Og
-=======
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
-tN
-tN
-tN
-tN
-<<<<<<< HEAD
-Og
-Og
-=======
 tN
 tN
 tN
 tN
 tN
 tN
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
+tN
+tN
+tN
+tN
 tN
 "}

@@ -16,11 +16,7 @@
 /turf/open/floor/wood,
 /area/ruin/unpowered)
 "d" = (
-<<<<<<< HEAD
-/turf/open/openspace/icemoon,
-=======
 /turf/open/transparent/openspace/icemoon,
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 /area/icemoon/surface/outdoors)
 "e" = (
 /obj/item/clothing/suit/hooded/explorer,
@@ -46,11 +42,7 @@
 /area/icemoon/surface/outdoors)
 "i" = (
 /turf/template_noop,
-<<<<<<< HEAD
-/area/template_noop)
-=======
 /area/icemoon/surface/outdoors/unexplored)
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 "j" = (
 /obj/structure/sink/kitchen,
 /turf/open/floor/wood,
@@ -63,13 +55,6 @@
 /obj/machinery/vending/dinnerware,
 /turf/open/floor/wood,
 /area/ruin/unpowered)
-<<<<<<< HEAD
-"m" = (
-/obj/structure/barricade/wooden/crude/snow,
-/turf/open/floor/wood,
-/area/ruin/unpowered)
-=======
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 "n" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/wood,
@@ -746,11 +731,7 @@ d
 d
 d
 b
-<<<<<<< HEAD
-m
-=======
 n
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 b
 d
 d
@@ -777,11 +758,7 @@ d
 d
 a
 h
-<<<<<<< HEAD
-n
-=======
 h
->>>>>>> 1bec060cfec16eaa9575ae036b4280df0f0115f2
 h
 a
 d
