@@ -62,7 +62,9 @@
 	icon_state = "curse1"
 	layer = ABOVE_HUD_LAYER
 	plane = ABOVE_HUD_PLANE
-	var/icon_width_tiles = 15
+
+	var/default_width_tiles = 15
+	var/default_height_tiles = 15
 
 /obj/item/clothing/glasses/monocle/map/proc/update_view()
 	if(!iscarbon(loc))
@@ -81,9 +83,10 @@
 	cam_background.icon_state = "clear"
 	cam_background.fill_rect(1, 1, size_x, size_y)
 
-	var/matrix/overlay = initial(map_overlay.transform)
-	overlay.Scale((size_x-1)/map_overlay.icon_width_tiles, (size_y-1)/map_overlay.icon_width_tiles)
-	map_overlay.transform = overlay
+	map_overlay.screen_loc = "[map_name]:[(size_x-map_overlay.default_width_tiles)/2]:16,[(size_y-map_overlay.default_height_tiles)/2]:16"
+	var/matrix/M = initial(map_overlay.transform)
+	M.Scale((size_x+1)/map_overlay.default_width_tiles, (size_y+1)/map_overlay.default_height_tiles)
+	map_overlay.transform = M
 
 /obj/item/clothing/glasses/monocle/map/ui_interact(\
 		mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, \
