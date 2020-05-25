@@ -5,8 +5,8 @@
 	icon_state = "suspiciousphone"
 	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("звонит")
-	var/ui_x = 400
-	var/ui_y = 800
+	var/ui_x = 264
+	var/ui_y = 600
 
 /obj/item/cellphone/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.always_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
