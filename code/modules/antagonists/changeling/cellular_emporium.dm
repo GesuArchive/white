@@ -2,7 +2,7 @@
 // The place where changelings go to buy their biological weaponry.
 
 /datum/cellular_emporium
-	var/name = "cellular emporium"
+	var/name = "сотовый эмпориум"
 	var/datum/antagonist/changeling/changeling
 
 /datum/cellular_emporium/New(my_changeling)
@@ -69,7 +69,7 @@
 			changeling.purchase_power(sting_name)
 
 /datum/action/innate/cellular_emporium
-	name = "Cellular Emporium"
+	name = "Сотовый Эмпориум"
 	icon_icon = 'icons/obj/drinks.dmi'
 	button_icon_state = "changelingsting"
 	background_icon_state = "bg_changeling"
