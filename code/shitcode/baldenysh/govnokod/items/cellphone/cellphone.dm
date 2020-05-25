@@ -29,6 +29,8 @@
 
 	var/datum/phonescreen/PS = screens[curscreen]
 
+	data["screen"] = PS.name
+
 	data["lf_menu"] = PS.lf_menu
 	data["rf_menu"] = PS.rf_menu
 
