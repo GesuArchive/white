@@ -11,6 +11,7 @@ export const Cellphone = (props, context) => {
         <CellphoneStat />
         <Section width="252px" height="240px">
           <CellphoneScreen />
+
         </Section>
         <CellphoneFunc />
         <CellphoneNumpad />
@@ -29,7 +30,26 @@ const CellphoneStat = (props, context) => {
 const CellphoneScreen = (props, context) => {
   const { act, data } = useBackend(context);
   return (
-    <Box />
+    <Box width="240px" height="240px">
+      <Box width="240px" height="200px">aaaaaa</Box>
+      <Grid>
+        <Grid.Column>
+          {data.lf_menu && (
+            <Section height="30px" align="center">
+              {data.lf_menu}
+            </Section>)}
+        </Grid.Column>
+        <Grid.Column>
+          <Box />
+        </Grid.Column>
+        <Grid.Column>
+          {data.rf_menu && (
+            <Section height="30px" align="center">
+              {data.rf_menu}
+            </Section>)}
+        </Grid.Column>
+      </Grid>
+    </Box>
   );
 };
 
@@ -46,7 +66,7 @@ const CellphoneFunc = (props, context) => {
               'NuclearBomb__Button',
               'NuclearBomb__Button--keypad',
             ])}
-            onClick={() => act('func', { digit: "call" })} />
+            onClick={() => act('call')} />
 
           <Button fluid bold content="➥"
             textAlign="center" fontSize="30px"
@@ -55,7 +75,7 @@ const CellphoneFunc = (props, context) => {
               'NuclearBomb__Button',
               'NuclearBomb__Button--keypad',
             ])}
-            onClick={() => act('func', { digit: "funcleft" })} />
+            onClick={() => act('leftfunc')} />
         </Flex.Item>
 
         <Flex.Item align="center">
@@ -66,7 +86,7 @@ const CellphoneFunc = (props, context) => {
               'NuclearBomb__Button',
               'NuclearBomb__Button--keypad',
             ])}
-            onClick={() => act('dpad', { digit: "larrow" })} />
+            onClick={() => act('dpad', { button: "larrow" })} />
         </Flex.Item>
 
         <Flex.Item >
@@ -77,7 +97,7 @@ const CellphoneFunc = (props, context) => {
               'NuclearBomb__Button',
               'NuclearBomb__Button--keypad',
             ])}
-            onClick={() => act('dpad', { digit: "uarrow" })} />
+            onClick={() => act('dpad', { button: "uarrow" })} />
 
           <Button fluid bold content="⎆"
             textAlign="center" fontSize="20px"
@@ -86,7 +106,7 @@ const CellphoneFunc = (props, context) => {
               'NuclearBomb__Button',
               'NuclearBomb__Button--keypad',
             ])}
-            onClick={() => act('dpad', { digit: "enter" })} />
+            onClick={() => act('dpad', { button: "enter" })} />
 
           <Button fluid bold content="▼"
             textAlign="center" fontSize="20px"
@@ -95,7 +115,7 @@ const CellphoneFunc = (props, context) => {
               'NuclearBomb__Button',
               'NuclearBomb__Button--keypad',
             ])}
-            onClick={() => act('dpad', { digit: "darrow" })} />
+            onClick={() => act('dpad', { button: "darrow" })} />
         </Flex.Item>
 
         <Flex.Item align="center">
@@ -106,7 +126,7 @@ const CellphoneFunc = (props, context) => {
               'NuclearBomb__Button',
               'NuclearBomb__Button--keypad',
             ])}
-            onClick={() => act('dpad', { digit: "rarrow" })} />
+            onClick={() => act('dpad', { button: "rarrow" })} />
         </Flex.Item>
 
         <Flex.Item>
@@ -117,7 +137,7 @@ const CellphoneFunc = (props, context) => {
               'NuclearBomb__Button',
               'NuclearBomb__Button--keypad',
             ])}
-            onClick={() => act('func', { digit: "hangyourself" })} />
+            onClick={() => act('hang')} />
 
           <Button fluid bold content="➈"
             textAlign="center" fontSize="20px"
@@ -126,7 +146,7 @@ const CellphoneFunc = (props, context) => {
               'NuclearBomb__Button',
               'NuclearBomb__Button--keypad',
             ])}
-            onClick={() => act('func', { digit: "funcright" })} />
+            onClick={() => act('rightfunc')} />
         </Flex.Item>
 
       </Flex>
