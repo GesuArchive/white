@@ -9,7 +9,7 @@ export const Cellphone = (props, context) => {
     <Window theme="retro">
       <Window.Content>
         <CellphoneStat />
-        <Section>
+        <Section width="252px" height="240px">
           <CellphoneScreen />
         </Section>
         <CellphoneFunc />
@@ -29,7 +29,7 @@ const CellphoneStat = (props, context) => {
 const CellphoneScreen = (props, context) => {
   const { act, data } = useBackend(context);
   return (
-    <Box width="242px" height="220px" />
+    <Box />
   );
 };
 
@@ -68,7 +68,6 @@ const CellphoneFunc = (props, context) => {
             ])}
             onClick={() => act('dpad', { digit: "larrow" })} />
         </Flex.Item>
-
 
         <Flex.Item >
           <Button fluid bold content="▲"
@@ -138,9 +137,9 @@ const CellphoneFunc = (props, context) => {
 const CellphoneNumpad = (props, context) => {
   const { act, data } = useBackend(context);
   const keypadKeys = [
-    ['1', '4', '7', '#'],
+    ['1', '4', '7', '*'],
     ['2', '5', '8', '0'],
-    ['3', '6', '9', '*'],
+    ['3', '6', '9', '#'],
   ];
   return (
     <Box width="240px">
