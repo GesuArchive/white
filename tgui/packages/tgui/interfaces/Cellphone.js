@@ -8,9 +8,9 @@ export const Cellphone = (props, context) => {
   return (
     <Window theme="retro">
       <Window.Content>
-        <CellphoneStat />
-        <Box width="252px" height="240px"
+        <Box width="252px" height="270px"
           className={classes(['Cellphone__bg'])}>
+          <CellphoneStat />
           <CellphoneScreen />
           <CellphoneFuncMenu />
         </Box>
@@ -25,14 +25,16 @@ export const Cellphone = (props, context) => {
 const CellphoneStat = (props, context) => {
   const { act, data } = useBackend(context);
   return (
-    <Box width="240px" height="30px" />
+    <Box width="240px" height="30px" className={classes(['Cellphone__font'])}>
+      🔋∞
+    </Box>
   );
 };
 
 const CellphoneScreen = (props, context) => {
   const { act, data } = useBackend(context);
   return (
-    <Box width="240px" height="202px" >
+    <Box width="240px" height="202px">
       <Box className={classes(['Cellphone__font'])}>
         ShwainokarasOS v0.9.3
       </Box>
@@ -46,23 +48,19 @@ const CellphoneFuncMenu = (props, context) => {
   const { act, data } = useBackend(context);
   return (
     <Box width="240px">
-      <Grid>
-        <Grid.Column>
-          {data.lf_menu && (
-            <Section height="30px" align="center">
-              {data.lf_menu}
-            </Section>)}
-        </Grid.Column>
-        <Grid.Column>
-          <Box />
-        </Grid.Column>
-        <Grid.Column>
-          {data.rf_menu && (
-            <Section height="30px" align="center">
-              {data.rf_menu}
-            </Section>)}
-        </Grid.Column>
-      </Grid>
+      <Box>
+        {data.lf_menu && (
+          <Section width="55px" height="30px" align="center">
+            {data.lf_menu}
+          </Section>)}
+      </Box>
+      <Box align="right">
+        {data.rf_menu && (
+          <Section width="55px" height="30px" align="center"
+            className={classes(['Cellphone__fixrm'])}>
+            {data.rf_menu}
+          </Section>)}
+      </Box>
     </Box>
   );
 };
