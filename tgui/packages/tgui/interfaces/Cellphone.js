@@ -1,6 +1,6 @@
 import { classes } from 'common/react';
 import { useBackend } from '../backend';
-import { Box, Button, Flex, Grid, Icon } from '../components';
+import { Box, Button, Flex, Grid, Icon, Section } from '../components';
 import { Window } from '../layouts';
 
 export const Cellphone = (props, context) => {
@@ -9,7 +9,9 @@ export const Cellphone = (props, context) => {
     <Window theme="retro">
       <Window.Content>
         <CellphoneStat />
-        <CellphoneScreen />
+        <Section>
+          <CellphoneScreen />
+        </Section>
         <CellphoneFunc />
         <CellphoneNumpad />
       </Window.Content>
@@ -20,14 +22,14 @@ export const Cellphone = (props, context) => {
 const CellphoneStat = (props, context) => {
   const { act, data } = useBackend(context);
   return (
-    <Box width="240px" height="10px" />
+    <Box width="240px" height="30px" />
   );
 };
 
 const CellphoneScreen = (props, context) => {
   const { act, data } = useBackend(context);
   return (
-    <Box width="240px" height="200px" />
+    <Box width="242px" height="220px" />
   );
 };
 
@@ -64,7 +66,7 @@ const CellphoneFunc = (props, context) => {
               'NuclearBomb__Button',
               'NuclearBomb__Button--keypad',
             ])}
-            onClick={() => act('dpad', { digit: "Up" })} />
+            onClick={() => act('dpad', { digit: "larrow" })} />
         </Flex.Item>
 
 
@@ -76,7 +78,7 @@ const CellphoneFunc = (props, context) => {
               'NuclearBomb__Button',
               'NuclearBomb__Button--keypad',
             ])}
-            onClick={() => act('dpad', { digit: "Up" })} />
+            onClick={() => act('dpad', { digit: "uarrow" })} />
 
           <Button fluid bold content="⎆"
             textAlign="center" fontSize="20px"
@@ -85,7 +87,7 @@ const CellphoneFunc = (props, context) => {
               'NuclearBomb__Button',
               'NuclearBomb__Button--keypad',
             ])}
-            onClick={() => act('dpad', { digit: "Up" })} />
+            onClick={() => act('dpad', { digit: "enter" })} />
 
           <Button fluid bold content="▼"
             textAlign="center" fontSize="20px"
@@ -94,7 +96,7 @@ const CellphoneFunc = (props, context) => {
               'NuclearBomb__Button',
               'NuclearBomb__Button--keypad',
             ])}
-            onClick={() => act('dpad', { digit: "Down" })} />
+            onClick={() => act('dpad', { digit: "darrow" })} />
         </Flex.Item>
 
         <Flex.Item align="center">
@@ -105,7 +107,7 @@ const CellphoneFunc = (props, context) => {
               'NuclearBomb__Button',
               'NuclearBomb__Button--keypad',
             ])}
-            onClick={() => act('dpad', { digit: "Up" })} />
+            onClick={() => act('dpad', { digit: "rarrow" })} />
         </Flex.Item>
 
         <Flex.Item>
@@ -153,8 +155,8 @@ const CellphoneNumpad = (props, context) => {
                 mb={1}
                 content={key}
                 textAlign="center"
-                fontSize="30px"
-                lineHeight="30px"
+                fontSize="20px"
+                lineHeight="20px"
                 width="80px"
                 className={classes([
                   'NuclearBomb__Button',
