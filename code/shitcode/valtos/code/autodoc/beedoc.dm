@@ -4,7 +4,7 @@
 	density = TRUE
 	state_open = FALSE
 	icon = 'code/shitcode/valtos/icons/autodoc.dmi'
-	icon_state = "organdoc_machine"
+	icon_state = "autodoc_machine"
 	verb_say = "states"
 	idle_power_usage = 50
 	circuit = /obj/item/circuitboard/machine/organdoc
