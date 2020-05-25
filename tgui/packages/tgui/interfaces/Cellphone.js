@@ -32,7 +32,7 @@ const CellphoneStat = (props, context) => {
 const CellphoneScreen = (props, context) => {
   const { act, data } = useBackend(context);
   return (
-    <Box width="240px" height="202px" >
+    <Box width="240px" height="202px">
       <Box className={classes(['Cellphone__font'])}>
         ShwainokarasOS v0.9.3
       </Box>
