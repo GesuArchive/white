@@ -133,8 +133,8 @@
 			else
 				D.adjust_money(-points_to_check)
 
-			priority_announce("One of your crew was captured by a rival organisation - we've needed to pay their ransom to bring them back. \
-							As is policy we've taken a portion of the station's funds to offset the overall cost.", null, 'sound/ai/attention.ogg', null, "Nanotrasen Asset Protection")
+			priority_announce("Один из членов экипажа был захвачена конкурирующей организацией - нам нужно заплатить выкуп, чтобы вернуть их. \
+							В соответствии с политикой мы взяли часть средств станции, чтобы компенсировать общую стоимость.", null, 'sound/ai/attention.ogg', null, "Защита Активов Нанотрейзен")
 
 			sleep(30)
 
@@ -149,8 +149,7 @@
 				if(C && C.registered_account)
 					C.registered_account.adjust_money(ransom * 0.35)
 
-					C.registered_account.bank_card_talk("We've processed the ransom, agent. Here's your cut - your balance is now \
-					[C.registered_account.account_balance] cr.", TRUE)
+					C.registered_account.bank_card_talk("Мы обработали выкуп, агент. Вот ваша доля в размере [C.registered_account.account_balance] кредитов.", TRUE)
 
 // They're off to holding - handle the return timer and give some text about what's going on.
 /datum/syndicate_contract/proc/handleVictimExperience(var/mob/living/M)
@@ -166,12 +165,12 @@
 		M.flash_act()
 		M.confused += 10
 		M.blur_eyes(5)
-		to_chat(M, "<span class='warning'>You feel strange...</span>")
+		to_chat(M, "<span class='warning'>Ощущаю себя странно...</span>")
 		sleep(60)
-		to_chat(M, "<span class='warning'>That pod did something to you...</span>")
+		to_chat(M, "<span class='warning'>Эта капсула сделала что-то со мной...</span>")
 		M.Dizzy(35)
 		sleep(65)
-		to_chat(M, "<span class='warning'>Моя голова разрывается... It feels like it's going to burst out your skull!</span>")
+		to_chat(M, "<span class='warning'>Моя голова разрывается... Похоже мозг хочет вырваться из моей головы!</span>")
 		M.flash_act()
 		M.confused += 20
 		M.blur_eyes(3)
@@ -180,9 +179,9 @@
 		sleep(100)
 		M.flash_act()
 		M.Unconscious(200)
-		to_chat(M, "<span class='reallybig hypnophrase'>A million voices echo in your head... <i>\"Your mind held many valuable secrets - \
-					we thank you for providing them. Your value is expended, and you will be ransomed back to your station. We always get paid, \
-					so it's only a matter of time before we ship you back...\"</i></span>")
+		to_chat(M, "<span class='reallybig hypnophrase'>Миллион голосов эхом звучит в голове... <i>\"В вашем уме много ценных секретов - \
+					мы благодарим вас за предоставление их нам. Ваша стоимость исчерпана, и вы будете возвращены обратно на свою станцию. Нам всегда платят, \
+					так что это только вопрос времени, когда мы отправим вас обратно...\"</i></span>")
 		M.blur_eyes(10)
 		M.Dizzy(15)
 		M.confused += 20
@@ -205,7 +204,7 @@
 		return_pod.style = STYLE_SYNDICATE
 
 		do_sparks(8, FALSE, M)
-		M.visible_message("<span class='notice'>[M] vanishes...</span>")
+		M.visible_message("<span class='notice'><b>[M]</b> исчезает...</span>")
 
 		for(var/obj/item/W in M)
 			if (ishuman(M))
@@ -228,8 +227,8 @@
 
 		new /obj/effect/DPtarget(possible_drop_loc[pod_rand_loc], return_pod)
 	else
-		to_chat(M, "<span class='reallybig hypnophrase'>A million voices echo in your head... <i>\"Seems where you got sent here from won't \
-					be able to handle our pod... You will die here instead.\"</i></span>")
+		to_chat(M, "<span class='reallybig hypnophrase'>Миллион голосов эхом звучит в голове... <i>\"Кажется, капсула, на которой вы сюда прибыли \
+					не в состоянии найти подходящее место для отправки вас назад... Вы умрете здесь вместо отправки.\"</i></span>")
 		if (iscarbon(M))
 			var/mob/living/carbon/C = M
 			if (C.can_heartattack())
