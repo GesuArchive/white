@@ -25,7 +25,7 @@ export const Cellphone = (props, context) => {
 const CellphoneStat = (props, context) => {
   const { data } = useBackend(context);
   return (
-    <Box width="240px" height="30px" className={classes(['Cellphone__font'])}>
+    <Box width="240px" height="20px" className={classes(['Cellphone__font'])}>
       🔋∞
     </Box>
   );
@@ -35,7 +35,7 @@ const CellphoneScreenSelector = (props, context) => {
   const { data } = useBackend(context);
   const screen = data.screen;
   return (
-    <Box width="240px" height="202px">
+    <Box width="240px" height="212px">
       {screen === "main" && (<CScreenMain />)}
       {screen === "menu" && (<CScreenMenu />)}
     </Box>
@@ -45,13 +45,11 @@ const CellphoneScreenSelector = (props, context) => {
 const CScreenMain = (props, context) => {
   const { data } = useBackend(context);
   return (
-    <Box>
-      <Box className={classes(['Cellphone__font'])}>
-        ShwainokarasOS v0.9.3
-      </Box>
+    <Section height="210px" title="ShwainokarasOS v0.9.3"
+      className={classes(['Cellphone__fixrm'])}>
       <Box height="200px"
         className="Cellphone__OSIcon" />
-    </Box>
+    </Section>
   );
 };
 
