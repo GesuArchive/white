@@ -34,6 +34,8 @@
 	data["lf_menu"] = PS.lf_menu
 	data["rf_menu"] = PS.rf_menu
 
+	data += PS.screen_data()
+
 	return data
 
 /obj/item/cellphone/ui_act(action, params)
@@ -55,7 +57,7 @@
 		if("dpad")
 			PS.dpad_act(params["button"])
 		if("numpad")
-			PS.numpad_act(params["button"])
+			PS.numpad_act(params["digit"])
 
 /obj/item/cellphone/proc/set_screen(name)
 	if(!screens[name])

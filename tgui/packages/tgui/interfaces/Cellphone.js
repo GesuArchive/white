@@ -57,9 +57,18 @@ const CScreenMenu = (props, context) => {
   const { data } = useBackend(context);
   return (
     <Box>
-      <Box className={classes(['Cellphone__font'])}>
-        Menu
-      </Box>
+      <Grid width="1px">
+        {data.options.map((valC, keyC) => (
+          <Grid.Column key={keyC}>
+            {valC.map((val, key) => (
+              <Box key={key}>
+                {(data.ptr_ml-1) === keyC && (data.ptr_sl-1) === key && (">")}
+                {val}
+              </Box>
+            ))}
+          </Grid.Column>
+        ))}
+      </Grid>
     </Box>
   );
 };
@@ -70,13 +79,13 @@ const CellphoneFuncMenu = (props, context) => {
     <Box width="240px">
       <Box>
         {data.lf_menu && (
-          <Section width="55px" height="30px" align="center">
+          <Section width="70px" height="30px" align="center">
             {data.lf_menu}
           </Section>)}
       </Box>
       <Box align="right">
         {data.rf_menu && (
-          <Section width="55px" height="30px" align="center"
+          <Section width="70px" height="30px" align="center"
             className={classes(['Cellphone__fixrm'])}>
             {data.rf_menu}
           </Section>)}
