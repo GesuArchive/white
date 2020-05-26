@@ -70,3 +70,23 @@
 /area/cyberspace/border
 	name = "Граница киберпространства"
 	icon_state = "maint_sec"
+
+/datum/map_template/cyberspess
+	name = "Киберпространство"
+	var/description = "Ебани с локтя тому, кто забыл добавить описание."
+	var/dif = 1
+	keep_cached_map = TRUE
+
+/datum/map_template/cyberspess/rospilovo
+	name = "Миссия \"Гоп-стоп\""
+	description = "У кого-то сегодня будет выбор."
+	dif = 1
+	mappath = '_maps/map_files/protocol_c/dz/rospilovo_ch1.dmm'
+
+/obj/machinery/cyberdeck
+	name = "кибердека"
+	desc = "Отправит тебя в места не столь отдалённые."
+	icon = 'code/shitcode/valtos/icons/dz-031.dmi'
+	icon_state = "cyberpod"
+	occupant_typecache = list(/mob/living/carbon/human)
+	//var/mob/living/carbon/human/virtual_reality/vr_human
