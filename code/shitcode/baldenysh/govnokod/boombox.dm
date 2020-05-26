@@ -12,7 +12,7 @@
 	var/sound/bbsound = null
 	var/active = FALSE
 	var/env_sound = FALSE
-	var/obj/item/card/music/disk
+	var/obj/item/card/data/music/disk
 	var/playing_range = 12
 	var/volume = 100
 	var/bbchannel = 0
@@ -182,7 +182,7 @@
 		disk = I
 	return ..()
 
-/obj/item/boombox/proc/disk_insert(mob/user, obj/item/card/music/I, target)
+/obj/item/boombox/proc/disk_insert(mob/user, obj/item/card/data/music/I, target)
 	if(istype(I))
 		if(target)
 			to_chat(user, "<span class='warning'>Здесь уже есть диск!</span>")
@@ -205,7 +205,7 @@
 			stopsound()
 		else
 			playsound(get_turf(src), 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
-		if(selection == disk.data)
+		if(selection == disk.track)
 			selection = null
 		disk = null
 
@@ -236,7 +236,7 @@
 	data["env"] = env_sound
 
 	data["disk"] = disk ? TRUE : FALSE
-	data["disktrack"] = disk && disk.data ? disk.data.song_name : FALSE
+	data["disktrack"] = disk && disk.track ? disk.track.song_name : FALSE
 
 	return data
 
@@ -255,8 +255,8 @@
 			for(var/datum/track/S in songs)
 				available[S.song_name] = S
 			if(disk)
-				if(disk.data)
-					available[disk.data.song_name] = disk.data
+				if(disk.track)
+					available[disk.track.song_name] = disk.track
 			var/selected = input(usr, "Выбирай мудро", "Трек:") as null|anything in available
 			if(QDELETED(src) || !selected || !istype(available[selected], /datum/track))
 				return
@@ -319,12 +319,9 @@
 
 //переделать нафиг
 
-/obj/item/card/music
+/obj/item/card/data/music
 	icon_state = "data_3"
-	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	w_class = 1.0
-	var/datum/track/data
+	var/datum/track/track
 	var/uploader_ckey
 
 /obj/machinery/musicwriter
@@ -387,11 +384,11 @@
 					var/sound/S = input("Файл") as sound|null
 					if(S)
 						var/datum/track/T = new()
-						var/obj/item/card/music/disk = new
+						var/obj/item/card/data/music/disk = new
 						T.song_path = S
 						//T.f_name = copytext(N, 1, 2)
 						T.song_name = N
-						disk.data = T
+						disk.track = T
 						disk.name = "диск ([N])"
 						disk.loc = src.loc
 						disk.uploader_ckey = retard.ckey
