@@ -35,7 +35,8 @@ const CellphoneScreenSelector = (props, context) => {
   const { data } = useBackend(context);
   const screen = data.screen;
   return (
-    <Box width="240px" height="212px">
+    <Box width="240px" height="212px"
+      className={classes(['Cellphone__padding'])}>
       {screen === "main" && (<CScreenMain />)}
       {screen === "menu" && (<CScreenMenu />)}
     </Box>
@@ -45,8 +46,7 @@ const CellphoneScreenSelector = (props, context) => {
 const CScreenMain = (props, context) => {
   const { data } = useBackend(context);
   return (
-    <Section height="210px" title="ShwainokarasOS v0.9.3"
-      className={classes(['Cellphone__fixrm'])}>
+    <Section height="210px" title="ShwainokarasOS v0.9.3">
       <Box height="200px"
         className="Cellphone__OSIcon" />
     </Section>
@@ -56,12 +56,12 @@ const CScreenMain = (props, context) => {
 const CScreenMenu = (props, context) => {
   const { data } = useBackend(context);
   return (
-    <Box>
+    <Box align="center" className={classes(['Cellphone__font'])}>
       <Grid width="1px">
         {data.options.map((valC, keyC) => (
           <Grid.Column key={keyC}>
             {valC.map((val, key) => (
-              <Box key={key}>
+              <Box key={key} width="30px" height="30px">
                 {(data.ptr_ml-1) === keyC && (data.ptr_sl-1) === key && (">")}
                 {val}
               </Box>
@@ -76,21 +76,21 @@ const CScreenMenu = (props, context) => {
 const CellphoneFuncMenu = (props, context) => {
   const { data } = useBackend(context);
   return (
-    <Box width="240px">
-      <Box>
+    <Flex width="240px" height="30px" justify="space-between">
+      <Flex.Item>
         {data.lf_menu && (
           <Section width="70px" height="30px" align="center">
             {data.lf_menu}
           </Section>)}
-      </Box>
-      <Box align="right">
+      </Flex.Item>
+      <Flex.Item align="right">
         {data.rf_menu && (
           <Section width="70px" height="30px" align="center"
             className={classes(['Cellphone__fixrm'])}>
             {data.rf_menu}
           </Section>)}
-      </Box>
-    </Box>
+      </Flex.Item>
+    </Flex>
   );
 };
 

@@ -7,6 +7,10 @@ $color-caution: colors.bg(colors.$yellow) !default;
 
 $background-beige: #E8E4C9;
 
+.Cellphone__padding {
+  padding-left: 4px;
+}
+
 .Cellphone__fixrm {
   margin-right: -4px;
 }

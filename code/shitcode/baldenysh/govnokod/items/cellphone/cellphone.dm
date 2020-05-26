@@ -15,7 +15,10 @@
 	. = ..()
 	for(var/PStype in subtypesof(/datum/phonescreen))
 		var/datum/phonescreen/PS = new PStype
-		screens[PS.name] = PS
+		if(!PS.default)
+			qdel(PS)
+			continue
+		screens[PS.id] = PS
 		PS.myphone = src
 
 /obj/item/cellphone/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.hands_state)
@@ -29,7 +32,7 @@
 
 	var/datum/phonescreen/PS = screens[curscreen]
 
-	data["screen"] = PS.name
+	data["screen"] = PS.id
 
 	data["lf_menu"] = PS.lf_menu
 	data["rf_menu"] = PS.rf_menu
@@ -49,7 +52,7 @@
 		if("call")
 			PS.call_act()
 		if("hang")
-			PS.call_act()
+			PS.hang_act()
 		if("leftfunc")
 			PS.lf_act()
 		if("rightfunc")
@@ -59,10 +62,10 @@
 		if("numpad")
 			PS.numpad_act(params["digit"])
 
-/obj/item/cellphone/proc/set_screen(name)
-	if(!screens[name])
+/obj/item/cellphone/proc/set_screen(id)
+	if(!screens[id])
 		return
-	curscreen = name
+	curscreen = id
 	if(ismob(loc))
 		var/mob/user = loc
 		ui_interact(user)
