@@ -14,7 +14,6 @@
 
 /datum/reagent/viagra/on_mob_add(mob/living/L)
 	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
 		//rd = roll_stat_dice(H.fate_luck)
 		to_chat(L, "<span class='notice'>Чуствую вкусную конфету!</span>")
 
@@ -55,7 +54,6 @@
 
 /datum/reagent/askorbinka/on_mob_add(mob/living/L)
 	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
 		//rd = roll_stat_dice(H.fate_luck)
 		to_chat(L, "<span class='notice'>Ням!</span>")
 
