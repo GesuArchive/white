@@ -403,13 +403,13 @@
 					"<a href='?src=[REF(src)];hud=s;add_comment=1'>\[Добавить комментарий\]</a> "), "")
 	else if(isobserver(user) && traitstring)
 		. += "<span class='info'><b>Черты:</b> [traitstring]</span>"
-	if(true_info)
-		. += "\n<span class='info'><b>Судьба:</b>"
-		. += "Уровень <b>силы</b> [fateize_stat(current_fate[MOB_STR], TRUE)]."
-		. += "Уровень <b>выносливости</b> [fateize_stat(current_fate[MOB_STM], TRUE)]."
-		. += "Уровень <b>интеллекта</b> [fateize_stat(current_fate[MOB_INT], TRUE)]."
-		. += "Уровень <b>ловкости</b> [fateize_stat(current_fate[MOB_DEX], TRUE)].</span>\n"
-		. += "<span class='info'><b>Черты:</b> [traitstring]</span>"
+	//if(true_info)
+	//	. += "\n<span class='info'><b>Судьба:</b>"
+	//	. += "Уровень <b>силы</b> [fateize_stat(current_fate[MOB_STR], TRUE)]."
+	//	. += "Уровень <b>выносливости</b> [fateize_stat(current_fate[MOB_STM], TRUE)]."
+	//	. += "Уровень <b>интеллекта</b> [fateize_stat(current_fate[MOB_INT], TRUE)]."
+	//	. += "Уровень <b>ловкости</b> [fateize_stat(current_fate[MOB_DEX], TRUE)].</span>\n"
+	//	. += "<span class='info'><b>Черты:</b> [traitstring]</span>"
 	. += "<span class='info'>*---------*</span>"
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 

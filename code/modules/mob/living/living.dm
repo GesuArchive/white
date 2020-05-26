@@ -559,9 +559,6 @@
 		update_sight()
 		clear_alert("not_enough_oxy")
 		reload_fullscreen()
-		if(ishuman(src))
-			var/mob/living/carbon/human/H = src
-			H.recalculate_stats()
 		. = TRUE
 		if(mind)
 			for(var/S in mind.spell_list)

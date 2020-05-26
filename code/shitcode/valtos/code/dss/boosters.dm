@@ -15,15 +15,15 @@
 /datum/reagent/viagra/on_mob_add(mob/living/L)
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
-		rd = roll_stat_dice(H.fate_luck)
-		to_chat(L, "<span class='notice'>ЧУВСТВУЮ СИЛУ И БЕЗЗАБОТСТВО!</span>")
+		//rd = roll_stat_dice(H.fate_luck)
+		to_chat(L, "<span class='notice'>Чуствую вкусную конфету!</span>")
 
 /datum/reagent/viagra/on_mob_life(mob/living/L)
-	if(ishuman(L))
-		var/mob/living/carbon/human/N = L
-		N.current_fate[MOB_STR] = CEILING(N.base_fate[MOB_STR] + rd, 4)
-		N.current_fate[MOB_INT] = CEILING(N.base_fate[MOB_INT] + rd, 1)
-		N.recalculate_stats()
+	//if(ishuman(L))
+	//	var/mob/living/carbon/human/N = L
+	//	N.current_fate[MOB_STR] = CEILING(N.base_fate[MOB_STR] + rd, 4)
+	//	N.current_fate[MOB_INT] = CEILING(N.base_fate[MOB_INT] + rd, 1)
+	//	N.recalculate_stats()
 	. = ..()
 
 /datum/reagent/viagra/overdose_process(mob/living/M)
@@ -56,16 +56,16 @@
 /datum/reagent/askorbinka/on_mob_add(mob/living/L)
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
-		rd = roll_stat_dice(H.fate_luck)
+		//rd = roll_stat_dice(H.fate_luck)
 		to_chat(L, "<span class='notice'>Ням!</span>")
 
 /datum/reagent/askorbinka/on_mob_life(mob/living/L)
-	if(ishuman(L))
-		var/mob/living/carbon/human/N = L
-		N.current_fate[MOB_STR] = CEILING(N.base_fate[MOB_STR] + rd, 2)
-		N.current_fate[MOB_INT] = CEILING(N.base_fate[MOB_INT] + rd, 4)
-		N.current_fate[MOB_DEX] = CEILING(N.base_fate[MOB_DEX] + rd, 4)
-		N.recalculate_stats()
+	//if(ishuman(L))
+	//	var/mob/living/carbon/human/N = L
+	//	N.current_fate[MOB_STR] = CEILING(N.base_fate[MOB_STR] + rd, 2)
+	//	N.current_fate[MOB_INT] = CEILING(N.base_fate[MOB_INT] + rd, 4)
+	//	N.current_fate[MOB_DEX] = CEILING(N.base_fate[MOB_DEX] + rd, 4)
+	//	N.recalculate_stats()
 
 /datum/reagent/askorbinka/overdose_process(mob/living/M)
 	if(ishuman(M))

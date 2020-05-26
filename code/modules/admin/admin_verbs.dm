@@ -175,7 +175,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/cmd_display_overlay_log,
 	/client/proc/reload_configuration,
 	/datum/admins/proc/create_or_modify_area,
-	/client/proc/set_stats,
+	///client/proc/set_stats,
 	)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess_wrapper, /proc/possess, /proc/release))
 GLOBAL_PROTECT(admin_verbs_possess)
