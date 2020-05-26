@@ -5,6 +5,15 @@
 /datum/phonescreen/menu/proc/regen_options()
 	options = list()
 
+/datum/phonescreen/menu/proc/select_act(selection)
+
+/datum/phonescreen/menu/screen_data()
+	var/list/data = list()
+	data["ptr_i"] = ptr_i
+	regen_options()
+	data["options"] = options
+	return data
+
 /datum/phonescreen/menu/dpad_act(button)
 	switch(button)
 		if("uarrow")
@@ -21,8 +30,6 @@
 			return
 		if("enter")
 			select_act(options[ptr_i])
-
-/datum/phonescreen/menu/proc/select_act(selection)
 
 ///////////////////////////////////////////////
 
@@ -68,6 +75,3 @@
 				ptr_j = 1
 		if("enter")
 			select_act(options[ptr_i][ptr_j])
-
-/datum/phonescreen/menu/matrix/select_act(selection)
-
