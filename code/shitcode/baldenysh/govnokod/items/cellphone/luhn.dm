@@ -9,7 +9,7 @@
 			digit *= 2
 			if(digit > 9)
 				digit -= 9
-		sum += digit
+			sum += digit
 
 	for(var/i = numlen; i > 0; i--)
 		var/digit = text2num(numtext[i])
@@ -24,13 +24,12 @@
 /proc/check_luhn(num)
 	var/numtext = "[num]"
 	var/numlen = length_char(numtext)
-	var/parity = numlen % 2
 	var/sum = 0
 	for(var/i in 1 to numlen)
 		var/digit = text2num(numtext[i])
-		if(i % 2 == parity)
+		if(i % 2 != 0)
 			digit *= 2
 			if(digit > 9)
 				digit -= 9
 		sum += digit
-	return (sum % 10) == 0
+	return sum % 10 == 0
