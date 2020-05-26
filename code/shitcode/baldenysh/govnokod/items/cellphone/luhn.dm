@@ -3,7 +3,7 @@
 	var/numlen = length_char(numtext)
 	var/parity = numlen % 2
 	var/sum = 0
-	for(var/i in 1 to numlen)
+	for(var/i = numlen; i > 0; i--)
 		var/digit = text2num(numtext[i])
 		if(i % 2 == parity)
 			digit *= 2
