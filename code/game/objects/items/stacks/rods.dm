@@ -1,15 +1,15 @@
 GLOBAL_LIST_INIT(rod_recipes, list ( \
-	new/datum/stack_recipe("grille", /obj/structure/grille, 2, time = 10, one_per_turf = TRUE, on_floor = FALSE), \
-	new/datum/stack_recipe("table frame", /obj/structure/table_frame, 2, time = 10, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("scooter frame", /obj/item/scooter_frame, 10, time = 25, one_per_turf = 0), \
-	new/datum/stack_recipe("linen bin", /obj/structure/bedsheetbin/empty, 2, time = 5, one_per_turf = 0), \
-	new/datum/stack_recipe("railing", /obj/structure/railing, 3, time = 18, window_checks = TRUE), \
+	new/datum/stack_recipe("решётка", /obj/structure/grille, 2, time = 10, one_per_turf = TRUE, on_floor = FALSE), \
+	new/datum/stack_recipe("рама стола", /obj/structure/table_frame, 2, time = 10, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("рама самоката", /obj/item/scooter_frame, 10, time = 25, one_per_turf = 0), \
+	new/datum/stack_recipe("корзина для белья", /obj/structure/bedsheetbin/empty, 2, time = 5, one_per_turf = 0), \
+	new/datum/stack_recipe("перила", /obj/structure/railing, 3, time = 18, window_checks = TRUE), \
 	))
 
 /obj/item/stack/rods
-	name = "metal rod"
-	desc = "Some rods. Can be used for building or something."
-	singular_name = "metal rod"
+	name = "металлические стержни"
+	desc = "Могут быть использованы для строительства или укрепления чего-то."
+	singular_name = "металлический стержень"
 	icon_state = "rods"
 	item_state = "rods"
 	flags_1 = CONDUCT_1
@@ -47,14 +47,14 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 /obj/item/stack/rods/attackby(obj/item/W, mob/user, params)
 	if(W.tool_behaviour == TOOL_WELDER)
 		if(get_amount() < 2)
-			to_chat(user, "<span class='warning'>You need at least two rods to do this!</span>")
+			to_chat(user, "<span class='warning'>Мне потребуется как минимум два стержня для этого!</span>")
 			return
 
 		if(W.use_tool(src, user, 0, volume=40))
 			var/obj/item/stack/sheet/metal/new_item = new(usr.loc)
-			user.visible_message("<span class='notice'>[user.name] shaped [src] into metal with [W].</span>", \
-						 "<span class='notice'>You shape [src] into metal with [W].</span>", \
-						 "<span class='hear'>You hear welding.</span>")
+			user.visible_message("<span class='notice'><b>[user.name]</b> плавит [src] в металлический лист используя [W].</span>", \
+						 "<span class='notice'>Плавлю [src] в металлический лист используя [W].</span>", \
+						 "<span class='hear'>Слышу сварку.</span>")
 			var/obj/item/stack/rods/R = src
 			src = null
 			var/replace = (user.get_inactive_held_item()==R)
@@ -65,9 +65,9 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	else if(istype(W, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/S = W
 		if(amount != 1)
-			to_chat(user, "<span class='warning'>You must use a single rod!</span>")
+			to_chat(user, "<span class='warning'>Мне нужен один стержень, не более!</span>")
 		else if(S.w_class > WEIGHT_CLASS_SMALL)
-			to_chat(user, "<span class='warning'>The ingredient is too big for [src]!</span>")
+			to_chat(user, "<span class='warning'>Ингридиент слишком большой для насаживания!</span>")
 		else
 			var/obj/item/reagent_containers/food/snacks/customizable/A = new/obj/item/reagent_containers/food/snacks/customizable/kebab(get_turf(src))
 			A.initialize_custom_food(src, S, user)
@@ -93,9 +93,9 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	amount = 50
 
 /obj/item/stack/rods/lava
-	name = "heat resistant rod"
-	desc = "Treated, specialized metal rods. When exposed to the vaccum of space their coating breaks off, but they can hold up against the extreme heat of active lava."
-	singular_name = "heat resistant rod"
+	name = "жаропрочные стержни"
+	desc = "Обработанные, специализированные металлические стержни. При воздействии космического вакуума их покрытие разрушается, но они могут противостоять сильной жаре активной лавы."
+	singular_name = "жаропрочный стержень"
 	icon_state = "rods"
 	item_state = "rods"
 	color = "#5286b9ff"

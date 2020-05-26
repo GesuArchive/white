@@ -262,7 +262,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		if(resistance_flags & LAVA_PROOF)
 			. += "[capitalize(src.name)] выглядит устойчивым к сверхвысоким температурам! Похоже он выдержит даже магму."
 		if(resistance_flags & (ACID_PROOF | UNACIDABLE))
-			. += "[capitalize(src.name)] выглядит устойчивым к кислоте!"
+			. += "[capitalize(src.name)] выглядит устойчивым к кислоте."
 		if(resistance_flags & FREEZE_PROOF)
 			. += "[capitalize(src.name)] выглядит устойчивым к холоду."
 		if(resistance_flags & FIRE_PROOF)
@@ -272,7 +272,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		return
 
 	/// Research prospects, including boostable nodes and point values. Deliver to a console to know whether the boosts have already been used.
-	var/list/research_msg = list("<font color='purple'>Research prospects:</font> ")
+	var/list/research_msg = list("<font color='purple'>Научный интерес:</font> ")
 	///Separator between the items on the list
 	var/sep = ""
 	///Nodes that can be boosted
@@ -291,7 +291,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		research_msg += techweb_point_display_generic(points)
 
 	if (!sep) // nothing was shown
-		research_msg += "None"
+		research_msg += "Ничего"
 
 	// Extractable materials. Only shows the names, not the amounts.
 	research_msg += ".<br><font color='purple'>Материалы:</font> "
@@ -302,7 +302,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 			research_msg += CallMaterialName(mat)
 			sep = ", "
 	else
-		research_msg += "None"
+		research_msg += "Ничего"
 	research_msg += "."
 	. += research_msg.Join()
 

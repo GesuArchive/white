@@ -1,7 +1,7 @@
 /obj/item/stack/telecrystal
-	name = "telecrystal"
-	desc = "It seems to be pulsing with suspiciously enticing energies."
-	singular_name = "telecrystal"
+	name = "телекристаллы"
+	desc = "Кажется, он пульсирует подозрительно соблазнительными энергиями."
+	singular_name = "телекристалл"
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "telecrystal"
 	dye_color = DYE_SYNDICATE
@@ -17,7 +17,7 @@
 				if(hidden_uplink)
 					hidden_uplink.telecrystals += amount
 					use(amount)
-					to_chat(user, "<span class='notice'>You press [src] onto yourself and charge your hidden uplink.</span>")
+					to_chat(user, "<span class='notice'>Сдавливаю <b>[src]</b> и заряжаю свой скрытый аплинк.</span>")
 	else
 		return ..()
 

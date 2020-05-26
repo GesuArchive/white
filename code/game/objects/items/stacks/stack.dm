@@ -36,7 +36,7 @@
 
 /obj/item/stack/grind_requirements()
 	if(is_cyborg)
-		to_chat(usr, "<span class='warning'>[src] is electronically synthesized in your chassis and can't be ground up!</span>")
+		to_chat(usr, "<span class='warning'><b>[capitalize(src)]</b> электронно синтезируется в моём корпусе и не может быть измельчен!</span>")
 		return
 	return TRUE
 
@@ -104,20 +104,20 @@
 	. = ..()
 	if (is_cyborg)
 		if(singular_name)
-			. += "There is enough energy for [get_amount()] [singular_name]\s."
+			. += "Здесь достаточно энергии для производства [get_amount()] [singular_name]."
 		else
-			. += "There is enough energy for [get_amount()]."
+			. += "Здесь достаточно энергии для производства [get_amount()]."
 		return
 	if(singular_name)
 		if(get_amount()>1)
-			. += "There are [get_amount()] [singular_name]\s in the stack."
+			. += "Всего здесь [get_amount()] [singular_name] в куче."
 		else
-			. += "There is [get_amount()] [singular_name] in the stack."
+			. += "Всего здесь [get_amount()] [singular_name] в куче."
 	else if(get_amount()>1)
-		. += "There are [get_amount()] in the stack."
+		. += "Здесь [get_amount()] в куче."
 	else
-		. += "There is [get_amount()] in the stack."
-	. += "<span class='notice'>Alt-click to take a custom amount.</span>"
+		. += "Здесь [get_amount()] в куче."
+	. += "<span class='notice'>Alt-клик для изъятия свободного количества.</span>"
 
 /obj/item/stack/proc/get_amount()
 	if(is_cyborg)
@@ -142,7 +142,7 @@
 	if (recipes_sublist && recipe_list[recipes_sublist] && istype(recipe_list[recipes_sublist], /datum/stack_recipe_list))
 		var/datum/stack_recipe_list/srl = recipe_list[recipes_sublist]
 		recipe_list = srl.recipes
-	var/t1 = "Amount Left: [get_amount()]<br>"
+	var/t1 = "Объём: [get_amount()]<br>"
 	for(var/i in 1 to length(recipe_list))
 		var/E = recipe_list[i]
 		if (isnull(E))
@@ -209,7 +209,7 @@
 			return
 		if (R.time)
 			var/adjusted_time = 0
-			usr.visible_message("<span class='notice'>[usr] starts building \a [R.title].</span>", "<span class='notice'>You start building \a [R.title]...</span>")
+			usr.visible_message("<span class='notice'><b>[usr]</b> начинает строить <b>[R.title]</b>.</span>", "<span class='notice'>Начинаю строить <b>[R.title]</b>...</span>")
 			if(HAS_TRAIT(usr, R.trait_booster))
 				adjusted_time = (R.time * R.trait_modifier)
 			else
@@ -268,22 +268,22 @@
 /obj/item/stack/proc/building_checks(datum/stack_recipe/R, multiplier)
 	if (get_amount() < R.req_amount*multiplier)
 		if (R.req_amount*multiplier>1)
-			to_chat(usr, "<span class='warning'>You haven't got enough [src] to build \the [R.req_amount*multiplier] [R.title]\s!</span>")
+			to_chat(usr, "<span class='warning'>Здесь недостаточно <b>[src]</b> для постройки [R.req_amount*multiplier] <b>[R.title]</b>!</span>")
 		else
-			to_chat(usr, "<span class='warning'>You haven't got enough [src] to build \the [R.title]!</span>")
+			to_chat(usr, "<span class='warning'>Здесь недостаточно <b>[src]</b> для постройки <b>[R.title]</b>!</span>")
 		return FALSE
 	var/turf/T = get_turf(usr)
 
 	var/obj/D = R.result_type
 	if(R.window_checks && !valid_window_location(T, initial(D.dir) == FULLTILE_WINDOW_DIR ? FULLTILE_WINDOW_DIR : usr.dir))
-		to_chat(usr, "<span class='warning'>The [R.title] won't fit here!</span>")
+		to_chat(usr, "<span class='warning'>Похоже <b>[R.title]</b> не поместится здесь!</span>")
 		return FALSE
 	if(R.one_per_turf && (locate(R.result_type) in T))
-		to_chat(usr, "<span class='warning'>There is another [R.title] here!</span>")
+		to_chat(usr, "<span class='warning'>Здесь уже есть <b>[R.title]</b>!</span>")
 		return FALSE
 	if(R.on_floor)
 		if(!isfloorturf(T))
-			to_chat(usr, "<span class='warning'>\The [R.title] must be constructed on the floor!</span>")
+			to_chat(usr, "<span class='warning'><b>[capitalize(R.title)]</b> должен быть построен на полу!</span>")
 			return FALSE
 		for(var/obj/AM in T)
 			if(istype(AM,/obj/structure/grille))
@@ -295,7 +295,7 @@
 				if(!W.fulltile)
 					continue
 			if(AM.density)
-				to_chat(usr, "<span class='warning'>Theres a [AM.name] here. You cant make a [R.title] here!</span>")
+				to_chat(usr, "<span class='warning'>Здесь стоит <b>[AM.name]</b>. Я не могу построить <b>[R.title]</b> здесь!</span>")
 				return FALSE
 	if(R.placement_checks)
 		switch(R.placement_checks)
@@ -304,11 +304,11 @@
 				for(var/direction in GLOB.cardinals)
 					step = get_step(T, direction)
 					if(locate(R.result_type) in step)
-						to_chat(usr, "<span class='warning'>\The [R.title] must not be built directly adjacent to another!</span>")
+						to_chat(usr, "<span class='warning'><b>[capitalize(R.title)]</b> не может быть построен рядом с другим таким же!</span>")
 						return FALSE
 			if(STACK_CHECK_ADJACENT)
 				if(locate(R.result_type) in range(1, T))
-					to_chat(usr, "<span class='warning'>\The [R.title] must be constructed at least one tile away from others of its type!</span>")
+					to_chat(usr, "<span class='warning'><b>[capitalize(R.title)]</b> должен быть построен в радиусе метра от такой же постройки!</span>")
 					return FALSE
 	return TRUE
 
@@ -335,11 +335,11 @@
 	if(get_amount() < amount)
 		if(singular_name)
 			if(amount > 1)
-				to_chat(user, "<span class='warning'>You need at least [amount] [singular_name]\s to do this!</span>")
+				to_chat(user, "<span class='warning'>Мне потребуется [amount] [singular_name] для этого!</span>")
 			else
-				to_chat(user, "<span class='warning'>You need at least [amount] [singular_name] to do this!</span>")
+				to_chat(user, "<span class='warning'>Мне потребуется [amount] [singular_name] для этого!</span>")
 		else
-			to_chat(user, "<span class='warning'>You need at least [amount] to do this!</span>")
+			to_chat(user, "<span class='warning'>Мне потребуется [amount] для этого!</span>")
 
 		return FALSE
 
@@ -413,14 +413,14 @@
 			return
 		//get amount from user
 		var/max = get_amount()
-		var/stackmaterial = round(input(user,"How many sheets do you wish to take out of this stack? (Maximum  [max])") as null|num)
+		var/stackmaterial = round(input(user,"Сколько листов будем брать из кучи? (Максимум  [max])") as null|num)
 		max = get_amount()
 		stackmaterial = min(max, stackmaterial)
 		if(stackmaterial == null || stackmaterial <= 0 || !user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
 			return
 		else
 			change_stack(user, stackmaterial)
-			to_chat(user, "<span class='notice'>You take [stackmaterial] sheets out of the stack.</span>")
+			to_chat(user, "<span class='notice'>Достаю [stackmaterial] листов из кучи.</span>")
 
 /obj/item/stack/proc/change_stack(mob/user, amount)
 	if(!use(amount, TRUE, FALSE))
@@ -439,7 +439,7 @@
 	if(istype(W, merge_type))
 		var/obj/item/stack/S = W
 		if(merge(S))
-			to_chat(user, "<span class='notice'>Your [S.name] stack now contains [S.get_amount()] [S.singular_name]\s.</span>")
+			to_chat(user, "<span class='notice'>Моя куча <b>[S.name]</b> теперь содержит [S.get_amount()] [S.singular_name].</span>")
 	else
 		. = ..()
 

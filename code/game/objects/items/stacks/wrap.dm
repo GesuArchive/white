@@ -5,8 +5,8 @@
  */
 
 /obj/item/stack/wrapping_paper
-	name = "wrapping paper"
-	desc = "Wrap packages with this festive paper to make gifts."
+	name = "оберточная бумага"
+	desc = "Оберните пакеты этой праздничной бумагой, чтобы сделать подарки."
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "wrap_paper"
 	item_flags = NOBLUDGEON
@@ -21,7 +21,7 @@
 		new /obj/item/c_tube(T)
 
 /obj/item/stack/wrapping_paper/small
-	desc = "Wrap packages with this festive paper to make gifts. This roll looks a bit skimpy."
+	desc = "Оберните пакеты этой праздничной бумагой, чтобы сделать подарки. Этот рулон выглядит немного скудно."
 	amount = 10
 
 /*
@@ -29,9 +29,9 @@
  */
 
 /obj/item/stack/packageWrap
-	name = "package wrapper"
-	singular_name = "wrapping sheet"
-	desc = "You can use this to wrap items in."
+	name = "упаковщик"
+	singular_name = "упаковочный лист"
+	desc = "Вы можете использовать это, чтобы обернуть что-то в неё."
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "deliveryPaper"
 	item_flags = NOBLUDGEON
@@ -49,7 +49,7 @@
 		P.add_fingerprint(user)
 		return OXYLOSS
 	else
-		to_chat(user, "<span class='warning'>You need more paper!</span>")
+		to_chat(user, "<span class='warning'>Не хватает обёрточной бумаги для суицида! Лох!</span>")
 		return SHAME
 
 /obj/item/proc/can_be_package_wrapped() //can the item be wrapped with package wrapper into a delivery package
@@ -100,7 +100,7 @@
 		if(O.opened)
 			return
 		if(!O.delivery_icon) //no delivery icon means unwrappable closet (e.g. body bags)
-			to_chat(user, "<span class='warning'>You can't wrap this!</span>")
+			to_chat(user, "<span class='warning'>Не могу обернуть это!</span>")
 			return
 		if(use(3))
 			var/obj/structure/bigDelivery/P = new /obj/structure/bigDelivery(get_turf(O.loc))
@@ -109,13 +109,13 @@
 			P.add_fingerprint(user)
 			O.add_fingerprint(user)
 		else
-			to_chat(user, "<span class='warning'>You need more paper!</span>")
+			to_chat(user, "<span class='warning'>Надо бы больше обёрточной бумаги!</span>")
 			return
 	else
-		to_chat(user, "<span class='warning'>The object you are trying to wrap is unsuitable for the sorting machinery!</span>")
+		to_chat(user, "<span class='warning'>Эта штука не подойдёт для сортировочной машины, куда это будет отправлено!</span>")
 		return
 
-	user.visible_message("<span class='notice'>[user] wraps [target].</span>")
+	user.visible_message("<span class='notice'><b>[user]</b> оборачивает <b>[target]</b> в красивую и модную упаковку.</span>")
 	user.log_message("has used [name] on [key_name(target)]", LOG_ATTACK, color="blue")
 
 /obj/item/stack/packageWrap/use(used, transfer = FALSE)
@@ -125,13 +125,13 @@
 		new /obj/item/c_tube(T)
 
 /obj/item/stack/packageWrap/small
-	desc = "You can use this to wrap items in. This roll looks a bit skimpy."
+	desc = "Вы можете использовать это, чтобы обернуть предметы. Этот рулон выглядит немного скудно."
 	w_class = WEIGHT_CLASS_SMALL
 	amount = 5
 
 /obj/item/c_tube
-	name = "cardboard tube"
-	desc = "A tube... of cardboard."
+	name = "картонная труба"
+	desc = "Труба... картонная. Дебил?"
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "c_tube"
 	throwforce = 0

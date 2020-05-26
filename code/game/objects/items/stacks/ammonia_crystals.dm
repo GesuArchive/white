@@ -1,6 +1,6 @@
 /obj/item/stack/ammonia_crystals
-	name = "Ammonia Crystals"
-	singular_name = "Ammonia Crystal"
+	name = "кристаллы аммиака"
+	singular_name = "кристалл аммиака"
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "ammonia_crystal"
 	w_class = WEIGHT_CLASS_TINY

@@ -1,9 +1,9 @@
 
 
 /obj/item/stack/sticky_tape
-	name = "sticky tape"
-	singular_name = "sticky tape"
-	desc = "Used for sticking to things for sticking said things to people."
+	name = "клейкая лента"
+	singular_name = "клейкая лента"
+	desc = "Используется для приклеивания к вещам, для приклеивания к людям сказанного."
 	icon = 'icons/obj/tapes.dmi'
 	icon_state = "tape_w"
 	var/prefix = "sticky"
@@ -21,23 +21,23 @@
 		return
 
 	if(I.embedding && I.embedding == conferred_embed)
-		to_chat(user, "<span class='warning'>[I] is already coated in [src]!</span>")
+		to_chat(user, "<span class='warning'><b>[capitalize(I)]</b> уже обёрнут в <b>[src]</b>!</span>")
 		return
 
-	user.visible_message("<span class='notice'>[user] begins wrapping [I] with [src].</span>", "<span class='notice'>You begin wrapping [I] with [src].</span>")
+	user.visible_message("<span class='notice'><b>[user]</b> начинает оборачивать <b>[I]</b> при помощи <b>[src]</b>.</span>", "<span class='notice'>Начинаю оборачивать <b>[I]</b> при помощи <b>[src]</b>.</span>")
 
 	if(do_after(user, 30, target=I))
 		use(1)
 		if(istype(I, /obj/item/clothing/gloves/fingerless))
 			var/obj/item/clothing/gloves/tackler/offbrand/O = new /obj/item/clothing/gloves/tackler/offbrand
-			to_chat(user, "<span class='notice'>You turn [I] into [O] with [src].</span>")
+			to_chat(user, "<span class='notice'>Оборачиваю <b>[I]</b> в <b>[O]</b> используя <b>[src]</b>.</span>")
 			QDEL_NULL(I)
 			user.put_in_hands(O)
 			return
 
 		I.embedding = conferred_embed
 		I.updateEmbedding()
-		to_chat(user, "<span class='notice'>You finish wrapping [I] with [src].</span>")
+		to_chat(user, "<span class='notice'>Заканчиваю оборачивать <b>[I]</b> используя <b>[src]</b>.</span>")
 		I.name = "[prefix] [I.name]"
 
 		if(istype(I, /obj/item/grenade))
@@ -45,25 +45,25 @@
 			sticky_bomb.sticky = TRUE
 
 /obj/item/stack/sticky_tape/super
-	name = "super sticky tape"
-	singular_name = "super sticky tape"
-	desc = "Quite possibly the most mischevious substance in the galaxy. Use with extreme lack of caution."
+	name = "супер клейкая лента"
+	singular_name = "супер клейкая лента"
+	desc = "Вполне возможно, самое вредное вещество в галактике. Используйте с крайней осторожностью."
 	icon_state = "tape_y"
-	prefix = "super sticky"
+	prefix = "очень липкий"
 	conferred_embed = EMBED_HARMLESS_SUPERIOR
 
 /obj/item/stack/sticky_tape/pointy
-	name = "pointy tape"
-	singular_name = "pointy tape"
-	desc = "Used for sticking to things for sticking said things inside people."
+	name = "заостренная лента"
+	singular_name = "заостренная лента"
+	desc = "Используется для приклеивания к вещам, для того, чтобы приклеивать эти вещи к людям."
 	icon_state = "tape_evil"
-	prefix = "pointy"
+	prefix = "заострённый"
 	conferred_embed = EMBED_POINTY
 
 /obj/item/stack/sticky_tape/pointy/super
-	name = "super pointy tape"
-	singular_name = "super pointy tape"
-	desc = "You didn't know tape could look so sinister. Welcome to Space Station 13."
+	name = "супер заостренная лента"
+	singular_name = "супер заостренная лента"
+	desc = "Вы не знали, что лента может выглядеть так зловеще. Добро пожаловать на Космическую Станцию 13."
 	icon_state = "tape_spikes"
-	prefix = "super pointy"
+	prefix = "невероятно острый"
 	conferred_embed = EMBED_POINTY_SUPERIOR

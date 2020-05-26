@@ -1,21 +1,21 @@
 /obj/item/stack/license_plates
-	name = "invalid plate"
-	desc = "someone fucked up"
+	name = "неверная табличка"
+	desc = "алоха я в бар"
 	icon = 'icons/obj/machines/prison.dmi'
 	icon_state = "empty_plate"
 	novariants = FALSE
 	max_amount = 50
 
 /obj/item/stack/license_plates/empty
-	name = "empty license plate"
-	desc = "Instead of a license plate number, this could contain a quote like \"Live laugh love\"."
+	name = "пустой номерной знак"
+	desc = "Вместо номера автомобильного номера это может содержать цитату типа «Жить, смеяться, любить»."
 
 /obj/item/stack/license_plates/empty/fifty
 	amount = 50
 
 /obj/item/stack/license_plates/filled
-	name = "license plate"
-	desc = "Prison labor paying off."
+	name = "номерной знак"
+	desc = "Тюремный труд окупается."
 	icon_state = "filled_plate_1_1"
 
 ///Override to allow for variations
