@@ -61,9 +61,9 @@ const CScreenMenu = (props, context) => {
         {data.options.map((valC, keyC) => (
           <Grid.Column key={keyC}>
             {valC.map((val, key) => (
-              <Box key={key} width="30px" height="30px">
-                {(data.ptr_ml-1) === keyC && (data.ptr_sl-1) === key && (">")}
-                {val}
+              <Box key={key} width="60px" height="60px">
+                {(data.ptr_i-1) === keyC && (data.ptr_j-1) === key && (">")}
+                {val[0]}
               </Box>
             ))}
           </Grid.Column>
