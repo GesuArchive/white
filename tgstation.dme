@@ -3122,6 +3122,7 @@
 #include "code\shitcode\baldenysh\govnokod\items\tgui_zoom.dm"
 #include "code\shitcode\baldenysh\govnokod\items\cellphone\calling_card.dm"
 #include "code\shitcode\baldenysh\govnokod\items\cellphone\cellphone.dm"
+#include "code\shitcode\baldenysh\govnokod\items\cellphone\luhn.dm"
 #include "code\shitcode\baldenysh\govnokod\items\cellphone\screens_default.dm"
 #include "code\shitcode\baldenysh\govnokod\items\cellphone\screens_main.dm"
 #include "code\shitcode\baldenysh\govnokod\items\cellphone\screens_menu.dm"
