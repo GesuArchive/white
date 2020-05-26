@@ -289,6 +289,11 @@
 	bbox = new(src)
 	bbox.name = name
 
+/obj/machinery/turntable/Destroy()
+	if(bbox)
+		qdel(bbox)
+	. = ..()
+
 /obj/machinery/turntable/ui_interact(mob/user)
 	bbox.ui_interact(user)
 
