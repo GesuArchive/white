@@ -8,6 +8,8 @@
 	var/ui_x = 264
 	var/ui_y = 600
 
+	var//obj/item/card/data/calling/ccard
+
 	var/list/screens = list()
 	var/curscreen = "main"
 
