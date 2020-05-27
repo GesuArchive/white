@@ -5,7 +5,6 @@
 	var/name = "sasai kudosai"
 	var/rf_menu
 	var/lf_menu
-	var/default = FALSE
 	var/menuitem = TRUE
 
 /datum/phonescreen/proc/screen_data()
@@ -42,7 +41,6 @@
 	id = "main"
 	name = "Главная"
 	lf_menu = "Меню"
-	default = TRUE
 
 /datum/phonescreen/main/lf_act()
 	myphone.set_screen("menu")

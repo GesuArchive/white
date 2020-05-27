@@ -2,7 +2,6 @@
 	id = "menu"
 	name = "Меню"
 	lf_menu = "Закрыть"
-	default = TRUE
 
 /datum/phonescreen/menu/matrix/main/lf_act()
 	myphone.set_screen("main")
@@ -32,7 +31,6 @@
 	name = "История"
 	lf_menu = "Звонок"
 	rf_menu = "Контакты"
-	default = TRUE
 
 /datum/phonescreen/recent/call_act()
 	return
@@ -47,7 +45,6 @@
 	name = "Контакты"
 	lf_menu = "История"
 	rf_menu = "Звонок"
-	default = TRUE
 	menuitem = TRUE
 
 /datum/phonescreen/contacts/call_act()
@@ -63,7 +60,6 @@
 	name = "Набор номера"
 	lf_menu = "Контакты"
 	rf_menu = "История"
-	default = TRUE
 
 /datum/phonescreen/numinput/call_act()
 	return

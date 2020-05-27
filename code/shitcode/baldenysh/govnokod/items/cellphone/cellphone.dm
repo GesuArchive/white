@@ -1,3 +1,12 @@
+#define DEFAULT_SCREEN_TYPES list(\
+									/datum/phonescreen/main,\
+									/datum/phonescreen/menu/matrix/main,\
+									/datum/phonescreen/recent,\
+									/datum/phonescreen/contacts,\
+									/datum/phonescreen/numinput,\
+									/datum/phonescreen/incall\
+								)
+
 /obj/item/cellphone
 	name = "Мобилка"
 	desc = "Алло, вам звонит Лёха."
@@ -11,16 +20,18 @@
 	var/obj/item/card/id/idc
 	var/obj/item/card/data/calling/cc
 
+	var/uplink_num
+
 	var/list/screens = list()
 	var/curscreen = "main"
 
 /obj/item/cellphone/Initialize()
 	. = ..()
-	for(var/PStype in subtypesof(/datum/phonescreen))
+
+	cc = new
+
+	for(var/PStype in DEFAULT_SCREEN_TYPES)
 		var/datum/phonescreen/PS = new PStype
-		if(!PS.default)
-			qdel(PS)
-			continue
 		screens[PS.id] = PS
 		PS.myphone = src
 
