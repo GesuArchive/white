@@ -57,7 +57,7 @@
 
 /datum/phonescreen/numinput
 	id = "call"
-	name = "Набор номера"
+	name = "Звонок"
 	lf_menu = "Контакты"
 	rf_menu = "История"
 
@@ -73,6 +73,7 @@
 	id = "incall"
 	name = "Звонок"
 	lf_menu = ""
+	menuitem = FALSE
 
 /datum/phonescreen/incall/hang_act()
 	return

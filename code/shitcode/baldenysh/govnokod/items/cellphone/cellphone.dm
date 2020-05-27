@@ -12,8 +12,9 @@
 	desc = "Алло, вам звонит Лёха."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "suspiciousphone"
-	w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_TINY
 	attack_verb = list("звонит")
+	slot_flags = ITEM_SLOT_ID | ITEM_SLOT_BELT
 	var/ui_x = 264
 	var/ui_y = 600
 
@@ -34,6 +35,10 @@
 		var/datum/phonescreen/PS = new PStype
 		screens[PS.id] = PS
 		PS.myphone = src
+
+/obj/item/cellphone/AltClick(mob/user)
+	..()
+	RemoveID()
 
 /obj/item/cellphone/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.hands_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
@@ -83,3 +88,32 @@
 	if(ismob(loc))
 		var/mob/user = loc
 		ui_interact(user)
+
+/obj/item/cellphone/GetAccess()
+	if(idc)
+		return idc.GetAccess()
+	else
+		return ..()
+
+/obj/item/cellphone/GetID()
+	return idc
+
+/obj/item/cellphone/RemoveID()
+	if(!idc)
+		return
+	. = idc
+	if(iscarbon(loc))
+		var/mob/living/carbon/C = loc
+		C.put_in_hands(idc)
+	else
+		idc.forceMove(get_turf(src))
+
+/obj/item/cellphone/InsertID(obj/item/inserting_item)
+	var/obj/item/card/inserting_id = inserting_item.RemoveID()
+	if(!inserting_id)
+		return
+	inserting_id.forceMove(src)
+	idc = inserting_id
+	if(idc == inserting_id)
+		return TRUE
+	return FALSE
