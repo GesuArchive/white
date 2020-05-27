@@ -91,9 +91,11 @@
 			PS.numpad_act(params["digit"])
 
 /obj/item/cellphone/proc/set_screen(id)
-	if(!screens[id])
+	var/datum/phonescreen/PS = screens[id]
+	if(!PS)
 		return
 	curscreen = id
+	PS.on_set()
 	if(ismob(loc))
 		var/mob/user = loc
 		ui_interact(user)

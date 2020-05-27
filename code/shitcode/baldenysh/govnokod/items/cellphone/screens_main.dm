@@ -7,6 +7,8 @@
 	var/lf_menu
 	var/menuitem = TRUE
 
+/datum/phonescreen/proc/on_set()
+
 /datum/phonescreen/proc/screen_data()
 	return list()
 
