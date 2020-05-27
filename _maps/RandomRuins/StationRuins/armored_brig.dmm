@@ -602,6 +602,13 @@
 /area/crew_quarters/heads/hos)
 "bR" = (
 /obj/structure/chair/comfy/black,
+/obj/machinery/button/door{
+	id = "armory";
+	name = "Armory Shutters";
+	pixel_x = 26;
+	pixel_y = -26;
+	req_access_txt = "3"
+	},
 /turf/open/floor/engine,
 /area/crew_quarters/heads/hos)
 "bS" = (
@@ -1406,15 +1413,11 @@
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "dj" = (
-/obj/machinery/door/window/eastleft{
-	name = "armoury desk";
-	req_access_txt = "1"
-	},
-/obj/machinery/door/window/westleft{
-	name = "armoury desk";
-	req_access_txt = "3"
-	},
 /obj/structure/table/reinforced,
+/obj/machinery/door/poddoor/shutters{
+	id = "armory";
+	name = "Armoury Shutter"
+	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "dk" = (
@@ -2247,31 +2250,26 @@
 /turf/open/floor/plating,
 /area/security/prison/safe)
 "eW" = (
-/obj/machinery/door/window/southleft{
-	name = "Armory";
-	req_access_txt = "3"
-	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
 /obj/structure/cable,
+/obj/machinery/door/poddoor/shutters{
+	id = "armory";
+	name = "Armoury Shutter"
+	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "eX" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/southleft{
-	base_state = "right";
-	icon_state = "right";
-	name = "Armory";
-	req_access_txt = "3"
-	},
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
+/obj/machinery/door/poddoor/shutters{
+	id = "armory";
+	name = "Armoury Shutter"
+	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "eY" = (
@@ -2288,6 +2286,10 @@
 	dir = 5
 	},
 /obj/structure/cable,
+/obj/machinery/door/poddoor/shutters{
+	id = "armory";
+	name = "Armoury Shutter"
+	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "fa" = (
@@ -2296,6 +2298,10 @@
 	dir = 10
 	},
 /obj/structure/cable,
+/obj/machinery/door/poddoor/shutters{
+	id = "armory";
+	name = "Armoury Shutter"
+	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "fb" = (
@@ -2318,6 +2324,10 @@
 "fd" = (
 /obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
+/obj/machinery/door/poddoor/shutters{
+	id = "armory";
+	name = "Armoury Shutter"
+	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "fe" = (
@@ -2512,6 +2522,9 @@
 /obj/machinery/airalarm{
 	dir = 8;
 	pixel_x = 24
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/open/floor/engine,
 /area/security/warden)
@@ -6983,6 +6996,19 @@
 	},
 /turf/open/floor/engine,
 /area/security/prison)
+"TC" = (
+/obj/machinery/suit_storage_unit/security,
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/machinery/light,
+/turf/open/floor/engine,
+/area/ai_monitored/security/armory)
+"YX" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/ai_monitored/security/armory)
 
 (1,1,1) = {"
 ab
@@ -8369,8 +8395,8 @@ ap
 aI
 ap
 ae
-kL
-ag
+aR
+YX
 aR
 ch
 cJ
@@ -8413,8 +8439,8 @@ ae
 ae
 ae
 ae
-kL
-ab
+aR
+YX
 aR
 ci
 cK
@@ -8457,8 +8483,8 @@ ag
 ab
 ag
 ag
-bd
-ab
+aR
+YX
 aR
 cj
 cL
@@ -8501,8 +8527,8 @@ ag
 ab
 ag
 ag
-kL
-ab
+aR
+YX
 aR
 ck
 cL
@@ -8545,8 +8571,8 @@ ag
 ab
 ag
 ag
-kL
-ab
+aR
+YX
 aR
 cl
 cL
@@ -8589,8 +8615,8 @@ ag
 ab
 ag
 ag
-bd
-ab
+aR
+YX
 aR
 cm
 cL
@@ -8633,8 +8659,8 @@ ag
 ab
 ag
 ag
-bd
-ab
+aR
+YX
 aR
 cn
 cL
@@ -8677,14 +8703,14 @@ ag
 ab
 ag
 ag
-kL
-ag
+aR
+YX
 aR
 co
 cM
 di
 dP
-eq
+TC
 fe
 fC
 gb
