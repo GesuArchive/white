@@ -36,6 +36,15 @@
 		screens[PS.id] = PS
 		PS.myphone = src
 
+/obj/item/cellphone/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(istype(I, /obj/item/card/id))
+		var/obj/item/card/id/idcard = I
+		if(!idcard.registered_name)
+			to_chat(user, "<span class='warning'>\The [src] rejects the ID!</span>")
+			return
+		InsertID(idcard)
+
 /obj/item/cellphone/AltClick(mob/user)
 	..()
 	RemoveID()
@@ -107,13 +116,19 @@
 		C.put_in_hands(idc)
 	else
 		idc.forceMove(get_turf(src))
+	if(ishuman(loc))
+		var/mob/living/carbon/human/H = loc
+		H.sec_hud_set_ID()
 
 /obj/item/cellphone/InsertID(obj/item/inserting_item)
-	var/obj/item/card/inserting_id = inserting_item.RemoveID()
+	var/obj/item/card/id/inserting_id = inserting_item.RemoveID()
 	if(!inserting_id)
-		return
+		return FALSE
 	inserting_id.forceMove(src)
 	idc = inserting_id
-	if(idc == inserting_id)
+	if(ishuman(loc))
+		var/mob/living/carbon/human/H = loc
+		H.sec_hud_set_ID()
+	if(inserting_id in contents)
 		return TRUE
 	return FALSE

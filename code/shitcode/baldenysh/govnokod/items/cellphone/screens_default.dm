@@ -30,7 +30,6 @@
 	id = "recent"
 	name = "История"
 	lf_menu = "Звонок"
-	rf_menu = "Контакты"
 
 /datum/phonescreen/recent/call_act()
 	return
@@ -38,13 +37,12 @@
 /datum/phonescreen/recent/lf_act()
 	myphone.set_screen("call")
 /datum/phonescreen/recent/rf_act()
-	myphone.set_screen("contacts")
 
 /datum/phonescreen/contacts
 	id = "contacts"
 	name = "Контакты"
 	lf_menu = "История"
-	rf_menu = "Звонок"
+	rf_menu = "Добавить"
 	menuitem = TRUE
 
 /datum/phonescreen/contacts/call_act()
@@ -53,13 +51,11 @@
 /datum/phonescreen/contacts/lf_act()
 	myphone.set_screen("recent")
 /datum/phonescreen/contacts/rf_act()
-	myphone.set_screen("call")
 
 /datum/phonescreen/numinput
 	id = "call"
 	name = "Звонок"
 	lf_menu = "Контакты"
-	rf_menu = "История"
 
 /datum/phonescreen/numinput/call_act()
 	return
@@ -67,7 +63,6 @@
 /datum/phonescreen/numinput/lf_act()
 	myphone.set_screen("contacts")
 /datum/phonescreen/numinput/rf_act()
-	myphone.set_screen("recent")
 
 /datum/phonescreen/incall
 	id = "incall"
