@@ -64,7 +64,7 @@
 		if(BB != src)
 			qdel(src)
 
-/obj/item/boombox/Del()
+/obj/item/boombox/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 

@@ -13,8 +13,7 @@
 
 /datum/component/tts/Initialize()
 	if(!isatom(parent))
-		qdel(src)
-		return
+		return COMPONENT_INCOMPATIBLE
 
 	owner = parent
 	assigned_channel = open_sound_channel_for_tts()
