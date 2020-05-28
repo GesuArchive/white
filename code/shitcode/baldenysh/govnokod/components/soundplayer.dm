@@ -3,7 +3,7 @@
 
 	var/sound/cursound
 	var/active = FALSE
-	var/playing_range = 12
+	var/playing_range = 15
 	var/list/listener_comps = list()
 
 	var/environmental = FALSE
@@ -18,9 +18,9 @@
 		return COMPONENT_INCOMPATIBLE
 	soundsource = parent
 	playing_channel = open_sound_channel()
-	set_sound(sound('code/shitcode/baldenysh/sounds/hardbass_loop.ogg'))
 	START_PROCESSING(SSprocessing, src)
 	. = ..()
+	set_sound(sound('code/shitcode/baldenysh/sounds/hardbass_loop.ogg'))
 
 /datum/component/soundplayer/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -33,9 +33,12 @@
 	if(!active || !cursound)
 		return
 	for(var/client/C)
-		if(!C.GetComponent(/datum/component/soundplayer_listener))
+		var/list/splcomps = C.GetComponents(/datum/component/soundplayer_listener)
+		if(!(splcomps & listener_comps))
 			SEND_SOUND(C, cursound) //preload sound so интернет канекшон здохнет блядь
-			listener_comps += C.AddComponent(/datum/component/soundplayer_listener, src)
+			var/datum/component/soundplayer_listener/SPL = C.AddComponent(/datum/component/soundplayer_listener, src)
+			listener_comps += SPL
+			SPL.update_sound()
 
 /datum/component/soundplayer/proc/update_sounds()
 	for(var/datum/component/soundplayer_listener/SPL in listener_comps)
@@ -72,7 +75,7 @@
 	var/client/listener
 
 /datum/component/soundplayer_listener/Initialize(var/datum/component/soundplayer/player)
-	if(!istype(parent, /client) || !player)
+	if(!istype(parent, /client) || !istype(player))
 		return COMPONENT_INCOMPATIBLE
 	listener = parent
 	myplayer = player
@@ -83,10 +86,14 @@
 	. = ..()
 
 /datum/component/soundplayer_listener/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/update_sound)
+	var/client/C = parent
+	if(C.mob)
+		RegisterSignal(C.mob, COMSIG_MOVABLE_MOVED, .proc/update_sound)
 
 /datum/component/soundplayer_listener/UnregisterFromParent()
-	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
+	var/client/C = parent
+	if(C.mob)
+		UnregisterSignal(C.mob, COMSIG_MOVABLE_MOVED)
 
 /datum/component/soundplayer_listener/proc/get_player_sound()
 	for(var/sound/S in listener.SoundQuery())
@@ -98,25 +105,26 @@
 	var/sound/S = get_player_sound()
 	if(!S)
 		return
-	var/turf/TT = get_turf(listener)
-	var/turf/MT = get_turf(myplayer.soundsource)
-	var/dist = get_dist(TT, MT)
 	S.status = SOUND_UPDATE
-	if(dist <= myplayer.playing_range)
-		S.volume = myplayer.playing_volume
-		S.volume -= max(dist - world.view, 0) * 2
-		S.falloff = myplayer.playing_falloff
-		S.environment = myplayer.env_id
-		if(myplayer.environmental)
-			var/dx = MT.x - TT.x
-			S.x = dx
-			var/dy = MT.y - TT.y
-			S.z = dy
+	if(listener.mob)
+		var/turf/TT = get_turf(listener.mob)
+		var/turf/MT = get_turf(myplayer.soundsource)
+		var/dist = get_dist(TT, MT)
+		if(dist <= myplayer.playing_range)
+			S.volume = myplayer.playing_volume
+			S.volume -= max(dist - world.view, 0) * 2
+			S.falloff = myplayer.playing_falloff
+			S.environment = myplayer.env_id
+			if(myplayer.environmental)
+				var/dx = MT.x - TT.x
+				S.x = dx
+				var/dy = MT.y - TT.y
+				S.z = dy
+			else
+				S.x = 0
+				S.z = 1
 		else
-			S.x = 0
-			S.z = 1
-	else
-		S.volume = 0
+			S.volume = 0
 	SEND_SOUND(listener, S)
 
 /datum/component/soundplayer_listener/proc/stop_sound()
