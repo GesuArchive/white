@@ -14,7 +14,7 @@
 		return FALSE
 
 	if(client)
-		client.change_view("19x15", TRUE)
+		client.view_size.setWidth(19)
 		spawn(10) // дублируем на случай init-time
 			client.fit_viewport()
 
