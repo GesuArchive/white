@@ -5,10 +5,11 @@
 	var/active = FALSE
 	var/playing_range = 12
 
-	var/environmental = TRUE
+	var/environmental = FALSE
+	var/env_id = 12
 	var/repeating = TRUE
 	var/playing_volume = 100
-	var/playing_falloff = 1
+	var/playing_falloff = 4
 	var/playing_channel = 0
 
 /datum/component/soundplayer/Initialize()
@@ -42,7 +43,7 @@
 	return FALSE
 
 /datum/component/soundplayer/proc/client_preload_cursound(var/client/C)
-	SEND_SOUND(C, get_blank_sound())
+	SEND_SOUND(C, cursound)
 
 /datum/component/soundplayer/proc/client_update_cursound(var/client/C)
 	var/sound/S = client_get_cursound(C)
@@ -56,6 +57,7 @@
 		S.volume = playing_volume
 		S.volume -= max(dist - world.view, 0) * 2
 		S.falloff = playing_falloff
+		S.environment = env_id
 		if(environmental)
 			var/dx = MT.x - TT.x
 			S.x = dx
@@ -78,18 +80,17 @@
 			continue
 		client_stop_cursound(C)
 
-/datum/component/soundplayer/proc/get_blank_sound()
-	var/sound/S = cursound
-	S.repeat = repeating
-	S.falloff = playing_falloff
-	S.channel = playing_channel
-	S.volume = 0
-	S.status = 0
-	S.wait = 0
-	S.x = 0
-	S.z = 1
-	S.y = 1
-	return S
-
-/datum/component/soundplayer/proc/toggle()
-	active = !active
+/datum/component/soundplayer/proc/set_sound(var/sound/newsound)
+	if(!cursound)
+		return
+	cursound = newsound
+	cursound.repeat = repeating
+	cursound.falloff = playing_falloff
+	cursound.channel = playing_channel
+	cursound.environment = env_id
+	cursound.volume = 0
+	cursound.status = 0
+	cursound.wait = 0
+	cursound.x = 0
+	cursound.z = 1
+	cursound.y = 1

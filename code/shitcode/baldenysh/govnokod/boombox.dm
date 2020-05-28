@@ -7,15 +7,8 @@
 
 	var/list/songs = list()
 	var/datum/track/selection = null
-
-	var/list/rangers = list()
-	var/sound/bbsound = null
-	var/active = FALSE
-	var/env_sound = FALSE
 	var/obj/item/card/data/music/disk
-	var/playing_range = 12
-	var/volume = 100
-	var/bbchannel = 0
+	var/playing = FALSE
 
 	var/ui_x = 500
 	var/ui_y = 250
@@ -31,19 +24,18 @@
 
 /obj/item/boombox/Initialize()
 	. = ..()
-	bbchannel = open_sound_channel_for_boombox()
-	START_PROCESSING(SSobj, src)
+	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
+	SP.playing_channel = open_sound_channel_for_boombox()
 	load_tracks()
 
 /obj/item/boombox/update_icon()
-	if(active)
+	if(playing)
 		icon_state = "magnitola_active"
 	else
 		icon_state = "magnitola"
 
 /obj/item/boombox/proc/load_tracks()
 	var/list/tracks = flist("[global.config.directory]/jukebox_music/sounds/")
-
 	for(var/S in tracks)
 		var/datum/track/T = new()
 		T.song_path = file("[global.config.directory]/jukebox_music/sounds/[S]")
@@ -54,7 +46,6 @@
 		T.song_length = text2num(L[2])
 		T.song_beat = text2num(L[3])
 		songs |= T
-
 	if(songs.len)
 		selection = pick(songs)
 
@@ -64,118 +55,29 @@
 		if(BB != src)
 			qdel(src)
 
-/obj/item/boombox/Destroy()
-	STOP_PROCESSING(SSobj, src)
-	return ..()
-
-/obj/item/boombox/process()
-	if(!active)
-		return
-
-	for(var/mob/M in range(playing_range , get_turf(src)))
-		if(!M.client || (M in rangers))
-			continue
-		rangers[M] = TRUE
-		listener_inrange(M)
-
-	for(var/mob/L in rangers)
-		listener_update(L)
-		if(get_dist(get_turf(src),L) > playing_range)
-			rangers -= L
-			if(!L || !L.client)
-				continue
-			listener_outofrange(L)
-
-/obj/item/boombox/proc/listener_inrange(var/mob/M)
-	if(!M.client)
-		return
-	for(var/sound/S in M.client.SoundQuery())
-		if(S.file == bbsound.file)
-			listener_update(M)
-			return
-
-	bbsound.status = SOUND_UPDATE
-	SEND_SOUND(M, bbsound)
-
-/obj/item/boombox/proc/listener_outofrange(var/mob/M)
-	if(!M.client)
-		return
-	for(var/sound/S in M.client.SoundQuery())
-		if(S.file == bbsound.file)
-			S.volume = 0
-			S.status = SOUND_UPDATE
-			SEND_SOUND(M, S)
-			return
-
-/obj/item/boombox/proc/listener_update(var/mob/M)
-	for(var/sound/S in M.client.SoundQuery())
-		if(S.file == bbsound.file)
-			if(env_sound)
-				var/turf/T = get_turf(src)
-				var/turf/MT = get_turf(M)
-
-				S.falloff = 12
-				S.y = 1
-				var/dx = T.x - MT.x // Hearing from the right/left
-				S.x = dx
-				var/dy = T.y - MT.y // Hearing from infront/behind
-				S.z = dy
-			else
-				S.falloff = 8
-				S.x = 0
-				S.y = 1
-				S.z = 1
-
-			S.volume = volume
-			S.status = SOUND_UPDATE
-			SEND_SOUND(M, S)
-			return
-
 /obj/item/boombox/proc/startsound()
 	if(!selection)
 		return
-	var/sound/S = sound(selection.song_path)
-	S.repeat = 1
-	S.channel = bbchannel//CHANNEL_CUSTOM_JUKEBOX
-	S.falloff = 8
-	S.wait = 0
-	S.volume = 0
-	S.status = 0 //SOUND_STREAM
-
-	S.x = 0
-	S.z = 1
-	S.y = 1
-
-	bbsound = S
-
-	for(var/mob/M) //у кого не лагает тот лох
-		if(!M.client)
-			continue
-		SEND_SOUND(M, bbsound)
-
+	var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
+	SP.set_sound(sound(selection.song_path))
+	SP.active = TRUE
+	playing = TRUE
 	update_icon()
-	active = TRUE
 
 /obj/item/boombox/proc/stopsound()
-	for(var/mob/M)
-		if(!M.client)
-			continue
-		for(var/sound/S in M.client.SoundQuery())
-			if(bbsound && S.file == bbsound.file)
-				M.stop_sound_channel(bbchannel)
-				break
-
-	bbsound = null
+	var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
+	SP.stop_sounds()
 	playsound(get_turf(src),'sound/machines/terminal_off.ogg',50,1)
+	playing = FALSE
 	update_icon()
-	active = FALSE
+
+/obj/item/boombox/proc/toggle_env()
+	var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
+	SP.environmental = !SP.environmental
 
 /obj/item/boombox/proc/set_volume(var/vol)
-	volume = vol
-	for(var/mob/M in rangers)
-		if(!M.client)
-			continue
-		listener_update(M)
+	var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
+	SP.playing_volume = vol
 
 /obj/item/boombox/attackby(obj/item/I, mob/user)
 	if(disk_insert(user, I, disk))
@@ -201,7 +103,7 @@
 			user.put_in_hands(disk)
 		else
 			disk.forceMove(get_turf(src))
-		if(active)
+		if(playing)
 			stopsound()
 		else
 			playsound(get_turf(src), 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
@@ -227,13 +129,13 @@
 
 /obj/item/boombox/ui_data(mob/user)
 	var/list/data = list()
-
+	var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
 	data["name"] = name
-	data["active"] = active
-	data["volume"] = volume
+	data["active"] = playing
+	data["volume"] = SP.playing_volume
 	data["curtrack"] = selection && selection.song_name ? selection.song_name : FALSE
 	data["curlength"] = selection && selection.song_length ? selection.song_length : FALSE
-	data["env"] = env_sound
+	data["env"] = SP.environmental
 
 	data["disk"] = disk ? TRUE : FALSE
 	data["disktrack"] = disk && disk.track ? disk.track.song_name : FALSE
@@ -246,7 +148,7 @@
 	. = TRUE
 	switch(action)
 		if("toggle")
-			if(!active)
+			if(!playing)
 				startsound()
 			else
 				stopsound()
@@ -260,7 +162,7 @@
 			var/selected = input(usr, "Выбирай мудро", "Трек:") as null|anything in available
 			if(QDELETED(src) || !selected || !istype(available[selected], /datum/track))
 				return
-			if(active)
+			if(playing)
 				stopsound()
 			selection = available[selected]
 		if("change_volume")
@@ -269,7 +171,7 @@
 		if("eject")
 			eject_disk(usr)
 		if("env")
-			env_sound = !env_sound
+			toggle_env()
 	update_icon()
 
 /obj/machinery/turntable
