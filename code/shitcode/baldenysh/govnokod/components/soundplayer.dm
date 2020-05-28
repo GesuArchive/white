@@ -38,15 +38,16 @@
 /datum/component/soundplayer/process()
 	if(!active || !cursound)
 		return
-	for(var/mob/M)
-		if(!M.client)
+	for(var/client/C)
+		if(!C.mob)
 			continue
-		var/list/splcomps = M.GetComponents(/datum/component/soundplayer_listener)
-		if(splcomps & listener_comps)
+		var/mob/M = C.mob
+		var/list/mycomps = (M.GetComponents(/datum/component/soundplayer_listener) & listener_comps)
+		if(mycomps.len)
 			continue
 		SEND_SOUND(M, cursound) //preload sound so интернет канекшон здохнет блядь пинг 9999
 		var/datum/component/soundplayer_listener/SPL = M.AddComponent(/datum/component/soundplayer_listener, src)
-		listener_comps += list(SPL)
+		listener_comps += SPL
 		SPL.update_sound()
 
 /datum/component/soundplayer/proc/update_sounds()
