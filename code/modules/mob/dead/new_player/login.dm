@@ -13,7 +13,7 @@
 	if(!. || !client)
 		return FALSE
 
-	if(client)
+	if(client && client.view_size)
 		client.view_size.setWidth(19)
 		spawn(10) // дублируем на случай init-time
 			client.fit_viewport()
