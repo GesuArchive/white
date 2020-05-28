@@ -5,7 +5,7 @@
 	desc = "Эти перчатки защитят пользователя от поражения электрическим током."
 	name = "резиновые перчатки"
 	icon_state = "yellow"
-	item_state = "ygloves"
+	inhand_icon_state = "ygloves"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	resistance_flags = NONE
@@ -37,7 +37,7 @@
 	desc = "How're you gonna get 'em off, nerd?"
 	name = "spray-on insulated gloves"
 	icon_state = "sprayon"
-	item_state = "sprayon"
+	inhand_icon_state = "sprayon"
 	permeability_coefficient = 0
 	resistance_flags = ACID_PROOF
 	var/shocks_remaining = 10
@@ -63,7 +63,7 @@
 	desc = "Эти перчатки являются дешевыми подделками желанных перчаток - это может плохо кончиться."
 	name = "бюджетные резиновые перчатки"
 	icon_state = "yellow"
-	item_state = "ygloves"
+	inhand_icon_state = "ygloves"
 	siemens_coefficient = 1			//Set to a default of 1, gets overridden in Initialize()
 	permeability_coefficient = 0.05
 	resistance_flags = NONE
@@ -84,7 +84,7 @@
 	desc = "Эти перчатки огнеупорные."
 	name = "чёрные перчатки"
 	icon_state = "black"
-	item_state = "blackgloves"
+	inhand_icon_state = "blackgloves"
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
 	heat_protection = HANDS
@@ -105,13 +105,13 @@
 	name = "оранжевые перчатки"
 	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "orange"
-	item_state = "orangegloves"
+	inhand_icon_state = "orangegloves"
 
 /obj/item/clothing/gloves/color/red
 	name = "красные перчатки"
 	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "red"
-	item_state = "redgloves"
+	inhand_icon_state = "redgloves"
 
 
 /obj/item/clothing/gloves/color/red/insulated
@@ -125,49 +125,49 @@
 	name = "радужные перчатки"
 	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "rainbow"
-	item_state = "rainbowgloves"
+	inhand_icon_state = "rainbowgloves"
 
 /obj/item/clothing/gloves/color/blue
 	name = "синие перчатки"
 	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "blue"
-	item_state = "bluegloves"
+	inhand_icon_state = "bluegloves"
 
 /obj/item/clothing/gloves/color/purple
 	name = "фиолетовые перчатки"
 	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "purple"
-	item_state = "purplegloves"
+	inhand_icon_state = "purplegloves"
 
 /obj/item/clothing/gloves/color/green
 	name = "зелёные перчатки"
 	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "green"
-	item_state = "greengloves"
+	inhand_icon_state = "greengloves"
 
 /obj/item/clothing/gloves/color/grey
 	name = "серые перчатки"
 	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "gray"
-	item_state = "graygloves"
+	inhand_icon_state = "graygloves"
 
 /obj/item/clothing/gloves/color/light_brown
 	name = "светло-коричневые перчатки"
 	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "lightbrown"
-	item_state = "lightbrowngloves"
+	inhand_icon_state = "lightbrowngloves"
 
 /obj/item/clothing/gloves/color/brown
 	name = "коричневые перчатки"
 	desc = "Пара перчаток, они ни в коем случае не выглядят особенными."
 	icon_state = "brown"
-	item_state = "browngloves"
+	inhand_icon_state = "browngloves"
 
 /obj/item/clothing/gloves/color/captain
 	desc = "Царственно-синие перчатки с красивой золотой отделкой, алмазным противоударным покрытием и встроенным тепловым барьером. Шикарно."
 	name = "капитанские перчатки"
 	icon_state = "captain"
-	item_state = "egloves"
+	inhand_icon_state = "egloves"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	cold_protection = HANDS
@@ -181,7 +181,7 @@
 	name = "латексные перчатки"
 	desc = "Дешевые стерильные перчатки из латекса. Передает второстепенные парамедицинские знания пользователю через бюджетные наночипы."
 	icon_state = "latex"
-	item_state = "latex"
+	inhand_icon_state = "latex"
 	siemens_coefficient = 0.3
 	permeability_coefficient = 0.01
 	transfer_prints = TRUE
@@ -201,7 +201,7 @@
 	name = "нитриловые перчатки"
 	desc = "Ценные стерильные перчатки толще латекса. Передача интимных знаний парамедиков пользователю через наночипы."
 	icon_state = "nitrile"
-	item_state = "nitrilegloves"
+	inhand_icon_state = "nitrilegloves"
 	transfer_prints = FALSE
 	carrytrait = TRAIT_QUICKER_CARRY
 
@@ -209,7 +209,7 @@
 	name = "infiltrator gloves"
 	desc = "Specialized combat gloves for carrying people around. Transfers tactical kidnapping knowledge into the user via nanochips."
 	icon_state = "infiltrator"
-	item_state = "infiltrator"
+	inhand_icon_state = "infiltrator"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.3
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -219,7 +219,7 @@
 	desc = "Overdesigned engineering gloves that have automated construction subrutines dialed in, allowing for faster construction while worn."
 	icon = 'icons/obj/clothing/clockwork_garb.dmi'
 	icon_state = "clockwork_gauntlets"
-	item_state = "clockwork_gauntlets"
+	inhand_icon_state = "clockwork_gauntlets"
 	siemens_coefficient = 0.8
 	permeability_coefficient = 0.3
 	carrytrait = TRAIT_QUICK_BUILD
@@ -229,7 +229,7 @@
 	name = "белые перчатки"
 	desc = "Выглядят довольно причудливо."
 	icon_state = "white"
-	item_state = "wgloves"
+	inhand_icon_state = "wgloves"
 	custom_price = 200
 
 /obj/effect/spawner/lootdrop/gloves

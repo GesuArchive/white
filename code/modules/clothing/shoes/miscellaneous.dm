@@ -9,7 +9,7 @@
 	name = "боевые ботинки"
 	desc = "Высокоскоростные ботинки с низким сопротивлением."
 	icon_state = "jackboots"
-	item_state = "jackboots"
+	inhand_icon_state = "jackboots"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	armor = list("melee" = 25, "bullet" = 25, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 10, "rad" = 0, "fire" = 70, "acid" = 50)
@@ -23,7 +23,7 @@
 	name = "sneakboots"
 	desc = "These boots have special noise cancelling soles. Perfect for stealth, if it wasn't for the color scheme."
 	icon_state = "sneakboots"
-	item_state = "sneakboots"
+	inhand_icon_state = "sneakboots"
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = FIRE_PROOF |  ACID_PROOF
 
@@ -35,7 +35,7 @@
 /obj/item/clothing/shoes/combat/sneakboots/dropped(mob/living/carbon/human/user)
 	REMOVE_TRAIT(user, TRAIT_SILENT_FOOTSTEPS, SHOES_TRAIT)
 	return ..()
-	
+
 /obj/item/clothing/shoes/combat/swat //overpowered boots for death squads
 	name = "\improper SWAT-буты"
 	desc = "Высокоскоростные ботинки без сопротивления."
@@ -92,7 +92,7 @@
 	desc = "Стандартные шутничающие ботинки клоунады для клоунады. Черт, они огромные! Удерживая нажатой клавишу Ctrl, переключайте воздушные демпферы."
 	name = "обутки клоуна"
 	icon_state = "clown"
-	item_state = "clown_shoes"
+	inhand_icon_state = "clown_shoes"
 	slowdown = SHOES_SLOWDOWN+1
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes/clown
 	var/enabled_waddle = TRUE
@@ -138,7 +138,7 @@
 	name = "сапоги"
 	desc = "Боевые ботинки Нанотрейзен для боевых сценариев или боевых ситуаций. Все время в бою."
 	icon_state = "jackboots"
-	item_state = "jackboots"
+	inhand_icon_state = "jackboots"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	strip_delay = 30
@@ -155,7 +155,7 @@
 	name = "зимняя обувь"
 	desc = "Сапоги, обшитые \"синтетическим\" мехом животных."
 	icon_state = "winterboots"
-	item_state = "winterboots"
+	inhand_icon_state = "winterboots"
 	permeability_coefficient = 0.15
 	cold_protection = FEET|LEGS
 	min_cold_protection_temperature = SHOES_MIN_TEMP_PROTECT
@@ -168,14 +168,14 @@
 	name = "ice hiking boots"
 	desc = "A pair of winter boots with special grips on the bottom, designed to prevent slipping on frozen surfaces."
 	icon_state = "iceboots"
-	item_state = "iceboots"
+	inhand_icon_state = "iceboots"
 	clothing_flags = NOSLIP_ICE
 
 /obj/item/clothing/shoes/workboots
 	name = "рабочие ботинки"
 	desc = "Нанотрасен выпускает инженерные шнуровочные рабочие ботинки для особо рабочих воротничков."
 	icon_state = "workboots"
-	item_state = "jackboots"
+	inhand_icon_state = "jackboots"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	permeability_coefficient = 0.15
@@ -194,7 +194,7 @@
 	name = "ботинки служителя Нар'Си"
 	desc = "Пара ботинок, которые носят служители Нар'Си."
 	icon_state = "cult"
-	item_state = "cult"
+	inhand_icon_state = "cult"
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOES_MIN_TEMP_PROTECT
 	heat_protection = FEET
@@ -227,7 +227,7 @@
 	name = "римские сандалии"
 	desc = "Сандалии с кожаными ремнями с пряжками на них"
 	icon_state = "roman"
-	item_state = "roman"
+	inhand_icon_state = "roman"
 	strip_delay = 100
 	equip_delay_other = 100
 	permeability_coefficient = 0.9
@@ -237,7 +237,7 @@
 	name = "обувь гриффона"
 	desc = "Пара костюмированных ботинок, сделанных по мотивам птичьих когтей."
 	icon_state = "griffinboots"
-	item_state = "griffinboots"
+	inhand_icon_state = "griffinboots"
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
 	lace_time = 8 SECONDS
 
@@ -245,7 +245,7 @@
 	name = "прыжковые ботинки"
 	desc = "Специализированная пара боевых ботинок со встроенной двигательной установкой для быстрого передвижения."
 	icon_state = "jetboots"
-	item_state = "jetboots"
+	inhand_icon_state = "jetboots"
 	resistance_flags = FIRE_PROOF
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
 	actions_types = list(/datum/action/item_action/bhop)
@@ -300,7 +300,7 @@
 	name = "Вилли-Хилс"
 	desc = "Использует запатентованную технологию выдвижных колес. Никогда не жертвуйте скоростью ради стиля - не то, чтобы это давало много и того, и другого." //Thanks Fel
 	icon_state = "wheelys"
-	item_state = "wheelys"
+	inhand_icon_state = "wheelys"
 	actions_types = list(/datum/action/item_action/wheelys)
 	var/wheelToggle = FALSE //False means wheels are not popped out
 	var/obj/vehicle/ridden/scooter/wheelys/W
@@ -339,7 +339,7 @@
 	name = "Kindle Kicks"
 	desc = "Они обязательно зажгут в тебе что-нибудь, и это не детская ностальгия..."
 	icon_state = "kindleKicks"
-	item_state = "kindleKicks"
+	inhand_icon_state = "kindleKicks"
 	actions_types = list(/datum/action/item_action/kindleKicks)
 	var/lightCycle = 0
 	var/active = FALSE
@@ -365,7 +365,7 @@
 	name = "кирзачи"
 	desc = "Заебись."
 	icon_state = "rus_shoes"
-	item_state = "rus_shoes"
+	inhand_icon_state = "rus_shoes"
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
 	lace_time = 8 SECONDS
 
@@ -462,10 +462,10 @@
 	name = "tojo clan shoes"
 	desc = "Steel-toed and intimidating."
 	icon_state = "MajimaShoes"
-	item_state = "MajimaShoes_worn"
+	inhand_icon_state = "MajimaShoes_worn"
 
 /obj/item/clothing/shoes/jackbros
 	name = "frosty boots"
 	desc = "For when you're stepping on up to the plate."
 	icon_state = "JackFrostShoes"
-	item_state = "JackFrostShoes_worn"
+	inhand_icon_state = "JackFrostShoes_worn"

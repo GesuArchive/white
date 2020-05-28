@@ -2,7 +2,7 @@
 	name = "кожа"
 	desc = "Something went wrong."
 	icon_state = "sheet-hide"
-	item_state = "sheet-hide"
+	inhand_icon_state = "sheet-hide"
 	novariants = TRUE
 
 /obj/item/stack/sheet/animalhide/human
@@ -30,7 +30,7 @@ GLOBAL_LIST_INIT(human_recipes, list( \
 	desc = "Побочный продукт выращивания корги."
 	singular_name = "кусочек кожи корги"
 	icon_state = "sheet-corgi"
-	item_state = "sheet-corgi"
+	inhand_icon_state = "sheet-corgi"
 
 
 GLOBAL_LIST_INIT(gondola_recipes, list ( \
@@ -43,7 +43,7 @@ GLOBAL_LIST_INIT(gondola_recipes, list ( \
 	desc = "Чрезвычайно ценный продукт охоты на гондол."
 	singular_name = "кусочек шкуры гондолы"
 	icon_state = "sheet-gondola"
-	item_state = "sheet-gondola"
+	inhand_icon_state = "sheet-gondola"
 
 /obj/item/stack/sheet/animalhide/gondola/get_main_recipes()
 	. = ..()
@@ -62,14 +62,14 @@ GLOBAL_LIST_INIT(corgi_recipes, list ( \
 	desc = "Побочный продукт разведения кошек."
 	singular_name = "кусок шкуры кошки"
 	icon_state = "sheet-cat"
-	item_state = "sheet-cat"
+	inhand_icon_state = "sheet-cat"
 
 /obj/item/stack/sheet/animalhide/monkey
 	name = "шкура обезьяны"
 	desc = "Побочный продукт разведения обезьян."
 	singular_name = "кусок шкуры обезьяны"
 	icon_state = "sheet-monkey"
-	item_state = "sheet-monkey"
+	inhand_icon_state = "sheet-monkey"
 
 GLOBAL_LIST_INIT(monkey_recipes, list ( \
 	new/datum/stack_recipe("маска обезьяны", /obj/item/clothing/mask/gas/monkeymask, 1), \
@@ -85,14 +85,14 @@ GLOBAL_LIST_INIT(monkey_recipes, list ( \
 	desc = "Ссссссс..."
 	singular_name = "кусок кожи ящерицы"
 	icon_state = "sheet-lizard"
-	item_state = "sheet-lizard"
+	inhand_icon_state = "sheet-lizard"
 
 /obj/item/stack/sheet/animalhide/xeno
 	name = "инопланетная шкура"
 	desc = "Кожа ужасного существа."
 	singular_name = "кусок кожи инопланетянина"
 	icon_state = "sheet-xeno"
-	item_state = "sheet-xeno"
+	inhand_icon_state = "sheet-xeno"
 
 GLOBAL_LIST_INIT(xeno_recipes, list ( \
 	new/datum/stack_recipe("голова ксеноса", /obj/item/clothing/head/xenos, 1), \
@@ -129,14 +129,14 @@ GLOBAL_LIST_INIT(xeno_recipes, list ( \
 	desc = "Эта шкура была лишена волос, но все еще нуждается в мытье и загаре."
 	singular_name = "кусок безволосой шкуры"
 	icon_state = "sheet-hairlesshide"
-	item_state = "sheet-hairlesshide"
+	inhand_icon_state = "sheet-hairlesshide"
 
 /obj/item/stack/sheet/wethide
 	name = "мокрая шкура"
 	desc = "Эта шкура была очищена, но все еще нуждается в сушке."
 	singular_name = "мокрая шкура"
 	icon_state = "sheet-wetleather"
-	item_state = "sheet-wetleather"
+	inhand_icon_state = "sheet-wetleather"
 	var/wetness = 30 //Reduced when exposed to high temperautres
 	var/drying_threshold_temperature = 500 //Kelvin to start drying
 
@@ -148,7 +148,7 @@ GLOBAL_LIST_INIT(xeno_recipes, list ( \
 	desc = "Побочный продукт разведения животных."
 	singular_name = "кусок кожи"
 	icon_state = "sheet-leather"
-	item_state = "sheet-leather"
+	inhand_icon_state = "sheet-leather"
 
 GLOBAL_LIST_INIT(leather_recipes, list ( \
 	new/datum/stack_recipe("бумажник", /obj/item/storage/wallet, 1), \

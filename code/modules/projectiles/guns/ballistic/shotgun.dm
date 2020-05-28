@@ -4,7 +4,7 @@
 	icon_state = "shotgun"
 	lefthand_file = 'icons/mob/inhands/weapons/64x_guns_left.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/64x_guns_right.dmi'
-	item_state = "shotgun"
+	inhand_icon_state = "shotgun"
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	fire_sound = 'sound/weapons/gun/shotgun/shot.ogg'
@@ -42,7 +42,7 @@
 	name = "дробовик охраны"
 	desc = "Прочный дробовик с более длинным магазином и фиксированным тактическим запасом, предназначенным для несмертельного контроля над беспорядками."
 	icon_state = "riotshotgun"
-	item_state = "shotgun"
+	inhand_icon_state = "shotgun"
 	fire_delay = 7
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/riot
 	sawn_desc = "Пошли со мной, если хочешь жить."
@@ -58,7 +58,7 @@
 	name = "боевой дробовик"
 	desc = "Полуавтоматический дробовик с тактической фурниторой и шестиместным магазином."
 	icon_state = "cshotgun"
-	item_state = "shotgun_combat"
+	inhand_icon_state = "shotgun_combat"
 	fire_delay = 5
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/com
 	w_class = WEIGHT_CLASS_HUGE
@@ -112,7 +112,7 @@
 	name = "\improper дробовик''Bulldog'' "
 	desc = "Полуавтоматический дробовик с магнитной подачей для боя в узких коридорах по прозвищу «Бульдог». Совместим только со специализированными 8-круглыми барабанными магазинами."
 	icon_state = "bulldog"
-	item_state = "bulldog"
+	inhand_icon_state = "bulldog"
 	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
 	inhand_x_dimension = 32
@@ -145,7 +145,7 @@
 	name = "двухстволка"
 	desc = "Истинная классика."
 	icon_state = "dshotgun"
-	item_state = "shotgun_db"
+	inhand_icon_state = "shotgun_db"
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_MEDIUM
 	force = 10
@@ -183,7 +183,7 @@
 	name = "кустарный дробовик"
 	desc = "Труба, сделанная под дробовик."
 	icon_state = "ishotgun"
-	item_state = "ishotgun"
+	inhand_icon_state = "ishotgun"
 	w_class = WEIGHT_CLASS_BULKY
 	force = 10
 	slot_flags = null
@@ -207,9 +207,9 @@
 /obj/item/gun/ballistic/shotgun/doublebarrel/improvised/update_icon_state()
 	. = ..()
 	if(slung)
-		item_state = "ishotgunsling"
+		inhand_icon_state = "ishotgunsling"
 	if(sawn_off)
-		item_state = "ishotgun_sawn"
+		inhand_icon_state = "ishotgun_sawn"
 
 /obj/item/gun/ballistic/shotgun/doublebarrel/improvised/update_overlays()
 	. = ..()
@@ -229,7 +229,7 @@
 	name = "импровизированный обрез"
 	desc = "Делает одиночный выстрел. Не промахнись."
 	icon_state = "ishotgun_sawn"
-	item_state = "ishotgun_sawn"
+	inhand_icon_state = "ishotgun_sawn"
 	w_class = WEIGHT_CLASS_NORMAL
 	sawn_off = TRUE
 	slot_flags = ITEM_SLOT_BELT
@@ -238,7 +238,7 @@
 	name = "модифицированный крюком обрез"
 	desc = "Дальность не проблема, когда вы можете притянуть жертву к себе."
 	icon_state = "hookshotgun"
-	item_state = "shotgun"
+	inhand_icon_state = "shotgun"
 	load_sound = 'sound/weapons/gun/shotgun/insert_shell.ogg'
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/bounty
 	w_class = WEIGHT_CLASS_BULKY

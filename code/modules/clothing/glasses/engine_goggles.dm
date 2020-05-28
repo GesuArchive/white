@@ -10,7 +10,7 @@
 	name = "очки инженерного сканера"
 	desc = "Очки, используемые инженерами. Режим Meson Scanner позволяет просматривать основные структурные и рельефные ландшафты сквозь стены, режим T-ray Scanner позволяет видеть объекты под полом, такие как кабели и трубы, а режим Radiation Scanner позволяет видеть объекты, загрязненные излучением."
 	icon_state = "trayson-meson"
-	item_state = "trayson-meson"
+	inhand_icon_state = "trayson-meson"
 	actions_types = list(/datum/action/item_action/toggle_mode)
 
 	vision_flags = NONE
@@ -120,12 +120,12 @@
 			flick_overlay(pic, list(user.client), 8)
 
 /obj/item/clothing/glasses/meson/engine/update_icon_state()
-	icon_state = item_state = "trayson-[mode]"
+	icon_state = inhand_icon_state = "trayson-[mode]"
 
 /obj/item/clothing/glasses/meson/engine/tray //atmos techs have lived far too long without tray goggles while those damned engineers get their dual-purpose gogles all to themselves
 	name = "оптический сканер рентгеновских лучей"
 	icon_state = "trayson-t-ray"
-	item_state = "trayson-t-ray"
+	inhand_icon_state = "trayson-t-ray"
 	desc = "Используется инженерным персоналом для наблюдения за объектами под полом, такими как кабели и трубы."
 	range = 2
 
@@ -134,7 +134,7 @@
 /obj/item/clothing/glasses/meson/engine/shuttle
 	name = "shuttle region scanner"
 	icon_state = "trayson-shuttle"
-	item_state = "trayson-shuttle"
+	inhand_icon_state = "trayson-shuttle"
 	desc = "Used to see the boundaries of shuttle regions."
 
 	modes = list(MODE_NONE = MODE_SHUTTLE, MODE_SHUTTLE = MODE_NONE)

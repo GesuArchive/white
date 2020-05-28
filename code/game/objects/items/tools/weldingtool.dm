@@ -4,7 +4,7 @@
 	desc = "Сварка стандартного исполнения, предоставленная компанией Нанотрейзен."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "welder"
-	item_state = "welder"
+	inhand_icon_state = "welder"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	flags_1 = CONDUCT_1
@@ -49,9 +49,9 @@
 
 /obj/item/weldingtool/update_icon_state()
 	if(welding)
-		item_state = "[initial(item_state)]1"
+		inhand_icon_state = "[initial(inhand_icon_state)]1"
 	else
-		item_state = "[initial(item_state)]"
+		inhand_icon_state = "[initial(inhand_icon_state)]"
 
 
 /obj/item/weldingtool/update_overlays()
@@ -345,7 +345,7 @@
 	name = "модернизированный сварочный инструмент"
 	desc = "Модернизированная сварка на базе промышленного сварщика."
 	icon_state = "upindwelder"
-	item_state = "upindwelder"
+	inhand_icon_state = "upindwelder"
 	max_fuel = 80
 	custom_materials = list(/datum/material/iron=70, /datum/material/glass=120)
 
@@ -353,7 +353,7 @@
 	name = "экспериментальный сварочный инструмент"
 	desc = "Экспериментальный сварочный аппарат, способный генерировать самотопливо и менее вредный для глаз."
 	icon_state = "exwelder"
-	item_state = "exwelder"
+	inhand_icon_state = "exwelder"
 	max_fuel = 40
 	custom_materials = list(/datum/material/iron=70, /datum/material/glass=120)
 	var/last_gen = 0

@@ -11,7 +11,7 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	desc = "Могут быть использованы для строительства или укрепления чего-то."
 	singular_name = "металлический стержень"
 	icon_state = "rods"
-	item_state = "rods"
+	inhand_icon_state = "rods"
 	flags_1 = CONDUCT_1
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 9
@@ -97,7 +97,7 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	desc = "Обработанные, специализированные металлические стержни. При воздействии космического вакуума их покрытие разрушается, но они могут противостоять сильной жаре активной лавы."
 	singular_name = "жаропрочный стержень"
 	icon_state = "rods"
-	item_state = "rods"
+	inhand_icon_state = "rods"
 	color = "#5286b9ff"
 	flags_1 = CONDUCT_1
 	w_class = WEIGHT_CLASS_NORMAL

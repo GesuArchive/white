@@ -3,7 +3,7 @@
 	desc = "Небольшое устройство аутентификации, которое должно быть вставлено в приемник огнестрельного оружия, чтобы позволить сделать выстрел. Правила безопасности NT требуют, чтобы все новые конструкции включали это."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "firing_pin"
-	item_state = "pen"
+	inhand_icon_state = "pen"
 	flags_1 = CONDUCT_1
 	w_class = WEIGHT_CLASS_TINY
 	attack_verb = list("тычет")

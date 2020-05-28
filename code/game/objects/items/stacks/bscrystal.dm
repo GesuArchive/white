@@ -62,7 +62,7 @@
 	name = "блюспейс поликристаллы"
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "polycrystal"
-	item_state = "sheet-polycrystal"
+	inhand_icon_state = "sheet-polycrystal"
 	singular_name = "блюспейс поликристалл"
 	desc = "Стабильный поликристалл, изготовленный из сплавленных блюспейс кристаллов. Вы могли бы вероятно сломать один."
 	custom_materials = list(/datum/material/bluespace=MINERAL_MATERIAL_AMOUNT)

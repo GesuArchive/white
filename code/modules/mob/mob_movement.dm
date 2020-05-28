@@ -458,6 +458,13 @@
 	set name = "Выше"
 	set category = "IC"
 
+	var/turf/current_turf = get_turf(src)
+	var/turf/above_turf = SSmapping.get_turf_above(current_turf)
+
+	if(can_zFall(above_turf, 1, current_turf, DOWN)) //Will be fall down if we go up?
+		to_chat(src, "<span class='notice'>You are not Superman.<span>")
+		return
+
 	if(zMove(UP, TRUE))
 		to_chat(src, "<span class='notice'>Поднимаюсь.</span>")
 
@@ -473,6 +480,10 @@
 /mob/proc/zMove(dir, feedback = FALSE)
 	if(dir != UP && dir != DOWN)
 		return FALSE
+	if(incapacitated())
+		if(feedback)
+			to_chat(src, "<span class='warning'>You can't do that right now!</span>")
+			return FALSE
 	var/turf/target = get_step_multiz(src, dir)
 	if(isliving(src))
 		if(!(movement_type & FLYING))

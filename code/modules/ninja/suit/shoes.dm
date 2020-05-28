@@ -3,7 +3,7 @@
 	name = "ботинки нинздя"
 	desc = "Идеальна для разбивания чужих черепов на бегу."
 	icon_state = "s-ninja"
-	item_state = "secshoes"
+	inhand_icon_state = "secshoes"
 	permeability_coefficient = 0.01
 	clothing_flags = NOSLIP
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF

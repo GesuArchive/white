@@ -14,7 +14,7 @@
 	name = "био-костюм"
 	desc = "Костюм, который защищает от биологического загрязнения."
 	icon_state = "bio"
-	item_state = "bio_suit"
+	inhand_icon_state = "bio_suit"
 	w_class = WEIGHT_CLASS_BULKY
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
@@ -91,7 +91,7 @@
 	name = "костюм чумного доктора"
 	desc = "Тогда он защищал врачей от Черной смерти. Вы держите пари, что это поможет вам против вирусов."
 	icon_state = "plaguedoctor"
-	item_state = "bio_suit"
+	inhand_icon_state = "bio_suit"
 	strip_delay = 40
 	equip_delay_other = 20
 

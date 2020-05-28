@@ -38,7 +38,7 @@
 			return
 
 	if(heal(M, user))
-		user?.mind.adjust_experience(/datum/skill/medical, experience_given)
+		user?.mind.adjust_experience(/datum/skill/healing, experience_given)
 		log_combat(user, M, "healed", src.name)
 		use(1)
 		if(repeating && amount > 0)
@@ -59,7 +59,7 @@
 		user.visible_message("<span class='green'><b>[user]</b> применяет <b>[skloname]</b> на <b>[ru_parse_zone(affecting.name)] [C]</b>.</span>", "<span class='green'>Применяю <b>[skloname]</b> на <b>[ru_parse_zone(affecting.name)] [C]</b>.</span>")
 		var/brute2heal = brute
 		var/burn2heal = burn
-		var/skill_mod = user?.mind?.get_skill_modifier(/datum/skill/medical, SKILL_SPEED_MODIFIER)
+		var/skill_mod = user?.mind?.get_skill_modifier(/datum/skill/healing, SKILL_SPEED_MODIFIER)
 		if(skill_mod)
 			brute2heal *= (2-skill_mod)
 			burn2heal *= (2-skill_mod)
