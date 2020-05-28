@@ -99,7 +99,7 @@
 	name = "гипершлем"
 	desc = "А ты заслуживаешь это?"
 	flags_inv = 0
-	mob_overlay_icon = null
+	worn_icon = null
 	slowdown = -1
 	strip_delay = 1300
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)

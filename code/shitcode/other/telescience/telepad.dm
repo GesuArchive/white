@@ -92,7 +92,7 @@
 	desc = "Use to warp in a cargo telepad."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "beacon"
-	item_state = "beacon"
+	inhand_icon_state = "beacon"
 
 /obj/item/device/telepad_beacon/attack_self(mob/user)
 	if(user)

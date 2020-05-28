@@ -9,36 +9,36 @@
 /obj/item/clothing/under/m35jacket
 	name = "m35 jacket"
 	desc = "Ммм. Хайль Вайт."
-	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/uniform.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/clothing/mob/uniform.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/uniforms.dmi'
 	icon_state = "m35_jacket"
-	item_state = "m35_jacket"
+	inhand_icon_state = "m35_jacket"
 
 	//armor = list("melee" = 20, "bullet" = 20, "laser" = 20,"energy" = 20, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 30)
 	can_adjust = FALSE
 
 /obj/item/clothing/under/m35jacket/officer
 	icon_state = "m35_jacket_officer"
-	item_state = "m35_jacket_officer"
+	inhand_icon_state = "m35_jacket_officer"
 	//armor = list("melee" = 30, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
 
 /obj/item/clothing/under/m35jacket/elite
 	icon_state = "m35_elite_jacket"
-	item_state = "m35_elite_jacket"
+	inhand_icon_state = "m35_elite_jacket"
 	//armor = list("melee" = 60, "bullet" = 60, "laser" = 60,"energy" = 60, "bomb" = 60, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 60)
 
 /obj/item/clothing/under/m35jacket/elite/super
 	icon_state = "m35_super_elite_jacket"
-	item_state = "m35_super_elite_jacket"
+	inhand_icon_state = "m35_super_elite_jacket"
 	//armor = list("melee" = 90, "bullet" = 90, "laser" = 90,"energy" = 90, "bomb" = 90, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 90)
 
 /obj/item/clothing/under/magistrate
 	name = "magistrate uniform"
 	desc = "Ммм. Хайль Вайт."
-	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/uniform.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/clothing/mob/uniform.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/uniforms.dmi'
 	icon_state = "magistrate"
-	item_state = "magistrate"
+	inhand_icon_state = "magistrate"
 
 	//armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	can_adjust = FALSE
@@ -46,10 +46,10 @@
 /obj/item/clothing/under/arbiter
 	name = "arbiter uniform"
 	desc = "Ммм. Хайль Вайт."
-	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/uniform.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/clothing/mob/uniform.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/uniforms.dmi'
 	icon_state = "arbiter"
-	item_state = "arbiter"
+	inhand_icon_state = "arbiter"
 
 	//armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	can_adjust = FALSE
@@ -59,7 +59,7 @@
 /obj/item/clothing/suit/armor/vest/izan
 	name = "bulletproof vest"
 	desc = "Спасёт твою грудь от пуль. Пахнет китайским пластиком."
-	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/suit.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/suits.dmi'
 	icon_state = "opvest"
 
@@ -83,7 +83,7 @@
 /obj/item/clothing/suit/cowl
 	name = "cowl"
 	desc = "Красивое покрывало."
-	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/suit.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/suits.dmi'
 	icon_state = "cowl"
 	slot_flags = ITEM_SLOT_NECK
@@ -97,7 +97,7 @@
 
 /obj/item/clothing/gloves/arbiter
 	name = "arbiter gloves"
-	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/glove.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/clothing/mob/glove.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/gloves.dmi'
 	icon_state = "arbiter"
 
@@ -110,7 +110,7 @@
 /obj/item/clothing/head/helmet/arbiter
 	name = "arbiter helmet"
 	desc = "Ммм. Хайль Вайт."
-	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/hat.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/clothing/mob/hat.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/hats.dmi'
 	icon_state = "arbiter"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
@@ -123,7 +123,7 @@
 /obj/item/clothing/head/helmet/izanhelm
 	name = "m35 cap"
 	desc = "Ммм. Хайль Вайт."
-	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/hat.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/clothing/mob/hat.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/hats.dmi'
 	icon_state = "officer_cap"
 	//armor = list("melee" = 55, "bullet" = 90, "laser" = 20,"energy" = 30, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
@@ -149,7 +149,7 @@
 /obj/item/clothing/head/helmet/richard
 	name = "richard's head"
 	desc = "Пахнет кровью."
-	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/hat.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/clothing/mob/hat.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/hats.dmi'
 	icon_state = "richard"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
@@ -161,7 +161,7 @@
 	name = "old style gas mask"
 	desc = "Ммм. Хайль Вайт."
 	flags_inv = 256
-	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/mask.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/clothing/mob/mask.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/masks.dmi'
 	icon_state = "fullgas"
 
@@ -183,7 +183,7 @@
 	name = "balaclava"
 	desc = "Ммм. Хайль Вайт."
 	flags_inv = 256
-	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/mask.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/clothing/mob/mask.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/masks.dmi'
 	icon_state = "balaclava"
 
@@ -196,7 +196,7 @@
 /obj/item/clothing/shoes/jackboots/arbiter
 	name = "arbiter boots"
 	desc = "Ммм. Хайль Вайт."
-	mob_overlay_icon = 'code/shitcode/valtos/icons/clothing/mob/shoe.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/clothing/mob/shoe.dmi'
 	icon = 'code/shitcode/valtos/icons/clothing/shoes.dmi'
 	icon_state = "arbiter"
 
@@ -218,10 +218,10 @@
 	icon = 'code/shitcode/valtos/icons/gun.dmi'
 	lefthand_file = 'code/shitcode/valtos/icons/lefthand.dmi'
 	righthand_file = 'code/shitcode/valtos/icons/righthand.dmi'
-	mob_overlay_icon = 'code/shitcode/valtos/icons/back.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/back.dmi'
 	fire_sound = 'code/shitcode/valtos/sounds/ak74_shot.ogg'
 	icon_state = "ak47"
-	item_state = "ak47"
+	inhand_icon_state = "ak47"
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	mag_type = /obj/item/ammo_box/magazine/ak47mag

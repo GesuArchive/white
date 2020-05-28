@@ -28,7 +28,7 @@
 	projectile_type = /obj/projectile/bullet/a792x57
 	icon = 'code/shitcode/Wzzzz/icons/ammo.dmi'
 	icon_state = "rifle_casing"
-	item_state = "rifle_casing"
+	inhand_icon_state = "rifle_casing"
 
 /obj/projectile/bullet/a792x57
 	damage = 45
@@ -41,7 +41,7 @@
 	desc = "Some kind of bolt action rifle. You get the feeling you shouldn't have this."
 	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
 	icon_state = "kar98k"
-	item_state = "kar98k"
+	inhand_icon_state = "kar98k"
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction98
 	bolt_wording = "болт винтовки"
 	w_class = WEIGHT_CLASS_BULKY
@@ -55,7 +55,7 @@
 	can_be_sawn_off = FALSE
 	lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 	righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
 	slot_flags = ITEM_SLOT_BACK
 	can_bayonet = TRUE
 	knife_x_offset = 27
@@ -82,34 +82,34 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/attackby(obj/item/A, mob/us
 		icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
 		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
-		mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
+		worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
 		if(!findtext(icon_state, "_open"))
 			icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
 			lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 			righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
-			mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
+			worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
 			icon_state = "kar98k_open"
-			item_state = "kar98k_open"
+			inhand_icon_state = "kar98k_open"
 			slot_flags = ITEM_SLOT_BACK
 	else if(icon_state == "kar98k_open") //closed
 		icon_state = "kar98k"
 		icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
 		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
-		mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
+		worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
 	else if(icon_state == "kar98k")
 		icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
 		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
-		mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
+		worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
 		return
 	else
 		icon_state = "kar98k"
-		item_state = "kar98k"
+		inhand_icon_state = "kar98k"
 		fire_sound = 'code/shitcode/Wzzzz/kar_shot.ogg'
 		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
-		mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
+		worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
 
 obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/rack(mob/user = null)
 	if (bolt_locked == FALSE)
@@ -126,7 +126,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/rack(mob/user = null)
 	name = "kar98k scope"
 	desc = "Some kind of bolt action rifle. You get the feeling you shouldn't have this."
 	icon_state = "kar98k_scope"
-	item_state = "kar98k_scope"
+	inhand_icon_state = "kar98k_scope"
 	zoomable = TRUE
 	zoom_amt = 10
 	zoom_out_amt = 13
@@ -150,21 +150,21 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/attackby(obj/item/A, 
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/update_icon(var/add_scope = FALSE)
 	if (bolt_locked == FALSE)
 		icon_state = "kar98k_scope_open"
-		item_state = "kar98k_scope_open"
+		inhand_icon_state = "kar98k_scope_open"
 		icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
 		slot_flags = ITEM_SLOT_BACK
 		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
-		mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
+		worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
 		fire_sound = 'code/shitcode/Wzzzz/kar_shot.ogg'
 		return
 	else
 		icon_state = "kar98k_scope"
-		item_state = "kar98k_scope"
+		inhand_icon_state = "kar98k_scope"
 		icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
 		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
-		mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
+		worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
 		fire_sound = 'code/shitcode/Wzzzz/kar_shot.ogg'
 		return
 
@@ -182,7 +182,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
 	name = "taser carbine"
 	desc = "The NT Mk44 NL is a high capacity gun used for non-lethal takedowns. It can switch between high and low intensity stun shots."
 	icon_state = "tasercarbine"
-	item_state = "tasercarbine"
+	inhand_icon_state = "tasercarbine"
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
@@ -191,7 +191,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
 	ammo_x_offset = 2
 	lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 	righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
 
 /obj/item/ammo_casing/energy/electrode/carb
 	e_cost = 150
@@ -222,7 +222,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
 	desc = "The W-T 550 Saber is a cheap self-defense weapon, mass-produced by Ward-Takahashi for paramilitary and private use. Uses 9mm rounds."
 	icon_state = "wt550"
 	burst_size = 3
-	item_state = "wt550"
+	inhand_icon_state = "wt550"
 	lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 	righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
 	mag_type = /obj/item/ammo_box/magazine/wt550m9/wzzzz/mc9mmt
@@ -232,7 +232,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
 	name = "circular saw"
 	desc = "Good against wood or flesh, bad against steel."
 	icon_state = "saw"
-	item_state = "saw"
+	inhand_icon_state = "saw"
 	lefthand_file = 'code/shitcode/Wzzzz/icons/Weeal.dmi'
 	throwforce = 12
 	force = 13

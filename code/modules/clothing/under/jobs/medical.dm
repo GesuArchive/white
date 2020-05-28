@@ -23,7 +23,7 @@
 	desc = "Он изготовлен из специального волокна, которое обеспечивает особую защиту от биологических опасностей. На нем есть полоска генетического ранга."
 	name = "комбинезон генетика"
 	icon_state = "genetics"
-	item_state = "w_suit"
+	inhand_icon_state = "w_suit"
 	permeability_coefficient = 0.5
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
 
@@ -31,7 +31,7 @@
 	name = "юбкомбез генетика"
 	desc = "Он изготовлен из специального волокна, которое обеспечивает особую защиту от биологических опасностей. На нем есть полоска генетического ранга."
 	icon_state = "geneticswhite_skirt"
-	item_state = "w_suit"
+	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	can_adjust = FALSE
 	fitted = FEMALE_UNIFORM_TOP

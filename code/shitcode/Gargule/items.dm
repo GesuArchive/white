@@ -52,7 +52,7 @@
 	name = "slapper MK2"
 	desc = "This is how real men fight. New functions avalible"
 	icon_state = "latexballon"
-	item_state = "nothing"
+	inhand_icon_state = "nothing"
 	force = 0
 	throwforce = 0
 	item_flags = DROPDEL | ABSTRACT

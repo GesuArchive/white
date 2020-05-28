@@ -3,7 +3,7 @@
 	desc = "Цельтесь В ГОЛОВУ."
 	icon = 'code/shitcode/hule/icons/obj/weapons.dmi'
 	icon_state = "ptr"
-	item_state = "ptr"
+	inhand_icon_state = "ptr"
 	lefthand_file = 'code/shitcode/hule/icons/onmob/guns96_l.dmi'
 	righthand_file = 'code/shitcode/hule/icons/onmob/guns96_r.dmi'
 	inhand_x_dimension = -32

@@ -15,7 +15,7 @@
 	desc = "A luger magazine."
 	icon = 'code/shitcode/Wzzzz/icons/ammo.dmi'
 	icon_state = "lugermag"
-	item_state = "lugermag"
+	inhand_icon_state = "lugermag"
 	caliber = "9mm"
 	ammo_type = /obj/item/ammo_casing/wzzzz/luger
 	max_ammo = 8

@@ -8,7 +8,7 @@
 /obj/item/gun/ballistic/duck_game
 	icon = 'code/shitcode/ClickerOfThings/duckgame_weapon/dg_weapons_icons.dmi'
 	icon_state = "duel"
-	item_state = "duel"
+	inhand_icon_state = "duel"
 	var/deletable = FALSE
 	var/bullets = 0
 	mag_type = /obj/item/ammo_box/magazine/m10mm/i_dont_know_how_the_fuck_i_can_do_that_in_another_way
@@ -99,7 +99,7 @@
 	desc = "Small shitty dueling pistol with one bullet."
 	icon = 'code/shitcode/ClickerOfThings/duckgame_weapon/dg_weapons_icons.dmi'
 	icon_state = "duel"
-	item_state = "duel"
+	inhand_icon_state = "duel"
 
 /obj/item/gun/ballistic/duck_game/test_weapon
 	bullets = 5
@@ -107,7 +107,7 @@
 	desc = "Test weapon. 5 bullets."
 	icon = 'code/shitcode/ClickerOfThings/duckgame_weapon/dg_weapons_icons.dmi'
 	icon_state = "duel"
-	item_state = "duel"
+	inhand_icon_state = "duel"
 
 
 #undef DUALWIELD_PENALTY_EXTRA_MULTIPLIER

@@ -50,7 +50,7 @@ obj/item/banner/engineering/atmos/mundane
 	desc = "Floor lamp in a minimalist style."
 	icon = 'code/shitcode/pieceofcrap.dmi'
 	icon_state = "slamp"
-	item_state = "slamp"
+	inhand_icon_state = "slamp"
 	force = 9
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
@@ -229,7 +229,7 @@ obj/item/banner/engineering/atmos/mundane
 	desc = "A traditional hunting rifle with 4x scope and a four-shell capacity underneath."
 	icon = 'code/shitcode/pieceofcrap.dmi'
 	icon_state = "tranqshotgun"
-	item_state = "sniper"
+	inhand_icon_state = "sniper"
 	w_class = WEIGHT_CLASS_BULKY
 	force = 4
 	zoomable = TRUE
@@ -268,7 +268,7 @@ obj/item/banner/engineering/atmos/mundane
 	desc = "Apply to the moths and flies."
 	icon = 'code/shitcode/pieceofcrap.dmi'
 	icon_state = "slovar"
-	item_state = "bible"
+	inhand_icon_state = "bible"
 	lefthand_file = 'icons/mob/inhands/misc/books_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/books_righthand.dmi'
 	force = 17

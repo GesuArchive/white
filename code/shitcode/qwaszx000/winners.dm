@@ -5,7 +5,7 @@
 	name = "Robust fire extinguisher"
 	desc = "Used to kill humans."
 	icon_state = "foam_extinguisher0"
-	item_state = "foam_extinguisher"
+	inhand_icon_state = "foam_extinguisher"
 	dog_fashion = null
 	sprite_name = "foam_extinguisher"
 	throwforce = 15

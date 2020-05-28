@@ -157,7 +157,7 @@
 /obj/item/storage/belt/military/gang
 	name = "badass belt"
 	icon_state = "gangbelt"
-	item_state = "gang"
+	inhand_icon_state = "gang"
 	desc = "The belt buckle simply reads 'BAMF'."
 
 ///////////////////
@@ -875,7 +875,7 @@
 	desc = "Banned due to side effects of extreme rage, reduced intelligence, and violence. For gangs, that's just a fringe benefit."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "implanter1"
-	item_state = "syringe_0"
+	inhand_icon_state = "syringe_0"
 	throw_speed = 3
 	throw_range = 5
 	custom_materials = list(MAT_METAL=600, MAT_GLASS=200)

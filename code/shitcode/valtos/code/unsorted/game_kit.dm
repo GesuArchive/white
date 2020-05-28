@@ -11,7 +11,7 @@ THAT STUPID GAME KIT
 	var/board_stat = null
 	var/data = ""
 	//var/base_url = "http://svn.slurm.us/public/spacestation13/misc/game_kit"
-	item_state = "chess"
+	inhand_icon_state = "chess"
 	w_class = WEIGHT_CLASS_NORMAL
 	desc = "Шашки или шахматы? Да какая разница, всё равно в это никто не будет играть."
 

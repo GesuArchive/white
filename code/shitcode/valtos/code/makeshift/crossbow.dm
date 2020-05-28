@@ -3,7 +3,7 @@
 	desc = "A powerful crossbow, capable of shooting metal rods. Very effective for hunting."
 	icon = 'code/shitcode/valtos/icons/crossbow.dmi'
 	icon_state = "crossbow_body"
-	item_state = "crossbow_body"
+	inhand_icon_state = "crossbow_body"
 	lefthand_file = 'code/shitcode/valtos/icons/lefthand.dmi'
 	righthand_file = 'code/shitcode/valtos/icons/righthand.dmi'
 	w_class = WEIGHT_CLASS_BULKY
@@ -134,7 +134,7 @@
 	name = "improvised crossbow"
 	desc = "A poorly-built improvised crossbow, probably couldn't even hurt small game."
 	icon_state = "crossbow_body_improv"
-	item_state = "crossbow_body_improv"
+	inhand_icon_state = "crossbow_body_improv"
 	charge_time = 20
 
 /datum/crafting_recipe/crossbow_improv

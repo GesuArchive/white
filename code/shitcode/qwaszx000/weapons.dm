@@ -5,7 +5,7 @@ Arrow&bow
 	name = "Arrow"
 	desc = "A arrow that can hold up to 5 units."
 	icon = 'icons/obj/projectiles.dmi'
-	item_state = "arrow"
+	inhand_icon_state = "arrow"
 	icon_state = "arrow"
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list()
@@ -34,7 +34,7 @@ Arrow&bow
 	name = "Bow"
 	desc = "Bow"
 	icon_state = "bow_unloaded"
-	item_state = "bow_unloaded"
+	inhand_icon_state = "bow_unloaded"
 	force = 10
 
 /obj/item/gun/syringe/bow/examine(mob/user)
@@ -83,7 +83,7 @@ Arrow&bow
 	desc = "Rifle."
 	icon = 'code/shitcode/qwaszx000/sprites/M41A.dmi'
 	icon_state = "M41A"
-	item_state = "M41A"
+	inhand_icon_state = "M41A"
 	mag_type = /obj/item/ammo_box/magazine/m41a
 	pin = /obj/item/firing_pin
 	fire_delay = 2

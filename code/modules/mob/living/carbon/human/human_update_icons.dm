@@ -485,7 +485,7 @@ default_layer: The layer to draw this on if no other layer is specified
 
 default_icon_file: The icon file to draw states from if no other icon file is specified
 
-isinhands: If true then mob_overlay_icon is skipped so that default_icon_file is used,
+isinhands: If true then worn_icon is skipped so that default_icon_file is used,
 in this situation default_icon_file is expected to match either the lefthand_ or righthand_ file var
 
 femalueuniform: A value matching a uniform item's fitted var, if this is anything but NO_FEMALE_UNIFORM, we

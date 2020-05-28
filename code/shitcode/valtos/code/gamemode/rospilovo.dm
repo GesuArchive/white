@@ -809,12 +809,12 @@ obj/structure/grille/rospilovo/beton/CanPass(atom/movable/mover, turf/target, he
 /obj/item/clothing/under/switer
 	name = "свитер"
 	desc = "Грязный и поношенный старый бабушкин свитер из натуральной собачьей шерсти, обладающий естественными лечебными свойствами. Этот свитер очень тёплый и удобный."
-	mob_overlay_icon = 'code/shitcode/valtos/icons/rospilovo/uniform_mob.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/rospilovo/uniform_mob.dmi'
 	icon = 'code/shitcode/valtos/icons/rospilovo/uniform_item.dmi'
 	body_parts_covered = CHEST|ARMS|LEGS
 	cold_protection = CHEST|ARMS|LEGS
 	icon_state = "switer"
-	item_state = "g_suit"
+	inhand_icon_state = "g_suit"
 	can_adjust = 0
 	has_sensor = 0
 
@@ -825,13 +825,13 @@ obj/structure/grille/rospilovo/beton/CanPass(atom/movable/mover, turf/target, he
 	name = "тельняшка"
 	desc = "Теплая майка-тельняха и черные поношенные штаны - стандартная одежда всех долговцев и военных."
 	icon_state = "lolg"
-	item_state = "lolg"
+	inhand_icon_state = "lolg"
 
 /obj/item/clothing/under/switer/tracksuit
 	name = "спортивный костюм"
 	desc = "Такой спортивный костюм обычно можно увидеть на пацанах с района."
 	icon_state = "tracksuit"
-	item_state = "tracksuit"
+	inhand_icon_state = "tracksuit"
 
 /obj/effect/step_trigger/r3b0lut10n
 	var/message = "Как-то тут не по себе..."

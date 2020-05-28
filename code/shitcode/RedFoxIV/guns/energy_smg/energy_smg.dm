@@ -3,7 +3,7 @@
 	desc = "A prototype burst energy weapon. Uses special external batteries which cannot be recharged."
 	icon = 'code/shitcode/RedFoxIV/guns/energy_smg/energy_smg.dmi'
 	icon_state = "energy_smg"
-	item_state = "energy_smg"
+	inhand_icon_state = "energy_smg"
 	custom_materials = list(/datum/material/titanium = 20000, /datum/material/glass = 2000, /datum/material/gold = 4000 , /datum/material/iron = 35000)
 	lefthand_file = 'code/shitcode/RedFoxIV/guns/guns_lefthand.dmi'
 	righthand_file = 'code/shitcode/RedFoxIV/guns/guns_righthand.dmi'

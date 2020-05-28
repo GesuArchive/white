@@ -8,7 +8,7 @@
 	name = "Declaration of War (Lowpop Mode)"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gangtool-red"
-	item_state = "radio"
+	inhand_icon_state = "radio"
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	desc = "Use to send a declaration of hostilities to the target, delaying your shuttle departure for 10 minutes while they prepare for your assault.  \

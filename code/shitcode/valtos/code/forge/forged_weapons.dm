@@ -60,7 +60,7 @@
 	name = "forged dagger"
 	desc = "A custom dagger forged from solid ingots"
 	icon_state = "forged_knife"
-	item_state = "forged_dagger"
+	inhand_icon_state = "forged_dagger"
 	hitsound = 'code/shitcode/valtos/sounds/forge/knife.ogg'
 	weapon_type = MELEE_TYPE_DAGGER
 	stabby = TRANSFER_SHARP
@@ -73,8 +73,8 @@
 	name = "forged sword"
 	desc = "A custom sword forged from solid ingots"
 	icon_state = "forged_sword"
-	item_state = "forged_sword"
-	mob_overlay_icon = 'code/shitcode/valtos/icons/forge/belt.dmi'
+	inhand_icon_state = "forged_sword"
+	worn_icon = 'code/shitcode/valtos/icons/forge/belt.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	weapon_type = MELEE_TYPE_SWORD
@@ -88,8 +88,8 @@
 	name = "forged mace"
 	desc = "A custom mace forged from solid ingots"
 	icon_state = "forged_mace"
-	item_state = "forged_mace"
-	mob_overlay_icon = 'code/shitcode/valtos/icons/forge/belt.dmi'
+	inhand_icon_state = "forged_mace"
+	worn_icon = 'code/shitcode/valtos/icons/forge/belt.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	hitsound = 'code/shitcode/valtos/sounds/forge/crunch.ogg'
 	weapon_type = MELEE_TYPE_MACE
@@ -155,7 +155,7 @@
 	name = "forged warhammer"
 	desc = "A custom warhammer forged from solid ingots"
 	icon_state = "forged_hammer0"
-	mob_overlay_icon = 'code/shitcode/valtos/icons/forge/back.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/forge/back.dmi'
 	slot_flags = ITEM_SLOT_BACK
 	hitsound = 'code/shitcode/valtos/sounds/forge/crunch.ogg'
 	weapon_type = MELEE_TYPE_WARHAMMER

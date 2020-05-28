@@ -108,7 +108,7 @@
 	if(prob(75))
 		force = 8 // как вы вообще этим бить собрались
 		icon = 'code/shitcode/valtos/icons/balon.dmi'
-		icon_state = item_state
+		icon_state = inhand_icon_state
 		reagents.clear_reagents()
 		max_water = 0
 		for(var/mob/living/M in get_hearers_in_view(5, bang_turf))
