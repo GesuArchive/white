@@ -152,6 +152,7 @@
 			SP = AddComponent(/datum/component/soundplayer)
 			SP.active = TRUE
 			SP.environmental = TRUE
+			SP.playing_channel = CHANNEL_CUSTOM_JUKEBOX
 		SP.playing_volume = current_size*10
 		SP.playing_range = current_size*5
 		radiation_pulse(src, min(5000, (energy*4.5)+1000), RAD_DISTANCE_COEFFICIENT*0.5)
