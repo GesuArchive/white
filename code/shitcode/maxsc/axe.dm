@@ -4,7 +4,7 @@
 	desc = "Одно из самых универсальных видов оружия."
 	icon = 'code/shitcode/maxsc/icons/axe.dmi'
 	icon_state = "axe1"
-	item_state = "paxe1"
+	inhand_icon_state = "paxe1"
 	lefthand_file = 'code/shitcode/maxsc/icons/lefthand.dmi'
 	righthand_file = 'code/shitcode/maxsc/icons/righthand.dmi'
 	block_chance = 10
@@ -36,7 +36,7 @@
 	desc = "Одно из самых универсальных видов оружия. Оружие справедливости."
 	icon = 'code/shitcode/maxsc/icons/axe.dmi'
 	icon_state = "axe1"
-	item_state = "paxe1"
+	inhand_icon_state = "paxe1"
 	lefthand_file = 'code/shitcode/maxsc/icons/lefthand.dmi'
 	righthand_file = 'code/shitcode/maxsc/icons/righthand.dmi'
 	block_chance = 15

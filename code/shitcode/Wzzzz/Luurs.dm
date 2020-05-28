@@ -15,7 +15,7 @@
 	desc = "A mauser magazine."
 	icon = 'code/shitcode/Wzzzz/icons/ammo.dmi'
 	icon_state = "meow"
-	item_state = "meow"
+	inhand_icon_state = "meow"
 	caliber = "10mm"
 	ammo_type = /obj/item/ammo_casing/wzzzz/mauser
 	max_ammo = 10
@@ -38,7 +38,7 @@
 	name = "10mm bullet"
 	damage = 23
 	armour_penetration = 15
-	
+
 /obj/item/ammo_casing/wzzzz/mauser
 	name = "10mm bullet casing."
 	desc = "A 10mm bullet casing."

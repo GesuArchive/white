@@ -3,7 +3,7 @@
 	desc = "Комбинированный принтер этикеток, аппликатор и съемник - все в одном портативном устройстве. Разработанный, чтобы быть простым в эксплуатации и использовании."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "labeler0"
-	item_state = "flight"
+	inhand_icon_state = "flight"
 	var/label = null
 	var/labels_left = 30
 	var/mode = 0
@@ -116,7 +116,7 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	desc = "Используйте его на ручном этикетировщике, чтобы наполнить его."
 	icon_state = "labeler_refill"
-	item_state = "electropack"
+	inhand_icon_state = "electropack"
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY

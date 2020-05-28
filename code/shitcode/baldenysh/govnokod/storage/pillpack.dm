@@ -3,7 +3,7 @@
 	desc = "Картонная пачка."
 	icon = 'code/shitcode/baldenysh/icons/obj/pillpack.dmi'
 	icon_state = "pillpack"
-	item_state = "syringe_kit"
+	inhand_icon_state = "syringe_kit"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	illustration = "haloperidol"

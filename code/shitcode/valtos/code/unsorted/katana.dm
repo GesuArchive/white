@@ -3,7 +3,7 @@
 	gender = FEMALE
 	desc = "Криотехнологиченое устройство, которое замораживает преступников живьём. Удивительно!"
 	icon_state = "security_katana"
-	item_state = "security_katana"
+	inhand_icon_state = "security_katana"
 	force = 15
 	block_chance = 30
 	armour_penetration = 10
@@ -71,12 +71,12 @@
 /obj/item/melee/sabre/security/update_icon_state()
 	if(turned_on)
 		icon_state = "[initial(icon_state)]_active"
-		item_state = "[initial(item_state)]_active"
+		inhand_icon_state = "[initial(inhand_icon_state)]_active"
 	else if(!cell)
 		icon_state = "[initial(icon_state)]_nocell"
 	else
 		icon_state = "[initial(icon_state)]"
-		item_state = "[initial(item_state)]"
+		inhand_icon_state = "[initial(inhand_icon_state)]"
 
 /obj/item/melee/sabre/security/examine(mob/user)
 	. = ..()
@@ -177,7 +177,7 @@
 	name = "криокатана мастера"
 	desc = "А эта покруче."
 	icon_state = "hos_katana"
-	item_state = "hos_katana"
+	inhand_icon_state = "hos_katana"
 	force = 18
 	block_chance = 50
 	armour_penetration = 40
@@ -199,10 +199,10 @@
 	desc = "Для сдерживания мощи."
 
 	icon = 'code/shitcode/valtos/icons/katana/belts.dmi'
-	mob_overlay_icon = 'code/shitcode/valtos/icons/katana/belt.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/katana/belt.dmi'
 
 	icon_state = "security_katana_sheath"
-	item_state = "security_katana_sheath"
+	inhand_icon_state = "security_katana_sheath"
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/storage/belt/sheath/PopulateContents()
@@ -223,10 +223,10 @@
 
 /obj/item/storage/belt/sheath/update_icon_state()
 	icon_state = "security_katana_sheath"
-	item_state = "security_katana_sheath"
+	inhand_icon_state = "security_katana_sheath"
 	if(contents.len)
 		icon_state += "-sword"
-		item_state += "-sword"
+		inhand_icon_state += "-sword"
 
 /obj/item/storage/belt/sheath/security
 	name = "ножны катаны офицера"

@@ -5,7 +5,7 @@
 	lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
 	righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
 	icon_state = "mp40"
-	item_state = "mp40"
+	inhand_icon_state = "mp40"
 	slot_flags = ITEM_SLOT_BELT
 	resistance_flags = FIRE_PROOF
 	fire_sound = 'code/shitcode/Wzzzz/Gunshot_light.ogg'
@@ -16,13 +16,13 @@
 	burst_size = 3
 	can_bayonet = FALSE
 	fire_sound = 'code/shitcode/Wzzzz/smg_fire.ogg'
-	
+
 /obj/item/ammo_box/magazine/wzzzz/mp40
 	name = "MP-40 magazine (c9mm)"
 	desc = "A mp40 magazine."
 	icon = 'code/shitcode/Wzzzz/ne_sharu_v_etom.dmi'
 	icon_state = "mp40mag"
-	item_state = "mp40mag"
+	inhand_icon_state = "mp40mag"
 	caliber = "crgmm"
 	ammo_type = /obj/item/ammo_casing/wzzzz/crgmm
 	max_ammo = 32

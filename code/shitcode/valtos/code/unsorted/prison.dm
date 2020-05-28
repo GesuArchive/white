@@ -176,9 +176,9 @@
 	name = "костюм начальника"
 	desc = "Стильная рубашка к не менее модным штанам."
 	icon = 'code/shitcode/valtos/icons/prison/uniform.dmi'
-	mob_overlay_icon = 'code/shitcode/valtos/icons/prison/uniform_onmob.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/prison/uniform_onmob.dmi'
 	icon_state = "nach"
-	item_state = "nach"
+	inhand_icon_state = "nach"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0, fire = 50, acid = 50)
 	strip_delay = 60
 
@@ -186,18 +186,18 @@
 	name = "костюм вертухая"
 	desc = "Стандартная униформа военнослужащего."
 	icon = 'code/shitcode/valtos/icons/prison/uniform.dmi'
-	mob_overlay_icon = 'code/shitcode/valtos/icons/prison/uniform_onmob.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/prison/uniform_onmob.dmi'
 	icon_state = "vert"
-	item_state = "vert"
+	inhand_icon_state = "vert"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0, fire = 50, acid = 50)
 	strip_delay = 60
 
 /obj/item/clothing/under/prison/prison
 	desc = "Форма уличного мима. Погодите-ка... Нет, все таки тюремная."
 	icon = 'code/shitcode/valtos/icons/prison/uniform.dmi'
-	mob_overlay_icon = 'code/shitcode/valtos/icons/prison/uniform_onmob.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/prison/uniform_onmob.dmi'
 	icon_state = "prisoner"
-	item_state = "prisoner"
+	inhand_icon_state = "prisoner"
 	has_sensor = LOCKED_SENSORS
 	sensor_mode = SENSOR_COORDS
 	random_sensor = 0
@@ -212,9 +212,9 @@
 	name = "бронепальто"
 	desc = "Крепкий и теплый."
 	icon = 'code/shitcode/valtos/icons/prison/uniform.dmi'
-	mob_overlay_icon = 'code/shitcode/valtos/icons/prison/uniform_onmob.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/prison/uniform_onmob.dmi'
 	icon_state = "vertsuit"
-	item_state = "vertsuit"
+	inhand_icon_state = "vertsuit"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 	armor = list(melee = 30, bullet = 30, laser = 30, energy = 10, bomb = 25, bio = 0, rad = 0, fire = 70, acid = 90)
 	cold_protection = CHEST|GROIN|LEGS|ARMS
@@ -227,9 +227,9 @@
 	name = "каска"
 	desc = "Крепкая каска."
 	icon = 'code/shitcode/valtos/icons/prison/uniform.dmi'
-	mob_overlay_icon = 'code/shitcode/valtos/icons/prison/uniform_onmob.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/prison/uniform_onmob.dmi'
 	icon_state = "helm"
-	item_state = "helm"
+	inhand_icon_state = "helm"
 	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(melee = 50, bullet = 50, laser = 50, energy = 40, bomb = 60, bio = 0, rad = 0, fire = 60, acid = 60)
 
@@ -237,9 +237,9 @@
 	name = "тюбетейка"
 	desc = "Тюбетейка."
 	icon = 'code/shitcode/valtos/icons/prison/uniform.dmi'
-	mob_overlay_icon = 'code/shitcode/valtos/icons/prison/uniform_onmob.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/prison/uniform_onmob.dmi'
 	icon_state = "phat"
-	item_state = "phat"
+	inhand_icon_state = "phat"
 
 /******************Doors*******************************/
 

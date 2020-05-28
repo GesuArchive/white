@@ -3,11 +3,11 @@
 	desc = "Basically, a big subwoofer on steroids with a trigger. Can incapacitate people by throwing into walls, windows, other people, open airlocks, supermatter, disposals, banana peels, AIDS-infected monkeys, lavaland megafauna, lavaland lava, permabrig and, if you're not careful enough, yourself."
 	icon = 'code/shitcode/RedFoxIV/guns/sonicgun/sonicgun.dmi'
 	icon_state = "sonic_gun"
-	item_state = "sonic_gun"
+	inhand_icon_state = "sonic_gun"
 	lefthand_file = 'code/shitcode/RedFoxIV/guns/guns_lefthand.dmi'
 	righthand_file = 'code/shitcode/RedFoxIV/guns/guns_righthand.dmi'
 	cell_type = /obj/item/stock_parts/cell/high
-	charge_sections = 5 
+	charge_sections = 5
 	shaded_charge = TRUE
 	ammo_type = list(/obj/item/ammo_casing/energy/acoustic, /obj/item/ammo_casing/energy/acoustic/overcharge)
 	modifystate = TRUE
@@ -42,10 +42,10 @@
 	damage = 20
 	range = 4
 	pass_flags = PASSTABLE | PASSGRILLE
-	var/knock_dist = 2	
+	var/knock_dist = 2
 	move_force = MOVE_FORCE_STRONG
 	//appearance_flags = TILE_BOUND //TILE_BOUND есть практически на всём, а дефолтный PIXEL_SCALE не нужон
-	
+
 /obj/projectile/acoustic_wave/vol_by_damage()
 	return 1
 

@@ -70,7 +70,7 @@ VAZHNOE (ili ne osobo) PRIMECHANIE/\/\/\
 	name = "Doom Slayer helmet"
 	desc = "Helmet that protects Doom Slayer from most of the damage."
 	icon_state = "hostile_env"
-	item_state = "hostile_env"
+	inhand_icon_state = "hostile_env"
 	w_class = WEIGHT_CLASS_NORMAL
 	max_heat_protection_temperature = HELMET_MAX_TEMP_PROTECT
 	item_flags = DROPDEL
@@ -86,7 +86,7 @@ VAZHNOE (ili ne osobo) PRIMECHANIE/\/\/\
 	name = "Doom Slayer suit"
 	desc = "Praetor suit that protects Doom Slayer from most of the damage."
 	icon_state = "hostile_env"
-	item_state = "hostile_env"
+	inhand_icon_state = "hostile_env"
 	clothing_flags = THICKMATERIAL | STOPSPRESSUREDAMAGE | NOSLIP | LAVAPROTECT
 	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF | LAVA_PROOF | ACID_PROOF | INDESTRUCTIBLE | FREEZE_PROOF

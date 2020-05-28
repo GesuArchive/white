@@ -49,7 +49,7 @@
 	lefthand_file = 'code/shitcode/valtos/icons/lefthand.dmi'
 	righthand_file = 'code/shitcode/valtos/icons/righthand.dmi'
 	icon_state = "tape"
-	item_state = "tape"
+	inhand_icon_state = "tape"
 	amount = 15
 	item_flags = NOBLUDGEON
 	max_amount = 15

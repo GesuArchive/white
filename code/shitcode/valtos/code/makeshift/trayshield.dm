@@ -63,7 +63,7 @@
 	throwforce = 10
 	throw_speed = 4
 	w_class = WEIGHT_CLASS_TINY
-	item_state = "shard-glass"
+	inhand_icon_state = "shard-glass"
 	attack_verb = list("stabbed", "shanked", "sliced", "cut")
 	siemens_coefficient = 0 //Means it's insulated
 	embedding = list("embed_chance" = 10)

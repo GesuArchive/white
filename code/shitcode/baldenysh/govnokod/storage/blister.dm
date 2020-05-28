@@ -3,7 +3,7 @@
 	desc = "Прозрачная."
 	icon = 'code/shitcode/baldenysh/icons/obj/blister.dmi'
 	icon_state = "foilplastic"
-	item_state = null
+	inhand_icon_state = null
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	custom_materials = list(/datum/material/plastic = 100)

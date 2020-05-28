@@ -3,9 +3,9 @@
 	desc = "Helmet for special asset-protection hardsuit."
 	alt_desc = "Helmet for special asset-protection hardsuit."
 	icon_state = "asset_protection"
-	item_state = "asset_protection"
+	inhand_icon_state = "asset_protection"
 	hardsuit_type = "asset_protection"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 35, "bio" = 100, "rad" = 0, "fire" = 55, "acid" = 50)
 	flash_protect = 1
@@ -22,10 +22,10 @@
 	desc = "Probably for protection."
 	alt_desc = "Probably for protection."
 	icon_state = "hardsuit0-asset_protection"
-	item_state = "hardsuit0-asset_protection"
+	inhand_icon_state = "hardsuit0-asset_protection"
 	hardsuit_type = "asset_protection"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 35, "bio" = 100, "rad" = 0, "fire" = 55, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/asset_protection
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
@@ -35,7 +35,7 @@
 	desc = "For engineers."
 	alt_desc = "For engineers."
 	icon_state = "rig0-engineeringalt"
-	item_state = "rig0-engineeringalt"
+	inhand_icon_state = "rig0-engineeringalt"
 	on = FALSE
 	hardsuit_type = "engineeringalt"
 	var/obj/item/clothing/head/helmet/space/hardsuit/syndi/wzzzz/eng = null
@@ -43,7 +43,7 @@
 	clothing_flags = STOPSPRESSUREDAMAGE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	brightness_on = 1
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 75, "fire" = 50, "acid" = 75)
 
@@ -52,12 +52,12 @@
 	name = "engineer hardsuit"
 	desc = "For engineers."
 	alt_desc = "For engineers."
-	item_state = "hardsuit0-engineeringalt_rig"
+	inhand_icon_state = "hardsuit0-engineeringalt_rig"
 	jetpack = null
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	hardsuit_type = "engineeringalt"
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 30, "bullet" = 25, "laser" = 30, "energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 75, "fire" = 50, "acid" = 75)
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/t_scanner, /obj/item/construction/rcd, /obj/item/pipe_dispenser)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/eng
@@ -67,9 +67,9 @@
 	desc = "Not enough good like usual breacher suit, but too good."
 	alt_desc = "Not enough good like usual breacher suit, but too good."
 	icon_state = "breacher_rig_cheap"
-	item_state = "breacher_rig_cheap"
+	inhand_icon_state = "breacher_rig_cheap"
 	hardsuit_type = "breacher_rig_cheap"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
@@ -88,12 +88,12 @@
 	desc = "Not enough good like usual breacher suit, but too good."
 	alt_desc = "Not enough good like usual breacher suit, but too good."
 	icon_state = "hardsuit0-breacher_rig_cheap"
-	item_state = "hardsuit0-breacher_rig_cheap"
+	inhand_icon_state = "hardsuit0-breacher_rig_cheap"
 	hardsuit_type = "breacher_rig_cheap"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 20, "bomb" = 55, "bio" = 50, "rad" = 40, "fire" = 50, "acid" = 50)
 	allowed = list(/obj/item/gun, /obj/item/ammo_box,/obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/breacher_cheap
@@ -103,11 +103,11 @@
 	desc = "Good style, good protection, but heavy."
 	alt_desc = "Good style, good protection, but heavy."
 	icon_state = "hardsuit0-breacher_rig"
-	item_state = "hardsuit0-breacher_rig"
+	inhand_icon_state = "hardsuit0-breacher_rig"
 	hardsuit_type = "breacher_rig"
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 60, "bullet" = 75, "laser" = 50, "energy" = 40, "bomb" = 70, "bio" = 80, "rad" = 50, "fire" = 100, "acid" = 100)
 	allowed = list(/obj/item/gun, /obj/item/ammo_box,/obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/breacher
@@ -119,9 +119,9 @@
 	alt_desc = "Good style, good protection, but heavy."
 	icon_state = "breacher_rig"
 	on = FALSE
-	item_state = "breacher_rig"
+	inhand_icon_state = "breacher_rig"
 	hardsuit_type = "breacher_rig"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40, "energy" = 35, "bomb" = 65, "bio" = 40, "rad" = 0, "fire" = 70, "acid" = 70)
 	flash_protect = 5
@@ -145,9 +145,9 @@
 	desc = "A dual-mode advanced helmet designed for work in special operations. It is in EVA mode. Property of Gorlex Marauders."
 	alt_desc = "A dual-mode advanced helmet designed for work in special operations. It is in combat mode. Property of Gorlex Marauders."
 	icon_state = "hardsuit0-military_rig"
-	item_state = "hardsuit0-military_rig"
+	inhand_icon_state = "hardsuit0-military_rig"
 	hardsuit_type = "military_rig"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	flash_protect = 1
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
@@ -163,13 +163,13 @@
 	desc = "A dual-mode advanced hardsuit designed for work in special operations. It is in EVA mode. Property of Gorlex Marauders."
 	alt_desc = "A dual-mode advanced hardsuit designed for work in special operations. It is in combat mode. Property of Gorlex Marauders."
 	icon_state = "hardsuit0-military_rig"
-	item_state = "hardsuit0-military_rig"
+	inhand_icon_state = "hardsuit0-military_rig"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	hardsuit_type = "military_rig"
 	armor = list("melee" = 65, "bullet" = 65, "laser" = 55, "energy" = 30, "bomb" = 60, "bio" = 100, "rad" = 70, "fire" = 100, "acid" = 100)
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/military_rig
 
 
@@ -181,9 +181,9 @@
 	desc = "Heavy protection for hazard situations."
 	alt_desc = "Heavy protection for hazard situations."
 	icon_state = "hardsuit0-hazard_rig"
-	item_state = "hardsuit0-hazard_rig"
+	inhand_icon_state = "hardsuit0-hazard_rig"
 	hardsuit_type = "hazard_rig"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 60,"energy" = 60, "bomb" = 50, "bio" = 100, "rad" = 60, "fire" = 100, "acid" = 100)
 	flash_protect = 1
@@ -199,13 +199,13 @@
 	desc = "Heavy protection for hazard situations."
 	alt_desc = "Heavy protection for hazard situations."
 	icon_state = "hardsuit0-hazard_rig"
-	item_state = "hardsuit0-hazard_rig"
+	inhand_icon_state = "hardsuit0-hazard_rig"
 	hardsuit_type = "hazard_rig"
 	resistance_flags = NONE|FREEZE_PROOF|FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 60,"energy" = 60, "bomb" = 50, "bio" = 100, "rad" = 60, "fire" = 100, "acid" = 100)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/hazard_rig
 
@@ -214,9 +214,9 @@
 	desc = "Advanced Syndicate red hardsuit helmet."
 	alt_desc = "Advanced Syndicate red hardsuit helmet."
 	icon_state = "hardsuit0-merc_rig"
-	item_state = "hardsuit0-merc_rig"
+	inhand_icon_state = "hardsuit0-merc_rig"
 	hardsuit_type = "merc_rig"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 60, "bullet" = 60, "laser" = 45, "energy" = 40, "bomb" = 60, "bio" = 100, "rad" = 50, "fire" = 80, "acid" = 90)
 	flash_protect = 1
@@ -232,12 +232,12 @@
 	desc = "Advanced Syndicate red hardsuit."
 	alt_desc = "Advanced Syndicate red hardsuit."
 	icon_state = "hardsuit0-merc_rig"
-	item_state = "hardsuit0-merc_rig"
+	inhand_icon_state = "hardsuit0-merc_rig"
 	hardsuit_type = "hazard_rig"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 60, "bullet" = 60, "laser" = 45, "energy" = 40, "bomb" = 60, "bio" = 100, "rad" = 50, "fire" = 80, "acid" = 90)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/merc_rig
 
@@ -247,9 +247,9 @@
 	alt_desc = "For miners, isn't it?"
 	icon_state = "rig_miningalt"
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
-	item_state = "rig_miningalt"
+	inhand_icon_state = "rig_miningalt"
 	hardsuit_type = "rig_miningalt"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	flash_protect = 1
 	actions_types = null
@@ -266,14 +266,14 @@
 	clothing_flags = STOPSPRESSUREDAMAGE
 	icon_state = "rig_miningalt"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
-	item_state = "rig_miningalt"
+	inhand_icon_state = "rig_miningalt"
 	slowdown = 0.7
 	hardsuit_type = "rig_miningalt"
 	w_class = WEIGHT_CLASS_NORMAL
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 30, "bomb" = 60, "bio" = 100, "rad" = 50, "fire" = 60, "acid" = 75)
 	jetpack = null
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_miningalt
 
 
@@ -291,9 +291,9 @@
 	desc = "Very heavy, but nice protection."
 	alt_desc = "Very heavy, but nice protection."
 	icon_state = "hardsuit0-merc_rig_heavy"
-	item_state = "hardsuit0-merc_rig_heavy"
+	inhand_icon_state = "hardsuit0-merc_rig_heavy"
 	hardsuit_type = "merc_rig_heavy"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 90, "bullet" = 85, "laser" = 80,"energy" = 85, "bomb" = 90, "bio" = 100, "rad" = 50, "fire" = 100, "acid" = 100)
 	flash_protect = 1
@@ -311,12 +311,12 @@
 	alt_desc = "Very heavy, but nice protection."
 	icon_state = "hardsuit0-merc_rig_heavy"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
-	item_state = "hardsuit0-merc_rig_heavy"
+	inhand_icon_state = "hardsuit0-merc_rig_heavy"
 	hardsuit_type = "merc_rig_heavy"
 	w_class = WEIGHT_CLASS_NORMAL
 	slowdown = 2
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 90, "bullet" = 85, "laser" = 80,"energy" = 85, "bomb" = 90, "bio" = 100, "rad" = 50, "fire" = 100, "acid" = 100)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/merc_rig_heavy
 
@@ -330,9 +330,9 @@
 	desc = "New model of security hardsuit for station."
 	alt_desc = "New model of security hardsuit for station."
 	icon_state = "hardsuit0-security_rig"
-	item_state = "hardsuit0-security_rig"
+	inhand_icon_state = "hardsuit0-security_rig"
 	hardsuit_type = "security_rig"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 50, "bio" = 50, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
@@ -348,12 +348,12 @@
 	alt_desc = "New model of security hardsuit for station."
 	icon_state = "hardsuit0-security_rig"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
-	item_state = "hardsuit0-security_rig"
+	inhand_icon_state = "hardsuit0-security_rig"
 	hardsuit_type = "security_rig"
 	w_class = WEIGHT_CLASS_NORMAL
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 50, "bio" = 50, "rad" = 0, "fire" = 60, "acid" = 50)
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/security_rig
 
 
@@ -366,9 +366,9 @@
 	desc = "New model of medical hardsuit for station."
 	alt_desc = "New model of medical hardsuit for station."
 	icon_state = "hardsuit0-medical_rig"
-	item_state = "hardsuit0-medical_rig"
+	inhand_icon_state = "hardsuit0-medical_rig"
 	hardsuit_type = "medical_rig"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 70, "fire" = 60, "acid" = 70)
 	flash_protect = 1
@@ -383,14 +383,14 @@
 	alt_desc = "New model of medical hardsuit for station."
 	icon_state = "hardsuit0-medical_rig"
 	slowdown = 0.5
-	item_state = "hardsuit0-medical_rig"
+	inhand_icon_state = "hardsuit0-medical_rig"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	hardsuit_type = "medical_rig"
 	w_class = WEIGHT_CLASS_NORMAL
 	flags_inv = NONE
 	clothing_flags = STOPSPRESSUREDAMAGE
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 70, "fire" = 60, "acid" = 70)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/medical_rig
 
@@ -399,12 +399,12 @@
 	desc = "А ты заслуживаешь это?"
 	alt_desc = "Глупая свинья."
 	icon_state = "hardsuit1-hacker_rig"
-	item_state = "hardsuit1-hacker_rig"
+	inhand_icon_state = "hardsuit1-hacker_rig"
 	darkness_view = 10
 	var/list/datahuds = list(DATA_HUD_SECURITY_ADVANCED, DATA_HUD_DIAGNOSTIC_BASIC)
 	//t_ray_scan(user, 10, range)
 	flash_protect = 3
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	hud_type = DATA_HUD_SECURITY_ADVANCED | DATA_HUD_SECURITY_ADVANCED | DATA_HUD_SECURITY_ADVANCED | DATA_HUD_HACKER
 	vision_flags = SEE_MOBS | SEE_TURFS
@@ -432,11 +432,11 @@
 	alt_desc = "Глупая свинья."
 	icon_state = "hardsuit0-hacker_rig"
 	clothing_flags = STOPSPRESSUREDAMAGE
-	item_state = "hardsuit0-hacker_rig"
+	inhand_icon_state = "hardsuit0-hacker_rig"
 	resistance_flags = INDESTRUCTIBLE
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	slowdown = -1
 	color = "#00ffff"
@@ -447,11 +447,11 @@
 	desc = "Old style of ert hardsuit."
 	alt_desc = "Old style of ert hardsuit."
 	icon_state = "hardsuit0-ert_engineer_rig"
-	item_state = "hardsuit0-ert_engineer_rig"
+	inhand_icon_state = "hardsuit0-ert_engineer_rig"
 	hardsuit_type = "ert_engineer_rig"
 	on = FALSE
 	slowdown = 0
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
@@ -465,13 +465,13 @@
 	desc = "Old style of ert hardsuit."
 	alt_desc = "Old style of ert hardsuit."
 	icon_state = "hardsuit0-ert_engineer_rig"
-	item_state = "hardsuit0-ert_engineer_rig"
+	inhand_icon_state = "hardsuit0-ert_engineer_rig"
 	hardsuit_type = "ert_engineer_rig"
 	slowdown = 0
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_engineer_rig
 
@@ -483,9 +483,9 @@
 	alt_desc = "Old style of ert hardsuit."
 	icon_state = "hardsuit0-ert_commander_rig"
 	slowdown = 0
-	item_state = "hardsuit0-ert_commander_rig"
+	inhand_icon_state = "hardsuit0-ert_commander_rig"
 	hardsuit_type = "ert_commander_rig"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
@@ -500,13 +500,13 @@
 	desc = "Old style of ert hardsuit."
 	alt_desc = "Old style of ert hardsuit."
 	icon_state = "hardsuit0-ert_commander_rig"
-	item_state = "hardsuit0-ert_commander_rig"
+	inhand_icon_state = "hardsuit0-ert_commander_rig"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	slowdown = 0
 	hardsuit_type = "ert_commander_rig"
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_commander_rig
 
@@ -516,10 +516,10 @@
 	desc = "Old style of ert hardsuit."
 	alt_desc = "Old style of ert hardsuit."
 	icon_state = "hardsuit0-ert_security_rig"
-	item_state = "hardsuit0-ert_security_rig"
+	inhand_icon_state = "hardsuit0-ert_security_rig"
 	slowdown = 0
 	hardsuit_type = "ert_security_rig"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
@@ -534,13 +534,13 @@
 	desc = "Old style of ert hardsuit."
 	alt_desc = "Old style of ert hardsuit."
 	icon_state = "hardsuit0-ert_security_rig"
-	item_state = "hardsuit0-ert_security_rig"
+	inhand_icon_state = "hardsuit0-ert_security_rig"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	slowdown = 0
 	hardsuit_type = "ert_security_rig"
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_security_rig
 
@@ -552,10 +552,10 @@
 	desc = "Old style of ert hardsuit."
 	alt_desc = "Old style of ert hardsuit."
 	icon_state = "hardsuit0-ert_medical_rig"
-	item_state = "hardsuit0-ert_medical_rig"
+	inhand_icon_state = "hardsuit0-ert_medical_rig"
 	hardsuit_type = "ert_medical_rig"
 	slowdown = 0
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
@@ -572,13 +572,13 @@
 	alt_desc = "Old style of ert hardsuit."
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	icon_state = "hardsuit0-ert_medical_rig"
-	item_state = "hardsuit0-ert_medical_rig"
+	inhand_icon_state = "hardsuit0-ert_medical_rig"
 	slowdown = 0
 	hardsuit_type = "ert_medical_rig"
 	slowdown = 0
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_medical_rig
 
@@ -590,9 +590,9 @@
 	alt_desc = "Old style of ert hardsuit."
 	icon_state = "hardsuit0-ert_janitor_rig"
 	slowdown = 0
-	item_state = "hardsuit0-ert_janitor_rig"
+	inhand_icon_state = "hardsuit0-ert_janitor_rig"
 	hardsuit_type = "ert_janitor_rig"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
@@ -607,13 +607,13 @@
 	desc = "Old style of ert hardsuit."
 	alt_desc = "Old style of ert hardsuit."
 	icon_state = "hardsuit0-ert_janitor_rig"
-	item_state = "hardsuit0-ert_janitor_rig"
+	inhand_icon_state = "hardsuit0-ert_janitor_rig"
 	slowdown = 0
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	hardsuit_type = "ert_janitor_rig"
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_janitor_rig
 
@@ -625,9 +625,9 @@
 	alt_desc = "For skrells, for space"
 	icon_state = "skrell_helmet_white"
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
-	item_state = "skrell_suit_white"
+	inhand_icon_state = "skrell_suit_white"
 	hardsuit_type = "skrell_helmet_white"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
@@ -642,7 +642,7 @@
 	desc = "For skrells, for space"
 	alt_desc = "For skrells, for space"
 	icon_state = "skrell_suit_white"
-	item_state = "skrell_suit_white"
+	inhand_icon_state = "skrell_suit_white"
 	clothing_flags = STOPSPRESSUREDAMAGE
 	slowdown = 0.5
 	hardsuit_type = "skrell_suit_white"
@@ -650,7 +650,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/skrell_helmet_white
 
@@ -667,9 +667,9 @@
 	desc = "New style of EVA hardsuit, more warm and comfortable."
 	alt_desc = "New style of EVA hardsuit, more warm and comfortable."
 	icon_state = "hardsuit0-eva_rig"
-	item_state = "hardsuit0-eva_rig"
+	inhand_icon_state = "hardsuit0-eva_rig"
 	hardsuit_type = "eva_rig"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 60, "rad" = 0, "fire" = 40, "acid" = 50)
 	flash_protect = 1
@@ -686,12 +686,12 @@
 	resistance_flags = NONE|FREEZE_PROOF
 	alt_desc = "New style of EVA hardsuit, more warm and comfortable."
 	icon_state = "hardsuit0-eva_rig"
-	item_state = "hardsuit0-eva_rig"
+	inhand_icon_state = "hardsuit0-eva_rig"
 	hardsuit_type = "eva_rig"
 	w_class = WEIGHT_CLASS_NORMAL
 	slowdown = 0.6
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 60, "rad" = 0, "fire" = 40, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/eva_rig
 	cold_protection = 750
@@ -707,9 +707,9 @@
 	alt_desc = "New style of atmospherical hardsuit."
 	icon_state = "rig_atmosalt"
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
-	item_state = "rig_atmosalt"
+	inhand_icon_state = "rig_atmosalt"
 	hardsuit_type = "rig_atmosalt"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 25, "fire" = 100, "acid" = 75)
 	flash_protect = 1
@@ -724,14 +724,14 @@
 	desc = "New style of atmospherical hardsuit."
 	alt_desc = "New style of atmospherical hardsuit."
 	icon_state = "rig_atmosalt"
-	item_state = "rig_atmosalt"
+	inhand_icon_state = "rig_atmosalt"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	hardsuit_type = "rig_atmosalt"
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
 	clothing_flags = STOPSPRESSUREDAMAGE
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 25, "fire" = 100, "acid" = 75)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_atmosalt
 
@@ -745,9 +745,9 @@
 	alt_desc = "New style of security hardsuit."
 	icon_state = "rig_secalt"
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
-	item_state = "rig_secalt"
+	inhand_icon_state = "rig_secalt"
 	hardsuit_type = "rig_secalt"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	flash_protect = 1
@@ -762,7 +762,7 @@
 	desc = "New style of security hardsuit."
 	alt_desc = "New style of security hardsuit."
 	icon_state = "rig_secalt"
-	item_state = "rig_secalt"
+	inhand_icon_state = "rig_secalt"
 	slowdown = 0.7
 	hardsuit_type = "rig_secalt"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
@@ -770,7 +770,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_secalt
 
@@ -784,9 +784,9 @@
 	alt_desc = "New style of security hardsuit."
 	icon_state = "rig_sec"
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
-	item_state = "rig_sec"
+	inhand_icon_state = "rig_sec"
 	hardsuit_type = "rig_sec"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 70, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 60, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	flash_protect = 1
@@ -801,13 +801,13 @@
 	desc = "New style of security hardsuit."
 	alt_desc = "New style of security hardsuit."
 	icon_state = "rig_sec"
-	item_state = "rig_sec"
+	inhand_icon_state = "rig_sec"
 	hardsuit_type = "rig_sec"
 	clothing_flags = STOPSPRESSUREDAMAGE
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 70, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 60, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_sec
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
@@ -822,10 +822,10 @@
 	alt_desc = "New style of medical hardsuit."
 	icon_state = "rig_medicalalt"
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
-	item_state = "rig_medicalalt"
+	inhand_icon_state = "rig_medicalalt"
 	slowdown = 0.5
 	hardsuit_type = "rig_medicalalt"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 10, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 60, "fire" = 60, "acid" = 75)
 	flash_protect = 1
@@ -842,14 +842,14 @@
 	alt_desc = "New style of medical hardsuit."
 	icon_state = "rig_medicalalt"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
-	item_state = "rig_medicalalt"
+	inhand_icon_state = "rig_medicalalt"
 	slowdown = 0.5
 	hardsuit_type = "rig_medicalalt"
 	w_class = WEIGHT_CLASS_NORMAL
 	clothing_flags = STOPSPRESSUREDAMAGE
 	jetpack = null
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 10, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 60, "fire" = 60, "acid" = 75)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_medicalalt
 
@@ -863,9 +863,9 @@
 	alt_desc = "Salvaged hardsuit."
 	icon_state = "rig_salvage"
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
-	item_state = "rig_salvage"
+	inhand_icon_state = "rig_salvage"
 	hardsuit_type = "rig_salvage"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20,"energy" = 10, "bomb" = 50, "bio" = 100, "rad" = 20, "fire" = 70, "acid" = 30)
 	flash_protect = 1
@@ -880,7 +880,7 @@
 	desc = "Salvaged hardsuit."
 	alt_desc = "Salvaged hardsuit."
 	icon_state = "rig_salvage"
-	item_state = "rig_salvage"
+	inhand_icon_state = "rig_salvage"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	hardsuit_type = "rig_salvage"
 	clothing_flags = STOPSPRESSUREDAMAGE
@@ -888,7 +888,7 @@
 	slowdown = 2
 	jetpack = null
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20,"energy" = 10, "bomb" = 50, "bio" = 100, "rad" = 20, "fire" = 70, "acid" = 30)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_salvage
 
@@ -901,10 +901,10 @@
 	alt_desc = "Hardsuit for exploring."
 	icon_state = "rig_excavation"
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
-	item_state = "rig_excavation"
+	inhand_icon_state = "rig_excavation"
 	hardsuit_type = "rig_excavation"
 	clothing_flags = STOPSPRESSUREDAMAGE
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
@@ -921,7 +921,7 @@
 	desc = "Hardsuit for exploring."
 	alt_desc = "Hardsuit for exploring."
 	icon_state = "rig_excavation"
-	item_state = "rig_excavation"
+	inhand_icon_state = "rig_excavation"
 	hardsuit_type = "rig_excavation"
 	w_class = WEIGHT_CLASS_NORMAL
 	resistance_flags = NONE|FREEZE_PROOF
@@ -929,7 +929,7 @@
 	jetpack = null
 	slowdown = 0.5
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list(melee = 30, bullet = 20, laser = 35,energy = 20, bomb = 30, bio = 100, rad = 100, fire = 50, acid = 40)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_excavation
 
@@ -944,9 +944,9 @@
 	slowdown = 0.7
 	icon_state = "rig_engineeringalt"
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
-	item_state = "rig_engineeringalt"
+	inhand_icon_state = "rig_engineeringalt"
 	hardsuit_type = "rig_engineeringalt"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 40, "bio" = 100, "rad" = 50, "fire" = 60, "acid" = 50)
 	flash_protect = 1
@@ -962,14 +962,14 @@
 	alt_desc = "New style of engineer hardsuit."
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	icon_state = "rig_engineeringalt"
-	item_state = "rig_engineeringalt"
+	inhand_icon_state = "rig_engineeringalt"
 	hardsuit_type = "rig_engineeringalt"
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
 	slowdown = 0.7
 	clothing_flags = STOPSPRESSUREDAMAGE
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 40, "bio" = 100, "rad" = 50, "fire" = 60, "acid" = 50)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_engineeringalt
 
@@ -981,9 +981,9 @@
 	alt_desc = "For skrells, for space"
 	icon_state = "skrell_helmet_black"
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
-	item_state = "skrell_suit_black"
+	inhand_icon_state = "skrell_suit_black"
 	hardsuit_type = "skrell_helmet_black"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 30, "energy" = 20, "bomb" = 40, "bio" = 100, "rad" = 0, "fire" = 50, "acid" = 40)
 	flash_protect = 1
@@ -997,14 +997,14 @@
 	desc = "For skrells, for space"
 	alt_desc = "For skrells, for space"
 	icon_state = "skrell_suit_black"
-	item_state = "skrell_suit_black"
+	inhand_icon_state = "skrell_suit_black"
 	hardsuit_type = "skrell_suit_black"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	slowdown = 0.5
 	jetpack = null
 	clothing_flags = STOPSPRESSUREDAMAGE
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 30, "energy" = 20, "bomb" = 40, "bio" = 100, "rad" = 0, "fire" = 50, "acid" = 40)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/skrell_helmet_black
 
@@ -1016,7 +1016,7 @@
 	desc = "New style of security hardsuit."
 	alt_desc = "New style of security hardsuit."
 	icon_state = "rig_secalt_sec"
-	item_state = "rig_secalt_sec"
+	inhand_icon_state = "rig_secalt_sec"
 	slowdown = 0.7
 	hardsuit_type = "rig_secalt"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
@@ -1024,7 +1024,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_secalt
 
@@ -1033,33 +1033,33 @@
 /obj/item/clothing/head/helmet/space/hardsuit/medical/wzzzz
 	name = "paramedical hardsuit helmet"
 	icon_state = "hardsuit0-paramedic"
-	item_state = "hardsuit0_paramedic"
+	inhand_icon_state = "hardsuit0_paramedic"
 	hardsuit_type = "paramedic"
 	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/hats.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/Ora/li/head.dmi'
 	armor = list("melee" = 35, "bullet" = 15, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 100, "rad" = 60, "fire" = 60, "acid" = 75)
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SCAN_REAGENTS | SNUG_FIT
 
 /obj/item/clothing/suit/space/hardsuit/medical/wzzzz
 	name = "paramedical hardsuit"
 	icon_state = "hardsuit_paramedic"
-	item_state = "hardsuit_paramedic"
+	inhand_icon_state = "hardsuit_paramedic"
 	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
 	armor = list("melee" = 35, "bullet" = 15, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 100, "rad" = 60, "fire" = 60, "acid" = 75)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/medical/wzzzz
 	slowdown = 0.5
 
 /obj/item/clothing/suit/wizrobe/wzzzz/battlemage
 	icon_state = "battlemage"
-	item_state = "battlemage"
+	inhand_icon_state = "battlemage"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 	slowdown = 0.7
 	clothing_flags = STOPSPRESSUREDAMAGE
 	icon = 'code/shitcode/Wzzzz/icons/Ora/ve/suits.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/Ora/li/suits.dmi'
 	resistance_flags = NONE|ACID_PROOF|INDESTRUCTIBLE|UNACIDABLE|FIRE_PROOF|FREEZE_PROOF|LAVA_PROOF
 	armor = list("melee" = 80, "bullet" = 60, "laser" = 70,"energy" = 80, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100, "magic" = 75)
 
@@ -1109,9 +1109,9 @@
 	desc = "For space pilots."
 	alt_desc = "For space pilots."
 	icon_state = "pilot_helm"
-	item_state = "pilot_helm"
+	inhand_icon_state = "pilot_helm"
 	hardsuit_type = "pilot"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 30, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 10, "fire" = 70, "acid" = 60)
 	flash_protect = 1
@@ -1126,7 +1126,7 @@
 	desc = "For space pilots."
 	alt_desc = "For space pilots."
 	icon_state = "pilot"
-	item_state = "pilot"
+	inhand_icon_state = "pilot"
 	slowdown = 0.7
 	hardsuit_type = "pilot"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
@@ -1134,7 +1134,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 30, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 10, "fire" = 70, "acid" = 60)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/pilot_helm
 
@@ -1143,9 +1143,9 @@
 	desc = "For space explorers."
 	alt_desc = "For space explorers."
 	icon_state = "helm_explorer"
-	item_state = "helm_explorer"
+	inhand_icon_state = "helm_explorer"
 	hardsuit_type = "pilot"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 35, "bio" = 100, "rad" = 90, "fire" = 80, "acid" = 80)
 	flash_protect = 2
@@ -1160,7 +1160,7 @@
 	desc = "For space explorers."
 	alt_desc = "For space explorers."
 	icon_state = "void_explorer"
-	item_state = "void_explorer"
+	inhand_icon_state = "void_explorer"
 	slowdown = 0.8
 	hardsuit_type = "void_explorer"
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
@@ -1168,7 +1168,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20, "energy" = 20, "bomb" = 35, "bio" = 100, "rad" = 90, "fire" = 80, "acid" = 80)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/helm_explorer
 
@@ -1344,9 +1344,9 @@
 	desc = "For space security."
 	alt_desc = "For space security."
 	icon_state = "sec_helm1"
-	item_state = "sec_helm1"
+	inhand_icon_state = "sec_helm1"
 	hardsuit_type = "rig_sec1"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	flash_protect = 1
@@ -1361,7 +1361,7 @@
 	desc = "For space security."
 	alt_desc = "For space security."
 	icon_state = "rig_sec1"
-	item_state = "rig_sec1"
+	inhand_icon_state = "rig_sec1"
 	slowdown = 0.7
 	hardsuit_type = "pilot"
 	resistance_flags = NONE|FIRE_PROOF
@@ -1369,7 +1369,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	jetpack = null
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_secb
 
@@ -1384,9 +1384,9 @@
 	desc = "Just hardsuit helmet."
 	alt_desc = "Just hardsuit helmet."
 	icon_state = "hardsuit0-null_rig"
-	item_state = "hardsuit0-null_rig"
+	inhand_icon_state = "hardsuit0-null_rig"
 	hardsuit_type = "null_rig"
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	flash_protect = 1
@@ -1405,10 +1405,10 @@
 	clothing_flags = STOPSPRESSUREDAMAGE
 	w_class = WEIGHT_CLASS_NORMAL
 	icon_state = "hardsuit0-null_rig"
-	item_state = "hardsuit0-null_rig"
+	inhand_icon_state = "hardsuit0-null_rig"
 	jetpack = null
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/null
 
@@ -1422,10 +1422,10 @@
 	clothing_flags = STOPSPRESSUREDAMAGE
 	w_class = WEIGHT_CLASS_NORMAL
 	icon_state = "hardsuit0-null_rig_f"
-	item_state = "hardsuit0-null_rig_f"
+	inhand_icon_state = "hardsuit0-null_rig_f"
 	jetpack = null
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
-	mob_overlay_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/null
 

@@ -136,7 +136,7 @@
 	name = "небольшая дыхательная маска"
 	desc = "Загадочным образом исчезает при надевании."
 	icon_state = null // you'll only see this through adminbus any way
-	item_state = null
+	inhand_icon_state = null
 
 /datum/outfit/dwarf
 	name = "Dwarf"

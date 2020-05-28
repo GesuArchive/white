@@ -316,7 +316,7 @@
 				mode = SHUTTLE_DOCKED
 				webhook_send_roundstatus("shuttle docked")
 				setTimer(SSshuttle.emergencyDockTime)
-				send2tgs("Server", "The Emergency Shuttle has docked with the station.")
+				send2adminchat("Server", "The Emergency Shuttle has docked with the station.")
 				priority_announce("Эвакуационный шаттл был пристыкован к станции. В вашем распоряжении [timeLeft(600)] минуты на посадку.", null, 'sound/ai/shuttledock.ogg', "Priority")
 				ShuttleDBStuff()
 
@@ -510,12 +510,12 @@
 /obj/item/clothing/head/helmet/space/orange
 	name = "emergency космошлем"
 	icon_state = "syndicate-helm-orange"
-	item_state = "syndicate-helm-orange"
+	inhand_icon_state = "syndicate-helm-orange"
 
 /obj/item/clothing/suit/space/orange
 	name = "emergency скафандр"
 	icon_state = "syndicate-orange"
-	item_state = "syndicate-orange"
+	inhand_icon_state = "syndicate-orange"
 	slowdown = 3
 
 /obj/item/pickaxe/emergency

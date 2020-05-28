@@ -115,7 +115,7 @@
 	name = "\proper the nanosuit's bowman headset"
 	desc = "Operator communication headset. Property of CryNet Systems. Alt-click to toggle interface."
 	icon_state = "syndie_headset"
-	item_state = "syndie_headset"
+	inhand_icon_state = "syndie_headset"
 	subspace_transmission = FALSE
 	subspace_switchable = TRUE
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | FREEZE_PROOF
@@ -144,10 +144,10 @@
 /obj/item/clothing/glasses/nano_goggles
 	name = "nanosuit goggles"
 	desc = "Goggles built for a nanosuit. Property of CryNet Systems."
-	mob_overlay_icon = 'code/shitcode/valtos/icons/nanosuit/nanosuit_mob.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/nanosuit/nanosuit_mob.dmi'
 	icon = 'code/shitcode/valtos/icons/nanosuit/nanosuit.dmi'
 	icon_state = "nvgmesonnano"
-	item_state = "nvgmesonnano"
+	inhand_icon_state = "nvgmesonnano"
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | FREEZE_PROOF
 	glass_colour_type = /datum/client_colour/glass_colour/nightvision
 	actions_types = list(/datum/action/item_action/nanosuit/goggletoggle)
@@ -195,10 +195,10 @@
 		nvgmode(loc,TRUE)
 
 /obj/item/clothing/suit/space/hardsuit/nano
-	mob_overlay_icon = 'code/shitcode/valtos/icons/nanosuit/nanosuit_mob.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/nanosuit/nanosuit_mob.dmi'
 	icon = 'code/shitcode/valtos/icons/nanosuit/nanosuit.dmi'
 	icon_state = "nanosuit"
-	item_state = "nanosuit"
+	inhand_icon_state = "nanosuit"
 	name = "nanosuit"
 	desc = "Some sort of alien future suit. It looks very robust. Property of CryNet Systems."
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 40, "energy" = 45, "bomb" = 70, "bio" = 100, "rad" = 70, "fire" = 100, "acid" = 100)
@@ -600,10 +600,10 @@
 /obj/item/clothing/head/helmet/space/hardsuit/nano
 	name = "nanosuit helmet"
 	desc = "The cherry on top. Property of CryNet Systems."
-	mob_overlay_icon = 'code/shitcode/valtos/icons/nanosuit/nanosuit_mob.dmi'
+	worn_icon = 'code/shitcode/valtos/icons/nanosuit/nanosuit_mob.dmi'
 	icon = 'code/shitcode/valtos/icons/nanosuit/nanosuit.dmi'
 	icon_state = "nanohelmet"
-	item_state = "nanohelmet"
+	inhand_icon_state = "nanohelmet"
 	//item_color = "nano"
 	siemens_coefficient = 0
 	gas_transfer_coefficient = 0.01

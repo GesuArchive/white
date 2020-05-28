@@ -1,7 +1,7 @@
 /obj/item/stack/sheet/hot_ice
 	name = "горячий лёд"
 	icon_state = "hot-ice"
-	item_state = "hot-ice"
+	inhand_icon_state = "hot-ice"
 	singular_name = "горячий лёд"
 	icon = 'icons/obj/stack_objects.dmi'
 	custom_materials = list(/datum/material/hot_ice=MINERAL_MATERIAL_AMOUNT)

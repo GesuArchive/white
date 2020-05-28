@@ -3,7 +3,7 @@
 	desc = "Дыхательная маска, сделанная из пластика."
 	max_integrity = 50
 	icon_state = "breath"
-	item_state = "m_mask"
+	inhand_icon_state = "m_mask"
 
 /obj/item/clothing/mask/breath/cheap/equipped(mob/M, slot)
 	. = ..()

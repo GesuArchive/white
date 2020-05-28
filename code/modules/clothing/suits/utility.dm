@@ -13,7 +13,7 @@
 	name = "аварийный пожарный костюм"
 	desc = "Костюм, который помогает защитить от огня и тепла."
 	icon_state = "fire"
-	item_state = "ro_suit"
+	inhand_icon_state = "ro_suit"
 	w_class = WEIGHT_CLASS_BULKY
 	gas_transfer_coefficient = 0.9
 	permeability_coefficient = 0.5
@@ -33,20 +33,20 @@
 
 /obj/item/clothing/suit/fire/firefighter
 	icon_state = "firesuit"
-	item_state = "firefighter"
+	inhand_icon_state = "firefighter"
 
 /obj/item/clothing/suit/fire/heavy
 	name = "тяжелый пожарный костюм"
 	desc = "Старый, громоздкий теплозащитный костюм."
 	icon_state = "thermal"
-	item_state = "ro_suit"
+	inhand_icon_state = "ro_suit"
 	slowdown = 1.5
 
 /obj/item/clothing/suit/fire/atmos
 	name = "пожарный костюм"
 	desc = "Дорогой пожарный костюм, который защищает даже от самых смертельных пожаров на станции. Предназначен для защиты, даже если пользователь подожжен."
 	icon_state = "atmos_firesuit"
-	item_state = "firesuit_atmos"
+	inhand_icon_state = "firesuit_atmos"
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 
 /*
@@ -75,7 +75,7 @@
 	name = "бомбостюм"
 	desc = "Костюм, разработанный для безопасности при обращении со взрывчаткой."
 	icon_state = "bombsuit"
-	item_state = "bombsuit"
+	inhand_icon_state = "bombsuit"
 	w_class = WEIGHT_CLASS_BULKY
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
@@ -95,21 +95,21 @@
 
 /obj/item/clothing/head/bomb_hood/security
 	icon_state = "bombsuit_sec"
-	item_state = "bombsuit_sec"
+	inhand_icon_state = "bombsuit_sec"
 
 /obj/item/clothing/suit/bomb_suit/security
 	icon_state = "bombsuit_sec"
-	item_state = "bombsuit_sec"
+	inhand_icon_state = "bombsuit_sec"
 	allowed = list(/obj/item/gun/energy, /obj/item/melee/baton, /obj/item/restraints/handcuffs)
 
 
 /obj/item/clothing/head/bomb_hood/white
 	icon_state = "bombsuit_white"
-	item_state = "bombsuit_white"
+	inhand_icon_state = "bombsuit_white"
 
 /obj/item/clothing/suit/bomb_suit/white
 	icon_state = "bombsuit_white"
-	item_state = "bombsuit_white"
+	inhand_icon_state = "bombsuit_white"
 
 /*
 * Radiation protection
@@ -132,7 +132,7 @@
 	name = "анти-радиационный костюм"
 	desc = "Костюм с радиационно-защитными свойствами. На этикетке написано: «Сделано из свинца. Пожалуйста, не потребляйте изоляцию.»"
 	icon_state = "rad"
-	item_state = "rad_suit"
+	inhand_icon_state = "rad_suit"
 	w_class = WEIGHT_CLASS_BULKY
 	gas_transfer_coefficient = 0.9
 	permeability_coefficient = 0.5

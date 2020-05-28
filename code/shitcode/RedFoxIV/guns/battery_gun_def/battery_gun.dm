@@ -98,7 +98,7 @@
 	var/obj/item/ammo_casing/energy/shot = ammo_type[select]
 	var/iconState = "[icon_state]_charge"
 	var/itemState = null
-	if(!initial(item_state))
+	if(!initial(inhand_icon_state))
 		itemState = icon_state
 	if (modifystate)
 		add_overlay("[icon_state]_[shot.select_name]")
@@ -118,7 +118,7 @@
 			add_overlay("[icon_state]_charge[ratio]")
 	if(itemState)
 		itemState += "[ratio]"
-		item_state = itemState
+		inhand_icon_state = itemState
 
 
 /obj/item/gun/energy/cellgun/attackby(obj/item/A, mob/user, params)

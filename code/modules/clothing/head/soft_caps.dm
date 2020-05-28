@@ -2,7 +2,7 @@
 	name = "кепка грузчика"
 	desc = "Это бейсбольная кепка безвкусного желтого цвета."
 	icon_state = "cargosoft"
-	item_state = "helmet"
+	inhand_icon_state = "helmet"
 	var/soft_type = "cargo"
 
 	dog_fashion = /datum/dog_fashion/head/cargo_tech

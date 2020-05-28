@@ -65,7 +65,7 @@
 	desc = "При неправильном обращении окажется у меня в жопе."
 	icon = 'code/shitcode/valtos/icons/melee.dmi'
 	icon_state = "dildo"
-	item_state = "dildo"
+	inhand_icon_state = "dildo"
 	lefthand_file = 'code/shitcode/valtos/icons/lefthand.dmi'
 	righthand_file = 'code/shitcode/valtos/icons/righthand.dmi'
 	slot_flags = ITEM_SLOT_BELT

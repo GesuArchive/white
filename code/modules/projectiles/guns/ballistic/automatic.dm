@@ -59,7 +59,7 @@
 	name = "\improper C-20r SMG"
 	desc = "Стреляет двумя пулями за выстрел, используя калибр .45 SMG, разработаный 'C-20r'."
 	icon_state = "c20r"
-	item_state = "c20r"
+	inhand_icon_state = "c20r"
 	mag_type = /obj/item/ammo_box/magazine/smgm45
 	fire_delay = 2
 	burst_size = 3
@@ -82,7 +82,7 @@
 	name = "WT-550"
 	desc = "Устаревшее оружие. Использует патроны 4.6x30mm калибра и разработано \"WT-550 Automatic Rifle\"."
 	icon_state = "wt550"
-	item_state = "arg"
+	inhand_icon_state = "arg"
 	mag_type = /obj/item/ammo_box/magazine/wt550m9
 	fire_delay = 2
 	can_suppress = FALSE
@@ -109,7 +109,7 @@
 	name = "\improper карабин M-90gl"
 	desc = "Три патрона за выстрел 5.56 карабин, назначеный как 'M-90gl'. Имеет встроенный гранатомёт."
 	icon_state = "m90"
-	item_state = "m90"
+	inhand_icon_state = "m90"
 	mag_type = /obj/item/ammo_box/magazine/m556
 	can_suppress = FALSE
 	var/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel
@@ -182,7 +182,7 @@
 	name = "\improper пистолет-пулемёт Томпсона"
 	desc = "Сделано для классических Техасских разборок."
 	icon_state = "tommygun"
-	item_state = "shotgun"
+	inhand_icon_state = "shotgun"
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/tommygunm45
@@ -195,7 +195,7 @@
 	name = "\improper NT-ARG 'Boarder'"
 	desc = "Крутая штурмовая винтовка, используемая вооруженными силами НТ."
 	icon_state = "arg"
-	item_state = "arg"
+	inhand_icon_state = "arg"
 	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/m556
 	can_suppress = FALSE
@@ -209,7 +209,7 @@
 	name = "\improper L6 SAW"
 	desc = "Улучшенная модификами, стреляющая 7.12x82mm патронами, назначена как 'L6 SAW'. Гравировка на обратной стороне 'Aussec Armoury - 2531'."
 	icon_state = "l6"
-	item_state = "l6closedmag"
+	inhand_icon_state = "l6closedmag"
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/mm712x82
@@ -283,7 +283,7 @@
 	name = "снайперская винтовка"
 	desc = "Дальнобойное оружие, которое делает сильные повреждения. Нет, быстро стрелять вы не сможете."
 	icon_state = "sniper"
-	item_state = "sniper"
+	inhand_icon_state = "sniper"
 	fire_sound = 'sound/weapons/gun/sniper/shot.ogg'
 	fire_sound_volume = 90
 	vary_fire_sound = FALSE
@@ -298,7 +298,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	zoomable = TRUE
 	zoom_amt = 10 //Long range, enough to see in front of you, but no tiles behind you.
-	zoom_out_amt = 13
+	zoom_out_amt = 5
 	slot_flags = ITEM_SLOT_BACK
 	actions_types = list()
 	mag_display = TRUE
@@ -316,7 +316,7 @@
 	name = "винтовка"
 	desc = "Одна из бесчисленных устаревших баллистических винтовок, которые по-прежнему считают дешевым средством сдерживания. Использует патроны 10mm и громадная рама не позволит стрелять ей из одной руки."
 	icon_state = "surplus"
-	item_state = "moistnugget"
+	inhand_icon_state = "moistnugget"
 	weapon_weight = WEAPON_HEAVY
 	mag_type = /obj/item/ammo_box/magazine/m10mm/rifle
 	fire_delay = 30
@@ -334,7 +334,7 @@
 	name = "лазерная винтовка"
 	desc = "Несмотря на ее слабость в огне, её достоинство - самоперезаряжающийся магазин. Это оружие сделало немало побед НТ"
 	icon_state = "oldrifle"
-	item_state = "arg"
+	inhand_icon_state = "arg"
 	mag_type = /obj/item/ammo_box/magazine/recharge
 	fire_delay = 2
 	can_suppress = FALSE

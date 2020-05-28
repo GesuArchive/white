@@ -7,7 +7,7 @@
 	desc = "Гротескное изделие явно кустарного производства. Выглядит слегка ненадежно."
 	icon = 'code/shitcode/hule/icons/obj/weapons.dmi'
 	icon_state = "smshotgun"
-	item_state = "gun"
+	inhand_icon_state = "gun"
 	w_class = WEIGHT_CLASS_SMALL
 	weapon_weight = WEAPON_MEDIUM
 	mag_type = /obj/item/ammo_box/magazine/makeshift

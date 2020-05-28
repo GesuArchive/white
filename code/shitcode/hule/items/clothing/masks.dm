@@ -2,9 +2,9 @@
 	name = "suspicious mask"
 	desc = "Древняя маска гордого воина, сражающегося с несправедливостью, подлым правительством и прогнившей системой."
 	icon = 'code/shitcode/hule/icons/obj/masks.dmi'
-	mob_overlay_icon = 'code/shitcode/hule/icons/onmob/masks.dmi'
+	worn_icon = 'code/shitcode/hule/icons/onmob/masks.dmi'
 	icon_state = "fawkes"
-	item_state = "fawkes"
+	inhand_icon_state = "fawkes"
 	armor = list("melee" = 10, "bullet" = 20, "laser" = 0,"energy" = 10, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	var/cursed = TRUE
 

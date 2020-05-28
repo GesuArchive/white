@@ -7,7 +7,7 @@
 	icon = 'code/shitcode/hule/clothing/capes.dmi'
 	alternate_worn_icon = 'code/shitcode/hule/clothing/capes.dmi'
 	icon_state = "desertcape"
-	item_state = "desertcape"
+	inhand_icon_state = "desertcape"
 	slot_flags = SLOT_NECK
 	w_class = WEIGHT_CLASS_BULKY
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|NECK|HANDS

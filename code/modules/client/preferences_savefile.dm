@@ -67,7 +67,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	if((current_version < 21) && features["ethcolor"] && (features["ethcolor"] == "#9c3030"))
 		features["ethcolor"] = "9c3030"
 	if(current_version < 22)
-		job_preferences = list() //It loaded null from nonexistant savefile field.
+		job_preferences = list() //It loaded null from nonexistent savefile field.
 		var/job_civilian_high = 0
 		var/job_civilian_med = 0
 		var/job_civilian_low = 0
@@ -198,6 +198,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["ambientocclusion"]	>> ambientocclusion
 	S["auto_fit_viewport"]	>> auto_fit_viewport
 	S["widescreenpref"]	    >> widescreenpref
+	S["pixel_size"]	    	>> pixel_size
+	S["scaling_method"]	    >> scaling_method
 	S["menuoptions"]		>> menuoptions
 	S["enable_tips"]		>> enable_tips
 	S["tip_delay"]			>> tip_delay
@@ -213,6 +215,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	// Custom hotkeys
 	S["key_bindings"]		>> key_bindings
+	// hearted
+	S["hearted_until"]		>> hearted_until
+	if(hearted_until > world.realtime)
+		hearted = TRUE
 
 	//try to fix any outdated data if necessary
 	if(needs_update >= 0)
@@ -240,6 +246,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	auto_fit_viewport	= sanitize_integer(auto_fit_viewport, 0, 1, initial(auto_fit_viewport))
 	fullscreen		= sanitize_integer(fullscreen, 0, 1, initial(fullscreen))
 	widescreenpref  = sanitize_integer(widescreenpref, 0, 1, initial(widescreenpref))
+	pixel_size		= sanitize_integer(pixel_size, PIXEL_SCALING_AUTO, PIXEL_SCALING_3X, initial(pixel_size))
+	scaling_method  = sanitize_text(scaling_method, initial(scaling_method))
 	ghost_form		= sanitize_inlist(ghost_form, GLOB.ghost_forms, initial(ghost_form))
 	ghost_orbit 	= sanitize_inlist(ghost_orbit, GLOB.ghost_orbits, initial(ghost_orbit))
 	ghost_accs		= sanitize_inlist(ghost_accs, GLOB.ghost_accs_options, GHOST_ACCS_DEFAULT_OPTION)
@@ -300,6 +308,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["ambientocclusion"], ambientocclusion)
 	WRITE_FILE(S["auto_fit_viewport"], auto_fit_viewport)
 	WRITE_FILE(S["widescreenpref"], widescreenpref)
+	WRITE_FILE(S["pixel_size"], pixel_size)
+	WRITE_FILE(S["scaling_method"], scaling_method)
 	WRITE_FILE(S["menuoptions"], menuoptions)
 	WRITE_FILE(S["enable_tips"], enable_tips)
 	WRITE_FILE(S["tip_delay"], tip_delay)
@@ -312,6 +322,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["purchased_gear"], purchased_gear)
 	WRITE_FILE(S["equipped_gear"], equipped_gear)
 	WRITE_FILE(S["interface_hue"], interface_hue)
+	WRITE_FILE(S["hearted_until"], (hearted_until > world.realtime ? hearted_until : null))
 	return TRUE
 
 /datum/preferences/proc/load_character(slot)
@@ -366,6 +377,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["backpack"]			>> backpack
 	S["jumpsuit_style"]		>> jumpsuit_style
 	S["uplink_loc"]			>> uplink_spawn_loc
+	S["playtime_reward_cloak"] >> playtime_reward_cloak
 	S["phobia"] >> phobia
 	S["randomise"]	>>  randomise
 	S["feature_mcolor"]					>> features["mcolor"]
@@ -453,6 +465,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	backpack			= sanitize_inlist(backpack, GLOB.backpacklist, initial(backpack))
 	jumpsuit_style	= sanitize_inlist(jumpsuit_style, GLOB.jumpsuitlist, initial(jumpsuit_style))
 	uplink_spawn_loc = sanitize_inlist(uplink_spawn_loc, GLOB.uplink_spawn_loc_list, initial(uplink_spawn_loc))
+	playtime_reward_cloak = sanitize_integer(playtime_reward_cloak)
 	features["mcolor"]	= sanitize_hexcolor(features["mcolor"], 3, 0)
 	features["ethcolor"]	= copytext_char(features["ethcolor"], 1, 7)
 	features["tail_lizard"]	= sanitize_inlist(features["tail_lizard"], GLOB.tails_list_lizard)
@@ -504,6 +517,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["backpack"]			, backpack)
 	WRITE_FILE(S["jumpsuit_style"]			, jumpsuit_style)
 	WRITE_FILE(S["uplink_loc"]			, uplink_spawn_loc)
+	WRITE_FILE(S["playtime_reward_cloak"]			, playtime_reward_cloak)
 	WRITE_FILE(S["randomise"]		, randomise)
 	WRITE_FILE(S["species"]			, pref_species.id)
 	WRITE_FILE(S["phobia"], phobia)

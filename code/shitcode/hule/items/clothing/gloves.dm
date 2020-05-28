@@ -2,7 +2,7 @@
 	name = "mag-pulse gloves"
 	desc = "These tactical gloves are fireproof and shock resistant."
 	icon_state = "black"
-	item_state = "blackgloves"
+	inhand_icon_state = "blackgloves"
 	var/active = 0
 	var/list/stored_items = list()
 	actions_types = list(/datum/action/item_action/toggle)

@@ -11,7 +11,7 @@
 	name = "защитные наушники"
 	desc = "Защищают владельца от нытья из внешнего мира."
 	icon_state = "earmuffs"
-	item_state = "earmuffs"
+	inhand_icon_state = "earmuffs"
 	strip_delay = 15
 	equip_delay_other = 25
 	resistance_flags = FLAMMABLE

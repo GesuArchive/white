@@ -3,7 +3,7 @@
 	desc = "Brooks, I like you now. Get out of here. Go home now."
 	icon = 'code/shitcode/hule/icons/obj/weapons.dmi'
 	icon_state = "hipoint"
-	item_state = "carbine"
+	inhand_icon_state = "carbine"
 	lefthand_file = 'code/shitcode/hule/icons/onmob/ballistic_l.dmi'
 	righthand_file = 'code/shitcode/hule/icons/onmob/ballistic_r.dmi'
 	pin = /obj/item/firing_pin

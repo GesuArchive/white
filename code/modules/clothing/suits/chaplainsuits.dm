@@ -11,7 +11,7 @@
 	name = "праздничный священник"
 	desc = "Это праздник, мой сын."
 	icon_state = "holidaypriest"
-	item_state = "w_suit"
+	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	flags_inv = HIDEJUMPSUIT
 
@@ -19,7 +19,7 @@
 	name = "монашеский халат"
 	desc = "Максимальное благочестие в этой звездной системе."
 	icon_state = "nun"
-	item_state = "nun"
+	inhand_icon_state = "nun"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|HANDS
 	flags_inv = HIDESHOES|HIDEJUMPSUIT
 
@@ -27,7 +27,7 @@
 	name = "одежда епископа"
 	desc = "Рад видеть десятины, которые вы собрали, были потрачены не зря."
 	icon_state = "bishoprobe"
-	item_state = "bishoprobe"
+	inhand_icon_state = "bishoprobe"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	flags_inv = HIDEJUMPSUIT
 
@@ -35,21 +35,21 @@
 	name = "студенческий халат"
 	desc = "Форма ушедшего института обучения."
 	icon_state = "studentuni"
-	item_state = "studentuni"
+	inhand_icon_state = "studentuni"
 	body_parts_covered = ARMS|CHEST
 
 /obj/item/clothing/suit/chaplainsuit/witchhunter
 	name = "наряд охотника на ведьм"
 	desc = "Этот изношенный наряд был очень полезен в те времена."
 	icon_state = "witchhunter"
-	item_state = "witchhunter"
+	inhand_icon_state = "witchhunter"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
 /obj/item/clothing/suit/hooded/chaplainsuit/monkhabit
 	name = "платье монаха"
 	desc = "В нескольких шагах выше оказали вретище."
 	icon_state = "monkfrock"
-	item_state = "monkfrock"
+	inhand_icon_state = "monkfrock"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	hoodtype = /obj/item/clothing/head/hooded/monkhabit
 
@@ -57,7 +57,7 @@
 	name = "капюшон монаха"
 	desc = "Ибо, когда человек хочет прикрыть свою лысину."
 	icon_state = "monkhood"
-	item_state = "monkhood"
+	inhand_icon_state = "monkhood"
 	body_parts_covered = HEAD
 	flags_inv = HIDEHAIR|HIDEEARS
 
@@ -65,7 +65,7 @@
 	name = "одеяния восточного монаха"
 	desc = "Лучше всего сочетается с бритой головой."
 	icon_state = "monkrobeeast"
-	item_state = "monkrobeeast"
+	inhand_icon_state = "monkrobeeast"
 	body_parts_covered = GROIN|LEGS
 	flags_inv = HIDEJUMPSUIT
 
@@ -73,7 +73,7 @@
 	name = "белая роба"
 	desc = "Отлично подойдёт для духовных личностей или просто любителей поспать."
 	icon_state = "whiterobe"
-	item_state = "whiterobe"
+	inhand_icon_state = "whiterobe"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	flags_inv = HIDEJUMPSUIT
 
@@ -81,7 +81,7 @@
 	name = "роба последователя Honkmother"
 	desc = "Предназначен для клоуна из ткани."
 	icon_state = "clownpriest"
-	item_state = "clownpriest"
+	inhand_icon_state = "clownpriest"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	flags_inv = HIDEJUMPSUIT
 	allowed = list(/obj/item/megaphone/clown, /obj/item/soap, /obj/item/reagent_containers/food/snacks/pie/cream, /obj/item/bikehorn, /obj/item/bikehorn/golden, /obj/item/bikehorn/airhorn, /obj/item/instrument/bikehorn, /obj/item/reagent_containers/food/drinks/soda_cans/canned_laughter, /obj/item/toy/crayon, /obj/item/toy/crayon/spraycan, /obj/item/toy/crayon/spraycan/lubecan, /obj/item/grown/bananapeel, /obj/item/reagent_containers/food/snacks/grown/banana)
