@@ -82,6 +82,9 @@
 /obj/item/boombox/attackby(obj/item/I, mob/user)
 	if(disk_insert(user, I, disk))
 		disk = I
+		if(!selection)
+			selection = disk.track
+		ui_interact(user)
 	return ..()
 
 /obj/item/boombox/proc/disk_insert(mob/user, obj/item/card/data/music/I, target)
@@ -94,7 +97,6 @@
 		user.visible_message("<span class='notice'>[user] вставляет диск в [src].</span>", \
 							"<span class='notice'>Вставляю диск в [src].</span>")
 		playsound(get_turf(src), 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
-		ui_interact(user)
 		return TRUE
 
 /obj/item/boombox/proc/eject_disk(mob/user)

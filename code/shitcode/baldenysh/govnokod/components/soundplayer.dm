@@ -6,7 +6,7 @@
 	var/playing_range = 15
 	var/list/listener_comps = list()
 
-	var/environmental = FALSE
+	var/environmental = TRUE
 	var/env_id = 12
 	var/repeating = TRUE
 	var/playing_volume = 100
@@ -29,22 +29,25 @@
 		qdel(SPL)
 	. = ..()
 
-/datum/component/soundplayer_listener/RegisterWithParent()
+/datum/component/soundplayer/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/update_sounds)
 
-/datum/component/soundplayer_listener/UnregisterFromParent()
+/datum/component/soundplayer/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
 
 /datum/component/soundplayer/process()
 	if(!active || !cursound)
 		return
-	for(var/client/C)
-		var/list/splcomps = C.GetComponents(/datum/component/soundplayer_listener)
-		if(!(splcomps & listener_comps))
-			SEND_SOUND(C, cursound) //preload sound so интернет канекшон здохнет блядь
-			var/datum/component/soundplayer_listener/SPL = C.AddComponent(/datum/component/soundplayer_listener, src)
-			listener_comps += SPL
-			SPL.update_sound()
+	for(var/mob/M)
+		if(!M.client)
+			continue
+		var/list/splcomps = M.GetComponents(/datum/component/soundplayer_listener)
+		if(splcomps & listener_comps)
+			continue
+		SEND_SOUND(M, cursound) //preload sound so интернет канекшон здохнет блядь пинг 9999
+		var/datum/component/soundplayer_listener/SPL = M.AddComponent(/datum/component/soundplayer_listener, src)
+		listener_comps += list(SPL)
+		SPL.update_sound()
 
 /datum/component/soundplayer/proc/update_sounds()
 	for(var/datum/component/soundplayer_listener/SPL in listener_comps)
@@ -78,10 +81,10 @@
 /datum/component/soundplayer_listener
 	dupe_mode = COMPONENT_DUPE_ALLOWED
 	var/datum/component/soundplayer/myplayer
-	var/client/listener
+	var/mob/listener
 
 /datum/component/soundplayer_listener/Initialize(var/datum/component/soundplayer/player)
-	if(!istype(parent, /client) || !istype(player))
+	if(!ismob(parent) || !istype(player))
 		return COMPONENT_INCOMPATIBLE
 	listener = parent
 	myplayer = player
@@ -92,17 +95,16 @@
 	. = ..()
 
 /datum/component/soundplayer_listener/RegisterWithParent()
-	var/client/C = parent
-	if(C.mob)
-		RegisterSignal(C.mob, COMSIG_MOVABLE_MOVED, .proc/update_sound)
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/update_sound)
 
 /datum/component/soundplayer_listener/UnregisterFromParent()
-	var/client/C = parent
-	if(C.mob)
-		UnregisterSignal(C.mob, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
 
 /datum/component/soundplayer_listener/proc/get_player_sound()
-	for(var/sound/S in listener.SoundQuery())
+	if(!listener.client)
+		qdel(src)
+		return
+	for(var/sound/S in listener.client.SoundQuery())
 		if(S.file == myplayer.cursound.file)
 			return S
 	return FALSE
@@ -112,25 +114,24 @@
 	if(!S)
 		return
 	S.status = SOUND_UPDATE
-	if(listener.mob)
-		var/turf/TT = get_turf(listener.mob)
-		var/turf/MT = get_turf(myplayer.soundsource)
-		var/dist = get_dist(TT, MT)
-		if(dist <= myplayer.playing_range)
-			S.volume = myplayer.playing_volume
-			S.volume -= max(dist - world.view, 0) * 2
-			S.falloff = myplayer.playing_falloff
-			S.environment = myplayer.env_id
-			if(myplayer.environmental)
-				var/dx = MT.x - TT.x
-				S.x = dx
-				var/dy = MT.y - TT.y
-				S.z = dy
-			else
-				S.x = 0
-				S.z = 1
+	var/turf/TT = get_turf(listener)
+	var/turf/MT = get_turf(myplayer.soundsource)
+	var/dist = get_dist(TT, MT)
+	if(dist <= myplayer.playing_range)
+		S.volume = myplayer.playing_volume
+		S.volume -= max(dist - world.view, 0) * 2
+		S.falloff = myplayer.playing_falloff
+		S.environment = myplayer.env_id
+		if(myplayer.environmental)
+			var/dx = MT.x - TT.x
+			S.x = dx
+			var/dy = MT.y - TT.y
+			S.z = dy
 		else
-			S.volume = 0
+			S.x = 0
+			S.z = 1
+	else
+		S.volume = 0
 	SEND_SOUND(listener, S)
 
 /datum/component/soundplayer_listener/proc/stop_sound()
