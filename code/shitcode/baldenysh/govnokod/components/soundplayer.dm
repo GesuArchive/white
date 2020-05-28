@@ -29,6 +29,12 @@
 		qdel(SPL)
 	. = ..()
 
+/datum/component/soundplayer_listener/RegisterWithParent()
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/update_sounds)
+
+/datum/component/soundplayer_listener/UnregisterFromParent()
+	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
+
 /datum/component/soundplayer/process()
 	if(!active || !cursound)
 		return
