@@ -1,11 +1,10 @@
 /datum/component/soundplayer
-	dupe_mode = COMPONENT_DUPE_ALLOWED
 	var/atom/soundsource
 
 	var/sound/cursound
 	var/active = FALSE
 	var/playing_range = 12
-	var/list/listeners = list()
+	var/list/listener_comps = list()
 
 	var/environmental = FALSE
 	var/env_id = 12
@@ -13,7 +12,7 @@
 	var/playing_volume = 100
 	var/playing_falloff = 4
 	var/playing_channel = 0
-/*
+
 /datum/component/soundplayer/Initialize()
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -26,37 +25,32 @@
 /datum/component/soundplayer/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	stop_sounds()
+	for(var/datum/component/soundplayer_listener/SPL in listener_comps)
+		qdel(SPL)
 	. = ..()
 
 /datum/component/soundplayer/process()
 	if(!active || !cursound)
 		return
-
 	for(var/client/C)
 		if(!C.GetComponent(/datum/component/soundplayer_listener))
-			client_preload_cursound(C)
-			C.
-
-/datum/component/soundplayer/proc/client_preload_cursound(var/client/C)
-	SEND_SOUND(C, cursound)
-
-/datum/component/soundplayer/proc/client_stop_cursound(var/client/C)
-	SEND_SOUND(C, sound(null, repeat = 0, wait = 0, channel = playing_channel))
+			SEND_SOUND(C, cursound) //preload sound so интернет канекшон здохнет блядь
+			listener_comps += C.AddComponent(/datum/component/soundplayer_listener, src)
 
 /datum/component/soundplayer/proc/update_sounds()
+	for(var/datum/component/soundplayer_listener/SPL in listener_comps)
+		SPL.update_sound()
 
 /datum/component/soundplayer/proc/stop_sounds()
 	active = FALSE
-	/*
-	for(var/client/C)
-		if(!client_get_cursound(C))
-			continue
-		client_stop_cursound(C)
-		*/
+	for(var/datum/component/soundplayer_listener/SPL in listener_comps)
+		SPL.stop_sound()
 
-/datum/component/soundplayer/proc/set_sound(var/sound/newsound)
-	if(!cursound)
-		return
+/datum/component/soundplayer/proc/set_sound(var/newsound)
+	if(istext(newsound))
+		cursound = sound(newsound)
+	else
+		cursound = newsound
 	cursound = newsound
 	cursound.repeat = repeating
 	cursound.falloff = playing_falloff
@@ -78,10 +72,15 @@
 	var/client/listener
 
 /datum/component/soundplayer_listener/Initialize(var/datum/component/soundplayer/player)
-	if(!isclient(parent) || !player)
+	if(!istype(parent, /client) || !player)
 		return COMPONENT_INCOMPATIBLE
 	listener = parent
 	myplayer = player
+	. = ..()
+
+/datum/component/soundplayer_listener/Destroy()
+	stop_sound()
+	. = ..()
 
 /datum/component/soundplayer_listener/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/update_sound)
@@ -90,10 +89,11 @@
 	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
 
 /datum/component/soundplayer_listener/proc/get_player_sound()
-	for(var/sound/S in listener.client.SoundQuery())
+	for(var/sound/S in listener.SoundQuery())
 		if(S.file == myplayer.cursound.file)
 			return S
 	return FALSE
+
 /datum/component/soundplayer_listener/proc/update_sound()
 	var/sound/S = get_player_sound()
 	if(!S)
@@ -107,7 +107,7 @@
 		S.volume -= max(dist - world.view, 0) * 2
 		S.falloff = myplayer.playing_falloff
 		S.environment = myplayer.env_id
-		if(environmental)
+		if(myplayer.environmental)
 			var/dx = MT.x - TT.x
 			S.x = dx
 			var/dy = MT.y - TT.y
@@ -118,4 +118,6 @@
 	else
 		S.volume = 0
 	SEND_SOUND(listener, S)
-*/
+
+/datum/component/soundplayer_listener/proc/stop_sound()
+	SEND_SOUND(listener, sound(null, repeat = 0, wait = 0, channel = myplayer.playing_channel))
