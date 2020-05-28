@@ -6507,9 +6507,6 @@
 /turf/open/floor/plasteel,
 /area/trading_outpost)
 "wA" = (
-/obj/machinery/computer/auxillary_base{
-	pixel_y = 32
-	},
 /obj/structure/table/reinforced,
 /obj/item/clipboard,
 /obj/item/folder/yellow,
@@ -12384,9 +12381,6 @@
 /turf/open/floor/holofloor/grass,
 /area/holodeck/rec_center/pet_lounge)
 "PL" = (
-/obj/machinery/computer/auxillary_base{
-	pixel_y = 32
-	},
 /obj/structure/table/reinforced,
 /obj/item/clipboard,
 /obj/item/radio/headset/headset_cent,
