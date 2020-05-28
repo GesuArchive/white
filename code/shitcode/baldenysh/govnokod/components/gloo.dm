@@ -14,6 +14,7 @@
 /datum/component/glooed/Initialize()
 	if(!ismovable(parent))
 		qdel(src)
+	. = ..()
 
 /datum/component/glooed/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_COMPONENT_CLEAN_ACT, .proc/ungloo)
