@@ -13,7 +13,7 @@
 	var/playing_volume = 100
 	var/playing_falloff = 4
 	var/playing_channel = 0
-
+/*
 /datum/component/soundplayer/Initialize()
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -118,3 +118,4 @@
 	else
 		S.volume = 0
 	SEND_SOUND(listener, S)
+*/
