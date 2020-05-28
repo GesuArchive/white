@@ -17,8 +17,8 @@
 		return COMPONENT_INCOMPATIBLE
 	soundsource = parent
 	playing_channel = open_sound_channel()
+	set_sound(sound('code/shitcode/baldenysh/sounds/hardbass_loop.ogg'))
 	START_PROCESSING(SSprocessing, src)
-	cursound = sound('code/shitcode/baldenysh/sounds/hardbass_loop.ogg')
 	. = ..()
 
 /datum/component/soundplayer/Destroy()
