@@ -13,11 +13,6 @@
 	if(!. || !client)
 		return FALSE
 
-	if(client && client.view_size)
-		client.view_size.setWidth(19)
-		spawn(10) // дублируем на случай init-time
-			client.fit_viewport()
-
 	var/list/locinfo = client.get_loc_info()
 
 	to_chat(src,  {"<span class='greenannounce'> ================================</span>
