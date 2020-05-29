@@ -45,7 +45,6 @@
 		var/list/mycomps = (M.GetComponents(/datum/component/soundplayer_listener) & listener_comps)
 		if(mycomps && mycomps.len)
 			continue
-		SEND_SOUND(M, cursound) //preload sound so интернет канекшон здохнет блядь пинг 9999
 		var/datum/component/soundplayer_listener/SPL = M.AddComponent(/datum/component/soundplayer_listener, src)
 		listener_comps += SPL
 		SPL.update_sound()
@@ -64,17 +63,7 @@
 		cursound = sound(newsound)
 	else
 		cursound = newsound
-	cursound = newsound
-	cursound.repeat = repeating
-	cursound.falloff = playing_falloff
-	cursound.channel = playing_channel
-	cursound.environment = env_id
-	cursound.volume = 0
-	cursound.status = 0
 	cursound.wait = 0
-	cursound.x = 0
-	cursound.z = 1
-	cursound.y = 1
 	update_sounds()
 
 ////////////////////////////////////////////////
@@ -102,19 +91,27 @@
 	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
 
 /datum/component/soundplayer_listener/proc/get_player_sound()
-	if(!listener.client)
-		qdel(src)
-		return FALSE
 	for(var/sound/S in listener.client.SoundQuery())
 		if(S.file == myplayer.cursound.file)
 			return S
 	return FALSE
 
 /datum/component/soundplayer_listener/proc/update_sound()
+	if(!listener || !listener.client || !myplayer || !myplayer.cursound)
+		qdel(src)
+		return
 	var/sound/S = get_player_sound()
 	if(!S)
 		S = myplayer.cursound
 		S.status = 0
+		S.volume = 0
+		S.repeat = myplayer.repeating
+		S.falloff = myplayer.playing_falloff
+		S.channel = myplayer.playing_channel
+		S.environment = myplayer.env_id
+		S.x = 0
+		S.z = 1
+		S.y = 1
 		SEND_SOUND(listener, S)
 	S.status = SOUND_UPDATE
 	S.channel = myplayer.playing_channel
@@ -126,6 +123,7 @@
 		S.volume -= max(dist - myplayer.playing_range, 0) * 2
 		S.falloff = myplayer.playing_falloff
 		S.environment = myplayer.env_id
+		S.repeat = myplayer.repeating
 		if(myplayer.environmental)
 			var/dx = MT.x - TT.x
 			S.x = dx
