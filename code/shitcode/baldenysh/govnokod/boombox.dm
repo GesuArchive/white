@@ -2,7 +2,7 @@
 	name = "взрыв каробка"
 	desc = "Магнитола, разыскиваемая в одном из смежных секторов. Почему-то бронзовая."
 	icon = 'code/shitcode/baldenysh/icons/obj/boombox.dmi'
-	icon_state = "magnitola"
+	icon_state = "boombox"
 	verb_say = "констатирует"
 
 	var/list/songs = list()
@@ -27,12 +27,13 @@
 	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
 	SP.playing_channel = open_sound_channel_for_boombox()
 	load_tracks()
+	color = color_matrix_rotate_hue(rand(0, 360))
 
 /obj/item/boombox/update_icon()
 	if(playing)
-		icon_state = "magnitola_active"
+		icon_state = "[initial(icon_state)]_active"
 	else
-		icon_state = "magnitola"
+		icon_state = "[initial(icon_state)]"
 
 /obj/item/boombox/proc/load_tracks()
 	var/list/tracks = flist("[global.config.directory]/jukebox_music/sounds/")
