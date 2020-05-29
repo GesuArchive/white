@@ -81,7 +81,8 @@
 	. = ..()
 
 /datum/component/soundplayer_listener/Destroy()
-	stop_sound()
+	myplayer.listener_comps -= src
+	SEND_SOUND(listener, sound(null, repeat = 0, wait = 0, channel = myplayer.playing_channel))
 	. = ..()
 
 /datum/component/soundplayer_listener/RegisterWithParent()
@@ -135,7 +136,3 @@
 	else
 		S.volume = 0
 	SEND_SOUND(listener, S)
-
-/datum/component/soundplayer_listener/proc/stop_sound()
-	myplayer.listener_comps -= src
-	SEND_SOUND(listener, sound(null, repeat = 0, wait = 0, channel = myplayer.playing_channel))
