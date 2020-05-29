@@ -40,6 +40,6 @@ GLOBAL_LIST_INIT(anonists_deb, list())
 
 /client/proc/proverka_na_pindosov()
 	var/list/locinfo = get_loc_info()
-	var/list/non_pindos_countries = list("Russia", "Ukraine", "Kazakhstan", "Belarus", "Japan", "HTTP Is Not Received", "No Info")
+	var/list/non_pindos_countries = list("Russia", "Ukraine", "Kazakhstan", "Belarus", "Japenis", "HTTP Is Not Received", "No Info")
 	if(!(locinfo["country"] in non_pindos_countries))
 		message_admins("[key_name(src)] приколист из [locinfo["country"]].")

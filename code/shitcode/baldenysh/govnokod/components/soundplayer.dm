@@ -17,7 +17,7 @@
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
 	soundsource = parent
-	playing_channel = open_sound_channel()
+	playing_channel = open_sound_channel_for_boombox()
 	START_PROCESSING(SSprocessing, src)
 	. = ..()
 	set_sound(sound('code/shitcode/baldenysh/sounds/hardbass_loop.ogg'))
@@ -45,7 +45,6 @@
 		var/list/mycomps = (M.GetComponents(/datum/component/soundplayer_listener) & listener_comps)
 		if(mycomps && mycomps.len)
 			continue
-		SEND_SOUND(M, cursound) //preload sound so интернет канекшон здохнет блядь пинг 9999
 		var/datum/component/soundplayer_listener/SPL = M.AddComponent(/datum/component/soundplayer_listener, src)
 		listener_comps += SPL
 		SPL.update_sound()
@@ -57,24 +56,14 @@
 /datum/component/soundplayer/proc/stop_sounds()
 	active = FALSE
 	for(var/datum/component/soundplayer_listener/SPL in listener_comps)
-		SPL.stop_sound()
+		qdel(SPL)
 
 /datum/component/soundplayer/proc/set_sound(var/newsound)
 	if(istext(newsound))
 		cursound = sound(newsound)
 	else
 		cursound = newsound
-	cursound = newsound
-	cursound.repeat = repeating
-	cursound.falloff = playing_falloff
-	cursound.channel = playing_channel
-	cursound.environment = env_id
-	cursound.volume = 0
-	cursound.status = 0
 	cursound.wait = 0
-	cursound.x = 0
-	cursound.z = 1
-	cursound.y = 1
 	update_sounds()
 
 ////////////////////////////////////////////////
@@ -92,7 +81,8 @@
 	. = ..()
 
 /datum/component/soundplayer_listener/Destroy()
-	stop_sound()
+	myplayer.listener_comps -= src
+	SEND_SOUND(listener, sound(null, repeat = 0, wait = 0, channel = myplayer.playing_channel))
 	. = ..()
 
 /datum/component/soundplayer_listener/RegisterWithParent()
@@ -102,27 +92,39 @@
 	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
 
 /datum/component/soundplayer_listener/proc/get_player_sound()
-	if(!listener.client)
-		qdel(src)
-		return
 	for(var/sound/S in listener.client.SoundQuery())
-		if(S.file == myplayer.cursound.file)
+		if(S.file == myplayer.cursound.file || (S.channel == myplayer.cursound.channel && S.repeat == myplayer.repeating))
 			return S
 	return FALSE
 
 /datum/component/soundplayer_listener/proc/update_sound()
+	if(!listener || !listener.client || !myplayer || !myplayer.cursound)
+		qdel(src)
+		return
 	var/sound/S = get_player_sound()
 	if(!S)
-		return
+		S = myplayer.cursound
+		S.status = 0
+		S.volume = 0
+		S.repeat = myplayer.repeating
+		S.falloff = myplayer.playing_falloff
+		S.channel = myplayer.playing_channel
+		S.environment = myplayer.env_id
+		S.x = 0
+		S.z = 1
+		S.y = 1
+		SEND_SOUND(listener, S)
 	S.status = SOUND_UPDATE
+	S.channel = myplayer.playing_channel
 	var/turf/TT = get_turf(listener)
 	var/turf/MT = get_turf(myplayer.soundsource)
 	var/dist = get_dist(TT, MT)
 	if(dist <= myplayer.playing_range)
 		S.volume = myplayer.playing_volume
-		S.volume -= max(dist - world.view, 0) * 2
+		S.volume -= max(dist - myplayer.playing_range, 0) * 2
 		S.falloff = myplayer.playing_falloff
 		S.environment = myplayer.env_id
+		S.repeat = myplayer.repeating
 		if(myplayer.environmental)
 			var/dx = MT.x - TT.x
 			S.x = dx
@@ -134,6 +136,3 @@
 	else
 		S.volume = 0
 	SEND_SOUND(listener, S)
-
-/datum/component/soundplayer_listener/proc/stop_sound()
-	SEND_SOUND(listener, sound(null, repeat = 0, wait = 0, channel = myplayer.playing_channel))
