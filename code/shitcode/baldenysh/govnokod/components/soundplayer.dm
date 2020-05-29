@@ -113,7 +113,7 @@
 /datum/component/soundplayer_listener/proc/update_sound()
 	var/sound/S = get_player_sound()
 	if(!S)
-		SEND_SOUND(listener, cursound)
+		SEND_SOUND(listener, myplayer.cursound)
 		S = get_player_sound()
 	S.status = SOUND_UPDATE
 	S.channel = myplayer.playing_channel
