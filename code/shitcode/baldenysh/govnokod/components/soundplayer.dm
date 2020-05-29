@@ -56,7 +56,7 @@
 /datum/component/soundplayer/proc/stop_sounds()
 	active = FALSE
 	for(var/datum/component/soundplayer_listener/SPL in listener_comps)
-		SPL.stop_sound()
+		qdel(SPL)
 
 /datum/component/soundplayer/proc/set_sound(var/newsound)
 	if(istext(newsound))
