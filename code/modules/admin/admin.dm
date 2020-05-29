@@ -1,8 +1,12 @@
 
 ////////////////////////////////
 /proc/message_admins(msg)
+	msg = "<span class=\"admin\"><span class=\"prefix\">ADMIN LOG:</span> <span class=\"message linkify\">[msg]</span></span>"
+	to_chat(GLOB.admins, msg, confidential = TRUE)
+/*
+/proc/message_admins(msg)
 	webhook_send_garbage("ADMIN LOG", msg)
-	/*
+
 	var/izidi = FALSE
 	var/list/exc = list("watchlist")
 
@@ -25,9 +29,9 @@
 				to_chat(A, msg, confidential = TRUE)
 	else
 		to_chat(GLOB.admins, msg, confidential = TRUE)
-	*/
-	to_chat(GLOB.admins, msg, confidential = TRUE)
 
+	to_chat(GLOB.admins, msg, confidential = TRUE)
+*/
 /proc/relay_msg_admins(msg)
 	msg = "<span class=\"admin\"><span class=\"prefix\">RELAY:</span> <span class=\"message linkify\">[msg]</span></span>"
 	to_chat(GLOB.admins, msg, confidential = TRUE)
