@@ -104,7 +104,7 @@
 /datum/component/soundplayer_listener/proc/get_player_sound()
 	if(!listener.client)
 		qdel(src)
-		return
+		return FALSE
 	for(var/sound/S in listener.client.SoundQuery())
 		if(S.file == myplayer.cursound.file)
 			return S
@@ -113,7 +113,8 @@
 /datum/component/soundplayer_listener/proc/update_sound()
 	var/sound/S = get_player_sound()
 	if(!S)
-		return
+		SEND_SOUND(listener, cursound)
+		S = get_player_sound()
 	S.status = SOUND_UPDATE
 	S.channel = myplayer.playing_channel
 	var/turf/TT = get_turf(listener)
