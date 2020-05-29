@@ -25,7 +25,6 @@
 /obj/item/boombox/Initialize()
 	. = ..()
 	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
-	SP.playing_channel = open_sound_channel_for_boombox()
 	load_tracks()
 
 /obj/item/boombox/update_icon()
