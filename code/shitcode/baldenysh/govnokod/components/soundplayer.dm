@@ -117,6 +117,7 @@
 		S = get_player_sound()
 	if(!S)
 		qdel(src)
+		return
 	S.status = SOUND_UPDATE
 	S.channel = myplayer.playing_channel
 	var/turf/TT = get_turf(listener)
