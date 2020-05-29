@@ -17,7 +17,7 @@
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
 	soundsource = parent
-	playing_channel = open_sound_channel()
+	playing_channel = open_sound_channel_for_boombox()
 	START_PROCESSING(SSprocessing, src)
 	. = ..()
 	set_sound(sound('code/shitcode/baldenysh/sounds/hardbass_loop.ogg'))
