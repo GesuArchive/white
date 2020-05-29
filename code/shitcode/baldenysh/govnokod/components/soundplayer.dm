@@ -115,6 +115,7 @@
 	if(!S)
 		return
 	S.status = SOUND_UPDATE
+	S.channel = myplayer.playing_channel
 	var/turf/TT = get_turf(listener)
 	var/turf/MT = get_turf(myplayer.soundsource)
 	var/dist = get_dist(TT, MT)
@@ -136,4 +137,5 @@
 	SEND_SOUND(listener, S)
 
 /datum/component/soundplayer_listener/proc/stop_sound()
+	myplayer.listener_comps -= src
 	SEND_SOUND(listener, sound(null, repeat = 0, wait = 0, channel = myplayer.playing_channel))
