@@ -115,6 +115,8 @@
 	if(!S)
 		SEND_SOUND(listener, myplayer.cursound)
 		S = get_player_sound()
+	if(!S)
+		qdel(src)
 	S.status = SOUND_UPDATE
 	S.channel = myplayer.playing_channel
 	var/turf/TT = get_turf(listener)
@@ -122,7 +124,7 @@
 	var/dist = get_dist(TT, MT)
 	if(dist <= myplayer.playing_range)
 		S.volume = myplayer.playing_volume
-		S.volume -= max(dist - world.view, 0) * 2
+		S.volume -= max(dist - myplayer.playing_range, 0) * 2
 		S.falloff = myplayer.playing_falloff
 		S.environment = myplayer.env_id
 		if(myplayer.environmental)
