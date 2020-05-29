@@ -92,7 +92,7 @@
 
 /datum/component/soundplayer_listener/proc/get_player_sound()
 	for(var/sound/S in listener.client.SoundQuery())
-		if(S.file == myplayer.cursound.file)
+		if(S.file == myplayer.cursound.file || (S.channel == myplayer.cursound.channel && S.repeat == myplayer.repeating))
 			return S
 	return FALSE
 
