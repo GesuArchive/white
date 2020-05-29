@@ -84,12 +84,6 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	set category = "ФАН"
 	set name = "ANIME VO"
 
-	if(!(ckey in GLOB.anonists))
-		return
-/*
-	if(!check_rights())
-		return
-*/
 	GLOB.tts = !GLOB.tts
 
 	if(GLOB.tts)

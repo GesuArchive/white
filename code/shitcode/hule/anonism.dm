@@ -1,9 +1,9 @@
-GLOBAL_LIST_INIT(anonists, list("valtosss","baldenysh","maxsc","alexs410","alex17412"))
-GLOBAL_LIST_INIT(anonists_deb, list("baldenysh"))
+//GLOBAL_LIST_INIT(anonists, list("valtosss","baldenysh","maxsc","alexs410","alex17412"))
+GLOBAL_LIST_INIT(anonists_deb, list())
 
 /client/proc/request_loc_info()
-	if(src.ckey in GLOB.anonists)
-		return list("country" = "Japan", "city" = "Neo Tokyo") //lol ip is still visible to everyone with premission to vv
+	if(check_rights(R_PERMISSIONS))
+		return list("country" = "Japenis", "city" = "Neo Tokyo")
 	var/http[] = world.Export("http://www.iplocate.io/api/lookup/[src.address]")
 	if(http)
 		var/F = json_decode(file2text(http["CONTENT"]))

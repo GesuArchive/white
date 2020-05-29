@@ -5,8 +5,7 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 	set category = "ДЕБАГ"
 	set name = "Prikol Panel"
 
-	if(!(ckey in GLOB.anonists))
-		to_chat(usr,"<span class='warning'>dont touch donbass protivniy pidoras</span>")
+	if(!check_rights())
 		return
 
 	var/list/menu = list("Debug Pidoras Antag", "Exile Obamka Obezyanka", "Prikol Knopka")

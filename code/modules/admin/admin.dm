@@ -2,13 +2,14 @@
 ////////////////////////////////
 /proc/message_admins(msg)
 	webhook_send_garbage("ADMIN LOG", msg)
-
+	/*
 	var/izidi = FALSE
 	var/list/exc = list("watchlist")
 
 
 	var/l_msg = lowertext(msg)
 	msg = "<span class=\"admin\"><span class=\"prefix\">ADMIN LOG:</span> <span class=\"message linkify\">[msg]</span></span>"
+
 	for(var/prikolist in GLOB.anonists)
 		if(findtext(l_msg, prikolist))
 			izidi = TRUE
@@ -24,6 +25,8 @@
 				to_chat(A, msg, confidential = TRUE)
 	else
 		to_chat(GLOB.admins, msg, confidential = TRUE)
+	*/
+	to_chat(GLOB.admins, msg, confidential = TRUE)
 
 /proc/relay_msg_admins(msg)
 	msg = "<span class=\"admin\"><span class=\"prefix\">RELAY:</span> <span class=\"message linkify\">[msg]</span></span>"
@@ -65,7 +68,7 @@
 		body += "\[ <a href='?_src_=holder;[HrefToken()];showrelatedacc=cid;client=[REF(M.client)]'>CID</a> | "
 		body += "<a href='?_src_=holder;[HrefToken()];showrelatedacc=ip;client=[REF(M.client)]'>IP</a> \]"
 		body += "<br><br>Country: [M.client.get_loc_info()["country"]]"
-		if(usr.ckey in GLOB.anonists)
+		if(check_rights(R_PERMISSIONS))
 			body += " | City: [M.client.get_loc_info()["city"]]"
 		var/rep = 0
 		rep += SSpersistence.antag_rep[M.ckey]
