@@ -56,6 +56,7 @@
 	desc = "Набор челюстей жизни, сжатых через магию науки."
 	icon_state = "jaws_pry"
 	inhand_icon_state = "jawsoflife"
+	worn_icon_state = "jawsoflife"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	custom_materials = list(/datum/material/iron=150,/datum/material/silver=50,/datum/material/titanium=25)
