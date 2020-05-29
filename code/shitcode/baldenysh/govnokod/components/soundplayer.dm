@@ -43,7 +43,7 @@
 			continue
 		var/mob/M = C.mob
 		var/list/mycomps = (M.GetComponents(/datum/component/soundplayer_listener) & listener_comps)
-		if(mycomps.len)
+		if(mycomps && mycomps.len)
 			continue
 		SEND_SOUND(M, cursound) //preload sound so интернет канекшон здохнет блядь пинг 9999
 		var/datum/component/soundplayer_listener/SPL = M.AddComponent(/datum/component/soundplayer_listener, src)
