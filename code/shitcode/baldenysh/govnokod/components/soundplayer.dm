@@ -11,13 +11,13 @@
 	var/repeating = TRUE
 	var/playing_volume = 100
 	var/playing_falloff = 4
-	var/playing_channel = 0
+	var/playing_channel
 
 /datum/component/soundplayer/Initialize()
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
 	soundsource = parent
-	playing_channel = open_sound_channel_for_boombox()
+	playing_channel = open_sound_channel()
 	START_PROCESSING(SSprocessing, src)
 	. = ..()
 	set_sound(sound('code/shitcode/baldenysh/sounds/hardbass_loop.ogg'))
@@ -66,6 +66,12 @@
 	cursound.wait = 0
 	update_sounds()
 
+/datum/component/soundplayer/proc/set_channel(var/chan)
+	playing_channel = chan
+	if(cursound)
+		cursound.channel = chan
+	update_sounds()
+
 ////////////////////////////////////////////////
 
 /datum/component/soundplayer_listener
@@ -92,8 +98,12 @@
 	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
 
 /datum/component/soundplayer_listener/proc/get_player_sound()
-	for(var/sound/S in listener.client.SoundQuery())
-		if(S.file == myplayer.cursound.file || (S.channel == myplayer.cursound.channel && S.repeat == myplayer.repeating))
+	var/list/sounds = listener.client.SoundQuery()
+	for(var/sound/S in sounds)
+		if(S.file == myplayer.cursound.file)
+			return S
+	for(var/sound/S in sounds)
+		if(S.channel == myplayer.playing_channel && S.repeat == myplayer.repeating)
 			return S
 	return FALSE
 

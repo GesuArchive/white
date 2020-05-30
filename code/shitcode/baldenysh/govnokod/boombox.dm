@@ -25,6 +25,7 @@
 /obj/item/boombox/Initialize()
 	. = ..()
 	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
+	SP.set_channel(open_sound_channel_for_boombox())
 	load_tracks()
 	color = color_matrix_rotate_hue(rand(0, 360))
 
