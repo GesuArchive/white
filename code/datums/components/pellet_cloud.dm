@@ -236,7 +236,7 @@
 			to_chat(target, "<span class='userdanger'>В меня попадают [num_hits] <b>[proj_name]</b>!</span>")
 		else
 			target.visible_message("<span class='danger'>В <b>[target]</b> попадает [proj_name]!</span>", null, null, COMBAT_MESSAGE_RANGE, target)
-			to_chat(target, "<span class='userdanger'>В меня попадает [proj_name]s!</span>")
+			to_chat(target, "<span class='userdanger'>В меня попадает [proj_name]!</span>")
 
 	for(var/M in purple_hearts)
 		var/mob/living/martyr = M

@@ -94,7 +94,7 @@
 							"<span class='userdanger'>В <b>меня</b> попадает [I.name]!</span>")
 			if(!I.throwforce)
 				return
-			var/armor = run_armor_check(zone, "melee", "Моя броня отражает попадание в [ru_parse_zone(zone)].", "Моя броня смягчает попадание в [ru_parse_zone(zone)].",I.armour_penetration)
+			var/armor = run_armor_check(zone, "melee", "Моя броня отражает попадание в [ru_parse_zone(parse_zone(zone))].", "Моя броня смягчает попадание в [ru_parse_zone(parse_zone(zone))].",I.armour_penetration)
 			apply_damage(I.throwforce, dtype, zone, armor)
 
 			if(I.thrownby)
