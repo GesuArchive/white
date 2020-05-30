@@ -93,9 +93,11 @@
 
 /datum/component/soundplayer_listener/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/update_sound)
+	RegisterSignal(parent, COMSIG_MOB_LOGOUT, .proc/qdel_check)
 
 /datum/component/soundplayer_listener/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(parent, COMSIG_MOB_LOGOUT)
 
 /datum/component/soundplayer_listener/proc/get_player_sound()
 	var/list/sounds = listener.client.SoundQuery()
@@ -107,9 +109,14 @@
 			return S
 	return FALSE
 
-/datum/component/soundplayer_listener/proc/update_sound()
+/datum/component/soundplayer_listener/proc/qdel_check()
 	if(!listener || !listener.client || !myplayer || !myplayer.cursound)
 		qdel(src)
+		return TRUE
+	return FALSE
+
+/datum/component/soundplayer_listener/proc/update_sound()
+	if(qdel_check())
 		return
 	var/sound/S = get_player_sound()
 	if(!S)
