@@ -2,7 +2,7 @@
 	name = "tea party"
 	config_tag = "teaparty"
 	report_type = "teaparty"
-	false_report_weight = 5
+	false_report_weight = 0
 	required_players = 0
 
 	announce_span = "notice"
@@ -18,16 +18,11 @@
 /datum/game_mode/teaparty/generate_report()
 	return "В передаче в основном не упоминается ваш сектор. У вас чайная смена."
 
-/datum/game_mode/teaparty/announced
-	name = "tea party"
-	config_tag = "teaparty"
-	false_report_weight = 0
-
-/datum/game_mode/teaparty/announced/generate_station_goals()
+/datum/game_mode/teaparty/generate_station_goals()
 	for(var/T in subtypesof(/datum/station_goal))
 		var/datum/station_goal/G = new T
 		station_goals += G
 		G.on_report()
 
-/datum/game_mode/teaparty/announced/send_intercept(report = 0)
+/datum/game_mode/teaparty/send_intercept(report = 0)
 	priority_announce("Благодаря неустанным усилиям наших подразделений безопасности и разведки, в настоящее время нет никаких реальных угроз для [station_name()]. Все проекты строительства на станции были утверждены. Чайной смены!", "Отчёт отдела безопасности", 'sound/ai/commandreport.ogg')
