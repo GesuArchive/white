@@ -2,6 +2,8 @@
 	name = "взрыв каробка"
 	desc = "Магнитола, разыскиваемая в одном из смежных секторов. Почему-то бронзовая."
 	icon = 'code/shitcode/baldenysh/icons/obj/boombox.dmi'
+	lefthand_file = 'code/shitcode/valtos/icons/lefthand.dmi'
+	righthand_file = 'code/shitcode/valtos/icons/righthand.dmi'
 	icon_state = "boombox"
 	verb_say = "констатирует"
 
