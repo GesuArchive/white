@@ -3447,6 +3447,7 @@
 #include "code\shitcode\valtos\code\unsorted\prison.dm"
 #include "code\shitcode\valtos\code\unsorted\rusprikols.dm"
 #include "code\shitcode\valtos\code\unsorted\sobr.dm"
+#include "code\shitcode\valtos\code\unsorted\teaparty.dm"
 #include "code\shitcode\valtos\code\unsorted\trading_outpost.dm"
 #include "code\shitcode\valtos\code\unsorted\winds.dm"
 #include "code\shitcode\valtos\code\wzvendor\izanvend.dm"
