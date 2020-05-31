@@ -131,6 +131,7 @@
 		S.z = 1
 		S.y = 1
 		SEND_SOUND(listener, S)
+		return
 	S.status = SOUND_UPDATE
 	S.channel = myplayer.playing_channel
 	var/turf/TT = get_turf(listener)
