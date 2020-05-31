@@ -128,8 +128,6 @@
 		S.falloff = myplayer.playing_falloff
 		S.channel = myplayer.playing_channel
 		S.environment = myplayer.env_id
-		S.x = 0
-		S.z = 1
 		S.y = 1
 		SEND_SOUND(listener, S)
 	S.status = SOUND_UPDATE
