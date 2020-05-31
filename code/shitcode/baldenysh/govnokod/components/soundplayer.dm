@@ -138,19 +138,19 @@
 	var/turf/MT = get_turf(myplayer.soundsource)
 	var/dist = get_dist(TT, MT)
 	if(dist <= myplayer.playing_range)
-		S.volume = myplayer.playing_volume
-		S.volume -= max(dist - myplayer.playing_range, 0) * 2
+		var/vol = myplayer.playing_volume - max(dist - myplayer.playing_range, 0) * 2
+		S.volume = vol
 		S.falloff = myplayer.playing_falloff
 		S.environment = myplayer.env_id
-		S.repeat = myplayer.repeating
-		if(myplayer.environmental)
-			var/dx = MT.x - TT.x
-			S.x = dx
-			var/dy = MT.y - TT.y
-			S.z = dy
-		else
-			S.x = 0
-			S.z = 1
 	else
 		S.volume = 0
+	if(myplayer.environmental)
+		var/dx = MT.x - TT.x
+		S.x = dx
+		var/dy = MT.y - TT.y
+		S.z = dy
+	else
+		S.x = 0
+		S.z = 1
 	SEND_SOUND(listener, S)
+	S.volume = 0
