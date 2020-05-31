@@ -70,3 +70,11 @@
 	var/krutite_baraban = pick("отвагу", "взятие жепы", "героизм", "исключительный онанизм", "особые заслуги", "500 кредитов", "красивые глаза", "доблесть", "приколы", "взятие за щёку", "ветеранство", "героин")
 	name = "[name] за [krutite_baraban]"
 	icon_state = "[icon_state][rand(1,2)]"
+
+/obj/item/clothing/under/costume/jabroni/sec
+	name = "кожаный костюм офицера"
+	icon_state = "darkholmesec"
+	worn_icon = 'code/shitcode/valtos/icons/clothing/mob/uniform.dmi'
+	icon = 'code/shitcode/valtos/icons/clothing/uniforms.dmi'
+	inhand_icon_state = "darkholme"
+	can_adjust = FALSE
