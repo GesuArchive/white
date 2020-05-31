@@ -64,6 +64,7 @@
 	else
 		cursound = newsound
 	cursound.wait = 0
+	cursound.volume = 0
 	update_sounds()
 
 /datum/component/soundplayer/proc/set_channel(var/chan)
@@ -131,7 +132,6 @@
 		S.z = 1
 		S.y = 1
 		SEND_SOUND(listener, S)
-		return
 	S.status = SOUND_UPDATE
 	S.channel = myplayer.playing_channel
 	var/turf/TT = get_turf(listener)
