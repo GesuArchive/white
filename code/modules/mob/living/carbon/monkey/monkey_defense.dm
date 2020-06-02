@@ -64,7 +64,7 @@
 								"<span class='danger'>Мне удалось увернуться от атаки [M]!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, M)
 				to_chat(M, "<span class='warning'>Бью мимо [name]!</span>")
 		if("disarm")
-			if(!IsUnconscious())
+			if(stat < UNCONSCIOUS)
 				M.do_attack_animation(src, ATTACK_EFFECT_DISARM)
 				if (prob(25))
 					Paralyze(40)

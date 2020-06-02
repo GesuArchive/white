@@ -24,7 +24,6 @@
 	else
 		to_chat(user, "<span class='notice'>Мы начинаем наш стазис, готовя энергию, чтобы возродиться еще раз.</span>")
 		user.fakedeath("changeling") //play dead
-		user.update_stat()
 		user.update_mobility()
 		addtimer(CALLBACK(src, .proc/ready_to_regenerate, user), LING_FAKEDEATH_TIME, TIMER_UNIQUE)
 	return TRUE

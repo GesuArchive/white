@@ -1,5 +1,6 @@
 /mob/living/Initialize()
 	. = ..()
+	register_init_signals()
 	if(unique_name)
 		set_name()
 	var/datum/atom_hud/data/human/medical/advanced/medhud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
@@ -379,8 +380,6 @@
 /mob/living/pointed(atom/A as mob|obj|turf in view(client.view, src))
 	if(incapacitated())
 		return FALSE
-	if(HAS_TRAIT(src, TRAIT_DEATHCOMA))
-		return FALSE
 	if(!..())
 		return FALSE
 	visible_message("<span class='name'>[src]</span> показывает на <b>[A]</b>.", "<span class='notice'>Показываю на <b>[A]</b>.</span>")
@@ -484,10 +483,17 @@
 /mob/living/is_drawable(mob/user, allowmobs = TRUE)
 	return (allowmobs && reagents && can_inject(user))
 
+
+///Sets the current mob's health value. Do not call directly if you don't know what you are doing, use the damage procs, instead.
+/mob/living/proc/set_health(new_value)
+	. = health
+	health = new_value
+
+
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
 		return
-	health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
+	set_health(maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss())
 	staminaloss = getStaminaLoss()
 	update_stat()
 	med_hud_set_health()
@@ -901,7 +907,7 @@
 							"<span class='userdanger'><b>[src]</b> пытается надеть <b>[what]</b> на меня.</span>", null, null, src)
 			else
 				who.visible_message("<span class='notice'><b>[src]</b> пытается надеть <b>[what]</b> на <b>[who]</b>.</span>", \
-						"<span class='notice'><b>[src]</b> пытается надеть <b>[what]</b> на меня.</span>", null, null, src)
+							"<span class='notice'><b>[src]</b> пытается надеть <b>[what]</b> на меня.</span>", null, null, src)
 		to_chat(src, "<span class='notice'>Пытаюсь надеть <b>[what]</b> на <b>[who]</b>...</span>")
 		if(do_mob(src, who, what.equip_delay_other))
 			if(what && Adjacent(who) && what.mob_can_equip(who, src, final_where, TRUE, TRUE))
@@ -1172,7 +1178,6 @@
 /mob/living/proc/update_mobility()
 	var/stat_softcrit = stat == SOFT_CRIT
 	var/stat_conscious = (stat == CONSCIOUS) || stat_softcrit
-	var/conscious = !IsUnconscious() && stat_conscious && !HAS_TRAIT(src, TRAIT_DEATHCOMA)
 	var/chokehold = pulledby && pulledby.grab_state >= GRAB_NECK
 	var/restrained = restrained()
 	var/has_legs = get_num_legs()
@@ -1181,12 +1186,12 @@
 	var/stun = IsStun()
 	var/knockdown = IsKnockdown()
 	var/ignore_legs = get_leg_ignore()
-	var/canmove = !IsImmobilized() && !stun && conscious && !paralyzed && !buckled && (!stat_softcrit || !pulledby) && !chokehold && !IsFrozen() && !IS_IN_STASIS(src) && (has_arms || ignore_legs || has_legs)
+	var/canmove = !IsImmobilized() && !stun && stat_conscious && !paralyzed && !buckled && (!stat_softcrit || !pulledby) && !chokehold && !IsFrozen() && !IS_IN_STASIS(src) && (has_arms || ignore_legs || has_legs)
 	if(canmove)
 		mobility_flags |= MOBILITY_MOVE
 	else
 		mobility_flags &= ~MOBILITY_MOVE
-	var/canstand_involuntary = conscious && !stat_softcrit && !knockdown && !chokehold && !paralyzed && (ignore_legs || has_legs) && !(buckled && buckled.buckle_lying)
+	var/canstand_involuntary = stat_conscious && !stat_softcrit && !knockdown && !chokehold && !paralyzed && (ignore_legs || has_legs) && !(buckled && buckled.buckle_lying)
 	var/canstand = canstand_involuntary && !resting
 
 	if(buckled && buckled.buckle_lying != -1)
@@ -1212,7 +1217,7 @@
 
 
 
-	var/canitem = !paralyzed && !stun && conscious && !chokehold && !restrained && has_arms
+	var/canitem = !paralyzed && !stun && stat_conscious && !chokehold && !restrained && has_arms
 	if(canitem)
 		mobility_flags |= (MOBILITY_USE | MOBILITY_PICKUP | MOBILITY_STORAGE)
 	else
@@ -1537,3 +1542,15 @@
 /mob/living/proc/stop_look_up()
 	reset_perspective()
 	UnregisterSignal(src, COMSIG_MOVABLE_PRE_MOVE)
+
+
+/mob/living/set_stat(new_stat)
+	. = ..()
+	if(isnull(.))
+		return
+	switch(.) //Previous stat.
+		if(UNCONSCIOUS)
+			cure_blind(UNCONSCIOUS_BLIND)
+	switch(stat) //Current stat.
+		if(UNCONSCIOUS)
+			become_blind(UNCONSCIOUS_BLIND)

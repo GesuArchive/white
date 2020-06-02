@@ -355,8 +355,8 @@
 	if(target.get_item_by_slot(ITEM_SLOT_HEAD) != src)
 		return
 	QDEL_NULL(paranoia)
-	if(!target.IsUnconscious())
-		to_chat(target, "<span class='warning'>Ваш ревностный заговор быстро рассеивается по мере того, как надетая шляпа погружается в разрушенный беспорядок. Все эти теории начинают звучать как просто смешная фанфара.</span>")
+	if(target.stat < UNCONSCIOUS)
+		to_chat(target, "<span class='warning'>Мой ревностный заговор быстро рассеивается по мере того, как надетая шляпа погружается в разрушенный беспорядок. Все эти теории начинают звучать как просто смешная фанфара.</span>")
 
 /obj/item/clothing/head/foilhat/attack_hand(mob/user)
 	if(!warped && iscarbon(user))

@@ -2346,7 +2346,7 @@
 		if(prob(50))
 			the_toy = pickweight(GLOB.arcade_prize_pool)
 		else
-			the_toy = pick(subtypesof(/obj/item/toy/plush) - typesof(/obj/item/toy/plush/goatplushie/angry/kinggoat))
+			the_toy = pick(subtypesof(/obj/item/toy/plush))
 		new the_toy(.)
 
 /datum/supply_pack/costumes_toys/wizard
@@ -2448,6 +2448,20 @@
 	if(prob(10)) //A little extra sugar every now and then to shake things up.
 		new	/obj/item/switchblade(C)
 
+/datum/supply_pack/costumes_toys/randomised/tcg
+	name = "Big-Ass Booster Pack Pack"
+	desc = "A bumper load of NT TCG Booster Packs of varying series. Collect them all!"
+	cost = 1000
+	contains = list()
+	crate_name = "booster pack pack"
+
+/datum/supply_pack/costumes_toys/randomised/tcg/generate()
+	. = ..()
+	var/cardpacktype
+	for(var/i in 1 to 10)
+		cardpacktype = pick(subtypesof(/obj/item/cardpack))
+		new cardpacktype(.)
+
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Miscellaneous ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -2496,13 +2510,15 @@
 
 /datum/supply_pack/misc/book_crate
 	name = "Book Crate"
-	desc = "Surplus from the Nanotrasen Archives, these five books are sure to be good reads."
+	desc = "Surplus from the Nanotrasen Archives, these seven books are sure to be good reads."
 	cost = 1500
 	contains = list(/obj/item/book/codex_gigas,
 					/obj/item/book/manual/random/,
 					/obj/item/book/manual/random/,
 					/obj/item/book/manual/random/,
-					/obj/item/book/random/triple)
+					/obj/item/book/random,
+					/obj/item/book/random,
+					/obj/item/book/random)
 	crate_type = /obj/structure/closet/crate/wooden
 
 /datum/supply_pack/misc/paper
