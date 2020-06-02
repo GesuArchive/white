@@ -59,7 +59,7 @@
 /datum/metacoin_shop_item/rjaka
 	name = "Ржака"
 	icon_state = "lul"
-	cost = 50
+	cost = 5
 	id = "rjaka"
 	enabled = FALSE
 
@@ -70,7 +70,7 @@
 /datum/metacoin_shop_item/force_aspect
 	name = "Выбрать аспект"
 	icon_state = "aspect"
-	cost = 150
+	cost = 25
 	id = "force_aspect"
 	enabled = TRUE
 
@@ -93,7 +93,7 @@
 /datum/metacoin_shop_item/purge_this_shit
 	name = "Фатальный сброс"
 	icon_state = "purge"
-	cost = 10000
+	cost = 1000
 	id = "purge_this_shit"
 	enabled = TRUE
 
@@ -112,7 +112,7 @@
 /datum/metacoin_shop_item/respawn_me
 	name = "Перерождение"
 	icon_state = "rjaka"
-	cost = 100
+	cost = 50
 	id = "respawn_me"
 	enabled = TRUE
 

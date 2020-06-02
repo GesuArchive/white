@@ -6,7 +6,7 @@
 //WINTER COATS
 /datum/gear/suit/coat
 	subtype_path = /datum/gear/suit/coat
-	cost = 200
+	cost = 20
 
 /datum/gear/suit/coat/grey
 	display_name = "Зимняя куртка"
@@ -17,9 +17,9 @@
 /datum/gear/suit/bomber_jacket
 	display_name = "Куртка бомбер"
 	path = /obj/item/clothing/suit/jacket
-	cost = 250
+	cost = 25
 
 /datum/gear/suit/grponcho
 	display_name = "Зелёный пончо"
 	path = /obj/item/clothing/suit/poncho/green
-	cost = 200
+	cost = 20
