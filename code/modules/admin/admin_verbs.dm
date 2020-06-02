@@ -567,7 +567,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/reload_cards()
 	set name = "Reload Cards"
-	set category = "Debug"
+	set category = "ДЕБАГ"
 	if(!check_rights(R_DEBUG))
 		return
 	if(!SStrading_card_game.loaded)
@@ -577,7 +577,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/validate_cardpacks()
 	set name = "Validate Cardpacks"
-	set category = "Debug"
+	set category = "ДЕБАГ"
 	if(!check_rights(R_DEBUG))
 		return
 	if(!SStrading_card_game.loaded)
@@ -587,7 +587,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/test_cardpack_distribution()
 	set name = "Test Cardpack Distribution"
-	set category = "Debug"
+	set category = "ДЕБАГ"
 	if(!check_rights(R_DEBUG))
 		return
 	if(!SStrading_card_game.loaded)
@@ -601,7 +601,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/print_cards()
 	set name = "Print Cards"
-	set category = "Debug"
+	set category = "ДЕБАГ"
 	printAllCards()
 
 /client/proc/give_spell(mob/T in GLOB.mob_list)
