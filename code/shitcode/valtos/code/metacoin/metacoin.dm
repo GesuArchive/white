@@ -77,3 +77,9 @@
 		metacoin_items += id
 
 	qdel(query_get_metacoin_purchases)
+
+/mob/living/carbon/human/Stat()
+	..()
+	if(statpanel("ИГРА"))
+		stat(null, null)
+		stat("Метакэш:",      	client.mc_cached)

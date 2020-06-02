@@ -706,6 +706,7 @@
 				stat("[ETA]", "[SSshuttle.emergency.getTimerStr()]")
 
 	if(statpanel("СС"))
+		stat("ВНИМАНИЕ:", "ЭТА ПАНЕЛЬ МОЖЕТ СОЗДАВАТЬ ЛАГИ, ПОКА ОНА ОТКРЫТА. ТЕБЯ ПРЕДУПРЕДИЛИ.")
 		if (client)
 			stat("Пинг:", "[round(client.lastping, 1)]мс (Средний: [round(client.avgping, 1)]мс)")
 		stat("Карта:", "[SSmapping.config?.map_name || "Загрузка..."]")
