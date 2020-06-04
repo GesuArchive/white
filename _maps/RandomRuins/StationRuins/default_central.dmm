@@ -3146,6 +3146,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engine/gravity_generator)
 "in" = (
@@ -5201,7 +5202,7 @@ ja
 gz
 hU
 in
-Wd
+iG
 iW
 js
 jJ
@@ -5238,7 +5239,7 @@ gz
 ho
 gz
 hV
-Kh
+in
 iF
 Wd
 jt
@@ -5277,7 +5278,7 @@ jk
 gz
 hU
 in
-iG
+Wd
 iY
 js
 jL
