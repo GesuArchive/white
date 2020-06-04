@@ -117,7 +117,6 @@
 /datum/language/dwarven
 	name = "Dwarven"
 	desc = "An old language still used by some stem of the human species."
-	speech_verb = "angrily says"
 	key = "w"
 	syllables = list(
 		"etag", "gekur", "tel", "gudos", "geth", "udiz", "zalud", "shoveth", "ver", "zilir",

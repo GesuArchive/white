@@ -78,7 +78,7 @@
 			"cost" = P.cost * 2,
 			"id" = pack,
 			"desc" = P.desc || P.name, // If there is a description, use it. Otherwise use the pack's name.
-			"small_item" = P.small_item,
+			"small_item" = P.goody,
 			"access" = P.access
 		))
 	return data
@@ -154,7 +154,7 @@
 				continue
 		value += SO.pack.cost
 		shoppinglist -= SO
-		if(SO.pack.small_item) //small_item means it gets piled in the miscbox
+		if(SO.pack.goody) //goody means it gets piled in the miscbox
 			if(!miscboxes.len || !miscboxes["Cargo"])
 				miscboxes["Cargo"] = new /obj/structure/closet/crate/secure(pick_n_take(empty_turfs))
 				miscboxes["Cargo"].name = "small items crate"

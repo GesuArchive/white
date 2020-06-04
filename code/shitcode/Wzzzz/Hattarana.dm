@@ -4507,7 +4507,7 @@
 	desc = "Contains one Assault Carbine. Requires Armory access to open."
 	cost = 5000
 	contains = list(/obj/item/gun/ballistic/automatic/wzzzz/carbine)
-	small_item = TRUE
+	goody = TRUE
 
 /datum/supply_pack/security/armory/carbine
 	name = "Assault Carbine Crate"
@@ -4531,7 +4531,7 @@
 	desc = "Contains a 25-round magazine for the Assault Carbine. Each magazine is designed to facilitate rapid tactical reloads. Requires Armory access to open."
 	cost = 1500
 	contains = list(/obj/item/ammo_box/magazine/wzzzz/carbine)
-	small_item = TRUE
+	goody = TRUE
 
 /datum/supply_pack/security/armory/secalthard
 	name = "Adv. Security Hardsuit Crate"
