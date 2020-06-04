@@ -788,8 +788,8 @@
 		var/altered_grab_state = pulledby.grab_state
 		if((resting || HAS_TRAIT(src, TRAIT_GRABWEAKNESS)) && pulledby.grab_state < GRAB_KILL) //If resting, resisting out of a grab is equivalent to 1 grab state higher. won't make the grab state exceed the normal max, however
 			altered_grab_state++
-		var/resist_chance = BASE_GRAB_RESIST_CHANCE // see defines/combat.dm
-		resist_chance = max((resist_chance/altered_grab_state)-sqrt((getBruteLoss()+getFireLoss()+getOxyLoss()+getToxLoss()+getCloneLoss())*0.5+getStaminaLoss()), 0) //stamina loss is weighted twice as heavily as the other damage types in this calculation
+		var/resist_chance = BASE_GRAB_RESIST_CHANCE /// see defines/combat.dm, this should be baseline 60%
+		resist_chance = (resist_chance/altered_grab_state) ///Resist chance divided by the value imparted by your grab state. It isn't until you reach neckgrab that you gain a penalty to escaping a grab.
 		if(prob(resist_chance))
 			visible_message("<span class='danger'><b>[src]</b> вырывается из захвата <b>[pulledby]</b>!</span>", \
 							"<span class='danger'>Вырываюсь из захвата <b>[pulledby]</b>!</span>", null, null, pulledby)
@@ -798,12 +798,12 @@
 			pulledby.stop_pulling()
 			return FALSE
 		else
-			adjustStaminaLoss(rand(8,15))//8 is from 7.5 rounded up
+			adjustStaminaLoss(rand(15,20))//failure to escape still imparts a pretty serious penalty
 			visible_message("<span class='danger'><b>[src]</b> пытается вырваться из захвата <b>[pulledby]</b>!</span>", \
 							"<span class='warning'>Пытаюсь вырваться из захвата <b>[pulledby]</b>!</span>", null, null, pulledby)
 			to_chat(pulledby, "<span class='danger'><b>[src]</b> пытается вырваться из моего захвата!</span>")
 		if(moving_resist && client) //we resisted by trying to move
-			client.move_delay = world.time + 20
+			client.move_delay = world.time + 40
 	else
 		pulledby.stop_pulling()
 		return FALSE
