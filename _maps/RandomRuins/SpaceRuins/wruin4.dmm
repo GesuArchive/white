@@ -997,7 +997,6 @@
 "el" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/melee/baseball_bat/ablative,
-/obj/item/book/random/triple,
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/terrorship)
 "em" = (
@@ -1256,7 +1255,6 @@
 "iK" = (
 /obj/structure/closet/cabinet,
 /obj/item/banhammer,
-/obj/item/book/random/triple,
 /obj/item/cane,
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/terrorship)
