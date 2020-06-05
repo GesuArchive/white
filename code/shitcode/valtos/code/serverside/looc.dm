@@ -41,6 +41,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Chat, listen_looc)()
 */
 /client/verb/looc(msg as text)
 	set name = "LOOC"
+	set category = "OOC"
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='danger'>Не хочу писать.</span>")
