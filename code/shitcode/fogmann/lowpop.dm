@@ -1,6 +1,6 @@
 #define CHALLENGE_TELECRYSTALS 10
 #define CHALLENGE_TIME_LIMIT 3000
-#define CHALLENGE_MIN_PLAYERS 1
+#define CHALLENGE_MIN_PLAYERS 0
 #define CHALLENGE_SHUTTLE_DELAY 7532 // 12 minutes
 
 
@@ -101,9 +101,11 @@
 	if(declaring_war_lowpop)
 		to_chat(user, "<span class='boldwarning'>You are already in the process of declaring war! Make your mind up.</span>")
 		return FALSE
+	/*
 	if(GLOB.player_list.len < CHALLENGE_MIN_PLAYERS)
 		to_chat(user, "<span class='boldwarning'>The enemy crew is too small to be worth declaring war on.</span>")
 		return FALSE
+	*/
 	if(!user.onSyndieBase())
 		to_chat(user, "<span class='boldwarning'>You have to be at your base to use this.</span>")
 		return FALSE
