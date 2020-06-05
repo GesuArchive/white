@@ -19,8 +19,8 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 0
 	melee_damage_upper = 0
-	attack_verb_continuous = "lashes out at"
-	attack_verb_simple = "lash out at"
+	attack_verb_continuous = "набрасывается на"
+	attack_verb_simple = "набрасывается на"
 	speak_emote = list("telepathically cries")
 	attack_sound = 'sound/weapons/pierce.ogg'
 	throw_message = "falls right through the strange body of the"
@@ -77,8 +77,8 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 2
 	melee_damage_upper = 2
-	attack_verb_continuous = "slashes"
-	attack_verb_simple = "slash"
+	attack_verb_continuous = "разрывает"
+	attack_verb_simple = "разрывает"
 	speak_emote = list("telepathically cries")
 	attack_sound = 'sound/weapons/pierce.ogg'
 	throw_message = "falls right through the strange body of the"
@@ -108,8 +108,8 @@
 	obj_damage = 60
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attack_verb_continuous = "lashes out at"
-	attack_verb_simple = "lash out at"
+	attack_verb_continuous = "набрасывается на"
+	attack_verb_simple = "набрасывается на"
 	speak_emote = list("echoes")
 	attack_sound = 'sound/weapons/pierce.ogg'
 	throw_message = "bounces harmlessly off of"
@@ -178,8 +178,8 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 12
 	melee_damage_upper = 12
-	attack_verb_continuous = "bites"
-	attack_verb_simple = "bite"
+	attack_verb_continuous = "кусает"
+	attack_verb_simple = "кусает"
 	speak_emote = list("echoes")
 	attack_sound = 'sound/weapons/pierce.ogg'
 	throw_message = "is shrugged off by"

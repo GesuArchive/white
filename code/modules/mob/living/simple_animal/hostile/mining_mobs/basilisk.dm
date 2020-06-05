@@ -103,8 +103,8 @@ mob/living/simple_animal/hostile/asteroid/basilisk/proc/cool_down()
 	throw_message = "bounces harmlessly off of"
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attack_verb_continuous = "impales"
-	attack_verb_simple = "impale"
+	attack_verb_continuous = "протыкает"
+	attack_verb_simple = "протыкает"
 	a_intent = INTENT_HARM
 	speak_emote = list("telepathically cries")
 	attack_sound = 'sound/weapons/bladeslice.ogg'

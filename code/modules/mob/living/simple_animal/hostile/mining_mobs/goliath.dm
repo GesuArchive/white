@@ -23,8 +23,8 @@
 	obj_damage = 100
 	melee_damage_lower = 25
 	melee_damage_upper = 25
-	attack_verb_continuous = "pulverizes"
-	attack_verb_simple = "pulverize"
+	attack_verb_continuous = "измельчает"
+	attack_verb_simple = "измельчает"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	throw_message = "does nothing to the rocky hide of the"
 	vision_range = 5
