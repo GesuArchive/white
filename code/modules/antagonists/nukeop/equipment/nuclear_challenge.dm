@@ -103,9 +103,11 @@ GLOBAL_LIST_EMPTY(jam_on_wardec)
 	if(declaring_war)
 		to_chat(user, "<span class='boldwarning'>You are already in the process of declaring war! Make your mind up.</span>")
 		return FALSE
+	/*
 	if(GLOB.player_list.len < CHALLENGE_MIN_PLAYERS)
 		to_chat(user, "<span class='boldwarning'>The enemy crew is too small to be worth declaring war on.</span>")
 		return FALSE
+	*/
 	if(!user.onSyndieBase())
 		to_chat(user, "<span class='boldwarning'>You have to be at your base to use this.</span>")
 		return FALSE
