@@ -63,7 +63,7 @@
 /datum/blackmarket_item/misc/rjaca1
 	name = "РЖАКА"
 	desc = "ЛУЧШЕ НЕ ПОКУПАЙ"
-	item = /obj/structure/closet/crate/critter
+	item = /obj/structure/closet/crate/critter/xenoqueen
 
 	price_min = 228
 	price_max = 1337
@@ -72,7 +72,7 @@
 	availability_prob = 100
 
 /datum/blackmarket_item/misc/rjaca1/spawn_item(loc)
-		var/obj/structure/closet/crate/critter/RJACA1 = ..()
+		var/obj/structure/closet/crate/critter/xenoqueen/RJACA1 = ..()
 		RJACA1.name = "Коробка с РЖАКОЙ"
 		RJACA1.desc = "А может не надо?"
 		new /mob/living/simple_animal/hostile/alien/queen/large(RJACA1)
@@ -96,7 +96,7 @@
 /datum/blackmarket_item/misc/rjaca2
 	name = "РЖАКА"
 	desc = "ЛУЧШЕ НЕ ПОКУПАЙ"
-	item = /obj/structure/closet/crate/critter
+	item = /obj/structure/closet/crate/critter/xenoqueen
 
 	price_min = 228
 	price_max = 1488
@@ -104,7 +104,7 @@
 	stock_max = 10
 	availability_prob = 100
 
-var/obj/structure/closet/crate/critter/RJACA2 = ..()
+var/obj/structure/closet/crate/critter/xenoqueen/RJACA2 = ..()
 		RJACA2.name = "Коробка с РЖАКОЙ"
 		RJACA2.desc = "А может не надо?"
 		new /mob/living/simple_animal/hostile/syndicate/melee/space/stormtrooper(RJACA2)
