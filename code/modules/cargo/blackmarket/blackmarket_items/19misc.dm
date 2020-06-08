@@ -67,8 +67,8 @@
 
 	price_min = 228
 	price_max = 1337
-	stock_min = 1
-	stock_max = 10
+	stock_min = 0
+	stock_max = 1
 	availability_prob = 100
 
 /datum/blackmarket_item/misc/rjaca1/spawn_item(loc)
@@ -98,10 +98,10 @@
 	desc = "ЛУЧШЕ НЕ ПОКУПАЙ"
 	item = /obj/structure/closet/crate/critter/xenoqueen
 
-	price_min = 228
+	price_min = 666
 	price_max = 1488
-	stock_min = 1
-	stock_max = 10
+	stock_min = 0
+	stock_max = 1
 	availability_prob = 100
 
 var/obj/structure/closet/crate/critter/xenoqueen/RJACA2 = ..()
