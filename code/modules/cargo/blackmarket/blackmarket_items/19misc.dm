@@ -58,3 +58,51 @@
 	stock_min = 1
 	stock_max = 2
 	availability_prob = 50
+
+/datum/blackmarket_item/misc/rjaca
+	name = "РЖАКА"
+	desc = "ЛУЧШЕ НЕ ПОКУПАЙ"
+
+	price_min = 10000000
+	price_max = 500000000
+	stock_min = 1
+	stock_max = 10
+	availability_prob = 100
+
+/datum/blackmarket_item/misc/rjaca/spawn_item(loc)
+	if (prob(50))
+		var/obj/structure/closet/crate/critter/RJACA1 = ..()
+		RJACA1.name = "Коробка с РЖАКОЙ"
+		RJACA1.desc = "А может не надо?"
+		new /mob/living/simple_animal/hostile/alien/queen/large(RJACA1)
+		new /mob/living/simple_animal/hostile/alien/queen(RJACA1)
+		new /mob/living/simple_animal/hostile/alien/queen(RJACA1)
+		new /mob/living/simple_animal/hostile/alien/drone(RJACA1)
+		new /mob/living/simple_animal/hostile/alien/drone(RJACA1)
+		new /mob/living/simple_animal/hostile/alien/drone(RJACA1)
+		new /mob/living/simple_animal/hostile/alien/drone(RJACA1)
+		new /mob/living/simple_animal/hostile/alien(RJACA1)
+		new /mob/living/simple_animal/hostile/alien(RJACA1)
+		new /mob/living/simple_animal/hostile/alien(RJACA1)
+		new /mob/living/simple_animal/hostile/alien(RJACA1)
+		new /mob/living/simple_animal/hostile/alien/sentinel(RJACA1)
+		new /mob/living/simple_animal/hostile/alien/sentinel(RJACA1)
+		new /mob/living/simple_animal/hostile/alien/sentinel(RJACA1)
+		new /mob/living/simple_animal/hostile/alien/sentinel(RJACA1)
+		return (RJACA1)
+	else
+		var/obj/structure/closet/crate/critter/RJACA2 = ..()
+		RJACA2.name = "Коробка с РЖАКОЙ"
+		RJACA2.desc = "А может не надо?"
+		new /mob/living/simple_animal/hostile/syndicate/melee/space/stormtrooper(RJACA2)
+		new /mob/living/simple_animal/hostile/syndicate/ranged/smg/space/stormtrooper(RJACA2)
+		new /mob/living/simple_animal/hostile/syndicate/ranged/shotgun/space/stormtrooper(RJACA2)
+		new /mob/living/simple_animal/hostile/syndicate/melee/space/stormtrooper(RJACA2)
+		new /mob/living/simple_animal/hostile/syndicate/ranged/smg/space/stormtrooper(RJACA2)
+		new /mob/living/simple_animal/hostile/syndicate/ranged/shotgun/space/stormtrooper(RJACA2)
+		new /mob/living/simple_animal/hostile/syndicate/ranged/smg/space/stormtrooper(RJACA2)
+		new /mob/living/simple_animal/hostile/syndicate/ranged/shotgun/space/stormtrooper(RJACA2)
+		new /mob/living/simple_animal/hostile/syndicate/melee/space/stormtrooper(RJACA2)
+		new /mob/living/simple_animal/hostile/syndicate/ranged/smg/space/stormtrooper(RJACA2)
+		new /mob/living/simple_animal/hostile/syndicate/ranged/shotgun/space/stormtrooper(RJACA2)
+		return (RJACA2)
