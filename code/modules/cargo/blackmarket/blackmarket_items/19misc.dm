@@ -65,8 +65,8 @@
 	desc = "ЛУЧШЕ НЕ ПОКУПАЙ"
 	item = /obj/structure/closet/crate/critter
 
-	price_min = 10000000
-	price_max = 500000000
+	price_min = 228
+	price_max = 1337
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
