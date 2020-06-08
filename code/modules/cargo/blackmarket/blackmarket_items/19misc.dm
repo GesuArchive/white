@@ -52,6 +52,7 @@
 /datum/blackmarket_item/misc/emag
 	name = "Криптографическая хуйня"
 	desc = "Чё это блять?"
+	item = /obj/item/card/emag
 
 	price_min = 10000
 	price_max = 25000
@@ -62,6 +63,7 @@
 /datum/blackmarket_item/misc/rjaca
 	name = "РЖАКА"
 	desc = "ЛУЧШЕ НЕ ПОКУПАЙ"
+	item = /obj/structure/closet/crate/critter
 
 	price_min = 10000000
 	price_max = 500000000
