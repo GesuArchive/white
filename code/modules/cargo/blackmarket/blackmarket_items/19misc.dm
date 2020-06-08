@@ -90,7 +90,7 @@
 		new /mob/living/simple_animal/hostile/alien/sentinel(RJACA1)
 		new /mob/living/simple_animal/hostile/alien/sentinel(RJACA1)
 		new /mob/living/simple_animal/hostile/alien/sentinel(RJACA1)
-		return (RJACA1)
+		return RJACA1
 
 
 /datum/blackmarket_item/misc/rjaca2
@@ -104,7 +104,8 @@
 	stock_max = 1
 	availability_prob = 100
 
-var/obj/structure/closet/crate/critter/xenoqueen/RJACA2 = ..()
+/datum/blackmarket_item/misc/rjaca2/spawn_item(loc)
+		var/obj/structure/closet/crate/critter/xenoqueen/RJACA2 = ..()
 		RJACA2.name = "Коробка с РЖАКОЙ"
 		RJACA2.desc = "А может не надо?"
 		new /mob/living/simple_animal/hostile/syndicate/melee/space/stormtrooper(RJACA2)
@@ -118,4 +119,4 @@ var/obj/structure/closet/crate/critter/xenoqueen/RJACA2 = ..()
 		new /mob/living/simple_animal/hostile/syndicate/melee/space/stormtrooper(RJACA2)
 		new /mob/living/simple_animal/hostile/syndicate/ranged/smg/space/stormtrooper(RJACA2)
 		new /mob/living/simple_animal/hostile/syndicate/ranged/shotgun/space/stormtrooper(RJACA2)
-		return (RJACA2)
+		return RJACA2
