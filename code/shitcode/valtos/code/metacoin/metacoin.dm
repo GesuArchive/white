@@ -21,9 +21,9 @@
 
 /client/proc/get_metabalance()
 	var/datum/DBQuery/query_get_metacoins = SSdbcore.NewQuery({"
-		SELECT metacoins FROM [format_table_name("player")] WHERE ckey = :ckey
+		SELECT metacoins FROM player WHERE ckey = :ckey
 	"}, list("ckey" = ckey))
-	var/mc_count = 0
+	var/mc_count = null
 	if(!query_get_metacoins.Execute())
 		qdel(query_get_metacoins)
 		return
@@ -41,7 +41,7 @@
 
 /client/proc/set_metacoin_count(mc_count, ann=TRUE)
 	var/datum/DBQuery/query_set_metacoins = SSdbcore.NewQuery({"
-		UPDATE [format_table_name("player")] SET metacoins = :mc_count WHERE ckey = :ckey
+		UPDATE player SET metacoins = :mc_count WHERE ckey = :ckey
 	"}, list("mc_count" = mc_count, "ckey" = ckey))
 	query_set_metacoins.Execute()
 	update_metabalance_cache()
@@ -53,7 +53,7 @@
 	if(mc_count > 0 && !M.client)
 		return
 	var/datum/DBQuery/query_inc_metacoins = SSdbcore.NewQuery({"
-		UPDATE [format_table_name("player")] SET metacoins = metacoins + :mc_count WHERE ckey = :ckey
+		UPDATE player SET metacoins = metacoins + :mc_count WHERE ckey = :ckey
 	"}, list("mc_count" = mc_count, "ckey" = M.ckey))
 	query_inc_metacoins.Execute()
 	M.client.update_metabalance_cache()
