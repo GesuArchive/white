@@ -313,7 +313,7 @@ GLOBAL_LIST_EMPTY(donators)
 	if(!SSdbcore.IsConnected())
 		return 0
 
-	var/datum/DBQuery/query_donators = SSdbcore.NewQuery("SELECT round(sum) FROM donations WHERE byond='[ckey]'")
+	var/datum/DBQuery/query_donators = SSdbcore.NewQuery("SELECT round(sum) FROM donations WHERE byond=:ckey", list("ckey" = ckey))
 	query_donators.Execute()
 	while(query_donators.NextRow())
 		var/money = round(text2num(query_donators.item[1]))

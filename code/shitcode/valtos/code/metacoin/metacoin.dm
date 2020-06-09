@@ -20,7 +20,7 @@
 	inc_metabalance(mob, METACOIN_TENMINUTELIVING_REWARD, FALSE)
 
 /client/proc/get_metabalance()
-	var/datum/DBQuery/query_get_metacoins = SSdbcore.NewQuery("SELECT metacoins FROM [format_table_name("player")] WHERE ckey = '[ckey]'")
+	var/datum/DBQuery/query_get_metacoins = SSdbcore.NewQuery("SELECT metacoins FROM [format_table_name("player")] WHERE ckey = :ckey", list("ckey" = ckey))
 	var/mc_count = 0
 	if(query_get_metacoins.warn_execute())
 		if(query_get_metacoins.NextRow())
@@ -36,7 +36,7 @@
 	mc_cached = get_metabalance()
 
 /client/proc/set_metacoin_count(mc_count, ann=TRUE)
-	var/datum/DBQuery/query_set_metacoins = SSdbcore.NewQuery("UPDATE [format_table_name("player")] SET metacoins = '[mc_count]' WHERE ckey = '[ckey]'")
+	var/datum/DBQuery/query_set_metacoins = SSdbcore.NewQuery("UPDATE [format_table_name("player")] SET metacoins = :mc_count WHERE ckey = :ckey", list("mc_count" = mc_count, "ckey" = ckey))
 	query_set_metacoins.warn_execute()
 	update_metabalance_cache()
 	qdel(query_set_metacoins)
@@ -46,7 +46,7 @@
 /proc/inc_metabalance(mob/M, mc_count, ann=TRUE, reason=null)
 	if(mc_count > 0 && !M.client)
 		return
-	var/datum/DBQuery/query_inc_metacoins = SSdbcore.NewQuery("UPDATE [format_table_name("player")] SET metacoins = metacoins + '[mc_count]' WHERE ckey = '[M.ckey]'")
+	var/datum/DBQuery/query_inc_metacoins = SSdbcore.NewQuery("UPDATE [format_table_name("player")] SET metacoins = metacoins + :mc_count WHERE ckey = :ckey", list("mc_count" = mc_count, "ckey" = M.ckey))
 	query_inc_metacoins.warn_execute()
 	M.client.update_metabalance_cache()
 	qdel(query_inc_metacoins)
@@ -67,7 +67,7 @@
 	metacoin_items = list()
 
 	var/datum/DBQuery/query_get_metacoin_purchases
-	query_get_metacoin_purchases = SSdbcore.NewQuery("SELECT item_id,item_class FROM [format_table_name("metacoin_item_purchases")] WHERE ckey = '[ckey]'")
+	query_get_metacoin_purchases = SSdbcore.NewQuery("SELECT item_id,item_class FROM [format_table_name("metacoin_item_purchases")] WHERE ckey = :ckey", list("ckey" = ckey))
 
 	if(!query_get_metacoin_purchases.warn_execute())
 		return

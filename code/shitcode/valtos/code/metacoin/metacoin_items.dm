@@ -134,7 +134,10 @@
 	..()
 
 /datum/metacoin_shop_item/only_one/after_buy(client/C)
-	var/datum/DBQuery/query_metacoin_item_purchase = SSdbcore.NewQuery("INSERT INTO [format_table_name("metacoin_item_purchases")] (ckey, purchase_date, item_id, item_class) VALUES ('[C.ckey]', Now(), '[id]', '[class]')")
+	var/datum/DBQuery/query_metacoin_item_purchase = SSdbcore.NewQuery({"
+		INSERT INTO [format_table_name("metacoin_item_purchases")] (ckey, purchase_date, item_id, item_class)
+		VALUES (:ckey, :time, :id, :class)")
+	"}, list("ckey" = C.key, "time" = Now(), "id" = id, "class" = class))
 	query_metacoin_item_purchase.warn_execute()
 	qdel(query_metacoin_item_purchase)
 	C.update_metacoin_items()
