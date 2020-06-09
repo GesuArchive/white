@@ -286,7 +286,7 @@ get_true_breath_pressure(pp) --> gas_pp = pp/breath_pp*total_moles()
 			var/total_moles = get_moles(gas_id) + other.get_moles(gas_id)
 			set_moles(gas_id, total_moles * (return_volume()/total_volume))
 			other.set_moles(gas_id, total_moles * (other.return_volume()/total_volume))
-**/
+
 
 /// Pumps gas from src to output_air. Amount depends on target_pressure
 /datum/gas_mixture/proc/pump_gas_to(datum/gas_mixture/output_air, target_pressure)
