@@ -126,7 +126,7 @@ GLOBAL_LIST_INIT(LIGHTING_CORNER_DIAGONAL, list(NORTHEAST, SOUTHEAST, SOUTHWEST,
 		var/turf/T = TT
 		if (T.lighting_object && !T.lighting_object.needs_update)
 			T.lighting_object.needs_update = TRUE
-			SSlighting.objects_queue += T.lighting_object
+			GLOB.lighting_update_objects += T.lighting_object
 
 
 /datum/lighting_corner/dummy/New()
