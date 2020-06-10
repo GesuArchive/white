@@ -34,3 +34,4 @@
 	var/datum/component/battletension/BT = GetComponent(/datum/component/battletension)
 	if(BT)
 		BT.pick_sound()
+	med_hud_set_status()
