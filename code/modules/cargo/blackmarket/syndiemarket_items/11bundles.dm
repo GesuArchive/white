@@ -111,3 +111,41 @@
 	price_min = 5000
 	price_max = 10000
 	availability_prob = 25
+
+/datum/blackmarket_item/sbundles/origami_kit
+	name = "Boxed Origami Kit"
+	desc = "This box contains a guide on how to craft masterful works of origami, allowing you to transform normal pieces of paper into \
+			perfectly aerodynamic (and potentially lethal) paper airplanes."
+	item = /obj/item/storage/box/syndie_kit/origami_bundle
+	stock_min = 1
+	stock_max = 1
+
+	price_min = 5000
+	price_max = 10000
+	availability_prob = 25
+
+/datum/blackmarket_item/sbundles/infiltrator_bundle
+	name = "Infiltrator Case"
+	desc = "Developed by Roseus Galactic in conjunction with the Gorlex Marauders to produce a functional suit for urban operations, \
+			this suit proves to be cheaper than your standard issue hardsuit, with none of the movement restrictions of the outdated spacesuits employed by the company. \
+			Comes with an armor vest, helmet, sneaksuit, sneakboots, specialized combat gloves and a high-tech balaclava. The case is also rather useful as a storage container."
+	item = /obj/item/storage/toolbox/infiltrator
+	stock_min = 1
+	stock_max = 1
+
+	price_min = 5000
+	price_max = 10000
+	availability_prob = 25
+
+/datum/blackmarket_item/sbundles/space_suit
+	name = "Syndicate скафандр"
+	desc = "This red and black Syndicate space suit is less encumbering than Nanotrasen variants, \
+			fits inside bags, and has a weapon slot. Nanotrasen crew members are trained to report red space suit \
+			sightings, however."
+	item = /obj/item/storage/box/syndie_kit/space
+	stock_min = 1
+	stock_max = 1
+
+	price_min = 5000
+	price_max = 10000
+	availability_prob = 25

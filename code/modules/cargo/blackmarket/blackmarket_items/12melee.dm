@@ -2,6 +2,7 @@
 	markets = list(/datum/blackmarket_market/blackmarket)
 	category = "Ближний бой"
 
+/*
 /datum/blackmarket_item/melee/energy/esword
 	name = "Случайное энергетическое оружие ближнего боя"
 	desc = "При заказе вам будет выдано случайное энергетическое оружие ближнего боя"
@@ -25,6 +26,7 @@
 			/obj/item/melee/transforming/energy/blade/hardlight,
 			/obj/item/dualsaber))
 	return new esword(loc)
+*/
 
 /datum/blackmarket_item/melee/psword
 	name = "Случайное физическое оружие ближнего боя"

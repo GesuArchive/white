@@ -56,7 +56,6 @@
 
 	price_min = 10000
 	price_max = 25000
-	stock_min = 0
 	stock_max = 1
 	availability_prob = 10
 
