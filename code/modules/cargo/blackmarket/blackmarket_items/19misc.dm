@@ -56,13 +56,13 @@
 
 	price_min = 10000
 	price_max = 25000
-	stock_min = 1
-	stock_max = 2
-	availability_prob = 50
+	stock_min = 0
+	stock_max = 1
+	availability_prob = 10
 
 /datum/blackmarket_item/misc/rjaca
-	name = "РЖАКА"
-	desc = "ЛУЧШЕ НЕ ПОКУПАЙ"
+	name = "Е-МАГ"
+	desc = "Е-маг"
 	item = /obj/structure/closet/crate/critter/xenoqueen
 
 	price_min = 228
@@ -75,7 +75,7 @@
 	if (prob(50))
 		var/obj/structure/closet/crate/critter/xenoqueen/RJACA1 = ..()
 		RJACA1.name = "Коробка с РЖАКОЙ"
-		RJACA1.desc = "А может не надо?"
+		RJACA1.desc = "ТЫ ПОПАЛСЯ НА КЛИКБЕЙТ"
 		new /mob/living/simple_animal/hostile/alien/queen/large(RJACA1)
 		new /mob/living/simple_animal/hostile/alien/queen(RJACA1)
 		new /mob/living/simple_animal/hostile/alien/queen(RJACA1)
@@ -95,7 +95,7 @@
 	else
 		var/obj/structure/closet/crate/critter/RJACA2 = ..()
 		RJACA2.name = "Коробка с РЖАКОЙ"
-		RJACA2.desc = "А может не надо?"
+		RJACA2.desc = "ТЫ ПОПАЛСЯ НА КЛИКБЕЙТ"
 		new /mob/living/simple_animal/hostile/syndicate/melee/space/stormtrooper(RJACA2)
 		new /mob/living/simple_animal/hostile/syndicate/ranged/smg/space/stormtrooper(RJACA2)
 		new /mob/living/simple_animal/hostile/syndicate/ranged/shotgun/space/stormtrooper(RJACA2)
