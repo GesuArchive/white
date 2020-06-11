@@ -116,13 +116,13 @@ Behavior that's still missing from this component that original food items had t
 			to_chat(eater, "<span class='warning'>Не хочу я жрать эти отбросы!</span>")
 			return
 		else if(fullness <= 50)
-			eater.visible_message("<span class='notice'>[eater] жадно [eatverb] [parent], проглатывая кусками!</span>", "<span class='notice'>Мой рот жадно [eatverb] [parent], проглатывая кусками!</span>")
+			eater.visible_message("<span class='notice'>[eater] жадно [eatverb] [parent], проглатывая кусками!</span>", "<span class='notice'>Жадно кусаю [parent], проглатывая кусками!</span>")
 		else if(fullness > 50 && fullness < 150)
-			eater.visible_message("<span class='notice'>[eater] жадно [eatverb] [parent].</span>", "<span class='notice'>Мой рот жадно [eatverb] [parent].</span>")
+			eater.visible_message("<span class='notice'>[eater] жадно [eatverb] [parent].</span>", "<span class='notice'>Жадно пожираю [parent].</span>")
 		else if(fullness > 150 && fullness < 500)
-			eater.visible_message("<span class='notice'>[eater] [eatverb] [parent].</span>", "<span class='notice'>Мой рот [eatverb] [parent].</span>")
+			eater.visible_message("<span class='notice'>[eater] [eatverb] [parent].</span>", "<span class='notice'>Кушаю [parent].</span>")
 		else if(fullness > 500 && fullness < 600)
-			eater.visible_message("<span class='notice'>[eater] нехотя [eatverb] кусочек [parent].</span>", "<span class='notice'>Моё чрево нехотя [eatverb] кусочек [parent].</span>")
+			eater.visible_message("<span class='notice'>[eater] нехотя [eatverb] кусочек [parent].</span>", "<span class='notice'>Нямкаю кусочек [parent].</span>")
 		else if(fullness > (600 * (1 + eater.overeatduration / 2000)))	// The more you eat - the more you can eat
 			eater.visible_message("<span class='warning'>[eater] не может запихнуть [parent] в свою глотку!</span>", "<span class='warning'>В меня больше не лезет [parent]!</span>")
 			return

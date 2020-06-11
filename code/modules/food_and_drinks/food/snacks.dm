@@ -106,13 +106,13 @@ All foods are distributed among various categories. Use common sense.
 				to_chat(M, "<span class='warning'>Не хочу я жрать эти отбросы!</span>")
 				return FALSE
 			else if(fullness <= 50)
-				user.visible_message("<span class='notice'>[user] жадно [eatverb] [src], проглатывая кусками!</span>", "<span class='notice'>Мой рот жадно [eatverb] [src], проглатывая кусками!</span>")
+				user.visible_message("<span class='notice'>[user] жадно [eatverb] [src], проглатывая кусками!</span>", "<span class='notice'>Жадно кусаю [src], проглатывая кусками!</span>")
 			else if(fullness > 50 && fullness < 150)
-				user.visible_message("<span class='notice'>[user] жадно [eatverb] [src].</span>", "<span class='notice'>Мой рот жадно [eatverb] [src].</span>")
+				user.visible_message("<span class='notice'>[user] жадно [eatverb] [src].</span>", "<span class='notice'>Жадно пожираю [src].</span>")
 			else if(fullness > 150 && fullness < 500)
-				user.visible_message("<span class='notice'>[user] [eatverb] [src].</span>", "<span class='notice'>Мой рот [eatverb] [src].</span>")
+				user.visible_message("<span class='notice'>[user] [eatverb] [src].</span>", "<span class='notice'>Кушаю [src].</span>")
 			else if(fullness > 500 && fullness < 600)
-				user.visible_message("<span class='notice'>[user] нехотя [eatverb] кусочек [src].</span>", "<span class='notice'>Моё чрево нехотя [eatverb] кусочек [src].</span>")
+				user.visible_message("<span class='notice'>[user] нехотя [eatverb] кусочек [src].</span>", "<span class='notice'>Нямкаю кусочек [src].</span>")
 			else if(fullness > (600 * (1 + M.overeatduration / 2000)))	// The more you eat - the more you can eat
 				user.visible_message("<span class='warning'>[user] не может запихнуть [src] в свою глотку!</span>", "<span class='warning'>В меня больше не лезет [src]!</span>")
 				return FALSE
