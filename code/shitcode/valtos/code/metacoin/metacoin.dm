@@ -21,7 +21,7 @@
 
 /client/proc/get_metabalance()
 	var/datum/DBQuery/query_get_metacoins = SSdbcore.NewQuery(
-		"SELECT metacoins FROM player WHERE ckey = :ckey",
+		"SELECT round(metacoins) FROM player WHERE ckey = :ckey",
 		list("ckey" = ckey)
 	)
 	var/mc_count = 0
