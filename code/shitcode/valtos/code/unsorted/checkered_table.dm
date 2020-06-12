@@ -173,7 +173,7 @@
 		if(clicked_piece.icon == 'code/shitcode/valtos/icons/piece.dmi')
 			clicked_piece.icon = 'code/shitcode/valtos/icons/masterpiece.dmi'
 		else
-			clicked_piece.icon == 'code/shitcode/valtos/icons/piece.dmi'
+			clicked_piece.icon = 'code/shitcode/valtos/icons/piece.dmi'
 		overlays += clicked_piece
 		playsound(src.loc, 'code/shitcode/valtos/sounds/checkers/capture.wav', 50)
 		visible_message("<span class='notice'><b>[user]</b> переворачивает шашку в квадрате <b>[get_letter(_y)][_x]</b>.</span>")
