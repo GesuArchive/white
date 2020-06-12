@@ -3437,6 +3437,7 @@
 #include "code\shitcode\valtos\code\uniforms\russian.dm"
 #include "code\shitcode\valtos\code\unsorted\antimatter.dm"
 #include "code\shitcode\valtos\code\unsorted\boxplanet.dm"
+#include "code\shitcode\valtos\code\unsorted\checkered_table.dm"
 #include "code\shitcode\valtos\code\unsorted\christmas.dm"
 #include "code\shitcode\valtos\code\unsorted\custom_races.dm"
 #include "code\shitcode\valtos\code\unsorted\dakis.dm"
