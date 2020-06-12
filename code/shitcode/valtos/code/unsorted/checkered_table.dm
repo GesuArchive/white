@@ -4,8 +4,6 @@
 	name = "шахматное поле"
 	icon = 'code/shitcode/valtos/icons/checkers.dmi'
 	icon_state = "table"
-	pixel_x = -44
-	pixel_y = -32
 	var/table_grid[8][8]
 	var/list/table_pool_left = list()
 	var/list/table_pool_right = list()
@@ -16,6 +14,7 @@
 	..()
 	reset_table()
 	setup_checkers()
+	RegisterSignal(src, COMSIG_CLICK, .proc/table_click)
 
 /*
 /obj/item/checkered_table/MouseDrop(atom/over_object)
@@ -40,9 +39,9 @@
 	return attack_hand(user)
 
 /obj/item/checkered_table/proc/reset_table()
+	overlays = null
 	for(var/_x in 1 to 8)
 		for(var/_y in 1 to 8)
-			overlays -= table_grid[_x][_y]
 			table_grid[_x][_y] = null
 			table_pool_left.Cut()
 			table_pool_right.Cut()
@@ -128,8 +127,12 @@
 	var/_y = FLOOR(((piece.pixel_y / table_step) + 1), 1)
 	table_grid[_x][_y] = null
 
-/obj/item/checkered_table/Click(location, control, params)
-	if(!isliving(usr))
+/obj/item/checkered_table/proc/get_letter(n)
+	var/list/nwords = list("A", "B", "C", "D", "E", "F", "G", "H")
+	return nwords[n]
+
+/obj/item/checkered_table/proc/table_click(datum/source, location, control, params, mob/user)
+	if(!isliving(user))
 		return
 
 	var/_x_clicked = text2num(params2list(params)["icon-x"])
@@ -143,6 +146,7 @@
 		else
 			if(_x_clicked < 12)
 				activate_piece_from_pool("white")
+
 			else if (_x_clicked > 108)
 				activate_piece_from_pool("black")
 
@@ -159,12 +163,14 @@
 		overlays += clicked_piece
 		piece_active = clicked_piece
 		playsound(src.loc, 'code/shitcode/valtos/sounds/checkers/capture.wav', 50)
+		visible_message("<span class='notice'><b>[user]</b> поднимает шашку в квадрате <b>[get_letter(_y)][_x]</b>.</span>")
 	else if (piece_active && clicked_piece != null)
 		overlays -= piece_active
 		piece_active.icon_state = "[piece_active.name]"
 		overlays += piece_active
 		piece_active = null
 		playsound(src.loc, 'code/shitcode/valtos/sounds/checkers/capture.wav', 50)
+		visible_message("<span class='notice'><b>[user]</b> ставит шашку на место.</span>")
 	else if (piece_active && clicked_piece == null)
 		remove_piece_from_table(piece_active)
 		overlays -= piece_active
@@ -172,3 +178,4 @@
 		set_piece_on_table(_x, _y, piece_active.icon_state)
 		piece_active = null
 		playsound(src.loc, 'code/shitcode/valtos/sounds/checkers/move.wav', 50)
+		visible_message("<span class='notice'><b>[user]</b> переносит шашку в квадрат <b>[get_letter(_y)][_x]</b>.</span>")
