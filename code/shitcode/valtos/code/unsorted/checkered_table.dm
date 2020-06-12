@@ -6,6 +6,9 @@
 	icon = 'code/shitcode/valtos/icons/checkers.dmi'
 	icon_state = "table"
 	anchored = TRUE
+	pixel_x = -44
+	pixel_y = -32
+	plane = TURF_LAYER
 	var/table_grid[8][8]
 	var/list/table_pool_left = list()
 	var/list/table_pool_right = list()
@@ -15,7 +18,7 @@
 /obj/checkered_table/examine(mob/user)
 	. = ..()
 	. += "<span class='notice'>Alt-клик для сброса поля к изначальному варианту.</span>"
-	. += "<span class='notice'>СКМ по шашке, чтобы её перевернуть.</span>"
+	. += "<span class='notice'>Ctrl-клик по шашке, чтобы её перевернуть.</span>"
 
 /obj/checkered_table/Initialize()
 	..()
@@ -167,7 +170,7 @@
 		piece_active = null
 		playsound(src.loc, 'code/shitcode/valtos/sounds/checkers/capture.wav', 50)
 		visible_message("<span class='notice'><b>[user]</b> ставит шашку на место.</span>")
-	else if (clicked_piece && PR["middle"])
+	else if (clicked_piece && PR["ctrl"])
 		overlays -= clicked_piece
 		clicked_piece.icon_state = "[piece_active.name]"
 		if(clicked_piece.icon == 'code/shitcode/valtos/icons/piece.dmi')
