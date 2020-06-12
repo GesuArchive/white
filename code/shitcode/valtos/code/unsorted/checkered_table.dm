@@ -17,6 +17,7 @@
 	reset_table()
 	setup_checkers()
 
+/*
 /obj/item/checkered_table/MouseDrop(atom/over_object)
 	. = ..()
 	var/mob/living/M = usr
@@ -33,6 +34,7 @@
 	reset_table()
 
 	add_fingerprint(M)
+*/
 
 /obj/item/checkered_table/attack_paw(mob/user)
 	return attack_hand(user)
@@ -128,8 +130,6 @@
 
 /obj/item/checkered_table/Click(location, control, params)
 	if(!isliving(usr))
-		return
-	if(!in_range(usr, src))
 		return
 
 	var/_x_clicked = text2num(params2list(params)["icon-x"])
