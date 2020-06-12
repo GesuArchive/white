@@ -1,44 +1,32 @@
 // Shitcode
 
-/obj/item/checkered_table
+/obj/checkered_table
 	name = "шахматное поле"
+	desc = "Крутое."
 	icon = 'code/shitcode/valtos/icons/checkers.dmi'
 	icon_state = "table"
+	anchored = TRUE
 	var/table_grid[8][8]
 	var/list/table_pool_left = list()
 	var/list/table_pool_right = list()
 	var/table_step = 12
 	var/image/piece_active
 
-/obj/item/checkered_table/Initialize()
+/obj/checkered_table/examine(mob/user)
+	. = ..()
+	. += "<span class='notice'>Alt-клик для сброса поля к изначальному варианту.</span>"
+	. += "<span class='notice'>СКМ по шашке, чтобы её перевернуть.</span>"
+
+/obj/checkered_table/Initialize()
 	..()
 	reset_table()
 	setup_checkers()
 	RegisterSignal(src, COMSIG_CLICK, .proc/table_click)
 
-/*
-/obj/item/checkered_table/MouseDrop(atom/over_object)
-	. = ..()
-	var/mob/living/M = usr
-	if(!istype(M) || M.incapacitated() || !Adjacent(M))
-		return
-
-	if(over_object == M)
-		M.put_in_hands(src)
-
-	else if(istype(over_object, /obj/screen/inventory/hand))
-		var/obj/screen/inventory/hand/H = over_object
-		M.putItemFromInventoryInHandIfPossible(src, H.held_index)
-
-	reset_table()
-
-	add_fingerprint(M)
-*/
-
-/obj/item/checkered_table/attack_paw(mob/user)
+/obj/checkered_table/attack_paw(mob/user)
 	return attack_hand(user)
 
-/obj/item/checkered_table/proc/reset_table()
+/obj/checkered_table/proc/reset_table()
 	overlays = null
 	for(var/_x in 1 to 8)
 		for(var/_y in 1 to 8)
@@ -46,7 +34,7 @@
 			table_pool_left.Cut()
 			table_pool_right.Cut()
 
-/obj/item/checkered_table/proc/setup_checkers()
+/obj/checkered_table/proc/setup_checkers()
 	set_piece_on_table(1, 1, "white")
 	set_piece_on_table(3, 1, "white")
 	set_piece_on_table(5, 1, "white")
@@ -77,7 +65,7 @@
 	set_piece_on_table(6, 8, "black")
 	set_piece_on_table(8, 8, "black")
 
-/obj/item/checkered_table/proc/set_piece_on_table(_x, _y, piece_type)
+/obj/checkered_table/proc/set_piece_on_table(_x, _y, piece_type)
 	var/image/I = image('code/shitcode/valtos/icons/piece.dmi', piece_type)
 	I.pixel_x = (_x * table_step + 12) - table_step
 	I.pixel_y = (_y * table_step) - table_step
@@ -85,7 +73,7 @@
 	table_grid[_x][_y] = I
 	overlays += I
 
-/obj/item/checkered_table/proc/set_piece_on_pool(piece_type)
+/obj/checkered_table/proc/set_piece_on_pool(piece_type)
 	var/image/I = image('code/shitcode/valtos/icons/piece.dmi', piece_type)
 	I.name = piece_type
 	if(piece_type == "white")
@@ -99,7 +87,7 @@
 		table_pool_right += I
 		overlays += I
 
-/obj/item/checkered_table/proc/activate_piece_from_pool(piece_type)
+/obj/checkered_table/proc/activate_piece_from_pool(piece_type)
 	if(piece_type == "white")
 		piece_active = table_pool_left[table_pool_left.len]
 		overlays -= piece_active
@@ -111,14 +99,14 @@
 		piece_active.icon_state = "[piece_active.icon_state]_picked"
 		overlays += piece_active
 
-/obj/item/checkered_table/proc/remove_piece_from_pool(piece_type)
+/obj/checkered_table/proc/remove_piece_from_pool(piece_type)
 	overlays -= piece_active
 	if(piece_type == "white")
 		table_pool_left.Cut(table_pool_left.len)
 	if(piece_type == "black")
 		table_pool_right.Cut(table_pool_right.len)
 
-/obj/item/checkered_table/proc/remove_piece_from_table(image/piece)
+/obj/checkered_table/proc/remove_piece_from_table(image/piece)
 	if(piece.pixel_x  == 0 || piece.pixel_x == 108)
 		remove_piece_from_pool(piece.name)
 		return
@@ -127,16 +115,24 @@
 	var/_y = FLOOR(((piece.pixel_y / table_step) + 1), 1)
 	table_grid[_x][_y] = null
 
-/obj/item/checkered_table/proc/get_letter(n)
+/obj/checkered_table/proc/get_letter(n)
 	var/list/nwords = list("A", "B", "C", "D", "E", "F", "G", "H")
 	return nwords[n]
 
-/obj/item/checkered_table/proc/table_click(datum/source, location, control, params, mob/user)
+/obj/checkered_table/proc/table_click(datum/source, location, control, params, mob/user)
 	if(!isliving(user))
 		return
 
-	var/_x_clicked = text2num(params2list(params)["icon-x"])
-	var/_y_clicked = text2num(params2list(params)["icon-y"])
+	var/list/PR = params2list(params)
+
+	if(PR["alt"])
+		reset_table()
+		setup_checkers()
+		visible_message("<span class='warning'><b>[user]</b> сбрасывает доску к началу.</span>")
+		return
+
+	var/_x_clicked = text2num(PR["icon-x"])
+	var/_y_clicked = text2num(PR["icon-y"])
 
 	if(_x_clicked < 12 || _x_clicked > 108)
 		if(piece_active)
@@ -157,21 +153,31 @@
 
 	var/image/clicked_piece = table_grid[_x][_y]
 
-	if(!piece_active && clicked_piece != null)
+	if(!piece_active && clicked_piece)
 		overlays -= clicked_piece
 		clicked_piece.icon_state = "[clicked_piece.icon_state]_picked"
 		overlays += clicked_piece
 		piece_active = clicked_piece
 		playsound(src.loc, 'code/shitcode/valtos/sounds/checkers/capture.wav', 50)
 		visible_message("<span class='notice'><b>[user]</b> поднимает шашку в квадрате <b>[get_letter(_y)][_x]</b>.</span>")
-	else if (piece_active && clicked_piece != null)
+	else if (piece_active && clicked_piece)
 		overlays -= piece_active
 		piece_active.icon_state = "[piece_active.name]"
 		overlays += piece_active
 		piece_active = null
 		playsound(src.loc, 'code/shitcode/valtos/sounds/checkers/capture.wav', 50)
 		visible_message("<span class='notice'><b>[user]</b> ставит шашку на место.</span>")
-	else if (piece_active && clicked_piece == null)
+	else if (clicked_piece && PR["middle"])
+		overlays -= clicked_piece
+		clicked_piece.icon_state = "[piece_active.name]"
+		if(clicked_piece.icon == 'code/shitcode/valtos/icons/piece.dmi')
+			clicked_piece.icon = 'code/shitcode/valtos/icons/masterpiece.dmi'
+		else
+			clicked_piece.icon == 'code/shitcode/valtos/icons/piece.dmi'
+		overlays += clicked_piece
+		playsound(src.loc, 'code/shitcode/valtos/sounds/checkers/capture.wav', 50)
+		visible_message("<span class='notice'><b>[user]</b> переворачивает шашку в квадрате <b>[get_letter(_y)][_x]</b>.</span>")
+	else if (piece_active && !clicked_piece)
 		remove_piece_from_table(piece_active)
 		overlays -= piece_active
 		piece_active.icon_state = "[piece_active.name]"

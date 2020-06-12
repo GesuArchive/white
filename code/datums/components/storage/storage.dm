@@ -635,7 +635,7 @@
 			return FALSE //To prevent the stacking of same sized storage items.
 	if(HAS_TRAIT(I, TRAIT_NODROP)) //SHOULD be handled in unEquip, but better safe than sorry.
 		if(!stop_messages)
-			to_chat(M, "<span class='warning'>[I.name] застрял в твоей руке, ты не можешь положить его в [host]!</span>")
+			to_chat(M, "<span class='warning'>[I.name] застрял в моей руке, ты не можешь положить его в [host]!</span>")
 		return FALSE
 	var/datum/component/storage/concrete/master = master()
 	if(!istype(master))
