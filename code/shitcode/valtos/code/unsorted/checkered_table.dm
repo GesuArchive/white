@@ -1,5 +1,18 @@
 // Shitcode
 
+/obj/item/checkers_kit
+	name = "шахматное поле"
+	desc = "Сделано из блюспейс зубов."
+	icon = 'code/shitcode/valtos/icons/game_kit.dmi'
+	icon_state = "chess"
+	w_class = WEIGHT_CLASS_BULKY
+	force = 7
+
+/obj/item/checkers_kit/attack_self(mob/user)
+	visible_message("<span class='warning'><b>[user]</b> разворачивает огромную доску!</span>")
+	new /obj/checkered_table(get_turf(src))
+	qdel(src)
+
 /obj/checkered_table
 	name = "шахматное поле"
 	desc = "Крутое."
@@ -8,7 +21,7 @@
 	anchored = TRUE
 	pixel_x = -44
 	pixel_y = -32
-	plane = TURF_LAYER
+	appearance_flags = KEEP_TOGETHER
 	var/table_grid[8][8]
 	var/list/table_pool_left = list()
 	var/list/table_pool_right = list()
@@ -18,6 +31,7 @@
 /obj/checkered_table/examine(mob/user)
 	. = ..()
 	. += "<span class='notice'>Alt-клик для сброса поля к изначальному варианту.</span>"
+	. += "<span class='notice'>Ctrl-Shift-клик по доске, чтобы её свернуть.</span>"
 	. += "<span class='notice'>Ctrl-клик по шашке, чтобы её перевернуть.</span>"
 
 /obj/checkered_table/Initialize()
@@ -25,6 +39,8 @@
 	reset_table()
 	setup_checkers()
 	RegisterSignal(src, COMSIG_CLICK, .proc/table_click)
+	RegisterSignal(src, COMSIG_CLICK_CTRL, .proc/table_click)
+	RegisterSignal(src, COMSIG_CLICK_CTRL_SHIFT, .proc/table_click)
 
 /obj/checkered_table/attack_paw(mob/user)
 	return attack_hand(user)
@@ -132,6 +148,13 @@
 		reset_table()
 		setup_checkers()
 		visible_message("<span class='warning'><b>[user]</b> сбрасывает доску к началу.</span>")
+		return
+
+	if(PR["ctrl"] && PR["shift"])
+		reset_table()
+		visible_message("<span class='warning'><b>[user]</b> сворачивает доску.</span>")
+		new /obj/item/checkers_kit(get_turf(src))
+		qdel(src)
 		return
 
 	var/_x_clicked = text2num(PR["icon-x"])

@@ -151,7 +151,8 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Bible",						/obj/item/storage/book/bible,					100),
 	),
 	"Inovations" = list(
-		new /datum/donate_info("Game Kit",					/obj/item/game_kit,								200),
+		new /datum/donate_info("Game Kit",					/obj/item/game_kit,								100),
+		new /datum/donate_info("Checkers Kit",				/obj/item/checkers_kit,							150),
 		new /datum/donate_info("Casino Cards",				/obj/item/toy/cards/deck/shitspawn_deck,		450),
 		new /datum/donate_info("Jukebox (Only one)",		/obj/machinery/turntable/donate,				100),
 		new /datum/donate_info("Boombox (Only one)",		/obj/item/boombox/single,						150),
