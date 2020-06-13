@@ -847,6 +847,10 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/control)
+"cU" = (
+/obj/machinery/vending/games,
+/turf/open/floor/holofloor/carpet,
+/area/centcom/evac)
 "cV" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -1399,6 +1403,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"eK" = (
+/obj/machinery/vending/donksofttoyvendor,
+/turf/open/floor/holofloor/carpet,
+/area/centcom/evac)
 "eN" = (
 /obj/vehicle/ridden/scooter/skateboard{
 	dir = 4
@@ -1943,6 +1951,11 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
+"gP" = (
+/obj/effect/mob_spawn/human/prison/prisoner,
+/obj/machinery/light/floor,
+/turf/open/floor/holofloor/carpet,
+/area/centcom/evac)
 "gQ" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -3170,6 +3183,21 @@
 /obj/machinery/autodoc,
 /turf/open/indestructible,
 /area/centcom/debug)
+"kZ" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = 4
+	},
+/obj/machinery/light_switch{
+	pixel_y = -32
+	},
+/obj/item/construction/rld,
+/obj/item/storage/bag/trash/bluespace,
+/turf/open/floor/holofloor/carpet,
+/area/centcom/evac)
 "la" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -3380,6 +3408,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"lG" = (
+/obj/machinery/vending/autodrobe/all_access,
+/turf/open/floor/holofloor/carpet,
+/area/centcom/evac)
 "lH" = (
 /turf/closed/indestructible/abductor{
 	icon_state = "alien18"
@@ -3451,6 +3483,24 @@
 	},
 /turf/open/space/basic,
 /area/space)
+"lU" = (
+/obj/structure/table/wood,
+/obj/item/paint/anycolor{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/item/paint/anycolor{
+	pixel_x = -5
+	},
+/obj/item/paint/anycolor{
+	pixel_x = 7
+	},
+/obj/item/paint/anycolor{
+	pixel_y = -4;
+	pixel_x = 1
+	},
+/turf/open/floor/holofloor/carpet,
+/area/centcom/evac)
 "lV" = (
 /turf/closed/indestructible{
 	icon = 'icons/turf/walls/wood_wall.dmi';
@@ -4509,7 +4559,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/machinery/chem_dispenser/chem_synthesizer,
+/obj/machinery/chem_dispenser/fullupgrade,
 /turf/open/indestructible,
 /area/centcom/debug)
 "pF" = (
@@ -5640,6 +5690,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/evac)
+"td" = (
+/obj/structure/falsewall/wood,
+/obj/structure/mirror,
+/turf/closed/indestructible/riveted,
+/area/centcom/evac)
 "tf" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -5993,6 +6048,10 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
+"uA" = (
+/obj/machinery/vending/medical,
+/turf/open/floor/holofloor/carpet,
+/area/centcom/evac)
 "uC" = (
 /obj/structure/chair{
 	dir = 4
@@ -7448,6 +7507,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"zt" = (
+/obj/machinery/vending/modularpc,
+/turf/open/floor/holofloor/carpet,
+/area/centcom/evac)
 "zv" = (
 /obj/item/book/manual/wiki/security_space_law,
 /obj/structure/table/wood,
@@ -9960,6 +10023,13 @@
 	},
 /turf/open/floor/plasteel/grimy,
 /area/centcom/ferry)
+"HI" = (
+/obj/structure/dresser,
+/obj/item/camera{
+	pixel_y = 16
+	},
+/turf/open/floor/holofloor/carpet,
+/area/centcom/evac)
 "HK" = (
 /obj/structure/table,
 /obj/item/paper,
@@ -11258,6 +11328,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
+"LV" = (
+/obj/machinery/door/airlock/centcom{
+	name = "CentCom Security";
+	req_access_txt = "101"
+	},
+/turf/open/floor/plasteel,
+/area/centcom/evac)
 "LX" = (
 /obj/structure/table/wood,
 /obj/item/instrument/violin,
@@ -13565,6 +13642,19 @@
 	icon_state = "chapel"
 	},
 /area/holodeck/rec_center/chapelcourt)
+"Ti" = (
+/obj/structure/table/wood,
+/obj/item/checkers_kit,
+/obj/item/toy/crayon/spraycan/infinite{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/item/toy/crayon/spraycan/infinite{
+	pixel_y = 4;
+	pixel_x = -6
+	},
+/turf/open/floor/holofloor/carpet,
+/area/centcom/evac)
 "Tk" = (
 /turf/open/floor/holofloor{
 	icon_state = "white"
@@ -13661,6 +13751,9 @@
 /obj/item/reagent_containers/food/snacks/sashimi,
 /turf/open/floor/wood,
 /area/centcom/holding)
+"TA" = (
+/turf/open/floor/white,
+/area/centcom/evac)
 "TD" = (
 /obj/structure/chair/office{
 	dir = 4
@@ -14169,6 +14262,7 @@
 /obj/machinery/door/poddoor/shuttledock{
 	checkdir = 1
 	},
+/obj/structure/fans/tiny/invisible,
 /turf/open/floor/plasteel,
 /area/centcom/evac)
 "UT" = (
@@ -14666,6 +14760,10 @@
 /obj/machinery/vending/tool,
 /turf/open/floor/plasteel/dark,
 /area/syndicate_mothership/control)
+"Wk" = (
+/obj/machinery/vending/sustenance,
+/turf/open/floor/holofloor/carpet,
+/area/centcom/evac)
 "Wl" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -30677,7 +30775,7 @@ TL
 TL
 TL
 TL
-TL
+Wv
 Wv
 Wv
 Wv
@@ -30933,8 +31031,8 @@ TL
 TL
 TL
 TL
-Ne
 TL
+Wv
 TL
 TL
 TL
@@ -31191,7 +31289,7 @@ TL
 TL
 TL
 TL
-TL
+Wv
 TL
 TL
 TL
@@ -31448,7 +31546,7 @@ TL
 TL
 TL
 TL
-TL
+Wv
 TL
 TL
 TL
@@ -31705,7 +31803,7 @@ TL
 TL
 TL
 TL
-FX
+Wv
 TL
 TL
 TL
@@ -31962,7 +32060,7 @@ TL
 TL
 TL
 TL
-TL
+Wv
 TL
 TL
 TL
@@ -32217,9 +32315,9 @@ TL
 TL
 TL
 TL
-Ne
 TL
 TL
+Wv
 TL
 TL
 TL
@@ -32476,7 +32574,7 @@ TL
 TL
 TL
 TL
-TL
+Wv
 TL
 TL
 TL
@@ -32733,7 +32831,7 @@ TL
 TL
 TL
 TL
-TL
+Wv
 TL
 TL
 TL
@@ -32990,7 +33088,7 @@ TL
 TL
 TL
 TL
-TL
+Wv
 TL
 TL
 TL
@@ -33245,9 +33343,9 @@ TL
 TL
 TL
 TL
-JA
 TL
-Ne
+TL
+Wv
 Wv
 Wv
 Wv
@@ -33502,7 +33600,7 @@ TL
 TL
 TL
 TL
-nS
+TL
 TL
 TL
 TL
@@ -45401,15 +45499,15 @@ WL
 WL
 WL
 WL
-Jj
+LV
 WL
 WL
 WL
 WL
-Jj
+LV
 WL
 WL
-Co
+WL
 Co
 Co
 Co
@@ -45651,22 +45749,22 @@ Co
 Co
 Co
 Co
-eh
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+WL
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+uA
+WL
 Co
 Co
 Co
@@ -45908,22 +46006,22 @@ Co
 Co
 Co
 Co
-eh
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+WL
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+eK
+WL
 Co
 Co
 Co
@@ -46165,22 +46263,22 @@ Co
 Co
 Co
 Co
-eh
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+WL
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+cU
+WL
 Co
 Co
 Co
@@ -46422,22 +46520,22 @@ Co
 Co
 Co
 Co
-eh
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+WL
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+gP
+WL
 Co
 Co
 Co
@@ -46679,22 +46777,22 @@ Co
 Co
 Co
 Co
-eh
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+WL
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+td
+WL
 Co
 Co
 Co
@@ -46936,22 +47034,22 @@ Co
 Co
 Co
 Co
-eh
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+WL
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+lU
+WL
 Co
 Co
 Co
@@ -47193,22 +47291,22 @@ Co
 Co
 Co
 Co
-eh
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+WL
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+kZ
+WL
 Co
 Co
 Co
@@ -47450,22 +47548,22 @@ Co
 Co
 Co
 Co
-eh
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+WL
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+Ti
+WL
 Co
 Co
 Co
@@ -47707,22 +47805,22 @@ Co
 Co
 Co
 Co
-eh
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+WL
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+HI
+WL
 Co
 Co
 Co
@@ -47964,22 +48062,22 @@ Co
 Co
 Co
 Co
-eh
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+WL
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+gP
+WL
 Co
 Co
 Co
@@ -48221,22 +48319,22 @@ Co
 Co
 Co
 Co
-eh
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+WL
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+zt
+WL
 Co
 Co
 Co
@@ -48478,22 +48576,22 @@ Co
 Co
 Co
 Co
-eh
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+WL
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+Wk
+WL
 Co
 Co
 Co
@@ -48735,22 +48833,22 @@ Co
 Co
 Co
 Co
-eh
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+WL
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+TA
+lG
+WL
 Co
 Co
 Co
@@ -48957,57 +49055,57 @@ Co
 Co
 Co
 eh
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
 eh
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+eh
+WL
+WL
+WL
+WL
+WL
+WL
+WL
+WL
+WL
+WL
+WL
+WL
+WL
+WL
+WL
+WL
 Co
 Co
 Co
@@ -49213,50 +49311,50 @@ Co
 Co
 Co
 Co
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
-eh
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
+Co
 Zg
 Zg
 Zg
