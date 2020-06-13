@@ -14343,12 +14343,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/theatre)
-"biC" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer3{
-	dir = 8
-	},
-/turf/open/space/basic,
-/area/space)
 "biD" = (
 /obj/machinery/holopad,
 /turf/open/floor/plasteel/white,
@@ -54151,7 +54145,7 @@ aaa
 aaa
 aaa
 aaa
-biC
+aaa
 aaa
 aaa
 aaa
