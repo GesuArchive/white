@@ -43,7 +43,7 @@
 						pushed_mob.visible_message("<span class='danger'><b>[user]</b> принуждает <b>[pushed_mob]</b> вкусить свежий пар!</span>",
 									"<span class='userdanger'><b>[user]</b> принуждает меня вкусить свежий пар!</span>")
 						log_combat(user, pushed_mob, "head fried", null, "against <b>[src]</b>")
-						SEND_SIGNAL(pushed_mob, COMSIG_ADD_MOOD_EVENT, "table", /datum/mood_event/table_headsmash)
+						SEND_SIGNAL(pushed_mob, COMSIG_ADD_MOOD_EVENT, "table", /datum/mood_event/table)
 					else
 						return
 	return ..()

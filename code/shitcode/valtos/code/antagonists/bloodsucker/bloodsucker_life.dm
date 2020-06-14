@@ -176,7 +176,7 @@
 	// No Bleeding
 	if (ishuman(owner.current))
 		var/mob/living/carbon/human/H = owner.current
-		H.bleed_rate = 0
+		H.bleedsuppress = 1
 
 	// Damage Heal: Do I have damage to ANY bodypart?
 	if (iscarbon(owner.current))

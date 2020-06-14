@@ -820,7 +820,7 @@
 		D.death(FALSE)
 		log_combat(A, D, "head stomped")
 	if(ishuman(D))
-		D.bleed_rate += 10
+		D.bleed(10)
 	D.apply_damage(40, BRUTE)
 	A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 	return TRUE
