@@ -1,7 +1,7 @@
 
 /obj/item/bodypart/chest
-	name = BODY_ZONE_CHEST
-	desc = "It's impolite to stare at a person's chest."
+	name = "грудь"
+	desc = "Неправильно смотреть на чью-то грудь."
 	icon_state = "default_human_chest"
 	max_damage = 200
 	body_zone = BODY_ZONE_CHEST
@@ -55,11 +55,8 @@
 	animal_origin = LARVA_BODYPART
 
 /obj/item/bodypart/l_arm
-	name = "left arm"
-	desc = "Did you know that the word 'sinister' stems originally from the \
-		Latin 'sinestra' (left hand), because the left hand was supposed to \
-		be possessed by the devil? This arm appears to be possessed by no \
-		one though."
+	name = "левая рука"
+	desc = "Этой штукой можно пощекотать свою жопу."
 	icon_state = "default_human_l_arm"
 	attack_verb = list("slapped", "punched")
 	max_damage = 50
@@ -72,7 +69,7 @@
 	held_index = 1
 	px_x = -6
 	px_y = 0
-	specific_locations = list("outer left forearm", "inner left wrist", "left elbow", "left bicep", "left shoulder")
+	specific_locations = list("левое предплечье", "левое запястье", "левый локоть", "левый бицепс", "левое плечо")
 
 /obj/item/bodypart/l_arm/is_disabled()
 	if(HAS_TRAIT(owner, TRAIT_PARALYSIS_L_ARM))
@@ -87,12 +84,12 @@
 		if(owner.stat < UNCONSCIOUS)
 			owner.emote("scream")
 		if(owner.stat < DEAD)
-			to_chat(owner, "<span class='userdanger'>Your [name] is too damaged to function!</span>")
+			to_chat(owner, "<span class='userdanger'>Моя [name] сильно повреждена для работы!</span>")
 		if(held_index)
 			owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	else if(disabled == BODYPART_DISABLED_PARALYSIS)
 		if(owner.stat < DEAD)
-			to_chat(owner, "<span class='userdanger'>You can't feel your [name]!</span>")
+			to_chat(owner, "<span class='userdanger'>Я не чувствую свою [sklonenie(name, VINITELNI, FEMALE)]!</span>")
 			if(held_index)
 				owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	if(owner.hud_used)
@@ -123,9 +120,8 @@
 	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/r_arm
-	name = "right arm"
-	desc = "Over 87% of humans are right handed. That figure is much lower \
-		among humans missing their right arm."
+	name = "правая рука"
+	desc = "А вот этой вот дрочу."
 	icon_state = "default_human_r_arm"
 	attack_verb = list("slapped", "punched")
 	max_damage = 50
@@ -138,7 +134,7 @@
 	px_x = 6
 	px_y = 0
 	max_stamina_damage = 50
-	specific_locations = list("outer right forearm", "inner right wrist", "right elbow", "right bicep", "right shoulder")
+	specific_locations = list("правое предплечье", "правое запястье", "правый локоть", "правый бицепс", "правое плечо")
 
 /obj/item/bodypart/r_arm/is_disabled()
 	if(HAS_TRAIT(owner, TRAIT_PARALYSIS_R_ARM))
@@ -153,12 +149,12 @@
 		if(owner.stat < UNCONSCIOUS)
 			owner.emote("scream")
 		if(owner.stat < DEAD)
-			to_chat(owner, "<span class='userdanger'>Your [name] is too damaged to function!</span>")
+			to_chat(owner, "<span class='userdanger'>Моя [name] сильно повреждена для работы!</span>")
 		if(held_index)
 			owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	else if(disabled == BODYPART_DISABLED_PARALYSIS)
 		if(owner.stat < DEAD)
-			to_chat(owner, "<span class='userdanger'>You can't feel your [name]!</span>")
+			to_chat(owner, "<span class='userdanger'>Я не чувствую свою [sklonenie(name, VINITELNI, FEMALE)]!</span>")
 			if(held_index)
 				owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	if(owner.hud_used)
@@ -189,9 +185,8 @@
 	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/l_leg
-	name = "left leg"
-	desc = "Some athletes prefer to tie their left shoelaces first for good \
-		luck. In this instance, it probably would not have helped."
+	name = "левая нога"
+	desc = "Вставать с этой ноги не круто."
 	icon_state = "default_human_l_leg"
 	attack_verb = list("kicked", "stomped")
 	max_damage = 50
@@ -201,7 +196,7 @@
 	px_x = -2
 	px_y = 12
 	max_stamina_damage = 50
-	specific_locations = list("inner left thigh", "outer left calf", "outer left hip", " left kneecap", "lower left shin")
+	specific_locations = list("левое бедро", "внешняя левая голень", "верхняя левая голень", " левая коленная чашечка", "нижняя левая голень")
 
 /obj/item/bodypart/l_leg/is_disabled()
 	if(HAS_TRAIT(owner, TRAIT_PARALYSIS_L_LEG))
@@ -216,13 +211,13 @@
 		if(owner.stat < UNCONSCIOUS)
 			owner.emote("scream")
 		if(owner.stat < DEAD)
-			to_chat(owner, "<span class='userdanger'>Your [name] is too damaged to function!</span>")
+			to_chat(owner, "<span class='userdanger'>Моя [name] сильно повреждена для работы!</span>")
 	else if(disabled == BODYPART_DISABLED_PARALYSIS)
 		if(owner.stat < DEAD)
-			to_chat(owner, "<span class='userdanger'>You can't feel your [name]!</span>")
+			to_chat(owner, "<span class='userdanger'>Я не чувствую свою [sklonenie(name, VINITELNI, FEMALE)]!</span>")
 
 /obj/item/bodypart/l_leg/digitigrade
-	name = "left digitigrade leg"
+	name = "левая искусственная нога"
 	use_digitigrade = FULL_DIGITIGRADE
 
 /obj/item/bodypart/l_leg/monkey
@@ -247,10 +242,8 @@
 	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/r_leg
-	name = "right leg"
-	desc = "You put your right leg in, your right leg out. In, out, in, out, \
-		shake it all about. And apparently then it detaches.\n\
-		The hokey pokey has certainly changed a lot since space colonisation."
+	name = "правая нога"
+	desc = "А вот с этой ноги стоит вставать."
 	// alternative spellings of 'pokey' are availible
 	icon_state = "default_human_r_leg"
 	attack_verb = list("kicked", "stomped")
@@ -261,7 +254,7 @@
 	px_x = 2
 	px_y = 12
 	max_stamina_damage = 50
-	specific_locations = list("inner right thigh", "outer right calf", "outer right hip", "right kneecap", "lower right shin")
+	specific_locations = list("правое бедро", "внешняя правая голень", "верхняя правая голень", " правая коленная чашечка", "нижняя правая голень")
 
 /obj/item/bodypart/r_leg/is_disabled()
 	if(HAS_TRAIT(owner, TRAIT_PARALYSIS_R_LEG))
@@ -276,13 +269,13 @@
 		if(owner.stat < UNCONSCIOUS)
 			owner.emote("scream")
 		if(owner.stat < DEAD)
-			to_chat(owner, "<span class='userdanger'>Your [name] is too damaged to function!</span>")
+			to_chat(owner, "<span class='userdanger'>Моя [name] сильно повреждена для работы!</span>")
 	else if(disabled == BODYPART_DISABLED_PARALYSIS)
 		if(owner.stat < DEAD)
-			to_chat(owner, "<span class='userdanger'>You can't feel your [name]!</span>")
+			to_chat(owner, "<span class='userdanger'>Я не чувствую свою [sklonenie(name, VINITELNI, FEMALE)]!</span>")
 
 /obj/item/bodypart/r_leg/digitigrade
-	name = "right digitigrade leg"
+	name = "правая искусственная нога"
 	use_digitigrade = FULL_DIGITIGRADE
 
 /obj/item/bodypart/r_leg/monkey
