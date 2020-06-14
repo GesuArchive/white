@@ -192,6 +192,9 @@
 			else
 				msg += "<B>У н[t_ego] застрял [icon2html(I, user)] [I] в [BP.name]!</B>\n"
 
+		for(var/datum/wound/W in BP.wounds)
+			msg += "[W.get_examine_description(user)]\n"
+
 	for(var/X in disabled)
 		var/obj/item/bodypart/BP = X
 		var/damage_text

@@ -269,8 +269,8 @@
 
 	CHECK_TICK
 
-	//check config blah blah
 	handle_hearts()
+	set_observer_default_invisibility(0, "<span class='warning'>The round is over! You are now visible to the living.</span>")
 
 	CHECK_TICK
 
@@ -510,8 +510,6 @@
 	var/list/all_antagonists = list()
 
 	for(var/datum/team/A in GLOB.antagonist_teams)
-		if(!A.members)
-			continue
 		all_teams |= A
 
 	for(var/datum/antagonist/A in GLOB.antagonists)

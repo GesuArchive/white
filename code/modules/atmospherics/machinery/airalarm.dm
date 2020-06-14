@@ -161,7 +161,7 @@
 	name = "контроллер воздуха в смешивателе"
 	locked = FALSE
 	req_access = null
-	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_TOX, ACCESS_TOX_STORAGE)
+	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_TOXINS)
 
 /obj/machinery/airalarm/all_access
 	name = "вседоступный контроллер воздуха"

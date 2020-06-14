@@ -104,10 +104,14 @@
 		description =  "<span class='nicegreen'>Со мной хотят поиграться на столе!</span>\n"
 		mood_change = 2
 
-/datum/mood_event/table_headsmash
-	description = "<span class='warning'>Моя голова... Больно блять...</span>"
+/datum/mood_event/table_limbsmash
+	description = "<span class='warning'>Моя голова... Больно блять...</span>\n"
 	mood_change = -3
 	timeout = 3 MINUTES
+
+/datum/mood_event/table_limbsmash/add_effects(obj/item/bodypart/banged_limb)
+	if(banged_limb)
+		description = "<span class='warning'>My fucking [banged_limb.name], man that hurts...</span>\n"
 
 /datum/mood_event/brain_damage
   mood_change = -3

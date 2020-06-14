@@ -22,17 +22,17 @@
 	var/power_efficiency = 1
 	/// Power used per teleported which gets divided by power_efficiency.
 	var/power_usage_per_teleport = 10000
-	/// The time it takes for the machine to recharge before being able to send or recieve items.
+	/// The time it takes for the machine to recharge before being able to send or receive items.
 	var/recharge_time = 0
 	/// Current recharge progress.
 	var/recharge_cooldown = 0
 	/// Base recharge time which is used to get recharge_time.
-	var/base_recharge_time = 0
-	/// Current /datum/blackmarket_purchase being recieved.
-	var/recieving
+	var/base_recharge_time = 100
+	/// Current /datum/blackmarket_purchase being received.
+	var/receiving
 	/// Current /datum/blackmarket_purchase being sent to the target uplink.
 	var/transmitting
-	/// Queue for purchases that the machine should recieve and send.
+	/// Queue for purchases that the machine should receive and send.
 	var/list/datum/blackmarket_purchase/queue = list()
 
 /obj/machinery/ltsrbt/Initialize()
@@ -47,10 +47,24 @@
 			SSblackmarket.queue_item(P)
 	. = ..()
 
-/// Adds /datum/blackmarket_purchase to queue unless the machine is free, then it sets the purchase to be instantly recieved
+/obj/machinery/ltsrbt/RefreshParts()
+	recharge_time = base_recharge_time
+	// On tier 4 recharge_time should be 20 and by default it is 80 as scanning modules should be tier 1.
+	for(var/obj/item/stock_parts/scanning_module/scan in component_parts)
+		recharge_time -= scan.rating * 10
+	recharge_cooldown = recharge_time
+
+	power_efficiency = 0
+	for(var/obj/item/stock_parts/micro_laser/laser in component_parts)
+		power_efficiency += laser.rating
+	// Shouldn't happen but you never know.
+	if(!power_efficiency)
+		power_efficiency = 1
+
+/// Adds /datum/blackmarket_purchase to queue unless the machine is free, then it sets the purchase to be instantly received
 /obj/machinery/ltsrbt/proc/add_to_queue(datum/blackmarket_purchase/purchase)
-	if(!recharge_cooldown && !recieving && !transmitting)
-		recieving = purchase
+	if(!recharge_cooldown && !receiving && !transmitting)
+		receiving = purchase
 		return
 	queue += purchase
 
@@ -63,8 +77,8 @@
 		return
 
 	var/turf/T = get_turf(src)
-	if(recieving)
-		var/datum/blackmarket_purchase/P = recieving
+	if(receiving)
+		var/datum/blackmarket_purchase/P = receiving
 
 		if(!P.item || ispath(P.item))
 			P.item = P.entry.spawn_item(T)
@@ -78,7 +92,7 @@
 		sparks.attach(P.item)
 		sparks.start()
 
-		recieving = null
+		receiving = null
 		transmitting = P
 
 		recharge_cooldown = recharge_time
@@ -98,4 +112,4 @@
 		return
 
 	if(queue.len)
-		recieving = pick_n_take(queue)
+		receiving = pick_n_take(queue)

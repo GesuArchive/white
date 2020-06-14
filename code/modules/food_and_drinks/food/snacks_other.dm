@@ -462,6 +462,7 @@
 	throwforce = 15
 	block_chance = 55
 	armour_penetration = 80
+	wound_bonus = -70
 	attack_verb = list("шлёпает", "рубит")
 	w_class = WEIGHT_CLASS_BULKY
 	tastes = list("вишня" = 1, "креп" = 1)

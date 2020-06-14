@@ -35,17 +35,17 @@ export const AirlockElectronics = (props, context) => {
                 })}
               />
               <Button
-                icon={data.unres_direction & 2 ? 'check-square-o' : 'square-o'}
-                content="Восток"
-                selected={data.unres_direction & 2}
+                icon={unres_direction & 2 ? 'check-square-o' : 'square-o'}
+                content="Юг"
+                selected={unres_direction & 2}
                 onClick={() => act('direc_set', {
                   unres_direction: '2',
                 })}
               />
               <Button
-                icon={data.unres_direction & 4 ? 'check-square-o' : 'square-o'}
-                content="Юг"
-                selected={data.unres_direction & 4}
+                icon={unres_direction & 4 ? 'check-square-o' : 'square-o'}
+                content="Восток"
+                selected={unres_direction & 4}
                 onClick={() => act('direc_set', {
                   unres_direction: '4',
                 })}

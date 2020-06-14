@@ -18,7 +18,7 @@
 	desc = "Тактический защитный комбинезон для офицеров в комплекте с ремнем безопасности Нанотрейзен."
 	icon_state = "rsecurity"
 	inhand_icon_state = "r_suit"
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
+	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30, "wound" = 10)
 	strip_delay = 50
 	alt_covers_chest = TRUE
 	sensor_mode = SENSOR_COORDS
@@ -66,7 +66,7 @@
 	desc = "Формальный защитный костюм для офицеров в комплекте с пряжкой на поясе Нанотрейзен."
 	icon_state = "rwarden"
 	inhand_icon_state = "r_suit"
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
+	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30, "wound" = 10)
 	strip_delay = 50
 	alt_covers_chest = TRUE
 	sensor_mode = 3
@@ -102,7 +102,7 @@
 	desc = "Кто-то, кто носит это, точно в деле."
 	icon_state = "detective"
 	inhand_icon_state = "det"
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
+	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30, "wound" = 10)
 	strip_delay = 50
 	alt_covers_chest = TRUE
 	sensor_mode = 3
@@ -141,7 +141,7 @@
 	desc = "Защитный комбинезон, украшенный для тех немногих самоотверженным стремлением занять пост начальника охраны."
 	icon_state = "rhos"
 	inhand_icon_state = "r_suit"
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50, "wound" = 10)
 	strip_delay = 60
 	alt_covers_chest = TRUE
 	sensor_mode = 3
