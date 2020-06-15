@@ -11,7 +11,7 @@ export const chem_reagent_forge = (props, context) => {
           title="Кузница">
           <LabeledList>
             <LabeledList.Item
-              label={data.currently_forging} />
+              label="{data.currently_forging}" />
             <ProgressBar
               value={data.material_amount>Math.round(data.material_amount)} cm3
               minValue="0"
@@ -28,21 +28,21 @@ export const chem_reagent_forge = (props, context) => {
           <div
             class="display tabular">
             <Section
-              class="candystripe">
+              className="candystripe">
               <Section
-                class="cell bold">
+                className="cell bold">
                 Recipe
               </Section>
               <Section
-                class="cell bold">
+                className="cell bold">
                 Cost (Cm3)
               </Section>
               <Section
-                class="cell bold">
+                className="cell bold">
                 Type
               </Section>
               <Section
-                class="cell bold"
+                className="cell bold"
                 align="center">
                 Create
               </Section>
@@ -52,17 +52,17 @@ export const chem_reagent_forge = (props, context) => {
               class="candystripe">
               <Section
                 class="cell">
-                {data.name}
+                {'name'}
               </Section>
               <Section
                 class="cell"
                 align="right">
-                {data.cost}
+                {'cost'}
               </Section>
               <Section
                 class="cell"
                 align="right">
-                {data.category}
+                {'category'}
               </Section>
               <Section
                 class="table"
@@ -74,7 +74,7 @@ export const chem_reagent_forge = (props, context) => {
               <Section
                 class="cell">
                 <Button.Grid
-                  disabled={data.can_afford}
+                  disabled="{data.can_afford}"
                   OnClick={() => act('create', {
                     name: 'name' })}>
                   Create
