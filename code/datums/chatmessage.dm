@@ -79,8 +79,7 @@ GLOBAL_VAR_INIT(chat_bubbles, FALSE)
 	RegisterSignal(owned_by, COMSIG_PARENT_QDELETING, .proc/on_parent_qdel)
 
 	// Clip message
-	var/maxlen = owned_by.prefs.max_chat_length
-	if (length_char(text) > maxlen)
+	if (length_char(text) > 150)
 		text = copytext_char(text, 1, maxlen + 1) + "..." // BYOND index moment
 
 	// Calculate target color if not already present
