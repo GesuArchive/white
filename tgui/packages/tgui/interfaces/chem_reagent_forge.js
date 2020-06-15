@@ -13,15 +13,15 @@ export const chem_reagent_forge = (props, context) => {
             <LabeledList.Item
               label="{data.currently_forging}" />
             <ProgressBar
-              value={data.material_amount>Math.round(data.material_amount)} cm3
               minValue="0"
               maxvalue="200000"
-              content={data.material_amount} />
+              value={data.material_amount} />
+            <Button
+              title="Eject"
+              icon="Dump"
+              disabled="{data.currently_forging}"
+              OnClick={() => act("Dump")} />
           </LabeledList>
-          <Button
-            title="Eject"
-            icon="Dump"
-            OnClick={() => act('Dump')} />
         </Section>
         <Section
           title="Рецепты">
@@ -49,36 +49,36 @@ export const chem_reagent_forge = (props, context) => {
             </Section>
             {data.recipes}
             <Section
-              class="candystripe">
+              className="candystripe">
               <Section
-                class="cell">
-                {'name'}
+                className="cell">
+                {name}
               </Section>
               <Section
-                class="cell"
+                className="cell"
                 align="right">
-                {'cost'}
+                {"cost"}
               </Section>
               <Section
-                class="cell"
+                className="cell"
                 align="right">
-                {'category'}
+                {"category"}
               </Section>
               <Section
-                class="table"
+                className="table"
                 alight="right" />
               <Section
-                class="cell" />
+                className="cell" />
               <Section
-                class="cell" />
+                className="cell" />
               <Section
-                class="cell">
-                <Button.Grid
+                className="cell">
+                <Button
                   disabled="{data.can_afford}"
                   OnClick={() => act('create', {
-                    name: 'name' })}>
+                    name: "name" })}>
                   Create
-                </Button.Grid>
+                </Button>
               </Section>
             </Section>
           </div>
