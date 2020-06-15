@@ -8,7 +8,7 @@ export const chem_reagent_forge = (props, context) => {
     <Window>
       <Window.Content>
         <Section
-          title="Кузница">
+          title="Forge">
           <LabeledList>
             <LabeledList.Item
               label={data.currently_forging} />
@@ -24,7 +24,7 @@ export const chem_reagent_forge = (props, context) => {
             OnClick={() => act('Dump')} />
         </Section>
         <Section
-          title="Рецепты">
+          title="Recipes">
           <div
             class="display tabular">
             <Section
@@ -73,12 +73,12 @@ export const chem_reagent_forge = (props, context) => {
                 class="cell" />
               <Section
                 class="cell">
-                <Button.Grid
+                <Button
                   disabled={data.can_afford}
                   OnClick={() => act('create', {
                     name: 'name' })}>
                   Create
-                </Button.Grid>
+                </Button>
               </Section>
             </Section>
           </div>
