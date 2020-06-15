@@ -88,7 +88,6 @@
 		H.fan_hud_set_fandom()
 		if(attached_accessory.above_suit)
 			H.update_inv_wear_suit()
-	set_sensor_glob()
 
 /obj/item/clothing/under/dropped(mob/user)
 	if(attached_accessory)
@@ -98,10 +97,23 @@
 			H.fan_hud_set_fandom()
 			if(attached_accessory.above_suit)
 				H.update_inv_wear_suit()
-	set_sensor_glob()
 	..()
 
-/obj/item/clothing/under/proc/attach_accessory(obj/item/I, mob/user, notifyAttach = 1, params)
+/mob/living/carbon/human/update_suit_sensors()
+	. = ..()
+	update_sensor_list()
+
+/mob/living/carbon/human/proc/update_sensor_list()
+	var/obj/item/clothing/under/U = w_uniform
+	if(istype(U) && U.has_sensor > 0 && U.sensor_mode)
+		GLOB.suit_sensors_list |= src
+	else
+		GLOB.suit_sensors_list -= src
+
+/mob/living/carbon/human/dummy/update_sensor_list()
+	return
+
+/obj/item/clothing/under/proc/attach_accessory(obj/item/I, mob/user, notifyAttach = 1)
 	. = FALSE
 	if(istype(I, /obj/item/clothing/accessory))
 		var/obj/item/clothing/accessory/A = I
@@ -188,6 +200,104 @@
 				. += "Сенсоры жизненных показателей и местоположения работают."
 	if(attached_accessory)
 		. += "Вау! На этой штуке есть [attached_accessory]."
+
+/obj/item/clothing/under/verb/toggle()
+	set name = "Переключить сенсоры костюма"
+	set category = "ОБЪЕКТ"
+	set src in usr
+	var/mob/M = usr
+	if (istype(M, /mob/dead/))
+		return
+	if (!can_use(M))
+		return
+	if(src.has_sensor == LOCKED_SENSORS)
+		to_chat(usr, "Элементы управления заблокированы.")
+		return 0
+	if(src.has_sensor == BROKEN_SENSORS)
+		to_chat(usr, "Датчики замкнули!")
+		return 0
+	if(src.has_sensor <= NO_SENSORS)
+		to_chat(usr, "Этот костюм не имеет никаких датчиков.")
+		return 0
+
+	var/list/modes = list("Выкл", "Примерные показатели", "Точные показатели", " + отслеживание")
+	var/switchMode = input("Выбери режим работы:", "Режим работы", modes[sensor_mode + 1]) in modes
+	if(get_dist(usr, src) > 1)
+		to_chat(usr, "<span class='warning'>Я слишком далеко блять!</span>")
+		return
+	sensor_mode = modes.Find(switchMode) - 1
+	set_sensor_glob()
+	if (src.loc == usr)
+		switch(sensor_mode)
+			if(0)
+				to_chat(usr, "<span class='notice'>Отключаю работу сенсоров костюма.</span>")
+			if(1)
+				to_chat(usr, "<span class='notice'>Мой костюм теперь будет сообщать только о том, жив я или мёртв.</span>")
+			if(2)
+				to_chat(usr, "<span class='notice'>Мой костюм теперь будет сообщать только мои точные жизненные признаки.</span>")
+			if(3)
+				to_chat(usr, "<span class='notice'>Мой костюм теперь сообщает о моих точных жизненных знаках, а также о моих координатах.</span>")
+
+	if(ishuman(loc))
+		var/mob/living/carbon/human/H = loc
+		if(H.w_uniform == src)
+			H.update_suit_sensors()
+
+/obj/item/clothing/under/AltClick(mob/user)
+	if(..())
+		return 1
+
+	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
+		return
+	else
+		if(attached_accessory)
+			remove_accessory(user)
+		else
+			rolldown()
+
+/obj/item/clothing/under/verb/jumpsuit_adjust()
+	set name = "Поправить костюм"
+	set category = null
+	set src in usr
+	rolldown()
+
+/obj/item/clothing/under/proc/rolldown()
+	if(!can_use(usr))
+		return
+	if(!can_adjust)
+		to_chat(usr, "<span class='warning'>А тут некуда поправлять!</span>")
+		return
+	if(toggle_jumpsuit_adjust())
+		to_chat(usr, "<span class='notice'>Теперь буду носить его как модник.</span>")
+	else
+		to_chat(usr, "<span class='notice'>Теперь буду носить как обычно.</span>")
+	if(ishuman(usr))
+		var/mob/living/carbon/human/H = usr
+		H.update_inv_w_uniform()
+		H.update_body()
+
+/obj/item/clothing/under/proc/toggle_jumpsuit_adjust()
+	if(adjusted == DIGITIGRADE_STYLE)
+		return
+	adjusted = !adjusted
+	if(adjusted)
+		if(fitted != FEMALE_UNIFORM_TOP)
+			fitted = NO_FEMALE_UNIFORM
+		if(!alt_covers_chest) // for the special snowflake suits that expose the chest when adjusted (and also the arms, realistically)
+			body_parts_covered &= ~CHEST
+			body_parts_covered &= ~ARMS
+	else
+		fitted = initial(fitted)
+		if(!alt_covers_chest)
+			body_parts_covered |= CHEST
+			body_parts_covered |= ARMS
+			if(!LAZYLEN(damage_by_parts))
+				return adjusted
+			for(var/zone in list(BODY_ZONE_CHEST, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)) // ugly check to make sure we don't reenable protection on a disabled part
+				if(damage_by_parts[zone] > limb_integrity)
+					for(var/part in zone2body_parts_covered(zone))
+						body_parts_covered &= part
+	return adjusted
 
 /obj/item/clothing/under/rank
 	dying_key = DYE_REGISTRY_UNDER
