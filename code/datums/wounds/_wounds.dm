@@ -22,10 +22,8 @@
 	/// The basic treatment suggested by health analyzers
 	var/treat_text = ""
 	/// What the limb looks like on a cursory examine
-	var/examine_desc = "is badly hurt"
+	var/examine_desc = "сильно болит"
 
-	/// needed for "your arm has a compound fracture" vs "your arm has some third degree burns"
-	var/a_or_from = "a"
 	/// The visible message when this happens
 	var/occur_text = ""
 	/// This sound will be played upon the wound being applied
