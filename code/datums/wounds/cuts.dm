@@ -275,7 +275,7 @@
 
 /datum/wound/brute/cut/critical
 	name = "Открытая Артерия"
-	skloname = "открытая артерия"
+	skloname = "открытой артерии"
 	desc = "Кожа пациента полностью разорвана, что сопровождается значительным повреждением тканей. Чрезвычайная потеря крови приведет к быстрой смерти без вмешательства."
 	treat_text = "Немедленная перевязка и либо ушивание, либо прижигание, а затем повторная регенерация."
 	examine_desc = "брызгает кровью с угрожающей скоростью"
@@ -295,7 +295,7 @@
 // TODO: see about moving dismemberment over to this, i'll have to add judging dismembering power/wound potential wrt item size i guess
 /datum/wound/brute/cut/loss
 	name = "Расчленение"
-	skloname = "расчленение"
+	skloname = "расчленения"
 	desc = "больно!!"
 	occur_text = "отлетает испуская тонкие струйки крови!"
 	sound_effect = 'sound/effects/dismember.ogg'

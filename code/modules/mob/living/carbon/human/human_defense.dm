@@ -757,13 +757,13 @@
 			var/msg
 			switch(W.severity)
 				if(WOUND_SEVERITY_TRIVIAL)
-					msg = "\t <span class='danger'>[capitalize(LB.name)] страдает от [lowertext(W.name)].</span>"
+					msg = "\t <span class='danger'>[capitalize(LB.name)] страдает от [lowertext(W.skloname)].</span>"
 				if(WOUND_SEVERITY_MODERATE)
-					msg = "\t <span class='warning'>[capitalize(LB.name)] страдает от [lowertext(W.name)]!</span>"
+					msg = "\t <span class='warning'>[capitalize(LB.name)] страдает от [lowertext(W.skloname)]!</span>"
 				if(WOUND_SEVERITY_SEVERE)
-					msg = "\t <span class='warning'><b>[capitalize(LB.name)] страдает от [lowertext(W.name)]!</b></span>"
+					msg = "\t <span class='warning'><b>[capitalize(LB.name)] страдает от [lowertext(W.skloname)]!</b></span>"
 				if(WOUND_SEVERITY_CRITICAL)
-					msg = "\t <span class='warning'><b>[capitalize(LB.name)] страдает от [lowertext(W.name)]!!</b></span>"
+					msg = "\t <span class='warning'><b>[capitalize(LB.name)] страдает от [lowertext(W.skloname)]!!</b></span>"
 			to_chat(src, msg)
 
 		for(var/obj/item/I in LB.embedded_objects)
