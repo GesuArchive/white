@@ -113,7 +113,7 @@
 /mob/living/carbon/human/dummy/update_sensor_list()
 	return
 
-/obj/item/clothing/under/proc/attach_accessory(obj/item/I, mob/user, notifyAttach = 1)
+/obj/item/clothing/under/proc/attach_accessory(obj/item/I, mob/user, notifyAttach = 1, params)
 	. = FALSE
 	if(istype(I, /obj/item/clothing/accessory))
 		var/obj/item/clothing/accessory/A = I
@@ -210,13 +210,13 @@
 		return
 	if (!can_use(M))
 		return
-	if(src.has_sensor == LOCKED_SENSORS)
+	if(has_sensor == LOCKED_SENSORS)
 		to_chat(usr, "Элементы управления заблокированы.")
 		return 0
-	if(src.has_sensor == BROKEN_SENSORS)
+	if(has_sensor == BROKEN_SENSORS)
 		to_chat(usr, "Датчики замкнули!")
 		return 0
-	if(src.has_sensor <= NO_SENSORS)
+	if(has_sensor <= NO_SENSORS)
 		to_chat(usr, "Этот костюм не имеет никаких датчиков.")
 		return 0
 
@@ -226,8 +226,7 @@
 		to_chat(usr, "<span class='warning'>Я слишком далеко блять!</span>")
 		return
 	sensor_mode = modes.Find(switchMode) - 1
-	set_sensor_glob()
-	if (src.loc == usr)
+	if (loc == usr)
 		switch(sensor_mode)
 			if(0)
 				to_chat(usr, "<span class='notice'>Отключаю работу сенсоров костюма.</span>")
