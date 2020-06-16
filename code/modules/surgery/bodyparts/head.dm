@@ -14,7 +14,7 @@
 	stam_damage_coeff = 1
 	max_stamina_damage = 100
 	wound_resistance = 10
-	specific_locations = list("left eyebrow", "cheekbone", "neck", "throat", "jawline", "entire face")
+	specific_locations = list("левой брови", "скулах", "шее", "горле", "линии подбородка", "лице")
 	scars_covered_by_clothes = FALSE
 
 	var/mob/living/brain/brainmob = null //The current occupant.
