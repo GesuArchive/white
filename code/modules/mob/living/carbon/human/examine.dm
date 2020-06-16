@@ -44,7 +44,7 @@
 	else
 		. += "Это же <EM>[!obscure_name ? name : "Unknown"]</EM>!"
 
-	if(user.stat == CONSCIOUS)
+	if(user.stat == CONSCIOUS && ishuman(user))
 		visible_message("<span class='small'><b>[user]</b> смотрит на <b>[!obscure_name ? name : "Unknown"]</b>.</span>", null, null, COMBAT_MESSAGE_RANGE)
 
 	var/list/obscured = check_obscured_slots()
