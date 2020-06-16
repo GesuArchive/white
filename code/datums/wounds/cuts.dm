@@ -73,7 +73,7 @@
 			bandage_condition = "слегка окровавленным "
 		if(4 to INFINITY)
 			bandage_condition = "чиста "
-	return "<B>Порезы на [sklonenie(limb.name, VINITELNI)] перемотаны [bandage_condition] [current_bandage.name]!</B>"
+	return "<B>Порезы на [ru_parse_zone(limb.name)] перемотаны [bandage_condition] [current_bandage.name]!</B>"
 
 /datum/wound/brute/cut/receive_damage(wounding_type, wounding_dmg, wound_bonus)
 	if(victim.stat != DEAD && wounding_type == WOUND_SHARP) // can't stab dead bodies to make it bleed faster this way
@@ -93,7 +93,7 @@
 		blood_flow -= current_bandage.absorption_rate
 		current_bandage.absorption_capacity -= current_bandage.absorption_rate
 		if(current_bandage.absorption_capacity < 0)
-			victim.visible_message("<span class='danger'>Кровь проникает сквозь [current_bandage] на [sklonenie(limb.name, VINITELNI)] [victim].</span>", "<span class='warning'>Кровь проникает сквозь [current_bandage] на моей [sklonenie(limb.name, VINITELNI)].</span>", vision_distance=COMBAT_MESSAGE_RANGE)
+			victim.visible_message("<span class='danger'>Кровь проникает сквозь [current_bandage] на [ru_parse_zone(limb.name)] [victim].</span>", "<span class='warning'>Кровь проникает сквозь [current_bandage] на моей [ru_parse_zone(limb.name)].</span>", vision_distance=COMBAT_MESSAGE_RANGE)
 			QDEL_NULL(current_bandage)
 			treat_priority = TRUE
 	else
@@ -106,7 +106,7 @@
 		if(demotes_to)
 			replace_wound(demotes_to)
 		else
-			to_chat(victim, "<span class='green'>Порез на моей [sklonenie(limb.name, VINITELNI)] перестаёт кровоточить!</span>")
+			to_chat(victim, "<span class='green'>Порез на моей [ru_parse_zone(limb.name)] перестаёт кровоточить!</span>")
 			qdel(src)
 
 /* BEWARE, THE BELOW NONSENSE IS MADNESS. bones.dm looks more like what I have in mind and is sufficiently clean, don't pay attention to this messiness */
@@ -141,12 +141,12 @@
 		to_chat(user, "<span class='warning'>Я уже взаимодействую с [victim]!</span>")
 		return
 
-	user.visible_message("<span class='notice'><b>[user]</b> начинает зализывать рану на [sklonenie(limb.name, VINITELNI)] <b>[victim]</b>.</span>", "<span class='notice'>Начинаю заливать рану на [sklonenie(limb.name, VINITELNI)] <b>[victim]</b>...</span>", ignored_mobs=victim)
-	to_chat(victim, "<span class='notice'><b>[user]</b> начинает зализывать рану на моей [sklonenie(limb.name, VINITELNI)].</span")
+	user.visible_message("<span class='notice'><b>[user]</b> начинает зализывать рану на [ru_parse_zone(limb.name)] <b>[victim]</b>.</span>", "<span class='notice'>Начинаю заливать рану на [ru_parse_zone(limb.name)] <b>[victim]</b>...</span>", ignored_mobs=victim)
+	to_chat(victim, "<span class='notice'><b>[user]</b> начинает зализывать рану на моей [ru_parse_zone(limb.name)].</span")
 	if(!do_after(user, base_treat_time, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
 
-	user.visible_message("<span class='notice'><b>[user]</b> зализывает рану на [sklonenie(limb.name, VINITELNI)] <b>[victim]</b>.</span>", "<span class='notice'>Зализываю рану на [sklonenie(limb.name, VINITELNI)] <b>[victim]</b>.</span>", ignored_mobs=victim)
+	user.visible_message("<span class='notice'><b>[user]</b> зализывает рану на [ru_parse_zone(limb.name)] <b>[victim]</b>.</span>", "<span class='notice'>Зализываю рану на [ru_parse_zone(limb.name)] <b>[victim]</b>.</span>", ignored_mobs=victim)
 	to_chat(victim, "<span class='green'><b>[user]</b> зализывает рану на моей [limb.name]!</span")
 	blood_flow -= 0.5
 
@@ -162,7 +162,7 @@
 /// If someone's putting a laser gun up to our cut to cauterize it
 /datum/wound/brute/cut/proc/las_cauterize(obj/item/gun/energy/laser/lasgun, mob/user)
 	var/self_penalty_mult = (user == victim ? 1.25 : 1)
-	user.visible_message("<span class='warning'><b>[user]</b> начинает наводить [lasgun] прямо на [sklonenie(limb.name, VINITELNI)] <b>[victim]</b>...</span>", "<span class='userdanger'>Начинаю наводить [lasgun] прямо на [user == victim ? "свою " : " "][sklonenie(limb.name, VINITELNI)][user == victim ? "" : " <b>[victim]</b>"]...</span>")
+	user.visible_message("<span class='warning'><b>[user]</b> начинает наводить [lasgun] прямо на [ru_parse_zone(limb.name)] <b>[victim]</b>...</span>", "<span class='userdanger'>Начинаю наводить [lasgun] прямо на [user == victim ? "свою " : " "][ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"]...</span>")
 	if(!do_after(user, base_treat_time  * self_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
 	var/damage = lasgun.chambered.BB.damage
@@ -173,12 +173,12 @@
 	victim.emote("scream")
 	blood_flow -= damage / (5 * self_penalty_mult) // 20 / 5 = 4 bloodflow removed, p good
 	cauterized += damage / (5 * self_penalty_mult)
-	victim.visible_message("<span class='warning'>Порезы на [sklonenie(limb.name, VINITELNI)] <b>[victim]</b> превращаются в ужасные шрамы!</span>")
+	victim.visible_message("<span class='warning'>Порезы на [ru_parse_zone(limb.name)] <b>[victim]</b> превращаются в ужасные шрамы!</span>")
 
 /// If someone is using either a cautery tool or something with heat to cauterize this cut
 /datum/wound/brute/cut/proc/tool_cauterize(obj/item/I, mob/user)
 	var/self_penalty_mult = (user == victim ? 1.5 : 1)
-	user.visible_message("<span class='danger'><b>[user]</b> начинает прижигать порезы на [sklonenie(limb.name, VINITELNI)] <b>[victim]</b> используя [I]...</span>", "<span class='danger'>Начинаю прижигать порезы на [user == victim ? "своей" : " "][sklonenie(limb.name, VINITELNI)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
+	user.visible_message("<span class='danger'><b>[user]</b> начинает прижигать порезы на [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I]...</span>", "<span class='danger'>Начинаю прижигать порезы на [user == victim ? "своей" : " "][ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
 	var/time_mod = user.mind?.get_skill_modifier(/datum/skill/healing, SKILL_SPEED_MODIFIER) || 1
 	if(!do_after(user, base_treat_time * time_mod * self_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
@@ -199,7 +199,7 @@
 /// If someone is using a suture to close this cut
 /datum/wound/brute/cut/proc/suture(obj/item/stack/medical/suture/I, mob/user)
 	var/self_penalty_mult = (user == victim ? 1.4 : 1)
-	user.visible_message("<span class='notice'><b>[user]</b> начинает зашивать порезы на [sklonenie(limb.name, VINITELNI)] <b>[victim]</b> используя [I]...</span>", "<span class='notice'>Начинаю зашивать порезы на [user == victim ? "моей" : " "][sklonenie(limb.name, VINITELNI)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
+	user.visible_message("<span class='notice'><b>[user]</b> начинает зашивать порезы на [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I]...</span>", "<span class='notice'>Начинаю зашивать порезы на [user == victim ? "моей" : " "][ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
 	var/time_mod = user.mind?.get_skill_modifier(/datum/skill/healing, SKILL_SPEED_MODIFIER) || 1
 	if(!do_after(user, base_treat_time * time_mod * self_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
@@ -218,17 +218,17 @@
 /datum/wound/brute/cut/proc/bandage(obj/item/stack/I, mob/user)
 	if(current_bandage)
 		if(current_bandage.absorption_capacity > I.absorption_capacity + 1)
-			to_chat(user, "<span class='warning'>Текущий [current_bandage] на [sklonenie(limb.name, VINITELNI)] [victim] всё ещё лучше моего [I.name]!</span>")
+			to_chat(user, "<span class='warning'>Текущий [current_bandage] на [ru_parse_zone(limb.name)] [victim] всё ещё лучше моего [I.name]!</span>")
 			return
 		else
-			user.visible_message("<span class='warning'><b>[user]</b> начинает перевязку [sklonenie(limb.name, VINITELNI)] <b>[victim]</b> используя [I]...</span>", "<span class='warning'>Начинаю перевязку [user == victim ? "моей" : " "][sklonenie(limb.name, VINITELNI)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
+			user.visible_message("<span class='warning'><b>[user]</b> начинает перевязку [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I]...</span>", "<span class='warning'>Начинаю перевязку [user == victim ? "моей" : " "][ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
 	else
-		user.visible_message("<span class='warning'><b>[user]</b> начинает обматывать порезы на [sklonenie(limb.name, VINITELNI)] <b>[victim]</b> используя [I]...</span>", "<span class='warning'>Начинаю обматывание [user == victim ? "моей" : " "][sklonenie(limb.name, VINITELNI)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
+		user.visible_message("<span class='warning'><b>[user]</b> начинает обматывать порезы на [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I]...</span>", "<span class='warning'>Начинаю обматывание [user == victim ? "моей" : " "][ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
 	var/time_mod = user.mind?.get_skill_modifier(/datum/skill/healing, SKILL_SPEED_MODIFIER) || 1
 	if(!do_after(user, base_treat_time * time_mod, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
 
-	user.visible_message("<span class='green'><b>[user]</b> обматывает [I] вокруг [sklonenie(limb.name, VINITELNI)] <b>[victim]</b>.</span>", "<span class='green'>Обматываю [user == victim ? "свои порезы" : "порезы <b>[victim]</b>"].</span>")
+	user.visible_message("<span class='green'><b>[user]</b> обматывает [I] вокруг [ru_parse_zone(limb.name)] <b>[victim]</b>.</span>", "<span class='green'>Обматываю [user == victim ? "свои порезы" : "порезы <b>[victim]</b>"].</span>")
 	QDEL_NULL(current_bandage)
 	current_bandage = new I.type(limb)
 	current_bandage.amount = 1
