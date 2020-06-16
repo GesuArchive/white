@@ -237,11 +237,12 @@
 
 
 /datum/wound/brute/cut/moderate
-	name = "Rough Abrasion"
-	desc = "Patient's skin has been badly scraped, generating moderate blood loss."
-	treat_text = "Application of clean bandages or first-aid grade sutures, followed by food and rest."
-	examine_desc = "has an open cut"
-	occur_text = "is cut open, slowly leaking blood"
+	name = "Глубокие Порезы"
+	skloname = "глубоких порезов"
+	desc = "Кожа пациента была сильно соскоблена, что привело к умеренной кровопотере."
+	treat_text = "Наложение чистых повязок или швов для оказания первой медицинской помощи, затем еда и отдых."
+	examine_desc = "имеет открытый порез"
+	occur_text = "вскрыта, медленно источая кровь"
 	sound_effect = 'sound/effects/blood1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
 	initial_flow = 2
@@ -251,14 +252,15 @@
 	threshold_minimum = 20
 	threshold_penalty = 10
 	status_effect_type = /datum/status_effect/wound/cut/moderate
-	scarring_descriptions = list("light, faded lines", "minor cut marks", "a small faded slit", "a series of small scars")
+	scarring_descriptions = list("лёгкие, блеклые линии", "незначительные шрамы", "маленькая выцветшая щель", "группа маленьких шрамов")
 
 /datum/wound/brute/cut/severe
-	name = "Open Laceration"
-	desc = "Patient's skin is ripped clean open, allowing significant blood loss."
-	treat_text = "Speedy application of first-aid grade sutures and clean bandages, followed by vitals monitoring to ensure recovery."
-	examine_desc = "has a severe cut"
-	occur_text = "is ripped open, veins spurting blood"
+	name = "Открытая Рана"
+	skloname = "открытой раны"
+	desc = "Кожа пациента разорвана, что приводит к значительной потере крови."
+	treat_text = "Быстрое наложение швов первой помощи и чистых повязок с последующим мониторингом жизненно важных функций для обеспечения восстановления."
+	examine_desc = "имеет серьёзный порез"
+	occur_text = "вскрыта, вены брызгают кровью"
 	sound_effect = 'sound/effects/blood2.ogg'
 	severity = WOUND_SEVERITY_SEVERE
 	initial_flow = 3.25
@@ -269,14 +271,15 @@
 	threshold_penalty = 25
 	demotes_to = /datum/wound/brute/cut/moderate
 	status_effect_type = /datum/status_effect/wound/cut/severe
-	scarring_descriptions = list("a twisted line of faded gashes", "a gnarled sickle-shaped slice scar", "a long-faded puncture wound")
+	scarring_descriptions = list("витая линия затухших налетов", "корявый серповидный ломтик шрама", "давно выцветшая колотая рана")
 
 /datum/wound/brute/cut/critical
-	name = "Weeping Avulsion"
-	desc = "Patient's skin is completely torn open, along with significant loss of tissue. Extreme blood loss will lead to quick death without intervention."
-	treat_text = "Immediate bandaging and either suturing or cauterization, followed by supervised resanguination."
-	examine_desc = "is spurting blood at an alarming rate"
-	occur_text = "is torn open, spraying blood wildly"
+	name = "Открытая Артерия"
+	skloname = "открытая артерия"
+	desc = "Кожа пациента полностью разорвана, что сопровождается значительным повреждением тканей. Чрезвычайная потеря крови приведет к быстрой смерти без вмешательства."
+	treat_text = "Немедленная перевязка и либо ушивание, либо прижигание, а затем повторная регенерация."
+	examine_desc = "брызгает кровью с угрожающей скоростью"
+	occur_text = "разрывается, дико брызгая кровью"
 	sound_effect = 'sound/effects/blood3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL
 	initial_flow = 4.25
@@ -287,13 +290,14 @@
 	threshold_penalty = 40
 	demotes_to = /datum/wound/brute/cut/severe
 	status_effect_type = /datum/status_effect/wound/cut/critical
-	scarring_descriptions = list("a winding path of very badly healed scar tissue", "a series of peaks and valleys along a gruesome line of cut scar tissue", "a grotesque snake of indentations and stitching scars")
+	scarring_descriptions = list("извилистая дорожка очень плохо зажившей рубцовой кожи", "ряд пиков и долин вдоль ужасной линии разреза рубцовой кожи", "гротескная змея из вмятин и швов")
 
 // TODO: see about moving dismemberment over to this, i'll have to add judging dismembering power/wound potential wrt item size i guess
 /datum/wound/brute/cut/loss
-	name = "Dismembered"
-	desc = "oof ouch!!"
-	occur_text = "is violently dismembered!"
+	name = "Расчленение"
+	skloname = "расчленение"
+	desc = "больно!!"
+	occur_text = "отлетает испуская тонкие струйки крови!"
 	sound_effect = 'sound/effects/dismember.ogg'
 	viable_zones = list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 	severity = WOUND_SEVERITY_LOSS
