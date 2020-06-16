@@ -117,16 +117,16 @@
 				break
 	if(trauma)
 		if(trauma.total_time_creeping > 0)
-			report += "<span class='greentext'>[name] потратил [DisplayTimeText(trauma.total_time_creeping)] возле [trauma.obsession]!</span>"
+			report += "<span class='greentext'>Одержимый потратил [DisplayTimeText(trauma.total_time_creeping)] возле [trauma.obsession]!</span>"
 		else
-			report += "<span class='redtext'>[name] не ходил рядом с их одержимостью весь раунд! Это очень впечатляет!</span>"
+			report += "<span class='redtext'>Одержимый не ходил рядом с их одержимостью весь раунд! Это очень впечатляет!</span>"
 	else
-		report += "<span class='redtext'>У [name] не было никакой травмы, приложенной к их путям антагониста! Либо он товарищ администратор неправильно дал эту роль и она сломалась!</span>"
+		report += "<span class='redtext'>У одержимого не было никакой травмы, приложенной к их путям антагониста! Либо он товарищ администратор неправильно дал эту роль и она сломалась!</span>"
 
 	if(objectives.len == 0 || objectives_complete)
-		report += "<span class='greentext big'>[name] успешен!</span>"
+		report += "<span class='greentext big'>Одержимый успешен!</span>"
 	else
-		report += "<span class='redtext big'>[name] провал!</span>"
+		report += "<span class='redtext big'>Одержимый провален!</span>"
 
 	return report.Join("<br>")
 
