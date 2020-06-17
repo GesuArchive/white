@@ -103,7 +103,7 @@ GLOBAL_VAR(command_name)
 	var/name = ""
 
 	// Prefix
-	name += pick("Clandestine", "Prima", "Blue", "Zero-G", "Max", "Blasto", "Waffle", "North", "Omni", "Newton", "Cyber", "Bonk", "Gene", "Gib")
+	name += pick("Нелегальный", "Прима", "Синий", "Невесомый", "Максимальный", "Взрывной", "Опасный", "Северный", "Всенаправленный", "Ньютон", "Кибер", "Угрожающий", "Геномодифицированный", "Противостоящий")
 
 	// Suffix
 	if (prob(80))
@@ -111,16 +111,16 @@ GLOBAL_VAR(command_name)
 
 		// Full
 		if (prob(60))
-			name += pick("Syndicate", "Consortium", "Collective", "Corporation", "Group", "Holdings", "Biotech", "Industries", "Systems", "Products", "Chemicals", "Enterprises", "Family", "Creations", "International", "Intergalactic", "Interplanetary", "Foundation", "Positronics", "Hive")
+			name += pick("Синдикат", "Консорциум", "Коллектив", "Корпорация", "Группа", "Холдинг", "Биоразработка", "Промысел", "Система", "Товары", "Химпроизводство", "Предпринимательство", "Семья", "Произведения", "Интернационал", "Межгалактик", "Межпланетар", "Фонд", "Позитроника", "Муравейник")
 		// Broken
 		else
-			name += pick("Syndi", "Corp", "Bio", "System", "Prod", "Chem", "Inter", "Hive")
+			name += pick("Синдикат", "Корпарация", "Био", "Система", "Крафт", "Хим", "Интер", "Муравейник")
 			name += pick("", "-")
-			name += pick("Tech", "Sun", "Co", "Tek", "X", "Inc", "Code")
+			name += pick("Тех", "Солнце", "Ко", "Тек", "Икс", "Цех", "Код")
 	// Small
 	else
 		name += pick("-", "*", "")
-		name += pick("Tech", "Sun", "Co", "Tek", "X", "Inc", "Gen", "Star", "Dyne", "Code", "Hive")
+		name += pick("Тех", "Солнце", "Ко", "Тек", "Икс", "Цех", "Инфо", "Звезда", "Дина", "Код", "Муравейник")
 
 	return name
 

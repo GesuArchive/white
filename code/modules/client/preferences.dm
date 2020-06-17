@@ -325,7 +325,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "</table></td><td width='400px' valign='top'><h3 class='statusDisplay'>Подробности</h3><table width='400px' class='block'>"
 
 			if(CAN_SCAR in pref_species.species_traits)
-				dat += "<tr><td><b>Получение шрамов:</b>/td><td align='right'><a href='?_src_=prefs;preference=persistent_scars'>[(persistent_scars) ? "Включено" : "Отключено"]</A>"
+				dat += "<tr><td><b>Получение шрамов:</b></td><td align='right'><a href='?_src_=prefs;preference=persistent_scars'>[(persistent_scars) ? "Включено" : "Отключено"]</A>"
 				dat += "<a href='?_src_=prefs;preference=clear_scars'>Очистить шрамы</A></td></tr>"
 
 			var/use_skintones = pref_species.use_skintones

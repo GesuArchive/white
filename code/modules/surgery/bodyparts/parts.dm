@@ -11,7 +11,7 @@
 	stam_damage_coeff = 1
 	max_stamina_damage = 120
 	var/obj/item/cavity_item
-	specific_locations = list("upper chest", "lower abdomen", "midsection", "collarbone", "lower back")
+	specific_locations = list("груди", "животе", "тазе", "ключице", "нижней части спины")
 	wound_resistance = 10
 
 /obj/item/bodypart/chest/can_dismember(obj/item/I)
@@ -69,7 +69,7 @@
 	held_index = 1
 	px_x = -6
 	px_y = 0
-	specific_locations = list("левое предплечье", "левое запястье", "левый локоть", "левый бицепс", "левое плечо")
+	specific_locations = list("левом предплечье", "левом запястье", "левом локте", "левом бицепсе", "левом плече")
 
 /obj/item/bodypart/l_arm/is_disabled()
 	if(HAS_TRAIT(owner, TRAIT_PARALYSIS_L_ARM))
@@ -134,7 +134,7 @@
 	px_x = 6
 	px_y = 0
 	max_stamina_damage = 50
-	specific_locations = list("правое предплечье", "правое запястье", "правый локоть", "правый бицепс", "правое плечо")
+	specific_locations = list("правом предплечье", "правом запястье", "правом локоте", "правом бицепсе", "правом плече")
 
 /obj/item/bodypart/r_arm/is_disabled()
 	if(HAS_TRAIT(owner, TRAIT_PARALYSIS_R_ARM))
@@ -196,7 +196,7 @@
 	px_x = -2
 	px_y = 12
 	max_stamina_damage = 50
-	specific_locations = list("левое бедро", "внешняя левая голень", "верхняя левая голень", " левая коленная чашечка", "нижняя левая голень")
+	specific_locations = list("левом бедре", "внешней левой голени", "верхней левой голени", " левой коленной чашечке", "нижней левой голени")
 
 /obj/item/bodypart/l_leg/is_disabled()
 	if(HAS_TRAIT(owner, TRAIT_PARALYSIS_L_LEG))
@@ -254,7 +254,7 @@
 	px_x = 2
 	px_y = 12
 	max_stamina_damage = 50
-	specific_locations = list("правое бедро", "внешняя правая голень", "верхняя правая голень", " правая коленная чашечка", "нижняя правая голень")
+	specific_locations = list("правом бедре", "внешней правой голени", "верхней правой голени", " правой коленной чашечке", "нижней правой голени")
 
 /obj/item/bodypart/r_leg/is_disabled()
 	if(HAS_TRAIT(owner, TRAIT_PARALYSIS_R_LEG))

@@ -5,7 +5,7 @@
 #define CHAT_MESSAGE_HEIGHT_DECAY	0.9 // Increase message decay based on the height of the message
 #define CHAT_MESSAGE_APPROX_LHEIGHT	11 // Approximate height in pixels of an 'average' line, used for height decay
 #define CHAT_MESSAGE_WIDTH			96 // pixels
-#define CHAT_MESSAGE_MAX_LENGTH		110 // characters
+#define CHAT_MESSAGE_MAX_LENGTH		150 // characters
 #define WXH_TO_HEIGHT(x)			text2num(copytext((x), findtextEx((x), "x") + 1)) // thanks lummox
 
 GLOBAL_VAR_INIT(chat_bubbles, FALSE)
@@ -79,9 +79,8 @@ GLOBAL_VAR_INIT(chat_bubbles, FALSE)
 	RegisterSignal(owned_by, COMSIG_PARENT_QDELETING, .proc/on_parent_qdel)
 
 	// Clip message
-	var/maxlen = owned_by.prefs.max_chat_length
-	if (length_char(text) > maxlen)
-		text = copytext_char(text, 1, maxlen + 1) + "..." // BYOND index moment
+	if (length_char(text) > CHAT_MESSAGE_MAX_LENGTH)
+		text = copytext_char(text, 1, CHAT_MESSAGE_MAX_LENGTH + 1) + "..." // BYOND index moment
 
 	// Calculate target color if not already present
 	if (!target.chat_color || target.chat_color_name != target.name)

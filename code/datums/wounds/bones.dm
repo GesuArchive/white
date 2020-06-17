@@ -218,7 +218,8 @@
 */
 
 /datum/wound/brute/bone/moderate
-	name = "Joint Dislocation"
+	name = "Вывих"
+	skloname = "вывиха"
 	desc = "Patient's bone has been unset from socket, causing pain and reduced motor function."
 	treat_text = "Recommended application of bonesetter to affected limb, though manual relocation by applying an aggressive grab to the patient and helpfully interacting with afflicted limb may suffice."
 	examine_desc = "is awkwardly jammed out of place"
@@ -326,7 +327,8 @@
 */
 
 /datum/wound/brute/bone/severe
-	name = "Hairline Fracture"
+	name = "Трещина"
+	skloname = "трещины"
 	desc = "Patient's bone has suffered a crack in the foundation, causing serious pain and reduced limb functionality."
 	treat_text = "Recommended light surgical application of bone gel, though splinting will prevent worsening situation."
 	examine_desc = "appears bruised and grotesquely swollen"
@@ -346,7 +348,8 @@
 	chance_internal_bleeding = 40
 
 /datum/wound/brute/bone/critical
-	name = "Compound Fracture"
+	name = "Перелом"
+	skloname = "перелома"
 	desc = "Patient's bones have suffered multiple gruesome fractures, causing significant pain and near uselessness of limb."
 	treat_text = "Immediate binding of affected limb, followed by surgical intervention ASAP."
 	examine_desc = "has a cracked bone sticking out of it"
