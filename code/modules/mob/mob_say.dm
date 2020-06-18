@@ -27,7 +27,7 @@
 		I.alpha = 0
 		animate(I, time = 7, loop = -1, easing = SINE_EASING, alpha = 255)
 		animate(time = 7, alpha = 80)
-		flick_overlay(I, speech_bubble_recipients, 200)
+		flick_overlay(I, speech_bubble_recipients, -1)
 
 	var/msg = input("", "Say") as null|text
 
