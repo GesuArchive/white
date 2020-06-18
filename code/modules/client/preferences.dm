@@ -5,6 +5,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	//doohickeys for savefiles
 	var/path
 	var/default_slot = 1				//Holder so it doesn't default to slot 1, rather the last one used
+	var/max_slots = 3
 	var/max_save_slots = 3
 
 	//non-preference stuff
@@ -156,7 +157,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if(istype(C))
 		if(!IsGuestKey(C.key))
 			load_path(C.ckey)
-			max_save_slots = 3
+			max_save_slots = max_slots
 	var/loaded_preferences_successfully = load_preferences()
 
 	if(!key_bindings["T"])
