@@ -49,7 +49,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		pick_sound()
 		return
 
-	if(owner.stat == DEAD)
+	if(owner.stat == DEAD && bm)
 		bm.volume = 0
 		bm.status = SOUND_UPDATE
 		SEND_SOUND(owner, bm)
