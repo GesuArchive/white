@@ -353,6 +353,10 @@
 /obj/machinery/door/firedoor/window/allow_hand_open()
 	return TRUE
 
+/obj/machinery/door/firedoor/window/deconstruct(disassembled = TRUE)
+	new assemblytype(get_turf(src))
+	qdel(src)
+
 /obj/item/electronics/firelock
 	name = "firelock circuitry"
 	custom_price = 50
