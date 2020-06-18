@@ -3581,6 +3581,22 @@
 "atm" = (
 /turf/open/floor/carpet,
 /area/crew_quarters/dorms)
+"ato" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance{
+	req_access_txt = "12"
+	},
+/turf/open/floor/plating,
+/area/maintenance/aft)
 "atp" = (
 /obj/machinery/door/airlock/external{
 	name = "Construction Zone"
@@ -12024,6 +12040,22 @@
 /obj/item/wirecutters,
 /turf/open/floor/plasteel,
 /area/vacant_room/commissary)
+"aYA" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance{
+	req_access_txt = "12"
+	},
+/turf/open/floor/plating,
+/area/maintenance/port)
 "aYH" = (
 /obj/structure/table,
 /obj/item/razor,
@@ -19934,6 +19966,7 @@
 /obj/structure/sign/warning/docking{
 	pixel_y = 32
 	},
+/obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
 "bDj" = (
@@ -29448,6 +29481,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
+/obj/machinery/door/firedoor/heavy,
 /turf/open/floor/plating,
 /area/maintenance/disposal/incinerator)
 "cfm" = (
@@ -29625,6 +29659,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{
 	dir = 6
 	},
+/obj/machinery/door/firedoor/heavy,
 /turf/open/floor/plating,
 /area/maintenance/disposal/incinerator)
 "cfY" = (
@@ -29919,6 +29954,7 @@
 	name = "Atmospherics";
 	req_access_txt = "24"
 	},
+/obj/machinery/door/firedoor/heavy,
 /turf/open/floor/plating,
 /area/engine/atmos)
 "chf" = (
@@ -33286,6 +33322,7 @@
 "czZ" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "cAb" = (
@@ -36566,6 +36603,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/processing)
+"hAm" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space)
 "hAo" = (
 /obj/machinery/door/window/northleft{
 	base_state = "right";
@@ -36652,6 +36693,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
+/obj/machinery/door/firedoor/heavy,
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "hKs" = (
@@ -37275,6 +37317,7 @@
 /area/maintenance/starboard/aft)
 "jtt" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/medical/chemistry)
 "jue" = (
@@ -38121,6 +38164,16 @@
 	},
 /turf/open/floor/plasteel,
 /area/medical/chemistry)
+"lrx" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
+/obj/machinery/door/airlock/maintenance{
+	req_access_txt = "12"
+	},
+/turf/open/floor/plating,
+/area/maintenance/aft)
 "lrI" = (
 /turf/open/floor/plasteel,
 /area/hydroponics)
@@ -38417,6 +38470,11 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
 /turf/open/floor/plasteel,
 /area/gateway)
+"maP" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/turf/open/floor/plating,
+/area/maintenance/starboard/aft)
 "mcM" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{
 	dir = 5
@@ -41701,6 +41759,12 @@
 "tYs" = (
 /turf/closed/wall/r_wall,
 /area/medical/psychology)
+"tZr" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access_txt = "12"
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/fore)
 "ubw" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/firealarm{
@@ -60050,7 +60114,7 @@ aXQ
 aXQ
 aXQ
 aXQ
-hPI
+aYA
 bkF
 aaa
 aaa
@@ -61043,7 +61107,7 @@ amC
 alU
 alU
 alU
-amC
+tZr
 alU
 alU
 apP
@@ -77289,7 +77353,7 @@ bCB
 hcC
 hcC
 hcC
-wiz
+ato
 bLK
 bMS
 bVQ
@@ -81146,7 +81210,7 @@ bIn
 hcC
 bKL
 bLT
-bLT
+lrx
 bLT
 bLT
 bLT
@@ -82701,7 +82765,7 @@ bWX
 bOP
 bNd
 bNd
-wiz
+ato
 bzs
 bzs
 bzs
@@ -82982,7 +83046,7 @@ vjm
 vjm
 clp
 aaa
-aaa
+eRz
 aaa
 aaa
 aaa
@@ -83239,7 +83303,7 @@ vjm
 vjm
 clp
 aaa
-aaa
+eRz
 aaa
 aaa
 aaa
@@ -83496,7 +83560,7 @@ vjm
 aaW
 aaX
 aaa
-aaa
+eRz
 aaa
 aaa
 aaa
@@ -83752,8 +83816,8 @@ vjm
 vjm
 vjm
 jtt
-aaa
-aaa
+gXs
+eRz
 aaa
 aaa
 aaa
@@ -84009,8 +84073,8 @@ vjm
 vjm
 vjm
 jtt
-aaa
-aaa
+gXs
+eRz
 aaa
 aaa
 aaa
@@ -84266,8 +84330,8 @@ vjm
 vjm
 vjm
 jtt
-aaa
-aaa
+gXs
+eRz
 aaa
 aaa
 aaa
@@ -84524,7 +84588,7 @@ vjm
 aaW
 clp
 aaa
-aaa
+eRz
 aaa
 aaa
 aaa
@@ -84781,7 +84845,7 @@ vjm
 vjm
 clp
 aaa
-aaa
+eRz
 aaa
 aaa
 aaa
@@ -85038,7 +85102,7 @@ vjm
 vjm
 clp
 aaa
-aaa
+eRz
 aaa
 aaa
 aaa
@@ -85295,7 +85359,7 @@ jtt
 clp
 clp
 aaa
-aaa
+eRz
 aaa
 aaa
 aaa
@@ -85526,7 +85590,7 @@ bLT
 bLT
 bLT
 bLT
-bLT
+lrx
 bLT
 caT
 cbP
@@ -85546,13 +85610,13 @@ mtK
 aaa
 aaa
 aaa
+gXs
+gXs
 aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
+eRz
 aaa
 aaa
 aaa
@@ -85801,15 +85865,15 @@ caJ
 cbM
 mtK
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+eRz
+eRz
+eRz
+eRz
+eRz
+eRz
+eRz
+eRz
+eRz
 aaa
 aaa
 aaa
@@ -86053,12 +86117,12 @@ hDb
 gGJ
 uyS
 aaa
-cOT
+maP
 caJ
 cbM
-cOT
+maP
 aaa
-aaa
+eRz
 aaa
 aaa
 aaa
@@ -86310,12 +86374,12 @@ bEm
 bEm
 uyS
 aaa
-cOT
+maP
 caJ
 cbM
-cOT
-aaa
-aaa
+maP
+gXs
+eRz
 aaa
 aaa
 aaa
@@ -86567,12 +86631,12 @@ bEm
 cBz
 uyS
 aaa
-cOT
+maP
 caJ
 cbM
-cOT
+maP
 aaa
-aaa
+eRz
 aaa
 aaa
 aaa
@@ -86829,7 +86893,7 @@ caJ
 fjg
 mtK
 aaa
-aaa
+eRz
 aaa
 aaa
 aaa
@@ -87086,7 +87150,7 @@ cBN
 cbM
 mtK
 aaa
-aaa
+eRz
 aaa
 aaa
 aaa
@@ -87338,12 +87402,12 @@ bMi
 ddD
 qyX
 gXs
-cOT
+maP
 fif
 cbM
-cOT
+maP
 aaa
-aaa
+eRz
 aaa
 aaa
 aaa
@@ -87598,9 +87662,9 @@ czU
 czZ
 dni
 cbM
-cOT
-aaa
-aaa
+maP
+gXs
+eRz
 aaa
 aaa
 aaa
@@ -87852,22 +87916,22 @@ bMi
 bMk
 qyX
 gXs
-cOT
+maP
 cmI
 cbM
-cOT
+maP
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+eRz
+eRz
+eRz
+eRz
+eRz
+eRz
+eRz
+eRz
+eRz
+eRz
+eRz
 aaa
 aaa
 aaa
@@ -88114,17 +88178,17 @@ cmI
 cbM
 mtK
 aaa
+eRz
+aaa
+gXs
+aaa
+aaa
+gXs
+gXs
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+eRz
 aaa
 aaa
 aaa
@@ -88371,9 +88435,9 @@ cmI
 cbM
 mtK
 aaa
+gXs
 aaa
-aaa
-aaa
+gXs
 aaa
 mtK
 cNW
@@ -88381,7 +88445,7 @@ cNW
 cOT
 cOT
 nXv
-aaa
+gXs
 aaa
 aaa
 aaa
@@ -88623,22 +88687,22 @@ bEm
 lVC
 pCj
 aaa
-cOT
+maP
 cgm
 cdq
-cOT
+maP
+gXs
+gXs
 aaa
-aaa
-aaa
-aaa
-aaa
+gXs
+gXs
 mtK
 jdH
 keQ
 cOe
 pDI
 nXv
-aaa
+gXs
 aaa
 aaa
 aaa
@@ -88880,14 +88944,14 @@ bEm
 bEm
 pCj
 aaa
-cOT
+maP
 lSv
 cvO
-cOT
+maP
 aaa
-aaa
-aaa
-aaa
+gXs
+gXs
+gXs
 aaa
 mtK
 cNW
@@ -88895,7 +88959,7 @@ cNW
 cqu
 cOT
 nXv
-aaa
+gXs
 aaa
 aaa
 aaa
@@ -89137,13 +89201,13 @@ jQV
 aYb
 pCj
 aaa
-cOT
+maP
 lSv
 cvO
-cOT
+maP
 aaa
 aaa
-aaa
+gXs
 aaa
 aaa
 mtK
@@ -89152,7 +89216,7 @@ cmn
 cmn
 cOT
 aaa
-aaa
+eRz
 aaa
 aaa
 aaa
@@ -89408,8 +89472,8 @@ cmn
 cmn
 cmn
 cOT
-aaa
-aaa
+hAm
+eRz
 aaa
 aaa
 aaa
@@ -89665,8 +89729,8 @@ cmn
 cBT
 cBU
 cOT
-aaa
-aaa
+hAm
+eRz
 aaa
 aaa
 aaa
@@ -89923,7 +89987,7 @@ cNW
 cNW
 hnW
 aaa
-aaa
+eRz
 aaa
 aaa
 aaa

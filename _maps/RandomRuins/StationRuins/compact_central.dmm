@@ -3567,7 +3567,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/turf/closed/wall,
+/turf/open/floor/plating,
 /area/maintenance/central)
 "ij" = (
 /obj/structure/extinguisher_cabinet{
