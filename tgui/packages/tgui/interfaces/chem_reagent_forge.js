@@ -4,6 +4,15 @@ import { useBackend } from '../backend';
 
 export const chem_reagent_forge = (props, context) => {
   const { act, data } = useBackend(context);
+  const {
+    recipes,
+    currently_forging,
+    material_amount,
+    can_afford,
+    name,
+    category,
+    cost,
+  } = data;
   return (
     <Window>
       <Window.Content>
@@ -11,70 +20,56 @@ export const chem_reagent_forge = (props, context) => {
           title="Кузница">
           <LabeledList>
             <LabeledList.Item
-              label="{data.currently_forging}" />
+              label={currently_forging} />
             <ProgressBar
-              minValue="0"
-              maxvalue="200000"
-              value={data.material_amount} />
-            <Button
-              title="Eject"
-              icon="Dump"
-              disabled="{data.currently_forging}"
-              OnClick={() => act("Dump")} />
+              value={material_amount} />
+            <div>
+              <Button
+                content="Eject"
+                icon="Dump"
+                disabled={currently_forging}
+                OnClick={() => act("Dump")} />
+            </div>
           </LabeledList>
         </Section>
         <Section
           title="Рецепты">
-          <div
-            class="display tabular">
-            <Section
-              className="candystripe">
-              <Section
-                className="cell bold">
+          <div display tabular>
+            <Section candystripe>
+              <Section cell bold>
                 Recipe
               </Section>
-              <Section
-                className="cell bold">
+              <Section cell bold>
                 Cost (Cm3)
               </Section>
-              <Section
-                className="cell bold">
+              <Section cell bold>
                 Type
               </Section>
-              <Section
-                className="cell bold"
+              <Section cell bold
                 align="center">
                 Create
               </Section>
             </Section>
-            {data.recipes}
-            <Section
-              className="candystripe">
-              <Section
-                className="cell">
+            {recipes}
+            <Section candystripe>
+              <Section cell>
                 {name}
               </Section>
-              <Section
-                className="cell"
+              <Section cell
                 align="right">
-                {"cost"}
+                {cost}
               </Section>
-              <Section
-                className="cell"
+              <Section cell
                 align="right">
-                {"category"}
+                {category}
               </Section>
-              <Section
-                className="table"
+              <Section table
                 alight="right" />
-              <Section
-                className="cell" />
-              <Section
-                className="cell" />
-              <Section
-                className="cell">
+              <Section cell />
+              <Section cell />
+              <Section cell>
                 <Button
-                  disabled="{data.can_afford}"
+                  disabled={can_afford}
                   OnClick={() => act('create', {
                     name: "name" })}>
                   Create
