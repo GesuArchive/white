@@ -33,9 +33,6 @@
 
 	GLOB.new_player_list += src
 
-	spawn(10)
-		client.change_view("19x15", TRUE)
-
 /mob/dead/new_player/Destroy()
 	GLOB.new_player_list -= src
 	return ..()
