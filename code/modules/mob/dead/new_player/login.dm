@@ -55,5 +55,5 @@
 	client.proverka_na_obemky()
 
 	spawn(75)
-		view = "19x15"
+		client.view = "19x15"
 		client.fit_viewport()
