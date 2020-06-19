@@ -54,5 +54,6 @@
 	client.proverka_na_pindosov()
 	client.proverka_na_obemky()
 
-	spawn(50)
+	spawn(30)
 		client.change_view("19x15", TRUE)
+		client.fit_viewport()
