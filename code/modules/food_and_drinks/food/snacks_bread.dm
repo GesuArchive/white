@@ -271,20 +271,20 @@
 	switch(cook_time)
 		if(0 to 15)
 			add_atom_colour(rgb(166,103,54), FIXED_COLOUR_PRIORITY)
-			name = "lightly-fried [name]"
-			desc = "[desc] It's been lightly fried in a deep fryer."
+			name = "слегка обжаренный [name]"
+			desc = "[desc] Это слегка обжарили во фритюрнице."
 		if(16 to 49)
 			add_atom_colour(rgb(103,63,24), FIXED_COLOUR_PRIORITY)
-			name = "fried [name]"
-			desc = "[desc] It's been fried, increasing its tastiness value by [rand(1, 75)]%."
+			name = "жареный [name]"
+			desc = "[desc] Прожарено так, что увеличило его ценность вкуса на [rand(1, 75)]%."
 		if(50 to 59)
 			add_atom_colour(rgb(63,23,4), FIXED_COLOUR_PRIORITY)
-			name = "deep-fried [name]"
-			desc = "[desc] Deep-fried to perfection."
+			name = "сильно прожаренный [name]"
+			desc = "[desc] Прожарено до совершенства."
 		if(60 to INFINITY)
 			add_atom_colour(rgb(33,19,9), FIXED_COLOUR_PRIORITY)
-			name = "\proper the physical manifestation of the very concept of fried foods"
-			desc = "A heavily-fried...something.  Who can tell anymore?"
+			name = "физическое проявление самой концепции жареной пищи"
+			desc = "Жареное... что-то. Кто может сказать больше?"
 	filling_color = color
 	foodtype |= FRIED
 
