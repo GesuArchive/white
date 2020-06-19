@@ -3407,6 +3407,7 @@
 #include "code\shitcode\valtos\code\loadout\loadout_accessories.dm"
 #include "code\shitcode\valtos\code\loadout\loadout_cosmestics.dm"
 #include "code\shitcode\valtos\code\loadout\loadout_general.dm"
+#include "code\shitcode\valtos\code\loadout\loadout_gloves.dm"
 #include "code\shitcode\valtos\code\loadout\loadout_hat.dm"
 #include "code\shitcode\valtos\code\loadout\loadout_ooc.dm"
 #include "code\shitcode\valtos\code\loadout\loadout_suit.dm"

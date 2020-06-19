@@ -27,8 +27,8 @@
 	UnregisterSignal(M, COMSIG_MOB_APPLY_DAMGE)
 
 /obj/item/clothing/mask/attackby(obj/item/W, mob/user, params)
-	if(damaged_clothes && istype(W, /obj/item/stack/ducttape))
-		var/obj/item/stack/ducttape/T = W
+	if(damaged_clothes && istype(W, /obj/item/stack/sticky_tape))
+		var/obj/item/stack/sticky_tape/T = W
 		T.use(5)
 		update_clothes_damaged_state(FALSE)
 		obj_integrity = max_integrity

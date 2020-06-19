@@ -50,7 +50,7 @@
 	return FALSE
 
 /obj/item/storage/bag/tray/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack/ducttape))
+	if(istype(W, /obj/item/stack/sticky_tape))
 		return
 	..()
 

@@ -109,7 +109,7 @@
 				/obj/item/tank/internals/oxygen = 1, // For air
 				/obj/item/electronics/airlock = 1, //You are stealing the motors from airlocks
 				/obj/item/extinguisher = 1, //For bastard pnumatics
-				/obj/item/stack/ducttape = 5, //to make it airtight
+				/obj/item/stack/sticky_tape = 5, //to make it airtight
 				/obj/item/flashlight = 1, //For the mech light
 				/obj/item/stack/rods = 4, //to mount the equipment
 				/obj/item/pipe = 2) //For legs
