@@ -299,6 +299,7 @@
 	icon_state = "layer1"
 	speed = 1
 	layer = 1
+	color = "#aaaaaa"
 
 /obj/screen/parallax_layer/layer_1_2
 	icon_state = "layer1_2"
