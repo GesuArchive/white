@@ -50,6 +50,8 @@
 	if (!GLOB.donators[ckey]) //It doesn't exist yet
 		load_donator(ckey)
 
+	client.change_view("19x15", TRUE)
+
 	client.update_metabalance_cache()
 	client.proverka_na_pindosov()
 	client.proverka_na_obemky()
