@@ -44,8 +44,8 @@
 		updatedir = 1
 
 	else
-		if(fexists("code/shitcode/hule/custom_ghosts/[ckey].dmi"))
-			old_icon = file("code/shitcode/hule/custom_ghosts/[ckey].dmi")
+		if(fexists("data/custom_ghosts/[ckey].dmi"))
+			old_icon = file("data/custom_ghosts/[ckey].dmi")
 			old_icon_state = ckey
 
 			swap_icons()
@@ -55,7 +55,7 @@
 	set category = "НАСТРОЙКИ"
 	set desc = "Customize your ghastly appearance."
 
-	if(fexists("code/shitcode/hule/custom_ghosts/[ckey].dmi"))
+	if(fexists("data/custom_ghosts/[ckey].dmi"))
 		swap_icons()
 	else
 		to_chat(src,"<span class='warning'>Кастомный спрайт не найден.</span>")

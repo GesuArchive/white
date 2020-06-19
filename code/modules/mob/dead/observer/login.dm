@@ -21,5 +21,3 @@
 	update_icon(preferred_form)
 	updateghostimages()
 
-	if(fexists("code/shitcode/hule/custom_ghosts/[ckey].dmi"))
-		swap_icons()

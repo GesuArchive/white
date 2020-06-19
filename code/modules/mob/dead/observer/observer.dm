@@ -144,6 +144,9 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	show_data_huds()
 	data_huds_on = 1
 
+	if(fexists("data/custom_ghosts/[ckey].dmi"))
+		swap_icons()
+
 /mob/dead/observer/get_photo_description(obj/item/camera/camera)
 	if(!invisibility || camera.see_ghosts)
 		return "Также тут виден призрак!"
