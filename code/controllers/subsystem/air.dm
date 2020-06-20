@@ -373,8 +373,8 @@ SUBSYSTEM_DEF(air)
 			//EG.dismantle()
 			CHECK_TICK*/
 
-		var/msg = "HEY! LISTEN! [DisplayTimeText(world.timeofday - timer)] were wasted processing [starting_ats] turf(s) (connected to [ending_ats] other turfs) with atmos differences at round start."
-		to_chat(world, "<span class='boldannounce'>[msg]</span>")
+		var/msg = " >> ЭЙ! СЛЫШ! [DisplayTimeText(world.timeofday - timer)] было потрачено на [starting_ats] активных турфов (которые подключены к [ending_ats] другим) с разностями в атмосфере при инициализации."
+		to_chat(world, "<span class='green'>[msg]</span>")
 		warning(msg)
 
 /turf/open/proc/resolve_active_graph()

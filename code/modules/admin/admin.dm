@@ -683,10 +683,10 @@
 		SSticker.SetTimeLeft(newtime)
 		SSticker.start_immediately = FALSE
 		if(newtime < 0)
-			to_chat(world, "<b>The game start has been delayed.</b>", confidential = TRUE)
+			to_chat(world, "<b>Запуск отложен.</b>", confidential = TRUE)
 			log_admin("[key_name(usr)] delayed the round start.")
 		else
-			to_chat(world, "<b>The game will start in [DisplayTimeText(newtime)].</b>", confidential = TRUE)
+			to_chat(world, "<b>Игра начнётся через [DisplayTimeText(newtime)].</b>", confidential = TRUE)
 			SEND_SOUND(world, sound('sound/ai/cumttention.ogg'))
 			log_admin("[key_name(usr)] set the pre-game delay to [DisplayTimeText(newtime)].")
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Delay Game Start") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
