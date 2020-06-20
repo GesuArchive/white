@@ -380,7 +380,7 @@
 		if(player.client && player.ready == PLAYER_READY_TO_PLAY)
 			if(role in player.client.prefs.be_special)
 				if(!is_banned_from(player.ckey, list(role, ROLE_SYNDICATE)) && !QDELETED(player))
-					if(player.client.get_metabalance() > 0)
+					if(player.client.get_metabalance() > 50)
 						if(age_check(player.client)) //Must be older than the minimum age
 							candidates += player.mind				// Get a list of all the people who want to be the antagonist for this round
 
