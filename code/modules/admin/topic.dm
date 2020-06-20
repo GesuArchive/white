@@ -2126,8 +2126,6 @@
 			C.set_metacoin_count(amount)
 			message_admins("[key_name(usr)] изменяет баланс метакэша [key_name(C)] на [amount].")
 
-		show_player_panel(M)
-
 	else if(href_list["slowquery"])
 		if(!check_rights(R_ADMIN))
 			return
