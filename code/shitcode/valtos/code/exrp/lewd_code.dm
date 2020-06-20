@@ -10,7 +10,7 @@
 		moan--
 	lastmoan = moan
 
-	visible_message("<font color=purple> <b>[src]</b> [pick("стонет", "стонет в наслаждении",)].</font>")
+	visible_message("<span class='purple'> <b>[src]</b> [pick("стонет", "стонет в наслаждении",)].</span>")
 
 	if (gender == FEMALE && prob(25))
 		playsound(get_turf(src), "code/shitcode/valtos/sounds/love/shot[rand(1, 8)].ogg", 90, 1, 0)
@@ -84,7 +84,7 @@
 		else
 			playsound(loc, "code/shitcode/valtos/sounds/love/shot9.ogg", 90, 1, 0)
 
-	visible_message("<font color=purple><b>[src]</b> [message]</font>")
+	visible_message("<span class='purple'><b>[src]</b> [message]</span>")
 
 	new /obj/effect/decal/cleanable/cum(src.loc)
 
