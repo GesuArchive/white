@@ -405,7 +405,7 @@
   * for why this isn't atom/verb/examine()
   */
 /mob/verb/examinate(atom/A as mob|obj|turf in view()) //It used to be oview(12), but I can't really say why
-	set name = "Examine"
+	set name = "Осмотреть"
 	set category = "IC"
 
 	if(isturf(A) && !(sight & SEE_TURFS) && !(A in view(client ? client.view : world.view, src)))
@@ -413,7 +413,7 @@
 		return
 
 	if(is_blind())
-		to_chat(src, "<span class='warning'>Something is there but you can't see it!</span>")
+		to_chat(src, "<span class='warning'>Здесь что-то есть, но я не вижу этого!</span>")
 		return
 
 	face_atom(A)

@@ -28,7 +28,7 @@ SUBSYSTEM_DEF(vote)
 		else
 			var/datum/browser/client_popup
 			for(var/client/C in voting)
-				client_popup = new(C, "vote", "Voting Panel")
+				client_popup = new(C, "vote", "ГОЛОСОВАНИЕ")
 				client_popup.set_window_options("can_close=0")
 				client_popup.set_content(interface(C))
 				client_popup.open(FALSE)
@@ -62,16 +62,16 @@ SUBSYSTEM_DEF(vote)
 			if (!C || C.is_afk())
 				non_voters -= non_voter_ckey
 		if(non_voters.len > 0)
-			if(mode == "restart")
-				choices["Continue Playing"] += non_voters.len
-				if(choices["Continue Playing"] >= greatest_votes)
-					greatest_votes = choices["Continue Playing"]
-			else if(mode == "gamemode")
+			if(mode == "перезапуск")
+				choices["Продолжаем"] += non_voters.len
+				if(choices["Продолжаем"] >= greatest_votes)
+					greatest_votes = choices["Продолжаем"]
+			else if(mode == "режим")
 				if(GLOB.master_mode in choices)
 					choices[GLOB.master_mode] += non_voters.len
 					if(choices[GLOB.master_mode] >= greatest_votes)
 						greatest_votes = choices[GLOB.master_mode]
-			else if(mode == "map")
+			else if(mode == "карту")
 				for (var/non_voter_ckey in non_voters)
 					var/client/C = non_voters[non_voter_ckey]
 					if(C.prefs.preferred_map)
@@ -99,23 +99,23 @@ SUBSYSTEM_DEF(vote)
 		if(question)
 			text += "<b>[question]</b>"
 		else
-			text += "<b>[capitalize(mode)] Vote</b>"
+			text += "<b>Голосование за [mode]</b>"
 		for(var/i=1,i<=choices.len,i++)
 			var/votes = choices[choices[i]]
 			if(!votes)
 				votes = 0
 			text += "\n<b>[choices[i]]:</b> [votes]"
-		if(mode != "custom")
+		if(mode != "что-то")
 			if(winners.len > 1)
-				text = "\n<b>Vote Tied Between:</b>"
+				text = "\n<b>Голоса разделились между:</b>"
 				for(var/option in winners)
 					text += "\n\t[option]"
 			. = pick(winners)
-			text += "\n<b>Vote Result: [.]</b>"
+			text += "\n<b>Результат: [.]</b>"
 		else
-			text += "\n<b>Did not vote:</b> [GLOB.clients.len-voted.len]"
+			text += "\n<b>Не голосовало:</b> [GLOB.clients.len-voted.len]"
 	else
-		text += "<b>Vote Result: Inconclusive - No Votes!</b>"
+		text += "<b>Результат: ЕДИНАЯ РОССИЯ!</b>"
 	log_vote(text)
 	remove_action_buttons()
 	to_chat(world, "\n<font color='purple'>[text]</font>")
@@ -126,17 +126,17 @@ SUBSYSTEM_DEF(vote)
 	var/restart = FALSE
 	if(.)
 		switch(mode)
-			if("restart")
-				if(. == "Restart Round")
+			if("перезапуск")
+				if(. == "Заканчиваем")
 					restart = TRUE
-			if("gamemode")
+			if("режим")
 				if(GLOB.master_mode != .)
 					SSticker.save_mode(.)
 					if(SSticker.HasRoundStarted())
 						restart = TRUE
 					else
 						GLOB.master_mode = .
-			if("map")
+			if("карту")
 				SSmapping.changemap(global.config.maplist[.])
 				SSmapping.map_voted = TRUE
 	if(restart)
@@ -146,9 +146,9 @@ SUBSYSTEM_DEF(vote)
 				active_admins = TRUE
 				break
 		if(!active_admins)
-			SSticker.Reboot("Restart vote successful.", "restart vote", 1)	//no delay in case the restart is due to lag
+			SSticker.Reboot("Голосвание за перезапуск успешно!", "restart vote", 1)	//no delay in case the restart is due to lag
 		else
-			to_chat(world, "<span style='boldannounce'>Notice:Restart vote will not restart the server automatically because there are active admins on.</span>")
+			to_chat(world, "<span style='green'> >> Кто-то из педалей может перезапустить раунд. Пните их.</span>")
 			message_admins("A restart vote has passed, but there are active admins on with +server, so it has been canceled. If you wish, you may restart the server.")
 
 	return .
@@ -187,25 +187,25 @@ SUBSYSTEM_DEF(vote)
 
 		reset()
 		switch(vote_type)
-			if("restart")
-				choices.Add("Restart Round","Continue Playing")
-			if("gamemode")
+			if("перезапуск")
+				choices.Add("Заканчиваем","Продолжаем")
+			if("режим")
 				choices.Add(config.votable_modes)
-			if("map")
+			if("карту")
 				if(!admin && SSmapping.map_voted)
-					to_chat(usr, "<span class='warning'>The next map has already been selected.</span>")
+					to_chat(usr, "<span class='warning'>Следующая карта уже была выбрана.</span>")
 					return FALSE
 				for(var/map in config.maplist)
 					var/datum/map_config/VM = config.maplist[map]
 					if(!VM.votable || (VM.map_name in SSpersistence.blocked_maps))
 						continue
 					choices.Add(VM.map_name)
-			if("custom")
-				question = stripped_input(usr,"What is the vote for?")
+			if("что-то")
+				question = stripped_input(usr,"Что же мы спросим?")
 				if(!question)
 					return FALSE
 				for(var/i=1,i<=10,i++)
-					var/option = capitalize(stripped_input(usr,"Please enter an option or hit cancel to finish"))
+					var/option = capitalize(stripped_input(usr,"Пиши вариант ответа или жми отмену для начала"))
 					if(!option || mode || !usr.client)
 						break
 					choices.Add(option)
@@ -214,18 +214,18 @@ SUBSYSTEM_DEF(vote)
 		mode = vote_type
 		initiator = initiator_key
 		started_time = world.time
-		var/text = "[capitalize(mode)] vote started by [initiator]."
-		if(mode == "custom")
+		var/text = "Голосование за [mode] начато [initiator]."
+		if(mode == "что-то")
 			text += "\n[question]"
 		log_vote(text)
 		var/vp = CONFIG_GET(number/vote_period)
-		to_chat(world, "\n<font color='purple'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=[REF(src)]'>here</a> to place your votes.\nYou have [DisplayTimeText(vp)] to vote.</font>")
+		to_chat(world, "\n<font color='purple'><b>[text]</b>\nЖми на большую кнопку <b>Голосуй!</b> или кликни <a href='?src=[REF(src)]'>сюда</a>, чтобы разместить свой голос.\nУ тебя есть [DisplayTimeText(vp)]а.</font>")
 		time_remaining = round(vp/10)
 		for(var/c in GLOB.clients)
 			var/client/C = c
 			var/datum/action/vote/V = new
 			if(question)
-				V.name = "Vote: [question]"
+				V.name = "Голос: [question]"
 			C.player_details.player_actions += V
 			V.Grant(C.mob)
 			generated_actions += V
@@ -245,35 +245,35 @@ SUBSYSTEM_DEF(vote)
 
 	if(mode)
 		if(question)
-			. += "<h2>Vote: '[question]'</h2>"
+			. += "<h2>ГОЛОСОВАНИЕ: '[question]'</h2>"
 		else
-			. += "<h2>Vote: [capitalize(mode)]</h2>"
-		. += "Time Left: [time_remaining] s<hr><ul>"
+			. += "<h2>ГОЛОСОВАНИЕ: [capitalize(mode)]</h2>"
+		. += "Времени осталось: [time_remaining] s<hr><ul>"
 		for(var/i=1,i<=choices.len,i++)
 			var/votes = choices[choices[i]]
 			if(!votes)
 				votes = 0
-			. += "<li><a href='?src=[REF(src)];vote=[i]'>[choices[i]]</a> ([votes] votes)</li>"
+			. += "<li><a href='?src=[REF(src)];vote=[i]'>[choices[i]]</a> \[[votes]\]</li>"
 		. += "</ul><hr>"
 		if(admin)
-			. += "(<a href='?src=[REF(src)];vote=cancel'>Cancel Vote</a>) "
+			. += "(<a href='?src=[REF(src)];vote=cancel'>Отменить</a>) "
 	else
-		. += "<h2>Start a vote:</h2><hr><ul><li>"
+		. += "<h2>Начнём же голосование</h2><hr><ul><li>"
 		//restart
 		var/avr = CONFIG_GET(flag/allow_vote_restart)
 		if(trialmin || avr)
-			. += "<a href='?src=[REF(src)];vote=restart'>Restart</a>"
+			. += "<a href='?src=[REF(src)];vote=restart'>Перезапуск</a>"
 		else
-			. += "<font color='grey'>Restart (Disallowed)</font>"
+			. += "<font color='grey'>Перезапуск (Disallowed)</font>"
 		if(trialmin)
 			. += "\t(<a href='?src=[REF(src)];vote=toggle_restart'>[avr ? "Allowed" : "Disallowed"]</a>)"
 		. += "</li><li>"
 		//gamemode
 		var/avm = CONFIG_GET(flag/allow_vote_mode)
 		if(trialmin || avm)
-			. += "<a href='?src=[REF(src)];vote=gamemode'>GameMode</a>"
+			. += "<a href='?src=[REF(src)];vote=gamemode'>Режим</a>"
 		else
-			. += "<font color='grey'>GameMode (Disallowed)</font>"
+			. += "<font color='grey'>Режим (Disallowed)</font>"
 		if(trialmin)
 			. += "\t(<a href='?src=[REF(src)];vote=toggle_gamemode'>[avm ? "Allowed" : "Disallowed"]</a>)"
 
@@ -281,18 +281,18 @@ SUBSYSTEM_DEF(vote)
 		//map
 		var/avmap = CONFIG_GET(flag/allow_vote_map)
 		if(trialmin || avmap)
-			. += "<a href='?src=[REF(src)];vote=map'>Map</a>"
+			. += "<a href='?src=[REF(src)];vote=map'>Карта</a>"
 		else
-			. += "<font color='grey'>Map (Disallowed)</font>"
+			. += "<font color='grey'>Карта (Disallowed)</font>"
 		if(trialmin)
 			. += "\t(<a href='?src=[REF(src)];vote=toggle_map'>[avmap ? "Allowed" : "Disallowed"]</a>)"
 
 		. += "</li>"
 		//custom
 		if(trialmin)
-			. += "<li><a href='?src=[REF(src)];vote=custom'>Custom</a></li>"
+			. += "<li><a href='?src=[REF(src)];vote=custom'>Своё</a></li>"
 		. += "</ul><hr>"
-	. += "<a href='?src=[REF(src)];vote=close' style='position:absolute;right:50px'>Close</a>"
+	. += "<a href='?src=[REF(src)];vote=close' style='position:absolute;right:50px'>Закрыть</a>"
 	return .
 
 
@@ -324,16 +324,16 @@ SUBSYSTEM_DEF(vote)
 				CONFIG_SET(flag/allow_vote_map, !CONFIG_GET(flag/allow_vote_map))
 		if("restart")
 			if(CONFIG_GET(flag/allow_vote_restart) || usr.client.holder)
-				initiate_vote("restart",usr.key)
+				initiate_vote("перезапуск",usr.key)
 		if("gamemode")
 			if(CONFIG_GET(flag/allow_vote_mode) || usr.client.holder)
-				initiate_vote("gamemode",usr.key)
+				initiate_vote("режим",usr.key)
 		if("map")
 			if(CONFIG_GET(flag/allow_vote_map) || usr.client.holder)
-				initiate_vote("map",usr.key)
+				initiate_vote("карту",usr.key)
 		if("custom")
 			if(usr.client.holder)
-				initiate_vote("custom",usr.key)
+				initiate_vote("что-то",usr.key)
 		else
 			submit_vote(round(text2num(href_list["vote"])))
 	usr.vote()
@@ -348,15 +348,15 @@ SUBSYSTEM_DEF(vote)
 
 /mob/verb/vote()
 	set category = "OOC"
-	set name = "Vote"
+	set name = " 📝 Голосование"
 
-	var/datum/browser/popup = new(src, "vote", "Voting Panel")
+	var/datum/browser/popup = new(src, "vote", "ГОЛОСОВАНИЕ")
 	popup.set_window_options("can_close=0")
 	popup.set_content(SSvote.interface(client))
 	popup.open(FALSE)
 
 /datum/action/vote
-	name = "Vote!"
+	name = "Голосуй!"
 	button_icon_state = "vote"
 
 /datum/action/vote/Trigger()

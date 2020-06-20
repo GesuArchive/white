@@ -49,7 +49,7 @@
 	update_metabalance_cache()
 	qdel(query_set_metacoins)
 	if(ann)
-		to_chat(src, "<span class='rose bold'>Мой новый баланс [mc_count] метакэша!</span>")
+		to_chat(src, "<span class='rose bold'>Новый баланс: [mc_count] метакэша!</span>")
 
 /proc/inc_metabalance(mob/M, mc_count, ann=TRUE, reason=null)
 	if(mc_count > 0 && !M.client)

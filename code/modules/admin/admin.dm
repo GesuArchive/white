@@ -2,7 +2,7 @@
 ////////////////////////////////
 /proc/message_admins(msg)
 	webhook_send_garbage("ADMIN LOG", msg)
-	msg = "<span class=\"admin\"><span class=\"prefix\">ADMIN LOG:</span> <span class=\"message linkify\">[msg]</span></span>"
+	msg = "<span class=\"admin\"><span class=\"prefix\">AL:</span> <span class=\"message linkify\">[msg]</span></span>"
 	to_chat(GLOB.admins, msg, confidential = TRUE)
 /*
 /proc/message_admins(msg)
@@ -83,7 +83,9 @@
 		body += "<a href='?_src_=holder;[HrefToken()];modantagrep=set;mob=[REF(M)]'>\[set\]</a> "
 		body += "<a href='?_src_=holder;[HrefToken()];modantagrep=zero;mob=[REF(M)]'>\[zero\]</a>"
 		var/metabalance = M.client.get_metabalance()
-		body += "<br><br><b>MetaCash</b>: [metabalance] <br>"
+		body += "<br><br><b>Метакэш</b>: [metabalance] <br>"
+		if(check_rights(R_PERMISSIONS, show_msg = FALSE))
+			body += " | <a href='?_src_=holder;[HrefToken()];changemetacash=[REF(M)]'>\[CHANGE\]</a> <br>"
 		var/full_version = "Unknown"
 		if(M.client.byond_version)
 			full_version = "[M.client.byond_version].[M.client.byond_build ? M.client.byond_build : "xxx"]"

@@ -372,7 +372,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 // Unignore verb
 /client/verb/select_unignore()
-	set name = "Unignore"
+	set name = " ❌ Не игнорировать"
 	set category = "OOC"
 	set desc = "Stop ignoring a player's messages on the OOC channel"
 
