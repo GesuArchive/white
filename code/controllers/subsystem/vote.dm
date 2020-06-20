@@ -118,7 +118,7 @@ SUBSYSTEM_DEF(vote)
 		text += "<b>Результат: ЕДИНАЯ РОССИЯ!</b>"
 	log_vote(text)
 	remove_action_buttons()
-	to_chat(world, "\n<font color='purple'>[text]</font>")
+	to_chat(world, "\n<span class='purple'>[text]</span>")
 	return .
 
 /datum/controller/subsystem/vote/proc/result()
@@ -219,7 +219,7 @@ SUBSYSTEM_DEF(vote)
 			text += "\n[question]"
 		log_vote(text)
 		var/vp = CONFIG_GET(number/vote_period)
-		to_chat(world, "\n<font color='purple'><b>[text]</b>\nЖми на большую кнопку <b>Голосуй!</b> или кликни <a href='?src=[REF(src)]'>сюда</a>, чтобы разместить свой голос.\nУ тебя есть [DisplayTimeText(vp)]а.</font>")
+		to_chat(world, "\n<span class='purple'><b>[text]</b>\nЖми на большую кнопку <b>Голосуй!</b> или кликни <a href='?src=[REF(src)]'>сюда</a>, чтобы разместить свой голос.\nУ тебя есть [DisplayTimeText(vp)]а.</span>")
 		time_remaining = round(vp/10)
 		for(var/c in GLOB.clients)
 			var/client/C = c

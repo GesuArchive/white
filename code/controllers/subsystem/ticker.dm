@@ -439,7 +439,7 @@ SUBSYSTEM_DEF(ticker)
 			m = pick(memetips)
 
 	if(m)
-		to_chat(world, "<font color='purple'><b>Заметка: </b>[html_encode(m)]</font>")
+		to_chat(world, "<span class='purple'><b>Заметка: </b>[html_encode(m)]</span>")
 
 /datum/controller/subsystem/ticker/proc/check_queue()
 	if(!queued_players.len)

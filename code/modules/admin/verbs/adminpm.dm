@@ -155,7 +155,7 @@
 				to_chat(src, "<span class='notice'>Admin PM to-<b>[key_name(recipient, src, 1)]</b>: <span class='linkify'>[keywordparsedmsg]</span></span>", confidential = TRUE)
 
 				//omg this is dumb, just fill in both their tickets
-				var/interaction_message = "<font color='purple'>PM from-<b>[key_name(src, recipient, 1)]</b> to-<b>[key_name(recipient, src, 1)]</b>: [keywordparsedmsg]</font>"
+				var/interaction_message = "<font color='pink'>PM from-<b>[key_name(src, recipient, 1)]</b> to-<b>[key_name(recipient, src, 1)]</b>: [keywordparsedmsg]</font>"
 				admin_ticket_log(src, interaction_message)
 				if(recipient != src)	//reeee
 					admin_ticket_log(recipient, interaction_message)
@@ -184,7 +184,7 @@
 				to_chat(recipient, "<span class='adminsay'><i>Click on the administrator's name to reply.</i></span>", confidential = TRUE)
 				to_chat(src, "<span class='notice'>Admin PM to-<b>[key_name(recipient, src, 1)]</b>: <span class='linkify'>[msg]</span></span>", confidential = TRUE)
 
-				admin_ticket_log(recipient, "<font color='purple'>PM From [key_name_admin(src)]: [keywordparsedmsg]</font>")
+				admin_ticket_log(recipient, "<font color='pink'>PM From [key_name_admin(src)]: [keywordparsedmsg]</font>")
 
 				if(!already_logged) //Reply to an existing ticket
 					SSblackbox.LogAhelp(recipient.current_ticket.id, "Reply", msg, recipient.ckey, src.ckey)
@@ -306,7 +306,7 @@
 	to_chat(C, "<span class='adminsay'>Admin PM from-<b><a href='?priv_msg=[stealthkey]'>[adminname]</A></b>: [msg]</span>", confidential = TRUE)
 	to_chat(C, "<span class='adminsay'><i>Click on the administrator's name to reply.</i></span>", confidential = TRUE)
 
-	admin_ticket_log(C, "<font color='purple'>PM From [tgs_tagged]: [msg]</font>")
+	admin_ticket_log(C, "<font color='pink'>PM From [tgs_tagged]: [msg]</font>")
 
 	window_flash(C, ignorepref = TRUE)
 	//always play non-admin recipients the adminhelp sound

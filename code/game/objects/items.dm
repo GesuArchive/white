@@ -291,7 +291,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		return
 
 	/// Research prospects, including boostable nodes and point values. Deliver to a console to know whether the boosts have already been used.
-	var/list/research_msg = list("<font color='purple'>Научный интерес:</font> ")
+	var/list/research_msg = list("<span class='purple'>Научный интерес:</span> ")
 	///Separator between the items on the list
 	var/sep = ""
 	///Nodes that can be boosted
@@ -313,7 +313,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		research_msg += "Ничего"
 
 	// Extractable materials. Only shows the names, not the amounts.
-	research_msg += ".<br><font color='purple'>Материалы:</font> "
+	research_msg += ".<br><span class='purple'>Материалы:</span> "
 	if (length(custom_materials))
 		sep = ""
 		for(var/mat in custom_materials)

@@ -141,7 +141,7 @@
 		dat += "<b><a href='byond://?src=[REF(src)];function=eject'>Eject</A>"
 		var/list/listin = techweb_item_boost_check(src)
 		if(listin)
-			var/list/output = list("<b><font color='purple'>Research Boost Data:</font></b>")
+			var/list/output = list("<b><font color='pink'>Research Boost Data:</font></b>")
 			var/list/res = list("<b><font color='blue'>Already researched:</font></b>")
 			var/list/boosted = list("<b><font color='red'>Already boosted:</font></b>")
 			for(var/node_id in listin)

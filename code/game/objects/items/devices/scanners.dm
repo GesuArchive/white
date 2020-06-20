@@ -229,7 +229,7 @@ GENE SCANNER
 							<td style='width:5em;'><font color='red'><b>Травмы</b></font></td>\
 							<td style='width:4em;'><font color='orange'><b>Ожоги</b></font></td>\
 							<td style='width:4em;'><font color='green'><b>Токсины</b></font></td>\
-							<td style='width:8em;'><font color='purple'><b>Удушье</b></font></td></tr>\
+							<td style='width:8em;'><font color='pink'><b>Удушье</b></font></td></tr>\
 							<tr><td><font color='#7777CC'>Общий:</font></td>\
 							<td><font color='red'>[CEILING(brute_loss,1)]</font></td>\
 							<td><font color='orange'>[CEILING(fire_loss,1)]</font></td>\
