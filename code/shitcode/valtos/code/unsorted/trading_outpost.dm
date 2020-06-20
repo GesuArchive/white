@@ -225,6 +225,7 @@
 	possible_destinations = "trader_transport_home;trader_transport_station;whiteship_home"
 	req_access = list(ACCESS_TRADER)
 	req_access_txt = "209"
+	allow_emag = TRUE
 
 /obj/machinery/computer/shuttle/ferry/request/trader
 	name = "trader transport console"
@@ -234,6 +235,7 @@
 	req_access = list(ACCESS_TRADER)
 	req_access_txt = "209"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	allow_emag = TRUE
 
 /datum/map_template/shuttle/trader_transport
 	port_id = "trader"
