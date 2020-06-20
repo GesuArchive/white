@@ -91,31 +91,31 @@
 /datum/supply_pack/goody/firstaid_single
 	name = "First Aid Kit Single-Pack"
 	desc = "A single first-aid kit, fit for healing most types of bodily harm."
-	cost = 250
+	cost = 350
 	contains = list(/obj/item/storage/firstaid/regular)
 
 /datum/supply_pack/goody/firstaidoxygen_single
 	name = "Oxygen Deprivation Kit Single-Pack"
 	desc = "A single oxygen deprivation first-aid kit, marketed heavily to those with crippling fears of asphyxiation."
-	cost = 330
+	cost = 430
 	contains = list(/obj/item/storage/firstaid/o2)
 
 /datum/supply_pack/goody/firstaidtoxins_single
 	name = "Toxin Treatment Kit Single-Pack"
 	desc = "A single first aid kit focused on healing damage dealt by heavy toxins."
-	cost = 330
+	cost = 430
 	contains = list(/obj/item/storage/firstaid/toxin)
 
 /datum/supply_pack/goody/toolbox // mostly just to water down coupon probability
 	name = "Mechanical Toolbox"
 	desc = "A fully stocked mechanical toolbox, for when you're too lazy to just print them out."
-	cost = 300
+	cost = 400
 	contains = list(/obj/item/storage/toolbox/mechanical)
 
 /datum/supply_pack/goody/valentine
 	name = "Valentine Card"
 	desc = "Make an impression on that special someone! Comes with one valentine card and a free candy heart!"
-	cost = 150
+	cost = 450
 	contains = list(/obj/item/valentine, /obj/item/reagent_containers/food/snacks/candyheart)
 
 /datum/supply_pack/goody/beeplush
@@ -127,5 +127,5 @@
 /datum/supply_pack/goody/beach_ball
 	name = "Beach Ball"
 	desc = "The simple beach ball is one of Nanotrasen's most popular products. 'Why do we make beach balls? Because we can! (TM)' - Nanotrasen"
-	cost = 200
+	cost = 300
 	contains = list(/obj/item/toy/beach_ball)
