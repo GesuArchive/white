@@ -212,7 +212,7 @@ SUBSYSTEM_DEF(ticker)
 
 
 /datum/controller/subsystem/ticker/proc/setup()
-	to_chat(world, "<span class='boldannounce'>Начинаем игру...</span>")
+	to_chat(world, "<span class='green'> >> Запускаем симуляцию...</span>")
 	var/init_start = world.timeofday
 		//Create and announce mode
 	var/list/datum/game_mode/runnable_modes
@@ -230,7 +230,7 @@ SUBSYSTEM_DEF(ticker)
 
 		if(!mode)
 			if(!runnable_modes.len)
-				to_chat(world, "<B>Ничего не вышло!</B> Откатываем таймер назад.")
+				to_chat(world, "<span class='green'> >> <B>Ничего не вышло!</B> Откатываем таймер назад.</span>")
 				return 0
 			mode = pickweight(runnable_modes)
 			if(!mode)	//too few roundtypes all run too recently
@@ -239,7 +239,7 @@ SUBSYSTEM_DEF(ticker)
 	else
 		mode = config.pick_mode(GLOB.master_mode)
 		if(!mode.can_start())
-			to_chat(world, "<B>Unable to start [mode.name].</B> Not enough players, [mode.required_players] players and [mode.required_enemies] eligible antagonists needed. Reverting to pre-game lobby.")
+			to_chat(world, "<span class='green'> >> <B>Режим [mode.name] не хочет запускаться.</B> Недостаточно игроков, требуется [mode.required_players] готовых и [mode.required_enemies] антагов. Откатываем таймер назад.</span>")
 			qdel(mode)
 			mode = null
 			SSjob.ResetOccupations()
@@ -261,7 +261,7 @@ SUBSYSTEM_DEF(ticker)
 			SSjob.ResetOccupations()
 			return 0
 	else
-		message_admins("<span class='notice'>DEBUG: Bypassing prestart checks...</span>")
+		message_admins("<span class='notice'>ДЕБАГ: Обходим стартовые проверки... <b>Не забудьте отключить режим Debug-Game после успешного старта!</b></span>")
 
 	CHECK_TICK
 	if(hide_mode)

@@ -146,13 +146,13 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		LAZYINITLIST(BadBoy.failure_strikes)
 		switch(++BadBoy.failure_strikes[BadBoy.type])
 			if(2)
-				msg = "The [BadBoy.name] subsystem was the last to fire for 2 controller restarts. It will be recovered now and disabled if it happens again."
+				msg = "Подсистема <b>[BadBoy.name]</b> хочет поломать игру. Она была перезапущена и будет отключена, если не прекратит выёбываться."
 				FireHim = TRUE
 			if(3)
-				msg = "The [BadBoy.name] subsystem seems to be destabilizing the MC and will be offlined."
+				msg = "Подсистема <b>[BadBoy.name]</b> похоже хочет умереть. Отключем её."
 				BadBoy.flags |= SS_NO_FIRE
 		if(msg)
-			to_chat(GLOB.admins, "<span class='boldannounce'>[msg]</span>")
+			to_chat(GLOB.admins, "<span class='green'> >> [msg]</span>")
 			log_world(msg)
 
 	if (istype(Master.subsystems))
@@ -162,7 +162,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		current_runlevel = Master.current_runlevel
 		StartProcessing(10)
 	else
-		to_chat(world, "<span class='boldannounce'>The Master Controller is having some issues, we will need to re-initialize EVERYTHING</span>")
+		to_chat(world, "<span class='green'> >> Мастер-контроллер обосрался. Пытаемся переинициализировать <b>ВСЕ подсистемы</b>.</span>")
 		Initialize(20, TRUE)
 
 
@@ -177,7 +177,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	if(init_sss)
 		init_subtypes(/datum/controller/subsystem, subsystems)
 
-	to_chat(world, "<span class='boldannounce'>Расставляем всё по полочкам...</span>")
+	to_chat(world, "<span class='green'> >> Расставляем всё по полочкам...</span>")
 
 	// Sort subsystems by init_order, so they initialize in the correct order.
 	sortTim(subsystems, /proc/cmp_subsystem_init)
@@ -193,11 +193,11 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	current_ticklimit = TICK_LIMIT_RUNNING
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
-	var/msg = "Мир создан за [time] секунд!"
+	var/msg = "Мир создан за <b>[time]</b> секунд!"
 	SStitle.set_load_state("end")
 	spawn(10)
 		SStitle.afterload()
-	to_chat(world, "<span class='boldannounce'>[msg]</span>")
+	to_chat(world, "<span class='green'> >> [msg]</span>")
 	log_world(msg)
 
 	if (!current_runlevel)
