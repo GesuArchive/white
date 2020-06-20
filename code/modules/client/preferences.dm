@@ -504,7 +504,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<tr style='vertical-align:top;'><td width=30%>[G.display_name]\n"
 				if(G.display_name in purchased_gear)
 					if(G.sort_category == "OOC")
-						dat += "<i>Куплено.</i></td>"
+						dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить ещё</a></td>"
 					else
 						dat += "<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.display_name]'>[ticked ? "Экипировано" : "Экипировать"]</a></td>"
 				else

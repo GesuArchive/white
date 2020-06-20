@@ -34,7 +34,7 @@
 	cost = 12
 
 /datum/gear/accessory/armband_red
-	display_name = "повязка"
+	display_name = "Повязка, красная"
 	path = /obj/item/clothing/accessory/armband
 	cost = 10
 
@@ -70,7 +70,7 @@
 	cost = 250
 
 /datum/gear/accessory/eyepatch
-	display_name = "Повязка"
+	display_name = "Повязка на глаз"
 	slot = ITEM_SLOT_EYES
 	path = /obj/item/clothing/glasses/eyepatch
 	cost = 12
