@@ -576,7 +576,6 @@
 		return
 	for(var/mob/M in GLOB.mob_list)
 		if(M.stat != DEAD && M.z == z)
-			inc_metabalance(M, METACOIN_NUKEDEATH_REWARD, reason="Я не хочу так умере~")
 			M.gib()
 
 /*
