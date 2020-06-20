@@ -54,6 +54,12 @@
 	client.proverka_na_pindosov()
 	client.proverka_na_obemky()
 
-	spawn(75)
-		client.view = "19x15"
-		client.fit_viewport()
+	fit_lobbyscreen_or_die()
+
+// looping it
+/mob/dead/new_player/proc/fit_lobbyscreen_or_die()
+	client.view = "19x15"
+	client.fit_viewport()
+	if (client.view != "19x15")
+		spawn(50)
+			fit_lobbyscreen_or_die()

@@ -184,6 +184,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		be_special = list()
 
 	S["default_slot"]		>> default_slot
+	S["max_slots"]			>> max_slots
 	S["chat_toggles"]		>> chat_toggles
 	S["toggles"]			>> toggles
 	S["w_toggles"]			>> w_toggles
@@ -295,6 +296,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["windowflash"], windowflashing)
 	WRITE_FILE(S["be_special"], be_special)
 	WRITE_FILE(S["default_slot"], default_slot)
+	WRITE_FILE(S["max_slots"], max_slots)
 	WRITE_FILE(S["toggles"], toggles)
 	WRITE_FILE(S["w_toggles"], w_toggles)
 	WRITE_FILE(S["chat_toggles"], chat_toggles)
