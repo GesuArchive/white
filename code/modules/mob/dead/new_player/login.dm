@@ -58,8 +58,8 @@
 
 // looping it
 /mob/dead/new_player/proc/fit_lobbyscreen_or_die()
-	client.view = "19x15"
-	client.fit_viewport()
 	if (client.view != "19x15")
 		spawn(50)
 			fit_lobbyscreen_or_die()
+	client.view = "19x15"
+	client.fit_viewport()
