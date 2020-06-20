@@ -62,7 +62,7 @@
 
 /turf/closed/indestructible/splashscreen
 	name = "White Dream"
-	desc = "Cyberhell from ███████."
+	desc = "Истерическая утопия."
 	icon = 'icons/protocol_c.dmi'
 	icon_state = "blank"
 	layer = SPLASHSCREEN_LAYER

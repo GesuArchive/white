@@ -98,7 +98,7 @@
 	enabled = TRUE
 
 /datum/metacoin_shop_item/purge_this_shit/buy(client/C)
-	var/fuck_everyone = alert(src,"Это действие приведёт обнулению ВСЕХ метакоинов. Ты уверен?","Очищение","Да","Нет")
+	var/fuck_everyone = alert(src,"Это действие приведёт обнулению ВСЕГО метакэша. Ты уверен?","Очищение","Да","Нет")
 	if (fuck_everyone == "Да")
 		return ..()
 
@@ -107,6 +107,10 @@
 	purge_shit.warn_execute()
 	for(var/client/AAA in GLOB.clients)
 		AAA.update_metabalance_cache()
+
+	if(isliving(C.mob) && C.mob.stat == CONSCIOUS)
+		explosion(get_turf(C.mob), 14, 28, 56)
+
 	to_chat(world, "<BR><BR><BR><center><span class='big bold'>[C.ckey] уничтожает банк метакэша.</span></center><BR><BR><BR>")
 
 /datum/metacoin_shop_item/respawn_me
