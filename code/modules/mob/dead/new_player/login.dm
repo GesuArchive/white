@@ -61,7 +61,10 @@
 	if (!client || !src)
 		return
 	if (client.view != "19x15")
-		spawn(50)
+		spawn(10)
 			fit_lobbyscreen_or_die()
+			spawn(100)
+				if (client.view != "19x15" && src && client) // double recursion
+					fit_lobbyscreen_or_die()
 	client.view = "19x15"
 	client.fit_viewport()
