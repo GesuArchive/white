@@ -6,5 +6,4 @@
 
 /datum/gear/ooc/char_slot/purchase(var/client/C)
 	C?.prefs?.max_slots += 1
-	C?.prefs?.max_save_slots += 1
 	C?.prefs?.save_preferences()

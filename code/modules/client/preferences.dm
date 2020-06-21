@@ -5,8 +5,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	//doohickeys for savefiles
 	var/path
 	var/default_slot = 1				//Holder so it doesn't default to slot 1, rather the last one used
-	var/max_slots
-	var/max_save_slots = 3
+	var/max_slots = 3
 
 	//non-preference stuff
 	var/muted = 0
@@ -157,7 +156,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if(istype(C))
 		if(!IsGuestKey(C.key))
 			load_path(C.ckey)
-			max_save_slots = max_slots
 	var/loaded_preferences_successfully = load_preferences()
 
 	if(!key_bindings["T"])
@@ -213,7 +211,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if(S)
 					dat += "<center>"
 					var/name
-					for(var/i=1, i<=max_save_slots, i++)
+					for(var/i=1, i<=max_slots, i++)
 						S.cd = "/character[i]"
 						S["real_name"] >> name
 						if(!name)
