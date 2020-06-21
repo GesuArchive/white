@@ -1217,7 +1217,7 @@
 "eX" = (
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/floor/noslip{
-	initial_gas_mix = "LAVALAND_ATMOS"
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
 	},
 /area/ruin/powered/clownplanet)
 "gX" = (
@@ -1243,7 +1243,7 @@
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/floor/noslip{
-	initial_gas_mix = "LAVALAND_ATMOS"
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
 	},
 /area/ruin/powered/clownplanet)
 "Hj" = (
@@ -1280,7 +1280,7 @@
 /obj/structure/disposalpipe/trunk,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/floor/noslip{
-	initial_gas_mix = "LAVALAND_ATMOS"
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
 	},
 /area/ruin/powered/clownplanet)
 "Mv" = (
@@ -1299,7 +1299,7 @@
 /obj/effect/mapping_helpers/no_lava,
 /mob/living/simple_animal/hostile/retaliate/clown,
 /turf/open/floor/noslip{
-	initial_gas_mix = "LAVALAND_ATMOS"
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
 	},
 /area/ruin/powered/clownplanet)
 "TD" = (
@@ -1309,14 +1309,14 @@
 	},
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/floor/noslip{
-	initial_gas_mix = "LAVALAND_ATMOS"
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
 	},
 /area/ruin/powered/clownplanet)
 "Xm" = (
 /obj/item/clothing/head/cone,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/floor/noslip{
-	initial_gas_mix = "LAVALAND_ATMOS"
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
 	},
 /area/ruin/powered/clownplanet)
 "XO" = (
@@ -1335,7 +1335,7 @@
 /obj/effect/mapping_helpers/no_lava,
 /mob/living/simple_animal/hostile/retaliate/clown,
 /turf/open/floor/noslip{
-	initial_gas_mix = "LAVALAND_ATMOS"
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
 	},
 /area/ruin/powered/clownplanet)
 

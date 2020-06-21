@@ -12137,7 +12137,7 @@
 /area/centcom/evac)
 "Hb" = (
 /obj/machinery/porta_turret/syndicate/energy/heavy,
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/centcom/control)
 "Hc" = (
 /obj/structure/fireplace,

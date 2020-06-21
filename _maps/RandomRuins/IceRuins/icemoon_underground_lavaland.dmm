@@ -15,7 +15,7 @@
 	},
 /obj/item/pen,
 /turf/open/floor/plating/asteroid{
-	initial_gas_mix = "LAVALAND_ATMOS"
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
 	},
 /area/icemoon/underground)
 "m" = (
@@ -32,7 +32,7 @@
 "A" = (
 /obj/effect/mob_spawn/human/skeleton,
 /turf/open/floor/plating/asteroid{
-	initial_gas_mix = "LAVALAND_ATMOS"
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
 	},
 /area/icemoon/underground)
 "H" = (
@@ -55,12 +55,12 @@
 "V" = (
 /obj/item/storage/toolbox/mechanical/old/clean,
 /turf/open/floor/plating/asteroid{
-	initial_gas_mix = "LAVALAND_ATMOS"
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
 	},
 /area/icemoon/underground)
 "Z" = (
 /turf/open/floor/plating/asteroid{
-	initial_gas_mix = "LAVALAND_ATMOS"
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
 	},
 /area/icemoon/underground)
 
