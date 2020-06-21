@@ -6146,11 +6146,12 @@
 /turf/closed/wall/r_wall,
 /area/ai_monitored/nuke_storage)
 "aBb" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer3{
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 8
 	},
-/turf/closed/wall,
-/area/hydroponics)
+/turf/open/floor/plasteel,
+/area/maintenance/disposal/incinerator)
 "aBc" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
@@ -81232,7 +81233,7 @@ cfj
 aku
 pms
 cjr
-cjr
+aBb
 cjr
 clh
 dtD
@@ -82457,7 +82458,7 @@ gVb
 gVb
 gVb
 jgy
-aBb
+gVb
 gVb
 mCm
 gVb
