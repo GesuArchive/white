@@ -2082,7 +2082,7 @@
 "fE" = (
 /obj/structure/table,
 /obj/item/ai_module/supplied/oxygen,
-/obj/item/ai_module/zeroth/oneHuman,
+/obj/item/ai_module/zeroth/onehuman,
 /obj/machinery/door/window{
 	dir = 8;
 	name = "High-Risk Modules";
@@ -2097,7 +2097,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/ai_module/supplied/protectStation,
+/obj/item/ai_module/supplied/protect_station,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
 "fF" = (
