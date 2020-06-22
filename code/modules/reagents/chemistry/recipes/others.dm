@@ -579,7 +579,7 @@
 	required_reagents = list(/datum/reagent/consumable/milk = 1, /datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/flour = 1)
 
 /datum/chemical_reaction/metalgen_other
-	required_reagents = list(/datum/reagent/iron = 1, /datum/reagent/medicine/helbital = 1, /datum/reagent/cryostylane = 1, /datum/reagent/baldium = 1, /datum/reagent/blood = 1, /datum/reagent/stable_plasma = 1, /datum/reagent/impedrezene = 1, /datum/reagent/cellulose = 1, /datum/reagent/pyrosium = 1)
+	required_reagents = list(/datum/reagent/iron = 1, /datum/reagent/medicine/c2/helbital = 1, /datum/reagent/cryostylane = 1, /datum/reagent/baldium = 1, /datum/reagent/blood = 1, /datum/reagent/stable_plasma = 1, /datum/reagent/impedrezene = 1, /datum/reagent/cellulose = 1, /datum/reagent/pyrosium = 1)
 	required_catalysts= list(/datum/reagent/toxin/poo = 1)
 	results = list(/datum/reagent/metalgen = 5)
 

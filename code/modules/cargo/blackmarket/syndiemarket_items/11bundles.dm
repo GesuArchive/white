@@ -100,11 +100,11 @@
 	price_max = 10000
 	availability_prob = 25
 
-/datum/blackmarket_item/sbundles/bundle_B
+/datum/blackmarket_item/sbundles/bundle_b
 	name = "Syndi-kit Special"
 	desc = "Syndicate Bundles, also known as Syndi-Kits, are specialized groups of items that arrive in a plain box. \
 			In Syndi-kit Special, you will recieve items used by famous syndicate agents of the past. Collectively worth more than 20 telecrystals, the syndicate loves a good throwback."
-	item = /obj/item/storage/box/syndicate/bundle_B
+	item = /obj/item/storage/box/syndicate/bundle_b
 	stock_min = 1
 	stock_max = 1
 
