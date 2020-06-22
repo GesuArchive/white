@@ -41,7 +41,7 @@
 	SSblackbox.record_feedback("tally", "poo", 1, "Poo Eaten")
 	return ..()
 
-/datum/reagent/toxin/poo/reaction_turf(turf/open/T, reac_volume)//splash the poo all over the place
+/datum/reagent/toxin/poo/expose_turf(turf/open/T, reac_volume)//splash the poo all over the place
 	if(!istype(T))
 		return
 	if(reac_volume >= 1)
@@ -107,7 +107,7 @@
 	var/turf/T = get_turf(hit_atom)
 	new/obj/effect/decal/cleanable/poo(T)
 	if(reagents && reagents.total_volume)
-		reagents.reaction(hit_atom, TOUCH)
+		reagents.expose(hit_atom, TOUCH)
 	if(ishuman(hit_atom))
 		var/mob/living/carbon/human/H = hit_atom
 		var/mutable_appearance/pooverlay = mutable_appearance('code/shitcode/valtos/icons/poo.dmi')

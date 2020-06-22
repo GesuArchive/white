@@ -438,8 +438,8 @@
 					"<a href='?src=[REF(src)];hud=s;add_crime=1'>\[Добавить нарушение\]</a> ",
 					"<a href='?src=[REF(src)];hud=s;view_comment=1'>\[Просмотреть комментарии\]</a> ",
 					"<a href='?src=[REF(src)];hud=s;add_comment=1'>\[Добавить комментарий\]</a> "), "")
-	else if(isobserver(user) && quirkstring)
-		. += "<span class='info'><b>Черты:</b> [quirkstring]</span>"
+	else if(isobserver(user))
+		. += "<span class='info'><b>Черты:</b> [get_quirk_string()]</span>"
 	//if(true_info)
 	//	. += "\n<span class='info'><b>Судьба:</b>"
 	//	. += "Уровень <b>силы</b> [fateize_stat(current_fate[MOB_STR], TRUE)]."

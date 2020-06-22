@@ -535,17 +535,8 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		//Can cause an overestimation of mol count, should stabalize things though.
 		//Prevents huge bursts of gas/heat when a large amount of something is introduced
 		//They range between 0 and 1
-		plasmacomp += clamp(max(removed.get_moles(/datum/gas/plasma)/combined_gas, 0) - plasmacomp, -1, gas_change_rate)
-		o2comp += clamp(max(removed.get_moles(/datum/gas/oxygen)/combined_gas, 0) - o2comp, -1, gas_change_rate)
-		co2comp += clamp(max(removed.get_moles(/datum/gas/carbon_dioxide)/combined_gas, 0) - co2comp, -1, gas_change_rate)
-		pluoxiumcomp += clamp(max(removed.get_moles(/datum/gas/pluoxium)/combined_gas, 0) - pluoxiumcomp, -1, gas_change_rate)
-		tritiumcomp += clamp(max(removed.get_moles(/datum/gas/tritium)/combined_gas, 0) - tritiumcomp, -1, gas_change_rate)
-		bzcomp += clamp(max(removed.get_moles(/datum/gas/bz)/combined_gas, 0) - bzcomp, -1, gas_change_rate)
-		n2ocomp += clamp(max(removed.get_moles(/datum/gas/nitrous_oxide)/combined_gas, 0) - n2ocomp, -1, gas_change_rate)
-		n2comp += clamp(max(removed.get_moles(/datum/gas/nitrogen)/combined_gas, 0) - n2comp, -1, gas_change_rate)
-		h2ocomp += clamp(max(removed.get_moles(/datum/gas/water_vapor)/combined_gas, 0) - h2ocomp, -1, gas_change_rate)
-		freoncomp += clamp(max(removed.get_moles(/datum/gas/freon)/combined_gas, 0) - freoncomp, -1, gas_change_rate)
-		h2comp += clamp(max(removed.get_moles(/datum/gas/hydrogen)/combined_gas, 0) - h2comp, -1, gas_change_rate)
+		for(var/gasID in gases_we_care_about)
+			gas_comp[gasID] += clamp(max(removed.get_moles(gasID)/combined_gas, 0) - gas_comp[gasID], -1, gas_change_rate)
 
 		var/list/heat_mod = gases_we_care_about.Copy()
 		var/list/transit_mod = gases_we_care_about.Copy()
