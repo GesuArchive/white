@@ -87,12 +87,12 @@
 	price_max = 500000
 	availability_prob = 5
 
-/datum/blackmarket_item/sbundles/bundle_A
+/datum/blackmarket_item/sbundles/bundle_a
 	name = "Syndi-kit Tactical"
 	desc = "Syndicate Bundles, also known as Syndi-Kits, are specialized groups of items that arrive in a plain box. \
 			These items are collectively worth more than 20 telecrystals, but you do not know which specialization \
 			you will receive. May contain discontinued and/or exotic items."
-	item = /obj/item/storage/box/syndicate/bundle_A
+	item = /obj/item/storage/box/syndicate/bundle_a
 	stock_min = 1
 	stock_max = 1
 

@@ -12,8 +12,8 @@
 /obj/item/reagent_containers/food/snacks/lcube/warm
 	name = "горячий куб личинок"
 	desc = "Теперь этим можно \"питаться\"."
-	bonus_reagents = list(/datum/reagent/medicine/C2/probital = 1)
-	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/medicine/C2/probital = 2)
+	bonus_reagents = list(/datum/reagent/medicine/probital = 1)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/medicine/probital = 2)
 	cooked_type = null
 	tastes = list("мясо" = 1)
 	foodtype = MEAT | FRIED
