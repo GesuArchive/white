@@ -3848,7 +3848,7 @@
 /turf/open/floor/holofloor,
 /area/holodeck/rec_center/pet_lounge)
 "kY" = (
-/obj/structure/closet/secure_closet/ertEngi,
+/obj/structure/closet/secure_closet/ert_engi,
 /obj/structure/sign/directions/engineering{
 	pixel_y = 24
 	},
@@ -4906,7 +4906,7 @@
 "nN" = (
 /obj/structure/fans/tiny/invisible,
 /turf/open/floor/holofloor/hyperspace,
-/area/centcom/supplypod/flyMeToTheMoon)
+/area/centcom/supplypod/fly_me_to_the_moon)
 "nP" = (
 /obj/machinery/hydroponics/soil,
 /turf/open/floor/holofloor/grass,
@@ -7125,7 +7125,7 @@
 /area/centcom/evac)
 "tw" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/crowbar/power,
 /obj/item/wrench,
 /obj/item/hand_labeler,
@@ -10100,7 +10100,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/centcom/evac)
 "Bv" = (
-/obj/structure/closet/secure_closet/ertCom,
+/obj/structure/closet/secure_closet/ert_com,
 /obj/structure/sign/directions/command{
 	pixel_y = 24
 	},
@@ -10595,7 +10595,7 @@
 /turf/open/floor/grass,
 /area/centcom/holding)
 "CT" = (
-/obj/structure/closet/secure_closet/ertSec,
+/obj/structure/closet/secure_closet/ert_sec,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
@@ -11360,7 +11360,7 @@
 /area/centcom/holding)
 "Fe" = (
 /obj/structure/table,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
 "Ff" = (
@@ -12571,7 +12571,7 @@
 /turf/open/floor/wood,
 /area/centcom/holding)
 "It" = (
-/obj/structure/closet/secure_closet/ertMed,
+/obj/structure/closet/secure_closet/ert_med,
 /obj/machinery/vending/wallmed{
 	name = "Emergency NanoMed";
 	pixel_y = -32;
@@ -14054,7 +14054,7 @@
 /turf/open/floor/plating/airless,
 /area/syndicate_mothership/control)
 "MM" = (
-/obj/structure/closet/secure_closet/ertMed,
+/obj/structure/closet/secure_closet/ert_med,
 /obj/structure/sign/directions/medical{
 	dir = 1;
 	pixel_y = -24
@@ -14130,7 +14130,7 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
 "Nb" = (
-/obj/structure/closet/secure_closet/ertSec,
+/obj/structure/closet/secure_closet/ert_sec,
 /obj/structure/sign/directions/security{
 	dir = 1;
 	pixel_y = -24
@@ -14973,7 +14973,7 @@
 /area/centcom/debug)
 "Pq" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/hand_labeler,
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/light{
@@ -16070,7 +16070,7 @@
 /turf/open/floor/plasteel,
 /area/centcom/supply)
 "RZ" = (
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/hand_labeler,
 /obj/structure/table,
 /obj/effect/turf_decal/bot,
@@ -16334,7 +16334,7 @@
 /turf/open/indestructible,
 /area/centcom/debug)
 "SP" = (
-/obj/structure/closet/secure_closet/ertEngi,
+/obj/structure/closet/secure_closet/ert_engi,
 /obj/machinery/airalarm{
 	pixel_y = 24
 	},
@@ -18526,7 +18526,7 @@
 "Yh" = (
 /obj/structure/table,
 /obj/item/clipboard,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/stack/cable_coil,
 /obj/item/hand_labeler,
 /obj/effect/turf_decal/tile/green{
@@ -18656,7 +18656,7 @@
 /area/centcom/control)
 "Ys" = (
 /turf/open/floor/plasteel,
-/area/centcom/supplypod/podStorage)
+/area/centcom/supplypod/pod_storage)
 "Yu" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
@@ -19270,7 +19270,7 @@
 	pixel_y = -24
 	},
 /obj/structure/table/reinforced,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/stack/cable_coil,
 /obj/item/hand_labeler,
 /obj/effect/turf_decal/tile/neutral{
