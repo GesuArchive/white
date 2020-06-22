@@ -35,7 +35,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 1
 	},
-/mob/living/simple_animal/pet/dog/corgi/Ian{
+/mob/living/simple_animal/pet/dog/corgi/ian{
 	dir = 8
 	},
 /turf/open/floor/carpet,
@@ -52,7 +52,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/east,
-/mob/living/simple_animal/pet/fox/Renault{
+/mob/living/simple_animal/pet/fox/renault{
 	faction = list("neutral","silicon")
 	},
 /turf/open/floor/wood,
@@ -3511,7 +3511,7 @@
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/hand_labeler,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -8880,7 +8880,7 @@
 "CO" = (
 /obj/structure/table,
 /obj/item/hand_labeler,
-/obj/item/stack/packageWrap{
+/obj/item/stack/package_wrap{
 	pixel_x = -1;
 	pixel_y = -1
 	},
@@ -11936,7 +11936,7 @@
 	pixel_x = 3;
 	pixel_y = 2
 	},
-/obj/item/storage/secure/safe/HoS{
+/obj/item/storage/secure/safe/hos{
 	pixel_x = 35
 	},
 /obj/item/taperecorder,

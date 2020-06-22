@@ -763,7 +763,7 @@
 /turf/open/floor/carpet,
 /area/prisonv2)
 "cK" = (
-/mob/living/simple_animal/mouse/brown/Tom,
+/mob/living/simple_animal/mouse/brown/tom,
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "cL" = (

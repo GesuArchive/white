@@ -213,7 +213,7 @@
 	tools = list(/obj/item/weldingtool)
 	reqs = list(/obj/item/stack/sheet/mineral/silver = 1,
 				/obj/item/stake/hardened = 1)
-				///obj/item/stack/packageWrap = 8,
+				///obj/item/stack/package_wrap = 8,
 				///obj/item/pipe = 2)
 	time = 80
 	category = CAT_WEAPONRY

@@ -226,7 +226,7 @@
 	reqs = list(/obj/item/stack/sheet/cloth = 1,
 				/obj/item/stack/sheet/mineral/wood = 5,
 				/obj/item/stack/sheet/metal = 1)
-				///obj/item/stack/packageWrap = 8,
+				///obj/item/stack/package_wrap = 8,
 				///obj/item/pipe = 2)
 	time = 150
 	category = CAT_STRUCTURE
