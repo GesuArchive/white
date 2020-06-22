@@ -2,7 +2,7 @@
 	name = "пояс"
 	desc = "Может хранить разные штуки."
 	icon = 'icons/obj/clothing/belts.dmi'
-	icon_state = "utilitybelt"
+	icon_state = "utility"
 	inhand_icon_state = "utility"
 	worn_icon_state = "utility"
 	lefthand_file = 'icons/mob/inhands/equipment/belt_lefthand.dmi'

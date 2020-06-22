@@ -464,10 +464,6 @@
 	var/effect_cooldown = 100
 	var/obj/effect/temp_visual/curse/wasting_effect = new
 
-/datum/status_effect/necropolis_curse/hivemind
-	id = "hivecurse"
-	duration = 600
-
 /datum/status_effect/necropolis_curse/on_creation(mob/living/new_owner, set_curse)
 	. = ..()
 	if(.)
@@ -538,20 +534,20 @@
 	deltimer(timerid)
 
 
-/datum/status_effect/gonbolaPacify
+/datum/status_effect/gonbola_pacify
 	id = "gonbolaPacify"
 	status_type = STATUS_EFFECT_MULTIPLE
 	tick_interval = -1
 	alert_type = null
 
-/datum/status_effect/gonbolaPacify/on_apply()
+/datum/status_effect/gonbola_pacify/on_apply()
 	ADD_TRAIT(owner, TRAIT_PACIFISM, "gonbolaPacify")
 	ADD_TRAIT(owner, TRAIT_MUTE, "gonbolaMute")
 	ADD_TRAIT(owner, TRAIT_JOLLY, "gonbolaJolly")
 	to_chat(owner, "<span class='notice'>Я внезапно чувствую покой и отпала необходимость совершать внезапные или опрометчивые действия...</span>")
 	return ..()
 
-/datum/status_effect/gonbolaPacify/on_remove()
+/datum/status_effect/gonbola_pacify/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_PACIFISM, "gonbolaPacify")
 	REMOVE_TRAIT(owner, TRAIT_MUTE, "gonbolaMute")
 	REMOVE_TRAIT(owner, TRAIT_JOLLY, "gonbolaJolly")

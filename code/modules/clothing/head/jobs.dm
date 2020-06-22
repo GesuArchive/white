@@ -137,7 +137,7 @@
 
 //Security
 
-/obj/item/clothing/head/HoS
+/obj/item/clothing/head/hos
 	name = "шапочка главы безопасности"
 	desc = "Прочная стандартная крышка главы службы безопасности. За то, что показал офицерам, кто здесь главный."
 	icon_state = "hoscap"
@@ -145,16 +145,16 @@
 	strip_delay = 80
 	dynamic_hair_suffix = ""
 
-/obj/item/clothing/head/HoS/syndicate
+/obj/item/clothing/head/hos/syndicate
 	name = "синдишляпа"
 	desc = "Черная шапочка подходит для высокопоставленного офицера синдиката."
 
-/obj/item/clothing/head/HoS/beret
+/obj/item/clothing/head/hos/beret
 	name = "берет главы безопасности"
 	desc = "Прочный берет для главы службы безопасности, выглядит стильно, не жертвуя при этом защитой."
 	icon_state = "hosberetblack"
 
-/obj/item/clothing/head/HoS/beret/syndicate
+/obj/item/clothing/head/hos/beret/syndicate
 	name = "берет синдиката"
 	desc = "Черный берет с толстой подкладкой изнутри. Стильный и прочный."
 

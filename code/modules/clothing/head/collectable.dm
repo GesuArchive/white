@@ -124,13 +124,13 @@
 
 	dog_fashion = /datum/dog_fashion/head
 
-/obj/item/clothing/head/collectable/HoS
+/obj/item/clothing/head/collectable/hos
 	name = "коллекционная шляпа главы безопасности"
 	desc = "Теперь вы тоже можете бить заключенных, выносить глупые приговоры и арестовывать без всякой причины!"
 	icon_state = "hoscap"
 	dynamic_hair_suffix = ""
 
-/obj/item/clothing/head/collectable/HoP
+/obj/item/clothing/head/collectable/hop
 	name = "коллекционная шляпа главы персонала"
 	desc = "Теперь ваша очередь требовать чрезмерной бумажной работы, подписей, штампов и нанимать больше клоунов! Документы, пожалуйста!"
 	icon_state = "hopcap"

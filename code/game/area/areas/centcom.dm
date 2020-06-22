@@ -46,7 +46,7 @@
 	icon_state = "supplypod"
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
 
-/area/centcom/supplypod/podStorage
+/area/centcom/supplypod/pod_storage
 	name = "Supplypod Storage"
 	icon_state = "supplypod_holding"
 

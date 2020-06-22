@@ -198,10 +198,11 @@
 	for(var/X in disabled)
 		var/obj/item/bodypart/BP = X
 		var/damage_text
-		if(!(BP.get_damage(include_stamina = FALSE) >= BP.max_damage)) //Stamina is disabling the limb
-			damage_text = "выглядит бледновато"
-		else
-			damage_text = (BP.brute_dam >= BP.burn_dam) ? BP.heavy_brute_msg : BP.heavy_burn_msg
+		if(BP.is_disabled() != BODYPART_DISABLED_WOUND) // skip if it's disabled by a wound (cuz we'll be able to see the bone sticking out!)
+			if(!(BP.get_damage(include_stamina = FALSE) >= BP.max_damage)) //we don't care if it's stamcritted
+				damage_text = "выглядит бледновато"
+			else
+				damage_text = (BP.brute_dam >= BP.burn_dam) ? BP.heavy_brute_msg : BP.heavy_burn_msg
 		msg += "<B>[ru_ego(TRUE)] [BP.name] [damage_text]!</B>\n"
 
 	//stores missing limbs
@@ -283,10 +284,28 @@
 	if(bleedsuppress)
 		msg += "[t_on] перевязан[t_a].\n"
 	else if(is_bleeding())
+		var/list/obj/item/bodypart/bleeding_limbs = list()
+
+		for(var/i in bodyparts)
+			var/obj/item/bodypart/BP = i
+			if(BP.get_bleed_rate())
+				bleeding_limbs += BP
+
+		var/num_bleeds = LAZYLEN(bleeding_limbs)
+		var/bleed_text = "<B>[t_on] имеет кровотечение из [ru_ego(FALSE)] "
+		switch(num_bleeds)
+			if(1 to 2)
+				bleed_text += " [bleeding_limbs[1].name][num_bleeds == 2 ? " и [bleeding_limbs[2].name]" : ""]"
+			if(3 to INFINITY)
+				for(var/i in 1 to (num_bleeds - 1))
+					var/obj/item/bodypart/BP = bleeding_limbs[i]
+					bleed_text += " [BP.name],"
+				bleed_text += " и [bleeding_limbs[num_bleeds].name]"
 		if(reagents.has_reagent(/datum/reagent/toxin/heparin, needs_metabolizing = TRUE))
-			msg += "<b>[t_on] обильно истекает кровью!</b>\n"
-		else
-			msg += "<B>[t_on] истекает кровью!</B>\n"
+			bleed_text += " с брызгами"
+
+		bleed_text += "!</B>\n"
+		msg += bleed_text
 
 	if(reagents.has_reagent(/datum/reagent/teslium, needs_metabolizing = TRUE))
 		msg += "[t_on] испускает нежное голубое свечение!\n"
@@ -378,8 +397,6 @@
 	if (!isnull(trait_exam))
 		. += trait_exam
 
-	var/traitstring = get_trait_string()
-
 	var/perpname = get_face_name(get_id_name(""))
 	if(perpname && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)))
 		var/datum/data/record/R = find_record("name", perpname, GLOB.data_core.general)
@@ -401,9 +418,10 @@
 			R = find_record("name", perpname, GLOB.data_core.medical)
 			if(R)
 				. += "<a href='?src=[REF(src)];hud=m;evaluation=1'>\[Medical evaluation\]</a><br>"
-			if(traitstring)
+			var/quirkstring = get_quirk_string(TRUE, CAT_QUIRK_ALL)
+			if(quirkstring)
 				. += "<span class='notice ml-1'>Выявленные физиологические признаки:</span>"
-				. += "<span class='notice ml-2'>[traitstring]</span>"
+				. += "<span class='notice ml-2'>[quirkstring]</span>"
 
 		if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
 			if(!user.stat && user != src)
@@ -420,8 +438,8 @@
 					"<a href='?src=[REF(src)];hud=s;add_crime=1'>\[Добавить нарушение\]</a> ",
 					"<a href='?src=[REF(src)];hud=s;view_comment=1'>\[Просмотреть комментарии\]</a> ",
 					"<a href='?src=[REF(src)];hud=s;add_comment=1'>\[Добавить комментарий\]</a> "), "")
-	else if(isobserver(user) && traitstring)
-		. += "<span class='info'><b>Черты:</b> [traitstring]</span>"
+	else if(isobserver(user) && quirkstring)
+		. += "<span class='info'><b>Черты:</b> [quirkstring]</span>"
 	//if(true_info)
 	//	. += "\n<span class='info'><b>Судьба:</b>"
 	//	. += "Уровень <b>силы</b> [fateize_stat(current_fate[MOB_STR], TRUE)]."

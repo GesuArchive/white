@@ -210,7 +210,7 @@
 	target.blur_eyes(40)
 	return TRUE
 
-/datum/action/changeling/sting/LSD
+/datum/action/changeling/sting/lsd
 	name = "Галлюн-жало"
 	desc = "Мы причиняем муки и страдания нашей жертве."
 	helptext = "Мы развиваем способность поражать цель мощным галлюциногенным химическим веществом. Цель не замечает, что её ужалили, и эффект наступает через 30-60 секунд."
@@ -218,12 +218,12 @@
 	chemical_cost = 10
 	dna_cost = 1
 
-/datum/action/changeling/sting/LSD/sting_action(mob/user, mob/living/carbon/target)
+/datum/action/changeling/sting/lsd/sting_action(mob/user, mob/living/carbon/target)
 	log_combat(user, target, "stung", "LSD sting")
 	addtimer(CALLBACK(src, .proc/hallucination_time, target), rand(300,600))
 	return TRUE
 
-/datum/action/changeling/sting/LSD/proc/hallucination_time(mob/living/carbon/target)
+/datum/action/changeling/sting/lsd/proc/hallucination_time(mob/living/carbon/target)
 	if(target)
 		target.hallucination = max(90, target.hallucination)
 
