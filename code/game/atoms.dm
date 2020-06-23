@@ -561,8 +561,8 @@
 	if(ishuman(user))
 		if(user.stat == CONSCIOUS)
 			user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[src.name]</b>.</span>", null, null, COMBAT_MESSAGE_RANGE)
-		if(user.mind.status_traits)
-			if(HAS_TRAIT(user.mind, TRAIT_JEWISH))
+		if(user.status_traits)
+			if(HAS_TRAIT(user, TRAIT_JEWISH))
 				var/datum/export_report/ex = export_item_and_contents(src, EXPORT_PIRATE | EXPORT_CARGO | EXPORT_CONTRABAND, dry_run=TRUE)
 				var/price = 0
 				for(var/x in ex.total_amount)
