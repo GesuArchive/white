@@ -20,7 +20,7 @@
 	inc_metabalance(mob, METACOIN_TENMINUTELIVING_REWARD, FALSE)
 
 /client/proc/get_metabalance()
-	var/datum/DBQuery/query_get_metacoins = SSdbcore.NewQuery(
+	var/datum/db_query/query_get_metacoins = SSdbcore.NewQuery(
 		"SELECT round(metacoins) FROM player WHERE ckey = :ckey",
 		list("ckey" = ckey)
 	)
@@ -41,7 +41,7 @@
 	mc_cached = get_metabalance()
 
 /client/proc/set_metacoin_count(mc_count, ann=TRUE)
-	var/datum/DBQuery/query_set_metacoins = SSdbcore.NewQuery(
+	var/datum/db_query/query_set_metacoins = SSdbcore.NewQuery(
 		"UPDATE player SET metacoins = :mc_count WHERE ckey = :ckey",
 		list("mc_count" = mc_count, "ckey" = ckey)
 	)
@@ -54,7 +54,7 @@
 /proc/inc_metabalance(mob/M, mc_count, ann=TRUE, reason=null)
 	if(mc_count > 0 && !M.client)
 		return
-	var/datum/DBQuery/query_inc_metacoins = SSdbcore.NewQuery(
+	var/datum/db_query/query_inc_metacoins = SSdbcore.NewQuery(
 		"UPDATE player SET metacoins = metacoins + :mc_count WHERE ckey = :ckey",
 		list("mc_count" = mc_count, "ckey" = M.ckey)
 	)
@@ -77,7 +77,7 @@
 /client/proc/update_metacoin_items()
 	metacoin_items = list()
 
-	var/datum/DBQuery/query_get_metacoin_purchases
+	var/datum/db_query/query_get_metacoin_purchases
 	query_get_metacoin_purchases = SSdbcore.NewQuery("SELECT item_id,item_class FROM [format_table_name("metacoin_item_purchases")] WHERE ckey = :ckey", list("ckey" = ckey))
 
 	if(!query_get_metacoin_purchases.Execute())

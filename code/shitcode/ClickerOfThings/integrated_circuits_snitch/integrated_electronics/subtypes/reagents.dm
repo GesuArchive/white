@@ -138,7 +138,7 @@
 			busy = TRUE
 			if(do_atom(src, L, extra_checks=CALLBACK(L, /mob/living/proc/can_inject,null,0)))
 				var/fraction = min(transfer_amount/reagents.total_volume, 1)
-				reagents.reaction(L, INJECT, fraction)
+				reagents.expose(L, INJECT, fraction)
 				reagents.trans_to(L, transfer_amount)
 				log_combat(src, L, "injected", addition="which had [contained]")
 				L.visible_message("<span class='danger'>[acting_object] injects [L] with its needle!</span>", \
@@ -678,9 +678,9 @@
 		step_towards(W,my_target)
 		if(!W.reagents)
 			continue
-		W.reagents.reaction(get_turf(W))
+		W.reagents.expose(get_turf(W))
 		for(var/A in get_turf(W))
-			W.reagents.reaction(A)
+			W.reagents.expose(A)
 		if(W.loc == my_target)
 			break
 	if(repetitions < 4)
@@ -731,7 +731,7 @@
 			activate_pin(3)
 			return
 		// Put the reagents on the floortile the assembly is on
-		reagents.reaction(get_turf(src))
+		reagents.expose(get_turf(src))
 		reagents.clear_reagents()
 		push_data()
 		activate_pin(2)

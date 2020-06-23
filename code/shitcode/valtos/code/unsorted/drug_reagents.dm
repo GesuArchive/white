@@ -220,7 +220,7 @@
 			H.Dizzy(60)
 	..()
 
-/datum/reagent/drug/flipout/reaction_obj(obj/O, reac_volume)
+/datum/reagent/drug/flipout/expose_obj(obj/O, reac_volume)
 	if(istype(O,/obj))
 		O.SpinAnimation(16,40)
 

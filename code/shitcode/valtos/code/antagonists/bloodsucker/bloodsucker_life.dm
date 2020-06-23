@@ -103,7 +103,7 @@
 
 	// Reagents (NOT Blood!)
 	if(target.reagents && target.reagents.total_volume)
-		target.reagents.reaction(owner.current, INGEST, 1 / target.reagents.total_volume) // Run Reaction: what happens when what they have mixes with what I have?
+		target.reagents.expose(owner.current, INGEST, 1 / target.reagents.total_volume) // Run Reaction: what happens when what they have mixes with what I have?
 		target.reagents.trans_to(owner.current, 1)	// Run transfer of 1 unit of reagent from them to me.
 
 	// Blood Gulp Sound

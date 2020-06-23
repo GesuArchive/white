@@ -147,7 +147,7 @@
 	take_damage(50)
 	if(user.mind?.martial_art.smashes_tables && user.mind?.martial_art.can_use(user))
 		deconstruct(FALSE)
-	playsound(pushed_mob, "sound/effects/tablelimbsmash.ogg", 90, TRUE)
+	playsound(pushed_mob, "sound/effects/bang.ogg", 90, TRUE)
 	pushed_mob.visible_message("<span class='danger'><b>[user]</b> хуярит голову <b>[pushed_mob]</b> об <b>[src]</b>!</span>",
 								"<span class='userdanger'><b>[user]</b> бьёт моей головой об <b>[src]</b>!</span>")
 	log_combat(user, pushed_mob, "head slammed", null, "against [src]")

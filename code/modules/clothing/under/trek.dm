@@ -57,7 +57,7 @@
 
 
 //Q
-/obj/item/clothing/under/trek/Q
+/obj/item/clothing/under/trek/q
 	name = "униформа французского маршалла"
 	desc = "Мне в этом неловко..."
 	icon_state = "trek_Q"

@@ -15,7 +15,7 @@
 		return
 
 	var/mob/living/C = target
-	var/mob/camera/aiEye/remote/remote_eye = C.remote_control
+	var/mob/camera/ai_eye/remote/remote_eye = C.remote_control
 	var/obj/machinery/computer/camera_advanced/shuttle_docker/adv/console = remote_eye.origin
 
 	playsound(console, 'sound/machines/terminal_prompt.ogg', 25, 0)

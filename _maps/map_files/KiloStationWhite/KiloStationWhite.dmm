@@ -6392,7 +6392,7 @@
 	dir = 1
 	},
 /obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/wallframe/camera,
 /obj/item/wallframe/camera,
 /obj/item/wallframe/camera,
@@ -14377,7 +14377,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
 /obj/item/tank/internals/oxygen/red,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/clothing/mask/gas,
 /turf/open/floor/plating,
 /area/maintenance/fore)
@@ -15859,7 +15859,7 @@
 "ayH" = (
 /obj/structure/rack,
 /obj/effect/turf_decal/bot,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/hand_labeler,
 /obj/item/radio/intercom{
@@ -16087,7 +16087,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/storage/box/lights/mixed,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
@@ -16878,7 +16878,7 @@
 	empty = 1;
 	name = "First-Aid (empty)"
 	},
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/healthanalyzer,
 /obj/item/healthanalyzer,
 /obj/item/healthanalyzer,
@@ -17658,7 +17658,7 @@
 /obj/item/storage/box/lights/mixed{
 	pixel_y = 5
 	},
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/hand_labeler,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/effect/decal/cleanable/dirt,
@@ -18123,7 +18123,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/storage/secure/briefcase,
 /obj/item/hand_labeler,
 /obj/item/reagent_containers/spray/cleaner,
@@ -33808,7 +33808,7 @@
 	pixel_y = 6
 	},
 /obj/item/stack/cable_coil,
-/obj/item/stack/packageWrap{
+/obj/item/stack/package_wrap{
 	pixel_x = -4;
 	pixel_y = 4
 	},
@@ -36145,12 +36145,12 @@
 	name = "Core Modules";
 	req_access_txt = "20"
 	},
-/obj/item/aiModule/core/freeformcore{
+/obj/item/ai_module/core/freeformcore{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/aiModule/core/full/custom,
-/obj/item/aiModule/core/full/asimov{
+/obj/item/ai_module/core/full/custom,
+/obj/item/ai_module/core/full/asimov{
 	pixel_x = -3;
 	pixel_y = -3
 	},
@@ -36255,7 +36255,7 @@
 /area/ai_monitored/turret_protected/ai_upload)
 "bal" = (
 /obj/structure/table,
-/obj/item/aiModule/reset,
+/obj/item/ai_module/reset,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/machinery/flasher{
 	id = "AI";
@@ -37243,12 +37243,12 @@
 	name = "Core Modules";
 	req_access_txt = "20"
 	},
-/obj/item/aiModule/supplied/protectStation{
+/obj/item/ai_module/supplied/protect_station{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/aiModule/zeroth/oneHuman,
-/obj/item/aiModule/reset/purge{
+/obj/item/ai_module/zeroth/onehuman,
+/obj/item/ai_module/reset/purge{
 	pixel_x = -3;
 	pixel_y = -3
 	},
@@ -38220,8 +38220,8 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/turf_decal/tile/neutral,
 /obj/structure/table/wood,
-/obj/item/stack/packageWrap,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
+/obj/item/stack/package_wrap,
 /obj/item/vending_refill/cigarette,
 /obj/item/hand_labeler,
 /obj/structure/extinguisher_cabinet{
@@ -38329,7 +38329,7 @@
 	lootdoubles = 0;
 	lootcount = 2
 	},
-/obj/item/aiModule/supplied/oxygen{
+/obj/item/ai_module/supplied/oxygen{
 	pixel_x = -3;
 	pixel_y = -3
 	},
@@ -39531,14 +39531,14 @@
 /area/ai_monitored/turret_protected/ai_upload)
 "bfl" = (
 /obj/structure/table,
-/obj/item/aiModule/supplied/freeform,
+/obj/item/ai_module/supplied/freeform,
 /turf/open/floor/circuit/green{
 	luminosity = 2
 	},
 /area/ai_monitored/turret_protected/ai_upload)
 "bfm" = (
 /obj/structure/table,
-/obj/item/aiModule/supplied/quarantine,
+/obj/item/ai_module/supplied/quarantine,
 /obj/machinery/flasher{
 	id = "AI";
 	name = "Meatbag Pacifier";
@@ -41979,7 +41979,7 @@
 /obj/structure/table,
 /obj/effect/turf_decal/tile/neutral,
 /obj/item/folder/yellow,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/gps{
 	gpstag = "QM0";
 	pixel_x = -4;
@@ -43988,7 +43988,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/item/storage/box/PDAs{
+/obj/item/storage/box/pdas{
 	pixel_x = 4;
 	pixel_y = 4
 	},
@@ -46396,7 +46396,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/storage/box/lights/mixed{
 	pixel_y = 4
 	},
@@ -55326,7 +55326,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/bot,
 /obj/structure/rack,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/storage/box,
 /turf/open/floor/plating,
 /area/maintenance/port)
@@ -56299,12 +56299,12 @@
 	dir = 1
 	},
 /obj/structure/table,
-/obj/item/stack/packageWrap,
-/obj/item/stack/packageWrap,
-/obj/item/stack/packageWrap,
-/obj/item/stack/packageWrap,
-/obj/item/stack/packageWrap,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
+/obj/item/stack/package_wrap,
+/obj/item/stack/package_wrap,
+/obj/item/stack/package_wrap,
+/obj/item/stack/package_wrap,
+/obj/item/stack/package_wrap,
 /obj/item/stack/wrapping_paper{
 	pixel_x = -4;
 	pixel_y = 4
@@ -56934,7 +56934,7 @@
 /area/crew_quarters/heads/hop)
 "bDp" = (
 /obj/structure/table/wood,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/storage/lockbox/loyalty,
 /obj/item/hand_labeler,
 /obj/machinery/keycard_auth{
@@ -57000,7 +57000,7 @@
 	pixel_x = 6;
 	pixel_y = -24
 	},
-/mob/living/simple_animal/pet/fox/Renault,
+/mob/living/simple_animal/pet/fox/renault,
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "bDw" = (
@@ -58098,7 +58098,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/mob/living/simple_animal/pet/dog/corgi/Ian{
+/mob/living/simple_animal/pet/dog/corgi/ian{
 	dir = 8
 	},
 /turf/open/floor/wood,
@@ -58128,7 +58128,7 @@
 	dir = 1
 	},
 /obj/structure/table,
-/obj/item/storage/box/PDAs{
+/obj/item/storage/box/pdas{
 	pixel_x = 4;
 	pixel_y = 6
 	},
@@ -60129,7 +60129,7 @@
 /obj/structure/rack,
 /obj/item/storage/toolbox/emergency,
 /obj/item/wrench,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/hand_labeler,
 /turf/open/floor/plasteel/dark,
 /area/teleporter)
@@ -67431,7 +67431,7 @@
 /obj/item/storage/box/lights/mixed{
 	pixel_y = 5
 	},
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/hand_labeler,
 /turf/open/floor/plasteel/dark,
 /area/storage/primary)
@@ -71922,7 +71922,7 @@
 /obj/machinery/light_switch{
 	pixel_y = -24
 	},
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/storage/secure/briefcase{
 	pixel_y = 4
 	},
@@ -74092,7 +74092,7 @@
 "caD" = (
 /obj/structure/table,
 /obj/item/storage/box/deputy,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/hand_labeler,
 /obj/effect/turf_decal/bot,
 /obj/machinery/camera{
@@ -75751,7 +75751,7 @@
 	dir = 1
 	},
 /obj/item/aicard,
-/obj/item/aiModule/reset,
+/obj/item/ai_module/reset,
 /obj/item/assembly/flash/handheld,
 /obj/item/assembly/flash/handheld,
 /obj/machinery/airalarm{
@@ -76985,7 +76985,7 @@
 /area/security/warden)
 "cen" = (
 /obj/structure/table,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/hand_labeler,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -79845,7 +79845,7 @@
 	},
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/stripes/corner,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/hand_labeler,
 /obj/item/radio/intercom{
 	pixel_x = -28
@@ -87136,7 +87136,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/crowbar,
 /obj/item/hand_labeler,
 /obj/machinery/firealarm{
@@ -87524,7 +87524,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
-/obj/item/storage/secure/safe/HoS{
+/obj/item/storage/secure/safe/hos{
 	pixel_x = 36;
 	pixel_y = 28
 	},
@@ -92828,7 +92828,7 @@
 	pixel_x = 4;
 	pixel_y = 6
 	},
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/hand_labeler,
 /turf/open/floor/plasteel/dark,
 /area/engine/atmos)
@@ -99244,7 +99244,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/bot,
 /obj/structure/closet,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/storage/bag/trash,
 /obj/effect/turf_decal/stripes/corner,
 /obj/effect/turf_decal/stripes/corner{

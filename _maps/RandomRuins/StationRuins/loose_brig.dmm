@@ -1377,7 +1377,7 @@
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/hos)
 "cR" = (
-/obj/item/storage/secure/safe/HoS{
+/obj/item/storage/secure/safe/hos{
 	pixel_x = 35
 	},
 /obj/structure/closet/secure_closet/hos,
@@ -1754,7 +1754,7 @@
 /area/security/prison)
 "dD" = (
 /obj/structure/table,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/item/pen,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,

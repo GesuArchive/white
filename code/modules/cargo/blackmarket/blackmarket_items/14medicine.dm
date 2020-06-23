@@ -113,7 +113,7 @@
 				/obj/item/storage/pill_bottle/methamphetamine,
 				/obj/item/storage/pill_bottle/floorpill/full,
 				/obj/item/storage/pill_bottle/psicodine,
-				/obj/item/storage/pill_bottle/C2/probital,
+				/obj/item/storage/pill_bottle/probital,
 				/obj/item/storage/pill_bottle/stimulant))
 	return new pillbottle(loc)
 

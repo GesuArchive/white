@@ -103,7 +103,7 @@
 		return ..()
 
 /datum/metacoin_shop_item/purge_this_shit/after_buy(client/C)
-	var/datum/DBQuery/purge_shit = SSdbcore.NewQuery("UPDATE [format_table_name("player")] SET metacoins = '0'")
+	var/datum/db_query/purge_shit = SSdbcore.NewQuery("UPDATE [format_table_name("player")] SET metacoins = '0'")
 	purge_shit.warn_execute()
 	for(var/client/AAA in GLOB.clients)
 		AAA.update_metabalance_cache()
@@ -138,7 +138,7 @@
 	..()
 
 /datum/metacoin_shop_item/only_one/after_buy(client/C)
-	var/datum/DBQuery/query_metacoin_item_purchase = SSdbcore.NewQuery({"
+	var/datum/db_query/query_metacoin_item_purchase = SSdbcore.NewQuery({"
 		INSERT INTO [format_table_name("metacoin_item_purchases")] (ckey, purchase_date, item_id, item_class)
 		VALUES (:ckey, Now(), :id, :class)")
 	"}, list("ckey" = C.key, "id" = id, "class" = class))

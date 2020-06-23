@@ -400,7 +400,7 @@
 	name = "Jensen Hair"
 	icon_state = "hair_jensen"
 
-/datum/sprite_accessory/hair/Joestar
+/datum/sprite_accessory/hair/joestar
 	name = "Joestar"
 	icon_state = "hair_joestar"
 

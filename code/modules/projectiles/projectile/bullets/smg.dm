@@ -29,3 +29,9 @@
 	name = "4.6x30mm поджигающая пуля"
 	damage = 10
 	fire_stacks = 1
+
+// 9x19mm (PP-95)
+
+/obj/projectile/bullet/c9x19mm
+	name = "9x19mm bullet"
+	damage = 10

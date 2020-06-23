@@ -109,7 +109,7 @@ GLOBAL_LIST_EMPTY(vapour)
 		vape_mob(L)
 		VM.volume -= 10
 
-	reagent_type.reaction_turf(t_loc, rand(1, 5))
+	reagent_type.expose_turf(t_loc, rand(1, 5))
 	var/obj/machinery/portable_atmospherics/scrubber/PS = locate() in t_loc.contents
 	if(PS && PS.on && !PS.holding)
 		VM.volume -= PS.volume_rate * 0.5
@@ -174,12 +174,12 @@ GLOBAL_LIST_EMPTY(vapour)
 		return FALSE
 
 	var/mob/living/carbon/C = M
-	C.reagents.reaction(C, TOUCH, 1)
+	C.reagents.expose(C, TOUCH, 1)
 	if(C.internal != null || C.has_smoke_protection())
 		return FALSE
 
 	C.reagents.add_reagent(reagent_type.type, 1.5)//doesn't actually carry reagents but just adds them to mobs at a slow fixed rate
-	C.reagents.reaction(C, INGEST, 1.5)
+	C.reagents.expose(C, INGEST, 1.5)
 	return FALSE
 
 

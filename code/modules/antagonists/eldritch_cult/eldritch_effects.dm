@@ -108,9 +108,11 @@
   * Fixes any bugs that are caused by late Generate() or exchanging clients
   */
 /datum/reality_smash_tracker/proc/ReworkNetwork()
-	listclearnulls(targets)
 	listclearnulls(smashes)
 	for(var/mind in targets)
+		if(isnull(mind))
+			stack_trace("A null somehow landed in a list of minds")
+			continue
 		for(var/X in smashes)
 			var/obj/effect/reality_smash/reality_smash = X
 			reality_smash.AddMind(mind)
@@ -135,8 +137,8 @@
 			continue
 		var/obj/effect/reality_smash/RS = new/obj/effect/reality_smash(chosen_location.loc)
 		smashes += RS
-
 	ReworkNetwork()
+
 
 /**
   * Adds a mind to the list of people that can see the reality smashes
@@ -167,6 +169,8 @@
 	name = "Pierced reality"
 	icon = 'icons/effects/eldritch.dmi'
 	icon_state = "pierced_illusion"
+	anchored = TRUE
+	resistance_flags = FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 /obj/effect/broken_illusion/examine(mob/user)
 	if(!IS_HERETIC(user) && ishuman(user))
@@ -178,6 +182,8 @@
 /obj/effect/reality_smash
 	name = "/improper reality smash"
 	icon = 'icons/effects/eldritch.dmi'
+	anchored = TRUE
+	resistance_flags = FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	///We cannot use icon_state since this is invisible, functions the same way but with custom behaviour.
 	var/image_state = "reality_smash"
 	///Who can see us?
@@ -202,20 +208,25 @@
 			cultie.current.client.images -= img
 		//clear the list
 		minds -= cultie
+	GLOB.reality_smash_track.smashes -= src
 	img = null
 	new /obj/effect/broken_illusion(drop_location())
 
 ///Makes the mind able to see this effect
 /obj/effect/reality_smash/proc/AddMind(var/datum/mind/cultie)
+	minds |= cultie
 	if(cultie.current.client)
-		minds |= cultie
 		cultie.current.client.images |= img
+
+
 
 ///Makes the mind not able to see this effect
 /obj/effect/reality_smash/proc/RemoveMind(var/datum/mind/cultie)
+	minds -= cultie
 	if(cultie.current.client)
-		minds -= cultie
 		cultie.current.client.images -= img
+
+
 
 ///Generates random name
 /obj/effect/reality_smash/proc/generate_name()

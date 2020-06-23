@@ -184,7 +184,7 @@
 	icon_state = "orang"
 	filling_color = "#FFA500"
 	juice_results = list(/datum/reagent/consumable/orangejuice = 0)
-	distill_reagent = /datum/reagent/consumable/ethanol/triple_sec
+	distill_reagent = /datum/reagent/toxin/mindbreaker
 	tastes = list("polygons" = 1, "апельсины" = 1)
 
 /obj/item/reagent_containers/food/snacks/grown/citrus/orange_3d/pickup(mob/user)

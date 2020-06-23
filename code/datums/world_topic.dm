@@ -106,16 +106,6 @@
 /datum/world_topic/news_report/Run(list/input)
 	minor_announce(input["message"], "Breaking Update From [input["message_sender"]]")
 
-/datum/world_topic/server_hop
-	keyword = "server_hop"
-
-/datum/world_topic/server_hop/Run(list/input)
-	var/expected_key = input[keyword]
-	for(var/mob/dead/observer/O in GLOB.player_list)
-		if(O.key == expected_key)
-			new /obj/screen/splash(O.client, TRUE)
-			break
-
 /datum/world_topic/adminmsg
 	keyword = "adminmsg"
 	require_comms_key = TRUE

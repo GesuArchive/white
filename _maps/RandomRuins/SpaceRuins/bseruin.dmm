@@ -394,7 +394,7 @@
 "CU" = (
 /obj/structure/table/wood,
 /obj/item/computer_hardware/printer/mini,
-/obj/item/computer_hardware/recharger/APC,
+/obj/item/computer_hardware/recharger/apc_recharger,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/bseruin/ntnet)
 "Dk" = (
@@ -509,7 +509,7 @@
 /area/ruin/space/has_grav/bseruin/shop)
 "Jn" = (
 /obj/structure/table/reinforced,
-/obj/item/computer_hardware/recharger/APC,
+/obj/item/computer_hardware/recharger/apc_recharger,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/bseruin/shop)
 "Jz" = (

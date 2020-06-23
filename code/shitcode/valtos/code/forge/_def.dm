@@ -287,11 +287,11 @@
 /datum/special_trait/acid/on_hit(atom/target, mob/user, obj/item/I, type)
 	if(I && target)
 		if(isliving(target))
-			acid.reaction_mob(target, TOUCH, 2)
+			acid.expose_mob(target, TOUCH, 2)
 		else if(isturf(target))
-			acid.reaction_turf(target, TOUCH, 2)
+			acid.expose_turf(target, TOUCH, 2)
 		else if(isobj(target))
-			acid.reaction_obj(target, TOUCH, 2)
+			acid.expose_obj(target, TOUCH, 2)
 
 	if(user && iscarbon(user))
 		var/mob/living/carbon/C = user
@@ -347,11 +347,11 @@
 /datum/special_trait/proc/splash(radius, obj/item/forged/source, epicenter, type, amount)
 	for(var/atom/A in view(radius, epicenter))
 		if(isliving(A))
-			source.reagent_type.reaction_mob(A, type, amount)
+			source.reagent_type.expose_mob(A, type, amount)
 		else if(isturf(A))
-			source.reagent_type.reaction_turf(A, type, amount)
+			source.reagent_type.expose_turf(A, type, amount)
 		else if(isobj(A))
-			source.reagent_type.reaction_obj(A, type, amount)
+			source.reagent_type.expose_obj(A, type, amount)
 
 #define REAGENT_FORGE	256//smelts reagent materials to make designs
 #define MAT_REAGENT "/datum/material/reagent"

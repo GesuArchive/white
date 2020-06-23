@@ -68,7 +68,7 @@
 	empty_pod.explosionSize = list(0,0,0,1)
 	empty_pod.leavingSound = 'sound/effects/podwoosh.ogg'
 
-	new /obj/effect/DPtarget(empty_pod_turf, empty_pod)
+	new /obj/effect/dp_target(empty_pod_turf, empty_pod)
 
 /datum/syndicate_contract/proc/enter_check(datum/source, sent_mob)
 	if (istype(source, /obj/structure/closet/supplypod/extractionpod))
@@ -225,7 +225,7 @@
 		M.Dizzy(35)
 		M.confused += 20
 
-		new /obj/effect/DPtarget(possible_drop_loc[pod_rand_loc], return_pod)
+		new /obj/effect/dp_target(possible_drop_loc[pod_rand_loc], return_pod)
 	else
 		to_chat(M, "<span class='reallybig hypnophrase'>Миллион голосов эхом звучит в голове... <i>\"Кажется, капсула, на которой вы сюда прибыли \
 					не в состоянии найти подходящее место для отправки вас назад... Вы умрете здесь вместо отправки.\"</i></span>")

@@ -368,3 +368,5 @@
 #define OFFSET_HANDS "hands"
 /// If you examine the same atom twice in this timeframe, we call examine_more() instead of examine()
 #define EXAMINE_MORE_TIME	1 SECONDS
+
+#define SILENCE_RANGED_MESSAGE (1<<0)
