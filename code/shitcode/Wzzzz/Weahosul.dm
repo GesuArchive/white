@@ -81,17 +81,16 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/attackby(obj/item/A, mob/us
 	if (bolt_locked == FALSE)
 		icon_state = "kar98k_open"
 		inhand_icon_state = "kar98k_open"
-		return
 	else
 		icon_state = "kar98k"
 		inhand_icon_state = "kar98k"
-		return
 	if (bolt_locked == FALSE)
 		if(!findtext(icon_state, "_open"))
 			icon_state = "kar98k_open"
 			inhand_icon_state = "kar98k_open"
 	else if(icon_state == "kar98k_open") //closed
 		icon_state = "kar98k"
+	return
 
 obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/rack(mob/user = null)
 	if (bolt_locked == FALSE)
