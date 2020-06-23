@@ -3617,10 +3617,7 @@
 	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/suit.dmi'
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 50,"energy" = 30, "bomb" = 10, "bio" = 30, "rad" = 0, "fire" = 30, "acid" = 10, "magic" = 25)
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/suits.dmi'
-	
-/obj/item/clothing/suit/hooded/chaplainsuit/wzzzz/fiendcowl/Initialize()
-	. = ..()
-		allowed = list (/obj/item/storage/book, /obj/item/nullrod, /obj/item/reagent_containers/food/drinks, /obj/item/storage/fancy, /obj/item/candle, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/gun/ballistic/automatic/pistol, /obj/item/ammo_box/magazine, /obj/item/gun/energy/pulse/pistol, /obj/item/kitchen/knife)
+	allowed = list (/obj/item/storage/book, /obj/item/nullrod, /obj/item/reagent_containers/food/drinks, /obj/item/storage/fancy, /obj/item/candle, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/gun/ballistic/automatic/pistol, /obj/item/ammo_box/magazine, /obj/item/gun/energy/pulse/pistol, /obj/item/kitchen/knife)
 	
 /obj/item/clothing/head/hooded/wzzzz/fiend
 	name = "fiend hood"
@@ -3640,10 +3637,6 @@
 	hoodtype = /obj/item/clothing/head/hooded/wzzzz/fiend/robe
 	flags_inv = HIDEJUMPSUIT
 	
-/obj/item/clothing/suit/hooded/chaplainsuit/wzzzz/fiendcowl/robe/Initialize()
-	. = ..()
-		allowed = list (/obj/item/storage/book, /obj/item/nullrod, /obj/item/reagent_containers/food/drinks, /obj/item/storage/fancy, /obj/item/candle, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/gun/ballistic/automatic/pistol, /obj/item/ammo_box/magazine, /obj/item/gun/energy/pulse/pistol, /obj/item/kitchen/knife)
-
 /obj/item/clothing/head/hooded/wzzzz/fiend/robe
 	icon_state = "fiendvisage"
 	inhand_icon_state = "fiendvisage"
