@@ -43,7 +43,7 @@
 	icon_state = "kar98k"
 	inhand_icon_state = "kar98k"
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction98
-	bolt_wording = "болт винтовки"
+	bolt_wording = "bolt"
 	w_class = WEIGHT_CLASS_BULKY
 	bolt_type = BOLT_TYPE_STANDARD
 	semi_auto = FALSE
@@ -78,6 +78,25 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/attackby(obj/item/A, mob/us
 	. += "The bolt is [bolt_locked ? "open" : "closed"]."
 
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/update_icon(var/add_scope = FALSE)
+	if (bolt_locked == FALSE)
+		icon_state = "kar98k_open"
+		inhand_icon_state = "kar98k_open"
+		icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
+		slot_flags = ITEM_SLOT_BACK
+		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
+		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
+		worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
+		fire_sound = 'code/shitcode/Wzzzz/kar_shot.ogg'
+		return
+	else
+		icon_state = "kar98k"
+		inhand_icon_state = "kar98k"
+		icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
+		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
+		righthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/righthand_guns.dmi'
+		worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/back.dmi'
+		fire_sound = 'code/shitcode/Wzzzz/kar_shot.ogg'
+		return
 	if (bolt_locked == FALSE)
 		icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
 		lefthand_file = 'code/shitcode/Wzzzz/icons/clothing/mob/lefthand_guns.dmi'
@@ -120,8 +139,8 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/rack(mob/user = null)
 		update_icon()
 		return
 	drop_bolt(user)
-
-
+	
+	
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope
 	name = "kar98k scope"
 	desc = "Some kind of bolt action rifle. You get the feeling you shouldn't have this."
@@ -131,7 +150,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/rack(mob/user = null)
 	zoom_amt = 10
 	zoom_out_amt = 13
 	actions_types = list()
-
+	
 obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/can_shoot()
 	if (bolt_locked)
 		return FALSE
@@ -177,7 +196,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
 		update_icon()
 		return
 	drop_bolt(user)
-
+	
 /obj/item/gun/energy/taser/wzzzz/carbine
 	name = "taser carbine"
 	desc = "The NT Mk44 NL is a high capacity gun used for non-lethal takedowns. It can switch between high and low intensity stun shots."
@@ -202,7 +221,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
 	stutter = 7
 	jitter = 27
 	range = 10
-
+	
 /obj/item/ammo_box/magazine/wt550m9/wzzzz/mc9mmt
 	name = "top mounted magazine (9mm)"
 	ammo_type = /obj/item/ammo_casing/wzzzz/c9mm
@@ -216,7 +235,7 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
 /obj/projectile/bullet/c9mmt
 	damage = 25
 	armour_penetration = 13.5
-
+	
 /obj/item/gun/ballistic/automatic/wt550/wzzzz/german
 	name = "9mm machine pistol"
 	desc = "The W-T 550 Saber is a cheap self-defense weapon, mass-produced by Ward-Takahashi for paramilitary and private use. Uses 9mm rounds."
@@ -228,13 +247,46 @@ obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
 	mag_type = /obj/item/ammo_box/magazine/wt550m9/wzzzz/mc9mmt
 	actions_types = list(/datum/action/item_action/toggle_firemode)
 
-/obj/item/twohanded/required/chainsaw/wzzzz
+/obj/item/chainsaw/wzzzz
 	name = "circular saw"
 	desc = "Good against wood or flesh, bad against steel."
 	icon_state = "saw"
+	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
 	inhand_icon_state = "saw"
 	lefthand_file = 'code/shitcode/Wzzzz/icons/Weeal.dmi'
 	throwforce = 12
 	force = 13
+	force_on = 27
 	righthand_file = 'code/shitcode/Wzzzz/icons/Weear.dmi'
 	armour_penetration = 0
+	sharpness = 5
+		
+/obj/item/shovel/serrated/wzzzz
+	name = "bone shovel"
+	desc = "Weapon and tool together."
+	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
+	throwforce = 10
+	force = 12
+
+/obj/item/shovel/spade/wzzz
+	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
+	icon_state = "german_shovel2"
+	inhand_icon_state = "german_shovel2"
+	righthand_file = 'code/shitcode/Wzzzz/icons/Weear.dmi'
+	lefthand_file = 'code/shitcode/Wzzzz/icons/Weeal.dmi'
+	throwforce = 11
+	force = 12
+	
+/obj/item/pickaxe/silver/wzzzz
+	name = "bone pickaxe"
+	desc = "Improvise your life with bones and wood."
+	toolspeed = 0.2
+	force = 12
+	throwforce = 8
+	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
+	icon_state = "pickaxe_bone"
+	inhand_icon_state = "pickaxe_bone"
+
+/obj/item/clothing/mask/cigarette/pipe/cobpipe/wzzzz
+	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'
+	name = "pipe"

@@ -10,7 +10,7 @@
 	icon = 'code/shitcode/Wzzzz/pilot.dmi'
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF
-
+	
 /obj/item/clothing/head/helmet/space/pilot
 	name = "pilot helmet"
 	desc = "A universal space helmet for pilots"

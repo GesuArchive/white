@@ -13,7 +13,7 @@
 	belt = /obj/item/storage/belt/military/wzzzz/vest/terr5
 	implants = list(/obj/item/implant/explosive)
 	suit_store = /obj/item/gun/ballistic/automatic/pistol
-
+	
 /datum/outfit/wzzzz/hazard
 	name = "Hazard Personal"
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/hazard
@@ -26,19 +26,19 @@
 	gloves = /obj/item/clothing/gloves/color/yellow
 	back = /obj/item/tank/internals/oxygen/yellow
 	l_pocket = /obj/item/flashlight
-	r_pocket = /obj/item/analyzer
+	r_pocket = /obj/item/analyzer 
 	belt = /obj/item/storage/belt/utility/full/engi
 	suit_store = /obj/item/tank/internals/emergency_oxygen/engi
 	id = /obj/item/card/id/ert/engineer
-
+	
 /datum/outfit/wzzzz/sov_off
 	name = "Soviet Officer"
-	uniform = /obj/item/clothing/under/costume/soviet
+	uniform = /obj/item/clothing/under/costume/soviet 
 	suit = /obj/item/clothing/suit/armor/vest/russian_coat
 	glasses = /obj/item/clothing/glasses/hud/health/night/wzzzz
 	mask = /obj/item/clothing/mask/russian_balaclava
 	head = /obj/item/clothing/head/helmet/rus_ushanka
-	ears = /obj/item/radio/headset/binary
+	ears = /obj/item/radio/headset/binary 
 	shoes = /obj/item/clothing/shoes/russian
 	gloves = /obj/item/clothing/gloves/combat
 	back = /obj/item/storage/backpack/satchel/leather/withwallet
@@ -48,7 +48,7 @@
 	suit_store = /obj/item/gun/ballistic/revolver
 	r_hand = /obj/item/kitchen/knife/combat/survival
 	backpack_contents = list(/obj/item/storage/box/zipties=1, /obj/item/ammo_box/a357=1)
-
+	
 /datum/outfit/wzzzz/nt_guard
 	name = "NT Guard"
 	uniform = /obj/item/clothing/under/rank/security/officer/wzzzz/guard/nt
@@ -66,21 +66,21 @@
 	suit_store = /obj/item/gun/ballistic/automatic/wt550/wzzzz/german
 	r_hand = /obj/item/kitchen/knife/combat/survival
 	backpack_contents = list(/obj/item/ammo_box/magazine/wt550m9/wzzzz/mc9mmt=5, /obj/item/gun/energy/taser=1, /obj/item/reagent_containers/food/snacks/canned/peaches=1, /obj/item/reagent_containers/food/snacks/canned/beans=1, /obj/item/reagent_containers/food/drinks/waterbottle/large=1)
-
+	
 /datum/outfit/wzzzz/spa_ter_1
 	name = "Space Terrorist Standart"
 	uniform = /obj/item/clothing/under/syndicate/tacticool
 	suit = /obj/item/clothing/suit/space/syndicate/black/red
-	glasses = /obj/item/clothing/glasses/sunglasses
+	glasses = /obj/item/clothing/glasses/sunglasses 
 	mask = /obj/item/clothing/mask/breath
-	head = /obj/item/clothing/head/helmet/space/syndicate/black/red
+	head = /obj/item/clothing/head/helmet/space/syndicate/black/red 
 	ears = /obj/item/radio/headset/syndicate/alt
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/combat
 	back = /obj/item/storage/backpack/duffelbag/syndie
-	l_pocket = /obj/item/tank/internals/emergency_oxygen
+	l_pocket = /obj/item/tank/internals/emergency_oxygen 
 	r_pocket = /obj/item/kitchen/knife/combat
-	belt = /obj/item/grenade/frag/mega
+	belt = /obj/item/grenade/frag
 	suit_store = /obj/item/tank/internals/oxygen/red
 	r_hand = /obj/item/kitchen/knife/combat/survival
 	backpack_contents = list(/obj/item/clothing/head/helmet/blueshirt=1,
@@ -92,7 +92,7 @@
 	/obj/item/grenade/flashbang=1,
 	/obj/item/clothing/mask/balaclava/wzzzz/balaclavager/black=1,
 	/obj/item/clothing/suit/armor/vest=1,
-	/obj/item/grenade/frag/mega=1)
+	/obj/item/grenade/frag=1)
 	id = /obj/item/card/id/syndicate
 
 /datum/outfit/wzzzz/spa_eng
@@ -112,8 +112,8 @@
 	suit_store = /obj/item/gun/energy/e_gun/mini
 	id = /obj/item/card/id/ert/engineer
 
-/obj/item/kitchen/knife/combat/survival
-
+/obj/item/kitchen/knife/combat/survival 
+	
 /obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/shadow/wzzzz
 	icon_state = "golemmeat"
 
@@ -138,8 +138,8 @@
 	punchdamagelow = 1
 	punchstunthreshold = 0
 	siemens_coeff = 10
-	//mutant_heart = /obj/item/organ/heart/xyz
-	//mutant_brain = /obj/item/organ/brain/xyz
+	mutantheart = /obj/item/organ/heart/xyz
+	mutantbrain = /obj/item/organ/brain/xyz
 	mutantliver = /obj/item/organ/liver/fly/xyz
 	//var/ara = rand(0, 15)
 	armor = 7.5
@@ -157,16 +157,16 @@
 	//should_have_tail = FALSE
 	//facialhair_hidden = TRUE
 	//hair_hidden = TRUE
-
+	
 /obj/item/organ/liver/fly/xyz
 	color = "#808080"
-
+	
 /obj/item/organ/brain/xyz
 	color = "#808080"
-
+	
 /obj/item/organ/heart/xyz
 	color = "#808080"
-
+	
 /mob/living/carbon/human/wzzzz/husk
 	name = "???"
 	real_name = "???"
@@ -222,13 +222,28 @@
 //	hand_bodyparts = list(
 //		/obj/item/bodypart/l_arm/h,
 //		/obj/item/bodypart/r_arm/h)
-
+			
 /obj/item/bodypart/r_arm/h
 	max_stamina_damage = 30
 	max_damage = 25
 	siemens_coefficient = 10
-
+	
 /obj/item/bodypart/l_arm/h
 	max_stamina_damage = 30
 	max_damage = 25
 	siemens_coefficient = 10
+
+/obj/structure/closet/crate/necropolis
+	name = "necropolis chest"
+	desc = "It's watching you closely."
+	icon_state = "necrocrate"
+	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+
+/obj/structure/closet/crate/coffin/blackcoffin/wzzzz
+	desc = "It's watching you suspiciously."
+	resistance_flags = FREEZE_PROOF|FIRE_PROOF
+
+/obj/structure/closet/crate/coffin/blackcoffin/wzzzz/PopulateContents()
+	new /mob/living/simple_animal/hostile/vanya/killermeat(src)
+
+

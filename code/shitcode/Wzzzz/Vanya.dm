@@ -8,7 +8,7 @@
 	inhand_icon_state = "old_sword"
 	force = 23
 	sharpness = 2
-	resistance_flags = LAVA_PROOF|FIRE_PROOF|ACID_PROOF|INDESTRUCTIBLE|FREEZE_PROOF
+	resistance_flags = LAVA_PROOF|FIRE_PROOF|ACID_PROOF|INDESTRUCTIBLE|FREEZE_PROOF 
 	block_chance = 25
 	damtype = "sharp"
 	sharpness = 3
@@ -49,14 +49,14 @@
 	ranged_cooldown_time = 40
 	vision_range = 7
 	loot = list(/obj/effect/decal/remains/human, /obj/item/stack/rods)
-
+	
 /mob/living/simple_animal/hostile/skeleton/vanya/Initialize(mapload)
 	. = ..()
 	apply_status_effect(STATUS_EFFECT_CRUSHERDAMAGETRACKING)
-
+	
 /mob/living/simple_animal/hostile/vanya
 	icon = 'code/shitcode/Wzzzz/e.dmi'
-
+	
 /mob/living/simple_animal/hostile/vanya/killermeat
 	name = "Killer Meat"
 	desc = "It's a horrifyingly enormous pile of meat. It looks wild."
@@ -88,16 +88,16 @@
 	minbodytemp = 150
 	maxbodytemp = 800
 	gold_core_spawnable = HOSTILE_SPAWN
-
+	
 /mob/living/simple_animal/hostile/vanya/killermeat/Moved(atom/OldLoc, Dir, Forced = FALSE)
 	if(Dir)
 		new /obj/effect/decal/cleanable/blood/splatter(src.loc)
 	return ..()
-
+	
 /mob/living/simple_animal/hostile/vanya/killermeat/Initialize(mapload)
 	. = ..()
 	apply_status_effect(STATUS_EFFECT_CRUSHERDAMAGETRACKING)
-
+	
 /mob/living/simple_animal/hostile/vanya/leech
 	name = "Leechs"
 	desc = "It's a horrifyingly big leechs. It looks scary and hungry."
@@ -129,11 +129,11 @@
 	minbodytemp = 150
 	maxbodytemp = 800
 	gold_core_spawnable = HOSTILE_SPAWN
-
+	
 /mob/living/simple_animal/hostile/vanya/leech/Initialize(mapload)
 	. = ..()
 	apply_status_effect(STATUS_EFFECT_CRUSHERDAMAGETRACKING)
-
+	
 /mob/living/simple_animal/hostile/faithless/vanya/chort
 	name = "Imp"
 	desc = "Imp?"
@@ -166,11 +166,11 @@
 	minbodytemp = 150
 	maxbodytemp = 800
 	gold_core_spawnable = HOSTILE_SPAWN
-
+	
 /mob/living/simple_animal/hostile/faithless/vanya/chort/Initialize(mapload)
 	. = ..()
 	apply_status_effect(STATUS_EFFECT_CRUSHERDAMAGETRACKING)
-
+	
 /mob/living/simple_animal/hostile/faithless/vanya/drown
 	name = "Drowned"
 	desc = "Blue skin, yellow eyes...that's undead?"
@@ -207,4 +207,4 @@
 /mob/living/simple_animal/hostile/faithless/vanya/drown/Initialize(mapload)
 	. = ..()
 	apply_status_effect(STATUS_EFFECT_CRUSHERDAMAGETRACKING)
-
+	

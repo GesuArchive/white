@@ -394,46 +394,45 @@
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 70, "fire" = 60, "acid" = 70)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/medical_rig
 
+/obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/medical_rig/blue
+	icon_state = "hardsuit0-medical_rigalt"
+	inhand_icon_state = "hardsuit0-medical_rigalt"
+	hardsuit_type = "medical_rigalt"
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
+
 /obj/item/clothing/glasses/hud/wzzzz/hacker_rig
 	name = "хакочки"
 	desc = "А ты заслуживаешь это?"
 	alt_desc = "Глупая свинья."
+	name = "hacker googless"
+	desc = "Do you deserve that?"
+	alt_desc = "Do you deserve that?"
 	icon_state = "hardsuit1-hacker_rig"
 	inhand_icon_state = "hardsuit1-hacker_rig"
 	darkness_view = 10
-	var/list/datahuds = list(DATA_HUD_SECURITY_ADVANCED, DATA_HUD_DIAGNOSTIC_BASIC)
-	//t_ray_scan(user, 10, range)
 	flash_protect = 3
+	resistance_flags = NONE
+	var/list/datahuds = list(DATA_HUD_SECURITY_ADVANCED, DATA_HUD_DIAGNOSTIC_BASIC)
 	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	hud_type = DATA_HUD_SECURITY_ADVANCED | DATA_HUD_SECURITY_ADVANCED | DATA_HUD_SECURITY_ADVANCED | DATA_HUD_HACKER
 	vision_flags = SEE_MOBS | SEE_TURFS
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 	hud_trait = TRAIT_SECURITY_HUD
-	resistance_flags = NONE
-
-	//obj/item/clothing/glasses/hud/wzzzz/hacker_rig/equipped(mob/living/carbon/human/user, slot)
-    //..()
-    //if(slot == SLOT_EYES)
-    //    for(var/hud_type in datahuds)
-    //        var/datum/atom_hud/DHUD = GLOB.huds[hud_type]
-    //        DHUD.add_hud_to(user)
-	//
-	//obj/item/clothing/glasses/hud/wzzzz/hacker_rig/dropped(mob/living/carbon/human/user)
-    //..()
-    //if(user.eyes == src)
-    //    for(var/hud_type in datahuds)
-    //        var/datum/atom_hud/DHUD = GLOB.huds[hud_type]
-    //        DHUD.remove_hud_from(user)
 
 /obj/item/clothing/suit/space/wzzzz/hacker_rig
 	name = "интересный костюм"
 	desc = "А ты заслуживаешь этот костюм?"
 	alt_desc = "Глупая свинья."
+	name = "hacker suit"
+	desc = "Do you deserve this hardsuit?"
+	alt_desc = "Do you deserve this hardsuit?"
 	icon_state = "hardsuit0-hacker_rig"
 	clothing_flags = STOPSPRESSUREDAMAGE
 	inhand_icon_state = "hardsuit0-hacker_rig"
 	resistance_flags = INDESTRUCTIBLE
+	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hard.dmi'
 	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/hard.dmi'
@@ -441,6 +440,17 @@
 	slowdown = -1
 	color = "#00ffff"
 	strip_delay = 1300
+	armor = list("melee" = 60, "bullet" = 50, "laser" = 100,"energy" = 100, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 50, "acid" = 50)
+
+
+
+
+
+
+
+
+
+
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_engineer_rig
 	name = "ert engineer hardsuit helmet"
@@ -1197,7 +1207,7 @@
 		/obj/item/kitchen/knife/wzzzz/german = 1.#INF,
 		/obj/item/restraints/legcuffs/bola/tactical = 1.#INF,
 		/obj/item/restraints/legcuffs/bola = 1.#INF,
-		/obj/item/chainsaw = 1.#INF,
+		/obj/item/twohanded/required/chainsaw = 1.#INF,
 		/obj/item/storage/belt/bandolier = 1.#INF,
 		/obj/item/storage/backpack/fireproof = 1.#INF,
 		/obj/item/clothing/shoes/jackboots = 1.#INF,
@@ -1218,7 +1228,7 @@
 		/obj/item/stack/rods/twentyfive = 1.#INF,
 		/obj/item/gun/ballistic/crossbow = 1.#INF,
 		/obj/item/grenade/iedcasing = 1.#INF,
-		/obj/item/grenade/frag/mega = 1.#INF,
+		/obj/item/grenade/frag = 1.#INF,
 		/obj/item/grenade/c4/x4 = 1.#INF,
 		/obj/item/spear = 1.#INF,
 		/obj/item/gun/ballistic/automatic/wt550/wzzzz/german = 1.#INF,
@@ -1298,7 +1308,7 @@
 		/obj/item/gun/ballistic/rifle/boltaction = 1.#INF,
 		/obj/item/clothing/suit/armor/vest = 1.#INF,
 		/obj/item/clothing/suit/armor/wzzzz/opvest = 1.#INF,
-		/obj/item/clothing/under/wzzzz/victorianvest/grey = 1.#INF,
+		/obj/item/clothing/under/wzzzz/victorian/vest/black = 1.#INF,
 		/obj/item/clothing/suit/hooded/chaplainsuit/wzzzz/star_traitor = 1.#INF,
 		/obj/item/clothing/shoes/jackboots/wzzzz/fiendshoes = 1.#INF,
 		/obj/item/clothing/suit/hooded/chaplainsuit/wzzzz/fiendcowl = 1.#INF,
@@ -1377,7 +1387,7 @@
 	reagents = list(/datum/reagent/napalm = 100)
 
 /obj/item/spear/explosive/wzzzz
-	explosive = /obj/item/grenade/frag/mega
+	explosive = /obj/item/grenade/frag
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/null
 	name = "hardsuit helmet"
@@ -1434,7 +1444,7 @@
 
 /obj/item/kitchen/knife/butcher/free
 	custom_price = 0
-
+	
 /obj/item/lighter/greyscale/free
 	custom_price = 0
 

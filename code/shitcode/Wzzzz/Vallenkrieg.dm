@@ -63,7 +63,7 @@
 	. = ..()
 	set_holdable(GLOB.security_vest_allowed)
 	max_items = 7
-	max_combined_w_class = 10
+	max_combined_w_class = 13
 
 /datum/component/storage/concrete/pockets/webvest/Initialize()
 	. = ..()

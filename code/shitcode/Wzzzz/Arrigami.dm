@@ -22,13 +22,13 @@
 	max_ammo = 30
 	icon = 'code/shitcode/Wzzzz/icons/Ora/ne_sharu_v_etom_vse_eshe.dmi'
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
-
+	
 /obj/item/ammo_casing/m556
 	name = "5.56mm bullet casing"
 	desc = "A 5.56mm bullet casing."
 	caliber = "m556"
 	projectile_type = /obj/projectile/bullet/m556/wzzzz
-
+	
 /obj/projectile/bullet/m556/wzzzz
 	damage = 35
 	armour_penetration = 10

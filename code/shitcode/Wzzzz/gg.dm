@@ -1,7 +1,7 @@
 /obj/projectile/bullet/rifle/a556
 	damage = 50
 	armour_penetration = 25
-
+	
 /obj/item/ammo_casing/wzzzz/a556
 	desc = "A 5.56mm bullet casing."
 	caliber = "a556"
@@ -9,7 +9,7 @@
 	icon = 'code/shitcode/Wzzzz/icons/ammo.dmi'
 	icon_state = "rifle_casing"
 	inhand_icon_state = "rifle_casing"
-
+	
 /obj/item/ammo_box/magazine/wzzzz/g43
 	name = "magazine (5.56mm)"
 	icon_state = "5.56"
@@ -18,7 +18,7 @@
 	icon = 'code/shitcode/Wzzzz/icons/ammo.dmi'
 	max_ammo = 15
 	multiple_sprites = 1
-
+	
 /obj/item/gun/ballistic/automatic/wzzzz/g43
 	name = "G-43"
 	desc = "Semi-automatic german rifle."

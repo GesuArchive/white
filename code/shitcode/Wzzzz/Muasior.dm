@@ -5,7 +5,7 @@
 	icon_state = "luger"
 	w_class = WEIGHT_CLASS_SMALL
 	fire_sound = 'code/shitcode/Wzzzz/Gunshot_light.ogg'
-	mag_type = /obj/item/ammo_box/magazine/wzzzz/luger
+	mag_type = /obj/item/ammo_box/magazine/wzzzz/luger/battle
 	can_suppress = FALSE
 	slot_flags = ITEM_SLOT_BELT
 

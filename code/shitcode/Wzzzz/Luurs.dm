@@ -5,7 +5,7 @@
 	icon_state = "mauser"
 	w_class = WEIGHT_CLASS_SMALL
 	fire_sound = 'code/shitcode/Wzzzz/Gunshot_light.ogg'
-	mag_type = /obj/item/ammo_box/magazine/wzzzz/mauser
+	mag_type = /obj/item/ammo_box/magazine/wzzzz/mauser/battle
 	can_suppress = FALSE
 	slot_flags = ITEM_SLOT_BELT
 
@@ -38,7 +38,7 @@
 	name = "10mm bullet"
 	damage = 23
 	armour_penetration = 15
-
+	
 /obj/item/ammo_casing/wzzzz/mauser
 	name = "10mm bullet casing."
 	desc = "A 10mm bullet casing."

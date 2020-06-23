@@ -145,7 +145,7 @@
 	lefthand_file = 'code/shitcode/Wzzzz/icons/Weeal.dmi'
 	righthand_file = 'code/shitcode/Wzzzz/icons/Weear.dmi'
 	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/mob1/belt.dmi'
-
+	
 /obj/item/kitchen/knife/butcher/wzzzz/machete
 	name = "machete"
 	icon = 'code/shitcode/Wzzzz/icons/Weea.dmi'

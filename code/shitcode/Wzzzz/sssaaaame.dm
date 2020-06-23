@@ -808,3 +808,206 @@
 
 /obj/item/clothing/head/wzzzz/turban/black
 	color = "#303030"
+	
+/obj/item/clothing/head/wzzzz/turban/alt
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hats.dmi'
+	name = "turban"
+	icon_state = "turban"
+	inhand_icon_state = "turban"
+	desc = "East hat."
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	dynamic_hair_suffix = ""
+	flags_inv = HIDEEARS|HIDEHAIR
+	visor_flags_inv = HIDEEARS|HIDEHAIR
+	
+/obj/item/clothing/head/wzzzz/turban/alt/turban1
+	icon_state = "turban1"
+	inhand_icon_state = "turban1"
+	
+/obj/item/clothing/head/wzzzz/turban/alt/turban2
+	icon_state = "turban2"
+	inhand_icon_state = "turban2"
+	
+/obj/item/clothing/head/wzzzz/turban/alt/turban3
+	icon_state = "turban3"
+	inhand_icon_state = "turban3"
+	
+/obj/item/clothing/head/wzzzz/turban/alt/turban4
+	icon_state = "turban4"
+	inhand_icon_state = "turban4"
+
+/obj/item/clothing/head/wzzzz/turban/alt/turban5
+	icon_state = "turban5"
+	inhand_icon_state = "turban5"
+
+/obj/item/clothing/head/wzzzz/turban/alt/helmet
+	name = "turban helmet"
+	desc = "East hat with helmet."
+	armor = list("melee" = 25, "bullet" = 10, "laser" = 5, "energy" = 5, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 15)
+	dynamic_hair_suffix = ""
+	flags_inv = HIDEEARS|HIDEHAIR
+	visor_flags_inv = HIDEEARS|HIDEHAIR
+	
+/obj/item/clothing/head/wzzzz/turban/alt/helmet/turhelm1
+	icon_state = "turhelm1"
+	inhand_icon_state = "turhelm1"
+	
+/obj/item/clothing/head/wzzzz/turban/alt/helmet/turhelm2
+	icon_state = "turhelm2"
+	inhand_icon_state = "turhelm2"
+	
+/obj/item/clothing/head/wzzzz/turban/alt/helmet/turhelm3
+	icon_state = "turhelm3"
+	inhand_icon_state = "turhelm3"
+	
+/obj/item/clothing/head/wzzzz/turban/alt/helmet/turhelm4
+	icon_state = "turhelm4"
+	inhand_icon_state = "turhelm4"
+	
+/obj/item/clothing/head/wzzzz/turban/alt/helmet/turhelm5
+	icon_state = "turhelm5"
+	inhand_icon_state = "turhelm5"
+	
+/obj/item/clothing/head/wzzzz/turban/alt/helmet/full
+	name = "arab helmet"
+	desc = "East helmet."
+	armor = list("melee" = 50, "bullet" = 25, "laser" = 15, "energy" = 10, "bomb" = 35, "bio" = 0, "rad" = 0, "fire" = 40, "acid" = 30)
+	dynamic_hair_suffix = ""
+	flags_inv = HIDEEARS|HIDEHAIR
+	visor_flags_inv = HIDEEARS|HIDEHAIR
+	
+/obj/item/clothing/head/wzzzz/turban/alt/helmet/full/helmet1
+	icon_state = "arabw_helmet"
+	inhand_icon_state = "arabw_helmet"
+	
+/obj/item/clothing/head/wzzzz/turban/alt/helmet/full/helmet2
+	icon_state = "arabw_helmet1"
+	inhand_icon_state = "arabw_helmet1"
+
+/obj/item/clothing/head/wzzzz
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hats.dmi'
+
+/obj/item/clothing/head/wzzzz/tricorne
+	name = "tricorne"
+	icon_state = "tricorne_black"
+	inhand_icon_state = "tricorne_black"
+	desc = "Good style of old culture."
+	
+/obj/item/clothing/head/wzzzz/tricorne/british
+	name = "british tricorne"
+	icon_state = "tricorne_british"
+	inhand_icon_state = "tricorne_british"
+	
+/obj/item/clothing/head/wzzzz/tricorne/portuguese
+	name = "portuguese tricorne"
+	icon_state = "tricorne_portuguese"
+	inhand_icon_state = "tricorne_portuguese"
+	
+/obj/item/clothing/head/wzzzz/tricorne/spanish
+	name = "spanish tricorne"
+	icon_state = "tricorne_spanish"
+	inhand_icon_state = "tricorne_spanish"
+	
+/obj/item/clothing/head/wzzzz/tricorne/french
+	name = "portuguese tricorne"
+	icon_state = "tricorne_french"
+	inhand_icon_state = "tricorne_french"
+	
+/obj/item/clothing/head/wzzzz/tricorne/dutch
+	name = "dutch tricorne"
+	icon_state = "tricorne_dutch"
+	inhand_icon_state = "tricorne_dutch"
+	
+/obj/item/clothing/head/wzzzz/tricorne/british/alt
+	icon_state = "tricorne_british2"
+	inhand_icon_state = "tricorne_british2"
+
+/obj/item/clothing/head/wzzzz/tricorne/soldier
+	name = "soldier chasseur"
+	icon_state = "tricorne_british_soldier"
+	inhand_icon_state = "tricorne_british_soldier"
+	desc = "Good style of old military."
+	
+/obj/item/clothing/head/wzzzz/tricorne/soldier/portuguese
+	name = "portuguese chasseur"
+	icon_state = "chasseur_pt"
+	inhand_icon_state = "chasseur_pt"
+	
+/obj/item/clothing/head/wzzzz/tricorne/soldier/naval
+	name = "naval chasseur"
+	icon_state = "chasseur_nl"
+	inhand_icon_state = "chasseur_nl"
+
+/obj/item/clothing/head/wzzzz/tricorne/soldier/french
+	name = "french chasseur"
+	icon_state = "chasseur_fr"
+	inhand_icon_state = "chasseur_fr"
+	
+/obj/item/clothing/head/wzzzz/tricorne/soldier/british
+	name = "british chasseur"
+	icon_state = "chasseur_br"
+	inhand_icon_state = "chasseur_br"
+
+/obj/item/clothing/head/wzzzz/noblehat1
+	name = "noble hat"
+	desc = "Hat..."
+	icon_state = "noblehat1"
+	inhand_icon_state = "noblehat1"
+	
+/obj/item/clothing/head/wzzzz/noblehat/alt
+	icon_state = "noblehat2"
+	inhand_icon_state = "noblehat2"
+
+/obj/item/clothing/head/wzzzz/beret/redberet
+	name = "red beret"
+	desc = "Old style of beret."
+	icon_state = "redberet"
+	inhand_icon_state = "redberet"
+	
+/obj/item/clothing/head/wzzzz/beret/blueberet
+	name = "red beret"
+	desc = "Old style of beret."
+	icon_state = "blueberet"
+	inhand_icon_state = "blueberet"
+	
+/obj/item/clothing/head/wzzzz/kerchief
+	name = "kerchief"
+	desc = "Kerch."
+	icon_state = "kerchief"
+	inhand_icon_state = "kerchief"
+	
+/obj/item/clothing/head/wzzzz/chief_hat
+	name = "chief hat"
+	desc = "Master Chief."
+	icon_state = "chief_hat"
+	inhand_icon_state = "chief_hat"
+
+/obj/item/clothing/head/wzzzz/toxotai
+	name = "toxotai"
+	desc = "For days of burning sun."
+	icon_state = "toxotai"
+	inhand_icon_state = "toxotai"
+
+/obj/item/clothing/head/bearpelt/wzzzz
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hats.dmi'
+	icon_state = "bearpelt"
+	inhand_icon_state = "bearpelt"
+	flags_inv = HIDEEARS|HIDEHAIR
+	visor_flags_inv = HIDEEARS|HIDEHAIR
+	dynamic_hair_suffix = null
+	
+/obj/item/clothing/head/bearpelt/wzzzz/wolf
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hats.dmi'
+	icon_state = "wolfpelt"
+	inhand_icon_state = "wolfpelt"
+	
+/obj/item/clothing/head/helmet/roman/legionnaire/wzzzz
+	worn_icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/head.dmi'
+	icon = 'code/shitcode/Wzzzz/icons/clothing/clothing/hats.dmi'
+	icon_state = "roman_d"
+	inhand_icon_state = "roman_d"
+
