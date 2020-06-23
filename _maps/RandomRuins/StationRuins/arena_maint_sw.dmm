@@ -18,7 +18,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/item/clothing/under/wzzzz/victorianreddress,
+/obj/item/clothing/under/wzzzz/victorian/reddress,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "g" = (
@@ -59,7 +59,7 @@
 	},
 /area/maintenance/port/aft)
 "n" = (
-/obj/item/clothing/under/wzzzz/victorianvest,
+/obj/item/clothing/under/wzzzz/victorian/vest,
 /obj/item/melee/baseball_bat/ablative,
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-2"
@@ -213,7 +213,7 @@
 /area/maintenance/port/aft)
 "K" = (
 /obj/effect/decal/cleanable/blood/gibs,
-/obj/item/clothing/under/wzzzz/victorianvest,
+/obj/item/clothing/under/wzzzz/victorian/vest,
 /obj/item/melee/baseball_bat/ablative,
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-2"
@@ -224,11 +224,11 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/item/clothing/under/wzzzz/victorianblackdress,
+/obj/item/clothing/under/wzzzz/victorian/blackdress,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "M" = (
-/obj/item/clothing/under/wzzzz/victorianblred,
+/obj/item/clothing/under/wzzzz/victorian/blred,
 /obj/item/melee/baseball_bat/ablative,
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-2"
