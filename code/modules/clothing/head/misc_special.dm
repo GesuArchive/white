@@ -218,7 +218,7 @@
 	name = "парик"
 	desc = "Куча волос без головы."
 	icon = 'icons/obj/clothing/hats.dmi'
-	icon_state = "wig"
+	icon_state = "blackwizard"
 	inhand_icon_state = "pwig"
 	worn_icon_state = "wig"
 	flags_inv = HIDEHAIR
