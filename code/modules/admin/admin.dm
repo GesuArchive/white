@@ -717,8 +717,8 @@
 	if(!check_rights(R_SPAWN) || !object)
 		return
 
-	if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-		return
+	//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
+	//	return
 
 	var/list/preparsed = splittext(object,":")
 	var/path = preparsed[1]
@@ -752,8 +752,8 @@
 	if(!check_rights(R_SPAWN))
 		return
 
-	if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-		return
+	//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
+	//	return
 
 	var/chosen = pick_closest_path(object)
 	if(!chosen)
@@ -782,8 +782,8 @@
 	if(!check_rights(R_SPAWN))
 		return
 
-	if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-		return
+	//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
+	//	return
 
 	var/chosen = pick_closest_path(object, make_types_fancy(subtypesof(/datum/supply_pack)))
 	if(!chosen)
@@ -1002,8 +1002,8 @@
 	if (!check_rights(R_VAREDIT,0) || !check_rights(R_SPAWN|R_DEBUG,0))
 		return FALSE
 
-	if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-		return FALSE
+	//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
+	//	return FALSE
 
 	if (!frommob.ckey)
 		return FALSE

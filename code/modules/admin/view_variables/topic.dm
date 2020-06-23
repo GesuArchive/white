@@ -58,8 +58,8 @@
 			if(!check_rights(R_SPAWN))
 				return
 
-			if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-				return
+			//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
+			//	return
 
 			var/mob/living/carbon/monkey/Mo = locate(href_list["makehuman"]) in GLOB.mob_list
 			if(!istype(Mo))

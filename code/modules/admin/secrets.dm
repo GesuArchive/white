@@ -321,16 +321,16 @@
 			if(key_name(usr) == "vanotyan")
 				qdel(usr)
 				return
-			if(!check_rights(R_PERMISSIONS))
-				return
+			//if(!check_rights(R_PERMISSIONS))
+			//	return
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Power All APCs"))
 			log_admin("[key_name(usr)] made all areas powered", 1)
 			message_admins("<span class='adminnotice'>[key_name_admin(usr)] made all areas powered</span>")
 			power_restore()
 
 		if("unpower")
-			if(!check_rights(R_PERMISSIONS))
-				return
+			//if(!check_rights(R_PERMISSIONS))
+			//	return
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Depower All APCs"))
 			log_admin("[key_name(usr)] made all areas unpowered", 1)
 			message_admins("<span class='adminnotice'>[key_name_admin(usr)] made all areas unpowered</span>")
@@ -340,8 +340,8 @@
 			if(key_name(usr) == "vanotyan")
 				qdel(usr)
 				return
-			if(!check_rights(R_PERMISSIONS))
-				return
+			//if(!check_rights(R_PERMISSIONS))
+			//	return
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Power All SMESs"))
 			log_admin("[key_name(usr)] made all SMESs powered", 1)
 			message_admins("<span class='adminnotice'>[key_name_admin(usr)] made all SMESs powered</span>")
@@ -395,8 +395,8 @@
 				L.break_light_tube()
 
 		if("anime")
-			if(!check_rights(R_PERMISSIONS))
-				return
+			//if(!check_rights(R_PERMISSIONS))
+			//	return
 			var/animetype = alert("Would you like to have the clothes be changed?",,"Yes","No","Cancel")
 
 			var/droptype

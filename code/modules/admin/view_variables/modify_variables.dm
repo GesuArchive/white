@@ -282,8 +282,8 @@ GLOBAL_PROTECT(VVpixelmovement)
 	if(param_var_name in GLOB.VVckey_edit)
 		if(!check_rights(R_SPAWN|R_DEBUG))
 			return FALSE
-		if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-			return FALSE
+		//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
+		//	return FALSE
 	if(param_var_name in GLOB.VVicon_edit_lock)
 		if(!check_rights(R_FUN|R_DEBUG))
 			return FALSE

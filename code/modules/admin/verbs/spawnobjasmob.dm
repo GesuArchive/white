@@ -9,8 +9,8 @@
 	if(!check_rights(R_SPAWN))
 		return
 
-	if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-		return
+	//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
+	//	return
 
 	var/chosen = pick_closest_path(object, make_types_fancy(subtypesof(/obj)))
 
