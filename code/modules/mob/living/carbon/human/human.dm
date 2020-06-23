@@ -22,7 +22,7 @@
 	RegisterSignal(src, COMSIG_COMPONENT_CLEAN_ACT, .proc/clean_blood)
 	AddComponent(/datum/component/personal_crafting)
 	AddComponent(/datum/component/footstep, FOOTSTEP_MOB_HUMAN, 1, 2)
-	if(ckey in GLOB.pacifist_list)
+	if(ckey(ckey) in GLOB.pacifist_list)
 		ADD_TRAIT(src, TRAIT_PACIFISM, "sosi")
 	GLOB.human_list += src
 
