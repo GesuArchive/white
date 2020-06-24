@@ -14,10 +14,12 @@
 		return
 	if(sound.environment == -1)
 		sound.environment = 12
+	/*
 	if(iscarbon(target))
 		var/mob/living/carbon/C = target
 		if(C.IsUnconscious() || C.IsSleeping() || C.drunkenness >= 40 || C.health <= 40)
 			sound.environment = 23
+	*/
 	DIRECT_OUTPUT(target, sound)
 
 //print a warning message to world.log

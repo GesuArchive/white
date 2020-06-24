@@ -59,6 +59,8 @@
 		list("mc_count" = mc_count, "ckey" = M.ckey)
 	)
 	query_inc_metacoins.Execute()
+	if(!M.client || !M)
+		return
 	M.client.update_metabalance_cache()
 	qdel(query_inc_metacoins)
 	if(ann)
