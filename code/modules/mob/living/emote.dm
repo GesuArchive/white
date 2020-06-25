@@ -289,7 +289,7 @@
 /datum/emote/living/shiver
 	key = "shiver"
 	key_third_person = "shiver"
-	message = "shivers."
+	message = "дрожит."
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/sigh
