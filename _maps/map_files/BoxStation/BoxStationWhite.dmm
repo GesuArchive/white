@@ -14780,11 +14780,11 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/neutral,
-/obj/structure/table,
 /obj/machinery/microwave{
 	pixel_x = -3;
 	pixel_y = 6
 	},
+/obj/structure/table/reinforced,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/kitchen)
 "bjS" = (
