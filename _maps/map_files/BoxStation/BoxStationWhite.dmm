@@ -70,10 +70,9 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/fore)
 "aaq" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/reagent_forge,
-/turf/open/floor/plasteel/white,
-/area/medical/chemistry)
+/obj/machinery/satellite/meteor_shield,
+/turf/open/space/basic,
+/area/space)
 "aat" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{
 	dir = 6
@@ -115,6 +114,7 @@
 	pixel_x = 28;
 	pixel_y = 5
 	},
+/obj/machinery/smoke_machine,
 /turf/open/floor/plasteel,
 /area/medical/chemistry)
 "aaC" = (
@@ -29502,15 +29502,10 @@
 /obj/effect/turf_decal/bot{
 	dir = 1
 	},
-/obj/machinery/satellite/meteor_shield,
-/obj/machinery/satellite/meteor_shield,
-/obj/machinery/satellite/meteor_shield,
-/obj/structure/closet/crate{
-	name = "satellites crate"
-	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{
 	dir = 9
 	},
+/obj/machinery/power/emitter,
 /turf/open/floor/plasteel/dark,
 /area/engine/storage)
 "cfo" = (
@@ -36488,7 +36483,7 @@
 /turf/open/floor/plasteel,
 /area/science/misc_lab)
 "haX" = (
-/obj/machinery/reagent_sheet,
+/obj/machinery/sheetifier,
 /turf/open/floor/plasteel,
 /area/medical/chemistry)
 "hcu" = (
@@ -37761,6 +37756,12 @@
 	dir = 9
 	},
 /area/science/research)
+"krq" = (
+/obj/structure/table/glass,
+/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/glass/fifty,
+/turf/open/floor/plasteel,
+/area/medical/chemistry)
 "kul" = (
 /turf/closed/wall,
 /area/engine/engine_smes)
@@ -41201,6 +41202,10 @@
 /obj/machinery/processor,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/kitchen)
+"sMK" = (
+/obj/machinery/autolathe,
+/turf/open/floor/plasteel,
+/area/medical/chemistry)
 "sNJ" = (
 /obj/structure/lattice,
 /obj/structure/lattice,
@@ -50594,7 +50599,7 @@ aaa
 aaa
 aaa
 aaw
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -51087,7 +51092,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -51096,7 +51101,7 @@ cpe
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -51120,7 +51125,7 @@ aaa
 aaa
 aaa
 aaw
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -52106,7 +52111,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -53860,7 +53865,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -55496,7 +55501,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -56475,7 +56480,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -56824,7 +56829,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -57051,7 +57056,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -58345,7 +58350,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -58510,7 +58515,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -59402,7 +59407,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -60775,7 +60780,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaw
 aaa
 aaa
@@ -64289,7 +64294,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -67104,7 +67109,7 @@ bHE
 wba
 rZu
 cCs
-ocP
+qgT
 way
 qgT
 cjO
@@ -67644,7 +67649,7 @@ aaa
 aaa
 aaa
 aaY
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -69514,7 +69519,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaw
 aaa
 aaa
@@ -72529,7 +72534,7 @@ eRz
 aaa
 aaa
 aaw
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -76124,7 +76129,7 @@ aaa
 aaa
 aaa
 aaw
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -76887,7 +76892,7 @@ nXv
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 quT
@@ -76972,6 +76977,7 @@ aaa
 aaa
 aaa
 aaa
+aaq
 aaa
 aaa
 aaa
@@ -77003,8 +77009,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -79984,7 +79989,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -80105,7 +80110,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -80517,7 +80522,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -81145,7 +81150,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -83438,7 +83443,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -84115,7 +84120,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -84571,7 +84576,7 @@ wiz
 bFr
 ceJ
 aak
-aaq
+bjL
 bjL
 bjL
 bjL
@@ -84610,7 +84615,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -85084,8 +85089,8 @@ bFr
 ccM
 cdN
 clp
-vjm
-vjm
+krq
+sMK
 aaB
 aaC
 haX
@@ -86914,7 +86919,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -88327,7 +88332,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -90509,7 +90514,7 @@ aaa
 aaa
 aaa
 aaw
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -91679,7 +91684,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -93745,7 +93750,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 gXs
@@ -94887,7 +94892,7 @@ aaa
 aaa
 aaa
 aaw
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -95812,7 +95817,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -97174,7 +97179,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -97415,7 +97420,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -97446,7 +97451,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -98159,7 +98164,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 cxn
 aaa
 aaa
@@ -98944,7 +98949,7 @@ aaa
 gXs
 aaa
 gXs
-aaa
+aaq
 aaa
 aaa
 aaa
@@ -99935,7 +99940,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaq
 aaa
 aaa
 aaa
