@@ -496,7 +496,7 @@ class PaperSheetEdit extends Component {
                 : "white"}
               selected={this.state.previewSelected === "Edit"}
               onClick={() => this.setState({ previewSelected: "Edit" })}>
-              Edit
+              Редактировать
             </Tabs.Tab>
             <Tabs.Tab
               key="marked_preview"
@@ -514,7 +514,7 @@ class PaperSheetEdit extends Component {
                 };
                 return new_state;
               })}>
-              Preview
+              Предпросмотр
             </Tabs.Tab>
             <Tabs.Tab
               key="marked_done"
@@ -543,7 +543,9 @@ class PaperSheetEdit extends Component {
                   this.setState({ previewSelected: "confirm" });
                 }
               }}>
-              { this.state.previewSelected === "confirm" ? "confirm" : "save" }
+              { this.state.previewSelected === "confirm"
+                ? "УВЕРЕН?!"
+                : "Сохранить"}
             </Tabs.Tab>
           </Tabs>
 

@@ -13,17 +13,17 @@ export const GravityGenerator = (props, context) => {
       <Window.Content>
         {!operational && (
           <NoticeBox>
-            No data available
+            Нет данных
           </NoticeBox>
         )}
         {!!operational && charging_state !== 0 && (
           <NoticeBox danger>
-            WARNING - Radiation detected
+            ВНИМАНИЕ - Обнаружена радиация
           </NoticeBox>
         )}
         {!!operational && charging_state === 0 && (
           <NoticeBox success>
-            No radiation detected
+            Радиации не обнаружено
           </NoticeBox>
         )}
         {!!operational && (

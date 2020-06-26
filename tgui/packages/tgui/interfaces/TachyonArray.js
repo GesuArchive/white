@@ -13,7 +13,7 @@ export const TachyonArray = (props, context) => {
       <Window.Content scrollable>
         {!records.length ? (
           <NoticeBox>
-            No Records
+            Нет записей
           </NoticeBox>
         ) : (
           <TachyonArrayContent />
@@ -60,45 +60,45 @@ export const TachyonArrayContent = (props, context) => {
                 <Fragment>
                   <Button.Confirm
                     icon="trash"
-                    content="Delete"
+                    content="Удалить"
                     color="bad"
                     onClick={() => act('delete_record', {
                       'ref': activeRecord.ref,
                     })} />
                   <Button
                     icon="print"
-                    content="Print"
+                    content="Печать"
                     onClick={() => act('print_record', {
                       'ref': activeRecord.ref,
                     })} />
                 </Fragment>
               )}>
               <LabeledList>
-                <LabeledList.Item label="Timestamp">
+                <LabeledList.Item label="Время">
                   {activeRecord.timestamp}
                 </LabeledList.Item>
-                <LabeledList.Item label="Coordinates">
+                <LabeledList.Item label="Координаты">
                   {activeRecord.coordinates}
                 </LabeledList.Item>
-                <LabeledList.Item label="Displacement">
+                <LabeledList.Item label="Смещение">
                   {activeRecord.displacement} seconds
                 </LabeledList.Item>
-                <LabeledList.Item label="Epicenter Radius">
+                <LabeledList.Item label="Эпицентр">
                   {activeRecord.factual_epicenter_radius}
                   {activeRecord.theory_epicenter_radius
-                  && " (Theoretical: "
+                  && " (Теоретический: "
                   + activeRecord.theory_epicenter_radius + ")"}
                 </LabeledList.Item>
-                <LabeledList.Item label="Outer Radius">
+                <LabeledList.Item label="Внешний радиус">
                   {activeRecord.factual_outer_radius}
                   {activeRecord.theory_outer_radius
-                  && " (Theoretical: "
+                  && " (Теоретический: "
                   + activeRecord.theory_outer_radius + ")"}
                 </LabeledList.Item>
-                <LabeledList.Item label="Shockwave Radius">
+                <LabeledList.Item label="Взрывная волна">
                   {activeRecord.factual_shockwave_radius}
                   {activeRecord.theory_shockwave_radius
-                  && " (Theoretical: "
+                  && " (Теоретическая: "
                   + activeRecord.theory_shockwave_radius + ")"}
                 </LabeledList.Item>
               </LabeledList>
@@ -107,7 +107,7 @@ export const TachyonArrayContent = (props, context) => {
         ) : (
           <Flex.Item grow={1} basis={0}>
             <NoticeBox>
-              No Record Selected
+              Не выбрана запись
             </NoticeBox>
           </Flex.Item>
         )}

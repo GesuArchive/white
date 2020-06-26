@@ -16,32 +16,32 @@ export const ParticleAccelerator = (props, context) => {
         <Section>
           <LabeledList>
             <LabeledList.Item
-              label="Status"
+              label="Состояние"
               buttons={(
                 <Button
                   icon={"sync"}
-                  content={"Run Scan"}
+                  content={"Сканировать"}
                   onClick={() => act('scan')} />
               )}>
               <Box color={assembled ? "good" : "bad"}>
                 {assembled
-                  ? "Ready - All parts in place"
-                  : "Unable to detect all parts"}
+                  ? "Готовы - всё на месте"
+                  : "Чего-то не хватает"}
               </Box>
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section title="Particle Accelerator Controls">
+        <Section title="Управление ускорителем частиц">
           <LabeledList>
-            <LabeledList.Item label="Power">
+            <LabeledList.Item label="Питание">
               <Button
                 icon={power ? 'power-off' : 'times'}
-                content={power ? 'On' : 'Off'}
+                content={power ? 'Вкл' : 'Выкл'}
                 selected={power}
                 disabled={!assembled}
                 onClick={() => act('power')} />
             </LabeledList.Item>
-            <LabeledList.Item label="Particle Strength">
+            <LabeledList.Item label="Сила частиц">
               <Button
                 icon="backward"
                 disabled={!assembled}

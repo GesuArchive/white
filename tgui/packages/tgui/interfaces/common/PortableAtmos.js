@@ -15,33 +15,33 @@ export const PortableBasicInfo = (props, context) => {
   return (
     <Fragment>
       <Section
-        title="Status"
+        title="Статус"
         buttons={(
           <Button
             icon={on ? 'power-off' : 'times'}
-            content={on ? 'On' : 'Off'}
+            content={on ? 'Вкл' : 'Выкл'}
             selected={on}
             onClick={() => act('power')} />
         )}>
         <LabeledList>
-          <LabeledList.Item label="Pressure">
+          <LabeledList.Item label="Давление">
             <AnimatedNumber value={pressure} />
-            {' kPa'}
+            {' кПа'}
           </LabeledList.Item>
           <LabeledList.Item
-            label="Port"
+            label="Порт"
             color={connected ? 'good' : 'average'}>
-            {connected ? 'Connected' : 'Not Connected'}
+            {connected ? 'Подключено' : 'Не подключено'}
           </LabeledList.Item>
         </LabeledList>
       </Section>
       <Section
-        title="Holding Tank"
+        title="Бак внутри"
         minHeight="82px"
         buttons={(
           <Button
             icon="eject"
-            content="Eject"
+            content="Изъять"
             disabled={!holding}
             onClick={() => act('eject')} />
         )}>
@@ -50,15 +50,15 @@ export const PortableBasicInfo = (props, context) => {
             <LabeledList.Item label="Label">
               {holding.name}
             </LabeledList.Item>
-            <LabeledList.Item label="Pressure">
+            <LabeledList.Item label="Давление">
               <AnimatedNumber
                 value={holding.pressure} />
-              {' kPa'}
+              {' кПа'}
             </LabeledList.Item>
           </LabeledList>
         ) : (
           <Box color="average">
-            No holding tank
+            Внутри нет бака
           </Box>
         )}
       </Section>

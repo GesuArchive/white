@@ -25,36 +25,36 @@ export const SkillPanel = (props, context) => {
                 <br />
                 <Level skill_lvl_num={skill.lvlnum} skill_lvl={skill.lvl} />
                 <br />
-                Total Experience: [{skill.exp} XP]
+                Всего опыта: [{skill.exp} XP]
                 <br />
-                XP To Next Level: 
+                XP до следующего уровня: 
                 {skill.exp_req !== 0 ? (
                   <span>
                     [{skill.exp_prog} / {skill.exp_req}]
                   </span>
                 ) : (
-                  <span style={skillgreen}> 
-                    [MAXXED]
+                  <span style={skillgreen}>
+                    [МАКСИМУМ]
                   </span>
                 )}
                 <br />
-                Overall Skill Progress: [{skill.exp} / {skill.max_exp}]
+                Общий прогресс: [{skill.exp} / {skill.max_exp}]
                 <ProgressBar
                   value={skill.exp_percent}
                   color="good" />
                 <br />
                 <Button
-                  content="Adjust Exp"
+                  content="Настроить"
                   onClick={() => act('adj_exp', {
                     skill: skill.path,
                   })} />
                 <Button
-                  content="Set Exp"
+                  content="Выставить"
                   onClick={() => act('set_exp', {
                     skill: skill.path,
                   })} />
                 <Button
-                  content="Set Level"
+                  content="Уровень"
                   onClick={() => act('set_lvl', {
                     skill: skill.path,
                   })} />
@@ -76,7 +76,7 @@ const Level = (props, context) => {
   } = props;
   let textstyle="font-weight:bold; color:hsl("+skill_lvl_num*50+", 50%, 50%)";
   return (
-    <span>Level: [<span style={textstyle}>{skill_lvl}</span>]</span>
+    <span>Уровень: [<span style={textstyle}>{skill_lvl}</span>]</span>
   );
 };
 const XPToNextLevel = (props, context) => {
@@ -87,12 +87,12 @@ const XPToNextLevel = (props, context) => {
   } = props;
   if (xp_req === 0) {
     return (
-      <span style={skillgreen}> 
-        to next level: MAXXED
+      <span style={skillgreen}>
+        до следующего уровня: МАКСИМУМ
       </span>
     );
   }
   return (
-    <span>XP to next level: [{xp_prog} / {xp_req}]</span>
+    <span>XP до следующего уровня: [{xp_prog} / {xp_req}]</span>
   );
 };

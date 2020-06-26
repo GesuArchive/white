@@ -27,19 +27,19 @@ export const Sleeper = (props, context) => {
 
   const damageTypes = [
     {
-      label: 'Brute',
+      label: 'Физический',
       type: 'bruteLoss',
     },
     {
-      label: 'Burn',
+      label: 'Ожоги',
       type: 'fireLoss',
     },
     {
-      label: 'Toxin',
+      label: 'Токсины',
       type: 'toxLoss',
     },
     {
-      label: 'Oxygen',
+      label: 'Удушье',
       type: 'oxyLoss',
     },
   ];
@@ -48,7 +48,7 @@ export const Sleeper = (props, context) => {
     <Window>
       <Window.Content>
         <Section
-          title={occupant.name ? occupant.name : 'No Occupant'}
+          title={occupant.name ? occupant.name : 'Нет пациента'}
           minHeight="210px"
           buttons={!!occupant.stat && (
             <Box
@@ -83,26 +83,26 @@ export const Sleeper = (props, context) => {
                   </LabeledList.Item>
                 ))}
                 <LabeledList.Item
-                  label="Cells"
+                  label="Клетки"
                   color={occupant.cloneLoss ? 'bad' : 'good'}>
-                  {occupant.cloneLoss ? 'Damaged' : 'Healthy'}
+                  {occupant.cloneLoss ? 'Повреждены' : 'Здоровы'}
                 </LabeledList.Item>
                 <LabeledList.Item
-                  label="Brain"
+                  label="Мозг"
                   color={occupant.brainLoss ? 'bad' : 'good'}>
-                  {occupant.brainLoss ? 'Abnormal' : 'Healthy'}
+                  {occupant.brainLoss ? 'Повреждён' : 'Здоров'}
                 </LabeledList.Item>
               </LabeledList>
             </Fragment>
           )}
         </Section>
         <Section
-          title="Medicines"
+          title="Химикаты"
           minHeight="205px"
           buttons={(
             <Button
               icon={open ? 'door-open' : 'door-closed'}
-              content={open ? 'Open' : 'Closed'}
+              content={open ? 'Открыть' : 'Закрыть'}
               onClick={() => act('door')} />
           )}>
           {chems.map(chem => (

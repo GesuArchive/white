@@ -48,18 +48,18 @@ export const SeedExtractor = (props, context) => {
   return (
     <Window resizable>
       <Window.Content scrollable>
-        <Section title="Stored seeds:">
+        <Section title="Семена:">
           <Table cellpadding="3" textAlign="center">
             <Table.Row>
-              <Table.Cell>Name</Table.Cell>
-              <Table.Cell>Lifespan</Table.Cell>
-              <Table.Cell>Endurance</Table.Cell>
-              <Table.Cell>Maturation</Table.Cell>
-              <Table.Cell>Production</Table.Cell>
-              <Table.Cell>Yield</Table.Cell>
-              <Table.Cell>Potency</Table.Cell>
-              <Table.Cell>Instability</Table.Cell>
-              <Table.Cell>Stock</Table.Cell>
+              <Table.Cell>Название</Table.Cell>
+              <Table.Cell>Срок жизни</Table.Cell>
+              <Table.Cell>Стойкость</Table.Cell>
+              <Table.Cell>Созревание</Table.Cell>
+              <Table.Cell>Продуктивность</Table.Cell>
+              <Table.Cell>Урожайность</Table.Cell>
+              <Table.Cell>Потенция</Table.Cell>
+              <Table.Cell>Нестабильность</Table.Cell>
+              <Table.Cell>Запасы</Table.Cell>
             </Table.Row>
             {seeds.map(item => (
               <Table.Row key={item.key}>
@@ -73,11 +73,11 @@ export const SeedExtractor = (props, context) => {
                 <Table.Cell>{item.instability}</Table.Cell>
                 <Table.Cell>
                   <Button
-                    content="Vend"
+                    content="Выдать"
                     onClick={() => act('select', {
                       item: item.key,
                     })} />
-                  ({item.amount} left)
+                  ({item.amount} осталось)
                 </Table.Cell>
               </Table.Row>
             ))}

@@ -124,7 +124,7 @@ export const Canister = (props, context) => {
           </LabeledControls>
         </Section>
         <Section
-          title="Канистра"
+          title="Бак"
           buttons={!!hasHoldingTank && (
             <Button
               icon="eject"
@@ -144,7 +144,7 @@ export const Canister = (props, context) => {
           )}
           {!hasHoldingTank && (
             <Box color="average">
-              Внутри нет канистры
+              Внутри нет бака
             </Box>
           )}
         </Section>

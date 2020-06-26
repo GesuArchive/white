@@ -25,12 +25,12 @@ const GatewayContent = (props, context) => {
     return (
       <Section>
         <NoticeBox>
-          No linked gateway
+          Не привязаны врата
         </NoticeBox>
         <Button
           fluid
           onClick={() => act('linkup')}>
-          Linkup
+          Привязка
         </Button>
       </Section>
     );
@@ -43,7 +43,7 @@ const GatewayContent = (props, context) => {
         <Button
           fluid
           onClick={() => act("deactivate")}>
-          Deactivate
+          Деактивация
         </Button>
       </Section>
     );
@@ -51,7 +51,7 @@ const GatewayContent = (props, context) => {
   if (!destinations.length) {
     return (
       <Section>
-        No gateway nodes detected.
+        Не обнаружено других врат.
       </Section>
     );
   }
@@ -59,7 +59,7 @@ const GatewayContent = (props, context) => {
     <Fragment>
       {!gateway_status && (
         <NoticeBox>
-          Gateway Unpowered
+          Врата не запитаны
         </NoticeBox>
       )}
       {destinations.map(dest => (
@@ -72,7 +72,7 @@ const GatewayContent = (props, context) => {
               onClick={() => act('activate', {
                 destination: dest.ref,
               })}>
-              Activate
+              Активировать
             </Button>
           ) || (
             <Fragment>
@@ -82,7 +82,7 @@ const GatewayContent = (props, context) => {
               {!!dest.timeout && (
                 <ProgressBar
                   value={dest.timeout}>
-                  Calibrating...
+                  Калибровка...
                 </ProgressBar>
               )}
             </Fragment>

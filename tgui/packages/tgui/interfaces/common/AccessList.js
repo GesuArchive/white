@@ -62,17 +62,17 @@ export const AccessList = (props, context) => {
 
   return (
     <Section
-      title="Access"
+      title="Доступ"
       buttons={(
         <Fragment>
           <Button
             icon="check-double"
-            content="Grant All"
+            content="Выдать весь"
             color="good"
             onClick={() => grantAll()} />
           <Button
             icon="undo"
-            content="Deny All"
+            content="Закрыть весь"
             color="bad"
             onClick={() => denyAll()} />
         </Fragment>
@@ -104,7 +104,7 @@ export const AccessList = (props, context) => {
               <Button
                 fluid
                 icon="check"
-                content="Grant Region"
+                content="Выдать зону"
                 color="good"
                 onClick={() => grantDep(selectedAccess.regid)} />
             </Grid.Column>
@@ -112,7 +112,7 @@ export const AccessList = (props, context) => {
               <Button
                 fluid
                 icon="times"
-                content="Deny Region"
+                content="Закрыть зону"
                 color="bad"
                 onClick={() => denyDep(selectedAccess.regid)} />
             </Grid.Column>

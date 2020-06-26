@@ -55,7 +55,7 @@
 /datum/emote/living/carbon/moan
 	key = "moan"
 	key_third_person = "moans"
-	message = "стнет!"
+	message = "стонет!"
 	message_mime = "изображает стон!"
 	emote_type = EMOTE_AUDIBLE
 
