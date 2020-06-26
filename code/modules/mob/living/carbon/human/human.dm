@@ -68,6 +68,10 @@
 				stat("Источник:", "[internal.name]")
 				stat("Давление:", "[internal.air_contents.return_pressure()]")
 				stat("Подача:", "[internal.distribute_pressure]")
+		if(istype(wear_suit, /obj/item/clothing/suit/space))
+			var/obj/item/clothing/suit/space/S = wear_suit
+			stat("Терморегулятор:", "[S.thermal_on ? "ВКЛ" : "ВЫКЛ"]")
+			stat("Заряд батареи:", "[S.cell ? "[round(S.cell.percent(), 0.1)]%" : "!ОШИБКА!"]")
 
 		if(mind)
 			var/datum/antagonist/changeling/changeling = mind.has_antag_datum(/datum/antagonist/changeling)

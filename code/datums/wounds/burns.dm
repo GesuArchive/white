@@ -248,7 +248,7 @@
 
 /// Paramedic UV penlights
 /datum/wound/burn/proc/uv(obj/item/flashlight/pen/paramedic/I, mob/user)
-	if(I.uv_cooldown > world.time)
+	if(!COOLDOWN_FINISHED(I, uv_cooldown))
 		to_chat(user, "<span class='notice'>[I] всё ещё перезаряжается!</span>")
 		return
 	if(infestation <= 0 || infestation < sanitization)
@@ -257,7 +257,7 @@
 
 	user.visible_message("<span class='notice'><b>[user]</b> делает серию коротких вспышек на [limb] <b>[victim]</b> используя [I].</span>", "<span class='notice'>Начинаю зачищать инфекцию на [user == victim ? " моей" : ""] [limb.name][user == victim ? "" : " <b>[victim]</b>"] используя [I].</span>", vision_distance=COMBAT_MESSAGE_RANGE)
 	sanitization += I.uv_power
-	I.uv_cooldown = world.time + I.uv_cooldown_length
+	COOLDOWN_START(I, uv_cooldown, I.uv_cooldown_length)
 
 /datum/wound/burn/treat(obj/item/I, mob/user)
 	if(istype(I, /obj/item/stack/medical/gauze))

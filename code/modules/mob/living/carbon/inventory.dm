@@ -170,10 +170,10 @@
 					"<span class='notice'>Хочу дать <b>[receiving.name]</b>.</span>", null, 2)
 	for(var/mob/living/carbon/C in orange(1, src))
 		if(!CanReach(C))
-			return
+			continue
 		var/obj/screen/alert/give/G = C.throw_alert("[src.name]", /obj/screen/alert/give)
 		if(!G)
-			return
+			continue
 		G.setup(C, src, receiving)
 
 /**

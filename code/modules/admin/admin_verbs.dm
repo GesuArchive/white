@@ -179,7 +179,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/test_cardpack_distribution,
 	/client/proc/print_cards,
 	/datum/admins/proc/create_or_modify_area,
-	///client/proc/set_stats,
+	/client/proc/view_refs
 	)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess_wrapper, /proc/possess, /proc/release))
 GLOBAL_PROTECT(admin_verbs_possess)
