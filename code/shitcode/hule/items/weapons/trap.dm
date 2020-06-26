@@ -1,16 +1,17 @@
 /obj/item/grenade/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/wirekit))
-		var/obj/structure/boobytrap/T = new(get_turf(src))
-		user.dropItemToGround(src)
-		src.forceMove(T)
-		T.grenade = src
-		T.owner = user
-		message_admins("[ADMIN_LOOKUPFLW(user)] поставил растяжку [ADMIN_COORDJMP(user)].")
-		log_game("[key_name(user)] поставил растяжку [COORD(user)].")
+		if(do_after(user, 60, target = src))
+			var/obj/structure/boobytrap/T = new(get_turf(src))
+			user.dropItemToGround(src)
+			src.forceMove(T)
+			T.grenade = src
+			T.owner = user
+			message_admins("[ADMIN_LOOKUPFLW(user)] поставил растяжку [ADMIN_COORDJMP(user)].")
+			log_game("[key_name(user)] поставил растяжку [COORD(user)].")
 	..()
 
 /obj/structure/boobytrap
-	name = "РастЯжка ебать"
+	name = "Растяжка ебать"
 	desc = "Пиздец, не подходи - убьет!"
 	icon_state = "boobytrap"
 	icon = 'code/shitcode/hule/icons/obj/weapons.dmi'
