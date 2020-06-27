@@ -107,10 +107,12 @@ SUBSYSTEM_DEF(spm)
 			return
 		playsound(src, 'code/shitcode/valtos/sounds/ping.ogg', 100, 1)
 
-		loc.set_temperature(loc.return_temperature() + (40 * tier))
+		var/datum/gas_mixture/env = loc.return_air()
+
+		env.set_temperature(env.return_temperature() + (40 * tier))
 		air_update_turf()
 
-		if(round(loc.return_temperature()-T0C, 1) > 250)
+		if(round(env.return_temperature()-T0C, 1) > 250)
 			explosion(src, 1, 2, 3, 5)
 			if(src)
 				qdel(src)
