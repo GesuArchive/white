@@ -58,7 +58,7 @@
 		H.hud_used.update_parallax_pref(H, TRUE)
 
 /datum/client_colour/hacker
-	colour = list(rgb(255,35,65), rgb(-65,200,45), rgb(-65,-35,255), rgb(0,0,0))
+	colour = list(rgb(255,15,15), rgb(0,255,25), rgb(0,0,255), rgb(0,0,0))
 	priority = 6
 
 /obj/item/clothing/glasses/hud/wzzzz/hacker_rig/equipped(mob/living/carbon/human/H, slot)
