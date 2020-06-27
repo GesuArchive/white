@@ -18,9 +18,8 @@ SUBSYSTEM_DEF(spm)
 
 	for(var/obj/machinery/power/spaceminer/MC in miners)
 		if(convertprice <= -100)
-			MC.say("Рынок [SSspm.crypto] обрушился. Я больше не актуален...")
-			spawn(30)
-				explosion(MC, 1, 2, 3, 8)
+			MC.say("Рынок [SSspm.crypto] обрушился.")
+			MC.need_rework = TRUE
 		if(!MC.powernet)
 			miners.Remove(MC)
 			MC.update()
@@ -41,7 +40,7 @@ SUBSYSTEM_DEF(spm)
 
 /obj/machinery/power/spaceminer
 	name = "spacecoin miner"
-	desc = "Converts energy into money."
+	desc = "Конвертирует энергию в деньги."
 	icon = 'code/shitcode/valtos/icons/miner.dmi'
 	icon_state = "miner-off"
 
@@ -55,12 +54,29 @@ SUBSYSTEM_DEF(spm)
 	var/coins = 0
 	var/tier = 1
 	var/mining = FALSE
+	var/need_rework = FALSE
+
+/obj/machinery/power/spaceminer/examine(mob/user)
+	. = ..()
+	. += "<span class='notice'>Уровень температуры: [get_temp_level()]</span>"
+	if(need_rework)
+		. += "<span class='notice'>Возможно <b>мультитул</b> поможет перенастроить его.</span>"
 
 /obj/machinery/power/spaceminer/Initialize()
 	. = ..()
 	if(anchored)
 		connect_to_network()
-	name = "[SSspm.crypto] miner"
+	name = "[SSspm.crypto] майнер"
+
+/obj/machinery/power/spaceminer/proc/get_temp_level()
+	switch (loc.return_temperature())
+		if (-INFINITY to 50)
+			return "Оптимальный"
+		if (51 to 80)
+			return "Опасный"
+		if (81 to INFINITY)
+			return "КРИТИЧЕСКИЙ"
+
 
 /obj/machinery/power/spaceminer/connect_to_network()
 	var/to_return = ..()
@@ -68,7 +84,7 @@ SUBSYSTEM_DEF(spm)
 		SSspm.miners |= src
 	return to_return
 
-/obj/machinery/power/solar_control/disconnect_from_network()
+/obj/machinery/power/spaceminer/disconnect_from_network()
 	..()
 	SSspm.miners.Remove(src)
 
@@ -81,40 +97,67 @@ SUBSYSTEM_DEF(spm)
 /obj/machinery/power/spaceminer/proc/update()
 	if(!mining || (!powernet && active_power_usage))
 		return
+
+	if(need_rework)
+		icon_state = "miner-off"
+		idle_power_usage = 40
+		playsound(src, 'code/shitcode/valtos/sounds/down.ogg', 100, 1)
+		mining = FALSE
+		return
+
 	if(mining)
 		if(!active_power_usage || surplus() >= active_power_usage)
 			add_load(active_power_usage)
 		else
-			say("Insufficient power. Halting mining.")
+			say("Недостаточно энергии. Прекращаем майнинг.")
 			icon_state = "miner-off"
 			idle_power_usage = 40
 			playsound(src, 'code/shitcode/valtos/sounds/down.ogg', 100, 1)
 			mining = FALSE
-			mining = FALSE
 			return
 		playsound(src, 'code/shitcode/valtos/sounds/ping.ogg', 100, 1)
+
+		var/datum/gas_mixture/env = loc.return_air()
+		env.set_temperature(env.return_temperature() + 10)
+		air_update_turf()
+
+		if(env.return_temperature() > 250)
+			explosion(src, 1, 2, 3, 5)
+			if(src)
+				qdel(src)
+			return
+
 		coins += (tier * SSspm.convertprice)
 
 /obj/machinery/power/spaceminer/attackby(obj/item/O, mob/user, params)
 	if(!mining)
 		if(O.tool_behaviour == TOOL_WRENCH)
 			if(!anchored && !isinspace())
-				to_chat(user, "<span class='notice'>You secure the coinminer to the floor.</span>")
+				to_chat(user, "<span class='notice'>Прикручиваю майнер к полу.</span>")
 				anchored = TRUE
 				connect_to_network()
 				update_cable_icons_on_turf(get_turf(src))
 			else if(anchored)
-				to_chat(user, "<span class='notice'>You unsecure the coinminer from the floor.</span>")
+				to_chat(user, "<span class='notice'>Откручиваю майнер от пола.</span>")
 				anchored = FALSE
 				disconnect_from_network()
 				update_cable_icons_on_turf(get_turf(src))
 
 			playsound(src, 'sound/items/deconstruct.ogg', 50, 1)
 			return
+		if(O.tool_behaviour == TOOL_MULTITOOL)
+			if(need_rework)
+				to_chat(user, "<span class='notice'>Начинаю перенастраивать майнер...</span>")
+				if(do_after(user, 30 SECONDS, target = src))
+					to_chat(user, "<span class='notice'>Готово. Теперь он майнит <b>[SSspm.crypto]</b></span>")
+					name = "[SSspm.crypto] майнер"
+					need_rework = FALSE
+			else
+				to_chat(user, "<span class='notice'>Он и так в отличном состоянии!</span>")
 	return ..()
 
 /obj/machinery/power/spaceminer/proc/eject_money()
-	say("Withdrawed $[coins].")
+	say("Снято $[coins].")
 	new /obj/item/holochip(drop_location(), coins)
 	coins = 0
 
@@ -123,18 +166,19 @@ SUBSYSTEM_DEF(spm)
 		return
 	. = ..()
 
-	var/dat = "Current Balance: [coins] SC<br>"
-	dat += "Current Conversion: $[SSspm.convertprice]<br>"
-	dat += "Current Power Usage: [active_power_usage] W<br>"
+	var/dat = "Баланс: [coins] SC<br>"
+	dat += "Уровень температуры: [get_temp_level()]<br>"
+	dat += "Конверсия: $[SSspm.convertprice]<br>"
+	dat += "Потребление: [active_power_usage] W<br>"
 
 	if(!mining)
-		dat += "<A href='?src=[REF(src)];mine=1'>Turn ON</A><br>"
+		dat += "<A href='?src=[REF(src)];mine=1'>ВКЛЮЧИТЬ</A><br>"
 	else
-		dat += "<A href='?src=[REF(src)];stop=1'>Turn OFF</A><br>"
+		dat += "<A href='?src=[REF(src)];stop=1'>ОТКЛЮЧИТЬ</A><br>"
 
-	dat += "<A href='?src=[REF(src)];money=1'>Withdraw money</A><br>"
+	dat += "<A href='?src=[REF(src)];money=1'>Вывести деньги</A><br>"
 
-	var/datum/browser/popup = new(user, "miner", "[SSspm.crypto] Miner Tier [tier]", 300, 200)
+	var/datum/browser/popup = new(user, "miner", "[SSspm.crypto] Майнер: класс [tier]", 300, 200)
 	popup.set_content("<center>[dat]</center>")
 	popup.set_title_image(usr.browse_rsc_icon(src.icon, src.icon_state))
 	popup.open()
@@ -143,14 +187,14 @@ SUBSYSTEM_DEF(spm)
 	if(..())
 		return
 	if(href_list["mine"])
-		say("Booting up...")
+		say("Стартуем...")
 		icon_state = "miner-on"
 		playsound(src, 'code/shitcode/valtos/sounds/up.ogg', 100, 1)
 		active_power_usage = 80000 * tier
 		mining = TRUE
 		src.updateUsrDialog()
 	if(href_list["stop"])
-		say("Shutdown...")
+		say("Выключаемся...")
 		icon_state = "miner-off"
 		playsound(src, 'code/shitcode/valtos/sounds/down.ogg', 100, 1)
 		active_power_usage = 40
