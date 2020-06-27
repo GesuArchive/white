@@ -221,7 +221,7 @@ SUBSYSTEM_DEF(spm)
 	name = "Spacecoin Miner Tier 2"
 	desc = "Ping!"
 	cost = 180000
-	contains = list(/obj/machinery/spaceminer/tier2,
+	contains = list(/obj/machinery/power/spaceminer/tier2,
 					/obj/item/wrench)
 	crate_name = "coinminer tier 2 crate"
 
@@ -229,7 +229,7 @@ SUBSYSTEM_DEF(spm)
 	name = "Spacecoin Miner Tier 3"
 	desc = "Ping!"
 	cost = 300000
-	contains = list(/obj/machinery/spaceminer/tier3,
+	contains = list(/obj/machinery/power/spaceminer/tier3,
 					/obj/item/wrench)
 	crate_name = "coinminer tier 3 crate"
 
@@ -237,7 +237,7 @@ SUBSYSTEM_DEF(spm)
 	name = "Spacecoin Miner Tier 4"
 	desc = "Pong!"
 	cost = 800000
-	contains = list(/obj/machinery/spaceminer/tier4,
+	contains = list(/obj/machinery/power/spaceminer/tier4,
 					/obj/item/wrench)
 	crate_name = "coinminer tier 4 crate"
 
