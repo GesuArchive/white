@@ -58,7 +58,10 @@ SUBSYSTEM_DEF(spm)
 
 /obj/machinery/power/spaceminer/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Датчик температуры: [round(loc.return_temperature()-T0C, 0.01)]°C</span>"
+
+	var/datum/gas_mixture/env = loc.return_air()
+
+	. += "<span class='notice'>Датчик температуры: [round(env.return_temperature()-T0C, 0.01)]°C</span>"
 	if(need_rework)
 		. += "<span class='notice'>Возможно <b>мультитул</b> поможет перенастроить его.</span>"
 
@@ -157,8 +160,10 @@ SUBSYSTEM_DEF(spm)
 		return
 	. = ..()
 
+	var/datum/gas_mixture/env = loc.return_air()
+
 	var/dat = "Баланс: [coins] SC<br>"
-	dat += "Датчик температуры: [round(loc.return_temperature()-T0C, 0.01)]°C<br>"
+	dat += "Датчик температуры: [round(env.return_temperature()-T0C, 0.01)]°C<br>"
 	dat += "Конверсия: $[SSspm.convertprice]<br>"
 	dat += "Потребление: [active_power_usage] W<br>"
 
@@ -211,7 +216,7 @@ SUBSYSTEM_DEF(spm)
 	contains = list(/obj/machinery/power/spaceminer,
 					/obj/item/wrench)
 	crate_name = "coinminer tier 1 crate"
-/*
+
 /datum/supply_pack/misc/spaceminer2
 	name = "Spacecoin Miner Tier 2"
 	desc = "Ping!"
@@ -235,7 +240,7 @@ SUBSYSTEM_DEF(spm)
 	contains = list(/obj/machinery/spaceminer/tier4,
 					/obj/item/wrench)
 	crate_name = "coinminer tier 4 crate"
-*/
+
 /datum/supply_pack/misc/minerchallenge
 	name = "You can do it! The Miner Challenge"
 	desc = "Pong!"
