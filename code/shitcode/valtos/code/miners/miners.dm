@@ -58,7 +58,7 @@ SUBSYSTEM_DEF(spm)
 
 /obj/machinery/power/spaceminer/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Уровень температуры: [get_temp_level()]</span>"
+	. += "<span class='notice'>Датчик температуры: [round(loc.return_temperature()-T0C, 0.01)]°C</span>"
 	if(need_rework)
 		. += "<span class='notice'>Возможно <b>мультитул</b> поможет перенастроить его.</span>"
 
@@ -67,16 +67,6 @@ SUBSYSTEM_DEF(spm)
 	if(anchored)
 		connect_to_network()
 	name = "[SSspm.crypto] майнер"
-
-/obj/machinery/power/spaceminer/proc/get_temp_level()
-	switch (loc.return_temperature())
-		if (-INFINITY to 50)
-			return "Оптимальный"
-		if (51 to 80)
-			return "Опасный"
-		if (81 to INFINITY)
-			return "КРИТИЧЕСКИЙ"
-
 
 /obj/machinery/power/spaceminer/connect_to_network()
 	var/to_return = ..()
@@ -117,11 +107,10 @@ SUBSYSTEM_DEF(spm)
 			return
 		playsound(src, 'code/shitcode/valtos/sounds/ping.ogg', 100, 1)
 
-		var/datum/gas_mixture/env = loc.return_air()
-		env.set_temperature(env.return_temperature() + 10)
+		loc.set_temperature(loc.return_temperature() + (40 * tier))
 		air_update_turf()
 
-		if(env.return_temperature() > 250)
+		if(round(loc.return_temperature()-T0C, 1) > 250)
 			explosion(src, 1, 2, 3, 5)
 			if(src)
 				qdel(src)
@@ -167,7 +156,7 @@ SUBSYSTEM_DEF(spm)
 	. = ..()
 
 	var/dat = "Баланс: [coins] SC<br>"
-	dat += "Уровень температуры: [get_temp_level()]<br>"
+	dat += "Датчик температуры: [round(loc.return_temperature()-T0C, 0.01)]°C<br>"
 	dat += "Конверсия: $[SSspm.convertprice]<br>"
 	dat += "Потребление: [active_power_usage] W<br>"
 
