@@ -308,7 +308,7 @@ GLOBAL_VAR(restart_counter)
 		server_name = CONFIG_GET(string/servername)
 		s += "[special_string]"
 
-	s += "<a href=\"https://discord.gg/BNUgzsT\"><big><b>[server_name]: Alternative Reality Edition</b></big></br>"
+	s += "<a href=\"https://discord.gg/BNUgzsT\"><big><b>[server_name]: [servertype]</b></big></br>"
 	s += "<img src=\"https://hub.station13.ru/o/?=[world.time]\"></a>"
 
 	var/players = GLOB.clients.len
