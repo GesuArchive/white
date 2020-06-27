@@ -35,10 +35,16 @@
 	var/list/LT = L[1]
 	var/owtext = input(usr, "[selected]", "Manage list", LT.Join("\n")) as message|null
 
+	if(!owtext) // retort
+		return
+
 	LT.Remove(LT)
 	LT.Add(splittext(owtext,"\n"))
 
 	if(fexists(L[2]))
 		fdel(L[2])
+
+	log_admin("[key_name(usr)] edits [selected].")
+	message_admins("[key_name_admin(usr)] редактирует [selected].")
 
 	text2file(LT.Join("\n"), L[2])
