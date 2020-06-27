@@ -44,7 +44,7 @@
 			if(get_location_accessible(target, target_zone) || surgery.ignore_clothes)
 				initiate(user, target, target_zone, tool, surgery, try_to_fail)
 			else
-				to_chat(user, "<span class='warning'>You need to expose [target]'s [parse_zone(target_zone)] to perform surgery on it!</span>")
+				to_chat(user, "<span class='warning'>Мне нужно иметь доступ к [parse_zone(target_zone)] <b>[target]</b> для проведения хирургической операции!</span>")
 			return TRUE	//returns TRUE so we don't stab the guy in the dick or wherever.
 
 	if(repeatable)
@@ -118,15 +118,15 @@
 	return advance
 
 /datum/surgery_step/proc/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You begin to perform surgery on [target]...</span>",
-		"<span class='notice'>[user] begins to perform surgery on [target].</span>",
-		"<span class='notice'>[user] begins to perform surgery on [target].</span>")
+	display_results(user, target, "<span class='notice'>Начинаю выполнять операцию на <b>[target]</b>...</span>",
+		"<span class='notice'><b>[user]</b> начинает выполнять операцию на <b>[target]</b>.</span>",
+		"<span class='notice'><b>[user]</b> начинает выполнять операцию на <b>[target]</b>.</span>")
 
 /datum/surgery_step/proc/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = TRUE)
 	if(default_display_results)
-		display_results(user, target, "<span class='notice'>You succeed.</span>",
-				"<span class='notice'>[user] succeeds!</span>",
-				"<span class='notice'>[user] finishes.</span>")
+		display_results(user, target, "<span class='notice'>Успех.</span>",
+				"<span class='notice'><b>[user]</b> имеет успех!</span>",
+				"<span class='notice'><b>[user]</b> заканчивает.</span>")
 	user?.mind.adjust_experience(/datum/skill/healing, round(experience_given))
 	return TRUE
 
@@ -134,15 +134,15 @@
 	var/screwedmessage = ""
 	switch(fail_prob)
 		if(0 to 24)
-			screwedmessage = " You almost had it, though."
+			screwedmessage = " Почти получилось."
 		if(50 to 74)//25 to 49 = no extra text
-			screwedmessage = " This is hard to get right in these conditions..."
+			screwedmessage = " Будет сложновато в данных условиях..."
 		if(75 to 99)
-			screwedmessage = " This is practically impossible in these conditions..."
+			screwedmessage = " Это практически невозможно в данных условиях..."
 
-	display_results(user, target, "<span class='warning'>You screw up![screwedmessage]</span>",
-		"<span class='warning'>[user] screws up!</span>",
-		"<span class='notice'>[user] finishes.</span>", TRUE) //By default the patient will notice if the wrong thing has been cut
+	display_results(user, target, "<span class='warning'>Не вышло![screwedmessage]</span>",
+		"<span class='warning'><b>[user]</b> делает неправильно!</span>",
+		"<span class='notice'><b>[user]</b> заканчивает.</span>", TRUE) //By default the patient will notice if the wrong thing has been cut
 	return FALSE
 
 /datum/surgery_step/proc/tool_check(mob/user, obj/item/tool)
@@ -172,7 +172,7 @@
 		if(temp)
 			var/chemname = temp.name
 			chems += chemname
-	return english_list(chems, and_text = require_all_chems ? " and " : " or ")
+	return english_list(chems, and_text = require_all_chems ? " и " : " или ")
 
 //Replaces visible_message during operations so only people looking over the surgeon can tell what they're doing, allowing for shenanigans.
 /datum/surgery_step/proc/display_results(mob/user, mob/living/carbon/target, self_message, detailed_message, vague_message, target_detailed = FALSE)
