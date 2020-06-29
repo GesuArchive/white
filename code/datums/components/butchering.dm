@@ -48,7 +48,7 @@
 
 /datum/component/butchering/proc/startNeckSlice(obj/item/source, mob/living/carbon/human/H, mob/living/user)
 	if(INTERACTING_WITH(user, H))
-		to_chat(user, "<span class='warning'>You're already interacting with [H]!</span>")
+		to_chat(user, "<span class='warning'>Уже взаимодействую с [H]!</span>")
 		return
 
 	user.visible_message("<span class='danger'>[user] is slitting [H]'s throat!</span>", \

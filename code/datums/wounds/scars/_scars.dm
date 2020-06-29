@@ -97,7 +97,7 @@
 	if(!victim || !is_visible(viewer))
 		return
 
-	var/msg = "[capitalize(description)] на [victim.ru_ego()] [precise_location]."
+	var/msg = "[capitalize(description)] на [victim.ru_ego()] [ru_gde_zone(precise_location)]."
 	switch(severity)
 		if(WOUND_SEVERITY_MODERATE)
 			msg = "<span class='tinynotice'>[msg]</span>"
