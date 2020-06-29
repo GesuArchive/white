@@ -49,7 +49,7 @@
 			I = victim.get_inactive_held_item()
 
 		if(I && victim.dropItemToGround(I))
-			victim.visible_message("<span class='danger'><b>[victim]</b> бросает <b>[I]</b> в приступе боли!</span>", "<span class='warning'>Боль в моей <b>[limb.name]</b> заставляет меня бросить <b>[I]</b>!</span>", vision_distance=COMBAT_MESSAGE_RANGE)
+			victim.visible_message("<span class='danger'><b>[victim]</b> бросает <b>[I]</b> в приступе боли!</span>", "<span class='warning'>Боль в моей <b>[ru_gde_zone(limb.name)]</b> заставляет меня бросить <b>[I]</b>!</span>", vision_distance=COMBAT_MESSAGE_RANGE)
 
 	update_inefficiencies()
 
@@ -94,11 +94,11 @@
 	if(prob((severity - 1) * 15))
 		// And you have a 70% or 50% chance to actually land the blow, respectively
 		if(prob(70 - 20 * (severity - 1)))
-			to_chat(victim, "<span class='userdanger'>Перелом в моей [limb.name] стреляет от боли при ударе <b>[target]</b>!</span>")
+			to_chat(victim, "<span class='userdanger'>Перелом в моей [ru_gde_zone(limb.name)] стреляет от боли при ударе <b>[target]</b>!</span>")
 			limb.receive_damage(brute=rand(1,5))
 		else
-			victim.visible_message("<span class='danger'><b>[victim]</b> слабо бьёт <b>[target]</b> своей сломаной [limb.name], отскакивая в приступе боли!</span>", \
-			"<span class='userdanger'>У меня не вышло ударить <b>[target]</b> так как перелом в моей [limb.name] загорается от невыносимой боли!</span>", vision_distance=COMBAT_MESSAGE_RANGE)
+			victim.visible_message("<span class='danger'><b>[victim]</b> слабо бьёт <b>[target]</b> своей сломаной рукой, отскакивая в приступе боли!</span>", \
+			"<span class='userdanger'>У меня не вышло ударить <b>[target]</b> так как перелом в моей [ru_gde_zone(limb.name)] загорается от невыносимой боли!</span>", vision_distance=COMBAT_MESSAGE_RANGE)
 			victim.emote("scream")
 			victim.Stun(0.5 SECONDS)
 			limb.receive_damage(brute=rand(3,7))
@@ -132,7 +132,7 @@
 	splinted.take_damage(wounding_dmg, damage_type = (wounding_type == WOUND_SHARP ? BRUTE : BURN), sound_effect = FALSE)
 	if(QDELETED(splinted))
 		var/destroyed_verb = (wounding_type == WOUND_SHARP ? "разрывается в клочья" : "превращается в пепел")
-		victim.visible_message("<span class='danger'>Шина, которая удерживала [limb.name] <b>[victim]</b> [destroyed_verb]!</span>", "<span class='danger'><b>Шина на моей [limb.name] [destroyed_verb]!</b></span>", vision_distance=COMBAT_MESSAGE_RANGE)
+		victim.visible_message("<span class='danger'>Шина, которая удерживала [ru_parse_zone(limb.name)] <b>[victim]</b> [destroyed_verb]!</span>", "<span class='danger'><b>Шина на моей [limb.name] [destroyed_verb]!</b></span>", vision_distance=COMBAT_MESSAGE_RANGE)
 		splinted = null
 		treat_priority = TRUE
 		update_inefficiencies()
@@ -158,7 +158,7 @@
 			if(75 to INFINITY)
 				splint_condition = "плотно"
 
-		msg = "[capitalize(splinted.name)] на [victim.ru_ego()] [limb.name] [splint_condition] держится"
+		msg = "[capitalize(splinted.name)] на [victim.ru_ego()] [ru_gde_zone(limb.name)] [splint_condition] держится"
 
 	if(taped)
 		msg += ", и, кажется, реформируется под хирургической лентой!"
@@ -198,15 +198,15 @@
 
 /datum/wound/brute/bone/proc/splint(obj/item/stack/I, mob/user)
 	if(splinted && splinted.splint_factor >= I.splint_factor)
-		to_chat(user, "<span class='warning'>Здесь уже есть шина на [limb.name] [user == victim ? "моей" : "<b>[victim]</b>"] и она лучше <b>[I]</b>.</span>")
+		to_chat(user, "<span class='warning'>Здесь уже есть шина на [ru_gde_zone(limb.name)] [user == victim ? "моей" : "<b>[victim]</b>"] и она лучше <b>[I]</b>.</span>")
 		return
 
-	user.visible_message("<span class='danger'><b>[user]</b> начинает накладывать шину на [limb.name] <b>[victim]</b> используя [I].</span>", "<span class='warning'>Начинаю накладывать шину на [limb.name] [user == victim ? " " : "<b>[victim]</b> "] используя [I]...</span>")
+	user.visible_message("<span class='danger'><b>[user]</b> начинает накладывать шину на [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I].</span>", "<span class='warning'>Начинаю накладывать шину на [ru_parse_zone(limb.name)] [user == victim ? " " : "<b>[victim]</b> "] используя [I]...</span>")
 
 	if(!do_after(user, base_treat_time * (user == victim ? 1.5 : 1), target = victim, extra_checks=CALLBACK(src, .proc/still_exists)))
 		return
 
-	user.visible_message("<span class='green'><b>[user]</b> заканчивает накладывать шину на [limb.name] <b>[victim]</b>!</span>", "<span class='green'>Заканчиваю накладывать шину на [limb.name] [user == victim ? " " : "<b>[victim]</b> "]!</span>")
+	user.visible_message("<span class='green'><b>[user]</b> заканчивает накладывать шину на [ru_parse_zone(limb.name)] <b>[victim]</b>!</span>", "<span class='green'>Заканчиваю накладывать шину на [ru_parse_zone(limb.name)] [user == victim ? " " : "<b>[victim]</b> "]!</span>")
 	treat_priority = FALSE
 	splinted = new I.type(limb)
 	splinted.amount = 1
@@ -236,7 +236,7 @@
 
 /datum/wound/brute/bone/moderate/crush()
 	if(prob(33))
-		victim.visible_message("<span class='danger'><b>[victim]</b> выворачивает [limb.name] и ставит на место!</span>", "<span class='userdanger'>Выправляю [limb.name] на место! Ух!</span>")
+		victim.visible_message("<span class='danger'><b>[victim]</b> выворачивает [ru_parse_zone(limb.name)] и ставит на место!</span>", "<span class='userdanger'>Выправляю [ru_parse_zone(limb.name)] на место! Ух!</span>")
 		remove_wound()
 
 /datum/wound/brute/bone/moderate/try_handling(mob/living/carbon/human/user)
@@ -248,8 +248,8 @@
 		return TRUE
 
 	if(user.grab_state >= GRAB_AGGRESSIVE)
-		user.visible_message("<span class='danger'><b>[user]</b> начинает скручивать и напрягать [limb.name] <b>[victim]</b>!</span>", "<span class='notice'>Начинаю скручивать и напрягать [limb.name] <b>[victim]</b>...</span>", ignored_mobs=victim)
-		to_chat(victim, "<span class='userdanger'><b>[user]</b> начинает крутить и напрягать вывих [limb.name]!</span>")
+		user.visible_message("<span class='danger'><b>[user]</b> начинает скручивать и напрягать [ru_parse_zone(limb.name)] <b>[victim]</b>!</span>", "<span class='notice'>Начинаю скручивать и напрягать [ru_parse_zone(limb.name)] <b>[victim]</b>...</span>", ignored_mobs=victim)
+		to_chat(victim, "<span class='userdanger'><b>[user]</b> начинает крутить и напрягать вывих на [ru_gde_zone(limb.name)]!</span>")
 		if(user.a_intent == INTENT_HELP)
 			chiropractice(user)
 		else
@@ -268,14 +268,14 @@
 		return
 
 	if(prob(65 + prob_mod))
-		user.visible_message("<span class='danger'><b>[user]</b> вправляет [limb.name] <b>[victim]</b>!</span>", "<span class='notice'>Вправляю [limb.name] <b>[victim]</b> на место!</span>", ignored_mobs=victim)
-		to_chat(victim, "<span class='userdanger'><b>[user]</b> вправляет мою [limb.name] на место!</span>")
+		user.visible_message("<span class='danger'><b>[user]</b> вправляет [ru_parse_zone(limb.name)] <b>[victim]</b>!</span>", "<span class='notice'>Вправляю [ru_parse_zone(limb.name)] <b>[victim]</b> на место!</span>", ignored_mobs=victim)
+		to_chat(victim, "<span class='userdanger'><b>[user]</b> вправляет мою [ru_parse_zone(limb.name)] на место!</span>")
 		victim.emote("scream")
 		limb.receive_damage(brute=20, wound_bonus=CANT_WOUND)
 		qdel(src)
 	else
-		user.visible_message("<span class='danger'><b>[user]</b> крутит [limb.name] <b>[victim]</b> довольно неправильно!</span>", "<span class='danger'>Кручу [limb.name] <b>[victim]</b> неправильно!</span>", ignored_mobs=victim)
-		to_chat(victim, "<span class='userdanger'><b>[user]</b> крутит мою [limb.name] неправильно!</span>")
+		user.visible_message("<span class='danger'><b>[user]</b> крутит [ru_parse_zone(limb.name)] <b>[victim]</b> довольно неправильно!</span>", "<span class='danger'>Кручу [ru_parse_zone(limb.name)] <b>[victim]</b> неправильно!</span>", ignored_mobs=victim)
+		to_chat(victim, "<span class='userdanger'><b>[user]</b> крутит мою [ru_parse_zone(limb.name)] неправильно!</span>")
 		limb.receive_damage(brute=10, wound_bonus=CANT_WOUND)
 		chiropractice(user)
 
@@ -291,33 +291,33 @@
 		return
 
 	if(prob(65 + prob_mod))
-		user.visible_message("<span class='danger'><b>[user]</b> вправляет [limb.name] <b>[victim]</b> с отвратительным хрустом!</span>", "<span class='danger'>Вправляю [limb.name] <b>[victim]</b> с отвратительным хрустом!</span>", ignored_mobs=victim)
-		to_chat(victim, "<span class='userdanger'><b>[user]</b> snaps your dislocated [limb.name] с отвратительным хрустом!</span>")
+		user.visible_message("<span class='danger'><b>[user]</b> вправляет [ru_parse_zone(limb.name)] <b>[victim]</b> с отвратительным хрустом!</span>", "<span class='danger'>Вправляю [ru_parse_zone(limb.name)] <b>[victim]</b> с отвратительным хрустом!</span>", ignored_mobs=victim)
+		to_chat(victim, "<span class='userdanger'><b>[user]</b> вправляет [ru_parse_zone(limb.name)] с отвратительным хрустом!</span>")
 		victim.emote("scream")
 		limb.receive_damage(brute=25, wound_bonus=30 + prob_mod * 3)
 	else
-		user.visible_message("<span class='danger'><b>[user]</b> крутит [limb.name] <b>[victim]</b> неправильно!</span>", "<span class='danger'>Кручу [limb.name] <b>[victim]</b> неправильно!</span>", ignored_mobs=victim)
-		to_chat(victim, "<span class='userdanger'><b>[user]</b> крутит мою [limb.name] неправильно!</span>")
+		user.visible_message("<span class='danger'><b>[user]</b> крутит [ru_parse_zone(limb.name)] <b>[victim]</b> неправильно!</span>", "<span class='danger'>Кручу [ru_parse_zone(limb.name)] <b>[victim]</b> неправильно!</span>", ignored_mobs=victim)
+		to_chat(victim, "<span class='userdanger'><b>[user]</b> крутит мою [ru_parse_zone(limb.name)] неправильно!</span>")
 		limb.receive_damage(brute=10, wound_bonus=CANT_WOUND)
 		malpractice(user)
 
 
 /datum/wound/brute/bone/moderate/treat(obj/item/I, mob/user)
 	if(victim == user)
-		victim.visible_message("<span class='danger'><b>[user]</b> начинает вправлять [victim.ru_ego()] [limb.name] используя [I].</span>", "<span class='warning'>Начинаю вправлять свою [limb.name] используя [I]...</span>")
+		victim.visible_message("<span class='danger'><b>[user]</b> начинает вправлять [victim.ru_ego()] [ru_parse_zone(limb.name)] используя [I].</span>", "<span class='warning'>Начинаю вправлять свою [ru_parse_zone(limb.name)] используя [I]...</span>")
 	else
-		user.visible_message("<span class='danger'><b>[user]</b> начинает вправлять [limb.name] <b>[victim]</b> используя [I].</span>", "<span class='notice'>Начинаю вправлять [limb.name] <b>[victim]</b> используя [I]...</span>")
+		user.visible_message("<span class='danger'><b>[user]</b> начинает вправлять [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I].</span>", "<span class='notice'>Начинаю вправлять [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I]...</span>")
 
 	if(!do_after(user, base_treat_time * (user == victim ? 1.5 : 1), target = victim, extra_checks=CALLBACK(src, .proc/still_exists)))
 		return
 
 	if(victim == user)
 		limb.receive_damage(brute=15, wound_bonus=CANT_WOUND)
-		victim.visible_message("<span class='danger'><b>[user]</b> успешно вправляет [victim.ru_ego()] [limb.name]!</span>", "<span class='userdanger'>Вправляю свою [limb.name]!</span>")
+		victim.visible_message("<span class='danger'><b>[user]</b> успешно вправляет [victim.ru_ego()] [ru_parse_zone(limb.name)]!</span>", "<span class='userdanger'>Вправляю свою [ru_parse_zone(limb.name)]!</span>")
 	else
 		limb.receive_damage(brute=10, wound_bonus=CANT_WOUND)
-		user.visible_message("<span class='danger'><b>[user]</b> успешно вправляет [limb.name] <b>[victim]</b>!</span>", "<span class='nicegreen'>Вправляю [limb.name] <b>[victim]</b>!</span>", victim)
-		to_chat(victim, "<span class='userdanger'><b>[user]</b> вправляет мою [limb.name]!</span>")
+		user.visible_message("<span class='danger'><b>[user]</b> успешно вправляет [ru_parse_zone(limb.name)] <b>[victim]</b>!</span>", "<span class='nicegreen'>Вправляю [ru_parse_zone(limb.name)] <b>[victim]</b>!</span>", victim)
+		to_chat(victim, "<span class='userdanger'><b>[user]</b> вправляет мою [ru_parse_zone(limb.name)]!</span>")
 
 	victim.emote("scream")
 	qdel(src)
@@ -382,7 +382,7 @@
 		to_chat(user, "<span class='warning'>[capitalize(limb.name)] [user == victim ? " " : "<b>[victim]</b> "] уже покрыта костным гелем!</span>")
 		return
 
-	user.visible_message("<span class='danger'><b>[user]</b> начинает примеенять [I] на [limb.name] <b>[victim]</b>...</span>", "<span class='warning'>Начинаю применять [I] на [limb.name] [user == victim ? " " : "<b>[victim]</b> "], игнорируя предупреждение на этикетке...</span>")
+	user.visible_message("<span class='danger'><b>[user]</b> начинает примеенять [I] на [ru_parse_zone(limb.name)] <b>[victim]</b>...</span>", "<span class='warning'>Начинаю применять [I] на [ru_parse_zone(limb.name)] [user == victim ? " " : "<b>[victim]</b> "], игнорируя предупреждение на этикетке...</span>")
 
 	if(!do_after(user, base_treat_time * 1.5 * (user == victim ? 1.5 : 1), target = victim, extra_checks=CALLBACK(src, .proc/still_exists)))
 		return
@@ -390,8 +390,8 @@
 	I.use(1)
 	victim.emote("scream")
 	if(user != victim)
-		user.visible_message("<span class='notice'><b>[user]</b> заканчивает применять [I] на [limb.name] <b>[victim]</b>, издавая шипящий звук!</span>", "<span class='notice'>Заканчиваю применять [I] на [limb.name] <b>[victim]</b>!</span>", ignored_mobs=victim)
-		to_chat(victim, "<span class='userdanger'><b>[user]</b> заканчивает применять [I] на мою [limb.name] и я начинаю чувствовать, как мои кости взрываются от боли, когда они начинают таять и преобразовываться!</span>")
+		user.visible_message("<span class='notice'><b>[user]</b> заканчивает применять [I] на [ru_parse_zone(limb.name)] <b>[victim]</b>, издавая шипящий звук!</span>", "<span class='notice'>Заканчиваю применять [I] на [ru_parse_zone(limb.name)] <b>[victim]</b>!</span>", ignored_mobs=victim)
+		to_chat(victim, "<span class='userdanger'><b>[user]</b> заканчивает применять [I] на мою [ru_parse_zone(limb.name)] и я начинаю чувствовать, как мои кости взрываются от боли, когда они начинают таять и преобразовываться!</span>")
 	else
 		var/painkiller_bonus = 0
 		if(victim.drunkenness)
@@ -402,10 +402,10 @@
 			painkiller_bonus += 5
 
 		if(prob(25 + (20 * severity - 2) - painkiller_bonus)) // 25%/45% chance to fail self-applying with severe and critical wounds, modded by painkillers
-			victim.visible_message("<span class='danger'><b>[victim]</b> проваливает попытку нанести [I] на [victim.ru_ego()] [limb.name], теряя сознание от боли!</span>", "<span class='notice'>Теряю сознание от боли пытаясь применить [I] на мою [limb.name] перед тем как закончить!</span>")
+			victim.visible_message("<span class='danger'><b>[victim]</b> проваливает попытку нанести [I] на [victim.ru_ego()] [ru_parse_zone(limb.name)], теряя сознание от боли!</span>", "<span class='notice'>Теряю сознание от боли пытаясь применить [I] на мою [ru_parse_zone(limb.name)] перед тем как закончить!</span>")
 			victim.AdjustUnconscious(5 SECONDS)
 			return
-		victim.visible_message("<span class='notice'><b>[victim]</b> успешно применяет [I] на [victim.ru_ego()] [limb.name], скорчившись от боли!</span>", "<span class='notice'>Заканчиваю применять [I] на мою [limb.name], осталось перетерпеть адскую боль!</span>")
+		victim.visible_message("<span class='notice'><b>[victim]</b> успешно применяет [I] на [victim.ru_ego()] [ru_parse_zone(limb.name)], скорчившись от боли!</span>", "<span class='notice'>Заканчиваю применять [I] на мою [ru_parse_zone(limb.name)], осталось перетерпеть адскую боль!</span>")
 
 	limb.receive_damage(30, stamina=100, wound_bonus=CANT_WOUND)
 	if(!gelled)
@@ -420,7 +420,7 @@
 		to_chat(user, "<span class='warning'>[capitalize(limb.name)] [user == victim ? " " : "<b>[victim]</b> "] уже обёрнута в [I.name] и реформируется!</span>")
 		return
 
-	user.visible_message("<span class='danger'><b>[user]</b> начинает применять [I] на [limb.name] <b>[victim]</b>...</span>", "<span class='warning'>Начинаю применять [I] на [limb.name] [user == victim ? " " : "<b>[victim]</b> "]...</span>")
+	user.visible_message("<span class='danger'><b>[user]</b> начинает применять [I] на [ru_parse_zone(limb.name)] <b>[victim]</b>...</span>", "<span class='warning'>Начинаю применять [I] на [ru_parse_zone(limb.name)] [user == victim ? " " : "<b>[victim]</b> "]...</span>")
 
 	if(!do_after(user, base_treat_time * (user == victim ? 1.5 : 1), target = victim, extra_checks=CALLBACK(src, .proc/still_exists)))
 		return
@@ -429,10 +429,10 @@
 	regen_points_needed = 30 SECONDS * (user == victim ? 1.5 : 1) * (severity - 1)
 	I.use(1)
 	if(user != victim)
-		user.visible_message("<span class='notice'><b>[user]</b> заканчивает применять [I] на [limb.name] <b>[victim]</b>, издавая шипящий звук!</span>", "<span class='notice'>Заканчиваю применять [I] на [limb.name] <b>[victim]</b>!</span>", ignored_mobs=victim)
-		to_chat(victim, "<span class='green'><b>[user]</b> заканчивает применять [I] на мою [limb.name], сразу начинаю чувствовать как мои кости реформируются!</span>")
+		user.visible_message("<span class='notice'><b>[user]</b> заканчивает применять [I] на [ru_parse_zone(limb.name)] <b>[victim]</b>, издавая шипящий звук!</span>", "<span class='notice'>Заканчиваю применять [I] на [ru_parse_zone(limb.name)] <b>[victim]</b>!</span>", ignored_mobs=victim)
+		to_chat(victim, "<span class='green'><b>[user]</b> заканчивает применять [I] на мою [ru_parse_zone(limb.name)], сразу начинаю чувствовать как мои кости реформируются!</span>")
 	else
-		victim.visible_message("<span class='notice'><b>[victim]</b> заканчивает применять [I] на [victim.ru_ego()] [limb.name], !</span>", "<span class='green'>Заканчиваю применять [I] на мою [limb.name], сразу начинаю чувствовать как мои кости реформируются!</span>")
+		victim.visible_message("<span class='notice'><b>[victim]</b> заканчивает применять [I] на [victim.ru_ego()] [ru_parse_zone(limb.name)], !</span>", "<span class='green'>Заканчиваю применять [I] на мою [ru_parse_zone(limb.name)], сразу начинаю чувствовать как мои кости реформируются!</span>")
 
 	taped = TRUE
 	processes = TRUE

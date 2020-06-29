@@ -34,7 +34,7 @@
 	if(strikes_to_lose_limb == 0)
 		victim.adjustToxLoss(0.5)
 		if(prob(1))
-			victim.visible_message("<span class='danger'>Инфекция на остатках [limb.name] <b>[victim]</b> двигается и булькает тошнотворно!</span>", "<span class='warning'>Инфекция на моей [limb.name] течет по моим венам!</span>")
+			victim.visible_message("<span class='danger'>Инфекция на остатках [ru_gde_zone(limb.name)] <b>[victim]</b> двигается и булькает тошнотворно!</span>", "<span class='warning'>Инфекция на моей [ru_gde_zone(limb.name)] течет по моим венам!</span>")
 		return
 
 	if(victim.reagents)
@@ -49,7 +49,7 @@
 	if(current_bandage)
 		current_bandage.absorption_capacity -= WOUND_BURN_SANITIZATION_RATE
 		if(current_bandage.absorption_capacity <= 0)
-			victim.visible_message("<span class='danger'>Гной пропитывает [current_bandage] на [limb.name] <b>[victim]</b>.</span>", "<span class='warning'>Гной пропитывает [current_bandage] на моей [limb.name].</span>", vision_distance=COMBAT_MESSAGE_RANGE)
+			victim.visible_message("<span class='danger'>Гной пропитывает [current_bandage] на [ru_gde_zone(limb.name)] <b>[victim]</b>.</span>", "<span class='warning'>Гной пропитывает [current_bandage] на моей [ru_gde_zone(limb.name)].</span>", vision_distance=COMBAT_MESSAGE_RANGE)
 			QDEL_NULL(current_bandage)
 			treat_priority = TRUE
 
@@ -60,7 +60,7 @@
 
 	// here's the check to see if we're cleared up
 	if((flesh_damage <= 0) && (infestation <= 1))
-		to_chat(victim, "<span class='green'>Ожоги на моей [limb.name] пропадают!</span>")
+		to_chat(victim, "<span class='green'>Ожоги на моей [ru_gde_zone(limb.name)] пропадают!</span>")
 		qdel(src)
 		return
 
@@ -79,25 +79,25 @@
 			if(prob(30))
 				victim.adjustToxLoss(0.2)
 				if(prob(6))
-					to_chat(victim, "<span class='warning'>Волдыри на моей [limb.name] источают странный гной...</span>")
+					to_chat(victim, "<span class='warning'>Волдыри на моей [ru_gde_zone(limb.name)] источают странный гной...</span>")
 		if(WOUND_INFECTION_SEVERE to WOUND_INFECTION_CRITICAL)
 			if(!disabling && prob(2))
 				to_chat(victim, "<span class='warning'><b>Моя [limb.name] полностью блокируется, пока я пытаюсь бороться с инфекцией!</b></span>")
 				disabling = TRUE
 			else if(disabling && prob(8))
-				to_chat(victim, "<span class='notice'>Восстанавливаю ощущения в своей [limb.name], но она все еще в ужасной форме!</span>")
+				to_chat(victim, "<span class='notice'>Восстанавливаю ощущения в своей [ru_gde_zone(limb.name)], но она все еще в ужасной форме!</span>")
 				disabling = FALSE
 			else if(prob(20))
 				victim.adjustToxLoss(0.5)
 		if(WOUND_INFECTION_CRITICAL to WOUND_INFECTION_SEPTIC)
 			if(!disabling && prob(3))
-				to_chat(victim, "<span class='warning'><b>Внезапно теряю ощущение гнойной инфекции в моей [limb.name]!</b></span>")
+				to_chat(victim, "<span class='warning'><b>Внезапно теряю ощущение гнойной инфекции в моей [ru_gde_zone(limb.name)]!</b></span>")
 				disabling = TRUE
 			else if(disabling && prob(3))
 				to_chat(victim, "<span class='notice'>Едва чувствую [limb.name] снова, надо постараться, чтобы заставить её двигаться снова!</span>")
 				disabling = FALSE
 			else if(prob(1))
-				to_chat(victim, "<span class='warning'>Продумаю жизнь без своей [limb.name]... Кому она нахуй сдалась?!</span>")
+				to_chat(victim, "<span class='warning'>Продумаю жизнь без своей [ru_gde_zone(limb.name)]... Кому она нахуй сдалась?!</span>")
 				victim.adjustToxLoss(0.75)
 			else if(prob(4))
 				victim.adjustToxLoss(1)
@@ -105,13 +105,13 @@
 			if(prob(infestation))
 				switch(strikes_to_lose_limb)
 					if(3 to INFINITY)
-						to_chat(victim, "<span class='deadsay'>Кожа на моей [limb.name] просто стекает вниз, ужасно!</span>")
+						to_chat(victim, "<span class='deadsay'>Кожа на моей [ru_gde_zone(limb.name)] просто стекает вниз, ужасно!</span>")
 					if(2)
-						to_chat(victim, "<span class='deadsay'><b>Инфекция из моей [limb.name] просто вытекает вниз, ужасно!</b></span>")
+						to_chat(victim, "<span class='deadsay'><b>Инфекция из моей [ru_gde_zone(limb.name)] просто вытекает вниз, ужасно!</b></span>")
 					if(1)
-						to_chat(victim, "<span class='deadsay'><b>Инфекция почти полностью завладела [limb.name]!</b></span>")
+						to_chat(victim, "<span class='deadsay'><b>Инфекция почти полностью завладела [ru_gde_zone(limb.name)]!</b></span>")
 					if(0)
-						to_chat(victim, "<span class='deadsay'><b>Последний из нервных окончаний в моей [limb.name] отсох, как и инфекция полностью парализует мой сустав.</b></span>")
+						to_chat(victim, "<span class='deadsay'><b>Последний из нервных окончаний в моей [ru_gde_zone(limb.name)] отсох, как и инфекция полностью парализует мой сустав.</b></span>")
 						threshold_penalty = 120 // piss easy to destroy
 						var/datum/brain_trauma/severe/paralysis/sepsis = new (limb.body_zone)
 						victim.gain_trauma(sepsis)
@@ -184,12 +184,12 @@
 
 /// if someone is using ointment on our burns
 /datum/wound/burn/proc/ointment(obj/item/stack/medical/ointment/I, mob/user)
-	user.visible_message("<span class='notice'><b>[user]</b> начинает применять [I] на [limb.name] <b>[victim]</b>...</span>", "<span class='notice'>Начинаю применять [I] на[user == victim ? " мою" : ""] [limb.name][user == victim ? "" : " <b>[victim]</b>"]...</span>")
+	user.visible_message("<span class='notice'><b>[user]</b> начинает применять [I] на [ru_parse_zone(limb.name)] <b>[victim]</b>...</span>", "<span class='notice'>Начинаю применять [I] на[user == victim ? " мою" : ""] [ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"]...</span>")
 	if(!do_after(user, (user == victim ? I.self_delay : I.other_delay), extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
 
 	limb.heal_damage(I.heal_brute, I.heal_burn)
-	user.visible_message("<span class='green'><b>[user]</b> применяет [I] на [limb.name] <b>[victim]</b>.</span>", "<span class='green'>Применяю [I] на[user == victim ? " мою" : ""] [limb.name][user == victim ? "" : " <b>[victim]</b>"].</span>")
+	user.visible_message("<span class='green'><b>[user]</b> применяет [I] на [ru_parse_zone(limb.name)] <b>[victim]</b>.</span>", "<span class='green'>Применяю [I] на[user == victim ? " мою" : ""] [ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"].</span>")
 	I.use(1)
 	sanitization += I.sanitization
 	flesh_healing += I.flesh_regeneration
@@ -212,16 +212,16 @@
 /datum/wound/burn/proc/bandage(obj/item/stack/medical/gauze/I, mob/user)
 	if(current_bandage)
 		if(current_bandage.absorption_capacity > I.absorption_capacity + 1)
-			to_chat(user, "<span class='warning'>[capitalize(current_bandage)] на [limb.name] <b>[victim]</b> в лучшем состоянии чем мой [I.name]!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(current_bandage)] на [ru_gde_zone(limb.name)] <b>[victim]</b> в лучшем состоянии чем мой [I.name]!</span>")
 			return
-		user.visible_message("<span class='warning'><b>[user]</b> начинает исправлять ожоги на [limb.name] <b>[victim]</b> используя [I]...</span>", "<span class='warning'>Начинаю исправлять ожоги на [user == victim ? " моей" : ""] [limb.name][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
+		user.visible_message("<span class='warning'><b>[user]</b> начинает исправлять ожоги на [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I]...</span>", "<span class='warning'>Начинаю исправлять ожоги на [user == victim ? " моей" : ""] [ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
 	else
-		user.visible_message("<span class='notice'><b>[user]</b> начинает покрывать ожоги на [limb.name] <b>[victim]</b> используя [I]...</span>", "<span class='notice'>Начинаю покрывать ожоги на [user == victim ? " моей" : ""] [limb.name][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
+		user.visible_message("<span class='notice'><b>[user]</b> начинает покрывать ожоги на [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I]...</span>", "<span class='notice'>Начинаю покрывать ожоги на [user == victim ? " моей" : ""] [ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
 
 	if(!do_after(user, (user == victim ? I.self_delay : I.other_delay), target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
 
-	user.visible_message("<span class='green'><b>[user]</b> применяет [I] на <b>[victim]</b>.</span>", "<span class='green'>Применяю [I] на [user == victim ? " мою" : ""] [limb.name][user == victim ? "" : " <b>[victim]</b>"].</span>")
+	user.visible_message("<span class='green'><b>[user]</b> применяет [I] на <b>[victim]</b>.</span>", "<span class='green'>Применяю [I] на [user == victim ? " мою" : ""] [ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"].</span>")
 	QDEL_NULL(current_bandage)
 	current_bandage = new I.type(limb)
 	current_bandage.amount = 1
@@ -231,12 +231,12 @@
 
 /// if someone is using mesh on our burns
 /datum/wound/burn/proc/mesh(obj/item/stack/medical/mesh/I, mob/user)
-	user.visible_message("<span class='notice'><b>[user]</b> начинает обматывать [limb.name] <b>[victim]</b> используя [I]...</span>", "<span class='notice'>Начинаю обматывать [user == victim ? " мою" : ""] [limb.name][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
+	user.visible_message("<span class='notice'><b>[user]</b> начинает обматывать [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I]...</span>", "<span class='notice'>Начинаю обматывать [user == victim ? " мою" : ""] [ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
 	if(!do_after(user, (user == victim ? I.self_delay : I.other_delay), target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
 
 	limb.heal_damage(I.heal_brute, I.heal_burn)
-	user.visible_message("<span class='green'><b>[user]</b> применяет [I] на [limb.name] <b>[victim]</b>.</span>", "<span class='green'>Применяю [I] на [user == victim ? " мою" : ""] [limb.name][user == victim ? "" : " <b>[victim]</b>"].</span>")
+	user.visible_message("<span class='green'><b>[user]</b> применяет [I] на [ru_parse_zone(limb.name)] <b>[victim]</b>.</span>", "<span class='green'>Применяю [I] на [user == victim ? " мою" : ""] [ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"].</span>")
 	I.use(1)
 	sanitization += I.sanitization
 	flesh_healing += I.flesh_regeneration
@@ -252,10 +252,10 @@
 		to_chat(user, "<span class='notice'>[I] всё ещё перезаряжается!</span>")
 		return
 	if(infestation <= 0 || infestation < sanitization)
-		to_chat(user, "<span class='notice'>Здесь нет инфекции на [limb.name] <b>[victim]</b>!</span>")
+		to_chat(user, "<span class='notice'>Здесь нет инфекции на [ru_gde_zone(limb.name)] <b>[victim]</b>!</span>")
 		return
 
-	user.visible_message("<span class='notice'><b>[user]</b> делает серию коротких вспышек на [limb] <b>[victim]</b> используя [I].</span>", "<span class='notice'>Начинаю зачищать инфекцию на [user == victim ? " моей" : ""] [limb.name][user == victim ? "" : " <b>[victim]</b>"] используя [I].</span>", vision_distance=COMBAT_MESSAGE_RANGE)
+	user.visible_message("<span class='notice'><b>[user]</b> делает серию коротких вспышек на [ru_gde_zone(limb.name)] <b>[victim]</b> используя [I].</span>", "<span class='notice'>Начинаю зачищать инфекцию на [user == victim ? " моей" : ""] [ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I].</span>", vision_distance=COMBAT_MESSAGE_RANGE)
 	sanitization += I.uv_power
 	COOLDOWN_START(I, uv_cooldown, I.uv_cooldown_length)
 
