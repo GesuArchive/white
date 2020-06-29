@@ -303,7 +303,7 @@
   * * mob/user: The user examining the wound's owner, if that matters
   */
 /datum/wound/proc/get_examine_description(mob/user)
-	return "<B>[victim.p_their(TRUE)] [limb.name] [examine_desc]!</B>"
+	return "<B>[victim.ru_ego(TRUE)] [limb.name] [examine_desc]!</B>"
 
 /datum/wound/proc/get_scanner_description(mob/user)
 	return "Тип: [name]\nТяжесть: [severity_text()]\nОписание: [desc]\nВозможное лечение: [treat_text]"
