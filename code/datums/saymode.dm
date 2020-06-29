@@ -33,10 +33,10 @@
 							to_chat(M, msg)
 						if(LINGHIVE_OUTSIDER)
 							if(prob(40))
-								to_chat(M, "<span class='changeling'>We can faintly sense an outsider trying to communicate through the hivemind...</span>")
+								to_chat(M, "<span class='changeling'>Мы можем слабо ощутить постороннего, пытающегося общаться через рой...</span>")
 		if(LINGHIVE_LING)
 			if (HAS_TRAIT(user, CHANGELING_HIVEMIND_MUTE))
-				to_chat(user, "<span class='warning'>The poison in the air hinders our ability to interact with the hivemind.</span>")
+				to_chat(user, "<span class='warning'>Яд в воздухе препятствует нашей способности взаимодействовать с роем.</span>")
 				return FALSE
 			var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
 			var/msg = "<span class='changeling'><b>[changeling.changelingID]:</b> [message]</span>"
@@ -56,9 +56,9 @@
 								to_chat(M, msg)
 						if(LINGHIVE_OUTSIDER)
 							if(prob(40))
-								to_chat(M, "<span class='changeling'>We can faintly sense another of our kind trying to communicate through the hivemind...</span>")
+								to_chat(M, "<span class='changeling'>Мы можем слабо ощущать другого нашего вида, пытающегося общаться через улей...</span>")
 		if(LINGHIVE_OUTSIDER)
-			to_chat(user, "<span class='changeling'>Our senses have not evolved enough to be able to communicate this way...</span>")
+			to_chat(user, "<span class='changeling'>Наши чувства недостаточно развиты, чтобы общаться таким образом...</span>")
 	return FALSE
 
 
@@ -127,8 +127,8 @@
 	if(is_monkey_leader(mind) || (ismonkey(user) && is_monkey(mind)))
 		user.log_talk(message, LOG_SAY, tag="monkey")
 		if(prob(75) && ismonkey(user))
-			user.visible_message("<span class='notice'>\The [user] chimpers.</span>")
-		var/msg = "<span class='[is_monkey_leader(mind) ? "monkeylead" : "monkeyhive"]'><b><font size=2>\[[is_monkey_leader(mind) ? "Monkey Leader" : "Monkey"]\]</font> [user]</b>: [message]</span>"
+			user.visible_message("<span class='notice'>[user] издаёт странный звук.</span>")
+		var/msg = "<span class='[is_monkey_leader(mind) ? "monkeylead" : "monkeyhive"]'><b><font size=2>\[[is_monkey_leader(mind) ? "Лидер обезьян" : "Обезьяна"]\]</font> [user]</b>: [message]</span>"
 		for(var/_M in GLOB.mob_list)
 			var/mob/M = _M
 			if(M in GLOB.dead_mob_list)

@@ -198,9 +198,9 @@
 		if(known_skills[i][SKILL_LVL] > SKILL_LEVEL_NONE) //Do we actually have a level in this?
 			shown_skills += i
 	if(!length(shown_skills))
-		to_chat(user, "<span class='notice'>You don't seem to have any particularly outstanding skills.</span>")
+		to_chat(user, "<span class='notice'>Да у меня и нет каких-то особых навыков.</span>")
 		return
-	var/msg = "<span class='info'>*---------*\n<EM>Your skills</EM></span>\n<span class='notice'>"
+	var/msg = "<span class='info'>*---------*\n<EM>Мои навыки</EM></span>\n<span class='notice'>"
 	for(var/i in shown_skills)
 		var/datum/skill/the_skill = i
 		msg += "[initial(the_skill.name)] - [get_skill_level_name(the_skill)]\n"
@@ -375,7 +375,7 @@
 
 	if (!uplink_loc)
 		if(!silent)
-			to_chat(traitor_mob, "<span class='boldwarning'>Unfortunately, [employer] wasn't able to get you an Uplink.</span>")
+			to_chat(traitor_mob, "<span class='boldwarning'>К сожалению, [employer] не выдал мне Аплинк.</span>")
 		. = 0
 	else
 		. = uplink_loc
@@ -448,7 +448,7 @@
 			if(other_owners.len)
 				output += "<ul>"
 				for(var/datum/mind/M in other_owners)
-					output += "<li>Конспиратор: [M.name]</li>"
+					output += "<li>Сообщник: [M.name]</li>"
 				output += "</ul>"
 
 	if(window)
