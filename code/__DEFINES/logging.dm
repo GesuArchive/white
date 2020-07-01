@@ -39,6 +39,7 @@
 #define LOG_LOOC	        (1 << 18)
 #define LOG_SHUTTLE			(1 << 19)
 #define LOG_ECON			(1 << 20)
+#define LOG_LOBBY			(1 << 21)
 
 //Individual logging panel pages
 #define INDIVIDUAL_ATTACK_LOG		(LOG_ATTACK)

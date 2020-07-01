@@ -1217,6 +1217,8 @@
 			log_econ(log_text)
 		if(LOG_OOC)
 			log_ooc(log_text)
+		if(LOG_LOBBY)
+			log_lobby(log_text)
 		if(LOG_LOOC)
 			log_looc(log_text)
 		if(LOG_ADMIN)

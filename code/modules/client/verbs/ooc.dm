@@ -34,7 +34,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	msg = emoji_parse(msg)
 
 	if(SSticker.HasRoundStarted() && (msg[1] in list(".",";",":","#") || findtext_char(msg, "say", 1, 5)))
-		if(alert("Your message \"[raw_msg]\" looks like it was meant for in game communication, say it in OOC?", "Meant for OOC?", "Yes", "No") != "Yes")
+		if(alert("Похоже \"[raw_msg]\" выглядит как внутриигровое сообщение, написать его в OOC?", "Для OOC?", "Да", "Нет") != "Да")
 			return
 
 	if(!holder)
@@ -54,7 +54,14 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	if(!src.shadowbanned_ooc)
 		whiningcheck(src, msg)
 
-	mob.log_talk(raw_msg, LOG_OOC)
+	//lobby ooc
+	var/tagmsg = "bepis"
+	if(isnewplayer(mob))
+		tagmsg = "LOBBY"
+		mob.log_talk(raw_msg, LOG_LOBBY)
+	else
+		tagmsg = "OOC"
+		mob.log_talk(raw_msg, LOG_OOC)
 
 	var/keyname = key
 	if(prefs.hearted)
@@ -65,33 +72,38 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 			keyname = "<font color='[prefs.ooccolor ? prefs.ooccolor : GLOB.normal_ooc_colour]'>[icon2html('icons/member_content.dmi', world, "blag")][keyname]</font>"
 	//The linkify span classes and linkify=TRUE below make ooc text get clickable chat href links if you pass in something resembling a url
 	for(var/client/C in GLOB.clients)
+		if(isnewplayer(mob) && !isnewplayer(C.mob))
+			return
+		else if (C.holder && !isnewplayer(C.mob))
+			message_admins("[tagmsg]: [key_name_admin(src)]: [msg]")
+			return
 		if(src.shadowbanned_ooc || is_banned_from(ckey, "OOC"))
 			if(!(C == src))
 				continue
 			else
-				message_admins("SOOC: [key_name_admin(src)]: [msg]")
+				message_admins("S[tagmsg]: [key_name_admin(src)]: [msg]")
 		if(C.prefs.chat_toggles & CHAT_OOC)
 			if(holder?.fakekey in C.prefs.ignoring)
 				continue
 			if(holder)
 				if(!holder.fakekey || C.holder)
 					if(check_rights_for(src, R_ADMIN))
-						to_chat(C, "<span class='adminooc'>[CONFIG_GET(flag/allow_admin_ooccolor) && prefs.ooccolor ? "<font color=[prefs.ooccolor]>" :"" ]<span class='prefix'> >> OOC:</span> <EM>[keyname][holder.fakekey ? "/([holder.fakekey])" : ""]:</EM> <span class='message linkify'>[msg]</span></span></font>")
+						to_chat(C, "<span class='adminooc'>[CONFIG_GET(flag/allow_admin_ooccolor) && prefs.ooccolor ? "<font color=[prefs.ooccolor]>" :"" ]<span class='prefix'> >> [tagmsg]:</span> <EM>[keyname][holder.fakekey ? "/([holder.fakekey])" : ""]:</EM> <span class='message linkify'>[msg]</span></span></font>")
 					else
-						to_chat(C, "<span class='adminobserverooc'><span class='prefix'> >> OOC:</span> <EM>[keyname][holder.fakekey ? "/([holder.fakekey])" : ""]:</EM> <span class='message linkify'>[msg]</span></span>")
+						to_chat(C, "<span class='adminobserverooc'><span class='prefix'> >> [tagmsg]:</span> <EM>[keyname][holder.fakekey ? "/([holder.fakekey])" : ""]:</EM> <span class='message linkify'>[msg]</span></span>")
 				else
 					if(GLOB.OOC_COLOR)
-						to_chat(C, "<font color='[GLOB.OOC_COLOR]'><b><span class='prefix'> >> OOC:</span> <EM>[holder.fakekey ? holder.fakekey : key]:</EM> <span class='message linkify'>[msg]</span></b></font>")
+						to_chat(C, "<font color='[GLOB.OOC_COLOR]'><b><span class='prefix'> >> [tagmsg]:</span> <EM>[holder.fakekey ? holder.fakekey : key]:</EM> <span class='message linkify'>[msg]</span></b></font>")
 					else
-						to_chat(C, "<span class='ooc'><span class='prefix'> >> OOC:</span> <EM>[holder.fakekey ? holder.fakekey : key]:</EM> <span class='message linkify'>[msg]</span></span>")
+						to_chat(C, "<span class='ooc'><span class='prefix'> >> [tagmsg]:</span> <EM>[holder.fakekey ? holder.fakekey : key]:</EM> <span class='message linkify'>[msg]</span></span>")
 
 			else if(!(key in C.prefs.ignoring))
 				if(check_donations(ckey))
-					to_chat(C, "<font color='[prefs.ooccolor ? prefs.ooccolor : GLOB.normal_ooc_colour]'><b><span class='prefix'> >> OOC:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></b></font>")
+					to_chat(C, "<font color='[prefs.ooccolor ? prefs.ooccolor : GLOB.normal_ooc_colour]'><b><span class='prefix'> >> [tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></b></font>")
 				else if(GLOB.OOC_COLOR)
-					to_chat(C, "<font color='[GLOB.OOC_COLOR]'><b><span class='prefix'> >> OOC:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></b></font>")
+					to_chat(C, "<font color='[GLOB.OOC_COLOR]'><b><span class='prefix'> >> [tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></b></font>")
 				else
-					to_chat(C, "<span class='ooc'><span class='prefix'> >> OOC:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></span>")
+					to_chat(C, "<span class='ooc'><span class='prefix'> >> [tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></span>")
 	if(src.shadowbanned_ooc)
 		return
 	webhook_send_ooc(key, msg)
