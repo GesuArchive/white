@@ -33,4 +33,5 @@ SUBSYSTEM_DEF(aspects)
 	ca_name = current_aspect.name
 	ca_desc = current_aspect.desc
 
-	to_chat(world, "<span class='notice'><B>Важно:</B> [current_aspect.desc]</span>")
+	for(var/P in GLOB.joined_player_list)
+		to_chat(P, "<span class='notice'><B>Важно:</B> [current_aspect.desc]</span>")

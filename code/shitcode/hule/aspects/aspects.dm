@@ -64,6 +64,7 @@
 		D.req_one_access_txt = "0"
 	..()
 
+/*
 /datum/round_aspect/terraformed
 	name = "Terraformed"
 	desc = "Продвинутые технологии терраформирования озеленили Лаваленд."
@@ -79,6 +80,7 @@
 		T.baseturfs = /turf/open/floor/plating/grass
 		T.initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	..()
+*/
 
 /datum/round_aspect/rich
 	name = "Rich"
@@ -203,7 +205,7 @@
 /datum/round_aspect/weak
 	name = "Weak"
 	desc = "Удары стали слабее. Пули мягче. К чему это приведёт?"
-	weight = 18
+	weight = 6
 
 /datum/round_aspect/weak/run_aspect()
 	CONFIG_SET(number/damage_multiplier, 0.5)
@@ -212,7 +214,7 @@
 /datum/round_aspect/immortality
 	name = "Immortality"
 	desc = "Шахтёры притащили неизвестный артефакт дарующий бессмертие и активировали его на станции. Никто не сможет получить достаточных травм, чтобы погибнуть. Наверное."
-	weight = 8
+	weight = 1
 
 /datum/round_aspect/immortality/run_aspect()
 	CONFIG_SET(number/damage_multiplier, 0)
