@@ -52,6 +52,8 @@
 
 /datum/config_entry/flag/log_ooc	// log OOC channel
 
+/datum/config_entry/flag/log_lobby
+
 /datum/config_entry/flag/log_looc
 
 /datum/config_entry/flag/looc_during_round
