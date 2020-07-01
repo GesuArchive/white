@@ -73,10 +73,9 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	//The linkify span classes and linkify=TRUE below make ooc text get clickable chat href links if you pass in something resembling a url
 	for(var/client/C in GLOB.clients)
 		if(isnewplayer(mob) && !isnewplayer(C.mob))
-			return
-		else if (C.holder && !isnewplayer(C.mob))
-			message_admins("[tagmsg]: [key_name_admin(src)]: [msg]")
-			return
+			if(C.holder)
+				message_admins("[tagmsg]: [key_name_admin(src)]: [msg]")
+			continue
 		if(src.shadowbanned_ooc || is_banned_from(ckey, "OOC"))
 			if(!(C == src))
 				continue
@@ -104,7 +103,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 					to_chat(C, "<font color='[GLOB.OOC_COLOR]'><b><span class='prefix'> >> [tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></b></font>")
 				else
 					to_chat(C, "<span class='ooc'><span class='prefix'> >> [tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></span>")
-	if(src.shadowbanned_ooc)
+	if(src.shadowbanned_ooc || isnewplayer(mob))
 		return
 	webhook_send_ooc(key, msg)
 
