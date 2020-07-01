@@ -18,29 +18,44 @@
 	. = list("<span class='info'>*---------*")
 
 	if(true_info)
-		. += "ОБЪЕКТ: <EM>[name]</EM>."
-		var/is_weapon = FALSE
-		for(var/I in get_contents())
-			if(istype(I, /obj/item/gun) || istype(I, /obj/item/melee))
-				hud_list[HACKER_HUD].add_overlay("node_weapon")
-				is_weapon = TRUE
-				break
-		if(is_weapon)
-			. += "<span class='warning'><big>Обнаружено оружие.</big></span>"
-		else
-			hud_list[HACKER_HUD].cut_overlay("node_weapon")
+		if(!client.holder)
+			. += "ОБЪЕКТ: <EM>[name]</EM>."
+			SEND_SOUND(user, 'sound/ai/hacker/scanned.ogg')
+			var/is_weapon = FALSE
+			for(var/I in get_contents())
+				if(istype(I, /obj/item/gun) || istype(I, /obj/item/melee))
+					hud_list[HACKER_HUD].add_overlay("node_weapon")
+					is_weapon = TRUE
+					break
+			if(is_weapon)
+				spawn(15)
+					SEND_SOUND(user, 'sound/ai/hacker/weapon.ogg')
+				. += "<span class='warning'><big>Обнаружено оружие.</big></span>"
+			else
+				hud_list[HACKER_HUD].cut_overlay("node_weapon")
 
-		if(!mind?.antag_datums)
-			hud_list[HACKER_HUD].cut_overlay("node_enemy")
-			hud_list[HACKER_HUD].add_overlay("node_neutral")
-		else
-			hud_list[HACKER_HUD].cut_overlay("node_neutral")
-			hud_list[HACKER_HUD].add_overlay("node_enemy")
+			if(!mind?.antag_datums)
+				spawn(30)
+					SEND_SOUND(user, 'sound/ai/hacker/neutral.ogg')
+				hud_list[HACKER_HUD].cut_overlay("node_enemy")
+				hud_list[HACKER_HUD].add_overlay("node_neutral")
+			else
+				spawn(30)
+					SEND_SOUND(user, 'sound/ai/hacker/enemy.ogg')
+				hud_list[HACKER_HUD].cut_overlay("node_neutral")
+				hud_list[HACKER_HUD].add_overlay("node_enemy")
 
-		if(stat == DEAD)
-			hud_list[HACKER_HUD].add_overlay("node_dead")
+			if(stat == DEAD)
+				spawn(45)
+					SEND_SOUND(user, 'sound/ai/hacker/dead.ogg')
+				hud_list[HACKER_HUD].add_overlay("node_dead")
+			else
+				hud_list[HACKER_HUD].cut_overlay("node_dead")
 		else
-			hud_list[HACKER_HUD].cut_overlay("node_dead")
+			. += "ОБЪЕКТ: <EM>[name]</EM>."
+			SEND_SOUND(user, 'sound/ai/hacker/na.ogg')
+			hud_list[HACKER_HUD].cut_overlay("node_na")
+			hud_list[HACKER_HUD].add_overlay("node_na")
 	else
 		. += "Это же <EM>[!obscure_name ? name : "Unknown"]</EM>!"
 

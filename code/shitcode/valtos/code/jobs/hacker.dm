@@ -61,6 +61,14 @@
 	colour = list(rgb(255,15,15), rgb(0,255,25), rgb(0,0,255), rgb(0,0,0))
 	priority = 6
 
+/obj/item/clothing/glasses/hud/wzzzz/hacker_rig/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF)
+		return
+	var/mob/living/carbon/human/user = src.loc
+	to_chat(user, "<span class='danger'>E:FATAL:RAM_READ_FAIL\nE:FATAL:STACK_EMPTY\nE:FATAL:READ_NULL_POINT\nE:FATAL:PWR_BUS_OVERLOAD</span>")
+	SEND_SOUND(user, 'sound/ai/hacker/emp.ogg')
+
 /obj/item/clothing/glasses/hud/wzzzz/hacker_rig/equipped(mob/living/carbon/human/H, slot)
 	. = ..()
 	spawn(10)
