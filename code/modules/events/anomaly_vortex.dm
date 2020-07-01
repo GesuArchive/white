@@ -12,4 +12,4 @@
 	anomaly_path = /obj/effect/anomaly/bhole
 
 /datum/round_event/anomaly/anomaly_vortex/announce(fake)
-	priority_announce("Обнаружена высокоинтенсивная вихревая аномалия на сканерах большой дальности. Ожидаемое место: [impact_area.name]", "Аномальная тревога")
+	priority_announce("Обнаружена высокоинтенсивная вихревая аномалия на сканерах большой дальности. Ожидаемое место: [impact_area.name]", "Аномальная тревога", 'sound/ai/announcer/anomaly.ogg')

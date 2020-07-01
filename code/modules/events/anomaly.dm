@@ -44,7 +44,7 @@
 		CRASH("Anomaly : No valid turfs found for [impact_area] - [impact_area.type]")
 
 /datum/round_event/anomaly/announce(fake)
-	priority_announce("Обнаружена волна энергетических потоков на сканерах большой дальности. Ожидаемое место столкновения: [impact_area.name].", "Аномальная тревога")
+	priority_announce("Обнаружена волна энергетических потоков на сканерах большой дальности. Ожидаемое место столкновения: [impact_area.name].", "Аномальная тревога", 'sound/ai/announcer/anomaly.ogg')
 
 /datum/round_event/anomaly/start()
 	var/turf/T = pick(get_area_turfs(impact_area))

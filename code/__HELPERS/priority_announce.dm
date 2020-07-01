@@ -1,4 +1,4 @@
-/proc/priority_announce(text, title = "", sound = 'sound/ai/cumttention.ogg', type, sender_override)
+/proc/priority_announce(text, title = "", sound = 'sound/ai/announcer/alert.ogg', type, sender_override)
 	if(!text)
 		return
 
@@ -43,7 +43,7 @@
 		title = "Секретно: [command_name()]"
 
 	if(announce)
-		priority_announce("Отчет был загружен и распечатан на всех коммуникационных консолях.", "Входящее Секретное Сообщение", 'sound/ai/commandreport.ogg')
+		priority_announce("Отчет был загружен и распечатан на всех коммуникационных консолях.", "Входящее Секретное Сообщение", 'sound/ai/announcer/alert.ogg')
 
 	var/datum/comm_message/M  = new
 	M.title = title

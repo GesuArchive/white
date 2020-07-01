@@ -26,7 +26,7 @@
 	ship_name = pick(strings(PIRATE_NAMES_FILE, "ship_names"))
 
 /datum/round_event/pirates/announce(fake)
-	priority_announce("Входящая подпространственная передача данных. Открыт защищенный канал связи на всех коммуникационных консолях.", "Входящее сообщение", 'sound/ai/commandreport.ogg')
+	priority_announce("Входящая подпространственная передача данных. Открыт защищенный канал связи на всех коммуникационных консолях.", "Входящее сообщение", 'sound/ai/announcer/incoming.ogg')
 	if(fake)
 		return
 	threat = new

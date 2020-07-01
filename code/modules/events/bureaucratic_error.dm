@@ -8,7 +8,7 @@
 	announceWhen = 1
 
 /datum/round_event/bureaucratic_error/announce(fake)
-	priority_announce("Недавняя бюрократическая ошибка в Департаменте Органических Ресурсов может привести к кадровой нехватке в одних департаментах и избыточному укомплектованию штатов в других.", "Бюрократическая тревога")
+	priority_announce("Недавняя бюрократическая ошибка в Департаменте Органических Ресурсов может привести к кадровой нехватке в одних департаментах и избыточному укомплектованию штатов в других.", "Бюрократическая тревога", 'sound/ai/announcer/buerac.ogg')
 
 /datum/round_event/bureaucratic_error/start()
 	var/list/jobs = SSjob.occupations.Copy()

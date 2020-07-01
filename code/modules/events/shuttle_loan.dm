@@ -54,7 +54,7 @@
 			bonus_points = 45000 //If you mess up, people die and the shuttle gets turned into swiss cheese
 
 /datum/round_event/shuttle_loan/proc/loan_shuttle()
-	priority_announce(thanks_msg, "Грузовой Шаттл Центрального Командования")
+	priority_announce(thanks_msg, "Грузовой Шаттл Центрального Командования", 'sound/ai/announcer/shuttle.ogg')
 
 	dispatched = TRUE
 	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
