@@ -18,7 +18,7 @@
 	. = list("<span class='info'>*---------*")
 
 	if(true_info)
-		if(!client.holder)
+		if(!client || !client.holder)
 			. += "ОБЪЕКТ: <EM>[name]</EM>."
 			SEND_SOUND(user, sound('sound/ai/hacker/scanned.ogg'))
 			var/is_weapon = FALSE
