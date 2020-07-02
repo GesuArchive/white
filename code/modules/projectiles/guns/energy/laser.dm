@@ -1,6 +1,6 @@
 /obj/item/gun/energy/laser
-	name = "laser gun"
-	desc = "A basic energy-based laser gun that fires concentrated beams of light which pass through glass and thin metal."
+	name = "лазерная пушка"
+	desc = "Основная лазерная пушка на основе энергии, которая запускает концентрированные лучи света, которые проходят через стекло и тонкий металл."
 	icon_state = "laser"
 	inhand_icon_state = "laser"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -10,68 +10,68 @@
 	shaded_charge = 1
 
 /obj/item/gun/energy/laser/practice
-	name = "practice laser gun"
-	desc = "A modified version of the basic laser gun, this one fires less concentrated energy bolts designed for target practice."
+	name = "тренировочная лазерная пушка"
+	desc = "Модифицированная версия базовой лазерной пушки, эта стреляет менее концентрированными энергетическими зарядами, предназначенными для целевой практики."
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/practice)
 	clumsy_check = 0
 	item_flags = NONE
 
 /obj/item/gun/energy/laser/retro
-	name ="retro laser gun"
+	name ="ретро-лазерная пушка"
 	icon_state = "retro"
-	desc = "An older model of the basic lasergun, no longer used by Nanotrasen's private security or military forces. Nevertheless, it is still quite deadly and easy to maintain, making it a favorite amongst pirates and other outlaws."
+	desc = "Старая модель основного лазерного оружия, более не используемая частной службой безопасности или вооруженными силами Нанотрасена. Тем не менее, он все еще довольно смертоносен и прост в обслуживании, что делает его фаворитом среди пиратов и других преступников."
 	ammo_x_offset = 3
 
 /obj/item/gun/energy/laser/retro/old
-	name ="laser gun"
+	name ="лазерная пушка"
 	icon_state = "retro"
-	desc = "First generation lasergun, developed by Nanotrasen. Suffers from ammo issues but its unique ability to recharge its ammo without the need of a magazine helps compensate. You really hope someone has developed a better lasergun while you were in cryo."
+	desc = "Лазерное ружье первого поколения, разработанное Нанотрейзеном. Страдает от проблем с боеприпасами, но его уникальная способность заряжать боеприпасы без необходимости в журнале помогает компенсировать это. Вы действительно надеетесь, что кто-то разработал лучшую лазерную пушку, пока вы были в крио."
 	ammo_type = list(/obj/item/ammo_casing/energy/lasergun/old)
 	ammo_x_offset = 3
 
 /obj/item/gun/energy/laser/hellgun
-	name ="hellfire laser gun"
-	desc = "A relic of a weapon, built before NT began installing regulators on its laser weaponry. This pattern of laser gun became infamous for the gruesome burn wounds it caused, and was quietly discontinued once it began to affect NT's reputation."
+	name ="лазерная пушка адского огня"
+	desc = "Реликвия, построенная до того, как НТ начала устанавливать регуляторы на свое лазерное оружие. Этот образец лазерного оружия стал печально известным из-за ужасных ожоговых ран, которые он вызвал, и был тихо прекращен, как только это начало влиять на репутацию NT."
 	icon_state = "hellgun"
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/hellfire)
 
 /obj/item/gun/energy/laser/captain
-	name = "antique laser gun"
+	name = "старинная лазерная пушка"
 	icon_state = "caplaser"
 	inhand_icon_state = null
-	desc = "This is an antique laser gun. All craftsmanship is of the highest quality. It is decorated with assistant leather and chrome. The object menaces with spikes of energy. On the item is an image of Space Station 13. The station is exploding."
+	desc = "Это старинный лазерный пистолет. Мастерство высшего качества. Он декорирован ассистентом из кожи и хромом. Объект угрожает всплесками энергии. На неё изображена Космическая Станция 13. Станция взрывается."
 	force = 10
 	ammo_x_offset = 3
 	selfcharge = 1
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 /obj/item/gun/energy/laser/captain/scattershot
-	name = "scatter shot laser rifle"
+	name = "лазерная винтовка Scatter Shot"
 	icon_state = "lasercannon"
 	inhand_icon_state = "laser"
-	desc = "An industrial-grade heavy-duty laser rifle with a modified laser lens to scatter its shot into multiple smaller lasers. The inner-core can self-charge for theoretically infinite use."
+	desc = "Промышленная сверхмощная лазерная винтовка с модифицированной лазерной линзой, позволяющая рассеять выстрел в несколько меньших лазеров. Внутреннее ядро может заряжаться для теоретически бесконечного использования."
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/scatter, /obj/item/ammo_casing/energy/laser)
 	shaded_charge = FALSE
 
 /obj/item/gun/energy/laser/cyborg
 	can_charge = FALSE
-	desc = "An energy-based laser gun that draws power from the cyborg's internal energy cell directly. So this is what freedom looks like?"
+	desc = "Основанная на энергии лазерная пушка, которая получает энергию непосредственно от внутренней энергетической ячейки киборга. Так вот как выглядит свобода?"
 	use_cyborg_cell = TRUE
 
 /obj/item/gun/energy/laser/cyborg/emp_act()
 	return
 
 /obj/item/gun/energy/laser/scatter
-	name = "scatter laser gun"
-	desc = "A laser gun equipped with a refraction kit that spreads bolts."
+	name = "призмо-лазерная пушка"
+	desc = "Лазерная пушка оснащена рефракционным набором, который расставляет болты."
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/scatter, /obj/item/ammo_casing/energy/laser)
 
 /obj/item/gun/energy/laser/scatter/shotty
-	name = "energy shotgun"
+	name = "энергетический дробовик"
 	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "cshotgun"
 	inhand_icon_state = "shotgun"
-	desc = "A combat shotgun gutted and refitted with an internal laser system. Can switch between taser and scattered disabler shots."
+	desc = "Боевой дробовик распотрошен и оснащен внутренней лазерной системой. Может переключаться между тазером и рассеянным выстрелом."
 	shaded_charge = 0
 	pin = /obj/item/firing_pin/implant/mindshield
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/scatter/disabler, /obj/item/ammo_casing/energy/electrode)
@@ -79,8 +79,8 @@
 ///Laser Cannon
 
 /obj/item/gun/energy/lasercannon
-	name = "accelerator laser cannon"
-	desc = "An advanced laser cannon that does more damage the farther away the target is."
+	name = "ускоряющая лазерная пушка"
+	desc = "Усовершенствованная лазерная пушка, которая наносит больше урона по мере удаления от цели."
 	icon_state = "lasercannon"
 	inhand_icon_state = "laser"
 	w_class = WEIGHT_CLASS_BULKY
@@ -97,7 +97,7 @@
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
 
 /obj/projectile/beam/laser/accelerator
-	name = "accelerator laser"
+	name = "ускоренный лазер"
 	icon_state = "scatterlaser"
 	range = 255
 	damage = 6
@@ -109,8 +109,8 @@
 
 ///X-ray gun
 /obj/item/gun/energy/xray
-	name = "\improper X-ray laser gun"
-	desc = "A high-power laser gun capable of expelling concentrated X-ray blasts that pass through multiple soft targets and heavier materials."
+	name = "рентгеновская лазерная пушка"
+	desc = "Мощная лазерная пушка, способная излучать концентрированные рентгеновские заряды, которые проходят через множество мягких целей и более тяжелых материалов."
 	icon_state = "xray"
 	inhand_icon_state = null
 	ammo_type = list(/obj/item/ammo_casing/energy/xray)
@@ -120,9 +120,9 @@
 ////////Laser Tag////////////////////
 
 /obj/item/gun/energy/laser/bluetag
-	name = "laser tag gun"
+	name = "лазертаг"
 	icon_state = "bluetag"
-	desc = "A retro laser gun modified to fire harmless blue beams of light. Sound effects included!"
+	desc = "Ретро лазерный пистолет, модифицированный для стрельбы безобидными голубыми лучами света Звуковые эффекты включены!"
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/bluetag)
 	item_flags = NONE
 	clumsy_check = FALSE
@@ -134,9 +134,9 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/bluetag/hitscan)
 
 /obj/item/gun/energy/laser/redtag
-	name = "laser tag gun"
+	name = "лазертаг"
 	icon_state = "redtag"
-	desc = "A retro laser gun modified to fire harmless beams red of light. Sound effects included!"
+	desc = "Ретро лазерный пистолет, модифицированный для стрельбы безвредными лучами красного света. Звуковые эффекты включены!"
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/redtag)
 	item_flags = NONE
 	clumsy_check = FALSE

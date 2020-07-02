@@ -1,6 +1,6 @@
 /obj/item/melee/baton
-	name = "stun baton"
-	desc = "A stun baton for incapacitating people with."
+	name = "электрошоковая дубинка"
+	desc = "Электрошокер для выведения людей из строя. <i>Не рекомендуется для плотских утех!</i>"
 
 	icon_state = "stunbaton"
 	inhand_icon_state = "baton"
@@ -116,23 +116,23 @@
 /obj/item/melee/baton/examine(mob/user)
 	. = ..()
 	if(cell)
-		. += "<span class='notice'>\The [src] is [round(cell.percent())]% charged.</span>"
+		. += "<span class='notice'>Дубинка заряжена на [round(cell.percent())]%.</span>"
 	else
-		. += "<span class='warning'>\The [src] does not have a power source installed.</span>"
+		. += "<span class='warning'>Дубинка не имеет батарейки.</span>"
 
 /obj/item/melee/baton/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stock_parts/cell))
 		var/obj/item/stock_parts/cell/C = W
 		if(cell)
-			to_chat(user, "<span class='warning'>[src] already has a cell!</span>")
+			to_chat(user, "<span class='warning'>Дубинка уже имеет батарейку!</span>")
 		else
 			if(C.maxcharge < cell_hit_cost)
-				to_chat(user, "<span class='notice'>[src] requires a higher capacity cell.</span>")
+				to_chat(user, "<span class='notice'>Требует батарейку получше.</span>")
 				return
 			if(!user.transferItemToLoc(W, src))
 				return
 			cell = W
-			to_chat(user, "<span class='notice'>You install a cell in [src].</span>")
+			to_chat(user, "<span class='notice'>Вставляю батарейку в дубинку.</span>")
 			update_icon()
 
 	else if(W.tool_behaviour == TOOL_SCREWDRIVER)
@@ -145,7 +145,7 @@
 		cell.update_icon()
 		cell.forceMove(get_turf(src))
 		cell = null
-		to_chat(user, "<span class='notice'>You remove the cell from [src].</span>")
+		to_chat(user, "<span class='notice'>Вытаскиваю батарейку из дубинки.</span>")
 		turned_on = FALSE
 		update_icon()
 
@@ -155,22 +155,22 @@
 /obj/item/melee/baton/proc/toggle_on(mob/user)
 	if(cell && cell.charge > cell_hit_cost)
 		turned_on = !turned_on
-		to_chat(user, "<span class='notice'>[src] is now [turned_on ? "on" : "off"].</span>")
+		to_chat(user, "<span class='notice'>Дубинка теперь [turned_on ? "включена" : "выключена"].</span>")
 		playsound(src, activate_sound, 75, TRUE, -1)
 	else
 		turned_on = FALSE
 		if(!cell)
-			to_chat(user, "<span class='warning'>[src] does not have a power source!</span>")
+			to_chat(user, "<span class='warning'>Дубинка не имеет батарейки!</span>")
 		else
-			to_chat(user, "<span class='warning'>[src] is out of charge.</span>")
+			to_chat(user, "<span class='warning'>Дубинка разрядилась</span>")
 	update_icon()
 	add_fingerprint(user)
 
 /obj/item/melee/baton/proc/clumsy_check(mob/living/carbon/human/user)
 	if(turned_on && HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50))
 		playsound(src, stun_sound, 75, TRUE, -1)
-		user.visible_message("<span class='danger'>[user] accidentally hits [user.p_them()]self with [src]!</span>", \
-							"<span class='userdanger'>You accidentally hit yourself with [src]!</span>")
+		user.visible_message("<span class='danger'><b>[user]</b> случайно бьёт себя <b>электрошоковой дубинкой</b>!</span>", \
+							"<span class='userdanger'>Бью себя <b>электрошоковой дубинкой</b>! Я попал?</span>")
 		user.Knockdown(stun_time*3) //should really be an equivalent to attack(user,user)
 		deductcharge(cell_hit_cost)
 		return TRUE
@@ -197,10 +197,10 @@
 					user.do_attack_animation(M)
 					return
 			else
-				to_chat(user, "<span class='danger'>The baton is still charging!</span>")
+				to_chat(user, "<span class='danger'>Дубинка всё ещё заряжается!</span>")
 		else
-			M.visible_message("<span class='warning'>[user] prods [M] with [src]. Luckily it was off.</span>", \
-							"<span class='warning'>[user] prods you with [src]. Luckily it was off.</span>")
+			M.visible_message("<span class='warning'><b>[user]</b> тычет в [M] дубинкой. Она выключена.</span>", \
+							"<span class='warning'><b>[user]</b> тычет в меня дубинкой. Она выключена.</span>")
 	else
 		if(turned_on)
 			if(attack_cooldown_check <= world.time)
@@ -212,7 +212,7 @@
 	if(shields_blocked(L, user))
 		return FALSE
 	if(HAS_TRAIT_FROM(L, TRAIT_IWASBATONED, user)) //no doublebaton abuse anon!
-		to_chat(user, "<span class='danger'>[L] manages to avoid the attack!</span>")
+		to_chat(user, "<span class='danger'><b>[L]</b> умело уворачивается от дубинки!</span>")
 		return FALSE
 	if(iscyborg(loc))
 		var/mob/living/silicon/robot/R = loc
@@ -234,8 +234,8 @@
 	if(user)
 		L.lastattacker = user.real_name
 		L.lastattackerckey = user.ckey
-		L.visible_message("<span class='danger'>[user] stuns [L] with [src]!</span>", \
-								"<span class='userdanger'>[user] stuns you with [src]!</span>")
+		L.visible_message("<span class='danger'><b>[user]</b> оглушает [L] <b>электрошоковой дубинкой</b>!</span>", \
+								"<span class='userdanger'><b>[user]</b> оглушает меня <b>электрошоковой дубинкой</b>!</span>")
 		log_combat(user, L, "stunned")
 
 	playsound(src, stun_sound, 50, TRUE, -1)
@@ -255,7 +255,7 @@
 /obj/item/melee/baton/proc/apply_stun_effect_end(mob/living/target)
 	var/trait_check = HAS_TRAIT(target, TRAIT_STUNRESISTANCE) //var since we check it in out to_chat as well as determine stun duration
 	if(!target.IsKnockdown())
-		to_chat(target, "<span class='warning'>Your muscles seize, making you collapse[trait_check ? ", but your body quickly recovers..." : "!"]</span>")
+		to_chat(target, "<span class='warning'>Мышцы сжимаются, принуждая меня упасть[trait_check ? ", но моё тело быстро восстанавливается..." : "!"]</span>")
 
 	if(trait_check)
 		target.Knockdown(stun_time * 0.1)
@@ -270,15 +270,15 @@
 /obj/item/melee/baton/proc/shields_blocked(mob/living/L, mob/user)
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
-		if(H.check_shields(src, 0, "[user]'s [name]", MELEE_ATTACK)) //No message; check_shields() handles that
+		if(H.check_shields(src, 0, "[user] [name]", MELEE_ATTACK)) //No message; check_shields() handles that
 			playsound(H, 'sound/weapons/genhit.ogg', 50, TRUE)
 			return TRUE
 	return FALSE
 
 //Makeshift stun baton. Replacement for stun gloves.
 /obj/item/melee/baton/cattleprod
-	name = "stunprod"
-	desc = "An improvised stun baton."
+	name = "самодельный электрошокер"
+	desc = "Импровизированная электрошоковая дубинка."
 	icon_state = "stunprod"
 	inhand_icon_state = "prod"
 	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
@@ -307,8 +307,8 @@
 	return ..()
 
 /obj/item/melee/baton/boomerang
-	name = "\improper OZtek Boomerang"
-	desc = "A device invented in 2486 for the great Space Emu War by the confederacy of Australicus, these high-tech boomerangs also work exceptionally well at stunning crewmembers. Just be careful to catch it when thrown!"
+	name = "\improper OZtek Бумеранг"
+	desc = "Устройство, изобретенное в 2486 году для великой войны в Космическом Эму конфедерацией Австраликуса, эти высокотехнологичные бумеранги также отлично работают на потрясающих членов экипажа. Просто будьте осторожны, чтобы поймать его, когда брошено!"
 	throw_speed = 1
 	icon_state = "boomerang"
 	inhand_icon_state = "boomerang"

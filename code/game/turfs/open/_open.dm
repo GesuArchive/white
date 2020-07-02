@@ -196,7 +196,7 @@
 			if(C.m_intent == MOVE_INTENT_WALK && (lube&NO_SLIP_WHEN_WALKING))
 				return 0
 		if(!(lube&SLIDE_ICE))
-			to_chat(C, "<span class='notice'>Слишком скоо-о-ользко[ O ? "! БЛЯДСКИЙ [r_uppertext(O.name)]" : ""]!</span>")
+			to_chat(C, "<span class='notice'>Слишком скоо-о-ользко[ O ? "! [r_uppertext(O.name)] ПОПАДАЕТСЯ МНЕ ПОД НОГИ" : ""]!</span>")
 			playsound(C.loc, 'sound/misc/slip.ogg', 50, TRUE, -3)
 
 		SEND_SIGNAL(C, COMSIG_ADD_MOOD_EVENT, "slipped", /datum/mood_event/slipped)

@@ -1,6 +1,6 @@
 /obj/item/mop
-	desc = "The world of janitalia wouldn't be complete without a mop."
-	name = "mop"
+	desc = "Мир \"janitalia\" не был бы полным без швабры."
+	name = "швабра"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "mop"
 	lefthand_file = 'icons/mob/inhands/equipment/custodial_lefthand.dmi'
@@ -16,7 +16,7 @@
 	var/mopcount = 0
 	var/mopcap = 15
 	var/mopspeed = 15
-	force_string = "robust... against germs"
+	force_string = "крепкая... против микробов"
 	var/insertable = TRUE
 
 /obj/item/mop/Initialize()
@@ -45,7 +45,7 @@
 		return
 
 	if(reagents.total_volume < 0.1)
-		to_chat(user, "<span class='warning'>Your mop is dry!</span>")
+		to_chat(user, "<span class='warning'>Швабра сухая!</span>")
 		return
 
 	var/turf/T = get_turf(A)
@@ -54,10 +54,10 @@
 		return
 
 	if(T)
-		user.visible_message("<span class='notice'>[user] begins to clean \the [T] with [src].</span>", "<span class='notice'>You begin to clean \the [T] with [src]...</span>")
+		user.visible_message("<span class='notice'>[user] начинает мыть [T] используя [src.name].</span>", "<span class='notice'>Начинаю мыть [T] используя [src.name]...</span>")
 		var/clean_speedies = user.mind.get_skill_modifier(/datum/skill/cleaning, SKILL_SPEED_MODIFIER)
 		if(do_after(user, mopspeed*clean_speedies, target = T))
-			to_chat(user, "<span class='notice'>You finish mopping.</span>")
+			to_chat(user, "<span class='notice'>Заканчиваю мыть пол.</span>")
 			clean(T, user)
 
 
@@ -74,15 +74,15 @@
 		J.mymop=src
 		J.update_icon()
 	else
-		to_chat(user, "<span class='warning'>You are unable to fit your [name] into the [J.name].</span>")
+		to_chat(user, "<span class='warning'>Эта штука не помещается у меня в [J.name].</span>")
 		return
 
 /obj/item/mop/cyborg
 	insertable = FALSE
 
 /obj/item/mop/advanced
-	desc = "The most advanced tool in a custodian's arsenal, complete with a condenser for self-wetting! Just think of all the viscera you will clean up with this!"
-	name = "advanced mop"
+	desc = "Самый передовой инструмент в арсенале хранителя, в комплекте с конденсатором для смачивания! Просто подумайте обо всех внутренностях, которые вы очистите с этим!"
+	name = "продвинутая швабра"
 	mopcap = 10
 	icon_state = "advmop"
 	inhand_icon_state = "mop"
@@ -106,7 +106,7 @@
 		START_PROCESSING(SSobj, src)
 	else
 		STOP_PROCESSING(SSobj,src)
-	to_chat(user, "<span class='notice'>You set the condenser switch to the '[refill_enabled ? "ON" : "OFF"]' position.</span>")
+	to_chat(user, "<span class='notice'>Устанавливаю переключатель конденсатора в положение '[refill_enabled ? "ВКЛ" : "ВЫКЛ"]'.</span>")
 	playsound(user, 'sound/machines/click.ogg', 30, TRUE)
 
 /obj/item/mop/advanced/process()
@@ -116,7 +116,7 @@
 
 /obj/item/mop/advanced/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>.</span>"
+	. += "<span class='notice'>Переключатель конденсатора сейчас в положении <b>[refill_enabled ? "ВКЛ" : "ВЫКЛ"]</b>.</span>"
 
 /obj/item/mop/advanced/Destroy()
 	if(refill_enabled)
