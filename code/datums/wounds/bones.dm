@@ -154,7 +154,7 @@
 			if(25 to 50)
 				splint_condition = "плохо"
 			if(50 to 75)
-				splint_condition = "почти"
+				splint_condition = "слабовато"
 			if(75 to INFINITY)
 				splint_condition = "плотно"
 
