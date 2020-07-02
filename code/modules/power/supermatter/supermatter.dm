@@ -418,7 +418,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	var/turf/T = get_turf(src)
 	for(var/mob/M in GLOB.player_list)
 		if(M.z == z)
-			SEND_SOUND(M, 'sound/magic/charge.ogg')
+			SEND_SOUND(M, sound('sound/magic/charge.ogg'))
 			to_chat(M, "<span class='boldannounce'>Ощущаю искажение реальности на мгновение...</span>")
 			SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "delam", /datum/mood_event/delam)
 	if(combined_gas > MOLE_PENALTY_THRESHOLD)
@@ -769,7 +769,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	visible_message("<span class='userdanger'>[src] потребляется сингулярностью!</span>")
 	for(var/mob/M in GLOB.player_list)
 		if(M.z == z)
-			SEND_SOUND(M, 'sound/effects/supermatter.ogg') //everyone goan know bout this
+			SEND_SOUND(M, sound('sound/effects/supermatter.ogg')) //everyone goan know bout this
 			to_chat(M, "<span class='boldannounce'>Ужасный визг наполняет уши, волна страха омывает меня...</span>")
 	qdel(src)
 	return gain

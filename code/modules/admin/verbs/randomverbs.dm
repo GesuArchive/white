@@ -1142,7 +1142,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		if(ADMIN_PUNISHMENT_FAT)
 			target.set_nutrition(NUTRITION_LEVEL_FAT*2)
 		if(ADMIN_PUNISHMENT_FAKEBWOINK)
-			SEND_SOUND(target, 'sound/effects/adminhelp.ogg')
+			SEND_SOUND(target, sound('sound/effects/adminhelp.ogg'))
 		if(ADMIN_PUNISHMENT_NUGGET)
 			if(!iscarbon(target))
 				to_chat(usr,"<span class='warning'>This must be used on a carbon mob.</span>", confidential = TRUE)

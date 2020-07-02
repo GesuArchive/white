@@ -57,7 +57,7 @@ Runes can either be invoked by one's self or with many different cultists. Each 
 
 /obj/effect/rune/attackby(obj/I, mob/user, params)
 	if(istype(I, /obj/item/melee/cultblade/dagger) && iscultist(user))
-		SEND_SOUND(user,'sound/items/sheath.ogg')
+		SEND_SOUND(user,sound('sound/items/sheath.ogg'))
 		if(do_after(user, 15, target = src))
 			to_chat(user, "<span class='notice'>You carefully erase the [lowertext(cultist_name)] rune.</span>")
 			qdel(src)
@@ -576,7 +576,7 @@ structure_check() searches for nearby cultist structures required for the invoca
 		else
 			fail_invoke()
 			return
-	SEND_SOUND(mob_to_revive, 'sound/ambience/antag/bloodcult.ogg')
+	SEND_SOUND(mob_to_revive, sound('sound/ambience/antag/bloodcult.ogg'))
 	to_chat(mob_to_revive, "<span class='cultlarge'>\"PASNAR SAVRAE YAM'TOTH. Arise.\"</span>")
 	mob_to_revive.visible_message("<span class='warning'>[mob_to_revive] draws in a huge breath, red light shining from [mob_to_revive.p_their()] eyes.</span>", \
 								  "<span class='cultlarge'>You awaken suddenly from the void. You're alive!</span>")
@@ -944,7 +944,7 @@ structure_check() searches for nearby cultist structures required for the invoca
 				images += C
 		else
 			to_chat(M, "<span class='cultlarge'>An Apocalypse Rune was invoked in the [place.name], it is no longer available as a summoning site!</span>")
-			SEND_SOUND(M, 'sound/effects/pope_entry.ogg')
+			SEND_SOUND(M, sound('sound/effects/pope_entry.ogg'))
 	image_handler(images, duration)
 	if(intensity>=285) // Based on the prior formula, this means the cult makes up <15% of current players
 		var/outcome = rand(1,100)

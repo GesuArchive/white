@@ -310,7 +310,7 @@
 
 	window_flash(C, ignorepref = TRUE)
 	//always play non-admin recipients the adminhelp sound
-	SEND_SOUND(C, 'sound/effects/adminhelp.ogg')
+	SEND_SOUND(C, sound('sound/effects/adminhelp.ogg'))
 
 	C.externalreplyamount = EXTERNALREPLYCOUNT
 

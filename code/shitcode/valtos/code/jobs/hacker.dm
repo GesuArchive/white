@@ -67,7 +67,7 @@
 		return
 	var/mob/living/carbon/human/user = src.loc
 	to_chat(user, "<span class='danger'>E:FATAL:RAM_READ_FAIL\nE:FATAL:STACK_EMPTY\nE:FATAL:READ_NULL_POINT\nE:FATAL:PWR_BUS_OVERLOAD</span>")
-	SEND_SOUND(user, 'sound/ai/hacker/emp.ogg')
+	SEND_SOUND(user, sound('sound/ai/hacker/emp.ogg'))
 
 /obj/item/clothing/glasses/hud/wzzzz/hacker_rig/equipped(mob/living/carbon/human/H, slot)
 	. = ..()

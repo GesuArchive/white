@@ -267,7 +267,7 @@
 	if(ratio > CULT_RISEN && !cult_risen)
 		for(var/datum/mind/B in members)
 			if(B.current)
-				SEND_SOUND(B.current, 'sound/hallucinations/i_see_you2.ogg')
+				SEND_SOUND(B.current, sound('sound/hallucinations/i_see_you2.ogg'))
 				to_chat(B.current, "<span class='cultlarge'>The veil weakens as your cult grows, your eyes begin to glow...</span>")
 				addtimer(CALLBACK(src, .proc/rise, B.current), 200)
 		cult_risen = TRUE
@@ -275,7 +275,7 @@
 	if(ratio > CULT_ASCENDENT && !cult_ascendent)
 		for(var/datum/mind/B in members)
 			if(B.current)
-				SEND_SOUND(B.current, 'sound/hallucinations/im_here1.ogg')
+				SEND_SOUND(B.current, sound('sound/hallucinations/im_here1.ogg'))
 				to_chat(B.current, "<span class='cultlarge'>Your cult is ascendent and the red harvest approaches - you cannot hide your true nature for much longer!!</span>")
 				addtimer(CALLBACK(src, .proc/ascend, B.current), 200)
 		cult_ascendent = TRUE

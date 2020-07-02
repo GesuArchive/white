@@ -346,7 +346,7 @@
 		result += "<span class='greentext'>[special_role_text] успешен!</span>"
 	else
 		result += "<span class='redtext'>[special_role_text] провален!</span>"
-		SEND_SOUND(owner.current, 'sound/ambience/ambifailure.ogg')
+		SEND_SOUND(owner.current, sound('sound/ambience/ambifailure.ogg'))
 
 	return result.Join("<br>")
 

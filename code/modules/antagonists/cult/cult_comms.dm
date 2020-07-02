@@ -95,13 +95,13 @@
 		if(B.current)
 			B.current.update_action_buttons_icon()
 			if(!B.current.incapacitated())
-				SEND_SOUND(B.current, 'sound/hallucinations/im_here1.ogg')
+				SEND_SOUND(B.current, sound('sound/hallucinations/im_here1.ogg'))
 				to_chat(B.current, "<span class='cultlarge'>Acolyte [Nominee] has asserted that [Nominee.p_theyre()] worthy of leading the cult. A vote will be called shortly.</span>")
 	sleep(100)
 	var/list/asked_cultists = list()
 	for(var/datum/mind/B in team.members)
 		if(B.current && B.current != Nominee && !B.current.incapacitated())
-			SEND_SOUND(B.current, 'sound/magic/exit_blood.ogg')
+			SEND_SOUND(B.current, sound('sound/magic/exit_blood.ogg'))
 			asked_cultists += B.current
 	var/list/yes_voters = pollCandidates("[Nominee] seeks to lead your cult, do you support [Nominee.p_them()]?", poll_time = 300, group = asked_cultists)
 	if(QDELETED(Nominee) || Nominee.incapacitated())
@@ -332,7 +332,7 @@
 		desc = "Marks whatever you are orbitting - for the entire cult to track."
 		button_icon_state = "cult_mark"
 		owner.update_action_buttons_icon()
-		SEND_SOUND(owner, 'sound/magic/enter_blood.ogg')
+		SEND_SOUND(owner, sound('sound/magic/enter_blood.ogg'))
 		to_chat(owner,"<span class='cultbold'>Your previous mark is gone - you are now ready to create a new blood mark.</span>")
 
 /datum/action/innate/cult/ghostmark/Activate()
