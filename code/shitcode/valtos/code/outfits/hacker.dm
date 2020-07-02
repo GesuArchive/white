@@ -5,7 +5,7 @@
 	belt = /obj/item/storage/belt/utility/full
 	l_pocket = /obj/item/pda/toxins
 	ears = /obj/item/radio/headset/headset_sci
-	//glasses = /obj/item/clothing/glasses/hud/wzzzz/hacker_rig
+	glasses = /obj/item/clothing/glasses/hud/wzzzz/hacker_rig
 	//gloves = /obj/item/clothing/gloves/combat/wzzzz/guard
 	uniform = /obj/item/clothing/under/wzzzz/victorian/vest/black
 	shoes = /obj/item/clothing/shoes/jackboots

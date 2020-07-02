@@ -8,17 +8,17 @@
 	var/obscure_name
 	var/true_info = FALSE
 
-	if(isliving(user))
-		var/mob/living/L = user
-		if(HAS_TRAIT(L, TRAIT_PROSOPAGNOSIA))
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(HAS_TRAIT(H, TRAIT_PROSOPAGNOSIA))
 			obscure_name = TRUE
-		if(HAS_TRAIT(L, TRAIT_HACKER))
+		if(HAS_TRAIT(H, TRAIT_HACKER) && H.glasses.type == /obj/item/clothing/glasses/hud/wzzzz/hacker_rig)
 			true_info = TRUE
 
 	. = list("<span class='info'>*---------*")
 
 	if(true_info)
-		if(!client.holder)
+		if(!client || !client.holder)
 			. += "ОБЪЕКТ: <EM>[name]</EM>."
 			SEND_SOUND(user, sound('sound/ai/hacker/scanned.ogg'))
 			var/is_weapon = FALSE
