@@ -12,7 +12,7 @@
 		var/mob/living/carbon/human/H = user
 		if(HAS_TRAIT(H, TRAIT_PROSOPAGNOSIA))
 			obscure_name = TRUE
-		if(H.glasses.type == /obj/item/clothing/glasses/hud/wzzzz/hacker_rig)
+		if(H.glasses && H.glasses.type == /obj/item/clothing/glasses/hud/wzzzz/hacker_rig)
 			true_info = TRUE
 
 	. = list("<span class='info'>*---------*")
