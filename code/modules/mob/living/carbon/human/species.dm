@@ -1335,15 +1335,20 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(!(target.mobility_flags & MOBILITY_STAND))
 			atk_verb = ATTACK_EFFECT_KICK
 
+		var/atk_verb_ru = "бьёт"
 		switch(atk_verb)//this code is really stupid but some genius apparently made "claw" and "slash" two attack types but also the same one so it's needed i guess
 			if(ATTACK_EFFECT_KICK)
 				user.do_attack_animation(target, ATTACK_EFFECT_KICK)
+				atk_verb_ru = "пинает"
 			if(ATTACK_EFFECT_SLASH || ATTACK_EFFECT_CLAW)//smh
 				user.do_attack_animation(target, ATTACK_EFFECT_CLAW)
+				atk_verb_ru = "разрывает"
 			if(ATTACK_EFFECT_SMASH)
 				user.do_attack_animation(target, ATTACK_EFFECT_SMASH)
+				atk_verb_ru = "разбивает"
 			else
 				user.do_attack_animation(target, ATTACK_EFFECT_PUNCH)
+				atk_verb_ru = "бьёт"
 
 		//var/dam_dice_rolled = roll_stat_dice(user.current_fate[MOB_STR] + user.current_fate[MOB_DEX])
 
@@ -1362,8 +1367,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		if(!damage || !affecting || prob(miss_chance))//future-proofing for species that have 0 damage/weird cases where no zone is targeted
 			playsound(target.loc, user.dna.species.miss_sound, 25, TRUE, -1)
-			target.visible_message("<span class='danger'>[user] [atk_verb] мимо [target]!</span>",\
-							"<span class='userdanger'>[user] [atk_verb] мимо меня!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, user)
+			target.visible_message("<span class='danger'>[user] [atk_verb_ru] мимо [target]!</span>",\
+							"<span class='userdanger'>[user] [atk_verb_ru] мимо меня!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, user)
 			to_chat(user, "<span class='warning'>Промахиваюсь пытаясь ударить [target]!</span>")
 
 			//target.visible_message("<span class='danger'>[user][return_miss_string(mis_dice_rolled)] [atk_verb] мимо [target]!</span>",\
@@ -1379,8 +1384,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		playsound(target.loc, user.dna.species.attack_sound, 25, TRUE, -1)
 
-		target.visible_message("<span class='danger'>[user] [atk_verb] [target]!</span>", \
-					"<span class='userdanger'>[user] [atk_verb] меня!</span>", "<span class='hear'>Слышу как что-то бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, user)
+		target.visible_message("<span class='danger'>[user] [atk_verb_ru] [target]!</span>", \
+					"<span class='userdanger'>[user] [atk_verb_ru] меня!</span>", "<span class='hear'>Слышу как что-то бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, "<span class='danger'>Бью [target]!</span>")
 
 		//target.visible_message("<span class='danger'>[user][return_damage_string(dam_dice_rolled)] [atk_verb] [target]!</span>", \

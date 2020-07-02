@@ -2,16 +2,16 @@
 
 /mob/living/simple_animal/pet/dog
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
-	response_disarm_continuous = "bops"
-	response_disarm_simple = "bop"
-	response_harm_continuous = "kicks"
-	response_harm_simple = "kick"
-	speak = list("YAP", "Woof!", "Bark!", "AUUUUUU")
-	speak_emote = list("barks", "woofs")
-	emote_hear = list("barks!", "woofs!", "yaps.","pants.")
-	emote_see = list("shakes its head.", "chases its tail.","shivers.")
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
+	response_disarm_continuous = "отталкивает"
+	response_disarm_simple = "отталкивает"
+	response_harm_continuous = "пинает"
+	response_harm_simple = "пинает"
+	speak = list("ТЯФ", "Вуф!", "Гав!", "АУУУУУУ!!!")
+	speak_emote = list("гавкает", "вуфает")
+	emote_hear = list("гавкает!", "вуфает!", "тявкает.","ластится.")
+	emote_see = list("качает головой.", "гоняется за своим хвостом.","дрожит.")
 	faction = list("neutral")
 	see_in_dark = 5
 	speak_chance = 1
