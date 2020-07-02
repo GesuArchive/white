@@ -104,6 +104,12 @@
 			datum_flags |= DF_VAR_EDITED
 			return TRUE
 
+		if ("icon")
+			sleep(5)
+				icon = var_value
+			datum_flags |= DF_VAR_EDITED
+			return TRUE
+
 	return ..()
 
 
