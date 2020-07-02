@@ -106,7 +106,7 @@
 	color = "#00ffff"
 	name = "гипершлем"
 	desc = "А ты заслуживаешь это?"
-	flags_inv = 0
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEMASK
 	worn_icon = null
 	slowdown = -1
 	strip_delay = 1300
