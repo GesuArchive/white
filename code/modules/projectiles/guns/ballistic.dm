@@ -367,7 +367,7 @@
 			if(T && is_station_level(T.z))
 				SSblackbox.record_feedback("tally", "station_mess_created", 1, CB.name)
 		if (num_unloaded)
-			to_chat(user, "<span class='notice'Ты выгружаешь [num_unloaded] [cartridge_wording] из <b>[src.name]</b>.</span>")
+			to_chat(user, "<span class='notice'>Выгружаю [num_unloaded] [cartridge_wording] из <b>[src.name]</b>.</span>")
 			playsound(user, eject_sound, eject_sound_volume, eject_sound_vary)
 			update_icon()
 		else

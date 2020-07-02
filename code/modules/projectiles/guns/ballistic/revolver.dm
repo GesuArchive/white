@@ -46,7 +46,7 @@
 
 	if(do_spin())
 		playsound(usr, "revolver_spin", 30, FALSE)
-		usr.visible_message("<span class='notice'>[usr] крутит [src] барабан.</span>", "<span class='notice'>Вы покрутили барабан у [src].</span>")
+		usr.visible_message("<span class='notice'><b>[usr]</b> крутит барабан <b>[src.name]</b>.</span>", "<span class='notice'>Кручу барабан <b>[src.name]</b>.</span>")
 	else
 		verbs -= /obj/item/gun/ballistic/revolver/verb/spin
 
@@ -68,9 +68,9 @@
 /obj/item/gun/ballistic/revolver/examine(mob/user)
 	. = ..()
 	var/live_ammo = get_ammo(FALSE, FALSE)
-	. += "[live_ammo ? live_ammo : "None"] of those are live rounds."
+	. += "[live_ammo ? live_ammo : "Нет"] живых патронов."
 	if (current_skin)
-		. += "It can be spun with <b>alt+click</b>"
+		. += "Его можно покрутить используя <b>Alt+клик</b>"
 
 /obj/item/gun/ballistic/revolver/detective
 	name = "\improper специальный кольт детектива"
@@ -94,7 +94,7 @@
 	if(magazine.caliber != initial(magazine.caliber))
 		if(prob(70 - (magazine.ammo_count() * 10)))	//minimum probability of 10, maximum of 60
 			playsound(user, fire_sound, fire_sound_volume, vary_fire_sound)
-			to_chat(user, "<span class='userdanger'>[src] приставил к лицу!</span>")
+			to_chat(user, "<span class='userdanger'><b>[src.name]</b> приставил к лицу!</span>")
 			user.take_bodypart_damage(0,20)
 			user.dropItemToGround(src)
 			return 0
@@ -104,39 +104,39 @@
 	if(..())
 		return TRUE
 	if(magazine.caliber == "38")
-		to_chat(user, "<span class='notice'>Вы начали заряжать барабан [src]...</span>")
+		to_chat(user, "<span class='notice'>Начинаю заряжать барабан <b>[src.name]</b>...</span>")
 		if(magazine.ammo_count())
 			afterattack(user, user)	//you know the drill
-			user.visible_message("<span class='danger'>[src] выстрелило!</span>", "<span class='userdanger'>[src] выстрелило в лицо!</span>")
+			user.visible_message("<span class='danger'><b>[src.name]</b> выстрелило!</span>", "<span class='userdanger'><b>[src.name]</b> выстрелило в лицо!</span>")
 			return TRUE
 		if(I.use_tool(src, user, 30))
 			if(magazine.ammo_count())
-				to_chat(user, "<span class='warning'>Вы не можете изменить это!</span>")
+				to_chat(user, "<span class='warning'>Не получается изменить его!</span>")
 				return TRUE
 			magazine.caliber = "357"
 			fire_sound = 'sound/weapons/gun/revolver/shot_alt.ogg'
 			desc = "Барабан и камера выглядит измененно."
-			to_chat(user, "<span class='notice'>Вы заряжаете барабан этим [src]. Должно стрелять .357 патронами.</span>")
+			to_chat(user, "<span class='notice'>Заряжаю барабан этим <b>[src.name]</b>. Должно стрелять .357 патронами.</span>")
 	else
-		to_chat(user, "<span class='notice'> Вы начинаете переделывать обратно в [src]...</span>")
+		to_chat(user, "<span class='notice'>Начинаю переделывать обратно в <b>[src.name]</b>...</span>")
 		if(magazine.ammo_count())
 			afterattack(user, user)	//and again
-			user.visible_message("<span class='danger'>[src] выстрелило!</span>", "<span class='userdanger'>[src] выстрелило в лицо!</span>")
+			user.visible_message("<span class='danger'><b>[src.name]</b> выстрелило!</span>", "<span class='userdanger'><b>[src.name]</b> выстрелило в лицо!</span>")
 			return TRUE
 		if(I.use_tool(src, user, 30))
 			if(magazine.ammo_count())
-				to_chat(user, "<span class='warning'>Вы не можете изменить это!</span>")
+				to_chat(user, "<span class='warning'>Не получается изменить его!</span>")
 				return
 			magazine.caliber = "38"
 			fire_sound = 'sound/weapons/gun/revolver/shot.ogg'
 			desc = initial(desc)
-			to_chat(user, "<span class='notice'>Вы сделали так, как и было у [src]. Будет стрелять .38 патронами.</span>")
+			to_chat(user, "<span class='notice'>Делаю так как и было у <b>[src.name]</b>. Будет стрелять .38 патронами.</span>")
 	return TRUE
 
 
 /obj/item/gun/ballistic/revolver/mateba
 	name = "\improper Unica 6 автоматический револьвер"
-	desc = "Ретро-мощный револьвер, обычно используемый офицерами новой россии. Использует .357 патроны."
+	desc = "Ретро-мощный револьвер, обычно используемый офицерами новой России. Использует .357 патроны."
 	icon_state = "mateba"
 
 /obj/item/gun/ballistic/revolver/golden
@@ -199,13 +199,13 @@
 			return
 	if(target != user)
 		if(ismob(target))
-			to_chat(user, "<span class='warning'>Хитрый механизм препятствует стрелять в других. Попробуйте в себя!</span>")
+			to_chat(user, "<span class='warning'>Хитрый механизм препятствует стрелять в других. Может в себя?</span>")
 		return
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!spun)
-			to_chat(user, "<span class='warning'>Вам нужно покрутить \the [src]'s барабан сначала!</span>")
+			to_chat(user, "<span class='warning'>Стоит покрутить барабан <b>[src.name]</b> сначала!</span>")
 			return
 
 		spun = FALSE
@@ -219,21 +219,21 @@
 				if(zone == BODY_ZONE_HEAD || zone == BODY_ZONE_PRECISE_EYES || zone == BODY_ZONE_PRECISE_MOUTH)
 					shoot_self(user, affecting)
 				else
-					user.visible_message("<span class='danger'>[user.name] трусливо стреляет [src] в [user.p_their()] [affecting.name]!</span>", "<span class='userdanger'>Вы трусливо выстрелили [src] в свой [affecting.name]!</span>", "<span class='hear'>Вы слышали выстрел!</span>")
+					user.visible_message("<span class='danger'><b>[user.name]</b> трусливо стреляет <b>[src.name]</b> в [user.p_their()] [affecting.name]!</span>", "<span class='userdanger'>Вы трусливо выстрелили <b>[src.name]</b> в свой [affecting.name]!</span>", "<span class='hear'>Вы слышали выстрел!</span>")
 				chambered = null
 				return
 
-		user.visible_message("<span class='danger'>*click*</span>")
+		user.visible_message("<span class='danger'>*щёлк*</span>")
 		playsound(src, dry_fire_sound, 30, TRUE)
 
 /obj/item/gun/ballistic/revolver/russian/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
 	add_fingerprint(user)
 	playsound(src, dry_fire_sound, 30, TRUE)
-	user.visible_message("<span class='danger'>[user.name] пытается выстрелить \the [src] , но только удается выглядеть как идиот.</span>", "<span class='danger'>\The [src]'s механизм не позволяет выстрелить!</span>")
+	user.visible_message("<span class='danger'><b>[user.name]</b> пытается выстрелить из <b>[src.name]</b>, но выглядит как еблан.</span>", "<span class='danger'>Механизм <b>[src.name]</b> не позволяет выстрелить!</span>")
 
 /obj/item/gun/ballistic/revolver/russian/proc/shoot_self(mob/living/carbon/human/user, affecting = BODY_ZONE_HEAD)
 	user.apply_damage(300, BRUTE, affecting)
-	user.visible_message("<span class='danger'>[user.name] fires [src] at [user.p_their()] head!</span>", "<span class='userdanger'>You fire [src] at your head!</span>", "<span class='hear'>Вы слышали выстрел!</span>")
+	user.visible_message("<span class='danger'><b>[user.name]</b> стреляет из <b>[src.name]</b> себе в голову!</span>", "<span class='userdanger'>Стреляю из <b>[src.name]</b> себе в голову!</span>", "<span class='hear'>Слышу выстрел!</span>")
 
 /obj/item/gun/ballistic/revolver/russian/soul
 	name = "проклятый русский револьвер"
@@ -245,7 +245,7 @@
 	if(!SS.transfer_soul("FORCE", user)) //Something went wrong
 		qdel(SS)
 		return
-	user.visible_message("<span class='danger'>[user.name]'s soul is captured by \the [src]!</span>", "<span class='userdanger'>Вы проиграли в азартную игру вместе с душой!</span>")
+	user.visible_message("<span class='danger'>Душа <b>[user.name]</b> теперь принадлежит <b>[src.name]</b>!</span>", "<span class='userdanger'>Вы проиграли в азартную игру вместе с душой!</span>")
 
 /obj/item/gun/ballistic/revolver/reverse //Fires directly at its user... unless the user is a clown, of course.
 	clumsy_check = 0
@@ -254,7 +254,7 @@
 	if((HAS_TRAIT(user, TRAIT_CLUMSY)) || (user.mind && user.mind.assigned_role == "Clown"))
 		return ..()
 	if(process_fire(user, user, FALSE, null, BODY_ZONE_HEAD))
-		user.visible_message("<span class='warning'>[user] как-то удалось выстре [user.p_them()]self in the face!</span>", "<span class='userdanger'>Вы как-то стреляете себе в лицо! Как, черт возьми?!</span>")
+		user.visible_message("<span class='warning'><b>[user]</b> стреляет себе в ебальник!</span>", "<span class='userdanger'>Стреляю себе в ебало! Заебись!</span>")
 		user.emote("scream")
 		user.drop_all_held_items()
 		user.Paralyze(80)

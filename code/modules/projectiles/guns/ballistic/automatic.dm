@@ -43,11 +43,11 @@
 	if(!select)
 		burst_size = 1
 		fire_delay = 0
-		to_chat(user, "<span class='notice'>Вы переключились на полу-автоматический режим.</span>")
+		to_chat(user, "<span class='notice'>Переключаюсь на полу-автоматический режим.</span>")
 	else
 		burst_size = initial(burst_size)
 		fire_delay = initial(fire_delay)
-		to_chat(user, "<span class='notice'>Вы переключились на стрельбу очередями по [burst_size] пули за выстрел.</span>")
+		to_chat(user, "<span class='notice'>Переключаюсь на стрельбу очередями по [burst_size] пули за выстрел.</span>")
 
 	playsound(user, 'sound/weapons/empty.ogg', 100, TRUE)
 	update_icon()
@@ -97,7 +97,7 @@
 
 /obj/item/gun/ballistic/automatic/plastikov
 	name = "\improper PP-95 SMG"
-	desc = "An ancient 9x19mm submachine gun pattern updated and simplified to lower costs, though perhaps simplified too much."
+	desc = "Древняя автоматическая винтовка калибра 9x19mm обновлена и сделана максимально дешёвой. <b>Слишком</b> дешёвой."
 	icon_state = "plastikov"
 	inhand_icon_state = "plastikov"
 	mag_type = /obj/item/ammo_box/magazine/plastikov9mm
@@ -179,7 +179,7 @@
 			select = 1
 			burst_size = initial(burst_size)
 			fire_delay = initial(fire_delay)
-			to_chat(user, "<span class='notice'>Вы выбрали режим [burst_size] пули за выстрел.</span>")
+			to_chat(user, "<span class='notice'>Выбираю режим [burst_size] пули за выстрел.</span>")
 		if(1)
 			select = 2
 			to_chat(user, "<span class='notice'>Выбран гранатомёт.</span>")
@@ -248,14 +248,14 @@
 
 /obj/item/gun/ballistic/automatic/l6_saw/examine(mob/user)
 	. = ..()
-	. += "<b>alt + click</b> [cover_open ? "Вы закрыли" : "Вы открыли"] пылевой чехол."
+	. += "<b>alt + click</b> [cover_open ? "Закрываю" : "Открываю"] пылевой чехол."
 	if(cover_open && magazine)
-		. += "<span class='notice'>Вы могли использовать <b>empty hand</b> для извлечения магазина.</span>"
+		. += "<span class='notice'>Можно использовать <b>пустую руку</b> для извлечения магазина.</span>"
 
 
 /obj/item/gun/ballistic/automatic/l6_saw/AltClick(mob/user)
 	cover_open = !cover_open
-	to_chat(user, "<span class='notice'>You [cover_open ? "Вы открыли" : "Вы закрыли"] покрытие у [src].</span>")
+	to_chat(user, "<span class='notice'>You [cover_open ? "Открываю" : "Закрываю"] покрытие у [src].</span>")
 	playsound(user, 'sound/weapons/gun/l6/l6_door.ogg', 60, TRUE)
 	update_icon()
 
@@ -267,7 +267,7 @@
 
 /obj/item/gun/ballistic/automatic/l6_saw/afterattack(atom/target as mob|obj|turf, mob/living/user as mob|obj, flag, params)
 	if(cover_open)
-		to_chat(user, "<span class='warning'>У [src] не закрыта крышка! Закройте перед стрельбой!</span>")
+		to_chat(user, "<span class='warning'>У [src.name] не закрыта крышка! Надо бы закрыть перед стрельбой!</span>")
 		return
 	else
 		. = ..()
@@ -279,13 +279,13 @@
 		..()
 		return
 	if (!cover_open)
-		to_chat(user, "<span class='warning'>У [src] крышка закрыта! Перед выемкой магазина откройте!</span>")
+		to_chat(user, "<span class='warning'>У [src.name] крышка закрыта! Перед выемкой магазина стоит открыть!</span>")
 		return
 	..()
 
 /obj/item/gun/ballistic/automatic/l6_saw/attackby(obj/item/A, mob/user, params)
 	if(!cover_open && istype(A, mag_type))
-		to_chat(user, "<span class='warning'>У [src] пылезащитный чехол предотвращает подгонку магазина.</span>")
+		to_chat(user, "<span class='warning'>У [src.name] пылезащитный чехол предотвращает подгонку магазина.</span>")
 		return
 	..()
 

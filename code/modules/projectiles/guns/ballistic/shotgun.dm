@@ -198,11 +198,11 @@
 		var/obj/item/stack/cable_coil/C = A
 		if(C.use(10))
 			slot_flags = ITEM_SLOT_BACK
-			to_chat(user, "<span class='notice'>Вы привязываете кабель к дробовику, теперь можно носить дробовик на спине.</span>")
+			to_chat(user, "<span class='notice'>Привязываю кабель к дробовику, теперь можно носить дробовик на спине.</span>")
 			slung = TRUE
 			update_icon()
 		else
-			to_chat(user, "<span class='warning'> Вам нужно как минимум десять длин кабеля, если вы хотите сделать стропу!</span>")
+			to_chat(user, "<span class='warning'>Требуется минимум десять длин кабеля, если мне нужно сделать стропу!</span>")
 
 /obj/item/gun/ballistic/shotgun/doublebarrel/improvised/update_icon_state()
 	. = ..()
