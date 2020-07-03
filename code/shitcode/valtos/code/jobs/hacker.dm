@@ -1,6 +1,7 @@
 /datum/job/hacker
 	title = "Hacker"
 	flag = SCIENTIST
+	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	department_head = list("Research Director")
 	department_flag = MEDSCI
 	faction = "Station"
