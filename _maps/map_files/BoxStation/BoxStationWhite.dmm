@@ -19665,7 +19665,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/vending/wardrobe/medi_wardrobe,
 /obj/machinery/airalarm{
 	pixel_y = 24
 	},
@@ -39944,6 +39943,7 @@
 	name = "Station Intercom (Medbay)";
 	pixel_x = 30
 	},
+/obj/machinery/vending/wardrobe/medi_wardrobe,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "pIc" = (
