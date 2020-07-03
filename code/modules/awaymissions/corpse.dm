@@ -14,7 +14,7 @@
 	var/death = TRUE //Kill the mob
 	var/roundstart = TRUE //fires on initialize
 	var/instant = FALSE	//fires on New
-	var/short_desc = "The mapper forgot to set this!"
+	var/short_desc = "Нет описания."
 	var/flavour_text = ""
 	var/important_info = ""
 	var/faction = null
@@ -38,19 +38,25 @@
 	if(!SSticker.HasRoundStarted() || !loc || !ghost_usable)
 		return
 	if(!uses)
-		to_chat(user, "<span class='warning'>This spawner is out of charges!</span>")
+		to_chat(user, "<span class='warning'>Заряды кончились!</span>")
 		return
 	if(is_banned_from(user.key, banType))
-		to_chat(user, "<span class='warning'>You are jobanned!</span>")
+		to_chat(user, "<span class='warning'>А хуй тебе!</span>")
 		return
 	if(!allow_spawn(user))
 		return
 	if(QDELETED(src) || QDELETED(user))
 		return
-	var/ghost_role = alert("Become [mob_name]? (Warning, You can no longer be revived!)",,"Yes","No")
+	var/ghost_role = alert("Быть [mob_name]? (внимание, текущее тело будет покинуто)",,"Да","Нет")
 
-	if(ghost_role == "No" || !loc)
+	if(ghost_role == "Нет" || !loc)
 		return
+
+	if(!isobserver(user) || !user.client)
+		to_chat(user, "<span class='warning'>А хуй тебе!</span>")
+		log_game("[key_name(user)] attempted to abuse [mob_name] spawner")
+		return
+
 	log_game("[key_name(user)] became [mob_name]")
 	create(ckey = user.ckey)
 
