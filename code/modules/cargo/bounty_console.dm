@@ -3,8 +3,8 @@
 
 
 /obj/machinery/computer/bounty
-	name = "\improper Nanotrasen bounty console"
-	desc = "Used to check and claim bounties offered by Nanotrasen"
+	name = "\improper Консоль заказов НТ"
+	desc = "Используется для проверки и выполнений заказов ЦК"
 	icon_screen = "bounty"
 	circuit = /obj/item/circuitboard/computer/bounty
 	light_color = "#E2853D"//orange
@@ -18,19 +18,19 @@
 	new /obj/item/paper/bounty_printout(loc)
 
 /obj/item/paper/bounty_printout
-	name = "paper - Bounties"
+	name = "Лист с заказами ЦК"
 
 /obj/item/paper/bounty_printout/Initialize()
 	. = ..()
-	info = "<h2>Nanotrasen Cargo Bounties</h2></br>"
+	info = "<h2>Заказы НТ</h2></br>"
 	update_icon()
 
 	for(var/datum/bounty/B in GLOB.bounties_list)
 		if(B.claimed)
 			continue
 		info += {"<h3>[B.name]</h3>
-		<ul><li>Reward: [B.reward_string()]</li>
-		<li>Completed: [B.completion_string()]</li></ul>"}
+		<ul><li>Награда: [B.reward_string()]</li>
+		<li>Выполнено: [B.completion_string()]</li></ul>"}
 
 /obj/machinery/computer/bounty/ui_interact(mob/user)
 	. = ..()
@@ -39,11 +39,11 @@
 		setup_bounties()
 
 	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
-	var/list/dat = list({"<a href='?src=[REF(src)];refresh=1'>Refresh</a>
-	<a href='?src=[REF(src)];refresh=1;choice=Print'>Print Paper</a>
-	<p>Credits: <b>[D.account_balance]</b></p>
+	var/list/dat = list({"<a href='?src=[REF(src)];refresh=1'>Обновить</a>
+	<a href='?src=[REF(src)];refresh=1;choice=Print'>Печатать</a>
+	<p>Кредиты: <b>[D.account_balance]</b></p>
 	<table style="text-align:center;" border="1" cellspacing="0" width="100%">
-	<tr><th>Name</th><th>Description</th><th>Reward</th><th>Completion</th><th>Status</th></tr>"})
+	<tr><th>Название</th><th>Описание</th><th>Награда</th><th>Выполнение</th><th>Статус</th></tr>"})
 	for(var/datum/bounty/B in GLOB.bounties_list)
 		if(B.claimed)
 			dat += "<tr style='background-color:#294675;'>"
@@ -62,15 +62,15 @@
 			<td>[B.reward_string()]</td>"}
 		dat += "<td>[B.completion_string()]</td>"
 		if(B.claimed)
-			dat += "<td>Claimed</td>"
+			dat += "<td>Выполнено</td>"
 		else if(B.can_claim())
-			dat += "<td><A href='?src=[REF(src)];refresh=1;choice=Claim;d_rec=[REF(B)]'>Claim</a></td>"
+			dat += "<td><A href='?src=[REF(src)];refresh=1;choice=Выполнить;d_rec=[REF(B)]'>Выполнить</a></td>"
 		else
-			dat += "<td>Unclaimed</td>"
+			dat += "<td>Не выполнено</td>"
 		dat += "</tr>"
 	dat += "</table>"
 	dat = dat.Join()
-	var/datum/browser/popup = new(user, "bounties", "Nanotrasen Bounties", 700, 600)
+	var/datum/browser/popup = new(user, "заказы", "Заказы НТ", 700, 600)
 	popup.set_content(dat)
 	popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
 	popup.open()
