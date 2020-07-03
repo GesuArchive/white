@@ -1,8 +1,8 @@
 #define COUPON_OMEN "omen"
 
 obj/item/coupon
-	name = "coupon"
-	desc = "It doesn't matter if you didn't want it before, what matters now is that you've got a coupon for it!"
+	name = "купон"
+	desc = "Неважно, если вы не хотели этого раньше, важно то, что у вас есть купон на это!"
 	icon_state = "data_1"
 	icon = 'icons/obj/card.dmi'
 	item_flags = NOBLUDGEON
@@ -20,27 +20,27 @@ obj/item/coupon
 	else
 		discount_pct_off = pickweight(chances)
 	if(discount_pct_off == COUPON_OMEN)
-		name = "coupon - fuck you"
-		desc = "The small text reads, 'You will be slaughtered'... That doesn't sound right, does it?"
+		name = "купон - трахни себя"
+		desc = "Небольшой текст гласит: «Вы будете убиты» ... Это звучит неправильно, не так ли?"
 		if(ismob(loc))
 			var/mob/M = loc
-			to_chat(M, "<span class='warning'>The coupon reads '<b>fuck you</b>' in large, bold text... is- is that a prize, or?</span>")
+			to_chat(M, "<span class='warning'>Купон гласит '<b>трахни себя</b>' жирным шрифтом ... это цена или нет?</span>")
 			M.AddComponent(/datum/component/omen, TRUE, src)
 	else
 		discount_pct_off = text2num(discount_pct_off)
-		name = "coupon - [round(discount_pct_off * 100)]% off [initial(discounted_pack.name)]"
+		name = "купон - [round(discount_pct_off * 100)]% off [initial(discounted_pack.name)]"
 
 /obj/item/coupon/attack_obj(obj/O, mob/living/user)
 	if(!istype(O, /obj/machinery/computer/cargo))
 		return ..()
 	if(discount_pct_off == COUPON_OMEN)
-		to_chat(user, "<span class='warning'>\The [O] validates the coupon as authentic, but refuses to accept it...</span>")
-		O.say("Coupon fulfillment already in progress...")
+		to_chat(user, "<span class='warning'>\The [O] подтверждает купон как подлинный, но отказывается принять его ...</span>")
+		O.say("Выпуск купона уже в процессе ...")
 		return
 
 	inserted_console = O
 	LAZYADD(inserted_console.loaded_coupons, src)
-	inserted_console.say("Coupon for [initial(discounted_pack.name)] applied!")
+	inserted_console.say("Купон для [initial(discounted_pack.name)] принят!")
 	forceMove(inserted_console)
 
 /obj/item/coupon/Destroy()
