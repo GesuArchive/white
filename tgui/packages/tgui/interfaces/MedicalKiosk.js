@@ -23,7 +23,7 @@ export const MedicalKiosk = (props, context) => {
                 icon="procedures"
                 name="Общее сканирование здоровья"
                 description={multiline`
-                  Читает обратно точные значения вашего 
+                  Читает обратно точные значения вашего
                   общего сканирования здоровья.
                 `} />
               <MedicalKioskScanButton
@@ -31,7 +31,7 @@ export const MedicalKiosk = (props, context) => {
                 icon="heartbeat"
                 name="Проверка на основе симптомов"
                 description={multiline`
-                  Предоставляет информацию на основе 
+                  Предоставляет информацию на основе
                   различных неочевидных симптомов,
                   как уровень крови или статус болезни.
                 `} />
@@ -250,8 +250,10 @@ const MedicalKioskScanResults3 = (props, context) => {
     clone_health,
     brain_damage,
     brain_health,
-    rad_status,
-    rad_value,
+    rad_contamination_status,
+    rad_contamination_value,
+    rad_sickness_status,
+    rad_sickness_value,
     trauma_status,
   } = data;
   return (
@@ -285,12 +287,20 @@ const MedicalKioskScanResults3 = (props, context) => {
         </LabeledList.Item>
         <LabeledList.Divider />
         <LabeledList.Item
-          label="Радиация">
-          {rad_status}
+          label="Radiation Sickness Status">
+          {rad_sickness_status}
         </LabeledList.Item>
         <LabeledList.Item
-          label="Процент облучения">
-          {rad_value}%
+          label="Процент лучевой болезни">
+          {rad_sickness_value}%
+        </LabeledList.Item>
+        <LabeledList.Item
+          label="Состояние радиационного загрязнения">
+          {rad_contamination_status}
+        </LabeledList.Item>
+        <LabeledList.Item
+          label="Процент радиационного загрязнения">
+          {rad_contamination_value}%
         </LabeledList.Item>
       </LabeledList>
     </Section>

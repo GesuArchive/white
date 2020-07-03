@@ -3,6 +3,7 @@
 	desc = "Переносное противо бронированное оружие, предназначенное для предотвращения механических угроз на расстоянии."
 	icon_state = "ionrifle"
 	inhand_icon_state = null	//so the human update icon uses the icon_state instead.
+	worn_icon_state = null
 	shaded_charge = TRUE
 	can_flashlight = TRUE
 	w_class = WEIGHT_CLASS_HUGE
@@ -19,7 +20,6 @@
 	name = "ионный карабин"
 	desc = "Протонный ионный проектор MK.II - это облегченная карабинная версия большой ионной винтовки, созданная для эргономичности и эффективности."
 	icon_state = "ioncarbine"
-	worn_icon_state = "ioncarbine"
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
 	pin = null

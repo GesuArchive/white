@@ -11,11 +11,11 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY
 
-	low_threshold_passed = "<span class='warning'>You feel short of breath.</span>"
-	high_threshold_passed = "<span class='warning'>You feel some sort of constriction around your chest as your breathing becomes shallow and rapid.</span>"
-	now_fixed = "<span class='warning'>Your lungs seem to once again be able to hold air.</span>"
-	low_threshold_cleared = "<span class='info'>You can breathe normally again.</span>"
-	high_threshold_cleared = "<span class='info'>The constriction around your chest loosens as your breathing calms down.</span>"
+	low_threshold_passed = "<span class='warning'>Трудно дышать...</span>"
+	high_threshold_passed = "<span class='warning'>Ощущаю какое-то сжатие вокруг груди, моё дыхание становится поверхностным и быстрым.</span>"
+	now_fixed = "<span class='warning'>Моим лёгким, похоже, стало легче.</span>"
+	low_threshold_cleared = "<span class='info'>Воздух начинает поступать в мои лёгкие. Благодать.</span>"
+	high_threshold_cleared = "<span class='info'>Давление вокруг моей груди ослабевает, дышать стало легче.</span>"
 
 
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/medicine/salbutamol = 5)
@@ -49,7 +49,7 @@
 	var/tox_breath_dam_max = MAX_TOXIC_GAS_DAMAGE
 	var/tox_damage_type = TOX
 
-	var/cold_message = "your face freezing and an icicle forming"
+	var/cold_message = "как моё лицо мёрзнет и ледяной воздух поступает"
 	var/cold_level_1_threshold = 260
 	var/cold_level_2_threshold = 200
 	var/cold_level_3_threshold = 120
@@ -58,7 +58,7 @@
 	var/cold_level_3_damage = COLD_GAS_DAMAGE_LEVEL_3
 	var/cold_damage_type = BURN
 
-	var/hot_message = "your face burning and a searing heat"
+	var/hot_message = "как моё лицо горит и горячий воздух поступает"
 	var/heat_level_1_threshold = 360
 	var/heat_level_2_threshold = 400
 	var/heat_level_3_threshold = 1000
@@ -237,7 +237,7 @@
 		if(SA_pp > SA_para_min) // Enough to make us stunned for a bit
 			H.Unconscious(60) // 60 gives them one second to wake up and run away a bit!
 			if(SA_pp > SA_sleep_min) // Enough to make us sleep as well
-				H.Sleeping(max(H.AmountSleeping() + 40, 200))
+				H.Sleeping(min(H.AmountSleeping() + 100, 200))
 		else if(SA_pp > 0.01)	// There is sleeping gas in their lungs, but only a little, so give them a bit of a warning
 			if(prob(20))
 				H.emote(pick("giggle", "laugh"))
@@ -276,12 +276,12 @@
 	// Nitryl
 		var/nitryl_pp = breath.get_breath_partial_pressure(breath.get_moles(/datum/gas/nitryl))
 		if (prob(nitryl_pp))
-			to_chat(H, "<span class='alert'>Your mouth feels like it's burning!</span>")
+			to_chat(H, "<span class='alert'>Мои лёгкие горят!</span>")
 		if (nitryl_pp >40)
 			H.emote("gasp")
 			H.adjustFireLoss(10)
 			if (prob(nitryl_pp/2))
-				to_chat(H, "<span class='alert'>Your throat closes up!</span>")
+				to_chat(H, "<span class='alert'>Моя глотка смыкается!</span>")
 				H.silent = max(H.silent, 3)
 		else
 			H.adjustFireLoss(nitryl_pp/4)
@@ -293,13 +293,13 @@
 
 	// Freon
 		var/freon_pp = breath.get_breath_partial_pressure(breath.get_moles(/datum/gas/freon))
-		if (prob(nitryl_pp))
-			to_chat(H, "<span class='alert'>Your mouth feels like it's burning!</span>")
+		if (prob(freon_pp))
+			to_chat(H, "<span class='alert'>Мои лёгкие горят!</span>")
 		if (freon_pp >40)
 			H.emote("gasp")
 			H.adjustFireLoss(15)
 			if (prob(freon_pp/2))
-				to_chat(H, "<span class='alert'>Your throat closes up!</span>")
+				to_chat(H, "<span class='alert'>Моя глотка смыкается!</span>")
 				H.silent = max(H.silent, 3)
 		else
 			H.adjustFireLoss(freon_pp/4)
@@ -333,22 +333,22 @@
 					// At lower pp, give out a little warning
 					SEND_SIGNAL(owner, COMSIG_CLEAR_MOOD_EVENT, "smell")
 					if(prob(5))
-						to_chat(owner, "<span class='notice'>There is an unpleasant smell in the air.</span>")
+						to_chat(owner, "<span class='notice'>Тошнотворный запах.</span>")
 				if(5 to 15)
 					//At somewhat higher pp, warning becomes more obvious
 					if(prob(15))
-						to_chat(owner, "<span class='warning'>You smell something horribly decayed inside this room.</span>")
+						to_chat(owner, "<span class='warning'>Здесь кто-то умер? Воняет ужасно...</span>")
 						SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/bad_smell)
 				if(15 to 30)
 					//Small chance to vomit. By now, people have internals on anyway
 					if(prob(5))
-						to_chat(owner, "<span class='warning'>The stench of rotting carcasses is unbearable!</span>")
+						to_chat(owner, "<span class='warning'>Вонь гниющих туш невыносима! Тошнит...</span>")
 						SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/nauseating_stench)
 						owner.vomit()
 				if(30 to INFINITY)
 					//Higher chance to vomit. Let the horror start
 					if(prob(15))
-						to_chat(owner, "<span class='warning'>The stench of rotting carcasses is unbearable!</span>")
+						to_chat(owner, "<span class='warning'>Вонь гниющих туш невыносима! Я сейчас блевану...</span>")
 						SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/nauseating_stench)
 						owner.vomit()
 				else
@@ -398,7 +398,7 @@
 			H.apply_damage_type(cold_level_1_damage*cold_modifier, cold_damage_type)
 		if(breath_temperature < cold_level_1_threshold)
 			if(prob(20))
-				to_chat(H, "<span class='warning'>You feel [cold_message] in your [name]!</span>")
+				to_chat(H, "<span class='warning'>Ощущаю [cold_message] в мои лёгкие!</span>")
 
 	if(!HAS_TRAIT(H, TRAIT_RESISTHEAT)) // HEAT DAMAGE
 		var/heat_modifier = H.dna.species.heatmod
@@ -410,7 +410,7 @@
 			H.apply_damage_type(heat_level_3_damage*heat_modifier, heat_damage_type)
 		if(breath_temperature > heat_level_1_threshold)
 			if(prob(20))
-				to_chat(H, "<span class='warning'>You feel [hot_message] in your [name]!</span>")
+				to_chat(H, "<span class='warning'>Ощущаю [hot_message] в мои лёгкие!</span>")
 
 	// The air you breathe out should match your body temperature
 	breath.set_temperature(H.bodytemperature)

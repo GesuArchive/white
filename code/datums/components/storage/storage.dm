@@ -780,7 +780,7 @@
 	return hide_from(target)
 
 /datum/component/storage/proc/on_alt_click(datum/source, mob/user)
-	if(!isliving(user) || !user.CanReach(parent))
+	if(!isliving(user) || !user.CanReach(parent) || user.incapacitated())
 		return
 	if(locked)
 		to_chat(user, "<span class='warning'>[parent] заблокирован!</span>")
@@ -793,17 +793,15 @@
 		playsound(A, "rustle", 50, TRUE, -5)
 		return
 
-	if(!user.incapacitated())
-		var/obj/item/I = locate() in real_location()
-		if(!I)
-			return
-		A.add_fingerprint(user)
-		remove_from_storage(I, get_turf(user))
-		if(!user.put_in_hands(I))
-			to_chat(user, "<span class='notice'>Пытаюсь вытащить [I.name] роняя его на пол.</span>")
-			return
-		user.visible_message("<span class='warning'>[user] достаёт [I.name] из [parent]!</span>", "<span class='notice'>Вытаскиваю [I.name] из [parent].</span>")
+	var/obj/item/I = locate() in real_location()
+	if(!I)
 		return
+	A.add_fingerprint(user)
+	remove_from_storage(I, get_turf(user))
+	if(!user.put_in_hands(I))
+		to_chat(user, "<span class='notice'>Пытаюсь вытащить [I.name] роняя его на пол.</span>")
+		return
+	user.visible_message("<span class='warning'>[user] достаёт [I.name] из [parent]!</span>", "<span class='notice'>Вытаскиваю [I.name] из [parent].</span>")
 
 /datum/component/storage/proc/action_trigger(datum/signal_source, datum/action/source)
 	gather_mode_switch(source.owner)

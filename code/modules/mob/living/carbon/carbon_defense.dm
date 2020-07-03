@@ -268,10 +268,14 @@
 			to_chat(M, "<span class='warning'>Тебе нужно отстегнуться от [src.name], чтобы сделать это!</span>")
 			return
 		M.visible_message("<span class='notice'>[M] встряхивает [src] пытаесь поднять [ru_ego()]!</span>", \
-						"<span class='notice'>Встряхиваю [src] пытаесь поднять [ru_ego()]!</span>")
+						null, "<span class='hear'>Слышу шуршание одежды.</span>", DEFAULT_MESSAGE_RANGE, list(M, src))
+		to_chat(M, "<span class='notice'>Встряхиваю [src] пытаесь поднять [ru_ego()]!</span>")
+		to_chat(src, "<span class='notice'>[M] пытается поднять меня!</span>")
 	else
 		M.visible_message("<span class='notice'>[M] обнимает [src]!</span>", \
-					"<span class='notice'>Обнимаю [src]!</span>")
+					null, "<span class='hear'>Слышу шуршание одежды.</span>", DEFAULT_MESSAGE_RANGE, list(M, src))
+		to_chat(M, "<span class='notice'>Обнимаю [src]!</span>")
+		to_chat(src, "<span class='notice'>[M] обнимает меня!</span>")
 
 		// Warm them up with hugs
 		share_bodytemperature(M)
