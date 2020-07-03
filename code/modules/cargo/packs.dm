@@ -49,7 +49,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 /datum/supply_pack/emergency
-	group = "Emergency"
+	group = "Аварийное"
 
 /datum/supply_pack/emergency/vehicle
 	name = "Biker Gang Kit" //TUNNEL SNAKES OWN THIS TOWN
@@ -275,7 +275,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 /datum/supply_pack/security
-	group = "Security"
+	group = "Охрана"
 	access = ACCESS_SECURITY
 	crate_type = /obj/structure/closet/crate/secure/gear
 
@@ -458,7 +458,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 /datum/supply_pack/security/armory
-	group = "Armory"
+	group = "Арсенал"
 	access = ACCESS_ARMORY
 	crate_type = /obj/structure/closet/crate/secure/weapon
 
@@ -667,7 +667,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 /datum/supply_pack/engineering
-	group = "Engineering"
+	group = "Инженерная"
 	crate_type = /obj/structure/closet/crate/engineering
 
 /datum/supply_pack/engineering/shieldgen
@@ -886,7 +886,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 /datum/supply_pack/engine
-	group = "Engine Construction"
+	group = "Создание генератора"
 	crate_type = /obj/structure/closet/crate/engineering
 
 /datum/supply_pack/engine/emitter
@@ -1012,7 +1012,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 /datum/supply_pack/materials
-	group = "Canisters & Materials"
+	group = "Канистры и материалы"
 
 /datum/supply_pack/materials/cardboard50
 	name = "50 Cardboard Sheets"
@@ -1164,7 +1164,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 /datum/supply_pack/medical
-	group = "Medical"
+	group = "Медицина"
 	crate_type = /obj/structure/closet/crate/medical
 
 /datum/supply_pack/medical/bloodpacks
@@ -1308,7 +1308,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 /datum/supply_pack/science
-	group = "Science"
+	group = "Наука"
 	crate_type = /obj/structure/closet/crate/science
 
 /datum/supply_pack/science/plasma
@@ -1395,7 +1395,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 /datum/supply_pack/service
-	group = "Service"
+	group = "Сервис"
 
 /datum/supply_pack/service/cargo_supples
 	name = "Cargo Supplies Crate"
@@ -1630,7 +1630,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 /datum/supply_pack/organic
-	group = "Food & Hydroponics"
+	group = "Еда и Гидропоника"
 	crate_type = /obj/structure/closet/crate/freezer
 
 /datum/supply_pack/organic/hydroponics/beekeeping_suits
@@ -1881,7 +1881,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 /datum/supply_pack/critter
-	group = "Livestock"
+	group = "Живность"
 	crate_type = /obj/structure/closet/crate/critter
 
 /datum/supply_pack/critter/parrot
@@ -2021,7 +2021,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 /datum/supply_pack/costumes_toys
-	group = "Costumes & Toys"
+	group = "Костюмы и игрушки"
 
 /datum/supply_pack/costumes_toys/randomised
 	name = "коллекционный Hats Crate"
@@ -2366,7 +2366,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 /datum/supply_pack/misc
-	group = "Miscellaneous Supplies"
+	group = "Прочее"
 
 /datum/supply_pack/misc/artsupply
 	name = "Art Supplies"
