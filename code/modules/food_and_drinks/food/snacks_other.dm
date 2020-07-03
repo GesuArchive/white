@@ -789,6 +789,7 @@
 	desc = "I have a mouth and I must eat."
 	icon_state = "peachcanmaint"
 	trash = /obj/item/trash/can/food/peaches/maint
+	list_reagents = list(/datum/reagent/consumable/peachjuice = 10, /datum/reagent/consumable/sugar = 4, /datum/reagent/toxin/bad_food = 4)
 	tastes = list("персики" = 1, "олово" = 7)
 
 /obj/item/reagent_containers/food/snacks/crab_rangoon
