@@ -9,7 +9,7 @@
 	icon = 'icons/effects/mapping_helpers.dmi' // These aren't *really* mapping helpers but it fits the most with it's common usage (to help place corpses in maps)
 	icon_state = "mobspawner" // So it shows up in the map editor
 	var/mob_type = null
-	var/mob_name = "кем-то"
+	var/mob_name = ""
 	var/mob_gender = null
 	var/death = TRUE //Kill the mob
 	var/roundstart = TRUE //fires on initialize
