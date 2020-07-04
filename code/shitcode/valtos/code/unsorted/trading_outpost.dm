@@ -237,6 +237,16 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	allow_emag = TRUE
 
+/obj/item/circuitboard/computer/ferry/trader
+	name = "Trader Transport Ferry (Computer Board)"
+	icon_state = "supply"
+	build_path = /obj/machinery/computer/shuttle/ferry/trader
+
+/obj/item/circuitboard/computer/ferry/request/trader
+	name = "Trader Transport Console (Computer Board)"
+	icon_state = "supply"
+	build_path = /obj/machinery/computer/shuttle/ferry/request/trader
+
 /datum/map_template/shuttle/trader_transport
 	port_id = "trader"
 	suffix = "transport"
