@@ -1,6 +1,6 @@
 /obj/item/clothing/mask/gas
-	name = "gas mask"
-	desc = "A face-covering mask that can be connected to an air supply. While good for concealing your identity, it isn't good for blocking gas flow." //More accurate
+	name = "противогаз"
+	desc = "Маска для лица, которая может быть подключена к источнику воздуха. Хотя это и скрывает вашу личность, это не очень то и блокирует потоки газа." //More accurate
 	icon_state = "gas_alt"
 	clothing_flags = BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE|HIDEFACIALHAIR
@@ -12,8 +12,8 @@
 	resistance_flags = NONE
 
 /obj/item/clothing/mask/gas/atmos
-	name = "atmospheric gas mask"
-	desc = "Improved gas mask utilized by atmospheric technicians. Still not very good at blocking gas flow, but it's flameproof!"
+	name = "противогаз атмостеха"
+	desc = "Улучшенный противогаз, используемый специалистами по атмосферным условиям. Все еще не блокирует потоки газа, но он взрывобезопасен!"
 	icon_state = "gas_atmos"
 	inhand_icon_state = "gas_atmos"
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 10, "fire" = 20, "acid" = 10)
@@ -23,8 +23,8 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/mask/gas/atmos/captain
-	name = "captain's gas mask"
-	desc = "Nanotrasen cut corners and repainted a spare atmospheric gas mask, but don't tell anyone."
+	name = "противогаз капитана"
+	desc = "Нанотрейзен срезал углы и перекрасил запасной противогаз, но никому не говори."
 	icon_state = "gas_cap"
 	inhand_icon_state = "gas_cap"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -32,8 +32,8 @@
 // **** Welding gas mask ****
 
 /obj/item/clothing/mask/gas/welding
-	name = "welding mask"
-	desc = "A gas mask with built-in welding goggles and a face shield. Looks like a skull - clearly designed by a nerd."
+	name = "сварочная маска"
+	desc = "Противогаз со встроенными сварочными очками и защитной маской. Выглядит как череп разработанный кретином."
 	icon_state = "weldingmask"
 	flash_protect = FLASH_PROTECTION_WELDER
 	custom_materials = list(/datum/material/iron=4000, /datum/material/glass=2000)
@@ -59,21 +59,21 @@
 
 //Plague Dr suit can be found in clothing/suits/bio.dm
 /obj/item/clothing/mask/gas/plaguedoctor
-	name = "plague doctor mask"
-	desc = "A modernised version of the classic design, this mask will not only filter out toxins but it can also be connected to an air supply."
+	name = "маска чумного доктора"
+	desc = "Модернизированная версия классического дизайна, эта маска не только отфильтровывает токсины, но также может быть подключена к источнику воздуха."
 	icon_state = "plaguedoctor"
 	inhand_icon_state = "gas_mask"
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 2,"energy" = 2, "bomb" = 0, "bio" = 75, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/mask/gas/syndicate
-	name = "syndicate mask"
-	desc = "A close-fitting tactical mask that can be connected to an air supply."
+	name = "синдимаска"
+	desc = "Обтягивающая тактическая маска, которая может быть подключена к источнику воздуха."
 	icon_state = "syndicate"
 	strip_delay = 60
 
 /obj/item/clothing/mask/gas/clown_hat
-	name = "clown wig and mask"
-	desc = "A true prankster's facial attire. A clown is incomplete without his wig and mask."
+	name = "парик клоуна и маска"
+	desc = "Лицо истинного шутника. Клоун неполон без своего парика и маски."
 	clothing_flags = MASKINTERNALS
 	icon_state = "clown"
 	inhand_icon_state = "clown_hat"
@@ -116,12 +116,12 @@
 		for(var/X in actions)
 			var/datum/action/A = X
 			A.UpdateButtonIcon()
-		to_chat(user, "<span class='notice'>Your Clown Mask has now morphed into [choice], all praise the Honkmother!</span>")
+		to_chat(user, "<span class='notice'>Маска клоуна превратилась в [choice], слава Хонкоматери!</span>")
 		return TRUE
 
 /obj/item/clothing/mask/gas/sexyclown
-	name = "sexy-clown wig and mask"
-	desc = "A feminine clown mask for the dabbling crossdressers or female entertainers."
+	name = "сексуальный парик клоуна и маска"
+	desc = "Женская маска клоуна для маленьких трансвеститов или артистов-женщин."
 	clothing_flags = MASKINTERNALS
 	icon_state = "sexyclown"
 	inhand_icon_state = "sexyclown"
@@ -129,8 +129,8 @@
 	resistance_flags = FLAMMABLE
 
 /obj/item/clothing/mask/gas/mime
-	name = "mime mask"
-	desc = "The traditional mime's mask. It has an eerie facial posture."
+	name = "маска мима"
+	desc = "Традиционная маска мима. У него жуткая поза лица."
 	clothing_flags = MASKINTERNALS
 	icon_state = "mime"
 	inhand_icon_state = "mime"
@@ -169,12 +169,12 @@
 		for(var/X in actions)
 			var/datum/action/A = X
 			A.UpdateButtonIcon()
-		to_chat(user, "<span class='notice'>Your Mime Mask has now morphed into [choice]!</span>")
+		to_chat(user, "<span class='notice'>Маска Мима теперь превратилась в [choice]!</span>")
 		return TRUE
 
 /obj/item/clothing/mask/gas/monkeymask
-	name = "monkey mask"
-	desc = "A mask used when acting as a monkey."
+	name = "маска обезьяны"
+	desc = "Ау-кау-ау-ау? УКУУ-УАКААААА-КУААА!!!"
 	clothing_flags = MASKINTERNALS
 	icon_state = "monkeymask"
 	inhand_icon_state = "monkeymask"
@@ -182,8 +182,8 @@
 	resistance_flags = FLAMMABLE
 
 /obj/item/clothing/mask/gas/sexymime
-	name = "sexy mime mask"
-	desc = "A traditional female mime's mask."
+	name = "сексуальная маска мима"
+	desc = "Традиционная женская мимовская маска."
 	clothing_flags = MASKINTERNALS
 	icon_state = "sexymime"
 	inhand_icon_state = "sexymime"
@@ -191,27 +191,27 @@
 	resistance_flags = FLAMMABLE
 
 /obj/item/clothing/mask/gas/cyborg
-	name = "cyborg visor"
-	desc = "Beep boop."
+	name = "забрало киборга"
+	desc = "Бип буп."
 	icon_state = "death"
 	resistance_flags = FLAMMABLE
 
 /obj/item/clothing/mask/gas/owl_mask
-	name = "owl mask"
-	desc = "Twoooo!"
+	name = "маска совы"
+	desc = "Туууу!"
 	icon_state = "owl"
 	clothing_flags = MASKINTERNALS
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
 
 /obj/item/clothing/mask/gas/carp
-	name = "carp mask"
-	desc = "Gnash gnash."
+	name = "маска карпа"
+	desc = "Кусь-кусь."
 	icon_state = "carp_mask"
 
 /obj/item/clothing/mask/gas/tiki_mask
-	name = "tiki mask"
-	desc = "A creepy wooden mask. Surprisingly expressive for a poorly carved bit of wood."
+	name = "маска тики"
+	desc = "Жуткая деревянная маска. Удивительно выразительно для плохо вырезанного куска дерева."
 	icon_state = "tiki_eyebrow"
 	inhand_icon_state = "tiki_eyebrow"
 	custom_materials = list(/datum/material/wood = MINERAL_MATERIAL_AMOUNT * 1.25)
@@ -248,7 +248,7 @@
 		for(var/X in actions)
 			var/datum/action/A = X
 			A.UpdateButtonIcon()
-		to_chat(M, "<span class='notice'>The Tiki Mask has now changed into the [choice] Mask!</span>")
+		to_chat(M, "<span class='notice'>Маска Тики теперь выглядит как маска [choice]!</span>")
 		return 1
 
 /obj/item/clothing/mask/gas/tiki_mask/yalp_elor
@@ -256,8 +256,8 @@
 	actions_types = list()
 
 /obj/item/clothing/mask/gas/hunter
-	name = "bounty hunting mask"
-	desc = "A custom tactical mask with decals added."
+	name = "маска охотника"
+	desc = "Тактическая маска с добавленными отличительными знаками."
 	icon_state = "hunter"
 	inhand_icon_state = "hunter"
 	resistance_flags = FIRE_PROOF | ACID_PROOF

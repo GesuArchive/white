@@ -43,8 +43,8 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 ))
 
 /obj/item/clothing/mask/gas/sechailer
-	name = "security gas mask"
-	desc = "A standard issue Security gas mask with integrated 'Compli-o-nator 3000' device. Plays over a dozen pre-recorded compliance phrases designed to get scumbags to stand still whilst you tase them. Do not tamper with the device."
+	name = "противогаз охраны"
+	desc = "Стандартный выпуск Защитный противогаз со встроенным устройством Compli-o-nator 3000. Воспроизведение более десятка предварительно записанных фраз о соответствии, разработанных, чтобы заставить подонков стоять на месте, пока вы их надеваете. Не ломать устройство."
 	actions_types = list(/datum/action/item_action/halt, /datum/action/item_action/adjust)
 	icon_state = "sechailer"
 	inhand_icon_state = "sechailer"
@@ -62,8 +62,8 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 	var/safety = TRUE
 
 /obj/item/clothing/mask/gas/sechailer/swat
-	name = "\improper SWAT mask"
-	desc = "A close-fitting tactical mask with an especially aggressive Compli-o-nator 3000."
+	name = "маска спецназа"
+	desc = "Обтягивающая тактическая маска с особо агрессивным Compli-o-nator 3000."
 	actions_types = list(/datum/action/item_action/halt)
 	icon_state = "swat"
 	inhand_icon_state = "swat"
@@ -72,14 +72,14 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 	visor_flags_inv = 0
 
 /obj/item/clothing/mask/gas/sechailer/swat/spacepol
-	name = "spacepol mask"
-	desc = "A close-fitting tactical mask created in cooperation with a certain megacorporation, comes with an especially aggressive Compli-o-nator 3000."
+	name = "маска космокопа"
+	desc = "Обтягивающая тактическая маска, созданная в сотрудничестве с определенной мегакорпорацией, поставляется с особенно агрессивным Compli-o-nator 3000."
 	icon_state = "spacepol"
 	inhand_icon_state = "spacepol"
 
 /obj/item/clothing/mask/gas/sechailer/cyborg
-	name = "security hailer"
-	desc = "A set of recognizable pre-recorded messages for cyborgs to use when apprehending criminals."
+	name = "гавкатель"
+	desc = "Набор распознаваемых предварительно записанных сообщений для киборгов, используемых при задержании преступников."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "taperecorder_idle"
 	aggressiveness = AGGR_GOOD_COP // Borgs are nicecurity!
@@ -90,17 +90,17 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 	if(..())
 		return
 	else if (aggressiveness == AGGR_BROKEN)
-		to_chat(user, "<span class='danger'>You adjust the restrictor but nothing happens, probably because it's broken.</span>")
+		to_chat(user, "<span class='danger'>Настраиваю ограничитель, но ничего не происходит. Похоже он сломан.</span>")
 		return
-	var/position = aggressiveness == AGGR_GOOD_COP ? "middle" : aggressiveness == AGGR_BAD_COP ? "last" : "first"
-	to_chat(user, "<span class='notice'>You set the restrictor to the [position] position.</span>")
+	var/position = aggressiveness == AGGR_GOOD_COP ? "середину" : aggressiveness == AGGR_BAD_COP ? "максимум" : "минимум"
+	to_chat(user, "<span class='notice'>Настраиваю ограничитель на [position].</span>")
 	aggressiveness = aggressiveness % 3 + 1 // loop AGGR_GOOD_COP -> AGGR_SHIT_COP
 
 /obj/item/clothing/mask/gas/sechailer/wirecutter_act(mob/living/user, obj/item/I)
 	. = TRUE
 	..()
 	if(aggressiveness != AGGR_BROKEN)
-		to_chat(user, "<span class='danger'>You broke the restrictor!</span>")
+		to_chat(user, "<span class='danger'>Ограничитель сломан!</span>")
 		aggressiveness = AGGR_BROKEN
 
 /obj/item/clothing/mask/gas/sechailer/ui_action_click(mob/user, action)
@@ -114,16 +114,16 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 /obj/item/clothing/mask/gas/sechailer/emag_act(mob/user)
 	if(safety)
 		safety = FALSE
-		to_chat(user, "<span class='warning'>You silently fry [src]'s vocal circuit with the cryptographic sequencer.</span>")
+		to_chat(user, "<span class='warning'>Незаметно зашквариваю [src.name] голосовую схему криптографическим секвенсором.</span>")
 
 /obj/item/clothing/mask/gas/sechailer/verb/halt()
 	set category = "ОБЪЕКТ"
-	set name = "HALT"
+	set name = "СТОЯТЬ"
 	set src in usr
 	if(!isliving(usr) || !can_use(usr) || cooldown)
 		return
 	if(broken_hailer)
-		to_chat(usr, "<span class='warning'>\The [src]'s hailing system is broken.</span>")
+		to_chat(usr, "<span class='warning'>Кричалка [src.name] сломана.</span>")
 		return
 
 	// handle recent uses for overuse
@@ -135,12 +135,12 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 
 	switch(recent_uses)
 		if(3)
-			to_chat(usr, "<span class='warning'>\The [src] is starting to heat up.</span>")
+			to_chat(usr, "<span class='warning'>Кричалка [src.name] начинает нагреваться.</span>")
 		if(4)
-			to_chat(usr, "<span class='userdanger'>\The [src] is heating up dangerously from overuse!</span>")
+			to_chat(usr, "<span class='userdanger'>Кричалка [src.name] нагревается достаточно сильно!</span>")
 		if(5) // overload
 			broken_hailer = TRUE
-			to_chat(usr, "<span class='userdanger'>\The [src]'s power modulator overloads and breaks.</span>")
+			to_chat(usr, "<span class='userdanger'>Кричалка [src.name] перегревается и сгорает.</span>")
 			return
 
 	// select phrase to play
@@ -177,8 +177,8 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 	overuse_cooldown = FALSE
 
 /obj/item/clothing/mask/whistle
-	name = "police whistle"
-	desc = "A police whistle for when you need to make sure the criminals hear you."
+	name = "полицейский свисток"
+	desc = "Полицейский свисток, когда вам нужно убедиться, что преступники вас слышат."
 	icon_state = "whistle"
 	inhand_icon_state = "whistle"
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_NECK
@@ -187,7 +187,7 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 
 /obj/item/clothing/mask/whistle/ui_action_click(mob/user, action)
 	if(cooldown < world.time - 100)
-		usr.audible_message("<font color='red' size='5'><b>HALT!</b></font>")
+		usr.audible_message("<font color='red' size='5'><b>СТОЯТЬ!</b></font>")
 		playsound(src, 'sound/misc/whistle.ogg', 100, FALSE, 4)
 		cooldown = world.time
 

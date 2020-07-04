@@ -1,5 +1,5 @@
 /obj/item/clothing/mask/balaclava
-	name = "balaclava"
+	name = "балаклава"
 	desc = "LOADSAMONEY"
 	icon_state = "balaclava"
 	inhand_icon_state = "balaclava"
@@ -12,8 +12,8 @@
 	adjustmask(user)
 
 /obj/item/clothing/mask/infiltrator
-	name = "infiltrator balaclava"
-	desc = "It makes you feel safe in your anonymity, but for a stealth outfit you sure do look obvious that you're up to no good. It seems to have a built in heads-up display."
+	name = "балаклава разведчика"
+	desc = "Слишком палевная маска для маскировки. Тем не менее, некоторые задачи она может решать."
 	icon_state = "syndicate_balaclava"
 	inhand_icon_state = "syndicate_balaclava"
 	clothing_flags = MASKINTERNALS
@@ -29,14 +29,14 @@
 	. = ..()
 	if(slot != ITEM_SLOT_MASK)
 		return
-	to_chat(user, "You roll the balaclava over your face, and a data display appears before your eyes.")
+	to_chat(user, "Натягиваю балаклаву на лицо, и перед глазами появляется отображение данных.")
 	ADD_TRAIT(user, TRAIT_DIAGNOSTIC_HUD, MASK_TRAIT)
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_DIAGNOSTIC_BASIC]
 	H.add_hud_to(user)
 	voice_unknown = TRUE
 
 /obj/item/clothing/mask/infiltrator/dropped(mob/living/carbon/human/user)
-	to_chat(user, "You pull off the balaclava, and the mask's internal hud system switches off quietly.")
+	to_chat(user, "Снимаю балаклаву, и внутренняя система маски тихо отключается.")
 	REMOVE_TRAIT(user, TRAIT_DIAGNOSTIC_HUD, MASK_TRAIT)
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_DIAGNOSTIC_BASIC]
 	H.remove_hud_from(user)
@@ -44,8 +44,8 @@
 	return ..()
 
 /obj/item/clothing/mask/luchador
-	name = "Luchador Mask"
-	desc = "Worn by robust fighters, flying high to defeat their foes!"
+	name = "маска Лучадора"
+	desc = "Носится сильными бойцами, летающими высоко, чтобы победить своих врагов!"
 	icon_state = "luchag"
 	inhand_icon_state = "luchag"
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
@@ -55,42 +55,42 @@
 /obj/item/clothing/mask/luchador/handle_speech(datum/source, list/speech_args)
 	var/message = speech_args[SPEECH_MESSAGE]
 	if(message[1] != "*")
-		message = replacetext(message, "captain", "CAPITÁN")
-		message = replacetext(message, "station", "ESTACIÓN")
-		message = replacetext(message, "sir", "SEÑOR")
-		message = replacetext(message, "the ", "el ")
-		message = replacetext(message, "my ", "mi ")
-		message = replacetext(message, "is ", "es ")
-		message = replacetext(message, "it's", "es")
-		message = replacetext(message, "friend", "amigo")
-		message = replacetext(message, "buddy", "amigo")
-		message = replacetext(message, "hello", "hola")
-		message = replacetext(message, " hot", " caliente")
-		message = replacetext(message, " very ", " muy ")
-		message = replacetext(message, "sword", "espada")
-		message = replacetext(message, "library", "biblioteca")
-		message = replacetext(message, "traitor", "traidor")
-		message = replacetext(message, "wizard", "mago")
-		message = uppertext(message)	//Things end up looking better this way (no mixed cases), and it fits the macho wrestler image.
+		message = replacetext_char(message, "капитан", "CAPITÁN")
+		message = replacetext_char(message, "станция", "ESTACIÓN")
+		message = replacetext_char(message, "сир", "SEÑOR")
+		message = replacetext_char(message, "это ", "el ")
+		message = replacetext_char(message, "мой ", "mi ")
+		message = replacetext_char(message, "так ", "es ")
+		message = replacetext_char(message, "такое", "es")
+		message = replacetext_char(message, "друг", "amigo")
+		message = replacetext_char(message, "братан", "amigo")
+		message = replacetext_char(message, "привет", "hola")
+		message = replacetext_char(message, " горячий", " caliente")
+		message = replacetext_char(message, " очень ", " muy ")
+		message = replacetext_char(message, "меч", "espada")
+		message = replacetext_char(message, "библиотека", "biblioteca")
+		message = replacetext_char(message, "предатель", "traidor")
+		message = replacetext_char(message, "маг", "mago")
+		message = r_uppertext(message)	//Things end up looking better this way (no mixed cases), and it fits the macho wrestler image.
 		if(prob(25))
 			message += " OLE!"
 	speech_args[SPEECH_MESSAGE] = message
 
 /obj/item/clothing/mask/luchador/tecnicos
-	name = "Tecnicos Mask"
-	desc = "Worn by robust fighters who uphold justice and fight honorably."
+	name = "маска Техникоса"
+	desc = "Носится сильными бойцами, которые отстаивают справедливость и честно сражаются."
 	icon_state = "luchador"
 	inhand_icon_state = "luchador"
 
 /obj/item/clothing/mask/luchador/rudos
-	name = "Rudos Mask"
-	desc = "Worn by robust fighters who are willing to do anything to win."
+	name = "маска Рудоса"
+	desc = "Носят надежные бойцы, которые готовы сделать все, чтобы победить."
 	icon_state = "luchar"
 	inhand_icon_state = "luchar"
 
 /obj/item/clothing/mask/russian_balaclava
-	name = "russian balaclava"
-	desc = "Protects your face from snow."
+	name = "русская балаклава"
+	desc = "Защищает лицо от чрезвычайно опасных вспышек фотокамер."
 	icon_state = "rus_balaclava"
 	inhand_icon_state = "rus_balaclava"
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
