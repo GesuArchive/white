@@ -220,7 +220,7 @@
 /obj/machinery/computer/shuttle/ferry/trader
 	name = "transport trader console"
 	desc = "A console that controls the transport trader."
-	circuit = /obj/item/circuitboard/computer/ferry
+	circuit = /obj/item/circuitboard/computer/ferry/trader
 	shuttleId = "trader_transport"
 	possible_destinations = "trader_transport_home;trader_transport_station;whiteship_home"
 	req_access = list(ACCESS_TRADER)
@@ -229,7 +229,7 @@
 
 /obj/machinery/computer/shuttle/ferry/request/trader
 	name = "trader transport console"
-	circuit = /obj/item/circuitboard/computer/ferry/request
+	circuit = /obj/item/circuitboard/computer/ferry/request/trader
 	shuttleId = "trader_transport"
 	possible_destinations = "trader_transport_home;trader_transport_station;whiteship_home"
 	req_access = list(ACCESS_TRADER)
