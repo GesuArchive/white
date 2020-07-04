@@ -21220,9 +21220,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
-/obj/structure/chair/office{
-	dir = 8
-	},
+/obj/structure/chair/office,
 /obj/effect/landmark/start/depsec/medical,
 /turf/open/floor/plasteel,
 /area/medical/medbay/central)
@@ -21788,6 +21786,10 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/red,
+/obj/structure/table,
+/obj/machinery/recharger{
+	pixel_y = 4
+	},
 /turf/open/floor/plasteel,
 /area/medical/medbay/central)
 "bIr" = (
@@ -22949,12 +22951,12 @@
 /turf/closed/wall/r_wall,
 /area/engine/atmos)
 "bLS" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "bLT" = (
@@ -28780,15 +28782,15 @@
 /area/maintenance/aft)
 "ccN" = (
 /obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{
 	dir = 9
-	},
-/obj/structure/disposalpipe/segment,
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /turf/open/floor/plating,
 /area/maintenance/aft)
@@ -36071,9 +36073,7 @@
 	},
 /obj/effect/turf_decal/tile/red,
 /obj/structure/table,
-/obj/machinery/recharger{
-	pixel_y = 4
-	},
+/obj/machinery/reagentgrinder,
 /turf/open/floor/plasteel,
 /area/medical/medbay/central)
 "gnW" = (
@@ -38888,6 +38888,10 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/quartermaster/storage)
+"ntC" = (
+/obj/machinery/priem_steklotara,
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "nuF" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -39658,13 +39662,13 @@
 /area/science/mixing)
 "pjk" = (
 /obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -43605,14 +43609,14 @@
 /area/maintenance/aft)
 "xQs" = (
 /obj/structure/cable,
+/obj/structure/disposalpipe/junction{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer1{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer3{
 	dir = 1
-	},
-/obj/structure/disposalpipe/junction{
-	dir = 4
 	},
 /turf/open/floor/plating,
 /area/maintenance/aft)
@@ -86136,7 +86140,7 @@ auD
 jue
 alP
 aAs
-anf
+ntC
 alP
 anf
 jSz

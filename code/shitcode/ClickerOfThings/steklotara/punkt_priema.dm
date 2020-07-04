@@ -1,5 +1,5 @@
 /obj/machinery/priem_steklotara
-	name = "punkt priema steklotari"
+	name = "пункт приёма стеклотары"
 	desc = "Пункт приёма стеклотары позволяет за пустые алкобутылки получать деньги. Как кэшбек, только лучше!"
 	icon = 'code/shitcode/ClickerOfThings/steklotara/punkt_priema.dmi'
 	icon_state = "default"
