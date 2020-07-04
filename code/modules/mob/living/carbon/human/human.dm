@@ -23,7 +23,7 @@
 	AddComponent(/datum/component/personal_crafting)
 	AddComponent(/datum/component/footstep, FOOTSTEP_MOB_HUMAN, 1, 2)
 	spawn(50)
-		if(ckey && ckey in GLOB.pacifist_list)
+		if(ckey && (ckey in GLOB.pacifist_list))
 			ADD_TRAIT(src, TRAIT_PACIFISM, "sosi")
 	GLOB.human_list += src
 
