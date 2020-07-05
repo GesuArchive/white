@@ -289,7 +289,11 @@
 	icon = 'code/shitcode/valtos/icons/dz-031.dmi'
 	icon_state = "cyberpod"
 	occupant_typecache = list(/mob/living/carbon/human)
+	light_color = LIGHT_COLOR_CYAN
 	//var/mob/living/carbon/human/virtual_reality/vr_human
+/obj/machinery/cyberdeck/Initialize()
+	. = ..()
+	set_light(3)
 
 /obj/machinery/cyberdeck/examine(mob/user)
 	if(user.client && !user.client.holder) // прикол
