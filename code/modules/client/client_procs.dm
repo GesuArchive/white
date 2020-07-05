@@ -466,7 +466,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		view_size.setZoomMode()
 		fit_viewport()
 
-	SSTitle.uplayers()
+	SStitle.uplayers()
 
 	Master.UpdateTickRate()
 
@@ -514,7 +514,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		movingmob.client_mobs_in_contents -= mob
 		UNSETEMPTY(movingmob.client_mobs_in_contents)
 	seen_messages = null
-	SSTitle.uplayers()
+	SStitle.uplayers()
 	Master.UpdateTickRate()
 	. = ..() //Even though we're going to be hard deleted there are still some things that want to know the destroy is happening
 	return QDEL_HINT_HARDDEL_NOW

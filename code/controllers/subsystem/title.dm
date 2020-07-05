@@ -131,10 +131,10 @@ SUBSYSTEM_DEF(title)
 /datum/controller/subsystem/title/proc/cls()
 	if(splash_turf && enabled_shit)
 		splash_turf.maptext = ""
-		ctt = ""
+		ctt = null
 
 /datum/controller/subsystem/title/proc/uplayers()
-	if(splash_turf && enabled_shit)
+	if(splash_turf && enabled_shit && !ctt)
 		var/list/caa = list()
 		var/tcc = ""
 		for(var/client/C in GLOB.clients)
