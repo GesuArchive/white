@@ -18,7 +18,7 @@
 	antag_flag = ROLE_BLOODSUCKER
 	false_report_weight = 1
 	restricted_jobs = list("AI","Cyborg")
-	protected_jobs = list("International Officer", "Russian Officer", "Hacker","Warden", "Detective", "Head of Security", "Captain", "Head of Personnel", "Deputy")
+	protected_jobs = list("International Officer", "Russian Officer", "Trader", "Hacker","Warden", "Detective", "Head of Security", "Captain", "Head of Personnel", "Deputy")
 	required_players = 0
 	required_enemies = 1
 	recommended_enemies = 4
