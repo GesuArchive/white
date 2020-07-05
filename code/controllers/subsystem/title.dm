@@ -44,8 +44,6 @@ SUBSYSTEM_DEF(title)
 		splash_turf.icon = 'icons/protocol_c.dmi'
 		splash_turf.icon_state = "blank"
 		set_load_state("init1")
-		//if (prob(75))
-		//	splash_turf.color = pick("#ff00ff", "#ff0000", "#0000ff", "#00ff00", "#00ffff")
 
 	return ..()
 
@@ -55,12 +53,12 @@ SUBSYSTEM_DEF(title)
 			if("init1")
 				sm("-------------------------------------------------------------------------------------------------")
 				sm("")
-				sm("\[AN-[rand(1000, 9999)]\]:    ONLINE    \[9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08\]")
-				sm("\[OR-[rand(1000, 9999)]\]:    ONLINE    \[7c7d31f4816deb275fc4101b94fdf7841037df407e062d4e897a42fd975e3a11\]")
-				sm("\[NA-[rand(1000, 9999)]\]:    ONLINE    \[c7962f8eddec633e32eb7a3c800c851df1551edc6664a60f2b665c8b82be0cb8\]")
-				sm("\[NM-[rand(1000, 9999)]\]:    ONLINE    \[53ae23b3ab3992a580ecd3ef63302212a359f6441cd1fdc9bef4156eaa0173f5\]")
-				sm("\[DZ-[rand(1000, 9999)]\]:    ONLINE    \[7d1fc9ead962730d880e9f1047842017710f5b7f165778724ea638f13c93aa3c\]")
-				sm("\[OI-[rand(1000, 9999)]\]:    ONLINE    \[404cdd7bc109c432f8cc2443b45bcfe95980f5107215c645236e577929ac3e52\]")
+				sm("\[BI-[rand(1000, 9999)]\]:    ONLINE    \[9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08\]")
+				sm("\[EY-[rand(1000, 9999)]\]:    ONLINE    \[7c7d31f4816deb275fc4101b94fdf7841037df407e062d4e897a42fd975e3a11\]")
+				sm("\[AO-[rand(1000, 9999)]\]:    ONLINE    \[c7962f8eddec633e32eb7a3c800c851df1551edc6664a60f2b665c8b82be0cb8\]")
+				sm("\[RW-[rand(1000, 9999)]\]:    ONLINE    \[53ae23b3ab3992a580ecd3ef63302212a359f6441cd1fdc9bef4156eaa0173f5\]")
+				sm("\[BN-[rand(1000, 9999)]\]:    ONLINE    \[7d1fc9ead962730d880e9f1047842017710f5b7f165778724ea638f13c93aa3c\]")
+				sm("\[SI-[rand(1000, 9999)]\]:    ONLINE    \[404cdd7bc109c432f8cc2443b45bcfe95980f5107215c645236e577929ac3e52\]")
 				sm("")
 				sm("-------------------------------------------------------------------------------------------------")
 			if("init2")
@@ -78,7 +76,7 @@ SUBSYSTEM_DEF(title)
 				sm("@> INFRASTRUCTURE ROUTES OPTIMIZATION STARTED:")
 				sm("")
 				sm("        > 127.0.0.1           - READY -                 \[f528764d624db129b32c21fbca0cb8d6\]")
-				sm("        > 8.8.8.8             - READY -                 \[40ff44d9e619b17524bf3763204f9cbb\]")
+				sm("        > 77.88.8.8           - READY -                 \[ec5b16d37efebb673356702a72ef4635\]")
 				sm("        > STATION13.RU        - READY -                 \[dec20fe05cd8bcbfae7db11a2995f85c\]")
 				sm("")
 				sm("")
@@ -128,11 +126,12 @@ SUBSYSTEM_DEF(title)
 			ctt += "[msg]\n"
 		else
 			ctt += "[msg]"
-		splash_turf.maptext = "<font style=\"font-size: 7px; -dm-text-outline: 1px black; font-family: 'Courier'; color:'#aaffaa'; \">[ctt]</font>"
+		splash_turf.maptext = "<font style=\"font-size: 7px; -dm-text-outline: 1px black; font-family: 'Courier'; color:'#aaffff'; \">[ctt]</font>"
 
 /datum/controller/subsystem/title/proc/cls()
 	if(splash_turf && enabled_shit)
 		splash_turf.maptext = ""
+		ctt = ""
 
 /datum/controller/subsystem/title/proc/uplayers()
 	if(splash_turf && enabled_shit)
@@ -144,10 +143,10 @@ SUBSYSTEM_DEF(title)
 			else
 				caa += "\t@> USER [C.key] ONLINE\n"
 		for(var/line in GLOB.whitelist)
-			caa += "@> USER \t[line] ONLINE\n"
+			caa += "@> USER [line] ONLINE\n"
 		for(var/line in sortList(caa))
 			tcc += "[line]\n"
-		splash_turf.maptext = "<font style=\"font-size: 7px; -dm-text-outline: 1px black; font-family: 'Courier'; color:'#aaffaa'; \">[tcc]</font>"
+		splash_turf.maptext = "<font style=\"font-size: 7px; -dm-text-outline: 1px black; font-family: 'Courier'; color:'#aaffff'; \">[tcc]</font>"
 
 /datum/controller/subsystem/title/proc/afterload()
 	if(splash_turf && enabled_shit)
