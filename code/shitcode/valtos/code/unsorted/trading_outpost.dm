@@ -152,7 +152,7 @@
 		if(D)
 			if(!D.adjust_money(-price))
 				continue
-		value += SO.pack.cost
+		value += SO.pack.cost * 2
 		shoppinglist -= SO
 		if(SO.pack.goody) //goody means it gets piled in the miscbox
 			if(!miscboxes.len || !miscboxes["Cargo"])

@@ -1,6 +1,6 @@
 /datum/job/trader
 	title = "Trader"
-	supervisors = "торговой ассоциации Нанотрейзен"
+	supervisors = "торговой ассоциации и ордену Алого Рассвета"
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
