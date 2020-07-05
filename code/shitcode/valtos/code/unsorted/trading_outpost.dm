@@ -7,6 +7,7 @@
 	noteleport = TRUE
 	blob_allowed = FALSE
 	flags_1 = CAN_BE_DIRTY_1
+	ambientsounds = SCARLET_DAWN_AMBIENT
 
 /area/trading_outpost/transfer
 	name = "Trading Outpost Transfer"

@@ -121,6 +121,8 @@
 
 #define SOVIET_AMB_CAVES list('code/shitcode/valtos/sounds/prison/ambout1.ogg')
 
+#define SCARLET_DAWN_AMBIENT list('code/shitcode/valtos/sounds/dz/ambidawn.ogg')
+
 #define INTERACTION_SOUND_RANGE_MODIFIER -3
 #define EQUIP_SOUND_VOLUME 30
 #define PICKUP_SOUND_VOLUME 15
