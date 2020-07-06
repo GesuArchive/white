@@ -14,7 +14,7 @@
 	description = "Мечта, которая никогда не сбудется. Наверное."
 	path = /obj/item/card/id/captains_spare
 	allowed_roles = list("Assistant")
-	cost = 2007
+	cost = 20007
 
 /datum/gear/guitar
 	display_name = "Гитара"

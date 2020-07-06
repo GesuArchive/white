@@ -93,7 +93,7 @@
 /datum/metacoin_shop_item/purge_this_shit
 	name = "Фатальный сброс"
 	icon_state = "purge"
-	cost = 1000
+	cost = 5000
 	id = "purge_this_shit"
 	enabled = TRUE
 
