@@ -461,7 +461,8 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		ToggleFullscreen()
 
 	if(isnewplayer(src.mob))
-		view_size = new(src, "19x15")
+		view_size = new(src, getScreenSize(prefs.widescreenpref))
+		view = "19x15"
 	else
 		view_size = new(src, getScreenSize(prefs.widescreenpref))
 
