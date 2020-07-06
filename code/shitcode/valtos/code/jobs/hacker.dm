@@ -212,3 +212,59 @@
 	name = "Цифровое бессмертие"
 	desc = "Мне не страшна смерть!"
 	icon_state = "shadow_mend"
+
+/*
+// Hacking
+
+/obj/item/modular_computer/tablet/hacktool
+	name = "планшет"
+	icon = 'icons/obj/contractor_tablet.dmi'
+	icon_state = "tablet"
+	icon_state_unpowered = "tablet"
+	icon_state_powered = "tablet"
+	icon_state_menu = "assign"
+	w_class = WEIGHT_CLASS_SMALL
+	slot_flags = ITEM_SLOT_ID | ITEM_SLOT_BELT
+	comp_light_luminosity = 6.3
+	has_variants = FALSE
+
+/obj/item/modular_computer/tablet/hacktool/Initialize()
+	. = ..()
+	var/obj/item/computer_hardware/hard_drive/small/hacker/hard_drive = new
+	var/datum/computer_file/program/hacktool/ht = new
+
+	active_program = ht
+	ht.program_state = PROGRAM_STATE_ACTIVE
+	ht.computer = src
+
+	hard_drive.store_file(ht)
+
+	install_component(new /obj/item/computer_hardware/processor_unit/small)
+	install_component(new /obj/item/computer_hardware/battery(src, /obj/item/stock_parts/cell/computer))
+	install_component(hard_drive)
+	install_component(new /obj/item/computer_hardware/network_card)
+	install_component(new /obj/item/computer_hardware/card_slot)
+	install_component(new /obj/item/computer_hardware/printer/mini)
+
+/obj/item/computer_hardware/hard_drive/small/hacker
+	desc = "An efficient SSD for portable devices developed by a rival organisation."
+	power_usage = 8
+	max_capacity = 120
+
+/datum/computer_file/program/hacktool
+	filename = "hacktool"
+	filedesc = "Tool for hacking everything"
+	program_icon_state = "assign"
+	extended_desc = "Содержит виртуальную машину со своим набором программ."
+	size = 60
+	requires_ntnet = 0
+	available_on_ntnet = 0
+	unsendable = 1
+	undeletable = 1
+	tgui_id = "HackerHackTool"
+	ui_x = 500
+	ui_y = 600
+
+/datum/computer_file/program/hacktool/run_program(var/mob/living/user)
+	. = ..(user)
+*/

@@ -460,11 +460,14 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	if (prefs.fullscreen)
 		ToggleFullscreen()
 
-	if(!isnewplayer(src.mob))
+	if(isnewplayer(src.mob))
+		view_size = new(src, "19x15")
+	else
 		view_size = new(src, getScreenSize(prefs.widescreenpref))
-		view_size.resetFormat()
-		view_size.setZoomMode()
-		fit_viewport()
+
+	view_size.resetFormat()
+	view_size.setZoomMode()
+	fit_viewport()
 
 	SStitle.uplayers()
 

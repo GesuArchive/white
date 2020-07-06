@@ -54,7 +54,7 @@
 	client.proverka_na_pindosov()
 	client.proverka_na_obemky()
 
-	fit_lobbyscreen_or_die()
+	//fit_lobbyscreen_or_die()
 
 // looping it
 /mob/dead/new_player/proc/fit_lobbyscreen_or_die()
