@@ -132,6 +132,7 @@
 
 // Trader access
 #define ACCESS_TRADER 209
+#define ACCESS_TRADER_EX 210
 
 	//Special, for anything that's basically internal
 #define ACCESS_BLOODCULT 250

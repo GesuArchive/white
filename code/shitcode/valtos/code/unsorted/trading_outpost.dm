@@ -290,3 +290,12 @@
 		tier++
 		exp = 0
 		say("Новый уровень! Теперь производим [tier] кредитов за удар.")
+
+/obj/item/card/id/trader_ex
+	name = "Карта расширения"
+	desc = "Открывает дополнительную зону в апартаментах трейдера."
+	icon = 'icons/obj/card.dmi'
+	icon_state = "data_1"
+	access = list(ACCESS_TRADER_EX)
+	uses_overlays = FALSE
+	registered_age = null

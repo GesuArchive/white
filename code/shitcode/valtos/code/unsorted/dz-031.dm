@@ -205,6 +205,10 @@
 	id = "trador1"
 	req_access = list(ACCESS_TRADER)
 
+/obj/machinery/card_button/trader/extension
+	id = "trador_ex"
+	req_access = list(ACCESS_TRADER_EX)
+
 /obj/machinery/card_button/Initialize(mapload)
 	. = ..()
 	if(!device)
@@ -217,14 +221,17 @@
 
 /obj/machinery/card_button/attackby(obj/item/W, mob/user, params)
 	if(isidcard(W))
+		playsound(src, 'code/shitcode/valtos/sounds/dz/cardin.ogg', 60, TRUE)
 		if(check_access(W))
-			playsound(src, 'code/shitcode/valtos/sounds/dz/cardin.ogg', 60, TRUE)
 			spawn(10)
 				if(device)
 					device.pulsed()
 				say("Доступ разрешён.")
 				SEND_GLOBAL_SIGNAL(COMSIG_GLOB_BUTTON_PRESSED,src)
 				return
+		else
+			spawn(10)
+				say("Доступ запрещён.")
 
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
 		to_chat(user, "<span class='warning'>Вставляю отвёртку в картоприёмник...</span>")
@@ -291,9 +298,10 @@
 	occupant_typecache = list(/mob/living/carbon/human)
 	light_color = LIGHT_COLOR_CYAN
 	//var/mob/living/carbon/human/virtual_reality/vr_human
+
 /obj/machinery/cyberdeck/Initialize()
 	. = ..()
-	set_light(3)
+	set_light(1)
 
 /obj/machinery/cyberdeck/examine(mob/user)
 	if(user.client && !user.client.holder) // прикол

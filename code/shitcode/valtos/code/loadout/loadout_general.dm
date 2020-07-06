@@ -21,3 +21,17 @@
 	description = "Хотите устроить рок-концерт или Вам нужно что-то крепкое в руках для потасовки? Возьмите с собой гитару!"
 	path = /obj/item/instrument/guitar
 	cost = 50
+
+/datum/gear/backup_circuit
+	display_name = "Запасная микросхема"
+	description = "Если каким-то образом на этой станции не оказалось консоли, а вы прибыли поздно, то всегда поможет запасная плата вызова шаттла."
+	path = /obj/machinery/computer/shuttle/ferry/request/trader
+	allowed_roles = list("Trader")
+	cost = 50
+
+/datum/gear/lvlonetrader
+	display_name = "Карта расширения L1"
+	description = "Для доступа к дополнительному отсеку."
+	path = /obj/item/card/id/trader_ex
+	allowed_roles = list("Trader")
+	cost = 350
