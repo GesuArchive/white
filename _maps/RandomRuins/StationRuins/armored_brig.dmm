@@ -2521,6 +2521,7 @@
 /obj/machinery/holopad/secure,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
+/mob/living/simple_animal/bot/secbot/ed209,
 /turf/open/floor/engine,
 /area/security/main)
 "fK" = (
