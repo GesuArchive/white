@@ -149,7 +149,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 				msg = "Подсистема <b>[BadBoy.name]</b> хочет поломать игру. Она была перезапущена и будет отключена, если не прекратит выёбываться."
 				FireHim = TRUE
 			if(3)
-				msg = "Подсистема <b>[BadBoy.name]</b> похоже хочет умереть. Отключем её."
+				msg = "Подсистема <b>[BadBoy.name]</b> похоже хочет умереть. Отключаем её."
 				BadBoy.flags |= SS_NO_FIRE
 		if(msg)
 			to_chat(GLOB.admins, "<span class='green'> >> [msg]</span>")
