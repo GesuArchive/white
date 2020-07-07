@@ -554,6 +554,7 @@
 /area/hallway/primary/central)
 "bs" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/ai_monitored/turret_protected/ai_upload)
 "bt" = (
@@ -1628,6 +1629,7 @@
 	req_access_txt = "12"
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "dT" = (
@@ -1677,6 +1679,7 @@
 /obj/machinery/door/airlock/maintenance{
 	req_access_txt = "12"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "ea" = (
@@ -1731,6 +1734,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "eg" = (
@@ -1758,6 +1762,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "ej" = (
@@ -2254,6 +2259,7 @@
 	name = "Head of Personnel";
 	req_access_txt = "57"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood,
 /area/crew_quarters/heads/hop)
 "fm" = (
@@ -2722,6 +2728,7 @@
 	name = "Conference Room";
 	req_access_txt = "19"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "gn" = (
@@ -3567,6 +3574,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "ij" = (
@@ -4169,6 +4177,7 @@
 "wx" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/status_display/ai,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/ai_monitored/turret_protected/ai_upload)
 "wy" = (
@@ -4176,6 +4185,7 @@
 	name = "Captain's Office Maintenance";
 	req_access_txt = "12"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/central/secondary)
 "wW" = (
@@ -4184,6 +4194,11 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"xG" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/turf/open/floor/plating,
 /area/hallway/primary/central)
 "yg" = (
 /obj/effect/turf_decal/tile/yellow,
@@ -4200,6 +4215,7 @@
 /area/hallway/primary/central)
 "zb" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "zG" = (
@@ -4266,6 +4282,7 @@
 /obj/machinery/door/airlock/maintenance{
 	req_access_txt = "12"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "Ez" = (
@@ -4670,12 +4687,12 @@ ay
 aj
 cZ
 ep
-aE
+xG
 ep
 ep
 ep
 ep
-aE
+xG
 ep
 az
 Ro
@@ -4744,7 +4761,7 @@ ab
 ab
 al
 cZ
-aE
+xG
 ab
 ab
 bs
@@ -4753,7 +4770,7 @@ bs
 bs
 ab
 ab
-aE
+xG
 TS
 aj
 HC
@@ -4972,7 +4989,7 @@ az
 ai
 aj
 cZ
-aE
+xG
 ab
 ab
 cf
@@ -4981,7 +4998,7 @@ hC
 cf
 ab
 ab
-aE
+xG
 TS
 aj
 HC
@@ -5087,7 +5104,7 @@ az
 aj
 aj
 cZ
-aE
+xG
 ab
 bs
 hA
@@ -5348,8 +5365,8 @@ ab
 "}
 (23,1,1) = {"
 ab
-aE
-aE
+xG
+xG
 aj
 ar
 wy
@@ -5387,7 +5404,7 @@ ab
 (24,1,1) = {"
 ab
 ab
-aE
+xG
 aj
 ar
 dP
@@ -5425,7 +5442,7 @@ ab
 (25,1,1) = {"
 ab
 ab
-aE
+xG
 aj
 ar
 dP
@@ -5748,11 +5765,11 @@ aj
 dh
 ep
 ep
-aE
+xG
 ep
 ep
 ep
-aE
+xG
 ep
 dC
 dS

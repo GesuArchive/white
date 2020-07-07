@@ -423,6 +423,7 @@
 "bg" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/crew_quarters/heads/captain)
 "bh" = (
@@ -531,6 +532,7 @@
 	name = "Conference Room";
 	req_access_txt = "19"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "bv" = (
@@ -989,6 +991,7 @@
 /area/bridge/meeting_room)
 "cl" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/crew_quarters/heads/captain)
 "cm" = (
@@ -1077,6 +1080,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "cv" = (
@@ -1141,6 +1145,7 @@
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/captain)
 "cD" = (
@@ -1210,6 +1215,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
 "cL" = (
@@ -1496,6 +1502,7 @@
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "ds" = (
@@ -1581,6 +1588,7 @@
 /area/crew_quarters/heads/hop)
 "dC" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/crew_quarters/heads/hop)
 "dD" = (
@@ -2293,6 +2301,7 @@
 /obj/machinery/door/airlock{
 	name = "Private Restroom"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/freezer,
 /area/crew_quarters/heads/captain)
 "jQ" = (
@@ -2580,6 +2589,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"mB" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/turf/open/floor/plating,
+/area/hallway/primary/central)
 "mF" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
@@ -2639,6 +2653,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/ai_monitored/turret_protected/ai_upload)
 "nm" = (
@@ -2647,6 +2662,7 @@
 	req_access_txt = "16"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/ai_monitored/turret_protected/ai_upload)
 "nn" = (
@@ -2739,6 +2755,7 @@
 	id = "bridge blast";
 	name = "bridge blast door"
 	},
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/bridge)
 "nz" = (
@@ -2907,6 +2924,7 @@
 /area/hallway/primary/central)
 "nU" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/bridge)
 "nV" = (
@@ -3716,6 +3734,7 @@
 	name = "bridge blast door"
 	},
 /obj/machinery/status_display/evac,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/bridge)
 "pL" = (
@@ -3726,6 +3745,7 @@
 	name = "bridge blast door"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/bridge)
 "pM" = (
@@ -3736,6 +3756,7 @@
 	name = "bridge blast door"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/bridge)
 "pN" = (
@@ -4304,11 +4325,13 @@
 "re" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central)
 "rf" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central)
 "rg" = (
@@ -4678,6 +4701,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"Gl" = (
+/turf/closed/wall,
+/area/crew_quarters/heads/captain)
 "Gr" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
@@ -5206,20 +5232,20 @@ aj
 nT
 an
 an
-af
-af
+mB
+mB
 an
 an
-af
-af
+mB
+mB
 an
 eP
 os
 pP
 eP
 an
-af
-af
+mB
+mB
 kP
 kP
 cI
@@ -5242,7 +5268,7 @@ ab
 eb
 aj
 jo
-af
+mB
 ab
 bi
 bi
@@ -5280,7 +5306,7 @@ ab
 eb
 aj
 jo
-af
+mB
 ab
 bi
 bi
@@ -5338,7 +5364,7 @@ ny
 ny
 bi
 bi
-af
+mB
 qH
 jo
 gv
@@ -5352,7 +5378,7 @@ ax
 (14,1,1) = {"
 ab
 ab
-af
+mB
 aj
 aj
 nF
@@ -5376,7 +5402,7 @@ oF
 ny
 ny
 ab
-af
+mB
 qH
 of
 tr
@@ -5389,8 +5415,8 @@ ax
 "}
 (15,1,1) = {"
 ab
-af
-af
+mB
+mB
 aj
 aj
 np
@@ -5414,7 +5440,7 @@ oK
 pf
 ny
 ab
-af
+mB
 qH
 QT
 ps
@@ -5566,7 +5592,7 @@ oZ
 pq
 ny
 ab
-af
+mB
 az
 qR
 jo
@@ -5693,8 +5719,8 @@ ab
 "}
 (23,1,1) = {"
 ab
-af
-af
+mB
+mB
 aj
 aj
 jo
@@ -5732,7 +5758,7 @@ ab
 (24,1,1) = {"
 ab
 ab
-af
+mB
 aj
 aj
 jo
@@ -5757,10 +5783,10 @@ ny
 ny
 ab
 gG
-gG
-gG
+Gl
+Gl
 jP
-gG
+Gl
 gG
 mA
 qR

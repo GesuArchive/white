@@ -58,6 +58,7 @@
 /area/hallway/primary/central)
 "aD" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central)
 "aE" = (
@@ -4476,6 +4477,12 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
+"Oe" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/obj/machinery/door/firedoor/window,
+/turf/open/floor/plating,
+/area/hallway/primary/central)
 "OY" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -5026,7 +5033,7 @@ ad
 (14,1,1) = {"
 ab
 ab
-aD
+Oe
 aH
 aH
 eC
@@ -5064,7 +5071,7 @@ ad
 (15,1,1) = {"
 ab
 aD
-aD
+Oe
 aH
 aH
 eC
