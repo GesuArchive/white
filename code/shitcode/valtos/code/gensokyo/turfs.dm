@@ -9,6 +9,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	var/nospawn = FALSE
+	baseturfs = /turf/open/floor/grass/gensgrass/dirty
 
 /turf/open/floor/grass/gensgrass/dirty
 	gender = FEMALE
@@ -30,9 +31,9 @@
 	if (prob(70))
 		var/obj/structure/flora/ausbushes/rospilovo/F = pick(subtypesof(/obj/structure/flora/ausbushes/rospilovo))
 		new F(get_turf(src))
-		if (prob(40))
+		if (prob(30))
 			new /obj/structure/flora/tree/jungle(get_turf(src))
-		else if (prob(60))
+		else if (prob(40))
 			new /obj/structure/flora/tree/jungle/small(get_turf(src))
 	var/B = pick("e", "f")
 	var/C = pick("9", "a", "b", "c", "d", "e", "f")
