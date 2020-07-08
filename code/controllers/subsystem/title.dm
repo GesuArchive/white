@@ -49,6 +49,7 @@ SUBSYSTEM_DEF(title)
 
 /datum/controller/subsystem/title/proc/set_load_state(state)
 	if(splash_turf && enabled_shit)
+		new /obj/rs_rs_rs(splash_turf.loc)
 		switch(state)
 			if("init1")
 				sm("-------------------------------------------------------------------------------------------------")
@@ -132,6 +133,9 @@ SUBSYSTEM_DEF(title)
 	if(splash_turf && enabled_shit)
 		splash_turf.maptext = ""
 		ctt = null
+		uplayers()
+		for(var/obj/rs_rs_rs/O in splash_turf)
+			qdel(O)
 
 /datum/controller/subsystem/title/proc/uplayers()
 	if(splash_turf && enabled_shit && !ctt)
@@ -154,6 +158,33 @@ SUBSYSTEM_DEF(title)
 		splash_turf.icon_state = null
 		splash_turf.icon = icon
 		splash_turf.add_overlay('icons/wd_logo.png')
+
+/obj/rs_rs_rs
+	name = "странная штука"
+	layer = 22
+	icon = 'code/shitcode/valtos/icons/d.dmi'
+	icon_state = "rect"
+	color = "#aaaaaa"
+	pixel_x = 240
+	pixel_y = 176
+
+/obj/rs_rs_rs/Initialize()
+	. = ..()
+	var/lor = 120
+	if (prob(50))
+		lor = -lor
+		color = "#222222"
+
+	var/soe = rand(6, 8)
+	var/zof = rand(0.1, 0.5)
+
+	animate(src, transform = matrix().Scale(soe,soe), time = 50, loop = -1, flags = ANIMATION_PARALLEL)
+	animate(	 transform = matrix().Scale(zof,zof), time = 200)
+	animate(	 transform = matrix().Scale(soe,soe), time = 50)
+
+	animate(src, transform = turn(matrix(), lor), 	  time = 50, loop = -1, flags = ANIMATION_PARALLEL)
+	animate(	 transform = turn(matrix(), lor*2),   time = 200)
+	animate(	 transform = turn(matrix(), lor*3),   time = 50)
 
 /datum/controller/subsystem/title/vv_edit_var(var_name, var_value)
 	. = ..()

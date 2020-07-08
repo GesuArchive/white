@@ -296,7 +296,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "aO" = (
-/obj/machinery/status_display/ai,
+/obj/machinery/status_display/evac,
 /turf/closed/wall/r_wall,
 /area/bridge)
 "aP" = (
@@ -321,7 +321,9 @@
 	codes_txt = "patrol;next_patrol=QM";
 	location = "CHW"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer3{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "aS" = (
@@ -413,7 +415,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "be" = (
-/obj/machinery/status_display/ai,
+/obj/machinery/status_display/evac,
 /turf/closed/wall/r_wall,
 /area/crew_quarters/heads/captain)
 "bf" = (
@@ -1146,7 +1148,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/machinery/door/firedoor,
-/turf/open/floor/plasteel,
+/turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "cD" = (
 /obj/structure/table,
@@ -1515,7 +1517,7 @@
 /turf/open/floor/plating,
 /area/crew_quarters/heads/hop)
 "dt" = (
-/obj/machinery/status_display/ai,
+/obj/machinery/status_display/evac,
 /turf/closed/wall/r_wall,
 /area/crew_quarters/heads/hop)
 "du" = (
@@ -4614,11 +4616,8 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "xQ" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer3{
-	dir = 1
-	},
-/turf/open/floor/plating,
+/obj/machinery/status_display/evac,
+/turf/closed/wall,
 /area/hallway/primary/central)
 "yg" = (
 /obj/structure/disposalpipe/junction{
@@ -4718,6 +4717,10 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"Hy" = (
+/obj/machinery/status_display/evac,
+/turf/closed/wall/r_wall,
+/area/teleporter)
 "HB" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -4862,7 +4865,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "XI" = (
-/obj/machinery/status_display/ai,
+/obj/machinery/status_display/evac,
 /turf/closed/wall/r_wall,
 /area/hallway/primary/central)
 "Zg" = (
@@ -4964,7 +4967,7 @@ ab
 rv
 aT
 aR
-xQ
+af
 oi
 qd
 aP
@@ -5040,7 +5043,7 @@ ab
 rN
 aj
 aj
-an
+xQ
 an
 an
 an
@@ -5056,7 +5059,7 @@ an
 aA
 ol
 rw
-kP
+Hy
 kP
 lF
 Ms

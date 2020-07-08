@@ -17,7 +17,7 @@
 
 /// Status display which can show images and scrolling text.
 /obj/machinery/status_display
-	name = "status display"
+	name = "дисплей"
 	desc = null
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
@@ -117,7 +117,7 @@
 /obj/machinery/status_display/examine(mob/user)
 	. = ..()
 	if (message1 || message2)
-		. += "The display says:"
+		. += "Дисплей сообщает:"
 		if (message1)
 			. += "<br>\t<tt>[html_encode(message1)]</tt>"
 		if (message2)
@@ -127,14 +127,14 @@
 /obj/machinery/status_display/proc/display_shuttle_status(obj/docking_port/mobile/shuttle)
 	if(!shuttle)
 		// the shuttle is missing - no processing
-		update_display("shutl?","")
+		update_display("шаттл?","")
 		return PROCESS_KILL
 	else if(shuttle.timer)
 		var/line1 = "-[shuttle.getModeStr()]-"
 		var/line2 = shuttle.getTimerStr()
 
 		if(length_char(line2) > CHARS_PER_LINE)
-			line2 = "error"
+			line2 = "ошибка"
 		update_display(line1, line2)
 	else
 		// don't kill processing, the timer might turn back on
@@ -148,9 +148,9 @@
 				modestr = "<br>\t<tt>[modestr]: [shuttle.getTimerStr()]</tt>"
 			else
 				modestr = "<br>\t<tt>[modestr]</tt>"
-		return "The display says:<br>\t<tt>[shuttle.name]</tt>[modestr]"
+		return "Дисплей сообщает:<br>\t<tt>[shuttle.name]</tt>[modestr]"
 	else
-		return "The display says:<br>\t<tt>Shuttle missing!</tt>"
+		return "Дисплей сообщает:<br>\t<tt>Не обнаружен шаттл!</tt>"
 
 
 /// Evac display which shows shuttle timer or message set by Command.
@@ -199,7 +199,7 @@
 	if(mode == SD_EMERGENCY)
 		. += examine_shuttle(user, SSshuttle.emergency)
 	else if(!message1 && !message2)
-		. += "The display is blank."
+		. += "Дисплей пуст."
 
 /obj/machinery/status_display/evac/receive_signal(datum/signal/signal)
 	switch(signal.data["command"])
@@ -223,7 +223,7 @@
 
 /// Supply display which shows the status of the supply shuttle.
 /obj/machinery/status_display/supply
-	name = "supply display"
+	name = "дисплей карго"
 
 /obj/machinery/status_display/supply/process()
 	if(machine_stat & NOPOWER)
@@ -236,17 +236,17 @@
 	if(!SSshuttle.supply)
 		// Might be missing in our first update on initialize before shuttles
 		// have loaded. Cross our fingers that it will soon return.
-		line1 = "CARGO"
-		line2 = "shutl?"
+		line1 = "КАРГО"
+		line2 = "щаттл?"
 	else if(SSshuttle.supply.mode == SHUTTLE_IDLE)
 		if(is_station_level(SSshuttle.supply.z))
-			line1 = "CARGO"
-			line2 = "Docked"
+			line1 = "КАРГО"
+			line2 = "В доке"
 	else
-		line1 = "CARGO"
+		line1 = "КАРГО"
 		line2 = SSshuttle.supply.getTimerStr()
 		if(length_char(line2) > CHARS_PER_LINE)
-			line2 = "Error"
+			line2 = "Ошибка"
 	update_display(line1, line2)
 
 /obj/machinery/status_display/supply/examine(mob/user)
@@ -255,18 +255,18 @@
 	var/shuttleMsg = null
 	if (shuttle.mode == SHUTTLE_IDLE)
 		if (is_station_level(shuttle.z))
-			shuttleMsg = "Docked"
+			shuttleMsg = "В доке"
 	else
 		shuttleMsg = "[shuttle.getModeStr()]: [shuttle.getTimerStr()]"
 	if (shuttleMsg)
-		. += "The display says:<br>\t<tt>[shuttleMsg]</tt>"
+		. += "Дисплей сообщает:<br>\t<tt>[shuttleMsg]</tt>"
 	else
-		. += "The display is blank."
+		. += "Дисплей пуст."
 
 
 /// General-purpose shuttle status display.
 /obj/machinery/status_display/shuttle
-	name = "shuttle display"
+	name = "дисплей шаттла"
 	var/shuttle_id
 
 /obj/machinery/status_display/shuttle/process()
@@ -282,7 +282,7 @@
 	if(shuttle_id)
 		. += examine_shuttle(user, SSshuttle.getShuttle(shuttle_id))
 	else
-		. += "The display is blank."
+		. += "Дисплей пуст."
 
 /obj/machinery/status_display/shuttle/vv_edit_var(var_name, var_value)
 	. = ..()
@@ -300,8 +300,8 @@
 
 /// Pictograph display which the AI can use to emote.
 /obj/machinery/status_display/ai
-	name = "\improper AI display"
-	desc = "A small screen which the AI can use to present itself."
+	name = "дисплей ИИ"
+	desc = "Небольшой экран, которым управляет ИИ."
 
 	var/mode = SD_BLANK
 	var/emotion = "Neutral"
