@@ -1,6 +1,6 @@
 /client/MouseEntered(object, location)
 	..()
-	if(istype(object, /atom) && !istype(object, /turf/closed/indestructible/splashscreen) && (prefs.w_toggles & TOOLTIP_USER_UP) && !(prefs.w_toggles & TOOLTIP_USER_RETRO))
+	if(istype(object, /atom) && !isnewplayer(mob) && (prefs.w_toggles & TOOLTIP_USER_UP) && !(prefs.w_toggles & TOOLTIP_USER_RETRO))
 		var/atom/A = object
 		if(mob.hud_used.tooltip)
 			var/obj_name = A.name
