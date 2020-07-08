@@ -49,7 +49,7 @@ SUBSYSTEM_DEF(title)
 
 /datum/controller/subsystem/title/proc/set_load_state(state)
 	if(splash_turf && enabled_shit)
-		new /obj/rs_rs_rs(splash_turf.loc)
+		new /obj/rs_rs_rs(splash_turf)
 		switch(state)
 			if("init1")
 				sm("-------------------------------------------------------------------------------------------------")
@@ -161,7 +161,8 @@ SUBSYSTEM_DEF(title)
 
 /obj/rs_rs_rs
 	name = "странная штука"
-	layer = 22
+	layer = 24
+	plane = 24
 	icon = 'code/shitcode/valtos/icons/d.dmi'
 	icon_state = "rect"
 	color = "#aaaaaa"
