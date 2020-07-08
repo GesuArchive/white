@@ -22,7 +22,7 @@
 	if(nospawn)
 		return
 	icon_state = "grass[rand(1, 3)]"
-	SpawnMonster(get_turf(src))
+	//SpawnMonster(get_turf(src))
 	if(prob(5))
 		name = "грязь"
 		icon_state = "dirt"
@@ -30,10 +30,13 @@
 	if (prob(70))
 		var/obj/structure/flora/ausbushes/rospilovo/F = pick(subtypesof(/obj/structure/flora/ausbushes/rospilovo))
 		new F(get_turf(src))
-		if (prob(20))
-			new /obj/structure/flora/tree/gensokyo(get_turf(src))
-	var/C = pick("c", "d", "e", "f")
-	color = "#[C][C][C][C][C][C]"
+		if (prob(40))
+			new /obj/structure/flora/tree/jungle(get_turf(src))
+		else if (prob(60))
+			new /obj/structure/flora/tree/jungle/small(get_turf(src))
+	var/B = pick("e", "f")
+	var/C = pick("9", "a", "b", "c", "d", "e", "f")
+	color = "#[B][C][B][C][B][C]"
 
 /turf/open/floor/grass/gensgrass/proc/SpawnMonster(turf/T)
 	if(prob(30))
