@@ -163,6 +163,8 @@ SUBSYSTEM_DEF(title)
 	name = "странная штука"
 	layer = 24
 	plane = 24
+	blend_mode = 3
+	alpha = 125
 	icon = 'code/shitcode/valtos/icons/d.dmi'
 	icon_state = "rect"
 	color = "#aaaaaa"
