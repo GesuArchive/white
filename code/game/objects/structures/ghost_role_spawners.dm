@@ -714,6 +714,8 @@
 /datum/outfit/syndicatespace/syndicaptain
 	name = "Syndicate Ship Captain"
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
+	uniform = /obj/item/clothing/under/syndicate/combat
+	glasses = /obj/item/clothing/glasses/night
 	head = /obj/item/clothing/head/hos/beret/syndicate
 	ears = /obj/item/radio/headset/syndicate/alt/leader
 	shoes = /obj/item/clothing/shoes/combat
