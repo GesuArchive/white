@@ -17,7 +17,7 @@
 	name = "палпутинум"
 	desc = "Туз"
 	color = rgb(239, 151, 68)
-	categories = list(MAT_CATEGORY_RIGID = TRUE)
+	categories = list(MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE)
 	sheet_type = /obj/item/stack/sheet/palputinum
 	value_per_unit = 0.05
 	beauty_modifier = 0.3

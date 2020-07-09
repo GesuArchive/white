@@ -9,7 +9,7 @@
 	force = 10//
 	toolspeed = 1.25
 	throwforce = 5//
-	custom_materials = list(MAT_METAL=10000)//
+	custom_materials = list(/datum/material/iron=10000)//
 	var/folded = 0
 
 /obj/item/circular_saw/folding/attack_self(user)
