@@ -229,8 +229,8 @@
 		var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_SCI)
 		if(D)
 			var/ancapbucks = 0
-			if(point_gain > 50000)
-				ancapbucks = 50000
+			if(point_gain > 100000)
+				ancapbucks = 100000
 			else
 				ancapbucks = point_gain
 
