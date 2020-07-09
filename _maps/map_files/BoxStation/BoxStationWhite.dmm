@@ -20445,13 +20445,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/kitchen)
-"bDV" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/plating,
-/area/maintenance/aft)
 "bDW" = (
 /obj/machinery/door/airlock/medical/glass{
 	name = "Medbay Storage";
@@ -42517,17 +42510,6 @@
 /obj/effect/turf_decal/trimline/yellow/filled/corner,
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
-"rpy" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer1{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer3{
-	dir = 4
-	},
-/obj/structure/disposalpipe/junction,
-/turf/open/floor/plating,
-/area/maintenance/aft)
 "rqd" = (
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /obj/effect/decal/cleanable/dirt,
@@ -88296,8 +88278,8 @@ bLT
 bLT
 bLT
 bLT
-rpy
-bDV
+bMe
+bUY
 bLT
 bLT
 bLT

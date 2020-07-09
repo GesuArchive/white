@@ -557,14 +557,6 @@
 "bI" = (
 /obj/structure/tank_dispenser/oxygen,
 /obj/effect/turf_decal/tile/purple,
-/obj/machinery/embedded_controller/radio/airlock_controller{
-	airpump_tag = "mining_eva_pump";
-	exterior_door_tag = "mining_eva_ext";
-	id_tag = "mining_eva_controller";
-	interior_door_tag = "mining_eva_in";
-	pixel_x = 32;
-	sensor_tag = "mining_eva_sensor"
-	},
 /turf/open/floor/plasteel,
 /area/mine/eva)
 "bJ" = (
@@ -574,20 +566,9 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 6
-	},
-/obj/machinery/airlock_sensor{
-	id_tag = "mining_eva_sensor";
-	master_tag = "mining_eva_controller";
-	pixel_y = 32
-	},
 /turf/open/floor/plasteel,
 /area/mine/eva)
 "bK" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 10
-	},
 /obj/machinery/shower{
 	dir = 8
 	},
@@ -717,7 +698,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plasteel,
 /area/mine/eva)
 "bY" = (
@@ -727,8 +707,8 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 9
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/mine/eva)
@@ -855,18 +835,18 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/layer_manifold{
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/mine/eva)
 "ct" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 9
-	},
 /obj/structure/ore_box,
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
+	dir = 9
 	},
 /turf/open/floor/plasteel,
 /area/mine/eva)
@@ -3828,13 +3808,11 @@
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
 "rm" = (
-/obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume{
-	id = "mining_eva_pump"
-	},
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/brown,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer3,
 /turf/open/floor/plasteel,
 /area/mine/eva)
 "rD" = (
@@ -3844,9 +3822,11 @@
 /obj/machinery/button/door{
 	id = "mining_backdoor";
 	name = "Mining Backdoor";
+	normaldoorcontrol = 1;
 	pixel_x = 32;
 	pixel_y = -32;
-	req_access_txt = "59"
+	req_access_txt = "59";
+	specialfunctions = 4
 	},
 /turf/open/floor/plasteel,
 /area/mine/production)
@@ -3925,17 +3905,6 @@
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plasteel,
 /area/mine/production)
-"sI" = (
-/obj/machinery/door_buttons/access_button{
-	controller = "mining_eva_controller";
-	idDoor = "mining_eva_ext";
-	idSelf = "mining_eva_ext_button";
-	name = "EVA Access Button";
-	pixel_x = -24;
-	req_access_txt = "54"
-	},
-/turf/open/floor/plating/asteroid/basalt/lava_land_surface,
-/area/mine/eva)
 "sK" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 1
@@ -5135,9 +5104,11 @@
 /obj/machinery/button/door{
 	id = "mining_backdoor";
 	name = "Mining Backdoor";
+	normaldoorcontrol = 1;
 	pixel_x = 32;
 	pixel_y = 32;
-	req_access_txt = "59"
+	req_access_txt = "59";
+	specialfunctions = 4
 	},
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/mine/production)
@@ -5237,7 +5208,7 @@
 	opacity = 0;
 	req_access_txt = "54"
 	},
-/obj/effect/mapping_helpers/airlock/locked,
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel,
 /area/mine/eva)
 "WE" = (
@@ -22547,7 +22518,7 @@ ab
 bf
 bf
 bf
-bf
+bg
 bX
 xu
 bf
@@ -23318,7 +23289,7 @@ aj
 aj
 ab
 bf
-bf
+bg
 WD
 bg
 bf
@@ -23575,7 +23546,7 @@ ab
 ab
 ab
 bv
-sI
+ab
 ab
 ab
 bv
