@@ -9,10 +9,16 @@
 	animate(filters[filters.len], size = rand(1, amount), x = rand(1, amount), y = rand(1, amount), time = rand(speed_min, speed_max), loop = count, easing = SINE_EASING)
 	animate(size = 0, x = 0, y = 0, time = rand(speed_min, speed_max))
 
+/atom/proc/unglitch_me()
+	if(!glitched)
+		return FALSE
+	filters = null
+	glitched = FALSE
+
 /obj/item/gun/magic/glitch
 	name = "глитч-ган"
 	desc = "Вите надо выйти..."
-	max_charges = 1488
+	max_charges = 3
 	can_charge = TRUE
 	recharge_rate = 1
 	fire_sound = 'code/shitcode/valtos/sounds/mechanized/kr1.wav'
