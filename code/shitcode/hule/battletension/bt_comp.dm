@@ -190,6 +190,13 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	var/list/result = list()
 	var/list/genres = owner.client.prefs.btprefsnew
 
+	// Все треки должны быть проиндексированы здесь для того, чтобы игра добавляла их в кэш при компиляции и юзер не докачивал их посреди игры
+
+	/*
+		Также, чтобы трек был допущен в коммит, нужно прописать в папке с добавляемым треком команду:
+			git add TRACKNAME.ogg
+	*/
+
 	var/list/bm_prikol = list(  'cfg/battle_music/prikol/Battlefield.ogg',
 								'cfg/battle_music/prikol/gladiator.ogg',
 								'cfg/battle_music/prikol/Ketchup.ogg',
@@ -210,6 +217,11 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 								'cfg/battle_music/touhou/owenwasher.ogg')
 	var/list/bm_mortal = list(  'cfg/battle_music/mortal/unstoppable.ogg')
 	var/list/bm_nazist = list(  'cfg/battle_music/nazist/German Military Marches - Lore, Lore, Lore.ogg')
+	var/list/bm_hacker = list(  'cfg/battle_music/hacker/Lena Raine - Electroheist.ogg',
+								'cfg/battle_music/hacker/Remi Gallego - Payload.ogg')
+
+	if((HAS_TRAIT(owner, TRAIT_HACKER)))
+		return bm_hacker
 
 	for(var/genre in genres)
 		switch (genre)
