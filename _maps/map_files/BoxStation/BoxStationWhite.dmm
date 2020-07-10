@@ -7432,13 +7432,9 @@
 /turf/open/floor/plasteel,
 /area/security/checkpoint/auxiliary)
 "aEK" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{
-	dir = 6
-	},
-/turf/open/floor/plating,
-/area/maintenance/port)
+/obj/structure/chair/wood/wzzzz/red,
+/turf/open/floor/plasteel/dark,
+/area/chapel/main)
 "aEL" = (
 /obj/machinery/door/airlock{
 	name = "Garden"
@@ -8415,9 +8411,7 @@
 /obj/structure/table/glass,
 /obj/item/reagent_containers/food/snacks/grown/poppy,
 /obj/item/reagent_containers/food/snacks/grown/harebell,
-/turf/open/floor/plasteel/chapel{
-	dir = 4
-	},
+/turf/open/floor/plasteel,
 /area/chapel/main)
 "aHq" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -8822,10 +8816,6 @@
 /obj/structure/chair,
 /turf/open/floor/plasteel/grimy,
 /area/chapel/office)
-"aIE" = (
-/obj/structure/table/glass,
-/turf/open/floor/plasteel/chapel,
-/area/chapel/main)
 "aIG" = (
 /obj/machinery/power/apc{
 	areastring = "/area/vacant_room/office";
@@ -9169,7 +9159,8 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/button/crematorium{
 	id = "crematoriumChapel";
-	pixel_x = 25
+	pixel_x = 25;
+	req_access_txt = "22"
 	},
 /obj/machinery/light/small{
 	dir = 4
@@ -9290,9 +9281,7 @@
 /area/crew_quarters/bar)
 "aKe" = (
 /obj/structure/table/glass,
-/turf/open/floor/plasteel/chapel{
-	dir = 4
-	},
+/turf/open/floor/plasteel,
 /area/chapel/main)
 "aKj" = (
 /obj/machinery/door/firedoor,
@@ -9813,6 +9802,12 @@
 /turf/open/floor/plasteel/dark,
 /area/chapel/office)
 "aMX" = (
+/obj/machinery/door/airlock/public/glass{
+	name = "Chapel Office";
+	req_access_txt = "22"
+	},
+/obj/machinery/navbeacon/wayfinding,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/grimy,
 /area/chapel/office)
 "aMY" = (
@@ -9925,14 +9920,9 @@
 /turf/open/floor/wood,
 /area/library)
 "aNW" = (
-/obj/machinery/door/airlock/public/glass{
-	name = "Chapel Office";
-	req_access_txt = "22"
-	},
-/obj/machinery/navbeacon/wayfinding,
-/obj/machinery/door/firedoor,
+/obj/structure/chair/wood/wzzzz,
 /turf/open/floor/plasteel/dark,
-/area/chapel/office)
+/area/chapel/main)
 "aNX" = (
 /obj/item/radio/intercom{
 	broadcasting = 1;
@@ -10238,14 +10228,10 @@
 /turf/open/floor/engine/cult,
 /area/library)
 "aPk" = (
-/turf/open/floor/plasteel/chapel{
-	dir = 4
-	},
-/area/chapel/main)
-"aPl" = (
-/turf/open/floor/plasteel/chapel{
+/obj/structure/chair/wood/wzzzz/red{
 	dir = 1
 	},
+/turf/open/floor/plasteel/chapel,
 /area/chapel/main)
 "aPm" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{
@@ -10470,16 +10456,14 @@
 	},
 /turf/open/floor/engine/cult,
 /area/library)
-"aQu" = (
-/turf/open/floor/plasteel/chapel,
-/area/chapel/main)
 "aQv" = (
-/turf/open/floor/plasteel/chapel{
+/turf/open/floor/plasteel/dark/side{
 	dir = 8
 	},
 /area/chapel/main)
 "aQw" = (
 /obj/structure/table/wood,
+/obj/item/flashlight/lantern,
 /turf/open/floor/plasteel/dark,
 /area/chapel/main)
 "aQx" = (
@@ -11025,11 +11009,17 @@
 /turf/open/floor/plasteel/dark,
 /area/chapel/main)
 "aTf" = (
-/obj/structure/chair/stool,
-/turf/open/floor/plasteel/chapel,
+/obj/structure/chair/wood/wzzzz/red{
+	dir = 1
+	},
+/turf/open/floor/plasteel/chapel{
+	dir = 4
+	},
 /area/chapel/main)
 "aTg" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/wood/wzzzz/red{
+	dir = 1
+	},
 /turf/open/floor/plasteel/chapel{
 	dir = 8
 	},
@@ -11042,10 +11032,12 @@
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "aTi" = (
-/obj/structure/chair/stool,
 /obj/effect/landmark/start/assistant,
+/obj/structure/chair/wood/wzzzz/red{
+	dir = 1
+	},
 /turf/open/floor/plasteel/chapel{
-	dir = 8
+	dir = 1
 	},
 /area/chapel/main)
 "aTj" = (
@@ -11126,13 +11118,9 @@
 /turf/open/floor/plating,
 /area/maintenance/port)
 "aTv" = (
-/obj/structure/disposalpipe/segment{
-	dir = 9
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
-/turf/open/floor/plating,
-/area/maintenance/port)
+/obj/structure/altar_of_gods,
+/turf/open/floor/carpet,
+/area/chapel/main)
 "aTw" = (
 /obj/structure/closet/wardrobe/green,
 /obj/machinery/light{
@@ -11419,20 +11407,27 @@
 /turf/open/floor/plasteel/dark,
 /area/chapel/main)
 "aUH" = (
-/obj/structure/chair/stool,
 /obj/effect/landmark/start/assistant,
-/turf/open/floor/plasteel/chapel{
-	dir = 4
+/obj/structure/chair/wood/wzzzz/red{
+	dir = 1
 	},
+/turf/open/floor/plasteel/chapel,
 /area/chapel/main)
 "aUI" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/wood/wzzzz/red{
+	dir = 1
+	},
 /turf/open/floor/plasteel/chapel{
 	dir = 1
 	},
 /area/chapel/main)
 "aUJ" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/wood/wzzzz/red{
+	dir = 1
+	},
+/obj/structure/chair/wood/wzzzz/red{
+	dir = 1
+	},
 /turf/open/floor/plasteel/chapel{
 	dir = 4
 	},
@@ -11486,10 +11481,13 @@
 /turf/open/floor/wood,
 /area/vacant_room/office)
 "aUT" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{
-	dir = 9
+/obj/structure/disposalpipe/segment{
+	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{
+	dir = 6
+	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/port)
 "aUU" = (
@@ -12536,11 +12534,6 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
-/area/chapel/main)
-"baA" = (
-/turf/open/floor/carpet{
-	icon_state = "carpetsymbol"
-	},
 /area/chapel/main)
 "baB" = (
 /obj/machinery/power/apc{
@@ -17199,6 +17192,16 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/psychology)
 "bul" = (
@@ -17494,6 +17497,16 @@
 	name = "Morgue";
 	req_access = null;
 	req_access_txt = "6"
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/medical/morgue)
@@ -18601,6 +18614,7 @@
 /area/hydroponics)
 "bzc" = (
 /obj/effect/decal/cleanable/oil,
+/obj/machinery/priem_steklotara,
 /turf/open/floor/plating,
 /area/storage/emergency/starboard)
 "bzd" = (
@@ -34589,11 +34603,6 @@
 	dir = 9
 	},
 /area/science/research)
-"cFo" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable,
-/turf/open/space/basic,
-/area/space/nearstation)
 "cGX" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1;
@@ -35635,6 +35644,17 @@
 /obj/machinery/door/airlock/medical{
 	name = "Psychology";
 	req_access_txt = "70"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/psychology)
@@ -37909,7 +37929,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 10;
+	dir = 8;
 	icon_state = "trimline_fill"
 	},
 /turf/open/floor/plasteel/white,
@@ -37938,6 +37958,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "ivO" = (
@@ -39466,11 +39489,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/kitchen)
-"lqJ" = (
-/obj/structure/table/wood,
-/obj/item/flashlight/lantern,
-/turf/open/floor/plasteel/dark,
-/area/chapel/main)
 "lqM" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6;
@@ -40349,10 +40367,6 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/quartermaster/storage)
-"ntC" = (
-/obj/machinery/priem_steklotara,
-/turf/open/floor/plating,
-/area/maintenance/starboard/fore)
 "nuF" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -42425,6 +42439,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "reW" = (
@@ -45071,6 +45088,9 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "vMg" = (
@@ -45194,7 +45214,9 @@
 	c_tag = "Starboard Primary Hallway 4";
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "vWC" = (
@@ -45639,7 +45661,7 @@
 /turf/open/floor/wood,
 /area/crew_quarters/bar/atrium)
 "wTy" = (
-/obj/structure/altar_of_gods,
+/obj/structure/table/wood,
 /turf/open/floor/plasteel/dark,
 /area/chapel/main)
 "wTC" = (
@@ -62550,8 +62572,8 @@ aLE
 aPz
 aPz
 aPz
-aTu
-aEK
+aUT
+aQM
 aQM
 aQM
 aQM
@@ -62807,8 +62829,8 @@ aOm
 aPB
 aQM
 aQM
-aTv
-aUT
+aYY
+bcK
 aPz
 aXQ
 aXQ
@@ -70586,7 +70608,7 @@ cqL
 dAb
 wba
 gXs
-cFo
+aaa
 aaa
 aaa
 aaa
@@ -70843,7 +70865,7 @@ ieY
 wba
 wba
 gXs
-cFo
+aaa
 aaa
 aaa
 aaa
@@ -71100,7 +71122,7 @@ cpq
 tEa
 ccw
 ccw
-cFo
+aaa
 aaa
 aaa
 aaa
@@ -71357,7 +71379,7 @@ cpW
 sgn
 cqN
 cro
-cFo
+aaa
 aaa
 aaa
 aaa
@@ -82088,7 +82110,7 @@ nTN
 rAK
 aRe
 waE
-aKK
+rmU
 wxZ
 vWg
 bBL
@@ -88750,7 +88772,7 @@ auD
 jue
 alP
 aAs
-ntC
+anf
 alP
 anf
 jSz
@@ -92099,7 +92121,7 @@ aGU
 aIC
 aJU
 aLe
-aMX
+aFw
 aFw
 aCR
 aCR
@@ -92356,8 +92378,8 @@ aHg
 aIA
 aJT
 aLc
-aMX
 aFw
+aFz
 aFz
 aFz
 aRR
@@ -92614,10 +92636,10 @@ aII
 aJW
 gKu
 aMX
-aNW
-aPl
-aQv
-aPl
+aFz
+aFz
+aUI
+aUI
 aTg
 aUI
 aTg
@@ -92871,16 +92893,16 @@ aHi
 aJV
 aFw
 aFw
-aFw
-aPk
-aQu
+aFz
+aFz
+aTf
 aPk
 aTf
 aUH
-aTf
+aPk
 aRS
 aZg
-baA
+aFz
 bbF
 aYV
 vdJ
@@ -93128,9 +93150,9 @@ okO
 okO
 aFw
 aMM
-aFz
-aFz
-lqJ
+aEK
+aQw
+aRS
 aRS
 aRS
 aRS
@@ -93385,11 +93407,11 @@ aHk
 aFz
 aTe
 aML
-aFz
+aNW
 wTy
-aQw
 aRS
 aRS
+aTv
 nyd
 aRS
 aRS
@@ -93642,9 +93664,9 @@ pxz
 axa
 axa
 ayg
-aFz
-aFz
-lqJ
+aEK
+aQw
+aRS
 cdl
 aRS
 aRS
@@ -93900,15 +93922,15 @@ csT
 aFz
 aFz
 aFz
-aPl
-aQv
-aPl
-aTi
+aFz
 aUI
+aTg
+aTi
+aTg
 aTg
 aRS
 aZg
-baA
+aFz
 bbF
 aYV
 bdv
@@ -94157,12 +94179,12 @@ aFz
 aFz
 aFz
 aFz
-aPk
-aQu
-aPk
+aFz
 aTf
+aTf
+aPk
 aUJ
-aTf
+aPk
 aRS
 aZg
 aFz
@@ -94408,9 +94430,9 @@ asB
 aCR
 aEm
 aCR
-aPl
 aQv
-aPl
+aQv
+aQv
 aQv
 aCR
 aNY
@@ -94666,9 +94688,9 @@ aCR
 bfb
 aCR
 aHo
-aIE
 aKe
-aIE
+aKe
+aKe
 aCR
 aNX
 aPo

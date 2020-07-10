@@ -1178,8 +1178,8 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	icon_state = "tube";
-	dir = 4
+	dir = 4;
+	icon_state = "tube"
 	},
 /obj/machinery/atmospherics/pipe/manifold/orange/visible{
 	dir = 4
@@ -1618,11 +1618,24 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
+"rk" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/turf/template_noop,
+/area/space/nearstation)
 "rX" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /obj/structure/lattice/catwalk,
 /turf/open/floor/plating,
 /area/engine/engineering)
+"tw" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 10
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "tB" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /turf/open/floor/plating,
@@ -1632,6 +1645,14 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space/nearstation)
+"AC" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 6
+	},
 /turf/template_noop,
 /area/space/nearstation)
 "AD" = (
@@ -1689,7 +1710,7 @@ ab
 ab
 ab
 ab
-LF
+rk
 di
 fm
 di
@@ -1717,7 +1738,7 @@ ab
 ab
 ab
 ab
-di
+AC
 ec
 ec
 ec
@@ -1745,7 +1766,7 @@ ab
 ab
 ab
 ab
-dJ
+tw
 ec
 ec
 ec
@@ -1773,7 +1794,7 @@ ab
 ab
 ab
 ab
-di
+AC
 ec
 ec
 ec

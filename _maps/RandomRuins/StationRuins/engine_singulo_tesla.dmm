@@ -746,6 +746,11 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
 /turf/open/floor/engine,
 /area/engine/engineering)
+"mY" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/turf/open/space/basic,
+/area/space/nearstation)
 "nI" = (
 /obj/machinery/power/tesla_coil,
 /obj/structure/cable,
@@ -990,7 +995,7 @@ ab
 ab
 ab
 ab
-fe
+mY
 ab
 ab
 ab
@@ -1018,7 +1023,7 @@ ab
 ab
 ab
 ab
-fe
+mY
 ab
 ab
 ab
@@ -1046,7 +1051,7 @@ ab
 ab
 ab
 ab
-fe
+mY
 fe
 fe
 fe
@@ -1074,7 +1079,7 @@ ab
 ab
 ab
 ab
-fe
+mY
 ab
 fe
 ab
