@@ -57,7 +57,7 @@
 				qdel(src)
 			if(replace)
 				user.put_in_hands(new_item)
-			playsound(user, 'code/shitcode/valtos/sounds/ducttape1.ogg', 50, 1)
+			playsound(user, 'white/valtos/sounds/ducttape1.ogg', 50, 1)
 		if(istype(I, /obj/item/shard) && !istype(I, /obj/item/melee/shank))
 			var/obj/item/melee/shank/new_item = new(user.loc)
 			to_chat(user, "<span class='notice'>Наматываю [src] на [I].</span>")
@@ -68,7 +68,7 @@
 				qdel(src)
 			if(replace)
 				user.put_in_hands(new_item)
-			playsound(user, 'code/shitcode/valtos/sounds/ducttape1.ogg', 50, 1)
+			playsound(user, 'white/valtos/sounds/ducttape1.ogg', 50, 1)
 		if(ishuman(I) && (user.zone_selected == "mouth" || user.zone_selected == "head"))
 			var/mob/living/carbon/human/H = I
 			if(H.head && (H.head.flags_cover & HEADCOVERSMOUTH))
@@ -77,13 +77,13 @@
 			if(H.wear_mask) //don't even check to see if the mask covers the mouth as the tape takes up mask slot
 				to_chat(user, "<span class='danger'>Надо снять [H.wear_mask] сначала.</span>")
 				return
-			playsound(loc, 'code/shitcode/valtos/sounds/ducttape1.ogg', 30, 1)
+			playsound(loc, 'white/valtos/sounds/ducttape1.ogg', 30, 1)
 			to_chat(user, "<span class='notice'>Начинаю заклеивать рот [H].</span>")
 			if(do_mob(user, H, 20))
 				// H.wear_mask = new/obj/item/clothing/mask/tape(H)
 				H.equip_to_slot_or_del(new /obj/item/clothing/mask/tape(H), ITEM_SLOT_MASK)
 				to_chat(user, "<span class='notice'>Заматываю нахуй рот [H].</span>")
-				playsound(loc, 'code/shitcode/valtos/sounds/ducttape1.ogg', 50, 1)
+				playsound(loc, 'white/valtos/sounds/ducttape1.ogg', 50, 1)
 				if(src.use(2) == 0)
 					user.dropItemToGround(src)
 					qdel(src)

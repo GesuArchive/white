@@ -165,7 +165,7 @@ SUBSYSTEM_DEF(title)
 	plane = 24
 	blend_mode = 3
 	alpha = 125
-	icon = 'code/shitcode/valtos/icons/d.dmi'
+	icon = 'white/valtos/icons/d.dmi'
 	icon_state = "rect"
 	color = "#aaaaaa"
 	pixel_x = 240

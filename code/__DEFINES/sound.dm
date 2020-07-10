@@ -33,7 +33,7 @@
 						  'sound/ambience/white/ambi9.ogg',\
 					 	  'sound/ambience/white/ambi10.ogg',\
 						  'sound/ambience/white/ambi12.ogg',\
-						  'code/shitcode/valtos/sounds/prison/amb8.ogg')
+						  'white/valtos/sounds/prison/amb8.ogg')
 
 #define HOLY list(		  'sound/ambience/white/ambichurch1.ogg')
 
@@ -53,12 +53,12 @@
 #define MINING list(	  'sound/ambience/white/ambidanger1.ogg',\
 						  'sound/ambience/white/ambidanger2.ogg',\
 						  'sound/ambience/white/ambi12.ogg',\
-						  'code/shitcode/valtos/sounds/prison/amb6.ogg')
+						  'white/valtos/sounds/prison/amb6.ogg')
 
 #define MEDICAL list(	  'sound/ambience/white/ambimed1.ogg')
 
 #define SPOOKY list(	  'sound/ambience/white/ambimo1.ogg',\
-						  'code/shitcode/valtos/sounds/prison/amb7.ogg')
+						  'white/valtos/sounds/prison/amb7.ogg')
 
 #define SPACE list(		  'sound/ambience/white/ambispace1.ogg',\
 						  'sound/ambience/white/ambispace2.ogg',\
@@ -100,13 +100,13 @@
 						   'sound/hallucinations/veryfar_noise.ogg',\
 						   'sound/hallucinations/wail.ogg')
 
-#define SOVIET_AMB list(   'code/shitcode/valtos/sounds/prison/amb6.ogg',\
-						   'code/shitcode/valtos/sounds/prison/amb7.ogg',\
-						   'code/shitcode/valtos/sounds/prison/amb8.ogg')
+#define SOVIET_AMB list(   'white/valtos/sounds/prison/amb6.ogg',\
+						   'white/valtos/sounds/prison/amb7.ogg',\
+						   'white/valtos/sounds/prison/amb8.ogg')
 
-#define SOVIET_AMB_CAVES list('code/shitcode/valtos/sounds/prison/ambout1.ogg')
+#define SOVIET_AMB_CAVES list('white/valtos/sounds/prison/ambout1.ogg')
 
-#define SCARLET_DAWN_AMBIENT list('code/shitcode/valtos/sounds/dz/ambidawn.ogg')
+#define SCARLET_DAWN_AMBIENT list('white/valtos/sounds/dz/ambidawn.ogg')
 
 #define INTERACTION_SOUND_RANGE_MODIFIER -3
 #define EQUIP_SOUND_VOLUME 30

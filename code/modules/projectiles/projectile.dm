@@ -231,7 +231,7 @@
 					"<span class='userdanger'>В[organ_hit_text] <b>[L]<b> попадает [src.name]!</span>", null, COMBAT_MESSAGE_RANGE)
 
 		if(def_zone == BODY_ZONE_HEAD && GLOB.prikol_mode && !istype(src, /obj/projectile/bullet/a15mm))
-			playsound(src,'code/shitcode/hule/SFX/csSFX/headshot.wav', 100, 5, pressure_affected = FALSE)
+			playsound(src,'white/hule/SFX/csSFX/headshot.wav', 100, 5, pressure_affected = FALSE)
 
 		L.on_hit(src)
 

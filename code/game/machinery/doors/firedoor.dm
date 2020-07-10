@@ -341,7 +341,7 @@
 
 /obj/machinery/door/firedoor/window
 	name = "запасное окно"
-	icon = 'code/shitcode/valtos/icons/doorfirewindow.dmi'
+	icon = 'white/valtos/icons/doorfirewindow.dmi'
 	desc = "Автоматически закрывается при повреждении основного окна. Гениальная разработка наших инженеров."
 	glass = TRUE
 	explosion_block = 0

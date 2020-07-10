@@ -571,7 +571,7 @@
 				limb.icon_state = "[species_id]_[body_zone]"
 		// hippie start -- Hippie races (e.g. Avians)
 		if(should_draw_hippie)
-			limb.icon = 'code/shitcode/valtos/icons/dwarfs/mutant_bodyparts.dmi'
+			limb.icon = 'white/valtos/icons/dwarfs/mutant_bodyparts.dmi'
 			if(should_draw_gender)
 				limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
 			else
@@ -591,7 +591,7 @@
 			aux = image(limb.icon, "[aux_zone]", -aux_layer, image_dir)
 			. += aux
 		if(should_draw_white)
-			limb.icon = 'code/shitcode/valtos/icons/android_skins.dmi'
+			limb.icon = 'white/valtos/icons/android_skins.dmi'
 			limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
 		return
 

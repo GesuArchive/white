@@ -117,7 +117,7 @@
 			oldtarget_name = C.name
 			speak("Level [threatlevel] infraction alert!")
 			//playsound(src, pick('sound/voice/beepsky/criminal.ogg', 'sound/voice/beepsky/justice.ogg', 'sound/voice/beepsky/freeze.ogg'), 50, FALSE)
-			playsound(loc, pick('code/shitcode/valtos/sounds/beepsky_russian/criminal.ogg', 'code/shitcode/valtos/sounds/beepsky_russian/justice.ogg', 'code/shitcode/valtos/sounds/beepsky_russian/freeze.ogg'), 50, FALSE)
+			playsound(loc, pick('white/valtos/sounds/beepsky_russian/criminal.ogg', 'white/valtos/sounds/beepsky_russian/justice.ogg', 'white/valtos/sounds/beepsky_russian/freeze.ogg'), 50, FALSE)
 			playsound(src,'sound/weapons/saberon.ogg',50,TRUE,-1)
 			visible_message("<span class='warning'>[src] ignites his energy swords!</span>")
 			icon_state = "grievous-c"

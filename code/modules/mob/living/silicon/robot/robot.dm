@@ -149,7 +149,7 @@
 
 	updatename()
 
-	playsound(loc, 'code/shitcode/Wzzzz/servitor.ogg', 70, TRUE)
+	playsound(loc, 'white/Wzzzz/servitor.ogg', 70, TRUE)
 	aicamera = new/obj/item/camera/siliconcam/robot_camera(src)
 	toner = tonermax
 	diag_hud_set_borgcell()

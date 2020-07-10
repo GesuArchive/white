@@ -449,7 +449,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 /obj/item/proc/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "удар", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, args)
 	if(prob(final_block_chance))
-		playsound(src, 'code/shitcode/valtos/sounds/block_sword.ogg', 100)
+		playsound(src, 'white/valtos/sounds/block_sword.ogg', 100)
 		owner.visible_message("<span class='danger'>[owner] блокирует [attack_text] при помощи [src]!</span>")
 		return 1
 	return 0

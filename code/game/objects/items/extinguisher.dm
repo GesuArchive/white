@@ -88,7 +88,7 @@
 	else
 		if(prob(5) && !broken)
 			to_chat(user, "<span class='userdanger'>Щас ебанёт кажись...</span>")
-			playsound(get_turf(src), 'code/shitcode/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
+			playsound(get_turf(src), 'white/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
 			spawn(rand(10, 50))
 				babah(user)
 			broken = TRUE
@@ -107,7 +107,7 @@
 
 	if(prob(75))
 		force = 8 // как вы вообще этим бить собрались
-		icon = 'code/shitcode/valtos/icons/balon.dmi'
+		icon = 'white/valtos/icons/balon.dmi'
 		icon_state = inhand_icon_state
 		reagents.clear_reagents()
 		max_water = 0
@@ -151,7 +151,7 @@
 	else
 		if(prob(10) && !broken)
 			to_chat(user, "<span class='userdanger'>Щас ебанёт кажись...</span>")
-			playsound(get_turf(src), 'code/shitcode/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
+			playsound(get_turf(src), 'white/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
 			new /obj/effect/particle_effect/smoke(get_turf(src))
 			spawn(rand(10, 50))
 				babah(user)

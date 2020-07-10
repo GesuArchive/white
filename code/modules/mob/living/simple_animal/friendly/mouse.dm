@@ -1,7 +1,7 @@
 /mob/living/simple_animal/mouse
 	name = "мышь"
 	desc = "Это гадкий, уродливый, злой, заразный грызун."
-	icon = 'code/shitcode/valtos/icons/animal.dmi'
+	icon = 'white/valtos/icons/animal.dmi'
 	icon_state = "mouse_gray"
 	icon_living = "mouse_gray"
 	icon_dead = "mouse_gray_dead"

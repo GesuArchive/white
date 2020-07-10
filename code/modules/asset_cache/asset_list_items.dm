@@ -383,26 +383,26 @@
 
 /datum/asset/simple/game_kit
 	assets = list(
-		"board_BI.png"			= 'code/shitcode/valtos/icons/gk/board_BI.png',
-		"board_BK.png"			= 'code/shitcode/valtos/icons/gk/board_BK.png',
-		"board_BN.png" 			= 'code/shitcode/valtos/icons/gk/board_BN.png',
-		"board_BP.png" 			= 'code/shitcode/valtos/icons/gk/board_BP.png',
-		"board_BQ.png" 			= 'code/shitcode/valtos/icons/gk/board_BQ.png',
-		"board_BR.png" 			= 'code/shitcode/valtos/icons/gk/board_BR.png',
-		"board_CB.png" 			= 'code/shitcode/valtos/icons/gk/board_CB.png',
-		"board_CR.png" 			= 'code/shitcode/valtos/icons/gk/board_CR.png',
-		"board_none.png" 		= 'code/shitcode/valtos/icons/gk/board_none.png',
-		"board_WI.png" 			= 'code/shitcode/valtos/icons/gk/board_WI.png',
-		"board_WK.png" 			= 'code/shitcode/valtos/icons/gk/board_WK.png',
-		"board_WN.png" 			= 'code/shitcode/valtos/icons/gk/board_WN.png',
-		"board_WP.png" 			= 'code/shitcode/valtos/icons/gk/board_WP.png',
-		"board_WQ.png" 			= 'code/shitcode/valtos/icons/gk/board_WQ.png',
-		"board_WR.png" 			= 'code/shitcode/valtos/icons/gk/board_WR.png'
+		"board_BI.png"			= 'white/valtos/icons/gk/board_BI.png',
+		"board_BK.png"			= 'white/valtos/icons/gk/board_BK.png',
+		"board_BN.png" 			= 'white/valtos/icons/gk/board_BN.png',
+		"board_BP.png" 			= 'white/valtos/icons/gk/board_BP.png',
+		"board_BQ.png" 			= 'white/valtos/icons/gk/board_BQ.png',
+		"board_BR.png" 			= 'white/valtos/icons/gk/board_BR.png',
+		"board_CB.png" 			= 'white/valtos/icons/gk/board_CB.png',
+		"board_CR.png" 			= 'white/valtos/icons/gk/board_CR.png',
+		"board_none.png" 		= 'white/valtos/icons/gk/board_none.png',
+		"board_WI.png" 			= 'white/valtos/icons/gk/board_WI.png',
+		"board_WK.png" 			= 'white/valtos/icons/gk/board_WK.png',
+		"board_WN.png" 			= 'white/valtos/icons/gk/board_WN.png',
+		"board_WP.png" 			= 'white/valtos/icons/gk/board_WP.png',
+		"board_WQ.png" 			= 'white/valtos/icons/gk/board_WQ.png',
+		"board_WR.png" 			= 'white/valtos/icons/gk/board_WR.png'
 	)
 
 /datum/asset/simple/white_mix
 	assets = list(
-		"zdoh.png"				= 'code/shitcode/valtos/icons/zdoh.png'
+		"zdoh.png"				= 'white/valtos/icons/zdoh.png'
 	)
 
 /datum/asset/simple/orbit
