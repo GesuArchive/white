@@ -52,4 +52,4 @@
 	icon_state = "stockade"
 	drop_amount = 1
 	pixel_y = 16
-	layer = BELOW_MOB_LAYER
+	layer = ABOVE_MOB_LAYER
