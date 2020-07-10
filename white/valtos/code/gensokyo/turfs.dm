@@ -3,12 +3,14 @@
 	name = "трава"
 	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
 	icon_state = "grass1"
+	broken_states = list("dirt")
 	footstep = FOOTSTEP_GRASS
 	barefootstep = FOOTSTEP_GRASS
 	clawfootstep = FOOTSTEP_GRASS
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	var/nospawn = FALSE
+	floor_tile = null
 	baseturfs = /turf/open/floor/grass/gensgrass/dirty
 
 /turf/open/floor/grass/gensgrass/dirty
@@ -17,6 +19,7 @@
 	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
 	icon_state = "dirt"
 	nospawn = TRUE
+	baseturfs = /turf/open/floor/plating/beach/sand
 
 /turf/open/floor/grass/gensgrass/Initialize()
 	. = ..()
@@ -31,9 +34,9 @@
 	if (prob(70))
 		var/obj/structure/flora/ausbushes/rospilovo/F = pick(subtypesof(/obj/structure/flora/ausbushes/rospilovo))
 		new F(get_turf(src))
-		if (prob(30))
+		if (prob(10))
 			new /obj/structure/flora/tree/jungle(get_turf(src))
-		else if (prob(40))
+		else if (prob(20))
 			new /obj/structure/flora/tree/jungle/small(get_turf(src))
 	var/B = pick("e", "f")
 	var/C = pick("9", "a", "b", "c", "d", "e", "f")

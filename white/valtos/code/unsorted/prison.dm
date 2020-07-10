@@ -117,6 +117,7 @@
 	floor_tile = /obj/item/stack/tile/trot
 	slowdown = -1
 	broken_states = list("damaged")
+	baseturfs = /turf/open/floor/plating/beach/sand
 
 /turf/open/floor/beton
 	name = "бетон"
@@ -129,6 +130,7 @@
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor/beton)
 	flags_1 = NONE
+	baseturfs = /turf/open/floor/plating/beach/sand
 
 /turf/open/floor/beton/Initialize()
 	..()
