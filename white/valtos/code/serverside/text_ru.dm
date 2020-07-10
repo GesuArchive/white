@@ -193,6 +193,18 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	message = replacetext_char(message, "ы", "и")
 	return message
 
+/proc/asiatish(message)
+	message = replacetext_char(message, "ра", "ля")
+	message = replacetext_char(message, "ла", "ля")
+	message = replacetext_char(message, "да", "тя")
+	message = replacetext_char(message, "бо", "по")
+	message = replacetext_char(message, "д", "т")
+	message = replacetext_char(message, "ч", "с")
+	message = replacetext_char(message, "з", "с")
+	message = replacetext_char(message, "р", "л")
+	message = replacetext_char(message, "ы", "и")
+	return message
+
 /datum/quirk/kartavii
 	name = "Картавый"
 	desc = "Я не помню как проговаривать букву \"Р\"."
@@ -219,3 +231,12 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	gain_text = "<span class='notice'>Дайте мне, будь ласка, сала.</span>"
 	lose_text = "<span class='danger'>Я забываю запах сала.</span>"
 	medical_record_text = "Пациент имеет страсть к салу."
+
+/datum/quirk/asiat
+	name = "Азиат"
+	desc = "Долгое время работы в рисовых полях и жара палящего сверху солнца даровала вам этот прекрасный акцент."
+	value = 0
+	mob_trait = TRAIT_ASIAT
+	gain_text = "<span class='notice'>Поля ляпотать.</span>"
+	lose_text = "<span class='danger'>Аниме говно.</span>"
+	medical_record_text = "Пациент имеет пиздоглазость."

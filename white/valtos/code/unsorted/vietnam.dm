@@ -32,6 +32,7 @@
 	var/list/ln = list("Хуй", "Дуй", "Дзинь", "Минь", "Кинь", "Пинь", "Вынь", "Синь", "Жунь", "Вунь")
 	L.real_name = "[pick(fn)] [pick(ln)]"
 	L.name = L.real_name
+	ADD_TRAIT(L, TRAIT_ASIAT, type)
 
 /mob/living/simple_animal/hostile/russian/bydlo
 	name = "Гопник"

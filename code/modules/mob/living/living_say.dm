@@ -356,6 +356,9 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(HAS_TRAIT(src, TRAIT_UKRAINISH))
 		message = ukrainish(message)
 
+	if(HAS_TRAIT(src, TRAIT_ASIAT))
+		message = asiatish(message)
+
 	if(derpspeech)
 		message = derpspeech(message, stuttering)
 
