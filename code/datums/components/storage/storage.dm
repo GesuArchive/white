@@ -595,47 +595,47 @@
 	if(locked)
 		if(M && !stop_messages)
 			host.add_fingerprint(M)
-			to_chat(M, "<span class='warning'>[host] заблокирован!</span>")
+			to_chat(M, "<span class='warning'>[capitalize(host)] заблокирован!</span>")
 		return FALSE
 	if(real_location.contents.len >= max_items)
 		if(!stop_messages)
-			to_chat(M, "<span class='warning'>[host] переполнен!</span>")
+			to_chat(M, "<span class='warning'>[capitalize(host)] переполнен!</span>")
 		return FALSE //Storage item is full
 	if(length(can_hold))
 		if(!is_type_in_typecache(I, can_hold))
 			if(!stop_messages)
-				to_chat(M, "<span class='warning'>[host] не может хранить [I.name]!</span>")
+				to_chat(M, "<span class='warning'>[capitalize(host)] не может хранить [I.name]!</span>")
 			return FALSE
 	if(is_type_in_typecache(I, cant_hold) || HAS_TRAIT(I, TRAIT_NO_STORAGE_INSERT)) //Items which this container can't hold.
 		if(!stop_messages)
-			to_chat(M, "<span class='warning'>[host] не может хранить [I.name]!</span>")
+			to_chat(M, "<span class='warning'>[capitalize(host)] не может хранить [I.name]!</span>")
 		return FALSE
 	if(I.w_class > max_w_class && !is_type_in_typecache(I, exception_hold))
 		if(!stop_messages)
-			to_chat(M, "<span class='warning'>[I.name] слишком большой для [host]!</span>")
+			to_chat(M, "<span class='warning'>[capitalize(I.name)] не помещается в [host]!</span>")
 		return FALSE
 	var/datum/component/storage/biggerfish = real_location.loc.GetComponent(/datum/component/storage)
 	if(biggerfish && biggerfish.max_w_class < max_w_class)//return false if we are inside of another container, and that container has a smaller max_w_class than us (like if we're a bag in a box)
 		if(!stop_messages)
-			to_chat(M, "<span class='warning'>[I] can't fit in [host] while [real_location.loc] is in the way!</span>")
+			to_chat(M, "<span class='warning'>[I] не может хранить [host] пока мешает [real_location.loc]!</span>")
 		return FALSE
 	var/sum_w_class = I.w_class
 	for(var/obj/item/_I in real_location)
 		sum_w_class += _I.w_class //Adds up the combined w_classes which will be in the storage item if the item is added to it.
 	if(sum_w_class > max_combined_w_class)
 		if(!stop_messages)
-			to_chat(M, "<span class='warning'>[I.name] не помещается в [host]!</span>")
+			to_chat(M, "<span class='warning'>[capitalize(I.name)] не помещается в [host]!</span>")
 		return FALSE
 	if(isitem(host))
 		var/obj/item/IP = host
 		var/datum/component/storage/STR_I = I.GetComponent(/datum/component/storage)
 		if((I.w_class >= IP.w_class) && STR_I && !allow_big_nesting)
 			if(!stop_messages)
-				to_chat(M, "<span class='warning'>[IP.name] не может хранить [I.name], так как они одинакового размера!</span>")
+				to_chat(M, "<span class='warning'>[capitalize(IP.name)] не может хранить [I.name], так как они одинакового размера!</span>")
 			return FALSE //To prevent the stacking of same sized storage items.
 	if(HAS_TRAIT(I, TRAIT_NODROP)) //SHOULD be handled in unEquip, but better safe than sorry.
 		if(!stop_messages)
-			to_chat(M, "<span class='warning'>[I.name] застрял в моей руке, ты не можешь положить его в [host]!</span>")
+			to_chat(M, "<span class='warning'>[capitalize(I.name)] застрял в моей руке, ты не можешь положить его в [host]!</span>")
 		return FALSE
 	var/datum/component/storage/concrete/master = master()
 	if(!istype(master))
