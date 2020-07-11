@@ -525,7 +525,7 @@
 				world.Reboot(fast_track = TRUE)
 			if("Server Restart (Kill and restart DD)")
 				to_chat(world, "Жесткая перезагрузка мира - [init_by]")
-				shelleo("curl -X POST http://localhost:3636/hard-reboot-white")
+				world.shelleo("curl -X POST http://localhost:3636/hard-reboot-white")
 
 /datum/admins/proc/end_round()
 	set category = "СЕРВЕР"
