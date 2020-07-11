@@ -22,7 +22,7 @@
 	death = FALSE
 	random = TRUE
 	mob_species = /datum/species/human
-	short_desc = "Аутистовец"
+	short_desc = "Я аутистовец"
 	flavour_text = "Мне повезло проснуться непонятно где. Надо бы понять что тут стряслось и выжить."
 	important_info = "Скоро закончится свет."
 	uniform = /datum/outfit/job/assistant

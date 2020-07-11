@@ -152,7 +152,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 				msg = "Подсистема <b>[BadBoy.name]</b> похоже хочет умереть. Отключаем её."
 				BadBoy.flags |= SS_NO_FIRE
 		if(msg)
-			to_chat(GLOB.admins, "<span class='green'> >> [msg]</span>")
+			to_chat(GLOB.admins, "<span class='green'> > [msg]</span>")
 			log_world(msg)
 
 	if (istype(Master.subsystems))
@@ -162,7 +162,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		current_runlevel = Master.current_runlevel
 		StartProcessing(10)
 	else
-		to_chat(world, "<span class='green'> >> Мастер-контроллер обосрался. Пытаемся переинициализировать <b>ВСЕ подсистемы</b>.</span>")
+		to_chat(world, "<span class='green'> > Мастер-контроллер обосрался. Пытаемся переинициализировать <b>ВСЕ подсистемы</b>.</span>")
 		Initialize(20, TRUE)
 
 
@@ -177,7 +177,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	if(init_sss)
 		init_subtypes(/datum/controller/subsystem, subsystems)
 
-	to_chat(world, "<span class='green'> >> Расставляем всё по полочкам...</span>")
+	to_chat(world, "<span class='green'> > Расставляем всё по полочкам...</span>")
 
 	// Sort subsystems by init_order, so they initialize in the correct order.
 	sortTim(subsystems, /proc/cmp_subsystem_init)
@@ -197,7 +197,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	SStitle.set_load_state("end")
 	spawn(10)
 		SStitle.afterload()
-	to_chat(world, "<span class='green'> >> [msg]</span>")
+	to_chat(world, "<span class='green'> > [msg]</span>")
 	log_world(msg)
 
 	if (!current_runlevel)

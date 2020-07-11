@@ -3,6 +3,7 @@
 	icon_state = "unexplored"
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
 	ambientsounds = AWAY_MISSION
+	enabled_area_tension = FALSE
 
 /area/awaymission/vietnam/dark
 	name = "Тёмное джунглевое место"
@@ -23,6 +24,7 @@
 	icon_state = "spwn"
 	roundstart = FALSE
 	death = FALSE
+	short_desc = "Я житель провинции Хаостан."
 	flavour_text = "Проснуться, работать в рисовом поле, лечь спать, повторить."
 	outfit = /datum/outfit/vietcong
 	assignedrole = "Vietcong"

@@ -56,7 +56,7 @@
 						to_chat(M, "<span class='changeling'>Мы ощущаем чужое присутствие в рое...</span>")
 				target.mind.linglink = 1
 				target.say("[MODE_TOKEN_CHANGELING] БЛЯЯЯЯЯЯЯЯЯЯЯЯТЬ!!")
-				to_chat(target, "<span class='changeling bold'> >> Теперь ты можешь общаться с генокрадами, используй \"[MODE_TOKEN_CHANGELING] сообщение\" для связи!</span>")
+				to_chat(target, "<span class='changeling bold'> > Теперь ты можешь общаться с генокрадами, используй \"[MODE_TOKEN_CHANGELING] сообщение\" для связи!</span>")
 		SSblackbox.record_feedback("nested tally", "changeling_powers", 1, list("[name]", "[i]"))
 		if(!do_mob(user, target, 20))
 			to_chat(user, "<span class='warning'>Наша связь с <b>[target]</b> завершена!</span>")

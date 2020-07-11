@@ -1153,7 +1153,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	target.set_screwyhud(SCREWYHUD_DEAD)
 	target.Paralyze(300)
 	target.silent += 10
-	to_chat(target, "<span class='deadsay'> >> <b>[target.real_name]</b> помер в <b>[get_area_name(target)]</b>.</span>")
+	to_chat(target, "<span class='deadsay'> > <b>[target.real_name]</b> помер в <b>[get_area_name(target)]</b>.</span>")
 	if(prob(50))
 		var/mob/fakemob
 		var/list/dead_people = list()
@@ -1165,7 +1165,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			fakemob = target //ever been so lonely you had to haunt yourself?
 		if(fakemob)
 			sleep(rand(20, 50))
-			to_chat(target, "<span class='deadsay'> >> <b>Призрак [fakemob.name]</b> говорит, \"[pick("рест ин писс","пидорасы блять","ебать у тебя имя [target.first_name()]","красава","че, опять?","допрыгался",\
+			to_chat(target, "<span class='deadsay'> > <b>Призрак [fakemob.name]</b> говорит, \"[pick("рест ин писс","пидорасы блять","ебать у тебя имя [target.first_name()]","красава","че, опять?","допрыгался",\
 			 "я[prob(50)?" блять":""] ненавижу этих [pick("культистов", "триторов", "ревенантов", "пидорасов","людей","опухоидов","педалей","натуралов")]")]\"</span>")
 	sleep(rand(70,90))
 	target.set_screwyhud(SCREWYHUD_NONE)

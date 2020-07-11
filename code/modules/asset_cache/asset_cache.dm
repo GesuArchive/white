@@ -51,7 +51,7 @@ Note: If your code uses output() with assets you will need to call asset_flush o
 
 	if (unreceived.len)
 		if (unreceived.len >= ASSET_CACHE_TELL_CLIENT_AMOUNT)
-			to_chat(client, "<span class='green'> >> Отправляем базовые ресурсы...</span>")
+			to_chat(client, "<span class='green'> > Отправляем базовые ресурсы...</span>")
 
 		for(var/asset in unreceived)
 			var/datum/asset_cache_item/ACI

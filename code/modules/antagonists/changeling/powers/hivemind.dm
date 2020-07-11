@@ -11,7 +11,7 @@
 	..()
 	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
 	changeling.changeling_speak = 1
-	to_chat(user, "<i><font color=#800080> >> Используй \"[MODE_TOKEN_CHANGELING] сообщение\" для связи с другими генокрадами.</font></i>")
+	to_chat(user, "<i><font color=#800080> > Используй \"[MODE_TOKEN_CHANGELING] сообщение\" для связи с другими генокрадами.</font></i>")
 	var/datum/action/changeling/hivemind_upload/S1 = new
 	if(!changeling.has_sting(S1))
 		S1.Grant(user)

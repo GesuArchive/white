@@ -33,10 +33,12 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	ambientsounds = SPACE
 	blob_allowed = FALSE //Eating up space doesn't count for victory as a blob.
 	flags_1 = CAN_BE_DIRTY_1
+	enabled_area_tension = FALSE
 
 /area/space/nearstation
 	icon_state = "space_near"
 	dynamic_lighting = DYNAMIC_LIGHTING_IFSTARLIGHT
+	enabled_area_tension = FALSE
 
 /area/start
 	name = "start area"
@@ -44,12 +46,14 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	requires_power = FALSE
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
 	has_gravity = STANDARD_GRAVITY
+	enabled_area_tension = FALSE
 
 
 /area/testroom
 	requires_power = FALSE
 	name = "Test Room"
 	icon_state = "storage"
+	enabled_area_tension = FALSE
 
 //EXTRA
 

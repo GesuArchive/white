@@ -58,7 +58,7 @@
 	random = FALSE
 	oxy_damage = 30
 	mob_species = /datum/species/human
-	short_desc = "Бомбасист"
+	short_desc = "Я бомбасист"
 	flavour_text = "ПОРА УМИРАТЬ!"
 	important_info = "Система клонирования дала сбой и теперь вся надежда только на самих себя."
 	uniform = /datum/outfit/job/assistant

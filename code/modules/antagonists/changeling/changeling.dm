@@ -376,7 +376,7 @@
 /datum/antagonist/changeling/greet()
 	if (you_are_greet)
 		to_chat(owner.current, "<span class='boldannounce'>Мы генокрад [changelingID]! Нам удалось поглотить одного из членов экипажа станции и занять его форму.</span>")
-	to_chat(owner.current, "<span class='boldannounce'> >> Используй \"[MODE_TOKEN_CHANGELING] сообщение\" для связи с другими членами коллектива.</span>")
+	to_chat(owner.current, "<span class='boldannounce'> > Используй \"[MODE_TOKEN_CHANGELING] сообщение\" для связи с другими членами коллектива.</span>")
 	to_chat(owner.current, "<b>Мы должны выполнить следующие цели:</b>")
 	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ling_aler.ogg', 100, FALSE, pressure_affected = FALSE)
 

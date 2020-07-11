@@ -234,7 +234,7 @@
 	require_comms_key = TRUE
 
 /datum/world_topic/asay/Run(list/input)
-	var/msg = "<font color='[GLOB.OOC_COLOR]'><span class='adminobserver'><span class='prefix'> >> Discord -> ASAY</span> <EM>[input["admin"]]</EM>: <span class='message linkify'>[input["asay"]]</span></span></font>"
+	var/msg = "<font color='[GLOB.OOC_COLOR]'><span class='adminobserver'><span class='prefix'> > Discord -> ASAY</span> <EM>[input["admin"]]</EM>: <span class='message linkify'>[input["asay"]]</span></span></font>"
 	to_chat(GLOB.admins, msg)
 
 /datum/world_topic/ooc
@@ -250,7 +250,7 @@
 
 	for(var/client/C in GLOB.clients)
 		if(C.prefs.chat_toggles & CHAT_OOC) // ooc ignore
-			to_chat(C, "<font color='[GLOB.OOC_COLOR]'><span class='ooc'><span class='prefix'> >> Discord -> OOC:</span> <EM>[input["ckey"]]:</EM> <span class='message linkify'>[cp1252_to_utf8(input["ooc"])]</span></span></font>")
+			to_chat(C, "<font color='[GLOB.OOC_COLOR]'><span class='ooc'><span class='prefix'> > Discord -> OOC:</span> <EM>[input["ckey"]]:</EM> <span class='message linkify'>[cp1252_to_utf8(input["ooc"])]</span></span></font>")
 
 /datum/world_topic/ahelp
 	keyword = "adminhelp"

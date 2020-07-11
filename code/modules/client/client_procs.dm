@@ -72,7 +72,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			topiclimiter[SECOND_COUNT] = 0
 		topiclimiter[SECOND_COUNT] += 1
 		if (topiclimiter[SECOND_COUNT] > stl)
-			to_chat(src, "<span class='userdanger'> >> Действия игнорируются. Слишком много действий было совершено до этого за секунду. Сука?</span>")
+			to_chat(src, "<span class='userdanger'> > Действия игнорируются. Слишком много действий было совершено до этого за секунду. Сука?</span>")
 			return
 
 	//Logs all hrefs, except chat pings
@@ -177,11 +177,11 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(CONFIG_GET(flag/automute_on) && !holder && last_message == message)
 		src.last_message_count++
 		if(src.last_message_count >= SPAM_TRIGGER_AUTOMUTE)
-			to_chat(src, "<span class='userdanger'> >> Слыш, сука. Авто-мут был применён к твоей жопе, следующим шагом может стать авто-бан.</span>")
+			to_chat(src, "<span class='userdanger'> > Слыш, сука. Авто-мут был применён к твоей жопе, следующим шагом может стать авто-бан.</span>")
 			cmd_admin_mute(src, mute_type, 1)
 			return 1
 		if(src.last_message_count >= SPAM_TRIGGER_WARNING)
-			to_chat(src, "<span class='userdanger'> >> Слыш, блять, спамер мамин. Сейчас тебя замутят, если не прекратишь свою хуйню.</span>")
+			to_chat(src, "<span class='userdanger'> > Слыш, блять, спамер мамин. Сейчас тебя замутят, если не прекратишь свою хуйню.</span>")
 			return 0
 	else
 		last_message = message
@@ -409,7 +409,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	apply_clickcatcher()
 
 	if(prefs.lastchangelog != GLOB.changelog_hash) //bolds the changelog button on the interface so we know there are updates.
-		to_chat(src, "<span class='info'> >> У нас недавно были обновления. Не забудь прочитать список последних изменений.</span>")
+		to_chat(src, "<span class='info'> > У нас недавно были обновления. Не забудь прочитать список последних изменений.</span>")
 		if(CONFIG_GET(flag/aggressive_changelog))
 			changelog()
 		else
@@ -863,7 +863,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 			clicklimiter[SECOND_COUNT] = 0
 		clicklimiter[SECOND_COUNT] += 1+(!!ab)
 		if (clicklimiter[SECOND_COUNT] > scl)
-			to_chat(src, "<span class='danger'> >> Действия игнорируются. Слишком много действий было совершено до этого за секунду. Сука?</span>")
+			to_chat(src, "<span class='danger'> > Действия игнорируются. Слишком много действий было совершено до этого за секунду. Сука?</span>")
 			return
 
 	if (prefs.hotkeys)

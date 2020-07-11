@@ -148,7 +148,7 @@ SUBSYSTEM_DEF(vote)
 		if(!active_admins)
 			SSticker.Reboot("Голосвание за перезапуск успешно!", "restart vote", 1)	//no delay in case the restart is due to lag
 		else
-			to_chat(world, "<span style='green'> >> Кто-то из педалей может перезапустить раунд. Пните их.</span>")
+			to_chat(world, "<span style='green'> > Кто-то из педалей может перезапустить раунд. Пните их.</span>")
 			message_admins("A restart vote has passed, but there are active admins on with +server, so it has been canceled. If you wish, you may restart the server.")
 
 	return .

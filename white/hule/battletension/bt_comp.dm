@@ -6,7 +6,7 @@
 
 /area
 	var/area_tension = 0
-	var/forced_area_tension = FALSE
+	var/enabled_area_tension = TRUE
 
 PROCESSING_SUBSYSTEM_DEF(btension)
 	name = "Battle Tension"
@@ -57,10 +57,10 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	var/area/AR = get_area(owner)
 
-	if(AR.area_tension || AR.forced_area_tension)
+	if(AR.area_tension && AR.enabled_area_tension)
 		if(tension < AR.area_tension)
 			tension += 3
-		if(prob(30) && !AR.forced_area_tension)
+		if(prob(30))
 			AR.area_tension--
 			if(AR.area_tension > 30)
 				AR.area_tension = 30
@@ -170,7 +170,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	S.environment = 0
 
 	var/track_name = copytext(replacetext("[S.file]", ".ogg", ""), 25)
-	to_chat(owner, "<span class='greenannounce'> >> <b>ТЕКУЩИЙ ТРЕК: <i>[capitalize(track_name)]</i></b> \[<a href='?src=[REF(src)];switch=1'>ПЕРЕКЛЮЧИТЬ</a>\]</span>")
+	to_chat(owner, "<span class='greenannounce'> > <b>ТЕКУЩИЙ ТРЕК: <i>[capitalize(track_name)]</i></b> \[<a href='?src=[REF(src)];switch=1'>ПЕРЕКЛЮЧИТЬ</a>\]</span>")
 	tension = 30
 
 	bm = S
@@ -248,7 +248,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		if(BT)
 			BT.pick_sound()
 	else
-		to_chat(usr, "<span class='danger'> >> Жаль, что я не <b>человек</b>.</span>")
+		to_chat(usr, "<span class='danger'> > Жаль, что я не <b>человек</b>.</span>")
 
 /client/verb/customize_battletension()
 	set name = " #️⃣ Настроить Battle Tension"
@@ -286,13 +286,13 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		var/new_volume = input(usr, "Громкость", null) as num|null
 		if(new_volume)
 			prefs.btvolume_max = max(0, min(100, new_volume))
-			to_chat(usr, "<span class='danger'> >> Выбрана максимальная громкость в [prefs.btvolume_max]%.</span>")
+			to_chat(usr, "<span class='danger'> > Выбрана максимальная громкость в [prefs.btvolume_max]%.</span>")
 	else if(selected in settings)
 		settings -= selected
-		to_chat(usr, "<span class='danger'> >> Больше не хочу [selected].</span>")
+		to_chat(usr, "<span class='danger'> > Больше не хочу [selected].</span>")
 	else
 		settings += selected
-		to_chat(usr, "<span class='danger'> >> Теперь хочу [selected].</span>")
+		to_chat(usr, "<span class='danger'> > Теперь хочу [selected].</span>")
 
 	prefs.btprefsnew = settings
 	prefs.save_preferences()
