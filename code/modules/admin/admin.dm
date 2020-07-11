@@ -493,9 +493,7 @@
 		return
 
 	var/localhost_addresses = list("127.0.0.1", "::1")
-	var/list/options = list("Regular Restart", "Regular Restart (with delay)", "Hard Restart (No Delay/Feeback Reason)", "Hardest Restart (No actions, just reboot)")
-	if(world.TgsAvailable())
-		options += "Server Restart (Kill and restart DD)";
+	var/list/options = list("Regular Restart", "Regular Restart (with delay)", "Hard Restart (No Delay/Feeback Reason)", "Hardest Restart (No actions, just reboot)", "Server Restart (Kill and restart DD)")
 
 	if(SSticker.admin_delay_notice)
 		if(alert(usr, "Are you sure? An admin has already delayed the round end for the following reason: [SSticker.admin_delay_notice]", "Confirmation", "Yes", "No") != "Yes")
