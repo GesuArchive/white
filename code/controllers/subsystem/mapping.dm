@@ -254,7 +254,12 @@ SUBSYSTEM_DEF(mapping)
 		if (!pm.load(1, 1, start_z + parsed_maps[P], no_changeturf = TRUE))
 			errorList |= pm.original_path
 	if(!silent)
-		INIT_ANNOUNCE("Вспомнили про [name] за [(REALTIMEOFDAY - start_time)/10]s!")
+		switch(name)
+			if("Station")
+				name = "станцию"
+			if("Lavaland")
+				name = "Лаваленд"
+		INIT_ANNOUNCE("Загружаю в память [name] за [(REALTIMEOFDAY - start_time)/10]s!")
 	return parsed_maps
 
 /datum/controller/subsystem/mapping/proc/loadWorld()
@@ -266,7 +271,7 @@ SUBSYSTEM_DEF(mapping)
 
 	// load the station
 	station_start = world.maxz + 1
-	INIT_ANNOUNCE("Перемещаемся к [config.map_name]...")
+	INIT_ANNOUNCE("Начинаю настраивать [config.map_name]...")
 	LoadGroup(FailedZs, "Station", config.map_path, config.map_file, config.traits, ZTRAITS_STATION)
 
 	if(SSdbcore.Connect())

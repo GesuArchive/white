@@ -504,7 +504,7 @@
 	var/result = input(usr, "Select reboot method", "World Reboot", options[1]) as null|anything in options
 	if(result)
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Reboot World") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-		var/init_by = "Initiated by [usr.client.holder.fakekey ? "Admin" : usr.key]."
+		var/init_by = "востребовано [usr.client.holder.fakekey ? "скрытой педалью" : usr.key]."
 		switch(result)
 			if("Regular Restart")
 				if(!(isnull(usr.client.address) || (usr.client.address in localhost_addresses)))
@@ -520,14 +520,14 @@
 						return FALSE
 				SSticker.Reboot(init_by, "admin reboot - by [usr.key] [usr.client.holder.fakekey ? "(stealth)" : ""]", delay * 10)
 			if("Hard Restart (No Delay, No Feeback Reason)")
-				to_chat(world, "World reboot - [init_by]")
+				to_chat(world, "Перезагрузка мира - [init_by]")
 				world.Reboot()
 			if("Hardest Restart (No actions, just reboot)")
-				to_chat(world, "Hard world reboot - [init_by]")
+				to_chat(world, "Быстрая перезагрузка мира - [init_by]")
 				world.Reboot(fast_track = TRUE)
 			if("Server Restart (Kill and restart DD)")
-				to_chat(world, "Server restart - [init_by]")
-				world.TgsEndProcess()
+				to_chat(world, "Жесткая перезагрузка мира - [init_by]")
+				shelleo("curl -X POST http://localhost:3636/hard-reboot-white")
 
 /datum/admins/proc/end_round()
 	set category = "СЕРВЕР"
