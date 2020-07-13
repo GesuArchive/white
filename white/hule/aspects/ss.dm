@@ -26,12 +26,19 @@ SUBSYSTEM_DEF(aspects)
 
 /datum/controller/subsystem/aspects/proc/run_aspect()
 	if(forced_aspects.len)
-		current_aspect = pickweight(forced_aspects)
+		ca_name = ""
+		ca_desc = ""
+		for(var/datum/round_aspect/A in forced_aspects)
+			A.run_aspect()
+			ca_name += "[A.name] / "
+			ca_desc += "[A.desc] / "
+		ca_name = copytext_char(ca_name, 1, 3)
+		ca_desc = copytext_char(ca_desc, 1, 3)
 	else
 		current_aspect = pickweight(aspects)
-	current_aspect.run_aspect()
-	ca_name = current_aspect.name
-	ca_desc = current_aspect.desc
+		current_aspect.run_aspect()
+		ca_name = current_aspect.name
+		ca_desc = current_aspect.desc
 
 	for(var/P in GLOB.joined_player_list)
-		to_chat(P, "<span class='notice'><B>Важно:</B> [current_aspect.desc]</span>")
+		to_chat(P, "<span class='notice'><B>Важно:</B> [ca_desc]</span>")

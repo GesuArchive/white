@@ -79,7 +79,7 @@
 
 /datum/metacoin_shop_item/force_aspect/buy(client/C)
 	if (SSticker.current_state == GAME_STATE_SETTING_UP || SSticker.current_state == GAME_STATE_PLAYING || SSticker.current_state == GAME_STATE_FINISHED)
-		to_chat(C, "<span class='rose bold'>Слишком поздно! Доступно только перед началом раунда.</span>")
+		to_chat(C, "<span class='rose bold'>Невозможно! Доступно только перед началом раунда (когда игра прогрузилась, но ещё в лобби).</span>")
 		return
 	var/datum/round_aspect/sel_aspect = input("Аспекты:", "Выбирайте!", null, null) as null|anything in SSaspects.aspects
 	if(!sel_aspect)
@@ -87,7 +87,7 @@
 		return
 	else
 		if(..())
-			to_chat(C, "<span class='notice'>Выбрано <b>[sel_aspect]</b>! Будет выбран один из аспектов, которые могли выбрать ещё и другие.</span>")
+			to_chat(C, "<span class='notice'>Выбрано <b>[sel_aspect]</b>! Другие игроки могут добавить ещё аспекты.</span>")
 			SSaspects.forced_aspects[sel_aspect] = sel_aspect.weight
 
 /datum/metacoin_shop_item/purge_this_shit
