@@ -50,7 +50,8 @@
 	weight = 30
 
 /datum/round_aspect/no_matter/run_aspect()
-	GLOB.main_supermatter_engine.Destroy()
+	if(GLOB.main_supermatter_engine)
+		GLOB.main_supermatter_engine.Destroy()
 	..()
 
 /datum/round_aspect/airunlock

@@ -1,9 +1,9 @@
 /// The light switch. Can have multiple per area.
 /obj/machinery/light_switch
-	name = "light switch"
-	icon = 'icons/obj/power.dmi'
+	name = "переключатель света"
+	icon = 'white/valtos/icons/lightswitch.dmi'
 	icon_state = "light1"
-	desc = "Make dark."
+	desc = "Делает тьму или свет."
 	power_channel = AREA_USAGE_LIGHT
 	/// Set this to a string, path, or area instance to control that area
 	/// instead of the switch's location.
@@ -19,7 +19,7 @@
 		area = get_area(src)
 
 	if(!name)
-		name = "light switch ([area.name])"
+		name = "переключатель света ([area.name])"
 
 	update_icon()
 
@@ -38,7 +38,7 @@
 
 /obj/machinery/light_switch/examine(mob/user)
 	. = ..()
-	. += "It is [area.lightswitch ? "on" : "off"]."
+	. += "Он [area.lightswitch ? "включен" : "выключен"]."
 
 /obj/machinery/light_switch/interact(mob/user)
 	. = ..()
