@@ -16,7 +16,6 @@
 	var/self_delay = 50
 	var/other_delay = 0
 	var/repeating = FALSE
-	var/experience_given = 1
 	/// How much brute we heal per application
 	var/heal_brute
 	/// How much burn we heal per application
@@ -48,7 +47,6 @@
 			return
 
 	if(heal(M, user))
-		user?.mind.adjust_experience(/datum/skill/healing, experience_given)
 		log_combat(user, M, "healed", src.name)
 		use(1)
 		if(repeating && amount > 0)
@@ -67,13 +65,7 @@
 		return
 	if(affecting.brute_dam && brute || affecting.burn_dam && burn)
 		user.visible_message("<span class='green'><b>[user]</b> применяет <b>[skloname]</b> на <b>[ru_parse_zone(affecting.name)] [C]</b>.</span>", "<span class='green'>Применяю <b>[skloname]</b> на <b>[ru_parse_zone(affecting.name)] [C]</b>.</span>")
-		var/brute2heal = brute
-		var/burn2heal = burn
-		var/skill_mod = user?.mind?.get_skill_modifier(/datum/skill/healing, SKILL_SPEED_MODIFIER)
-		if(skill_mod)
-			brute2heal *= (2-skill_mod)
-			burn2heal *= (2-skill_mod)
-		if(affecting.heal_damage(brute2heal, burn2heal))
+		if(affecting.heal_damage(brute, burn))
 			C.update_damage_overlays()
 		return TRUE
 	to_chat(user, "<span class='warning'><b>[capitalize(affecting.name)] [C]</b> не может быть вылечена при помощи [src]!</span>")

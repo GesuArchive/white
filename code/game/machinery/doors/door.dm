@@ -1,3 +1,4 @@
+#define DOOR_CLOSE_WAIT 60 ///Default wait until doors autoclose
 /obj/machinery/door
 	name = "door"
 	desc = "Он открывается и закрывается. Удивительно."
@@ -328,7 +329,7 @@
 	air_update_turf(1)
 	update_freelook_sight()
 	if(autoclose)
-		addtimer(CALLBACK(src, .proc/close), autoclose)
+		autoclose_in(DOOR_CLOSE_WAIT)
 	return 1
 
 /obj/machinery/door/proc/close()
@@ -340,7 +341,7 @@
 		for(var/atom/movable/M in get_turf(src))
 			if(M.density && M != src) //something is blocking the door
 				if(autoclose)
-					autoclose_in(60)
+					autoclose_in(DOOR_CLOSE_WAIT)
 				return
 
 	operating = TRUE
@@ -453,4 +454,6 @@
 /obj/machinery/door/power_change()
 	. = ..()
 	if(. && !(machine_stat & NOPOWER))
-		autoclose_in(rand(0.5 SECONDS, 3 SECONDS))
+		autoclose_in(DOOR_CLOSE_WAIT)
+
+#undef DOOR_CLOSE_WAIT

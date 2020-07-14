@@ -14,7 +14,6 @@
 	anchored = FALSE
 	density = TRUE
 	req_access = list(ACCESS_ENGINE_EQUIP)
-//	use_power = NO_POWER_USE
 	max_integrity = 350
 	integrity_failure = 0.2
 	circuit = /obj/item/circuitboard/machine/rad_collector
@@ -25,7 +24,6 @@
 	var/locked = FALSE
 	var/drainratio = 1
 	var/powerproduction_drain = 0.001
-
 	var/bitcoinproduction_drain = 0.15
 	var/bitcoinmining = FALSE
 	///research points stored
@@ -132,6 +130,7 @@
 			return TRUE
 	else
 		return ..()
+
 /obj/machinery/power/rad_collector/analyzer_act(mob/living/user, obj/item/I)
 	if(stored_research >= 1)
 		new /obj/item/research_notes(user.loc, stored_research, "engineering")
@@ -234,7 +233,6 @@
 		return
 	if(active)
 		. += "on"
-
 
 /obj/machinery/power/rad_collector/proc/toggle_power()
 	active = !active

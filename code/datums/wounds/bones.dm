@@ -259,15 +259,11 @@
 /// If someone is snapping our dislocated joint back into place by hand with an aggro grab and help intent
 /datum/wound/brute/bone/moderate/proc/chiropractice(mob/living/carbon/human/user)
 	var/time = base_treat_time
-	var/time_mod = user.mind?.get_skill_modifier(/datum/skill/healing, SKILL_SPEED_MODIFIER)
-	var/prob_mod = user.mind?.get_skill_modifier(/datum/skill/healing, SKILL_PROBS_MODIFIER)
-	if(time_mod)
-		time *= time_mod
 
 	if(!do_after(user, time, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
 
-	if(prob(65 + prob_mod))
+	if(prob(65))
 		user.visible_message("<span class='danger'><b>[user]</b> вправляет [ru_parse_zone(limb.name)] <b>[victim]</b>!</span>", "<span class='notice'>Вправляю [ru_parse_zone(limb.name)] <b>[victim]</b> на место!</span>", ignored_mobs=victim)
 		to_chat(victim, "<span class='userdanger'><b>[user]</b> вправляет мою [ru_parse_zone(limb.name)] на место!</span>")
 		victim.emote("scream")
@@ -282,10 +278,6 @@
 /// If someone is snapping our dislocated joint into a fracture by hand with an aggro grab and harm or disarm intent
 /datum/wound/brute/bone/moderate/proc/malpractice(mob/living/carbon/human/user)
 	var/time = base_treat_time
-	var/time_mod = user.mind?.get_skill_modifier(/datum/skill/healing, SKILL_SPEED_MODIFIER)
-	var/prob_mod = user.mind?.get_skill_modifier(/datum/skill/healing, SKILL_PROBS_MODIFIER)
-	if(time_mod)
-		time *= time_mod
 
 	if(!do_after(user, time, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
@@ -294,7 +286,7 @@
 		user.visible_message("<span class='danger'><b>[user]</b> вправляет [ru_parse_zone(limb.name)] <b>[victim]</b> с отвратительным хрустом!</span>", "<span class='danger'>Вправляю [ru_parse_zone(limb.name)] <b>[victim]</b> с отвратительным хрустом!</span>", ignored_mobs=victim)
 		to_chat(victim, "<span class='userdanger'><b>[user]</b> вправляет [ru_parse_zone(limb.name)] с отвратительным хрустом!</span>")
 		victim.emote("scream")
-		limb.receive_damage(brute=25, wound_bonus=30 + prob_mod * 3)
+		limb.receive_damage(brute=25, wound_bonus=30)
 	else
 		user.visible_message("<span class='danger'><b>[user]</b> крутит [ru_parse_zone(limb.name)] <b>[victim]</b> неправильно!</span>", "<span class='danger'>Кручу [ru_parse_zone(limb.name)] <b>[victim]</b> неправильно!</span>", ignored_mobs=victim)
 		to_chat(victim, "<span class='userdanger'><b>[user]</b> крутит мою [ru_parse_zone(limb.name)] неправильно!</span>")

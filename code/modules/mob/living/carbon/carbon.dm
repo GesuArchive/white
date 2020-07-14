@@ -168,6 +168,10 @@
 		var/power_throw = 0
 		if(HAS_TRAIT(src, TRAIT_HULK))
 			power_throw++
+		if(HAS_TRAIT(src, TRAIT_DWARF))
+			power_throw--
+		if(HAS_TRAIT(thrown_thing, TRAIT_DWARF))
+			power_throw++
 		if(pulling && grab_state >= GRAB_NECK)
 			power_throw++
 		visible_message("<span class='danger'><b>[src]</b> кидает <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."]</span>", \
@@ -1194,3 +1198,6 @@
 		S.generate(BP, W)
 		S.fake = TRUE
 		QDEL_NULL(W)
+
+/mob/living/carbon/is_face_visible()
+	return !(wear_mask?.flags_inv & HIDEFACE) && !(head?.flags_inv & HIDEFACE)

@@ -223,7 +223,7 @@
 	name = "\improper L6 SAW"
 	desc = "Улучшенная модификами, стреляющая 7.12x82mm патронами, назначена как 'L6 SAW'. Гравировка на обратной стороне 'Aussec Armoury - 2531'."
 	icon_state = "l6"
-	inhand_icon_state = "l6closedmag"
+	inhand_icon_state = "l6"
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/mm712x82
@@ -246,6 +246,10 @@
 	pin = /obj/item/firing_pin
 
 
+/obj/item/gun/ballistic/automatic/l6_saw/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
+
 /obj/item/gun/ballistic/automatic/l6_saw/examine(mob/user)
 	. = ..()
 	. += "<b>alt + click</b> [cover_open ? "Закрываю" : "Открываю"] пылевой чехол."
@@ -254,11 +258,15 @@
 
 
 /obj/item/gun/ballistic/automatic/l6_saw/AltClick(mob/user)
+	if(!user.canUseTopic(src))
+		return
 	cover_open = !cover_open
-	to_chat(user, "<span class='notice'>You [cover_open ? "Открываю" : "Закрываю"] покрытие у [src].</span>")
-	playsound(user, 'sound/weapons/gun/l6/l6_door.ogg', 60, TRUE)
+	to_chat(user, "<span class='notice'>[cover_open ? "Открываю" : "Закрываю"] покрытие [src].</span>")
+	playsound(src, 'sound/weapons/gun/l6/l6_door.ogg', 60, TRUE)
 	update_icon()
 
+/obj/item/gun/ballistic/automatic/l6_saw/update_icon_state()
+	inhand_icon_state = "[initial(icon_state)][cover_open ? "open" : "closed"][magazine ? "mag":"nomag"]"
 
 /obj/item/gun/ballistic/automatic/l6_saw/update_overlays()
 	. = ..()

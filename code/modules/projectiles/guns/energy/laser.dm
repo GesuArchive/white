@@ -82,7 +82,8 @@
 	name = "ускоряющая лазерная пушка"
 	desc = "Усовершенствованная лазерная пушка, которая наносит больше урона по мере удаления от цели."
 	icon_state = "lasercannon"
-	inhand_icon_state = null
+	inhand_icon_state = "laser"
+	worn_icon_state = null
 	w_class = WEIGHT_CLASS_BULKY
 	force = 10
 	flags_1 =  CONDUCT_1

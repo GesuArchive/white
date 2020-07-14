@@ -179,8 +179,7 @@
 /datum/wound/brute/cut/proc/tool_cauterize(obj/item/I, mob/user)
 	var/self_penalty_mult = (user == victim ? 1.5 : 1)
 	user.visible_message("<span class='danger'><b>[user]</b> начинает прижигать порезы на [ru_gde_zone(limb.name)] <b>[victim]</b> используя [I]...</span>", "<span class='danger'>Начинаю прижигать порезы на [user == victim ? "своей" : " "][ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
-	var/time_mod = user.mind?.get_skill_modifier(/datum/skill/healing, SKILL_SPEED_MODIFIER) || 1
-	if(!do_after(user, base_treat_time * time_mod * self_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
+	if(!do_after(user, base_treat_time * self_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
 
 	user.visible_message("<span class='green'><b>[user]</b> прижигает некоторые порезы <b>[victim]</b>.</span>", "<span class='green'>Прижигаю некоторые порезы <b>[victim]</b>.</span>")
@@ -200,8 +199,7 @@
 /datum/wound/brute/cut/proc/suture(obj/item/stack/medical/suture/I, mob/user)
 	var/self_penalty_mult = (user == victim ? 1.4 : 1)
 	user.visible_message("<span class='notice'><b>[user]</b> начинает зашивать порезы на [ru_gde_zone(limb.name)] <b>[victim]</b> используя [I]...</span>", "<span class='notice'>Начинаю зашивать порезы на [user == victim ? "моей" : " "][ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
-	var/time_mod = user.mind?.get_skill_modifier(/datum/skill/healing, SKILL_SPEED_MODIFIER) || 1
-	if(!do_after(user, base_treat_time * time_mod * self_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
+	if(!do_after(user, base_treat_time * self_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
 	user.visible_message("<span class='green'><b>[user]</b> зашивает некоторые порезы <b>[victim]</b>.</span>", "<span class='green'>Зашиваю некоторые порезы [user == victim ? "успешно" : "<b>[victim]</b>"].</span>")
 	var/blood_sutured = I.stop_bleeding / self_penalty_mult
@@ -224,8 +222,7 @@
 			user.visible_message("<span class='warning'><b>[user]</b> начинает перевязку [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I]...</span>", "<span class='warning'>Начинаю перевязку [user == victim ? "моей" : " "][ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
 	else
 		user.visible_message("<span class='warning'><b>[user]</b> начинает обматывать порезы на [ru_gde_zone(limb.name)] <b>[victim]</b> используя [I]...</span>", "<span class='warning'>Начинаю обматывание [user == victim ? "моей" : " "][ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
-	var/time_mod = user.mind?.get_skill_modifier(/datum/skill/healing, SKILL_SPEED_MODIFIER) || 1
-	if(!do_after(user, base_treat_time * time_mod, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
+	if(!do_after(user, base_treat_time, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
 
 	user.visible_message("<span class='green'><b>[user]</b> обматывает [I] на [ru_gde_zone(limb.name)] <b>[victim]</b>.</span>", "<span class='green'>Обматываю [user == victim ? "свои порезы" : "порезы <b>[victim]</b>"].</span>")
