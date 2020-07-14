@@ -234,7 +234,7 @@
 	require_comms_key = TRUE
 
 /datum/world_topic/asay/Run(list/input)
-	var/msg = "<font color='[GLOB.OOC_COLOR]'><span class='adminobserver'><span class='prefix'> > Discord -> ASAY</span> <EM>[input["admin"]]</EM>: <span class='message linkify'>[input["asay"]]</span></span></font>"
+	var/msg = "<font color='[GLOB.OOC_COLOR]'><span class='adminobserver'><span class='prefix'> > Discord -> ASAY</span> <EM>[input["admin"]]</EM>: <span class='message linkify'>[copytext_char(input["asay"], 23, -7)]</span></span></font>"
 	to_chat(GLOB.admins, msg)
 
 /datum/world_topic/ooc

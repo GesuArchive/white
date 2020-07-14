@@ -62,8 +62,7 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 		stat("Таймер:", "СКОРО")
 
 	stat("Игроки:", "[SSticker.totalPlayers]")
-	if(client.holder)
-		stat("Готовы:", "[SSticker.totalPlayersReady]")
+	stat("Готовы:", "[SSticker.totalPlayersReady]")
 
 /mob/dead/proc/server_hop()
 	set category = "OOC"
