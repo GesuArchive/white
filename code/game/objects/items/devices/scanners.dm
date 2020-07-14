@@ -411,7 +411,7 @@ GENE SCANNER
 
 /obj/item/healthanalyzer/verb/toggle_mode()
 	set name = "Switch Verbosity"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 
 	if(usr.incapacitated())
 		return

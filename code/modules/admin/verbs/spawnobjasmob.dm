@@ -1,5 +1,5 @@
 /datum/admins/proc/spawn_objasmob(object as text)
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set desc = "(obj path) Spawn object-mob"
 	set name = "Spawn object-mob"
 

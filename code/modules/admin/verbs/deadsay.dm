@@ -1,5 +1,5 @@
 /client/proc/dsay(msg as text)
-	set category = "ОСОБЕННОЕ"
+	set category = "Особенное"
 	set name = "Dsay"
 	set hidden = 1
 	if(!holder)

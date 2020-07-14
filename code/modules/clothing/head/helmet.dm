@@ -489,7 +489,7 @@
 
 /obj/item/clothing/head/helmet/proc/toggle_helmlight()
 	set name = "Toggle Helmetlight"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set desc = "Click to toggle your helmet's attached flashlight."
 
 	if(!attached_light)

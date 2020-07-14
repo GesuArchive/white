@@ -8,7 +8,7 @@
 
 /client/verb/feedbacksolution()
 	set name = " ❗ Обратная связь"
-	set category = "ОСОБЕННОЕ"
+	set category = "Особенное"
 
 	if(tfbsfr >= 3)
 		to_chat(src, "Превышен лимит фидбека. Вы уже постарались, спасибо.", confidential = TRUE)

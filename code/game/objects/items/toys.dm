@@ -889,7 +889,7 @@
 
 /obj/item/toy/cards/singlecard/verb/Flip()
 	set name = "Flip Card"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set src in range(1)
 	if(!ishuman(usr) || !usr.canUseTopic(src, BE_CLOSE))
 		return

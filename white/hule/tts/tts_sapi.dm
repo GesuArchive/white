@@ -81,7 +81,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 		owner.tts(msg, voicename, freq)
 
 /client/proc/anime_voiceover()
-	set category = "ФАН"
+	set category = "Фан"
 	set name = "ANIME VO"
 
 	GLOB.tts = !GLOB.tts

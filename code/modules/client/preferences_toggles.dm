@@ -14,7 +14,7 @@
 
 /datum/verbs/menu/settings/verb/setup_character()
 	set name = " #️⃣ Preferences"
-	set category = "ОСОБЕННОЕ"
+	set category = "Особенное"
 	set desc = "Open Game Preferences Window"
 	usr.client.prefs.current_tab = 2
 	usr.client.prefs.ShowChoices(usr)
@@ -25,7 +25,7 @@
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_ears)()
 	set name = " 🔄 Разговоры"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "See All Speech"
 	usr.client.prefs.chat_toggles ^= CHAT_GHOSTEARS
 	to_chat(usr, "As a ghost, you will now [(usr.client.prefs.chat_toggles & CHAT_GHOSTEARS) ? "see all speech in the world" : "only see speech from nearby mobs"].")
@@ -36,7 +36,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_ears)(
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_sight)()
 	set name = " 🔄 Эмоуты"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "See All Emotes"
 	usr.client.prefs.chat_toggles ^= CHAT_GHOSTSIGHT
 	to_chat(usr, "As a ghost, you will now [(usr.client.prefs.chat_toggles & CHAT_GHOSTSIGHT) ? "see all emotes in the world" : "only see emotes from nearby mobs"].")
@@ -47,7 +47,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_sight)
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_whispers)()
 	set name = " 🔄 Шепот"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "See All Whispers"
 	usr.client.prefs.chat_toggles ^= CHAT_GHOSTWHISPER
 	to_chat(usr, "As a ghost, you will now [(usr.client.prefs.chat_toggles & CHAT_GHOSTWHISPER) ? "see all whispers in the world" : "only see whispers from nearby mobs"].")
@@ -58,7 +58,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_whispe
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_radio)()
 	set name = " 🔄 Радиопереговоры"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "See All Radio Chatter"
 	usr.client.prefs.chat_toggles ^= CHAT_GHOSTRADIO
 	to_chat(usr, "As a ghost, you will now [(usr.client.prefs.chat_toggles & CHAT_GHOSTRADIO) ? "see radio chatter" : "not see radio chatter"].")
@@ -69,7 +69,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_radio)
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_pda)()
 	set name = " 🔄 Сообщения ПДА"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "See All PDA Messages"
 	usr.client.prefs.chat_toggles ^= CHAT_GHOSTPDA
 	to_chat(usr, "As a ghost, you will now [(usr.client.prefs.chat_toggles & CHAT_GHOSTPDA) ? "see all pda messages in the world" : "only see pda messages from nearby mobs"].")
@@ -80,7 +80,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_pda)()
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_laws)()
 	set name = " 🔄 Законы призраков"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "See All Law Changes"
 	usr.client.prefs.chat_toggles ^= CHAT_GHOSTLAWS
 	to_chat(usr, "As a ghost, you will now [(usr.client.prefs.chat_toggles & CHAT_GHOSTLAWS) ? "be notified of all law changes" : "no longer be notified of law changes"].")
@@ -95,7 +95,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_laws)(
 //please be aware that the following two verbs have inverted stat output, so that "Toggle Deathrattle|1" still means you activated it
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox/events, toggle_deathrattle)()
 	set name = " 🔄 Узнавать об умерших"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Death"
 	usr.client.prefs.toggles ^= DISABLE_DEATHRATTLE
 	usr.client.prefs.save_preferences()
@@ -106,7 +106,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox/events, toggle_death
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox/events, toggle_arrivalrattle)()
 	set name = " 🔄 Узнавать о прибывших"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "New Player Arrival"
 	usr.client.prefs.toggles ^= DISABLE_ARRIVALRATTLE
 	to_chat(usr, "You will [(usr.client.prefs.toggles & DISABLE_ARRIVALRATTLE) ? "no longer" : "now"] get messages when someone joins the station.")
@@ -117,7 +117,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox/events, toggle_arriv
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost, togglemidroundantag)()
 	set name = " 🔄 Быть антагом посреди раунда"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Midround Antagonist"
 	usr.client.prefs.toggles ^= MIDROUND_ANTAG
 	usr.client.prefs.save_preferences()
@@ -128,7 +128,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost, togglemidroundantag)()
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/sound, toggletitlemusic)()
 	set name = " 🔄 Музыка в лобби"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Hear Music In Lobby"
 	usr.client.prefs.toggles ^= SOUND_LOBBY
 	usr.client.prefs.save_preferences()
@@ -146,7 +146,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/sound, toggletitlemusic)()
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/sound, toggleendofroundsounds)()
 	set name = " 🔄 Музыка конца раунда"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Hear Round End Sounds"
 	usr.client.prefs.toggles ^= SOUND_ENDOFROUND
 	usr.client.prefs.save_preferences()
@@ -161,7 +161,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/sound, toggleendofroundsounds)()
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/sound, togglemidis)()
 	set name = " 🔄 Midis"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Hear Admin Triggered Sounds (Midis)"
 	usr.client.prefs.toggles ^= SOUND_MIDI
 	usr.client.prefs.save_preferences()
@@ -180,7 +180,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/sound, togglemidis)()
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/sound, toggle_instruments)()
 	set name = " 🔄 Муз. инструменты"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Hear In-game Instruments"
 	usr.client.prefs.toggles ^= SOUND_INSTRUMENTS
 	usr.client.prefs.save_preferences()
@@ -195,7 +195,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/sound, toggle_instruments)()
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/sound, Toggle_Soundscape)()
 	set name = " 🔄 Звуки окружения"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Hear Ambient Sound Effects"
 	usr.client.prefs.toggles ^= SOUND_AMBIENCE
 	usr.client.prefs.save_preferences()
@@ -212,7 +212,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/sound, Toggle_Soundscape)()
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/sound, toggle_ship_ambience)()
 	set name = " 🔄 Окружение станции"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Hear Ship Ambience Roar"
 	usr.client.prefs.toggles ^= SOUND_SHIP_AMBIENCE
 	usr.client.prefs.save_preferences()
@@ -229,7 +229,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/sound, toggle_ship_ambience)()
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/sound, toggle_announcement_sound)()
 	set name = " 🔄 Объявления"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Hear Announcement Sound"
 	usr.client.prefs.toggles ^= SOUND_ANNOUNCEMENTS
 	to_chat(usr, "You will now [(usr.client.prefs.toggles & SOUND_ANNOUNCEMENTS) ? "hear announcement sounds" : "no longer hear announcements"].")
@@ -241,7 +241,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/sound, toggle_announcement_sound)()
 
 /datum/verbs/menu/settings/sound/verb/stop_client_sounds()
 	set name = " ❌ Остановить звуки"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Stop Current Sounds"
 	DIRECT_OUTPUT(usr, sound(null))
 	var/client/C = usr.client
@@ -252,7 +252,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/sound, toggle_announcement_sound)()
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings, listen_ooc)()
 	set name = " 🔄 OOC"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Show OOC Chat"
 	usr.client.prefs.chat_toggles ^= CHAT_OOC
 	usr.client.prefs.save_preferences()
@@ -263,7 +263,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings, listen_ooc)()
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings, listen_bank_card)()
 	set name = " 🔄 Входящие платежи"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Show or hide updates to your income"
 	usr.client.prefs.chat_toggles ^= CHAT_BANKCARD
 	usr.client.prefs.save_preferences()
@@ -315,7 +315,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/verb/pick_ghost_customization()
 	set name = " #️⃣ Настройка призрака"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Customize your ghastly appearance."
 	switch(alert("Что хотим сменить?",,"Форма","Тип орбиты","Побрякушки"))
 		if("Форма")
@@ -327,7 +327,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/verb/pick_ghost_others()
 	set name = " #️⃣ Вид других призраков"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Change display settings for the ghosts of other players."
 	var/new_ghost_others = alert("Хочешь изменить других призраков или же просто убрать их побрякушки?",,"Их настройки", "Стандартные спрайты", "Белые призраки")
 	if(new_ghost_others)
@@ -345,7 +345,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/verb/toggle_intent_style()
 	set name = " 🔄 Метод выбора интентов"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Toggle between directly clicking the desired intent or clicking to rotate through."
 	prefs.toggles ^= INTENT_STYLE
 	to_chat(src, "[(prefs.toggles & INTENT_STYLE) ? "Нажатие на тип взаимодействия теперь выбирает его." : "Нажатие на любой тип взаимодействия будет сменять их по часовой стрелке."]")
@@ -354,7 +354,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/verb/toggle_ghost_hud_pref()
 	set name = " 🔄 HUD"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Hide/Show Ghost HUD"
 
 	prefs.ghost_hud = !prefs.ghost_hud
@@ -367,7 +367,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 /client/verb/toggle_inquisition() // warning: unexpected inquisition
 	set name = " 🔄 Изучение при клике"
 	set desc = "Sets whether your ghost examines everything on click by default"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 
 	prefs.inquisitive_ghost = !prefs.inquisitive_ghost
 	prefs.save_preferences()
@@ -380,7 +380,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 //Admin Preferences
 /client/proc/toggleadminhelpsound()
 	set name = " 🔄 Adminhelps"
-	set category = "АС"
+	set category = "Адс"
 	set desc = "Toggle hearing a notification when admin PMs are received"
 	if(!holder)
 		return
@@ -391,7 +391,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/proc/toggleannouncelogin()
 	set name = " 🔄 Announce Login"
-	set category = "АС"
+	set category = "Адс"
 	set desc = "Toggle if you want an announcement to admins when you login during a round"
 	if(!holder)
 		return
@@ -402,7 +402,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/proc/toggle_hear_radio()
 	set name = " 🔄 Radio Chatter"
-	set category = "АС"
+	set category = "Адс"
 	set desc = "Toggle seeing radiochatter from nearby radios and speakers"
 	if(!holder)
 		return
@@ -413,7 +413,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/proc/deadchat()
 	set name = " 🔄 Deadchat"
-	set category = "АС"
+	set category = "Адс"
 	set desc ="Toggles seeing deadchat"
 	if(!holder)
 		return
@@ -424,7 +424,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/proc/toggleprayers()
 	set name = " 🔄 Prayers"
-	set category = "АС"
+	set category = "Адс"
 	set desc = "Toggles seeing prayers"
 	if(!holder)
 		return
@@ -435,7 +435,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/proc/toggle_prayer_sound()
 	set name = " 🔄 Prayer Sounds"
-	set category = "АС"
+	set category = "Адс"
 	set desc = "Hear Prayer Sounds"
 	if(!holder)
 		return
@@ -446,7 +446,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/proc/colorasay()
 	set name = " #️⃣ Set Admin Say Color"
-	set category = "АС"
+	set category = "Адс"
 	set desc = "Set the color of your ASAY messages"
 	if(!holder)
 		return
@@ -463,7 +463,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 /client/proc/resetasaycolor()
 	set name = " ❌ Reset your Admin Say Color"
 	set desc = "Returns your ASAY Color to default"
-	set category = "АС"
+	set category = "Адс"
 	if(!holder)
 		return
 	if(!CONFIG_GET(flag/allow_admin_asaycolor))

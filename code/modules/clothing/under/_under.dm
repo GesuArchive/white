@@ -203,7 +203,7 @@
 
 /obj/item/clothing/under/verb/toggle()
 	set name = "Переключить сенсоры костюма"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set src in usr
 	var/mob/M = usr
 	if (istype(M, /mob/dead/))

@@ -123,7 +123,7 @@
 
 /mob/living/carbon/Stat()
 	..()
-	if(statpanel("ИГРА"))
+	if(statpanel("Игра"))
 		var/obj/item/organ/heart/vampire/darkheart = getorgan(/obj/item/organ/heart/vampire)
 		if(darkheart)
 			stat(null, "<span class='notice'>Уровень крови: [blood_volume]/[BLOOD_VOLUME_MAXIMUM].</span>")

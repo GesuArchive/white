@@ -11,7 +11,7 @@
 /*
 /client/verb/fuck()
 	set name = "memes"
-	set category = "ОСОБЕННОЕ"
+	set category = "Особенное"
 	var/pizdos = input("")
 	if(pizdos)
 		world << "Начальное слово: [pizdos]"

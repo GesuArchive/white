@@ -34,7 +34,7 @@
 
 /obj/item/gun/ballistic/revolver/verb/spin()
 	set name = "барабан"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set desc = "Щелкните кнопкой мыши, чтобы покрутить барабан у револьвера."
 
 	var/mob/M = usr

@@ -802,13 +802,13 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 /obj/item/pda/verb/verb_toggle_light()
 	set name = "Toggle light"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set src in oview(1)
 
 	toggle_light(usr)
 
 /obj/item/pda/verb/verb_remove_id()
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set name = "Изъять ID"
 	set src in usr
 
@@ -818,14 +818,14 @@ GLOBAL_LIST_EMPTY(PDAs)
 		to_chat(usr, "<span class='warning'>This PDA does not have an ID in it!</span>")
 
 /obj/item/pda/verb/verb_remove_pen()
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set name = "Изъять ручку"
 	set src in usr
 
 	remove_pen(usr)
 
 /obj/item/pda/verb/verb_eject_cart()
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set name = "Изъять картридж"
 	set src in usr
 

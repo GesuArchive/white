@@ -47,13 +47,13 @@
 	else
 		if(!playing)
 			icons_available += list("Record" = image(icon = icon_directory, icon_state = "record"))
-	
+
 	if(playing)
 		icons_available += list("Pause" = image(icon = icon_directory, icon_state = "pause"))
 	else
 		if(!recording)
 			icons_available += list("Play" = image(icon = icon_directory, icon_state = "play"))
-	
+
 	if(canprint && !recording && !playing)
 		icons_available += list("Print Transcript" = image(icon = icon_directory, icon_state = "print"))
 	if(mytape)
@@ -95,7 +95,7 @@
 
 /obj/item/taperecorder/verb/ejectverb()
 	set name = "Eject Tape"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 
 	if(!can_use(usr))
 		return
@@ -124,7 +124,7 @@
 
 /obj/item/taperecorder/verb/record()
 	set name = "Start Recording"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 
 	if(!can_use(usr))
 		return
@@ -155,7 +155,7 @@
 
 /obj/item/taperecorder/verb/stop()
 	set name = "Stop"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 
 	if(!can_use(usr))
 		return
@@ -175,7 +175,7 @@
 
 /obj/item/taperecorder/verb/play()
 	set name = "Play Tape"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 
 	if(!can_use(usr))
 		return
@@ -222,7 +222,7 @@
 	if(mytape.ruined)
 		to_chat(user, "<span class='notice'>The tape inside the [src] appears to be broken.</span>")
 		return
-	
+
 	update_available_icons()
 	if(icons_available)
 		var/selection = show_radial_menu(user, src, icons_available, radius = 38, require_near = TRUE, tooltips = TRUE)
@@ -244,7 +244,7 @@
 
 /obj/item/taperecorder/verb/print_transcript()
 	set name = "Print Transcript"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 
 	if(!can_use(usr))
 		return

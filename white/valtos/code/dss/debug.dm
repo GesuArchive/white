@@ -1,5 +1,5 @@
 /client/proc/set_stats()
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set name = "Set Stats"
 
 	if(!src.holder)

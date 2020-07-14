@@ -254,7 +254,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 
 /mob/camera/blob/Stat()
 	..()
-	if(statpanel("ИГРА"))
+	if(statpanel("Игра"))
 		if(blob_core)
 			stat(null, "Core Health: [blob_core.obj_integrity]")
 			stat(null, "Power Stored: [blob_points]/[max_blob_points]")

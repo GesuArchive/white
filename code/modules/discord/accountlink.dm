@@ -1,6 +1,6 @@
 // Verb to link discord accounts to BYOND accounts
 /client/verb/linkdiscord()
-	set category = "ОСОБЕННОЕ"
+	set category = "Особенное"
 	set name = "Link Discord Account"
 	set desc = "Link your discord account to your BYOND account."
 	set hidden = 1
@@ -84,7 +84,7 @@
 	var/living_minutes = usr.client ? usr.client.get_exp_living(TRUE) : 0
 	if(required_living_minutes <= 0)
 		CRASH("The discord verification system is setup to require zero hours or less, this is likely a configuration bug")
-		
+
 	if(living_minutes < required_living_minutes)
 		to_chat(usr, "<span class='warning'>You must have at least [required_living_minutes] minutes of living " \
 			+ "playtime in a round to verify. You have [living_minutes] minutes. Play more!</span>")

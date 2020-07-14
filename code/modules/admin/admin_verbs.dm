@@ -313,7 +313,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/hide_verbs()
 	set name = "Adminverbs - Hide All"
-	set category = "АДМИН"
+	set category = "Адм"
 
 	remove_admin_verbs()
 	verbs += /client/proc/show_verbs
@@ -324,7 +324,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/show_verbs()
 	set name = "Adminverbs - Show"
-	set category = "АДМИН"
+	set category = "Адм"
 
 	verbs -= /client/proc/show_verbs
 	add_admin_verbs()
@@ -336,7 +336,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 
 /client/proc/admin_ghost()
-	set category = "АДМИН"
+	set category = "Адм"
 	set name = "Aghost"
 	if(!holder)
 		return
@@ -367,7 +367,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/invisimin()
 	set name = "Invisimin"
-	set category = "АДМИН"
+	set category = "Адм"
 	set desc = "Toggles ghost-like invisibility (Don't abuse this)"
 	if(holder && mob)
 		if(mob.invisibility == INVISIBILITY_OBSERVER)
@@ -379,7 +379,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/check_antagonists()
 	set name = "Check Antagonists"
-	set category = "АДМИН"
+	set category = "Адм"
 	if(holder)
 		holder.check_antagonists()
 		log_admin("[key_name(usr)] checked antagonists.")	//for tsar~
@@ -389,7 +389,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/ban_panel()
 	set name = "Banning Panel"
-	set category = "АДМИН"
+	set category = "Адм"
 	if(!check_rights(R_BAN))
 		return
 	holder.ban_panel()
@@ -397,7 +397,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/unban_panel()
 	set name = "Unbanning Panel"
-	set category = "АДМИН"
+	set category = "Адм"
 	if(!check_rights(R_BAN))
 		return
 	holder.unban_panel()
@@ -405,21 +405,21 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/game_panel()
 	set name = "Game Panel"
-	set category = "АДМИН"
+	set category = "Адм"
 	if(holder)
 		holder.Game()
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Game Panel") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/secrets()
 	set name = "Secrets"
-	set category = "АДМИН"
+	set category = "Адм"
 	if (holder)
 		holder.Secrets()
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Secrets Panel") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/poll_panel()
 	set name = "Server Poll Management"
-	set category = "АДМИН"
+	set category = "Адм"
 	if(!check_rights(R_POLL))
 		return
 	holder.poll_list_panel()
@@ -445,7 +445,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	GLOB.stealthminID["[ckey]"] = "@[num2text(num)]"
 
 /client/proc/stealth()
-	set category = "АДМИН"
+	set category = "Адм"
 	set name = "Stealth Mode"
 	if(holder)
 		if(holder.fakekey)
@@ -477,7 +477,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Stealth Mode") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/drop_bomb()
-	set category = "ОСОБЕННОЕ"
+	set category = "Особенное"
 	set name = "Drop Bomb"
 	set desc = "Cause an explosion of varying strength at your location."
 
@@ -519,7 +519,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Drop Bomb") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/drop_dynex_bomb()
-	set category = "ОСОБЕННОЕ"
+	set category = "Особенное"
 	set name = "Drop DynEx Bomb"
 	set desc = "Cause an explosion of varying strength at your location."
 
@@ -532,7 +532,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Drop Dynamic Bomb") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/get_dynex_range()
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set name = "Get DynEx Range"
 	set desc = "Get the estimated range of a bomb, using explosive power."
 
@@ -543,7 +543,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	to_chat(usr, "Estimated Explosive Range: (Devastation: [round(range*0.25)], Heavy: [round(range*0.5)], Light: [round(range)])", confidential = TRUE)
 
 /client/proc/get_dynex_power()
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set name = "Get DynEx Power"
 	set desc = "Get the estimated required power of a bomb, to reach a specific range."
 
@@ -554,7 +554,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	to_chat(usr, "Estimated Explosive Power: [power]", confidential = TRUE)
 
 /client/proc/set_dynex_scale()
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set name = "Set DynEx Scale"
 	set desc = "Set the scale multiplier of dynex explosions. The default is 0.5."
 
@@ -567,7 +567,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/reload_cards()
 	set name = "Reload Cards"
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	if(!check_rights(R_DEBUG))
 		return
 	if(!SStrading_card_game.loaded)
@@ -577,7 +577,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/validate_cards()
 	set name = "Validate Cards"
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	if(!check_rights(R_DEBUG))
 		return
 	if(!SStrading_card_game.loaded)
@@ -590,7 +590,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/test_cardpack_distribution()
 	set name = "Test Cardpack Distribution"
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	if(!check_rights(R_DEBUG))
 		return
 	if(!SStrading_card_game.loaded)
@@ -604,11 +604,11 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/print_cards()
 	set name = "Print Cards"
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	printAllCards()
 
 /client/proc/give_spell(mob/T in GLOB.mob_list)
-	set category = "ФАН"
+	set category = "Фан"
 	set name = "Give Spell"
 	set desc = "Gives a spell to a mob."
 
@@ -632,7 +632,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		message_admins("<span class='danger'>Spells given to mindless mobs will not be transferred in mindswap or cloning!</span>")
 
 /client/proc/remove_spell(mob/T in GLOB.mob_list)
-	set category = "ФАН"
+	set category = "Фан"
 	set name = "Remove Spell"
 	set desc = "Remove a spell from the selected mob."
 
@@ -645,7 +645,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 			SSblackbox.record_feedback("tally", "admin_verb", 1, "Remove Spell") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/give_disease(mob/living/T in GLOB.mob_living_list)
-	set category = "ФАН"
+	set category = "Фан"
 	set name = "Give Disease"
 	set desc = "Gives a Disease to a mob."
 	if(!istype(T))
@@ -660,7 +660,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	message_admins("<span class='adminnotice'>[key_name_admin(usr)] gave [key_name_admin(T)] the disease [D].</span>")
 
 /client/proc/object_say(obj/O in world)
-	set category = "ОСОБЕННОЕ"
+	set category = "Особенное"
 	set name = "OSay"
 	set desc = "Makes an object say something."
 	var/message = input(usr, "What do you want the message to be?", "Make Sound") as text | null
@@ -672,7 +672,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Object Say") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 /client/proc/togglebuildmodeself()
 	set name = "Toggle Build Mode Self"
-	set category = "ОСОБЕННОЕ"
+	set category = "Особенное"
 	if (!(holder.rank.rights & R_BUILD))
 		return
 	if(src.mob)
@@ -681,13 +681,13 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/check_ai_laws()
 	set name = "Check AI Laws"
-	set category = "АДМИН"
+	set category = "Адм"
 	if(holder)
 		src.holder.output_ai_laws()
 
 /client/proc/deadmin()
 	set name = "Deadmin"
-	set category = "АДМИН"
+	set category = "Адм"
 	set desc = "Shed your admin powers."
 
 	if(!holder)
@@ -706,7 +706,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/readmin()
 	set name = "Readmin"
-	set category = "ОСОБЕННОЕ"
+	set category = "Особенное"
 	set desc = "Regain your admin powers."
 
 	if(!isdead(src.mob) && !check_rights(R_PERMISSIONS))
@@ -738,7 +738,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/populate_world(amount = 50 as num)
 	set name = "Populate World"
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set desc = "(\"Amount of mobs to create\") Populate the world with test mobs."
 
 	if (amount > 0)
@@ -772,7 +772,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/toggle_AI_interact()
 	set name = "Toggle Admin AI Interact"
-	set category = "АДМИН"
+	set category = "Адм"
 	set desc = "Allows you to interact with most machines as an AI would as a ghost"
 
 	AI_Interact = !AI_Interact

@@ -33,7 +33,7 @@
 //This needs to be fixed
 /mob/living/carbon/alien/larva/Stat()
 	..()
-	if(statpanel("ИГРА"))
+	if(statpanel("Игра"))
 		stat(null, "Progress: [amount_grown]/[max_grown]")
 
 /mob/living/carbon/alien/larva/Login()

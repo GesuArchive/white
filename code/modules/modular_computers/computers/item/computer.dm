@@ -93,7 +93,7 @@
 // Eject ID card from computer, if it has ID slot with card inside.
 /obj/item/modular_computer/proc/eject_id()
 	set name = "Изъять ID"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set src in view(1)
 
 	if(issilicon(usr))
@@ -105,7 +105,7 @@
 // Eject ID card from computer, if it has ID slot with card inside.
 /obj/item/modular_computer/proc/eject_card()
 	set name = "Eject Intellicard"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 
 	if(issilicon(usr))
 		return
@@ -117,7 +117,7 @@
 // Eject ID card from computer, if it has ID slot with card inside.
 /obj/item/modular_computer/proc/eject_disk()
 	set name = "Eject Data Disk"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 
 	if(issilicon(usr))
 		return

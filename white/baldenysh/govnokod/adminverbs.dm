@@ -1,5 +1,5 @@
 /client/proc/retrieve_file()
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set name = "Retrieve file"
 
 	if(!check_rights())
@@ -12,7 +12,7 @@
 		to_chat(usr,"<span class='warning'>Такого файла не существует.</span>")
 
 /client/proc/manage_lists()
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set name = "Manage autoeban"
 
 	if(!check_rights())

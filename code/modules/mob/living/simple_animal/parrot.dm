@@ -143,7 +143,7 @@
 
 /mob/living/simple_animal/parrot/Stat()
 	..()
-	if(statpanel("ИГРА"))
+	if(statpanel("Игра"))
 		stat("Held Item", held_item)
 		stat("Mode",a_intent)
 

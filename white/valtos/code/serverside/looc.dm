@@ -3,7 +3,7 @@
 		WRITE_LOG(GLOB.world_game_log, "LOOC: [text]")
 
 /datum/admins/proc/togglelooc()
-	set category = "СЕРВЕР"
+	set category = "Срв"
 	set desc="can you even see verb descriptions anywhere?"
 	set name=" 🔄 Toggle LOOC"
 	toggle_looc()
@@ -12,7 +12,7 @@
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, "Toggle LOOC|[GLOB.looc_allowed]")
 
 /datum/admins/proc/toggleloocdead()
-	set category = "СЕРВЕР"
+	set category = "Срв"
 	set desc = "seriously, why do we even bother"
 	set name = " 🔄 Toggle Dead LOOC"
 	GLOB.dlooc_allowed = !(GLOB.dlooc_allowed)
@@ -22,7 +22,7 @@
 /*
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Chat, listen_looc)()
 	set name = " 🔄 LOOC"
-	set category = "НАСТРОЙКИ"
+	set category = "Настройки"
 	set desc = "Show LOOC Chat"
 	usr.client.prefs.chat_toggles ^= CHAT_LOOC
 	usr.client.prefs.save_preferences()

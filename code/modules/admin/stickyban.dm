@@ -485,7 +485,7 @@
 
 /client/proc/stickybanpanel()
 	set name = "Sticky Ban Panel"
-	set category = "АДМИН"
+	set category = "Адм"
 	if (!holder)
 		return
 	holder.stickyban_show()

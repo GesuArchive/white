@@ -1,5 +1,5 @@
 /client/proc/debug_variables_wrapper()
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set name = "View Variables"
 	var/list/L = list()
 	for(var/datum/D in world)

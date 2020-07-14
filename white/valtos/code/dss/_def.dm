@@ -341,7 +341,7 @@
 
 /mob/living/carbon/human/Stat()
 	..()
-	if(statpanel("ИГРА") && isstatee)
+	if(statpanel("Игра") && isstatee)
 		stat(null, null)
 		stat("Сила: ",			FLOOR(dstats["strength"], 1))
 		stat("Выносливость:",   FLOOR(dstats["stamina"], 1))

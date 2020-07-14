@@ -52,7 +52,7 @@
 
 /obj/item/watertank/verb/toggle_mister_verb()
 	set name = "Toggle Mister"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	toggle_mister(usr)
 
 /obj/item/watertank/proc/make_noz()

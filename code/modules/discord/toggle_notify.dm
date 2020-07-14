@@ -1,6 +1,6 @@
 // Verb to toggle restart notifications
 /client/verb/notify_restart()
-	set category = "ОСОБЕННОЕ"
+	set category = "Особенное"
 	set name = "Notify Restart"
 	set desc = "Notifies you on Discord when the server restarts."
 	set hidden = 1

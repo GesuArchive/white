@@ -255,7 +255,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 /obj/item/verb/move_to_top()
 	set name = "Переместить наверх"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set src in oview(1)
 
 	if(!isturf(loc) || usr.stat || usr.restrained())
@@ -527,7 +527,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 /obj/item/verb/verb_pickup()
 	set src in oview(1)
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set name = "Подобрать"
 
 	if(usr.incapacitated() || !Adjacent(usr))

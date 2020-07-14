@@ -87,7 +87,7 @@
 
 /mob/living/carbon/monkey/Stat()
 	..()
-	if(statpanel("ИГРА"))
+	if(statpanel("Игра"))
 		stat(null, "Взаимодействие: [a_intent]")
 		stat(null, "Режим перемещения: [m_intent]")
 		if(client && mind)

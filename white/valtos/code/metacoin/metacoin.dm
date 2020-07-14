@@ -93,6 +93,6 @@
 
 /mob/living/carbon/human/Stat()
 	..()
-	if(statpanel("ИГРА"))
+	if(statpanel("Игра"))
 		stat(null, null)
 		stat("Метакэш:",      	client.mc_cached)

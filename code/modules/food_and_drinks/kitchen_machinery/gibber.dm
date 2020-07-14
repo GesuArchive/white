@@ -121,7 +121,7 @@
 
 
 /obj/machinery/gibber/verb/eject()
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set name = "empty gibber"
 	set src in oview(1)
 

@@ -117,7 +117,7 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 		to_chat(user, "<span class='warning'>Незаметно зашквариваю [src.name] голосовую схему криптографическим секвенсором.</span>")
 
 /obj/item/clothing/mask/gas/sechailer/verb/halt()
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set name = "СТОЯТЬ"
 	set src in usr
 	if(!isliving(usr) || !can_use(usr) || cooldown)

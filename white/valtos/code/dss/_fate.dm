@@ -61,7 +61,7 @@
 
 /mob/living/carbon/human/Stat()
 	..()
-	if(statpanel("ИГРА"))
+	if(statpanel("Игра"))
 		stat(null, null)
 		if(isstatee)
 			stat("Сила:",			fateize_stat(current_fate[MOB_STR]))

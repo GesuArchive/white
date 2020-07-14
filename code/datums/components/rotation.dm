@@ -140,7 +140,7 @@
 
 /atom/movable/proc/simple_rotate_clockwise()
 	set name = "Повернуть по часовой"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set src in oview(1)
 	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
 	if(rotcomp)
@@ -148,7 +148,7 @@
 
 /atom/movable/proc/simple_rotate_counterclockwise()
 	set name = "Повернуть против часовой"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set src in oview(1)
 	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
 	if(rotcomp)
@@ -156,7 +156,7 @@
 
 /atom/movable/proc/simple_rotate_flip()
 	set name = "Перевернуть"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set src in oview(1)
 	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
 	if(rotcomp)

@@ -78,7 +78,7 @@
 /mob/living/carbon/alien/Stat()
 	..()
 
-	if(statpanel("ИГРА"))
+	if(statpanel("Игра"))
 		stat(null, "Взаимодействие: [a_intent]")
 
 /mob/living/carbon/alien/getTrail()

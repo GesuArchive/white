@@ -70,8 +70,8 @@
 /obj/screen/verbbutton
 	name = "Верб кнопка прикол"
 	var/list/allowed_categories = list(
-								"IC", "OOC", "ОБЪЕКТ", "ПРИЗРАК", "ОСОБЕННОЕ", "НАСТРОЙКИ",
-								"АДМИН", "АС", "ДЕБАГ", "СЕРВЕР", "ФАН"
+								"IC", "OOC", "Объект", "Призрак", "Особенное", "Настройки",
+								"Адм", "Адс", "Дбг", "Срв", "Фан"
 							)
 	var/ui_x = 450
 	var/ui_y = 400
@@ -116,7 +116,7 @@
 	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
 	icon_state = "admin"
 	screen_loc = ui_admin
-	allowed_categories = list("АДМИН", "АС", "ДЕБАГ", "СЕРВЕР", "ФАН", "Mapping", "Profile")
+	allowed_categories = list("Адм", "Адс", "Дбг", "Срв", "Фан", "Маппинг", "Профайл")
 	ui_y = 500
 
 /obj/screen/verbbutton/admin/Click()
@@ -128,7 +128,7 @@
 	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
 	icon_state = "main"
 	screen_loc = ui_main
-	allowed_categories = list("IC", "OOC", "ОБЪЕКТ", "ПРИЗРАК")
+	allowed_categories = list("IC", "OOC", "Объект", "Призрак")
 	ui_y = 300
 
 /obj/screen/verbbutton/special
@@ -136,14 +136,14 @@
 	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
 	icon_state = "special"
 	screen_loc = ui_special
-	allowed_categories = list("ОСОБЕННОЕ")
+	allowed_categories = list("Особенное")
 
 /obj/screen/verbbutton/settings
 	name = "Настройки"
 	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
 	icon_state = "settings"
 	screen_loc = ui_settings
-	allowed_categories = list("НАСТРОЙКИ")
+	allowed_categories = list("Настройки")
 
 /obj/screen/verbbutton/settings/ui_data(mob/user)
 	var/list/data = list()

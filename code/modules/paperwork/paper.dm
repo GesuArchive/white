@@ -175,7 +175,7 @@
 
 /obj/item/paper/verb/rename()
 	set name = "Rename paper"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set src in usr
 
 	if(usr.incapacitated() || !usr.is_literate())

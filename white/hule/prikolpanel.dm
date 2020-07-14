@@ -2,7 +2,7 @@ GLOBAL_LIST_INIT(pidorlist, world.file2list("[global.config.directory]/autoeban/
 GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban/obembalist.fackuobema"))
 
 /client/proc/prikol_panel()
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set name = "Prikol Panel"
 
 	if(!check_rights())

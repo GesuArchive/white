@@ -324,7 +324,7 @@ SUBSYSTEM_DEF(garbage)
 #ifdef TESTING
 
 /datum/verb/find_refs()
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set name = "Find References"
 	set src in world
 
@@ -376,7 +376,7 @@ SUBSYSTEM_DEF(garbage)
 	SSgarbage.next_fire = world.time + world.tick_lag
 
 /datum/verb/qdel_then_find_references()
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set name = "qdel() then Find References"
 	set src in world
 
@@ -385,7 +385,7 @@ SUBSYSTEM_DEF(garbage)
 		find_references(TRUE)
 
 /datum/verb/qdel_then_if_fail_find_references()
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set name = "qdel() then Find References if GC failure"
 	set src in world
 

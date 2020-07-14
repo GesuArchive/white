@@ -85,7 +85,7 @@ Buildable meters
 		resistance_flags |= FIRE_PROOF | LAVA_PROOF
 
 /obj/item/pipe/verb/flip()
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set name = "Flip Pipe"
 	set src in view(1)
 

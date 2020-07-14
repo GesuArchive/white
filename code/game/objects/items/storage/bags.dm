@@ -215,7 +215,7 @@
 
 /obj/item/storage/bag/plants/portaseeder/verb/dissolve_contents()
 	set name = "Activate Seed Extraction"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set desc = "Activate to convert your plants into plantable seeds."
 	if(usr.incapacitated())
 		return

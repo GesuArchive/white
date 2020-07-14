@@ -1,6 +1,6 @@
 /proc/possess_wrapper()
 	set name = "Possess Obj"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	var/list/L = list()
 	for(var/obj/O in world)
 		L += O
@@ -37,7 +37,7 @@
 
 /proc/release()
 	set name = "Release Obj"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	//usr.loc = get_turf(usr)
 
 	if(usr.control_object && usr.name_archive) //if you have a name archived and if you are actually relassing an object
@@ -56,7 +56,7 @@
 
 /proc/givetestverbs(mob/M in GLOB.mob_list)
 	set desc = "Give this guy possess/release verbs"
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set name = "Give Possessing Verbs"
 	M.verbs += /proc/possess
 	M.verbs += /proc/release

@@ -1,5 +1,5 @@
 /client/proc/forcerandomrotate()
-	set category = "СЕРВЕР"
+	set category = "Срв"
 	set name = "Trigger Random Map Rotation"
 	var/rotate = alert("Force a random map rotation to trigger?", "Rotate map?", "Yes", "Cancel")
 	if (rotate != "Yes")
@@ -9,7 +9,7 @@
 	SSmapping.maprotate()
 
 /client/proc/adminchangemap()
-	set category = "СЕРВЕР"
+	set category = "Срв"
 	set name = "Change Map"
 	var/list/maprotatechoices = list()
 	for (var/map in config.maplist)
@@ -105,7 +105,7 @@
 			message_admins("[key_name_admin(usr)] has changed the map to [VM.map_name]")
 
 /client/proc/adminchangeminingmap()
-	set category = "СЕРВЕР"
+	set category = "Срв"
 	set name = "Change Mining Map"
 	if(SSticker.current_state < GAME_STATE_PREGAME)
 		to_chat(src, "<span class='interface'>Please wait until after the server is done setting up.</span>")

@@ -13,7 +13,7 @@
 	return
 
 /client/proc/view_refs(atom/D) //it actually supports datums as well but byond no likey
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set name = "View References"
 
 	if(!check_rights(R_DEBUG))

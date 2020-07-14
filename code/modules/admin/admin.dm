@@ -41,7 +41,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////Panels
 
 /datum/admins/proc/show_player_panel(mob/M in GLOB.mob_list)
-	set category = "АДМИН"
+	set category = "Адм"
 	set name = "Show Player Panel"
 	set desc="Edit player (respawn, ban, heal, etc)"
 
@@ -232,7 +232,7 @@
 
 
 /datum/admins/proc/access_news_network() //MARKER
-	set category = "ФАН"
+	set category = "Фан"
 	set name = "Access Newscaster Network"
 	set desc = "Allows you to view, add and edit news feeds."
 
@@ -486,7 +486,7 @@
 
 
 /datum/admins/proc/restart()
-	set category = "СЕРВЕР"
+	set category = "Срв"
 	set name = "Reboot World"
 	set desc="Restarts the world immediately"
 	if (!usr.client.holder)
@@ -528,7 +528,7 @@
 				world.shelleo("curl -X POST http://localhost:3636/hard-reboot-white")
 
 /datum/admins/proc/end_round()
-	set category = "СЕРВЕР"
+	set category = "Срв"
 	set name = "End Round"
 	set desc = "Attempts to produce a round end report and then restart the server organically."
 
@@ -543,7 +543,7 @@
 
 
 /datum/admins/proc/announce()
-	set category = "ОСОБЕННОЕ"
+	set category = "Особенное"
 	set name = "Announce"
 	set desc="Announce your desires to the world"
 	if(!check_rights(0))
@@ -558,7 +558,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Announce") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/set_admin_notice()
-	set category = "ОСОБЕННОЕ"
+	set category = "Особенное"
 	set name = "Set Admin Notice"
 	set desc ="Set an announcement that appears to everyone who joins the server. Only lasts this round"
 	if(!check_rights(0))
@@ -581,7 +581,7 @@
 	return
 
 /datum/admins/proc/toggleooc()
-	set category = "СЕРВЕР"
+	set category = "Срв"
 	set desc="Toggle dis bitch"
 	set name="Toggle OOC"
 	toggle_ooc()
@@ -590,7 +590,7 @@
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle OOC", "[GLOB.ooc_allowed ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggleoocdead()
-	set category = "СЕРВЕР"
+	set category = "Срв"
 	set desc="Toggle dis bitch"
 	set name="Toggle Dead OOC"
 	toggle_dooc()
@@ -600,7 +600,7 @@
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Dead OOC", "[GLOB.dooc_allowed ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/startnow()
-	set category = "СЕРВЕР"
+	set category = "Срв"
 	set desc="Start the round RIGHT NOW"
 	set name="Start Now"
 	if(SSticker.current_state == GAME_STATE_PREGAME || SSticker.current_state == GAME_STATE_STARTUP)
@@ -629,7 +629,7 @@
 	return FALSE
 
 /datum/admins/proc/toggleenter()
-	set category = "СЕРВЕР"
+	set category = "Срв"
 	set desc="People can't enter"
 	set name="Toggle Entering"
 	GLOB.enter_allowed = !( GLOB.enter_allowed )
@@ -643,7 +643,7 @@
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Entering", "[GLOB.enter_allowed ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggleAI()
-	set category = "СЕРВЕР"
+	set category = "Срв"
 	set desc="People can't be AI"
 	set name="Toggle AI"
 	var/alai = CONFIG_GET(flag/allow_ai)
@@ -657,7 +657,7 @@
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle AI", "[!alai ? "Disabled" : "Enabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggleaban()
-	set category = "СЕРВЕР"
+	set category = "Срв"
 	set desc="Respawn basically"
 	set name="Toggle Respawn"
 	var/new_nores = !CONFIG_GET(flag/norespawn)
@@ -672,7 +672,7 @@
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Respawn", "[!new_nores ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/delay()
-	set category = "СЕРВЕР"
+	set category = "Срв"
 	set desc="Delay the game start"
 	set name="Delay Pre-Game"
 
@@ -693,7 +693,7 @@
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Delay Game Start") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/unprison(mob/M in GLOB.mob_list)
-	set category = "АДМИН"
+	set category = "Адм"
 	set name = "Unprison"
 	if (is_centcom_level(M.z))
 		SSjob.SendToLateJoin(M)
@@ -706,7 +706,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////ADMIN HELPER PROCS
 /datum/admins/proc/spawn_atom(object as text)
 	set name = "Spawn"
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set desc = "(atom path) Spawn an atom"
 
 	if(!object)
@@ -740,7 +740,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/podspawn_atom(object as text)
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set desc = "(atom path) Spawn an atom via supply drop"
 	set name = "Podspawn"
 
@@ -770,7 +770,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Podspawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/spawn_cargo(object as text)
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set desc = "(atom path) Spawn a cargo crate"
 	set name = "Spawn Cargo"
 
@@ -794,7 +794,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn Cargo") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/show_traitor_panel(mob/target_mob in GLOB.mob_list)
-	set category = "АДМИН"
+	set category = "Адм"
 	set desc = "Edit mobs's memory and role"
 	set name = "Show Traitor Panel"
 	var/datum/mind/target_mind = target_mob.mind
@@ -824,7 +824,7 @@
 	SP.ui_interact(usr)
 
 /datum/admins/proc/toggletintedweldhelmets()
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set desc="Reduces view range when wearing welding helmets"
 	set name="Toggle tinted welding helmes"
 	GLOB.tinted_weldhelh = !( GLOB.tinted_weldhelh )
@@ -837,7 +837,7 @@
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Tinted Welding Helmets", "[GLOB.tinted_weldhelh ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggleguests()
-	set category = "СЕРВЕР"
+	set category = "Срв"
 	set desc="Guests can't enter"
 	set name="Toggle guests"
 	var/new_guest_ban = !CONFIG_GET(flag/guest_ban)
@@ -963,7 +963,7 @@
 	user << browse(dat, "window=dyn_mode_options;size=900x650")
 
 /datum/admins/proc/create_or_modify_area()
-	set category = "ДЕБАГ"
+	set category = "Дбг"
 	set name = "Create or modify area"
 	create_area(usr)
 

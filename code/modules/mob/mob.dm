@@ -107,7 +107,7 @@
   * Some kind of debug verb that gives atmosphere environment details
   */
 /mob/proc/Cell()
-	set category = "АДМИН"
+	set category = "Адм"
 	set hidden = 1
 
 	if(!loc)
@@ -479,7 +479,7 @@
   */
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Показать на..."
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 
 	if(!src || !isturf(src.loc))
 		return FALSE
@@ -537,7 +537,7 @@
   */
 /mob/verb/mode()
 	set name = "Использовать предмет в руке"
-	set category = "ОБЪЕКТ"
+	set category = "Объект"
 	set src = usr
 
 	if(ismecha(loc))
@@ -743,7 +743,7 @@
 /mob/Stat()
 	..()
 
-	if(statpanel("ИГРА"))
+	if(statpanel("Игра"))
 		if(SSshuttle.emergency)
 			var/ETA = SSshuttle.emergency.getModeStr()
 			if(ETA)
@@ -789,7 +789,7 @@
 				for(var/datum/controller/subsystem/SS in Master.subsystems)
 					SS.stat_entry()
 			GLOB.cameranet.stat_entry()
-		if(statpanel("ТИКЕТЫ"))
+		if(statpanel("Тикеты"))
 			GLOB.ahelp_tickets.stat_entry()
 		if(length(GLOB.sdql2_queries))
 			if(statpanel("SDQL2"))
