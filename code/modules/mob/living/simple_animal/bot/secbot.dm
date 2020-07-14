@@ -277,6 +277,11 @@ Auto Patrol: []"},
 	addtimer(CALLBACK(src, /atom/.proc/update_icon), 2)
 	var/threat = 5
 
+	if(prob(15))
+		C.visible_message("<span class='danger'><b>[capitalize(src.name)]</b> промахивается, пытаясь ударить <b>[C]</b>!</span>",\
+								"<span class='userdanger'>[capitalize(src.name)] промахивается пытаясь ударить меня!</span>")
+		return FALSE
+
 	if(harm)
 		weapon.attack(C, src)
 	if(ishuman(C))
@@ -293,8 +298,8 @@ Auto Patrol: []"},
 	if(declare_arrests)
 		var/area/location = get_area(src)
 		speak("[arrest_type ? "Detaining" : "Arresting"] level [threat] scumbag <b>[C]</b> in [location].", radio_channel)
-	C.visible_message("<span class='danger'>[src] stuns [C]!</span>",\
-							"<span class='userdanger'>[src] stuns you!</span>")
+	C.visible_message("<span class='danger'><b>[capitalize(src.name)]</b> бьёт шокером <b>[C]</b>!</span>",\
+							"<span class='userdanger'>[capitalize(src.name)] бьёт меня шокером!</span>")
 
 /mob/living/simple_animal/bot/secbot/handle_automated_action()
 	if(!..())
