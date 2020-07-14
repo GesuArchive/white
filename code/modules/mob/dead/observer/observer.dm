@@ -289,7 +289,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 */
 /mob/living/verb/ghost()
 	set category = "OOC"
-	set name = " ❗ Покинуть тело"
+	set name = "❗ Покинуть тело"
 	set desc = "Relinquish your life and enter the land of the dead."
 
 	if(stat != DEAD)
@@ -306,7 +306,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/camera/verb/ghost()
 	set category = "OOC"
-	set name = " ❗ Покинуть тело"
+	set name = "❗ Покинуть тело"
 	set desc = "Relinquish your life and enter the land of the dead."
 
 	var/response = alert(src, "Are you -sure- you want to ghost?\n(You are alive. If you ghost whilst still alive you may not play again this round! You can't change your mind so choose wisely!!)","Are you sure you want to ghost?","Ghost","Stay in body")
@@ -336,7 +336,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/reenter_corpse()
 	set category = "Призрак"
-	set name = " ❗ Вернуться в тело"
+	set name = "❗ Вернуться в тело"
 	if(!client)
 		return
 	if(!mind || QDELETED(mind.current))
@@ -355,7 +355,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/stay_dead()
 	set category = "Призрак"
-	set name = " ❌ Не хочу воскресать"
+	set name = "❌ Не хочу воскресать"
 	if(!client)
 		return
 	if(!can_reenter_corpse)
@@ -501,7 +501,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/change_view_range()
 	set category = "Призрак"
-	set name = " #️⃣ Радиус обзора"
+	set name = "#️⃣ Радиус обзора"
 	set desc = "Change your view range."
 
 	var/max_view = client.prefs.unlock_content ? GHOST_MAX_VIEW_RANGE_MEMBER : GHOST_MAX_VIEW_RANGE_DEFAULT
@@ -516,7 +516,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		client.view_size.resetToDefault()
 
 /mob/dead/observer/verb/add_view_range(input as num)
-	set name = " #️⃣ Add View Range"
+	set name = "#️⃣ Add View Range"
 	set hidden = TRUE
 	var/max_view = client.prefs.unlock_content ? GHOST_MAX_VIEW_RANGE_MEMBER : GHOST_MAX_VIEW_RANGE_DEFAULT
 	if(input)
@@ -762,7 +762,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		gas_scan = TRUE
 
 /mob/dead/observer/verb/restore_ghost_appearance()
-	set name = " ❌ Сбросить внешность призрака"
+	set name = "❌ Сбросить внешность призрака"
 	set desc = "Sets your deadchat name and ghost appearance to your \
 		roundstart character."
 	set category = "Призрак"
@@ -856,7 +856,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/register_pai_candidate()
 	set category = "Призрак"
-	set name = " #️⃣ pAI Setup"
+	set name = "#️⃣ pAI Setup"
 	set desc = "Upload a fragment of your personality to the global pAI databanks"
 
 	register_pai()
@@ -938,7 +938,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	GLOB.observer_default_invisibility = amount
 
 /mob/dead/observer/proc/open_spawners_menu()
-	set name = " #️⃣ Меню перерождений"
+	set name = "#️⃣ Меню перерождений"
 	set desc = "See all currently available spawners"
 	set category = "Призрак"
 	if(!spawners_menu)

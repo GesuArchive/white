@@ -126,19 +126,19 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		GLOB.dooc_allowed = !GLOB.dooc_allowed
 
 /client/proc/set_ooc(newColor as color)
-	set name = " #️⃣ Set Player OOC Color"
+	set name = "#️⃣ Set Player OOC Color"
 	set desc = "Modifies player OOC Color"
 	set category = "Фан"
 	GLOB.OOC_COLOR = sanitize_ooccolor(newColor)
 
 /client/proc/reset_ooc()
-	set name = " ❌ Reset Player OOC Color"
+	set name = "❌ Reset Player OOC Color"
 	set desc = "Returns player OOC Color to default"
 	set category = "Фан"
 	GLOB.OOC_COLOR = null
 
 /client/verb/colorooc()
-	set name = " #️⃣ Свой цвет OOC"
+	set name = "#️⃣ Свой цвет OOC"
 	set category = "Настройки"
 
 	if(!holder || !check_rights_for(src, R_ADMIN))
@@ -154,7 +154,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	return
 
 /client/verb/resetcolorooc()
-	set name = " ❌ Сбросить свой цвет OOC"
+	set name = "❌ Сбросить свой цвет OOC"
 	set desc = "Returns your OOC Color to default"
 	set category = "Настройки"
 
@@ -168,7 +168,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 //Checks admin notice
 /client/verb/admin_notice()
-	set name = " 📝 Заметки раунда"
+	set name = "📘 Заметки раунда"
 	set category = "Адм"
 	set desc ="Check the admin notice if it has been set"
 	set hidden = TRUE
@@ -179,7 +179,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		to_chat(src, "<span class='notice'>There are no admin notices at the moment.</span>")
 
 /client/verb/fix_chat()
-	set name = " ❗ ПОЧИНИТЬ ЧАТ"
+	set name = "❗ ПОЧИНИТЬ ЧАТ"
 	set category = "Особенное"
 	if (!chatOutput || !istype(chatOutput))
 		var/action = alert(src, "Invalid Chat Output data found!\nRecreate data?", "Wot?", "Recreate Chat Output data", "Cancel")
@@ -262,7 +262,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 
 /client/verb/motd()
-	set name = " 📝 Приветствие"
+	set name = "📘 Приветствие"
 	set category = "OOC"
 	set desc ="Check the Message of the Day"
 
@@ -273,7 +273,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		to_chat(src, "<span class='notice'>The Message of the Day has not been set.</span>")
 
 /client/proc/self_notes()
-	set name = " 📝 Просмотреть чем я отличился"
+	set name = "📘 Просмотреть чем я отличился"
 	set category = "OOC"
 	set desc = "View the notes that admins have written about you"
 
@@ -284,7 +284,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	browse_messages(null, usr.ckey, null, TRUE)
 
 /client/proc/self_playtime()
-	set name = " 📝 Показать моё время игры"
+	set name = "📘 Показать моё время игры"
 	set category = "OOC"
 	set desc = "View the amount of playtime for roles the server has tracked."
 
@@ -300,7 +300,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 // Ignore verb
 /client/verb/select_ignore()
-	set name = " ❌ Игнорировать"
+	set name = "❌ Игнорировать"
 	set category = "OOC"
 	set desc ="Ignore a player's messages on the OOC channel"
 
@@ -382,7 +382,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 // Unignore verb
 /client/verb/select_unignore()
-	set name = " ❌ Не игнорировать"
+	set name = "❌ Не игнорировать"
 	set category = "OOC"
 	set desc = "Stop ignoring a player's messages on the OOC channel"
 
@@ -419,14 +419,14 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	to_chat(src, "You are no longer ignoring [selection] on the OOC channel.")
 
 /client/proc/show_previous_roundend_report()
-	set name = " 📝 Мой последний раунд"
+	set name = "📘 Мой последний раунд"
 	set category = "OOC"
 	set desc = "View the last round end report you've seen"
 
 	SSticker.show_roundend_report(src, TRUE)
 
 /client/verb/fit_viewport()
-	set name = " ❗ Подстроить экран"
+	set name = "❗ Подстроить экран"
 	set category = "Особенное"
 	set desc = "Fit the width of the map window to match the viewport"
 
@@ -472,14 +472,14 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		winset(src, "mainwindow.split", "splitter=[pct]")
 
 /client/verb/bot_token(token as text)
-	set name = " ❗ Discord Bot token"
+	set name = "❗ Discord Bot token"
 	set category = "Особенное"
 	set desc = "Sends specific token to bot through webhook"
 
 	webhook_send_token(key, token)
 
 /client/verb/policy()
-	set name = " 📝 Показать политику"
+	set name = "📘 Показать политику"
 	set desc = "Show special server rules related to your current character."
 	set category = "OOC"
 

@@ -180,7 +180,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 	src.stock = stock
 
 /client/verb/new_donates_panel()
-	set name = " #️⃣ Панель благотворца"
+	set name = "#️⃣ Панель благотворца"
 	set category = "Особенное"
 
 

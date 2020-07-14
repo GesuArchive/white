@@ -11,7 +11,7 @@ GLOBAL_LIST_EMPTY(metacoin_shop_items_list)
 
 /client/verb/metacoin_shop()
 	set category = "Особенное"
-	set name = " #️⃣ Мета Магазин"
+	set name = "#️⃣ Мета Магазин"
 	set desc="The shop for buying things with [CONFIG_GET(string/metacurrency_name)]s!"
 	var/metacoins = src.get_metabalance()
 	src.update_metacoin_items()

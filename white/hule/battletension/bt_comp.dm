@@ -251,7 +251,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		to_chat(usr, "<span class='danger'> > Жаль, что я не <b>человек</b>.</span>")
 
 /client/verb/customize_battletension()
-	set name = " #️⃣ Настроить Battle Tension"
+	set name = "#️⃣ Настроить Battle Tension"
 	set desc = "Allows for advanced prikol immersion."
 	set category = "Настройки"
 

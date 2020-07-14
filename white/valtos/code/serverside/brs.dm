@@ -7,7 +7,7 @@
 /client/var/tfbsfr = 0
 
 /client/verb/feedbacksolution()
-	set name = " ❗ Обратная связь"
+	set name = "❗ Обратная связь"
 	set category = "Особенное"
 
 	if(tfbsfr >= 3)

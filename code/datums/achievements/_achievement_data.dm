@@ -139,7 +139,7 @@
 
 /client/verb/checkachievements()
 	set category = "OOC"
-	set name = " ℹ️ Мои достижения"
+	set name = "📘 Мои достижения"
 	set desc = "See all of your achievements!"
 
 	player_details.achievements.ui_interact(usr)
