@@ -69,7 +69,7 @@
 	C.update_hair()
 
 /obj/item/organ/brain/proc/transfer_identity(mob/living/L)
-	name = "[L.name]'s brain"
+	name = "мозг [L.name]"
 	if(brainmob || decoy_override)
 		return
 	if(!L.mind)

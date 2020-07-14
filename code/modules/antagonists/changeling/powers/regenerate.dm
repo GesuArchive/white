@@ -9,7 +9,7 @@
 
 /datum/action/changeling/regenerate/sting_action(mob/living/user)
 	..()
-	to_chat(user, "<span class='notice'>Чувствую зуд, как внутри, так и снаружи, ведь ваши ткани пересвязываются.</span>")
+	to_chat(user, "<span class='notice'>Чувствуем зуд, как внутри, так и снаружи, ведь наши ткани пересвязываются.</span>")
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		var/list/missing = C.get_missing_limbs()
@@ -20,6 +20,7 @@
 				"<span class='hear'>Слышу как что-то органическое разрывается!</span>")
 			C.emote("scream")
 			C.regenerate_limbs(1)
+		C.regenerate_organs()
 		if(!user.getorganslot(ORGAN_SLOT_BRAIN))
 			var/obj/item/organ/brain/B
 			if(C.has_dna() && C.dna.species.mutantbrain)
@@ -29,7 +30,6 @@
 			B.organ_flags &= ~ORGAN_VITAL
 			B.decoy_override = TRUE
 			B.Insert(C)
-		C.regenerate_organs()
 		for(var/i in C.all_wounds)
 			var/datum/wound/W = i
 			W.remove_wound()

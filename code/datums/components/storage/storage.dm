@@ -595,20 +595,20 @@
 	if(locked)
 		if(M && !stop_messages)
 			host.add_fingerprint(M)
-			to_chat(M, "<span class='warning'>[capitalize(host)] заблокирован!</span>")
+			to_chat(M, "<span class='warning'>[capitalize(host.name)] заблокирован!</span>")
 		return FALSE
 	if(real_location.contents.len >= max_items)
 		if(!stop_messages)
-			to_chat(M, "<span class='warning'>[capitalize(host)] переполнен!</span>")
+			to_chat(M, "<span class='warning'>[capitalize(host.name)] переполнен!</span>")
 		return FALSE //Storage item is full
 	if(length(can_hold))
 		if(!is_type_in_typecache(I, can_hold))
 			if(!stop_messages)
-				to_chat(M, "<span class='warning'>[capitalize(host)] не может хранить [I.name]!</span>")
+				to_chat(M, "<span class='warning'>[capitalize(host.name)] не может хранить [I.name]!</span>")
 			return FALSE
 	if(is_type_in_typecache(I, cant_hold) || HAS_TRAIT(I, TRAIT_NO_STORAGE_INSERT)) //Items which this container can't hold.
 		if(!stop_messages)
-			to_chat(M, "<span class='warning'>[capitalize(host)] не может хранить [I.name]!</span>")
+			to_chat(M, "<span class='warning'>[capitalize(host.name)] не может хранить [I.name]!</span>")
 		return FALSE
 	if(I.w_class > max_w_class && !is_type_in_typecache(I, exception_hold))
 		if(!stop_messages)

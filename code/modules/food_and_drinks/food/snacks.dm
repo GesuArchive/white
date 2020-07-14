@@ -351,7 +351,7 @@ All foods are distributed among various categories. Use common sense.
 		if(!iscarbon(user))
 			return 0
 		if(contents.len >= 20)
-			to_chat(user, "<span class='warning'>[src] переполнен.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] переполнен.</span>")
 			return 0
 		to_chat(user, "<span class='notice'>Вставляю [W] внутрь [src].</span>")
 		user.transferItemToLoc(W, src)
