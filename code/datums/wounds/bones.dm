@@ -282,7 +282,7 @@
 	if(!do_after(user, time, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
 
-	if(prob(65 + prob_mod))
+	if(prob(65))
 		user.visible_message("<span class='danger'><b>[user]</b> вправляет [ru_parse_zone(limb.name)] <b>[victim]</b> с отвратительным хрустом!</span>", "<span class='danger'>Вправляю [ru_parse_zone(limb.name)] <b>[victim]</b> с отвратительным хрустом!</span>", ignored_mobs=victim)
 		to_chat(victim, "<span class='userdanger'><b>[user]</b> вправляет [ru_parse_zone(limb.name)] с отвратительным хрустом!</span>")
 		victim.emote("scream")

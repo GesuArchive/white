@@ -36,7 +36,7 @@ mob/living/carbon/alien/humanoid/royal/queen/tamed
 		return FALSE
 	return TRUE
 
-/mob/living/carbon/alien/humanoid/royal/queen/tamed/get_idcard()
+/mob/living/carbon/alien/humanoid/royal/queen/tamed/get_idcard(hand_first)
 	return wear_id
 
 //mob/living/carbon/alien/humanoid/royal/queen/tamed/create_mob_hud() //indevelop

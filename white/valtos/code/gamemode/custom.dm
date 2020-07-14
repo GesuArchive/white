@@ -203,7 +203,6 @@
 	armor = list("melee" = 90, "bullet" = 90, "laser" = 100, "energy" = 100, "bomb" = 50, "bio" = 100, "rad" = 100, "fire" = 80, "acid" = 100)
 	CanAtmosPass = ATMOS_PASS_YES
 	rad_insulation = RAD_NO_INSULATION
-	rad_flags = RAD_NO_CONTAMINATE
 	var/real_explosion_block	//ignore this, just use explosion_block
 
 /obj/structure/pillar/CanPass(atom/movable/mover, turf/target)

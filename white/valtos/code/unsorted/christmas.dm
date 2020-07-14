@@ -45,7 +45,6 @@
 	icon_state = "garland"
 	layer = SIGN_LAYER
 	max_integrity = 100
-	rad_flags = RAD_PROTECT_CONTENTS | RAD_NO_CONTAMINATE
 	var/on = FALSE
 	var/brightness = 4
 

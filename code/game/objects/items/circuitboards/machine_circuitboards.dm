@@ -1186,3 +1186,40 @@
 		/obj/item/stock_parts/micro_laser = 2,
 		/obj/item/stock_parts/scanning_module = 2
 	)
+
+#define PATH_POWERCOIL /obj/machinery/power/tesla_coil/power
+#define PATH_RPCOIL /obj/machinery/power/tesla_coil/research
+
+/obj/item/circuitboard/machine/tesla_coil/Initialize()
+	. = ..()
+	if(build_path)
+		build_path = PATH_POWERCOIL
+
+/obj/item/circuitboard/machine/tesla_coil/attackby(obj/item/I, mob/user, params)
+	if(I.tool_behaviour == TOOL_SCREWDRIVER)
+		var/obj/item/circuitboard/new_type
+		var/new_setting
+		switch(build_path)
+			if(PATH_POWERCOIL)
+				new_type = /obj/item/circuitboard/machine/tesla_coil/research
+				new_setting = "Research"
+			if(PATH_RPCOIL)
+				new_type = /obj/item/circuitboard/machine/tesla_coil/power
+				new_setting = "Power"
+		name = initial(new_type.name)
+		build_path = initial(new_type.build_path)
+		I.play_tool_sound(src)
+		to_chat(user, "<span class='notice'>You change the circuitboard setting to \"[new_setting]\".</span>")
+	else
+		return ..()
+
+/obj/item/circuitboard/machine/tesla_coil/power
+	name = "Tesla Coil (Machine Board)"
+	build_path = PATH_POWERCOIL
+
+/obj/item/circuitboard/machine/tesla_coil/research
+	name = "Tesla Corona Researcher (Machine Board)"
+	build_path = PATH_RPCOIL
+
+#undef PATH_POWERCOIL
+#undef PATH_RPCOIL

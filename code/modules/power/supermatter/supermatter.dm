@@ -619,7 +619,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 
 		//if there is more pluox and n2 then anything else, we receive no power increase from heat
 		if(power_changes)
-			power = max((removed..return_temperature() * temp_factor / T0C) * gasmix_power_ratio + power, 0)
+			power = max((removed.return_temperature() * temp_factor / T0C) * gasmix_power_ratio + power, 0)
 
 		if(prob(50))
 			//(1 + (tritRad + pluoxDampen * bzDampen * o2Rad * plasmaRad / (10 - bzrads))) * freonbonus

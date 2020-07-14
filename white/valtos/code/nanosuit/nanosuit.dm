@@ -236,8 +236,6 @@
 	//variables for cloak pausing when shooting a suppressed gun
 	var/stealth_cloak_out = 1 //transition time out of cloak
 	var/stealth_cloak_in = 2 //transition time back into cloak
-	rad_flags = RAD_PROTECT_CONTENTS|RAD_NO_CONTAMINATE
-	rad_insulation = RAD_NO_INSULATION
 	var/healthon = FALSE
 	var/atmoson = FALSE
 	var/radon = FALSE
@@ -617,7 +615,6 @@
 	var/zoom = FALSE
 	//scan_reagents = TRUE
 	actions_types = list(/datum/action/item_action/nanosuit/zoom)
-	rad_flags = RAD_PROTECT_CONTENTS | RAD_NO_CONTAMINATE
 	rad_insulation = RAD_NO_INSULATION
 	var/explosion_detection_dist = 21
 
