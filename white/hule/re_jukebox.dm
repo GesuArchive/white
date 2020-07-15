@@ -2,7 +2,7 @@
 	var/sound/jukebox_music
 
 /obj/machinery/turntable
-	name = "музыкальный автомат"
+	name = "Музыкальный автомат"
 	desc = "Классический музыкальный проигрыватель."
 	icon = 'white/valtos/icons/jukeboxes.dmi'
 	icon_state = "default"
@@ -28,7 +28,7 @@
 	icon_state = pick("default", "tall", "neon")
 
 	if(icon_state == "tall")
-		name = "младший [name]"
+		name = "Младший [r_lowertext(name)]"
 
 	var/list/tracks = flist("[global.config.directory]/jukebox_music/sounds/")
 

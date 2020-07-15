@@ -1,6 +1,6 @@
 /obj/item/boombox
-	name = "взрыв каробка"
-	desc = "Магнитола, разыскиваемая в одном из смежных секторов. Почему-то бронзовая."
+	name = "Взрыв каробка"
+	desc = "Магнитола, разыскиваемая в одном из смежных секторов. Почему-то пахнет малиной."
 	icon = 'white/baldenysh/icons/obj/boombox.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
@@ -12,8 +12,8 @@
 	var/obj/item/card/data/music/disk
 	var/playing = FALSE
 
-	var/ui_x = 500
-	var/ui_y = 250
+	var/ui_x = 370
+	var/ui_y = 370
 
 /proc/open_sound_channel_for_boombox()
 	var/static/next_channel = CHANNEL_HIGHEST_AVAILABLE + 1
