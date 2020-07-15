@@ -232,7 +232,7 @@
 
 				if(iscarbon(M)) //Carbon stuff
 					if(ishuman(M))
-						M_job = utf8_to_cp1252(M.job)
+						M_job = up2ph(M.job)
 					else if(ismonkey(M))
 						M_job = "Monkey"
 					else if(isalien(M)) //aliens
@@ -274,15 +274,15 @@
 				else
 					M_job = "Ghost"
 
-			var/M_name = html_encode(utf8_to_cp1252(M.name))
-			var/M_rname = html_encode(utf8_to_cp1252(M.real_name))
+			var/M_name = html_encode(up2ph(M.name))
+			var/M_rname = html_encode(up2ph(M.real_name))
 			var/M_key = html_encode(M.key)
 			var/previous_names = ""
 			if(M_key)
 				var/datum/player_details/P = GLOB.player_details[ckey(M_key)]
 				if(P)
 					previous_names = P.played_names.Join(",")
-			previous_names = html_encode(utf8_to_cp1252(previous_names))
+			previous_names = html_encode(up2ph(previous_names))
 
 			//output for each mob
 			dat += {"
