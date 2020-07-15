@@ -1,7 +1,7 @@
 /// The light switch. Can have multiple per area.
 /obj/machinery/light_switch
 	name = "переключатель света"
-	icon = 'white/valtos/icons/lightswitch.dmi'
+	icon = 'white/valtos/icons/power.dmi'
 	icon_state = "light1"
 	desc = "Делает тьму или свет."
 	power_channel = AREA_USAGE_LIGHT

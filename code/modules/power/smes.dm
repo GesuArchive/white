@@ -17,6 +17,7 @@
 /obj/machinery/power/smes
 	name = "Сверхпроводящий накопитель магнитной энергии"
 	desc = "Сверхпроводящий накопитель магнитной энергии (СНМЭ)" //крутой перевод мммм
+	icon = 'white/valtos/icons/power.dmi'
 	icon_state = "smes"
 	density = TRUE
 	use_power = NO_POWER_USE

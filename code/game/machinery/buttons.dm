@@ -1,7 +1,7 @@
 /obj/machinery/button
 	name = "button"
 	desc = "A remote control switch."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'white/valtos/icons/power.dmi'
 	icon_state = "doorctrl"
 	var/skin = "doorctrl"
 	power_channel = AREA_USAGE_ENVIRON
