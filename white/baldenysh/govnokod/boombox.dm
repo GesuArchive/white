@@ -13,7 +13,7 @@
 	var/playing = FALSE
 
 	var/ui_x = 370
-	var/ui_y = 370
+	var/ui_y = 313
 
 /proc/open_sound_channel_for_boombox()
 	var/static/next_channel = CHANNEL_HIGHEST_AVAILABLE + 1
