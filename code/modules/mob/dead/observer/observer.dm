@@ -869,7 +869,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/mafia_game_signup()
 	set category = "Призрак"
-	set name = "Signup for Mafia"
+	set name = "Записаться в Мафию"
 	set desc = "Sign up for a game of Mafia to pass the time while dead."
 
 	mafia_signup()
@@ -878,24 +878,24 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!client)
 		return
 	if(!SSticker.HasRoundStarted())
-		to_chat(usr, "<span class='warning'>Wait for the game to start!</span>")
+		to_chat(usr, "<span class='warning'>Раунд ещё не начался! Стоит подождать.</span>")
 		return
 	if(!isobserver(src))
-		to_chat(usr, "<span class='warning'>You must be a ghost to join mafia!</span>")
+		to_chat(usr, "<span class='warning'>Надо быть призраком!</span>")
 		return
 	var/datum/mafia_controller/game = GLOB.mafia_game //this needs to change if you want multiple mafia games up at once.
 	if(!game)
 		game = create_mafia_game("mafia")
 	if(GLOB.mafia_signup[client.ckey])
 		GLOB.mafia_signup -= ckey
-		to_chat(usr, "<span class='notice'>You unregister from Mafia.</span>")
+		to_chat(usr, "<span class='notice'>Отписываюсь от Мафии.</span>")
 		return //don't need warnings, and decreasing signed_up size isn't going to get a game going
 	else
 		GLOB.mafia_signup[ckey] = client
-		to_chat(usr, "<span class='notice'>You sign up for Mafia.</span>")
-	to_chat(usr, "<span class='bold notice'>The game currently has [GLOB.mafia_signup.len]/12 players signed up.</span>")
+		to_chat(usr, "<span class='notice'>Записываюсь на Мафию.</span>")
+	to_chat(usr, "<span class='bold notice'>Готово [GLOB.mafia_signup.len]/12 игроков для начала.</span>")
 	if(game.phase != MAFIA_PHASE_SETUP)
-		to_chat(usr, "<span class='notice'>Mafia is currently in progress, you will be signed up for next round.</span>")
+		to_chat(usr, "<span class='notice'>Мафия уже в процессе. Тебе предложат поиграть в следующей игре.</span>")
 	else
 		game.try_autostart()
 
@@ -911,7 +911,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/dead/observer/examine_more(mob/user)
 	if(!IsAdminGhost(user, TRUE))
 		return ..()
-	. = list("<span class='notice'><i>You examine [src] closer, and note the following...</i></span>")
+	. = list("<span class='notice'><i>Изучаю <b>[src.name]</b> ближе и замечаю следующее...</i></span>")
 	. += list("\t><span class='admin'>[ADMIN_FULLMONTY(src)]</span>")
 
 /mob/dead/observer/proc/set_invisibility(value)

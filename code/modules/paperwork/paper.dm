@@ -222,7 +222,7 @@
 
 /obj/item/paper/examine_more(mob/user)
 	ui_interact(user)
-	return list("<span class='notice'><i>You try to read [src]...</i></span>")
+	return list("<span class='notice'><i>Пытаюсь прочитать <b>[src.name]</b>...</i></span>")
 
 
 /obj/item/paper/can_interact(mob/user)
