@@ -147,9 +147,20 @@
 				if(istype(O, /obj/item/clothing))
 					var/datum/armor/added_armor = list("melee" = 5 * N.mod_grade)
 					O.armor = O.armor.attachArmor(added_armor)
+				switch(N.mod_grade)
+					if(5 to INFINITY)
+						O.name = "☼[O.name]☼"
+					if(4)
+						O.name = "≡[O.name]≡"
+					if(3)
+						O.name = "+[O.name]+"
+					if(2)
+						O.name = "-[O.name]-"
+					if(1)
+						O.name = "*[O.name]*"
 				qdel(N)
 				LAZYCLEARLIST(contents)
-				playsound(src, 'white/valtos/vaper.ogg', 100)
+				playsound(src, 'white/valtos/sounds/vaper.ogg', 100)
 			else
 				N.forceMove(drop_location())
 		icon_state = "tongs"
@@ -369,7 +380,7 @@
 										"<span class='warning'>Неправильно бью молотом по наковальне.</span>")
 					return
 				else
-					playsound(src, 'white/valtos/anvil_hit.ogg', 100)
+					playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 100)
 					user.visible_message("<span class='notice'><b>[user]</b> бьёт молотом по наковальне.</span>", \
 										"<span class='notice'>Бью молотом по наковальне.</span>")
 					current_ingot.progress_current++
