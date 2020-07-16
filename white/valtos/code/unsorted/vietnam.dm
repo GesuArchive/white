@@ -562,6 +562,16 @@
 	category = CAT_STRUCTURE
 	always_availible = TRUE
 
+/datum/crafting_recipe/smithman/workplace
+	name = "Наковальня на полене"
+	result = /obj/anvil
+	tools = list(/obj/item/smithing_hammer)
+	reqs = list(/obj/item/srub = 1,
+				/obj/item/anvil_free = 1)
+	time = 350
+	category = CAT_STRUCTURE
+	always_availible = TRUE
+
 /datum/crafting_recipe/smithman/srub
 	name = "Полено"
 	result = /obj/item/srub
