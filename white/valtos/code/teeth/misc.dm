@@ -83,8 +83,8 @@
 			return TRUE
 		if(user.next_move > world.time)
 			user.changeNext_move(50)
-			H.visible_message("<span class='danger'>[user] пытается вырвать зуб [H] при помощи [src]!</span>",
-								"<span class='userdanger'>[user] пытается вырвать мой зуб при помощи [src]!</span>")
+			H.visible_message("<span class='danger'>[user] пытается вырвать зуб [H] используя [src.name]!</span>",
+								"<span class='userdanger'>[user] пытается вырвать мой зуб используя [src.name]!</span>")
 			if(do_after(user, 50, target = H))
 				if(!O || !O.get_teeth()) return TRUE
 				var/obj/item/stack/teeth/E = pick(O.teeth_list)
@@ -94,8 +94,8 @@
 				E.use(1)
 				E.zero_amount() //Try to delete the teeth
 				log_combat(user, H, "torn out the tooth from", src)
-				H.visible_message("<span class='danger'>[user] вырывает зуб [H] при помощи [src]!</span>",
-								"<span class='userdanger'>[user] вырывает мой зуб при помощи [src]!</span>")
+				H.visible_message("<span class='danger'>[user] вырывает зуб [H] используя [src.name]!</span>",
+								"<span class='userdanger'>[user] вырывает мой зуб используя [src.name]!</span>")
 				var/armor = H.run_armor_check(O, "melee")
 				H.apply_damage(rand(1,5), BRUTE, O, armor)
 				playsound(H, 'white/valtos/sounds/tear.ogg', 40, 1, -1) //RIP AND TEAR. RIP AND TEAR.

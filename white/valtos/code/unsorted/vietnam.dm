@@ -129,6 +129,31 @@
 	throwforce = 6
 	throw_range = 7
 
+/obj/item/tongs/attack(mob/living/carbon/C, mob/user)
+	if(tearoutteeth(C, user))
+		return FALSE
+	else
+		..()
+
+/obj/item/tongs/attack_self(mob/user)
+	. = ..()
+	if(contents.len)
+		if(istype(contents[contents.len], /obj/item/ingot))
+			var/obj/item/ingot/N = contents[contents.len]
+			if(N.progress_current == N.progress_need + 1)
+				var/obj/item/O = new N.recipe.result(drop_location())
+				if(istype(O, /obj/item/katanus))
+					O.force = O.force * N.mod_grade
+				if(istype(O, /obj/item/clothing))
+					var/datum/armor/added_armor = list("melee" = 5 * N.mod_grade)
+					O.armor = O.armor.attachArmor(added_armor)
+				qdel(N)
+				LAZYCLEARLIST(contents)
+				playsound(src, 'white/valtos/vaper.ogg', 100)
+			else
+				N.forceMove(drop_location())
+		icon_state = "tongs"
+
 /obj/item/ingot
 	name = "слиток"
 	desc = "Из него можно сделать что-то."
@@ -138,6 +163,64 @@
 	force = 2
 	throwforce = 5
 	throw_range = 7
+	custom_materials = list(/datum/material/iron = 10000)
+	var/datum/smithing_recipe/recipe = null
+	var/mod_grade = 1
+	var/fail_chance = 2
+	var/durability = 5
+	var/progress_current = 0
+	var/progress_need = 10
+	var/heattemp = 0
+
+/obj/item/ingot/examine(mob/user)
+	. = ..()
+	var/ct = ""
+	switch(heattemp)
+		if(200 to INFINITY)
+			ct = "раскалена до бела"
+		if(100 to 199)
+			ct = "очень горячая"
+		if(1 to 99)
+			ct = "достаточно тёплая"
+		else
+			ct = "холодная"
+
+	. += "Болванка [ct]."
+
+/obj/item/ingot/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj, src)
+
+/obj/item/ingot/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	return ..()
+
+/obj/item/ingot/process()
+	if(heattemp >= 5)
+		heattemp -= 5
+		if(!overlays.len)
+			add_overlay("ingot_hot")
+	else if(overlays.len)
+		cut_overlays()
+
+
+/obj/item/ingot/attackby(obj/item/I, mob/living/user, params)
+
+	if(user.a_intent == INTENT_HARM)
+		return ..()
+
+	if(istype(I, /obj/item/tongs))
+		if(I.contents.len)
+			to_chat(user, "<span class='warning'>Некуда!</span>")
+			return
+		else
+			src.forceMove(I)
+			if(heattemp > 0)
+				I.icon_state = "tongs_hot"
+			else
+				I.icon_state = "tongs_cold"
+			to_chat(user, "<span class='notice'>Беру слиток клещами.</span>")
+			return
 
 /obj/item/raw_stone
 	name = "камень"
@@ -171,6 +254,7 @@
 	max_integrity = 50
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
 	resistance_flags = FIRE_PROOF
+	custom_materials = list(/datum/material/iron = 10000)
 
 /obj/item/clothing/suit/armor/light_plate
 	name = "нагрудная пластина"
@@ -181,6 +265,7 @@
 	worn_icon = 'white/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'white/valtos/icons/clothing/suits.dmi'
 	armor = list("melee" = 55, "bullet" = 10, "laser" = 20, "energy" = 0, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10, "wound" = 35)
+	custom_materials = list(/datum/material/iron = 10000)
 
 /obj/item/clothing/under/chainmail
 	name = "кольчуга"
@@ -190,6 +275,7 @@
 	icon_state = "chainmail"
 	inhand_icon_state = "chainmail"
 	armor = list("melee" = 35, "bullet" = 5, "laser" = 0, "energy" = 0, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0, "wound" = 55)
+	custom_materials = list(/datum/material/iron = 10000)
 
 /obj/item/clothing/head/helmet/plate_helmet
 	name = "железный шлем"
@@ -199,6 +285,7 @@
 	icon_state = "plate_helmet"
 	flags_inv = HIDEHAIR
 	armor = list("melee" = 75, "bullet" = 15, "laser" = 10,"energy" = 0, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5, "wound" = 55)
+	custom_materials = list(/datum/material/iron = 10000)
 
 /obj/item/clothing/gloves/plate_gloves
 	name = "железные перчатки"
@@ -207,6 +294,7 @@
 	icon = 'white/valtos/icons/clothing/gloves.dmi'
 	icon_state = "plate_gloves"
 	armor = list("melee" = 65, "bullet" = 10, "laser" = 5,"energy" = 0, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 25, "acid" = 25, "wound" = 55)
+	custom_materials = list(/datum/material/iron = 10000)
 
 /obj/item/clothing/shoes/jackboots/plate_boots
 	name = "железные сапоги"
@@ -215,6 +303,7 @@
 	icon = 'white/valtos/icons/clothing/shoes.dmi'
 	icon_state = "plate_boots"
 	armor = list("melee" = 75, "bullet" = 15, "laser" = 10,"energy" = 0, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 15, "acid" = 15, "wound" = 55)
+	custom_materials = list(/datum/material/iron = 10000)
 
 /datum/outfit/huev_latnik
 	name = "СУКА ЛАБЕБ"
@@ -230,41 +319,137 @@
 	desc = "Вот на этом удобно ковать, да?"
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "anvil"
+	density = TRUE
+	var/acd = FALSE
+	var/obj/item/ingot/current_ingot = null
+	var/list/valid_recipes = list()
+
+/obj/anvil/Initialize()
+	for(var/datum/smithing_recipe/S in subtypesof(/datum/smithing_recipe))
+		valid_recipes += new S.type
+	. = ..()
+
+/obj/anvil/attackby(obj/item/I, mob/living/user, params)
+
+	if(user.a_intent == INTENT_HARM)
+		return ..()
+
+	if(acd)
+		return
+
+	acd = TRUE
+	addtimer(VARSET_CALLBACK(src, acd, FALSE), 0.7 SECONDS)
+
+	if(istype(I, /obj/item/smithing_hammer))
+		if(current_ingot)
+			if(current_ingot.heattemp <= 0)
+				icon_state = "anvil_cold"
+				to_chat(user, "<span class='warning'>Болванка слишком холодная. Стоит разогреть её.</span>")
+				return
+			if(current_ingot.recipe)
+				if(current_ingot.progress_current == current_ingot.progress_need)
+					current_ingot.progress_current++
+					to_chat(user, "<span class='notice'>Болванка готова. Ещё один удар для продолжения ковки, либо можно охлаждать.</span>")
+					to_chat(user, "<span class='green'>> Активируй болванку в клещах для охлаждения.</span>")
+					return
+				if(current_ingot.progress_current > current_ingot.progress_need)
+					current_ingot.progress_current = 0
+					current_ingot.mod_grade++
+					current_ingot.progress_need = round(current_ingot.progress_need * 1.5)
+					to_chat(user, "<span class='notice'>Начинаем улучшать болванку...</span>")
+					return
+				if(prob(current_ingot.fail_chance * current_ingot.mod_grade))
+					current_ingot.durability--
+					if(current_ingot.durability == 0)
+						to_chat(user, "<span class='warning'>Болванка раскалывается на множество бесполезных кусочков метала...</span>")
+						current_ingot = null
+						LAZYCLEARLIST(contents)
+						icon_state = "anvil"
+					user.visible_message("<span class='warning'><b>[user]</b> неправильно бьёт молотом по наковальне.</span>", \
+										"<span class='warning'>Неправильно бью молотом по наковальне.</span>")
+					return
+				else
+					playsound(src, 'white/valtos/anvil_hit.ogg', 100)
+					user.visible_message("<span class='notice'><b>[user]</b> бьёт молотом по наковальне.</span>", \
+										"<span class='notice'>Бью молотом по наковальне.</span>")
+					current_ingot.progress_current++
+					return
+			else
+				var/datum/smithing_recipe/sel_recipe = input("Выбор:", "Что куём?", null, null) as null|anything in valid_recipes
+				if(!sel_recipe)
+					to_chat(user, "<span class='warning'>Не выбран рецепт.</span>")
+					return
+				if(current_ingot.recipe)
+					to_chat(user, "<span class='warning'>УЖЕ ВЫБРАН РЕЦЕПТ!</span>")
+					return
+				current_ingot.recipe = sel_recipe
+				to_chat(user, "<span class='notice'>Приступаем к ковке...</span>")
+				return
+		else
+			to_chat(user, "<span class='warning'>Тут нечего ковать!</span>")
+			return
+
+	if(istype(I, /obj/item/tongs))
+		if(current_ingot)
+			if(I.contents.len)
+				to_chat(user, "<span class='warning'>Клещи уже что-то держат!</span>")
+				return
+			else
+				if(current_ingot.heattemp > 0)
+					I.icon_state = "tongs_hot"
+				else
+					I.icon_state = "tongs_cold"
+				current_ingot.forceMove(I)
+				current_ingot = null
+				icon_state = "anvil"
+				to_chat(user, "<span class='notice'>Беру болванку в клещи.</span>")
+				return
+		else
+			if(I.contents.len)
+				if(current_ingot)
+					to_chat(user, "<span class='warning'>Здесь уже есть болванка!</span>")
+					return
+				var/obj/item/ingot/N = I.contents[I.contents.len]
+				if(N.heattemp > 0)
+					icon_state = "anvil_hot"
+				else
+					icon_state = "anvil_cold"
+				N.forceMove(src)
+				current_ingot = N
+				I.icon_state = "tongs"
+				to_chat(user, "<span class='notice'>Располагаю болванку на наковальне.</span>")
+				return
+			else
+				to_chat(user, "<span class='warning'>Наковальня совсем пуста!</span>")
+				return
+	return ..()
 
 /datum/smithing_recipe
 	var/name = ""
-	var/req_ingots = 1
 	var/result
-	var/enabled = FALSE
 
 /datum/smithing_recipe/katanus
 	name = "Катанус"
-	req_ingots = 1
 	result = /obj/item/katanus
 
 /datum/smithing_recipe/light_plate
 	name = "Нагрудник"
-	req_ingots = 2
 	result = /obj/item/clothing/suit/armor/light_plate
 
 /datum/smithing_recipe/chainmail
 	name = "Кольчуга"
-	req_ingots = 2
 	result = /obj/item/clothing/under/chainmail
 
 /datum/smithing_recipe/plate_helmet
 	name = "Шлем"
-	req_ingots = 1
 	result = /obj/item/clothing/head/helmet/plate_helmet
 
 /datum/smithing_recipe/plate_gloves
 	name = "Перчатки"
-	req_ingots = 1
 	result = /obj/item/clothing/gloves/plate_gloves
 
 /datum/smithing_recipe/plate_boots
 	name = "Ботинки"
-	req_ingots = 1
 	result = /obj/item/clothing/shoes/jackboots/plate_boots
 
 /obj/furnace
@@ -272,12 +457,66 @@
 	desc = "Плавит."
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "furnace"
+	density = TRUE
+	light_range = 0
+	light_color = "#BB661E"
+	var/furnacing = FALSE
+
+/obj/furnace/proc/furnaced_thing()
+	icon_state = "furnace"
+	furnacing = FALSE
+	light_range = 0
+
+	new /obj/item/ingot(drop_location())
+
+
+/obj/furnace/attackby(obj/item/I, mob/living/user, params)
+
+	if(user.a_intent == INTENT_HARM)
+		return ..()
+
+	if(furnacing)
+		to_chat(user, "<span class=\"alert\">Плавильня занята работой!</span>")
+		return
+
+	if(istype(I, /obj/item/stack/ore/iron) || istype(I, /obj/item/stack/sheet/metal))
+		var/obj/item/stack/S = I
+		if(S.amount >= 5)
+			S.use(5)
+			furnacing = TRUE
+			icon_state = "furnace_on"
+			light_range = 3
+			to_chat(user, "<span class='notice'>Плавильня начинает свою работу...</span>")
+			addtimer(CALLBACK(src, .proc/furnaced_thing), 15 SECONDS)
+		else
+			to_chat(user, "<span class=\"alert\">Нужно примерно пять единиц руды для создания слитка.</span>")
+
 
 /obj/forge
 	name = "кузница"
 	desc = "Нагревает различные штуки, но реже всего слитки."
 	icon = 'white/valtos/icons/objects.dmi'
-	icon_state = "forge"
+	icon_state = "forge_on"
+	light_range = 4
+	light_color = "#BB661E"
+	density = TRUE
+
+/obj/forge/attackby(obj/item/I, mob/living/user, params)
+
+	if(user.a_intent == INTENT_HARM)
+		return ..()
+
+	if(istype(I, /obj/item/tongs))
+		if(I.contents.len)
+			if(istype(I.contents[I.contents.len], /obj/item/ingot))
+				var/obj/item/ingot/N = I.contents[I.contents.len]
+				N.heattemp = 350
+				I.icon_state = "tongs_hot"
+				to_chat(user, "<span class='notice'>Нагреваю болванку как могу.</span>")
+				return
+		else
+			to_chat(user, "<span class='warning'>Ты ебанутый?</span>")
+			return
 
 /datum/crafting_recipe/smithman/anvil
 	name = "Наковальня"

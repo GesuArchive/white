@@ -47,7 +47,7 @@
 		return
 	if(QDELETED(src) || QDELETED(user))
 		return
-	var/ghost_role = alert("Быть [mob_name]? (внимание, текущее тело будет покинуто)",,"Да","Нет")
+	var/ghost_role = alert("Точно хочешь занять этот спаунер? (внимание, текущее тело будет покинуто)",,"Да","Нет")
 
 	if(ghost_role == "Нет" || !loc)
 		return
