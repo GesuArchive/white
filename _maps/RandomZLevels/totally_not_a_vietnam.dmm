@@ -817,8 +817,8 @@
 /turf/open/floor/grass/gensgrass/dirty,
 /area/awaymission/vietnam)
 "Hr" = (
-/obj/effect/baseturf_helper/beach/sand,
-/turf/closed/indestructible/black,
+/obj/effect/baseturf_helper/beach/raw_stone,
+/turf/closed/mineral/random,
 /area/awaymission/vietnam/dark)
 "HE" = (
 /obj/item/reagent_containers/food/drinks/soda_cans/space_mountain_wind,
@@ -1826,7 +1826,7 @@ Rj
 "}
 (3,1,1) = {"
 Rj
-AQ
+Hr
 AQ
 AQ
 AQ
@@ -25212,7 +25212,7 @@ Sd
 Rj
 "}
 (94,1,1) = {"
-Hr
+Rj
 AQ
 AQ
 AQ
