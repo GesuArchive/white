@@ -80,6 +80,7 @@
 		if(!stoned)
 			ChangeTurf(/turf/open/floor/grass/gensgrass/dirty/stone, flags = CHANGETURF_INHERIT_AIR)
 			stoned = TRUE
+			qdel(I)
 			user.visible_message("<span class='notice'><b>[user]</b> покрывает пол камнем.</span>", \
 								"<span class='notice'>Делаю каменный пол.</span>")
 		else
@@ -91,9 +92,11 @@
 		if(!digged_up)
 			playsound(src, pick(I.usesound), 100)
 			if(do_after(user, 5 SECONDS, target = src))
-				new /obj/item/raw_stone(drop_location())
+				if(digged_up)
+					return
+				new /obj/item/raw_stone(src)
 				if(prob(50))
-					new /obj/item/raw_stone(drop_location())
+					new /obj/item/raw_stone(src)
 				digged_up = TRUE
 				user.visible_message("<span class='notice'><b>[user]</b> выкапывает немного камней.</span>", \
 									"<span class='notice'>Выкапываю немного камней.</span>")
@@ -416,7 +419,7 @@
 				if(current_ingot.recipe)
 					to_chat(user, "<span class='warning'>УЖЕ ВЫБРАН РЕЦЕПТ!</span>")
 					return
-				current_ingot.recipe = sel_recipe
+				current_ingot.recipe = new sel_recipe()
 				to_chat(user, "<span class='notice'>Приступаем к ковке...</span>")
 				return
 		else
