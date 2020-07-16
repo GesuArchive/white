@@ -175,10 +175,9 @@
 			if(N.progress_current == N.progress_need + 1)
 				var/obj/item/O = new N.recipe.result(drop_location())
 				if(istype(O, /obj/item/katanus))
-					O.force = O.force * N.mod_grade
+					O.force = round((O.force / 1.25) * N.mod_grade)
 				if(istype(O, /obj/item/clothing))
-					var/datum/armor/added_armor = list("melee" = 5 * N.mod_grade)
-					O.armor = O.armor.attachArmor(added_armor)
+					O.armor = O.armor.modifyAllRatings(5 * N.mod_grade)
 				switch(N.mod_grade)
 					if(5 to INFINITY)
 						O.name = "☼[O.name]☼"
@@ -365,6 +364,13 @@
 	density = TRUE
 	var/acd = FALSE
 	var/obj/item/ingot/current_ingot = null
+	var/list/allowed_things = list()
+
+/obj/anvil/Initialize()
+	. = ..()
+	for(var/item in subtypesof(/datum/smithing_recipe))
+		var/datum/smithing_recipe/SR = new item()
+		allowed_things += SR
 
 /obj/anvil/attackby(obj/item/I, mob/living/user, params)
 
@@ -412,14 +418,14 @@
 					current_ingot.progress_current++
 					return
 			else
-				var/datum/smithing_recipe/sel_recipe = input("Выбор:", "Что куём?", null, null) as null|anything in subtypesof(/datum/smithing_recipe)
+				var/datum/smithing_recipe/sel_recipe = input("Выбор:", "Что куём?", null, null) as null|anything in allowed_things
 				if(!sel_recipe)
 					to_chat(user, "<span class='warning'>Не выбран рецепт.</span>")
 					return
 				if(current_ingot.recipe)
 					to_chat(user, "<span class='warning'>УЖЕ ВЫБРАН РЕЦЕПТ!</span>")
 					return
-				current_ingot.recipe = new sel_recipe()
+				current_ingot.recipe = new sel_recipe.type()
 				to_chat(user, "<span class='notice'>Приступаем к ковке...</span>")
 				return
 		else
