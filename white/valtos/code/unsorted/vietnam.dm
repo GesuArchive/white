@@ -65,11 +65,40 @@
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	stoned = TRUE
 
 /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	name = "уродливый камень"
 	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
 	icon_state = "stone_raw"
+	stoned = FALSE
+	var/digged_up = FALSE
+
+/turf/open/floor/grass/gensgrass/dirty/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(istype(I, /obj/item/raw_stone))
+		if(!stoned)
+			ChangeTurf(/turf/open/floor/grass/gensgrass/dirty/stone, flags = CHANGETURF_INHERIT_AIR)
+			stoned = TRUE
+			user.visible_message("<span class='notice'><b>[user]</b> покрывает пол камнем.</span>", \
+								"<span class='notice'>Делаю каменный пол.</span>")
+		else
+			to_chat(user, "<span class='warning'>Здесь уже есть каменный пол!</span>")
+
+/turf/open/floor/grass/gensgrass/dirty/stone/raw/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(istype(I, /obj/item/pickaxe))
+		if(!digged_up)
+			playsound(src, pick(I.usesound), 100)
+			if(do_after(user, 5 SECONDS, target = src))
+				new /obj/item/raw_stone(drop_location())
+				if(prob(50))
+					new /obj/item/raw_stone(drop_location())
+				digged_up = TRUE
+				user.visible_message("<span class='notice'><b>[user]</b> выкапывает немного камней.</span>", \
+									"<span class='notice'>Выкапываю немного камней.</span>")
+		else
+			to_chat(user, "<span class='warning'>Здесь уже всё раскопано!</span>")
 
 /obj/item/smithing_hammer
 	name = "молот"
@@ -207,8 +236,8 @@
 	return ..()
 
 /obj/item/ingot/process()
-	if(heattemp >= 5)
-		heattemp -= 5
+	if(heattemp >= 25)
+		heattemp -= 25
 		if(!overlays.len)
 			add_overlay("ingot_hot")
 	else if(overlays.len)
@@ -333,12 +362,6 @@
 	density = TRUE
 	var/acd = FALSE
 	var/obj/item/ingot/current_ingot = null
-	var/list/valid_recipes = list()
-
-/obj/anvil/Initialize()
-	for(var/datum/smithing_recipe/S in subtypesof(/datum/smithing_recipe))
-		valid_recipes += new S.type
-	. = ..()
 
 /obj/anvil/attackby(obj/item/I, mob/living/user, params)
 
@@ -386,7 +409,7 @@
 					current_ingot.progress_current++
 					return
 			else
-				var/datum/smithing_recipe/sel_recipe = input("Выбор:", "Что куём?", null, null) as null|anything in valid_recipes
+				var/datum/smithing_recipe/sel_recipe = input("Выбор:", "Что куём?", null, null) as null|anything in subtypesof(/datum/smithing_recipe)
 				if(!sel_recipe)
 					to_chat(user, "<span class='warning'>Не выбран рецепт.</span>")
 					return
@@ -562,3 +585,7 @@
 	time = 300
 	category = CAT_STRUCTURE
 	always_availible = TRUE
+
+/obj/effect/baseturf_helper/beach/raw_stone
+	name = "raw stone baseturf editor"
+	baseturf = /turf/open/floor/grass/gensgrass/dirty/stone/raw

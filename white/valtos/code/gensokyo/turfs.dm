@@ -21,6 +21,7 @@
 	icon_state = "dirt"
 	nospawn = TRUE
 	baseturfs = /turf/open/floor/plating/beach/sand
+	var/stoned = FALSE
 
 /turf/open/floor/grass/gensgrass/Initialize()
 	. = ..()
