@@ -13,6 +13,13 @@
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		var/list/missing = C.get_missing_limbs()
+		if(missing.len)
+			playsound(user, 'sound/magic/demon_consume.ogg', 50, TRUE)
+			C.visible_message("<span class='warning'><b>[user]</b> отращивает недостающие конечности, издавая громкие, гротескные звуки!</span>",
+				"<span class='userdanger'>Наши конечности вырастают, издают громкие хрустящие звуки и причиняют нам сильную боль!</span>",
+				"<span class='hear'>Слышу как что-то органическое разрывается!</span>")
+			C.emote("scream")
+			C.regenerate_limbs(1)
 		if(!user.getorganslot(ORGAN_SLOT_BRAIN))
 			var/obj/item/organ/brain/B
 			if(C.has_dna() && C.dna.species.mutantbrain)
@@ -22,13 +29,6 @@
 			B.organ_flags &= ~ORGAN_VITAL
 			B.decoy_override = TRUE
 			B.Insert(C)
-		if(missing.len)
-			playsound(user, 'sound/magic/demon_consume.ogg', 50, TRUE)
-			C.visible_message("<span class='warning'><b>[user]</b> отращивает недостающие конечности, издавая громкие, гротескные звуки!</span>",
-				"<span class='userdanger'>Наши конечности вырастают, издают громкие хрустящие звуки и причиняют нам сильную боль!</span>",
-				"<span class='hear'>Слышу как что-то органическое разрывается!</span>")
-			C.emote("scream")
-			C.regenerate_limbs(1)
 		C.regenerate_organs()
 		for(var/i in C.all_wounds)
 			var/datum/wound/W = i
