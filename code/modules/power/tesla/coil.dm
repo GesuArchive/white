@@ -114,6 +114,7 @@
 /obj/machinery/power/tesla_coil/research
 	name = "Tesla Corona Analyzer"
 	desc = "A modified Tesla Coil used to study the effects of Edison's Bane for research."
+	icon = 'white/valtos/icons/power.dmi'
 	icon_state = "rpcoil0"
 	circuit = /obj/item/circuitboard/machine/tesla_coil/research
 	power_loss = 20 // something something, high voltage + resistance
