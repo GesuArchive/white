@@ -118,7 +118,7 @@ GLOBAL_LIST_EMPTY(interactions)
 	if(simple_message)
 		var/use_message = replacetext(simple_message, "USER", "<b>[user]</b>")
 		use_message = replacetext(use_message, "TARGET", "<b>[target]</b>")
-		user.visible_message("<span class='[simple_style] purple'>[r_capitalize(use_message)]</span>")
+		user.visible_message("<span class='[simple_style] purple'>[capitalize(use_message)]</span>")
 
 /datum/interaction/proc/post_interaction(var/mob/user, var/mob/target)
 	spawn (5)

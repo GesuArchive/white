@@ -17,4 +17,4 @@
 
 ///Generate the full examine string of this atom (including icon for goonchat)
 /atom/proc/ru_get_examine_string(mob/user)
-	return "[icon2html(src, user)] <b>[r_capitalize(ru_get_examine_name(user))]</b>"
+	return "[icon2html(src, user)] <b>[capitalize(ru_get_examine_name(user))]</b>"

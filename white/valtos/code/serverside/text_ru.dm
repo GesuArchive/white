@@ -130,8 +130,7 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	return text
 
 /proc/r_capitalize(t as text)
-    var/first = ascii2text(text2ascii(t))
-    return r_uppertext(first) + copytext(t, length(first) + 1)
+    return uppertext(copytext_char(t, 1, 2)) + copytext_char(t, 2)
 
 /proc/r_antidaunize(t as text)
     var/first = ascii2text(text2ascii(t))
