@@ -301,12 +301,25 @@
 /obj/item/clothing/suit/armor/light_plate
 	name = "нагрудная пластина"
 	desc = "Защищает только грудь, плохо останавливает пули."
-	body_parts_covered = CHEST
+	body_parts_covered = CHEST|GROIN
 	icon_state = "light_plate"
 	inhand_icon_state = "light_plate"
 	worn_icon = 'white/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'white/valtos/icons/clothing/suits.dmi'
 	armor = list("melee" = 55, "bullet" = 10, "laser" = 20, "energy" = 0, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10, "wound" = 35)
+	custom_materials = list(/datum/material/iron = 10000)
+
+/obj/item/clothing/suit/armor/heavy_plate
+	name = "латный доспех"
+	desc = "Останавливает иногда и пули. Замедляет скорость передвижения."
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+	w_class = WEIGHT_CLASS_GIGANTIC
+	slowdown = 1
+	icon_state = "heavy_plate"
+	inhand_icon_state = "heavy_plate"
+	worn_icon = 'white/valtos/icons/clothing/mob/suit.dmi'
+	icon = 'white/valtos/icons/clothing/suits.dmi'
+	armor = list("melee" = 75, "bullet" = 40, "laser" = 40, "energy" = 10, "bomb" = 50, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 20, "wound" = 65)
 	custom_materials = list(/datum/material/iron = 10000)
 
 /obj/item/clothing/under/chainmail
@@ -325,7 +338,7 @@
 	worn_icon = 'white/valtos/icons/clothing/mob/hat.dmi'
 	icon = 'white/valtos/icons/clothing/hats.dmi'
 	icon_state = "plate_helmet"
-	flags_inv = HIDEHAIR
+	flags_inv = HIDEMASK|HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	armor = list("melee" = 75, "bullet" = 15, "laser" = 10,"energy" = 0, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5, "wound" = 55)
 	custom_materials = list(/datum/material/iron = 10000)
 
@@ -478,6 +491,10 @@
 /datum/smithing_recipe/light_plate
 	name = "Нагрудник"
 	result = /obj/item/clothing/suit/armor/light_plate
+
+/datum/smithing_recipe/heavy_plate
+	name = "Латный доспех"
+	result = /obj/item/clothing/suit/armor/heavy_plate
 
 /datum/smithing_recipe/chainmail
 	name = "Кольчуга"
