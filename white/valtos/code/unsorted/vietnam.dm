@@ -329,13 +329,13 @@
 
 /obj/item/clothing/suit/armor/light_plate/Initialize()
 	. = ..()
-	AddComponent(/datum/component/squeak, list('white/valtos/sounds/effects/armorstep/heavystep1.ogg'=1,\
-											   'white/valtos/sounds/effects/armorstep/heavystep2.ogg'=1,\
-											   'white/valtos/sounds/effects/armorstep/heavystep3.ogg'=1,\
-											   'white/valtos/sounds/effects/armorstep/heavystep4.ogg'=1,\
-											   'white/valtos/sounds/effects/armorstep/heavystep5.ogg'=1,\
-											   'white/valtos/sounds/effects/armorstep/heavystep6.ogg'=1,\
-											   'white/valtos/sounds/effects/armorstep/heavystep7.ogg'=1), 50)
+	AddComponent(/datum/component/squeak, list('white/valtos/sounds/armorstep/heavystep1.ogg'=1,\
+											   'white/valtos/sounds/armorstep/heavystep2.ogg'=1,\
+											   'white/valtos/sounds/armorstep/heavystep3.ogg'=1,\
+											   'white/valtos/sounds/armorstep/heavystep4.ogg'=1,\
+											   'white/valtos/sounds/armorstep/heavystep5.ogg'=1,\
+											   'white/valtos/sounds/armorstep/heavystep6.ogg'=1,\
+											   'white/valtos/sounds/armorstep/heavystep7.ogg'=1), 50)
 
 /obj/item/clothing/suit/armor/heavy_plate
 	name = "латный доспех"
@@ -352,13 +352,13 @@
 
 /obj/item/clothing/suit/armor/heavy_plate/Initialize()
 	. = ..()
-	AddComponent(/datum/component/squeak, list('white/valtos/sounds/effects/armorstep/heavystep1.ogg'=1,\
-											   'white/valtos/sounds/effects/armorstep/heavystep2.ogg'=1,\
-											   'white/valtos/sounds/effects/armorstep/heavystep3.ogg'=1,\
-											   'white/valtos/sounds/effects/armorstep/heavystep4.ogg'=1,\
-											   'white/valtos/sounds/effects/armorstep/heavystep5.ogg'=1,\
-											   'white/valtos/sounds/effects/armorstep/heavystep6.ogg'=1,\
-											   'white/valtos/sounds/effects/armorstep/heavystep7.ogg'=1), 50)
+	AddComponent(/datum/component/squeak, list('white/valtos/sounds/armorstep/heavystep1.ogg'=1,\
+											   'white/valtos/sounds/armorstep/heavystep2.ogg'=1,\
+											   'white/valtos/sounds/armorstep/heavystep3.ogg'=1,\
+											   'white/valtos/sounds/armorstep/heavystep4.ogg'=1,\
+											   'white/valtos/sounds/armorstep/heavystep5.ogg'=1,\
+											   'white/valtos/sounds/armorstep/heavystep6.ogg'=1,\
+											   'white/valtos/sounds/armorstep/heavystep7.ogg'=1), 50)
 
 /obj/item/clothing/under/chainmail
 	name = "кольчуга"
