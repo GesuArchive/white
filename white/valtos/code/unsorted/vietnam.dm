@@ -115,8 +115,8 @@
 	mineralSpawnChanceList = list(/obj/item/stack/ore/diamond = 1, /obj/item/stack/ore/gold = 3, /obj/item/stack/ore/iron = 40)
 
 /turf/closed/mineral/random/vietnam/Initialize()
-	transform = null // backdoor
 	. = ..()
+	transform = null // backdoor
 
 /obj/item/smithing_hammer
 	name = "молот"
@@ -324,7 +324,7 @@
 	inhand_icon_state = "light_plate"
 	worn_icon = 'white/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'white/valtos/icons/clothing/suits.dmi'
-	armor = list("melee" = 55, "bullet" = 10, "laser" = 20, "energy" = 0, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10, "wound" = 35)
+	armor = list("melee" = 55, "bullet" = 20, "laser" = 20, "energy" = 0, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10, "wound" = 35)
 	custom_materials = list(/datum/material/iron = 10000)
 
 /obj/item/clothing/suit/armor/light_plate/Initialize()

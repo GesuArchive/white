@@ -27,7 +27,7 @@
 			RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF, .proc/use_squeak)
 			RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, .proc/on_equip)
 			RegisterSignal(parent, COMSIG_ITEM_DROPPED, .proc/on_drop)
-			if(istype(parent, /obj/item/clothing/shoes))
+			if(istype(parent, /obj/item/clothing))
 				RegisterSignal(parent, COMSIG_SHOES_STEP_ACTION, .proc/step_squeak)
 
 	override_squeak_sounds = custom_sounds
