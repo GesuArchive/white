@@ -72,6 +72,7 @@
 	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
 	icon_state = "stone_raw"
 	stoned = FALSE
+	color = "#aaaaaa"
 	var/digged_up = FALSE
 
 /turf/open/floor/grass/gensgrass/dirty/attackby(obj/item/I, mob/user, params)
@@ -102,6 +103,20 @@
 									"<span class='notice'>Выкапываю немного камней.</span>")
 		else
 			to_chat(user, "<span class='warning'>Здесь уже всё раскопано!</span>")
+
+/turf/closed/mineral/random/vietnam
+	icon = 'white/valtos/icons/rocks.dmi'
+	icon_state = "rock"
+	smooth_icon = 'white/valtos/icons/rocks_smooth.dmi'
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	environment_type = "stone_raw"
+	turf_type = /turf/open/floor/grass/gensgrass/dirty/stone/raw
+	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone/raw
+	mineralSpawnChanceList = list(/obj/item/stack/ore/diamond = 1, /obj/item/stack/ore/gold = 3, /obj/item/stack/ore/iron = 40)
+
+/turf/closed/mineral/random/vietnam/Initialize()
+	transform = null // backdoor
+	. = ..()
 
 /obj/item/smithing_hammer
 	name = "молот"
@@ -176,6 +191,9 @@
 				var/obj/item/O = new N.recipe.result(drop_location())
 				if(istype(O, /obj/item/katanus))
 					O.force = round((O.force / 1.25) * N.mod_grade)
+				if(istype(O, /obj/item/pickaxe))
+					O.force = round((O.force / 2) * N.mod_grade)
+					O.toolspeed = round(1 / N.mod_grade, 0.1)
 				if(istype(O, /obj/item/clothing))
 					O.armor = O.armor.modifyAllRatings(5 * N.mod_grade)
 				switch(N.mod_grade)
@@ -309,6 +327,16 @@
 	armor = list("melee" = 55, "bullet" = 10, "laser" = 20, "energy" = 0, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10, "wound" = 35)
 	custom_materials = list(/datum/material/iron = 10000)
 
+/obj/item/clothing/suit/armor/light_plate/Initialize()
+	. = ..()
+	AddComponent(/datum/component/squeak, list('white/valtos/sounds/effects/armorstep/heavystep1.ogg'=1,\
+											   'white/valtos/sounds/effects/armorstep/heavystep2.ogg'=1,\
+											   'white/valtos/sounds/effects/armorstep/heavystep3.ogg'=1,\
+											   'white/valtos/sounds/effects/armorstep/heavystep4.ogg'=1,\
+											   'white/valtos/sounds/effects/armorstep/heavystep5.ogg'=1,\
+											   'white/valtos/sounds/effects/armorstep/heavystep6.ogg'=1,\
+											   'white/valtos/sounds/effects/armorstep/heavystep7.ogg'=1), 50)
+
 /obj/item/clothing/suit/armor/heavy_plate
 	name = "латный доспех"
 	desc = "Останавливает иногда и пули. Замедляет скорость передвижения."
@@ -319,8 +347,18 @@
 	inhand_icon_state = "heavy_plate"
 	worn_icon = 'white/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'white/valtos/icons/clothing/suits.dmi'
-	armor = list("melee" = 75, "bullet" = 40, "laser" = 40, "energy" = 10, "bomb" = 50, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 20, "wound" = 65)
+	armor = list("melee" = 85, "bullet" = 60, "laser" = 40, "energy" = 10, "bomb" = 50, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 20, "wound" = 65)
 	custom_materials = list(/datum/material/iron = 10000)
+
+/obj/item/clothing/suit/armor/heavy_plate/Initialize()
+	. = ..()
+	AddComponent(/datum/component/squeak, list('white/valtos/sounds/effects/armorstep/heavystep1.ogg'=1,\
+											   'white/valtos/sounds/effects/armorstep/heavystep2.ogg'=1,\
+											   'white/valtos/sounds/effects/armorstep/heavystep3.ogg'=1,\
+											   'white/valtos/sounds/effects/armorstep/heavystep4.ogg'=1,\
+											   'white/valtos/sounds/effects/armorstep/heavystep5.ogg'=1,\
+											   'white/valtos/sounds/effects/armorstep/heavystep6.ogg'=1,\
+											   'white/valtos/sounds/effects/armorstep/heavystep7.ogg'=1), 50)
 
 /obj/item/clothing/under/chainmail
 	name = "кольчуга"
@@ -329,7 +367,7 @@
 	icon = 'white/valtos/icons/clothing/uniforms.dmi'
 	icon_state = "chainmail"
 	inhand_icon_state = "chainmail"
-	armor = list("melee" = 35, "bullet" = 5, "laser" = 0, "energy" = 0, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0, "wound" = 55)
+	armor = list("melee" = 35, "bullet" = 15, "laser" = 0, "energy" = 0, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0, "wound" = 55)
 	custom_materials = list(/datum/material/iron = 10000)
 
 /obj/item/clothing/head/helmet/plate_helmet
@@ -339,7 +377,7 @@
 	icon = 'white/valtos/icons/clothing/hats.dmi'
 	icon_state = "plate_helmet"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
-	armor = list("melee" = 75, "bullet" = 15, "laser" = 10,"energy" = 0, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5, "wound" = 55)
+	armor = list("melee" = 75, "bullet" = 35, "laser" = 10,"energy" = 0, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5, "wound" = 55)
 	custom_materials = list(/datum/material/iron = 10000)
 
 /obj/item/clothing/gloves/plate_gloves
@@ -348,7 +386,7 @@
 	worn_icon = 'white/valtos/icons/clothing/mob/glove.dmi'
 	icon = 'white/valtos/icons/clothing/gloves.dmi'
 	icon_state = "plate_gloves"
-	armor = list("melee" = 65, "bullet" = 10, "laser" = 5,"energy" = 0, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 25, "acid" = 25, "wound" = 55)
+	armor = list("melee" = 65, "bullet" = 30, "laser" = 5,"energy" = 0, "bomb" = 20, "bio" = 0, "rad" = 0, "fire" = 25, "acid" = 25, "wound" = 55)
 	custom_materials = list(/datum/material/iron = 10000)
 
 /obj/item/clothing/shoes/jackboots/plate_boots
@@ -357,7 +395,7 @@
 	worn_icon = 'white/valtos/icons/clothing/mob/shoe.dmi'
 	icon = 'white/valtos/icons/clothing/shoes.dmi'
 	icon_state = "plate_boots"
-	armor = list("melee" = 75, "bullet" = 15, "laser" = 10,"energy" = 0, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 15, "acid" = 15, "wound" = 55)
+	armor = list("melee" = 75, "bullet" = 35, "laser" = 10,"energy" = 0, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 15, "acid" = 15, "wound" = 55)
 	custom_materials = list(/datum/material/iron = 10000)
 
 /datum/outfit/huev_latnik
@@ -425,7 +463,7 @@
 										"<span class='warning'>Неправильно бью молотом по наковальне.</span>")
 					return
 				else
-					playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 100)
+					playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70)
 					user.visible_message("<span class='notice'><b>[user]</b> бьёт молотом по наковальне.</span>", \
 										"<span class='notice'>Бью молотом по наковальне.</span>")
 					current_ingot.progress_current++
@@ -487,6 +525,22 @@
 /datum/smithing_recipe/katanus
 	name = "Катанус"
 	result = /obj/item/katanus
+
+/datum/smithing_recipe/pickaxe
+	name = "Кирка"
+	result = /obj/item/pickaxe
+
+/datum/smithing_recipe/shovel
+	name = "Лопата"
+	result = /obj/item/shovel
+
+/datum/smithing_recipe/smithing_hammer
+	name = "Молот"
+	result = /obj/item/smithing_hammer
+
+/datum/smithing_recipe/tongs
+	name = "Клещи"
+	result = /obj/item/tongs
 
 /datum/smithing_recipe/light_plate
 	name = "Нагрудник"
