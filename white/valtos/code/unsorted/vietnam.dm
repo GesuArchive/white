@@ -347,7 +347,7 @@
 									  'white/valtos/sounds/armorstep/heavystep4.ogg'=1,\
 									  'white/valtos/sounds/armorstep/heavystep5.ogg'=1,\
 									  'white/valtos/sounds/armorstep/heavystep6.ogg'=1,\
-									  'white/valtos/sounds/armorstep/heavystep7.ogg'=1), 50)
+									  'white/valtos/sounds/armorstep/heavystep7.ogg'=1)
 
 /obj/item/clothing/suit/armor/heavy_plate/proc/on_mob_move()
 	var/mob/living/carbon/human/H = loc
