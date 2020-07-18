@@ -327,16 +327,6 @@
 	armor = list("melee" = 55, "bullet" = 20, "laser" = 20, "energy" = 0, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10, "wound" = 35)
 	custom_materials = list(/datum/material/iron = 10000)
 
-/obj/item/clothing/suit/armor/light_plate/Initialize()
-	. = ..()
-	AddComponent(/datum/component/squeak, list('white/valtos/sounds/armorstep/heavystep1.ogg'=1,\
-											   'white/valtos/sounds/armorstep/heavystep2.ogg'=1,\
-											   'white/valtos/sounds/armorstep/heavystep3.ogg'=1,\
-											   'white/valtos/sounds/armorstep/heavystep4.ogg'=1,\
-											   'white/valtos/sounds/armorstep/heavystep5.ogg'=1,\
-											   'white/valtos/sounds/armorstep/heavystep6.ogg'=1,\
-											   'white/valtos/sounds/armorstep/heavystep7.ogg'=1), 50)
-
 /obj/item/clothing/suit/armor/heavy_plate
 	name = "латный доспех"
 	desc = "Останавливает иногда и пули. Замедляет скорость передвижения."
@@ -349,16 +339,47 @@
 	icon = 'white/valtos/icons/clothing/suits.dmi'
 	armor = list("melee" = 85, "bullet" = 60, "laser" = 40, "energy" = 10, "bomb" = 50, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 20, "wound" = 65)
 	custom_materials = list(/datum/material/iron = 10000)
+	var/footstep = 1
+	var/mob/listeningTo
+	var/list/random_step_sound = list('white/valtos/sounds/armorstep/heavystep1.ogg'=1,\
+									  'white/valtos/sounds/armorstep/heavystep2.ogg'=1,\
+									  'white/valtos/sounds/armorstep/heavystep3.ogg'=1,\
+									  'white/valtos/sounds/armorstep/heavystep4.ogg'=1,\
+									  'white/valtos/sounds/armorstep/heavystep5.ogg'=1,\
+									  'white/valtos/sounds/armorstep/heavystep6.ogg'=1,\
+									  'white/valtos/sounds/armorstep/heavystep7.ogg'=1), 50)
 
-/obj/item/clothing/suit/armor/heavy_plate/Initialize()
+/obj/item/clothing/suit/armor/heavy_plate/proc/on_mob_move()
+	var/mob/living/carbon/human/H = loc
+	if(!istype(H) || H.wear_suit != src)
+		return
+	if(footstep > 1)
+		playsound(src, pick(random_step_sound), 100, TRUE)
+		footstep = 0
+	else
+		footstep++
+
+/obj/item/clothing/suit/armor/heavy_plate/equipped(mob/user, slot)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('white/valtos/sounds/armorstep/heavystep1.ogg'=1,\
-											   'white/valtos/sounds/armorstep/heavystep2.ogg'=1,\
-											   'white/valtos/sounds/armorstep/heavystep3.ogg'=1,\
-											   'white/valtos/sounds/armorstep/heavystep4.ogg'=1,\
-											   'white/valtos/sounds/armorstep/heavystep5.ogg'=1,\
-											   'white/valtos/sounds/armorstep/heavystep6.ogg'=1,\
-											   'white/valtos/sounds/armorstep/heavystep7.ogg'=1), 50)
+	if(slot != ITEM_SLOT_OCLOTHING)
+		if(listeningTo)
+			UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
+		return
+	if(listeningTo == user)
+		return
+	if(listeningTo)
+		UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
+	RegisterSignal(user, COMSIG_MOVABLE_MOVED, .proc/on_mob_move)
+	listeningTo = user
+
+/obj/item/clothing/suit/armor/heavy_plate/dropped()
+	. = ..()
+	if(listeningTo)
+		UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
+
+/obj/item/clothing/suit/armor/heavy_plate/Destroy()
+	listeningTo = null
+	return ..()
 
 /obj/item/clothing/under/chainmail
 	name = "кольчуга"
