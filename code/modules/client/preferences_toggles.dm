@@ -241,7 +241,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/sound, toggle_announcement_sound)()
 
 /datum/verbs/menu/settings/sound/verb/stop_client_sounds()
 	set name = "❌ Остановить звуки"
-	set category = "Настройки"
+	set category = "Особенное"
 	set desc = "Stop Current Sounds"
 	DIRECT_OUTPUT(usr, sound(null))
 	var/client/C = usr.client
