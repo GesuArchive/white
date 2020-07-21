@@ -3332,6 +3332,7 @@
 #include "white\valtos\code\_defines\gangs.dm"
 #include "white\valtos\code\_gamemodes\bloodsucker\bloodsucker.dm"
 #include "white\valtos\code\_gamemodes\bloodsucker\hunter.dm"
+#include "white\valtos\code\aiming\aiming.dm"
 #include "white\valtos\code\antagonists\bloodsucker\bloodsucker_flaws.dm"
 #include "white\valtos\code\antagonists\bloodsucker\bloodsucker_frenzy.dm"
 #include "white\valtos\code\antagonists\bloodsucker\bloodsucker_integration.dm"
