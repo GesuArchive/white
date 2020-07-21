@@ -81,7 +81,7 @@
 	user.visible_message("<span class='warning'><b>[user]</b> наводит [parent] на <b>[target]</b>!</span>")
 	to_chat(target, "<span class='warning'><b>[user]</b> наводит [parent] на меня! Похоже, мне лучше не двигаться! \n > Можно использовать <b>*surrender</b>, чтобы сдаться.</span>")
 	to_chat(user, "<span class='notice'>Целюсь в <b>[target]</b>. Если цель попробоует достать оружие или сделать что-то ещё, то я обязательно об этом узнаю.</span>")
-	user.say("FREEZE!!")
+	user.say("СТОЯТЬ!!")
 	playsound(target, 'white/valtos/sounds/autoguninsert.ogg', 100, TRUE)
 	aiming_cooldown = TRUE
 	addtimer(VARSET_CALLBACK(src, aiming_cooldown, FALSE), cooldown_time)
