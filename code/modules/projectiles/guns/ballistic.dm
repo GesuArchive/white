@@ -6,7 +6,7 @@
 	icon_state = "pistol"
 	w_class = WEIGHT_CLASS_NORMAL
 
-	recoil = 1
+	recoil = 0.75
 
 	///sound when inserting magazine
 	var/load_sound = 'sound/weapons/gun/general/magazine_insert_full.ogg'
