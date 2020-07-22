@@ -84,7 +84,7 @@
 
 /obj/item/clothing/head/collectable/pirate
 	name = "коллекционная пиратская шляпа"
-	desc = "Из тебя получился бы отличный Дредовый Синди Робертс!"
+	desc = "Из меня получился бы отличный Дредовый Синди Робертс!"
 	icon_state = "pirate"
 	inhand_icon_state = "pirate"
 
