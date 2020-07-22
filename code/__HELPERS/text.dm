@@ -819,17 +819,17 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	var/regex/word_boundaries = regex(@"\b[\S]+\b", "g")
 	var/prefix = message[1]
 	if(prefix == ";")
-		message = copytext_char(message, 1 + length_chat(prefix))
+		message = copytext_char(message, 1 + length_char(prefix))
 	else if(prefix in list(":", "#"))
-		prefix += message[1 + length_chat(prefix)]
-		message = copytext_char(message, length_chat(prefix))
+		prefix += message[1 + length_char(prefix)]
+		message = copytext_char(message, length_char(prefix))
 	else
 		prefix = ""
 
 	var/list/rearranged = list()
 	while(word_boundaries.Find(message))
 		var/cword = word_boundaries.match
-		if(length_chat(cword))
+		if(length_char(cword))
 			rearranged += cword
 	shuffle_inplace(rearranged)
 	return "[prefix][jointext(rearranged, " ")]"
@@ -839,11 +839,11 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	var/list/corruption_options = list("..", "£%", "~~\"", "!!", "*", "^", "$!", "-", "}", "?")
 	var/corrupted_text = ""
 
-	var/lentext = length_chat(text)
+	var/lentext = length_char(text)
 	var/letter = ""
 	// Have every letter have a chance of creating corruption on either side
 	// Small chance of letters being removed in place of corruption - still overall readable
-	for(var/letter_index = 1, letter_index <= lentext, letter_index += length_chat(letter))
+	for(var/letter_index = 1, letter_index <= lentext, letter_index += length_char(letter))
 		letter = text[letter_index]
 
 		if (prob(15))
