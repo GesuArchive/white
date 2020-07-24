@@ -751,6 +751,14 @@
 /obj/structure/cable,
 /turf/open/space/basic,
 /area/space/nearstation)
+"nm" = (
+/obj/machinery/door/airlock/external{
+	name = "Engineering External Access";
+	req_access_txt = "10;13"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/engine/engineering)
 "nI" = (
 /obj/machinery/power/tesla_coil,
 /obj/structure/cable,
@@ -1792,7 +1800,7 @@ bt
 aJ
 bZ
 bZ
-Bp
+nm
 yi
 ab
 ab
