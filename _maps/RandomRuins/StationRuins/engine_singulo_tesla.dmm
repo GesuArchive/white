@@ -18,6 +18,7 @@
 	name = "Radiation Chamber Shutters"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "ag" = (
@@ -84,6 +85,7 @@
 	id = "engsm";
 	name = "Radiation Chamber Shutters"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/engine/supermatter)
 "ao" = (
@@ -126,6 +128,7 @@
 	name = "Radiation Chamber Shutters"
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "av" = (
@@ -248,19 +251,13 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "aI" = (
-/obj/machinery/power/emitter/welded{
-	dir = 4
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
 /turf/open/floor/engine,
 /area/engine/engineering)
 "aJ" = (
-/obj/machinery/power/emitter/welded{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/open/floor/engine,
+/obj/machinery/power/grounding_rod,
+/turf/open/floor/plating,
 /area/engine/engineering)
 "aK" = (
 /obj/effect/turf_decal/stripes/line{
@@ -314,12 +311,9 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "aT" = (
-/obj/machinery/field/generator{
-	anchored = 1;
-	state = 2
-	},
 /obj/effect/turf_decal/stripes/box,
 /obj/effect/turf_decal/trimline/yellow,
+/obj/machinery/field/generator,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "aU" = (
@@ -460,7 +454,6 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "bs" = (
-/obj/machinery/power/grounding_rod,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -468,11 +461,12 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer3{
 	dir = 1
 	},
+/obj/machinery/power/grounding_rod,
 /turf/open/floor/engine,
 /area/engine/engineering)
 "bt" = (
-/obj/machinery/power/rad_collector,
 /obj/structure/cable,
+/obj/machinery/power/tesla_coil,
 /turf/open/floor/engine,
 /area/engine/engineering)
 "bu" = (
@@ -623,8 +617,9 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "bQ" = (
-/obj/machinery/power/grounding_rod,
-/turf/open/floor/engine,
+/obj/effect/turf_decal/stripes/box,
+/obj/effect/turf_decal/trimline/yellow,
+/turf/open/floor/plating,
 /area/engine/engineering)
 "bR" = (
 /obj/item/weldingtool,
@@ -710,6 +705,7 @@
 	name = "Telecoms Satellite Monitoring";
 	req_one_access_txt = "10;61"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "co" = (
@@ -734,6 +730,7 @@
 	dir = 6
 	},
 /obj/effect/turf_decal/trimline/yellow,
+/obj/machinery/field/generator,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "lt" = (
@@ -741,29 +738,23 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "lz" = (
-/obj/machinery/power/grounding_rod,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
-/turf/open/floor/engine,
+/obj/structure/cable,
+/obj/machinery/power/emitter/welded{
+	dir = 4
+	},
+/turf/open/floor/plating,
 /area/engine/engineering)
 "mY" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
 /turf/open/space/basic,
 /area/space/nearstation)
-"nm" = (
-/obj/machinery/door/airlock/external{
-	name = "Engineering External Access";
-	req_access_txt = "10;13"
-	},
-/obj/machinery/door/firedoor,
-/turf/open/floor/plating,
-/area/engine/engineering)
 "nI" = (
-/obj/machinery/power/tesla_coil,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
-/turf/open/floor/engine,
+/obj/machinery/power/emitter/welded{
+	dir = 8
+	},
+/turf/open/floor/plating,
 /area/engine/engineering)
 "pc" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
@@ -777,7 +768,6 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "qU" = (
-/obj/machinery/power/tesla_coil,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer3{
 	dir = 4
@@ -812,6 +802,7 @@
 	dir = 10
 	},
 /obj/effect/turf_decal/trimline/yellow,
+/obj/machinery/field/generator,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "xH" = (
@@ -819,6 +810,7 @@
 	name = "Engineering External Access";
 	req_access_txt = "10;13"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating/airless,
 /area/engine/engineering)
 "yi" = (
@@ -853,6 +845,7 @@
 	name = "Engineering External Access";
 	req_access_txt = "10;13"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "Bx" = (
@@ -872,11 +865,12 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "Dp" = (
-/obj/machinery/power/rad_collector,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
-/turf/open/floor/engine,
+/obj/machinery/door/airlock/external{
+	name = "Engineering External Access";
+	req_access_txt = "10;13"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
 /area/engine/engineering)
 "GV" = (
 /obj/effect/turf_decal/box,
@@ -909,6 +903,7 @@
 	dir = 9
 	},
 /obj/effect/turf_decal/trimline/yellow,
+/obj/machinery/field/generator,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "NJ" = (
@@ -926,6 +921,7 @@
 	dir = 5
 	},
 /obj/effect/turf_decal/trimline/yellow,
+/obj/machinery/field/generator,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "Ui" = (
@@ -1290,13 +1286,13 @@ bm
 yz
 bm
 bn
-Dp
-Dp
-Dp
+zz
+zz
+zz
 Ia
 zz
 BT
-Bp
+Dp
 YT
 xH
 ab
@@ -1317,7 +1313,7 @@ as
 as
 NJ
 as
-bQ
+as
 as
 as
 as
@@ -1372,7 +1368,7 @@ bE
 bE
 cp
 bE
-bE
+lz
 bE
 bE
 bE
@@ -1395,7 +1391,7 @@ aZ
 cb
 ba
 WL
-YT
+aJ
 bE
 YT
 YT
@@ -1428,7 +1424,7 @@ bE
 aT
 Is
 Is
-aT
+bQ
 YT
 YT
 YT
@@ -1517,7 +1513,7 @@ Is
 xC
 Jm
 Jm
-aT
+bQ
 YT
 Zf
 bZ
@@ -1565,7 +1561,7 @@ bl
 bg
 OM
 bE
-aT
+bQ
 Is
 Is
 Qx
@@ -1654,7 +1650,7 @@ YT
 YT
 YT
 YT
-aT
+bQ
 Jm
 Jm
 aT
@@ -1675,7 +1671,7 @@ cb
 cb
 ba
 WL
-YT
+aJ
 bE
 YT
 YT
@@ -1710,7 +1706,7 @@ cp
 bE
 bE
 bE
-bE
+nI
 bE
 cp
 YT
@@ -1765,7 +1761,7 @@ as
 as
 lt
 Ui
-lz
+pc
 pc
 pc
 pc
@@ -1790,17 +1786,17 @@ aH
 ca
 ca
 cd
-nI
-nI
+ca
+ca
 qU
 bs
 bt
 bt
 bt
-aJ
 bZ
 bZ
-nm
+bZ
+Bp
 yi
 ab
 ab
