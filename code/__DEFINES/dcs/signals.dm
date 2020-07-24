@@ -481,6 +481,8 @@
 #define COMSIG_MINE_TRIGGERED "minegoboom"
 ///from [/obj/structure/closet/supplypod/proc/endlaunch]:
 #define COMSIG_SUPPLYPOD_LANDED "supplypodgoboom"
+///from [/obj/item/extinguisher/proc/babah]:
+#define COMSIG_EXTINGUISHER_BOOM "extinguisherboom"
 
 // /obj/item signals for economy
 ///called when an item is sold by the exports subsystem
