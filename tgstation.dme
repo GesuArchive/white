@@ -3495,6 +3495,7 @@
 #include "white\valtos\code\unsorted\drugs.dm"
 #include "white\valtos\code\unsorted\dz-031.dm"
 #include "white\valtos\code\unsorted\effector.dm"
+#include "white\valtos\code\unsorted\fucktart.dm"
 #include "white\valtos\code\unsorted\game_kit.dm"
 #include "white\valtos\code\unsorted\glitch.dm"
 #include "white\valtos\code\unsorted\great_stuff.dm"
