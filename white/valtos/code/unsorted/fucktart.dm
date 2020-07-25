@@ -14,5 +14,5 @@
 		A.transform = M.Translate(rand(-16, 16), rand(-16, 16))
 		A.transform = M.Turn(rand(0, 360))
 		A.color = "#[random_short_color()]"
-		A.animate(A, color = color_matrix_rotate_hue(rand(0, 360)), time = 200, loop = -1, easing = CIRCULAR_EASING)
+		animate(A, color = color_matrix_rotate_hue(rand(0, 360)), time = 200, loop = -1, easing = CIRCULAR_EASING)
 
