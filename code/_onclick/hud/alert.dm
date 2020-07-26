@@ -590,16 +590,16 @@ so as to remain in compliance with the most up-to-date laws."
 
 /obj/screen/alert/restrained/buckled
 	name = "Пристегнут"
-	desc = "Ты пристегнут к чему-то или сидишь. Нажми, чтобы встать."
+	desc = "Я пристегнут к чему-то или сижу. Клик, чтобы встать."
 	icon_state = "buckled"
 
 /obj/screen/alert/restrained/handcuffed
 	name = "Закован"
-	desc = "На тебе надеты наручники и ты ничего не можешь делать. Не сможешь двигаться если тебя схватят. Нажми, чтобы попробовать освободиться."
+	desc = "На мне наручники и я ничего не могу делать. Не смогу двигаться если меня схватят. Клик, чтобы попробовать освободиться."
 
 /obj/screen/alert/restrained/legcuffed
 	name = "Ноги связаны"
-	desc = "Ты замедлен из-за связанных ног. Нажми, чтобы попробовать освободиться."
+	desc = "Мои ноги связаны и это меня замедляет. Клик, чтобы попробовать освободиться."
 
 /obj/screen/alert/restrained/Click()
 	var/mob/living/L = usr
@@ -619,12 +619,12 @@ so as to remain in compliance with the most up-to-date laws."
 
 /obj/screen/alert/shoes/untied
 	name = "Шнурки развязаны"
-	desc = "Твои шнурки развязаны! Нажми, чтобы завязать."
+	desc = "Мои шнурки развязаны! Клик, чтобы завязать."
 	icon_state = "shoealert"
 
 /obj/screen/alert/shoes/knotted
 	name = "Шнурки перевязаны"
-	desc = "Кто-то связал шнурки твоих ботинок друг с другом! Нажми, чтобы развязать."
+	desc = "Кто-то связал шнурки моих ботинок друг с другом! Клик, чтобы развязать."
 	icon_state = "shoealert"
 
 /obj/screen/alert/shoes/Click()

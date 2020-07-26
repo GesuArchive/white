@@ -15,12 +15,14 @@
 
 	var/list/locinfo = client.get_loc_info()
 
+	var/crsc = client.crawler_sanity_check()
+
 	to_chat(src,  {"<span class='greenannounce'> ================================</span>
 <span class='greenannounce'> > WHITE DREAM UAC</span>
 <span class='greenannounce'> > ПОЛЬЗОВАТЕЛЬ: [capitalize(client.ckey)]</span>
 <span class='greenannounce'> > СТРАНА: [capitalize(locinfo["country"])]</span>
 <span class='greenannounce'> > ИГРОВОЕ ВРЕМЯ: [capitalize(client.get_exp_living())]</span>
-<span class='greenannounce'> > ВХОД РАЗРЕШЁН</span>
+<span class='greenannounce'> > ВХОД [crsc ? "РАЗРЕШЁН" : "БЫЛ ЗАПИСАН НАШЕЙ СИСТЕМОЙ"]</span>
 <span class='greenannounce'> ================================</span>"})
 
 	var/motd = global.config.motd
@@ -53,18 +55,3 @@
 	client.update_metabalance_cache()
 	client.proverka_na_pindosov()
 	client.proverka_na_obemky()
-
-	//fit_lobbyscreen_or_die()
-
-// looping it
-/mob/dead/new_player/proc/fit_lobbyscreen_or_die()
-	if (!client || !src)
-		return
-	if (client.view != "19x15")
-		spawn(10)
-			fit_lobbyscreen_or_die()
-			spawn(100)
-				if (src && client && client.view != "19x15") // double recursion
-					fit_lobbyscreen_or_die()
-	client.view = "19x15"
-	client.fit_viewport()

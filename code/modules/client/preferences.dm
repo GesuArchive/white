@@ -1147,7 +1147,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				inc_metabalance(user, (TG.cost * -1), TRUE, "Покупаю [TG.display_name].")
 				save_preferences()
 			else
-				to_chat(user, "<span class='warning'>У тебя не хватает метакэша для покупки [TG.display_name]!</span>")
+				to_chat(user, "<span class='warning'>У меня не хватает метакэша для покупки [TG.display_name]!</span>")
 		if(href_list["toggle_gear"])
 			var/datum/gear/TG = GLOB.gear_datums[href_list["toggle_gear"]]
 			if(TG.display_name in equipped_gear)

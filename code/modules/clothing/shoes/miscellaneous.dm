@@ -423,7 +423,7 @@
 
 /obj/item/clothing/shoes/cowboy/black
 	name = "чёрные ковбойские сапоги"
-	desc = "У тебя такое чувство, что кто-то мог быть повешен в этих ботинках."
+	desc = "У меня такое чувство, что кто-то мог быть повешен в этих ботинках."
 	icon_state = "cowboy_black"
 
 /obj/item/clothing/shoes/cowboy/fancy

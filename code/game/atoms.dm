@@ -557,7 +557,7 @@
 				. += "<span class='danger'>Он пустой.</span>"
 
 	if(ishuman(user))
-		if(user.stat == CONSCIOUS)
+		if(user.stat == CONSCIOUS && !user.eye_blind)
 			user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[src.name]</b>.</span>", null, null, COMBAT_MESSAGE_RANGE)
 		if(user.status_traits)
 			if(HAS_TRAIT(user, TRAIT_JEWISH))
@@ -1424,7 +1424,7 @@
 /**
   * Used to set something as 'open' if it's being used as a supplypod
   *
-  * Override this if you want an atom to be usable as a supplypod. 
+  * Override this if you want an atom to be usable as a supplypod.
   */
 /atom/proc/setOpened()
 	return
@@ -1432,7 +1432,7 @@
 /**
   * Used to set something as 'closed' if it's being used as a supplypod
   *
-  * Override this if you want an atom to be usable as a supplypod. 
+  * Override this if you want an atom to be usable as a supplypod.
   */
 /atom/proc/setClosed()
 	return

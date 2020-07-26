@@ -604,7 +604,7 @@
 	name = "Лиза"
 	real_name = "Лиза"
 	gender = FEMALE
-	desc = "Она разрывает тебя на части."
+	desc = "Она разорвёт тебя на части."
 	gold_core_spawnable = NO_SPAWN
 	unique_pet = TRUE
 	icon_state = "lisa"

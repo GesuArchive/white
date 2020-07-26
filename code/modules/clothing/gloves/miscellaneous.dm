@@ -42,7 +42,7 @@
 
 /obj/item/clothing/gloves/bracer
 	name = "костяные перчатки"
-	desc = "Потому что когда ты ожидаешь, что тебя ударят по запястью. Обеспечивает скромную защиту ваших рук."
+	desc = "Для получения ударов по запястью. Обеспечивает скромную защиту ваших рук."
 	icon_state = "bracers"
 	inhand_icon_state = "bracers"
 	transfer_prints = TRUE

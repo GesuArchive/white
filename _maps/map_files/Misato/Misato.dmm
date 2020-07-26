@@ -505,7 +505,7 @@
 /area/engine/engineering)
 "dL" = (
 /obj/structure/sign/warning/docking,
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/hallway/secondary/entry)
 "dM" = (
 /obj/structure/chair{
@@ -597,7 +597,7 @@
 /area/crew_quarters/bar)
 "ej" = (
 /obj/structure/sign/warning/securearea,
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/quartermaster/storage)
 "ek" = (
 /obj/structure/chair/office{
@@ -735,9 +735,9 @@
 /area/bridge)
 "fv" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
+	dir = 4;
 	name = "N2 Outlet Pump";
-	target_pressure = 4500;
-	dir = 4
+	target_pressure = 4500
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -879,9 +879,9 @@
 /area/maintenance/port/fore)
 "gz" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
+	dir = 8;
 	name = "O2 Outlet Pump";
-	target_pressure = 4500;
-	dir = 8
+	target_pressure = 4500
 	},
 /obj/machinery/portable_atmospherics/scrubber,
 /obj/effect/turf_decal/tile/blue,
@@ -1246,7 +1246,7 @@
 /turf/open/floor/plasteel,
 /area/bridge)
 "js" = (
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/engine/engine_room)
 "jv" = (
 /turf/open/floor/plating/airless,
@@ -1557,7 +1557,7 @@
 /area/medical/medbay/central)
 "ma" = (
 /obj/structure/sign/warning/docking,
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/quartermaster/miningdock)
 "mb" = (
 /obj/machinery/airalarm{
@@ -1585,7 +1585,7 @@
 /turf/open/floor/plating,
 /area/medical/chemistry)
 "mq" = (
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/bridge)
 "mv" = (
 /obj/effect/turf_decal/stripes/line{
@@ -1596,7 +1596,7 @@
 /area/hallway/secondary/entry)
 "mx" = (
 /obj/structure/sign/warning/electricshock,
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/engine/engineering)
 "mz" = (
 /obj/structure/cable,
@@ -1725,7 +1725,7 @@
 /area/engine/engineering)
 "nG" = (
 /obj/structure/sign/departments/medbay/alt,
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/medical/medbay/central)
 "nM" = (
 /obj/machinery/computer/cargo{
@@ -1735,8 +1735,8 @@
 /area/quartermaster/storage)
 "nR" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
-	name = "Connector Port (Air Supply)";
-	dir = 4
+	dir = 4;
+	name = "Connector Port (Air Supply)"
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/plasteel/white,
@@ -1782,9 +1782,6 @@
 	pixel_y = 4
 	},
 /turf/open/floor/plasteel/white,
-/area/medical/medbay/central)
-"on" = (
-/turf/closed/wall/r_wall,
 /area/medical/medbay/central)
 "or" = (
 /obj/item/stack/sheet/metal/fifty,
@@ -1952,7 +1949,7 @@
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "pL" = (
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/quartermaster/miningdock)
 "pO" = (
 /obj/structure/fans/tiny/invisible,
@@ -2111,7 +2108,7 @@
 	},
 /area/crew_quarters/bar)
 "qQ" = (
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/engine/atmos)
 "qY" = (
 /obj/machinery/atmospherics/pipe/simple/yellow/visible{
@@ -2556,9 +2553,9 @@
 /area/quartermaster/miningdock)
 "uv" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
+	dir = 8;
 	name = "Air Outlet Pump";
-	target_pressure = 4500;
-	dir = 8
+	target_pressure = 4500
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -2805,7 +2802,7 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "wm" = (
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/maintenance/port/fore)
 "wn" = (
 /obj/structure/cable,
@@ -3017,7 +3014,7 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/entry)
 "yb" = (
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/medical/chemistry)
 "yk" = (
 /obj/machinery/light,
@@ -3284,7 +3281,7 @@
 /area/engine/engineering)
 "Az" = (
 /obj/structure/sign/warning/xeno_mining,
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/quartermaster/miningdock)
 "AG" = (
 /obj/machinery/computer/monitor{
@@ -3677,7 +3674,7 @@
 /area/quartermaster/miningdock)
 "Dv" = (
 /obj/structure/sign/warning/securearea,
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/bridge)
 "Dw" = (
 /obj/machinery/atmospherics/pipe/simple/yellow/visible{
@@ -3687,7 +3684,7 @@
 /area/engine/atmos)
 "DB" = (
 /obj/structure/sign/warning/docking,
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/hallway/primary/starboard)
 "DF" = (
 /turf/open/floor/partyhard/steel{
@@ -4649,7 +4646,7 @@
 /area/medical/medbay/central)
 "LL" = (
 /obj/structure/sign/warning/fire,
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/engine/atmos)
 "LO" = (
 /obj/machinery/chem_dispenser,
@@ -4845,7 +4842,7 @@
 /turf/open/floor/plating,
 /area/medical/chemistry)
 "NH" = (
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/maintenance/port/aft)
 "NJ" = (
 /obj/machinery/computer/communications,
@@ -4867,9 +4864,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
-"NS" = (
-/turf/closed/wall/r_wall,
-/area/engine/engineering)
 "Oa" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
@@ -4928,7 +4922,7 @@
 /area/bridge)
 "Oz" = (
 /obj/structure/sign/warning/docking,
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/quartermaster/storage)
 "OC" = (
 /obj/effect/turf_decal/tile/blue,
@@ -5118,7 +5112,7 @@
 	},
 /area/crew_quarters/bar)
 "Qd" = (
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/quartermaster/storage)
 "Qg" = (
 /obj/effect/turf_decal/tile/purple{
@@ -5320,7 +5314,7 @@
 /area/hallway/secondary/entry)
 "RE" = (
 /obj/structure/sign/warning/pods,
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/hallway/primary/starboard)
 "RI" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/visible{
@@ -5693,8 +5687,8 @@
 /area/bridge)
 "UQ" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
-	name = "Connector Port (Air Supply)";
-	dir = 1
+	dir = 1;
+	name = "Connector Port (Air Supply)"
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/turf_decal/tile/blue{
@@ -5840,7 +5834,7 @@
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "Wl" = (
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/hallway/secondary/entry)
 "Wo" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
@@ -5999,7 +5993,7 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "XB" = (
-/turf/closed/wall/r_wall,
+/turf/closed/wall,
 /area/hallway/primary/starboard)
 "XE" = (
 /turf/open/floor/partyhard/wood{
@@ -17998,7 +17992,7 @@ Fb
 Fb
 Fb
 Fb
-Fb
+md
 Fb
 Fb
 Fb
@@ -28377,7 +28371,6 @@ Fb
 Fb
 Fb
 Fb
-md
 Fb
 Fb
 Fb
@@ -28394,7 +28387,8 @@ Fb
 Fb
 Fb
 Fb
-md
+Fb
+Fb
 Fb
 Fb
 Fb
@@ -28411,7 +28405,7 @@ Fb
 Fb
 Fb
 Fb
-md
+Fb
 Fb
 Fb
 Fb
@@ -32473,7 +32467,6 @@ Fb
 Fb
 Fb
 Fb
-md
 Fb
 Fb
 Fb
@@ -32489,7 +32482,8 @@ Fb
 Fb
 Fb
 Fb
-md
+Fb
+Fb
 WG
 wm
 wm
@@ -32780,7 +32774,7 @@ aP
 aP
 aP
 aP
-md
+Fb
 Fb
 Fb
 Fb
@@ -36842,7 +36836,7 @@ Fb
 Fb
 Fb
 Fb
-md
+Fb
 aP
 XX
 Yg
@@ -36892,7 +36886,7 @@ aP
 aP
 aP
 aP
-md
+Fb
 Fb
 Fb
 Fb
@@ -40681,7 +40675,6 @@ Fb
 Fb
 Fb
 Fb
-md
 Fb
 Fb
 Fb
@@ -40697,7 +40690,8 @@ Fb
 Fb
 Fb
 Fb
-md
+Fb
+Fb
 aP
 DB
 XB
@@ -41004,7 +40998,7 @@ aP
 aP
 aP
 aP
-md
+Fb
 Fb
 Fb
 Fb
@@ -41214,35 +41208,35 @@ yb
 yb
 aP
 nG
-on
-on
-on
-on
+KN
+KN
+KN
+KN
 Ih
 Ih
 Ih
 LR
 Ih
-on
-on
-on
-on
+KN
+KN
+KN
+KN
 nG
 tO
 mx
-NS
-NS
-NS
-NS
+RL
+RL
+RL
+RL
 dq
 dq
 Dq
 XL
 dq
-NS
-NS
-NS
-NS
+RL
+RL
+RL
+RL
 mx
 iX
 ej
@@ -41470,37 +41464,37 @@ rT
 rT
 yb
 aP
-on
+KN
 sc
 Xt
 nR
-on
-on
-on
+KN
+KN
+KN
 AO
-on
-on
-on
+KN
+KN
+KN
 aS
 Lg
 Os
-on
+KN
 tO
-NS
+RL
 sN
 ea
 IQ
-NS
-NS
-NS
+RL
+RL
+RL
 vY
-NS
-NS
-NS
+RL
+RL
+RL
 Hi
 sj
 OU
-NS
+RL
 iX
 Qd
 tj
@@ -41727,7 +41721,7 @@ rT
 rT
 yb
 aP
-on
+KN
 uy
 an
 Fw
@@ -41741,9 +41735,9 @@ LI
 fc
 fc
 QC
-on
+KN
 tO
-NS
+RL
 dT
 dq
 dq
@@ -41757,7 +41751,7 @@ bp
 vp
 qG
 OU
-NS
+RL
 iX
 Qd
 rX
@@ -41984,7 +41978,7 @@ rT
 rT
 yb
 aP
-on
+KN
 sc
 St
 fc
@@ -41998,9 +41992,9 @@ Jq
 fc
 fc
 bJ
-on
+KN
 tO
-NS
+RL
 sN
 dq
 nw
@@ -42014,7 +42008,7 @@ aE
 OZ
 ou
 OU
-NS
+RL
 QJ
 Qd
 DZ
@@ -42241,8 +42235,8 @@ rT
 yb
 yb
 aP
-on
-on
+KN
+KN
 mB
 fc
 fc
@@ -42254,11 +42248,11 @@ fc
 Tz
 tm
 WX
-on
-on
+KN
+KN
 tO
-NS
-NS
+RL
+RL
 xq
 xq
 xq
@@ -42270,8 +42264,8 @@ xq
 aE
 Ya
 ou
-NS
-NS
+RL
+RL
 iX
 Qd
 JM
@@ -42499,7 +42493,7 @@ yb
 IV
 aP
 US
-on
+KN
 JC
 fc
 fc
@@ -42511,11 +42505,11 @@ tM
 cA
 fc
 dP
-on
+KN
 Ih
 tO
 Ih
-NS
+RL
 BJ
 Fz
 dY
@@ -42527,7 +42521,7 @@ xq
 aE
 PK
 uH
-NS
+RL
 Ih
 iX
 Qd
@@ -42756,7 +42750,7 @@ yb
 IV
 aP
 Ma
-on
+KN
 uZ
 fc
 fc
@@ -42768,11 +42762,11 @@ lV
 Ue
 lV
 KN
-on
+KN
 Ih
 tO
 EU
-NS
+RL
 JD
 dK
 UL
@@ -42784,7 +42778,7 @@ RL
 FH
 Nn
 Sx
-NS
+RL
 Ih
 iX
 Qd
@@ -43270,7 +43264,7 @@ yb
 IV
 aP
 yN
-on
+KN
 aF
 tG
 Jb
@@ -43282,11 +43276,11 @@ fc
 fc
 fc
 cA
-on
+KN
 sk
 tF
 Ih
-NS
+RL
 bk
 dK
 dK
@@ -43298,7 +43292,7 @@ RL
 bC
 CA
 ff
-NS
+RL
 sk
 iX
 Qd
@@ -43527,7 +43521,7 @@ yb
 IV
 aP
 US
-on
+KN
 LO
 eb
 lu
@@ -43539,11 +43533,11 @@ fc
 VM
 VM
 kw
-on
+KN
 Ih
 tF
 Ih
-NS
+RL
 Gk
 ho
 wl
@@ -43555,7 +43549,7 @@ xq
 xc
 AN
 ou
-NS
+RL
 Ih
 iX
 Qd
@@ -43783,8 +43777,8 @@ rT
 yb
 yb
 aP
-on
-on
+KN
+KN
 yy
 RO
 nv
@@ -43796,11 +43790,11 @@ Uz
 lV
 lV
 nr
-on
-on
+KN
+KN
 qL
-NS
-NS
+RL
+RL
 xq
 xq
 xq
@@ -43812,8 +43806,8 @@ UY
 il
 qg
 ou
-NS
-NS
+RL
+RL
 WS
 Qd
 IW
@@ -44040,7 +44034,7 @@ rT
 rT
 yb
 aP
-on
+KN
 MY
 fc
 fc
@@ -44054,9 +44048,9 @@ lV
 wA
 cA
 ap
-on
+KN
 jx
-NS
+RL
 wQ
 dq
 ZY
@@ -44070,7 +44064,7 @@ WP
 xz
 ou
 lz
-NS
+RL
 aP
 Qd
 SG
@@ -44297,7 +44291,7 @@ rT
 rT
 yb
 aP
-on
+KN
 pA
 fc
 fc
@@ -44311,9 +44305,9 @@ lV
 MH
 yP
 Ba
-on
+KN
 jx
-NS
+RL
 mE
 dq
 dq
@@ -44327,7 +44321,7 @@ IB
 iT
 Sx
 bl
-NS
+RL
 aP
 Qd
 nS
@@ -44554,37 +44548,37 @@ rT
 rT
 yb
 aP
-on
+KN
 qd
 ok
 qo
-on
-on
-on
+KN
+KN
+KN
 AO
-on
-on
-on
+KN
+KN
+KN
 BT
 lp
 gZ
-on
+KN
 jx
-NS
+RL
 wQ
 EC
 ZY
-NS
-NS
-NS
+RL
+RL
+RL
 mY
-NS
-NS
-NS
+RL
+RL
+RL
 Tb
 Rr
 CU
-NS
+RL
 aP
 Qd
 RZ
@@ -44812,35 +44806,35 @@ yb
 yb
 aP
 nG
-on
-on
-on
-on
+KN
+KN
+KN
+KN
 US
 nj
 yN
 yN
 US
-on
-on
-on
-on
+KN
+KN
+KN
+KN
 nG
 jx
 mx
-NS
-NS
-NS
-NS
+RL
+RL
+RL
+RL
 ir
 Ny
 uP
 Jw
 ir
-NS
-NS
-NS
-NS
+RL
+RL
+RL
+RL
 mx
 aP
 ej
@@ -45307,7 +45301,6 @@ Fb
 Fb
 Fb
 Fb
-md
 Fb
 Fb
 Fb
@@ -45324,7 +45317,6 @@ Fb
 Fb
 Fb
 Fb
-md
 Fb
 Fb
 Fb
@@ -45339,7 +45331,9 @@ Fb
 Fb
 Fb
 Fb
-md
+Fb
+Fb
+Fb
 Kv
 js
 js
@@ -45357,7 +45351,7 @@ js
 js
 js
 Kv
-md
+Fb
 Fb
 Fb
 Fb
@@ -45373,7 +45367,7 @@ Fb
 Fb
 Fb
 Fb
-md
+Fb
 Fb
 Fb
 Fb
@@ -49451,7 +49445,6 @@ Fb
 Fb
 Fb
 Fb
-md
 Fb
 Fb
 Fb
@@ -49469,7 +49462,8 @@ Fb
 Fb
 Fb
 Fb
-md
+Fb
+Fb
 Fb
 Fb
 Fb

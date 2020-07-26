@@ -58,7 +58,7 @@
 
 	if(isammocasing(parent))
 		num_pellets = magnitude
-	else if(isgrenade(parent) || islandmine(parent) || issupplypod(parent))
+	else if(isgrenade(parent) || islandmine(parent) || issupplypod(parent) || istype(parent, /obj/item/extinguisher))
 		radius = magnitude
 
 /datum/component/pellet_cloud/Destroy(force, silent)
@@ -79,6 +79,8 @@
 		RegisterSignal(parent, COMSIG_MINE_TRIGGERED, .proc/create_blast_pellets)
 	else if(issupplypod(parent))
 		RegisterSignal(parent, COMSIG_SUPPLYPOD_LANDED, .proc/create_blast_pellets)
+	else if(istype(parent, /obj/item/extinguisher))
+		RegisterSignal(parent, COMSIG_EXTINGUISHER_BOOM, .proc/create_blast_pellets)
 
 /datum/component/pellet_cloud/UnregisterFromParent()
 	UnregisterSignal(parent, list(COMSIG_PARENT_PREQDELETED, COMSIG_PELLET_CLOUD_INIT, COMSIG_GRENADE_PRIME, COMSIG_GRENADE_ARMED, COMSIG_MOVABLE_MOVED, COMSIG_MOVABLE_UNCROSSED, COMSIG_MINE_TRIGGERED, COMSIG_ITEM_DROPPED))

@@ -37,7 +37,8 @@ obj/item/banner/engineering/atmos/mundane
 	name = "красный curtain"
 	desc = "Contains less than 1% mercury."
 	icon = 'white/pieceofcrap.dmi'
-	icon_state = "closed"
+	icon_state = "curtain-open"
+	icon_type = "curtain"
 	alpha = 255 //Mappers can also just set this to 255 if they want curtains that can't be seen through
 	layer = SIGN_LAYER
 	anchored = TRUE

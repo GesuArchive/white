@@ -121,7 +121,7 @@
 
 	AddComponent(/datum/component/pellet_cloud, projectile_type=/obj/projectile/bullet/pellet/shotgun_rubbershot, magnitude=5)
 	// в петушителях находятся шарики для тактического вспенивания содержимого внутри (а также для использования в качестве ручной гранаты при окопных войнах)
-	SEND_SIGNAL(src, COMSIG_GRENADE_PRIME)
+	SEND_SIGNAL(src, COMSIG_EXTINGUISHER_BOOM)
 
 	explosion(bang_turf, 0, 0, 2, 0)
 
