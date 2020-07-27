@@ -79,3 +79,6 @@
 #define COMSIG_KB_MOVEMENT_WEST_DOWN "keybinding_movement_west_down"
 #define COMSIG_KB_MOVEMENT_EAST_DOWN "keybinding_movement_east_down"
 
+//White
+#define COMSIG_KB_MOB_SAY_DOWN "keybinding_mob_say_down"
+#define COMSIG_KB_MOB_ME_DOWN "keybinding_mob_me_down"

@@ -333,6 +333,7 @@
 	name = "ooc"
 	full_name = "OOC"
 	description = ""
+	keybind_signal = COMSIG_KB_CLIENT_OOC_DOWN
 
 /datum/keybinding/client/ooc/down(client/user)
 	. = ..()
@@ -351,6 +352,7 @@
 	name = "say"
 	full_name = "Say"
 	description = ""
+	keybind_signal = COMSIG_KB_MOB_SAY_DOWN
 
 /datum/keybinding/mob/say/down(client/user)
 	. = ..()
@@ -374,6 +376,7 @@
 	name = "me"
 	full_name = "Me"
 	description = ""
+	keybind_signal = COMSIG_KB_MOB_ME_DOWN
 
 /datum/keybinding/mob/me/down(client/user)
 	. = ..()
