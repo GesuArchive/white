@@ -52,7 +52,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		widescreenpref = TRUE
 
 	if(current_version < 36) //makes old keybinds compatible with #52040, sets the new default
-		var/newkey = FALSE
 		for(var/list/key in key_bindings)
 			for(var/bind in key)
 				if(bind == "quick_equipbelt")
@@ -62,9 +61,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 				if(bind == "bag_equip")
 					key -= "bag_equip"
 					key |= "quick_equip_bag"
-
-				if(bind == "quick_equip_suit_storage")
-					newkey = TRUE
 		if(key_bindings["ShiftQ"] == "quick_equip_suit_storage")
 			key_bindings["ShiftQ"] = list("quick_equip_suit_storage")
 
