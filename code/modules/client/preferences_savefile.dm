@@ -52,6 +52,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		widescreenpref = TRUE
 
 	if(current_version < 36) //makes old keybinds compatible with #52040, sets the new default
+		var/newkey = FALSE
 		for(var/list/key in key_bindings)
 			for(var/bind in key)
 				if(bind == "quick_equipbelt")
