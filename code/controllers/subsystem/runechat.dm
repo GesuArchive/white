@@ -63,7 +63,7 @@ SUBSYSTEM_DEF(runechat)
 		cm = null
 
 	// Iterate through each bucket starting from the practical offset
-	while (practical_offset <= BUCKET_LEN && head_offset + ((practical_offset) * world.tick_lag) <= world.time)
+	while (practical_offset <= BUCKET_LEN && head_offset + ((practical_offset - 1) * world.tick_lag) <= world.time)
 		var/datum/chatmessage/bucket_head = bucket_list[practical_offset]
 		if (!cm || !bucket_head || cm == bucket_head)
 			bucket_head = bucket_list[practical_offset]

@@ -71,6 +71,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	if(current_version < 37)
 		if(key_bindings["ShiftQ"] == "quick_equip_suit_storage")
 			key_bindings["ShiftQ"] = list("quick_equip_suit_storage")
+		see_rc_emotes = TRUE
+		see_chat_non_mob = TRUE
+		chat_on_map = TRUE
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
 	return

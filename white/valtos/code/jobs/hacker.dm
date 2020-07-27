@@ -23,6 +23,8 @@
 
 /mob/living/Initialize()
 	. = ..()
+	if(!src)
+		return
 	var/datum/atom_hud/hacker/hhud = GLOB.huds[DATA_HUD_HACKER]
 	hhud.add_to_hud(src)
 	hud_list[HACKER_HUD].icon = image('white/valtos/icons/dz-031.dmi', src)
