@@ -146,7 +146,7 @@
 	inhand_icon_state = "beer"
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("втыкает", "рубит", "атакует")
-	sharpness = IS_SHARP
+	sharpness = SHARP_EDGED
 	var/static/icon/broken_outline = icon('icons/obj/drinks.dmi', "broken")
 
 /obj/item/broken_bottle/Initialize()

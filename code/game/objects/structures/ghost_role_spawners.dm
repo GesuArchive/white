@@ -323,7 +323,7 @@
 
 /datum/outfit/hermit
 	name = "Lavaland hermit"
-	uniform = /obj/item/clothing/under/color/grey/glorf
+	uniform = /obj/item/clothing/under/color/grey/ancient
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	back = /obj/item/storage/backpack
 	mask = /obj/item/clothing/mask/breath
@@ -713,6 +713,7 @@
 
 /datum/outfit/syndicatespace/syndicaptain
 	name = "Syndicate Ship Captain"
+	uniform = /obj/item/clothing/under/syndicate/combat
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
 	uniform = /obj/item/clothing/under/syndicate/combat
 	glasses = /obj/item/clothing/glasses/night

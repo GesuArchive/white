@@ -113,7 +113,7 @@
 	. = ..()
 	if(.)
 		switch(var_name)
-			if("assignment","registered_name","registered_age")
+			if(NAMEOF(src, assignment),NAMEOF(src, registered_name),NAMEOF(src, registered_age))
 				update_label()
 
 /obj/item/card/id/attackby(obj/item/W, mob/user, params)
@@ -267,9 +267,14 @@
 		if(registered_account.account_job)
 			var/datum/bank_account/D = SSeconomy.get_dep_account(registered_account.account_job.paycheck_department)
 			if(D)
-				msg += "Баланс [D.account_holder] составляет <b>[D.account_balance] кредитов</b>."
+				msg += "Баланс [D.account_holder] составляет <b>[D.account_balance] кредитов."
 		msg += "<span class='info'>Alt-клик на ID-карте для снятия денег.</span>"
 		msg += "<span class='info'>Похоже сюда можно вставлять голо-чипы, монетки и прочую валюту.</span>"
+		if(registered_account.civilian_bounty)
+			msg += "<span class='info'><b>Есть активный гражданский заказ.</b>"
+			msg += "<span class='info'><i>[registered_account.bounty_text()]</i></span>"
+			msg += "<span class='info'>Количество: [registered_account.bounty_num()]</span>"
+			msg += "<span class='info'>Награда: [registered_account.bounty_value()]</span>"
 		if(registered_account.account_holder == user.real_name)
 			msg += "<span class='boldnotice'>Если ты потеряешь эту ID-карту, ты можешь запросто переподключить свой счёт используя Alt-клик на своей новой карте.</span>"
 	else
@@ -390,7 +395,7 @@ update_label()
 			return
 		if(popup_input == "СБРОСИТЬ" && !forged)
 			var/input_name = stripped_input(user, "Какое имя на этот раз? Можно оставить поле пустым для случая.", "Имя агента", registered_name ? registered_name : (ishuman(user) ? user.real_name : user.name), MAX_NAME_LEN)
-			input_name = reject_bad_name(input_name)
+			input_name = sanitize_name(input_name)
 			if(!input_name)
 				// Invalid/blank names give a randomly generated one.
 				if(user.gender == MALE)
