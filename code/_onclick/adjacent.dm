@@ -66,13 +66,15 @@
 	* Must be on a turf
 */
 /atom/movable/Adjacent(atom/neighbor)
-	if(neighbor == loc)
+	if(neighbor == loc || bounds_dist(src, neighbor) <= 32)
 		return TRUE
 	var/turf/T = loc
 	if(!istype(T))
 		return FALSE
-	if(T.Adjacent(neighbor,target = neighbor, mover = src))
-		return TRUE
+	for(var/i in locs)
+		var/turf/place = i
+		if(place.Adjacent(neighbor,target = neighbor, mover = src))
+			return TRUE
 	return FALSE
 
 // This is necessary for storage items not on your person.

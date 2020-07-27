@@ -292,7 +292,7 @@
 			firing_burst = FALSE
 			return FALSE
 		else
-			if(get_dist(user, target) <= 1) //Making sure whether the target is in vicinity for the pointblank shot
+			if(bounds_dist(user, target) <= 32) //Making sure whether the target is in vicinity for the pointblank shot
 				shoot_live_shot(user, 1, target, message)
 			else
 				shoot_live_shot(user, 0, target, message)
@@ -340,7 +340,7 @@
 				shoot_with_empty_chamber(user)
 				return
 			else
-				if(get_dist(user, target) <= 1) //Making sure whether the target is in vicinity for the pointblank shot
+				if(bounds_dist(user, target) <= 32) //Making sure whether the target is in vicinity for the pointblank shot
 					shoot_live_shot(user, 1, target, message)
 				else
 					shoot_live_shot(user, 0, target, message)

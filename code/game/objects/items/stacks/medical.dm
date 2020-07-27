@@ -164,7 +164,7 @@
 		if(get_amount() < 2)
 			to_chat(user, "<span class='warning'>На как минимум два кусочка бинта!</span>")
 			return
-		new /obj/item/stack/sheet/cloth(user.drop_location())
+		new /obj/item/stack/sheet/cloth(user.drop_location()[1])
 		user.visible_message("<span class='notice'><b>[user]</b> нарезает <b>[src]</b> на куски ткани при помощи <b>[I]</b>.</span>", \
 					 "<span class='notice'>Нарезаю <b>[src]</b> на куски ткани при помощи <b>[I]</b>.</span>", \
 					 "<span class='hear'>Слышу как что-то режет ткань.</span>")

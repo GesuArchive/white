@@ -59,7 +59,7 @@
 		to_chat(user, "<span class='warning'>На данный момент [money] кредитов в [src]</span>")
 		return
 
-	var/obj/item/holochip/holochip = new (user.drop_location(), amount_to_remove)
+	var/obj/item/holochip/holochip = new (user.drop_location()[1], amount_to_remove)
 	money -= amount_to_remove
 	holochip.name = "отмытые " + holochip.name
 	user.put_in_hands(holochip)

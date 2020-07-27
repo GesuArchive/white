@@ -889,7 +889,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		if(W.use_tool(src, user, 60, volume=100))
 			if (scalpel.usesLeft)
 				to_chat(user, "<span class='danger'>Извлекаю осколок из <b>[src.name]</b>. [capitalize(src.name)] начинает бурно реагировать!</span>")
-				new /obj/item/nuke_core/supermatter_sliver(drop_location())
+				new /obj/item/nuke_core/supermatter_sliver(drop_location()[1])
 				matter_power += 800
 				scalpel.usesLeft--
 				if (!scalpel.usesLeft)

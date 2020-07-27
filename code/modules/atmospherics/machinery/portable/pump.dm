@@ -8,7 +8,11 @@
 	name = "portable air pump"
 	icon_state = "psiphon:0"
 	density = TRUE
-
+	bound_height = 16
+	bound_width = 16
+	bound_x = 7
+	bound_y = 2
+	brotation = NONE
 	max_integrity = 250
 	///Max amount of heat allowed inside of the canister before it starts to melt (different tiers have different limits)
 	var/heat_limit = 5000

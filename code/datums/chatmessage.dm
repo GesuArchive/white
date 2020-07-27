@@ -84,7 +84,6 @@ GLOBAL_VAR_INIT(chat_bubbles, FALSE)
 	// Register client who owns this message
 	owned_by = owner.client
 	RegisterSignal(owned_by, COMSIG_PARENT_QDELETING, .proc/on_parent_qdel)
-
 	// Clip message
 	if (length_char(text) > CHAT_MESSAGE_MAX_LENGTH)
 		text = copytext_char(text, 1, CHAT_MESSAGE_MAX_LENGTH + 1) + "..." // BYOND index moment
@@ -158,7 +157,8 @@ GLOBAL_VAR_INIT(chat_bubbles, FALSE)
 	message.pixel_y = owner.bound_height * 0.95
 	message.maptext_width = CHAT_MESSAGE_WIDTH
 	message.maptext_height = mheight
-	message.maptext_x = (CHAT_MESSAGE_WIDTH - owner.bound_width) * -0.5
+	message.maptext_x = (CHAT_MESSAGE_WIDTH - (owner.bound_width + owner.bound_x)) * -0.5
+	message.maptext_y = owner.bound_height + owner.bound_y + 5
 	message.maptext = complete_text
 
 	// View the message

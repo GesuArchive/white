@@ -239,7 +239,7 @@
 	if(!alt_click_can_use_id(user))
 		return
 	if(registered_account.adjust_money(-amount_to_remove))
-		var/obj/item/holochip/holochip = new (user.drop_location(), amount_to_remove)
+		var/obj/item/holochip/holochip = new (user.drop_location()[1], amount_to_remove)
 		user.put_in_hands(holochip)
 		to_chat(user, "<span class='notice'>Снимаю [amount_to_remove] кредитов формируя голо-чип.</span>")
 		SSblackbox.record_feedback("amount", "credits_removed", amount_to_remove)
