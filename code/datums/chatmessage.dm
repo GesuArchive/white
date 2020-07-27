@@ -84,9 +84,11 @@ GLOBAL_VAR_INIT(chat_bubbles, FALSE)
 	// Register client who owns this message
 	owned_by = owner.client
 	RegisterSignal(owned_by, COMSIG_PARENT_QDELETING, .proc/on_parent_qdel)
+
 	// Clip message
-	if (length_char(text) > CHAT_MESSAGE_MAX_LENGTH)
-		text = copytext_char(text, 1, CHAT_MESSAGE_MAX_LENGTH + 1) + "..." // BYOND index moment
+	var/maxlen = owned_by.prefs.max_chat_length
+	if (length_char(text) > maxlen)
+		text = copytext_char(text, 1, maxlen + 1) + "..." // BYOND index moment
 
 	// Calculate target color if not already present
 	if (!target.chat_color || target.chat_color_name != target.name)
@@ -125,10 +127,6 @@ GLOBAL_VAR_INIT(chat_bubbles, FALSE)
 	// Construct text
 	var/static/regex/html_metachars = new(@"&[A-Za-z]{1,7};", "g")
 	var/complete_text = "<span class='center maptext [extra_classes.Join(" ")]' style='color: [tgt_color]'>[text]</span>"
-
-	if(!owned_by)
-		return
-
 	var/mheight = WXH_TO_HEIGHT(owned_by.MeasureText(replacetext(complete_text, html_metachars, "m"), null, CHAT_MESSAGE_WIDTH))
 	approx_lines = max(1, mheight / CHAT_MESSAGE_APPROX_LHEIGHT)
 
@@ -157,8 +155,7 @@ GLOBAL_VAR_INIT(chat_bubbles, FALSE)
 	message.pixel_y = owner.bound_height * 0.95
 	message.maptext_width = CHAT_MESSAGE_WIDTH
 	message.maptext_height = mheight
-	message.maptext_x = (CHAT_MESSAGE_WIDTH - (owner.bound_width + owner.bound_x)) * -0.5
-	message.maptext_y = owner.bound_height + owner.bound_y + 5
+	message.maptext_x = (CHAT_MESSAGE_WIDTH - owner.bound_width) * -0.5
 	message.maptext = complete_text
 
 	// View the message
