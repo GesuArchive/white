@@ -107,9 +107,9 @@
 		if(CLOTHING_SHREDDED)
 			var/obj/item/stack/cloth_repair = W
 			if(cloth_repair.amount < 3)
-				to_chat(user, "<span class='warning'>Мне потребуется 3 единицы [S.name] для починки [src.name].</span>")
+				to_chat(user, "<span class='warning'>Мне потребуется 3 единицы [W.name] для починки [src.name].</span>")
 				return TRUE
-			to_chat(user, "<span class='notice'>Начинаю чинить повреждения [src.name] используя [S]...</span>")
+			to_chat(user, "<span class='notice'>Начинаю чинить повреждения [src.name] используя [W.name]...</span>")
 			if(!do_after(user, 6 SECONDS, TRUE, src) || !cloth_repair.use(3))
 				return TRUE
 			repair(user, params)

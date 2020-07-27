@@ -304,6 +304,9 @@
 	description = ""
 
 /datum/keybinding/client/ooc/down(client/user)
+	. = ..()
+	if(.)
+		return
 	user.ooc_wrapper()
 	return TRUE
 
@@ -319,6 +322,9 @@
 	description = ""
 
 /datum/keybinding/mob/say/down(client/user)
+	. = ..()
+	if(.)
+		return
 	var/mob/M = user.mob
 	M.say_wrapper()
 	return TRUE
@@ -339,6 +345,9 @@
 	description = ""
 
 /datum/keybinding/mob/me/down(client/user)
+	. = ..()
+	if(.)
+		return
 	var/mob/M = user.mob
 	M.me_wrapper()
 	return TRUE

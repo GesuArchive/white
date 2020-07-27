@@ -123,7 +123,7 @@
 		ui.open()
 
 /obj/item/boombox/ui_status(mob/user)
-	if(IsAdminGhost(user))
+	if(isAdminGhostAI(user))
 		return UI_INTERACTIVE
 	if(!isliving(user))
 		return UI_UPDATE

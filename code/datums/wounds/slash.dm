@@ -247,7 +247,7 @@
 	treat_text = "Наложение чистых повязок или швов для оказания первой медицинской помощи, затем еда и отдых."
 	examine_desc = "имеет открытый порез"
 	occur_text = "вскрыта, медленно источая кровь"
-	sound_effect = 'sound/effects/blood1.ogg'
+	sound_effect = 'sound/effects/wounds/blood1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
 	initial_flow = 2
 	minimum_flow = 0.5
@@ -265,7 +265,7 @@
 	treat_text = "Быстрое наложение швов первой помощи и чистых повязок с последующим мониторингом жизненно важных функций для обеспечения восстановления."
 	examine_desc = "имеет серьёзный порез"
 	occur_text = "вскрыта, вены брызгают кровью"
-	sound_effect = 'sound/effects/blood2.ogg'
+	sound_effect = 'sound/effects/wounds/blood2.ogg'
 	severity = WOUND_SEVERITY_SEVERE
 	initial_flow = 3.25
 	minimum_flow = 2.75
@@ -284,7 +284,7 @@
 	treat_text = "Немедленная перевязка и либо ушивание, либо прижигание, а затем повторная регенерация."
 	examine_desc = "брызгает кровью с угрожающей скоростью"
 	occur_text = "разрывается, дико брызгая кровью"
-	sound_effect = 'sound/effects/blood3.ogg'
+	sound_effect = 'sound/effects/wounds/blood3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL
 	initial_flow = 4.25
 	minimum_flow = 4

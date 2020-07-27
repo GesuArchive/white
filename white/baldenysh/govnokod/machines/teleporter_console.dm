@@ -4,8 +4,6 @@
 	icon_screen = "teleport"
 	icon_keyboard = "teleport_key"
 	//circuit = /obj/item/circuitboard/computer/turbine_computer
-	ui_x = 500
-	ui_y = 500
 	var/obj/machinery/power/bs_emitter/BSE
 
 /obj/machinery/computer/bs_emitter/Initialize()
@@ -22,7 +20,7 @@
 									datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
-		ui = new(user, src, ui_key, "BSEmitter", name, ui_x, ui_y, master_ui, state)
+		ui = new(user, src, ui_key, "BSEmitter", name, master_ui, state)
 		ui.open()
 
 /obj/machinery/computer/bs_emitter/ui_data(mob/user)

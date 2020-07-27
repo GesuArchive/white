@@ -149,7 +149,7 @@
 			if(75 to INFINITY)
 				sling_condition = "плотно"
 
-		msg = "[capitalize(splinted.name)] на [victim.ru_ego()] [ru_gde_zone(limb.name)] [splint_condition] держится"
+		msg = "[capitalize(limb.name)] на [victim.ru_ego()] [ru_gde_zone(limb.name)] [sling_condition] держится"
 
 	if(taped)
 		msg += ", и, кажется, реформируется под хирургической лентой!"

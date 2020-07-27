@@ -5,7 +5,7 @@
 /datum/blackmarket_item/sclothing/ancient_jumpsuit
 	name = "Ancient Jumpsuit"
 	desc = "Alt-клик on древний комбинезон чтобы носить как дебил."
-	item = /obj/item/clothing/under/color/grey/glorf
+	item = /obj/item/clothing/under/color/grey/ancient
 
 	price_min = 5000
 	price_max = 10000

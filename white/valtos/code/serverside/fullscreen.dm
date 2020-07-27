@@ -14,6 +14,9 @@
 	description = "Делает экран широким (19x15), либо узким (15x15)."
 
 /datum/keybinding/client/widecreen_toggle/down(client/user)
+	. = ..()
+	if(.)
+		return
 	user.prefs.widescreenpref = !user.prefs.widescreenpref
 	user.view_size.setDefault(getScreenSize(user.prefs.widescreenpref))
 	return TRUE
@@ -25,6 +28,9 @@
 	description = "Разворачивает игру на весь экран, либо сворачивает обратно в нормальное положение."
 
 /datum/keybinding/client/fullscreen_toggle/down(client/user)
+	. = ..()
+	if(.)
+		return
 	user.prefs.fullscreen = !user.prefs.fullscreen
 	user.ToggleFullscreen()
 	return TRUE

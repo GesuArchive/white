@@ -1126,7 +1126,7 @@
 	maxcharge = 100
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | FREEZE_PROOF
 
-mob/living/carbon/human/key_down(_key, client/user)
+/mob/living/carbon/human/key_down(_key, client/user)
 	switch(_key)
 		if("C")
 			if(istype(wear_suit, /obj/item/clothing/suit/space/hardsuit/nano))
