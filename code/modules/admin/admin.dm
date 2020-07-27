@@ -824,7 +824,7 @@
 	SP.ui_interact(usr)
 
 /datum/admins/proc/view_boundingbox(atom/movable/A as obj|mob in world)
-	set category = "Debug"
+	set category = "Дбг"
 	set desc = "Display the bounding box of the item clicked"
 	set name = "Draw Bounding Box"
 
