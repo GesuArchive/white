@@ -115,7 +115,6 @@
 	icon_state = "admin"
 	screen_loc = ui_admin
 	allowed_categories = list("Адм", "Адс", "Дбг", "Срв", "Фан", "Маппинг", "Профайл")
-	ui_y = 500
 
 /obj/screen/verbbutton/admin/Click()
 	if(usr.client.holder)
@@ -127,7 +126,6 @@
 	icon_state = "main"
 	screen_loc = ui_main
 	allowed_categories = list("IC", "OOC", "Объект", "Призрак")
-	ui_y = 300
 
 /obj/screen/verbbutton/special
 	name = "Особое"
