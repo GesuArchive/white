@@ -73,8 +73,6 @@
 								"IC", "OOC", "Объект", "Призрак", "Особенное", "Настройки",
 								"Адм", "Адс", "Дбг", "Срв", "Фан"
 							)
-	var/ui_x = 450
-	var/ui_y = 400
 
 /obj/screen/verbbutton/Click()
 	ui_interact(usr)
@@ -82,7 +80,7 @@
 /obj/screen/verbbutton/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.always_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
-		ui = new(user, src, ui_key, "VerbMenu", name, ui_x, ui_y, master_ui, state)
+		ui = new(user, src, ui_key, "VerbMenu", name, master_ui, state)
 		ui.open()
 
 /obj/screen/verbbutton/ui_status(mob/user)

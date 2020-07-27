@@ -1,7 +1,5 @@
 /obj/item/clothing/glasses/monocle/map
 	name = "amplification lens"
-	var/ui_x = 350
-	var/ui_y = 350
 
 	var/map_name
 
@@ -99,7 +97,7 @@
 		user.client.register_map_obj(cam_plane_master)
 		user.client.register_map_obj(cam_background)
 
-		ui = new(user, src, ui_key, "MapWindow", name, ui_x, ui_y, master_ui, state)
+		ui = new(user, src, ui_key, "MapWindow", name, master_ui, state)
 		ui.open()
 
 	update_view()

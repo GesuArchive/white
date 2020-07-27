@@ -12,9 +12,6 @@
 	var/obj/item/card/data/music/disk
 	var/playing = FALSE
 
-	var/ui_x = 370
-	var/ui_y = 313
-
 /proc/open_sound_channel_for_boombox()
 	var/static/next_channel = CHANNEL_HIGHEST_AVAILABLE + 1
 	. = ++next_channel
@@ -119,7 +116,7 @@
 /obj/item/boombox/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.always_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
-		ui = new(user, src, ui_key, "BoomBox", name, ui_x, ui_y, master_ui, state)
+		ui = new(user, src, ui_key, "BoomBox", name, master_ui, state)
 		ui.open()
 
 /obj/item/boombox/ui_status(mob/user)

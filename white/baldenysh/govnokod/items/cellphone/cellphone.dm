@@ -15,8 +15,6 @@
 	w_class = WEIGHT_CLASS_TINY
 	attack_verb = list("звонит")
 	slot_flags = ITEM_SLOT_ID | ITEM_SLOT_BELT
-	var/ui_x = 264
-	var/ui_y = 600
 
 	var/obj/item/card/id/idc
 	var/obj/item/card/data/calling/cc
@@ -52,7 +50,7 @@
 /obj/item/cellphone/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.hands_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
-		ui = new(user, src, ui_key, "Cellphone", name, ui_x, ui_y, master_ui, state)
+		ui = new(user, src, ui_key, "Cellphone", name, master_ui, state)
 		ui.open()
 
 /obj/item/cellphone/ui_data(mob/user)

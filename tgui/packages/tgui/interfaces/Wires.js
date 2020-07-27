@@ -9,7 +9,7 @@ export const Wires = (props, context) => {
   const statuses = data.status || [];
   return (
     <Window
-      width={350}
+      width={400}
       height={150 + wires.length * 30}>
       <Window.Content>
         <Section>
