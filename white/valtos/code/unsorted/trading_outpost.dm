@@ -39,11 +39,10 @@
 /obj/machinery/trading_beacon/can_be_unfasten_wrench(mob/user, silent)
 	return FALSE
 
-/obj/machinery/trading_beacon/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, \
-											datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
+/obj/machinery/trading_beacon/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, ui_key, "Trader", name, master_ui, state)
+		ui = new(user, src, "Trader", name)
 		ui.open()
 
 /obj/machinery/trading_beacon/ui_data()
