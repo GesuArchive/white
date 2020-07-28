@@ -12,6 +12,9 @@
 	killcounter = new /datum/cs_killcounter
 	killcounter.owner = src
 
+	overlay_fullscreen("noise", /obj/screen/fullscreen/noisescreen)
+	add_client_colour(/datum/client_colour/correction)
+
 	AddComponent(/datum/component/battletension)
 
 /mob/living/prepare_huds()

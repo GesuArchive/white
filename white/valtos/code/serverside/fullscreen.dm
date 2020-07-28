@@ -12,6 +12,7 @@
 	name = "widecreen_toggle"
 	full_name = "Widescreen"
 	description = "Делает экран широким (19x15), либо узким (15x15)."
+	keybind_signal = COMSIG_KB_CLIENT_WIDESCREEN
 
 /datum/keybinding/client/widecreen_toggle/down(client/user)
 	. = ..()
@@ -26,6 +27,7 @@
 	name = "fullscreen_toggle"
 	full_name = "Fullscreen"
 	description = "Разворачивает игру на весь экран, либо сворачивает обратно в нормальное положение."
+	keybind_signal = COMSIG_KB_CLIENT_FULLSCREEN
 
 /datum/keybinding/client/fullscreen_toggle/down(client/user)
 	. = ..()

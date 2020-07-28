@@ -82,3 +82,6 @@
 //White
 #define COMSIG_KB_MOB_SAY_DOWN "keybinding_mob_say_down"
 #define COMSIG_KB_MOB_ME_DOWN "keybinding_mob_me_down"
+
+#define COMSIG_KB_CLIENT_FULLSCREEN "keybinding_client_fullscreen"
+#define COMSIG_KB_CLIENT_WIDESCREEN "keybinding_client_widescreen"

@@ -21,6 +21,7 @@
 /datum/atom_hud/hacker
 	hud_icons = list(HACKER_HUD)
 
+/*
 /mob/living/Initialize()
 	. = ..()
 	if(!src)
@@ -29,6 +30,7 @@
 	hhud.add_to_hud(src)
 	hud_list[HACKER_HUD].icon = image('white/valtos/icons/dz-031.dmi', src)
 	hud_list[HACKER_HUD].icon_state = "node"
+*/
 
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
