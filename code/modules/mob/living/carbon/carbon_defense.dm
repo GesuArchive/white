@@ -99,7 +99,7 @@
 		return TRUE //successful attack
 
 /mob/living/carbon/send_item_attack_message(obj/item/I, mob/living/user, hit_area, obj/item/bodypart/hit_bodypart)
-	var/message_verb = "attacked"
+	var/message_verb = "бьёт"
 	if(length(I.attack_verb))
 		message_verb = "[pick(I.attack_verb)]"
 	else if(!I.force)
@@ -110,22 +110,22 @@
 		var/mangled_state = hit_bodypart.get_mangled_state()
 		var/bio_state = get_biological_state()
 		if(mangled_state == BODYPART_MANGLED_BOTH)
-			extra_wound_details = ", threatening to sever it entirely"
+			extra_wound_details = ", угрожая разорвать полностью"
 		else if((mangled_state == BODYPART_MANGLED_FLESH && I.get_sharpness()) || (mangled_state & BODYPART_MANGLED_BONE && bio_state == BIO_JUST_BONE))
-			extra_wound_details = ", [I.get_sharpness() == SHARP_EDGED ? "slicing" : "piercing"] through to the bone"
+			extra_wound_details = ", [I.get_sharpness() == SHARP_EDGED ? "прорезаясь" : "протыкая"] до костей"
 		else if((mangled_state == BODYPART_MANGLED_BONE && I.get_sharpness()) || (mangled_state & BODYPART_MANGLED_FLESH && bio_state == BIO_JUST_FLESH))
-			extra_wound_details = ", [I.get_sharpness() == SHARP_EDGED ? "slicing" : "piercing"] at the remaining tissue"
+			extra_wound_details = ", [I.get_sharpness() == SHARP_EDGED ? "прорезаясь через" : "протыкая"] оставшуюся плоть"
 
 	var/message_hit_area = ""
 	if(hit_area)
-		message_hit_area = " in the [hit_area]"
-	var/attack_message = "[src] is [message_verb][message_hit_area] with [I][extra_wound_details]!"
-	var/attack_message_local = "You're [message_verb][message_hit_area] with [I][extra_wound_details]!"
+		message_hit_area = " в [ru_parse_zone(hit_area)]"
+	var/attack_message = "<b>[src]</b> [message_verb] в [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>[extra_wound_details]!"
+	var/attack_message_local = "[capitalize(message_verb)] [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>[extra_wound_details]!"
 	if(user in viewers(src, null))
-		attack_message = "[user] [message_verb] [src][message_hit_area] with [I][extra_wound_details]!"
-		attack_message_local = "[user] [message_verb] you[message_hit_area] with [I][extra_wound_details]!"
+		attack_message = "<b>[user]</b> [message_verb] <b>[sklonenie(src.name, VINITELNI, gender)]</b> в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)][extra_wound_details]!"
+		attack_message_local = "<b>[user]</b> [message_verb] <b>меня</b> в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)][extra_wound_details]!"
 	if(user == src)
-		attack_message_local = "You [message_verb] yourself[message_hit_area] with [I][extra_wound_details]"
+		attack_message_local = "Моё великолепие [message_verb] себя в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)][extra_wound_details]"
 	visible_message("<span class='danger'>[attack_message]</span>",\
 		"<span class='userdanger'>[attack_message_local]</span>", null, COMBAT_MESSAGE_RANGE)
 	return TRUE
