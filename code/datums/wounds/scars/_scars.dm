@@ -54,9 +54,9 @@
 			LAZYADD(victim.all_scars, src)
 
 	if(victim && victim.get_biological_state() == BIO_JUST_BONE)
-		description = pick(strings(BONE_SCAR_FILE, W.scar_keyword)) || "general disfigurement"
+		description = pick(strings(BONE_SCAR_FILE, W.scar_keyword)) || "общее обезображивание"
 	else
-		description = pick(strings(FLESH_SCAR_FILE, W.scar_keyword)) || "general disfigurement"
+		description = pick(strings(FLESH_SCAR_FILE, W.scar_keyword)) || "общее обезображивание"
 
 	precise_location = pick(strings(SCAR_LOC_FILE, limb.body_zone))
 	switch(W.severity)
