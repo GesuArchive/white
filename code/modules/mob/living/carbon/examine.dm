@@ -57,9 +57,9 @@
 
 	for(var/t in missing)
 		if(t==BODY_ZONE_HEAD)
-			msg += "<span class='deadsay'><B>[ru_ego(TRUE)] [parse_zone(t)] отсутствует!</B></span>"
+			msg += "<span class='deadsay'><B>[ru_ego(TRUE)] [parse_zone(t)] отсутствует!</B></span>\n"
 			continue
-		msg += "<span class='warning'><B>[ru_ego(TRUE)] [parse_zone(t)] отсутствует!</B></span>"
+		msg += "<span class='warning'><B>[ru_ego(TRUE)] [parse_zone(t)] отсутствует!</B></span>\n"
 
 	var/temp = getBruteLoss()
 	if(!(user == src && src.hal_screwyhud == SCREWYHUD_HEALTHY)) //fake healthy

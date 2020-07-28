@@ -317,15 +317,15 @@
 
 		switch(num_bleeds)
 			if(1 to 2)
-				bleed_text += " [bleeding_limbs[1].name][num_bleeds == 2 ? " и [bleeding_limbs[2].name]" : ""]"
+				bleed_text += " [ru_gde_zone(bleeding_limbs[1].name)][num_bleeds == 2 ? " и [ru_gde_zone(bleeding_limbs[2].name)]" : ""]"
 			if(3 to INFINITY)
 				for(var/i in 1 to (num_bleeds - 1))
 					var/obj/item/bodypart/BP = bleeding_limbs[i]
-					bleed_text += " [BP.name],"
-				bleed_text += " и [bleeding_limbs[num_bleeds].name]"
+					bleed_text += " [ru_gde_zone(BP.name)],"
+				bleed_text += " и [ru_gde_zone(bleeding_limbs[num_bleeds].name)]"
 
 		if(appears_dead)
-			bleed_text += ", но похоже всё вытекло.</span></B>\n"
+			bleed_text += ", но похоже уже замедляется.</span></B>\n"
 		else
 			if(reagents.has_reagent(/datum/reagent/toxin/heparin, needs_metabolizing = TRUE))
 				bleed_text += " невероятно быстро"
