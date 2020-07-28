@@ -118,7 +118,7 @@
 
 	var/message_hit_area = ""
 	if(hit_area)
-		message_hit_area = " в [ru_parse_zone(hit_area)]"
+		message_hit_area = "[ru_parse_zone(hit_area)]"
 	var/attack_message = "<b>[src]</b> [message_verb] в [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>[extra_wound_details]!"
 	var/attack_message_local = "[capitalize(message_verb)] [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>[extra_wound_details]!"
 	if(user in viewers(src, null))
