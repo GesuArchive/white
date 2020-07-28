@@ -14,5 +14,5 @@
 	embed_falloff_tile = -5
 
 /obj/projectile/bullet/smite
-	name = "divine retribution"
+	name = "божественное воздаяние"
 	damage = 10
