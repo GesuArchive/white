@@ -13,7 +13,7 @@
 	D.set_vehicle_dir_offsets(EAST, -18, 0)
 	D.set_vehicle_dir_offsets(WEST, -18, 0)
 
-/datum/supply_pack/organic/hydroponics/hydrotank
+/datum/supply_pack/misc/car
 	name = "контейнер с дрифткаром"
 	desc = "Содержит целую машину. Охуеть."
 	cost = 50000
