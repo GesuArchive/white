@@ -127,6 +127,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	var/on = FALSE
 	var/datum/effect_system/trail_follow/ion/ion_trail
+	var/consumption = 0.0025
 
 /obj/item/organ/cyberimp/chest/thrusters/Insert(mob/living/carbon/M, special = 0)
 	. = ..()
@@ -152,14 +153,15 @@
 		if(allow_thrust(0.01))
 			on = TRUE
 			ion_trail.start()
-			RegisterSignal(owner, COMSIG_MOVABLE_MOVED, .proc/move_react)
+			ion_trail.set_up(owner)
+			RegisterSignal(owner, COMSIG_MOVABLE_MOVED_TURF, .proc/move_react)
 			owner.add_movespeed_modifier(/datum/movespeed_modifier/jetpack/cybernetic)
 			RegisterSignal(owner, COMSIG_MOVABLE_PRE_MOVE, .proc/pre_move_react)
 			if(!silent)
 				to_chat(owner, "<span class='notice'>You turn your thrusters set on.</span>")
 	else
 		ion_trail.stop()
-		UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
+		UnregisterSignal(owner, COMSIG_MOVABLE_MOVED_TURF)
 		owner.remove_movespeed_modifier(/datum/movespeed_modifier/jetpack/cybernetic)
 		UnregisterSignal(owner, COMSIG_MOVABLE_PRE_MOVE)
 		if(!silent)
@@ -190,7 +192,7 @@
 		allow_thrust(0.01)
 
 /obj/item/organ/cyberimp/chest/thrusters/proc/pre_move_react()
-	ion_trail.oldposition = get_turf(owner)
+	//ion_trail.oldposition = get_turf(owner)
 
 /obj/item/organ/cyberimp/chest/thrusters/proc/allow_thrust(num)
 	if(!owner)
@@ -217,7 +219,7 @@
 	var/obj/item/tank/I = owner.internal
 	if(I && I.air_contents && I.air_contents.total_moles() > num)
 		var/datum/gas_mixture/removed = I.air_contents.remove(num)
-		if(removed.total_moles() > 0.005)
+		if(removed.total_moles() > num/2)
 			T.assume_air(removed)
 			ion_trail.generate_effect()
 			return TRUE
