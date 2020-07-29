@@ -150,6 +150,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	READ_FILE(S["purchased_gear"], purchased_gear)
 	READ_FILE(S["equipped_gear"], equipped_gear)
+	READ_FILE(S["w_toggles"], w_toggles)
 
 	// Custom hotkeys
 	READ_FILE(S["key_bindings"], key_bindings)
