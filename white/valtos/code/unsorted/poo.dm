@@ -54,7 +54,7 @@
 /datum/component/decal/poo
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 
-/datum/component/decal/poo/Initialize(_icon, _icon_state, _dir, _cleanable=CLEAN_STRENGTH_BLOOD, _color, _layer=ABOVE_OBJ_LAYER)
+/datum/component/decal/poo/Initialize(_icon, _icon_state, _dir, _cleanable=CLEAN_TYPE_BLOOD, _color, _layer=ABOVE_OBJ_LAYER)
 	if(!isitem(parent))
 		return COMPONENT_INCOMPATIBLE
 	. = ..()
