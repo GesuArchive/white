@@ -2712,10 +2712,6 @@
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/two)
 "kw" = (
-/obj/item/storage/bag/easterbasket{
-	name = "picnic basket";
-	pixel_y = 6
-	},
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -8913,7 +8909,7 @@
 /turf/closed/indestructible{
 	icon = 'icons/turf/walls/wood_wall.dmi';
 	icon_state = "wood";
-	smooth = 1
+	smoothing_flags = 1
 	},
 /area/centcom/holding)
 "EP" = (
@@ -9251,7 +9247,7 @@
 /turf/closed/indestructible{
 	icon = 'icons/turf/walls/wood_wall.dmi';
 	icon_state = "wood";
-	smooth = 1
+	smoothing_flags = 1
 	},
 /area/centcom/holding)
 "FN" = (
@@ -9264,7 +9260,7 @@
 /turf/closed/indestructible{
 	icon = 'icons/turf/walls/wood_wall.dmi';
 	icon_state = "wood";
-	smooth = 1
+	smoothing_flags = 1
 	},
 /area/centcom/holding)
 "FQ" = (
@@ -9272,7 +9268,7 @@
 /turf/closed/indestructible{
 	icon = 'icons/turf/walls/wood_wall.dmi';
 	icon_state = "wood";
-	smooth = 1
+	smoothing_flags = 1
 	},
 /area/centcom/holding)
 "FR" = (
@@ -12100,9 +12096,6 @@
 /obj/machinery/iv_drip,
 /obj/item/roller,
 /obj/item/storage/firstaid/regular,
-/obj/item/reagent_containers/medigel/instabitaluri,
-/obj/item/reagent_containers/medigel/instabitaluri,
-/obj/item/reagent_containers/medigel/instabitaluri,
 /turf/open/floor/wood,
 /area/centcom/holding)
 "Oc" = (
@@ -12942,7 +12935,7 @@
 /turf/closed/indestructible{
 	icon = 'icons/turf/walls/wood_wall.dmi';
 	icon_state = "wood";
-	smooth = 1
+	smoothing_flags = 1
 	},
 /area/centcom/holding)
 "QJ" = (

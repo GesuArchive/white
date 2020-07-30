@@ -8,7 +8,7 @@
 	icon = 'icons/turf/walls/abductor_wall.dmi';
 	icon_state = "abductor";
 	name = "alien wall";
-	smooth = 5
+	smoothing_flags = 5
 	},
 /area/mafia)
 "g" = (
