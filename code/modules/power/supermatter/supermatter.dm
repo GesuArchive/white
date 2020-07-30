@@ -919,12 +919,12 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 
 /obj/machinery/power/supermatter_crystal/Bumped(atom/movable/AM)
 	if(isliving(AM))
-		AM.visible_message("<span class='danger'><b>[capitalize(AM)]</b> влетает в <b>[src.name]</b> вызывая резонанс... [AM.ru_ego()] тело начинает светиться и загораться, прежде чем превратиться в пыль!</span>",\
+		AM.visible_message("<span class='danger'><b>[capitalize(AM.name)]</b> влетает в <b>[src.name]</b> вызывая резонанс... [AM.ru_ego()] тело начинает светиться и загораться, прежде чем превратиться в пыль!</span>",\
 		"<span class='userdanger'>Влетаю в <b>[src.name]</b>, уши наполнены неземным звоном. Ну бл~</span>",\
 		"<span class='hear'>Слышу неземной шум, когда волна тепла охватывает меня.</span>")
 		inc_metabalance(AM, METACOIN_SUPERDEATH_REWARD, reason="Умер ужасной смертью.")
 	else if(isobj(AM) && !iseffect(AM))
-		AM.visible_message("<span class='danger'><b>[capitalize(AM)]</b> влетает в <b>[src.name]</b> и превращается в пепел.</span>", null,\
+		AM.visible_message("<span class='danger'><b>[capitalize(AM.name)]</b> влетает в <b>[src.name]</b> и превращается в пепел.</span>", null,\
 		"<span class='hear'>Слышу громкий треск, когда меня омывает волна тепла.</span>")
 	else
 		return
