@@ -13,7 +13,7 @@
 	icon = 'icons/turf/mining.dmi'
 	var/smooth_icon = 'white/valtos/icons/lifeweb/caves_fuck.dmi'
 	icon_state = "rock"
-	smooth = SMOOTH_MORE|SMOOTH_BORDER
+	smoothing_flags = SMOOTH_MORE|SMOOTH_BORDER
 	canSmoothWith = null
 	baseturfs = /turf/open/floor/plating/asteroid/airless
 	initial_gas_mix = AIRLESS_ATMOS

@@ -127,7 +127,7 @@
 	icon = 'white/valtos/icons/prison/beton.dmi'
 	floor_tile = /obj/item/stack/tile/beton
 	broken_states = list("damaged")
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor/beton)
 	flags_1 = NONE
 	baseturfs = /turf/open/floor/plating/beach/sand
@@ -140,11 +140,11 @@
 	if(!..())
 		return 0
 	if(!broken && !burnt)
-		if(smooth)
+		if(smoothing_flags)
 			QUEUE_SMOOTH(src)
 	else
 		make_plating()
-		if(smooth)
+		if(smoothing_flags)
 			QUEUE_SMOOTH_NEIGHBORS(src)
 
 /******************Structures***************************/
@@ -486,7 +486,7 @@
 	desc = "Самый обычный стол из дерева, ничего интересного."
 	icon = 'white/valtos/icons/prison/decor.dmi'
 	icon_state = "table"
-	smooth = SMOOTH_FALSE
+	smoothing_flags = SMOOTH_FALSE
 	deconstruction_ready = 0
 	max_integrity = 1000
 

@@ -40,14 +40,14 @@
 	name = "durawall"
 	desc = "Durable metal wall."
 	icon = 'white/valtos/icons/walls.dmi'
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(/turf/closed/wall/partyhard, /turf/closed/wall/r_wall/partyhard, /obj/machinery/door/airlock/, /obj/structure/window/fulltile, /obj/structure/window/reinforced/fulltile)
 
 /turf/closed/wall/r_wall/partyhard
 	name = "durable reinforced wall"
 	desc = "A huge chunk of durable reinforced metal."
 	icon = 'white/valtos/icons/r_walls.dmi'
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(/turf/closed/wall/r_wall/partyhard, /turf/closed/wall/partyhard, /obj/machinery/door/airlock/, /obj/structure/window/fulltile, /obj/structure/window/reinforced/fulltile)
 
 /obj/structure/window/reinforced/fulltile/partyhard
@@ -66,7 +66,7 @@
 	icon = 'icons/turf/mining.dmi'
 	smooth_icon = 'icons/turf/walls/rock_wall.dmi'
 	icon_state = "rock2"
-	smooth = SMOOTH_MORE|SMOOTH_BORDER
+	smoothing_flags = SMOOTH_MORE|SMOOTH_BORDER
 	canSmoothWith = list (/turf/closed)
 	baseturfs = /turf/open/floor/plating/ashplanet/rocky
 	environment_type = "waste"
@@ -164,7 +164,7 @@
 	gender = PLURAL
 	name = "ash"
 	icon_state = "ash"
-	smooth = SMOOTH_MORE|SMOOTH_BORDER
+	smoothing_flags = SMOOTH_MORE|SMOOTH_BORDER
 	var/smooth_icon = 'icons/turf/floors/ash.dmi'
 	desc = "The ground is covered in volcanic ash."
 	baseturfs = /turf/open/floor/plating/partyhard
@@ -178,7 +178,7 @@
 	tiled_dirt = FALSE
 
 /turf/open/floor/plating/partyhard/Initialize()
-	if(smooth)
+	if(smoothing_flags)
 		var/matrix/M = new
 		M.Translate(-4, -4)
 		transform = M

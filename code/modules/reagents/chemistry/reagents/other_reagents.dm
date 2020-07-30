@@ -1082,8 +1082,8 @@
 
 /datum/reagent/space_cleaner/expose_mob(mob/living/M, method=TOUCH, reac_volume)
 	if(method == TOUCH || method == VAPOR)
-		H.wash_poo()
-		H.headstamp = null
+		M.wash_poo()
+		M.headstamp = null
 		M.wash(clean_types)
 
 /datum/reagent/space_cleaner/ez_clean
