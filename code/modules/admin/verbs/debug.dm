@@ -917,7 +917,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 /// A debug verb to check the sources of currently running timers
 /client/proc/check_timer_sources()
-	set category = "Debug"
+	set category = "Дбг"
 	set name = "Check Timer Sources"
 	set desc = "Checks the sources of the running timers"
 	if (!check_rights(R_DEBUG))
