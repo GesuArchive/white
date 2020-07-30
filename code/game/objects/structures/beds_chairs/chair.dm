@@ -1,7 +1,7 @@
 /obj/structure/chair
 	name = "стул"
 	desc = "На нём можно сидеть."
-	icon = 'icons/obj/chairs.dmi'
+	icon = 'white/valtos/icons/chairs.dmi'
 	icon_state = "chair"
 	anchored = TRUE
 	can_buckle = TRUE
@@ -134,9 +134,10 @@
 
 
 /obj/structure/chair/wood
-	icon_state = "wooden_chair"
 	name = "деревянный стул"
 	desc = "Старое никогда не бывает слишком старым, чтобы не быть в моде."
+	icon = 'icons/obj/chairs.dmi'
+	icon_state = "wooden_chair"
 	resistance_flags = FLAMMABLE
 	max_integrity = 70
 	buildstacktype = /obj/item/stack/sheet/mineral/wood
@@ -153,6 +154,7 @@
 /obj/structure/chair/comfy
 	name = "удобный стул"
 	desc = "Это выглядит удобно."
+	icon = 'icons/obj/chairs.dmi'
 	icon_state = "comfychair"
 	color = rgb(255,255,255)
 	resistance_flags = FLAMMABLE
@@ -263,7 +265,7 @@
 /obj/item/chair
 	name = "стул"
 	desc = "Особенность потасовок в баре."
-	icon = 'icons/obj/chairs.dmi'
+	icon = 'white/valtos/icons/chairs.dmi'
 	icon_state = "chair_toppled"
 	inhand_icon_state = "chair"
 	lefthand_file = 'icons/mob/inhands/misc/chairs_lefthand.dmi'
@@ -351,6 +353,7 @@
 
 /obj/item/chair/stool
 	name = "табуретка"
+	icon = 'white/valtos/icons/chairs.dmi'
 	icon_state = "stool_toppled"
 	inhand_icon_state = "stool"
 	origin_type = /obj/structure/chair/stool
@@ -358,6 +361,7 @@
 
 /obj/item/chair/stool/bar
 	name = "барный стул"
+	icon = 'icons/obj/chairs.dmi'
 	icon_state = "bar_toppled"
 	inhand_icon_state = "stool_bar"
 	origin_type = /obj/structure/chair/stool/bar
@@ -367,6 +371,7 @@
 
 /obj/item/chair/wood
 	name = "деревянный стул"
+	icon = 'icons/obj/chairs.dmi'
 	icon_state = "wooden_chair_toppled"
 	inhand_icon_state = "woodenchair"
 	resistance_flags = FLAMMABLE
@@ -386,6 +391,7 @@
 /obj/structure/chair/old
 	name = "странный стул"
 	desc = "На нём можно сидеть. Выглядит ОЧЕНЬ комфортным."
+	icon = 'icons/obj/chairs.dmi'
 	icon_state = "chairold"
 	item_chair = null
 
@@ -393,6 +399,7 @@
 	name = "бронзовый стул"
 	desc = "Кругленький стул из бронзы. У него маленькие винтики для колес!"
 	anchored = FALSE
+	icon = 'icons/obj/chairs.dmi'
 	icon_state = "brass_chair"
 	buildstacktype = /obj/item/stack/tile/bronze
 	buildstackamount = 1
@@ -446,9 +453,10 @@
 
 
 /obj/structure/chair/plastic
-	icon_state = "plastic_chair"
 	name = "складной пластиковый стул"
 	desc = "Независимо от того, сколько вы корчитесь, это все равно будет неудобно."
+	icon = 'icons/obj/chairs.dmi'
+	icon_state = "plastic_chair"
 	resistance_flags = FLAMMABLE
 	max_integrity = 50
 	custom_materials = list(/datum/material/plastic = 2000)
