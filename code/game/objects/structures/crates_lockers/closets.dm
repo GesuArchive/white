@@ -3,6 +3,7 @@
 	desc = "It's a basic storage unit."
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "generic"
+	layer = ABOVE_MOB_LAYER
 	density = TRUE
 	drag_slowdown = 1.5		// Same as a prone mob
 	max_integrity = 200
@@ -64,7 +65,7 @@
 	if (istype(src, /obj/structure/closet/supplypod))
 		return
 	if(!opened)
-		layer = OBJ_LAYER
+		layer = ABOVE_MOB_LAYER
 	else
 		layer = BELOW_OBJ_LAYER
 
