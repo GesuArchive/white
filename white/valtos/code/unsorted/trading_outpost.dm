@@ -137,7 +137,7 @@
 	var/list/empty_turfs = list()
 	var/area/trading_outpost/transfer/A = GLOB.areas_by_type[/area/trading_outpost/transfer]
 	for(var/turf/T in A)
-		if(is_blocked_turf(T))
+		if(T.is_blocked_turf(FALSE))
 			continue
 		empty_turfs += T
 	var/value = 0

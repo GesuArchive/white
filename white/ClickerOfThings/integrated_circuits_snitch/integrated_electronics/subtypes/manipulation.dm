@@ -468,7 +468,7 @@
 				var/turf/F = get_step_towards(Pl,G)
 				if(acting_object.Adjacent(F))
 					if(!step_towards(pullee, F))
-						F = get_step_towards2(Pl,G)
+						F = get_step_towards(Pl,G)
 						if(acting_object.Adjacent(F))
 							step_towards(pullee, F)
 	activate_pin(2)
