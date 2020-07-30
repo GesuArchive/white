@@ -18,7 +18,7 @@
 	untrack()
 	tracked = target
 	src.listener = listener
-	
+
 	while(ismovable(target))
 		RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/move_react)
 		target = target.loc
@@ -37,14 +37,12 @@
   * This works by detecting movement of either the tracked object, or anything it is inside, recursively
   */
 /datum/movement_detector/proc/move_react(atom/movable/mover, atom/oldloc, direction)
-	var/turf/newturf = get_turf(tracked)
-	
 	if(oldloc && !isturf(oldloc))
 		var/atom/target = oldloc
 		while(ismovable(target))
 			UnregisterSignal(target, COMSIG_MOVABLE_MOVED)
 			target = target.loc
-	if(tracked.loc != newturf)
+	else
 		var/atom/target = mover.loc
 		while(ismovable(target))
 			RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/move_react, TRUE)

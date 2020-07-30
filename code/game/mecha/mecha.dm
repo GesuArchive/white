@@ -120,7 +120,8 @@
 
 	var/occupant_sight_flags = 0 //sight flags to give to the occupant (e.g. mech mining scanner gives meson-like vision)
 	var/mouse_pointer
-	var/sound_cooldown = 0
+	COOLDOWN_DECLARE(sound_cooldown)
+	COOLDOWN_DECLARE(turn_cooldown)
 
 	hud_possible = list (DIAG_STAT_HUD, DIAG_BATT_HUD, DIAG_MECH_HUD, DIAG_TRACK_HUD, HACKER_HUD)
 
@@ -541,8 +542,8 @@
 
 ///Plays the mech step sound effect. Split from movement procs so that other mechs (HONK) can override this one specific part.
 /obj/mecha/proc/play_stepsound()
-	if(stepsound && sound_cooldown < world.time)
-		sound_cooldown = world.time + 0.5 SECONDS
+	if(stepsound && COOLDOWN_FINISHED(src, sound_cooldown))
+		COOLDOWN_START(src, sound_cooldown, 0.5 SECONDS)
 		playsound(src,stepsound,40,1)
 
 /obj/mecha/Move(atom/newloc, direct)
@@ -627,7 +628,8 @@
 
 /obj/mecha/proc/mechturn(direction)
 	setDir(direction)
-	if(turnsound)
+	if(turnsound && COOLDOWN_FINISHED(src, turn_cooldown))
+		COOLDOWN_START(src, turn_cooldown, 0.25 SECONDS)
 		playsound(src,turnsound,40,TRUE)
 	return 1
 
@@ -651,8 +653,11 @@
 		last_phase = world.time + 0.2 SECONDS
 		if(phase_state)
 			flick(phase_state, src)
-		forceMove(get_step(src,dir))
-		use_power(phasing_energy_drain)
+		var/oldflags = pass_flags
+		pass_flags = PASSALL
+		step(src, dir, 4)
+		pass_flags = oldflags
+		use_power(phasing_energy_drain / 8) //we phased 1/8th of a tile
 	else
 		if(..()) //mech was thrown
 			return

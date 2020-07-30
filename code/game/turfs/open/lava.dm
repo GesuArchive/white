@@ -36,7 +36,8 @@
 /turf/open/lava/airless
 	initial_gas_mix = AIRLESS_ATMOS
 
-/turf/open/lava/Entered(atom/movable/AM)
+/turf/open/lava/Cross(atom/movable/AM)
+	. = ..()
 	if(burn_stuff(AM))
 		START_PROCESSING(SSobj, src)
 
@@ -182,7 +183,7 @@
 	baseturfs = /turf/open/lava/smooth
 	icon = 'icons/turf/floors/lava.dmi'
 	icon_state = "unsmooth"
-	smooth = SMOOTH_MORE | SMOOTH_BORDER
+	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER
 	canSmoothWith = list(/turf/open/lava/smooth)
 
 /turf/open/lava/smooth/lava_land_surface

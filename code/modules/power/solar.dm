@@ -241,6 +241,9 @@
 			to_chat(user, "<span class='warning'>Вы не можете прикрутить [src] тут.</span>")
 			return
 		set_anchored(!anchored)
+		if(anchored)
+			forceMove(nearest_turf(src))
+			forceStep(null, 0, 0)
 		user.visible_message("<span class='notice'>[user] [anchored ? "при" : "от"]кручивает основание солнечной панели.</span>", "<span class='notice'>[anchored ? "При" : "от"]кручиваю основание солнечной панели.</span>")
 		W.play_tool_sound(src, 75)
 		return TRUE

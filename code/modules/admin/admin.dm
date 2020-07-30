@@ -75,6 +75,11 @@
 		body += "<br><br>Country: [M.client.get_loc_info()["country"]]"
 		if(check_rights(R_PERMISSIONS, show_msg = FALSE))
 			body += " | City: [M.client.get_loc_info()["city"]]"
+		body += "<br><br><b>CentCom Galactic Ban DB: </b> "
+		if(CONFIG_GET(string/centcom_ban_db))
+			body += "<a href='?_src_=holder;[HrefToken()];centcomlookup=[M.client.ckey]'>Search</a>"
+		else
+			body += "<i>Disabled</i>"
 		var/rep = 0
 		rep += SSpersistence.antag_rep[M.ckey]
 		body += "<br><br>Antagonist reputation: [rep]"

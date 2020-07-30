@@ -1,8 +1,8 @@
 /atom/movable
 	layer = OBJ_LAYER
-	appearance_flags = TILE_BOUND|PIXEL_SCALE
+	appearance_flags = LONG_GLIDE|PIXEL_SCALE
 	// Movement related vars
-	step_size = 32
+	step_size = 8
 	//PIXEL MOVEMENT VARS
 	/// stores fractional pixel movement in the x
 	var/fx
@@ -230,8 +230,10 @@
 	pulling = AM
 	AM.pulledby = src
 	setGrabState(state)
+	AM.step_size = step_size
 	if(ismob(AM))
 		var/mob/M = AM
+		M.update_movespeed() // set the proper step_size
 		log_combat(src, M, "grabbed", addition="passive grab")
 		if(!supress_message)
 			M.visible_message("<span class='warning'>[src] grabs [M] passively.</span>", \
@@ -245,9 +247,11 @@
 	var/atom/movable/ex_pulled = pulling
 	pulling = null
 	setGrabState(0)
+	ex_pulled.step_size = initial(ex_pulled.step_size)
 	if(isliving(ex_pulled))
 		var/mob/living/L = ex_pulled
 		L.update_mobility()// mob gets up if it was lyng down in a chokehold
+		L.update_movespeed() // set their movespeed to the usual
 
 /atom/movable/proc/Move_Pulled(atom/A, params)
 	if(!check_pulling())
@@ -323,9 +327,13 @@
 		else
 			angle -= min(ANGLE_ADJUST, tempA)
 	angle = SIMPLIFY_DEGREES(angle)
+	var/direct = angle2dir(angle)
 	if(!degstep(pulling, angle, distance-8))
-		return step_towards(pulling, src, distance-8)
-	return TRUE
+		for(var/i in GLOB.cardinals)
+			if(direct & i)
+				if(step(pulling, i))
+					return TRUE
+	return FALSE
 
 #undef ANGLE_ADJUST
 /**
@@ -336,7 +344,7 @@
   * Returns TRUE and allows movement if the object we're pulling is in range.
   */
 /atom/movable/proc/handle_pulled_premove(atom/newloc, direct, _step_x, _step_y)
-	if((bounds_dist(src, pulling) > 24 + step_size) && !(direct & GET_PIXELDIR(src, pulling)))
+	if((bounds_dist(src, pulling) > 16 + step_size) && !(direct & GET_PIXELDIR(src, pulling)))
 		return FALSE
 	return TRUE
 
@@ -808,7 +816,7 @@
 	for(var/m in buckled_mobs)
 		var/mob/living/buckled_mob = m
 		if(!buckled_mob.Move(newloc, direct, _step_x, _step_y))
-			forceMove(buckled_mob.loc)
+			forceMove(buckled_mob.loc, buckled_mob.step_x, buckled_mob.step_y)
 			last_move = buckled_mob.last_move
 			inertia_dir = last_move
 			buckled_mob.inertia_dir = last_move

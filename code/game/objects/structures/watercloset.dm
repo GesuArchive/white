@@ -279,12 +279,8 @@
 
 	busy = FALSE
 
-	user.visible_message("<span class='notice'>[user] washes [user.p_their()] [washing_face ? "face" : "hands"] using [src].</span>", \
-						"<span class='notice'>You wash your [washing_face ? "face" : "hands"] using [src].</span>")
-
-
 	if(washing_face)
-		SEND_SIGNAL(user, COMSIG_COMPONENT_CLEAN_FACE_ACT, CLEAN_STRENGTH_BLOOD)
+		SEND_SIGNAL(user, COMSIG_COMPONENT_CLEAN_FACE_ACT, CLEAN_WASH)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			H.lip_style = null //Washes off lipstick
@@ -292,8 +288,16 @@
 			H.headstamp = null
 			H.regenerate_icons()
 		user.drowsyness = max(user.drowsyness - rand(2,3), 0) //Washing your face wakes you up if you're falling asleep
+	else if(ishuman(user))
+		var/mob/living/carbon/human/human_user = user
+		if(!human_user.wash_hands(CLEAN_WASH))
+			to_chat(user, "<span class='warning'>Your hands are covered by something!</span>")
+			return
 	else
-		user.washed(src)
+		user.wash(CLEAN_WASH)
+
+	user.visible_message("<span class='notice'>[user] washes [user.p_their()] [washing_face ? "face" : "hands"] using [src].</span>", \
+						"<span class='notice'>You wash your [washing_face ? "face" : "hands"] using [src].</span>")
 
 /obj/structure/sink/attackby(obj/item/O, mob/living/user, params)
 	if(busy)
@@ -358,7 +362,7 @@
 			busy = FALSE
 			return 1
 		busy = FALSE
-		O.washed(src)
+		O.wash(CLEAN_WASH)
 		O.acid_level = 0
 		create_reagents(5)
 		reagents.add_reagent(dispensedreagent, 5)
