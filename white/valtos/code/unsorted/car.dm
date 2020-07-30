@@ -1,9 +1,9 @@
-/obj/vehicle/ridden/space/driftcar
+/obj/vehicle/sealed/car/driftcar
 	name = "Дрифткар"
 	icon = 'white/valtos/icons/vehicles.dmi'
 	icon_state = "car"
 
-/obj/vehicle/ridden/space/driftcar/Initialize()
+/obj/vehicle/sealed/car/driftcar/Initialize()
 	. = ..()
 	var/datum/component/riding/D = LoadComponent(/datum/component/riding)
 	D.set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, -8), TEXT_SOUTH = list(0, 4), TEXT_EAST = list(-10, 5), TEXT_WEST = list( 10, 5)))
@@ -17,6 +17,6 @@
 	name = "контейнер с дрифткаром"
 	desc = "Содержит целую машину. Охуеть."
 	cost = 50000
-	contains = list(/obj/vehicle/ridden/space/driftcar)
+	contains = list(/obj/vehicle/sealed/car/driftcar)
 	crate_name = "блюспейс ящик"
 	crate_type = /obj/structure/closet/crate
