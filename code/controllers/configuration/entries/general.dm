@@ -508,11 +508,6 @@
 /datum/config_entry/string/metacurrency_name
 	config_entry_value = "MetaCoin"
 
-/datum/config_entry/flag/enable_demo
-	protection = CONFIG_ENTRY_LOCKED
-
-/datum/config_entry/string/centcom_ban_db	// URL for the CentCom Galactic Ban DB API
-
 // DISCORD ROLE STUFFS
 // Using strings for everything because BYOND does not like numbers this big
 // (exception to the above is required living hours haha)

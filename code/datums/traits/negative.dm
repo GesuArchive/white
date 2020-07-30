@@ -260,7 +260,7 @@
 	name = "Хилый"
 	desc = "Ваши кости как-будто сделаны из стекла! Ваши конечности не смогут выдержать много повреждений."
 	value = -2
-	mob_trait = TRAIT_EASYLIMBDISABLE
+	mob_trait = TRAIT_EASYLIMBWOUND
 	gain_text = "<span class='danger'>Я чувствую себя слабым.</span>"
 	lose_text = "<span class='notice'>Я вновь чувствую себя крепким..</span>"
 	medical_record_text = "Пациент имеет очень слабые кости, рекомендуется кальцевая диета."

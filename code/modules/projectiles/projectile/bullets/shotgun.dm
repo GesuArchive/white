@@ -39,6 +39,7 @@
 	range = 7
 	icon_state = "spark"
 	color = "#FFFF00"
+	embedding = null
 
 /obj/projectile/bullet/shotgun_meteorslug
 	name = "метеоропуля"
@@ -92,6 +93,7 @@
 	name = "обезвреживающие дробинки"
 	damage = 1
 	stamina = 6
+	embedding = null
 
 /obj/projectile/bullet/pellet/Range()
 	..()

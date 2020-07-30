@@ -649,8 +649,9 @@
 	set name = "❗ Переродиться"
 	set category = "OOC"
 
-	if (CONFIG_GET(flag/norespawn) && client.is_respawned)
+	if (CONFIG_GET(flag/norespawn) && (!check_rights_for(usr.client, R_ADMIN) || alert(usr, "Respawn configs disabled. Do you want to use your permissions to circumvent it?", "Respawn", "Yes", "No") != "Yes") && client.is_respawned)
 		return
+
 	if ((stat != DEAD || !( SSticker )))
 		to_chat(usr, "<span class='boldnotice'>Я живу!</span>")
 		return
@@ -677,8 +678,6 @@
 		return
 
 	M.key = key
-//	M.Login()	//wat
-	return
 
 
 /**

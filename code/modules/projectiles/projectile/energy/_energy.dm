@@ -6,3 +6,4 @@
 	speed = 0.5
 	flag = "energy"
 	reflectable = REFLECT_NORMAL
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/energy

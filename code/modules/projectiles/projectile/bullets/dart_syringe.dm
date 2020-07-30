@@ -2,6 +2,7 @@
 	name = "дротик"
 	icon_state = "cbbolt"
 	damage = 6
+	embedding = null
 	var/piercing = FALSE
 	speed = 0.9
 
