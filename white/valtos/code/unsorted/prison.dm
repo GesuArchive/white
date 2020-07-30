@@ -486,7 +486,7 @@
 	desc = "Самый обычный стол из дерева, ничего интересного."
 	icon = 'white/valtos/icons/prison/decor.dmi'
 	icon_state = "table"
-	smoothing_flags = SMOOTH_FALSE
+	smoothing_flags = NONE
 	deconstruction_ready = 0
 	max_integrity = 1000
 
