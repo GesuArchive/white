@@ -661,7 +661,7 @@
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/reinforced/fulltile
-	icon = 'white/valtos/icons/window_reinforced.dmi'
+	icon = 'white/valtos/icons/window_rglass.dmi'
 	icon_state = "r_window"
 	dir = FULLTILE_WINDOW_DIR
 	max_integrity = 150

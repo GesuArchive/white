@@ -129,7 +129,7 @@
 	icon_state = "fake_window"
 	opacity = 0
 	smoothing_flags = SMOOTH_TRUE
-	icon = 'white/valtos/icons/window_reinforced.dmi'
+	icon = 'white/valtos/icons/window_rglass.dmi'
 
 /turf/closed/indestructible/fakeglass/Initialize()
 	. = ..()
