@@ -3533,6 +3533,7 @@
 #include "white\valtos\code\unsorted\sobr.dm"
 #include "white\valtos\code\unsorted\teaparty.dm"
 #include "white\valtos\code\unsorted\trading_outpost.dm"
+#include "white\valtos\code\unsorted\tricoder.dm"
 #include "white\valtos\code\unsorted\vietnam.dm"
 #include "white\valtos\code\unsorted\winds.dm"
 #include "white\valtos\code\wzvendor\izanvend.dm"

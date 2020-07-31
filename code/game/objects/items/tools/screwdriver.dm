@@ -94,8 +94,9 @@
 	icon_state = "drill_screw"
 	inhand_icon_state = "drill"
 	worn_icon_state = "drill"
-	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
+	icon = 'white/valtos/icons/items.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
 	custom_materials = list(/datum/material/iron=150,/datum/material/silver=50,/datum/material/titanium=25) //done for balance reasons, making them high value for research, but harder to get
 	force = 8 //might or might not be too high, subject to change
 	w_class = WEIGHT_CLASS_SMALL
@@ -107,6 +108,9 @@
 	usesound = 'sound/items/drill_use.ogg'
 	toolspeed = 0.7
 	random_color = FALSE
+
+/obj/item/screwdriver/power/get_belt_overlay()
+	return mutable_appearance('white/valtos/icons/belt_overlays.dmi', icon_state)
 
 /obj/item/screwdriver/power/examine()
 	. = ..()

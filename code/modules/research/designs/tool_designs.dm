@@ -230,3 +230,13 @@
 	materials = list(/datum/material/iron = 2000, /datum/material/silver = 1500, /datum/material/plasma = 500, /datum/material/titanium = 1500)
 	category = list("Tool Designs")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
+/datum/design/tricorder
+	name = "Tricorder"
+	desc = "A multifunction handheld device useful for data sensing, analysis, and recording."
+	id = "tricorder"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 500, /datum/material/silver = 300, /datum/material/gold = 300)
+	build_path = /obj/item/multitool/tricorder
+	category = list("Tool Designs")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING

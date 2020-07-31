@@ -57,13 +57,17 @@
 	icon_state = "jaws_pry"
 	inhand_icon_state = "jawsoflife"
 	worn_icon_state = "jawsoflife"
-	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
+	icon = 'white/valtos/icons/items.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
 	custom_materials = list(/datum/material/iron=150,/datum/material/silver=50,/datum/material/titanium=25)
 	usesound = 'sound/items/jaws_pry.ogg'
 	force = 15
 	toolspeed = 0.7
 	force_opens = TRUE
+
+/obj/item/crowbar/power/get_belt_overlay()
+	return mutable_appearance('white/valtos/icons/belt_overlays.dmi', icon_state)
 
 /obj/item/crowbar/power/syndicate
 	name = "Syndicate jaws of life"

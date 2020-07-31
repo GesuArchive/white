@@ -531,6 +531,9 @@ GENE SCANNER
 
 /obj/item/analyzer/attack_self(mob/user)
 	add_fingerprint(user)
+	scangasses(user)
+
+/obj/item/proc/scangasses(mob/user)
 
 	if (user.stat || user.is_blind())
 		return

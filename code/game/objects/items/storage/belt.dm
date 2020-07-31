@@ -44,6 +44,7 @@
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_combined_w_class = 21
 	STR.set_holdable(list(
+		/obj/item/multitool/tricorder,
 		/obj/item/crowbar,
 		/obj/item/screwdriver,
 		/obj/item/weldingtool,
@@ -80,7 +81,7 @@
 	new /obj/item/screwdriver/power(src)
 	new /obj/item/crowbar/power(src)
 	new /obj/item/weldingtool/experimental(src)//This can be changed if this is too much
-	new /obj/item/multitool(src)
+	new /obj/item/multitool/tricorder(src)
 	new /obj/item/stack/cable_coil(src)
 	new /obj/item/extinguisher/mini(src)
 	new /obj/item/analyzer(src)
