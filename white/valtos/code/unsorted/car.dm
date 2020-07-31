@@ -2,6 +2,7 @@
 	name = "Дрифткар"
 	icon = 'white/valtos/icons/vehicles.dmi'
 	icon_state = "car"
+	movedelay = 1
 
 /obj/vehicle/sealed/car/driftcar/Initialize()
 	. = ..()
