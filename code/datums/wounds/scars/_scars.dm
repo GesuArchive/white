@@ -148,5 +148,5 @@
 
 /// Used to format a scar to safe in preferences for persistent scars
 /datum/scar/proc/format_amputated(body_zone)
-	description = pick(list("is several skintone shades paler than the rest of the body", "is a gruesome patchwork of artificial flesh", "has a large series of attachment scars at the articulation points"))
+	description = pick(list("несколько оттенков кожи более бледные, чем остальная часть тела", "это ужасная мешанина из искусственной плоти", "имеет большой ряд шрамов прикрепления в точках сочленения"))
 	return "[SCAR_CURRENT_VERSION]|[body_zone]|[description]|amputated|[WOUND_SEVERITY_LOSS]"

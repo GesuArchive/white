@@ -317,12 +317,12 @@
 
 		switch(num_bleeds)
 			if(1 to 2)
-				bleed_text += " [ru_gde_zone(bleeding_limbs[1].name)][num_bleeds == 2 ? " и [ru_gde_zone(bleeding_limbs[2].name)]" : ""]"
+				bleed_text += " [ru_otkuda_zone(bleeding_limbs[1].name)][num_bleeds == 2 ? " и [ru_otkuda_zone(bleeding_limbs[2].name)]" : ""]"
 			if(3 to INFINITY)
 				for(var/i in 1 to (num_bleeds - 1))
 					var/obj/item/bodypart/BP = bleeding_limbs[i]
-					bleed_text += " [ru_gde_zone(BP.name)],"
-				bleed_text += " и [ru_gde_zone(bleeding_limbs[num_bleeds].name)]"
+					bleed_text += " [ru_otkuda_zone(BP.name)],"
+				bleed_text += " и [ru_otkuda_zone(bleeding_limbs[num_bleeds].name)]"
 
 		if(appears_dead)
 			bleed_text += ", но похоже уже замедляется.</span></B>\n"
