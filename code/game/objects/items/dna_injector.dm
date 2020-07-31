@@ -1,7 +1,7 @@
 /obj/item/dnainjector
-	name = "\improper DNA injector"
-	desc = "This injects the person with DNA."
-	icon = 'icons/obj/items_and_weapons.dmi'
+	name = "инъектор ДНК"
+	desc = "Позволяет быстро заменить ДНК у пациента."
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "dnainjector"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -48,10 +48,10 @@
 
 /obj/item/dnainjector/attack(mob/target, mob/user)
 	if(!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user, "<span class='warning'>А как?!</span>")
 		return
 	if(used)
-		to_chat(user, "<span class='warning'>This injector is used up!</span>")
+		to_chat(user, "<span class='warning'>Этот инъектор уже был использован!</span>")
 		return
 	if(ishuman(target))
 		var/mob/living/carbon/human/humantarget = target
@@ -60,144 +60,144 @@
 	log_combat(user, target, "attempted to inject", src)
 
 	if(target != user)
-		target.visible_message("<span class='danger'>[user] is trying to inject [target] with [src]!</span>", \
-			"<span class='userdanger'>[user] is trying to inject you with [src]!</span>")
+		target.visible_message("<span class='danger'><b>[user]</b> пытается вколоть <b>[target]</b> <b>[src.name]</b>!</span>", \
+			"<span class='userdanger'><b>[user]</b> пытается вколоть мне <b>[src.name]</b>!</span>")
 		if(!do_mob(user, target) || used)
 			return
-		target.visible_message("<span class='danger'>[user] injects [target] with the syringe with [src]!</span>", \
-						"<span class='userdanger'>[user] injects you with the syringe with [src]!</span>")
+		target.visible_message("<span class='danger'><b>[user]</b> вкалывает <b>[target]</b> <b>[src.name]</b>!</span>", \
+						"<span class='userdanger'><b>[user]</b> вкалывает мне <b>[src.name]</b>!</span>")
 
 	else
-		to_chat(user, "<span class='notice'>You inject yourself with [src].</span>")
+		to_chat(user, "<span class='notice'>Вкалываю себе <b>[src.name]</b>.</span>")
 
 	log_combat(user, target, "injected", src)
 
 	if(!inject(target, user))	//Now we actually do the heavy lifting.
-		to_chat(user, "<span class='notice'>It appears that [target] does not have compatible DNA.</span>")
+		to_chat(user, "<span class='notice'>Похоже <b>[target]</b> не имеет подходящего ДНК.</span>")
 
 	used = 1
 	icon_state = "dnainjector0"
-	desc += " This one is used up."
+	desc += " Этот всё."
 
 
 /obj/item/dnainjector/antihulk
-	name = "\improper DNA injector (Anti-Hulk)"
+	name = "инъектор ДНК (Anti-Hulk)"
 	desc = "Cures green skin."
 	remove_mutations = list(HULK)
 
 /obj/item/dnainjector/hulkmut
-	name = "\improper DNA injector (Hulk)"
+	name = "инъектор ДНК (Hulk)"
 	desc = "This will make you big and strong, but give you a bad skin condition."
 	add_mutations = list(HULK)
 
 /obj/item/dnainjector/xraymut
-	name = "\improper DNA injector (X-ray)"
+	name = "инъектор ДНК (X-ray)"
 	desc = "Finally you can see what the Captain does."
 	add_mutations = list(XRAY)
 
 /obj/item/dnainjector/antixray
-	name = "\improper DNA injector (Anti-X-ray)"
+	name = "инъектор ДНК (Anti-X-ray)"
 	desc = "It will make you see harder."
 	remove_mutations = list(XRAY)
 
 /////////////////////////////////////
 /obj/item/dnainjector/antiglasses
-	name = "\improper DNA injector (Anti-Glasses)"
+	name = "инъектор ДНК (Anti-Glasses)"
 	desc = "Toss away those glasses!"
 	remove_mutations = list(BADSIGHT)
 
 /obj/item/dnainjector/glassesmut
-	name = "\improper DNA injector (Glasses)"
+	name = "инъектор ДНК (Glasses)"
 	desc = "Will make you need dorkish glasses."
 	add_mutations = list(BADSIGHT)
 
 /obj/item/dnainjector/epimut
-	name = "\improper DNA injector (Epi.)"
+	name = "инъектор ДНК (Epi.)"
 	desc = "Shake shake shake the room!"
 	add_mutations = list(EPILEPSY)
 
 /obj/item/dnainjector/antiepi
-	name = "\improper DNA injector (Anti-Epi.)"
+	name = "инъектор ДНК (Anti-Epi.)"
 	desc = "Will fix you up from shaking the room."
 	remove_mutations = list(EPILEPSY)
 ////////////////////////////////////
 /obj/item/dnainjector/anticough
-	name = "\improper DNA injector (Anti-Cough)"
+	name = "инъектор ДНК (Anti-Cough)"
 	desc = "Will stop that awful noise."
 	remove_mutations = list(COUGH)
 
 /obj/item/dnainjector/coughmut
-	name = "\improper DNA injector (Cough)"
+	name = "инъектор ДНК (Cough)"
 	desc = "Will bring forth a sound of horror from your throat."
 	add_mutations = list(COUGH)
 
 /obj/item/dnainjector/antidwarf
-	name = "\improper DNA injector (Anti-Dwarfism)"
+	name = "инъектор ДНК (Anti-Dwarfism)"
 	desc = "Helps you grow big and strong."
 	remove_mutations = list(DWARFISM)
 
 /obj/item/dnainjector/dwarf
-	name = "\improper DNA injector (Dwarfism)"
+	name = "инъектор ДНК (Dwarfism)"
 	desc = "It's a small world after all."
 	add_mutations = list(DWARFISM)
 
 /obj/item/dnainjector/clumsymut
-	name = "\improper DNA injector (Clumsy)"
+	name = "инъектор ДНК (Clumsy)"
 	desc = "Makes clown minions."
 	add_mutations = list(CLOWNMUT)
 
 /obj/item/dnainjector/anticlumsy
-	name = "\improper DNA injector (Anti-Clumsy)"
+	name = "инъектор ДНК (Anti-Clumsy)"
 	desc = "Apply this for Security Clown."
 	remove_mutations = list(CLOWNMUT)
 
 /obj/item/dnainjector/antitour
-	name = "\improper DNA injector (Anti-Tour.)"
+	name = "инъектор ДНК (Anti-Tour.)"
 	desc = "Will cure Tourette's."
 	remove_mutations = list(TOURETTES)
 
 /obj/item/dnainjector/tourmut
-	name = "\improper DNA injector (Tour.)"
+	name = "инъектор ДНК (Tour.)"
 	desc = "Gives you a nasty case of Tourette's."
 	add_mutations = list(TOURETTES)
 
 /obj/item/dnainjector/stuttmut
-	name = "\improper DNA injector (Stutt.)"
+	name = "инъектор ДНК (Stutt.)"
 	desc = "Makes you s-s-stuttterrr."
 	add_mutations = list(NERVOUS)
 
 /obj/item/dnainjector/antistutt
-	name = "\improper DNA injector (Anti-Stutt.)"
+	name = "инъектор ДНК (Anti-Stutt.)"
 	desc = "Fixes that speaking impairment."
 	remove_mutations = list(NERVOUS)
 
 /obj/item/dnainjector/antifire
-	name = "\improper DNA injector (Anti-Fire)"
+	name = "инъектор ДНК (Anti-Fire)"
 	desc = "Cures fire."
 	remove_mutations = list(SPACEMUT)
 
 /obj/item/dnainjector/firemut
-	name = "\improper DNA injector (Fire)"
+	name = "инъектор ДНК (Fire)"
 	desc = "Gives you fire."
 	add_mutations = list(SPACEMUT)
 
 /obj/item/dnainjector/blindmut
-	name = "\improper DNA injector (Blind)"
+	name = "инъектор ДНК (Blind)"
 	desc = "Makes you not see anything."
 	add_mutations = list(BLINDMUT)
 
 /obj/item/dnainjector/antiblind
-	name = "\improper DNA injector (Anti-Blind)"
+	name = "инъектор ДНК (Anti-Blind)"
 	desc = "IT'S A MIRACLE!!!"
 	remove_mutations = list(BLINDMUT)
 
 /obj/item/dnainjector/antitele
-	name = "\improper DNA injector (Anti-Tele.)"
+	name = "инъектор ДНК (Anti-Tele.)"
 	desc = "Will make you not able to control your mind."
 	remove_mutations = list(TK)
 
 /obj/item/dnainjector/telemut
-	name = "\improper DNA injector (Tele.)"
+	name = "инъектор ДНК (Tele.)"
 	desc = "Super brain man!"
 	add_mutations = list(TK)
 
@@ -206,230 +206,230 @@
 	desc = "Good. Let the hate flow through you."
 
 /obj/item/dnainjector/deafmut
-	name = "\improper DNA injector (Deaf)"
+	name = "инъектор ДНК (Deaf)"
 	desc = "Sorry, what did you say?"
 	add_mutations = list(DEAFMUT)
 
 /obj/item/dnainjector/antideaf
-	name = "\improper DNA injector (Anti-Deaf)"
+	name = "инъектор ДНК (Anti-Deaf)"
 	desc = "Will make you hear once more."
 	remove_mutations = list(DEAFMUT)
 
 /obj/item/dnainjector/h2m
-	name = "\improper DNA injector (Human > Monkey)"
+	name = "инъектор ДНК (Human > Monkey)"
 	desc = "Will make you a flea bag."
 	add_mutations = list(RACEMUT)
 
 /obj/item/dnainjector/m2h
-	name = "\improper DNA injector (Monkey > Human)"
+	name = "инъектор ДНК (Monkey > Human)"
 	desc = "Will make you...less hairy."
 	remove_mutations = list(RACEMUT)
 
 /obj/item/dnainjector/antichameleon
-	name = "\improper DNA injector (Anti-Chameleon)"
+	name = "инъектор ДНК (Anti-Chameleon)"
 	remove_mutations = list(CHAMELEON)
 
 /obj/item/dnainjector/chameleonmut
-	name = "\improper DNA injector (Chameleon)"
+	name = "инъектор ДНК (Chameleon)"
 	add_mutations = list(CHAMELEON)
 
 /obj/item/dnainjector/antiwacky
-	name = "\improper DNA injector (Anti-Wacky)"
+	name = "инъектор ДНК (Anti-Wacky)"
 	remove_mutations = list(WACKY)
 
 /obj/item/dnainjector/wackymut
-	name = "\improper DNA injector (Wacky)"
+	name = "инъектор ДНК (Wacky)"
 	add_mutations = list(WACKY)
 
 /obj/item/dnainjector/antimute
-	name = "\improper DNA injector (Anti-Mute)"
+	name = "инъектор ДНК (Anti-Mute)"
 	remove_mutations = list(MUT_MUTE)
 
 /obj/item/dnainjector/mutemut
-	name = "\improper DNA injector (Mute)"
+	name = "инъектор ДНК (Mute)"
 	add_mutations = list(MUT_MUTE)
 
 /obj/item/dnainjector/unintelligiblemut
-	name = "\improper DNA injector (Unintelligible)"
+	name = "инъектор ДНК (Unintelligible)"
 	add_mutations = list(UNINTELLIGIBLE)
 
 /obj/item/dnainjector/antiunintelligible
-	name = "\improper DNA injector (Anti-Unintelligible)"
+	name = "инъектор ДНК (Anti-Unintelligible)"
 	remove_mutations = list(UNINTELLIGIBLE)
 
 /obj/item/dnainjector/swedishmut
-	name = "\improper DNA injector (Swedish)"
+	name = "инъектор ДНК (Swedish)"
 	add_mutations = list(SWEDISH)
 
 /obj/item/dnainjector/antiswedish
-	name = "\improper DNA injector (Anti-Swedish)"
+	name = "инъектор ДНК (Anti-Swedish)"
 	remove_mutations = list(SWEDISH)
 
 /obj/item/dnainjector/chavmut
-	name = "\improper DNA injector (Chav)"
+	name = "инъектор ДНК (Chav)"
 	add_mutations = list(CHAV)
 
 /obj/item/dnainjector/antichav
-	name = "\improper DNA injector (Anti-Chav)"
+	name = "инъектор ДНК (Anti-Chav)"
 	remove_mutations = list(CHAV)
 
 /obj/item/dnainjector/elvismut
-	name = "\improper DNA injector (Elvis)"
+	name = "инъектор ДНК (Elvis)"
 	add_mutations = list(ELVIS)
 
 /obj/item/dnainjector/antielvis
-	name = "\improper DNA injector (Anti-Elvis)"
+	name = "инъектор ДНК (Anti-Elvis)"
 	remove_mutations = list(ELVIS)
 
 /obj/item/dnainjector/lasereyesmut
-	name = "\improper DNA injector (Laser Eyes)"
+	name = "инъектор ДНК (Laser Eyes)"
 	add_mutations = list(LASEREYES)
 
 /obj/item/dnainjector/antilasereyes
-	name = "\improper DNA injector (Anti-Laser Eyes)"
+	name = "инъектор ДНК (Anti-Laser Eyes)"
 	remove_mutations = list(LASEREYES)
 
 /obj/item/dnainjector/void
-	name = "\improper DNA injector (Void)"
+	name = "инъектор ДНК (Void)"
 	add_mutations = list(VOID)
 
 /obj/item/dnainjector/antivoid
-	name = "\improper DNA injector (Anti-Void)"
+	name = "инъектор ДНК (Anti-Void)"
 	remove_mutations = list(VOID)
 
 /obj/item/dnainjector/antenna
-	name = "\improper DNA injector (Antenna)"
+	name = "инъектор ДНК (Antenna)"
 	add_mutations = list(ANTENNA)
 
 /obj/item/dnainjector/antiantenna
-	name = "\improper DNA injector (Anti-Antenna)"
+	name = "инъектор ДНК (Anti-Antenna)"
 	remove_mutations = list(ANTENNA)
 
 /obj/item/dnainjector/paranoia
-	name = "\improper DNA injector (Paranoia)"
+	name = "инъектор ДНК (Paranoia)"
 	add_mutations = list(PARANOIA)
 
 /obj/item/dnainjector/antiparanoia
-	name = "\improper DNA injector (Anti-Paranoia)"
+	name = "инъектор ДНК (Anti-Paranoia)"
 	remove_mutations = list(PARANOIA)
 
 /obj/item/dnainjector/mindread
-	name = "\improper DNA injector (Mindread)"
+	name = "инъектор ДНК (Mindread)"
 	add_mutations = list(MINDREAD)
 
 /obj/item/dnainjector/antimindread
-	name = "\improper DNA injector (Anti-Mindread)"
+	name = "инъектор ДНК (Anti-Mindread)"
 	remove_mutations = list(MINDREAD)
 
 /obj/item/dnainjector/radioactive
-	name = "\improper DNA injector (Radioactive)"
+	name = "инъектор ДНК (Radioactive)"
 	add_mutations = list(RADIOACTIVE)
 
 /obj/item/dnainjector/antiradioactive
-	name = "\improper DNA injector (Anti-Radioactive)"
+	name = "инъектор ДНК (Anti-Radioactive)"
 	remove_mutations = list(RADIOACTIVE)
 /obj/item/dnainjector/olfaction
-	name = "\improper DNA injector (Olfaction)"
+	name = "инъектор ДНК (Olfaction)"
 	add_mutations = list(OLFACTION)
 
 /obj/item/dnainjector/antiolfaction
-	name = "\improper DNA injector (Anti-Olfaction)"
+	name = "инъектор ДНК (Anti-Olfaction)"
 	remove_mutations = list(OLFACTION)
 
 /obj/item/dnainjector/insulated
-	name = "\improper DNA injector (Insulated)"
+	name = "инъектор ДНК (Insulated)"
 	add_mutations = list(INSULATED)
 
 /obj/item/dnainjector/antiinsulated
-	name = "\improper DNA injector (Anti-Insulated)"
+	name = "инъектор ДНК (Anti-Insulated)"
 	remove_mutations = list(INSULATED)
 
 /obj/item/dnainjector/shock
-	name = "\improper DNA injector (Shock Touch)"
+	name = "инъектор ДНК (Shock Touch)"
 	add_mutations = list(SHOCKTOUCH)
 
 /obj/item/dnainjector/antishock
-	name = "\improper DNA injector (Anti-Shock Touch)"
+	name = "инъектор ДНК (Anti-Shock Touch)"
 	remove_mutations = list(SHOCKTOUCH)
 
 /obj/item/dnainjector/spatialinstability
-	name = "\improper DNA injector (Spatial Instability)"
+	name = "инъектор ДНК (Spatial Instability)"
 	add_mutations = list(BADBLINK)
 
 /obj/item/dnainjector/antispatialinstability
-	name = "\improper DNA injector (Anti-Spatial Instability)"
+	name = "инъектор ДНК (Anti-Spatial Instability)"
 	remove_mutations = list(BADBLINK)
 
 /obj/item/dnainjector/acidflesh
-	name = "\improper DNA injector (Acid Flesh)"
+	name = "инъектор ДНК (Acid Flesh)"
 	add_mutations = list(ACIDFLESH)
 
 /obj/item/dnainjector/antiacidflesh
-	name = "\improper DNA injector (Acid Flesh)"
+	name = "инъектор ДНК (Acid Flesh)"
 	remove_mutations = list(ACIDFLESH)
 
 /obj/item/dnainjector/gigantism
-	name = "\improper DNA injector (Gigantism)"
+	name = "инъектор ДНК (Gigantism)"
 	add_mutations = list(GIGANTISM)
 
 /obj/item/dnainjector/antigigantism
-	name = "\improper DNA injector (Anti-Gigantism)"
+	name = "инъектор ДНК (Anti-Gigantism)"
 	remove_mutations = list(GIGANTISM)
 
 /obj/item/dnainjector/spastic
-	name = "\improper DNA injector (Spastic)"
+	name = "инъектор ДНК (Spastic)"
 	add_mutations = list(SPASTIC)
 
 /obj/item/dnainjector/antispastic
-	name = "\improper DNA injector (Anti-Spastic)"
+	name = "инъектор ДНК (Anti-Spastic)"
 	remove_mutations = list(SPASTIC)
 
 /obj/item/dnainjector/twoleftfeet
-	name = "\improper DNA injector (Two Left Feet)"
+	name = "инъектор ДНК (Two Left Feet)"
 	add_mutations = list(EXTRASTUN)
 
 /obj/item/dnainjector/antitwoleftfeet
-	name = "\improper DNA injector (Anti-Two Left Feet)"
+	name = "инъектор ДНК (Anti-Two Left Feet)"
 	remove_mutations = list(EXTRASTUN)
 
 /obj/item/dnainjector/geladikinesis
-	name = "\improper DNA injector (Geladikinesis)"
+	name = "инъектор ДНК (Geladikinesis)"
 	add_mutations = list(GELADIKINESIS)
 
 /obj/item/dnainjector/antigeladikinesis
-	name = "\improper DNA injector (Anti-Geladikinesis)"
+	name = "инъектор ДНК (Anti-Geladikinesis)"
 	remove_mutations = list(GELADIKINESIS)
 
 /obj/item/dnainjector/cryokinesis
-	name = "\improper DNA injector (Cryokinesis)"
+	name = "инъектор ДНК (Cryokinesis)"
 	add_mutations = list(CRYOKINESIS)
 
 /obj/item/dnainjector/anticryokinesis
-	name = "\improper DNA injector (Anti-Cryokinesis)"
+	name = "инъектор ДНК (Anti-Cryokinesis)"
 	remove_mutations = list(CRYOKINESIS)
 
 /obj/item/dnainjector/thermal
-	name = "\improper DNA injector (Thermal Vision)"
+	name = "инъектор ДНК (Thermal Vision)"
 	add_mutations = list(THERMAL)
 
 /obj/item/dnainjector/antithermal
-	name = "\improper DNA injector (Anti-Thermal Vision)"
+	name = "инъектор ДНК (Anti-Thermal Vision)"
 	remove_mutations = list(THERMAL)
 
 /obj/item/dnainjector/glow
-	name = "\improper DNA injector (Glowy)"
+	name = "инъектор ДНК (Glowy)"
 	add_mutations = list(GLOWY)
 
 /obj/item/dnainjector/removeglow
-	name = "\improper DNA injector (Anti-Glowy)"
+	name = "инъектор ДНК (Anti-Glowy)"
 	remove_mutations = list(GLOWY)
 
 /obj/item/dnainjector/antiglow
-	name = "\improper DNA injector (Antiglowy)"
+	name = "инъектор ДНК (Antiglowy)"
 	add_mutations = list(ANTIGLOWY)
 
 /obj/item/dnainjector/removeantiglow
-	name = "\improper DNA injector (Anti-Antiglowy)"
+	name = "инъектор ДНК (Anti-Antiglowy)"
 	remove_mutations = list(ANTIGLOWY)
 
 /obj/item/dnainjector/timed
@@ -485,12 +485,12 @@
 		return FALSE
 
 /obj/item/dnainjector/timed/hulk
-	name = "\improper DNA injector (Hulk)"
+	name = "инъектор ДНК (Hulk)"
 	desc = "This will make you big and strong, but give you a bad skin condition."
 	add_mutations = list(HULK)
 
 /obj/item/dnainjector/timed/h2m
-	name = "\improper DNA injector (Human > Monkey)"
+	name = "инъектор ДНК (Human > Monkey)"
 	desc = "Will make you a flea bag."
 	add_mutations = list(RACEMUT)
 

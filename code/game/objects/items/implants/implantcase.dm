@@ -1,7 +1,7 @@
 /obj/item/implantcase
-	name = "implant case"
-	desc = "A glass case containing an implant."
-	icon = 'icons/obj/items_and_weapons.dmi'
+	name = "чехол для импланта"
+	desc = "Удобное хранилище для имплантов."
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "implantcase-0"
 	inhand_icon_state = "implantcase"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -24,17 +24,17 @@
 /obj/item/implantcase/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/pen))
 		if(!user.is_literate())
-			to_chat(user, "<span class='notice'>You scribble illegibly on the side of [src]!</span>")
+			to_chat(user, "<span class='notice'>Царапаю что-то на краю <b>[src.name]</b>!</span>")
 			return
-		var/t = stripped_input(user, "What would you like the label to be?", name, null)
+		var/t = stripped_input(user, "Что же мы напишем?", name, null)
 		if(user.get_active_held_item() != W)
 			return
 		if(!user.canUseTopic(src, BE_CLOSE))
 			return
 		if(t)
-			name = "implant case - '[t]'"
+			name = "чехол для импланта - '[t]'"
 		else
-			name = "implant case"
+			name = "чехол для импланта"
 	else if(istype(W, /obj/item/implanter))
 		var/obj/item/implanter/I = W
 		if(I.imp)
@@ -69,16 +69,16 @@
 
 
 /obj/item/implantcase/tracking
-	name = "implant case - 'Tracking'"
-	desc = "A glass case containing a tracking implant."
+	name = "чехол для импланта - 'Слежка'"
+	desc = "Содержит имплант для отслеживания позиции."
 	imp_type = /obj/item/implant/tracking
 
 /obj/item/implantcase/weapons_auth
-	name = "implant case - 'Firearms Authentication'"
-	desc = "A glass case containing a firearms authentication implant."
+	name = "чехол для импланта - 'Аутентификация на оружие'"
+	desc = "Содержит имплант, который дозволяет стрелять из специального оружия."
 	imp_type = /obj/item/implant/weapons_auth
 
 /obj/item/implantcase/adrenaline
-	name = "implant case - 'Adrenaline'"
-	desc = "A glass case containing an adrenaline implant."
+	name = "чехол для импланта - 'Адреналин'"
+	desc = "Содержит имплант с инъектором адреналина."
 	imp_type = /obj/item/implant/adrenalin

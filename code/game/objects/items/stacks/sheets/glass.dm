@@ -18,6 +18,7 @@ GLOBAL_LIST_INIT(glass_recipes, list ( \
 	name = "стекло"
 	desc = "HOLY SHEET! Это много стекла."
 	singular_name = "лист стекла"
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-glass"
 	inhand_icon_state = "sheet-glass"
 	custom_materials = list(/datum/material/glass=MINERAL_MATERIAL_AMOUNT)
@@ -84,6 +85,7 @@ GLOBAL_LIST_INIT(pglass_recipes, list ( \
 	name = "плазмастекло"
 	desc = "Стеклянный лист из плазмосиликатного сплава. Это выглядит чрезвычайно жестким и достаточно огнестойким."
 	singular_name = "лист плазмастекла"
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-pglass"
 	inhand_icon_state = "sheet-pglass"
 	custom_materials = list(/datum/material/plasma=MINERAL_MATERIAL_AMOUNT * 0.5, /datum/material/glass=MINERAL_MATERIAL_AMOUNT)
@@ -136,6 +138,7 @@ GLOBAL_LIST_INIT(reinforced_glass_recipes, list ( \
 	name = "армированное стекло"
 	desc = "Стекло, в котором, кажется, есть стержни или что-то застряло."
 	singular_name = "лист армированного стекла"
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-rglass"
 	inhand_icon_state = "sheet-rglass"
 	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT * 0.5, /datum/material/glass=MINERAL_MATERIAL_AMOUNT)
@@ -181,6 +184,7 @@ GLOBAL_LIST_INIT(prglass_recipes, list ( \
 	name = "армированное плазмастекло"
 	desc = "Стеклянный лист из плазмосиликатного сплава и стержневой матрицы. Это выглядит безнадежно жестким и почти пожаробезопасным!"
 	singular_name = "лист армированного плазмастекла"
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-prglass"
 	inhand_icon_state = "sheet-prglass"
 	custom_materials = list(/datum/material/plasma=MINERAL_MATERIAL_AMOUNT * 0.5, /datum/material/glass=MINERAL_MATERIAL_AMOUNT, /datum/material/iron = MINERAL_MATERIAL_AMOUNT * 0.5)

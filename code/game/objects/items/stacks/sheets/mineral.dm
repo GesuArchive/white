@@ -124,6 +124,7 @@ GLOBAL_LIST_INIT(diamond_recipes, list ( \
  */
 /obj/item/stack/sheet/mineral/uranium
 	name = "uranium"
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-uranium"
 	inhand_icon_state = "sheet-uranium"
 	singular_name = "uranium sheet"

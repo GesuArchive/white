@@ -1,7 +1,7 @@
 /obj/item/implantpad
-	name = "implant pad"
-	desc = "Used to modify implants."
-	icon = 'icons/obj/items_and_weapons.dmi'
+	name = "имплантер"
+	desc = "Используется для модификации имплантов."
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "implantpad-0"
 	inhand_icon_state = "electronic"
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
@@ -17,12 +17,12 @@
 /obj/item/implantpad/examine(mob/user)
 	. = ..()
 	if(Adjacent(user))
-		. += "It [case ? "contains \a [case]" : "is currently empty"]."
+		. += "Внутри [case ? "[case.name]" : "пусто"]."
 		if(case)
-			. += "<span class='info'>Alt-click to remove [case].</span>"
+			. += "<span class='info'>Alt-клик для изъятия [case.name].</span>"
 	else
 		if(case)
-			. += "<span class='warning'>There seems to be something inside it, but you can't quite tell what from here...</span>"
+			. += "<span class='warning'>Он что-то имеет внутри, нужно подойти поближе, чтобы рассмотреть...</span>"
 
 /obj/item/implantpad/handle_atom_del(atom/A)
 	if(A == case)
@@ -36,7 +36,7 @@
 	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return
 	if(!case)
-		to_chat(user, "<span class='warning'>There's no implant to remove from [src].</span>")
+		to_chat(user, "<span class='warning'>Внутри нет имплантов.</span>")
 		return
 
 	user.put_in_hands(case)
@@ -65,14 +65,14 @@
 		return
 
 	user.set_machine(src)
-	var/dat = "<B>Implant Mini-Computer:</B><HR>"
+	var/dat = "<B>Мини-Компьютер Имплантера:</B><HR>"
 	if(case)
 		if(case.imp)
 			if(istype(case.imp, /obj/item/implant))
 				dat += case.imp.get_data()
 		else
-			dat += "The implant casing is empty."
+			dat += "Чехол пуст."
 	else
-		dat += "Please insert an implant casing!"
+		dat += "Не обнаружено чехла!"
 	user << browse(dat, "window=implantpad")
 	onclose(user, "implantpad")

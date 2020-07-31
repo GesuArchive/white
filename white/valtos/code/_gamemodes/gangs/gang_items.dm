@@ -873,7 +873,7 @@
 /obj/item/reviver
 	name = "outlawed revivification serum"
 	desc = "Banned due to side effects of extreme rage, reduced intelligence, and violence. For gangs, that's just a fringe benefit."
-	icon = 'icons/obj/items_and_weapons.dmi'
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "implanter1"
 	inhand_icon_state = "syringe_0"
 	throw_speed = 3

@@ -97,6 +97,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	name = "metal"
 	desc = "Sheets made out of metal."
 	singular_name = "metal sheet"
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-metal"
 	inhand_icon_state = "sheet-metal"
 	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
@@ -155,6 +156,7 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 	name = "plasteel"
 	singular_name = "plasteel sheet"
 	desc = "This sheet is an alloy of iron and plasma."
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-plasteel"
 	inhand_icon_state = "sheet-plasteel"
 	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT, /datum/material/plasma=MINERAL_MATERIAL_AMOUNT)
@@ -640,6 +642,7 @@ GLOBAL_LIST_INIT(plastic_recipes, list(
 	name = "plastic"
 	desc = "Compress dinosaur over millions of years, then refine, split and mold, and voila! You have plastic."
 	singular_name = "plastic sheet"
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-plastic"
 	inhand_icon_state = "sheet-plastic"
 	custom_materials = list(/datum/material/plastic=MINERAL_MATERIAL_AMOUNT)
