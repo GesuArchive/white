@@ -82,14 +82,14 @@ TRICORDER
 	//Temperature
 	to_chat(user, "<span class='info'>Температура тела: [round(M.bodytemperature-T0C,0.1)] &deg;C ([round(M.bodytemperature*1.8-459.67,0.1)] &deg;F)</span>")
 	//Brute
-	to_chat(user, "\t <font color='red'>*</font>Физический: <font color ='orange'>[brute_damage > 100 ? "<font color='red'>Критический</font>" : brute_damage > 75 ? "Серьёзный" : brute_damage > 50 ? "Высокий" : brute_damage > 25 ? "Средний" : brute_damage > 0 ? "Низкий" : "<font color='blue'>Нулевой</font>"] уровень</font></span>")
+	to_chat(user, "\t <font class='red'>*</font>Физический: <font class ='orange'>[brute_damage > 100 ? "<font class='red'>Критический</font>" : brute_damage > 75 ? "Серьёзный" : brute_damage > 50 ? "Высокий" : brute_damage > 25 ? "Средний" : brute_damage > 0 ? "Низкий" : "<font class='blue'>Нулевой</font>"] уровень</font></span>")
 	//Burn
-	to_chat(user, "\t <font color='#FF8000'>*</font>Ожоги: <font color ='orange'>[fire_damage > 100 ? "<font color='red'>Критический</font>" : fire_damage > 75 ? "Серьёзный" : fire_damage > 50 ? "Высокий" : fire_damage > 25 ? "Средний" : fire_damage > 0 ? "Низкий" : "<font color='blue'>Нулевой</font>"] уровень</font></span>")
+	to_chat(user, "\t <font color='#FF8000'>*</font>Ожоги: <font class ='orange'>[fire_damage > 100 ? "<font class='red'>Критический</font>" : fire_damage > 75 ? "Серьёзный" : fire_damage > 50 ? "Высокий" : fire_damage > 25 ? "Средний" : fire_damage > 0 ? "Низкий" : "<font class='blue'>Нулевой</font>"] уровень</font></span>")
 	//Oxygen
-	to_chat(user, "\t <font color='blue'>*</font>Удушье: <font color ='orange'>[oxy_damage > 100 ? "<font color='red'>Критический</font>" : oxy_damage > 75 ? "Опасный" : oxy_damage > 50 ? "Низкий" : oxy_damage > 25 ? "Средний" : oxy_damage > 0 ? "Высокий" : "<font color='blue'>Нормальный</font>"] уровень</font></span>")
+	to_chat(user, "\t <font class='blue'>*</font>Кислород: <font class ='orange'>[oxy_damage > 100 ? "<font class='red'>Критический</font>" : oxy_damage > 75 ? "Опасный" : oxy_damage > 50 ? "Низкий" : oxy_damage > 25 ? "Средний" : oxy_damage > 0 ? "Высокий" : "<font class='blue'>Нормальный</font>"] уровень</font></span>")
 	//Toxin
-	to_chat(user, "\t <font color='green'>*</font>Токсины: <font color ='orange'>[tox_damage > 100 ? "<font color='red'>Критический</font>" : tox_damage > 75 ? "Серьёзный" : tox_damage > 50 ? "Высокий" : tox_damage > 25 ? "Средний" : tox_damage > 0 ? "Низкий" : "<font color='blue'>Нулевой</font>"] уровень</font></span>")
+	to_chat(user, "\t <font class='green'>*</font>Токсины: <font class ='orange'>[tox_damage > 100 ? "<font class='red'>Критический</font>" : tox_damage > 75 ? "Серьёзный" : tox_damage > 50 ? "Высокий" : tox_damage > 25 ? "Средний" : tox_damage > 0 ? "Низкий" : "<font class='blue'>Нулевой</font>"] уровень</font></span>")
 	//Brain
-	to_chat(user, "\t <font color='Fuchsia'>*</font>Мозг: <font color ='orange'>[brain_status >= 200 ? "<font color='red'>Не обнаружено</font>" : brain_status > 100 ? "Почти не целый" : brain_status > 0 ? "Почти целый" : "<font color='blue'>Целый</font>"]</font></span>")
+	to_chat(user, "\t <font class='Fuchsia'>*</font>Мозг: <font class ='orange'>[brain_status >= 200 ? "<font class='red'>Не обнаружено</font>" : brain_status > 100 ? "Почти не целый" : brain_status > 0 ? "Почти целый" : "<font class='blue'>Целый</font>"]</font></span>")
 	//Radiation
-	to_chat(user, "\t <font color='yellow'>*</font>Облучение: [M.radiation ? "<font color='red'>[M.radiation]</font>" : "<font color='blue'>Нет</font>"]</span>")
+	to_chat(user, "\t <font class='yellow'>*</font>Облучение: [M.radiation ? "<font class='red'>[M.radiation]</font>" : "<font class='blue'>Нет</font>"]</span>")
