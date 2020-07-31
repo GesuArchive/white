@@ -14,6 +14,7 @@ TRICORDER
 	name = "трикордер"
 	desc = "Многофункциональное устройство, которое может выполнять огромный спектр задач."
 	icon_state = "tricorder"
+	inhand_icon_state = "tricorder"
 	icon = 'white/valtos/icons/items.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
@@ -41,7 +42,8 @@ TRICORDER
 /obj/item/multitool/tricorder/attack(mob/living/M, mob/living/user, obj/item/I)
 	add_fingerprint(user)
 	var/turf/U = get_turf(I)
-	atmosanalyzer_scan(U.return_air(), user, I)
+	if(U)
+		atmosanalyzer_scan(U.return_air(), user, I)
 	if(user.stat || user.eye_blind)
 		return
 	if (isslime(M))
