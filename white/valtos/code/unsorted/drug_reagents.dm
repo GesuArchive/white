@@ -116,7 +116,6 @@
 	var/high_message = pick("Я чувствую, что у меня есть силы.", "Я готов.", "Я чувствую, что могу довести это до предела.")
 	if(prob(5))
 		to_chat(M, "<span class='notice'>[high_message]</span>")
-	M.add_movespeed_modifier(type, update=TRUE)
 	M.AdjustUnconscious(-100, 0)
 	M.AdjustStun(-100, 0)
 	M.AdjustParalyzed(-100, 0)
@@ -132,11 +131,6 @@
 		if(I)
 			M.dropItemToGround(M.get_active_held_item())
 	return FINISHONMOBLIFE(M)
-
-/datum/reagent/drug/bath_salts/on_mob_end_metabolize(mob/living/M)
-	if (istype(M))
-		M.remove_movespeed_modifier(type)
-	..()
 
 /datum/reagent/drug/flipout
 	name = "Flipout"
