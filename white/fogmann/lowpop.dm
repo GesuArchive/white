@@ -6,6 +6,7 @@
 
 /obj/item/nuclear_challenge/lowpop
 	name = "Declaration of War (Lowpop Mode)"
+	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gangtool-red"
 	inhand_icon_state = "radio"
