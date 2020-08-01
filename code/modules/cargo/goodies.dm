@@ -1,7 +1,7 @@
 
 /datum/supply_pack/goody
 	access = NONE
-	group = "Goodies"
+	group = "Мелочёвки"
 	goody = TRUE
 
 /datum/supply_pack/goody/dumdum38
