@@ -1,27 +1,227 @@
-"a" = (/obj/structure/lattice,/turf/template_noop,/area/template_noop)
-"b" = (/turf/template_noop,/area/template_noop)
-"c" = (/turf/open/floor/plating,/area/shuttle/diy)
-"d" = (/obj/structure/shuttle/engine/propulsion/burst{anchored = 0},/turf/open/floor/plating,/area/shuttle/diy)
-"g" = (/turf/open/floor/engine/airless,/area/shuttle/diy)
-"h" = (/obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy,/turf/open/floor/plating,/area/shuttle/diy)
-"i" = (/obj/machinery/computer/shuttle/diy,/turf/open/floor/plating,/area/shuttle/diy)
-"j" = (/obj/docking_port/stationary/diy,/obj/docking_port/mobile/diy,/turf/open/floor/engine/airless,/area/shuttle/diy)
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/template_noop)
+"c" = (
+/turf/open/floor/plating,
+/area/shuttle/diy)
+"g" = (
+/turf/template_noop,
+/area/shuttle/diy)
+"h" = (
+/obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy,
+/turf/open/floor/plating,
+/area/shuttle/diy)
+"i" = (
+/obj/machinery/computer/shuttle/diy,
+/turf/open/floor/plating,
+/area/shuttle/diy)
+"j" = (
+/obj/docking_port/stationary/diy,
+/obj/docking_port/mobile/diy,
+/turf/open/floor/plating,
+/area/shuttle/diy)
+"Q" = (
+/obj/structure/shuttle/engine/propulsion/burst,
+/turf/open/floor/plating,
+/area/shuttle/diy)
 
 (1,1,1) = {"
-aaaaaaaaaaa
-abbbgjgbbba
-abbggcggbba
-abgghciggba
-abgcccdcgba
-aggcccdcgga
-agccccdccga
-agccccdccga
-agccccdccga
-agccccdccga
-agcccccccga
-agcccccccga
-aggcccccgga
-abggcccggba
-abbgggggbba
-aaaaaaaaaaa
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+a
+"}
+(3,1,1) = {"
+a
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+Q
+g
+a
+"}
+(4,1,1) = {"
+a
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+c
+Q
+a
+"}
+(5,1,1) = {"
+a
+g
+g
+h
+c
+g
+g
+g
+g
+g
+g
+g
+g
+c
+c
+a
+"}
+(6,1,1) = {"
+a
+j
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+a
+"}
+(7,1,1) = {"
+a
+g
+g
+i
+c
+g
+g
+g
+g
+g
+g
+g
+g
+c
+c
+a
+"}
+(8,1,1) = {"
+a
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+c
+Q
+a
+"}
+(9,1,1) = {"
+a
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+Q
+g
+a
+"}
+(10,1,1) = {"
+a
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+a
+"}
+(11,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
 "}
