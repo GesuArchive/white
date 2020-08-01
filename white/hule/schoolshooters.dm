@@ -33,8 +33,7 @@
 	backpack_contents = list(
 								/obj/item/grenade/iedcasing = 3,
 								/obj/item/storage/box/lethalshot = 3,
-								/obj/item/grenade/c4 = 2,
-								/obj/item/book/granter/crafting_recipe/cookbook = 1
+								/obj/item/grenade/c4 = 2
 							)
 
 

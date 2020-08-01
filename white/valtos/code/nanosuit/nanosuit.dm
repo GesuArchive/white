@@ -744,8 +744,15 @@
 	shoes = /obj/item/clothing/shoes/combat/coldres/nanojump
 	gloves = /obj/item/clothing/gloves/combat/nano
 	implants = list(/obj/item/implant/explosive/disintegrate)
-	suit_store = /obj/item/tank/internals/emergency_oxygen/recharge
-	internals_slot = ITEM_SLOT_SUITSTORE
+
+/datum/outfit/nanosuit/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	..()
+
+	if(visualsOnly)
+		return
+
+	var/obj/item/tank/internals/emergency_oxygen/recharge/I = new(src)
+	H.equip_to_slot_or_del(I, ITEM_SLOT_SUITSTORE)
 
 /mob/living/carbon/human/Stat()
 	..()

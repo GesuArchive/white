@@ -271,7 +271,7 @@
 	brain = new(T, C)
 
 /datum/reagent/drug/grape_blast/on_mob_life(mob/living/carbon/H)
-	if(!H && !H.hud_used)
+	if(!H || !H.hud_used || !H.hud_used?.plane_masters)
 		return
 	if(prob(5))
 		H.emote(pick("twitch","drool","moan"))
@@ -493,7 +493,7 @@
 	return
 
 /datum/reagent/drug/labebium/on_mob_life(mob/living/carbon/H)
-	if(!H && !H.hud_used)
+	if(!H || !H.hud_used || !H.hud_used?.plane_masters)
 		return
 	var/high_message
 	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"], H.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], H.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], H.hud_used.plane_masters["[PLANE_SPACE]"])

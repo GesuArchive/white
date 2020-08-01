@@ -16,7 +16,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	force = 10
 	flags_1 =  CONDUCT_1
-	slot_flags = ITEM_SLOT_BACK
+	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_SUITSTORE
 	mag_type = /obj/item/ammo_box/magazine/internal/shot
 	semi_auto = FALSE
 	internal_magazine = TRUE
