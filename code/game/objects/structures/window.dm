@@ -176,7 +176,7 @@
 			to_chat(user, "<span class='notice'>Начинаю [anchored ? "откручивать окно от пола":"прикручивать окно к полу"]...</span>")
 			if(I.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, .proc/check_anchored, anchored)))
 				set_anchored(!anchored)
-				to_chat(user, "<span class='notice'>[anchored ? "Прикручиваю к полу":"откручиваю от пола"].</span>")
+				to_chat(user, "<span class='notice'>[anchored ? "Прикручиваю к полу":"Откручиваю от пола"].</span>")
 			return
 		else if(I.tool_behaviour == TOOL_WRENCH && !anchored)
 			to_chat(user, "<span class='notice'>Начинаю разбирать [src.name]...</span>")
