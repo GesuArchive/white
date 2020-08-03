@@ -214,6 +214,7 @@
 	return mutable_appearance('icons/obj/chairs.dmi', "shuttle_chair_armrest")
 
 /obj/structure/chair/office
+	icon = 'icons/obj/chairs.dmi'
 	anchored = FALSE
 	buildstackamount = 5
 	item_chair = null
