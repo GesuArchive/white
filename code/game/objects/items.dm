@@ -291,7 +291,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 			rfm += "холоду"
 		if(resistance_flags & FIRE_PROOF)
 			rfm += "огню"
-		if(rfm)
+		if(rfm.len)
 			. += "<span class='smalldanger'>[capitalize(src.name)] выглядит устойчивым к [english_list(rfm)].</span>"
 
 	. += "<span class='smallnoticeital'>Это [weightclass2text(w_class)] размера предмет.</span>"

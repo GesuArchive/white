@@ -1252,7 +1252,7 @@ GLOBAL_REAL_VAR(list/stack_trace_storage)
 		if(WEIGHT_CLASS_SMALL)
 			. = "небольшого"
 		if(WEIGHT_CLASS_NORMAL)
-			. = "средннего"
+			. = "среднего"
 		if(WEIGHT_CLASS_BULKY)
 			. = "большого"
 		if(WEIGHT_CLASS_HUGE)
