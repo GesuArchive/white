@@ -284,14 +284,17 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	if(resistance_flags & INDESTRUCTIBLE)
 		. += "[capitalize(src.name)] выглядит сверхкрепким и практически неуязвимым!"
 	else
+		var/list/rfm
 		if(resistance_flags & LAVA_PROOF)
-			. += "[capitalize(src.name)] выглядит устойчивым к сверхвысоким температурам! Похоже он выдержит даже магму."
+			rfm += "сверхвысоким температурам"
 		if(resistance_flags & (ACID_PROOF | UNACIDABLE))
-			. += "[capitalize(src.name)] выглядит устойчивым к кислоте."
+			rfm += "кислоте"
 		if(resistance_flags & FREEZE_PROOF)
-			. += "[capitalize(src.name)] выглядит устойчивым к холоду."
+			rfm += "холоду"
 		if(resistance_flags & FIRE_PROOF)
-			. += "[capitalize(src.name)] выглядит устойчивым к огню."
+			rfm += "огню"
+		if(rfm)
+			. += "[capitalize(src.name)] выглядит устойчивым к [english_list(rfm)]."
 
 	if(!user.research_scanner)
 		return
