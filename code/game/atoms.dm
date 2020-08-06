@@ -561,7 +561,7 @@
 	. = list("[ru_get_examine_string(user, TRUE)].")
 
 	if(desc)
-		. += desc
+		. += "<span class='smallnotice'>[desc]</span>"
 
 	if(custom_materials)
 		var/list/materials_list = list()

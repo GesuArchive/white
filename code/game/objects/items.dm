@@ -279,12 +279,10 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 /obj/item/examine(mob/user) //This might be spammy. Remove?
 	. = ..()
 
-	. += "Это [weightclass2text(w_class)] размера предмет."
-
 	if(resistance_flags & INDESTRUCTIBLE)
 		. += "[capitalize(src.name)] выглядит сверхкрепким и практически неуязвимым!"
 	else
-		var/list/rfm
+		var/list/rfm = list()
 		if(resistance_flags & LAVA_PROOF)
 			rfm += "сверхвысоким температурам"
 		if(resistance_flags & (ACID_PROOF | UNACIDABLE))
@@ -295,6 +293,8 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 			rfm += "огню"
 		if(rfm)
 			. += "[capitalize(src.name)] выглядит устойчивым к [english_list(rfm)]."
+
+	. += "<span class='smallnoticeital'>Это [weightclass2text(w_class)] размера предмет.</span>"
 
 	if(!user.research_scanner)
 		return
