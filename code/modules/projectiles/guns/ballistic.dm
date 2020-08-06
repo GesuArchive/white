@@ -388,13 +388,13 @@
 /obj/item/gun/ballistic/examine(mob/user)
 	. = ..()
 	var/count_chambered = !(bolt_type == BOLT_TYPE_NO_BOLT || bolt_type == BOLT_TYPE_OPEN)
-	. += "Внутри [get_ammo(count_chambered)] патронов."
+	. += "<span class='smalldanger'>Внутри <b>[get_ammo(count_chambered)]</b> патронов.</span>"
 	if (!chambered)
-		. += "Патронник пуст."
+		. += "<span class='danger'>Патронник пуст.</span>"
 	if (bolt_locked)
-		. += "[capitalize(bolt_wording)] не передёрнут."
+		. += "<span class='smallnotice'>[capitalize(bolt_wording)] передёрнут.</span>"
 	if (suppressed)
-		. += "Похоже отсюда можно снять глушитель через <b>alt+клик</b>."
+		. += "<span class='smallnotice'>Можно снять глушитель через <b>alt+клик</b>.</span>"
 
 ///Gets the number of bullets in the gun
 /obj/item/gun/ballistic/proc/get_ammo(countchambered = TRUE)

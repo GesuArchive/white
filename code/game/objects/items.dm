@@ -280,7 +280,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	. = ..()
 
 	if(resistance_flags & INDESTRUCTIBLE)
-		. += "[capitalize(src.name)] выглядит сверхкрепким и практически неуязвимым!"
+		. += "<span class='smalldanger'>[capitalize(src.name)] выглядит сверхкрепким и практически неуязвимым!</span>"
 	else
 		var/list/rfm = list()
 		if(resistance_flags & LAVA_PROOF)
@@ -292,7 +292,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		if(resistance_flags & FIRE_PROOF)
 			rfm += "огню"
 		if(rfm)
-			. += "[capitalize(src.name)] выглядит устойчивым к [english_list(rfm)]."
+			. += "<span class='smalldanger'>[capitalize(src.name)] выглядит устойчивым к [english_list(rfm)].</span>"
 
 	. += "<span class='smallnoticeital'>Это [weightclass2text(w_class)] размера предмет.</span>"
 

@@ -315,7 +315,7 @@ h1.alert, h2.alert		{color: #aaaaaa; margin: 0 0 14px 0;}
 .greenannounce			{color: #059223;	font-weight: bold;}
 .rose					{color: #ff5050;}
 .info					{color: #9ab0ff;}
-.notice					{color: #6685f5;}
+.notice					{color: #6685f5;						font-size: 95%;}
 .tinynotice				{color: #6685f5;	font-style: italic;	font-size: 85%;}
 .smallnotice			{color: #6685f5; font-size: 90%;}
 .smallnoticeital		{color: #6685f5;	font-style: italic;	font-size: 90%;}

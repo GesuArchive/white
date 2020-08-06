@@ -111,7 +111,7 @@
 /obj/item/gun/examine(mob/user)
 	. = ..()
 	if(pin)
-		. += "Внутри установлен боёк типа [pin.name]."
+		. += "<span class='smalldanger'>Внутри установлен боёк типа [pin.name].</span>"
 		. += "<span class='info'>Похоже [pin] можно вытащить при помощи <b>инструментов</b>.</span>"
 	else
 		. += "Внутри отсутствует <b>боёк</b>, поэтому оно не будет стрелять."
@@ -128,7 +128,7 @@
 		if(can_bayonet) //if it has a bayonet and this is false, the bayonet is permanent.
 			. += "<span class='info'>Похоже [bayonet.name] может быть <b>откручен</b> от [src.name].</span>"
 	else if(can_bayonet)
-		. += "Похоже сюда можно прикрепить <b>штык</b>."
+		. += "Сюда можно прикрепить <b>штык</b>."
 
 /obj/item/gun/equipped(mob/living/user, slot)
 	. = ..()

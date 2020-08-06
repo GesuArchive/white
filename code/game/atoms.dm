@@ -561,14 +561,14 @@
 	. = list("[ru_get_examine_string(user, TRUE)].")
 
 	if(desc)
-		. += "<span class='smallnotice'>[desc]</span>"
+		. += "<span class='small'>[desc]</span>"
 
 	if(custom_materials)
 		var/list/materials_list = list()
 		for(var/i in custom_materials)
 			var/datum/material/M = i
 			materials_list += "[M.name]"
-		. += "<u>Похоже этот предмет создан из [english_list(materials_list)]</u>."
+		. += "<span class='small'><u>Похоже, этот предмет создан из [english_list(materials_list)]</u>.</span>"
 	if(reagents)
 		if(reagents.flags & TRANSPARENT)
 			. += "Он содержит:"
