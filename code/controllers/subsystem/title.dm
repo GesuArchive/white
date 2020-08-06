@@ -166,7 +166,7 @@ SUBSYSTEM_DEF(title)
 	blend_mode = 3
 	alpha = 125
 	icon = 'white/valtos/icons/d.dmi'
-	icon_state = "rect"
+	icon_state = "tri"
 	color = "#aaaaaa"
 	pixel_x = 240
 	pixel_y = 176
