@@ -37,6 +37,7 @@
 
 	H.verbs += /mob/living/carbon/proc/hackers_immortality
 	H.AddSpell(/obj/effect/proc_holder/spell/self/hacker_heal)
+	H.AddSpell(/obj/effect/proc_holder/spell/self/hacker_immater)
 
 	H.hud_used.update_parallax_pref(H, TRUE)
 
