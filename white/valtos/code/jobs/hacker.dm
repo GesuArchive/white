@@ -47,19 +47,6 @@
 			hud_list[HACKER_HUD].icon = image('white/valtos/icons/dz-031.dmi', src)
 			hud_list[HACKER_HUD].icon_state = "node_weapon"
 
-/datum/job/hacker/after_spawn(mob/living/carbon/human/H, mob/M)
-	ADD_TRAIT(H, TRAIT_HACKER, JOB_TRAIT)
-	ADD_TRAIT(H, TRAIT_PACIFISM, JOB_TRAIT)
-	H.add_client_colour(/datum/client_colour/hacker)
-	H.hud_list[HACKER_HUD].icon = null
-	//H.alpha = 75
-	//H.verbs += /mob/living/carbon/proc/hackers_immortality
-	//M.AddSpell(/obj/effect/proc_holder/spell/self/hacker_heal)
-	//M.AddSpell(/obj/effect/proc_holder/spell/targeted/remove_retard)
-	M.client << 'white/valtos/sounds/hacker_hello.ogg'
-	spawn(50)
-		H.hud_used.update_parallax_pref(H, TRUE)
-
 /datum/client_colour/hacker
 	colour = list(rgb(255,15,15), rgb(0,255,25), rgb(0,0,255), rgb(0,0,0))
 	priority = 6
@@ -214,6 +201,106 @@
 	name = "Цифровое бессмертие"
 	desc = "Мне не страшна смерть!"
 	icon_state = "shadow_mend"
+
+/obj/effect/proc_holder/spell/self/hacker_immater
+	name = "Материализация"
+	desc = "Энтропию в материю!"
+	human_req = TRUE
+	clothes_req = FALSE
+	charge_max = 762
+	cooldown_min = 762
+	invocation = "Ммм, данон!"
+	invocation_type = "whisper"
+	school = "evocation"
+	sound = 'white/valtos/sounds/hacker_heal.ogg'
+	action_icon_state = "spike"
+	var/list/allowed_items = list(/obj/item/stack/sheet/metal,\
+								  /obj/item/stack/sheet/glass,\
+								  /obj/item/stack/sheet/plasteel,\
+								  /obj/item/stack/sheet/mineral/plasma,\
+								  /obj/item/stack/sheet/mineral/gold,\
+								  /obj/item/stack/sheet/mineral/silver,\
+								  /obj/item/stack/sheet/mineral/uranium,\
+								  /obj/item/stack/sheet/mineral/titanium,\
+								  /obj/item/stack/sheet/mineral/diamond)
+
+/obj/effect/proc_holder/spell/self/hacker_immater/cast(list/targets, mob/living/carbon/human/user)
+
+	var/obj/item/stack/sheet/sheetsel = input("Предмет:", "Создаём!", null, null) as null|anything in allowed_items
+
+	if(!sheetsel)
+		return FALSE
+	else
+		var/obj/item/S = new sheetsel(get_turf(user))
+		user.put_in_hands(S)
+		user.visible_message("<span class='warning'>Странный свет исходит от <b>[user]</b>!</span>", "<span class='notice'>Создаю что-тооооооооо!</span>")
+
+
+/datum/crafting_recipe/hacker/head
+	name = "TK-Нанобролитовый Шлем X1845"
+	result = /obj/item/clothing/head/helmet/space/chronos/hacker
+	tools = list(/obj/item/weldingtool,
+				 /obj/item/screwdriver,
+				 /obj/item/multitool/tricorder,
+				 /obj/item/wrench,
+				 /obj/item/wirecutters)
+	reqs = list(/obj/item/stack/sheet/cloth = 3,
+				/obj/item/stack/sheet/mineral/plastitanium = 10,
+				/obj/item/stack/sheet/plasteel = 5,
+				/obj/item/stack/sheet/mineral/diamond = 1,
+				/obj/item/stock_parts/matter_bin/bluespace = 2,
+				/obj/item/stock_parts/micro_laser/quadultra = 2,
+				/obj/item/stock_parts/electrolite/bluespace = 1,
+				/obj/item/stock_parts/manipulator/femto = 4,
+				/obj/item/stock_parts/scanning_module/triphasic = 16,
+				/obj/item/stock_parts/capacitor/quadratic = 2)
+	time = 150
+	category = CAT_CLOTHING
+	always_availible = TRUE
+
+/datum/crafting_recipe/hacker/suit
+	name = "AQ-Квантовый Экзоскелет Н4781"
+	result = /obj/item/clothing/suit/space/wzzzz/hacker_rig
+	tools = list(/obj/item/weldingtool,
+				 /obj/item/screwdriver,
+				 /obj/item/multitool/tricorder,
+				 /obj/item/wrench,
+				 /obj/item/wirecutters)
+	reqs = list(/obj/item/stack/sheet/cloth = 12,
+				/obj/item/stack/sheet/mineral/plastitanium = 25,
+				/obj/item/stack/sheet/plasteel = 20,
+				/obj/item/stack/sheet/bluespace_crystal = 7,
+				/obj/item/stock_parts/matter_bin/bluespace = 12,
+				/obj/item/stock_parts/micro_laser/quadultra = 12,
+				/obj/item/stock_parts/electrolite/bluespace = 12,
+				/obj/item/stock_parts/manipulator/femto = 25,
+				/obj/item/stock_parts/scanning_module/triphasic = 8,
+				/obj/item/stock_parts/capacitor/quadratic = 20)
+	time = 150
+	category = CAT_CLOTHING
+	always_availible = TRUE
+
+/datum/crafting_recipe/hacker/gloves
+	name = "DZ-Блюспластовые Перчатки U8621"
+	result = /obj/item/clothing/gloves/combat/wzzzz/guard
+	tools = list(/obj/item/weldingtool,
+				 /obj/item/screwdriver,
+				 /obj/item/multitool/tricorder,
+				 /obj/item/wrench,
+				 /obj/item/wirecutters)
+	reqs = list(/obj/item/stack/sheet/cloth = 4,
+				/obj/item/stack/sheet/mineral/plastitanium = 15,
+				/obj/item/stack/sheet/plasteel = 7,
+				/obj/item/stack/sheet/bluespace_crystal = 7,
+				/obj/item/stock_parts/matter_bin/bluespace = 2,
+				/obj/item/stock_parts/micro_laser/quadultra = 4,
+				/obj/item/stock_parts/electrolite/bluespace = 5,
+				/obj/item/stock_parts/manipulator/femto = 20,
+				/obj/item/stock_parts/scanning_module/triphasic = 3,
+				/obj/item/stock_parts/capacitor/quadratic = 40)
+	time = 150
+	category = CAT_CLOTHING
+	always_availible = TRUE
 
 /*
 // Hacking
