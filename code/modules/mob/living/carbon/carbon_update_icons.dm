@@ -84,7 +84,7 @@
 			hands_overlay.pixel_x += dna.species.offset_features[OFFSET_HANDS][1]
 			hands_overlay.pixel_y += dna.species.offset_features[OFFSET_HANDS][2]
 
-/mob/living/carbon/update_fire(var/fire_icon = "Generic_mob_burning")
+/mob/living/carbon/update_fire(fire_icon = "Generic_mob_burning")
 	remove_overlay(FIRE_LAYER)
 	if(on_fire || HAS_TRAIT(src, TRAIT_PERMANENTLY_ONFIRE))
 		var/mutable_appearance/new_fire_overlay = mutable_appearance('icons/mob/OnFire.dmi', fire_icon, -FIRE_LAYER)

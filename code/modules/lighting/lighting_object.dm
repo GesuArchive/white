@@ -33,7 +33,7 @@
 	needs_update = TRUE
 	GLOB.lighting_update_objects += src
 
-/atom/movable/lighting_object/Destroy(var/force)
+/atom/movable/lighting_object/Destroy(force)
 	if (force)
 		GLOB.lighting_update_objects -= src
 		if (loc != myturf)

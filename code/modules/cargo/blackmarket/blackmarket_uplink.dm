@@ -172,3 +172,7 @@
 		/obj/item/analyzer = 1
 	)
 	category = CAT_MISC
+
+/datum/crafting_recipe/blackmarket_uplink/New()
+	..()
+	blacklist |= subtypesof(/obj/item/radio/)

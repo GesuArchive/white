@@ -452,7 +452,7 @@
 
 /obj/item/flashlight/glowstick/Initialize()
 	fuel = rand(1600, 2000)
-	light_color = color
+	set_light_color(color)
 	. = ..()
 
 /obj/item/flashlight/glowstick/Destroy()
@@ -513,8 +513,8 @@
 	return (FIRELOSS)
 
 /obj/item/flashlight/glowstick/red
-	name = "красный glowstick"
-	color = LIGHT_COLOR_RED
+	name = "red glowstick"
+	color = COLOR_SOFT_RED
 
 /obj/item/flashlight/glowstick/blue
 	name = "синий glowstick"
@@ -549,7 +549,7 @@
 	name = "disco light"
 	desc = "Groovy..."
 	icon_state = null
-	light_color = null
+	light_color = COLOR_WHITE
 	brightness_on = 0
 	light_range = 0
 	light_power = 10

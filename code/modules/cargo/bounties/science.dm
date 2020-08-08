@@ -8,7 +8,7 @@
 	name = "Trash Bag of Holding"
 	description = "НТ хотели бы использовать мешки для мусора большой емкости. Если у вас есть, пожалуйста, отправьте их."
 	reward = 10000
-	wanted_types = list(/obj/item/storage/backpack/holding)
+	wanted_types = list(/obj/item/storage/bag/trash/bluespace)
 
 /datum/bounty/item/science/bluespace_syringe
 	name = "Блюспейс шприц"

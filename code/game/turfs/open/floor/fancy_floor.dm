@@ -45,7 +45,7 @@
 	C.play_tool_sound(src, 80)
 	return remove_tile(user, silent, (C.tool_behaviour == TOOL_SCREWDRIVER))
 
-/turf/open/floor/wood/remove_tile(mob/user, silent = FALSE, make_tile = TRUE)
+/turf/open/floor/wood/remove_tile(mob/user, silent = FALSE, make_tile = TRUE, force_plating)
 	if(broken || burnt)
 		broken = 0
 		burnt = 0
@@ -55,12 +55,11 @@
 		if(make_tile)
 			if(user && !silent)
 				to_chat(user, "<span class='notice'>Откручиваю доски.</span>")
-			if(floor_tile)
-				new floor_tile(src)
+			spawn_tile()
 		else
 			if(user && !silent)
 				to_chat(user, "<span class='notice'>Силой отрываю доски, уничтожая их в процессе.</span>")
-	return make_plating()
+	return make_plating(force_plating)
 
 /turf/open/floor/wood/cold
 	temperature = 255.37
@@ -104,7 +103,7 @@
 	floor_tile = /obj/item/stack/tile/fairygrass
 	light_range = 2
 	light_power = 0.80
-	light_color = "#33CCFF"
+	light_color = COLOR_BLUE_LIGHT
 
 /turf/open/floor/grass/snow
 	gender = PLURAL

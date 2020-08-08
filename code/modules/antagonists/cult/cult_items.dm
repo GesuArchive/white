@@ -92,7 +92,7 @@
 	throw_speed = 1
 	throw_range = 3
 	sharpness = SHARP_EDGED
-	light_color = "#ff0000"
+	light_color = COLOR_RED
 	attack_verb = list("разрубает", "рубит", "кромсает", "уничтожает", "разрывает", "нарезает", "режет")
 	icon_state = "cultbastard"
 	inhand_icon_state = "cultbastard"
