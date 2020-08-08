@@ -16,7 +16,7 @@
 /datum/blackmarket_item/simplants/antistun
 	name = "CNS Rebooter Implant"
 	desc = "This implant will help you get back up on your feet faster after being stunned. Comes with an autosurgeon."
-	item = /obj/item/autosurgeon/syndicate/anti_stun
+	item = /obj/item/autosurgeon/organ/syndicate/anti_stun
 
 	price_min = 5000
 	price_max = 10000
@@ -71,7 +71,7 @@
 /datum/blackmarket_item/simplants/reviver
 	name = "Reviver Implant"
 	desc = "This implant will attempt to revive and heal you if you lose consciousness. Comes with an autosurgeon."
-	item = /obj/item/autosurgeon/syndicate/reviver
+	item = /obj/item/autosurgeon/organ/syndicate/reviver
 
 	price_min = 5000
 	price_max = 10000
@@ -103,7 +103,7 @@
 /datum/blackmarket_item/simplants/thermals
 	name = "Thermal Eyes"
 	desc = "These cybernetic eyes will give you thermal vision. Comes with a free autosurgeon."
-	item = /obj/item/autosurgeon/syndicate/thermal_eyes
+	item = /obj/item/autosurgeon/organ/syndicate/thermal_eyes
 
 	price_min = 5000
 	price_max = 10000
@@ -124,7 +124,7 @@
 /datum/blackmarket_item/simplants/xray
 	name = "X-ray Vision Implant"
 	desc = "These cybernetic eyes will give you X-ray vision. Comes with an autosurgeon."
-	item = /obj/item/autosurgeon/syndicate/xray_eyes
+	item = /obj/item/autosurgeon/organ/syndicate/xray_eyes
 
 	price_min = 5000
 	price_max = 10000
