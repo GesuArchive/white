@@ -328,11 +328,8 @@
 		PDA.ownjob = J.title
 		PDA.update_label()
 
-/datum/outfit/proc/special_equip(mob/living/carbon/human/H)
-	//SS13 WHITE
-	head = /obj/item/clothing/head/helmet/izanhelm
-	uniform = /obj/item/clothing/under/m35jacket
-	shoes = /obj/item/clothing/shoes/jackboots
+	if(H.client?.prefs.playtime_reward_cloak)
+		neck = /obj/item/clothing/neck/cloak/skill_reward/playing
 
 	// Insert the skillchip associated with this job into the target.
 	if(skillchip_path && istype(H))
@@ -346,6 +343,12 @@
 		var/activate_msg = skillchip_instance.try_activate_skillchip(TRUE, TRUE)
 		if(activate_msg)
 			CRASH("Failed to activate [H]'s [skillchip_instance], on job [src]. Failure message: [activate_msg]")
+
+/datum/outfit/proc/special_equip(mob/living/carbon/human/H)
+	//SS13 WHITE
+	head = /obj/item/clothing/head/helmet/izanhelm
+	uniform = /obj/item/clothing/under/m35jacket
+	shoes = /obj/item/clothing/shoes/jackboots
 
 /datum/outfit/job/get_chameleon_disguise_info()
 	var/list/types = ..()

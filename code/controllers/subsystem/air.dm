@@ -247,7 +247,8 @@ SUBSYSTEM_DEF(air)
 		var/turf/open/T = currentrun[currentrun.len]
 		currentrun.len--
 		if (T)
-			T.equalize_pressure_in_zone(fire_count)
+			if(istype(T))
+				T.equalize_pressure_in_zone(fire_count)
 			//equalize_pressure_in_zone(T, fire_count)
 		if (MC_TICK_CHECK)
 			return
@@ -488,29 +489,8 @@ GLOBAL_LIST_EMPTY(colored_images)
 
 /datum/controller/subsystem/air/ui_data(mob/user)
 	var/list/data = list()
-	data["excited_groups"] = list()
-	for(var/datum/excited_group/group in excited_groups)
-		var/turf/T = group.turf_list[1]
-		var/area/target = get_area(T)
-		var/max = 0
-		#ifdef TRACK_MAX_SHARE
-		for(var/who in group.turf_list)
-			var/turf/open/lad = who
-			max = max(lad.max_share, max)
-		#endif
-		data["excited_groups"] += list(list(
-			"jump_to" = REF(T), //Just go to the first turf
-			"group" = REF(group),
-			"area" = target.name,
-			"breakdown" = group.breakdown_cooldown,
-			"dismantle" = group.dismantle_cooldown,
-			"size" = group.turf_list.len,
-			"should_show" = group.should_display,
-			"max_share" = max
-		))
 	data["active_size"] = active_turfs.len
 	data["hotspots_size"] = hotspots.len
-	data["excited_size"] = excited_groups.len
 	data["conducting_size"] = active_super_conductivity.len
 	data["frozen"] = can_fire
 	data["show_all"] = display_all_groups
@@ -538,24 +518,9 @@ GLOBAL_LIST_EMPTY(colored_images)
 			can_fire = !can_fire
 			return TRUE
 		if("toggle_show_group")
-			var/datum/excited_group/group = locate(params["group"])
-			if(!group)
-				return
-			group.should_display = !group.should_display
-			if(display_all_groups)
-				return TRUE
-			if(group.should_display)
-				group.display_turfs()
-			else
-				group.hide_turfs()
 			return TRUE
 		if("toggle_show_all")
 			display_all_groups = !display_all_groups
-			for(var/datum/excited_group/group in excited_groups)
-				if(display_all_groups)
-					group.display_turfs()
-				else if(!group.should_display) //Don't flicker yeah?
-					group.hide_turfs()
 			return TRUE
 		if("toggle_user_display")
 			var/obj/screen/plane_master/plane = ui.user.hud_used.plane_masters["[ATMOS_GROUP_PLANE]"]

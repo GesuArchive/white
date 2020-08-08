@@ -53,7 +53,7 @@
 	update_icon()
 	return
 
-/obj/item/gun/ballistic/crossbow/chamber_round()
+/obj/item/gun/ballistic/crossbow/chamber_round(replace_new_round = FALSE)
 	return
 
 /obj/item/gun/ballistic/crossbow/can_shoot()

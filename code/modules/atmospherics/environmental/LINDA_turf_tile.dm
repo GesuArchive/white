@@ -187,38 +187,17 @@
 		our_excited_group.dismantle_cooldown = 0;\
 		cached_atmos_cooldown = 0;\
 	}
-*/
 #endif
+*/
 
 /turf/proc/process_cell(fire_count)
 	SSair.remove_from_active(src)
 
-/turf/open/process_cell(fire_count)
-	if(archived_cycle < fire_count) //archive self if not already done
-		archive()
-
-	current_cycle = fire_count
-
-	//cache for sanic speed
-	var/list/adjacent_turfs = atmos_adjacent_turfs
-	var/datum/excited_group/our_excited_group = excited_group
-	var/adjacent_turfs_length = LAZYLEN(adjacent_turfs)
-	var/cached_atmos_cooldown = atmos_cooldown + 1
-
-	var/planet_atmos = planetary_atmos
-	if (planet_atmos)
-		adjacent_turfs_length++
-
-	var/datum/gas_mixture/our_air = air
-
-	#ifdef TRACK_MAX_SHARE
-	max_share = 0 //Gotta reset our tracker
-	#endif
-
-	for(var/t in adjacent_turfs)
-		var/turf/open/enemy_tile = t
-
-		if(fire_count <= enemy_tile.current_cycle)
+/turf/open/proc/equalize_pressure_in_zone(cyclenum)
+/turf/open/proc/consider_firelocks(turf/T2)
+	var/reconsider_adj = FALSE
+	for(var/obj/machinery/door/firedoor/FD in T2)
+		if((FD.flags_1 & ON_BORDER_1) && get_dir(T2, src) != FD.dir)
 			continue
 		FD.emergency_pressure_stop()
 		reconsider_adj = TRUE
@@ -283,127 +262,6 @@
 		else
 			walk_for(src, direction, 0, 8, until=0.25 SECONDS)
 		last_high_pressure_movement_air_cycle = SSair.times_fired
-
-///////////////////////////EXCITED GROUPS/////////////////////////////
-
-/datum/excited_group
-	var/list/turf_list = list()
-	var/breakdown_cooldown = 0
-	var/dismantle_cooldown = 0
-	var/should_display = FALSE
-	var/display_id = 0
-	var/static/wrapping_id = 0
-
-/datum/excited_group/New()
-	SSair.excited_groups += src
-
-/datum/excited_group/proc/add_turf(turf/open/T)
-	turf_list += T
-	T.excited_group = src
-	reset_cooldowns()
-	if(should_display || SSair.display_all_groups)
-		display_turf(T)
-
-/datum/excited_group/proc/merge_groups(datum/excited_group/E)
-	if(turf_list.len > E.turf_list.len)
-		SSair.excited_groups -= E
-		for(var/t in E.turf_list)
-			var/turf/open/T = t
-			T.excited_group = src
-			turf_list += T
-		should_display = E.should_display | should_display
-		if(should_display || SSair.display_all_groups)
-			E.hide_turfs()
-			display_turfs()
-		reset_cooldowns()
-	else
-		SSair.excited_groups -= src
-		for(var/t in turf_list)
-			var/turf/open/T = t
-			T.excited_group = E
-			E.turf_list += T
-		E.reset_cooldowns()
-		E.should_display = E.should_display | should_display
-		if(E.should_display || SSair.display_all_groups)
-			hide_turfs()
-			E.display_turfs()
-
-/datum/excited_group/proc/reset_cooldowns()
-	breakdown_cooldown = 0
-	dismantle_cooldown = 0
-
-//argument is so world start can clear out any turf differences quickly.
-/datum/excited_group/proc/self_breakdown(space_is_all_consuming = FALSE)
-	var/datum/gas_mixture/A = new
-
-	//make local for sanic speed
-	var/list/A_gases = A.gases
-	var/list/turf_list = src.turf_list
-	var/turflen = turf_list.len
-	var/space_in_group = FALSE
-
-	for(var/t in turf_list)
-		var/turf/open/T = t
-		if (space_is_all_consuming && !space_in_group && istype(T.air, /datum/gas_mixture/immutable/space))
-			space_in_group = TRUE
-			qdel(A)
-			A = new /datum/gas_mixture/immutable/space()
-			A_gases = A.gases //update the cache
-			break
-		A.merge(T.air)
-
-	for(var/id in A_gases)
-		A_gases[id][MOLES] /= turflen
-
-	for(var/t in turf_list)
-		var/turf/open/T = t
-		T.air.copy_from(A)
-		T.atmos_cooldown = 0
-		T.update_visuals()
-
-	breakdown_cooldown = 0
-
-/datum/excited_group/proc/dismantle()
-	for(var/t in turf_list)
-		var/turf/open/T = t
-		T.excited = FALSE
-		T.excited_group = null
-		SSair.active_turfs -= T
-		#ifdef VISUALIZE_ACTIVE_TURFS //Use this when you want details about how the turfs are moving, display_all_groups should work for normal operation
-		T.remove_atom_colour(TEMPORARY_COLOUR_PRIORITY, COLOR_VIBRANT_LIME)
-		#endif
-	garbage_collect()
-
-/datum/excited_group/proc/garbage_collect()
-	if(display_id) //If we ever did make those changes
-		hide_turfs()
-	for(var/t in turf_list)
-		var/turf/open/T = t
-		T.excited_group = null
-	turf_list.Cut()
-	SSair.excited_groups -= src
-
-/datum/excited_group/proc/display_turfs()
-	if(display_id == 0) //Hasn't been shown before
-		wrapping_id = wrapping_id % GLOB.colored_turfs.len
-		wrapping_id++ //We do this after because lists index at 1
-		display_id = wrapping_id
-	for(var/thing in turf_list)
-		var/turf/display = thing
-		display.vis_contents += GLOB.colored_turfs[display_id]
-
-/datum/excited_group/proc/hide_turfs()
-	for(var/thing in turf_list)
-		var/turf/display = thing
-		display.vis_contents -= GLOB.colored_turfs[display_id]
-	display_id = 0
-
-/datum/excited_group/proc/display_turf(turf/thing)
-	if(display_id == 0) //Hasn't been shown before
-		wrapping_id = wrapping_id % GLOB.colored_turfs.len
-		wrapping_id++ //We do this after because lists index at 1
-		display_id = wrapping_id
-	thing.vis_contents += GLOB.colored_turfs[display_id]
 
 ////////////////////////SUPERCONDUCTIVITY/////////////////////////////
 /turf/proc/conductivity_directions()

@@ -217,7 +217,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	if(needs_update >= 0) //save the updated version
 		var/old_default_slot = default_slot
-		var/old_max_save_slots = max_save_slots
+		var/old_max_save_slots = max_slots
 
 		for (var/slot in S.dir) //but first, update all current character slots.
 			if (copytext(slot, 1, 10) != "character")
@@ -225,12 +225,12 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			var/slotnum = text2num(copytext(slot, 10))
 			if (!slotnum)
 				continue
-			max_save_slots = max(max_save_slots, slotnum) //so we can still update byond member slots after they lose memeber status
+			max_slots = max(max_slots, slotnum) //so we can still update byond member slots after they lose memeber status
 			default_slot = slotnum
 			if (load_character())
 				save_character()
 		default_slot = old_default_slot
-		max_save_slots = old_max_save_slots
+		max_slots = old_max_save_slots
 		save_preferences()
 
 	return TRUE

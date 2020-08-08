@@ -163,7 +163,7 @@
 				step(M, pick(GLOB.cardinals))
 		if(prob(15))
 			M << "<span class='danger'>Переворот настолько интенсивен, что я начинаю уставать </span>"
-			H.confused +=4
+			//H.confused +=4
 			M.adjustStaminaLoss(10)
 			H.transform *= -1
 	..()
@@ -345,7 +345,7 @@
 					H.hallucination += 2
 					H.jitteriness += 3
 					H.emote("me", 1, pick("быстро дышит", "задыхается"))
-					H.confused += 2
+					//H.confused += 2
 				else if(prob(5))
 					H.emote("cry")
 					H.say(pick("ОСТАНОВИ ЭТО!! МНЕ ЖАЛЬ!!", ";Я СДЕЛАЮ ВСЕ, ЧТО УГОДНО, ЗАСТАВЬ ЭТО ОСТАНОВИТЬСЯ!!!", "ТЫ ДАЖЕ НЕ ПОБЕСПОКОИЛСЯ, ТЫ НЕ ВИДЕЛ, КАК ОНИ УШЛИ!!!", "ТЫ ХОЧЕШЬ УВИДЕТЬ, ЧТО ТАКОЕ РЕАЛЬНОСТЬ НА САМОМ ДЕЛЕ?!!"))

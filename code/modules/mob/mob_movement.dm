@@ -114,9 +114,9 @@
 		else if(prob(confusion * 3))
 			newdir = angle2dir(dir2angle(direct) + pick(45, -45))
 		if(newdir)
-			if(!L.confused_dir)
-				L.confused_dir = newdir
-				addtimer(VARSET_CALLBACK(L, confused_dir, NONE), 0.25 SECONDS)
+			//if(!L.confused_dir)
+			//	L.confused_dir = newdir
+			//	addtimer(VARSET_CALLBACK(L, confused_dir, NONE), 0.25 SECONDS)
 			direct = newdir
 			n = get_step(L, direct)
 

@@ -126,8 +126,8 @@
 
 	if(the_surgery.status == 1)
 		the_patient.surgeries -= the_surgery
-		user.visible_message("<span class='notice'><b>[user]</b> убирает [the_item.name] с [parse_zone(selected_zone)] <b>[M]</b>.</span>", \
-			"<span class='notice'>Убираю [the_item.name] с [parse_zone(selected_zone)] <b>[M]</b>.</span>")
+		user.visible_message("<span class='notice'><b>[user]</b> убирает [the_item.name] с [parse_zone(selected_zone)] <b>[the_patient]</b>.</span>", \
+			"<span class='notice'>Убираю [the_item.name] с [parse_zone(selected_zone)] <b>[the_patient]</b>.</span>")
 		qdel(the_surgery)
 		return
 

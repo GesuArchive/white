@@ -503,15 +503,15 @@
 	if((mode == NANO_ARMOR && !cell.charge) || (mode != NANO_ARMOR))
 		if(prob(5/severity))
 			emp_assault()
-		else if(prob(10/severity))
-			Wearer.confused += 10
+		//else if(prob(10/severity))
+		//	Wearer.confused += 10
 	update_icon()
 
 /obj/item/clothing/suit/space/hardsuit/nano/proc/emp_assault()
 	if(!Wearer)
 		return //Not sure how this could happen.
 	SSblackbox.record_feedback("tally", "nanosuit_emp_shutdown", 1, type)
-	Wearer.confused += 50
+	//Wearer.confused += 50
 	helmet.display_visor_message("ЭМИ атака! Сбой всех систем.")
 	sleep(40)
 	Wearer.apply_effects(paralyze = 300, stun = 300, jitter = 120)
