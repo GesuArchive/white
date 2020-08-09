@@ -143,50 +143,31 @@ window "outputwindow"
 		is-pane = true
 	elem "saybutton"
 		type = BUTTON
-		pos = 600,454
-		size = 40x24
+		pos = 592,453
+		size = 48x20
 		anchor1 = 100,100
 		anchor2 = none
 		saved-params = "is-checked"
-		text = "Chat"
+		text = "Сказать"
 		command = ".winset \"saybutton.is-checked=true ? input.command=\"!say \\\"\" : input.command=\"\"saybutton.is-checked=true ? mebutton.is-checked=false\"\"saybutton.is-checked=true ? oocbutton.is-checked=false\""
-		button-type = pushbox
-	elem "oocbutton"
-		type = BUTTON
-		pos = 560,454
-		size = 40x24
-		anchor1 = 100,100
-		anchor2 = none
-		saved-params = "is-checked"
-		text = "OOC"
-		command = ".winset \"oocbutton.is-checked=true ? input.command=\"!ooc \\\"\" : input.command=\"\"oocbutton.is-checked=true ? mebutton.is-checked=false\"\"oocbutton.is-checked=true ? saybutton.is-checked=false\""
-		button-type = pushbox
-	elem "mebutton"
-		type = BUTTON
-		pos = 520,454
-		size = 40x24
-		anchor1 = 100,100
-		anchor2 = none
-		saved-params = "is-checked"
-		text = "Me"
-		command = ".winset \"mebutton.is-checked=true ? input.command=\"!me \\\"\" : input.command=\"\"mebutton.is-checked=true ? saybutton.is-checked=false\"\"mebutton.is-checked=true ? oocbutton.is-checked=false\""
 		button-type = pushbox
 	elem "input"
 		type = INPUT
-		pos = 0,454
-		size = 515x24
+		pos = 0,453
+		size = 592x20
 		anchor1 = 0,100
 		anchor2 = 100,100
-		font-family = "Courier New"
-		font-size = 12
-		background-color = #d3b5b5
+		font-family = "Consolas"
+		font-size = 10
+		text-color = #99ccff
+		background-color = #111111
 		is-default = true
 		border = sunken
 		saved-params = "command"
 	elem "browseroutput"
 		type = BROWSER
 		pos = 0,0
-		size = 640x452
+		size = 640x451
 		anchor1 = 0,0
 		anchor2 = 100,100
 		background-color = #ffffff
