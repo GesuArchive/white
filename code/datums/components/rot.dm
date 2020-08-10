@@ -45,6 +45,9 @@
 
 /datum/component/rot/corpse/process()
 	var/mob/living/carbon/C = parent
+	if(!C)
+		qdel(src)
+		return
 	if(C.stat != DEAD)
 		qdel(src)
 		return
