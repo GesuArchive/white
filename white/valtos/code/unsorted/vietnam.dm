@@ -419,6 +419,30 @@
 	armor = list("melee" = 75, "bullet" = 35, "laser" = 10,"energy" = 0, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 15, "acid" = 15, "wound" = 55)
 	custom_materials = list(/datum/material/iron = 10000)
 
+/obj/item/gun_parts
+	name = "запчасть"
+	desc = "Для оружия какого-нибудь. Да?"
+	icon = 'white/valtos/icons/objects.dmi'
+
+/obj/item/gun_parts/kar98k
+	name = "основа Kar98k"
+	desc = "Используется для создания винтовки Kar98k. Похоже, здесь не хватает дерева."
+	icon_state = "kar98k-part"
+
+/obj/item/gun_parts/kar98k/attackby(obj/item/I, mob/living/user, params)
+	. = ..()
+	if(istype(I, /obj/item/stack/sheet/mineral/wood))
+		var/obj/item/stack/S = I
+		if(S.amount >= 5)
+			S.use(5)
+			to_chat(user, "<span class='notice'>Создаю винтовку.</span>")
+			new /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k(get_turf(src))
+			qdel(src)
+			return
+		else
+			to_chat(user, "<span class='warning'>Требуется пять единиц досок!</span>")
+			return
+
 /datum/outfit/huev_latnik
 	name = "СУКА ЛАБЕБ"
 	uniform = /obj/item/clothing/under/chainmail
@@ -586,6 +610,10 @@
 /datum/smithing_recipe/plate_boots
 	name = "Ботинки"
 	result = /obj/item/clothing/shoes/jackboots/plate_boots
+
+/datum/smithing_recipe/plate_boots
+	name = "Винтовка Kar98k"
+	result = /obj/item/gun_parts/kar98k
 
 /obj/furnace
 	name = "плавильня"
