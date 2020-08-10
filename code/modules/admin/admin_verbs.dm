@@ -575,7 +575,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/atmos_control()
 	set name = "Atmos Control Panel"
-	set category = "Debug"
+	set category = "Дбг"
 	if(!check_rights(R_DEBUG))
 		return
 	SSair.ui_interact(mob)
