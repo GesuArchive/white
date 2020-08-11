@@ -4,8 +4,7 @@
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	requires_power = TRUE
 	has_gravity = STANDARD_GRAVITY
-	noteleport = TRUE
-	blob_allowed = FALSE
+	area_flags = NOTELEPORT
 	flags_1 = CAN_BE_DIRTY_1
 	ambientsounds = SCARLET_DAWN_AMBIENT
 

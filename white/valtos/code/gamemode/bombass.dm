@@ -2,7 +2,7 @@
 	name = "bombass"
 	icon_state = "awaycontent6"
 	requires_power = TRUE
-	noteleport = TRUE
+	area_flags = NOTELEPORT
 	has_gravity = TRUE
 	outdoors = TRUE
 	mood_bonus = 150

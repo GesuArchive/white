@@ -4,8 +4,7 @@
 	icon_state = "mining"
 	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
-	flora_allowed = TRUE
-	blob_allowed = FALSE
+	area_flags = FLORA_ALLOWED
 
 /area/boxplanet/surface
 	name = "Поверхность"
@@ -30,16 +29,15 @@
 	power_equip = FALSE
 	power_light = FALSE
 	ambientsounds = MINING
-	mob_spawn_allowed = FALSE
-	megafauna_spawn_allowed = FALSE
+	area_flags = MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED
 
 /area/boxplanet/underground/unexplored
 	icon_state = "unexplored"
-	tunnel_allowed = TRUE
+	area_flags = TUNNELS_ALLOWED
 
 /area/boxplanet/underground/explored
 	name = "Подземелье"
-	flora_allowed = FALSE
+	area_flags = FLORA_ALLOWED
 
 ///////////////////////////////////////////////
 

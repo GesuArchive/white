@@ -97,9 +97,7 @@
 /area/ruin/space/has_grav/terrorship
 	name = "Terrorship"
 	requires_power = FALSE
-	noteleport = TRUE //ага ебать
-	hidden = TRUE
-	valid_territory = FALSE
+	area_flags = NOTELEPORT | HIDDEN_AREA //ага ебать
 
 /obj/structure/fluff/artillery
 	name = "артиллерия"

@@ -10,7 +10,7 @@
 	name = "KSV Atmosia Bridge"
 	ambientsounds = ENGINEERING
 	requires_power = TRUE
-	valid_territory = FALSE
+	area_flags = UNIQUE_AREA
 	flags_1 = NONE
 
 /area/shuttle/atmosia/atmos

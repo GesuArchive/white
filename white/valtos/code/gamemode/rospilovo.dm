@@ -863,7 +863,7 @@
 	name = "Rospilovo"
 	icon_state = "awaycontent6"
 	requires_power = FALSE
-	noteleport = TRUE
+	area_flags = NOTELEPORT
 	has_gravity = TRUE
 	mood_bonus = -25
 	mood_message = "<span class='red'>Тут не очень приятно!\n</span>"

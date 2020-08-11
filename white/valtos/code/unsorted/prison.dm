@@ -6,8 +6,7 @@
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	requires_power = TRUE
 	has_gravity = TRUE
-	noteleport = TRUE
-	blob_allowed = FALSE
+	area_flags = NOTELEPORT
 	flags_1 = NONE
 	ambientsounds = SOVIET_AMB
 
@@ -16,8 +15,7 @@
 	icon_state = "yellow"
 	requires_power = TRUE
 	has_gravity = TRUE
-	noteleport = TRUE
-	blob_allowed = FALSE
+	area_flags = NOTELEPORT
 	flags_1 = NONE
 	ambientsounds = SOVIET_AMB_CAVES
 
