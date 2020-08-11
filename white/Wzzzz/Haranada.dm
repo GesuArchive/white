@@ -421,37 +421,6 @@
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 	hud_trait = TRAIT_SECURITY_HUD
 
-/obj/item/clothing/suit/space/wzzzz/hacker_rig
-	name = "интересный костюм"
-	desc = "А ты заслуживаешь этот костюм?"
-	alt_desc = "Глупая свинья."
-	name = "hacker suit"
-	desc = "Do you deserve this hardsuit?"
-	alt_desc = "Do you deserve this hardsuit?"
-	icon_state = "hardsuit0-hacker_rig"
-	clothing_flags = STOPSPRESSUREDAMAGE
-	inhand_icon_state = "hardsuit0-hacker_rig"
-	resistance_flags = INDESTRUCTIBLE
-	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
-	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
-	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
-	slowdown = -1
-	color = "#00ffff"
-	strip_delay = 1300
-	armor = list("melee" = 60, "bullet" = 50, "laser" = 100,"energy" = 100, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 50, "acid" = 50)
-
-
-
-
-
-
-
-
-
-
-
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_engineer_rig
 	name = "ert engineer hardsuit helmet"
 	desc = "Old style of ert hardsuit."

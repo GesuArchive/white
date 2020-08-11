@@ -21,8 +21,7 @@
 /datum/atom_hud/hacker
 	hud_icons = list(HACKER_HUD)
 
-/*
-/mob/living/Initialize()
+/mob/living/carbon/Initialize()
 	. = ..()
 	if(!src)
 		return
@@ -30,7 +29,6 @@
 	hhud.add_to_hud(src)
 	hud_list[HACKER_HUD].icon = image('white/valtos/icons/dz-031.dmi', src)
 	hud_list[HACKER_HUD].icon_state = "node"
-*/
 
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
@@ -93,14 +91,52 @@
 			visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
 
 /obj/item/clothing/head/helmet/space/chronos/hacker
-	color = "#00ffff"
-	name = "гипершлем"
+	name = "TK-Нанобролитовый Шлем X1845"
 	desc = "А ты заслуживаешь это?"
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEMASK
-	worn_icon = null
-	slowdown = -1
+	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	icon_state = "hardsuit1-null_rig"
+	inhand_icon_state = "hardsuit1-null_rig"
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	strip_delay = 1300
-	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+	force = 1
+	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100, "magic" = 100, "wound" = 100)
+
+/obj/item/clothing/suit/space/wzzzz/hacker_rig
+	name = "AQ-Квантовый Экзоскелет Н4781"
+	desc = "А ты заслуживаешь этот костюм?"
+	icon_state = "hardsuit1-null_rig"
+	clothing_flags = STOPSPRESSUREDAMAGE
+	inhand_icon_state = "hardsuit1-null_rig"
+	resistance_flags = INDESTRUCTIBLE
+	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
+	w_class = WEIGHT_CLASS_NORMAL
+	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
+	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
+	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100, "magic" = 100, "wound" = 100)
+	slowdown = -2
+	strip_delay = 1300
+
+/obj/item/clothing/gloves/combat/wzzzz/guard
+	name = "DZ-Блюспластовые Перчатки U8621"
+	desc = "А нужны ли они тебе?"
+	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hands.dmi'
+	icon = 'white/Wzzzz/icons/clothing/clothing/gloves.dmi'
+	icon_state = "guards"
+	inhand_icon_state = "guards"
+	siemens_coefficient = 0
+	permeability_coefficient = 0.01
+	strip_delay = 500
+	cold_protection = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
+	heat_protection = HANDS
+	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
+	resistance_flags = NONE
+	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100, "magic" = 100, "wound" = 100)
+
+/obj/item/clothing/gloves/combat/wzzzz/guard/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/wearertargeting/punchcooldown)
 
 /obj/effect/proc_holder/spell/self/hacker_heal
 	name = "Источник силы"

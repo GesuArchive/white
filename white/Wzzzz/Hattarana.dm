@@ -485,23 +485,6 @@
 	resistance_flags = NONE
 	armor = list("melee" = 45, "bullet" = 50, "laser" = 35,"energy" = 10, "bomb" = 35, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 25)
 
-/obj/item/clothing/gloves/combat/wzzzz/guard
-	name = "guard gloves"
-	desc = "These tactical gloves are fireproof and electrically insulated."
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hands.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/gloves.dmi'
-	icon_state = "guards"
-	inhand_icon_state = "guards"
-	siemens_coefficient = 0
-	permeability_coefficient = 0.01
-	strip_delay = 50
-	cold_protection = HANDS
-	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
-	heat_protection = HANDS
-	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
-	resistance_flags = NONE
-	armor = list("melee" = 50, "bullet" = 40, "laser" = 20, "energy" = 0, "bomb" = 60, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
-
 /obj/item/clothing/gloves/combat/wzzzz/evening_gloves
 	name = "evening gloves"
 	desc = "Evening gloves."

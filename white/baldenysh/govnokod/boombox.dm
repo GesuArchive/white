@@ -6,6 +6,7 @@
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "boombox"
 	verb_say = "констатирует"
+	w_class = WEIGHT_CLASS_HUGE
 
 	var/list/songs = list()
 	var/datum/track/selection = null
