@@ -7,6 +7,11 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	throwforce = 0
 	sight = SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF
 
+
+/mob/dead/set_sidestep(val)
+	val = FALSE
+	. = ..()
+
 /mob/dead/Initialize()
 	SHOULD_CALL_PARENT(FALSE)
 	if(flags_1 & INITIALIZED_1)

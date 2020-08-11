@@ -105,6 +105,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/clientfps = 0
 
+	var/sidestepper = TRUE
+
 	var/parallax
 
 	var/ambientocclusion = TRUE
@@ -144,13 +146,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/hearted_until
 	/// Agendered spessmen can choose whether to have a male or female bodytype
 	var/body_type
-
 	/// If we have persistent scars enabled
 	var/persistent_scars = TRUE
-	/// We have 5 slots for persistent scars, if enabled we pick a random one to load (empty by default) and scars at the end of the shift if we survived as our original person
-	var/list/scars_list = list("1" = "", "2" = "", "3" = "", "4" = "", "5" = "")
-	/// Which of the 5 persistent scar slots we randomly roll to load for this round, if enabled. Actually rolled in [/datum/preferences/proc/load_character(slot)]
-	var/scars_index = 1
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -569,6 +566,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<tr><td><h3>Внутриигровое:</h3></td></tr>"
 			dat += "<tr><td><b>Сообщения ID-карты:</b></td><td align='right'><a href='?_src_=prefs;preference=income_pings'>[(chat_toggles & CHAT_BANKCARD) ? "Вкл" : "Выкл"]</a></td></tr>"
 			dat += "<tr><td><b>FPS:</b></td><td align='right'><a href='?_src_=prefs;preference=clientfps;task=input'>[clientfps]</a></td></tr>"
+			dat += "<tr><td><b>Скольжение по краям:</b></td><td align='right'><a href='?_src_=prefs;preference=sidestepper'>[sidestepper ? "ON" : "OFF"]</a></td></tr>"
 			dat += "<tr><td><b>Оттенок интерфейса:</b></td><td align='right'><a href='?_src_=prefs;preference=interface_hue;task=input'>[interface_hue]</a></td></tr>"
 			dat += "<tr><td><b>Параллакс:</b></td><td align='right'><a href='?_src_=prefs;preference=parallaxdown' oncontextmenu='window.location.href=\"?_src_=prefs;preference=parallaxup\";return false;'>"
 			switch (parallax)
@@ -1559,6 +1557,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						parent.unforce_custom_theme()
 						interface_hue = desiredhue
 						parent.force_custom_theme()
+
 				if("ui")
 					var/pickedui = input(user, "Choose your UI style.", "Character Preference", UI_style)  as null|anything in sortList(GLOB.available_ui_styles)
 					if(pickedui)
@@ -1739,12 +1738,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					persistent_scars = !persistent_scars
 
 				if("clear_scars")
-					to_chat(user, "<span class='notice'>All scar slots cleared. Please save character to confirm.</span>")
-					scars_list["1"] = ""
-					scars_list["2"] = ""
-					scars_list["3"] = ""
-					scars_list["4"] = ""
-					scars_list["5"] = ""
+					var/path = "data/player_saves/[user.ckey[1]]/[user.ckey]/scars.sav"
+					fdel(path)
+					to_chat(user, "<span class='notice'>All scar slots cleared.</span>")
 
 				if("hear_midis")
 					toggles ^= SOUND_MIDI
@@ -1785,6 +1781,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("allow_midround_antag")
 					toggles ^= MIDROUND_ANTAG
+
+				if ("sidestepper")
+					sidestepper = !sidestepper
+					if(isliving(parent.mob))
+						parent.mob.set_sidestep(sidestepper)
 
 				if("parallaxup")
 					parallax = WRAP(parallax + 1, PARALLAX_INSANE, PARALLAX_DISABLE + 1)
@@ -1951,6 +1952,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	if("tail_lizard" in pref_species.default_features)
 		character.dna.species.mutant_bodyparts |= "tail_lizard"
+	if("spines" in pref_species.default_features)
+		character.dna.species.mutant_bodyparts |= "spines"
 
 	if(icon_updates)
 		character.update_body()

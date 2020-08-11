@@ -110,8 +110,7 @@
 		if (isliving(AM))
 			var/mob/living/L = AM
 			L.notransform = TRUE
-			L.Stun(200)
-			L.resting = TRUE
+			L.Paralyze(20 SECONDS)
 			inc_metabalance(L, METACOIN_CHASM_REWARD, reason="<b>АААААААААААААААААААААААААААААААААААААААААААА!!!</b>")
 
 		var/oldtransform = AM.transform

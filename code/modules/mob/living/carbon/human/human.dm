@@ -654,46 +654,69 @@
 				to_chat(src, "<span class='warning'>Невероятно, но [S] вытягивает [hand] из моей руки!</span>")
 	rad_act(current_size * 3)
 
-/mob/living/carbon/human/proc/do_cpr(mob/living/carbon/C)
-	CHECK_DNA_AND_SPECIES(C)
+#define CPR_PANIC_SPEED (0.8 SECONDS)
 
-	if(C.stat == DEAD || (HAS_TRAIT(C, TRAIT_FAKEDEATH)))
-		to_chat(src, "<span class='warning'>[C.name] мертво!</span>")
-		return
-	if(is_mouth_covered())
-		to_chat(src, "<span class='warning'>Надо бы маску снять!</span>")
-		return 0
-	if(C.is_mouth_covered())
-		to_chat(src, "<span class='warning'>Сними с н[C.ru_ego()] маску сначала!</span>")
-		return 0
+/// Performs CPR on the target after a delay.
+/mob/living/carbon/human/proc/do_cpr(mob/living/carbon/target)
+	var/panicking = FALSE
 
-	if(C.cpr_time < world.time + 30)
-		visible_message("<span class='notice'>[src] делает сердечно-легочную реанимацию [C.name]!</span>", \
-						"<span class='notice'>Делаю сердечно-легочную реанимацию [C.name]... Надо потерпеть!</span>")
-		if(!do_mob(src, C))
-			to_chat(src, "<span class='warning'>У меня не вышло сделать сердечно-легочную реанимацию [C]!</span>")
-			return 0
+	do
+		CHECK_DNA_AND_SPECIES(target)
 
-		var/they_breathe = !HAS_TRAIT(C, TRAIT_NOBREATH)
-		var/they_lung = C.getorganslot(ORGAN_SLOT_LUNGS)
+		if (INTERACTING_WITH(src, target))
+			return FALSE
 
-		if(C.health > C.crit_threshold)
-			return
+		if (target.stat == DEAD || HAS_TRAIT(target, TRAIT_FAKEDEATH))
+			to_chat(src, "<span class='warning'>[target.name] мертво!</span>")
+			return FALSE
 
-		src.visible_message("<span class='notice'>[src] производит сердечно-легочную реанимацию [C.name]!</span>", "<span class='notice'>Произвожу сердечно-легочную реанимацию [C.name].</span>")
+		if (is_mouth_covered())
+			to_chat(src, "<span class='warning'>Надо бы маску снять!</span>")
+			return FALSE
+
+		if (target.is_mouth_covered())
+			to_chat(src, "<span class='warning'>Снять бы с н[ru_ego()] маску сначала!</span>")
+			return FALSE
+
+		if (!getorganslot(ORGAN_SLOT_LUNGS))
+			to_chat(src, "<span class='warning'>У меня нет лёгких для проведения данной процедуры!</span>")
+			return FALSE
+
+		if (HAS_TRAIT(src, TRAIT_NOBREATH))
+			to_chat(src, "<span class='warning'>А я дышать то не умею. Как?</span>")
+			return FALSE
+
+		visible_message("<span class='notice'>[src] делает сердечно-легочную реанимацию [target.name]!</span>", \
+						"<span class='notice'>Делаю сердечно-легочную реанимацию [target.name]... Надо потерпеть!</span>")
+
+		if (!do_mob(src, target, time = panicking ? CPR_PANIC_SPEED : (3 SECONDS)))
+			to_chat(src, "<span class='warning'>У меня не вышло сделать сердечно-легочную реанимацию [target]!</span>")
+			return FALSE
+
+		if (target.health > target.crit_threshold)
+			return FALSE
+
+		visible_message("<span class='notice'>[src] производит сердечно-легочную реанимацию [target.name]!</span>", "<span class='notice'>Произвожу сердечно-легочную реанимацию [target.name].</span>")
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "perform_cpr", /datum/mood_event/perform_cpr)
-		C.cpr_time = world.time
-		log_combat(src, C, "CPRed")
+		log_combat(src, target, "CPRed")
 
-		if(they_breathe && they_lung)
-			var/suff = min(C.getOxyLoss(), 7)
-			C.adjustOxyLoss(-suff)
-			C.updatehealth()
-			to_chat(C, "<span class='unconscious'>Я чувствую, как глоток свежего воздуха входит в мои легкие...</span>")
-		else if(they_breathe && !they_lung)
-			to_chat(C, "<span class='unconscious'>Я чувствую глоток свежего воздуха... но мне не лучше...</span>")
+		if (HAS_TRAIT(target, TRAIT_NOBREATH))
+			to_chat(target, "<span class='unconscious'>Чувствую, как глоток свежего воздуха входит в мои легкие...</span>")
+		else if (!target.getorganslot(ORGAN_SLOT_LUNGS))
+			to_chat(target, "<span class='unconscious'>Чувствую глоток свежего воздуха... но мне не лучше...</span>")
 		else
-			to_chat(C, "<span class='unconscious'>Я чувствую глоток свежего воздуха... но это ощущение, которое я не узнаю...</span>")
+			target.adjustOxyLoss(-min(target.getOxyLoss(), 7))
+			to_chat(target, "<span class='unconscious'>Чувствую глоток свежего воздуха... мне лучше...</span>")
+
+		if (target.health <= target.crit_threshold)
+			if (!panicking)
+				to_chat(src, "<span class='warning'>[target] всё ещё лежит! Нужно попробовать ещё!</span>")
+			panicking = TRUE
+		else
+			panicking = FALSE
+	while (panicking)
+
+#undef CPR_PANIC_SPEED
 
 /mob/living/carbon/human/cuff_resist(obj/item/I)
 	if(dna && dna.check_mutation(HULK) || istype(mind.martial_art, /datum/martial_art/nanosuit))
@@ -1127,6 +1150,8 @@
 	if(!is_type_in_typecache(target, can_ride_typecache))
 		target.visible_message("<span class='warning'><b>[target] не понимает как взобраться на <b>[src]</b>...</span>")
 		return
+	if(target.loc != loc)
+		target.forceMove(loc, step_x, step_y)
 	buckle_lying = lying_buckle
 	var/datum/component/riding/human/riding_datum = LoadComponent(/datum/component/riding/human)
 	if(target_hands_needed)

@@ -1052,6 +1052,13 @@
 	if((magic && HAS_TRAIT(src, TRAIT_ANTIMAGIC)) || (holy && HAS_TRAIT(src, TRAIT_HOLY)))
 		return src
 
+/mob/living/set_sidestep(val)
+	if(!client)
+		val = TRUE
+	else
+		val = client.prefs.sidestepper
+	. = ..()
+
 /**
   * Buckle to another mob
   *
@@ -1062,13 +1069,11 @@
 /mob/buckle_mob(mob/living/M, force = FALSE, check_loc = TRUE)
 	if(M.buckled)
 		return FALSE
-	if(!(src in obounds(M)))
+	if(nearest_turf(src) != nearest_turf(M))
 		var/old_density = density
 		density = FALSE
-		var/can_step = step_towards(M, src, bounds_dist(M, src))
+		step_towards(M, src, bounds_dist(M, src))
 		density = old_density
-		if(!can_step)
-			return FALSE
 	return ..()
 
 ///Call back post buckle to a mob to offset your visual height
