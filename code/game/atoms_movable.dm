@@ -252,8 +252,8 @@
 		M.update_movespeed() // set the proper step_size
 		log_combat(src, M, "grabbed", addition="passive grab")
 		if(!supress_message)
-			M.visible_message("<span class='warning'>[src] grabs [M] passively.</span>", \
-				"<span class='danger'>[src] grabs you passively.</span>")
+			M.visible_message("<span class='warning'><b>[src]</b> хватает <b>[M]</b>.</span>", \
+				"<span class='danger'><b>[src]</b> хватает меня.</span>")
 	return TRUE
 
 /atom/movable/proc/stop_pulling()
@@ -279,7 +279,7 @@
 	if(!check_pulling())
 		return
 	if(!Adjacent(A))
-		to_chat(src, "<span class='warning'>You can't move [pulling] that far!</span>")
+		to_chat(src, "<span class='warning'>Не могу передвинуть [pulling] так далеко!</span>")
 		return
 	pulling.step_size = 1 + pulling.Move(get_turf(A), get_dir(pulling.loc, A)) // 1 + pixels moved
 	pulling.step_size = step_size
