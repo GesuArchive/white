@@ -59,10 +59,10 @@
 		list("mc_count" = mc_count, "ckey" = M.ckey)
 	)
 	query_inc_metacoins.Execute()
+	qdel(query_inc_metacoins)
 	if(!M.client || !M)
 		return
 	M.client.update_metabalance_cache()
-	qdel(query_inc_metacoins)
 	if(ann)
 		if(reason)
 			to_chat(M, "<span class='rose bold'>[reason] [mc_count >= 0 ? "Получено" : "Потеряно"] [abs(mc_count)] метакэша!</span>")
