@@ -19,8 +19,8 @@
         speak_emote = list("hisses")
         health = 20
         maxHealth = 20
-        attack_verb_continuous = "bites"
-        attack_verb_simple = "bite"
+        attack_verb_continuous = "кусает"
+        attack_verb_simple = "кусает"
         melee_damage_lower = 5
         melee_damage_upper = 6
         response_help_continuous = "pets"

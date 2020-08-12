@@ -19,8 +19,8 @@
 	melee_damage_upper = 7.5
 	rapid_melee = 2 // every second attack
 	dodging = TRUE
-	attack_verb_continuous = "bites"
-	attack_verb_simple = "bite"
+	attack_verb_continuous = "куает"
+	attack_verb_simple = "куает"
 	attack_sound = 'sound/weapons/bite.ogg'
 	vision_range = 7
 	aggro_vision_range = 7

@@ -13,8 +13,8 @@
 	health = 15
 	melee_damage_lower = 5
 	melee_damage_upper = 5
-	attack_verb_continuous = "bites"
-	attack_verb_simple = "bite"
+	attack_verb_continuous = "кусает"
+	attack_verb_simple = "кусает"
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
 	response_disarm_continuous = "pokes"

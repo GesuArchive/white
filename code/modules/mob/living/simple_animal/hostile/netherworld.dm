@@ -9,8 +9,8 @@
 	obj_damage = 5
 	melee_damage_lower = 25
 	melee_damage_upper = 50
-	attack_verb_continuous = "slashes"
-	attack_verb_simple = "slash"
+	attack_verb_continuous = "режет"
+	attack_verb_simple = "режет"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	faction = list("nether")
 	speak_emote = list("screams")
@@ -113,8 +113,8 @@
 	icon_state = "mi-go"
 	icon_living = "mi-go"
 	icon_dead = "mi-go-dead"
-	attack_verb_continuous = "lacerates"
-	attack_verb_simple = "lacerate"
+	attack_verb_continuous = "разрывает"
+	attack_verb_simple = "разрывает"
 	speed = -0.5
 	var/static/list/migo_sounds
 	deathmessage = "wails as its form turns into a pulpy mush."
@@ -151,8 +151,8 @@
 	maxHealth = 100
 	melee_damage_lower = 5
 	melee_damage_upper = 10
-	attack_verb_continuous = "punches"
-	attack_verb_simple = "punch"
+	attack_verb_continuous = "бьёт"
+	attack_verb_simple = "бьёт"
 	deathmessage = "falls apart into a fine dust."
 	phaser = FALSE
 

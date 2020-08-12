@@ -79,8 +79,8 @@
 	response_harm_simple = "smack"
 	melee_damage_lower = 10
 	melee_damage_upper = 17
-	attack_verb_continuous = "slams"
-	attack_verb_simple = "slam"
+	attack_verb_continuous = "забивает"
+	attack_verb_simple = "забивает"
 	attack_sound = 'sound/effects/blobattack.ogg'
 	ventcrawler = VENTCRAWLER_ALWAYS
 	faction = list("plants","mining")
@@ -121,8 +121,8 @@
 	response_harm_simple = "smack"
 	melee_damage_lower = 3
 	melee_damage_upper = 5
-	attack_verb_continuous = "eats"
-	attack_verb_simple = "eat"
+	attack_verb_continuous = "поедает"
+	attack_verb_simple = "поедает"
 	attack_sound = null
 	ventcrawler = VENTCRAWLER_ALWAYS
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 10, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
@@ -158,9 +158,9 @@
 	response_harm_simple = "smack"
 	melee_damage_lower = 9
 	melee_damage_upper = 14
-	attack_verb_continuous = "kicks"
+	attack_verb_continuous = "пинает"
 	attack_sound = 'sound/weapons/punch1.ogg'
-	attack_verb_simple = "kick"
+	attack_verb_simple = "пинает"
 	ventcrawler = VENTCRAWLER_ALWAYS
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 60, "min_co2" = 0, "max_co2" = 100, "min_n2" = 0, "max_n2" = 80)
 	minbodytemp = 150
@@ -195,9 +195,9 @@
 	response_harm_simple = "smack"
 	melee_damage_lower = 10
 	melee_damage_upper = 13
-	attack_verb_continuous = "chokes"
+	attack_verb_continuous = "задыхает"
 	attack_sound = 'white/Wzzzz/drown.ogg'
-	attack_verb_simple = "choke"
+	attack_verb_simple = "задыхает"
 	ventcrawler = VENTCRAWLER_ALWAYS
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 00, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0

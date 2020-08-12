@@ -42,8 +42,8 @@
 	hud_possible = list(ANTAG_HUD, DIAG_STAT_HUD, DIAG_HUD)
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
-	attack_verb_continuous = "shocks"
-	attack_verb_simple = "shock"
+	attack_verb_continuous = "шокирует"
+	attack_verb_simple = "шокирует"
 	attack_sound = 'sound/effects/empulse.ogg'
 	friendly_verb_continuous = "pinches"
 	friendly_verb_simple = "pinch"
@@ -117,7 +117,7 @@
 		var/mob/living/silicon/borg = target
 		borg.adjustBruteLoss(melee_damage_lower)
 	return ..()
-		
+
 /mob/living/simple_animal/hostile/swarmer/MiddleClickOn(atom/A)
 	. = ..()
 	if(!LAZYLEN(dronelist))
@@ -222,9 +222,9 @@
 
 	if(!do_mob(src, target, 30))
 		return
-		
+
 	teleport_target(target)
-		
+
 /mob/living/simple_animal/hostile/swarmer/proc/teleport_target(mob/living/target)
 	var/turf/open/floor/safe_turf = find_safe_turf(zlevels = z, extended_safety_checks = TRUE)
 

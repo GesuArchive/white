@@ -134,8 +134,8 @@
 	obj_damage = 90
 	melee_damage_lower = 25
 	melee_damage_upper = 25
-	attack_verb_continuous = "smashes their armored gauntlet into"
-	attack_verb_simple = "smash your armored gauntlet into"
+	attack_verb_continuous = "хуярит своей здоровенной рукой"
+	attack_verb_simple = "хуярит своей здоровенной рукой"
 	speed = 2.5
 	environment_smash = ENVIRONMENT_SMASH_WALLS
 	attack_sound = 'sound/weapons/punch3.ogg'
@@ -200,8 +200,8 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 20
 	retreat_distance = 2 //AI wraiths will move in and out of combat
-	attack_verb_continuous = "slashes"
-	attack_verb_simple = "slash"
+	attack_verb_continuous = "режет"
+	attack_verb_simple = "режет"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	construct_spells = list(/obj/effect/proc_holder/spell/targeted/ethereal_jaunt/shift)
 	runetype = /datum/action/innate/cult/create_rune/tele
@@ -259,8 +259,8 @@
 	melee_damage_upper = 5
 	retreat_distance = 10
 	minimum_distance = 10 //AI artificers will flee like fuck
-	attack_verb_continuous = "rams"
-	attack_verb_simple = "ram"
+	attack_verb_continuous = "стукает"
+	attack_verb_simple = "стукает"
 	environment_smash = ENVIRONMENT_SMASH_WALLS
 	attack_sound = 'sound/weapons/punch2.ogg'
 	construct_spells = list(/obj/effect/proc_holder/spell/aoe_turf/conjure/wall,
@@ -347,8 +347,8 @@
 	sight = SEE_MOBS
 	melee_damage_lower = 15
 	melee_damage_upper = 20
-	attack_verb_continuous = "butchers"
-	attack_verb_simple = "butcher"
+	attack_verb_continuous = "разделывает"
+	attack_verb_simple = "разделывает"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	construct_spells = list(/obj/effect/proc_holder/spell/aoe_turf/area_conversion,
 							/obj/effect/proc_holder/spell/targeted/forcewall/cult)

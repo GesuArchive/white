@@ -33,8 +33,8 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 10
 	melee_damage_upper = 10
-	attack_verb_continuous = "punches"
-	attack_verb_simple = "punch"
+	attack_verb_continuous = "бьёт"
+	attack_verb_simple = "бьёт"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	a_intent = INTENT_HARM
 	loot = list(/obj/effect/mob_spawn/human/corpse/syndicatesoldier)
@@ -78,8 +78,8 @@
 	icon_state = "syndicate_knife"
 	icon_living = "syndicate_knife"
 	loot = list(/obj/effect/gibspawner/human)
-	attack_verb_continuous = "slashes"
-	attack_verb_simple = "slash"
+	attack_verb_continuous = "режет"
+	attack_verb_simple = "режет"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	status_flags = 0
 	var/projectile_deflect_chance = 0
@@ -113,8 +113,8 @@
 	melee_damage_upper = 30
 	icon_state = "syndicate_sword"
 	icon_living = "syndicate_sword"
-	attack_verb_continuous = "slashes"
-	attack_verb_simple = "slash"
+	attack_verb_continuous = "режет"
+	attack_verb_simple = "режет"
 	attack_sound = 'sound/weapons/blade1.ogg'
 	armour_penetration = 35
 	light_color = COLOR_SOFT_RED
@@ -299,8 +299,8 @@
 	sharpness = SHARP_EDGED
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
-	attack_verb_continuous = "cuts"
-	attack_verb_simple = "cut"
+	attack_verb_continuous = "режет"
+	attack_verb_simple = "режет"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	faction = list(ROLE_SYNDICATE)
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)

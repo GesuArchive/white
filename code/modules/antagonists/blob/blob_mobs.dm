@@ -105,8 +105,8 @@
 	melee_damage_upper = 4
 	obj_damage = 20
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
-	attack_verb_continuous = "hits"
-	attack_verb_simple = "hit"
+	attack_verb_continuous = "бьёт"
+	attack_verb_simple = "бьёт"
 	attack_sound = 'sound/weapons/genhit1.ogg'
 	movement_type = FLYING
 	del_on_death = TRUE
@@ -249,8 +249,8 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 20
 	obj_damage = 60
-	attack_verb_continuous = "slams"
-	attack_verb_simple = "slam"
+	attack_verb_continuous = "раздавливает"
+	attack_verb_simple = "раздавливает"
 	attack_sound = 'sound/effects/blobattack.ogg'
 	verb_say = "gurgles"
 	verb_ask = "demands"

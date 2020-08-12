@@ -137,8 +137,8 @@
 	speak_emote = list("giggles","titters","chuckles")
 	emote_hear = list("guffaws","laughs")
 	response_help_continuous = "hugs"
-	attack_verb_continuous = "wildly tickles"
-	attack_verb_simple = "wildly tickle"
+	attack_verb_continuous = "яростно зажимает"
+	attack_verb_simple = "яростно зажимает"
 
 	attack_sound = 'sound/items/bikehorn.ogg'
 	feast_sound = 'sound/spookoween/scary_horn2.ogg'

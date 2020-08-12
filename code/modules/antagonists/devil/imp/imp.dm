@@ -26,8 +26,8 @@
 	minbodytemp = 250 //Weak to cold
 	maxbodytemp = INFINITY
 	faction = list("hell")
-	attack_verb_continuous = "wildly tears into"
-	attack_verb_simple = "wildly tear into"
+	attack_verb_continuous = "яростно разрывает"
+	attack_verb_simple = "яростно разрывает"
 	maxHealth = 200
 	health = 200
 	healable = 0

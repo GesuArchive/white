@@ -22,8 +22,8 @@
 	turns_per_move = 0
 	melee_damage_lower = 1
 	melee_damage_upper = 1
-	attack_verb_continuous = "stings"
-	attack_verb_simple = "sting"
+	attack_verb_continuous = "жалит"
+	attack_verb_simple = "жалит"
 	response_help_continuous = "shoos"
 	response_help_simple = "shoo"
 	response_disarm_continuous = "swats away"

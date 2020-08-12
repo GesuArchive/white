@@ -22,8 +22,8 @@
 	taunt_chance = 25
 	speak_emote = list("telepathically cries")
 	turns_per_move = 5
-	attack_verb_continuous = "blinks at"
-	attack_verb_simple = "blink at"
+	attack_verb_continuous = "моргает в"
+	attack_verb_simple = "моргает в"
 	attack_sound = 'sound/weapons/pierce.ogg'
 	movement_type = FLYING
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)

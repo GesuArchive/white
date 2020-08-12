@@ -30,8 +30,8 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = INFINITY
-	attack_verb_continuous = "punches"
-	attack_verb_simple = "punch"
+	attack_verb_continuous = "бьёт"
+	attack_verb_simple = "бьёт"
 	maxHealth = INFINITY //The spirit itself is invincible
 	health = INFINITY
 	healable = FALSE //don't brusepack the guardian
@@ -119,8 +119,8 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 			icon_dead = "holocarp"
 			speak_emote = list("gnashes")
 			desc = "A mysterious fish that stands by its charge, ever vigilant."
-			attack_verb_continuous = "bites"
-			attack_verb_simple = "bite"
+			attack_verb_continuous = "кусает"
+			attack_verb_simple = "кусает"
 			attack_sound = 'sound/weapons/bite.ogg'
 			recolorentiresprite = TRUE
 	if(!recolorentiresprite) //we want this to proc before stand logs in, so the overlay isn't gone for some reason

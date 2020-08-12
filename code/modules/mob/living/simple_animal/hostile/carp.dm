@@ -31,8 +31,8 @@
 	obj_damage = 100
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attack_verb_continuous = "bites"
-	attack_verb_simple = "bite"
+	attack_verb_continuous = "кусает"
+	attack_verb_simple = "кусает"
 	attack_sound = 'sound/weapons/bite.ogg'
 	speak_emote = list("gnashes")
 

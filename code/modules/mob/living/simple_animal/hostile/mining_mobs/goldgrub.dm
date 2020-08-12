@@ -19,8 +19,8 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 0
 	melee_damage_upper = 0
-	attack_verb_continuous = "barrels into"
-	attack_verb_simple = "barrel into"
+	attack_verb_continuous = "влетает в"
+	attack_verb_simple = "влетает в"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	a_intent = INTENT_HELP
 	speak_emote = list("screeches")

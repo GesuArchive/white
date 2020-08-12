@@ -32,8 +32,8 @@ Difficulty: Hard
 	desc = "In what passes for a hierarchy among slaughter demons, this one is king."
 	health = 2500
 	maxHealth = 2500
-	attack_verb_continuous = "rends"
-	attack_verb_simple = "rend"
+	attack_verb_continuous = "уничтожает"
+	attack_verb_simple = "уничтожает"
 	attack_sound = 'sound/magic/demon_attack1.ogg'
 	icon_state = "bubblegum"
 	icon_living = "bubblegum"

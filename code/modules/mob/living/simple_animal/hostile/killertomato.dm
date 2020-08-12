@@ -19,8 +19,8 @@
 	response_harm_simple = "smack"
 	melee_damage_lower = 8
 	melee_damage_upper = 12
-	attack_verb_continuous = "slams"
-	attack_verb_simple = "slam"
+	attack_verb_continuous = "врезается в"
+	attack_verb_simple = "врезается в"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	ventcrawler = VENTCRAWLER_ALWAYS
 	faction = list("plants")

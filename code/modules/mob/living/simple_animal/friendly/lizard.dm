@@ -8,8 +8,8 @@
 	health = 5
 	maxHealth = 5
 	faction = list("Lizard")
-	attack_verb_continuous = "bites"
-	attack_verb_simple = "bite"
+	attack_verb_continuous = "кусает"
+	attack_verb_simple = "кусает"
 	melee_damage_lower = 1
 	melee_damage_upper = 2
 	response_help_continuous = "pets"

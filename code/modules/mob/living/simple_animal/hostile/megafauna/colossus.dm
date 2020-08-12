@@ -26,8 +26,8 @@ Difficulty: Very Hard
 	desc = "A monstrous creature protected by heavy shielding."
 	health = 2500
 	maxHealth = 2500
-	attack_verb_continuous = "judges"
-	attack_verb_simple = "judge"
+	attack_verb_continuous = "судит"
+	attack_verb_simple = "судит"
 	attack_sound = 'sound/magic/clockwork/ratvar_attack.ogg'
 	icon_state = "eva"
 	icon_living = "eva"

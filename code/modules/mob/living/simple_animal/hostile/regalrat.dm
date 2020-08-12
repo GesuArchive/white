@@ -16,12 +16,12 @@
 	response_help_simple = "glare at"
 	response_disarm_continuous = "skoffs at"
 	response_disarm_simple = "skoff at"
-	response_harm_continuous = "slashes"
+	response_harm_continuous = "режет"
 	response_harm_simple = "slash"
 	melee_damage_lower = 13
 	melee_damage_upper = 15
-	attack_verb_continuous = "slashes"
-	attack_verb_simple = "slash"
+	attack_verb_continuous = "режет"
+	attack_verb_simple = "режет"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	ventcrawler = VENTCRAWLER_ALWAYS
 	unique_name = TRUE

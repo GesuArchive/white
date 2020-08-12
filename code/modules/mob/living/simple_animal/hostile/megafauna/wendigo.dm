@@ -13,8 +13,8 @@ Difficulty: Hard
 	icon_living = "wendigo"
 	icon_dead = "wendigo_dead"
 	icon = 'icons/mob/icemoon/64x64megafauna.dmi'
-	attack_verb_continuous = "claws"
-	attack_verb_simple = "claw"
+	attack_verb_continuous = "разрывает"
+	attack_verb_simple = "разрывает"
 	attack_sound = 'sound/magic/demon_attack1.ogg'
 	weather_immunities = list("snow")
 	speak_emote = list("roars")

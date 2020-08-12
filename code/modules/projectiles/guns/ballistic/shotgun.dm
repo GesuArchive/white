@@ -67,7 +67,7 @@
 //Dual Feed Shotgun
 
 /obj/item/gun/ballistic/shotgun/automatic/dual_tube
-	name = "колёсный дробовик"
+	name = "двухтиповый дробовик"
 	desc = "Улучшенный дробовик с двумя раздельными трубами, что позволяет быстро выбирать между двумя различными калибрами."
 	icon_state = "cycler"
 	inhand_icon_state = "bulldog"
@@ -80,7 +80,7 @@
 
 /obj/item/gun/ballistic/shotgun/automatic/dual_tube/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Alt-click чтоб изменить это.</span>"
+	. += "<span class='notice'>Alt-click чтобы изменить это.</span>"
 
 /obj/item/gun/ballistic/shotgun/automatic/dual_tube/Initialize()
 	. = ..()
@@ -100,9 +100,9 @@
 	alternate_magazine = current_mag
 	toggled = !toggled
 	if(toggled)
-		to_chat(user, "<span class='notice'>Вы выбрали трубу 'B'.</span>")
+		to_chat(user, "<span class='notice'>Труба 'B'.</span>")
 	else
-		to_chat(user, "<span class='notice'>Вы выбрали трубу 'А'.</span>")
+		to_chat(user, "<span class='notice'>Труба 'А'.</span>")
 
 /obj/item/gun/ballistic/shotgun/automatic/dual_tube/AltClick(mob/living/user)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
@@ -112,7 +112,7 @@
 // Bulldog shotgun //
 
 /obj/item/gun/ballistic/shotgun/bulldog
-	name = "\improper дробовик''Bulldog'' "
+	name = "дробовик''Bulldog''"
 	desc = "Полуавтоматический дробовик с магнитной подачей для боя в узких коридорах по прозвищу «Бульдог». Совместим только со специализированными 8-круглыми барабанными магазинами."
 	icon_state = "bulldog"
 	inhand_icon_state = "bulldog"
@@ -268,10 +268,10 @@
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
 		return
 	if(toggled)
-		to_chat(user,"<span class='notice'>Вы собрались стрелять.</span>")
+		to_chat(user,"<span class='notice'>Собираюсь стрелять.</span>")
 		fire_sound = initial(fire_sound)
 	else
-		to_chat(user,"<span class='notice'>Вы будете использовать крюк.</span>")
+		to_chat(user,"<span class='notice'>Буду использовать крюк.</span>")
 		fire_sound = 'sound/weapons/batonextend.ogg'
 	toggled = !toggled
 

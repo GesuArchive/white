@@ -35,17 +35,17 @@
 
 	///When someone interacts with the simple animal.
 	///Help-intent verb in present continuous tense.
-	var/response_help_continuous = "pokes"
+	var/response_help_continuous = "трогает"
 	///Help-intent verb in present simple tense.
-	var/response_help_simple = "poke"
+	var/response_help_simple = "трогает"
 	///Disarm-intent verb in present continuous tense.
-	var/response_disarm_continuous = "shoves"
+	var/response_disarm_continuous = "толкает"
 	///Disarm-intent verb in present simple tense.
-	var/response_disarm_simple = "shove"
+	var/response_disarm_simple = "толкает"
 	///Harm-intent verb in present continuous tense.
-	var/response_harm_continuous = "hits"
+	var/response_harm_continuous = "бьёт"
 	///Harm-intent verb in present simple tense.
-	var/response_harm_simple = "hit"
+	var/response_harm_simple = "бьёт"
 	var/harm_intent_damage = 3
 	///Minimum force required to deal any damage.
 	var/force_threshold = 0
@@ -75,14 +75,14 @@
 	/// 1 for full damage , 0 for none , -1 for 1:1 heal from that source.
 	var/list/damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 1)
 	///Attacking verb in present continuous tense.
-	var/attack_verb_continuous = "attacks"
+	var/attack_verb_continuous = "атакует"
 	///Attacking verb in present simple tense.
-	var/attack_verb_simple = "attack"
+	var/attack_verb_simple = "атакует"
 	var/attack_sound = null
 	///Attacking, but without damage, verb in present continuous tense.
-	var/friendly_verb_continuous = "nuzzles"
+	var/friendly_verb_continuous = "трётся"
 	///Attacking, but without damage, verb in present simple tense.
-	var/friendly_verb_simple = "nuzzle"
+	var/friendly_verb_simple = "трётся"
 	///Set to 1 to allow breaking of crates,lockers,racks,tables; 2 for walls; 3 for Rwalls.
 	var/environment_smash = ENVIRONMENT_SMASH_NONE
 

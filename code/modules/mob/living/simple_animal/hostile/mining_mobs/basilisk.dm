@@ -24,8 +24,8 @@
 	obj_damage = 60
 	melee_damage_lower = 12
 	melee_damage_upper = 12
-	attack_verb_continuous = "bites into"
-	attack_verb_simple = "bite into"
+	attack_verb_continuous = "вгрызается в"
+	attack_verb_simple = "вгрызается в"
 	speak_emote = list("chitters")
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	aggro_vision_range = 288

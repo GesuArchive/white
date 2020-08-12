@@ -26,8 +26,8 @@
 	icon = 'white/Wzzzz/disneyland/legion.dmi'
 	attack_sound = 'sound/magic/demon_attack1.ogg'
 	speak_emote = list("echoes")
-	attack_verb_continuous = "chomps"
-	attack_verb_simple = "chomp"
+	attack_verb_continuous = "кусает"
+	attack_verb_simple = "кусает"
 	armour_penetration = 50
 	melee_damage_lower = 25
 	melee_damage_upper = 25

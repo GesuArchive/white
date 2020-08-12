@@ -29,8 +29,8 @@
 	health = 1000
 	melee_damage_lower = 30
 	melee_damage_upper = 30
-	attack_verb_continuous = "slashes its arms at"
-	attack_verb_simple = "slash your arms at"
+	attack_verb_continuous = "дёргает своими руками задевая"
+	attack_verb_simple = "дёргает своими руками задевая"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	throw_message = "doesn't affect the sturdiness of"
 	speed = 1
@@ -246,8 +246,8 @@
 	health = 200
 	melee_damage_lower = 20
 	melee_damage_upper = 20
-	attack_verb_continuous = "bites at"
-	attack_verb_simple = "bite at"
+	attack_verb_continuous = "кусает"
+	attack_verb_simple = "кусает"
 	attack_sound = 'sound/effects/curse1.ogg'
 	throw_message = "simply misses"
 	speed = 0

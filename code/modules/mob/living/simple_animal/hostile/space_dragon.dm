@@ -23,8 +23,8 @@
 	health = 400
 	a_intent = INTENT_HARM
 	speed = 0
-	attack_verb_continuous = "chomps"
-	attack_verb_simple = "chomp"
+	attack_verb_continuous = "надкусывает"
+	attack_verb_simple = "надкусывает"
 	attack_sound = 'sound/magic/demon_attack1.ogg'
 	deathsound = 'sound/magic/demon_dies.ogg'
 	icon = 'icons/mob/spacedragon.dmi'

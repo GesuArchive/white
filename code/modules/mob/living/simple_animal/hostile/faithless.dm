@@ -22,8 +22,8 @@
 	obj_damage = 50
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attack_verb_continuous = "grips"
-	attack_verb_simple = "grip"
+	attack_verb_continuous = "душит"
+	attack_verb_simple = "душит"
 	attack_sound = 'sound/hallucinations/growl1.ogg'
 	speak_emote = list("growls")
 

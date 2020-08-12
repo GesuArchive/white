@@ -24,8 +24,8 @@
 	obj_damage = 0
 	melee_damage_lower = 0
 	melee_damage_upper = 0
-	attack_verb_continuous = "chomps"
-	attack_verb_simple = "chomp"
+	attack_verb_continuous = "кусает"
+	attack_verb_simple = "кусает"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	throw_message = "is avoided by the"
 	aggro_vision_range = 288

@@ -22,8 +22,8 @@
 	faction = list("neutral")
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	attack_same = 1
-	attack_verb_continuous = "kicks"
-	attack_verb_simple = "kick"
+	attack_verb_continuous = "бьёт"
+	attack_verb_simple = "бьёт"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	health = 40
 	maxHealth = 40
@@ -132,8 +132,8 @@
 	response_disarm_simple = "gently push aside"
 	response_harm_continuous = "kicks"
 	response_harm_simple = "kick"
-	attack_verb_continuous = "kicks"
-	attack_verb_simple = "kick"
+	attack_verb_continuous = "бьёт"
+	attack_verb_simple = "бьёт"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	health = 50
 	maxHealth = 50
@@ -256,8 +256,8 @@
 	response_disarm_simple = "gently push aside"
 	response_harm_continuous = "kicks"
 	response_harm_simple = "kick"
-	attack_verb_continuous = "kicks"
-	attack_verb_simple = "kick"
+	attack_verb_continuous = "бьёт"
+	attack_verb_simple = "бьёт"
 	health = 3
 	maxHealth = 3
 	ventcrawler = VENTCRAWLER_ALWAYS
@@ -313,8 +313,8 @@
 	response_disarm_simple = "gently push aside"
 	response_harm_continuous = "kicks"
 	response_harm_simple = "kick"
-	attack_verb_continuous = "kicks"
-	attack_verb_simple = "kick"
+	attack_verb_continuous = "бьёт"
+	attack_verb_simple = "бьёт"
 	health = 15
 	maxHealth = 15
 	ventcrawler = VENTCRAWLER_ALWAYS
@@ -429,8 +429,8 @@
 	response_disarm_simple = "gently nudges aside"
 	response_harm_continuous = "kicks"
 	response_harm_simple = "kick"
-	attack_verb_continuous = "bucks"
-	attack_verb_simple = "buck"
+	attack_verb_continuous = "насаживает"
+	attack_verb_simple = "насаживает"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	health = 75
 	maxHealth = 75

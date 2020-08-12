@@ -20,8 +20,8 @@
 	armour_penetration = 20
 	melee_damage_lower = 20
 	melee_damage_upper = 20
-	attack_verb_continuous = "chomps"
-	attack_verb_simple = "chomp"
+	attack_verb_continuous = "кусает"
+	attack_verb_simple = "кусает"
 	attack_sound = 'sound/magic/demon_attack1.ogg'
 	vision_range = 9
 	aggro_vision_range = 9

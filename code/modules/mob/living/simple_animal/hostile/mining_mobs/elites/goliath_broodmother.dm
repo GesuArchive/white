@@ -31,8 +31,8 @@
 	melee_damage_lower = 30
 	melee_damage_upper = 30
 	armour_penetration = 30
-	attack_verb_continuous = "beats down on"
-	attack_verb_simple = "beat down on"
+	attack_verb_continuous = "втаптывает в землю"
+	attack_verb_simple = "втаптывает в землю"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	throw_message = "does nothing to the rocky hide of the"
 	speed = 2
@@ -145,7 +145,7 @@
 	color = "#FFFFFF"
 	set_varspeed(2)
 	move_to_delay = 0.5
-	
+
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother/proc/call_children()
 	ranged_cooldown = world.time + 60
 	visible_message("<span class='warning'>The ground shakes near [src]!</span>")
@@ -171,8 +171,8 @@
 	health = 30
 	melee_damage_lower = 5
 	melee_damage_upper = 5
-	attack_verb_continuous = "bashes against"
-	attack_verb_simple = "bash against"
+	attack_verb_continuous = "врезается в"
+	attack_verb_simple = "врезается в"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	throw_message = "does nothing to the rocky hide of the"
 	speed = 2

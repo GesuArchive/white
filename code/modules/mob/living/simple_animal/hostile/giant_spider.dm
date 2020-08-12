@@ -46,8 +46,8 @@
 	pass_flags = PASSTABLE
 	move_to_delay = 0.6
 	ventcrawler = VENTCRAWLER_ALWAYS
-	attack_verb_continuous = "bites"
-	attack_verb_simple = "bite"
+	attack_verb_continuous = "кусает"
+	attack_verb_simple = "кусает"
 	attack_sound = 'sound/weapons/bite.ogg'
 	unique_name = 1
 	gold_core_spawnable = HOSTILE_SPAWN
