@@ -3480,8 +3480,6 @@
 #include "white\valtos\code\makeshift\trayshield.dm"
 #include "white\valtos\code\mechanized\type_a.dm"
 #include "white\valtos\code\metacoin\metacoin.dm"
-#include "white\valtos\code\metacoin\metacoin_items.dm"
-#include "white\valtos\code\metacoin\metacoin_shop.dm"
 #include "white\valtos\code\miners\miners.dm"
 #include "white\valtos\code\nanosuit\nanosuit.dm"
 #include "white\valtos\code\outfits\hacker.dm"

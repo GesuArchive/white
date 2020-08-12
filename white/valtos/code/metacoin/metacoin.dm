@@ -68,28 +68,8 @@
 			to_chat(M, "<span class='rose bold'>[reason] [mc_count >= 0 ? "Получено" : "Потеряно"] [abs(mc_count)] метакэша!</span>")
 		else
 			to_chat(M, "<span class='rose bold'>[mc_count >= 0 ? "Получено" : "Потеряно"] [abs(mc_count)] метакэша!</span>")
-
-// PROCS FOR HANDLING CHECKING WHAT ITEMS USER HAS
-
 /client
-	/// A cached list of "onlyone" metacoin items this client has bought.
-	var/list/metacoin_items = list()
 	var/mc_cached = 0
-
-/client/proc/update_metacoin_items()
-	metacoin_items = list()
-
-	var/datum/db_query/query_get_metacoin_purchases
-	query_get_metacoin_purchases = SSdbcore.NewQuery("SELECT item_id,item_class FROM [format_table_name("metacoin_item_purchases")] WHERE ckey = :ckey", list("ckey" = ckey))
-
-	if(!query_get_metacoin_purchases.Execute())
-		return
-
-	while (query_get_metacoin_purchases.NextRow())
-		var/id = query_get_metacoin_purchases.item[1]
-		metacoin_items += id
-
-	qdel(query_get_metacoin_purchases)
 
 /mob/living/carbon/human/Stat()
 	..()
