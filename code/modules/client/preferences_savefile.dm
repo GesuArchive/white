@@ -191,7 +191,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	max_slots   	= sanitize_integer(max_slots, 3, 20, initial(max_slots))
 	toggles			= sanitize_integer(toggles, 0, (2**24)-1, initial(toggles))
 	w_toggles		= sanitize_integer(w_toggles, 0, 524288, initial(w_toggles))
-	clientfps		= sanitize_integer(clientfps, 0, 1000, 0)
+	clientfps		= sanitize_integer(clientfps, -1, 1000, 0)
 	parallax		= sanitize_integer(parallax, PARALLAX_INSANE, PARALLAX_DISABLE, null)
 	ambientocclusion	= sanitize_integer(ambientocclusion, FALSE, TRUE, initial(ambientocclusion))
 	auto_fit_viewport	= sanitize_integer(auto_fit_viewport, FALSE, TRUE, initial(auto_fit_viewport))

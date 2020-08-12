@@ -246,7 +246,8 @@
 	pulling = AM
 	AM.set_pulledby(src)
 	setGrabState(state)
-	pulling.set_sidestep(TRUE)
+	if(!isliving(pulling))
+		pulling.set_sidestep(TRUE)
 	if(ismob(AM))
 		var/mob/M = AM
 		M.update_movespeed() // set the proper step_size
@@ -259,7 +260,8 @@
 /atom/movable/proc/stop_pulling()
 	if(pulling)
 		pulling.set_pulledby(null)
-		pulling.set_sidestep(initial(pulling.can_sidestep))
+		if(!isliving(pulling))
+			pulling.set_sidestep(initial(pulling.can_sidestep))
 		var/atom/movable/ex_pulled = pulling
 		setGrabState(GRAB_PASSIVE)
 		pulling = null
@@ -329,7 +331,7 @@
 	if(pulling.move_resist > move_force)
 		return FALSE
 	var/distance = bounds_dist(src, pulling)
-	if(distance < 8)
+	if(distance < 6)
 		return FALSE
 	var/angle = GET_DEG(pulling, src)
 	if((angle % 45) > 1) // We arent directly on a cardinal from the thing
@@ -339,7 +341,7 @@
 		else
 			angle -= min(ANGLE_ADJUST, tempA)
 	angle = SIMPLIFY_DEGREES(angle)
-	return degstep(pulling, angle, distance-8)
+	return degstepprojectile(pulling, angle, distance-8)
 
 #undef ANGLE_ADJUST
 /**
@@ -433,103 +435,6 @@
 		if(QDELETED(A))
 			return
 	A.Bumped(src)
-
-/**
-  * Moves the movable to the side of an obstacle
-  *
-  * Called by Bump
-  * Uses bounds to check for an opening on the left or right
-  * Shifts the object over accordingly, isn't applied to players.
-  * Only applies to clientless mobs and doesn't kick in on unanchored movables or other mobs.
-  * Arguments:
-  * * A - atom that we're going to try and sidestep
-  */
-/atom/movable/proc/handle_sidestep(atom/A)
-	if(sidestep || ismob(A) || (length(client_mobs_in_contents) && !ismecha(src))) // already sidestepping or bumped into a mob or a player
-		return
-	if(ismovable(A)) // additional checks for movables
-		var/atom/movable/AM = A
-		if(AM.sidestep) // is the thing we bumped sidestepping?
-			return
-	sidestep = TRUE
-	var/slide_dist = 8
-	if(pulledby && pulledby.step_size > slide_dist) // we're getting pulled by someone so let's slide over at their speed
-		slide_dist = pulledby.step_size
-	if(check_left(slide_dist)) // There is an opening on the left side of src
-		slide_left(slide_dist)
-	else if(check_right(slide_dist))
-		slide_right(slide_dist)
-	sidestep = FALSE
-
-
-///checks if the left side of src is clear
-/atom/movable/proc/check_left(slide_dist)
-	var/list/atoms
-	var/checkcount = 0
-
-	if(dir == EAST)
-		atoms = obounds(src, 1, slide_dist)
-	else if(dir == WEST)
-		atoms = obounds(src, -1, -slide_dist)
-	else if(dir == NORTH)
-		atoms = obounds(src, -slide_dist, 1)
-	else if(dir == SOUTH)
-		atoms = obounds(src, slide_dist, -1)
-
-	for(var/atom/A in atoms)
-		if(checkcount > 5)
-			break
-		checkcount++
-		if(!A.CanPass(src))
-			return FALSE
-
-	return TRUE
-
-///slides src to the left
-/atom/movable/proc/slide_left(slide_dist)
-	if(dir == EAST)
-		step(src, NORTH, slide_dist)
-	else if(dir == WEST)
-		step(src, SOUTH, slide_dist)
-	else if(dir == NORTH)
-		step(src, WEST, slide_dist)
-	else if(dir == SOUTH)
-		step(src, EAST, slide_dist)
-
-///checks if the right side of src is clear
-/atom/movable/proc/check_right(slide_dist)
-	var/list/atoms
-	var/checkcount = 0
-
-	if(dir == EAST)
-		atoms = obounds(src, 1, -slide_dist)
-	else if(dir == WEST)
-		atoms = obounds(src, -1, slide_dist)
-	else if(dir == NORTH)
-		atoms = obounds(src, slide_dist, 1)
-	else if(dir == SOUTH)
-		atoms = obounds(src, -slide_dist, -1)
-
-	for(var/atom/A in atoms)
-		if(checkcount > 5)
-			break
-		checkcount++
-		if(!A.CanPass(src))
-			return FALSE
-
-	return TRUE
-
-///slides src to the right
-/atom/movable/proc/slide_right(slide_dist)
-	if(dir == EAST)
-		step(src, SOUTH, slide_dist)
-	else if(dir == WEST)
-		step(src, NORTH, slide_dist)
-	else if(dir == NORTH)
-		step(src, EAST, slide_dist)
-	else if(dir == SOUTH)
-		step(src, WEST, slide_dist)
-
 
 /atom/movable/setDir(direct)
 	var/old_dir = dir
@@ -875,12 +780,12 @@
 	return blocker_opinion
 
 /// called when this atom is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
-/atom/movable/proc/on_exit_storage(datum/component/storage/concrete/S)
-	return
+/atom/movable/proc/on_exit_storage(datum/component/storage/concrete/master_storage)
+	SEND_SIGNAL(src, CONSIG_STORAGE_EXITED, master_storage)
 
 /// called when this atom is added into a storage item, which is passed on as S. The loc variable is already set to the storage item.
-/atom/movable/proc/on_enter_storage(datum/component/storage/concrete/S)
-	return
+/atom/movable/proc/on_enter_storage(datum/component/storage/concrete/master_storage)
+	SEND_SIGNAL(src, COMISG_STORAGE_ENTERED, master_storage)
 
 /atom/movable/proc/get_spacemove_backup()
 	for(var/A in obounds(src, 16))
@@ -911,20 +816,26 @@
 		return //don't do an animation if attacking self
 	var/pixel_x_diff = 0
 	var/pixel_y_diff = 0
+	var/turn_dir = 1
 
 	var/direction = get_dir(src, A)
 	if(direction & NORTH)
 		pixel_y_diff = 8
+		turn_dir = rand(50) ? -1 : 1
 	else if(direction & SOUTH)
 		pixel_y_diff = -8
+		turn_dir = rand(50) ? -1 : 1
 
 	if(direction & EAST)
 		pixel_x_diff = 8
 	else if(direction & WEST)
 		pixel_x_diff = -8
+		turn_dir = -1
 
-	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, time = 2)
-	animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, time = 2)
+	var/matrix/initial_transform = matrix(transform)
+	var/matrix/rotated_transform = transform.Turn(15 * turn_dir)
+	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, transform=rotated_transform, time = 1, easing=BACK_EASING|EASE_IN)
+	animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, transform=initial_transform, time = 2, easing=SINE_EASING)
 
 /atom/movable/proc/do_item_attack_animation(atom/A, visual_effect_icon, obj/item/used_item)
 	var/image/I
@@ -935,21 +846,21 @@
 		I.plane = GAME_PLANE
 
 		// Scale the icon.
-		I.transform *= 0.75
+		I.transform *= 0.4
 		// The icon should not rotate.
 		I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 
 		// Set the direction of the icon animation.
 		var/direction = get_dir(src, A)
 		if(direction & NORTH)
-			I.pixel_y = -16
+			I.pixel_y = -12
 		else if(direction & SOUTH)
-			I.pixel_y = 16
+			I.pixel_y = 12
 
 		if(direction & EAST)
-			I.pixel_x = -16
+			I.pixel_x = -14
 		else if(direction & WEST)
-			I.pixel_x = 16
+			I.pixel_x = 14
 
 		if(!direction) // Attacked self?!
 			I.pixel_z = 16
@@ -957,10 +868,12 @@
 	if(!I)
 		return
 
-	flick_overlay(I, GLOB.clients, 5) // 5 ticks/half a second
+	flick_overlay(I, GLOB.clients, 10)
 
 	// And animate the attack!
-	animate(I, alpha = 175, pixel_x = 0, pixel_y = 0, pixel_z = 0, time = 3)
+	animate(I, alpha = 175, transform = matrix() * 0.75, pixel_x = 0, pixel_y = 0, pixel_z = 0, time = 3)
+	animate(time = 1)
+	animate(alpha = 0, time = 3, easing = CIRCULAR_EASING|EASE_OUT)
 
 /atom/movable/vv_get_dropdown()
 	. = ..()

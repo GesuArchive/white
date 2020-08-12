@@ -59,7 +59,7 @@
 	special_screen_obj = "honked_nose"
 	special_screen_replace = FALSE
 
-/datum/mood_event/perform_cpr
+/datum/mood_event/saved_life
 	description = "<span class='nicegreen'>Так приятно спасти чью-то жизнь.</span>\n"
 	mood_change = 6
 	timeout = 8 MINUTES

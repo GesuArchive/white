@@ -103,7 +103,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/list/ignoring = list()
 
-	var/clientfps = 0
+	var/clientfps = -1
 
 	var/sidestepper = TRUE
 
@@ -1547,10 +1547,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						preferred_map = maplist[pickedmap]
 
 				if ("clientfps")
-					var/desiredfps = input(user, "Choose your desired fps. (0 = synced with server tick rate (currently:[world.fps]))", "Character Preference", clientfps)  as null|num
+					var/desiredfps = input(user, "Choose your desired fps.\n-1 means recommended value (currently:[RECOMMENDED_FPS])\n0 means world fps (currently:[world.fps])", "Character Preference", clientfps)  as null|num
 					if (!isnull(desiredfps))
-						clientfps = desiredfps
-						parent.fps = desiredfps
+						clientfps = sanitize_integer(desiredfps, -1, 1000, clientfps)
+						parent.fps = (clientfps < 0) ? RECOMMENDED_FPS : clientfps
+
 				if ("interface_hue")
 					var/desiredhue = input(user, "Введите значение сдвига. (0 = вернёт обычное значение, максимум 360)", "Character Preference", interface_hue)  as null|num
 					if (!isnull(desiredhue))
@@ -1938,6 +1939,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	character.backpack = backpack
 
 	character.jumpsuit_style = jumpsuit_style
+
+	character.can_sidestep = sidestepper
 
 	var/datum/species/chosen_species
 	chosen_species = pref_species.type
