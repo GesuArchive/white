@@ -4,57 +4,57 @@
 	dir = 5
 	},
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "b" = (
 /obj/machinery/power/emitter/energycannon{
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "c" = (
 /obj/machinery/power/emitter/energycannon,
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "e" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/light,
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "h" = (
 /obj/machinery/door/airlock/external{
 	req_access_txt = "150"
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "i" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "l" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "m" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "o" = (
 /obj/machinery/power/emitter/energycannon{
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "p" = (
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "q" = (
 /obj/machinery/light,
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "r" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -63,16 +63,16 @@
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "u" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "A" = (
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "D" = (
 /turf/template_noop,
 /area/template_noop)
@@ -81,14 +81,14 @@
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "G" = (
 /obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy{
 	name = "Nevmerloshuttle console";
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "H" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -97,46 +97,46 @@
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "I" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "M" = (
 /obj/machinery/power/emitter/energycannon{
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "N" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "R" = (
 /obj/structure/fans/tiny,
 /obj/machinery/door/airlock/external{
 	req_access_txt = "150"
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "S" = (
 /obj/machinery/computer/shuttle/diy{
 	name = "Nevmerloshuttle console"
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "U" = (
 /obj/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
-/area/shuttle/custom)
+/area/shuttle)
 "X" = (
 /obj/machinery/turntable,
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 "Y" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -145,7 +145,7 @@
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/custom)
+/area/shuttle)
 
 (1,1,1) = {"
 a

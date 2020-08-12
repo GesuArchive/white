@@ -20,7 +20,6 @@
 
 /area/shuttle/bearcat
 	name = "CSV Bearcat"
-	area_flags = UNIQUE_AREA
 	requires_power = TRUE
 
 /area/shuttle/bearcat/bridge

@@ -3,7 +3,6 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 /area/shuttle/diy
 	name = "Do-It-Yourself shuttle"
 	requires_power = TRUE
-	area_flags = UNIQUE_AREA
 
 //////////////////////////////////////////////////
 
