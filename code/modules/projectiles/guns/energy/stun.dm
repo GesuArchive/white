@@ -18,7 +18,7 @@
 
 /obj/item/gun/energy/e_gun/advtaser
 	name = "гибридный тазер"
-	desc = "Двухрежимный тазер, предназначенный для стрельбы как мощными электродами ближнего радиуса действия, так и лучами дальнего действия дальнего действия."
+	desc = "Двухрежимный тазер, предназначенный для стрельбы как мощными электродами ближнего радиуса действия, так и лучами дальнего действия."
 	icon_state = "advtaser"
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode, /obj/item/ammo_casing/energy/disabler)
 	ammo_x_offset = 2
