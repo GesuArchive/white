@@ -51,9 +51,9 @@
 	if(ann)
 		to_chat(src, "<span class='rose bold'>Новый баланс: [mc_count] метакэша!</span>")
 
-/proc/inc_metabalance(mob/M, mc_count, ann=TRUE, reason=null)
-	if(mc_count > 0 && !M.client)
-		return
+/proc/inc_metabalance(mob/M, mc_count, ann=TRUE, reason="> Тестинг.")
+	//if(mc_count > 0 && !M.client)
+	//	return
 	var/datum/db_query/query_inc_metacoins = SSdbcore.NewQuery(
 		"UPDATE player SET metacoins = metacoins + :mc_count WHERE ckey = :ckey",
 		list("mc_count" = mc_count, "ckey" = M.ckey)
