@@ -40,7 +40,7 @@
 /client/proc/update_metabalance_cache()
 	mc_cached = get_metabalance()
 
-/client/proc/set_metacoin_count(mc_count, ann=TRUE)
+/client/proc/set_metacoin_count(mc_count, ann = TRUE)
 	var/datum/db_query/query_set_metacoins = SSdbcore.NewQuery(
 		"UPDATE player SET metacoins = :mc_count WHERE ckey = :ckey",
 		list("mc_count" = mc_count, "ckey" = ckey)
@@ -51,12 +51,16 @@
 	if(ann)
 		to_chat(src, "<span class='rose bold'>Новый баланс: [mc_count] метакэша!</span>")
 
-/proc/inc_metabalance(mob/M, mc_count, ann=TRUE, reason="> Тестинг.")
-	//if(mc_count > 0 && !M.client)
-	//	return
+/proc/inc_metabalance(mob/M, mc_count, ann = TRUE, reason = null)
+	if(mc_count > 0 && !M.client)
+		return
+
+	// laggy crutch
+	var/mbalance = get_metabalance() + mc_count
+
 	var/datum/db_query/query_inc_metacoins = SSdbcore.NewQuery(
-		"UPDATE player SET metacoins = metacoins + :mc_count WHERE ckey = :ckey",
-		list("mc_count" = mc_count, "ckey" = M.ckey)
+		"UPDATE player SET metacoins = :mbalance WHERE ckey = :ckey",
+		list("mbalance" = mbalance, "ckey" = M.ckey)
 	)
 	query_inc_metacoins.Execute()
 	qdel(query_inc_metacoins)
