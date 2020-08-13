@@ -102,7 +102,6 @@
 	environment_type = "basalt"
 	floor_variance = 15
 	digResult = /obj/item/stack/ore/glass/basalt
-	slowdown = -0.5
 
 /turf/open/floor/plating/asteroid/basalt/lava //lava underneath
 	baseturfs = /turf/open/lava/smooth
