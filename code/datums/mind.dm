@@ -211,12 +211,12 @@
 	if(!length(shown_skills))
 		to_chat(user, "<span class='notice'>Да у меня и нет каких-то особых навыков.</span>")
 		return
-	var/msg = "<span class='info'>*---------*\n<EM>Мои навыки</EM></span>\n<span class='notice'>"
+	var/msg = "<span class='info'><EM>Мои навыки</EM></span>\n<span class='notice'>"
 	for(var/i in shown_skills)
 		var/datum/skill/the_skill = i
 		msg += "[initial(the_skill.name)] - [get_skill_level_name(the_skill)]\n"
 	msg += "</span>"
-	to_chat(user, msg)
+	to_chat(user, "<div class='examine_block'>[msg]</div>")
 
 /datum/mind/proc/set_death_time()
 	last_death = world.time

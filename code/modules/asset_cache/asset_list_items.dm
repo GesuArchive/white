@@ -441,3 +441,8 @@
 /datum/asset/spritesheet/mafia/register()
 	InsertAll("", 'icons/obj/mafia.dmi')
 	..()
+
+/datum/asset/simple/chatbg
+	assets = list(
+		"miumiu.png"	= 'html/miumiu.png'
+	)

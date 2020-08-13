@@ -68,7 +68,7 @@
 	..()
 	if (istype(O, /obj/item/plant_analyzer))
 		var/obj/item/plant_analyzer/P_analyzer = O
-		var/msg = "<span class='info'>*---------*\n This is \a <span class='name'>[src]</span>.\n"
+		var/msg = "<span class='info'>This is \a <span class='name'>[src]</span>.\n"
 		if(seed && P_analyzer.scan_mode == PLANT_SCANMODE_STATS)
 			msg += seed.get_analyzer_text()
 		var/reag_txt = ""
@@ -84,10 +84,8 @@
 				msg += "<br><span class='warning'>- Reagent Traits Over 100% Production</span></br>"
 
 		if(reag_txt)
-			msg += "<br><span class='info'>*---------*</span>"
 			msg += reag_txt
-		msg += "<br><span class='info'>*---------*</span>"
-		to_chat(user, msg)
+		to_chat(user, "<div class='examine_block'>[msg]</div>")
 	else
 		if(seed)
 			for(var/datum/plant_gene/trait/T in seed.genes)

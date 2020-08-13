@@ -13,7 +13,8 @@ html, body {
 	color: #aaaaaa;
 }
 body {
-	background: repeating-linear-gradient(-120deg, transparent, transparent 1px, rgba(25, 25, 25, 0.3) 1px, rgba(125, 125, 125, 0.1) 4px) fixed, radial-gradient(ellipse at 5% 50%, #020D18 0%, black 100%) fixed;
+	/*background: repeating-linear-gradient(-70deg, transparent, transparent 1px, rgba(25, 25, 25, 0.3) 1px, rgba(125, 125, 125, 0.1) 4px) fixed, radial-gradient(ellipse at 5% 50%, rgb(7, 22, 37) 0%, black 100%) fixed;*/
+	background: url('miumiu.png') #111a27;
 	font-family: "Verdana", sans-serif;
 	font-size: 13px;
 	font-color: #a4bad6;
@@ -62,9 +63,9 @@ img.icon {
 	border-radius: 2px;
 }
 
-a {color: #397ea5;}
-a.visited {color: #7c00e6;}
-a:visited {color: #7c00e6;}
+a {color: #ff5200;}
+a.visited {color: #ff0909;}
+a:visited {color: #ff0707;}
 a.popt {text-decoration: none;}
 
 /*****************************************
@@ -272,12 +273,12 @@ em						{font-style: normal;	font-weight: bold;}
 .adminooc				{color: #3d5bc3;	font-weight: bold;}
 
 .adminsay				{color: #ff4500;	font-weight: bold;}
-.admin					{color: #5975da;	font-weight: bold;}
+.admin					{color: #ff8100;font-weight: bold;}
 
 .name					{					font-weight: bold;}
 
 .say					{}
-.deadsay				{color: #e2c1ff}
+.deadsay				{color: #ba6bff;}
 .binarysay				{color: #1e90ff;}
 .binarysay a			{color: #00ff00;}
 .binarysay a:active, .binarysay a:visited {color: #88ff88;}
@@ -304,7 +305,7 @@ h1.alert, h2.alert		{color: #aaaaaa; margin: 0 0 14px 0;}
 
 .userdanger				{color: #c51e1e;	font-weight: bold;	font-size: 135%;}
 .bolddanger				{color: #c51e1e;font-weight: bold;}
-.danger					{color: #c51e1e;}
+.danger					{color: #ec3636;font-size: 110%;margin-left: 16px;}
 .tinydanger				{color: #c51e1e; font-size: 85%;}
 .smalldanger			{color: #c51e1e; font-size: 90%;}
 .warning				{color: #c51e1e;	font-style: italic;}
@@ -315,14 +316,14 @@ h1.alert, h2.alert		{color: #aaaaaa; margin: 0 0 14px 0;}
 .greenannounce			{color: #059223;	font-weight: bold;}
 .rose					{color: #ff5050;}
 .info					{color: #9ab0ff;}
-.notice					{color: #6685f5;						font-size: 95%;}
+.notice					{color: #a1b5d2;font-size: 105%;}
 .tinynotice				{color: #6685f5;	font-style: italic;	font-size: 85%;}
 .smallnotice			{color: #6685f5; font-size: 90%;}
 .smallnoticeital		{color: #6685f5;	font-style: italic;	font-size: 90%;}
 .boldnotice				{color: #6685f5;	font-weight: bold;}
 .hear					{color: #6685f5;	font-style: italic;}
-.adminnotice			{color: #6685f5;}
-.adminhelp				{color: #ff0000;	font-weight: bold;}
+.adminnotice			{color: #ff9456;}
+.adminhelp				{color: #e23838;font-weight: bold;}
 .unconscious			{color: #a4bad6;	font-weight: bold;}
 .suicide				{color: #ff5050;	font-style: italic;}
 .green					{color: #059223;}
@@ -371,7 +372,7 @@ h1.alert, h2.alert		{color: #aaaaaa; margin: 0 0 14px 0;}
 
 .command_headset		{font-weight: bold;	font-size: 160%;}
 .tiny					{font-size: 60%;}
-.small					{font-size: 80%;}
+.small					{font-size: 90%;}
 .big					{font-size: 135%;}
 .reallybig				{font-size: 195%;}
 .extremelybig			{font-size: 250%;}
@@ -398,7 +399,7 @@ h1.alert, h2.alert		{color: #aaaaaa; margin: 0 0 14px 0;}
 
 .icon 					{height: 1em;	width: auto;}
 
-.memo					{color: #638500;	text-align: center;}
+.memo					{color: #c7f346;text-align: center;}
 .memoedit				{text-align: center;	font-size: 125%;}
 .abductor				{color: #c204c2;	font-style: italic;}
 .mind_control			{color: #df3da9;	font-size: 100%;	font-weight: bold;	font-style: italic;}
@@ -500,3 +501,5 @@ h1.alert, h2.alert		{color: #aaaaaa; margin: 0 0 14px 0;}
 .ml-1 {margin-left: 1em;}
 .ml-2 {margin-left: 2em;}
 .ml-3 {margin-left: 3em;}
+
+.examine_block {background: rgba(0, 0, 0, 0.6);border: 1px solid #111a27;margin: 2px 8px;padding: 8px 12px;max-width: 550px;}

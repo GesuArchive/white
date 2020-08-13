@@ -15,7 +15,7 @@
 		if(H.glasses && H.glasses.type == /obj/item/clothing/glasses/hud/wzzzz/hacker_rig)
 			true_info = TRUE
 
-	. = list("<span class='info'>*---------*")
+	. = list("<div class='examine_block'><span class='info'>")
 
 	if(true_info)
 		if(!client || !client.holder)
@@ -466,14 +466,7 @@
 					"<a href='?src=[REF(src)];hud=s;add_comment=1'>\[Добавить комментарий\]</a> "), "")
 	else if(isobserver(user))
 		. += "<span class='info'><b>Черты:</b> [get_quirk_string()]</span>"
-	//if(true_info)
-	//	. += "\n<span class='info'><b>Судьба:</b>"
-	//	. += "Уровень <b>силы</b> [fateize_stat(current_fate[MOB_STR], TRUE)]."
-	//	. += "Уровень <b>выносливости</b> [fateize_stat(current_fate[MOB_STM], TRUE)]."
-	//	. += "Уровень <b>интеллекта</b> [fateize_stat(current_fate[MOB_INT], TRUE)]."
-	//	. += "Уровень <b>ловкости</b> [fateize_stat(current_fate[MOB_DEX], TRUE)].</span>\n"
-	//	. += "<span class='info'><b>Черты:</b> [traitstring]</span>"
-	. += "<span class='info'>*---------*</span>"
+	. += "</div>"
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
 /mob/living/proc/status_effect_examines(pronoun_replacement) //You can include this in any mob's examine() to show the examine texts of status effects!

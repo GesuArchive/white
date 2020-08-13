@@ -574,7 +574,7 @@
   * Produces a signal [COMSIG_PARENT_EXAMINE]
   */
 /atom/proc/examine(mob/user)
-	. = list("[ru_get_examine_string(user, TRUE)].")
+	. = list("<div class='examine_block'>[ru_get_examine_string(user, TRUE)].")
 
 	if(desc)
 		. += "<span class='small'>[desc]</span>"
@@ -615,6 +615,8 @@
 				for(var/x in ex.total_amount)
 					price += ex.total_value[x]
 				. += "<span class='danger'><b>Цена: [price] кредит[get_num_string(price)].</b></span>"
+
+	. += "</div>"
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 /**
