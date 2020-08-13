@@ -56,7 +56,7 @@
 		return
 
 	// laggy crutch
-	var/mbalance = get_metabalance() + mc_count
+	var/mbalance = M.client.get_metabalance() + mc_count
 
 	var/datum/db_query/query_inc_metacoins = SSdbcore.NewQuery(
 		"UPDATE player SET metacoins = :mbalance WHERE ckey = :ckey",
