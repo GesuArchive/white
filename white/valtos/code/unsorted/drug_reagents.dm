@@ -720,7 +720,7 @@
 
 /datum/reagent/drug/zvezdochka/on_mob_life(mob/living/M)
 
-	add_client_colour(/datum/client_colour/zvezdochka)
+	M.add_client_colour(/datum/client_colour/zvezdochka)
 
 	var/high_message = pick("ЗВЁЗДОЧКИ", "КАЙФ")
 
@@ -747,7 +747,7 @@
 	..()
 
 /datum/reagent/drug/zvezdochka/on_mob_end_metabolize(mob/living/M)
-	remove_client_colour(/datum/client_colour/zvezdochka)
+	M.remove_client_colour(/datum/client_colour/zvezdochka)
 	DIRECT_OUTPUT(M.client, sound(null))
 	..()
 
