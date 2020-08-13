@@ -160,3 +160,14 @@
 	price_min = 2500
 	price_max = 10000
 	availability_prob = 70
+
+/datum/blackmarket_item/medicine/zvezdochka
+	name = "Звёздочка"
+	desc = "Советский медицинский препарат."
+	item = /obj/item/storage/pill_bottle/zvezdochka
+
+	stock_min = 1
+	stock_max = 5
+	price_min = 150
+	price_max = 350
+	availability_prob = 60

@@ -147,7 +147,7 @@
 		if(prob(80))
 			H.SpinAnimation(10,1)
 		if(prob(10))
-			M << "<span class='notice'>[high_message].</span>"
+			to_chat(M, "<span class='notice'>[high_message].</span>")
 
 	..()
 	return
@@ -162,7 +162,7 @@
 				for(var/i = 0, i < 4, i++)
 				step(M, pick(GLOB.cardinals))
 		if(prob(15))
-			M << "<span class='danger'>Переворот настолько интенсивен, что я начинаю уставать </span>"
+			to_chat(M, "<span class='danger'>Переворот настолько интенсивен, что я начинаю уставать.</span>")
 			//H.confused +=4
 			M.adjustStaminaLoss(10)
 			H.transform *= -1
@@ -203,7 +203,7 @@
 		var/mob/living/carbon/human/H = M
 		H.SpinAnimation(2,100)
 		if(prob(10))
-			M << "<span class='danger'>Моё переворачивание стало настолько интенсивным, что я стал импровизированным генератором. </span>"
+			to_chat(M, "<span class='danger'>Моё переворачивание стало настолько интенсивным, что я стал импровизированным генератором. </span>")
 			H.Dizzy(25)
 			M.electrocute_act(rand(1,5), 1, 1)
 			playsound(M, "sparks", 50, 1)
@@ -591,7 +591,7 @@
 	if(prob(10))
 		to_chat(H, "\n")
 	if(prob(5))
-		to_chat(H, "<b><big>[readable_corrupted_text(high_message)]</big></b>")
+		to_chat(H, "<b><big> ... [readable_corrupted_text(high_message)] ... </big></b>")
 	..()
 
 /datum/reagent/drug/labebium/proc/PlaySpook(mob/living/carbon/C, soundfile, environment = 0, vary = TRUE)
@@ -702,3 +702,55 @@
 /obj/item/storage/pill_bottle/labebium/PopulateContents()
 	for(var/i in 1 to 7)
 		new /obj/item/reagent_containers/pill/labebium(src)
+
+/datum/reagent/drug/zvezdochka
+	name = "Звёздочка"
+	description = "Реверс-инжиниринг версия старого советского психотропного вещества. По крайней мере попытка."
+	color = "#f00aef"
+
+/datum/reagent/drug/zvezdochka/on_mob_metabolize(mob/living/M)
+	. = ..()
+
+	var/sound/sound = sound('white/valtos/sounds/LYENEN.ogg', TRUE)
+	sound.environment = 23
+	sound.volume = 20
+	SEND_SOUND(M.client, sound)
+
+	return
+
+
+/datum/reagent/drug/zvezdochka/on_mob_life(mob/living/M)
+	var/high_message = pick("ЗВЁЗДОЧКИ", "КАЙФ")
+
+	if(prob(5))
+		to_chat(M, "<span class='notice'> ... [high_message] ... </span>")
+		M.adjustToxLoss(-4 * REM, 0)
+		M.adjustBruteLoss(-4 * REM, 0)
+		M.adjustFireLoss(-4 * REM, 0)
+		M.adjustOxyLoss(-12 * REM, 0)
+
+		M.Jitter(rand(0,2))
+		M.Dizzy(rand(0,2))
+
+	if(prob(50))
+		new /datum/hallucination/delusion(M, TRUE, "custom", rand(10, 50), custom_icon_file = 'white/valtos/icons/stars.dmi', custom_icon = pick("star1","star2"), custom_name = "ЗВЁЗДОЧКА")
+
+	..()
+
+/datum/reagent/drug/zvezdochka/on_mob_end_metabolize(mob/living/M)
+	DIRECT_OUTPUT(M.client, sound(null))
+	..()
+
+/obj/item/reagent_containers/pill/zvezdochka
+	name = "звёздочка"
+	desc = "Не похоже на мазь."
+	icon_state = "pill7"
+	list_reagents = list(/datum/reagent/drug/zvezdochka = 10)
+
+/obj/item/storage/pill_bottle/zvezdochka
+	name = "мазь звёздочка"
+	desc = "Может вызвать ожог глаз. По крайней мере в старой инструкции так было написано."
+
+/obj/item/storage/pill_bottle/zvezdochka/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/reagent_containers/pill/zvezdochka(src)
