@@ -718,11 +718,13 @@
 
 	return
 
-
 /datum/reagent/drug/zvezdochka/on_mob_life(mob/living/M)
+
+	add_client_colour(/datum/client_colour/zvezdochka)
+
 	var/high_message = pick("ЗВЁЗДОЧКИ", "КАЙФ")
 
-	if(prob(5))
+	if(prob(15))
 		to_chat(M, "<span class='notice'> ... [high_message] ... </span>")
 		M.adjustToxLoss(-4 * REM, 0)
 		M.adjustBruteLoss(-4 * REM, 0)
@@ -732,14 +734,26 @@
 		M.Jitter(rand(0,2))
 		M.Dizzy(rand(0,2))
 
-	if(prob(50))
-		new /datum/hallucination/delusion(M, TRUE, "custom", rand(10, 50), custom_icon_file = 'white/valtos/icons/stars.dmi', custom_icon = pick("star1","star2"), custom_name = "ЗВЁЗДОЧКА")
+	new /datum/hallucination/delusion(M, TRUE, "custom", rand(10, 50), custom_icon_file = 'white/valtos/icons/stars.dmi', custom_icon = pick("star1","star2"), custom_name = "ЗВЁЗДОЧКА")
 
+	if(prob(65))
+		var/image/trip_img = image('white/valtos/icons/stars.dmi', pick(view(7,src)), pick("star1","star2"), CURSE_LAYER)
+		if(M.client)
+			M.client.images += trip_img
+		spawn(rand(30,50))
+			if(M.client)
+				M.client.images -= trip_img
+			QDEL_NULL(trip_img)
 	..()
 
 /datum/reagent/drug/zvezdochka/on_mob_end_metabolize(mob/living/M)
+	remove_client_colour(/datum/client_colour/zvezdochka)
 	DIRECT_OUTPUT(M.client, sound(null))
 	..()
+
+/datum/client_colour/zvezdochka
+	colour = list(rgb(255,15,15), rgb(15,225,-15), rgb(15,-15,255), rgb(0,0,0))
+	priority = 6
 
 /obj/item/reagent_containers/pill/zvezdochka
 	name = "звёздочка"
