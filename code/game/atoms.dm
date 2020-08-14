@@ -578,6 +578,7 @@
 
 	if(desc)
 		. += "<span class='small'>[desc]</span>"
+		. += "<hr>"
 
 	if(custom_materials)
 		var/list/materials_list = list()

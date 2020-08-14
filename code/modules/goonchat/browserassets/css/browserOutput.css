@@ -503,3 +503,4 @@ h1.alert, h2.alert		{color: #aaaaaa; margin: 0 0 14px 0;}
 .ml-3 {margin-left: 3em;}
 
 .examine_block {background: rgba(0, 0, 0, 0.6);border: 1px solid #111a27;margin: 2px 8px;padding: 8px 12px;max-width: 550px;}
+.examine_block hr {border: none; border-top: 1px solid #333; padding: 4px 0 8px 0;}
