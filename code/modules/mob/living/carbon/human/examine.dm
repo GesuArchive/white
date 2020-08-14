@@ -467,7 +467,7 @@
 					"<a href='?src=[REF(src)];hud=s;view_comment=1'>\[Просмотреть комментарии\]</a> ",
 					"<a href='?src=[REF(src)];hud=s;add_comment=1'>\[Добавить комментарий\]</a> "), "")
 	else if(isobserver(user))
-		. += "<span class='info'><b>Черты:</b> [get_quirk_string()]</span>"
+		. += "<hr><span class='info'><b>Черты:</b> [get_quirk_string()]</span>"
 	. += "</div>"
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 

@@ -452,7 +452,7 @@
 	if(is_blind()) //blind people see things differently (through touch)
 		//need to be next to something and awake
 		if(!in_range(A, src) || incapacitated())
-			to_chat(src, "<span class='warning'>Здесь что-то есть, но я не вижу этого!!</span>")
+			to_chat(src, "<span class='warning'>Здесь что-то есть, но я не вижу этого!</span>")
 			return
 		//also neeed an empty hand, and you can only initiate as many examines as you have hands
 		if(LAZYLEN(do_afters) >= get_num_arms() || get_active_held_item())
@@ -501,7 +501,7 @@
 		result = A.examine(src) // if a tree is examined but no client is there to see it, did the tree ever really exist?
 
 	if(result)
-		to_chat(src, result.Join("\n"))
+		to_chat(src, "<div class='examine_block'>[result.Join("\n")]</div>")
 	SEND_SIGNAL(src, COMSIG_MOB_EXAMINATE, A)
 
 /mob/proc/clear_from_recent_examines(atom/A)

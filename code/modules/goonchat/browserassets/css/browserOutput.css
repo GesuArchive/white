@@ -11,8 +11,7 @@ html, body {
 	color: #aaaaaa;
 }
 body {
-	/*background: repeating-linear-gradient(-70deg, transparent, transparent 1px, rgba(25, 25, 25, 0.3) 1px, rgba(125, 125, 125, 0.1) 4px) fixed, radial-gradient(ellipse at 5% 50%, rgb(7, 22, 37) 0%, black 100%) fixed;*/
-	background: url('miumiu.png') #111a27;
+	background: linear-gradient(rgba(8, 10, 30, 0.7) 128px, rgba(0, 0, 0, 0.5) 100%) 50% 100% repeat-x fixed, url('miumiu.png') center fixed;
 	font-family: "Verdana", sans-serif;
 	font-size: 13px;
 	font-color: #a4bad6;

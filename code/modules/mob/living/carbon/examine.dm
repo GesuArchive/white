@@ -3,7 +3,7 @@
 	var/t_ego 	= ru_ego()
 	var/t_a 	= ru_a()
 
-	. = list("<div class='examine_block'><span class='info'>Это же [icon2html(src, user)] <EM>[src]</EM>!")
+	. = list("<div class='examine_block'><span class='info'>Это же [icon2html(src, user)] <EM>[src]</EM>!<hr>")
 	var/list/obscured = check_obscured_slots()
 
 	if (handcuffed)
@@ -169,4 +169,4 @@
 		if(scar_text)
 			msg += "[scar_text]"
 
-	return "<div class='examine_block'>[msg]</div>"
+	return msg
