@@ -296,7 +296,7 @@
 
 /obj/machinery/reagentgrinder/proc/grind_item(obj/item/I, mob/user) //Grind results can be found in respective object definitions
 	if(I.on_grind(src) == -1) //Call on_grind() to change amount as needed, and stop grinding the item if it returns -1
-		to_chat(usr, "<span class='danger'>[capitelize(src)]  закорачивается, пытаясь пытаясь размолоть [I.name] и отправляет обратно в хранилище.</span>")
+		to_chat(usr, "<span class='danger'>[capitalize(src)]  закорачивается, пытаясь пытаясь размолоть [I.name] и отправляет обратно в хранилище.</span>")
 		return
 	beaker.reagents.add_reagent_list(I.grind_results)
 	if(I.reagents)
