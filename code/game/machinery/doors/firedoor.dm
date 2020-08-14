@@ -35,10 +35,11 @@
 
 /obj/machinery/door/firedoor/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(!density)
-		. += "<span class='notice'>It is open, but could be <b>pried</b> closed.</span>"
+		. += "<span class='notice'>It is open, but could be <b>pried</b> closed.</span>\n"
 	else if(!welded)
-		. += "<span class='notice'>It is closed, but could be <i>pried</i> open. Deconstruction would require it to be <b>welded</b> shut.</span>"
+		. += "<span class='notice'>It is closed, but could be <i>pried</i> open. Deconstruction would require it to be <b>welded</b> shut.</span>\n"
 	else if(boltslocked)
 		. += "<span class='notice'>It is <i>welded</i> shut. The floor bolts have been locked by <b>screws</b>.</span>"
 	else
