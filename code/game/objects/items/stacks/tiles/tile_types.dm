@@ -23,6 +23,7 @@
 
 /obj/item/stack/tile/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(throwforce && !is_cyborg) //do not want to divide by zero or show the message to borgs who can't throw
 		var/verb
 		switch(CEILING(human_maxHealth / throwforce, 1)) //throws to crit a human

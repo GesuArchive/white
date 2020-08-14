@@ -35,10 +35,10 @@
 
 	if(!(machine_stat & (NOPOWER|BROKEN)))
 		. += "<hr><span class='notice'>Дисплей:</span>"
-		. += "<span class='notice'>- Зарядка <b>[recharge_coeff*10]%</b> за цикл.</span>"
+		. += "</br><span class='notice'>- Зарядка <b>[recharge_coeff*10]%</b> за цикл.</span>"
 		if(charging)
 			var/obj/item/stock_parts/cell/C = charging.get_cell()
-			. += "<span class='notice'>- [charging] заряжен на <b>[C.percent()]%</b>.</span>"
+			. += "</br><span class='notice'>- [charging] заряжен на <b>[C.percent()]%</b>.</span>"
 
 
 /obj/machinery/recharger/proc/setCharging(new_charging)

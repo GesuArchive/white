@@ -88,6 +88,7 @@
 
 /obj/item/clothing/head/fedora/det_hat/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	. += "<span class='notice'>Alt-клик, чтобы достать кукурузную конфету.</span>"
 
 /obj/item/clothing/head/fedora/det_hat/AltClick(mob/user)

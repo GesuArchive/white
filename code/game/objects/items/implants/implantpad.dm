@@ -16,14 +16,13 @@
 
 /obj/item/implantpad/examine(mob/user)
 	. = ..()
-	. += "<hr>"
 	if(Adjacent(user))
-		. += "Внутри [case ? "[case.name]" : "пусто"]."
+		. += "<hr>Внутри [case ? "[case.name]" : "пусто"]."
 		if(case)
-			. += "<span class='info'>Alt-клик для изъятия [case.name].</span>"
+			. += "</br><span class='info'>Alt-клик для изъятия [case.name].</span>"
 	else
 		if(case)
-			. += "<span class='warning'>Он что-то имеет внутри, нужно подойти поближе, чтобы рассмотреть...</span>"
+			. += "<hr><span class='warning'>Он что-то имеет внутри, нужно подойти поближе, чтобы рассмотреть...</span>"
 
 /obj/item/implantpad/handle_atom_del(atom/A)
 	if(A == case)

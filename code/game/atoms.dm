@@ -590,18 +590,18 @@
 	if(reagents)
 		. += "<hr>"
 		if(reagents.flags & TRANSPARENT)
-			. += "Он содержит:"
+			. += "Он содержит: "
 			if(length(reagents.reagent_list))
 				if(user.can_see_reagents()) //Show each individual reagent
 					for(var/datum/reagent/R in reagents.reagent_list)
-						. += "[R.volume] единиц [R.name]"
+						. += "</br>[R.volume] единиц [R.name]"
 				else //Otherwise, just show the total volume
 					var/total_volume = 0
 					for(var/datum/reagent/R in reagents.reagent_list)
 						total_volume += R.volume
-					. += "[total_volume] единиц различных реагентов"
+					. += "</br>[total_volume] единиц различных реагентов"
 			else
-				. += "Ничего."
+				. += "</br>Ничего."
 		else if(reagents.flags & AMOUNT_VISIBLE)
 			if(reagents.total_volume)
 				. += "<span class='notice'>В нём ещё есть [reagents.total_volume] единиц.</span>"

@@ -7,27 +7,27 @@
 	var/list/obscured = check_obscured_slots()
 
 	if (handcuffed)
-		. += "<span class='warning'>[t_on] [icon2html(handcuffed, user)] в наручниках!</span>"
+		. += "<span class='warning'>[t_on] [icon2html(handcuffed, user)] в наручниках!</span>\n"
 	if (head)
-		. += "На голове у н[t_ego] [head.ru_get_examine_string(user)]."
+		. += "На голове у н[t_ego] [head.ru_get_examine_string(user)].\n"
 	if(wear_mask && !(ITEM_SLOT_MASK in obscured))
-		. += "На [t_ego] лице [wear_mask.ru_get_examine_string(user)]."
+		. += "На [t_ego] лице [wear_mask.ru_get_examine_string(user)].\n"
 	if(wear_neck && !(ITEM_SLOT_NECK in obscured))
-		. += "На шее у н[t_ego] [wear_neck.ru_get_examine_string(user)]."
+		. += "На шее у н[t_ego] [wear_neck.ru_get_examine_string(user)].\n"
 
 	for(var/obj/item/I in held_items)
 		if(!(I.item_flags & ABSTRACT))
-			. += "В [t_ego] [get_held_index_name(get_held_index_of_item(I))] он[t_a] держит [I.ru_get_examine_string(user)]."
+			. += "В [t_ego] [get_held_index_name(get_held_index_of_item(I))] он[t_a] держит [I.ru_get_examine_string(user)].\n"
 
 	if (back)
-		. += "На [t_ego] спине [back.ru_get_examine_string(user)]."
+		. += "На [t_ego] спине [back.ru_get_examine_string(user)].\n"
 	var/appears_dead = 0
 	if (stat == DEAD)
 		appears_dead = 1
 		if(getorgan(/obj/item/organ/brain))
-			. += "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни...</span>"
+			. += "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни...</span>\n"
 		else if(get_bodypart(BODY_ZONE_HEAD))
-			. += "<span class='deadsay'>Похоже, что у н[t_ego] нет мозга...</span>"
+			. += "<span class='deadsay'>Похоже, что у н[t_ego] нет мозга...</span>\n"
 
 	var/list/msg = list("<span class='warning'>")
 	var/list/missing = list(BODY_ZONE_HEAD, BODY_ZONE_CHEST, BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_R_LEG, BODY_ZONE_L_LEG)
@@ -167,6 +167,6 @@
 		var/datum/scar/S = i
 		var/scar_text = S.get_examine_description(user)
 		if(scar_text)
-			msg += "[scar_text]"
+			msg += "[scar_text]\n"
 
 	return msg

@@ -420,7 +420,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 
 /obj/item/stack/cable_coil/examine(mob/user)
 	. = ..()
-	. += "<b>Ctrl+Клик</b> для смены слоя."
+	. += "</br><b>Ctrl+Клик</b> для смены слоя."
 
 /obj/item/stack/cable_coil/update_icon_state()
 	if(novariants)

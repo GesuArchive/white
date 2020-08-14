@@ -163,10 +163,11 @@
 
 /obj/item/extinguisher/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	. += "Предохранитель [safety ? "включен" : "отключен"]."
 
 	if(reagents.total_volume)
-		. += "<span class='notice'>Alt-клик, чтобы опустошить его.</span>"
+		. += "</br><span class='notice'>Alt-клик, чтобы опустошить его.</span>"
 
 /obj/item/extinguisher/proc/AttemptRefill(atom/target, mob/user)
 	if(istype(target, tanktype) && target.Adjacent(user))

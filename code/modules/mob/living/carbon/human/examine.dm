@@ -69,35 +69,35 @@
 		var/obj/item/bodypart/head/O = locate(/obj/item/bodypart/head) in bodyparts
 		if(O)
 			if(O.get_teeth() < O.max_teeth)
-				. += "<span class='warning'>Не хватает [O.max_teeth - O.get_teeth()] зубов!</span>"
+				. += "<span class='warning'>Не хватает [O.max_teeth - O.get_teeth()] зубов!</span>\n"
 
 	if(pooed)
-		. += "<big><b>Невероятно, но [t_ego] одежда <font color='red'>ВСЯ В ГОВНЕ</font>.</b></big>"
+		. += "<big><b>Невероятно, но [t_ego] одежда <font color='red'>ВСЯ В ГОВНЕ</font>.</b></big>\n"
 
 	if(headstamp && !(ITEM_SLOT_HEAD in obscured))
-		. += "У н[t_ego] на лбу написано <b>[headstamp]</b>. Круто."
+		. += "У н[t_ego] на лбу написано <b>[headstamp]</b>. Круто.\n"
 
 	//head
 	if(head)
-		. += "На голове у н[t_ego] [head.ru_get_examine_string(user)]."
+		. += "На голове у н[t_ego] [head.ru_get_examine_string(user)].\n"
 
 	//eyes
 	if(!(ITEM_SLOT_EYES in obscured))
 		if(glasses)
-			. += "Также на [t_na] [glasses.ru_get_examine_string(user)]."
+			. += "Также на [t_na] [glasses.ru_get_examine_string(user)].\n"
 		else if(eye_color == BLOODCULT_EYE && iscultist(src) && HAS_TRAIT(src, CULT_EYES))
-			. += "<span class='warning'><B>[ru_ego(TRUE)] глаза ярко-красные и они горят!</B></span>"
+			. += "<span class='warning'><B>[ru_ego(TRUE)] глаза ярко-красные и они горят!</B></span>\n"
 
 	//ears
 	if(ears && !(ITEM_SLOT_EARS in obscured))
-		. += "В ушах у н[t_ego] есть [ears.ru_get_examine_string(user)]."
+		. += "В ушах у н[t_ego] есть [ears.ru_get_examine_string(user)].\n"
 
 	//mask
 	if(wear_mask && !(ITEM_SLOT_MASK in obscured))
-		. += "На лице у [t_ego] [wear_mask.ru_get_examine_string(user)]."
+		. += "На лице у [t_ego] [wear_mask.ru_get_examine_string(user)].\n"
 
 	if(wear_neck && !(ITEM_SLOT_NECK in obscured))
-		. += "На шее у н[t_ego] [wear_neck.ru_get_examine_string(user)]."
+		. += "На шее у н[t_ego] [wear_neck.ru_get_examine_string(user)].\n"
 
 	//suit/armor
 	if(wear_suit)
@@ -106,7 +106,7 @@
 		if(s_store && !(ITEM_SLOT_SUITSTORE in obscured))
 			suit_thing += " вместе с [s_store.ru_get_examine_string(user)]"
 
-		. += "На [t_na] надет [wear_suit.ru_get_examine_string(user)][suit_thing]."
+		. += "На [t_na] надет [wear_suit.ru_get_examine_string(user)][suit_thing].\n"
 
 	//uniform
 	if(w_uniform && !(ITEM_SLOT_ICLOTHING in obscured))
@@ -117,44 +117,44 @@
 			if(U.attached_accessory)
 				accessory_msg += " с [icon2html(U.attached_accessory, user)] [U.attached_accessory]"
 
-		. += "Одет[t_a] он[t_a] в [w_uniform.ru_get_examine_string(user)][accessory_msg]."
+		. += "Одет[t_a] он[t_a] в [w_uniform.ru_get_examine_string(user)][accessory_msg].\n"
 
 	//back
 	if(back)
-		. += "Со спины у н[t_ego] свисает [back.ru_get_examine_string(user)]."
+		. += "Со спины у н[t_ego] свисает [back.ru_get_examine_string(user)].\n"
 
 	//Hands
 	for(var/obj/item/I in held_items)
 		if(!(I.item_flags & ABSTRACT))
-			. += "В [get_held_index_name(get_held_index_of_item(I))] он[t_a] держит [I.ru_get_examine_string(user)]."
+			. += "В [get_held_index_name(get_held_index_of_item(I))] он[t_a] держит [I.ru_get_examine_string(user)].\n"
 
 	var/datum/component/forensics/FR = GetComponent(/datum/component/forensics)
 	//gloves
 	if(gloves && !(ITEM_SLOT_GLOVES in obscured))
-		. += "А на руках у н[t_ego] [gloves.ru_get_examine_string(user)]."
+		. += "А на руках у н[t_ego] [gloves.ru_get_examine_string(user)].\n"
 	else if(FR && length(FR.blood_DNA))
 		var/hand_number = get_num_arms(FALSE)
 		if(hand_number)
-			. += "<span class='warning'>[ru_ego(TRUE)] рук[hand_number > 1 ? "и" : "а"] также в крови!</span>"
+			. += "<span class='warning'>[ru_ego(TRUE)] рук[hand_number > 1 ? "и" : "а"] также в крови!</span>\n"
 
 	//handcuffed?
 	if(handcuffed)
 		if(istype(handcuffed, /obj/item/restraints/handcuffs/cable))
-			. += "<span class='warning'>[t_on] [icon2html(handcuffed, user)] связан[t_a]!</span>"
+			. += "<span class='warning'>[t_on] [icon2html(handcuffed, user)] связан[t_a]!</span>\n"
 		else
-			. += "<span class='warning'>[t_on] [icon2html(handcuffed, user)] в наручниках!</span>"
+			. += "<span class='warning'>[t_on] [icon2html(handcuffed, user)] в наручниках!</span>\n"
 
 	//belt
 	if(belt)
-		. += "И ещё на поясе у н[t_ego] [belt.ru_get_examine_string(user)]."
+		. += "И ещё на поясе у н[t_ego] [belt.ru_get_examine_string(user)].\n"
 
 	//shoes
 	if(shoes && !(ITEM_SLOT_FEET in obscured))
-		. += "А на [t_ego] ногах [shoes.ru_get_examine_string(user)]."
+		. += "А на [t_ego] ногах [shoes.ru_get_examine_string(user)].\n"
 
 	//ID
 	if(wear_id)
-		. += "И конечно же у н[t_ego] есть [wear_id.ru_get_examine_string(user)]."
+		. += "И конечно же у н[t_ego] есть [wear_id.ru_get_examine_string(user)].\n"
 
 	//Status effects
 	var/list/status_examines = status_effect_examines()
@@ -164,11 +164,11 @@
 	//Jitters
 	switch(jitteriness)
 		if(300 to INFINITY)
-			. += "<span class='warning'><B>[t_on] бьётся в судорогах!</B></span>"
+			. += "<span class='warning'><B>[t_on] бьётся в судорогах!</B></span>\n"
 		if(200 to 300)
-			. += "<span class='warning'>[t_on] нервно дёргается.</span>"
+			. += "<span class='warning'>[t_on] нервно дёргается.</span>\n"
 		if(100 to 200)
-			. += "<span class='warning'>[t_on] дрожит.</span>"
+			. += "<span class='warning'>[t_on] дрожит.</span>\n"
 
 	var/appears_dead = FALSE
 	var/just_sleeping = FALSE
@@ -178,17 +178,17 @@
 			just_sleeping = TRUE
 		if(!just_sleeping)
 			if(suiciding)
-				. += "<span class='warning'>[t_on] выглядит как суицидник... [t_ego] уже невозможно спасти.</span>"
+				. += "<span class='warning'>[t_on] выглядит как суицидник... [t_ego] уже невозможно спасти.</span>\n"
 			if(hellbound)
-				. += "<span class='warning'>[ru_ego(TRUE)] душа выглядит оторванной от [t_ego] тела. Реанимация бесполезна.</span>"
+				. += "<span class='warning'>[ru_ego(TRUE)] душа выглядит оторванной от [t_ego] тела. Реанимация бесполезна.</span>\n"
 			. += ""
 			if(getorgan(/obj/item/organ/brain) && !key && !get_ghost(FALSE, TRUE))
-				. += "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и души...</span>"
+				. += "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и души...</span>\n"
 			else
-				. += "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни...</span>"
+				. += "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни...</span>\n"
 
 	if(get_bodypart(BODY_ZONE_HEAD) && !getorgan(/obj/item/organ/brain))
-		. += "<span class='deadsay'>Похоже, что у н[t_ego] нет мозга...</span>"
+		. += "<span class='deadsay'>Похоже, что у н[t_ego] нет мозга...</span>\n"
 
 	var/temp = getBruteLoss() //no need to calculate each of these twice
 

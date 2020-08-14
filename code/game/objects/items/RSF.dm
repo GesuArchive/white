@@ -51,6 +51,7 @@ RSF
 
 /obj/item/rsf/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	. += "<span class='notice'>It currently holds [matter]/[max_matter] [discriptor].</span>"
 
 /obj/item/rsf/cyborg

@@ -124,7 +124,7 @@
 	. += "<hr>"
 	if(pin)
 		. += "<span class='smalldanger'>Внутри установлен боёк типа [pin.name].</span>"
-		. += "<span class='info'>Похоже [pin] можно вытащить при помощи <b>инструментов</b>.</span>"
+		. += "</br><span class='info'>Похоже [pin] можно вытащить при помощи <b>инструментов</b>.</span>"
 	else
 		. += "Внутри отсутствует <b>боёк</b>, поэтому оно не будет стрелять."
 
@@ -132,7 +132,7 @@
 		. += "<hr>"
 		. += "На нём установлен [gun_light.name], который [can_flashlight ? "" : "надёжно "]прикручен к нему."
 		if(can_flashlight) //if it has a light and this is false, the light is permanent.
-			. += "<span class='info'>Похоже [gun_light.name] может быть <b>откручен</b> от [src.name].</span>"
+			. += "</br><span class='info'>Похоже [gun_light.name] может быть <b>откручен</b> от [src.name].</span>"
 	else if(can_flashlight)
 		. += "<hr>"
 		. += "Здесь присутствует посадочное место для <b>фонарика</b>."
@@ -141,7 +141,7 @@
 		. += "<hr>"
 		. += "На нём установлен [bayonet.name], который [can_bayonet ? "" : "надёжно "]прикреплён к нему."
 		if(can_bayonet) //if it has a bayonet and this is false, the bayonet is permanent.
-			. += "<span class='info'>Похоже [bayonet.name] может быть <b>откручен</b> от [src.name].</span>"
+			. += "</br><span class='info'>Похоже [bayonet.name] может быть <b>откручен</b> от [src.name].</span>"
 	else if(can_bayonet)
 		. += "<hr>"
 		. += "Сюда можно прикрепить <b>штык</b>."

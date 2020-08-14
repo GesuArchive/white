@@ -118,6 +118,7 @@
 
 /obj/item/paper_bin/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(total_paper)
 		. += "It contains [total_paper > 1 ? "[total_paper] papers" : " one paper"]."
 	else

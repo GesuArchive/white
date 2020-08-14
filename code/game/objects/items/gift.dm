@@ -34,6 +34,7 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 
 /obj/item/a_gift/examine(mob/M)
 	. = ..()
+	. += "<hr>"
 	if((M.mind && HAS_TRAIT(M.mind, TRAIT_PRESENT_VISION)) || isobserver(M))
 		. += "<span class='notice'>It contains \a [initial(contains_type.name)].</span>"
 

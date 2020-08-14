@@ -24,6 +24,7 @@
 
 /obj/item/clothing/glasses/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(glass_colour_type && ishuman(user))
 		. += "<span class='notice'>Alt-клик, чтобы поменять их цвета.</span>"
 

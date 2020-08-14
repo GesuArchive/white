@@ -80,7 +80,7 @@
 		for(var/O in items_counts)
 			. += "<span class='notice'>- [items_counts[O]]x [O].</span>"
 	else
-		. += "<span class='notice'>Микроволновка пуста.</span>"
+		. += "</br><span class='notice'>Микроволновка пуста.</span>"
 
 	if(!(machine_stat & (NOPOWER|BROKEN)))
 		. += "<hr><span class='notice'>Дисплей:</span>\n"+\

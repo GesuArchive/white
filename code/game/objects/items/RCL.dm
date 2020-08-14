@@ -98,6 +98,7 @@
 
 /obj/item/rcl/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(loaded)
 		. += "<span class='info'>It contains [loaded.amount]/[max_amount] pipe cleaners.</span>"
 

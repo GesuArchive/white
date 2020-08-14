@@ -43,6 +43,7 @@
 
 /obj/structure/grille/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(anchored)
 		. += "<span class='notice'>Это прикручено на месте <b>винтами</b>. Стержни выглядят так, как будто они могут быть <b>прокушены</b>.</span>"
 	if(!anchored)

@@ -68,12 +68,12 @@
 		return
 
 	if(beaker || length(holdingitems))
-		. += "<span class='notice'>Миксер содержит:</span>"
+		. += "<hr><span class='notice'>Миксер содержит:</span>"
 		if(beaker)
-			. += "<span class='notice'>- [beaker].</span>"
+			. += "</br><span class='notice'>- [beaker].</span>"
 		for(var/i in holdingitems)
 			var/obj/item/O = i
-			. += "<span class='notice'>- [O.name].</span>"
+			. += "</br><span class='notice'>- [O.name].</span>"
 
 	if(!(machine_stat & (NOPOWER|BROKEN)))
 		. += "<hr><span class='notice'>Дисплей:</span>\n"+\

@@ -67,6 +67,7 @@
 
 /obj/item/grenade/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(display_timer)
 		if(det_time > 0)
 			. += "The timer is set to [DisplayTimeText(det_time)]."

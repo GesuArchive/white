@@ -21,9 +21,10 @@
 
 /obj/structure/chair/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	. += "<span class='notice'>Удерживается вместе парочкой <b>болтов</b>.</span>"
 	if(!has_buckled_mobs() && can_buckle)
-		. += "<span class='notice'>Перетащите свой спрайт, чтобы сидеть в нем.</span>"
+		. += "</br><span class='notice'>Перетащите себя, чтобы сидеть на нём.</span>"
 
 /obj/structure/chair/Initialize()
 	. = ..()

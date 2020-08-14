@@ -680,6 +680,7 @@
 
 /obj/item/storage/belt/sabre/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(length(contents))
 		. += "<span class='notice'>Alt-клик, чтобы немедленно достать саблю.</span>"
 

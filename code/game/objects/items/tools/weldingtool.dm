@@ -240,6 +240,7 @@
 
 /obj/item/weldingtool/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	. += "Здесь примерно [get_fuel()] единиц топлива из максимальных [max_fuel]."
 
 /obj/item/weldingtool/get_temperature()

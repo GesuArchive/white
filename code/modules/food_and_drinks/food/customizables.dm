@@ -23,6 +23,7 @@
 
 /obj/item/reagent_containers/food/snacks/customizable/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	var/ingredients_listed = ""
 	for(var/obj/item/reagent_containers/food/snacks/ING in ingredients)
 		ingredients_listed += "[ING.name], "

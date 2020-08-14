@@ -24,6 +24,7 @@
 
 /obj/item/conv_printer/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	. += "<span class='notice'>It currently holds [matter]/[mattermax] fabrication-units.</span>"
 
 /obj/item/conv_printer/attackby(obj/item/I, mob/user, params)

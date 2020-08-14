@@ -442,6 +442,7 @@
 // examine verb
 /obj/machinery/light/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	switch(status)
 		if(LIGHT_OK)
 			. += "It is turned [on? "on" : "off"]."
@@ -452,7 +453,7 @@
 		if(LIGHT_BROKEN)
 			. += "The [fitting] has been smashed."
 	if(cell)
-		. += "Its backup power charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%."
+		. += "</br>Its backup power charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%."
 
 
 

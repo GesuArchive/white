@@ -94,10 +94,11 @@
 
 /obj/item/stock_parts/cell/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(rigged)
-		. += "<span class='danger'>This power cell seems to be faulty!</span>"
+		. += "</br><span class='danger'>This power cell seems to be faulty!</span>"
 	else
-		. += "The charge meter reads [round(src.percent() )]%."
+		. += "</br>The charge meter reads [round(src.percent() )]%."
 
 /obj/item/stock_parts/cell/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] is licking the electrodes of [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")

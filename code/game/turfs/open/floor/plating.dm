@@ -21,6 +21,7 @@
 
 /turf/open/floor/plating/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(broken || burnt)
 		. += "<span class='notice'>Похоже, вмятины могут быть исправлены <i>сваркой</i>.</span>"
 		return

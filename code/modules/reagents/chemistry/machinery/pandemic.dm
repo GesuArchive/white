@@ -26,6 +26,7 @@
 
 /obj/machinery/computer/pandemic/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(beaker)
 		var/is_close
 		if(Adjacent(user)) //don't reveal exactly what's inside unless they're close enough to see the UI anyway.

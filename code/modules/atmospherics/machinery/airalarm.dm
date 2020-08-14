@@ -226,6 +226,7 @@
 
 /obj/machinery/airalarm/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	switch(buildstage)
 		if(0)
 			. += "<span class='notice'>Отсутствует плата.</span>"

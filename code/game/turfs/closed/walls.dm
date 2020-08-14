@@ -44,6 +44,7 @@
 
 /turf/closed/wall/examine(mob/user)
 	. += ..()
+	. += "<hr>"
 	. += deconstruction_hints(user)
 
 /turf/closed/wall/proc/deconstruction_hints(mob/user)

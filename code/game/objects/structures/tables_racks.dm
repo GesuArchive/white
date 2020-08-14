@@ -594,6 +594,7 @@
 
 /obj/structure/rack/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	. += "<span class='notice'>Он удерживается вместе несколькими <b>болтами</b>.</span>"
 
 /obj/structure/rack/CanAllowThrough(atom/movable/mover, turf/target)

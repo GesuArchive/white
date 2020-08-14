@@ -181,13 +181,15 @@
 
 /obj/item/clothing/under/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(freshly_laundered)
 		. += "Выглядит свежим и чистым."
 	if(can_adjust)
 		if(adjusted == ALT_STYLE)
-			. += "Alt-клик на [src.name] чтобы носить нормально."
+			. += "<hr>Alt-клик на [src.name] чтобы носить нормально."
 		else
-			. += "Alt-клик on [src.name] чтобы носить как дебил."
+			. += "<hr>Alt-клик on [src.name] чтобы носить по другому."
+	. += "<hr>"
 	if (has_sensor == BROKEN_SENSORS)
 		. += "Похоже, сенсоры на этой штуке повреждены."
 	else if(has_sensor > NO_SENSORS)
@@ -201,7 +203,7 @@
 			if(SENSOR_COORDS)
 				. += "Сенсоры жизненных показателей и местоположения работают."
 	if(attached_accessory)
-		. += "Вау! На этой штуке есть [attached_accessory]."
+		. += "</br>Вау! На этой штуке есть [attached_accessory]."
 
 /obj/item/clothing/under/verb/toggle()
 	set name = "Переключить сенсоры костюма"

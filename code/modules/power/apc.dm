@@ -257,25 +257,26 @@
 	. = ..()
 	if(machine_stat & BROKEN)
 		return
-	to_chat(user, "Заряд: [cell.percent()]%")
+	. += "<hr>"
+	. += "</br>Заряд: [cell.percent()]%"
 	if(opened)
 		if(has_electronics && terminal)
-			. += "Крышка [opened==APC_COVER_REMOVED?"снята":"открыта"] и батарея [ cell ? "установлена" : "отсутствует"]."
+			. += "</br>Крышка [opened==APC_COVER_REMOVED?"снята":"открыта"] и батарея [ cell ? "установлена" : "отсутствует"]."
 		else
-			. += {"Это [ !terminal ? "не" : "" ] соединено кабелями.\n
+			. += {"</br>Это [ !terminal ? "не" : "" ] соединено кабелями.\n
 			Микросхема [!has_electronics?"не":""] установлена."}
 	else
 		if (machine_stat & MAINT)
-			. += "Крышка закрыта. Что-то не так с этим. Не работает"
+			. += "</br>Крышка закрыта. Что-то не так с этим. Не работает"
 		else if (malfhack)
-			. += "Крышка повреждена. Может быть трудно заставить это открыться."
+			. += "</br>Крышка повреждена. Может быть трудно заставить это открыться."
 		else
-			. += "Крышка закрыта."
+			. += "</br>Крышка закрыта."
 
-	. += "<span class='notice'>Alt-Клик на энергощитке чтобы [ locked ? "разблокировать" : "заблокировать"] его интерфейс.</span>"
+	. += "</br><span class='notice'>Alt-Клик на энергощитке чтобы [ locked ? "разблокировать" : "заблокировать"] его интерфейс.</span>"
 
 	if(issilicon(user))
-		. += "<span class='notice'>Ctrl-Клик на энергощитке чтобы переключить питание в состояние [ operating ? "выкл" : "вкл"].</span>"
+		. += "</br><span class='notice'>Ctrl-Клик на энергощитке чтобы переключить питание в состояние [ operating ? "выкл" : "вкл"].</span>"
 
 // update the APC icon to show the three base states
 // also add overlays for indicator lights
