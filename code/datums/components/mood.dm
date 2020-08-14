@@ -42,8 +42,8 @@
 		RegisterSignal(parent, COMSIG_ADD_MOOD_EVENT_RND, .proc/add_event) //Mood events that are only for RnD members
 
 /datum/component/mood/proc/print_mood(mob/user)
-	var/msg = "<span class='info'><EM>Моё текущее настроение</EM></span>\n"
-	msg += "<span class='notice'>Мое психическое состояние: </span>" //Long term
+	var/msg = "<span class='info'>Меня зовут <EM>[user.name]</EM>.</span>\n"
+	msg += "<hr><span class='notice'>Психика:</span>\n" //Long term
 	switch(sanity)
 		if(SANITY_GREAT to INFINITY)
 			msg += "<span class='nicegreen'>Мой разум словно храм!<span>\n"
@@ -58,7 +58,7 @@
 		if(SANITY_INSANE to SANITY_CRAZY)
 			msg += "<span class='boldwarning'>АХАХАХАХАХАХАХАХАХ!!</span>\n"
 
-	msg += "<span class='notice'>Моё текущее настроение: </span>" //Short term
+	msg += "<hr><span class='notice'>Настроение:</span>\n" //Short term
 	switch(mood_level)
 		if(1)
 			msg += "<span class='boldwarning'>Хотелось бы мне умереть!<span>\n"
@@ -79,7 +79,7 @@
 		if(9)
 			msg += "<span class='nicegreen'>Я люблю жизнь!<span>\n"
 
-	msg += "<span class='notice'>Факторы:\n</span>"//All moodlets
+	msg += "<hr><span class='notice'>Факторы:</span>\n"//All moodlets
 	if(mood_events.len)
 		for(var/i in mood_events)
 			var/datum/mood_event/event = mood_events[i]

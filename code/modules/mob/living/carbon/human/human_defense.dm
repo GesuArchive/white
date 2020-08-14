@@ -702,12 +702,11 @@
 	if(stat == DEAD || stat == UNCONSCIOUS)
 		return
 
-	visible_message("<span class='notice'>[src] осматривает себя.</span>", \
-		"<span class='notice'>Моё состояние примерное такое:</span>")
+	visible_message("<span class='notice'>[src] осматривает себя.</span>", null)
 
 	var/list/missing = list(BODY_ZONE_HEAD, BODY_ZONE_CHEST, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 
-	var/message_ready = "<table>"
+	var/message_ready = "<div class='examine_block'><span class='notice'>Моё состояние примерное такое:</span><table>"
 
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/LB = X
@@ -773,7 +772,7 @@
 
 		for(var/obj/item/I in LB.embedded_objects)
 			if(I.isEmbedHarmless())
-				to_chat(src, "<tr><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] прицепился к [LB.name]!</a></tr>")
+				message_ready += "<tr><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] прицепился к [LB.name]!</a></tr>"
 			else
 				message_ready += "<tr><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] торчит из моей [LB.name]!</a></tr>"
 
@@ -826,19 +825,21 @@
 				to_chat(src, "<span class='danger'>Задыхаюсь!</span>")
 
 	if(!HAS_TRAIT(src, TRAIT_NOHUNGER))
+		var/nut = ""
 		switch(nutrition)
 			if(NUTRITION_LEVEL_FULL to INFINITY)
-				to_chat(src, "<span class='info'>Мне вообще не хочется есть!</span>")
+				nut = "<span class='info'>Мне вообще не хочется есть!</span>"
 			if(NUTRITION_LEVEL_WELL_FED to NUTRITION_LEVEL_FULL)
-				to_chat(src, "<span class='info'>Я почти наелся!</span>")
+				nut = "<span class='info'>Я почти наелся!</span>"
 			if(NUTRITION_LEVEL_FED to NUTRITION_LEVEL_WELL_FED)
-				to_chat(src, "<span class='info'>Я не голоден.</span>")
+				nut = "<span class='info'>Я не голоден.</span>"
 			if(NUTRITION_LEVEL_HUNGRY to NUTRITION_LEVEL_FED)
-				to_chat(src, "<span class='info'>Надо бы покушать.</span>")
+				nut = "<span class='info'>Надо бы покушать.</span>"
 			if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_HUNGRY)
-				to_chat(src, "<span class='info'>Еда?</span>")
+				nut = "<span class='info'>Еда?</span>"
 			if(0 to NUTRITION_LEVEL_STARVING)
-				to_chat(src, "<span class='danger'>Умираю от голода!</span>")
+				nut = "<span class='danger'>Умираю от голода!</span>"
+		to_chat(src, "<hr>[nut]")
 
 	//Compiles then shows the list of damaged organs and broken organs
 	var/list/broken = list()
@@ -885,6 +886,8 @@
 
 	if(roundstart_quirks.len)
 		to_chat(src, "<span class='notice'>Я имею черты: [get_quirk_string(FALSE, CAT_QUIRK_ALL)].</span>")
+
+	to_chat(src, "</div>")
 
 /mob/living/carbon/human/damage_clothes(damage_amount, damage_type = BRUTE, damage_flag = 0, def_zone)
 	if(damage_type != BRUTE && damage_type != BURN)
