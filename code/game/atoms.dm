@@ -574,7 +574,7 @@
   * Produces a signal [COMSIG_PARENT_EXAMINE]
   */
 /atom/proc/examine(mob/user)
-	. = list("<div class='examine_block'>[ru_get_examine_string(user, TRUE)].")
+	. = list("[ru_get_examine_string(user, TRUE)].")
 
 	if(desc)
 		. += "<hr>"

@@ -23,7 +23,7 @@
 //собственный прок для экзамайна, состоящий из кусков кода со всего света потому что я ебал эти затворы и навязанные кодом куски описания, которые мне не нужны
 
 /obj/item/gun/ballistic/energy_smg/examine(mob/user)
-	. = list("<div class='examine_block'>[ru_get_examine_string(user, TRUE)].<hr>")
+	. = list("[ru_get_examine_string(user, TRUE)].<hr>")
 	. += desc
 	. += "Это [weightclass2text(w_class)] размера предмет."
 	if(pin)
@@ -39,8 +39,6 @@
 		. += "Заряда хватает ещё на [get_ammo()] выстрелов"
 	else
 		. += "Аккумулятор разряжен."
-
-	. += "</div>"
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .) //не ебу что это, но пожалуй оставлю.
 

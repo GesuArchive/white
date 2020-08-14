@@ -19,7 +19,7 @@
 
 	if(true_info)
 		if(!client || !client.holder)
-			. += "<div class='examine_block'><span class='info'>ОБЪЕКТ: <EM>[name]</EM>.<hr>"
+			. += "<span class='info'>ОБЪЕКТ: <EM>[name]</EM>.<hr>"
 			SEND_SOUND(user, sound('sound/ai/hacker/scanned.ogg'))
 			var/is_weapon = FALSE
 			for(var/I in get_contents())
@@ -52,12 +52,12 @@
 			else
 				hud_list[HACKER_HUD].cut_overlay("node_dead")
 		else
-			. += "<div class='examine_block'><span class='info'>ОБЪЕКТ: <EM>[name]</EM>.<hr>"
+			. += "<span class='info'>ОБЪЕКТ: <EM>[name]</EM>.<hr>"
 			SEND_SOUND(user, sound('sound/ai/hacker/na.ogg'))
 			hud_list[HACKER_HUD].cut_overlay("node_na")
 			hud_list[HACKER_HUD].add_overlay("node_na")
 	else
-		. += "<div class='examine_block'><span class='info'>Это же <EM>[!obscure_name ? name : "Unknown"]</EM>!<hr>"
+		. += "<span class='info'>Это же <EM>[!obscure_name ? name : "Unknown"]</EM>!<hr>"
 
 	if(user.stat == CONSCIOUS && ishuman(user))
 		user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[!obscure_name ? name : "Unknown"]</b>.</span>", null, null, COMBAT_MESSAGE_RANGE)
@@ -468,7 +468,6 @@
 					"<a href='?src=[REF(src)];hud=s;add_comment=1'>\[Добавить комментарий\]</a> "), "")
 	else if(isobserver(user))
 		. += "<hr><span class='info'><b>Черты:</b> [get_quirk_string()]</span>"
-	. += "</div>"
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
 /mob/living/proc/status_effect_examines(pronoun_replacement) //You can include this in any mob's examine() to show the examine texts of status effects!

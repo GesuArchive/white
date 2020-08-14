@@ -3,7 +3,7 @@
 	var/t_ego 	= ru_ego()
 	var/t_a 	= ru_a()
 
-	. = list("<div class='examine_block'><span class='info'>Это же [icon2html(src, user)] <EM>[src]</EM>!<hr>")
+	. = list("<span class='info'>Это же [icon2html(src, user)] <EM>[src]</EM>!<hr>")
 	var/list/obscured = check_obscured_slots()
 
 	if (handcuffed)
@@ -145,7 +145,7 @@
 				. += "[t_on] выглядит очень весело."
 			if(MOOD_LEVEL_HAPPY4 to INFINITY)
 				. += "[t_on] в экстазе."
-	. += "</span></div>"
+	. += "</span>"
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 

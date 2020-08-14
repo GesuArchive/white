@@ -1,5 +1,5 @@
 /mob/living/silicon/robot/examine(mob/user)
-	. = list("<div class='examine_block'><span class='info'>This is [icon2html(src, user)] \a <EM>[src]</EM>!")
+	. = list("<span class='info'>This is [icon2html(src, user)] \a <EM>[src]</EM>!")
 	if(desc)
 		. += "[desc]"
 
@@ -43,6 +43,6 @@
 			. += "<span class='warning'>It doesn't seem to be responding.</span>"
 		if(DEAD)
 			. += "<span class='deadsay'>It looks like its system is corrupted and requires a reset.</span>"
-	. += "</span></div>"
+	. += "</span>"
 
 	. += ..()
