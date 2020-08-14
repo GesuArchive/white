@@ -42,7 +42,7 @@
 			return
 	else if(other_delay)
 		if(!silent)
-			user.visible_message("<span class='notice'><b>[user]</b> начинает прмиенять <b>[skloname]</b> на <b>[M]</b>.</span>", "<span class='notice'>Начинаю применять <b>[skloname]</b> на <b>[M]</b>...</span>")
+			user.visible_message("<span class='notice'><b>[user]</b> начинает применять <b>[skloname]</b> на <b>[M]</b>.</span>", "<span class='notice'>Начинаю применять <b>[skloname]</b> на <b>[M]</b>...</span>")
 		if(!do_mob(user, M, other_delay, extra_checks=CALLBACK(M, /mob/living/proc/can_inject, user, TRUE)))
 			return
 

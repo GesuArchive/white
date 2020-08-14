@@ -40,7 +40,7 @@
 	. += deconstruction_hints(user)
 
 /obj/structure/table/proc/deconstruction_hints(mob/user)
-	return "<span class='notice'>Верхушка <b>прикручена</b>, но основные <b>болты</b> также видны.</span>"
+	return "<hr><span class='notice'>Верхушка <b>прикручена</b>, но основные <b>болты</b> также видны.</span>"
 
 /obj/structure/table/update_icon()
 	if(smoothing_flags)
@@ -491,9 +491,9 @@
 
 /obj/structure/table/reinforced/deconstruction_hints(mob/user)
 	if(deconstruction_ready)
-		return "<span class='notice'>Верхушка <i>отварена</i> и <b>болты</b> видны.</span>"
+		return "<hr><span class='notice'>Верхушка <i>отварена</i> и <b>болты</b> видны.</span>"
 	else
-		return "<span class='notice'>Верхушка намертво <b>приварена</b>.</span>"
+		return "<hr><span class='notice'>Верхушка намертво <b>приварена</b>.</span>"
 
 /obj/structure/table/reinforced/attackby(obj/item/W, mob/user, params)
 	if(W.tool_behaviour == TOOL_WELDER && user.a_intent != INTENT_HELP)

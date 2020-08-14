@@ -1,8 +1,8 @@
 #define MILK_TO_BUTTER_COEFF 15
 
 /obj/machinery/reagentgrinder
-	name = "\improper All-In-One Grinder"
-	desc = "From BlenderTech. Will It Blend? Let's test it out!"
+	name = "миксер"
+	desc = "От BlenderTech. Замиксуется? Давайте узнаем!"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "juicer1"
 	layer = BELOW_OBJ_LAYER
@@ -28,7 +28,7 @@
 	. = ..()
 	holdingitems = list()
 	beaker = new /obj/item/reagent_containers/glass/beaker/large(src)
-	beaker.desc += " May contain blended dust. Don't breathe this in!"
+	beaker.desc += " Может содержать пыль! Не вдыхать!"
 
 /obj/machinery/reagentgrinder/constructed/Initialize()
 	. = ..()
@@ -60,27 +60,27 @@
 /obj/machinery/reagentgrinder/examine(mob/user)
 	. = ..()
 	if(!in_range(user, src) && !issilicon(user) && !isobserver(user))
-		. += "<span class='warning'>You're too far away to examine [src]'s contents and display!</span>"
+		. += "<hr><span class='warning'>Слишком далеко, чтобы рассмотреть дисплей [src.name]!</span>"
 		return
 
 	if(operating)
-		. += "<span class='warning'>\The [src] is operating.</span>"
+		. += "<span class='warning'>Миксер работает.</span>"
 		return
 
 	if(beaker || length(holdingitems))
-		. += "<span class='notice'>\The [src] contains:</span>"
+		. += "<span class='notice'>Миксер содержит:</span>"
 		if(beaker)
-			. += "<span class='notice'>- \A [beaker].</span>"
+			. += "<span class='notice'>- [beaker].</span>"
 		for(var/i in holdingitems)
 			var/obj/item/O = i
-			. += "<span class='notice'>- \A [O.name].</span>"
+			. += "<span class='notice'>- [O.name].</span>"
 
 	if(!(machine_stat & (NOPOWER|BROKEN)))
 		. += "<hr><span class='notice'>Дисплей:</span>\n"+\
-		"<span class='notice'>- Grinding reagents at <b>[speed*100]%</b>.</span>"
+		"<span class='notice'>- Размалывает содержимое на скорости <b>[speed*100]%</b>.</span>"
 		if(beaker)
 			for(var/datum/reagent/R in beaker.reagents.reagent_list)
-				. += "<span class='notice'>- [R.volume] units of [R.name].</span>"
+				. += "<span class='notice'>- [R.volume] единиц [R.name].</span>"
 
 /obj/machinery/reagentgrinder/AltClick(mob/user)
 	. = ..()
@@ -142,12 +142,12 @@
 		if(!user.transferItemToLoc(B, src))
 			return
 		replace_beaker(user, B)
-		to_chat(user, "<span class='notice'>You add [B] to [src].</span>")
+		to_chat(user, "<span class='notice'>Добавляю [B.name] в [src.name].</span>")
 		update_icon()
 		return TRUE //no afterattack
 
 	if(holdingitems.len >= limit)
-		to_chat(user, "<span class='warning'>[src] is filled to capacity!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] забит полностью!</span>")
 		return TRUE
 
 	//Fill machine with a bag!
@@ -157,23 +157,23 @@
 			for(var/i in inserted)
 				holdingitems[i] = TRUE
 			if(!I.contents.len)
-				to_chat(user, "<span class='notice'>You empty [I] into [src].</span>")
+				to_chat(user, "<span class='notice'>Опустошаю [I.name] прямо в [src.name].</span>")
 			else
-				to_chat(user, "<span class='notice'>You fill [src] to the brim.</span>")
+				to_chat(user, "<span class='notice'>Наполняю [src.name] до краёв.</span>")
 		return TRUE
 
 	if(!I.grind_results && !I.juice_results)
 		if(user.a_intent == INTENT_HARM)
 			return ..()
 		else
-			to_chat(user, "<span class='warning'>You cannot grind [I] into reagents!</span>")
+			to_chat(user, "<span class='warning'>Не получится перемолоть [I.name]!</span>")
 			return TRUE
 
 	if(!I.grind_requirements(src)) //Error messages should be in the objects' definitions
 		return
 
 	if(user.transferItemToLoc(I, src))
-		to_chat(user, "<span class='notice'>You add [I] to [src].</span>")
+		to_chat(user, "<span class='notice'>Добавляю [I.name] в [src.name].</span>")
 		holdingitems[I] = TRUE
 		return FALSE
 
@@ -276,7 +276,7 @@
 
 /obj/machinery/reagentgrinder/proc/juice_item(obj/item/I) //Juicing results can be found in respective object definitions
 	if(I.on_juice(src) == -1)
-		to_chat(usr, "<span class='danger'>[src] shorts out as it tries to juice up [I], and transfers it back to storage.</span>")
+		to_chat(usr, "<span class='danger'>[capitalize(src.name)] закорачивается, пытаясь пытаясь выдавить сок [I.name] и отправляет обратно в хранилище.</span>")
 		return
 	beaker.reagents.add_reagent_list(I.juice_results)
 	remove_object(I)
@@ -296,7 +296,7 @@
 
 /obj/machinery/reagentgrinder/proc/grind_item(obj/item/I, mob/user) //Grind results can be found in respective object definitions
 	if(I.on_grind(src) == -1) //Call on_grind() to change amount as needed, and stop grinding the item if it returns -1
-		to_chat(usr, "<span class='danger'>[src] shorts out as it tries to grind up [I], and transfers it back to storage.</span>")
+		to_chat(usr, "<span class='danger'>[capitelize(src)]  закорачивается, пытаясь пытаясь размолоть [I.name] и отправляет обратно в хранилище.</span>")
 		return
 	beaker.reagents.add_reagent_list(I.grind_results)
 	if(I.reagents)

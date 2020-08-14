@@ -1,8 +1,8 @@
 //Microwaving doesn't use recipes, instead it calls the microwave_act of the objects. For food, this creates something based on the food's cooked_type
 
 /obj/machinery/microwave
-	name = "microwave oven"
-	desc = "Cooks and boils stuff."
+	name = "микроволновка"
+	desc = "Готовит и варит штуки."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "mw"
 	layer = BELOW_OBJ_LAYER
@@ -55,20 +55,20 @@
 /obj/machinery/microwave/examine(mob/user)
 	. = ..()
 	if(!operating)
-		. += "<hr><span class='notice'>Alt-click [src] to turn it on.</span>"
+		. += "<hr><span class='notice'>Alt-клик, чтобы включить микроволновку.</span>"
 
 	if(!in_range(user, src) && !issilicon(user) && !isobserver(user))
-		. += "<span class='warning'>You're too far away to examine [src]'s contents and display!</span>"
+		. += "<hr><span class='warning'>Слишком далеко, чтобы рассмотреть микроволновку!</span>"
 		return
 	if(operating)
-		. += "<span class='notice'>\The [src] is operating.</span>"
+		. += "<hr><span class='notice'>Микроволновка работает.</span>"
 		return
 
 	if(length(ingredients))
 		if(issilicon(user))
-			. += "<span class='notice'>\The [src] camera shows:</span>"
+			. += "<hr><span class='notice'>Камера микроволновки показывает:</span>"
 		else
-			. += "<span class='notice'>\The [src] contains:</span>"
+			. += "<hr><span class='notice'>Микроволновка показывает:</span>"
 		var/list/items_counts = new
 		for(var/i in ingredients)
 			if(istype(i, /obj/item/stack))
@@ -80,12 +80,12 @@
 		for(var/O in items_counts)
 			. += "<span class='notice'>- [items_counts[O]]x [O].</span>"
 	else
-		. += "<span class='notice'>\The [src] is empty.</span>"
+		. += "<span class='notice'>Микроволновка пуста.</span>"
 
 	if(!(machine_stat & (NOPOWER|BROKEN)))
 		. += "<hr><span class='notice'>Дисплей:</span>\n"+\
-		"<span class='notice'>- Capacity: <b>[max_n_of_items]</b> items.</span>\n"+\
-		"<span class='notice'>- Cook time reduced by <b>[(efficiency - 1) * 25]%</b>.</span>"
+		"<span class='notice'>- Вместительность: <b>[max_n_of_items]</b> предметов.</span>\n"+\
+		"<span class='notice'>- Скорость готовки ускорена на <b>[(efficiency - 1) * 25]%</b>.</span>"
 
 /obj/machinery/microwave/update_icon_state()
 	if(broken)
