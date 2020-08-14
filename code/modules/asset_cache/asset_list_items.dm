@@ -152,7 +152,8 @@
 		"browserOutput.js"         = 'code/modules/goonchat/browserassets/js/browserOutput.js',
 		"browserOutput.css"	       = 'code/modules/goonchat/browserassets/css/browserOutput.css',
 		"browserOutput_white.css"  = 'code/modules/goonchat/browserassets/css/browserOutput_white.css',
-		"didact.ttf"  			   = 'code/modules/goonchat/browserassets/fonts/didact.ttf'
+		"didact.ttf"  			   = 'code/modules/goonchat/browserassets/fonts/didact.ttf',
+		"miumiu.png"			   = 'html/miumiu.png'
 	)
 
 /datum/asset/simple/fontawesome
@@ -441,8 +442,3 @@
 /datum/asset/spritesheet/mafia/register()
 	InsertAll("", 'icons/obj/mafia.dmi')
 	..()
-
-/datum/asset/simple/chatbg
-	assets = list(
-		"miumiu.png"	= 'html/miumiu.png'
-	)

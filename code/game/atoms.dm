@@ -577,16 +577,18 @@
 	. = list("<div class='examine_block'>[ru_get_examine_string(user, TRUE)].")
 
 	if(desc)
-		. += "<span class='small'>[desc]</span>"
 		. += "<hr>"
+		. += "<span class='small'>[desc]</span>"
 
 	if(custom_materials)
+		. += "<hr>"
 		var/list/materials_list = list()
 		for(var/i in custom_materials)
 			var/datum/material/M = i
 			materials_list += "[M.name]"
 		. += "<span class='small'><u>Похоже, этот предмет создан из [english_list(materials_list)]</u>.</span>"
 	if(reagents)
+		. += "<hr>"
 		if(reagents.flags & TRANSPARENT)
 			. += "Он содержит:"
 			if(length(reagents.reagent_list))
@@ -615,11 +617,12 @@
 				var/price = 0
 				for(var/x in ex.total_amount)
 					price += ex.total_value[x]
+				. += "<hr>"
 				. += "<span class='danger'><b>Цена: [price] кредит[get_num_string(price)].</b></span>"
 
-	. += "</div>"
-
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
+
+
 /**
   * Called when a mob examines (shift click or verb) this atom twice (or more) within EXAMINE_MORE_TIME (default 1.5 seconds)
   *

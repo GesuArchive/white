@@ -15,11 +15,11 @@
 		if(H.glasses && H.glasses.type == /obj/item/clothing/glasses/hud/wzzzz/hacker_rig)
 			true_info = TRUE
 
-	. = list("<div class='examine_block'><span class='info'>")
+	. = list("")
 
 	if(true_info)
 		if(!client || !client.holder)
-			. += "ОБЪЕКТ: <EM>[name]</EM>."
+			. += "<div class='examine_block'><span class='info'>ОБЪЕКТ: <EM>[name]</EM>.<hr>"
 			SEND_SOUND(user, sound('sound/ai/hacker/scanned.ogg'))
 			var/is_weapon = FALSE
 			for(var/I in get_contents())
@@ -52,12 +52,12 @@
 			else
 				hud_list[HACKER_HUD].cut_overlay("node_dead")
 		else
-			. += "ОБЪЕКТ: <EM>[name]</EM>."
+			. += "<div class='examine_block'><span class='info'>ОБЪЕКТ: <EM>[name]</EM>.<hr>"
 			SEND_SOUND(user, sound('sound/ai/hacker/na.ogg'))
 			hud_list[HACKER_HUD].cut_overlay("node_na")
 			hud_list[HACKER_HUD].add_overlay("node_na")
 	else
-		. += "Это же <EM>[!obscure_name ? name : "Unknown"]</EM>!"
+		. += "<div class='examine_block'><span class='info'>Это же <EM>[!obscure_name ? name : "Unknown"]</EM>!<hr>"
 
 	if(user.stat == CONSCIOUS && ishuman(user))
 		user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[!obscure_name ? name : "Unknown"]</b>.</span>", null, null, COMBAT_MESSAGE_RANGE)
@@ -191,6 +191,8 @@
 		. += "<span class='deadsay'>Похоже, что у н[t_ego] нет мозга...</span>"
 
 	var/temp = getBruteLoss() //no need to calculate each of these twice
+
+	. += "<hr>"
 
 	var/list/msg = list()
 
