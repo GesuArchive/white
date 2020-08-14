@@ -711,6 +711,7 @@
 /datum/reagent/drug/zvezdochka/on_mob_metabolize(mob/living/M)
 	. = ..()
 
+	M.add_client_colour(/datum/client_colour/zvezdochka)
 	var/sound/sound = sound('white/valtos/sounds/LYENEN.ogg', TRUE)
 	sound.environment = 23
 	sound.volume = 20
@@ -719,8 +720,6 @@
 	return
 
 /datum/reagent/drug/zvezdochka/on_mob_life(mob/living/M)
-
-	M.add_client_colour(/datum/client_colour/zvezdochka)
 
 	var/high_message = pick("ЗВЁЗДОЧКИ", "КАЙФ")
 
@@ -737,7 +736,7 @@
 	new /datum/hallucination/delusion(M, TRUE, "custom", rand(10, 50), custom_icon_file = 'white/valtos/icons/stars.dmi', custom_icon = pick("star1","star2"), custom_name = "ЗВЁЗДОЧКА")
 
 	if(prob(65))
-		var/image/trip_img = image('white/valtos/icons/stars.dmi', pick(view(7,src)), pick("star1","star2"), CURSE_LAYER)
+		var/image/trip_img = image('white/valtos/icons/stars.dmi', get_turf(pick(view(7,src))), pick("star1","star2"), CURSE_LAYER)
 		if(M.client)
 			M.client.images += trip_img
 		spawn(rand(30,50))
