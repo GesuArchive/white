@@ -55,7 +55,7 @@
 	P.info += "Заказчик: [orderer]<br/>"
 	if(paying_account)
 		P.info += "Оплачено: [paying_account.account_holder]<br/>"
-	P.info += "Ранг: [orderer_rank]<br/>"
+	P.info += "Должность: [orderer_rank]<br/>"
 	P.info += "Комментарий: [reason]<br/>"
 
 	P.update_icon()
@@ -66,17 +66,17 @@
 
 	var/station_name = (P.errors & MANIFEST_ERROR_NAME) ? new_station_name() : station_name()
 
-	P.name = "shipping manifest - [packname?"#[id] ([pack.name])":"(Grouped Item Crate)"]"
-	P.info += "<h2>[command_name()] Shipping Manifest</h2>"
+	P.name = "грузовой манифест - [packname?"#[id] ([pack.name])":"(Grouped Item Crate)"]"
+	P.info += "<h2>[command_name()] грузовой манифест</h2>"
 	P.info += "<hr/>"
 	if(owner && !(owner == "Cargo"))
-		P.info += "Direct purchase from [owner]<br/>"
-		P.name += " - Purchased by [owner]"
-	P.info += "Order[packname?"":"s"]: [id]<br/>"
-	P.info += "Destination: [station_name]<br/>"
+		P.info += "Прямая покупка от [owner]<br/>"
+		P.name += " - куплено [owner]"
+	P.info += "Заказ [packname?"":"s"]: [id]<br/>"
+	P.info += "Место назначения: [station_name]<br/>"
 	if(packname)
-		P.info += "Item: [packname]<br/>"
-	P.info += "Contents: <br/>"
+		P.info += "Предмет: [packname]<br/>"
+	P.info += "Содержит: <br/>"
 	P.info += "<ul>"
 	for(var/atom/movable/AM in container.contents - P)
 		if((P.errors & MANIFEST_ERROR_CONTENTS))
@@ -86,7 +86,7 @@
 				continue
 		P.info += "<li>[AM.name]</li>"
 	P.info += "</ul>"
-	P.info += "<h4>Stamp below to confirm receipt of goods:</h4>"
+	P.info += "<h4>Штамп внизу для подтверждения получения товара:</h4>"
 
 	if(P.errors & MANIFEST_ERROR_ITEM)
 		if(istype(container, /obj/structure/closet/crate/secure) || istype(container, /obj/structure/closet/crate/large))

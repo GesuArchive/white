@@ -13,7 +13,7 @@ GLOBAL_LIST_EMPTY(bounties_list)
 
 /// Displayed on bounty UI screen.
 /datum/bounty/proc/reward_string()
-	return "[reward] Credits"
+	return "[reward] кредитов"
 
 /datum/bounty/proc/can_claim()
 	return !claimed

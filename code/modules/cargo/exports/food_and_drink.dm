@@ -5,7 +5,7 @@
 /datum/export/food
 	cost = 10 // Default cost, Because something WILL get missed somewhere. Perhaps out of active ignorance or not.
 	unit_name = "serving"
-	message = "of food"
+	message = "еды"
 	export_types = list(/obj/item/reagent_containers/food/snacks)
 	include_subtypes = TRUE
 	exclude_types = list(/obj/item/reagent_containers/food/snacks/grown)

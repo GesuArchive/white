@@ -29,67 +29,67 @@
 /datum/export/material/bananium
 	cost = 1000
 	material_id = /datum/material/bananium
-	message = "cm3 of bananium"
+	message = "cm3 бананиума"
 
 /datum/export/material/diamond
 	cost = 500
 	material_id = /datum/material/diamond
-	message = "cm3 of diamonds"
+	message = "cm3 алмаза"
 
 /datum/export/material/plasma
 	cost = 200
 	k_elasticity = 0
 	material_id = /datum/material/plasma
-	message = "cm3 of plasma"
+	message = "cm3 плазмы"
 
 /datum/export/material/uranium
 	cost = 100
 	material_id = /datum/material/uranium
-	message = "cm3 of uranium"
+	message = "cm3 ураниума"
 
 /datum/export/material/gold
 	cost = 125
 	material_id = /datum/material/gold
-	message = "cm3 of gold"
+	message = "cm3 золота"
 
 /datum/export/material/silver
 	cost = 50
 	material_id = /datum/material/silver
-	message = "cm3 of silver"
+	message = "cm3 серебра"
 
 /datum/export/material/titanium
 	cost = 125
 	material_id = /datum/material/titanium
-	message = "cm3 of titanium"
+	message = "cm3 титаниума"
 
 /datum/export/material/adamantine
 	cost = 500
 	material_id = /datum/material/adamantine
-	message = "cm3 of adamantine"
+	message = "cm3 адамантия"
 
 /datum/export/material/mythril
 	cost = 1500
 	material_id = /datum/material/mythril
-	message = "cm3 of mythril"
+	message = "cm3 мифрила"
 
 /datum/export/material/bscrystal
 	cost = 300
-	message = "of bluespace crystals"
+	message = "of блюспейс кристалла"
 	material_id = /datum/material/bluespace
 
 /datum/export/material/plastic
 	cost = 25
-	message = "cm3 of plastic"
+	message = "cm3 пластика"
 	material_id = /datum/material/plastic
 
 /datum/export/material/runite
 	cost = 600
-	message = "cm3 of runite"
+	message = "cm3 рунита"
 	material_id = /datum/material/runite
 
 /datum/export/material/metal
 	cost = 5
-	message = "cm3 of metal"
+	message = "cm3 металла"
 	material_id = /datum/material/iron
 	export_types = list(
 		/obj/item/stack/sheet/metal, /obj/item/stack/tile/plasteel,
@@ -97,19 +97,19 @@
 
 /datum/export/material/glass
 	cost = 5
-	message = "cm3 of glass"
+	message = "cm3 стекла"
 	material_id = /datum/material/glass
 	export_types = list(/obj/item/stack/sheet/glass, /obj/item/stack/ore,
 		/obj/item/shard)
 
 /datum/export/material/hot_ice
 	cost = 400
-	message = "cm3 of Hot Ice"
+	message = "cm3 горячего льда"
 	material_id = /datum/material/hot_ice
 	export_types = /obj/item/stack/sheet/hot_ice
 
 /datum/export/material/metal_hydrogen
 	cost = 550
-	unit_name = "of metallic hydrogen"
+	unit_name = "of металлизированного гидрогена"
 	material_id = /datum/material/metalhydrogen
 	export_types = /obj/item/stack/sheet/mineral/metal_hydrogen
