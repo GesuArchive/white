@@ -10,8 +10,8 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 #define JOB_DENIED 0
 
 /obj/machinery/computer/card
-	name = "identification console"
-	desc = "You can use this to manage jobs and ID access."
+	name = "идентификационная консоль"
+	desc = "Вы можете использовать это для назначения должности и доступа."
 	icon_screen = "id"
 	icon_keyboard = "id_key"
 	req_one_access = list(ACCESS_HEADS, ACCESS_CHANGE_IDS)
@@ -63,7 +63,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 /obj/machinery/computer/card/examine(mob/user)
 	. = ..()
 	if(inserted_scan_id || inserted_modify_id)
-		. += "<hr><span class='notice'>Alt-click to eject the ID card.</span>"
+		. += "<hr><span class='notice'>Альт+Клик для извлечения ИД карты.</span>"
 
 /obj/machinery/computer/card/attackby(obj/I, mob/user, params)
 	if(isidcard(I))
@@ -149,22 +149,22 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 		else
 			id_eject(user, target)
 
-	user.visible_message("<span class='notice'>[user] inserts \the [card_to_insert] into \the [src].</span>",
-						"<span class='notice'>You insert \the [card_to_insert] into \the [src].</span>")
+	user.visible_message("<span class='notice'>[user] вставляет [card_to_insert] в [src].</span>",
+						"<span class='notice'>Вы вставляете [card_to_insert] в [src].</span>")
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 	updateUsrDialog()
 	return TRUE
 
 /obj/machinery/computer/card/proc/id_eject(mob/user, obj/target)
 	if(!target)
-		to_chat(user, "<span class='warning'>That slot is empty!</span>")
+		to_chat(user, "<span class='warning'>Этот слот пуст!</span>")
 		return FALSE
 	else
 		target.forceMove(drop_location())
 		if(!issilicon(user) && Adjacent(user))
 			user.put_in_hands(target)
-		user.visible_message("<span class='notice'>[user] gets \the [target] from \the [src].</span>", \
-							"<span class='notice'>You get \the [target] from \the [src].</span>")
+		user.visible_message("<span class='notice'>[user] достаёт [target] из [src].</span>", \
+							"<span class='notice'>Вы достаёте [target] из [src].</span>")
 		playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 		updateUsrDialog()
 		return TRUE
@@ -188,16 +188,16 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 	. = ..()
 	var/list/dat = list()
 	if (mode == 1) // accessing crew manifest
-		dat += "<tt><b>Crew Manifest:</b><br>Please use security record computer to modify entries.<br><br>"
+		dat += "<tt><b>Манифест персонала:</b><br>Пожалуйста, используйте компьютер записи СБ для изменения записей.<br><br>"
 		for(var/datum/data/record/t in sortRecord(GLOB.data_core.general))
 			dat += {"[t.fields["name"]] - [t.fields["rank"]]<br>"}
-		dat += "<a href='?src=[REF(src)];choice=print'>Print</a><br><br><a href='?src=[REF(src)];choice=mode;mode_target=0'>Access ID modification console.</a><br></tt>"
+		dat += "<a href='?src=[REF(src)];choice=print'>Напечатать</a><br><br><a href='?src=[REF(src)];choice=mode;mode_target=0'>Назад.</a><br></tt>"
 
 	else if(mode == 2)
 		// JOB MANAGEMENT
-		dat += {"<a href='?src=[REF(src)];choice=return'>Return</a>
-		<table><tr><td style='width:25%'><b>Job</b></td><td style='width:25%'><b>Slots</b></td>
-		<td style='width:25%'><b>Open job</b></td><td style='width:25%'><b>Close job</b><td style='width:25%'><b>Prioritize</b></td></td></tr>"}
+		dat += {"<a href='?src=[REF(src)];choice=return'>Назад</a>
+		<table><tr><td style='width:25%'><b>Должность</b></td><td style='width:25%'><b>Количество</b></td>
+		<td style='width:25%'><b>Открыть должность</b></td><td style='width:25%'><b>Закрыть должность</b><td style='width:25%'><b>Добавить приоритет</b></td></td></tr>"}
 		for(var/datum/job/job in SSjob.occupations)
 			dat += "<tr>"
 			if(job.title in blacklisted)
@@ -208,45 +208,45 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 			switch(can_open_job(job))
 				if(JOB_ALLOWED)
 					if(authenticated == 2)
-						dat += "<a href='?src=[REF(src)];choice=make_job_available;job=[job.title]'>Open Position</a><br>"
+						dat += "<a href='?src=[REF(src)];choice=make_job_available;job=[job.title]'>Открыть позицию</a><br>"
 					else
-						dat += "Open Position"
+						dat += "Открыть позицию"
 				if(JOB_COOLDOWN)
 					var/time_to_wait = round(change_position_cooldown - ((world.time / 10) - GLOB.time_last_changed_position), 1)
 					var/mins = round(time_to_wait / 60)
 					var/seconds = time_to_wait - (60*mins)
-					dat += "Cooldown ongoing: [mins]:[(seconds < 10) ? "0[seconds]" : "[seconds]"]"
+					dat += "Происходит перезарядка: [mins]:[(seconds < 10) ? "0[seconds]" : "[seconds]"]"
 				else
-					dat += "Denied"
+					dat += "Отклонено"
 			dat += "</td><td>"
 			switch(can_close_job(job))
 				if(JOB_ALLOWED)
 					if(authenticated == 2)
-						dat += "<a href='?src=[REF(src)];choice=make_job_unavailable;job=[job.title]'>Close Position</a>"
+						dat += "<a href='?src=[REF(src)];choice=make_job_unavailable;job=[job.title]'>Закрыть позицию</a>"
 					else
-						dat += "Close Position"
+						dat += "Закрыть позицию"
 				if(JOB_COOLDOWN)
 					var/time_to_wait = round(change_position_cooldown - ((world.time / 10) - GLOB.time_last_changed_position), 1)
 					var/mins = round(time_to_wait / 60)
 					var/seconds = time_to_wait - (60*mins)
-					dat += "Cooldown ongoing: [mins]:[(seconds < 10) ? "0[seconds]" : "[seconds]"]"
+					dat += "Происходит перезарядка: [mins]:[(seconds < 10) ? "0[seconds]" : "[seconds]"]"
 				else
-					dat += "Denied"
+					dat += "Отклонено"
 			dat += "</td><td>"
 			switch(job.total_positions)
 				if(0)
-					dat += "Denied"
+					dat += "Отклонено"
 				else
 					if(authenticated == 2)
 						if(job in SSjob.prioritized_jobs)
-							dat += "<a href='?src=[REF(src)];choice=prioritize_job;job=[job.title]'>Deprioritize</a>"
+							dat += "<a href='?src=[REF(src)];choice=prioritize_job;job=[job.title]'>Снять приоритет</a>"
 						else
 							if(SSjob.prioritized_jobs.len < 5)
-								dat += "<a href='?src=[REF(src)];choice=prioritize_job;job=[job.title]'>Prioritize</a>"
+								dat += "<a href='?src=[REF(src)];choice=prioritize_job;job=[job.title]'>Добавить приоритет</a>"
 							else
-								dat += "Denied"
+								dat += "Отклонено"
 					else
-						dat += "Prioritize"
+						dat += "Добавить приоритет"
 
 			dat += "</td></tr>"
 		dat += "</table>"
@@ -260,13 +260,13 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 		var/target_age = (inserted_modify_id && inserted_modify_id.registered_age) ? html_encode(inserted_modify_id.registered_age) : "--------"
 
 		if(!authenticated)
-			header += {"<br><i>Please insert the cards into the slots</i><br>
-				Target: <a href='?src=[REF(src)];choice=inserted_modify_id'>[target_name]</a><br>
-				Confirm Identity: <a href='?src=[REF(src)];choice=inserted_scan_id'>[scan_name]</a><br>"}
+			header += {"<br><i>Пожалуйста, вставьте карты в слоты</i><br>
+				Цель: <a href='?src=[REF(src)];choice=inserted_modify_id'>[target_name]</a><br>
+				Подтвердите личность: <a href='?src=[REF(src)];choice=inserted_scan_id'>[scan_name]</a><br>"}
 		else
 			header += {"<div align='center'><br>
-				Target: <a href='?src=[REF(src)];choice=inserted_modify_id'>Remove [target_name]</a> ||
-				Confirm Identity: <a href='?src=[REF(src)];choice=inserted_scan_id'>Remove [scan_name]</a><br>
+				Цель: <a href='?src=[REF(src)];choice=inserted_modify_id'>Remove [target_name]</a> ||
+				Подтвердите личность: <a href='?src=[REF(src)];choice=inserted_scan_id'>Remove [scan_name]</a><br>
 				<a href='?src=[REF(src)];choice=mode;mode_target=1'>Access Crew Manifest</a><br>
 				[!target_dept ? "<a href='?src=[REF(src)];choice=mode;mode_target=2'>Job Management</a><br>" : ""]
 				<a href='?src=[REF(src)];choice=logout'>Log Out</a></div>"}
@@ -307,17 +307,17 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 					<b>registered age:</b> <input type='number' id='namefield' name='setage' value='[target_age]' style='width:50px; background-color:white;' onchange='markRed()'>
 					<input type='submit' value='Submit' onclick='markGreen()'>
 					</form>
-					<b>Assignment:</b> "}
+					<b>Назначение:</b> "}
 
 				jobs += "<span id='alljobsslot'><a href='#' onclick='showAll()'>[target_rank]</a></span>" //CHECK THIS
 
 			else
 				carddesc += "<b>registered_name:</b> [target_owner]</span>"
-				jobs += "<b>Assignment:</b> [target_rank] (<a href='?src=[REF(src)];choice=demote'>Demote</a>)</span>"
+				jobs += "<b>Назначение:</b> [target_rank] (<a href='?src=[REF(src)];choice=demote'>Уволить</a>)</span>"
 
 			var/list/accesses = list()
 			if(istype(src, /obj/machinery/computer/card/centcom)) // REE
-				accesses += "<h5>Central Command:</h5>"
+				accesses += "<h5>ЦК:</h5>"
 				for(var/A in get_all_centcom_access())
 					if(A in inserted_modify_id.access)
 						accesses += "<a href='?src=[REF(src)];choice=access;access_target=[A];allowed=0'><font color=\"6bc473\">[replacetext(get_centcom_access_desc(A), " ", "&nbsp")]</font></a> "
@@ -348,9 +348,9 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 
 		else if (!authenticated)
 			body = {"<a href='?src=[REF(src)];choice=auth'>Log In</a><br><hr>
-				<a href='?src=[REF(src)];choice=mode;mode_target=1'>Access Crew Manifest</a><br><hr>"}
+				<a href='?src=[REF(src)];choice=mode;mode_target=1'>Манифест персонала</a><br><hr>"}
 			if(!target_dept)
-				body += "<a href='?src=[REF(src)];choice=mode;mode_target=2'>Job Management</a><hr>"
+				body += "<a href='?src=[REF(src)];choice=mode;mode_target=2'>Менеджмент должностей</a><hr>"
 
 		dat = list("<tt>", header.Join(), body, "<br></tt>")
 	var/datum/browser/popup = new(user, "id_com", src.name, 900, 620)
@@ -427,7 +427,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 						if(region_access)
 							authenticated = 1
 			else if ((!( authenticated ) && issilicon(usr)) && (!inserted_modify_id))
-				to_chat(usr, "<span class='warning'>You can't modify an ID without an ID inserted to modify! Once one is in the modify slot on the computer, you can log in.</span>")
+				to_chat(usr, "<span class='warning'>Вы не можете изменить ИД без вставленного другого ИД для изменения! Как только один из них окажется в слоте модификации на компьютере, вы можете войти в систему..</span>")
 		if ("logout")
 			region_access = null
 			head_subordinates = null
@@ -448,7 +448,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 			if (authenticated == 2)
 				var/t1 = href_list["assign_target"]
 				if(t1 == "Custom")
-					var/newJob = reject_bad_text(input("Enter a custom job assignment.", "Assignment", inserted_modify_id ? inserted_modify_id.assignment : "Unassigned"), MAX_NAME_LEN)
+					var/newJob = reject_bad_text(input("Введите индивидуальную должность.", "Assignment", inserted_modify_id ? inserted_modify_id.assignment : "Unassigned"), MAX_NAME_LEN)
 					if(newJob)
 						t1 = newJob
 
@@ -464,7 +464,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 							updateUsrDialog()
 							break
 					if(!jobdatum)
-						to_chat(usr, "<span class='alert'>No log exists for this job.</span>")
+						to_chat(usr, "<span class='alert'>Для этой должности нет данных.</span>")
 						updateUsrDialog()
 						return
 					if(inserted_modify_id.registered_account)
@@ -479,7 +479,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 				inserted_modify_id.assignment = "Unassigned"
 				playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 			else
-				to_chat(usr, "<span class='alert'>You are not authorized to demote this position.</span>")
+				to_chat(usr, "<span class='alert'>Вы не имеете права понижать эту должность.</span>")
 		if ("reg")
 			if (authenticated)
 				var/t2 = inserted_modify_id
@@ -489,7 +489,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 						inserted_modify_id.registered_age = newAge
 						playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 					else if(!isnull(newAge))
-						to_chat(usr, "<span class='alert'>Invalid age entered- age not updated.</span>")
+						to_chat(usr, "<span class='alert'>Введен неверный возраст - возраст не обновлен.</span>")
 						updateUsrDialog()
 
 					var/newName = reject_bad_name(href_list["reg"])
@@ -497,7 +497,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 						inserted_modify_id.registered_name = newName
 						playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 					else
-						to_chat(usr, "<span class='alert'>Invalid name entered.</span>")
+						to_chat(usr, "<span class='alert'>Введено неверное имя.</span>")
 						updateUsrDialog()
 						return
 		if ("mode")
@@ -556,12 +556,12 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 					SSjob.prioritized_jobs -= j
 					priority = FALSE
 				else if(j.total_positions <= j.current_positions)
-					to_chat(usr, "<span class='notice'>[j.title] has had all positions filled. Open up more slots before prioritizing it.</span>")
+					to_chat(usr, "<span class='notice'>[j.title] все должности заполнены. Откройте больше слотов, прежде чем расставить приоритеты.</span>")
 					updateUsrDialog()
 					return
 				else
 					SSjob.prioritized_jobs += j
-				to_chat(usr, "<span class='notice'>[j.title] has been successfully [priority ? "prioritized" : "unprioritized"]. Potential employees will notice your request.</span>")
+				to_chat(usr, "<span class='notice'>[j.title] был успешно [priority ? "prioritized" : "unprioritized"]. Главы отделов заметят ваш запрос.</span>")
 				playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 
 		if ("print")
@@ -586,13 +586,13 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 			head_subordinates += job.title
 
 /obj/machinery/computer/card/centcom
-	name = "\improper CentCom identification console"
+	name = "Идентификационная консоль ЦК"
 	circuit = /obj/item/circuitboard/computer/card/centcom
 	req_access = list(ACCESS_CENT_CAPTAIN)
 
 /obj/machinery/computer/card/minor
-	name = "department management console"
-	desc = "You can use this to change ID's for specific departments."
+	name = "Консоль менеджмента отдела"
+	desc = "Вы можете использовать это для назначения должности и доступа.."
 	icon_screen = "idminor"
 	circuit = /obj/item/circuitboard/computer/card/minor
 
