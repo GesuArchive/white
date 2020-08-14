@@ -302,7 +302,7 @@ h1.alert, h2.alert		{color: #aaaaaa; margin: 0 0 14px 0;}
 
 .userdanger				{color: #c51e1e;	font-weight: bold;	font-size: 135%;}
 .bolddanger				{color: #c51e1e;font-weight: bold;}
-.danger					{color: #ec3636;font-size: 110%;margin-left: 16px;}
+.danger					{color: #ec3636;font-size: 110%;margin-left: 8px;}
 .tinydanger				{color: #c51e1e; font-size: 85%;}
 .smalldanger			{color: #c51e1e; font-size: 90%;}
 .warning				{color: #c51e1e;	font-style: italic;}

@@ -8,7 +8,7 @@
 				return
 			visible_message("<span class='notice'>[M] [response_help_continuous] [src].</span>", \
 							"<span class='notice'>[M] [response_help_continuous] you.</span>", null, null, M)
-			to_chat(M, "<span class='notice'>You [response_help_simple] [src].</span>")
+			to_chat(M, "<span class='notice'>[M] [response_help_simple] [src].</span>")
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 			if(pet_bonus)
 				funpet(M)
