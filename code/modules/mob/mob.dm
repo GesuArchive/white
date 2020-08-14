@@ -501,7 +501,7 @@
 		result = A.examine(src) // if a tree is examined but no client is there to see it, did the tree ever really exist?
 
 	if(result)
-		to_chat(src, "<div class='examine_block'>[result.Join("\n")]</div>")
+		to_chat(src, "<div class='examine_block'>[result.Join()]</div>")
 	SEND_SIGNAL(src, COMSIG_MOB_EXAMINATE, A)
 
 /mob/proc/clear_from_recent_examines(atom/A)
