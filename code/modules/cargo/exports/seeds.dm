@@ -1,7 +1,7 @@
 /datum/export/seed
 	cost = 50 // Gets multiplied by potency
 	k_elasticity = 1	//price inelastic/quantity elastic, only need to export a few samples
-	unit_name = "new plant species sample"
+	unit_name = "образец новых видов растений"
 	export_types = list(/obj/item/seeds)
 	var/needs_discovery = FALSE // Only for undiscovered species
 	var/static/list/discoveredPlants = list()
@@ -23,7 +23,7 @@
 
 /datum/export/seed/potency
 	cost = 2.5 // Gets multiplied by potency and rarity.
-	unit_name = "improved plant sample"
+	unit_name = "улучшенный образец растения"
 	export_types = list(/obj/item/seeds)
 	needs_discovery = TRUE // Only for already discovered species
 

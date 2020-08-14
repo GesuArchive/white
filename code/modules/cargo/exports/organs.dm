@@ -4,35 +4,35 @@
 
 /datum/export/organ/heart
 	cost = 10 //For the man who has everything and nothing.
-	unit_name = "humanoid heart"
+	unit_name = "гуманоидное сердце"
 	export_types = list(/obj/item/organ/heart)
 
 /datum/export/organ/eyes
 	cost = 5
-	unit_name = "humanoid eyes"
+	unit_name = "гуманоидные глаза"
 	export_types = list(/obj/item/organ/eyes)
 
 /datum/export/organ/ears
 	cost = 5
-	unit_name = "humanoid ears"
+	unit_name = "гуманоидные уши"
 	export_types = list(/obj/item/organ/ears)
 
 /datum/export/organ/liver
 	cost = 5
-	unit_name = "humanoid liver"
+	unit_name = "гуманоидные печень"
 	export_types = list(/obj/item/organ/liver)
 
 /datum/export/organ/lungs
 	cost = 5
-	unit_name = "humanoid lungs"
+	unit_name = "гуманоидные легкие"
 	export_types = list(/obj/item/organ/lungs)
 
 /datum/export/organ/stomach
 	cost = 5
-	unit_name = "humanoid stomach"
+	unit_name = "гуманоидный желудок"
 	export_types = list(/obj/item/organ/stomach)
 
 /datum/export/organ/tongue
 	cost = 5
-	unit_name = "humanoid tounge"
+	unit_name = "гуманоидный язык"
 	export_types = list(/obj/item/organ/tongue)
