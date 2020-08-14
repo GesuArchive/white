@@ -107,7 +107,7 @@
 	if(opened)
 		. += "<span class='notice'>The parts are <b>welded</b> together.</span>"
 	else if(secure && !opened)
-		. += "<span class='notice'>Alt-click to [locked ? "unlock" : "lock"].</span>"
+		. += "<hr><span class='notice'>Alt-click to [locked ? "unlock" : "lock"].</span>"
 	if(isliving(user))
 		var/mob/living/L = user
 		if(HAS_TRAIT(L, TRAIT_SKITTISH))

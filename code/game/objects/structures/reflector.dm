@@ -44,7 +44,7 @@
 		. += "It is set to [rotation_angle] degrees, and the rotation is [can_rotate ? "unlocked" : "locked"]."
 		if(!admin)
 			if(can_rotate)
-				. += "<span class='notice'>Alt-click to adjust its direction.</span>"
+				. += "<hr><span class='notice'>Alt-click to adjust its direction.</span>"
 			else
 				. += "<span class='notice'>Use screwdriver to unlock the rotation.</span>"
 

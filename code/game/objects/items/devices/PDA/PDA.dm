@@ -96,7 +96,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 		return
 
 	if(id)
-		. += "<span class='notice'>Alt-click to remove the ID.</span>" //won't name ID on examine in case it's stolen
+		. += "<hr><span class='notice'>Alt-click to remove the ID.</span>" //won't name ID on examine in case it's stolen
 
 	if(inserted_item && (!isturf(loc)))
 		. += "<span class='notice'>Ctrl-click to remove [inserted_item].</span>" //traitor pens are disguised so we're fine naming them on examine

@@ -16,6 +16,7 @@
 
 /obj/item/implantpad/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(Adjacent(user))
 		. += "Внутри [case ? "[case.name]" : "пусто"]."
 		if(case)

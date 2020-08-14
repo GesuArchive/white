@@ -191,6 +191,6 @@
 	if(state_open)
 		. += "<span class='notice'>[src] must be closed before harvesting.</span>"
 	else if(!harvesting)
-		. += "<span class='notice'>Alt-click [src] to start harvesting.</span>"
+		. += "<hr><span class='notice'>Alt-click [src] to start harvesting.</span>"
 	if(in_range(user, src) || isobserver(user))
-		. += "<span class='notice'>The status display reads: Harvest speed at <b>[interval*0.1]</b> seconds per organ.</span>"
+		. += "<hr><span class='notice'>Дисплей: Harvest speed at <b>[interval*0.1]</b> seconds per organ.</span>"

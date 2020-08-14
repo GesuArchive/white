@@ -76,7 +76,7 @@
 			. += "<span class='notice'>- \A [O.name].</span>"
 
 	if(!(machine_stat & (NOPOWER|BROKEN)))
-		. += "<span class='notice'>The status display reads:</span>\n"+\
+		. += "<hr><span class='notice'>Дисплей:</span>\n"+\
 		"<span class='notice'>- Grinding reagents at <b>[speed*100]%</b>.</span>"
 		if(beaker)
 			for(var/datum/reagent/R in beaker.reagents.reagent_list)

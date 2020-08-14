@@ -83,7 +83,7 @@
 	. = ..()
 	. += "<span class='notice'>Use <b>Ctrl-Click</b> to activate autogrow. <b>Alt-Click</b> to empty the tray's nutrients.</span>"
 	if(in_range(user, src) || isobserver(user))
-		. += "<span class='notice'>The status display reads: Tray efficiency at <b>[rating*100]%</b>.</span>"
+		. += "<hr><span class='notice'>Дисплей: Tray efficiency at <b>[rating*100]%</b>.</span>"
 
 
 /obj/machinery/hydroponics/Destroy()

@@ -114,6 +114,7 @@
 
 /obj/item/stack/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if (is_cyborg)
 		if(singular_name)
 			. += "Здесь достаточно энергии для производства [get_amount()] [singular_name]."

@@ -53,7 +53,7 @@
 	if(user.canUseTopic(src))
 		. += "<span class='notice'>Activate it in your hand to [open ? "close" : "open"] its door.</span>"
 		if(!open)
-			. += "<span class='notice'>Alt-click to [locked ? "unlock" : "lock"] its door.</span>"
+			. += "<hr><span class='notice'>Alt-click to [locked ? "unlock" : "lock"] its door.</span>"
 
 /obj/item/pet_carrier/attack_self(mob/living/user)
 	if(open)

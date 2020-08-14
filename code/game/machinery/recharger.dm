@@ -34,7 +34,7 @@
 		<span class='notice'>- \A [charging].</span>"}
 
 	if(!(machine_stat & (NOPOWER|BROKEN)))
-		. += "<span class='notice'>The status display reads:</span>"
+		. += "<hr><span class='notice'>Дисплей:</span>"
 		. += "<span class='notice'>- Recharging <b>[recharge_coeff*10]%</b> cell charge per cycle.</span>"
 		if(charging)
 			var/obj/item/stock_parts/cell/C = charging.get_cell()

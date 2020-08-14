@@ -29,7 +29,7 @@
 	. = ..()
 	if(world.time < next_use)
 		. += "<span class='warning'>Time left to recharge: [DisplayTimeText(next_use - world.time)]</span>"
-	. += "<span class='notice'>Alt-click to customize the duration. Current duration: [DisplayTimeText(duration)].</span>"
+	. += "<hr><span class='notice'>Alt-click to customize the duration. Current duration: [DisplayTimeText(duration)].</span>"
 	. += "<span class='notice'>Can be used again to interrupt the effect early. The recharge time is the same as the time spent in desync.</span>"
 
 /obj/item/desynchronizer/AltClick(mob/living/user)

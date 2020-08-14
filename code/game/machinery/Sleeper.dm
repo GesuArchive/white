@@ -155,7 +155,7 @@
 
 /obj/machinery/sleeper/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Alt-click [src] to [state_open ? "close" : "open"] it.</span>"
+	. += "<hr><span class='notice'>Alt-click [src] to [state_open ? "close" : "open"] it.</span>"
 
 /*
 /obj/machinery/sleeper/process()

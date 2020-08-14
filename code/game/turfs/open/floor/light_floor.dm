@@ -26,7 +26,7 @@
 
 /turf/open/floor/light/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Здесь есть <b>небольшая трещина</b> с краю.</span>"
+	. += "<hr><span class='notice'>Здесь есть <b>небольшая трещина</b> с краю.</span>"
 	. += "<span class='notice'>Мультитулом можно изменить цвет, надо не забыть.</span>"
 	. += "<span class='notice'>Отвёрткой я могу отключить или включить эту плитку.</span>"
 	if(state) ///check if broken

@@ -39,7 +39,7 @@
 
 /obj/machinery/computer/monitor/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>It appears to be powered via a cable connector.</span>"
+	. += "<hr><span class='notice'>Похоже ему требуется подключение к энергосети через кабель.</span>"
 
 //Checks for cable connection, charges if possible.
 /obj/machinery/computer/vaultcontroller/process()

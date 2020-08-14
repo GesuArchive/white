@@ -24,7 +24,7 @@
 		if(!inserted_key)
 			. += "<span class='notice'>Put a key inside it by clicking it with the key.</span>"
 		else
-			. += "<span class='notice'>Alt-click [src] to remove the key.</span>"
+			. += "<hr><span class='notice'>Alt-click [src] to remove the key.</span>"
 
 /obj/vehicle/ridden/generate_action_type(actiontype)
 	var/datum/action/vehicle/ridden/A = ..()

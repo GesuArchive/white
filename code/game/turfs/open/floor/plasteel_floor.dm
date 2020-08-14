@@ -6,7 +6,7 @@
 
 /turf/open/floor/plasteel/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Здесь есть <b>небольшая трещина</b> с краю.</span>"
+	. += "<hr><span class='notice'>Здесь есть <b>небольшая трещина</b> с краю.</span>"
 
 /turf/open/floor/plasteel/rust_heretic_act()
 	if(prob(70))

@@ -280,7 +280,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	. = ..()
 
 	if(resistance_flags & INDESTRUCTIBLE)
-		. += "<span class='smalldanger'>[capitalize(src.name)] выглядит сверхкрепким и практически неуязвимым!</span>"
+		. += "<hr><span class='smalldanger'>[capitalize(src.name)] выглядит сверхкрепким и практически неуязвимым!</span>"
 	else
 		var/list/rfm = list()
 		if(resistance_flags & LAVA_PROOF)
@@ -292,15 +292,15 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		if(resistance_flags & FIRE_PROOF)
 			rfm += "огню"
 		if(rfm.len)
-			. += "<span class='smalldanger'>[capitalize(src.name)] выглядит устойчивым к [english_list(rfm)].</span>"
+			. += "<hr><span class='smalldanger'>[capitalize(src.name)] выглядит устойчивым к [english_list(rfm)].</span>"
 
-	. += "<span class='smallnoticeital'>Это [weightclass2text(w_class)] размера предмет.</span>"
+	. += "<hr><span class='smallnoticeital'>Это [weightclass2text(w_class)] размера предмет.</span>"
 
 	if(!user.research_scanner)
 		return
 
 	/// Research prospects, including boostable nodes and point values. Deliver to a console to know whether the boosts have already been used.
-	var/list/research_msg = list("<span class='purple'>Научный интерес:</span> ")
+	var/list/research_msg = list("<hr><span class='purple'>Научный интерес:</span> ")
 	///Separator between the items on the list
 	var/sep = ""
 	///Nodes that can be boosted
@@ -363,9 +363,9 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 		if(can_handle_hot)
 			extinguish()
-			to_chat(user, "<span class='notice'>Я тушу [src].</span>")
+			to_chat(user, "<span class='notice'>Тушу [src].</span>")
 		else
-			to_chat(user, "<span class='warning'>Я обжигаю свою руку дотронувшись до [src]! БЛЯТЬ!</span>")
+			to_chat(user, "<span class='warning'>Обжигаюсь дотронувшись до [src]! БЛЯТЬ!</span>")
 			var/obj/item/bodypart/affecting = C.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 			if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
 				C.update_damage_overlays()
@@ -436,7 +436,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	if(!A.has_fine_manipulation)
 		if(src in A.contents) // To stop Aliens having items stuck in their pockets
 			A.dropItemToGround(src)
-		to_chat(user, "<span class='warning'>У вас лапки!</span>")
+		to_chat(user, "<span class='warning'>У меня лапки!</span>")
 		return
 	attack_paw(A)
 
@@ -459,7 +459,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, args)
 	if(prob(final_block_chance))
 		playsound(src, 'white/valtos/sounds/block_sword.ogg', 100)
-		owner.visible_message("<span class='danger'>[owner] блокирует [attack_text] при помощи [src]!</span>")
+		owner.visible_message("<span class='danger'><b>[owner]</b> блокирует [attack_text] при помощи <b>[src.name]</b>!</span>")
 		return 1
 	return 0
 

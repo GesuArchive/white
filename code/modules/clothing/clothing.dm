@@ -293,7 +293,7 @@
 		durability_list += list("КИСЛОТА" = armor.acid)
 
 	if(LAZYLEN(armor_list) || LAZYLEN(durability_list))
-		. += "<span class='notice'>Здесь есть <a href='?src=[REF(src)];list_armor=1'>бирка</a> с описанием защитных свойств.</span>"
+		. += "<hr><span class='notice'>Здесь есть <a href='?src=[REF(src)];list_armor=1'>бирка</a> с описанием защитных свойств.</span>"
 
 /obj/item/clothing/Topic(href, href_list)
 	. = ..()

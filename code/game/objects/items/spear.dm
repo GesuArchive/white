@@ -109,7 +109,7 @@
 
 /obj/item/spear/explosive/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Alt-клик для установки боевого клича.</span>"
+	. += "<hr><span class='notice'>Alt-клик для установки боевого клича.</span>"
 
 /obj/item/spear/explosive/AltClick(mob/user)
 	if(user.canUseTopic(src, BE_CLOSE))

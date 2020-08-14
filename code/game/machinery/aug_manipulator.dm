@@ -13,7 +13,7 @@
 /obj/machinery/aug_manipulator/examine(mob/user)
 	. = ..()
 	if(storedpart)
-		. += "<span class='notice'>Alt-click to eject the limb.</span>"
+		. += "<hr><span class='notice'>Alt-click to eject the limb.</span>"
 
 /obj/machinery/aug_manipulator/Initialize()
     initial_icon_state = initial(icon_state)

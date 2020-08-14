@@ -119,7 +119,7 @@
 
 /obj/item/paper/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Alt-click [src] to fold it into a paper plane.</span>"
+	. += "<hr><span class='notice'>Alt-click [src] to fold it into a paper plane.</span>"
 
 /obj/item/paper/AltClick(mob/living/carbon/user, obj/item/I)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, ismonkey(user)))

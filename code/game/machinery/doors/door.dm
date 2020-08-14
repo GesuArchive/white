@@ -46,6 +46,7 @@
 
 /obj/machinery/door/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(red_alert_access)
 		if(GLOB.security_level >= SEC_LEVEL_RED)
 			. += "<span class='notice'>Учитывая угрозу, требования по доступу повышены!</span>"

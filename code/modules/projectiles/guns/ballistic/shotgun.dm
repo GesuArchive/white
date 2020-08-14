@@ -80,7 +80,7 @@
 
 /obj/item/gun/ballistic/shotgun/automatic/dual_tube/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Alt-click чтобы изменить это.</span>"
+	. += "<hr><span class='notice'>Alt-click чтобы изменить это.</span>"
 
 /obj/item/gun/ballistic/shotgun/automatic/dual_tube/Initialize()
 	. = ..()
@@ -278,9 +278,9 @@
 /obj/item/gun/ballistic/shotgun/doublebarrel/hook/examine(mob/user)
 	. = ..()
 	if(toggled)
-		. += "<span class='notice'>Alt-click чтобы приготовиться стрелять.</span>"
+		. += "<hr><span class='notice'>Alt-click чтобы приготовиться стрелять.</span>"
 	else
-		. += "<span class='notice'>Alt-click чтобы начать использовать крюк.</span>"
+		. += "<hr><span class='notice'>Alt-click чтобы начать использовать крюк.</span>"
 
 /obj/item/gun/ballistic/shotgun/doublebarrel/hook/afterattack(atom/target, mob/living/user, flag, params)
 	if(toggled)

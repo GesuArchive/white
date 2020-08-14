@@ -55,7 +55,7 @@
 /obj/machinery/microwave/examine(mob/user)
 	. = ..()
 	if(!operating)
-		. += "<span class='notice'>Alt-click [src] to turn it on.</span>"
+		. += "<hr><span class='notice'>Alt-click [src] to turn it on.</span>"
 
 	if(!in_range(user, src) && !issilicon(user) && !isobserver(user))
 		. += "<span class='warning'>You're too far away to examine [src]'s contents and display!</span>"
@@ -83,7 +83,7 @@
 		. += "<span class='notice'>\The [src] is empty.</span>"
 
 	if(!(machine_stat & (NOPOWER|BROKEN)))
-		. += "<span class='notice'>The status display reads:</span>\n"+\
+		. += "<hr><span class='notice'>Дисплей:</span>\n"+\
 		"<span class='notice'>- Capacity: <b>[max_n_of_items]</b> items.</span>\n"+\
 		"<span class='notice'>- Cook time reduced by <b>[(efficiency - 1) * 25]%</b>.</span>"
 

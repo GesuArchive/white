@@ -30,6 +30,7 @@
 
 /obj/checkered_table/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	. += "<span class='notice'>Alt-клик для сброса поля к изначальному варианту.</span>"
 	. += "<span class='notice'>Ctrl-Shift-клик по доске, чтобы её свернуть.</span>"
 	. += "<span class='notice'>Ctrl-клик по шашке, чтобы её перевернуть.</span>"
