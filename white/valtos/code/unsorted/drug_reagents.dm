@@ -736,7 +736,7 @@
 	new /datum/hallucination/delusion(M, TRUE, "custom", rand(10, 50), custom_icon_file = 'white/valtos/icons/stars.dmi', custom_icon = pick("star1","star2"), custom_name = "ЗВЁЗДОЧКА")
 
 	if(prob(65))
-		var/image/trip_img = image('white/valtos/icons/stars.dmi', get_turf(pick(view(7,src))), pick("star1","star2"), CURSE_LAYER)
+		var/image/trip_img = image('white/valtos/icons/stars.dmi', get_turf(pick(view(7, M))), pick("star1","star2"), CURSE_LAYER)
 		if(M.client)
 			M.client.images += trip_img
 		spawn(rand(30,50))
