@@ -294,13 +294,13 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		if(rfm.len)
 			. += "<hr><span class='smalldanger'>[capitalize(src.name)] выглядит устойчивым к [english_list(rfm)].</span>"
 
-	. += "<hr><span class='smallnoticeital'>Это [weightclass2text(w_class)] размера предмет.</span>"
+	. += "<hr><span class='smallnoticeital'>Это [weightclass2text(w_class)] размера предмет.</span><hr>"
 
 	if(!user.research_scanner)
 		return
 
 	/// Research prospects, including boostable nodes and point values. Deliver to a console to know whether the boosts have already been used.
-	var/list/research_msg = list("<hr><span class='purple'>Научный интерес:</span> ")
+	var/list/research_msg = list("<span class='purple'>Научный интерес:</span> ")
 	///Separator between the items on the list
 	var/sep = ""
 	///Nodes that can be boosted
