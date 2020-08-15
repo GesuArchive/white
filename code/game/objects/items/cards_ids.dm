@@ -252,8 +252,8 @@
 /obj/item/card/id/examine(mob/user)
 	. = ..()
 	if(registered_account)
-		. += "Привязанный аккаунт принадлежит '<b>[registered_account.account_holder]</b>' и сообщает о балансе <b>[registered_account.account_balance]</b> кредитов."
-	. += "<span class='notice'><i>Здесь ещё какая-то информация, стоит всмотреться...</i></span>"
+		. += "<hr>Привязанный аккаунт принадлежит '<b>[registered_account.account_holder]</b>' и сообщает о балансе <b>[registered_account.account_balance]</b> кредитов."
+	. += "<hr><span class='notice'><i>Здесь ещё какая-то информация, стоит всмотреться...</i></span>"
 
 /obj/item/card/id/examine_more(mob/user)
 	var/list/msg = list("<span class='notice'><i>Осматриваю <b>[src]</b> ближе и вижу следующее...</i></span>")

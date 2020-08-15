@@ -67,10 +67,11 @@
 	. = ..()
 	if(!scanning)
 		return
-	. += "<span class='info'>Alt-click it to clear stored radiation levels.</span>"
+	. += "<hr><span class='info'>Alt-click it to clear stored radiation levels.</span>"
 	if(obj_flags & EMAGGED)
-		. += "<span class='warning'>The display seems to be incomprehensible.</span>"
+		. += "\n<span class='warning'>The display seems to be incomprehensible.</span>"
 		return
+	. += "<hr>"
 	switch(radiation_count)
 		if(-INFINITY to RAD_LEVEL_NORMAL)
 			. += "<span class='notice'>Ambient radiation level count reports that all is well.</span>"
@@ -85,7 +86,7 @@
 		if(RAD_LEVEL_CRITICAL + 1 to INFINITY)
 			. += "<span class='boldannounce'>Ambient radiation levels above critical level!</span>"
 
-	. += "<span class='notice'>The last radiation amount detected was [last_tick_amount]</span>"
+	. += "\n<span class='notice'>The last radiation amount detected was [last_tick_amount]</span>"
 
 /obj/item/geiger_counter/update_icon_state()
 	if(!scanning)

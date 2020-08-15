@@ -43,6 +43,7 @@
 
 /obj/machinery/scanner_gate/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(locked)
 		. += "<span class='notice'>The control panel is ID-locked. Swipe a valid ID to unlock it.</span>"
 	else

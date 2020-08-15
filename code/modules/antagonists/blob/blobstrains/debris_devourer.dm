@@ -45,6 +45,7 @@
 
 /datum/blobstrain/debris_devourer/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	var/obj/structure/blob/core/core = overmind.blob_core
 	if (isobserver(user))
 		. += "<span class='notice'>Absorbed debris is currently reducing incoming damage by [round(max(min(DEBRIS_DENSITY, 10),0))]</span>"

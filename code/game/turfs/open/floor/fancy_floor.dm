@@ -21,7 +21,7 @@
 
 /turf/open/floor/wood/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Видны несколько <b>винтиков</b> и <b>небольшая трещина</b> с краю.</span>"
+	. += "<hr><span class='notice'>Видны несколько <b>винтиков</b> и <b>небольшая трещина</b> с краю.</span>"
 
 /turf/open/floor/wood/screwdriver_act(mob/living/user, obj/item/I)
 	if(..())

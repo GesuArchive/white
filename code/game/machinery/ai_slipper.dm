@@ -15,7 +15,7 @@
 
 /obj/machinery/ai_slipper/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>It has <b>[uses]</b> uses of foam remaining.</span>"
+	. += "<hr><span class='notice'>It has <b>[uses]</b> uses of foam remaining.</span>"
 
 /obj/machinery/ai_slipper/update_icon_state()
 	if(machine_stat & BROKEN)

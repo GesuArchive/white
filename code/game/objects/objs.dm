@@ -288,9 +288,9 @@
 /obj/examine(mob/user)
 	. = ..()
 	if(obj_flags & UNIQUE_RENAME)
-		. += "<span class='smallnotice'>Я могу переименовать это используя ручку или что-то подобное.</span>"
+		. += "<hr><span class='smallnotice'>Я могу переименовать это используя ручку или что-то подобное.</span>"
 	if(unique_reskin && !current_skin)
-		. += "<span class='smallnotice'>Alt-клик по предмету, чтобы изменить облик.</span>"
+		. += "<hr><span class='smallnotice'>Alt-клик по предмету, чтобы изменить облик.</span>"
 
 /obj/AltClick(mob/user)
 	. = ..()

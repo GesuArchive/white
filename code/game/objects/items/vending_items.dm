@@ -32,6 +32,7 @@
 /obj/item/vending_refill/examine(mob/user)
 	. = ..()
 	var/num = get_part_rating()
+	. += "<hr>"
 	if (num == INFINITY)
 		. += "It's sealed tight, completely full of supplies."
 	else if (num == 0)

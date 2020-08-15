@@ -189,7 +189,7 @@
 	if(machine_stat & BROKEN)
 		return
 	if(state_open)
-		. += "<span class='notice'>[src] must be closed before harvesting.</span>"
+		. += "<hr><span class='notice'>[src] must be closed before harvesting.</span>"
 	else if(!harvesting)
 		. += "<hr><span class='notice'>Alt-click [src] to start harvesting.</span>"
 	if(in_range(user, src) || isobserver(user))

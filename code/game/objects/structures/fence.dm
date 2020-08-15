@@ -31,6 +31,8 @@
 /obj/structure/fence/examine(mob/user)
 	. = ..()
 
+	. += "<hr>"
+
 	switch(hole_size)
 		if(MEDIUM_HOLE)
 			. += "There is a large hole in \the [src]."

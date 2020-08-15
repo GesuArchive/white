@@ -101,17 +101,17 @@
 /obj/structure/closet/examine(mob/user)
 	. = ..()
 	if(welded)
-		. += "<span class='notice'>It's welded shut.</span>"
+		. += "<hr><span class='notice'>It's welded shut.</span>"
 	if(anchored)
-		. += "<span class='notice'>It is <b>bolted</b> to the ground.</span>"
+		. += "<hr><span class='notice'>It is <b>bolted</b> to the ground.</span>"
 	if(opened)
-		. += "<span class='notice'>The parts are <b>welded</b> together.</span>"
+		. += "<hr><span class='notice'>The parts are <b>welded</b> together.</span>"
 	else if(secure && !opened)
 		. += "<hr><span class='notice'>Alt-click to [locked ? "unlock" : "lock"].</span>"
 	if(isliving(user))
 		var/mob/living/L = user
 		if(HAS_TRAIT(L, TRAIT_SKITTISH))
-			. += "<span class='notice'>Ctrl-Shift-click [src] to jump inside.</span>"
+			. += "<hr><span class='notice'>Ctrl-Shift-click [src] to jump inside.</span>"
 
 /obj/structure/closet/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()

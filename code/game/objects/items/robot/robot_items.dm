@@ -870,12 +870,12 @@
 	. = ..()
 	if(stored)
 		var/obj/item/reagent_containers/C = stored
-		. += "The apparatus currently has [C] secured, which contains:"
+		. += "<hr>The apparatus currently has [C] secured, which contains:"
 		if(length(C.reagents.reagent_list))
 			for(var/datum/reagent/R in C.reagents.reagent_list)
-				. += "[R.volume] units of [R.name]"
+				. += "\n[R.volume] units of [R.name]"
 		else
-			. += "Nothing."
+			. += "\nNothing."
 
 /obj/item/borg/apparatus/beaker/update_overlays()
 	. = ..()
@@ -952,7 +952,7 @@
 /obj/item/borg/apparatus/circuit/examine()
 	. = ..()
 	if(stored)
-		. += "The apparatus currently has [stored] secured."
+		. += "<hr>The apparatus currently has [stored] secured."
 
 /obj/item/borg/apparatus/circuit/pre_attack(atom/A, mob/living/user, params)
 	. = ..()

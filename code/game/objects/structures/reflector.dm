@@ -41,12 +41,12 @@
 /obj/structure/reflector/examine(mob/user)
 	. = ..()
 	if(finished)
-		. += "It is set to [rotation_angle] degrees, and the rotation is [can_rotate ? "unlocked" : "locked"]."
+		. += "<hr>It is set to [rotation_angle] degrees, and the rotation is [can_rotate ? "unlocked" : "locked"]."
 		if(!admin)
 			if(can_rotate)
 				. += "<hr><span class='notice'>Alt-click to adjust its direction.</span>"
 			else
-				. += "<span class='notice'>Use screwdriver to unlock the rotation.</span>"
+				. += "<hr><span class='notice'>Use screwdriver to unlock the rotation.</span>"
 
 /obj/structure/reflector/proc/setAngle(new_angle)
 	if(can_rotate)

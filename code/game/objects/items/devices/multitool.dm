@@ -35,7 +35,7 @@
 
 /obj/item/multitool/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Буффер [buffer ? "содержит [buffer]." : "пуст."]</span>"
+	//. += "<hr><span class='notice'>Буффер [buffer ? "содержит [buffer]." : "пуст."]</span>"
 
 /obj/item/multitool/suicide_act(mob/living/carbon/user)
 	user.visible_message("<span class='suicide'>[user] puts the [src] to [user.p_their()] chest. It looks like [user.p_theyre()] trying to pulse [user.p_their()] heart off!</span>")

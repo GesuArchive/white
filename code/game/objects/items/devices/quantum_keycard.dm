@@ -12,10 +12,10 @@
 /obj/item/quantum_keycard/examine(mob/user)
 	. = ..()
 	if(qpad)
-		. += "It's currently linked to a quantum pad."
+		. += "<hr>It's currently linked to a quantum pad."
 		. += "<hr><span class='notice'>Alt-click to unlink the keycard.</span>"
 	else
-		. += "<span class='notice'>Insert [src] into an active quantum pad to link it.</span>"
+		. += "<hr><span class='notice'>Insert [src] into an active quantum pad to link it.</span>"
 
 /obj/item/quantum_keycard/AltClick(mob/living/user)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, ismonkey(user)))

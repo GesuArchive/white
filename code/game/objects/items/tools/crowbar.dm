@@ -78,7 +78,7 @@
 
 /obj/item/crowbar/power/examine()
 	. = ..()
-	. += " На конце установлен [tool_behaviour == TOOL_CROWBAR ? "открывака" : "кусака"]."
+	. += "<hr>На конце установлен [tool_behaviour == TOOL_CROWBAR ? "открывака" : "кусака"]."
 
 /obj/item/crowbar/power/suicide_act(mob/user)
 	if(tool_behaviour == TOOL_CROWBAR)

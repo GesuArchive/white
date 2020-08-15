@@ -27,10 +27,10 @@
 /turf/open/floor/light/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'>Здесь есть <b>небольшая трещина</b> с краю.</span>"
-	. += "<span class='notice'>Мультитулом можно изменить цвет, надо не забыть.</span>"
-	. += "<span class='notice'>Отвёрткой я могу отключить или включить эту плитку.</span>"
+	. += "\n<span class='notice'>Мультитулом можно изменить цвет, надо не забыть.</span>"
+	. += "\n<span class='notice'>Отвёрткой я могу отключить или включить эту плитку.</span>"
 	if(state) ///check if broken
-		. += "<span class='danger'>Похоже лампочка перегорела!</span>"
+		. += "<hr><span class='danger'>Похоже лампочка перегорела!</span>"
 
 ///create radial menu
 /turf/open/floor/light/proc/populate_lighttile_designs()

@@ -54,11 +54,11 @@
 /obj/structure/displaycase/examine(mob/user)
 	. = ..()
 	if(alert)
-		. += "<span class='notice'>Hooked up with an anti-theft system.</span>"
+		. += "<hr><span class='notice'>Hooked up with an anti-theft system.</span>"
 	if(showpiece)
-		. += "<span class='notice'>There's \a [showpiece] inside.</span>"
+		. += "<hr><span class='notice'>There's \a [showpiece] inside.</span>"
 	if(trophy_message)
-		. += "The plaque reads:\n [trophy_message]"
+		. += "<hr>The plaque reads:\n [trophy_message]"
 
 /obj/structure/displaycase/proc/dump()
 	if(QDELETED(showpiece))
@@ -559,9 +559,9 @@
 /obj/structure/displaycase/forsale/examine(mob/user)
 	. = ..()
 	if(showpiece && !open)
-		. += "<span class='notice'>[showpiece] is for sale for [sale_price] credits.</span>"
+		. += "<<hr>span class='notice'>[showpiece] is for sale for [sale_price] credits.</span>"
 	if(broken)
-		. += "<span class='notice'>[src] is sparking and the hover field generator seems to be overloaded. Use a multitool to fix it.</span>"
+		. += "<hr><span class='notice'>[src] is sparking and the hover field generator seems to be overloaded. Use a multitool to fix it.</span>"
 
 /obj/structure/displaycase/forsale/obj_break(damage_flag)
 	if(!broken && !(flags_1 & NODECONSTRUCT_1))

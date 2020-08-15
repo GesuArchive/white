@@ -612,15 +612,16 @@
 /obj/machinery/door/airlock/examine(mob/user)
 	. = ..()
 	if(obj_flags & EMAGGED)
-		. += "<span class='warning'>Its access panel is smoking slightly.</span>"
+		. += "<hr><span class='warning'>Its access panel is smoking slightly.</span>"
 	if(note)
 		if(!in_range(user, src))
-			. += "There's a [note.name] pinned to the front. You can't read it from here."
+			. += "<hr>There's a [note.name] pinned to the front. You can't read it from here."
 		else
-			. += "There's a [note.name] pinned to the front..."
+			. += "<hr>There's a [note.name] pinned to the front...\n"
 			. += note.examine(user)
 
 	if(panel_open)
+		. += "<hr>"
 		switch(security_level)
 			if(AIRLOCK_SECURITY_NONE)
 				. += "Its wires are exposed!"
@@ -638,14 +639,14 @@
 				. += "There is a protective grille over its panel."
 	else if(security_level)
 		if(security_level == AIRLOCK_SECURITY_METAL)
-			. += "It looks a bit stronger."
+			. += "<hr>It looks a bit stronger."
 		else
-			. += "It looks very robust."
+			. += "<hr>It looks very robust."
 
 	if(issilicon(user) && !(machine_stat & BROKEN))
-		. += "<span class='notice'>Shift-click [src] to [ density ? "open" : "close"] it.</span>"
+		. += "<hr><span class='notice'>Shift-click [src] to [ density ? "open" : "close"] it.</span>\n"
 		. += "<span class='notice'>Ctrl-click [src] to [ locked ? "raise" : "drop"] its bolts.</span>"
-		. += "<hr><span class='notice'>Alt-click [src] to [ secondsElectrified ? "un-electrify" : "permanently electrify"] it.</span>"
+		. += "<hr><span class='notice'>Alt-click [src] to [ secondsElectrified ? "un-electrify" : "permanently electrify"] it.</span>\n"
 		. += "<span class='notice'>Ctrl-Shift-click [src] to [ emergency ? "disable" : "enable"] emergency access.</span>"
 
 /obj/machinery/door/airlock/attack_ai(mob/user)

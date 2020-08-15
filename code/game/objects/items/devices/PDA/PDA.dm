@@ -99,10 +99,10 @@ GLOBAL_LIST_EMPTY(PDAs)
 		. += "<hr><span class='notice'>Alt-click to remove the ID.</span>" //won't name ID on examine in case it's stolen
 
 	if(inserted_item && (!isturf(loc)))
-		. += "<span class='notice'>Ctrl-click to remove [inserted_item].</span>" //traitor pens are disguised so we're fine naming them on examine
+		. += "<hr><span class='notice'>Ctrl-click to remove [inserted_item].</span>" //traitor pens are disguised so we're fine naming them on examine
 
 	if((!isnull(cartridge)))
-		. += "<span class='notice'>Ctrl+Shift-click to remove the cartridge.</span>" //won't name cart on examine in case it's Detomatix
+		. += "<hr><span class='notice'>Ctrl+Shift-click to remove the cartridge.</span>" //won't name cart on examine in case it's Detomatix
 
 /obj/item/pda/Initialize()
 	. = ..()

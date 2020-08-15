@@ -223,7 +223,7 @@
 /obj/effect/decal/cleanable/blood/footprints/examine(mob/user)
 	. = ..()
 	if(shoe_types.len)
-		. += "You recognise the footprints as belonging to:\n"
+		. += "<hr>You recognise the footprints as belonging to:\n"
 		for(var/shoe in shoe_types)
 			var/obj/item/clothing/shoes/S = shoe
 			. += "[icon2html(initial(S.icon), user)] Some <B>[initial(S.name)]</B>.\n"

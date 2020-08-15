@@ -325,7 +325,7 @@
 
 /obj/item/circuitboard/machine/thermomachine/examine()
 	. = ..()
-	. += "<span class='notice'>It is set to layer [pipe_layer].</span>"
+	. += "<hr><span class='notice'>It is set to layer [pipe_layer].</span>"
 
 /obj/item/circuitboard/machine/thermomachine/heater
 	name = "Heater (Machine Board)"
@@ -375,9 +375,9 @@
 
 /obj/item/circuitboard/machine/holopad/examine(mob/user)
 	. = ..()
-	. += "There is a connection port on this board that could be <b>pulsed</b>"
+	. += "<hr>There is a connection port on this board that could be <b>pulsed</b>"
 	if(secure)
-		. += "There is a red light flashing next to the word \"secure\""
+		. += "\nThere is a red light flashing next to the word \"secure\""
 
 /obj/item/circuitboard/machine/launchpad
 	name = "Bluespace Launchpad (Machine Board)"
@@ -451,7 +451,7 @@
 	. = ..()
 	if(is_special_type)
 		return
-	. += "<span class='info'>[src] is set to [fridges_name_paths[build_path]]. You can use a screwdriver to reconfigure it.</span>"
+	. += "<hr><span class='info'>[src] is set to [fridges_name_paths[build_path]]. You can use a screwdriver to reconfigure it.</span>"
 
 
 /obj/item/circuitboard/machine/space_heater
@@ -685,7 +685,7 @@
 
 /obj/item/circuitboard/machine/medical_kiosk/examine(mob/user)
 	. = ..()
-	. += "The cost to use this kiosk is set to [custom_cost]."
+	. += "<hr>The cost to use this kiosk is set to [custom_cost]."
 
 /obj/item/circuitboard/machine/limbgrower
 	name = "Limb Grower (Machine Board)"
@@ -865,7 +865,7 @@
 
 /obj/item/circuitboard/machine/public_nanite_chamber/examine(mob/user)
 	. = ..()
-	. += "Cloud ID is currently set to [cloud_id]."
+	. += "<hr>Cloud ID is currently set to [cloud_id]."
 
 /obj/item/circuitboard/machine/quantumpad
 	name = "Quantum Pad (Machine Board)"
@@ -995,8 +995,8 @@
 
 /obj/item/circuitboard/machine/dish_drive/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Its suction function is [suction ? "enabled" : "disabled"]. Use it in-hand to switch.</span>"
-	. += "<span class='notice'>Its disposal auto-transmit function is [transmit ? "enabled" : "disabled"]. Alt-click it to switch.</span>"
+	. += "<hr><span class='notice'>Its suction function is [suction ? "enabled" : "disabled"]. Use it in-hand to switch.</span>"
+	. += "\n<span class='notice'>Its disposal auto-transmit function is [transmit ? "enabled" : "disabled"]. Alt-click it to switch.</span>"
 
 /obj/item/circuitboard/machine/dish_drive/attack_self(mob/living/user)
 	suction = !suction

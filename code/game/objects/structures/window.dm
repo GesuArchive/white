@@ -38,6 +38,7 @@
 
 /obj/structure/window/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(reinf)
 		if(anchored && state == WINDOW_SCREWED_TO_FRAME)
 			. += "<span class='notice'>Окно <b>прикручено</b> к рамке.</span>"
@@ -533,6 +534,7 @@
 
 /obj/structure/window/plasma/reinforced/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	switch(state)
 		if(RWINDOW_SECURE)
 			. += "<span class='notice'>It's been screwed in with one way screws, you'd need to <b>heat them</b> to have any chance of backing them out.</span>"
@@ -803,7 +805,7 @@
 /obj/structure/window/paperframe/examine(mob/user)
 	. = ..()
 	if(obj_integrity < max_integrity)
-		. += "<span class='info'>It looks a bit damaged, you may be able to fix it with some <b>paper</b>.</span>"
+		. += "<hr><span class='info'>It looks a bit damaged, you may be able to fix it with some <b>paper</b>.</span>"
 
 /obj/structure/window/paperframe/spawnDebris(location)
 	. = list(new /obj/item/stack/sheet/mineral/wood(location))

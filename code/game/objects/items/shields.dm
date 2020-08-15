@@ -60,11 +60,11 @@
 	var/healthpercent = round((obj_integrity/max_integrity) * 100, 1)
 	switch(healthpercent)
 		if(50 to 99)
-			. += "<span class='info'>Виднеются небольшие царапины.</span>"
+			. += "<hr><span class='info'>Виднеются небольшие царапины.</span>"
 		if(25 to 50)
-			. += "<span class='info'>Выглядит серьёзно повреждённым.</span>"
+			. += "<hr><span class='info'>Выглядит серьёзно повреждённым.</span>"
 		if(0 to 25)
-			. += "<span class='warning'>Вот-вот развалится!</span>"
+			. += "<hr><span class='warning'>Вот-вот развалится!</span>"
 
 /obj/item/shield/riot/proc/shatter(mob/living/carbon/human/owner)
 	playsound(owner, 'sound/effects/glassbr3.ogg', 100)
@@ -184,7 +184,7 @@
 /obj/item/shield/riot/flash/examine(mob/user)
 	. = ..()
 	if (embedded_flash?.burnt_out)
-		. += "<span class='info'>Установленная лампа перегорела. Стоит попробовать заменить её на новую.</span>"
+		. += "<hr><span class='info'>Установленная лампа перегорела. Стоит попробовать заменить её на новую.</span>"
 
 /obj/item/shield/energy
 	name = "энергетический боевой щит"

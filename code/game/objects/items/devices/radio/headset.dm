@@ -46,12 +46,12 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 					avail_chans += "Используй [MODE_TOKEN_DEPARTMENT] или [GLOB.channel_tokens[channels[i]]] для [lowertext(channels[i])]"
 				else
 					avail_chans += "Используй [GLOB.channel_tokens[channels[i]]] для [lowertext(channels[i])]"
-		. += "<span class='notice'>На небольшом экране гарнитуры отображаются следующие доступные частоты:\n[english_list(avail_chans)].</span>"
+		. += "<hr><span class='notice'>На небольшом экране гарнитуры отображаются следующие доступные частоты:\n[english_list(avail_chans)].</span>"
 
 		if(command)
-			. += "<span class='info'>Альт-клик для переключения режима высокой громкости вещания.</span>"
+			. += "<hr><span class='info'>Альт-клик для переключения режима высокой громкости вещания.</span>"
 	else
-		. += "<span class='notice'>На гарнитуре мигает маленький экран, он слишком мал для чтения без удержания или ношения гарнитуры.</span>"
+		. += "<hr><span class='notice'>На гарнитуре мигает маленький экран, он слишком мал для чтения без удержания или ношения гарнитуры.</span>"
 
 /obj/item/radio/headset/Initialize()
 	. = ..()

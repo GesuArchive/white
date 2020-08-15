@@ -14,6 +14,7 @@
 
 /obj/structure/girder/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	switch(state)
 		if(GIRDER_REINF)
 			. += "<span class='notice'>The support struts are <b>screwed</b> in place.</span>"

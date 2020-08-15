@@ -543,19 +543,20 @@ Class Procs:
 
 /obj/machinery/proc/display_parts(mob/user)
 	. = list()
-	. += "<span class='notice'>It contains the following parts:</span>"
+	. += "<hr><span class='notice'>Содержит следующие компоненты:</span>"
 	for(var/obj/item/C in component_parts)
-		. += "<span class='notice'>[icon2html(C, user)] \A [C].</span>"
-	. = jointext(., "")
+		. += "<span class='notice'>[icon2html(C, user)] [C].</span>"
+	. = jointext(., "\n")
 
 /obj/machinery/examine(mob/user)
 	. = ..()
 	if(machine_stat & BROKEN)
-		. += "<span class='notice'>It looks broken and non-functional.</span>"
+		. += "<hr><span class='notice'>Совсем сломано и не хочет работать.</span>"
 	if(!(resistance_flags & INDESTRUCTIBLE))
 		if(resistance_flags & ON_FIRE)
-			. += "<span class='warning'>It's on fire!</span>"
+			. += "<hr><span class='warning'>Горит!</span>"
 		var/healthpercent = (obj_integrity/max_integrity) * 100
+		. += "<hr>"
 		switch(healthpercent)
 			if(50 to 99)
 				. += "Виднеются небольшие царапины."

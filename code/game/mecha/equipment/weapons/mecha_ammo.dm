@@ -32,7 +32,7 @@
 /obj/item/mecha_ammo/examine(mob/user)
 	. = ..()
 	if(rounds)
-		. += "There [rounds > 1?"are":"is"] [rounds] [round_term][rounds > 1?"s":""] left."
+		. += "<hr>There [rounds > 1?"are":"is"] [rounds] [round_term][rounds > 1?"s":""] left."
 
 /obj/item/mecha_ammo/incendiary
 	name = "incendiary ammo"

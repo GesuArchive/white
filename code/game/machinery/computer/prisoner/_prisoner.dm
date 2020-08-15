@@ -5,12 +5,12 @@
 	if(contained_id)
 		contained_id.forceMove(get_turf(src))
 	return ..()
-	
+
 
 /obj/machinery/computer/prisoner/examine(mob/user)
 	. = ..()
 	if(contained_id)
-		. += "<span class='notice'><b>Alt-click</b> to eject the ID card.</span>"
+		. += "<hr><span class='notice'><b>Alt-click</b> to eject the ID card.</span>"
 
 
 

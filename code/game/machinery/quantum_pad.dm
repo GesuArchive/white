@@ -31,11 +31,11 @@
 
 /obj/machinery/quantumpad/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>It is [ linked_pad ? "currently" : "not"] linked to another pad.</span>"
+	. += "<hr><span class='notice'>It is [ linked_pad ? "currently" : "not"] linked to another pad.</span>"
 	if(!panel_open)
-		. += "<span class='notice'>The panel is <i>screwed</i> in, obstructing the linking device.</span>"
+		. += "<hr><span class='notice'>The panel is <i>screwed</i> in, obstructing the linking device.</span>"
 	else
-		. += "<span class='notice'>The <i>linking</i> device is now able to be <i>scanned<i> with a multitool.</span>"
+		. += "<hr><span class='notice'>The <i>linking</i> device is now able to be <i>scanned<i> with a multitool.</span>"
 
 /obj/machinery/quantumpad/RefreshParts()
 	var/E = 0

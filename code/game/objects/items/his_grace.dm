@@ -52,6 +52,7 @@
 
 /obj/item/his_grace/examine(mob/user)
 	. = ..()
+	. + "<hr>"
 	if(awakened)
 		switch(bloodthirst)
 			if(HIS_GRACE_SATIATED to HIS_GRACE_PECKISH)

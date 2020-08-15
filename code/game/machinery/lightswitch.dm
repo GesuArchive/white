@@ -38,7 +38,7 @@
 
 /obj/machinery/light_switch/examine(mob/user)
 	. = ..()
-	. += "Он [area.lightswitch ? "включен" : "выключен"]."
+	. += "<hr>Он [area.lightswitch ? "включен" : "выключен"]."
 
 /obj/machinery/light_switch/interact(mob/user)
 	. = ..()

@@ -14,7 +14,7 @@
 
 /turf/open/floor/engine/examine(mob/user)
 	. += ..()
-	. += "<span class='notice'>Арматурные стержни <b>прикручены</b> крепко.</span>"
+	. += "<hr><span class='notice'>Арматурные стержни <b>прикручены</b> крепко.</span>"
 
 /turf/open/floor/engine/airless
 	initial_gas_mix = AIRLESS_ATMOS

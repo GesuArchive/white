@@ -61,10 +61,11 @@
 	else
 		msg += "The blade is hidden inside the stocks."
 
+	. += "<hr>"
 	. += msg
 
 	if (LAZYLEN(buckled_mobs))
-		. += "Someone appears to be strapped in. You can help them out, or you can harm them by activating the guillotine."
+		. += "\nSomeone appears to be strapped in. You can help them out, or you can harm them by activating the guillotine."
 
 /obj/structure/guillotine/attack_hand(mob/user)
 	add_fingerprint(user)

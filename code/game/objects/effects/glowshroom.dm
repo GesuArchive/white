@@ -43,7 +43,7 @@
 
 /obj/structure/glowshroom/examine(mob/user)
 	. = ..()
-	. += "This is a [generation]\th generation [name]!"
+	. += "<hr>This is a [generation]\th generation [name]!"
 
 /**
   *	Creates a new glowshroom structure.

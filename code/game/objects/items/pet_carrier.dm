@@ -44,6 +44,7 @@
 
 /obj/item/pet_carrier/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(occupants.len)
 		for(var/V in occupants)
 			var/mob/living/L = V
@@ -51,7 +52,7 @@
 	else
 		. += "<span class='notice'>It has nothing inside.</span>"
 	if(user.canUseTopic(src))
-		. += "<span class='notice'>Activate it in your hand to [open ? "close" : "open"] its door.</span>"
+		. += "<hr><span class='notice'>Activate it in your hand to [open ? "close" : "open"] its door.</span>"
 		if(!open)
 			. += "<hr><span class='notice'>Alt-click to [locked ? "unlock" : "lock"] its door.</span>"
 

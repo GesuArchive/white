@@ -304,6 +304,7 @@ LINEN BINS
 
 /obj/structure/bedsheetbin/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(amount < 1)
 		. += "There are no bed sheets in the bin."
 	else if(amount == 1)

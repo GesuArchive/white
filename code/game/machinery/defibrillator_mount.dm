@@ -36,11 +36,11 @@
 /obj/machinery/defibrillator_mount/examine(mob/user)
 	. = ..()
 	if(defib)
-		. += "<span class='notice'>There is a defib unit hooked up. Alt-click to remove it.</span>"
+		. += "<hr><span class='notice'>There is a defib unit hooked up. Alt-click to remove it.</span>"
 		if(GLOB.security_level >= SEC_LEVEL_RED)
-			. += "<span class='notice'>Due to a security situation, its locking clamps can be toggled by swiping any ID.</span>"
+			. += "<hr><span class='notice'>Due to a security situation, its locking clamps can be toggled by swiping any ID.</span>"
 		else
-			. += "<span class='notice'>Its locking clamps can be [clamps_locked ? "dis" : ""]engaged by swiping an ID with access.</span>"
+			. += "<hr><span class='notice'>Its locking clamps can be [clamps_locked ? "dis" : ""]engaged by swiping an ID with access.</span>"
 
 /obj/machinery/defibrillator_mount/update_overlays()
 	. = ..()

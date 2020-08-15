@@ -135,8 +135,8 @@
 
 	switch(deconstruction_state)
 		if(SHOWCASE_CONSTRUCTED)
-			. += "The showcase is fully constructed."
+			. += "<hr>The showcase is fully constructed."
 		if(SHOWCASE_SCREWDRIVERED)
-			. += "The showcase has its screws loosened."
+			. += "<hr>The showcase has its screws loosened."
 		else
-			. += "If you see this, something is wrong."
+			. += "<hr>If you see this, something is wrong."

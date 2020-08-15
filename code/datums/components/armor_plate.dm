@@ -33,6 +33,7 @@
 
 /datum/component/armor_plate/proc/examine(datum/source, mob/user, list/examine_list)
 	//upgrade_item could also be typecast here instead
+	examine_list += "<hr>"
 	if(ismecha(parent))
 		if(amount)
 			if(amount < maxamount)

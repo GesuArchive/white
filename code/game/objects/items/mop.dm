@@ -114,7 +114,7 @@
 
 /obj/item/mop/advanced/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Переключатель конденсатора сейчас в положении <b>[refill_enabled ? "ВКЛ" : "ВЫКЛ"]</b>.</span>"
+	. += "<hr><span class='notice'>Переключатель конденсатора сейчас в положении <b>[refill_enabled ? "ВКЛ" : "ВЫКЛ"]</b>.</span>"
 
 /obj/item/mop/advanced/Destroy()
 	if(refill_enabled)

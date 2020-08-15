@@ -28,7 +28,7 @@
 /obj/structure/bed/examine(mob/user)
 	. = ..()
 	if(bolts)
-		. += "<span class='notice'>Скручено несколькими <b>болтами</b>.</span>"
+		. += "<hr><span class='notice'>Скручено несколькими <b>болтами</b>.</span>"
 
 /obj/structure/bed/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
@@ -154,7 +154,7 @@
 
 /obj/item/roller/robo/examine(mob/user)
 	. = ..()
-	. += "Док [loaded ? "загружен" : "пуст"]."
+	. += "<hr>Док [loaded ? "загружен" : "пуст"]."
 
 /obj/item/roller/robo/deploy_roller(mob/user, atom/location)
 	if(loaded)
@@ -184,7 +184,7 @@
 	desc = "Кажется, немного... подозрительной."
 	name = "кровать Кайенны"
 	anchored = TRUE
-	
+
 /obj/structure/bed/dogbed/lia
 	desc = "Seems kind of... fishy."
 	name = "Lia's bed"

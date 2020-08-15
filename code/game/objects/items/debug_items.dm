@@ -35,7 +35,7 @@
 
 /obj/item/debug/omnitool/examine()
 	. = ..()
-	. += " The mode is: [tool_behaviour]"
+	. += "<hr>The mode is: [tool_behaviour]"
 
 /obj/item/debug/omnitool/proc/check_menu(mob/user)
 	if(!istype(user))

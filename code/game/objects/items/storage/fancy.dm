@@ -34,6 +34,7 @@
 
 /obj/item/storage/fancy/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(fancy_open)
 		if(length(contents) == 1)
 			. += "There is one [icon_type] left."
@@ -201,7 +202,7 @@
 
 	. += "<hr><span class='notice'>Alt-click to extract contents.</span>"
 	if(spawn_coupon)
-		. += "<span class='notice'>There's a coupon on the back of the pack! You can tear it off once it's empty.</span>"
+		. += "\n<span class='notice'>There's a coupon on the back of the pack! You can tear it off once it's empty.</span>"
 
 /obj/item/storage/fancy/cigarettes/AltClick(mob/living/carbon/user)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, ismonkey(user)))

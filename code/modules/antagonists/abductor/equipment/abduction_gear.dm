@@ -647,6 +647,7 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 
 /obj/item/melee/baton/abductor/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(AbductorCheck(user))
 		switch(mode)
 			if(BATON_STUN)

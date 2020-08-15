@@ -220,17 +220,17 @@
 	if(get_dist(user, src) > 2)
 		return
 
-	. += "[src] is [mode ? "injecting" : "taking blood"]."
+	. += "<hr>[src] is [mode ? "injecting" : "taking blood"]."
 
 	if(beaker)
 		if(beaker.reagents && beaker.reagents.reagent_list.len)
-			. += "<span class='notice'>Attached is \a [beaker] with [beaker.reagents.total_volume] units of liquid.</span>"
+			. += "<hr><span class='notice'>Attached is \a [beaker] with [beaker.reagents.total_volume] units of liquid.</span>"
 		else
-			. += "<span class='notice'>Attached is an empty [beaker.name].</span>"
+			. += "<hr><span class='notice'>Attached is an empty [beaker.name].</span>"
 	else
-		. += "<span class='notice'>No chemicals are attached.</span>"
+		. += "<hr><span class='notice'>No chemicals are attached.</span>"
 
-	. += "<span class='notice'>[attached ? attached : "No one"] is attached.</span>"
+	. += "<hr><span class='notice'>[attached ? attached : "No one"] is attached.</span>"
 
 
 /obj/machinery/iv_drip/saline

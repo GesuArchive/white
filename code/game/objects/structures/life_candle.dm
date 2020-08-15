@@ -55,9 +55,9 @@
 /obj/structure/life_candle/examine(mob/user)
 	. = ..()
 	if(linked_minds.len)
-		. += "[src] is active, and linked to [linked_minds.len] souls."
+		. += "<hr>[src] is active, and linked to [linked_minds.len] souls."
 	else
-		. += "It is static, still, unmoving."
+		. += "<hr>It is static, still, unmoving."
 
 /obj/structure/life_candle/process()
 	if(!linked_minds.len)

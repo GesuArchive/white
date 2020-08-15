@@ -80,10 +80,10 @@
 		icon = src.loc
 	if(!in_range(src, user) && !isobserver(user))
 		if(icon == src)
-			. += "<span class='notice'>If you want any more information you'll need to get closer.</span>"
+			. += "<hr><span class='notice'>If you want any more information you'll need to get closer.</span>"
 		return
 
-	. += "<span class='notice'>The pressure gauge reads [round(src.air_contents.return_pressure(),0.01)] kPa.</span>"
+	. += "<hr><span class='notice'>The pressure gauge reads [round(src.air_contents.return_pressure(),0.01)] kPa.</span>"
 
 	var/celsius_temperature = src.air_contents.return_temperature()-T0C
 	var/descriptive

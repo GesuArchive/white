@@ -94,13 +94,13 @@
 
 /obj/item/card/emag/doorjack/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>It has [charges] charges remaining.</span>"
+	. += "<hr><span class='notice'>It has [charges] charges remaining.</span>"
 	if (length(charge_timers))
-		. += "<span class='notice'><b>A small display on the back reads:</span></b>"
+		. += "<hr><span class='notice'><b>A small display on the back reads:</span></b>"
 	for (var/i in 1 to length(charge_timers))
 		var/timeleft = timeleft(charge_timers[i])
 		var/loadingbar = num2loadingbar(timeleft/charge_time)
-		. += "<span class='notice'><b>CHARGE #[i]: [loadingbar] ([timeleft*0.1]s)</b></span>"
+		. += "\n<span class='notice'><b>CHARGE #[i]: [loadingbar] ([timeleft*0.1]s)</b></span>"
 
 /obj/item/card/emag/doorjack/can_emag(atom/target, mob/user)
 	if (charges <= 0)

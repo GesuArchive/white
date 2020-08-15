@@ -108,7 +108,7 @@
 /obj/machinery/telecomms/message_server/examine(mob/user)
 	. = ..()
 	if(calibrating)
-		. += "<span class='warning'>It's still calibrating.</span>"
+		. += "<span class='warning'><hr>It's still calibrating.</span>"
 
 /obj/machinery/telecomms/message_server/proc/GenerateKey()
 	var/newKey

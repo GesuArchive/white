@@ -49,13 +49,13 @@
 	. += "<hr>"
 	if(red_alert_access)
 		if(GLOB.security_level >= SEC_LEVEL_RED)
-			. += "<span class='notice'>Учитывая угрозу, требования по доступу повышены!</span>"
+			. += "<span class='notice'>Учитывая угрозу, требования по доступу повышены!</span>\n"
 		else
-			. += "<span class='notice'>Учитывая красный код, требования по доступу повышены.</span>"
+			. += "<span class='notice'>Учитывая красный код, требования по доступу повышены.</span>\n"
 	if(!poddoor)
-		. += "<span class='notice'>Техническая панель <b>прикручена</b> на месте.</span>"
+		. += "<hr><span class='notice'>Техническая панель <b>прикручена</b> на месте.</span>"
 	if(safety_mode)
-		. += "<span class='notice'>Здесь есть надпись, что этот шлюз откроется <b>просто твоими руками</b>, если здесь не будет энергии.</span>"
+		. += "<hr><span class='notice'>Здесь есть надпись, что этот шлюз откроется <b>просто твоими руками</b>, если здесь не будет энергии.</span>"
 
 /obj/machinery/door/check_access_list(list/access_list)
 	if(red_alert_access && GLOB.security_level >= SEC_LEVEL_RED)

@@ -115,6 +115,7 @@
 
 /obj/item/melee/baton/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(cell)
 		. += "<span class='notice'>Дубинка заряжена на [round(cell.percent())]%.</span>"
 	else

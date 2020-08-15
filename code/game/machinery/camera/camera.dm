@@ -117,26 +117,26 @@
 /obj/machinery/camera/examine(mob/user)
 	. += ..()
 	if(isEmpProof(TRUE)) //don't reveal it's upgraded if was done via MALF AI Upgrade Camera Network ability
-		. += "Видно, что защита от ЭМИ установлена."
+		. += "<hr>Видно, что защита от ЭМИ установлена."
 	else
-		. += "<span class='info'>Она может быть улучшена защитой от ЭМИ <b>плазмой</b>.</span>"
+		. += "<hr><span class='info'>Она может быть улучшена защитой от ЭМИ <b>плазмой</b>.</span>"
 	if(isXRay(TRUE)) //don't reveal it's upgraded if was done via MALF AI Upgrade Camera Network ability
-		. += "Похоже тут установлен X-ray фотодиод."
+		. += "<hr>Похоже тут установлен X-ray фотодиод."
 	else
-		. += "<span class='info'>Она может быть улучшена X-ray фотодиодом при помощи <b>аналайзера</b>.</span>"
+		. += "<hr><span class='info'>Она может быть улучшена X-ray фотодиодом при помощи <b>аналайзера</b>.</span>"
 	if(isMotion())
-		. += "Здесь установлен датчик движения."
+		. += "<hr>Здесь установлен датчик движения."
 	else
-		. += "<span class='info'>Она может быть улучшена установкой <b>датчика движения</b>.</span>"
+		. += "<hr><span class='info'>Она может быть улучшена установкой <b>датчика движения</b>.</span>"
 
 	if(!status)
-		. += "<span class='info'>Она не работает.</span>"
+		. += "<hr><span class='info'>Она не работает.</span>"
 		if(!panel_open && powered())
-			. += "<span class='notice'>Надо бы сначала <b>открутить</b>, чтобы включить её снова.</span>"
+			. += "<hr><span class='notice'>Надо бы сначала <b>открутить</b>, чтобы включить её снова.</span>"
 	if(panel_open)
-		. += "<span class='info'>Техническая панель открыта.</span>"
+		. += "<hr><span class='info'>Техническая панель открыта.</span>"
 		if(!status && powered())
-			. += "<span class='info'>Она может быть активирована снова при помощи <b>кусачек</b>.</span>"
+			. += "<hr><span class='info'>Она может быть активирована снова при помощи <b>кусачек</b>.</span>"
 
 /obj/machinery/camera/emp_act(severity)
 	. = ..()

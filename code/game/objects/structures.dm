@@ -108,11 +108,12 @@
 	. = ..()
 	if(!(resistance_flags & INDESTRUCTIBLE))
 		if(resistance_flags & ON_FIRE)
-			. += "<span class='warning'>Оно горит!</span>"
+			. += "<hr><span class='warning'>Оно горит!</span>"
 		if(broken)
-			. += "<span class='notice'>Оно сломано.</span>"
+			. += "<hr><span class='notice'>Оно сломано.</span>"
 		var/examine_status = examine_status(user)
 		if(examine_status)
+			. += "<hr>"
 			. += examine_status
 
 /obj/structure/CanAllowThrough(atom/movable/mover, turf/target)

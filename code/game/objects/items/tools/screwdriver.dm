@@ -114,7 +114,7 @@
 
 /obj/item/screwdriver/power/examine()
 	. = ..()
-	. += " На конце установлен [tool_behaviour == TOOL_SCREWDRIVER ? "маленький" : "большой"] крутяка."
+	. += "<hr>На конце установлен [tool_behaviour == TOOL_SCREWDRIVER ? "маленький" : "большой"] крутяка."
 
 /obj/item/screwdriver/power/suicide_act(mob/user)
 	if(tool_behaviour == TOOL_SCREWDRIVER)

@@ -61,9 +61,9 @@
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
 		if(!diode)
-			. += "<span class='notice'>The diode is missing.</span>"
+			. += "<hr><span class='notice'>The diode is missing.</span>"
 		else
-			. += "<span class='notice'>A class <b>[diode.rating]</b> laser diode is installed. It is <i>screwed</i> in place.</span>"
+			. += "<hr><span class='notice'>A class <b>[diode.rating]</b> laser diode is installed. It is <i>screwed</i> in place.</span>"
 
 /obj/item/laser_pointer/afterattack(atom/target, mob/living/user, flag, params)
 	. = ..()

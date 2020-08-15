@@ -252,7 +252,7 @@
 
 /obj/item/toy/gun/examine(mob/user)
 	. = ..()
-	. += "There [bullets == 1 ? "is" : "are"] [bullets] cap\s left."
+	. += "<hr>There [bullets == 1 ? "is" : "are"] [bullets] cap\s left."
 
 /obj/item/toy/gun/attackby(obj/item/toy/ammo/gun/A, mob/user, params)
 
@@ -308,7 +308,7 @@
 
 /obj/item/toy/ammo/gun/examine(mob/user)
 	. = ..()
-	. += "There [amount_left == 1 ? "is" : "are"] [amount_left] cap\s left."
+	. += "<hr>There [amount_left == 1 ? "is" : "are"] [amount_left] cap\s left."
 
 /*
  * Toy swords
@@ -892,7 +892,7 @@
 		if(cardUser.is_holding(src))
 			cardUser.visible_message("<span class='notice'>[cardUser] checks [cardUser.p_their()] card.</span>", "<span class='notice'>The card reads: [cardname].</span>")
 		else
-			. += "<span class='warning'>You need to have the card in your hand to check it!</span>"
+			. += "<hr><span class='warning'>You need to have the card in your hand to check it!</span>"
 
 
 /obj/item/toy/cards/singlecard/verb/Flip()
@@ -1138,7 +1138,7 @@
 
 /obj/item/toy/clockwork_watch/examine(mob/user)
 	. = ..()
-	. += "<span class='info'>Station Time: [station_time_timestamp()]</span>"
+	. += "<hr><span class='info'>Station Time: [station_time_timestamp()]</span>"
 
 /*
  * Toy Dagger

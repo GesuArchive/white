@@ -90,6 +90,7 @@
 
 /obj/structure/disposaloutlet/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	switch(eject_speed)
 		if(EJECT_SPEED_SLOW)
 			. += "<span class='info'>An LED image of a turtle is displayed on the side of the outlet.</span>"

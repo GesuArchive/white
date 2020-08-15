@@ -158,6 +158,7 @@
 
 /obj/item/pinpointer/wayfinding/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	var/msg = "Its tracking indicator reads "
 	if(target)
 		var/obj/machinery/navbeacon/wayfinding/B  = target

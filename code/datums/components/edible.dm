@@ -71,11 +71,11 @@ Behavior that's still missing from this component that original food items had t
 			if (0)
 				return
 			if(1)
-				examine_list += "[parent] надкушено кем-то!"
+				examine_list += "<hr>[parent] надкушено кем-то!"
 			if(2,3)
-				examine_list += "[parent] надкусили [bitecount] раза!"
+				examine_list += "<hr>[parent] надкусили [bitecount] раза!"
 			else
-				examine_list += "[parent] обглодали жутко!"
+				examine_list += "<hr>[parent] обглодали жутко!"
 
 /datum/component/edible/proc/UseFromHand(obj/item/source, mob/living/M, mob/living/user)
 	return TryToEat(M, user)

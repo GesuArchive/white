@@ -33,7 +33,7 @@
 
 /obj/item/taperecorder/examine(mob/user)
 	. = ..()
-	. += "The wire panel is [open_panel ? "opened" : "closed"]."
+	. += "<hr>The wire panel is [open_panel ? "opened" : "closed"]."
 
 /obj/item/taperecorder/AltClick(mob/user)
 	. = ..()

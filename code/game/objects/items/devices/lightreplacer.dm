@@ -156,7 +156,7 @@
 	icon_state = "lightreplacer[(obj_flags & EMAGGED ? 1 : 0)]"
 
 /obj/item/lightreplacer/proc/status_string()
-	return "It has [uses] light\s remaining (plus [bulb_shards] fragment\s)."
+	return "<hr>It has [uses] light\s remaining (plus [bulb_shards] fragment\s)."
 
 /obj/item/lightreplacer/proc/Use(mob/user)
 	playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)

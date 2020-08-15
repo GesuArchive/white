@@ -201,7 +201,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 /mob/camera/blob/examine(mob/user)
 	. = ..()
 	if(blobstrain)
-		. += "Its strain is <font color=\"[blobstrain.color]\">[blobstrain.name]</font>."
+		. += "<hr>Its strain is <font color=\"[blobstrain.color]\">[blobstrain.name]</font>."
 
 /mob/camera/blob/update_health_hud()
 	if(blob_core)

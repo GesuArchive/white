@@ -117,7 +117,7 @@
 /obj/machinery/status_display/examine(mob/user)
 	. = ..()
 	if (message1 || message2)
-		. += "Дисплей сообщает:"
+		. += "<hr>Дисплей сообщает:"
 		if (message1)
 			. += "<br>\t<tt>[html_encode(message1)]</tt>"
 		if (message2)
@@ -148,9 +148,9 @@
 				modestr = "<br>\t<tt>[modestr]: [shuttle.getTimerStr()]</tt>"
 			else
 				modestr = "<br>\t<tt>[modestr]</tt>"
-		return "Дисплей сообщает:<br>\t<tt>[shuttle.name]</tt>[modestr]"
+		return "<hr>Дисплей сообщает:<br>\t<tt>[shuttle.name]</tt>[modestr]"
 	else
-		return "Дисплей сообщает:<br>\t<tt>Не обнаружен шаттл!</tt>"
+		return "<hr>Дисплей сообщает:<br>\t<tt>Не обнаружен шаттл!</tt>"
 
 
 /// Evac display which shows shuttle timer or message set by Command.
@@ -199,7 +199,7 @@
 	if(mode == SD_EMERGENCY)
 		. += examine_shuttle(user, SSshuttle.emergency)
 	else if(!message1 && !message2)
-		. += "Дисплей пуст."
+		. += "<hr>Дисплей пуст."
 
 /obj/machinery/status_display/evac/receive_signal(datum/signal/signal)
 	switch(signal.data["command"])
@@ -259,9 +259,9 @@
 	else
 		shuttleMsg = "[shuttle.getModeStr()]: [shuttle.getTimerStr()]"
 	if (shuttleMsg)
-		. += "Дисплей сообщает:<br>\t<tt>[shuttleMsg]</tt>"
+		. += "<hr>Дисплей сообщает:<br>\t<tt>[shuttleMsg]</tt>"
 	else
-		. += "Дисплей пуст."
+		. += "<hr>Дисплей пуст."
 
 
 /// General-purpose shuttle status display.
@@ -282,7 +282,7 @@
 	if(shuttle_id)
 		. += examine_shuttle(user, SSshuttle.getShuttle(shuttle_id))
 	else
-		. += "Дисплей пуст."
+		. += "<hr>Дисплей пуст."
 
 /obj/machinery/status_display/shuttle/vv_edit_var(var_name, var_value)
 	. = ..()

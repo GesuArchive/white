@@ -315,11 +315,11 @@
 /obj/item/radio/examine(mob/user)
 	. = ..()
 	if (frequency && in_range(src, user))
-		. += "<span class='notice'>It is set to broadcast over the [frequency/10] frequency.</span>"
+		. += "<hr><span class='notice'>It is set to broadcast over the [frequency/10] frequency.</span>"
 	if (unscrewed)
-		. += "<span class='notice'>It can be attached and modified.</span>"
+		. += "<hr><span class='notice'>It can be attached and modified.</span>"
 	else
-		. += "<span class='notice'>It cannot be modified or attached.</span>"
+		. += "<hr><span class='notice'>It cannot be modified or attached.</span>"
 
 /obj/item/radio/attackby(obj/item/W, mob/user, params)
 	add_fingerprint(user)

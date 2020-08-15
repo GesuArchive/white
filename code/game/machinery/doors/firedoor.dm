@@ -41,7 +41,7 @@
 	else if(!welded)
 		. += "<span class='notice'>It is closed, but could be <i>pried</i> open. Deconstruction would require it to be <b>welded</b> shut.</span>\n"
 	else if(boltslocked)
-		. += "<span class='notice'>It is <i>welded</i> shut. The floor bolts have been locked by <b>screws</b>.</span>"
+		. += "<span class='notice'>It is <i>welded</i> shut. The floor bolts have been locked by <b>screws</b>.</span>\n"
 	else
 		. += "<span class='notice'>The bolt locks have been <i>unscrewed</i>, but the bolts themselves are still <b>wrenched</b> to the floor.</span>"
 
@@ -376,9 +376,10 @@
 
 /obj/structure/firelock_frame/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	switch(constructionStep)
 		if(CONSTRUCTION_PANEL_OPEN)
-			. += "<span class='notice'>It is <i>unbolted</i> from the floor. A small <b>loosely connected</b> metal plate is covering the wires.</span>"
+			. += "<span class='notice'>It is <i>unbolted</i> from the floor. A small <b>loosely connected</b> metal plate is covering the wires.</span>\n"
 			if(!reinforced)
 				. += "<span class='notice'>It could be reinforced with plasteel.</span>"
 		if(CONSTRUCTION_WIRES_EXPOSED)

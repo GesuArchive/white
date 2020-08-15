@@ -298,6 +298,7 @@
 
 /obj/mecha/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	var/integrity = obj_integrity*100/max_integrity
 	switch(integrity)
 		if(85 to 100)
@@ -314,19 +315,20 @@
 	var/hidden_weapon = hide_weapon ? (locate(/obj/item/mecha_parts/mecha_equipment/weapon) in equipment) : null
 	var/list/visible_equipment = equipment - hidden_weapon
 	if(visible_equipment.len)
-		. += "It's equipped with:"
+		. += "<hr>It's equipped with:\n"
 		for(var/obj/item/mecha_parts/mecha_equipment/ME in visible_equipment)
-			. += "[icon2html(ME, user)] \A [ME]."
+			. += "[icon2html(ME, user)] [ME].\n"
 	if(!enclosed)
+		. += "<hr>"
 		if(silicon_pilot)
 			. += "[src] appears to be piloting itself..."
 		else if(occupant && occupant != user) //!silicon_pilot implied
-			. += "You can see [occupant] inside."
+			. += "You can see [occupant] inside.\n"
 			if(ishuman(user))
 				var/mob/living/carbon/human/H = user
 				for(var/O in H.held_items)
 					if(istype(O, /obj/item/gun))
-						. += "<span class='warning'>It looks like you can hit the pilot directly if you target the center or above.</span>"
+						. += "<hr><span class='warning'>It looks like you can hit the pilot directly if you target the center or above.</span>"
 						break //in case user is holding two guns
 
 //processing internal damage, temperature, air regulation, alert updates, lights power use.

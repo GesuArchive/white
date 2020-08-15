@@ -74,7 +74,7 @@
 
 /obj/structure/canister_frame/machine/examine(user)
 	. = ..()
-	. += "<span class='notice'>It can be dismantled by removing the <b>bolts</b>.</span>"
+	. += "<hr><span class='notice'>It can be dismantled by removing the <b>bolts</b>.</span>"
 
 	if(ispath(next_tier))
 		var/item_name = initial(next_tier_reqitem.singular_name)
