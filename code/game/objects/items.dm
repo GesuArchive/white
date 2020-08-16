@@ -297,7 +297,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		if(rfm.len)
 			. += "<hr><span class='smalldanger'>[capitalize(src.name)] выглядит устойчивым к [english_list(rfm)].</span>"
 
-	. += "<hr><span class='smallnoticeital'>Это [weightclass2text(w_class)] размера предмет.</span><hr>"
+	. += "<hr><span class='smallnoticeital'>Это [weightclass2text(w_class)] размера предмет.</span>"
 
 	if(!user.research_scanner)
 		return
