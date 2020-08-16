@@ -228,7 +228,7 @@
 /turf/closed/wall,
 /area/crew_quarters/theatre)
 "aH" = (
-/obj/structure/piano{
+/obj/structure/musician/piano{
 	icon_state = "piano"
 	},
 /turf/open/floor/plasteel/vaporwave,
