@@ -701,6 +701,7 @@
 /mob/living/carbon/human/check_self_for_injuries()
 	if(stat == DEAD || stat == UNCONSCIOUS)
 		return
+	var/list/combined_msg = list()
 
 	visible_message("<span class='notice'>[src] осматривает себя.</span>", null)
 
@@ -753,8 +754,11 @@
 		var/isdisabled = " "
 		if(LB.is_disabled())
 			isdisabled = "\[ПАРАЛИЧ\]"
-
-		message_ready += "<tr><td>\t <b>[r_uppertext(LB.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "notice" : "warning"]'>[r_uppertext(status)]</span>\]</td></tr>"
+			if(no_damage)
+				isdisabled += " но "
+			else
+				isdisabled += " и "
+		combined_msg += "<tr><td>\t <b>[r_uppertext(LB.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "notice" : "warning"]'>[r_uppertext(status)]</span>\]</td></tr>"
 
 		for(var/thing in LB.wounds)
 			var/datum/wound/W = thing
@@ -768,20 +772,18 @@
 					msg = "\t <span class='warning'><b>[capitalize(LB.name)] страдает от [lowertext(W.skloname)]!</b></span>"
 				if(WOUND_SEVERITY_CRITICAL)
 					msg = "\t <span class='warning'><b>[capitalize(LB.name)] страдает от [lowertext(W.skloname)]!!</b></span>"
-			to_chat(src, msg)
+			combined_msg += msg
 
 		for(var/obj/item/I in LB.embedded_objects)
 			if(I.isEmbedHarmless())
-				message_ready += "<tr><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] прицепился к [LB.name]!</a></tr>"
+				combined_msg += "<tr><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] прицепился к [LB.name]!</a></tr>"
 			else
-				message_ready += "<tr><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] торчит из моей [LB.name]!</a></tr>"
+				combined_msg += "<tr><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] торчит из моей [LB.name]!</a></tr>"
 
 	for(var/t in missing)
-		message_ready += "<tr><td>\t <b>[r_uppertext(ru_exam_parse_zone(parse_zone(t)))]:</b></td><td>\[<span class='boldannounce'>ОТСУТСТВУЕТ</span>\]</td></tr>"
+		combined_msg += "<tr><td>\t <b>[r_uppertext(ru_exam_parse_zone(parse_zone(t)))]:</b></td><td>\[<span class='boldannounce'>ОТСУТСТВУЕТ</span>\]</td></tr>"
 
-	message_ready += "</table>"
-
-	to_chat(src, message_ready)
+	combined_msg += "</table>"
 
 	if(is_bleeding())
 		var/list/obj/item/bodypart/bleeding_limbs = list()
@@ -801,45 +803,44 @@
 					bleed_text += " [BP.name],"
 				bleed_text += " и [bleeding_limbs[num_bleeds].name]"
 		bleed_text += "!</span>"
-		to_chat(src, bleed_text)
+		combined_msg += bleed_text
 
 	if(getStaminaLoss())
 		if(getStaminaLoss() > 30)
-			to_chat(src, "<span class='info'>Совсем нет сил.</span>")
+			combined_msg += "<span class='info'>Совсем нет сил.</span>"
 		else
-			to_chat(src, "<span class='info'>Чувствую усталость.</span>")
+			combined_msg += "<span class='info'>Чувствую усталость.</span>"
 	if(HAS_TRAIT(src, TRAIT_SELF_AWARE))
 		if(toxloss)
 			if(toxloss > 10)
-				to_chat(src, "<span class='danger'>Мне плохо.</span>")
+				combined_msg += "<span class='danger'>Мне плохо.</span>"
 			else if(toxloss > 20)
-				to_chat(src, "<span class='danger'>Меня тошнит.</span>")
+				combined_msg += "<span class='danger'>Меня тошнит.</span>"
 			else if(toxloss > 40)
-				to_chat(src, "<span class='danger'>Я сейчас блевану!</span>")
+				combined_msg += "<span class='danger'>Я сейчас блевану!</span>"
 		if(oxyloss)
 			if(oxyloss > 10)
-				to_chat(src, "<span class='danger'>Ощущаю головкружение.</span>")
+				combined_msg += "<span class='danger'>Ощущаю головкружение.</span>"
 			else if(oxyloss > 20)
-				to_chat(src, "<span class='danger'>Всё такое мутное в дали.</span>")
+				combined_msg += "<span class='danger'>Всё такое мутное в дали.</span>"
 			else if(oxyloss > 30)
-				to_chat(src, "<span class='danger'>Задыхаюсь!</span>")
+				combined_msg += "<span class='danger'>Задыхаюсь!</span>"
 
 	if(!HAS_TRAIT(src, TRAIT_NOHUNGER))
 		var/nut = ""
 		switch(nutrition)
 			if(NUTRITION_LEVEL_FULL to INFINITY)
-				nut = "<span class='info'>Мне вообще не хочется есть!</span>"
+				combined_msg += "<span class='info'>Мне вообще не хочется есть!</span>"
 			if(NUTRITION_LEVEL_WELL_FED to NUTRITION_LEVEL_FULL)
-				nut = "<span class='info'>Я почти наелся!</span>"
+				combined_msg += "<span class='info'>Я почти наелся!</span>"
 			if(NUTRITION_LEVEL_FED to NUTRITION_LEVEL_WELL_FED)
-				nut = "<span class='info'>Я не голоден.</span>"
+				combined_msg += "<span class='info'>Я не голоден.</span>"
 			if(NUTRITION_LEVEL_HUNGRY to NUTRITION_LEVEL_FED)
-				nut = "<span class='info'>Надо бы покушать.</span>"
+				combined_msg += "<span class='info'>Надо бы покушать.</span>"
 			if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_HUNGRY)
-				nut = "<span class='info'>Еда?</span>"
+				combined_msg += "<span class='info'>Еда?</span>"
 			if(0 to NUTRITION_LEVEL_STARVING)
-				nut = "<span class='danger'>Умираю от голода!</span>"
-		to_chat(src, "<hr>[nut]")
+				combined_msg += "<span class='danger'>Умираю от голода!</span>"
 
 	//Compiles then shows the list of damaged organs and broken organs
 	var/list/broken = list()
@@ -871,7 +872,7 @@
 		//Put the items in that list into a string of text
 		for(var/B in broken)
 			broken_message += B
-		to_chat(src, "<span class='warning'>Похоже [broken_message] не [broken_plural ? "работает" : "работают"]!</span>")
+		combined_msg += "<span class='warning'>Похоже [broken_message] не [broken_plural ? "работает" : "работают"]!</span>"
 	if(damaged.len)
 		if(damaged.len > 1)
 			damaged.Insert(damaged.len, "и ")
@@ -882,12 +883,12 @@
 				damaged_plural = TRUE
 		for(var/D in damaged)
 			damaged_message += D
-		to_chat(src, "<span class='info'>Похоже [damaged_message] [damaged_plural ? "имеет" : "имеют"] повреждения.</span>")
+		combined_msg += "<span class='info'>Похоже [damaged_message] [damaged_plural ? "имеет" : "имеют"] повреждения.</span>"
 
 	if(roundstart_quirks.len)
-		to_chat(src, "<span class='notice'>Я имею черты: [get_quirk_string(FALSE, CAT_QUIRK_ALL)].</span>")
+		combined_msg += "<span class='notice'>Я имею черты: [get_quirk_string(FALSE, CAT_QUIRK_ALL)].</span>"
 
-	to_chat(src, "</div>")
+	to_chat(src, combined_msg.Join("\n"))
 
 /mob/living/carbon/human/damage_clothes(damage_amount, damage_type = BRUTE, damage_flag = 0, def_zone)
 	if(damage_type != BRUTE && damage_type != BURN)

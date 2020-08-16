@@ -9,7 +9,8 @@
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 3
 	throw_range = 7
-	attack_verb = list("пермабанит")
+	attack_verb_continuous = list("пермабанит")
+	attack_verb_simple = list("пермабанит")
 	max_integrity = 200
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 70)
 	resistance_flags = FIRE_PROOF
@@ -43,7 +44,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	throwforce = 1
 	w_class = WEIGHT_CLASS_NORMAL
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
+	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
+	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
 
 /obj/item/sord/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] is trying to impale [user.p_them()]self with [src]! It might be a suicide attempt if it weren't so shitty.</span>", \
@@ -63,7 +65,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	force = 40
 	throwforce = 10
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb = list("атакует", "рубит", "втыкает", "прорезает", "кромсает", "подрезает", "нарезает", "режет")
+	attack_verb_continuous = list("атакует", "рубит", "втыкает", "прорезает", "кромсает", "подрезает", "нарезает", "режет")
+	attack_verb_simple = list("атакует", "рубит", "втыкает", "прорезает", "кромсает", "подрезает", "нарезает", "режет")
 	block_chance = 50
 	sharpness = SHARP_EDGED
 	max_integrity = 200
@@ -85,7 +88,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	slot_flags = null
 	block_chance = 0 //RNG WON'T HELP YOU NOW, PANSY
 	light_range = 3
-	attack_verb = list("бруталлирует", "потрошит", "уничтожает", "проламывает", "унижает", "разрубает") //ONLY THE MOST VISCERAL ATTACK VERBS
+	attack_verb_continuous = list("бруталлирует", "потрошит", "уничтожает", "проламывает", "унижает", "разрубает") //ONLY THE MOST VISCERAL ATTACK VERBS
+	attack_verb_simple = list("бруталлирует", "потрошит", "уничтожает", "проламывает", "унижает", "разрубает")
 	var/notches = 0 //HOW MANY PEOPLE HAVE BEEN SLAIN WITH THIS BLADE
 	var/obj/item/disk/nuclear/nuke_disk //OUR STORED NUKE DISK
 
@@ -217,7 +221,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	throwforce = 10
 	w_class = WEIGHT_CLASS_HUGE
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
+	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
+	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
 	block_chance = 50
 	sharpness = SHARP_EDGED
 	max_integrity = 200
@@ -252,7 +257,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	throwforce = 10
 	w_class = WEIGHT_CLASS_NORMAL
 	custom_materials = list(/datum/material/iron=1150, /datum/material/glass=75)
-	attack_verb = list("бьёт", "ударяет", "вмазывает", "тычет")
+	attack_verb_continuous = list("бьёт", "ударяет", "вмазывает", "тычет")
+	attack_verb_simple = list("бьёт", "ударяет", "вмазывает", "тычет")
 
 /obj/item/wirerod/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/shard))
@@ -322,7 +328,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	throwforce = 25 //kills regular carps in one hit
 	force = 10
 	throw_range = 0 //throwing these invalidates the speargun
-	attack_verb = list("втыкает", "рубит", "протыкает", "накалывает")
+	attack_verb_continuous = list("втыкает", "рубит", "протыкает", "накалывает")
+	attack_verb_simple = list("втыкает", "рубит", "протыкает", "накалывает")
 	embedding = list("pain_mult" = 8, "embed_chance" = 100, "fall_chance" = 0, "impact_pain_mult" = 15) //55 damage+embed on hit
 
 /obj/item/switchblade
@@ -339,7 +346,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	throw_range = 6
 	custom_materials = list(/datum/material/iron=12000)
 	hitsound = 'sound/weapons/genhit.ogg'
-	attack_verb = list("бьёт", "протыкает")
+	attack_verb_continuous = list("бьёт", "протыкает")
+	attack_verb_simple = list("бьёт", "протыкает")
 	resistance_flags = FIRE_PROOF
 	var/extended = 0
 
@@ -351,7 +359,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		w_class = WEIGHT_CLASS_NORMAL
 		throwforce = 23
 		icon_state = "switchblade_ext"
-		attack_verb = list("рубит", "втыкает", "врезает", "кромсает", "разрывает", "нарезает", "режет")
+		attack_verb_continuous = list("рубит", "втыкает", "врезает", "кромсает", "разрывает", "нарезает", "режет")
+		attack_verb_simple = list("рубит", "втыкает", "врезает", "кромсает", "разрывает", "нарезает", "режет")
 		hitsound = 'sound/weapons/bladeslice.ogg'
 		sharpness = SHARP_EDGED
 	else
@@ -359,7 +368,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		w_class = WEIGHT_CLASS_SMALL
 		throwforce = 5
 		icon_state = "switchblade"
-		attack_verb = list("стукает", "тычет")
+		attack_verb_continuous = list("стукает", "тычет")
+		attack_verb_simple = list("стукает", "тычет")
 		hitsound = 'sound/weapons/genhit.ogg'
 		sharpness = SHARP_NONE
 
@@ -377,7 +387,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	throw_speed = 3
 	throw_range = 4
 	w_class = WEIGHT_CLASS_SMALL
-	attack_verb = list("вызывает", "звонит")
+	attack_verb_continuous = list("вызывает", "звонит")
+	attack_verb_simple = list("вызывает", "звонит")
 	hitsound = 'sound/weapons/ring.ogg'
 
 /obj/item/phone/suicide_act(mob/user)
@@ -399,7 +410,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=50)
-	attack_verb = list("ударяет", "вмазывает", "учит", "лупит")
+	attack_verb_continuous = list("ударяет", "вмазывает", "учит", "лупит")
+	attack_verb_simple = list("ударяет", "вмазывает", "учит", "лупит")
 
 /obj/item/staff
 	name = "wizard staff"
@@ -414,7 +426,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	throw_range = 5
 	w_class = WEIGHT_CLASS_SMALL
 	armour_penetration = 100
-	attack_verb = list("ударяет", "вмазывает", "учит")
+	attack_verb_continuous = list("ударяет", "вмазывает", "учит")
+	attack_verb_simple = list("ударяет", "вмазывает", "учит")
 	resistance_flags = FLAMMABLE
 
 /obj/item/staff/broom
@@ -467,7 +480,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	throw_range = 0
 	throw_speed = 0
 	sharpness = SHARP_EDGED
-	attack_verb = list("пилит", "кромсает", "режет", "рубит", "нарезает")
+	attack_verb_continuous = list("пилит", "кромсает", "режет", "рубит", "нарезает")
+	attack_verb_simple = list("пилит", "кромсает", "режет", "рубит", "нарезает")
 	hitsound = 'sound/weapons/chainsawhit.ogg'
 	tool_behaviour = TOOL_SAW
 	toolspeed = 1
@@ -497,7 +511,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	throwforce = 10
 	throw_speed = 5
 	throw_range = 2
-	attack_verb = list("долбит")
+	attack_verb_continuous = list("долбит")
+	attack_verb_simple = list("долбит")
 	var/impressiveness = 45
 
 /obj/item/statuebust/Initialize()
@@ -519,7 +534,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	throwforce = 1 // why are you throwing a club do you even weapon
 	throw_speed = 1
 	throw_range = 1
-	attack_verb = list("долбит", "ударяет")
+	attack_verb_continuous = list("долбит", "ударяет")
+	attack_verb_simple = list("долбит", "ударяет")
 
 /obj/item/melee/chainofcommand/tailwhip
 	name = "liz o' nine tails"
@@ -542,7 +558,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	force = 12
 	throwforce = 4
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb = list("лупит", "вмазывает", "хреначит", "размазывает")
+	attack_verb_continuous = list("лупит", "вмазывает", "хреначит", "размазывает")
+	attack_verb_simple = list("лупит", "вмазывает", "хреначит", "размазывает")
 	///The vehicle counterpart for the board
 	var/board_item_type = /obj/vehicle/ridden/scooter/skateboard
 
@@ -585,7 +602,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	force = 10
 	wound_bonus = -10
 	throwforce = 12
-	attack_verb = list("бьёт", "вмазывает")
+	attack_verb_continuous = list("бьёт", "вмазывает")
+	attack_verb_simple = list("бьёт", "вмазывает")
 	custom_materials = list(/datum/material/wood = MINERAL_MATERIAL_AMOUNT * 3.5)
 	w_class = WEIGHT_CLASS_HUGE
 	var/homerun_ready = 0
@@ -654,7 +672,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
 	force = 1
 	throwforce = 1
-	attack_verb = list("шлёпает", "прихлопывает")
+	attack_verb_continuous = list("шлёпает", "прихлопывает")
+	attack_verb_simple = list("шлёпает", "прихлопывает")
 	hitsound = 'sound/effects/snap.ogg'
 	w_class = WEIGHT_CLASS_SMALL
 	//Things in this list will be instantly splatted.  Flyman weakness is handled in the flyman species weakness proc.
@@ -690,7 +709,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	force = 0
 	throwforce = 0
 	item_flags = DROPDEL | ABSTRACT | HAND_ITEM
-	attack_verb = list("шлёпает")
+	attack_verb_continuous = list("шлёпает")
+	attack_verb_simple = list("шлёпает")
 
 /obj/item/circlegame/Initialize()
 	. = ..()
@@ -790,7 +810,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	force = 0
 	throwforce = 0
 	item_flags = DROPDEL | ABSTRACT | HAND_ITEM
-	attack_verb = list("шлёпает")
+	attack_verb_continuous = list("шлёпает")
+	attack_verb_simple = list("шлёпает")
 	hitsound = 'sound/effects/snap.ogg'
 
 /obj/item/slapper/attack(mob/M, mob/living/carbon/human/user)
@@ -839,7 +860,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	force = 5
 	throwforce = 5
 	hitsound = "swing_hit"
-	attack_verb = list("whacked", "thwacked", "walloped", "socked")
+	attack_verb_continuous = list("whacks", "thwacks", "wallops", "socks")
+	attack_verb_simple = list("whack", "thwack", "wallop", "sock")
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "gohei"
 	inhand_icon_state = "gohei"
@@ -859,7 +881,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	throwforce = 20
 	throw_speed = 4
 	sharpness = SHARP_EDGED
-	attack_verb = list("cut", "sliced", "diced")
+	attack_verb_continuous = list("cuts", "slices", "dices")
+	attack_verb_simple = list("cut", "slice", "dice")
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 	hitsound = 'sound/weapons/bladeslice.ogg'

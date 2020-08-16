@@ -81,7 +81,8 @@
 	throwforce = 7
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=50)
-	attack_verb = list("разрубает", "разрыхляет", "режет", "культивирует")
+	attack_verb_continuous = list("разрубает", "разрыхляет", "режет", "культивирует")
+	attack_verb_simple = list("разрубает", "разрыхляет", "режет", "культивирует")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
 /obj/item/cultivator/suicide_act(mob/user)
@@ -92,7 +93,8 @@
 	name = "rake"
 	icon_state = "rake"
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb = list("донатит", "вайпает", "колотит", "педалирует")
+	attack_verb_continuous = list("донатит", "вайпает", "колотит", "педалирует")
+	attack_verb_simple = list("донатит", "вайпает", "колотит", "педалирует")
 	hitsound = null
 	custom_materials = list(/datum/material/wood = MINERAL_MATERIAL_AMOUNT * 1.5)
 	flags_1 = NONE
@@ -125,7 +127,8 @@
 	throw_speed = 3
 	throw_range = 4
 	custom_materials = list(/datum/material/iron = 15000)
-	attack_verb = list("рубит", "кромсает", "режет")
+	attack_verb_continuous = list("рубит", "кромсает", "режет")
+	attack_verb_simple = list("рубит", "кромсает", "режет")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = SHARP_EDGED
 
@@ -158,7 +161,8 @@
 	flags_1 = CONDUCT_1
 	armour_penetration = 20
 	slot_flags = ITEM_SLOT_BACK
-	attack_verb = list("рубит", "нарезает", "режет", "разрывает")
+	attack_verb_continuous = list("рубит", "нарезает", "режет", "разрывает")
+	attack_verb_simple = list("рубит", "нарезает", "режет", "разрывает")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	var/swiping = FALSE
 
@@ -205,7 +209,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_BELT
 	custom_materials = list(/datum/material/iron=4000)
-	attack_verb = list("slashed", "sliced", "cut", "clawed")
+	attack_verb_continuous = list("slashes", "slices", "cuts", "claws")
+	attack_verb_simple = list("slash", "slice", "cut", "claw")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
 /obj/item/geneshears
@@ -223,7 +228,8 @@
 	slot_flags = ITEM_SLOT_BELT
 	material_flags = MATERIAL_NO_EFFECTS
 	custom_materials = list(/datum/material/iron=4000, /datum/material/uranium=1500, /datum/material/gold=500)
-	attack_verb = list("slashed", "sliced", "cut")
+	attack_verb_continuous = list("slashes", "slices", "cuts")
+	attack_verb_simple = list("slash", "slice", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
 

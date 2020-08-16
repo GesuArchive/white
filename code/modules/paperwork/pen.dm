@@ -211,7 +211,8 @@
  * (Alan) Edaggers
  */
 /obj/item/pen/edagger
-	attack_verb = list("рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет") //these wont show up if the pen is off
+	attack_verb_continuous = list("рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет") //these won't show up if the pen is off
+	attack_verb_simple = list("рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
 	sharpness = SHARP_EDGED
 	var/on = FALSE
 

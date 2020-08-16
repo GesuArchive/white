@@ -188,7 +188,8 @@ effective or pretty fucking useless.
 	inhand_icon_state = "utility"
 	worn_icon_state = "utility"
 	slot_flags = ITEM_SLOT_BELT
-	attack_verb = list("доминирует", "наказывает", "приручает")
+	attack_verb_continuous = list("доминирует", "наказывает", "приручает")
+	attack_verb_simple = list("доминирует", "наказывает", "приручает")
 
 	var/mob/living/carbon/human/user = null
 	var/charge = 300

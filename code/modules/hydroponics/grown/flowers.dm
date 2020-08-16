@@ -249,7 +249,8 @@
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 1
 	throw_range = 3
-	attack_verb = list("жарит", "поджигает", "выжигает")
+	attack_verb_continuous = list("жарит", "поджигает", "выжигает")
+	attack_verb_simple = list("жарит", "поджигает", "выжигает")
 	grind_results = list(/datum/reagent/consumable/capsaicin = 0, /datum/reagent/consumable/condensedcapsaicin = 0)
 
 /obj/item/grown/novaflower/add_juice()

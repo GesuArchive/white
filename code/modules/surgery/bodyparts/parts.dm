@@ -57,7 +57,8 @@
 	name = "левая рука"
 	desc = "Этой штукой можно пощекотать свою жопу."
 	icon_state = "default_human_l_arm"
-	attack_verb = list("slapped", "punched")
+	attack_verb_continuous = list("slaps", "punches")
+	attack_verb_simple = list("slap", "punch")
 	max_damage = 50
 	max_stamina_damage = 50
 	body_zone = BODY_ZONE_L_ARM
@@ -121,7 +122,8 @@
 	name = "правая рука"
 	desc = "А вот этой вот дрочу."
 	icon_state = "default_human_r_arm"
-	attack_verb = list("slapped", "punched")
+	attack_verb_continuous = list("slaps", "punches")
+	attack_verb_simple = list("slap", "punch")
 	max_damage = 50
 	body_zone = BODY_ZONE_R_ARM
 	body_part = ARM_RIGHT
@@ -185,7 +187,8 @@
 	name = "левая нога"
 	desc = "Вставать с этой ноги не круто."
 	icon_state = "default_human_l_leg"
-	attack_verb = list("kicked", "stomped")
+	attack_verb_continuous = list("kicks", "stomps")
+	attack_verb_simple = list("kick", "stomp")
 	max_damage = 50
 	body_zone = BODY_ZONE_L_LEG
 	body_part = LEG_LEFT
@@ -242,7 +245,8 @@
 	desc = "А вот с этой ноги стоит вставать."
 	// alternative spellings of 'pokey' are availible
 	icon_state = "default_human_r_leg"
-	attack_verb = list("kicked", "stomped")
+	attack_verb_continuous = list("kicks", "stomps")
+	attack_verb_simple = list("kick", "stomp")
 	max_damage = 50
 	body_zone = BODY_ZONE_R_LEG
 	body_part = LEG_RIGHT

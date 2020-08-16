@@ -8,7 +8,8 @@
 	max_amount = 50
 	throw_speed = 1
 	throw_range = 3
-	attack_verb = list("лупит", "бьёт", "разбивает", "вмазывает", "атакует")
+	attack_verb_continuous = list("лупит", "бьёт", "разбивает", "вмазывает", "атакует")
+	attack_verb_simple = list("лупит", "бьёт", "разбивает", "вмазывает", "атакует")
 	novariants = FALSE
 	var/sheettype = null //this is used for girders in the creation of walls/false walls
 	var/point_value = 0 //turn-in value for the gulag stacker - loosely relative to its rarity.

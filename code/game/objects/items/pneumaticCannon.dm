@@ -7,7 +7,8 @@
 	desc = "A gas-powered cannon that can fire any object loaded into it."
 	w_class = WEIGHT_CLASS_BULKY
 	force = 8 //Very heavy
-	attack_verb = list("лупит", "бьёт", "ударяет")
+	attack_verb_continuous = list("лупит", "бьёт", "ударяет")
+	attack_verb_simple = list("лупит", "бьёт", "ударяет")
 	icon = 'icons/obj/pneumaticCannon.dmi'
 	icon_state = "pneumaticCannon"
 	inhand_icon_state = "bulldog"

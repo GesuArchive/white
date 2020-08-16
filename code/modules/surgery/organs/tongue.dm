@@ -4,7 +4,8 @@
 	icon_state = "tonguenormal"
 	zone = BODY_ZONE_PRECISE_MOUTH
 	slot = ORGAN_SLOT_TONGUE
-	attack_verb = list("лижет", "нализывает", "шлёпает", "французит", "язычит")
+	attack_verb_continuous = list("лижет", "нализывает", "шлёпает", "французит", "язычит")
+	attack_verb_simple = list("лижет", "нализывает", "шлёпает", "французит", "язычит")
 	var/list/languages_possible
 	var/say_mod = null
 	var/taste_sensitivity = 15 // lower is more sensitive.
@@ -207,7 +208,8 @@
 	desc = "Apparently skeletons alter the sounds they produce through oscillation of their teeth, hence their characteristic rattling."
 	icon_state = "tonguebone"
 	say_mod = "костлявит"
-	attack_verb = list("кусает", "прокусывает", "откусывает", "шутит", "костирует")
+	attack_verb_continuous = list("кусает", "прокусывает", "откусывает", "шутит", "костирует")
+	attack_verb_simple = list("кусает", "прокусывает", "откусывает", "шутит", "костирует")
 	taste_sensitivity = 101 // skeletons cannot taste anything
 	modifies_speech = TRUE
 	var/chattering = FALSE
@@ -256,7 +258,8 @@
 	organ_flags = NONE
 	icon_state = "tonguerobot"
 	say_mod = "констатирует"
-	attack_verb = list("бипает", "бупает")
+	attack_verb_continuous = list("бипает", "бупает")
+	attack_verb_simple = list("бипает", "бупает")
 	modifies_speech = TRUE
 	taste_sensitivity = 25 // not as good as an organic tongue
 
@@ -285,7 +288,8 @@
 	desc = "A sophisticated ethereal organ, capable of synthesising speech via electrical discharge."
 	icon_state = "electrotongue"
 	say_mod = "искрит"
-	attack_verb = list("shocked", "jolted", "zapped")
+	attack_verb_continuous = list("шокирует", "жалит", "ебошит током")
+	attack_verb_simple = list("шокирует", "жалит", "ебошит током")
 	taste_sensitivity = 101 // Not a tongue, they can't taste shit
 	var/static/list/languages_possible_ethereal = typecacheof(list(
 		/datum/language/common,

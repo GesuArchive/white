@@ -4,7 +4,8 @@
 	desc = "It's blank."
 	force = 5
 	w_class = WEIGHT_CLASS_BULKY
-	attack_verb = list("призывает на митинг", "оппозиционирует", "либерализует")
+	attack_verb_continuous = list("призывает на митинг", "оппозиционирует", "либерализует")
+	attack_verb_simple = list("призывает на митинг", "оппозиционирует", "либерализует")
 	resistance_flags = FLAMMABLE
 
 	var/label = ""

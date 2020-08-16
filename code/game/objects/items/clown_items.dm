@@ -177,7 +177,8 @@
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	throw_speed = 3
 	throw_range = 7
-	attack_verb = list("ХОНКАЕТ")
+	attack_verb_continuous = list("ХОНКАЕТ")
+	attack_verb_simple = list("ХОНКАЕТ")
 
 /obj/item/bikehorn/Initialize()
 	. = ..()

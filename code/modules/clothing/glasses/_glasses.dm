@@ -87,7 +87,8 @@
 	force = 10
 	throwforce = 10
 	throw_speed = 4
-	attack_verb = list("режет")
+	attack_verb_continuous = list("режет")
+	attack_verb_simple = list("режет")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = SHARP_EDGED
 
@@ -155,7 +156,8 @@
 	force = 10
 	throwforce = 20
 	throw_speed = 4
-	attack_verb = list("режет")
+	attack_verb_continuous = list("режет")
+	attack_verb_simple = list("режет")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = SHARP_EDGED
 	glass_colour_type = /datum/client_colour/glass_colour/lightgreen
@@ -227,7 +229,8 @@
 	force = 10
 	throwforce = 10
 	throw_speed = 4
-	attack_verb = list("режет")
+	attack_verb_continuous = list("режет")
+	attack_verb_simple = list("режет")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = SHARP_EDGED
 
@@ -247,7 +250,8 @@
 	force = 10
 	throwforce = 10
 	throw_speed = 4
-	attack_verb = list("режет")
+	attack_verb_continuous = list("режет")
+	attack_verb_simple = list("режет")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = SHARP_EDGED
 	glass_colour_type = /datum/client_colour/glass_colour/orange

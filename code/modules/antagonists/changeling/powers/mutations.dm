@@ -160,7 +160,8 @@
 	throw_range = 0
 	throw_speed = 0
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
+	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
+	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
 	sharpness = SHARP_EDGED
 	wound_bonus = -60
 	bare_wound_bonus = 20

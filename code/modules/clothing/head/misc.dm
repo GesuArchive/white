@@ -290,7 +290,8 @@
 	throw_speed = 2
 	throw_range = 5
 	w_class = WEIGHT_CLASS_SMALL
-	attack_verb = list("предупреждает", "предостерегает", "размазывает")
+	attack_verb_continuous = list("предупреждает", "предостерегает", "размазывает")
+	attack_verb_simple = list("предупреждает", "предостерегает", "размазывает")
 	resistance_flags = NONE
 	dynamic_hair_suffix = ""
 

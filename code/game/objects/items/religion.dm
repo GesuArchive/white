@@ -5,7 +5,8 @@
 	icon_state = "banner"
 	inhand_icon_state = "banner"
 	force = 8
-	attack_verb = list("сильно вдохновляет", "яростно поощрает", "неумолимо цинкует")
+	attack_verb_continuous = list("сильно вдохновляет", "яростно поощрает", "неумолимо цинкует")
+	attack_verb_simple = list("сильно вдохновляет", "яростно поощрает", "неумолимо цинкует")
 	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
 	var/inspiration_available = TRUE //If this banner can be used to inspire crew

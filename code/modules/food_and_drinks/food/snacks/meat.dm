@@ -40,6 +40,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/meat/rawcutlet/plain/human
 	tastes = list("человечина" = 1)
 	foodtype = MEAT | RAW | GROSS
+	value = FOOD_MEAT_HUMAN
 
 /obj/item/reagent_containers/food/snacks/meat/slab/human/initialize_slice(obj/item/reagent_containers/food/snacks/meat/rawcutlet/plain/human/slice, reagents_per_slice)
 	..()
@@ -67,6 +68,7 @@
 	filling_color = "#00FFFF"
 	tastes = list("слаймы" =1, "желе" =1)
 	foodtype = MEAT | RAW | TOXIC
+	value = FOOD_MEAT_MUTANT_RARE
 
 /obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/golem
 	icon_state = "golemmeat"
@@ -75,6 +77,7 @@
 	filling_color = "#A9A9A9"
 	tastes = list("камни" = 1)
 	foodtype = MEAT | RAW | GROSS
+	value = FOOD_MEAT_MUTANT_RARE
 
 /obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/golem/adamantine
 	icon_state = "agolemmeat"
@@ -88,6 +91,7 @@
 	filling_color = "#6B8E23"
 	tastes = list("мясо" = 4, "чешуйки" = 1)
 	foodtype = MEAT | RAW
+	value = FOOD_MEAT_MUTANT
 
 /obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/plant
 	icon_state = "plantmeat"
@@ -95,6 +99,7 @@
 	filling_color = "#E9967A"
 	tastes = list("салат" =1, "дерево" =1)
 	foodtype = VEGETABLES
+	value = FOOD_MEAT_MUTANT_RARE
 
 /obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/shadow
 	icon_state = "shadowmeat"
@@ -102,6 +107,7 @@
 	filling_color = "#202020"
 	tastes = list("тьма" = 1, "мясо" = 1)
 	foodtype = MEAT | RAW
+	value = FOOD_MEAT_MUTANT_RARE
 
 /obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly
 	icon_state = "flymeat"
@@ -109,6 +115,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/uranium = 3)
 	tastes = list("личинки" = 1, "внутренности реактора" = 1)
 	foodtype = MEAT | RAW | GROSS
+	value = FOOD_MEAT_MUTANT
 
 /obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/moth
 	icon_state = "mothmeat"
@@ -116,6 +123,7 @@
 	filling_color = "#BF896B"
 	tastes = list("пыль" = 1, "порох" = 1, "мясо" = 2)
 	foodtype = MEAT | RAW
+	value = FOOD_MEAT_MUTANT
 
 /obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/skeleton
 	name = "bone"
@@ -125,6 +133,7 @@
 	tastes = list("кости" = 1)
 	slice_path = null  //can't slice a bone into cutlets
 	foodtype = GROSS
+	value = FOOD_MEAT_MUTANT_RARE
 
 /obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/zombie
 	name = " meat (rotten)"
@@ -141,6 +150,7 @@
 	list_reagents = list(/datum/reagent/consumable/liquidelectricity = 3)
 	tastes = list("электричество" = 2, "мясо" = 1)
 	foodtype = RAW | MEAT | TOXIC
+	value = FOOD_MEAT_MUTANT
 
 ////////////////////////////////////// OTHER MEATS ////////////////////////////////////////////////////////
 

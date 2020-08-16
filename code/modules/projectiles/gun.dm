@@ -18,7 +18,8 @@
 	throw_range = 5
 	force = 5
 	item_flags = NEEDS_PERMIT
-	attack_verb = list("ударяет", "бьёт", "колотит")
+	attack_verb_continuous = list("ударяет", "бьёт", "колотит")
+	attack_verb_simple = list("ударяет", "бьёт", "колотит")
 
 	var/fire_sound = 'sound/weapons/gun/pistol/shot.ogg'
 	var/vary_fire_sound = TRUE

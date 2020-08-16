@@ -45,14 +45,14 @@
 		D.card_throwforce = 0
 		D.card_throw_speed = 3
 		D.card_throw_range = 7
-		D.card_attack_verb = list("атакует")
+		D.card_attack_verb_continuous = list("атакует")
 	else
 		D.card_hitsound = 'sound/weapons/bladeslice.ogg'
 		D.card_force = 5
 		D.card_throwforce = 10
 		D.card_throw_speed = 3
 		D.card_throw_range = 7
-		D.card_attack_verb = list("атакует", "разрезает", "нарезает", "разрывает", "режет")
+		D.card_attack_verb_continuous = list("атакует", "разрезает", "нарезает", "разрывает", "режет")
 
 
 /obj/effect/holodeck_effect/sparks/activate(obj/machinery/computer/holodeck/HC)

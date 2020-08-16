@@ -30,7 +30,8 @@
 	flags_1 = CONDUCT_1
 	item_flags = SURGICAL_TOOL
 	w_class = WEIGHT_CLASS_TINY
-	attack_verb = list("атакует", "прокусывает")
+	attack_verb_continuous = list("атакует", "прокусывает")
+	attack_verb_simple = list("атакует", "прокусывает")
 	tool_behaviour = TOOL_HEMOSTAT
 	toolspeed = 1
 
@@ -51,7 +52,8 @@
 	flags_1 = CONDUCT_1
 	item_flags = SURGICAL_TOOL
 	w_class = WEIGHT_CLASS_TINY
-	attack_verb = list("прожигает")
+	attack_verb_continuous = list("прожигает")
+	attack_verb_simple = list("прожигает")
 	tool_behaviour = TOOL_CAUTERY
 	toolspeed = 1
 
@@ -73,7 +75,8 @@
 	item_flags = SURGICAL_TOOL | EYE_STAB
 	force = 15
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb = list("дырявит")
+	attack_verb_continuous = list("дырявит")
+	attack_verb_simple = list("дырявит")
 	tool_behaviour = TOOL_DRILL
 	toolspeed = 1
 
@@ -108,7 +111,8 @@
 	throw_speed = 3
 	throw_range = 5
 	custom_materials = list(/datum/material/iron=4000, /datum/material/glass=1000)
-	attack_verb = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
+	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
+	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_SCALPEL
@@ -145,7 +149,8 @@
 	throw_speed = 2
 	throw_range = 5
 	custom_materials = list(/datum/material/iron=1000)
-	attack_verb = list("атакует", "рубит", "пилит", "режет")
+	attack_verb_continuous = list("атакует", "рубит", "пилит", "режет")
+	attack_verb_simple = list("атакует", "рубит", "пилит", "режет")
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_SAW
 	toolspeed = 1
@@ -171,7 +176,8 @@
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	inhand_icon_state = "drapes"
 	w_class = WEIGHT_CLASS_TINY
-	attack_verb = list("шлёпает")
+	attack_verb_continuous = list("шлёпает")
+	attack_verb_simple = list("шлёпает")
 
 /obj/item/surgical_drapes/Initialize(mapload)
 	. = ..()
@@ -348,7 +354,8 @@
 	throw_speed = 2
 	throw_range = 5
 	custom_materials = list(/datum/material/iron=8000, /datum/material/titanium=6000)
-	attack_verb = list("стрижёт", "режет")
+	attack_verb_continuous = list("стрижёт", "режет")
+	attack_verb_simple = list("стрижёт", "режет")
 	sharpness = SHARP_EDGED
 	custom_premium_price = 1800
 
@@ -414,6 +421,7 @@
 	flags_1 = CONDUCT_1
 	item_flags = SURGICAL_TOOL
 	w_class = WEIGHT_CLASS_SMALL
-	attack_verb = list("корректирует", "правильно устанавливает")
+	attack_verb_continuous = list("корректирует", "правильно устанавливает")
+	attack_verb_simple = list("корректирует", "правильно устанавливает")
 	tool_behaviour = TOOL_BONESET
 	toolspeed = 1

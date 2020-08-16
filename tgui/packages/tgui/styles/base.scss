@@ -6,7 +6,8 @@
 @use 'sass:color';
 
 $color-fg: #aaaaaa !default;
-$color-bg: #020D18 !default;
+$color-bg: #0b0b0c !default;
+$color-bg-section: rgba(0, 0, 0, 0.33) !default;
 $color-bg-grad-spread: 2% !default;
 $color-bg-start: color.adjust(
   $color-bg, $lightness: $color-bg-grad-spread) !default;

@@ -3,8 +3,8 @@
 	desc = "Стена с непонятными рунами на ней, которые вызывают боли в голове если долго смотреть на них. Холодная на ощупь."
 	icon = 'icons/turf/walls/cult_wall.dmi'
 	icon_state = "cult"
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = null
-	smoothing_flags = SMOOTH_MORE
 	sheet_type = /obj/item/stack/sheet/runed_metal
 	sheet_amount = 1
 	girder_type = /obj/structure/girder/cult

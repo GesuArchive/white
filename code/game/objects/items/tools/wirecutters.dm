@@ -13,7 +13,8 @@
 	throw_range = 7
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=80)
-	attack_verb = list("кусает", "прокусывает")
+	attack_verb_continuous = list("кусает", "прокусывает")
+	attack_verb_simple = list("кусает", "прокусывает")
 	hitsound = 'sound/items/wirecutter.ogg'
 	usesound = 'sound/items/wirecutter.ogg'
 	drop_sound = 'sound/items/handling/wirecutter_drop.ogg'

@@ -38,6 +38,10 @@
 			user.put_in_hands(O)
 			return
 
+		if(I.embedding && I.embedding == conferred_embed)
+			to_chat(user, "<span class='warning'>[I] is already coated in [src]!</span>")
+			return
+
 		I.embedding = conferred_embed
 		I.updateEmbedding()
 		to_chat(user, "<span class='notice'>Заканчиваю оборачивать <b>[I]</b> используя <b>[src]</b>.</span>")

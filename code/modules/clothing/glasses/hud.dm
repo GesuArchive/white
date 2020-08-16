@@ -157,7 +157,8 @@
 	force = 10
 	throwforce = 10
 	throw_speed = 4
-	attack_verb = list("режет")
+	attack_verb_continuous = list("режет")
+	attack_verb_simple = list("режет")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = SHARP_EDGED
 

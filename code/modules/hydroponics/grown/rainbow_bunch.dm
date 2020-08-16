@@ -30,7 +30,8 @@
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 2
 	throw_range = 3
-	attack_verb = list("шлёпает")
+	attack_verb_continuous = list("шлёпает")
+	attack_verb_simple = list("шлёпает")
 
 /obj/item/reagent_containers/food/snacks/grown/rainbow_flower/Initialize()
 	. = ..()

@@ -7,7 +7,8 @@
 	worn_icon_state = "pen"
 	flags_1 = CONDUCT_1
 	w_class = WEIGHT_CLASS_TINY
-	attack_verb = list("тычет")
+	attack_verb_continuous = list("тычет")
+	attack_verb_simple = list("тычет")
 	var/fail_message = "<span class='warning'>НЕПРАВИЛЬНЫЙ ПОЛЬЗОВАТЕЛЬ.</span>"
 	var/selfdestruct = 0 // Explode when user check is failed.
 	var/force_replace = 0 // Can forcefully replace other pins.

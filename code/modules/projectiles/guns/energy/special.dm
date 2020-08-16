@@ -126,7 +126,8 @@
 	inhand_icon_state = "plasmacutter"
 	ammo_type = list(/obj/item/ammo_casing/energy/plasma)
 	flags_1 = CONDUCT_1
-	attack_verb = list("атакует", "лупит", "режет", "разрезает")
+	attack_verb_continuous = list("атакует", "лупит", "режет", "разрезает")
+	attack_verb_simple = list("атакует", "лупит", "режет", "разрезает")
 	force = 12
 	sharpness = SHARP_EDGED
 	can_charge = FALSE

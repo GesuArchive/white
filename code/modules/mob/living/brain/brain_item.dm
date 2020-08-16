@@ -8,7 +8,8 @@
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_BRAIN
 	organ_flags = ORGAN_VITAL
-	attack_verb = list("атакует", "шлёпает", "вмазывает")
+	attack_verb_continuous = list("атакует", "шлёпает", "вмазывает")
+	attack_verb_simple = list("атакует", "шлёпает", "вмазывает")
 
 	///The brain's organ variables are significantly more different than the other organs, with half the decay rate for balance reasons, and twice the maxHealth
 	decay_factor = STANDARD_ORGAN_DECAY	/ 2		//30 minutes of decaying to result in a fully damaged brain, since a fast decay rate would be unfun gameplay-wise

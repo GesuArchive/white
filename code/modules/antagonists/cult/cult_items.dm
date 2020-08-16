@@ -46,7 +46,8 @@
 	wound_bonus = -80
 	bare_wound_bonus = 30
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрубает", "нарезает", "культирует")
+	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрубает", "нарезает", "культирует")
+	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрубает", "нарезает", "культирует")
 
 /obj/item/melee/cultblade/Initialize()
 	. = ..()
@@ -93,7 +94,8 @@
 	throw_range = 3
 	sharpness = SHARP_EDGED
 	light_color = COLOR_RED
-	attack_verb = list("разрубает", "рубит", "кромсает", "уничтожает", "разрывает", "нарезает", "режет")
+	attack_verb_continuous = list("разрубает", "рубит", "кромсает", "уничтожает", "разрывает", "нарезает", "режет")
+	attack_verb_simple = list("разрубает", "рубит", "кромсает", "уничтожает", "разрывает", "нарезает", "режет")
 	icon_state = "cultbastard"
 	inhand_icon_state = "cultbastard"
 	hitsound = 'sound/weapons/bladeslice.ogg'
@@ -626,7 +628,8 @@
 	throw_speed = 2
 	armour_penetration = 30
 	block_chance = 30
-	attack_verb = list("атакует", "протыкает", "втыкает", "кромсает", "насаживает")
+	attack_verb_continuous = list("атакует", "протыкает", "втыкает", "кромсает", "насаживает")
+	attack_verb_simple = list("атакует", "протыкает", "втыкает", "кромсает", "насаживает")
 	sharpness = SHARP_EDGED
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	var/datum/action/innate/cult/spear/spear_act
@@ -896,7 +899,8 @@
 	throw_speed = 1
 	throw_range = 4
 	w_class = WEIGHT_CLASS_BULKY
-	attack_verb = list("тычет", "стукает")
+	attack_verb_continuous = list("тычет", "стукает")
+	attack_verb_simple = list("тычет", "стукает")
 	hitsound = 'sound/weapons/smash.ogg'
 	var/illusions = 2
 

@@ -276,7 +276,8 @@
 	w_class = WEIGHT_CLASS_HUGE
 	hitsound = 'sound/weapons/sear.ogg'
 	damtype = BURN
-	attack_verb = list("бьёт", "скрещивает пальцы", "вмазывает")
+	attack_verb_continuous = list("бьёт", "скрещивает пальцы", "вмазывает")
+	attack_verb_simple = list("бьёт", "скрещивает пальцы", "вмазывает")
 
 /obj/item/nullrod/godhand/Initialize()
 	. = ..()
@@ -318,7 +319,8 @@
 	block_chance = 30
 	sharpness = SHARP_EDGED
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("атакует", "рубит", "кромсает", "разрывает", "протыкает", "колбасит", "делит", "режет")
+	attack_verb_continuous = list("атакует", "рубит", "кромсает", "разрывает", "протыкает", "колбасит", "делит", "режет")
+	attack_verb_simple = list("атакует", "рубит", "кромсает", "разрывает", "протыкает", "колбасит", "делит", "режет")
 
 /obj/item/nullrod/claymore/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(attack_type == PROJECTILE_ATTACK)
@@ -343,7 +345,8 @@
 	name = "sacred chainsaw sword"
 	desc = "Suffer not a heretic to live."
 	slot_flags = ITEM_SLOT_BELT
-	attack_verb = list("пилит", "рвёт", "режет", "рубит", "делит")
+	attack_verb_continuous = list("пилит", "рвёт", "режет", "рубит", "делит")
+	attack_verb_simple = list("пилит", "рвёт", "режет", "рубит", "делит")
 	hitsound = 'sound/weapons/chainsawhit.ogg'
 	tool_behaviour = TOOL_SAW
 	toolspeed = 1.5 //slower than a real saw
@@ -406,7 +409,8 @@
 	force = 4.13
 	throwforce = 1
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("НЕРЕАЛЬНО рубит", "НЕРЕАЛЬНО режет", "НЕРЕАЛЬНО кромсает", "НЕРЕАЛЬНО разрывает", "НЕРЕАЛЬНО протыкает", "НЕРЕАЛЬНО атакует", "НЕРЕАЛЬНО делит", "НЕРЕАЛЬНО колбасит")
+	attack_verb_continuous = list("НЕРЕАЛЬНО рубит", "НЕРЕАЛЬНО режет", "НЕРЕАЛЬНО кромсает", "НЕРЕАЛЬНО разрывает", "НЕРЕАЛЬНО протыкает", "НЕРЕАЛЬНО атакует", "НЕРЕАЛЬНО делит", "НЕРЕАЛЬНО колбасит")
+	attack_verb_simple = list("НЕРЕАЛЬНО рубит", "НЕРЕАЛЬНО режет", "НЕРЕАЛЬНО кромсает", "НЕРЕАЛЬНО разрывает", "НЕРЕАЛЬНО протыкает", "НЕРЕАЛЬНО атакует", "НЕРЕАЛЬНО делит", "НЕРЕАЛЬНО колбасит")
 
 /obj/item/nullrod/scythe
 	icon_state = "scythe1"
@@ -419,7 +423,8 @@
 	armour_penetration = 35
 	slot_flags = ITEM_SLOT_BACK
 	sharpness = SHARP_EDGED
-	attack_verb = list("рубит", "режет", "косит", "скашивает")
+	attack_verb_continuous = list("рубит", "режет", "косит", "скашивает")
+	attack_verb_simple = list("рубит", "режет", "косит", "скашивает")
 
 /obj/item/nullrod/scythe/Initialize()
 	. = ..()
@@ -432,7 +437,8 @@
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	name = "high frequency blade"
 	desc = "Bad references are the DNA of the soul."
-	attack_verb = list("рубит", "режет", "кромсает", "зандатсуирует")
+	attack_verb_continuous = list("рубит", "режет", "кромсает", "зандатсуирует")
+	attack_verb_simple = list("рубит", "режет", "кромсает", "зандатсуирует")
 	hitsound = 'sound/weapons/rapierhit.ogg'
 
 /obj/item/nullrod/scythe/spellblade
@@ -452,7 +458,8 @@
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	name = "possessed blade"
 	desc = "When the station falls into chaos, it's nice to have a friend by your side."
-	attack_verb = list("рубит", "нарезает", "режет")
+	attack_verb_continuous = list("рубит", "нарезает", "режет")
+	attack_verb_simple = list("рубит", "нарезает", "режет")
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	var/possessed = FALSE
 
@@ -504,7 +511,8 @@
 	chaplain_spawnable = FALSE
 	force = 30
 	slot_flags = ITEM_SLOT_BELT
-	attack_verb = list("пилит", "рвёт", "режет", "рубит", "делит")
+	attack_verb_continuous = list("пилит", "рвёт", "режет", "рубит", "делит")
+	attack_verb_simple = list("пилит", "рвёт", "режет", "рубит", "делит")
 	hitsound = 'sound/weapons/chainsawhit.ogg'
 	tool_behaviour = TOOL_SAW
 	toolspeed = 0.5 //faster than normal saw
@@ -518,7 +526,8 @@
 	desc = "This war hammer cost the chaplain forty thousand space dollars."
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_HUGE
-	attack_verb = list("лупит", "бьёт", "молотит", "уничтожает")
+	attack_verb_continuous = list("лупит", "бьёт", "молотит", "уничтожает")
+	attack_verb_simple = list("лупит", "бьёт", "молотит", "уничтожает")
 
 /obj/item/nullrod/chainsaw
 	name = "chainsaw hand"
@@ -530,7 +539,8 @@
 	w_class = WEIGHT_CLASS_HUGE
 	item_flags = ABSTRACT
 	sharpness = SHARP_EDGED
-	attack_verb = list("пилит", "рвёт", "режет", "рубит", "делит")
+	attack_verb_continuous = list("пилит", "рвёт", "режет", "рубит", "делит")
+	attack_verb_simple = list("пилит", "рвёт", "режет", "рубит", "делит")
 	hitsound = 'sound/weapons/chainsawhit.ogg'
 	tool_behaviour = TOOL_SAW
 	toolspeed = 2 //slower than a real saw
@@ -548,7 +558,8 @@
 	desc = "Used for absolutely hilarious sacrifices."
 	hitsound = 'sound/items/bikehorn.ogg'
 	sharpness = SHARP_EDGED
-	attack_verb = list("атакует", "режет", "протыкает", "нарезает", "рвёт", "разрывает", "делит", "кромсает")
+	attack_verb_continuous = list("атакует", "режет", "протыкает", "нарезает", "рвёт", "разрывает", "делит", "кромсает")
+	attack_verb_simple = list("атакует", "режет", "протыкает", "нарезает", "рвёт", "разрывает", "делит", "кромсает")
 
 /obj/item/nullrod/pride_hammer
 	icon_state = "pride"
@@ -558,7 +569,8 @@
 	throwforce = 15
 	w_class = 4
 	slot_flags = ITEM_SLOT_BACK
-	attack_verb = list("атакует", "лупит", "покушается", "нежит", "засаживает")
+	attack_verb_continuous = list("атакует", "лупит", "покушается", "нежит", "засаживает")
+	attack_verb_simple = list("атакует", "лупит", "покушается", "нежит", "засаживает")
 	hitsound = 'sound/weapons/blade1.ogg'
 
 /obj/item/nullrod/pride_hammer/afterattack(atom/A as mob|obj|turf|area, mob/user, proximity)
@@ -579,7 +591,8 @@
 	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
 	slot_flags = ITEM_SLOT_BELT
-	attack_verb = list("хлыстает", "приручает")
+	attack_verb_continuous = list("хлыстает", "приручает")
+	attack_verb_simple = list("хлыстает", "приручает")
 	hitsound = 'sound/weapons/chainhit.ogg'
 
 /obj/item/nullrod/fedora
@@ -594,7 +607,8 @@
 	throw_range = 7
 	throwforce = 30
 	sharpness = SHARP_EDGED
-	attack_verb = list("просветляет", "краснопилюлит")
+	attack_verb_continuous = list("просветляет", "краснопилюлит")
+	attack_verb_simple = list("просветляет", "краснопилюлит")
 
 /obj/item/nullrod/armblade
 	name = "dark blessing"
@@ -629,7 +643,8 @@
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	force = 15
-	attack_verb = list("кусает", "грызёт", "шлёпает плавником")
+	attack_verb_continuous = list("кусает", "грызёт", "шлёпает плавником")
+	attack_verb_simple = list("кусает", "грызёт", "шлёпает плавником")
 	hitsound = 'sound/weapons/bite.ogg'
 	var/used_blessing = FALSE
 
@@ -649,7 +664,8 @@
 	slot_flags = ITEM_SLOT_BACK
 	sharpness = SHARP_NONE
 	hitsound = "swing_hit"
-	attack_verb = list("сносит", "бьёт", "колотит", "стучит")
+	attack_verb_continuous = list("сносит", "бьёт", "колотит", "стучит")
+	attack_verb_simple = list("сносит", "бьёт", "колотит", "стучит")
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "bostaff0"
 	inhand_icon_state = "bostaff0"
@@ -668,7 +684,8 @@
 	sharpness = SHARP_EDGED
 	slot_flags = null
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("атакует", "режет", "кромсает", "нарезает", "протыкает", "втыкает", "разрезает", "мясит")
+	attack_verb_continuous = list("атакует", "режет", "кромсает", "нарезает", "протыкает", "втыкает", "разрезает", "мясит")
+	attack_verb_simple = list("атакует", "режет", "кромсает", "нарезает", "протыкает", "втыкает", "разрезает", "мясит")
 	item_flags = SLOWS_WHILE_IN_HAND
 
 /obj/item/nullrod/tribal_knife/Initialize(mapload)
@@ -694,7 +711,8 @@
 	name = "unholy pitchfork"
 	w_class = WEIGHT_CLASS_NORMAL
 	desc = "Holding this makes you look absolutely devilish."
-	attack_verb = list("насаживает", "пробивает", "втыкает", "макаронит")
+	attack_verb_continuous = list("насаживает", "пробивает", "втыкает", "макаронит")
+	attack_verb_simple = list("насаживает", "пробивает", "втыкает", "макаронит")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = SHARP_EDGED
 
@@ -707,7 +725,8 @@
 	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb = list("лупит", "бьёт", "атакует")
+	attack_verb_continuous = list("лупит", "бьёт", "атакует")
+	attack_verb_simple = list("лупит", "бьёт", "атакует")
 
 /obj/item/nullrod/hypertool
 	icon = 'icons/obj/device.dmi'
@@ -720,7 +739,8 @@
 	desc = "A tool so powerful even you cannot perfectly use it."
 	armour_penetration = 35
 	damtype = BRAIN
-	attack_verb = list("пульсирует", "спаивает", "режет")
+	attack_verb_continuous = list("пульсирует", "спаивает", "режет")
+	attack_verb_simple = list("пульсирует", "спаивает", "режет")
 	hitsound = 'sound/effects/sparks4.ogg'
 
 /obj/item/nullrod/spear
@@ -735,5 +755,6 @@
 	armour_penetration = 10
 	sharpness = SHARP_POINTY
 	w_class = WEIGHT_CLASS_BULKY
-	attack_verb = list("насаживает", "пробивает", "втыкает", "макаронит")
+	attack_verb_continuous = list("насаживает", "пробивает", "втыкает", "макаронит")
+	attack_verb_simple = list("насаживает", "пробивает", "втыкает", "макаронит")
 	hitsound = 'sound/weapons/bladeslice.ogg'

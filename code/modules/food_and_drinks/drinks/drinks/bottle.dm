@@ -145,7 +145,8 @@
 	w_class = WEIGHT_CLASS_TINY
 	inhand_icon_state = "beer"
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("втыкает", "рубит", "атакует")
+	attack_verb_continuous = list("втыкает", "рубит", "атакует")
+	attack_verb_simple = list("втыкает", "рубит", "атакует")
 	sharpness = SHARP_EDGED
 	var/static/icon/broken_outline = icon('icons/obj/drinks.dmi', "broken")
 

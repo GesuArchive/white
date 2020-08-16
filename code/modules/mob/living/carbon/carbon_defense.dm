@@ -99,10 +99,9 @@
 		return TRUE //successful attack
 
 /mob/living/carbon/send_item_attack_message(obj/item/I, mob/living/user, hit_area, obj/item/bodypart/hit_bodypart)
-	var/message_verb = "бьёт"
-	if(length(I.attack_verb))
-		message_verb = "[pick(I.attack_verb)]"
-	else if(!I.force)
+	var/message_verb_continuous = length(I.attack_verb_continuous) ? "[pick(I.attack_verb_continuous)]" : "бьёт"
+	var/message_verb_simple = length(I.attack_verb_simple) ? "[pick(I.attack_verb_simple)]" : "бьёт"
+	if(!I.force)
 		return
 
 	var/extra_wound_details = ""
@@ -119,15 +118,18 @@
 	var/message_hit_area = ""
 	if(hit_area)
 		message_hit_area = "[ru_parse_zone(hit_area)]"
-	var/attack_message = "<b>[src]</b> [message_verb] в [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>[extra_wound_details]!"
-	var/attack_message_local = "[capitalize(message_verb)] [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>[extra_wound_details]!"
+	var/attack_message_spectator = "<b>[src]</b> [message_verb_continuous] в [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>[extra_wound_details]!"
+	var/attack_message_victim = "[capitalize(message_verb_continuous)] в [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>[extra_wound_details]!"
+	var/attack_message_attacker = "Моя атака [message_verb_simple] <b>[src]</b> в [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>!"
 	if(user in viewers(src, null))
-		attack_message = "<b>[user]</b> [message_verb] <b>[sklonenie(src.name, VINITELNI, gender)]</b> в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)][extra_wound_details]!"
-		attack_message_local = "<b>[user]</b> [message_verb] <b>меня</b> в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)][extra_wound_details]!"
+		attack_message_spectator = "<b>[user]</b> [message_verb_continuous] <b>[sklonenie(src.name, VINITELNI, gender)]</b> в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]![extra_wound_details]!"
+		attack_message_victim = "<b>[user]</b> [message_verb_continuous] меня в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
 	if(user == src)
-		attack_message_local = "Моё великолепие [message_verb] себя в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)][extra_wound_details]"
-	visible_message("<span class='danger'>[attack_message]</span>",\
-		"<span class='userdanger'>[attack_message_local]</span>", null, COMBAT_MESSAGE_RANGE)
+		attack_message_victim = "Моя атака [message_verb_simple] меня в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
+	visible_message("<span class='danger'>[attack_message_spectator]</span>",\
+		"<span class='userdanger'>[attack_message_victim]</span>", null, COMBAT_MESSAGE_RANGE, user)
+	if(user != src)
+		to_chat(user, "<span class='danger'>[attack_message_attacker]</span>")
 	return TRUE
 
 
