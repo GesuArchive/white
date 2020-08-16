@@ -81,7 +81,7 @@
 
 /obj/machinery/hydroponics/constructable/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Use <b>Ctrl-Click</b> to activate autogrow. <b>Alt-Click</b> to empty the tray's nutrients.</span>"
+	. += "<hr><span class='notice'>Use <b>Ctrl-Click</b> to activate autogrow. \n<b>Alt-Click</b> to empty the tray's nutrients.</span>"
 	if(in_range(user, src) || isobserver(user))
 		. += "<hr><span class='notice'>Дисплей: Tray efficiency at <b>[rating*100]%</b>.</span>"
 

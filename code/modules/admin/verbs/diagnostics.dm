@@ -82,7 +82,7 @@
 
 /client/proc/toggle_cdn()
 	set name = "Toggle CDN"
-	set category = "Server"
+	set category = "Срв"
 	var/static/admin_disabled_cdn_transport = null
 	if (alert(usr, "Are you sure you want to toggle the CDN asset transport?", "Confirm", "Yes", "No") != "Yes")
 		return

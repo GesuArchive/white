@@ -36,16 +36,16 @@
 /obj/structure/bookcase/examine(mob/user)
 	. = ..()
 	if(!anchored)
-		. += "<span class='notice'>The <i>bolts</i> on the bottom are unsecured.</span>"
+		. += "<hr><span class='notice'>The <i>bolts</i> on the bottom are unsecured.</span>"
 	else
-		. += "<span class='notice'>It's secured in place with <b>bolts</b>.</span>"
+		. += "<hr><span class='notice'>It's secured in place with <b>bolts</b>.</span>"
 	switch(state)
 		if(BOOKCASE_UNANCHORED)
-			. += "<span class='notice'>There's a <b>small crack</b> visible on the back panel.</span>"
+			. += "<hr><span class='notice'>There's a <b>small crack</b> visible on the back panel.</span>"
 		if(BOOKCASE_ANCHORED)
-			. += "<span class='notice'>There's space inside for a <i>wooden</i> shelf.</span>"
+			. += "<hr><span class='notice'>There's space inside for a <i>wooden</i> shelf.</span>"
 		if(BOOKCASE_FINISHED)
-			. += "<span class='notice'>There's a <b>small crack</b> visible on the shelf.</span>"
+			. += "<hr><span class='notice'>There's a <b>small crack</b> visible on the shelf.</span>"
 
 /obj/structure/bookcase/Initialize(mapload)
 	. = ..()
