@@ -90,7 +90,7 @@
 	/turf/closed/wall/rospilovo/bricks_white,
 	/turf/closed/wall/rospilovo/beton_agro
 	)
-	smoothing_flags = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_CORNERS
 
 /turf/closed/wall/rospilovo/cyberwall
 	name = "стена"
@@ -293,7 +293,7 @@
 	desc = "Обычный деревянный слегка пошарпанный стол."
 	icon = 'white/valtos/icons/rospilovo/stol_stalker.dmi'
 	icon_state = "stol"
-	smoothing_flags = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/obj/structure/table/rospilovo)
 
 /obj/structure/rospilovo/okno

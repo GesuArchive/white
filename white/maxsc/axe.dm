@@ -12,7 +12,7 @@
 	force = 9
 	throwforce = 20
 	armour_penetration = 0
-	attack_verb = list("ударяет", "рубит", "протыкает", "режет")
+	attack_verb_simple = list("ударяет", "рубит", "протыкает", "режет")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = SHARP_EDGED
 	custom_materials = list(/datum/material/iron=5000)
@@ -44,7 +44,7 @@
 	force = 9
 	throwforce = 24
 	armour_penetration = 10
-	attack_verb = list("ударяет", "приносит справедливость", "рубит", "протыкает")
+	attack_verb_simple = list("ударяет", "приносит справедливость", "рубит", "протыкает")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = SHARP_EDGED
 	custom_materials = list(/datum/material/iron=5000)

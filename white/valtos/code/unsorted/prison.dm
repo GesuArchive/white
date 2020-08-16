@@ -125,7 +125,7 @@
 	icon = 'white/valtos/icons/prison/beton.dmi'
 	floor_tile = /obj/item/stack/tile/beton
 	broken_states = list("damaged")
-	smoothing_flags = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/open/floor/beton)
 	flags_1 = NONE
 	baseturfs = /turf/open/floor/plating/beach/sand

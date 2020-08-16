@@ -11,7 +11,7 @@
 	throw_range = 3
 	w_class = WEIGHT_CLASS_BULKY
 	custom_materials = list(/datum/material/iron=1000)
-	attack_verb = list("shoved", "bashed")
+	attack_verb_simple = list("shoved", "bashed")
 	block_chance = 45
 	armor = list("melee" = 50, "bullet" = 40, "laser" = 30, "energy" = 10, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	var/damage_received = 0 //Amount of damage the shield has received
@@ -64,7 +64,7 @@
 	throw_speed = 4
 	w_class = WEIGHT_CLASS_TINY
 	inhand_icon_state = "shard-glass"
-	attack_verb = list("stabbed", "shanked", "sliced", "cut")
+	attack_verb_simple = list("stabbed", "shanked", "sliced", "cut")
 	siemens_coefficient = 0 //Means it's insulated
 	embedding = list("embed_chance" = 10)
 	sharpness = SHARP_EDGED

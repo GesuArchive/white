@@ -110,7 +110,6 @@
 	var/datum/browser/popup = new(user, "vending", (name))
 	popup.add_stylesheet(get_asset_datum(/datum/asset/spritesheet/vending))
 	popup.set_content(dat.Join(""))
-	popup.set_title_image(user.browse_rsc_icon(icon, icon_state))
 	popup.open()
 
 /obj/machinery/vending/terminal/proc/GetIconForProduct(datum/data/vending_product/P)

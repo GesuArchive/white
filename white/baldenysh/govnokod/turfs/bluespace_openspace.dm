@@ -3,7 +3,7 @@
 	desc = "голубое"
 	icon = 'white/baldenysh/icons/turf/bluespace_openspace.dmi'
 	icon_state = "transparent"
-	smoothing_flags = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS | SMOOTH_BORDER
 	canSmoothWith = list(/turf/open/transparent/openspace/bluespace)
 	baseturfs = /turf/open/floor/plating
 	CanAtmosPassVertical = ATMOS_PASS_YES

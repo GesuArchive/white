@@ -31,7 +31,7 @@
 	lefthand_file = 'white/valtos/icons/bloodsucker/fulpitems_hold_left.dmi' // File for in-hand icon
 	righthand_file = 'white/valtos/icons/bloodsucker/fulpitems_hold_right.dmi'
 	//origin_tech = "biotech=1;combat=1"
-	attack_verb = list("staked")
+	attack_verb_simple = list("staked")
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
 

@@ -13,7 +13,8 @@
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "suspiciousphone"
 	w_class = WEIGHT_CLASS_TINY
-	attack_verb = list("звонит")
+	attack_verb_simple = list("звонит")
+	attack_verb_continuous = list("звонит")
 	slot_flags = ITEM_SLOT_ID | ITEM_SLOT_BELT
 
 	var/obj/item/card/id/idc

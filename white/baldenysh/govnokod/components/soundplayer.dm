@@ -17,7 +17,7 @@
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
 	soundsource = parent
-	playing_channel = open_sound_channel()
+	playing_channel = SSsounds.random_available_channel()
 	START_PROCESSING(SSprocessing, src)
 	. = ..()
 	set_sound(sound('white/baldenysh/sounds/hardbass_loop.ogg'))

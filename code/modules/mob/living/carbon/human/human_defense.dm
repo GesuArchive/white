@@ -707,7 +707,7 @@
 
 	var/list/missing = list(BODY_ZONE_HEAD, BODY_ZONE_CHEST, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 
-	var/message_ready = "<div class='examine_block'><span class='notice'>Моё состояние примерное такое:</span><table>"
+	combined_msg += "<div class='examine_block'><span class='notice'>Моё состояние примерное такое:</span><table>"
 
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/LB = X
@@ -827,7 +827,6 @@
 				combined_msg += "<span class='danger'>Задыхаюсь!</span>"
 
 	if(!HAS_TRAIT(src, TRAIT_NOHUNGER))
-		var/nut = ""
 		switch(nutrition)
 			if(NUTRITION_LEVEL_FULL to INFINITY)
 				combined_msg += "<span class='info'>Мне вообще не хочется есть!</span>"

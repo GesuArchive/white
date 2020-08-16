@@ -377,7 +377,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if (isnum(cached_player_age) && cached_player_age == -1) //first connection
 		if (nnpa >= 0)
 			message_admins("New user: [key_name_admin(src)] is connecting here for the first time.")
-			force_dark_theme()
 			if (CONFIG_GET(flag/irc_first_connection_alert))
 				send2tgs_adminless_only("New-user", "[key_name(src)] is connecting for the first time!")
 	else if (isnum(cached_player_age) && cached_player_age < nnpa)

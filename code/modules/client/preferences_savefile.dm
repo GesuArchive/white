@@ -150,7 +150,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["fullscreen"], fullscreen)
 	READ_FILE(S["btprefsnew"], btprefsnew)
 	READ_FILE(S["btvolume_max"], btvolume_max)
-	READ_FILE(S["interface_hue"], interface_hue)
 
 	READ_FILE(S["purchased_gear"], purchased_gear)
 	READ_FILE(S["equipped_gear"], equipped_gear)
@@ -207,7 +206,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	be_special		= SANITIZE_LIST(be_special)
 	pda_style		= sanitize_inlist(pda_style, GLOB.pda_styles, initial(pda_style))
 	pda_color		= sanitize_hexcolor(pda_color, 6, 1, initial(pda_color))
-	interface_hue	= sanitize_integer(interface_hue, 0, 360, 0)
 	key_bindings 	= sanitize_keybindings(key_bindings)
 
 	if(!purchased_gear)
@@ -292,7 +290,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["btvolume_max"], btvolume_max)
 	WRITE_FILE(S["purchased_gear"], purchased_gear)
 	WRITE_FILE(S["equipped_gear"], equipped_gear)
-	WRITE_FILE(S["interface_hue"], interface_hue)
 	WRITE_FILE(S["hearted_until"], (hearted_until > world.realtime ? hearted_until : null))
 	return TRUE
 

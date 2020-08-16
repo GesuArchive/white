@@ -66,7 +66,7 @@
 	stabby = TRANSFER_SHARP
 	w_class = WEIGHT_CLASS_SMALL
 	sharpness = SHARP_POINTY
-	attack_verb = list("тычет", "протыкает", "втыкает", "нанизывает", "гопстопает", "пробивает")
+	attack_verb_simple = list("тычет", "протыкает", "втыкает", "нанизывает", "гопстопает", "пробивает")
 
 
 /obj/item/forged/melee/sword
@@ -81,7 +81,7 @@
 	stabby = TRANSFER_SHARPER
 	w_class = WEIGHT_CLASS_BULKY
 	sharpness = SHARP_EDGED
-	attack_verb = list("рубит", "режет", "втыкает", "нарезает", "нарезает", "пробивает")
+	attack_verb_simple = list("рубит", "режет", "втыкает", "нарезает", "нарезает", "пробивает")
 
 
 /obj/item/forged/melee/mace
@@ -95,7 +95,7 @@
 	weapon_type = MELEE_TYPE_MACE
 	stabby = TRANSFER_PARTIALLY_BLUNT
 	w_class = WEIGHT_CLASS_BULKY
-	attack_verb = list("бьёт", "ударяет")
+	attack_verb_simple = list("бьёт", "ударяет")
 	armour_penetration = 5
 
 /obj/item/forged/Destroy()
@@ -140,7 +140,7 @@
 	stabby = TRANSFER_SHARPEST
 	w_class = WEIGHT_CLASS_HUGE
 	sharpness = SHARP_EDGED
-	attack_verb = list("нанизывает", "пробивает", "втыкает", "рубит", "кромсает", "протыкает")
+	attack_verb_simple = list("нанизывает", "пробивает", "втыкает", "рубит", "кромсает", "протыкает")
 
 
 /obj/item/forged/greatsword/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
@@ -160,7 +160,7 @@
 	weapon_type = MELEE_TYPE_WARHAMMER
 	stabby = TRANSFER_BLUNT
 	w_class = WEIGHT_CLASS_HUGE
-	attack_verb = list("уничтожает", "молотит", "ударяет", "долбит", "разбивает")
+	attack_verb_simple = list("уничтожает", "молотит", "ударяет", "долбит", "разбивает")
 	armour_penetration = 10
 
 /obj/item/forged/warhammer/update_icon()
