@@ -871,3 +871,91 @@ h1.alert, h2.alert {
 .ml-3 {
   margin-left: 3em;
 }
+
+/* WHITE SHIT */
+
+.veryalert {
+  background: repeating-linear-gradient(-45deg,#daaa18,#daaa18 8px,#000000 8px,#000000 16px);
+  border: none;
+  height: 8px;
+}
+
+/* MOTD SHIT */
+#motd-main {
+  padding: 5px 0 1px 0;
+  background: repeating-linear-gradient(45deg,#232323,#232323 8px,#222222 8px,#222222 16px);
+  text-shadow: 0 0 3px black;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 1);
+  border: 1px solid #111;
+  margin: 16px 0 16px 0;
+  border-bottom: 8px solid #151515;
+}
+
+#motd-header {
+  color: #fff;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+#motd-p {
+  font-family: sans-serif;
+  color: #faa;
+}
+
+#motd-a {
+  padding: 2px;
+  color: #ddd;
+}
+
+#motd-b {
+  padding: 2px;
+  color: #ddd;
+}
+
+#motd-warn {
+  padding: 2px;
+  color: #faa;
+  font-size: 14px;
+}
+
+#motd-hr {
+  border: none;
+  border-top: 1px solid #333;
+  border-bottom: 2px solid #151515;
+  padding: 4px 0 8px 0;
+  background: #232323;
+}
+
+#motd-footer {
+  font-family: sans-serif;
+  color: #fff;
+  padding: 4px;
+}
+
+#stbst {
+  width: 3px;
+  height: 14px;
+  animation: spin 0.7s infinite linear;
+  background: #fff;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(-360deg);}
+}
+
+.examine_block {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #111a27;
+  margin: 2px 8px;
+  padding: 8px 12px;
+  max-width: 550px;
+}
+.examine_block hr {
+  border: none;
+  background: #333;
+  height: 1px;
+  margin: 8px 16px 8px 16px;
+}

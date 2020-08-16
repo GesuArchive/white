@@ -13,7 +13,7 @@ export const canPageAcceptType = (page, type) => (
 
 export const createPage = obj => ({
   id: createUuid(),
-  name: 'New Tab',
+  name: 'Новая вкладка',
   acceptedTypes: {},
   count: 0,
   unreadCount: 0,
@@ -27,7 +27,7 @@ export const createMainPage = () => {
     acceptedTypes[typeDef.type] = true;
   }
   return createPage({
-    name: 'Main',
+    name: 'Основной',
     acceptedTypes,
   });
 };

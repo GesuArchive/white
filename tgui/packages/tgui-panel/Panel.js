@@ -50,7 +50,7 @@ export const Panel = (props, context) => {
                   color="grey"
                   selected={audio.visible}
                   icon="music"
-                  tooltip="Music player"
+                  tooltip="Плеер"
                   tooltipPosition="bottom-left"
                   onClick={() => audio.toggle()} />
               </Flex.Item>
@@ -59,8 +59,8 @@ export const Panel = (props, context) => {
                   icon={settings.visible ? 'times' : 'cog'}
                   selected={settings.visible}
                   tooltip={settings.visible
-                    ? 'Close settings'
-                    : 'Open settings'}
+                    ? 'Закрыть настройки'
+                    : 'Открыть настройки'}
                   tooltipPosition="bottom-left"
                   onClick={() => settings.toggle()} />
               </Flex.Item>
@@ -91,17 +91,16 @@ export const Panel = (props, context) => {
                     <Button
                       color="white"
                       onClick={() => Byond.command('.reconnect')}>
-                      Reconnect
+                      Переподключиться
                     </Button>
                   )}>
-                  You are either AFK, experiencing lag or the connection
-                  has closed.
+                  Похоже, соединение было нарушено или произошёл лаг.
                 </Notifications.Item>
               )}
               {game.roundRestartedAt && (
                 <Notifications.Item>
-                  The connection has been closed because the server is
-                  restarting. Please wait while you automatically reconnect.
+                  Соединение было закрыто по причине  перезагрузки сервера.
+                  Пожалуйста, подождите. Игра сама переподключится к серверу.
                 </Notifications.Item>
               )}
             </Notifications>
@@ -127,7 +126,7 @@ const HoboIE8Panel = (props, context) => {
           }}
           selected={settings.visible}
           onClick={() => settings.toggle()}>
-          Settings
+          Настройки
         </Button>
         {settings.visible && (
           <Flex.Item mt={1}>
