@@ -103,7 +103,7 @@ const setupApp = () => {
     'is-visible': true,
     'is-disabled': false,
     'pos': '0x0',
-    'size': '0x0',
+    'size': '0x575',
   });
 
   // Enable hot module reloading
