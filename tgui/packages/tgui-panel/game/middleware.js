@@ -33,7 +33,7 @@ export const gameMiddleware = store => {
     if (game.connectionLostAt && !pingsAreFailing) {
       store.dispatch(withTimestamp(connectionRestored()));
     }
-  }, 1000);
+  }, 10000);
   return next => action => {
     const { type, payload, meta } = action;
     if (type === pingSuccess.type) {
