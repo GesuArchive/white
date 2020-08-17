@@ -34,6 +34,7 @@ import { setupPanelFocusHacks } from './panelFocus';
 import { pingMiddleware, pingReducer } from './ping';
 import { settingsMiddleware, settingsReducer } from './settings';
 import { telemetryMiddleware } from './telemetry';
+import { Window } from 'tgui/layouts';
 
 perf.mark('inception', window.performance?.timing?.navigationStart);
 perf.mark('init');
@@ -103,6 +104,10 @@ const setupApp = () => {
     'is-visible': true,
     'is-disabled': false,
     'pos': '0x0',
+    'size': '0x0',
+  });
+
+  Byond.winset('browseroutput', {
     'size': '0x'+(window.innerHeight-28),
   });
 
