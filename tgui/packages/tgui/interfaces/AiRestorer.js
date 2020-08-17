@@ -45,17 +45,17 @@ export const AiRestorerContent = (props, context) => {
       )}
       {!!AI_present && (
         <Section
-          title={ejectable ? "System Status" : name}
+          title={ejectable ? "Состояние систем" : name}
           buttons={(
             <Box
               inline
               bold
               color={isDead ? 'bad' : 'good'}>
-              {isDead ? "Nonfunctional" : "Functional"}
+              {isDead ? "Не функционируют" : "Функционируют"}
             </Box>
           )}>
           <LabeledList>
-            <LabeledList.Item label="Integrity">
+            <LabeledList.Item label="Целостность">
               <ProgressBar
                 value={health}
                 minValue={0}
@@ -74,13 +74,13 @@ export const AiRestorerContent = (props, context) => {
               fontSize="20px"
               color="good"
               mt={1}>
-              RECONSTRUCTION IN PROGRESS
+              ВОССТАНОВЛЕНИЕ В ПРОЦЕССЕ
             </Box>
           )}
           <Button
             fluid
             icon="plus"
-            content="Begin Reconstruction"
+            content="Начать восстановление"
             disabled={restoring}
             mt={1}
             onClick={() => act('PRG_beginReconstruction')} />

@@ -13,7 +13,7 @@ export const Achievements = (props, context) => {
     .filter(x => x.category === selectedCategory);
   return (
     <Window
-      title="Achievements"
+      title="Ачивки"
       width={540}
       height={680}
       resizable>
@@ -28,12 +28,12 @@ export const Achievements = (props, context) => {
             </Tabs.Tab>
           ))}
           <Tabs.Tab
-            selected={selectedCategory === 'High Scores'}
-            onClick={() => setSelectedCategory('High Scores')}>
+            selected={selectedCategory === 'Рекорды'}
+            onClick={() => setSelectedCategory('Рекорды')}>
             High Scores
           </Tabs.Tab>
         </Tabs>
-        {selectedCategory === 'High Scores' && (
+        {selectedCategory === 'Рекорды' && (
           <HighScoreTable />
         ) || (
           <AchievementTable achievements={achievements} />
@@ -131,7 +131,7 @@ const HighScoreTable = (props, context) => {
               Key
             </Table.Cell>
             <Table.Cell textAlign="center">
-              Score
+              Счёт
             </Table.Cell>
           </Table.Row>
           {scores.map((score, i) => (

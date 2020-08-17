@@ -11,43 +11,44 @@ export const Autodoc = (props, context) => {
   if (data.mode === 1) {
     return (
       <Window
-        width={555}
+        width={476}
         height={440}
         resizable>
-        <Section>
-          <Tabs.Tab
+        <Section
+          title="Конечность">
+          <Button
             key="head"
             content="Голова"
             onClick={() => act('target', { part: "head" })} />
-          <Tabs.Tab
+          <Button
             key="chest"
             content="Грудь"
             onClick={() => act('target', { part: "chest" })} />
-          <Tabs.Tab
+          <Button
             key="l_arm"
             content="Л. рука"
             onClick={() => act('target', { part: "l_arm" })} />
-          <Tabs.Tab
+          <Button
             key="r_arm"
             content="П. рука"
             onClick={() => act('target', { part: "r_arm" })} />
-          <Tabs.Tab
+          <Button
             key="l_leg"
             content="Л. нога"
             onClick={() => act('target', { part: "l_leg" })} />
-          <Tabs.Tab
+          <Button
             key="r_leg"
             content="П. нога"
             onClick={() => act('target', { part: "r_leg" })} />
-          <Tabs.Tab
+          <Button
             key="groin"
             content="Пах"
             onClick={() => act('target', { part: "groin" })} />
-          <Tabs.Tab
+          <Button
             key="eyes"
             content="Глаза"
             onClick={() => act('target', { part: "eyes" })} />
-          <Tabs.Tab
+          <Button
             key="mouth"
             content="Рот"
             onClick={() => act('target', { part: "mouth" })} />

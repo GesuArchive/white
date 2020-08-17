@@ -79,14 +79,15 @@ const AirAlarmStatus = (props, context) => {
           <LabeledList.Item
             label="Внимание"
             color="bad">
-            Cannot obtain air sample for analysis.
+            Невозможно получить воздух для анализа.
           </LabeledList.Item>
         )}
         {!!data.emagged && (
           <LabeledList.Item
             label="Внимание"
             color="bad">
-            Safety measures offline. Device may exhibit abnormal behavior.
+            Протоколы безопасности нарушены. Устройство может
+            работать неправильно.
           </LabeledList.Item>
         )}
       </LabeledList>

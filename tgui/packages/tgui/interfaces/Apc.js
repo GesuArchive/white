@@ -38,22 +38,22 @@ const powerStatusMap = {
 const malfMap = {
   1: {
     icon: 'terminal',
-    content: 'Override Programming',
+    content: 'Переписать программу',
     action: 'hack',
   },
   2: {
     icon: 'caret-square-down',
-    content: 'Shunt Core Process',
+    content: 'Переместить ядро сюда',
     action: 'occupy',
   },
   3: {
     icon: 'caret-square-left',
-    content: 'Return to Main Core',
+    content: 'Вернуться в основное ядро',
     action: 'deoccupy',
   },
   4: {
     icon: 'caret-square-down',
-    content: 'Shunt Core Process',
+    content: 'Переместить ядро сюда',
     action: 'occupy',
   },
 };
@@ -71,13 +71,13 @@ const ApcContent = (props, context) => {
   if (data.failTime > 0) {
     return (
       <NoticeBox>
-        <b><h3>SYSTEM FAILURE</h3></b>
+        <b><h3>СИСТЕМНАЯ ОШИБКА</h3></b>
         <i>
-          I/O regulators malfunction detected!
-          Waiting for system reboot...
+          Обнаружена проблема с регуляторами I/O!
+          Ожидается перезагрузка системы...
         </i>
         <br />
-        Automatic reboot in {data.failTime} seconds...
+        Автоматическая перезагрузка через {data.failTime} секунд...
         <Button
           icon="sync"
           content="Перезагрузить сейчас"

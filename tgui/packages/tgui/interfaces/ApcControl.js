@@ -10,7 +10,7 @@ export const ApcControl = (props, context) => {
   const { data } = useBackend(context);
   return (
     <Window
-      title="APC Controller"
+      title="Контроллер энергии"
       width={550}
       height={500}
       resizable>
@@ -27,7 +27,7 @@ export const ApcControl = (props, context) => {
 const ApcLoggedOut = (props, context) => {
   const { act, data } = useBackend(context);
   const { emagged } = data;
-  const text = emagged === 1 ? 'Open' : 'Log In';
+  const text = emagged === 1 ? 'Открыть' : 'Войти';
   return (
     <Window.Content>
       <Button
@@ -55,7 +55,7 @@ const ApcLoggedIn = (props, context) => {
             setTabIndex(1);
             act('check-apcs');
           }}>
-          APC Control Panel
+          Управление питанием
         </Tabs.Tab>
         <Tabs.Tab
           selected={tabIndex === 2}
@@ -63,13 +63,13 @@ const ApcLoggedIn = (props, context) => {
             setTabIndex(2);
             act('check-logs');
           }}>
-          Log View Panel
+          Панель журналов
         </Tabs.Tab>
       </Tabs>
       {restoring === 1 && (
         <Dimmer fontSize="32px">
           <Icon name="cog" spin />
-          {' Resetting...'}
+          {' Сброс...'}
         </Dimmer>
       )}
       {tabIndex === 1 && (
@@ -107,21 +107,21 @@ const ControlPanel = (props, context) => {
     <Flex>
       <Flex.Item>
         <Box inline mr={2} color="label">
-          Sort by:
+          Сортировка:
         </Box>
         <Button.Checkbox
           checked={sortByField === 'name'}
-          content="Name"
+          content="Имя"
           onClick={() => setSortByField(sortByField !== 'name' && 'name')} />
         <Button.Checkbox
           checked={sortByField === 'charge'}
-          content="Charge"
+          content="Заряд"
           onClick={() => setSortByField(
             sortByField !== 'charge' && 'charge'
           )} />
         <Button.Checkbox
           checked={sortByField === 'draw'}
-          content="Draw"
+          content="Потребление"
           onClick={() => setSortByField(sortByField !== 'draw' && 'draw')} />
       </Flex.Item>
       <Flex.Item grow={1} />
@@ -130,18 +130,18 @@ const ControlPanel = (props, context) => {
           <Fragment>
             <Button
               color={logging === 1 ? 'bad' : 'good'}
-              content={logging === 1 ? 'Stop Logging' : 'Restore Logging'}
+              content={logging === 1 ? 'Остановить запись' : 'Продолжить запись'}
               onClick={() => act('toggle-logs')}
             />
             <Button
-              content="Reset Console"
+              content="Сбросить консоль"
               onClick={() => act('restore-console')}
             />
           </Fragment>
         )}
         <Button
           color="bad"
-          content="Log Out"
+          content="Выйти"
           onClick={() => act('log-out')}
         />
       </Flex.Item>
@@ -183,13 +183,13 @@ const ApcControlScene = (props, context) => {
         <Table.Cell collapsing textAlign="right">
           Draw
         </Table.Cell>
-        <Table.Cell collapsing title="Equipment">
+        <Table.Cell collapsing title="Оборудование">
           Eqp
         </Table.Cell>
-        <Table.Cell collapsing title="Lighting">
+        <Table.Cell collapsing title="Освещение">
           Lgt
         </Table.Cell>
-        <Table.Cell collapsing title="Environment">
+        <Table.Cell collapsing title="Окружение">
           Env
         </Table.Cell>
       </Table.Row>
