@@ -13,10 +13,10 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		return
 
 	if(!holder)
-		if(!GLOB.ooc_allowed)
+		if(!GLOB.ooc_allowed && !isnewplayer(mob))
 			to_chat(src, "<span class='danger'> > OOC выключен. Приятной игры.</span>")
 			return
-		if(!GLOB.dooc_allowed && (mob.stat == DEAD))
+		if(!GLOB.dooc_allowed && (mob.stat == DEAD) && !isnewplayer(mob))
 			to_chat(usr, "<span class='danger'> > OOC трупам не разрешён. Приятной игры.</span>")
 			return
 		if(prefs.muted & MUTE_OOC)
