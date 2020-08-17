@@ -303,7 +303,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		return
 
 	/// Research prospects, including boostable nodes and point values. Deliver to a console to know whether the boosts have already been used.
-	var/list/research_msg = list("<span class='purple'>Научный интерес:</span> ")
+	var/list/research_msg = list("<hr><span class='purple'>Научный интерес:</span> ")
 	///Separator between the items on the list
 	var/sep = ""
 	///Nodes that can be boosted

@@ -556,14 +556,13 @@ Class Procs:
 		if(resistance_flags & ON_FIRE)
 			. += "<hr><span class='warning'>Горит!</span>"
 		var/healthpercent = (obj_integrity/max_integrity) * 100
-		. += "<hr>"
 		switch(healthpercent)
 			if(50 to 99)
-				. += "Виднеются небольшие царапины."
+				. += "<hr>Виднеются небольшие царапины."
 			if(25 to 50)
-				. += "Выглядит серьёзно повреждённым."
+				. += "<hr>Выглядит серьёзно повреждённым."
 			if(0 to 25)
-				. += "<span class='warning'>Вот-вот развалится!</span>"
+				. += "<hr><span class='warning'>Вот-вот развалится!</span>"
 	if(user.research_scanner && component_parts)
 		. += display_parts(user, TRUE)
 

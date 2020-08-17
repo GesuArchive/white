@@ -192,7 +192,7 @@
 
 	var/temp = getBruteLoss() //no need to calculate each of these twice
 
-	. += "<hr>"
+	. += "\n"
 
 	var/list/msg = list()
 
@@ -429,14 +429,14 @@
 	if(perpname && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)))
 		var/datum/data/record/R = find_record("name", perpname, GLOB.data_core.general)
 		if(R)
-			. += "<span class='deptradio'>Должность:</span> [R.fields["rank"]]\n<a href='?src=[REF(src)];hud=1;photo_front=1'>\[Фото\]</a><a href='?src=[REF(src)];hud=1;photo_side=1'>\[Альт.\]</a>"
+			. += "<hr><span class='deptradio'>Должность:</span> [R.fields["rank"]]\n<a href='?src=[REF(src)];hud=1;photo_front=1'>\[Фото\]</a><a href='?src=[REF(src)];hud=1;photo_side=1'>\[Альт.\]</a>"
 		if(HAS_TRAIT(user, TRAIT_MEDICAL_HUD))
 			var/cyberimp_detect
 			for(var/obj/item/organ/cyberimp/CI in internal_organs)
 				if(CI.status == ORGAN_ROBOTIC && !CI.syndicate_implant)
-					cyberimp_detect += "[!cyberimp_detect ? "[CI.ru_get_examine_string(user)]" : ", [CI.ru_get_examine_string(user)]"]"
+					cyberimp_detect += "[!cyberimp_detect ? "[CI.ru_get_examine_string(user)]" : ", [CI.ru_get_examine_string(user)]"]\n"
 			if(cyberimp_detect)
-				. += "<span class='notice ml-1'>Обнаружены кибернетические модификации:</span>"
+				. += "<hr><span class='notice ml-1'>Обнаружены кибернетические модификации:</span>\n"
 				. += "<span class='notice ml-2'>[cyberimp_detect]</span>"
 			if(R)
 				var/health_r = R.fields["p_stat"]
@@ -448,7 +448,7 @@
 				. += "<a href='?src=[REF(src)];hud=m;evaluation=1'>\[Medical evaluation\]</a><br>"
 			var/quirkstring = get_quirk_string(TRUE, CAT_QUIRK_ALL)
 			if(quirkstring)
-				. += "<span class='notice ml-1'>Выявленные физиологические признаки:</span>"
+				. += "<hr><span class='notice ml-1'>Выявленные физиологические признаки:</span>\n"
 				. += "<span class='notice ml-2'>[quirkstring]</span>"
 
 		if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
@@ -460,11 +460,11 @@
 				if(R)
 					criminal = R.fields["criminal"]
 
-				. += "<span class='deptradio'>Статус:</span> <a href='?src=[REF(src)];hud=s;status=1'>\[[criminal]\]</a>"
-				. += jointext(list("<span class='deptradio'>Заметки:</span> <a href='?src=[REF(src)];hud=s;view=1'>\[View\]</a> ",
+				. += "<hr><span class='deptradio'>Статус:</span> <a href='?src=[REF(src)];hud=s;status=1'>\[[criminal]\]</a>\n"
+				. += jointext(list("<span class='deptradio'>Заметки:</span> <a href='?src=[REF(src)];hud=s;view=1'>\[Показать\]</a>\n",
 					"<a href='?src=[REF(src)];hud=s;add_citation=1'>\[Добавить цитату\]</a> ",
-					"<a href='?src=[REF(src)];hud=s;add_crime=1'>\[Добавить нарушение\]</a> ",
-					"<a href='?src=[REF(src)];hud=s;view_comment=1'>\[Просмотреть комментарии\]</a> ",
+					"<a href='?src=[REF(src)];hud=s;add_crime=1'>\[Добавить нарушение\]</a>\n",
+					"<a href='?src=[REF(src)];hud=s;view_comment=1'>\[Просмотреть комментарии\]</a>",
 					"<a href='?src=[REF(src)];hud=s;add_comment=1'>\[Добавить комментарий\]</a> "), "")
 	else if(isobserver(user))
 		. += "<hr><span class='info'><b>Черты:</b> [get_quirk_string()]</span>"
