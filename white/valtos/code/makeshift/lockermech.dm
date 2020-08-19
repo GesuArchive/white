@@ -57,7 +57,7 @@
 	output += "</div>"
 	return output
 
-/obj/mecha/makeshift/relay_container_resist(mob/living/user, obj/O)
+/obj/mecha/makeshift/relay_container_resist_act(mob/living/user, obj/O)
 	to_chat(user, "<span class='notice'>You lean on the back of [O] and start pushing so it falls out of [src].</span>")
 	if(do_after(user, 10, target = O))//Its a fukken locker
 		if(!user || user.stat != CONSCIOUS || user.loc != src || O.loc != src )
