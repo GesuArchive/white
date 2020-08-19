@@ -132,7 +132,7 @@
 /**
   * Show a message to this mob (visual or audible)
   */
-/mob/proc/show_message(msg, type, alt_msg, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
+/mob/proc/show_message(msg, type, alt_msg, alt_type, avoid_highlighting = FALSE)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 	if(!client)
 		return
 
@@ -159,7 +159,7 @@
 		if(type & MSG_AUDIBLE) //audio
 			to_chat(src, "<I>... кто-то что-то говорит ...</I>")
 		return
-	to_chat(src, msg)
+	to_chat(src, msg, avoid_highlighting = avoid_highlighting)
 
 /**
   * Generate a visible message from this atom
@@ -840,7 +840,11 @@
 		stat("ID раунда:", "[GLOB.round_id ? GLOB.round_id : "NULL"]")
 		stat("Серверное время:", "[time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]")
 		if (SSticker.round_start_time)
-			stat("Длительность раунда:", "[gameTimestamp("hh:mm:ss", (world.time - SSticker.round_start_time))]")
+			var/round_time = world.time - SSticker.round_start_time
+			if(round_time > MIDNIGHT_ROLLOVER)
+				stat(null, "Длительность раунда: [round(round_time/MIDNIGHT_ROLLOVER)]:[gameTimestamp("hh:mm:ss", round_time)]")
+			else
+				stat(null, "Длительность раунда: [gameTimestamp("hh:mm:ss", round_time)]")
 		else
 			stat("Длительность лобби:", "[gameTimestamp("hh:mm:ss", 0)]")
 		stat("Время на станции:", "[station_time_timestamp()]")

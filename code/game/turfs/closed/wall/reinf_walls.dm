@@ -3,7 +3,7 @@
 	desc = "Здоровенный укреплённый кусок металла, который служит для разделения помещений."
 	icon = 'icons/turf/walls/rbaywall.dmi'
 	icon_state = "r_wall"
-	opacity = 1
+	opacity = TRUE
 	density = TRUE
 
 	var/d_state = INTACT
