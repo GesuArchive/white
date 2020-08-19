@@ -58,7 +58,7 @@ export const Canister = (props, context) => {
                   return formatSiUnit(value * 1000, 1, 'Па');
                 }} />
             </LabeledControls.Item>
-            <LabeledControls.Item label="Вентиль">
+            <LabeledControls.Item label="Регулятор">
               <Box
                 position="relative"
                 left="-8px">
@@ -96,7 +96,7 @@ export const Canister = (props, context) => {
                   })} />
               </Box>
             </LabeledControls.Item>
-            <LabeledControls.Item label="Valve">
+            <LabeledControls.Item label="Вентиль">
               <Button
                 my={0.5}
                 width="50px"

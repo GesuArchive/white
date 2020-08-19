@@ -19,7 +19,7 @@ export const CargoBountyConsole = (props, context) => {
           buttons={(
             <Button
               icon="print"
-              content="Print Bounty List"
+              content="Распечатать список заказов"
               onClick={() => act('Print')} />
           )}>
           <Table border>
@@ -29,19 +29,19 @@ export const CargoBountyConsole = (props, context) => {
               color="label"
               fontSize={1.25}>
               <Table.Cell p={1} textAlign="center">
-                Bounty Object
+                Объект
               </Table.Cell>
               <Table.Cell p={1} textAlign="center">
-                Description
+                Описание
               </Table.Cell>
               <Table.Cell p={1} textAlign="center">
-                Progress
+                Прогресс
               </Table.Cell>
               <Table.Cell p={1} textAlign="center">
-                Value
+                Цена
               </Table.Cell>
               <Table.Cell p={1} textAlign="center">
-                Claim
+                Выполнение
               </Table.Cell>
             </Table.Row>
             {bountydata.map(bounty => (
@@ -64,7 +64,7 @@ export const CargoBountyConsole = (props, context) => {
                   p={1}
                   textAlign="center">
                   {bounty.priority === 1
-                    ? <Box>High Priority</Box>
+                    ? <Box>Высокий приоритет</Box>
                     : ""}
                   {bounty.completion_string}
                 </Table.Cell>
@@ -84,8 +84,8 @@ export const CargoBountyConsole = (props, context) => {
                       ? "check"
                       : ""}
                     content={bounty.claimed === 1
-                      ? "Claimed"
-                      : "Claim"}
+                      ? "Выполнено"
+                      : "Выполнить"}
                     disabled={bounty.claimed === 1}
                     color={bounty.can_claim === 1
                       ? 'green'
@@ -113,7 +113,7 @@ const BountyHeader = (props, context) => {
       <AnimatedNumber
         value={stored_cash}
         format={value => formatMoney(value)} />
-      {' credits'}
+      {' кредитов'}
     </Box>
   );
 };

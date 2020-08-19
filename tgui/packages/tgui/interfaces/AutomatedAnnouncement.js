@@ -4,8 +4,8 @@ import { Button, Input, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
 
 const TOOLTIP_TEXT = multiline`
-  %PERSON will be replaced with their name.
-  %RANK with their job.
+  %PERSON будет использоваться как имя.
+  %RANK будет использовать как должность.
 `;
 
 export const AutomatedAnnouncement = (props, context) => {
@@ -18,22 +18,22 @@ export const AutomatedAnnouncement = (props, context) => {
   } = data;
   return (
     <Window
-      title="Automated Announcement System"
+      title="Автоматизированная Система Оповещений"
       width={500}
       height={225}>
       <Window.Content>
         <Section
-          title="Arrival Announcement"
+          title="Аннонсирование прибытия"
           buttons={(
             <Button
               icon={arrivalToggle ? 'power-off' : 'times'}
               selected={arrivalToggle}
-              content={arrivalToggle ? 'On' : 'Off'}
+              content={arrivalToggle ? 'Вкл' : 'Выкл'}
               onClick={() => act('ArrivalToggle')} />
           )}>
           <LabeledList>
             <LabeledList.Item
-              label="Message"
+              label="Сообщение"
               buttons={(
                 <Button
                   icon="info"
@@ -50,17 +50,17 @@ export const AutomatedAnnouncement = (props, context) => {
           </LabeledList>
         </Section>
         <Section
-          title="Departmental Head Announcement"
+          title="Аннонсирование прибытия главы"
           buttons={(
             <Button
               icon={newheadToggle ? 'power-off' : 'times'}
               selected={newheadToggle}
-              content={newheadToggle ? 'On' : 'Off'}
+              content={newheadToggle ? 'Вкл' : 'Выкл'}
               onClick={() => act('NewheadToggle')} />
           )}>
           <LabeledList>
             <LabeledList.Item
-              label="Message"
+              label="Сообщение"
               buttons={(
                 <Button
                   icon="info"

@@ -22,12 +22,12 @@ export const Biogenerator = (props, context) => {
       {!!processing && (
         <Dimmer fontSize="32px">
           <Icon name="cog" spin={1} />
-          {' Processing...'}
+          {' В процессе...'}
         </Dimmer>
       )}
       <Window.Content scrollable>
         {!beaker && (
-          <NoticeBox>No Container</NoticeBox>
+          <NoticeBox>Нет контейнера</NoticeBox>
         )}
         {!!beaker && (
           <BiogeneratorContent />
@@ -73,12 +73,12 @@ export const BiogeneratorContent = (props, context) => {
         <Box
           inline
           color={biomass > 0 ? 'good' : 'bad'}>
-          {formatMoney(biomass)} Biomass
+          {formatMoney(biomass)} биомассы
         </Box>
       )}
       buttons={(
         <Fragment>
-          Search
+          Поиск
           <Input
             autoFocus
             value={searchText}
@@ -86,11 +86,11 @@ export const BiogeneratorContent = (props, context) => {
             mx={1} />
           <Button
             icon="eject"
-            content="Eject"
+            content="Изъять"
             onClick={() => act('detach')} />
           <Button
             icon="cog"
-            content="Activate"
+            content="Активировать"
             disabled={!can_process}
             onClick={() => act('activate')} />
         </Fragment>
@@ -114,8 +114,8 @@ export const BiogeneratorContent = (props, context) => {
           {items.length === 0 && (
             <NoticeBox>
               {searchText.length === 0
-                ? 'No items in this category.'
-                : 'No results found.'}
+                ? 'Ничего нет в этой категории.'
+                : 'Ничего не найдено.'}
             </NoticeBox>
           )}
           <Table>

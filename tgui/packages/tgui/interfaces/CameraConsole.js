@@ -105,7 +105,7 @@ export const CameraConsoleContent = (props, context) => {
         autoFocus
         fluid
         mb={1}
-        placeholder="Search for a camera"
+        placeholder="Искать камеру"
         onInput={(e, value) => setSearchText(value)} />
       <Section>
         {cameras.map(camera => (

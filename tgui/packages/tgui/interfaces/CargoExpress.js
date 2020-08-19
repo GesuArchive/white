@@ -14,7 +14,7 @@ export const CargoExpress = (props, context) => {
       resizable>
       <Window.Content scrollable>
         <InterfaceLockNoticeBox
-          accessText="a QM-level ID card" />
+          accessText="ID-карта завхоза" />
         {!data.locked && (
           <CargoExpressContent />
         )}
@@ -28,18 +28,18 @@ const CargoExpressContent = (props, context) => {
   return (
     <Fragment>
       <Section
-        title="Cargo Express"
+        title="Снабжение экспресс"
         buttons={(
           <Box inline bold>
             <AnimatedNumber
               value={Math.round(data.points)} />
-            {' credits'}
+            {' кредитов'}
           </Box>
         )}>
         <LabeledList>
-          <LabeledList.Item label="Landing Location">
+          <LabeledList.Item label="Точка приёма">
             <Button
-              content="Cargo Bay"
+              content="Отдел снабжения"
               selected={!data.usingBeacon}
               onClick={() => act('LZCargo')} />
             <Button
@@ -53,7 +53,7 @@ const CargoExpressContent = (props, context) => {
               disabled={!data.canBuyBeacon}
               onClick={() => act('printBeacon')} />
           </LabeledList.Item>
-          <LabeledList.Item label="Notice">
+          <LabeledList.Item label="Заметка">
             {data.message}
           </LabeledList.Item>
         </LabeledList>

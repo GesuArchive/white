@@ -99,7 +99,7 @@ export const Canvas = (props, context) => {
             {!data.finalized && (
               <Button.Confirm
                 onClick={() => act("finalize")}
-                content="Finalize" />
+                content="Завершить" />
             )}
             {data.name}
           </Box>

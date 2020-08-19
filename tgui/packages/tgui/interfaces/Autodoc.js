@@ -11,7 +11,7 @@ export const Autodoc = (props, context) => {
   if (data.mode === 1) {
     return (
       <Window
-        width={476}
+        width={496}
         height={440}
         resizable>
         <Section

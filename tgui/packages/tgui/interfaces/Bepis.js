@@ -14,53 +14,54 @@ export const Bepis = (props, context) => {
       <Window.Content>
         <Section title="Business Exploration Protocol Incubation Sink">
           <Section
-            title="Information"
+            title="Информация"
             backgroundColor="#450F44"
             buttons={(
               <Button
                 icon="power-off"
-                content={data.manual_power ? 'Off' : 'On'}
+                content={data.manual_power ? 'Выкл' : 'Вкл'}
                 selected={!data.manual_power}
                 onClick={() => act('toggle_power')} />
             )}>
-            All you need to know about the B.E.P.I.S. and you!
-            The B.E.P.I.S. performs hundreds of tests a second
-            using electrical and financial resources to invent
-            new products, or discover new technologies otherwise
-            overlooked for being too risky or too niche to produce!
+            Все, что тебе нужно знать о B.E.P.I.S. и тебе!
+            B.E.P.I.S. выполняет сотни тестов в секунду
+            используя электрические и финансовые ресурсы для изобретения
+            новых продуктов или открыватия новых технологий иным образом
+            упускающихся из виду из-за того, что они слишком
+            рискованные или слишком нишевые для производства!
           </Section>
           <Section
-            title="Payer's Account"
+            title="Платёжный аккаунт"
             buttons={(
               <Button
                 icon="redo-alt"
-                content="Reset Account"
+                content="Сбросить аккаунт"
                 onClick={() => act('account_reset')} />
             )}>
-            Console is currently being operated
-            by {data.account_owner ? data.account_owner : 'no one'}.
+            Консоль на данный момент оперируется
+            {data.account_owner ? data.account_owner : 'N/A'}.
           </Section>
           <Grid>
             <Grid.Column size={1.5}>
-              <Section title="Stored Data and Statistics">
+              <Section title="Накопленные данные и статистика">
                 <LabeledList>
-                  <LabeledList.Item label="Deposited Credits">
+                  <LabeledList.Item label="Депозит">
                     {data.stored_cash}
                   </LabeledList.Item>
-                  <LabeledList.Item label="Investment Variability">
+                  <LabeledList.Item label="Вариативность инвестиций">
                     {data.accuracy_percentage}%
                   </LabeledList.Item>
-                  <LabeledList.Item label="Innovation Bonus">
+                  <LabeledList.Item label="Бонус за инновации">
                     {data.positive_cash_offset}
                   </LabeledList.Item>
-                  <LabeledList.Item label="Risk Offset"
+                  <LabeledList.Item label="Компенсация риска"
                     color="bad">
                     {data.negative_cash_offset}
                   </LabeledList.Item>
-                  <LabeledList.Item label="Deposit Amount">
+                  <LabeledList.Item label="Сумма вклада">
                     <NumberInput
                       value={amount}
-                      unit="Credits"
+                      unit="Кредиты"
                       minValue={100}
                       maxValue={30000}
                       step={100}
@@ -74,30 +75,30 @@ export const Bepis = (props, context) => {
               <Box>
                 <Button
                   icon="donate"
-                  content="Deposit Credits"
+                  content="Вложить кредиты"
                   disabled={data.manual_power === 1
                     || data.silicon_check === 1}
                   onClick={() => act('deposit_cash')}
                 />
                 <Button
                   icon="eject"
-                  content="Withdraw Credits"
+                  content="Снять кредиты"
                   disabled={data.manual_power === 1}
                   onClick={() => act('withdraw_cash')} />
               </Box>
             </Grid.Column>
             <Grid.Column>
-              <Section title="Market Data and Analysis">
+              <Section title="Рыночные данные и анализ">
                 <Box>
-                  Average technology cost: {data.mean_value}
+                  Средняя стоимость технологии: {data.mean_value}
                 </Box>
                 <Box>
-                  Current chance of Success: Est. {data.success_estimate}%
+                  Текущий шанс на успех: {data.success_estimate}%
                 </Box>
                 {data.error_name && (
                   <Box color="bad">
-                    Previous Failure Reason: Deposited cash value too low.
-                    Please insert more money for future success.
+                    Причина предыдущей неудачи: Слишком маленькая сумма.
+                    Пожалуйста, вставьте больше денег для будущего успеха.
                   </Box>
                 )}
                 <Box m={1} />
@@ -105,7 +106,7 @@ export const Bepis = (props, context) => {
                   icon="microscope"
                   disabled={data.manual_power === 1}
                   onClick={() => act('begin_experiment')}
-                  content="Begin Testing" />
+                  content="Начать тестирование" />
               </Section>
             </Grid.Column>
           </Grid>
