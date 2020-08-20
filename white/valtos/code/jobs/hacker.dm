@@ -65,7 +65,7 @@
 			H.Paralyze(50)
 			H.electrocute_act(10, src)
 			H.emote("scream")
-			to_chat(H, "<span class='danger'>УЖАС! ЧТО ЭТО ТАКОЕ БЛЯТЬ?! СУКА!!!</span>")
+			to_chat(H, "<span class='danger'>КАК?!</span>")
 			visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
 
 /obj/item/clothing/suit/space/wzzzz/hacker_rig/equipped(mob/living/carbon/human/H, slot)
@@ -76,7 +76,7 @@
 			H.Paralyze(50)
 			H.electrocute_act(10, src)
 			H.emote("scream")
-			to_chat(H, "<span class='danger'>УЖАС! ЧТО ЭТО ТАКОЕ БЛЯТЬ?! СУКА!!!</span>")
+			to_chat(H, "<span class='danger'>КАК?!</span>")
 			visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
 
 /obj/item/clothing/head/helmet/space/chronos/hacker/equipped(mob/living/carbon/human/H, slot)
@@ -87,7 +87,7 @@
 			H.Paralyze(50)
 			H.electrocute_act(10, src)
 			H.emote("scream")
-			to_chat(H, "<span class='danger'>УЖАС! ЧТО ЭТО ТАКОЕ БЛЯТЬ?! СУКА!!!</span>")
+			to_chat(H, "<span class='danger'>КАК?!</span>")
 			visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
 
 /obj/item/clothing/head/helmet/space/chronos/hacker
@@ -292,7 +292,7 @@
 				/obj/item/stock_parts/capacitor/quadratic = 2)
 	time = 150
 	category = CAT_CLOTHING
-	always_availible = TRUE
+	always_availible = FALSE
 
 /datum/crafting_recipe/hacker/suit
 	name = "AQ-Квантовый Экзоскелет Н4781"
@@ -314,7 +314,7 @@
 				/obj/item/stock_parts/capacitor/quadratic = 20)
 	time = 150
 	category = CAT_CLOTHING
-	always_availible = TRUE
+	always_availible = FALSE
 
 /datum/crafting_recipe/hacker/gloves
 	name = "DZ-Блюспластовые Перчатки U8621"
@@ -336,7 +336,7 @@
 				/obj/item/stock_parts/capacitor/quadratic = 40)
 	time = 150
 	category = CAT_CLOTHING
-	always_availible = TRUE
+	always_availible = FALSE
 
 /*
 // Hacking

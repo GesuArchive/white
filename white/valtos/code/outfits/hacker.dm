@@ -39,10 +39,9 @@
 	H.AddSpell(new /obj/effect/proc_holder/spell/self/hacker_heal(null))
 	H.AddSpell(new /obj/effect/proc_holder/spell/self/hacker_immater(null))
 
-	H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/head)
-	H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/suit)
-	H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/gloves)
-
 	spawn(5 SECONDS)
 		H.hud_used.update_parallax_pref(H, TRUE)
 
+		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/head)
+		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/suit)
+		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/gloves)
