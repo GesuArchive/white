@@ -31,8 +31,8 @@
 
 
 /turf/closed/lifeweb/rock/Initialize()
+	. = ..()
 	var/matrix/M = new
 	M.Translate(-4, -4)
 	transform = M
 	icon = smooth_icon
-	. = ..()
