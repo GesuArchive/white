@@ -49,31 +49,35 @@
 	colour = list(rgb(255,15,15), rgb(0,255,25), rgb(0,0,255), rgb(0,0,0))
 	priority = 6
 
-/obj/item/clothing/suit/space/wzzzz/hacker_rig/equipped(mob/living/carbon/human/H, slot)
+/obj/item/clothing/suit/space/wzzzz/hacker_rig/equipped(mob/user, slot)
 	. = ..()
-	if(!H.dna)
-		return
-	spawn(10)
-		if(!HAS_TRAIT(H, TRAIT_HACKER))
-			H.dropItemToGround(src, TRUE)
-			H.Paralyze(50)
-			H.electrocute_act(10, src)
-			H.emote("scream")
-			to_chat(H, "<span class='danger'>КАК?!</span>")
-			visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(!H.dna)
+			return
+		spawn(10)
+			if(!HAS_TRAIT(H, TRAIT_HACKER))
+				H.dropItemToGround(src, TRUE)
+				H.Paralyze(50)
+				H.electrocute_act(10, src)
+				H.emote("scream")
+				to_chat(H, "<span class='danger'>КАК?!</span>")
+				visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
 
-/obj/item/clothing/head/helmet/space/chronos/hacker/equipped(mob/living/carbon/human/H, slot)
+/obj/item/clothing/head/helmet/space/chronos/hacker/equipped(mob/user, slot)
 	. = ..()
-	if(!H.dna)
-		return
-	spawn(10)
-		if(!HAS_TRAIT(H, TRAIT_HACKER))
-			H.dropItemToGround(src, TRUE)
-			H.Paralyze(50)
-			H.electrocute_act(10, src)
-			H.emote("scream")
-			to_chat(H, "<span class='danger'>КАК?!</span>")
-			visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(!H.dna)
+			return
+		spawn(10)
+			if(!HAS_TRAIT(H, TRAIT_HACKER))
+				H.dropItemToGround(src, TRUE)
+				H.Paralyze(50)
+				H.electrocute_act(10, src)
+				H.emote("scream")
+				to_chat(H, "<span class='danger'>КАК?!</span>")
+				visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
 
 /obj/item/clothing/glasses/hud/wzzzz/hacker_rig
 	name = "NI-Трансфакторный Визор C3451"
@@ -93,16 +97,18 @@
 /obj/item/clothing/glasses/hud/wzzzz/hacker_rig/equipped(mob/user, slot)
 	. = ..()
 
-	if(!H.dna)
-		return
-	spawn(10)
-		if(!HAS_TRAIT(H, TRAIT_HACKER))
-			H.dropItemToGround(src, TRUE)
-			H.Paralyze(50)
-			H.electrocute_act(10, src)
-			H.emote("scream")
-			to_chat(H, "<span class='danger'>КАК?!</span>")
-			visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(!H.dna)
+			return
+		spawn(10)
+			if(!HAS_TRAIT(H, TRAIT_HACKER))
+				H.dropItemToGround(src, TRUE)
+				H.Paralyze(50)
+				H.electrocute_act(10, src)
+				H.emote("scream")
+				to_chat(H, "<span class='danger'>КАК?!</span>")
+				visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
 
 	if(slot != ITEM_SLOT_EYES)
 		return
