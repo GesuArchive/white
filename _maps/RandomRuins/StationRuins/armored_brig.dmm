@@ -312,6 +312,7 @@
 /area/security/prison)
 "bd" = (
 /obj/structure/grille,
+/obj/structure/lattice,
 /turf/template_noop,
 /area/template_noop)
 "be" = (
@@ -1012,9 +1013,6 @@
 /obj/structure/table/wood,
 /obj/item/folder/red,
 /obj/item/stamp/hos,
-/obj/item/gun/ballistic/automatic/wzzzz/stg,
-/obj/item/ammo_box/magazine/wzzzz/stg,
-/obj/item/ammo_box/magazine/wzzzz/stg,
 /turf/open/floor/engine,
 /area/crew_quarters/heads/hos)
 "cv" = (
@@ -2522,7 +2520,12 @@
 /obj/machinery/holopad/secure,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer3,
-/mob/living/simple_animal/bot/secbot/ed209,
+/mob/living/simple_animal/bot/secbot/ed209{
+	arrest_type = 1;
+	idcheck = 1;
+	name = "Castratus";
+	weaponscheck = 1
+	},
 /turf/open/floor/engine,
 /area/security/main)
 "fK" = (
@@ -7091,7 +7094,7 @@ nn
 ae
 ab
 ab
-ab
+ag
 ab
 ab
 ab
@@ -7135,7 +7138,7 @@ no
 of
 ab
 ab
-ab
+ag
 ab
 ab
 ab
@@ -7177,10 +7180,10 @@ ap
 mY
 no
 of
-ab
-ab
-ab
-ab
+ag
+ag
+ag
+ag
 ab
 ab
 ab
@@ -7222,7 +7225,7 @@ mY
 no
 of
 ab
-ab
+ag
 ab
 ab
 ab
@@ -7266,7 +7269,7 @@ mY
 np
 ae
 ab
-ab
+ag
 ab
 ab
 ab
@@ -7310,7 +7313,7 @@ mY
 no
 of
 ab
-ab
+ag
 ab
 ab
 ab
@@ -7353,10 +7356,10 @@ ap
 mY
 no
 of
-ab
-ab
-ab
-ab
+ag
+ag
+ag
+ag
 ab
 ab
 ab
@@ -7399,7 +7402,7 @@ no
 of
 ab
 ab
-ab
+ag
 ab
 ab
 ab
@@ -7767,7 +7770,7 @@ ab
 ab
 ab
 bd
-bd
+ag
 ae
 aJ
 aV
@@ -7810,7 +7813,7 @@ ab
 ab
 ab
 ab
-ag
+kL
 ag
 ag
 aJ
@@ -7854,7 +7857,7 @@ ab
 ab
 ab
 ab
-ab
+kL
 ab
 ag
 aJ
@@ -7898,7 +7901,7 @@ ab
 ab
 ab
 ab
-ab
+kL
 ab
 ag
 aJ
@@ -7942,8 +7945,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+kL
+ag
 ag
 ag
 ag
@@ -7986,10 +7989,10 @@ ab
 ab
 ab
 ab
+kL
 ab
 ab
-ab
-ab
+ag
 ab
 ag
 ae
@@ -8030,10 +8033,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
+kL
+kL
+kL
+kL
 ab
 ag
 ae
@@ -8077,8 +8080,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+kL
+ag
 bF
 ae
 ae
@@ -8121,7 +8124,7 @@ ab
 ab
 ab
 ab
-ab
+kL
 ab
 ab
 ag
@@ -8165,15 +8168,15 @@ ab
 ab
 ab
 ab
+kL
+ab
+ab
+ag
 ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
+ag
 ab
 ag
 ab
@@ -8209,15 +8212,15 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+kL
+kL
+kL
+kL
+kL
+kL
+kL
+kL
+kL
 ab
 ag
 ab
@@ -8261,7 +8264,7 @@ ab
 ab
 ab
 ab
-ab
+kL
 ab
 ag
 ab
@@ -8305,7 +8308,7 @@ ab
 ab
 ab
 ab
-ab
+kL
 ab
 ag
 ab
@@ -8349,7 +8352,7 @@ ab
 ab
 ab
 ab
-ab
+kL
 ab
 ag
 ab
@@ -8393,7 +8396,7 @@ ab
 ab
 ab
 ab
-ab
+kL
 ag
 ag
 ag
@@ -8437,7 +8440,7 @@ ab
 ab
 ab
 ab
-ab
+kL
 ab
 ab
 ag
@@ -8481,7 +8484,7 @@ ab
 ab
 ab
 ab
-ab
+kL
 ab
 ab
 ab
@@ -8525,7 +8528,7 @@ ab
 ab
 ab
 ab
-ab
+kL
 ab
 ab
 ab
@@ -8569,8 +8572,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+kL
+ag
 ag
 ag
 ag
@@ -8613,7 +8616,7 @@ ab
 ab
 ab
 ab
-ab
+kL
 ab
 ab
 ab
@@ -8657,7 +8660,7 @@ ab
 ab
 ab
 ab
-ab
+kL
 ag
 ag
 ag
@@ -8701,7 +8704,7 @@ ab
 ab
 ab
 ab
-ab
+kL
 ab
 ab
 ab
@@ -8745,7 +8748,7 @@ ab
 ab
 ab
 ab
-ab
+kL
 ag
 ag
 ag
@@ -8789,7 +8792,7 @@ ab
 ab
 ab
 ab
-ab
+kL
 ab
 ab
 ab
@@ -8833,10 +8836,10 @@ ab
 ab
 ab
 ac
-ag
-ag
-ag
-ag
+kL
+kL
+kL
+kL
 ag
 ag
 bI
@@ -8880,7 +8883,7 @@ ab
 ab
 ab
 ab
-ab
+kL
 ab
 ag
 aW
@@ -8924,9 +8927,9 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
+kL
+ag
+ag
 aW
 aW
 aW
@@ -8968,9 +8971,9 @@ ab
 ab
 ab
 ab
+kL
 ab
-ab
-ab
+ag
 ab
 ab
 ab
@@ -9012,13 +9015,13 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ag
-ag
+kL
+kL
+kL
+kL
+kL
+kL
+kL
 ag
 bi
 dU
