@@ -14,7 +14,8 @@
 	var/smooth_icon = 'white/valtos/icons/lifeweb/caves_fuck.dmi'
 	icon_state = "rock"
 	smoothing_flags = SMOOTH_CORNERS
-	canSmoothWith = list(/turf/closed/lifeweb/rock)
+	smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN)
+	canSmoothWith = list(SMOOTH_GROUP_ALIEN_RESIN)
 	baseturfs = /turf/open/floor/plating/asteroid/airless
 	initial_gas_mix = AIRLESS_ATMOS
 	opacity = 1
