@@ -14,7 +14,7 @@
 	var/smooth_icon = 'white/valtos/icons/lifeweb/caves_fuck.dmi'
 	icon_state = "rock"
 	smoothing_flags = SMOOTH_CORNERS
-	canSmoothWith = null
+	canSmoothWith = list(/turf/closed/lifeweb/rock)
 	baseturfs = /turf/open/floor/plating/asteroid/airless
 	initial_gas_mix = AIRLESS_ATMOS
 	opacity = 1
@@ -31,8 +31,6 @@
 
 
 /turf/closed/lifeweb/rock/Initialize()
-	if (!canSmoothWith)
-		canSmoothWith = list(/turf/closed/lifeweb/rock)
 	var/matrix/M = new
 	M.Translate(-4, -4)
 	transform = M

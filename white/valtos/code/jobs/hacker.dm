@@ -114,7 +114,7 @@
 	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100,"energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100, "magic" = 100, "wound" = 100)
-	slowdown = -2
+	//slowdown = -2
 	strip_delay = 1300
 
 /obj/item/clothing/gloves/combat/wzzzz/guard
