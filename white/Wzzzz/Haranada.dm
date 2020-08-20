@@ -401,26 +401,6 @@
 	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
 
-/obj/item/clothing/glasses/hud/wzzzz/hacker_rig
-	name = "хакочки"
-	desc = "А ты заслуживаешь это?"
-	alt_desc = "Глупая свинья."
-	name = "hacker googless"
-	desc = "Do you deserve that?"
-	alt_desc = "Do you deserve that?"
-	icon_state = "hardsuit1-hacker_rig"
-	inhand_icon_state = "hardsuit1-hacker_rig"
-	darkness_view = 10
-	flash_protect = 3
-	resistance_flags = NONE
-	var/list/datahuds = list(DATA_HUD_SECURITY_ADVANCED, DATA_HUD_DIAGNOSTIC_BASIC)
-	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
-	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
-	hud_type = DATA_HUD_SECURITY_ADVANCED | DATA_HUD_SECURITY_ADVANCED | DATA_HUD_SECURITY_ADVANCED | DATA_HUD_HACKER
-	vision_flags = SEE_MOBS | SEE_TURFS
-	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
-	hud_trait = TRAIT_SECURITY_HUD
-
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_engineer_rig
 	name = "ert engineer hardsuit helmet"
 	desc = "Old style of ert hardsuit."

@@ -90,6 +90,41 @@
 			to_chat(H, "<span class='danger'>КАК?!</span>")
 			visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
 
+/obj/item/clothing/glasses/hud/wzzzz/hacker_rig
+	name = "NI-Трансфакторный Визор C3451"
+	desc = "А ты заслуживаешь это?"
+	icon_state = "hardsuit1-hacker_rig"
+	inhand_icon_state = "hardsuit1-hacker_rig"
+	darkness_view = 10
+	flash_protect = FLASH_PROTECTION_WELDER
+	resistance_flags = NONE
+	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
+	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
+	var/list/hudlist = list(DATA_HUD_MEDICAL_ADVANCED, DATA_HUD_DIAGNOSTIC_ADVANCED, DATA_HUD_SECURITY_ADVANCED, DATA_HUD_HACKER)
+	vision_flags = SEE_MOBS | SEE_TURFS
+	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
+	hud_trait = TRAIT_SECURITY_HUD
+
+/obj/item/clothing/glasses/hud/wzzzz/hacker_rig/equipped(mob/user, slot)
+	. = ..()
+	if(slot != ITEM_SLOT_EYES)
+		return
+	if(ishuman(user))
+		for(var/hud in hudlist)
+			var/datum/atom_hud/H = GLOB.huds[hud]
+			H.add_hud_to(user)
+		ADD_TRAIT(user, TRAIT_MEDICAL_HUD, GLASSES_TRAIT)
+		ADD_TRAIT(user, TRAIT_SECURITY_HUD, GLASSES_TRAIT)
+
+/obj/item/clothing/glasses/hud/wzzzz/hacker_rig/dropped(mob/user)
+	. = ..()
+	REMOVE_TRAIT(user, TRAIT_MEDICAL_HUD, GLASSES_TRAIT)
+	REMOVE_TRAIT(user, TRAIT_SECURITY_HUD, GLASSES_TRAIT)
+	if(ishuman(user))
+		for(var/hud in hudlist)
+			var/datum/atom_hud/H = GLOB.huds[hud]
+			H.remove_hud_from(user)
+
 /obj/item/clothing/head/helmet/space/chronos/hacker
 	name = "TK-Нанобролитовый Шлем X1845"
 	desc = "А ты заслуживаешь это?"
