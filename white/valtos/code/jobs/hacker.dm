@@ -49,27 +49,10 @@
 	colour = list(rgb(255,15,15), rgb(0,255,25), rgb(0,0,255), rgb(0,0,0))
 	priority = 6
 
-/obj/item/clothing/glasses/hud/wzzzz/hacker_rig/emp_act(severity)
-	. = ..()
-	if(. & EMP_PROTECT_SELF)
-		return
-	var/mob/living/carbon/human/user = src.loc
-	to_chat(user, "<span class='danger'>E:FATAL:RAM_READ_FAIL\nE:FATAL:STACK_EMPTY\nE:FATAL:READ_NULL_POINT\nE:FATAL:PWR_BUS_OVERLOAD</span>")
-	SEND_SOUND(user, sound('sound/ai/hacker/emp.ogg'))
-
-/obj/item/clothing/glasses/hud/wzzzz/hacker_rig/equipped(mob/living/carbon/human/H, slot)
-	. = ..()
-	spawn(10)
-		if(!HAS_TRAIT(H, TRAIT_HACKER))
-			H.dropItemToGround(src, TRUE)
-			H.Paralyze(50)
-			H.electrocute_act(10, src)
-			H.emote("scream")
-			to_chat(H, "<span class='danger'>КАК?!</span>")
-			visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
-
 /obj/item/clothing/suit/space/wzzzz/hacker_rig/equipped(mob/living/carbon/human/H, slot)
 	. = ..()
+	if(!H.dna)
+		return
 	spawn(10)
 		if(!HAS_TRAIT(H, TRAIT_HACKER))
 			H.dropItemToGround(src, TRUE)
@@ -81,6 +64,8 @@
 
 /obj/item/clothing/head/helmet/space/chronos/hacker/equipped(mob/living/carbon/human/H, slot)
 	. = ..()
+	if(!H.dna)
+		return
 	spawn(10)
 		if(!HAS_TRAIT(H, TRAIT_HACKER))
 			H.dropItemToGround(src, TRUE)
@@ -107,6 +92,18 @@
 
 /obj/item/clothing/glasses/hud/wzzzz/hacker_rig/equipped(mob/user, slot)
 	. = ..()
+
+	if(!H.dna)
+		return
+	spawn(10)
+		if(!HAS_TRAIT(H, TRAIT_HACKER))
+			H.dropItemToGround(src, TRUE)
+			H.Paralyze(50)
+			H.electrocute_act(10, src)
+			H.emote("scream")
+			to_chat(H, "<span class='danger'>КАК?!</span>")
+			visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
+
 	if(slot != ITEM_SLOT_EYES)
 		return
 	if(ishuman(user))
@@ -124,6 +121,14 @@
 		for(var/hud in hudlist)
 			var/datum/atom_hud/H = GLOB.huds[hud]
 			H.remove_hud_from(user)
+
+/obj/item/clothing/glasses/hud/wzzzz/hacker_rig/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF)
+		return
+	var/mob/living/carbon/human/user = src.loc
+	to_chat(user, "<span class='danger'>E:FATAL:RAM_READ_FAIL\nE:FATAL:STACK_EMPTY\nE:FATAL:READ_NULL_POINT\nE:FATAL:PWR_BUS_OVERLOAD</span>")
+	SEND_SOUND(user, sound('sound/ai/hacker/emp.ogg'))
 
 /obj/item/clothing/head/helmet/space/chronos/hacker
 	name = "TK-Нанобролитовый Шлем X1845"
