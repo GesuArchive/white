@@ -319,11 +319,6 @@
 /datum/gear/uniform/rank/security
 	subtype_path = /datum/gear/uniform/rank/security
 	allowed_roles = list("Security Officer")
-
-/datum/gear/uniform/rank/security/white
-	display_name = "белый комбинезон офицера"
-	path = /obj/item/clothing/under/rank/security/officer/white
-
 /datum/gear/uniform/rank/security/skirt
 	display_name = "юбкомбез офицера"
 	path = /obj/item/clothing/under/rank/security/officer/skirt
