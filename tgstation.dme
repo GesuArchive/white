@@ -3502,6 +3502,7 @@
 #include "white\valtos\code\loadout\loadout_gloves.dm"
 #include "white\valtos\code\loadout\loadout_hat.dm"
 #include "white\valtos\code\loadout\loadout_ooc.dm"
+#include "white\valtos\code\loadout\loadout_shoes.dm"
 #include "white\valtos\code\loadout\loadout_suit.dm"
 #include "white\valtos\code\loadout\loadout_uniform.dm"
 #include "white\valtos\code\makeshift\crossbow.dm"
