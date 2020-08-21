@@ -73,19 +73,19 @@
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/under/rank/medical/doctor/blue
-	name = "медицинский халат"
+	name = "синий медицинский халат"
 	desc = "Он изготовлен из специального волокна, которое обеспечивает незначительную защиту от биологических опасностей. Этот в голубом цвете."
 	icon_state = "scrubsblue"
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/medical/doctor/green
-	name = "медицинский халат"
+	name = "зелёный медицинский халат"
 	desc = "Он изготовлен из специального волокна, которое обеспечивает незначительную защиту от биологических опасностей. Этот зелёный."
 	icon_state = "scrubsgreen"
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/medical/doctor/purple
-	name = "медицинский халат"
+	name = "фиолетовый медицинский халат"
 	desc = "Он изготовлен из специального волокна, которое обеспечивает незначительную защиту от биологических опасностей. Этот фиолетовый."
 	icon_state = "scrubspurple"
 	can_adjust = FALSE
@@ -117,16 +117,16 @@
 	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/medical/paramedic
-	desc = "It's made of a special fiber that provides minor protection against biohazards. It has a dark blue cross on the chest denoting that the wearer is a trained paramedic."
-	name = "paramedic jumpsuit"
+	desc = "Он сделан из специального волокна, обеспечивающего незначительную защиту от биологических опасностей. На груди есть темно-синий крест, обозначающий, что владелец - обученный фельдшер."
+	name = "комбинезон парамедика"
 	icon_state = "paramedic"
 	inhand_icon_state = "w_suit"
 	permeability_coefficient = 0.5
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/under/rank/medical/paramedic/skirt
-	name = "paramedic jumpskirt"
-	desc = "It's made of a special fiber that provides minor protection against biohazards. It has a dark blue cross on the chest denoting that the wearer is a trained paramedic."
+	name = "юбкомбинезон парамедика"
+	desc = "Он сделан из специального волокна, обеспечивающего незначительную защиту от биологических опасностей. На груди есть темно-синий крест, обозначающий, что владелец - обученный фельдшер."
 	icon_state = "paramedic_skirt"
 	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
