@@ -75,8 +75,7 @@
 /client
 	var/mc_cached = 0
 
-/mob/living/carbon/human/Stat()
-	..()
-	if(statpanel("Игра"))
-		stat(null, null)
-		stat("Метакэш:",      	client.mc_cached)
+/mob/living/carbon/human/get_status_tab_items()
+	. = ..()
+	. += ""
+	. += "Метакэш: [client.mc_cached]"
