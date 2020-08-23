@@ -23,7 +23,7 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	prepare_huds()
 
 	if(length(CONFIG_GET(keyed_list/cross_server)))
-		verbs += /mob/dead/proc/server_hop
+		add_verb(src, /mob/dead/proc/server_hop)
 	set_focus(src)
 	return INITIALIZE_HINT_NORMAL
 
@@ -51,26 +51,24 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	step_y = _step_y
 	Moved(oldloc, NONE, TRUE)
 
-/mob/dead/Stat()
-	..()
-
-	if(!statpanel("Игра"))
-		return
-	stat("Режим:", "[SSticker.hide_mode ? "Secret" : "[GLOB.master_mode]"]")
+/mob/dead/get_status_tab_items()
+	. = ..()
+	. += ""
+	. += "Режим: [SSticker.hide_mode ? "Secret" : "[GLOB.master_mode]"]"
 
 	if(SSticker.HasRoundStarted())
 		return
 
 	var/time_remaining = SSticker.GetTimeLeft()
 	if(time_remaining > 0)
-		stat("Таймер:", "[round(time_remaining/10)]с")
+		. += "Таймер: [round(time_remaining/10)]с"
 	else if(time_remaining == -10)
-		stat("Таймер:", "ОТЛОЖЕНО")
+		. += "Таймер: ОТЛОЖЕНО"
 	else
-		stat("Таймер:", "СКОРО")
+		. += "Таймер: СКОРО"
 
-	stat("Игроки:", "[SSticker.totalPlayers]")
-	stat("Готовы:", "[SSticker.totalPlayersReady]")
+	. += "Игроки: [SSticker.totalPlayers]"
+	. += "Готовы: [SSticker.totalPlayersReady]"
 
 /mob/dead/proc/server_hop()
 	set category = "OOC"
@@ -83,7 +81,7 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	var/pick
 	switch(csa.len)
 		if(0)
-			verbs -= /mob/dead/proc/server_hop
+			remove_verb(src, /mob/dead/proc/server_hop)
 			to_chat(src, "<span class='notice'>Server Hop has been disabled.</span>")
 		if(1)
 			pick = csa[1]

@@ -121,13 +121,11 @@
 #undef VAMP_DRAIN_AMOUNT
 
 
-/mob/living/carbon/Stat()
-	..()
-	if(statpanel("Игра"))
-		var/obj/item/organ/heart/vampire/darkheart = getorgan(/obj/item/organ/heart/vampire)
-		if(darkheart)
-			stat(null, "<span class='notice'>Уровень крови: [blood_volume]/[BLOOD_VOLUME_MAXIMUM].</span>")
-			return 1
+/mob/living/carbon/get_status_tab_items()
+	. = ..()
+	var/obj/item/organ/heart/vampire/darkheart = getorgan(/obj/item/organ/heart/vampire)
+	if(darkheart)
+		. += "<span class='notice'>Уровень крови: [blood_volume]/[BLOOD_VOLUME_MAXIMUM].</span>"
 
 
 /obj/item/organ/heart/vampire

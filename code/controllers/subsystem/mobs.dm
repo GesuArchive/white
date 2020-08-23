@@ -12,7 +12,7 @@ SUBSYSTEM_DEF(mobs)
 	var/static/list/crabstotal = list()
 
 /datum/controller/subsystem/mobs/stat_entry()
-	..("P:[GLOB.mob_living_list.len]")
+	return ..("P:[GLOB.mob_living_list.len]")
 
 /datum/controller/subsystem/mobs/proc/MaxZChanged()
 	if (!islist(clients_by_zlevel))
