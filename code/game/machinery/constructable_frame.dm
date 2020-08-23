@@ -120,7 +120,7 @@
 			if(istype(P, /obj/item/circuitboard/machine))
 				var/obj/item/circuitboard/machine/B = P
 				if(!B.build_path)
-					to_chat(user, "<span class'warning'>Эта плата повреждена судя по всему.</span>")
+					to_chat(user, "<span class='warning'>Эта плата повреждена судя по всему.</span>")
 					return
 				if(!anchored && B.needs_anchored)
 					to_chat(user, "<span class='warning'>Рама должна быть прикручена для работы!</span>")

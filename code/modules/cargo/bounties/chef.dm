@@ -43,7 +43,7 @@
 	name = "Хлебушек"
 	description = "Проблемы с центральным планированием привели к резкому росту цен на хлеб. Отправьте немного хлеба, чтобы ослабить напряженность."
 	reward = 1000
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/store/bread, /obj/item/reagent_containers/food/snacks/breadslice, /obj/item/reagent_containers/food/snacks/bun, /obj/item/reagent_containers/food/snacks/pizzabread, /obj/item/reagent_containers/food/snacks/rawpastrybase)
+	wanted_types = list(/obj/item/food/bread, /obj/item/food/breadslice, /obj/item/reagent_containers/food/snacks/bun, /obj/item/reagent_containers/food/snacks/pizzabread, /obj/item/reagent_containers/food/snacks/rawpastrybase)
 
 /datum/bounty/item/chef/pie
 	name = "Пирог"

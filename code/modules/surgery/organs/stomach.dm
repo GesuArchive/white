@@ -47,7 +47,7 @@
 		applyOrganDamage(1)
 
 /obj/item/organ/stomach/get_availability(datum/species/S)
-	return !(NOSTOMACH in S.species_traits)
+	return !(NOSTOMACH in S.inherent_traits)
 
 /obj/item/organ/stomach/proc/handle_disgust(mob/living/carbon/human/H)
 	if(H.disgust)

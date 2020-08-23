@@ -1179,59 +1179,6 @@
 	riding_datum.handle_vehicle_layer()
 	. = ..(target, force, check_loc)
 
-/mob/living/carbon/human/proc/is_shove_knockdown_blocked() //If you want to add more things that block shove knockdown, extend this
-	var/list/body_parts = list(head, wear_mask, wear_suit, w_uniform, back, gloves, shoes, belt, s_store, glasses, ears, wear_id) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
-	for(var/bp in body_parts)
-		if(istype(bp, /obj/item/clothing))
-			var/obj/item/clothing/C = bp
-			if(C.clothing_flags & BLOCKS_SHOVE_KNOCKDOWN)
-				return TRUE
-	return FALSE
-
-/mob/living/carbon/human/Bump(atom/A)
-	. = ..()
-	if(shoved && shover)
-		walk(src, 0)
-		var/obj/structure/table/target_table = istype(A, /obj/structure/table) ? A : null
-		var/obj/machinery/disposal/bin/target_disposal_bin = istype(A, /obj/machinery/disposal/bin) ? A : null
-		var/mob/living/carbon/human/target_collateral_human = istype(A, /mob/living/carbon/human) ? A : null
-		if(!is_shove_knockdown_blocked() && !buckled)
-			if((!target_table && !target_collateral_human && !target_disposal_bin))
-				Knockdown(SHOVE_KNOCKDOWN_SOLID)
-				visible_message("<span class='danger'><b>[shover.name]</b> толкает <b>[name]</b>, повалив на пол!</span>",
-					"<span class='danger'>Меня толкает <b>[shover.name]</b>, повалив на пол!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, shover)
-				to_chat(shover, "<span class='danger'>Толкаю <b>[name]</b>, повалив на пол!</span>")
-				log_combat(shover, src, "shoved", "knocking them down")
-			else if(target_table)
-				Knockdown(SHOVE_KNOCKDOWN_TABLE)
-				visible_message("<span class='danger'><b>[shover.name]</b> заталкивает <b>[name]</b> на [target_table]!</span>",
-					"<span class='danger'>Меня заталкивает <b>[shover.name]</b> на [target_table]!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, shover)
-				to_chat(shover, "<span class='danger'>Заталкиваю <b>[name]</b> на [target_table]!</span>")
-				throw_at(target_table, 1, 1, null, FALSE) //1 speed throws with no spin are basically just forcemoves with a hard collision check
-				log_combat(shover, src, "shoved", "onto [target_table] (table)")
-			else if(target_collateral_human)
-				Knockdown(SHOVE_KNOCKDOWN_HUMAN)
-				target_collateral_human.Knockdown(SHOVE_KNOCKDOWN_COLLATERAL)
-				visible_message("<span class='danger'><b>[shover.name]</b> толкает <b>[name]</b> в [target_collateral_human.name]!</span>",
-					"<span class='danger'>Меня толкает <b>[shover.name]</b> в [target_collateral_human.name]!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, shover)
-				to_chat(shover, "<span class='danger'>Толкаю <b>[name]</b> в [target_collateral_human.name]!</span>")
-				log_combat(shover, src, "shoved", "into [target_collateral_human.name]")
-			else if(target_disposal_bin)
-				Knockdown(SHOVE_KNOCKDOWN_SOLID)
-				forceMove(target_disposal_bin)
-				visible_message("<span class='danger'><b>[shover.name]</b> толкает <b>[name]</b> в [target_disposal_bin]!</span>",
-					"<span class='danger'>Меня толкает <b>[shover.name]</b> в [target_disposal_bin]!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, shover)
-				to_chat(shover, "<span class='danger'>Толкаю <b>[name]</b> прямо в [target_disposal_bin]!</span>")
-				log_combat(shover, src, "shoved", "into [target_disposal_bin] (disposal bin)")
-		shoved = FALSE
-		shover = null
-
-/mob/living/carbon/human/proc/clear_shove_slowdown()
-	remove_movespeed_modifier(/datum/movespeed_modifier/shove)
-	var/active_item = get_active_held_item()
-	if(is_type_in_typecache(active_item, GLOB.shove_disarming_types))
-		visible_message("<span class='warning'><b>[src.name]</b> возвращает свой захват [active_item]!</span>", "<span class='warning'>Возвращаю свой захват [active_item]</span>", null, COMBAT_MESSAGE_RANGE)
-
 /mob/living/carbon/human/do_after_coefficent()
 	. = ..()
 	. *= physiology.do_after_speed

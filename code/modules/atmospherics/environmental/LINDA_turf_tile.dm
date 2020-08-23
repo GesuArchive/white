@@ -129,7 +129,7 @@
 		var/gas_meta = GLOB.meta_gas_info[id]
 		var/gas_overlay = gas_meta[META_GAS_OVERLAY]
 		if(gas_overlay && air.get_moles(id) > gas_meta[META_GAS_MOLES_VISIBLE])
-			new_overlay_types += gas_overlay[min(FACTOR_GAS_VISIBLE_MAX, CEILING(air.get_moles(id) / MOLES_GAS_VISIBLE_STEP, 1))]
+			new_overlay_types += gas_overlay[min(TOTAL_VISIBLE_STATES, CEILING(air.get_moles(id) / MOLES_GAS_VISIBLE_STEP, 1))]
 
 	if (atmos_overlay_types)
 		for(var/overlay in atmos_overlay_types-new_overlay_types) //doesn't remove overlays that would only be added

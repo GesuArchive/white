@@ -65,19 +65,7 @@
 				to_chat(M, "<span class='warning'>Бью мимо [name]!</span>")
 		if("disarm")
 			if(stat < UNCONSCIOUS)
-				M.do_attack_animation(src, ATTACK_EFFECT_DISARM)
-				if (prob(25))
-					Paralyze(40)
-					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
-					log_combat(M, src, "pushed")
-					visible_message("<span class='danger'>[M] укладывает [src] на пол!</span>", \
-									"<span class='userdanger'>[M] укладывает меня на пол!</span>", "<span class='hear'>Слышу звуки потасовки с громким падением!</span>", null, M)
-					to_chat(M, "<span class='danger'>Укладываю [src] на пол!</span>")
-				else if(dropItemToGround(get_active_held_item()))
-					playsound(src, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
-					visible_message("<span class='danger'>[M] обезоруживает [src]!</span>", \
-									"<span class='userdanger'>[M] обезоруживает меня!</span>", "<span class='hear'>Слышу звуки потасовки!</span>", COMBAT_MESSAGE_RANGE, M)
-					to_chat(M, "<span class='danger'>Обезоруживаю [src]!</span>")
+				M.disarm(src)
 
 /mob/living/carbon/monkey/attack_alien(mob/living/carbon/alien/humanoid/M)
 	if(..()) //if harm or disarm intent.

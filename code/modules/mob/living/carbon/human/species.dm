@@ -1438,53 +1438,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(user == target)
 		return FALSE
 	else
-		user.do_attack_animation(target, ATTACK_EFFECT_DISARM)
-		playsound(target, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
-
-		if(target.w_uniform)
-			target.w_uniform.add_fingerprint(user)
-		SEND_SIGNAL(target, COMSIG_HUMAN_DISARM_HIT, user, user.zone_selected)
-
-		var/shove_dir = GET_PIXELDIR(user, target)
-		walk_for(target, shove_dir, 0, 8, until=0.2 SECONDS) // 16px per 0.1 seconds
-		target.shoved = TRUE
-		target.shover = user
-		addtimer(VARSET_CALLBACK(target, shoved, FALSE), 0.2 SECONDS)
-		addtimer(VARSET_CALLBACK(target, shover, null), 0.2 SECONDS)
-
-		if(target.IsKnockdown() && !target.IsParalyzed())
-			target.Paralyze(SHOVE_CHAIN_PARALYZE)
-			target.visible_message("<span class='danger'><b>[user.name]</b> кладет <b>[target.name]</b> на лопатки!</span>",
-				"<span class='danger'><b>[user.name]</b> кладет меня на лопатки!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, "<span class='danger'>Укладываю <b>[target.name]</b> на лопатки!</span>")
-			addtimer(CALLBACK(target, /mob/living/proc/SetKnockdown, 0), SHOVE_CHAIN_PARALYZE)
-			log_combat(user, target, "kicks", "onto their side (paralyzing)")
-		else
-			target.visible_message("<span class='danger'><b>[user.name]</b> толкает <b>[target.name]</b>!</span>",
-				"<span class='danger'>Меня толкает <b>[user.name]</b>!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, "<span class='danger'>Толкаю <b>[target.name]</b>!</span>")
-			var/target_held_item = target.get_active_held_item()
-			var/knocked_item = FALSE
-			if(!is_type_in_typecache(target_held_item, GLOB.shove_disarming_types))
-				target_held_item = null
-			if(!target.has_movespeed_modifier(/datum/movespeed_modifier/shove))
-				target.add_movespeed_modifier(/datum/movespeed_modifier/shove)
-				if(target_held_item)
-					target.visible_message("<span class='danger'>Захват <b>[target.name]</b> на [target_held_item] слабеет!</span>",
-						"<span class='danger'>Мой захват [target_held_item] слабеет!</span>", null, COMBAT_MESSAGE_RANGE)
-				addtimer(CALLBACK(target, /mob/living/carbon/human/proc/clear_shove_slowdown), SHOVE_SLOWDOWN_LENGTH)
-			else if(target_held_item)
-				target.dropItemToGround(target_held_item)
-				knocked_item = TRUE
-				target.visible_message("<span class='danger'><b>[target.name]</b> роняет [target_held_item]!!</span>",
-					"<span class='danger'>Роняю [target_held_item]!!</span>", null, COMBAT_MESSAGE_RANGE)
-			var/append_message = ""
-			if(target_held_item)
-				if(knocked_item)
-					append_message = "выбив из рук [target_held_item]"
-				else
-					append_message = "ослабив захват [target_held_item]"
-			log_combat(user, target, "shoved", append_message)
+		user.disarm(target)
 
 /datum/species/proc/spec_hitby(atom/movable/AM, mob/living/carbon/human/H)
 	return

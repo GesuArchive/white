@@ -140,7 +140,7 @@
 
 /obj/machinery/computer/pandemic/proc/eject_beaker()
 	if(beaker)
-		beaker.forceMove(drop_location())
+		try_put_in_hand(beaker, usr)
 		beaker = null
 		update_icon()
 

@@ -19,6 +19,10 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	movement_type = GROUND | FLYING
 	step_size = 16
 	glide_size = 16
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 2
+	light_on = FALSE
 	var/can_reenter_corpse
 	var/datum/hud/living/carbon/hud = null // hud
 	var/bootime = 0
@@ -896,12 +900,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	. = list("<span class='notice'><i>Изучаю <b>[src.name]</b> ближе и замечаю следующее...</i></span>")
 	. += list("\t><span class='admin'>[ADMIN_FULLMONTY(src)]</span>")
 
+
 /mob/dead/observer/proc/set_invisibility(value)
 	invisibility = value
-	if(!value)
-		set_light(1, 2)
-	else
-		set_light(0, 0)
+	set_light_on(!value ? TRUE : FALSE)
+
 
 // Ghosts have no momentum, being massless ectoplasm
 /mob/dead/observer/Process_Spacemove(movement_dir)

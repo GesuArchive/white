@@ -293,7 +293,7 @@
 	visible_message("<span class='danger'>[src] катается по полу пытаясь сбросить пламя!</span>", \
 		"<span class='notice'>Я останавливаюсь, падаю и катаюсь по полу!</span>")
 	sleep(30)
-	if(fire_stacks <= 0)
+	if(fire_stacks <= 0 && !QDELETED(src))
 		visible_message("<span class='danger'>[src] успешно тушит себя!</span>", \
 			"<span class='notice'>Фух! Мне удалось потушить себя.</span>")
 		ExtinguishMob()

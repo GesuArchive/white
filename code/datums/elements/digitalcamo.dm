@@ -40,9 +40,13 @@
 		S.unhide_single_atomhud_from(AI,target)
 
 /datum/element/digitalcamo/proc/on_examine(datum/source, mob/M)
-	to_chat(M, "<span class = 'warning'>[source.ru_who(TRUE)] двигает своим тело в неестественной и явно нечеловеческой манере..</span>")
+	SIGNAL_HANDLER
+
+	to_chat(M, "<span class = 'warning'>[source.ru_who(TRUE)] двигает своим тело в неестественной и явно нечеловеческой манере.</span>")
 
 /datum/element/digitalcamo/proc/can_track(datum/source)
+	SIGNAL_HANDLER
+
 	return COMPONENT_CANT_TRACK
 
 /datum/element/digitalcamo/process()

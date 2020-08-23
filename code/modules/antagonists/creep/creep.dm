@@ -25,11 +25,9 @@
 
 /datum/antagonist/obsessed/greet()
 	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/creepalert.ogg', 100, FALSE, pressure_affected = FALSE)
-	to_chat(owner, "<span class='userdanger'>Я одержим!</span>")
-	to_chat(owner, "<B>Голоса обратились ко мне и используют меня для совершения своих злых дел.</B>")
-	to_chat(owner, "<B>Я не знаю их связи, но Голоса заставляют меня преследовать [trauma.obsession], приводя меня в состояние постоянной паранойи.</B>")
-	to_chat(owner, "<B>Голоса ответят мне, если я не справлюсь со своими задачами или проведу слишком много времени вдали от цели.</B>")
-	to_chat(owner, "<span class='boldannounce'> > Эта роль НЕ позволяет тебе превзойти то, что считается жутким поведением по правилам.</span>")//ironic if you know the history of the antag
+	var/policy = get_policy(ROLE_OBSESSED)
+	if(policy)
+		to_chat(policy)
 	owner.announce_objectives()
 
 /datum/antagonist/obsessed/Destroy()

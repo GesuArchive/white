@@ -13,6 +13,8 @@
 
 /datum/component/heirloom/proc/examine(datum/source, mob/user, list/examine_list)
 	examine_list += "<hr>"
+	SIGNAL_HANDLER
+
 	if(user.mind == owner)
 		examine_list += "<span class='notice'>It is your precious [family_name] family heirloom. Keep it safe!</span>"
 	else if(isobserver(user))

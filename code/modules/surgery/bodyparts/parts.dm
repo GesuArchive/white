@@ -243,7 +243,6 @@
 /obj/item/bodypart/r_leg
 	name = "правая нога"
 	desc = "А вот с этой ноги стоит вставать."
-	// alternative spellings of 'pokey' are availible
 	icon_state = "default_human_r_leg"
 	attack_verb_continuous = list("kicks", "stomps")
 	attack_verb_simple = list("kick", "stomp")
