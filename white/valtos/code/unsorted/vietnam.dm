@@ -689,7 +689,7 @@
 				/obj/item/raw_stone = 5)
 	time = 350
 	category = CAT_STRUCTURE
-	always_availible = TRUE
+	always_available = TRUE
 
 /datum/crafting_recipe/smithman/workplace
 	name = "Наковальня на полене"
@@ -699,7 +699,7 @@
 				/obj/item/anvil_free = 1)
 	time = 350
 	category = CAT_STRUCTURE
-	always_availible = TRUE
+	always_available = TRUE
 
 /datum/crafting_recipe/smithman/srub
 	name = "Полено"
@@ -707,7 +707,7 @@
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 10)
 	time = 100
 	category = CAT_STRUCTURE
-	always_availible = TRUE
+	always_available = TRUE
 
 /datum/crafting_recipe/smithman/furnace
 	name = "Плавильня"
@@ -715,7 +715,7 @@
 	reqs = list(/obj/item/raw_stone = 10, /obj/item/stack/sheet/mineral/wood = 10)
 	time = 300
 	category = CAT_STRUCTURE
-	always_availible = TRUE
+	always_available = TRUE
 
 /datum/crafting_recipe/smithman/forge
 	name = "Кузница"
@@ -723,7 +723,7 @@
 	reqs = list(/obj/item/raw_stone = 20, /obj/item/stack/sheet/mineral/wood = 20)
 	time = 300
 	category = CAT_STRUCTURE
-	always_availible = TRUE
+	always_available = TRUE
 
 /obj/effect/baseturf_helper/beach/raw_stone
 	name = "raw stone baseturf editor"

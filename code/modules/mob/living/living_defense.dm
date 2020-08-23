@@ -94,8 +94,8 @@
 			log_combat(thrown_item.thrownby, src, "threw and hit", thrown_item)
 		if(nosell_hit)
 			return ..()
-		visible_message("<span class='danger'>В <b>[src]</b> попадает <b>[I.name]</b>!</span>", \
-						"<span class='userdanger'>В <b>меня</b> попадает [I.name]!</span>")
+		visible_message("<span class='danger'>В <b>[src]</b> попадает <b>[thrown_item.name]</b>!</span>", \
+						"<span class='userdanger'>В <b>меня</b> попадает [thrown_item.name]!</span>")
 		if(!thrown_item.throwforce)
 			return
 		var/armor = run_armor_check(zone, "melee", "Моя броня отражает попадание в [ru_parse_zone(parse_zone(zone))].", "Моя броня смягчает попадание в [ru_parse_zone(parse_zone(zone))].", thrown_item.armour_penetration)

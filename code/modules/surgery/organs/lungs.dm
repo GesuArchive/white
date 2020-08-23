@@ -317,11 +317,11 @@
 		breath.adjust_moles(/datum/gas/stimulum, -gas_breathed)
 
 	// Hyper-Nob
-		gas_breathed = breath_gases[/datum/gas/hypernoblium][MOLES]
+		gas_breathed = breath.get_moles(/datum/gas/hypernoblium)
 		if (gas_breathed > gas_stimulation_min)
 			var/existing = H.reagents.get_reagent_amount(/datum/reagent/hypernoblium)
 			H.reagents.add_reagent(/datum/reagent/hypernoblium,max(0, 1 - existing))
-		breath_gases[/datum/gas/hypernoblium][MOLES]-=gas_breathed
+		breath.adjust_moles(/datum/gas/hypernoblium, -gas_breathed)
 
 	// Miasma
 		if (breath.get_moles(/datum/gas/miasma))

@@ -332,7 +332,7 @@
 				/obj/item/stock_parts/capacitor/quadratic = 2)
 	time = 150
 	category = CAT_CLOTHING
-	always_availible = FALSE
+	always_available = FALSE
 
 /datum/crafting_recipe/hacker/suit
 	name = "AQ-Квантовый Экзоскелет Н4781"
@@ -354,7 +354,7 @@
 				/obj/item/stock_parts/capacitor/quadratic = 20)
 	time = 150
 	category = CAT_CLOTHING
-	always_availible = FALSE
+	always_available = FALSE
 
 /datum/crafting_recipe/hacker/gloves
 	name = "DZ-Блюспластовые Перчатки U8621"
@@ -376,7 +376,7 @@
 				/obj/item/stock_parts/capacitor/quadratic = 40)
 	time = 150
 	category = CAT_CLOTHING
-	always_availible = FALSE
+	always_available = FALSE
 
 /*
 // Hacking

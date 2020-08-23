@@ -559,7 +559,7 @@
 
 	time = 150
 	category = CAT_STRUCTURE
-	always_availible = FALSE	// Disabled til learned
+	always_available = FALSE	// Disabled til learned
 
 
 /datum/crafting_recipe/bloodsucker/candelabrum
@@ -575,6 +575,6 @@
 				)
 	time = 100
 	category = CAT_STRUCTURE
-	always_availible = FALSE	// Disabled til learned
+	always_available = FALSE	// Disabled til learned
 
 //   OTHER THINGS TO USE: HUMAN BLOOD. /obj/effect/decal/cleanable/blood

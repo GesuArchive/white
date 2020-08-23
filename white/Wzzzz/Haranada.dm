@@ -12,8 +12,10 @@
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
-	brightness_on = 2
-	on = FALSE
+	light_system = MOVABLE_LIGHT
+	light_range = 2
+	light_power = 0.8
+	light_on = FALSE
 	slowdown = 0
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
@@ -36,13 +38,15 @@
 	alt_desc = "For engineers."
 	icon_state = "rig0-engineeringalt"
 	inhand_icon_state = "rig0-engineeringalt"
-	on = FALSE
 	hardsuit_type = "engineeringalt"
 	var/obj/item/clothing/head/helmet/space/hardsuit/syndi/wzzzz/eng = null
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 75, "fire" = 50, "acid" = 75)
@@ -73,14 +77,16 @@
 	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 40,"energy" = 30, "bomb" = 60, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 50)
 	flash_protect = 1
-	on = FALSE
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF| 52
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	clothing_flags = STOPSPRESSUREDAMAGE|BLOCK_GAS_SMOKE_EFFECT
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/breacher_cheap = null
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
-	brightness_on = 2
+	light_system = MOVABLE_LIGHT
+	light_range = 2
+	light_power = 0.8
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/breacher_cheap
@@ -118,7 +124,6 @@
 	desc = "Good style, good protection, but heavy."
 	alt_desc = "Good style, good protection, but heavy."
 	icon_state = "breacher_rig"
-	on = FALSE
 	inhand_icon_state = "breacher_rig"
 	hardsuit_type = "breacher_rig"
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
@@ -134,7 +139,10 @@
 	visor_flags_inv = HIDEMASK|HIDEEYES|HIDEFACE
 	clothing_flags = STOPSPRESSUREDAMAGE
 	resistance_flags = NONE|ACID_PROOF|FIRE_PROOF|FREEZE_PROOF|LAVA_PROOF
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 
 
 
@@ -153,8 +161,10 @@
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	armor = list("melee" = 65, "bullet" = 65, "laser" = 55, "energy" = 30, "bomb" = 60, "bio" = 100, "rad" = 70, "fire" = 100, "acid" = 100)
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
@@ -190,8 +200,10 @@
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
-	brightness_on = 2
-	on = FALSE
+	light_system = MOVABLE_LIGHT
+	light_range = 2
+	light_power = 0.8
+	light_on = FALSE
 	resistance_flags = NONE|FREEZE_PROOF|FIRE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/hazard_rig
@@ -223,8 +235,10 @@
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
-	brightness_on = 1
-	on = FALSE
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/merc_rig
@@ -256,7 +270,10 @@
 	clothing_flags = STOPSPRESSUREDAMAGE
 	on = TRUE
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 30, "bomb" = 60, "bio" = 100, "rad" = 50, "fire" = 60, "acid" = 75)
-	brightness_on = 5
+	light_system = MOVABLE_LIGHT
+	light_range = 5
+	light_power = 1
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/rig_miningalt
@@ -299,9 +316,11 @@
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
 	slowdown = 0.5
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 
 	resistance_flags = NONE|FREEZE_PROOF|FIRE_PROOF
 
@@ -338,8 +357,10 @@
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/security_rig
@@ -373,8 +394,10 @@
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 70, "fire" = 60, "acid" = 70)
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
-	brightness_on = 1
-	on = FALSE
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/medical_rig
@@ -408,7 +431,6 @@
 	icon_state = "hardsuit0-ert_engineer_rig"
 	inhand_icon_state = "hardsuit0-ert_engineer_rig"
 	hardsuit_type = "ert_engineer_rig"
-	on = FALSE
 	slowdown = 0
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
@@ -416,7 +438,10 @@
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/ert_engineer_rig
@@ -450,8 +475,10 @@
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/ert_commander_rig
@@ -484,8 +511,10 @@
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
-	brightness_on = 1
-	on = FALSE
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/ert_security_rig
@@ -520,8 +549,10 @@
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
-	brightness_on = 1
-	on = FALSE
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	slowdown = 0
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
@@ -557,8 +588,10 @@
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/ert_janitor_rig
@@ -592,8 +625,10 @@
 	flash_protect = 1
 	actions_types = null
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/skrell_suit_white
@@ -634,9 +669,11 @@
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
 	slowdown = 0.6
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/eva_rig
@@ -674,8 +711,10 @@
 	flash_protect = 1
 	actions_types = null
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/rig_atmosalt
@@ -712,8 +751,10 @@
 	flash_protect = 1
 	actions_types = null
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/rig_secalt
@@ -751,8 +792,10 @@
 	flash_protect = 1
 	actions_types = null
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/rig_sec
@@ -790,8 +833,10 @@
 	flash_protect = 1
 	actions_types = null
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 
@@ -830,8 +875,10 @@
 	flash_protect = 1
 	actions_types = null
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/rig_salvage
@@ -870,8 +917,10 @@
 	armor = list(melee = 30, bullet = 20, laser = 35,energy = 20, bomb = 30, bio = 100, rad = 100, fire = 50, acid = 40)
 	actions_types = null
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	slowdown = 0.5
 	resistance_flags = NONE|FREEZE_PROOF
 
@@ -911,8 +960,10 @@
 	flash_protect = 1
 	actions_types = null
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/rig_engineeringalt
@@ -948,7 +999,6 @@
 	flash_protect = 1
 	actions_types = null
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/skrell_suit_black
@@ -1076,8 +1126,10 @@
 	flash_protect = 1
 	actions_types = null
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/pilot
@@ -1110,8 +1162,10 @@
 	flash_protect = 2
 	actions_types = null
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/void_explorer
@@ -1311,8 +1365,10 @@
 	flash_protect = 1
 	actions_types = null
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
-	brightness_on = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/rig_secb
@@ -1350,8 +1406,10 @@
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	flash_protect = 1
 	clothing_flags = STOPSPRESSUREDAMAGE
-	on = FALSE
-	brightness_on = 4
+	light_system = MOVABLE_LIGHT
+	light_range = 4
+	light_power = 1
+	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/null

@@ -63,7 +63,6 @@
 
 /obj/item/flashlight/flashdark/wzzzz
 	light_power = -5
-	flashlight_power = -5
 	light_range = 3.5
 
 /obj/item/storage/belt/military/assault/wzzzz/gerMP40

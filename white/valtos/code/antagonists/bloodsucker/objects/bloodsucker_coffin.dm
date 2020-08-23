@@ -230,7 +230,7 @@
 				///obj/item/pipe = 2)
 	time = 150
 	category = CAT_STRUCTURE
-	always_availible = TRUE
+	always_available = TRUE
 
 /datum/crafting_recipe/bloodsucker/meatcoffin
 	name = "Meat Coffin"
@@ -241,7 +241,7 @@
 				/obj/item/restraints/handcuffs/cable = 1)
 	time = 150
 	category = CAT_STRUCTURE
-	always_availible = TRUE
+	always_available = TRUE
 
 /datum/crafting_recipe/bloodsucker/metalcoffin
 	name = "Metal Coffin"
@@ -251,4 +251,4 @@
 	reqs = list(/obj/item/stack/sheet/metal = 5)
 	time = 100
 	category = CAT_STRUCTURE
-	always_availible = TRUE
+	always_available = TRUE

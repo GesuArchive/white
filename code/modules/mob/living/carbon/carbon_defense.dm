@@ -275,7 +275,7 @@
 	if(target.IsKnockdown() && !target.IsParalyzed())
 		target.Paralyze(SHOVE_CHAIN_PARALYZE)
 		target.visible_message("<span class='danger'><b>[name]</b> кладет <b>[target.name]</b> на лопатки!</span>",
-						"<span class='userdanger'><b>[user.name]</b> кладет меня на лопатки!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, src)
+						"<span class='userdanger'><b>[name]</b> кладет меня на лопатки!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, src)
 		to_chat(src, "<span class='danger'>Укладываю <b>[target.name]</b> на лопатки!</span>")
 		addtimer(CALLBACK(target, /mob/living/proc/SetKnockdown, 0), SHOVE_CHAIN_PARALYZE)
 		log_combat(src, target, "kicks", "onto their side (paralyzing)")
@@ -295,29 +295,29 @@
 						break
 		if((!target_table && !target_collateral_carbon && !target_disposal_bin) || directional_blocked)
 			target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
-			target.visible_message("<span class='danger'><b>[shover.name]</b> толкает <b>[target.name]</b>, повалив на пол!</span>",
-							"<span class='danger'>Меня толкает <b>[shover.name]</b>, повалив на пол!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, src)
+			target.visible_message("<span class='danger'><b>[name]</b> толкает <b>[target.name]</b>, повалив на пол!</span>",
+							"<span class='danger'>Меня толкает <b>[name]</b>, повалив на пол!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, src)
 			to_chat(src, "<span class='danger'>Толкаю <b>[target.name]</b>, повалив на пол!</span>")
 			log_combat(src, target, "shoved", "knocking them down")
 		else if(target_table)
 			target.Knockdown(SHOVE_KNOCKDOWN_TABLE)
-			target.visible_message("<span class='danger'><b>[shover.name]</b> заталкивает <b>[target.name]</b> на [target_table]!</span>",
-							"<span class='userdanger'>Меня заталкивает <b>[shover.name]</b> на [target_table]!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, src)
+			target.visible_message("<span class='danger'><b>[name]</b> заталкивает <b>[target.name]</b> на [target_table]!</span>",
+							"<span class='userdanger'>Меня заталкивает <b>[name]</b> на [target_table]!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, src)
 			to_chat(src, "<span class='danger'>Заталкиваю <b>[target.name]</b> на [target_table]!</span>")
 			target.throw_at(target_table, 1, 1, null, FALSE) //1 speed throws with no spin are basically just forcemoves with a hard collision check
 			log_combat(src, target, "shoved", "onto [target_table] (table)")
 		else if(target_collateral_carbon)
 			target.Knockdown(SHOVE_KNOCKDOWN_HUMAN)
 			target_collateral_carbon.Knockdown(SHOVE_KNOCKDOWN_COLLATERAL)
-			target.visible_message("<span class='danger'><b>[shover.name]</b> толкает <b>[target.name]</b> в [target_collateral_human.name]!</span>",
-				"<span class='userdanger'>Меня толкает <b>[shover.name]</b> в [target_collateral_human.name]!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, src)
-			to_chat(src, "<span class='danger'>Толкаю <b>[target.name]</b> в [target_collateral_human.name]!</span>")
+			target.visible_message("<span class='danger'><b>[name]</b> толкает <b>[target.name]</b> в [target_collateral_carbon.name]!</span>",
+				"<span class='userdanger'>Меня толкает <b>[name]</b> в [target_collateral_carbon.name]!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, src)
+			to_chat(src, "<span class='danger'>Толкаю <b>[target.name]</b> в [target_collateral_carbon.name]!</span>")
 			log_combat(src, target, "shoved", "into [target_collateral_carbon.name]")
 		else if(target_disposal_bin)
 			target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
 			target.forceMove(target_disposal_bin)
-			target.visible_message("<span class='danger'><b>[shover.name]</b> толкает <b>[target.name]</b> в [target_disposal_bin]!</span>",
-							"<span class='userdanger'>Меня толкает <b>[shover.name]</b> в [target_disposal_bin]!</span>!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, src)
+			target.visible_message("<span class='danger'><b>[name]</b> толкает <b>[target.name]</b> в [target_disposal_bin]!</span>",
+							"<span class='userdanger'>Меня толкает <b>[name]</b> в [target_disposal_bin]!</span>!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, src)
 			to_chat(src, "<span class='danger'>Толкаю <b>[target.name]</b> прямо в [target_disposal_bin]!</span>")
 			log_combat(src, target, "shoved", "into [target_disposal_bin] (disposal bin)")
 	else

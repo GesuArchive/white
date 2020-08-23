@@ -60,7 +60,7 @@
 	cost = 20
 
 /datum/crafting_recipe/cookbook
-	always_availible = FALSE
+	always_available = FALSE
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
 
