@@ -31,7 +31,7 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 						return
 
 			if(target.client)
-				inc_metabalance(target, METACOIN_BADWORDS_REWARD, reason="[r_uppertext(W)]...")
+				//inc_metabalance(target, METACOIN_BADWORDS_REWARD, reason="[r_uppertext(W)]...")
 				if(!ishuman(target))
 					target.client.prefs.muted |= MUTE_IC
 

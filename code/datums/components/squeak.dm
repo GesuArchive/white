@@ -58,11 +58,8 @@
 /datum/component/squeak/proc/step_squeak()
 	SIGNAL_HANDLER
 
-	if(steps > step_delay)
-		play_squeak()
-		steps = 0
-	else
-		steps++
+	play_squeak()
+
 
 /datum/component/squeak/proc/play_squeak_crossed(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER
