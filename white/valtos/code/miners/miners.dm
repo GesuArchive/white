@@ -11,7 +11,8 @@ SUBSYSTEM_DEF(spm)
 	gen_new_crypto()
 
 /datum/controller/subsystem/spm/stat_entry(msg)
-	..("P:[miners.len]")
+	msg = "P:[miners.len]"
+	return ..()
 
 /datum/controller/subsystem/spm/fire()
 	convertprice += rand (-30,30)

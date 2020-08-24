@@ -22,7 +22,8 @@ SUBSYSTEM_DEF(aspects)
 	return ..()
 
 /datum/controller/subsystem/aspects/stat_entry(msg)
-	..("CA:[ca_name]")
+	msg = "CA:[ca_name]"
+	return ..()
 
 /datum/controller/subsystem/aspects/proc/run_aspect()
 	if(forced_aspects.len)
