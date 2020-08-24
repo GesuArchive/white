@@ -7,9 +7,19 @@
 <style>
 body {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	font-size: 12px !important;
+	font-size: 11px !important;
 	margin: 0 !important;
 	padding: 1px !important;
+
+	scrollbar-face-color: #062240;
+	scrollbar-arrow-color: #062240;
+	scrollbar-track-color: #010912;
+	scrollbar-3dlight-color: #062240;
+	scrollbar-darkshadow-Color: #062240;
+}
+
+::-webkit-scrollbar {
+	width: 4px;
 }
 
 #statcontent {
@@ -73,21 +83,25 @@ li a:hover:not(.active) {
 .button {
   background-color: #FFFFFF;
   border-color: #FFFFFE;
+  border-bottom: 1px solid #000000;
+  border-right: 1px solid #000000;
   border-top: 1px solid #FFFFFE;
   border-left: 1px solid #FFFFFE;
   color: black;
-  padding: 2px 6px;
+  padding: 2px 3px;
   text-align: center;
   text-decoration: none;
   position: sticky;
   top: 0;
   font-size: 13px;
-  margin: 0;
+  margin-right: 2px;
   cursor: pointer;
   transition-duration: 0.25s;
   order: 3;
 }
 .dark button {
+  border-bottom: 1px solid #010912;
+  border-right: 1px solid #010912;
   border-top: 1px solid #062240;
   border-left: 1px solid #062240;
   background-color: #010912;
@@ -120,23 +134,38 @@ li a:hover:not(.active) {
 .grid-container {
   display: inline-flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   min-width: 0;
   min-height: 0;
+  max-width: 100%;
   white-space: pre-wrap;
 }
 .grid-item {
   color: black;
-  width: 195px;
+  margin: 2px;
   padding: 2px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 16px;
-  text-align: left;
-  min-width: 0;
+  text-align: center;
+  min-width: 47%;
   min-height: 0;
   white-space: pre-wrap;
   outline: 1px solid #000000;
+}
+
+.grid-item:hover {
+	border-color: #FFFFFE;
+    background-color: black;
+    color: white;
+	text-decoration: none;
+}
+
+.dark .grid-item:hover {
+	border-color: #252524;
+    background-color: white;
+    color: #252525;
+	text-decoration: none;
 }
 
 .dark .grid-item {
