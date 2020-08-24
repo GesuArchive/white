@@ -1025,18 +1025,13 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(IsAdminAdvancedProcCall())
 		return
 	var/list/verblist = list()
-	var/list/fullverbs = verbs + mob?.verbs
-	for(var/L in fullverbs)
-		if(!L)
-			continue
-		if(L:hidden)
-			continue
-		if(!istext(L:category))
-			continue
-		verblist[++verblist.len] = list("[L:category]", "[L:name]")
 	verb_tabs.Cut()
-	for(var/I in verblist)
-		var/list/item = I
-		verb_tabs |= item[1]
+	for(var/verb_to_init in (verbs + mob?.verbs))
+		if(verb_to_init:hidden)
+			continue
+		if(!istext(verb_to_init:category))
+			continue
+		verb_tabs |= verb_to_init:category
+		verblist[++verblist.len] = list("[verb_to_init:category]", "[verb_to_init:name]")
 	src << output("[url_encode(json_encode(verb_tabs))];[url_encode(json_encode(verblist))]", "statbrowser:init_verbs")
 	verbs_init = TRUE
