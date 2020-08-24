@@ -317,6 +317,7 @@ function wipe_verbs() {
 
 function add_verb_list(v) {
 	let to_add = JSON.parse(v); // list of a list with category and verb inside it
+	to_add.sort(); // sort what we're adding
 	for(let i = 0; i < to_add.length; i++) {
 		let part = to_add[i];
 		if(verb_tabs.includes(part[0])){
@@ -343,6 +344,7 @@ function remove_verb_list(v) {
 		}
 	}
 	check_verbs();
+	verbs.sort();
 }
 // passes a 2D list of (verbcategory, verbname) creates tabs and adds verbs to respective list
 // example (IC, Say)
@@ -361,6 +363,7 @@ function init_verbs(c, v) {
 	}
 	if(v) {
 		verbs = JSON.parse(v);
+		verbs.sort(); // sort them
 		check_verbs();
 		if(do_update) {
 			draw_verbs(current_tab);

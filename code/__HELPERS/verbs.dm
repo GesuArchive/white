@@ -6,47 +6,45 @@
   * * target - Who the verb is being added to, client or mob typepath
   * * verb - typepath to a verb, or a list of verbs, supports lists of lists
   */
-/proc/add_verb(target, verb_to_add)
-	if(!target || IsAdminAdvancedProcCall())
+/proc/add_verb(client/target, verb_or_list_to_add)
+	if(!target)
+		CRASH("add_verb called without a target")
+	if(IsAdminAdvancedProcCall())
 		return
-	var/list/V = list()
-	if(istype(target, /client))
-		var/client/C = target
-		if(!islist(verb_to_add))
-			C.verbs += verb_to_add
-			if(verb_to_add:hidden || !verb_to_add:category)// no category
-				return
-			V = list("[verb_to_add:category]", "[verb_to_add:name]")
-			V = url_encode(json_encode(V))
-			C << output("[V];", "statbrowser:add_verb")
-		else if(islist(verb_to_add))
-			for(var/L in verb_to_add)
-				if(islist(L)) // list in a list? more likely than you think
-					add_verb(target, L) // just pass it through again til we get the verb
-					continue
-				C.verbs += L
-				V[++V.len] = list("[L:category]", "[L:name]")
-			V = url_encode(json_encode(V))
-			C << output("[V];", "statbrowser:add_verb_list")
-	else if(istype(target, /mob)) // copy pasta for mobs
-		var/mob/M = target
-		if(!islist(verb_to_add))
-			M.verbs += verb_to_add
-			if(verb_to_add:hidden || !verb_to_add:category)// no category
-				return
-			V = list("[verb_to_add:category]", "[verb_to_add:name]")
-			V = url_encode(json_encode(V))
-			if(M.client)
-				M.client << output("[V];", "statbrowser:add_verb")
-		else if(islist(verb_to_add))
-			for(var/L in verb_to_add)
-				if(islist(L)) // list in a list? more likely than you think
-					add_verb(target, L) // just pass it through again til we get the verb
-					continue
-				M.verbs += L
-				V[++V.len] = list("[L:category]", "[L:name]")
-			V = url_encode(json_encode(V))
-			M?.client << output("[V];", "statbrowser:add_verb_list")
+	var/mob/mob_target = null
+
+	if(ismob(target))
+		mob_target = target
+		target = mob_target.client
+	else if(!istype(target, /client))
+		CRASH("add_verb called on a non-mob and non-client")
+	var/list/verbs_list = list()
+	if(!islist(verb_or_list_to_add))
+		verbs_list += verb_or_list_to_add
+	else
+		var/list/verb_listref = verb_or_list_to_add
+		var/list/elements_to_process = verb_listref.Copy()
+		while(length(elements_to_process))
+			var/element_or_list = elements_to_process[length(elements_to_process)] //Last element
+			elements_to_process.len--
+			if(islist(element_or_list))
+				elements_to_process += element_or_list //list/a += list/b adds the contents of b into a, not the reference to the list itself
+			else
+				verbs_list += element_or_list
+
+	if(mob_target)
+		mob_target.verbs += verbs_list
+		if(!target)
+			return //Our work is done.
+	else
+		target.verbs += verbs_list
+
+	var/list/output_list = list()
+	for(var/verb_to_add in verbs_list)
+		output_list[++output_list.len] = list("[verb_to_add:category]", "[verb_to_add:name]")
+	output_list = url_encode(json_encode(output_list))
+
+	target << output("[output_list];", "statbrowser:remove_verb_list")
 
 /**
   * handles removing verb and sending it to browser to update, use this for removing verbs
@@ -56,40 +54,42 @@
   * * target - Who the verb is being removed from, client or mob typepath
   * * verb - typepath to a verb, or a list of verbs, supports lists of lists
   */
-/proc/remove_verb(target, verb_to_remove)
-	if(!target || IsAdminAdvancedProcCall())
+/proc/remove_verb(client/target, verb_or_list_to_remove)
+	if(IsAdminAdvancedProcCall())
 		return
-	var/list/V = list()
-	if(istype(target, /client))
-		var/client/C = target
-		if(!islist(verb_to_remove))
-			C.verbs -= verb_to_remove
-			V = list("[verb_to_remove:category]", "[verb_to_remove:name]")
-			V = url_encode(json_encode(V))
-			C << output("[V];", "statbrowser:remove_verb")
-		else if(islist(verb_to_remove))
-			for(var/L in verb_to_remove)
-				if(islist(L)) // list in a list? more likely than you think
-					remove_verb(target, L) // just pass it through again til we get the verb
-					continue
-				C.verbs -= L
-				V[++V.len] = list("[L:category]", "[L:name]")
-			V = url_encode(json_encode(V))
-			C << output("[V];", "statbrowser:remove_verb_list")
-	else if(istype(target, /mob)) // copy pasta for mobs
-		var/mob/M = target
-		if(!islist(verb_to_remove))
-			M.verbs -= verb_to_remove
-			V = list("[verb_to_remove:category]", "[verb_to_remove:name]")
-			V = url_encode(json_encode(V))
-			if(M.client)
-				M.client << output("[V];", "statbrowser:remove_verb")
-		else if(islist(verb_to_remove)) // we have list of verbs
-			for(var/L in verb_to_remove) // get verb in list
-				if(islist(L)) // list in a list? more likely than you think
-					remove_verb(target, L) // just pass it through again til we get the verb
-					continue
-				M.verbs -= L
-				V[++V.len] = list("[L:category]", "[L:name]")
-			V = url_encode(json_encode(V))
-			M?.client << output("[V];", "statbrowser:remove_verb_list")
+
+	var/mob/mob_target = null
+
+	if(ismob(target))
+		mob_target = target
+		target = mob_target.client
+	else if(!istype(target, /client))
+		CRASH("remove_verb called on a non-mob and non-client")
+
+	var/list/verbs_list = list()
+	if(!islist(verb_or_list_to_remove))
+		verbs_list += verb_or_list_to_remove
+	else
+		var/list/verb_listref = verb_or_list_to_remove
+		var/list/elements_to_process = verb_listref.Copy()
+		while(length(elements_to_process))
+			var/element_or_list = elements_to_process[length(elements_to_process)] //Last element
+			elements_to_process.len--
+			if(islist(element_or_list))
+				elements_to_process += element_or_list //list/a += list/b adds the contents of b into a, not the reference to the list itself
+			else
+				verbs_list += element_or_list
+
+	if(mob_target)
+		mob_target.verbs -= verbs_list
+		if(!target)
+			return //Our work is done.
+	else
+		target.verbs -= verbs_list
+
+	var/list/output_list = list()
+	for(var/verb_to_remove in verbs_list)
+		output_list[++output_list.len] = list("[verb_to_remove:category]", "[verb_to_remove:name]")
+	output_list = url_encode(json_encode(output_list))
+
+	target << output("[output_list];", "statbrowser:remove_verb_list")
