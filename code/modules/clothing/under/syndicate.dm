@@ -4,7 +4,7 @@
 	icon_state = "syndicate"
 	inhand_icon_state = "bl_suit"
 	has_sensor = NO_SENSORS
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 40)
+	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 40)
 	alt_covers_chest = TRUE
 	icon = 'icons/obj/clothing/under/syndicate.dmi'
 	worn_icon = 'icons/mob/clothing/under/syndicate.dmi'
@@ -15,7 +15,7 @@
 	icon_state = "syndicate_skirt"
 	inhand_icon_state = "bl_suit"
 	has_sensor = NO_SENSORS
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 40)
+	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 40)
 	alt_covers_chest = TRUE
 	fitted = FEMALE_UNIFORM_TOP
 	can_adjust = FALSE
@@ -25,7 +25,7 @@
 	desc = "It still counts as stealth if there are no witnesses."
 	icon_state = "bloodred_pajamas"
 	inhand_icon_state = "bl_suit"
-	armor = list("melee" = 10, "bullet" = 10, "laser" = 10,"energy" = 10, "bomb" = 0, "bio" = 0, "rad" = 10, "fire" = 50, "acid" = 40)
+	armor = list(MELEE = 10, BULLET = 10, LASER = 10,ENERGY = 10, BOMB = 0, BIO = 0, RAD = 10, FIRE = 50, ACID = 40)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	can_adjust = FALSE
 
@@ -34,22 +34,21 @@
 	desc = "Do operatives dream of nuclear sheep?"
 	icon_state = "bloodred_pajamas"
 	inhand_icon_state = "bl_suit"
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 40)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 40)
 
 /obj/item/clothing/under/syndicate/tacticool
 	name = "тактическая водолазка"
 	desc = "Просто взглянув на это, хочется купить SKS, пойти в лес и -оперативничать-."
 	icon_state = "tactifool"
 	inhand_icon_state = "bl_suit"
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 40)
-	has_sensor = HAS_SENSORS
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 40)
 
 /obj/item/clothing/under/syndicate/tacticool/skirt
 	name = "тактическая юбка"
 	desc = "Просто взглянув на это, хочется купить SKS, пойти в лес и -оперативничать-."
 	icon_state = "tactifool_skirt"
 	inhand_icon_state = "bl_suit"
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 40)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 40)
 	fitted = FEMALE_UNIFORM_TOP
 	can_adjust = FALSE
 
@@ -74,7 +73,7 @@
 	desc = "Плохо переведенные этикетки говорят вам, чтобы очистить это в водке. Отлично подходит для танцев вприсядку."
 	icon_state = "trackpants"
 	can_adjust = FALSE
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0)
 	resistance_flags = NONE
 
 /obj/item/clothing/under/syndicate/combat
@@ -88,5 +87,5 @@
 	desc = "Идеально для боевых действий."
 	icon_state = "rus_under"
 	can_adjust = FALSE
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list(MELEE = 5, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0)
 	resistance_flags = NONE

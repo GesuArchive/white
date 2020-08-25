@@ -39,7 +39,7 @@
 				. += "<hr>Похоже это [deployed ? "активная" : "пустая"] оболочка ИИ."
 			else if(!client)
 				. += "<hr>Он в режиме ожидания." //afk
-		if(UNCONSCIOUS)
+		if(SOFT_CRIT, UNCONSCIOUS, HARD_CRIT)
 			. += "<hr><span class='warning'>Он не реагирует на движения.</span>"
 		if(DEAD)
 			. += "<hr><span class='deadsay'>Выглядит полностью уничтоженым. Похоже потребуется полный перезапуск.</span>"

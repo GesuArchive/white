@@ -1387,7 +1387,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		punchouttooth(target,user,rand(0,9),affecting) // hippie -- teethcode
 
-		var/armor_block = target.run_armor_check(affecting, "melee")
+		var/armor_block = target.run_armor_check(affecting, MELEE)
 
 		playsound(target.loc, user.dna.species.attack_sound, 25, TRUE, -1)
 
@@ -1490,7 +1490,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	hit_area = ru_parse_zone(affecting.name)
 	var/def_zone = affecting.body_zone
 
-	var/armor_block = H.run_armor_check(affecting, "melee", "<span class='notice'>Моя броня защищает меня от удара в [hit_area]!</span>", "<span class='warning'>Моя броня смягчает удар в [hit_area]!</span>",I.armour_penetration)
+	var/armor_block = H.run_armor_check(affecting, MELEE, "<span class='notice'>Моя броня защищает меня от удара в [hit_area]!</span>", "<span class='warning'>Моя броня смягчает удар в [hit_area]!</span>",I.armour_penetration)
 	armor_block = min(90,armor_block) //cap damage reduction at 90%
 	var/Iwound_bonus = I.wound_bonus
 

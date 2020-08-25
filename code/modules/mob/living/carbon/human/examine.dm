@@ -389,13 +389,14 @@
 				msg += "От н[t_ego] веет святым духом.\n"
 				SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "religious_comfort", /datum/mood_event/religiously_comforted)
 
-		if(stat == UNCONSCIOUS)
-			msg += "[t_on] не реагирует на происходящее вокруг.\n"
-		else
-			if(HAS_TRAIT(src, TRAIT_DUMB))
-				msg += "[t_on] имеет глупое выражение лица.\n"
-			if(InCritical())
+		switch(stat)
+			if(UNCONSCIOUS, HARD_CRIT)
+				msg += "[t_on] не реагирует на происходящее вокруг.\n"
+			if(SOFT_CRIT)
 				msg += "[t_on] едва в сознании.\n"
+			if(CONSCIOUS)
+				if(HAS_TRAIT(src, TRAIT_DUMB))
+					msg += "[t_on] имеет глупое выражение лица.\n"
 		if(getorgan(/obj/item/organ/brain))
 			if(!key)
 				msg += "<span class='deadsay'>[t_on] кататоник. Стресс от жизни в глубоком космосе сильно повлиял на н[t_ego]. Восстановление маловероятно.</span>\n"

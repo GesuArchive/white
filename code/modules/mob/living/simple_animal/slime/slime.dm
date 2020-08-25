@@ -101,6 +101,7 @@
 	. = ..()
 	set_nutrition(700)
 	AddComponent(/datum/component/footstep, FOOTSTEP_MOB_SLIME, 7.5)
+	add_cell_sample()
 
 /mob/living/simple_animal/slime/Destroy()
 	for (var/A in actions)
@@ -210,10 +211,11 @@
 		else
 			. += "You can evolve!"
 
-	if(stat == UNCONSCIOUS)
-		. += "You are knocked out by high levels of BZ!"
-	else
-		. += "Power Level: [powerlevel]"
+	switch(stat)
+		if(HARD_CRIT, UNCONSCIOUS)
+			. += "You are knocked out by high levels of BZ!"
+		else
+			. += "Power Level: [powerlevel]"
 
 
 /mob/living/simple_animal/slime/adjustFireLoss(amount, updating_health = TRUE, forced = FALSE)
@@ -419,7 +421,7 @@
 	if (stat == DEAD)
 		. += "<span class='deadsay'>It is limp and unresponsive.</span>"
 	else
-		if (stat == UNCONSCIOUS) // Slime stasis
+		if (stat == UNCONSCIOUS || stat == HARD_CRIT) // Slime stasis
 			. += "<span class='deadsay'>It appears to be alive but unresponsive.</span>"
 		if (getBruteLoss())
 			. += "<span class='warning'>"
@@ -491,3 +493,6 @@
 
 /mob/living/simple_animal/slime/random/Initialize(mapload, new_colour, new_is_adult)
 	. = ..(mapload, pick(slime_colours), prob(50))
+
+/mob/living/simple_animal/slime/add_cell_sample()
+	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SLIME, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)

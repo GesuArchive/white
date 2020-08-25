@@ -6,8 +6,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	slices_num = 6
 	volume = 80
-	list_reagents = list(/datum/reagent/consumable/nutriment = 30, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("корка" = 1, "томаты" =1, "сыр" = 1)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 28, /datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1)
 	foodtype = GRAIN | DAIRY | VEGETABLES
 
 /obj/item/reagent_containers/food/snacks/pizzaslice
@@ -21,8 +21,9 @@
 	desc = "The most cheezy pizza in galaxy."
 	icon_state = "pizzamargherita"
 	slice_path = /obj/item/reagent_containers/food/snacks/pizzaslice/margherita
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("корка" = 1, "томаты" =1, "сыр" = 1)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
+	bonus_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 5)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1)
 	foodtype = GRAIN | VEGETABLES | DAIRY
 	value = FOOD_FAST
 
@@ -43,9 +44,8 @@
 	desc = "Greasy pizza with delicious meat."
 	icon_state = "meatpizza"
 	slice_path = /obj/item/reagent_containers/food/snacks/pizzaslice/meat
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 8)
-	list_reagents = list(/datum/reagent/consumable/nutriment = 30, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 8)
-	tastes = list("корка" = 1, "томаты" =1, "сыр" = 1, "мясо" = 1)
+	bonus_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/consumable/nutriment/vitamin = 8)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 8)
 	foodtype = GRAIN | VEGETABLES| DAIRY | MEAT
 	value = FOOD_FAST
 
@@ -63,8 +63,8 @@
 	icon_state = "mushroompizza"
 	slice_path = /obj/item/reagent_containers/food/snacks/pizzaslice/mushroom
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 5)
-	list_reagents = list(/datum/reagent/consumable/nutriment = 30, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("корка" = 1, "томаты" =1, "сыр" = 1, "грибы" = 1)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 28, /datum/reagent/consumable/nutriment/protein = 3,  /datum/reagent/consumable/nutriment/vitamin = 5)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "грибы" = 1)
 	foodtype = GRAIN | VEGETABLES | DAIRY
 	value = FOOD_FAST
 
@@ -100,8 +100,8 @@
 	desc = "Who thought this would be a good idea?"
 	icon_state = "donkpocketpizza"
 	slice_path = /obj/item/reagent_containers/food/snacks/pizzaslice/donkpocket
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 5)
-	list_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/medicine/omnizine = 10, /datum/reagent/consumable/nutriment/vitamin = 5)
+	bonus_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 5)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/protein = 15, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/medicine/omnizine = 10, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("корка" = 1, "томаты" =1, "сыр" = 1, "мясо" = 1, "лень" = 1)
 	foodtype = GRAIN | VEGETABLES | DAIRY | MEAT | JUNKFOOD
 	value = FOOD_RARE
@@ -138,8 +138,9 @@
 	desc = "You can really smell the sassiness."
 	icon_state = "sassysagepizza"
 	slice_path = /obj/item/reagent_containers/food/snacks/pizzaslice/sassysage
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 6)
-	tastes = list("корка" = 1, "томаты" =1, "сыр" = 1, "мясо" = 1)
+	bonus_reagents = list(/datum/reagent/consumable/nutriment = 2,  /datum/reagent/consumable/nutriment/protein =  6, /datum/reagent/consumable/nutriment/vitamin = 4)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/protein = 15, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 6)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1)
 	foodtype = GRAIN | VEGETABLES | DAIRY
 	value = FOOD_EXOTIC
 
@@ -156,7 +157,8 @@
 	desc = "The pizza equivalent of Einstein's riddle."
 	icon_state = "pineapplepizza"
 	slice_path = /obj/item/reagent_containers/food/snacks/pizzaslice/pineapple
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 6)
+	bonus_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/consumable/nutriment/vitamin = 7)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/consumable/pineapplejuice = 8)
 	tastes = list("корка" = 1, "томаты" =1, "сыр" = 1, "ананас" = 2, "ветчина" = 2)
 	foodtype = GRAIN | VEGETABLES | DAIRY | MEAT | FRUIT | PINEAPPLE
 	value = FOOD_RARE
@@ -174,7 +176,7 @@
 	desc = "Hello, you've reached Arnold's pizza shop. I'm not here now, I'm out killing pepperoni."
 	icon_state = "arnoldpizza"
 	slice_path = /obj/item/reagent_containers/food/snacks/pizzaslice/arnold
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = 30, /datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/iron = 10, /datum/reagent/medicine/omnizine = 30)
+	bonus_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 9, /datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/iron = 10, /datum/reagent/medicine/omnizine = 30)
 	tastes = list("корка" = 1, "томаты" =1, "сыр" = 1, "пепперони" = 2, "9-ти миллиметровые пули" = 2)
 	value = FOOD_ILLEGAL
 
@@ -241,3 +243,17 @@
 		qdel(src)
 		return
 	return ..()
+
+/obj/item/reagent_containers/food/snacks/pizzaslice/moldy
+	name = "moldy pizza slice"
+	desc = "This was once a perfectly good slice of pizza pie, but now it lies here, rancid and bursting with spores. What a bummer! But we should not dwell on the past, only look towards the future."
+	icon_state = "moldy_slice"
+	filling_color = "#e9d075"
+	bitesize = 4
+	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/peptides = 3, /datum/reagent/consumable/tomatojuice = 1, /datum/reagent/toxin/amatoxin = 2)
+	tastes = list("stale crust" = 1, "rancid cheese" = 2, "mushroom" = 1)
+	foodtype = GRAIN | VEGETABLES | DAIRY | GROSS
+
+/obj/item/reagent_containers/food/snacks/pizzaslice/moldy/Initialize()
+	. = ..()
+	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOLD, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 25)

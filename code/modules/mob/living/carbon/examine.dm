@@ -121,10 +121,11 @@
 	. += msg.Join("")
 
 	if(!appears_dead)
-		if(stat == UNCONSCIOUS)
-			. += "[t_on] не реагирует на происходящее вокруг.\n"
-		else if(InCritical())
-			. += "[t_on] едва в сознании.\n"
+		switch(stat)
+			if(SOFT_CRIT)
+				. += "[t_on] не реагирует на происходящее вокруг.\n"
+			if(UNCONSCIOUS, HARD_CRIT)
+				. += "[t_on] едва в сознании.\n"
 
 	var/trait_exam = common_trait_examine()
 	if (!isnull(trait_exam))

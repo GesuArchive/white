@@ -288,7 +288,7 @@
 	var/a_incidence_s = abs(incidence_s)
 	if(a_incidence_s > 90 && a_incidence_s < 270)
 		return FALSE
-	if((P.flag in list("bullet", "bomb")) && P.ricochet_incidence_leeway)
+	if((P.flag in list(BULLET, BOMB)) && P.ricochet_incidence_leeway)
 		if((a_incidence_s < 90 && a_incidence_s < 90 - P.ricochet_incidence_leeway) || (a_incidence_s > 270 && a_incidence_s -270 > P.ricochet_incidence_leeway))
 			return
 	var/new_angle_s = SIMPLIFY_DEGREES(face_angle + incidence_s)
@@ -1196,27 +1196,27 @@
   */
 /atom/proc/tool_act(mob/living/user, obj/item/I, tool_type)
 	var/list/processing_recipes = list() //List of recipes that can be mutated by sending the signal
-	. |= SEND_SIGNAL(src, COMSIG_ATOM_TOOL_ACT(tool_type), user, I, processing_recipes)
+	var/signal_result = SEND_SIGNAL(src, COMSIG_ATOM_TOOL_ACT(tool_type), user, I, processing_recipes)
 	if(processing_recipes.len)
 		process_recipes(user, I, processing_recipes)
 	if(QDELETED(I))
 		return TRUE
 	switch(tool_type)
 		if(TOOL_CROWBAR)
-			crowbar_act(user, I)
+			. = crowbar_act(user, I)
 		if(TOOL_MULTITOOL)
-			multitool_act(user, I)
+			. = multitool_act(user, I)
 		if(TOOL_SCREWDRIVER)
-			screwdriver_act(user, I)
+			. = screwdriver_act(user, I)
 		if(TOOL_WRENCH)
-			wrench_act(user, I)
+			. = wrench_act(user, I)
 		if(TOOL_WIRECUTTER)
-			wirecutter_act(user, I)
+			. = wirecutter_act(user, I)
 		if(TOOL_WELDER)
-			welder_act(user, I)
+			. = welder_act(user, I)
 		if(TOOL_ANALYZER)
-			analyzer_act(user, I)
-	if(. & COMPONENT_BLOCK_TOOL_ATTACK)
+			. = analyzer_act(user, I)
+	if(. || signal_result & COMPONENT_BLOCK_TOOL_ATTACK) //Either the proc or the signal handled the tool's events in some way.
 		return TRUE
 
 
@@ -1576,9 +1576,15 @@
 ///Passes Stat Browser Panel clicks to the game and calls client click on an atom
 /atom/Topic(href, list/href_list)
 	. = ..()
+	if(!usr?.client)
+		return
+	var/client/usr_client = usr.client
+	var/list/paramslist = list()
+	if(href_list["statpanel_item_shiftclick"])
+		paramslist["shift"] = "1"
+	if(href_list["statpanel_item_ctrlclick"])
+		paramslist["ctrl"] = "1"
 	if(href_list["statpanel_item_click"])
 		// first of all make sure we valid
-		if(!usr?.client)
-			return
-		var/client/usr_client = usr.client
-		usr_client.Click(src)
+		var/mouseparams = list2params(paramslist)
+		usr_client.Click(src, loc, null, mouseparams)

@@ -3,7 +3,7 @@
 	name = "ядерная частица"
 	icon_state = "nuclear_particle"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	flag = "rad"
+	flag = RAD
 	irradiate = 5000
 	speed = 0.4
 	hitsound = 'sound/weapons/emitter2.ogg'

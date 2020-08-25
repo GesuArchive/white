@@ -62,8 +62,8 @@
 	desc = "Now that's a nic'e meatball!"
 	icon_state = "meatballspaghetti"
 	trash = /obj/item/trash/plate
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 4)
-	list_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 4)
+	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1,/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 2)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 10, /datum/reagent/consumable/nutriment/vitamin = 2)
 	cooked_type = null
 	tastes = list("макароны" = 1, "томаты" =1, "мясо" = 1)
 	foodtype = GRAIN | MEAT
@@ -74,8 +74,8 @@
 	desc = "A lawyers favourite."
 	icon_state = "spesslaw"
 	trash = /obj/item/trash/plate
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 6)
-	list_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 6)
+	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 3)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 20, /datum/reagent/consumable/nutriment/vitamin = 3)
 	cooked_type = null
 	tastes = list("макароны" = 1, "томаты" =1, "мясо" = 1)
 	value = FOOD_RARE
@@ -85,8 +85,8 @@
 	desc = "A nice mix of noodles and fried vegetables."
 	icon_state = "chowmein"
 	trash = /obj/item/trash/plate
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 4)
-	list_reagents = list(/datum/reagent/consumable/nutriment = 7, /datum/reagent/consumable/nutriment/vitamin = 6)
+	bonus_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 1, /datum/reagent/consumable/nutriment/vitamin = 4)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 6)
 	cooked_type = null
 	tastes = list("лапша" = 1, "томаты" =1)
 	value = FOOD_RARE
@@ -96,7 +96,7 @@
 	desc = "Nutritious, beefy and noodly."
 	icon_state = "beefnoodle"
 	trash = /obj/item/reagent_containers/glass/bowl
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/liquidgibs = 3)
+	bonus_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/liquidgibs = 3)
 	cooked_type = null
 	tastes = list("лапша" = 1, "мясо" = 1)
 	foodtype = GRAIN | MEAT
