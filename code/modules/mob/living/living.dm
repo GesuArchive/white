@@ -338,7 +338,7 @@
 	set hidden = TRUE
 	if (!HAS_TRAIT(src, TRAIT_CRITICAL_CONDITION) || HAS_TRAIT(src, TRAIT_NODEATH))
 		return
-	log_message("Has [whispered ? "whispered his final words" : "succumbed to death"] while in [InFullCritical() ? "hard":"soft"] critical with [round(health, 0.1)] points of health!", LOG_ATTACK)
+	log_message("Has [whispered ? "whispered his final words" : "succumbed to death"] with [round(health, 0.1)] points of health!", LOG_ATTACK)
 	adjustOxyLoss(health - HEALTH_THRESHOLD_DEAD)
 	updatehealth()
 	if(!whispered)
