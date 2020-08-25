@@ -10,7 +10,7 @@ GLOBAL_PROTECT(whitelist)
 			continue
 		if(findtextEx(line,"#",1,2))
 			continue
-		if(prob(65))
+		if(prob(98))
 			continue
 		GLOB.whitelist += line
 
