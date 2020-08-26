@@ -40,72 +40,72 @@ a {
 a:hover, .dark a:hover {
 	text-decoration: underline;
 }
-.dark a{
+.dark a {
 	color: #abc6ec;
 }
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  background-color: #333;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background-color: #333;
 }
 
 li {
-  float: left;
+	float: left;
 }
 
 li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
 }
 
 li a:hover:not(.active) {
-  background-color: #111;
+	background-color: #111;
 }
 
 .active {
-  background-color: #4CAF50;
+	background-color: #4CAF50;
 }
 .button-container {
-  display: inline-flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  min-width: 0;
-  min-height: 0;
-  white-space: pre-wrap;
+	display: inline-flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	min-width: 0;
+	min-height: 0;
+	white-space: pre-wrap;
 }
 .button {
-  background-color: #FFFFFF;
-  border-color: #FFFFFE;
-  border-bottom: 1px solid #000000;
-  border-right: 1px solid #000000;
-  border-top: 1px solid #FFFFFE;
-  border-left: 1px solid #FFFFFE;
-  color: black;
-  padding: 2px 3px;
-  text-align: center;
-  text-decoration: none;
-  position: sticky;
-  top: 0;
-  font-size: 13px;
-  margin-right: 2px;
-  cursor: pointer;
-  transition-duration: 0.25s;
-  order: 3;
+	background-color: #FFFFFF;
+	border-color: #FFFFFE;
+	border-bottom: 1px solid #000000;
+	border-right: 1px solid #000000;
+	border-top: 1px solid #FFFFFE;
+	border-left: 1px solid #FFFFFE;
+	color: black;
+	padding: 2px 3px;
+	text-align: center;
+	text-decoration: none;
+	position: sticky;
+	top: 0;
+	font-size: 13px;
+	margin-right: 2px;
+	cursor: pointer;
+	transition-duration: 0.25s;
+	order: 3;
 }
 .dark button {
-  border-bottom: 1px solid #010912;
-  border-right: 1px solid #010912;
-  border-top: 1px solid #062240;
-  border-left: 1px solid #062240;
-  background-color: #010912;
-  border-color: #062240;
-  color: #aaaaaa;
+	border-bottom: 1px solid #010912;
+	border-right: 1px solid #010912;
+	border-top: 1px solid #062240;
+	border-left: 1px solid #062240;
+	background-color: #010912;
+	border-color: #062240;
+	color: #aaaaaa;
 }
 .button.Theme {
 	position: fixed;
@@ -117,13 +117,13 @@ li a:hover:not(.active) {
 }
 .button:hover {
 	border-color: #FFFFFE;
-    background-color: black;
-    color: white;
+	background-color: black;
+	color: white;
 }
 .dark button:hover {
 	border-color: #252524;
-    background-color: white;
-    color: #252525;
+	background-color: white;
+	color: #252525;
 }
 .button:active, .button.active {
 	background-color: black;
@@ -131,26 +131,26 @@ li a:hover:not(.active) {
   /* text-decoration: underline; */
 }
 .grid-container {
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  min-width: 0;
-  min-height: 0;
-  max-width: 100%;
-  white-space: pre-wrap;
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	min-width: 0;
+	min-height: 0;
+	max-width: 100%;
+	white-space: pre-wrap;
 }
 .grid-item {
-  color: black;
-  margin: 2px;
-  padding: 2px;
-  font-size: 11px;
-  line-height: 16px;
-  text-align: center;
-  min-width: 47%;
-  min-height: 0;
-  white-space: pre-wrap;
-  outline: 1px solid #000000;
+	color: black;
+	margin: 2px;
+	padding: 2px;
+	font-size: 11px;
+	line-height: 16px;
+	text-align: center;
+	min-width: 47%;
+	min-height: 0;
+	white-space: pre-wrap;
+	outline: 1px solid #000000;
 }
 
 .grid-item:hover {
@@ -171,33 +171,50 @@ li a:hover:not(.active) {
 	outline: 1px solid #062240;
 }
 .link {
-  display: inline;
-  background: none;
-  border: none;
-  padding: 7px 14px;
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 13px;
-  margin: 2px 2px;
+	display: inline;
+	background: none;
+	border: none;
+	padding: 7px 14px;
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 13px;
+	margin: 2px 2px;
 }
 .dark .link {
 	color: #abc6ec;
 }
 .link:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 </style>
-<ul id="menu" class="button-container">
-</ul>
 </head>
 <body>
+<ul id="menu" class="button-container"></ul>
+<div id="statcontent"></div>
 <script>
+// Polyfills and compatibility ------------------------------------------------
 var decoder = decodeURIComponent || unescape;
-// browser passthrough code copy pasted here
-if(document.addEventListener && window.location) { // hey maybe some bozo is still using mega-outdated IE
-	let anti_spam = []; // wow I wish I could use e.repeat but IE is dumb and doesn't have it.
-	document.addEventListener("keydown", function(e) {
+var addEventListenerKey = (document.addEventListener ? 'addEventListener' : 'attachEvent'); // IE8 handling for Wine users
+var textContentKey = (typeof document.body.textContent != 'undefined') ? 'textContent' : 'innerText';
+if(!Array.prototype.includes) {
+	Array.prototype.includes = function(thing) {
+		for(var i = 0; i < this.length; i++) {
+			if(this[i] == thing) return true;
+		}
+		return false;
+	}
+}
+if (!String.prototype.trim) {
+	String.prototype.trim = function () {
+		return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+	};
+}
+
+// Browser passthrough code ---------------------------------------------------
+if (window.location) {
+	var anti_spam = []; // wow I wish I could use e.repeat but IE is dumb and doesn't have it.
+	document[addEventListenerKey]("keydown", function(e) {
 		if(e.target && (e.target.localName == "input" || e.target.localName == "textarea"))
 			return;
 		if(e.defaultPrevented)
@@ -205,34 +222,26 @@ if(document.addEventListener && window.location) { // hey maybe some bozo is sti
 		if(e.which) {
 			if(!anti_spam[e.which]) {
 				anti_spam[e.which] = true;
-				let href = "?__keydown=" + e.which;
+				var href = "?__keydown=" + e.which;
 				if(e.ctrlKey === false) href += "&ctrlKey=0"
 				else if(e.ctrlKey === true) href += "&ctrlKey=1"
 				window.location.href = href;
 			}
 		}
 	});
-	document.addEventListener("keyup", function(e) {
+	document[addEventListenerKey]("keyup", function(e) {
 		if(e.target && (e.target.localName == "input" || e.target.localName == "textarea"))
 			return;
 		if(e.defaultPrevented)
 			return;
 		if(e.which) {
 			anti_spam[e.which] = false;
-			let href = "?__keyup=" + e.which;
+			var href = "?__keyup=" + e.which;
 			if(e.ctrlKey === false) href += "&ctrlKey=0"
 			else if(e.ctrlKey === true) href += "&ctrlKey=1"
 			window.location.href = href;
 		}
 	});
-}
-if(!Array.prototype.includes) {
-	Array.prototype.includes = function(thing) {
-		for(let i = 0; i < this.length; i++) {
-			if(this[i] == thing) return true;
-		}
-		return false;
-	}
 }
 /* document.addEventListener("mousedown", function(e){
  var shiftPressed=0;
@@ -243,39 +252,43 @@ if(!Array.prototype.includes) {
   }
  return true;
 }); */
-let status_tab_parts = ["Загрузка..."];
-let current_tab = null;
-let mc_tab_parts = [["Загрузка...", ""]];
-let href_token = null;
-let spells = [];
-let spell_tabs = [];
-let verb_tabs = [];
-let verbs = [];
-let inner = "";
-let tickets = [];
-let sqdl2 = [];
-let permanent_tabs = []; // tabs that won't be cleared by wipes
-let turfcontents = [];
-let turfname = "";
-let theme = "light";
-const menu = document.querySelector('#menu');
+
+// Status panel implementation ------------------------------------------------
+var status_tab_parts = ["Загрузка..."];
+var current_tab = null;
+var mc_tab_parts = [["Загрузка...", ""]];
+var href_token = null;
+var spells = [];
+var spell_tabs = [];
+var verb_tabs = [];
+var verbs = [["", ""]]; // list with a list inside
+var inner = "";
+var tickets = [];
+var sqdl2 = [];
+var permanent_tabs = []; // tabs that won't be cleared by wipes
+var turfcontents = [];
+var turfname = "";
+var theme = "light";
+var menu = document.querySelector('#menu');
 
 function createStatusTab(name) {
 	if(document.getElementById(name) || name.trim() == "")
 		return;
 	if(!verb_tabs.includes(name) && !permanent_tabs.includes(name))
 		return;
-	let B = document.createElement("BUTTON");
+	var B = document.createElement("BUTTON");
 	B.onclick = function() {tab_change(name)};
 	B.id = name;
-	B.textContent = name;
+	B[textContentKey] = name;
 	B.className = "button";
 	//ORDERING ALPHABETICALLY
 	B.style.order = name.charCodeAt(0);
-	if(name == "Status" || name == "MC")
+	if(name == "Status" || name == "MC") {
 		if(name == "Status")
 			B.style.order = 1;
-		else B.style.order = 2;
+		else
+			B.style.order = 2;
+	}
 	//END ORDERING
 	menu.appendChild(B);
 }
@@ -283,82 +296,87 @@ function createStatusTab(name) {
 function removeStatusTab(name) {
 	if(!document.getElementById(name) || permanent_tabs.includes(name))
 		return;
-	if(verb_tabs.includes(name))
-		verb_tabs.pop(name);
+	for (var i = verb_tabs.length - 1; i >= 0; --i) {
+		if (verb_tabs[i] == name) {
+			verb_tabs.splice(i, 1);
+		}
+	}
 	menu.removeChild(document.getElementById(name));
 	if(document.getElementById(name)) // repeat for duplicates
 		removeStatusTab(name);
 }
 
 function addPermanentTab(name) {
- if(!permanent_tabs.includes(name))
-	permanent_tabs.push(name);
+	if(!permanent_tabs.includes(name))
+		permanent_tabs.push(name);
 	createStatusTab(name);
 }
 
 function removePermanentTab(name) {
-	if(permanent_tabs.includes(name))
-		permanent_tabs.pop(name);
+	for (var i = permanent_tabs.length - 1; i >= 0; --i) {
+		if (permanent_tabs[i] == name) {
+			permanent_tabs.splice(i, 1);
+		}
+	}
 	removeStatusTab(name);
-
 }
+
 function checkStatusTab() {
-	for(let i=0; i < menu.children.length; i++)
+	for(var i=0; i < menu.children.length; i++)
 		if(!verb_tabs.includes(menu.children[i].id) && !permanent_tabs.includes(menu.children[i].id))
 			removeStatusTab(menu.children[i].id);
 }
 function add_verb(v) {
-	let to_add = JSON.parse(v);
-	let cat = "";
+	var to_add = JSON.parse(v);
+	var cat = "";
 	cat = to_add[0];
 	if(verb_tabs.includes(cat)){ // we have the category already
 		verbs.push(to_add); // add it to verb list and we done
-	} else if(cat.length > 0) { // we don't have the category
+	} else if(cat.trim() != "") { // we don't have the category
 		verb_tabs.push(cat);
+		verbs.push(to_add); // add verb
 		createStatusTab(cat); // create the category
-		verbs.push(to_add) // add verb
 	}
 	if(current_tab == cat) {
 		draw_verbs(cat); // redraw if we added a verb to the tab we're currently in
 	}
 }
 function remove_verb(v) {
-	let to_remove = JSON.parse(v); // to_remove = [verb:category, verb:name]
-	verbs.pop(to_remove); // remove it from verbs
-	if(current_tab == to_remove[0]) // redraw
-		draw_verbs(current_tab);
-	check_verbs();
+	var verb_to_remove = v; // to_remove = [verb:category, verb:name]
+	for(var i = verbs.length - 1; i >= 0; i--){
+		var part_to_remove = verbs[i];
+		if(part_to_remove[1] == verb_to_remove[1]){
+			verbs.splice(i, 1)
+		}
+	}
 }
 
 function check_verbs() {
-	let cat = "";
-	for(let v = 0; v < verb_tabs.length; v++){
-		cat = verb_tabs[v];
-		verbs_cat_check(cat);
+	for(var v = verb_tabs.length - 1; v >= 0; v--){
+		verbs_cat_check(verb_tabs[v]);
 	}
-	checkStatusTab(); // removes any empty status tabs
+	//checkStatusTab(); // removes any empty status tabs
 }
 
 function verbs_cat_check(cat) {
-	let verbs_in_cat = 0;
-	let verbcat = "";
-	if(!verbs){
-		for(let m = 0; m < verb_tabs.length; m++){
-			verbcat = verb_tabs[m];
-			removeStatusTab(verbcat);
-		}
+	var verbs_in_cat = 0;
+	var verbcat = "";
+	if(!verb_tabs.includes(cat)){
+		removeStatusTab(cat);
 		return;
 	}
-	for(let v = 0; v < verbs.length; v++){
-		let verb = verbs[v];
-		verbcat = verb[0];
-		if(verbcat != cat) continue;
-		if(verbcat == cat){
-			verbs_in_cat++;
+	for(var v = 0; v < verbs.length; v++){
+		var part = verbs[v];
+		verbcat = part[0];
+		if(verbcat != cat || verbcat.trim() == ""){
+			continue;
+		}
+		else{
+			verbs_in_cat = 1;
 			break; // we only need one
 		}
 	}
-	if(verbs_in_cat < 1) {
+	if(verbs_in_cat != 1) {
 		removeStatusTab(cat);
 		if(current_tab == cat)
 			tab_change("Status");
@@ -366,22 +384,21 @@ function verbs_cat_check(cat) {
 }
 
 function wipe_verbs() {
-	verbs = [];
+	verbs = [["", ""]];
 	verb_tabs = [];
-	check_verbs();
-	verb_tabs = permanent_tabs;
+	checkStatusTab(); // remove all empty verb tabs
 }
 
 function add_verb_list(v) {
-	let to_add = JSON.parse(v); // list of a list with category and verb inside it
+	var to_add = JSON.parse(v); // list of a list with category and verb inside it
 	to_add.sort(); // sort what we're adding
-	for(let i = 0; i < to_add.length; i++) {
-		let part = to_add[i];
+	for(var i = 0; i < to_add.length; i++) {
+		var part = to_add[i];
 		if(verb_tabs.includes(part[0])){
 			verbs.push(part);
 			if(current_tab == part[0]) {
 				draw_verbs(part[0]); // redraw if we added a verb to the tab we're currently in
-		}
+			}
 		} else if(part[0]) {
 			verb_tabs.push(part[0]);
 			verbs.push(part);
@@ -391,23 +408,26 @@ function add_verb_list(v) {
 }
 
 function remove_verb_list(v) {
-	let to_remove = JSON.parse(v);
-	for(let i = 0; i < to_remove.length; i++) {
-		let part = to_remove[i];
-		verbs.pop(part);
+	var to_remove = JSON.parse(v);
+	for(var i = 0; i < to_remove.length; i++) {
+		remove_verb(to_remove[i]);
 	}
 	check_verbs();
 	verbs.sort();
+	if(verb_tabs.includes(current_tab))
+		draw_verbs(current_tab);
 }
+
 // passes a 2D list of (verbcategory, verbname) creates tabs and adds verbs to respective list
 // example (IC, Say)
 function init_verbs(c, v) {
 	wipe_verbs(); // remove all verb categories so we can replace them
+	checkStatusTab(); // remove all status tabs
 	verb_tabs = JSON.parse(c);
 	verb_tabs.sort(); // sort it
-	let do_update = false;
-	let cat = "";
-	for(let i = 0; i < verb_tabs.length; i++){
+	var do_update = false;
+	var cat = "";
+	for(var i = 0; i < verb_tabs.length; i++){
 		cat = verb_tabs[i];
 		createStatusTab(cat); // create a category if the verb doesn't exist yet
 	}
@@ -417,7 +437,6 @@ function init_verbs(c, v) {
 	if(v) {
 		verbs = JSON.parse(v);
 		verbs.sort(); // sort them
-		check_verbs();
 		if(do_update) {
 			draw_verbs(current_tab);
 		}
@@ -426,10 +445,10 @@ function init_verbs(c, v) {
 
 function update(global_data, ping_entry, other_entries) {
 	status_tab_parts = [ping_entry];
-	let parsed = JSON.parse(global_data);
-	for(let i = 0; i < parsed.length; i++) if(parsed[i] != null) status_tab_parts.push(parsed[i]);
+	var parsed = JSON.parse(global_data);
+	for(var i = 0; i < parsed.length; i++) if(parsed[i] != null) status_tab_parts.push(parsed[i]);
 	parsed = JSON.parse(other_entries);
-	for(let i = 0; i < parsed.length; i++) if(parsed[i] != null) status_tab_parts.push(parsed[i]);
+	for(var i = 0; i < parsed.length; i++) if(parsed[i] != null) status_tab_parts.push(parsed[i]);
 	if(current_tab == "Status")
 		draw_status();
 	else if(current_tab == "Debug Stat Panel")
@@ -453,29 +472,31 @@ function remove_mc() {
 		tab_change("Status");
 }
 function remove_spells() {
-	for(let s = 0; s < spell_tabs.length; s++){
+	for(var s = 0; s < spell_tabs.length; s++){
 		removeStatusTab(spell_tabs[s]);
 	}
 }
 
 function init_spells() {
-	let cat = "";
-	for(let i = 0; i < spell_tabs.length; i++)
+	var cat = "";
+	for(var i = 0; i < spell_tabs.length; i++) {
 		cat = spell_tabs[i];
-		if(cat.length > 0)
+		if(cat.length > 0) {
 			verb_tabs.push(cat);
 			createStatusTab(cat);
+		}
+	}
 }
 
 function check_spells() {
-	for(let v = 0; v < spell_tabs.length; v++)
+	for(var v = 0; v < spell_tabs.length; v++)
 		spell_cat_check(spell_tabs[v]);
 }
 function spell_cat_check(cat) {
-	let spells_in_cat = 0;
-	let spellcat = "";
-	for(let s = 0; s < spells.length; s++){
-		let spell = spells[s];
+	var spells_in_cat = 0;
+	var spellcat = "";
+	for(var s = 0; s < spells.length; s++){
+		var spell = spells[s];
 		spellcat = spell[0];
 		if(spellcat == cat){
 			spells_in_cat++;
@@ -487,7 +508,7 @@ function spell_cat_check(cat) {
 }
 function update_spells(t, s) {
 	spell_tabs = JSON.parse(t);
-	let do_update = false;
+	var do_update = false;
 	if(spell_tabs.includes(current_tab)) {
 		do_update = true;
 	}
@@ -497,7 +518,9 @@ function update_spells(t, s) {
 		if(do_update) {
 			draw_spells(current_tab);
 		}
-	} if(!s) remove_spells();
+	} else {
+		remove_spells();
+	}
 }
 
 function tab_change(tab) {
@@ -507,8 +530,8 @@ function tab_change(tab) {
 	current_tab = tab;
 	if(document.getElementById(tab))
 		document.getElementById(tab).className = "button active"; // make current button active
-	let spell_tabs_thingy = (spell_tabs.includes(tab));
-	let verb_tabs_thingy = (verb_tabs.includes(tab));
+	var spell_tabs_thingy = (spell_tabs.includes(tab));
+	var verb_tabs_thingy = (verb_tabs.includes(tab));
 	if(tab == "Status") {
 		draw_status();
 	} else if(tab == "MC") {
@@ -526,61 +549,63 @@ function tab_change(tab) {
 	}else if(tab == turfname) {
 		draw_listedturf();
 	} else {
-	document.getElementById("statcontent").innerHTML = "Загрузка...";
+		document.getElementById("statcontent").innerHTML = "Загрузка...";
 	}
 	window.location.href = "byond://winset?statbrowser.is-visible=true";
 }
 
 function draw_debug() {
 	document.getElementById("statcontent").innerHTML = "";
-	let wipeverbstabs = document.createElement("div");
-	let link = document.createElement("a");
+	var wipeverbstabs = document.createElement("div");
+	var link = document.createElement("a");
 	link.onclick = function() {wipe_verbs()};
-	link.textContent = "Wipe All Verbs";
+	link[textContentKey] = "Wipe All Verbs";
 	wipeverbstabs.appendChild(link);
 	document.getElementById("statcontent").appendChild(wipeverbstabs);
-	let text = document.createElement("div");
+	var text = document.createElement("div");
 	text.innerHTML = "Verb Tabs:";
 	document.getElementById("statcontent").appendChild(text);
-	let table1 = document.createElement("table");
-	for(let i=0; i < verb_tabs.length ; i++) {
-		let part = verb_tabs[i];
-		let tr = document.createElement("tr");
-		let td1 = document.createElement("td");
-		td1.textContent = part;
-		let a = document.createElement("a");
-		a.onclick = function() {removeStatusTab(part)};
-		a.textContent = " Delete Tab " + part;
+	var table1 = document.createElement("table");
+	for(var i=0; i < verb_tabs.length ; i++) {
+		var part = verb_tabs[i];
+		var tr = document.createElement("tr");
+		var td1 = document.createElement("td");
+		td1[textContentKey] = part;
+		var a = document.createElement("a");
+		a.onclick = function (part) {
+			return function() {removeStatusTab(part)};
+		}(part);
+		a[textContentKey] = " Delete Tab " + part;
 		td1.appendChild(a);
 		tr.appendChild(td1);
 		table1.appendChild(tr);
 	}
 	document.getElementById("statcontent").appendChild(table1);
-	let header2 = document.createElement("div");
-	header2.innerHTML = "Verbs: Category | Name";
+	var header2 = document.createElement("div");
+	header2.innerHTML = "Verbs:<br> Category | Name";
 	document.getElementById("statcontent").appendChild(header2);
-	let table2 = document.createElement("table");
-	for(let v = 0; v < verbs.length; v++) {
-		let part2 = verbs[v];
-		let trr = document.createElement("tr");
-		let tdd1 = document.createElement("td");
-		tdd1.textContent = part2[0];
-		let tdd2 = document.createElement("td");
-		tdd2.textContent = part2[1];
+	var table2 = document.createElement("table");
+	for(var v = 0; v < verbs.length; v++) {
+		var part2 = verbs[v];
+		var trr = document.createElement("tr");
+		var tdd1 = document.createElement("td");
+		tdd1[textContentKey] = part2[0];
+		var tdd2 = document.createElement("td");
+		tdd2[textContentKey] = part2[1];
 		trr.appendChild(tdd1);
 		trr.appendChild(tdd2);
 		table2.appendChild(trr);
 	}
 	document.getElementById("statcontent").appendChild(table2);
-	let text3 = document.createElement("div");
+	var text3 = document.createElement("div");
 	text3.innerHTML = "Permanent Tabs:";
 	document.getElementById("statcontent").appendChild(text3);
-	let table3 = document.createElement("table");
-	for(let i=0; i < permanent_tabs.length ; i++) {
-		let part3 = permanent_tabs[i];
-		let trrr = document.createElement("tr");
-		let tddd1 = document.createElement("td");
-		tddd1.textContent = part3;
+	var table3 = document.createElement("table");
+	for(var i=0; i < permanent_tabs.length ; i++) {
+		var part3 = permanent_tabs[i];
+		var trrr = document.createElement("tr");
+		var tddd1 = document.createElement("td");
+		tddd1[textContentKey] = part3;
 		trrr.appendChild(tddd1);
 		table3.appendChild(trrr);
 	}
@@ -588,15 +613,16 @@ function draw_debug() {
 
 }
 function draw_status() {
-	if(!document.getElementById("Status"))
+	if(!document.getElementById("Status")) {
 		createStatusTab("Status");
 		current_tab = "Status";
+	}
 	document.getElementById("statcontent").innerHTML = inner;
-	for(let i = 0; i < status_tab_parts.length; i++) {
+	for(var i = 0; i < status_tab_parts.length; i++) {
 		if(status_tab_parts[i].trim() == "") {
 			document.getElementById("statcontent").appendChild(document.createElement("br"));
 		} else {
-			let div = document.createElement("div");
+			var div = document.createElement("div");
 			div.innerHTML = status_tab_parts[i];
 			document.getElementById("statcontent").appendChild(div);
 		}
@@ -609,20 +635,20 @@ function draw_status() {
 
 function draw_mc() {
 	document.getElementById("statcontent").innerHTML = "";
-	let table = document.createElement("table");
-	for(let i = 0; i < mc_tab_parts.length; i++) {
-		let part = mc_tab_parts[i];
-		let tr = document.createElement("tr");
-		let td1 = document.createElement("td");
-		td1.textContent = part[0];
-		let td2 = document.createElement("td");
+	var table = document.createElement("table");
+	for(var i = 0; i < mc_tab_parts.length; i++) {
+		var part = mc_tab_parts[i];
+		var tr = document.createElement("tr");
+		var td1 = document.createElement("td");
+		td1[textContentKey] = part[0];
+		var td2 = document.createElement("td");
 		if(part[2]) {
-			let a = document.createElement("a");
+			var a = document.createElement("a");
 			a.href = "?_src_=vars;admin_token=" + href_token + ";Vars=" + part[2];
-			a.textContent = part[1];
+			a[textContentKey] = part[1];
 			td2.appendChild(a);
 		} else {
-			td2.textContent = part[1];
+			td2[textContentKey] = part[1];
 		}
 		tr.appendChild(td1);
 		tr.appendChild(td2);
@@ -632,36 +658,40 @@ function draw_mc() {
 }
 function update_tickets(T){
 	tickets = JSON.parse(T);
-	if(!verb_tabs.includes("Tickets"))
+	if(!verb_tabs.includes("Tickets")) {
 		verb_tabs.push("Tickets");
 		addPermanentTab("Tickets");
+	}
 	if(current_tab == "Tickets")
 		draw_tickets();
 }
 function update_sqdl2(S) {
 	sqdl2 = JSON.parse(S);
-	if(sqdl2.length > 0 && !verb_tabs.includes("SQDL2"))
+	if(sqdl2.length > 0 && !verb_tabs.includes("SQDL2")) {
 		verb_tabs.push("SQDL2");
 		addPermanentTab("SQDL2");
+	}
 	if(current_tab == "SQDL2")
 		draw_sqdl2();
 }
 
 function remove_sqdl2() {
-	if(sqdl2)
+	if(sqdl2) {
 		sqdl2 = [];
 		removePermanentTab("SQDL2");
 		if(current_tab == "SQDL2")
 			tab_change("Status");
+	}
 	checkStatusTab();
 }
 
 function remove_tickets() {
-	if(tickets)
+	if(tickets) {
 		tickets = [];
 		removePermanentTab("Tickets");
 		if(current_tab == "Tickets")
 			tab_change("Status");
+	}
 	checkStatusTab();
 }
 // removes MC, Tickets and MC tabs.
@@ -685,29 +715,36 @@ function update_listedturf(TC) {
 
 function draw_listedturf() {
 	document.getElementById("statcontent").innerHTML = "";
-	let table = document.createElement("table");
-	for(let i = 0; i < turfcontents.length; i++) {
-		let part = turfcontents[i];
+	var table = document.createElement("table");
+	for(var i = 0; i < turfcontents.length; i++) {
+		var part = turfcontents[i];
 		if(part[2]) {
-			let img = document.createElement("img");
+			var img = document.createElement("img");
 			img.src = part[2];
 			table.appendChild(img);
 		}
-		let b = document.createElement("div");
-		let clickcatcher = "";
+		var b = document.createElement("div");
+		var clickcatcher = "";
 		b.className = "link";
-		b.onmousedown = function(e) {
-			e.preventDefault();
-			clickcatcher = "?src=" + part[1] + ";statpanel_item_click=1";
-			if(e.shiftKey){
-				 clickcatcher += ";statpanel_item_shiftclick=1";
+		b.onmousedown = function (part) {
+			// The outer function is used to close over a fresh "part" variable,
+			// rather than every onmousedown getting the "part" of the last entry.
+			return function(e) {
+				e.preventDefault();
+				clickcatcher = "?src=" + part[1] + ";statpanel_item_click=1";
+				if(e.shiftKey){
+					clickcatcher += ";statpanel_item_shiftclick=1";
+				}
+				if(e.ctrlKey){
+					clickcatcher += ";statpanel_item_ctrlclick=1";
+				}
+				if(e.altKey) {
+					clickcatcher += ";statpanel_item_altclick=1";
+				}
+				window.location.href = clickcatcher;
 			}
-			if(e.ctrlKey){
-				clickcatcher += ";statpanel_item_ctrlclick=1";
-			}
-			window.location.href = clickcatcher;
-		}
-		b.textContent = part[0];
+		}(part);
+		b[textContentKey] = part[0];
 		table.appendChild(b);
 		table.appendChild(document.createElement("br"));
 	}
@@ -722,20 +759,20 @@ function remove_listedturf() {
 }
 function draw_sqdl2(){
 	document.getElementById("statcontent").innerHTML = "";
-	let table = document.createElement("table");
-	for(let i = 0; i < sqdl2.length; i++) {
-		let part = sqdl2[i];
-		let tr = document.createElement("tr");
-		let td1 = document.createElement("td");
-		td1.textContent = part[0];
-		let td2 = document.createElement("td");
+	var table = document.createElement("table");
+	for(var i = 0; i < sqdl2.length; i++) {
+		var part = sqdl2[i];
+		var tr = document.createElement("tr");
+		var td1 = document.createElement("td");
+		td1[textContentKey] = part[0];
+		var td2 = document.createElement("td");
 		if(part[2]) {
-			let a = document.createElement("a");
+			var a = document.createElement("a");
 			a.href = "?src=" + part[2] + ";statpanel_item_click=1";
-			a.textContent = part[1];
+			a[textContentKey] = part[1];
 			td2.appendChild(a);
 		} else {
-			td2.textContent = part[1];
+			td2[textContentKey] = part[1];
 		}
 		tr.appendChild(td1);
 		tr.appendChild(td2);
@@ -746,27 +783,27 @@ function draw_sqdl2(){
 
 function draw_tickets() {
 	document.getElementById("statcontent").innerHTML = "";
-	let table = document.createElement("table");
+	var table = document.createElement("table");
 	if(!tickets)
 		return;
-	for(let i = 0; i < tickets.length; i++) {
-		let part = tickets[i];
-		let tr = document.createElement("tr");
-		let td1 = document.createElement("td");
-		td1.textContent = part[0];
-		let td2 = document.createElement("td");
+	for(var i = 0; i < tickets.length; i++) {
+		var part = tickets[i];
+		var tr = document.createElement("tr");
+		var td1 = document.createElement("td");
+		td1[textContentKey] = part[0];
+		var td2 = document.createElement("td");
 		if(part[2]) {
-			let a = document.createElement("a");
+			var a = document.createElement("a");
 			a.href = "?_src_=holder;admin_token=" + href_token + ";ahelp=" + part[2] + ";ahelp_action=ticket;statpanel_item_click=1;action=ticket" ;
-			a.textContent = part[1];
+			a[textContentKey] = part[1];
 			td2.appendChild(a);
 		} else if(part[3]){
-			let a = document.createElement("a");
+			var a = document.createElement("a");
 			a.href = "?src=" + part[3] + ";statpanel_item_click=1";
-			a.textContent = part[1];
+			a[textContentKey] = part[1];
 			td2.appendChild(a);
 		} else {
-			td2.textContent = part[1];
+			td2[textContentKey] = part[1];
 		}
 		tr.appendChild(td1);
 		tr.appendChild(td2);
@@ -777,21 +814,21 @@ function draw_tickets() {
 
 function draw_spells(cat) {
 	document.getElementById("statcontent").innerHTML = "";
-	let table = document.createElement("table");
-	for(let i = 0; i < spells.length; i++) {
-		let part = spells[i];
+	var table = document.createElement("table");
+	for(var i = 0; i < spells.length; i++) {
+		var part = spells[i];
 		if(part[0] != cat) continue;
-		let tr = document.createElement("tr");
-		let td1 = document.createElement("td");
-		td1.textContent = part[1];
-		let td2 = document.createElement("td");
+		var tr = document.createElement("tr");
+		var td1 = document.createElement("td");
+		td1[textContentKey] = part[1];
+		var td2 = document.createElement("td");
 		if(part[3]) {
-			let a = document.createElement("a");
+			var a = document.createElement("a");
 			a.href = "?src=" + part[3] + ";statpanel_item_click=1";
-			a.textContent = part[2];
+			a[textContentKey] = part[2];
 			td2.appendChild(a);
 		} else {
-			td2.textContent = part[2];
+			td2[textContentKey] = part[2];
 		}
 		tr.appendChild(td1);
 		tr.appendChild(td2);
@@ -802,17 +839,25 @@ function draw_spells(cat) {
 
 function draw_verbs(cat){
 	document.getElementById("statcontent").innerHTML = "";
-	let table = document.createElement("newdiv");
+	var table = document.createElement("newdiv");
 	table.className = "grid-container";
-	let command = ""; // typecast name to string
-	for(let i = 0; i < verbs.length; i++) {
-		let part = verbs[i]; // should be a list containing category and command
+	var command = ""; // typecast name to string
+	verbs.sort();
+	verbs.reverse(); // sort verbs backwards before we draw
+	for(var i = verbs.length - 1; i >= 0; i--) {
+		var part = verbs[i]; // should be a list containing category and command
 		if(!part[1]) continue;
-		if(part[0] != cat) continue;
+		if(part[0] != cat){
+			continue;
+		}
+		if(part[0].trim() == ""){
+			verbs.splice(i, 1);
+			continue;
+		}
 		command = part[1];
-		let a = document.createElement("a");
+		var a = document.createElement("a");
 		a.href = "byond://winset?command=" + command.replace(/\s/g, "-");
-		a.textContent = command;
+		a[textContentKey] = command;
 		a.className = "grid-item";
 		table.appendChild(a);
 	}
@@ -820,23 +865,23 @@ function draw_verbs(cat){
 }
 
 function create_theme_button() {
-    let B = document.createElement("BUTTON");
-    B.onclick = function() {toggle_theme()};
-    B.id = "Theme";
-    B.textContent = "Тема";
-    B.className = "button Theme";
-    permanent_tabs.push("Theme");
-    menu.appendChild(B);
+	var B = document.createElement("BUTTON");
+	B.onclick = function() {toggle_theme()};
+	B.id = "Theme";
+	B[textContentKey] = "Тема";
+	B.className = "button Theme";
+	permanent_tabs.push("Theme");
+	menu.appendChild(B);
 }
 
 function toggle_theme() {
 	if(theme == "light"){
-    	theme = "dark";
-        set_dark_theme();
-    } else {
-    	theme = "light";
-        set_light_theme();
-}
+		theme = "dark";
+		set_dark_theme();
+	} else {
+		theme = "light";
+		set_light_theme();
+	}
 }
 
 function set_light_theme() {
@@ -857,11 +902,11 @@ function set_dark_theme() {
 }
 function set_style_sheet(sheet) {
 	if(document.getElementById("goonStyle")) {
-		let currentSheet = document.getElementById("goonStyle");
+		var currentSheet = document.getElementById("goonStyle");
 		currentSheet.parentElement.removeChild(currentSheet);
 	}
-	let head  = document.getElementsByTagName('head')[0];
-	let sheetElement = document.createElement("link");
+	var head  = document.getElementsByTagName('head')[0];
+	var sheetElement = document.createElement("link");
 	sheetElement.id = "goonStyle";
 	sheetElement.rel = "stylesheet";
 	sheetElement.type = "text/css";
@@ -870,24 +915,21 @@ function set_style_sheet(sheet) {
 	head.appendChild(sheetElement);
 }
 
+document[addEventListenerKey]("click", function(e) {
+	window.location.href = "byond://winset?map.focus=true";
+});
 
-  document.addEventListener("click", function(e) {
-		window.location.href = "byond://winset?map.focus=true";
-	});
-  window.addEventListener("load", function() {
-      create_theme_button();
-      let darkmodeCookie = getCookie('darkmode');
-      if(darkmodeCookie === 'true') {
-          set_dark_theme();
-      } else {
-          set_light_theme();
-	  }
-      if(!current_tab) {
-		  addPermanentTab("Status");
-          tab_change("Status");
-	  }
-	  toggle_theme();
-  });
+create_theme_button();
+var darkmodeCookie = getCookie('darkmode');
+if(darkmodeCookie === 'true') {
+	set_dark_theme();
+} else {
+	set_light_theme();
+}
+if(!current_tab) {
+	addPermanentTab("Status");
+	tab_change("Status");
+}
 
 function create_debug(){
 	if(!document.getElementById("Debug Stat Panel")) {
@@ -910,7 +952,5 @@ function getCookie(cname) {
 	return '';
 }
 </script>
-<div id="statcontent">
-</div>
 </body>
 </html>
