@@ -920,8 +920,8 @@ document[addEventListenerKey]("click", function(e) {
 });
 
 create_theme_button();
-var darkmodeCookie = getCookie('darkmode');
-if(darkmodeCookie === 'true') {
+var lightmodeCookie = getCookie('lightmode');
+if(lightmodeCookie === 'false') {
 	set_dark_theme();
 } else {
 	set_light_theme();
