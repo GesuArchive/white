@@ -202,14 +202,14 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 								'cfg/battle_music/prikol/Ketchup.ogg',
 								'cfg/battle_music/prikol/HIJACKED_GOVNOVOZ.ogg')
 	var/list/bm_techno = list(  'cfg/battle_music/techno/03 NARC.ogg',
-								'cfg/battle_music/techno/Acid-Notation - The Yanderes Puppet Show.ogg',
 								'cfg/battle_music/techno/Carpenter Brut - Roller Mobster.ogg',
 								'cfg/battle_music/techno/M O O N - Hydrogen.ogg',
-								'cfg/battle_music/techno/Protector 101 - Hardware.ogg',
+								'cfg/battle_music/techno/Blood Stain - Remi Gallego.ogg',
 								'cfg/battle_music/techno/Street Cleaner - Murdercycle.ogg',
-								'cfg/battle_music/techno/Umwelt - Faceless Power.ogg',
 								'cfg/battle_music/techno/Overpass.ogg',
-								'cfg/battle_music/techno/breakmedown.ogg')
+								'cfg/battle_music/techno/Downstairs - Funeral Director.ogg',
+								'cfg/battle_music/techno/Alert! - Instrumental - Vulta.ogg',
+								'cfg/battle_music/techno/Maciej Niedzielski - Old Military Base.ogg')
 	var/list/bm_touhou = list(  'cfg/battle_music/touhou/80sspark.ogg',
 								'cfg/battle_music/touhou/badapple.ogg',
 								'cfg/battle_music/touhou/Galaxy Collapse.ogg',
