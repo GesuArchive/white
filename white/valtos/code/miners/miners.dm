@@ -34,8 +34,93 @@ SUBSYSTEM_DEF(spm)
 	crypto = pick(GLOB.crypto_names)
 	convertprice = 30
 
-////////////////////////////////////////////
-// SPACECOIN miners
+/////////////////////////////////////
+// New SC miners
+// love this
+/////////////////////////////////////
+
+/obj/machinery/power/mining_rack
+	name = "полка для ферм"
+	desc = "Сюда можно установить специальное \"оборудование\"."
+	icon = 'white/valtos/icons/miner.dmi'
+	icon_state = "rack"
+
+	anchored = FALSE
+	density = TRUE
+
+	use_power = NO_POWER_USE
+
+	var/hashrate_total = 0
+
+/obj/machinery/power/mining_rack/examine(mob/user)
+	. = ..()
+	if(contents.len)
+		. += "<hr><span class='notice'>Внутри можно заметить:</span>"
+		for(var/obj/item/mining_thing/MT in contents)
+			. += "\n<span class='notice'>[icon2html(MT, user)] [MT.tech_name] \[[MT.hashrate] Hash/Sol\]</span>"
+	. += "<hr><span class='notice'>Общая скорость: <b>[hashrate_total] Hash/Sol</b></span>"
+
+/obj/machinery/power/mining_rack/proc/recalculate_hashrate()
+
+	hashrate_total = 0
+
+	for(var/obj/item/mining_thing/MT in contents)
+		hashrate_total += MT.hashrate
+
+/obj/machinery/power/mining_rack/attackby(obj/item/I, mob/living/user, params)
+
+	if(user.a_intent == INTENT_HARM)
+		return ..()
+
+	if(!anchored)
+		return ..()
+
+	if(istype(I, /obj/item/mining_thing))
+		if(contents.len >= 3)
+			to_chat(user, "<span class='warning'>Стойка переполнена!</span>")
+			return
+		I.forceMove(src)
+		switch(contents.len)
+			if(1)
+				to_chat(user, "<span class='notice'>Устанавливаю оборудование в верхний слот.</span>")
+				add_overlay("top_miners")
+			if(2)
+				to_chat(user, "<span class='notice'>Устанавливаю оборудование в средний слот.</span>")
+				add_overlay("mid_miners")
+			if(3)
+				to_chat(user, "<span class='notice'>Устанавливаю оборудование в нижний слот.</span>")
+				add_overlay("bot_miners")
+		recalculate_hashrate()
+
+	if(I.tool_behaviour == TOOL_CROWBAR)
+		if(!contents.len)
+			to_chat(user, "<span class='warning'>Внутри пусто!</span>")
+			return
+		switch(contents.len)
+			if(1)
+				to_chat(user, "<span class='notice'>Вытаскиваю оборудование из верхнего слота.</span>")
+				cut_overlay("top_miners")
+			if(2)
+				to_chat(user, "<span class='notice'>Вытаскиваю оборудование из среднего слота.</span>")
+				cut_overlay("mid_miners")
+			if(3)
+				to_chat(user, "<span class='notice'>Вытаскиваю оборудование из нижнего слота.</span>")
+				cut_overlay("bot_miners")
+		var/obj/item/TFM = contents[contents.len]
+		var/turf/T = get_turf(src)
+		TFM.forceMove(T)
+		recalculate_hashrate()
+
+/obj/item/mining_thing
+	name = "куча хлама"
+	desc = "Сложно. На каждом блоке написано \"NTX-2228 Plasma\"."
+	icon = 'white/valtos/icons/miner.dmi'
+	icon_state = "miners"
+	var/tech_name = "NTX-2228 Plasma"
+	var/hashrate = 4000
+
+/////////////////////////////////////
+// OLD SPACECOIN miners
 // fuck this
 /////////////////////////////////////
 
