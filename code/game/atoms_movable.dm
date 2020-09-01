@@ -170,6 +170,12 @@
 	return T.zPassOut(src, direction, destination) && destination.zPassIn(src, direction, T)
 
 /atom/movable/vv_edit_var(var_name, var_value)
+	var/static/list/banned_edits = list("step_x", "step_y", "step_size", "bounds")
+	var/static/list/careful_edits = list("bound_x", "bound_y", "bound_width", "bound_height")
+	if(var_name in banned_edits)
+		return FALSE	//PLEASE no.
+	if((var_name in careful_edits) && (var_value % world.icon_size) != 0)
+		return FALSE
 	switch(var_name)
 		if(NAMEOF(src, anchored))
 			set_anchored(var_value)

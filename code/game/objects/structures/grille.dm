@@ -10,14 +10,13 @@
 	armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 100, BOMB = 10, BIO = 100, RAD = 100, FIRE = 0, ACID = 0)
 	max_integrity = 50
 	integrity_failure = 0.4
-	bound_width = 30 // 2 px smaller than a window
-	bound_height = 30
+
 	var/rods_type = /obj/item/stack/rods
 	var/rods_amount = 2
 	var/rods_broken = TRUE
 	var/grille_type = null
 	var/broken_type = /obj/structure/grille/broken
-	var/shock_cooldown
+
 
 /obj/structure/grille/Destroy()
 	update_cable_icons_on_turf(get_turf(src))
@@ -81,11 +80,8 @@
 /obj/structure/grille/Bumped(atom/movable/AM)
 	if(!ismob(AM))
 		return
-	var/thingdir = get_dir(src, AM)
-	for(var/obj/structure/window/window in OBOUNDS_EDGE(src, thingdir))
-		if(window.anchored)
-			return
-	shock(AM, 70)
+	var/mob/M = AM
+	shock(M, 70)
 
 /obj/structure/grille/attack_animal(mob/user)
 	. = ..()
@@ -243,8 +239,7 @@
 		return FALSE
 	if(!in_range(src, user))//To prevent TK and mech users from getting shocked
 		return FALSE
-	if(!COOLDOWN_FINISHED(src, shock_cooldown))
-		return FALSE
+
 	var/turf/T = get_turf(src)
 	var/obj/structure/cable/C = T.get_cable_node()
 	if(C)
@@ -252,7 +247,7 @@
 			var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 			s.set_up(3, 1, src)
 			s.start()
-			COOLDOWN_START(src, shock_cooldown, 0.5 SECONDS)
+
 			return TRUE
 		else
 			return FALSE
