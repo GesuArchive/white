@@ -11,6 +11,17 @@ body {
 	font-size: 12px !important;
 	margin: 0 !important;
 	padding: 0 !important;
+	overflow-x: hidden;
+
+	scrollbar-base-color: #020D18;
+	scrollbar-face-color: #062240;
+	scrollbar-3dlight-color: #020D18;
+	scrollbar-highlight-color: #062240;
+	scrollbar-track-color: #020D18;
+	scrollbar-arrow-color: black;
+	scrollbar-shadow-color: #020D18;
+	scrollbar-dark-shadow-color: #062240;
+
 }
 body.dark {
 	background-color: #020D18;
@@ -20,7 +31,7 @@ body.dark {
 #menu {
 	background-color: white;
 	position: fixed;
-	padding: 7px;
+	padding: 2px;
 	width: 100%;
 }
 .dark #menu {
@@ -91,19 +102,19 @@ li a:hover:not(.active) {
 	order: 3;
 }
 .dark button {
-	background-color: #252525;
+	background-color: #062240;
 	border-color: rgba(37, 37, 36, 0.5);
 	color: white;
 }
 .button:hover {
 	border-color: rgba(255, 255, 254, 0.5);
-	background-color: #252525;
+	background-color: #062240;
 	color: white;
 }
 .dark button:hover {
 	border-color: rgba(37, 37, 36, 0.5);
 	background-color: #FFFFFE;
-	color: #252525;
+	color: #062240;
 }
 .button:active, .button.active {
 	text-decoration: underline;
@@ -119,7 +130,7 @@ li a:hover:not(.active) {
 }
 .grid-item {
 	color: black;
-	width: 150px;
+	width: 170px;
 	font-size: 11px;
 	line-height: 24px;
 	text-align: left;
