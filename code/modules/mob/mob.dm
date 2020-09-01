@@ -75,6 +75,7 @@
 	set_nutrition(rand(NUTRITION_LEVEL_START_MIN, NUTRITION_LEVEL_START_MAX))
 	. = ..()
 	update_config_movespeed()
+	initialize_actionspeed()
 	update_movespeed(TRUE)
 
 /**
@@ -108,10 +109,10 @@
   */
 /mob/proc/Cell()
 	set category = "Адм"
-	set hidden = 1
+	set hidden = TRUE
 
 	if(!loc)
-		return 0
+		return
 
 	var/datum/gas_mixture/environment = loc.return_air()
 
@@ -304,7 +305,7 @@
 
 	if(istype(W))
 		if(equip_to_slot_if_possible(W, slot,0,0,0))
-			return 1
+			return TRUE
 
 	if(!W)
 		// Activate the item
@@ -312,7 +313,7 @@
 		if(istype(I))
 			I.attack_hand(src)
 
-	return 0
+	return FALSE
 
 /**
   * Try to equip an item to a slot on the mob
@@ -333,9 +334,8 @@
 	if(!W.mob_can_equip(src, null, slot, disable_warning, bypass_equip_delay_self, swap))
 		if(qdel_on_fail)
 			qdel(W)
-		else
-			if(!disable_warning)
-				to_chat(src, "<span class='warning'>You are unable to equip that!</span>")
+		else if(!disable_warning)
+			to_chat(src, "<span class='warning'>You are unable to equip that!</span>")
 		return FALSE
 	equip_to_slot(W, slot, initial, redraw_mob, swap) //This proc should not ever fail.
 	return TRUE
@@ -372,7 +372,7 @@
   */
 /mob/proc/equip_to_appropriate_slot(obj/item/W, swap=FALSE)
 	if(!istype(W))
-		return 0
+		return FALSE
 	var/slot_priority = W.slot_equipment_priority
 
 	if(!slot_priority)
@@ -389,9 +389,9 @@
 
 	for(var/slot in slot_priority)
 		if(equip_to_slot_if_possible(W, slot, FALSE, TRUE, TRUE, FALSE, FALSE, swap)) //qdel_on_fail = FALSE; disable_warning = TRUE; redraw_mob = TRUE;
-			return 1
+			return TRUE
 
-	return 0
+	return FALSE
 /**
   * Reset the attached clients perspective (viewpoint)
   *
@@ -449,41 +449,8 @@
 		// shift-click catcher may issue examinate() calls for out-of-sight turfs
 		return
 
-	if(is_blind()) //blind people see things differently (through touch)
-		//need to be next to something and awake
-		if(!in_range(A, src) || incapacitated())
-			to_chat(src, "<span class='warning'>Здесь что-то есть, но я не вижу этого!</span>")
-			return
-		//also neeed an empty hand, and you can only initiate as many examines as you have hands
-		if(LAZYLEN(do_afters) >= get_num_arms() || get_active_held_item())
-			to_chat(src, "<span class='warning'>Мне нужна свободная рука для правильного осмотра!</span>")
-			return
-		//can only queue up one examine on something at a time
-		if(A in do_afters)
-			return
-
-		to_chat(src, "<span class='notice'>Начинаю осматривать что-то...</span>")
-		visible_message("<span class='notice'>[name] щупает [A.name]...</span>")
-
-		/// how long it takes for the blind person to find the thing they're examining
-		var/examine_delay_length = rand(1 SECONDS, 2 SECONDS)
-		if(client?.recent_examines && client?.recent_examines[A]) //easier to find things we just touched
-			examine_delay_length = 0.5 SECONDS
-		else if(isobj(A))
-			examine_delay_length *= 1.5
-		else if(ismob(A) && A != src)
-			examine_delay_length *= 2
-
-		if(examine_delay_length > 0 && !do_after(src, examine_delay_length, target = A))
-			to_chat(src, "<span class='notice'>Не понятно че это. ДА КАК ОН НАЗВАЛ МОЮ МАТЬ?!</span>")
-			return
-
-		//now we touch the thing we're examining
-		/// our current intent, so we can go back to it after touching
-		var/previous_intent = a_intent
-		a_intent = INTENT_HELP
-		A.attack_hand(src)
-		a_intent = previous_intent
+	if(is_blind() && !blind_examine_check(A)) //blind people see things differently (through touch)
+		return
 
 	face_atom(A)
 	var/list/result
@@ -503,6 +470,60 @@
 	if(result)
 		to_chat(src, "<div class='examine_block'>[result.Join()]</div>")
 	SEND_SIGNAL(src, COMSIG_MOB_EXAMINATE, A)
+
+
+/mob/proc/blind_examine_check(atom/examined_thing)
+	return TRUE //The non-living will always succeed at this check.
+
+
+/mob/living/blind_examine_check(atom/examined_thing)
+	//need to be next to something and awake
+	if(!Adjacent(examined_thing) || incapacitated())
+		to_chat(src, "<span class='warning'>Здесь что-то есть, но я не вижу этого!</span>")
+		return FALSE
+
+	//you can examine things you're holding directly, but you can't examine other things if your hands are full
+	/// the item in our active hand
+	var/active_item = get_active_held_item()
+	if(active_item && active_item != examined_thing)
+		to_chat(src, "<span class='warning'>Мне нужна свободная рука для правильного осмотра!</span>")
+		return FALSE
+
+	//you can only initiate exaimines if you have a hand, it's not disabled, and only as many examines as you have hands
+	/// our active hand, to check if it's disabled/detatched
+	var/obj/item/bodypart/active_hand = has_active_hand()? get_active_hand() : null
+	if(!active_hand || active_hand.bodypart_disabled || LAZYLEN(do_afters) >= usable_hands)
+		to_chat(src, "<span class='warning'>Мне нужна свободная рука для правильного осмотра!</span>")
+		return FALSE
+
+	//you can only queue up one examine on something at a time
+	if(examined_thing in do_afters)
+		return FALSE
+
+	to_chat(src, "<span class='notice'>Начинаю осматривать что-то...</span>")
+	visible_message("<span class='notice'>[name] щупает [examined_thing.name]...</span>")
+
+	/// how long it takes for the blind person to find the thing they're examining
+	var/examine_delay_length = rand(1 SECONDS, 2 SECONDS)
+	if(client?.recent_examines && client?.recent_examines[examined_thing]) //easier to find things we just touched
+		examine_delay_length = 0.33 SECONDS
+	else if(isobj(examined_thing))
+		examine_delay_length *= 1.5
+	else if(ismob(examined_thing) && examined_thing != src)
+		examine_delay_length *= 2
+
+	if(examine_delay_length > 0 && !do_after(src, examine_delay_length, target = examined_thing))
+		to_chat(src, "<span class='notice'>Не понятно че это. ДА КАК ОН НАЗВАЛ МОЮ МАТЬ?!</span>")
+		return FALSE
+
+	//now we touch the thing we're examining
+	/// our current intent, so we can go back to it after touching
+	var/previous_intent = a_intent
+	a_intent = INTENT_HELP
+	INVOKE_ASYNC(examined_thing, /atom/proc/attack_hand, src)
+	a_intent = previous_intent
+	return TRUE
+
 
 /mob/proc/clear_from_recent_examines(atom/A)
 	SIGNAL_HANDLER
@@ -814,7 +835,7 @@
 
 ///Is the mob muzzled (default false)
 /mob/proc/is_muzzled()
-	return 0
+	return FALSE
 
 /// Adds this list to the output to the stat browser
 /mob/proc/get_status_tab_items()
@@ -1025,11 +1046,11 @@
 
 ///can the mob be buckled to something by default?
 /mob/proc/can_buckle()
-	return 1
+	return TRUE
 
 ///can the mob be unbuckled from something by default?
 /mob/proc/can_unbuckle()
-	return 1
+	return TRUE
 
 ///Can the mob interact() with an atom?
 /mob/proc/can_interact_with(atom/A)
@@ -1089,7 +1110,7 @@
 /mob/proc/fully_replace_character_name(oldname,newname)
 	log_message("[src] name changed from [oldname] to [newname]", LOG_OWNERSHIP)
 	if(!newname)
-		return 0
+		return FALSE
 
 	log_played_names(ckey,newname)
 
@@ -1112,7 +1133,7 @@
 				// Only update if this player is a target
 				if(obj.target && obj.target.current && obj.target.current.real_name == name)
 					obj.update_explanation_text()
-	return 1
+	return TRUE
 
 ///Updates GLOB.data_core records with new name , see mob/living/carbon/human
 /mob/proc/replace_records_name(oldname,newname)
@@ -1169,7 +1190,7 @@
 		return
 	client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
 	if (ismecha(loc))
-		var/obj/mecha/M = loc
+		var/obj/vehicle/sealed/mecha/M = loc
 		if(M.mouse_pointer)
 			client.mouse_pointer_icon = M.mouse_pointer
 	else if (istype(loc, /obj/vehicle/sealed))
@@ -1302,10 +1323,13 @@
 /mob/proc/set_nutrition(change) //Seriously fuck you oldcoders.
 	nutrition = max(0, change)
 
-///Set the movement type of the mob and update it's movespeed
-/mob/setMovetype(newval)
+
+/mob/setMovetype(newval) //Set the movement type of the mob and update it's movespeed
 	. = ..()
+	if(isnull(.))
+		return
 	update_movespeed(FALSE)
+
 
 /// Updates the grab state of the mob and updates movespeed
 /mob/setGrabState(newstate)

@@ -13,7 +13,6 @@
 	attack_verb_continuous = list("моет", "лупит", "бьёт", "ударяет")
 	attack_verb_simple = list("моет", "лупит", "бьёт", "ударяет")
 	resistance_flags = FLAMMABLE
-	var/mopping = 0
 	var/mopcount = 0
 	var/mopcap = 15
 	var/mopspeed = 15

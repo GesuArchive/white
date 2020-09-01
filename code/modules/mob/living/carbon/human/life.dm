@@ -19,14 +19,13 @@
 #define THERMAL_PROTECTION_HAND_RIGHT	0.025
 
 /mob/living/carbon/human/Life()
-	set invisibility = 0
 	if (notransform)
 		return
 
 	. = ..()
 
 	if (QDELETED(src))
-		return 0
+		return FALSE
 
 	if(!IS_IN_STASIS(src))
 		if(.) //not dead
@@ -52,7 +51,7 @@
 		if(nutrition < NUTRITION_LEVEL_STARVING && prob(2))
 			to_chat(src, "<span class='warning'>[pick("Голодно...", "Кушать хочу...", "Вот бы что-нибудь съесть...", "Мой живот урчит...")]</span>")
 			take_overall_damage(stamina = 60)
-		return 1
+		return TRUE
 
 
 /mob/living/carbon/human/calculate_affecting_pressure(pressure)

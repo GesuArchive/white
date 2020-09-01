@@ -8,11 +8,7 @@
 	move_resist = INFINITY
 	layer = MASSIVE_OBJ_LAYER
 	light_range = 6
-	appearance_flags = 0
-	step_size = 3
-	movement_type = FLOATING | UNSTOPPABLE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	obj_flags = CAN_BE_HIT | DANGEROUS_POSSESSION
+	appearance_flags = LONG_GLIDE
 	var/current_size = 1
 	var/allowed_size = 1
 	var/contained = 1 //Are we going to move around?
@@ -61,8 +57,7 @@
 	. = ..()
 	if(!.)
 		last_failed_movement = direct
-	else
-		last_failed_movement = NONE
+		return FALSE
 
 /obj/singularity/attack_hand(mob/user)
 	consume(user)
@@ -81,9 +76,8 @@
 	consume(user)
 	return TRUE
 
-// We don't drift around space, they drift around us
-/obj/singularity/Process_Spacemove()
-	return TRUE
+/obj/singularity/Process_Spacemove() //The singularity stops drifting for no man!
+	return FALSE
 
 /obj/singularity/blob_act(obj/structure/blob/B)
 	return
@@ -324,14 +318,79 @@
 
 /obj/singularity/proc/automatic_movement(force_move = NONE)
 	if(!move_self)
-		return
+		return FALSE
+
+	var/drifting_dir = pick(GLOB.alldirs - last_failed_movement)
 
 	var/drifting_dir = force_move || pick(GLOB.alldirs - last_failed_movement)
 
 	if(target && prob(60))
 		drifting_dir = get_dir(src,target) //moves to a singulo beacon, if there is one
 
-	walk(src, drifting_dir)
+	step(src, drifting_dir)
+
+/obj/singularity/proc/check_cardinals_range(steps, retry_with_move = FALSE)
+	. = length(GLOB.cardinals)			//Should be 4.
+	for(var/i in GLOB.cardinals)
+		. -= check_turfs_in(i, steps)	//-1 for each working direction
+	if(. && retry_with_move)			//If there's still a positive value it means it didn't pass. Retry with move if applicable
+		for(var/i in GLOB.cardinals)
+			if(step(src, i))			//Move in each direction.
+				if(check_cardinals_range(steps, FALSE))		//New location passes, return true.
+					return TRUE
+	return !.
+
+/obj/singularity/proc/check_turfs_in(direction = 0, step = 0)
+	if(!direction)
+		return FALSE
+	var/steps = 0
+	if(!step)
+		switch(current_size)
+			if(STAGE_ONE)
+				steps = 1
+			if(STAGE_TWO)
+				steps = 3//Yes this is right
+			if(STAGE_THREE)
+				steps = 3
+			if(STAGE_FOUR)
+				steps = 4
+			if(STAGE_FIVE)
+				steps = 5
+	else
+		steps = step
+	var/list/turfs = list()
+	var/turf/T = src.loc
+	for(var/i = 1 to steps)
+		T = get_step(T,direction)
+	if(!isturf(T))
+		return FALSE
+	turfs.Add(T)
+	var/dir2 = 0
+	var/dir3 = 0
+	switch(direction)
+		if(NORTH||SOUTH)
+			dir2 = 4
+			dir3 = 8
+		if(EAST||WEST)
+			dir2 = 1
+			dir3 = 2
+	var/turf/T2 = T
+	for(var/j = 1 to steps-1)
+		T2 = get_step(T2,dir2)
+		if(!isturf(T2))
+			return FALSE
+		turfs.Add(T2)
+	for(var/k = 1 to steps-1)
+		T = get_step(T,dir3)
+		if(!isturf(T))
+			return FALSE
+		turfs.Add(T)
+	for(var/turf/T3 in turfs)
+		if(isnull(T3))
+			continue
+		if(!can_move(T3))
+			return FALSE
+	return TRUE
 
 /obj/singularity/proc/check_cardinals_range(range)
 	for(var/turf/place in bounds(src, (range*32) - bound_width + 32))

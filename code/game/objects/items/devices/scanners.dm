@@ -409,7 +409,7 @@ GENE SCANNER
 		if(M.reagents.reagent_list.len)
 			render_list += "<span class='notice ml-1'>В крови пациента обнаружены следующие химикаты:</span>\n"
 			for(var/datum/reagent/R in M.reagents.reagent_list)
-				render_list += "<span class='notice ml-2'>[round(R.volume, 0.001)] юинтов [R.name][R.overdosed == 1 ? "</span> - <span class='boldannounce'>ПЕРЕДОЗИРОВКА</span>" : ".</span>"]\n"
+				render_list += "<span class='notice ml-2'>[round(R.volume, 0.001)] юнитов [R.name][R.overdosed ? "</span> - <span class='boldannounce'>ПЕРЕДОЗИРОВКА</span>" : ".</span>"]\n"
 		else
 			render_list += "<span class='notice ml-1'>Не обнаружено.</span>\n"
 		if(M.reagents.addiction_list.len)

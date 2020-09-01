@@ -10,9 +10,9 @@
 		. += "<span class='warning'>[t_on] [icon2html(handcuffed, user)] в наручниках!</span>\n"
 	if (head)
 		. += "На голове у н[t_ego] [head.ru_get_examine_string(user)].\n"
-	if(wear_mask && !(ITEM_SLOT_MASK in obscured))
+	if(wear_mask && !(obscured & ITEM_SLOT_MASK))
 		. += "На [t_ego] лице [wear_mask.ru_get_examine_string(user)].\n"
-	if(wear_neck && !(ITEM_SLOT_NECK in obscured))
+	if(wear_neck && !(obscured & ITEM_SLOT_NECK))
 		. += "На шее у н[t_ego] [wear_neck.ru_get_examine_string(user)].\n"
 
 	for(var/obj/item/I in held_items)
@@ -21,9 +21,9 @@
 
 	if (back)
 		. += "На [t_ego] спине [back.ru_get_examine_string(user)].\n"
-	var/appears_dead = 0
+	var/appears_dead = FALSE
 	if (stat == DEAD)
-		appears_dead = 1
+		appears_dead = TRUE
 		if(getorgan(/obj/item/organ/brain))
 			. += "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни...</span>\n"
 		else if(get_bodypart(BODY_ZONE_HEAD))
@@ -34,7 +34,7 @@
 	var/list/disabled = list()
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/BP = X
-		if(BP.disabled)
+		if(BP.bodypart_disabled)
 			disabled += BP
 		missing -= BP.body_zone
 		for(var/obj/item/I in BP.embedded_objects)
@@ -107,13 +107,13 @@
 			scar_severity += S.severity
 
 	switch(scar_severity)
-		if(1 to 2)
+		if(1 to 4)
 			msg += "<span class='smallnoticeital'>[t_on] похоже имеет шрамы... Стоит присмотреться, чтобы разглядеть ещё.</span>\n"
-		if(3 to 4)
+		if(5 to 8)
 			msg += "<span class='notice'><i>[t_on] имеет несколько серьёзных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></span>\n"
-		if(5 to 6)
+		if(9 to 11)
 			msg += "<span class='notice'><b><i>[t_on] имеет множество ужасных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></b></span>\n"
-		if(7 to INFINITY)
+		if(12 to INFINITY)
 			msg += "<span class='notice'><b><i>[t_on] имеет разорванное в хлам тело состоящее из шрамов... Стоит присмотреться, чтобы разглядеть ещё?</i></b></span>\n"
 
 	msg += "</span>"

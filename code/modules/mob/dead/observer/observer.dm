@@ -27,7 +27,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	var/datum/hud/living/carbon/hud = null // hud
 	var/bootime = 0
 	var/started_as_observer //This variable is set to 1 when you enter the game as an observer.
-							//If you died in the game and are a ghsot - this will remain as null.
+							//If you died in the game and are a ghost - this will remain as null.
 							//Note that this is not a reliable way to determine if admins started as observers, since they change mobs a lot.
 	var/atom/movable/following = null
 	var/fun_verbs = 0
@@ -325,11 +325,15 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 	ghostize(FALSE)
 
-/mob/dead/observer/Move(atom/newloc, direct, _step_x, _step_y)
+/mob/dead/observer/Move(NewLoc, direct, glide_size_override = 32)
 	if(updatedir)
-		setDir(direct)
-	if(newloc)
-		forceMove(newloc, _step_x, _step_y)
+		setDir(direct)//only update dir if we actually need it, so overlays won't spin on base sprites that don't have directions of their own
+	var/oldloc = loc
+
+	if(glide_size_override)
+		set_glide_size(glide_size_override)
+	if(NewLoc)
+		forceMove(NewLoc)
 		update_parallax_contents()
 	else
 		forceMove(get_turf(src))

@@ -74,13 +74,11 @@
 			continue
 		wires += dud
 
-
 ///Called when holder is qdeleted for us to clean ourselves as not to leave any unlawful references.
 /datum/wires/proc/on_holder_qdel(atom/source, force)
 	SIGNAL_HANDLER
 
 	qdel(src)
-
 
 /datum/wires/proc/randomize()
 	var/static/list/possible_colors = list(
@@ -274,6 +272,17 @@
 
 	return FALSE
 
+/**
+  * Whether the given wire should always be revealed.
+  *
+  * Intended to be overridden. Allows for forcing a wire's assignmenmt to always be revealed
+  * in the hacking interface.
+  * Arguments:
+  * * color - Color string of the wire to check.
+  */
+/datum/wires/proc/always_reveal_wire(color)
+	return FALSE
+
 /datum/wires/ui_host()
 	return holder
 
@@ -300,7 +309,7 @@
 		payload.Add(list(list(
 			"color" = color,
 			"wname" = get_wire_name(color),
-			"wire" = ((reveal_wires && !is_dud_color(color)) ? get_wire(color) : null),
+			"wire" = (((reveal_wires || always_reveal_wire(color)) && !is_dud_color(color)) ? get_wire(color) : null),
 			"cut" = is_color_cut(color),
 			"attached" = is_attached(color)
 		)))

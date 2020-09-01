@@ -61,6 +61,32 @@
 	desc = "Нагревательный элемент, который прижигает раны."
 	toolspeed = 0.5
 
+/obj/item/cautery/advanced
+	name = "жгучий инструмент"
+	desc = "Он проектирует мощный лазер для медицинского применения."
+	icon = 'icons/obj/surgery.dmi'
+	icon_state = "cautery_a"
+	hitsound = 'sound/items/welder.ogg'
+	toolspeed = 0.7
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_color = COLOR_SOFT_RED
+
+
+/obj/item/cautery/advanced/attack_self(mob/user)
+	playsound(get_turf(user), 'sound/weapons/tap.ogg', 50, TRUE)
+	if(tool_behaviour == TOOL_CAUTERY)
+		tool_behaviour = TOOL_DRILL
+		to_chat(user, "<span class='notice'>Ставлю линзы инструмента на место, теперь он может сверлить кости.</span>")
+		icon_state = "surgicaldrill_a"
+	else
+		tool_behaviour = TOOL_CAUTERY
+		to_chat(user, "<span class='notice'>Фокусирую линзы инструмента, теперь он может прижигать раны.</span>")
+		icon_state = "cautery_a"
+
+/obj/item/cautery/advanced/examine()
+	. = ..()
+	. += " It's set to [tool_behaviour == TOOL_CAUTERY ? "mending" : "drilling"] mode."
 
 /obj/item/surgicaldrill
 	name = "хирургическая дрель"
@@ -310,33 +336,6 @@
 /obj/item/retractor/advanced/examine()
 	. = ..()
 	. += " Находится в положении [tool_behaviour == TOOL_RETRACTOR ? "расширителя" : "зажима"]."
-
-/obj/item/surgicaldrill/advanced
-	name = "жгучий инструмент"
-	desc = "Он проектирует мощный лазер для медицинского применения."
-	icon = 'icons/obj/surgery.dmi'
-	icon_state = "surgicaldrill_a"
-	hitsound = 'sound/items/welder.ogg'
-	toolspeed = 0.7
-	light_system = MOVABLE_LIGHT
-	light_range = 1
-	light_color = COLOR_SOFT_RED
-
-
-/obj/item/surgicaldrill/advanced/attack_self(mob/user)
-	playsound(get_turf(user), 'sound/weapons/tap.ogg', 50, TRUE)
-	if(tool_behaviour == TOOL_DRILL)
-		tool_behaviour = TOOL_CAUTERY
-		to_chat(user, "<span class='notice'>Фокусирую линзы инструмента, теперь он может прижигать раны.</span>")
-		icon_state = "cautery_a"
-	else
-		tool_behaviour = TOOL_DRILL
-		to_chat(user, "<span class='notice'>Ставлю линзы инструмента на место, теперь он может сверлить кости.</span>")
-		icon_state = "surgicaldrill_a"
-
-/obj/item/surgicaldrill/advanced/examine()
-	. = ..()
-	. += " It's set to [tool_behaviour == TOOL_DRILL ? "drilling" : "mending"] mode."
 
 /obj/item/shears
 	name = "ножницы для ампутации"

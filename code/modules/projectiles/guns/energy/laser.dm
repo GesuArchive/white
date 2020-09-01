@@ -13,7 +13,7 @@
 	name = "тренировочная лазерная пушка"
 	desc = "Модифицированная версия базовой лазерной пушки, эта стреляет менее концентрированными энергетическими зарядами, предназначенными для целевой практики."
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/practice)
-	clumsy_check = 0
+	clumsy_check = FALSE
 	item_flags = NONE
 
 /obj/item/gun/energy/laser/retro

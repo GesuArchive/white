@@ -69,7 +69,7 @@
 	name = "Супер кусок бургера"
 	description = "Командующий Таббс считает, что он может установить конкурентоспособный мировой рекорд в еде. Все, что ему нужно, это супер кусочек бургера, отправленный ему."
 	reward = 12000
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/burger/superbite)
+	wanted_types = list(/obj/item/food/burger/superbite)
 
 /datum/bounty/item/chef/poppypretzel
 	name = "Крендель с маком"

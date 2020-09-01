@@ -714,13 +714,6 @@
 	if (prob(hit_reflect_chance))
 		return TRUE
 
-/obj/item/clothing/suit/spookyghost
-	name = "жуткий призрак"
-	desc = "Это, очевидно, просто простыня, но, может быть, примерить?"
-	icon_state = "bedsheet"
-	user_vars_to_edit = list("name" = "Spooky Ghost", "real_name" = "Spooky Ghost" , "incorporeal_move" = INCORPOREAL_MOVE_BASIC, "appearance_flags" = KEEP_TOGETHER, "alpha" = 150)
-	alternate_worn_layer = ABOVE_BODY_FRONT_LAYER //so the bedsheet goes over everything but fire
-
 /obj/item/clothing/suit/bronze
 	name = "бронзовый костюм"
 	desc = "Большой строгий костюм из бронзы, который не защищает и выглядит очень не модно. Отлично."
@@ -739,6 +732,12 @@
 	w_class = WEIGHT_CLASS_TINY
 	flags_inv = HIDEGLOVES|HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	alternate_worn_layer = UNDER_HEAD_LAYER
+
+/obj/item/clothing/suit/ghost_sheet/spooky
+	name = "spooky ghost"
+	desc = "This is obviously just a bedsheet, but maybe try it on?"
+	user_vars_to_edit = list("name" = "Spooky Ghost", "real_name" = "Spooky Ghost" , "incorporeal_move" = INCORPOREAL_MOVE_BASIC, "appearance_flags" = KEEP_TOGETHER|TILE_BOUND, "alpha" = 150)
+	alternate_worn_layer = ABOVE_BODY_FRONT_LAYER //so the bedsheet goes over everything but fire
 
 /obj/item/clothing/suit/toggle/suspenders/blue
 	name = "синие подтяжки"

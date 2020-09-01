@@ -55,7 +55,7 @@
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
 		return
-	active = 0
+	active = FALSE
 	icon_state = "reactiveoff"
 	inhand_icon_state = "reactiveoff"
 	reactivearmor_cooldown = world.time + 200
@@ -70,7 +70,7 @@
 
 /obj/item/clothing/suit/armor/reactive/teleport/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(!active)
-		return 0
+		return FALSE
 	if(prob(hit_reaction_chance))
 		var/mob/living/carbon/human/H = owner
 		if(world.time < reactivearmor_cooldown)
@@ -95,8 +95,8 @@
 		H.forceMove(picked)
 		H.rad_act(rad_amount)
 		reactivearmor_cooldown = world.time + reactivearmor_cooldown_duration
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 //Fire
 
@@ -106,7 +106,7 @@
 
 /obj/item/clothing/suit/armor/reactive/fire/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(!active)
-		return 0
+		return FALSE
 	if(prob(hit_reaction_chance))
 		if(world.time < reactivearmor_cooldown)
 			owner.visible_message("<span class='danger'>Зажигательная броня [owner] активировалась, но заряда нехватило для работы!</span>")
@@ -119,8 +119,8 @@
 				C.IgniteMob()
 		owner.fire_stacks = -20
 		reactivearmor_cooldown = world.time + reactivearmor_cooldown_duration
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 //Stealth
 
@@ -130,7 +130,7 @@
 
 /obj/item/clothing/suit/armor/reactive/stealth/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(!active)
-		return 0
+		return FALSE
 	if(prob(hit_reaction_chance))
 		if(world.time < reactivearmor_cooldown)
 			owner.visible_message("<span class='danger'>Реактивная система на [owner] включилась, но на зарядке!</span>")
@@ -143,7 +143,7 @@
 		owner.visible_message("<span class='danger'>[owner] ударен [attack_text] в грудь!</span>") //We pretend to be hit, since blocking it would stop the message otherwise
 		addtimer(VARSET_CALLBACK(owner, alpha, initial(owner.alpha)), 4 SECONDS)
 		reactivearmor_cooldown = world.time + reactivearmor_cooldown_duration
-		return 1
+		return TRUE
 
 //Tesla
 
@@ -189,11 +189,11 @@
 
 /obj/item/clothing/suit/armor/reactive/repulse/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(!active)
-		return 0
+		return FALSE
 	if(prob(hit_reaction_chance))
 		if(world.time < reactivearmor_cooldown)
 			owner.visible_message("<span class='danger'>The repulse generator is still recharging!</span>")
-			return 0
+			return FALSE
 		playsound(get_turf(owner),'sound/magic/repulse.ogg', 100, TRUE)
 		owner.visible_message("<span class='danger'>[src] блокировала [attack_text], переводя атаку в мощный силовой импульс!</span>")
 		var/turf/T = get_turf(owner)
@@ -206,7 +206,7 @@
 			thrown_items[A] = A
 
 		reactivearmor_cooldown = world.time + reactivearmor_cooldown_duration
-		return 1
+		return TRUE
 
 /obj/item/clothing/suit/armor/reactive/table
 	name = "реактивная табличная броня"
@@ -215,7 +215,7 @@
 
 /obj/item/clothing/suit/armor/reactive/table/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(!active)
-		return 0
+		return FALSE
 	if(prob(hit_reaction_chance))
 		var/mob/living/carbon/human/H = owner
 		if(world.time < reactivearmor_cooldown)
@@ -241,8 +241,8 @@
 		H.forceMove(picked)
 		new /obj/structure/table(get_turf(owner))
 		reactivearmor_cooldown = world.time + reactivearmor_cooldown_duration
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/item/clothing/suit/armor/reactive/table/emp_act()
 	return

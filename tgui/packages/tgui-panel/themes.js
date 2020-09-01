@@ -10,6 +10,8 @@ const COLOR_DARK_BG = '#062240';
 const COLOR_DARK_BG_DARKER = '#020D18';
 const COLOR_DARK_TEXT = '#aaaaaa';
 
+let setClientThemeTimer = null;
+
 /**
  * Darkmode preference, originally by Kmc2000.
  *
@@ -21,6 +23,14 @@ const COLOR_DARK_TEXT = '#aaaaaa';
  * It's painful but it works, and is the way Lummox suggested.
  */
 export const setClientTheme = name => {
+  // Transmit once for fast updates and again in a little while in case we won
+  // the race against statbrowser init.
+  clearInterval(setClientThemeTimer);
+  Byond.command(`.output statbrowser:set_theme ${name}`);
+  setClientThemeTimer = setTimeout(() => {
+    Byond.command(`.output statbrowser:set_theme ${name}`);
+  }, 1500);
+
   if (name === 'light') {
     return Byond.winset({
       // Main windows

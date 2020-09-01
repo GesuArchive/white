@@ -38,6 +38,6 @@
 		I.forceMove(crab)
 	crab.origin = M
 	if(crab.origin)
-		crab.origin.active = 1
+		crab.origin.active = TRUE
 		crab.origin.transfer_to(crab)
 		to_chat(crab, "<span class='warning'>Мы вырвались из остатков своего бывшего тела в потоке крови!</span>")

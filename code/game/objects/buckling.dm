@@ -1,7 +1,7 @@
 /atom/movable
-	var/can_buckle = 0
+	var/can_buckle = FALSE
 	var/buckle_lying = -1 //bed-like behaviour, forces mob.lying = buckle_lying if != -1
-	var/buckle_requires_restraints = 0 //require people to be handcuffed before being able to buckle. eg: pipes
+	var/buckle_requires_restraints = FALSE //require people to be handcuffed before being able to buckle. eg: pipes
 	var/list/mob/living/buckled_mobs = null //list()
 	var/max_buckled_mobs = 1
 	var/buckle_prevents_pull = FALSE
@@ -15,10 +15,10 @@
 		if(buckled_mobs.len > 1)
 			var/unbuckled = input(user, "Кого высаживаем?","А?") as null|mob in sortNames(buckled_mobs)
 			if(user_unbuckle_mob(unbuckled,user))
-				return 1
+				return TRUE
 		else
 			if(user_unbuckle_mob(buckled_mobs[1],user))
-				return 1
+				return TRUE
 
 /atom/movable/attackby(obj/item/W, mob/user, params)
 	if(!can_buckle || !istype(W, /obj/item/riding_offhand) || !user.Adjacent(src))
@@ -100,7 +100,7 @@
 	buckled_mobs |= M
 	M.update_mobility()
 	M.throw_alert("buckled", /obj/screen/alert/restrained/buckled)
-	M.update_movespeed()
+	M.set_glide_size(glide_size)
 	post_buckle_mob(M)
 
 	SEND_SIGNAL(src, COMSIG_MOVABLE_BUCKLE, M, force)
@@ -120,6 +120,7 @@
 		buckled_mob.set_anchored(initial(buckled_mob.anchored))
 		buckled_mob.update_mobility()
 		buckled_mob.clear_alert("buckled")
+		buckled_mob.set_glide_size(DELAY_TO_GLIDE_SIZE(buckled_mob.total_multiplicative_slowdown()))
 		buckled_mobs -= buckled_mob
 		buckled_mob.update_movespeed()
 		SEND_SIGNAL(src, COMSIG_MOVABLE_UNBUCKLE, buckled_mob, force)
@@ -141,10 +142,16 @@
 
 //Wrapper procs that handle sanity and user feedback
 /atom/movable/proc/user_buckle_mob(mob/living/M, mob/user, check_loc = TRUE)
-	if(!in_range(user, src) || !isturf(user.loc) || user.incapacitated() || M.anchored)
+	if(!Adjacent(user) || !Adjacent(M) || !isturf(user.loc) || user.incapacitated() || M.anchored)
 		return FALSE
 
 	add_fingerprint(user)
+	if (M != user)
+		M.visible_message("<span class='warning'>[user] starts buckling [M] to [src]!</span>",\
+					"<span class='userdanger'>[user] starts buckling you to [src]!</span>",\
+					"<span class='hear'>You hear metal clanking.</span>")
+		if(!do_after(user, 3 SECONDS, TRUE, M))
+			return FALSE
 	. = buckle_mob(M, check_loc = check_loc)
 	if(.)
 		if(M == user)
@@ -153,8 +160,7 @@
 				"<span class='hear'>Слышу лязг метала.</span>")
 		else
 			M.visible_message("<span class='warning'>[user] усаживает [M] на [src]!</span>",\
-				"<span class='warning'>[user] усаживает меня на [src]!</span>",\
-				"<span class='hear'>Слышу лязг метала.</span>")
+				"<span class='warning'>[user] усаживает меня на [src]!</span>")
 
 /atom/movable/proc/user_unbuckle_mob(mob/living/buckled_mob, mob/user)
 	var/mob/living/M = unbuckle_mob(buckled_mob)

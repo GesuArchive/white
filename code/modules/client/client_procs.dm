@@ -76,9 +76,12 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			to_chat(src, "<span class='userdanger'> > Действия игнорируются. Слишком много действий было совершено до этого за секунду. Сука?</span>")
 			return
 
-	//Logs all hrefs, except chat pings
-	if(!(href_list["_src_"] == "chat" && href_list["proc"] == "ping" && LAZYLEN(href_list) == 2))
-		log_href("[src] (usr:[usr]\[[COORD(usr)]\]) : [hsrc ? "[hsrc] " : ""][href]")
+	// Tgui Topic middleware
+	if(tgui_Topic(href_list))
+		return
+
+	// Log all hrefs
+	log_href("[src] (usr:[usr]\[[COORD(usr)]\]) : [hsrc ? "[hsrc] " : ""][href]")
 
 	//byond bug ID:2256651
 	if (asset_cache_job && (asset_cache_job in completed_asset_jobs))
@@ -87,10 +90,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		return
 	if (href_list["asset_cache_preload_data"])
 		asset_cache_preload_data(href_list["asset_cache_preload_data"])
-		return
-
-	// Tgui Topic middleware
-	if(tgui_Topic(href_list))
 		return
 
 	// Admin PM
@@ -126,8 +125,8 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 /client/proc/is_content_unlocked()
 	if(!prefs.unlock_content)
 		to_chat(src, "Become a BYOND member to access member-perks and features, as well as support the engine that makes this game possible. Only 10 bucks for 3 months! <a href=\"https://secure.byond.com/membership\">Click Here to find out more</a>.")
-		return 0
-	return 1
+		return FALSE
+	return TRUE
 /*
  * Call back proc that should be checked in all paths where a client can send messages
  *
@@ -158,11 +157,11 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		total_message_count = 0
 		total_count_reset = 0
 		cmd_admin_mute(src, mute_type, 1)
-		return 1
+		return TRUE
 
 	//Otherwise just supress the message
 	else if(cache >= SPAM_TRIGGER_AUTOMUTE)
-		return 1
+		return TRUE
 
 
 	if(CONFIG_GET(flag/automute_on) && !holder && last_message == message)
@@ -170,21 +169,21 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		if(src.last_message_count >= SPAM_TRIGGER_AUTOMUTE)
 			to_chat(src, "<span class='userdanger'> > Слыш, сука. Авто-мут был применён к твоей жопе, следующим шагом может стать авто-бан.</span>")
 			cmd_admin_mute(src, mute_type, 1)
-			return 1
+			return TRUE
 		if(src.last_message_count >= SPAM_TRIGGER_WARNING)
 			to_chat(src, "<span class='userdanger'> > Слыш, блять, спамер мамин. Сейчас тебя замутят, если не прекратишь свою хуйню.</span>")
-			return 0
+			return FALSE
 	else
 		last_message = message
 		src.last_message_count = 0
-		return 0
+		return FALSE
 
 //This stops files larger than UPLOAD_LIMIT being sent from client to server via input(), client.Import() etc.
 /client/AllowUpload(filename, filelength)
 	if(filelength > UPLOAD_LIMIT)
 		to_chat(src, "<font color='red'>Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB.</font>")
-		return 0
-	return 1
+		return FALSE
+	return TRUE
 
 
 	///////////
@@ -335,7 +334,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			to_chat(src, "Because you are an admin, you are being allowed to walk past this limitation, But it is still STRONGLY suggested you upgrade")
 		else
 			qdel(src)
-			return 0
+			return
 	else if (byond_version < cwv)	//We have words for this client.
 		if(CONFIG_GET(flag/client_warn_popup))
 			var/msg = "<b>Your version of byond may be getting out of date:</b><br>"
@@ -355,11 +354,11 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		if (!CONFIG_GET(flag/allow_webclient))
 			to_chat(src, "Web client is disabled")
 			qdel(src)
-			return 0
+			return
 		if (CONFIG_GET(flag/webclient_only_byond_members) && !IsByondMember())
 			to_chat(src, "Sorry, but the web client is restricted to byond members only.")
 			qdel(src)
-			return 0
+			return
 
 	if( (world.address == address || !address) && !GLOB.host )
 		GLOB.host = key
@@ -1026,14 +1025,14 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		return
 	var/list/verblist = list()
 	verb_tabs.Cut()
-	for(var/verb_to_init in (verbs + mob?.verbs))
+	for(var/thing in (verbs + mob?.verbs))
+		var/procpath/verb_to_init = thing
 		if(!verb_to_init)
 			continue
-		if(verb_to_init:hidden)
+		if(verb_to_init.hidden)
 			continue
-		if(!istext(verb_to_init:category))
+		if(!istext(verb_to_init.category))
 			continue
-		verb_tabs |= verb_to_init:category
-		verblist[++verblist.len] = list("[verb_to_init:category]", "[verb_to_init:name]")
+		verb_tabs |= verb_to_init.category
+		verblist[++verblist.len] = list(verb_to_init.category, verb_to_init.name)
 	src << output("[url_encode(json_encode(verb_tabs))];[url_encode(json_encode(verblist))]", "statbrowser:init_verbs")
-	verbs_init = TRUE

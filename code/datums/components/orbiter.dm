@@ -131,6 +131,11 @@
 		return
 	end_orbit(orbiter)
 
+/datum/component/orbiter/proc/orbiter_glide_size_update(datum/source, target)
+	for(var/orbiter in orbiters)
+		var/atom/movable/movable_orbiter = orbiter
+		movable_orbiter.glide_size = target
+
 /////////////////////
 
 /atom/movable/proc/orbit(atom/A, radius = 10, clockwise = FALSE, rotation_speed = 20, rotation_segments = 36, pre_rotation = TRUE)

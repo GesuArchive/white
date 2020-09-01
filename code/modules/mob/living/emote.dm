@@ -80,7 +80,7 @@
 	message_monkey = "издаёт слабый звук, затем падает и перестаёт двигаться...."
 	message_simple =  "перестаёт двигаться..."
 	cooldown = (15 SECONDS)
-	stat_allowed = UNCONSCIOUS
+	stat_allowed = HARD_CRIT
 
 /datum/emote/living/deathgasp/run_emote(mob/user, params, type_override, intentional)
 	var/mob/living/simple_animal/S = user
@@ -155,7 +155,7 @@
 	key_third_person = "gasps"
 	message = "задыхается!"
 	emote_type = EMOTE_AUDIBLE
-	stat_allowed = UNCONSCIOUS
+	stat_allowed = HARD_CRIT
 
 /datum/emote/living/giggle
 	key = "giggle"
@@ -246,8 +246,8 @@
 	message_param = initial(message_param) // reset
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.get_num_arms() == 0)
-			if(H.get_num_legs() != 0)
+		if(H.usable_hands == 0)
+			if(H.usable_legs != 0)
 				message_param = "пытается показать на %t своей ногой, <span class='userdanger'>но падает на пол</span> в процессе!"
 				H.Paralyze(20)
 			else

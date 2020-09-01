@@ -65,7 +65,7 @@
 		. += "electrolyzer-open"
 
 /obj/machinery/electrolyzer/process()
-	if(!is_operational() && on)
+	if(!is_operational && on)
 		on = FALSE
 	if(!on)
 		return PROCESS_KILL

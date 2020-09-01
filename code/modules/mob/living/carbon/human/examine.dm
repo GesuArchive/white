@@ -62,7 +62,7 @@
 	if(user.stat == CONSCIOUS && ishuman(user))
 		user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[!obscure_name ? name : "Unknown"]</b>.</span>", null, null, COMBAT_MESSAGE_RANGE)
 
-	var/list/obscured = check_obscured_slots()
+	var/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
 
 	if(get_bodypart(BODY_ZONE_HEAD) && !skipface)
@@ -74,7 +74,7 @@
 	if(pooed)
 		. += "<big><b>Невероятно, но [t_ego] одежда <font color='red'>ВСЯ В ГОВНЕ</font>.</b></big>\n"
 
-	if(headstamp && !(ITEM_SLOT_HEAD in obscured))
+	if(headstamp && !(obscured & ITEM_SLOT_HEAD))
 		. += "У н[t_ego] на лбу написано <b>[headstamp]</b>. Круто.\n"
 
 	//head
@@ -82,34 +82,34 @@
 		. += "На голове у н[t_ego] [head.ru_get_examine_string(user)].\n"
 
 	//eyes
-	if(!(ITEM_SLOT_EYES in obscured))
+	if(!(obscured & ITEM_SLOT_EYES))
 		if(glasses)
 			. += "Также на [t_na] [glasses.ru_get_examine_string(user)].\n"
 		else if(eye_color == BLOODCULT_EYE && iscultist(src) && HAS_TRAIT(src, CULT_EYES))
 			. += "<span class='warning'><B>[ru_ego(TRUE)] глаза ярко-красные и они горят!</B></span>\n"
 
 	//ears
-	if(ears && !(ITEM_SLOT_EARS in obscured))
+	if(ears && !(obscured & ITEM_SLOT_EARS))
 		. += "В ушах у н[t_ego] есть [ears.ru_get_examine_string(user)].\n"
 
 	//mask
-	if(wear_mask && !(ITEM_SLOT_MASK in obscured))
+	if(wear_mask && !(obscured & ITEM_SLOT_MASK))
 		. += "На лице у [t_ego] [wear_mask.ru_get_examine_string(user)].\n"
 
-	if(wear_neck && !(ITEM_SLOT_NECK in obscured))
+	if(wear_neck && !(obscured & ITEM_SLOT_NECK))
 		. += "На шее у н[t_ego] [wear_neck.ru_get_examine_string(user)].\n"
 
 	//suit/armor
 	if(wear_suit)
 		//suit/armor storage
 		var/suit_thing
-		if(s_store && !(ITEM_SLOT_SUITSTORE in obscured))
+		if(s_store && !(obscured & ITEM_SLOT_SUITSTORE))
 			suit_thing += " вместе с [s_store.ru_get_examine_string(user)]"
 
 		. += "На [t_na] надет [wear_suit.ru_get_examine_string(user)][suit_thing].\n"
 
 	//uniform
-	if(w_uniform && !(ITEM_SLOT_ICLOTHING in obscured))
+	if(w_uniform && !(obscured & ITEM_SLOT_ICLOTHING))
 		//accessory
 		var/accessory_msg
 		if(istype(w_uniform, /obj/item/clothing/under))
@@ -130,12 +130,11 @@
 
 	var/datum/component/forensics/FR = GetComponent(/datum/component/forensics)
 	//gloves
-	if(gloves && !(ITEM_SLOT_GLOVES in obscured))
+	if(gloves && !(obscured & ITEM_SLOT_GLOVES))
 		. += "А на руках у н[t_ego] [gloves.ru_get_examine_string(user)].\n"
 	else if(FR && length(FR.blood_DNA))
-		var/hand_number = get_num_arms(FALSE)
-		if(hand_number)
-			. += "<span class='warning'>[ru_ego(TRUE)] рук[hand_number > 1 ? "и" : "а"] также в крови!</span>\n"
+		if(num_hands)
+			. += "<span class='warning'>[ru_ego(TRUE)] рук[num_hands > 1 ? "и" : "а"] также в крови!</span>\n"
 
 	//handcuffed?
 	if(handcuffed)
@@ -149,7 +148,7 @@
 		. += "И ещё на поясе у н[t_ego] [belt.ru_get_examine_string(user)].\n"
 
 	//shoes
-	if(shoes && !(ITEM_SLOT_FEET in obscured))
+	if(shoes && !(obscured & ITEM_SLOT_FEET))
 		. += "А на [t_ego] ногах [shoes.ru_get_examine_string(user)].\n"
 
 	//ID
@@ -199,29 +198,29 @@
 	var/list/missing = list(BODY_ZONE_HEAD, BODY_ZONE_CHEST, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 	var/list/disabled = list()
 	for(var/X in bodyparts)
-		var/obj/item/bodypart/BP = X
-		if(BP.disabled)
-			disabled += BP
-		missing -= BP.body_zone
-		for(var/obj/item/I in BP.embedded_objects)
+		var/obj/item/bodypart/body_part = X
+		if(body_part.bodypart_disabled)
+			disabled += body_part
+		missing -= body_part.body_zone
+		for(var/obj/item/I in body_part.embedded_objects)
 			if(I.isEmbedHarmless())
-				msg += "<B>Из [t_ego] [BP.name] торчит [icon2html(I, user)] [I]!</B>\n"
+				msg += "<B>Из [t_ego] [body_part.name] торчит [icon2html(I, user)] [I]!</B>\n"
 			else
-				msg += "<B>У н[t_ego] застрял [icon2html(I, user)] [I] в [BP.name]!</B>\n"
+				msg += "<B>У н[t_ego] застрял [icon2html(I, user)] [I] в [body_part.name]!</B>\n"
 
-		for(var/i in BP.wounds)
+		for(var/i in body_part.wounds)
 			var/datum/wound/iter_wound = i
 			msg += "[iter_wound.get_examine_description(user)]\n"
 
 	for(var/X in disabled)
-		var/obj/item/bodypart/BP = X
+		var/obj/item/bodypart/body_part = X
 		var/damage_text
-		if(BP.is_disabled() != BODYPART_DISABLED_WOUND) // skip if it's disabled by a wound (cuz we'll be able to see the bone sticking out!)
-			if(!(BP.get_damage(include_stamina = FALSE) >= BP.max_damage)) //we don't care if it's stamcritted
+		if(body_part.is_disabled() != BODYPART_DISABLED_WOUND) // skip if it's disabled by a wound (cuz we'll be able to see the bone sticking out!)
+			if(!(body_part.get_damage(include_stamina = FALSE) >= body_part.max_damage)) //we don't care if it's stamcritted
 				damage_text = "выглядит бледновато"
 			else
-				damage_text = (BP.brute_dam >= BP.burn_dam) ? BP.heavy_brute_msg : BP.heavy_burn_msg
-		msg += "<B>[ru_ego(TRUE)] [BP.name] [damage_text]!</B>\n"
+				damage_text = (body_part.brute_dam >= body_part.burn_dam) ? body_part.heavy_brute_msg : body_part.heavy_burn_msg
+		msg += "<B>[ru_ego(TRUE)] [body_part.name] [damage_text]!</B>\n"
 
 	//stores missing limbs
 	var/l_limbs_missing = 0
@@ -303,11 +302,14 @@
 		msg += "[t_on] перевязан[t_a].\n"
 	else if(is_bleeding())
 		var/list/obj/item/bodypart/bleeding_limbs = list()
+		var/list/obj/item/bodypart/grasped_limbs = list()
 
 		for(var/i in bodyparts)
-			var/obj/item/bodypart/BP = i
-			if(BP.get_bleed_rate())
-				bleeding_limbs += BP
+			var/obj/item/bodypart/body_part = i
+			if(body_part.get_bleed_rate())
+				bleeding_limbs += body_part
+			if(body_part.grasped_by)
+				grasped_limbs += body_part
 
 		var/num_bleeds = LAZYLEN(bleeding_limbs)
 
@@ -322,7 +324,7 @@
 				bleed_text += " [ru_otkuda_zone(bleeding_limbs[1].name)][num_bleeds == 2 ? " и [ru_otkuda_zone(bleeding_limbs[2].name)]" : ""]"
 			if(3 to INFINITY)
 				for(var/i in 1 to (num_bleeds - 1))
-					var/obj/item/bodypart/BP = bleeding_limbs[i]
+					var/obj/item/bodypart/body_part = bleeding_limbs[i]
 					bleed_text += " [ru_otkuda_zone(BP.name)],"
 				bleed_text += " и [ru_otkuda_zone(bleeding_limbs[num_bleeds].name)]"
 
@@ -333,6 +335,11 @@
 				bleed_text += " невероятно быстро"
 
 			bleed_text += "!</B>\n"
+
+		for(var/i in grasped_limbs)
+			var/obj/item/bodypart/grasped_part = i
+			bleed_text += "[t_He] [t_is] holding [t_his] [grasped_part.name] to slow the bleeding!\n"
+
 		msg += bleed_text.Join()
 
 	if(reagents.has_reagent(/datum/reagent/teslium, needs_metabolizing = TRUE))
@@ -410,13 +417,13 @@
 			scar_severity += S.severity
 
 	switch(scar_severity)
-		if(1 to 2)
+		if(1 to 4)
 			msg += "<span class='smallnoticeital'>[t_on] похоже имеет шрамы... Стоит присмотреться, чтобы разглядеть ещё.</span>\n"
-		if(3 to 4)
+		if(5 to 8)
 			msg += "<span class='notice'><i>[t_on] имеет несколько серьёзных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></span>\n"
-		if(5 to 6)
+		if(9 to 11)
 			msg += "<span class='notice'><b><i>[t_on] имеет множество ужасных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></b></span>\n"
-		if(7 to INFINITY)
+		if(12 to INFINITY)
 			msg += "<span class='notice'><b><i>[t_on] имеет разорванное в хлам тело состоящее из шрамов... Стоит присмотреться, чтобы разглядеть ещё?</i></b></span>\n"
 
 	if (length(msg))

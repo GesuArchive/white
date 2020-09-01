@@ -190,12 +190,17 @@
 	name = "награда руководителя персонала за выдающиеся достижения в области передового опыта"
 	desc = "Словарь Нанотрейзен определяет превосходство как \"качество или условие отличного качества\". Это присуждается тем редким членам экипажа, которые соответствуют этому определению."
 
+/obj/item/clothing/accessory/medal/silver/bureaucracy
+	name = "\improper Excellence in Bureaucracy Medal"
+	desc = "Awarded for exemplary managerial services rendered while under contract with Nanotrasen."
+
 /obj/item/clothing/accessory/medal/gold
 	name = "золотая медаль"
 	desc = "Престижная золотая медаль."
 	icon_state = "gold"
 	medaltype = "medal-gold"
 	custom_materials = list(/datum/material/gold=1000)
+
 
 /obj/item/clothing/accessory/medal/gold/captain
 	name = "медаль капитана"

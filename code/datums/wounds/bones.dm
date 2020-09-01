@@ -1,13 +1,11 @@
 
 /*
-	Bones
+	Blunt/Bone wounds
 */
 // TODO: well, a lot really, but i'd kill to get overlays and a bonebreaking effect like Blitz: The League, similar to electric shock skeletons
 
-/*
-	Base definition
-*/
 /datum/wound/blunt
+	name = "Blunt (Bone) Wound"
 	sound_effect = 'sound/effects/wounds/crack1.ogg'
 	wound_type = WOUND_BLUNT
 	wound_flags = (BONE_WOUND | ACCEPTS_GAUZE)
@@ -183,10 +181,7 @@
 
 	limb.update_wounds()
 
-/*
-	Moderate (Joint Dislocation)
-*/
-
+/// Joint Dislocation (Moderate Blunt)
 /datum/wound/blunt/moderate
 	name = "Вывих"
 	skloname = "вывиха"
@@ -310,6 +305,7 @@
 	internal_bleeding_chance = 40
 	wound_flags = (BONE_WOUND | ACCEPTS_GAUZE | MANGLES_BONE)
 
+/// Compound Fracture (Critical Blunt)
 /datum/wound/blunt/critical
 	name = "Перелом"
 	skloname = "перелома"

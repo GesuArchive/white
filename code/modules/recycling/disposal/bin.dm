@@ -143,7 +143,7 @@
 			target.LAssailant = user
 		update_icon()
 
-/obj/machinery/disposal/relaymove(mob/user)
+/obj/machinery/disposal/relaymove(mob/living/user, direction)
 	attempt_escape(user)
 
 // resist to escape the bin
@@ -490,7 +490,7 @@
 /obj/effect/CanEnterDisposals()
 	return
 
-/obj/mecha/CanEnterDisposals()
+/obj/vehicle/sealed/mecha/CanEnterDisposals()
 	return
 
 /obj/machinery/disposal/bin/newHolderDestination(obj/structure/disposalholder/H)

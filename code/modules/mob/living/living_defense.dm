@@ -107,39 +107,6 @@
 	playsound(loc, 'sound/weapons/genhit.ogg', 50, TRUE, -1) //Item sounds are handled in the item itself
 	return ..()
 
-
-/mob/living/mech_melee_attack(obj/mecha/M)
-	if(M.occupant.a_intent == INTENT_HARM)
-		if(HAS_TRAIT(M.occupant, TRAIT_PACIFISM))
-			to_chat(M.occupant, "<span class='warning'>You don't want to harm other living beings!</span>")
-			return
-		M.do_attack_animation(src)
-		if(M.damtype == BRUTE)
-			step_away(src,M,15)
-		switch(M.damtype)
-			if(BRUTE)
-				Unconscious(20)
-				take_overall_damage(rand(M.force/2, M.force))
-				playsound(src, 'sound/weapons/punch4.ogg', 50, TRUE)
-			if(BURN)
-				take_overall_damage(0, rand(M.force/2, M.force))
-				playsound(src, 'sound/items/welder.ogg', 50, TRUE)
-			if(TOX)
-				M.mech_toxin_damage(src)
-			else
-				return
-		updatehealth()
-		visible_message("<span class='danger'><b>[M.name]</b> бьёт <b>[src]</b>!</span>", \
-						"<span class='userdanger'><b>[M.name]</b> бьёт меня!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", null, COMBAT_MESSAGE_RANGE)
-		to_chat(M, "<span class='danger'>Бью [src]!</span>")
-		log_combat(M.occupant, src, "attacked", M, "(INTENT: [uppertext(M.occupant.a_intent)]) (DAMTYPE: [uppertext(M.damtype)])")
-	else
-		step_away(src,M)
-		log_combat(M.occupant, src, "pushed", M)
-		visible_message("<span class='warning'><b>[M.name]</b> отталкивает <b>[src]</b> с пути.</span>", \
-						"<span class='warning'><b>[M.name]</b> отталкивает меня с пути.</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", 5, M)
-		to_chat(M, "<span class='danger'>Отталкиваю [src] с пути.</span>")
-
 /mob/living/fire_act()
 	adjust_fire_stacks(3)
 	IgniteMob()
@@ -183,9 +150,9 @@
 				if(GRAB_NECK)
 					log_combat(user, src, "attempted to strangle", addition="kill grab")
 			if(!do_mob(user, src, grab_upgrade_time))
-				return 0
+				return FALSE
 			if(!user.pulling || user.pulling != src || user.grab_state != old_grab_state)
-				return 0
+				return FALSE
 			if(user.a_intent != INTENT_GRAB)
 				to_chat(user, "<span class='warning'>Надо бы сосредоточиться на захвате, чтобы схватить сильнее!</span>")
 				return 0
@@ -222,7 +189,7 @@
 				if(!buckled && !density)
 					Move(user.loc, NONE, user.step_x, user.step_y)
 		user.set_pull_offsets(src, grab_state)
-		return 1
+		return TRUE
 
 
 /mob/living/attack_slime(mob/living/simple_animal/slime/M)
@@ -438,7 +405,7 @@
 
 //called when the mob receives a loud bang
 /mob/living/proc/soundbang_act()
-	return 0
+	return FALSE
 
 //to damage the clothes worn by a mob
 /mob/living/proc/damage_clothes(damage_amount, damage_type = BRUTE, damage_flag = 0, def_zone)
@@ -453,17 +420,17 @@
 
 /** Handles exposing a mob to reagents.
   *
-  * If the method is INGEST the mob tastes the reagents.
-  * If the method is VAPOR it incorporates permiability protection.
+  * If the methods include INGEST the mob tastes the reagents.
+  * If the methods include VAPOR it incorporates permiability protection.
   */
-/mob/living/expose_reagents(list/reagents, datum/reagents/source, method=TOUCH, volume_modifier=1, show_message=TRUE)
+/mob/living/expose_reagents(list/reagents, datum/reagents/source, methods=TOUCH, volume_modifier=1, show_message=TRUE)
 	if((. = ..()) & COMPONENT_NO_EXPOSE_REAGENTS)
 		return
 
-	if(method == INGEST)
+	if(methods & INGEST)
 		taste(source)
 
-	var/touch_protection = (method == VAPOR) ? get_permeability_protection() : 0
+	var/touch_protection = (methods & VAPOR) ? get_permeability_protection() : 0
 	for(var/reagent in reagents)
 		var/datum/reagent/R = reagent
-		. |= R.expose_mob(src, method, reagents[R], show_message, touch_protection)
+		. |= R.expose_mob(src, methods, reagents[R], show_message, touch_protection)

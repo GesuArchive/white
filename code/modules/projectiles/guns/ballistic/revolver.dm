@@ -92,48 +92,48 @@
 						"Black Panther" = "detective_panther"
 						)
 
+	/// Used to avoid some redundancy on a revolver loaded with 357 regarding misfiring while being wrenched.
+	var/skip_357_missfire_check = FALSE
+
 /obj/item/gun/ballistic/revolver/detective/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
-	if(magazine && magazine.caliber != initial(magazine.caliber))
+	if(magazine && magazine.caliber != initial(magazine.caliber) && chambered.BB && !skip_357_missfire_check)
 		if(prob(70 - (magazine.ammo_count() * 10)))	//minimum probability of 10, maximum of 60
-			playsound(user, fire_sound, fire_sound_volume, vary_fire_sound)
 			to_chat(user, "<span class='userdanger'><b>[src.name]</b> приставил к лицу!</span>")
-			user.take_bodypart_damage(0,20)
-			user.dropItemToGround(src)
-			return FALSE
+			if(user.get_item_for_held_index(1) == src)
+				user.dropItemToGround(src)
+				return ..(user, user, FALSE, null, BODY_ZONE_L_ARM)
+			else if(user.get_item_for_held_index(2) == src)
+				user.dropItemToGround(src)
+				return ..(user, user, FALSE, null, BODY_ZONE_R_ARM)
 	return ..()
 
-/obj/item/gun/ballistic/revolver/detective/screwdriver_act(mob/living/user, obj/item/I)
-	if(..())
+/obj/item/gun/ballistic/revolver/detective/wrench_act(mob/living/user, obj/item/I)
+	if(!user.is_holding(src))
+		to_chat(user, "<span class='notice'>You need to hold [src] to modify its barrel.</span>")
+		return TRUE
+	to_chat(user, "<span class='notice'>You begin to loosen the barrel of [src]...</span>")
+	I.play_tool_sound(src)
+	if(!I.use_tool(src, user, 3 SECONDS))
+		return TRUE
+	if(magazine.ammo_count()) //If it has any ammo inside....
+		user.visible_message("<span class='danger'>[src]'s hammer drops while you're handling it!</span>") //...you learn an important lesson about firearms safety.
+		var/drop_the_gun_it_actually_fired = chambered.BB ? TRUE : FALSE //Is a live round chambered?
+		skip_357_missfire_check = TRUE //We set this true, then back to false after process_fire, to reduce redundacy of a round "misfiring" when it's already misfiring from wrench_act
+		process_fire(user, user, FALSE)
+		skip_357_missfire_check = FALSE
+		if(drop_the_gun_it_actually_fired) //We do it like this instead of directly checking chambered.BB here because process_fire will cycle the chamber.
+			user.dropItemToGround(src)
 		return TRUE
 	if(magazine.caliber == "38")
-		to_chat(user, "<span class='notice'>Начинаю заряжать барабан <b>[src.name]</b>...</span>")
-		if(magazine.ammo_count())
-			afterattack(user, user)	//you know the drill
-			user.visible_message("<span class='danger'><b>[src.name]</b> выстрелило!</span>", "<span class='userdanger'><b>[src.name]</b> выстрелило в лицо!</span>")
-			return TRUE
-		if(I.use_tool(src, user, 30))
-			if(magazine.ammo_count())
-				to_chat(user, "<span class='warning'>Не получается изменить его!</span>")
-				return TRUE
-			magazine.caliber = "357"
-			fire_sound = 'sound/weapons/gun/revolver/shot_alt.ogg'
-			desc = "Барабан и камера выглядит измененно."
-			to_chat(user, "<span class='notice'>Заряжаю барабан этим <b>[src.name]</b>. Должно стрелять .357 патронами.</span>")
+		magazine.caliber = "357"
+		fire_sound = 'sound/weapons/gun/revolver/shot_alt.ogg'
+		desc = "Классическое, если не устаревшее, правоохранительное оружие. \nБарабан модифицирован под .357."
+		to_chat(user, "<span class='notice'>Ослабляю барабан [src.name]. Теперь он использует .357.</span>")
 	else
-		to_chat(user, "<span class='notice'>Начинаю переделывать обратно в <b>[src.name]</b>...</span>")
-		if(magazine.ammo_count())
-			afterattack(user, user)	//and again
-			user.visible_message("<span class='danger'><b>[src.name]</b> выстрелило!</span>", "<span class='userdanger'><b>[src.name]</b> выстрелило в лицо!</span>")
-			return TRUE
-		if(I.use_tool(src, user, 30))
-			if(magazine.ammo_count())
-				to_chat(user, "<span class='warning'>Не получается изменить его!</span>")
-				return
-			magazine.caliber = "38"
-			fire_sound = 'sound/weapons/gun/revolver/shot.ogg'
-			desc = initial(desc)
-			to_chat(user, "<span class='notice'>Делаю так как и было у <b>[src.name]</b>. Будет стрелять .38 патронами.</span>")
-	return TRUE
+		magazine.caliber = "38"
+		fire_sound = 'sound/weapons/gun/revolver/shot.ogg'
+		desc = initial(desc)
+		to_chat(user, "<span class='notice'>Затягиваю барабан [src.name]. Теперь он использует .38.</span>")
 
 
 /obj/item/gun/ballistic/revolver/mateba
@@ -250,7 +250,7 @@
 	user.visible_message("<span class='danger'>Душа <b>[user.name]</b> теперь принадлежит <b>[src.name]</b>!</span>", "<span class='userdanger'>Вы проиграли в азартную игру вместе с душой!</span>")
 
 /obj/item/gun/ballistic/revolver/reverse //Fires directly at its user... unless the user is a clown, of course.
-	clumsy_check = 0
+	clumsy_check = FALSE
 
 /obj/item/gun/ballistic/revolver/reverse/can_trigger_gun(mob/living/user)
 	if((HAS_TRAIT(user, TRAIT_CLUMSY)) || (user.mind && user.mind.assigned_role == "Clown"))

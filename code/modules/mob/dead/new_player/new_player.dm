@@ -105,10 +105,10 @@
 
 /mob/dead/new_player/Topic(href, href_list[])
 	if(src != usr)
-		return 0
+		return
 
 	if(!client)
-		return 0
+		return
 
 	//Determines Relevent Population Cap
 	var/relevant_cap
@@ -121,7 +121,7 @@
 
 	if(href_list["show_preferences"])
 		client.prefs.ShowChoices(src)
-		return 1
+		return TRUE
 
 	if(href_list["ready"])
 		var/tready = text2num(href_list["ready"])
@@ -453,7 +453,7 @@
 	if(mind)
 		if(transfer_after)
 			mind.late_joiner = TRUE
-		mind.active = 0					//we wish to transfer the key manually
+		mind.active = FALSE					//we wish to transfer the key manually
 		mind.transfer_to(H)					//won't transfer key since the mind is not active
 		mind.original_character = H
 

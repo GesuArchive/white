@@ -4,45 +4,44 @@
 <title>Stat Browser</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link id="goonStyle" rel="stylesheet" type="text/css" href="browserOutput_white.css" media="all" />
 <style>
 body {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	font-size: 11px !important;
+	font-size: 12px !important;
 	margin: 0 !important;
-	padding: 1px !important;
-
-	scrollbar-face-color: #062240;
-	scrollbar-arrow-color: #062240;
-	scrollbar-track-color: #010912;
-	scrollbar-3dlight-color: #062240;
-	scrollbar-darkshadow-Color: #062240;
+	padding: 0 !important;
+}
+body.dark {
+	background-color: #131313;
+	color: #abc6ec;
 }
 
-::-webkit-scrollbar {
-	width: 4px;
+#menu {
+	background-color: white;
+	position: fixed;
+	padding: 7px;
+	width: 100%;
+}
+.dark #menu {
+	background-color: #131313;
 }
 
 #statcontent {
-	outline: 1px solid #000000;
-	padding: 4px;
-	margin-top: 4px;
-}
-
-.dark #statcontent {
-	outline: 1px solid #062240;
-	background: #010912;
+	padding: 0 7px 7px 7px;
 }
 
 a {
 	color: black;
 	text-decoration: none
 }
-a:hover, .dark a:hover {
-	text-decoration: underline;
-}
 .dark a {
 	color: #abc6ec;
 }
+a:hover, .dark a:hover {
+	text-decoration: underline;
+}
+
 ul {
 	list-style-type: none;
 	margin: 0;
@@ -66,9 +65,6 @@ li a:hover:not(.active) {
 	background-color: #111;
 }
 
-.active {
-	background-color: #4CAF50;
-}
 .button-container {
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -80,101 +76,63 @@ li a:hover:not(.active) {
 	white-space: pre-wrap;
 }
 .button {
-	background-color: #FFFFFF;
-	border-color: #FFFFFE;
-	border-bottom: 1px solid #000000;
-	border-right: 1px solid #000000;
-	border-top: 1px solid #FFFFFE;
-	border-left: 1px solid #FFFFFE;
+	background-color: #FFFFFE;
+	border-color: rgba(255, 255, 254, 0.5);
+	border-width: 1px;
 	color: black;
-	padding: 2px 3px;
+	padding: 7px 14px;
 	text-align: center;
 	text-decoration: none;
-	position: sticky;
-	top: 0;
-	font-size: 13px;
-	margin-right: 2px;
+	font-size: 12px;
+	margin: 2px 2px;
 	cursor: pointer;
+	border-radius: 10%;
 	transition-duration: 0.25s;
 	order: 3;
 }
 .dark button {
-	border-bottom: 1px solid #010912;
-	border-right: 1px solid #010912;
-	border-top: 1px solid #062240;
-	border-left: 1px solid #062240;
-	background-color: #010912;
-	border-color: #062240;
-	color: #aaaaaa;
-}
-.button.Theme {
-	position: fixed;
-	top: auto;
-	bottom: 0px;
-	right: 0px;
-	float: right;
-	order: 10000;
+	background-color: #252525;
+	border-color: rgba(37, 37, 36, 0.5);
+	color: white;
 }
 .button:hover {
-	border-color: #FFFFFE;
-	background-color: black;
+	border-color: rgba(255, 255, 254, 0.5);
+	background-color: #252525;
 	color: white;
 }
 .dark button:hover {
-	border-color: #252524;
-	background-color: white;
+	border-color: rgba(37, 37, 36, 0.5);
+	background-color: #FFFFFE;
 	color: #252525;
 }
 .button:active, .button.active {
-	background-color: black;
-	color: #aaaaaa;
-  /* text-decoration: underline; */
+	text-decoration: underline;
 }
 .grid-container {
 	display: inline-flex;
 	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
+	justify-content: flex-start;
+	align-items: flex-start;
 	min-width: 0;
 	min-height: 0;
-	max-width: 100%;
 	white-space: pre-wrap;
 }
 .grid-item {
 	color: black;
-	margin: 2px;
-	padding: 2px;
+	width: 150px;
 	font-size: 11px;
-	line-height: 16px;
-	text-align: center;
-	min-width: 170px;
+	line-height: 24px;
+	text-align: left;
+	min-width: 0;
 	min-height: 0;
 	white-space: pre-wrap;
-	outline: 1px solid #000000;
-}
-
-.grid-item:hover {
-	border-color: #FFFFFE;
-    background-color: black;
-    color: white;
-	text-decoration: none;
-}
-
-.dark .grid-item:hover {
-	border-color: #252524;
-    background-color: white;
-    color: #252525;
-	text-decoration: none;
-}
-
-.dark .grid-item {
-	outline: 1px solid #062240;
+	padding-right: 12px; /* A little more than two spaces, to look good in IE8 where flex-justify does nothing */
 }
 .link {
 	display: inline;
 	background: none;
 	border: none;
-	padding: 0px 0px;
+	padding: 7px 14px;
 	color: black;
 	text-decoration: none;
 	cursor: pointer;
@@ -191,6 +149,7 @@ li a:hover:not(.active) {
 </head>
 <body>
 <ul id="menu" class="button-container"></ul>
+<div id="under_menu"></div>
 <div id="statcontent"></div>
 <script>
 // Polyfills and compatibility ------------------------------------------------
@@ -222,10 +181,14 @@ if (window.location) {
 		if(e.which) {
 			if(!anti_spam[e.which]) {
 				anti_spam[e.which] = true;
-				var href = "?__keydown=" + e.which;
-				if(e.ctrlKey === false) href += "&ctrlKey=0"
-				else if(e.ctrlKey === true) href += "&ctrlKey=1"
-				window.location.href = href;
+				var key = String.fromCharCode(e.which);
+				if(key == "t")
+					window.location.href = "byond://winset?command=Say"
+				else if(key == "o")
+					window.location.href = "byond://winset?command=OOC"
+				else if(key == "m")
+					window.location.href = "byond://winset?command=Me"
+				window.location.href = "byond://winset?command=keyDown " + key;
 			}
 		}
 	});
@@ -236,10 +199,8 @@ if (window.location) {
 			return;
 		if(e.which) {
 			anti_spam[e.which] = false;
-			var href = "?__keyup=" + e.which;
-			if(e.ctrlKey === false) href += "&ctrlKey=0"
-			else if(e.ctrlKey === true) href += "&ctrlKey=1"
-			window.location.href = href;
+			var key = String.fromCharCode(e.which);
+			window.location.href = "byond://winset?command=keyUp " + key;
 		}
 	});
 }
@@ -254,9 +215,9 @@ if (window.location) {
 }); */
 
 // Status panel implementation ------------------------------------------------
-var status_tab_parts = ["Загрузка..."];
+var status_tab_parts = ["loading..."];
 var current_tab = null;
-var mc_tab_parts = [["Загрузка...", ""]];
+var mc_tab_parts = [["loading...", ""]];
 var href_token = null;
 var spells = [];
 var spell_tabs = [];
@@ -268,8 +229,8 @@ var sqdl2 = [];
 var permanent_tabs = []; // tabs that won't be cleared by wipes
 var turfcontents = [];
 var turfname = "";
-var theme = "light";
 var menu = document.querySelector('#menu');
+var under_menu = document.querySelector('#under_menu');
 
 function createStatusTab(name) {
 	if(document.getElementById(name) || name.trim() == "")
@@ -277,7 +238,10 @@ function createStatusTab(name) {
 	if(!verb_tabs.includes(name) && !permanent_tabs.includes(name))
 		return;
 	var B = document.createElement("BUTTON");
-	B.onclick = function() {tab_change(name)};
+	B.onclick = function() {
+		tab_change(name);
+		this.blur();
+	};
 	B.id = name;
 	B[textContentKey] = name;
 	B.className = "button";
@@ -291,6 +255,7 @@ function createStatusTab(name) {
 	}
 	//END ORDERING
 	menu.appendChild(B);
+	under_menu.style.height = menu.clientHeight + 'px';
 }
 
 function removeStatusTab(name) {
@@ -302,8 +267,13 @@ function removeStatusTab(name) {
 		}
 	}
 	menu.removeChild(document.getElementById(name));
+	under_menu.style.height = menu.clientHeight + 'px';
 	if(document.getElementById(name)) // repeat for duplicates
 		removeStatusTab(name);
+}
+
+window.onresize = function () {
+	under_menu.style.height = menu.clientHeight + 'px';
 }
 
 function addPermanentTab(name) {
@@ -325,21 +295,6 @@ function checkStatusTab() {
 	for(var i=0; i < menu.children.length; i++)
 		if(!verb_tabs.includes(menu.children[i].id) && !permanent_tabs.includes(menu.children[i].id))
 			removeStatusTab(menu.children[i].id);
-}
-function add_verb(v) {
-	var to_add = JSON.parse(v);
-	var cat = "";
-	cat = to_add[0];
-	if(verb_tabs.includes(cat)){ // we have the category already
-		verbs.push(to_add); // add it to verb list and we done
-	} else if(cat.trim() != "") { // we don't have the category
-		verb_tabs.push(cat);
-		verbs.push(to_add); // add verb
-		createStatusTab(cat); // create the category
-	}
-	if(current_tab == cat) {
-		draw_verbs(cat); // redraw if we added a verb to the tab we're currently in
-	}
 }
 function remove_verb(v) {
 	var verb_to_remove = v; // to_remove = [verb:category, verb:name]
@@ -395,6 +350,9 @@ function add_verb_list(v) {
 	for(var i = 0; i < to_add.length; i++) {
 		var part = to_add[i];
 		if(verb_tabs.includes(part[0])){
+			if(verbs.includes(part)){
+				continue;
+			}
 			verbs.push(part);
 			if(current_tab == part[0]) {
 				draw_verbs(part[0]); // redraw if we added a verb to the tab we're currently in
@@ -460,7 +418,7 @@ function update_mc(global_mc_data, coords_entry, ht) {
 	mc_tab_parts.splice(0,0,["Location:",coords_entry]);
 	href_token = ht;
 	if(!verb_tabs.includes("MC"))
-		verb_tabs.push("MC")
+		verb_tabs.push("MC");
 	createStatusTab("MC");
 	if(current_tab == "MC")
 		draw_mc();
@@ -549,13 +507,15 @@ function tab_change(tab) {
 	}else if(tab == turfname) {
 		draw_listedturf();
 	} else {
-		document.getElementById("statcontent").innerHTML = "Загрузка...";
+		var statcontentdiv = document.getElementById("statcontent");
+		statcontentdiv[textContentKey] = "loading...";
 	}
 	window.location.href = "byond://winset?statbrowser.is-visible=true";
 }
 
 function draw_debug() {
-	document.getElementById("statcontent").innerHTML = "";
+	var statcontentdiv = document.getElementById("statcontent");
+	statcontentdiv[textContentKey] = "";
 	var wipeverbstabs = document.createElement("div");
 	var link = document.createElement("a");
 	link.onclick = function() {wipe_verbs()};
@@ -563,7 +523,7 @@ function draw_debug() {
 	wipeverbstabs.appendChild(link);
 	document.getElementById("statcontent").appendChild(wipeverbstabs);
 	var text = document.createElement("div");
-	text.innerHTML = "Verb Tabs:";
+	text[textContentKey] = "Verb Tabs:";
 	document.getElementById("statcontent").appendChild(text);
 	var table1 = document.createElement("table");
 	for(var i=0; i < verb_tabs.length ; i++) {
@@ -582,7 +542,7 @@ function draw_debug() {
 	}
 	document.getElementById("statcontent").appendChild(table1);
 	var header2 = document.createElement("div");
-	header2.innerHTML = "Verbs:<br> Category | Name";
+	header2[textContentKey] = "Verbs:";
 	document.getElementById("statcontent").appendChild(header2);
 	var table2 = document.createElement("table");
 	for(var v = 0; v < verbs.length; v++) {
@@ -598,7 +558,7 @@ function draw_debug() {
 	}
 	document.getElementById("statcontent").appendChild(table2);
 	var text3 = document.createElement("div");
-	text3.innerHTML = "Permanent Tabs:";
+	text3[textContentKey] = "Permanent Tabs:";
 	document.getElementById("statcontent").appendChild(text3);
 	var table3 = document.createElement("table");
 	for(var i=0; i < permanent_tabs.length ; i++) {
@@ -613,17 +573,18 @@ function draw_debug() {
 
 }
 function draw_status() {
+	var statcontentdiv = document.getElementById("statcontent");
 	if(!document.getElementById("Status")) {
 		createStatusTab("Status");
 		current_tab = "Status";
 	}
-	document.getElementById("statcontent").innerHTML = inner;
+	statcontentdiv[textContentKey] = inner;
 	for(var i = 0; i < status_tab_parts.length; i++) {
 		if(status_tab_parts[i].trim() == "") {
 			document.getElementById("statcontent").appendChild(document.createElement("br"));
 		} else {
 			var div = document.createElement("div");
-			div.innerHTML = status_tab_parts[i];
+			div[textContentKey] = status_tab_parts[i];
 			document.getElementById("statcontent").appendChild(div);
 		}
 	}
@@ -634,7 +595,8 @@ function draw_status() {
 }
 
 function draw_mc() {
-	document.getElementById("statcontent").innerHTML = "";
+	var statcontentdiv = document.getElementById("statcontent");
+	statcontentdiv[textContentKey] = "";
 	var table = document.createElement("table");
 	for(var i = 0; i < mc_tab_parts.length; i++) {
 		var part = mc_tab_parts[i];
@@ -714,7 +676,8 @@ function update_listedturf(TC) {
 }
 
 function draw_listedturf() {
-	document.getElementById("statcontent").innerHTML = "";
+	var statcontentdiv = document.getElementById("statcontent");
+	statcontentdiv[textContentKey] = "";
 	var table = document.createElement("table");
 	for(var i = 0; i < turfcontents.length; i++) {
 		var part = turfcontents[i];
@@ -758,7 +721,8 @@ function remove_listedturf() {
 		tab_change("Status");
 }
 function draw_sqdl2(){
-	document.getElementById("statcontent").innerHTML = "";
+	var statcontentdiv = document.getElementById("statcontent");
+	statcontentdiv[textContentKey] = "";
 	var table = document.createElement("table");
 	for(var i = 0; i < sqdl2.length; i++) {
 		var part = sqdl2[i];
@@ -782,7 +746,8 @@ function draw_sqdl2(){
 }
 
 function draw_tickets() {
-	document.getElementById("statcontent").innerHTML = "";
+	var statcontentdiv = document.getElementById("statcontent");
+	statcontentdiv[textContentKey] = "";
 	var table = document.createElement("table");
 	if(!tickets)
 		return;
@@ -813,7 +778,8 @@ function draw_tickets() {
 }
 
 function draw_spells(cat) {
-	document.getElementById("statcontent").innerHTML = "";
+	var statcontentdiv = document.getElementById("statcontent");
+	statcontentdiv[textContentKey] = "";
 	var table = document.createElement("table");
 	for(var i = 0; i < spells.length; i++) {
 		var part = spells[i];
@@ -838,7 +804,8 @@ function draw_spells(cat) {
 }
 
 function draw_verbs(cat){
-	document.getElementById("statcontent").innerHTML = "";
+	var statcontentdiv = document.getElementById("statcontent");
+	statcontentdiv[textContentKey] = "";
 	var table = document.createElement("newdiv");
 	table.className = "grid-container";
 	var command = ""; // typecast name to string
@@ -864,42 +831,16 @@ function draw_verbs(cat){
 	document.getElementById("statcontent").appendChild(table);
 }
 
-function create_theme_button() {
-	var B = document.createElement("BUTTON");
-	B.onclick = function() {toggle_theme()};
-	B.id = "Theme";
-	B[textContentKey] = "Тема";
-	B.className = "button Theme";
-	permanent_tabs.push("Theme");
-	menu.appendChild(B);
-}
-
-function toggle_theme() {
-	if(theme == "light"){
-		theme = "dark";
-		set_dark_theme();
-	} else {
-		theme = "light";
-		set_light_theme();
+function set_theme(which) {
+	if (which == "light") {
+		document.body.className = "";
+		set_style_sheet("browserOutput_white");
+	} else if (which == "dark") {
+		document.body.className = "dark";
+		set_style_sheet("browserOutput");
 	}
 }
 
-function set_light_theme() {
-	menu.style.backgroundColor = "white";
-	document.body.style.backgroundColor = "white";
-	document.body.style.color = "black";
-	document.body.className = "";
-	set_style_sheet("browserOutput_white");
-}
-
-function set_dark_theme() {
-	menu.style.backgroundColor = "#020D18";
-	document.body.style.backgroundColor = "#020D18";
-	document.body.style.color = "#aaaaaa";
-	document.body.className = "dark";
-	set_style_sheet("browserOutput");
-
-}
 function set_style_sheet(sheet) {
 	if(document.getElementById("goonStyle")) {
 		var currentSheet = document.getElementById("goonStyle");
@@ -919,13 +860,6 @@ document[addEventListenerKey]("click", function(e) {
 	window.location.href = "byond://winset?map.focus=true";
 });
 
-create_theme_button();
-var lightmodeCookie = getCookie('lightmode');
-if(lightmodeCookie === 'false') {
-	set_dark_theme();
-} else {
-	set_light_theme();
-}
 if(!current_tab) {
 	addPermanentTab("Status");
 	tab_change("Status");

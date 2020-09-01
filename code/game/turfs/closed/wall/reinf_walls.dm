@@ -59,25 +59,25 @@
 				d_state = SUPPORT_LINES
 				update_icon()
 				to_chat(user, "<span class='notice'>Откусываю внешнюю решетку.</span>")
-				return 1
+				return TRUE
 
 		if(SUPPORT_LINES)
 			if(W.tool_behaviour == TOOL_SCREWDRIVER)
 				to_chat(user, "<span class='notice'>Начинаю откручивать поддерживающие линии...</span>")
 				if(W.use_tool(src, user, 40, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != SUPPORT_LINES)
-						return 1
+						return TRUE
 					d_state = COVER
 					update_icon()
 					to_chat(user, "<span class='notice'>Откручиваю поддерживающие линии.</span>")
-				return 1
+				return TRUE
 
 			else if(W.tool_behaviour == TOOL_WIRECUTTER)
 				W.play_tool_sound(src, 100)
 				d_state = INTACT
 				update_icon()
 				to_chat(user, "<span class='notice'>Чиню внешнюю решетку.</span>")
-				return 1
+				return TRUE
 
 		if(COVER)
 			if(W.tool_behaviour == TOOL_WELDER)
@@ -86,32 +86,32 @@
 				to_chat(user, "<span class='notice'>Начинаю разваривать металлическое покрытие...</span>")
 				if(W.use_tool(src, user, 60, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != COVER)
-						return 1
+						return TRUE
 					d_state = CUT_COVER
 					update_icon()
 					to_chat(user, "<span class='notice'>Слегка давлю на него и оно немного отходит от стены.</span>")
-				return 1
+				return TRUE
 
 			if(W.tool_behaviour == TOOL_SCREWDRIVER)
 				to_chat(user, "<span class='notice'>Начинаю прикручивать поддерживающие линии обратно...</span>")
 				if(W.use_tool(src, user, 40, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != COVER)
-						return 1
+						return TRUE
 					d_state = SUPPORT_LINES
 					update_icon()
 					to_chat(user, "<span class='notice'>Прикручиваю поддерживающие линии.</span>")
-				return 1
+				return TRUE
 
 		if(CUT_COVER)
 			if(W.tool_behaviour == TOOL_CROWBAR)
 				to_chat(user, "<span class='notice'>Начинаю выдавливать покрытие...</span>")
 				if(W.use_tool(src, user, 100, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != CUT_COVER)
-						return 1
+						return TRUE
 					d_state = ANCHOR_BOLTS
 					update_icon()
 					to_chat(user, "<span class='notice'>Выдавливаю покрытие.</span>")
-				return 1
+				return TRUE
 
 			if(W.tool_behaviour == TOOL_WELDER)
 				if(!W.tool_start_check(user, amount=0))
@@ -123,28 +123,28 @@
 					d_state = COVER
 					update_icon()
 					to_chat(user, "<span class='notice'>Привариваю металлическое покрытие обратно на место.</span>")
-				return 1
+				return TRUE
 
 		if(ANCHOR_BOLTS)
 			if(W.tool_behaviour == TOOL_WRENCH)
 				to_chat(user, "<span class='notice'>Начинаю откручивать болты удерживающие каркас...</span>")
 				if(W.use_tool(src, user, 40, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != ANCHOR_BOLTS)
-						return 1
+						return TRUE
 					d_state = SUPPORT_RODS
 					update_icon()
 					to_chat(user, "<span class='notice'>Откручиваю болты удерживающие каркас.</span>")
-				return 1
+				return TRUE
 
 			if(W.tool_behaviour == TOOL_CROWBAR)
 				to_chat(user, "<span class='notice'>Начинаю ставить покрытие обратно на место...</span>")
 				if(W.use_tool(src, user, 20, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != ANCHOR_BOLTS)
-						return 1
+						return TRUE
 					d_state = CUT_COVER
 					update_icon()
 					to_chat(user, "<span class='notice'>Ставлю покрытие обратно на место.</span>")
-				return 1
+				return TRUE
 
 		if(SUPPORT_RODS)
 			if(W.tool_behaviour == TOOL_WELDER)
@@ -153,32 +153,32 @@
 				to_chat(user, "<span class='notice'>Начинаю разрезать поддерживающий каркас...</span>")
 				if(W.use_tool(src, user, 100, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != SUPPORT_RODS)
-						return 1
+						return TRUE
 					d_state = SHEATH
 					update_icon()
 					to_chat(user, "<span class='notice'>Прорезаюсь через поддерживающий каркас.</span>")
-				return 1
+				return TRUE
 
 			if(W.tool_behaviour == TOOL_WRENCH)
 				to_chat(user, "<span class='notice'>Начинаю затягивать болты поддерживающие каркас...</span>")
 				W.play_tool_sound(src, 100)
 				if(W.use_tool(src, user, 40))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != SUPPORT_RODS)
-						return 1
+						return TRUE
 					d_state = ANCHOR_BOLTS
 					update_icon()
 					to_chat(user, "<span class='notice'>Затягиваю болты поддерживающие каркас.</span>")
-				return 1
+				return TRUE
 
 		if(SHEATH)
 			if(W.tool_behaviour == TOOL_CROWBAR)
 				to_chat(user, "<span class='notice'>Начинаю выдавливать каркас...</span>")
 				if(W.use_tool(src, user, 100, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != SHEATH)
-						return 1
+						return TRUE
 					to_chat(user, "<span class='notice'>Выдавливаю каркас.</span>")
 					dismantle_wall()
-				return 1
+				return TRUE
 
 			if(W.tool_behaviour == TOOL_WELDER)
 				if(!W.tool_start_check(user, amount=0))
@@ -190,8 +190,8 @@
 					d_state = SUPPORT_RODS
 					update_icon()
 					to_chat(user, "<span class='notice'>Привариваю всё как было.</span>")
-				return 1
-	return 0
+				return TRUE
+	return FALSE
 
 /turf/closed/wall/r_wall/update_icon()
 	. = ..()

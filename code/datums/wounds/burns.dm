@@ -1,8 +1,11 @@
 
-
+/*
+	Burn wounds
+*/
 
 // TODO: well, a lot really, but specifically I want to add potential fusing of clothing/equipment on the affected area, and limb infections, though those may go in body part code
 /datum/wound/burn
+	name = "Ожог"
 	wound_type = WOUND_BURN
 	processes = TRUE
 	sound_effect = 'sound/effects/wounds/sizzle1.ogg'
@@ -196,6 +199,9 @@
 
 /// if someone is using mesh on our burns
 /datum/wound/burn/proc/mesh(obj/item/stack/medical/mesh/I, mob/user)
+	if(!I.is_open)
+		to_chat(user, "<span class='warning'>Нужно открыть [I] сперва.</span>")
+		return
 	user.visible_message("<span class='notice'><b>[user]</b> начинает обматывать [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I]...</span>", "<span class='notice'>Начинаю обматывать [user == victim ? " мою" : ""] [ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...</span>")
 	if(!do_after(user, (user == victim ? I.self_delay : I.other_delay), target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
