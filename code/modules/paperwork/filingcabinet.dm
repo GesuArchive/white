@@ -17,9 +17,6 @@
 	icon_state = "filingcabinet"
 	density = TRUE
 	anchored = TRUE
-	bound_width = 12
-	bound_x = 10
-	brotation = NONE
 
 
 /obj/structure/filingcabinet/chestdrawer

@@ -49,9 +49,6 @@ IF YOU MODIFY THE PRODUCTS LIST OF A MACHINE, MAKE SURE TO UPDATE ITS RESUPPLY C
 	icon_state = "generic"
 	layer = BELOW_OBJ_LAYER
 	density = TRUE
-	bound_width = 24
-	bound_x = 4
-	brotation = NONE
 	verb_say = "бипает"
 	verb_ask = "бипает"
 	verb_exclaim = "бипает"
@@ -615,9 +612,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 	transform = M
 
 	if(get_turf(fatty) != get_turf(src))
-		throw_at(get_turf(fatty), get_dist(src, fatty), 1, spin=FALSE)
-
-	forceStep(fatty)
+		throw_at(get_turf(fatty), 1, 1, spin=FALSE)
 
 /obj/machinery/vending/proc/untilt(mob/user)
 	user.visible_message("<span class='notice'>[user] rights [src].</span>", \
@@ -1105,7 +1100,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 							SSblackbox.record_feedback("amount", "vending_spent", S.custom_price)
 							log_econ("[S.custom_price] credits were spent on [src] buying a [S] by [owner.account_holder], owned by [private_a.account_holder].")
 						vending_machine_input[N] = max(vending_machine_input[N] - 1, 0)
-						S.forceMove(drop_location()[1])
+						S.forceMove(drop_location())
 						loaded_items--
 						use_power(5)
 						if(last_shopper != usr || purchase_message_cooldown < world.time)

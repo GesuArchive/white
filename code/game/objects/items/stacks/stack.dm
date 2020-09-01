@@ -234,14 +234,14 @@
 
 		var/obj/O
 		if(R.max_res_amount > 1) //Is it a stack?
-			O = new R.result_type(usr.drop_location()[1], R.res_amount * multiplier)
+			O = new R.result_type(usr.drop_location(), R.res_amount * multiplier)
 		else if(ispath(R.result_type, /turf))
-			var/turf/T = usr.drop_location()[1]
+			var/turf/T = usr.drop_location()
 			if(!isturf(T))
 				return
 			T.PlaceOnTop(R.result_type, flags = CHANGETURF_INHERIT_AIR)
 		else
-			O = new R.result_type(usr.drop_location()[1])
+			O = new R.result_type(usr.drop_location())
 		if(O)
 			O.setDir(usr.dir)
 		use(R.req_amount * multiplier)
@@ -445,7 +445,7 @@
 /obj/item/stack/proc/change_stack(mob/user, amount)
 	if(!use(amount, TRUE, FALSE))
 		return FALSE
-	var/obj/item/stack/F = new type(user? user : drop_location()[1], amount, FALSE)
+	var/obj/item/stack/F = new type(user? user : drop_location(), amount, FALSE)
 	. = F
 	F.copy_evidences(src)
 	if(user)

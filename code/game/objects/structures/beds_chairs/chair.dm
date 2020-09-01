@@ -9,10 +9,7 @@
 	resistance_flags = NONE
 	max_integrity = 250
 	integrity_failure = 0.1
-	bound_x = 7
-	bound_width = 17
-	bound_height = 26
-	brotation = NONE // the bounds hardly change enough to warrant updating
+
 	custom_materials = list(/datum/material/iron = 2000)
 	var/buildstacktype = /obj/item/stack/sheet/metal
 	var/buildstackamount = 1
@@ -220,13 +217,12 @@
 	buildstackamount = 5
 	item_chair = null
 	icon_state = "officechair_dark"
-	COOLDOWN_DECLARE(last_move_sound)
+
 
 /obj/structure/chair/office/Moved()
 	. = ..()
-	if(has_gravity() && COOLDOWN_FINISHED(src, last_move_sound))
-		playsound(src, 'sound/effects/roll.ogg', 100, 1)
-		COOLDOWN_START(src, last_move_sound, 0.5 SECONDS)
+	if(has_gravity())
+		playsound(src, 'sound/effects/roll.ogg', 100, TRUE)
 
 /obj/structure/chair/office/light
 	icon_state = "officechair_white"
@@ -337,8 +333,8 @@
 /obj/item/chair/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(attack_type == UNARMED_ATTACK && prob(hit_reaction_chance))
 		owner.visible_message("<span class='danger'>[owner] отражает [attack_text] [sklonenie(src.name, TVORITELNI, src.gender)]!</span>")
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/item/chair/afterattack(atom/target, mob/living/carbon/user, proximity)
 	. = ..()

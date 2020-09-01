@@ -325,7 +325,7 @@
 			if(3 to INFINITY)
 				for(var/i in 1 to (num_bleeds - 1))
 					var/obj/item/bodypart/body_part = bleeding_limbs[i]
-					bleed_text += " [ru_otkuda_zone(BP.name)],"
+					bleed_text += " [ru_otkuda_zone(body_part.name)],"
 				bleed_text += " и [ru_otkuda_zone(bleeding_limbs[num_bleeds].name)]"
 
 		if(appears_dead)
@@ -338,7 +338,7 @@
 
 		for(var/i in grasped_limbs)
 			var/obj/item/bodypart/grasped_part = i
-			bleed_text += "[t_He] [t_is] holding [t_his] [grasped_part.name] to slow the bleeding!\n"
+			bleed_text += "[t_on] сжимает свою [grasped_part.name], пока из той течёт кровь!\n"
 
 		msg += bleed_text.Join()
 

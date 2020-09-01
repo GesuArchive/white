@@ -42,8 +42,9 @@
 			return TRUE
 
 	// failed to path correctly so just try to head straight for a bit
-	QDEL_LIST(myPath)
-	walk_for(src, get_dir(loc, get_turf(target)), until=0.5 SECONDS)
+	walk_to(src,get_turf(target),0,5)
+	sleep(1)
+	walk_to(src,0)
 
 	return FALSE
 
@@ -237,8 +238,8 @@
 					return TRUE
 
 				else								// not next to perp
-					var/turf/olddist = bounds_dist(src, target)
-					if((bounds_dist(src, target)) >= (olddist))
+					var/turf/olddist = get_dist(src, target)
+					if((get_dist(src, target)) >= (olddist))
 						frustration++
 					else
 						frustration = 0
@@ -255,7 +256,7 @@
 					target = L
 
 			if(target != null)
-				walk_away(src, target, MONKEY_ENEMY_VISION)
+				walk_away(src, target, MONKEY_ENEMY_VISION, 5)
 			else
 				back_to_idle()
 

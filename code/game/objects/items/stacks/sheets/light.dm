@@ -20,7 +20,7 @@
 	if(istype(O, /obj/item/stack/sheet/metal))
 		var/obj/item/stack/sheet/metal/M = O
 		if (M.use(1))
-			var/obj/item/L = new /obj/item/stack/tile/light(user.drop_location()[1])
+			var/obj/item/L = new /obj/item/stack/tile/light(user.drop_location())
 			to_chat(user, "<span class='notice'>Создаю светоплитку.</span>")
 			L.add_fingerprint(user)
 			use(1)
@@ -31,7 +31,7 @@
 
 /obj/item/stack/light_w/wirecutter_act(mob/living/user, obj/item/I)
 	. = ..()
-	var/atom/Tsec = user.drop_location()[1]
+	var/atom/Tsec = user.drop_location()
 	var/obj/item/stack/cable_coil/CC = new (Tsec, 5)
 	CC.add_fingerprint(user)
 	var/obj/item/stack/sheet/glass/G = new (Tsec)

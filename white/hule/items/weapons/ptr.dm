@@ -49,7 +49,7 @@
 	. = ..()
 	var/obj/item/gun/ballistic/rifle/boltaction/ptr/G = fired_from
 
-	if(istype(target, /obj/mecha))
+	if(istype(target, /obj/vehicle/sealed/mecha))
 		target.ex_act(EXPLODE_HEAVY)
 		playsound(src,'white/hule/SFX/probitie.ogg', 100, 5, pressure_affected = FALSE)
 

@@ -125,13 +125,7 @@
 	else
 		return "[mode_name[mode]]"
 
-// bots don't need sidestepping
-/mob/living/simple_animal/bot/set_sidestep(val)
-	if(client)
-		return ..()
-	if(slider)
-		qdel(slider)
-	can_sidestep = FALSE
+
 
 /mob/living/simple_animal/bot/proc/turn_on()
 	if(stat)
@@ -527,16 +521,16 @@ Pass a positive integer as an argument to override a bot's default speed.
 		return FALSE
 	dest = get_turf(dest) //We must always compare turfs, so get the turf of the dest var if dest was originally something else.
 	var/turf/last_node = get_turf(path[path.len]) //This is the turf at the end of the path, it should be equal to dest.
-	if(dest in locs) //We have arrived, no need to move again.
+	if(get_turf(src) == dest) //We have arrived, no need to move again.
 		return TRUE
 	else if(dest != last_node) //The path should lead us to our given destination. If this is not true, we must stop.
 		set_path(null)
 		return FALSE
 	var/step_count = move_speed ? move_speed : base_speed //If a value is passed into move_speed, use that instead of the default speed var.
-	//step_count = round((step_count * 32) / step_size)
+
 	if(step_count >= 1 && tries < BOT_STEP_MAX_RETRIES)
 		for(var/step_number = 0, step_number < step_count,step_number++)
-			addtimer(CALLBACK(src, .proc/bot_step, dest), BOT_STEP_DELAY*step_count)
+			addtimer(CALLBACK(src, .proc/bot_step, dest), BOT_STEP_DELAY*step_number)
 	else
 		return FALSE
 	return TRUE
@@ -546,15 +540,16 @@ Pass a positive integer as an argument to override a bot's default speed.
 	if(!path)
 		return FALSE
 	if(path.len > 1)
-		walk_to(src, path[1])
-		if(path[1] in obounds()) //Successful move and entire bot in on turf
-			tries = 0
+		step_towards(src, path[1])
+		if(get_turf(src) == path[1]) //Successful move
 			increment_path()
+			tries = 0
+
 		else
 			tries++
 			return FALSE
 	else if(path.len == 1)
-		walk_to(src, dest)
+		step_to(src, dest)
 		set_path(null)
 	return TRUE
 
@@ -668,14 +663,14 @@ Pass a positive integer as an argument to override a bot's default speed.
 	if(client)		// In use by player, don't actually move.
 		return
 
-	if(patrol_target in obounds())		// reached target
+	if(loc == patrol_target)		// reached target
 		//Find the next beacon matching the target.
 		if(!get_next_patrol_target())
 			find_patrol_target() //If it fails, look for the nearest one instead.
 		return
 
 	else if(path.len > 0 && patrol_target)		// valid path
-		if(path[1] in obounds())
+		if(path[1] == loc)
 			increment_path()
 			return
 
@@ -806,12 +801,12 @@ Pass a positive integer as an argument to override a bot's default speed.
 	if(client)		// In use by player, don't actually move.
 		return
 
-	if(summon_target in locs)		// Arrived to summon location.
+	if(loc == summon_target)		// Arrived to summon location.
 		bot_reset()
 		return
 
 	else if(path.len > 0 && summon_target)		//Proper path acquired!
-		if(path[1] in obounds())
+		if(path[1] == loc)
 			increment_path()
 			return
 
@@ -1026,7 +1021,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 	faction -= "silicon"
 
 /mob/living/simple_animal/bot/proc/set_path(list/newpath)
-	QDEL_LIST(path) // wipe the old path
+	path = newpath ? newpath : list()
 	if(!path_hud)
 		return
 	var/list/path_huds_watching_me = list(GLOB.huds[DATA_HUD_DIAGNOSTIC_ADVANCED])
@@ -1086,7 +1081,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 	var/image/I = path[path[1]]
 	if(I)
 		I.icon_state = null
-	qdel(path[1])
+
 	path.Cut(1, 2)
 
 /mob/living/simple_animal/bot/rust_heretic_act()

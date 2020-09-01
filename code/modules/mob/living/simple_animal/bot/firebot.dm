@@ -301,7 +301,7 @@
 	on = FALSE
 	visible_message("<span class='boldannounce'>[src] blows apart!</span>")
 
-	var/atom/Tsec = drop_location()[1]
+	var/atom/Tsec = drop_location()
 
 	new /obj/item/assembly/prox_sensor(Tsec)
 	new /obj/item/clothing/head/hardhat/red(Tsec)

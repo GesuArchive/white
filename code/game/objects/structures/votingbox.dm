@@ -141,7 +141,7 @@
 	return TRUE
 
 /obj/structure/votebox/dump_contents()
-	var/atom/droppoint = drop_location()[1]
+	var/atom/droppoint = drop_location()
 	for(var/atom/movable/AM in contents)
 		AM.forceMove(droppoint)
 

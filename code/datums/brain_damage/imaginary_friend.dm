@@ -189,11 +189,10 @@
 	forceMove(NewLoc)
 	move_delay = world.time + 1
 
-/mob/camera/imaginary_friend/forceMove(atom/destination, _step_x, _step_y)
-	NORMALIZE_STEP(destination, _step_x, _step_y)
+/mob/camera/imaginary_friend/forceMove(atom/destination)
 	dir = get_dir(get_turf(src), destination)
 	loc = destination
-	forceStep(null, _step_x, _step_y)
+
 	Show()
 
 /mob/camera/imaginary_friend/proc/recall()

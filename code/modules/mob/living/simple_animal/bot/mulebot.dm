@@ -328,7 +328,7 @@
 				home_destination = new_home
 		if("unload")
 			if(load && mode != BOT_HUNT)
-				if(target in locs)
+				if(loc == target)
 					unload(loaddir)
 				else
 					unload(0)
@@ -521,7 +521,7 @@
 		pathset = 1 //Indicates the AI's custom path is initialized.
 		start()
 
-/mob/living/simple_animal/bot/mulebot/Move(atom/newloc, direct, _step_x, _step_y) //handle leaving bloody tracks. can't be done via Moved() since that can end up putting the tracks somewhere BEFORE we get bloody.
+/mob/living/simple_animal/bot/mulebot/Move(atom/newloc, direct) //handle leaving bloody tracks. can't be done via Moved() since that can end up putting the tracks somewhere BEFORE we get bloody.
 	if(!has_power((client || paicard))) //turn off if we ran out of power.
 		turn_off()
 		return FALSE
@@ -532,15 +532,14 @@
 	if(!last_move || isspaceturf(oldLoc)) //if we didn't sucessfully move, or if our old location was a spaceturf.
 		return
 	var/obj/effect/decal/cleanable/blood/tracks/B = new(oldLoc)
-	B.forceStep(src)
+
 	B.add_blood_DNA(return_blood_DNA())
 	B.setDir(direct)
 	bloodiness--
 
-/mob/living/simple_animal/bot/mulebot/Moved(atom/OldLoc, Dir) //make sure we always use power after moving.
+/mob/living/simple_animal/bot/mulebot/Moved() //make sure we always use power after moving.
 	. = ..()
-	if(loc == OldLoc)
-		return
+
 	if(!cell)
 		return
 	cell.use(cell_move_power_usage)
@@ -560,7 +559,7 @@
 	var/speed = (wires.is_cut(WIRE_MOTOR1) ? 0 : 1) + (wires.is_cut(WIRE_MOTOR2) ? 0 : 2)
 	if(!speed)//Devide by zero man bad
 		return
-	num_steps = round(10/speed) * step_size //10, 5, or 3 steps, depending on how many wires we have cut
+	num_steps = round(10/speed) //10, 5, or 3 steps, depending on how many wires we have cut
 	START_PROCESSING(SSfastprocess, src)
 
 /mob/living/simple_animal/bot/mulebot/process()
@@ -573,39 +572,48 @@
 			return
 
 		if(BOT_DELIVER, BOT_GO_HOME, BOT_BLOCKED) // navigating to deliver,home, or blocked
-			if(target in locs) // reached target
-				forceMove(target)
+			if(loc == target) // reached target
 				at_target()
 				return
 
-			else if(path.len > 0) // valid path
-				var/obj/next = path[1]
+			else if(path.len > 0 && target) // valid path
+				var/turf/next = path[1]
 				reached_target = FALSE
-				walk_to(src, path[1])
-				if(path[1] in obounds()) // successful move
-					blockcount = 0
+				if(next == loc)
 					path -= next
-					qdel(next)
-					if(destination == home_destination)
-						mode = BOT_GO_HOME
-					else
-						mode = BOT_DELIVER
+
 					return
-				else		// failed to move
-
-					blockcount++
-					mode = BOT_BLOCKED
-					step(src, get_dir(src, next)) // try to step into the object that's blocking us
-					if(blockcount == 9)
-						buzz(ANNOYED)
-
-					if(blockcount > 15)	// attempt 15 times before recomputing
-						// find new path excluding blocked turf
-						buzz(SIGH)
-						mode = BOT_WAIT_FOR_NAV
+				if(isturf(next))
+					var/oldloc = loc
+					var/moved = step_towards(src, next)	// attempt to move
+					if(moved && oldloc!=loc)	// successful move
 						blockcount = 0
-						addtimer(CALLBACK(src, .proc/process_blocked, get_turf(next)), 2 SECONDS)
+						path -= loc
+
+						if(destination == home_destination)
+							mode = BOT_GO_HOME
+						else
+							mode = BOT_DELIVER
+
+					else		// failed to move
+
+						blockcount++
+						mode = BOT_BLOCKED
+						if(blockcount == 3)
+							buzz(ANNOYED)
+
+						if(blockcount > 10)	// attempt 10 times before recomputing
+							// find new path excluding blocked turf
+							buzz(SIGH)
+							mode = BOT_WAIT_FOR_NAV
+							blockcount = 0
+							addtimer(CALLBACK(src, .proc/process_blocked, next), 2 SECONDS)
+							return
 						return
+				else
+					buzz(ANNOYED)
+					mode = BOT_NAV
+					return
 			else
 				mode = BOT_NAV
 				return
@@ -636,7 +644,7 @@
 // calculates a path to the current destination
 // given an optional turf to avoid
 /mob/living/simple_animal/bot/mulebot/calc_path(turf/avoid = null)
-	QDEL_LIST(path)
+
 	path = get_path_to(src, target, /turf/proc/Distance_cardinal, 0, 250, id=access_card, exclude=avoid)
 
 // sets the current destination
@@ -782,7 +790,7 @@
 
 /mob/living/simple_animal/bot/mulebot/explode()
 	visible_message("<span class='boldannounce'>[src] blows apart!</span>")
-	var/atom/Tsec = drop_location()[1]
+	var/atom/Tsec = drop_location()
 
 	new /obj/item/assembly/prox_sensor(Tsec)
 	new /obj/item/stack/rods(Tsec)

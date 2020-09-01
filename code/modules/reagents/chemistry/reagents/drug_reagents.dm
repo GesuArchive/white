@@ -35,6 +35,7 @@
 
 /datum/reagent/drug/nicotine
 	name = "Nicotine"
+	description = "Slightly reduces stun times. If overdosed it will deal toxin and oxygen damage."
 	reagent_state = LIQUID
 	color = "#60A584" // rgb: 96, 165, 132
 	addiction_threshold = 10
@@ -205,7 +206,8 @@
 
 /datum/reagent/drug/methamphetamine/overdose_process(mob/living/M)
 	if((M.mobility_flags & MOBILITY_MOVE) && !ismovable(M.loc))
-		walk_for(M, pick(GLOB.alldirs), until=0.25 SECONDS)
+		for(var/i in 1 to 4)
+			step(M, pick(GLOB.cardinals))
 	if(prob(20))
 		M.emote("laugh")
 	if(prob(33))

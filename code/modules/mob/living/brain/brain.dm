@@ -70,11 +70,11 @@
 		return container.forceMove(destination)
 	else if (istype(loc, /obj/item/organ/brain))
 		var/obj/item/organ/brain/B = loc
-		B.forceMove(destination, _step_x, _step_y)
+		B.forceMove(destination)
 	else if (istype(destination, /obj/item/organ/brain))
-		doMove(destination, _step_x, _step_y)
+		doMove(destination)
 	else if (istype(destination, /obj/item/mmi))
-		doMove(destination, _step_x, _step_y)
+		doMove(destination)
 	else
 		CRASH("Brainmob without a container [src] attempted to move to [destination].")
 

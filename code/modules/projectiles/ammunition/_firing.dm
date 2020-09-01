@@ -49,8 +49,7 @@
 	if(BB.firer)
 		firing_dir = BB.firer.dir
 	if(!BB.suppressed && firing_effect_type)
-		var/atom/movable/E = new firing_effect_type(get_turf(src), firing_dir)
-		E.forceStep(user)
+		new firing_effect_type(get_turf(src), firing_dir)
 
 	var/direct_target
 	if(targloc == curloc)

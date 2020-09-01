@@ -56,7 +56,9 @@
 			orbiter.orbiting.end_orbit(orbiter)
 	orbiters[orbiter] = TRUE
 	orbiter.orbiting = src
-	RegisterSignal(orbiter, COMSIG_MOVABLE_MOVED_TURF, .proc/orbiter_move_react)
+	RegisterSignal(orbiter, COMSIG_MOVABLE_MOVED, .proc/orbiter_move_react)
+	RegisterSignal(parent, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, .proc/orbiter_glide_size_update)
+
 	SEND_SIGNAL(parent, COMSIG_ATOM_ORBIT_BEGIN, orbiter)
 
 	var/matrix/initial_transform = matrix(orbiter.transform)
@@ -76,21 +78,22 @@
 	orbiter.transform = shift
 
 	orbiter.SpinAnimation(rotation_speed, -1, clockwise, rotation_segments, parallel = FALSE)
-	var/turf/pturf = get_turf(parent)
-	if(pturf)
-		orbiter.forceMove(pturf)
-		if(ismovable(parent))
-			var/atom/movable/AM = parent
-			orbiter.forceStep(AM)
+
 	if(ismob(orbiter))
-		var/mob/M = orbiter
-		M.client.eye = parent
-	to_chat(orbiter, "<span class='notice'>Следим за [parent].</span>")
+		var/mob/orbiter_mob = orbiter
+		orbiter_mob.updating_glide_size = FALSE
+	if(ismovable(parent))
+		var/atom/movable/movable_parent = parent
+		orbiter.glide_size = movable_parent.glide_size
+
+	orbiter.forceMove(get_turf(parent))
+	to_chat(orbiter, "<span class='notice'>Now orbiting [parent].</span>")
 
 /datum/component/orbiter/proc/end_orbit(atom/movable/orbiter, refreshing=FALSE)
 	if(!orbiters[orbiter])
 		return
-	UnregisterSignal(orbiter, COMSIG_MOVABLE_MOVED_TURF)
+	UnregisterSignal(orbiter, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(parent, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE)
 	SEND_SIGNAL(parent, COMSIG_ATOM_ORBIT_STOP, orbiter)
 	orbiter.SpinAnimation(0, 0)
 	if(istype(orbiters[orbiter],/matrix)) //This is ugly.
@@ -99,14 +102,19 @@
 	orbiter.stop_orbit(src)
 	orbiter.orbiting = null
 	if(ismob(orbiter))
-		var/mob/M = orbiter
-		M.client.eye = M.client.mob
+		var/mob/orbiter_mob = orbiter
+		orbiter_mob.updating_glide_size = TRUE
+		orbiter_mob.glide_size = 8
+
 	if(!refreshing && !length(orbiters) && !QDELING(src))
 		qdel(src)
 
 // This proc can receive signals by either the thing being directly orbited or anything holding it
 /datum/component/orbiter/proc/move_react(atom/movable/master, atom/mover, atom/oldloc, direction)
 	set waitfor = FALSE // Transfer calls this directly and it doesnt care if the ghosts arent done moving
+
+	if(master.loc == oldloc)
+		return
 
 	var/turf/newturf = get_turf(master)
 	if(!newturf)
@@ -115,10 +123,9 @@
 	var/atom/curloc = master.loc
 	for(var/i in orbiters)
 		var/atom/movable/thing = i
-		if(QDELETED(thing))
+		if(QDELETED(thing) || thing.loc == newturf)
 			continue
 		thing.forceMove(newturf)
-		thing.forceStep(master)
 		if(CHECK_TICK && master.loc != curloc)
 			// We moved again during the checktick, cancel current operation
 			break

@@ -54,10 +54,10 @@ Difficulty: Hard
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	speed = 10
-	move_to_delay = 0.5
+	move_to_delay = 10
 	ranged = TRUE
 	ranged_cooldown_time = 40
-	aggro_vision_range = 672 //so it can see to one side of the arena to the other
+	aggro_vision_range = 21 //so it can see to one side of the arena to the other
 	loot = list(/obj/item/hierophant_club)
 	crusher_loot = list(/obj/item/hierophant_club, /obj/item/crusher_trophy/vortex_talisman)
 	wander = FALSE
@@ -133,7 +133,7 @@ Difficulty: Hard
 	var/mob/living/L
 	if(isliving(target))
 		L = target
-		target_slowness += L.step_size
+		target_slowness += L.cached_multiplicative_slowdown
 	if(client)
 		target_slowness += 1
 
@@ -472,12 +472,10 @@ Difficulty: Hard
 
 /mob/living/simple_animal/hostile/megafauna/hierophant/Moved(oldLoc, movement_dir)
 	. = ..()
-	if(!stat && . && oldLoc != loc)
+	if(!stat && .)
 		var/obj/effect/temp_visual/hierophant/squares/HS = new(oldLoc)
 		HS.setDir(movement_dir)
-		if(COOLDOWN_FINISHED(src, next_move_sound))
-			playsound(src, 'sound/mecha/mechmove04.ogg', 150, TRUE, -4)
-			COOLDOWN_START(src, next_move_sound, 0.5 SECONDS)
+		playsound(src, 'sound/mecha/mechmove04.ogg', 150, TRUE, -4)
 		if(target)
 			arena_trap(target)
 
@@ -688,7 +686,7 @@ Difficulty: Hard
 			var/mob/living/simple_animal/hostile/H = L //mobs find and damage you...
 			if(H.stat == CONSCIOUS && !H.target && H.AIStatus != AI_OFF && !H.client)
 				if(!QDELETED(caster))
-					if(bounds_dist(H, caster) <= H.aggro_vision_range)
+					if(get_dist(H, caster) <= H.aggro_vision_range)
 						H.FindTarget(list(caster), 1)
 					else
 						H.Goto(get_turf(caster), H.move_to_delay, 3)
@@ -702,7 +700,7 @@ Difficulty: Hard
 			var/mob/living/occupant = O
 			if(friendly_fire_check && caster && caster.faction_check_mob(occupant))
 				continue
-			to_chat(M.occupant, "<span class='userdanger'>Мой [M.name] был подвержен [name]!</span>")
+			to_chat(M, "<span class='userdanger'>Мой [M.name] был подвержен [name]!</span>")
 			playsound(M,'sound/weapons/sear.ogg', 50, TRUE, -4)
 			M.take_damage(damage, BURN, 0, 0)
 

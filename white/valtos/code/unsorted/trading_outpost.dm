@@ -195,7 +195,7 @@
 		for(var/atom/movable/AM in T)
 			if(iscameramob(AM))
 				continue
-			if(!AM.anchored || istype(AM, /obj/mecha))
+			if(!AM.anchored || istype(AM, /obj/vehicle/sealed/mecha))
 				export_item_and_contents(AM, EXPORT_CARGO | EXPORT_CONTRABAND | EXPORT_EMAG, dry_run = FALSE,  delete_unsold = FALSE, external_report = ex)
 
 	if(ex.exported_atoms)

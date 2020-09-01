@@ -267,9 +267,9 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 
 /mob/camera/blob/Move(NewLoc, Dir = 0)
 	if(placed)
-		var/obj/structure/blob/B = locate() in bounds(src, 96) // 3 tiles every direction
+		var/obj/structure/blob/B = locate() in range("3x3", NewLoc)
 		if(B)
-			forceMove(NewLoc, _step_x, _step_y)
+			forceMove(NewLoc)
 		else
 			return FALSE
 	else

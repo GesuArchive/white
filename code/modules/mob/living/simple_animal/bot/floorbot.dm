@@ -169,7 +169,7 @@
 	update_controls()
 
 /mob/living/simple_animal/bot/floorbot/proc/empty_tiles()
-	new tiletype(drop_location()[1], specialtiles)
+	new tiletype(drop_location(), specialtiles)
 	specialtiles = 0
 	tiletype = null
 
@@ -371,7 +371,7 @@
 /mob/living/simple_animal/bot/floorbot/explode()
 	on = FALSE
 	visible_message("<span class='boldannounce'>[src] blows apart!</span>")
-	var/atom/Tsec = drop_location()[1]
+	var/atom/Tsec = drop_location()
 
 	drop_part(toolbox, Tsec)
 

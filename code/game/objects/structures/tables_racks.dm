@@ -80,7 +80,7 @@
 					return
 			user.stop_pulling()
 		else if(user.pulling.pass_flags & PASSTABLE)
-			user.Move_Pulled(src, user.client?.mouseParams)
+			user.Move_Pulled(src)
 			if (user.pulling.loc == loc)
 				user.visible_message("<span class='notice'><b>[user]</b> кладёт <b>[user.pulling]</b> на <b>[src]</b>.</span>",
 					"<span class='notice'>Кладу на <b>[user.pulling]</b> на <b>[src]</b>.</span>")
@@ -175,7 +175,7 @@
 			for(var/x in T.contents)
 				var/obj/item/item = x
 				AfterPutItemOnTable(item, user)
-			SEND_SIGNAL(I, COMSIG_TRY_STORAGE_QUICK_EMPTY, drop_location()[1])
+			SEND_SIGNAL(I, COMSIG_TRY_STORAGE_QUICK_EMPTY, drop_location())
 			user.visible_message("<span class='notice'><b>[user]</b> опустошает <b>[I]</b> на <b>[src]</b>.</span>")
 			return
 		// If the tray IS empty, continue on (tray will be placed on the table like other items)
@@ -215,9 +215,8 @@
 			if(!click_params || !click_params["icon-x"] || !click_params["icon-y"])
 				return
 			//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
-			var/_step_x = clamp(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)
-			var/_step_y = clamp(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
-			I.forceStep(null, _step_x, _step_y)
+			I.pixel_x = clamp(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)
+			I.pixel_y = clamp(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
 			AfterPutItemOnTable(I, user)
 			return TRUE
 	else
@@ -334,7 +333,7 @@
 		check_break(AM)
 
 /obj/structure/table/glass/proc/throw_check(mob/living/M)
-	if(src in obounds(M))
+	if(M.loc == get_turf(src))
 		check_break(M)
 
 /obj/structure/table/glass/proc/check_break(mob/living/M)

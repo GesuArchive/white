@@ -1508,7 +1508,7 @@
 /turf/open/floor/plasteel,
 /area/ai_monitored/security/armory)
 "de" = (
-/obj/mecha/makeshift,
+/obj/vehicle/sealed/mecha/makeshift,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/ai_monitored/security/armory)

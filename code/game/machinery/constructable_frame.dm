@@ -146,7 +146,7 @@
 				to_chat(user, "<span class='notice'>Убираю провода.</span>")
 				state = 1
 				icon_state = "box_0"
-				new /obj/item/stack/cable_coil(drop_location()[1], 5)
+				new /obj/item/stack/cable_coil(drop_location(), 5)
 				return
 
 		if(3)

@@ -520,7 +520,7 @@
 	if(!COOLDOWN_FINISHED(src, box_cooldown))
 		return
 	COOLDOWN_START(src, box_cooldown, 10 SECONDS)
-	var/box = new boxtype(owner.drop_location()[1])
+	var/box = new boxtype(owner.drop_location())
 	owner.forceMove(box)
 	owner.playsound_local(box, 'sound/misc/box_deploy.ogg', 50, TRUE)
 

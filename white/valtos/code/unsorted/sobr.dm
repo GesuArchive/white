@@ -62,7 +62,6 @@
 /obj/item/storage/belt/military/army/wzzzz/sobr
 
 /obj/item/storage/belt/military/army/wzzzz/sobr/PopulateContents()
-	new /obj/item/reagent_containers/food/snacks/burger(src)
 	new /obj/item/ammo_box/magazine/ak47mag(src)
 	new /obj/item/ammo_box/magazine/ak47mag(src)
 	new /obj/item/ammo_box/magazine/ak47mag(src)

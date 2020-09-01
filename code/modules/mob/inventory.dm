@@ -277,7 +277,8 @@
 /mob/proc/dropItemToGround(obj/item/I, force = FALSE, silent = FALSE)
 	. = doUnEquip(I, force, drop_location(), FALSE, silent = silent)
 	if(. && I) //ensure the item exists and that it was dropped properly.
-		I.forceStep(src)
+		I.pixel_x = rand(-6,6)
+		I.pixel_y = rand(-6,6)
 
 //for when the item will be immediately placed in a loc other than the ground
 /mob/proc/transferItemToLoc(obj/item/I, newloc = null, force = FALSE, silent = TRUE)
@@ -299,14 +300,9 @@
 		return TRUE
 	if(HAS_TRAIT(I, TRAIT_NODROP) && !force)
 		return FALSE
-	var/_step_x = step_x
-	var/_step_y = step_y
+
 	var/hand_index = get_held_index_of_item(I)
-	if(islist(newloc)) // we're dropping it at a pixel offset
-		if(length(newloc) > 2)
-			_step_x = newloc[2]
-			_step_y = newloc[3]
-		newloc = newloc[1]
+
 	if(hand_index)
 		held_items[hand_index] = null
 		update_inv_hands()
@@ -320,7 +316,7 @@
 			if (isnull(newloc))
 				I.moveToNullspace()
 			else
-				I.forceMove(newloc, _step_x, _step_y)
+				I.forceMove(newloc)
 		I.dropped(src, silent)
 	return TRUE
 

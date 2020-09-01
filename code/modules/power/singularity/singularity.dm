@@ -19,12 +19,10 @@
 	var/dissipate_strength = 1 //How much energy do we lose?
 	var/move_self = 1 //Do we move on our own?
 	var/grav_pull = 4 //How many tiles out do we pull?
+	var/consume_range = 0 //How many tiles out do we eat
 	var/event_chance = 10 //Prob for event each tick
 	var/target = null //its target. moves towards the target if it has one
-	/// The direction of failed moves
-	var/last_failed_movement = 0
-	/// The next time movement will be calculated
-	var/next_movement_change = 0
+	var/last_failed_movement = 0//Will not move in the same dir if it couldnt before, will help with the getting stuck on fields thing
 	var/last_warning
 	var/consumedSupermatter = 0 //If the singularity has eaten a supermatter shard and can go to stage six
 	var/drifting_dir = 0 // Chosen direction to drift in
@@ -53,9 +51,22 @@
 	GLOB.singularities.Remove(src)
 	return ..()
 
-/obj/singularity/Move(atom/newloc, direct, _step_x, _step_y)
-	. = ..()
-	if(!.)
+/obj/singularity/Move(atom/newloc, direct)
+	var/turf/T = get_turf(src)
+	for(var/dir in GLOB.cardinals)
+		if(direct & dir)
+			T = get_step(T, dir)
+			if(!T)
+				break
+			// eat the stuff if we're going to move into it so it doesn't mess up our movement
+			for(var/atom/A in T.contents)
+				consume(A)
+			consume(T)
+
+	if(current_size >= STAGE_FIVE || check_turfs_in(direct))
+		last_failed_movement = 0//Reset this because we moved
+		return ..()
+	else
 		last_failed_movement = direct
 		return FALSE
 
@@ -90,54 +101,55 @@
 		for(var/i in 1 to 3)
 			C.apply_damage(30, BRUTE, BODY_ZONE_HEAD)
 			new /obj/effect/gibspawner/generic(T, C)
-			stoplag(1)
+			sleep(1)
 		C.ghostize()
 		var/obj/item/bodypart/head/rip_u = C.get_bodypart(BODY_ZONE_HEAD)
 		rip_u.dismember(BURN) //nice try jedi
 		qdel(rip_u)
 
 /obj/singularity/ex_act(severity, target)
-	if(!severity)
-		return
-	if(severity == 1 && current_size <= STAGE_TWO)
-		investigate_log("has been destroyed by a heavy explosion.", INVESTIGATE_SINGULO)
-		qdel(src)
-		return
-	energy -= round( (energy+1) / (severity+1), 1)
+	switch(severity)
+		if(1)
+			if(current_size <= STAGE_TWO)
+				investigate_log("has been destroyed by a heavy explosion.", INVESTIGATE_SINGULO)
+				qdel(src)
+				return
+			else
+				energy -= round(((energy+1)/2),1)
+		if(2)
+			energy -= round(((energy+1)/3),1)
+		if(3)
+			energy -= round(((energy+1)/4),1)
+	return
+
 
 /obj/singularity/bullet_act(obj/projectile/P)
 	qdel(P)
 	return BULLET_ACT_HIT //Will there be an impact? Who knows.  Will we see it? No.
 
 /obj/singularity/Bump(atom/A)
-	. = ..()
+
 	consume(A)
 	if(QDELETED(A)) // don't keep moving into objects that weren't destroyed infinitely
 		step(src, drifting_dir)
+	return
 
 /obj/singularity/Crossed(atom/A)
 	..()
 	consume(A)
 
 /obj/singularity/Bumped(atom/movable/AM)
-	. = ..()
+
 	consume(AM)
 
-/obj/singularity/Crossed(atom/movable/AM, oldloc)
-	. = ..()
-	consume(AM)
 
-/obj/singularity/Moved(atom/OldLoc, Dir)
-	. = ..()
-	for(var/i in bounds())
-		if(i == src)
-			continue
-		consume(i)
 
 /obj/singularity/process()
-	automatic_movement()
+
 
 	if(current_size >= STAGE_TWO)
+		move()
+
 		var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
 		if(!SP)
 			SP = AddComponent(/datum/component/soundplayer)
@@ -152,6 +164,9 @@
 	eat()
 	dissipate()
 	check_energy()
+
+	return
+
 
 /obj/singularity/attack_ai() //to prevent ais from gibbing themselves when they click on one.
 	return
@@ -184,58 +199,50 @@
 			current_size = STAGE_ONE
 			icon = 'icons/obj/singularity.dmi'
 			icon_state = "singularity_s1"
-			bound_width = 32
-			bound_height = 32
-			bound_x = 0
-			bound_y = 0
+
 			pixel_x = 0
 			pixel_y = 0
 			grav_pull = 4
+			consume_range = 0
 			dissipate_delay = 10
 			dissipate_track = 0
 			dissipate_strength = 1
 		if(STAGE_TWO)
-			if(check_cardinals_range(1))
+			if(check_cardinals_range(1, TRUE))
 				current_size = STAGE_TWO
 				icon = 'icons/effects/96x96.dmi'
 				icon_state = "singularity_s3"
-				bound_width = 96
-				bound_height = 96
-				bound_x = -32
-				bound_y = -32
+
 				pixel_x = -32
 				pixel_y = -32
 				grav_pull = 6
+				consume_range = 1
 				dissipate_delay = 5
 				dissipate_track = 0
 				dissipate_strength = 5
 		if(STAGE_THREE)
-			if(check_cardinals_range(2))
+			if(check_cardinals_range(2, TRUE))
 				current_size = STAGE_THREE
 				icon = 'icons/effects/160x160.dmi'
 				icon_state = "singularity_s5"
-				bound_width = 160
-				bound_height = 160
-				bound_x = -64
-				bound_y = -64
+
 				pixel_x = -64
 				pixel_y = -64
 				grav_pull = 8
+				consume_range = 2
 				dissipate_delay = 4
 				dissipate_track = 0
 				dissipate_strength = 20
 		if(STAGE_FOUR)
-			if(check_cardinals_range(3))
+			if(check_cardinals_range(3, TRUE))
 				current_size = STAGE_FOUR
 				icon = 'icons/effects/224x224.dmi'
 				icon_state = "singularity_s7"
-				bound_width = 224
-				bound_height = 224
-				bound_x = -96
-				bound_y = -96
+
 				pixel_x = -96
 				pixel_y = -96
 				grav_pull = 10
+				consume_range = 3
 				dissipate_delay = 10
 				dissipate_track = 0
 				dissipate_strength = 10
@@ -243,25 +250,21 @@
 			current_size = STAGE_FIVE
 			icon = 'icons/effects/288x288.dmi'
 			icon_state = "singularity_s9"
-			bound_width = 288
-			bound_height = 288
-			bound_x = -128
-			bound_y = -128
+
 			pixel_x = -128
 			pixel_y = -128
 			grav_pull = 10
-			dissipate = 0 //It cant go smaller due toe loss
+			consume_range = 4
+			dissipate = 0 //It cant go smaller due to e loss
 		if(STAGE_SIX) //This only happens if a stage 5 singulo consumes a supermatter shard.
 			current_size = STAGE_SIX
 			icon = 'icons/effects/352x352.dmi'
 			icon_state = "singularity_s11"
-			bound_width = 352
-			bound_height = 352
-			bound_x = -160
-			bound_y = -160
+
 			pixel_x = -160
 			pixel_y = -160
 			grav_pull = 15
+			consume_range = 5
 			dissipate = 0
 	if(current_size == allowed_size)
 		investigate_log("<font color='red'>grew to size [current_size]</font>", INVESTIGATE_SINGULO)
@@ -295,34 +298,44 @@
 	return TRUE
 
 /obj/singularity/proc/eat()
-	if(!isturf(loc))
-		return
-	for(var/i in obounds(src, grav_pull*16))
-		CHECK_TICK
-		var/atom/sucker = i
-		if(QDELETED(sucker))
+	for(var/tile in spiral_range_turfs(grav_pull, src))
+		var/turf/T = tile
+		if(!T || !isturf(loc))
 			continue
-		sucker.singularity_pull(src, current_size)
+		if(get_dist(T, src) > consume_range)
+			T.singularity_pull(src, current_size)
+		else
+			consume(T)
+		for(var/thing in T)
+			if(isturf(loc) && thing != src)
+				var/atom/movable/X = thing
+				if(get_dist(X, src) > consume_range)
+					X.singularity_pull(src, current_size)
+				else
+					consume(X)
+			CHECK_TICK
+	return
+
 
 /obj/singularity/proc/consume(atom/A)
-	set waitfor = FALSE
-	if(CHECK_TICK && QDELETED(A))
-		return
+
 	var/gain = A.singularity_act(current_size, src)
-	energy += gain
+	src.energy += gain
 	if(istype(A, /obj/machinery/power/supermatter_crystal) && !consumedSupermatter)
 		desc = "[initial(desc)] Яростно светится внутренним огнем."
 		name = "supermatter-charged [initial(name)]"
-		consumedSupermatter = TRUE
+		consumedSupermatter = 1
 		set_light(10)
+	return
 
-/obj/singularity/proc/automatic_movement(force_move = NONE)
+/obj/singularity/proc/move(force_move = 0)
 	if(!move_self)
 		return FALSE
 
 	var/drifting_dir = pick(GLOB.alldirs - last_failed_movement)
 
-	var/drifting_dir = force_move || pick(GLOB.alldirs - last_failed_movement)
+	if(force_move)
+		drifting_dir = force_move
 
 	if(target && prob(60))
 		drifting_dir = get_dir(src,target) //moves to a singulo beacon, if there is one
@@ -392,11 +405,7 @@
 			return FALSE
 	return TRUE
 
-/obj/singularity/proc/check_cardinals_range(range)
-	for(var/turf/place in bounds(src, (range*32) - bound_width + 32))
-		if(!can_move(place))
-			return FALSE
-	return TRUE
+
 
 /obj/singularity/proc/can_move(turf/T)
 	if(!T)
@@ -434,6 +443,8 @@
 						  "<span class='userdanger'>Чувствую, что я сейчас <b>ГОРЮ БЛЯТЬ</b>!</span>")
 		C.adjust_fire_stacks(5)
 		C.IgniteMob()
+	return
+
 
 /obj/singularity/proc/mezzer()
 	for(var/mob/living/carbon/M in oviewers(8, src))
@@ -456,6 +467,7 @@
 
 /obj/singularity/proc/emp_area()
 	empulse(src, 8, 10)
+	return
 
 /obj/singularity/singularity_act()
 	var/gain = (energy/2)

@@ -8,11 +8,6 @@
 	desc = "A heavy wooden box, which can be filled with a lot of ores."
 	density = TRUE
 	pressure_resistance = 5*ONE_ATMOSPHERE
-	bound_width = 26
-	bound_height = 22
-	bound_x = 4
-	bound_y = 10
-	brotation = NONE
 
 /obj/structure/ore_box/attackby(obj/item/W, mob/user, params)
 	if (istype(W, /obj/item/stack/ore))
@@ -52,7 +47,7 @@
 		ui_interact(user)
 
 /obj/structure/ore_box/proc/dump_box_contents()
-	var/drop = drop_location()[1]
+	var/drop = drop_location()
 	for(var/obj/item/stack/ore/O in src)
 		if(QDELETED(O))
 			continue
@@ -61,7 +56,7 @@
 		O.forceMove(drop)
 		if(TICK_CHECK)
 			stoplag()
-			drop = drop_location()[1]
+			drop = drop_location()
 
 /obj/structure/ore_box/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

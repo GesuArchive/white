@@ -61,7 +61,6 @@ SUBSYSTEM_DEF(throwing)
 	var/pure_diagonal
 	var/diagonal_error
 	var/datum/callback/callback
-	var/angle = 0
 	var/paused = FALSE
 	var/delayed_time = 0
 	var/last_move = 0
@@ -83,6 +82,7 @@ SUBSYSTEM_DEF(throwing)
 	src.callback = callback
 	src.target_zone = target_zone
 
+
 /datum/thrownthing/Destroy()
 	SSthrowing.processing -= thrownthing
 	thrownthing.throwing = null
@@ -103,11 +103,6 @@ SUBSYSTEM_DEF(throwing)
 
 /datum/thrownthing/proc/tick()
 	var/atom/movable/AM = thrownthing
-	if(!angle)
-		angle = GET_DEG(AM, target_turf)
-	if(AM.step_size != 16)
-		AM.step_size = 16
-
 	if (!isturf(AM.loc) || !AM.throwing)
 		finalize()
 		return
@@ -116,19 +111,18 @@ SUBSYSTEM_DEF(throwing)
 		delayed_time += world.time - last_move
 		return
 
-	if (hitcheck()) //to catch sneaky things moving on our tile while we slept
+	if (dist_travelled && hitcheck()) //to catch sneaky things moving on our tile while we slept
 		finalize()
 		return
 
 	var/atom/step
+
 	last_move = world.time
+
 	//calculate how many tiles to move, making up for any missed ticks.
 	var/tilestomove = CEILING(min(((((world.time+world.tick_lag) - start_time + delayed_time) * speed) - (dist_travelled ? dist_travelled : -1)), speed*MAX_TICKS_TO_MAKE_UP) * (world.tick_lag * SSthrowing.wait), 1)
-	// whatever we're moving we need double to get the pixels to travel, 1 tile = 16 * 2 pixels!
-	// this might end up screwy in the long run, but this make sense to me right now
-	tilestomove *= 2
 	while (tilestomove-- > 0)
-		if ((dist_travelled >= maxrange || (target_turf in AM.locs)) && AM.has_gravity(AM.loc))
+		if ((dist_travelled >= maxrange || AM.loc == target_turf) && AM.has_gravity(AM.loc))
 			finalize()
 			return
 
@@ -146,13 +140,13 @@ SUBSYSTEM_DEF(throwing)
 			finalize()
 			return
 
-		degstepprojectile(AM, angle, DELAY_TO_GLIDE_SIZE(1 / speed))
+		AM.Move(step, get_dir(AM, step), DELAY_TO_GLIDE_SIZE(1 / speed))
 
 		if (!AM.throwing) // we hit something during our move
 			finalize(hit = TRUE)
 			return
 
-		dist_travelled += 0.5 // half a tile
+		dist_travelled++
 
 		if (dist_travelled > MAX_THROWING_DIST)
 			finalize()
@@ -164,11 +158,17 @@ SUBSYSTEM_DEF(throwing)
 	if(!thrownthing)
 		return
 	thrownthing.throwing = null
-	if(target != src.target && bounds_dist(thrownthing, src.target) <= 0)
-		target = src.target
 	if (!hit)
-		if(!(target in obounds(thrownthing)))
-			target = get_turf(thrownthing)	// we haven't hit something yet and we still must, let's hit the ground.
+		for (var/thing in get_turf(thrownthing)) //looking for our target on the turf we land on.
+			var/atom/A = thing
+			if (A == target)
+				hit = TRUE
+				thrownthing.throw_impact(A, src)
+				if(QDELETED(thrownthing)) //throw_impact can delete things, such as glasses smashing
+					return //deletion should already be handled by on_thrownthing_qdel()
+				break
+		if (!hit)
+			thrownthing.throw_impact(get_turf(thrownthing), src)  // we haven't hit something yet and we still must, let's hit the ground.
 			if(QDELETED(thrownthing)) //throw_impact can delete things, such as glasses smashing
 				return //deletion should already be handled by on_thrownthing_qdel()
 			thrownthing.newtonian_move(init_dir)
@@ -187,19 +187,17 @@ SUBSYSTEM_DEF(throwing)
 		var/turf/T = get_turf(thrownthing)
 		if(T && thrownthing.has_gravity(T))
 			T.zFall(thrownthing)
-	thrownthing.step_size = initial(thrownthing.step_size)
+
 	qdel(src)
 
 /datum/thrownthing/proc/hit_atom(atom/A)
 	finalize(hit=TRUE, target=A)
 
 /datum/thrownthing/proc/hitcheck()
-	for(var/thing in obounds(thrownthing))
-		if(!ismovable(thing))
-			return
+	for (var/thing in get_turf(thrownthing))
 		var/atom/movable/AM = thing
 		if (AM == thrownthing || (AM == thrower && !ismob(thrownthing)))
 			continue
-		if (AM.density && !(AM.pass_flags & LETPASSTHROW))
+		if (AM.density && !(AM.pass_flags & LETPASSTHROW) && !(AM.flags_1 & ON_BORDER_1))
 			finalize(hit=TRUE, target=AM)
 			return TRUE

@@ -201,6 +201,6 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 			else
 				U.client.give_award(/datum/award/achievement/misc/feat_of_strength, U) //rod-form wizards would probably make this a lot easier to get so keep it to regular rods only
 				U.visible_message("<span class='boldwarning'>[U] suplexes [src] into the ground!</span>", "<span class='warning'>You suplex [src] into the ground!</span>")
-				new /obj/structure/festivus/anchored(drop_location()[1])
-				new /obj/effect/anomaly/flux(drop_location()[1])
+				new /obj/structure/festivus/anchored(drop_location())
+				new /obj/effect/anomaly/flux(drop_location())
 				qdel(src)

@@ -30,7 +30,7 @@
 
 	var/resting = FALSE
 
-	var/confused_dir = NONE
+
 
 	VAR_PROTECTED/lying_angle = 0			///number of degrees. DO NOT USE THIS IN CHECKS. CHECK FOR MOBILITY FLAGS INSTEAD!!
 	var/lying_prev = 0		///last value of lying on update_mobility
@@ -61,7 +61,7 @@
 	var/on_fire = FALSE ///The "Are we on fire?" var
 	var/fire_stacks = 0 ///Tracks how many stacks of fire we have on, max is usually 20
 
-	var/last_ventcrawl = 0
+
 
 	var/ventcrawler = 0 //0 No vent crawling, 1 vent crawling in the nude, 2 vent crawling always
 	var/limb_destroyer = 0 //1 Sets AI behavior that allows mobs to target and dismember limbs with their basic attack.
@@ -93,6 +93,7 @@
 	var/bubble_icon = "default" ///what icon the mob uses for speechbubbles
 	var/health_doll_icon ///if this exists AND the normal sprite is bigger than 32x32, this is the replacement icon state (because health doll size limitations). the icon will always be screen_gen.dmi
 
+	var/last_bumped = 0
 	var/unique_name = 0 ///if a mob's name should be appended with an id when created e.g. Mob (666)
 	var/numba = 0 ///the id a mob gets when it's created
 

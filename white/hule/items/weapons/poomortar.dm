@@ -18,7 +18,7 @@
 	rounds = 12
 	ammo_type = "poo"
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/poo_mortar/can_attach(obj/mecha/M)
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/poo_mortar/can_attach(obj/vehicle/sealed/mecha/M)
 	if(..())
 		return 1
 	else if(M.equipment.len < M.max_equip && istype(M))

@@ -71,7 +71,7 @@
 /obj/item/pushbroom/proc/sweep(mob/user, atom/A, moving = TRUE)
 	SIGNAL_HANDLER
 
-	var/turf/target = moving ? nearest_turf(user) : (isturf(A) ? A : A.loc)
+	var/turf/target = moving ? user.loc : (isturf(A) ? A : A.loc)
 	if (!isturf(target))
 		return
 	if (locate(/obj/structure/table) in target.contents)

@@ -305,7 +305,7 @@
 	addtimer(CALLBACK(src, .proc/preReturn, holder), 10) //Start to leave a second after closing for cinematic effect
 
 /obj/structure/closet/supplypod/take_contents(atom/movable/holder)
-	var/atom/L = holder.drop_location()[1]
+	var/atom/L = holder.drop_location()
 	for(var/atom/movable/AM in L)
 		if(AM != src && !insert(AM, holder)) // Can't insert that
 			continue
@@ -498,7 +498,7 @@
 		podParam = new podParam() //If its just a path, instantiate it
 	pod = podParam
 	if (!pod.effectStealth)
-		helper = new (drop_location()[1], pod)
+		helper = new (drop_location(), pod)
 		alpha = 255
 	animate(src, transform = matrix().Turn(90), time = pod.landingDelay+pod.fallDuration)
 	if (single_order)
@@ -550,7 +550,7 @@
 	if (pod.style == STYLE_INVISIBLE || pod.style == STYLE_SEETHROUGH)
 		return
 	for ( var/i in 1 to length(smoke_effects))
-		var/obj/effect/supplypod_smoke/S = new (drop_location()[1])
+		var/obj/effect/supplypod_smoke/S = new (drop_location())
 		if (i == 1)
 			S.layer = FLY_LAYER
 			S.icon_state = "smoke_start"
@@ -571,7 +571,7 @@
 		animate(S.filters[1], size = 6, time = 15, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 
 /obj/effect/pod_landingzone/proc/endLaunch()
-	pod.tryMakeRubble(drop_location()[1])
+	pod.tryMakeRubble(drop_location())
 	pod.layer = initial(pod.layer)
 	pod.endGlow()
 	QDEL_NULL(helper)

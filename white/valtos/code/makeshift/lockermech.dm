@@ -1,11 +1,11 @@
-/obj/mecha/makeshift
+/obj/vehicle/sealed/mecha/makeshift
 	desc = "A locker with stolen wires, struts, electronics and airlock servos crudley assemebled into something that resembles the fuctions of a mech."
 	name = "Locker Mech"
 	icon = 'white/valtos/icons/lockermech.dmi'
 	icon_state = "lockermech"
 	max_integrity = 100 //its made of scraps
 	lights_power = 5
-	step_in = 4 //Same speed as a ripley, for now.
+	movedelay = 4 //Same speed as a ripley, for now.
 	armor = list(melee = 20, bullet = 10, laser = 10, energy = 0, bomb = 10, bio = 0, rad = 0, fire = 70, acid = 60) //Same armour as a locker
 	internal_damage_threshold = 30 //Its got shitty durability
 	max_equip = 2 //You only have two arms and the control system is shitty
@@ -13,32 +13,23 @@
 	var/list/cargo = list()
 	var/cargo_capacity = 5 // you can fit a few things in this locker but not much.
 
-/obj/mecha/makeshift/Topic(href, href_list)
+/obj/vehicle/sealed/mecha/makeshift/Topic(href, href_list)
 	..()
 	if(href_list["drop_from_cargo"])
 		var/obj/O = locate(sanitize(href_list["drop_from_cargo"]))
 		if(O && (O in cargo))
-			occupant_message("<span class='notice'>You unload [O].</span>")
+			to_chat(occupants, "<span class='notice'>You unload [O].</span>")
 			O.forceMove(loc)
 			cargo -= O
 			log_message("Unloaded [O]. Cargo compartment capacity: [cargo_capacity - src.cargo.len]")
 	return
 
-/obj/mecha/makeshift/go_out()
-	..()
-	update_icon()
-
-/obj/mecha/makeshift/moved_inside(mob/living/carbon/human/H)
-	..()
-	update_icon()
-
-
-/obj/mecha/makeshift/Exit(atom/movable/O)
+/obj/vehicle/sealed/mecha/makeshift/Exit(atom/movable/O)
 	if(O in cargo)
 		return 0
 	return ..()
 
-/obj/mecha/makeshift/contents_explosion(severity, target)
+/obj/vehicle/sealed/mecha/makeshift/contents_explosion(severity, target)
 	for(var/X in cargo)
 		var/obj/O = X
 		if(prob(30/severity))
@@ -46,7 +37,7 @@
 			O.forceMove(loc)
 	. = ..()
 
-/obj/mecha/makeshift/get_stats_part()
+/obj/vehicle/sealed/mecha/makeshift/get_stats_part()
 	var/output = ..()
 	output += "<b>Cargo Compartment Contents:</b><div style=\"margin-left: 15px;\">"
 	if(cargo.len)
@@ -57,7 +48,7 @@
 	output += "</div>"
 	return output
 
-/obj/mecha/makeshift/relay_container_resist_act(mob/living/user, obj/O)
+/obj/vehicle/sealed/mecha/makeshift/relay_container_resist_act(mob/living/user, obj/O)
 	to_chat(user, "<span class='notice'>You lean on the back of [O] and start pushing so it falls out of [src].</span>")
 	if(do_after(user, 10, target = O))//Its a fukken locker
 		if(!user || user.stat != CONSCIOUS || user.loc != src || O.loc != src )
@@ -69,7 +60,7 @@
 		if(user.loc == src) //so we don't get the message if we resisted multiple times and succeeded.
 			to_chat(user, "<span class='warning'>You fail to push [O] out of [src]!</span>")
 
-/obj/mecha/makeshift/Destroy()
+/obj/vehicle/sealed/mecha/makeshift/Destroy()
 	new /obj/structure/closet(loc)
 	return ..()
 
@@ -82,8 +73,8 @@
 	force = 10 //Its not very strong
 	drill_delay = 15
 
-/obj/item/mecha_parts/mecha_equipment/drill/makeshift/can_attach(obj/mecha/M as obj)
-	if(istype(M, /obj/mecha/makeshift))
+/obj/item/mecha_parts/mecha_equipment/drill/makeshift/can_attach(obj/vehicle/sealed/mecha/M as obj)
+	if(istype(M, /obj/vehicle/sealed/mecha/makeshift))
 		return TRUE
 	return FALSE
 
@@ -93,8 +84,8 @@
 	equip_cooldown = 25
 	dam_force = 10
 
-/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/makeshift/can_attach(obj/mecha/M as obj)
-	if(istype(M, /obj/mecha/makeshift))
+/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/makeshift/can_attach(obj/vehicle/sealed/mecha/M as obj)
+	if(istype(M, /obj/vehicle/sealed/mecha/makeshift))
 		return TRUE
 	return FALSE
 
@@ -102,7 +93,7 @@
 
 /datum/crafting_recipe/lockermech
 	name = "Locker Mech"
-	result = /obj/mecha/makeshift
+	result = /obj/vehicle/sealed/mecha/makeshift
 	reqs = list(/obj/item/stack/cable_coil = 20,
 				/obj/item/stack/sheet/metal = 10,
 				/obj/item/storage/toolbox = 2, // For feet

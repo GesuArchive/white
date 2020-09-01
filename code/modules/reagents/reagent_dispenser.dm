@@ -85,10 +85,6 @@
 	desc = "A tank full of industrial welding fuel. Do not consume."
 	icon_state = "fuel"
 	reagent_id = /datum/reagent/fuel
-	bound_width = 26
-	bound_height = 26
-	bound_x = 3
-	brotation = NONE
 
 /obj/structure/reagent_dispensers/fueltank/boom()
 	explosion(get_turf(src), 0, 1, 5, flame_range = 5)

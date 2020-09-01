@@ -246,7 +246,7 @@
 		var/datum/wound/slash/critical/crit_wound = new
 		crit_wound.apply_wound(bodypart)
 		target.adjustFireLoss(20)
-		new /obj/effect/temp_visual/cleave(target.drop_location()[1])
+		new /obj/effect/temp_visual/cleave(target.drop_location())
 
 /obj/effect/proc_holder/spell/pointed/cleave/can_target(atom/target, mob/user, silent)
 	. = ..()
@@ -514,7 +514,7 @@
 		if(HAS_TRAIT(target, TRAIT_CRITICAL_CONDITION))
 			target.death()
 		target.adjustFireLoss(20)
-		new /obj/effect/temp_visual/eldritch_smoke(target.drop_location()[1])
+		new /obj/effect/temp_visual/eldritch_smoke(target.drop_location())
 		human_user.ExtinguishMob()
 		human_user.adjustBruteLoss(-10, FALSE)
 		human_user.adjustFireLoss(-10, FALSE)

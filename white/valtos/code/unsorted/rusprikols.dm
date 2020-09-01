@@ -1,4 +1,4 @@
-/obj/mecha/working/ripley/buran
+/obj/vehicle/sealed/mecha/working/ripley/buran
 	desc = "Гарантия тоталитарной власти. Держится на духовных скрепах."
 	name = "\improper APLU MK-IV \"Buran\""
 	icon = 'white/valtos/icons/mecha.dmi'
@@ -8,7 +8,7 @@
 	deflect_chance = 25
 	fast_pressure_step_in = 2 //step_in while in low pressure conditions
 	slow_pressure_step_in = 4 //step_in while in normal pressure conditions
-	step_in = 4
+	movedelay = 4
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	lights_power = 7
 	armor = list("melee" = 80, "bullet" = 60, "laser" = 60, "energy" = 60, "bomb" = 90, "bio" = 0, "rad" = 90, "fire" = 100, "acid" = 100)
@@ -19,7 +19,7 @@
 	silicon_icon_state = null
 	opacity = TRUE
 
-/obj/mecha/working/ripley/buran/Initialize()
+/obj/vehicle/sealed/mecha/working/ripley/buran/Initialize()
 	. = ..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/flashbang
 	ME.attach(src)
@@ -135,7 +135,6 @@
 	prereq_ids = list("bluespace_travel", "practical_bluespace", "bluespace_storage")
 	design_ids = list("noneuclid_matter_bin", "noneuclid_mani", "noneuclid_scanning", "noneuclid_capacitor", "noneuclid_micro_laser")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000000)
-	export_price = 100000
 
 /datum/design/noneuclid_matter_bin
 	name = "Noneuclid Matter Bin"

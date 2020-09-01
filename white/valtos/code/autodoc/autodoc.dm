@@ -403,7 +403,6 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	prereq_ids = list("exp_surgery", "bio_process", "adv_datatheory", "adv_engi", "high_efficiency")
 	design_ids = list("autodoc")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 15000)
-	export_price = 10000
 
 /datum/surgery_step/incise/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
 	if(ishuman(target))

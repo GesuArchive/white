@@ -116,7 +116,7 @@ GLOBAL_LIST_EMPTY(vapour)
 		kill_vapour()
 
 	var/obj/machinery/atmospherics/components/unary/vent_scrubber/S = locate() in view(t_loc, 3)//max range is 3x3 for a unary scrubber
-	if(S && S.on && !S.welded && S.is_operational() && src != VM)
+	if(S && S.on && !S.welded && src != VM)
 		if(S.scrubbing == FALSE || S.widenet)//if either panic siphoning or set to contaminated mode
 			VM.volume -= S.volume_rate * 0.5
 			kill_vapour()

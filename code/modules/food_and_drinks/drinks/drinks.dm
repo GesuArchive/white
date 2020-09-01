@@ -136,7 +136,7 @@
 	B.icon = I
 	B.name = "разбитый [name]"
 	if(prob(33))
-		var/obj/item/shard/S = new(drop_location()[1])
+		var/obj/item/shard/S = new(drop_location())
 		target.Bumped(S)
 	playsound(src, "shatter", 70, TRUE)
 	transfer_fingerprints_to(B)

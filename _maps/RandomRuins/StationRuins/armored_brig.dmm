@@ -1853,7 +1853,7 @@
 /turf/open/floor/engine,
 /area/security/prison/safe)
 "el" = (
-/obj/mecha/working/ripley/buran,
+/obj/vehicle/sealed/mecha/working/ripley/buran,
 /obj/effect/turf_decal/tile/hex/neutral,
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 1

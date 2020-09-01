@@ -298,7 +298,7 @@
 		// Start filling
 		if(item_type == "pill")
 			var/obj/item/reagent_containers/pill/P
-			var/target_loc = drop_location()[1]
+			var/target_loc = drop_location()
 			var/drop_threshold = INFINITY
 			if(bottle)
 				var/datum/component/storage/STRB = bottle.GetComponent(
@@ -309,7 +309,7 @@
 				if(i < drop_threshold)
 					P = new/obj/item/reagent_containers/pill(target_loc)
 				else
-					P = new/obj/item/reagent_containers/pill(drop_location()[1])
+					P = new/obj/item/reagent_containers/pill(drop_location())
 				P.name = trim("[name] pill")
 				if(chosenPillStyle == RANDOM_PILL_STYLE)
 					P.icon_state ="pill[rand(1,21)]"
@@ -323,7 +323,7 @@
 		if(item_type == "patch")
 			var/obj/item/reagent_containers/pill/patch/P
 			for(var/i = 0; i < amount; i++)
-				P = new/obj/item/reagent_containers/pill/patch(drop_location()[1])
+				P = new/obj/item/reagent_containers/pill/patch(drop_location())
 				P.name = trim("[name] patch")
 				adjust_item_drop_location(P)
 				reagents.trans_to(P, vol_each, transfered_by = usr)
@@ -331,7 +331,7 @@
 		if(item_type == "bottle")
 			var/obj/item/reagent_containers/glass/bottle/P
 			for(var/i = 0; i < amount; i++)
-				P = new/obj/item/reagent_containers/glass/bottle(drop_location()[1])
+				P = new/obj/item/reagent_containers/glass/bottle(drop_location())
 				P.name = trim("[name] bottle")
 				adjust_item_drop_location(P)
 				reagents.trans_to(P, vol_each, transfered_by = usr)
@@ -339,7 +339,7 @@
 		if(item_type == "condimentPack")
 			var/obj/item/reagent_containers/food/condiment/pack/P
 			for(var/i = 0; i < amount; i++)
-				P = new/obj/item/reagent_containers/food/condiment/pack(drop_location()[1])
+				P = new/obj/item/reagent_containers/food/condiment/pack(drop_location())
 				P.originalname = name
 				P.name = trim("[name] pack")
 				P.desc = "A small condiment pack. The label says it contains [name]."
@@ -348,7 +348,7 @@
 		if(item_type == "condimentBottle")
 			var/obj/item/reagent_containers/food/condiment/P
 			for(var/i = 0; i < amount; i++)
-				P = new/obj/item/reagent_containers/food/condiment(drop_location()[1])
+				P = new/obj/item/reagent_containers/food/condiment(drop_location())
 				P.originalname = name
 				P.name = trim("[name] bottle")
 				reagents.trans_to(P, vol_each, transfered_by = usr)

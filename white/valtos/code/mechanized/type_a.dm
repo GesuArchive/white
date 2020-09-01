@@ -1,15 +1,15 @@
 //WIP
 
-/obj/mecha/mechanized
+/obj/vehicle/sealed/mecha/mechanized
 	var/left_arm = 428
 	var/right_arm = 428
 	var/legs = 646
 
-/obj/mecha/mechanized/Initialize()
+/obj/vehicle/sealed/mecha/mechanized/Initialize()
 	RegisterSignal(src, COMSIG_PROJECTILE_PREHIT, .proc/prehit)
 	. = ..()
 
-/obj/mecha/mechanized/proc/prehit(obj/projectile/source, list/signal_args)
+/obj/vehicle/sealed/mecha/mechanized/proc/prehit(obj/projectile/source, list/signal_args)
 	if(prob(deflect_chance))
 		visible_message("<span class='red'>[src] уворачивается от [source].</span>")
 		qdel(source)
@@ -24,7 +24,7 @@
 			max_integrity -= source.damage
 	qdel(source)
 
-/obj/mecha/mechanized/type_a
+/obj/vehicle/sealed/mecha/mechanized/type_a
 	name = "TYPE-A Mech"
 	desc = "БЕГИ!!!"
 	icon = 'white/valtos/icons/mechanized/type_a.dmi'
@@ -71,7 +71,7 @@
 	M.add_overlay(lance_overlay)
 
 /obj/item/mecha_parts/mecha_equipment/drill/lance/can_attach(obj/mecha/M as obj)
-	if(istype(M, /obj/mecha/mechanized) && M.equipment.len<M.max_equip)
+	if(istype(M, /obj/vehicle/sealed/mecha/mechanized) && M.equipment.len<M.max_equip)
 		return TRUE
 	return FALSE
 

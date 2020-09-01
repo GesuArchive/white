@@ -83,6 +83,10 @@
 		if(PushAM(AM, move_force))
 			return
 
+/mob/living/Bumped(atom/movable/AM)
+	..()
+	last_bumped = world.time
+
 //Called when we bump onto a mob
 /mob/living/proc/MobBump(mob/M)
 	//Even if we don't push/swap places, we "touched" them, so spread fire
@@ -91,8 +95,10 @@
 	if(now_pushing)
 		return TRUE
 
+	var/they_can_move = TRUE
 	if(isliving(M))
 		var/mob/living/L = M
+		they_can_move = L.mobility_flags & MOBILITY_MOVE
 		//Also spread diseases
 		for(var/thing in diseases)
 			var/datum/disease/D = thing
@@ -181,7 +187,7 @@
 	for(var/obj/item/I in M.held_items)
 		if(!istype(M, /obj/item/clothing))
 			if(prob(I.block_chance*2))
-				return TRUE
+				return
 
 /mob/living/get_photo_description(obj/item/camera/camera)
 	var/list/mob_details = list()
@@ -207,11 +213,12 @@
 /mob/living/proc/PushAM(atom/movable/AM, force = move_force)
 	if(now_pushing)
 		return TRUE
+	if(moving_diagonally)// no pushing during diagonal moves.
+		return TRUE
 	if(!client && (mob_size < MOB_SIZE_SMALL))
 		return
 	now_pushing = TRUE
-	var/pd = GET_DEG(src, AM)
-	var/t = angle2dir(pd)
+	var/t = get_dir(src, AM)
 	var/push_anchored = FALSE
 	if((AM.move_resist * MOVE_FORCE_CRUSH_RATIO) <= force)
 		if(move_crush(AM, move_force, t))
@@ -228,6 +235,8 @@
 			for(var/obj/structure/window/win in get_step(W,t))
 				now_pushing = FALSE
 				return
+	if(pulling == AM)
+		stop_pulling()
 	var/current_dir
 	if(isliving(AM))
 		current_dir = AM.dir
@@ -235,7 +244,7 @@
 		Move(get_step(loc, t), t)
 	if(current_dir)
 		AM.setDir(current_dir)
-	degstep(AM, dir2angle(t), step_size)
+
 	now_pushing = FALSE
 
 /mob/living/start_pulling(atom/movable/AM, state, force = pull_force, supress_message = FALSE)
@@ -266,7 +275,6 @@
 		AM.pulledby.stop_pulling() //an object can't be pulled by two mobs at once.
 
 	pulling = AM
-	AM.set_sidestep(TRUE)
 	AM.set_pulledby(src)
 
 	SEND_SIGNAL(src, COMSIG_LIVING_START_PULL, AM, state, force)
@@ -315,7 +323,7 @@
 			update_pull_movespeed()
 
 		set_pull_offsets(M, state)
-	update_movespeed()
+
 
 /mob/living/proc/set_pull_offsets(mob/living/M, grab_state = GRAB_PASSIVE)
 	if(M.buckled)
@@ -365,7 +373,7 @@
 	if(ismob(pulling))
 		reset_pull_offsets(pulling)
 	..()
-	update_movespeed()
+
 	update_pull_movespeed()
 	update_pull_hud_icon()
 
@@ -645,7 +653,7 @@
 /mob/living/Move(atom/newloc, direct, glide_size_override)
 	if(lying_angle != 0)
 		lying_angle_on_movement(direct)
-	if (buckled && (!(newloc in buckled.locs) || buckled.step_x != _step_x || buckled.step_y != _step_y)) // We're buckled and trying to move somewhere the buckled thing isnt yet
+	if (buckled && buckled.loc != newloc) //not updating position
 		if (!buckled.anchored)
 			return buckled.Move(newloc, direct, glide_size)
 		else
@@ -657,7 +665,9 @@
 		update_pull_movespeed()
 	. = ..()
 
-	if(!check_pulling())
+	if(pulledby && moving_diagonally != FIRST_DIAG_STEP && get_dist(src, pulledby) > 1 && (pulledby != moving_from_pull))//separated from our puller and not in the middle of a diagonal move.
+		pulledby.stop_pulling()
+	else
 		if(isliving(pulledby))
 			var/mob/living/L = pulledby
 			L.set_pull_offsets(src, pulledby.grab_state)
@@ -704,8 +714,7 @@
 	if((newdir in GLOB.cardinals) && (prob(50)))
 		newdir = turn(get_dir(target_turf, start), 180)
 	if(!blood_exists)
-		var/obj/effect/decal/cleanable/trail_holder/T = new /obj/effect/decal/cleanable/trail_holder(start, get_static_viruses())
-		T.forceStep(src)
+		new /obj/effect/decal/cleanable/trail_holder(start, get_static_viruses())
 
 	for(var/obj/effect/decal/cleanable/trail_holder/TH in start)
 		if((!(newdir in TH.existing_dirs) || trail_type == "trails_1" || trail_type == "trails_2") && TH.existing_dirs.len <= 16) //maximum amount of overlays is 16 (all light & heavy directions filled)
@@ -1064,7 +1073,7 @@
 		return TRUE
 	return FALSE
 
-/mob/living/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE, params)
+/mob/living/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE)
 	stop_pulling()
 	. = ..()
 
@@ -1289,7 +1298,7 @@
 		return LINGHIVE_LINK
 	return LINGHIVE_NONE
 
-/mob/living/forceMove(atom/destination, _step_x, _step_y)
+/mob/living/forceMove(atom/destination)
 	stop_pulling()
 	if(buckled)
 		buckled.unbuckle_mob(src, force = TRUE)

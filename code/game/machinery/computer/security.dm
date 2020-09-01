@@ -811,7 +811,7 @@ What a mess.*/
 		return
 	printing = TRUE
 	sleep(20)
-	var/obj/item/photo/P = new/obj/item/photo(drop_location()[1])
+	var/obj/item/photo/P = new/obj/item/photo(drop_location())
 	var/datum/picture/toEmbed = new(name = person_name, desc = "The photo on file for [person_name].", image = temp)
 	P.set_picture(toEmbed, TRUE, TRUE)
 	P.forceMove(P.loc, rand(-10, 10), rand(-10, 10))

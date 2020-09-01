@@ -73,7 +73,7 @@
 			if(!valid_window_location(T, window_dir))
 				return FALSE
 			to_chat(user, "<span class='notice'>Собираю окно.</span>")
-			var/obj/structure/window/WD = new the_rcd.window_type(drop_location()[1], window_dir)
+			var/obj/structure/window/WD = new the_rcd.window_type(drop_location(), window_dir)
 			WD.set_anchored(TRUE)
 			return TRUE
 	return FALSE
@@ -182,17 +182,17 @@
 					return
 				var/obj/structure/window/WD
 				if(istype(W, /obj/item/stack/sheet/plasmarglass))
-					WD = new/obj/structure/window/plasma/reinforced/fulltile(drop_location()[1]) //reinforced plasma window
+					WD = new/obj/structure/window/plasma/reinforced/fulltile(drop_location()) //reinforced plasma window
 				else if(istype(W, /obj/item/stack/sheet/plasmaglass))
-					WD = new/obj/structure/window/plasma/fulltile(drop_location()[1]) //plasma window
+					WD = new/obj/structure/window/plasma/fulltile(drop_location()) //plasma window
 				else if(istype(W, /obj/item/stack/sheet/rglass))
-					WD = new/obj/structure/window/reinforced/fulltile(drop_location()[1]) //reinforced window
+					WD = new/obj/structure/window/reinforced/fulltile(drop_location()) //reinforced window
 				else if(istype(W, /obj/item/stack/sheet/titaniumglass))
-					WD = new/obj/structure/window/shuttle(drop_location()[1])
+					WD = new/obj/structure/window/shuttle(drop_location())
 				else if(istype(W, /obj/item/stack/sheet/plastitaniumglass))
-					WD = new/obj/structure/window/plasma/reinforced/plastitanium(drop_location()[1])
+					WD = new/obj/structure/window/plasma/reinforced/plastitanium(drop_location())
 				else
-					WD = new/obj/structure/window/fulltile(drop_location()[1]) //normal window
+					WD = new/obj/structure/window/fulltile(drop_location()) //normal window
 				WD.setDir(dir_to_set)
 				WD.ini_dir = dir_to_set
 				WD.set_anchored(FALSE)
@@ -220,7 +220,7 @@
 	if(!loc) //if already qdel'd somehow, we do nothing
 		return
 	if(!(flags_1&NODECONSTRUCT_1))
-		var/obj/R = new rods_type(drop_location()[1], rods_amount)
+		var/obj/R = new rods_type(drop_location(), rods_amount)
 		transfer_fingerprints_to(R)
 		qdel(src)
 	..()
@@ -228,7 +228,7 @@
 /obj/structure/grille/obj_break()
 	if(!broken && !(flags_1 & NODECONSTRUCT_1))
 		new broken_type(src.loc)
-		var/obj/R = new rods_type(drop_location()[1], rods_broken)
+		var/obj/R = new rods_type(drop_location(), rods_broken)
 		transfer_fingerprints_to(R)
 		qdel(src)
 

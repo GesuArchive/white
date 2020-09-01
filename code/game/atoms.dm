@@ -353,22 +353,7 @@
 					return TRUE
 
 /**
-  * Returns the true pixel accurate x position of the atom
-  *
-  * Overriden by movables to include step_x values
-  */
-/atom/proc/true_x()
-	return x * PIXEL_TILE_SIZE
 
-/**
-  * Returns the true pixel accurate y position of the atom
-  *
-  * Overriden by movables to include step_y values
-  */
-/atom/proc/true_y()
-	return y * PIXEL_TILE_SIZE
-
-/**
   * Is the atom in any of the centcom syndicate areas
   *
   * Either in the syndie base on centcom, or any of their shuttles
@@ -786,7 +771,7 @@
 	var/list/blood_dna = M.get_blood_dna_list()
 	if(!blood_dna)
 		return FALSE
-	return add_blood_DNA(blood_dna, null, M)
+	return add_blood_DNA(blood_dna)
 
 ///Is this atom in space
 /atom/proc/isinspace()
@@ -1140,12 +1125,12 @@
 	. += "[VV_HREF_TARGETREF(refid, VV_HK_AUTO_RENAME, "<b id='name'>[src]</b>")]"
 	. += "<br><font size='1'><a href='?_src_=vars;[HrefToken()];rotatedatum=[refid];rotatedir=left'><<</a> <a href='?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=dir' id='dir'>[dir2text(dir) || dir]</a> <a href='?_src_=vars;[HrefToken()];rotatedatum=[refid];rotatedir=right'>>></a></font>"
 
-///Where atoms should drop if taken from this atom, returns list containing turf
+///Where atoms should drop if taken from this atom
 /atom/proc/drop_location()
-	var/atom/L = get_turf(src)
+	var/atom/L = loc
 	if(!L)
 		return null
-	return L.AllowDrop() ? list(L) : L.drop_location()
+	return L.AllowDrop() ? L : L.drop_location()
 
 /atom/proc/vv_auto_rename(newname)
 	name = newname

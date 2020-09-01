@@ -35,7 +35,6 @@
 /obj/item/storage/belt/military/army/wzzzz/range
 
 /obj/item/storage/belt/military/army/wzzzz/range/PopulateContents()
-	new /obj/item/reagent_containers/food/snacks/burger(src)
 	new /obj/item/ammo_box/a762(src)
 	new /obj/item/ammo_box/a762(src)
 	new /obj/item/ammo_box/a762(src)

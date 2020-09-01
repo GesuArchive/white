@@ -238,7 +238,7 @@ SUBSYSTEM_DEF(spm)
 
 /obj/machinery/power/spaceminer/proc/eject_money()
 	say("Снято $[coins].")
-	new /obj/item/holochip(drop_location()[1], coins)
+	new /obj/item/holochip(drop_location(), coins)
 	coins = 0
 
 /obj/machinery/power/spaceminer/ui_interact(mob/user)

@@ -249,7 +249,7 @@
 
 						var/obj/item/electronics/airlock/ae
 						if(!electronics)
-							ae = new/obj/item/electronics/airlock(drop_location()[1])
+							ae = new/obj/item/electronics/airlock(drop_location())
 							if(req_one_access)
 								ae.one_access = 1
 								ae.accesses = req_one_access

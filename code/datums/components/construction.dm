@@ -101,7 +101,7 @@
 
 		switch(target_step["action"])
 			if(ITEM_DELETE)
-				new target_step_key(drop_location()[1])
+				new target_step_key(drop_location())
 
 			if(ITEM_MOVE_INSIDE)
 				var/obj/item/located_item = locate(target_step_key) in parent
@@ -109,7 +109,7 @@
 					located_item.forceMove(drop_location())
 
 			else if(ispath(target_step_key, /obj/item/stack))
-				new target_step_key(drop_location()[1], target_step["amount"])
+				new target_step_key(drop_location(), target_step["amount"])
 
 /datum/component/construction/proc/spawn_result()
 	// Some constructions result in new components being added.
@@ -118,7 +118,7 @@
 		qdel(src)
 
 	else if(ispath(result, /atom))
-		new result(drop_location()[1])
+		new result(drop_location())
 		qdel(parent)
 
 /datum/component/construction/proc/update_parent(step_index)

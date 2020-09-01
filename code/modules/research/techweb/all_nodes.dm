@@ -628,7 +628,6 @@
 	prereq_ids = list("adv_weaponry", "beam_weapons")
 	design_ids = list("energy_smg", "energy_smg_mag", "nlaw")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 12500)
-	export_price = 7500
 
 /datum/techweb_node/gravity_gun
 	id = "gravity_gun"

@@ -47,7 +47,7 @@
 		return TRUE
 
 	if(I.use_tool(src, user, 0, volume=50, amount=15))
-		new refined_type(drop_location()[1])
+		new refined_type(drop_location())
 		use(1)
 
 	return TRUE
@@ -63,7 +63,7 @@
 		if(amountrefined < 1)
 			qdel(src)
 		else
-			new refined_type(drop_location()[1],amountrefined)
+			new refined_type(drop_location(),amountrefined)
 			qdel(src)
 
 /obj/item/stack/ore/uranium
@@ -411,7 +411,7 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	if(!string_attached)
 		return TRUE
 
-	new /obj/item/stack/cable_coil(drop_location()[1], 1)
+	new /obj/item/stack/cable_coil(drop_location(), 1)
 	overlays = list()
 	string_attached = null
 	to_chat(user, "<span class='notice'>You detach the string from the coin.</span>")

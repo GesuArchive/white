@@ -38,7 +38,7 @@
 			continue
 		grassAmt += 1 + round(G.seed.potency * tile_coefficient)
 		qdel(G)
-	new stacktype(user.drop_location()[1], grassAmt)
+	new stacktype(user.drop_location(), grassAmt)
 	qdel(src)
 
 //Fairygrass

@@ -266,8 +266,6 @@
 		set_pin_data(IC_OUTPUT, 17, H.dead)
 		set_pin_data(IC_OUTPUT, 18, H.plant_health)
 		set_pin_data(IC_OUTPUT, 19, H.self_sustaining)
-		set_pin_data(IC_OUTPUT, 20, H.using_irrigation)
-		set_pin_data(IC_OUTPUT, 21, H.FindConnected())
 	push_data()
 	activate_pin(2)
 

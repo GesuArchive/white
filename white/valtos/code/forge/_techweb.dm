@@ -9,7 +9,6 @@
 	prereq_ids = list("adv_datatheory")
 	design_ids = list("reagent_sheet")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
-	export_price = 5000
 
 /datum/design/board/reagent_sheet
 	name = "Reagent Refinery (Machine Board)"

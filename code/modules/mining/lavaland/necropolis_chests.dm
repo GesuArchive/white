@@ -551,7 +551,7 @@
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_combined_w_class = 60
 	STR.max_items = 21
-	new /obj/item/shared_storage/blue(drop_location()[1], STR)
+	new /obj/item/shared_storage/blue(drop_location(), STR)
 
 /obj/item/shared_storage/blue/Initialize(mapload, datum/component/storage/concrete/master)
 	. = ..()

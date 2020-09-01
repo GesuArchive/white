@@ -14,10 +14,7 @@
 	CanAtmosPass = ATMOS_PASS_PROC
 	rad_insulation = RAD_VERY_LIGHT_INSULATION
 
-	bound_height = 7
-	bound_width = 32
-	bound_x = 0
-	bound_y = 25
+
 
 	var/ini_dir = null
 	var/state = WINDOW_OUT_OF_FRAME
@@ -101,23 +98,10 @@
 		deconstruct(FALSE)
 
 /obj/structure/window/setDir(direct)
-	if(fulltile)
-		direct = FULLTILE_WINDOW_DIR
-	return ..()
-
-/obj/structure/window/update_bounds(olddir, newdir)
-	if(newdir == FULLTILE_WINDOW_DIR)
-		bound_width = 32
-		bound_height = 32
-		bound_x = 0
-		bound_y = 0
-	else if(olddir == FULLTILE_WINDOW_DIR)
-		olddir = dir = initial(dir)
-		bound_width = initial(bound_width)
-		bound_height = initial(bound_height)
-		bound_x = initial(bound_x)
-		bound_y = initial(bound_y)
-	return ..()
+	if(!fulltile)
+		..()
+	else
+		..(FULLTILE_WINDOW_DIR)
 
 /obj/structure/window/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
@@ -150,7 +134,7 @@
 
 /obj/structure/window/attack_tk(mob/user)
 	user.changeNext_move(CLICK_CD_MELEE)
-	user.visible_message("<span class='notice'>Что-то стучит по [sklonenie(src.name, VINITELNI, src.gender)].</span>")
+	user.visible_message("<span class='notice'>Что-то стучит по окну.</span>")
 	add_fingerprint(user)
 	playsound(src, 'sound/effects/Glassknock.ogg', 50, TRUE)
 
@@ -166,8 +150,8 @@
 	if(!can_be_reached(user))
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	user.visible_message("<span class='notice'>[user] стучит по [sklonenie(src.name, VINITELNI, src.gender)].</span>", \
-		"<span class='notice'>Стучу по [sklonenie(src.name, VINITELNI, src.gender)].</span>")
+	user.visible_message("<span class='notice'>[user] стучит по окну.</span>", \
+		"<span class='notice'>Стучу по окну.</span>")
 	add_fingerprint(user)
 	playsound(src, 'sound/effects/Glassknock.ogg', 50, TRUE)
 
@@ -242,7 +226,7 @@
 
 /obj/structure/window/proc/can_be_reached(mob/user)
 	if(!fulltile)
-		if(GET_PIXELDIR(user,src) & dir)
+		if(get_dir(user,src) & dir)
 			for(var/obj/O in loc)
 				if(!O.CanPass(user, user.loc, 1))
 					return FALSE
@@ -270,7 +254,7 @@
 	if(!disassembled)
 		playsound(src, breaksound, 70, TRUE)
 		if(!(flags_1 & NODECONSTRUCT_1))
-			for(var/obj/item/shard/debris in spawnDebris(drop_location()[1]))
+			for(var/obj/item/shard/debris in spawnDebris(drop_location()))
 				transfer_fingerprints_to(debris) // transfer fingerprints to shards only
 	qdel(src)
 	update_nearby_icons()
@@ -281,6 +265,8 @@
 	. += new /obj/effect/decal/cleanable/glass(location)
 	if (reinf)
 		. += new /obj/item/stack/rods(location, (fulltile ? 2 : 1))
+	if (fulltile)
+		. += new /obj/item/shard(location)
 
 /obj/structure/window/proc/can_be_rotated(mob/user,rotation_type)
 	if(anchored)
@@ -314,10 +300,11 @@
 	return ..()
 
 
-/obj/structure/window/Move(atom/newloc, direct = 0, _step_x, _step_y)
+/obj/structure/window/Move()
 	var/turf/T = loc
-	direct = ini_dir
+
 	. = ..()
+	setDir(ini_dir)
 	move_update_air(T)
 
 /obj/structure/window/CanAtmosPass(turf/T)
@@ -489,6 +476,15 @@
 	explosion_block = 1
 	glass_type = /obj/item/stack/sheet/plasmaglass
 	rad_insulation = RAD_NO_INSULATION
+
+/obj/structure/window/plasma/spawnDebris(location)
+	. = list()
+	. += new /obj/item/shard/plasma(location)
+	. += new /obj/effect/decal/cleanable/glass/plasma(location)
+	if (reinf)
+		. += new /obj/item/stack/rods(location, (fulltile ? 2 : 1))
+	if (fulltile)
+		. += new /obj/item/shard/plasma(location)
 
 /obj/structure/window/plasma/spawner/east
 	dir = EAST

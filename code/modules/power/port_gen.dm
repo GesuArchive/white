@@ -131,7 +131,7 @@
 
 /obj/machinery/power/port_gen/pacman/DropFuel()
 	if(sheets)
-		new sheet_path(drop_location()[1], sheets)
+		new sheet_path(drop_location(), sheets)
 		sheets = 0
 
 /obj/machinery/power/port_gen/pacman/UseFuel()

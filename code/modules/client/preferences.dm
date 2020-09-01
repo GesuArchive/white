@@ -105,8 +105,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/clientfps = -1
 
-	var/sidestepper = TRUE
-
 	var/parallax
 
 	var/ambientocclusion = TRUE
@@ -565,7 +563,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<tr><td><h3>Внутриигровое:</h3></td></tr>"
 			dat += "<tr><td><b>Сообщения ID-карты:</b></td><td align='right'><a href='?_src_=prefs;preference=income_pings'>[(chat_toggles & CHAT_BANKCARD) ? "Вкл" : "Выкл"]</a></td></tr>"
 			dat += "<tr><td><b>FPS:</b></td><td align='right'><a href='?_src_=prefs;preference=clientfps;task=input'>[clientfps]</a></td></tr>"
-			dat += "<tr><td><b>Скольжение по краям:</b></td><td align='right'><a href='?_src_=prefs;preference=sidestepper'>[sidestepper ? "ON" : "OFF"]</a></td></tr>"
 			dat += "<tr><td><b>Параллакс:</b></td><td align='right'><a href='?_src_=prefs;preference=parallaxdown' oncontextmenu='window.location.href=\"?_src_=prefs;preference=parallaxup\";return false;'>"
 			switch (parallax)
 				if (PARALLAX_LOW)
@@ -1774,11 +1771,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("allow_midround_antag")
 					toggles ^= MIDROUND_ANTAG
 
-				if ("sidestepper")
-					sidestepper = !sidestepper
-					if(isliving(parent.mob))
-						parent.mob.set_sidestep(sidestepper)
-
 				if("parallaxup")
 					parallax = WRAP(parallax + 1, PARALLAX_INSANE, PARALLAX_DISABLE + 1)
 					if (parent && parent.mob && parent.mob.hud_used)
@@ -1930,8 +1922,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	character.backpack = backpack
 
 	character.jumpsuit_style = jumpsuit_style
-
-	character.can_sidestep = sidestepper
 
 	var/datum/species/chosen_species
 	chosen_species = pref_species.type

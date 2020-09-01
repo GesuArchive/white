@@ -18,7 +18,7 @@
 /obj/item/seeds/watermelon/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] is swallowing [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	user.gib()
-	new product(drop_location()[1])
+	new product(drop_location())
 	qdel(src)
 	return MANUAL_SUICIDE
 
@@ -75,7 +75,7 @@
 /obj/item/reagent_containers/food/snacks/grown/holymelon/proc/expire(mob/user)
 	to_chat(user, "<span class='warning'>[src] rapidly turns into ash!</span>")
 	qdel(src)
-	new /obj/effect/decal/cleanable/ash(drop_location()[1])
+	new /obj/effect/decal/cleanable/ash(drop_location())
 
 /obj/item/reagent_containers/food/snacks/grown/holymelon/checkLiked(fraction, mob/M)    //chaplains sure love holymelons
 	if(!ishuman(M))

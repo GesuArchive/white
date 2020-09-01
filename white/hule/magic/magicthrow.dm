@@ -74,7 +74,7 @@
 
 /obj/projectile/magic/rodacc/on_hit(atom/target)
 	if(speed <= 0.6)
-		if(istype(target, /obj/mecha))
+		if(istype(target, /obj/vehicle/sealed/mecha))
 			target.ex_act(EXPLODE_HEAVY)
 		if(istype(target, /obj/machinery/door/airlock))
 			var/obj/machinery/door/airlock/A = target

@@ -231,8 +231,8 @@
 	playsound(src, "sparks", 80, TRUE)
 	switch(uses)
 		if(2)
-			new /obj/machinery/piratepad/civilian(drop_location()[1])
+			new /obj/machinery/piratepad/civilian(drop_location())
 		if(1)
-			new /obj/machinery/computer/piratepad_control/civilian(drop_location()[1])
+			new /obj/machinery/computer/piratepad_control/civilian(drop_location())
 			qdel(src)
 	uses--

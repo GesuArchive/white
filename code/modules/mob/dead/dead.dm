@@ -3,14 +3,10 @@
 INITIALIZE_IMMEDIATE(/mob/dead)
 
 /mob/dead
+	sight = SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF
 	move_resist = INFINITY
 	throwforce = 0
-	sight = SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF
 
-
-/mob/dead/set_sidestep(val)
-	val = FALSE
-	. = ..()
 
 /mob/dead/Initialize()
 	SHOULD_CALL_PARENT(FALSE)
@@ -39,16 +35,15 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 /mob/dead/ConveyorMove()	//lol
 	return
 
-/mob/dead/forceMove(atom/destination, _step_x=0, _step_y=0)
+/mob/dead/forceMove(atom/destination)
 	var/turf/old_turf = get_turf(src)
 	var/turf/new_turf = get_turf(destination)
 	if (old_turf?.z != new_turf?.z)
 		onTransitZ(old_turf?.z, new_turf?.z)
 	var/oldloc = loc
-	NORMALIZE_STEP(destination, _step_x, _step_y)
+
 	loc = destination
-	step_x = _step_x
-	step_y = _step_y
+
 	Moved(oldloc, NONE, TRUE)
 
 /mob/dead/get_status_tab_items()

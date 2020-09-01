@@ -230,7 +230,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 	return
 
 /obj/item/stack/sheet/hairlesshide/machine_wash(obj/machinery/washing_machine/WM)
-	new /obj/item/stack/sheet/wethide(drop_location()[1], amount)
+	new /obj/item/stack/sheet/wethide(drop_location(), amount)
 	qdel(src)
 
 /obj/item/clothing/suit/hooded/ian_costume/machine_wash(obj/machinery/washing_machine/WM)
@@ -347,7 +347,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 		update_icon()
 
 /obj/machinery/washing_machine/deconstruct(disassembled = TRUE)
-	new /obj/item/stack/sheet/metal(drop_location()[1], 2)
+	new /obj/item/stack/sheet/metal(drop_location(), 2)
 	qdel(src)
 
 /obj/machinery/washing_machine/open_machine(drop = 1)

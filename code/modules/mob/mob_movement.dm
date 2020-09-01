@@ -9,6 +9,24 @@
 		mob.dropItemToGround(mob.get_active_held_item())
 	return
 
+/**
+  * force move the control_object of your client mob
+  *
+  * Used in admin possession and called from the client Move proc
+  * ensures the possessed object moves and not the admin mob
+  *
+  * Has no sanity other than checking density
+  */
+/client/proc/Move_object(direct)
+	if(mob && mob.control_object)
+		if(mob.control_object.density)
+			step(mob.control_object,direct)
+			if(!mob.control_object)
+				return
+			mob.control_object.setDir(direct)
+		else
+			mob.control_object.forceMove(get_step(mob.control_object,direct))
+
 #define MOVEMENT_DELAY_BUFFER 0.75
 #define MOVEMENT_DELAY_BUFFER_DELTA 1.25
 
@@ -49,6 +67,13 @@
   *
   */
 /client/Move(n, direct)
+	if(world.time < move_delay) //do not move anything ahead of this check please
+		return FALSE
+	else
+		next_move_dir_add = 0
+		next_move_dir_sub = 0
+	var/old_move_delay = move_delay
+	move_delay = world.time + world.tick_lag //this is here because Move() can now be called mutiple times per tick
 	if(!mob || !mob.loc)
 		return FALSE
 	if(!n || !direct)
@@ -56,22 +81,11 @@
 	if(mob.notransform)
 		return FALSE	//This is sota the goto stop mobs from moving var
 
-	var/diagonal_step = (direct & (NORTH|SOUTH)) && (direct & (EAST|WEST))
-	var/step_size
-	var/old_glide = mob.glide_size
-	if(mob.control_object)
-		step_size = mob.control_object.step_size
-		if(diagonal_step)
-			step_size *= 0.7
-		return step(mob.control_object, direct, step_size)
-	else
-		step_size = mob.step_size
-		if(diagonal_step)
-			step_size *= 0.7
-			mob.glide_size *= 0.7
 
+	if(mob.control_object)
+		return Move_object(direct)
 	if(!isliving(mob))
-		return step(mob, direct, step_size)
+		return mob.Move(n, direct)
 	if(mob.stat == DEAD)
 		mob.ghostize()
 		return FALSE
@@ -114,29 +128,19 @@
 
 	var/confusion = L.get_confusion()
 	if(confusion)
-		var/newdir = NONE
-		if(L.confused_dir)
-			newdir = L.confused_dir
-		else if(confusion > 40)
+		var/newdir = 0
+		if(confusion > 40)
 			newdir = pick(GLOB.alldirs)
-		else if(prob(confusion * 0.4))
+		else if(prob(confusion * 1.5))
 			newdir = angle2dir(dir2angle(direct) + pick(90, -90))
-		else if(prob(confusion * 0.75))
+		else if(prob(confusion * 3))
 			newdir = angle2dir(dir2angle(direct) + pick(45, -45))
 		if(newdir)
-			//if(!L.confused_dir)
-			//	L.confused_dir = newdir
-			//	addtimer(VARSET_CALLBACK(L, confused_dir, NONE), 0.25 SECONDS)
+
 			direct = newdir
 			n = get_step(L, direct)
 
-	. = step(mob, direct, step_size)
-	if(!.)
-		for(var/d in GLOB.cardinals)
-			if(direct & d)
-				. = step(mob, d, step_size)
-				if(.)
-					break
+	. = ..()
 
 	if((direct & (direct - 1)) && mob.loc == n) //moved diagonally successfully
 		add_delay *= 2
@@ -147,8 +151,7 @@
 			mob.throwing.finalize(FALSE)
 	var/atom/movable/P = mob.pulling
 	if(P && !ismob(P) && P.density)
-		mob.setDir(get_dir(mob, P))
-	mob.glide_size = old_glide // glide back glide back you don't know me like that
+		mob.setDir(turn(mob.dir, 180))
 
 /**
   * Checks to see if you're being grabbed and if so attempts to break it
@@ -272,7 +275,8 @@
 	var/atom/movable/backup = get_spacemove_backup()
 	if(backup)
 		if(istype(backup) && movement_dir && !backup.anchored)
-			backup.newtonian_move(turn(movement_dir, 180)) //You're pushing off something movable, so it moves
+			if(backup.newtonian_move(turn(movement_dir, 180))) //You're pushing off something movable, so it moves
+				to_chat(src, "<span class='info'>You push off of [backup] to propel yourself.</span>")
 		return TRUE
 	return FALSE
 
@@ -280,7 +284,7 @@
   * Find movable atoms? near a mob that are viable for pushing off when moving
   */
 /mob/get_spacemove_backup()
-	for(var/A in obounds(src, 16))
+	for(var/A in orange(1, get_turf(src)))
 		if(isarea(A))
 			continue
 		else if(isturf(A))
@@ -484,11 +488,7 @@
 			to_chat(src, "<span class='warning'>You can't do that right now!</span>")
 			return FALSE
 	var/turf/target = get_step_multiz(src, dir)
-	if(isliving(src))
-		if(!(movement_type & FLYING))
-			if(feedback)
-				to_chat(src, "<span class='warning'>Я не в состоянии летать!</span>")
-			return FALSE
+
 	if(!target)
 		if(feedback)
 			to_chat(src, "<span class='warning'>ПОТОЛОК!</span>")

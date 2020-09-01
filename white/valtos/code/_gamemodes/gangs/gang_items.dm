@@ -943,11 +943,11 @@
 	name = "Seraph 'Gangbuster' Mech"
 	id = "seraph"
 	cost = 250
-	item_path = /obj/mecha/combat/marauder/gangbuster_seraph
+	item_path = /obj/vehicle/sealed/mecha/combat/marauder/gangbuster_seraph
 	spawn_msg = "<span class='notice'>For employees who go above and beyond... you know what to do with this. </span>"
 	mode_flags = VIGILANTE
 
-/obj/mecha/combat/marauder/gangbuster_seraph
+/obj/vehicle/sealed/mecha/combat/marauder/gangbuster_seraph
 	desc = "Heavy-duty, combat-type exosuit. This is a custom gangbuster model, utilized only by employees who have proven themselves in the line of fire."
 	name = "\improper 'Gangbuster' Seraph" // Mostly for theming since this is a Nanotrasen funded initiative
 	icon_state = "seraph"
@@ -960,7 +960,7 @@
 	max_equip = 4
 	bumpsmash = FALSE
 
-/obj/mecha/combat/marauder/gangbuster_seraph/Initialize()
+/obj/vehicle/sealed/mecha/combat/marauder/gangbuster_seraph/Initialize()
 	. = ..()
 	operation_req_access = list()
 	var/obj/item/mecha_parts/mecha_equipment/ME

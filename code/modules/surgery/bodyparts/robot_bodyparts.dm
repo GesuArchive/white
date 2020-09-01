@@ -163,7 +163,7 @@
 	. = TRUE
 	I.play_tool_sound(src)
 	to_chat(user, "<span class='notice'>You cut the wires out of [src].</span>")
-	new /obj/item/stack/cable_coil(drop_location()[1], 1)
+	new /obj/item/stack/cable_coil(drop_location(), 1)
 	wired = FALSE
 
 /obj/item/bodypart/chest/robot/screwdriver_act(mob/living/user, obj/item/I)
@@ -193,7 +193,7 @@
 
 /obj/item/bodypart/chest/robot/drop_organs(mob/user, violent_removal)
 	if(wired)
-		new /obj/item/stack/cable_coil(drop_location()[1], 1)
+		new /obj/item/stack/cable_coil(drop_location(), 1)
 		wired = FALSE
 	if(cell)
 		cell.forceMove(drop_location())

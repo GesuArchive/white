@@ -394,8 +394,7 @@
 	if(BB.firer)
 		firing_dir = BB.firer.dir
 	if(!BB.suppressed && firing_effect_type)
-		var/atom/movable/E = new firing_effect_type(get_turf(src), firing_dir)
-		E.forceStep(user)
+		new firing_effect_type(get_turf(src), firing_dir)
 	BB.preparePixelProjectile(target, user, params, spread)
 	BB.fire(gun? gun.lastangle : null, null)
 	BB = null

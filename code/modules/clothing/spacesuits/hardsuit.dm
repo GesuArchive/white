@@ -166,7 +166,7 @@
 			qdel(I)
 			helmet = new helmettype(src)
 			to_chat(user, "<span class='notice'>You have successfully repaired [src]'s helmet.</span>")
-			new /obj/item/light/bulb/broken(drop_location()[1])
+			new /obj/item/light/bulb/broken(drop_location())
 	return ..()
 
 /obj/item/clothing/suit/space/hardsuit/equipped(mob/user, slot)

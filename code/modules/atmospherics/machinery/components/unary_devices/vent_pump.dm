@@ -104,9 +104,6 @@
 
 /obj/machinery/atmospherics/components/unary/vent_pump/process_atmos()
 	..()
-	if(!is_operational())
-		last_moles_added = 0
-		return
 	if(space_shutoff_ticks > 0)
 		space_shutoff_ticks--
 		if(space_shutoff_ticks <= 1 && !on)

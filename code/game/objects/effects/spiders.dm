@@ -84,8 +84,8 @@
 	var/list/faction = list("spiders")
 
 /obj/structure/spider/eggcluster/Initialize()
-	if(loc)
-		forceStep(null, rand(3,-3), rand(3,-3))
+	pixel_x = rand(3,-3)
+	pixel_y = rand(3,-3)
 	START_PROCESSING(SSobj, src)
 	. = ..()
 
@@ -122,8 +122,8 @@
 
 /obj/structure/spider/spiderling/Initialize()
 	. = ..()
-	if(loc)
-		forceMove(loc, rand(6,-6), rand(6,-6))
+	pixel_x = rand(6,-6)
+	pixel_y = rand(6,-6)
 	START_PROCESSING(SSobj, src)
 	AddComponent(/datum/component/swarming)
 
