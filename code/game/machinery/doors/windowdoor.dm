@@ -104,15 +104,38 @@
 	. = ..()
 	if(istype(mover) && (mover.pass_flags & PASSGLASS))
 		return TRUE
+	if(get_dir(loc, target) == dir) //Make sure looking at appropriate border
+		return
+	if(istype(mover, /obj/structure/window))
+		var/obj/structure/window/W = mover
+		if(!valid_window_location(loc, W.ini_dir))
+			return FALSE
+	else if(istype(mover, /obj/structure/windoor_assembly))
+		var/obj/structure/windoor_assembly/W = mover
+		if(!valid_window_location(loc, W.ini_dir))
+			return FALSE
+	else if(istype(mover, /obj/machinery/door/window) && !valid_window_location(loc, mover.dir))
+		return FALSE
+	else
+		return TRUE
 
 /obj/machinery/door/window/CanAtmosPass(turf/T)
-	. = ..()
-	if(anchored && density && get_dir(loc, T) == dir)
-		return FALSE
+	if(get_dir(loc, T) == dir)
+		return !density
+	else
+		return 1
 
 //used in the AStar algorithm to determinate if the turf the door is on is passable
 /obj/machinery/door/window/CanAStarPass(obj/item/card/id/ID, to_dir)
 	return !density || (dir != to_dir) || (check_access(ID) && hasPower())
+
+/obj/machinery/door/window/CheckExit(atom/movable/mover as mob|obj, turf/target)
+	if(istype(mover) && (mover.pass_flags & PASSGLASS))
+		return 1
+	if(get_dir(loc, target) == dir)
+		return !density
+	else
+		return 1
 
 /obj/machinery/door/window/open(forced=FALSE)
 	if (operating) //doors can still open when emag-disabled
