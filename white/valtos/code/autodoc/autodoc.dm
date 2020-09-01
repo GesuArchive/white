@@ -385,7 +385,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 							/obj/item/stock_parts/matter_bin = 5,
 							/obj/item/scalpel/advanced = 1,
 							/obj/item/retractor/advanced = 1,
-							/obj/item/surgicaldrill/advanced = 1,
+							/obj/item/cautery/advanced = 1,
 							/obj/item/stack/sheet/glass = 15)
 
 /datum/design/board/autodoc
