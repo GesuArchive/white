@@ -42,7 +42,6 @@
 	var/unres_sides = 0 //Unrestricted sides. A bitflag for which direction (if any) can open the door with no access
 	var/safety_mode = FALSE ///Whether or not the airlock can be opened with bare hands while unpowered
 	var/can_crush = TRUE /// Whether or not the door can crush mobs.
-	COOLDOWN_DECLARE(next_deny) // Keeps track of the cooldown for the bump deny animation so it isnt spammed
 
 /obj/machinery/door/examine(mob/user)
 	. = ..()
@@ -136,6 +135,9 @@
 			return
 		if(isliving(AM))
 			var/mob/living/M = AM
+			if(world.time - M.last_bumped <= 10)
+				return	//Can bump-open one airlock per second. This is to prevent shock spam.
+			M.last_bumped = world.time
 			if(M.restrained() && !check_access(null))
 				return
 			if(try_safety_unlock(M))
@@ -293,9 +295,6 @@
 			else
 				flick("doorc1", src)
 		if("deny")
-			if(!COOLDOWN_FINISHED(src, next_deny))
-				return
-			COOLDOWN_START(src, next_deny, 0.5 SECONDS)
 			if(!machine_stat)
 				flick("door_deny", src)
 
@@ -366,7 +365,7 @@
 		open()
 
 /obj/machinery/door/proc/crush()
-	for(var/mob/living/L in obounds(src))
+	for(var/mob/living/L in get_turf(src))
 		L.visible_message("<span class='warning'>[src] closes on [L], crushing [L.p_them()]!</span>", "<span class='userdanger'>[src] closes on you and crushes you!</span>")
 		if(iscarbon(L))
 			var/mob/living/carbon/C = L

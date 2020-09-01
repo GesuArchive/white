@@ -414,8 +414,8 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 
 /obj/item/stack/cable_coil/Initialize(mapload, new_amount = null)
 	. = ..()
-	if(loc)
-		forceMove(loc, rand(-2,2), rand(-2,2))
+	pixel_x = rand(-2, 2)
+	pixel_y = rand(-2, 2)
 	update_icon()
 
 /obj/item/stack/cable_coil/examine(mob/user)
@@ -592,8 +592,8 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	. = ..()
 	if(!amount)
 		amount = rand(1,2)
-	if(loc)
-		forceMove(loc, rand(-2,2), rand(-2,2))
+	pixel_x = rand(-2, 2)
+	pixel_y = rand(-2, 2)
 	update_icon()
 
 /obj/item/stack/cable_coil/cyborg

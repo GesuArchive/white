@@ -24,8 +24,8 @@
 
 /obj/item/computer_hardware/New(obj/L)
 	..()
-	if(loc)
-		forceMove(loc, rand(-8, 8), rand(-8, 8))
+	pixel_x = rand(-8, 8)
+	pixel_y = rand(-8, 8)
 
 /obj/item/computer_hardware/Destroy()
 	if(holder)

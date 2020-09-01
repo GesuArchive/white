@@ -156,7 +156,7 @@
 
 /turf/open/space/Entered(atom/movable/A)
 	..()
-	if ((!(A) || !(src in A.locs)))
+	if ((!(A) || src != A.loc))
 		return
 
 	if(destination_z && destination_x && destination_y && !(A.pulledby || !A.can_be_z_moved))

@@ -64,8 +64,8 @@
 
 /obj/item/seeds/Initialize(mapload, nogenes = 0)
 	. = ..()
-	if(loc)
-		forceMove(loc, rand(-8, 8), rand(-8, 8))
+	pixel_x = rand(-9, 9)
+	pixel_y = rand(-9, 9)
 
 	if(!icon_grow)
 		icon_grow = "[species]-grow"

@@ -20,8 +20,8 @@
 	pixel_x = -16
 	pixel_y = -14
 	minimum_distance = 3
-	move_to_delay = 0.7
-	vision_range = 288
+	move_to_delay = 7
+	vision_range = 9
 	aggro_vision_range = 480
 	ranged = TRUE
 	ranged_cooldown_time = 10

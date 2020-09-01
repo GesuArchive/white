@@ -64,7 +64,7 @@
 /mob/living/simple_animal/hostile/retaliate/nanotrasenpeace/ranged
 	icon_state = "nanotrasenrangedsmg"
 	icon_living = "nanotrasenrangedsmg"
-	vision_range = 288
+	vision_range = 9
 	rapid = 3
 	ranged = 1
 	retreat_distance = 3

@@ -18,8 +18,8 @@
 
 /obj/item/stack/sheet/Initialize(mapload, new_amount, merge)
 	. = ..()
-	if(loc)
-		forceMove(loc, rand(-4, 4), rand(-4, 4))
+	pixel_x = rand(-5, 5)
+	pixel_y = rand(-5, 5)
 
 /**
  * Facilitates sheets being smacked on the floor

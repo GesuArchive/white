@@ -276,8 +276,8 @@
 
 /mob/living/simple_animal/chick/Initialize()
 	. = ..()
-	if(loc)
-		forceMove(loc, rand(-6, 6), rand(0, 10))
+	pixel_x = rand(-6, 6)
+	pixel_y = rand(0, 10)
 
 	add_cell_sample()
 
@@ -348,7 +348,8 @@
 	icon_state = "[icon_prefix]_[body_color]"
 	icon_living = "[icon_prefix]_[body_color]"
 	icon_dead = "[icon_prefix]_[body_color]_dead"
-	forceMove(loc, rand(-6, 6), rand(0, 10))
+	pixel_x = rand(-6, 6)
+	pixel_y = rand(0, 10)
 	++chicken_count
 	add_cell_sample()
 

@@ -246,8 +246,8 @@
 
 /obj/item/reagent_containers/glass/bottle/nutrient/Initialize()
 	. = ..()
-	if(loc)
-		forceMove(loc, rand(-5, 5), rand(-5, 5))
+	pixel_x = rand(-5, 5)
+	pixel_y = rand(-5, 5)
 
 
 /obj/item/reagent_containers/glass/bottle/nutrient/ez

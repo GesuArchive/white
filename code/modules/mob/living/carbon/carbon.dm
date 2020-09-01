@@ -126,11 +126,11 @@
 	if(hud_used)
 		hud_used.throw_icon.icon_state = "act_throw_on"
 
-/mob/proc/throw_item(atom/target, params)
+/mob/proc/throw_item(atom/target)
 	SEND_SIGNAL(src, COMSIG_MOB_THROW, target)
 	return
 
-/mob/living/carbon/throw_item(atom/target, params)
+/mob/living/carbon/throw_item(atom/target)
 	. = ..()
 	throw_mode_off()
 	if(!target || !isturf(loc))

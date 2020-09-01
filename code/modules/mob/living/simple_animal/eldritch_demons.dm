@@ -317,10 +317,9 @@
         icon_state = "rust_walker_s"
     update_icon()
 
-/mob/living/simple_animal/hostile/eldritch/rust_spirit/Moved(atom/OldLoc, Dir)
+/mob/living/simple_animal/hostile/eldritch/rust_spirit/Moved()
 	. = ..()
-	if(Dir && OldLoc != loc)
-		playsound(src, 'sound/effects/footstep/rustystep1.ogg', 100, TRUE)
+	playsound(src, 'sound/effects/footstep/rustystep1.ogg', 100, TRUE)
 
 /mob/living/simple_animal/hostile/eldritch/rust_spirit/Life()
 	if(stat == DEAD)

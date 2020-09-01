@@ -21,8 +21,8 @@
 
 /obj/item/paperplane/Initialize(mapload, obj/item/paper/newPaper)
 	. = ..()
-	if(loc)
-		forceMove(loc, rand(-8, 8), rand(-9, 9))
+	pixel_x = rand(-8, 8)
+	pixel_y = rand(-9, 9)
 	if(newPaper)
 		internalPaper = newPaper
 		flags_1 = newPaper.flags_1

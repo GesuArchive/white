@@ -6,6 +6,10 @@
 		var/movement_dir = NONE
 		for(var/_key in user.keys_held)
 			movement_dir = movement_dir | user.movement_keys[_key]
+		if(user.next_move_dir_add)
+			movement_dir |= user.next_move_dir_add
+		if(user.next_move_dir_sub)
+			movement_dir &= ~user.next_move_dir_sub
 		// Sanity checks in case you hold left and right and up to make sure you only go up
 		if((movement_dir & NORTH) && (movement_dir & SOUTH))
 			movement_dir &= ~(NORTH|SOUTH)

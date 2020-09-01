@@ -96,7 +96,6 @@
 /datum/beam/proc/Draw()
 	var/Angle = round(Get_Angle(origin,target))
 	var/matrix/rot_matrix = matrix()
-
 	rot_matrix.Turn(Angle)
 
 	//Translation vector for origin and target
@@ -111,6 +110,7 @@
 		var/obj/effect/ebeam/X = new beam_type(origin_oldloc)
 		X.owner = src
 		elements += X
+
 		//Assign our single visual ebeam to each ebeam's vis_contents
 		//ends are cropped by a transparent box icon of length-N pixel size laid over the visuals obj
 		if(N+32>length) //went past the target, needs to be cut short
@@ -146,7 +146,6 @@
 
 		X.pixel_x = Pixel_x
 		X.pixel_y = Pixel_y
-
 		CHECK_TICK
 	afterDraw()
 

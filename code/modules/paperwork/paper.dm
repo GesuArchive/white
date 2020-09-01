@@ -101,8 +101,8 @@
 
 /obj/item/paper/Initialize()
 	. = ..()
-	if(loc)
-		forceMove(loc, rand(-8, 8), rand(-9, 9))
+	pixel_x = rand(-8, 8)
+	pixel_y = rand(-9, 9)
 	update_icon()
 
 /obj/item/paper/update_icon_state()

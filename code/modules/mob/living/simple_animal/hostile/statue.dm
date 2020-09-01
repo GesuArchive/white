@@ -32,15 +32,15 @@
 	minbodytemp = 0
 
 	faction = list("statue")
-	move_to_delay = 0 // Very fast
+	move_to_delay = // Very fast
 
 	animate_movement = NO_STEPS // Do not animate movement, you jump around as you're a scary statue.
 	hud_possible = list(ANTAG_HUD)
 
 	see_in_dark = 13
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
-	vision_range = 384
-	aggro_vision_range = 384
+	vision_range = 12
+	aggro_vision_range = 12
 
 	search_objects = 1 // So that it can see through walls
 

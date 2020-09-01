@@ -1,6 +1,4 @@
 /datum/element/waddling
-	element_flags = ELEMENT_DETACH
-	var/list/waddle_tracker = list()
 
 /datum/element/waddling/Attach(datum/target)
 	. = ..()
@@ -10,12 +8,10 @@
 		RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/LivingWaddle)
 	else
 		RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/Waddle)
-	waddle_tracker[target] = 0
 
 /datum/element/waddling/Detach(datum/source, force)
 	. = ..()
 	UnregisterSignal(source, COMSIG_MOVABLE_MOVED)
-	waddle_tracker -= source
 
 /datum/element/waddling/proc/LivingWaddle(mob/living/target)
 	SIGNAL_HANDLER
