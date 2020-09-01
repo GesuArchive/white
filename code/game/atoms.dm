@@ -353,7 +353,6 @@
 					return TRUE
 
 /**
-
   * Is the atom in any of the centcom syndicate areas
   *
   * Either in the syndie base on centcom, or any of their shuttles
@@ -1370,7 +1369,6 @@
 	var/sobject = ""
 	if(object)
 		sobject = " with [object]"
-
 	var/saddition = ""
 	if(addition)
 		saddition = " [addition]"

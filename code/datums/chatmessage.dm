@@ -100,6 +100,10 @@ GLOBAL_VAR_INIT(chat_bubbles, FALSE)
 /datum/chatmessage/proc/generate_image(text, atom/target, mob/owner, list/extra_classes, lifespan)
 	// Register client who owns this message
 	owned_by = owner.client
+
+	if(!owned_by)
+		return
+
 	RegisterSignal(owned_by, COMSIG_PARENT_QDELETING, .proc/on_parent_qdel)
 
 	// Clip message

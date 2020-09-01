@@ -8,7 +8,6 @@
 	var/move_resist = MOVE_RESIST_DEFAULT
 	var/move_force = MOVE_FORCE_DEFAULT
 	var/pull_force = PULL_FORCE_DEFAULT
-
 	var/datum/thrownthing/throwing = null
 	var/throw_speed = 2 //How many tiles to move per ds when being thrown. Float values are fully supported
 	var/throw_range = 7
@@ -47,11 +46,11 @@
 
 	///Last location of the atom for demo recording purposes
 	var/atom/demo_last_loc
+
 	/// Either FALSE, [EMISSIVE_BLOCK_GENERIC], or [EMISSIVE_BLOCK_UNIQUE]
 	var/blocks_emissive = FALSE
 	///Internal holder for emissive blocker object, do not use directly use blocks_emissive
 	var/atom/movable/emissive_blocker/em_block
-
 
 	///Used for the calculate_adjacencies proc for icon smoothing.
 	var/can_be_unanchored = FALSE
@@ -64,7 +63,6 @@
 
 /atom/movable/Initialize(mapload)
 	. = ..()
-
 	switch(blocks_emissive)
 		if(EMISSIVE_BLOCK_GENERIC)
 			update_emissive_block()
@@ -124,8 +122,6 @@
 				SSvis_overlays.remove_vis_overlay(src, list(vs))
 				break
 	SSvis_overlays.add_vis_overlay(src, icon, icon_state, EMISSIVE_BLOCKER_LAYER, EMISSIVE_BLOCKER_PLANE, dir)
-
-
 
 /atom/movable/proc/can_zFall(turf/source, levels = 1, turf/target, direction)
 	if(!direction)
@@ -236,10 +232,8 @@
 	pulling = AM
 	AM.set_pulledby(src)
 	setGrabState(state)
-
 	if(ismob(AM))
 		var/mob/M = AM
-
 		log_combat(src, M, "grabbed", addition="passive grab")
 		if(!supress_message)
 			M.visible_message("<span class='warning'><b>[src]</b> хватает <b>[M]</b>.</span>", \
@@ -442,7 +436,6 @@
 		last_move = 0
 		return
 
-
 	if(.)
 		Moved(oldloc, direct)
 	if(. && pulling && pulling == pullee && pulling != moving_from_pull) //we were pulling a thing and didn't lose it during our move.
@@ -456,7 +449,6 @@
 				pulling.Move(T, get_dir(pulling, T), glide_size) //the pullee tries to reach our previous position
 				pulling.moving_from_pull = null
 			check_pulling()
-
 
 
 	//glide_size strangely enough can change mid movement animation and update correctly while the animation is playing
@@ -473,7 +465,6 @@
 /atom/movable/proc/Moved(atom/OldLoc, Dir, Forced = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, OldLoc, Dir, Forced)
-
 	if (!inertia_moving)
 		inertia_next_move = world.time + inertia_move_delay
 		newtonian_move(Dir)
@@ -518,8 +509,6 @@
 			return
 	A.Bumped(src)
 
-
-
 ///Sets the anchored var and returns if it was sucessfully changed or not.
 /atom/movable/proc/set_anchored(anchorvalue)
 	SHOULD_CALL_PARENT(TRUE)
@@ -527,18 +516,14 @@
 		return
 	. = anchored
 	anchored = anchorvalue
-
 	SEND_SIGNAL(src, COMSIG_MOVABLE_SET_ANCHORED, anchorvalue)
 
 /atom/movable/proc/forceMove(atom/destination)
 	. = FALSE
-
 	if(destination)
 		. = doMove(destination)
 	else
 		CRASH("No valid destination passed into forceMove")
-
-
 
 /atom/movable/proc/moveToNullspace()
 	return doMove(null)
@@ -746,9 +731,6 @@
 		pulledby.stop_pulling()
 
 	throwing = TT
-
-
-
 	if(spin)
 		SpinAnimation(5, 1)
 
@@ -1056,7 +1038,6 @@
 	set waitfor = FALSE
 	if(!istype(loc, /turf))
 		return
-
 	var/image/I = image(icon = src, loc = loc, layer = layer + 0.1)
 	I.plane = GAME_PLANE
 	I.transform *= 0.75

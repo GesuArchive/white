@@ -4,7 +4,7 @@
 	icon = 'icons/turf/walls/silver_wall.dmi'
 	icon_state = "silver"
 	sheet_type = /obj/item/stack/sheet/mineral/reagent
-	canSmoothWith = list(/turf/closed/wall/mineral/reagent)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 	var/datum/reagent/reagent_type
 	var/obj/effect/particle_effect/fakeholder
 	sheet_amount = 4

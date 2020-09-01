@@ -83,13 +83,7 @@
 	hardness = 40000
 	slicing_duration = 100000
 	explosion_block = 100
-	canSmoothWith = list(
-	/turf/closed/wall/rospilovo/beton,
-	/turf/closed/wall/rospilovo/bricks,
-	/turf/closed/wall/rospilovo/bricks_yellow,
-	/turf/closed/wall/rospilovo/bricks_white,
-	/turf/closed/wall/rospilovo/beton_agro
-	)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 	smoothing_flags = SMOOTH_CORNERS
 
 /turf/closed/wall/rospilovo/cyberwall
@@ -97,62 +91,47 @@
 	desc = "Здоровенная, пиздец."
 	icon = 'white/valtos/icons/rospilovo/cyberwall.dmi'
 	icon_state = "cyberwall"
-	canSmoothWith = list(
-	/turf/closed/wall/rospilovo/cyberwall
-	)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/cyberwall/not
 	icon = 'white/valtos/icons/rospilovo/notacyberwall.dmi'
 	icon_state = "notacyberwall"
-	canSmoothWith = list(
-	/turf/closed/wall/rospilovo/cyberwall/not
-	)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/beton
 	name = "стена"
 	desc = "Здоровенная, пиздец."
 	icon = 'white/valtos/icons/rospilovo/beton_tg.dmi'
 	icon_state = "beton"
-	canSmoothWith = list(
-	/turf/closed/wall/rospilovo/beton,
-	/turf/closed/wall/rospilovo/beton_agro
-	)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/bricks
 	name = "стена"
 	desc = "Здоровенная, пиздец."
 	icon = 'white/valtos/icons/rospilovo/bricks_tg.dmi'
 	icon_state = "bricks"
-	canSmoothWith = list(
-	/turf/closed/wall/rospilovo/bricks
-	)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/bricks_yellow
 	name = "стена"
 	desc = "Здоровенная, пиздец."
 	icon = 'white/valtos/icons/rospilovo/bricks_tg_yellow.dmi'
 	icon_state = "bricks"
-	canSmoothWith = list(
-	/turf/closed/wall/rospilovo/bricks_yellow
-	)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/bricks_white
 	name = "стена"
 	desc = "Здоровенная, пиздец."
 	icon = 'white/valtos/icons/rospilovo/bricks_tg_white.dmi'
 	icon_state = "bricks"
-	canSmoothWith = list(
-	/turf/closed/wall/rospilovo/bricks_white
-	)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/beton_agro
 	name = "стена"
 	desc = "Здоровенная, пиздец."
 	icon = 'white/valtos/icons/rospilovo/beton_w_tg.dmi'
 	icon_state = "beton"
-	canSmoothWith = list(
-	/turf/closed/wall/rospilovo/beton_agro
-	)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /obj/structure/chair/brevno
 	name = "бревно"
@@ -287,14 +266,13 @@
 	. = ..()
 
 /obj/structure/table/rospilovo
-	canSmoothWith = list(/obj/structure/table/rospilovo)
 	pass_flags = LETPASSTHROW
 	name = "стол"
 	desc = "Обычный деревянный слегка пошарпанный стол."
 	icon = 'white/valtos/icons/rospilovo/stol_stalker.dmi'
 	icon_state = "stol"
 	smoothing_flags = SMOOTH_CORNERS
-	canSmoothWith = list(/obj/structure/table/rospilovo)
+	canSmoothWith = list(SMOOTH_GROUP_TABLES)
 
 /obj/structure/rospilovo/okno
 	name = "окно"

@@ -29,7 +29,7 @@
 	hardness = 4500
 	explosion_block = 5
 	slicing_duration = 20000
-	canSmoothWith = list(/turf/closed/wall/brick, /obj/structure/falsewall/brick)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /**********************Turf Minerals************************/
 
@@ -126,7 +126,7 @@
 	floor_tile = /obj/item/stack/tile/beton
 	broken_states = list("damaged")
 	smoothing_flags = SMOOTH_CORNERS
-	canSmoothWith = list(/turf/open/floor/beton)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 	flags_1 = NONE
 	baseturfs = /turf/open/floor/plating/beach/sand
 
@@ -153,7 +153,7 @@
 	icon = 'white/valtos/icons/prison/brick_wall.dmi'
 	icon_state = "brick"
 	walltype = /turf/closed/wall/brick
-	canSmoothWith = list(/obj/structure/falsewall/brick, /turf/closed/wall/brick)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /obj/structure/curtain/prison/update_icon()
 	if(!open)

@@ -41,20 +41,20 @@
 	desc = "Durable metal wall."
 	icon = 'white/valtos/icons/walls.dmi'
 	smoothing_flags = SMOOTH_CORNERS
-	canSmoothWith = list(/turf/closed/wall/partyhard, /turf/closed/wall/r_wall/partyhard, /obj/machinery/door/airlock/, /obj/structure/window/fulltile, /obj/structure/window/reinforced/fulltile)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_WINDOW_FULLTILE)
 
 /turf/closed/wall/r_wall/partyhard
 	name = "durable reinforced wall"
 	desc = "A huge chunk of durable reinforced metal."
 	icon = 'white/valtos/icons/r_walls.dmi'
 	smoothing_flags = SMOOTH_CORNERS
-	canSmoothWith = list(/turf/closed/wall/r_wall/partyhard, /turf/closed/wall/partyhard, /obj/machinery/door/airlock/, /obj/structure/window/fulltile, /obj/structure/window/reinforced/fulltile)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_WINDOW_FULLTILE)
 
 /obj/structure/window/reinforced/fulltile/partyhard
 	icon = 'white/valtos/icons/windows.dmi'
 	icon_state = "smooth"
 	max_integrity = 200
-	canSmoothWith = list(/obj/structure/window/fulltile, /obj/structure/window/reinforced/fulltile, /obj/structure/window/reinforced/tinted/fulltile, /obj/structure/window/plasma/fulltile, /obj/structure/window/plasma/reinforced/fulltile, /turf/closed/wall/r_wall/partyhard, /turf/closed/wall/partyhard, /obj/structure/window/reinforced/fulltile/partyhard)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_WINDOW_FULLTILE)
 
 /obj/effect/spawner/structure/window/reinforced/partyhard
 	icon = 'white/valtos/icons/windows.dmi'
@@ -67,7 +67,7 @@
 	smooth_icon = 'icons/turf/walls/rock_wall.dmi'
 	icon_state = "rock2"
 	smoothing_flags = SMOOTH_CORNERS|SMOOTH_BORDER
-	canSmoothWith = list (/turf/closed)
+	canSmoothWith = list(SMOOTH_GROUP_CLOSED_TURFS)
 	baseturfs = /turf/open/floor/plating/ashplanet/rocky
 	environment_type = "waste"
 	turf_type = /turf/open/floor/plating/ashplanet/rocky
