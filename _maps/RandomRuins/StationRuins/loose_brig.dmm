@@ -46,7 +46,6 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "an" = (
-/obj/item/reagent_containers/food/snacks/burger/rat,
 /obj/structure/table,
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/dirt,

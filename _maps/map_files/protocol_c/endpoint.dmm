@@ -10924,7 +10924,6 @@
 "KP" = (
 /obj/structure/table/wood,
 /obj/item/storage/bag/tray,
-/obj/item/reagent_containers/food/snacks/burger/spell,
 /turf/open/floor/carpet,
 /area/wizard_station)
 "KQ" = (
