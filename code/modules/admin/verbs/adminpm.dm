@@ -413,7 +413,7 @@
 
 	window_flash(C, ignorepref = TRUE)
 	//always play non-admin recipients the adminhelp sound
-	SEND_SOUND(C, sound('sound/effects/adminhelp.ogg'))
+	SEND_SOUND(C, sound(pick('white/fogmann/APM/APM1.ogg', 'white/fogmann/APM/APM2.ogg', 'white/fogmann/APM/APM3.ogg', 'white/fogmann/APM/APM4.ogg', 'white/fogmann/APM/APM5.ogg', 'white/fogmann/APM/APM6.ogg')))
 
 	C.externalreplyamount = EXTERNALREPLYCOUNT
 
