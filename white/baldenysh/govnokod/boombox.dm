@@ -185,8 +185,6 @@
 	verb_say = "констатирует"
 	density = TRUE
 	layer = ABOVE_MOB_LAYER
-	bound_height = 16
-	bound_width = 24
 	var/obj/item/boombox/bbox
 
 /obj/machinery/turntable/Initialize()

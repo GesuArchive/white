@@ -23723,8 +23723,8 @@
 	name = "Telecomms Control Room";
 	req_access_txt = "70"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/tcommsat/server)

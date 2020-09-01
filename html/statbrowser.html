@@ -13,16 +13,28 @@ body {
 	padding: 0 !important;
 	overflow-x: hidden;
 
-	scrollbar-base-color: #020D18;
 	scrollbar-face-color: #062240;
-	scrollbar-3dlight-color: #020D18;
-	scrollbar-highlight-color: #062240;
-	scrollbar-track-color: #020D18;
-	scrollbar-arrow-color: black;
-	scrollbar-shadow-color: #020D18;
-	scrollbar-dark-shadow-color: #062240;
-
+	scrollbar-arrow-color: #062240;
+	scrollbar-track-color: #010912;
+	scrollbar-3dlight-color: #062240;
+	scrollbar-darkshadow-Color: #062240;
 }
+
+::-webkit-scrollbar {
+	width: 4px;
+}
+
+#statcontent {
+	outline: 1px solid #000000;
+	padding: 4px;
+	margin-top: 4px;
+}
+
+.dark #statcontent {
+	outline: 1px solid #062240;
+	background: #010912;
+}
+
 body.dark {
 	background-color: #020D18;
 	color: #abc6ec;
@@ -46,11 +58,11 @@ a {
 	color: black;
 	text-decoration: none
 }
-.dark a {
-	color: #abc6ec;
-}
 a:hover, .dark a:hover {
 	text-decoration: underline;
+}
+.dark a {
+	color: #abc6ec;
 }
 
 ul {
@@ -122,28 +134,48 @@ li a:hover:not(.active) {
 .grid-container {
 	display: inline-flex;
 	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: flex-start;
+	justify-content: center;
+	align-items: center;
 	min-width: 0;
 	min-height: 0;
+	max-width: 100%;
 	white-space: pre-wrap;
 }
 .grid-item {
 	color: black;
-	width: 170px;
+	margin: 2px;
+	padding: 2px;
 	font-size: 11px;
-	line-height: 24px;
-	text-align: left;
-	min-width: 0;
+	line-height: 16px;
+	text-align: center;
+	min-width: 170px;
 	min-height: 0;
 	white-space: pre-wrap;
-	padding-right: 12px; /* A little more than two spaces, to look good in IE8 where flex-justify does nothing */
+	outline: 1px solid #000000;
+}
+
+.grid-item:hover {
+	border-color: #FFFFFE;
+    background-color: black;
+    color: white;
+	text-decoration: none;
+}
+
+.dark .grid-item:hover {
+	border-color: #252524;
+    background-color: white;
+    color: #252525;
+	text-decoration: none;
+}
+
+.dark .grid-item {
+	outline: 1px solid #062240;
 }
 .link {
 	display: inline;
 	background: none;
 	border: none;
-	padding: 7px 14px;
+	padding: 0px 0px;
 	color: black;
 	text-decoration: none;
 	cursor: pointer;

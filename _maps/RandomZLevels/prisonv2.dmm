@@ -1777,7 +1777,7 @@
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "ga" = (
-/obj/structure/sign/mining,
+/obj/effect/turf_decal/mining,
 /turf/closed/wall/brick,
 /area/prisonv2)
 "gb" = (

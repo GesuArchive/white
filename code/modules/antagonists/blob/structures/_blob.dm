@@ -19,8 +19,6 @@
 	var/fire_resist = 1 //multiplies burn damage by this
 	var/atmosblock = FALSE //if the blob blocks atmos and heat spread
 	var/mob/camera/blob/overmind
-	bound_width = 31
-	bound_height = 31
 
 /obj/structure/blob/Initialize(mapload, owner_overmind)
 	. = ..()

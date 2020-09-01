@@ -240,7 +240,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bseruin/shop)
 "qn" = (
-/obj/structure/sign/mining,
+/obj/effect/turf_decal/mining,
 /turf/closed/wall/mineral/titanium/survival/pod,
 /area/survivalpod)
 "qs" = (
@@ -303,7 +303,7 @@
 /turf/closed/wall/mineral/titanium/survival/pod,
 /area/survivalpod)
 "uS" = (
-/obj/structure/sign/mining/survival,
+/obj/effect/turf_decal/mining/survival,
 /turf/closed/wall/mineral/titanium/survival/pod,
 /area/survivalpod)
 "vL" = (
@@ -601,7 +601,7 @@
 /turf/open/floor/plating/foam,
 /area/ruin/space/has_grav/bseruin/foam)
 "Tb" = (
-/obj/structure/sign/mining/survival{
+/obj/effect/turf_decal/mining/survival{
 	dir = 1
 	},
 /turf/closed/wall/mineral/titanium/survival/pod,
@@ -648,7 +648,7 @@
 /turf/open/floor/plasteel/freezer,
 /area/shuttle)
 "US" = (
-/obj/structure/sign/mining/survival{
+/obj/effect/turf_decal/mining/survival{
 	dir = 4
 	},
 /turf/closed/wall/mineral/titanium/survival/pod,
@@ -710,7 +710,7 @@
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/bseruin/ntnet)
 "Zn" = (
-/obj/structure/sign/mining/survival{
+/obj/effect/turf_decal/mining/survival{
 	dir = 8
 	},
 /turf/closed/wall/mineral/titanium/survival/pod,
