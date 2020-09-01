@@ -57,7 +57,7 @@
 /obj/structure/headpike/Initialize()
 	. = ..()
 	if(loc)
-		forceMove(loc, rand(-8, 8), step_y)
+		forceMove(loc, rand(-8, 8), pixel_y)
 
 /obj/structure/headpike/update_overlays()
 	. = ..()

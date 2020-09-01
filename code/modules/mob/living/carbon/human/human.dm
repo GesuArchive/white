@@ -11,7 +11,7 @@
 
 	if(dna.species)
 		set_species(dna.species.type)
-		//StatsInit()
+
 
 	//initialise organs
 	create_internal_organs() //most of it is done in set_species now, this is only for parent call
@@ -966,8 +966,6 @@
 	if(href_list[VV_HK_COPY_OUTFIT])
 		if(!check_rights(R_SPAWN))
 			return
-		//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-		//	return
 		copy_outfit()
 	if(href_list[VV_HK_MOD_MUTATIONS])
 		if(!check_rights(R_SPAWN))
@@ -992,8 +990,7 @@
 	if(href_list[VV_HK_MOD_QUIRKS])
 		if(!check_rights(R_SPAWN))
 			return
-		//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-		//	return
+
 		var/list/options = list("Clear"="Clear")
 		for(var/x in subtypesof(/datum/quirk))
 			var/datum/quirk/T = x
@@ -1014,40 +1011,35 @@
 	if(href_list[VV_HK_MAKE_MONKEY])
 		if(!check_rights(R_SPAWN))
 			return
-		//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-		//	return
+
 		if(alert("Confirm mob type change?",,"Transform","Cancel") != "Transform")
 			return
 		usr.client.holder.Topic("vv_override", list("monkeyone"=href_list[VV_HK_TARGET]))
 	if(href_list[VV_HK_MAKE_CYBORG])
 		if(!check_rights(R_SPAWN))
 			return
-		//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-		//	return
+
 		if(alert("Confirm mob type change?",,"Transform","Cancel") != "Transform")
 			return
 		usr.client.holder.Topic("vv_override", list("makerobot"=href_list[VV_HK_TARGET]))
 	if(href_list[VV_HK_MAKE_ALIEN])
 		if(!check_rights(R_SPAWN))
 			return
-		//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-		//	return
+
 		if(alert("Confirm mob type change?",,"Transform","Cancel") != "Transform")
 			return
 		usr.client.holder.Topic("vv_override", list("makealien"=href_list[VV_HK_TARGET]))
 	if(href_list[VV_HK_MAKE_SLIME])
 		if(!check_rights(R_SPAWN))
 			return
-		//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-		//	return
+
 		if(alert("Confirm mob type change?",,"Transform","Cancel") != "Transform")
 			return
 		usr.client.holder.Topic("vv_override", list("makeslime"=href_list[VV_HK_TARGET]))
 	if(href_list[VV_HK_SET_SPECIES])
 		if(!check_rights(R_SPAWN))
 			return
-		//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-		//	return
+
 		var/result = input(usr, "Please choose a new species","Species") as null|anything in GLOB.species_list
 		if(result)
 			var/newtype = GLOB.species_list[result]
@@ -1056,8 +1048,7 @@
 	if(href_list[VV_HK_PURRBATION])
 		if(!check_rights(R_SPAWN))
 			return
-		//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-		//	return
+
 		if(!ishumanbasic(src))
 			to_chat(usr, "This can only be done to the basic human species at the moment.")
 			return
@@ -1114,16 +1105,17 @@
 		if(do_after(src, carrydelay, TRUE, target))
 			//Second check to make sure they're still valid to be carried
 			if(can_be_firemanned(target) && !incapacitated(FALSE, TRUE) && !target.buckled)
-				if(!(target in obounds()))
+				if(target.loc != loc)
 					var/old_density = density
 					density = FALSE
-					step_towards(target, loc, bounds_dist(target, src))
+					step_towards(target, loc)
 					density = old_density
-					buckle_mob(target, TRUE, TRUE, 90, 1, 0)
-					return
+					if(target.loc == loc)
+						buckle_mob(target, TRUE, TRUE, 90, 1, 0)
+						return
 				else
 					buckle_mob(target, TRUE, TRUE, 90, 1, 0)
-					return
+
 		visible_message("<span class='warning'><b>[src]</b> не может поднять <b>[target]</b>!</span>")
 	else
 		to_chat(src, "<span class='warning'>Не могу поднять <b>[target]</b> пока [target.ru_who()] стоит!</span>")
@@ -1148,8 +1140,7 @@
 	if(!is_type_in_typecache(target, can_ride_typecache))
 		target.visible_message("<span class='warning'><b>[target] не понимает как взобраться на <b>[src]</b>...</span>")
 		return
-	if(target.loc != loc)
-		target.forceMove(loc, step_x, step_y)
+
 	buckle_lying = lying_buckle
 	var/datum/component/riding/human/riding_datum = LoadComponent(/datum/component/riding/human)
 	if(target_hands_needed)

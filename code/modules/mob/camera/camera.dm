@@ -15,12 +15,10 @@
 /mob/camera/experience_pressure_difference()
 	return
 
-/mob/camera/forceMove(atom/destination, _step_x, _step_y)
-	NORMALIZE_STEP(destination, _step_x, _step_y)
+/mob/camera/forceMove(atom/destination)
 	var/oldloc = loc
 	loc = destination
-	step_x = _step_x
-	step_y = _step_y
+
 	Moved(oldloc, NONE, TRUE)
 
 /mob/camera/canUseStorage()

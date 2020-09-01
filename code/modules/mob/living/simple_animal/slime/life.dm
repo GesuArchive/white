@@ -96,13 +96,17 @@
 			else if(Target in view(7, src))
 				if(!Target.Adjacent(src))
 				// Bug of the month candidate: slimes were attempting to move to target only if it was directly next to them, which caused them to target things, but not approach them
-					walk_to(src, Target, 0, 0, step_size)
+					step_to(src, Target)
 			else
 				Target = null
 				AIproc = 0
 				break
 
-		sleep(3) // this is about as fast as a player slime can go
+		var/sleeptime = cached_multiplicative_slowdown
+		if(sleeptime <= 0)
+			sleeptime = 1
+
+		sleep(sleeptime + 2) // this is about as fast as a player slime can go
 
 	AIproc = 0
 
@@ -132,7 +136,9 @@
 		Tempstun = 0
 
 	if(stat != DEAD)
-		var/bz_percentage = environment.total_moles() ? (environment.get_moles(/datum/gas/bz) / environment.total_moles()) : 0
+		var/bz_percentage =0
+		if(environment.gases[/datum/gas/bz])
+			bz_percentage = environment.gases[/datum/gas/bz][MOLES] / environment.total_moles()
 		var/stasis = (bz_percentage >= 0.05 && bodytemperature < (T0C + 100)) || force_stasis
 
 		switch(stat)
@@ -362,14 +368,13 @@
 				if(holding_still)
 					holding_still = max(holding_still - 1, 0)
 				else if((mobility_flags & MOBILITY_MOVE) && isturf(loc))
-					walk_to(src, Leader, 0, 0, step_size)
+					step_to(src, Leader)
 
 			else if(hungry)
 				if (holding_still)
 					holding_still = max(holding_still - hungry, 0)
 				else if((mobility_flags & MOBILITY_MOVE) && isturf(loc) && prob(50))
-					var/step = get_step(src, pick(GLOB.cardinals))
-					walk_to(src, step, 0, 0, step_size)
+					step(src, pick(GLOB.cardinals))
 
 			else
 				if(holding_still)
@@ -377,8 +382,7 @@
 				else if (docile && pulledby)
 					holding_still = 10
 				else if((mobility_flags & MOBILITY_MOVE) && isturf(loc) && prob(33))
-					var/step = get_step(src, pick(GLOB.cardinals))
-					walk_to(src, step, 0, 0, step_size)
+					step(src, pick(GLOB.cardinals))
 		else if(!AIproc)
 			INVOKE_ASYNC(src, .proc/AIprocess)
 
@@ -597,15 +601,15 @@
 
 /mob/living/simple_animal/slime/proc/get_hunger_nutrition() // Below it we will always eat
 	if (is_adult)
-		return 800
-	else
-		return 600
-
-/mob/living/simple_animal/slime/proc/get_starve_nutrition() // Below it we will eat before everything else
-	if(is_adult)
 		return 600
 	else
 		return 500
+
+/mob/living/simple_animal/slime/proc/get_starve_nutrition() // Below it we will eat before everything else
+	if(is_adult)
+		return 300
+	else
+		return 200
 
 /mob/living/simple_animal/slime/proc/will_hunt(hunger = -1) // Check for being stopped from feeding and chasing
 	if (docile)

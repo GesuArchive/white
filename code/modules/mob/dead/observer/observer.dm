@@ -17,8 +17,6 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	invisibility = INVISIBILITY_OBSERVER
 	hud_type = /datum/hud/ghost
 	movement_type = GROUND | FLYING
-	step_size = 16
-	glide_size = 16
 	light_system = MOVABLE_LIGHT
 	light_range = 1
 	light_power = 2
@@ -335,8 +333,17 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		forceMove(NewLoc)
 		update_parallax_contents()
 	else
-		forceMove(get_turf(src))
-		return
+		forceMove(get_turf(src))  //Get out of closets and such as a ghost
+		if((direct & NORTH) && y < world.maxy)
+			y++
+		else if((direct & SOUTH) && y > 1)
+			y--
+		if((direct & EAST) && x < world.maxx)
+			x++
+		else if((direct & WEST) && x > 1)
+			x--
+
+	Moved(oldloc, direct)
 
 /mob/dead/observer/verb/reenter_corpse()
 	set category = "Призрак"
@@ -465,7 +472,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		else //Circular
 			rot_seg = 36 //360/10 bby, smooth enough aproximation of a circle
 
-	orbit(target, orbitsize, FALSE, 20, rot_seg)
+	orbit(target,orbitsize, FALSE, 20, rot_seg)
 
 /mob/dead/observer/orbit()
 	setDir(2)//reset dir so the right directional sprites show up
@@ -651,7 +658,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 //overridden here and in /mob/living for different point span classes and sanity checks
 /mob/dead/observer/pointed(atom/A as mob|obj|turf in view(client.view, src))
 	if(!..())
-		return 0
+		return FALSE
 	usr.visible_message("<span class='deadsay'><b>[src]</b> показывает на [A].</span>")
 	return TRUE
 

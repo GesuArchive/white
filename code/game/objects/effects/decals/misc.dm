@@ -19,8 +19,6 @@
 	icon = 'icons/obj/chempuff.dmi'
 	pass_flags = PASSTABLE | PASSGRILLE
 	layer = FLY_LAYER
-	step_size = 32
-	glide_size = 32
 
 /obj/effect/decal/chempuff/blob_act(obj/structure/blob/B)
 	return

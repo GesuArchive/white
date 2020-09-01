@@ -148,11 +148,11 @@ GLOBAL_LIST_EMPTY(movespeed_modification_cache)
 		var/obj/O = var_value
 		if(!istype(O) || (O.obj_flags & DANGEROUS_POSSESSION))
 			return FALSE
-	var/slowdown_edit = (var_name == NAMEOF(src, step_size))
+	var/slowdown_edit = (var_name == NAMEOF(src, cached_multiplicative_slowdown))
 	var/diff
-	if(slowdown_edit && isnum(step_size) && isnum(var_value))
+	if(slowdown_edit && isnum(cached_multiplicative_slowdown) && isnum(var_value))
 		remove_movespeed_modifier(/datum/movespeed_modifier/admin_varedit)
-		diff = var_value / max(step_size, 1)
+		diff = var_value - cached_multiplicative_slowdown
 	. = ..()
 	if(. && slowdown_edit && isnum(diff))
 		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/admin_varedit, multiplicative_slowdown = diff)
@@ -181,7 +181,7 @@ GLOBAL_LIST_EMPTY(movespeed_modification_cache)
 
 /// Go through the list of movespeed modifiers and calculate a final movespeed. ANY ADD/REMOVE DONE IN UPDATE_MOVESPEED MUST HAVE THE UPDATE ARGUMENT SET AS FALSE!
 /mob/proc/update_movespeed()
-	. = 1
+	. = 0
 	var/list/conflict_tracker = list()
 	for(var/key in get_movespeed_modifiers())
 		var/datum/movespeed_modifier/M = movespeed_modification[key]
@@ -199,19 +199,7 @@ GLOBAL_LIST_EMPTY(movespeed_modification_cache)
 			else
 				continue
 		. += amt
-	step_size = round(max(1, initial(step_size) / .))
-	if(pulling) // update the thing we're pulling too while we're at it
-		pulling.step_size = step_size
-		pulling.glide_size = step_size
-	if(pulledby)
-		step_size = pulledby.step_size
-	if(buckled)
-		step_size = buckled.step_size
-	if(buckled_mobs)
-		for(var/mob/m in buckled_mobs)
-			m.step_size = step_size
-			m.glide_size = step_size
-	glide_size = step_size
+	cached_multiplicative_slowdown = .
 
 /// Get the move speed modifiers list of the mob
 /mob/proc/get_movespeed_modifiers()

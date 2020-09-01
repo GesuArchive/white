@@ -306,21 +306,21 @@
 		if(6)
 			dat+="<B><FONT COLOR='maroon'>ERROR: Could not submit Feed story to Network.</B></FONT><HR><BR>"
 			if(src.admincaster_feed_channel.channel_name=="")
-				dat+="<FONT COLOR='maroon'>В•Invalid receiving channel name.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>Invalid receiving channel name.</FONT><BR>"
 			if(src.admincaster_feed_message.returnBody(-1) == "" || src.admincaster_feed_message.returnBody(-1) == "\[REDACTED\]")
-				dat+="<FONT COLOR='maroon'>В•Invalid message body.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>Invalid message body.</FONT><BR>"
 			dat+="<BR><A href='?src=[REF(src)];[HrefToken()];ac_setScreen=[3]'>Return</A><BR>"
 		if(7)
 			dat+="<B><FONT COLOR='maroon'>ERROR: Could not submit Feed Channel to Network.</B></FONT><HR><BR>"
 			if(src.admincaster_feed_channel.channel_name =="" || src.admincaster_feed_channel.channel_name == "\[REDACTED\]")
-				dat+="<FONT COLOR='maroon'>В•Invalid channel name.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>Invalid channel name.</FONT><BR>"
 			var/check = 0
 			for(var/datum/newscaster/feed_channel/FC in GLOB.news_network.network_channels)
 				if(FC.channel_name == src.admincaster_feed_channel.channel_name)
 					check = 1
 					break
 			if(check)
-				dat+="<FONT COLOR='maroon'>В•Channel name already in use.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>Channel name already in use.</FONT><BR>"
 			dat+="<BR><A href='?src=[REF(src)];[HrefToken()];ac_setScreen=[2]'>Return</A><BR>"
 		if(9)
 			dat+="<B>[admincaster_feed_channel.channel_name]: </B><FONT SIZE=1>\[created by: <FONT COLOR='maroon'>[admincaster_feed_channel.returnAuthor(-1)]</FONT>\]</FONT><HR>"
@@ -421,9 +421,9 @@
 		if(16)
 			dat+="<B><FONT COLOR='maroon'>ERROR: Wanted Issue rejected by Network.</B></FONT><HR><BR>"
 			if(src.admincaster_wanted_message.criminal =="" || src.admincaster_wanted_message.criminal == "\[REDACTED\]")
-				dat+="<FONT COLOR='maroon'>В•Invalid name for person wanted.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>Invalid name for person wanted.</FONT><BR>"
 			if(src.admincaster_wanted_message.body == "" || src.admincaster_wanted_message.body == "\[REDACTED\]")
-				dat+="<FONT COLOR='maroon'>В•Invalid description.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>Invalid description.</FONT><BR>"
 			dat+="<BR><A href='?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Return</A><BR>"
 		if(17)
 			dat+="<B>Wanted Issue successfully deleted from Circulation</B><BR>"
@@ -719,14 +719,12 @@
 	set category = "Дбг"
 	set desc = "(atom path) Spawn an atom"
 
-	if(!object)
-		object = input("", "Spawn") as null|text
+
 
 	if(!check_rights(R_SPAWN) || !object)
 		return
 
-	//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-	//	return
+
 
 	var/list/preparsed = splittext(object,":")
 	var/path = preparsed[1]
@@ -754,14 +752,12 @@
 	set desc = "(atom path) Spawn an atom via supply drop"
 	set name = "Podspawn"
 
-	if(!object)
-		object = input("", "Podspawn") as null|text
+
 
 	if(!check_rights(R_SPAWN))
 		return
 
-	//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-	//	return
+
 
 	var/chosen = pick_closest_path(object)
 	if(!chosen)
@@ -784,14 +780,12 @@
 	set desc = "(atom path) Spawn a cargo crate"
 	set name = "Spawn Cargo"
 
-	if(!object)
-		object = input("", "Spawn Cargo") as null|text
+
 
 	if(!check_rights(R_SPAWN))
 		return
 
-	//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-	//	return
+
 
 	var/chosen = pick_closest_path(object, make_types_fancy(subtypesof(/datum/supply_pack)))
 	if(!chosen)
@@ -833,21 +827,7 @@
 	var/datum/skill_panel/SP  = new(usr, target_mind)
 	SP.ui_interact(usr)
 
-/datum/admins/proc/view_boundingbox(atom/movable/A as obj|mob in world)
-	set category = "Дбг"
-	set desc = "Display the bounding box of the item clicked"
-	set name = "Draw Bounding Box"
 
-	if(!check_rights(R_SPAWN|R_DEBUG))
-		return
-
-	var/icon/I = icon('icons/obj/objects.dmi', "pixelpoint")
-	I.DrawBox(COLOR_RED, A.bound_x, A.bound_y, A.bound_width + A.bound_x, A.bound_height + A.bound_y)
-	var/image/II = image(I, A.loc)
-	II.layer = ABOVE_ALL_MOB_LAYER
-	II.pixel_x = A.step_x // offset by current step values
-	II.pixel_y = A.step_y
-	flick_overlay_view(II, A, 30)
 
 /datum/admins/proc/toggletintedweldhelmets()
 	set category = "Дбг"
@@ -1026,8 +1006,7 @@
 	if (!check_rights(R_VAREDIT,0) || !check_rights(R_SPAWN|R_DEBUG,0))
 		return FALSE
 
-	//if(!check_rights(R_PERMISSIONS, FALSE) && !is_centcom_level(usr.z))
-	//	return FALSE
+
 
 	if (!frommob.ckey)
 		return FALSE

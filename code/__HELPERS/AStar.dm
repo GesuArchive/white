@@ -32,13 +32,7 @@ Actual Adjacent procs :
 #define MASK_EVEN 170
 
 
-/obj/effect/pixelpoint // pixel at the very center of a turf
-	invisibility = INVISIBILITY_LIGHTING
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	bound_width = 1
-	bound_height = 1
-	bound_x = 15 // center of turf
-	bound_y = 15 // center of turf
+
 
 //A* nodes variables
 /datum/pathnode
@@ -139,10 +133,10 @@ Actual Adjacent procs :
 		//found the target turf (or close enough), let's create the path to it
 		if(cur.source == end || closeenough)
 			path = new()
-			path.Add(new /obj/effect/pixelpoint(cur.source))
+			path.Add(cur.source)
 			while(cur.prevNode)
 				cur = cur.prevNode
-				path.Add(new /obj/effect/pixelpoint(cur.source))
+				path.Add(cur.source)
 			break
 		//get adjacents turfs using the adjacent proc, checking for access with id
 		if((!maxnodedepth)||(cur.nt <= maxnodedepth))//if too many steps, don't process that path

@@ -248,10 +248,6 @@ GLOBAL_LIST_INIT(plastitaniumglass_recipes, list(
 	desc = "Гадкий осколок стекла. Хочет заскочить к тебе под ногти."
 	icon = 'icons/obj/shards.dmi'
 	icon_state = "large"
-	bound_height = 7
-	bound_width = 8
-	bound_x = 8
-	bound_y = 20
 	w_class = WEIGHT_CLASS_TINY
 	force = 5
 	throwforce = 10

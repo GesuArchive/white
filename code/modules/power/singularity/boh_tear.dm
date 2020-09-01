@@ -6,12 +6,8 @@
 	desc = "Моё собственное понимание реальности начинает изгибаться, когда я на это смотрю."
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "boh_tear"
-	bound_width = 96
-	bound_height = 96
 	pixel_x = -32
 	pixel_y = -32
-	bound_x = -32
-	bound_y = -32
 	dissipate = 0
 	move_self = 0
 	grav_pull = 25

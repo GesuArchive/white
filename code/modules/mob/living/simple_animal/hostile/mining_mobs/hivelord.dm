@@ -187,10 +187,6 @@
 	stat_attack = HARD_CRIT
 	robust_searching = 1
 	var/can_infest_dead = FALSE
-	bound_width = 8
-	bound_height = 8
-	bound_x = 12
-	bound_y = 12
 
 
 /mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion/Life()

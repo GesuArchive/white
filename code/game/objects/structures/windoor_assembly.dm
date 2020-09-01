@@ -19,11 +19,6 @@
 	density = FALSE
 	dir = NORTH
 
-	bound_height = 7
-	bound_width = 32
-	bound_x = 0
-	bound_y = 25
-
 	var/ini_dir
 	var/obj/item/electronics/airlock/electronics = null
 	var/created_name = null

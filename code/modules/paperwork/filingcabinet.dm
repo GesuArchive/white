@@ -22,9 +22,6 @@
 /obj/structure/filingcabinet/chestdrawer
 	name = "chest drawer"
 	icon_state = "chestdrawer"
-	bound_width = 16
-	bound_height = 28
-	bound_x = 8
 
 /obj/structure/filingcabinet/chestdrawer/wheeled
 	name = "rolling chest drawer"

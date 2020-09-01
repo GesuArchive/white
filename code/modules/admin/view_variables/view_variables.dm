@@ -1,16 +1,6 @@
-/client/proc/debug_variables_wrapper()
+/client/proc/debug_variables(datum/D in world)
 	set category = "Дбг"
 	set name = "View Variables"
-	var/list/L = list()
-	for(var/datum/D in world)
-		L += D
-	var/target = input(src, null, "View Variables") as null|anything in L
-	if(target)
-		debug_variables(target)
-
-/client/proc/debug_variables(datum/D in world)
-	set name = "View Variables"
-	set category = null
 	//set src in world
 	var/static/cookieoffset = rand(1, 9999) //to force cookies to reset after the round.
 
@@ -106,7 +96,7 @@
 	var/html = {"
 <html>
 	<head>
-		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
 		<title>[title]</title>
 		<link rel="stylesheet" type="text/css" href="[SSassets.transport.get_asset_url("view_variables.css")]">
 	</head>

@@ -261,10 +261,6 @@
 	name = "disposal unit"
 	desc = "A pneumatic waste disposal unit."
 	icon_state = "disposal"
-	bound_x = 10
-	bound_y = 2
-	bound_height = 20
-	bound_width = 16
 
 
 // attack by item places it in to disposal

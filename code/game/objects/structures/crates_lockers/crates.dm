@@ -4,11 +4,6 @@
 	icon = 'icons/obj/crates.dmi'
 	icon_state = "crate"
 
-	bound_width = 28
-	bound_height = 16
-	bound_x = 2
-	bound_y = 4
-
 	req_access = null
 	can_weld_shut = FALSE
 	horizontal = TRUE

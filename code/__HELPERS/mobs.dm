@@ -188,17 +188,7 @@ GLOBAL_LIST_EMPTY(species_list)
 	if(!user || !target)
 		return FALSE
 
-	/*
-	if(ishuman(user) && time != 0)
-		var/mob/living/carbon/human/H = user
-		switch(roll_stat_dice(H.current_fate[MOB_INT] + H.current_fate[MOB_DEX] + H.fate_luck))
-			if(-4)
-				time = time * 2
-			if(-3 to 3)
-				time = time
-			if(4)
-				time = time / 2
-	*/
+
 
 	var/user_loc = user.loc
 
@@ -272,8 +262,7 @@ GLOBAL_LIST_EMPTY(species_list)
 		LAZYADD(target.targeted_by, user)
 
 	var/atom/Uloc = user.loc
-	var/Ustep_x = user.step_x
-	var/Ustep_y = user.step_y
+
 
 	var/drifting = FALSE
 	if(!user.Process_Spacemove(0) && user.inertia_dir)
@@ -287,17 +276,7 @@ GLOBAL_LIST_EMPTY(species_list)
 
 	delay *= user.cached_multiplicative_actions_slowdown
 
-	/*
-	if(ishuman(user) && delay != 0)
-		var/mob/living/carbon/human/H = user
-		switch(roll_stat_dice(H.current_fate[MOB_INT] + H.current_fate[MOB_DEX] + H.fate_luck))
-			if(-4)
-				delay = delay * 2
-			if(-3 to 3)
-				delay = delay
-			if(4)
-				delay = delay / 2
-	*/
+
 
 	var/datum/progressbar/progbar
 	if(progress)
@@ -314,18 +293,9 @@ GLOBAL_LIST_EMPTY(species_list)
 		if(drifting && !user.inertia_dir)
 			drifting = FALSE
 			Uloc = user.loc
-			Ustep_x = user.step_x
-			Ustep_y = user.step_y
 
-		if(QDELETED(user) || user.stat)
-			. = FALSE
-			break
 
-		if(!drifting && (user.loc != Uloc || user.step_x != Ustep_x || user.step_y != Ustep_y))
-			. = FALSE
-			break
-
-		if(extra_checks && !extra_checks.Invoke())
+		if(QDELETED(user) || user.stat || (!drifting && user.loc != Uloc) || (extra_checks && !extra_checks.Invoke()))
 			. = FALSE
 			break
 
@@ -362,29 +332,19 @@ GLOBAL_LIST_EMPTY(species_list)
 		LAZYREMOVE(target.targeted_by, user)
 
 
-/proc/do_after_mob(mob/user, list/targets, time = 30, uninterruptible = 0, progress = 1, datum/callback/extra_checks, required_mobility_flags = MOBILITY_STAND)
-	if(!user || !targets)
+///Timed action involving at least one mob user and a list of targets.
+/proc/do_after_mob(mob/user, list/targets, time = 3 SECONDS, uninterruptible = FALSE, progress = TRUE, datum/callback/extra_checks, required_mobility_flags = MOBILITY_STAND)
+	if(!user)
 		return FALSE
 
-	/*
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		switch(roll_stat_dice(H.current_fate[MOB_INT] + H.current_fate[MOB_DEX] + H.fate_luck))
-			if(-4)
-				time = time * 2
-			if(-3 to 3)
-				time = time
-			if(4)
-				time = time / 2
-	*/
+
 
 	if(!islist(targets))
 		targets = list(targets)
 	if(!length(targets))
 		return FALSE
 	var/user_loc = user.loc
-	var/user_step_x = user.step_x
-	var/user_step_y = user.step_y
+
 
 	time *= user.cached_multiplicative_actions_slowdown
 
@@ -423,18 +383,14 @@ GLOBAL_LIST_EMPTY(species_list)
 			if(drifting && !user.inertia_dir)
 				drifting = FALSE
 				user_loc = user.loc
-				user_step_x = user.step_x
-				user_step_y = user.step_y
+
 
 			if(L && !((L.mobility_flags & required_mobility_flags) == required_mobility_flags))
 				. = FALSE
 				break
 
 			for(var/atom/target in targets)
-				if(!drifting && (user_loc != user.loc || user_step_x != user.step_x || user_step_y != user.step_y))
-					. = FALSE
-					break mainloop
-				if(QDELETED(target) || originalloc[target] != target.loc || user.get_active_held_item() != holding || user.incapacitated() || (extra_checks && !extra_checks.Invoke()))
+				if((!drifting && user_loc != user.loc) || QDELETED(target) || originalloc[target] != target.loc || user.get_active_held_item() != holding || user.incapacitated() || (extra_checks && !extra_checks.Invoke()))
 					. = FALSE
 					break mainloop
 	if(!QDELETED(progbar))

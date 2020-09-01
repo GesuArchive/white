@@ -2,7 +2,7 @@
 	. = ..()
 	update_camera_location(oldLoc)
 
-/mob/living/silicon/forceMove(atom/destination, _step_x, _step_y)
+/mob/living/silicon/forceMove(atom/destination)
 	. = ..()
 	//Only bother updating the camera if we actually managed to move
 	if(.)

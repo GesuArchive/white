@@ -21,7 +21,7 @@
 	if(..())
 		return TRUE
 
-/mob/living/carbon/Move(NewLoc, direct, _step_x, _step_y)
+/mob/living/carbon/Move(NewLoc, direct)
 	. = ..()
 	if(. && !(movement_type & FLOATING)) //floating is easy
 		if(HAS_TRAIT(src, TRAIT_NOHUNGER))
