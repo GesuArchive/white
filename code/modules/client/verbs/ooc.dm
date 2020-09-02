@@ -126,7 +126,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		GLOB.dooc_allowed = !GLOB.dooc_allowed
 
 /client/proc/set_ooc(newColor as color)
-	set name = "#️⃣ Set Player OOC Color"
+	set name = "Set Player OOC Color"
 	set desc = "Modifies player OOC Color"
 	set category = "Фан"
 	GLOB.OOC_COLOR = sanitize_ooccolor(newColor)
@@ -138,7 +138,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	GLOB.OOC_COLOR = null
 
 /client/verb/colorooc()
-	set name = "#️⃣ Свой цвет OOC"
+	set name = "Свой цвет OOC"
 	set category = "Настройки"
 
 	if(!holder || !check_rights_for(src, R_ADMIN))

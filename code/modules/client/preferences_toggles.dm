@@ -13,7 +13,7 @@
 		winset(C, "[verbpath]", "is-checked = [!checked]")
 
 /datum/verbs/menu/settings/verb/setup_character()
-	set name = "#️⃣ Preferences"
+	set name = "Preferences"
 	set category = "Особенное"
 	set desc = "Open Game Preferences Window"
 	usr.client.prefs.current_tab = 2
@@ -312,7 +312,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 			O.update_icon()
 
 /client/verb/pick_ghost_customization()
-	set name = "#️⃣ Настройка призрака"
+	set name = "Настройка призрака"
 	set category = "Настройки"
 	set desc = "Customize your ghastly appearance."
 	switch(alert("Что хотим сменить?",,"Форма","Тип орбиты","Побрякушки"))
@@ -324,7 +324,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 			pick_ghost_accs()
 
 /client/verb/pick_ghost_others()
-	set name = "#️⃣ Вид других призраков"
+	set name = "Вид других призраков"
 	set category = "Настройки"
 	set desc = "Change display settings for the ghosts of other players."
 	var/new_ghost_others = alert("Хочешь изменить других призраков или же просто убрать их побрякушки?",,"Их настройки", "Стандартные спрайты", "Белые призраки")
@@ -443,7 +443,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Prayer Sounds", "[usr.client.prefs.toggles & SOUND_PRAYERS ? "Enabled" : "Disabled"]"))
 
 /client/proc/colorasay()
-	set name = "#️⃣ Set Admin Say Color"
+	set name = "Set Admin Say Color"
 	set category = "Адс"
 	set desc = "Set the color of your ASAY messages"
 	if(!holder)

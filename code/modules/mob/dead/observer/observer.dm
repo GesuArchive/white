@@ -514,7 +514,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/change_view_range()
 	set category = "Призрак"
-	set name = "#️⃣ Радиус обзора"
+	set name = "Радиус обзора"
 	set desc = "Change your view range."
 
 	var/max_view = client.prefs.unlock_content ? GHOST_MAX_VIEW_RANGE_MEMBER : GHOST_MAX_VIEW_RANGE_DEFAULT
@@ -529,7 +529,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		client.view_size.resetToDefault()
 
 /mob/dead/observer/verb/add_view_range(input as num)
-	set name = "#️⃣ Add View Range"
+	set name = "Add View Range"
 	set hidden = TRUE
 	var/max_view = client.prefs.unlock_content ? GHOST_MAX_VIEW_RANGE_MEMBER : GHOST_MAX_VIEW_RANGE_DEFAULT
 	if(input)
@@ -869,7 +869,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/verb/register_pai_candidate()
 	set category = "Призрак"
-	set name = "#️⃣ pAI Setup"
+	set name = "pAI Setup"
 	set desc = "Upload a fragment of your personality to the global pAI databanks"
 
 	register_pai()
@@ -936,7 +936,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	GLOB.observer_default_invisibility = amount
 
 /mob/dead/observer/proc/open_spawners_menu()
-	set name = "#️⃣ Меню перерождений"
+	set name = "Меню перерождений"
 	set desc = "See all currently available spawners"
 	set category = "Призрак"
 	if(!spawners_menu)
