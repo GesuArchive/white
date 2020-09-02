@@ -35257,11 +35257,6 @@
 /obj/machinery/navbeacon/wayfinding/minisat_access_ai,
 /turf/open/floor/plating,
 /area/ai_monitored/turret_protected/aisat_interior)
-"cSE" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/space/nearstation)
 "cSF" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -66329,7 +66324,7 @@ aaa
 aaa
 aaa
 aaS
-cSE
+gXs
 aaa
 aaa
 aaa
