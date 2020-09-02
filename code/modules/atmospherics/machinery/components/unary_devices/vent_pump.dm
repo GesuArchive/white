@@ -74,21 +74,12 @@
 			return
 
 		if(pump_direction & RELEASING)
-			var/do_flick = (icon_state == "vent_out")
-			if(space_shutoff_ticks > 0)
-				icon_state = "vent_off_spaceerror"
-			else
-				icon_state = "vent_off"
-			if(do_flick)
-				flick("vent_out-off", src)
+			icon_state = "vent_out-off"
 		else // pump_direction == SIPHONING
-			var/do_flick = (icon_state == "vent_in")
-			icon_state = "vent_off"
-			if(do_flick)
-				flick("vent_in-off",src)
+			icon_state = "vent_in-off"
 		return
 
-	if(icon_state == "vent_out-off" || icon_state == "vent_in-off" || icon_state == "vent_off" || icon_state == "vent_off_spaceerror")
+	if(icon_state == ("vent_out-off" || "vent_in-off" || "vent_off"))
 		if(pump_direction & RELEASING)
 			icon_state = "vent_out"
 			flick("vent_out-starting", src)
@@ -104,6 +95,9 @@
 
 /obj/machinery/atmospherics/components/unary/vent_pump/process_atmos()
 	..()
+	if(!is_operational)
+		last_moles_added = 0
+		return
 	if(space_shutoff_ticks > 0)
 		space_shutoff_ticks--
 		if(space_shutoff_ticks <= 1 && !on)
