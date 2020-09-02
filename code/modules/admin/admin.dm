@@ -6,9 +6,11 @@
 		type = MESSAGE_TYPE_ADMINLOG,
 		html = msg,
 		confidential = TRUE)
+
+	webhook_send_garbage("ADMIN LOG", msg)
+
 /*
 /proc/message_admins(msg)
-	webhook_send_garbage("ADMIN LOG", msg)
 
 	var/izidi = FALSE
 	var/list/exc = list("watchlist")
