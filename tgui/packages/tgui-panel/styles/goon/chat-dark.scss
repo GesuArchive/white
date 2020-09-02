@@ -8,10 +8,16 @@ em {
   font-weight: bold;
 }
 
+body {
+  background: repeating-linear-gradient(-70deg, transparent, transparent 1px, rgba(25, 25, 25, 0.3) 1px, rgba(125, 125, 125, 0.1) 4px) fixed,
+              radial-gradient(ellipse at 5% 50%, rgb(7, 22, 37) 0%, black 100%) fixed;
+}
+
 img {
   margin: 0;
   padding: 0;
   line-height: 1;
+  max-height: 256px;
   -ms-interpolation-mode: nearest-neighbor;
   image-rendering: pixelated;
 }
