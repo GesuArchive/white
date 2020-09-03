@@ -8,8 +8,8 @@
 	mob_biotypes = MOB_SPIRIT
 	movement_type = FLYING
 	move_to_delay = 10
-	vision_range = 640
-	aggro_vision_range = 640
+	vision_range = 20
+	aggro_vision_range = 20
 	maxHealth = 40 //easy to kill, but oh, will you be seeing a lot of them.
 	health = 40
 	melee_damage_lower = 10

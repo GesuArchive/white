@@ -15,7 +15,7 @@
 	friendly_verb_continuous = "floats near"
 	friendly_verb_simple = "float near"
 	speak_emote = list("puffs")
-	vision_range = 160
+	vision_range = 5
 	speed = 0
 	maxHealth = 50
 	health = 50

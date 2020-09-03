@@ -39,7 +39,7 @@
 	speed = 0
 	stat_attack = HARD_CRIT
 	robust_searching = 1
-	vision_range = 96
+	vision_range = 3
 	maxHealth = 100
 	health = 100
 	harm_intent_damage = 5

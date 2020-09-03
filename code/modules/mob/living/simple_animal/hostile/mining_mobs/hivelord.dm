@@ -11,7 +11,7 @@
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	move_to_delay = 7
 	ranged = 1
-	vision_range = 160
+	vision_range = 5
 	aggro_vision_range = 9
 	speed = 3
 	maxHealth = 75
@@ -69,7 +69,7 @@
 	move_to_delay = 1
 	friendly_verb_continuous = "buzzes near"
 	friendly_verb_simple = "buzz near"
-	vision_range = 320
+	vision_range = 10
 	speed = 3
 	maxHealth = 1
 	health = 1
@@ -172,7 +172,7 @@
 	icon_gib = "syndicate_gib"
 	friendly_verb_continuous = "buzzes near"
 	friendly_verb_simple = "buzz near"
-	vision_range = 320
+	vision_range = 10
 	maxHealth = 1
 	health = 5
 	harm_intent_damage = 5
@@ -256,7 +256,7 @@
 	sentience_type = SENTIENCE_BOSS
 	loot = list(/obj/item/organ/regenerative_core/legion = 3, /obj/effect/mob_spawn/human/corpse/damaged/legioninfested = 5)
 	move_to_delay = 4
-	vision_range = 160
+	vision_range = 5
 	aggro_vision_range = 9
 	speed = 3
 	faction = list("mining")

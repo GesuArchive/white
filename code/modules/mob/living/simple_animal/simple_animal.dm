@@ -193,7 +193,7 @@
 		..()
 		return
 	else
-		user.visible_message("<span class='notice'>[user] hand-feeds [O] to [src].</span>", "<span class='notice'>You hand-feed [O] to [src].</span>")
+		user.visible_message("<span class='notice'><b>[user]</b> даёт попробовать с руки [O] <b>[src]</b>.</span>", "<span class='notice'>Пытаюсь дать попробовать [O] <b>[src]</b>.</span>")
 		qdel(O)
 		if(tame)
 			return
@@ -210,7 +210,7 @@
 /mob/living/simple_animal/examine(mob/user)
 	. = ..()
 	if(stat == DEAD)
-		. += "<span class='deadsay'>Upon closer examination, [p_they()] appear[p_s()] to be dead.</span>"
+		. += "<hr><span class='deadsay'>Эта тварь больше не шевелится и похоже мертва.</span>"
 
 
 /mob/living/simple_animal/update_stat()
@@ -401,7 +401,7 @@
 /mob/living/simple_animal/get_status_tab_items()
 	. = ..()
 	. += ""
-	. += "Health: [round((health / maxHealth) * 100)]%"
+	. += "Здоровье: [round((health / maxHealth) * 100)]%"
 
 /mob/living/simple_animal/proc/drop_loot()
 	if(loot.len)

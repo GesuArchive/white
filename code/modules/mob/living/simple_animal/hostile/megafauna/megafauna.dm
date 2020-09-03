@@ -19,8 +19,8 @@
 	damage_coeff = list(BRUTE = 1, BURN = 0.5, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 1)
 	minbodytemp = 0
 	maxbodytemp = INFINITY
-	vision_range = 160
-	aggro_vision_range = 576
+	vision_range = 5
+	aggro_vision_range = 20
 	move_force = MOVE_FORCE_OVERPOWERING
 	move_resist = MOVE_FORCE_OVERPOWERING
 	pull_force = MOVE_FORCE_OVERPOWERING

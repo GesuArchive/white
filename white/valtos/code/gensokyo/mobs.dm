@@ -12,7 +12,7 @@
 	mob_biotypes = MOB_MINERAL|MOB_BEAST
 	mouse_opacity = MOUSE_OPACITY_ICON
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
-	move_to_delay = 20
+	move_to_delay = 5
 	ranged = 1
 	ranged_cooldown_time = 120
 	friendly_verb_continuous = "тычет клешнёй"

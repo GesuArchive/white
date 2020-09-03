@@ -9,9 +9,9 @@
 	icon_dead = "Goldgrub_dead"
 	icon_gib = "syndicate_gib"
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	vision_range = 64
+	vision_range = 2
 	aggro_vision_range = 9
-	move_to_delay = 10
+	move_to_delay = 5
 	friendly_verb_continuous = "harmlessly rolls into"
 	friendly_verb_simple = "harmlessly roll into"
 	maxHealth = 45

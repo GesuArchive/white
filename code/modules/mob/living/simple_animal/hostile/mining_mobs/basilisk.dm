@@ -16,7 +16,7 @@
 	ranged_message = "stares"
 	ranged_cooldown_time = 30
 	throw_message = "does nothing against the hard shell of"
-	vision_range = 64
+	vision_range = 2
 	speed = 3
 	maxHealth = 200
 	health = 200

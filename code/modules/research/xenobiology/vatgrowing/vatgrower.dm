@@ -55,7 +55,7 @@
 	. = ..()
 	if(!biological_sample)
 		return
-	. += "<span class='notice'>It seems to have a sample in it!</span>"
+	. += "<hr><span class='notice'>It seems to have a sample in it!</span>"
 	for(var/i in biological_sample.micro_organisms)
 		var/datum/micro_organism/MO = i
 		. += MO.get_details(user.research_scanner)

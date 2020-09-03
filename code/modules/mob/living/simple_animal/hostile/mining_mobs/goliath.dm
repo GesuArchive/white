@@ -27,7 +27,7 @@
 	attack_verb_simple = "измельчает"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	throw_message = "does nothing to the rocky hide of the"
-	vision_range = 160
+	vision_range = 5
 	aggro_vision_range = 9
 	move_force = MOVE_FORCE_VERY_STRONG
 	move_resist = MOVE_FORCE_VERY_STRONG

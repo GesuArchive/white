@@ -36,7 +36,7 @@
 	attack_sound = 'sound/weapons/punch1.ogg'
 	throw_message = "does nothing to the rocky hide of the"
 	speed = 2
-	move_to_delay = 10
+	move_to_delay = 5
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	mouse_opacity = MOUSE_OPACITY_ICON
 	deathmessage = "explodes into gore!"
@@ -144,7 +144,7 @@
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother/proc/reset_rage()
 	color = "#FFFFFF"
 	set_varspeed(2)
-	move_to_delay = 10
+	move_to_delay = 5
 
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother/proc/call_children()
 	ranged_cooldown = world.time + 60
@@ -176,7 +176,7 @@
 	attack_sound = 'sound/weapons/punch1.ogg'
 	throw_message = "does nothing to the rocky hide of the"
 	speed = 2
-	move_to_delay = 10
+	move_to_delay = 5
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	mouse_opacity = MOUSE_OPACITY_ICON
 	butcher_results = list()

@@ -7,7 +7,7 @@
 
 ///Returns a short description of the cell line
 /datum/micro_organism/proc/get_details(show_details)
-	return "<span class='notice'>[desc]</span>"
+	return "\n<span class='notice'>[desc]</span>"
 
 ///A "mob" cell. Can grow into a mob in a growing vat.
 /datum/micro_organism/cell_line
@@ -105,7 +105,7 @@
 
 ///Overriden to show more info like needs, supplementary and supressive reagents and also growth.
 /datum/micro_organism/cell_line/get_details(show_details)
-	. += "<span class='notice'>[desc] - growth progress: [growth]%</span>\n"
+	. += "<hr><span class='notice'>[desc] - growth progress: [growth]%</span>\n"
 	if(show_details)
 		. += return_reagent_text("It requires:", required_reagents)
 		. += return_reagent_text("It likes:", supplementary_reagents)
@@ -119,4 +119,4 @@
 	for(var/i in reagentlist)
 		var/datum/reagent/reagent = i
 		all_reagents_text += " - [initial(reagent.name)]\n"
-	return "<span class='notice'>[prefix_text]\n[all_reagents_text]</span>"
+	return "<hr><span class='notice'>[prefix_text]\n[all_reagents_text]</span>"
