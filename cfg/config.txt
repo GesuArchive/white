@@ -209,13 +209,13 @@ CHECK_RANDOMIZER
 # SERVER ss13.example.com:2506
 
 ## forum address
-FORUMURL https://discord.gg/p9x5msF
+FORUMURL https://discord.gg/TT2gqfz
 
 ## Wiki address
 WIKIURL https://tgstation13.org/wiki/Main_Page
 
 ## Rules address
-RULESURL https://discord.gg/p9x5msF
+RULESURL https://discord.gg/TT2gqfz
 
 ## Github address
 GITHUBURL https://github.com/SosakiDevelopmentTeam/tgstation
