@@ -260,6 +260,7 @@
 /obj/structure/chair/stool/bar
 	name = "барный стул"
 	desc = "На нем есть какие-то неприятные пятна ..."
+	icon = 'icons/obj/chairs.dmi'
 	icon_state = "bar"
 	item_chair = /obj/item/chair/stool/bar
 
