@@ -1508,7 +1508,17 @@
 /turf/open/floor/plasteel,
 /area/security/processing)
 "amm" = (
-/turf/open/floor/plasteel/white/side,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "amp" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -12615,6 +12625,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "bci" = (
@@ -12622,6 +12633,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "bcj" = (
@@ -12821,6 +12833,7 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "bdp" = (
@@ -13051,6 +13064,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "bev" = (
@@ -13124,7 +13138,6 @@
 	c_tag = "Starboard Primary Hallway 3";
 	dir = 1
 	},
-/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "beE" = (
@@ -35640,6 +35653,7 @@
 "gjZ" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "gkz" = (
@@ -37305,6 +37319,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "jMP" = (
@@ -39965,6 +39980,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "oVV" = (
@@ -41772,7 +41788,7 @@
 	pixel_y = -30
 	},
 /obj/machinery/light,
-/turf/open/floor/plasteel/white/corner,
+/turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "rVA" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -41882,11 +41898,6 @@
 "sdX" = (
 /turf/closed/wall,
 /area/quartermaster/office)
-"sgd" = (
-/turf/open/floor/plasteel/white/corner{
-	dir = 8
-	},
-/area/hallway/primary/starboard)
 "sgn" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -44652,6 +44663,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "wyP" = (
@@ -79218,8 +79230,8 @@ xPD
 xPD
 pzr
 pzr
-pzr
-pzr
+xPD
+xPD
 xPD
 xPD
 xPD
@@ -79474,8 +79486,8 @@ pkb
 xPD
 lKH
 tIv
-tIv
 bDR
+tIv
 tIv
 tIv
 bzI
@@ -84857,7 +84869,7 @@ xJn
 rdY
 aYV
 wxZ
-amm
+aYV
 yjj
 vpa
 bkR
@@ -85114,7 +85126,7 @@ xJn
 yfb
 aYV
 wxZ
-sgd
+aYV
 sQx
 sQx
 sQx
@@ -87683,8 +87695,8 @@ vLg
 vLg
 vLg
 baZ
-vdJ
-wLw
+amm
+aYV
 bfT
 cHE
 bfT
@@ -87941,7 +87953,7 @@ dWh
 bup
 xVJ
 bcj
-wLw
+aYV
 bfT
 cHF
 biG
