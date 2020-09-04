@@ -3657,7 +3657,6 @@
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/three)
 "nm" = (
-/obj/structure/sink/puddle,
 /turf/open/floor/holofloor/grass,
 /area/holodeck/rec_center/pet_lounge)
 "nn" = (
