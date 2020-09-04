@@ -78,7 +78,7 @@
 		. += "У н[t_ego] на лбу написано <b>[headstamp]</b>. Круто.\n"
 
 	//head
-	if(head)
+	if(head && !(obscured & ITEM_SLOT_HEAD))
 		. += "На голове у н[t_ego] [head.ru_get_examine_string(user)].\n"
 
 	//eyes

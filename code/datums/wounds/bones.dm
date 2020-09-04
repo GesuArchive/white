@@ -200,7 +200,17 @@
 	status_effect_type = /datum/status_effect/wound/blunt/moderate
 	scar_keyword = "bluntmoderate"
 
-/datum/wound/blunt/moderate/crush()
+/datum/wound/blunt/moderate/Destroy()
+	if(victim)
+		UnregisterSignal(victim, COMSIG_LIVING_DOORCRUSHED)
+	return ..()
+
+/datum/wound/blunt/moderate/wound_injury(datum/wound/old_wound)
+	. = ..()
+	RegisterSignal(victim, COMSIG_LIVING_DOORCRUSHED, .proc/door_crush)
+
+/// Getting smushed in an airlock/firelock is a last-ditch attempt to try relocating your limb
+/datum/wound/blunt/moderate/proc/door_crush()
 	if(prob(33))
 		victim.visible_message("<span class='danger'><b>[victim]</b> выворачивает [ru_parse_zone(limb.name)] и ставит на место!</span>", "<span class='userdanger'>Выправляю [ru_parse_zone(limb.name)] на место! Ух!</span>")
 		remove_wound()

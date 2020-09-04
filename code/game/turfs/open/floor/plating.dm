@@ -52,7 +52,10 @@
 		return
 	if(istype(C, /obj/item/stack/rods) && attachment_holes)
 		if(broken || burnt)
-			to_chat(user, "<span class='warning'>Сначала отремонтировать покрытие бы!</span>")
+			if(!iscyborg(user))
+				to_chat(user, "<span class='warning'>Сначала отремонтировать покрытие бы! Тут хватит и сварки.</span>")
+			else
+				to_chat(user, "<span class='warning'>Сначала отремонтировать покрытие бы! Тут хватит сварки или инструмента для ремонта покрытий.</span>") //we don't need to confuse humans by giving them a message about plating repair tools, since only janiborgs should have access to them outside of Christmas presents or admin intervention
 			return
 		var/obj/item/stack/rods/R = C
 		if (R.get_amount() < 2)
@@ -88,7 +91,17 @@
 
 			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 		else
-			to_chat(user, "<span class='warning'>Эта секция слишком повреждена, чтобы выдержать плитку! Для устранения повреждений надо бы воспользоваться сварочным аппаратом.</span>")
+			if(!iscyborg(user))
+				to_chat(user, "<span class='warning'>Эта секция слишком повреждена, чтобы выдержать плитку! Для устранения повреждений надо бы воспользоваться сварочным аппаратом.</span>")
+			else
+				to_chat(user, "<span class='warning'>Эта секция слишком повреждена, чтобы выдержать плитку! Для устранения повреждений надо бы воспользоваться сварочным аппаратом или инструментом для ремонта покрытий.</span>")
+	else if(istype(C, /obj/item/cautery/prt)) //plating repair tool
+		if((broken || burnt) && C.use_tool(src, user, 0, volume=80))
+			to_chat(user, "<span class='danger'>Чиню покрытие.</span>")
+			icon_state = icon_plating
+			burnt = FALSE
+			broken = FALSE
+
 
 /turf/open/floor/plating/welder_act(mob/living/user, obj/item/I)
 	..()

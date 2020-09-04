@@ -30,7 +30,7 @@
 			next_extinguish = world.time + extinguish_cooldown
 			extinguishes_left--
 			H.visible_message("<span class='warning'>[H]'s костюм автоматически тушит [H.p_them()]!</span>","<span class='warning'>В костюме сработала система пожаротушения.</span>")
-			H.ExtinguishMob()
+			H.extinguish_mob()
 			new /obj/effect/particle_effect/water(get_turf(H))
 
 
