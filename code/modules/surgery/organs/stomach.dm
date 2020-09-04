@@ -53,7 +53,7 @@
 		body.vomit(damage)
 		to_chat(body, "<span class='warning'>Your stomach reels in pain as you're incapable of holding down all that food!</span>")
 
-	if(H.nutrition <= 50)
+	if(body.nutrition <= 50)
 		applyOrganDamage(1)
 
 /obj/item/organ/stomach/get_availability(datum/species/S)

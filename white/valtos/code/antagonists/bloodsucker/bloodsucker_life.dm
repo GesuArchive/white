@@ -191,7 +191,7 @@
 			fireheal = min(C.getFireLoss_nonProsthetic(), regenRate) // NOTE: Burn damage ONLY heals in torpor.
 			costMult = 0.25
 			// Extinguish Fire
-			C.ExtinguishMob()
+			C.extinguish_mob()
 		else
 			// No Blood? Lower Mult
 			if (owner.current.blood_volume <= 0)
