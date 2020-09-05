@@ -165,15 +165,15 @@
 	if(obscured & ITEM_SLOT_FEET)
 		dat += "<tr><td><font color=grey><B>Обувь:</B></font></td><td><font color=grey>Скрыто</font></td></tr>"
 	else
-		dat += "<tr><td><B>Shoes:</B></td><td><A href='?src=[REF(src)];item=[ITEM_SLOT_FEET]'>[(shoes && !(shoes.item_flags & ABSTRACT))		? shoes		: "<font color=grey>Ничего</font>"]</A>"
+		dat += "<tr><td><B>Обувь:</B></td><td><A href='?src=[REF(src)];item=[ITEM_SLOT_FEET]'>[(shoes && !(shoes.item_flags & ABSTRACT))		? shoes		: "<font color=grey>Ничего</font>"]</A>"
 		if(shoes && shoes.can_be_tied && shoes.tied != SHOES_KNOTTED)
 			dat += "&nbsp;<A href='?src=[REF(src)];shoes=[ITEM_SLOT_FEET]'>[shoes.tied ? "Расслабить шнурки" : "Связать шнурки"]</A>"
 
 		dat += "</td></tr>"
 	if(obscured & ITEM_SLOT_GLOVES)
-		dat += "<tr><td><font color=grey><B>Gloves:</B></font></td><td><font color=grey>Скрыто</font></td></tr>"
+		dat += "<tr><td><font color=grey><B>Перчатки:</B></font></td><td><font color=grey>Скрыто</font></td></tr>"
 	else
-		dat += "<tr><td><B>Gloves:</B></td><td><A href='?src=[REF(src)];item=[ITEM_SLOT_GLOVES]'>[(gloves && !(gloves.item_flags & ABSTRACT))		? gloves	: "<font color=grey>Ничего</font>"]</A></td></tr>"
+		dat += "<tr><td><B>Перчатки:</B></td><td><A href='?src=[REF(src)];item=[ITEM_SLOT_GLOVES]'>[(gloves && !(gloves.item_flags & ABSTRACT))		? gloves	: "<font color=grey>Ничего</font>"]</A></td></tr>"
 
 	if(obscured & ITEM_SLOT_ICLOTHING)
 		dat += "<tr><td><font color=grey><B>Одежда:</B></font></td><td><font color=grey>Скрыто</font></td></tr>"

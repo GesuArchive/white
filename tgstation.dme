@@ -3578,6 +3578,7 @@
 #include "white\valtos\code\unsorted\christmas.dm"
 #include "white\valtos\code\unsorted\custom_races.dm"
 #include "white\valtos\code\unsorted\dakis.dm"
+#include "white\valtos\code\unsorted\doubleband.dm"
 #include "white\valtos\code\unsorted\drug_reagents.dm"
 #include "white\valtos\code\unsorted\drugs.dm"
 #include "white\valtos\code\unsorted\dz-031.dm"
