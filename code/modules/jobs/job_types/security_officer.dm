@@ -1,5 +1,5 @@
 /datum/job/officer
-	title = "International Officer"
+	title = "Security Officer"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	department_head = list("Head of Security")
 	faction = "Station"
@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 
 
 /datum/outfit/job/security
-	name = "International Officer"
+	name = "Security Officer"
 	jobtype = /datum/job/officer
 
 	belt = /obj/item/pda/security

@@ -56,7 +56,8 @@
 /datum/design/traumatic
 	name = "9mm traumatic magazine"
 	id = "traumatic"
-	build_type = AUTOLATHE
+	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 5000)
 	build_path = /obj/item/ammo_box/magazine/traumatic
-	category = list("initial", "Security")
+	category = list("Weapons")
+	departmental_flags = DEPARTMENTAL_FLAG_SECURITY

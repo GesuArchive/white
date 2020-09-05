@@ -53,7 +53,7 @@
 /datum/gear/auvtomat
 	display_name = "WT-550"
 	path = /obj/item/gun/ballistic/automatic/wt550
-	allowed_roles = list("Veteran", "International Officer", "Russian Officer", "Head of Security")
+	allowed_roles = list("Veteran", "Security Officer", "Russian Officer", "Head of Security")
 	cost = 250
 
 /datum/gear/spare_id

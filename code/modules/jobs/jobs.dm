@@ -56,7 +56,7 @@ GLOBAL_LIST_INIT(security_positions, list(
 	"Head of Security",
 	"Warden",
 	"Detective",
-	"International Officer",
+	"Security Officer",
 	"Russian Officer",
 	"Veteran"))
 
@@ -116,7 +116,7 @@ GLOBAL_PROTECT(exp_specialmap)
 	var/static/regex/rd_expand = new("rd")
 	var/static/regex/ce_expand = new("ce")
 	var/static/regex/qm_expand = new("qm")
-	var/static/regex/int_expand = new("(?<!international )officer")
+	var/static/regex/int_expand = new("(?<!security )officer")
 	var/static/regex/rus_expand = new("(?<!russian )officer")
 	var/static/regex/vet_expand = new("veteran")
 	var/static/regex/engi_expand = new("(?<!station )engineer")
@@ -134,7 +134,7 @@ GLOBAL_PROTECT(exp_specialmap)
 	job = rd_expand.Replace(job, "research director")
 	job = ce_expand.Replace(job, "chief engineer")
 	job = qm_expand.Replace(job, "quartermaster")
-	job = int_expand.Replace(job, "international officer")
+	job = int_expand.Replace(job, "security officer")
 	job = rus_expand.Replace(job, "russian officer")
 	job = vet_expand.Replace(job, "veteran")
 	job = engi_expand.Replace(job, "station engineer")

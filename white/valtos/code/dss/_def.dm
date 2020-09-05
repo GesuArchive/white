@@ -77,7 +77,7 @@
 					dstats[MOB_INT] += rand(-1, 2)
 					dstats[MOB_DEX] += rand( 2, 4)
 
-				if("International Officer")
+				if("Security Officer")
 					dstats[MOB_STR] += rand(1, 3)
 					dstats[MOB_STM] += rand(3, 4)
 					dstats[MOB_INT] += rand(0, 4)
