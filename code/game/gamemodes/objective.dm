@@ -25,7 +25,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 
 //Shared by few objective types
 /datum/objective/proc/admin_simple_target_pick(mob/admin)
-	var/list/possible_targets = list("Развлекаться","Random")
+	var/list/possible_targets = list("Ничего.","Random")
 	var/def_value
 	for(var/datum/mind/possible_target in SSticker.minds)
 		if ((possible_target != src) && ishuman(possible_target.current))
@@ -39,7 +39,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	if (!new_target)
 		return
 
-	if (new_target == "Развлекаться")
+	if (new_target == "Ничего.")
 		target = null
 	else if (new_target == "Random")
 		find_target()
@@ -185,7 +185,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	if(target && target.current)
 		explanation_text = "Убить [target.name], на должности [!target_role_type ? target.assigned_role : target.special_role]."
 	else
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
 
 /datum/objective/assassinate/admin_edit(mob/admin)
 	admin_simple_target_pick(admin)
@@ -219,7 +219,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	if(target && target.current)
 		explanation_text = "Убить или проимплантировать и отправить в ссылку в гейтвей [target.name], на должности [!target_role_type ? target.assigned_role : target.special_role]."
 	else
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
 
 /datum/objective/maroon
 	name = "maroon"
@@ -238,7 +238,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	if(target && target.current)
 		explanation_text = "Не дать [target.name], на должности [!target_role_type ? target.assigned_role : target.special_role], покинуть станцию в живом виде."
 	else
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
 
 /datum/objective/maroon/admin_edit(mob/admin)
 	admin_simple_target_pick(admin)
@@ -272,7 +272,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	if(target && target.current)
 		explanation_text = "Украсть мозг [target.name], на должности [!target_role_type ? target.assigned_role : target.special_role]."
 	else
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
 
 /datum/objective/debrain/admin_edit(mob/admin)
 	admin_simple_target_pick(admin)
@@ -301,7 +301,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	if(target && target.current)
 		explanation_text = "Защитить [target.name], на должности [!target_role_type ? target.assigned_role : target.special_role]."
 	else
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
 
 /datum/objective/protect/admin_edit(mob/admin)
 	admin_simple_target_pick(admin)
@@ -328,7 +328,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	if(target?.current)
 		explanation_text = "Убедиться в том, что [target.name], на должноости [!target_role_type ? target.assigned_role : target.special_role] сбежит живым и вне заключения."
 	else
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
 
 /datum/objective/jailbreak/admin_edit(mob/admin)
 	admin_simple_target_pick(admin)
@@ -344,7 +344,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	if(target && target.current)
 		explanation_text = "Убедиться в том, что [target.name], на должноости [!target_role_type ? target.assigned_role : target.special_role] будет доставлен в зоне заключения и в наручниках."
 	else
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
 
 /datum/objective/hijack
 	name = "hijack"
@@ -443,7 +443,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 		explanation_text += "." //Proper punctuation is important!
 
 	else
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
 
 /datum/objective/escape/escape_with_identity/check_completion()
 	if(!target || !target_real_name)
@@ -545,7 +545,7 @@ GLOBAL_LIST_EMPTY(possible_items)
 		give_special_equipment(targetinfo.special_equipment)
 		return steal_target
 	else
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
 		return
 
 /datum/objective/steal/admin_edit(mob/admin)
@@ -697,7 +697,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 	if(protect_target)
 		explanation_text = "Protect \the [protect_target] at all costs."
 	else
-		explanation_text = "Развлекаться."
+		explanation_text = "Ничего."
 
 /datum/objective/protect_object/check_completion()
 	return !QDELETED(protect_target)
@@ -812,7 +812,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 	if(target && target.current)
 		explanation_text = "Destroy [target.name], the experimental AI."
 	else
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
 
 /datum/objective/destroy/admin_edit(mob/admin)
 	var/list/possible_targets = active_ais(1)
@@ -990,7 +990,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 /datum/objective/changeling_team_objective/impersonate_department/update_explanation_text()
 	..()
 	if(!department_real_names.len || !department_minds.len)
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
 		return  //Something fucked up, give them a win
 
 	if(command_staff_only)

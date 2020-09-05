@@ -14,7 +14,7 @@ export const ChemFilterPane = (props, context) => {
       buttons={(
         <Fragment>
           <Input
-            placeholder="Реагент"
+            placeholder="Reagent"
             width="140px"
             onInput={(e, value) => onReagentInput(value)} />
           <Button
@@ -59,14 +59,14 @@ export const ChemFilter = (props, context) => {
         <Flex spacing={1}>
           <Flex.Item grow={1}>
             <ChemFilterPane
-              title="Левый"
+              title="Left"
               list={left}
               reagentName={leftName}
               onReagentInput={value => setLeftName(value)} />
           </Flex.Item>
           <Flex.Item grow={1}>
             <ChemFilterPane
-              title="Правый"
+              title="Right"
               list={right}
               reagentName={rightName}
               onReagentInput={value => setRightName(value)} />

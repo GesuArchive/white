@@ -140,7 +140,7 @@
 		explanation_text = "Убить [target.name], на должности [!target_role_type ? target.assigned_role : target.special_role]."
 	else
 		message_admins("WARNING! [ADMIN_LOOKUPFLW(owner)] obsessed objectives forged without an obsession!")
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
 
 /datum/objective/assassinate/jealous //assassinate, but it changes the target to someone else in the previous target's department. cool, right?
 	var/datum/mind/old //the target the coworker was picked from.
@@ -151,7 +151,7 @@
 	if(target && target.current && old)
 		explanation_text = "Убить старого коллегу моей цели - [old]."
 	else
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
 
 /datum/objective/assassinate/jealous/proc/find_coworker(datum/mind/oldmind)//returning null = Развлекаться
 	if(!oldmind.assigned_role)
@@ -214,10 +214,10 @@
 		creeper.trauma.attachedobsessedobj = src
 		explanation_text = "Находиться возле [target.name] [DisplayTimeText(timer)]ы пока цель жива."
 	else
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
 
 /datum/objective/spendtime/check_completion()
-	return timer <= 0 || explanation_text == "Развлекаться"
+	return timer <= 0 || explanation_text == "Ничего."
 
 
 /datum/objective/hug//this objective isn't perfect. hugging the correct amount of times, then switching bodies, might fail the objective anyway. maybe i'll come back and fix this sometime.
@@ -232,7 +232,7 @@
 	if(target && target.current && creeper)
 		explanation_text = "Обнять [target.name] [hugs_needed] раз пока цель жива."
 	else
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
 
 /datum/objective/hug/check_completion()
 	var/datum/antagonist/obsessed/creeper = owner.has_antag_datum(/datum/antagonist/obsessed)
@@ -248,7 +248,7 @@
 	if(target && target.current)
 		explanation_text = "Сделать фото с [target.name] пока цель жива."
 	else
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
 
 /datum/objective/polaroid/check_completion()
 	var/list/datum/mind/owners = get_owners()
@@ -272,4 +272,4 @@
 	if(steal_target)
 		explanation_text = "Украсть семейную реликвию [steal_target] у [target.name]."
 	else
-		explanation_text = "Развлекаться"
+		explanation_text = "Ничего."
