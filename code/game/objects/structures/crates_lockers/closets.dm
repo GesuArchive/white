@@ -289,6 +289,43 @@
 		user.visible_message("<span class='notice'>[user] [anchored ? "anchored" : "unanchored"] \the [src] [anchored ? "to" : "from"] the ground.</span>", \
 						"<span class='notice'>You [anchored ? "anchored" : "unanchored"] \the [src] [anchored ? "to" : "from"] the ground.</span>", \
 						"<span class='hear'>You hear a ratchet.</span>")
+	if(W.tool_behaviour == TOOL_MULTITOOL && secure)
+
+		var/i
+
+		for(i = 0, i == 6, i++)
+
+			var/list/choices = list(
+				"красный" = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "red"),
+				"зелёный" = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "green"),
+				"синий"   = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "blue")
+			)
+
+			var/pick = show_radial_menu(user, src, choices, require_near = TRUE)
+
+			var/true_pick = pick("красный", "зелёный", "синий")
+
+			to_chat(user, "<span class='revenbignotice'>Фаза [i]/6. Нужен <b>[true_pick]</b>!</span>")
+
+			if(W.use_tool(src, user, 10, volume=25))
+
+				if(!pick)
+					to_chat(user, "<span class='warning'>Выбрать надо было провод!</span>")
+					return
+
+				if(pick != true_pick)
+					to_chat(user, "<span class='warning'>НЕПРАВИЛЬНО!</span>")
+					return
+
+				if(i != 6)
+					continue
+
+				locked = !locked
+
+				user.visible_message("<span class='warning'>[user] [locked ? "блокирует" : "разблокирует"] [src] используя [W].</span>",
+										"<span class='warning'>[locked ? "Включаю":"Отключаю"] замок [src].</span>")
+				return
+
 	else if(user.a_intent != INTENT_HARM)
 		var/item_is_id = W.GetID()
 		if(!item_is_id)
