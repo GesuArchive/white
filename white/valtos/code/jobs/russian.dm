@@ -1,5 +1,7 @@
 /datum/job/officer/omon
 	title = "Russian Officer"
+	total_positions = 1
+	spawn_positions = 1
 	outfit = /datum/outfit/job/security/omon
 
 /datum/job/officer/veteran
