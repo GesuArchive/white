@@ -215,6 +215,7 @@
 	..()
 
 /datum/reagent/drug/flipout/expose_obj(obj/O, reac_volume)
+	. = ..()
 	if(istype(O,/obj))
 		O.SpinAnimation(16,40)
 

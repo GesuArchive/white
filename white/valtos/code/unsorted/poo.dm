@@ -42,6 +42,7 @@
 	return ..()
 
 /datum/reagent/toxin/poo/expose_turf(turf/open/T, reac_volume)//splash the poo all over the place
+	. = ..()
 	if(!istype(T))
 		return
 	if(reac_volume >= 1)
