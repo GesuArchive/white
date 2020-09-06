@@ -11,8 +11,8 @@
 #define STRUCTURE (1)
 
 /obj/singularity/energy_ball
-	name = "energy ball"
-	desc = "An energy ball."
+	name = "энергошар"
+	desc = "Кругленький."
 	icon = 'icons/obj/tesla_engine/energy_ball.dmi'
 	icon_state = "energy_ball"
 	pixel_x = -32
@@ -85,7 +85,7 @@
 /obj/singularity/energy_ball/examine(mob/user)
 	. = ..()
 	if(orbiting_balls.len)
-		. += "There are [orbiting_balls.len] mini-balls orbiting it."
+		. += "\nМать моя! Здесь уже [orbiting_balls.len] мини-шаров."
 
 
 /obj/singularity/energy_ball/proc/move_the_basket_ball(move_amount)
@@ -144,7 +144,7 @@
 /obj/singularity/energy_ball/attack_tk(mob/user)
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
-		to_chat(C, "<span class='userdanger'>That was a shockingly dumb idea.</span>")
+		to_chat(C, "<span class='userdanger'>Шокирующе-глупая идея.</span>")
 		var/obj/item/organ/brain/rip_u = locate(/obj/item/organ/brain) in C.internal_organs
 		C.ghostize(0)
 		qdel(rip_u)
