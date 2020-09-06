@@ -19,7 +19,7 @@
 
 ///Machine that lets you play roulette. Odds are pre-defined to be the same as European Roulette without the "En Prison" rule
 /obj/machinery/roulette
-	name = "Roulette стол"
+	name = "рулетка"
 	desc = "A computerized roulette table. Swipe your ID to play or register yourself as owner!"
 	icon = 'icons/obj/machines/roulette.dmi'
 	icon_state = "idle"

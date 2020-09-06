@@ -1,6 +1,6 @@
 /datum/wires/roulette
 	holder_type = /obj/machinery/roulette
-	proper_name = "Roulette стол"
+	proper_name = "Рулетка"
 	randomize = TRUE
 
 /datum/wires/roulette/New(atom/holder)
