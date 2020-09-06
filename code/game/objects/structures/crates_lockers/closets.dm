@@ -297,6 +297,7 @@
 			user.visible_message("<span class='warning'>[user] блокирует <b>[src]</b> используя [W].</span>",
 									"<span class='warning'>Блокирую <b>[src]</b>.</span>")
 			locked = TRUE
+			update_icon()
 			return
 
 		var/list/choices = list(
