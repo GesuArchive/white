@@ -715,21 +715,19 @@
 /turf/open/floor/engine,
 /area/security/prison)
 "ch" = (
-/obj/structure/table,
-/obj/item/storage/box/firingpins,
-/obj/item/storage/box/firingpins,
-/obj/item/key/security,
-/obj/effect/turf_decal/tile/hex/neutral,
-/obj/effect/turf_decal/tile/hex/neutral{
+/obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/hex/neutral{
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/hex/neutral{
+/obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/turf/open/floor/engine,
+/obj/machinery/porta_turret/armory,
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "ci" = (
 /obj/structure/table,
@@ -1100,31 +1098,41 @@
 /area/security/prison)
 "cJ" = (
 /obj/item/grenade/barrier{
-	pixel_x = 4
+	pixel_x = 16;
+	pixel_y = 9
 	},
-/obj/item/grenade/barrier,
 /obj/item/grenade/barrier{
-	pixel_x = -4
+	pixel_x = 11;
+	pixel_y = 9
+	},
+/obj/item/grenade/barrier{
+	pixel_x = 5;
+	pixel_y = 9
 	},
 /obj/structure/table,
-/obj/effect/turf_decal/tile/hex/neutral,
-/obj/effect/turf_decal/tile/hex/neutral{
+/obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/hex/neutral{
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/hex/neutral{
+/obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/item/storage/box/firingpins{
+	pixel_x = -8;
+	pixel_y = 7
+	},
+/obj/item/storage/box/firingpins{
+	pixel_x = 9
+	},
+/obj/item/key/security,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "cK" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
-	},
-/obj/machinery/porta_turret/armory{
-	density = 0
 	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
@@ -1792,6 +1800,7 @@
 	dir = 8
 	},
 /mob/living/simple_animal/mouse/brown/tom,
+/obj/effect/loot_site_spawner,
 /turf/open/floor/plating,
 /area/security/prison/safe)
 "ef" = (
@@ -6648,6 +6657,10 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/security/main)
+"Qm" = (
+/obj/effect/loot_site_spawner,
+/turf/open/floor/plating,
+/area/security/prison/safe)
 "TC" = (
 /obj/machinery/suit_storage_unit/security,
 /obj/effect/turf_decal/tile/hex/red,
@@ -7860,7 +7873,7 @@ ag
 aJ
 aZ
 bz
-bv
+Qm
 cG
 ds
 aJ

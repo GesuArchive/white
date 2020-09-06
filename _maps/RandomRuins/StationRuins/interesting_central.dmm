@@ -645,7 +645,7 @@
 	name = "Bridge";
 	req_access_txt = "19"
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "bE" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -683,7 +683,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 5
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "bI" = (
 /obj/machinery/light{
@@ -705,7 +705,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "bJ" = (
 /obj/structure/fireaxecabinet{
@@ -722,7 +722,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "bK" = (
 /obj/machinery/requests_console{
@@ -742,7 +742,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 10
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "bL" = (
 /obj/structure/disposalpipe/segment{
@@ -759,7 +759,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "bN" = (
 /obj/machinery/airalarm{
@@ -775,7 +775,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 6
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "bO" = (
 /obj/structure/cable,
@@ -788,7 +788,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "bP" = (
 /obj/machinery/light{
@@ -808,7 +808,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "bQ" = (
 /obj/structure/extinguisher_cabinet{
@@ -1125,7 +1125,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 9
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "cA" = (
 /obj/structure/dresser,
@@ -1364,7 +1364,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "db" = (
 /obj/machinery/light{
@@ -1613,7 +1613,7 @@
 	dir = 8;
 	pixel_x = -28
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "dF" = (
 /obj/machinery/light,
@@ -1988,6 +1988,10 @@
 /area/hallway/primary/central)
 "hw" = (
 /obj/structure/displaycase/captain,
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = -24
+	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "hy" = (
@@ -2695,7 +2699,7 @@
 /obj/structure/table/reinforced,
 /obj/item/assembly/flash/handheld,
 /obj/item/dice/d20,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "nr" = (
 /obj/structure/rack,
@@ -2771,13 +2775,13 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/brown,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "nA" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "nB" = (
 /obj/effect/turf_decal/stripes/line{
@@ -2786,7 +2790,7 @@
 /obj/structure/table/reinforced,
 /obj/item/multitool,
 /obj/item/storage/secure/briefcase,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "nC" = (
 /obj/effect/turf_decal/stripes/line{
@@ -2794,7 +2798,7 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/aicard,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "nD" = (
 /obj/item/ectoplasm/angelic,
@@ -2804,7 +2808,7 @@
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "nF" = (
 /obj/structure/cable,
@@ -2827,14 +2831,14 @@
 /obj/structure/table/reinforced,
 /obj/item/storage/fancy/donut_box,
 /obj/item/gps,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "nI" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "nJ" = (
 /obj/structure/cable,
@@ -2842,7 +2846,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "nK" = (
 /obj/structure/closet/emcloset,
@@ -2850,7 +2854,7 @@
 /area/hallway/primary/central)
 "nL" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "nM" = (
 /obj/machinery/camera/autoname{
@@ -2874,13 +2878,13 @@
 	pixel_y = 4
 	},
 /obj/item/storage/box/ids,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "nO" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "nP" = (
 /obj/machinery/computer/secure_data{
@@ -2895,7 +2899,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "nQ" = (
 /obj/structure/closet/wardrobe/black,
@@ -2937,7 +2941,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/brown,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "nW" = (
 /obj/structure/lattice/catwalk,
@@ -2949,7 +2953,7 @@
 	dir = 8;
 	name = "Logistics Station"
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "nY" = (
 /obj/structure/cable,
@@ -3085,7 +3089,7 @@
 /obj/item/wrench,
 /obj/item/assembly/signaler,
 /obj/item/assembly/timer,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "oq" = (
 /obj/machinery/door/firedoor,
@@ -3126,7 +3130,7 @@
 "ot" = (
 /obj/effect/landmark/event_spawn,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "ou" = (
 /obj/structure/cable,
@@ -3156,14 +3160,14 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "oy" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
 /obj/structure/table/reinforced,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "oz" = (
 /obj/effect/turf_decal/stripes/line{
@@ -3175,14 +3179,14 @@
 	pixel_y = 7
 	},
 /obj/item/pen,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "oA" = (
 /obj/structure/chair{
 	dir = 4;
 	name = "Security Station"
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "oB" = (
 /obj/machinery/computer/security{
@@ -3194,7 +3198,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "oC" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -3238,7 +3242,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/brown,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "oH" = (
 /obj/machinery/firealarm{
@@ -3278,7 +3282,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "oL" = (
 /obj/effect/turf_decal/tile/blue,
@@ -3372,25 +3376,25 @@
 /obj/structure/chair{
 	name = "Engineering Station"
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "oX" = (
 /obj/effect/turf_decal/tile/yellow,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "oY" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "oZ" = (
 /obj/structure/cable,
 /obj/structure/chair{
 	name = "Command Station"
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "pa" = (
 /obj/effect/turf_decal/tile/blue,
@@ -3401,17 +3405,17 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "pc" = (
 /obj/structure/chair{
 	name = "Crew Station"
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "pd" = (
 /obj/effect/turf_decal/tile/green,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "pe" = (
 /obj/machinery/computer/prisoner/management{
@@ -3424,7 +3428,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "pf" = (
 /obj/machinery/computer/atmos_alert{
@@ -3439,7 +3443,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "pg" = (
 /obj/machinery/computer/atmos_alert{
@@ -3451,7 +3455,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "ph" = (
 /obj/machinery/computer/monitor{
@@ -3465,7 +3469,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/yellow,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "pi" = (
 /obj/machinery/computer/shuttle/labor{
@@ -3481,7 +3485,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "pj" = (
 /obj/structure/cable,
@@ -3551,7 +3555,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "pr" = (
 /obj/machinery/computer/shuttle/mining{
@@ -3565,7 +3569,7 @@
 	},
 /obj/effect/turf_decal/tile/blue,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "ps" = (
 /obj/machinery/camera/autoname{
@@ -3701,7 +3705,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "pI" = (
 /obj/machinery/computer/crew{
@@ -3713,7 +3717,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "pJ" = (
 /obj/machinery/computer/med_data{
@@ -3726,7 +3730,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/bridge)
 "pK" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -4820,6 +4824,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"Tg" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/turf/open/floor/plasteel/dark,
+/area/bridge)
 "Tu" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/wood,
@@ -5629,7 +5638,7 @@ em
 bN
 nL
 ox
-pa
+Tg
 pr
 pM
 nZ

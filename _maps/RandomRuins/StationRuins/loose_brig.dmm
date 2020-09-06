@@ -46,10 +46,9 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "an" = (
-/obj/structure/table,
 /obj/machinery/light/small,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel,
+/obj/structure/lattice,
+/turf/open/space/basic,
 /area/security/brig)
 "ap" = (
 /obj/machinery/computer/security/telescreen/prison{
@@ -3712,6 +3711,19 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
+"pH" = (
+/obj/structure/holosign/barrier/atmos,
+/turf/open/space/basic,
+/area/security/brig)
+"xN" = (
+/turf/open/floor/plasteel/airless{
+	icon_state = "damaged3"
+	},
+/area/security/brig)
+"ZQ" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/security/brig)
 
 (1,1,1) = {"
 ab
@@ -4940,8 +4952,8 @@ fw
 bw
 cc
 fw
-am
-am
+ZQ
+ZQ
 iz
 ab
 "}
@@ -4983,8 +4995,8 @@ aT
 aV
 bv
 cd
-fw
-am
+pH
+xN
 an
 iz
 ab
@@ -5028,8 +5040,8 @@ aW
 bw
 cf
 fw
-am
-am
+ZQ
+xN
 iz
 ab
 "}
