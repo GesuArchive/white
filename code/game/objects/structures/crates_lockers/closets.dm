@@ -293,23 +293,34 @@
 						"<span class='hear'>You hear a ratchet.</span>")
 	if(W.tool_behaviour == TOOL_MULTITOOL && secure)
 
+		if(!locked)
+			user.visible_message("<span class='warning'>[user] блокирует <b>[src]</b> используя [W].</span>",
+									"<span class='warning'>Блокирую <b>[src]</b>.</span>")
+			locked = TRUE
+			return
+
 		var/list/choices = list(
-			"красный" = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "red"),
-			"зелёный" = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "green"),
-			"синий"   = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "blue")
+			"красный"    = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "red"),
+			"зелёный"    = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "green"),
+			"синий"      = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "blue"),
+			"жёлтый"     = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "yellow"),
+			"фиолетовый" = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "violet"),
+			"оранжевый"  = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "orange"),
+			"белый"      = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "white"),
+			"чёрный"     = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "black")
 		)
 
-		var/true_pick = pick("красный", "зелёный", "синий")
+		var/true_pick = pick("красный", "зелёный", "синий", "жёлтый", "фиолетовый", "оранжевый", "белый", "чёрный")
 
-		to_chat(user, "<span class='revenbignotice'>Фаза [hack_progress]/6. Нужен <b>[true_pick]</b>!</span>")
+		to_chat(user, "<span class='revenbignotice'>Фаза [hack_progress]/6. Нужен <b>[true_pick]</b> провод!</span>")
 
 		var/pick = show_radial_menu(user, src, choices, require_near = TRUE)
 
-		if(W.use_tool(src, user, 10, volume=25))
+		if(W.use_tool(src, user, 5, volume=15))
 
 			if(!pick)
 				hack_progress = 0
-				to_chat(user, "<span class='warning'>Выбрать надо было провод!</span>")
+				to_chat(user, "<span class='warning'>Выбрать надо было провод! Начинаем сначала.</span>")
 				return
 
 			if(pick != true_pick)
@@ -322,10 +333,14 @@
 			if(hack_progress != 6)
 				return
 
-			locked = !locked
+			locked = FALSE
 
-			user.visible_message("<span class='warning'>[user] [locked ? "блокирует" : "разблокирует"] [src] используя [W].</span>",
-									"<span class='warning'>[locked ? "Включаю":"Отключаю"] замок [src].</span>")
+			hack_progress = 0
+
+			update_icon()
+
+			user.visible_message("<span class='warning'>[user] взламывает <b>[src]</b> используя [W].</span>",
+									"<span class='warning'>Взламываю замок <b>[src]</b>.</span>")
 			return
 
 	else if(user.a_intent != INTENT_HARM)
