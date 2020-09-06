@@ -5,7 +5,8 @@
 	show_when_dead = TRUE
 	layer = 24
 	plane = 24
-	alpha = 23
+	alpha = 55
+	blend_mode = 3
 
 /mob/dead/new_player/Initialize()
 	. = ..()
