@@ -85,7 +85,10 @@
 
 /turf/open/floor/grass/Initialize()
 	. = ..()
-	update_icon()
+	spawniconchange()
+
+/turf/open/floor/grass/proc/spawniconchange()
+	icon_state = "grass[rand(0,3)]"
 
 /turf/open/floor/grass/attackby(obj/item/C, mob/user, params)
 	if((C.tool_behaviour == TOOL_SHOVEL) && params)
@@ -105,6 +108,9 @@
 	light_power = 0.80
 	light_color = COLOR_BLUE_LIGHT
 
+/turf/open/floor/grass/fairy/spawniconchange()
+	icon_state = "fairygrass[rand(0,3)]"
+
 /turf/open/floor/grass/snow
 	gender = PLURAL
 	name = "снежный покров"
@@ -123,6 +129,9 @@
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
+/turf/open/floor/grass/snow/spawniconchange()
+	return
+
 /turf/open/floor/grass/snow/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
 	return
 
@@ -138,8 +147,7 @@
 	initial_gas_mix = OPENTURF_LOW_PRESSURE
 	slowdown = 0
 
-/turf/open/floor/grass/snow/basalt/Initialize()
-	. = ..()
+/turf/open/floor/grass/snow/basalt/spawniconchange()
 	if(prob(15))
 		icon_state = "basalt[rand(0, 12)]"
 		set_basalt_light(src)
@@ -163,12 +171,10 @@
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
-/turf/open/floor/grass/fakebasalt/Initialize()
-	. = ..()
+/turf/open/floor/grass/fakebasalt/spawniconchange()
 	if(prob(15))
 		icon_state = "basalt[rand(0, 12)]"
 		set_basalt_light(src)
-
 
 /turf/open/floor/carpet
 	name = "ковёр"

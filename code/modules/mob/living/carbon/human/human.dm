@@ -10,7 +10,7 @@
 	setup_human_dna()
 
 	if(dna.species)
-		set_species(dna.species.type)
+		INVOKE_ASYNC(src, .proc/set_species, dna.species.type)
 
 
 	//initialise organs
@@ -1212,7 +1212,7 @@
 
 /mob/living/carbon/human/species/Initialize()
 	. = ..()
-	set_species(race)
+	INVOKE_ASYNC(src, .proc/set_species, race)
 
 /mob/living/carbon/human/species/abductor
 	race = /datum/species/abductor
