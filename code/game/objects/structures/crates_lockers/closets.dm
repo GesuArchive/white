@@ -38,6 +38,8 @@
 	var/anchorable = TRUE
 	var/icon_welded = "welded"
 
+	var/hack_progress = 0
+
 
 /obj/structure/closet/Initialize(mapload)
 	if(mapload && !opened)		// if closed, any item at the crate's loc is put in the contents
@@ -291,40 +293,40 @@
 						"<span class='hear'>You hear a ratchet.</span>")
 	if(W.tool_behaviour == TOOL_MULTITOOL && secure)
 
-		var/i
+		var/list/choices = list(
+			"красный" = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "red"),
+			"зелёный" = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "green"),
+			"синий"   = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "blue")
+		)
 
-		for(i = 0, i == 6, i++)
+		var/pick = show_radial_menu(user, src, choices, require_near = TRUE)
 
-			var/list/choices = list(
-				"красный" = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "red"),
-				"зелёный" = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "green"),
-				"синий"   = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "blue")
-			)
+		var/true_pick = pick("красный", "зелёный", "синий")
 
-			var/pick = show_radial_menu(user, src, choices, require_near = TRUE)
+		to_chat(user, "<span class='revenbignotice'>Фаза [hack_progress]/6. Нужен <b>[true_pick]</b>!</span>")
 
-			var/true_pick = pick("красный", "зелёный", "синий")
+		if(W.use_tool(src, user, 10, volume=25))
 
-			to_chat(user, "<span class='revenbignotice'>Фаза [i]/6. Нужен <b>[true_pick]</b>!</span>")
-
-			if(W.use_tool(src, user, 10, volume=25))
-
-				if(!pick)
-					to_chat(user, "<span class='warning'>Выбрать надо было провод!</span>")
-					return
-
-				if(pick != true_pick)
-					to_chat(user, "<span class='warning'>НЕПРАВИЛЬНО!</span>")
-					return
-
-				if(i != 6)
-					continue
-
-				locked = !locked
-
-				user.visible_message("<span class='warning'>[user] [locked ? "блокирует" : "разблокирует"] [src] используя [W].</span>",
-										"<span class='warning'>[locked ? "Включаю":"Отключаю"] замок [src].</span>")
+			if(!pick)
+				hack_progress = 0
+				to_chat(user, "<span class='warning'>Выбрать надо было провод!</span>")
 				return
+
+			if(pick != true_pick)
+				hack_progress = 0
+				to_chat(user, "<span class='warning'>НЕПРАВИЛЬНО! Начинаем сначала.</span>")
+				return
+
+			hack_progress++
+
+			if(hack_progress != 6)
+				continue
+
+			locked = !locked
+
+			user.visible_message("<span class='warning'>[user] [locked ? "блокирует" : "разблокирует"] [src] используя [W].</span>",
+									"<span class='warning'>[locked ? "Включаю":"Отключаю"] замок [src].</span>")
+			return
 
 	else if(user.a_intent != INTENT_HARM)
 		var/item_is_id = W.GetID()
