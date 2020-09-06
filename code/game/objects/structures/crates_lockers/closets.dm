@@ -320,7 +320,7 @@
 			hack_progress++
 
 			if(hack_progress != 6)
-				continue
+				return
 
 			locked = !locked
 
