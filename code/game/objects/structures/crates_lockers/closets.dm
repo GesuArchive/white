@@ -299,11 +299,11 @@
 			"синий"   = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "blue")
 		)
 
-		var/pick = show_radial_menu(user, src, choices, require_near = TRUE)
-
 		var/true_pick = pick("красный", "зелёный", "синий")
 
 		to_chat(user, "<span class='revenbignotice'>Фаза [hack_progress]/6. Нужен <b>[true_pick]</b>!</span>")
+
+		var/pick = show_radial_menu(user, src, choices, require_near = TRUE)
 
 		if(W.use_tool(src, user, 10, volume=25))
 
