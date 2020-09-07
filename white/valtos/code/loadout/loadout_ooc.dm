@@ -23,9 +23,8 @@
 		to_chat(C, "<span class='notice'>Не выбран аспект.</span>")
 		return
 	else
-		if(..())
-			to_chat(C, "<span class='notice'>Выбрано <b>[sel_aspect]</b>! Другие игроки могут добавить ещё аспекты.</span>")
-			SSaspects.forced_aspects[sel_aspect] = sel_aspect.weight
+		to_chat(C, "<span class='notice'>Выбрано <b>[sel_aspect]</b>! Другие игроки могут добавить ещё аспекты.</span>")
+		SSaspects.forced_aspects[sel_aspect] = sel_aspect.weight
 
 /datum/gear/ooc/purge_this_shit
 	display_name = "Фатальный сброс"
