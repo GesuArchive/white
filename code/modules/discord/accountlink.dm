@@ -1,3 +1,4 @@
+/*
 // IF you have linked your account, this will trigger a verify of the user
 /client/verb/verify_in_discord()
 	set category = "Особенное"
@@ -29,5 +30,5 @@
 	var/datum/browser/window = new/datum/browser(usr, "discordverification", "Discord verification")
 	window.set_content("<span>[message]</span>")
 	window.open()
-
+*/
 

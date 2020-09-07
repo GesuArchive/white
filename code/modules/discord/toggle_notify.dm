@@ -1,3 +1,4 @@
+/*
 // Verb to toggle restart notifications
 /client/verb/notify_restart()
 	set category = "Особенное"
@@ -33,3 +34,4 @@
 		// If we got here, they arent in the list. Chuck 'em in!
 		to_chat(src, "<span class='notice'>You will now be notified when the server restarts</span>")
 		SSdiscord.notify_members += "[stored_id]" // The list uses strings because BYOND cannot handle a 17 digit integer
+*/

@@ -20,7 +20,7 @@
 	plane = 23
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_up)()
-	set name = " 🔄 Название предметов"
+	set name = "🔄 Название предметов"
 	set category = "Настройки"
 	set desc = "Имена предметов"
 	usr.client.prefs.w_toggles ^= TOOLTIP_USER_UP
@@ -35,7 +35,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_up)()
 	return C.prefs.w_toggles & TOOLTIP_USER_UP
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_pos)()
-	set name = " 🔄 Позиция названий предметов"
+	set name = "🔄 Позиция названий предметов"
 	set category = "Настройки"
 	set desc = "Позиция имён предметов"
 	usr.client.prefs.w_toggles ^= TOOLTIP_USER_POS
@@ -52,7 +52,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_pos)()
 	return C.prefs.w_toggles & TOOLTIP_USER_POS
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_retro)()
-	set name = " 🔄 Ретро-названия"
+	set name = "🔄 Ретро-названия"
 	set category = "Настройки"
 	set desc = "Ретро-статусбар"
 	usr.client.prefs.w_toggles ^= TOOLTIP_USER_RETRO
