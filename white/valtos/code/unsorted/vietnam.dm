@@ -67,6 +67,9 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	stoned = TRUE
 
+/turf/open/floor/grass/gensgrass/dirty/stone/crowbar_act(mob/living/user, obj/item/I)
+	return FALSE
+
 /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	name = "уродливый камень"
 	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
@@ -74,6 +77,18 @@
 	stoned = FALSE
 	color = "#aaaaaa"
 	var/digged_up = FALSE
+
+/turf/closed/wall/stonewall
+	name = "каменная стена"
+	desc = "Не дай боженька увидеть такое на продвинутой исследовательской станции!"
+	icon = 'white/valtos/icons/stonewall.dmi'
+	icon_state = "wallthefuck"
+	smoothing_flags = NONE
+	smoothing_groups = null
+	canSmoothWith = null
+	sheet_type = /obj/item/raw_stone
+	sheet_amount = 4
+	girder_type = null
 
 /turf/open/floor/grass/gensgrass/dirty/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -134,6 +149,25 @@
 	. = ..()
 	AddComponent(/datum/component/two_handed, require_twohands=TRUE, force_unwielded=20, force_wielded=20)
 
+/obj/item/smithing_hammer/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	..()
+
+	if(iswallturf(target) && proximity_flag)
+		var/turf/closed/wall/W = target
+		var/chance = (W.hardness * 0.5)
+		if(chance < 10)
+			return FALSE
+
+		if(prob(chance))
+			playsound(src, 'sound/effects/meteorimpact.ogg', 100, 1)
+			W.dismantle_wall(TRUE)
+
+		else
+			playsound(src, 'sound/effects/bang.ogg', 50, 1)
+			W.add_dent(WALL_DENT_HIT)
+			visible_message("<span class='danger'><b>[user]</b> бьёт молотом по <b>стене</b>!</span>", null, COMBAT_MESSAGE_RANGE)
+	return TRUE
+
 /obj/item/anvil_free
 	name = "наковальня"
 	desc = "На ней неудобно ковать. Стоит поставить её на что-то крепкое."
@@ -189,7 +223,7 @@
 			var/obj/item/ingot/N = contents[contents.len]
 			if(N.progress_current == N.progress_need + 1)
 				var/obj/item/O = new N.recipe.result(drop_location())
-				if(istype(O, /obj/item/katanus))
+				if(istype(O, /obj/item/katanus) || istype(O, /obj/item/dagger))
 					O.force = round((O.force / 1.25) * N.mod_grade)
 				if(istype(O, /obj/item/pickaxe))
 					O.force = round((O.force / 2) * N.mod_grade)
@@ -226,7 +260,6 @@
 	custom_materials = list(/datum/material/iron = 10000)
 	var/datum/smithing_recipe/recipe = null
 	var/mod_grade = 1
-	var/fail_chance = 2
 	var/durability = 5
 	var/progress_current = 0
 	var/progress_need = 10
@@ -304,7 +337,7 @@
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BACK
-	force = 20
+	force = 16
 	throwforce = 10
 	w_class = WEIGHT_CLASS_HUGE
 	hitsound = 'sound/weapons/bladeslice.ogg'
@@ -315,6 +348,34 @@
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
 	resistance_flags = FIRE_PROOF
 	custom_materials = list(/datum/material/iron = 10000)
+
+/obj/item/dagger
+	name = "кинжал"
+	desc = "Быстрый, лёгкий и довольный острый."
+	icon_state = "dagger"
+	inhand_icon_state = "dagger"
+	worn_icon_state = "dagger"
+	icon = 'white/valtos/icons/objects.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
+	flags_1 = CONDUCT_1
+	force = 5
+	throwforce = 10
+	w_class = WEIGHT_CLASS_NORMAL
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
+	block_chance = 15
+	sharpness = SHARP_EDGED
+	max_integrity = 20
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
+	resistance_flags = FIRE_PROOF
+	custom_materials = list(/datum/material/iron = 10000)
+
+/obj/item/dagger/afterattack(atom/target, mob/user, proximity)
+	. = ..()
+	if(!proximity)
+		return
+	user.changeNext_move(CLICK_CD_RAPID)
 
 /obj/item/clothing/suit/armor/light_plate
 	name = "нагрудная пластина"
@@ -476,8 +537,14 @@
 	if(acd)
 		return
 
+	if(!ishuman(user))
+		to_chat(user, "<span class='warning'>Мои ручки слишком слабы для такой работы!</span>")
+		return
+
+	var/mob/living/carbon/human/H = user
+
 	acd = TRUE
-	addtimer(VARSET_CALLBACK(src, acd, FALSE), 0.7 SECONDS)
+	addtimer(VARSET_CALLBACK(src, acd, FALSE), H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SPEED_MODIFIER) SECONDS)
 
 	if(istype(I, /obj/item/smithing_hammer))
 		if(current_ingot)
@@ -488,30 +555,35 @@
 			if(current_ingot.recipe)
 				if(current_ingot.progress_current == current_ingot.progress_need)
 					current_ingot.progress_current++
+					playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
 					to_chat(user, "<span class='notice'>Болванка готова. Ещё один удар для продолжения ковки, либо можно охлаждать.</span>")
 					to_chat(user, "<span class='green'>> Активируй болванку в клещах для охлаждения.</span>")
 					return
 				if(current_ingot.progress_current > current_ingot.progress_need)
 					current_ingot.progress_current = 0
 					current_ingot.mod_grade++
-					current_ingot.progress_need = round(current_ingot.progress_need * 1.5)
+					current_ingot.progress_need = round(current_ingot.progress_need * 1.1)
+					playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
 					to_chat(user, "<span class='notice'>Начинаем улучшать болванку...</span>")
 					return
-				if(prob(current_ingot.fail_chance * current_ingot.mod_grade))
+				if(prob(H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_PROBS_MODIFIER) * current_ingot.mod_grade))
 					current_ingot.durability--
 					if(current_ingot.durability == 0)
 						to_chat(user, "<span class='warning'>Болванка раскалывается на множество бесполезных кусочков метала...</span>")
 						current_ingot = null
 						LAZYCLEARLIST(contents)
 						icon_state = "anvil"
+					playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
 					user.visible_message("<span class='warning'><b>[user]</b> неправильно бьёт молотом по наковальне.</span>", \
 										"<span class='warning'>Неправильно бью молотом по наковальне.</span>")
 					return
 				else
-					playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70)
+					playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
 					user.visible_message("<span class='notice'><b>[user]</b> бьёт молотом по наковальне.</span>", \
 										"<span class='notice'>Бью молотом по наковальне.</span>")
 					current_ingot.progress_current++
+					H.adjustStaminaLoss(2)
+					H.mind.adjust_experience(/datum/skill/smithing, 8 * current_ingot.mod_grade)
 					return
 			else
 				var/datum/smithing_recipe/sel_recipe = input("Выбор:", "Что куём?", null, null) as null|anything in allowed_things
@@ -522,6 +594,7 @@
 					to_chat(user, "<span class='warning'>УЖЕ ВЫБРАН РЕЦЕПТ!</span>")
 					return
 				current_ingot.recipe = new sel_recipe.type()
+				playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
 				to_chat(user, "<span class='notice'>Приступаем к ковке...</span>")
 				return
 		else
@@ -570,6 +643,10 @@
 /datum/smithing_recipe/katanus
 	name = "Катанус"
 	result = /obj/item/katanus
+
+/datum/smithing_recipe/dagger
+	name = "Кинжал"
+	result = /obj/item/dagger
 
 /datum/smithing_recipe/pickaxe
 	name = "Кирка"
@@ -725,6 +802,21 @@
 	category = CAT_STRUCTURE
 	always_available = TRUE
 
+/datum/crafting_recipe/smithman/furnace
+	name = "Каменная стена"
+	result = /turf/closed/wall/stonewall
+	reqs = list(/obj/item/raw_stone = 5)
+	time = 50
+	category = CAT_STRUCTURE
+	always_available = TRUE
+
 /obj/effect/baseturf_helper/beach/raw_stone
 	name = "raw stone baseturf editor"
 	baseturf = /turf/open/floor/grass/gensgrass/dirty/stone/raw
+
+/datum/skill/smithing
+	name = "Ковка"
+	title =  "Ковщик"
+	desc = "Работа с металлами в средневековых условиях. Полезно, наверное."
+	modifiers = list(SKILL_SPEED_MODIFIER = list(1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.36),
+					 SKILL_PROBS_MODIFIER = list(15, 10, 5, 4, 3, 2, 1))
