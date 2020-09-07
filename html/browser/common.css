@@ -410,3 +410,16 @@ ul.sparse {
     display: inline-block;
     vertical-align: middle;
 }
+
+.metamag .metaitem td {
+	background: #010408;
+	padding: 8px;
+	border-top: 1px solid #06182b;
+	border-left: 1px solid #05182d;
+}
+
+.metamag .metaitem .metaprice {
+	text-align: center;
+	font-size: 16px;
+	vertical-align: middle;
+}

@@ -468,8 +468,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			var/fcolor =  "#3366CC"
 			var/metabalance = user.client.get_metabalance()
-			dat += "<table align='center' width='100%'>"
-			dat += "<tr><td colspan=4><center><b>Баланс: <font color='[fcolor]'>[metabalance]</font> метакэша.</b> \[<a href='?_src_=prefs;preference=gear;clear_loadout=1'>Снять надетое</a>\]</center></td></tr>"
+			dat += "<table align='center' width='100%' class='metamag'>"
+			dat += "<tr><td colspan=4><center><b>Баланс: <font color='[fcolor]'>[metabalance]</font> метакэша.</b> <a href='?_src_=prefs;preference=gear;clear_loadout=1'>Снять надетое</a></center></td></tr>"
 			dat += "<tr><td colspan=4><center><b>"
 
 			var/firstcat = 1
@@ -485,9 +485,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "</b></center></td></tr>"
 
 			var/datum/loadout_category/LC = GLOB.loadout_categories[gear_tab]
-			dat += "<tr><td colspan=4><hr></td></tr>"
-			dat += "<tr><td colspan=4><b><center>[LC.category]</center></b></td></tr>"
-			dat += "<tr><td colspan=4><hr></td></tr>"
 
 			dat += "<tr><td colspan=4><hr></td></tr>"
 			dat += "<tr><td><b>Название</b></td>"
@@ -499,15 +496,16 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				var/datum/gear/G = LC.gear[gear_name]
 				var/ticked = (G.display_name in equipped_gear)
 
-				dat += "<tr style='vertical-align:top;'><td width=30%>[G.display_name]\n"
+				dat += "<tr style='vertical-align:middle;'><td width=300 class='metaitem'>"
 				if(G.display_name in purchased_gear)
 					if(G.sort_category == "OOC")
-						dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить ещё</a></td>"
+						dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить ещё "
 					else
-						dat += "<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.display_name]'>[ticked ? "Экипировано" : "Экипировать"]</a></td>"
+						dat += "<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.display_name]'>[ticked ? "Экипировано" : "Экипировать"] "
 				else
-					dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить</a></td>"
-				dat += "<td width = 5% style='vertical-align:top'>[G.cost]</td><td>"
+					dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить "
+				dat += "[capitalize(G.display_name)]</a></td>"
+				dat += "<td width=5% style='vertical-align:middle' class='metaprice'>[G.cost]</td><td>"
 				if(G.allowed_roles)
 					dat += "<font size=2>"
 					for(var/role in G.allowed_roles)
