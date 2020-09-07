@@ -666,7 +666,7 @@
 
 /obj/item/clothing/head/hooded/ablative
 	name = "аблативный капюшон"
-	desc = "Надеюсь, что капюшон принадлежит аблятивному плащу. Включает в себя козырек для прохладного зрения."
+	desc = "Штука, которая защитит от лазеров, но не от пуль."
 	icon_state = "ablativehood"
 	armor = list(MELEE = 10, BULLET = 10, LASER = 60, ENERGY = 60, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
 	strip_delay = 30
@@ -674,14 +674,14 @@
 
 /obj/item/clothing/head/hooded/ablative/equipped(mob/living/carbon/human/user, slot)
 	..()
-	to_chat(user, "Когда вы надеваете капюшон, козырек сдвигается на место и начинает анализировать людей вокруг вас. Ухоженная!")
+	to_chat(user, "Включено тактическое зрение.")
 	ADD_TRAIT(user, TRAIT_SECURITY_HUD, HELMET_TRAIT)
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
 	H.add_hud_to(user)
 
 /obj/item/clothing/head/hooded/ablative/dropped(mob/living/carbon/human/user)
 	..()
-	to_chat(user, "Вы снимаете капот, снимая козырек в процессе и отключая его встроенный кожух.")
+	to_chat(user, "Тактическое зрение отключено.")
 	REMOVE_TRAIT(user, TRAIT_SECURITY_HUD, HELMET_TRAIT)
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
 	H.remove_hud_from(user)
@@ -693,7 +693,7 @@
 		return TRUE
 
 /obj/item/clothing/suit/hooded/ablative
-	name = "аблятивный плащ"
+	name = "аблативный плащ"
 	desc = "Экспериментальный плащ, специально созданный для отражения и поглощения лазерных и дезактивирующих ударов. Однако не ожидайте, что он так много сделает против топора или дробовика."
 	icon_state = "ablativecoat"
 	inhand_icon_state = "ablativecoat"
