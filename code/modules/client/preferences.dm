@@ -496,7 +496,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				var/datum/gear/G = LC.gear[gear_name]
 				var/ticked = (G.display_name in equipped_gear)
 
-				dat += "<tr style='vertical-align:middle;'><td width=300 class='metaitem'>"
+				dat += "<tr style='vertical-align:middle;' class='metaitem'><td width=300>"
 				if(G.display_name in purchased_gear)
 					if(G.sort_category == "OOC")
 						dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить ещё "
@@ -504,7 +504,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						dat += "<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.display_name]'>[ticked ? "Экипировано" : "Экипировать"] "
 				else
 					dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить "
-				dat += "[capitalize(G.display_name)]</a></td>"
+				dat += "</a>[capitalize(G.display_name)]</td>"
 				dat += "<td width=5% style='vertical-align:middle' class='metaprice'>[G.cost]</td><td>"
 				if(G.allowed_roles)
 					dat += "<font size=2>"
