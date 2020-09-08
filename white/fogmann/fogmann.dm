@@ -249,9 +249,7 @@
 
 /obj/item/ammo_casing/shotgun/dart/sleeping/Initialize()
 	. = ..()
-	reagents.add_reagent("tirizene", 20)
-	reagents.add_reagent("skewium", 5)
-	reagents.add_reagent("spewium", 5)
+	reagents.add_reagent(/datum/reagent/toxin/sodium_thiopental, 20)
 
 /obj/item/storage/box/sleeping
 	name = "box of tranquilizer darts"
@@ -297,7 +295,6 @@
 	item = /obj/item/book/ruchinese
 	cost = 18
 	restricted_roles = list("Chaplain", "Curator", "Assistant")
-	surplus = 5
 
 /datum/emote/living/carbon/blyad
 	key = "blyadiada"
@@ -307,11 +304,18 @@
 	restraint_check = FALSE
 	emote_type = EMOTE_AUDIBLE
 
-/datum/emote/living/carbon/blyad/run_emote(mob/living/user, params)
-	. = ..()
-	if (.)
-		if (ishuman(user))
-			if (!user.get_bodypart("tongue"))
-				return
-			var/blyad = pick('white/fogmann/blyead.ogg')
-			playsound(user, blyad, 25, 1, -1)
+/datum/emote/living/laugh/get_sound(mob/living/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.dna.species.id == "human" && (!H.mind || !H.mind.miming))
+			return 'white/fogmann/blyead.ogg'
+
+/obj/item/clothing/accessory/medal/frog
+	name = "Зеленый значок"
+	desc = "Пахнет жабами."
+	icon = 'white/pieceofcrap.dmi'
+	worn_icon = 'white/pieceofcrap.dmi'
+	icon_state = "frog"
+	custom_materials = list(/datum/material/titanium=1)
+
+
