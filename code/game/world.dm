@@ -309,7 +309,7 @@ GLOBAL_VAR(restart_counter)
 
 	var/players = GLOB.clients.len
 
-	s += "<b>Players:</b> [players]/75\n"
+	s += "<b>Players:</b> \[[players]/75\n"
 
 	//if (!host && hostedby)
 	//	s += "<b>Host:</b> [hostedby]"
