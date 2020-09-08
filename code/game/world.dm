@@ -304,15 +304,15 @@ GLOBAL_VAR(restart_counter)
 		s += "[special_string]"
 
 	s += "<a href=\"https://discord.gg/TT2gqfz\"><big><b>[server_name]: [server_type]</b></big></a>\n"
-	s += "\n<i>AltRP, Cyberpunk, MetaCash, 100.1% FREE LAG and more!</b>\n\n"
+	s += "\n<b><i>AltRP, Cyberpunk, MetaCash, NO LAG and more!</i></b>\n\n"
 	// <img src=\"https://hub.station13.ru/o/?=[world.time]\">
 
 	var/players = GLOB.clients.len
 
 	s += "<b>Players:</b> [players]/75\n"
 
-	if (!host && hostedby)
-		s += "<b>Host:</b> [hostedby]"
+	//if (!host && hostedby)
+	//	s += "<b>Host:</b> [hostedby]"
 
 	status = s
 
