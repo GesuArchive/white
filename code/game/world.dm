@@ -303,12 +303,13 @@ GLOBAL_VAR(restart_counter)
 		server_type = CONFIG_GET(string/servertype)
 		s += "[special_string]"
 
-	s += "<a href=\"https://discord.gg/TT2gqfz\"><big><b>[server_name]: [server_type]</b></big></br>"
-	s += "<img src=\"https://hub.station13.ru/o/?=[world.time]\"></a>"
+	s += "<a href=\"https://discord.gg/TT2gqfz\"><big><b>[server_name]: [server_type]</b></big></a>\n"
+	s += "<i>AltRP, &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;, Metacash and more!</i>\n"
+	// <img src=\"https://hub.station13.ru/o/?=[world.time]\">
 
 	var/players = GLOB.clients.len
 
-	s += "<b>Players:</b> [players]/71</br>"
+	s += "<b>Players:</b> [players]/75</br>"
 
 	if (!host && hostedby)
 		s += "<b>Host:</b> [hostedby]"
