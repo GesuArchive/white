@@ -331,7 +331,7 @@
 		if(appears_dead)
 			bleed_text += ", но похоже уже замедляется.</span></B>\n"
 		else
-			if(reagents.has_reagent(/datum/reagent/toxin/heparin, needs_metabolizing = TRUE))
+			if(has_reagent(/datum/reagent/toxin/heparin, needs_metabolizing = TRUE))
 				bleed_text += " невероятно быстро"
 
 			bleed_text += "!</B>\n"
@@ -342,7 +342,7 @@
 
 		msg += bleed_text.Join()
 
-	if(reagents.has_reagent(/datum/reagent/teslium, needs_metabolizing = TRUE))
+	if(has_reagent(/datum/reagent/teslium, needs_metabolizing = TRUE))
 		msg += "[t_on] испускает нежное голубое свечение!\n"
 
 	if(islist(stun_absorption))

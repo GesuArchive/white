@@ -535,7 +535,7 @@
 	if(current_cycle >= cycles_to_turn)
 		var/datum/species/species_type = race
 		H.set_species(species_type)
-		H.reagents.del_reagent(type)
+		holder.del_reagent(type)
 		to_chat(H, "<span class='warning'>You've become \a [lowertext(initial(species_type.name))]!</span>")
 		return
 	..()
@@ -1256,7 +1256,6 @@
 	color = "#B0B0B0" // rgb : 192, 192, 192
 	taste_description = "что-то непостижимое"
 
-
 /datum/reagent/carbondioxide/expose_turf(turf/open/exposed_turf, reac_volume)
 	if(istype(exposed_turf))
 		var/temp = holder ? holder.chem_temp : T20C
@@ -1270,7 +1269,6 @@
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
 	color = "#808080"
 	taste_description = "сладость"
-
 
 
 /datum/reagent/nitrous_oxide/expose_turf(turf/open/exposed_turf, reac_volume)

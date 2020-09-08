@@ -243,7 +243,7 @@
 			mob_occupant.Unconscious((mob_occupant.bodytemperature * unconscious_factor) * 2000)
 		if(beaker)
 			if(reagent_transfer == 0) // Magically transfer reagents. Because cryo magic.
-				beaker.reagents.trans_to(occupant, 1, efficiency * 0.25, methods = VAPOR) // Transfer reagents.
+				beaker.reagents.trans_to(occupant, 1, efficiency * 25, methods = VAPOR) // Transfer reagents.
 				air1.adjust_moles(/datum/gas/oxygen, -max(0,air1.get_moles(/datum/gas/oxygen) - 2 / efficiency)) //Let's use gas for this
 			if(++reagent_transfer >= 10 * efficiency) // Throttle reagent transfer (higher efficiency will transfer the same amount but consume less from the beaker).
 				reagent_transfer = 0
@@ -300,6 +300,7 @@
 			L.update_mobility()
 	occupant = null
 	flick("pod-open-anim", src)
+	reagent_transfer = efficiency * 10 - 5 // wait before injecting the next occupant
 	..()
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/close_machine(mob/living/carbon/user)

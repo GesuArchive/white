@@ -2,7 +2,7 @@
 	name = "Праздничный торт"
 	description = "Скоро День рождения НТ! Отправьте им праздничный торт на день рождения!"
 	reward = 4000
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/store/cake/birthday, /obj/item/reagent_containers/food/snacks/cakeslice/birthday)
+	wanted_types = list(/obj/item/food/cake/birthday, /obj/item/food/cakeslice/birthday)
 
 /datum/bounty/item/chef/soup
 	name = "Суп"

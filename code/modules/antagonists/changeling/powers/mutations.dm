@@ -163,7 +163,7 @@
 	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
 	sharpness = SHARP_EDGED
-	wound_bonus = -60
+	wound_bonus = -20
 	bare_wound_bonus = 20
 	var/can_drop = FALSE
 	var/fake = FALSE
