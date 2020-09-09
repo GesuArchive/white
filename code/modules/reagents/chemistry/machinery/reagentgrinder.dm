@@ -64,7 +64,7 @@
 		return
 
 	if(operating)
-		. += "<span class='warning'>Миксер работает.</span>"
+		. += "<hr><span class='warning'>Миксер работает.</span>"
 		return
 
 	if(beaker || length(holdingitems))
