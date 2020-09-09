@@ -820,3 +820,16 @@
 	desc = "Работа с металлами в средневековых условиях. Полезно, наверное."
 	modifiers = list(SKILL_SPEED_MODIFIER = list(1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.36),
 					 SKILL_PROBS_MODIFIER = list(15, 10, 5, 4, 3, 2, 1))
+
+/obj/effect/mob_spawn/human/dwarf
+	name = "шконка"
+	desc = "Тут кто-то под шконкой, кирку мне в зад..."
+	icon = 'white/valtos/icons/prison/prison.dmi'
+	icon_state = "spwn"
+	roundstart = FALSE
+	death = FALSE
+	short_desc = "Я ебучий карлик в невероятно диких условиях."
+	flavour_text = "Выжить."
+	mob_species = /datum/species/dwarf
+	outfit = /datum/outfit/dwarf
+	assignedrole = "Dwarf"
