@@ -623,7 +623,7 @@
 			else
 				reagent_instance.addiction_stage = 0
 			H.reagents.addiction_list += reagent_instance
-			to_chat(quirk_holder, "<span class='danger'>Я внезапно хотите [reagent_instance.name] снова...</span>")
+			to_chat(quirk_holder, "<span class='danger'>Хочу [reagent_instance.name]...</span>")
 
 /datum/quirk/junkie/smoker
 	name = "Курильщик"

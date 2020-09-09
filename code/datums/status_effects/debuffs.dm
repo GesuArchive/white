@@ -606,7 +606,7 @@
 	ADD_TRAIT(owner, TRAIT_PACIFISM, "gonbolaPacify")
 	ADD_TRAIT(owner, TRAIT_MUTE, "gonbolaMute")
 	ADD_TRAIT(owner, TRAIT_JOLLY, "gonbolaJolly")
-	to_chat(owner, "<span class='notice'>Я внезапно чувствую покой и отпала необходимость совершать внезапные или опрометчивые действия...</span>")
+	to_chat(owner, "<span class='notice'>Внезапно чувствую покой и отпала необходимость совершать внезапные или опрометчивые действия...</span>")
 	return ..()
 
 /datum/status_effect/gonbola_pacify/on_remove()
@@ -640,7 +640,7 @@
 	ADD_TRAIT(owner, TRAIT_MUTE, "trance")
 	owner.add_client_colour(/datum/client_colour/monochrome/trance)
 	owner.visible_message("[stun ? "<span class='warning'>[owner] стоит смирно и пялится на точку в далеке.</span>" : ""]", \
-	"<span class='warning'>[pick("Чувствую, что мои мысли замедлились....", "У меня внезапно кружится голова....", "У меня такое чувство, что я в середине сна....","Чувствую себя невероятно расслаблено...")]</span>")
+	"<span class='warning'>[pick("Чувствую, что мои мысли замедлились....", "У меня кружится голова....", "У меня такое чувство, что я в середине сна....","Чувствую себя невероятно расслаблено...")]</span>")
 	return TRUE
 
 /datum/status_effect/trance/on_creation(mob/living/new_owner, _duration, _stun = TRUE)

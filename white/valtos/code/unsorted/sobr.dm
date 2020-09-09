@@ -81,7 +81,7 @@
 		var/numagents = min(7, candidates.len)
 
 		//Create team
-		var/datum/team/ert/ert_team = new /datum/ert/sobr
+		var/datum/team/ert/ert_team = new /datum/team/ert/sobr
 
 		//Asign team objective
 		var/datum/objective/missionobj = new
