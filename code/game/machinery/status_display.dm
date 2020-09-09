@@ -83,8 +83,8 @@
 		remove_display()
 		return PROCESS_KILL
 
-	if(message1 == "" && message2 == "")
-		update_display("ВРЕМЯ", station_time_timestamp("hh:mm"))
+	if(message1 == "ВРЕМЯ")
+		set_message("ВРЕМЯ", station_time_timestamp("hh:mm"))
 		return
 
 	var/line1 = message1
