@@ -28,6 +28,21 @@
 	message = "задыхается!"
 	emote_type = EMOTE_AUDIBLE
 
+/datum/emote/living/choke/get_sound(mob/living/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(!H.mind || !H.mind.miming)
+			if(user.gender == FEMALE)
+				return pick('white/valtos/sounds/emotes/choke_female_1.ogg',\
+							'white/valtos/sounds/emotes/choke_female_2.ogg',\
+							'white/valtos/sounds/emotes/choke_female_3.ogg',\
+							'white/valtos/sounds/emotes/choke_female_4.ogg')
+			else
+				return pick('white/valtos/sounds/emotes/choke_male_1.ogg',\
+							'white/valtos/sounds/emotes/choke_male_2.ogg',\
+							'white/valtos/sounds/emotes/choke_male_3.ogg',\
+							'white/valtos/sounds/emotes/choke_male_4.ogg')
+
 /datum/emote/living/cross
 	key = "cross"
 	key_third_person = "crosses"
@@ -62,6 +77,19 @@
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_SOOTHED_THROAT))
 		return FALSE
+
+/datum/emote/living/cough/get_sound(mob/living/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(!H.mind || !H.mind.miming)
+			if(user.gender == FEMALE)
+				return pick('white/valtos/sounds/emotes/cough_female_1.ogg',\
+							'white/valtos/sounds/emotes/cough_female_2.ogg')
+			else
+				return pick('white/valtos/sounds/emotes/cough_male_1.ogg',\
+							'white/valtos/sounds/emotes/cough_male_2.ogg',\
+							'white/valtos/sounds/emotes/cough_male_3.ogg',\
+							'white/valtos/sounds/emotes/cough_male_4.ogg')
 
 /datum/emote/living/dance
 	key = "dance"
@@ -217,11 +245,23 @@
 /datum/emote/living/laugh/get_sound(mob/living/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.dna.species.id == "human" && (!H.mind || !H.mind.miming))
+		if(!H.mind || !H.mind.miming)
 			if(user.gender == FEMALE)
-				return 'sound/voice/human/womanlaugh.ogg'
+				return pick('white/valtos/sounds/emotes/laugh_female_1.ogg',\
+							'white/valtos/sounds/emotes/laugh_female_2.ogg',\
+							'white/valtos/sounds/emotes/laugh_female_3.ogg',\
+							'white/valtos/sounds/emotes/laugh_female_4.ogg',\
+							'white/valtos/sounds/emotes/laugh_female_5.ogg',\
+							'white/valtos/sounds/emotes/laugh_female_6.ogg',\
+							'white/valtos/sounds/emotes/laugh_female_7.ogg')
 			else
-				return pick('sound/voice/human/manlaugh1.ogg', 'sound/voice/human/manlaugh2.ogg')
+				return pick('white/valtos/sounds/emotes/laugh_male_1.ogg',\
+							'white/valtos/sounds/emotes/laugh_male_2.ogg',\
+							'white/valtos/sounds/emotes/laugh_male_3.ogg',\
+							'white/valtos/sounds/emotes/laugh_male_4.ogg',\
+							'white/valtos/sounds/emotes/laugh_male_5.ogg',\
+							'white/valtos/sounds/emotes/laugh_male_6.ogg',\
+							'white/valtos/sounds/emotes/laugh_male_7.ogg')
 
 /datum/emote/living/look
 	key = "look"
@@ -264,7 +304,7 @@
 /datum/emote/living/scream
 	key = "scream"
 	key_third_person = "screams"
-	message = "кричит."
+	message = "кричит!"
 	message_mime = "изображает крик!"
 	emote_type = EMOTE_AUDIBLE
 	mob_type_blacklist_typecache = list(/mob/living/carbon/human) //Humans get specialized scream.
@@ -297,6 +337,17 @@
 	key_third_person = "sighs"
 	message = "вздыхает."
 	emote_type = EMOTE_AUDIBLE
+
+/datum/emote/living/sigh/get_sound(mob/living/user)
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	if(H.mind?.miming)
+		return
+	if(user.gender == MALE)
+		return pick('white/valtos/sounds/emotes/sigh_male_1.ogg',\
+					'white/valtos/sounds/emotes/sigh_male_2.ogg',\
+					'white/valtos/sounds/emotes/sigh_male_3.ogg')
 
 /datum/emote/living/sit
 	key = "sit"
@@ -332,6 +383,28 @@
 	message_mime = "громко храпит."
 	emote_type = EMOTE_AUDIBLE
 	stat_allowed = UNCONSCIOUS
+
+/datum/emote/living/snore/get_sound(mob/living/user)
+	if(ishuman(user))
+		return pick('white/valtos/sounds/emotes/snore_1.ogg',\
+					'white/valtos/sounds/emotes/snore_2.ogg',\
+					'white/valtos/sounds/emotes/snore_3.ogg',\
+					'white/valtos/sounds/emotes/snore_4.ogg',\
+					'white/valtos/sounds/emotes/snore_5.ogg',\
+					'white/valtos/sounds/emotes/snore_6.ogg',\
+					'white/valtos/sounds/emotes/snore_7.ogg',\
+					'white/valtos/sounds/emotes/snore_8.ogg',\
+					'white/valtos/sounds/emotes/snore_9.ogg',\
+					'white/valtos/sounds/emotes/snore_10.ogg',\
+					'white/valtos/sounds/emotes/snore_11.ogg',\
+					'white/valtos/sounds/emotes/snore_12.ogg',\
+					'white/valtos/sounds/emotes/snore_13.ogg',\
+					'white/valtos/sounds/emotes/snore_14.ogg',\
+					'white/valtos/sounds/emotes/snore_15.ogg',\
+					'white/valtos/sounds/emotes/snore_16.ogg',\
+					'white/valtos/sounds/emotes/snore_17.ogg',\
+					'white/valtos/sounds/emotes/snore_18.ogg',\
+					'white/valtos/sounds/emotes/snore_19.ogg')
 
 /datum/emote/living/stare
 	key = "stare"

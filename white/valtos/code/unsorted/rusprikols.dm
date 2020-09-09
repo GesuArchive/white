@@ -190,3 +190,20 @@
 	category = list("Stock Parts")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/emote/living/ask_to_stop
+	key = "ats"
+	key_third_person = "ats"
+	message = "жестом просит остановиться!"
+	emote_type = EMOTE_VISIBLE|EMOTE_AUDIBLE
+
+/datum/emote/living/ask_to_stop/get_sound(mob/living/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(!H.mind || !H.mind.miming)
+			if(user.gender == FEMALE)
+				return pick('white/valtos/sounds/emotes/hey_female_1.ogg',\
+							'white/valtos/sounds/emotes/hey_female_2.ogg')
+			else
+				return pick('white/valtos/sounds/emotes/hey_male_1.ogg',\
+							'white/valtos/sounds/emotes/hey_male_2.ogg')
