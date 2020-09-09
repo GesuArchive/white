@@ -103,7 +103,7 @@
 				continue
 
 			//Spawn the body
-			var/mob/living/carbon/human/ERTOperative = new /mob/living/carbon(spawnloc)
+			var/mob/living/carbon/human/ERTOperative = new /mob/living/carbon/human(spawnloc)
 			chosen_candidate.client.prefs.copy_to(ERTOperative)
 			ERTOperative.key = chosen_candidate.key
 
