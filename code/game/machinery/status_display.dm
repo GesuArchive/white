@@ -83,6 +83,10 @@
 		remove_display()
 		return PROCESS_KILL
 
+	if(message1 == "" && message2 == "")
+		update_display("ВРЕМЯ", station_time_timestamp("hh:mm"))
+		return
+
 	var/line1 = message1
 	if(index1)
 		line1 = copytext_char("[message1]|[message1]", index1, index1 + CHARS_PER_LINE)
