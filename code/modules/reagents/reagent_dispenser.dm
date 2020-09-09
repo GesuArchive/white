@@ -167,6 +167,7 @@
 
 /obj/structure/reagent_dispensers/water_cooler/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if (paper_cups > 1)
 		. += "There are [paper_cups] paper cups left."
 	else if (paper_cups == 1)

@@ -100,7 +100,7 @@
 
 /obj/item/camera/examine(mob/user)
 	. = ..()
-	. += "It has [pictures_left] photos left."
+	. += "\nIt has [pictures_left] photos left."
 
 //user can be atom or mob
 /obj/item/camera/proc/can_target(atom/target, mob/user, prox_flag)

@@ -347,21 +347,22 @@
 
 /obj/machinery/hydroponics/examine(user)
 	. = ..()
+	. += "<hr>"
 	if(myseed)
 		. += "<span class='info'>It has <span class='name'>[myseed.plantname]</span> planted.</span>"
 		if (dead)
-			. += "<span class='warning'>It's dead!</span>"
+			. += "\n<span class='warning'>It's dead!</span>"
 		else if (harvest)
-			. += "<span class='info'>It's ready to harvest.</span>"
+			. += "\n<span class='info'>It's ready to harvest.</span>"
 		else if (plant_health <= (myseed.endurance / 2))
-			. += "<span class='warning'>It looks unhealthy.</span>"
+			. += "\n<span class='warning'>It looks unhealthy.</span>"
 	else
 		. += "<span class='info'>It's empty.</span>"
 
-	. += "<span class='info'>Water: [waterlevel]/[maxwater].</span>\n"+\
+	. += "\n<span class='info'>Water: [waterlevel]/[maxwater].</span>\n"+\
 	"<span class='info'>Nutrient: [reagents.total_volume]/[maxnutri].</span>"
 	if(self_sustaining)
-		. += "<span class='info'>The tray's autogrow is active, protecting it from species mutations, weeds, and pests.</span>"
+		. += "\n<span class='info'>The tray's autogrow is active, protecting it from species mutations, weeds, and pests.</span>"
 
 	if(weedlevel >= 5)
 		to_chat(user, "<span class='warning'>It's filled with weeds!</span>")

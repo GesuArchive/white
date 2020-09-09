@@ -11,6 +11,7 @@
 #define SD_EMERGENCY 1  // 1 = Emergency Shuttle timer
 #define SD_MESSAGE 2  // 2 = Arbitrary message(s)
 #define SD_PICTURE 3  // 3 = alert picture
+#define SD_TIME 4  // 4 = current time
 
 #define SD_AI_EMOTE 1  // 1 = AI emoticon
 #define SD_AI_BSOD 2  // 2 = Blue screen of death
@@ -156,7 +157,7 @@
 /// Evac display which shows shuttle timer or message set by Command.
 /obj/machinery/status_display/evac
 	var/frequency = FREQ_STATUS_DISPLAYS
-	var/mode = SD_EMERGENCY
+	var/mode = SD_TIME
 	var/friendc = FALSE      // track if Friend Computer mode
 	var/last_picture  // For when Friend Computer mode is undone
 
@@ -187,6 +188,10 @@
 		if(SD_EMERGENCY)
 			return display_shuttle_status(SSshuttle.emergency)
 
+		if(SD_TIME)
+			update_display("ВРЕМЯ", station_time_timestamp("hh:mm"))
+			return ..()
+
 		if(SD_MESSAGE)
 			return ..()
 
@@ -206,6 +211,9 @@
 		if("blank")
 			mode = SD_BLANK
 			set_message(null, null)
+		if("time")
+			mode = SD_MESSAGE
+			set_message("ВРЕМЯ", station_time_timestamp("hh:mm"))
 		if("shuttle")
 			mode = SD_EMERGENCY
 			set_message(null, null)
@@ -303,7 +311,7 @@
 	name = "дисплей ИИ"
 	desc = "Небольшой экран, которым управляет ИИ."
 
-	var/mode = SD_BLANK
+	var/mode = SD_TIME
 	var/emotion = "Neutral"
 
 /obj/machinery/status_display/ai/Initialize()
