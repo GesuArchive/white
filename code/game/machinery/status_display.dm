@@ -35,6 +35,10 @@
 	var/index1			// display index for scrolling messages or 0 if non-scrolling
 	var/index2
 
+/obj/machinery/status_display/Initialize()
+	. = ..()
+	set_message("ВРЕМЯ", station_time_timestamp("hh:mm"))
+
 /// Immediately blank the display.
 /obj/machinery/status_display/proc/remove_display()
 	cut_overlays()
@@ -212,7 +216,7 @@
 			mode = SD_BLANK
 			set_message(null, null)
 		if("time")
-			mode = SD_MESSAGE
+			mode = SD_TIME
 			set_message("ВРЕМЯ", station_time_timestamp("hh:mm"))
 		if("shuttle")
 			mode = SD_EMERGENCY
