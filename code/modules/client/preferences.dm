@@ -192,7 +192,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/dat = list("<center>")
 
 	dat += "<a href='?_src_=prefs;preference=tab;tab=0' [current_tab == 0 ? "class='linkOn'" : ""]>Персонаж</a>"
-	dat += "<a href='?_src_=prefs;preference=tab;tab=1' [current_tab == 1 ? "class='linkOn'" : ""]>Разгрузка</a>"
+	dat += "<a href='?_src_=prefs;preference=tab;tab=1' [current_tab == 1 ? "class='linkOn'" : ""]>Мета-Магазин</a>"
 	dat += "<a href='?_src_=prefs;preference=tab;tab=2' [current_tab == 2 ? "class='linkOn'" : ""]>Игра</a>"
 	dat += "<a href='?_src_=prefs;preference=tab;tab=3' [current_tab == 3 ? "class='linkOn'" : ""]>OOC</a>"
 	dat += "<a href='?_src_=prefs;preference=tab;tab=4' [current_tab == 4 ? "class='linkOn'" : ""]>Хоткеи</a>"
@@ -489,7 +489,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<tr><td colspan=4><hr></td></tr>"
 			dat += "<tr><td><b>Название</b></td>"
 			dat += "<td><b>Цена</b></td>"
-			dat += "<td><b>Только для</b></td>"
+			dat += "<td><b>Роли</b></td>"
 			dat += "<td><b>Описание</b></td></tr>"
 			dat += "<tr><td colspan=4><hr></td></tr>"
 			for(var/gear_name in LC.gear)
@@ -503,14 +503,16 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					else
 						dat += "<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.display_name]'>[ticked ? "Экипировано" : "Экипировать"] "
 				else
-					dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить "
-				dat += "</a>[capitalize(G.display_name)]</td>"
+					dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить</a>"
+				dat += " - [capitalize(G.display_name)]</td>"
 				dat += "<td width=5% style='vertical-align:middle' class='metaprice'>[G.cost]</td><td>"
 				if(G.allowed_roles)
 					dat += "<font size=2>"
 					for(var/role in G.allowed_roles)
 						dat += role + " "
 					dat += "</font>"
+				else
+					dat += "<font size=2>Все</font>"
 				dat += "</td><td><font size=2><i>[G.description]</i></font></td></tr>"
 			dat += "</table>"
 
