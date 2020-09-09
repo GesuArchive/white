@@ -274,8 +274,8 @@
 	recipient.giveadminhelpverb() //reset ahelp CD to allow fast reply
 
 	admin_ticket_log(recipient, "<font color='blue'>PM From [s_admin]: [keywordparsedmsg]</font>")
-	//BWOINK
-	SEND_SOUND(recipient, sound('sound/effects/adminhelp.ogg'))
+	//Im fucking cumming
+	SEND_SOUND(recipient, sound(pick('white/fogmann/APM/APM1.ogg', 'white/fogmann/APM/APM2.ogg', 'white/fogmann/APM/APM3.ogg', 'white/fogmann/APM/APM4.ogg', 'white/fogmann/APM/APM5.ogg', 'white/fogmann/APM/APM6.ogg')))
 	log_admin_private("PM: IRC -> [r_ckey]: [sanitize(msg)]")
 	for(var/client/X in GLOB.admins)
 		to_chat(X, "<font color='blue'><B>PM: DISCORD([s_admin]) -&gt; [key_name(recipient, X, 0)]</B> [keywordparsedmsg]</font>")
