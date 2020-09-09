@@ -833,3 +833,21 @@
 	mob_species = /datum/species/dwarf
 	outfit = /datum/outfit/dwarf
 	assignedrole = "Dwarf"
+
+/turf/closed/mineral/random/dwarf_lustress
+	icon = 'icons/turf/mining.dmi'
+	smooth_icon = 'white/valtos/icons/lifeweb/caves_fuck.dmi'
+	icon_state = "rock"
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	environment_type = "stone_raw"
+	turf_type = /turf/open/floor/grass/gensgrass/dirty/stone/raw
+	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone/raw
+	mineralSpawnChanceList = list(/obj/item/stack/ore/diamond = 1, /obj/item/stack/ore/gold = 3, /obj/item/stack/ore/iron = 40)
+
+/area/awaymission/vietnam/dwarf
+	name = "Тёмное подземелье"
+	icon_state = "unexplored"
+	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	ambientsounds = AWAY_MISSION
+	requires_power = FALSE
+	ambientsounds = list('white/valtos/sounds/lifeweb/caves8.ogg', 'white/valtos/sounds/lifeweb/caves_old.ogg')
