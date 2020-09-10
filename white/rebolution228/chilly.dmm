@@ -106,8 +106,8 @@
 /area/awaymission/chilly/facility)
 "bo" = (
 /obj/item/kitchen/fork{
-	step_x = 22;
-	step_y = 0
+	pixel_x = 22;
+	pixel_y = 0
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/pod/light,
@@ -686,7 +686,7 @@
 /area/awaymission/chilly)
 "iV" = (
 /obj/structure/sink/kitchen{
-	step_y = 24
+	pixel_y = 24
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/showroomfloor,
@@ -2364,16 +2364,16 @@
 "Br" = (
 /obj/structure/table/reinforced,
 /obj/item/kitchen/fork{
-	step_x = -2;
-	step_y = 2
+	pixel_x = -2;
+	pixel_y = 2
 	},
 /obj/item/kitchen/fork{
-	step_x = 5;
-	step_y = -2
+	pixel_x = 5;
+	pixel_y = -2
 	},
 /obj/item/kitchen/fork{
-	step_x = -2;
-	step_y = 2
+	pixel_x = -2;
+	pixel_y = 2
 	},
 /obj/structure/window/reinforced{
 	dir = 4
