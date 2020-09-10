@@ -397,10 +397,9 @@
 		dat += "- <A href='?src=[REF(src)];strengthdown=1'>--</A>|<A href='?src=[REF(src)];strengthup=1'>++</A><BR><BR>"
 
 
-	user << browse(dat, "window=AMcontrol;size=420x500")
-	onclose(user, "AMcontrol")
-	return
-
+	var/datum/browser/popup = new(user, "AMcontrol", name, 420, 500)
+	popup.set_content(dat.Join())
+	popup.open()
 
 /obj/machinery/power/am_control_unit/Topic(href, href_list)
 	if(..())

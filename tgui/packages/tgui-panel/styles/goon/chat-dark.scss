@@ -8,11 +8,6 @@ em {
   font-weight: bold;
 }
 
-body {
-  background: repeating-linear-gradient(-70deg, transparent, transparent 1px, rgba(25, 25, 25, 0.3) 1px, rgba(125, 125, 125, 0.1) 4px) fixed,
-              radial-gradient(ellipse at 5% 50%, rgb(7, 22, 37) 0%, black 100%) fixed;
-}
-
 img {
   margin: 0;
   padding: 0;
@@ -30,7 +25,7 @@ img.icon {
 }
 
 a {
-  color: #397ea5;
+  color: #ffb07b;
 }
 
 a.visited {
@@ -216,7 +211,7 @@ a.popt {
 
 
 .motd {
-  color: #a4bad6;
+  color: #d6d6d6;
   font-family: Verdana, sans-serif;
   white-space: normal;
 }
@@ -227,7 +222,7 @@ a.popt {
 .motd h4,
 .motd h5,
 .motd h6 {
-  color: #a4bad6;
+  color: #d6d6d6;
   text-decoration: underline;
 }
 
@@ -236,7 +231,7 @@ a.popt {
 .motd a:visited,
 .motd a:active,
 .motd a:hover {
-  color: #a4bad6;
+  color: #d6d6d6;
 }
 
 
@@ -275,12 +270,18 @@ a.popt {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #a4bad6;
-  font-family: Georgia, Verdana, sans-serif;
+  color: #d6d6d6;
+  font-family: Verdana, sans-serif;
 }
 
 h1.alert, h2.alert {
-  color: #a4bad6;
+  margin-top: 8px;
+  color: #d6d6d6;
+  font-size: 20px;
+}
+
+h2.alert {
+  font-size: 16px;
 }
 
 em {
@@ -309,7 +310,7 @@ em {
 }
 
 .admin {
-  color: #5975da;
+  color: #ac5e2a;
   font-weight: bold;
 }
 
@@ -446,47 +447,47 @@ em {
 }
 
 .info {
-  color: #9ab0ff;
+  color: #d5d5d5;
 }
 
 .notice {
-  color: #6685f5;
+  color: #f2711c;
 }
 
 .tinynotice {
-  color: #6685f5;
+  color: #f5f5f5;
   font-size: 85%;
 }
 
 .tinynoticeital {
-  color: #6685f5;
+  color: #f5f5f5;
   font-style: italic;
   font-size: 85%;
 }
 
 .smallnotice {
-  color: #6685f5;
+  color: #f5f5f5;
   font-size: 95%;
 }
 
 .smallnoticeital {
-  color: #6685f5;
+  color: #f5f5f5;
   font-style: italic;
   font-size: 95%;
 }
 
 .boldnotice {
-  color: #6685f5;
+  color: #f5f5f5;
   font-weight: bold;
 }
 
 .hear {
-  color: #6685f5;
+  color: #f5f5f5;
   font-style: italic;
 }
 
 .adminnotice {
-  color: #6685f5;
+  color: #f5f5f5;
 }
 
 .adminhelp {
@@ -495,7 +496,7 @@ em {
 }
 
 .unconscious {
-  color: #a4bad6;
+  color: #d6d6d6;
   font-weight: bold;
 }
 
@@ -943,7 +944,7 @@ em {
 
 .examine_block {
   background: rgba(0, 0, 0, 0.6);
-  border: 1px solid #111a27;
+  border: 1px solid rgba(55, 55, 55, 0.33);
   margin: 2px 8px;
   padding: 8px 12px;
   max-width: 550px;

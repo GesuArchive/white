@@ -160,8 +160,8 @@ window "outputwindow"
 		anchor2 = 100,100
 		font-family = "Consolas"
 		font-size = 10
-		text-color = #000000
-		background-color = #ffffff
+		text-color = #ffffff
+		background-color = #020202
 		is-default = true
 		border = sunken
 		saved-params = "command"

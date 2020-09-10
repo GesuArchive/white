@@ -1,10 +1,10 @@
 // This is eventually for wjohn to add more color standardization stuff like I keep asking him >:(
 
-#define COLOR_INPUT_DISABLED			"#F0F0F0"
-#define COLOR_INPUT_ENABLED				"#D3B5B5"
+#define COLOR_INPUT_DISABLED			"#202020"
+#define COLOR_INPUT_ENABLED				"#020202"
 
-#define COLOR_DARKMODE_BACKGROUND		"#062240"
-#define COLOR_DARKMODE_DARKBACKGROUND	"#020D18"
+#define COLOR_DARKMODE_BACKGROUND		"#090909"
+#define COLOR_DARKMODE_DARKBACKGROUND	"#020202"
 #define COLOR_DARKMODE_TEXT				"#aaaaaa"
 
 #define COLOR_WHITE						"#FFFFFF"

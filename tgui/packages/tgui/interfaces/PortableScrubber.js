@@ -10,10 +10,10 @@ export const PortableScrubber = (props, context) => {
   return (
     <Window
       width={320}
-      height={350}>
+      height={370}>
       <Window.Content>
         <PortableBasicInfo />
-        <Section title="Filters">
+        <Section title="Фильтры">
           {filter_types.map(filter => (
             <Button
               key={filter.id}

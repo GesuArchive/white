@@ -33,7 +33,7 @@
 	. += "<hr>"
 	. += "<span class='notice'>Alt-клик для сброса поля к изначальному варианту.</span>"
 	. += "<span class='notice'>Ctrl-Shift-клик по доске, чтобы её свернуть.</span>"
-	. += "<span class='notice'>Ctrl-клик по шашке, чтобы её перевернуть.</span>"
+	. += "<span class='notice'>Shift-клик по шашке, чтобы её перевернуть.</span>"
 
 /obj/checkered_table/Initialize()
 	..()
@@ -194,7 +194,7 @@
 		piece_active = null
 		playsound(src.loc, 'white/valtos/sounds/checkers/capture.wav', 50)
 		visible_message("<span class='notice'><b>[user]</b> ставит шашку на место.</span>")
-	else if (clicked_piece && PR["ctrl"])
+	else if (clicked_piece && PR["shift"])
 		overlays -= clicked_piece
 		clicked_piece.icon_state = "[piece_active.name]"
 		if(clicked_piece.icon == 'white/valtos/icons/piece.dmi')
