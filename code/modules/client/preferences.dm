@@ -1595,9 +1595,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("hotkeys")
 					hotkeys = !hotkeys
 					if(hotkeys)
-						winset(user, null, "input.focus=true input.background-color=[COLOR_INPUT_ENABLED]")
+						winset(user, null, "input.focus=true")
 					else
-						winset(user, null, "input.focus=true input.background-color=[COLOR_INPUT_DISABLED]")
+						winset(user, null, "input.focus=true")
 
 				if("keybindings_capture")
 					var/datum/keybinding/kb = GLOB.keybindings_by_name[href_list["keybinding"]]

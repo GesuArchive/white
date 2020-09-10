@@ -1,6 +1,6 @@
 // This is eventually for wjohn to add more color standardization stuff like I keep asking him >:(
 
-#define COLOR_INPUT_DISABLED			"#202020"
+#define COLOR_INPUT_DISABLED			"#020202"
 #define COLOR_INPUT_ENABLED				"#020202"
 
 #define COLOR_DARKMODE_BACKGROUND		"#090909"

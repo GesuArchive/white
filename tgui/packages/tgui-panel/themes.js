@@ -50,6 +50,8 @@ export const setClientTheme = name => {
       'statwindow.background-color': 'none',
       'statwindow.text-color': '#000000',
       // Say, OOC, me Buttons etc.
+      'input.text-color': '#000000',
+      'input.background-color': 'none',
       'saybutton.background-color': 'none',
       'saybutton.text-color': '#000000',
       'asset_cache_browser.background-color': 'none',
@@ -77,6 +79,8 @@ export const setClientTheme = name => {
       'statwindow.background-color': COLOR_DARK_BG_DARKER,
       'statwindow.text-color': COLOR_DARK_TEXT,
       // Say, OOC, me Buttons etc.
+      'input.text-color': COLOR_DARK_TEXT,
+      'input.background-color': COLOR_DARK_BG_DARKER,
       'saybutton.background-color': COLOR_DARK_BG,
       'saybutton.text-color': COLOR_DARK_TEXT,
       'asset_cache_browser.background-color': COLOR_DARK_BG,
