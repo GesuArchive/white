@@ -20,21 +20,21 @@ export const GulagTeleporterConsole = (props, context) => {
   } = data;
   return (
     <Window
-      width={350}
+      width={410}
       height={295}>
       <Window.Content>
         <Section
-          title="Teleporter Console"
+          title="Консоль телепортера"
           buttons={(
             <Fragment>
               <Button
-                content={teleporter_state_open ? 'Open' : 'Closed'}
+                content={teleporter_state_open ? 'Открыто' : 'Закрыто'}
                 disabled={teleporter_lock}
                 selected={teleporter_state_open}
                 onClick={() => act('toggle_open')} />
               <Button
                 icon={teleporter_lock ? 'lock' : 'unlock'}
-                content={teleporter_lock ? 'Locked' : 'Unlocked'}
+                content={teleporter_lock ? 'Заблокировано' : 'Разблокировано'}
                 selected={teleporter_lock}
                 disabled={teleporter_state_open}
                 onClick={() => act('teleporter_lock')} />
@@ -42,37 +42,37 @@ export const GulagTeleporterConsole = (props, context) => {
           )}>
           <LabeledList>
             <LabeledList.Item
-              label="Teleporter Unit"
+              label="Локация телепортера"
               color={teleporter ? 'good' : 'bad'}
               buttons={!teleporter && (
                 <Button
-                  content="Reconnect"
+                  content="Переподключить"
                   onClick={() => act('scan_teleporter')}
                 />
               )}>
-              {teleporter ? teleporter_location : 'Not Connected'}
+              {teleporter ? teleporter_location : 'Не подключен'}
             </LabeledList.Item>
             <LabeledList.Item
-              label="Receiver Beacon"
+              label="Локация принимающего маячка"
               color={beacon ? 'good' : 'bad'}
               buttons={!beacon && (
                 <Button
-                  content="Reconnect"
+                  content="Переподключить"
                   onClick={() => act('scan_beacon')} />
               )}>
-              {beacon ? beacon_location : 'Not Connected'}
+              {beacon ? beacon_location : 'Не подключен'}
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section title="Prisoner Details">
+        <Section title="Детали заключённого">
           <LabeledList>
-            <LabeledList.Item label="Prisoner ID">
+            <LabeledList.Item label="ID заключённого">
               <Button
                 fluid
-                content={id ? id_name : 'No ID'}
+                content={id ? id_name : 'Нет ID'}
                 onClick={() => act('handle_id')} />
             </LabeledList.Item>
-            <LabeledList.Item label="Point Goal">
+            <LabeledList.Item label="Нужно накопить">
               <NumberInput
                 value={goal}
                 width="48px"
@@ -80,17 +80,17 @@ export const GulagTeleporterConsole = (props, context) => {
                 maxValue={1000}
                 onChange={(e, value) => act('set_goal', { value })} />
             </LabeledList.Item>
-            <LabeledList.Item label="Occupant">
-              {prisoner.name || 'No Occupant'}
+            <LabeledList.Item label="Внутри">
+              {prisoner.name || 'Пусто'}
             </LabeledList.Item>
-            <LabeledList.Item label="Criminal Status">
-              {prisoner.crimstat || 'No Status'}
+            <LabeledList.Item label="Преступный статус">
+              {prisoner.crimstat || 'Нет'}
             </LabeledList.Item>
           </LabeledList>
         </Section>
         <Button
           fluid
-          content="Process Prisoner"
+          content="Начать процедуру отправки"
           disabled={!can_teleport}
           textAlign="center"
           color="bad"

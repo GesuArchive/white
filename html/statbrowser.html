@@ -14,11 +14,11 @@ body {
 	padding: 0 !important;
 	overflow-x: hidden;
 
-	scrollbar-face-color: #062240;
-	scrollbar-arrow-color: #062240;
-	scrollbar-track-color: #010912;
-	scrollbar-3dlight-color: #062240;
-	scrollbar-darkshadow-Color: #062240;
+	scrollbar-face-color: #242424;
+	scrollbar-arrow-color: #242424;
+	scrollbar-track-color: #090909;
+	scrollbar-3dlight-color: #080808;
+	scrollbar-darkshadow-Color: #080808;
 }
 
 ::-webkit-scrollbar {
@@ -31,13 +31,13 @@ body {
 }
 
 .dark #statcontent {
-	outline: 1px solid #062240;
-	background: #010912;
+	outline: 1px solid #080808;
+	background: #010101;
 }
 
 body.dark {
-	background-color: #020D18;
-	color: #abc6ec;
+	background-color: #040404;
+	color: #f6914c;
 }
 
 #menu {
@@ -47,7 +47,7 @@ body.dark {
 	width: 100%;
 }
 .dark #menu {
-	background-color: #020D18;
+	background-color: #040404;
 }
 
 #statcontent {
@@ -62,7 +62,7 @@ a:hover, .dark a:hover {
 	text-decoration: underline;
 }
 .dark a {
-	color: #abc6ec;
+	color: #f6914c;
 }
 
 ul {
@@ -103,33 +103,38 @@ li a:hover:not(.active) {
 	border-color: rgba(255, 255, 254, 0.5);
 	border-width: 1px;
 	color: black;
-	padding: 2px 4px;
+	padding: 3px 6px;
 	text-align: center;
 	text-decoration: none;
 	font-size: 12px;
-	margin: 2px 2px;
+	margin: 1px 1px;
 	cursor: pointer;
 	border-radius: 10%;
 	transition-duration: 0.25s;
 	order: 3;
 }
 .dark button {
-	background-color: #062240;
+	background-color: #080808;
 	border-color: rgba(37, 37, 36, 0.5);
-	color: white;
+	color: #f2711c;
 }
 .button:hover {
 	border-color: rgba(255, 255, 254, 0.5);
-	background-color: #062240;
+	background-color: #080808;
 	color: white;
 }
 .dark button:hover {
 	border-color: rgba(37, 37, 36, 0.5);
-	background-color: #FFFFFE;
-	color: #062240;
+	background-color: #f2711c;
+	color: #080808;
 }
 .button:active, .button.active {
 	text-decoration: underline;
+}
+.dark .button:active, .dark .button.active {
+	text-decoration: none;
+	background-color: #f2711c;
+	color: #080808;
 }
 .grid-container {
 	display: inline-flex;
@@ -169,7 +174,7 @@ li a:hover:not(.active) {
 }
 
 .dark .grid-item {
-	background-color: #062240;
+	background-color: #080808;
 	outline: 1px solid rgba(37, 37, 36, 0.5);
 }
 .link {
@@ -184,7 +189,7 @@ li a:hover:not(.active) {
 	margin: 2px 2px;
 }
 .dark .link {
-	color: #abc6ec;
+	color: #f6914c;
 }
 .link:hover {
 	text-decoration: underline;

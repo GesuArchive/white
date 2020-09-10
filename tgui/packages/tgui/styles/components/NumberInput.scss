@@ -21,7 +21,7 @@ $border-radius: Input.$border-radius !default;
   border-radius: $border-radius;
   color: $border-color;
   background-color: $background-color;
-  padding: 0 base.em(4px);
+  padding: 0.1em base.em(4px);
   margin-right: base.em(2px);
   line-height: base.em(17px);
   text-align: right;

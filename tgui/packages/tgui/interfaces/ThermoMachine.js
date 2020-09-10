@@ -10,7 +10,7 @@ export const ThermoMachine = (props, context) => {
       width={300}
       height={230}>
       <Window.Content>
-        <Section title="Status">
+        <Section title="Состояние">
           <LabeledList>
             <LabeledList.Item label="Температура">
               <AnimatedNumber

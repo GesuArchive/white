@@ -29,7 +29,7 @@ export const ShuttleConsole = (props, context) => {
               mt={2}
               ml={2}
               color="bad">
-              {'SHUTTLE LOCKED'}
+              {'ШАТТЛ ЗАБЛОКИРОВАН'}
             </Flex.Item>
           </Flex>
           <Box
@@ -38,7 +38,7 @@ export const ShuttleConsole = (props, context) => {
             <Button
               lineHeight="40px"
               icon="arrow-circle-right"
-              content="Request Authorization"
+              content="Запросить авторизацию"
               color="bad"
               onClick={() => act('request')} />
           </Box>
@@ -86,7 +86,7 @@ const ShuttleConsoleContent = (props, context) => {
         <Box
           inline
           bold>
-          STATUS:
+          СОСТОЯНИЕ:
         </Box>
         <Box
           inline
@@ -98,20 +98,20 @@ const ShuttleConsoleContent = (props, context) => {
                 ? 'average'
                 : 'bad'}
           ml={1}>
-          {status || "Not Available"}
+          {status || "НЕДОСТУПНО"}
         </Box>
       </Box>
       <Section
-        title="Shuttle Controls"
+        title="Управление шаттлом"
         level={2}>
         <LabeledList>
-          <LabeledList.Item label="Location">
-            {docked_location || "Not Available"}
+          <LabeledList.Item label="Локация">
+            {docked_location || "НЕДОСТУПНО"}
           </LabeledList.Item>
-          <LabeledList.Item label="Destination">
+          <LabeledList.Item label="Цель">
             {locations.length===0 && (
               <Box color="bad">
-                Not Available
+                НЕДОСТУПНО
               </Box>
             ) || locations.length===1 &&(
               <Box color="average">
@@ -123,7 +123,7 @@ const ShuttleConsoleContent = (props, context) => {
                 width="240px"
                 options={locations.map(location => location.name)}
                 disabled={locked || authorization_required}
-                selected={getLocationNameById(locations, destination) || "Select a Destination"}
+                selected={getLocationNameById(locations, destination) || "Выберите цель"}
                 onSelected={value => act('set_destination', {
                   destination: getLocationIdByName(locations, value),
                 })} />)}
@@ -131,7 +131,7 @@ const ShuttleConsoleContent = (props, context) => {
         </LabeledList>
         <Button
           fluid
-          content="Depart"
+          content="ЗАПУСК"
           disabled={!getLocationNameById(locations, destination)
             || locked || authorization_required}
           mt={1.5}

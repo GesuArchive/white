@@ -9,6 +9,7 @@
 
 $color-default: colors.bg(colors.$primary) !default;
 $color-disabled: #999999 !default;
+$color-disabled-text: #000000 !default;
 $color-selected: colors.bg(colors.$green) !default;
 $color-caution: colors.bg(colors.$yellow) !default;
 $color-danger: colors.bg(colors.$red) !default;
@@ -19,12 +20,13 @@ $bg-map: colors.$bg-map !default;
 @mixin button-color($color) {
   // Adapt text color to background luminance to ensure high contast
   $luminance: luminance($color);
-  $text-color: if($luminance > 0.4,
+  $text-color: if($luminance > 0.5,
     rgba(0, 0, 0, 1),
     rgba(255, 255, 255, 1));
 
   transition: color 50ms, background-color 50ms;
-  background-color: $color;
+  background-color: darken($color, 20%);
+  border: 1px solid $color;
   color: $text-color;
 
   &:hover {
@@ -37,7 +39,7 @@ $bg-map: colors.$bg-map !default;
 
   &:hover,
   &:focus {
-    background-color: lighten($color, 15%);
+    background-color: darken($color, 5%);
     color: $text-color;
   }
 }
@@ -122,6 +124,8 @@ $bg-map: colors.$bg-map !default;
 
 .Button--disabled {
   background-color: $color-disabled !important;
+  color: $color-disabled-text !important;
+  border: 1px solid $color-disabled  !important;
 }
 
 .Button--selected {

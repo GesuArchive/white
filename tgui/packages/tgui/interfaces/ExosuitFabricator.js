@@ -192,7 +192,7 @@ export const ExosuitFabricator = (props, context) => {
                   title="Категории"
                   buttons={(
                     <Button
-                      content="R&D Синхр."
+                      content="Синхр."
                       onClick={() => act("sync_rnd")} />
                   )}>
                   <PartSets />

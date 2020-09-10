@@ -12,25 +12,25 @@ export const Photocopier = (props, context) => {
 
   return (
     <Window
-      title="Photocopier"
+      title="Копировальщик"
       width={240}
       height={isAI ? 309 : 234}>
       <Window.Content>
         {has_toner ? (
           <Toner />
         ) : (
-          <Section title="Toner">
+          <Section title="Краска">
             <Box color="average">
-              No inserted toner cartridge.
+              Не обнаружена краска.
             </Box>
           </Section>
         )}
         {has_item ? (
           <Options />
         ) : (
-          <Section title="Options">
+          <Section title="Опции">
             <Box color="average">
-              No inserted item.
+              Внутри ничего нет.
             </Box>
           </Section>
         )}
@@ -54,7 +54,7 @@ const Toner = (props, context) => {
 
   return (
     <Section
-      title="Toner"
+      title="Краска"
       buttons={
         <Button
           disabled={!current_toner}
@@ -86,13 +86,13 @@ const Options = (props, context) => {
   } = data;
 
   return (
-    <Section title="Options">
+    <Section title="Опции">
       <Flex>
         <Flex.Item
           mt={0.4}
           width={11}
           color="label">
-          Make copies:
+          Сделать копии:
         </Flex.Item>
         <Flex.Item>
           <NumberInput
@@ -115,7 +115,7 @@ const Options = (props, context) => {
             textAlign="center"
             disabled={!has_enough_toner}
             onClick={() => act('make_copy')}>
-            Copy
+            Копировать
           </Button>
         </Flex.Item>
       </Flex>
@@ -131,7 +131,7 @@ const Options = (props, context) => {
               onClick={() => act('color_mode', {
                 mode: "Greyscale",
               })}>
-              Greyscale
+              Чёрно-белое
             </Button>
           </Flex.Item>
           <Flex.Item
@@ -144,7 +144,7 @@ const Options = (props, context) => {
               onClick={() => act('color_mode', {
                 mode: "Color",
               })}>
-              Color
+              Цветное
             </Button>
           </Flex.Item>
         </Flex>
@@ -155,7 +155,7 @@ const Options = (props, context) => {
         icon="reply"
         fluid
         onClick={() => act('remove')}>
-        Remove item
+        Изъять предмет
       </Button>
     </Section>
   );
@@ -174,7 +174,7 @@ const AIOptions = (props, context) => {
           textAlign="center"
           disabled={!can_AI_print}
           onClick={() => act('ai_photo')}>
-          Print photo from database
+          Распечатать фото из базы
         </Button>
       </Box>
     </Section>
