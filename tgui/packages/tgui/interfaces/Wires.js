@@ -10,14 +10,14 @@ export const Wires = (props, context) => {
   const statuses = data.status || [];
   return (
     <Window
-      width={400}
+      width={450}
       height={150
         + (wires.length * 30)
         + (!!proper_name && 30)}>
       <Window.Content>
         {(!!proper_name && (
           <NoticeBox textAlign="center">
-            {proper_name} Wire Configuration
+            {proper_name} Настройка проводов
           </NoticeBox>
         ))}
         <Section>
