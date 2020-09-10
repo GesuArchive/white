@@ -10,6 +10,7 @@
 
 /area/trading_outpost/transfer
 	name = "Trading Outpost Transfer"
+	area_flags = UNIQUE_AREA
 
 /obj/item/card/id/departmental_budget/tra
 	department_ID = ACCOUNT_TRA
