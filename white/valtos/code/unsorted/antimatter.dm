@@ -398,7 +398,7 @@
 
 
 	var/datum/browser/popup = new(user, "AMcontrol", name, 420, 500)
-	popup.set_content(dat.Join())
+	popup.set_content(dat)
 	popup.open()
 
 /obj/machinery/power/am_control_unit/Topic(href, href_list)
