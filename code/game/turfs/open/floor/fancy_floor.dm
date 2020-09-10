@@ -82,9 +82,12 @@
 	var/ore_type = /obj/item/stack/ore/glass
 	var/turfverb = "вскапываю"
 	tiled_dirt = FALSE
+	var/nospawn = FALSE
 
 /turf/open/floor/grass/Initialize()
 	. = ..()
+	if(nospawn)
+		return
 	spawniconchange()
 
 /turf/open/floor/grass/proc/spawniconchange()

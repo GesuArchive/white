@@ -847,6 +847,7 @@
 /area/awaymission/vietnam/dwarf
 	name = "Тёмное подземелье"
 	icon_state = "unexplored"
+	outdoors = TRUE
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	ambientsounds = AWAY_MISSION
 	requires_power = FALSE

@@ -10,7 +10,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
-	var/nospawn = FALSE
+	nospawn = FALSE
 	floor_tile = null
 	baseturfs = /turf/open/floor/grass/gensgrass/dirty
 
