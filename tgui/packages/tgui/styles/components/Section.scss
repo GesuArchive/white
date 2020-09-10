@@ -10,7 +10,7 @@
 
 $title-text-color: base.$color-fg !default;
 $background-color: base.$color-bg-section !default;
-$separator-color: colors.$primary !default;
+$separator-color: lighten(base.$color-bg-section, 30%) !default;
 $shadow-color: rgba(0, 0, 0, 0.5) !default;
 $shadow-type: inset !default;
 $shadow-size: 0.5em !default;
