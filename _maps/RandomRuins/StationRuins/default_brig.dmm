@@ -1112,6 +1112,8 @@
 	pixel_x = -25
 	},
 /obj/structure/cable,
+/obj/structure/bed/dogbed/lia,
+/mob/living/simple_animal/hostile/carp/cayenne/lia,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 5
 	},
