@@ -50,7 +50,7 @@ const Cyborgs = (props, context) => {
   if (!cyborgs.length) {
     return (
       <NoticeBox>
-        No cyborg units detected within access parameters
+        Не обнаружено подходящих киборгов
       </NoticeBox>
     );
   }
@@ -64,7 +64,7 @@ const Cyborgs = (props, context) => {
             {!!can_hack && !cyborg.emagged && (
               <Button
                 icon="terminal"
-                content="Hack"
+                content="Взломать"
                 color="bad"
                 onClick={() => act('magbot', {
                   ref: cyborg.ref,
@@ -73,13 +73,13 @@ const Cyborgs = (props, context) => {
             <Button.Confirm
               icon={cyborg.locked_down ? 'unlock' : 'lock'}
               color={cyborg.locked_down ? 'good' : 'default'}
-              content={cyborg.locked_down ? "Release" : "Lockdown"}
+              content={cyborg.locked_down ? "Разблокировать" : "Блокировать"}
               onClick={() => act('stopbot', {
                 ref: cyborg.ref,
               })} />
             <Button.Confirm
               icon="bomb"
-              content="Detonate"
+              content="Взорвать"
               color="bad"
               onClick={() => act('killbot', {
                 ref: cyborg.ref,
@@ -87,20 +87,20 @@ const Cyborgs = (props, context) => {
           </Fragment>
         )}>
         <LabeledList>
-          <LabeledList.Item label="Status">
+          <LabeledList.Item label="Состояние">
             <Box color={cyborg.status
               ? 'bad'
               : cyborg.locked_down
                 ? 'average'
                 : 'good'}>
               {cyborg.status
-                ? "Not Responding"
+                ? "Не отвечает"
                 : cyborg.locked_down
-                  ? "Locked Down"
-                  : "Nominal"}
+                  ? "Заблокирован"
+                  : "Стабильное"}
             </Box>
           </LabeledList.Item>
-          <LabeledList.Item label="Charge">
+          <LabeledList.Item label="Заряд">
             <Box color={cyborg.charge <= 30
               ? 'bad'
               : cyborg.charge <= 70
@@ -108,15 +108,15 @@ const Cyborgs = (props, context) => {
                 : 'good'}>
               {typeof cyborg.charge === 'number'
                 ? cyborg.charge + "%"
-                : "Not Found"}
+                : "Не обнаружено"}
             </Box>
           </LabeledList.Item>
-          <LabeledList.Item label="Module">
+          <LabeledList.Item label="Модуль">
             {cyborg.module}
           </LabeledList.Item>
-          <LabeledList.Item label="Master AI">
+          <LabeledList.Item label="Основной ИИ">
             <Box color={cyborg.synchronization ? 'default' : 'average'}>
-              {cyborg.synchronization || "None"}
+              {cyborg.synchronization || "Нет"}
             </Box>
           </LabeledList.Item>
         </LabeledList>
@@ -132,7 +132,7 @@ const Drones = (props, context) => {
   if (!drones.length) {
     return (
       <NoticeBox>
-        No drone units detected within access parameters
+        Не обнаружено подходящих дронов
       </NoticeBox>
     );
   }
@@ -145,20 +145,20 @@ const Drones = (props, context) => {
         buttons={(
           <Button.Confirm
             icon="bomb"
-            content="Detonate"
+            content="Взорвать"
             color="bad"
             onClick={() => act('killdrone', {
               ref: drone.ref,
             })} />
         )}>
         <LabeledList>
-          <LabeledList.Item label="Status">
+          <LabeledList.Item label="Состояние">
             <Box color={drone.status
               ? 'bad'
               : 'good'}>
               {drone.status
-                ? "Not Responding"
-                : 'Nominal'}
+                ? "Не отвечает"
+                : 'Стабильное'}
             </Box>
           </LabeledList.Item>
         </LabeledList>

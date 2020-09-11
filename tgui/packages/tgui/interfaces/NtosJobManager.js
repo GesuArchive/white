@@ -5,7 +5,7 @@ import { NtosWindow } from '../layouts';
 export const NtosJobManager = (props, context) => {
   return (
     <NtosWindow
-      width={400}
+      width={450}
       height={620}
       resizable>
       <NtosWindow.Content scrollable>
@@ -26,7 +26,7 @@ export const NtosJobManagerContent = (props, context) => {
   if (!authed) {
     return (
       <NoticeBox>
-        Current ID does not have access permissions to change job slots.
+        Текущий доступ не имеет прав для управления работами.
       </NoticeBox>
     );
   }
@@ -38,17 +38,17 @@ export const NtosJobManagerContent = (props, context) => {
             bold
             textAlign="center"
             fontSize="20px">
-            On Cooldown: {cooldown}s
+            Ожидайте: {cooldown}s
           </Box>
         </Dimmer>
       )}
       <Table>
         <Table.Row header>
           <Table.Cell>
-            Prioritized
+            Приоритетно
           </Table.Cell>
           <Table.Cell>
-            Slots
+            Места
           </Table.Cell>
         </Table.Row>
         {slots.map(slot => (
@@ -71,13 +71,13 @@ export const NtosJobManagerContent = (props, context) => {
             </Table.Cell>
             <Table.Cell collapsing>
               <Button
-                content="Open"
+                content="Открыть"
                 disabled={!slot.status_open}
                 onClick={() => act('PRG_open_job', {
                   target: slot.title,
                 })} />
               <Button
-                content="Close"
+                content="Закрыть"
                 disabled={!slot.status_close}
                 onClick={() => act('PRG_close_job', {
                   target: slot.title,

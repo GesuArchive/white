@@ -17,17 +17,17 @@ export const Timer = (props, context) => {
       height={115}>
       <Window.Content>
         <Section
-          title="Timing Unit"
+          title="Таймер"
           buttons={(
             <Fragment>
               <Button
                 icon={'sync'}
-                content={loop ? 'Repeating' : 'Repeat'}
+                content={loop ? 'Повторяет' : 'Повторять'}
                 selected={loop}
                 onClick={() => act('repeat')} />
               <Button
                 icon={"clock-o"}
-                content={timing ? 'Stop' : 'Start'}
+                content={timing ? 'Стоп' : 'Старт'}
                 selected={timing}
                 onClick={() => act('time')} />
             </Fragment>

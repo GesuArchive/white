@@ -11,17 +11,17 @@ export const Electrolyzer = (props, context) => {
       height={305}>
       <Window.Content>
         <Section
-          title="Power"
+          title="Питание"
           buttons={(
             <Fragment>
               <Button
                 icon="eject"
-                content="Eject Cell"
+                content="Изъять батарейку"
                 disabled={!data.hasPowercell || !data.open}
                 onClick={() => act('eject')} />
               <Button
                 icon={data.on ? 'power-off' : 'times'}
-                content={data.on ? 'On' : 'Off'}
+                content={data.on ? 'ВКЛ' : 'ВЫКЛ'}
                 selected={data.on}
                 disabled={!data.hasPowercell}
                 onClick={() => act('power')} />

@@ -59,7 +59,7 @@ export const PersonalCrafting = (props, context) => {
     .filter(recipe => recipe.category === tab);
   return (
     <Window
-      title="Crafting Menu"
+      title="Меню сборки"
       width={700}
       height={800}
       resizable>

@@ -39,7 +39,7 @@ export const NtosCardContent = (props, context) => {
   if (!have_id_slot) {
     return (
       <NoticeBox>
-        This program requires an ID slot in order to function
+        Эта программа требует слот для ID-карты
       </NoticeBox>
     );
   }
@@ -56,17 +56,17 @@ export const NtosCardContent = (props, context) => {
                 name: value,
               })} />
           )
-          : (id_owner || 'No Card Inserted')}
+          : (id_owner || 'Вставьте карту')}
         buttons={(
           <Fragment>
             <Button
               icon="print"
-              content="Print"
+              content="Распечатать"
               disabled={!have_printer || !has_id}
               onClick={() => act('PRG_print')} />
             <Button
               icon={authenticated ? "sign-out-alt" : "sign-in-alt"}
-              content={authenticated ? "Log Out" : "Log In"}
+              content={authenticated ? "Выйти" : "Войти"}
               color={authenticated ? "bad" : "good"}
               onClick={() => {
                 act(authenticated ? 'PRG_logout' : 'PRG_authenticate');
@@ -85,12 +85,12 @@ export const NtosCardContent = (props, context) => {
             <Tabs.Tab
               selected={tab === 1}
               onClick={() => setTab(1)}>
-              Access
+              Доступы
             </Tabs.Tab>
             <Tabs.Tab
               selected={tab === 2}
               onClick={() => setTab(2)}>
-              Jobs
+              Должности
             </Tabs.Tab>
           </Tabs>
           {tab === 1 && (
@@ -115,13 +115,13 @@ export const NtosCardContent = (props, context) => {
               buttons={(
                 <Button.Confirm
                   icon="exclamation-triangle"
-                  content="Terminate"
+                  content="Терминация"
                   color="bad"
                   onClick={() => act('PRG_terminate')} />
               )}>
               <Button.Input
                 fluid
-                content="Custom..."
+                content="Своя..."
                 onCommit={(e, value) => act('PRG_assign', {
                   assign_target: 'Custom',
                   custom_name: value,

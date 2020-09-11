@@ -37,12 +37,12 @@ export const Wires = (props, context) => {
                         wire: wire.color,
                       })} />
                     <Button
-                      content="Pulse"
+                      content="Пульс"
                       onClick={() => act('pulse', {
                         wire: wire.color,
                       })} />
                     <Button
-                      content={wire.attached ? 'Отсоединить' : 'Присоединить'}
+                      content={wire.attached ? 'Отсо.' : 'Прис.'}
                       onClick={() => act('attach', {
                         wire: wire.color,
                       })} />

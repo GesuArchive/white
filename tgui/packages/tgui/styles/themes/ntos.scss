@@ -19,7 +19,7 @@ $nanotrasen: #191919;
 .theme-ntos {
   // Components
   @include meta.load-css('../components/Button.scss', $with: (
-    'color-default': $nanotrasen,
+    'color-default': lighten($nanotrasen, 70%),
     'color-transparent-text': rgba(227, 240, 255, 0.75),
   ));
   @include meta.load-css('../components/ProgressBar.scss', $with: (

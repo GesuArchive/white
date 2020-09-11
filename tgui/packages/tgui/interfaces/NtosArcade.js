@@ -19,7 +19,7 @@ export const NtosArcade = (props, context) => {
                 <Box m={1} />
                 <LabeledList>
                   <LabeledList.Item
-                    label="Player Health">
+                    label="Здоровье игрока">
                     <ProgressBar
                       value={data.PlayerHitpoints}
                       minValue={0}
@@ -34,7 +34,7 @@ export const NtosArcade = (props, context) => {
                     </ProgressBar>
                   </LabeledList.Item>
                   <LabeledList.Item
-                    label="Player Magic">
+                    label="Магия игрока">
                     <ProgressBar
                       value={data.PlayerMP}
                       minValue={0}
@@ -81,44 +81,44 @@ export const NtosArcade = (props, context) => {
             <Box my={1} mx={4} />
             <Button
               icon="fist-raised"
-              tooltip="Go in for the kill!"
+              tooltip="В АТАКУ!"
               tooltipPosition="top"
               disabled={data.GameActive === 0 || data.PauseState === 1}
               onClick={() => act('Attack')}
-              content="Attack!" />
+              content="АТАКА!" />
             <Button
               icon="band-aid"
-              tooltip="Heal yourself!"
+              tooltip="Полечим же себя!"
               tooltipPosition="top"
               disabled={data.GameActive === 0 || data.PauseState === 1}
               onClick={() => act('Heal')}
-              content="Heal!" />
+              content="ЛЕЧЕНИЕ!" />
             <Button
               icon="magic"
-              tooltip="Recharge your magic!"
+              tooltip="Зарядимся магической силушкой!"
               tooltipPosition="top"
               disabled={data.GameActive === 0 || data.PauseState === 1}
               onClick={() => act('Recharge_Power')}
-              content="Recharge!" />
+              content="ПЕРЕЗАРЯДКА!" />
           </Box>
           <Box>
             <Button
               icon="sync-alt"
-              tooltip="One more game couldn't hurt."
+              tooltip="Ещё одна партия не навредит."
               tooltipPosition="top"
               disabled={data.GameActive === 1}
               onClick={() => act('Start_Game')}
-              content="Begin Game" />
+              content="Начать игру" />
             <Button
               icon="ticket-alt"
-              tooltip="Claim at your local Arcade Computer for Prizes!"
+              tooltip="Получите призы на своем местном аркадном компьютере!"
               tooltipPosition="top"
               disabled={data.GameActive === 1}
               onClick={() => act('Dispense_Tickets')}
-              content="Claim Tickets" />
+              content="Забрать билетики" />
           </Box>
           <Box color={data.TicketCount >= 1 ? 'good' : 'normal'}>
-            Earned Tickets: {data.TicketCount}
+            Заработано билетиков: {data.TicketCount}
           </Box>
         </Section>
       </NtosWindow.Content>

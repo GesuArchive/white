@@ -22,13 +22,13 @@ export const SmartVend = (props, context) => {
           )}>
           {data.contents.length === 0 && (
             <NoticeBox>
-              Невероятно, но {data.name} пуст.
+              К сожалению, {data.name} пуст.
             </NoticeBox>
           ) || (
             <Table>
               <Table.Row header>
                 <Table.Cell>
-                  Item
+                  Предмет
                 </Table.Cell>
                 <Table.Cell collapsing />
                 <Table.Cell collapsing textAlign="center">

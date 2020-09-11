@@ -10,7 +10,7 @@ export const NtosRadar = (props, context) => {
       width={800}
       height={600}
       theme="ntos">
-      <NtosRadarContent sig_err={"Signal Lost"} />
+      <NtosRadarContent sig_err={"Сигнал потерян"} />
     </NtosWindow>
   );
 };
@@ -42,7 +42,7 @@ export const NtosRadarContent = (props, context) => {
               onClick={() => act('scan')} />
             {!object.length && !scanning && (
               <div>
-                No trackable signals found
+                Не обнаружено отслеживаемых сигналов
               </div>
             )}
             {!scanning && object.map(object => (

@@ -23,97 +23,97 @@ export const NtosNetMonitor = (props, context) => {
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>
         <NoticeBox>
-          WARNING: Disabling wireless transmitters when using
-          a wireless device may prevent you from reenabling them!
+          ВНИМАНИЕ: Отключение беспроводной передачи данных через
+          беспроводное устройство может затруднить её обратное включение!
         </NoticeBox>
         <Section
-          title="Wireless Connectivity"
+          title="Беспроводная сеть"
           buttons={(
             <Button.Confirm
               icon={ntnetstatus ? 'power-off' : 'times'}
-              content={ntnetstatus ? 'ENABLED' : 'DISABLED'}
+              content={ntnetstatus ? 'ВКЛЮЧЕНА' : 'ОТКЛЮЧЕНА'}
               selected={ntnetstatus}
               onClick={() => act('toggleWireless')} />
           )}>
           {ntnetrelays ? (
             <LabeledList>
-              <LabeledList.Item label="Active NTNet Relays">
+              <LabeledList.Item label="Активные реле NTNet">
                 {ntnetrelays}
               </LabeledList.Item>
             </LabeledList>
-          ) : "No Relays Connected"}
+          ) : "Не обнаружено"}
         </Section>
-        <Section title="Firewall Configuration">
+        <Section title="Настройка файрвола">
           <LabeledList>
             <LabeledList.Item
-              label="Software Downloads"
+              label="Репозитории"
               buttons={(
                 <Button
                   icon={config_softwaredownload ? 'power-off' : 'times'}
-                  content={config_softwaredownload ? 'ENABLED' : 'DISABLED'}
+                  content={config_softwaredownload ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
                   selected={config_softwaredownload}
                   onClick={() => act('toggle_function', { id: "1" })} />
               )} />
             <LabeledList.Item
-              label="Peer to Peer Traffic"
+              label="P2P трафик"
               buttons={(
                 <Button
                   icon={config_peertopeer ? 'power-off' : 'times'}
-                  content={config_peertopeer ? 'ENABLED' : 'DISABLED'}
+                  content={config_peertopeer ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
                   selected={config_peertopeer}
                   onClick={() => act('toggle_function', { id: "2" })} />
               )} />
             <LabeledList.Item
-              label="Communication Systems"
+              label="Системы связи"
               buttons={(
                 <Button
                   icon={config_communication ? 'power-off' : 'times'}
-                  content={config_communication ? 'ENABLED' : 'DISABLED'}
+                  content={config_communication ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
                   selected={config_communication}
                   onClick={() => act('toggle_function', { id: "3" })} />
               )} />
             <LabeledList.Item
-              label="Remote System Control"
+              label="Удалённый контроль систем"
               buttons={(
                 <Button
                   icon={config_systemcontrol ? 'power-off' : 'times'}
-                  content={config_systemcontrol ? 'ENABLED' : 'DISABLED'}
+                  content={config_systemcontrol ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
                   selected={config_systemcontrol}
                   onClick={() => act('toggle_function', { id: "4" })} />
               )} />
           </LabeledList>
         </Section>
-        <Section title="Security Systems">
+        <Section title="Безопасность">
           {!!idsalarm && (
             <Fragment>
               <NoticeBox>
-                NETWORK INCURSION DETECTED
+                ОБНАРУЖЕНО ВТОРЖЕНИЕ В СЕТЬ
               </NoticeBox>
               <Box italics>
-                Abnormal activity has been detected in the network.
-                Check system logs for more information
+                В сети обнаружена аномальная активность. Проверьте системные
+                журналы для получения дополнительной информации
               </Box>
             </Fragment>
           )}
           <LabeledList>
             <LabeledList.Item
-              label="IDS Status"
+              label="Слежение"
               buttons={(
                 <Fragment>
                   <Button
                     icon={idsstatus ? 'power-off' : 'times'}
-                    content={idsstatus ? 'ENABLED' : 'DISABLED'}
+                    content={idsstatus ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
                     selected={idsstatus}
                     onClick={() => act('toggleIDS')} />
                   <Button
                     icon="sync"
-                    content="Reset"
+                    content="Сбросить состояние"
                     color="bad"
                     onClick={() => act('resetIDS')} />
                 </Fragment>
               )} />
             <LabeledList.Item
-              label="Max Log Count"
+              label="Максимальное число строк"
               buttons={(
                 <NumberInput
                   value={ntnetmaxlogs}
@@ -127,12 +127,12 @@ export const NtosNetMonitor = (props, context) => {
               )} />
           </LabeledList>
           <Section
-            title="System Log"
+            title="Системный журнал"
             level={2}
             buttons={(
               <Button.Confirm
                 icon="trash"
-                content="Clear Logs"
+                content="Очистить"
                 onClick={() => act('purgelogs')} />
             )}>
             {ntnetlogs.map(log => (

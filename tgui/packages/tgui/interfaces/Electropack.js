@@ -19,19 +19,19 @@ export const Electropack = (props, context) => {
       <Window.Content>
         <Section>
           <LabeledList>
-            <LabeledList.Item label="Power">
+            <LabeledList.Item label="Питание">
               <Button
                 icon={power ? 'power-off' : 'times'}
-                content={power ? 'On' : 'Off'}
+                content={power ? 'ВКЛ' : 'ВЫКЛ'}
                 selected={power}
                 onClick={() => act('power')} />
             </LabeledList.Item>
             <LabeledList.Item
-              label="Frequency"
+              label="Частота"
               buttons={(
                 <Button
                   icon="sync"
-                  content="Reset"
+                  content="Сброс"
                   onClick={() => act('reset', {
                     reset: "freq",
                   })} />
@@ -51,7 +51,7 @@ export const Electropack = (props, context) => {
                 })} />
             </LabeledList.Item>
             <LabeledList.Item
-              label="Code"
+              label="Код"
               buttons={(
                 <Button
                   icon="sync"

@@ -27,7 +27,7 @@ export const NtosFileManager = (props, context) => {
             onDuplicate={file => act('PRG_clone', { file: file })} />
         </Section>
         {usbconnected && (
-          <Section title="Data Disk">
+          <Section title="Диск с данными">
             <FileTable
               usbmode
               files={usbfiles}
@@ -59,13 +59,13 @@ const FileTable = props => {
     <Table>
       <Table.Row header>
         <Table.Cell>
-          File
+          Файл
         </Table.Cell>
         <Table.Cell collapsing>
-          Type
+          Тип
         </Table.Cell>
         <Table.Cell collapsing>
-          Size
+          Размер
         </Table.Cell>
       </Table.Row>
       {files.map(file => (
@@ -76,7 +76,7 @@ const FileTable = props => {
                 fluid
                 content={file.name}
                 currentValue={file.name}
-                tooltip="Rename"
+                tooltip="Переименовать"
                 onCommit={(e, value) => onRename(file.name, value)} />
             ) : (
               file.name
@@ -95,18 +95,18 @@ const FileTable = props => {
                   icon="trash"
                   confirmIcon="times"
                   confirmContent=""
-                  tooltip="Delete"
+                  tooltip="Удалить"
                   onClick={() => onDelete(file.name)} />
                 {!!usbconnected && (
                   usbmode ? (
                     <Button
                       icon="download"
-                      tooltip="Download"
+                      tooltip="Загрузить"
                       onClick={() => onUpload(file.name)} />
                   ) : (
                     <Button
                       icon="upload"
-                      tooltip="Upload"
+                      tooltip="Выгрузить"
                       onClick={() => onUpload(file.name)} />
                   )
                 )}

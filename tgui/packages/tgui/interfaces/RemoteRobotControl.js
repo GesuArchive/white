@@ -7,7 +7,7 @@ import { Window } from '../layouts';
 export const RemoteRobotControl = (props, context) => {
   return (
     <Window
-      title="Remote Robot Control"
+      title="Удалённое управление роботами"
       width={500}
       height={500}
       resizable>
@@ -27,7 +27,7 @@ export const RemoteRobotControlContent = (props, context) => {
     return (
       <Section>
         <NoticeBox textAlign="center">
-          No robots detected
+          Не обнаружено роботов
         </NoticeBox>
       </Section>
     );
@@ -41,20 +41,20 @@ export const RemoteRobotControlContent = (props, context) => {
           <Fragment>
             <Button
               icon="tools"
-              content="Interface"
+              content="Интерфейс"
               onClick={() => act('interface', {
                 ref: robot.ref,
               })} />
             <Button
               icon="phone-alt"
-              content="Call"
+              content="Вызвать"
               onClick={() => act('callbot', {
                 ref: robot.ref,
               })} />
           </Fragment>
         )}>
         <LabeledList>
-          <LabeledList.Item label="Status">
+          <LabeledList.Item label="Состояние">
             <Box inline color={decodeHtmlEntities(robot.mode) === "Inactive"
               ? 'bad'
               : decodeHtmlEntities(robot.mode) === "Idle"
@@ -65,11 +65,11 @@ export const RemoteRobotControlContent = (props, context) => {
             {' '}
             {robot.hacked && (
               <Box inline color="bad">
-                (HACKED)
+                (ВЗЛОМАН)
               </Box>
             ) || "" }
           </LabeledList.Item>
-          <LabeledList.Item label="Location">
+          <LabeledList.Item label="Местоположение">
             {robot.location}
           </LabeledList.Item>
         </LabeledList>

@@ -43,9 +43,9 @@ export const NtosSupermatterMonitorContent = (props, context) => {
   return (
     <Flex spacing={1}>
       <Flex.Item width="270px">
-        <Section title="Metrics">
+        <Section title="Метрика">
           <LabeledList>
-            <LabeledList.Item label="Integrity">
+            <LabeledList.Item label="Состояние">
               <ProgressBar
                 value={SM_integrity / 100}
                 ranges={{
@@ -54,7 +54,7 @@ export const NtosSupermatterMonitorContent = (props, context) => {
                   bad: [-Infinity, 0.5],
                 }} />
             </LabeledList.Item>
-            <LabeledList.Item label="Relative EER">
+            <LabeledList.Item label="Относительный EER">
               <ProgressBar
                 value={SM_power}
                 minValue={0}
@@ -67,7 +67,7 @@ export const NtosSupermatterMonitorContent = (props, context) => {
                 {toFixed(SM_power) + ' MeV/cm3'}
               </ProgressBar>
             </LabeledList.Item>
-            <LabeledList.Item label="Temperature">
+            <LabeledList.Item label="Температура">
               <ProgressBar
                 value={logScale(SM_ambienttemp)}
                 minValue={0}
@@ -81,7 +81,7 @@ export const NtosSupermatterMonitorContent = (props, context) => {
                 {toFixed(SM_ambienttemp) + ' K'}
               </ProgressBar>
             </LabeledList.Item>
-            <LabeledList.Item label="Pressure">
+            <LabeledList.Item label="Давление">
               <ProgressBar
                 value={logScale(SM_ambientpressure)}
                 minValue={0}
@@ -91,7 +91,7 @@ export const NtosSupermatterMonitorContent = (props, context) => {
                   average: [-Infinity, logScale(1000)],
                   bad: [logScale(1000), +Infinity],
                 }}>
-                {toFixed(SM_ambientpressure) + ' kPa'}
+                {toFixed(SM_ambientpressure) + ' кПа'}
               </ProgressBar>
             </LabeledList.Item>
           </LabeledList>
@@ -99,11 +99,11 @@ export const NtosSupermatterMonitorContent = (props, context) => {
       </Flex.Item>
       <Flex.Item grow={1} basis={0}>
         <Section
-          title="Gases"
+          title="Газы"
           buttons={(
             <Button
               icon="arrow-left"
-              content="Back"
+              content="Назад"
               onClick={() => act('PRG_clear')} />
           )}>
           <LabeledList>
@@ -132,11 +132,11 @@ const SupermatterList = (props, context) => {
   const { supermatters = [] } = data;
   return (
     <Section
-      title="Detected Supermatters"
+      title="Кристаллы"
       buttons={(
         <Button
           icon="sync"
-          content="Refresh"
+          content="Обновить"
           onClick={() => act('PRG_refresh')} />
       )}>
       <Table>
@@ -146,7 +146,7 @@ const SupermatterList = (props, context) => {
               {sm.uid + '. ' + sm.area_name}
             </Table.Cell>
             <Table.Cell collapsing color="label">
-              Integrity:
+              Состояние:
             </Table.Cell>
             <Table.Cell collapsing width="120px">
               <ProgressBar
@@ -159,7 +159,7 @@ const SupermatterList = (props, context) => {
             </Table.Cell>
             <Table.Cell collapsing>
               <Button
-                content="Details"
+                content="Детали"
                 onClick={() => act('PRG_set', {
                   target: sm.uid,
                 })} />

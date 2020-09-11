@@ -26,7 +26,7 @@ export const PortableChemMixer = (props, context) => {
       resizable>
       <Window.Content scrollable>
         <Section
-          title="Dispense"
+          title="Выдать"
           buttons={(
             beakerTransferAmounts.map(amount => (
               <Button
@@ -54,7 +54,7 @@ export const PortableChemMixer = (props, context) => {
           </Box>
         </Section>
         <Section
-          title="Disposal controls"
+          title="Выдача"
           buttons={(
             beakerTransferAmounts.map(amount => (
               <Button
@@ -67,32 +67,32 @@ export const PortableChemMixer = (props, context) => {
           )}>
           <LabeledList>
             <LabeledList.Item
-              label="Beaker"
+              label="Пробирка"
               buttons={!!data.isBeakerLoaded && (
                 <Button
                   icon="eject"
-                  content="Eject"
+                  content="Изъять"
                   disabled={!data.isBeakerLoaded}
                   onClick={() => act('eject')} />
               )}>
               {recording
-                && 'Virtual beaker'
+                && 'Виртуальная пробирка'
                 || data.isBeakerLoaded
                   && (
                     <Fragment>
                       <AnimatedNumber
                         initial={0}
                         value={data.beakerCurrentVolume} />
-                      /{data.beakerMaxVolume} units
+                      /{data.beakerMaxVolume} единиц
                     </Fragment>
                   )
-                || 'No beaker'}
+                || 'Нет пробирки'}
             </LabeledList.Item>
             <LabeledList.Item
-              label="Contents">
+              label="Содержимое">
               <Box color="label">
                 {(!data.isBeakerLoaded && !recording) && 'N/A'
-                  || beakerContents.length === 0 && 'Nothing'}
+                  || beakerContents.length === 0 && 'Ничего'}
               </Box>
               {beakerContents.map(chemical => (
                 <Box
@@ -102,7 +102,7 @@ export const PortableChemMixer = (props, context) => {
                     initial={0}
                     value={chemical.volume} />
                   {' '}
-                  units of {chemical.name}
+                  единиц {chemical.name}
                 </Box>
               ))}
             </LabeledList.Item>

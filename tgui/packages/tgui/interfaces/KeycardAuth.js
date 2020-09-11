@@ -13,7 +13,10 @@ export const KeycardAuth = (props, context) => {
         <Section>
           <Box>
             {data.waiting === 1 && (
-              <span>Waiting for another device to confirm your request...</span>
+              <span>
+                Ожидание подтверждения вашего
+                запроса другим устройством...
+              </span>
             )}
           </Box>
           <Box>

@@ -26,37 +26,37 @@ export const Telecomms = (props, context) => {
   const linked = data.linked || [];
   const frequencies = data.frequencies || [];
   return (
-    <Window 
-      resizable 
+    <Window
+      resizable
       title={id}
       width={400}
       height={600}>
       <Window.Content scrollable>
         {!multitool && (
-          <NoticeBox>Use a multitool to make changes.</NoticeBox>
+          <NoticeBox>Используйте мультитул для внесения изменений.</NoticeBox>
         )}
-        <Section title="Settings">
+        <Section title="Настройки">
           <LabeledList>
-            <LabeledList.Item 
-              label="Power"
+            <LabeledList.Item
+              label="Энергия"
               buttons={
-                <Button 
+                <Button
                   icon={toggled ? "power-off" : "times"}
-                  content={toggled ? "On" : "Off"}
+                  content={toggled ? "Вкл" : "Выкл"}
                   color={toggled ? "good" : "bad"}
                   disabled={!multitool}
                   onClick={() => act('toggle')} />
               } />
-            <LabeledList.Item 
-              label="Identification String"
+            <LabeledList.Item
+              label="Идентификационное имя"
               buttons={
                 <Input
                   width={13}
                   value={id}
                   onChange={(e, value) => act('id', { value })} />
               } />
-            <LabeledList.Item 
-              label="Network"
+            <LabeledList.Item
+              label="Сеть"
               buttons={
                 <Input
                   width={10}
@@ -64,24 +64,24 @@ export const Telecomms = (props, context) => {
                   defaultValue={"tcommsat"}
                   onChange={(e, value) => act('network', { value })} />
               } />
-            <LabeledList.Item 
-              label="Prefabrication"
+            <LabeledList.Item
+              label="Преднастройка"
               buttons={
-                <Button 
+                <Button
                   icon={prefab ? "check" : "times"}
-                  content={prefab ? "True" : "False"}
-                  disabled={"True"} />
+                  content={prefab ? "Да" : "Нет"}
+                  disabled={"Да"} />
               } />
           </LabeledList>
         </Section>
         {!!(toggled && multitool) && (
           <Box>
             {(type === 'bus') && (
-              <Section title="Bus">
+              <Section title="Шина">
                 <Table>
                   <Table.Row>
                     <Table.Cell>
-                      Change Frequency:
+                      Изменить частоту:
                     </Table.Cell>
                     <Table.Cell>
                       {RADIO_CHANNELS
@@ -90,7 +90,7 @@ export const Telecomms = (props, context) => {
                           inline
                           color={RADIO_CHANNELS
                             .find(channel => channel.freq === changefrequency)
-                            .color} 
+                            .color}
                           ml={2}>
                           [{RADIO_CHANNELS
                             .find(channel => channel
@@ -109,30 +109,30 @@ export const Telecomms = (props, context) => {
                       onChange={(e, value) => act(
                         'change_freq', { value })}
                     />
-                    <Button 
+                    <Button
                       icon={"times"}
                       disabled={changefrequency === 0}
-                      onClick={() => act('change_freq', { value: 10001 })} 
+                      onClick={() => act('change_freq', { value: 10001 })}
                     />
                   </Table.Row>
-                </Table>              
+                </Table>
               </Section>
             )}
             {(type === 'relay') && (
-              <Section title="Relay">
+              <Section title="Реле">
                 <Button
-                  content={"Receiving"}
+                  content={"Принимающий"}
                   icon={receiving ? 'volume-up' : 'volume-mute'}
                   color={receiving ? '' : 'bad'}
                   onClick={() => act('receive')} />
                 <Button
-                  content={"Broadcasting"}
+                  content={"Отправляющий"}
                   icon={broadcasting ? 'microphone' : 'microphone-slash'}
                   color={broadcasting ? '' : 'bad'}
                   onClick={() => act('broadcast')} />
               </Section>
             )}
-            <Section title="Linked Network Entities">
+            <Section title="Подключённые сетевые элементы">
               <Table>
                 {linked.map(entry => (
                   <Table.Row key={entry.id} className="candystripe">
@@ -140,7 +140,7 @@ export const Telecomms = (props, context) => {
                       {entry.index}. {entry.id} ({entry.name})
                     </Table.Cell>
                     {!!multitool && (
-                      <Button 
+                      <Button
                         icon={"times"}
                         disabled={!multitool}
                         onClick={() => act('unlink', { value: entry.index })} />
@@ -149,7 +149,7 @@ export const Telecomms = (props, context) => {
                 ))}
               </Table>
             </Section>
-            <Section title="Filtered Frequencies">
+            <Section title="Фильтрованные частоты">
               <Table>
                 {frequencies.map(entry => (
                   <Table.Row key={frequencies.i} className="candystripe">
@@ -160,10 +160,10 @@ export const Telecomms = (props, context) => {
                       {RADIO_CHANNELS
                         .find(channel => channel.freq === entry) && (
                         <Box
-                          inline 
+                          inline
                           color={RADIO_CHANNELS
                             .find(channel => channel.freq === entry)
-                            .color} 
+                            .color}
                           ml={2}>
                           [{RADIO_CHANNELS
                             .find(channel => channel
@@ -173,7 +173,7 @@ export const Telecomms = (props, context) => {
                     </Table.Cell>
                     <Table.Cell />
                     {!!multitool && (
-                      <Button 
+                      <Button
                         icon={"times"}
                         disabled={!multitool}
                         onClick={() => act('delete', { value: entry })} />
@@ -183,16 +183,16 @@ export const Telecomms = (props, context) => {
                 {!!multitool && (
                   <Table.Row className="candystripe" collapsing>
                     <Table.Cell>
-                      Add Frequency
+                      Добавить частоту
                     </Table.Cell>
                     <Table.Cell>
                       {RADIO_CHANNELS
                         .find(channel => channel.freq === frequency) && (
-                        <Box 
-                          inline 
+                        <Box
+                          inline
                           color={RADIO_CHANNELS
                             .find(channel => channel.freq === frequency)
-                            .color} 
+                            .color}
                           ml={2}>
                           [{RADIO_CHANNELS
                             .find(channel => channel
@@ -213,7 +213,7 @@ export const Telecomms = (props, context) => {
                           "tempfreq", { value })}
                       />
                     </Table.Cell>
-                    <Button 
+                    <Button
                       icon={"plus"}
                       disabled={!multitool}
                       onClick={() => act('freq')} />
@@ -222,31 +222,31 @@ export const Telecomms = (props, context) => {
               </Table>
             </Section>
             {!!multitool && (
-              <Section title="Multitool">
+              <Section title="Мультитул">
                 {!!multibuff && (
                   <Box bold m={1}>
-                    Current Buffer: {multibuff}
+                    Текущий буфер: {multibuff}
                   </Box>
                 )}
                 <LabeledControls m={1}>
-                  <Button 
+                  <Button
                     icon={"plus"}
-                    content={"Add Machine"}
+                    content={"Добавить машину"}
                     disabled={!multitool}
                     onClick={() => act('buffer')} />
-                  <Button 
+                  <Button
                     icon={"link"}
-                    content={"Link"}
+                    content={"Привязать"}
                     disabled={!multibuff}
                     onClick={() => act('link')} />
-                  <Button 
+                  <Button
                     icon={"times"}
-                    content={"Flush"}
+                    content={"Очистить"}
                     disabled={!multibuff}
                     onClick={() => act('flush')} />
                 </LabeledControls>
               </Section>)}
-          </Box>  
+          </Box>
         )}
       </Window.Content>
     </Window>

@@ -17,26 +17,26 @@ export const TransferValve = (props, context) => {
       <Window.Content>
         <Section>
           <LabeledList>
-            <LabeledList.Item label="Valve Status">
+            <LabeledList.Item label="Состояние вентиля">
               <Button
                 icon={valve ? "unlock" : "lock"}
-                content={valve ? "Open" : "Closed"}
+                content={valve ? "Открыт" : "Закрыт"}
                 disabled={!tank_one || !tank_two}
                 onClick={() => act('toggle')} />
             </LabeledList.Item>
           </LabeledList>
         </Section>
         <Section
-          title="Valve Attachment"
+          title="Устройство управления"
           buttons={(
             <Button
-              content="Configure"
+              content="Настроить"
               icon={"cog"}
               disabled={!attached_device}
               onClick={() => act('device')} />
           )}>
           <LabeledList>
-            <LabeledList.Item label="Attachment">
+            <LabeledList.Item label="Присоединено">
               {attached_device ? (
                 <Button
                   icon={"eject"}
@@ -45,15 +45,15 @@ export const TransferValve = (props, context) => {
                   onClick={() => act('remove_device')} />
               ) : (
                 <Box color="average">
-                  No Assembly
+                  Взорвём в руках, а?
                 </Box>
               )}
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section title="Attachment One">
+        <Section title="Первый бак">
           <LabeledList>
-            <LabeledList.Item label="Attachment">
+            <LabeledList.Item label="Присоединено">
               {tank_one ? (
                 <Button
                   icon={"eject"}
@@ -62,15 +62,15 @@ export const TransferValve = (props, context) => {
                   onClick={() => act('tankone')} />
               ) : (
                 <Box color="average">
-                  No Tank
+                  Внутри нет бака
                 </Box>
               )}
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section title="Attachment Two">
+        <Section title="Второй бак">
           <LabeledList>
-            <LabeledList.Item label="Attachment">
+            <LabeledList.Item label="Присоединено">
               {tank_two ? (
                 <Button
                   icon={"eject"}
@@ -79,7 +79,7 @@ export const TransferValve = (props, context) => {
                   onClick={() => act('tanktwo')} />
               ) : (
                 <Box color="average">
-                  No Tank
+                  Внутри нет бака
                 </Box>
               )}
             </LabeledList.Item>

@@ -39,7 +39,7 @@ export const PortableGenerator = (props, context) => {
                   icon="eject"
                   disabled={data.active}
                   onClick={() => act('eject')}>
-                  Eject
+                  Изъять
                 </Button>
               )}
             </LabeledList.Item>

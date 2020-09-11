@@ -13,17 +13,17 @@ export const NtosRevelation = (props, context) => {
         <Section>
           <Button.Input
             fluid
-            content="Obfuscate Name..."
+            content="Обфусцировать имя..."
             onCommit={(e, value) => act('PRG_obfuscate', {
               new_name: value,
             })}
             mb={1} />
           <LabeledList>
             <LabeledList.Item
-              label="Payload Status"
+              label="Состояние бекдура"
               buttons={(
                 <Button
-                  content={data.armed ? 'ARMED' : 'DISARMED'}
+                  content={data.armed ? 'ГОТОВ' : 'НЕ ГОТОВ'}
                   color={data.armed ? 'bad' : 'average'}
                   onClick={() => act('PRG_arm')} />
               )} />
@@ -31,7 +31,7 @@ export const NtosRevelation = (props, context) => {
           <Button
             fluid
             bold
-            content="ACTIVATE"
+            content="АКТИВИРОВАТЬ"
             textAlign="center"
             color="bad"
             disabled={!data.armed} />

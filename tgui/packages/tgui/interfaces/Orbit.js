@@ -120,7 +120,7 @@ export const Orbit = (props, context) => {
 
   return (
     <Window
-      title="Orbit"
+      title="Слежка"
       width={350}
       height={700}>
       <Window.Content scrollable>
@@ -133,7 +133,7 @@ export const Orbit = (props, context) => {
             </Flex.Item>
             <Flex.Item grow={1}>
               <Input
-                placeholder="Search..."
+                placeholder="Искать..."
                 autoFocus
                 fluid
                 value={searchText}
@@ -143,7 +143,7 @@ export const Orbit = (props, context) => {
           </Flex>
         </Section>
         {antagonists.length > 0 && (
-          <Section title="Ghost-Visible Antagonists">
+          <Section title="Антаги">
             {sortedAntagonists.map(([name, antags]) => (
               <Section key={name} title={name} level={2}>
                 {antags
@@ -161,7 +161,7 @@ export const Orbit = (props, context) => {
           </Section>
         )}
 
-        <Section title="Alive">
+        <Section title="Живые">
           {alive
             .filter(searchFor(searchText))
             .sort(compareNumberedText)
@@ -174,25 +174,25 @@ export const Orbit = (props, context) => {
         </Section>
 
         <BasicSection
-          title="Ghosts"
+          title="Призраки"
           source={ghosts}
           searchText={searchText}
         />
 
         <BasicSection
-          title="Dead"
+          title="Мёртвые"
           source={dead}
           searchText={searchText}
         />
 
         <BasicSection
-          title="NPCs"
+          title="NPC"
           source={npcs}
           searchText={searchText}
         />
 
         <BasicSection
-          title="Misc"
+          title="Разное"
           source={misc}
           searchText={searchText}
         />

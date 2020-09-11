@@ -50,7 +50,7 @@ export const ThermoMachine = (props, context) => {
                   target: value,
                 })} />
             </LabeledList.Item>
-            <LabeledList.Item label="Presets">
+            <LabeledList.Item label="Установки">
               <Button
                 icon="fast-backward"
                 disabled={data.target === data.min}

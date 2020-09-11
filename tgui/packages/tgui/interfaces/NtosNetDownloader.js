@@ -26,13 +26,13 @@ export const NtosNetDownloader = (props, context) => {
               {error}
             </Box>
             <Button
-              content="Reset"
+              content="Сбросить"
               onClick={() => act('PRG_reseterror')} />
           </NoticeBox>
         )}
         <Section>
           <LabeledList>
-            <LabeledList.Item label="Disk usage">
+            <LabeledList.Item label="Свободно">
               <ProgressBar
                 value={disk_used}
                 minValue={0}
@@ -50,10 +50,10 @@ export const NtosNetDownloader = (props, context) => {
           ))}
         </Section>
         {!!hackedavailable && (
-          <Section title="UNKNOWN Software Repository">
+          <Section title="НЕИЗВЕСТНЫЙ Репозиторий">
             <NoticeBox mb={1}>
-              Please note that Nanotrasen does not recommend download
-              of software from non-official servers.
+              Нанотрейзен не рекомендует загружать программы
+              с неизвестных серверов.
             </NoticeBox>
             {hacked_programs.map(program => (
               <Program
@@ -88,7 +88,7 @@ const Program = (props, context) => {
         <Flex.Item color="label" nowrap>
           {program.size} GQ
         </Flex.Item>
-        <Flex.Item ml={2} width="94px" textAlign="center">
+        <Flex.Item ml={2} width="100px" textAlign="center">
           {program.filename === downloadname && (
             <ProgressBar
               color="green"
@@ -99,7 +99,7 @@ const Program = (props, context) => {
             <Button
               fluid
               icon="download"
-              content="Download"
+              content="Загрузить"
               disabled={downloading || program.size > disk_free}
               onClick={() => act('PRG_downloadfile', {
                 filename: program.filename,
@@ -110,13 +110,13 @@ const Program = (props, context) => {
       {program.compatibility !== 'Compatible' && (
         <Box mt={1} italic fontSize="12px" position="relative">
           <Icon mx={1} color="red" name="times" />
-          Incompatible!
+          Несовместимо!
         </Box>
       )}
       {program.size > disk_free && (
         <Box mt={1} italic fontSize="12px" position="relative">
           <Icon mx={1} color="red" name="times" />
-          Not enough disk space!
+          Недостаточно места на диске!
         </Box>
       )}
       <Box mt={1} italic color="label" fontSize="12px">

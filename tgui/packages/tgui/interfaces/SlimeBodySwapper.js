@@ -34,15 +34,15 @@ export const BodyEntry = (props, context) => {
       )}>
       <LabeledList>
         <LabeledList.Item
-          label="Status"
+          label="Состояние"
           bold
           color={statusMap[body.status]}>
           {body.status}
         </LabeledList.Item>
-        <LabeledList.Item label="Jelly">
+        <LabeledList.Item label="Желешка">
           {body.exoticblood}
         </LabeledList.Item>
-        <LabeledList.Item label="Location">
+        <LabeledList.Item label="Местоположение">
           {body.area}
         </LabeledList.Item>
       </LabeledList>

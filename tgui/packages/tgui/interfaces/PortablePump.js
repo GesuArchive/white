@@ -20,19 +20,19 @@ export const PortablePump = (props, context) => {
       <Window.Content>
         <PortableBasicInfo />
         <Section
-          title="Pump"
+          title="Помпа"
           buttons={(
             <Button
               icon={direction ? 'sign-in-alt' : 'sign-out-alt'}
-              content={direction ? 'In' : 'Out'}
+              content={direction ? 'Вдув' : 'Выдув'}
               selected={direction}
               onClick={() => act('direction')} />
           )}>
           <LabeledList>
-            <LabeledList.Item label="Output">
+            <LabeledList.Item label="Выход">
               <NumberInput
                 value={target_pressure}
-                unit="kPa"
+                unit="кПа"
                 width="75px"
                 minValue={min_pressure}
                 maxValue={max_pressure}
@@ -41,7 +41,7 @@ export const PortablePump = (props, context) => {
                   pressure: value,
                 })} />
             </LabeledList.Item>
-            <LabeledList.Item label="Presets">
+            <LabeledList.Item label="Управление">
               <Button
                 icon="minus"
                 disabled={target_pressure === min_pressure}

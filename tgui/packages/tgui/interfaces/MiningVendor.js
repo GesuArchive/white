@@ -14,23 +14,23 @@ export const MiningVendor = (props, context) => {
       height={600}
       resizable>
       <Window.Content scrollable>
-        <Section title="User">
+        <Section title="Пользователь">
           {data.user && (
             <Box>
-              Welcome, <b>{data.user.name || "Unknown"}</b>,
+              Привет, <b>{data.user.name || "Неизвестный"}</b>,
               {' '}
-              <b>{data.user.job || "Unemployed"}</b>!
+              <b>{data.user.job || "Безработный"}</b>!
               <br />
-              Your balance is <b>{data.user.points} mining points</b>.
+              Ваш баланс <b>{data.user.points} очков</b>.
             </Box>
           ) || (
             <Box color="light-gray">
-              No registered ID card!<br />
-              Please contact your local HoP!
+              Не обнаружено ID-карты!<br />
+              Свяжитесь с местным отделом кадров!
             </Box>
           )}
         </Section>
-        <Section title="Equipment">
+        <Section title="Снаряжение">
           <Table>
             {inventory.map((product => {
               return (

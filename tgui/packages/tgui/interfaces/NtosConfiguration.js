@@ -17,23 +17,23 @@ export const NtosConfiguration = (props, context) => {
   return (
     <NtosWindow
       theme={PC_device_theme}
-      width={420}
+      width={520}
       height={630}
       resizable>
       <NtosWindow.Content scrollable>
         <Section
-          title="Power Supply"
+          title="Питание"
           buttons={(
             <Box
               inline
               bold
               mr={1}>
-              Power Draw: {power_usage}W
+              Потребление: {power_usage}W
             </Box>
           )}>
           <LabeledList>
             <LabeledList.Item
-              label="Battery Status"
+              label="Батарея"
               color={!battery_exists && 'average'}>
               {battery_exists ? (
                 <ProgressBar
@@ -47,11 +47,11 @@ export const NtosConfiguration = (props, context) => {
                   }}>
                   {battery.charge} / {battery.max}
                 </ProgressBar>
-              ) : 'Not Available'}
+              ) : 'НЕДОСТУПНО'}
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section title="File System">
+        <Section title="Файловая система">
           <ProgressBar
             value={disk_used}
             minValue={0}
@@ -60,7 +60,7 @@ export const NtosConfiguration = (props, context) => {
             {disk_used} GQ / {disk_size} GQ
           </ProgressBar>
         </Section>
-        <Section title="Hardware Components">
+        <Section title="Оборудование">
           {hardware.map(component => (
             <Section
               key={component.name}
@@ -70,7 +70,7 @@ export const NtosConfiguration = (props, context) => {
                 <Fragment>
                   {!component.critical && (
                     <Button.Checkbox
-                      content="Enabled"
+                      content="Включено"
                       checked={component.enabled}
                       mr={1}
                       onClick={() => act('PC_toggle_component', {
@@ -81,7 +81,7 @@ export const NtosConfiguration = (props, context) => {
                     inline
                     bold
                     mr={1}>
-                    Power Usage: {component.powerusage}W
+                    Потребление: {component.powerusage}W
                   </Box>
                 </Fragment>
               )}>

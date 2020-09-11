@@ -33,11 +33,11 @@ export const RequestKioskContent = (props, context) => {
       <Section>
         <LabeledList>
           <LabeledList.Item
-            label="Current Account"
+            label="Текущий аккаунт"
             buttons={(
               <Button
                 icon="power-off"
-                content="Log out"
+                content="Выход"
                 onClick={() => act('clear')} />
             )}>
             {accountName || 'N/A'}
@@ -59,20 +59,20 @@ export const RequestKioskContent = (props, context) => {
                     {request.owner}
                   </Flex.Item>
                   <Flex.Item width="100px">
-                    {formatMoney(request.value) + ' cr'}
+                    {formatMoney(request.value) + ' кредитов'}
                   </Flex.Item>
                   <Flex.Item>
                     <Button
                       fluid
                       icon="pen-fancy"
-                      content="Apply"
+                      content="Принять"
                       onClick={() => act('apply', {
                         request: request.acc_number,
                       })} />
                     <Button
                       fluid
                       icon="trash-alt"
-                      content="Delete"
+                      content="Удалять"
                       color="red"
                       onClick={() => act('deleteRequest', {
                         request: request.acc_number,
@@ -83,7 +83,7 @@ export const RequestKioskContent = (props, context) => {
                   <i>&quot;{request.description}&quot;</i>
                 </Section>
                 <Section
-                  title="Request Applicants">
+                  title="Запрос исполнителей">
                   {applicants?.map(applicant => (
                     applicant.request_id === request.acc_number && (
                       <Flex>
@@ -117,7 +117,7 @@ export const RequestKioskContent = (props, context) => {
         </Flex.Item>
         <Flex.Item>
           <Collapsible
-            title="New Bounty"
+            title="Новая награда"
             width="220px"
             color="green">
             <Section>
@@ -133,18 +133,18 @@ export const RequestKioskContent = (props, context) => {
               <Box>
                 <NumberInput
                   animate
-                  unit="cr"
+                  unit="кредитов"
                   minValue={1}
                   maxValue={1000}
                   value={bountyValue}
-                  width="80px"
+                  width="120px"
                   onChange={(e, value) => act('bountyVal', {
                     bountyval: value,
                   })} />
               </Box>
               <Button
                 icon="print"
-                content="Submit bounty"
+                content="Отправить"
                 onClick={() => act('createBounty')} />
             </Section>
           </Collapsible>

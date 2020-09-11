@@ -25,7 +25,7 @@ export const InsertedSkillchip = (props, context) => {
       (!working && (
         <NoticeBox
           info>
-          Please insert a skillchip.
+          Вставьте скиллчип.
         </NoticeBox>
       ))
     );
@@ -33,7 +33,7 @@ export const InsertedSkillchip = (props, context) => {
 
   return (
     <Section
-      title="Inserted Skillchip"
+      title="Вставленный скиллчип"
       buttons={
         <Fragment>
           <Button
@@ -41,13 +41,13 @@ export const InsertedSkillchip = (props, context) => {
             disabled={!implantable || !!working}
             color={implantable ? "good" : "default"}
             onClick={() => act("implant")}
-            content="Implant"
+            content="Имплантировать"
             tooltip={implantable_reason} />
           <Button
             icon="eject"
             disabled={!!working}
             onClick={() => act("eject")}
-            content="Eject" />
+            content="Изъять" />
         </Fragment>
       }>
       <Flex
@@ -65,20 +65,20 @@ export const InsertedSkillchip = (props, context) => {
           width="100%">
           <LabeledList>
             <LabeledList.Item
-              label="Skillchip">
+              label="Скиллчип">
               <Box
                 bold>{skill_name}
               </Box>
             </LabeledList.Item>
             <LabeledList.Item
-              label="Description">
+              label="Описание">
               <Box
                 italic>
                 {skill_desc}
               </Box>
             </LabeledList.Item>
             <LabeledList.Item
-              label="Complexity">
+              label="Сложность">
               <Icon
                 name="brain"
                 width="15px"
@@ -86,7 +86,7 @@ export const InsertedSkillchip = (props, context) => {
               /> {complexity}
             </LabeledList.Item>
             <LabeledList.Item
-              label="Slot Size">
+              label="Размер">
               <Box
                 color={(slots_used + slot_use > slots_max) && "red"}>
                 <Icon
@@ -98,7 +98,7 @@ export const InsertedSkillchip = (props, context) => {
             </LabeledList.Item>
             {!!implantable_reason && (
               <LabeledList.Item
-                label="Error"
+                label="Ошибка"
                 color={implantable ? "good" : "bad"}>
                 {implantable_reason}
               </LabeledList.Item>
@@ -125,21 +125,21 @@ export const ImplantedSkillchips = (props, context) => {
 
   return (
     <Section
-      title="Implanted Skillchips">
-      {!current.length && "No skillchips detected."}
+      title="Имплантированные скиллчипы">
+      {!current.length && "Не обнаружено."}
       {!!current.length && (
         <Table>
           <Table.Row
             header>
             <Table.Cell>
-              Chip
+              Чип
             </Table.Cell>
             <Table.Cell
               textAlign="center">
               <Button
                 color="transparent"
                 icon="brain"
-                tooltip="Complexity"
+                tooltip="Сложность"
                 tooltipPosition="top"
                 content={complexity_used + "/" + complexity_max} />
             </Table.Cell>
@@ -148,7 +148,7 @@ export const ImplantedSkillchips = (props, context) => {
               <Button
                 color="transparent"
                 icon="save"
-                tooltip="Slot Size"
+                tooltip="Размер"
                 tooltipPosition="top"
                 content={slots_used + "/" + slots_max} />
             </Table.Cell>
@@ -157,7 +157,7 @@ export const ImplantedSkillchips = (props, context) => {
               <Button
                 color="transparent"
                 icon="check"
-                tooltip="Is Active"
+                tooltip="Активность"
                 tooltipPosition="top" />
             </Table.Cell>
             <Table.Cell
@@ -165,7 +165,7 @@ export const ImplantedSkillchips = (props, context) => {
               <Button
                 color="transparent"
                 icon="hourglass-half"
-                tooltip="Cooldown"
+                tooltip="Перезарядка"
                 tooltipPosition="top" />
             </Table.Cell>
             <Table.Cell
@@ -173,7 +173,7 @@ export const ImplantedSkillchips = (props, context) => {
               <Button
                 color="transparent"
                 icon="tasks"
-                tooltip="Actions"
+                tooltip="Действия"
                 tooltipPosition="top" />
             </Table.Cell>
           </Table.Row>
@@ -223,7 +223,7 @@ export const ImplantedSkillchips = (props, context) => {
                   onClick={() => act("remove", { "ref": skill.ref })}
                   icon={skill.removable ? "eject" : "trash"}
                   color={skill.removable ? "good" : "bad"}
-                  tooltip={skill.removable ? "Extract" : "Destroy"}
+                  tooltip={skill.removable ? "Извлечь" : "Уничтожить"}
                   tooltipPosition="left"
                   disabled={skill.cooldown || working} />
                 <Button
@@ -233,8 +233,8 @@ export const ImplantedSkillchips = (props, context) => {
                   tooltip={(!!skill.active_error
                     && !skill.active
                     && skill.active_error) || (
-                    skill.active && "Deactivate") || (
-                    "Activate"
+                    skill.active && "Деактивировать") || (
+                    "Активировать"
                   )}
                   tooltipPosition="left"
                   disabled={
@@ -270,7 +270,7 @@ export const SkillStation = (props, context) => {
   } = data;
   return (
     <Window
-      title="Skillsoft Station"
+      title="Станция навыков"
       width={500}
       height={500}
       resizable >
@@ -287,10 +287,10 @@ export const SkillStation = (props, context) => {
               direction="column">
               <Flex.Item
                 mb={0.5}>
-                Operation in progress. Please do not leave the chamber.
+                Операция в процессе. Не покидайте камеру.
               </Flex.Item>
               <Flex.Item>
-                Time Left: <TimeFormat value={timeleft} />
+                Осталось времени: <TimeFormat value={timeleft} />
               </Flex.Item>
             </Flex>
           </NoticeBox>

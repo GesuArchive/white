@@ -12,17 +12,17 @@ export const NtnetRelay = (props, context) => {
   } = data;
   return (
     <Window
-      title="NtNet Quantum Relay"
+      title="Квантовое реле NtNet"
       width={400}
       height={300}>
       <Window.Content>
         <Section
-          title="Network Buffer"
+          title="Сетевой буффер"
           buttons={(
             <Button
               icon="power-off"
               selected={enabled}
-              content={enabled ? 'ENABLED' : 'DISABLED'}
+              content={enabled ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
               onClick={() => act('toggle')}
             />
           )}>
@@ -38,28 +38,28 @@ export const NtnetRelay = (props, context) => {
           ) : (
             <Box fontFamily="monospace">
               <Box fontSize="20px">
-                NETWORK BUFFER OVERFLOW
+                ПЕРЕПОЛНЕНИЕ СЕТЕВОГО БУФЕРА
               </Box>
               <Box fontSize="16px">
-                OVERLOAD RECOVERY MODE
+                РЕЖИМ ВОССТАНОВЛЕНИЯ ПЕРЕГРУЗКИ
               </Box>
               <Box>
-                This system is suffering temporary outage due to overflow
-                of traffic buffers. Until buffered traffic is processed,
-                all further requests will be dropped. Frequent occurences
-                of this error may indicate insufficient hardware capacity
-                of your network. Please contact your network planning
-                department for instructions on how to resolve this issue.
+                Эта система временно отключена из-за переполнения
+                буферов трафика. Пока буферизованный трафик не будет обработан,
+                все дальнейшие запросы будут отброшены. Частые случаи этой
+                ошибки может указывать на недостаточную мощность оборудования
+                вашей сети. Пожалуйста, свяжитесь с вашим сетевым планировщиком
+                для получения инструкций о том, как решить эту проблему.
               </Box>
               <Box fontSize="20px" color="bad">
-                ADMINISTRATOR OVERRIDE
+                ПРЕРЫВАНИЕ АДМИНИСТРАТОРА
               </Box>
               <Box fontSize="16px" color="bad">
-                CAUTION - DATA LOSS MAY OCCUR
+                ВНИМАНИЕ - МОЖЕТ ПРИВЕСТИ К ПОТЕРИ ДАННЫХ
               </Box>
               <Button
                 icon="signal"
-                content="PURGE BUFFER"
+                content="ОЧИСТИТЬ БУФФЕР"
                 mt={1}
                 color="bad"
                 onClick={() => act('restart')} />

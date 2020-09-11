@@ -15,49 +15,49 @@ export const RadioactiveMicrolaser = (props, context) => {
   } = data;
   return (
     <Window
-      title="Radioactive Microlaser"
+      title="Радиоактивный микролазер"
       width={320}
       height={335}
       theme="syndicate">
       <Window.Content>
         <Section>
           <LabeledList>
-            <LabeledList.Item label="Laser Status">
+            <LabeledList.Item label="Состояние лазера">
               <Box color={on_cooldown ? "average" : "good"}>
-                {on_cooldown ? "Recharging" : "Ready"}
+                {on_cooldown ? "Перезарядка" : "Готов"}
               </Box>
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section title="Scanner Controls">
+        <Section title="Настройки сканера">
           <LabeledList>
-            <LabeledList.Item label="Irradiation">
+            <LabeledList.Item label="Облучение">
               <Button
                 icon={irradiate ? 'power-off' : 'times'}
-                content={irradiate ? 'On' : 'Off'}
+                content={irradiate ? 'ВКЛ' : 'ВЫКЛ'}
                 selected={irradiate}
                 onClick={() => act('irradiate')} />
             </LabeledList.Item>
-            <LabeledList.Item label="Stealth Mode">
+            <LabeledList.Item label="Тихий режим">
               <Button
                 icon={stealth ? 'eye-slash' : 'eye'}
-                content={stealth ? 'On' : 'Off'}
+                content={stealth ? 'ВКЛ' : 'ВЫКЛ'}
                 disabled={!irradiate}
                 selected={stealth}
                 onClick={() => act('stealth')} />
             </LabeledList.Item>
-            <LabeledList.Item label="Scan Mode">
+            <LabeledList.Item label="Сканирование">
               <Button
                 icon={scanmode ? 'mortar-pestle' : 'heartbeat'}
-                content={scanmode ? 'Scan Reagents' : 'Scan Health'}
+                content={scanmode ? 'Реагенты' : 'Здоровье'}
                 disabled={irradiate && stealth}
                 onClick={() => act('scanmode')} />
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section title="Laser Settings">
+        <Section title="Настройка лазера">
           <LabeledList>
-            <LabeledList.Item label="Radiation Intensity">
+            <LabeledList.Item label="Интенсивность облучения">
               <Button
                 icon="fast-backward"
                 onClick={() => act('radintensity', { adjust: -5 })} />
@@ -83,7 +83,7 @@ export const RadioactiveMicrolaser = (props, context) => {
                 icon="fast-forward"
                 onClick={() => act('radintensity', { adjust: 5 })} />
             </LabeledList.Item>
-            <LabeledList.Item label="Radiation Wavelength">
+            <LabeledList.Item label="Длина волны">
               <Button
                 icon="fast-backward"
                 onClick={() => act('radwavelength', { adjust: -5 })} />
@@ -109,7 +109,7 @@ export const RadioactiveMicrolaser = (props, context) => {
                 icon="fast-forward"
                 onClick={() => act('radwavelength', { adjust: 5 })} />
             </LabeledList.Item>
-            <LabeledList.Item label="Laser Cooldown">
+            <LabeledList.Item label="Перезарядка лазера">
               <Box inline bold>
                 {cooldown}
               </Box>

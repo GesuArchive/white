@@ -4,15 +4,15 @@ import { Box, Button, ColorBox, Flex, LabeledList, Section, Tabs } from '../comp
 import { Window } from '../layouts';
 
 const ROOT_CATEGORIES = [
-  'Atmospherics',
-  'Disposals',
-  'Transit Tubes',
+  'Атмос',
+  'Мусор',
+  'Транзит',
 ];
 
 const ICON_BY_CATEGORY_NAME = {
-  'Atmospherics': 'wrench',
-  'Disposals': 'trash-alt',
-  'Transit Tubes': 'bus',
+  'Атмос': 'wrench',
+  'Мусор': 'trash-alt',
+  'Транзит': 'bus',
   'Pipes': 'grip-lines',
   'Disposal Pipes': 'grip-lines',
   'Devices': 'microchip',
@@ -37,19 +37,19 @@ const PAINT_COLORS = {
 
 const TOOLS = [
   {
-    name: 'Dispense',
+    name: 'Выдача',
     bitmask: 1,
   },
   {
-    name: 'Connect',
+    name: 'Подключение',
     bitmask: 2,
   },
   {
-    name: 'Destroy',
+    name: 'Уничтожение',
     bitmask: 4,
   },
   {
-    name: 'Paint',
+    name: 'Раскрашивание',
     bitmask: 8,
   },
 ];
@@ -80,7 +80,7 @@ export const RapidPipeDispenser = (props, context) => {
         <Section>
           <LabeledList>
             <LabeledList.Item
-              label="Category">
+              label="Категория">
               {ROOT_CATEGORIES.map((categoryName, i) => (
                 <Button
                   key={categoryName}
@@ -91,7 +91,7 @@ export const RapidPipeDispenser = (props, context) => {
                   onClick={() => act('category', { category: i })} />
               ))}
             </LabeledList.Item>
-            <LabeledList.Item label="Modes">
+            <LabeledList.Item label="Режимы">
               {TOOLS.map(tool => (
                 <Button.Checkbox
                   key={tool.bitmask}
@@ -103,7 +103,7 @@ export const RapidPipeDispenser = (props, context) => {
               ))}
             </LabeledList.Item>
             <LabeledList.Item
-              label="Color">
+              label="Цвет">
               <Box
                 inline
                 width="64px"
@@ -133,7 +133,7 @@ export const RapidPipeDispenser = (props, context) => {
                       key={layer}
                       fluid
                       checked={layer === piping_layer}
-                      content={'Layer ' + layer}
+                      content={'Слой ' + layer}
                       onClick={() => act('piping_layer', {
                         piping_layer: layer,
                       })} />
