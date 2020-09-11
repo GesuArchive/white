@@ -365,6 +365,17 @@
 	message = "чихает."
 	emote_type = EMOTE_AUDIBLE
 
+/datum/emote/living/sneeze/get_sound(mob/living/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(!H.mind || !H.mind.miming)
+			if(user.gender == FEMALE)
+				return pick('white/valtos/sounds/emotes/sneeze_female_1.ogg',\
+							'white/valtos/sounds/emotes/sneeze_female_2.ogg')
+			else
+				return pick('white/valtos/sounds/emotes/sneeze_male_1.ogg',\
+							'white/valtos/sounds/emotes/sneeze_male_2.ogg')
+
 /datum/emote/living/smug
 	key = "smug"
 	key_third_person = "smugs"
