@@ -179,15 +179,15 @@
 		return
 	var/message_hit_area = null
 	if(hit_area)
-		message_hit_area = "[ru_parse_zone(hit_area)]"
-	var/attack_message_spectator = "<b>[src]</b> [message_verb_continuous] в [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>!"
-	var/attack_message_victim = "[capitalize(message_verb_continuous)] в [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>!"
-	var/attack_message_attacker = "Моя атака [message_verb_simple] <b>[src]</b> в [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>!"
+		message_hit_area = " в [ru_parse_zone(hit_area)]"
+	var/attack_message_spectator = "<b>[src]</b> [message_verb_continuous][message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>!"
+	var/attack_message_victim = "[capitalize(message_verb_continuous)][message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>!"
+	var/attack_message_attacker = "Моя атака [message_verb_simple] <b>[src]</b>[message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>!"
 	if(user in viewers(src, null))
-		attack_message_spectator = "<b>[user]</b> [message_verb_continuous] <b>[sklonenie(src.name, VINITELNI, gender)]</b> в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
-		attack_message_victim = "<b>[user]</b> [message_verb_continuous] меня в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
+		attack_message_spectator = "<b>[user]</b> [message_verb_continuous] <b>[sklonenie(src.name, VINITELNI, gender)]</b>[message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
+		attack_message_victim = "<b>[user]</b> [message_verb_continuous] меня[message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
 	if(user == src)
-		attack_message_victim = "Моя атака [message_verb_simple] меня в [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]"
+		attack_message_victim = "Моя атака [message_verb_simple] меня[message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]"
 	visible_message("<span class='danger'>[attack_message_spectator]</span>",\
 		"<span class='userdanger'>[attack_message_victim]</span>", null, COMBAT_MESSAGE_RANGE, user)
 	to_chat(user, "<span class='danger'>[attack_message_attacker]</span>")

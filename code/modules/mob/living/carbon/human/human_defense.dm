@@ -673,7 +673,7 @@
 
 	var/list/missing = list(BODY_ZONE_HEAD, BODY_ZONE_CHEST, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 
-	combined_msg += "<div class='examine_block'><span class='notice'>Моё состояние примерное такое:</span><table>"
+	combined_msg += "<div class='examine_block'><span class='info'>Моё состояние примерно такое:</span><table>"
 
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/LB = X
@@ -724,7 +724,7 @@
 				isdisabled += " но "
 			else
 				isdisabled += " и "
-		combined_msg += "<tr><td>\t <b>[r_uppertext(LB.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "notice" : "warning"]'>[r_uppertext(status)]</span>\]</td></tr>"
+		combined_msg += "<tr><td>\t <b>[r_uppertext(LB.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "info" : "warning"]'>[r_uppertext(status)]</span>\]</td></tr>"
 
 		for(var/thing in LB.wounds)
 			var/datum/wound/W = thing
@@ -851,7 +851,7 @@
 		combined_msg += "<span class='info'>Похоже [damaged_message] [damaged_plural ? "имеет" : "имеют"] повреждения.</span>"
 
 	if(roundstart_quirks.len)
-		combined_msg += "<span class='notice'>Я имею черты: [get_quirk_string(FALSE, CAT_QUIRK_ALL)].</span>"
+		combined_msg += "<span class='info'>Я имею черты: [get_quirk_string(FALSE, CAT_QUIRK_ALL)].</span>"
 
 	to_chat(src, combined_msg.Join("\n"))
 

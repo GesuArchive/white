@@ -272,6 +272,10 @@ a.popt {
 h1, h2, h3, h4, h5, h6 {
   color: #d6d6d6;
   font-family: Verdana, sans-serif;
+  text-shadow: -1px -1px 0 #222,
+               1px -1px 0 #222,
+               -1px 1px 0 #222,
+               1px 1px 0 #222,
 }
 
 h1.alert, h2.alert {
@@ -322,7 +326,7 @@ em {
 }
 
 .deadsay {
-  color: #e2c1ff;
+  color: #e89ed5;
 }
 
 .binarysay {
@@ -402,17 +406,18 @@ em {
 }
 
 .userdanger {
-  color: #c51e1e;
+  color: #e755db;
   font-weight: bold;
   font-size: 135%;
 }
 
 .danger {
-  color: #c51e1e;
+  color: #fd5b5b;
+  margin-left: 4px;
 }
 
 .warning {
-  color: #c51e1e;
+  color: #9d1b1b;
   font-style: italic;
 }
 
@@ -422,7 +427,7 @@ em {
 }
 
 .boldwarning {
-  color: #c51e1e;
+  color: #9d1b1b;
   font-style: italic;
   font-weight: bold;
 }
@@ -451,8 +456,7 @@ em {
 }
 
 .notice {
-  color: #cfa68b;
-  font-size: 95%;
+  color: #635fcf;
 }
 
 .tinynotice {
@@ -507,11 +511,11 @@ em {
 }
 
 .green {
-  color: #059223;
+  color: #3bbb3b;
 }
 
 .red {
-  color: #FF0000;
+  color: #a72b2b;
 }
 
 .blue {
@@ -958,8 +962,8 @@ em {
 }
 
 a, b {
-  text-shadow: -1px -1px 0 rgba(55, 33, 11, 0.22),
-               1px -1px 0 rgba(55, 33, 11, 0.22),
-               -1px 1px 0 rgba(55, 33, 11, 0.22),
-               1px 1px 0 rgba(55, 33, 11, 0.22);
+  text-shadow: -1px -1px 0 rgba(22, 22, 22, 0.11),
+               1px -1px 0 rgba(22, 22, 22, 0.11),
+               -1px 1px 0 rgba(22, 22, 22, 0.11),
+               1px 1px 0 rgba(22, 22, 22, 0.11),
 }

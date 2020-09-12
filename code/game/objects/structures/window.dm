@@ -437,10 +437,9 @@
 
 /obj/structure/window/reinforced/examine(mob/user)
 	. = ..()
-	. += "<hr>"
 	switch(state)
 		if(RWINDOW_SECURE)
-			. += "<span class='notice'>Похоже окно вкручено одноразовыми винтами. Придётся <b>нагреть их</b>, чтобы получить хоть какой-то шанс выкрутить их обратно.</span>"
+			. += "<span class='notice'>Окно прикручено одноразовыми винтами. Придётся <b>нагреть их</b>, чтобы получить хоть какой-то шанс выкрутить их обратно.</span>"
 		if(RWINDOW_BOLTS_HEATED)
 			. += "<span class='notice'>Винтики раскалены до бела, похоже можно <b>открутить их</b> прямо сейчас.</span>"
 		if(RWINDOW_BOLTS_OUT)
