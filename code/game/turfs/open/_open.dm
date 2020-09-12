@@ -270,7 +270,7 @@
 		air.adjust_moles(/datum/gas/pluoxium, pulse_strength * 0.004)
 		air_update_turf()
 	if (air.get_moles(/datum/gas/hydrogen))
-		pulse_strength = min(pulse_strength, air.get_moles(/datum/gas/hydrogen, * 1000))
+		pulse_strength = min(pulse_strength, air.get_moles(/datum/gas/hydrogen) * 1000)
 		air.set_moles(/datum/gas/hydrogen, max(air.get_moles(/datum/gas/hydrogen) - (pulse_strength * 0.001), 0))
 		air.adjust_moles(/datum/gas/tritium, (pulse_strength * 0.001))
 		air_update_turf()

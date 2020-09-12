@@ -462,12 +462,12 @@ nobiliumsuppression = INFINITY
 	var/instability = MODULUS((gas_power*INSTABILITY_GAS_POWER_FACTOR)**2,toroidal_size) //Instability effects how chaotic the behavior of the reaction is
 	cached_scan_results[id] = instability//used for analyzer feedback
 
-	var/plasma = (initial_plasma-FUSION_MOLE_THRESHOLD)/(scale_factor) //We have to scale the amounts of carbon and plasma down a significant amount in order to show the chaotic dynamics we want
+	var/plasma = (initial_plasma-FUSION_MOLE_THRESHOLD)/(scale_factor) //We have to scale the amounts of hydrogen and plasma down a significant amount in order to show the chaotic dynamics we want
 	var/hydrogen = (initial_hydrogen-FUSION_MOLE_THRESHOLD)/(scale_factor) //We also subtract out the threshold amount to make it harder for fusion to burn itself out.
 
 	//The reaction is a specific form of the Kicked Rotator system, which displays chaotic behavior and can be used to model particle interactions.
-	plasma = MODULUS(plasma - (instability*sin(TODEGREES(carbon))), toroidal_size)
-	carbon = MODULUS(hydrogen - plasma, toroidal_size)
+	plasma = MODULUS(plasma - (instability*sin(TODEGREES(hydrogen))), toroidal_size)
+	hydrogen = MODULUS(hydrogen - plasma, toroidal_size)
 
 
 	air.set_moles(/datum/gas/plasma, plasma*scale_factor + FUSION_MOLE_THRESHOLD )//Scales the gases back up
@@ -779,7 +779,7 @@ nobiliumsuppression = INFINITY
 	var/ball_shot_angle = 180*cos(air.get_moles(/datum/gas/water_vapor)/air.get_moles(/datum/gas/nitryl))+180
 	var/stim_used = min(STIM_BALL_GAS_AMOUNT/air.get_moles(/datum/gas/plasma),air.get_moles(/datum/gas/stimulum))
 	var/pluox_used = min(STIM_BALL_GAS_AMOUNT/air.get_moles(/datum/gas/plasma),air.get_moles(/datum/gas/pluoxium))
-	if ((air.get_mules(/datum/gas/pluoxium) - pluox_used < 0 ) || (air.get_mules(/datum/gas/stimulum) - stim_used < 0) || (air.get_mules(/datum/gas/plasma)- min(stim_used * pluox_used, 30) < 0)) //Shouldn't produce gas from nothing.
+	if ((air.get_moles(/datum/gas/pluoxium) - pluox_used < 0 ) || (air.get_moles(/datum/gas/stimulum) - stim_used < 0) || (air.get_moles(/datum/gas/plasma)- min(stim_used * pluox_used, 30) < 0)) //Shouldn't produce gas from nothing.
 		return NO_REACTION
 	var/energy_released = stim_used * STIMULUM_HEAT_SCALE//Stimulum has a lot of stored energy, and breaking it up releases some of it
 	location.fire_nuclear_particle(ball_shot_angle)
