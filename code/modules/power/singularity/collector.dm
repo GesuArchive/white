@@ -22,7 +22,7 @@
 	var/stored_energy = 0
 	var/active = 0
 	var/locked = FALSE
-	var/drainratio = 1
+	var/drainratio = 0.5
 	var/powerproduction_drain = 0.001
 	var/bitcoinproduction_drain = 0.15
 	var/bitcoinmining = FALSE
@@ -43,7 +43,7 @@
 /obj/machinery/power/rad_collector/should_have_node()
 	return anchored
 
-/obj/machinery/power/rad_collector/process()
+/obj/machinery/power/rad_collector/process(delta_time)
 	if(!loaded_tank)
 		return
 	if(!bitcoinmining)

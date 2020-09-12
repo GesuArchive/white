@@ -718,7 +718,7 @@
 		if(status == "НОРМАЛЬНО" || status == "НЕТ УРОНА")
 			no_damage = TRUE
 		var/isdisabled = ""
-		if(LB.is_disabled())
+		if(LB.bodypart_disabled)
 			isdisabled = "\[ПАРАЛИЧ\]"
 			if(no_damage)
 				isdisabled += " но "

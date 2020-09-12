@@ -81,19 +81,19 @@
 		if(WOUND_INFECTION_SEVERE to WOUND_INFECTION_CRITICAL)
 			if(!disabling && prob(2))
 				to_chat(victim, "<span class='warning'><b>Моя [limb.name] полностью блокируется, пока я пытаюсь бороться с инфекцией!</b></span>")
-				disabling = TRUE
+				set_disabling(TRUE)
 			else if(disabling && prob(8))
 				to_chat(victim, "<span class='notice'>Восстанавливаю ощущения в своей [ru_gde_zone(limb.name)], но она все еще в ужасной форме!</span>")
-				disabling = FALSE
+				set_disabling(FALSE)
 			else if(prob(20))
 				victim.adjustToxLoss(0.5)
 		if(WOUND_INFECTION_CRITICAL to WOUND_INFECTION_SEPTIC)
 			if(!disabling && prob(3))
 				to_chat(victim, "<span class='warning'><b>Внезапно теряю ощущение гнойной инфекции в моей [ru_gde_zone(limb.name)]!</b></span>")
-				disabling = TRUE
+				set_disabling(TRUE)
 			else if(disabling && prob(3))
 				to_chat(victim, "<span class='notice'>Едва чувствую [limb.name] снова, надо постараться, чтобы заставить её двигаться снова!</span>")
-				disabling = FALSE
+				set_disabling(FALSE)
 			else if(prob(1))
 				to_chat(victim, "<span class='warning'>Продумаю жизнь без своей [ru_gde_zone(limb.name)]... Кому она нахуй сдалась?!</span>")
 				victim.adjustToxLoss(0.75)
