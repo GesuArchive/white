@@ -191,7 +191,7 @@
 
 	var/temp = getBruteLoss() //no need to calculate each of these twice
 
-	. += "\n"
+	. += "<hr>"
 
 	var/list/msg = list()
 

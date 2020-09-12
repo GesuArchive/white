@@ -452,6 +452,7 @@ em {
 
 .notice {
   color: #cfa68b;
+  font-size: 95%;
 }
 
 .tinynotice {
@@ -954,4 +955,11 @@ em {
   background: #333;
   height: 1px;
   margin: 8px 16px 8px 16px;
+}
+
+a, b {
+  text-shadow: -1px -1px 0 rgba(55, 33, 11, 0.22),
+               1px -1px 0 rgba(55, 33, 11, 0.22),
+               -1px 1px 0 rgba(55, 33, 11, 0.22),
+               1px 1px 0 rgba(55, 33, 11, 0.22);
 }
