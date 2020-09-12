@@ -9,7 +9,6 @@
 	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 35, "bio" = 100, "rad" = 0, "fire" = 55, "acid" = 50)
 	flash_protect = 1
-	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
 	light_system = MOVABLE_LIGHT
@@ -39,7 +38,6 @@
 	icon_state = "rig0-engineeringalt"
 	inhand_icon_state = "rig0-engineeringalt"
 	hardsuit_type = "engineeringalt"
-	var/obj/item/clothing/head/helmet/space/hardsuit/syndi/wzzzz/eng = null
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
@@ -158,7 +156,6 @@
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
 	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	flash_protect = 1
-	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
 	light_system = MOVABLE_LIGHT
@@ -197,7 +194,6 @@
 	icon = 'white/Wzzzz/icons/clothing/clothing/hardhead.dmi'
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 60,"energy" = 60, "bomb" = 50, "bio" = 100, "rad" = 60, "fire" = 100, "acid" = 100)
 	flash_protect = 1
-	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
 	light_system = MOVABLE_LIGHT
@@ -234,7 +230,6 @@
 	flash_protect = 1
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
 	clothing_flags = STOPSPRESSUREDAMAGE
-	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	light_system = MOVABLE_LIGHT
 	light_range = 1
 	light_power = 0.6
@@ -260,7 +255,6 @@
 	desc = "For miners, isn't it?"
 	alt_desc = "For miners, isn't it?"
 	icon_state = "rig_miningalt"
-	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	inhand_icon_state = "rig_miningalt"
 	hardsuit_type = "rig_miningalt"
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
@@ -616,7 +610,6 @@
 	desc = "For skrells, for space"
 	alt_desc = "For skrells, for space"
 	icon_state = "skrell_helmet_white"
-	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	inhand_icon_state = "skrell_suit_white"
 	hardsuit_type = "skrell_helmet_white"
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
@@ -702,7 +695,6 @@
 	desc = "New style of atmospherical hardsuit."
 	alt_desc = "New style of atmospherical hardsuit."
 	icon_state = "rig_atmosalt"
-	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	inhand_icon_state = "rig_atmosalt"
 	hardsuit_type = "rig_atmosalt"
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
@@ -742,7 +734,6 @@
 	desc = "New style of security hardsuit."
 	alt_desc = "New style of security hardsuit."
 	icon_state = "rig_secalt"
-	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	inhand_icon_state = "rig_secalt"
 	hardsuit_type = "rig_secalt"
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
@@ -783,7 +774,6 @@
 	desc = "New style of security hardsuit."
 	alt_desc = "New style of security hardsuit."
 	icon_state = "rig_sec"
-	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	inhand_icon_state = "rig_sec"
 	hardsuit_type = "rig_sec"
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
@@ -823,7 +813,6 @@
 	desc = "New style of medical hardsuit."
 	alt_desc = "New style of medical hardsuit."
 	icon_state = "rig_medicalalt"
-	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	inhand_icon_state = "rig_medicalalt"
 	slowdown = 0.5
 	hardsuit_type = "rig_medicalalt"
@@ -866,7 +855,6 @@
 	desc = "Salvaged hardsuit."
 	alt_desc = "Salvaged hardsuit."
 	icon_state = "rig_salvage"
-	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	inhand_icon_state = "rig_salvage"
 	hardsuit_type = "rig_salvage"
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
@@ -906,7 +894,6 @@
 	desc = "Hardsuit for exploring."
 	alt_desc = "Hardsuit for exploring."
 	icon_state = "rig_excavation"
-	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	inhand_icon_state = "rig_excavation"
 	hardsuit_type = "rig_excavation"
 	clothing_flags = STOPSPRESSUREDAMAGE
@@ -951,7 +938,6 @@
 	alt_desc = "New style of engineer hardsuit."
 	slowdown = 0.7
 	icon_state = "rig_engineeringalt"
-	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	inhand_icon_state = "rig_engineeringalt"
 	hardsuit_type = "rig_engineeringalt"
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
@@ -990,7 +976,6 @@
 	desc = "For skrells, for space"
 	alt_desc = "For skrells, for space"
 	icon_state = "skrell_helmet_black"
-	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/asset_protection = null
 	inhand_icon_state = "skrell_suit_black"
 	hardsuit_type = "skrell_helmet_black"
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hardhead.dmi'
