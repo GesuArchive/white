@@ -56,8 +56,8 @@
 	C.facial_hairstyle = dwarf_beard
 	C.draw_hippie_parts()
 	. = ..()
-	C.remove_all_languages()
-	C.grant_language(/datum/language/dwarven)
+	//C.remove_all_languages()
+	C.grant_language(/datum/language/dwarven, source = LANGUAGE_MIND)
 /datum/species/dwarf/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	C.draw_hippie_parts(TRUE)
 	. = ..()
@@ -134,7 +134,7 @@
 /obj/item/clothing/mask/breath/dwarf
 	name = "небольшая дыхательная маска"
 	desc = "Загадочным образом исчезает при надевании."
-	icon_state = null // you'll only see this through adminbus any way
+	icon_state = "breath"
 	inhand_icon_state = null
 
 /datum/outfit/dwarf
