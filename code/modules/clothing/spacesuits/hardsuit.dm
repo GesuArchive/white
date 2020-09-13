@@ -125,7 +125,7 @@
 /obj/item/clothing/suit/space/hardsuit/examine(mob/user)
 	. = ..()
 	if(!helmet && helmettype)
-		. += "<span class='notice'>The helmet on [src] seems to be malfunctioning. Its light bulb needs to be replaced.</span>"
+		. += "\n<span class='notice'>The helmet on [src] seems to be malfunctioning. Its light bulb needs to be replaced.</span>"
 
 /obj/item/clothing/suit/space/hardsuit/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/tank/jetpack/suit))
@@ -325,11 +325,11 @@
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/attack_self(mob/user) //Toggle Helmet
 	if(!isturf(user.loc))
-		to_chat(user, "<span class='warning'>Вы не можете переключить шлем. На нём [user.loc]!</span>" )
+		to_chat(user, "<span class='warning'>Не могу переключить шлем. На нём [user.loc]!</span>" )
 		return
 	on = !on
 	if(on || force)
-		to_chat(user, "<span class='notice'>Вы переключили костюм в режим скафандра, жертвуем скоростью для защиты от космоса.</span>")
+		to_chat(user, "<span class='notice'>Переключаю костюм в режим скафандра, жертвуем скоростью для защиты от космоса.</span>")
 		name = initial(name)
 		desc = initial(desc)
 		set_light_on(TRUE)
@@ -338,8 +338,8 @@
 		flags_inv |= visor_flags_inv
 		cold_protection |= HEAD
 	else
-		to_chat(user, "<span class='notice'>Вы переключили костюм в боевой режим. Скорость увеличена.</span>")
-		name += " (combat)"
+		to_chat(user, "<span class='notice'>Переключаю костюм в боевой режим. Скорость увеличена.</span>")
+		name += " (боевой)"
 		desc = alt_desc
 		set_light_on(FALSE)
 		clothing_flags &= ~visor_flags
@@ -366,7 +366,7 @@
 			linkedsuit.clothing_flags |= STOPSPRESSUREDAMAGE
 			linkedsuit.cold_protection |= CHEST | GROIN | LEGS | FEET | ARMS | HANDS
 		else
-			linkedsuit.name += " (combat)"
+			linkedsuit.name += " (боевой)"
 			linkedsuit.desc = linkedsuit.alt_desc
 			linkedsuit.slowdown = 0
 			linkedsuit.clothing_flags &= ~STOPSPRESSUREDAMAGE

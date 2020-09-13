@@ -120,12 +120,12 @@
 	S.status = SOUND_UPDATE
 	SEND_SOUND(src, S)
 
-/client/proc/playtitlemusic(vol = 25)
+/client/proc/playtitlemusic(vol = 15)
 	set waitfor = FALSE
 	UNTIL(SSticker.login_music) //wait for SSticker init to set the login music
 
 	if(prefs && (prefs.toggles & SOUND_LOBBY))
-		var/tmusic = replacetext(replacetext(replacetext(SSticker.login_music, ".ogg", ""), "rare+", ""), "[global.config.directory]/title_music/sounds/", " ")
+		var/tmusic = replacetext(pop(splittext(SSticker.login_music, "/")), ".ogg", "")
 		to_chat(src, "<center><b>Сейчас играет:<i>[tmusic]</i></b></center>")
 		SEND_SOUND(src, sound(SSticker.login_music, repeat = TRUE, wait = 0, volume = vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
 

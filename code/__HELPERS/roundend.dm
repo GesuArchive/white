@@ -221,7 +221,7 @@
 
 	to_chat(world, "<BR><BR><BR><center><span class='big bold'>Конец раунда.</span></center><BR><BR><BR>")
 
-	spawn(30)
+	spawn(60)
 		to_chat(world, "<BR><span class='notice'>Аспект раунда был таков: <b>[SSaspects.ca_name]</b> - <i>[SSaspects.ca_desc]</i></span><BR>")
 
 	log_game("The round has ended.")
@@ -238,7 +238,7 @@
 	for(var/client/C in GLOB.clients)
 		if(!C.credits)
 			C.RollCredits()
-		C.playtitlemusic(40)
+		C.playtitlemusic(5)
 
 		C.process_endround_metacoin()
 
