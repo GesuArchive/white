@@ -27,6 +27,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	slot_flags = ITEM_SLOT_EARS
 	var/obj/item/encryptionkey/keyslot2 = null
 	dog_fashion = null
+	var/radiosound = 'white/valtos/sounds/radio/common.ogg'
 
 /obj/item/radio/headset/suicide_act(mob/living/carbon/user)
 	user.visible_message("<span class='suicide'>[user] begins putting \the [src]'s antenna up [user.p_their()] nose! It looks like [user.p_theyre()] trying to give [user.p_them()]self cancer!</span>")
@@ -64,6 +65,8 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 /obj/item/radio/headset/talk_into(mob/living/M, message, channel, list/spans, datum/language/language, list/message_mods)
 	if (!listening)
 		return ITALICS | REDUCE_RANGE
+	if(ishuman(M) && radiosound)
+		playsound(M, radiosound, rand(20, 30), 0, 0, 0)
 	return ..()
 
 /obj/item/radio/headset/can_receive(freq, level, AIuser)
@@ -80,6 +83,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	.["headset"] = TRUE
 
 /obj/item/radio/headset/syndicate //disguised to look like a normal headset for stealth ops
+	radiosound = 'white/valtos/sounds/radio/syndie.ogg'
 
 /obj/item/radio/headset/syndicate/alt //undisguised bowman with flash protection
 	name = "гарнитура синдиката"
@@ -111,6 +115,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	desc = "Это используется вашими элитными силами безопасности."
 	icon_state = "sec_headset"
 	keyslot = new /obj/item/encryptionkey/headset_sec
+	radiosound = 'white/valtos/sounds/radio/security.ogg'
 
 /obj/item/radio/headset/headset_sec/alt
 	name = "гарнитура-бабочка офицера"

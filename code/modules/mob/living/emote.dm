@@ -22,6 +22,15 @@
 	message = "отрыгивает."
 	emote_type = EMOTE_AUDIBLE
 
+/datum/emote/living/burp/get_sound(mob/living/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(!H.mind || !H.mind.miming)
+			if(user.gender == FEMALE)
+				return 'white/valtos/sounds/emotes/burp_female.ogg'
+			else
+				return 'white/valtos/sounds/emotes/burp_male.ogg'
+
 /datum/emote/living/choke
 	key = "choke"
 	key_third_person = "chokes"
@@ -84,12 +93,16 @@
 		if(!H.mind || !H.mind.miming)
 			if(user.gender == FEMALE)
 				return pick('white/valtos/sounds/emotes/cough_female_1.ogg',\
-							'white/valtos/sounds/emotes/cough_female_2.ogg')
+							'white/valtos/sounds/emotes/cough_female_2.ogg',\
+							'white/valtos/sounds/emotes/cough_female_3.ogg',\
+							'white/valtos/sounds/emotes/cough_female_4.ogg',\
+							'white/valtos/sounds/emotes/cough_female_5.ogg')
 			else
 				return pick('white/valtos/sounds/emotes/cough_male_1.ogg',\
 							'white/valtos/sounds/emotes/cough_male_2.ogg',\
 							'white/valtos/sounds/emotes/cough_male_3.ogg',\
-							'white/valtos/sounds/emotes/cough_male_4.ogg')
+							'white/valtos/sounds/emotes/cough_male_4.ogg',\
+							'white/valtos/sounds/emotes/cough_male_5.ogg')
 
 /datum/emote/living/dance
 	key = "dance"
@@ -185,12 +198,39 @@
 	emote_type = EMOTE_AUDIBLE
 	stat_allowed = HARD_CRIT
 
+/datum/emote/living/gasp/get_sound(mob/living/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(!H.mind || !H.mind.miming)
+			if(user.gender == FEMALE)
+				return pick('white/valtos/sounds/emotes/gasp_female_1.ogg',\
+							'white/valtos/sounds/emotes/gasp_female_2.ogg',\
+							'white/valtos/sounds/emotes/gasp_female_3.ogg',\
+							'white/valtos/sounds/emotes/gasp_female_4.ogg',\
+							'white/valtos/sounds/emotes/gasp_female_5.ogg',\
+							'white/valtos/sounds/emotes/gasp_female_6.ogg')
+			else
+				return pick('white/valtos/sounds/emotes/gasp_male_1.ogg',\
+							'white/valtos/sounds/emotes/gasp_male_2.ogg',\
+							'white/valtos/sounds/emotes/gasp_male_3.ogg',\
+							'white/valtos/sounds/emotes/gasp_male_4.ogg',\
+							'white/valtos/sounds/emotes/gasp_male_5.ogg',\
+							'white/valtos/sounds/emotes/gasp_male_6.ogg')
+
 /datum/emote/living/giggle
 	key = "giggle"
 	key_third_person = "giggles"
 	message = "хихикает."
 	message_mime = "тихо хихикает!"
 	emote_type = EMOTE_AUDIBLE
+
+/datum/emote/living/giggle/get_sound(mob/living/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(!H.mind || !H.mind.miming)
+			if(user.gender == FEMALE)
+				return pick('white/valtos/sounds/emotes/giggle_female_1.ogg',\
+							'white/valtos/sounds/emotes/giggle_female_2.ogg')
 
 /datum/emote/living/glare
 	key = "glare"
@@ -347,7 +387,10 @@
 	if(user.gender == MALE)
 		return pick('white/valtos/sounds/emotes/sigh_male_1.ogg',\
 					'white/valtos/sounds/emotes/sigh_male_2.ogg',\
-					'white/valtos/sounds/emotes/sigh_male_3.ogg')
+					'white/valtos/sounds/emotes/sigh_male_3.ogg',\
+					'white/valtos/sounds/emotes/sigh_male_4.ogg')
+	else
+		return 'white/valtos/sounds/emotes/sigh_female.ogg'
 
 /datum/emote/living/sit
 	key = "sit"
@@ -371,10 +414,12 @@
 		if(!H.mind || !H.mind.miming)
 			if(user.gender == FEMALE)
 				return pick('white/valtos/sounds/emotes/sneeze_female_1.ogg',\
-							'white/valtos/sounds/emotes/sneeze_female_2.ogg')
+							'white/valtos/sounds/emotes/sneeze_female_2.ogg',\
+							'white/valtos/sounds/emotes/sneeze_female_3.ogg')
 			else
 				return pick('white/valtos/sounds/emotes/sneeze_male_1.ogg',\
-							'white/valtos/sounds/emotes/sneeze_male_2.ogg')
+							'white/valtos/sounds/emotes/sneeze_male_2.ogg',\
+							'white/valtos/sounds/emotes/sneeze_male_3.ogg')
 
 /datum/emote/living/smug
 	key = "smug"
