@@ -73,6 +73,6 @@
 	if(!mat_container || panel_open || !powered())
 		return
 	var/datum/material/ore = pick(ores)
-	materials.mat_container.insert_amount_mat(ores[SSmaterials.GetMaterialRef(ore)], ore)
+	materials.mat_container.insert_amount_mat(ores[ore], SSmaterials.GetMaterialRef(ore))
 	if(debugging == 1)
 		materials.mat_container.insert_amount_mat(10000, /datum/material/iron)
