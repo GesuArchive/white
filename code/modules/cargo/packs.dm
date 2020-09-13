@@ -980,6 +980,19 @@
 	crate_name = "tesla coil crate"
 	crate_type = /obj/structure/closet/crate/engineering/electrical
 
+/datum/supply_pack/engine/particle
+	name = "Particle Accelerator Crate"
+	desc = "A supermassive black hole or hyper-powered teslaball are the perfect way to spice up any party! This \"My First Apocalypse\" kit contains everything you need to build your own Particle Accelerator! Ages 10 and up."
+	cost = 3000
+	contains = list(/obj/structure/particle_accelerator/fuel_chamber,
+					/obj/machinery/particle_accelerator/control_box,
+					/obj/structure/particle_accelerator/particle_emitter/center,
+					/obj/structure/particle_accelerator/particle_emitter/left,
+					/obj/structure/particle_accelerator/particle_emitter/right,
+					/obj/structure/particle_accelerator/power_box,
+					/obj/structure/particle_accelerator/end_cap)
+	crate_name = "particle accelerator crate"
+
 //////////////////////////////////////////////////////////////////////////////
 /////////////////////// Canisters & Materials ////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
