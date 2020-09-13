@@ -993,6 +993,13 @@
 					/obj/structure/particle_accelerator/end_cap)
 	crate_name = "particle accelerator crate"
 
+/datum/supply_pack/engine/tesla_gen
+	name = "Tesla Generator Crate"
+	desc = "The key to unlocking the power of the Tesla energy ball. Particle Accelerator not included."
+	cost = 5000
+	contains = list(/obj/machinery/the_singularitygen/tesla)
+	crate_name = "tesla generator crate"
+
 //////////////////////////////////////////////////////////////////////////////
 /////////////////////// Canisters & Materials ////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
