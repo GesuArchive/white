@@ -509,7 +509,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	adminhelp(msg)
 
 /client/verb/adminhelp_wrapper()
-	set category = "Особенное"
+	set category = "Адм"
 	set name = "❗ Adminhelp"
 
 	var/msg = input(src, "Please describe your problem concisely and an admin will help as soon as they're able.", "Adminhelp contents") as message|null
