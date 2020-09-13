@@ -436,3 +436,17 @@ ul.sparse {
 	font-size: 16px;
 	vertical-align: middle;
 }
+
+a.rs_butt
+{
+	background: #fff;
+}
+
+.role_col {
+	padding: 1px;
+	background: #dddddd;
+	border: 1px solid #666666;
+	border-bottom: 3px solid #444444;
+	border-radius: 3px;
+	margin: 0;
+}
