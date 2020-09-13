@@ -167,7 +167,7 @@
 	to_chat(user, "<span class='warning'>Переделываю программу в режим готовки шаурмы.</span>")
 
 /obj/item/circuitboard/machine/organdoc
-	name = "Органдок (Machine Board)"
+	name = "Органдок (Машинерия)"
 	build_path = /obj/machinery/organdoc
 	req_components = list(/obj/item/scalpel/advanced = 1,
 		/obj/item/retractor/advanced = 1,

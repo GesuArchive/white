@@ -23,7 +23,7 @@
 //////////////////////////////////////////////////////
 
 /obj/item/circuitboard/computer/atmosia
-	name = "Atmosia Navigation (Computer Board)"
+	name = "Atmosia Navigation (Компьютер)"
 	icon_state = "generic"
 	build_path = /obj/machinery/computer/camera_advanced/shuttle_docker/adv/atmosia
 

@@ -8,7 +8,7 @@
 	time_per_sheet = 120
 
 /obj/item/circuitboard/machine/pacman/ecrys
-	name = "WEEB-type Generator (Machine Board)"
+	name = "WEEB-type Generator (Машинерия)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/port_gen/pacman/ecrys
 
@@ -24,6 +24,6 @@
 	time_per_sheet = 60
 
 /obj/item/circuitboard/machine/pacman/biogen
-	name = "Portable Biogenerator (Machine Board)"
+	name = "Portable Biogenerator (Машинерия)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/port_gen/pacman/biogen

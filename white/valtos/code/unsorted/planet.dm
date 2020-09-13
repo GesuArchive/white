@@ -7,7 +7,7 @@
 	no_destination_swap = TRUE
 
 /obj/item/circuitboard/computer/unit_shuttle
-	name = "Unit Shuttle (Computer Board)"
+	name = "Unit Shuttle (Компьютер)"
 	icon_state = "generic"
 	build_path = /obj/machinery/computer/shuttle/unit_shuttle
 

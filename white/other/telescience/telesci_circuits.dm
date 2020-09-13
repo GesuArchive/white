@@ -7,7 +7,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /obj/item/circuitboard/machine/telesci_pad
-	name = "Telepad (Machine Board)"
+	name = "Telepad (Машинерия)"
 	build_path = /obj/machinery/telepad
 	req_components = list(
 							/obj/item/stack/ore/bluespace_crystal = 2,
@@ -27,7 +27,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /obj/item/circuitboard/computer/telesci_console
-	name = "Telescience Console (Computer Board)"
+	name = "Telescience Console (Компьютер)"
 	build_path = /obj/machinery/computer/telescience
 
 //////////////////////////////////////////////////////////

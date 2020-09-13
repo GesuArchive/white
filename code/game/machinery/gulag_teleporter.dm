@@ -162,7 +162,7 @@ The console is located at computer/gulag_teleporter.dm
 		R.fields["criminal"] = "Incarcerated"
 
 /obj/item/circuitboard/machine/gulag_teleporter
-	name = "labor camp teleporter (Machine Board)"
+	name = "labor camp teleporter (Машинерия)"
 	build_path = /obj/machinery/gulag_teleporter
 	req_components = list(
 							/obj/item/stack/ore/bluespace_crystal = 2,

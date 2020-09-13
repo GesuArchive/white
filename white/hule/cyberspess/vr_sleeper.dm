@@ -18,7 +18,7 @@
 	var/only_current_user_can_interact = FALSE
 
 /obj/item/circuitboard/machine/vr_sleeper
-	name = "VR Sleeper (Computer Board)"
+	name = "VR Sleeper (Компьютер)"
 	icon_state = "command"
 	build_path = /obj/machinery/vr_sleeper
 

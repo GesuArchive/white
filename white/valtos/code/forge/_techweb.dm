@@ -11,7 +11,7 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/design/board/reagent_sheet
-	name = "Reagent Refinery (Machine Board)"
+	name = "Reagent Refinery (Машинерия)"
 	desc = "Allows for the construction of circuit boards used to build a reagent refinery."
 	id = "reagent_sheet"
 	build_path = /obj/item/circuitboard/machine/reagent_sheet

@@ -1,5 +1,5 @@
 /obj/item/circuitboard/machine/spaceship_navigation_beacon
-	name = "Bluespace Navigation Gigabeacon (Machine Board)"
+	name = "Bluespace Navigation Gigabeacon (Машинерия)"
 	build_path = /obj/machinery/spaceship_navigation_beacon
 	req_components = list()
 

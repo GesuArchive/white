@@ -599,7 +599,7 @@
 					"Imported")
 
 /obj/item/circuitboard/machine/autolathe/soviet
-	name = "Советлат (Machine Board)"
+	name = "Советлат (Машинерия)"
 	build_path = /obj/machinery/autolathe/soviet
 
 /*********************Radio Shit*************************/
