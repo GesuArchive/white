@@ -139,7 +139,7 @@
 
 	output += {"</div>"}
 
-	..(User, ckey("[User]-[Message]-[Title]-[world.time]-[rand(1,10000)]"), Title, 350, 150, src, StealFocus, Timeout)
+	..(User, ckey("[User]-[Message]-[Title]-[world.time]-[rand(1,10000)]"), Title, 350, 200, src, StealFocus, Timeout)
 	set_content(output)
 
 /datum/browser/modal/alert/Topic(href,href_list)

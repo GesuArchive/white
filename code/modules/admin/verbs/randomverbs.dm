@@ -710,7 +710,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	var/list/L = M.get_contents()
 	for(var/t in L)
-		to_chat(usr, "[icon2html(t, usr)] [capitalize(t)]", confidential = TRUE)
+		to_chat(usr, "[icon2html(t, usr)] [t]", confidential = TRUE)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Check Contents") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggle_view_range()
