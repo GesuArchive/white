@@ -26,7 +26,7 @@ SUBSYSTEM_DEF(statpanels)
 			var/ETA = SSshuttle.emergency.getModeStr()
 			if(ETA)
 				global_data += "<b>[ETA]</b> [SSshuttle.emergency.getTimerStr()]"
-		encoded_global_data = url_encode(json_encode(global_data))
+		encoded_global_data = json_encode(global_data)
 
 		var/list/mc_data = list(
 			list("CPU:", world.cpu),
@@ -50,8 +50,8 @@ SUBSYSTEM_DEF(statpanels)
 	while(length(currentrun))
 		var/client/target = currentrun[length(currentrun)]
 		currentrun.len--
-		var/ping_str = url_encode("<b>Пинг</b>: [round(target.lastping, 1)]мс (Средний: [round(target.avgping, 1)]мс)")
-		var/other_str = url_encode(json_encode(target.mob.get_status_tab_items()))
+		var/ping_str = "<b>Пинг</b>: [round(target.lastping, 1)]мс (Средний: [round(target.avgping, 1)]мс)"
+		var/other_str = json_encode(target.mob.get_status_tab_items())
 		target << output("[encoded_global_data];[ping_str];[other_str]", "statbrowser:update")
 		if(!target.holder)
 			target << output("", "statbrowser:remove_admin_tabs")
