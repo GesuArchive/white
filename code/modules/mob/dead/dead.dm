@@ -49,21 +49,21 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 /mob/dead/get_status_tab_items()
 	. = ..()
 	. += ""
-	. += "Режим: [SSticker.hide_mode ? "Secret" : "[GLOB.master_mode]"]"
+	. += "<b>Режим</b>: [SSticker.hide_mode ? "СЕКРЕТ" : "[capitalize(GLOB.master_mode)]"]"
 
 	if(SSticker.HasRoundStarted())
 		return
 
 	var/time_remaining = SSticker.GetTimeLeft()
 	if(time_remaining > 0)
-		. += "Таймер: [round(time_remaining/10)]с"
+		. += "<b>Таймер</b>: [round(time_remaining/10)]с"
 	else if(time_remaining == -10)
-		. += "Таймер: ОТЛОЖЕНО"
+		. += "<b>Таймер</b>: ОТЛОЖЕНО"
 	else
-		. += "Таймер: СКОРО"
+		. += "<b>Таймер:</b> СКОРО"
 
-	. += "Игроки: [SSticker.totalPlayers]"
-	. += "Готовы: [SSticker.totalPlayersReady]"
+	. += "<b>Игроки</b>: [SSticker.totalPlayers]"
+	. += "<b>Готовы</b>: [SSticker.totalPlayersReady]"
 
 /mob/dead/proc/server_hop()
 	set category = "OOC"

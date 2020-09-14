@@ -59,26 +59,26 @@
 
 /mob/living/carbon/human/get_status_tab_items()
 	. = ..()
-	. += "Взаимодействие: [a_intent]"
-	. += "Режим перемещения: [m_intent]"
+	. += "<b>Взаимодействие</b>: [a_intent]"
+	. += "<b>Режим перемещения</b>: [m_intent]"
 	if (internal)
 		if (!internal.air_contents)
 			qdel(internal)
 		else
 			. += ""
-			. += "Источник: [internal.name]"
-			. += "Давление: [internal.air_contents.return_pressure()]"
-			. += "Подача: [internal.distribute_pressure]"
+			. += "<b>Источник</b>: [internal.name]"
+			. += "<b>Давление</b>: [internal.air_contents.return_pressure()]"
+			. += "<b>Подача</b>: [internal.distribute_pressure]"
 	if(istype(wear_suit, /obj/item/clothing/suit/space))
 		var/obj/item/clothing/suit/space/S = wear_suit
-		. += "Терморегулятор: [S.thermal_on ? "ВКЛ" : "ВЫКЛ"]"
-		. += "Заряд батареи: [S.cell ? "[round(S.cell.percent(), 0.1)]%" : "!ОШИБКА!"]"
+		. += "<b>Терморегулятор</b>: [S.thermal_on ? "ВКЛ" : "ВЫКЛ"]"
+		. += "<b>Заряд батареи</b>: [S.cell ? "[round(S.cell.percent(), 0.1)]%" : "!ОШИБКА!"]"
 	if(mind)
 		var/datum/antagonist/changeling/changeling = mind.has_antag_datum(/datum/antagonist/changeling)
 		if(changeling)
 			. += ""
-			. += "Химикаты: [changeling.chem_charges]/[changeling.chem_storage]"
-			. += "Поглощено ДНК: [changeling.absorbedcount]"
+			. += "<b>Химикаты</b>: [changeling.chem_charges]/[changeling.chem_storage]"
+			. += "<b>Поглощено ДНК</b>: [changeling.absorbedcount]"
 	//NINJACODE
 	if(istype(wear_suit, /obj/item/clothing/suit/space/space_ninja)) //Only display if actually a ninja.
 		var/obj/item/clothing/suit/space/space_ninja/SN = wear_suit

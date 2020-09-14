@@ -13,19 +13,19 @@ SUBSYSTEM_DEF(statpanels)
 		var/datum/map_config/cached = SSmapping.next_map_config
 		var/round_time = world.time - SSticker.round_start_time
 		var/list/global_data = list(
-			"Карта: [SSmapping.config?.map_name || "Загрузка..."]",
-			cached ? "Следующая: [cached.map_name]" : null,
-			"ID раунда: [GLOB.round_id ? GLOB.round_id : "NULL"]",
-			"Серверное время: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
-			"Длительность раунда: [round_time > MIDNIGHT_ROLLOVER ? "[round(round_time/MIDNIGHT_ROLLOVER)]:[worldtime2text()]" : worldtime2text()]",
-			"Время на станции: [station_time_timestamp()]",
-			"Замедление времени: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)"
+			"<b>Карта</b>: [SSmapping.config?.map_name || "Загрузка..."]",
+			cached ? "<b>Следующая</b>: [cached.map_name]" : null,
+			"<b>ID раунда</b>: [GLOB.round_id ? GLOB.round_id : "NULL"]",
+			"<b>Серверное время</b>: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
+			"<b>Длительность раунда</b>: [round_time > MIDNIGHT_ROLLOVER ? "[round(round_time/MIDNIGHT_ROLLOVER)]:[worldtime2text()]" : worldtime2text()]",
+			"<b>Время на станции</b>: [station_time_timestamp()]",
+			"<b>Замедление времени</b>: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)"
 		)
 
 		if(SSshuttle.emergency)
 			var/ETA = SSshuttle.emergency.getModeStr()
 			if(ETA)
-				global_data += "[ETA] [SSshuttle.emergency.getTimerStr()]"
+				global_data += "<b>[ETA]</b> [SSshuttle.emergency.getTimerStr()]"
 		encoded_global_data = url_encode(json_encode(global_data))
 
 		var/list/mc_data = list(
@@ -50,7 +50,7 @@ SUBSYSTEM_DEF(statpanels)
 	while(length(currentrun))
 		var/client/target = currentrun[length(currentrun)]
 		currentrun.len--
-		var/ping_str = url_encode("Ping: [round(target.lastping, 1)]ms (Average: [round(target.avgping, 1)]ms)")
+		var/ping_str = url_encode("<b>Пинг</b>: [round(target.lastping, 1)]мс (Средний: [round(target.avgping, 1)]мс)")
 		var/other_str = url_encode(json_encode(target.mob.get_status_tab_items()))
 		target << output("[encoded_global_data];[ping_str];[other_str]", "statbrowser:update")
 		if(!target.holder)
