@@ -155,6 +155,8 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	pixel_y = -32
 	bound_height = 64
 	bound_width = 96
+	bound_x = -32
+	bound_y = 0
 	density = TRUE
 
 	use_power = IDLE_POWER_USE
