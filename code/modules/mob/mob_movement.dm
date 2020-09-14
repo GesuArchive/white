@@ -80,8 +80,6 @@
 		return FALSE
 	if(mob.notransform)
 		return FALSE	//This is sota the goto stop mobs from moving var
-
-
 	if(mob.control_object)
 		return Move_object(direct)
 	if(!isliving(mob))
@@ -136,7 +134,6 @@
 		else if(prob(confusion * 3))
 			newdir = angle2dir(dir2angle(direct) + pick(45, -45))
 		if(newdir)
-
 			direct = newdir
 			n = get_step(L, direct)
 
@@ -149,6 +146,7 @@
 	if(.) // If mob is null here, we deserve the runtime
 		if(mob.throwing)
 			mob.throwing.finalize(FALSE)
+
 	var/atom/movable/P = mob.pulling
 	if(P && !ismob(P) && P.density)
 		mob.setDir(turn(mob.dir, 180))
@@ -488,7 +486,6 @@
 			to_chat(src, "<span class='warning'>You can't do that right now!</span>")
 			return FALSE
 	var/turf/target = get_step_multiz(src, dir)
-
 	if(!target)
 		if(feedback)
 			to_chat(src, "<span class='warning'>ПОТОЛОК!</span>")

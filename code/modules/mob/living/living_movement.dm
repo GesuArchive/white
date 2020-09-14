@@ -1,4 +1,4 @@
-/mob/living/Moved(atom/OldLoc, Dir)
+/mob/living/Moved()
 	. = ..()
 	update_turf_movespeed(loc)
 

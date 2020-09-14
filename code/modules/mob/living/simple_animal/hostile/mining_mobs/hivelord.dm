@@ -9,7 +9,7 @@
 	icon_gib = "syndicate_gib"
 	mob_biotypes = MOB_ORGANIC
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
-	move_to_delay = 7
+	move_to_delay = 14
 	ranged = 1
 	vision_range = 5
 	aggro_vision_range = 9
@@ -123,11 +123,10 @@
 	var/mob/living/carbon/human/stored_mob
 
 /mob/living/simple_animal/hostile/asteroid/hivelord/legion/random/Initialize()
+	. = ..()
 	if(prob(5))
 		new /mob/living/simple_animal/hostile/asteroid/hivelord/legion/dwarf(loc)
 		return INITIALIZE_HINT_QDEL
-	else
-		. = ..()
 
 /mob/living/simple_animal/hostile/asteroid/hivelord/legion/dwarf
 	name = "dwarf legion"
@@ -255,7 +254,7 @@
 	del_on_death = TRUE
 	sentience_type = SENTIENCE_BOSS
 	loot = list(/obj/item/organ/regenerative_core/legion = 3, /obj/effect/mob_spawn/human/corpse/damaged/legioninfested = 5)
-	move_to_delay = 4
+	move_to_delay = 14
 	vision_range = 5
 	aggro_vision_range = 9
 	speed = 3
