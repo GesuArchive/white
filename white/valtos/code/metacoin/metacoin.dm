@@ -55,9 +55,9 @@
 	if(!M.client)
 		return
 
-	var/datum/DBQuery/query_inc_metacoins = SSdbcore.NewQuery(
+	var/datum/db_query/query_inc_metacoins = SSdbcore.NewQuery(
 		"UPDATE player SET metacoins = metacoins + :mc_count WHERE ckey = :ckey",
-		list("mc_count" = mc_count, "ckey" = ckey)
+		list("mc_count" = mc_count, "ckey" = M.client.ckey)
 	)
 	query_inc_metacoins.warn_execute()
 	qdel(query_inc_metacoins)
