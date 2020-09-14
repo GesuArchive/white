@@ -66,7 +66,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	if (!listening)
 		return ITALICS | REDUCE_RANGE
 	if(ishuman(M) && radiosound)
-		playsound(M, radiosound, rand(20, 30), 0, 0, 0)
+		playsound(M, radiosound, rand(10, 20), 0, 0, 0)
 	return ..()
 
 /obj/item/radio/headset/can_receive(freq, level, AIuser)
