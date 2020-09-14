@@ -55,15 +55,13 @@
 	if(!M.client)
 		return
 
-	// laggy crutch
-	var/mbalance = M.client.get_metabalance() + mc_count
-
-	var/datum/db_query/query_inc_metacoins = SSdbcore.NewQuery(
-		"UPDATE player SET metacoins = :mbalance WHERE ckey = :ckey",
-		list("mbalance" = mbalance, "ckey" = M.ckey)
+	var/datum/DBQuery/query_inc_metacoins = SSdbcore.NewQuery(
+		"UPDATE player SET metacoins = metacoins + :mc_count WHERE ckey = :ckey",
+		list("mc_count" = mc_count, "ckey" = ckey)
 	)
-	query_inc_metacoins.Execute()
+	query_inc_metacoins.warn_execute()
 	qdel(query_inc_metacoins)
+
 	if(!M.client || !M)
 		return
 	M.client.update_metabalance_cache()
