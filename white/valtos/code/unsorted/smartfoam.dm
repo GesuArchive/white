@@ -30,9 +30,9 @@
 		return
 	var/datum/reagents/smf = new /datum/reagents(100)
 	smf.my_atom = get_turf(src)
-	smf.reagents.add_reagent(/datum/reagent/aluminium, 75)
-	smf.reagents.add_reagent(/datum/reagent/smart_foaming_agent, 25)
-	smf.reagents.add_reagent(/datum/reagent/toxin/acid/fluacid, 25)
+	smf.add_reagent(/datum/reagent/aluminium, 75)
+	smf.add_reagent(/datum/reagent/smart_foaming_agent, 25)
+	smf.add_reagent(/datum/reagent/toxin/acid/fluacid, 25)
 	uses--
 	cooldown = world.time + cooldown_time
 	power_change()
