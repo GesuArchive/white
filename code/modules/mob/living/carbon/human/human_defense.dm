@@ -669,7 +669,7 @@
 		return
 	var/list/combined_msg = list()
 
-	visible_message("<span class='notice'>[src] осматривает себя.</span>", null)
+	visible_message("<span class='notice'><b>[src]</b> осматривает себя.</span>", null)
 
 	var/list/missing = list(BODY_ZONE_HEAD, BODY_ZONE_CHEST, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 
@@ -724,27 +724,27 @@
 				isdisabled += " но "
 			else
 				isdisabled += " и "
-		combined_msg += "<tr><td>\t <b>[r_uppertext(LB.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "info" : "warning"]'>[r_uppertext(status)]</span>\]</td></tr>"
+		combined_msg += "<tr><td><b>[r_uppertext(LB.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "info" : "warning"]'>[r_uppertext(status)]</span>\]</td></tr>"
 
 		for(var/thing in LB.wounds)
 			var/datum/wound/W = thing
 			var/msg
 			switch(W.severity)
 				if(WOUND_SEVERITY_TRIVIAL)
-					msg = "\t <span class='danger'>[capitalize(LB.name)] страдает от [lowertext(W.skloname)].</span>"
+					msg = "<tr><td><span class='danger'>[capitalize(LB.name)] страдает от [lowertext(W.skloname)].</span></td></tr>"
 				if(WOUND_SEVERITY_MODERATE)
-					msg = "\t <span class='warning'>[capitalize(LB.name)] страдает от [lowertext(W.skloname)]!</span>"
+					msg = "<tr><td><span class='warning'>[capitalize(LB.name)] страдает от [lowertext(W.skloname)]!</span></td></tr>"
 				if(WOUND_SEVERITY_SEVERE)
-					msg = "\t <span class='warning'><b>[capitalize(LB.name)] страдает от [lowertext(W.skloname)]!</b></span>"
+					msg = "<tr><td><span class='warning'><b>[capitalize(LB.name)] страдает от [lowertext(W.skloname)]!</b></span></td></tr>"
 				if(WOUND_SEVERITY_CRITICAL)
-					msg = "\t <span class='warning'><b>[capitalize(LB.name)] страдает от [lowertext(W.skloname)]!!</b></span>"
+					msg = "<tr><td><span class='warning'><b>[capitalize(LB.name)] страдает от [lowertext(W.skloname)]!!</b></span></td></tr>"
 			combined_msg += msg
 
 		for(var/obj/item/I in LB.embedded_objects)
 			if(I.isEmbedHarmless())
-				combined_msg += "<tr><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] прицепился к [LB.name]!</a></tr>"
+				combined_msg += "<tr><td><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] прицепился к [ru_gde_zone(LB.name)]!</a></td></tr>"
 			else
-				combined_msg += "<tr><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] торчит из моей [LB.name]!</a></tr>"
+				combined_msg += "<tr><td><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] торчит из моей [ru_otkuda_zone(LB.name)]!</a></td></tr>"
 
 	for(var/t in missing)
 		combined_msg += "<tr><td>\t <b>[r_uppertext(ru_exam_parse_zone(parse_zone(t)))]:</b></td><td>\[<span class='boldannounce'>ОТСУТСТВУЕТ</span>\]</td></tr>"
@@ -762,12 +762,12 @@
 		var/bleed_text = "<span class='danger'>У меня кровотечения в"
 		switch(num_bleeds)
 			if(1 to 2)
-				bleed_text += " [bleeding_limbs[1].name][num_bleeds == 2 ? " и [bleeding_limbs[2].name]" : ""]"
+				bleed_text += " [ru_gde_zone(bleeding_limbs[1].name)][num_bleeds == 2 ? " и [ru_gde_zone(bleeding_limbs[2].name)]" : ""]"
 			if(3 to INFINITY)
 				for(var/i in 1 to (num_bleeds - 1))
 					var/obj/item/bodypart/BP = bleeding_limbs[i]
-					bleed_text += " [BP.name],"
-				bleed_text += " и [bleeding_limbs[num_bleeds].name]"
+					bleed_text += " [ru_gde_zone(BP.name)],"
+				bleed_text += " и [ru_gde_zone(bleeding_limbs[num_bleeds].name)]"
 		bleed_text += "!</span>"
 		combined_msg += bleed_text
 

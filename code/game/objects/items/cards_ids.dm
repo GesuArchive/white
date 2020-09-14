@@ -259,26 +259,26 @@
 	var/list/msg = list("<span class='notice'><i>Осматриваю <b>[src]</b> ближе и вижу следующее...</i></span>")
 
 	if(registered_age)
-		msg += "Владелец карты возрастом <b>[registered_age]</b>. [(registered_age < AGE_MINOR) ? "Тут есть голографическая полоса, которая гласит <b><span class='danger'>'СТАЖИРОВКА: НЕ ПРОДАВАТЬ АЛКОГОЛЬ ИЛИ ТАБАК'</span></b> в самом низу карты." : ""]"
+		msg += "\nВладелец карты возрастом <b>[registered_age]</b>. [(registered_age < AGE_MINOR) ? "Тут есть голографическая полоса, которая гласит <b><span class='danger'>'СТАЖИРОВКА: НЕ ПРОДАВАТЬ АЛКОГОЛЬ ИЛИ ТАБАК'</span></b> в самом низу карты." : ""]"
 	if(mining_points)
-		msg += "Вау, здесь же есть [mining_points] шахтёрских очков на разные штуки из шахтёрского инвентаря."
+		msg += "\nВау, здесь же есть [mining_points] шахтёрских очков на разные штуки из шахтёрского инвентаря."
 	if(registered_account)
-		msg += "Привязанный аккаунт принадлежит '[registered_account.account_holder]' и сообщает о балансе в размере <b>[registered_account.account_balance] кредитов</b>."
+		msg += "\nПривязанный аккаунт принадлежит '[registered_account.account_holder]' и сообщает о балансе в размере <b>[registered_account.account_balance] кредитов</b>."
 		if(registered_account.account_job)
 			var/datum/bank_account/D = SSeconomy.get_dep_account(registered_account.account_job.paycheck_department)
 			if(D)
-				msg += "Баланс [D.account_holder] составляет <b>[D.account_balance] кредитов."
-		msg += "<span class='info'>Alt-клик на ID-карте для снятия денег.</span>"
-		msg += "<span class='info'>Похоже сюда можно вставлять голо-чипы, монетки и прочую валюту.</span>"
+				msg += "\nБаланс [D.account_holder] составляет <b>[D.account_balance] кредитов."
+		msg += "\n<span class='info'>Alt-клик на ID-карте для снятия денег.</span>"
+		msg += "\n<span class='info'>Похоже сюда можно вставлять голо-чипы, монетки и прочую валюту.</span>"
 		if(registered_account.civilian_bounty)
-			msg += "<span class='info'><b>Есть активный гражданский заказ.</b>"
-			msg += "<span class='info'><i>[registered_account.bounty_text()]</i></span>"
-			msg += "<span class='info'>Количество: [registered_account.bounty_num()]</span>"
-			msg += "<span class='info'>Награда: [registered_account.bounty_value()]</span>"
+			msg += "\n<span class='info'><b>Есть активный гражданский заказ.</b>"
+			msg += "\n<span class='info'><i>[registered_account.bounty_text()]</i></span>"
+			msg += "\n<span class='info'>Количество: [registered_account.bounty_num()]</span>"
+			msg += "\n<span class='info'>Награда: [registered_account.bounty_value()]</span>"
 		if(registered_account.account_holder == user.real_name)
-			msg += "<span class='boldnotice'>Если ты потеряешь эту ID-карту, ты можешь запросто переподключить свой счёт используя Alt-клик на своей новой карте.</span>"
+			msg += "\n<span class='boldnotice'>Если ты потеряешь эту ID-карту, ты можешь запросто переподключить свой счёт используя Alt-клик на своей новой карте.</span>"
 	else
-		msg += "<span class='info'>Похоже здесь не привязан аккаунт. Alt-клик для привязки аккаунта поможет.</span>"
+		msg += "\n<span class='info'>Похоже здесь не привязан аккаунт. Alt-клик для привязки аккаунта поможет.</span>"
 
 	return msg
 
