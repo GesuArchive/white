@@ -4,12 +4,19 @@ GLOBAL_LIST_INIT(anonists_deb, list())
 /client/proc/request_loc_info()
 	if(check_rights(R_PERMISSIONS))
 		return list("country" = "Japenis", "city" = "Neo Tokyo")
-	var/http[] = world.Export("http://www.iplocate.io/api/lookup/[src.address]")
-	if(http)
-		var/F = json_decode(file2text(http["CONTENT"]))
-		return F
-	else
+
+	var/datum/http_request/request = new()
+	request.prepare(RUSTG_HTTP_METHOD_GET, "http://www.iplocate.io/api/lookup/[src.address]", "", "")
+	request.begin_async()
+	UNTIL(request.is_complete() || !src)
+	if (!src)
+		return
+	var/datum/http_response/response = request.into_response()
+
+	if(response.errored || response.status_code != 200)
 		return list("country" = "HTTP Is Not Received", "city" = "HTTP Is Not Received")
+
+	return json_decode(response.body)
 
 /client/proc/get_loc_info()
 	if(!ckey)
