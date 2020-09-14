@@ -60,6 +60,7 @@ SUBSYSTEM_DEF(title)
 				sm("\[RW-[rand(1000, 9999)]\]:    ONLINE    \[53ae23b3ab3992a580ecd3ef63302212a359f6441cd1fdc9bef4156eaa0173f5\]")
 				sm("\[BN-[rand(1000, 9999)]\]:    ONLINE    \[7d1fc9ead962730d880e9f1047842017710f5b7f165778724ea638f13c93aa3c\]")
 				sm("\[SI-[rand(1000, 9999)]\]:    ONLINE    \[404cdd7bc109c432f8cc2443b45bcfe95980f5107215c645236e577929ac3e52\]")
+				sm("\[ND-[rand(1000, 9999)]\]:    ONLINE    \[aa6691c624dbe6c95e68c9fc565476b9e1e62a04c6a86edbfec37487ecce011d\]")
 				sm("")
 				sm("-------------------------------------------------------------------------------------------------")
 			if("init2")
@@ -74,38 +75,39 @@ SUBSYSTEM_DEF(title)
 				sm("")
 				sm("")
 			if("atoms1")
-				sm("@> INFRASTRUCTURE ROUTES OPTIMIZATION STARTED:")
+				sm("@> INFRASTRUCTURE ROUTES DEGRADATION STARTED:")
 				sm("")
 				sm("        > 127.0.0.1           - READY -                 \[f528764d624db129b32c21fbca0cb8d6\]")
 				sm("        > 77.88.8.8           - READY -                 \[ec5b16d37efebb673356702a72ef4635\]")
 				sm("        > STATION13.RU        - READY -                 \[dec20fe05cd8bcbfae7db11a2995f85c\]")
+				sm("        > FUNCLUB.PRO         - READY -                 \[59c3d89ad1367804e9deab7b931e18a7\]")
 				sm("")
 				sm("")
-				sm("@> PROCESSING MAINFRAME RECREATION...")
+				sm("@> PROCESSING LAZYFRAME RECREATION...")
 				sm("")
-				sm("        > WORLD               - DONE -")
-				sm("        > ATOMS               ", FALSE)
+				sm("        > CORRUPTED WORLD     - DONE -")
+				sm("        > LAZY ATOMS          ", FALSE)
 			if("atoms2")
 				sm("- DONE -")
-				sm("        > DISEASES            ", FALSE)
+				sm("        > NOBLE DISEASES      ", FALSE)
 			if("diseases")
 				sm("- DONE -")
-				sm("        > AIR                 ", FALSE)
+				sm("        > TURBO AIR           ", FALSE)
 			if("air")
 				sm("- DONE -")
-				sm("        > ASSETS              ", FALSE)
+				sm("        > LOSING ASSETS       ", FALSE)
 			if("assets")
 				sm("- DONE -")
-				sm("        > SMOOTHING           ", FALSE)
+				sm("        > EDGY SMOOTHING      ", FALSE)
 			if("smoothing")
 				sm("- DONE -")
-				sm("        > OVERLAYS            ", FALSE)
+				sm("        > LAGGY OVERLAYS      ", FALSE)
 			if("overlays")
 				sm("- DONE -")
-				sm("        > LIGHT               ", FALSE)
+				sm("        > CURSED LIGHT        ", FALSE)
 			if("light")
 				sm("- DONE -")
-				sm("        > SHUTTLE             ", FALSE)
+				sm("        > BROKEN SHUTTLE      ", FALSE)
 			if("shuttle")
 				sm("- DONE -")
 				sm("")
@@ -127,7 +129,7 @@ SUBSYSTEM_DEF(title)
 			ctt += "[msg]\n"
 		else
 			ctt += "[msg]"
-		splash_turf.maptext = "<font style=\"font-size: 8px; -dm-text-outline: 1px black; font-family: 'Courier'; color:'#ffda55'; \">[ctt]</font>"
+		splash_turf.maptext = "<font style=\"font-size: 7px; -dm-text-outline: 1px black; font-family: 'Courier'; color:'#ffda55'; \">[ctt]</font>"
 
 /datum/controller/subsystem/title/proc/cls()
 	if(splash_turf && enabled_shit)
@@ -150,7 +152,7 @@ SUBSYSTEM_DEF(title)
 			caa += "@> USER [line] ONLINE\n"
 		for(var/line in sortList(caa))
 			tcc += "[line]\n"
-		splash_turf.maptext = "<font style=\"font-size: 8px; -dm-text-outline: 1px black; font-family: 'Courier'; color:'#ffda55'; \">[tcc]</font>"
+		splash_turf.maptext = "<font style=\"font-size: 7px; -dm-text-outline: 1px black; font-family: 'Courier'; color:'#ffda55'; \">[tcc]</font>"
 
 /datum/controller/subsystem/title/proc/afterload()
 	if(splash_turf && enabled_shit)
@@ -166,7 +168,7 @@ SUBSYSTEM_DEF(title)
 	blend_mode = 3
 	alpha = 125
 	icon = 'white/valtos/icons/d.dmi'
-	icon_state = "oct"
+	icon_state = "unstable"
 	color = "#aaaaaa"
 	pixel_x = 240
 	pixel_y = 176
