@@ -965,7 +965,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	color = "#FF7F3B" // rgb: 255, 127, 59
 	boozepwr = 35
 	quality = DRINK_GOOD
-	taste_description = "ананас, кокос и намек на кофе"
+	taste_description = "ананас, кокос и кофе"
 	glass_icon_state = "bahama_mama"
 	glass_name = "Bahama Mama"
 	glass_desc = "A tropical cocktail with a complex blend of flavors."
@@ -2250,7 +2250,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	boozepwr = 40
 	color = "#FFF1B2"
 	quality = DRINK_FANTASTIC
-	taste_description = "ананас, кокос и намек на океан"
+	taste_description = "ананас, кокос и океан"
 	glass_icon_state = "pina_colada"
 	glass_name = "Pina Colada"
 	glass_desc = "If you like pina coladas, and getting caught in the rain... well, you'll like this drink."

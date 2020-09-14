@@ -971,7 +971,7 @@ Needs matabolizing takes into consideration if the chemical is matabolizing when
 				var/percent = tastes[taste_desc]/total_taste * 100
 				if(percent < minimum_percent)
 					continue
-				var/intensity_desc = "намек на"
+				var/intensity_desc = "намёк на"
 				if(percent > minimum_percent * 2 || percent == 100)
 					intensity_desc = ""
 				else if(percent > minimum_percent * 3)
