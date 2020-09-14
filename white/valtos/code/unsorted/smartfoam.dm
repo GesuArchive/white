@@ -1,7 +1,8 @@
 /obj/machinery/ai_slipper/smartfoam
 	name = "умный пеномёт"
 	desc = "Активируется автоматически. Спасает зону от разгерметизации."
-	uses = 3
+	uses = 1
+	cooldown_time = 600
 	req_access = list(ACCESS_AI_UPLOAD, ACCESS_ENGINE)
 
 /obj/machinery/ai_slipper/smartfoam/process()
@@ -27,7 +28,11 @@
 /obj/machinery/ai_slipper/smartfoam/proc/emergency_foam_blast()
 	if(!uses || cooldown_time > world.time)
 		return
-	new /obj/effect/particle_effect/foam/smart(loc)
+	var/datum/reagents/smf = new /datum/reagents(100)
+	smf.my_atom = get_turf(src)
+	smf.reagents.add_reagent(/datum/reagent/aluminium, 75)
+	smf.reagents.add_reagent(/datum/reagent/smart_foaming_agent, 25)
+	smf.reagents.add_reagent(/datum/reagent/toxin/acid/fluacid, 25)
 	uses--
 	cooldown = world.time + cooldown_time
 	power_change()
@@ -43,9 +48,4 @@
 	if(cooldown_time > world.time)
 		to_chat(user, "<span class='warning'>[capitalize(src.name)] на перезарядке, осталось <b>[DisplayTimeText(world.time - cooldown_time)]</b>!</span>")
 		return
-	new /obj/effect/particle_effect/foam/smart(loc)
-	uses--
-	to_chat(user, "<span class='notice'>Активирую [src.name]. Внутри осталось <b>[uses]</b> зарядов.</span>")
-	cooldown = world.time + cooldown_time
-	power_change()
-	addtimer(CALLBACK(src, .proc/power_change), cooldown_time)
+	emergency_foam_blast()
