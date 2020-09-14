@@ -1,6 +1,6 @@
 /obj/machinery/ai_slipper
-	name = "foam dispenser"
-	desc = "A remotely-activatable dispenser for crowd-controlling foam."
+	name = "пеномёт"
+	desc = "Активируется удалённо для контроля зоны."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "ai-slipper0"
 	layer = PROJECTILE_HIT_THRESHHOLD_LAYER
@@ -15,7 +15,7 @@
 
 /obj/machinery/ai_slipper/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>It has <b>[uses]</b> uses of foam remaining.</span>"
+	. += "<hr><span class='notice'>Внутри осталось <b>[uses]</b> зарядов.</span>"
 
 /obj/machinery/ai_slipper/update_icon_state()
 	if(machine_stat & BROKEN)
@@ -30,14 +30,14 @@
 		to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
 		return
 	if(!uses)
-		to_chat(user, "<span class='warning'>[src] is out of foam and cannot be activated!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] полностью разряжен!</span>")
 		return
 	if(cooldown_time > world.time)
-		to_chat(user, "<span class='warning'>[src] cannot be activated for <b>[DisplayTimeText(world.time - cooldown_time)]</b>!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] на перезарядке, осталось <b>[DisplayTimeText(world.time - cooldown_time)]</b>!</span>")
 		return
 	new /obj/effect/particle_effect/foam(loc)
 	uses--
-	to_chat(user, "<span class='notice'>You activate [src]. It now has <b>[uses]</b> uses of foam remaining.</span>")
+	to_chat(user, "<span class='notice'>Активирую [src.name]. Внутри осталось <b>[uses]</b> зарядов.</span>")
 	cooldown = world.time + cooldown_time
 	power_change()
 	addtimer(CALLBACK(src, .proc/power_change), cooldown_time)
