@@ -1319,7 +1319,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 							"<span class='userdanger'>[user] [atk_verb_ru] мимо меня!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, user)
 			to_chat(user, "<span class='warning'>Промахиваюсь пытаясь ударить [target]!</span>")
 
-			//target.visible_message("<span class='danger'>[user][return_miss_string(mis_dice_rolled)] [atk_verb] мимо [target]!</span>",\
+			//target.visible_message("<span class='danger'>[user][return_miss_string(mis_dice_rolled)] [atk_verb] мимо [target]!</span>",
 			//				"<span class='userdanger'>[user][return_miss_string(mis_dice_rolled)] [atk_verb] мимо меня!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, user)
 			//to_chat(user, "<span class='warning'>Промахиваюсь[return_miss_string(mis_dice_rolled)] пытаясь ударить [target]!</span>")
 
@@ -1336,7 +1336,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					"<span class='userdanger'>[user] [atk_verb_ru] меня!</span>", "<span class='hear'>Слышу как что-то бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, "<span class='danger'>Бью [target]!</span>")
 
-		//target.visible_message("<span class='danger'>[user][return_damage_string(dam_dice_rolled)] [atk_verb] [target]!</span>", \
+		//target.visible_message("<span class='danger'>[user][return_damage_string(dam_dice_rolled)] [atk_verb] [target]!</span>",
 		//			"<span class='userdanger'>[user][return_damage_string(dam_dice_rolled)] [atk_verb] меня!</span>", "<span class='hear'>Слышу как что-то [return_damage_string(dam_dice_rolled)] бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, user)
 		//to_chat(user, "<span class='danger'>Бью[return_damage_string(dam_dice_rolled)] [target]!</span>")
 
