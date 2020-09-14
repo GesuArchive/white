@@ -241,7 +241,7 @@
 	if(user in src)
 		return
 	if(src.tool_interact(W,user))
-		return 1 // No afterattack
+		return TRUE // No afterattack
 	else
 		return ..()
 
@@ -288,9 +288,9 @@
 			return
 		set_anchored(!anchored)
 		W.play_tool_sound(src, 75)
-		user.visible_message("<span class='notice'>[user] [anchored ? "anchored" : "unanchored"] \the [src] [anchored ? "to" : "from"] the ground.</span>", \
-						"<span class='notice'>You [anchored ? "anchored" : "unanchored"] \the [src] [anchored ? "to" : "from"] the ground.</span>", \
-						"<span class='hear'>You hear a ratchet.</span>")
+		user.visible_message("<span class='notice'><b>[user]</b> [anchored ? "прикручивает" : "откручивает"] <b>[src.name]</b> [anchored ? "к полу" : "от пола"].</span>", \
+						"<span class='notice'>[anchored ? "Прикручиваю" : "Откручиваю"] <b>[src.name]</b> [anchored ? "к полу" : "от полу"].</span>", \
+						"<span class='hear'>Слышу трещотку.</span>")
 	if(W.tool_behaviour == TOOL_MULTITOOL && secure)
 
 		if(!locked)

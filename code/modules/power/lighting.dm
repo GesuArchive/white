@@ -128,7 +128,7 @@
 					if (W.use_tool(src, user, 30, volume=50))
 						new /obj/item/stack/sheet/metal(drop_location(), sheets_refunded)
 						user.visible_message("<span class='notice'>[user.name] deconstructs [src].</span>", \
-							"<span class='notice'>You deconstruct [src].</span>", "<span class='hear'>You hear a ratchet.</span>")
+							"<span class='notice'>You deconstruct [src].</span>", "<span class='hear'>Слышу трещотку.</span>")
 						playsound(src, 'sound/items/deconstruct.ogg', 75, TRUE)
 						qdel(src)
 					return

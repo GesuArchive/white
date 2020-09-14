@@ -132,7 +132,7 @@
 				user.visible_message( \
 					"[user] disconnects [src].", \
 					"<span class='notice'>You unfasten [src] from the port.</span>", \
-					"<span class='hear'>You hear a ratchet.</span>")
+					"<span class='hear'>Слышу трещотку.</span>")
 				update_icon()
 				return
 			else
@@ -147,7 +147,7 @@
 				user.visible_message( \
 					"[user] connects [src].", \
 					"<span class='notice'>You fasten [src] to the port.</span>", \
-					"<span class='hear'>You hear a ratchet.</span>")
+					"<span class='hear'>Слышу трещотку.</span>")
 				update_icon()
 				investigate_log("was connected to [possible_port] by [key_name(user)].", INVESTIGATE_ATMOS)
 	else

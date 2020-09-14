@@ -1,6 +1,7 @@
 /obj/item/screwdriver
 	name = "отвёртка"
 	desc = "Ею можно откручивать и закручивать различные штуки."
+	gender = FEMALE
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "screwdriver_map"
 	inhand_icon_state = "screwdriver"
