@@ -28,7 +28,7 @@
 /obj/machinery/ai_slipper/smartfoam/proc/emergency_foam_blast()
 	if(!uses || cooldown_time > world.time)
 		return
-	new /obj/effect/particle_effect/foam/metal/smart(get_turf(src))
+	new /obj/effect/particle_effect/foam/metal/smart(loc)
 	uses--
 	cooldown = world.time + cooldown_time
 	power_change()
