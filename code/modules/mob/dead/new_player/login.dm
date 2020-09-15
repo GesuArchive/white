@@ -17,13 +17,11 @@
 
 	var/crsc = client.crawler_sanity_check()
 
-	to_chat(src,  {"<span class='greenannounce'> ================================</span>
-<span class='greenannounce'> > WHITE DREAM UAC</span>
-<span class='greenannounce'> > ПОЛЬЗОВАТЕЛЬ: [capitalize(client.ckey)]</span>
-<span class='greenannounce'> > СТРАНА: [capitalize(locinfo["country"])]</span>
-<span class='greenannounce'> > ИГРОВОЕ ВРЕМЯ: [capitalize(client.get_exp_living())]</span>
-<span class='greenannounce'> > ВХОД [crsc ? "РАЗРЕШЁН" : "БЫЛ ЗАПИСАН НАШЕЙ СИСТЕМОЙ"]</span>
-<span class='greenannounce'> ================================</span>"})
+	to_chat(src,  {"<span class='examine_block'><span class='greenannounce'><center>WHITE DREAM UAC</center></span><hr>
+<span class='greenannounce'>\tПОЛЬЗОВАТЕЛЬ: [capitalize(client.ckey)]</span>
+<span class='greenannounce'>\tСТРАНА: [capitalize(locinfo["country"])]</span>
+<span class='greenannounce'>\tИГРОВОЕ ВРЕМЯ: [capitalize(client.get_exp_living())]</span>
+<span class='[crsc ? "greenannounce" : "boldwarning"]'>\tВХОД [crsc ? "РАЗРЕШЁН" : "БЫЛ ЗАПИСАН НАШЕЙ СИСТЕМОЙ"]</span></span>"})
 
 	var/motd = global.config.motd
 	if(motd)
