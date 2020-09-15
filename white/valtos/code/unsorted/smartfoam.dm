@@ -28,11 +28,12 @@
 /obj/machinery/ai_slipper/smartfoam/proc/emergency_foam_blast()
 	if(!uses || cooldown_time > world.time)
 		return
-	var/datum/reagents/smf = new /datum/reagents(100)
-	smf.my_atom = get_turf(src)
-	smf.add_reagent(/datum/reagent/aluminium, 75)
-	smf.add_reagent(/datum/reagent/smart_foaming_agent, 25)
-	smf.add_reagent(/datum/reagent/toxin/acid/fluacid, 25)
+	var/obj/effect/particle_effect/foam/smart/smf = new(get_turf(src))
+	smf.create_reagents(100)
+	smf.reagents.add_reagent(/datum/reagent/aluminium, 75)
+	smf.reagents.add_reagent(/datum/reagent/smart_foaming_agent, 25)
+	smf.reagents.add_reagent(/datum/reagent/toxin/acid/fluacid, 25)
+	smf.reagents.handle_reactions()
 	uses--
 	cooldown = world.time + cooldown_time
 	power_change()
