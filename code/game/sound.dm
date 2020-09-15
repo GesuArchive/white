@@ -93,6 +93,8 @@
 		if(S.volume <= 0)
 			return //No sound
 
+		new /obj/effect/temp_visual/soundwave(T, init_volume = S.volume)
+
 		var/dx = turf_source.x - T.x // Hearing from the right/left
 		S.x = dx * distance_multiplier
 		var/dz = turf_source.y - T.y // Hearing from infront/behind
