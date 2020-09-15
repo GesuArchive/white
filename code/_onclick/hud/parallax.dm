@@ -316,6 +316,11 @@
 	speed = 1
 	layer = 1
 
+/obj/screen/parallax_layer/layer_1_5
+	icon_state = "layer1_5"
+	speed = 1
+	layer = 1
+
 /obj/screen/parallax_layer/layer_2
 	icon_state = "layer2"
 	speed = 1.2
