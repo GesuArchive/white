@@ -93,7 +93,7 @@
 		if(S.volume <= 0)
 			return //No sound
 
-		var/obj/SE = new /obj/effect/temp_visual/soundwave(T)
+		var/obj/SE = new /obj/effect/temp_visual/soundwave(turf_source)
 
 		SE.alpha =  (S.volume + 25) * 2
 
