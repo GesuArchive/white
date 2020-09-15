@@ -95,7 +95,7 @@
 
 		var/obj/SE = new /obj/effect/temp_visual/soundwave(T)
 
-		SE.alpha =  S.volume * 2
+		SE.alpha =  (S.volume + 25) * 2
 
 		var/dx = turf_source.x - T.x // Hearing from the right/left
 		S.x = dx * distance_multiplier
