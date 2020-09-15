@@ -19912,7 +19912,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 10
 	},
-/turf/open/floor/plasteel/white/telecomms,
+/turf/open/floor/plasteel/white,
 /area/science/mixing)
 "bEC" = (
 /turf/closed/wall/r_wall,
@@ -20306,7 +20306,7 @@
 	name = "Toxins Lab APC";
 	pixel_x = 24
 	},
-/turf/open/floor/plasteel/white/telecomms,
+/turf/open/floor/plasteel/white,
 /area/science/mixing)
 "bFY" = (
 /obj/machinery/door/airlock/maintenance{
