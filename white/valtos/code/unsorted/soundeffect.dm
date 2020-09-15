@@ -5,6 +5,3 @@
 	duration = 6
 	randomdir = FALSE
 
-/obj/effect/temp_visual/soundwave/Initialize(init_volume)
-	. = ..()
-	alpha = init_volume * 2
