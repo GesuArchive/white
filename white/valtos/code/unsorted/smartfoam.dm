@@ -28,9 +28,8 @@
 /obj/machinery/ai_slipper/smartfoam/proc/emergency_foam_blast()
 	if(!uses || cooldown_time > world.time)
 		return
-	var/obj/effect/particle_effect/foam/metal/smart/smf
-	smf.amount = 10
-	new smf(loc)
+	var/obj/item/grenade/smf = new /obj/item/grenade/clusterbuster/metalfoam/smart(loc)
+	smf.prime()
 	uses--
 	cooldown = world.time + cooldown_time
 	power_change()
@@ -47,3 +46,7 @@
 		to_chat(user, "<span class='warning'>[capitalize(src.name)] на перезарядке, осталось <b>[DisplayTimeText(world.time - cooldown_time)]</b>!</span>")
 		return
 	emergency_foam_blast()
+
+/obj/item/grenade/clusterbuster/metalfoam/smart
+	name = "Instant Smart Foam"
+	payload = /obj/item/grenade/chem_grenade/smart_metal_foam
