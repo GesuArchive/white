@@ -17,7 +17,7 @@
 
 	var/crsc = client.crawler_sanity_check()
 
-	to_chat(src, "<div class='examine_block'><span class='greenannounce'><center>WHITE DREAM UAC</center><hr>\n\tПОЛЬЗОВАТЕЛЬ: [capitalize(client.ckey)]\n\tСТРАНА: [capitalize(locinfo["country"])]\n\tИГРОВОЕ ВРЕМЯ: [capitalize(client.get_exp_living())]</span><span class='[crsc ? "greenannounce" : "boldwarning"]'>\n\tВХОД [crsc ? "РАЗРЕШЁН" : "БЫЛ ЗАПИСАН НАШЕЙ СИСТЕМОЙ"]</span></div>")
+	to_chat(src, "<div class='examine_block'><span class='greenannounce'><center>WHITE DREAM UAC</center><hr>ПОЛЬЗОВАТЕЛЬ: [capitalize(client.ckey)]\nСТРАНА: [capitalize(locinfo["country"])]\nИГРОВОЕ ВРЕМЯ: [capitalize(client.get_exp_living())]</span><span class='[crsc ? "greenannounce" : "boldwarning"]'>\nВХОД [crsc ? "РАЗРЕШЁН" : "БЫЛ ЗАПИСАН НАШЕЙ СИСТЕМОЙ"]</span><hr></div>")
 
 	var/motd = global.config.motd
 	if(motd)
