@@ -37,6 +37,7 @@
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/bluespace_miner
 	layer = BELOW_OBJ_LAYER
+	idle_power_usage = 2000
 	var/list/ores = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/plasma = 400,  /datum/material/silver = 400, /datum/material/gold = 250, /datum/material/titanium = 250, /datum/material/uranium = 250, /datum/material/bananium = 90, /datum/material/diamond = 90, /datum/material/bluespace = 90)
 	var/datum/component/remote_materials/materials
 	var/debugging = 0
@@ -75,6 +76,6 @@
 	if(!mat_container || panel_open || !powered())
 		return
 	var/datum/material/ore = pick(ores)
-	materials.mat_container.insert_amount_mat(rand(50, 250), ore)
+	materials.mat_container.insert_amount_mat(rand(25, 95), ore)
 	if(debugging == 1)
 		materials.mat_container.insert_amount_mat(10000, /datum/material/iron)
