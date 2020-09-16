@@ -93,6 +93,9 @@
 
 	var/datum/gas_mixture/env = L.return_air() //get air from the turf
 	var/datum/gas_mixture/removed = env.remove(0.1 * env.total_moles())
+
+	if(!removed)
+		return
 	var/proportion = min(removed.get_moles(/datum/gas/water_vapor), (1.5 * delta_time * workingPower))//Works to max 12 moles at a time.
 	removed.adjust_moles(/datum/gas/water_vapor, -proportion * 2 * workingPower)
 	removed.adjust_moles(/datum/gas/oxygen, proportion * workingPower)

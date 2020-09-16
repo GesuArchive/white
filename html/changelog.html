@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="changelog.css">
   <base target="_blank" />
   <script type='text/javascript'>
-  
+
 	function changeText(tagID, newText, linkTagID){
 		var tag = document.getElementById(tagID);
 		tag.innerHTML = newText;
@@ -13,8 +13,8 @@
 		linkTag.removeAttribute("href");
 		linkTag.removeAttribute("onclick");
 	}
-	
-  </script>  
+
+  </script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 
@@ -24,7 +24,7 @@
 	<tr>
 		<td valign='top'>
 			<div align='center'><font size='3'><b>Traditional Games Space Station 13</b></font></div>
-			
+
 			<p><div align='center'><font size='3'><a href="http://www.tgstation13.org/phpBB/">Forum</a> | <a href="http://www.tgstation13.org/wiki/Main_Page">Wiki</a> | <a href="https://github.com/tgstation/tgstation">Source Code</a></font></div></p>
 			<font size='2'><b>Join our <a href="https://tgstation13.org/phpBB/viewforum.php?f=60">Discord channel</a></b></font>
 			</td>
@@ -44,21 +44,132 @@
 </table>
 
 		<!--
-		
-		TO ADD AN ENTRY, ADD AND MAINTAIN YOUR OWN changelog/USERNAME.yml FILE. 
-		
+
+		TO ADD AN ENTRY, ADD AND MAINTAIN YOUR OWN changelog/USERNAME.yml FILE.
+
 		*** DO NOT FUCK WITH THIS FILE OR YOU WILL CAUSE MERGE CONFLICTS. ***
-		
+
 		-->
 		<div class="commit sansserif">
+			<h2 class="date">16 September 2020</h2>
+			<h3 class="author">Cartographer-D updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Pubby Cargo will not go down so easily to fire. Its lights are once more controlled by man. Mining once again treads where it wishes.</li>
+			</ul>
+			<h3 class="author">Couls updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">icons are back on alt clicks</li>
+				<li class="bugfix">horrible performance from alt clicking turfs with multiple objects tweak:browser should notify the SS when it's ready to receive data</li>
+			</ul>
+			<h3 class="author">EdgeLordExe updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Reworks N2O - Now it is quasi-sorium that still explodes.</li>
+				<li class="balance">Slightly Buffs RDX - It has a slightly bigger fire radius and explosive power in low quantities.</li>
+				<li class="balance">Flashes now stun for shorter and the duration of the stun is based on the direction of your enemy.</li>
+			</ul>
+			<h3 class="author">Jared-Fogle updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Using a light tube on an unfinished light fixture will no longer break it.</li>
+			</ul>
+			<h3 class="author">PolishUser updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added breadcat pet, craftable in your local kitchen!</li>
+			</ul>
+			<h3 class="author">Timberpoes updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">You will now no longer feel so eternally sad if you gain the a trait where you no longer need to breath or become a God while you are suffocating.</li>
+				<li class="bugfix">AIs should no longer experience weird interface disparities or module selection issues when assuming direct control over a shell for the first time when said shell is damaged.</li>
+				<li class="code_imp">Added two code paths to help catch and debug a runtime error in the fit_viewport verb.</li>
+			</ul>
+
+			<h2 class="date">14 September 2020</h2>
+			<h3 class="author">Putnam3145 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="code_imp">made ventcrawling not intentionally obfuscated badcode</li>
+			</ul>
+			<h3 class="author">Timberpoes updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Added a confirmation prompt before harvesting a fully grown Replica Pod that has been associated with a player, but the player is not yet dead or ready to be revived. Gives you the choice of backing out or harvesting them for seeds. Functionality unchanged.</li>
+			</ul>
+			<h3 class="author">lordpidey updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">The syndicate now provides a single empty syringe with it's dart gun.</li>
+			</ul>
+
 			<h2 class="date">13 September 2020</h2>
+			<h3 class="author">Arkatos updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Mass Driver Control now uses tgui.</li>
+				<li class="refactor">Mass Driver Controls now process only when needed instead of all the time. In short, free performance for you.</li>
+				<li class="rscadd">Guide to Dank Mimery now uses a radial menu.</li>
+			</ul>
+			<h3 class="author">EOBGames updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">A few little fixes on Metastation.</li>
+			</ul>
+			<h3 class="author">Ghilker updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">New RPD device, the temperature gate</li>
+				<li class="rscadd">new device, temperature pump</li>
+			</ul>
+			<h3 class="author">Jimmius updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds door seals to the game, printable at engineering and security lathes after they've been researched. Makes airlocks much harder to smash down if you can't remove them.</li>
+				<li class="tweak">Slightly changed how bonus health to an airlock works</li>
+			</ul>
+			<h3 class="author">TiviPlus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Whiteship is randomly chosen</li>
+			</ul>
+			<h3 class="author">VexingRaven updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Mechs once again use power when moving and properly show errors when failing to move</li>
+				<li class="bugfix">Gygax Leg Actuator Overload button now works correctly</li>
+				<li class="bugfix">Orbital Mech Pads can once again send mechs</li>
+				<li class="bugfix">Livers once again give peptides when put in a grinder</li>
+			</ul>
+			<h3 class="author">Wallem updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Fixes some issues with sign language, such as unique mime text, drunk slurring, punctuation, and megaphones.</li>
+			</ul>
+			<h3 class="author">itseasytosee updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">The hydrogen Axe now has back sprites.</li>
+			</ul>
+			<h3 class="author">nightred updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Meta Engineering lobby fixes and tweaks, added missing machine, moved lights in SM</li>
+				<li class="bugfix">Meta The bar and kitchen have had several updates to objects</li>
+				<li class="bugfix">Meta The service hall was widened by one tile</li>
+				<li class="bugfix">Meta Atmosia has a fancy new control room and a bigger storage room for projects</li>
+			</ul>
+			<h3 class="author">tralezab updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Botany is remade for ice box!</li>
+				<li class="rscadd">Security's Education room has a sparta pit on icebox</li>
+				<li class="rscadd">Countdowns use maptext.</li>
+			</ul>
+
+			<h2 class="date">12 September 2020</h2>
 			<h3 class="author">Cartographer-D updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="rscadd">A completely new cargo department for Pubby Station, try it out!</li>
 			</ul>
+			<h3 class="author">Dennok updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Now you know that pipe meter can be wrenched on pipes, or screwdrived to floor.</li>
+			</ul>
 			<h3 class="author">EOBGames updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">A few little fixes on Deltastation.</li>
+			</ul>
+			<h3 class="author">EdgeLordExe updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Mappers can now use Smart Pipes, pipes that autoconnect to other pipes, like redstone! MAPPERS ONLY!</li>
+			</ul>
+			<h3 class="author">UnlimitedVanillaWorks updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="spellcheck">fixed a few atmos item/gas typos</li>
 			</ul>
 			<h3 class="author">VexingRaven updated:</h3>
 			<ul class="changes bgimages16">
@@ -66,28 +177,16 @@
 				<li class="rscadd">Defibrillators have been upgraded with the ability to alert their user when attempting to revive a husked corpse.</li>
 				<li class="rscadd">The husk status of a corpse is now visible when examining the corpse.</li>
 				<li class="spellcheck">The description for synthflesh and rezadone now mention their use in restoring husks.</li>
+				<li class="bugfix">MetaStation's Departure Checkpoint telescreen is now properly connected to the station's camera network.</li>
 			</ul>
 			<h3 class="author">nightred updated:</h3>
 			<ul class="changes bgimages16">
+				<li class="tweak">Meta service overhaul the great botany.</li>
 				<li class="bugfix">Organ removal stops reagent reactions on the host</li>
 			</ul>
 			<h3 class="author">silicons updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">xenobio cameras no longer runtime when they're not in their original allowed area.</li>
-			</ul>
-
-			<h2 class="date">12 September 2020</h2>
-			<h3 class="author">Dennok updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="tweak">Now you know that pipe meter can be wrenched on pipes, or screwdrived to floor.</li>
-			</ul>
-			<h3 class="author">EdgeLordExe updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Mappers can now use Smart Pipes, pipes that autoconnect to other pipes, like redstone! MAPPERS ONLY!</li>
-			</ul>
-			<h3 class="author">nightred updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="tweak">Meta service overhaul the great botany.</li>
 			</ul>
 			<h3 class="author">willox updated:</h3>
 			<ul class="changes bgimages16">

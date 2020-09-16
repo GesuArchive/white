@@ -363,6 +363,10 @@ This section is for the destabilized SM
 	var/datum/gas_mixture/removed
 	var/gasefficency = 0.5
 	removed = env.remove(gasefficency * env.total_moles())
+
+	if(!removed)
+		return
+
 	if(!removed || !removed.total_moles() || isspaceturf(loc_turf))
 		removed.adjust_moles(/datum/gas/bz, 0.5)
 	removed.adjust_moles(/datum/gas/bz, 15.5)

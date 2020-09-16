@@ -43,6 +43,7 @@
 	var/safety_mode = FALSE ///Whether or not the airlock can be opened with bare hands while unpowered
 	var/can_crush = TRUE /// Whether or not the door can crush mobs.
 
+
 /obj/machinery/door/examine(mob/user)
 	. = ..()
 	if(red_alert_access)
@@ -124,6 +125,16 @@
 	density = TRUE
 	T.ImmediateCalculateAdjacentTurfs() // alright lets put it back
 	return max_moles - min_moles > 20
+/**
+  * Called when attempting to remove the seal from an airlock
+  *
+  * Here because we need to call it and return if there was a seal so we don't try to open the door
+  * or try its safety lock while it's sealed
+  * Arguments:
+  * * user - the mob attempting to remove the seal
+  */
+/obj/machinery/door/proc/try_remove_seal(mob/user)
+	return
 
 /obj/machinery/door/Bumped(atom/movable/AM)
 	. = ..()
@@ -186,6 +197,8 @@
 /obj/machinery/door/attack_hand(mob/user)
 	. = ..()
 	if(.)
+		return
+	if(try_remove_seal(user))
 		return
 	if(try_safety_unlock(user))
 		return
