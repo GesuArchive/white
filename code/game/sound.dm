@@ -93,9 +93,9 @@
 		if(S.volume <= 0)
 			return //No sound
 
-		var/obj/SE = new /obj/effect/temp_visual/soundwave(turf_source)
+		//var/obj/SE = new /obj/effect/temp_visual/soundwave(turf_source)
 
-		SE.alpha =  FLOOR(S.volume * 1.25, 1)
+		//SE.alpha =  FLOOR(S.volume * 1.25, 1)
 
 		var/dx = turf_source.x - T.x // Hearing from the right/left
 		S.x = dx * distance_multiplier
