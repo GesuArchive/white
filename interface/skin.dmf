@@ -159,11 +159,11 @@ window "outputwindow"
 		anchor1 = 0,100
 		anchor2 = 100,100
 		font-family = "Consolas"
-		font-size = 10
+		font-size = 12
 		text-color = #ffffff
 		background-color = #020202
 		is-default = true
-		border = sunken
+		border = none
 		saved-params = "command"
 	elem "browseroutput"
 		type = BROWSER
