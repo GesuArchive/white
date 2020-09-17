@@ -342,6 +342,7 @@
 
 /obj/screen/parallax_layer/random/space_gas
 	icon_state = "space_gas"
+	blend_mode = 3
 
 /obj/screen/parallax_layer/random/space_gas/Initialize(mapload, view)
 	. = ..()
@@ -372,8 +373,11 @@
 		return //Shit wont move
 	. = ..()
 
-/obj/screen/parallax_layer/planet/nebula
+/obj/screen/parallax_layer/nebula
 	icon_state = "nebula"
+	speed = 2.5
+	layer = 4
+	blend_mode = 3
 
 /obj/screen/parallax_layer/planet/high_definition
 	icon_state = "planet_lavaland"
