@@ -414,7 +414,7 @@
 	var/mob/living/carbon/human/H = loc
 	if(!istype(H) || H.wear_suit != src)
 		return
-	if(footstep > 1)
+	if(footstep > 2)
 		playsound(src, pick(random_step_sound), 100, TRUE)
 		footstep = 0
 	else

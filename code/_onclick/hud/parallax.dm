@@ -299,31 +299,31 @@
 	icon_state = "layer1"
 	speed = 1
 	layer = 1
-	color = "#222222"
+	color = "#999999"
 
 /obj/screen/parallax_layer/layer_1_2
 	icon_state = "layer1_2"
 	speed = 1
 	layer = 1
-	color = "#222222"
+	color = "#999999"
 
 /obj/screen/parallax_layer/layer_1_3
 	icon_state = "layer1_3"
 	speed = 1
 	layer = 1
-	color = "#222222"
+	color = "#999999"
 
 /obj/screen/parallax_layer/layer_1_4
 	icon_state = "layer1_4"
 	speed = 1
 	layer = 1
-	color = "#222222"
+	color = "#999999"
 
 /obj/screen/parallax_layer/layer_1_5
 	icon_state = "layer1_5"
 	speed = 1
 	layer = 1
-	color = "#222222"
+	color = "#999999"
 
 /obj/screen/parallax_layer/layer_2
 	icon_state = "layer2"
