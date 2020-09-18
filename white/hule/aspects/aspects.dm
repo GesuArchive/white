@@ -57,7 +57,7 @@
 /datum/round_aspect/airunlock
 	name = "Airunlock"
 	desc = "Кого волнует безопасность? Экипаж свободно может ходить по всем отсекам, ведь все шлюзы теперь для них доступны."
-	weight = 20
+	weight = 30
 
 /datum/round_aspect/airunlock/run_aspect()
 	for(var/obj/machinery/door/D in GLOB.machines)
@@ -82,6 +82,90 @@
 		T.initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	..()
 */
+
+/datum/round_aspect/edison
+	name = "Edison"
+	desc = "Для ускорения исследований научного отдела лампы на станции теперь потребляют в 10 раз больше энергии."
+	weight = 58
+
+/datum/round_aspect/edison/run_aspect()
+	for(var/obj/machinery/light/L in world)
+		L.idle_power_usage   = L.idle_power_usage   * 10
+		L.active_power_usage = L.active_power_usage * 10
+
+	SSresearch.mining_multiplier = 5
+	..()
+
+/datum/round_aspect/rainy_shift
+	name = "Rainy Shift"
+	desc = "Ожидается выпадение обильных осадков."
+	weight = 80
+	var/area/impact_area
+	var/list/possible_pack_types = list()
+	var/static/list/rain_spawnable_supply_packs = list()
+
+/datum/round_aspect/rainy_shift/run_aspect()
+	start_rain()
+	..()
+
+/datum/round_aspect/rainy_shift/proc/start_rain()
+	impact_area = find_event_area()
+	if(!impact_area)
+		CRASH("No valid areas for rain cargo pod found.")
+	var/list/turf_test = get_area_turfs(impact_area)
+	if(!turf_test.len)
+		CRASH("Rain Cargo Pod : No valid turfs found for [impact_area] - [impact_area.type]")
+
+	if(!rain_spawnable_supply_packs.len)
+		rain_spawnable_supply_packs = SSshuttle.supply_packs.Copy()
+		for(var/pack in rain_spawnable_supply_packs)
+			var/datum/supply_pack/pack_type = pack
+			if(initial(pack_type.special))
+				rain_spawnable_supply_packs -= pack
+
+	var/list/turf/valid_turfs = get_area_turfs(impact_area)
+	//Only target non-dense turfs to prevent wall-embedded pods
+	for(var/i in valid_turfs)
+		var/turf/T = i
+		if(T.density)
+			valid_turfs -= T
+	var/turf/LZ = pick(valid_turfs)
+	var/pack_type
+	if(possible_pack_types.len)
+		pack_type = pick(possible_pack_types)
+	else
+		pack_type = pick(rain_spawnable_supply_packs)
+	var/datum/supply_pack/SP = new pack_type
+	var/obj/structure/closet/crate/crate = SP.generate(null)
+	crate.locked = FALSE //Unlock secure crates
+	crate.update_icon()
+	var/obj/structure/closet/supplypod/pod = make_pod()
+	new /obj/effect/pod_landingzone(LZ, pod, crate)
+
+	addtimer(CALLBACK(src, .proc/start_rain), rand(60, 240) SECONDS)
+
+/datum/round_aspect/rainy_shift/proc/make_pod()
+	var/obj/structure/closet/supplypod/S = new
+	return S
+
+///Picks an area that wouldn't risk critical damage if hit by a pod explosion
+/datum/round_aspect/rainy_shift/proc/find_event_area()
+	var/static/list/allowed_areas
+	if(!allowed_areas)
+		///Places that shouldn't explode
+		var/list/safe_area_types = typecacheof(list(
+		/area/ai_monitored/turret_protected/ai,
+		/area/ai_monitored/turret_protected/ai_upload,
+		/area/engine,
+		/area/shuttle)
+		)
+
+		///Subtypes from the above that actually should explode.
+		var/list/unsafe_area_subtypes = typecacheof(list(/area/engine/break_room))
+		allowed_areas = make_associative(GLOB.the_station_areas) - safe_area_types + unsafe_area_subtypes
+	var/list/possible_areas = typecache_filter_list(GLOB.sortedAreas,allowed_areas)
+	if (length(possible_areas))
+		return pick(possible_areas)
 
 /datum/round_aspect/rich
 	name = "Rich"
@@ -197,7 +281,7 @@
 /datum/round_aspect/fast_and_furious
 	name = "Fast and Furious"
 	desc = "Люди спешат и не важно куда."
-	weight = 26
+	weight = 9
 
 /datum/round_aspect/fast_and_furious/run_aspect()
 	CONFIG_SET(number/movedelay/run_delay, 1)
@@ -233,7 +317,7 @@
 /datum/round_aspect/assistants
 	name = "Assistants"
 	desc = "Критическая масса ассистентов увеличивается с каждой минутой. ЦК решило перенаправить эту нагрузку и на вашу станцию."
-	weight = 12
+	weight = 9
 
 /datum/controller/subsystem/job/proc/DisableJobsButThis(job_path)
 	for(var/I in occupations)

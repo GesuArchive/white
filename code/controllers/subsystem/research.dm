@@ -52,6 +52,8 @@ SUBSYSTEM_DEF(research)
 	ANOMALY_CORE_FLUX = MAX_CORES_FLUX
 	)
 
+	var/mining_multiplier = 1
+
 /datum/controller/subsystem/research/Initialize()
 	point_types = TECHWEB_POINT_TYPE_LIST_ASSOCIATIVE_NAMES
 	initialize_all_techweb_designs()
@@ -82,7 +84,7 @@ SUBSYSTEM_DEF(research)
 		science_tech.last_bitcoins = bitcoins  // Doesn't take tick drift into account
 		for(var/i in bitcoins)
 			bitcoins[i] *= income_time_difference / 10
-		science_tech.add_point_list(bitcoins)
+		science_tech.add_point_list(bitcoins * mining_multiplier)
 	last_income = world.time
 
 /datum/controller/subsystem/research/proc/calculate_server_coefficient()	//Diminishing returns.
