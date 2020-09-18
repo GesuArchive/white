@@ -33,8 +33,8 @@ SUBSYSTEM_DEF(aspects)
 			A.run_aspect()
 			ca_name += "[A.name] / "
 			ca_desc += "[A.desc] / "
-		ca_name = copytext_char(ca_name, 1, 3)
-		ca_desc = copytext_char(ca_desc, 1, 3)
+		ca_name = copytext_char(ca_name, 1, -2)
+		ca_desc = copytext_char(ca_desc, 1, -2)
 	else
 		current_aspect = pickweight(aspects)
 		current_aspect.run_aspect()
