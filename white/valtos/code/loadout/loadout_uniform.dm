@@ -323,3 +323,8 @@
 /datum/gear/uniform/rank/security/skirt
 	display_name = "юбкомбез офицера"
 	path = /obj/item/clothing/under/rank/security/officer/skirt
+
+/datum/gear/uniform/sharovari
+	display_name = "шаровары"
+	path = /obj/item/clothing/under/costume/sharovari
+	cost = 500

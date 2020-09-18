@@ -3579,6 +3579,7 @@
 #include "white\valtos\code\teeth\teeth.dm"
 #include "white\valtos\code\trading\_defines.dm"
 #include "white\valtos\code\trading\terminal.dm"
+#include "white\valtos\code\uniforms\hohol.dm"
 #include "white\valtos\code\uniforms\russian.dm"
 #include "white\valtos\code\unsorted\antimatter.dm"
 #include "white\valtos\code\unsorted\boxplanet.dm"

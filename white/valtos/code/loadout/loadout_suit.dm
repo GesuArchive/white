@@ -110,6 +110,11 @@
 	path = /obj/item/clothing/suit/toggle/lawyer/black
 	allowed_roles = list("Lawyer")
 
+/datum/gear/suit/jacket/vyshivanka
+	display_name = "вышиванка"
+	path = /obj/item/clothing/suit/vyshivanka
+	cost = 500
+
 //PONCHOS
 
 /datum/gear/suit/poncho
