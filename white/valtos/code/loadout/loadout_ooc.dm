@@ -21,6 +21,7 @@
 	var/datum/round_aspect/sel_aspect = input("Аспекты:", "Выбирайте!", null, null) as null|anything in SSaspects.aspects
 	if(!sel_aspect)
 		to_chat(C, "<span class='notice'>Не выбран аспект.</span>")
+		inc_metabalance(user, (cost), TRUE, "Возвращаю [TG.display_name].")
 		return
 	else
 		to_chat(C, "<span class='notice'>Выбрано <b>[sel_aspect]</b>! Другие игроки могут добавить ещё аспекты.</span>")
