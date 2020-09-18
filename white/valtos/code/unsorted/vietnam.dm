@@ -688,7 +688,7 @@
 	name = "Ботинки"
 	result = /obj/item/clothing/shoes/jackboots/plate_boots
 
-/datum/smithing_recipe/plate_boots
+/datum/smithing_recipe/kar98k
 	name = "Винтовка Kar98k"
 	result = /obj/item/gun_parts/kar98k
 
@@ -698,6 +698,7 @@
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "furnace"
 	density = TRUE
+	anchored = TRUE
 	light_range = 0
 	light_color = "#BB661E"
 	var/furnacing = FALSE
@@ -737,9 +738,10 @@
 	desc = "Нагревает различные штуки, но реже всего слитки."
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "forge_on"
-	light_range = 4
+	light_range = 9
 	light_color = "#BB661E"
 	density = TRUE
+	anchored = TRUE
 
 /obj/forge/attackby(obj/item/I, mob/living/user, params)
 
@@ -802,6 +804,7 @@
 	category = CAT_STRUCTURE
 	always_available = TRUE
 
+/*
 /datum/crafting_recipe/smithman/furnace
 	name = "Каменная стена"
 	result = /turf/closed/wall/stonewall
@@ -809,6 +812,7 @@
 	time = 50
 	category = CAT_STRUCTURE
 	always_available = TRUE
+*/
 
 /obj/effect/baseturf_helper/beach/raw_stone
 	name = "raw stone baseturf editor"
