@@ -82,8 +82,9 @@
 			toggle_power()
 			user.visible_message("<span class='notice'><b>[user.name]</b> [active? "включает":"выключает"] <b>[src.name]</b>.</span>", \
 			"<span class='notice'>[active? "Включаю":"Выключаю"] <b>[src.name]</b>.</span>")
-			var/fuel = loaded_tank.air_contents.get_moles(/datum/gas/plasma)
-			investigate_log("turned [active?"<font color='green'>on</font>":"<font color='red'>off</font>"] by [key_name(user)]. [loaded_tank?"Fuel: [round(fuel/0.29)]%":"<font color='red'>It is empty</font>"].", INVESTIGATE_SINGULO)
+			if(loaded_tank.air_contents)
+				var/fuel = loaded_tank.air_contents.get_moles(/datum/gas/plasma)
+				investigate_log("turned [active?"<font color='green'>on</font>":"<font color='red'>off</font>"] by [key_name(user)]. [loaded_tank?"Fuel: [round(fuel/0.29)]%":"<font color='red'>It is empty</font>"].", INVESTIGATE_SINGULO)
 			return
 		else
 			to_chat(user, "<span class='warning'>Управление заблокировано!</span>")

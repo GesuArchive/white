@@ -14,7 +14,7 @@
 	if(sound == null)
 		DIRECT_OUTPUT(target, sound)
 		return
-	if(sound.environment == -1)
+	if(sound.environment && sound.environment == -1)
 		sound.environment = 12
 	DIRECT_OUTPUT(target, sound)
 

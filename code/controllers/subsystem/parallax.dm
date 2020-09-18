@@ -17,7 +17,7 @@ SUBSYSTEM_DEF(parallax)
 	. = ..()
 	random_space = pick(/obj/screen/parallax_layer/layer_1, /obj/screen/parallax_layer/layer_1_2, /obj/screen/parallax_layer/layer_1_3, /obj/screen/parallax_layer/layer_1_4, /obj/screen/parallax_layer/layer_1_5)
 	if(prob(70))	//70% chance to pick a special extra layer
-		random_layer = pick(/obj/screen/parallax_layer/random/space_gas, /obj/screen/parallax_layer/random/asteroids, /obj/screen/parallax_layer/nebula)
+		random_layer = pick(/obj/screen/parallax_layer/random/space_gas, /obj/screen/parallax_layer/nebula)
 		random_parallax_color = pick(COLOR_TEAL, COLOR_GREEN, COLOR_SILVER, COLOR_YELLOW, COLOR_CYAN, COLOR_ORANGE, COLOR_PURPLE)//Special color for random_layer1. Has to be done here so everyone sees the same color.
 	planet_y_offset = rand(100, 160)
 	planet_x_offset = rand(100, 160)
