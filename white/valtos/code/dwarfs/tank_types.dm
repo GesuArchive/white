@@ -12,7 +12,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	force = 4
 	distribute_pressure = TANK_DEFAULT_RELEASE_PRESSURE
-	volume = 8
+	volume = 70
 
 
 /obj/item/tank/internals/dwarf/populate_gas()
