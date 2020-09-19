@@ -84,7 +84,8 @@
 			else //no stacktrace because this will mainly happen because the client went away
 				return
 		else
-			CRASH("Invalid argument: client: `[client]`")
+			return
+			//CRASH("Invalid argument: client: `[client]`")
 	if (!islist(asset_list))
 		asset_list = list(asset_list)
 	var/list/unreceived = list()

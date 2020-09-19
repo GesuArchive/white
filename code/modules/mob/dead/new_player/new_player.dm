@@ -364,7 +364,7 @@
 	if(humanc && CONFIG_GET(flag/roundstart_traits))
 		SSquirks.AssignQuirks(humanc, humanc.client, TRUE)
 
-	if(humanc)
+	if(humanc && SSaspects.current_aspect)
 		to_chat(humanc, "<span class='notice'><BR> > <B>Важно:</B> [SSaspects.current_aspect.desc]</span><BR>")
 
 	log_manifest(character.mind.key,character.mind,character,latejoin = TRUE)
