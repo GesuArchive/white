@@ -23,8 +23,8 @@
 
 /obj/machinery/research/explosive_compressor/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Ctrl-Click to remove an inserted core.</span>"
-	. += "<span class='notice'>Click with an empty hand to gather information about the required radius of an inserted core. Insert a ready TTV to start the implosion process if a core is inserted.</span>"
+	. += "<hr><span class='notice'>Ctrl-Click to remove an inserted core.</span>"
+	. += "\n<span class='notice'>Click with an empty hand to gather information about the required radius of an inserted core. Insert a ready TTV to start the implosion process if a core is inserted.</span>"
 
 /obj/machinery/research/explosive_compressor/attack_hand(mob/living/user)
 	. = ..()

@@ -40,6 +40,8 @@
 	mutanttongue = /obj/item/organ/tongue/dwarven
 	var/dwarfDrunkness = 100 // A value between 0 and 100.
 	var/notDrunkEnoughTime = 0 // World time offset
+	species_language_holder = /datum/language_holder/dwarf
+
 /datum/species/dwarf/check_roundstart_eligible()
 	return FALSE
 /datum/species/dwarf/can_equip(obj/item/I, slot, disable_warning, mob/living/carbon/human/H, bypass_equip_delay_self = FALSE)
@@ -56,8 +58,7 @@
 	C.facial_hairstyle = dwarf_beard
 	C.draw_hippie_parts()
 	. = ..()
-	//C.remove_all_languages()
-	C.grant_language(/datum/language/dwarven, source = LANGUAGE_MIND)
+
 /datum/species/dwarf/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	C.draw_hippie_parts(TRUE)
 	. = ..()
@@ -130,6 +131,10 @@
 	space_chance = 35
 	icon = 'white/valtos/icons/language.dmi'
 	icon_state = "dwarf"
+
+/datum/language_holder/dwarf
+	understood_languages = list(/datum/language/dwarven = list(LANGUAGE_ATOM))
+	spoken_languages = list(/datum/language/dwarven = list(LANGUAGE_ATOM))
 
 /obj/item/clothing/mask/breath/dwarf
 	name = "небольшая дыхательная маска"
