@@ -1,8 +1,8 @@
 /obj/machinery/ai_slipper/smartfoam
 	name = "умный пеномёт"
-	desc = "Активируется автоматически. Спасает зону от разгерметизации."
-	uses = 1
-	cooldown_time = 600
+	desc = "На самом деле не очень. Активируется автоматически. Спасает зону от разгерметизации."
+	uses = 3
+	cooldown_time = 30 SECONDS
 	req_access = list(ACCESS_AI_UPLOAD, ACCESS_ENGINE)
 
 /obj/machinery/ai_slipper/smartfoam/process()

@@ -28,7 +28,7 @@ GLOBAL_LIST_INIT(poll_ignore_desc, list(
 	POLL_IGNORE_ALIEN_LARVA = "Xenomorph larva",
 	POLL_IGNORE_SYNDICATE = "Syndicate",
 	POLL_IGNORE_HOLOPARASITE = "Holoparasite",
-	POLL_IGNORE_POSIBRAIN = "Positronic brain",
+	POLL_IGNORE_POSIBRAIN = "Позитронный мозг",
 	POLL_IGNORE_SPECTRAL_BLADE = "Spectral blade",
 	POLL_IGNORE_CONSTRUCT = "Construct",
 	POLL_IGNORE_SPIDER = "Spiders",
