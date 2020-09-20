@@ -111,7 +111,7 @@
 	name = "Clumsiness"
 	desc = "A genome that inhibits certain brain functions, causing the holder to appear clumsy. Honk!"
 	quality = MINOR_NEGATIVE
-	text_gain_indication = "<span class='danger'>You feel lightheaded.</span>"
+	text_gain_indication = "<span class='danger'>Ощущаю лёгкое головокружение.</span>"
 
 /datum/mutation/human/clumsy/on_acquiring(mob/living/carbon/human/owner)
 	if(..())

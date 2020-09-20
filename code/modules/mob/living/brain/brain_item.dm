@@ -1,6 +1,6 @@
 /obj/item/organ/brain
-	name = "brain"
-	desc = "A piece of juicy meat found in a person's head."
+	name = "мозг"
+	desc = "Кусок сочного мяса, найденный в голове человека."
 	icon_state = "brain"
 	throw_speed = 3
 	throw_range = 5
@@ -37,11 +37,11 @@
 /obj/item/organ/brain/Insert(mob/living/carbon/C, special = 0,no_id_transfer = FALSE)
 	..()
 
-	name = "brain"
+	name = "мозг"
 
 	if(C.mind && C.mind.has_antag_datum(/datum/antagonist/changeling) && !no_id_transfer)	//congrats, you're trapped in a body you don't control
 		if(brainmob && !(C.stat == DEAD || (HAS_TRAIT(C, TRAIT_DEATHCOMA))))
-			to_chat(brainmob, "<span class= danger>You can't feel your body! You're still just a brain!</span>")
+			to_chat(brainmob, "<span class= danger>Не ощущаю своего тела! Я всё ещё простой мозг!</span>")
 		forceMove(C)
 		C.update_hair()
 		return
@@ -68,7 +68,7 @@
 /obj/item/organ/brain/Remove(mob/living/carbon/C, special = 0, no_id_transfer = FALSE)
 	// Delete skillchips first as parent proc sets owner to null, and skillchips need to know the brain's owner.
 	if(!QDELETED(C) && length(skillchips))
-		to_chat(C, "<span class='notice'>You feel your skillchips enable emergency power saving mode, deactivating as your brain leaves your body...</span>")
+		to_chat(C, "<span class='notice'>Мои чипы навыков включают аварийный режим энергосбережения, деактивируясь, когда мой мозг покидает моё тело...</span>")
 		for(var/chip in skillchips)
 			var/obj/item/skillchip/skillchip = chip
 			// Run the try_ proc with force = TRUE.
@@ -105,7 +105,7 @@
 			LAZYSET(brainmob.status_traits, TRAIT_BADDNA, L.status_traits[TRAIT_BADDNA])
 	if(L.mind && L.mind.current)
 		L.mind.transfer_to(brainmob)
-	to_chat(brainmob, "<span class='notice'>You feel slightly disoriented. That's normal when you're just a brain.</span>")
+	to_chat(brainmob, "<span class='notice'>Ощущаю себя немного дезориентированным. Возможно, потому что теперь я просто мозг?</span>")
 
 /obj/item/organ/brain/attackby(obj/item/O, mob/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
@@ -116,19 +116,19 @@
 	if((organ_flags & ORGAN_FAILING) && O.is_drainable() && O.reagents.has_reagent(/datum/reagent/medicine/mannitol)) //attempt to heal the brain
 		. = TRUE //don't do attack animation.
 		if(brainmob?.health <= HEALTH_THRESHOLD_DEAD) //if the brain is fucked anyway, do nothing
-			to_chat(user, "<span class='warning'>[src] is far too damaged, there's nothing else we can do for it!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] слишком сильно повреждён! В мусорку.</span>")
 			return
 
 		if(!O.reagents.has_reagent(/datum/reagent/medicine/mannitol, 10))
-			to_chat(user, "<span class='warning'>There's not enough mannitol in [O] to restore [src]!</span>")
+			to_chat(user, "<span class='warning'>Недостаточно маннитола в [O] для попытки восстановить [src.name]!</span>")
 			return
 
-		user.visible_message("<span class='notice'>[user] starts to pour the contents of [O] onto [src].</span>", "<span class='notice'>You start to slowly pour the contents of [O] onto [src].</span>")
+		user.visible_message("<span class='notice'>[user] начинает обильно поливать [src.name] из [O].</span>", "<span class='notice'>Начинаю обильно поливать [src.name] из [O].</span>")
 		if(!do_after(user, 60, TRUE, src))
-			to_chat(user, "<span class='warning'>You failed to pour [O] onto [src]!</span>")
+			to_chat(user, "<span class='warning'>Не вышло нормально починить [src]!</span>")
 			return
 
-		user.visible_message("<span class='notice'>[user] pours the contents of [O] onto [src], causing it to reform its original shape and turn a slightly brighter shade of pink.</span>", "<span class='notice'>You pour the contents of [O] onto [src], causing it to reform its original shape and turn a slightly brighter shade of pink.</span>")
+		user.visible_message("<span class='notice'>[user] выливает содержимое [O] на [src.name], заставляя его реформировать свою первоначальную форму и приобрести более яркий оттенок розового.</span>", "<span class='notice'>Выливаю содержимое [O] на [src.name], заставляя его реформировать свою первоначальную форму и приобрести более яркий оттенок розового.</span>")
 		var/healby = O.reagents.get_reagent_amount(/datum/reagent/medicine/mannitol)
 		setOrganDamage(damage - healby*2)	//heals 2 damage per unit of mannitol, and by using "setorgandamage", we clear the failing variable if that was up
 		O.reagents.clear_reagents()
@@ -136,7 +136,7 @@
 
 	// Cutting out skill chips.
 	if(length(skillchips) && O.get_sharpness() == SHARP_EDGED)
-		to_chat(user,"<span class='notice'>You begin to excise skillchips from [src].</span>")
+		to_chat(user,"<span class='notice'>Начинаю вырезать скиллчипы из [src.name].</span>")
 		if(do_after(user, 15 SECONDS, target = src))
 			for(var/chip in skillchips)
 				var/obj/item/skillchip/skillchip = chip
@@ -162,25 +162,25 @@
 
 	if(O.force != 0 && !(O.item_flags & NOBLUDGEON))
 		setOrganDamage(maxHealth) //fails the brain as the brain was attacked, they're pretty fragile.
-		visible_message("<span class='danger'>[user] hits [src] with [O]!</span>")
-		to_chat(user, "<span class='danger'>You hit [src] with [O]!</span>")
+		visible_message("<span class='danger'>[user] бьёт [src.name] используя [O]!</span>")
+		to_chat(user, "<span class='danger'>Бью [src.name] используя [O]!</span>")
 
 /obj/item/organ/brain/examine(mob/user)
 	. = ..()
 	if(length(skillchips))
-		. += "<span class='info'>It has a skillchip embedded in it.</span>"
+		. += "<hr><span class='info'>Внутри торчит скиллчип. Возможно, что не один.</span>"
 	if(suicided)
-		. += "<span class='info'>It's started turning slightly grey. They must not have been able to handle the stress of it all.</span>"
+		. += "<hr><span class='info'>Он начал слегка сереть. Носитель, должно быть, не смог справиться со всем этим стрессом.</span>"
 		return
 	if((brainmob && (brainmob.client || brainmob.get_ghost())) || decoy_override)
 		if(organ_flags & ORGAN_FAILING)
-			. += "<span class='info'>It seems to still have a bit of energy within it, but it's rather damaged... You may be able to restore it with some <b>mannitol</b>.</span>"
+			. += "<hr><span class='info'>Кажется, в нем еще есть немного энергии, но он сильно поврежден... Возможно, получится восстановить его с помощью <b>маннитола</b>.</span>"
 		else if(damage >= BRAIN_DAMAGE_DEATH*0.5)
-			. += "<span class='info'>You can feel the small spark of life still left in this one, but it's got some bruises. You may be able to restore it with some <b>mannitol</b>.</span>"
+			. += "<hr><span class='info'>Можно почувствовать небольшую искру жизни, которая все еще осталась в этом мозге, но он повреждён. Возможно, получится восстановить его с помощью <b>маннитола</b>.</span>"
 		else
-			. += "<span class='info'>You can feel the small spark of life still left in this one.</span>"
+			. += "<hr><span class='info'>Можно почувствовать маленькую искру жизни, которая все еще осталась в этом мозге.</span>"
 	else
-		. += "<span class='info'>This one is completely devoid of life.</span>"
+		. += "<hr><span class='info'>Он полностью мёртв.</span>"
 
 /obj/item/organ/brain/attack(mob/living/carbon/C, mob/user)
 	if(!istype(C))
@@ -194,7 +194,7 @@
 	var/target_has_brain = C.getorgan(/obj/item/organ/brain)
 
 	if(!target_has_brain && C.is_eyes_covered())
-		to_chat(user, "<span class='warning'>You're going to need to remove [C.p_their()] head cover first!</span>")
+		to_chat(user, "<span class='warning'>Стоит открыть [C.ru_ego()] голову сначала!</span>")
 		return
 
 	//since these people will be dead M != usr
@@ -202,18 +202,18 @@
 	if(!target_has_brain)
 		if(!C.get_bodypart(BODY_ZONE_HEAD) || !user.temporarilyRemoveItemFromInventory(src))
 			return
-		var/msg = "[C] has [src] inserted into [C.p_their()] head by [user]."
+		var/msg = "[C] вставляет [src] в голову [user]."
 		if(C == user)
-			msg = "[user] inserts [src] into [user.p_their()] head!"
+			msg = "[user] вставляет [src] в [user.ru_ego()] голову!"
 
 		C.visible_message("<span class='danger'>[msg]</span>",
 						"<span class='userdanger'>[msg]</span>")
 
 		if(C != user)
-			to_chat(C, "<span class='notice'>[user] inserts [src] into your head.</span>")
-			to_chat(user, "<span class='notice'>You insert [src] into [C]'s head.</span>")
+			to_chat(C, "<span class='notice'>[user] вставляет [src] в мою голову.</span>")
+			to_chat(user, "<span class='notice'>Вставляю [src] в голову [C].</span>")
 		else
-			to_chat(user, "<span class='notice'>You insert [src] into your head.</span>"	)
+			to_chat(user, "<span class='notice'>Вставляю [src] в свою голову.</span>"	)
 
 		Insert(C)
 	else
@@ -229,7 +229,7 @@
 
 /obj/item/organ/brain/on_life()
 	if(damage >= BRAIN_DAMAGE_DEATH) //rip
-		to_chat(owner, "<span class='userdanger'>The last spark of life in your brain fizzles out...</span>")
+		to_chat(owner, "<span class='userdanger'>Последняя искра жизни в моём мозгу угасает..</span>")
 		owner.death()
 
 /obj/item/organ/brain/check_damage_thresholds(mob/M)
@@ -254,11 +254,11 @@
 		if(owner.stat < UNCONSCIOUS) //conscious or soft-crit
 			var/brain_message
 			if(prev_damage < BRAIN_DAMAGE_MILD && damage >= BRAIN_DAMAGE_MILD)
-				brain_message = "<span class='warning'>You feel lightheaded.</span>"
+				brain_message = "<span class='warning'>Ощущаю лёгкое головокружение.</span>"
 			else if(prev_damage < BRAIN_DAMAGE_SEVERE && damage >= BRAIN_DAMAGE_SEVERE)
-				brain_message = "<span class='warning'>You feel less in control of your thoughts.</span>"
+				brain_message = "<span class='warning'>Чувствую, что меньше контролирую свои мысли</span>"
 			else if(prev_damage < (BRAIN_DAMAGE_DEATH - 20) && damage >= (BRAIN_DAMAGE_DEATH - 20))
-				brain_message = "<span class='warning'>You can feel your mind flickering on and off...</span>"
+				brain_message = "<span class='warning'>Воспринимаю, что мой разум скоро отключится совсем...</span>"
 
 			if(.)
 				. += "\n[brain_message]"
@@ -296,8 +296,8 @@
 	LAZYCLEARLIST(skillchips)
 
 /obj/item/organ/brain/alien
-	name = "alien brain"
-	desc = "We barely understand the brains of terrestial animals. Who knows what we may find in the brain of such an advanced species?"
+	name = "чужеродный мозг"
+	desc = "Мы почти не понимаем мозг земных животных. Кто знает, что мы можем найти в мозгу столь продвинутого вида?"
 	icon_state = "brain-x"
 
 

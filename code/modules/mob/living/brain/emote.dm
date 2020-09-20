@@ -10,25 +10,25 @@
 
 /datum/emote/brain/alarm
 	key = "alarm"
-	message = "sounds an alarm."
+	message = "издаёт сигнал тревоги."
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/brain/alert
 	key = "alert"
-	message = "lets out a distressed noise."
+	message = "выпискивает сигнал опасности."
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/brain/flash
 	key = "flash"
-	message = "blinks their lights."
+	message = "моргает своими фонариками."
 
 /datum/emote/brain/notice
 	key = "notice"
-	message = "plays a loud tone."
+	message = "проигрывает громкий звук."
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/brain/whistle
 	key = "whistle"
 	key_third_person = "whistles"
-	message = "whistles."
+	message = "свистит."
 	emote_type = EMOTE_AUDIBLE
