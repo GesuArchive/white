@@ -179,8 +179,8 @@
 
 /datum/map_template/shuttle/emergency/construction
 	suffix = "construction"
-	name = "Build your own shuttle kit"
-	description = "For the enterprising shuttle engineer! The chassis will dock upon purchase, but launch will have to be authorized as usual via shuttle call. Comes stocked with construction materials. Unlocks the ability to buy shuttle engine crates from cargo."
+	name = "Набор построй свой собственный шатл"
+	description = "Для предпиимчевого челночного инженера! Шасси будет пристыковано при покупке, но запуск должен быть разрешен в обычном порядке через вызов шатла. Поставляется вместе со строительными материалами. Разблокирует возможность купить ящики с двигателем шатла в карго."
 	admin_notes = "No brig, no medical facilities, no shuttle console."
 	credit_cost = 2500
 
@@ -193,59 +193,59 @@
 
 /datum/map_template/shuttle/emergency/asteroid
 	suffix = "asteroid"
-	name = "Asteroid Station Emergency Shuttle"
-	description = "A respectable mid-sized shuttle that first saw service shuttling Nanotrasen crew to and from their asteroid belt embedded facilities."
+	name = "Аварийный Шатл Астеройдной Станции"
+	description = "Респектабельный шатл среднего размера, который впервые заступил на службу доставляя экипаж Нанотрансена на их внутренные объекты в поясе астероидов и обратно."
 	credit_cost = 3000
 
 /datum/map_template/shuttle/emergency/bar
 	suffix = "bar"
-	name = "The Emergency Escape Bar"
-	description = "Features include sentient bar staff (a Bardrone and a Barmaid), bathroom, a quality lounge for the heads, and a large gathering table."
+	name = "Бар Аварийного Выхода"
+	description = "К услугам гостей разумный персонал бара (Бардрон и Барменша), ванная, качественная гостинная для руководителей и большой стол для собраний."
 	admin_notes = "Bardrone and Barmaid are GODMODE, will be automatically sentienced by the fun balloon at 60 seconds before arrival. \
 	Has medical facilities."
 	credit_cost = 5000
 
 /datum/map_template/shuttle/emergency/pod
 	suffix = "pod"
-	name = "Emergency Pods"
-	description = "We did not expect an evacuation this quickly. All we have available is two escape pods."
+	name = "Спасательные Капсулы"
+	description = "Мы не ожидали эвакуации так рано. Всё что у нас есть это эти две спасательные капсулы."
 	admin_notes = "For player punishment."
 	can_be_bought = FALSE
 
 /datum/map_template/shuttle/emergency/russiafightpit
 	suffix = "russiafightpit"
 	name = "Mother Russia Bleeds"
-	description = "Dis is a high-quality shuttle, da. Many seats, lots of space, all equipment! Even includes entertainment! Such as lots to drink, and a fighting arena for drunk crew to have fun! If arena not fun enough, simply press button of releasing bears. Do not worry, bears trained not to break out of fighting pit, so totally safe so long as nobody stupid or drunk enough to leave door open. Try not to let asimov babycons ruin fun!"
+	description = "Это довольно высококачественный шатл, da. Сидений много, много пространства, вся экипировка! Даже есть развлечения! Например куча бухла и арена для пьяного экипажа, весело! Если арены не достаточно, просто нажмите на кнопку выпуска выпуска медведей. Волноваться нет смысла, медведи обучены не вылезать из бойцовской ямы, ток что полностью безопасно до момента пока никто не слишком глуп или пьян, чтобы оставить дверь открытой. И не позволяйте детям Азимова испортить веселье!"
 	admin_notes = "Includes a small variety of weapons. And bears. Only captain-access can release the bears. Bears won't smash the windows themselves, but they can escape if someone lets them."
 	credit_cost = 5000 // While the shuttle is rusted and poorly maintained, trained bears are costly.
 
 /datum/map_template/shuttle/emergency/meteor
 	suffix = "meteor"
-	name = "Asteroid With Engines Strapped To It"
-	description = "A hollowed out asteroid with engines strapped to it, the hollowing procedure makes it very difficult to hijack but is very expensive. Due to its size and difficulty in steering it, this shuttle may damage the docking area."
+	name = "Астеройд С Привязанными К Нему Двигателями"
+	description = "Опустошенный астеройд с привязанными к нему двигателями, процедура опустошения делает его очень сложной целью для угона, но и весьма ценной. Этот шатл ввиду своих размеров и сложностей с управлением может повредить зону стыковки."
 	admin_notes = "This shuttle will likely crush escape, killing anyone there."
 	credit_cost = 15000
 	movement_force = list("KNOCKDOWN" = 3, "THROW" = 2)
 
 /datum/map_template/shuttle/emergency/luxury
 	suffix = "luxury"
-	name = "Luxury Shuttle"
-	description = "A luxurious golden shuttle complete with an indoor swimming pool. Each crewmember wishing to board must bring 500 credits, payable in cash and mineral coin."
-	extra_desc = "This shuttle costs 500 credits to board."
+	name = "Роскошный шатл"
+	description = "Роскошный золотой шатл с крытым бассейном. Каждый член экипажа желающий попасть на борт должен принести 500 кредитов, оплата принимается наличными и минеральными монетами"
+	extra_desc = "Зайти на шатл стоит 500 кредитов."
 	admin_notes = "Due to the limited space for non paying crew, this shuttle may cause a riot."
 	credit_cost = 10000
 
 /datum/map_template/shuttle/emergency/discoinferno
 	suffix = "discoinferno"
-	name = "Disco Inferno"
-	description = "The glorious results of centuries of plasma research done by Nanotrasen employees. This is the reason why you are here. Get on and dance like you're on fire, burn baby burn!"
+	name = "Диско Инферно"
+	description = "Потрясающие результаты многовековых исследований плазмы, выполненных сотрудниками Нанотрансен. И это причина того, почему ты здесь. Так что танцуй, отжигай, гори, детка, гори!"
 	admin_notes = "Flaming hot. The main area has a dance machine as well as plasma floor tiles that will be ignited by players every single time."
 	credit_cost = 10000
 
 /datum/map_template/shuttle/emergency/arena
 	suffix = "arena"
-	name = "The Arena"
-	description = "The crew must pass through an otherworldy arena to board this shuttle. Expect massive casualties. The source of the Bloody Signal must be tracked down and eliminated to unlock this shuttle."
+	name = "Арена"
+	description = "Персонал должен пройти через потустороннюю арену чтобы попасть на шатл. Ожидайте огромное количество жертв. Для разблокировки этого шатла необходимо найти и устранить источник кровавого сигнала."
 	admin_notes = "RIP AND TEAR."
 	credit_cost = 10000
 	/// Whether the arena z-level has been created
@@ -269,31 +269,31 @@
 
 /datum/map_template/shuttle/emergency/birdboat
 	suffix = "birdboat"
-	name = "Birdboat Station Emergency Shuttle"
-	description = "Though a little on the small side, this shuttle is feature complete, which is more than can be said for the pattern of station it was commissioned for."
+	name = "Аварийный Шатл Станции БёрдБоат"
+	description = "Не смотря на то что этот шатл немного маловат - он полностью укомплектован, чего не скажешь о типе станции, на которой он был заказан."
 	credit_cost = 1000
 
 /datum/map_template/shuttle/emergency/box
 	suffix = "box"
-	name = "Box Station Emergency Shuttle"
+	name = "Аварийный Шатл Станции Ящик"
 	credit_cost = 2000
-	description = "The gold standard in emergency exfiltration, this tried and true design is equipped with everything the crew needs for a safe flight home."
+	description = "Проверенный временем золотой стандарт для экстренной эксфильтрации, оборудованный всем, что может пригодиться экипажу для безопасного полета домой."
 
 /datum/map_template/shuttle/emergency/donut
 	suffix = "donut"
-	name = "Donutstation Emergency Shuttle"
-	description = "The perfect spearhead for any crude joke involving the station's shape, this shuttle supports a separate containment cell for prisoners and a compact medical wing."
+	name = "Аварйный Шатл Станции Пончиков"
+	description = "Прекрасно налезет на любую грубую шутку с формой станции, шатл содержит несколько камер для заключенных и небольшое медицинское крыло."
 	admin_notes = "Has airlocks on both sides of the shuttle and will probably intersect near the front on some stations that build past departures."
 	credit_cost = 2500
 
 /datum/map_template/shuttle/emergency/clown
 	suffix = "clown"
 	name = "Snappop(tm)!"
-	description = "Hey kids and grownups! \
-	Are you bored of DULL and TEDIOUS shuttle journeys after you're evacuating for probably BORING reasons. Well then order the Snappop(tm) today! \
-	We've got fun activities for everyone, an all access cockpit, and no boring security brig! Boo! Play dress up with your friends! \
-	Collect all the bedsheets before your neighbour does! Check if the AI is watching you with our patent pending \"Peeping Tom AI Multitool Detector\" or PEEEEEETUR for short. \
-	Have a fun ride!"
+	description = "Привет дети и взрослые! \
+	Вы устали от СКУЧНЫХ и НУДНЫХ поездок на шатле после того как вы эвакуировались из-за, наверняка, УТОМИТЕЛЬНЫХ причин. В таком случае закажи Snappop(tm) уже сегодня! \
+	У нас куча веселых занятий для всех, доступ во все кабины и никакого скучного брига безопасности! Бу! Играйте в переодевание со своими друзьями! \
+	Соберите все простыни раньше вашего соседа! Узнайте, наблюдает ли за вами ИИ  с помощью нашего ожидающего патента изобретения \"Пикающий ТОМ: Многоинструментальный ИИ Детектор\" или, если коротко, ПИИИТОР. \
+	Веселой поездки!"
 	admin_notes = "Brig is replaced by anchored greentext book surrounded by lavaland chasms, stationside door has been removed to prevent accidental dropping. No brig."
 	credit_cost = 8000
 
