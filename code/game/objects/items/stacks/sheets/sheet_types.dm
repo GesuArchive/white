@@ -15,41 +15,41 @@
  * Metal
  */
 GLOBAL_LIST_INIT(metal_recipes, list ( \
-	new/datum/stack_recipe("stool", /obj/structure/chair/stool, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("bar stool", /obj/structure/chair/stool/bar, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("bed", /obj/structure/bed, 2, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("Табурет", /obj/structure/chair/stool, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("барный стул", /obj/structure/chair/stool/bar, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("кровать", /obj/structure/bed, 2, one_per_turf = TRUE, on_floor = TRUE), \
 	null, \
-	new/datum/stack_recipe_list("office chairs", list( \
-		new/datum/stack_recipe("dark office chair", /obj/structure/chair/office, 5, one_per_turf = TRUE, on_floor = TRUE), \
-		new/datum/stack_recipe("light office chair", /obj/structure/chair/office/light, 5, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe_list("офисные кресла", list( \
+		new/datum/stack_recipe("темное офисное кресло", /obj/structure/chair/office, 5, one_per_turf = TRUE, on_floor = TRUE), \
+		new/datum/stack_recipe("светлое офисное кресло", /obj/structure/chair/office/light, 5, one_per_turf = TRUE, on_floor = TRUE), \
 		)), \
-	new/datum/stack_recipe_list("comfy chairs", list( \
-		new/datum/stack_recipe("beige comfy chair", /obj/structure/chair/comfy/beige, 2, one_per_turf = TRUE, on_floor = TRUE), \
-		new/datum/stack_recipe("чёрный comfy chair", /obj/structure/chair/comfy/black, 2, one_per_turf = TRUE, on_floor = TRUE), \
-		new/datum/stack_recipe("brown comfy chair", /obj/structure/chair/comfy/brown, 2, one_per_turf = TRUE, on_floor = TRUE), \
-		new/datum/stack_recipe("lime comfy chair", /obj/structure/chair/comfy/lime, 2, one_per_turf = TRUE, on_floor = TRUE), \
-		new/datum/stack_recipe("teal comfy chair", /obj/structure/chair/comfy/teal, 2, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe_list("удобные стулья", list( \
+		new/datum/stack_recipe("бежевый удобный стул", /obj/structure/chair/comfy/beige, 2, one_per_turf = TRUE, on_floor = TRUE), \
+		new/datum/stack_recipe("чёрный удобный стул", /obj/structure/chair/comfy/black, 2, one_per_turf = TRUE, on_floor = TRUE), \
+		new/datum/stack_recipe("коричневый удобный стул", /obj/structure/chair/comfy/brown, 2, one_per_turf = TRUE, on_floor = TRUE), \
+		new/datum/stack_recipe("лаймовый удобный стул", /obj/structure/chair/comfy/lime, 2, one_per_turf = TRUE, on_floor = TRUE), \
+		new/datum/stack_recipe("бирюзовый удобный стул", /obj/structure/chair/comfy/teal, 2, one_per_turf = TRUE, on_floor = TRUE), \
 		)), \
-	new/datum/stack_recipe_list("sofas", list(
-		new /datum/stack_recipe("sofa (middle)", /obj/structure/chair/sofa, 1, one_per_turf = TRUE, on_floor = TRUE),
-		new /datum/stack_recipe("sofa (left)", /obj/structure/chair/sofa/left, 1, one_per_turf = TRUE, on_floor = TRUE),
-		new /datum/stack_recipe("sofa (right)", /obj/structure/chair/sofa/right, 1, one_per_turf = TRUE, on_floor = TRUE),
-		new /datum/stack_recipe("sofa (corner)", /obj/structure/chair/sofa/corner, 1, one_per_turf = TRUE, on_floor = TRUE)
+	new/datum/stack_recipe_list("диваны", list(
+		new /datum/stack_recipe("диван (центральный)", /obj/structure/chair/sofa, 1, one_per_turf = TRUE, on_floor = TRUE),
+		new /datum/stack_recipe("диван (левый)", /obj/structure/chair/sofa/left, 1, one_per_turf = TRUE, on_floor = TRUE),
+		new /datum/stack_recipe("диван (правый)", /obj/structure/chair/sofa/right, 1, one_per_turf = TRUE, on_floor = TRUE),
+		new /datum/stack_recipe("диван (угловой)", /obj/structure/chair/sofa/corner, 1, one_per_turf = TRUE, on_floor = TRUE)
 		)),
 	null, \
-	new/datum/stack_recipe("rack parts", /obj/item/rack_parts), \
-	new/datum/stack_recipe("closet", /obj/structure/closet, 2, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("части стойки", /obj/item/rack_parts), \
+	new/datum/stack_recipe("шкаф", /obj/structure/closet, 2, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
 	null, \
-	new/datum/stack_recipe("canister frame", /obj/structure/canister_frame/machine/frame_tier_0, 5, time = 8, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("каркас канистры", /obj/structure/canister_frame/machine/frame_tier_0, 5, time = 8, one_per_turf = TRUE, on_floor = TRUE), \
 	null, \
-	new/datum/stack_recipe("floor tile", /obj/item/stack/tile/plasteel, 1, 4, 20), \
-	new/datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 2, 60), \
+	new/datum/stack_recipe("плитка для пола", /obj/item/stack/tile/plasteel, 1, 4, 20), \
+	new/datum/stack_recipe("металлический стержень", /obj/item/stack/rods, 1, 2, 60), \
 	null, \
-	new/datum/stack_recipe("wall girders", /obj/structure/girder, 2, time = 40, one_per_turf = TRUE, on_floor = TRUE, trait_booster = TRAIT_QUICK_BUILD, trait_modifier = 0.75), \
+	new/datum/stack_recipe("балки стен", /obj/structure/girder, 2, time = 40, one_per_turf = TRUE, on_floor = TRUE, trait_booster = TRAIT_QUICK_BUILD, trait_modifier = 0.75), \
 	null, \
-	new/datum/stack_recipe("computer frame", /obj/structure/frame/computer, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("modular console", /obj/machinery/modular_computer/console/buildable/, 10, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("machine frame", /obj/structure/frame/machine, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("компьютерный каркас", /obj/structure/frame/computer, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("модульная консоль", /obj/machinery/modular_computer/console/buildable/, 10, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("каркас машины", /obj/structure/frame/machine, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
 	null, \
 	new /datum/stack_recipe_list("airlock assemblies", list( \
 		new /datum/stack_recipe("standard airlock assembly", /obj/structure/door_assembly, 4, time = 50, one_per_turf = 1, on_floor = 1), \
