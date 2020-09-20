@@ -13,9 +13,9 @@
 	if(user.a_intent == INTENT_HARM)
 		return ..()
 
-	if(istype(I, /obj/item/tongs))
+	if(istype(I, /obj/item/blacksmith/tongs))
 		if(I.contents.len)
-			if(istype(I.contents[I.contents.len], /obj/item/ingot))
+			if(istype(I.contents[I.contents.len], /obj/item/blacksmith/ingot))
 				var/obj/item/ingot/N = I.contents[I.contents.len]
 				N.heattemp = 350
 				I.icon_state = "tongs_hot"
@@ -41,7 +41,7 @@
 	furnacing = FALSE
 	light_range = 0
 
-	new /obj/item/ingot(drop_location())
+	new /obj/item/blacksmith/ingot(drop_location())
 
 
 /obj/furnace/attackby(obj/item/I, mob/living/user, params)
@@ -72,7 +72,7 @@
 	icon_state = "anvil"
 	density = TRUE
 	var/acd = FALSE
-	var/obj/item/ingot/current_ingot = null
+	var/obj/item/ingot/blacksmith/current_ingot = null
 	var/list/allowed_things = list()
 
 /obj/anvil/Initialize()
@@ -98,7 +98,7 @@
 	acd = TRUE
 	addtimer(VARSET_CALLBACK(src, acd, FALSE), H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SPEED_MODIFIER) SECONDS)
 
-	if(istype(I, /obj/item/smithing_hammer))
+	if(istype(I, /obj/item/blacksmith/smithing_hammer))
 		if(current_ingot)
 			if(current_ingot.heattemp <= 0)
 				icon_state = "anvil_cold"
@@ -153,7 +153,7 @@
 			to_chat(user, "<span class='warning'>Тут нечего ковать!</span>")
 			return
 
-	if(istype(I, /obj/item/tongs))
+	if(istype(I, /obj/item/blacksmith/tongs))
 		if(current_ingot)
 			if(I.contents.len)
 				to_chat(user, "<span class='warning'>Клещи уже что-то держат!</span>")
@@ -173,7 +173,7 @@
 				if(current_ingot)
 					to_chat(user, "<span class='warning'>Здесь уже есть болванка!</span>")
 					return
-				var/obj/item/ingot/N = I.contents[I.contents.len]
+				var/obj/item/blacksmith/ingot/N = I.contents[I.contents.len]
 				if(N.heattemp > 0)
 					icon_state = "anvil_hot"
 				else

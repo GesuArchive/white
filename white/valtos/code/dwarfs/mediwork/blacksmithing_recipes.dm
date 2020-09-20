@@ -24,7 +24,7 @@
 
 /datum/smithing_recipe/shovel
 	name = "Лопата"
-	result = /obj/item/blacksmith/shovel
+	result = /obj/item/shovel
 
 /datum/smithing_recipe/smithing_hammer
 	name = "Молот"

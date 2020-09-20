@@ -89,13 +89,13 @@
 	sheet_amount = 4
 	girder_type = null
 
-/turf/open/floor/grass/gensgrass/dirty/attackby(obj/item/I, mob/user, params)
+/turf/open/floor/grass/gensgrass/dirty/attackby(obj/item/S, mob/user, params)
 	. = ..()
-	if(istype(I, /obj/item/raw_stone/block))
+	if(istype(S, /obj/item/raw_stone/block))
 		if(!stoned)
 			ChangeTurf(/turf/open/floor/grass/gensgrass/dirty/stone, flags = CHANGETURF_INHERIT_AIR)
 			stoned = TRUE
-			qdel(I)
+			qdel(S)
 			user.visible_message("<span class='notice'><b>[user]</b> создаёт каменный пол.</span>", \
 								"<span class='notice'>Делаю каменный пол.</span>")
 		else
@@ -112,7 +112,7 @@
 				return
 			QDEL_LIST(blocks)
 			ChangeTurf(/turf/closed/wall/stonewall, flags = CHANGETURF_IGNORE_AIR)
-			qdel(I)
+			qdel(S)
 			user.visible_message("<span class='notice'><b>[user]</b> возводит каменную стену.</span>", \
 								"<span class='notice'>Возвожу каменную стену.</span>")
 
@@ -155,7 +155,7 @@
 	head = /obj/item/clothing/head/helmet/plate_helmet
 	suit = /obj/item/clothing/suit/armor/light_plate
 	shoes = /obj/item/clothing/shoes/jackboots/plate_boots
-	back = /obj/item/katanus
+	back = /obj/item/blacksmith/katanus
 
 /datum/outfit/huev_latnik_two
 	name = "Тяжёлый лабеб"
@@ -164,13 +164,13 @@
 	head = /obj/item/clothing/head/helmet/plate_helmet
 	suit = /obj/item/clothing/suit/armor/heavy_plate
 	shoes = /obj/item/clothing/shoes/jackboots/plate_boots
-	r_hand = /obj/item/zwei
+	r_hand = /obj/item/blacksmith/zwei
 
 /datum/crafting_recipe/smithman/anvil
 	name = "Наковальня"
-	result = /obj/item/anvil_free
-	tools = list(/obj/item/smithing_hammer)
-	reqs = list(/obj/item/ingot = 3,
+	result = /obj/item/blacksmith/anvil_free
+	tools = list(/obj/item/blacksmith/smithing_hammer)
+	reqs = list(/obj/item/blacksmith/ingot = 3,
 				/obj/item/raw_stone/block = 5)
 	time = 350
 	category = CAT_STRUCTURE
@@ -179,16 +179,16 @@
 /datum/crafting_recipe/smithman/workplace
 	name = "Наковальня на полене"
 	result = /obj/anvil
-	tools = list(/obj/item/smithing_hammer)
-	reqs = list(/obj/item/srub = 1,
-				/obj/item/anvil_free = 1)
+	tools = list(/obj/item/blacksmith/smithing_hammer)
+	reqs = list(/obj/item/blacksmith/srub = 1,
+				/obj/item/blacksmith/anvil_free = 1)
 	time = 350
 	category = CAT_STRUCTURE
 	always_available = TRUE
 
 /datum/crafting_recipe/smithman/srub
 	name = "Полено"
-	result = /obj/item/srub
+	result = /obj/item/blacksmith/srub
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 10)
 	time = 100
 	category = CAT_STRUCTURE
