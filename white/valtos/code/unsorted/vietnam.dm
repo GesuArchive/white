@@ -109,7 +109,7 @@
 			if(do_after(user, 5 SECONDS, target = src))
 				if(digged_up)
 					return
-				for(var/i to rand(3, 6))
+				for(var/i in 1 to rand(3, 6))
 					var/obj/item/S = new /obj/item/raw_stone(src)
 					S.pixel_x = rand(-8, 8)
 					S.pixel_y = rand(-8, 8)
