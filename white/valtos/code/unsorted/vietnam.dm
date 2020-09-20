@@ -105,13 +105,14 @@
 	. = ..()
 	if(istype(I, /obj/item/pickaxe))
 		if(!digged_up)
-			playsound(src, pick(I.usesound), 100)
+			playsound(src, pick(I.usesound), 100, TRUE)
 			if(do_after(user, 5 SECONDS, target = src))
 				if(digged_up)
 					return
-				new /obj/item/raw_stone(src)
-				if(prob(50))
-					new /obj/item/raw_stone(src)
+				for(var/i to rand(3, 6))
+					var/obj/item/S = new /obj/item/raw_stone(src)
+					S.pixel_x = rand(-8, 8)
+					S.pixel_y = rand(-8, 8)
 				digged_up = TRUE
 				user.visible_message("<span class='notice'><b>[user]</b> выкапывает немного камней.</span>", \
 									"<span class='notice'>Выкапываю немного камней.</span>")
