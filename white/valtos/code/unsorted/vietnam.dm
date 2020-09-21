@@ -248,6 +248,10 @@
 	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	mineralSpawnChanceList = list(/obj/item/stack/ore/diamond = 1, /obj/item/stack/ore/gold = 3, /obj/item/stack/ore/iron = 40)
 
+/turf/closed/mineral/random/dwarf_lustress/Initialize()
+	. = ..()
+	transform = null // backdoor
+
 /area/awaymission/vietnam/dwarf
 	name = "Тёмное подземелье"
 	icon_state = "unexplored"
