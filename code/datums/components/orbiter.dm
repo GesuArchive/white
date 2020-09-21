@@ -19,6 +19,7 @@
 
 /datum/component/orbiter/RegisterWithParent()
 	var/atom/target = parent
+
 	target.orbiters = src
 	if(ismovable(target))
 		tracker = new(target, CALLBACK(src, .proc/move_react))
@@ -40,7 +41,7 @@
 
 /datum/component/orbiter/InheritComponent(datum/component/orbiter/newcomp, original, atom/movable/orbiter, radius, clockwise, rotation_speed, rotation_segments, pre_rotation)
 	if(!newcomp)
-		RegisterSignal(parent, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, .proc/orbiter_glide_size_update, TRUE)
+		RegisterSignal(parent, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, .proc/orbiter_glide_size_update)
 		begin_orbit(arglist(args.Copy(3)))
 		return
 	// The following only happens on component transfers

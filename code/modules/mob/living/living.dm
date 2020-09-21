@@ -1033,7 +1033,7 @@
 
 /mob/living/proc/can_use_guns(obj/item/G)//actually used for more than guns!
 	if(G.trigger_guard == TRIGGER_GUARD_NONE)
-		to_chat(src, "<span class='warning'>You are unable to fire this!</span>")
+		to_chat(src, "<span class='warning'>Из этого невозможно стрелять!</span>")
 		return FALSE
 	if(G.trigger_guard != TRIGGER_GUARD_ALLOW_ALL && !IsAdvancedToolUser())
 		to_chat(src, "<span class='warning'>Пытаюсь выстрелить из [G.name], но ничего не выходит!</span>")
@@ -1209,12 +1209,12 @@
 /mob/living/proc/knockOver(mob/living/carbon/C)
 	if(C.key) //save us from monkey hordes
 		C.visible_message("<span class='warning'>[pick( \
-						"[C] dives out of [src]'s way!", \
-						"[C] stumbles over [src]!", \
-						"[C] jumps out of [src]'s path!", \
-						"[C] trips over [src] and falls!", \
-						"[C] topples over [src]!", \
-						"[C] leaps out of [src]'s way!")]</span>")
+						"[C] спотыкается об [src]!", \
+						"[C] перепрыгивает через [src]!", \
+						"[C] сальтует через [src]!", \
+						"[C] делает тактический кувырок через [src] и падает!", \
+						"[C] стукается об [src]!", \
+						"[C] резко отскакивает от [src]!")]</span>")
 	C.Paralyze(40)
 
 /mob/living/ConveyorMove()
@@ -1380,7 +1380,7 @@
 
 /mob/living/proc/mob_pickup(mob/living/L)
 	var/obj/item/clothing/head/mob_holder/holder = new(get_turf(src), src, held_state, head_icon, held_lh, held_rh, worn_slot_flags)
-	L.visible_message("<span class='warning'>[L] scoops up [src]!</span>")
+	L.visible_message("<span class='warning'>[L] собирает [src]!</span>")
 	L.put_in_hands(holder)
 
 /mob/living/proc/set_name()
@@ -1584,7 +1584,7 @@
 /mob/living/proc/start_look_up()
 	var/turf/ceiling = get_step_multiz(src, UP)
 	if(!ceiling) //We are at the highest z-level.
-		to_chat(src, "<span class='warning'>You can't see through the ceiling above you.</span>")
+		to_chat(src, "<span class='warning'>А как смотреть через потолок?</span>")
 		return
 	else if(!istransparentturf(ceiling)) //There is no turf we can look through above us
 		var/turf/front_hole = get_step(ceiling, dir)
@@ -1597,7 +1597,7 @@
 					ceiling = checkhole
 					break
 		if(!istransparentturf(ceiling))
-			to_chat(src, "<span class='warning'>You can't see through the floor above you.</span>")
+			to_chat(src, "<span class='warning'>А как смотреть через пол?</span>")
 			return
 
 	reset_perspective(ceiling)
@@ -1630,7 +1630,7 @@
 	var/turf/floor = get_turf(src)
 	var/turf/lower_level = get_step_multiz(floor, DOWN)
 	if(!lower_level) //We are at the lowest z-level.
-		to_chat(src, "<span class='warning'>You can't see through the floor below you.</span>")
+		to_chat(src, "<span class='warning'>А как смотреть через пол?</span>")
 		return
 	else if(!istransparentturf(floor)) //There is no turf we can look through below us
 		var/turf/front_hole = get_step(floor, dir)
@@ -1645,7 +1645,7 @@
 					lower_level = get_step_multiz(checkhole, DOWN)
 					break
 		if(!istransparentturf(floor))
-			to_chat(src, "<span class='warning'>You can't see through the floor below you.</span>")
+			to_chat(src, "<span class='warning'>А как смотреть через пол?</span>")
 			return
 
 	reset_perspective(lower_level)
