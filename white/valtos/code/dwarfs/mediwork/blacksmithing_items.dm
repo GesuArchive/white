@@ -224,6 +224,10 @@
 	throw_range = 12
 	var/block_count = 1
 
+/obj/item/raw_stone/block/examine()
+	. = ..()
+	. += "<hr><span class='notice'>Всего тут [block_count] кирпичных единиц.</span>"
+
 /obj/item/raw_stone/block/update_icon()
 	. = ..()
 	switch(block_count)

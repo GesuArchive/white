@@ -175,6 +175,13 @@
 /area/awaymission/vietnam/dwarf)
 "qn" = (
 /obj/structure/table/wood,
+/obj/item/seeds/wheat{
+	pixel_x = -5
+	},
+/obj/item/seeds/wheat{
+	pixel_x = 9;
+	pixel_y = 6
+	},
 /obj/item/secateurs{
 	pixel_x = -14;
 	pixel_y = 5

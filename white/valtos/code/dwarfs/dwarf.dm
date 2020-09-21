@@ -1,5 +1,5 @@
 ////////////////////
-/////BODYPARTS/////
+/////BODYPARTS//////
 ////////////////////
 
 
@@ -44,6 +44,7 @@
 
 /datum/species/dwarf/check_roundstart_eligible()
 	return FALSE
+
 /datum/species/dwarf/can_equip(obj/item/I, slot, disable_warning, mob/living/carbon/human/H, bypass_equip_delay_self = FALSE)
 	if((slot == ITEM_SLOT_ICLOTHING) && !is_type_in_list(src, I.species_exception))
 		return FALSE
@@ -62,6 +63,7 @@
 /datum/species/dwarf/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	C.draw_hippie_parts(TRUE)
 	. = ..()
+
 /datum/species/dwarf/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
 	if(!..())
 		if(istype(chem, /datum/reagent/consumable/ethanol))
@@ -69,6 +71,7 @@
 			var/boozePower = sqrt(theGoodStuff.volume) * theGoodStuff.boozepwr * DWARF_ALCOHOL_RATE
 			dwarfDrunkness = clamp(dwarfDrunkness + boozePower, 0, 100)
 			return TRUE // Don't metabolize alcohol like normal humans do.
+
 /datum/species/dwarf/spec_life(mob/living/carbon/human/H)
 	..()
 	if(notDrunkEnoughTime < world.time)
@@ -78,19 +81,19 @@
 			if(0 to 30) // too low, harmful
 				H.adjustBruteLoss(10)
 				H.adjustStaminaLoss(80)
-				to_chat(H, "<span class='userdanger'>The lack of alcohol hurts you!</span>") // I'm not good with fluff messages, todo: improve
+				to_chat(H, "<span class='userdanger'>Недостаток алкоголя делает мне больно!</span>") // I'm not good with fluff messages, todo: improve
 			if(30 to 45)
-				to_chat(H, "<span class='danger'>You feel really thirsty. Something's wrong.</span>")
+				to_chat(H, "<span class='danger'>НАДО СРОЧНО ВЫПИТЬ!</span>")
 				if(prob(5))
 					H.gain_trauma_type(BRAIN_TRAUMA_MILD)
 				H.adjustStaminaLoss(60)
 			if(45 to 60)
 				H.adjustStaminaLoss(40)
 				if(prob(30))
-					to_chat(H, "<span class='danger'>You could really use a drink right about now.</span>")
+					to_chat(H, "<span class='danger'>Хотелось бы выпить немного спирта.</span>")
 			if(60 to 75)
 				if(prob(30))
-					to_chat(H, "<span class='danger'>You feel quite thirsty. A good beverage wouldn't hurt.</span>")
+					to_chat(H, "<span class='danger'>Чёртова жажда начинает накрывать меня.</span>")
 			// Else nothing happens
 
 /datum/species/dwarf/random_name(gender,unique,lastname, en_lang = FALSE)
@@ -108,12 +111,10 @@
 	languages_possible = dwarvenLang
 
 /obj/item/organ/lungs/dwarven
-    name = "dwarven lungs"
-    desc = "A pair of quite small lungs. They look different than normal human's ones."
-
-    safe_oxygen_min = 0 // We don't breathe this
-    safe_co2_min = 16 // We breathe this
-    safe_co2_max = 0 // And more of it doesn't harm us
+	name = "dwarven lungs"
+	desc = "A pair of quite small lungs. They look different than normal human's ones."
+	safe_oxygen_min = 0
+	safe_nitro_min = 16
 
 /datum/language/dwarven
 	name = "Dwarven"
@@ -148,8 +149,6 @@
 	shoes = /obj/item/clothing/shoes/dwarf
 	ears = /obj/item/radio/headset
 	back = /obj/item/storage/backpack
-	mask = /obj/item/clothing/mask/breath/dwarf
-	r_pocket = /obj/item/tank/internals/dwarf
 	id = /obj/item/card/id
 
 /datum/outfit/dwarf/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

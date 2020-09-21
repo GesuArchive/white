@@ -334,10 +334,11 @@
 	return on * heat
 
 /obj/item/flashlight/flare/torch
-	name = "torch"
-	desc = "A torch fashioned from some leaves and a log."
+	name = "факел"
+	desc = "Не дуть!"
 	w_class = WEIGHT_CLASS_BULKY
-	light_range = 4
+	light_range = 5
+	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "torch"
 	inhand_icon_state = "torch"
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
