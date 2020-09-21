@@ -211,7 +211,7 @@
 
 /obj/item/clothing/head/helmet/swat/nanotrasen
 	name = "шлем спецназа"
-	desc = "Чрезвычайно прочный, космический шлем с логотипом Нанотрейзен, украшенный сверху."
+	desc = "Чрезвычайно прочный, космический шлем с логотипом Нанотрансен, украшенный сверху."
 	icon_state = "swat"
 	inhand_icon_state = "swat"
 
@@ -360,7 +360,7 @@
 
 /obj/item/clothing/head/helmet/infiltrator
 	name = "шлем лазутчика"
-	desc = "Вселенная слишком мала для нас двоих."
+	desc = "Галактика слишком мала для нас двоих."
 	icon_state = "infiltrator"
 	inhand_icon_state = "infiltrator"
 	armor = list(MELEE = 40, BULLET = 40, LASER = 30, ENERGY = 40, BOMB = 70, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
@@ -426,7 +426,7 @@
 	visible_message("<span class='warning'>[src] включается!</span>")
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
 	polling = TRUE
-	var/list/candidates = pollCandidatesForMob("Хочешь поиграть за обезьянку с увеличенным интеллектом?", ROLE_SENTIENCE, null, ROLE_SENTIENCE, 50, magnification, POLL_IGNORE_SENTIENCE_POTION)
+	var/list/candidates = pollCandidatesForMob("Хотите поиграть за обезьянку с увеличенным интеллектом?", ROLE_SENTIENCE, null, ROLE_SENTIENCE, 50, magnification, POLL_IGNORE_SENTIENCE_POTION)
 	polling = FALSE
 	if(!candidates.len)
 		magnification = null
@@ -436,7 +436,7 @@
 	var/mob/picked = pick(candidates)
 	magnification.key = picked.key
 	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
-	to_chat(magnification, "<span class='notice'>Вы обезьянка с увеличенным интеллектом! Защищайте свой шлем ценой жизни- если ты его потеряешь, то и твоя разумность пропадет вместе с ним!</span>")
+	to_chat(magnification, "<span class='notice'>Вы обезьянка с увеличенным интеллектом! Защищайте свой шлем ценой жизни- если вы его потеряете, то и твоя разумность пропадет вместе с ним!</span>")
 	var/policy = get_policy(ROLE_MONKEY_HELMET)
 	if(policy)
 		to_chat(magnification, policy)
