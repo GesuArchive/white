@@ -19,7 +19,7 @@
 	var/glass_colour_type //colors your vision when worn
 
 /obj/item/clothing/glasses/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] is stabbing \the [src] into [user.p_their()] eyes! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] тычет \the [src] в [user.p_their()] глаза! Выглядит так, будто [user.p_theyre()] пытается покончить с собой!</span>")
 	return BRUTELOSS
 
 /obj/item/clothing/glasses/examine(mob/user)
@@ -177,7 +177,7 @@
 
 /obj/item/clothing/glasses/regular/hipster
 	name = "очки по рецепту"
-	desc = "Made by Uncool. Co."
+	desc = "Разработаны компанией НеКруто."
 	icon_state = "hipster_glasses"
 	inhand_icon_state = "hipster_glasses"
 
@@ -216,9 +216,9 @@
 	REMOVE_TRAIT(user, TRAIT_BOOZE_SLIDER, CLOTHING_TRAIT)
 
 /obj/item/clothing/glasses/sunglasses/chemical
-	name = "science glasses"
+	name = "научные очки"
 	icon_state = "sunhudsci"
-	desc = "A pair of tacky purple sunglasses that allow the wearer to recognize various chemical compounds with only a glance."
+	desc = "Пара липких фиолетовых солнцезащитных очков, которые позволяют носящему распознавать различные химические соединения с первого взY."
 	clothing_flags = SCAN_REAGENTS
 
 /obj/item/clothing/glasses/sunglasses/garb
@@ -284,7 +284,7 @@
 
 /obj/item/clothing/glasses/blindfold
 	name = "повязка на глаза"
-	desc = "Закрывает глаза, мешая зрению."
+	desc = "Закрывает глаза, мешая видеть."
 	icon_state = "blindfold"
 	inhand_icon_state = "blindfold"
 	flash_protect = FLASH_PROTECTION_WELDER
@@ -302,8 +302,8 @@
 	user.cure_blind("blindfold_[REF(src)]")
 
 /obj/item/clothing/glasses/trickblindfold
-	name = "blindfold"
-	desc = "A see-through blindfold perfect for cheating at games like pin the stun baton on the clown."
+	name = "повязка на глаза"
+	desc = "Прозрачная повязка на глаза отлично подойдет для жульничества в играх, например приколи шокер клоуну."
 	icon_state = "trickblindfold"
 	inhand_icon_state = "blindfold"
 
@@ -421,7 +421,7 @@
 
 /obj/item/clothing/glasses/red
 	name = "красные очки"
-	desc = "Hey, you're looking good, senpai!"
+	desc = "Выглядишь круто, сенпай!"
 	icon_state = "redglasses"
 	inhand_icon_state = "redglasses"
 	glass_colour_type = /datum/client_colour/glass_colour/red
@@ -488,8 +488,8 @@
 		remove_client_colour(G.glass_colour_type)
 
 /obj/item/clothing/glasses/debug
-	name = "debug glasses"
-	desc = "Medical, security and diagnostic hud. Alt click to toggle xray."
+	name = "отладочные очки"
+	desc = "Медицинский, охранный и диагностический интерфейс. Alt+лкм чтобы включить/выключить рентген."
 	icon_state = "nvgmeson"
 	inhand_icon_state = "nvgmeson"
 	flags_cover = GLASSESCOVERSEYES
