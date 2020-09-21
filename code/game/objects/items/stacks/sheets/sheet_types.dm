@@ -15,89 +15,89 @@
  * Metal
  */
 GLOBAL_LIST_INIT(metal_recipes, list ( \
-	new/datum/stack_recipe("stool", /obj/structure/chair/stool, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("bar stool", /obj/structure/chair/stool/bar, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("bed", /obj/structure/bed, 2, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("Табурет", /obj/structure/chair/stool, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("барный стул", /obj/structure/chair/stool/bar, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("кровать", /obj/structure/bed, 2, one_per_turf = TRUE, on_floor = TRUE), \
 	null, \
-	new/datum/stack_recipe_list("office chairs", list( \
-		new/datum/stack_recipe("dark office chair", /obj/structure/chair/office, 5, one_per_turf = TRUE, on_floor = TRUE), \
-		new/datum/stack_recipe("light office chair", /obj/structure/chair/office/light, 5, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe_list("офисные кресла", list( \
+		new/datum/stack_recipe("темное офисное кресло", /obj/structure/chair/office, 5, one_per_turf = TRUE, on_floor = TRUE), \
+		new/datum/stack_recipe("светлое офисное кресло", /obj/structure/chair/office/light, 5, one_per_turf = TRUE, on_floor = TRUE), \
 		)), \
-	new/datum/stack_recipe_list("comfy chairs", list( \
-		new/datum/stack_recipe("beige comfy chair", /obj/structure/chair/comfy/beige, 2, one_per_turf = TRUE, on_floor = TRUE), \
-		new/datum/stack_recipe("чёрный comfy chair", /obj/structure/chair/comfy/black, 2, one_per_turf = TRUE, on_floor = TRUE), \
-		new/datum/stack_recipe("brown comfy chair", /obj/structure/chair/comfy/brown, 2, one_per_turf = TRUE, on_floor = TRUE), \
-		new/datum/stack_recipe("lime comfy chair", /obj/structure/chair/comfy/lime, 2, one_per_turf = TRUE, on_floor = TRUE), \
-		new/datum/stack_recipe("teal comfy chair", /obj/structure/chair/comfy/teal, 2, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe_list("удобные стулья", list( \
+		new/datum/stack_recipe("бежевый удобный стул", /obj/structure/chair/comfy/beige, 2, one_per_turf = TRUE, on_floor = TRUE), \
+		new/datum/stack_recipe("чёрный удобный стул", /obj/structure/chair/comfy/black, 2, one_per_turf = TRUE, on_floor = TRUE), \
+		new/datum/stack_recipe("коричневый удобный стул", /obj/structure/chair/comfy/brown, 2, one_per_turf = TRUE, on_floor = TRUE), \
+		new/datum/stack_recipe("лаймовый удобный стул", /obj/structure/chair/comfy/lime, 2, one_per_turf = TRUE, on_floor = TRUE), \
+		new/datum/stack_recipe("бирюзовый удобный стул", /obj/structure/chair/comfy/teal, 2, one_per_turf = TRUE, on_floor = TRUE), \
 		)), \
-	new/datum/stack_recipe_list("sofas", list(
-		new /datum/stack_recipe("sofa (middle)", /obj/structure/chair/sofa, 1, one_per_turf = TRUE, on_floor = TRUE),
-		new /datum/stack_recipe("sofa (left)", /obj/structure/chair/sofa/left, 1, one_per_turf = TRUE, on_floor = TRUE),
-		new /datum/stack_recipe("sofa (right)", /obj/structure/chair/sofa/right, 1, one_per_turf = TRUE, on_floor = TRUE),
-		new /datum/stack_recipe("sofa (corner)", /obj/structure/chair/sofa/corner, 1, one_per_turf = TRUE, on_floor = TRUE)
+	new/datum/stack_recipe_list("диваны", list(
+		new /datum/stack_recipe("диван (центральный)", /obj/structure/chair/sofa, 1, one_per_turf = TRUE, on_floor = TRUE),
+		new /datum/stack_recipe("диван (левый)", /obj/structure/chair/sofa/left, 1, one_per_turf = TRUE, on_floor = TRUE),
+		new /datum/stack_recipe("диван (правый)", /obj/structure/chair/sofa/right, 1, one_per_turf = TRUE, on_floor = TRUE),
+		new /datum/stack_recipe("диван (угловой)", /obj/structure/chair/sofa/corner, 1, one_per_turf = TRUE, on_floor = TRUE)
 		)),
 	null, \
-	new/datum/stack_recipe("rack parts", /obj/item/rack_parts), \
-	new/datum/stack_recipe("closet", /obj/structure/closet, 2, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("части стойки", /obj/item/rack_parts), \
+	new/datum/stack_recipe("шкаф", /obj/structure/closet, 2, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
 	null, \
-	new/datum/stack_recipe("canister frame", /obj/structure/canister_frame/machine/frame_tier_0, 5, time = 8, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("каркас канистры", /obj/structure/canister_frame/machine/frame_tier_0, 5, time = 8, one_per_turf = TRUE, on_floor = TRUE), \
 	null, \
-	new/datum/stack_recipe("floor tile", /obj/item/stack/tile/plasteel, 1, 4, 20), \
-	new/datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 2, 60), \
+	new/datum/stack_recipe("плитка для пола", /obj/item/stack/tile/plasteel, 1, 4, 20), \
+	new/datum/stack_recipe("металлический стержень", /obj/item/stack/rods, 1, 2, 60), \
 	null, \
-	new/datum/stack_recipe("wall girders", /obj/structure/girder, 2, time = 40, one_per_turf = TRUE, on_floor = TRUE, trait_booster = TRAIT_QUICK_BUILD, trait_modifier = 0.75), \
+	new/datum/stack_recipe("балки стен", /obj/structure/girder, 2, time = 40, one_per_turf = TRUE, on_floor = TRUE, trait_booster = TRAIT_QUICK_BUILD, trait_modifier = 0.75), \
 	null, \
-	new/datum/stack_recipe("computer frame", /obj/structure/frame/computer, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("modular console", /obj/machinery/modular_computer/console/buildable/, 10, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("machine frame", /obj/structure/frame/machine, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("компьютерный каркас", /obj/structure/frame/computer, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("модульная консоль", /obj/machinery/modular_computer/console/buildable/, 10, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("каркас машины", /obj/structure/frame/machine, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
 	null, \
-	new /datum/stack_recipe_list("airlock assemblies", list( \
-		new /datum/stack_recipe("standard airlock assembly", /obj/structure/door_assembly, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("public airlock assembly", /obj/structure/door_assembly/door_assembly_public, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("command airlock assembly", /obj/structure/door_assembly/door_assembly_com, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("security airlock assembly", /obj/structure/door_assembly/door_assembly_sec, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("engineering airlock assembly", /obj/structure/door_assembly/door_assembly_eng, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("mining airlock assembly", /obj/structure/door_assembly/door_assembly_min, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("atmospherics airlock assembly", /obj/structure/door_assembly/door_assembly_atmo, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("research airlock assembly", /obj/structure/door_assembly/door_assembly_research, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("freezer airlock assembly", /obj/structure/door_assembly/door_assembly_fre, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("science airlock assembly", /obj/structure/door_assembly/door_assembly_science, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("medical airlock assembly", /obj/structure/door_assembly/door_assembly_med, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("virology airlock assembly", /obj/structure/door_assembly/door_assembly_viro, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("maintenance airlock assembly", /obj/structure/door_assembly/door_assembly_mai, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("external airlock assembly", /obj/structure/door_assembly/door_assembly_ext, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("external maintenance airlock assembly", /obj/structure/door_assembly/door_assembly_extmai, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("airtight hatch assembly", /obj/structure/door_assembly/door_assembly_hatch, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("maintenance hatch assembly", /obj/structure/door_assembly/door_assembly_mhatch, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+	new /datum/stack_recipe_list("запчасти для сбора шлюзов", list( \
+		new /datum/stack_recipe("запчасти для сбора стандартного шлюза", /obj/structure/door_assembly, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("запчасти для сбора публичного шлюза", /obj/structure/door_assembly/door_assembly_public, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("запчасти для сбора командного шлюза", /obj/structure/door_assembly/door_assembly_com, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("запчасти для сбора шлюза службы безопасности", /obj/structure/door_assembly/door_assembly_sec, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("запчасти для сбора инженерного шлюза", /obj/structure/door_assembly/door_assembly_eng, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("запчасти для сбора шахтерского шлюза", /obj/structure/door_assembly/door_assembly_min, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("запчасти для сбора атмосферного шлюза", /obj/structure/door_assembly/door_assembly_atmo, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("запчасти для сбора шлюза отдела исследований", /obj/structure/door_assembly/door_assembly_research, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("запчасти для сбора морозильного шлюза ", /obj/structure/door_assembly/door_assembly_fre, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("запчасти для сбора шлюза научного отдела", /obj/structure/door_assembly/door_assembly_science, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("запчасти для сбора медицинского шлюза", /obj/structure/door_assembly/door_assembly_med, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("запчасти для сбора шлюза вирусологии", /obj/structure/door_assembly/door_assembly_viro, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("запчасти для сбора технического шлюза", /obj/structure/door_assembly/door_assembly_mai, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("запчасти для сбора внешнего шлюза", /obj/structure/door_assembly/door_assembly_ext, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("запчасти для сбора внешнего технического шлюза", /obj/structure/door_assembly/door_assembly_extmai, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("запчасти для сбора герметичного люка", /obj/structure/door_assembly/door_assembly_hatch, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("запчасти для сбора технического люка", /obj/structure/door_assembly/door_assembly_mhatch, 4, time = 50, one_per_turf = 1, on_floor = 1), \
 	)), \
 	null, \
-	new/datum/stack_recipe("firelock frame", /obj/structure/firelock_frame, 3, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("turret frame", /obj/machinery/porta_turret_construct, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("meatspike frame", /obj/structure/kitchenspike_frame, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("reflector frame", /obj/structure/reflector, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("каркас пожарного шлюза", /obj/structure/firelock_frame, 3, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("каркас турели", /obj/machinery/porta_turret_construct, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("рама для разделывания", /obj/structure/kitchenspike_frame, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("рамка отражателя", /obj/structure/reflector, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
 	null, \
-	new/datum/stack_recipe("grenade casing", /obj/item/grenade/chem_grenade), \
-	new/datum/stack_recipe("light fixture frame", /obj/item/wallframe/light_fixture, 2), \
-	new/datum/stack_recipe("small light fixture frame", /obj/item/wallframe/light_fixture/small, 1), \
+	new/datum/stack_recipe("корпус гранаты", /obj/item/grenade/chem_grenade), \
+	new/datum/stack_recipe("каркас светильника", /obj/item/wallframe/light_fixture, 2), \
+	new/datum/stack_recipe("каркас небольшого светильника", /obj/item/wallframe/light_fixture/small, 1), \
 	null, \
-	new/datum/stack_recipe("apc frame", /obj/item/wallframe/apc, 2), \
-	new/datum/stack_recipe("air alarm frame", /obj/item/wallframe/airalarm, 2), \
-	new/datum/stack_recipe("fire alarm frame", /obj/item/wallframe/firealarm, 2), \
-	new/datum/stack_recipe("extinguisher cabinet frame", /obj/item/wallframe/extinguisher_cabinet, 2), \
-	new/datum/stack_recipe("button frame", /obj/item/wallframe/button, 1), \
+	new/datum/stack_recipe("рамка APC", /obj/item/wallframe/apc, 2), \
+	new/datum/stack_recipe("каркас воздушной сигнализации", /obj/item/wallframe/airalarm, 2), \
+	new/datum/stack_recipe("каркас пожарной сигнализации", /obj/item/wallframe/firealarm, 2), \
+	new/datum/stack_recipe("каркас шкафа огнетушителя", /obj/item/wallframe/extinguisher_cabinet, 2), \
+	new/datum/stack_recipe("каркас кнопки", /obj/item/wallframe/button, 1), \
 	null, \
-	new/datum/stack_recipe("iron door", /obj/structure/mineral_door/iron, 20, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("floodlight frame", /obj/structure/floodlight_frame, 5, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("voting box", /obj/structure/votebox, 15, time = 50), \
-	new/datum/stack_recipe("pestle", /obj/item/pestle, 1, time = 50), \
-	new/datum/stack_recipe("hygienebot assembly", /obj/item/bot_assembly/hygienebot, 2, time = 5 SECONDS), \
-	new/datum/stack_recipe("shower frame", /obj/structure/showerframe, 2, time= 2 SECONDS)
+	new/datum/stack_recipe("железная дверь", /obj/structure/mineral_door/iron, 20, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("каркас прожектора", /obj/structure/floodlight_frame, 5, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("ящик для голосования", /obj/structure/votebox, 15, time = 50), \
+	new/datum/stack_recipe("пестик", /obj/item/pestle, 1, time = 50), \
+	new/datum/stack_recipe("запчасти для сборки гигиенобота", /obj/item/bot_assembly/hygienebot, 2, time = 5 SECONDS), \
+	new/datum/stack_recipe("каркас душа", /obj/structure/showerframe, 2, time= 2 SECONDS)
 ))
 
 /obj/item/stack/sheet/metal
-	name = "metal"
-	desc = "Sheets made out of metal."
-	singular_name = "metal sheet"
+	name = "металд"
+	desc = "Листы из металла."
+	singular_name = "лист металла"
 	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-metal"
 	inhand_icon_state = "sheet-metal"
@@ -138,15 +138,15 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	. += GLOB.metal_recipes
 
 /obj/item/stack/sheet/metal/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins whacking [user.p_them()]self over the head with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] начинает лупить [user.p_them()]себя по голове \the [src]! Похоже на то, что [user.p_theyre()] пытается покончить с собой!</span>")
 	return BRUTELOSS
 
 /*
  * Plasteel
  */
 GLOBAL_LIST_INIT(plasteel_recipes, list ( \
-	new/datum/stack_recipe("AI core", /obj/structure/ai_core, 4, time = 50, one_per_turf = TRUE), \
-	new/datum/stack_recipe("bomb assembly", /obj/machinery/syndicatebomb/empty, 10, time = 50), \
+	new/datum/stack_recipe("Ядро ИИ", /obj/structure/ai_core, 4, time = 50, one_per_turf = TRUE), \
+	new/datum/stack_recipe("Сборка бомб", /obj/machinery/syndicatebomb/empty, 10, time = 50), \
 	null, \
 	new /datum/stack_recipe_list("airlock assemblies", list( \
 		new/datum/stack_recipe("high security airlock assembly", /obj/structure/door_assembly/door_assembly_highsecurity, 4, time = 50, one_per_turf = 1, on_floor = 1), \
@@ -155,9 +155,9 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 ))
 
 /obj/item/stack/sheet/plasteel
-	name = "plasteel"
-	singular_name = "plasteel sheet"
-	desc = "This sheet is an alloy of iron and plasma."
+	name = "пласталь"
+	singular_name = "лист пластали"
+	desc = "Это лист из сплава железа и плазмы"
 	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-plasteel"
 	inhand_icon_state = "sheet-plasteel"
@@ -187,51 +187,51 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
  * Wood
  */
 GLOBAL_LIST_INIT(wood_recipes, list ( \
-	new/datum/stack_recipe("wooden sandals", /obj/item/clothing/shoes/sandal, 1), \
-	new/datum/stack_recipe("wood floor tile", /obj/item/stack/tile/wood, 1, 4, 20), \
-	new/datum/stack_recipe("wood table frame", /obj/structure/table_frame/wood, 2, time = 10), \
-	new/datum/stack_recipe("rifle stock", /obj/item/weaponcrafting/stock, 10, time = 40), \
-	new/datum/stack_recipe("rolling pin", /obj/item/kitchen/rollingpin, 2, time = 30), \
-	new/datum/stack_recipe("wooden chair", /obj/structure/chair/wood/, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("деревянные сандалии", /obj/item/clothing/shoes/sandal, 1), \
+	new/datum/stack_recipe("деревянный пол", /obj/item/stack/tile/wood, 1, 4, 20), \
+	new/datum/stack_recipe("деревянный корпус стола", /obj/structure/table_frame/wood, 2, time = 10), \
+	new/datum/stack_recipe("приклад винтовки", /obj/item/weaponcrafting/stock, 10, time = 40), \
+	new/datum/stack_recipe("скалка", /obj/item/kitchen/rollingpin, 2, time = 30), \
+	new/datum/stack_recipe("деревянный стул", /obj/structure/chair/wood/, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("winged wooden chair", /obj/structure/chair/wood/wings, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("wooden barricade", /obj/structure/barricade/wooden, 5, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("кузнеческое полено", /obj/item/blacksmith/srub, 10, time = 10), \
 	new/datum/stack_recipe("частокол", /obj/structure/barricade/wooden/stockade, 2, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("wooden door", /obj/structure/mineral_door/wood, 10, time = 20, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("coffin", /obj/structure/closet/crate/coffin, 5, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("book case", /obj/structure/bookcase, 4, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("drying rack", /obj/machinery/smartfridge/drying_rack, 10, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("wooden barrel", /obj/structure/fermenting_barrel, 8, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("dog bed", /obj/structure/bed/dogbed, 10, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("dresser", /obj/structure/dresser, 10, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("picture frame", /obj/item/wallframe/picture, 1, time = 10),\
-	new/datum/stack_recipe("painting frame", /obj/item/wallframe/painting, 1, time = 10),\
-	new/datum/stack_recipe("display case chassis", /obj/structure/displaycase_chassis, 5, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("wooden buckler", /obj/item/shield/riot/buckler, 20, time = 40), \
-	new/datum/stack_recipe("apiary", /obj/structure/beebox, 40, time = 50),\
-	new/datum/stack_recipe("tiki mask", /obj/item/clothing/mask/gas/tiki_mask, 2), \
-	new/datum/stack_recipe("honey frame", /obj/item/honey_frame, 5, time = 10),\
-	new/datum/stack_recipe("wooden bucket", /obj/item/reagent_containers/glass/bucket/wooden, 3, time = 10),\
-	new/datum/stack_recipe("rake", /obj/item/cultivator/rake, 5, time = 10),\
-	new/datum/stack_recipe("ore box", /obj/structure/ore_box, 4, time = 50, one_per_turf = TRUE, on_floor = TRUE),\
-	new/datum/stack_recipe("wooden crate", /obj/structure/closet/crate/wooden, 6, time = 50, one_per_turf = TRUE, on_floor = TRUE),\
-	new/datum/stack_recipe("baseball bat", /obj/item/melee/baseball_bat, 5, time = 15),\
-	new/datum/stack_recipe("loom", /obj/structure/loom, 10, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("деревянная дверь", /obj/structure/mineral_door/wood, 10, time = 20, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("гроб", /obj/structure/closet/crate/coffin, 5, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("книжный шкаф", /obj/structure/bookcase, 4, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("сушилка", /obj/machinery/smartfridge/drying_rack, 10, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("деревянная бочка", /obj/structure/fermenting_barrel, 8, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("собачья кровать", /obj/structure/bed/dogbed, 10, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("комод", /obj/structure/dresser, 10, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("рамка для фотографии", /obj/item/wallframe/picture, 1, time = 10),\
+	new/datum/stack_recipe("рамка для рисунка", /obj/item/wallframe/painting, 1, time = 10),\
+	new/datum/stack_recipe("стенд шасси", /obj/structure/displaycase_chassis, 5, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("деревянный щит", /obj/item/shield/riot/buckler, 20, time = 40), \
+	new/datum/stack_recipe("пчельник", /obj/structure/beebox, 40, time = 50),\
+	new/datum/stack_recipe("маска Тики", /obj/item/clothing/mask/gas/tiki_mask, 2), \
+	new/datum/stack_recipe("рамка для меда", /obj/item/honey_frame, 5, time = 10),\
+	new/datum/stack_recipe("деревянное ведро", /obj/item/reagent_containers/glass/bucket/wooden, 3, time = 10),\
+	new/datum/stack_recipe("грабли", /obj/item/cultivator/rake, 5, time = 10),\
+	new/datum/stack_recipe("ящик для руды", /obj/structure/ore_box, 4, time = 50, one_per_turf = TRUE, on_floor = TRUE),\
+	new/datum/stack_recipe("деревянный ящик", /obj/structure/closet/crate/wooden, 6, time = 50, one_per_turf = TRUE, on_floor = TRUE),\
+	new/datum/stack_recipe("бейсбольная бита", /obj/item/melee/baseball_bat, 5, time = 15),\
+	new/datum/stack_recipe("ткацкий станок", /obj/structure/loom, 10, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("mortar", /obj/item/reagent_containers/glass/mortar, 3), \
-	new/datum/stack_recipe("firebrand", /obj/item/match/firebrand, 2, time = 100), \
+	new/datum/stack_recipe("головешка", /obj/item/match/firebrand, 2, time = 100), \
 	null, \
-	new/datum/stack_recipe_list("pews", list(
-		new /datum/stack_recipe("pew (middle)", /obj/structure/chair/pew, 3, one_per_turf = TRUE, on_floor = TRUE),
-		new /datum/stack_recipe("pew (left)", /obj/structure/chair/pew/left, 3, one_per_turf = TRUE, on_floor = TRUE),
-		new /datum/stack_recipe("pew (right)", /obj/structure/chair/pew/right, 3, one_per_turf = TRUE, on_floor = TRUE)
+	new/datum/stack_recipe_list("церковные скамьи", list(
+		new /datum/stack_recipe("скамья (центральная)", /obj/structure/chair/pew, 3, one_per_turf = TRUE, on_floor = TRUE),
+		new /datum/stack_recipe("скамья (левая)", /obj/structure/chair/pew/left, 3, one_per_turf = TRUE, on_floor = TRUE),
+		new /datum/stack_recipe("скамья (правая)", /obj/structure/chair/pew/right, 3, one_per_turf = TRUE, on_floor = TRUE)
 		)),
 	null, \
 	))
 
 /obj/item/stack/sheet/mineral/wood
-	name = "wooden plank"
-	desc = "One can only guess that this is a bunch of wood."
-	singular_name = "wood plank"
+	name = "деревянные доски"
+	desc = "Можно лишь предположить что это куча дерева."
+	singular_name = "деревянная доска"
 	icon_state = "sheet-wood"
 	inhand_icon_state = "sheet-wood"
 	icon = 'icons/obj/stack_objects.dmi'
@@ -257,14 +257,14 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
  */
 
 GLOBAL_LIST_INIT(bamboo_recipes, list ( \
-	new/datum/stack_recipe("punji sticks trap", /obj/structure/punji_sticks, 5, time = 30, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("blow gun", /obj/item/gun/syringe/blowgun, 10, time = 70), \
+	new/datum/stack_recipe("ловушка волчья яма ", /obj/structure/punji_sticks, 5, time = 30, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("распылитель", /obj/item/gun/syringe/blowgun, 10, time = 70), \
 	))
 
 /obj/item/stack/sheet/mineral/bamboo
-	name = "bamboo cuttings"
-	desc = "Finely cut bamboo sticks."
-	singular_name = "cut bamboo stick"
+	name = "черенки бамбука"
+	desc = "Мелко нарезанные бамбуковые палочки."
+	singular_name = "обрезанная бамбуковая палочка"
 	icon_state = "sheet-bamboo"
 	inhand_icon_state = "sheet-bamboo"
 	icon = 'icons/obj/stack_objects.dmi'
@@ -284,42 +284,42 @@ GLOBAL_LIST_INIT(bamboo_recipes, list ( \
  * Cloth
  */
 GLOBAL_LIST_INIT(cloth_recipes, list ( \
-	new/datum/stack_recipe("белый jumpskirt", /obj/item/clothing/under/color/jumpskirt/white, 3), /*Ladies first*/ \
-	new/datum/stack_recipe("белый jumpsuit", /obj/item/clothing/under/color/white, 3), \
-	new/datum/stack_recipe("белый shoes", /obj/item/clothing/shoes/sneakers/white, 2), \
-	new/datum/stack_recipe("белый scarf", /obj/item/clothing/neck/scarf, 1), \
+	new/datum/stack_recipe("белый джемпер", /obj/item/clothing/under/color/jumpskirt/white, 3), /*Ladies first*/ \
+	new/datum/stack_recipe("белый комбинезон", /obj/item/clothing/under/color/white, 3), \
+	new/datum/stack_recipe("белые ботинки", /obj/item/clothing/shoes/sneakers/white, 2), \
+	new/datum/stack_recipe("белый шарф", /obj/item/clothing/neck/scarf, 1), \
 	null, \
-	new/datum/stack_recipe("backpack", /obj/item/storage/backpack, 4), \
-	new/datum/stack_recipe("duffel bag", /obj/item/storage/backpack/duffelbag, 6), \
+	new/datum/stack_recipe("рюкзак", /obj/item/storage/backpack, 4), \
+	new/datum/stack_recipe("вещмешок", /obj/item/storage/backpack/duffelbag, 6), \
 	null, \
-	new/datum/stack_recipe("plant bag", /obj/item/storage/bag/plants, 4), \
-	new/datum/stack_recipe("book bag", /obj/item/storage/bag/books, 4), \
-	new/datum/stack_recipe("mining satchel", /obj/item/storage/bag/ore, 4), \
-	new/datum/stack_recipe("chemistry bag", /obj/item/storage/bag/chemistry, 4), \
-	new/datum/stack_recipe("bio bag", /obj/item/storage/bag/bio, 4), \
-	new/datum/stack_recipe("construction bag", /obj/item/storage/bag/construction, 4), \
+	new/datum/stack_recipe("сумка для растений", /obj/item/storage/bag/plants, 4), \
+	new/datum/stack_recipe("сумка для книг", /obj/item/storage/bag/books, 4), \
+	new/datum/stack_recipe("ранец шахтера", /obj/item/storage/bag/ore, 4), \
+	new/datum/stack_recipe("сумка для химикатов", /obj/item/storage/bag/chemistry, 4), \
+	new/datum/stack_recipe("сумка для биологических образцов", /obj/item/storage/bag/bio, 4), \
+	new/datum/stack_recipe("строительная сумка", /obj/item/storage/bag/construction, 4), \
 	null, \
-	new/datum/stack_recipe("improvised gauze", /obj/item/stack/medical/gauze/improvised, 1, 2, 6), \
-	new/datum/stack_recipe("rag", /obj/item/reagent_containers/glass/rag, 1), \
-	new/datum/stack_recipe("bedsheet", /obj/item/bedsheet, 3), \
-	new/datum/stack_recipe("empty sandbag", /obj/item/emptysandbag, 4), \
+	new/datum/stack_recipe("импровизированная марля", /obj/item/stack/medical/gauze/improvised, 1, 2, 6), \
+	new/datum/stack_recipe("тряпка", /obj/item/reagent_containers/glass/rag, 1), \
+	new/datum/stack_recipe("простыня", /obj/item/bedsheet, 3), \
+	new/datum/stack_recipe("пустой мешок для песка", /obj/item/emptysandbag, 4), \
 	null, \
-	new/datum/stack_recipe("fingerless gloves", /obj/item/clothing/gloves/fingerless, 1), \
-	new/datum/stack_recipe("белый gloves", /obj/item/clothing/gloves/color/white, 3), \
-	new/datum/stack_recipe("белый softcap", /obj/item/clothing/head/soft/mime, 2), \
-	new/datum/stack_recipe("белый beanie", /obj/item/clothing/head/beanie, 2), \
+	new/datum/stack_recipe("перчатки без пальцев", /obj/item/clothing/gloves/fingerless, 1), \
+	new/datum/stack_recipe("белые перчатки", /obj/item/clothing/gloves/color/white, 3), \
+	new/datum/stack_recipe("белая мягкая кепка", /obj/item/clothing/head/soft/mime, 2), \
+	new/datum/stack_recipe("белая шапочка", /obj/item/clothing/head/beanie, 2), \
 	null, \
-	new/datum/stack_recipe("blindfold", /obj/item/clothing/glasses/blindfold, 2), \
+	new/datum/stack_recipe("повязка на глаза", /obj/item/clothing/glasses/blindfold, 2), \
 	null, \
-	new/datum/stack_recipe("19x19 canvas", /obj/item/canvas/nineteen_nineteen, 3), \
-	new/datum/stack_recipe("23x19 canvas", /obj/item/canvas/twentythree_nineteen, 4), \
-	new/datum/stack_recipe("23x23 canvas", /obj/item/canvas/twentythree_twentythree, 5), \
+	new/datum/stack_recipe("Холст 19x19", /obj/item/canvas/nineteen_nineteen, 3), \
+	new/datum/stack_recipe("Холст 23x19", /obj/item/canvas/twentythree_nineteen, 4), \
+	new/datum/stack_recipe("Холст 23x23", /obj/item/canvas/twentythree_twentythree, 5), \
 	))
 
 /obj/item/stack/sheet/cloth
-	name = "cloth"
-	desc = "Is it cotton? Linen? Denim? Burlap? Canvas? You can't tell."
-	singular_name = "cloth roll"
+	name = "ткань"
+	desc = "Это хлопок? Лен? Джинса? Мешковина? Канва? Не могу сказать."
+	singular_name = "рулон ткани"
 	icon_state = "sheet-cloth"
 	inhand_icon_state = "sheet-cloth"
 	resistance_flags = FLAMMABLE
@@ -341,16 +341,16 @@ GLOBAL_LIST_INIT(cloth_recipes, list ( \
 	amount = 5
 
 GLOBAL_LIST_INIT(durathread_recipes, list ( \
-	new/datum/stack_recipe("дюратканевый jumpsuit", /obj/item/clothing/under/misc/durathread, 4, time = 40),
-	new/datum/stack_recipe("дюратканевый beret", /obj/item/clothing/head/beret/durathread, 2, time = 40), \
-	new/datum/stack_recipe("дюратканевый beanie", /obj/item/clothing/head/beanie/durathread, 2, time = 40), \
-	new/datum/stack_recipe("дюратканевый bandana", /obj/item/clothing/mask/bandana/durathread, 1, time = 25), \
+	new/datum/stack_recipe("дюратканевый комбинезон", /obj/item/clothing/under/misc/durathread, 4, time = 40),
+	new/datum/stack_recipe("дюратканевый берет", /obj/item/clothing/head/beret/durathread, 2, time = 40), \
+	new/datum/stack_recipe("дюратканевая шапочка", /obj/item/clothing/head/beanie/durathread, 2, time = 40), \
+	new/datum/stack_recipe("дюратканевая бандана", /obj/item/clothing/mask/bandana/durathread, 1, time = 25), \
 	))
 
 /obj/item/stack/sheet/durathread
-	name = "durathread"
-	desc = "A fabric sown from incredibly durable threads, known for its usefulness in armor production."
-	singular_name = "дюратканевый roll"
+	name = "дюраткань"
+	desc = "Ткань сшитая из невероятно прочных нитей, часто полезна при производстве брони."
+	singular_name = "дюратканевый рулон"
 	icon_state = "sheet-durathread"
 	inhand_icon_state = "sheet-cloth"
 	resistance_flags = FLAMMABLE
@@ -365,9 +365,9 @@ GLOBAL_LIST_INIT(durathread_recipes, list ( \
 	. += GLOB.durathread_recipes
 
 /obj/item/stack/sheet/cotton
-	name = "raw cotton bundle"
-	desc = "A bundle of raw cotton ready to be spun on the loom."
-	singular_name = "raw cotton ball"
+	name = "пучок необработанного хлопка"
+	desc = "Куча необработанного хлопка готовая к пряже на ткакцом станке."
+	singular_name = "шарик хлопка-сырца"
 	icon_state = "sheet-cotton"
 	resistance_flags = FLAMMABLE
 	force = 0
@@ -378,9 +378,9 @@ GLOBAL_LIST_INIT(durathread_recipes, list ( \
 	grind_results = list(/datum/reagent/cellulose = 20)
 
 /obj/item/stack/sheet/cotton/durathread
-	name = "raw durathread bundle"
-	desc = "A bundle of raw durathread ready to be spun on the loom."
-	singular_name = "raw durathread ball"
+	name = "пучок необработанной дюраткани"
+	desc = "Куча необработанной дюраткани готовая к пряже на ткацком станке."
+	singular_name = "шарик необработанной дюраткани"
 	icon_state = "sheet-durathreadraw"
 	merge_type = /obj/item/stack/sheet/cotton/durathread
 	pull_effort = 70
@@ -391,20 +391,20 @@ GLOBAL_LIST_INIT(durathread_recipes, list ( \
  * Cardboard
  */
 GLOBAL_LIST_INIT(cardboard_recipes, list (														\
-	new/datum/stack_recipe("box", /obj/item/storage/box),										\
-	new/datum/stack_recipe("cardborg suit", /obj/item/clothing/suit/cardborg, 3),				\
-	new/datum/stack_recipe("cardborg helmet", /obj/item/clothing/head/cardborg),				\
-	new/datum/stack_recipe("large box", /obj/structure/closet/cardboard, 4, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("cardboard cutout", /obj/item/cardboard_cutout, 5),					\
+	new/datum/stack_recipe("коробка", /obj/item/storage/box),										\
+	new/datum/stack_recipe("костюм картонного киборга", /obj/item/clothing/suit/cardborg, 3),				\
+	new/datum/stack_recipe("шлем картонного киборга", /obj/item/clothing/head/cardborg),				\
+	new/datum/stack_recipe("большая коробка", /obj/structure/closet/cardboard, 4, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("картонная фигурка", /obj/item/cardboard_cutout, 5),					\
 	null,																						\
 
-	new/datum/stack_recipe("pizza box", /obj/item/pizzabox),									\
-	new/datum/stack_recipe("folder", /obj/item/folder),											\
+	new/datum/stack_recipe("коробка из под пиццы", /obj/item/pizzabox),									\
+	new/datum/stack_recipe("папка", /obj/item/folder),											\
 	null,																						\
 	//TO-DO: Find a proper way to just change the illustration on the box. Code isn't the issue, input is.
-	new/datum/stack_recipe_list("fancy boxes", list(
-		new /datum/stack_recipe("donut box", /obj/item/storage/fancy/donut_box),				\
-		new /datum/stack_recipe("egg box", /obj/item/storage/fancy/egg_box),					\
+	new/datum/stack_recipe_list("необычные коробки", list(
+		new /datum/stack_recipe("коробка для пончиков", /obj/item/storage/fancy/donut_box),				\
+		new /datum/stack_recipe("коробка для яиц", /obj/item/storage/fancy/egg_box),					\
 		new /datum/stack_recipe("donk-pockets box", /obj/item/storage/box/donkpockets),			\
 		new /datum/stack_recipe("donk-pockets spicy box", /obj/item/storage/box/donkpockets/donkpocketspicy),			\
 		new /datum/stack_recipe("donk-pockets teriyaki box", /obj/item/storage/box/donkpockets/donkpocketteriyaki),		\
@@ -412,43 +412,43 @@ GLOBAL_LIST_INIT(cardboard_recipes, list (														\
 		new /datum/stack_recipe("donk-pockets berry box", /obj/item/storage/box/donkpockets/donkpocketberry),			\
 		new /datum/stack_recipe("donk-pockets honk box", /obj/item/storage/box/donkpockets/donkpockethonk),				\
 		new /datum/stack_recipe("monkey cube box", /obj/item/storage/box/monkeycubes),
-		new /datum/stack_recipe("nugget box", /obj/item/storage/fancy/nugget_box),			\
+		new /datum/stack_recipe("коробка для наггетсов", /obj/item/storage/fancy/nugget_box),			\
 		null,																					\
 
-		new /datum/stack_recipe("lethal ammo box", /obj/item/storage/box/lethalshot),			\
-		new /datum/stack_recipe("rubber shot ammo box", /obj/item/storage/box/rubbershot),		\
-		new /datum/stack_recipe("bean bag ammo box", /obj/item/storage/box/beanbag),			\
-		new /datum/stack_recipe("flashbang box", /obj/item/storage/box/flashbangs),				\
+		new /datum/stack_recipe("коробка для летальных патронов", /obj/item/storage/box/lethalshot),			\
+		new /datum/stack_recipe("коробка для резиновых патронов", /obj/item/storage/box/rubbershot),		\
+		new /datum/stack_recipe("коробка для бобового мешка", /obj/item/storage/box/beanbag),			\
+		new /datum/stack_recipe("коробка для светошумовых гранат", /obj/item/storage/box/flashbangs),				\
 		new /datum/stack_recipe("flashes box", /obj/item/storage/box/flashes),					\
-		new /datum/stack_recipe("handcuffs box", /obj/item/storage/box/handcuffs),				\
-		new /datum/stack_recipe("ID card box", /obj/item/storage/box/ids),						\
-		new /datum/stack_recipe("PDA box", /obj/item/storage/box/pdas),							\
+		new /datum/stack_recipe("коробка для наручников", /obj/item/storage/box/handcuffs),				\
+		new /datum/stack_recipe("коробка для ID карт", /obj/item/storage/box/ids),						\
+		new /datum/stack_recipe("коробка для PDA", /obj/item/storage/box/pdas),							\
 		null,																					\
 
-		new /datum/stack_recipe("pillbottle box", /obj/item/storage/box/pillbottles),			\
-		new /datum/stack_recipe("beaker box", /obj/item/storage/box/beakers),					\
-		new /datum/stack_recipe("syringe box", /obj/item/storage/box/syringes),					\
-		new /datum/stack_recipe("latex gloves box", /obj/item/storage/box/gloves),				\
-		new /datum/stack_recipe("sterile masks box", /obj/item/storage/box/masks),				\
-		new /datum/stack_recipe("body bag box", /obj/item/storage/box/bodybags),					\
-		new /datum/stack_recipe("perscription glasses box", /obj/item/storage/box/rxglasses),	\
+		new /datum/stack_recipe("коробка для таблеток", /obj/item/storage/box/pillbottles),			\
+		new /datum/stack_recipe("коробка для стаканов", /obj/item/storage/box/beakers),					\
+		new /datum/stack_recipe("коробка для шприцов", /obj/item/storage/box/syringes),					\
+		new /datum/stack_recipe("коробка для латексных перчаток", /obj/item/storage/box/gloves),				\
+		new /datum/stack_recipe("коробка для стерильных масок", /obj/item/storage/box/masks),				\
+		new /datum/stack_recipe("коробка для мешков для тел", /obj/item/storage/box/bodybags),					\
+		new /datum/stack_recipe("коробка для рецептурных очков", /obj/item/storage/box/rxglasses),	\
 		null,																					\
 
-		new /datum/stack_recipe("disk box", /obj/item/storage/box/disks),						\
-		new /datum/stack_recipe("light tubes box", /obj/item/storage/box/lights/tubes),			\
-		new /datum/stack_recipe("light bulbs box", /obj/item/storage/box/lights/bulbs),			\
-		new /datum/stack_recipe("mixed lights box", /obj/item/storage/box/lights/mixed),		\
-		new /datum/stack_recipe("mouse traps box", /obj/item/storage/box/mousetraps),			\
-		new /datum/stack_recipe("candle box", /obj/item/storage/fancy/candle_box)
+		new /datum/stack_recipe("коробка для дискоа", /obj/item/storage/box/disks),						\
+		new /datum/stack_recipe("коробка световых трубок", /obj/item/storage/box/lights/tubes),			\
+		new /datum/stack_recipe("коробка для лампочек", /obj/item/storage/box/lights/bulbs),			\
+		new /datum/stack_recipe("коробка для разных лампочек", /obj/item/storage/box/lights/mixed),		\
+		new /datum/stack_recipe("коробка для мышеловок", /obj/item/storage/box/mousetraps),			\
+		new /datum/stack_recipe("коробка для свечей", /obj/item/storage/fancy/candle_box)
 		)),
 
 	null,																						\
 ))
 
 /obj/item/stack/sheet/cardboard	//BubbleWrap //it's cardboard you fuck
-	name = "cardboard"
-	desc = "Large sheets of card, like boxes folded flat."
-	singular_name = "cardboard sheet"
+	name = "картон"
+	desc = "Большие листы картона, выглядят как плоские коробки."
+	singular_name = "лист картона"
 	icon_state = "sheet-card"
 	inhand_icon_state = "sheet-card"
 	custom_materials = list(/datum/material/cardboard = MINERAL_MATERIAL_AMOUNT)
@@ -472,13 +472,13 @@ GLOBAL_LIST_INIT(cardboard_recipes, list (														\
 		var/atom/droploc = drop_location()
 		if(use(1))
 			playsound(I, 'sound/items/bikehorn.ogg', 50, TRUE, -1)
-			to_chat(user, "<span class='notice'>You stamp the cardboard! It's a clown box! Honk!</span>")
+			to_chat(user, "<span class='notice'>Пнул картонку! Это клоунская коробка! Хонк!</span>")
 			if (amount >= 0)
 				new/obj/item/storage/box/clown(droploc) //bugfix
 	if(istype(I, /obj/item/stamp/chameleon) && !istype(loc, /obj/item/storage))
 		var/atom/droploc = drop_location()
 		if(use(1))
-			to_chat(user, "<span class='notice'>You stamp the cardboard in a sinister way.</span>")
+			to_chat(user, "<span class='notice'>Зловеще пнул картонку.</span>")
 			if (amount >= 0)
 				new/obj/item/storage/box/syndie_kit(droploc)
 	else
@@ -490,18 +490,18 @@ GLOBAL_LIST_INIT(cardboard_recipes, list (														\
  */
 
 GLOBAL_LIST_INIT(runed_metal_recipes, list ( \
-	new /datum/stack_recipe("runed door (a weak door that stuns non-cultists who touch it))", /obj/machinery/door/airlock/cult, 1, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("runed girder (not a recommended usage of runed metal)", /obj/structure/girder/cult, 1, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("pylon (heals (and regenerates the blood of) nearby blood cultists and constructs, but also turns nearby floor tiles into engraved flooring)", /obj/structure/destructible/cult/pylon, 4, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("daemon forge (can make shielded robes, flagellant's robes, and mirror shields)", /obj/structure/destructible/cult/forge, 3, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("archives (can make zealot's blindfolds, shuttle curse orbs, and veil walker equipment)", /obj/structure/destructible/cult/tome, 3, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("altar (can make eldritch whetstones, construct shells, and flasks of unholy water)", /obj/structure/destructible/cult/talisman, 3, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new /datum/stack_recipe("руническая дверь (не слишком прочная дверь, оглушает коснувшихся не культистов))", /obj/machinery/door/airlock/cult, 1, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new /datum/stack_recipe("руническая балка (не рекомендованное использование рунного метала)", /obj/structure/girder/cult, 1, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new /datum/stack_recipe("пилон (лечит (и регенерирует кровь) находящихся поблизости кровавых культистов и конструктов, но также превращает полы поблизости в гравированные)", /obj/structure/destructible/cult/pylon, 4, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new /datum/stack_recipe("демоническая кузня (можно создать защищенные робы, робы флагелянтов и зеркальные щиты)", /obj/structure/destructible/cult/forge, 3, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new /datum/stack_recipe("архивы (можно создать глазные повязки фанатиков, сферы проклятия шатлов, и оборудование идущего по завесе)", /obj/structure/destructible/cult/tome, 3, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new /datum/stack_recipe("алтарь (можно создать жуткие точильные камни, оболочки конструктов и фляги с несвятой водой)", /obj/structure/destructible/cult/talisman, 3, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	))
 
 /obj/item/stack/sheet/runed_metal
-	name = "runed metal"
-	desc = "Sheets of cold metal with shifting inscriptions writ upon them."
-	singular_name = "runed metal sheet"
+	name = "рунический металл"
+	desc = "Листы холодного, покрытого меняющимися надписями, метала."
+	singular_name = "лист рунического метала"
 	icon_state = "sheet-runed"
 	inhand_icon_state = "sheet-runed"
 	icon = 'icons/obj/stack_objects.dmi'
@@ -514,12 +514,12 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list ( \
 
 /obj/item/stack/sheet/runed_metal/attack_self(mob/living/user)
 	if(!iscultist(user))
-		to_chat(user, "<span class='warning'>Only one with forbidden knowledge could hope to work this metal...</span>")
+		to_chat(user, "<span class='warning'>Только обладающий запретными знаниями имеет шанс поработать с этим металлом.	</span>")
 		return
 	var/turf/T = get_turf(user) //we may have moved. adjust as needed...
 	var/area/A = get_area(user)
 	if((!is_station_level(T.z) && !is_mining_level(T.z)) || (A && !(A.flags_1 & CULT_PERMITTED_1)))
-		to_chat(user, "<span class='warning'>The veil is not weak enough here.</span>")
+		to_chat(user, "<span class='warning'>Завеса здесь недостаточно слабая.</span>")
 		return FALSE
 	return ..()
 
@@ -547,18 +547,18 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 	new/datum/stack_recipe("fulltile bronze window", /obj/structure/window/bronze/fulltile/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE), \
 	new/datum/stack_recipe("pinion airlock assembly", /obj/structure/door_assembly/door_assembly_bronze, 4, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("bronze pinion airlock assembly", /obj/structure/door_assembly/door_assembly_bronze/seethru, 4, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("bronze hat", /obj/item/clothing/head/bronze), \
-	new/datum/stack_recipe("bronze suit", /obj/item/clothing/suit/bronze), \
-	new/datum/stack_recipe("bronze boots", /obj/item/clothing/shoes/bronze), \
+	new/datum/stack_recipe("бронзовая шляпа", /obj/item/clothing/head/bronze), \
+	new/datum/stack_recipe("бронзовый костюм", /obj/item/clothing/suit/bronze), \
+	new/datum/stack_recipe("бронзовые ботинки", /obj/item/clothing/shoes/bronze), \
 	null,
-	new/datum/stack_recipe("bronze chair", /obj/structure/chair/bronze, 1, time = 0, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("Marx Bust", /obj/structure/statue/bronze/marx, 15, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("бронзовый стул", /obj/structure/chair/bronze, 1, time = 0, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("Бюст Маркса", /obj/structure/statue/bronze/marx, 15, one_per_turf = 1, on_floor = 1), \
 ))
 
 /obj/item/stack/tile/bronze
-	name = "brass"
-	desc = "On closer inspection, what appears to be wholly-unsuitable-for-building brass is actually more structurally stable bronze."
-	singular_name = "bronze sheet"
+	name = "латунь"
+	desc = "При внимательном рассмотрении становится понятно, что совершенно-непригодная-для-строительства латунь на самом деле куда более структурно устойчивая бронза."
+	singular_name = "лист бронзы"
 	icon_state = "sheet-brass"
 	inhand_icon_state = "sheet-brass"
 	icon = 'icons/obj/stack_objects.dmi'
@@ -594,18 +594,18 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
  * Lesser and Greater gems - unused
  */
 /obj/item/stack/sheet/lessergem
-	name = "lesser gems"
-	desc = "Rare kind of gems which are only gained by blood sacrifice to minor deities. They are needed in crafting powerful objects."
-	singular_name = "lesser gem"
+	name = "самоцветы поменьше"
+	desc = "Редкий вид самоцветов, которые можно получить только путем кровавых жертвоприношений младшим богам. Они нужны для создания могущественных объектов."
+	singular_name = "самоцвет поменьше"
 	icon_state = "sheet-lessergem"
 	inhand_icon_state = "sheet-lessergem"
 	novariants = TRUE
 
 
 /obj/item/stack/sheet/greatergem
-	name = "greater gems"
-	desc = "Rare kind of gems which are only gained by blood sacrifice to minor deities. They are needed in crafting powerful objects."
-	singular_name = "greater gem"
+	name = "самоцветы побольше"
+	desc = "Редкий вид самоцветов, которые можно получить только путем кровавых жертвоприношений младшим богам. Они нужны для создания могущественных объектов."
+	singular_name = "самоцвет побольше"
 	icon_state = "sheet-greatergem"
 	inhand_icon_state = "sheet-greatergem"
 	novariants = TRUE
@@ -614,13 +614,13 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
  * Bones
  */
 /obj/item/stack/sheet/bone
-	name = "bones"
+	name = "кости"
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "bone"
 	inhand_icon_state = "sheet-bone"
 	custom_materials = list(/datum/material/bone = MINERAL_MATERIAL_AMOUNT)
-	singular_name = "bone"
-	desc = "Someone's been drinking their milk."
+	singular_name = "кость"
+	desc = "Кто-то пил своё молоко."
 	force = 7
 	throwforce = 5
 	max_amount = 12
@@ -632,19 +632,19 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 	material_type = /datum/material/bone
 
 GLOBAL_LIST_INIT(plastic_recipes, list(
-	new /datum/stack_recipe("plastic floor tile", /obj/item/stack/tile/plastic, 1, 4, 20), \
-	new /datum/stack_recipe("folding plastic chair", /obj/structure/chair/plastic, 2), \
-	new /datum/stack_recipe("plastic flaps", /obj/structure/plasticflaps, 5, one_per_turf = TRUE, on_floor = TRUE, time = 40), \
-	new /datum/stack_recipe("water bottle", /obj/item/reagent_containers/food/drinks/waterbottle/empty), \
-	new /datum/stack_recipe("large water bottle", /obj/item/reagent_containers/food/drinks/waterbottle/large/empty, 3), \
+	new /datum/stack_recipe("пластиковый пол", /obj/item/stack/tile/plastic, 1, 4, 20), \
+	new /datum/stack_recipe("складной пластиковый стул", /obj/structure/chair/plastic, 2), \
+	new /datum/stack_recipe("пластиковые заслонки", /obj/structure/plasticflaps, 5, one_per_turf = TRUE, on_floor = TRUE, time = 40), \
+	new /datum/stack_recipe("бутылка для воды", /obj/item/reagent_containers/food/drinks/waterbottle/empty), \
+	new /datum/stack_recipe("большая бутылка для воды", /obj/item/reagent_containers/food/drinks/waterbottle/large/empty, 3), \
 	new /datum/stack_recipe("colo cups", /obj/item/reagent_containers/food/drinks/colocup, 1), \
-	new /datum/stack_recipe("wet floor sign", /obj/item/clothing/suit/caution, 2), \
-	new /datum/stack_recipe("blank wall sign", /obj/item/sign, 1)))
+	new /datum/stack_recipe("знак мокрый пол", /obj/item/clothing/suit/caution, 2), \
+	new /datum/stack_recipe("пустой настенный знак", /obj/item/sign, 1)))
 
 /obj/item/stack/sheet/plastic
-	name = "plastic"
-	desc = "Compress dinosaur over millions of years, then refine, split and mold, and voila! You have plastic."
-	singular_name = "plastic sheet"
+	name = "пластик"
+	desc = "Сжимайте динозавров более миллиона лет, затем очистите, разделите и формируйте и Вуаля! Вот он пластик."
+	singular_name = "лист пластика"
 	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-plastic"
 	inhand_icon_state = "sheet-plastic"
@@ -668,9 +668,9 @@ new /datum/stack_recipe("paper frame separator", /obj/structure/window/paperfram
 new /datum/stack_recipe("paper frame door", /obj/structure/mineral_door/paperframe, 3, one_per_turf = TRUE, on_floor = TRUE, time = 10 )))
 
 /obj/item/stack/sheet/paperframes
-	name = "paper frames"
-	desc = "A thin wooden frame with paper attached."
-	singular_name = "paper frame"
+	name = "бумажные рамки"
+	desc = "Тонкая деревянная рамка с прикрепленной бумагой."
+	singular_name = "бумажная рамка"
 	icon_state = "sheet-paper"
 	inhand_icon_state = "sheet-paper"
 	custom_materials = list(/datum/material/paper = MINERAL_MATERIAL_AMOUNT)
@@ -690,21 +690,21 @@ new /datum/stack_recipe("paper frame door", /obj/structure/mineral_door/paperfra
 	amount = 50
 
 /obj/item/stack/sheet/capitalisium
-	name = "capitalisium sheet"
-	desc = "A source of raw capitalism, capable of bringing forth the prophesized Capitalist Golem."
+	name = "лист капиталиниума"
+	desc = "Источник чистого капитализма, способный породить предсказанного Капиталистического Голема."
 	icon_state = "sheet-capitalisium"
 	merge_type = /obj/item/stack/sheet/capitalisium
 
 /obj/item/stack/sheet/stalinium
-	name = "stalinium sheet"
-	desc = "A source of raw socialism, capable of bringing forth the prophesized Soviet Golem."
+	name = "лист сталиниума"
+	desc = "Источник чистого социализма, способный породить предсказанного Советского Голема."
 	icon_state = "sheet-stalinium"
 	merge_type = /obj/item/stack/sheet/stalinium
 
 /obj/item/stack/sheet/meat
-	name = "meat sheets"
-	desc = "Something's bloody meat compressed into a nice solid sheet."
-	singular_name = "meat sheet"
+	name = "листы мяса"
+	desc = "Чье-то окровавленное мясо, спресованное в неплохой твердый лист."
+	singular_name = "лист мяса"
 	icon_state = "sheet-meat"
 	material_flags = MATERIAL_COLOR
 	custom_materials = list(/datum/material/meat = MINERAL_MATERIAL_AMOUNT)
@@ -720,9 +720,9 @@ new /datum/stack_recipe("paper frame door", /obj/structure/mineral_door/paperfra
 	amount = 5
 
 /obj/item/stack/sheet/pizza
-	name = "pepperoni sheetzzas"
-	desc = "It's a delicious pepperoni sheetzza!"
-	singular_name = "pepperoni sheetzza"
+	name = "ломтики пепперони "
+	desc = "Это вкусные ломтики пепперони!"
+	singular_name = "ломтик пепперони"
 	icon_state = "sheet-pizza"
 	custom_materials = list(/datum/material/pizza = MINERAL_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/sheet/pizza
@@ -737,9 +737,9 @@ new /datum/stack_recipe("paper frame door", /obj/structure/mineral_door/paperfra
 	amount = 5
 
 /obj/item/stack/sheet/sandblock
-	name = "blocks of sand"
-	desc = "You're too old to be playing with sandcastles. Now you build... sandstations."
-	singular_name = "sand block"
+	name = "блоки песка"
+	desc = "Я уже слишком стар для того чтобы играться с песочными замками. Теперь я строю... Песочные станции."
+	singular_name = "блок песка"
 	icon_state = "sheet-sandstone"
 	custom_materials = list(/datum/material/sand = MINERAL_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/sheet/sandblock
