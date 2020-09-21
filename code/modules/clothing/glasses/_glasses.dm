@@ -489,7 +489,7 @@
 
 /obj/item/clothing/glasses/debug
 	name = "отладочные очки"
-	desc = "Медицинский, охранный и диагностический интерфейс. Alt+лкм чтобы включить/выключить рентген."
+	desc = "Медицинский, охранный и диагностический HUD. Alt+лкм чтобы включить/выключить рентген."
 	icon_state = "nvgmeson"
 	inhand_icon_state = "nvgmeson"
 	flags_cover = GLASSESCOVERSEYES
