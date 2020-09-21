@@ -57,7 +57,7 @@
 
 /obj/item/clothing/gloves/rapid
 	name = "Перчатки Северной Звезды"
-	desc = "Просто глядя на это, ты испытываешь сильное желание выбить дерьмо из людей."
+	desc = "Просто глядя на них, ты испытываешь сильное желание выбить дерьмо из людей."
 	icon_state = "rapid"
 	inhand_icon_state = "rapid"
 	transfer_prints = TRUE
@@ -68,7 +68,7 @@
 
 
 /obj/item/clothing/gloves/color/plasmaman
-	desc = "Covers up those scandalous boney hands."
+	desc = "Прикрывает эти возмутительные костлявые руки."
 	name = "plasma envirogloves"
 	icon_state = "plasmaman"
 	inhand_icon_state = "plasmaman"
@@ -124,7 +124,7 @@
 
 /obj/item/clothing/gloves/color/botanic_leather/plasmaman
 	name = "botany envirogloves"
-	desc = "Covers up those scandalous boney hands."
+	desc = "Прикрывает эти возмутительные костлявые руки."
 	icon_state = "botanyplasma"
 	inhand_icon_state = "botanyplasma"
 	permeability_coefficient = 0.05
@@ -141,14 +141,14 @@
 	inhand_icon_state = "clownplasma"
 
 /obj/item/clothing/gloves/combat/wizard
-	name = "enchanted gloves"
-	desc = "These gloves have been enchanted with a spell that makes them electrically insulated and fireproof."
+	name = "зачарованные перчатки"
+	desc = "На эти перчатки наложено заклилание, которое делает их электроизолированными и огнеустойчивыми."
 	icon_state = "wizard"
 	inhand_icon_state = "purplegloves"
 
 /obj/item/clothing/gloves/radio
-	name = "translation gloves"
-	desc = "A pair of electronic gloves which connect to nearby radios wirelessly. Allows for sign language users to 'speak' over comms."
+	name = "перчатки передатчик"
+	desc = "Пара электронных перчаток которая удаленно подключается к ближайшим радиостанциям. Позволяет знающим язык жестов 'говорить' через интеркомы"
 	icon_state = "radio_g"
 	inhand_icon_state = "radio_g"
 
