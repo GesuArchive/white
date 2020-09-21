@@ -217,7 +217,7 @@
 	name = "кирпич"
 	desc = "\"Кастрат\" - могли бы сказать Вы, если бы он не вырубил Вас одним попаданием."
 	icon = 'white/valtos/icons/objects.dmi'
-	icon_state = "stone"
+	icon_state = "block"
 	w_class = WEIGHT_CLASS_TINY
 	force = 10
 	throwforce = 20
