@@ -69,7 +69,7 @@
 
 /obj/item/clothing/gloves/color/plasmaman
 	desc = "Прикрывает эти возмутительные костлявые руки."
-	name = "plasma envirogloves"
+	name = "герметичные перчатки плазмамена"
 	icon_state = "plasmaman"
 	inhand_icon_state = "plasmaman"
 	cold_protection = HANDS
@@ -81,49 +81,49 @@
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 0, FIRE = 95, ACID = 95)
 
 /obj/item/clothing/gloves/color/plasmaman/black
-	name = "black envirogloves"
+	name = "черные герметичные перчатки"
 	icon_state = "blackplasma"
 	inhand_icon_state = "blackplasma"
 
 /obj/item/clothing/gloves/color/plasmaman/white
-	name = "white envirogloves"
+	name = "белые герметичные перчатки"
 	icon_state = "whiteplasma"
 	inhand_icon_state = "whiteplasma"
 
 /obj/item/clothing/gloves/color/plasmaman/robot
-	name = "roboticist envirogloves"
+	name = "герметичные перчатки робототехника"
 	icon_state = "robotplasma"
 	inhand_icon_state = "robotplasma"
 
 /obj/item/clothing/gloves/color/plasmaman/janny
-	name = "janitor envirogloves"
+	name = "герметичные перчатки уборщика"
 	icon_state = "jannyplasma"
 	inhand_icon_state = "jannyplasma"
 
 /obj/item/clothing/gloves/color/plasmaman/cargo
-	name = "cargo envirogloves"
+	name = "герметичные перчатки карго"
 	icon_state = "cargoplasma"
 	inhand_icon_state = "cargoplasma"
 
 /obj/item/clothing/gloves/color/plasmaman/engineer
-	name = "engineering envirogloves"
+	name = "герметичные перчатки инженера"
 	icon_state = "engieplasma"
 	inhand_icon_state = "engieplasma"
 	siemens_coefficient = 0
 
 /obj/item/clothing/gloves/color/plasmaman/atmos
-	name = "atmos envirogloves"
+	name = "герметичные перчатки атмосферного техника"
 	icon_state = "atmosplasma"
 	inhand_icon_state = "atmosplasma"
 	siemens_coefficient = 0
 
 /obj/item/clothing/gloves/color/plasmaman/explorer
-	name = "explorer envirogloves"
+	name = "герметичные перчатки исследователя"
 	icon_state = "explorerplasma"
 	inhand_icon_state = "explorerplasma"
 
 /obj/item/clothing/gloves/color/botanic_leather/plasmaman
-	name = "botany envirogloves"
+	name = "герметичные перчатки ботаника"
 	desc = "Прикрывает эти возмутительные костлявые руки."
 	icon_state = "botanyplasma"
 	inhand_icon_state = "botanyplasma"
@@ -131,12 +131,12 @@
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 0, FIRE = 95, ACID = 95)
 
 /obj/item/clothing/gloves/color/plasmaman/prototype
-	name = "prototype envirogloves"
+	name = "прототип герметичных перчаток"
 	icon_state = "protoplasma"
 	inhand_icon_state = "protoplasma"
 
 /obj/item/clothing/gloves/color/plasmaman/clown
-	name = "clown envirogloves"
+	name = "герметичные перчатки клоуна"
 	icon_state = "clownplasma"
 	inhand_icon_state = "clownplasma"
 
@@ -153,37 +153,37 @@
 	inhand_icon_state = "radio_g"
 
 /obj/item/clothing/gloves/color/plasmaman/head_of_personnel
-	name = "head of personnel's envirogloves"
+	name = "герметичные перчатки Главы Персонала"
 	desc = "Covers up those scandalous, bony hands. Appears to be an attempt at making a replica of the captain's gloves."
 	icon_state = "hopplasma"
 	inhand_icon_state = "hopplasma"
 
 /obj/item/clothing/gloves/color/plasmaman/chief_engineer
-	name = "chief engineer's envirogloves"
+	name = "герметичные перчатки главного инженера"
 	icon_state = "ceplasma"
 	inhand_icon_state = "ceplasma"
 
 /obj/item/clothing/gloves/color/plasmaman/chief_medical_officer
-	name = "chief medical officer's envirogloves"
+	name = "герметичные перчатки главного врача"
 	icon_state = "cmoplasma"
 	inhand_icon_state = "cmoplasma"
 
 /obj/item/clothing/gloves/color/plasmaman/research_director
-	name = "research director's envirogloves"
+	name = "герметичные перчатки руководителя исследований"
 	icon_state = "rdplasma"
 	inhand_icon_state = "rdplasma"
 
 /obj/item/clothing/gloves/color/plasmaman/centcom_commander
-	name = "CentCom commander envirogloves"
+	name = "герметичные перчатки командующего ЦентКома"
 	icon_state = "commanderplasma"
 	inhand_icon_state = "commanderplasma"
 
 /obj/item/clothing/gloves/color/plasmaman/centcom_official
-	name = "CentCom official envirogloves"
+	name = "герметичные перчатки представителя ЦентКома"
 	icon_state = "officialplasma"
 	inhand_icon_state = "officialplasma"
 
 /obj/item/clothing/gloves/color/plasmaman/centcom_intern
-	name = "CentCom intern envirogloves"
+	name = "герметичные перчатки интерна ЦентКома"
 	icon_state = "internplasma"
 	inhand_icon_state = "internplasma"
