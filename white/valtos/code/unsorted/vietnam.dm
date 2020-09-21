@@ -241,6 +241,9 @@
 	icon_state = "rockthefuck"
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	environment_type = "stone_raw"
+	smoothing_flags = SMOOTH_CORNERS
+	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
+	canSmoothWith = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 	turf_type = /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	mineralSpawnChanceList = list(/obj/item/stack/ore/diamond = 1, /obj/item/stack/ore/gold = 3, /obj/item/stack/ore/iron = 40)
