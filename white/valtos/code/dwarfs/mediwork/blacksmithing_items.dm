@@ -203,7 +203,7 @@
 	if(user.a_intent == INTENT_HARM)
 		return ..()
 
-	if(istype(I, /obj/item/blacksmith/chisel))
+	if(istype(I, /obj/item/blacksmith/chisel) && isstrictlytype(src, /obj/item/raw_stone/block))
 		playsound(src, 'white/valtos/sounds/tough.wav', 100, TRUE)
 		if(prob(25))
 			to_chat(user, "<span class='warning'>Обрабатываю камень.</span>")
