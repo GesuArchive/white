@@ -208,7 +208,7 @@
 		if(prob(25))
 			to_chat(user, "<span class='warning'>Обрабатываю камень.</span>")
 			return
-		new /obj/item/raw_stone/block(get_turf(src))
+		new /obj/item/raw_stone/block(drop_location())
 		to_chat(user, "<span class='notice'>Обрабатываю камень.</span>")
 		qdel(src)
 		return
@@ -222,6 +222,43 @@
 	force = 10
 	throwforce = 20
 	throw_range = 12
+	var/block_count = 1
+
+/obj/item/raw_stone/block/update_icon()
+	. = ..()
+	switch(block_count)
+		if(1)
+			icon_state = "block"
+		if(2)
+			icon_state = "block_2"
+		if(3 to INFINITY)
+			icon_state = "block_more"
+
+/obj/item/raw_stone/block/attackby(obj/item/I, mob/living/user, params)
+
+	if(user.a_intent == INTENT_HARM)
+		return ..()
+
+	if(istype(I, /obj/item/raw_stone/block))
+		var/obj/item/raw_stone/block/B = I
+		if((block_count + B.block_count) > 5)
+			to_chat(user, "<span class='warning'>СЛИШКОМ МНОГО КИРПИЧЕЙ!</span>")
+			return
+		block_count += B.block_count
+		to_chat(user, "<span class='notice'>Теперь в куче [block_count] кирпичей.</span>")
+		update_icon()
+		qdel(I)
+		return
+
+/obj/item/raw_stone/block/attack_self(mob/user)
+	. = ..()
+
+	if(block_count > 1)
+		new /obj/item/raw_stone/block(drop_location())
+		block_count--
+		to_chat(user, "<span class='notice'>Аккуратно вытаскиваю один кирпичик из кучи.</span>")
+		update_icon()
+		return
 
 /obj/item/blacksmith/katanus
 	name = "катанус"
