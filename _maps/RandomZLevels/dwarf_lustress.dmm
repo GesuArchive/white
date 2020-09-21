@@ -4,7 +4,7 @@
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
 "cU" = (
-/obj/item/ingot{
+/obj/item/blacksmith/ingot{
 	pixel_x = 4;
 	pixel_y = -4
 	},
@@ -80,7 +80,7 @@
 /turf/open/lava/smooth,
 /area/awaymission/vietnam/dwarf)
 "lP" = (
-/obj/item/ingot{
+/obj/item/blacksmith/ingot{
 	pixel_x = -4
 	},
 /obj/structure/table/wood,
@@ -210,6 +210,12 @@
 /obj/structure/flora/tree/boxplanet/svetosvin,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
+"rO" = (
+/obj/structure/mineral_door/heavystone{
+	dir = 1
+	},
+/turf/open/floor/grass/gensgrass/dirty/stone,
+/area/awaymission/vietnam/dwarf)
 "rP" = (
 /obj/item/pickaxe/rusted,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
@@ -287,7 +293,7 @@
 /turf/closed/indestructible/black,
 /area/awaymission/vietnam/dwarf)
 "zj" = (
-/obj/structure/mineral_door/iron,
+/obj/structure/mineral_door/heavystone,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "CO" = (
@@ -434,16 +440,16 @@
 /area/awaymission/vietnam/dwarf)
 "QJ" = (
 /obj/structure/table/wood,
-/obj/item/smithing_hammer,
-/obj/item/tongs,
+/obj/item/blacksmith/smithing_hammer,
+/obj/item/blacksmith/tongs,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "QN" = (
-/obj/item/ingot{
+/obj/item/blacksmith/ingot{
 	pixel_x = 12
 	},
-/obj/item/ingot,
-/obj/item/ingot{
+/obj/item/blacksmith/ingot,
+/obj/item/blacksmith/ingot{
 	pixel_x = 6;
 	pixel_y = 5
 	},
@@ -460,7 +466,7 @@
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "Ur" = (
-/obj/structure/mineral_door/iron{
+/obj/structure/mineral_door/heavystone{
 	dir = 4
 	},
 /turf/open/floor/grass/gensgrass/dirty/stone,
@@ -3590,7 +3596,7 @@ ha
 ha
 EC
 EC
-zj
+rO
 tC
 of
 tC

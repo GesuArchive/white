@@ -210,6 +210,14 @@
 	category = CAT_STRUCTURE
 	always_available = TRUE
 
+/datum/crafting_recipe/smithman/stonedoor
+	name = "Каменная дверь"
+	result = /obj/structure/mineral_door/heavystone
+	reqs = list(/obj/item/raw_stone/block = 5, /obj/item/stack/sheet/mineral/wood = 1, /obj/item/blacksmith/ingot = 1)
+	time = 300
+	category = CAT_STRUCTURE
+	always_available = TRUE
+
 /obj/effect/baseturf_helper/beach/raw_stone
 	name = "raw stone baseturf editor"
 	baseturf = /turf/open/floor/grass/gensgrass/dirty/stone/raw
@@ -228,9 +236,9 @@
 	assignedrole = "Dwarf"
 
 /turf/closed/mineral/random/dwarf_lustress
-	icon = 'icons/turf/mining.dmi'
-	smooth_icon = 'white/valtos/icons/lifeweb/caves_fuck.dmi'
-	icon_state = "rock"
+	icon = 'white/valtos/icons/rockwall.dmi'
+	smooth_icon = 'white/valtos/icons/rockwall.dmi'
+	icon_state = "rockthefuck"
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	environment_type = "stone_raw"
 	turf_type = /turf/open/floor/grass/gensgrass/dirty/stone/raw

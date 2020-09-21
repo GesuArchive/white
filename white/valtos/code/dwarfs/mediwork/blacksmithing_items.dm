@@ -203,7 +203,7 @@
 	if(user.a_intent == INTENT_HARM)
 		return ..()
 
-	if(istype(I, /obj/item/blacksmith/chisel) && isstrictlytype(src, /obj/item/raw_stone/block))
+	if(istype(I, /obj/item/blacksmith/chisel) && isstrictlytype(src, /obj/item/raw_stone))
 		playsound(src, 'white/valtos/sounds/tough.wav', 100, TRUE)
 		if(prob(25))
 			to_chat(user, "<span class='warning'>Обрабатываю камень.</span>")
@@ -451,3 +451,10 @@
 		else
 			to_chat(user, "<span class='warning'>Требуется пять единиц досок!</span>")
 			return
+
+/obj/structure/mineral_door/heavystone
+	name = "heavy stone door"
+	icon = 'white/valtos/icons/objects.dmi'
+	icon_state = "heavystone"
+	max_integrity = 600
+	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
