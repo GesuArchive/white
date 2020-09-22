@@ -123,8 +123,18 @@
 				N.forceMove(drop_location())
 		icon_state = "tongs"
 
+/obj/item/blacksmith/scepter
+	name = "скипетр власти"
+	desc = "Выглядит солидно? Ну так положи туда, откуда взял, а то ещё поцарапаешь..."
+	icon_state = "scepter"
+	w_class = WEIGHT_CLASS_SMALL
+	force = 9
+	throwforce = 4
+	throw_range = 5
+	custom_materials = list(/datum/material/gold = 10000)
+
 /obj/item/blacksmith/ingot
-	name = "слиток"
+	name = "железный слиток"
 	desc = "Из него можно сделать что-то."
 	icon_state = "iron_ingot"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -137,6 +147,12 @@
 	var/progress_current = 0
 	var/progress_need = 10
 	var/heattemp = 0
+	var/type_metal = "iron"
+
+/obj/item/blacksmith/ingot/gold
+	name = "золотой слиток"
+	icon_state = "gold_ingot"
+	type_metal = "gold"
 
 /obj/item/blacksmith/ingot/examine(mob/user)
 	. = ..()
@@ -249,7 +265,7 @@
 			to_chat(user, "<span class='warning'>СЛИШКОМ МНОГО КИРПИЧЕЙ!</span>")
 			return
 		block_count += B.block_count
-		to_chat(user, "<span class='notice'>Теперь в куче [block_count] кирпичей.</span>")
+		to_chat(user, "<span class='notice'>Теперь в куче [block_count] кирпичных единиц.</span>")
 		update_icon()
 		qdel(I)
 		return
@@ -499,3 +515,12 @@
 	icon_state = "heavystone"
 	max_integrity = 600
 	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
+
+/obj/item/clothing/head/helmet/dwarf_crown
+	name = "золотая корона"
+	desc = "Материал указывает на то, что её носитель имеет какой-то важный статус."
+	worn_icon = 'white/valtos/icons/clothing/mob/hat.dmi'
+	icon = 'white/valtos/icons/clothing/hats.dmi'
+	icon_state = "crown"
+	armor = list("melee" = 10, "bullet" = 10, "laser" = 10,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5, "wound" = 15)
+	custom_materials = list(/datum/material/gold = 10000)

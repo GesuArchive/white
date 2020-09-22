@@ -35,13 +35,18 @@
 	light_range = 0
 	light_color = "#BB661E"
 	var/furnacing = FALSE
+	var/furnacing_type = "iron"
 
 /obj/furnace/proc/furnaced_thing()
 	icon_state = "furnace"
 	furnacing = FALSE
 	light_range = 0
 
-	new /obj/item/blacksmith/ingot(drop_location())
+	switch(furnacing_type)
+		if("iron")
+			new /obj/item/blacksmith/ingot(drop_location())
+		if("gold")
+			new /obj/item/blacksmith/ingot/gold(drop_location())
 
 
 /obj/furnace/attackby(obj/item/I, mob/living/user, params)
@@ -53,7 +58,7 @@
 		to_chat(user, "<span class=\"alert\">Плавильня занята работой!</span>")
 		return
 
-	if(istype(I, /obj/item/stack/ore/iron) || istype(I, /obj/item/stack/sheet/metal))
+	if(istype(I, /obj/item/stack/ore/iron) || istype(I, /obj/item/stack/ore/gold) || istype(I, /obj/item/stack/sheet/metal))
 		var/obj/item/stack/S = I
 		if(S.amount >= 5)
 			S.use(5)
@@ -61,6 +66,10 @@
 			icon_state = "furnace_on"
 			light_range = 3
 			to_chat(user, "<span class='notice'>Плавильня начинает свою работу...</span>")
+			if(istype(I, /obj/item/stack/ore/gold))
+				furnacing_type = "gold"
+			else
+				furnacing_type = "iron"
 			addtimer(CALLBACK(src, .proc/furnaced_thing), 15 SECONDS)
 		else
 			to_chat(user, "<span class=\"alert\">Нужно примерно пять единиц руды для создания слитка.</span>")
@@ -138,7 +147,11 @@
 					H.mind.adjust_experience(/datum/skill/smithing, 8 * current_ingot.mod_grade)
 					return
 			else
-				var/datum/smithing_recipe/sel_recipe = input("Выбор:", "Что куём?", null, null) as null|anything in allowed_things
+				var/list/metal_allowed_list = list()
+				for(var/datum/smithing_recipe/SR in allowed_things)
+					if(SR.metal_type_need == current_ingot.metal_type)
+						metal_allowed_list += SR
+				var/datum/smithing_recipe/sel_recipe = input("Выбор:", "Что куём?", null, null) as null|anything in metal_allowed_list
 				if(!sel_recipe)
 					to_chat(user, "<span class='warning'>Не выбран рецепт.</span>")
 					return

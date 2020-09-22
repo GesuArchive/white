@@ -70,6 +70,13 @@
 /turf/open/floor/grass/gensgrass/dirty/stone/crowbar_act(mob/living/user, obj/item/I)
 	return FALSE
 
+/turf/open/floor/grass/gensgrass/dirty/stone/attackby(obj/item/I, mob/user, params)
+	if((C.tool_behaviour == TOOL_SHOVEL) && params)
+		user.visible_message("<span class='warning'>[user] грустно долбит лопатой по [src].</span>", "<span class='warning'>Как я блять лопатой буду копать [src]?!</span>")
+		return FALSE
+	if(..())
+		return
+
 /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	name = "уродливый камень"
 	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
@@ -86,6 +93,7 @@
 	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 	canSmoothWith = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 	sheet_type = /obj/item/raw_stone/block
+	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone
 	sheet_amount = 4
 	girder_type = null
 
@@ -100,11 +108,13 @@
 								"<span class='notice'>Делаю каменный пол.</span>")
 		else
 			var/list/blocks = list()
+			var/total_count = 0
 			for(var/obj/item/raw_stone/block/B in contents)
 				blocks += B
-				if(blocks.len >= 4)
+				total_count += B.block_count
+				if(total_count >= 4)
 					break
-			if(blocks.len < 4)
+			if(total_count < 4)
 				to_chat(user, "<span class='warning'>Нужно четыре блока на полу для возведения стены!</span>")
 				return
 			to_chat(user, "<span class='notice'>Начинаю строить стену...</span>")

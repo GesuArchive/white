@@ -1,6 +1,7 @@
 /datum/smithing_recipe
 	var/name = ""
 	var/result
+	var/metal_type_need = "iron"
 
 /datum/smithing_recipe/katanus
 	name = "Катанус"
@@ -65,3 +66,13 @@
 /datum/smithing_recipe/kar98k
 	name = "Винтовка Kar98k"
 	result = /obj/item/blacksmith/gun_parts/kar98k
+
+/datum/smithing_recipe/scepter
+	name = "Скипетр"
+	result = /obj/item/clothing/gloves/plate_gloves
+	metal_type_need = "gold"
+
+/datum/smithing_recipe/crown
+	name = "Корона"
+	result = /obj/item/clothing/shoes/jackboots/plate_boots
+	metal_type_need = "gold"

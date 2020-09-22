@@ -11,7 +11,7 @@
 
 	if(!length(key_emotes))
 		if(intentional)
-			to_chat(src, "<span class='notice'>'[act]' emote does not exist. Say *help for a list.</span>")
+			to_chat(src, "<span class='notice'>'[act]' не существует. Напиши <b>*help</b> для вывода списка доступных.</span>")
 		return FALSE
 	var/silenced = FALSE
 	for(var/datum/emote/P in key_emotes)
@@ -22,7 +22,7 @@
 			SEND_SIGNAL(src, COMSIG_MOB_EMOTE, P, act, m_type, message, intentional)
 			return TRUE
 	if(intentional && !silenced)
-		to_chat(src, "<span class='notice'>Unusable emote '[act]'. Say *help for a list.</span>")
+		to_chat(src, "<span class='notice'>Эмоция '[act]' невозможна. Напиши <b>*help</b> для вывода списка доступных.</span>")
 	return FALSE
 
 /datum/emote/flip
