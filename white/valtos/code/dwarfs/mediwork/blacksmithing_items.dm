@@ -794,7 +794,7 @@
 		return
 	if(isturf(target))
 		var/turf/T = get_turf(target)
-		if(var/atom/A in T)
+		for(var/atom/A in T)
 			if(istype(A, /obj/effect/plan_marker))
 				qdel(A)
 				to_chat(user, "<span class='notice'>Убираю маркер.</span>")
