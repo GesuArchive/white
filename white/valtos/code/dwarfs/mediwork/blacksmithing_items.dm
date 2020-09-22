@@ -532,7 +532,7 @@
 		assigned_count = user
 		send_message("Волей Армока <b>[user]</b> был выбран как наш новый Граф! Ура!")
 		actions_types = list(/datum/action/item_action/send_message_action)
-		var/item/SC = new /obj/item/blacksmith/scepter(get_turf(src))
+		var/obj/item/SC = new /obj/item/blacksmith/scepter(get_turf(src))
 		user.put_in_hands(SC)
 	if(assigned_count == user)
 		var/msg = input(user, "Что же мы скажем?", "Сообщение:")
