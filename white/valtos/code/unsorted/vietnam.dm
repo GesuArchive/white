@@ -97,35 +97,6 @@
 	sheet_amount = 4
 	girder_type = null
 
-/turf/open/floor/grass/gensgrass/dirty/attackby(obj/item/S, mob/user, params)
-	. = ..()
-	if(istype(S, /obj/item/raw_stone/block))
-		if(!stoned)
-			ChangeTurf(/turf/open/floor/grass/gensgrass/dirty/stone, flags = CHANGETURF_INHERIT_AIR)
-			stoned = TRUE
-			qdel(S)
-			user.visible_message("<span class='notice'><b>[user]</b> создаёт каменный пол.</span>", \
-								"<span class='notice'>Делаю каменный пол.</span>")
-		else
-			var/list/blocks = list()
-			var/total_count = 0
-			for(var/obj/item/raw_stone/block/B in contents)
-				blocks += B
-				total_count += B.block_count
-				if(total_count >= 4)
-					break
-			if(total_count < 4)
-				to_chat(user, "<span class='warning'>Нужно четыре блока на полу для возведения стены!</span>")
-				return
-			to_chat(user, "<span class='notice'>Начинаю строить стену...</span>")
-			if(!do_after(user, 5 SECONDS, target = src))
-				return
-			QDEL_LIST(blocks)
-			ChangeTurf(/turf/closed/wall/stonewall, flags = CHANGETURF_IGNORE_AIR)
-			qdel(S)
-			user.visible_message("<span class='notice'><b>[user]</b> возводит каменную стену.</span>", \
-								"<span class='notice'>Возвожу каменную стену.</span>")
-
 /turf/open/floor/grass/gensgrass/dirty/stone/raw/attackby(obj/item/I, mob/user, params)
 	. = ..()
 	if(istype(I, /obj/item/pickaxe))

@@ -513,8 +513,35 @@
 	worn_icon = 'white/valtos/icons/clothing/mob/hat.dmi'
 	icon = 'white/valtos/icons/clothing/hats.dmi'
 	icon_state = "dwarf_king"
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	armor = list("melee" = 10, "bullet" = 10, "laser" = 10,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5, "wound" = 15)
 	custom_materials = list(/datum/material/gold = 10000)
+	var/mob/assigned_count = null
+
+/datum/action/item_action/send_message_action
+	name = "Отправить сообщение подданым"
+
+/obj/item/clothing/head/helmet/dwarf_crown/proc/send_message(mob/user, msg)
+	message_admins("DF: [ADMIN_LOOKUPFLW(user)]: [msg]")
+	for(var/mob/M in GLOB.dwarf_list)
+		to_chat(M, "<span class='revenbignotice'>[msg]</span>")
+
+/obj/item/clothing/head/helmet/dwarf_crown/attack_self(mob/user)
+	. = ..()
+	if(is_species(user, /datum/species/dwarf) && !assigned_count)
+		assigned_count = user
+		send_message("Волей Армока <b>[user]</b> был выбран как наш новый Граф! Ура!")
+		actions_types = list(/datum/action/item_action/send_message_action)
+		var/item/SC = new /obj/item/blacksmith/scepter(get_turf(src))
+		user.put_in_hands(SC)
+	if(assigned_count == user)
+		var/msg = input(user, "Что же мы скажем?", "Сообщение:")
+		if(!msg)
+			return
+		user.whisper("[msg]")
+		send_message("<b>[user]</b>: [pointization(msg)]")
+	else
+		to_chat(user, "<span class='warning'>У МЕНЯ ЗДЕСЬ НЕТ ВЛАСТИ!</span>")
 
 /obj/item/blacksmith/torch_handle
 	name = "скоба"
@@ -535,7 +562,7 @@
 	if(!isfloorturf(T))
 		to_chat(user, "<span class='warning'>Пол не подходит для установки держателя!</span>")
 		return
-	if(gotwallitem(T, ndir))
+	if(locate(/obj/machinery/torch_fixture) in T.view(1))
 		to_chat(user, "<span class='warning'>Здесь уже что-то есть на стене!</span>")
 		return
 
@@ -544,10 +571,10 @@
 /obj/item/blacksmith/torch_handle/proc/attach(turf/on_wall, mob/user)
 	if(result_path)
 		playsound(src.loc, 'sound/machines/click.ogg', 75, TRUE)
-		user.visible_message("<span class='notice'>[user.name] прикрепляет [src] к стене.</span>",
-			"<span class='notice'>Прикрепляю [src] к стене.</span>",
+		user.visible_message("<span class='notice'>[user.name] прикрепляет скобу к стене.</span>",
+			"<span class='notice'>Прикрепляю скобу к стене.</span>",
 			"<span class='hear'>Слышу щелчки.</span>")
-		var/ndir = get_dir(on_wall,user)
+		var/ndir = get_dir(on_wall, user)
 
 		var/obj/O = new result_path(get_turf(user), ndir, TRUE)
 	qdel(src)
@@ -565,11 +592,12 @@
 	var/fuel = 0
 	var/on = FALSE
 
-/obj/machinery/torch_fixture/Initialize(mapload)
+/obj/machinery/torch_fixture/Initialize(mapload, ndir)
 	if(on)
 		fuel = 5000
 		status = LIGHT_OK
 		recalculate_light()
+	dir = ndir
 	switch(dir)
 		if(WEST)	pixel_x = -32
 		if(EAST)	pixel_x = 32
@@ -685,7 +713,7 @@
 
 /obj/item/blacksmith/shpatel/afterattack(atom/A, mob/user, proximity)
 	. = ..()
-	if(proximity)
+	if(!proximity)
 		return
 	do_job(A, user)
 
