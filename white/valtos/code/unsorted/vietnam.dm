@@ -71,7 +71,7 @@
 	return FALSE
 
 /turf/open/floor/grass/gensgrass/dirty/stone/attackby(obj/item/I, mob/user, params)
-	if((C.tool_behaviour == TOOL_SHOVEL) && params)
+	if((L.tool_behaviour == TOOL_SHOVEL) && params)
 		user.visible_message("<span class='warning'>[user] грустно долбит лопатой по [src].</span>", "<span class='warning'>Как я блять лопатой буду копать [src]?!</span>")
 		return FALSE
 	if(..())
