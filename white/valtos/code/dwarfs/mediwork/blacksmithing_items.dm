@@ -97,25 +97,26 @@
 		if(istype(contents[contents.len], /obj/item/blacksmith/ingot))
 			var/obj/item/blacksmith/ingot/N = contents[contents.len]
 			if(N.progress_current == N.progress_need + 1)
-				var/obj/item/O = new N.recipe.result(drop_location())
-				if(istype(O, /obj/item/blacksmith))
-					O.force = round((O.force / 1.25) * N.mod_grade)
-				if(istype(O, /obj/item/pickaxe))
-					O.force = round((O.force / 2) * N.mod_grade)
-					O.toolspeed = round(1 / N.mod_grade, 0.1)
-				if(istype(O, /obj/item/clothing))
-					O.armor = O.armor.modifyAllRatings(5 * N.mod_grade)
-				switch(N.mod_grade)
-					if(5 to INFINITY)
-						O.name = "☼[O.name]☼"
-					if(4)
-						O.name = "≡[O.name]≡"
-					if(3)
-						O.name = "+[O.name]+"
-					if(2)
-						O.name = "-[O.name]-"
-					if(1)
-						O.name = "*[O.name]*"
+				for(var/i in 1 to rand(1, N.recipe.max_resulting))
+					var/obj/item/O = new N.recipe.result(drop_location())
+					if(istype(O, /obj/item/blacksmith))
+						O.force = round((O.force / 1.25) * N.mod_grade)
+					if(istype(O, /obj/item/pickaxe))
+						O.force = round((O.force / 2) * N.mod_grade)
+						O.toolspeed = round(1 / N.mod_grade, 0.1)
+					if(istype(O, /obj/item/clothing))
+						O.armor = O.armor.modifyAllRatings(5 * N.mod_grade)
+					switch(N.mod_grade)
+						if(5 to INFINITY)
+							O.name = "☼[O.name]☼"
+						if(4)
+							O.name = "≡[O.name]≡"
+						if(3)
+							O.name = "+[O.name]+"
+						if(2)
+							O.name = "-[O.name]-"
+						if(1)
+							O.name = "*[O.name]*"
 				qdel(N)
 				LAZYCLEARLIST(contents)
 				playsound(src, 'white/valtos/sounds/vaper.ogg', 100)
@@ -526,14 +527,43 @@
 	custom_materials = list(/datum/material/gold = 10000)
 
 /obj/item/blacksmith/torch_handle
-	name = "держатель для факела"
-	desc = "Его можно установить на стену."
+	name = "скоба"
+	desc = "Её можно установить на стену."
 	icon_state = "torch_handle"
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron = 10000)
+	var/result_path = /obj/machinery/torch_fixture
+
+/obj/item/blacksmith/torch_handle/proc/try_build(turf/on_wall, mob/user)
+	if(get_dist(on_wall, user)>1)
+		return
+	var/ndir = get_dir(on_wall, user)
+	if(!(ndir in GLOB.cardinals))
+		return
+	var/turf/T = get_turf(user)
+	var/area/A = get_area(T)
+	if(!isfloorturf(T))
+		to_chat(user, "<span class='warning'>Пол не подходит для установки держателя!</span>")
+		return
+	if(gotwallitem(T, ndir))
+		to_chat(user, "<span class='warning'>Здесь уже что-то есть на стене!</span>")
+		return
+
+	return TRUE
+
+/obj/item/blacksmith/torch_handle/proc/attach(turf/on_wall, mob/user)
+	if(result_path)
+		playsound(src.loc, 'sound/machines/click.ogg', 75, TRUE)
+		user.visible_message("<span class='notice'>[user.name] прикрепляет [src] к стене.</span>",
+			"<span class='notice'>Прикрепляю [src] к стене.</span>",
+			"<span class='hear'>Слышу щелчки.</span>")
+		var/ndir = get_dir(on_wall,user)
+
+		var/obj/O = new result_path(get_turf(user), ndir, TRUE)
+	qdel(src)
 
 /obj/machinery/torch_fixture
-	name = "держатель для факела"
+	name = "скоба"
 	desc = "Держит факел. Да."
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "torch_handle_wall"
@@ -544,6 +574,17 @@
 	var/status = LIGHT_EMPTY
 	var/fuel = 0
 	var/on = FALSE
+
+/obj/machinery/torch_fixture/Initialize(mapload)
+	if(on)
+		fuel = 5000
+		status = LIGHT_OK
+		recalculate_light()
+	switch(dir)
+		if(WEST)	pixel_x = -32
+		if(EAST)	pixel_x = 32
+		if(NORTH)	pixel_y = 32
+	. = ..()
 
 /obj/machinery/torch_fixture/process(delta_time)
 	if(on)
@@ -556,7 +597,7 @@
 
 /obj/machinery/torch_fixture/proc/recalculate_light()
 	if(status == LIGHT_EMPTY)
-		set_light(0, 0)
+		set_light(0, 0, LIGHT_COLOR_ORANGE)
 		cut_overlays()
 		on = FALSE
 		return
@@ -576,17 +617,17 @@
 		return
 	switch(fuel)
 		if(-INFINITY to 0)
-			set_light(0, 0)
+			set_light(0, 0, LIGHT_COLOR_ORANGE)
 			var/mutable_appearance/torch_underlay = mutable_appearance(icon, "torch_handle_overlay_burned", HIGH_OBJ_LAYER)
 			cut_overlays()
 			add_overlay(torch_underlay)
 			on = FALSE
 		if(1 to 1000)
-			set_light(4, 1)
+			set_light(4, 1, LIGHT_COLOR_ORANGE)
 		if(1001 to 2000)
-			set_light(6, 1)
+			set_light(6, 1, LIGHT_COLOR_ORANGE)
 		if(2001 to INFINITY)
-			set_light(9, 1)
+			set_light(9, 1, LIGHT_COLOR_ORANGE)
 
 /obj/machinery/torch_fixture/attackby(obj/item/W, mob/living/user, params)
 
@@ -623,19 +664,117 @@
 		to_chat(user, "<span class='warning'>Здесь нет факела!</span>")
 		return
 
-	if(on)
-		var/obj/item/flashlight/flare/torch/L = new light_type()
+	var/obj/item/flashlight/flare/torch/L = new light_type()
 
-		L.on = on
-		L.fuel = fuel
-		L.forceMove(loc)
-		L.update_brightness()
+	L.on = on
+	L.fuel = fuel
+	L.forceMove(loc)
+	L.update_brightness()
 
-		if(user)
-			L.add_fingerprint(user)
-			user.put_in_active_hand(L)
+	if(user)
+		L.add_fingerprint(user)
+		user.put_in_active_hand(L)
 
-		status = LIGHT_EMPTY
-		STOP_PROCESSING(SSobj, src)
-		recalculate_light()
+	status = LIGHT_EMPTY
+	STOP_PROCESSING(SSobj, src)
+	recalculate_light()
+	return
+
+#define SHPATEL_BUILD_FLOOR 1
+#define SHPATEL_BUILD_WALL 2
+
+/obj/item/blacksmith/shpatel
+	name = "мастерок"
+	desc = "Передовое устройство для строительства большинства объектов."
+	icon_state = "shpatel"
+	w_class = WEIGHT_CLASS_SMALL
+	force = 8
+	throwforce = 12
+	throw_range = 3
+	var/mode = SHPATEL_BUILD_FLOOR
+
+/obj/item/blacksmith/shpatel/afterattack(atom/A, mob/user, proximity)
+	. = ..()
+	if(proximity)
 		return
+	do_job(A, user)
+
+/obj/item/blacksmith/shpatel/proc/check_resources()
+	var/mat_to = 0
+	var/mat_need = 0
+	for(var/obj/item/raw_stone/block/B in view(1))
+		mat_to += B.block_count
+	switch(mode)
+		if(SHPATEL_BUILD_WALL) mat_need = 4
+		if(SHPATEL_BUILD_FLOOR) mat_need = 1
+	if(mat_to >= mat_need)
+		return TRUE
+	else
+		return FALSE
+
+/obj/item/blacksmith/shpatel/proc/use_resources(var/turf/open/floor/grass/gensgrass/dirty/T, mob/user)
+	switch(mode)
+		if(SHPATEL_BUILD_WALL)
+			var/list/blocks = list()
+			var/total_count = 0
+			for(var/obj/item/raw_stone/block/B in view(1))
+				blocks += B
+				total_count += B.block_count
+				if(total_count >= 4)
+					break
+			QDEL_LIST(blocks)
+			T.ChangeTurf(/turf/closed/wall/stonewall, flags = CHANGETURF_IGNORE_AIR)
+			user.visible_message("<span class='notice'><b>[user]</b> возводит каменную стену.</span>", \
+								"<span class='notice'>Возвожу каменную стену.</span>")
+		if(SHPATEL_BUILD_FLOOR)
+			if(!T.stoned)
+				var/list/blocks = list()
+				var/total_count = 0
+				for(var/obj/item/raw_stone/block/B in view(1))
+					blocks += B
+					total_count += B.block_count
+					if(total_count >= 1)
+						break
+				QDEL_LIST(blocks)
+				T.stoned = TRUE
+				T.ChangeTurf(/turf/open/floor/grass/gensgrass/dirty/stone, flags = CHANGETURF_INHERIT_AIR)
+				user.visible_message("<span class='notice'><b>[user]</b> создаёт каменный пол.</span>", \
+									"<span class='notice'>Делаю каменный пол.</span>")
+
+/obj/item/blacksmith/shpatel/proc/do_job(atom/A, mob/user)
+	if(!istype(A, /turf/open/floor/grass/gensgrass/dirty))
+		return
+	var/turf/T = get_turf(A)
+	if(check_resources())
+		if(do_after(user, 5 SECONDS, target = A))
+			if(check_resources())
+				use_resources(T, user)
+				playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
+				return TRUE
+	else
+		to_chat(user, "<span class='warning'>Не хватает материалов!</span>")
+
+/obj/item/blacksmith/shpatel/proc/check_menu(mob/living/user)
+	if(!istype(user))
+		return FALSE
+	if(user.incapacitated() || !user.Adjacent(src))
+		return FALSE
+	return TRUE
+
+/obj/item/blacksmith/shpatel/attack_self(mob/user)
+	..()
+	var/list/choices = list(
+		"Пол" = image(icon = 'white/valtos/icons/gensokyo/turfs.dmi', icon_state = "stone_floor"),
+		"Стена" = image(icon = 'white/valtos/icons/stonewall.dmi', icon_state = "wallthefuck")
+	)
+	var/choice = show_radial_menu(user, src, choices, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
+	if(!check_menu(user))
+		return
+	switch(choice)
+		if("Пол")
+			mode = SHPATEL_BUILD_FLOOR
+		if("Стена")
+			mode = SHPATEL_BUILD_WALL
+
+#undef SHPATEL_BUILD_FLOOR
+#undef SHPATEL_BUILD_WALL
