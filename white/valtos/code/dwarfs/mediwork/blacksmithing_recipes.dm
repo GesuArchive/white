@@ -69,10 +69,10 @@
 
 /datum/smithing_recipe/scepter
 	name = "Скипетр"
-	result = /obj/item/clothing/gloves/plate_gloves
+	result = /obj/item/blacksmith/scepter
 	metal_type_need = "gold"
 
 /datum/smithing_recipe/crown
 	name = "Корона"
-	result = /obj/item/clothing/shoes/jackboots/plate_boots
+	result = /obj/item/clothing/head/helmet/dwarf_crown
 	metal_type_need = "gold"
