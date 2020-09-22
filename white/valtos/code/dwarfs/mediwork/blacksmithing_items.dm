@@ -558,11 +558,10 @@
 	if(!(ndir in GLOB.cardinals))
 		return
 	var/turf/T = get_turf(user)
-	var/area/A = get_area(T)
 	if(!isfloorturf(T))
 		to_chat(user, "<span class='warning'>Пол не подходит для установки держателя!</span>")
 		return
-	if(locate(/obj/machinery/torch_fixture) in T.view(1))
+	if(locate(/obj/machinery/torch_fixture) in T.orange(1))
 		to_chat(user, "<span class='warning'>Здесь уже что-то есть на стене!</span>")
 		return
 
@@ -576,7 +575,7 @@
 			"<span class='hear'>Слышу щелчки.</span>")
 		var/ndir = get_dir(on_wall, user)
 
-		var/obj/O = new result_path(get_turf(user), ndir, TRUE)
+		new result_path(get_turf(user), ndir, TRUE)
 	qdel(src)
 
 /obj/machinery/torch_fixture
