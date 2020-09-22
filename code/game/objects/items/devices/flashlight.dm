@@ -347,6 +347,10 @@
 	on_damage = 10
 	slot_flags = null
 
+/obj/item/flashlight/flare/torch/Initialize()
+	. = ..()
+	fuel = rand(4000, 5000)
+
 /obj/item/flashlight/lantern
 	name = "lantern"
 	icon_state = "lantern"

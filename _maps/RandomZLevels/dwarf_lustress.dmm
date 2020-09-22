@@ -264,6 +264,13 @@
 /obj/structure/closet/crate,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
+"uM" = (
+/obj/machinery/torch_fixture{
+	dir = 1;
+	pixel_y = 32
+	},
+/turf/open/floor/grass/gensgrass/dirty/stone,
+/area/awaymission/vietnam/dwarf)
 "vr" = (
 /mob/living/simple_animal/hostile/asteroid/goliath/beast/ancient,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
@@ -3586,7 +3593,7 @@ MB
 ha
 ha
 vK
-EC
+uM
 EC
 EC
 vK
@@ -4221,7 +4228,7 @@ EC
 EC
 EC
 vK
-EC
+uM
 IS
 EC
 EC
@@ -4475,7 +4482,7 @@ EC
 EC
 eQ
 vK
-EC
+uM
 EC
 EC
 EC

@@ -332,7 +332,7 @@
 	. = ..()
 	if(!proximity)
 		return
-	user.changeNext_move(5 SECONDS)
+	user.changeNext_move(5)
 
 /obj/item/blacksmith/cep
 	name = "цеп"
@@ -356,7 +356,7 @@
 	. = ..()
 	if(!proximity)
 		return
-	user.changeNext_move(2 SECONDS)
+	user.changeNext_move(3)
 
 /obj/item/blacksmith/dagger
 	name = "кинжал"
@@ -510,7 +510,7 @@
 			return
 
 /obj/structure/mineral_door/heavystone
-	name = "heavy stone door"
+	name = "тяжёлая каменная дверь"
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "heavystone"
 	max_integrity = 600
@@ -524,3 +524,118 @@
 	icon_state = "crown"
 	armor = list("melee" = 10, "bullet" = 10, "laser" = 10,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5, "wound" = 15)
 	custom_materials = list(/datum/material/gold = 10000)
+
+/obj/item/blacksmith/torch_handle
+	name = "держатель для факела"
+	desc = "Его можно установить на стену."
+	icon_state = "torch_handle"
+	w_class = WEIGHT_CLASS_SMALL
+	custom_materials = list(/datum/material/iron = 10000)
+
+/obj/machinery/torch_fixture
+	name = "держатель для факела"
+	desc = "Держит факел. Да."
+	icon = 'white/valtos/icons/objects.dmi'
+	icon_state = "torch_handle_wall"
+	layer = BELOW_MOB_LAYER
+	max_integrity = 100
+	use_power = NO_POWER_USE
+	var/light_type = /obj/item/flashlight/flare/torch
+	var/status = LIGHT_EMPTY
+	var/fuel = 0
+	var/on = FALSE
+
+/obj/machinery/torch_fixture/process(delta_time)
+	if(on)
+		fuel = max(fuel -= delta_time, 0)
+		recalculate_light()
+
+/obj/machinery/torch_fixture/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	return ..()
+
+/obj/machinery/torch_fixture/proc/recalculate_light()
+	if(status == LIGHT_EMPTY)
+		set_light(0, 0)
+		cut_overlays()
+		on = FALSE
+		return
+	if(on)
+		var/mutable_appearance/torch_underlay = mutable_appearance(icon, "torch_handle_overlay_on", HIGH_OBJ_LAYER)
+		cut_overlays()
+		add_overlay(torch_underlay)
+	else if(fuel)
+		var/mutable_appearance/torch_underlay = mutable_appearance(icon, "torch_handle_overlay_off", HIGH_OBJ_LAYER)
+		cut_overlays()
+		add_overlay(torch_underlay)
+		return
+	else
+		var/mutable_appearance/torch_underlay = mutable_appearance(icon, "torch_handle_overlay_burned", HIGH_OBJ_LAYER)
+		cut_overlays()
+		add_overlay(torch_underlay)
+		return
+	switch(fuel)
+		if(-INFINITY to 0)
+			set_light(0, 0)
+			var/mutable_appearance/torch_underlay = mutable_appearance(icon, "torch_handle_overlay_burned", HIGH_OBJ_LAYER)
+			cut_overlays()
+			add_overlay(torch_underlay)
+			on = FALSE
+		if(1 to 1000)
+			set_light(4, 1)
+		if(1001 to 2000)
+			set_light(6, 1)
+		if(2001 to INFINITY)
+			set_light(9, 1)
+
+/obj/machinery/torch_fixture/attackby(obj/item/W, mob/living/user, params)
+
+	if(istype(W, /obj/item/flashlight/flare/torch))
+		if(status == LIGHT_OK)
+			to_chat(user, "<span class='warning'>Здесь уже есть факел!</span>")
+		else
+			src.add_fingerprint(user)
+			var/obj/item/flashlight/flare/torch/L = W
+			if(istype(L, light_type))
+				if(!user.temporarilyRemoveItemFromInventory(L))
+					return
+				src.add_fingerprint(user)
+				to_chat(user, "<span class='notice'>Ставлю [L] на место.</span>")
+				status = LIGHT_OK
+				fuel = L.fuel
+				on = L.on
+				recalculate_light()
+				qdel(L)
+				START_PROCESSING(SSobj, src)
+			else
+				to_chat(user, "<span class='warning'>Эта штука поддерживает только обычные факелы!</span>")
+	else
+		return ..()
+
+/obj/machinery/torch_fixture/attack_hand(mob/living/carbon/human/user)
+	. = ..()
+	if(.)
+		return
+	user.changeNext_move(CLICK_CD_MELEE)
+	add_fingerprint(user)
+
+	if(status == LIGHT_EMPTY)
+		to_chat(user, "<span class='warning'>Здесь нет факела!</span>")
+		return
+
+	if(on)
+		var/obj/item/flashlight/flare/torch/L = new light_type()
+
+		L.on = on
+		L.fuel = fuel
+		L.forceMove(loc)
+		L.update_brightness()
+
+		if(user)
+			L.add_fingerprint(user)
+			user.put_in_active_hand(L)
+
+		status = LIGHT_EMPTY
+		STOP_PROCESSING(SSobj, src)
+		recalculate_light()
+		return
