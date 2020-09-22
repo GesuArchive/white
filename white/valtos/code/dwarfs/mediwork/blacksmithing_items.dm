@@ -531,7 +531,7 @@
 	. = ..()
 	if(is_species(user, /datum/species/dwarf) && (!assigned_count || assigned_count?.stat == DEAD))
 		assigned_count = user
-		send_message(user, "Волей Армока <b>[user]</b> был выбран как наш новый Граф! Ура!")
+		send_message(user, "Волей Армока <b>[user]</b> был выбран как наш новый Лидер Экспедиции! Ура!")
 		var/obj/item/SC = new /obj/item/blacksmith/scepter(get_turf(src))
 		user.put_in_hands(SC)
 	if(assigned_count == user)
@@ -885,5 +885,5 @@
 	icon = 'white/valtos/icons/objects.dmi'
 	anchored = TRUE
 	icon_state = "plan_floor"
-	layer = BYOND_LIGHTING_LAYER
+	layer = HIGH_OBJ_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
