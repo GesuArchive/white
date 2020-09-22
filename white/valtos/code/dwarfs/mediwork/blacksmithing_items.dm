@@ -516,6 +516,7 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	armor = list("melee" = 10, "bullet" = 10, "laser" = 10,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5, "wound" = 15)
 	custom_materials = list(/datum/material/gold = 10000)
+	actions_types = list(/datum/action/item_action/send_message_action)
 	var/mob/assigned_count = null
 
 /datum/action/item_action/send_message_action
@@ -530,8 +531,7 @@
 	. = ..()
 	if(is_species(user, /datum/species/dwarf) && !assigned_count)
 		assigned_count = user
-		send_message("Волей Армока <b>[user]</b> был выбран как наш новый Граф! Ура!")
-		actions_types = list(/datum/action/item_action/send_message_action)
+		send_message(user, "Волей Армока <b>[user]</b> был выбран как наш новый Граф! Ура!")
 		var/obj/item/SC = new /obj/item/blacksmith/scepter(get_turf(src))
 		user.put_in_hands(SC)
 	if(assigned_count == user)
@@ -539,7 +539,7 @@
 		if(!msg)
 			return
 		user.whisper("[msg]")
-		send_message("<b>[user]</b>: [pointization(msg)]")
+		send_message(user, "<b>[user]</b>: [pointization(msg)]")
 	else
 		to_chat(user, "<span class='warning'>У МЕНЯ ЗДЕСЬ НЕТ ВЛАСТИ!</span>")
 
@@ -596,7 +596,7 @@
 		fuel = 5000
 		status = LIGHT_OK
 		recalculate_light()
-	dir = ndir
+	dir = turn(ndir, 180)
 	switch(dir)
 		if(WEST)	pixel_x = -32
 		if(EAST)	pixel_x = 32
@@ -797,7 +797,7 @@
 	name = "скипетр власти"
 	desc = "Выглядит солидно? Ну так положи туда, откуда взял, а то ещё поцарапаешь..."
 	icon_state = "scepter"
-	w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_HUGE
 	force = 9
 	throwforce = 4
 	throw_range = 5
@@ -847,3 +847,4 @@
 	anchored = TRUE
 	icon_state = "plan_floor"
 	layer = BYOND_LIGHTING_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT

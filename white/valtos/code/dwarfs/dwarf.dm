@@ -58,12 +58,12 @@
 	C.hairstyle = dwarf_hair
 	C.facial_hairstyle = dwarf_beard
 	C.draw_hippie_parts()
-	GLOB.dwarf_list += src
+	GLOB.dwarf_list += C
 	. = ..()
 
 /datum/species/dwarf/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	C.draw_hippie_parts(TRUE)
-	GLOB.dwarf_list -= src
+	GLOB.dwarf_list -= C
 	. = ..()
 
 /datum/species/dwarf/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
