@@ -124,16 +124,6 @@
 				N.forceMove(drop_location())
 		icon_state = "tongs"
 
-/obj/item/blacksmith/scepter
-	name = "скипетр власти"
-	desc = "Выглядит солидно? Ну так положи туда, откуда взял, а то ещё поцарапаешь..."
-	icon_state = "scepter"
-	w_class = WEIGHT_CLASS_SMALL
-	force = 9
-	throwforce = 4
-	throw_range = 5
-	custom_materials = list(/datum/material/gold = 10000)
-
 /obj/item/blacksmith/ingot
 	name = "железный слиток"
 	desc = "Из него можно сделать что-то."
@@ -776,5 +766,57 @@
 		if("Стена")
 			mode = SHPATEL_BUILD_WALL
 
+/obj/item/blacksmith/scepter
+	name = "скипетр власти"
+	desc = "Выглядит солидно? Ну так положи туда, откуда взял, а то ещё поцарапаешь..."
+	icon_state = "scepter"
+	w_class = WEIGHT_CLASS_SMALL
+	force = 9
+	throwforce = 4
+	throw_range = 5
+	custom_materials = list(/datum/material/gold = 10000)
+	var/mode = SHPATEL_BUILD_FLOOR
+	var/cur_markers = 0
+	var/max_markers = 64
+
+/obj/item/blacksmith/scepter/attack_self(mob/user)
+	. = ..()
+	if(mode == SHPATEL_BUILD_FLOOR)
+		mode = SHPATEL_BUILD_WALL
+		to_chat(user, "<span class='notice'>Выбираю режим разметки стен.</span>")
+	else if(mode == SHPATEL_BUILD_WALL)
+		mode = SHPATEL_BUILD_FLOOR
+		to_chat(user, "<span class='notice'>Выбираю режим разметки полов.</span>")
+
+/obj/item/blacksmith/scepter/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	. = ..()
+	if(QDELETED(target))
+		return
+	if(isturf(target))
+		var/turf/T = get_turf(target)
+		if(var/atom/A in T)
+			if(istype(A, /obj/effect/plan_marker))
+				qdel(A)
+				to_chat(user, "<span class='notice'>Убираю маркер.</span>")
+				cur_markers--
+				return
+		if(cur_markers >= max_markers)
+			to_chat(user, "<span class='warning'>Максимум 64!</span>")
+			return
+		var/obj/visual = new /obj/effect/plan_marker(T)
+		cur_markers++
+		switch(mode)
+			if(SHPATEL_BUILD_FLOOR)
+				visual.icon_state = "plan_floor"
+			if(SHPATEL_BUILD_WALL)
+				visual.icon_state = "plan_wall"
+
 #undef SHPATEL_BUILD_FLOOR
 #undef SHPATEL_BUILD_WALL
+
+/obj/effect/plan_marker
+	name = "маркер"
+	icon = 'white/valtos/icons/objects.dmi'
+	anchored = TRUE
+	icon_state = "plan_floor"
+	layer = BYOND_LIGHTING_LAYER
