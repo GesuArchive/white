@@ -521,7 +521,7 @@
 	desc = "Материал указывает на то, что её носитель имеет какой-то важный статус."
 	worn_icon = 'white/valtos/icons/clothing/mob/hat.dmi'
 	icon = 'white/valtos/icons/clothing/hats.dmi'
-	icon_state = "crown"
+	icon_state = "dwarf_king"
 	armor = list("melee" = 10, "bullet" = 10, "laser" = 10,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5, "wound" = 15)
 	custom_materials = list(/datum/material/gold = 10000)
 
