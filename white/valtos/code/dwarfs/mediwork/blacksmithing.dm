@@ -149,7 +149,7 @@
 			else
 				var/list/metal_allowed_list = list()
 				for(var/datum/smithing_recipe/SR in allowed_things)
-					if(SR.metal_type_need == current_ingot.metal_type)
+					if(SR.metal_type_need == current_ingot.type_metal)
 						metal_allowed_list += SR
 				var/datum/smithing_recipe/sel_recipe = input("Выбор:", "Что куём?", null, null) as null|anything in metal_allowed_list
 				if(!sel_recipe)
