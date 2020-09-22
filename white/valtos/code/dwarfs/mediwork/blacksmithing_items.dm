@@ -735,14 +735,12 @@
 	switch(mode)
 		if(SHPATEL_BUILD_WALL)
 			var/list/blocks = list()
-			var/total_count = 0
 			var/blocks_need = 5
 			var/exile_block = 0
 			for(var/obj/item/raw_stone/block/B in view(1))
 				blocks += B
-				total_count += B.block_count
 				blocks_need -= B.block_count
-				if(blocks_need >= 0)
+				if(blocks_need <= 0)
 					exile_block = -blocks_need
 					break
 			QDEL_LIST(blocks)
@@ -756,14 +754,12 @@
 		if(SHPATEL_BUILD_FLOOR)
 			if(!T.stoned)
 				var/list/blocks = list()
-				var/total_count = 0
 				var/blocks_need = 1
 				var/exile_block = 0
 				for(var/obj/item/raw_stone/block/B in view(1))
 					blocks += B
-					total_count += B.block_count
 					blocks_need -= B.block_count
-					if(blocks_need >= 0)
+					if(blocks_need <= 0)
 						exile_block = -blocks_need
 						break
 				QDEL_LIST(blocks)
