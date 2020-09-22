@@ -6,13 +6,13 @@
 	desc = "Редкая коллекционная шляпа."
 
 /obj/item/clothing/head/collectable/petehat
-	name = "ultra rare Pete's hat!"
+	name = "супер редкая шляпа Пита!"
 	desc = "Пахнет плазмой."
 	icon_state = "petehat"
 
 /obj/item/clothing/head/collectable/xenom
 	name = "коллекционный шлем ксеноморфа!"
-	desc = "Hiss hiss hiss!"
+	desc = "Хисс хисс хисс!"
 	clothing_flags = SNUG_FIT
 	icon_state = "xenom"
 
@@ -137,7 +137,7 @@
 	dog_fashion = /datum/dog_fashion/head/hop
 
 /obj/item/clothing/head/collectable/thunderdome
-	name = "коллекционный Thunderdome шлем"
+	name = "коллекционный шлем 'купола грома'"
 	desc = "Go Red! I mean Green! I mean Red! No Green!"
 	icon_state = "thunderdome"
 	inhand_icon_state = "thunderdome"

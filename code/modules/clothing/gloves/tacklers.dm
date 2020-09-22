@@ -1,6 +1,6 @@
 /obj/item/clothing/gloves/tackler
-	name = "gripper gloves"
-	desc = "Special gloves that manipulate the blood vessels in the wearer's hands, granting them the ability to launch headfirst into walls."
+	name = "перчатки перехвата"
+	desc = "Особые перчатки манипулирующие кровеносными сосудами рук владельца, дающие ему возможность врезаться в стены.."
 	icon_state = "tackle"
 	inhand_icon_state = "tackle"
 	transfer_prints = TRUE
@@ -40,8 +40,8 @@
 		qdel(tackler)
 
 /obj/item/clothing/gloves/tackler/dolphin
-	name = "dolphin gloves"
-	desc = "Sleek, aerodynamic gripper gloves that are less effective at actually performing takedowns, but more effective at letting the user sail through the hallways and cause accidents."
+	name = "дельфиньи перчатки"
+	desc = "Гладкие аэродиномичные перчатки перехвата, которые менее эффективны при бросках, но куда более эффективны при скольжении по корридорам и непреднамеренной порчи имущества и здоровья."
 	icon_state = "tackledolphin"
 	inhand_icon_state = "tackledolphin"
 
@@ -53,8 +53,8 @@
 	skill_mod = -2
 
 /obj/item/clothing/gloves/tackler/combat
-	name = "gorilla gloves"
-	desc = "Premium quality combative gloves, heavily reinforced to give the user an edge in close combat tackles, though they are more taxing to use than normal gripper gloves. Fireproof to boot!"
+	name = "перчатки гориллы"
+	desc = "Боевые перчатки премиум качества, сильно усиленные чтобы предоставить владельцу преимущество в ближнем бою, однако их использование изматывает сильнее, чем у обычных перчаток перехвата. К тому же они огнеупорны!"
 	icon_state = "black"
 	inhand_icon_state = "blackgloves"
 
@@ -70,14 +70,14 @@
 	resistance_flags = NONE
 
 /obj/item/clothing/gloves/tackler/combat/insulated
-	name = "guerrilla gloves"
-	desc = "Superior quality combative gloves, good for performing tackle takedowns as well as absorbing electrical shocks."
+	name = "перчатки боевика"
+	desc = "Боевые перчатки превосходного качества, идеально подходящие для выполнения захватов, к тому же поглощают удары током."
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 
 /obj/item/clothing/gloves/tackler/rocket
-	name = "rocket gloves"
-	desc = "The ultimate in high risk, high reward, perfect for when you need to stop a criminal from fifty feet away or die trying. Banned in most Spinward gridiron football and rugby leagues."
+	name = "ракетные перчатки"
+	desc = "Максимальный риск с максимальной отдачей, идеальны когда вам нужно остановить преступника с расстояния в 15 метров, или же умереть пытаясь. Запрещены в большинстфе футбольных и регбийных лиг."
 	icon_state = "tacklerocket"
 	inhand_icon_state = "tacklerocket"
 
@@ -89,8 +89,8 @@
 	skill_mod = 7
 
 /obj/item/clothing/gloves/tackler/offbrand
-	name = "improvised gripper gloves"
-	desc = "Ratty looking fingerless gloves wrapped with sticky tape. Beware anyone wearing these, for they clearly have no shame and nothing to lose."
+	name = "импровизированные перчатки перехвата"
+	desc = "Жалко выглядищие перчатки без пальцев обмотанные клейкой лентой. Остерегайтесь тех кто их носит, ибо им нечего стыдиться и нечего терять."
 	icon_state = "fingerless"
 	inhand_icon_state = "fingerless"
 

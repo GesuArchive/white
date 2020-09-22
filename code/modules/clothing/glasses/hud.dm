@@ -227,8 +227,8 @@
 	thermal_overload()
 
 /obj/item/clothing/glasses/hud/spacecop
-	name = "police aviators"
-	desc = "For thinking you look cool while brutalizing protestors and minorities."
+	name = "полицейские Авиаторы"
+	desc = "Чтобы чуствовать себя круто во время жестокого обращения с протестующими и меньшинствами."
 	icon_state = "bigsunglasses"
 	hud_type = ANTAG_HUD_GANGSTER
 	darkness_view = 1
@@ -238,8 +238,8 @@
 
 
 /obj/item/clothing/glasses/hud/spacecop/hidden // for the undercover cop
-	name = "sunglasses"
-	desc = "These sunglasses are special, and let you view potential criminals."
+	name = "солнцезащитные очки"
+	desc = "Эти очки особенные и позволяют увидеть потенциальных преступников."
 	icon_state = "sun"
 	inhand_icon_state = "sunglasses"
 

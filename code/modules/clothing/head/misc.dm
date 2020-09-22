@@ -10,8 +10,8 @@
 	strip_delay = 80
 
 /obj/item/clothing/head/spacepolice
-	name = "space police cap"
-	desc = "A blue cap for patrolling the daily beat."
+	name = "кепка космической полиции"
+	desc = "Синяя кепка для ежедневного патрулирования."
 	icon_state = "policecap_families"
 	inhand_icon_state = "policecap_families"
 
@@ -217,12 +217,12 @@
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/small/fedora
 
 /obj/item/clothing/head/fedora/white
-	name = "white fedora"
+	name = "белая федора"
 	icon_state = "fedora_white"
 	inhand_icon_state = "fedora_white"
 
 /obj/item/clothing/head/fedora/beige
-	name = "beige fedora"
+	name = "бежевая федора"
 	icon_state = "fedora_beige"
 	inhand_icon_state = "fedora_beige"
 
@@ -230,7 +230,7 @@
 	if(user.gender == FEMALE)
 		return 0
 	var/mob/living/carbon/human/H = user
-	user.visible_message("<span class='suicide'>[user] is donning [src]! It looks like [user.p_theyre()] trying to be nice to girls.</span>")
+	user.visible_message("<span class='suicide'>[user] надевает [src]! Выглядит будто [user.p_theyre()] пытается понравиться девушкам.</span>")
 	user.say("M'lady.", forced = "fedora suicide")
 	sleep(10)
 	H.facial_hairstyle = "Neckbeard"
@@ -419,7 +419,7 @@
 	speech_args[SPEECH_MESSAGE] = trim(message)
 
 /obj/item/clothing/head/clownmitre
-	name = "Hat of the Honkmother"
+	name = "Шляпа ХонкМатери"
 	desc = "Прихожанам трудно увидеть банановую кожуру на полу, когда они смотрят на вашу славную вводную часть."
 	icon_state = "clownmitre"
 
@@ -463,20 +463,20 @@
 	inhand_icon_state = "intern_hat"
 
 /obj/item/clothing/head/coordinator
-	name = "coordinator cap"
-	desc = "A cap for a party ooordinator, stylish!."
+	name = "кепка организатора"
+	desc = "Кепка организатора вечеринок, стильная!."
 	icon_state = "capcap"
 	inhand_icon_state = "that"
 	armor = list(MELEE = 25, BULLET = 15, LASER = 25, ENERGY = 35, BOMB = 25, BIO = 0, RAD = 0, FIRE = 50, ACID = 50)
 
 /obj/item/clothing/head/jackbros
-	name = "frosty hat"
-	desc = "Hee-ho!"
+	name = "морозная шапка"
+	desc = "Хо-хо!"
 	icon_state = "JackFrostHat"
 	inhand_icon_state = "JackFrostHat"
 
 /obj/item/clothing/head/weddingveil
-	name = "wedding veil"
-	desc = "A gauzy white veil."
+	name = "свадебная вуаль"
+	desc = "Белая прозрачная вуаль."
 	icon_state = "weddingveil"
 	inhand_icon_state = "weddingveil"

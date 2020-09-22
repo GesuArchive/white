@@ -13,8 +13,8 @@
 	custom_premium_price = 1200
 
 /obj/item/toy/sprayoncan
-	name = "spray-on insulation applicator"
-	desc = "What is the number one problem facing our station today?"
+	name = "распылитель изолирующего спрея"
+	desc = "Какая главная проблема встала сегодня перед нашей станцией?"
 	icon = 'icons/obj/clothing/gloves.dmi'
 	icon_state = "sprayoncan"
 
@@ -25,17 +25,17 @@
 		var/success = C.equip_to_slot_if_possible(new /obj/item/clothing/gloves/color/yellow/sprayon, ITEM_SLOT_GLOVES, TRUE, TRUE)
 		if(success)
 			if(C == user)
-				C.visible_message("<span class='notice'>[U] sprays their hands with glittery rubber!</span>")
+				C.visible_message("<span class='notice'>[U] распылил на руки блестящую резину!</span>")
 			else
-				C.visible_message("<span class='warning'>[U] sprays glittery rubber on the hands of [C]!</span>")
+				C.visible_message("<span class='warning'>[U] распылил на руки [C] блестяшую резину!</span>")
 		else
-			C.visible_message("<span class='warning'>The rubber fails to stick to [C]'s hands!</span>")
+			C.visible_message("<span class='warning'>Резина не прилипла к рукам [C]!</span>")
 
 		qdel(src)
 
 /obj/item/clothing/gloves/color/yellow/sprayon
-	desc = "How're you gonna get 'em off, nerd?"
-	name = "spray-on insulated gloves"
+	desc = "И как ты собираешься их снять, умник?"
+	name = "перчатки из изолирующего спрея"
 	icon_state = "sprayon"
 	inhand_icon_state = "sprayon"
 	permeability_coefficient = 0
@@ -95,7 +95,7 @@
 /obj/item/clothing/gloves/color/black/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_WIRECUTTER)
 		if(can_be_cut && icon_state == initial(icon_state))//only if not dyed
-			to_chat(user, "<span class='notice'>You snip the fingertips off of [src].</span>")
+			to_chat(user, "<span class='notice'>Вы отрезаете кончики пальцев у [src].</span>")
 			I.play_tool_sound(src)
 			new /obj/item/clothing/gloves/fingerless(drop_location())
 			qdel(src)
@@ -206,8 +206,8 @@
 	carrytrait = TRAIT_QUICKER_CARRY
 
 /obj/item/clothing/gloves/color/latex/nitrile/infiltrator
-	name = "infiltrator gloves"
-	desc = "Specialized combat gloves for carrying people around. Transfers tactical kidnapping knowledge into the user via nanochips."
+	name = "перчатки лазутчика"
+	desc = "Заточенные под столкновения перчатки для переноса людей. Благодаря наночипам передают носителю тактическую информацию о похищениях."
 	icon_state = "infiltrator"
 	inhand_icon_state = "infiltrator"
 	siemens_coefficient = 0
@@ -215,8 +215,8 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/gloves/color/latex/engineering
-	name = "tinker's gloves"
-	desc = "Overdesigned engineering gloves that have automated construction subrutines dialed in, allowing for faster construction while worn."
+	name = "перчатки мастера"
+	desc = "Переработанные инженерные перчатки, внутри которых задействованы строительные подпрограммамы, позволяющие носящему значительно ускорить строительство."
 	icon = 'icons/obj/clothing/clockwork_garb.dmi'
 	icon_state = "clockwork_gauntlets"
 	inhand_icon_state = "clockwork_gauntlets"
@@ -234,7 +234,7 @@
 
 /obj/effect/spawner/lootdrop/gloves
 	name = "случайные перчатки"
-	desc = "These gloves are supposed to be a random color..."
+	desc = "Эти перчатки должны быть случайного цвета..."
 	icon = 'icons/obj/clothing/gloves.dmi'
 	icon_state = "random_gloves"
 	loot = list(
