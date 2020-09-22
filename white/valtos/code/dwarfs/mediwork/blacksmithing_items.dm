@@ -529,7 +529,7 @@
 
 /obj/item/clothing/head/helmet/dwarf_crown/attack_self(mob/user)
 	. = ..()
-	if(is_species(user, /datum/species/dwarf) && !assigned_count)
+	if(is_species(user, /datum/species/dwarf) && (!assigned_count || assigned_count?.stat == DEAD))
 		assigned_count = user
 		send_message(user, "Волей Армока <b>[user]</b> был выбран как наш новый Граф! Ура!")
 		var/obj/item/SC = new /obj/item/blacksmith/scepter(get_turf(src))
@@ -734,12 +734,20 @@
 		if(SHPATEL_BUILD_WALL)
 			var/list/blocks = list()
 			var/total_count = 0
+			var/blocks_need = 5
+			var/exile_block = 0
 			for(var/obj/item/raw_stone/block/B in view(1))
 				blocks += B
 				total_count += B.block_count
-				if(total_count >= 4)
+				blocks_need -= B.block_count
+				if(blocks_need >= 0)
+					exile_block = -blocks_need
 					break
 			QDEL_LIST(blocks)
+			if(exile_block)
+				var/obj/item/raw_stone/block/B = new /obj/item/raw_stone/block(drop_location())
+				B.block_count = exile_block
+				B.update_icon()
 			T.ChangeTurf(/turf/closed/wall/stonewall, flags = CHANGETURF_IGNORE_AIR)
 			user.visible_message("<span class='notice'><b>[user]</b> возводит каменную стену.</span>", \
 								"<span class='notice'>Возвожу каменную стену.</span>")
@@ -747,12 +755,20 @@
 			if(!T.stoned)
 				var/list/blocks = list()
 				var/total_count = 0
+				var/blocks_need = 1
+				var/exile_block = 0
 				for(var/obj/item/raw_stone/block/B in view(1))
 					blocks += B
 					total_count += B.block_count
-					if(total_count >= 1)
+					blocks_need -= B.block_count
+					if(blocks_need >= 0)
+						exile_block = -blocks_need
 						break
 				QDEL_LIST(blocks)
+				if(exile_block)
+					var/obj/item/raw_stone/block/B = new /obj/item/raw_stone/block(drop_location())
+					B.block_count = exile_block
+					B.update_icon()
 				T.stoned = TRUE
 				T.ChangeTurf(/turf/open/floor/grass/gensgrass/dirty/stone, flags = CHANGETURF_INHERIT_AIR)
 				user.visible_message("<span class='notice'><b>[user]</b> создаёт каменный пол.</span>", \
