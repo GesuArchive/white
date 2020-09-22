@@ -561,7 +561,7 @@
 	if(!isfloorturf(T))
 		to_chat(user, "<span class='warning'>Пол не подходит для установки держателя!</span>")
 		return
-	if(locate(/obj/machinery/torch_fixture) in user.range(1))
+	if(locate(/obj/machinery/torch_fixture) in view(1))
 		to_chat(user, "<span class='warning'>Здесь уже что-то есть на стене!</span>")
 		return
 
