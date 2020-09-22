@@ -699,6 +699,8 @@
 
 #define SHPATEL_BUILD_FLOOR 1
 #define SHPATEL_BUILD_WALL 2
+#define SHPATEL_BUILD_DOOR 3
+#define SHPATEL_BUILD_TABLE 4
 
 /obj/item/blacksmith/shpatel
 	name = "мастерок"
@@ -822,14 +824,33 @@
 	var/cur_markers = 0
 	var/max_markers = 64
 
+/obj/item/blacksmith/scepter/proc/check_menu(mob/living/user)
+	if(!istype(user))
+		return FALSE
+	if(user.incapacitated() || !user.Adjacent(src))
+		return FALSE
+	return TRUE
+
 /obj/item/blacksmith/scepter/attack_self(mob/user)
-	. = ..()
-	if(mode == SHPATEL_BUILD_FLOOR)
-		mode = SHPATEL_BUILD_WALL
-		to_chat(user, "<span class='notice'>Выбираю режим разметки стен.</span>")
-	else if(mode == SHPATEL_BUILD_WALL)
-		mode = SHPATEL_BUILD_FLOOR
-		to_chat(user, "<span class='notice'>Выбираю режим разметки полов.</span>")
+	..()
+	var/list/choices = list(
+		"Полы"  = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_floor"),
+		"Стены" = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_wall"),
+		"Двери" = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_door"),
+		"Столы" = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_table")
+	)
+	var/choice = show_radial_menu(user, src, choices, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
+	if(!check_menu(user))
+		return
+	switch(choice)
+		if("Полы")
+			mode = SHPATEL_BUILD_FLOOR
+		if("Стены")
+			mode = SHPATEL_BUILD_WALL
+		if("Двери")
+			mode = SHPATEL_BUILD_DOOR
+		if("Столы")
+			mode = SHPATEL_BUILD_TABLE
 
 /obj/item/blacksmith/scepter/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
@@ -853,9 +874,15 @@
 				visual.icon_state = "plan_floor"
 			if(SHPATEL_BUILD_WALL)
 				visual.icon_state = "plan_wall"
+			if(SHPATEL_BUILD_DOOR)
+				visual.icon_state = "plan_door"
+			if(SHPATEL_BUILD_TABLE)
+				visual.icon_state = "plan_table"
 
 #undef SHPATEL_BUILD_FLOOR
 #undef SHPATEL_BUILD_WALL
+#undef SHPATEL_BUILD_DOOR
+#undef SHPATEL_BUILD_TABLE
 
 /obj/effect/plan_marker
 	name = "маркер"
