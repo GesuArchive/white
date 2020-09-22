@@ -79,7 +79,7 @@
 
 /obj/item/clothing/head/beanie/waldo
 	name = "красная полосатая качающаяся шапка"
-	desc = "If you're going on a worldwide hike, you'll need some cold protection."
+	desc = "Если вы собрались в кругосветное путешествие вам понадобится защита от холода."
 	icon_state = "waldo_hat"
 
 /obj/item/clothing/head/beanie/rasta

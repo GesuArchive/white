@@ -145,7 +145,7 @@
 
 /obj/item/clothing/head/helmet/justice
 	name = "шлем правосудия"
-	desc = "WEEEEOOO. WEEEEEOOO. WEEEEOOOO."
+	desc = "ВИИИУУУ. ВИИИУУУ. ВИИИУУУ."
 	icon_state = "justice"
 	toggle_message = "Выключаю свет"
 	alt_toggle_message = "Включаю свет"
@@ -173,10 +173,10 @@
 
 /obj/item/clothing/head/helmet/justice/escape
 	name = "тревожный шлем"
-	desc = "WEEEEOOO. WEEEEEOOO. STOP THAT MONKEY. WEEEOOOO."
+	desc = "ВИИИУУУ. ВИИИУУУ. ОСТАНОВИ ЭТУ ОБЕЗЬЯНУ. ВИИИУУУ."
 	icon_state = "justice2"
-	toggle_message = "You turn off the light on"
-	alt_toggle_message = "You turn on the light on"
+	toggle_message = "Выключаю свет"
+	alt_toggle_message = "Включаю свет"
 
 /obj/item/clothing/head/helmet/swat
 	name = "шлем спецназа"
@@ -200,8 +200,8 @@
 	dynamic_hair_suffix = ""
 
 /obj/item/clothing/head/helmet/constable
-	name = "constable helmet"
-	desc = "A british looking helmet."
+	name = "шлем констебля"
+	desc = "Этот шлем такой британский."
 	worn_icon = 'icons/mob/large-worn-icons/64x64/head.dmi'
 	icon_state = "constable"
 	inhand_icon_state = "constable"
@@ -211,7 +211,7 @@
 
 /obj/item/clothing/head/helmet/swat/nanotrasen
 	name = "шлем спецназа"
-	desc = "Чрезвычайно прочный, космический шлем с логотипом Нанотрейзен, украшенный сверху."
+	desc = "Чрезвычайно прочный, космический шлем с логотипом Нанотрансен, украшенный сверху."
 	icon_state = "swat"
 	inhand_icon_state = "swat"
 
@@ -359,8 +359,8 @@
 	armor = list(MELEE = 25, BULLET = 20, LASER = 20, ENERGY = 30, BOMB = 20, BIO = 50, RAD = 20, FIRE = -10, ACID = 50, WOUND = 5)
 
 /obj/item/clothing/head/helmet/infiltrator
-	name = "infiltrator helmet"
-	desc = "The galaxy isn't big enough for the two of us."
+	name = "шлем лазутчика"
+	desc = "Галактика слишком мала для нас двоих."
 	icon_state = "infiltrator"
 	inhand_icon_state = "infiltrator"
 	armor = list(MELEE = 40, BULLET = 40, LASER = 30, ENERGY = 40, BOMB = 70, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
@@ -383,8 +383,8 @@
 //monkey sentience caps
 
 /obj/item/clothing/head/helmet/monkey_sentience
-	name = "monkey mind magnification helmet"
-	desc = "A fragile, circuitry embedded helmet for boosting the intelligence of a monkey to a higher level. You see several warning labels..."
+	name = "шлем для увеличения интеллекта обезьян"
+	desc = "Хрупкий шлем со встроенными микросхемами, предназначенный для повышения уровня IQ обезьян. Вижу несколько предопреждающих табличек..."
 
 	icon_state = "monkeymind"
 	inhand_icon_state = "monkeymind"
@@ -400,12 +400,12 @@
 
 /obj/item/clothing/head/helmet/monkey_sentience/examine(mob/user)
 	. = ..()
-	. += "<span class='boldwarning'>---WARNING: REMOVAL OF HELMET ON SUBJECT MAY LEAD TO:---</span>"
-	. += "<span class='warning'>BLOOD RAGE</span>"
-	. += "<span class='warning'>BRAIN DEATH</span>"
-	. += "<span class='warning'>PRIMAL GENE ACTIVATION</span>"
-	. += "<span class='warning'>GENETIC MAKEUP MASS SUSCEPTIBILITY</span>"
-	. += "<span class='boldnotice'>Ask your CMO if mind magnification is right for you.</span>"
+	. += "<span class='boldwarning'>---ВНИМАНИЕ: УДАЛЕНИЕ ШЛЕМА С СУБЪЕКТА МОЖЕТ ПРИВЕСТИ К:---</span>"
+	. += "<span class='warning'>ЖАЖДЕ КРОВИ</span>"
+	. += "<span class='warning'>СМЕРТИ МОЗГА</span>"
+	. += "<span class='warning'>АКТИВАЦИИ ПЕРВОБЫТНОГО ГЕНА</span>"
+	. += "<span class='warning'>МАССОВОЙ УСТОЙЧИВОСТИ ГЕНЕТИЧЕСКОГО СОСТАВА</span>"
+	. += "<span class='boldnotice'>Перед применением устройства проконсультируйтесь с вашим главным врачом.</span>"
 
 /obj/item/clothing/head/helmet/monkey_sentience/update_icon_state()
 	icon_state = "[initial(icon_state)][light_colors][magnification ? "up" : ""]"
@@ -416,27 +416,27 @@
 		return
 	if(!ismonkey(user) || user.ckey)
 		var/mob/living/something = user
-		to_chat(something, "<span class='boldnotice'>You feel a stabbing pain in the back of your head for a moment.</span>")
+		to_chat(something, "<span class='boldnotice'>Я на секунду ощутил колющую боль в затылке.</span>")
 		something.apply_damage(5,BRUTE,BODY_ZONE_HEAD,FALSE,FALSE,FALSE) //notably: no damage resist (it's in your helmet), no damage spread (it's in your helmet)
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
 		return
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_STATION_SENTIENCE))
-		say("ERROR: Central Command has temporarily outlawed monkey sentience helmets in this sector. NEAREST LAWFUL SECTOR: 2.537 million light years away.")
+		say("ERROR: Центральное командование временно запретило использование шлемов по увеличению обезьянего интеллекта в этом секторе. БЛИЖАЙШИЙ ЗАКОННЫЙ СЕКТОР: в 2,537 миллионов световых лет от вас.")
 	magnification = user //this polls ghosts
-	visible_message("<span class='warning'>[src] powers up!</span>")
+	visible_message("<span class='warning'>[src] включается!</span>")
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
 	polling = TRUE
-	var/list/candidates = pollCandidatesForMob("Do you want to play as a mind magnified monkey?", ROLE_SENTIENCE, null, ROLE_SENTIENCE, 50, magnification, POLL_IGNORE_SENTIENCE_POTION)
+	var/list/candidates = pollCandidatesForMob("Хотите поиграть за обезьянку с увеличенным интеллектом?", ROLE_SENTIENCE, null, ROLE_SENTIENCE, 50, magnification, POLL_IGNORE_SENTIENCE_POTION)
 	polling = FALSE
 	if(!candidates.len)
 		magnification = null
-		visible_message("<span class='notice'>[src] falls silent and drops on the floor. Maybe you should try again later?</span>")
+		visible_message("<span class='notice'>[src] замолкает и падает на пол. Может стоит попробовать позже?</span>")
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
 		user.dropItemToGround(src)
 	var/mob/picked = pick(candidates)
 	magnification.key = picked.key
 	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
-	to_chat(magnification, "<span class='notice'>You're a mind magnified monkey! Protect your helmet with your life- if you lose it, your sentience goes with it!</span>")
+	to_chat(magnification, "<span class='notice'>Вы обезьянка с увеличенным интеллектом! Защищайте свой шлем ценой жизни- если вы его потеряете, то и твоя разумность пропадет вместе с ним!</span>")
 	var/policy = get_policy(ROLE_MONKEY_HELMET)
 	if(policy)
 		to_chat(magnification, policy)
@@ -451,7 +451,7 @@
 		return
 	if(!polling)//put on a viable head, but taken off after polling finished.
 		if(magnification.client)
-			to_chat(magnification, "<span class='userdanger'>You feel your flicker of sentience ripped away from you, as everything becomes dim...</span>")
+			to_chat(magnification, "<span class='userdanger'>Я чую как я теряю проблески разума, и всё становится тусклым...</span>")
 			magnification.ghostize(FALSE)
 		if(prob(10))
 			switch(rand(1,4))
@@ -466,7 +466,7 @@
 	//either used up correctly or taken off before polling finished (punish this by destroying the helmet)
 	playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
 	playsound(src, "sparks", 100, TRUE)
-	visible_message("<span class='warning'>[src] fizzles and breaks apart!</span>")
+	visible_message("<span class='warning'>[src] шипит и распадается!</span>")
 	magnification = null
 	new /obj/effect/decal/cleanable/ash/crematorium(drop_location()) //just in case they're in a locker or other containers it needs to use crematorium ash, see the path itself for an explanation
 
@@ -532,9 +532,9 @@
 		return TRUE
 
 /obj/item/clothing/head/helmet/proc/toggle_helmlight()
-	set name = "Toggle Helmetlight"
+	set name = "Переключить нашлемный фонарик"
 	set category = "Объект"
-	set desc = "Click to toggle your helmet's attached flashlight."
+	set desc = "Нажмите чтобы включить или выключить прикрепленный к шлему фонарик."
 
 	if(!attached_light)
 		return

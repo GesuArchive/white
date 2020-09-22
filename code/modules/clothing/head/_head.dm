@@ -33,29 +33,29 @@
 			var/obj/item/WH = H.head
 			///check if the item has NODROP
 			if(HAS_TRAIT(WH, TRAIT_NODROP))
-				H.visible_message("<span class='warning'>[src] bounces off [H]'s [WH.name]!</span>", "<span class='warning'>[src] bounces off your [WH.name], falling to the floor.</span>")
+				H.visible_message("<span class='warning'>[src] отскакивает от [H]'s [WH.name]!</span>", "<span class='warning'>[src] отскакивает от твоей [WH.name] и падает на пол.</span>")
 				return
 			///check if the item is an actual clothing head item, since some non-clothing items can be worn
 			if(istype(WH, /obj/item/clothing/head))
 				var/obj/item/clothing/head/WHH = WH
 				///SNUG_FIT hats are immune to being knocked off
 				if(WHH.clothing_flags & SNUG_FIT)
-					H.visible_message("<span class='warning'>[src] bounces off [H]'s [WHH.name]!</span>", "<span class='warning'>[src] bounces off your [WHH.name], falling to the floor.</span>")
+					H.visible_message("<span class='warning'>[src] отскакивает от [H]'s [WHH.name]!</span>", "<span class='warning'>[src] отскакивает от твоей [WHH.name] и падает на пол.</span>")
 					return
 			///if the hat manages to knock something off
 			if(H.dropItemToGround(WH))
-				H.visible_message("<span class='warning'>[src] knocks [WH] off [H]'s head!</span>", "<span class='warning'>[WH] is suddenly knocked off your head by [src]!</span>")
+				H.visible_message("<span class='warning'>[src] сбита с  [WH] [H]'s головы!</span>", "<span class='warning'>[WH] была внезапно сбита с моей головы [src]!</span>")
 		if(H.equip_to_slot_if_possible(src, ITEM_SLOT_HEAD, 0, 1, 1))
-			H.visible_message("<span class='notice'>[src] lands neatly on [H]'s head!</span>", "<span class='notice'>[src] lands perfectly onto your head!</span>")
+			H.visible_message("<span class='notice'>[src] приземляется аккурат на [H]'s!</span>", "<span class='notice'>[src] приземляется прямо на мою голову!</span>")
 		return
 	if(iscyborg(hit_atom))
 		var/mob/living/silicon/robot/R = hit_atom
 		///hats in the borg's blacklist bounce off
 		if(is_type_in_typecache(src, GLOB.blacklisted_borg_hats))
-			R.visible_message("<span class='warning'>[src] bounces off [R]!</span>", "<span class='warning'>[src] bounces off you, falling to the floor.</span>")
+			R.visible_message("<span class='warning'>[src] отлетает от [R]!</span>", "<span class='warning'>[src] отлетает от меня, падая на пол.</span>")
 			return
 		else
-			R.visible_message("<span class='notice'>[src] lands neatly on top of [R]!</span>", "<span class='notice'>[src] lands perfectly on top of you.</span>")
+			R.visible_message("<span class='notice'>[src] приземляется аккурат на [R]!</span>", "<span class='notice'>[src] приземляется аккурат на мой верх.</span>")
 			R.place_on_head(src) //hats aren't designed to snugly fit borg heads or w/e so they'll always manage to knock eachother off
 
 
