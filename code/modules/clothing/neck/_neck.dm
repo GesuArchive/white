@@ -38,7 +38,7 @@
 
 /obj/item/clothing/neck/tie/horrible
 	name = "ужасный галстук"
-	desc = "Привязной галстук из неоткани. Этот выглядит отвратительно."
+	desc = "Привязной галстук из неоткани. Выглядит отвратительно."
 	icon_state = "horribletie"
 
 /obj/item/clothing/neck/tie/detective
@@ -256,8 +256,8 @@
 			to_chat(user, "<span class='warning'>Надо бы держать в руках [src], чтобы развязать!</span>")
 
 /obj/item/clothing/neck/beads
-	name = "plastic bead necklace"
-	desc = "A cheap, plastic bead necklace. Show team spirit! Collect them! Throw them away! The posibilites are endless!"
+	name = "пластиковые бусы"
+	desc = "Дешевые бусы из пластика. Прояви командный дух! Собери их! Раскидай их! Возможности безграничны!"
 	icon = 'icons/obj/clothing/neck.dmi'
 	icon_state = "beads"
 	color = "#ffffff"
