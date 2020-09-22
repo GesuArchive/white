@@ -128,9 +128,9 @@
 	return ..()
 
 /obj/structure/flora/tree/boxplanet/svetosvin/process()
-	if(cooldown < world.time - 60)
+	if(cooldown < world.time - 120)
 		cooldown = world.time
-		radiation_pulse(src, 25, 2)
+		radiation_pulse(get_turf(src), 25, 2)
 
 /obj/effect/flora_spawner
 	invisibility = SEE_INVISIBLE_OBSERVER
@@ -138,23 +138,21 @@
 	icon_state = "kartoshmel"
 	maptext = "GENERATOR"
 	var/generating_type = /obj/structure/flora/tree/boxplanet/kartoshmel
-	var/planted_things = 0
+	var/list/planted_things = list()
 	var/cooldown = 0
 
 /obj/effect/flora_spawner/process()
-	if(cooldown < world.time - 120)
+	if(cooldown < world.time - 600 && planted_things.len <= 10)
 		cooldown = world.time
-		if(prob(100 - (planted_things * 10)))
+		if(prob(100 - (planted_things.len * 10)))
 			var/list/possible_turfs = list()
 			for(var/turf/T in RANGE_TURFS(7, src))
 				if(istype(T, /turf/open/floor/grass/gensgrass/dirty/stone/raw))
 					possible_turfs += T
-			new generating_type(pick(possible_turfs))
-			planted_things++
+			planted_things += new generating_type(pick(possible_turfs))
+			if(istype(generating_type, /obj/structure/flora/tree/boxplanet/kartoshmel) && (prob(20)))
+				new /obj/effect/step_trigger/ambush(pick(possible_turfs))
 			return
-	if(planted_things >= 10)
-		STOP_PROCESSING(SSobj, src)
-		qdel(src)
 
 /obj/effect/flora_spawner/Initialize()
 	. = ..()
