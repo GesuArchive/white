@@ -1017,11 +1017,11 @@
 		end_multicam()
 
 /mob/living/silicon/ai/up()
-	set name = "Move Upwards"
+	set name = "Выше"
 	set category = "IC"
 
 	if(zMove(UP, TRUE))
-		to_chat(src, "<span class='notice'>You move upwards.</span>")
+		to_chat(src, "<span class='notice'>Поднимаюсь на уровень выше.</span>")
 
 /mob/living/silicon/ai/zMove(dir, feedback = FALSE)
 	. = eyeobj.zMove(dir, feedback)
