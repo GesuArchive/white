@@ -148,11 +148,11 @@
 
 	return TRUE
 
-/// Used to format a scar to safe in preferences for persistent scars
+/// Used to format a scar to save in preferences for persistent scars
 /datum/scar/proc/format()
 	return fake ? null : "[SCAR_CURRENT_VERSION]|[limb.body_zone]|[description]|[precise_location]|[severity]|[biology]"
 
-/// Used to format a scar to safe in preferences for persistent scars
+/// Used to format a scar to save in preferences for persistent scars
 /datum/scar/proc/format_amputated(body_zone)
 	description = pick(list("несколько оттенков кожи более бледные, чем остальная часть тела", "это ужасная мешанина из искусственной плоти", "имеет большой ряд шрамов прикрепления в точках сочленения"))
 	return "[SCAR_CURRENT_VERSION]|[body_zone]|[description]|amputated|[WOUND_SEVERITY_LOSS]|[BIO_FLESH_BONE]"

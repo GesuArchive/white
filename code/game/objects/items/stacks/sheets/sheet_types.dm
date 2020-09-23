@@ -551,8 +551,7 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 	new/datum/stack_recipe("бронзовый костюм", /obj/item/clothing/suit/bronze), \
 	new/datum/stack_recipe("бронзовые ботинки", /obj/item/clothing/shoes/bronze), \
 	null,
-	new/datum/stack_recipe("бронзовый стул", /obj/structure/chair/bronze, 1, time = 0, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("Бюст Маркса", /obj/structure/statue/bronze/marx, 15, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Бронзовый стул", /obj/structure/chair/bronze, 1, time = 0, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/tile/bronze

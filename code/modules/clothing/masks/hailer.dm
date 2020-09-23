@@ -82,6 +82,7 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 	desc = "Набор распознаваемых предварительно записанных сообщений для киборгов, используемых при задержании преступников."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "taperecorder_idle"
+	slot_flags = null
 	aggressiveness = AGGR_GOOD_COP // Borgs are nicecurity!
 	actions_types = list(/datum/action/item_action/halt)
 

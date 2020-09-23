@@ -171,7 +171,7 @@
   *
   * Use for atoms performing visible actions
   *
-  * message is output to anyone who can see, e.g. "The [src] does something!"
+  * message is output to anyone who can see, e.g. `"The [src] does something!"`
   *
   * Vars:
   * * self_message (optional) is what the src mob sees e.g. "You do something!"
@@ -206,7 +206,7 @@
 			msg = blind_message
 		else if(T != loc && T != src) //if src is inside something and not a turf.
 			msg = blind_message
-		else if(T.lighting_object && T.lighting_object.invisibility <= M.see_invisible && T.is_softly_lit()) //if it is too dark.
+		else if(T.lighting_object && T.lighting_object.invisibility <= M.see_invisible && T.is_softly_lit() && !in_range(T,M)) //if it is too dark, unless we're right next to them.
 			msg = blind_message
 		if(!msg)
 			continue
@@ -602,6 +602,8 @@
 	var/D = dir
 	if((spintime < 1)||(speed < 1)||!spintime||!speed)
 		return
+
+	flags_1 |= IS_SPINNING_1
 	while(spintime >= speed)
 		sleep(speed)
 		switch(D)
@@ -615,6 +617,7 @@
 				D = NORTH
 		setDir(D)
 		spintime -= speed
+	flags_1 &= ~IS_SPINNING_1
 
 ///Update the pulling hud icon
 /mob/proc/update_pull_hud_icon()

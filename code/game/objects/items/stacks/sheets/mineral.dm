@@ -26,8 +26,7 @@ Mineral Sheets
 GLOBAL_LIST_INIT(sandstone_recipes, list ( \
 	new/datum/stack_recipe("Куча грязи", /obj/machinery/hydroponics/soil, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("Дверь из Песчаника", /obj/structure/mineral_door/sandstone, 10, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("Статуя Ассистента", /obj/structure/statue/sandstone/assistant, 5, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("Breakdown into sand", /obj/item/stack/ore/glass, 1, one_per_turf = FALSE, on_floor = TRUE) \
+	new/datum/stack_recipe("Разбить в песок", /obj/item/stack/ore/glass, 1, one_per_turf = FALSE, on_floor = TRUE) \
 	))
 
 /obj/item/stack/sheet/mineral/sandstone
@@ -109,10 +108,7 @@ GLOBAL_LIST_INIT(sandbag_recipes, list ( \
 
 GLOBAL_LIST_INIT(diamond_recipes, list ( \
 	new/datum/stack_recipe("Алмазная дверь", /obj/structure/mineral_door/transparent/diamond, 10, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("алмазная плитка", /obj/item/stack/tile/mineral/diamond, 1, 4, 20),  \
-	new/datum/stack_recipe("Статуя Капитана", /obj/structure/statue/diamond/captain, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя с Голограммой ИИ", /obj/structure/statue/diamond/ai1, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Ядра ИИ", /obj/structure/statue/diamond/ai2, 5, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Алмазная плитка", /obj/item/stack/tile/mineral/diamond, 1, 4, 20),  \
 	))
 
 /obj/item/stack/sheet/mineral/diamond/get_main_recipes()
@@ -139,9 +135,7 @@ GLOBAL_LIST_INIT(diamond_recipes, list ( \
 
 GLOBAL_LIST_INIT(uranium_recipes, list ( \
 	new/datum/stack_recipe("Урановая дверь", /obj/structure/mineral_door/uranium, 10, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("урановая плитка", /obj/item/stack/tile/mineral/uranium, 1, 4, 20), \
-	new/datum/stack_recipe("Статуя Ядерной Бомбы", /obj/structure/statue/uranium/nuke, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Инженера", /obj/structure/statue/uranium/eng, 5, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Урановая плитка", /obj/item/stack/tile/mineral/uranium, 1, 4, 20), \
 	))
 
 /obj/item/stack/sheet/mineral/uranium/get_main_recipes()
@@ -171,9 +165,8 @@ GLOBAL_LIST_INIT(uranium_recipes, list ( \
 	return TOXLOSS//dont you kids know that stuff is toxic?
 
 GLOBAL_LIST_INIT(plasma_recipes, list ( \
-	new/datum/stack_recipe("Плазменная дверь", /obj/structure/mineral_door/transparent/plasma, 10, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("плазменная плитка", /obj/item/stack/tile/mineral/plasma, 1, 4, 20), \
-	new/datum/stack_recipe("Статуя Ученого", /obj/structure/statue/plasma/scientist, 5, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Дверь из плазмы", /obj/structure/mineral_door/transparent/plasma, 10, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Плитка из плазмы", /obj/item/stack/tile/mineral/plasma, 1, 4, 20), \
 	))
 
 /obj/item/stack/sheet/mineral/plasma/get_main_recipes()
@@ -211,14 +204,9 @@ GLOBAL_LIST_INIT(plasma_recipes, list ( \
 
 GLOBAL_LIST_INIT(gold_recipes, list ( \
 	new/datum/stack_recipe("Золотая дверь", /obj/structure/mineral_door/gold, 10, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("золотая плитка", /obj/item/stack/tile/mineral/gold, 1, 4, 20), \
-	new/datum/stack_recipe("пустая табличка", /obj/item/plaque, 1), \
-	new/datum/stack_recipe("Статуя Главы Службы Безопасности", /obj/structure/statue/gold/hos, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Главы Персонала", /obj/structure/statue/gold/hop, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Главного Инженера", /obj/structure/statue/gold/ce, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Руководителя Исследований", /obj/structure/statue/gold/rd, 5, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Золотая плитка", /obj/item/stack/tile/mineral/gold, 1, 4, 20), \
+	new/datum/stack_recipe("Пустая табличка", /obj/item/plaque, 1), \
 	new/datum/stack_recipe("Обычная Корона", /obj/item/clothing/head/crown, 5), \
-	new/datum/stack_recipe("Статуя Главного Врача", /obj/structure/statue/gold/cmo, 5, one_per_turf = 1, on_floor = 1), \
 	))
 
 /obj/item/stack/sheet/mineral/gold/get_main_recipes()
@@ -243,13 +231,8 @@ GLOBAL_LIST_INIT(gold_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/silver
 
 GLOBAL_LIST_INIT(silver_recipes, list ( \
-	new/datum/stack_recipe("серебряная дверь", /obj/structure/mineral_door/silver, 10, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("серебряная плитка", /obj/item/stack/tile/mineral/silver, 1, 4, 20), \
-	new/datum/stack_recipe("Статуя Доктора", /obj/structure/statue/silver/md, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Уборщика", /obj/structure/statue/silver/janitor, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Офицера Безопасности", /obj/structure/statue/silver/sec, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Охранного Киборга ", /obj/structure/statue/silver/secborg, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Медицинского Киборга", /obj/structure/statue/silver/medborg, 5, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Серебряная дверь", /obj/structure/mineral_door/silver, 10, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Серебряная плитка", /obj/item/stack/tile/mineral/silver, 1, 4, 20), \
 	))
 
 /obj/item/stack/sheet/mineral/silver/get_main_recipes()
@@ -274,8 +257,7 @@ GLOBAL_LIST_INIT(silver_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/bananium
 
 GLOBAL_LIST_INIT(bananium_recipes, list ( \
-	new/datum/stack_recipe("бананиевая плитка", /obj/item/stack/tile/mineral/bananium, 1, 4, 20), \
-	new/datum/stack_recipe("Статуя Клоуна", /obj/structure/statue/bananium/clown, 5, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Бананиумная плитка", /obj/item/stack/tile/mineral/bananium, 1, 4, 20), \
 	))
 
 /obj/item/stack/sheet/mineral/bananium/get_main_recipes()

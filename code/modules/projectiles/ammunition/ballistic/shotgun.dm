@@ -4,6 +4,7 @@
 	name = "12g патрон"
 	desc = "Свинцовый стержень 12 калибра."
 	icon_state = "blshell"
+	worn_icon_state = "shell"
 	caliber = "shotgun"
 	custom_materials = list(/datum/material/iron=4000)
 	projectile_type = /obj/projectile/bullet/shotgun_slug

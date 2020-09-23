@@ -18,10 +18,10 @@
 	. = ..()
 	air_contents = new(volume)
 	air_contents.set_temperature(T20C)
-	SSair.atmos_machinery += src
+	SSair.start_processing_machine(src)
 
 /obj/machinery/portable_atmospherics/Destroy()
-	SSair.atmos_machinery -= src
+	SSair.stop_processing_machine(src)
 
 	disconnect()
 	qdel(air_contents)
