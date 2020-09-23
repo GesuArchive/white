@@ -58,14 +58,14 @@
 		armor = list(MELEE = 25, BULLET = 10, LASER = 10, ENERGY = 100, BOMB = 0, BIO = 100, RAD = 100, FIRE = 100, ACID = 70)
 	..()
 	if(process)
-		SSair.start_processing_machine(src)
+		SSair.atmos_machinery += src
 	SetInitDirections()
 
 /obj/machinery/atmospherics/Destroy()
 	for(var/i in 1 to device_type)
 		nullifyNode(i)
 
-	SSair.stop_processing_machine(src)
+	SSair.atmos_machinery -= src
 
 	dropContents()
 	if(pipe_vision_img)

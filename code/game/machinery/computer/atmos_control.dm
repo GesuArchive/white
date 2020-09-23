@@ -73,11 +73,11 @@
 
 /obj/machinery/air_sensor/Initialize()
 	. = ..()
-	SSair.start_processing_machine(src)
+	SSair.atmos_machinery += src
 	set_frequency(frequency)
 
 /obj/machinery/air_sensor/Destroy()
-	SSair.stop_processing_machine(src)
+	SSair.atmos_machinery -= src
 	SSradio.remove_object(src, frequency)
 	return ..()
 

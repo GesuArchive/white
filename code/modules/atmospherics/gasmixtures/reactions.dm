@@ -1156,10 +1156,10 @@ nobiliumsuppression = INFINITY
 	var/turf/open/location = holder
 	var/consumed_fuel = 0
 	consumed_fuel = min(air.get_moles(/datum/gas/zauker) * 0.1, 20 * (temperature * 0.02))
-	if ((air.get_moles(/datum/gas/cyrion_b) - consumed_fuel * 0.05 < 0 ) || (air.get_moles(/datum/gas/plasma) - consumed_fuel * 5 < 0)) //Shouldn't produce gas from nothing.
+	if ((air.get_moles(/datum/gas/zauker) - consumed_fuel * 0.05 < 0 ) || (air.get_moles(/datum/gas/plasma) - consumed_fuel * 5 < 0)) //Shouldn't produce gas from nothing.
 		return NO_REACTION
 	air.adjust_moles(/datum/gas/plasma, -(consumed_fuel * 5))
-	air.adjust_moles(/datum/gas/cyrion_b, -(consumed_fuel * 0.05))
+	air.adjust_moles(/datum/gas/zauker, -(consumed_fuel * 0.05))
 	if(prob(10 * consumed_fuel))
 		new /obj/item/grenade/gas_crystal/zauker_crystal(location)
 	energy_released += consumed_fuel * 800

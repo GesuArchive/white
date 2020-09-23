@@ -411,10 +411,6 @@
 	var/mob/living/carbon/C = owner.current
 	C.remove_all_embedded_objects()
 
-	// Make me UN-CLONEABLE
-	owner.current.hellbound = TRUE // This was done during creation, but let's do it again one more time...to make SURE this guy stays dead.
-
-
 	// Free my Vassals!
 	FreeAllVassals()
 
