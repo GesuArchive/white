@@ -180,7 +180,7 @@
 	wanted_types = list(/obj/item/chainsaw)
 
 /datum/bounty/item/assistant/ied
-	name = "IED"
+	name = "Самодельная зажигательная бомба"
 	description = "Тюрьма строгого режима НТ на ЦК проходит обучение персонала. Отправьте несколько устройств IED, которые будут служить им учебным пособием..."
 	reward = 2000
 	required_count = 3
@@ -204,13 +204,6 @@
 	reward = 3000
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/meat/slab/corgi)
 
-/datum/bounty/item/assistant/corgifarming
-	name = "Шкура Корги"
-	description = "Космическая яхта адмирала Вайнштейна нуждается в новой обивке. Дюжина шкур корги должна подойти."
-	reward = 30000 //that's a lot of dead dogs
-	required_count = 12
-	wanted_types = list(/obj/item/stack/sheet/animalhide/corgi)
-
 /datum/bounty/item/assistant/action_figures
 	name = "Фигурки"
 	description = "Сын вице-президента увидел рекламу телешоу по телевизору, и теперь он не умолкает про них. Отправьте немного фигурок чтобы успокоить сына"
@@ -232,23 +225,23 @@
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/deadmouse)
 
 /datum/bounty/item/assistant/paper_bin
-	name = "Paper Bins"
-	description = "Our accounting division is all out of paper. We need a new shipment immediately."
+	name = "Контейнеры для бумаги"
+	description = "В нашем бухгалтерском отделе совсем нет бумаги. Нам немедленно нужна новая партия."
 	reward = 2500
 	required_count = 5
 	wanted_types = list(/obj/item/paper_bin)
 
 
 /datum/bounty/item/assistant/crayons
-	name = "Crayons"
-	description = "Dr Jones' kid ate all our crayons again. Please send us yours."
+	name = "Мелки"
+	description = "Ребенок доктора Джонса снова съел все наши мелки. Пожалуйста, пришлите нам свой."
 	reward = 2000
 	required_count = 24
 	wanted_types = list(/obj/item/toy/crayon)
 
 /datum/bounty/item/assistant/pens
-	name = "Pens"
-	description = "We are hosting the intergalactic pen balancing competition. We need you to send us some standardized ball point pens."
+	name = "Ручки"
+	description = "Мы проводим межгалактический конкурс по балансировке пера. Нам нужно, чтобы вы прислали стандартные шариковые ручки."
 	reward = 2000
 	required_count = 10
 	include_subtypes = FALSE

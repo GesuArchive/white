@@ -32,8 +32,8 @@
 //          Trash bag
 // -----------------------------
 /obj/item/storage/bag/trash
-	name = "trash bag"
-	desc = "It's the heavy-duty black polymer kind. Time to take out the trash!"
+	name = "мешок для мусора"
+	desc = "Это сверхпрочный черный полимерный материал. Пора выносить мусор!"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "trashbag"
 	inhand_icon_state = "trashbag"
@@ -87,8 +87,8 @@
 	update_icon_state()
 
 /obj/item/storage/bag/trash/bluespace
-	name = "trash bag of holding"
-	desc = "The latest and greatest in custodial convenience, a trashbag that is capable of holding vast quantities of garbage."
+	name = "блюспейс мешок для мусора"
+	desc = "Новейший и самый удобный при хранении мешок для мусора, способный вместить огромное количество мусора."
 	icon_state = "bluetrashbag"
 	item_flags = NO_MAT_REDEMPTION
 

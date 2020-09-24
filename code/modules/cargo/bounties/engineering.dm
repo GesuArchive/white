@@ -45,19 +45,19 @@
 	return !T.miniball
 
 /datum/bounty/item/engineering/gas/zauker_tank
-	name = "Full Tank of Zauker"
-	description = "The main planet of \[REDACTED] has been chosen as testing grounds for the new weapon that uses Zauker gas. Ship us a tank full of it. (20 Moles)"
+	name = "Полная канистра Заукера"
+	description = "Главная планета \[REDACTED] была выбрана в качестве полигона для испытания нового оружия, в котором используется газ Заукер. Отправьте нам полный бак. (20 моль)"
 	reward = 10000
 	gas_type = /datum/gas/zauker
 
 /datum/bounty/item/engineering/emitter
-	name = "Emitter"
-	description = "We think there may be a defect in your station's emitter designs, based on the sheer number of delaminations your sector seems to see. Ship us one of yours."
+	name = "Эмиттер"
+	description = "Мы думаем, что в конструкции эмиттера вашей станции может быть дефект, основанный на огромном количестве отслоений, которые, похоже, видит ваш сектор. Отправьте нам один из ваших."
 	reward = 2500
 	wanted_types = list(/obj/machinery/power/emitter)
 
 /datum/bounty/item/engineering/hydro_tray
-	name = "Hydroponics Tray"
-	description = "The lab technicians are trying to figure out how to lower the power drain of hydroponics trays, but we fried our last one. Mind building one for us?"
+	name = "Гидропонические лотки"
+	description = "Лаборанты пытаются выяснить, как снизить потребление энергии лотками для гидропоники, но мы поджарили последний. Сделаете один для нас?"
 	reward = 2000
 	wanted_types = list(/obj/machinery/hydroponics/constructable)
