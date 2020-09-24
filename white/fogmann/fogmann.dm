@@ -322,7 +322,7 @@
 /area/crew_quarters/fitness/kachalka
 	name = "kachalka"
 
-/obj/machinery/turntable/west
+/obj/item/westposter
 	name = "WORK HARDER"
 	desc = "NOT SMARTER"
 	icon = 'white/statue_w.dmi'
