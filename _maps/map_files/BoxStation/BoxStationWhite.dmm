@@ -10773,6 +10773,10 @@
 /obj/effect/landmark/start/medical_doctor,
 /turf/open/floor/plasteel/white,
 /area/medical/break_room)
+"aSq" = (
+/obj/effect/decal/cleanable/blood/xtracks,
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "aSr" = (
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
@@ -15600,6 +15604,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/hydroponics)
+"bof" = (
+/obj/structure/weightmachine/weightlifter,
+/obj/effect/decal/cleanable/insectguts,
+/obj/item/clothing/under/costume/jabroni,
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "boi" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -33086,6 +33096,11 @@
 /obj/machinery/atmospherics/pipe/simple/orange/visible,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
+"cDz" = (
+/obj/structure/weightmachine/stacklifter,
+/obj/effect/decal/cleanable/cum,
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "cDB" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -35354,6 +35369,11 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/hydroponics/garden)
+"fEs" = (
+/turf/open/floor/wood{
+	icon_state = "wood-broken7"
+	},
+/area/crew_quarters/fitness/kachalka)
 "fEv" = (
 /obj/machinery/firealarm{
 	dir = 8;
@@ -35647,6 +35667,11 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/cryo)
+"gfJ" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/maintenance/fore/secondary)
 "ghb" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -35938,6 +35963,10 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/space/basic,
 /area/engine/engineering)
+"gKT" = (
+/obj/structure/lattice,
+/turf/closed/wall,
+/area/crew_quarters/fitness/kachalka)
 "gLd" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -36378,6 +36407,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
+"hBA" = (
+/obj/item/eastposter,
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "hBY" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 4
@@ -36752,6 +36785,10 @@
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/quartermaster/qm)
+"ipG" = (
+/obj/machinery/turntable/west,
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "irs" = (
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
@@ -36918,6 +36955,16 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/crew_quarters/bar)
+"iMv" = (
+/obj/structure/punching_bag,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/crew_quarters/fitness/kachalka)
 "iOI" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/rack,
@@ -37063,6 +37110,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/bar)
+"jcU" = (
+/obj/effect/decal/cleanable/molten_object/large,
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "jdl" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/visible{
 	dir = 8
@@ -37490,6 +37541,10 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
+"jHd" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/crew_quarters/fitness/kachalka)
 "jHh" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -37955,6 +38010,16 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
+"ksM" = (
+/obj/machinery/shower{
+	dir = 8
+	},
+/obj/machinery/light/small,
+/obj/effect/decal/cleanable/cum,
+/obj/effect/decal/cleanable/cum,
+/obj/effect/decal/cleanable/cum,
+/turf/open/floor/plasteel/freezer,
+/area/crew_quarters/fitness/kachalka)
 "kul" = (
 /turf/closed/wall,
 /area/engine/engine_smes)
@@ -38007,6 +38072,12 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/genetics)
+"kze" = (
+/obj/structure/bed/maint,
+/turf/open/floor/wood{
+	icon_state = "wood-broken6"
+	},
+/area/crew_quarters/fitness/kachalka)
 "kzT" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 10
@@ -38071,6 +38142,12 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"kGo" = (
+/obj/structure/bed/maint,
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/crew_quarters/fitness/kachalka)
 "kGS" = (
 /obj/structure/table/glass,
 /obj/item/radio/headset/headset_sci{
@@ -38258,6 +38335,11 @@
 	},
 /turf/open/floor/plasteel/showroomfloor,
 /area/crew_quarters/kitchen)
+"kVU" = (
+/turf/open/floor/wood{
+	icon_state = "wood-broken6"
+	},
+/area/crew_quarters/fitness/kachalka)
 "kWe" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -39117,6 +39199,13 @@
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"mrx" = (
+/obj/structure/curtain{
+	color = "#ff0000";
+	open = 0
+	},
+/turf/open/floor/plasteel/freezer,
+/area/crew_quarters/fitness/kachalka)
 "mrN" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
@@ -39587,6 +39676,16 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
+"nop" = (
+/obj/structure/table/rospilovo,
+/obj/item/reagent_containers/food/snacks/carpmeat/dry,
+/obj/item/reagent_containers/food/snacks/carpmeat/dry/donbas,
+/obj/item/reagent_containers/food/snacks/carpmeat/dry/donbas,
+/obj/item/reagent_containers/food/snacks/carpmeat/dry/donbas,
+/obj/effect/spawner/lootdrop/maint_drugs,
+/obj/effect/spawner/lootdrop/maint_drugs,
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "npc" = (
 /obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plating,
@@ -39609,6 +39708,14 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel/white,
 /area/science/genetics)
+"nqv" = (
+/obj/structure/chair/sofa/right{
+	dir = 8
+	},
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/crew_quarters/fitness/kachalka)
 "nro" = (
 /obj/effect/turf_decal/loading_area{
 	dir = 4
@@ -40183,6 +40290,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/storage)
+"ojL" = (
+/obj/effect/spawner/lootdrop/maintenance/three,
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/crew_quarters/fitness/kachalka)
 "okz" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 6
@@ -40561,6 +40674,10 @@
 	},
 /turf/open/floor/plating,
 /area/medical/morgue)
+"pch" = (
+/obj/machinery/light,
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "pdB" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -40899,6 +41016,12 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/medical/chemistry)
+"pzs" = (
+/obj/structure/chair/sofa/left{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "pzA" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -42053,6 +42176,9 @@
 /obj/machinery/vending/hydronutrients,
 /turf/open/floor/plasteel,
 /area/hydroponics)
+"rpc" = (
+/turf/closed/wall,
+/area/crew_quarters/fitness/kachalka)
 "rqd" = (
 /turf/closed/wall,
 /area/medical/break_room)
@@ -42070,6 +42196,16 @@
 	},
 /turf/open/floor/engine,
 /area/engine/atmos)
+"ruP" = (
+/obj/structure/punching_bag,
+/obj/effect/decal/cleanable/blood,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/wood{
+	icon_state = "wood-broken6"
+	},
+/area/crew_quarters/fitness/kachalka)
 "rwo" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Atmospherics Maintenance";
@@ -42101,6 +42237,12 @@
 /obj/effect/spawner/lootdrop/maintenance/three,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"rzo" = (
+/obj/structure/weightmachine/stacklifter,
+/obj/effect/decal/cleanable/insectguts,
+/obj/item/clothing/under/costume/jabroni,
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "rzp" = (
 /obj/structure/table,
 /obj/item/stack/sheet/metal/fifty,
@@ -42513,6 +42655,14 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay)
+"scI" = (
+/obj/structure/chair/sofa{
+	dir = 8
+	},
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/crew_quarters/fitness/kachalka)
 "sdg" = (
 /obj/structure/disposalpipe/sorting/mail{
 	sortType = 10
@@ -42984,6 +43134,11 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"sPf" = (
+/obj/structure/weightmachine/weightlifter,
+/obj/effect/decal/cleanable/cum,
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "sPm" = (
 /obj/effect/landmark/start/cook,
 /turf/open/floor/plasteel/cafeteria,
@@ -43660,6 +43815,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/morgue)
+"tOc" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Fitness Maintenance";
+	req_access_txt = "12"
+	},
+/turf/open/floor/plating,
+/area/maintenance/fore/secondary)
 "tPs" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -43711,6 +43873,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/storage/tools)
+"tRl" = (
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "tSp" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 8;
@@ -43846,6 +44011,10 @@
 /obj/item/clothing/neck/stethoscope,
 /turf/open/floor/plasteel,
 /area/medical/medbay/central)
+"udW" = (
+/obj/effect/decal/cleanable/cum,
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "uea" = (
 /obj/machinery/firealarm{
 	pixel_y = 24
@@ -44804,6 +44973,11 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/crew_quarters/bar)
+"vpl" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/south,
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "vqK" = (
 /turf/open/floor/wood,
 /area/crew_quarters/theatre)
@@ -45341,6 +45515,11 @@
 /obj/effect/landmark/start/medical_doctor,
 /turf/open/floor/plasteel/white,
 /area/medical/cryo)
+"win" = (
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/crew_quarters/fitness/kachalka)
 "wiz" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -45613,6 +45792,9 @@
 /obj/item/stack/package_wrap,
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
+"wGA" = (
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "wHm" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -46162,6 +46344,11 @@
 /obj/item/nanite_scanner,
 /turf/open/floor/plasteel/dark,
 /area/science/nanite)
+"xFm" = (
+/obj/machinery/light,
+/obj/item/device/flashlight/slamp,
+/turf/open/floor/wood,
+/area/crew_quarters/fitness/kachalka)
 "xGu" = (
 /obj/structure/chair/office{
 	dir = 8
@@ -46481,6 +46668,11 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/locker)
+"ydD" = (
+/obj/machinery/light,
+/obj/effect/spawner/lootdrop/maintenance/three,
+/turf/open/floor/carpet/peaks,
+/area/crew_quarters/fitness/kachalka)
 "ydG" = (
 /obj/structure/chair/stool,
 /obj/effect/turf_decal/tile/bar,
@@ -46562,6 +46754,11 @@
 	},
 /turf/closed/wall/r_wall,
 /area/engine/atmos)
+"yjN" = (
+/turf/open/floor/wood{
+	icon_state = "wood-broken5"
+	},
+/area/crew_quarters/fitness/kachalka)
 "ykC" = (
 /obj/machinery/airalarm{
 	dir = 4;
@@ -81398,13 +81595,13 @@ aaa
 aaa
 ahn
 ahn
-aiA
-aiA
-aiA
+ahn
 ahn
 aiA
+tOc
 aiA
 aiA
+gfJ
 ahn
 and
 anF
@@ -81653,16 +81850,16 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-gXs
-gXs
-gXs
-aaa
-gXs
-gXs
-ahn
+nxa
+rpc
+ruP
+ipG
+wGA
+win
+tRl
+tRl
+vpl
+rpc
 ahn
 anE
 ahn
@@ -81910,16 +82107,16 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-gXs
-gXs
-aaa
-aaa
-aaa
-aaa
-gXs
+nxa
+jHd
+yjN
+fEs
+win
+wGA
+cDz
+tRl
+bof
+gKT
 ahn
 anG
 ahn
@@ -82167,16 +82364,16 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+nxa
+jHd
+ojL
+win
+kVU
+aSq
+tRl
+tRl
+pch
+rpc
 ahn
 khB
 ahn
@@ -82424,16 +82621,16 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+nxa
+jHd
+kze
+win
+wGA
+udW
+tRl
+tRl
+ydD
+rpc
 nXv
 nXv
 nXv
@@ -82681,17 +82878,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+nxa
+jHd
+kGo
+wGA
+win
+wGA
+rzo
+tRl
+sPf
+rpc
+nxa
 aaa
 aaa
 aaa
@@ -82933,22 +83130,22 @@ aaa
 aaa
 aaa
 aaa
-aaq
 aaa
 aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+nxa
+jHd
+yjN
+jcU
+wGA
+wGA
+tRl
+tRl
+tRl
+rpc
+nxa
 aaa
 aaa
 aaa
@@ -83195,17 +83392,17 @@ aaw
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+nxa
+jHd
+win
+wGA
+wGA
+nop
+xFm
+rpc
+mrx
+rpc
+nxa
 aaa
 aaa
 aaa
@@ -83452,17 +83649,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+nxa
+rpc
+iMv
+hBA
+nqv
+scI
+pzs
+rpc
+ksM
+rpc
+nxa
 aaa
 aaa
 aaa
@@ -83707,19 +83904,19 @@ aaa
 aaa
 aaa
 aaa
+aaq
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaw
-aaa
-aaa
+nxa
+rpc
+rpc
+rpc
+jHd
+jHd
+jHd
+rpc
+rpc
+rpc
+nxa
 aaa
 aaa
 aaa
@@ -83966,17 +84163,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaq
-aaa
-aaa
-aaa
+nxa
+nxa
+nxa
+nxa
+nxa
+nxa
+nxa
+nxa
+nxa
+nxa
+nxa
 aaa
 aaa
 aaa
@@ -85254,7 +85451,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aaw
 aaa
 aaa
 aaa
