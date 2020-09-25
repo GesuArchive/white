@@ -671,7 +671,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Адм.Веселье"
 	set name = "Gib"
 
-	if(!forced&&!check_rights(R_ADMIN))
+	if(!check_rights(R_ADMIN))
 		return
 
 	var/confirm = alert(src, "Drop a brain?", "Confirm", "Yes", "No","Cancel")

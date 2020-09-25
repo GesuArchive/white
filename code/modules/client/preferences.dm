@@ -427,17 +427,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<a href='?_src_=prefs;preference=moth_wings;task=input'>[features["moth_wings"]]</a></td></tr>"
 
 			if("moth_antennae" in pref_species.default_features)
-				if(!mutant_category)
-					dat += APPEARANCE_CATEGORY_COLUMN
 
 				dat += "<h3>Moth antennae</h3>"
 
 				dat += "<a href='?_src_=prefs;preference=moth_antennae;task=input'>[features["moth_antennae"]]</a><BR>"
-
-				mutant_category++
-				if(mutant_category >= MAX_MUTANT_ROWS)
-					dat += "</td>"
-					mutant_category = 0
 
 			if("moth_markings" in pref_species.default_features)
 

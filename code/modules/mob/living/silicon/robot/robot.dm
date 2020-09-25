@@ -812,7 +812,6 @@
 				set_stat(UNCONSCIOUS)
 				become_blind(EYE_DAMAGE)
 				update_mobility()
-				update_headlamp()
 		else
 			set_stat(CONSCIOUS)
 	update_mobility()
