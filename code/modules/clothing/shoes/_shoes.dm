@@ -134,7 +134,7 @@
 		return
 
 	if(!in_range(user, our_guy))
-		to_chat(user, "<span class='warning'>Вы слишком далеко чтобы взаимодействовать со шнурками [src]!</span>")
+		to_chat(user, "<span class='warning'>Я слишком далеко чтобы взаимодействовать со шнурками [src]!</span>")
 		return
 
 	if(user == loc && tied != SHOES_TIED) // if they're our own shoes, go tie-wards
@@ -153,10 +153,10 @@
 	else // if they're someone else's shoes, go knot-wards
 		var/mob/living/L = user
 		if(istype(L) && (L.mobility_flags & MOBILITY_STAND))
-			to_chat(user, "<span class='warning'>Вы должны быть на полу чтобы взаимодействовать с [src]!</span>")
+			to_chat(user, "<span class='warning'>Мне нужно быть на полу чтобы взаимодействовать с [src]!</span>")
 			return
 		if(tied == SHOES_KNOTTED)
-			to_chat(user, "<span class='warning'>Шнурки на [loc] [src.name] уже!</span>")
+			to_chat(user, "<span class='warning'>Шнурки на [loc] [src.name] уже связаны!</span>")
 			return
 		if(INTERACTING_WITH(user, our_guy))
 			to_chat(user, "<span class='warning'>Уже взаимодействую с [src]!</span>")
