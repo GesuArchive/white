@@ -34,8 +34,16 @@ body {
 	outline: 1px solid #080808;
 	background: #010101;
 }
+.cyber #statcontent {
+	outline: 1px solid #080808;
+	background: #010101;
+}
 
 body.dark {
+	background-color: #040404;
+	color: #aaaaaa;
+}
+body.cyber {
 	background-color: #040404;
 	color: #aaaaaa;
 }
@@ -49,6 +57,9 @@ body.dark {
 .dark #menu {
 	background-color: #040404;
 }
+.cyber #menu {
+	background-color: #040404;
+}
 
 #statcontent {
 	padding: 0 7px 7px 7px;
@@ -58,12 +69,17 @@ a {
 	color: black;
 	text-decoration: none
 }
-a:hover, .dark a:hover {
+a:hover, .dark a:hover, .cyber a:hover  {
 	text-decoration: underline;
 }
 .dark a {
 	color: #ffbd92;
 }
+
+.cyber a {
+	color: #abc6ec;
+}
+
 
 ul {
 	list-style-type: none;
@@ -118,6 +134,11 @@ li a:hover:not(.active) {
 	border-color: rgba(37, 37, 36, 0.5);
 	color: #ffbd92;
 }
+.cyber button {
+	background-color: #080808;
+	border-color: rgba(37, 37, 36, 0.5);
+	color: #abc6ec;
+}
 .button:hover {
 	border-color: rgba(255, 255, 254, 0.5);
 	background-color: #080808;
@@ -128,12 +149,22 @@ li a:hover:not(.active) {
 	background-color: #ffbd92;
 	color: #080808;
 }
+.cyber button:hover {
+	border-color: rgba(37, 37, 36, 0.5);
+	background-color: #abc6ec;
+	color: #080808;
+}
 .button:active, .button.active {
 	text-decoration: underline;
 }
 .dark .button:active, .dark .button.active {
 	text-decoration: none;
 	background-color: #ffbd92;
+	color: #080808;
+}
+.cyber .button:active, .cyber .button.active {
+	text-decoration: none;
+	background-color: #abc6ec;
 	color: #080808;
 }
 .grid-container {
@@ -172,8 +203,18 @@ li a:hover:not(.active) {
     color: #000000;
 	text-decoration: none;
 }
+.cyber .grid-item:hover {
+	border-color: #252524;
+    background-color: #abc6ec;
+    color: #000000;
+	text-decoration: none;
+}
 
 .dark .grid-item {
+	background-color: #080808;
+	outline: 1px solid rgba(37, 37, 36, 0.5);
+}
+.cyber .grid-item {
 	background-color: #080808;
 	outline: 1px solid rgba(37, 37, 36, 0.5);
 }
@@ -190,6 +231,9 @@ li a:hover:not(.active) {
 }
 .dark .link {
 	color: #ffbd92;
+}
+.cyber .link {
+	color: #abc6ec;
 }
 .link:hover {
 	text-decoration: underline;
@@ -992,6 +1036,9 @@ function set_theme(which) {
 	} else if (which == "dark") {
 		document.body.className = "dark";
 		set_style_sheet("browserOutput");
+	} else if (which == "cyber") {
+		document.body.className = "cyber";
+		set_style_sheet("browserOutput_cyber");
 	}
 }
 
