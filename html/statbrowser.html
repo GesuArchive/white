@@ -13,6 +13,8 @@
 		margin: 0 !important;
 		padding: 0 !important;
 		overflow-x: hidden;
+		background: #ffffff;
+		color: #000;
 
 		scrollbar-face-color: #242424;
 		scrollbar-arrow-color: #242424;
@@ -26,12 +28,12 @@
 	}
 
 	body.dark {
-		background-color: #040404;
+		background-color: #080808;
 		color: #aaaaaa;
 	}
 
 	body.cyber {
-		background-color: #040404;
+		background-color: #080808;
 		color: #aaaaaa;
 	}
 
@@ -42,11 +44,15 @@
 	}
 
 	.dark #menu, .dark #menu {
-		background-color: #040404;
+		background-color: #181818;
+	}
+
+	.cyber #menu, .cyber #menu {
+		background-color: #181818;
 	}
 
 	#statcontent {
-		padding: 7px 7px 7px 7px;
+		padding: 2px 2px 2px 2px;
 	}
 
 	a {
@@ -96,7 +102,7 @@
 		align-items: flex-start;
 		overflow-x: hidden;
 		white-space: pre-wrap;
-		padding: 0 4px;
+		padding: 0 2px;
 	}
 
 	.button {
@@ -105,7 +111,7 @@
 		border-width: 1px;
 		border-style: solid;
 		color: rgba(0, 0, 0, 0.7);
-		padding: 6px 4px;
+		padding: 3px 2px;
 		text-align: center;
 		text-decoration: none;
 		font-size: 12px;
@@ -152,21 +158,21 @@
 	}
 
 	.dark .button:active, .dark .button.active {
-		background-color: #ffbd92;
-		color: #080808;
+		background-color: #080808;
+		color: #ffbd92;
 		border-top: 1px solid #343434;
 		border-left: 1px solid #343434;
 		border-right: 1px solid #343434;
-		border-bottom: 1px solid #131313;
+		border-bottom: 1px solid #080808;
 	}
 
 	.cyber .button:active, .cyber .button.active {
-		background-color: #abc6ec;
-		color: #080808;
+		background-color: #080808;
+		color: #abc6ec;
 		border-top: 1px solid #343434;
 		border-left: 1px solid #343434;
 		border-right: 1px solid #343434;
-		border-bottom: 1px solid #131313;
+		border-bottom: 1px solid #080808;
 	}
 
 	.grid-container {
@@ -181,14 +187,46 @@
 
 	.grid-item {
 		color: black;
-		width: 150px;
+		width: 195px;
 		font-size: 11px;
-		line-height: 24px;
+		line-height: 22px;
 		text-align: left;
 		min-width: 0;
 		min-height: 0;
 		white-space: pre-wrap;
-		padding-right: 12px; /* A little more than two spaces, to look good in IE8 where flex-justify does nothing */
+		margin-top: 2px;
+		margin-right: 2px;
+		padding-left: 2px;
+		padding-right: 0;
+		border: 1px solid rgba(0, 0, 0, 0.7);
+	}
+
+	.grid-item:hover {
+		background: #000;
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.dark .grid-item {
+		background: rgba(255, 160, 25, 0.01);
+		border: 1px solid rgba(255, 160, 25, 0.2);
+	}
+
+	.dark .grid-item:hover {
+		background: #ffbd92;
+		color: #080808;
+		text-decoration: none;
+	}
+
+	.cyber .grid-item {
+		background: rgba(50, 160, 255, 0.01);
+		border: 1px solid rgba(50, 160, 255, 0.2);
+	}
+
+	.cyber .grid-item:hover {
+		background: #abc6ec;
+		color: #080808;
+		text-decoration: none;
 	}
 
 	.link {

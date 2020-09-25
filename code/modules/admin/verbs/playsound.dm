@@ -49,7 +49,7 @@
 
 
 /client/proc/play_local_sound_wrapper()
-	set category = "Фан"
+	set category = "Адм.Веселье"
 	set name = "Play Local Sound"
 
 	var/msg = input(src, null, "Play Local Sound") as sound|null
@@ -167,7 +167,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Play Internet Sound")
 
 /client/proc/set_round_end_sound_wrapper()
-	set category = "Фан"
+	set category = "Адм.Веселье"
 	set name = "Set Round End Sound"
 
 	var/msg = input(src, null, "Set Round End Sound") as sound|null

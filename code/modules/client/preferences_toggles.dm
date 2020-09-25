@@ -116,7 +116,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox/events, toggle_arriv
 	return !(C.prefs.toggles & DISABLE_ARRIVALRATTLE)
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost, togglemidroundantag)()
-	set name = " 🔄 Быть антагом посреди раунда"
+	set name = " 🔄 Быть антагом в раунде"
 	set category = "Настройки"
 	set desc = "Midround Antagonist"
 	usr.client.prefs.toggles ^= MIDROUND_ANTAG
