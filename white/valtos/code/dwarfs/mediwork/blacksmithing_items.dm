@@ -701,6 +701,7 @@
 #define SHPATEL_BUILD_WALL 2
 #define SHPATEL_BUILD_DOOR 3
 #define SHPATEL_BUILD_TABLE 4
+#define SHPATEL_BUILD_CHAIR 5
 
 /obj/item/blacksmith/shpatel
 	name = "мастерок"
@@ -830,10 +831,11 @@
 /obj/item/blacksmith/scepter/attack_self(mob/user)
 	..()
 	var/list/choices = list(
-		"Полы"  = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_floor"),
-		"Стены" = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_wall"),
-		"Двери" = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_door"),
-		"Столы" = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_table")
+		"Полы"   = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_floor"),
+		"Стены"  = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_wall"),
+		"Двери"  = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_door"),
+		"Столы"  = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_table"),
+		"Стулья" = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "plan_chair")
 	)
 	var/choice = show_radial_menu(user, src, choices, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
 	if(!check_menu(user))
@@ -847,6 +849,8 @@
 			mode = SHPATEL_BUILD_DOOR
 		if("Столы")
 			mode = SHPATEL_BUILD_TABLE
+		if("Стулья")
+			mode = SHPATEL_BUILD_CHAIR
 
 /obj/item/blacksmith/scepter/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
@@ -874,16 +878,69 @@
 				visual.icon_state = "plan_door"
 			if(SHPATEL_BUILD_TABLE)
 				visual.icon_state = "plan_table"
+			if(SHPATEL_BUILD_CHAIR)
+				visual.icon_state = "plan_chair"
 
 #undef SHPATEL_BUILD_FLOOR
 #undef SHPATEL_BUILD_WALL
 #undef SHPATEL_BUILD_DOOR
 #undef SHPATEL_BUILD_TABLE
+#undef SHPATEL_BUILD_CHAIR
 
 /obj/effect/plan_marker
 	name = "маркер"
 	icon = 'white/valtos/icons/objects.dmi'
 	anchored = TRUE
 	icon_state = "plan_floor"
-	layer = HIGH_OBJ_LAYER
+	layer = ABOVE_NORMAL_TURF_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	alpha = 190
+
+/obj/structure/chair/comfy/stone
+	name = "каменный стул"
+	desc = "Это выглядит НЕ удобно."
+	icon = 'white/valtos/icons/objects.dmi'
+	icon_state = "stoool"
+	color = rgb(255,255,255)
+	resistance_flags = LAVA_PROOF
+	max_integrity = 150
+	buildstackamount = null
+
+/obj/structure/chair/comfy/stone/GetArmrest()
+	return mutable_appearance('white/valtos/icons/objects.dmi', "stoool_armrest")
+
+/obj/structure/chair/comfy/stone/attackby(obj/item/W, mob/user, params)
+	if(W.tool_behaviour == TOOL_WRENCH && !(flags_1&NODECONSTRUCT_1))
+		W.play_tool_sound(src)
+		user.visible_message("<span class='notice'>[user] пытается разобрать каменный стул <b>ГАЕЧНЫМ КЛЮЧОМ</b>.</span>", \
+		"<span class='notice'>Пытаюсь разобрать каменный стул...</span>")
+		return
+	else
+		return ..()
+
+/obj/structure/chair/comfy/stone/throne
+	name = "каменный трон"
+	desc = "Выглядит роскошно, но не удобно."
+	icon_state = "throne"
+	max_integrity = 650
+
+/obj/structure/chair/comfy/stone/throne/GetArmrest()
+	return mutable_appearance('white/valtos/icons/objects.dmi', "throne_armrest")
+
+/obj/structure/table/stone
+	name = "каменный стол"
+	desc = "Прочный стол из камня."
+	icon = 'white/valtos/icons/stone_table.dmi'
+	icon_state = "stone_table"
+	resistance_flags = FIRE_PROOF | ACID_PROOF
+	max_integrity = 300
+	buildstack = null
+	smoothing_groups = list(SMOOTH_GROUP_BRONZE_TABLES)
+	canSmoothWith = list(SMOOTH_GROUP_BRONZE_TABLES)
+
+/obj/structure/table/stone/attackby(obj/item/W, mob/user, params)
+	if (W.tool_behaviour == TOOL_WRENCH || W.tool_behaviour == TOOL_SCREWDRIVER)
+		to_chat(user, "<span class='warning'>А че как...</span>")
+		return
+	else
+		return ..()

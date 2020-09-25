@@ -199,6 +199,22 @@
 	category = CAT_STRUCTURE
 	always_available = TRUE
 
+/datum/crafting_recipe/smithman/stonechair
+	name = "Каменный стул"
+	result = /obj/structure/chair/comfy/stone
+	reqs = list(/obj/item/raw_stone/block = 1)
+	time = 100
+	category = CAT_STRUCTURE
+	always_available = TRUE
+
+/datum/crafting_recipe/smithman/stonetable
+	name = "Каменный стол"
+	result = /obj/structure/table/stone
+	reqs = list(/obj/item/raw_stone/block = 2)
+	time = 100
+	category = CAT_STRUCTURE
+	always_available = TRUE
+
 /obj/effect/baseturf_helper/beach/raw_stone
 	name = "raw stone baseturf editor"
 	baseturf = /turf/open/floor/grass/gensgrass/dirty/stone/raw
