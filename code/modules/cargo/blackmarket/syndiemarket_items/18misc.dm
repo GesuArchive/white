@@ -95,17 +95,6 @@
 	stock_max = 1
 	availability_prob = 25
 
-/datum/blackmarket_item/smisc/codespeak_manual
-	name = "Codespeak Manual"
-	desc = "Syndicate agents can be trained to use a series of codewords to convey complex information, which sounds like random concepts and drinks to anyone listening. \
-			This manual teaches you this Codespeak. You can also hit someone else with the manual in order to teach them. This is the deluxe edition, which has unlimited uses."
-	item = /obj/item/codespeak_manual/unlimited
-
-	price_min = 5000
-	price_max = 10000
-	stock_max = 1
-	availability_prob = 25
-
 /datum/blackmarket_item/smisc/emplight
 	name = "EMP Flashlight"
 	desc = "A small, self-recharging, short-ranged EMP device disguised as a working flashlight. \
