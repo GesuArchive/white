@@ -40,8 +40,13 @@
 	max_resulting = 2
 
 /datum/smithing_recipe/chisel
-	name = "Стамеска"
+	name = "Стамеска (камень)"
 	result = /obj/item/blacksmith/chisel
+	max_resulting = 2
+
+/datum/smithing_recipe/chisel_retard
+	name = "Стамеска (скульптуры)"
+	result = /obj/item/chisel
 	max_resulting = 2
 
 /datum/smithing_recipe/light_plate

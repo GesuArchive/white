@@ -274,8 +274,8 @@
 	abstract_type = /obj/structure/statue/elder_atmosian //This one is uncarvable
 
 /obj/item/chisel
-	name = "chisel"
-	desc = "breaking and making art since 4000 BC. This one uses advanced technology to allow creation of lifelike moving statues."
+	name = "стамесочка"
+	desc = "Для тонкой работы и создания скульптур."
 	icon = 'icons/obj/statue.dmi'
 	icon_state = "chisel"
 	inhand_icon_state = "screwdriver_nuke"

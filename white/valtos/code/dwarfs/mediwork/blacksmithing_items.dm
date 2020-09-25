@@ -67,7 +67,7 @@
 
 /obj/item/blacksmith/chisel
 	name = "стамеска"
-	desc = "Для обработки различных поверхностей."
+	desc = "Для обработки каменных поверхностей."
 	icon_state = "chisel"
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = SHARP_EDGED
@@ -687,6 +687,9 @@
 	L.fuel = fuel
 	L.forceMove(loc)
 	L.update_brightness()
+
+	if(!fuel)
+		L.icon_state = "torch-empty"
 
 	if(user)
 		L.add_fingerprint(user)

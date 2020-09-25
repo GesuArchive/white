@@ -349,7 +349,7 @@
 
 /obj/item/flashlight/flare/torch/Initialize()
 	. = ..()
-	fuel = rand(4000, 5000)
+	fuel = rand(8000, 9000)
 
 /obj/item/flashlight/lantern
 	name = "lantern"
