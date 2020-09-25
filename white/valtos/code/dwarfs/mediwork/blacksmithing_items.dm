@@ -219,6 +219,12 @@
 		to_chat(user, "<span class='notice'>Обрабатываю камень.</span>")
 		qdel(src)
 		return
+	if(istype(I, /obj/item/blacksmith/smithing_hammer))
+		playsound(src, 'sound/effects/break_stone.ogg', 50, TRUE)
+		new /obj/item/stack/ore/glass(drop_location())
+		to_chat(user, "<span class='notice'>Разбиваю [src].</span>")
+		qdel(src)
+		return
 
 /obj/item/raw_stone/block
 	name = "кирпич"

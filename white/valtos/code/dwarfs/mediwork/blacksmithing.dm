@@ -47,7 +47,8 @@
 			new /obj/item/blacksmith/ingot(drop_location())
 		if("gold")
 			new /obj/item/blacksmith/ingot/gold(drop_location())
-
+		if("glass")
+			new /obj/item/stack/sheet/glass/five(drop_location())
 
 /obj/furnace/attackby(obj/item/I, mob/living/user, params)
 
@@ -58,7 +59,7 @@
 		to_chat(user, "<span class=\"alert\">Плавильня занята работой!</span>")
 		return
 
-	if(istype(I, /obj/item/stack/ore/iron) || istype(I, /obj/item/stack/ore/gold) || istype(I, /obj/item/stack/sheet/metal))
+	if(istype(I, /obj/item/stack/ore/iron) || istype(I, /obj/item/stack/ore/gold) || istype(I, /obj/item/stack/sheet/metal) || istype(I, /obj/item/stack/sheet/glass))
 		var/obj/item/stack/S = I
 		if(S.amount >= 5)
 			S.use(5)
@@ -68,6 +69,8 @@
 			to_chat(user, "<span class='notice'>Плавильня начинает свою работу...</span>")
 			if(istype(I, /obj/item/stack/ore/gold))
 				furnacing_type = "gold"
+			else if(istype(I, /obj/item/stack/ore/glass))
+				furnacing_type = "glass"
 			else
 				furnacing_type = "iron"
 			addtimer(CALLBACK(src, .proc/furnaced_thing), 15 SECONDS)
