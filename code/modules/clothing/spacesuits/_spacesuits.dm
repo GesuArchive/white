@@ -3,9 +3,9 @@
 //Note: Everything in modules/clothing/spacesuits should have the entire suit grouped together.
 //      Meaning the the suit is defined directly after the corrisponding helmet. Just like below!
 /obj/item/clothing/head/helmet/space
-	name = "space helmet"
+	name = "шлем скафандра"
 	icon_state = "spaceold"
-	desc = "A special helmet with solar UV shielding to protect your eyes from harmful rays."
+	desc = "Специальный шлем защищающий ваши глаза от солнечного ультрафиолета."
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT
 	inhand_icon_state = "spaceold"
 	permeability_coefficient = 0.01
@@ -25,7 +25,7 @@
 	dog_fashion = null
 
 /obj/item/clothing/suit/space
-	name = "space suit"
+	name = "скафандр"
 	desc = "A suit that protects against low pressure environments. Has a big 13 on the back."
 	icon_state = "spaceold"
 	inhand_icon_state = "s_suit"
@@ -124,9 +124,9 @@
 /obj/item/clothing/suit/space/examine(mob/user)
 	. = ..()
 	if(in_range(src, user) || isobserver(user))
-		. += "The thermal regulator is [thermal_on ? "on" : "off"] and the temperature is set to \
+		. += "Терморегулятор [thermal_on ? "включен" : "выключен"], выставленная температура \
 			[round(temperature_setting-T0C,0.1)] &deg;C ([round(temperature_setting*1.8-459.67,0.1)] &deg;F)"
-		. += "The power meter shows [cell ? "[round(cell.percent(), 0.1)]%" : "!invalid!"] charge remaining."
+		. += "Измеритель мощности показывает [cell ? "[round(cell.percent(), 0.1)]%" : "!invalid!"] оставшегося заряда."
 		if(cell_cover_open)
 			. += "The cell cover is open exposing the cell and setting knobs."
 			if(!cell)
@@ -146,11 +146,11 @@
 			range_low = -20 // emagged min temp c
 			range_high = 120 // emagged max temp c
 
-		var/deg_c = input(user, "What temperature would you like to set the thermal regulator to? \
+		var/deg_c = input(user, "Какую температуру задать на терморегуляторе? \
 			([range_low]-[range_high] degrees celcius)") as null|num
 		if(deg_c && deg_c >= range_low && deg_c <= range_high)
 			temperature_setting = round(T0C + deg_c, 0.1)
-			to_chat(user, "<span class='notice'>You see the readout change to [deg_c] c.</span>")
+			to_chat(user, "<span class='notice'>Вы видите изменение показаний на [deg_c] c.</span>")
 		return
 	else if(cell_cover_open && istype(I, /obj/item/stock_parts/cell))
 		if(cell)
