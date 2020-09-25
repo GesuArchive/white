@@ -252,7 +252,8 @@ MRE Stuff
 
 /obj/random/mre/Initialize()
 	..()
-	new pick(spawn_choices())(src)
+	var/to_create = pick(spawn_choices())
+	new to_create(src)
 	qdel(src)
 
 /obj/random/mre/spawn_choices()
@@ -296,7 +297,7 @@ MRE Stuff
 				/obj/item/reagent_containers/food/snacks/chocolatebar,
 				/obj/item/reagent_containers/food/snacks/cookie,
 				/obj/item/reagent_containers/food/snacks/poppypretzel,
-				/obj/item/clothing/mask/chewable/candy/gum)
+				/obj/item/reagent_containers/food/snacks/chewable/bubblegum)
 
 /obj/random/mre/dessert/vegan
 	name = "random vegan MRE dessert"
@@ -328,15 +329,15 @@ MRE Stuff
 	icon_state = "packet_small"
 
 /obj/random/mre/spread/spawn_choices()
-	return list(/obj/item/reagent_containers/food/condiment/pack/cornoil,
-				/obj/item/reagent_containers/food/condiment/pack/frostoil)
+	return list(/obj/item/reagent_containers/food/condiment/pack/astrotame,
+				/obj/item/reagent_containers/food/condiment/pack/ketchup)
 
 /obj/random/mre/spread/vegan
 	name = "random vegan MRE spread"
 	desc = "This is a random vegan spread packet for MREs"
 
 /obj/random/mre/spread/vegan/spawn_choices()
-	return list(/obj/item/reagent_containers/food/condiment/pack/cornoil)
+	return list(/obj/item/reagent_containers/food/condiment/pack/astrotame)
 
 /obj/random/mre/sauce
 	name = "random MRE sauce"
