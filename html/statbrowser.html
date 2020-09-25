@@ -373,8 +373,8 @@ function createStatusTab(name) {
 	B.className = "button";
 	//ORDERING ALPHABETICALLY
 	B.style.order = name.charCodeAt(0);
-	if(name == "Status" || name == "MC")
-		B.style.order = name == "Status" ? 1 : 2;
+	if(name == "Статус" || name == "MC")
+		B.style.order = name == "Статус" ? 1 : 2;
 	//END ORDERING
 	menu.appendChild(B);
 	SendTabToByond(name);
@@ -469,7 +469,7 @@ function verbs_cat_check(cat) {
 	if(verbs_in_cat != 1) {
 		removeStatusTab(tabCat);
 		if(current_tab == tabCat)
-			tab_change("Status");
+			tab_change("Статус");
 	}
 }
 
@@ -569,7 +569,7 @@ function update(global_data, ping_entry, other_entries) {
 	for(var i = 0; i < parsed.length; i++) if(parsed[i] != null) status_tab_parts.push(parsed[i]);
 	parsed = JSON.parse(other_entries);
 	for(var i = 0; i < parsed.length; i++) if(parsed[i] != null) status_tab_parts.push(parsed[i]);
-	if(current_tab == "Status")
+	if(current_tab == "Статус")
 		draw_status();
 	else if(current_tab == "Debug Stat Panel")
 		draw_debug();
@@ -588,7 +588,7 @@ function update_mc(global_mc_data, coords_entry) {
 function remove_mc() {
 	removeStatusTab("MC");
 	if(current_tab == "MC")
-		tab_change("Status");
+		tab_change("Статус");
 }
 function remove_spells() {
 	for(var s = 0; s < spell_tabs.length; s++){
@@ -652,7 +652,7 @@ function tab_change(tab) {
 		document.getElementById(tab).className = "button active"; // make current button active
 	var spell_tabs_thingy = (spell_tabs.includes(tab));
 	var verb_tabs_thingy = (verb_tabs.includes(tab));
-	if(tab == "Status") {
+	if(tab == "Статус") {
 		draw_status();
 	} else if(tab == "MC") {
 		draw_mc();
@@ -662,7 +662,7 @@ function tab_change(tab) {
 		draw_verbs(tab);
 	} else if(tab == "Debug Stat Panel") {
 		draw_debug();
-	} else if(tab == "Tickets") {
+	} else if(tab == "Тикеты") {
 		draw_tickets();
 	} else if(tab == "SDQL2") {
 		draw_sdql2();
@@ -736,9 +736,9 @@ function draw_debug() {
 
 }
 function draw_status() {
-	if(!document.getElementById("Status")) {
-		createStatusTab("Status");
-		current_tab = "Status";
+	if(!document.getElementById("Статус")) {
+		createStatusTab("Статус");
+		current_tab = "Статус";
 	}
 	statcontentdiv[textContentKey] = '';
 	for(var i = 0; i < status_tab_parts.length; i++) {
@@ -781,11 +781,11 @@ function draw_mc() {
 }
 function update_tickets(T){
 	tickets = JSON.parse(T);
-	if(!verb_tabs.includes("Tickets")) {
-		verb_tabs.push("Tickets");
-		addPermanentTab("Tickets");
+	if(!verb_tabs.includes("Тикеты")) {
+		verb_tabs.push("Тикеты");
+		addPermanentTab("Тикеты");
 	}
-	if(current_tab == "Tickets")
+	if(current_tab == "Тикеты")
 		draw_tickets();
 }
 function update_sdql2(S) {
@@ -803,7 +803,7 @@ function remove_sdql2() {
 		sdql2 = [];
 		removePermanentTab("SDQL2");
 		if(current_tab == "SDQL2")
-			tab_change("Status");
+			tab_change("Статус");
 	}
 	checkStatusTab();
 }
@@ -811,9 +811,9 @@ function remove_sdql2() {
 function remove_tickets() {
 	if(tickets) {
 		tickets = [];
-		removePermanentTab("Tickets");
-		if(current_tab == "Tickets")
-			tab_change("Status");
+		removePermanentTab("Тикеты");
+		if(current_tab == "Тикеты")
+			tab_change("Статус");
 	}
 	checkStatusTab();
 }
@@ -828,7 +828,7 @@ function remove_admin_tabs() {
 function add_admin_tabs(ht) {
 	href_token = ht;
 	addPermanentTab("MC");
-	addPermanentTab("Tickets");
+	addPermanentTab("Тикеты");
 }
 function create_listedturf(TN) {
 	remove_listedturf(); // remove the last one if we had one
@@ -911,7 +911,7 @@ function remove_listedturf() {
 	removePermanentTab(turfname);
 	checkStatusTab();
 	if(current_tab == turfname)
-		tab_change("Status");
+		tab_change("Статус");
 }
 function draw_sdql2(){
 	statcontentdiv[textContentKey] = "";
@@ -1070,8 +1070,8 @@ document[addEventListenerKey]("click", function(e) {
 });
 
 if(!current_tab) {
-	addPermanentTab("Status");
-	tab_change("Status");
+	addPermanentTab("Статус");
+	tab_change("Статус");
 }
 
 window.onload = function() {

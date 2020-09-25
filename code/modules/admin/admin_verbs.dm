@@ -804,6 +804,6 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/debugstatpanel()
 	set name = "Debug Stat Panel"
-	set category = "Debug"
+	set category = "Дбг"
 
 	src << output("", "statbrowser:create_debug")
