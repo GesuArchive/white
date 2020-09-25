@@ -493,7 +493,7 @@
 		if(S.amount >= 5)
 			S.use(5)
 			to_chat(user, "<span class='notice'>Создаю винтовку.</span>")
-			new /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k(get_turf(src))
+			new /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/empty(get_turf(src))
 			qdel(src)
 			return
 		else
