@@ -7,7 +7,6 @@ MRE Stuff
 	desc = "Запечатанный под вакуумом пакет с дневным запасом питательных веществ для взрослого, находящегося в тяжелых условиях. На упаковке нет видимой даты истечения срока годности."
 	icon = 'white/valtos/icons/mre.dmi'
 	icon_state = "mre"
-	locked = TRUE
 	var/open_sound = 'white/valtos/sounds/rip1.ogg'
 	var/main_meal = /obj/item/storage/mrebag
 	var/meal_desc = "Этот набор под номером #1. Внутри пицца с мясом!"
@@ -27,6 +26,7 @@ MRE Stuff
 	STR.max_w_class = WEIGHT_CLASS_SMALL
 	STR.allow_quick_empty = FALSE
 	STR.rustle_sound = FALSE
+	STR.locked = TRUE
 	new main_meal(src)
 	for(var/i in meal_contents)
 		new i(src)
@@ -36,7 +36,8 @@ MRE Stuff
 	. += "<hr><span class='notice'[meal_desc]</span>"
 
 /obj/item/storage/mre/update_icon()
-	if(!locked)
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(!STR.locked)
 		icon_state = "[initial(icon_state)]1"
 	. = ..()
 
@@ -45,9 +46,10 @@ MRE Stuff
 	. = ..()
 
 /obj/item/storage/mre/proc/open(mob/user)
-	if(locked)
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(STR.locked)
 		playsound(get_turf(src), open_sound, 50, TRUE)
-		locked = FALSE
+		STR.locked = FALSE
 		to_chat(user, "<span class='notice'>Вскрываю упаковку. Приятный запах начинает исходить из неё.</span>")
 		update_icon()
 
@@ -186,11 +188,13 @@ MRE Stuff
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 1
 	STR.max_w_class = WEIGHT_CLASS_SMALL
+	STR.locked = TRUE
 	for(var/i in meal_contents)
 		new i(src)
 
 /obj/item/storage/mrebag/update_icon()
-	if(!locked)
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(!STR.locked)
 		icon_state = "[initial(icon_state)]1"
 	. = ..()
 
@@ -199,9 +203,10 @@ MRE Stuff
 	. = ..()
 
 /obj/item/storage/mrebag/proc/open(mob/user)
-	if(locked)
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(STR.locked)
 		playsound(get_turf(src), open_sound, 50, TRUE)
-		locked = FALSE
+		STR.locked = FALSE
 		to_chat(user, "<span class='notice'>Вскрываю упаковку. Приятный запах начинает исходить из неё.</span>")
 		update_icon()
 
