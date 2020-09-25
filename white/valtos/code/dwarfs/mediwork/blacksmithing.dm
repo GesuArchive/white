@@ -59,7 +59,7 @@
 		to_chat(user, "<span class=\"alert\">Плавильня занята работой!</span>")
 		return
 
-	if(istype(I, /obj/item/stack/ore/iron) || istype(I, /obj/item/stack/ore/gold) || istype(I, /obj/item/stack/sheet/metal) || istype(I, /obj/item/stack/sheet/glass))
+	if(istype(I, /obj/item/stack/ore/iron) || istype(I, /obj/item/stack/ore/gold) || istype(I, /obj/item/stack/sheet/metal) || istype(I, /obj/item/stack/ore/glass))
 		var/obj/item/stack/S = I
 		if(S.amount >= 5)
 			S.use(5)
