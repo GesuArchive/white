@@ -313,8 +313,8 @@
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 
 /obj/item/clothing/mask/gondola
-	name = "gondola mask"
-	desc = "Genuine gondola fur."
+	name = "Маска гондолы"
+	desc = "Из настоящего гондольего меха "
 	icon_state = "gondola"
 	inhand_icon_state = "gondola"
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR

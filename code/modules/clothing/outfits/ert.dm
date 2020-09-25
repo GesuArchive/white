@@ -192,14 +192,14 @@
 	..()
 
 /datum/outfit/centcom/ert/commander/inquisitor
-	name = "Inquisition Commander"
+	name = "Капитан Инквизиторов"
 	l_hand = /obj/item/nullrod/scythe/talking/chainsword
 	suit = /obj/item/clothing/suit/space/hardsuit/ert/paranormal
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,
 		/obj/item/gun/energy/e_gun=1)
 
 /datum/outfit/centcom/ert/security/inquisitor
-	name = "Inquisition Security"
+	name = "Охранник Инвизиторов"
 
 	suit = /obj/item/clothing/suit/space/hardsuit/ert/paranormal/inquisitor
 
@@ -210,7 +210,7 @@
 		/obj/item/construction/rcd/loaded=1)
 
 /datum/outfit/centcom/ert/medic/inquisitor
-	name = "Inquisition Medic"
+	name = "Медик Инвизиторов"
 
 	suit = /obj/item/clothing/suit/space/hardsuit/ert/paranormal/inquisitor
 
@@ -222,7 +222,7 @@
 		/obj/item/gun/medbeam=1)
 
 /datum/outfit/centcom/ert/chaplain
-	name = "ERT Chaplain"
+	name = "Капеллан ERT"
 
 	suit = /obj/item/clothing/suit/space/hardsuit/ert/paranormal/inquisitor // Chap role always gets this suit
 	id = /obj/item/card/id/ert/chaplain
@@ -243,7 +243,7 @@
 	R.recalculateChannels()
 
 /datum/outfit/centcom/ert/chaplain/inquisitor
-	name = "Inquisition Chaplain"
+	name = "Капеллан Инквизиторов"
 
 	belt = /obj/item/storage/belt/soulstone/full/chappy
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,
@@ -253,7 +253,7 @@
 		)
 
 /datum/outfit/centcom/ert/janitor
-	name = "ERT Janitor"
+	name = "Уборщик ERT"
 
 	id = /obj/item/card/id/ert/janitor
 	suit = /obj/item/clothing/suit/space/hardsuit/ert/jani
@@ -281,7 +281,7 @@
 	R.recalculateChannels()
 
 /datum/outfit/centcom/ert/janitor/heavy
-	name = "ERT Janitor - Heavy Duty"
+	name = "Уборщик ERT - сверхмощный"
 
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
 	l_hand = /obj/item/reagent_containers/spray/chemsprayer/janitor
@@ -291,7 +291,7 @@
 		/obj/item/grenade/clusterbuster/cleaner=3)
 
 /datum/outfit/centcom/ert/clown
-	name = "ERT Clown"
+	name = "Клоун ERT"
 
 	suit = /obj/item/clothing/suit/space/hardsuit/ert/clown
 	mask = /obj/item/clothing/mask/gas/clown_hat
@@ -320,7 +320,7 @@
 		M.mutadone_proof = TRUE
 
 /datum/outfit/centcom/centcom_intern
-	name = "CentCom Intern"
+	name = "Интерн ЦентКома"
 
 	uniform = /obj/item/clothing/under/rank/centcom/intern
 	shoes = /obj/item/clothing/shoes/sneakers/black
@@ -347,7 +347,7 @@
 	W.update_label()
 
 /datum/outfit/centcom/centcom_intern/leader
-	name = "CentCom Head Intern"
+	name = "Старший Интерн ЦентКома"
 	belt = /obj/item/melee/baton/loaded
 	suit = /obj/item/clothing/suit/armor/vest
 	suit_store = /obj/item/gun/ballistic/rifle/boltaction
@@ -355,7 +355,7 @@
 	head = /obj/item/clothing/head/intern
 
 /datum/outfit/centcom/ert/janitor/party
-	name = "ERP Cleaning Service"
+	name = "Клининговая Компания ERT"
 
 	uniform = /obj/item/clothing/under/misc/overalls
 	mask = /obj/item/clothing/mask/bandana/blue
@@ -371,7 +371,7 @@
 		/obj/item/reagent_containers/glass/bucket=1)
 
 /datum/outfit/centcom/ert/security/party
-	name = "ERP Bouncer"
+	name = "Вышибала ERP"
 
 	uniform = /obj/item/clothing/under/misc/bouncer
 	suit = /obj/item/clothing/suit/armor/vest
@@ -384,7 +384,7 @@
 
 
 /datum/outfit/centcom/ert/engineer/party
-	name = "ERP Constructor"
+	name = "Строитель ERP"
 
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/hazard
 	mask = /obj/item/clothing/mask/gas/atmos
@@ -400,7 +400,7 @@
 		/obj/item/construction/rcd/loaded=1)
 
 /datum/outfit/centcom/ert/clown/party
-	name = "ERP Comedian"
+	name = "Комедиант ERP"
 
 	uniform = /obj/item/clothing/under/rank/civilian/clown
 	head = /obj/item/clothing/head/chameleon
@@ -411,7 +411,7 @@
 		/obj/item/instrument/piano_synth=1)
 
 /datum/outfit/centcom/ert/commander/party
-	name = "ERP Coordinator"
+	name = "Распорядитель Вечеринок ERP"
 
 	uniform = /obj/item/clothing/under/misc/coordinator
 	head = /obj/item/clothing/head/coordinator
