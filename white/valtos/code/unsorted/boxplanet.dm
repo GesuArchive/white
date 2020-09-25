@@ -150,7 +150,7 @@
 				if(istype(T, /turf/open/floor/grass/gensgrass/dirty/stone/raw))
 					possible_turfs += T
 			planted_things += new generating_type(pick(possible_turfs))
-			if(istype(generating_type, /obj/structure/flora/tree/boxplanet/kartoshmel) && (prob(50)))
+			if(prob(20))
 				new /obj/effect/step_trigger/ambush(pick(possible_turfs))
 			listclearnulls(planted_things)
 			return
