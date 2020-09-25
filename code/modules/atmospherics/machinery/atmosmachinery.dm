@@ -67,7 +67,6 @@
 
 	SSair.atmos_machinery -= src
 
-	dropContents()
 	if(pipe_vision_img)
 		qdel(pipe_vision_img)
 

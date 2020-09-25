@@ -100,8 +100,8 @@
 	fan.add_hud_to(H)
 
 /datum/quirk/freerunning
-	name = "Паркурист"
-	desc = "Я хорошо преодолеваете препятствия! Я быстрее залезаете на столы."
+	name = "Freerunning"
+	desc = "You're great at quick moves! You can climb tables more quickly and take no damage from short falls."
 	value = 2
 	mob_trait = TRAIT_FREERUNNING
 	gain_text = "<span class='notice'>Я чувствую гибкость ваших ног!</span>"
