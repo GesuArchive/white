@@ -7,7 +7,7 @@ MRE Stuff
 	desc = "Запечатанный под вакуумом пакет с дневным запасом питательных веществ для взрослого, находящегося в тяжелых условиях. На упаковке нет видимой даты истечения срока годности."
 	icon = 'white/valtos/icons/mre.dmi'
 	icon_state = "mre"
-	var/opened = FALSE
+	locked = TRUE
 	var/open_sound = 'white/valtos/sounds/rip1.ogg'
 	var/main_meal = /obj/item/storage/mrebag
 	var/meal_desc = "Этот набор под номером #1. Внутри пицца с мясом!"
@@ -25,6 +25,8 @@ MRE Stuff
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 7
 	STR.max_w_class = WEIGHT_CLASS_SMALL
+	STR.allow_quick_empty = FALSE
+	STR.rustle_sound = FALSE
 	new main_meal(src)
 	for(var/i in meal_contents)
 		new i(src)
@@ -34,8 +36,8 @@ MRE Stuff
 	. += "<hr><span class='notice'[meal_desc]</span>"
 
 /obj/item/storage/mre/update_icon()
-	if(opened)
-		icon_state = "[initial(icon_state)][opened]"
+	if(!locked)
+		icon_state = "[initial(icon_state)]1"
 	. = ..()
 
 /obj/item/storage/mre/attack_self(mob/user)
@@ -43,10 +45,11 @@ MRE Stuff
 	. = ..()
 
 /obj/item/storage/mre/proc/open(mob/user)
-	if(!opened)
+	if(locked)
 		playsound(get_turf(src), open_sound, 50, TRUE)
-		opened = TRUE
+		locked = FALSE
 		to_chat(user, "<span class='notice'>Вскрываю упаковку. Приятный запах начинает исходить из неё.</span>")
+		update_icon()
 
 /obj/item/storage/mre/menu2
 	name = "ИРП, Набор #2"
@@ -175,7 +178,6 @@ MRE Stuff
 	icon = 'white/valtos/icons/mre.dmi'
 	icon_state = "pouch_medium"
 	w_class = WEIGHT_CLASS_SMALL
-	var/opened = FALSE
 	var/open_sound = 'sound/effects/bubbles.ogg'
 	var/list/meal_contents = list(/obj/item/reagent_containers/food/snacks/pizza/meat)
 
@@ -188,8 +190,8 @@ MRE Stuff
 		new i(src)
 
 /obj/item/storage/mrebag/update_icon()
-	if(opened)
-		icon_state = "[initial(icon_state)][opened]"
+	if(!locked)
+		icon_state = "[initial(icon_state)]1"
 	. = ..()
 
 /obj/item/storage/mrebag/attack_self(mob/user)
@@ -197,10 +199,11 @@ MRE Stuff
 	. = ..()
 
 /obj/item/storage/mrebag/proc/open(mob/user)
-	if(!opened)
+	if(locked)
 		playsound(get_turf(src), open_sound, 50, TRUE)
-		opened = TRUE
+		locked = FALSE
 		to_chat(user, "<span class='notice'>Вскрываю упаковку. Приятный запах начинает исходить из неё.</span>")
+		update_icon()
 
 /obj/item/storage/mrebag/menu2
 	meal_contents = list(/obj/item/reagent_containers/food/snacks/pizza/margherita)
