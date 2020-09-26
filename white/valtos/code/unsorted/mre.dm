@@ -32,7 +32,7 @@ MRE Stuff
 
 /obj/item/storage/mre/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'[meal_desc]</span>"
+	. += "<hr><span class='smallnotice'>[meal_desc]</span>"
 
 /obj/item/storage/mre/update_icon()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
@@ -162,7 +162,7 @@ MRE Stuff
 
 /obj/item/storage/mre/random
 	meal_desc = "Меню затёрто."
-	main_meal = list(/obj/item/storage/mrebag,
+	var/random_meal = list(/obj/item/storage/mrebag,
 		/obj/item/storage/mrebag/menu2,
 		/obj/item/storage/mrebag/menu3,
 		/obj/item/storage/mrebag/menu4,
@@ -170,6 +170,10 @@ MRE Stuff
 		/obj/item/storage/mrebag/menu6,
 		/obj/item/storage/mrebag/menu7,
 		/obj/item/storage/mrebag/menu8)
+
+/obj/item/storage/mre/random/Initialize()
+	. = ..()
+	main_meal = pick(random_meal)
 
 /obj/item/storage/mrebag
 	name = "основное блюдо"
