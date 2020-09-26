@@ -325,7 +325,7 @@
 	. = ..()
 	AddComponent(/datum/component/two_handed, require_twohands=TRUE)
 
-/obj/item/zwei/afterattack(atom/target, mob/user, proximity)
+/obj/item/blacksmith/zwei/afterattack(atom/target, mob/user, proximity)
 	. = ..()
 	if(!proximity)
 		return
