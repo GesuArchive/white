@@ -985,3 +985,24 @@
 	if(is_wire_tool(O))
 		return FALSE
 	..()
+
+/obj/structure/closet/crate/sarcophage
+	name = "саркофаг"
+	desc = "Души усопших запечатаны здесь. В нём не рекомендуется спать."
+	icon = 'white/valtos/icons/objects.dmi'
+	icon_state = "sarcophage"
+	drag_slowdown = 4
+	var/dead_used = FALSE
+
+/obj/structure/closet/crate/sarcophage/close(mob/living/user)
+	. = ..()
+	if(.)
+		for(var/mob/living/carbon/human/H in contents)
+			if(H.stat == DEAD)
+				name = "саркофаг [H.real_name]"
+				H.gib(TRUE, TRUE, TRUE, TRUE)
+				dead_used = TRUE
+				for(var/obj/structure/bed/prison/bed/S in world)
+					new /obj/effect/mob_spawn/human/dwarf(get_turf(S))
+					return TRUE
+				return TRUE

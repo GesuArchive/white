@@ -183,6 +183,14 @@
 	category = CAT_STRUCTURE
 	always_available = TRUE
 
+/datum/crafting_recipe/smithman/furnace_cook
+	name = "Печь для готовки"
+	result = /obj/machinery/microwave/furnace
+	reqs = list(/obj/item/raw_stone/block = 8, /obj/item/stack/sheet/mineral/wood = 6)
+	time = 200
+	category = CAT_STRUCTURE
+	always_available = TRUE
+
 /datum/crafting_recipe/smithman/forge
 	name = "Кузница"
 	result = /obj/forge
@@ -212,6 +220,14 @@
 	result = /obj/structure/table/stone
 	reqs = list(/obj/item/raw_stone/block = 2)
 	time = 100
+	category = CAT_STRUCTURE
+	always_available = TRUE
+
+/datum/crafting_recipe/smithman/sarcophage
+	name = "Саркофаг"
+	result = /obj/structure/closet/crate/sarcophage
+	reqs = list(/obj/item/raw_stone/block = 10)
+	time = 250
 	category = CAT_STRUCTURE
 	always_available = TRUE
 

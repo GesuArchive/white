@@ -167,5 +167,3 @@
 	W.registered_name = H.real_name
 	W.update_label()
 	W.access = list(ACCESS_MAINT_TUNNELS)
-	var/obj/item/tank/internals/dwarf/T = H.r_store
-	T.toggle_internals(H)
