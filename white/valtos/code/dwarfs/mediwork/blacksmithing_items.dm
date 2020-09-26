@@ -999,10 +999,13 @@
 	if(.)
 		for(var/mob/living/carbon/human/H in contents)
 			if(H.stat == DEAD)
-				name = "саркофаг [H.real_name]"
-				H.gib(TRUE, TRUE, TRUE, TRUE)
+				name = "саркофаг [sklonenie(H.real_name, VINITELNI, H.gender)]"
+				for(var/obj/item/W in H)
+					if(!H.dropItemToGround(W))
+						qdel(W)
+						H.regenerate_icons()
+				qdel(H)
 				dead_used = TRUE
-				for(var/obj/structure/bed/prison/bed/S in world)
-					new /obj/effect/mob_spawn/human/dwarf(get_turf(S))
-					return TRUE
+				var/turf/where_is_new = get_turf(pick(GLOB.dwarf_shkonka_list))
+				new /obj/effect/mob_spawn/human/dwarf(where_is_new)
 				return TRUE
