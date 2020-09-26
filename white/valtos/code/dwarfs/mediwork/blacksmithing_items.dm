@@ -329,7 +329,7 @@
 	. = ..()
 	if(!proximity)
 		return
-	user.changeNext_move(5)
+	user.changeNext_move(5 SECONDS)
 
 /obj/item/blacksmith/cep
 	name = "цеп"
@@ -353,7 +353,7 @@
 	. = ..()
 	if(!proximity)
 		return
-	user.changeNext_move(3)
+	user.changeNext_move(3 SECONDS)
 
 /obj/item/blacksmith/dagger
 	name = "кинжал"
