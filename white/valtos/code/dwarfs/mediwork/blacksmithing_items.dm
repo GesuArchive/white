@@ -961,6 +961,7 @@
 	use_power = NO_POWER_USE
 	idle_power_usage = 0
 	active_power_usage = 0
+	efficiency = 4
 	circuit = null
 
 /obj/machinery/microwave/furnace/update_icon_state()
@@ -978,6 +979,7 @@
 		icon_state = "peeech"
 
 /obj/machinery/microwave/furnace/attackby(obj/item/O, mob/user, params)
+	efficiency = 4
 	broken = 0
 	dirty = 0
 	if(is_wire_tool(O))
