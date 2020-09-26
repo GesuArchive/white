@@ -54,7 +54,7 @@
 	icon_state = "kartoshmel"
 	var/mob_type
 	var/spawned_mobs = 0
-	var/max_spawn = 3
+	var/max_spawn = 1
 	var/cooldown = 0
 
 /obj/structure/flora/tree/boxplanet/kartoshmel/Initialize()
@@ -180,6 +180,7 @@
 		for(var/obj/structure/flora/tree/boxplanet/kartoshmel/K in orange(7, src))
 			K.spawned_mobs = 0
 			START_PROCESSING(SSobj, K)
+		qdel(src)
 	else
 		amb_chance += 10
 
