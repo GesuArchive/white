@@ -134,17 +134,17 @@
 		return
 
 	if(!in_range(user, our_guy))
-		to_chat(user, "<span class='warning'>You aren't close enough to interact with [src]'s laces!</span>")
+		to_chat(user, "<span class='warning'>Я слишком далеко чтобы взаимодействовать со шнурками [src]!</span>")
 		return
 
 	if(user == loc && tied != SHOES_TIED) // if they're our own shoes, go tie-wards
 		if(INTERACTING_WITH(user, our_guy))
 			to_chat(user, "<span class='warning'>Уже взаимодействую с [src]!</span>")
 			return
-		user.visible_message("<span class='notice'>[user] begins [tied ? "unknotting" : "tying"] the laces of [user.p_their()] [src.name].</span>", "<span class='notice'>You begin [tied ? "unknotting" : "tying"] the laces of your [src.name]...</span>")
+		user.visible_message("<span class='notice'>[user] [tied ? "развязывать" : "завязывать"] шнурки на [user.p_their()] [src.name].</span>", "<span class='notice'>You begin [tied ? "unknotting" : "tying"] the laces of your [src.name]...</span>")
 
 		if(do_after(user, lace_time, needhand=TRUE, target=our_guy, extra_checks=CALLBACK(src, .proc/still_shoed, our_guy)))
-			to_chat(user, "<span class='notice'>You [tied ? "unknot" : "tie"] the laces of your [src.name].</span>")
+			to_chat(user, "<span class='notice'>Я [tied ? "развязал" : "завязал"] шнурки на [src.name].</span>")
 			if(tied == SHOES_UNTIED)
 				adjust_laces(SHOES_TIED, user)
 			else
@@ -153,10 +153,10 @@
 	else // if they're someone else's shoes, go knot-wards
 		var/mob/living/L = user
 		if(istype(L) && (L.mobility_flags & MOBILITY_STAND))
-			to_chat(user, "<span class='warning'>You must be on the floor to interact with [src]!</span>")
+			to_chat(user, "<span class='warning'>Мне нужно быть на полу чтобы взаимодействовать с [src]!</span>")
 			return
 		if(tied == SHOES_KNOTTED)
-			to_chat(user, "<span class='warning'>The laces on [loc]'s [src.name] are already a hopelessly tangled mess!</span>")
+			to_chat(user, "<span class='warning'>Шнурки на [loc] [src.name] уже связаны!</span>")
 			return
 		if(INTERACTING_WITH(user, our_guy))
 			to_chat(user, "<span class='warning'>Уже взаимодействую с [src]!</span>")

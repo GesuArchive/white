@@ -115,7 +115,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 ))
 
 /obj/item/stack/sheet/metal
-	name = "металд"
+	name = "металл"
 	desc = "Листы из металла."
 	singular_name = "лист металла"
 	icon = 'white/valtos/icons/items.dmi'

@@ -1,7 +1,7 @@
 /obj/item/stack/tile/light
-	name = "light tile"
-	singular_name = "light floor tile"
-	desc = "A floor tile, made out of glass. It produces light."
+	name = "световая плитка"
+	singular_name = "световая напольная плитка"
+	desc = "Плитка для пола сделанная из стекла. Она излучает свет."
 	icon_state = "tile_e"
 	flags_1 = CONDUCT_1
 	attack_verb_continuous = list("лупит", "бьёт", "разбивает", "вмазывает", "атакует")
