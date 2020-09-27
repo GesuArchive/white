@@ -431,6 +431,9 @@
 						null, "<span class='hear'>Слышу шуршание одежды.</span>", DEFAULT_MESSAGE_RANGE, list(M, src))
 		to_chat(M, "<span class='notice'>Встряхиваю [src] пытаесь поднять [ru_ego()]!</span>")
 		to_chat(src, "<span class='notice'>[M] пытается поднять меня!</span>")
+	else if(check_zone(M.zone_selected) == BODY_ZONE_HEAD) //Headpats!
+		M.visible_message("<span class='notice'>[M] гладит по головке [src]!</span>", \
+					"<span class='notice'>Глажу [src] по головке!</span>")
 	else
 		M.visible_message("<span class='notice'>[M] обнимает [src]!</span>", \
 					null, "<span class='hear'>Слышу шуршание одежды.</span>", DEFAULT_MESSAGE_RANGE, list(M, src))
@@ -548,15 +551,11 @@
 					eyes.applyOrganDamage(eyes.maxHealth)
 
 			else
-				to_chat(src, "<span class='warning'>Мои глаза начали болеть. Это не очень полезно для меня!</span>")
-		if(has_bane(BANE_LIGHT))
-			mind.disrupt_spells(-500)
+				to_chat(src, "<span class='warning'>ГЛАЗА БОЛЯТ! Это не очень полезно для меня!</span>")
 		return 1
 	else if(damage == 0) // just enough protection
 		if(prob(20))
 			to_chat(src, "<span class='notice'>Замечаю как что-то вспыхнуло краем глаза!</span>")
-		if(has_bane(BANE_LIGHT))
-			mind.disrupt_spells(0)
 
 
 /mob/living/carbon/soundbang_act(intensity = 1, stun_pwr = 20, damage_pwr = 5, deafen_pwr = 15)

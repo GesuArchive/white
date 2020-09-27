@@ -3,6 +3,7 @@
 	desc = "Ключ общего назначения. Его можно найти в твоей руке."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "wrench"
+	worn_icon_state = "wrench"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	flags_1 = CONDUCT_1

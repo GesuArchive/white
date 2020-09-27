@@ -255,8 +255,6 @@
 	owner.current.grant_language(/datum/language/vampiric)
 
 	// Soul
-	owner.current.hellbound = TRUE
-	owner.hasSoul = FALSE 		// If false, renders the character unable to sell their soul.
 	owner.holy_role = FALSE 		// is this person a chaplain or admin role allowed to use bibles
 
 	// Disabilities
@@ -301,12 +299,6 @@
 
 	// Language
 	owner.current.remove_language(/datum/language/vampiric)
-
-	// Soul
-	if (owner.soulOwner == owner) // Return soul, if *I* own it.
-		owner.hasSoul = TRUE
-	owner.current.hellbound = FALSE
-
 
 /datum/antagonist/bloodsucker/proc/RankUp()
 	set waitfor = FALSE

@@ -1,7 +1,7 @@
 /client/proc/one_click_antag()
 	set name = "Create Antagonist"
 	set desc = "Auto-create an antagonist of your choice"
-	set category = "Адм"
+	set category = "Адм.События"
 
 	if(holder)
 		holder.one_click_antag()

@@ -22,8 +22,8 @@
  */
 
 /obj/item/storage/box
-	name = "box"
-	desc = "It's just an ordinary box."
+	name = "коробка"
+	desc = "Это просто обычная коробка."
 	icon_state = "box"
 	inhand_icon_state = "syringe_kit"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -61,12 +61,12 @@
 	if(!foldable)
 		return
 	if(contents.len)
-		to_chat(user, "<span class='warning'>You can't fold this box with items still inside!</span>")
+		to_chat(user, "<span class='warning'>Вы не можете сложить эту коробку с предметами внутри!</span>")
 		return
 	if(!ispath(foldable))
 		return
 
-	to_chat(user, "<span class='notice'>You fold [src] flat.</span>")
+	to_chat(user, "<span class='notice'>Вы слаживаете [src].</span>")
 	var/obj/item/I = new foldable
 	qdel(src)
 	user.put_in_hands(I)
@@ -79,8 +79,8 @@
 //Mime spell boxes
 
 /obj/item/storage/box/mime
-	name = "invisible box"
-	desc = "Unfortunately not large enough to trap the mime."
+	name = "невидимая коробка"
+	desc = "К сожалению, недостаточно большая, чтобы поймать мима."
 	foldable = null
 	icon_state = "box"
 	inhand_icon_state = null
@@ -99,7 +99,7 @@
 //Disk boxes
 
 /obj/item/storage/box/disks
-	name = "diskette box"
+	name = "коробка для дискет"
 	illustration = "disk_kit"
 
 /obj/item/storage/box/disks/PopulateContents()
@@ -107,7 +107,7 @@
 		new /obj/item/disk/data(src)
 
 /obj/item/storage/box/disks_plantgene
-	name = "plant data disks box"
+	name = "коробка для дисков с ДНК растений"
 	illustration = "disk_kit"
 
 /obj/item/storage/box/disks_plantgene/PopulateContents()
@@ -115,7 +115,7 @@
 		new /obj/item/disk/plantgene(src)
 
 /obj/item/storage/box/disks_nanite
-	name = "nanite program disks box"
+	name = "коробка для дисков с программами для нанитов"
 	illustration = "disk_kit"
 
 /obj/item/storage/box/disks_nanite/PopulateContents()
@@ -177,8 +177,8 @@
 	mask_type = /obj/item/clothing/mask/breath/medical
 
 /obj/item/storage/box/gloves
-	name = "box of latex gloves"
-	desc = "Contains sterile latex gloves."
+	name = "коробка латексных перчаток"
+	desc = "Содержит стерильные латексные перчатки."
 	illustration = "latex"
 
 /obj/item/storage/box/gloves/PopulateContents()
@@ -186,8 +186,8 @@
 		new /obj/item/clothing/gloves/color/latex(src)
 
 /obj/item/storage/box/masks
-	name = "box of sterile masks"
-	desc = "This box contains sterile medical masks."
+	name = "коробка стерильных масок"
+	desc = "В этой коробке находятся стерильные медицинские маски."
 	illustration = "sterile"
 
 /obj/item/storage/box/masks/PopulateContents()
@@ -195,8 +195,8 @@
 		new /obj/item/clothing/mask/surgical(src)
 
 /obj/item/storage/box/syringes
-	name = "box of syringes"
-	desc = "A box full of syringes."
+	name = "коробка шприцев"
+	desc = "Коробка со шприцами."
 	illustration = "syringe"
 
 /obj/item/storage/box/syringes/PopulateContents()
@@ -204,7 +204,7 @@
 		new /obj/item/reagent_containers/syringe(src)
 
 /obj/item/storage/box/syringes/variety
-	name = "syringe variety box"
+	name = "коробка разнообразных шприцов"
 
 /obj/item/storage/box/syringes/variety/PopulateContents()
 	new /obj/item/reagent_containers/syringe(src)
@@ -213,8 +213,8 @@
 	new /obj/item/reagent_containers/syringe/bluespace(src)
 
 /obj/item/storage/box/medipens
-	name = "box of medipens"
-	desc = "A box full of epinephrine MediPens."
+	name = "коробка МедиПенов"
+	desc = "Коробка, полная адреналином МедиПенов."
 	illustration = "syringe"
 
 /obj/item/storage/box/medipens/PopulateContents()
@@ -222,8 +222,8 @@
 		new /obj/item/reagent_containers/hypospray/medipen(src)
 
 /obj/item/storage/box/medipens/utility
-	name = "stimpack value kit"
-	desc = "A box with several stimpack medipens for the economical miner."
+	name = "набор стимуляторов"
+	desc = "Коробка с несколькими стимуляторами для экономичного майнера."
 	illustration = "syringe"
 
 /obj/item/storage/box/medipens/utility/PopulateContents()
@@ -232,7 +232,7 @@
 		new /obj/item/reagent_containers/hypospray/medipen/stimpack(src)
 
 /obj/item/storage/box/beakers
-	name = "box of beakers"
+	name = "коробка химических стаканов"
 	illustration = "beaker"
 
 /obj/item/storage/box/beakers/PopulateContents()
@@ -240,7 +240,7 @@
 		new /obj/item/reagent_containers/glass/beaker( src )
 
 /obj/item/storage/box/beakers/bluespace
-	name = "box of bluespace beakers"
+	name = "коробка блюспейс химических стаканов"
 	illustration = "beaker"
 
 /obj/item/storage/box/beakers/bluespace/PopulateContents()
@@ -248,7 +248,7 @@
 		new /obj/item/reagent_containers/glass/beaker/bluespace(src)
 
 /obj/item/storage/box/beakers/variety
-	name = "beaker variety box"
+	name = "коробка различных химических стаканов"
 
 /obj/item/storage/box/beakers/variety/PopulateContents()
 	new /obj/item/reagent_containers/glass/beaker(src)
@@ -259,8 +259,8 @@
 	new /obj/item/reagent_containers/glass/beaker/bluespace(src)
 
 /obj/item/storage/box/medigels
-	name = "box of medical gels"
-	desc = "A box full of medical gel applicators, with unscrewable caps and precision spray heads."
+	name = "коробка медицинских гелей"
+	desc = "Коробка, полная аппликаторов медицинского геля с отвинчиваемыми крышками и точными распылительными головками."
 	illustration = "medgel"
 
 /obj/item/storage/box/medigels/PopulateContents()
@@ -268,8 +268,8 @@
 		new /obj/item/reagent_containers/medigel( src )
 
 /obj/item/storage/box/injectors
-	name = "box of DNA injectors"
-	desc = "This box contains injectors, it seems."
+	name = "коробка ДНК инъекторов"
+	desc = "В этой коробке, кажется, находятся инъекторы."
 	illustration = "dna"
 
 /obj/item/storage/box/injectors/PopulateContents()
@@ -279,8 +279,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/flashbangs
-	name = "box of flashbangs (WARNING)"
-	desc = "<B>WARNING: These devices are extremely dangerous and can cause blindness or deafness in repeated use.</B>"
+	name = "коробка светошумовых гранат (ВНИМАНИЕ)"
+	desc = "<B>ВНИМАНИЕ: эти устройства чрезвычайно опасны и могут вызвать слепоту или глухоту при повторном использовании.</B>"
 	icon_state = "secbox"
 	illustration = "flashbang"
 
@@ -289,8 +289,8 @@
 		new /obj/item/grenade/flashbang(src)
 
 /obj/item/storage/box/stingbangs
-	name = "box of stingbangs (WARNING)"
-	desc = "<B>WARNING: These devices are extremely dangerous and can cause severe injuries or death in repeated use.</B>"
+	name = "коробка стингбэнгов (ВНИМАНИЕ)"
+	desc = "<B>ВНИМАНИЕ: эти устройства чрезвычайно опасны и могут вызвать слепоту или глухоту при повторном использовании.</B>"
 	icon_state = "secbox"
 	illustration = "flashbang"
 
@@ -299,8 +299,8 @@
 		new /obj/item/grenade/stingbang(src)
 
 /obj/item/storage/box/flashes
-	name = "box of flashbulbs"
-	desc = "<B>WARNING: Flashes can cause serious eye damage, protective eyewear is required.</B>"
+	name = "коробка вспышек"
+	desc = "<B>Внимание: Вспышки могут нанести серьёзный урон глазам, требуются защитные очки</B>"
 	icon_state = "secbox"
 	illustration = "flash"
 
@@ -309,8 +309,8 @@
 		new /obj/item/assembly/flash/handheld(src)
 
 /obj/item/storage/box/wall_flash
-	name = "wall-mounted flash kit"
-	desc = "This box contains everything necessary to build a wall-mounted flash. <B>WARNING: Flashes can cause serious eye damage, protective eyewear is required.</B>"
+	name = "комплект настенной вспышки"
+	desc = "В этой коробке находится все необходимое для настенной вспышки. <B> ВНИМАНИЕ: вспышки могут серьезно повредить глаза, требуются защитные очки.</B>"
 	icon_state = "secbox"
 	illustration = "flash"
 
@@ -329,8 +329,8 @@
 
 
 /obj/item/storage/box/teargas
-	name = "box of tear gas grenades (WARNING)"
-	desc = "<B>WARNING: These devices are extremely dangerous and can cause blindness and skin irritation.</B>"
+	name = "ящик со слезоточивым газом (ВНИМАНИЕ)"
+	desc = "<B>ВНИМАНИЕ: Эти устройства чрезвычайно опасны и могут вызвать слепоту и раздражение кожи.</B>"
 	icon_state = "secbox"
 	illustration = "grenade"
 
@@ -339,8 +339,8 @@
 		new /obj/item/grenade/chem_grenade/teargas(src)
 
 /obj/item/storage/box/emps
-	name = "box of emp grenades"
-	desc = "A box with 5 emp grenades."
+	name = "ящик с ЕМП гранатами"
+	desc = "Ящик с 5 ЕМП гранатами."
 	illustration = "emp"
 
 /obj/item/storage/box/emps/PopulateContents()
@@ -348,8 +348,8 @@
 		new /obj/item/grenade/empgrenade(src)
 
 /obj/item/storage/box/trackimp
-	name = "boxed tracking implant kit"
-	desc = "Box full of scum-bag tracking utensils."
+	name = "комплект отслеживающих имплантов"
+	desc = "Коробка с приспособлениями для отслеживания отморозков."
 	icon_state = "secbox"
 	illustration = "implant"
 
@@ -362,8 +362,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/minertracker
-	name = "boxed tracking implant kit"
-	desc = "For finding those who have died on the accursed lavaworld."
+	name = "комплект отслеживающих имплантов"
+	desc = "Для поиска погибших в проклятом мире Лаваленда."
 	illustration = "implant"
 
 /obj/item/storage/box/minertracker/PopulateContents()
@@ -375,8 +375,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/chemimp
-	name = "boxed chemical implant kit"
-	desc = "Box of stuff used to implant chemicals."
+	name = "комплект химических имплантов"
+	desc = "Коробка с вещами, используемыми для имплантации химикатов."
 	illustration = "implant"
 
 /obj/item/storage/box/chemimp/PopulateContents()
@@ -387,8 +387,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/exileimp
-	name = "boxed exile implant kit"
-	desc = "Box of exile implants. It has a picture of a clown being booted through the Gateway."
+	name = "набор имплантатов для изгнания"
+	desc = "Коробка с набором имплантатов для изгнания. На нем есть изображение клоуна, которого выкидывают через Врата."
 	illustration = "implant"
 
 /obj/item/storage/box/exileimp/PopulateContents()
@@ -398,8 +398,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/bodybags
-	name = "body bags"
-	desc = "The label indicates that it contains body bags."
+	name = "сумки для тела"
+	desc = "На этикетке указано, что он содержит мешки для тела."
 	illustration = "bodybags"
 
 /obj/item/storage/box/bodybags/PopulateContents()
@@ -408,8 +408,8 @@
 		new /obj/item/bodybag(src)
 
 /obj/item/storage/box/rxglasses
-	name = "box of prescription glasses"
-	desc = "This box contains nerd glasses."
+	name = "коробка очков по рецепту"
+	desc = "В этой коробке находятся очки для ботаников."
 	illustration = "glasses"
 
 /obj/item/storage/box/rxglasses/PopulateContents()
@@ -417,8 +417,8 @@
 		new /obj/item/clothing/glasses/regular(src)
 
 /obj/item/storage/box/drinkingglasses
-	name = "box of drinking glasses"
-	desc = "It has a picture of drinking glasses on it."
+	name = "коробка стаканов"
+	desc = "На ней изображены стаканы."
 	illustration = "drinkglass"
 
 /obj/item/storage/box/drinkingglasses/PopulateContents()
@@ -426,8 +426,8 @@
 		new /obj/item/reagent_containers/food/drinks/drinkingglass(src)
 
 /obj/item/storage/box/condimentbottles
-	name = "box of condiment bottles"
-	desc = "It has a large ketchup smear on it."
+	name = "коробка бутылок для приправ."
+	desc = "На нем большой мазок кетчупа."
 	illustration = "condiment"
 
 /obj/item/storage/box/condimentbottles/PopulateContents()
@@ -435,8 +435,8 @@
 		new /obj/item/reagent_containers/food/condiment(src)
 
 /obj/item/storage/box/cups
-	name = "box of paper cups"
-	desc = "It has pictures of paper cups on the front."
+	name = "коробка бумажных стаканчиков"
+	desc = "На лицевой стороне изображены бумажные стаканчики."
 	illustration = "cup"
 
 /obj/item/storage/box/cups/PopulateContents()
@@ -444,8 +444,8 @@
 		new /obj/item/reagent_containers/food/drinks/sillycup( src )
 
 /obj/item/storage/box/donkpockets
-	name = "box of donk-pockets"
-	desc = "<B>Instructions:</B> <I>Heat in microwave. Product will cool if not eaten within seven minutes.</I>"
+	name = "коробка донк-покетов"
+	desc = "<B>Инструкция:</B><I>Нагрейте в микроволновой печи. Продукт остынет, если его не съесть в течение семи минут.</I>"
 	icon_state = "donkpocketbox"
 	illustration=null
 	var/donktype = /obj/item/reagent_containers/food/snacks/donkpocket
@@ -460,38 +460,38 @@
 	STR.set_holdable(list(/obj/item/reagent_containers/food/snacks/donkpocket))
 
 /obj/item/storage/box/donkpockets/donkpocketspicy
-	name = "box of spicy-flavoured donk-pockets"
+	name = "коробка донк-покетов с пряным вкусом"
 	icon_state = "donkpocketboxspicy"
 	donktype = /obj/item/reagent_containers/food/snacks/donkpocket/spicy
 
 /obj/item/storage/box/donkpockets/donkpocketteriyaki
-	name = "box of teriyaki-flavoured donk-pockets"
+	name = "коробка донк-покетов со вкусом терияки"
 	icon_state = "donkpocketboxteriyaki"
 	donktype = /obj/item/reagent_containers/food/snacks/donkpocket/teriyaki
 
 /obj/item/storage/box/donkpockets/donkpocketpizza
-	name = "box of pizza-flavoured donk-pockets"
+	name = "коробка донк-покетов со вкусом пиццы"
 	icon_state = "donkpocketboxpizza"
 	donktype = /obj/item/reagent_containers/food/snacks/donkpocket/pizza
 
 /obj/item/storage/box/donkpockets/donkpocketgondola
-	name = "box of gondola-flavoured donk-pockets"
+	name = "коробка донк-покетов со вкусом гондолы"
 	icon_state = "donkpocketboxgondola"
 	donktype = /obj/item/reagent_containers/food/snacks/donkpocket/gondola
 
 /obj/item/storage/box/donkpockets/donkpocketberry
-	name = "box of berry-flavoured donk-pockets"
+	name = "коробка донк-покетов со вкусом ягод"
 	icon_state = "donkpocketboxberry"
 	donktype = /obj/item/reagent_containers/food/snacks/donkpocket/berry
 
 /obj/item/storage/box/donkpockets/donkpockethonk
-	name = "box of banana-flavoured donk-pockets"
+	name = "коробка донк-покетов со вкусом банана"
 	icon_state = "donkpocketboxbanana"
 	donktype = /obj/item/reagent_containers/food/snacks/donkpocket/honk
 
 /obj/item/storage/box/monkeycubes
-	name = "monkey cube box"
-	desc = "Drymate brand monkey cubes. Just add water!"
+	name = "коробка кубиков с обезьянами"
+	desc = "Кубики обезьяны бренда Drymate. Просто добавь воды!"
 	icon_state = "monkeycubebox"
 	illustration = null
 	var/cube_type = /obj/item/reagent_containers/food/snacks/monkeycube
@@ -507,12 +507,12 @@
 		new cube_type(src)
 
 /obj/item/storage/box/monkeycubes/syndicate
-	desc = "Waffle Co. brand monkey cubes. Just add water and a dash of subterfuge!"
+	desc = "Обезьяньи кубики марки Waffle Co. Просто добавьте воды и немного уловок!"
 	cube_type = /obj/item/reagent_containers/food/snacks/monkeycube/syndicate
 
 /obj/item/storage/box/gorillacubes
-	name = "gorilla cube box"
-	desc = "Waffle Co. brand gorilla cubes. Do not taunt."
+	name = "коробка куба гориллы"
+	desc = "Кубики гориллы бренда Waffle Co. Не насмехайтесь."
 	icon_state = "monkeycubebox"
 	illustration = null
 
@@ -527,8 +527,8 @@
 		new /obj/item/reagent_containers/food/snacks/monkeycube/gorilla(src)
 
 /obj/item/storage/box/ids
-	name = "box of spare IDs"
-	desc = "Has so many empty IDs."
+	name = "коробка запасных идентификаторов"
+	desc = "В нём так много пустых идентификаторов."
 	illustration = "id"
 
 /obj/item/storage/box/ids/PopulateContents()
@@ -537,8 +537,8 @@
 
 //Some spare PDAs in a box
 /obj/item/storage/box/pdas
-	name = "spare PDAs"
-	desc = "A box of spare PDA microcomputers."
+	name = "Коробка запасных картриджей ПДА"
+	desc = "Коробка запасных картриджей ПДА."
 	illustration = "pda"
 
 /obj/item/storage/box/pdas/PopulateContents()
@@ -554,8 +554,8 @@
 	new newcart(src)
 
 /obj/item/storage/box/silver_ids
-	name = "box of spare silver IDs"
-	desc = "Shiny IDs for important people."
+	name = "коробка запасных серебряных удостоверений"
+	desc = "Блестящие идентификаторы для важных людей."
 	illustration = "id"
 
 /obj/item/storage/box/silver_ids/PopulateContents()
@@ -563,8 +563,8 @@
 		new /obj/item/card/id/silver(src)
 
 /obj/item/storage/box/prisoner
-	name = "box of prisoner IDs"
-	desc = "Take away their last shred of dignity, their name."
+	name = "коробка с идентификаторами для заключенных"
+	desc = "Уберите их последнее достоинство, их имя."
 	icon_state = "secbox"
 	illustration = "id"
 
@@ -579,8 +579,8 @@
 	new /obj/item/card/id/prisoner/seven(src)
 
 /obj/item/storage/box/seccarts
-	name = "box of PDA security cartridges"
-	desc = "A box full of PDA cartridges used by Security."
+	name = "коробка картриджей безопасности для ПДА"
+	desc = "Коробка, полная картриджей для ПДА, используемых службой безопасности."
 	icon_state = "secbox"
 	illustration = "pda"
 
@@ -590,8 +590,8 @@
 		new /obj/item/cartridge/security(src)
 
 /obj/item/storage/box/firingpins
-	name = "box of standard firing pins"
-	desc = "A box full of standard firing pins, to allow newly-developed firearms to operate."
+	name = "ящик штатных бойков"
+	desc = "Коробка со стандартными бойками для стрельбы из нового огнестрельного оружия."
 	icon_state = "secbox"
 	illustration = "firingpin"
 
@@ -600,8 +600,8 @@
 		new /obj/item/firing_pin(src)
 
 /obj/item/storage/box/firingpins/paywall
-	name = "box of paywall firing pins"
-	desc = "A box full of paywall firing pins, to allow newly-developed firearms to operate behind a custom-set paywall."
+	name = "ящик с еврейскими бойками"
+	desc = "Слыш. Плати"
 	illustration = "firingpin"
 
 /obj/item/storage/box/firingpins/paywall/PopulateContents()
@@ -609,8 +609,8 @@
 		new /obj/item/firing_pin/paywall(src)
 
 /obj/item/storage/box/lasertagpins
-	name = "box of laser tag firing pins"
-	desc = "A box full of laser tag firing pins, to allow newly-developed firearms to require wearing brightly coloured plastic armor before being able to be used."
+	name = "ящик  бойков для лазертага"
+	desc = "Коробка, полная бойков для лазертага, чтобы новое огнестрельное оружие требовало ношения яркой пластиковой брони, прежде чем его можно будет использовать."
 	illustration = "firingpin"
 
 /obj/item/storage/box/lasertagpins/PopulateContents()
@@ -619,8 +619,8 @@
 		new /obj/item/firing_pin/tag/blue(src)
 
 /obj/item/storage/box/handcuffs
-	name = "box of spare handcuffs"
-	desc = "A box full of handcuffs."
+	name = "коробка запасных наручников"
+	desc = "коробка запасных наручников."
 	icon_state = "secbox"
 	illustration = "handcuff"
 
@@ -629,8 +629,8 @@
 		new /obj/item/restraints/handcuffs(src)
 
 /obj/item/storage/box/zipties
-	name = "box of spare zipties"
-	desc = "A box full of zipties."
+	name = "коробка запасных стяжек"
+	desc = "коробка запасных стяжек."
 	icon_state = "secbox"
 	illustration = "handcuff"
 
@@ -639,8 +639,8 @@
 		new /obj/item/restraints/handcuffs/cable/zipties(src)
 
 /obj/item/storage/box/alienhandcuffs
-	name = "box of spare handcuffs"
-	desc = "A box full of handcuffs."
+	name = "коробка запасных наручников"
+	desc = "коробка запасных наручников."
 	icon_state = "alienbox"
 	illustration = "handcuff"
 
@@ -649,8 +649,8 @@
 		new	/obj/item/restraints/handcuffs/alien(src)
 
 /obj/item/storage/box/fakesyndiesuit
-	name = "boxed space suit and helmet"
-	desc = "A sleek, sturdy box used to hold replica spacesuits."
+	name = "упакованные скафандр и шлем"
+	desc = "Гладкая и прочная коробка, в которой хранятся копии скафандров."
 	icon_state = "syndiebox"
 	illustration = "syndiesuit"
 
@@ -659,8 +659,8 @@
 	new /obj/item/clothing/suit/syndicatefake(src)
 
 /obj/item/storage/box/mousetraps
-	name = "box of Pest-B-Gon mousetraps"
-	desc = "<span class='alert'>Keep out of reach of children.</span>"
+	name = "коробка мышеловок Pest-B-Gon"
+	desc = "<span class='alert'>Храните в недоступном для детей месте.</span>"
 	illustration = "mousetrap"
 
 /obj/item/storage/box/mousetraps/PopulateContents()
@@ -668,8 +668,8 @@
 		new /obj/item/assembly/mousetrap(src)
 
 /obj/item/storage/box/pillbottles
-	name = "box of pill bottles"
-	desc = "It has pictures of pill bottles on its front."
+	name = "коробка пузырьков с таблетками"
+	desc = "На передней панели изображены пузырьки с таблетками."
 	illustration = "pillbox"
 
 /obj/item/storage/box/pillbottles/PopulateContents()
@@ -677,8 +677,8 @@
 		new /obj/item/storage/pill_bottle(src)
 
 /obj/item/storage/box/snappops
-	name = "snap pop box"
-	desc = "Eight wrappers of fun! Ages 8 and up. Not suitable for children."
+	name = "коробка бахающих фантиков"
+	desc = "Восемь фантиков веселья! Возраст от 8 лет и старше. Не подходит для детей."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "spbox"
 
@@ -692,11 +692,12 @@
 	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_FILL_TYPE, /obj/item/toy/snappop)
 
 /obj/item/storage/box/matches
-	name = "matchbox"
-	desc = "A small box of Almost But Not Quite Plasma Premium Matches."
+	name = "спичечный коробок"
+	desc = "Маленькая коробочка почти, но не совсем плазменных премиальных спичек."
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "matchbox"
 	inhand_icon_state = "zippo"
+	worn_icon_state = "lighter"
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_BELT
 	drop_sound = 'sound/items/handling/matchbox_drop.ogg'
@@ -717,10 +718,10 @@
 		W.matchignite()
 
 /obj/item/storage/box/lights
-	name = "box of replacement bulbs"
+	name = "коробка сменных лампочек"
 	icon = 'icons/obj/storage.dmi'
 	illustration = "light"
-	desc = "This box is shaped on the inside so that only light tubes and bulbs fit."
+	desc = "Эта коробка имеет такую форму, что туда вмещаются только лампочки и лампы накаливания."
 	inhand_icon_state = "syringe_kit"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -739,7 +740,7 @@
 		new /obj/item/light/bulb(src)
 
 /obj/item/storage/box/lights/tubes
-	name = "box of replacement tubes"
+	name = "коробка сменных трубок"
 	illustration = "lighttube"
 
 /obj/item/storage/box/lights/tubes/PopulateContents()
@@ -747,7 +748,7 @@
 		new /obj/item/light/tube(src)
 
 /obj/item/storage/box/lights/mixed
-	name = "box of replacement lights"
+	name = "коробка сменных ламп"
 	illustration = "lightmixed"
 
 /obj/item/storage/box/lights/mixed/PopulateContents()
@@ -758,8 +759,8 @@
 
 
 /obj/item/storage/box/deputy
-	name = "box of deputy armbands"
-	desc = "To be issued to those authorized to act as deputy of security."
+	name = "ящик повязок Службы Безопасности"
+	desc = "Выдается лицам, уполномоченным действовать в качестве работника службы безопасности."
 	icon_state = "secbox"
 	illustration = "depband"
 
@@ -768,8 +769,8 @@
 		new /obj/item/clothing/accessory/armband/deputy(src)
 
 /obj/item/storage/box/metalfoam
-	name = "box of metal foam grenades"
-	desc = "To be used to rapidly seal hull breaches."
+	name = "ящик с гранатами из пенопласта"
+	desc = "Используется для быстрого закрытия пробоин в корпусе."
 	illustration = "grenade"
 
 /obj/item/storage/box/metalfoam/PopulateContents()
@@ -777,8 +778,8 @@
 		new /obj/item/grenade/chem_grenade/metalfoam(src)
 
 /obj/item/storage/box/smart_metal_foam
-	name = "box of smart metal foam grenades"
-	desc = "Used to rapidly seal hull breaches. This variety conforms to the walls of its area."
+	name = "ящик умных гранат из пенопласта"
+	desc = "Используется для быстрой заделки пробоин в корпусе. Эта разновидность соответствует стенам своего участка."
 	illustration = "grenade"
 
 /obj/item/storage/box/smart_metal_foam/PopulateContents()
@@ -786,8 +787,8 @@
 		new/obj/item/grenade/chem_grenade/smart_metal_foam(src)
 
 /obj/item/storage/box/hug
-	name = "box of hugs"
-	desc = "A special box for sensitive people."
+	name = "коробка объятий"
+	desc = "Специальная коробка для чувствительных людей."
 	icon_state = "hugbox"
 	illustration = "heart"
 	foldable = null
@@ -800,23 +801,23 @@
 	..()
 	user.changeNext_move(CLICK_CD_MELEE)
 	playsound(loc, "rustle", 50, TRUE, -5)
-	user.visible_message("<span class='notice'>[user] hugs \the [src].</span>","<span class='notice'>You hug \the [src].</span>")
+	user.visible_message("<span class='notice'>[user] обнимает \the [src].</span>","<span class='notice'>Вы обнимаете \the [src].</span>")
 
 /////clown box & honkbot assembly
 /obj/item/storage/box/clown
-	name = "clown box"
-	desc = "A colorful cardboard box for the clown"
+	name = "коробка клоуна"
+	desc = "Красочная картонная коробка для клоуна"
 	illustration = "clown"
 
 /obj/item/storage/box/clown/attackby(obj/item/I, mob/user, params)
 	if((istype(I, /obj/item/bodypart/l_arm/robot)) || (istype(I, /obj/item/bodypart/r_arm/robot)))
 		if(contents.len) //prevent accidently deleting contents
-			to_chat(user, "<span class='warning'>You need to empty [src] out first!</span>")
+			to_chat(user, "<span class='warning'>Вы должны опустошить [src] сначала!</span>")
 			return
 		if(!user.temporarilyRemoveItemFromInventory(I))
 			return
 		qdel(I)
-		to_chat(user, "<span class='notice'>You add some wheels to the [src]! You've got a honkbot assembly now! Honk!</span>")
+		to_chat(user, "<span class='notice'>Вы добавили колёса для [src]! Теперь у вас есть сборка хонкбота! Хонк!</span>")
 		var/obj/item/bot_assembly/honkbot/A = new
 		qdel(src)
 		user.put_in_hands(A)
@@ -840,8 +841,8 @@
 		new /obj/item/tank/internals/plasmaman/belt(src)
 
 /obj/item/storage/box/rubbershot
-	name = "box of rubber shots"
-	desc = "A box full of rubber shots, designed for riot shotguns."
+	name = "коробка резиновых дробей"
+	desc = "Коробка с резиновыми дробями, предназначенная для дробовиков."
 	icon_state = "rubbershot_box"
 	illustration = null
 
@@ -850,8 +851,8 @@
 		new /obj/item/ammo_casing/shotgun/rubbershot(src)
 
 /obj/item/storage/box/lethalshot
-	name = "box of lethal shotgun shots"
-	desc = "A box full of lethal shots, designed for riot shotguns."
+	name = "коробка смертельных дробей из дробовика"
+	desc = "Коробка со смертоносными дробями, предназначенная для дробовиков."
 	icon_state = "lethalshot_box"
 	illustration = null
 
@@ -860,8 +861,8 @@
 		new /obj/item/ammo_casing/shotgun/buckshot(src)
 
 /obj/item/storage/box/beanbag
-	name = "box of beanbags"
-	desc = "A box full of beanbag shells."
+	name = "коробка резиновых дробей"
+	desc = "Коробка с резиновыми дробями."
 	icon_state = "rubbershot_box"
 	illustration = null
 
@@ -870,8 +871,8 @@
 		new /obj/item/ammo_casing/shotgun/beanbag(src)
 
 /obj/item/storage/box/actionfigure
-	name = "box of action figures"
-	desc = "The latest set of collectable action figures."
+	name = "коробка фигурок"
+	desc = "Последний набор коллекционных фигурок."
 	icon_state = "box"
 
 /obj/item/storage/box/actionfigure/PopulateContents()
@@ -880,8 +881,8 @@
 		new randomFigure(src)
 
 /obj/item/storage/box/papersack
-	name = "paper sack"
-	desc = "A sack neatly crafted out of paper."
+	name = "бумажный мешок"
+	desc = "Мешочек, аккуратно сделанный из бумаги."
 	icon_state = "paperbag_None"
 	inhand_icon_state = "paperbag_None"
 	illustration = null
@@ -915,30 +916,30 @@
 			return FALSE
 		switch(choice)
 			if("None")
-				desc = "A sack neatly crafted out of paper."
+				desc = "Мешок, аккуратно сделанный из бумаги."
 			if("NanotrasenStandard")
-				desc = "A standard Nanotrasen paper lunch sack for loyal employees on the go."
+				desc = "Стандартный бумажный обеденный мешок Нанотрейзен для лояльных сотрудников в дороге."
 			if("SyndiSnacks")
-				desc = "The design on this paper sack is a remnant of the notorious 'SyndieSnacks' program."
+				desc = "Дизайн этого бумажного пакета - пережиток печально известной программы СиндиЗакуски.."
 			if("Heart")
-				desc = "A paper sack with a heart etched onto the side."
+				desc = "Бумажный мешок с выгравированным на боку сердечком."
 			if("SmileyFace")
-				desc = "A paper sack with a crude smile etched onto the side."
+				desc = "Бумажный мешок с грубой улыбкой на боку."
 			else
 				return FALSE
-		to_chat(user, "<span class='notice'>You make some modifications to [src] using your pen.</span>")
+		to_chat(user, "<span class='notice'>Вы видоизменяете [src] используя ручку.</span>")
 		icon_state = "paperbag_[choice]"
 		inhand_icon_state = "paperbag_[choice]"
 		return FALSE
 	else if(W.get_sharpness())
 		if(!contents.len)
 			if(inhand_icon_state == "paperbag_None")
-				user.show_message("<span class='notice'>You cut eyeholes into [src].</span>", MSG_VISUAL)
+				user.show_message("<span class='notice'>Вы прорезаете дыры для глаз [src].</span>", MSG_VISUAL)
 				new /obj/item/clothing/head/papersack(user.loc)
 				qdel(src)
 				return FALSE
 			else if(inhand_icon_state == "paperbag_SmileyFace")
-				user.show_message("<span class='notice'>You cut eyeholes into [src] and modify the design.</span>", MSG_VISUAL)
+				user.show_message("<span class='notice'>Вы прорезаете дыры для глаз в [src] и меняете его дизайн.</span>", MSG_VISUAL)
 				new /obj/item/clothing/head/papersack/smiley(user.loc)
 				qdel(src)
 				return FALSE
@@ -957,22 +958,22 @@
 	if(user.incapacitated())
 		return FALSE
 	if(contents.len)
-		to_chat(user, "<span class='warning'>You can't modify [src] with items still inside!</span>")
+		to_chat(user, "<span class='warning'>Вы не можете изменить [src] с предметами внутри!</span>")
 		return FALSE
 	if(!P || !user.is_holding(P))
-		to_chat(user, "<span class='warning'>You need a pen to modify [src]!</span>")
+		to_chat(user, "<span class='warning'>Вам понадобится ручка, чтобы изменить [src]!</span>")
 		return FALSE
 	return TRUE
 
 /obj/item/storage/box/papersack/meat
-	desc = "It's slightly moist and smells like a slaughterhouse."
+	desc = "Он немного влажный и воняет бойней."
 
 /obj/item/storage/box/papersack/meat/PopulateContents()
 	for(var/i in 1 to 7)
 		new /obj/item/reagent_containers/food/snacks/meat/slab(src)
 
 /obj/item/storage/box/emptysandbags
-	name = "box of empty sandbags"
+	name = "коробка пустых мешков с песком"
 	illustration = "sandbag"
 
 /obj/item/storage/box/emptysandbags/PopulateContents()
@@ -980,8 +981,8 @@
 		new /obj/item/emptysandbag(src)
 
 /obj/item/storage/box/rndboards
-	name = "\proper the liberator's legacy"
-	desc = "A box containing a gift for worthy golems."
+	name = "\proper наследие освободителя"
+	desc = "Коробка с подарком для достойных големов."
 	illustration = "scicircuit"
 
 /obj/item/storage/box/rndboards/PopulateContents()
@@ -991,8 +992,8 @@
 	new /obj/item/circuitboard/computer/rdconsole(src)
 
 /obj/item/storage/box/silver_sulf
-	name = "box of silver sulfadiazine patches"
-	desc = "Contains patches used to treat burns."
+	name = "коробка пластырей сульфадиазина серебра"
+	desc = "Содержит пластыри, используемые для лечения ожогов."
 	illustration = "firepatch"
 
 /obj/item/storage/box/silver_sulf/PopulateContents()
@@ -1000,7 +1001,7 @@
 		new /obj/item/reagent_containers/pill/patch/aiuri(src)
 
 /obj/item/storage/box/fountainpens
-	name = "box of fountain pens"
+	name = "коробка перьевых ручек"
 	illustration = "fpen"
 
 /obj/item/storage/box/fountainpens/PopulateContents()
@@ -1008,8 +1009,8 @@
 		new /obj/item/pen/fountain(src)
 
 /obj/item/storage/box/holy_grenades
-	name = "box of holy hand grenades"
-	desc = "Contains several grenades used to rapidly purge heresy."
+	name = "коробка священных гранат"
+	desc = "Содержит несколько гранат, используемых для быстрого избавления от ереси."
 	illustration = "grenade"
 
 /obj/item/storage/box/holy_grenades/PopulateContents()
@@ -1017,8 +1018,8 @@
 		new/obj/item/grenade/chem_grenade/holy(src)
 
 /obj/item/storage/box/stockparts/basic //for ruins where it's a bad idea to give access to an autolathe/protolathe, but still want to make stock parts accessible
-	name = "box of stock parts"
-	desc = "Contains a variety of basic stock parts."
+	name = "коробка запасных частей"
+	desc = "Содержит множество основных запасных частей."
 
 /obj/item/storage/box/stockparts/basic/PopulateContents()
 	var/static/items_inside = list(
@@ -1030,8 +1031,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/stockparts/deluxe
-	name = "box of deluxe stock parts"
-	desc = "Contains a variety of deluxe stock parts."
+	name = "коробка роскошных запасных частей"
+	desc = "Содержит множество роскошных запасных частей."
 	icon_state = "syndiebox"
 
 /obj/item/storage/box/stockparts/deluxe/PopulateContents()
@@ -1044,8 +1045,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/dishdrive
-	name = "DIY Dish Drive Kit"
-	desc = "Contains everything you need to build your own Dish Drive!"
+	name = "Комплект привода тарелки DIY"
+	desc = "Содержит все необходимое, чтобы построить свой собственный Дисковод!" //cringe
 	custom_premium_price = 1000
 
 /obj/item/storage/box/dishdrive/PopulateContents()
@@ -1060,7 +1061,7 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/material
-	name = "box of materials"
+	name = "коробка с материалами"
 	illustration = "implant"
 
 /obj/item/storage/box/material/PopulateContents() 	//less uranium because radioactive
@@ -1088,7 +1089,7 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/debugtools
-	name = "box of debug tools"
+	name = "ДЕБАГ КАРОБКА"
 	icon_state = "syndiebox"
 
 /obj/item/storage/box/debugtools/PopulateContents()
@@ -1112,8 +1113,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/plastic
-	name = "plastic box"
-	desc = "It's a solid, plastic shell box."
+	name = "пластиковая коробка"
+	desc = "Это прочный пластиковый корпус."
 	icon_state = "plasticbox"
 	foldable = null
 	illustration = "writing"
@@ -1121,8 +1122,8 @@
 
 
 /obj/item/storage/box/fireworks
-	name = "box of fireworks"
-	desc = "Contains an assortment of fireworks."
+	name = "коробка фейерверков"
+	desc = "Содержит ассортимент фейерверков."
 	illustration = "sparkler"
 
 /obj/item/storage/box/fireworks/PopulateContents()
@@ -1143,8 +1144,8 @@
 		new /obj/item/toy/snappop(src)
 
 /obj/item/storage/box/firecrackers
-	name = "box of firecrackers"
-	desc = "A box filled with illegal firecracker. You wonder who still makes these."
+	name = "коробка петард"
+	desc = "Коробка с нелегальной петардой. Вы задаетесь вопросом, кто до сих пор их делает."
 	icon_state = "syndiebox"
 	illustration = "firecracker"
 
@@ -1153,8 +1154,8 @@
 		new/obj/item/grenade/firecracker(src)
 
 /obj/item/storage/box/sparklers
-	name = "box of sparklers"
-	desc = "A box of NT brand sparklers, burns hot even in the cold of space-winter."
+	name = "коробка бенгальских огней"
+	desc = "Коробка бенгальских огней марки НТ, горит даже в холод космической зимы."
 	illustration = "sparkler"
 
 /obj/item/storage/box/sparklers/PopulateContents()
@@ -1162,8 +1163,8 @@
 		new/obj/item/sparkler(src)
 
 /obj/item/storage/box/gum
-	name = "bubblegum packet"
-	desc = "The packaging is entirely in japanese, apparently. You can't make out a single word of it."
+	name = "упаковка жевательной резинки"
+	desc = "Видимо, упаковка полностью на японском языке. Вы не можете разобрать ни слова."
 	icon_state = "bubblegum_generic"
 	w_class = WEIGHT_CLASS_TINY
 	illustration = null
@@ -1181,8 +1182,8 @@
 		new/obj/item/reagent_containers/food/snacks/chewable/bubblegum(src)
 
 /obj/item/storage/box/gum/nicotine
-	name = "nicotine gum packet"
-	desc = "Designed to help with nicotine addiction and oral fixation all at once without destroying your lungs in the process. Mint flavored!"
+	name = "упаковка никотиновой жевательной резинки"
+	desc = "Разработан, чтобы помочь избавиться от никотиновой зависимости и оральной фиксации одновременно, не разрушая при этом ваши легкие. Со вкусом мяты!"
 	icon_state = "bubblegum_nicotine"
 	custom_premium_price = 275
 
@@ -1191,8 +1192,8 @@
 		new/obj/item/reagent_containers/food/snacks/chewable/bubblegum/nicotine(src)
 
 /obj/item/storage/box/gum/happiness
-	name = "HP+ gum packet"
-	desc = "A seemingly homemade packaging with an odd smell. It has a weird drawing of a smiling face sticking out its tongue."
+	name = "упаковка резинок HP +"
+	desc = "Внешне самодельная упаковка со странным запахом. У него есть странный рисунок улыбающегося лица, высунувшего язык."
 	icon_state = "bubblegum_happiness"
 	custom_price = 300
 	custom_premium_price = 300
@@ -1200,15 +1201,15 @@
 /obj/item/storage/box/gum/happiness/Initialize()
 	. = ..()
 	if (prob(25))
-		desc += "You can faintly make out the word 'Hemopagopril' was once scribbled on it."
+		desc += "Вы можете смутно разобрать слово «Гемопагоприл», которое когда-то было нацарапано на нем."
 
 /obj/item/storage/box/gum/happiness/PopulateContents()
 	for(var/i in 1 to 4)
 		new/obj/item/reagent_containers/food/snacks/chewable/bubblegum/happiness(src)
 
 /obj/item/storage/box/gum/bubblegum
-	name = "bubblegum gum packet"
-	desc = "The packaging is entirely in Demonic, apparently. You feel like even opening this would be a sin."
+	name = "упаковка жевательной резинки"
+	desc = "Упаковка, по всей видимости, полностью демоническая. Вы чувствуете, что даже открыть это было бы грехом."
 	icon_state = "bubblegum_bubblegum"
 
 /obj/item/storage/box/gum/bubblegum/PopulateContents()
@@ -1216,8 +1217,8 @@
 		new/obj/item/reagent_containers/food/snacks/chewable/bubblegum/bubblegum(src)
 
 /obj/item/storage/box/shipping
-	name = "box of shipping supplies"
-	desc = "Contains several scanners and labelers for shipping things. Wrapping Paper not included."
+	name = "коробка карго припасов"
+	desc = "Содержит несколько сканеров и этикетировщиков для транспортировки вещей. Упаковочная бумага в комплект не входит."
 	illustration = "shipping"
 
 /obj/item/storage/box/shipping/PopulateContents()
@@ -1231,8 +1232,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/skillchips
-	name = "box of skillchips"
-	desc = "Contains one copy of every skillchip"
+	name = "коробка чипов навыков"
+	desc = "Содержит по одной копии каждого чипа навыков"
 
 /obj/item/storage/box/skillchips/PopulateContents()
 	var/list/skillchips = subtypesof(/obj/item/skillchip)
@@ -1241,24 +1242,24 @@
 		new skillchip(src)
 
 /obj/item/storage/box/skillchips/science
-	name = "box of science job skillchips"
-	desc = "Contains spares of every science job skillchip."
+	name = "коробка с чипасми для научных работ"
+	desc = "Содержит запасные чипы для всех научных работ."
 
 /obj/item/storage/box/skillchips/science/PopulateContents()
 	new/obj/item/skillchip/job/roboticist(src)
 	new/obj/item/skillchip/job/roboticist(src)
 
 /obj/item/storage/box/skillchips/engineering
-	name = "box of engineering job skillchips"
-	desc = "Contains spares of every engineering job skillchip."
+	name = "Коробка с чипами инженерных навыков"
+	desc = "Содержит запасные чипы для всех технических навыков."
 
 /obj/item/storage/box/skillchips/engineering/PopulateContents()
 	new/obj/item/skillchip/job/engineer(src)
 	new/obj/item/skillchip/job/engineer(src)
 
 /obj/item/storage/box/swab
-	name = "box of microbiological swabs"
-	desc = "Contains a number of sterile swabs for collecting microbiological samples."
+	name = "коробка микробиологических тампонов"
+	desc = "Содержит несколько стерильных тампонов для взятия микробиологических проб."
 	illustration = "swab"
 
 /obj/item/storage/box/swab/PopulateContents()
@@ -1266,8 +1267,8 @@
 		new /obj/item/swab(src)
 
 /obj/item/storage/box/petridish
-	name = "box of petridishes"
-	desc = "This box purports to contain a number of high rim petridishes."
+	name = "коробка чашек Петри"
+	desc = "Якобы эта коробка содержит несколько чашек Петри с высоким ободком."
 	illustration = "petridish"
 
 /obj/item/storage/box/petridish/PopulateContents()
@@ -1275,8 +1276,8 @@
 		new /obj/item/petri_dish(src)
 
 /obj/item/storage/box/plumbing
-	name = "box of plumbing supplies"
-	desc = "Contains a small supply of pipes, water recyclers, and metal to connect to the rest of the station."
+	name = "ящик с сантехникой"
+	desc = "Содержит небольшой запас труб, рециркуляторов воды и металла для подключения к остальной части станции."
 
 /obj/item/storage/box/plumbing/PopulateContents()
 	var/list/items_inside = list(

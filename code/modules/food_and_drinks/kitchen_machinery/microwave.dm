@@ -55,20 +55,20 @@
 /obj/machinery/microwave/examine(mob/user)
 	. = ..()
 	if(!operating)
-		. += "<hr><span class='notice'>Alt-клик, чтобы включить микроволновку.</span>"
+		. += "<hr><span class='notice'>Alt-клик, чтобы включить печь.</span>"
 
 	if(!in_range(user, src) && !issilicon(user) && !isobserver(user))
-		. += "<hr><span class='warning'>Слишком далеко, чтобы рассмотреть микроволновку!</span>"
+		. += "<hr><span class='warning'>Слишком далеко, чтобы рассмотреть печь!</span>"
 		return
 	if(operating)
-		. += "<hr><span class='notice'>Микроволновка работает.</span>"
+		. += "<hr><span class='notice'>[capitalize(src.name)] работает.</span>"
 		return
 
 	if(length(ingredients))
 		if(issilicon(user))
-			. += "<hr><span class='notice'>Камера микроволновки показывает:</span>"
+			. += "<hr><span class='notice'>Внутри печи можно увидеть:</span>"
 		else
-			. += "<hr><span class='notice'>Микроволновка показывает:</span>"
+			. += "<hr><span class='notice'>[capitalize(src.name)] показывает:</span>"
 		var/list/items_counts = new
 		for(var/i in ingredients)
 			if(istype(i, /obj/item/stack))
@@ -80,7 +80,7 @@
 		for(var/O in items_counts)
 			. += "<span class='notice'>- [items_counts[O]]x [O].</span>"
 	else
-		. += "</br><span class='notice'>Микроволновка пуста.</span>"
+		. += "</br><span class='notice'>[capitalize(src.name)] пуста.</span>"
 
 	if(!(machine_stat & (NOPOWER|BROKEN)))
 		. += "<hr><span class='notice'>Дисплей:</span>\n"+\
@@ -327,10 +327,13 @@
 		if(prob(max(metal / 2, 33)))
 			explosion(loc, 0, 1, 2)
 	else
-		dropContents(ingredients)
-		ingredients.Cut()
+		drop_stored_items()
 
 	after_finish_loop()
+
+/obj/machinery/microwave/drop_stored_items()
+	. = ..()
+	ingredients.Cut()
 
 /obj/machinery/microwave/proc/pre_fail()
 	broken = 2

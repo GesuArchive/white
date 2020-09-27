@@ -121,6 +121,8 @@
 
 #define STASIS_MACHINE_EFFECT "stasis_machine"
 
+#define STASIS_ASCENSION_EFFECT "heretic_ascension"
+
 // Stasis helpers
 
 #define IS_IN_STASIS(mob) (mob.has_status_effect(STATUS_EFFECT_STASIS))

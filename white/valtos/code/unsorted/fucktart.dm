@@ -19,4 +19,4 @@
 			A.color = "#[random_short_color()]"
 			animate(A, color = color_matrix_rotate_hue(rand(0, 360)), time = rand(200, 500), easing = CIRCULAR_EASING, flags = ANIMATION_PARALLEL)
 			animate(A, transform = M, time = rand(200, 1000), flags = ANIMATION_PARALLEL)
-			sleep(rand(1, 10))
+			sleep(rand(1, 2))

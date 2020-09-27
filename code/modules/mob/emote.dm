@@ -1,3 +1,10 @@
+#define BEYBLADE_PUKE_THRESHOLD 30 //How confused a carbon must be before they will vomit
+#define BEYBLADE_PUKE_NUTRIENT_LOSS 60 //How must nutrition is lost when a carbon pukes
+#define BEYBLADE_DIZZINESS_PROBABILITY 20 //How often a carbon becomes penalized
+#define BEYBLADE_DIZZINESS_VALUE 10 //How long the screenshake lasts
+#define BEYBLADE_CONFUSION_INCREMENT 10 //How much confusion a carbon gets when penalized
+#define BEYBLADE_CONFUSION_LIMIT 40 //A max for how penalized a carbon will be for beyblading
+
 //The code execution of the emote datum is located at code/datums/emotes.dm
 /mob/proc/emote(act, m_type = null, message = null, intentional = FALSE)
 	act = lowertext(act)
@@ -11,7 +18,7 @@
 
 	if(!length(key_emotes))
 		if(intentional)
-			to_chat(src, "<span class='notice'>'[act]' emote does not exist. Say *help for a list.</span>")
+			to_chat(src, "<span class='notice'>'[act]' не существует. Напиши <b>*help</b> для вывода списка доступных.</span>")
 		return FALSE
 	var/silenced = FALSE
 	for(var/datum/emote/P in key_emotes)
@@ -22,7 +29,7 @@
 			SEND_SIGNAL(src, COMSIG_MOB_EMOTE, P, act, m_type, message, intentional)
 			return TRUE
 	if(intentional && !silenced)
-		to_chat(src, "<span class='notice'>Unusable emote '[act]'. Say *help for a list.</span>")
+		to_chat(src, "<span class='notice'>Эмоция '[act]' невозможна. Напиши <b>*help</b> для вывода списка доступных.</span>")
 	return FALSE
 
 /datum/emote/flip
@@ -83,3 +90,29 @@
 						riding_datum.force_dismount(M)
 			else
 				L.unbuckle_all_mobs()
+
+/datum/emote/spin/check_cooldown(mob/living/carbon/user, intentional)
+	. = ..()
+	if(.)
+		return
+	if(!can_run_emote(user, intentional=intentional))
+		return
+	if(!iscarbon(user))
+		return
+	var/current_confusion = user.get_confusion()
+	if(current_confusion > BEYBLADE_PUKE_THRESHOLD)
+		user.vomit(BEYBLADE_PUKE_NUTRIENT_LOSS, distance = 0)
+		return
+	if(prob(BEYBLADE_DIZZINESS_PROBABILITY))
+		to_chat(user, "<span class='warning'>You feel woozy from spinning.</span>")
+		user.Dizzy(BEYBLADE_DIZZINESS_VALUE)
+		if(current_confusion < BEYBLADE_CONFUSION_LIMIT)
+			user.add_confusion(BEYBLADE_CONFUSION_INCREMENT)
+
+
+#undef BEYBLADE_PUKE_THRESHOLD
+#undef BEYBLADE_PUKE_NUTRIENT_LOSS
+#undef BEYBLADE_DIZZINESS_PROBABILITY
+#undef BEYBLADE_DIZZINESS_VALUE
+#undef BEYBLADE_CONFUSION_INCREMENT
+#undef BEYBLADE_CONFUSION_LIMIT

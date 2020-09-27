@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-export const THEMES = ['light', 'dark'];
+export const THEMES = ['light', 'dark', 'cyber'];
 
 const COLOR_DARK_BG = '#040404';
 const COLOR_DARK_BG_DARKER = '#020202';
@@ -60,7 +60,7 @@ export const setClientTheme = name => {
       'tooltip.text-color': '#000000',
     });
   }
-  if (name === 'dark') {
+  if (name === 'dark' || name === 'cyber') {
     Byond.winset({
       // Main windows
       'infowindow.background-color': COLOR_DARK_BG,

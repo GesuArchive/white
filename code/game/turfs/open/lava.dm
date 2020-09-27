@@ -17,8 +17,8 @@
 	clawfootstep = FOOTSTEP_LAVA
 	heavyfootstep = FOOTSTEP_LAVA
 
-/turf/open/lava/ex_act(severity, target, prikolist)
-	contents_explosion(severity, target, prikolist)
+/turf/open/lava/ex_act(severity, target)
+	contents_explosion(severity, target)
 
 /turf/open/lava/MakeSlippery(wet_setting, min_wet_time, wet_time_to_add, max_wet_time, permanent)
 	return
@@ -36,8 +36,7 @@
 /turf/open/lava/airless
 	initial_gas_mix = AIRLESS_ATMOS
 
-/turf/open/lava/Cross(atom/movable/AM)
-	. = ..()
+/turf/open/lava/Entered(atom/movable/AM)
 	if(burn_stuff(AM))
 		START_PROCESSING(SSobj, src)
 

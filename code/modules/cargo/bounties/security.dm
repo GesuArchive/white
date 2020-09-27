@@ -13,35 +13,35 @@
 	wanted_types = list(/obj/machinery/recharger)
 
 /datum/bounty/item/security/pepperspray
-	name = "Pepperspray"
-	description = "We've been having a bad run of riots on Space Station 76. We could use some new pepperspray cans."
+	name = "Перцовый балончик"
+	description = "У нас было много беспорядков на космической станции 76. Мы могли бы непротив использовать новые перцовые баллончики."
 	reward = 3000
 	required_count = 4
 	wanted_types = list(/obj/item/reagent_containers/spray/pepper)
 
 /datum/bounty/item/security/prison_clothes
-	name = "Prison Uniforms"
-	description = "Terragov has been unable to source any new prisoner uniforms, so if you have any spares, we'll take them off your hands."
+	name = "Тюремная форма"
+	description = "ТерраГов не смогли получить новую форму для заключенных, поэтому, если у вас есть запасная форма, мы её заберем."
 	reward = 2000
 	required_count = 4
 	wanted_types = list(/obj/item/clothing/under/rank/prisoner)
 
 /datum/bounty/item/security/plates
-	name = "License Plates"
-	description = "As a result of a bad clown car crash, we could use an advance on some of your prisoner's license plates."
+	name = "Номерные знаки"
+	description = "В результате автокатастрофы с участием клоуна мы могли бы использовать аванс на некоторые из номерных знаков вашего заключенного."
 	reward = 1000
 	required_count = 10
 	wanted_types = list(/obj/item/stack/license_plates/filled)
 
 /datum/bounty/item/security/earmuffs
-	name = "Earmuffs"
-	description = "Central Command is getting tired of your station's messages. They've ordered that you ship some earmuffs to lessen the annoyance."
+	name = "Наушники"
+	description = "Центральное Командование устало от сообщений вашей станции. Они приказали вам отправить наушники, чтобы уменьшить раздражение."
 	reward = 1000
 	wanted_types = list(/obj/item/clothing/ears/earmuffs)
 
 /datum/bounty/item/security/handcuffs
-	name = "Handcuffs"
-	description = "A large influx of escaped convicts have arrived at Central Command. Now is the perfect time to ship out spare handcuffs (or restraints)."
+	name = "Наручники"
+	description = "В Центральное Командование прибыл большой поток беглых заключенных. Сейчас идеальное время для отправки запасных наручников (или удерживающих устройств)."
 	reward = 1000
 	required_count = 5
 	wanted_types = list(/obj/item/restraints/handcuffs)

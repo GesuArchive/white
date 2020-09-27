@@ -265,7 +265,7 @@
 	dangerous = TRUE
 
 /obj/structure/punching_bag/trader
-	name = "farm bag"
+	name = "шубаг"
 	desc = "Лучшее, что создало человечество. Работает на счёте древних шизов."
 	anchored = FALSE
 	var/tier = 1
@@ -273,8 +273,8 @@
 
 /obj/structure/punching_bag/trader/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Производительность: <b>[tier]</b></span>"
-	. += "<span class='notice'>Опыт: <b>[exp]</b></span>"
+	. += "<hr><span class='notice'>Производительность: <b>[tier]</b></span>"
+	. += "\n<span class='notice'>Опыт: <b>[exp]</b></span>"
 
 /obj/structure/punching_bag/trader/attack_hand(mob/user as mob)
 	. = ..()

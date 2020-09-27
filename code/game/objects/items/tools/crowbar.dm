@@ -50,6 +50,7 @@
 	custom_materials = list(/datum/material/iron=70)
 	icon_state = "crowbar_large"
 	inhand_icon_state = "crowbar"
+	worn_icon_state = "crowbar"
 	toolspeed = 0.7
 
 /obj/item/crowbar/power
@@ -135,6 +136,7 @@
 	desc = "Гидравлический инструмент, простой, но мощный."
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "crowbar_cyborg"
+	worn_icon_state = "crowbar"
 	usesound = 'sound/items/jaws_pry.ogg'
 	force = 10
 	toolspeed = 0.5

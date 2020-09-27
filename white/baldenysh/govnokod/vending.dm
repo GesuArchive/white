@@ -7,12 +7,13 @@
 					/obj/item/reagent_containers/food/snacks/kebab/rat/double = 3,
 					/obj/item/storage/box/lcubes = 5,
 					/obj/item/reagent_containers/food/snacks/canned/peaches/maint = 2,
-					/obj/item/reagent_containers/food/snacks/soylentgreen = 5
+					/obj/item/reagent_containers/food/snacks/soylentgreen = 5,
+					/obj/item/storage/mre/random = 3
 					)
 	contraband = list(
 					/obj/item/reagent_containers/food/snacks/store/cheesewheel = 2
 					)
-	premium = list()
+	premium = list(/obj/item/storage/mre/menu10 = 10)
 	//refill_canister = /obj/item/vending_refill/cola
 	default_price = 100
 	extra_price = 500
@@ -30,7 +31,6 @@
 					/obj/item/storage/box/pillpack/antihol = 4,
 					/obj/item/storage/box/pillpack/psicodine = 2,
 					/obj/item/storage/box/pillpack/aspirin = 3
-
 					)
 	contraband = list(
 						/obj/item/storage/box/pillpack/hohlomicin = 1

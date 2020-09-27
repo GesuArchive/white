@@ -8,6 +8,7 @@
 		play_sound(msg)
 
 /client/proc/play_sound(S as sound)
+	set category = "Адм.Веселье"
 	set name = "Play Global Sound"
 	if(!check_rights(R_SOUND))
 		return
@@ -48,7 +49,7 @@
 
 
 /client/proc/play_local_sound_wrapper()
-	set category = "Фан"
+	set category = "Адм.Веселье"
 	set name = "Play Local Sound"
 
 	var/msg = input(src, null, "Play Local Sound") as sound|null
@@ -56,6 +57,7 @@
 		play_local_sound(msg)
 
 /client/proc/play_local_sound(S as sound)
+	set category = "Адм.Веселье"
 	set name = "Play Local Sound"
 	if(!check_rights(R_SOUND))
 		return
@@ -66,7 +68,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Play Local Sound") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/play_direct_mob_sound(S as sound, mob/M)
-	set category = "Фан"
+	set category = "Адм.Веселье"
 	set name = "Play Direct Mob Sound"
 	if(!check_rights(R_SOUND))
 		return
@@ -81,7 +83,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Play Direct Mob Sound") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/play_web_sound()
-	set category = "Фан"
+	set category = "Адм.Веселье"
 	set name = "Play Internet Sound"
 	if(!check_rights(R_SOUND))
 		return
@@ -165,7 +167,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Play Internet Sound")
 
 /client/proc/set_round_end_sound_wrapper()
-	set category = "Фан"
+	set category = "Адм.Веселье"
 	set name = "Set Round End Sound"
 
 	var/msg = input(src, null, "Set Round End Sound") as sound|null
@@ -173,6 +175,7 @@
 		set_round_end_sound(msg)
 
 /client/proc/set_round_end_sound(S as sound)
+	set category = "Адм.Веселье"
 	set name = "Set Round End Sound"
 	if(!check_rights(R_SOUND))
 		return
