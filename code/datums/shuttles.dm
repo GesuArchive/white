@@ -235,13 +235,6 @@
 	admin_notes = "Due to the limited space for non paying crew, this shuttle may cause a riot."
 	credit_cost = 10000
 
-/datum/map_template/shuttle/emergency/discoinferno
-	suffix = "discoinferno"
-	name = "Диско Инферно"
-	description = "Потрясающие результаты многовековых исследований плазмы, выполненных сотрудниками Нанотрансен. И это причина того, почему ты здесь. Так что танцуй, отжигай, гори, детка, гори!"
-	admin_notes = "Flaming hot. The main area has a dance machine as well as plasma floor tiles that will be ignited by players every single time."
-	credit_cost = 10000
-
 /datum/map_template/shuttle/emergency/arena
 	suffix = "arena"
 	name = "Арена"

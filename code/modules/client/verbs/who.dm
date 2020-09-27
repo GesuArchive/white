@@ -43,7 +43,7 @@
 				Lines += entry
 		else//If they don't have +ADMIN, only show hidden admins
 			for(var/client/C in GLOB.clients)
-				var/entry = "\t[C.key]"
+				var/entry = "[C.key]"
 				if(C.holder && C.holder.fakekey)
 					entry += " <i>(as [C.holder.fakekey])</i>"
 				if(C.ckey in GLOB.anonists)
