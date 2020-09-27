@@ -40,5 +40,5 @@
 
 	var/atom/A = source
 	override[EXAMINE_POSITION_ARTICLE] = A.gender == PLURAL? "" : ""
-	override[EXAMINE_POSITION_BEFORE] = " (в крови) "
+	override[EXAMINE_POSITION_BEFORE] = "Окровавленный "
 	return COMPONENT_EXNAME_CHANGED
