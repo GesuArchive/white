@@ -553,17 +553,17 @@
   * [COMSIG_ATOM_GET_EXAMINE_NAME] signal
   */
 /atom/proc/get_examine_name(mob/user)
-	. = "\a [src]"
+	. = "[src]"
 	var/list/override = list(gender == PLURAL ? " " : " ", " ", "[name]")
 	if(article)
-		. = "[article] [src]"
+		. = "[article] [src.name]"
 		override[EXAMINE_POSITION_ARTICLE] = article
 	if(SEND_SIGNAL(src, COMSIG_ATOM_GET_EXAMINE_NAME, user, override) & COMPONENT_EXNAME_CHANGED)
 		. = override.Join("")
 
 ///Generate the full examine string of this atom (including icon for goonchat)
 /atom/proc/get_examine_string(mob/user, thats = FALSE)
-	return "[icon2html(src, user)] [thats? "That's ":""][get_examine_name(user)]"
+	return "[icon2html(src, user)] <b>[capitalize(get_examine_name(user))]</b>"
 
 /**
   * Called when a mob examines (shift click or verb) this atom
@@ -574,7 +574,7 @@
   * Produces a signal [COMSIG_PARENT_EXAMINE]
   */
 /atom/proc/examine(mob/user)
-	. = list("[ru_get_examine_string(user, TRUE)].")
+	. = list("[get_examine_string(user, TRUE)].")
 
 	if(desc)
 		. += "<hr>"
@@ -1580,7 +1580,7 @@
 
 /**
   * Recursive getter method to return a list of all ghosts orbitting this atom
-  * 
+  *
   * This will work fine without manually passing arguments.
   */
 /atom/proc/get_all_orbiters(list/processed, source = TRUE)

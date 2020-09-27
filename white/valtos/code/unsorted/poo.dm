@@ -91,8 +91,8 @@
 	SIGNAL_HANDLER
 
 	var/atom/A = source
-	override[EXAMINE_POSITION_ARTICLE] = A.gender == PLURAL? "some" : "a"
-	override[EXAMINE_POSITION_BEFORE] = " poo-stained "
+	override[EXAMINE_POSITION_ARTICLE] = A.gender == PLURAL? "" : ""
+	override[EXAMINE_POSITION_BEFORE] = " (в говне) "
 	return COMPONENT_EXNAME_CHANGED
 
 /obj/effect/decal/cleanable/poo

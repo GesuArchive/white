@@ -3564,7 +3564,6 @@
 #include "white\valtos\code\serverside\looc.dm"
 #include "white\valtos\code\serverside\padezhi.dm"
 #include "white\valtos\code\serverside\pronouns_ru.dm"
-#include "white\valtos\code\serverside\rus_exam.dm"
 #include "white\valtos\code\serverside\text_ru.dm"
 #include "white\valtos\code\serverside\tooltip.dm"
 #include "white\valtos\code\serverside\varies.dm"
