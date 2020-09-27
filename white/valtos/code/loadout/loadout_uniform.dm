@@ -332,4 +332,4 @@
 /datum/gear/uniform/wizgirl
 	display_name = "костюм волшебницы"
 	path = /obj/item/clothing/under/costume/wizgirl
-	cost = 500
+	cost = 250
