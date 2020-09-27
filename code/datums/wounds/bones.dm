@@ -70,7 +70,7 @@
 
 	regen_points_current++
 	if(prob(severity * 2))
-		victim.take_bodypart_damage(rand(2, severity * 2), stamina=rand(2, severity * 2.5), wound_bonus=CANT_WOUND)
+		victim.take_bodypart_damage(rand(1, severity * 2), stamina=rand(2, severity * 2.5), wound_bonus=CANT_WOUND)
 		if(prob(33))
 			to_chat(victim, "<span class='danger'>Ощущаю острую боль в теле, ведь мои кости преобразуются!</span>")
 
@@ -364,20 +364,20 @@
 		to_chat(victim, "<span class='userdanger'><b>[user]</b> заканчивает применять [I] на мою [ru_parse_zone(limb.name)] и я начинаю чувствовать, как мои кости взрываются от боли, когда они начинают таять и преобразовываться!</span>")
 	else
 		var/painkiller_bonus = 0
-		if(victim.drunkenness)
-			painkiller_bonus += 5
-		if(victim.has_reagent(/datum/reagent/medicine/morphine))
+		if(victim.drunkenness > 10)
 			painkiller_bonus += 10
+		if(victim.has_reagent(/datum/reagent/medicine/morphine))
+			painkiller_bonus += 20
 		if(victim.has_reagent(/datum/reagent/determination))
-			painkiller_bonus += 5
+			painkiller_bonus += 10
 
-		if(prob(25 + (20 * severity - 2) - painkiller_bonus)) // 25%/45% chance to fail self-applying with severe and critical wounds, modded by painkillers
+		if(prob(25 + (20 * (severity - 2)) - painkiller_bonus)) // 25%/45% chance to fail self-applying with severe and critical wounds, modded by painkillers
 			victim.visible_message("<span class='danger'><b>[victim]</b> проваливает попытку нанести [I] на [victim.ru_ego()] [ru_parse_zone(limb.name)], теряя сознание от боли!</span>", "<span class='notice'>Теряю сознание от боли пытаясь применить [I] на мою [ru_parse_zone(limb.name)] перед тем как закончить!</span>")
 			victim.AdjustUnconscious(5 SECONDS)
 			return
 		victim.visible_message("<span class='notice'><b>[victim]</b> успешно применяет [I] на [victim.ru_ego()] [ru_parse_zone(limb.name)], скорчившись от боли!</span>", "<span class='notice'>Заканчиваю применять [I] на мою [ru_parse_zone(limb.name)], осталось перетерпеть адскую боль!</span>")
 
-	limb.receive_damage(30, stamina=100, wound_bonus=CANT_WOUND)
+	limb.receive_damage(25, stamina=100, wound_bonus=CANT_WOUND)
 	if(!gelled)
 		gelled = TRUE
 

@@ -528,6 +528,14 @@
 	desc = "Тут можно отдохнуть, но не всегда."
 	icon_state = "bed"
 
+/obj/structure/bed/prison/bed/Initialize()
+	GLOB.dwarf_shkonka_list += src
+	. = ..()
+
+/obj/structure/bed/prison/bed/Destroy()
+	GLOB.dwarf_shkonka_list -= src
+	. = ..()
+
 /********************Lights***************************/
 
 /obj/machinery/light/streetlight

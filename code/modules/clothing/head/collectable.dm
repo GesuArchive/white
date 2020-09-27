@@ -4,6 +4,7 @@
 /obj/item/clothing/head/collectable
 	name = "коллекционная шляпа"
 	desc = "Редкая коллекционная шляпа."
+	icon_state = null
 
 /obj/item/clothing/head/collectable/petehat
 	name = "супер редкая шляпа Пита!"

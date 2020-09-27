@@ -70,6 +70,13 @@
 /turf/open/floor/grass/gensgrass/dirty/stone/crowbar_act(mob/living/user, obj/item/I)
 	return FALSE
 
+/turf/open/floor/grass/gensgrass/dirty/stone/attackby(obj/item/I, mob/user, params)
+	if((I.tool_behaviour == TOOL_SHOVEL) && params)
+		user.visible_message("<span class='warning'>[user] грустно долбит лопатой по [src].</span>", "<span class='warning'>Как я блять лопатой буду копать [src]?!</span>")
+		return FALSE
+	if(..())
+		return
+
 /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	name = "уродливый камень"
 	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
@@ -86,35 +93,9 @@
 	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 	canSmoothWith = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 	sheet_type = /obj/item/raw_stone/block
+	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone
 	sheet_amount = 4
 	girder_type = null
-
-/turf/open/floor/grass/gensgrass/dirty/attackby(obj/item/S, mob/user, params)
-	. = ..()
-	if(istype(S, /obj/item/raw_stone/block))
-		if(!stoned)
-			ChangeTurf(/turf/open/floor/grass/gensgrass/dirty/stone, flags = CHANGETURF_INHERIT_AIR)
-			stoned = TRUE
-			qdel(S)
-			user.visible_message("<span class='notice'><b>[user]</b> создаёт каменный пол.</span>", \
-								"<span class='notice'>Делаю каменный пол.</span>")
-		else
-			var/list/blocks = list()
-			for(var/obj/item/raw_stone/block/B in contents)
-				blocks += B
-				if(blocks.len >= 4)
-					break
-			if(blocks.len < 4)
-				to_chat(user, "<span class='warning'>Нужно четыре блока на полу для возведения стены!</span>")
-				return
-			to_chat(user, "<span class='notice'>Начинаю строить стену...</span>")
-			if(!do_after(user, 5 SECONDS, target = src))
-				return
-			QDEL_LIST(blocks)
-			ChangeTurf(/turf/closed/wall/stonewall, flags = CHANGETURF_IGNORE_AIR)
-			qdel(S)
-			user.visible_message("<span class='notice'><b>[user]</b> возводит каменную стену.</span>", \
-								"<span class='notice'>Возвожу каменную стену.</span>")
 
 /turf/open/floor/grass/gensgrass/dirty/stone/raw/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -202,6 +183,14 @@
 	category = CAT_STRUCTURE
 	always_available = TRUE
 
+/datum/crafting_recipe/smithman/furnace_cook
+	name = "Печь для готовки"
+	result = /obj/machinery/microwave/furnace
+	reqs = list(/obj/item/raw_stone/block = 8, /obj/item/stack/sheet/mineral/wood = 6)
+	time = 200
+	category = CAT_STRUCTURE
+	always_available = TRUE
+
 /datum/crafting_recipe/smithman/forge
 	name = "Кузница"
 	result = /obj/forge
@@ -215,6 +204,30 @@
 	result = /obj/structure/mineral_door/heavystone
 	reqs = list(/obj/item/raw_stone/block = 5, /obj/item/stack/sheet/mineral/wood = 1, /obj/item/blacksmith/ingot = 1)
 	time = 300
+	category = CAT_STRUCTURE
+	always_available = TRUE
+
+/datum/crafting_recipe/smithman/stonechair
+	name = "Каменный стул"
+	result = /obj/structure/chair/comfy/stone
+	reqs = list(/obj/item/raw_stone/block = 1)
+	time = 100
+	category = CAT_STRUCTURE
+	always_available = TRUE
+
+/datum/crafting_recipe/smithman/stonetable
+	name = "Каменный стол"
+	result = /obj/structure/table/stone
+	reqs = list(/obj/item/raw_stone/block = 2)
+	time = 100
+	category = CAT_STRUCTURE
+	always_available = TRUE
+
+/datum/crafting_recipe/smithman/sarcophage
+	name = "Саркофаг"
+	result = /obj/structure/closet/crate/sarcophage
+	reqs = list(/obj/item/raw_stone/block = 10)
+	time = 250
 	category = CAT_STRUCTURE
 	always_available = TRUE
 
@@ -241,9 +254,16 @@
 	icon_state = "rockthefuck"
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	environment_type = "stone_raw"
+	smoothing_flags = SMOOTH_CORNERS
+	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
+	canSmoothWith = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 	turf_type = /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	mineralSpawnChanceList = list(/obj/item/stack/ore/diamond = 1, /obj/item/stack/ore/gold = 3, /obj/item/stack/ore/iron = 40)
+
+/turf/closed/mineral/random/dwarf_lustress/Initialize()
+	. = ..()
+	transform = null // backdoor
 
 /area/awaymission/vietnam/dwarf
 	name = "Тёмное подземелье"

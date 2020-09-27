@@ -63,25 +63,26 @@
 	wanted_types = list(/obj/item/organ/tail/cat)
 
 /datum/bounty/item/medical/chainsaw
-	name = "Chainsaw"
-	description = "A CMO at CentCom is having trouble operating on golems. She requests one chainsaw, please."
+	name = "Циркулярная пила"
+	description = "У СМО в ЦК проблемы с операцией на големамах. Она просит одну бензопилу, пожалуйста."
 	reward = 2500
-	wanted_types = list(/obj/item/chainsaw)
+	wanted_types = list(/obj/item/chainsaw,
+						/obj/item/circular_saw)
 
 /datum/bounty/item/medical/tail_whip //Like the cat tail bounties, with more processing.
-	name = "Nine Tails whip"
-	description = "Commander Jackson is looking for a fine addition to her exotic weapons collection. She will reward you handsomely for either a Cat or Liz o' Nine Tails."
+	name = "Кнут девятихвостого"
+	description = "Коммандер Джексон ищет прекрасное дополнение к своей коллекции экзотического оружия. Она щедро вознаградит вас за кнут из ящера или кота."
 	reward = 4000
 	wanted_types = list(/obj/item/melee/chainofcommand/tailwhip)
 
 /datum/bounty/item/medical/surgerycomp
-	name = "Surgery Computer"
-	description = "After another freak bombing incident at our annual cheesefest at centcom, we have a massive stack of injured crew on our end. Please send us a fresh surgery computer, if at all possible."
+	name = "Хирургический компьютер"
+	description = "После очередного странного инцидента с взрывом бомбы на нашем ежегодном сырном фестивале в ЦентКоме у нас уже собралась огромная группа раненых. Пожалуйста, пришлите нам новый хирургический компьютер, если это возможно."
 	reward = 6000
 	wanted_types = list(/obj/machinery/computer/operating)
 
 /datum/bounty/item/medical/surgerytable
-	name = "Operating Table"
-	description = "After a recent influx of infected crew members recently, we've seen that masks just aren't cutting it alone. Silver Operating tables might just do the trick though, send us one to use."
+	name = "Операционный стол"
+	description = "После недавнего притока зараженных членов экипажа мы увидели, что маски просто не режут его в одиночку. Серебряные операционные столы могут помочь, пришлите нам один для использования."
 	reward = 3000
 	wanted_types = list(/obj/structure/table/optable)

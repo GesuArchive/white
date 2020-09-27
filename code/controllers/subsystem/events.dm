@@ -100,7 +100,7 @@ SUBSYSTEM_DEF(events)
 // Why the heck is this here! Took me so damn long to find!
 /client/proc/forceEvent()
 	set name = "Trigger Event"
-	set category = "Фан"
+	set category = "Адм.События"
 
 	if(!holder ||!check_rights(R_FUN))
 		return
