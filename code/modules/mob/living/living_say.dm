@@ -94,7 +94,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	if(ic_blocked)
 		//The filter warning message shows the sanitized message though.
-		to_chat(src, "<span class='warning'>Ты хотел сказать: <span replaceRegex='show_filtered_ic_chat'>\"[message]\"</span>, но у меня ничего не вышло.</span>")
+		to_chat(src, "<span class='warning'>Хотел сказать <span replaceRegex='show_filtered_ic_chat'>\"[message]\"</span>, но у меня ничего не вышло.</span>")
 		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
 		return
 	var/list/message_mods = list()
