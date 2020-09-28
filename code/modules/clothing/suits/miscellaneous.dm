@@ -48,14 +48,14 @@
 
 /obj/item/clothing/suit/pirate
 	name = "пиратское пальто"
-	desc = "Yarr."
+	desc = "Йарр."
 	icon_state = "pirate"
 	inhand_icon_state = "pirate"
 	allowed = list(/obj/item/melee/transforming/energy/sword/pirate, /obj/item/clothing/glasses/eyepatch, /obj/item/reagent_containers/food/drinks/bottle/rum)
 
 /obj/item/clothing/suit/pirate/captain
 	name = "пиратское пальто капитана"
-	desc = "Yarr."
+	desc = "Йарр."
 	icon_state = "hgpirate"
 	inhand_icon_state = "hgpirate"
 
