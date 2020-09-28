@@ -96,13 +96,13 @@
 
 /obj/item/clothing/neck/cloak/skill_reward/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>You notice a powerful aura about this cloak, suggesting that only the truly experienced may wield it.</span>"
+	. += "<span class='notice'>Я ощущаю сильную ауру окружающую этот плащ. Предполагаю, что им может владеть только кто-то по настоящему опытный.</span>"
 
 /obj/item/clothing/neck/cloak/skill_reward/proc/check_wearable(mob/user)
 	return user.mind?.get_skill_level(associated_skill_path) < SKILL_LEVEL_LEGENDARY
 
 /obj/item/clothing/neck/cloak/skill_reward/proc/unworthy_unequip(mob/user)
-	to_chat(user, "<span class = 'notice'>You feel completely and utterly unworthy to even touch \the [src].</span>")
+	to_chat(user, "<span class = 'notice'>Я чую что я полностью и абсолютно не готов даже прикоснуться к \the [src].</span>")
 	var/hand_index = user.get_held_index_of_item(src)
 	if (hand_index)
 		user.dropItemToGround(src, TRUE)
@@ -119,26 +119,26 @@
 	return ..()
 
 /obj/item/clothing/neck/cloak/skill_reward/gaming
-	name = "legendary gamer's cloak"
-	desc = "Worn by the most skilled professional gamers on the station, this legendary cloak is only attainable by achieving true gaming enlightenment. This status symbol represents the awesome might of a being of focus, commitment, and sheer fucking will. Something casual gamers will never begin to understand."
+	name = "плащ легендарного геймера"
+	desc = "Его носят только самые скилловые професиональные геймеры станции. Этот легендарный плащ можно получить только достигнув истинного геймерского просветления. Этот статусный символ представляет удивительную мощь сосредоточенности, решимости и чистой, блять, силы воли. То, чего казуальные геймеры никогда не поймут."
 	icon_state = "gamercloak"
 	associated_skill_path = /datum/skill/gaming
 
 /obj/item/clothing/neck/cloak/skill_reward/cleaning
-	name = "legendary cleaner's cloak"
-	desc = "Worn by the most skilled custodians, this legendary cloak is only attainable by achieving janitorial enlightenment. This status symbol represents a being not only extensively trained in grime combat, but one who is willing to use an entire aresenal of cleaning supplies to its full extent to wipe grime's miserable ass off the face of the station."
+	name = "плащ легендарного уборщика"
+	desc = "Его носят только самые скилловые хранители чистоты. Этот легендарный плащ можно получить только достигнув истинного уборочного просветления. Этот статусный символ представляет существо, не только хорошо обученное борьбе с грязью, а готовое использовать целиком свой арсенал чистящих средств для того чтобы целиком стереть это жалкое грязевое пятно с лица станции."
 	icon_state = "cleanercloak"
 	associated_skill_path = /datum/skill/cleaning
 
 /obj/item/clothing/neck/cloak/skill_reward/mining
-	name = "legendary miner's cloak"
-	desc = "Worn by the most skilled miners, this legendary cloak is only attainable by achieving true mineral enlightenment. This status symbol represents a being who has forgotten more about rocks than most miners will ever know, a being who has moved mountains and filled valleys."
+	name = "плащ легендарного шахтера"
+	desc = "Его носят только самые скилловые Шахтеры. Этот легендарный плащ можно получить только достигнув истинного минерального просветления. Этот статусный символ представляет существо, которое забыло про камни больше, чем большинств шахтеров когда-либо узнает. Существо, которое сдвинуло горы и заполнило долины."
 	icon_state = "minercloak"
 	associated_skill_path = /datum/skill/mining
 
 /obj/item/clothing/neck/cloak/skill_reward/playing
-	name = "legendary veteran's cloak"
-	desc = "Worn by the wisest of veteran employees, this legendary cloak is only attainable by maintaining a living employment agreement with Nanotrasen for over <b>five thousand hours</b>. This status symbol represents a being is better than you in nearly every quantifiable way, simple as that."
+	name = "плащ легендарного ветерана"
+	desc = "Его носят только мудрейшие из сотрудников. Этот легендарный плащ можно получить только заключив трудовой договор с Нанотрансен на срок более <b>пяти тысяч часов</b>. Этот статусный символ представляет существо, которое лучше вас почти во всех измеримых областях, только и всего."
 	icon_state = "playercloak"
 
 /obj/item/clothing/neck/cloak/skill_reward/playing/check_wearable(mob/user)

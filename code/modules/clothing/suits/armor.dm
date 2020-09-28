@@ -173,8 +173,8 @@
 	allowed = GLOB.detective_vest_allowed
 
 /obj/item/clothing/suit/armor/vest/infiltrator
-	name = "infiltrator vest"
-	desc = "This vest appears to be made of of highly flexible materials that absorb impacts with ease."
+	name = "жилет лазутчика"
+	desc = "Этот жилет изготовлен из крайне гибких материалов, которые легко поглощают удары."
 	icon_state = "infiltrator"
 	inhand_icon_state = "infiltrator"
 	armor = list(MELEE = 40, BULLET = 40, LASER = 30, ENERGY = 40, BOMB = 70, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
@@ -221,14 +221,14 @@
 	armor = list(MELEE = 80, BULLET = 80, LASER = 50, ENERGY = 50, BOMB = 100, BIO = 100, RAD = 100, FIRE = 90, ACID = 90)
 
 /obj/item/clothing/suit/armor/tdome/red
-	name = "thunderdome suit"
-	desc = "Reddish armor."
+	name = "костюм купола грома"
+	desc = "Красноватая броня."
 	icon_state = "tdred"
 	inhand_icon_state = "tdred"
 
 /obj/item/clothing/suit/armor/tdome/green
-	name = "thunderdome suit"
-	desc = "Pukish armor."	//classy.
+	name = "костюм купола грома"
+	desc = "Блевотная броня."	//classy.
 	icon_state = "tdgreen"
 	inhand_icon_state = "tdgreen"
 
@@ -273,7 +273,7 @@
 
 /obj/item/clothing/suit/armor/vest/russian
 	name = "русский жилет"
-	desc = "A bulletproof vest with forest camo. Good thing there's plenty of forests to hide in around here, right?"
+	desc = "Пуленепробиваемый жилет с лесным камуфляжем. Хорошо что тут куча лесов, чтобы в них прятаться, не так ли?"
 	icon_state = "rus_armor"
 	inhand_icon_state = "rus_armor"
 	armor = list(MELEE = 25, BULLET = 30, LASER = 0, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 20, FIRE = 20, ACID = 50, WOUND = 10)
@@ -289,8 +289,8 @@
 	armor = list(MELEE = 25, BULLET = 20, LASER = 20, ENERGY = 30, BOMB = 20, BIO = 50, RAD = 20, FIRE = -10, ACID = 50, WOUND = 10)
 
 /obj/item/clothing/suit/armor/elder_atmosian
-	name = "Elder Atmosian Armor"
-	desc = "A superb armor made with the toughest and rarest materials available to man."
+	name = "Древняя Атмосианская броня"
+	desc = "Превосходная броня, сделанная из самых прочных и редких доступных человеку материалов."
 	icon_state = "knight_grey"
 	inhand_icon_state = "knight_greyscale"
 	material_flags = MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS//Can change color and add prefix

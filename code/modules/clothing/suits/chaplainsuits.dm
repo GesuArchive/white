@@ -78,8 +78,8 @@
 	flags_inv = HIDEJUMPSUIT
 
 /obj/item/clothing/suit/chaplainsuit/clownpriest
-	name = "роба последователя Honkmother"
-	desc = "Предназначен для клоуна из ткани."
+	name = "роба последователя Хонкоматери"
+	desc = "Тканевый костюм для клоуна."
 	icon_state = "clownpriest"
 	inhand_icon_state = "clownpriest"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
