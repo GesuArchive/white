@@ -42,7 +42,7 @@
 
 /obj/item/clothing/mask/fakemoustache/italian
 	name = "итальянские усы"
-	desc = "Сделаны из настоящих итальянских усов. Передает носителю дитое желание сильно жестикулировать."
+	desc = "Сделаны из настоящих итальянских усов. Передает носителю дикое желание сильно жестикулировать."
 	modifies_speech = TRUE
 
 /obj/item/clothing/mask/fakemoustache/italian/handle_speech(datum/source, list/speech_args)

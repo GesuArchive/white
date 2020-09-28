@@ -343,3 +343,16 @@
 	pixel_x = 32
 
 
+/datum/outfit/dag
+	name = "dagestan"
+
+	glasses = /obj/item/clothing/glasses/sunglasses
+	uniform = /obj/item/clothing/under/pants/black
+	suit = /obj/item/clothing/suit/hawaiian
+	shoes = /obj/item/clothing/shoes/sneakers/red
+	head = /obj/item/clothing/head/fedora
+	belt = /obj/item/nullrod/claymore/multiverse
+	l_pocket = /obj/item/ammo_box/magazine/m9mm
+	r_pocket = /obj/item/ammo_box/magazine/m9mm
+	back = /obj/item/storage/backpack/duffelbag/drone
+	backpack_contents = list(/obj/item/gun/ballistic/automatic/m90/columbine)
