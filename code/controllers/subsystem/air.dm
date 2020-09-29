@@ -87,23 +87,17 @@ SUBSYSTEM_DEF(air)
 
 
 	if(currentpart == SSAIR_PIPENETS || !resumed)
-		timer = TICK_USAGE_REAL
-		if(!resumed)
-			cached_cost = 0
-		process_pipenets(delta_time, resumed)
-		cached_cost += TICK_USAGE_REAL - timer
+		process_pipenets(resumed)
+		cost_pipenets = MC_AVERAGE(cost_pipenets, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
-		cost_pipenets = MC_AVERAGE(cost_pipenets, TICK_DELTA_TO_MS(cached_cost))
-		resumed = FALSE
+		resumed = 0
 		currentpart = SSAIR_ATMOSMACHINERY
 
 	if(currentpart == SSAIR_ATMOSMACHINERY)
 		timer = TICK_USAGE_REAL
-		if(!resumed)
-			cached_cost = 0
-		process_atmos_machinery(delta_time, resumed)
-		cached_cost += TICK_USAGE_REAL - timer
+		process_atmos_machinery(resumed)
+		cost_atmos_machinery = MC_AVERAGE(cost_atmos_machinery, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
 		resumed = 0
@@ -120,58 +114,44 @@ SUBSYSTEM_DEF(air)
 
 	if(currentpart == SSAIR_ACTIVETURFS)
 		timer = TICK_USAGE_REAL
-		if(!resumed)
-			cached_cost = 0
 		process_active_turfs(resumed)
-		cached_cost += TICK_USAGE_REAL - timer
+		cost_turfs = MC_AVERAGE(cost_turfs, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
-		cost_turfs = MC_AVERAGE(cost_turfs, TICK_DELTA_TO_MS(cached_cost))
-		resumed = FALSE
+		resumed = 0
 		currentpart = SSAIR_EXCITEDGROUPS
 
 	if(currentpart == SSAIR_EXCITEDGROUPS)
 		timer = TICK_USAGE_REAL
-		if(!resumed)
-			cached_cost = 0
 		process_excited_groups(resumed)
-		cached_cost += TICK_USAGE_REAL - timer
+		cost_groups = MC_AVERAGE(cost_groups, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
-		cost_groups = MC_AVERAGE(cost_groups, TICK_DELTA_TO_MS(cached_cost))
-		resumed = FALSE
+		resumed = 0
 		currentpart = SSAIR_HIGHPRESSURE
 
 	if(currentpart == SSAIR_HIGHPRESSURE)
 		timer = TICK_USAGE_REAL
-		if(!resumed)
-			cached_cost = 0
 		process_high_pressure_delta(resumed)
-		cached_cost += TICK_USAGE_REAL - timer
+		cost_highpressure = MC_AVERAGE(cost_highpressure, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
-		cost_highpressure = MC_AVERAGE(cost_highpressure, TICK_DELTA_TO_MS(cached_cost))
-		resumed = FALSE
+		resumed = 0
 		currentpart = SSAIR_HOTSPOTS
 
 	if(currentpart == SSAIR_HOTSPOTS)
 		timer = TICK_USAGE_REAL
-		if(!resumed)
-			cached_cost = 0
-		process_hotspots(delta_time, resumed)
-		cached_cost += TICK_USAGE_REAL - timer
+		process_hotspots(resumed)
+		cost_hotspots = MC_AVERAGE(cost_hotspots, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
-		cost_hotspots = MC_AVERAGE(cost_hotspots, TICK_DELTA_TO_MS(cached_cost))
-		resumed = FALSE
+		resumed = 0
 		currentpart = SSAIR_SUPERCONDUCTIVITY
 
 	if(currentpart == SSAIR_SUPERCONDUCTIVITY)
 		timer = TICK_USAGE_REAL
-		if(!resumed)
-			cached_cost = 0
 		process_super_conductivity(resumed)
-		cached_cost += TICK_USAGE_REAL - timer
+		cost_superconductivity = MC_AVERAGE(cost_superconductivity, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
 		resumed = 0
@@ -187,7 +167,7 @@ SUBSYSTEM_DEF(air)
 
 
 
-/datum/controller/subsystem/air/proc/process_pipenets(delta_time, resumed = FALSE)
+/datum/controller/subsystem/air/proc/process_pipenets(resumed = FALSE)
 	if (!resumed)
 		src.currentrun = networks.Copy()
 	//cache for sanic speed (lists are references anyways)
@@ -196,15 +176,15 @@ SUBSYSTEM_DEF(air)
 		var/datum/thing = currentrun[currentrun.len]
 		currentrun.len--
 		if(thing)
-			thing.process(delta_time)
+			thing.process()
 		else
 			networks.Remove(thing)
 		if(MC_TICK_CHECK)
 			return
 
 
-
-/datum/controller/subsystem/air/proc/process_atmos_machinery(delta_time, resumed = FALSE)
+/datum/controller/subsystem/air/proc/process_atmos_machinery(resumed = 0)
+	var/seconds = wait * 0.1
 	if (!resumed)
 		src.currentrun = atmos_machinery.Copy()
 	//cache for sanic speed (lists are references anyways)
@@ -212,7 +192,7 @@ SUBSYSTEM_DEF(air)
 	while(currentrun.len)
 		var/obj/machinery/M = currentrun[currentrun.len]
 		currentrun.len--
-		if(!M || (M.process_atmos(delta_time) == PROCESS_KILL))
+		if(!M || (M.process_atmos(seconds) == PROCESS_KILL))
 			atmos_machinery.Remove(M)
 		if(MC_TICK_CHECK)
 			return
@@ -239,7 +219,7 @@ SUBSYSTEM_DEF(air)
 		var/obj/effect/hotspot/H = currentrun[currentrun.len]
 		currentrun.len--
 		if (H)
-			H.process(delta_time)
+			H.process()
 		else
 			hotspots -= H
 		if(MC_TICK_CHECK)
@@ -374,7 +354,6 @@ SUBSYSTEM_DEF(air)
 
 	// Clear active turfs - faster than removing every single turf in the world
 	// one-by-one, and Initalize_Atmos only ever adds `src` back in.
-
 	clear_active_turfs()
 
 	for(var/thing in turfs_to_init)
@@ -456,8 +435,6 @@ SUBSYSTEM_DEF(air)
 	for (var/obj/machinery/atmospherics/AM in atmos_machinery)
 		AM.build_network()
 		CHECK_TICK
-
-
 
 /datum/controller/subsystem/air/proc/setup_template_machinery(list/atmos_machines)
 	if(!initialized) // yogs - fixes randomized bars
