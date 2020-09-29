@@ -1,5 +1,5 @@
 /datum/outfit/vr
-	name = "Basic VR"
+	name = "Базовый VR"
 	uniform = /obj/item/clothing/under/color/random
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	ears = /obj/item/radio/headset
@@ -14,7 +14,7 @@
 		id.access |= get_all_accesses()
 
 /datum/outfit/vr/syndicate
-	name = "Syndicate VR Operative - Basic"
+	name = "Базовый VR оперативника Синдиката"
 	uniform = /obj/item/clothing/under/syndicate
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
@@ -37,5 +37,5 @@
 	H.update_icons()
 
 /obj/item/paper/fluff/vr/fluke_ops
-	name = "Where is my uplink?"
-	info = "Use the radio in your backpack."
+	name = "Где мой uplink?"
+	info = "Используйте радию, оно в вашем рюкзаке."

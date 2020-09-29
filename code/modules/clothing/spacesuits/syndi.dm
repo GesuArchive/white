@@ -1,16 +1,16 @@
 //Regular syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate
-	name = "красный космошлем"
+	name = "шлем скафандра синдиката"
 	icon_state = "syndicate"
 	inhand_icon_state = "syndicate"
-	desc = "Has a tag on it: Totally not property of an enemy corporation, honest!"
+	desc = "На нем есть бирка: Абсолютно точно не собственноcть враждебной корпорации, честно!"
 	armor = list(MELEE = 40, BULLET = 50, LASER = 30,ENERGY = 40, BOMB = 30, BIO = 30, RAD = 30, FIRE = 80, ACID = 85)
 
 /obj/item/clothing/suit/space/syndicate
 	name = "красный скафандр"
 	icon_state = "syndicate"
 	inhand_icon_state = "space_suit_syndicate"
-	desc = "Has a tag on it: Totally not property of an enemy corporation, honest!"
+	desc = "На нем есть бирка: Абсолютно точно не собственноcть враждебной корпорации, честно!"
 	w_class = WEIGHT_CLASS_NORMAL
 	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	armor = list(MELEE = 40, BULLET = 50, LASER = 30,ENERGY = 40, BOMB = 30, BIO = 30, RAD = 30, FIRE = 80, ACID = 85)
@@ -18,133 +18,133 @@
 
 //Green syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate/green
-	name = "зелёный космошлем"
+	name = "зелёный шлем скафандра синдиката"
 	icon_state = "syndicate-helm-green"
 	inhand_icon_state = "syndicate-helm-green"
 
 /obj/item/clothing/suit/space/syndicate/green
-	name = "зелёный скафандр"
+	name = "зелёный скафандр синдиката"
 	icon_state = "syndicate-green"
 	inhand_icon_state = "syndicate-green"
 
 
 //Dark green syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate/green/dark
-	name = "dark green космошлем"
+	name = "темно зеленый шлем скафандра синдиката"
 	icon_state = "syndicate-helm-green-dark"
 	inhand_icon_state = "syndicate-helm-green-dark"
 
 /obj/item/clothing/suit/space/syndicate/green/dark
-	name = "dark green скафандр"
+	name = "темно зеленый скафандр синдиката"
 	icon_state = "syndicate-green-dark"
 	inhand_icon_state = "syndicate-green-dark"
 
 
 //Orange syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate/orange
-	name = "оранжевый космошлем"
+	name = "оранжевый шлем скафандра синдиката"
 	icon_state = "syndicate-helm-orange"
 	inhand_icon_state = "syndicate-helm-orange"
 
 /obj/item/clothing/suit/space/syndicate/orange
-	name = "оранжевый скафандр"
+	name = "оранжевый скафандр синдиката"
 	icon_state = "syndicate-orange"
 	inhand_icon_state = "syndicate-orange"
 
 //Blue syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate/blue
-	name = "синий космошлем"
+	name = "синий шлем скафандра синдиката"
 	icon_state = "syndicate-helm-blue"
 	inhand_icon_state = "syndicate-helm-blue"
 
 /obj/item/clothing/suit/space/syndicate/blue
-	name = "синий скафандр"
+	name = "синий скафандр синдиката"
 	icon_state = "syndicate-blue"
 	inhand_icon_state = "syndicate-blue"
 
 
 //Black syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate/black
-	name = "чёрный космошлем"
+	name = "чёрный шлем скафандра синдиката"
 	icon_state = "syndicate-helm-black"
 	inhand_icon_state = "syndicate-helm-black"
 
 /obj/item/clothing/suit/space/syndicate/black
-	name = "чёрный скафандр"
+	name = "чёрный скафандр синдиката"
 	icon_state = "syndicate-black"
 	inhand_icon_state = "syndicate-black"
 
 
 //Black-green syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate/black/green
-	name = "чёрный космошлем"
+	name = "темно зеленый шлем скафандра синдиката"
 	icon_state = "syndicate-helm-black-green"
 	inhand_icon_state = "syndicate-helm-black-green"
 
 /obj/item/clothing/suit/space/syndicate/black/green
-	name = "чёрный и зелёный скафандр"
+	name = "темно зеленый скафандр синдиката"
 	icon_state = "syndicate-black-green"
 	inhand_icon_state = "syndicate-black-green"
 
 
 //Black-blue syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate/black/blue
-	name = "чёрный космошлем"
+	name = "темно синий шлем скафандра синдиката"
 	icon_state = "syndicate-helm-black-blue"
 	inhand_icon_state = "syndicate-helm-black-blue"
 
 /obj/item/clothing/suit/space/syndicate/black/blue
-	name = "чёрный и синий скафандр"
+	name = "темно синий скафандр синдиката"
 	icon_state = "syndicate-black-blue"
 	inhand_icon_state = "syndicate-black-blue"
 
 
 //Black medical syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate/black/med
-	name = "чёрный космошлем"
+	name = "черный медицинский шлем скафандра синдиката"
 	icon_state = "syndicate-helm-black-med"
 	inhand_icon_state = "syndicate-helm-black"
 
 /obj/item/clothing/suit/space/syndicate/black/med
-	name = "зелёный скафандр"
+	name = "черный медицинский скафандр синдиката"
 	icon_state = "syndicate-black-med"
 	inhand_icon_state = "syndicate-black"
 
 
 //Black-orange syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate/black/orange
-	name = "чёрный космошлем"
+	name = "темно-оранжевый шлем скафандра синдиката"
 	icon_state = "syndicate-helm-black-orange"
 	inhand_icon_state = "syndicate-helm-black"
 
 /obj/item/clothing/suit/space/syndicate/black/orange
-	name = "чёрный и оранжевый скафандр"
+	name = "темно-оранжевый скафандр"
 	icon_state = "syndicate-black-orange"
 	inhand_icon_state = "syndicate-black"
 
 
 //Black-red syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate/black/red
-	name = "чёрный космошлем"
+	name = "темно-красный медицинский шлем скафандра синдиката"
 	icon_state = "syndicate-helm-black-red"
 	inhand_icon_state = "syndicate-helm-black-red"
 
 /obj/item/clothing/suit/space/syndicate/black/red
-	name = "чёрный и красный скафандр"
+	name = "темно-красный скафандр синдиката"
 	icon_state = "syndicate-black-red"
 	inhand_icon_state = "syndicate-black-red"
 
 //Black-red syndicate contract varient
 /obj/item/clothing/head/helmet/space/syndicate/contract
-	name = "шлем наёмника"
-	desc = "Специализированный черно-золотой шлем, который более компактен, чем его стандартный аналог от Синдиката. Может быть ультра-сжатым даже в самые узкие пространства."
+	name = "темно-красный шлем скафандра наёмника синдиката"
+	desc = "Специализированный темно-красный шлем, который более компактен, чем стандартный аналог Синдиката. Пролезет даже в самые узкие пространства."
 	w_class = WEIGHT_CLASS_SMALL
 	icon_state = "syndicate-contract-helm"
 	inhand_icon_state = "syndicate-contract-helm"
 
 /obj/item/clothing/suit/space/syndicate/contract
 	name = "скафандр наёмника"
-	desc = "Специализированный черно-золотой скафандр, который быстрее и компактнее, чем его стандартный аналог от Синдиката. Может быть ультра-сжатым даже в самые узкие пространства."
+	desc = "Специализированный темно-красный скафандр, который быстрее и компактнее, чем стандартный аналог Синдиката. Пролезет даже в самые узкие пространства."
 	slowdown = 1
 	w_class = WEIGHT_CLASS_SMALL
 	icon_state = "syndicate-contract"
@@ -152,11 +152,11 @@
 
 //Black with yellow/red engineering syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate/black/engie
-	name = "чёрный космошлем"
+	name = "Черно-желтый инженерный шлем скафандра синдиката"
 	icon_state = "syndicate-helm-black-engie"
 	inhand_icon_state = "syndicate-helm-black"
 
 /obj/item/clothing/suit/space/syndicate/black/engie
-	name = "чёрный инженерный скафандр"
+	name = "чёрный инженерный скафандр синдиката"
 	icon_state = "syndicate-black-engie"
 	inhand_icon_state = "syndicate-black"
