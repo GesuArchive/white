@@ -18,7 +18,7 @@
 		var/armour_path = anomaly_armour_types[A.anomaly_type]
 		if(!armour_path)
 			armour_path = /obj/item/clothing/suit/armor/reactive/stealth //Lets not cheat the player if an anomaly type doesnt have its own armour coded
-		to_chat(user, "<span class='notice'>You insert [A] into the chest plate, and the armour gently hums to life.</span>")
+		to_chat(user, "<span class='notice'>Вы вставили [A] в нагрудную пластину и броня, с нежным гудением, оживает.</span>")
 		new armour_path(get_turf(src))
 		qdel(src)
 		qdel(A)
@@ -222,7 +222,7 @@
 			owner.visible_message("<span class='danger'>Реактивная броня на перезарядке!</span>")
 			return
 		owner.visible_message("<span class='danger'>Реактивная система телепортации сбрасывает [H] от [attack_text] и бросает [H.p_them()] на созданный стол!</span>")
-		owner.visible_message("<font color='red' size='3'>[H] GOES ON THE TABLE!!!</font>")
+		owner.visible_message("<font color='red' size='3'>[H] ОТПРАВЛЯЕТСЯ НА СТОЛ!!!</font>")
 		owner.Paralyze(40)
 		var/list/turfs = new/list()
 		for(var/turf/T in orange(tele_range, H))

@@ -19,7 +19,7 @@ Contains:
 	//Death squad armored space suits, not hardsuits!
 /obj/item/clothing/head/helmet/space/hardsuit/deathsquad
 	name = "MK.III шлем спецназа"
-	desc = "An advanced tactical space helmet."
+	desc = "Продвинутый тактический космичесий шлем."
 	icon_state = "deathsquad"
 	inhand_icon_state = "deathsquad"
 	armor = list(MELEE = 80, BULLET = 80, LASER = 50, ENERGY = 60, BOMB = 100, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 20)
@@ -32,8 +32,8 @@ Contains:
 	return
 
 /obj/item/clothing/suit/space/hardsuit/deathsquad
-	name = "MK.III SWAT Suit"
-	desc = "A prototype designed to replace the ageing MK.II SWAT suit. Based on the streamlined MK.II model, the traditional ceramic and graphene plate construction was replaced with plasteel, allowing superior armor against most threats. There's room for some kind of energy projection device on the back."
+	name = "MK.III Скафандр Спецназа"
+	desc = "Прототип разработанный чтобы заменить устаревший MK.II Спецназа. На основе оптимизированной модели MK.II традиционные керамические и графеновые пластины были заменены на пласталь, предоставляя превосходную защиту от большинства угроз. На спине есть место для устройства энергетической проекции."
 	icon_state = "deathsquad"
 	inhand_icon_state = "swat_suit"
 	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/restraints/handcuffs, /obj/item/tank/internals, /obj/item/kitchen/knife/combat)
@@ -47,8 +47,8 @@ Contains:
 
 	//NEW SWAT suit
 /obj/item/clothing/suit/space/swat
-	name = "MK.I SWAT Suit"
-	desc = "A tactical space suit first developed in a joint effort by the defunct IS-ERI and Nanotrasen in 20XX for military space operations. A tried and true workhorse, it is very difficult to move in but offers robust protection against all threats!"
+	name = "MK.I Скафандр Спецназа"
+	desc = "Тактический скафандр впервые разработанный совместными усилиями между ныне несуществующей IS-ERI и Нанотрансеном в 20XX для космических военных операций. Проверенный временем экземпляр, в нем очень тяжело ходить, что компенсируется надежной защитой от различных угроз!"
 	icon_state = "heavy"
 	inhand_icon_state = "swat_suit"
 	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/restraints/handcuffs, /obj/item/tank/internals, /obj/item/kitchen/knife/combat)
@@ -57,8 +57,8 @@ Contains:
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/head/helmet/space/beret
-	name = "officer's beret"
-	desc = "An armored beret commonly used by special operations officers. Uses advanced force field technology to protect the head from space."
+	name = "офицерский шлем"
+	desc = "Бронированный берет, обычно используемый офицерами спецопераций. Использует продвинутую технологию силового поля, что защищает голову от космоса."
 	icon_state = "beret_badge"
 	dynamic_hair_suffix = "+generic"
 	dynamic_fhair_suffix = "+generic"
@@ -69,8 +69,8 @@ Contains:
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/suit/space/officer
-	name = "officer's jacket"
-	desc = "An armored, space-proof jacket used in special operations."
+	name = "офицерская куртка"
+	desc = "Бронированная, космонепроницаемая куртка используемая в спецоперациях."
 	icon_state = "detective"
 	inhand_icon_state = "det_suit"
 	blood_overlay_type = "coat"
@@ -85,8 +85,8 @@ Contains:
 
 	//NASA Voidsuit
 /obj/item/clothing/head/helmet/space/nasavoid
-	name = "NASA Void Helmet"
-	desc = "An old, NASA CentCom branch designed, dark red space suit helmet."
+	name = "Вакуумный шлем НАСА"
+	desc = "Старый темно-красный шлем от скафандра, разработанный отделением ЦентКом НАСА."
 	icon_state = "void"
 	inhand_icon_state = "void"
 
@@ -94,7 +94,7 @@ Contains:
 	name = "NASA Voidsuit"
 	icon_state = "void"
 	inhand_icon_state = "void"
-	desc = "An old, NASA CentCom branch designed, dark red space suit."
+	desc = "Старый темно-красный скафандра, разработанный отделением ЦентКом НАСА."
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/multitool)
 
 /obj/item/clothing/head/helmet/space/nasavoid/old
@@ -113,16 +113,16 @@ Contains:
 
 	//Space santa outfit suit
 /obj/item/clothing/head/helmet/space/santahat
-	name = "Santa's hat"
-	desc = "Ho ho ho. Merrry X-mas!"
+	name = "Шапка Санты"
+	desc = "Хо хо хо. Счастлииивого рождества!"
 	icon_state = "santahat"
 	flags_cover = HEADCOVERSEYES
 
 	dog_fashion = /datum/dog_fashion/head/santa
 
 /obj/item/clothing/suit/space/santa
-	name = "Santa's suit"
-	desc = "Festive!"
+	name = "Костюм Санты"
+	desc = "Праздничный!"
 	icon_state = "santa"
 	inhand_icon_state = "santa"
 	slowdown = 0
@@ -131,8 +131,8 @@ Contains:
 
 	//Space pirate outfit
 /obj/item/clothing/head/helmet/space/pirate
-	name = "pirate hat"
-	desc = "Yarr."
+	name = "пиратская шапка"
+	desc = "Йарр."
 	icon_state = "pirate"
 	inhand_icon_state = "pirate"
 	armor = list(MELEE = 30, BULLET = 50, LASER = 30,ENERGY = 40, BOMB = 30, BIO = 30, RAD = 30, FIRE = 60, ACID = 75)
@@ -142,13 +142,13 @@ Contains:
 	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/helmet/space/pirate/bandana
-	name = "pirate bandana"
+	name = "пиратская бандана"
 	icon_state = "bandana"
 	inhand_icon_state = "bandana"
 
 /obj/item/clothing/suit/space/pirate
-	name = "pirate coat"
-	desc = "Yarr."
+	name = "пиратское пальто"
+	desc = "Йарр."
 	icon_state = "pirate"
 	inhand_icon_state = "pirate"
 	w_class = WEIGHT_CLASS_NORMAL

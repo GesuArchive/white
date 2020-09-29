@@ -75,6 +75,8 @@
 	var/automatic = 0 //can gun use it, 0 is no, anything above 0 is the delay between clicks in ds
 	var/pb_knockback = 0
 	hud_possible = list(HACKER_HUD)
+	var/extra_damage = 0				//Number to add to individual bullets.
+	var/extra_penetration = 0			//Number to add to armor penetration of individual bullets.
 
 /obj/item/gun/Initialize()
 	. = ..()

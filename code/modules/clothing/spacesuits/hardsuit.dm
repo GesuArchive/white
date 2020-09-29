@@ -94,7 +94,7 @@
 
 /obj/item/clothing/head/helmet/space/hardsuit/emp_act(severity)
 	. = ..()
-	display_visor_message("[severity > 1 ? "Light" : "Strong"] electromagnetic pulse detected!")
+	display_visor_message("Обнаружен [severity > 1 ? "лекгий" : "сильный"] электромагнитный импульс!")
 
 
 /obj/item/clothing/suit/space/hardsuit
@@ -125,49 +125,49 @@
 /obj/item/clothing/suit/space/hardsuit/examine(mob/user)
 	. = ..()
 	if(!helmet && helmettype)
-		. += "\n<span class='notice'>The helmet on [src] seems to be malfunctioning. Its light bulb needs to be replaced.</span>"
+		. += "\n<span class='notice'>Шлем [src] кажется неисправным. На нем нужно заменить лампочку.</span>"
 
 /obj/item/clothing/suit/space/hardsuit/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/tank/jetpack/suit))
 		if(jetpack)
-			to_chat(user, "<span class='warning'>[src] already has a jetpack installed.</span>")
+			to_chat(user, "<span class='warning'>Джетпак [src] уже установлен.</span>")
 			return
 		if(src == user.get_item_by_slot(ITEM_SLOT_OCLOTHING)) //Make sure the player is not wearing the suit before applying the upgrade.
-			to_chat(user, "<span class='warning'>You cannot install the upgrade to [src] while wearing it.</span>")
+			to_chat(user, "<span class='warning'>Я не могу установить улучшение [src] пока он надет.</span>")
 			return
 
 		if(user.transferItemToLoc(I, src))
 			jetpack = I
-			to_chat(user, "<span class='notice'>You successfully install the jetpack into [src].</span>")
+			to_chat(user, "<span class='notice'>Я успешно установил джетпак в [src].</span>")
 			return
 	else if(!cell_cover_open && I.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!jetpack)
-			to_chat(user, "<span class='warning'>[src] has no jetpack installed.</span>")
+			to_chat(user, "<span class='warning'>Джетпак [src] не установлен.</span>")
 			return
 		if(src == user.get_item_by_slot(ITEM_SLOT_OCLOTHING))
-			to_chat(user, "<span class='warning'>You cannot remove the jetpack from [src] while wearing it.</span>")
+			to_chat(user, "<span class='warning'>Я не могу вытащить джетпак из надетого [src].</span>")
 			return
 
 		jetpack.turn_off(user)
 		jetpack.forceMove(drop_location())
 		jetpack = null
-		to_chat(user, "<span class='notice'>You successfully remove the jetpack from [src].</span>")
+		to_chat(user, "<span class='notice'>Я успешно вытащил джетпак из [src].</span>")
 		return
 	else if(istype(I, /obj/item/light) && helmettype)
 		if(src == user.get_item_by_slot(ITEM_SLOT_OCLOTHING))
-			to_chat(user, "<span class='warning'>You cannot replace the bulb in the helmet of [src] while wearing it.</span>")
+			to_chat(user, "<span class='warning'>Я не могу заменить лампочку на шлеме [src] пока он надет.</span>")
 			return
 		if(helmet)
-			to_chat(user, "<span class='warning'>The helmet of [src] does not require a new bulb.</span>")
+			to_chat(user, "<span class='warning'>Шлему [src] не нужна новая лампочка.</span>")
 			return
 		var/obj/item/light/L = I
 		if(L.status)
-			to_chat(user, "<span class='warning'>This bulb is too damaged to use as a replacement!</span>")
+			to_chat(user, "<span class='warning'>Эта лампочка слишком повреждена чтобы использовать её в качестве замены!</span>")
 			return
 		if(do_after(user, 50, 1, src))
 			qdel(I)
 			helmet = new helmettype(src)
-			to_chat(user, "<span class='notice'>You have successfully repaired [src]'s helmet.</span>")
+			to_chat(user, "<span class='notice'>Я успешно заменил лампочку на шлеме [src].</span>")
 			new /obj/item/light/bulb/broken(drop_location())
 	return ..()
 
@@ -748,10 +748,10 @@
 		var/datum/effect_system/spark_spread/s = new
 		s.set_up(2, 1, src)
 		s.start()
-		owner.visible_message("<span class='danger'>[owner]'s поле отразило [attack_text]!</span>")
+		owner.visible_message("<span class='danger'>[owner] поле отразило [attack_text]!</span>")
 		current_charges--
 		if(current_charges <= 0)
-			owner.visible_message("<span class='warning'>[owner]'s щит перегружен!</span>")
+			owner.visible_message("<span class='warning'>[owner] щит перегружен!</span>")
 			shield_state = "broken"
 			owner.update_inv_wear_suit()
 		return TRUE
@@ -880,7 +880,7 @@
 
 ///SWAT version
 /obj/item/clothing/suit/space/hardsuit/shielded/swat
-	name = "скафандр эскадрона смерти"
+	name = "скафандр отряда смерти"
 	desc = "Усовершенствованный скафандр для секретных операций."
 	icon_state = "deathsquad"
 	inhand_icon_state = "swat_suit"
@@ -895,7 +895,7 @@
 	dog_fashion = /datum/dog_fashion/back/deathsquad
 
 /obj/item/clothing/head/helmet/space/hardsuit/shielded/swat
-	name = "герметичный шлем эскадрона смерти"
+	name = "герметичный шлем отряда смерти"
 	desc = "Усовершенствованный шлем для секретных операций с силовой бронёй."
 	icon_state = "deathsquad"
 	inhand_icon_state = "deathsquad"

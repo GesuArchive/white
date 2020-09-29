@@ -47,7 +47,7 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 	projectile_type = /obj/projectile/bullet/pisun
 	fire_sound = 'sound/weapons/taser2.ogg'
 
-/obj/item/ammo_casing/pisun/ready_proj(atom/target, mob/living/user, quiet, zone_override, atom/fired_from)
+/obj/item/ammo_casing/pisun/ready_proj(atom/target, mob/living/user, quiet, zone_override, atom/fired_from, extra_damage = 0, extra_penetration = 0)
 	if(!BB)
 		newshot()
 	. = ..()

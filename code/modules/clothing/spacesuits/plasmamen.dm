@@ -3,7 +3,7 @@
 
 /obj/item/clothing/suit/space/eva/plasmaman
 	name = "ЕВА плазменный скафандр"
-	desc = "Специальный скафандр, разработаный для плазмаменов для безопасного пребывания на станции. Оснащен внутренней системой пожаротушения. Число срабатываний ограничено."
+	desc = "Специальный скафандр, разработаный для плазмалюдей для безопасного пребывания на станции. Оснащен внутренней системой пожаротушения. Число срабатываний ограничено."
 	allowed = list(/obj/item/gun, /obj/item/ammo_casing, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword, /obj/item/restraints/handcuffs, /obj/item/tank)
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 0, FIRE = 100, ACID = 75)
 	resistance_flags = FIRE_PROOF
