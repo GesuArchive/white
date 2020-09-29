@@ -6,6 +6,9 @@
 	max_ammo = 5
 	multiload = 1
 
+/obj/item/ammo_box/magazine/internal/boltaction98/empty
+	start_empty = TRUE
+
 /obj/item/ammo_box/n792x57
 	name = "ammo box (7.92x57)"
 	icon_state = "10mmbox"
@@ -61,6 +64,9 @@
 	knife_x_offset = 27
 	slot_flags = 0
 	knife_y_offset = 13
+
+/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/empty
+	mag_type = /obj/item/ammo_box/magazine/internal/boltaction98/empty
 
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/can_shoot()
 	if (bolt_locked)

@@ -974,13 +974,6 @@
 		return TRUE
 	return FALSE
 
-/mob/living/carbon/human/check_weakness(obj/item/weapon, mob/living/carbon/attacker)
-	. = ..()
-	if(attacker && ishuman(attacker))
-		if(attacker.mind.has_martialart(MARTIALART_NANOSUIT) && weapon && weapon.damtype == BRUTE)
-			. += 1.25 //deal 25% more damage in strength
-
-
 /obj/attacked_by(obj/item/I, mob/living/user)
 	if(I.force && I.damtype == BRUTE && ishuman(user) && user.mind.has_martialart(MARTIALART_NANOSUIT))
 		visible_message("<span class='danger'>[user] бьёт [src] с невероятной силой при помощи [I.name]!</span>", null, null, COMBAT_MESSAGE_RANGE)

@@ -1,7 +1,7 @@
 /obj/item/stack/tile/mineral/plasma
-	name = "plasma tile"
-	singular_name = "plasma floor tile"
-	desc = "A tile made out of highly flammable plasma. This can only end well."
+	name = "плазменная плитка"
+	singular_name = "плазменная напольная плитка"
+	desc = "Плитка сделанная из легковоспламеняющейся плащмы. Что может пойти не так?"
 	icon_state = "tile_plasma"
 	inhand_icon_state = "tile-plasma"
 	turf_type = /turf/open/floor/mineral/plasma
@@ -9,9 +9,9 @@
 	custom_materials = list(/datum/material/plasma=500)
 
 /obj/item/stack/tile/mineral/uranium
-	name = "uranium tile"
-	singular_name = "uranium floor tile"
-	desc = "A tile made out of uranium. You feel a bit woozy."
+	name = "урановая плитка"
+	singular_name = "урановая напольная плитка"
+	desc = "Плитка сделанная из урана. Вы чувствуете небольшое головокружение."
 	icon_state = "tile_uranium"
 	inhand_icon_state = "tile-uranium"
 	turf_type = /turf/open/floor/mineral/uranium
@@ -19,9 +19,9 @@
 	custom_materials = list(/datum/material/uranium=500)
 
 /obj/item/stack/tile/mineral/gold
-	name = "gold tile"
-	singular_name = "gold floor tile"
-	desc = "A tile made out of gold, the swag seems strong here."
+	name = "золотая плитка"
+	singular_name = "золотая напольная плитка"
+	desc = "Плитка сделанная из золота, выглядит богато."
 	icon_state = "tile_gold"
 	inhand_icon_state = "tile-gold"
 	turf_type = /turf/open/floor/mineral/gold
@@ -29,9 +29,9 @@
 	custom_materials = list(/datum/material/gold=500)
 
 /obj/item/stack/tile/mineral/silver
-	name = "silver tile"
-	singular_name = "silver floor tile"
-	desc = "A tile made out of silver, the light shining from it is blinding."
+	name = "серебряная плитка"
+	singular_name = "серебряная напольная плитка"
+	desc = "Плитка из серебра, её сияние ослепляет."
 	icon_state = "tile_silver"
 	inhand_icon_state = "tile-silver"
 	turf_type = /turf/open/floor/mineral/silver
@@ -39,9 +39,9 @@
 	custom_materials = list(/datum/material/silver=500)
 
 /obj/item/stack/tile/mineral/diamond
-	name = "diamond tile"
-	singular_name = "diamond floor tile"
-	desc = "A tile made out of diamond. Wow, just, wow."
+	name = "алмазная плитка"
+	singular_name = "алмазная напольная плитка"
+	desc = "Плитка из алмазов. Офигеть можно."
 	icon_state = "tile_diamond"
 	inhand_icon_state = "tile-diamond"
 	turf_type = /turf/open/floor/mineral/diamond
@@ -49,9 +49,9 @@
 	custom_materials = list(/datum/material/diamond=500)
 
 /obj/item/stack/tile/mineral/bananium
-	name = "bananium tile"
-	singular_name = "bananium floor tile"
-	desc = "A tile made out of bananium, HOOOOOOOOONK!"
+	name = "бананиумная плитка"
+	singular_name = "бананиумная напольная плитка"
+	desc = "Плитка из бананиума, ХОООООООООООНК!"
 	icon_state = "tile_bananium"
 	inhand_icon_state = "tile-bananium"
 	turf_type = /turf/open/floor/mineral/bananium
@@ -59,9 +59,9 @@
 	custom_materials = list(/datum/material/bananium=500)
 
 /obj/item/stack/tile/mineral/abductor
-	name = "alien floor tile"
-	singular_name = "alien floor tile"
-	desc = "A tile made out of alien alloy."
+	name = "инопланетная напольная плитка"
+	singular_name = "инопланетная напольная плитка"
+	desc = "Плитка из инопланнетного сплава."
 	icon = 'icons/obj/abductor.dmi'
 	icon_state = "tile_abductor"
 	inhand_icon_state = "tile-abductor"
@@ -69,9 +69,9 @@
 	mineralType = "abductor"
 
 /obj/item/stack/tile/mineral/titanium
-	name = "titanium tile"
-	singular_name = "titanium floor tile"
-	desc = "A tile made of titanium, used for shuttles."
+	name = "титановая плитка"
+	singular_name = "титановая напольная плитка"
+	desc = "Плитка из титана, используется в шатлах."
 	icon_state = "tile_shuttle"
 	inhand_icon_state = "tile-shuttle"
 	turf_type = /turf/open/floor/mineral/titanium
@@ -79,9 +79,9 @@
 	custom_materials = list(/datum/material/titanium=500)
 
 /obj/item/stack/tile/mineral/plastitanium
-	name = "plastitanium tile"
-	singular_name = "plastitanium floor tile"
-	desc = "A tile made of plastitanium, used for very evil shuttles."
+	name = "пластитановая плитка"
+	singular_name = "пластитановая напольная плитка"
+	desc = "Плитка из пластитана, используется в очень злобных шаттлах."
 	icon_state = "tile_darkshuttle"
 	inhand_icon_state = "tile-darkshuttle"
 	turf_type = /turf/open/floor/mineral/plastitanium
@@ -90,9 +90,9 @@
 	material_flags = MATERIAL_NO_EFFECTS
 
 /obj/item/stack/tile/mineral/snow
-	name = "snow tile"
-	singular_name = "snow tile"
-	desc = "A layer of snow."
+	name = "снежная плитка"
+	singular_name = "снежная плитка"
+	desc = "Слой снега."
 	icon_state = "tile_snow"
 	inhand_icon_state = "tile-silver"
 	turf_type = /turf/open/floor/grass/snow/safe

@@ -173,11 +173,17 @@ export const Orbit = (props, context) => {
             ))}
         </Section>
 
-        <BasicSection
-          title="Призраки"
-          source={ghosts}
-          searchText={searchText}
-        />
+        <Section title="Призраки">
+          {ghosts
+            .filter(searchFor(searchText))
+            .sort(compareNumberedText)
+            .map(thing => (
+              <OrbitedButton
+                key={thing.name}
+                color="grey"
+                thing={thing} />
+            ))}
+        </Section>
 
         <BasicSection
           title="Мёртвые"

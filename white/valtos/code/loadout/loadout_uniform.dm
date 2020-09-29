@@ -328,3 +328,8 @@
 	display_name = "шаровары"
 	path = /obj/item/clothing/under/costume/sharovari
 	cost = 500
+
+/datum/gear/uniform/wizgirl
+	display_name = "костюм волшебницы"
+	path = /obj/item/clothing/under/costume/wizgirl
+	cost = 250

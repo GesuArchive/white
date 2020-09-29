@@ -116,7 +116,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox/events, toggle_arriv
 	return !(C.prefs.toggles & DISABLE_ARRIVALRATTLE)
 
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost, togglemidroundantag)()
-	set name = " 🔄 Быть антагом посреди раунда"
+	set name = " 🔄 Быть антагом в раунде"
 	set category = "Настройки"
 	set desc = "Midround Antagonist"
 	usr.client.prefs.toggles ^= MIDROUND_ANTAG
@@ -377,8 +377,8 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 //Admin Preferences
 /client/proc/toggleadminhelpsound()
-	set name = "🔊 Adminhelps"
-	set category = "Адс"
+	set name = "Hear/Silence Adminhelps"
+	set category = "Настройки.Адм"
 	set desc = "Toggle hearing a notification when admin PMs are received"
 	if(!holder)
 		return
@@ -388,8 +388,8 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Adminhelp Sound", "[prefs.toggles & SOUND_ADMINHELP ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggleannouncelogin()
-	set name = "💬 Announce Login"
-	set category = "Адс"
+	set name = "Do/Don't Announce Login"
+	set category = "Настройки.Адм"
 	set desc = "Toggle if you want an announcement to admins when you login during a round"
 	if(!holder)
 		return
@@ -399,8 +399,8 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Login Announcement", "[prefs.toggles & ANNOUNCE_LOGIN ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggle_hear_radio()
-	set name = "💬 Radio Chatter"
-	set category = "Адс"
+	set name = "Show/Hide Radio Chatter"
+	set category = "Настройки.Адм"
 	set desc = "Toggle seeing radiochatter from nearby radios and speakers"
 	if(!holder)
 		return
@@ -410,8 +410,8 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Radio Chatter", "[prefs.chat_toggles & CHAT_RADIO ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/deadchat()
-	set name = "💬 Deadchat"
-	set category = "Адс"
+	set name = "Show/Hide Deadchat"
+	set category = "Настройки.Адм"
 	set desc ="Toggles seeing deadchat"
 	if(!holder)
 		return
@@ -421,8 +421,8 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Deadchat Visibility", "[prefs.chat_toggles & CHAT_DEAD ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggleprayers()
-	set name = "💬 Prayers"
-	set category = "Адс"
+	set name = "Show/Hide Prayers"
+	set category = "Настройки.Адм"
 	set desc = "Toggles seeing prayers"
 	if(!holder)
 		return
@@ -432,8 +432,8 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Prayer Visibility", "[prefs.chat_toggles & CHAT_PRAYER ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggle_prayer_sound()
-	set name = "🔊 Prayer Sounds"
-	set category = "Адс"
+	set name = "Hear/Silence Prayer Sounds"
+	set category = "Настройки.Адм"
 	set desc = "Hear Prayer Sounds"
 	if(!holder)
 		return
@@ -444,7 +444,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/proc/colorasay()
 	set name = "Set Admin Say Color"
-	set category = "Адс"
+	set category = "Настройки.Адм"
 	set desc = "Set the color of your ASAY messages"
 	if(!holder)
 		return
@@ -461,7 +461,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 /client/proc/resetasaycolor()
 	set name = "❌ Reset your Admin Say Color"
 	set desc = "Returns your ASAY Color to default"
-	set category = "Адс"
+	set category = "Настройки.Адм"
 	if(!holder)
 		return
 	if(!CONFIG_GET(flag/allow_admin_asaycolor))

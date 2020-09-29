@@ -52,17 +52,18 @@
 	if(!B)
 		B = new(T)
 
-/datum/component/decal/poo
-	dupe_mode = COMPONENT_DUPE_UNIQUE
+/datum/element/decal/poo
+	//dupe_mode = COMPONENT_DUPE_UNIQUE
 
-/datum/component/decal/poo/Initialize(_icon, _icon_state, _dir, _cleanable=CLEAN_TYPE_BLOOD, _color, _layer=ABOVE_OBJ_LAYER)
-	if(!isitem(parent))
-		return COMPONENT_INCOMPATIBLE
+/datum/element/decal/poo/Attach(datum/target, _icon, _icon_state, _dir, _cleanable=CLEAN_TYPE_BLOOD, _color, _layer=ABOVE_OBJ_LAYER)
+	if(!isitem(target))
+		return ELEMENT_INCOMPATIBLE
+
 	. = ..()
-	RegisterSignal(parent, COMSIG_ATOM_GET_EXAMINE_NAME, .proc/get_examine_name)
 
-/datum/component/decal/poo/generate_appearance(_icon, _icon_state, _dir, _layer, _color)
-	var/obj/item/I = parent
+
+/datum/element/decal/poo/generate_appearance(_icon, _icon_state, _dir, _layer, _color, _alpha, source)
+	var/obj/item/I = source
 	if(!_icon)
 		_icon = 'white/valtos/icons/poo.dmi'
 	if(!_icon_state)
@@ -83,12 +84,6 @@
 		pic = mutable_appearance(poo_splatter_icon, initial(I.icon_state))
 		poo_splatter_appearances[index] = pic
 	return TRUE
-
-/datum/component/decal/poo/proc/get_examine_name(datum/source, mob/user, list/override)
-	var/atom/A = parent
-	override[EXAMINE_POSITION_ARTICLE] = A.gender == PLURAL? "some" : "a"
-	override[EXAMINE_POSITION_BEFORE] = " poo-stained "
-	return COMPONENT_EXNAME_CHANGED
 
 /obj/effect/decal/cleanable/poo
 	name = "шоколадный каток"

@@ -378,6 +378,7 @@
 	speed = 2.5
 	layer = 4
 	blend_mode = 3
+	color = "#ffff00"
 
 /obj/screen/parallax_layer/planet/high_definition
 	icon_state = "planet_lavaland"

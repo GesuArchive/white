@@ -6,7 +6,7 @@
 
 /client/proc/investigate_show()
 	set name = "Investigate"
-	set category = "Адм"
+	set category = "Адм.Игра"
 	if(!holder)
 		return
 

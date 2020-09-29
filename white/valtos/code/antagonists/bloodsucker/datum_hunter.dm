@@ -212,7 +212,6 @@
 	// Track ALL MONSTERS in Game Mode
 	var/list/datum/mind/monsters = list()
 	monsters += SSticker.mode.bloodsuckers
-	monsters += SSticker.mode.devils
 	monsters += SSticker.mode.cult
 	monsters += SSticker.mode.wizards
 	monsters += SSticker.mode.apprentices

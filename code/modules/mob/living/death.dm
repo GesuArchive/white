@@ -56,7 +56,7 @@
 	for(var/obj/item/I in contents)
 		I.on_mob_death(src, gibbed)
 	if(mind && mind.name && mind.active && !istype(T.loc, /area/ctf))
-		deadchat_broadcast(" помер в <b>[get_area_name(T)]</b>.", "<b>[mind.name]</b>", follow_target = src, turf_target = T, message_type=DEADCHAT_DEATHRATTLE)
+		deadchat_broadcast(" умирает в <b>[get_area_name(T)]</b>.", "<b>[mind.name]</b>", follow_target = src, turf_target = T, message_type=DEADCHAT_DEATHRATTLE)
 	if(mind)
 		mind.store_memory("Время смерти: [tod]", 0)
 	remove_from_alive_mob_list()
@@ -82,12 +82,5 @@
 
 	if (client)
 		client.move_delay = initial(client.move_delay)
-
-	for(var/s in ownedSoullinks)
-		var/datum/soullink/S = s
-		S.ownerDies(gibbed)
-	for(var/s in sharedSoullinks)
-		var/datum/soullink/S = s
-		S.sharerDies(gibbed)
 
 	return TRUE

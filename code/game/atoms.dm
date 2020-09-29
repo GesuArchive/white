@@ -194,8 +194,8 @@
   * Must return an [initialization hint][INITIALIZE_HINT_NORMAL] or a runtime will occur.
   *
   * Note: the following functions don't call the base for optimization and must copypasta handling:
-  * * [/turf/Initialize]
-  * * [/turf/open/space/Initialize]
+  * * [/turf/proc/Initialize]
+  * * [/turf/open/space/proc/Initialize]
   */
 /atom/proc/Initialize(mapload, ...)
 	SHOULD_NOT_SLEEP(TRUE)
@@ -553,17 +553,17 @@
   * [COMSIG_ATOM_GET_EXAMINE_NAME] signal
   */
 /atom/proc/get_examine_name(mob/user)
-	. = "\a [src]"
+	. = "[src]"
 	var/list/override = list(gender == PLURAL ? " " : " ", " ", "[name]")
 	if(article)
-		. = "[article] [src]"
+		. = "[article] [src.name]"
 		override[EXAMINE_POSITION_ARTICLE] = article
 	if(SEND_SIGNAL(src, COMSIG_ATOM_GET_EXAMINE_NAME, user, override) & COMPONENT_EXNAME_CHANGED)
 		. = override.Join("")
 
 ///Generate the full examine string of this atom (including icon for goonchat)
 /atom/proc/get_examine_string(mob/user, thats = FALSE)
-	return "[icon2html(src, user)] [thats? "That's ":""][get_examine_name(user)]"
+	return "[icon2html(src, user)] <b>[capitalize(get_examine_name(user))]</b>"
 
 /**
   * Called when a mob examines (shift click or verb) this atom
@@ -574,7 +574,7 @@
   * Produces a signal [COMSIG_PARENT_EXAMINE]
   */
 /atom/proc/examine(mob/user)
-	. = list("[ru_get_examine_string(user, TRUE)].")
+	. = list("[get_examine_string(user, TRUE)].")
 
 	if(desc)
 		. += "<hr>"
@@ -900,7 +900,7 @@
 	return null
 
 /**
-  * This proc is called when an atom in our contents has it's [Destroy][/atom/Destroy] called
+  * This proc is called when an atom in our contents has it's [Destroy][/atom/proc/Destroy] called
   *
   * Default behaviour is to simply send [COMSIG_ATOM_CONTENTS_DEL]
   */
@@ -1577,3 +1577,22 @@
 		var/mouseparams = list2params(paramslist)
 		usr_client.Click(src, loc, null, mouseparams)
 		return TRUE
+
+/**
+  * Recursive getter method to return a list of all ghosts orbitting this atom
+  *
+  * This will work fine without manually passing arguments.
+  */
+/atom/proc/get_all_orbiters(list/processed, source = TRUE)
+	var/list/output = list()
+	if (!processed)
+		processed = list()
+	if (src in processed)
+		return output
+	if (!source)
+		output += src
+	processed += src
+	for (var/o in orbiters?.orbiter_list)
+		var/atom/atom_orbiter = o
+		output += atom_orbiter.get_all_orbiters(processed, source = FALSE)
+	return output

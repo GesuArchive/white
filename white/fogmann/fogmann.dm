@@ -52,6 +52,7 @@
 	icon = 'white/pieceofcrap.dmi'
 	icon_state = "slamp"
 	inhand_icon_state = "slamp"
+	density = 0
 	force = 9
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
@@ -318,4 +319,40 @@
 	icon_state = "frog"
 	custom_materials = list(/datum/material/titanium=1)
 
+/area/crew_quarters/fitness/kachalka
+	name = "kachalka"
 
+/obj/item/westposter
+	name = "WORK HARDER"
+	desc = "NOT SMARTER"
+	icon = 'white/statue_w.dmi'
+	icon_state = "OH"
+	verb_say = "констатирует"
+	density = 0
+	anchored = 1
+	pixel_x = -32
+
+/obj/item/eastposter
+	name = "WORK HARDER"
+	desc = "NOT SMARTER"
+	icon = 'white/statue_w.dmi'
+	icon_state = "UH"
+	verb_say = "констатирует"
+	density = 0
+	anchored = 1
+	pixel_x = 32
+
+
+/datum/outfit/dag
+	name = "dagestan"
+
+	glasses = /obj/item/clothing/glasses/sunglasses
+	uniform = /obj/item/clothing/under/pants/black
+	suit = /obj/item/clothing/suit/hawaiian
+	shoes = /obj/item/clothing/shoes/sneakers/red
+	head = /obj/item/clothing/head/fedora
+	belt = /obj/item/nullrod/claymore/multiverse
+	l_pocket = /obj/item/ammo_box/magazine/m9mm
+	r_pocket = /obj/item/ammo_box/magazine/m9mm
+	back = /obj/item/storage/backpack/duffelbag/drone
+	backpack_contents = list(/obj/item/gun/ballistic/automatic/m90/columbine)

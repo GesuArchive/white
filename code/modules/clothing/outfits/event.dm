@@ -1,5 +1,5 @@
 /datum/outfit/santa //ho ho ho!
-	name = "Santa Claus"
+	name = "Санта Клаус"
 
 	uniform = /obj/item/clothing/under/color/red
 	shoes = /obj/item/clothing/shoes/sneakers/red

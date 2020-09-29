@@ -15379,7 +15379,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/portables_connector,
-/obj/machinery/portable_atmospherics/canister/cyrion_b,
+/obj/machinery/portable_atmospherics/canister/zauker,
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "Ya" = (

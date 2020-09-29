@@ -49,3 +49,5 @@ GLOBAL_LIST_EMPTY(ic_jammers)
 GLOBAL_LIST_EMPTY(ic_speakers)
 GLOBAL_LIST_EMPTY(air_scrub_names)			// Name list of all air scrubbers
 GLOBAL_LIST_EMPTY(air_vent_names)			// Name list of all air vents
+
+GLOBAL_LIST_EMPTY(dwarf_shkonka_list)

@@ -20,8 +20,8 @@
 	lace_time = 12 SECONDS
 
 /obj/item/clothing/shoes/combat/sneakboots
-	name = "sneakboots"
-	desc = "These boots have special noise cancelling soles. Perfect for stealth, if it wasn't for the color scheme."
+	name = "скрытные ботинки"
+	desc = "Это ботинки со специальной шумоподавляющей подошвой. Были бы идеальны для скрытного проникновения, если бы не их цветовая гамма."
 	icon_state = "sneakboots"
 	inhand_icon_state = "sneakboots"
 	w_class = WEIGHT_CLASS_SMALL
@@ -121,13 +121,13 @@
 	if(!isliving(user))
 		return
 	if(user.get_active_held_item() != src)
-		to_chat(user, "<span class='warning'>You must hold the [src] in your hand to do this!</span>")
+		to_chat(user, "<span class='warning'>Мне нужно держать [src] в руке чтобы это сделать!</span>")
 		return
 	if (!enabled_waddle)
-		to_chat(user, "<span class='notice'>You switch off the waddle dampeners!</span>")
+		to_chat(user, "<span class='notice'>Я выключил походочные демперы!</span>")
 		enabled_waddle = TRUE
 	else
-		to_chat(user, "<span class='notice'>You switch on the waddle dampeners!</span>")
+		to_chat(user, "<span class='notice'>Я включил походочные демперы!</span>")
 		enabled_waddle = FALSE
 
 /obj/item/clothing/shoes/clown_shoes/jester
@@ -166,8 +166,8 @@
 	lace_time = 8 SECONDS
 
 /obj/item/clothing/shoes/winterboots/ice_boots
-	name = "ice hiking boots"
-	desc = "A pair of winter boots with special grips on the bottom, designed to prevent slipping on frozen surfaces."
+	name = "ботинки ледохода"
+	desc = "Пара зимней обуви со специальными захватами внизу, разработанными для предотвращения скольжения на замерзших поверхностях."
 	icon_state = "iceboots"
 	inhand_icon_state = "iceboots"
 	clothing_flags = NOSLIP_ICE
@@ -262,17 +262,17 @@
 		return
 
 	if(recharging_time > world.time)
-		to_chat(user, "<span class='warning'>The boot's internal propulsion needs to recharge still!</span>")
+		to_chat(user, "<span class='warning'>Внутренней силовой установке ботинок всё еще требуется перезарядка!</span>")
 		return
 
 	var/atom/target = get_edge_target_turf(user, user.dir) //gets the user's direction
 
 	if (user.throw_at(target, jumpdistance, jumpspeed, spin = FALSE, diagonals_first = TRUE))
 		playsound(src, 'sound/effects/stealthoff.ogg', 50, TRUE, TRUE)
-		user.visible_message("<span class='warning'>[usr] dashes forward into the air!</span>")
+		user.visible_message("<span class='warning'>[usr] взлетает в воздух!</span>")
 		recharging_time = world.time + recharging_rate
 	else
-		to_chat(user, "<span class='warning'>Something prevents you from dashing forward!</span>")
+		to_chat(user, "<span class='warning'>Что-то мешает мне взлететь!</span>")
 
 /obj/item/clothing/shoes/singery
 	name = "желтые ботинки артиста"
@@ -322,7 +322,7 @@
 	if(!isliving(user))
 		return
 	if(!istype(user.get_item_by_slot(ITEM_SLOT_FEET), /obj/item/clothing/shoes/wheelys))
-		to_chat(user, "<span class='warning'>You must be wearing the wheely-heels to use them!</span>")
+		to_chat(user, "<span class='warning'>Я должен надеть вилли-хилс чтобы их использовать!</span>")
 		return
 	if(!(wheels.is_occupant(user)))
 		wheelToggle = FALSE
@@ -353,8 +353,8 @@
 	. = ..()
 
 /obj/item/clothing/shoes/wheelys/rollerskates
-	name = "roller skates"
-	desc = "An EightO brand pair of roller skates. The wheels are retractable, though're quite bulky to walk in."
+	name = "роликовые коньки"
+	desc = "Пара роликовых коньков марки EightO. Колеса убираются, но слишком громоздкие чтобы ходить."
 	icon_state = "rollerskates"
 	worn_icon_state = "rollerskates"
 	slowdown = SHOES_SLOWDOWN+1
@@ -363,8 +363,8 @@
 	custom_price = 300
 
 /obj/item/clothing/shoes/wheelys/skishoes
-	name = "ski shoes"
-	desc = "A pair of shoes equipped with foldable skis! Very handy to move in snowy environments unimpeded."
+	name = "лыжнае ботинки"
+	desc = "Пара ботинок со складными лыжами! Очень удобна для передвижения по снежной местности."
 	icon_state = "skishoes"
 	worn_icon_state = "skishoes"
 	slowdown = SHOES_SLOWDOWN+1
@@ -448,12 +448,12 @@
 	if(user.stat || !(user.mobility_flags & MOBILITY_USE) || user.restrained() || !Adjacent(user) || !user.Adjacent(target) || target.stat == DEAD)
 		return
 	if(occupants.len >= max_occupants)
-		to_chat(user, "<span class='warning'>[src] are full!</span>")
+		to_chat(user, "<span class='warning'>[src] заполнены!</span>")
 		return
 	if(istype(target, /mob/living/simple_animal/hostile/retaliate/poison/snake) || istype(target, /mob/living/simple_animal/hostile/headcrab) || istype(target, /mob/living/carbon/alien/larva))
 		occupants += target
 		target.forceMove(src)
-		to_chat(user, "<span class='notice'>[target] slithers into [src].</span>")
+		to_chat(user, "<span class='notice'>[target] скользит в [src].</span>")
 
 /obj/item/clothing/shoes/cowboy/container_resist_act(mob/living/user)
 	if(!do_after(user, 10, target = user))
@@ -503,8 +503,8 @@
 	can_be_tied = FALSE
 
 /obj/item/clothing/shoes/yakuza
-	name = "tojo clan shoes"
-	desc = "Steel-toed and intimidating."
+	name = "обувь клана тодзё"
+	desc = "Стальной носок устрашает."
 	icon_state = "MajimaShoes"
 	inhand_icon_state = "MajimaShoes_worn"
 

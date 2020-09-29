@@ -15,7 +15,7 @@
 	light_on = FALSE
 	dog_fashion = /datum/dog_fashion/head
 
-	///Determines used sprites: hardhat[on]_[hat_type] and hardhat[on]_[hat_type]2 (lying down sprite)
+	///Determines used sprites: `hardhat[on]_[hat_type]` and `hardhat[on]_[hat_type]2` (lying down sprite)
 	var/hat_type = "yellow"
 	///Whether the headlamp is on or off.
 	var/on = FALSE
@@ -56,7 +56,7 @@
 	inhand_icon_state = "hardhat0_red"
 	hat_type = "red"
 	dog_fashion = null
-	name = "firefighter helmet"
+	name = "шлем пожарного"
 	clothing_flags = STOPSPRESSUREDAMAGE
 	heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_HELM_MAX_TEMP_PROTECT
@@ -64,8 +64,8 @@
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
 
 /obj/item/clothing/head/hardhat/red/upgraded
-	name = "workplace-ready firefighter helmet"
-	desc = "By applying state of the art lighting technology to a fire helmet, and using photo-chemical hardening methods, this hardhat will protect you from robust workplace hazards."
+	name = "готовый-к-работе шлем пожарного"
+	desc = "Благодаря искусному применению технологии освещения к пожарному шлему и использованию метода фотохимического уплотнения этот шлем защитит вас от серьезных опасностей на рабочем месте."
 	icon_state = "hardhat0_purple"
 	inhand_icon_state = "hardhat0_purple"
 	light_range = 5

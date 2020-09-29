@@ -2,9 +2,9 @@
 	dying_key = DYE_REGISTRY_SNEAKERS
 
 /obj/item/clothing/shoes/sneakers/black
-	name = "чёрные туфли"
+	name = "чёрные ботинки"
 	icon_state = "black"
-	desc = "Парочка чёрных туфель."
+	desc = "Парочка чёрных ботинок."
 	custom_price = 50
 
 	cold_protection = FEET
@@ -13,43 +13,43 @@
 	max_heat_protection_temperature = SHOES_MAX_TEMP_PROTECT
 
 /obj/item/clothing/shoes/sneakers/brown
-	name = "коричневые туфли"
-	desc = "Парочка коричневых туфель."
+	name = "коричневые ботинки"
+	desc = "Парочка коричневых ботинок."
 	icon_state = "brown"
 
 /obj/item/clothing/shoes/sneakers/blue
-	name = "синие туфли"
+	name = "синие ботинки"
 	icon_state = "blue"
 
 /obj/item/clothing/shoes/sneakers/green
-	name = "зелёные туфли"
+	name = "зелёные ботинки"
 	icon_state = "green"
 
 /obj/item/clothing/shoes/sneakers/yellow
-	name = "жёлтые туфли"
+	name = "жёлтые ботинки"
 	icon_state = "yellow"
 
 /obj/item/clothing/shoes/sneakers/purple
-	name = "фиолетовые туфли"
+	name = "фиолетовые ботинки"
 	icon_state = "purple"
 
 /obj/item/clothing/shoes/sneakers/red
-	name = "красные туфли"
-	desc = "Stylish red shoes."
+	name = "красные ботинки"
+	desc = "Стильные красные ботинки."
 	icon_state = "red"
 
 /obj/item/clothing/shoes/sneakers/white
-	name = "белые туфли"
+	name = "белые ботинки"
 	icon_state = "white"
 	permeability_coefficient = 0.01
 
 /obj/item/clothing/shoes/sneakers/rainbow
-	name = "радужные туфли"
-	desc = "Very gay shoes."
+	name = "радужные ботинки"
+	desc = "Очень гейская обувь."
 	icon_state = "rain_bow"
 
 /obj/item/clothing/shoes/sneakers/orange
-	name = "оранжевые туфли"
+	name = "оранжевые ботинки"
 	icon_state = "orange"
 
 /obj/item/clothing/shoes/sneakers/orange/attack_self(mob/user)

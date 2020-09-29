@@ -6,7 +6,7 @@
 	L.implant(H, null, 1)
 
 /datum/outfit/centcom/spec_ops
-	name = "Special Ops Officer"
+	name = "Офицер Спецназа"
 
 	uniform = /obj/item/clothing/under/syndicate
 	suit = /obj/item/clothing/suit/space/officer
@@ -38,7 +38,7 @@
 	..()
 
 /datum/outfit/space
-	name = "Standard Space Gear"
+	name = "Стандартное космическое снаряжение"
 
 	uniform = /obj/item/clothing/under/color/grey
 	shoes = /obj/item/clothing/shoes/sneakers/black
@@ -48,7 +48,7 @@
 	mask = /obj/item/clothing/mask/breath
 
 /datum/outfit/tournament
-	name = "tournament standard red"
+	name = "турнирный красный"
 
 	uniform = /obj/item/clothing/under/color/red
 	shoes = /obj/item/clothing/shoes/sneakers/black
@@ -59,12 +59,12 @@
 	r_pocket = /obj/item/grenade/smokebomb
 
 /datum/outfit/tournament/green
-	name = "tournament standard green"
+	name = "турнирный зеленый"
 
 	uniform = /obj/item/clothing/under/color/green
 
 /datum/outfit/tournament/gangster
-	name = "tournament gangster"
+	name = "турнирный гангстер"
 
 	uniform = /obj/item/clothing/under/rank/security/detective
 	suit = /obj/item/clothing/suit/det_suit
@@ -75,7 +75,7 @@
 	r_pocket = /obj/item/ammo_box/c10mm
 
 /datum/outfit/tournament/janitor
-	name = "tournament janitor"
+	name = "турнирный уборщик"
 
 	uniform = /obj/item/clothing/under/rank/civilian/janitor
 	back = /obj/item/storage/backpack
@@ -95,7 +95,7 @@
 	bucket.reagents.add_reagent(/datum/reagent/water,70)
 
 /datum/outfit/laser_tag
-	name = "Laser Tag Red"
+	name = "Красный Лазертаг"
 
 	uniform = /obj/item/clothing/under/color/red
 	shoes = /obj/item/clothing/shoes/sneakers/red
@@ -108,7 +108,7 @@
 	backpack_contents = list(/obj/item/storage/box=1)
 
 /datum/outfit/laser_tag/blue
-	name = "Laser Tag Blue"
+	name = "Синий Лазертаг"
 	uniform = /obj/item/clothing/under/color/blue
 	shoes = /obj/item/clothing/shoes/sneakers/blue
 	head = /obj/item/clothing/head/helmet/bluetaghelm
@@ -117,7 +117,7 @@
 	suit_store = /obj/item/gun/energy/laser/bluetag
 
 /datum/outfit/pirate
-	name = "Space Pirate"
+	name = "Космический Пират"
 
 	uniform = /obj/item/clothing/under/costume/pirate
 	shoes = /obj/item/clothing/shoes/sneakers/brown
@@ -150,7 +150,7 @@
 		W.update_label()
 
 /datum/outfit/tunnel_clown
-	name = "Tunnel Clown"
+	name = "Тунельный Клоун"
 
 	uniform = /obj/item/clothing/under/rank/civilian/clown
 	shoes = /obj/item/clothing/shoes/clown_shoes
@@ -175,7 +175,7 @@
 	W.update_label()
 
 /datum/outfit/psycho
-	name = "Masked Killer"
+	name = "Убийца в Маске"
 
 	uniform = /obj/item/clothing/under/misc/overalls
 	shoes = /obj/item/clothing/shoes/sneakers/white
@@ -197,7 +197,7 @@
 	H.regenerate_icons()
 
 /datum/outfit/assassin
-	name = "Assassin"
+	name = "Ассасин"
 
 	uniform = /obj/item/clothing/under/suit/black
 	shoes = /obj/item/clothing/shoes/sneakers/black
@@ -239,7 +239,7 @@
 	W.update_label()
 
 /datum/outfit/centcom/commander
-	name = "CentCom Commander"
+	name = "Комамндующий ЦентКома"
 
 	uniform = /obj/item/clothing/under/rank/centcom/commander
 	suit = /obj/item/clothing/suit/armor/bulletproof
@@ -268,7 +268,7 @@
 	..()
 
 /datum/outfit/ghost_cultist
-	name = "Cultist Ghost"
+	name = "Призрак Культиста"
 
 	uniform = /obj/item/clothing/under/color/black/ghost
 	suit = /obj/item/clothing/suit/hooded/cultrobes/alt/ghost
@@ -276,7 +276,7 @@
 	l_hand = /obj/item/melee/cultblade/ghost
 
 /datum/outfit/wizard
-	name = "Blue Wizard"
+	name = "Синий Маг"
 
 	uniform = /obj/item/clothing/under/color/lightpurple
 	suit = /obj/item/clothing/suit/wizrobe

@@ -1,11 +1,11 @@
 /datum/bounty/item/science/boh
-	name = "Bag of Holding"
+	name = "Блюспейс сумка"
 	description = "НТ хорошо использовали бы рюкзаки большой вместимости. Если у вас есть, пожалуйста, отправьте их."
 	reward = 10000
 	wanted_types = list(/obj/item/storage/backpack/holding)
 
 /datum/bounty/item/science/tboh
-	name = "Trash Bag of Holding"
+	name = "Блюспейс мешок для мусора"
 	description = "НТ хотели бы использовать мешки для мусора большой емкости. Если у вас есть, пожалуйста, отправьте их."
 	reward = 10000
 	wanted_types = list(/obj/item/storage/bag/trash/bluespace)
@@ -66,7 +66,7 @@
 	wanted_types = list(/obj/item/gun/energy/e_gun/nuclear)
 
 /datum/bounty/item/science/bepis_disc
-	name = "Reformatted Tech Disk"
-	description = "It turns out the diskettes the BEPIS prints experimental nodes on are extremely space-efficient. Send us one of your spares when you're done with it."
+	name = "Переформатированный технический диск"
+	description = "Оказывается, дискеты, на которых BEPIS печатает экспериментальные узлы, чрезвычайно экономят пространство. Когда закончите, пришлите нам один из дисков."
 	reward = 4000
 	wanted_types = list(/obj/item/disk/tech_disk/major)

@@ -167,8 +167,8 @@ SUBSYSTEM_DEF(title)
 	plane = 24
 	blend_mode = 3
 	alpha = 125
-	icon = 'white/valtos/icons/d.dmi'
-	icon_state = "unstable"
+	icon = 'white/valtos/icons/d2.dmi'
+	icon_state = "whatisnext"
 	color = "#aaaaaa"
 	pixel_x = 240
 	pixel_y = 176

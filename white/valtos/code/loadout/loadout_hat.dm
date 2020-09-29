@@ -30,3 +30,8 @@
 	display_name = "Берет, красный"
 	path = /obj/item/clothing/head/beret
 	cost = 20
+
+/datum/gear/hat/wizgirl
+	display_name = "шляпа волшебницы"
+	path = /obj/item/clothing/head/wizgirl
+	cost = 250

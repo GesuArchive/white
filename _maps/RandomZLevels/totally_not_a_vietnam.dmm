@@ -80,8 +80,8 @@
 	},
 /area/awaymission/vietnam)
 "cM" = (
-/obj/item/smithing_hammer,
-/obj/item/tongs,
+/obj/item/blacksmith/smithing_hammer,
+/obj/item/blacksmith/tongs,
 /obj/structure/table/wood,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dark)
@@ -109,7 +109,7 @@
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dark)
 "dW" = (
-/obj/item/ingot{
+/obj/item/blacksmith/ingot{
 	pixel_x = 4;
 	pixel_y = -4
 	},
@@ -121,18 +121,18 @@
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dark)
 "ey" = (
-/obj/item/ingot{
+/obj/item/blacksmith/ingot{
 	pixel_x = -4
 	},
 /obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "ez" = (
-/obj/item/ingot{
+/obj/item/blacksmith/ingot{
 	pixel_x = 12
 	},
-/obj/item/ingot,
-/obj/item/ingot{
+/obj/item/blacksmith/ingot,
+/obj/item/blacksmith/ingot{
 	pixel_x = 6;
 	pixel_y = 5
 	},
@@ -529,8 +529,8 @@
 /area/awaymission/vietnam)
 "ty" = (
 /obj/structure/rack,
-/obj/item/smithing_hammer,
-/obj/item/tongs,
+/obj/item/blacksmith/smithing_hammer,
+/obj/item/blacksmith/tongs,
 /turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "tF" = (

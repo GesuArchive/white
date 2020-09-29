@@ -38,8 +38,8 @@
 	STR.max_combined_w_class = 12
 
 /obj/item/bag_of_holding_inert
-	name = "inert bag of holding"
-	desc = "What is currently a just an unwieldly block of metal with a slot ready to accept a bluespace anomaly core."
+	name = "инертная блюспейс сумка"
+	desc = "То, что в настоящее время представляет собой просто громоздкий металлический блок со слотом, готовым принять ядро блюспейс аномалии."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "brokenpack"
 	inhand_icon_state = "brokenpack"
@@ -50,7 +50,7 @@
 	item_flags = NO_MAT_REDEMPTION
 
 /obj/item/storage/backpack/holding
-	name = "сумка хранения"
+	name = "блюспейс сумка"
 	desc = "Рюкзак, который открывает портал в локализованный карман блюспейс пространства."
 	icon_state = "holdingpack"
 	inhand_icon_state = "holdingpack"

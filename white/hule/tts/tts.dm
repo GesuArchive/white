@@ -45,7 +45,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 ////////////////////////////////////////
 
 /client/proc/anime_voiceover()
-	set category = "Фан"
+	set category = "Адм.Веселье"
 	set name = "ANIME VO"
 
 	if(!check_rights())
