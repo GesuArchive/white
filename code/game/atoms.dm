@@ -554,7 +554,7 @@
   */
 /atom/proc/get_examine_name(mob/user)
 	. = "[src]"
-	var/list/override = list(gender == PLURAL ? " " : " ", " ", "[name]")
+	var/list/override = list("", "", "[name]")
 	if(article)
 		. = "[article] [src.name]"
 		override[EXAMINE_POSITION_ARTICLE] = article
