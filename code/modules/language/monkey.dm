@@ -11,7 +11,7 @@
 /datum/language/monkey/caucasian
 	name = "Язык народов Дагестана"
 	desc = "нихуя не понятно."
-	key = "dg"
+	key = "d"
 	space_chance = 100
 	syllables = list("э", "ара", "ора", "уцик")
 	default_priority = 80
