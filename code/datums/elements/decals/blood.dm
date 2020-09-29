@@ -40,6 +40,5 @@
 /datum/element/decal/blood/proc/get_examine_name(datum/source, mob/user, list/override)
 	SIGNAL_HANDLER
 
-	var/atom/A = source
 	override[EXAMINE_POSITION_BEFORE] = "Окровавленный "
 	return COMPONENT_EXNAME_CHANGED
