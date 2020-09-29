@@ -6,7 +6,6 @@ SUBSYSTEM_DEF(air)
 	flags = SS_BACKGROUND
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 
-	var/cached_cost = 0
 	var/cost_turfs = 0
 	var/cost_groups = 0
 	var/cost_highpressure = 0
@@ -256,8 +255,7 @@ SUBSYSTEM_DEF(air)
 	*/
 
 /datum/controller/subsystem/air/proc/process_active_turfs(resumed = 0)
-	if(process_active_turfs_extools(resumed, (Master.current_ticklimit - TICK_USAGE) * 0.01 * world.tick_lag))
-		MC_TICK_CHECK
+	return process_active_turfs_extools(resumed, (Master.current_ticklimit - TICK_USAGE) * 0.01 * world.tick_lag)
 	/*
 	//cache for sanic speed
 	var/fire_count = times_fired
@@ -275,8 +273,7 @@ SUBSYSTEM_DEF(air)
 	*/
 
 /datum/controller/subsystem/air/proc/process_excited_groups(resumed = 0)
-	if(process_excited_groups_extools(resumed, (Master.current_ticklimit - TICK_USAGE) * 0.01 * world.tick_lag))
-		MC_TICK_CHECK
+	return process_excited_groups_extools(resumed, (Master.current_ticklimit - TICK_USAGE) * 0.01 * world.tick_lag)
 	/*
 	if (!resumed)
 		src.currentrun = excited_groups.Copy()
