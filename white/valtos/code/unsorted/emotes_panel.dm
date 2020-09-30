@@ -46,7 +46,5 @@
 	. = ..()
 	if(.)
 		return
-	switch(action)
-		if("emote")
-			usr.emote("[params]")
-			. = TRUE
+	usr.emote("[action]")
+	. = TRUE

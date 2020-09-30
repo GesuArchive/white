@@ -17,9 +17,7 @@ export const EmoteMenu = (props, context) => {
               key={thing}
               color="white"
               content={thing}
-              onClick={() => act('emote', {
-                thing,
-              })} />
+              onClick={() => act(thing)} />
           ))}
       </Window.Content>
     </Window>
