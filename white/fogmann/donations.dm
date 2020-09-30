@@ -265,8 +265,6 @@ GLOBAL_LIST_EMPTY(donators)
 			"items" = (category == selected_cat ? list() : null))
 		for(var/item in GLOB.donations_list[category])
 			var/datum/donate_info/I = GLOB.donations_list[category][item]
-			if(I.stock == 0)
-				continue
 			cat["items"] += list(list(
 				"name" = I.name,
 				"cost" = I.cost,
