@@ -193,7 +193,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 
 	var/datum/donator/D = GLOB.donators[ckey]
 	if(D)
-		D.ShowPanel(src)
+		D.ui_interact(src)
 	else
 		to_chat(src,"<span class='warning'>Вы не донатили, извините.</span>")
 
@@ -236,17 +236,48 @@ GLOBAL_LIST_EMPTY(donators)
 	popup.set_content(dat.Join())
 	popup.open()
 
-/datum/donator/proc/GetIconForProduct(datum/donate_info/P)
-	if(GLOB.donate_icon_cache[P.path_to])
-		return GLOB.donate_icon_cache[P.path_to]
+/datum/donator/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "DonationsMenu", name)
+		ui.open()
 
-	var/product = new P.path_to()
-	GLOB.donate_icon_cache[P.path_to] = icon2base64(getFlatIcon(product, no_anim = TRUE))
-	qdel(product)
-	return GLOB.donate_icon_cache[P.path_to]
+/datum/donator/ui_status(mob/user)
+	return UI_INTERACTIVE
 
-/datum/donator/Topic(href, href_list)
-	var/datum/donate_info/prize = locate(href_list["getdonate"])
+/datum/donator/ui_data(mob/user)
+	if(!user.mind)
+		return
+	var/list/data = list()
+	data["money"] = money
+	return data
+
+/datum/donator/ui_static_data(mob/user)
+	var/list/data = list()
+
+	data["categories"] = list()
+	for(var/category in GLOB.donations_list)
+		var/list/cat = list(
+			"name" = category,
+			"items" = (category == selected_cat ? list() : null))
+		for(var/item in GLOB.donations_list[category])
+			var/datum/donate_info/I = GLOB.donations_list[category][item]
+			if(I.stock == 0)
+				continue
+			cat["items"] += list(list(
+				"name" = I.name,
+				"cost" = I.cost,
+				"icon" = GetIconForProduct(I),
+			))
+		data["categories"] += list(cat)
+
+	return data
+
+/datum/donator/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
+	var/datum/donate_info/prize = locate(params["getdonate"])
 	var/mob/living/carbon/human/user = usr
 
 	if(!SSticker || SSticker.current_state < 3)
@@ -308,8 +339,17 @@ GLOBAL_LIST_EMPTY(donators)
 	money -= prize.cost
 	allowed_num_items--
 
-	ShowPanel(user)
+	ui_interact(user)
 	return
+
+/datum/donator/proc/GetIconForProduct(datum/donate_info/P)
+	if(GLOB.donate_icon_cache[P.path_to])
+		return GLOB.donate_icon_cache[P.path_to]
+
+	var/product = new P.path_to()
+	GLOB.donate_icon_cache[P.path_to] = icon2base64(getFlatIcon(product, no_anim = TRUE))
+	qdel(product)
+	return GLOB.donate_icon_cache[P.path_to]
 
 /proc/load_donator(ckey)
 	if(!SSdbcore.IsConnected())

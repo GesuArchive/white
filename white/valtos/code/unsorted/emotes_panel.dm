@@ -43,5 +43,10 @@
 	return data
 
 /obj/screen/emote_button/ui_act(action, params)
-	if(..())
+	. = ..()
+	if(.)
 		return
+	switch(action)
+		if("emote")
+			usr.emote("[params]")
+			. = TRUE
