@@ -34,7 +34,7 @@
 	cut_overlays()
 	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 
-	if(stat & (BROKEN))
+	if(machine_stat & (BROKEN))
 		icon_state = "teg-broken"
 		return
 	if(hot_circ && cold_circ)
@@ -45,7 +45,7 @@
 			add_overlay("teg-panel")
 		return
 
-	if(stat & (NOPOWER))
+	if(machine_stat & (NOPOWER))
 		return
 	else
 		var/L = min(round(lastgenlev/100000),11)
@@ -143,9 +143,8 @@
 
 /obj/machinery/power/generator/ui_interact(mob/user)
 	. = ..()
-	var/datum/browser/popup = new(user, "teg", "Thermo-Electric Generator", 460, 300)
+	var/datum/browser/popup = new(user, "teg", "Термо-Электрический Генератор", 460, 300)
 	popup.set_content(get_menu())
-	popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
 	popup.open()
 
 /obj/machinery/power/generator/Topic(href, href_list)
@@ -164,20 +163,20 @@
 	var/circpath = /obj/machinery/atmospherics/components/binary/circulator
 	if(dir == NORTH || dir == SOUTH)
 		C = locate(circpath) in get_step(src, EAST)
-		if(C && C.dir == WEST && C.anchored && !(C.stat &(BROKEN)) && !C.panel_open)
+		if(C && C.dir == WEST && C.anchored && !(C.machine_stat &(BROKEN)) && !C.panel_open)
 			circs += C
 
 		C = locate(circpath) in get_step(src, WEST)
-		if(C && C.dir == EAST && C.anchored && !(C.stat &(BROKEN)) && !C.panel_open)
+		if(C && C.dir == EAST && C.anchored && !(C.machine_stat &(BROKEN)) && !C.panel_open)
 			circs += C
 
 	else
 		C = locate(circpath) in get_step(src, NORTH)
-		if(C && C.dir == SOUTH && C.anchored && !(C.stat &(BROKEN)) && !C.panel_open)
+		if(C && C.dir == SOUTH && C.anchored && !(C.machine_stat &(BROKEN)) && !C.panel_open)
 			circs += C
 
 		C = locate(circpath) in get_step(src, SOUTH)
-		if(C && C.dir == NORTH && C.anchored && !(C.stat &(BROKEN)) && !C.panel_open)
+		if(C && C.dir == NORTH && C.anchored && !(C.machine_stat &(BROKEN)) && !C.panel_open)
 			circs += C
 
 	if(circs.len == 2)

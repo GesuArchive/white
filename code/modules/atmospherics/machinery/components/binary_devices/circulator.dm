@@ -103,7 +103,7 @@
 	cut_overlays()
 	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 
-	if(stat & (BROKEN))
+	if(machine_stat & (BROKEN))
 		icon_state = "circ-broken"
 		set_light(0)
 		return
@@ -123,7 +123,7 @@
 
 	icon_state = "circ-assembled-[flipped]"
 
-	if(!is_operational())
+	if(!is_operational)
 		set_light(0)
 		return
 	else
