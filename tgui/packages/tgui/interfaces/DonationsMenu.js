@@ -9,16 +9,16 @@ const MAX_SEARCH_RESULTS = 25;
 
 export const DonationsMenu = (props, context) => {
   const { data } = useBackend(context);
-  const { telecrystals } = data;
+  const { money } = data;
   return (
     <Window
       width={620}
       height={580}
-      theme="retro"
+      theme="malfunction"
       resizable>
       <Window.Content scrollable>
         <GenericUplink
-          currencyAmount={telecrystals}
+          currencyAmount={money}
           currencySymbol="Р" />
       </Window.Content>
     </Window>
@@ -28,12 +28,11 @@ export const DonationsMenu = (props, context) => {
 export const GenericUplink = (props, context) => {
   const {
     currencyAmount = 0,
-    currencySymbol = 'cr',
+    currencySymbol = 'р',
   } = props;
   const { act, data } = useBackend(context);
   const {
     compactMode,
-    lockable,
     categories = [],
   } = data;
   const [
@@ -45,7 +44,7 @@ export const GenericUplink = (props, context) => {
     setSelectedCategory,
   ] = useLocalState(context, 'category', categories[0]?.name);
   const testSearch = createSearch(searchText, item => {
-    return item.name + item.desc;
+    return item.name;
   });
   const items = searchText.length > 0
     // Flatten all categories and apply search to it
@@ -70,7 +69,7 @@ export const GenericUplink = (props, context) => {
       )}
       buttons={(
         <Fragment>
-          Search
+          Поиск
           <Input
             autoFocus
             value={searchText}
@@ -80,12 +79,6 @@ export const GenericUplink = (props, context) => {
             icon={compactMode ? 'list' : 'info'}
             content={compactMode ? 'Компактно' : 'Детально'}
             onClick={() => act('compact_toggle')} />
-          {!!lockable && (
-            <Button
-              icon="lock"
-              content="Блокировать"
-              onClick={() => act('lock')} />
-          )}
         </Fragment>
       )}>
       <Flex>
@@ -160,7 +153,6 @@ const ItemList = (props, context) => {
                 fluid
                 content={formatMoney(item.cost) + ' ' + currencySymbol}
                 disabled={item.disabled}
-                tooltip={item.desc}
                 tooltipPosition="left"
                 onmouseover={() => setHoveredItem(item)}
                 onmouseout={() => setHoveredItem({})}
@@ -188,7 +180,7 @@ const ItemList = (props, context) => {
             name: item.name,
           })} />
       )}>
-      {decodeHtmlEntities(item.desc)}
+      {decodeHtmlEntities(item.icon)}
     </Section>
   ));
 };
