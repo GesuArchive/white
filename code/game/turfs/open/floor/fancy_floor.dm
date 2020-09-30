@@ -21,7 +21,7 @@
 
 /turf/open/floor/wood/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Видны несколько <b>винтиков</b> и <b>небольшая трещина</b> с краю.</span>"
+	. += "<hr><span class='notice'>Видны несколько <b>винтиков</b> и <b>небольшая щель</b> с краю.</span>"
 
 /turf/open/floor/wood/screwdriver_act(mob/living/user, obj/item/I)
 	if(..())
@@ -199,7 +199,7 @@
 
 /turf/open/floor/carpet/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Здесь есть <b>небольшая трещина</b> с краю.</span>"
+	. += "<hr><span class='notice'>Здесь есть <b>небольшая щель</b> с краю.</span>"
 
 /turf/open/floor/carpet/Initialize()
 	. = ..()

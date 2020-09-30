@@ -57,7 +57,7 @@
 			to_chat(user, "<span class='warning'>Здесь уже есть мозг в MMI!</span>")
 			return
 		if(!newbrain.brainmob)
-			to_chat(user, "<span class='warning'>Я не уверены, откуда взялся этот мозг, но уверен, что это бесполезный мозг!</span>")
+			to_chat(user, "<span class='warning'>Не уверены, откуда взялся этот мозг, но уверен, что это бесполезный мозг!</span>")
 			return
 
 		if(!user.transferItemToLoc(O, src))

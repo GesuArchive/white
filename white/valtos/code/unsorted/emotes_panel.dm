@@ -9,7 +9,7 @@
 	infodisplay += using
 
 /obj/screen/emote_button
-	name = "Эмоции"
+	name = "Действия"
 	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
 	icon_state = "main"
 
