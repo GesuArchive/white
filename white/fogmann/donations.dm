@@ -260,11 +260,12 @@ GLOBAL_LIST_EMPTY(donators)
 
 	data["categories"] = list()
 	for(var/category in GLOB.donations_list)
+		var/list/catsan = GLOB.donations_list[category]
 		var/list/cat = list(
 			"name" = category,
 			"items" = (category == selected_cat ? list() : null))
-		for(var/item in GLOB.donations_list[category])
-			var/datum/donate_info/I = GLOB.donations_list[category][item]
+		for(var/item in 1 to catsan.len)
+			var/datum/donate_info/I = catsan[item]
 			cat["items"] += list(list(
 				"name" = I.name,
 				"cost" = I.cost,
