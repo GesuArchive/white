@@ -207,6 +207,7 @@ GLOBAL_LIST_EMPTY(donators)
 	var/money = 0
 	var/maxmoney = 0
 	var/allowed_num_items = 20
+	var/selected_cat
 
 /datum/donator/New(ckey, money)
 	..()
@@ -239,7 +240,7 @@ GLOBAL_LIST_EMPTY(donators)
 /datum/donator/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "DonationsMenu", name)
+		ui = new(user, src, "DonationsMenu", "Панель Благотворца")
 		ui.open()
 
 /datum/donator/ui_status(mob/user)
