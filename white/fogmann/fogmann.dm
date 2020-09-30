@@ -387,7 +387,7 @@
 			return TRUE
 	return FALSE
 
-datum/action/uatknut
+/datum/action/uatknut
 	name = "Уаткнуть (с захватом) - Уаткнуть очкушника в землю."
 	button_icon_state = "wrassle_slam"
 
@@ -534,7 +534,7 @@ datum/action/uatknut
 			else
 				return
 
-			sleep 30
+			sleep(3 SECONDS)
 
 	if (A && D)
 		// These are necessary because of the sleep call.
@@ -764,6 +764,6 @@ datum/action/uatknut
 /obj/item/clothing/mask/boroda/curse
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 
-obj/item/clothing/mask/boroda/curse/Initialize()
+/obj/item/clothing/mask/boroda/curse/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_MASK_TRAIT)

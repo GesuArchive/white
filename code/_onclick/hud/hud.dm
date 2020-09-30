@@ -85,9 +85,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		tooltip.screen_loc = "SOUTH+1,CENTER-4:16"
 	infodisplay += tooltip
 
-	/*
-	extend(owner)
-	*/
+	add_emote_panel(owner)
 
 	for(var/mytype in subtypesof(/obj/screen/plane_master))
 		var/obj/screen/plane_master/instance = new mytype()
