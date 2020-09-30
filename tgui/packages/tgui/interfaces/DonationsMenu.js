@@ -165,22 +165,35 @@ const ItemList = (props, context) => {
       </Table>
     );
   }
-  return items.map(item => (
-    <Section
-      key={item.name}
-      title={item.name}
-      level={2}
-      buttons={(
-        <Button
-          content={item.cost + ' ' + currencySymbol}
-          disabled={item.disabled}
-          onmouseover={() => setHoveredItem(item)}
-          onmouseout={() => setHoveredItem({})}
-          onClick={() => act('buy', {
-            name: item.name,
-          })} />
-      )}>
-      {decodeHtmlEntities(item.icon)}
-    </Section>
-  ));
+  return (
+    <Table>
+      {items.map(item => (
+        <Table.Row
+          key={item.name}
+          className="candystripe">
+          <Table.Cell bold>
+            <img
+              src={`data:image/jpeg;base64,${item.icon}`}
+              style={{
+                'vertical-align': 'middle',
+                'horizontal-align': 'middle',
+              }} />
+            {decodeHtmlEntities(item.name)}
+          </Table.Cell>
+          <Table.Cell collapsing textAlign="right">
+            <Button
+              fluid
+              content={formatMoney(item.cost) + ' ' + currencySymbol}
+              disabled={item.disabled}
+              tooltipPosition="left"
+              onmouseover={() => setHoveredItem(item)}
+              onmouseout={() => setHoveredItem({})}
+              onClick={() => act('buy', {
+                'ref': item.ref,
+              })} />
+          </Table.Cell>
+        </Table.Row>
+      ))}
+    </Table>
+  );
 };

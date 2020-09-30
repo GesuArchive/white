@@ -270,6 +270,7 @@ GLOBAL_LIST_EMPTY(donators)
 				"name" = I.name,
 				"cost" = I.cost,
 				"icon" = GetIconForProduct(I),
+				"ref" = REF(I),
 			))
 		data["categories"] += list(cat)
 
@@ -281,7 +282,7 @@ GLOBAL_LIST_EMPTY(donators)
 		return
 	switch(action)
 		if("buy")
-			var/datum/donate_info/prize = locate(params["name"])
+			var/datum/donate_info/prize = locate(params["ref"])
 			var/mob/living/carbon/human/user = usr
 
 			if(!SSticker || SSticker.current_state < 3)
