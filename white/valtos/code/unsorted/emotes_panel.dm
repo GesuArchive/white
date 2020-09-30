@@ -10,6 +10,8 @@
 
 /obj/screen/emote_button
 	name = "Эмоции"
+	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
+	icon_state = "main"
 
 /obj/screen/emote_button/Click()
 	ui_interact(usr)
@@ -35,7 +37,10 @@
 
 	keys = sortList(keys)
 
-	return keys
+	var/list/data = list()
+	data["emotes"] = keys
+
+	return data
 
 /obj/screen/emote_button/ui_act(action, params)
 	if(..())
