@@ -208,6 +208,7 @@ GLOBAL_LIST_EMPTY(donators)
 	var/maxmoney = 0
 	var/allowed_num_items = 20
 	var/selected_cat
+	var/compact_mode = FALSE
 
 /datum/donator/New(ckey, money)
 	..()
@@ -251,6 +252,7 @@ GLOBAL_LIST_EMPTY(donators)
 		return
 	var/list/data = list()
 	data["money"] = money
+	data["compactMode"] = compact_mode
 	return data
 
 /datum/donator/ui_static_data(mob/user)
