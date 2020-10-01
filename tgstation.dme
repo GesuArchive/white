@@ -3594,6 +3594,7 @@
 #include "white\valtos\code\unsorted\checkered_table.dm"
 #include "white\valtos\code\unsorted\christmas.dm"
 #include "white\valtos\code\unsorted\custom_races.dm"
+#include "white\valtos\code\unsorted\dagestan.dm"
 #include "white\valtos\code\unsorted\dakis.dm"
 #include "white\valtos\code\unsorted\doubleband.dm"
 #include "white\valtos\code\unsorted\drug_reagents.dm"
