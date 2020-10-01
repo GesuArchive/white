@@ -217,27 +217,6 @@ GLOBAL_LIST_EMPTY(donators)
 	maxmoney = money
 	GLOB.donators[ckey] = src
 
-
-/datum/donator/proc/ShowPanel(mob/user)
-	var/list/dat = list("<center>")
-	dat += "Пожертвования в материю!"
-	dat += "</center>"
-
-	dat += "<HR>"
-	dat += "<h3>МАШИНА ДОНАТОВ. Баланс: [money]</h3>"
-	dat += "<div class='statusDisplay'>"
-	dat += "<table>"
-	for(var/L in GLOB.donations_list)
-		dat += "<tr><td></td><td><center><b>[L]</b></center></td><td></td><td></td></tr>"
-		for(var/datum/donate_info/prize in GLOB.donations_list[L])
-			dat += "<tr><td><img src='data:image/jpeg;base64,[GetIconForProduct(prize)]'/></td><td>[prize.name]</td><td>[prize.cost]</td><td><A href='?src=\ref[src];getdonate=\ref[prize]'>Получить</A></td></tr>"
-	dat += "</table>"
-	dat += "</div>"
-
-	var/datum/browser/popup = new(user, "miningvendor", "Donations Panel", 340, 700)
-	popup.set_content(dat.Join())
-	popup.open()
-
 /datum/donator/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -289,8 +268,8 @@ GLOBAL_LIST_EMPTY(donators)
 				to_chat(user,"<span class='warning'>Игра ещё не началась!</span>")
 				return 0
 
-			if((world.time-SSticker.round_start_time)>DONATIONS_SPAWN_WINDOW && !istype(get_area(user), /area/shuttle/arrival))
-				to_chat(user,"<span class='warning'>Вам нужно быть на шаттле прибытия.</span>")
+			if((world.time-SSticker.round_start_time)>DONATIONS_SPAWN_WINDOW && (!istype(get_area(user), /area/shuttle/arrival) || !istype(get_area(user), /area/crew_quarters/bar)))
+				to_chat(user,"<span class='warning'>Вам нужно быть на шаттле прибытия или в баре.</span>")
 				return 0
 
 			if(prize.cost > money)
