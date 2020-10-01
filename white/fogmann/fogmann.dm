@@ -305,10 +305,10 @@
 	restraint_check = FALSE
 	emote_type = EMOTE_AUDIBLE
 
-/datum/emote/living/laugh/get_sound(mob/living/user)
+/datum/emote/living/carbon/blyad/get_sound(mob/living/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.dna.species.id == "human" && (!H.mind || !H.mind.miming))
+		if(!H.mind || !H.mind.miming)
 			return 'white/fogmann/blyead.ogg'
 
 /obj/item/clothing/accessory/medal/frog

@@ -5,6 +5,7 @@
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	custom_materials = list(/datum/material/iron = 10000)
+
 /obj/item/blacksmith/smithing_hammer
 	name = "молот"
 	desc = "Используется для ковки. По идее."
