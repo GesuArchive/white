@@ -207,7 +207,6 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
  * Wood
  */
 GLOBAL_LIST_INIT(wood_recipes, list ( \
-	new/datum/stack_recipe("деревянная рукоятка", /obj/item/wooden_handle, 3), \
 	new/datum/stack_recipe("деревянные сандалии", /obj/item/clothing/shoes/sandal, 1), \
 	new/datum/stack_recipe("деревянный пол", /obj/item/stack/tile/wood, 1, 4, 20), \
 	new/datum/stack_recipe("деревянный корпус стола", /obj/structure/table_frame/wood, 2, time = 10), \

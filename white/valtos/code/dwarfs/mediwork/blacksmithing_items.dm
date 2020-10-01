@@ -1013,9 +1013,9 @@
 /obj/item/blacksmith/partial
 	desc = "Похоже на часть чего-то большего."
 	var/result = null
-	var/list/reqs = null
-	var/list/reqs_names = null
-	var/list/components = null
+	var/list/reqs = list()
+	var/list/reqs_names = list()
+	var/list/components = list()
 	var/possible_force = 0
 
 /obj/item/blacksmith/partial/examine(mob/user)
@@ -1113,24 +1113,18 @@
 	force = 40
 	icon_state = "zwei_part"
 	result = /obj/item/blacksmith/zwei
-	reqs = list(/obj/item/wooden_handle = 1, /obj/item/stack/sheet/leather = 3)
+	reqs = list(/obj/item/stack/sheet/mineral/wood = 3, /obj/item/stack/sheet/leather = 2)
 
 /obj/item/blacksmith/partial/katanus
 	name = "лезвие катануса"
 	force = 16
 	icon_state = "katanus_part"
 	result = /obj/item/blacksmith/katanus
-	reqs = list(/obj/item/wooden_handle = 1, /obj/item/stack/sheet/leather = 2)
+	reqs = list(/obj/item/stack/sheet/mineral/wood = 3, /obj/item/stack/sheet/leather = 2)
 
 /obj/item/blacksmith/partial/cep
 	name = "шар с цепью"
 	force = 20
 	icon_state = "cep_part"
 	result = /obj/item/blacksmith/cep
-	reqs = list(/obj/item/wooden_handle = 1)
-
-/obj/item/wooden_handle
-	name = "рукоятка"
-	desc = "Универсальная!"
-	icon = 'white/valtos/icons/objects.dmi'
-	icon_state = "handle"
+	reqs = list(/obj/item/stack/sheet/mineral/wood = 2)
