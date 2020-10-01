@@ -1,10 +1,14 @@
 import { Fragment } from 'inferno';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NumberInput, LabeledControls, Box, Knob, Section } from '../components';
+import { Button, LabeledList, Dropdown, LabeledControls, Box, Knob, Section } from '../components';
 import { Window } from '../layouts';
 
 export const BoomBox = (props, context) => {
   const { act, data } = useBackend(context);
+  const songs = flow([
+    sortBy(
+      song => song.name),
+  ])(data.songs || []);
   return (
     <Window
       width={370}
@@ -28,7 +32,15 @@ export const BoomBox = (props, context) => {
 
           <LabeledList>
             <LabeledList.Item label="Трек">
-              {data.curtrack ? data.curtrack : "Не выбран"}
+              <Dropdown
+                overflow-y="scroll"
+                width="240px"
+                options={songs.map(song => song.name)}
+                disabled={data.active}
+                selected={data.curtrack || "Выберите трек"}
+                onSelected={value => act('select_track', {
+                  track: value,
+                })} />
             </LabeledList.Item>
 
             {!data.curlenght || (
