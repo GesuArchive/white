@@ -1,4 +1,6 @@
 import { Fragment } from 'inferno';
+import { sortBy } from 'common/collections';
+import { flow } from 'common/fp';
 import { useBackend } from '../backend';
 import { Button, LabeledList, Dropdown, LabeledControls, Box, Knob, Section } from '../components';
 import { Window } from '../layouts';
@@ -11,8 +13,8 @@ export const BoomBox = (props, context) => {
   ])(data.songs || []);
   return (
     <Window
-      width={370}
-      height={343}
+      width={520}
+      height={300}
       resizable>
       <Window.Content>
         <Section
@@ -24,9 +26,12 @@ export const BoomBox = (props, context) => {
                 content={data.active ? 'СТОП' : 'СТАРТ'}
                 disabled={!data.curtrack}
                 onClick={() => act('toggle')} />
-              <Button
-                content="Выбрать трек"
-                onClick={() => act('select')} />
+              {!data.disk || (
+                <Button
+                  content="Изъять диск"
+                  disabled={!data.disk}
+                  onClick={() => act('eject')} />
+              )}
             </Fragment>
           )}>
 
@@ -34,7 +39,7 @@ export const BoomBox = (props, context) => {
             <LabeledList.Item label="Трек">
               <Dropdown
                 overflow-y="scroll"
-                width="240px"
+                width="380px"
                 options={songs.map(song => song.name)}
                 disabled={data.active}
                 selected={data.curtrack || "Выберите трек"}
@@ -107,25 +112,6 @@ export const BoomBox = (props, context) => {
             </LabeledControls.Item>
           </LabeledControls>
         </Section>
-        {!data.disk || (
-          <Section title="Диск">
-
-            <LabeledList>
-              <LabeledList.Item label="Трек">
-                {data.disktrack ? data.disktrack : "Отсутствует"}
-              </LabeledList.Item>
-
-              <LabeledList.Item
-                buttons={
-                  <Button
-                    content="Изъять диск"
-                    disabled={!data.disk}
-                    onClick={() => act('eject')} />
-                } />
-            </LabeledList>
-
-          </Section>
-        )}
       </Window.Content>
     </Window>
   );

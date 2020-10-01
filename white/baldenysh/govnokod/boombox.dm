@@ -148,7 +148,7 @@
 		data["songs"] += list(track_data)
 
 	if(disk)
-		data["songs"] += list(disk)
+		data["songs"] += list(list(name = disk.track.song_name))
 
 	data["disk"] = disk ? TRUE : FALSE
 	data["disktrack"] = disk && disk.track ? disk.track.song_name : FALSE
@@ -165,19 +165,6 @@
 				startsound()
 			else
 				stopsound()
-		if("select")
-			var/list/available = list()
-			for(var/datum/track/S in songs)
-				available[S.song_name] = S
-			if(disk)
-				if(disk.track)
-					available[disk.track.song_name] = disk.track
-			var/selected = input(usr, "Выбирай мудро", "Трек:") as null|anything in available
-			if(QDELETED(src) || !selected || !istype(available[selected], /datum/track))
-				return
-			if(playing)
-				stopsound()
-			selection = available[selected]
 		if("select_track")
 			var/list/available = list()
 			for(var/datum/track/S in songs)
