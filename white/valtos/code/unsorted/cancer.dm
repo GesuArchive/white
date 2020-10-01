@@ -263,10 +263,10 @@
 
 /mob/living/simple_animal/hostile/megafauna/sans/proc/teleport(atom/target)
 	var/turf/T = get_step(target, -target.dir)
-	new /obj/effect/temp_visual/bone/halfsecond(get_turf(src))
+	new /obj/effect/temp_visual/bone(get_turf(src))
 	sleep(4)
 	if(!ischasm(T) && !(/mob/living in T))
-		new /obj/effect/temp_visual/bone/halfsecond(T)
+		new /obj/effect/temp_visual/bone(T)
 		forceMove(T)
 	else
 		var/list/possiblelocs = (view(3, target) - view(1, target))
@@ -278,7 +278,7 @@
 					possiblelocs -= A
 		if(possiblelocs.len)
 			T = pick(possiblelocs)
-			new /obj/effect/temp_visual/bone/halfsecond(T)
+			new /obj/effect/temp_visual/bone(T)
 			forceMove(T)
 
 /mob/living/simple_animal/hostile/megafauna/sans/AttackingTarget()
