@@ -373,7 +373,7 @@
 		L.adjustBruteLoss(rand(10,15))
 		playsound(src, 'white/valtos/sounds/undertale/snd_hurt1.wav', 100, 0)
 
-/mob/living/simple_animal/hostile/megafauna/sams/proc/arena_trap(mob/victim) //trap a target in an arena
+/mob/living/simple_animal/hostile/megafauna/sans/proc/arena_trap(mob/victim) //trap a target in an arena
 	var/turf/T = get_turf(victim)
 	if(!istype(victim) || victim.stat == DEAD || !T || arena_cooldown > world.time)
 		return
