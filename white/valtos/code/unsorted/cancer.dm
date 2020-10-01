@@ -12,8 +12,8 @@
 	melee_queue_distance = 2
 	melee_damage_lower = 35
 	melee_damage_upper = 35
-	speed = 2
-	move_to_delay = 2.25
+	speed = 5
+	move_to_delay = 5
 	wander = FALSE
 	var/block_chance = 50
 	ranged = 1
@@ -67,10 +67,11 @@
 
 /mob/living/simple_animal/hostile/megafauna/sans/apply_damage(damage = 0,damagetype = BRUTE, def_zone = null, blocked = FALSE, forced = FALSE, spread_damage = FALSE, wound_bonus = 0, bare_wound_bonus = 0, sharpness = SHARP_NONE) //skyrat edit
 	if(speen)
-		visible_message("<span class='danger'>[capitalize(src.name)] отбивает всех входящие атаки!")
+		visible_message("<span class='danger'>[capitalize(src.name)] уворачивается всех входящих атак!")
+		step(src, pick(GLOB.cardinals))
 		return FALSE
 	else if(prob(50) && (phase == 1) && !stunned)
-		visible_message("<span class='danger'>[capitalize(src.name)] блокирует все входящие атаки костями!")
+		visible_message("<span class='danger'>[capitalize(src.name)] отбивает все входящие атаки костями!")
 		return FALSE
 	..()
 	update_phase()
@@ -230,7 +231,7 @@
 					hit_things += M
 		if(woop)
 			break
-		sleep(0.5)
+		sleep(0.25)
 	animate(src, color = initial(color), 3)
 	sleep(3)
 	speen = FALSE
@@ -258,6 +259,7 @@
 /mob/living/simple_animal/hostile/megafauna/sans/proc/teleport(atom/target)
 	var/turf/T = get_step(target, -target.dir)
 	new /obj/effect/temp_visual/bone(get_turf(src))
+	playsound(src, 'white/valtos/sounds/undertale/snd_b.wav', 60, 0)
 	sleep(4)
 	if(!ischasm(T) && !(/mob/living in T))
 		new /obj/effect/temp_visual/bone(T)
@@ -291,7 +293,7 @@
 	boned.throw_at(target, 14, 3, src)
 	QDEL_IN(boned, 30)
 	for(var/turf/turf in range(9, get_turf(target)))
-		if(prob(11))
+		if(prob(22))
 			new /obj/effect/temp_visual/target/sans(turf)
 
 /mob/living/simple_animal/hostile/megafauna/sans/OpenFire()
@@ -305,7 +307,7 @@
 	ranged_cooldown = world.time
 	switch(phase)
 		if(1)
-			if(prob(25) && (get_dist(src, target) <= 4))
+			if(prob(25) && (get_dist(src, target) <= 7))
 				bonespin()
 				ranged_cooldown += 70
 			else
@@ -313,7 +315,7 @@
 					chargeattack(target, 21)
 					ranged_cooldown += 40
 				else
-					teleport(target)
+					boneappletea(target)
 					ranged_cooldown += 35
 		if(2)
 			if(prob(40) && (get_dist(src, target) <= 4))
@@ -331,7 +333,7 @@
 				boneappletea(target)
 				ranged_cooldown += 30
 			else
-				teleport(target)
+				bonespin(target)
 				ranged_cooldown += 20
 
 //Aggression helpers
@@ -368,6 +370,10 @@
 /obj/effect/temp_visual/bone/Initialize()
 	. = ..()
 	SpinAnimation(1, -1)
+
+/obj/effect/temp_visual/bone/fromsky
+	layer = FLY_LAYER
+	pixel_z = 270
 
 /obj/effect/temp_visual/bone/fromsky/Initialize()
 	. = ..()
@@ -426,7 +432,7 @@
 	if(ismineralturf(T))
 		var/turf/closed/mineral/M = T
 		M.gets_drilled()
-	playsound(T, "explosion", 80, TRUE)
+	playsound(T, "explosion", 30, TRUE)
 	for(var/mob/living/L in T.contents)
 		if(istype(L, /mob/living/simple_animal/hostile/megafauna/sans))
 			continue
