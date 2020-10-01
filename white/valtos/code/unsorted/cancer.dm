@@ -19,8 +19,8 @@
 	ranged = 1
 	ranged_cooldown_time = 30
 	minimum_distance = 1
-	health = 1500
-	maxHealth = 1500
+	health = 2500
+	maxHealth = 2500
 	movement_type = GROUND
 	weather_immunities = list("lava","ash")
 	var/phase = 1
@@ -34,8 +34,8 @@
 	var/stunned = FALSE
 	var/stunduration = 15
 	var/move_to_charge = 1.5
-	loot = list()
-	crusher_loot = list()
+	loot = list(/obj/item/kitchen/knife/combat/bone/sans)
+	crusher_loot = list(/obj/item/kitchen/knife/combat/bone/sans)
 
 /mob/living/simple_animal/hostile/megafauna/sans/Initialize(mapload)
 	. = ..()
@@ -47,7 +47,15 @@
 		SP.playing_channel = CHANNEL_CUSTOM_JUKEBOX
 	SP.playing_volume = 100
 	SP.playing_range = 16
-	SP.set_sound(sound('white/valtos/sounds/undertale/SANESSS.ogg'))
+	if(prob(3))
+		SP.set_sound(sound('white/valtos/sounds/undertale/SANESSS.ogg'))
+	else
+		SP.set_sound(sound('white/valtos/sounds/undertale/megalovania_but_beats_2_and_4_are_swapped.ogg'))
+
+/mob/living/simple_animal/hostile/megafauna/sans/death(gibbed, list/force_grant)
+	. = ..()
+	animate(src, alpha = 0, 30)
+	QDEL_IN(src, 30)
 
 /mob/living/simple_animal/hostile/megafauna/sans/Life()
 	. = ..()
@@ -208,8 +216,15 @@
 	for(var/turf/T in speenturfs)
 		src.dir = get_dir(src, T)
 		for(var/turf/U in (getline(src, T) - get_turf(src)))
-			var/obj/effect/temp_visual/small_smoke/smonk = new /obj/effect/temp_visual/small_smoke(U)
-			QDEL_IN(smonk, 1.25)
+			var/obj/effect/temp_visual/bone/bonk = new /obj/effect/temp_visual/bone(U)
+
+			var/obj/item/kitchen/knife/combat/bone/sans/boned = new /obj/item/kitchen/knife/combat/bone/sans(U)
+			boned.throwforce = 35
+			playsound(src, 'white/valtos/sounds/undertale/snd_b.wav', 30, 0)
+			boned.throw_at(target, 14, 3, src)
+			QDEL_IN(boned, 30)
+
+			QDEL_IN(bonk, 2.25)
 			for(var/mob/living/M in U)
 				if(!faction_check(faction, M.faction) && !(M in hit_things))
 					playsound(src, 'white/valtos/sounds/undertale/snd_hurt1.wav', 75, 0)
@@ -248,10 +263,10 @@
 
 /mob/living/simple_animal/hostile/megafauna/sans/proc/teleport(atom/target)
 	var/turf/T = get_step(target, -target.dir)
-	new /obj/effect/temp_visual/small_smoke/halfsecond(get_turf(src))
+	new /obj/effect/temp_visual/bone/halfsecond(get_turf(src))
 	sleep(4)
 	if(!ischasm(T) && !(/mob/living in T))
-		new /obj/effect/temp_visual/small_smoke/halfsecond(T)
+		new /obj/effect/temp_visual/bone/halfsecond(T)
 		forceMove(T)
 	else
 		var/list/possiblelocs = (view(3, target) - view(1, target))
@@ -263,7 +278,7 @@
 					possiblelocs -= A
 		if(possiblelocs.len)
 			T = pick(possiblelocs)
-			new /obj/effect/temp_visual/small_smoke/halfsecond(T)
+			new /obj/effect/temp_visual/bone/halfsecond(T)
 			forceMove(T)
 
 /mob/living/simple_animal/hostile/megafauna/sans/AttackingTarget()
@@ -342,3 +357,17 @@
 	name = "кость"
 	icon = 'white/valtos/icons/undertale/SANESSS.dmi'
 	icon_state = "bone"
+	force = 40
+	throwforce = 35
+
+/obj/effect/temp_visual/bone
+	icon = 'white/valtos/icons/undertale/SANESSS.dmi'
+	icon_state = "bone"
+	duration = 50
+
+/obj/effect/temp_visual/bone/Crossed(atom/movable/AM, oldloc)
+	. = ..()
+	if(isliving(AM))
+		var/mob/living/L = AM
+		L.adjustBruteLoss(rand(10,15))
+		playsound(src, 'white/valtos/sounds/undertale/snd_hurt1.wav', 100, 0)
