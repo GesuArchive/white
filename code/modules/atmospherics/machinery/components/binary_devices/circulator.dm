@@ -161,7 +161,7 @@
 
 	anchored = !anchored
 	I.play_tool_sound(src)
-	to_chat(user, "<span class='notice'>[anchored?"Прикручиваю":"откручиваю"] [src].</span>")
+	to_chat(user, "<span class='notice'>[anchored?"Прикручиваю":"Откручиваю"] [src].</span>")
 
 	var/obj/machinery/atmospherics/node1 = nodes[1]
 	var/obj/machinery/atmospherics/node2 = nodes[2]
