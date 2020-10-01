@@ -29,11 +29,12 @@ export const gameMiddleware = store => {
       && Date.now() >= lastPingedAt + CONNECTION_LOST_AFTER;
     if (!game.connectionLostAt && pingsAreFailing) {
       store.dispatch(withTimestamp(connectionLost()));
+      Byond.command('.reconnect');
     }
     if (game.connectionLostAt && !pingsAreFailing) {
       store.dispatch(withTimestamp(connectionRestored()));
     }
-  }, 20000);
+  }, 10000);
   return next => action => {
     const { type, payload, meta } = action;
     if (type === pingSuccess.type) {

@@ -49,6 +49,8 @@ const loadChatFromStorage = async store => {
   store.dispatch(loadChat(state));
 };
 
+let agressiveReconnectionTimer = null;
+
 export const chatMiddleware = store => {
   let initialized = false;
   let loaded = false;
@@ -108,6 +110,10 @@ export const chatMiddleware = store => {
     if (type === 'roundrestart') {
       // Save chat as soon as possible
       saveChatToStorage(store);
+      clearInterval(agressiveReconnectionTimer);
+      agressiveReconnectionTimer = setTimeout(() => {
+        Byond.command('.reconnect');
+      }, 5000);
       return next(action);
     }
     if (type === saveChatToDisk.type) {
