@@ -5,7 +5,6 @@
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	custom_materials = list(/datum/material/iron = 10000)
-
 /obj/item/blacksmith/smithing_hammer
 	name = "молот"
 	desc = "Используется для ковки. По идее."
@@ -133,12 +132,12 @@
 	throwforce = 5
 	throw_range = 7
 	var/datum/smithing_recipe/recipe = null
-	var/mod_grade = 1
 	var/durability = 5
 	var/progress_current = 0
 	var/progress_need = 10
 	var/heattemp = 0
 	var/type_metal = "iron"
+	var/mod_grade = 1
 
 /obj/item/blacksmith/ingot/gold
 	name = "золотой слиток"
@@ -1033,7 +1032,10 @@
 			requires += "[(hasContent ? (use_and ? ", и" : ",") : "")] [amt] [reqs_names[tname]]"
 			hasContent = TRUE
 
-		. +=  "<hr>[requires]. Удар молотом завершит сборку."
+		if(hasContent)
+			. +=  "<hr>[requires]."
+		else
+			. += "<hr>Удар молотом завершит сборку."
 
 /obj/item/blacksmith/partial/proc/update_namelist()
 	if(!reqs)
@@ -1068,8 +1070,7 @@
 		if(component_check)
 			playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
 			var/obj/item/blacksmith/NB = new result(loc)
-			if(istype(NB))
-				NB.force = possible_force
+			NB.force = possible_force
 			qdel(src)
 		return
 	if(isitem(P) && get_req_components_amt())
