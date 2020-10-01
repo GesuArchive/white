@@ -26,7 +26,7 @@
 	var/phase = 1
 	var/list/introduced = list()
 	var/speen = FALSE
-	var/speenrange = 4
+	var/speenrange = 10
 	var/obj/savedloot = null
 	var/charging = FALSE
 	var/chargetiles = 0
@@ -36,6 +36,7 @@
 	var/move_to_charge = 1.5
 	loot = list(/obj/item/kitchen/knife/combat/bone/sans)
 	crusher_loot = list(/obj/item/kitchen/knife/combat/bone/sans)
+	var/arena_cooldown = 200
 
 /mob/living/simple_animal/hostile/megafauna/sans/Initialize(mapload)
 	. = ..()
@@ -229,7 +230,7 @@
 					hit_things += M
 		if(woop)
 			break
-		sleep(1.25)
+		sleep(0.5)
 	animate(src, color = initial(color), 3)
 	sleep(3)
 	speen = FALSE
@@ -295,6 +296,9 @@
 		return FALSE
 	if(speen || stunned || charging)
 		return FALSE
+
+	arena_trap(target)
+
 	ranged_cooldown = world.time
 	switch(phase)
 		if(1)
@@ -358,9 +362,51 @@
 	icon_state = "bone"
 	duration = 50
 
+/obj/effect/temp_visual/bone/Initialize()
+	. = ..()
+	SpinAnimation(1, -1)
+
 /obj/effect/temp_visual/bone/Crossed(atom/movable/AM, oldloc)
 	. = ..()
 	if(isliving(AM))
 		var/mob/living/L = AM
 		L.adjustBruteLoss(rand(10,15))
 		playsound(src, 'white/valtos/sounds/undertale/snd_hurt1.wav', 100, 0)
+
+/mob/living/simple_animal/hostile/megafauna/sams/proc/arena_trap(mob/victim) //trap a target in an arena
+	var/turf/T = get_turf(victim)
+	if(!istype(victim) || victim.stat == DEAD || !T || arena_cooldown > world.time)
+		return
+	arena_cooldown = world.time + initial(arena_cooldown)
+	for(var/t in RANGE_TURFS(11, T))
+		if(t && get_dist(t, T) == 11)
+			new /obj/effect/temp_visual/sansarena(t, src)
+	if(get_dist(src, T) >= 11)
+		INVOKE_ASYNC(src, .proc/teleport, T)
+
+/obj/effect/temp_visual/sansarena
+	name = "костяная стена"
+	icon = 'white/valtos/icons/undertale/SANESSS.dmi'
+	icon_state = "bone"
+	duration = 600
+	light_range = MINIMUM_USEFUL_LIGHT_RANGE
+	var/mob/living/caster //who made this, anyway
+
+/obj/effect/temp_visual/sansarena/Initialize(mapload, new_caster)
+	. = ..()
+	SpinAnimation(1, -1)
+	if(new_caster)
+		caster = new_caster
+
+/obj/effect/temp_visual/hierophant/wall/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(QDELETED(caster))
+		return FALSE
+	if(mover == caster.pulledby)
+		return
+	if(istype(mover, /obj/projectile))
+		var/obj/projectile/P = mover
+		if(P.firer == caster)
+			return
+	if(mover != caster)
+		return FALSE
