@@ -22,6 +22,9 @@
 	var/environment_temperature = 0
 	var/datum/gas_mixture/pipe_air = return_air()
 
+	if(!pipe_air)
+		return
+
 	var/turf/T = loc
 	if(istype(T))
 		if(islava(T))

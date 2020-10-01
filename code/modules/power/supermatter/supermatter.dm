@@ -443,7 +443,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	for(var/mob/M in GLOB.player_list)
 		var/turf/mob_turf = get_turf(M)
 		if(T.z == mob_turf.z)
-			SEND_SOUND(M, 'sound/magic/charge.ogg')
+			SEND_SOUND(M, sound('sound/magic/charge.ogg'))
 
 			if (M.z == z)
 				to_chat(M, "<span class='boldannounce'>Ощущаю искажение реальности на мгновение...</span>")

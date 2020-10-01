@@ -761,9 +761,9 @@
 	. = ..()
 	if(recharge_rate && world.time > recharge_cooldown && current_charges < max_charges)
 		current_charges = clamp((current_charges + recharge_rate), 0, max_charges)
-		playsound(loc, 'sound/magic/charge.ogg', 50, TRUE)
+		playsound(loc, sound('sound/magic/charge.ogg'), 50, TRUE)
 		if(current_charges == max_charges)
-			playsound(loc, 'sound/machines/ding.ogg', 50, TRUE)
+			playsound(loc, sound('sound/machines/ding.ogg'), 50, TRUE)
 		shield_state = "[shield_on]"
 		if(ishuman(loc))
 			var/mob/living/carbon/human/C = loc
