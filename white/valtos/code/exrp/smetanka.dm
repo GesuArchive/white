@@ -14,7 +14,6 @@
 	pixel_x = rand(-8, 8)
 	pixel_y = rand(-8, 8)
 
-
 /obj/effect/decal/cleanable/cum/attack_hand(mob/user)
 	. = ..()
 	if(.)
