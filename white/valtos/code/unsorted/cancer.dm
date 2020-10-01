@@ -12,7 +12,7 @@
 	melee_queue_distance = 2
 	melee_damage_lower = 35
 	melee_damage_upper = 35
-	speed = 1
+	speed = 2
 	move_to_delay = 2.25
 	wander = FALSE
 	var/block_chance = 50
@@ -26,7 +26,7 @@
 	var/phase = 1
 	var/list/introduced = list()
 	var/speen = FALSE
-	var/speenrange = 10
+	var/speenrange = 7
 	var/obj/savedloot = null
 	var/charging = FALSE
 	var/chargetiles = 0
@@ -290,6 +290,9 @@
 	playsound(src, 'white/valtos/sounds/undertale/snd_b.wav', 60, 0)
 	boned.throw_at(target, 14, 3, src)
 	QDEL_IN(boned, 30)
+	for(var/turf/turf in range(9, get_turf(target)))
+		if(prob(11))
+			new /obj/effect/temp_visual/target/sans(turf)
 
 /mob/living/simple_animal/hostile/megafauna/sans/OpenFire()
 	if(world.time < ranged_cooldown)
@@ -360,11 +363,15 @@
 /obj/effect/temp_visual/bone
 	icon = 'white/valtos/icons/undertale/SANESSS.dmi'
 	icon_state = "bone"
-	duration = 50
+	duration = 3
 
 /obj/effect/temp_visual/bone/Initialize()
 	. = ..()
 	SpinAnimation(1, -1)
+
+/obj/effect/temp_visual/bone/fromsky/Initialize()
+	. = ..()
+	animate(src, pixel_z = 0, time = duration)
 
 /obj/effect/temp_visual/bone/Crossed(atom/movable/AM, oldloc)
 	. = ..()
@@ -388,7 +395,7 @@
 	name = "костяная стена"
 	icon = 'white/valtos/icons/undertale/SANESSS.dmi'
 	icon_state = "bone"
-	duration = 600
+	duration = 100
 	light_range = MINIMUM_USEFUL_LIGHT_RANGE
 	var/mob/living/caster //who made this, anyway
 
@@ -410,3 +417,18 @@
 			return
 	if(mover != caster)
 		return FALSE
+
+/obj/effect/temp_visual/target/sans/fall(list/flame_hit)
+	var/turf/T = get_turf(src)
+	playsound(T,'white/valtos/sounds/undertale/snd_b.wav', 80, TRUE)
+	new /obj/effect/temp_visual/bone/fromsky(T)
+	sleep(duration)
+	if(ismineralturf(T))
+		var/turf/closed/mineral/M = T
+		M.gets_drilled()
+	playsound(T, "explosion", 80, TRUE)
+	for(var/mob/living/L in T.contents)
+		if(istype(L, /mob/living/simple_animal/hostile/megafauna/sans))
+			continue
+		L.adjustBruteLoss(10)
+
