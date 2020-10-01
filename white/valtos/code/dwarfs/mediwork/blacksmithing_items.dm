@@ -1113,18 +1113,24 @@
 	force = 40
 	icon_state = "zwei_part"
 	result = /obj/item/blacksmith/zwei
-	reqs = list(/obj/item/stack/sheet/mineral/wood = 3, /obj/item/stack/sheet/leather = 2)
+	reqs = list(/obj/item/wooden_handle = 1, /obj/item/stack/sheet/leather = 3)
 
 /obj/item/blacksmith/partial/katanus
 	name = "лезвие катануса"
 	force = 16
 	icon_state = "katanus_part"
 	result = /obj/item/blacksmith/katanus
-	reqs = list(/obj/item/stack/sheet/mineral/wood = 3, /obj/item/stack/sheet/leather = 2)
+	reqs = list(/obj/item/wooden_handle = 1, /obj/item/stack/sheet/leather = 2)
 
 /obj/item/blacksmith/partial/cep
 	name = "шар с цепью"
 	force = 20
 	icon_state = "cep_part"
 	result = /obj/item/blacksmith/cep
-	reqs = list(/obj/item/stack/sheet/mineral/wood = 2)
+	reqs = list(/obj/item/wooden_handle = 1)
+
+/obj/item/wooden_handle
+	name = "рукоятка"
+	desc = "Универсальная!"
+	icon = 'white/valtos/icons/objects.dmi'
+	icon_state = "handle"
