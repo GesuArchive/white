@@ -5,16 +5,16 @@
 	var/max_resulting = 1
 
 /datum/smithing_recipe/katanus
-	name = "Катанус"
-	result = /obj/item/blacksmith/katanus
+	name = "\[Заготовка\] Лезвие катануса"
+	result = /obj/item/blacksmith/partial/katanus
 
 /datum/smithing_recipe/zwei
-	name = "Цвай"
-	result = /obj/item/blacksmith/zwei
+	name = "\[Заготовка\] Лезвие цвая"
+	result = /obj/item/blacksmith/partial/zwei
 
 /datum/smithing_recipe/cep
-	name = "Цеп"
-	result = /obj/item/blacksmith/cep
+	name = "\[Заготовка\] Шар с цепью"
+	result = /obj/item/blacksmith/partial/cep
 
 /datum/smithing_recipe/dagger
 	name = "Кинжал"

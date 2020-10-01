@@ -32,7 +32,7 @@
 	. = ..()
 	if(state == 3 && req_components && req_component_names)
 		var/hasContent = FALSE
-		var/requires = "It requires"
+		var/requires = "Требуется"
 
 		for(var/i = 1 to req_components.len)
 			var/tname = req_components[i]
@@ -40,7 +40,7 @@
 			if(amt == 0)
 				continue
 			var/use_and = i == req_components.len
-			requires += "[(hasContent ? (use_and ? ", и" : ",") : "")] [amt] [amt == 1 ? req_component_names[tname] : "[req_component_names[tname]]\s"]"
+			requires += "[(hasContent ? (use_and ? ", и" : ",") : "")] [amt] [amt == 1 ? req_component_names[tname] : "[req_component_names[tname]]"]"
 			hasContent = TRUE
 
 		if(hasContent)
