@@ -217,13 +217,6 @@
 		src.dir = get_dir(src, T)
 		for(var/turf/U in (getline(src, T) - get_turf(src)))
 			var/obj/effect/temp_visual/bone/bonk = new /obj/effect/temp_visual/bone(U)
-
-			var/obj/item/kitchen/knife/combat/bone/sans/boned = new /obj/item/kitchen/knife/combat/bone/sans(U)
-			boned.throwforce = 35
-			playsound(src, 'white/valtos/sounds/undertale/snd_b.wav', 30, 0)
-			boned.throw_at(target, 14, 3, src)
-			QDEL_IN(boned, 30)
-
 			QDEL_IN(bonk, 2.25)
 			for(var/mob/living/M in U)
 				if(!faction_check(faction, M.faction) && !(M in hit_things))
@@ -294,7 +287,7 @@
 	var/obj/item/kitchen/knife/combat/bone/sans/boned = new /obj/item/kitchen/knife/combat/bone/sans(get_turf(src))
 	boned.throwforce = 35
 	playsound(src, 'white/valtos/sounds/undertale/snd_b.wav', 60, 0)
-	boned.throw_at(target, 7, 3, src)
+	boned.throw_at(target, 14, 3, src)
 	QDEL_IN(boned, 30)
 
 /mob/living/simple_animal/hostile/megafauna/sans/OpenFire()
