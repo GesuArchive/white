@@ -416,7 +416,7 @@
 	if(new_caster)
 		caster = new_caster
 
-/obj/effect/temp_visual/sansarena/wall/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/effect/temp_visual/sansarena/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
 	if(QDELETED(caster))
 		return FALSE
@@ -489,12 +489,10 @@
 	var/damage = 10 //how much damage do we do?
 	var/monster_damage_boost = TRUE //do we deal extra damage to monsters? Used by the boss
 	var/list/hit_things = list() //we hit these already, ignore them
-	var/friendly_fire_check = FALSE
 	var/bursting = FALSE //if we're bursting and need to hit anyone crossing us
 
-/obj/effect/temp_visual/hierophant/blast/damaging/Initialize(mapload, new_caster, friendly_fire)
+/obj/effect/temp_visual/hierophant/blast/sans/Initialize(mapload, new_caster, friendly_fire)
 	. = ..()
-	friendly_fire_check = friendly_fire
 	if(new_caster)
 		hit_things += new_caster
 	if(ismineralturf(loc)) //drill mineral turfs
@@ -502,7 +500,7 @@
 		M.gets_drilled(caster)
 	INVOKE_ASYNC(src, .proc/blast)
 
-/obj/effect/temp_visual/hierophant/blast/damaging/blast()
+/obj/effect/temp_visual/hierophant/blast/sans/blast()
 	var/turf/T = get_turf(src)
 	if(!T)
 		return
@@ -513,17 +511,17 @@
 	sleep(1.3) //slightly forgiving; the burst animation is 1.5 deciseconds
 	bursting = FALSE //we no longer damage crossers
 
-/obj/effect/temp_visual/hierophant/blast/damaging/Crossed(atom/movable/AM)
+/obj/effect/temp_visual/hierophant/blast/sans/Crossed(atom/movable/AM)
 	..()
 	if(bursting)
 		do_damage(get_turf(src))
 
-/obj/effect/temp_visual/hierophant/blast/damaging/do_damage(turf/T)
+/obj/effect/temp_visual/hierophant/blast/sans/do_damage(turf/T)
 	if(!damage)
 		return
 	for(var/mob/living/L in T.contents - hit_things) //find and damage mobs...
 		hit_things += L
-		if((friendly_fire_check && caster && caster.faction_check_mob(L)) || L.stat == DEAD)
+		if((caster && caster.faction_check_mob(L)) || L.stat == DEAD)
 			continue
 		if(L.client)
 			flash_color(L.client, "#ff9955", 1)
@@ -548,7 +546,7 @@
 		hit_things += M
 		for(var/O in M.occupants)
 			var/mob/living/occupant = O
-			if(friendly_fire_check && caster && caster.faction_check_mob(occupant))
+			if(caster && caster.faction_check_mob(occupant))
 				continue
 			to_chat(M, "<span class='userdanger'>Мой [M.name] был подвержен [name]!</span>")
 			playsound(M,'white/valtos/sounds/undertale/snd_hurt1.wav', 50, TRUE, -4)
