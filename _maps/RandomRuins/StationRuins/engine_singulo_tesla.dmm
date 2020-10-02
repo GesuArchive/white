@@ -15,7 +15,7 @@
 "af" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/poddoor/shutters/radiation/preopen,
+/obj/machinery/door/poddoor/shutters/preopen,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "ag" = (
@@ -79,7 +79,7 @@
 /area/engine/engineering)
 "an" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/poddoor/shutters/radiation/preopen,
+/obj/machinery/door/poddoor/shutters/preopen,
 /turf/open/floor/plating,
 /area/engine/supermatter)
 "ao" = (
@@ -119,7 +119,7 @@
 "au" = (
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/poddoor/shutters/radiation/preopen,
+/obj/machinery/door/poddoor/shutters/preopen,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "av" = (
@@ -494,7 +494,10 @@
 "bz" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/poddoor/shutters/radiation/preopen,
+/obj/machinery/door/poddoor/shutters/radiation/preopen{
+	id = "engsm";
+	name = "Radiation Chamber Shutters"
+	},
 /turf/open/floor/plating,
 /area/engine/engineering)
 "bA" = (
@@ -921,7 +924,10 @@
 /area/engine/engineering)
 "WL" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
-/obj/machinery/door/poddoor/shutters/radiation/preopen,
+/obj/machinery/door/poddoor/shutters/radiation/preopen{
+	id = "engsm";
+	name = "Radiation Chamber Shutters"
+	},
 /turf/open/floor/plating,
 /area/engine/engineering)
 "WN" = (
