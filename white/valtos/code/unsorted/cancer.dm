@@ -498,25 +498,25 @@
 	if(ismineralturf(loc)) //drill mineral turfs
 		var/turf/closed/mineral/M = loc
 		M.gets_drilled(caster)
-	INVOKE_ASYNC(src, .proc/blast)
+	INVOKE_ASYNC(src, .proc/cumblast)
 
-/obj/effect/temp_visual/hierophant/blast/sans/blast()
+/obj/effect/temp_visual/hierophant/blast/sans/proc/cumblast()
 	var/turf/T = get_turf(src)
 	if(!T)
 		return
 	playsound(T,'white/valtos/sounds/undertale/snd_b.wav', 125, TRUE, -5) //make a sound
 	sleep(6) //wait a little
 	bursting = TRUE
-	do_damage(T) //do damage and mark us as bursting
+	do_cumage(T) //do damage and mark us as bursting
 	sleep(1.3) //slightly forgiving; the burst animation is 1.5 deciseconds
 	bursting = FALSE //we no longer damage crossers
 
 /obj/effect/temp_visual/hierophant/blast/sans/Crossed(atom/movable/AM)
 	..()
 	if(bursting)
-		do_damage(get_turf(src))
+		do_cumage(get_turf(src))
 
-/obj/effect/temp_visual/hierophant/blast/sans/do_damage(turf/T)
+/obj/effect/temp_visual/hierophant/blast/sans/proc/do_cumage(turf/T)
 	if(!damage)
 		return
 	for(var/mob/living/L in T.contents - hit_things) //find and damage mobs...
