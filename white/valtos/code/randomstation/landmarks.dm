@@ -39,7 +39,7 @@
 	template_names = list("Default Brig", "Loose Brig", "Armored Brig")
 
 /obj/effect/landmark/stationroom/bar
-	template_names = list("Default Bar", "Neon Bar")
+	template_names = list("Default Bar", "Neon Bar", "Lava Bar")
 
 /obj/effect/landmark/stationroom/bridge
 	template_names = list("Default Central", "Compact Central", "Interesting Central")

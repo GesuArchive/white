@@ -841,14 +841,11 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "dm" = (
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "engsm";
-	name = "Radiation Chamber Shutters"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/machinery/door/poddoor/shutters/radiation/preopen,
 /turf/open/floor/plating,
 /area/engine/supermatter)
 "dn" = (
@@ -882,14 +879,11 @@
 /turf/open/floor/engine,
 /area/engine/supermatter)
 "dq" = (
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "engsm";
-	name = "Radiation Chamber Shutters"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/machinery/door/poddoor/shutters/radiation/preopen,
 /turf/open/floor/plating,
 /area/engine/supermatter)
 "dr" = (
@@ -971,16 +965,13 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "dE" = (
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "engsm";
-	name = "Radiation Chamber Shutters"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /obj/item/tank/internals/plasma,
 /obj/structure/cable,
+/obj/machinery/door/poddoor/shutters/radiation/preopen,
 /turf/open/floor/plating,
 /area/engine/supermatter)
 "dF" = (
@@ -992,16 +983,13 @@
 /turf/open/floor/engine,
 /area/engine/supermatter)
 "dH" = (
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "engsm";
-	name = "Radiation Chamber Shutters"
-	},
 /obj/effect/decal/cleanable/oil,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/machinery/door/poddoor/shutters/radiation/preopen,
 /turf/open/floor/plating,
 /area/engine/supermatter)
 "dJ" = (
@@ -1047,13 +1035,10 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "dP" = (
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "engsm";
-	name = "Radiation Chamber Shutters"
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/machinery/door/poddoor/shutters/radiation/preopen,
 /turf/open/floor/plating,
 /area/engine/supermatter)
 "dQ" = (
@@ -1114,13 +1099,10 @@
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
 "dY" = (
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "engsm";
-	name = "Radiation Chamber Shutters"
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/machinery/door/poddoor/shutters/radiation/preopen,
 /turf/open/floor/plating,
 /area/engine/supermatter)
 "dZ" = (

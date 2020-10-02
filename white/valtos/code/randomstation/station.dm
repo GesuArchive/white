@@ -27,6 +27,11 @@
 	suffix = "neon_bar.dmm"
 	name = "Neon Bar"
 
+/datum/map_template/ruin/station/bar/lava
+	id = "lava_bar"
+	suffix = "lava_bar.dmm"
+	name = "Lava Bar"
+
 /datum/map_template/ruin/station/bridge
 	id = "default_central"
 	suffix = "default_central.dmm"

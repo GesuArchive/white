@@ -555,8 +555,12 @@
 /obj/structure/table/reinforced,
 /obj/item/lighter,
 /obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
 	id = "barmanpriv";
 	name = "bar shutters"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
 	},
 /turf/open/floor/light,
 /area/crew_quarters/bar)
@@ -631,8 +635,12 @@
 "bX" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
 	id = "barmanpriv";
 	name = "bar shutters"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
 	},
 /turf/open/floor/light,
 /area/crew_quarters/bar)
@@ -646,16 +654,21 @@
 /area/crew_quarters/bar)
 "bZ" = (
 /obj/structure/table/reinforced,
+/obj/item/clothing/head/rice_hat,
 /obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
 	id = "barmanpriv";
 	name = "bar shutters"
 	},
-/obj/item/clothing/head/rice_hat,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
 /turf/open/floor/light,
 /area/crew_quarters/bar)
 "ca" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
+	dir = 4;
 	id = "barmanpriv";
 	name = "bar shutters"
 	},
@@ -671,16 +684,18 @@
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_x = -31
 	},
-/turf/open/floor/plasteel/dark/side{
-	dir = 4
-	},
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "cc" = (
 /obj/structure/table/reinforced,
 /obj/structure/displaycase/forsale/kitchen,
 /obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
 	id = "barmanpriv";
 	name = "bar shutters"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
 	},
 /turf/open/floor/light,
 /area/crew_quarters/bar)
@@ -700,9 +715,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark/side{
-	dir = 4
-	},
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "ch" = (
 /turf/open/floor/plasteel/cafeteria,
@@ -803,15 +816,16 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "cA" = (
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "kitchenhydro";
-	name = "Service Shutter"
-	},
 /obj/machinery/door/airlock/medical/glass{
 	name = "Service Door";
 	req_one_access_txt = "35;28"
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 4;
+	id = "kitchenhydro";
+	name = "Service Shutter"
+	},
 /turf/open/floor/plasteel/cafeteria{
 	dir = 5
 	},
@@ -826,23 +840,20 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark/side{
-	dir = 4
-	},
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "cC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark/side{
-	dir = 4
-	},
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "cD" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
 /obj/item/reagent_containers/food/snacks/pie/cream,
 /obj/machinery/door/poddoor/shutters/preopen{
+	dir = 4;
 	id = "barmanpriv";
 	name = "bar shutters"
 	},
@@ -917,8 +928,12 @@
 	req_one_access_txt = "25;28"
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
 	id = "barmanpriv";
 	name = "bar shutters"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
 	},
 /turf/open/floor/light,
 /area/crew_quarters/bar)
@@ -1176,11 +1191,12 @@
 	name = "Kitchen";
 	req_access_txt = "28"
 	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/shutters/preopen{
+	dir = 4;
 	id = "barmanpriv";
 	name = "bar shutters"
 	},
-/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "sZ" = (
@@ -1238,8 +1254,12 @@
 /obj/item/book/manual/wiki/barman_recipes,
 /obj/item/reagent_containers/glass/rag,
 /obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
 	id = "barmanpriv";
 	name = "bar shutters"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
 	},
 /turf/open/floor/light,
 /area/crew_quarters/bar)

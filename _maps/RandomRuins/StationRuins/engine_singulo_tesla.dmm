@@ -13,12 +13,9 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "af" = (
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "engsm";
-	name = "Radiation Chamber Shutters"
-	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/poddoor/shutters/radiation/preopen,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "ag" = (
@@ -81,11 +78,8 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "an" = (
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "engsm";
-	name = "Radiation Chamber Shutters"
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/poddoor/shutters/radiation/preopen,
 /turf/open/floor/plating,
 /area/engine/supermatter)
 "ao" = (
@@ -123,12 +117,9 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "au" = (
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "engsm";
-	name = "Radiation Chamber Shutters"
-	},
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/poddoor/shutters/radiation/preopen,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "av" = (
@@ -502,11 +493,8 @@
 /area/engine/engineering)
 "bz" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "engsm";
-	name = "Radiation Chamber Shutters"
-	},
 /obj/structure/cable,
+/obj/machinery/door/poddoor/shutters/radiation/preopen,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "bA" = (
@@ -913,7 +901,7 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "OM" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "Qx" = (
@@ -933,10 +921,7 @@
 /area/engine/engineering)
 "WL" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "engsm";
-	name = "Radiation Chamber Shutters"
-	},
+/obj/machinery/door/poddoor/shutters/radiation/preopen,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "WN" = (
@@ -1419,7 +1404,7 @@ am
 co
 ba
 WL
-OM
+YT
 bE
 aT
 Is
@@ -1643,7 +1628,7 @@ aN
 cb
 ba
 WL
-OM
+YT
 bE
 aT
 YT
