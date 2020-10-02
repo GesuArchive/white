@@ -15,7 +15,7 @@
 	speed = 2
 	move_to_delay = 2
 	retreat_distance = 3
-	minimum_distance = 7
+	minimum_distance = 5
 	wander = FALSE
 	var/block_chance = 50
 	ranged = 1
@@ -37,7 +37,7 @@
 	var/move_to_charge = 1.5
 	loot = list(/obj/item/kitchen/knife/combat/bone/sans)
 	crusher_loot = list(/obj/item/kitchen/knife/combat/bone/sans)
-	var/arena_cooldown = 200
+	var/arena_cooldown = 100
 
 /mob/living/simple_animal/hostile/megafauna/sans/Initialize(mapload)
 	. = ..()
@@ -47,7 +47,7 @@
 		SP.active = TRUE
 		SP.environmental = TRUE
 		SP.playing_channel = CHANNEL_CUSTOM_JUKEBOX
-	SP.playing_volume = 100
+	SP.playing_volume = 60
 	SP.playing_range = 16
 	if(prob(3))
 		SP.set_sound(sound('white/valtos/sounds/undertale/SANESSS.ogg'))
@@ -188,7 +188,7 @@
 	visible_message("<span class='boldwarning'>[capitalize(src.name)] готовит мощную атаку!</span>")
 	speen = TRUE
 	animate(src, color = "#66ffff", 10)
-	sleep(5)
+	sleep(1)
 	var/list/speenturfs = list()
 	var/list/temp = (view(speenrange, src) - view(speenrange-1, src))
 	speenturfs.len = temp.len
@@ -220,7 +220,7 @@
 		src.dir = get_dir(src, T)
 		for(var/turf/U in (getline(src, T) - get_turf(src)))
 			var/obj/effect/temp_visual/bone/bonk = new /obj/effect/temp_visual/bone(U)
-			QDEL_IN(bonk, 2.25)
+			QDEL_IN(bonk, 1.25)
 			for(var/mob/living/M in U)
 				if(!faction_check(faction, M.faction) && !(M in hit_things))
 					playsound(src, 'white/valtos/sounds/undertale/snd_hurt1.wav', 100, 0)
@@ -234,14 +234,14 @@
 			break
 		sleep(0.25)
 	animate(src, color = initial(color), 3)
-	sleep(3)
+	sleep(5)
 	speen = FALSE
 
 /mob/living/simple_animal/hostile/megafauna/sans/proc/chargeattack(atom/target, var/range)
 	face_atom(target)
 	visible_message("<span class='boldwarning'>[capitalize(src.name)] готовится к очередной атаке!</span>")
 	animate(src, color = "#66ffff", 3)
-	sleep(4)
+	sleep(2)
 	face_atom(target)
 	move_to_delay = move_to_charge
 	minimum_distance = 0
@@ -261,7 +261,7 @@
 	var/turf/T = get_step(target, -target.dir)
 	new /obj/effect/temp_visual/bone(get_turf(src))
 	playsound(src, 'white/valtos/sounds/undertale/snd_b.wav', 60, 0)
-	sleep(4)
+	sleep(2)
 	if(!ischasm(T) && !(/mob/living in T))
 		new /obj/effect/temp_visual/bone(T)
 		forceMove(T)
@@ -295,7 +295,7 @@
 	QDEL_IN(boned, 30)
 	spawn(1)
 		for(var/turf/turf in range(9, get_turf(target)))
-			if(prob(22))
+			if(prob(44))
 				new /obj/effect/temp_visual/target/sans(turf)
 				sleep(0.1)
 
@@ -312,32 +312,34 @@
 		if(1)
 			if(prob(25) && (get_dist(src, target) <= 7))
 				bonespin()
-				ranged_cooldown += 70
+				ranged_cooldown += 20
 			else
 				if(prob(66))
 					chargeattack(target, 21)
-					ranged_cooldown += 40
-				else
+					ranged_cooldown += 20
+				else if (prob(33))
 					boneappletea(target)
-					ranged_cooldown += 35
+					ranged_cooldown += 15
+				else
+					chaser_bone()
 		if(2)
 			if(prob(40) && (get_dist(src, target) <= 4))
 				bonespin()
-				ranged_cooldown += 55
+				ranged_cooldown += 15
 			else
 				if(prob(40))
 					boneappletea(target)
-					ranged_cooldown += 35
+					ranged_cooldown += 15
 				else
 					teleport(target)
-					ranged_cooldown += 30
+					ranged_cooldown += 10
 		if(3)
 			if(prob(35))
 				boneappletea(target)
-				ranged_cooldown += 30
+				ranged_cooldown += 10
 			else
 				bonespin(target)
-				ranged_cooldown += 20
+				ranged_cooldown += 10
 
 //Aggression helpers
 /obj/effect/step_trigger/sans
@@ -427,7 +429,7 @@
 	if(mover != caster)
 		return FALSE
 
-/obj/effect/temp_visual/target/sans/fall(list/flame_hit)
+/obj/effect/temp_visual/target/sans/fall()
 	var/turf/T = get_turf(src)
 	playsound(T,'white/valtos/sounds/undertale/snd_b.wav', 80, TRUE)
 	new /obj/effect/temp_visual/bone/fromsky(T)
@@ -441,3 +443,113 @@
 			continue
 		L.adjustBruteLoss(10)
 
+/mob/living/simple_animal/hostile/megafauna/sans/proc/chaser_bone()
+	ranged_cooldown = world.time + max(5, 60 - anger_modifier * 0.75)
+	var/oldcolor = color
+	animate(src, color = "#ff9955", time = 6)
+	SLEEP_CHECK_DEATH(6)
+	var/list/targets = ListTargets()
+	var/list/cardinal_copy = GLOB.cardinals.Copy()
+	while(targets.len && cardinal_copy.len)
+		var/mob/living/pickedtarget = pick(targets)
+		if(targets.len >= cardinal_copy.len)
+			pickedtarget = pick_n_take(targets)
+		if(!istype(pickedtarget) || pickedtarget.stat == DEAD)
+			pickedtarget = target
+			if(QDELETED(pickedtarget) || (istype(pickedtarget) && pickedtarget.stat == DEAD))
+				break //main target is dead and we're out of living targets, cancel out
+		var/obj/effect/temp_visual/hierophant/chaser/sans/C = new(loc, src, pickedtarget, phase, FALSE)
+		C.moving = 3
+		C.moving_dir = pick_n_take(cardinal_copy)
+		SLEEP_CHECK_DEATH(8)
+	animate(src, color = oldcolor, time = 8)
+	addtimer(CALLBACK(src, /atom/proc/update_atom_colour), 8)
+	SLEEP_CHECK_DEATH(8)
+
+/obj/effect/temp_visual/hierophant/chaser/sans
+	icon = 'white/valtos/icons/undertale/SANESSS.dmi'
+	icon_state = "bone"
+
+/obj/effect/temp_visual/hierophant/chaser/sans/Initialize(mapload, new_caster, new_target, new_speed, is_friendly_fire)
+	. = ..()
+	SpinAnimation(1, -1)
+
+/obj/effect/temp_visual/hierophant/chaser/sans/make_blast()
+	var/obj/effect/temp_visual/hierophant/blast/sans/B = new(loc, caster, friendly_fire_check)
+	B.damage = damage
+
+/obj/effect/temp_visual/hierophant/blast/sans
+	icon = 'white/valtos/icons/undertale/SANESSS.dmi'
+	icon_state = "bone"
+	name = "кость"
+	light_range = 2
+	light_power = 2
+	desc = "БЛЯТЬ!"
+	duration = 9
+	var/damage = 10 //how much damage do we do?
+	var/monster_damage_boost = TRUE //do we deal extra damage to monsters? Used by the boss
+	var/list/hit_things = list() //we hit these already, ignore them
+	var/friendly_fire_check = FALSE
+	var/bursting = FALSE //if we're bursting and need to hit anyone crossing us
+
+/obj/effect/temp_visual/hierophant/blast/damaging/Initialize(mapload, new_caster, friendly_fire)
+	. = ..()
+	friendly_fire_check = friendly_fire
+	if(new_caster)
+		hit_things += new_caster
+	if(ismineralturf(loc)) //drill mineral turfs
+		var/turf/closed/mineral/M = loc
+		M.gets_drilled(caster)
+	INVOKE_ASYNC(src, .proc/blast)
+
+/obj/effect/temp_visual/hierophant/blast/damaging/blast()
+	var/turf/T = get_turf(src)
+	if(!T)
+		return
+	playsound(T,'white/valtos/sounds/undertale/snd_b.wav', 125, TRUE, -5) //make a sound
+	sleep(6) //wait a little
+	bursting = TRUE
+	do_damage(T) //do damage and mark us as bursting
+	sleep(1.3) //slightly forgiving; the burst animation is 1.5 deciseconds
+	bursting = FALSE //we no longer damage crossers
+
+/obj/effect/temp_visual/hierophant/blast/damaging/Crossed(atom/movable/AM)
+	..()
+	if(bursting)
+		do_damage(get_turf(src))
+
+/obj/effect/temp_visual/hierophant/blast/damaging/do_damage(turf/T)
+	if(!damage)
+		return
+	for(var/mob/living/L in T.contents - hit_things) //find and damage mobs...
+		hit_things += L
+		if((friendly_fire_check && caster && caster.faction_check_mob(L)) || L.stat == DEAD)
+			continue
+		if(L.client)
+			flash_color(L.client, "#ff9955", 1)
+		playsound(L,'white/valtos/sounds/undertale/snd_hurt1.wav', 50, TRUE, -4)
+		to_chat(L, "<span class='userdanger'>Меня ударяет <b>[name]</b>!</span>")
+		var/limb_to_hit = L.get_bodypart(pick(BODY_ZONE_HEAD, BODY_ZONE_CHEST, BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_R_LEG, BODY_ZONE_L_LEG))
+		var/armor = L.run_armor_check(limb_to_hit, MELEE, "Моя броня поглощает <b>[src]</b>!", "Моя броня блокирует часть <b>[src]</b>!", FALSE, 50, "Моя броня пробита <b>[src]</b>!")
+		L.apply_damage(damage, BURN, limb_to_hit, armor, wound_bonus=CANT_WOUND)
+		if(ishostile(L))
+			var/mob/living/simple_animal/hostile/H = L //mobs find and damage you...
+			if(H.stat == CONSCIOUS && !H.target && H.AIStatus != AI_OFF && !H.client)
+				if(!QDELETED(caster))
+					if(get_dist(H, caster) <= H.aggro_vision_range)
+						H.FindTarget(list(caster), 1)
+					else
+						H.Goto(get_turf(caster), H.move_to_delay, 3)
+		if(monster_damage_boost && (ismegafauna(L) || istype(L, /mob/living/simple_animal/hostile/asteroid)))
+			L.adjustBruteLoss(damage)
+		if(caster)
+			log_combat(caster, L, "struck with a [name]")
+	for(var/obj/vehicle/sealed/mecha/M in T.contents - hit_things) //also damage mechs.
+		hit_things += M
+		for(var/O in M.occupants)
+			var/mob/living/occupant = O
+			if(friendly_fire_check && caster && caster.faction_check_mob(occupant))
+				continue
+			to_chat(M, "<span class='userdanger'>Мой [M.name] был подвержен [name]!</span>")
+			playsound(M,'white/valtos/sounds/undertale/snd_hurt1.wav', 50, TRUE, -4)
+			M.take_damage(damage, BURN, 0, 0)
