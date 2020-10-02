@@ -12,6 +12,7 @@
 	name = "Действия"
 	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
 	icon_state = "main"
+	var/cooldown = 0
 
 /obj/screen/emote_button/Click()
 	ui_interact(usr)
@@ -46,5 +47,7 @@
 	. = ..()
 	if(.)
 		return
-	usr.emote("[action]")
-	. = TRUE
+	if(cooldown <= world.time)
+		cooldown = world.time + 1 SECONDS
+		usr.emote("[action]")
+		. = TRUE
