@@ -12,13 +12,14 @@
 	melee_queue_distance = 2
 	melee_damage_lower = 35
 	melee_damage_upper = 35
-	speed = 5
-	move_to_delay = 5
+	speed = 2
+	move_to_delay = 2
+	retreat_distance = 3
+	minimum_distance = 7
 	wander = FALSE
 	var/block_chance = 50
 	ranged = 1
 	ranged_cooldown_time = 30
-	minimum_distance = 1
 	health = 2500
 	maxHealth = 2500
 	movement_type = GROUND
@@ -171,15 +172,15 @@
 		if(30 to 75)
 			phase = 2
 			rapid_melee = 2
-			move_to_delay = 2
+			move_to_delay = 1.5
 			melee_damage_upper = 30
 			melee_damage_lower = 30
 		if(0 to 30)
 			phase = 3
-			rapid_melee = 4
-			melee_damage_upper = 25
-			melee_damage_lower = 25
-			move_to_delay = 1.7
+			rapid_melee = 1
+			melee_damage_upper = 80
+			melee_damage_lower = 80
+			move_to_delay = 1.25
 	if(charging)
 		move_to_delay = move_to_charge
 
@@ -222,7 +223,7 @@
 			QDEL_IN(bonk, 2.25)
 			for(var/mob/living/M in U)
 				if(!faction_check(faction, M.faction) && !(M in hit_things))
-					playsound(src, 'white/valtos/sounds/undertale/snd_hurt1.wav', 75, 0)
+					playsound(src, 'white/valtos/sounds/undertale/snd_hurt1.wav', 100, 0)
 					if(M.apply_damage(40, BRUTE, BODY_ZONE_CHEST, M.run_armor_check(BODY_ZONE_CHEST), null, null, CANT_WOUND))
 						visible_message("<span class = 'userdanger'>[capitalize(src.name)] вмазывает [M] костями!</span>")
 					else
@@ -292,9 +293,11 @@
 	playsound(src, 'white/valtos/sounds/undertale/snd_b.wav', 60, 0)
 	boned.throw_at(target, 14, 3, src)
 	QDEL_IN(boned, 30)
-	for(var/turf/turf in range(9, get_turf(target)))
-		if(prob(22))
-			new /obj/effect/temp_visual/target/sans(turf)
+	spawn(1)
+		for(var/turf/turf in range(9, get_turf(target)))
+			if(prob(22))
+				new /obj/effect/temp_visual/target/sans(turf)
+				sleep(0.1)
 
 /mob/living/simple_animal/hostile/megafauna/sans/OpenFire()
 	if(world.time < ranged_cooldown)
@@ -411,7 +414,7 @@
 	if(new_caster)
 		caster = new_caster
 
-/obj/effect/temp_visual/hierophant/wall/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/effect/temp_visual/sansarena/wall/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
 	if(QDELETED(caster))
 		return FALSE
