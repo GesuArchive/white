@@ -89,9 +89,13 @@
 	slot_flags = ITEM_SLOT_NECK
 
 /obj/item/clothing/suit/cowl/robe
-	name = "robe"
+	name = "роба"
 	desc = "Модное покрывало."
-	icon_state = "robes"
+	icon_state = "robes_blue"
+
+/obj/item/clothing/suit/cowl/robe/Initialize()
+	. = ..()
+	icon_state = pick("robes_blue", "robes_red")
 
 //gloves
 
