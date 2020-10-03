@@ -3,8 +3,8 @@
 // TODO: Split everything into easy to manage procs.
 
 /obj/item/detective_scanner
-	name = "forensic scanner"
-	desc = "Used to remotely scan objects and biomass for DNA and fingerprints. Can print a report of the findings."
+	name = "судебно-медицинский сканер"
+	desc = "Используется для удаленного сканирования объектов и биомассы на наличие ДНК и отпечатков пальцев. Может распечатать отчет со списком найденного."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "forensicnew"
 	w_class = WEIGHT_CLASS_SMALL
@@ -33,10 +33,10 @@
 /obj/item/detective_scanner/attack_self(mob/user)
 	if(log.len && !scanning)
 		scanning = TRUE
-		to_chat(user, "<span class='notice'>Printing report, please wait...</span>")
+		to_chat(user, "<span class='notice'>Печатаю отчет, пожалуйста подождите...</span>")
 		addtimer(CALLBACK(src, .proc/PrintReport), 100)
 	else
-		to_chat(user, "<span class='notice'>The scanner has no logs or is in use.</span>")
+		to_chat(user, "<span class='notice'>Логи сканера пусты или же он используется.</span>")
 
 /obj/item/detective_scanner/attack(mob/living/M, mob/user)
 	return
@@ -48,16 +48,16 @@
 	//This could be a global count like sec and med record printouts. See GLOB.data_core.medicalPrintCount AKA datacore.dm
 	var/frNum = ++forensicPrintCount
 
-	P.name = text("FR-[] 'Forensic Record'", frNum)
-	P.info = text("<center><B>Forensic Record - (FR-[])</B></center><HR><BR>", frNum)
+	P.name = text("СМЗ-[] 'Судебно-Медицинская Запись'", frNum)
+	P.info = text("<center><B>Судебно-Медицинская Запись - (СМЗ-[])</B></center><HR><BR>", frNum)
 	P.info += jointext(log, "<BR>")
-	P.info += "<HR><B>Notes:</B><BR>"
+	P.info += "<HR><B>Примечания:</B><BR>"
 	P.update_icon()
 
 	if(ismob(loc))
 		var/mob/M = loc
 		M.put_in_hands(P)
-		to_chat(M, "<span class='notice'>Report printed. Log cleared.</span>")
+		to_chat(M, "<span class='notice'>Отчет напечатан. Логи очищены.</span>")
 
 	// Clear the logs
 	log = list()
@@ -126,7 +126,7 @@
 		// Fingerprints
 		if(length(fingerprints))
 			sleep(30)
-			add_log("<span class='info'><B>Prints:</B></span>")
+			add_log("<span class='info'><B>Отпечатки:</B></span>")
 			for(var/finger in fingerprints)
 				add_log("[finger]")
 			found_something = TRUE
@@ -134,15 +134,15 @@
 		// Blood
 		if (length(blood))
 			sleep(30)
-			add_log("<span class='info'><B>Blood:</B></span>")
+			add_log("<span class='info'><B>Кровь:</B></span>")
 			found_something = TRUE
 			for(var/B in blood)
-				add_log("Type: <font color='red'>[blood[B]]</font> DNA (UE): <font color='red'>[B]</font>")
+				add_log("Type: <font color='red'>[blood[B]]</font> ДНК (UE): <font color='red'>[B]</font>")
 
 		//Fibers
 		if(length(fibers))
 			sleep(30)
-			add_log("<span class='info'><B>Fibers:</B></span>")
+			add_log("<span class='info'><B>Волокна:</B></span>")
 			for(var/fiber in fibers)
 				add_log("[fiber]")
 			found_something = TRUE
@@ -150,9 +150,9 @@
 		//Reagents
 		if(length(reagents))
 			sleep(30)
-			add_log("<span class='info'><B>Reagents:</B></span>")
+			add_log("<span class='info'><B>Реагенты:</B></span>")
 			for(var/R in reagents)
-				add_log("Reagent: <font color='red'>[R]</font> Volume: <font color='red'>[reagents[R]]</font>")
+				add_log("Reagent: <font color='red'>[R]</font> Объем: <font color='red'>[reagents[R]]</font>")
 			found_something = TRUE
 
 		// Get a new user
@@ -161,7 +161,7 @@
 			holder = src.loc
 
 		if(!found_something)
-			add_log("<I># No forensic traces found #</I>", 0) // Don't display this to the holder user
+			add_log("<I># Судебно-медецинских следов не обнаружено #</I>", 0) // Don't display this to the holder user
 			if(holder)
 				to_chat(holder, "<span class='warning'>Unable to locate any fingerprints, materials, fibers, or blood on \the [target_name]!</span>")
 		else

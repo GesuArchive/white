@@ -468,4 +468,4 @@ BLIND     // can't see anything
 	if(!istype(L))
 		return
 	if(prob(0.2))
-		to_chat(L, "<span class='warning'>The damaged threads on your [src.name] chafe!</span>")
+		to_chat(L, "<span class='warning'>Порванные нитки на моем [src.name] раздражают!</span>")
