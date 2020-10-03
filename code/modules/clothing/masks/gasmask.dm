@@ -35,6 +35,9 @@
 	name = "сварочная маска"
 	desc = "Противогаз со встроенными сварочными очками и защитной маской. Выглядит как череп разработанный кретином."
 	icon_state = "weldingmask"
+	inhand_icon_state = "weldingmask"
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
 	flash_protect = FLASH_PROTECTION_WELDER
 	custom_materials = list(/datum/material/iron=4000, /datum/material/glass=2000)
 	tint = 2
