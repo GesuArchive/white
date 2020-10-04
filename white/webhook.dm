@@ -46,9 +46,6 @@ GLOBAL_VAR_INIT(webhook_can_fire, 0)
 	if (!CONFIG_GET(string/webhook_address) || !CONFIG_GET(string/webhook_key))
 		return
 
-	var/datum/http_request/query = new()
-	query.prepare(RUSTG_HTTP_METHOD_GET, "[CONFIG_GET(string/webhook_address)]?key=[CONFIG_GET(string/webhook_key)]&method=[method]&data=[url_encode(json_encode(data))]", "", "")
+	var/query = "[CONFIG_GET(string/webhook_address)]?key=[CONFIG_GET(string/webhook_key)]&method=[method]&data=[url_encode(json_encode(data))]"
 	spawn(-1)
-		query.begin_async()
-
-
+		world.Export(query)
