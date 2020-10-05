@@ -268,8 +268,8 @@ GLOBAL_LIST_EMPTY(donators)
 				to_chat(user,"<span class='warning'>Игра ещё не началась!</span>")
 				return 0
 
-			if((world.time-SSticker.round_start_time) > DONATIONS_SPAWN_WINDOW && !istype(get_area(user), /area/shuttle/arrival) || !istype(get_area(user), /area/crew_quarters/bar))
-				to_chat(user,"<span class='warning'>Вам нужно быть на шаттле прибытия или в баре.</span>")
+			if((world.time-SSticker.round_start_time) > DONATIONS_SPAWN_WINDOW && !istype(get_area(user), /area/crew_quarters/bar))
+				to_chat(user,"<span class='warning'>Вам нужно быть в баре.</span>")
 				return 0
 
 			if(prize.cost > money)
