@@ -22,7 +22,9 @@ GENE SCANNER
 	name = "анализатор Т-луч"
 	desc = "Терагерцовый излучатель лучей и просто сканнер, который подсвечивает провода и трубы под полом."
 	custom_price = 150
-	icon = 'icons/obj/device.dmi'
+	icon = 'white/valtos/icons/items.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "t-ray0"
 	var/on = FALSE
 	slot_flags = ITEM_SLOT_BELT
@@ -528,11 +530,11 @@ GENE SCANNER
 	desc = "Ручной анализатор, который сканирует состояние воздуха в помещении. Alt-клик, чтобы использовать барометр."
 	name = "анализатор"
 	custom_price = 100
-	icon = 'icons/obj/device.dmi'
+	icon = 'white/valtos/icons/items.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "analyzer"
 	inhand_icon_state = "analyzer"
-	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	flags_1 = CONDUCT_1
 	item_flags = NOBLUDGEON

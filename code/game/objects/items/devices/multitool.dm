@@ -13,11 +13,11 @@
 /obj/item/multitool
 	name = "мультитул"
 	desc = "Используется для прозвона проводов и подачи импульсов на них. Не рекомендуется врачами."
-	icon = 'icons/obj/device.dmi'
+	icon = 'white/valtos/icons/items.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "multitool"
 	inhand_icon_state = "multitool"
-	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	force = 5
 	w_class = WEIGHT_CLASS_SMALL
 	tool_behaviour = TOOL_MULTITOOL
