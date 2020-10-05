@@ -565,7 +565,7 @@
 	toggle_mode(NANO_ARMOR)
 
 /datum/action/item_action/nanosuit
-	check_flags = AB_CHECK_STUN|AB_CHECK_CONSCIOUS
+	check_flags = AB_CHECK_CONSCIOUS
 	icon_icon = 'icons/mob/actions.dmi'
 	background_icon_state = "bg_tech_blue"
 

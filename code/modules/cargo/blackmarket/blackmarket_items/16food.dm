@@ -37,7 +37,7 @@
 /datum/blackmarket_item/food/pizza
 	name = "Пицца"
 	desc =  "Что может быть вкуснее кусочка пиццы?"
-	item = /obj/item/reagent_containers/food/snacks/pizza
+	item = /obj/item/food/pizza
 
 	stock_min = 1
 	stock_max = 20
@@ -60,7 +60,7 @@
 /datum/blackmarket_item/food/snack
 	name = "Закуска"
 	desc = "Жрака"
-	item = /obj/item/reagent_containers/food/snacks/candy
+	item = /obj/item/food/candy
 
 	stock_min = 10
 	stock_max = 50
@@ -69,12 +69,12 @@
 	availability_prob = 100
 
 /datum/blackmarket_item/food/snack/spawn_item(loc)
-	var/snack = pick(list(/obj/item/reagent_containers/food/snacks/candy/bronx,
-			/obj/item/reagent_containers/food/snacks/sosjerky,
-			/obj/item/reagent_containers/food/snacks/chips,
-			/obj/item/reagent_containers/food/snacks/no_raisin,
-			/obj/item/reagent_containers/food/snacks/no_raisin/healthy,
-			/obj/item/reagent_containers/food/snacks/spacetwinkie,
-			/obj/item/reagent_containers/food/snacks/syndicake,
-			/obj/item/reagent_containers/food/snacks/energybar))
+	var/snack = pick(list(/obj/item/food/candy/bronx,
+			/obj/item/food/sosjerky,
+			/obj/item/food/chips,
+			/obj/item/food/no_raisin,
+			/obj/item/food/no_raisin/healthy,
+			/obj/item/food/spacetwinkie,
+			/obj/item/food/syndicake,
+			/obj/item/food/energybar))
 	return new snack(loc)

@@ -499,7 +499,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	if(H.dna && H.dna.species)
 		typeofmeat = H.dna.species.meat
 
-	var/obj/item/reagent_containers/food/snacks/meat/slab/human/newmeat = new typeofmeat
+	var/obj/item/food/meat/slab/human/newmeat = new typeofmeat
 	newmeat.name = "жирное мясо"
 	newmeat.desc = "Невероятно жирный кусок мяса."
 	newmeat.subjectname = H.real_name
