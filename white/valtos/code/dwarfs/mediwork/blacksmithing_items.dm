@@ -940,7 +940,8 @@
 	name = "каменный стол"
 	desc = "Прочный стол из камня."
 	icon = 'white/valtos/icons/stone_table.dmi'
-	icon_state = "stone_table"
+	icon_state = "stone_table-0"
+	base_icon_state = "stone_table"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	max_integrity = 300
 	buildstack = null
