@@ -5,7 +5,7 @@
 /obj/item/stock_parts/cell
 	name = "power cell"
 	desc = "A rechargeable electrochemical power cell."
-	icon = 'icons/obj/power.dmi'
+	icon = 'white/valtos/icons/power.dmi'
 	icon_state = "cell"
 	inhand_icon_state = "cell"
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
@@ -62,13 +62,13 @@
 /obj/item/stock_parts/cell/update_overlays()
 	. = ..()
 	if(grown_battery)
-		. += mutable_appearance('icons/obj/power.dmi', "grown_wires")
+		. += mutable_appearance('white/valtos/icons/power.dmi', "grown_wires")
 	if(charge < 0.01)
 		return
 	else if(charge/maxcharge >=0.995)
-		. += mutable_appearance('icons/obj/power.dmi', "cell-o2")
+		. += mutable_appearance('white/valtos/icons/power.dmi', "cell-o2")
 	else
-		. += mutable_appearance('icons/obj/power.dmi', "cell-o1")
+		. += mutable_appearance('white/valtos/icons/power.dmi', "cell-o1")
 
 /obj/item/stock_parts/cell/proc/percent()		// return % charge of cell
 	return 100*charge/maxcharge

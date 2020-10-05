@@ -1,7 +1,7 @@
 /obj/item/flamethrower
 	name = "огнемёт"
 	desc = "You are a firestarter!"
-	icon = 'icons/obj/flamethrower.dmi'
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "flamethrowerbase"
 	inhand_icon_state = "flamethrower_0"
 	lefthand_file = 'icons/mob/inhands/weapons/flamethrower_lefthand.dmi'

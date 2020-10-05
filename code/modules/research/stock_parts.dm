@@ -124,7 +124,7 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 /obj/item/stock_parts
 	name = "stock part"
 	desc = "What?"
-	icon = 'icons/obj/stock_parts.dmi'
+	icon = 'white/valtos/icons/stock_parts.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	var/rating = 1
 
@@ -366,6 +366,6 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 
 /obj/item/research//Makes testing much less of a pain -Sieve
 	name = "research"
-	icon = 'icons/obj/stock_parts.dmi'
+	icon = 'white/valtos/icons/stock_parts.dmi'
 	icon_state = "capacitor"
 	desc = "A debug item for research."

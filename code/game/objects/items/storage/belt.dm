@@ -31,6 +31,8 @@
 /obj/item/storage/belt/utility
 	name = "пояс с инструментами" //Carn: utility belt is nicer, but it bamboozles the text parsing.
 	desc = "Хранит инструменты."
+	icon = 'white/valtos/icons/clothing/belts.dmi'
+	worn_icon = 'white/valtos/icons/clothing/mob/belt.dmi'
 	icon_state = "utility"
 	inhand_icon_state = "utility"
 	worn_icon_state = "utility"

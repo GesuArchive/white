@@ -1,11 +1,11 @@
 /obj/item/wrench
 	name = "гаечный ключ"
 	desc = "Ключ общего назначения. Его можно найти в твоей руке."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'white/valtos/icons/items.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "wrench"
 	worn_icon_state = "wrench"
-	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
 	force = 5
