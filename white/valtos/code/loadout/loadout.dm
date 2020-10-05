@@ -107,7 +107,7 @@ GLOBAL_LIST_EMPTY(gear_datums)
 		return "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE1SURBVFhH7ZWxSgNBFEVXAxYhGIstg41gl49IfiGdFn6DmNrGNiJY21gkH2GRn0gdCJZioY21965TjczO3dk3LBIPHHYHEvaxe997B+VgVHTJobt2xn8BSgaG8BSO4Zk71/EJt3ADX905iFIAH3wFb6qTzj18hiwkiFLABVyur09+TiLThw9eLuGKNyGUDPC1pxL9b+4QxvIiFcBAZcMshH5GXAYYxDlvQihvgK3ENDNQt/AJvsB32BqlAPYxW4lpvoOP7lzC1qQsI6ktLT+BT5u2/EXuNqwdwySlgCZtGf1tSgbU3WC2C3xi29F8G/r4BRD5gT69/tGxu5U5h/wECzhxzuAX3ME3KGM2B9T162M9BxrPiNxzIIr1HGgyIyos54DU9z6dt2FKAab8yRCasu8FFMU3BOVGCd1wY3wAAAAASUVORK5CYII="
 	if(icon_base64)
 		return icon_base64
-	var/product = new P.path()
+	var/product = new path()
 	icon_base64 = icon2base64(getFlatIcon(product, no_anim = TRUE))
 	qdel(product)
 	return icon_base64
