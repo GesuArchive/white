@@ -104,7 +104,7 @@
 		..()
 		if(loc == user)
 			if(candy_cooldown < world.time)
-				var/obj/item/reagent_containers/food/snacks/candy_corn/CC = new /obj/item/reagent_containers/food/snacks/candy_corn(src)
+				var/obj/item/food/candy_corn/CC = new /obj/item/food/candy_corn(src)
 				user.put_in_hands(CC)
 				to_chat(user, "<span class='notice'>Достаю кукурузную конфету из своей шляпы.</span>")
 				candy_cooldown = world.time+1200

@@ -9,7 +9,7 @@
 	description = "Чтобы подавить восстание бездомных, НТ будет разносить суп всем работникам с недостаточной оплатой. Отправьте им любой вид супа."
 	reward = 3000
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/soup)
+	wanted_types = list(/obj/item/food/soup)
 
 /datum/bounty/item/chef/popcorn
 	name = "Попкорн"
@@ -30,14 +30,14 @@
 	description = "Высшее руководство безостановочно нуждается в мороженном. Пожалуйста, пришлите им немного."
 	reward = 4000
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/icecreamsandwich)
+	wanted_types = list(/obj/item/food/icecreamsandwich)
 
 /datum/bounty/item/chef/strawberryicecreamsandwich
 	name = "Бутерброд с клубничным мороженным"
 	description = "Высшее руководство безостановочно кричит о более ароматном мороженом. Пожалуйста, пришлите немного."
 	reward = 5000
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/strawberryicecreamsandwich)
+	wanted_types = list(/obj/item/food/strawberryicecreamsandwich)
 
 /datum/bounty/item/chef/bread
 	name = "Хлебушек"
@@ -56,7 +56,7 @@
 	description = "ЦК переживает негодование. Ваш заказ состоит в том, чтобы отправить салат или рисовые миски."
 	reward = 3000
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/salad)
+	wanted_types = list(/obj/item/food/salad)
 
 /datum/bounty/item/chef/carrotfries
 	name = "Морковка-Фри" // картошка-фри? Блять... как же сложно быть украинцем когда ты в душе хз как это звучит на русском...
@@ -81,7 +81,7 @@
 	name = "Кубинский карп "
 	description = "Чтобы отпраздновать рождение Кастро XXVII, отправьте одного кубинского карпа на ЦК."
 	reward = 8000
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/cubancarp)
+	wanted_types = list(/obj/item/food/cubancarp)
 
 /datum/bounty/item/chef/hotdog
 	name = "Хот-Дог"
@@ -94,7 +94,7 @@
 	description = "Знаменитая певица скоро прибудет на ЦК, и их контракт требует, чтобы их обслуживали только баклажанами пермиджано. Отправьте их на ЦК!"
 	reward = 3500
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/eggplantparm)
+	wanted_types = list(/obj/item/food/eggplantparm)
 
 /datum/bounty/item/chef/muffin
 	name = "Кексы"
@@ -114,7 +114,7 @@
 	description = "Уберите весь кебаб со станции, вы - лучшая еда. Отправьте на ЦК для утилизации."
 	reward = 3500
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/kebab)
+	wanted_types = list(/obj/item/food/kebab)
 
 /datum/bounty/item/chef/soylentgreen
 	name = "Зелёный сойлент"
@@ -134,7 +134,7 @@
 	description = "Сын вице-президента не перестаёт говорить про куриные наггетсы. Не могли бы вы отправить ему немного?"
 	reward = 4000
 	required_count = 6
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/nugget)
+	wanted_types = list(/obj/item/food/nugget)
 
 /datum/bounty/item/chef/corgifarming //Butchering is a chef's job.
 	name = "Шкура Корги"

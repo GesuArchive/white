@@ -89,6 +89,7 @@
 	name = "белый шарф"
 	icon_state = "scarf"
 	desc = "Стильный шарф. Идеальный зимний аксессуар для тех, у кого острое чувство моды, и для тех, кто просто не может справиться с холодным бризом на шеях."
+	w_class = WEIGHT_CLASS_TINY
 	dog_fashion = /datum/dog_fashion/head
 	custom_price = 60
 

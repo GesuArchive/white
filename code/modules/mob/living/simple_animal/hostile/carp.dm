@@ -11,7 +11,7 @@
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	speak_chance = 0
 	turns_per_move = 5
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/carpmeat = 2)
+	butcher_results = list(/obj/item/food/carpmeat = 2)
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
 	response_disarm_continuous = "аккуратно отталкивает"
@@ -21,7 +21,7 @@
 	speed = 0
 	maxHealth = 25
 	health = 25
-	food_type = list(/obj/item/reagent_containers/food/snacks/meat)
+	food_type = list(/obj/item/food/meat)
 	tame_chance = 10
 	bonus_tame_chance = 5
 	search_objects = 1

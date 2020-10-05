@@ -2,8 +2,9 @@
 	name = "стена с рунами"
 	desc = "Стена с непонятными рунами на ней, которые вызывают боли в голове если долго смотреть на них. Холодная на ощупь."
 	icon = 'icons/turf/walls/cult_wall.dmi'
-	icon_state = "cult"
-	smoothing_flags = SMOOTH_CORNERS
+	icon_state = "cult_wall-0"
+	base_icon_state = "cult_wall"
+	smoothing_flags = SMOOTH_BITMASK
 	canSmoothWith = null
 	sheet_type = /obj/item/stack/sheet/runed_metal
 	sheet_amount = 1
@@ -43,8 +44,10 @@
 
 /turf/closed/wall/ice
 	icon = 'icons/turf/walls/icedmetal_wall.dmi'
-	icon_state = "iced"
+	icon_state = "icedmetal_wall-0"
+	base_icon_state = "icedmetal_wall"
 	desc = "Стена покрытая льдом."
+	smoothing_flags = SMOOTH_BITMASK
 	canSmoothWith = null
 	hardness = 35
 	slicing_duration = 150 //welding through the ice+metal
@@ -54,6 +57,9 @@
 	name = "ржавая стена"
 	desc = "Старая ржавая стена."
 	icon = 'icons/turf/walls/rusty_wall.dmi'
+	icon_state = "rusty_wall-0"
+	base_icon_state = "rusty_wall"
+	smoothing_flags = SMOOTH_BITMASK
 	hardness = 45
 
 /turf/closed/wall/rust/rust_heretic_act()
@@ -63,6 +69,9 @@
 	name = "ржавая укреплённая стена"
 	desc = "Старая укреплённая ржавая стена."
 	icon = 'icons/turf/walls/rusty_reinforced_wall.dmi'
+	icon_state = "rusty_reinforced_wall-0"
+	base_icon_state = "rusty_reinforced_wall"
+	smoothing_flags = SMOOTH_BITMASK
 	hardness = 15
 
 /turf/closed/wall/r_wall/rust/rust_heretic_act()
@@ -74,7 +83,9 @@
 	name = "бронзовая стена"
 	desc = "Крупная бронзовая стена. Её украшивают также и бронзовые шестерни."
 	icon = 'icons/turf/walls/clockwork_wall.dmi'
-	icon_state = "clockwork_wall"
+	icon_state = "clockwork_wall-0"
+	base_icon_state = "clockwork_wall"
+	smoothing_flags = SMOOTH_BITMASK
 	sheet_type = /obj/item/stack/tile/bronze
 	sheet_amount = 2
 	girder_type = /obj/structure/girder/bronze

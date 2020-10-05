@@ -3,7 +3,7 @@
 	description = "Адмирал Павлов объявил голодовку с тех пор, как в столовой начали обслуживать только обезьяну и побочные продукты обезьяны. Он требует вареных лавой стейков Голиафа."
 	reward = 5000
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/meat/steak/goliath)
+	wanted_types = list(/obj/item/food/meat/steak/goliath)
 
 /datum/bounty/item/mining/goliath_boat
 	name = "Лодка из кожи голиафа"

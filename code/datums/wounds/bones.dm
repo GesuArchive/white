@@ -370,6 +370,10 @@
 			painkiller_bonus += 20
 		if(victim.has_reagent(/datum/reagent/determination))
 			painkiller_bonus += 10
+		if(victim.has_reagent(/datum/reagent/consumable/ethanol/painkiller))
+			painkiller_bonus += 5
+		if(victim.has_reagent(/datum/reagent/medicine/mine_salve))
+			painkiller_bonus += 20
 
 		if(prob(25 + (20 * (severity - 2)) - painkiller_bonus)) // 25%/45% chance to fail self-applying with severe and critical wounds, modded by painkillers
 			victim.visible_message("<span class='danger'><b>[victim]</b> проваливает попытку нанести [I] на [victim.ru_ego()] [ru_parse_zone(limb.name)], теряя сознание от боли!</span>", "<span class='notice'>Теряю сознание от боли пытаясь применить [I] на мою [ru_parse_zone(limb.name)] перед тем как закончить!</span>")
