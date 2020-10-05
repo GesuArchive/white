@@ -3,7 +3,7 @@
 /turf/closed/wall
 	name = "стена"
 	desc = "Здоровенный кусок металла, который служит для разделения помещений."
-	icon = 'icons/turf/walls/wall.dmi'
+	icon = 'icons/turf/walls/baywall.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
 	explosion_block = 1
