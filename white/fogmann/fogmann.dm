@@ -302,7 +302,7 @@
 	key_third_person = "blyads"
 	message = "blyads."
 	muzzle_ignore = FALSE
-	restraint_check = FALSE
+	hands_use_check = FALSE
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/carbon/blyad/get_sound(mob/living/user)

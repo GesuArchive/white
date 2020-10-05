@@ -6,7 +6,7 @@
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/protein = 7, /datum/reagent/consumable/nutriment/vitamin = 1)
 	microwaved_type = /obj/item/food/toastedsandwich
-	tastes = list("meat" = 2, "cheese" = 1, "bread" = 2, "lettuce" = 1)
+	tastes = list("мясо" = 2, "сыр" = 1, "хлеб" = 2, "салат" = 1)
 	foodtypes = GRAIN | VEGETABLES
 
 /obj/item/food/toastedsandwich
@@ -16,7 +16,7 @@
 	icon_state = "toastedsandwich"
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/carbon = 4)
-	tastes = list("toast" = 1)
+	tastes = list("тост" = 1)
 	foodtypes = GRAIN
 
 /obj/item/food/grilledcheese
@@ -26,7 +26,7 @@
 	icon_state = "toastedsandwich"
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment = 7, /datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("toast" = 1, "cheese" = 1)
+	tastes = list("тост" = 1, "сыр" = 1)
 	foodtypes = GRAIN | DAIRY
 
 /obj/item/food/jellysandwich
@@ -36,7 +36,7 @@
 	icon_state = "jellysandwich"
 	trash_type = /obj/item/trash/plate
 	bite_consumption = 3
-	tastes = list("bread" = 1, "jelly" = 1)
+	tastes = list("хлеб" = 1, "желе" =1)
 	foodtypes = GRAIN
 
 /obj/item/food/jellysandwich/slime
@@ -54,7 +54,7 @@
 	icon_state = "notasandwich"
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 10)
-	tastes = list("nothing suspicious" = 1)
+	tastes = list("ничего подозрительного" = 1)
 	foodtypes = GRAIN | GROSS
 
 /obj/item/food/jelliedtoast
@@ -64,7 +64,7 @@
 	icon_state = "jellytoast"
 	trash_type = /obj/item/trash/plate
 	bite_consumption = 3
-	tastes = list("toast" = 1, "jelly" = 1)
+	tastes = list("тост" = 1, "желе" =1)
 	foodtypes = GRAIN | BREAKFAST
 
 /obj/item/food/jelliedtoast/cherry
@@ -82,7 +82,7 @@
 	icon_state = "butteredtoast"
 	bite_consumption = 3
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("butter" = 1, "toast" = 1)
+	tastes = list("масло" = 1, "тост" = 1)
 	foodtypes = GRAIN | BREAKFAST
 
 /obj/item/food/twobread
@@ -91,5 +91,5 @@
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "twobread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 4)
-	tastes = list("bread" = 2)
+	tastes = list("хлеб" = 2)
 	foodtypes = GRAIN
