@@ -104,18 +104,18 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 
 /obj/item/clothing/suit/syndicatefake
-	name = "чёрный и красный скафандр реплика"
+	name = "черно-красная реплика скафандра синдиката"
 	icon_state = "syndicate-black-red"
 	inhand_icon_state = "syndicate-black-red"
-	desc = "Пластиковая копия скафандра Синдиката. В этом вы будете выглядеть как настоящий убийственный агент Синдиката! Это игрушка, она не предназначена для использования в космосе!"
+	desc = "Пластиковая копия скафандра Синдиката. В нем вы будете выглядеть как настоящий синдикатовский убийца! Это игрушка, она не предназначена для использования в космосе!"
 	w_class = WEIGHT_CLASS_NORMAL
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	resistance_flags = NONE
 
 /obj/item/clothing/suit/hastur
-	name = "\improper Hastur's robe"
-	desc = "Robes not meant to be worn by man."
+	name = "\improper Роба Хастура"
+	desc = "Не предназначена для ношения людьми."
 	icon_state = "hastur"
 	inhand_icon_state = "hastur"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -123,8 +123,8 @@
 
 
 /obj/item/clothing/suit/imperium_monk
-	name = "\improper Imperium monk suit"
-	desc = "Have YOU killed a xeno today?"
+	name = "\improper Костюм имперского монаха"
+	desc = "А ТЫ убил ксеноморфа сегодня?"
 	icon_state = "imperium_monk"
 	inhand_icon_state = "imperium_monk"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -508,29 +508,29 @@
 	armor = list(MELEE = 5, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0)
 
 /obj/item/clothing/suit/changshan_red
-	name = "red changshan"
-	desc = "A gorgeously embroidered silk shirt."
+	name = "красный чаншань"
+	desc = "Шелковая рубашка с великолепной вышивкой."
 	icon_state = "changshan_red"
 	inhand_icon_state = "changshan_red"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 
 /obj/item/clothing/suit/changshan_blue
-	name = "blue changshan"
-	desc = "A gorgeously embroidered silk shirt."
+	name = "синий чаншань"
+	desc = "Шелковая рубашка с великолепной вышивкой."
 	icon_state = "changshan_blue"
 	inhand_icon_state = "changshan_blue"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 
 /obj/item/clothing/suit/cheongsam_red
-	name = "red cheongsam"
-	desc = "A gorgeously embroidered silk dress."
+	name = "красное ципао"
+	desc = "Шелковое платье с великолепной вышивкой."
 	icon_state = "cheongsam_red"
 	inhand_icon_state = "cheongsam_red"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 
 /obj/item/clothing/suit/cheongsam_blue
-	name = "blue cheongsam"
-	desc = "A gorgeously embroidered silk dress."
+	name = "синее ципао"
+	desc = "Шелковое платье с великолепной вышивкой."
 	icon_state = "cheongsam_blue"
 	inhand_icon_state = "cheongsam_blue"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
@@ -734,9 +734,9 @@
 	alternate_worn_layer = UNDER_HEAD_LAYER
 
 /obj/item/clothing/suit/ghost_sheet/spooky
-	name = "spooky ghost"
-	desc = "This is obviously just a bedsheet, but maybe try it on?"
-	user_vars_to_edit = list("name" = "Spooky Ghost", "real_name" = "Spooky Ghost" , "incorporeal_move" = INCORPOREAL_MOVE_BASIC, "appearance_flags" = KEEP_TOGETHER|TILE_BOUND, "alpha" = 150)
+	name = "жуткое приведение"
+	desc = "Это, очевидно, просто простыня, но может примерить?"
+	user_vars_to_edit = list("name" = "Жуткий Призрак", "real_name" = "Жуткий Призрак" , "incorporeal_move" = INCORPOREAL_MOVE_BASIC, "appearance_flags" = KEEP_TOGETHER|TILE_BOUND, "alpha" = 150)
 	alternate_worn_layer = ABOVE_BODY_FRONT_LAYER //so the bedsheet goes over everything but fire
 
 /obj/item/clothing/suit/toggle/suspenders/blue
@@ -770,28 +770,28 @@
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACIALHAIR|HIDEFACE|HIDEMASK
 
 /obj/item/clothing/suit/coordinator
-	name = "coordinator jacket"
-	desc = "A jacket for a party ooordinator, stylish!."
+	name = "куртка организатора"
+	desc = "Куртка для организатора вечеринок, стильная!."
 	icon_state = "capformal"
 	inhand_icon_state = "capspacesuit"
 	armor = list(MELEE = 25, BULLET = 15, LASER = 25, ENERGY = 35, BOMB = 25, BIO = 0, RAD = 0, FIRE = 50, ACID = 50)
 
 /obj/item/clothing/suit/hawaiian
-	name = "hawaiian overshirt"
-	desc = "A cool shirt for chilling on the beach."
+	name = "гавайская рубашка"
+	desc = "Клевая рубашка для отдыха на пляже."
 	icon_state = "hawaiian_blue"
 	inhand_icon_state = "hawaiian_blue"
 
 /obj/item/clothing/suit/yakuza
-	name = "tojo clan jacket"
-	desc = "The jacket of a mad dog."
+	name = "куртка клана донченг"
+	desc = "Куртка бешеного пса."
 	icon_state = "MajimaJacket"
 	inhand_icon_state = "MajimaJacket"
 	body_parts_covered = ARMS
 
 /obj/item/clothing/suit/dutch
-	name = "dutch's jacket"
-	desc = "For those long nights on the beach in Tahiti."
+	name = "голландская куртка"
+	desc = "Для длинных ночей на пляже в Таити."
 	icon_state = "DutchJacket"
 	inhand_icon_state = "DutchJacket"
 	body_parts_covered = ARMS

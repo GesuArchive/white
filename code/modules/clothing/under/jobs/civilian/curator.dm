@@ -1,6 +1,6 @@
 /obj/item/clothing/under/rank/civilian/curator
-	name = "sensible suit"
-	desc = "It's very... sensible."
+	name = "вразумительный костюм"
+	desc = "Он очень... вразумительный."
 	icon = 'icons/obj/clothing/under/suits.dmi'
 	icon_state = "red_suit"
 	inhand_icon_state = "red_suit"
@@ -8,8 +8,8 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/civilian/curator/skirt
-	name = "sensible suitskirt"
-	desc = "It's very... sensible."
+	name = "вразумительный костюм с юбкой"
+	desc = "Он очень... вразумительный."
 	icon = 'icons/obj/clothing/under/suits.dmi'
 	icon_state = "red_suit_skirt"
 	inhand_icon_state = "red_suit"
@@ -20,16 +20,16 @@
 	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/civilian/curator/treasure_hunter
-	name = "treasure hunter uniform"
-	desc = "A rugged uniform suitable for treasure hunting."
+	name = "униформа охотника за зокровищами"
+	desc = "Прочная униформа, подходящая для охоты за сокровищами."
 	icon = 'icons/obj/clothing/under/civilian.dmi'
 	icon_state = "curator"
 	inhand_icon_state = "curator"
 	worn_icon = 'icons/mob/clothing/under/civilian.dmi'
 
 /obj/item/clothing/under/rank/civilian/curator/nasa
-	name = "\improper NASA jumpsuit"
-	desc = "It has a NASA logo on it and is made of space-proofed materials."
+	name = "\improper Комбинезон NASA"
+	desc = "На нем есть логотип NASA и он сделан из космоустойчивых материалов."
 	icon = 'icons/obj/clothing/under/color.dmi'
 	icon_state = "black"
 	inhand_icon_state = "bl_suit"

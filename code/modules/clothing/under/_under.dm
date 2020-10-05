@@ -37,7 +37,7 @@
 		var/obj/item/stack/cable_coil/C = I
 		C.use(1)
 		has_sensor = HAS_SENSORS
-		to_chat(user,"<span class='notice'>You repair the suit sensors on [src] with [C].</span>")
+		to_chat(user,"<span class='notice'>Я починил датчики костюма [src] с помощью [C].</span>")
 		return 1
 	if(!attach_accessory(I, user))
 		return ..()
@@ -64,7 +64,7 @@
 		sensor_mode = pick(SENSOR_OFF, SENSOR_OFF, SENSOR_OFF, SENSOR_LIVING, SENSOR_LIVING, SENSOR_VITALS, SENSOR_VITALS, SENSOR_COORDS)
 		if(ismob(loc))
 			var/mob/M = loc
-			to_chat(M,"<span class='warning'>The sensors on the [src] change rapidly!</span>")
+			to_chat(M,"<span class='warning'>Датчики на [src] быстро меняются!</span>")
 
 /obj/item/clothing/under/equipped(mob/user, slot)
 	..()

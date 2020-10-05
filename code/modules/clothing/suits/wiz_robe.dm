@@ -1,6 +1,6 @@
 /obj/item/clothing/head/wizard
-	name = "wizard hat"
-	desc = "Strange-looking hat-wear that most certainly belongs to a real magic user."
+	name = "шляпа волшебника"
+	desc = "Странно выглядящая красная шляпа, которая наверняка принадлежит настоящему магу."
 	icon_state = "wizard"
 	gas_transfer_coefficient = 0.01 // IT'S MAGICAL OKAY JEEZ +1 TO NOT DIE
 	permeability_coefficient = 0.01
@@ -12,26 +12,26 @@
 	dog_fashion = /datum/dog_fashion/head/blue_wizard
 
 /obj/item/clothing/head/wizard/red
-	name = "красный wizard hat"
-	desc = "Strange-looking red hat-wear that most certainly belongs to a real magic user."
+	name = "красная шляпа волшебника"
+	desc = "Странно выглядящая красная шляпа, которая наверняка принадлежит настоящему магу."
 	icon_state = "redwizard"
 	dog_fashion = /datum/dog_fashion/head/red_wizard
 
 /obj/item/clothing/head/wizard/yellow
-	name = "жёлтый wizard hat"
-	desc = "Strange-looking yellow hat-wear that most certainly belongs to a powerful magic user."
+	name = "желтая шляпа волшебника"
+	desc = "Странно выглядящая желтая шляпа, которая наверняка принадлежит настоящему магу."
 	icon_state = "yellowwizard"
 	dog_fashion = null
 
 /obj/item/clothing/head/wizard/black
-	name = "чёрный wizard hat"
-	desc = "Strange-looking black hat-wear that most certainly belongs to a real skeleton. Spooky."
+	name = "черная шляпа волшебника"
+	desc = "Странно выглядящая красная шляпа, которая наверняка принадлежит настоящему скелету. Жутко."
 	icon_state = "blackwizard"
 	dog_fashion = null
 
 /obj/item/clothing/head/wizard/fake
-	name = "wizard hat"
-	desc = "It has WIZZARD written across it in sequins. Comes with a cool beard."
+	name = "шляпа волшебника"
+	desc = "На ней блестками нашито ВОЛШЕБНИК. Поставляется с крутой бородой."
 	icon_state = "wizard-fake"
 	gas_transfer_coefficient = 1
 	permeability_coefficient = 1
@@ -40,28 +40,28 @@
 	dog_fashion = /datum/dog_fashion/head/blue_wizard
 
 /obj/item/clothing/head/wizard/marisa
-	name = "witch hat"
-	desc = "Strange-looking hat-wear. Makes you want to cast fireballs."
+	name = "шляпа ведьмы"
+	desc = "Странно выглядящая шляпа. Вам захотелось метать огненные шары."
 	icon_state = "marisa"
 	dog_fashion = null
 
 /obj/item/clothing/head/wizard/magus
-	name = "\improper Magus helm"
-	desc = "A mysterious helmet that hums with an unearthly power."
+	name = "\improper Шлем Мага"
+	desc = "Таинственный шлем, гудящий от внеземной силы."
 	icon_state = "magus"
 	inhand_icon_state = "magus"
 	dog_fashion = null
 
 /obj/item/clothing/head/wizard/santa
-	name = "Santa's hat"
-	desc = "Ho ho ho. Merrry X-mas!"
+	name = "Шляпа Санты"
+	desc = "Хо хо хо. Счастливого рождества!"
 	icon_state = "santahat"
 	flags_inv = HIDEHAIR|HIDEFACIALHAIR
 	dog_fashion = null
 
 /obj/item/clothing/suit/wizrobe
-	name = "wizard robe"
-	desc = "A magnificent, gem-lined robe that seems to radiate power."
+	name = "роба волшебника"
+	desc = "Великолепная роба украшенная самоцветами, которая, кажется, излучает могущество."
 	icon_state = "wizard"
 	inhand_icon_state = "wizrobe"
 	gas_transfer_coefficient = 0.01
@@ -75,51 +75,51 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/suit/wizrobe/red
-	name = "красный wizard robe"
-	desc = "A magnificent red gem-lined robe that seems to radiate power."
+	name = "красная роба волшебника"
+	desc = "Великолепная красная роба украшенная самоцветами, которая, кажется, излучает могущество.."
 	icon_state = "redwizard"
 	inhand_icon_state = "redwizrobe"
 
 /obj/item/clothing/suit/wizrobe/yellow
-	name = "жёлтый wizard robe"
-	desc = "A magnificent yellow gem-lined robe that seems to radiate power."
+	name = "жёлтая роба волшебника"
+	desc = "Великолепная желтая роба украшенная самоцветами, которая, кажется, излучает могущество.."
 	icon_state = "yellowwizard"
 	inhand_icon_state = "yellowwizrobe"
 
 /obj/item/clothing/suit/wizrobe/black
-	name = "чёрный wizard robe"
-	desc = "An unnerving black gem-lined robe that reeks of death and decay."
+	name = "чёрная роба волшебника"
+	desc = "Устрашающая черная роба украшенная самоцветами, от которой смердит смертью и разложением."
 	icon_state = "blackwizard"
 	inhand_icon_state = "blackwizrobe"
 
 /obj/item/clothing/suit/wizrobe/marisa
-	name = "witch robe"
-	desc = "Magic is all about the spell power, ZE!"
+	name = "роба ведьмы"
+	desc = "Вся магия вращается вокруг твоей силы заклинаний!"
 	icon_state = "marisa"
 	inhand_icon_state = "marisarobe"
 
 /obj/item/clothing/suit/wizrobe/magusblue
-	name = "\improper Magus robe"
-	desc = "A set of armored robes that seem to radiate a dark power."
+	name = "\improper роба Мага"
+	desc = "Комплект из бронированной робы, которая, кажется, излучает темную силу."
 	icon_state = "magusblue"
 	inhand_icon_state = "magusblue"
 
 /obj/item/clothing/suit/wizrobe/magusred
-	name = "\improper Magus robe"
-	desc = "A set of armored robes that seem to radiate a dark power."
+	name = "\improper роба Мага"
+	desc = "Комплект из бронированной робы, которая, кажется, излучает темную силу."
 	icon_state = "magusred"
 	inhand_icon_state = "magusred"
 
 
 /obj/item/clothing/suit/wizrobe/santa
-	name = "Santa's suit"
-	desc = "Festive!"
+	name = "костюм Санты"
+	desc = "Праздничный!"
 	icon_state = "santa"
 	inhand_icon_state = "santa"
 
 /obj/item/clothing/suit/wizrobe/fake
-	name = "wizard robe"
-	desc = "A rather dull blue robe meant to mimic real wizard robes."
+	name = "роба волшебника"
+	desc = "Тусклая синяя мантия, имитирующая настоящие робы волшебников."
 	icon_state = "wizard-fake"
 	inhand_icon_state = "wizrobe"
 	gas_transfer_coefficient = 1
@@ -128,8 +128,8 @@
 	resistance_flags = FLAMMABLE
 
 /obj/item/clothing/head/wizard/marisa/fake
-	name = "witch hat"
-	desc = "Strange-looking hat-wear, makes you want to cast fireballs."
+	name = "шляпа ведьмы"
+	desc = "Странно выглядящая шляпа. Вам захотелось метать огненные шары."
 	icon_state = "marisa"
 	gas_transfer_coefficient = 1
 	permeability_coefficient = 1
@@ -137,8 +137,8 @@
 	resistance_flags = FLAMMABLE
 
 /obj/item/clothing/suit/wizrobe/marisa/fake
-	name = "witch robe"
-	desc = "Magic is all about the spell power, ZE!"
+	name = "роба ведьмы"
+	desc = "Вся магия вращается вокруг твоей силы заклинаний!"
 	icon_state = "marisa"
 	inhand_icon_state = "marisarobe"
 	gas_transfer_coefficient = 1
@@ -148,7 +148,7 @@
 
 /obj/item/clothing/suit/wizrobe/paper
 	name = "papier-mache robe" // no non-latin characters!
-	desc = "A robe held together by various bits of clear-tape and paste."
+	desc = "Роба скрепленная кучей скотча и клея."
 	icon_state = "wizard-paper"
 	inhand_icon_state = "wizard-paper"
 	var/robe_charge = TRUE
@@ -183,8 +183,8 @@
 //Shielded Armour
 
 /obj/item/clothing/suit/space/hardsuit/shielded/wizard
-	name = "battlemage armour"
-	desc = "Not all wizards are afraid of getting up close and personal."
+	name = "броня боевого мага"
+	desc = "Не все волшебники боятся сокращения дистанции."
 	icon_state = "battlemage"
 	inhand_icon_state = "battlemage"
 	recharge_rate = 0
@@ -200,8 +200,8 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/head/helmet/space/hardsuit/shielded/wizard
-	name = "battlemage helmet"
-	desc = "A suitably impressive helmet."
+	name = "шлем боевого мага"
+	desc = "В надлежащей степени впечатляющий шлем."
 	icon_state = "battlemage"
 	inhand_icon_state = "battlemage"
 	min_cold_protection_temperature = ARMOR_MIN_TEMP_PROTECT
@@ -214,8 +214,8 @@
 	return
 
 /obj/item/wizard_armour_charge
-	name = "battlemage shield charges"
-	desc = "A powerful rune that will increase the number of hits a suit of battlemage armour can take before failing.."
+	name = "заряды щита боевого мага"
+	desc = "Мощная руна которая увеличит количество ударов, которое может выдержать броня боевого мага, перед тем как сломаться.."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "electricity2"
 
@@ -224,8 +224,8 @@
 	if(!proximity)
 		return
 	if(!istype(W))
-		to_chat(user, "<span class='warning'>The rune can only be used on battlemage armour!</span>")
+		to_chat(user, "<span class='warning'>Руна может быть использована только на броне боевого мага!</span>")
 		return
 	W.current_charges += 8
-	to_chat(user, "<span class='notice'>You charge \the [W]. It can now absorb [W.current_charges] hits.</span>")
+	to_chat(user, "<span class='notice'>Я зарядил \the [W]. Теперь она может поглотить [W.current_charges] ударов.</span>")
 	qdel(src)

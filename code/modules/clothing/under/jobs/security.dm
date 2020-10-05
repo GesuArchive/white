@@ -238,8 +238,8 @@
 	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/security/officer/beatcop
-	name = "space police uniform"
-	desc = "A police uniform often found in the lines at donut shops."
+	name = "форма космической полиции"
+	desc = "Полицейская форма, часто мелькает перед глазами в очередях у магазинов пончиков."
 	icon_state = "spacepolice_families"
 	inhand_icon_state = "spacepolice_families"
 	can_adjust = FALSE

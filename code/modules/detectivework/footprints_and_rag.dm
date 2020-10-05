@@ -4,8 +4,8 @@
 
 
 /obj/item/reagent_containers/glass/rag
-	name = "damp rag"
-	desc = "For cleaning up messes, you suppose."
+	name = "влажная тряпка"
+	desc = "Предположительно для устраненя беспорядка."
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "rag"
@@ -30,16 +30,16 @@
 		var/log_object = "containing [reagentlist]"
 		if(user.a_intent == INTENT_HARM && !C.is_mouth_covered())
 			reagents.trans_to(C, reagents.total_volume, transfered_by = user, methods = INGEST)
-			C.visible_message("<span class='danger'>[user] smothers \the [C] with \the [src]!</span>", "<span class='userdanger'>[user] smothers you with \the [src]!</span>", "<span class='hear'>You hear some struggling and muffled cries of surprise.</span>")
-			log_combat(user, C, "smothered", src, log_object)
+			C.visible_message("<span class='danger'>[user] душит [C] используя [src]!</span>", "<span class='userdanger'>[user] душит вас используя [src]!</span>", "<span class='hear'>Я слышу звуки борьбы и приглушенные удивленные вскрики.</span>")
+			log_combat(user, C, "задушен", src, log_object)
 		else
 			reagents.expose(C, TOUCH)
 			reagents.clear_reagents()
-			C.visible_message("<span class='notice'>[user] touches \the [C] with \the [src].</span>")
-			log_combat(user, C, "touched", src, log_object)
+			C.visible_message("<span class='notice'>[user] трогает [C] [src].</span>")
+			log_combat(user, C, "потроган", src, log_object)
 
 	else if(istype(A) && (src in user))
-		user.visible_message("<span class='notice'>[user] starts to wipe down [A] with [src]!</span>", "<span class='notice'>You start to wipe down [A] with [src]...</span>")
+		user.visible_message("<span class='notice'>[user] начинает стирать [A] используя [src]!</span>", "<span class='notice'>Я начал стирать [A] используя [src]...</span>")
 		if(do_after(user,30, target = A))
-			user.visible_message("<span class='notice'>[user] finishes wiping off [A]!</span>", "<span class='notice'>You finish wiping off [A].</span>")
+			user.visible_message("<span class='notice'>[user] заканчивает стирать [A]!</span>", "<span class='notice'>Я закончил стирать [A].</span>")
 			A.wash(CLEAN_SCRUB)

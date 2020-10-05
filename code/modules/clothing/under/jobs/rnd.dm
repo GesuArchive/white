@@ -94,16 +94,16 @@
 	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/rnd/geneticist
-	desc = "It's made of a special fiber that gives special protection against biohazards. It has a genetics rank stripe on it."
-	name = "geneticist's jumpsuit"
+	desc = "Сделан из специального волокна, которое обеспечивает особую защиту от биологических угроз. На нем есть маркировка генетики."
+	name = "комбинезон генетика"
 	icon_state = "genetics"
 	inhand_icon_state = "w_suit"
 	permeability_coefficient = 0.5
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 10, RAD = 0, FIRE = 0, ACID = 0)
 
 /obj/item/clothing/under/rank/rnd/geneticist/skirt
-	name = "geneticist's jumpskirt"
-	desc = "It's made of a special fiber that gives special protection against biohazards. It has a genetics rank stripe on it."
+	name = "комбинезон с юбкой генетика"
+	desc = "Сделан из специального волокна, которое обеспечивает особую защиту от биологических угроз. На нем есть маркировка генетики"
 	icon_state = "geneticswhite_skirt"
 	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
