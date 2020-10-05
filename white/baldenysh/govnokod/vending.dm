@@ -4,7 +4,7 @@
 	icon = 'white/baldenysh/icons/obj/vending.dmi'
 	icon_state = "chetverochka"
 	products = list(
-					/obj/item/reagent_containers/food/snacks/kebab/rat/double = 3,
+					/obj/item/food/kebab/rat/double = 3,
 					/obj/item/storage/box/lcubes = 5,
 					/obj/item/reagent_containers/food/snacks/canned/peaches/maint = 2,
 					/obj/item/reagent_containers/food/snacks/soylentgreen = 5,

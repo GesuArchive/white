@@ -155,7 +155,7 @@ MRE Stuff
 	icon_state = "meatmre"
 	main_meal = /obj/item/storage/mrebag/menu10
 	meal_contents = list(
-		/obj/item/reagent_containers/food/snacks/butteredtoast,
+		/obj/item/food/butteredtoast,
 		/obj/item/reagent_containers/food/condiment/pack/bbqsauce,
 		/obj/item/reagent_containers/food/condiment/pack/hotsauce,
 		/obj/item/kitchen/fork/plastic)
@@ -227,23 +227,23 @@ MRE Stuff
 	meal_contents = list(/obj/item/food/bread/meat)
 
 /obj/item/storage/mrebag/menu7
-	meal_contents = list(/obj/item/reagent_containers/food/snacks/salad)
+	meal_contents = list(/obj/item/food/salad)
 
 /obj/item/storage/mrebag/menu8
-	meal_contents = list(/obj/item/reagent_containers/food/snacks/soup/hotchili)
+	meal_contents = list(/obj/item/food/soup/hotchili)
 
 /obj/item/storage/mrebag/menu9
-	meal_contents = list(/obj/item/reagent_containers/food/snacks/salad/boiledrice)
+	meal_contents = list(/obj/item/food/salad/boiledrice)
 
 /obj/item/storage/mrebag/menu10
-	meal_contents = list(/obj/item/reagent_containers/food/snacks/meatball)
+	meal_contents = list(/obj/item/food/meatball)
 
 /obj/item/storage/mrebag/dessert
 	name = "десерт"
 	desc = "Вакуумный пакет с десертом ИРП."
 	icon_state = "pouch_small"
 	open_sound = 'white/valtos/sounds/rip1.ogg'
-	meal_contents = list(/obj/item/reagent_containers/food/snacks/candy,
+	meal_contents = list(/obj/item/food/candy,
 		/obj/item/reagent_containers/food/snacks/hotdog,
 		/obj/item/reagent_containers/food/snacks/donut,
 		/obj/item/reagent_containers/food/snacks/honeybar,

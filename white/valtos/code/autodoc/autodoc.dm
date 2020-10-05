@@ -494,7 +494,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	target.set_nutrition(NUTRITION_LEVEL_WELL_FED)
 	removednutriment -= 450 //whatever was removed goes into the meat
 	var/mob/living/carbon/human/H = target
-	var/typeofmeat = /obj/item/reagent_containers/food/snacks/meat/slab/human
+	var/typeofmeat = /obj/item/food/meat/slab/human
 
 	if(H.dna && H.dna.species)
 		typeofmeat = H.dna.species.meat

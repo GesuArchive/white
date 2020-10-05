@@ -37,7 +37,7 @@
 /datum/blackmarket_item/food/pizza
 	name = "Пицца"
 	desc =  "Что может быть вкуснее кусочка пиццы?"
-	item = /obj/item/food/pizza
+	item = /obj/item/reagent_containers/food/snacks/pizza
 
 	stock_min = 1
 	stock_max = 20
