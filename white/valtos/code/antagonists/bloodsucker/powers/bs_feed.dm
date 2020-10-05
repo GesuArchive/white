@@ -338,6 +338,4 @@
 	feed_target = null
 	// My mouth is no longer full
 	REMOVE_TRAIT(owner, TRAIT_MUTE, "bloodsucker_feed")
-	// Let me move immediately
-	user.update_mobility()
 

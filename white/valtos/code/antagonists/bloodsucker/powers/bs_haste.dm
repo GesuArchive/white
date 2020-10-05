@@ -88,18 +88,6 @@
 
 		sleep(1)
 
-	if (user)
-		user.update_mobility()
-
-
-/datum/action/bloodsucker/targeted/haste/DeactivatePower(mob/living/user = owner, mob/living/target)
-	..() // activate = FALSE
-	user.update_mobility()
-
-
-
-
-
 
 /*
 /datum/martial_art/vamphaste			// martial.dm

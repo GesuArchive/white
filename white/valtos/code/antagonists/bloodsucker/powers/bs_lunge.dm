@@ -96,7 +96,3 @@
 
 	//DeactivatePower()
 
-
-/datum/action/bloodsucker/targeted/lunge/DeactivatePower(mob/living/user = owner, mob/living/target)
-	..() // activate = FALSE
-	user.update_mobility()

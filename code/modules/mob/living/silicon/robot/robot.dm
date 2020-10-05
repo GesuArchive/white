@@ -811,7 +811,6 @@
 			if(stat == CONSCIOUS)
 				set_stat(UNCONSCIOUS)
 				become_blind(EYE_DAMAGE)
-				update_mobility()
 		else
 			set_stat(CONSCIOUS)
 	diag_hud_set_status()
