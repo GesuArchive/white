@@ -3093,8 +3093,8 @@
 /area/maintenance/port/fore)
 "arO" = (
 /obj/machinery/monkey_recycler,
-/obj/item/reagent_containers/food/snacks/monkeycube,
-/obj/item/reagent_containers/food/snacks/monkeycube,
+/obj/item/food/monkeycube,
+/obj/item/food/monkeycube,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "arP" = (
@@ -9650,7 +9650,7 @@
 /area/security/detectives_office)
 "aMO" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/snacks/chips,
+/obj/item/food/chips,
 /obj/item/reagent_containers/food/drinks/soda_cans/cola,
 /turf/open/floor/carpet,
 /area/hallway/secondary/entry)

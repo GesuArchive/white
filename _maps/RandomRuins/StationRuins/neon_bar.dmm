@@ -445,9 +445,9 @@
 /area/crew_quarters/bar)
 "bq" = (
 /obj/effect/landmark/blobstart,
-/obj/item/reagent_containers/food/snacks/syndicake,
-/obj/item/reagent_containers/food/snacks/syndicake,
-/obj/item/reagent_containers/food/snacks/syndicake,
+/obj/item/food/syndicake,
+/obj/item/food/syndicake,
+/obj/item/food/syndicake,
 /turf/open/floor/plating,
 /area/crew_quarters/bar)
 "br" = (
