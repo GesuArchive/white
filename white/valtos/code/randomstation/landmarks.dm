@@ -49,3 +49,6 @@
 
 /obj/effect/landmark/stationroom/maint_sw
 	template_names = list("Default Maint SW", "Arena Maint SW")
+
+/obj/effect/landmark/stationroom/medbay
+	template_names = list("Default Medbay")

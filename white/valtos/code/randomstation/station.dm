@@ -66,3 +66,8 @@
 	id = "arena_maint_sw"
 	suffix = "arena_maint_sw.dmm"
 	name = "Arena Maint SW"
+
+/datum/map_template/ruin/station/med
+	id = "default_med"
+	suffix = "default_med.dmm"
+	name = "Default Medbay"

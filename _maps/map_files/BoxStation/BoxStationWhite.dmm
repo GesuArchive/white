@@ -35643,6 +35643,11 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"qiq" = (
+/obj/structure/cable,
+/obj/effect/landmark/stationroom/medbay,
+/turf/open/floor/plasteel,
+/area/engine/atmos)
 "qjH" = (
 /obj/machinery/atmospherics/pipe/manifold4w/yellow/visible,
 /turf/open/floor/plasteel,
@@ -72333,7 +72338,7 @@ cQQ
 bUS
 dJF
 jxQ
-bQp
+qiq
 bTO
 bOd
 wGh
