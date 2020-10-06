@@ -699,7 +699,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(undershirt)
 				if(H.dna.species.sexes && H.gender == FEMALE)
 					standing += wear_female_version(undershirt.icon_state, undershirt.icon, BODY_LAYER)
-					//standing += mutable_appearance(undershirt.icon, undershirt.icon_state, -BODY_LAYER)
 				else
 					standing += mutable_appearance(undershirt.icon, undershirt.icon_state, -BODY_LAYER)
 
@@ -1424,6 +1423,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(user.resting || user.IsKnockdown())
 		return FALSE
 	if(user == target)
+		return FALSE
+	if(user.loc == target.loc)
 		return FALSE
 	else
 		user.disarm(target)
