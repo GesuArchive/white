@@ -3419,6 +3419,7 @@
 #include "white\hule\tts\tts_items.dm"
 #include "white\HumanNugget\recipes.dm"
 #include "white\jhnazar\game\objects\items\storage\firstaid.dm"
+#include "white\jhnazar\modules\events\wizard\hohol.dm"
 #include "white\jhnazar\modules\reagents\reagent_containers\pill.dm"
 #include "white\jhnazar\modules\surgery\organs\autosurgeon.dm"
 #include "white\maxsc\axe.dm"
