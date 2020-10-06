@@ -2,6 +2,9 @@
 	name = "Хохлокарась"
 	desc = "Винахід Правого Сіктора"
 	icon_state = "hohol"
+	icon_living = "hohol"
+	icon_aggro = "hohol"
+	icon_dead = "hohol_dead"
 
 	maxHealth = 1488
 	health = 1488
