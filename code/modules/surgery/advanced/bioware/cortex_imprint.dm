@@ -1,6 +1,6 @@
 /datum/surgery/advanced/bioware/cortex_imprint
-	name = "Cortex Imprint"
-	desc = "A surgical procedure which modifies the cerebral cortex into a redundant neural pattern, making the brain able to bypass impediments caused by minor brain traumas."
+	name = "Распрямление коры головного мозга"
+	desc = "Хирургическая операция, которая модифицирует кору большого мозга в повторяющийся нейронный паттерн, позволяющая могзу справляться с трудностями, вызванными небольшими повреждениями мозга."
 	steps = list(/datum/surgery_step/incise,
 				/datum/surgery_step/retract_skin,
 				/datum/surgery_step/clamp_bleeders,
@@ -24,31 +24,31 @@
 	time = 125
 
 /datum/surgery_step/imprint_cortex/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You start carving [target]'s outer cerebral cortex into a self-imprinting pattern.</span>",
-		"<span class='notice'>[user] starts carving [target]'s outer cerebral cortex into a self-imprinting pattern.</span>",
-		"<span class='notice'>[user] begins to perform surgery on [target]'s brain.</span>")
+	display_results(user, target, "<span class='notice'>Я начинаю вырезать на коре большого мозга [target] само-импринтирующий паттерн.</span>",
+		"<span class='notice'>[user] начинает вырезать на коре большого мозга [target]само-импринтирующий паттерн.</span>",
+		"<span class='notice'>[user] начинает проводить операцию на мозге [target].</span>")
 
 /datum/surgery_step/imprint_cortex/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, "<span class='notice'>You reshape [target]'s outer cerebral cortex into a self-imprinting pattern!</span>",
-		"<span class='notice'>[user] reshapes [target]'s outer cerebral cortex into a self-imprinting pattern!</span>",
-		"<span class='notice'>[user] completes the surgery on [target]'s brain.</span>")
+	display_results(user, target, "<span class='notice'>Я изменил форму коры большого мозга [target] на само-импринтирующий паттерн!</span>",
+		"<span class='notice'>[user] изменил форму коры большого мозга [target] на само-импринтирующий паттерн!</span>",
+		"<span class='notice'>[user] завершил операцию на мозге [target].</span>")
 	new /datum/bioware/cortex_imprint(target)
 	return ..()
 
 /datum/surgery_step/imprint_cortex/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(target.getorganslot(ORGAN_SLOT_BRAIN))
-		display_results(user, target, "<span class='warning'>You screw up, damaging the brain!</span>",
-			"<span class='warning'>[user] screws up, damaging the brain!</span>",
-			"<span class='notice'>[user] completes the surgery on [target]'s brain.</span>")
+		display_results(user, target, "<span class='warning'>Я облажался, повредив мозг!</span>",
+			"<span class='warning'>[user] облажался, повредив мозг!</span>",
+			"<span class='notice'>[user] завершил операцию на мозге [target]</span>")
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60)
 		target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_LOBOTOMY)
 	else
-		user.visible_message("<span class='warning'>[user] suddenly notices that the brain [user.p_they()] [user.p_were()] working on is not there anymore.</span>", "<span class='warning'>You suddenly notice that the brain you were working on is not there anymore.</span>")
+		user.visible_message("<span class='warning'>[user] внезапно замечает что мозг [user.p_they()] над которым работал [user.p_were()] исчез.</span>", "<span class='warning'>Вы внезапно обнаружили что мозг, над которым вы работали, исчез.</span>")
 	return FALSE
 
 /datum/bioware/cortex_imprint
-	name = "Cortex Imprint"
-	desc = "The cerebral cortex has been reshaped into a redundant neural pattern, making the brain able to bypass impediments caused by minor brain traumas."
+	name = "Распрямленная кора"
+	desc = "Кора большого мозга была переделана в повторяющийся нейронный паттерн, позволяющая могзу справляться с трудностями, вызванными небольшими повреждениями мозга.."
 	mod_type = BIOWARE_CORTEX
 	can_process = TRUE
 

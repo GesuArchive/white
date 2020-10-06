@@ -24,12 +24,12 @@
 	time = 125
 
 /datum/surgery_step/fold_cortex/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>Вы начали сгибать внешнюю кору большого мозга [target] в фрактальный паттерн.</span>",
+	display_results(user, target, "<span class='notice'>Я начал сгибать внешнюю кору большого мозга [target] в фрактальный паттерн.</span>",
 		"<span class='notice'>[user] начал сгибать внешнюю кору большого мозга [target] в фрактальный паттерн.</span>",
 		"<span class='notice'>[user] начинает операцию на мозге [target].</span>")
 
 /datum/surgery_step/fold_cortex/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, "<span class='notice'>Вы согнули внешнюю кору большого мозга [target] в фрактальный паттерн!</span>",
+	display_results(user, target, "<span class='notice'>Я согнул внешнюю кору большого мозга [target] в фрактальный паттерн!</span>",
 		"<span class='notice'>[user] согнул внешнюю кору большого мозга [target] в фрактальный паттерн!</span>",
 		"<span class='notice'>[user] завершил операцию на мозге [target].</span>")
 	new /datum/bioware/cortex_fold(target)
@@ -37,7 +37,7 @@
 
 /datum/surgery_step/fold_cortex/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(target.getorganslot(ORGAN_SLOT_BRAIN))
-		display_results(user, target, "<span class='warning'>Вы облажались, повредив мозг!</span>",
+		display_results(user, target, "<span class='warning'>Я облажался, повредив мозг!</span>",
 			"<span class='warning'>[user] облажался, повредив мозг!</span>",
 			"<span class='notice'>[user] завершил операцию на мозге [target].</span>")
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60)
