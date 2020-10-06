@@ -28,13 +28,7 @@
 /area/security/prison)
 "aj" = (
 /obj/structure/chair/stool,
-/obj/machinery/light/small{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "ak" = (
@@ -76,6 +70,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "ar" = (
@@ -87,6 +82,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "as" = (
@@ -109,6 +105,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "au" = (
@@ -118,6 +115,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 5
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "av" = (
@@ -127,6 +125,7 @@
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "aw" = (
@@ -134,6 +133,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "ax" = (
@@ -147,15 +147,12 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "az" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 1;
-	pixel_y = -27
-	},
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/vending/chetverochka,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "aA" = (
@@ -164,6 +161,10 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 1;
+	pixel_y = -27
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "aB" = (
@@ -303,8 +304,6 @@
 /area/security/brig)
 "aP" = (
 /obj/structure/table,
-/obj/item/ammo_box/magazine/ak47mag,
-/obj/item/gun/ballistic/automatic/ak47,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
@@ -869,24 +868,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/brig)
-"bZ" = (
-/obj/structure/bed,
-/obj/machinery/camera{
-	c_tag = "Prison Cell 3";
-	network = list("ss13","prison")
-	},
-/obj/item/radio/intercom{
-	desc = "Talk through this. It looks like it has been modified to not broadcast.";
-	name = "Prison Intercom (General)";
-	pixel_y = 24;
-	prison_radio = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/security/prison)
 "ca" = (
 /obj/machinery/light,
 /obj/machinery/door_timer{
@@ -901,24 +882,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/brig)
-"cb" = (
-/obj/structure/bed,
-/obj/machinery/camera{
-	c_tag = "Prison Cell 2";
-	network = list("ss13","prison")
-	},
-/obj/item/radio/intercom{
-	desc = "Talk through this. It looks like it has been modified to not broadcast.";
-	name = "Prison Intercom (General)";
-	pixel_y = 24;
-	prison_radio = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/security/prison)
 "cc" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -937,21 +900,7 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "ce" = (
-/obj/structure/bed,
-/obj/machinery/camera{
-	c_tag = "Prison Cell 1";
-	network = list("ss13","prison")
-	},
-/obj/item/radio/intercom{
-	desc = "Talk through this. It looks like it has been modified to not broadcast.";
-	name = "Prison Intercom (General)";
-	pixel_y = 24;
-	prison_radio = 1
-	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "cf" = (
@@ -1257,27 +1206,12 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/security/brig)
-"cC" = (
-/obj/machinery/flasher{
-	id = "PCell 3";
-	pixel_x = -28
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel,
-/area/security/prison)
 "cD" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/security/prison)
-"cE" = (
-/obj/machinery/flasher{
-	id = "PCell 2";
-	pixel_x = -28
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
@@ -1296,11 +1230,10 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "cH" = (
-/obj/machinery/flasher{
-	id = "PCell 1";
-	pixel_x = -28
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/arcade/battle{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/security/prison)
 "cI" = (
@@ -1384,6 +1317,8 @@
 /obj/effect/spawner/lootdrop/maintenance/three,
 /obj/effect/spawner/lootdrop/armory_contraband/metastation,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/gun/ballistic/automatic/ak47,
+/obj/item/ammo_box/magazine/ak47mag,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "cT" = (
@@ -1450,6 +1385,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "cZ" = (
@@ -1468,6 +1404,7 @@
 "da" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "db" = (
@@ -1742,11 +1679,13 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "dC" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "dD" = (
@@ -1769,6 +1708,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "dG" = (
@@ -1842,6 +1782,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "dJ" = (
@@ -1862,6 +1803,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "dK" = (
@@ -2123,6 +2065,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 10
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "em" = (
@@ -2134,6 +2077,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "en" = (
@@ -2477,6 +2421,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "eX" = (
@@ -3702,9 +3647,43 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/security/brig)
+"kP" = (
+/obj/item/radio/intercom{
+	desc = "Talk through this. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_y = 24;
+	prison_radio = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed,
+/obj/machinery/camera{
+	c_tag = "Prison Cell 2";
+	network = list("ss13","prison")
+	},
+/turf/open/floor/plasteel,
+/area/security/prison)
 "lT" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start/prisoner,
+/obj/item/radio/intercom{
+	desc = "Talk through this. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_y = 24;
+	prison_radio = 1
+	},
+/obj/structure/bed,
+/obj/machinery/camera{
+	c_tag = "Prison Cell 3";
+	network = list("ss13","prison")
+	},
+/turf/open/floor/plasteel,
+/area/security/prison)
+"ok" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed,
+/turf/open/floor/plasteel,
+/area/security/prison)
+"oE" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 10
 	},
@@ -3717,11 +3696,84 @@
 /obj/structure/holosign/barrier/atmos,
 /turf/open/space/basic,
 /area/security/brig)
+"pQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/machinery/flasher{
+	id = "PCell 3";
+	pixel_x = -28
+	},
+/turf/open/floor/plasteel,
+/area/security/prison)
+"wZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start/prisoner,
+/turf/open/floor/plasteel,
+/area/security/prison)
 "xN" = (
 /turf/open/floor/plasteel/airless{
 	icon_state = "damaged3"
 	},
 /area/security/brig)
+"Mx" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plasteel,
+/area/security/prison)
+"MA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/machinery/flasher{
+	id = "PCell 2";
+	pixel_x = -28
+	},
+/turf/open/floor/plasteel,
+/area/security/prison)
+"Np" = (
+/obj/item/radio/intercom{
+	desc = "Talk through this. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_y = 24;
+	prison_radio = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed,
+/obj/machinery/camera{
+	c_tag = "Prison Cell 1";
+	network = list("ss13","prison")
+	},
+/turf/open/floor/plasteel,
+/area/security/prison)
+"SK" = (
+/obj/machinery/flasher{
+	id = "PCell 1";
+	pixel_x = -28
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/security/prison)
+"TP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/security/prison)
 "ZQ" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
@@ -4451,9 +4503,9 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
+ae
+ae
+ae
 ae
 ae
 ae
@@ -4495,12 +4547,12 @@ ab
 ab
 ab
 ab
-ab
-ab
-ad
 ae
-bZ
-cC
+lT
+ok
+pQ
+ce
+cH
 bI
 at
 at
@@ -4539,11 +4591,11 @@ ab
 ab
 ab
 ac
-ad
-ad
-ad
 ak
-lT
+wZ
+wZ
+oE
+cF
 cF
 cZ
 cF
@@ -4583,10 +4635,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
 ae
+ok
+ok
+TP
 aj
 cG
 bI
@@ -4627,10 +4679,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
 ae
+bI
+bI
+bI
 bI
 bI
 bI
@@ -4671,12 +4723,12 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
 ae
-cb
-cE
+kP
+ok
+MA
+ce
+cH
 bI
 dF
 cD
@@ -4715,11 +4767,11 @@ ab
 ab
 ac
 ad
-ad
-ad
-ad
 ak
-lT
+wZ
+wZ
+oE
+cF
 cF
 db
 dC
@@ -4759,10 +4811,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
 ae
+ok
+ok
+TP
 aj
 cG
 bI
@@ -4803,10 +4855,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
 ae
+bI
+bI
+bI
 bI
 bI
 bI
@@ -4847,10 +4899,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ad
 ae
+Np
+ok
+SK
 ce
 cH
 bI
@@ -4891,11 +4943,11 @@ ab
 ac
 ad
 ad
-ad
-ad
-ad
 ak
-lT
+wZ
+wZ
+Mx
+cF
 cF
 ag
 dC
@@ -4935,10 +4987,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ad
 ae
+ok
+ok
+TP
 aj
 cG
 bI
@@ -4979,9 +5031,9 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
+ae
+ae
+ae
 ae
 ae
 ae
