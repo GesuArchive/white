@@ -11,13 +11,24 @@
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
 "ah" = (
-/obj/effect/turf_decal/stripes,
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/structure/closet,
 /obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/bot_red,
+/obj/item/clothing/gloves/combat,
+/obj/item/clothing/shoes/combat,
+/obj/item/clothing/glasses/hud/security,
+/obj/item/clothing/under/color/black,
+/obj/item/clothing/accessory/armband,
+/obj/item/storage/backpack/satchel/sec,
+/obj/item/radio/headset/headset_sec/alt/department,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark,
-/area/awaymission/chilly/gatewaystart)
+/area/awaymission/chilly/facility2)
 "ai" = (
 /turf/closed/wall/rust,
 /area/awaymission/chilly/ntcargotrain)
@@ -66,7 +77,8 @@
 /obj/item/bedsheet/grey,
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/wood,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "aw" = (
 /obj/item/kitchen/knife,
@@ -123,7 +135,8 @@
 "aJ" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/plating,
+/obj/structure/lattice,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "aK" = (
 /obj/structure/grille/broken,
@@ -179,6 +192,24 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
+"aU" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/drinks/bottle/champagne,
+/obj/item/reagent_containers/food/drinks/bottle/champagne,
+/obj/item/reagent_containers/food/drinks/bottle/champagne,
+/obj/item/reagent_containers/food/drinks/bottle/champagne,
+/obj/item/reagent_containers/food/drinks/bottle/champagne,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility4)
+"aV" = (
+/obj/effect/turf_decal/dust,
+/obj/item/stock_parts/manipulator,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility)
+"aW" = (
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/facility4)
 "aX" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
@@ -235,17 +266,22 @@
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
 "bg" = (
-/obj/structure/closet/crate,
-/obj/item/vending_refill/snack,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/pod/light,
-/area/awaymission/chilly/facility)
+/obj/machinery/door/window/brigdoor/security/cell/southleft,
+/obj/effect/turf_decal/delivery/red,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
 "bh" = (
 /obj/effect/baseturf_helper/asteroid/snow{
 	baseturf = /turf/open/floor/grass/snow/safe/oxy
 	},
 /turf/closed/wall/ice,
 /area/awaymission/chilly/facility5)
+"bk" = (
+/obj/structure/mineral_door/wood,
+/obj/structure/barricade/wooden/crude/snow,
+/turf/open/floor/wood,
+/area/awaymission/chilly/facility3)
 "bm" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/dust,
@@ -255,9 +291,10 @@
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
 "bn" = (
-/obj/machinery/door/airlock/grunge,
-/turf/open/floor/plasteel/elevatorshaft,
-/area/awaymission/chilly/gatewaystart)
+/obj/structure/grille,
+/obj/structure/window/reinforced/fulltile,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility2)
 "bo" = (
 /obj/item/kitchen/fork{
 	pixel_x = 22
@@ -271,25 +308,12 @@
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly/facility)
 "bq" = (
-/obj/structure/closet,
 /obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/bot_red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/red,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/item/clothing/gloves/combat,
-/obj/item/clothing/shoes/combat,
-/obj/item/clothing/glasses/hud/security,
-/obj/item/clothing/under/color/black,
-/obj/item/clothing/accessory/armband,
-/obj/item/storage/backpack/satchel/sec,
+/obj/structure/table/reinforced,
+/obj/item/implantpad,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "bv" = (
@@ -315,6 +339,10 @@
 	icon_state = "platingdmg1"
 	},
 /area/awaymission/chilly/facility)
+"bD" = (
+/obj/machinery/door/airlock/grunge,
+/turf/open/floor/plasteel/elevatorshaft,
+/area/awaymission/chilly/gatewaystart)
 "bF" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/lattice/catwalk,
@@ -337,6 +365,12 @@
 /obj/item/kitchen/knife/butcher,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
+"bN" = (
+/obj/effect/turf_decal/dust,
+/mob/living/simple_animal/hostile/skeleton/ice,
+/obj/structure/lattice,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility2)
 "bO" = (
 /obj/effect/baseturf_helper/asteroid/snow{
 	baseturf = /turf/open/floor/grass/snow/safe/oxy
@@ -368,6 +402,11 @@
 /obj/item/hatchet/wooden,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
+"bV" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/scrubber,
+/turf/open/floor/material,
+/area/awaymission/chilly/facility3)
 "bW" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/vomit/old,
@@ -384,11 +423,22 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
+"bZ" = (
+/obj/effect/turf_decal/tile/green{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/green{
+	dir = 1
+	},
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents,
+/turf/open/floor/pod/light,
+/area/awaymission/chilly/facility3)
 "cb" = (
 /obj/effect/turf_decal/dust,
-/obj/structure/floodlight_frame,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/facility)
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
 "cc" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/door/firedoor/closed,
@@ -407,22 +457,8 @@
 /turf/open/floor/plating,
 /area/awaymission/chilly/cave)
 "cg" = (
-/obj/structure/closet,
 /obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/bot_red,
-/obj/effect/turf_decal/tile/red{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/red,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/item/clothing/gloves/combat,
-/obj/item/clothing/shoes/combat,
-/obj/item/clothing/glasses/hud/security,
-/obj/item/clothing/under/color/black,
-/obj/item/clothing/accessory/armband,
-/obj/item/storage/backpack/satchel/sec,
+/obj/structure/table/reinforced,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "ch" = (
@@ -435,7 +471,8 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/mob_spawn/human/corpse/damaged/chilly,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/wood,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "cl" = (
 /obj/effect/turf_decal/dust,
@@ -455,6 +492,9 @@
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 6
 	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
@@ -529,7 +569,7 @@
 /mob/living/simple_animal/hostile/skeleton/ice{
 	health = 200
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "cI" = (
 /obj/effect/baseturf_helper/asteroid/snow{
@@ -559,11 +599,6 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility3)
-"cO" = (
-/obj/effect/turf_decal/dust,
-/obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/facility)
 "cP" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken{
@@ -574,7 +609,7 @@
 "cS" = (
 /obj/structure/table/reinforced,
 /obj/machinery/reagentgrinder,
-/obj/effect/turf_decal/dust,
+/obj/machinery/doorpanel/broken,
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/chilly/facility)
 "cT" = (
@@ -625,25 +660,9 @@
 /turf/open/floor/pod/light,
 /area/awaymission/chilly/facility3)
 "df" = (
-/obj/structure/closet,
 /obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/bot_red,
-/obj/effect/turf_decal/tile/red{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/red,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/item/clothing/gloves/combat,
-/obj/item/clothing/shoes/combat,
-/obj/item/clothing/glasses/hud/security,
-/obj/item/clothing/under/color/black,
-/obj/item/clothing/accessory/armband,
-/obj/item/storage/backpack/satchel/sec,
+/obj/structure/table/reinforced,
+/obj/item/grenade/c4,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "dg" = (
@@ -656,7 +675,7 @@
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/turf_decal/bot_white,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "dh" = (
 /obj/effect/turf_decal/dust,
@@ -669,15 +688,14 @@
 	pixel_x = 10;
 	pixel_y = 10
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "di" = (
-/obj/structure/grille/rospilovo,
-/turf/open/floor/grass/snow/safe/oxy{
-	icon_state = "snow_dug";
-	slowdown = 1
-	},
-/area/awaymission/chilly)
+/obj/effect/turf_decal/dust,
+/obj/structure/table/reinforced,
+/obj/item/storage/toolbox/mechanical/old,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
 "dk" = (
 /obj/effect/turf_decal/dust,
 /obj/item/stack/rods,
@@ -709,6 +727,7 @@
 /obj/effect/decal/cleanable/oil,
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/variant2,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
 "dG" = (
@@ -722,16 +741,48 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/chilly/facility)
+"dJ" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 10
+	},
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "dK" = (
-/obj/structure/fence/door,
-/obj/effect/light_emitter,
-/turf/open/floor/plating/snowed/smoothed/temperatre,
-/area/awaymission/chilly)
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/machinery/porta_turret/armory/chilly{
+	density = 0
+	},
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
+"dM" = (
+/obj/structure/closet,
+/obj/item/clothing/suit/space,
+/obj/item/clothing/head/helmet/space,
+/obj/item/clothing/mask/breath,
+/obj/effect/turf_decal/stripes{
+	dir = 9
+	},
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "dO" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/fulltile/ice,
 /turf/open/floor/plating,
 /area/awaymission/chilly/syndietrain)
+"dP" = (
+/obj/effect/decal/cleanable/glass,
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/variant3,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility3)
 "dS" = (
 /obj/item/shard,
 /obj/effect/turf_decal/dust,
@@ -763,6 +814,7 @@
 /obj/item/clothing/shoes/winterboots,
 /obj/item/clothing/head/beanie,
 /obj/item/clothing/neck/stripedgreenscarf/wzzzz/grey,
+/obj/item/key,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
 "dW" = (
@@ -771,16 +823,12 @@
 /area/awaymission/chilly/cave)
 "dZ" = (
 /obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/bot_red,
-/obj/effect/turf_decal/tile/red{
-	dir = 8
+/obj/structure/sign/poster/official/here_for_your_safety{
+	pixel_x = -1;
+	pixel_y = 30
 	},
-/obj/effect/turf_decal/tile/red,
-/obj/structure/table/reinforced,
-/obj/item/storage/box/handcuffs,
-/obj/item/storage/box/flashbangs{
-	pixel_x = 4;
-	pixel_y = 4
+/obj/structure/frame/computer{
+	anchored = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
@@ -804,10 +852,15 @@
 "ed" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/dust,
+/obj/machinery/oldvents,
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
 /area/awaymission/chilly/facility3)
+"ee" = (
+/obj/structure/lattice,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility4)
 "eg" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/chair/comfy/shuttle{
@@ -825,9 +878,15 @@
 "ei" = (
 /obj/effect/decal/cleanable/chempile,
 /obj/effect/turf_decal/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/plating{
 	icon_state = "platingdmg2"
 	},
+/area/awaymission/chilly/facility)
+"ej" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating,
 /area/awaymission/chilly/facility)
 "el" = (
 /turf/closed/mineral/snowmountain/cavern/oxy,
@@ -844,6 +903,12 @@
 	},
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/cave)
+"er" = (
+/obj/effect/turf_decal/dust,
+/obj/item/stack/tile/plasteel,
+/obj/structure/lattice,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility2)
 "et" = (
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly)
@@ -859,11 +924,24 @@
 "ew" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/table/wood,
+/obj/structure/rospilovo/televizor/broken,
 /turf/open/floor/wood,
+/area/awaymission/chilly/facility4)
+"ex" = (
+/obj/structure/frame/computer{
+	anchored = 1;
+	dir = 4;
+	pixel_x = -4
+	},
+/turf/open/floor/plating,
 /area/awaymission/chilly/facility4)
 "ey" = (
 /turf/closed/indestructible/rock/snow,
 /area/awaymission/chilly/cave)
+"ez" = (
+/obj/structure/table,
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/awaymission/chilly)
 "eE" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/dust,
@@ -889,19 +967,31 @@
 	slowdown = 1
 	},
 /area/awaymission/chilly)
+"eL" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/scrubber,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "eN" = (
 /obj/effect/turf_decal/dust,
 /obj/item/cigbutt{
 	pixel_x = -4;
 	pixel_y = -7
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "eO" = (
 /turf/closed/indestructible/rock/snow,
 /area/awaymission/chilly/facility)
+"eQ" = (
+/turf/closed/wall/rospilovo/beton_agro,
+/area/awaymission/chilly/gatewaystart)
 "eR" = (
 /turf/open/floor/plasteel,
+/area/awaymission/chilly)
+"eU" = (
+/obj/structure/statue/snow/snowlegion,
+/turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
 "eV" = (
 /obj/effect/turf_decal/delivery,
@@ -917,6 +1007,22 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
+"eZ" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/awaymission/chilly/facility3)
+"fa" = (
+/obj/structure/table,
+/obj/item/healthanalyzer,
+/obj/effect/turf_decal/stripes,
+/obj/effect/turf_decal/dust,
+/obj/item/storage/firstaid/regular,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "fc" = (
 /obj/structure/table,
 /obj/effect/turf_decal/tile/green{
@@ -936,6 +1042,7 @@
 "fg" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/old,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/plating{
 	icon_state = "platingdmg2"
 	},
@@ -957,7 +1064,7 @@
 /obj/effect/turf_decal/dust,
 /obj/item/stack/tile/plasteel,
 /obj/effect/decal/remains/human,
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "fm" = (
 /obj/structure/grille,
@@ -996,7 +1103,7 @@
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/turf_decal/bot_white,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "fs" = (
 /obj/effect/turf_decal/dust,
@@ -1062,15 +1169,16 @@
 /turf/open/floor/plasteel/white/side,
 /area/awaymission/chilly/facility2)
 "fH" = (
-/turf/closed/wall/rospilovo/beton_agro,
-/area/awaymission/chilly/gatewaystart)
-"fJ" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/awaymission/chilly)
+"fK" = (
 /obj/effect/turf_decal/dust,
-/obj/structure/closet/crate/wooden,
-/obj/item/trash/can/food/beans,
-/obj/item/trash/can/food/beans,
-/obj/item/trash/can/food/beans,
-/turf/open/floor/wood,
+/turf/open/floor/wood{
+	icon_state = "wood-broken5"
+	},
 /area/awaymission/chilly/facility4)
 "fL" = (
 /obj/effect/decal/cleanable/glass,
@@ -1094,6 +1202,16 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/pod/light,
 /area/awaymission/chilly/facility3)
+"fQ" = (
+/obj/structure/falsewall/wood,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility4)
+"fS" = (
+/obj/structure/chair{
+	dir = 4
+	},
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/awaymission/chilly)
 "fT" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/bot_white,
@@ -1149,8 +1267,9 @@
 /area/awaymission/chilly)
 "gd" = (
 /obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/scrubber,
 /turf/open/floor/plasteel/dark,
-/area/awaymission/chilly/gatewaystart)
+/area/awaymission/chilly/facility2)
 "ge" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/tile/green{
@@ -1194,6 +1313,10 @@
 /obj/effect/light_emitter,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
+"go" = (
+/obj/item/toy/snowball,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly)
 "gq" = (
 /turf/open/floor/plating/ice/smooth/oxy,
 /area/awaymission/chilly/mountain)
@@ -1227,6 +1350,11 @@
 /obj/structure/lattice/catwalk,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"gy" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents,
+/turf/open/floor/material,
+/area/awaymission/chilly/facility3)
 "gC" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/rack,
@@ -1243,6 +1371,15 @@
 /obj/item/stack/tile/plasteel,
 /turf/open/floor/plasteel/white/side,
 /area/awaymission/chilly/facility2)
+"gH" = (
+/obj/structure/chair/comfy/black{
+	dir = 1
+	},
+/obj/item/clipboard,
+/obj/item/paper,
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "gI" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/remains/xeno/larva{
@@ -1250,6 +1387,7 @@
 	pixel_y = -7
 	},
 /obj/effect/decal/remains/xeno/larva,
+/obj/structure/lattice,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
 "gJ" = (
@@ -1268,15 +1406,11 @@
 "gM" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/dust,
-/obj/item/storage/box/lights{
-	pixel_x = 4;
-	pixel_y = 4
+/obj/item/storage/box/lights/mixed,
+/obj/item/storage/box/lights/mixed{
+	pixel_x = 3;
+	pixel_y = 3
 	},
-/obj/item/storage/box/lights{
-	pixel_x = -4;
-	pixel_y = -4
-	},
-/obj/item/storage/box/lights,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility)
 "gN" = (
@@ -1284,6 +1418,17 @@
 /obj/structure/table/reinforced,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility/croom)
+"gO" = (
+/obj/structure/closet,
+/obj/item/clothing/suit/space,
+/obj/item/clothing/head/helmet/space,
+/obj/item/clothing/mask/breath,
+/obj/effect/turf_decal/stripes{
+	dir = 8
+	},
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "gP" = (
 /obj/structure/grille/rospilovo,
 /obj/effect/light_emitter,
@@ -1296,7 +1441,8 @@
 /obj/effect/turf_decal/dust,
 /obj/item/clothing/mask/breath,
 /obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/wood,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "gT" = (
 /obj/effect/turf_decal/dust,
@@ -1400,12 +1546,10 @@
 /turf/closed/indestructible/rock/snow/ice,
 /area/awaymission/chilly/facility)
 "hn" = (
-/obj/effect/turf_decal/weather/side{
-	dir = 6
-	},
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/obj/machinery/oldvents,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
 "hr" = (
 /obj/machinery/light/broken{
 	dir = 8
@@ -1444,20 +1588,9 @@
 /area/awaymission/chilly/facility2)
 "hB" = (
 /obj/effect/turf_decal/dust,
-/obj/structure/closet/crate/wooden,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly{
-	name = "rotten meat"
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
 	},
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly{
-	name = "rotten meat"
-	},
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly{
-	name = "rotten meat"
-	},
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly{
-	name = "rotten meat"
-	},
-/turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
 "hC" = (
 /obj/effect/turf_decal/dust,
@@ -1469,6 +1602,7 @@
 /obj/item/stack/tile/plasteel,
 /obj/effect/turf_decal/dust,
 /obj/item/stock_parts/manipulator,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility)
 "hF" = (
@@ -1513,6 +1647,11 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/pod/dark,
 /area/awaymission/chilly/facility3)
+"hK" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/light/broken,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
 "hL" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating,
@@ -1529,6 +1668,7 @@
 "hP" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/light_emitter,
+/obj/structure/lattice,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly)
 "hQ" = (
@@ -1538,7 +1678,7 @@
 	},
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/glass,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "hR" = (
 /obj/effect/turf_decal/dust,
@@ -1566,9 +1706,8 @@
 /obj/effect/turf_decal/dust,
 /obj/item/stack/tile/plasteel,
 /obj/effect/decal/remains/human,
-/turf/open/floor/plasteel/white/side{
-	dir = 1
-	},
+/obj/structure/lattice,
+/turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
 "hX" = (
 /obj/structure/lattice,
@@ -1585,6 +1724,10 @@
 /obj/item/chair,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
+"id" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "ie" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/bot_white,
@@ -1604,25 +1747,13 @@
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
 "ig" = (
-/obj/structure/closet,
 /obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/bot_red,
-/obj/effect/turf_decal/tile/red{
-	dir = 8
+/obj/structure/table/reinforced,
+/obj/item/gun/ballistic/automatic/pistol/makarov{
+	pixel_x = 7;
+	pixel_y = 4
 	},
-/obj/effect/turf_decal/tile/red,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/item/clothing/gloves/combat,
-/obj/item/clothing/shoes/combat,
-/obj/item/clothing/glasses/hud/security,
-/obj/item/clothing/under/color/black,
-/obj/item/clothing/accessory/armband,
-/obj/item/storage/backpack/satchel/sec,
+/obj/item/gun/ballistic/automatic/pistol/makarov,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "ii" = (
@@ -1633,19 +1764,20 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/tracks,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/plasteel,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "ik" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/toolbox/mechanical,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "im" = (
 /obj/effect/turf_decal/dust,
 /obj/item/stack/sheet/metal,
 /obj/effect/decal/remains/human,
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "io" = (
 /obj/effect/turf_decal/dust,
@@ -1691,11 +1823,23 @@
 	},
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
+"ir" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility3)
 "is" = (
 /obj/effect/decal/cleanable/oil,
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
+"iu" = (
+/obj/structure/closet/crate,
+/obj/item/storage/belt/military/wzzzz/vest/white,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
+/area/awaymission/chilly/facility4)
 "iv" = (
 /obj/structure/lattice,
 /obj/effect/decal/remains/human,
@@ -1740,11 +1884,23 @@
 /obj/item/gun/ballistic/automatic/wt550,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/cave)
+"iF" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/variant4,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility2)
+"iG" = (
+/obj/item/stack/tile/plasteel,
+/obj/effect/turf_decal/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/facility)
 "iI" = (
 /obj/effect/turf_decal/dust,
-/obj/structure/table/reinforced,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/obj/machinery/door/airlock/highsecurity,
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
 "iK" = (
 /obj/structure/lattice,
 /obj/effect/turf_decal/dust,
@@ -1821,6 +1977,9 @@
 /obj/structure/dresser,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
+"iY" = (
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility4)
 "ja" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken,
@@ -1840,7 +1999,7 @@
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/turf_decal/loading_area/white,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "ji" = (
 /obj/effect/turf_decal/weather/side{
@@ -1849,6 +2008,12 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility3)
+"jk" = (
+/obj/effect/turf_decal/dust,
+/obj/item/chair,
+/obj/structure/lattice,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility2)
 "jm" = (
 /obj/effect/turf_decal/dust,
 /obj/item/stack/ore/uranium{
@@ -1862,6 +2027,11 @@
 /obj/item/stack/ore/uranium,
 /turf/open/floor/circuit,
 /area/awaymission/chilly/facility)
+"jo" = (
+/obj/machinery/door/airlock/hatch,
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility4)
 "jv" = (
 /obj/machinery/door/airlock/hatch,
 /obj/structure/fans/tiny,
@@ -1869,10 +2039,16 @@
 /turf/open/floor/plasteel/elevatorshaft,
 /area/awaymission/chilly/facility)
 "jw" = (
-/obj/machinery/gateway/away,
 /obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/machinery/porta_turret/armory/chilly{
+	density = 0
+	},
 /turf/open/floor/plasteel/dark,
-/area/awaymission/chilly/gatewaystart)
+/area/awaymission/chilly/facility2)
 "jy" = (
 /obj/structure/table,
 /obj/item/radio,
@@ -1881,7 +2057,9 @@
 /area/awaymission/chilly/facility3)
 "jz" = (
 /obj/effect/turf_decal/dust,
-/obj/structure/frame/computer,
+/obj/structure/frame/computer{
+	anchored = 1
+	},
 /turf/open/floor/circuit,
 /area/awaymission/chilly/facility)
 "jA" = (
@@ -1946,17 +2124,16 @@
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/cave)
 "jN" = (
-/obj/structure/closet,
-/obj/item/clothing/accessory/armband,
-/obj/item/clothing/accessory/armband/medblue,
-/obj/item/clothing/accessory/armband/science,
-/obj/item/clothing/accessory/armband/science,
-/obj/effect/turf_decal/stripes{
-	dir = 5
-	},
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/obj/effect/turf_decal/tile/brown{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
+/obj/machinery/oldvents/variant3,
+/turf/open/floor/plasteel/white,
+/area/awaymission/chilly/facility/croom)
 "jP" = (
 /obj/effect/turf_decal/dust,
 /obj/item/cigbutt,
@@ -1978,26 +2155,15 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
+"jU" = (
+/obj/structure/grille,
+/obj/structure/barricade/wooden/crude/snow,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility3)
 "jV" = (
-/obj/structure/closet,
 /obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/bot_red,
-/obj/effect/turf_decal/tile/red{
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/red,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/item/clothing/gloves/combat,
-/obj/item/clothing/shoes/combat,
-/obj/item/clothing/glasses/hud/security,
-/obj/item/clothing/under/color/black,
-/obj/item/clothing/accessory/armband,
-/obj/item/storage/backpack/satchel/sec,
+/obj/structure/table/reinforced,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "jW" = (
@@ -2049,12 +2215,18 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
 /area/awaymission/chilly/facility2)
+"kh" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/facility3)
 "ki" = (
 /obj/structure/bed,
 /obj/item/bedsheet/grey,
 /obj/effect/turf_decal/dust,
 /obj/effect/mob_spawn/human/corpse/damaged/chilly,
 /obj/effect/decal/cleanable/blood/old,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
@@ -2105,8 +2277,19 @@
 "kq" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken,
+/obj/machinery/oldvents/variant4,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility)
+"kv" = (
+/obj/structure/table,
+/obj/item/flashlight,
+/obj/effect/turf_decal/stripes,
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/bot,
+/obj/effect/turf_decal/tile/green,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "kw" = (
 /mob/living/simple_animal/hostile/syndicate/ranged/smg/space/stormtrooper,
 /turf/open/floor/plating/snowed/oxy,
@@ -2115,9 +2298,8 @@
 /obj/structure/closet,
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "kz" = (
 /obj/structure/flora/stump,
@@ -2189,21 +2371,35 @@
 /area/awaymission/chilly)
 "kN" = (
 /obj/effect/turf_decal/dust,
-/obj/effect/decal/remains/human,
+/obj/machinery/oldvents,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"kO" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical/old/clean,
+/obj/effect/turf_decal/stripes,
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "kQ" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/old,
+/obj/machinery/oldvents/variant4,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility)
 "kR" = (
 /obj/effect/turf_decal/dust,
-/obj/machinery/light/small/broken{
+/obj/effect/turf_decal/tile/red{
 	dir = 8
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
@@ -2225,7 +2421,7 @@
 /obj/machinery/light/broken{
 	dir = 1
 	},
-/turf/open/floor/plasteel/showroomfloor,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "kV" = (
 /obj/effect/turf_decal/weather/side/corner{
@@ -2246,6 +2442,17 @@
 	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 	},
 /area/awaymission/chilly/cave)
+"kY" = (
+/obj/effect/turf_decal/tile/green{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/green{
+	dir = 1
+	},
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/scrubber,
+/turf/open/floor/pod/light,
+/area/awaymission/chilly/facility3)
 "kZ" = (
 /obj/effect/turf_decal/weather/side/corner{
 	dir = 1
@@ -2371,21 +2578,20 @@
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/syndietrain)
 "lp" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/fulltile/ice,
-/turf/open/floor/plating,
-/area/awaymission/chilly/gatewaystart)
+/obj/structure/fence/door,
+/obj/effect/light_emitter,
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/awaymission/chilly)
 "ls" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility)
 "lt" = (
-/obj/structure/chair/comfy/black{
-	dir = 1
-	},
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/obj/machinery/door/window/brigdoor/security/cell/northright,
+/obj/effect/turf_decal/delivery/red,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
 "lv" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/bot_white,
@@ -2409,7 +2615,8 @@
 "lz" = (
 /obj/effect/turf_decal/dust,
 /obj/item/stack/sheet/metal,
-/turf/open/floor/plasteel/white,
+/obj/structure/lattice,
+/turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
 "lE" = (
 /obj/effect/turf_decal/dust,
@@ -2419,11 +2626,29 @@
 /obj/structure/barricade/wooden/snowed,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
+"lH" = (
+/obj/structure/lattice,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
+/area/awaymission/chilly/facility4)
 "lI" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/poo,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility5)
+"lK" = (
+/obj/effect/turf_decal/stripes,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/purple{
+	dir = 4
+	},
+/obj/machinery/door/poddoor/shutters/preopen,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/gatewaystart)
 "lL" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/elevatorshaft,
@@ -2435,6 +2660,14 @@
 	},
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
+"lN" = (
+/obj/structure/table,
+/obj/item/radio/intercom,
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/awaymission/chilly)
+"lO" = (
+/turf/closed/mineral/snowmountain/cavern/oxy,
+/area/awaymission/chilly/facility4)
 "lQ" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/glass,
@@ -2451,7 +2684,9 @@
 /obj/effect/decal/cleanable/oil,
 /obj/effect/turf_decal/dust,
 /obj/item/stock_parts/manipulator,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
 /area/awaymission/chilly/facility)
 "lT" = (
 /obj/effect/turf_decal/dust,
@@ -2459,7 +2694,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "lU" = (
 /obj/effect/turf_decal/dust,
@@ -2478,7 +2713,7 @@
 "mb" = (
 /obj/effect/turf_decal/dust,
 /obj/item/stack/medical/gauze,
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "md" = (
 /obj/machinery/seed_extractor,
@@ -2497,6 +2732,7 @@
 	},
 /obj/effect/turf_decal/weather/side/corner,
 /obj/effect/light_emitter,
+/obj/structure/lattice,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
 "mh" = (
@@ -2532,7 +2768,17 @@
 /area/awaymission/chilly/facility3)
 "mw" = (
 /obj/effect/turf_decal/dust,
-/obj/machinery/door/window/brigdoor/eastleft,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/machinery/oldvents,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "mx" = (
@@ -2545,7 +2791,7 @@
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/turf_decal/bot_white,
 /obj/item/gun/ballistic/automatic/pistol/m1911/no_mag,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "my" = (
 /turf/open/floor/grass/snow/safe/oxy,
@@ -2559,20 +2805,21 @@
 /obj/item/stack/rods,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility)
-"mC" = (
+"mB" = (
 /obj/effect/turf_decal/dust,
-/obj/effect/decal/cleanable/glass,
-/turf/open/floor/plasteel/white/side,
+/obj/structure/lattice,
+/turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
 "mE" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/frame/computer{
+	anchored = 1;
 	dir = 4;
 	pixel_x = -4
 	},
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/glass,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "mG" = (
 /obj/machinery/vending/cola/random,
@@ -2580,6 +2827,13 @@
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/pod,
 /area/awaymission/chilly/facility)
+"mI" = (
+/obj/structure/chair/comfy/black{
+	dir = 1
+	},
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "mL" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating/snowed/oxy,
@@ -2587,6 +2841,7 @@
 "mM" = (
 /obj/effect/turf_decal/dust,
 /obj/item/clothing/mask/breath/medical,
+/obj/structure/lattice,
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
@@ -2605,8 +2860,13 @@
 /obj/item/clothing/suit/hooded/wintercoat,
 /obj/item/clothing/gloves/color/black,
 /obj/effect/turf_decal/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility)
+"mT" = (
+/obj/structure/sign/warning/securearea/ntsign,
+/turf/closed/wall/rust,
+/area/awaymission/chilly/ntcargotrain)
 "mU" = (
 /obj/structure/bed,
 /obj/effect/turf_decal/dust,
@@ -2616,6 +2876,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 9
 	},
+/obj/structure/lattice,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly)
 "mZ" = (
@@ -2627,6 +2888,7 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/oil,
 /mob/living/simple_animal/hostile/skeleton/ice,
+/obj/structure/lattice,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
 "nb" = (
@@ -2651,6 +2913,12 @@
 /obj/structure/fireplace,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
+"ni" = (
+/obj/structure/chair/plastic{
+	dir = 4
+	},
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly)
 "nj" = (
 /obj/effect/light_emitter,
 /turf/open/floor/grass/snow/safe/oxy,
@@ -2672,15 +2940,23 @@
 /area/awaymission/chilly/facility3)
 "no" = (
 /obj/structure/closet,
-/obj/item/clothing/suit/space,
-/obj/item/clothing/head/helmet/space,
-/obj/item/clothing/mask/breath,
-/obj/effect/turf_decal/stripes{
-	dir = 9
-	},
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/obj/effect/turf_decal/bot_red,
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/item/clothing/suit/armor/vest/wzzzz/riot_german,
+/obj/item/clothing/head/helmet/wzzzz/riot,
+/obj/item/melee/classic_baton/wzzzz/german{
+	desc = "A compact yet robust personal defense weapon. Can be concealed when folded.";
+	name = "baton"
+	},
+/obj/item/flashlight/seclite,
+/obj/item/clothing/mask/russian_balaclava,
+/obj/item/storage/belt/security/wzzzz,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
 "nt" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/plasteel/showroomfloor,
@@ -2714,10 +2990,29 @@
 /obj/effect/turf_decal/bot_red/left,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility/croom)
+"nz" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/closet/crate/wooden,
+/obj/item/grown/log/tree,
+/obj/item/grown/log/tree,
+/obj/item/grown/log/tree,
+/obj/item/grown/log/tree,
+/obj/item/grown/log/tree,
+/turf/open/floor/wood,
+/area/awaymission/chilly/facility4)
 "nA" = (
-/obj/machinery/door/airlock/hatch,
-/turf/open/floor/plasteel/elevatorshaft,
-/area/awaymission/chilly/gatewaystart)
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
 "nC" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/glass,
@@ -2737,11 +3032,15 @@
 /area/awaymission/chilly/ntcargotrain)
 "nH" = (
 /obj/effect/turf_decal/dust,
-/obj/machinery/light{
-	dir = 8
+/obj/effect/turf_decal/tile/red{
+	dir = 4
 	},
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/machinery/oldvents/scrubber,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
 "nI" = (
 /obj/item/trash/can/food/beans,
 /obj/effect/light_emitter,
@@ -2786,6 +3085,7 @@
 "nQ" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/vomit/old,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
 "nS" = (
@@ -2793,6 +3093,14 @@
 /obj/structure/lattice,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility5)
+"nT" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/obj/structure/lattice,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/facility)
 "nU" = (
 /obj/structure/chair,
 /obj/effect/turf_decal/dust,
@@ -2801,6 +3109,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
+"nV" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/lattice,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility2)
 "nY" = (
 /obj/effect/turf_decal/dust,
 /obj/item/stack/tile/plasteel,
@@ -2809,7 +3122,9 @@
 /area/awaymission/chilly/facility2)
 "oa" = (
 /obj/effect/turf_decal/dust,
-/obj/structure/frame/computer,
+/obj/structure/frame/computer{
+	anchored = 1
+	},
 /turf/open/floor/plasteel/telecomms,
 /area/awaymission/chilly/facility2)
 "ob" = (
@@ -2853,10 +3168,21 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/obj/machinery/oldvents/variant4,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
+"on" = (
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/gun/ballistic/rifle/boltaction/wzzzz,
+/obj/item/ammo_box/a762,
+/obj/item/ammo_box/a762,
+/obj/item/ammo_box/a762,
+/obj/item/ammo_box/a762,
+/obj/item/ammo_box/a762,
+/obj/item/ammo_box/a762,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility4)
 "op" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating{
@@ -2890,6 +3216,7 @@
 	dir = 9
 	},
 /obj/effect/light_emitter,
+/obj/structure/lattice,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly)
 "ov" = (
@@ -2900,6 +3227,12 @@
 	},
 /turf/open/floor/plasteel/white/side,
 /area/awaymission/chilly/facility2)
+"ow" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken7"
+	},
+/area/awaymission/chilly/facility4)
 "ox" = (
 /obj/structure/chair/comfy/black{
 	dir = 4
@@ -2914,6 +3247,17 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating,
 /area/awaymission/chilly/syndietrain)
+"oA" = (
+/obj/structure/closet/mini_fridge,
+/obj/structure/lattice,
+/obj/item/reagent_containers/food/drinks/beer,
+/obj/item/reagent_containers/food/drinks/beer,
+/obj/item/reagent_containers/food/drinks/beer,
+/obj/item/reagent_containers/food/drinks/beer,
+/obj/item/reagent_containers/food/drinks/beer,
+/obj/item/reagent_containers/food/drinks/beer,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility4)
 "oC" = (
 /obj/effect/decal/cleanable/glass,
 /obj/effect/turf_decal/dust,
@@ -2968,7 +3312,7 @@
 /obj/effect/turf_decal/dust,
 /obj/structure/table,
 /obj/item/storage/book/bible/booze,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "oS" = (
 /obj/structure/rack,
@@ -2981,9 +3325,8 @@
 /area/awaymission/chilly)
 "oU" = (
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel/white/side{
-	dir = 6
-	},
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "oV" = (
 /obj/effect/turf_decal/weather/side,
@@ -3008,6 +3351,13 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility3)
+"pc" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "pe" = (
 /obj/structure/chair{
 	dir = 1
@@ -3018,6 +3368,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
+"ph" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/variant1,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
 "pi" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/chair/comfy/shuttle{
@@ -3026,7 +3381,7 @@
 	},
 /obj/effect/turf_decal/bot_white,
 /obj/effect/decal/remains/human,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "pk" = (
 /obj/effect/turf_decal/dust,
@@ -3073,10 +3428,8 @@
 /area/awaymission/chilly/facility3)
 "pA" = (
 /obj/effect/turf_decal/dust,
-/obj/machinery/door/firedoor,
-/turf/open/floor/plasteel/white/side{
-	dir = 4
-	},
+/obj/structure/lattice,
+/turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility2)
 "pD" = (
 /obj/effect/decal/cleanable/glass,
@@ -3103,12 +3456,6 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/chilly/facility3)
-"pG" = (
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel/white/side{
-	dir = 1
-	},
-/area/awaymission/chilly/facility2)
 "pH" = (
 /obj/effect/turf_decal/dust,
 /mob/living/simple_animal/hostile/skeleton/ice,
@@ -3149,12 +3496,18 @@
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "pP" = (
-/obj/structure/table,
-/obj/item/flashlight,
-/obj/effect/turf_decal/stripes,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
 "pQ" = (
 /obj/machinery/camera{
 	dir = 5
@@ -3165,6 +3518,7 @@
 /obj/effect/turf_decal/dust,
 /obj/item/stack/tile/plasteel,
 /obj/effect/decal/cleanable/vomit/old,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
 "pS" = (
@@ -3201,9 +3555,7 @@
 "pY" = (
 /obj/effect/decal/cleanable/food/plant_smudge,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "pZ" = (
 /obj/item/stack/tile/plasteel,
@@ -3227,10 +3579,15 @@
 /area/awaymission/chilly/facility2)
 "qd" = (
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel/stairs/old/chilly/right{
-	dir = 1
+/obj/effect/turf_decal/tile/brown{
+	dir = 8
 	},
-/area/awaymission/chilly/gatewaystart)
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
+/obj/machinery/oldvents/scrubber,
+/turf/open/floor/plasteel/white,
+/area/awaymission/chilly/facility/croom)
 "qe" = (
 /obj/effect/light_emitter,
 /turf/open/floor/plating/ice/smooth/oxy,
@@ -3246,9 +3603,19 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/ntcargotrain)
+"qk" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/green,
+/obj/effect/turf_decal/tile/green{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "ql" = (
 /obj/effect/turf_decal/dust,
-/obj/structure/frame/computer,
+/obj/structure/frame/computer{
+	anchored = 1
+	},
 /obj/effect/light_emitter{
 	light_color = "#329cd9";
 	name = "Base I Engineering Blue"
@@ -3259,6 +3626,11 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating,
 /area/awaymission/chilly/ntcargotrain)
+"qo" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/wood,
+/area/awaymission/chilly/facility3)
 "qp" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/grass/snow/safe/oxy,
@@ -3377,8 +3749,15 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/weather/side{
+	dir = 10
+	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
+"qT" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility4)
 "qV" = (
 /obj/structure/dresser,
 /obj/effect/turf_decal/dust,
@@ -3389,6 +3768,12 @@
 /obj/structure/table/wood,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility)
+"ra" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/lattice,
+/obj/structure/lattice,
+/turf/open/floor/plasteel/white,
+/area/awaymission/chilly/facility2)
 "rc" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/chair/office{
@@ -3401,6 +3786,7 @@
 	pixel_y = -2
 	},
 /obj/structure/frame/computer{
+	anchored = 1;
 	dir = 8;
 	pixel_x = 4
 	},
@@ -3419,6 +3805,16 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility/croom)
+"rg" = (
+/obj/structure/lattice,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility4)
+"ri" = (
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility)
 "rj" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating{
@@ -3496,13 +3892,14 @@
 /obj/structure/chair/office/light{
 	dir = 1
 	},
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "rE" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken{
 	dir = 4
 	},
+/obj/structure/lattice,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
 "rG" = (
@@ -3523,6 +3920,23 @@
 /obj/structure/chair,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
+"rK" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/closet/crate/wooden,
+/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly{
+	name = "rotten meat"
+	},
+/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly{
+	name = "rotten meat"
+	},
+/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly{
+	name = "rotten meat"
+	},
+/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly{
+	name = "rotten meat"
+	},
+/turf/open/floor/wood,
+/area/awaymission/chilly/facility4)
 "rM" = (
 /obj/machinery/light/broken{
 	dir = 8
@@ -3542,12 +3956,14 @@
 /turf/closed/wall/mineral/wood,
 /area/awaymission/chilly/facility4)
 "rR" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/obj/effect/turf_decal/stripes/red/line,
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/side,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
 "rT" = (
 /obj/item/shovel,
 /turf/open/floor/grass/snow/safe/oxy,
@@ -3628,7 +4044,7 @@
 	pixel_y = 32
 	},
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel/showroomfloor,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "sr" = (
 /obj/structure/closet/secure_closet/freezer,
@@ -3639,6 +4055,16 @@
 /turf/open/floor/plasteel/white/side{
 	dir = 8
 	},
+/area/awaymission/chilly/facility3)
+"ss" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/awaymission/chilly/facility)
+"st" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/variant3,
+/turf/open/floor/plasteel,
 /area/awaymission/chilly/facility3)
 "su" = (
 /obj/effect/decal/remains/human,
@@ -3670,6 +4096,7 @@
 /obj/effect/turf_decal/weather/side/corner{
 	dir = 8
 	},
+/obj/structure/lattice,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly)
 "sJ" = (
@@ -3698,17 +4125,18 @@
 "sO" = (
 /obj/item/stack/tile/plasteel,
 /obj/effect/turf_decal/dust,
-/obj/item/toy/brokenradio,
+/obj/item/radio,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
 "sP" = (
-/obj/effect/turf_decal/stripes,
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/stripes/red/line,
+/obj/effect/turf_decal/weather/side{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/side/corner,
 /turf/open/floor/plasteel/dark,
-/area/awaymission/chilly/gatewaystart)
+/area/awaymission/chilly/facility2)
 "sR" = (
 /obj/structure/closet/cabinet,
 /obj/effect/turf_decal/dust,
@@ -3717,10 +4145,16 @@
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "sS" = (
-/obj/structure/lattice,
-/obj/effect/light_emitter,
-/turf/open/floor/plating/snowed/oxy,
-/area/awaymission/chilly/cave)
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/stripes/red/line,
+/obj/effect/turf_decal/weather/side{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
 "sT" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/weather/side{
@@ -3730,12 +4164,21 @@
 /obj/structure/lattice/catwalk,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"sV" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/decal/cleanable/oil,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility2)
 "sW" = (
 /obj/item/stack/rods,
 /obj/effect/turf_decal/dust,
 /obj/effect/light_emitter,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
+"sY" = (
+/obj/structure/noticeboard,
+/turf/closed/wall/ice,
+/area/awaymission/chilly/facility2)
 "sZ" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken{
@@ -3746,9 +4189,13 @@
 "ta" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/door/firedoor,
-/turf/open/floor/plasteel/white/side{
-	dir = 1
-	},
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility2)
+"tc" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/decal/cleanable/oil,
+/obj/structure/lattice,
+/turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility2)
 "td" = (
 /obj/effect/turf_decal/dust,
@@ -3763,6 +4210,11 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
+/area/awaymission/chilly/facility2)
+"te" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/lattice,
+/turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
 "tf" = (
 /obj/machinery/door/airlock/maintenance_hatch,
@@ -3796,6 +4248,7 @@
 "tq" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/old,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility)
 "tr" = (
@@ -3808,11 +4261,13 @@
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/cave)
 "tv" = (
-/obj/structure/frame/computer{
-	dir = 1;
-	pixel_y = -3
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/stripes/red/line,
+/obj/effect/turf_decal/weather/side{
+	dir = 1
 	},
-/turf/open/floor/plating,
+/obj/effect/turf_decal/weather/side/corner,
+/turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "tx" = (
 /obj/machinery/door/airlock,
@@ -3869,22 +4324,13 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility)
 "tN" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/effect/light_emitter,
-/turf/open/floor/plating,
-/area/awaymission/chilly/cave)
-"tO" = (
-/obj/structure/closet,
-/obj/item/clothing/suit/space,
-/obj/item/clothing/head/helmet/space,
-/obj/item/clothing/mask/breath,
-/obj/effect/turf_decal/stripes{
-	dir = 8
-	},
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/obj/machinery/oldvents/variant3,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility)
+"tO" = (
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/facility)
 "tP" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/porta_turret/armory/chilly,
@@ -3921,7 +4367,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/microwave,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel/showroomfloor,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "ub" = (
 /obj/effect/turf_decal/dust,
@@ -3931,6 +4377,11 @@
 /obj/structure/lattice,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility5)
+"ud" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/lattice,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
 "ue" = (
 /turf/closed/indestructible/rock/snow,
 /area/awaymission/chilly)
@@ -3986,6 +4437,14 @@
 	},
 /turf/open/floor/plating/ice/smooth/oxy,
 /area/awaymission/chilly/cave)
+"uq" = (
+/obj/structure/table,
+/obj/item/analyzer,
+/obj/effect/turf_decal/stripes,
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "ur" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken{
@@ -3998,6 +4457,11 @@
 /obj/effect/light_emitter,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
+"ut" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/scrubber,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility2)
 "uu" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/glass,
@@ -4021,6 +4485,7 @@
 /obj/item/bedsheet/grey,
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/gibs/old,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility)
 "uI" = (
@@ -4049,17 +4514,24 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/chilly/facility3)
 "uJ" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/open/floor/grass/snow/safe/oxy,
-/area/awaymission/chilly/gatewaystart)
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/bot_red,
+/obj/item/storage/box/lethalshot,
+/obj/structure/window/reinforced,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
 "uK" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/toolbox/ammo,
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
+"uO" = (
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/poddoor/preopen,
+/turf/open/floor/plasteel/elevatorshaft,
+/area/awaymission/chilly/gatewaystart)
 "uP" = (
 /obj/structure/barricade/wooden/snowed,
 /turf/open/floor/grass/snow/safe/oxy{
@@ -4104,11 +4576,26 @@
 /turf/closed/indestructible/opshuttle,
 /area/awaymission/chilly/syndietrain)
 "vi" = (
-/obj/structure/table,
-/obj/item/analyzer,
-/obj/effect/turf_decal/stripes,
+/obj/structure/table/reinforced,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
+/obj/effect/turf_decal/bot_red,
+/obj/item/gun/ballistic/shotgun/automatic/combat,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4;
+	layer = 2.9
+	},
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
+"vk" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/purple{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/gatewaystart)
 "vl" = (
 /turf/closed/wall/rospilovo/bricks_white,
@@ -4168,6 +4655,13 @@
 /obj/structure/lattice,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility5)
+"vA" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/light/broken,
+/obj/machinery/oldvents/variant4,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
 "vB" = (
 /obj/item/stack/rods,
 /obj/effect/turf_decal/weather/side{
@@ -4181,16 +4675,36 @@
 	},
 /turf/open/floor/plating/ice/smooth/oxy,
 /area/awaymission/chilly/cave)
+"vG" = (
+/obj/effect/decal/remains/human,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly)
 "vH" = (
 /obj/effect/turf_decal/dust,
 /obj/item/stack/tile/plasteel,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/plasteel,
+/obj/structure/lattice,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
+"vL" = (
+/obj/structure/closet,
+/obj/item/clothing/accessory/armband,
+/obj/item/clothing/accessory/armband/medblue,
+/obj/item/clothing/accessory/armband/science,
+/obj/item/clothing/accessory/armband/science,
+/obj/effect/turf_decal/stripes{
+	dir = 5
+	},
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "vN" = (
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/chempile,
 /obj/effect/turf_decal/weather/side,
+/obj/structure/lattice,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
 "vO" = (
@@ -4284,19 +4798,13 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "wr" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility)
-"wz" = (
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel/white/side{
-	dir = 5
-	},
-/area/awaymission/chilly/facility2)
 "wA" = (
 /obj/effect/decal/cleanable/glass,
 /obj/item/stack/rods,
@@ -4370,6 +4878,18 @@
 	},
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly)
+"wV" = (
+/obj/effect/turf_decal/stripes,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/obj/machinery/door/poddoor/shutters/preopen,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/gatewaystart)
 "wW" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken{
@@ -4385,6 +4905,11 @@
 /obj/effect/turf_decal/dust,
 /obj/structure/table_frame,
 /turf/open/floor/plating/snowed/oxy,
+/area/awaymission/chilly/facility2)
+"xa" = (
+/obj/effect/turf_decal/dust,
+/mob/living/simple_animal/hostile/skeleton/ice,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "xb" = (
 /obj/effect/turf_decal/dust,
@@ -4480,6 +5005,9 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 6
 	},
+/obj/structure/sign/warning/securearea/deck1{
+	pixel_x = 31
+	},
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
 "xC" = (
@@ -4533,6 +5061,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
+"xN" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken3"
+	},
+/area/awaymission/chilly/facility4)
 "xQ" = (
 /obj/effect/decal/cleanable/glass,
 /obj/effect/turf_decal/dust,
@@ -4545,6 +5079,12 @@
 "xS" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/stripes/red/line,
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "xV" = (
@@ -4592,12 +5132,27 @@
 	icon_state = "platingdmg2"
 	},
 /area/awaymission/chilly/facility)
+"ym" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating{
+	icon_state = "platingdmg2"
+	},
+/area/awaymission/chilly/facility2)
 "yo" = (
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel/stairs/old/chilly{
-	dir = 1
+/obj/machinery/light/small/broken{
+	dir = 4
 	},
-/area/awaymission/chilly/gatewaystart)
+/obj/machinery/doorpanel/broken{
+	dir = 4
+	},
+/turf/open/floor/plasteel/elevatorshaft,
+/area/awaymission/chilly/facility2)
+"yp" = (
+/obj/structure/table,
+/obj/structure/rospilovo/radio,
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/awaymission/chilly)
 "ys" = (
 /obj/structure/rack,
 /obj/effect/turf_decal/dust,
@@ -4628,6 +5183,14 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/bot_red,
 /obj/item/gun/ballistic/shotgun/automatic/combat,
+/obj/item/gun/ballistic/automatic/pistol/makarov,
+/obj/structure/window/reinforced{
+	dir = 1;
+	pixel_y = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "yC" = (
@@ -4653,7 +5216,7 @@
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/turf_decal/bot_white,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "yH" = (
 /obj/effect/turf_decal/dust,
@@ -4664,19 +5227,37 @@
 "yK" = (
 /obj/effect/turf_decal/dust,
 /obj/item/stack/tile/plasteel,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
 "yL" = (
 /obj/effect/decal/cleanable/robot_debris/old,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
+/obj/machinery/oldvents/variant4,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
+"yM" = (
+/obj/item/reagent_containers/food/drinks/colocup/lean{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/drinks/colocup/lean{
+	pixel_x = -4;
+	pixel_y = 10
+	},
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility4)
 "yN" = (
 /obj/structure/lattice,
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"yP" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility3)
 "yQ" = (
 /obj/effect/baseturf_helper/asteroid/snow{
 	baseturf = /turf/open/floor/grass/snow/safe/oxy
@@ -4764,6 +5345,7 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/mob_spawn/human/corpse/damaged/chilly,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility)
 "zi" = (
@@ -4842,12 +5424,30 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"zB" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/fulltile/ice,
+/obj/machinery/door/poddoor/shutters/preopen,
+/turf/open/floor/plating,
+/area/awaymission/chilly/gatewaystart)
+"zD" = (
+/obj/structure/chair,
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
 "zE" = (
 /obj/effect/turf_decal/weather/side/corner{
 	dir = 4
 	},
 /turf/open/floor/plating/ice/smooth/oxy,
 /area/awaymission/chilly/cave)
+"zG" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/wood{
+	icon_state = "wood-broken4"
+	},
+/area/awaymission/chilly/facility)
 "zJ" = (
 /obj/machinery/modular_computer/console/preset/civilian{
 	dir = 8
@@ -4855,6 +5455,11 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/syndietrain)
+"zK" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/snowed/oxy,
+/area/awaymission/chilly/facility)
 "zO" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/chair/office{
@@ -4881,11 +5486,12 @@
 /area/awaymission/chilly/facility2)
 "zX" = (
 /obj/effect/turf_decal/dust,
-/obj/machinery/porta_turret/armory/chilly{
-	density = 0
-	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/stairs/old/chilly/single,
 /area/awaymission/chilly/facility2)
+"zY" = (
+/obj/structure/rospilovo/shina,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly)
 "zZ" = (
 /turf/open/floor/plating/ice/smooth/oxy,
 /area/awaymission/chilly/cave)
@@ -4936,6 +5542,7 @@
 /obj/effect/mob_spawn/human/corpse/damaged/chilly,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/gibs/old,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility)
 "Ak" = (
@@ -4943,6 +5550,7 @@
 /obj/item/storage/backpack/satchel,
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/dust,
+/obj/item/shovel/spade/wzzz,
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
@@ -4977,6 +5585,7 @@
 /obj/structure/chair/office/light{
 	dir = 8
 	},
+/obj/structure/lattice,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
 "Aq" = (
@@ -4994,11 +5603,9 @@
 /area/awaymission/chilly/facility)
 "Ar" = (
 /obj/effect/turf_decal/dust,
-/obj/machinery/door/window/brigdoor/eastleft{
-	dir = 8
-	},
-/turf/open/floor/plasteel/dark,
-/area/awaymission/chilly/facility2)
+/obj/machinery/oldvents,
+/turf/open/floor/plasteel/elevatorshaft,
+/area/awaymission/chilly/facility)
 "As" = (
 /obj/machinery/light/small/broken{
 	dir = 1
@@ -5020,6 +5627,17 @@
 /obj/effect/turf_decal/tile/brown,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
+"Ay" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/green{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "Az" = (
 /obj/machinery/light/small/broken{
 	dir = 8
@@ -5070,16 +5688,16 @@
 "AO" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/wood,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "AP" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken{
 	dir = 1
 	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "AR" = (
 /obj/effect/turf_decal/dust,
@@ -5113,6 +5731,18 @@
 /obj/machinery/door/airlock/hatch,
 /turf/open/floor/plasteel/elevatorshaft,
 /area/awaymission/chilly/mountain)
+"AW" = (
+/obj/structure/closet,
+/obj/item/clothing/suit/space,
+/obj/item/clothing/head/helmet/space,
+/obj/item/clothing/mask/breath,
+/obj/effect/turf_decal/stripes{
+	dir = 10
+	},
+/obj/machinery/light,
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "AX" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken{
@@ -5137,6 +5767,11 @@
 "Bb" = (
 /turf/closed/wall/rospilovo/beton_agro,
 /area/awaymission/chilly/facility3)
+"Bc" = (
+/obj/effect/turf_decal/dust,
+/mob/living/simple_animal/hostile/skeleton/ice,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility2)
 "Bd" = (
 /obj/effect/turf_decal/dust,
 /obj/item/trash/semki,
@@ -5157,12 +5792,22 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
+"Bg" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/bed,
+/obj/item/bedsheet,
+/obj/item/storage/box/lethalshot,
+/turf/open/floor/wood{
+	icon_state = "wood-broken"
+	},
+/area/awaymission/chilly/facility4)
 "Bh" = (
 /obj/structure/closet/crate/secure/science,
 /obj/item/pickaxe/drill,
 /obj/effect/turf_decal/weather/side{
 	dir = 8
 	},
+/obj/structure/lattice,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly)
 "Bk" = (
@@ -5172,6 +5817,11 @@
 	slowdown = 1
 	},
 /area/awaymission/chilly)
+"Bn" = (
+/obj/effect/turf_decal/dust,
+/obj/item/stack/sheet/metal,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility2)
 "Bo" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/tile/green{
@@ -5244,9 +5894,10 @@
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/cave)
 "BF" = (
-/obj/structure/sign/nanotrasen,
-/turf/closed/indestructible/opshuttle,
-/area/awaymission/chilly/syndietrain)
+/obj/effect/turf_decal/dust,
+/obj/machinery/doorpanel/broken,
+/turf/open/floor/plasteel/elevatorshaft,
+/area/awaymission/chilly/facility)
 "BG" = (
 /obj/structure/table,
 /obj/machinery/light/broken{
@@ -5265,10 +5916,23 @@
 /obj/effect/light_emitter,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
+"BM" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/awaymission/chilly/facility)
+"BN" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plasteel/stairs/old/chilly/right{
+	dir = 1
+	},
+/area/awaymission/chilly/gatewaystart)
 "BQ" = (
 /obj/effect/turf_decal/dust,
-/obj/structure/frame/computer,
+/obj/structure/frame/computer{
+	anchored = 1
+	},
 /obj/effect/decal/cleanable/cobweb,
+/obj/structure/lattice,
 /turf/open/floor/plasteel/telecomms,
 /area/awaymission/chilly/facility2)
 "BR" = (
@@ -5287,7 +5951,7 @@
 "BV" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/bed/pod,
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "BW" = (
 /obj/effect/turf_decal/dust,
@@ -5297,6 +5961,20 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
+/area/awaymission/chilly/facility2)
+"BY" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "Cd" = (
 /obj/effect/turf_decal/weather/side,
@@ -5342,6 +6020,19 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"Co" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/peaches,
+/obj/item/reagent_containers/food/snacks/canned/peaches,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility4)
 "Cp" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/old,
@@ -5352,6 +6043,7 @@
 	pixel_y = -2
 	},
 /obj/structure/frame/computer{
+	anchored = 1;
 	dir = 4;
 	pixel_x = -4
 	},
@@ -5392,8 +6084,12 @@
 /area/awaymission/chilly/facility)
 "Cz" = (
 /obj/effect/turf_decal/dust,
-/obj/machinery/light/small/broken{
-	dir = 4
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
@@ -5438,6 +6134,7 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/mob_spawn/human/corpse/damaged/chilly,
 /obj/effect/decal/cleanable/blood/old,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility)
 "CI" = (
@@ -5504,6 +6201,8 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 10
 	},
+/obj/machinery/oldvents/variant4,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/plating{
 	icon_state = "platingdmg2"
 	},
@@ -5521,7 +6220,13 @@
 	pixel_x = -6;
 	pixel_y = 3
 	},
+/obj/structure/window/reinforced,
 /turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
+"Dd" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/rospilovo/panel/panel2,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "De" = (
 /obj/effect/turf_decal/weather/side{
@@ -5532,10 +6237,27 @@
 	},
 /turf/open/floor/plating/ice/smooth/oxy,
 /area/awaymission/chilly/cave)
+"Df" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/doorpanel/broken{
+	dir = 4
+	},
+/turf/open/floor/plasteel/elevatorshaft,
+/area/awaymission/chilly/facility)
 "Dh" = (
 /obj/structure/girder,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"Di" = (
+/obj/structure/closet,
+/obj/item/clothing/accessory/armband,
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "Dj" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/door/poddoor/shutters/preopen,
@@ -5551,13 +6273,19 @@
 "Dn" = (
 /obj/effect/decal/cleanable/ash,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel/showroomfloor,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "Dq" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility)
+"Dt" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/decal/cleanable/blood/old,
+/obj/machinery/oldvents,
+/turf/open/floor/wood,
+/area/awaymission/chilly/facility3)
 "Du" = (
 /obj/effect/turf_decal/weather/side/corner{
 	dir = 8
@@ -5566,6 +6294,7 @@
 	dir = 4
 	},
 /obj/effect/light_emitter,
+/obj/structure/lattice,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
 "Dw" = (
@@ -5580,7 +6309,7 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/chem_pile,
 /obj/effect/decal/remains/human,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "Dz" = (
 /obj/machinery/hydroponics/constructable,
@@ -5594,34 +6323,37 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/airless/white,
 /area/awaymission/chilly/facility3)
+"DC" = (
+/obj/structure/rospilovo/shina3,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly)
 "DD" = (
 /obj/machinery/door/airlock/hatch,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"DI" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly)
 "DK" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken{
 	dir = 1
 	},
-/turf/open/floor/plating/snowed/oxy,
+/obj/structure/rospilovo/panel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "DL" = (
 /obj/structure/fence/door,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly)
 "DM" = (
-/obj/structure/table,
-/obj/item/implant/radio{
-	pixel_x = -8
-	},
-/obj/item/implant/radio{
-	pixel_x = 8
-	},
-/obj/item/implant/radio,
-/obj/effect/turf_decal/stripes,
 /obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/variant2,
 /turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/area/awaymission/chilly/facility)
 "DN" = (
 /obj/machinery/hydroponics/constructable,
 /obj/structure/window/reinforced/spawner/north,
@@ -5635,9 +6367,14 @@
 	},
 /obj/effect/mob_spawn/human/corpse/damaged/chilly,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/obj/machinery/oldvents/variant4,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
+"DP" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
 "DQ" = (
 /obj/effect/turf_decal/dust,
@@ -5670,6 +6407,14 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly)
+"Ea" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "Ed" = (
 /obj/effect/turf_decal/weather/side,
 /obj/machinery/light/broken{
@@ -5688,9 +6433,22 @@
 	},
 /turf/open/floor/plasteel/elevatorshaft,
 /area/awaymission/chilly/facility2)
+"Ej" = (
+/obj/structure/sign/warning/coldtemp{
+	pixel_y = 31
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/facility4)
+"Eo" = (
+/obj/structure/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/facility4)
 "Eq" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/frame/computer{
+	anchored = 1;
 	dir = 4;
 	pixel_x = -4
 	},
@@ -5705,6 +6463,7 @@
 /obj/effect/mob_spawn/human/corpse/damaged/chilly,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/gibs/old,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility)
 "Es" = (
@@ -5720,6 +6479,7 @@
 "Eu" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/gibs/old,
+/obj/machinery/oldvents,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "Ez" = (
@@ -5802,8 +6562,16 @@
 /obj/structure/closet/secure,
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/dust,
+/obj/item/gun/ballistic/rifle/boltaction,
+/obj/item/ammo_box/a762,
+/obj/item/ammo_box/a762,
+/obj/item/ammo_box/a762,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility3)
+"ER" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
 "ES" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/dust,
@@ -5845,10 +6613,7 @@
 /area/awaymission/chilly/facility)
 "Fe" = (
 /obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
-/obj/machinery/light/small/broken{
+/obj/effect/turf_decal/weather/side{
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
@@ -5881,6 +6646,14 @@
 "Ft" = (
 /turf/closed/wall/rust,
 /area/awaymission/chilly/facility2)
+"Fu" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/obj/machinery/oldvents/scrubber,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/facility)
 "Fw" = (
 /obj/machinery/light/small/broken{
 	dir = 1
@@ -5907,7 +6680,7 @@
 "FB" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/glass,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "FD" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
@@ -5947,6 +6720,11 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/chilly/facility)
+"FJ" = (
+/obj/structure/closet/crate,
+/obj/item/seeds/chili/ice,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility4)
 "FK" = (
 /obj/structure/lattice,
 /turf/open/floor/grass/snow/safe/oxy,
@@ -5969,8 +6747,15 @@
 /obj/effect/turf_decal/dust,
 /obj/structure/bed/pod,
 /obj/effect/mob_spawn/human/corpse/damaged/chilly,
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
+"FO" = (
+/obj/structure/chair{
+	dir = 4
+	},
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
 "FP" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/elevatorshaft,
@@ -5987,10 +6772,11 @@
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility3)
 "FS" = (
-/obj/item/ammo_box/magazine/m41a,
-/obj/effect/turf_decal/weather/side,
+/obj/effect/turf_decal/dust,
+/obj/effect/decal/remains/human,
+/obj/machinery/oldvents/variant1,
 /turf/open/floor/plating/snowed/oxy,
-/area/awaymission/chilly/cave)
+/area/awaymission/chilly/facility2)
 "FT" = (
 /obj/machinery/light/broken,
 /obj/effect/turf_decal/dust,
@@ -6040,6 +6826,10 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/bot_red,
 /obj/item/gun/ballistic/automatic/M41A,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "Gj" = (
@@ -6118,6 +6908,18 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly)
+"GE" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/structure/sign/poster/contraband/ambrosia_vulgaris{
+	pixel_x = 31;
+	pixel_y = 1
+	},
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility4)
 "GG" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/remains/human,
@@ -6130,15 +6932,6 @@
 /obj/structure/flora/tree/pine,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
-"GK" = (
-/obj/structure/closet,
-/obj/item/clothing/accessory/armband,
-/obj/effect/turf_decal/stripes{
-	dir = 1
-	},
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
 "GL" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/oil,
@@ -6201,7 +6994,7 @@
 /obj/item/stack/sheet/metal,
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "GX" = (
 /obj/effect/turf_decal/dust,
@@ -6221,6 +7014,12 @@
 "Ha" = (
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/facility2)
+"Hb" = (
+/obj/machinery/light,
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/scrubber,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "Hc" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/fulltile,
@@ -6245,8 +7044,13 @@
 	pixel_x = 10;
 	pixel_y = 11
 	},
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
+"Hg" = (
+/obj/structure/table,
+/obj/structure/rospilovo/oscillograph,
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/awaymission/chilly)
 "Hi" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/reagent_containers/food/snacks/grown/watermelon,
@@ -6273,6 +7077,14 @@
 	},
 /turf/open/floor/pod/light,
 /area/awaymission/chilly/facility)
+"Hk" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/purple{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/purple,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/gatewaystart)
 "Hl" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/oil,
@@ -6281,6 +7093,7 @@
 "Hm" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/frame/computer{
+	anchored = 1;
 	dir = 4;
 	pixel_x = -4
 	},
@@ -6297,9 +7110,9 @@
 	},
 /obj/item/stock_parts/manipulator,
 /obj/effect/mob_spawn/human/corpse/damaged/chilly,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/obj/machinery/oldvents/variant4,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "Ho" = (
 /obj/item/stack/rods,
@@ -6339,6 +7152,16 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/pod,
 /area/awaymission/chilly/facility3)
+"Ht" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "Hv" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/tile/brown{
@@ -6395,7 +7218,8 @@
 "HI" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/remains/human,
-/turf/open/floor/plasteel/white,
+/obj/structure/lattice,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "HJ" = (
 /obj/effect/turf_decal/dust,
@@ -6405,22 +7229,17 @@
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility)
 "HM" = (
-/obj/structure/closet,
 /obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/bot_red,
-/obj/item/clothing/suit/armor/vest/wzzzz/riot_german,
-/obj/item/clothing/head/helmet/wzzzz/riot,
-/obj/item/storage/belt/military/assault,
-/obj/item/melee/classic_baton/wzzzz/german{
-	desc = "A compact yet robust personal defense weapon. Can be concealed when folded.";
-	name = "baton"
+/obj/effect/turf_decal/tile/red{
+	dir = 1
 	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/weather/side/corner{
 	dir = 8
 	},
-/obj/item/flashlight/seclite,
-/obj/item/clothing/mask/russian_balaclava,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "HP" = (
@@ -6439,10 +7258,6 @@
 /obj/item/stack/tile/plasteel,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly)
-"HS" = (
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
 "HU" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/dust,
@@ -6494,29 +7309,35 @@
 /obj/effect/light_emitter,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
+"Ic" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/obj/structure/lattice,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/facility)
 "Id" = (
 /obj/structure/table,
 /obj/effect/turf_decal/dust,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "Ie" = (
-/obj/structure/closet,
 /obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/bot_red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/red,
-/obj/item/clothing/suit/armor/vest/wzzzz/riot_german,
-/obj/item/clothing/head/helmet/wzzzz/riot,
-/obj/item/storage/belt/military/assault,
-/obj/item/melee/classic_baton/wzzzz/german{
-	desc = "A compact yet robust personal defense weapon. Can be concealed when folded.";
-	name = "baton"
+/obj/effect/turf_decal/weather/side{
+	dir = 1
 	},
-/obj/structure/window/reinforced,
-/obj/item/flashlight/seclite,
-/obj/item/clothing/mask/russian_balaclava,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "If" = (
@@ -6535,6 +7356,7 @@
 	},
 /obj/item/stack/sheet/metal,
 /obj/item/stack/tile/plasteel,
+/obj/structure/lattice,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
 "Il" = (
@@ -6561,13 +7383,13 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "Ip" = (
-/obj/structure/lattice,
-/obj/effect/light_emitter,
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/variant1,
 /turf/open/floor/plating,
-/area/awaymission/chilly/cave)
+/area/awaymission/chilly/facility)
 "Is" = (
 /obj/structure/table/reinforced,
 /obj/item/soap,
@@ -6575,20 +7397,16 @@
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility)
 "Iu" = (
-/obj/effect/turf_decal/weather/side{
-	dir = 10
-	},
 /obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/variant4,
 /turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/area/awaymission/chilly/facility)
 "Iv" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken{
 	dir = 8
 	},
-/turf/open/floor/plasteel/white/side{
-	dir = 4
-	},
+/turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
 "Ix" = (
 /obj/effect/turf_decal/dust,
@@ -6598,7 +7416,7 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "Iy" = (
 /obj/effect/turf_decal/dust,
@@ -6640,7 +7458,7 @@
 "IF" = (
 /obj/item/broken_bottle,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "IG" = (
 /obj/structure/girder,
@@ -6672,11 +7490,10 @@
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
 "IO" = (
-/obj/effect/light_emitter,
-/turf/open/floor/plating/asteroid/snow/ice{
-	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
-	},
-/area/awaymission/chilly/cave)
+/obj/effect/turf_decal/dust,
+/obj/machinery/doorpanel/broken,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility)
 "IP" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/wood,
@@ -6742,13 +7559,14 @@
 /obj/machinery/light/broken{
 	dir = 8
 	},
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "Jg" = (
 /obj/effect/decal/cleanable/oil,
 /obj/effect/turf_decal/weather/side{
 	dir = 1
 	},
+/obj/structure/lattice,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
 "Jj" = (
@@ -6791,6 +7609,17 @@
 	icon_state = "wood-broken"
 	},
 /area/awaymission/chilly/facility3)
+"JA" = (
+/obj/effect/decal/cleanable/vomit/old,
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
+"JD" = (
+/obj/machinery/hydroponics/constructable,
+/obj/structure/window/reinforced/spawner/north,
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
 "JE" = (
 /obj/item/stack/rods,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
@@ -6811,6 +7640,12 @@
 /obj/machinery/door/airlock/prison,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"JM" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken4"
+	},
+/area/awaymission/chilly/facility4)
 "JN" = (
 /obj/structure/grille,
 /turf/open/floor/plating,
@@ -6822,7 +7657,8 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/mob_spawn/human/corpse/damaged/chilly,
 /obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/wood,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "JP" = (
 /obj/item/kirbyplants/random,
@@ -6857,35 +7693,31 @@
 /obj/effect/turf_decal/dust,
 /obj/structure/bed/pod,
 /obj/item/storage/firstaid,
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "JY" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/wood,
+/obj/machinery/oldvents/variant4,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "JZ" = (
-/obj/structure/closet,
 /obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/bot_red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/red,
-/obj/item/clothing/suit/armor/vest/wzzzz/riot_german,
-/obj/item/clothing/head/helmet/wzzzz/riot,
-/obj/item/storage/belt/military/assault,
-/obj/item/melee/classic_baton/wzzzz/german{
-	desc = "A compact yet robust personal defense weapon. Can be concealed when folded.";
-	name = "baton"
-	},
-/obj/structure/window/reinforced{
+/obj/effect/turf_decal/weather/side/corner{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
-/obj/item/flashlight/seclite,
-/obj/item/clothing/mask/russian_balaclava,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "Kc" = (
@@ -6896,6 +7728,7 @@
 /obj/effect/mob_spawn/human/corpse/damaged/chilly,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/gibs/old,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility)
 "Kd" = (
@@ -6950,20 +7783,27 @@
 /obj/item/trash/syndi_cakes,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility5)
+"Ku" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/variant1,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility3)
 "Kw" = (
 /turf/open/floor/plasteel/stairs/old/chilly{
 	dir = 8
 	},
 /area/awaymission/chilly/cave)
 "KA" = (
-/obj/effect/turf_decal/stripes,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel/dark,
-/area/awaymission/chilly/gatewaystart)
+/obj/machinery/oldvents,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
+/area/awaymission/chilly/facility)
 "KB" = (
 /obj/effect/turf_decal/dust,
 /obj/item/newspaper,
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "KC" = (
 /obj/structure/dresser,
@@ -6996,6 +7836,11 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility)
+"KO" = (
+/obj/machinery/light,
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "KP" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/dust,
@@ -7033,15 +7878,39 @@
 /obj/item/clothing/under/misc/pj/red,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
+"KX" = (
+/obj/structure/grille/rospilovo,
+/turf/open/floor/grass/snow/safe/oxy{
+	icon_state = "snow_dug";
+	slowdown = 1
+	},
+/area/awaymission/chilly)
 "KY" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/mechanical/old,
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility3)
+"La" = (
+/obj/structure/lattice,
+/turf/open/floor/plating{
+	icon_state = "platingdmg2"
+	},
+/area/awaymission/chilly/facility4)
+"Lc" = (
+/obj/effect/turf_decal/dust,
+/obj/item/stack/tile/plasteel,
+/obj/structure/lattice,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility2)
 "Ld" = (
 /obj/structure/table,
 /turf/open/floor/plating,
+/area/awaymission/chilly/facility)
+"Li" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/fulltile,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "Lj" = (
 /obj/effect/turf_decal/tile/green{
@@ -7067,16 +7936,34 @@
 	},
 /turf/open/floor/plating/ice/smooth/oxy,
 /area/awaymission/chilly/cave)
+"Ln" = (
+/obj/item/stack/tile/plasteel,
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
 "Lo" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
+"Lr" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/variant4,
+/obj/structure/lattice,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
+/area/awaymission/chilly/facility2)
 "Ls" = (
 /obj/item/assembly/signaler,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/cave)
+"Lt" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents,
+/turf/open/floor/carpet/red,
+/area/awaymission/chilly/facility3)
 "Lu" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/old,
@@ -7101,17 +7988,18 @@
 "Ly" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/chair/office/light,
+/obj/structure/lattice,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
 "Lz" = (
-/obj/structure/chair/comfy/black{
-	dir = 1
-	},
-/obj/item/clipboard,
-/obj/item/paper,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/mob/living/simple_animal/hostile/skeleton/ice,
+/obj/machinery/oldvents/variant4,
+/obj/structure/lattice,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
+/area/awaymission/chilly/facility2)
 "LA" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/weather/side/corner{
@@ -7130,6 +8018,7 @@
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 1
 	},
+/obj/effect/turf_decal/weather/side,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "LD" = (
@@ -7172,9 +8061,8 @@
 /obj/structure/bed,
 /obj/item/bedsheet/grey,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "LS" = (
 /obj/effect/turf_decal/dust,
@@ -7212,26 +8100,20 @@
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
 "LY" = (
-/obj/structure/closet,
 /obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/bot_red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/red,
-/obj/item/clothing/suit/armor/vest/wzzzz/riot_german,
-/obj/item/clothing/head/helmet/wzzzz/riot,
-/obj/item/storage/belt/military/assault,
-/obj/item/melee/classic_baton/wzzzz/german{
-	desc = "A compact yet robust personal defense weapon. Can be concealed when folded.";
-	name = "baton"
-	},
-/obj/structure/window/reinforced{
+/obj/effect/turf_decal/weather/side/corner{
 	dir = 8
 	},
-/obj/structure/window/reinforced,
-/obj/item/flashlight/seclite,
-/obj/item/clothing/mask/russian_balaclava,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "LZ" = (
@@ -7251,6 +8133,11 @@
 	},
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/cave)
+"Mf" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "Mg" = (
 /obj/machinery/light/small/broken,
 /turf/open/floor/plating/snowed/oxy,
@@ -7271,12 +8158,12 @@
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
 "Mj" = (
-/obj/structure/table,
-/obj/item/storage/toolbox/mechanical/old/clean,
-/obj/effect/turf_decal/stripes,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/obj/machinery/doorpanel/broken{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility2)
 "Mk" = (
 /obj/machinery/computer/camera_advanced/shuttle_docker/adv{
 	dir = 8
@@ -7292,11 +8179,28 @@
 /obj/structure/lattice,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly)
+"Mo" = (
+/obj/structure/closet/crate,
+/obj/item/poster/random_contraband,
+/obj/item/poster/random_contraband,
+/obj/item/poster/random_contraband,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility4)
+"Mq" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
 "Mr" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
+"Ms" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/decal/cleanable/oil,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility2)
 "Mt" = (
 /obj/effect/turf_decal/dust,
 /mob/living/simple_animal/hostile/skeleton/ice{
@@ -7341,6 +8245,15 @@
 	},
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
+"MA" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/lattice,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
+"MB" = (
+/obj/structure/barricade/wooden/snowed,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly)
 "MC" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken,
@@ -7352,7 +8265,7 @@
 /obj/machinery/light/broken{
 	dir = 1
 	},
-/turf/open/floor/plasteel/showroomfloor,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "ME" = (
 /obj/structure/grille,
@@ -7360,22 +8273,19 @@
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
 "MG" = (
-/obj/structure/closet,
 /obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/bot_red,
-/obj/item/clothing/suit/armor/vest/wzzzz/riot_german,
-/obj/item/clothing/head/helmet/wzzzz/riot,
-/obj/item/storage/belt/military/assault,
-/obj/item/melee/classic_baton/wzzzz/german{
-	desc = "A compact yet robust personal defense weapon. Can be concealed when folded.";
-	name = "baton"
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
+/obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
-/obj/item/flashlight/seclite,
-/obj/item/clothing/mask/russian_balaclava,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 4
+	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "MH" = (
@@ -7406,16 +8316,14 @@
 	},
 /obj/effect/decal/cleanable/glass,
 /obj/effect/turf_decal/bot_white,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "MO" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/sign/departments/medbay{
 	pixel_x = -33
 	},
-/turf/open/floor/plasteel/white/side{
-	dir = 4
-	},
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "MP" = (
 /obj/effect/light_emitter,
@@ -7446,6 +8354,17 @@
 /obj/item/disk/nanite_program/metabolic_synthesis,
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
+"MW" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 6
+	},
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/green{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/green,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "Na" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/bot_white,
@@ -7464,10 +8383,23 @@
 /obj/item/stock_parts/cell/bluespace,
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
+"Nb" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/lattice,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility)
 "Ne" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
+"Nh" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/purple{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/gatewaystart)
 "Ni" = (
 /obj/machinery/light/broken{
 	dir = 1
@@ -7486,8 +8418,14 @@
 /obj/effect/turf_decal/dust,
 /obj/item/stack/tile/plasteel,
 /obj/effect/decal/remains/human,
-/turf/open/floor/plating,
+/obj/structure/lattice,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
+"Np" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/scrubber,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/facility3)
 "Nr" = (
 /obj/structure/closet/crate/secure/science,
 /obj/item/clothing/suit/hooded/wintercoat/medical,
@@ -7524,7 +8462,7 @@
 "NC" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/remains/human,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "NF" = (
 /obj/effect/turf_decal/dust,
@@ -7600,6 +8538,20 @@
 /obj/effect/turf_decal/weather/side,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
+"NW" = (
+/obj/structure/table,
+/obj/item/implant/radio{
+	pixel_x = -8
+	},
+/obj/item/implant/radio{
+	pixel_x = 8
+	},
+/obj/item/implant/radio,
+/obj/effect/turf_decal/stripes,
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "NX" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/door/airlock/public/glass,
@@ -7615,6 +8567,14 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/material,
 /area/awaymission/chilly/facility3)
+"Ob" = (
+/obj/item/kirbyplants/random,
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/green{
+	dir = 8
+	},
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
 "Oc" = (
 /obj/effect/turf_decal/weather/side/corner{
 	dir = 4
@@ -7626,6 +8586,10 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly)
+"Og" = (
+/obj/structure/barricade/wooden,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility4)
 "Oi" = (
 /obj/item/stack/tile/plasteel,
 /obj/effect/turf_decal/dust,
@@ -7652,6 +8616,13 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/bot_red,
 /obj/item/storage/box/lethalshot,
+/obj/structure/window/reinforced{
+	dir = 1;
+	pixel_y = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "Or" = (
@@ -7673,16 +8644,11 @@
 /obj/effect/turf_decal/dust,
 /obj/item/clothing/suit/hazardvest,
 /obj/item/clothing/suit/hazardvest,
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/item/shovel,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility3)
-"Ot" = (
-/obj/effect/turf_decal/dust,
-/obj/effect/mob_spawn/human/corpse/damaged/chilly,
-/obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
-/area/awaymission/chilly/facility)
 "Ov" = (
 /obj/structure/table,
 /obj/item/flashlight/lamp,
@@ -7694,6 +8660,8 @@
 /obj/machinery/light/broken,
 /obj/effect/decal/cleanable/garbage,
 /obj/effect/decal/cleanable/blood/old,
+/obj/machinery/oldvents/variant4,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility)
 "Oz" = (
@@ -7701,7 +8669,7 @@
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/blood/old,
 /obj/item/reagent_containers/glass/bottle/romerol,
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "OB" = (
 /obj/effect/turf_decal/dust,
@@ -7779,7 +8747,7 @@
 "OQ" = (
 /obj/machinery/deepfryer,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel/showroomfloor,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "OT" = (
 /obj/structure/table/reinforced,
@@ -7798,17 +8766,12 @@
 	pixel_x = -5;
 	pixel_y = -3
 	},
-/turf/open/floor/pod/light,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "OY" = (
 /obj/structure/table,
 /obj/item/trash/plate,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/facility)
-"OZ" = (
-/obj/effect/turf_decal/dust,
-/obj/item/stock_parts/manipulator,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
 "Pe" = (
@@ -7826,20 +8789,19 @@
 	pixel_x = 5
 	},
 /obj/effect/turf_decal/bot_white,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "Pg" = (
-/obj/structure/closet,
-/obj/item/clothing/suit/space,
-/obj/item/clothing/head/helmet/space,
-/obj/item/clothing/mask/breath,
-/obj/effect/turf_decal/stripes{
-	dir = 10
-	},
-/obj/machinery/light,
 /obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/scrubber,
 /turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/area/awaymission/chilly/facility)
+"Pi" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/door/firedoor,
+/obj/structure/lattice,
+/turf/open/floor/plasteel/white,
+/area/awaymission/chilly/facility2)
 "Pj" = (
 /obj/structure/lattice,
 /obj/item/stack/rods,
@@ -7855,6 +8817,11 @@
 	},
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly/cave)
+"Pp" = (
+/turf/open/floor/plating{
+	icon_state = "platingdmg2"
+	},
+/area/awaymission/chilly/facility4)
 "Pq" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating/snowed/oxy,
@@ -7870,6 +8837,10 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"Pv" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating/snowed/oxy,
+/area/awaymission/chilly/facility4)
 "Pw" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/grass/snow/safe/oxy{
@@ -7907,7 +8878,7 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/old,
 /obj/item/ammo_box/magazine/m45,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "PI" = (
 /obj/effect/turf_decal/weather/side,
@@ -7939,7 +8910,7 @@
 /obj/machinery/light/broken{
 	dir = 8
 	},
-/turf/open/floor/plasteel/showroomfloor,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "PR" = (
 /obj/effect/turf_decal/dust,
@@ -7959,7 +8930,6 @@
 	pixel_x = 9;
 	pixel_y = 10
 	},
-/obj/item/gun/ballistic/automatic/proto/unrestricted,
 /obj/item/clothing/head/helmet/riot,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
@@ -8022,14 +8992,16 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/bot_red,
 /obj/item/gun/ballistic/automatic/wzzzz/carbine,
+/obj/structure/window/reinforced{
+	dir = 1;
+	pixel_y = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "Qm" = (
 /obj/effect/turf_decal/dust,
 /obj/item/stock_parts/manipulator,
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "Qn" = (
 /obj/effect/turf_decal/weather/side/corner{
@@ -8060,6 +9032,12 @@
 /obj/item/clothing/head/ushanka,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
+"Qw" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/fulltile/ice,
+/obj/structure/barricade/wooden/crude/snow,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility3)
 "Qx" = (
 /obj/structure/toilet{
 	pixel_y = 10
@@ -8067,10 +9045,17 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/chilly/facility3)
+"Qy" = (
+/obj/effect/turf_decal/dust,
+/obj/item/stack/tile/plasteel,
+/obj/structure/lattice,
+/turf/open/floor/plasteel/white,
+/area/awaymission/chilly/facility2)
 "Qz" = (
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plating/snowed/smoothed/icemoon,
-/area/awaymission/chilly/facility3)
+/obj/machinery/doorpanel/broken,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/facility2)
 "QB" = (
 /obj/machinery/light/broken{
 	dir = 4
@@ -8078,6 +9063,10 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility3)
+"QC" = (
+/obj/structure/rospilovo/shina2,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly)
 "QD" = (
 /obj/structure/lattice,
 /obj/structure/barricade/sandbags,
@@ -8089,10 +9078,21 @@
 	dir = 8
 	},
 /area/awaymission/chilly/cave)
+"QI" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/decal/cleanable/blood/old,
+/obj/structure/lattice,
+/turf/open/floor/plasteel/white,
+/area/awaymission/chilly/facility2)
 "QK" = (
 /obj/structure/girder,
 /turf/open/floor/plating,
 /area/awaymission/chilly/mountain)
+"QL" = (
+/obj/effect/decal/cleanable/oil,
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
 "QN" = (
 /obj/structure/flora/rock/pile,
 /turf/open/floor/grass/snow/safe/oxy,
@@ -8128,6 +9128,9 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/material,
 /area/awaymission/chilly/facility3)
+"QX" = (
+/turf/closed/wall/ice,
+/area/awaymission/chilly/facility4)
 "Ra" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/fulltile/ice,
@@ -8150,10 +9153,9 @@
 /area/awaymission/chilly/facility)
 "Rg" = (
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel/stairs/old/chilly/left{
-	dir = 1
-	},
-/area/awaymission/chilly/gatewaystart)
+/obj/machinery/oldvents/variant2,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility2)
 "Ri" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/oil,
@@ -8180,6 +9182,9 @@
 "Rm" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/fulltile/ice,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility4)
+"Ro" = (
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility4)
 "Rq" = (
@@ -8210,7 +9215,8 @@
 /obj/effect/turf_decal/dust,
 /obj/item/clothing/mask/breath,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/wood,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "Rx" = (
 /obj/machinery/light/broken{
@@ -8253,6 +9259,12 @@
 /obj/machinery/light/broken,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
+"RI" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/light/broken,
+/obj/structure/lattice,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility2)
 "RJ" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/closet/crate{
@@ -8265,10 +9277,26 @@
 /obj/structure/table,
 /turf/open/floor/plating,
 /area/awaymission/chilly/mountain)
+"RN" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/decal/remains/human,
+/obj/structure/lattice,
+/turf/open/floor/plasteel/white,
+/area/awaymission/chilly/facility2)
+"RO" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/lattice,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/facility)
 "RP" = (
 /obj/structure/fence/door,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly)
+"RQ" = (
+/obj/machinery/hydroponics/constructable,
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
 "RR" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/oil,
@@ -8281,13 +9309,10 @@
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
 "RS" = (
-/obj/structure/tank_dispenser/oxygen,
-/obj/effect/turf_decal/stripes/end{
-	dir = 4
-	},
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/obj/machinery/oldvents/variant4,
+/turf/open/floor/plasteel/white,
+/area/awaymission/chilly/facility2)
 "RT" = (
 /obj/structure/toilet{
 	pixel_y = 12
@@ -8301,7 +9326,7 @@
 "RU" = (
 /obj/effect/turf_decal/dust,
 /obj/item/circular_saw,
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
 "RV" = (
 /obj/structure/closet/secure,
@@ -8361,7 +9386,7 @@
 /obj/effect/turf_decal/dust,
 /obj/structure/table,
 /obj/item/stack/sheet/metal,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "Sd" = (
 /turf/closed/mineral/snowmountain/cavern/oxy,
@@ -8386,10 +9411,18 @@
 /obj/structure/rospilovo/radio,
 /turf/open/floor/plasteel/telecomms,
 /area/awaymission/chilly/facility2)
-"Sk" = (
+"Si" = (
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
+/obj/structure/chair,
+/obj/structure/lattice,
+/turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
+"Sl" = (
+/obj/vehicle/ridden/atv{
+	dir = 4
+	},
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly)
 "Sm" = (
 /obj/machinery/light/small/broken{
 	dir = 1
@@ -8451,6 +9484,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/grey,
 /obj/effect/turf_decal/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility)
 "SB" = (
@@ -8480,7 +9514,7 @@
 /mob/living/simple_animal/hostile/skeleton/ice{
 	health = 200
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "SE" = (
 /obj/structure/grille,
@@ -8494,16 +9528,56 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/chilly/cave)
+"SG" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken2"
+	},
+/area/awaymission/chilly/facility4)
+"SJ" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/facility)
+"SL" = (
+/obj/structure/closet/crate,
+/obj/item/seeds/cannabis/white,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
+/area/awaymission/chilly/facility4)
 "SM" = (
 /obj/structure/table,
 /obj/item/soap,
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility3)
+"SO" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark,
+/obj/structure/lattice,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility2)
 "SP" = (
 /obj/structure/flora/tree/dead,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
+"SS" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plasteel/stairs/old/chilly{
+	dir = 1
+	},
+/area/awaymission/chilly/gatewaystart)
 "ST" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/effect/turf_decal/dust,
@@ -8521,7 +9595,10 @@
 /obj/item/clothing/shoes/winterboots/ice_boots,
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/wood,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/wood{
+	icon_state = "wood-broken4"
+	},
 /area/awaymission/chilly/facility)
 "SW" = (
 /obj/effect/turf_decal/dust,
@@ -8564,7 +9641,7 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "Tf" = (
 /obj/effect/turf_decal/dust,
@@ -8576,8 +9653,16 @@
 "Th" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken,
-/turf/open/floor/plasteel/white,
+/obj/structure/noticeboard{
+	pixel_y = -31
+	},
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
+"Tk" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/purple,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/gatewaystart)
 "Tn" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/weather/side/corner{
@@ -8593,6 +9678,14 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
+"Tq" = (
+/obj/structure/tank_dispenser/oxygen,
+/obj/effect/turf_decal/stripes/end{
+	dir = 4
+	},
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "Tr" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal{
@@ -8608,9 +9701,7 @@
 /area/awaymission/chilly/facility3)
 "Tw" = (
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel/white/side{
-	dir = 4
-	},
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "Tx" = (
 /obj/structure/chair,
@@ -8626,6 +9717,12 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility2)
+"TC" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plasteel/stairs/old/chilly/left{
+	dir = 1
+	},
+/area/awaymission/chilly/gatewaystart)
 "TD" = (
 /obj/effect/turf_decal,
 /obj/effect/turf_decal/caution/stand_clear,
@@ -8679,6 +9776,11 @@
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility/croom)
+"TP" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/decal/remains/human,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility2)
 "TR" = (
 /obj/structure/table/reinforced,
 /obj/item/mop,
@@ -8730,6 +9832,13 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/airless/white,
 /area/awaymission/chilly/facility3)
+"TY" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/rospilovo/plita,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
+/area/awaymission/chilly/facility4)
 "Ua" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/barricade/wooden/snowed,
@@ -8750,7 +9859,8 @@
 /obj/machinery/light/broken{
 	dir = 8
 	},
-/turf/open/floor/plasteel/white,
+/obj/structure/lattice,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "Uj" = (
 /obj/machinery/door/airlock/hatch,
@@ -8783,6 +9893,10 @@
 "Un" = (
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/cave)
+"Uo" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/gatewaystart)
 "Up" = (
 /obj/structure/toilet{
 	pixel_y = 10
@@ -8803,8 +9917,31 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/remains/human,
 /obj/item/clothing/suit/armor/riot,
-/turf/open/floor/plasteel/white,
+/obj/structure/lattice,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
+"Ux" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
+"UA" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents,
+/turf/open/floor/wood,
+/area/awaymission/chilly/facility3)
+"UC" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken6"
+	},
+/area/awaymission/chilly/facility4)
+"UD" = (
+/mob/living/simple_animal/hostile/asteroid/wolf,
+/turf/open/floor/grass/snow/safe/oxy{
+	icon_state = "snow_dug";
+	slowdown = 1
+	},
+/area/awaymission/chilly)
 "UE" = (
 /obj/effect/turf_decal/weather/side,
 /obj/effect/decal/cleanable/blood/old,
@@ -8840,15 +9977,18 @@
 /obj/item/weldingtool,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility)
+"UT" = (
+/obj/machinery/gateway/away,
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/gatewaystart)
 "UU" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/closet/crate/wooden,
-/obj/item/grown/log/tree,
-/obj/item/grown/log/tree,
-/obj/item/grown/log/tree,
-/obj/item/grown/log/tree,
-/obj/item/grown/log/tree,
-/turf/open/floor/wood,
+/obj/item/trash/can/food/beans,
+/obj/item/trash/can/food/beans,
+/obj/item/trash/can/food/beans,
+/turf/open/floor/plating,
 /area/awaymission/chilly/facility4)
 "UV" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -8891,7 +10031,8 @@
 "Vc" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/oil,
-/turf/open/floor/plasteel,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "Ve" = (
 /obj/effect/turf_decal/weather/side{
@@ -8907,6 +10048,7 @@
 /obj/effect/turf_decal/dust,
 /obj/item/clothing/suit/jacket/leather/overcoat,
 /obj/item/clothing/head/wzzzz/ttcushankadown,
+/obj/item/kitchen/knife/combat,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility3)
 "Vg" = (
@@ -8914,7 +10056,8 @@
 /obj/item/clothing/suit/hooded/wintercoat/cargo,
 /obj/item/clothing/gloves/color/black,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/wood,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "Vh" = (
 /obj/structure/table/reinforced,
@@ -8928,6 +10071,10 @@
 	pixel_y = -5
 	},
 /obj/item/ammo_box/magazine/wzzzz/carbine,
+/obj/structure/window/reinforced{
+	dir = 1;
+	pixel_y = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "Vj" = (
@@ -8942,6 +10089,11 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating,
 /area/awaymission/chilly/ntcargotrain)
+"Vn" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/chair,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility2)
 "Vo" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 1
@@ -8974,6 +10126,12 @@
 /obj/item/book/granter/martial/plasma_fist/nobomb,
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
+"Vr" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/decal/cleanable/oil,
+/obj/structure/lattice,
+/turf/open/floor/plasteel/white,
+/area/awaymission/chilly/facility2)
 "Vs" = (
 /obj/structure/grille,
 /obj/machinery/door/poddoor,
@@ -9052,6 +10210,7 @@
 "VH" = (
 /obj/effect/decal/cleanable/glass,
 /obj/effect/turf_decal/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility)
 "VK" = (
@@ -9094,6 +10253,7 @@
 	},
 /obj/item/stock_parts/micro_laser,
 /obj/effect/turf_decal/dust,
+/obj/item/shovel,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility3)
 "VQ" = (
@@ -9105,7 +10265,8 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/mob_spawn/human/corpse/damaged/chilly,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/wood,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "VT" = (
 /obj/structure/table/reinforced,
@@ -9169,17 +10330,31 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/pod/light,
 /area/awaymission/chilly/facility3)
+"Wb" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "We" = (
 /obj/machinery/deepfryer,
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel/showroomfloor,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "Wf" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/bot_red,
 /obj/item/gun/ballistic/automatic/proto/unrestricted,
+/obj/structure/window/reinforced{
+	dir = 1;
+	pixel_y = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "Wg" = (
@@ -9189,6 +10364,11 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/ntcargotrain)
+"Wi" = (
+/obj/item/grown/log/tree,
+/obj/item/toy/snowball,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly)
 "Wj" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/dust,
@@ -9209,6 +10389,7 @@
 	},
 /area/awaymission/chilly)
 "Wn" = (
+/obj/structure/spider/stickyweb,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility)
 "Wp" = (
@@ -9232,10 +10413,7 @@
 /area/awaymission/chilly)
 "Wx" = (
 /obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/machinery/light/small/broken{
+/obj/effect/turf_decal/weather/side{
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
@@ -9260,11 +10438,22 @@
 	},
 /turf/open/floor/plating/ice/smooth/oxy,
 /area/awaymission/chilly/cave)
+"WD" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/table/reinforced,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "WE" = (
 /obj/effect/decal/cleanable/glass,
 /obj/structure/grille/broken,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility3)
+"WF" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/scrubber,
+/obj/structure/lattice,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility2)
 "WG" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/stripes,
@@ -9292,6 +10481,10 @@
 	},
 /obj/item/ammo_box/magazine/m41a,
 /obj/item/gun/ballistic/automatic/M41A,
+/obj/structure/window/reinforced{
+	dir = 1;
+	pixel_y = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "WP" = (
@@ -9309,6 +10502,22 @@
 /mob/living/simple_animal/hostile/asteroid/wolf,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
+"WS" = (
+/obj/effect/turf_decal/stripes,
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/purple{
+	dir = 4
+	},
+/obj/machinery/door/poddoor/shutters/preopen,
+/obj/effect/turf_decal/tile/purple,
+/obj/effect/turf_decal/tile/purple{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/awaymission/chilly/gatewaystart)
 "WT" = (
 /obj/item/stack/rods,
 /obj/effect/light_emitter,
@@ -9354,7 +10563,7 @@
 /obj/machinery/light/broken{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "Xf" = (
 /obj/effect/turf_decal/dust,
@@ -9371,7 +10580,8 @@
 /obj/effect/turf_decal/dust,
 /obj/item/clothing/mask/breath,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/wood,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "Xh" = (
 /obj/effect/turf_decal/dust,
@@ -9395,6 +10605,13 @@
 /mob/living/simple_animal/hostile/skeleton/ice,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/cave)
+"Xo" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/drinks/bottle/lizardwine,
+/obj/item/reagent_containers/food/drinks/boyarka,
+/obj/item/reagent_containers/food/drinks/bottle/maltliquor,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility4)
 "Xp" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light{
@@ -9419,6 +10636,9 @@
 /obj/structure/sign/warning/radiation/rad_area{
 	pixel_x = 31
 	},
+/obj/machinery/doorpanel/broken{
+	dir = 4
+	},
 /turf/open/floor/plasteel/elevatorshaft,
 /area/awaymission/chilly/facility2)
 "Xt" = (
@@ -9426,8 +10646,24 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 1
 	},
+/obj/structure/lattice,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
+"Xu" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
+"Xv" = (
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/variant2,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility)
 "Xw" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/dust,
@@ -9443,7 +10679,7 @@
 /mob/living/simple_animal/hostile/skeleton/ice{
 	health = 200
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "Xz" = (
 /obj/structure/dresser,
@@ -9456,6 +10692,12 @@
 /obj/structure/prison/fence,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly)
+"XD" = (
+/obj/machinery/light,
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "XE" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/chair/sofa/left{
@@ -9463,6 +10705,22 @@
 	},
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
+"XF" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/lattice,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility)
+"XG" = (
+/obj/structure/table,
+/obj/item/radio{
+	pixel_x = -7
+	},
+/obj/item/radio{
+	pixel_x = 8
+	},
+/obj/item/radio,
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/awaymission/chilly)
 "XI" = (
 /turf/closed/indestructible/opshuttle,
 /area/awaymission/chilly/syndietrain)
@@ -9484,28 +10742,45 @@
 	icon_state = "platingdmg1"
 	},
 /area/awaymission/chilly/facility)
+"XL" = (
+/obj/machinery/light/broken,
+/obj/effect/turf_decal/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/wood,
+/area/awaymission/chilly/facility3)
 "XN" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/gibs/old,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
 /area/awaymission/chilly/facility3)
+"XO" = (
+/obj/effect/decal/remains/human,
+/turf/open/floor/grass/snow/safe/oxy{
+	icon_state = "snow_dug";
+	slowdown = 1
+	},
+/area/awaymission/chilly/facility)
 "XR" = (
 /obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/tile/red{
-	dir = 1
+/obj/machinery/porta_turret/armory/chilly{
+	density = 0
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "XS" = (
-/obj/machinery/light,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/obj/machinery/oldvents/variant3,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility)
 "XU" = (
 /obj/structure/grille,
 /turf/open/floor/plating,
@@ -9548,6 +10823,13 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"Yc" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/fulltile/ice,
+/obj/machinery/door/poddoor/shutters/preopen,
+/obj/machinery/door/poddoor/preopen,
+/turf/open/floor/plating,
+/area/awaymission/chilly/gatewaystart)
 "Ye" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/barricade/wooden/snowed,
@@ -9557,16 +10839,19 @@
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/tracks,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood{
-	icon_state = "wood-broken"
+	icon_state = "wood-broken5"
 	},
 /area/awaymission/chilly/facility)
 "Yi" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/open/floor/plating/snowed/smoothed/temperatre,
-/area/awaymission/chilly/gatewaystart)
+/obj/effect/turf_decal/dust,
+/obj/machinery/oldvents/scrubber,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility2)
+"Yp" = (
+/turf/closed/indestructible/rock/snow,
+/area/awaymission/chilly/facility4)
 "Yq" = (
 /obj/structure/prison/fence,
 /turf/open/floor/grass/snow/safe/oxy{
@@ -9609,6 +10894,7 @@
 "Yw" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/frame/computer{
+	anchored = 1;
 	dir = 4;
 	pixel_x = -4
 	},
@@ -9672,6 +10958,14 @@
 	},
 /turf/open/floor/plating/ice/smooth/oxy,
 /area/awaymission/chilly/cave)
+"YN" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/decal/remains/human,
+/obj/structure/lattice,
+/turf/open/floor/plating{
+	icon_state = "platingdmg2"
+	},
+/area/awaymission/chilly/facility2)
 "YO" = (
 /obj/effect/decal/cleanable/glass,
 /obj/item/stack/rods,
@@ -9694,13 +10988,10 @@
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility5)
 "YR" = (
-/obj/structure/table,
-/obj/item/healthanalyzer,
-/obj/effect/turf_decal/stripes,
 /obj/effect/turf_decal/dust,
-/obj/item/storage/firstaid/regular,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/gatewaystart)
+/obj/machinery/oldvents/variant1,
+/turf/open/floor/plating/rust,
+/area/awaymission/chilly/facility2)
 "YS" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/girder,
@@ -9789,6 +11080,13 @@
 	dir = 4
 	},
 /area/awaymission/chilly/facility2)
+"Zn" = (
+/obj/effect/turf_decal/dust,
+/obj/structure/lattice,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
+/area/awaymission/chilly/facility)
 "Zp" = (
 /obj/structure/bed,
 /obj/item/bedsheet/grey,
@@ -9798,9 +11096,8 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "Zq" = (
 /obj/effect/turf_decal/dust,
@@ -9828,9 +11125,8 @@
 /area/awaymission/chilly/facility)
 "Zt" = (
 /obj/effect/turf_decal/dust,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "Zu" = (
 /obj/machinery/hydroponics/constructable,
@@ -9844,9 +11140,18 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/airless/white,
 /area/awaymission/chilly/facility3)
+"Zv" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/turf_decal/tile/green{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/green,
+/turf/open/floor/plasteel,
+/area/awaymission/chilly/gatewaystart)
 "Zw" = (
 /obj/effect/turf_decal/dust,
 /obj/item/stack/tile/plasteel,
+/obj/structure/lattice,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility2)
 "Zy" = (
@@ -9883,6 +11188,7 @@
 /obj/item/clothing/shoes/winterboots,
 /obj/item/clothing/neck/stripedgreenscarf/wzzzz/grey,
 /obj/item/storage/box/matches,
+/obj/item/clothing/head/bearpelt/wzzzz/wolf,
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
@@ -12101,7 +13407,7 @@ Om
 VX
 Om
 Om
-Om
+fM
 Om
 Om
 Om
@@ -12155,7 +13461,7 @@ Wp
 Wp
 Om
 Om
-Om
+fM
 VX
 Om
 dB
@@ -13508,7 +14814,7 @@ Om
 Om
 SP
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -13680,7 +14986,7 @@ VX
 Om
 Om
 VX
-Om
+fM
 Om
 Om
 Om
@@ -13909,7 +15215,7 @@ Om
 Om
 SP
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -14115,7 +15421,7 @@ Om
 Om
 Om
 Om
-Om
+WQ
 SP
 Om
 Om
@@ -14165,9 +15471,9 @@ XU
 zy
 de
 qt
+bZ
 kI
-kI
-kI
+kY
 Wa
 oX
 Om
@@ -14749,7 +16055,7 @@ Om
 gc
 vt
 jy
-Fn
+kh
 EQ
 vt
 gc
@@ -15322,7 +16628,7 @@ Om
 Om
 VX
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -15556,8 +16862,8 @@ XA
 gc
 vt
 pJ
-Fn
-Fn
+st
+Np
 xW
 xW
 iU
@@ -15579,7 +16885,7 @@ XU
 Dz
 sG
 AD
-Nt
+bV
 IK
 Nt
 oq
@@ -15779,11 +17085,11 @@ Wp
 Om
 XU
 Dz
-Nt
+gy
 QT
 xW
 AD
-oj
+dP
 Dz
 XU
 UX
@@ -15969,7 +17275,7 @@ Bb
 As
 gc
 Om
-Om
+rT
 wX
 Om
 Om
@@ -16698,12 +18004,12 @@ Om
 Om
 Om
 Om
-ai
+mT
 FE
 Pq
 dt
 XW
-ai
+mT
 iP
 Om
 iP
@@ -16769,7 +18075,7 @@ Om
 Bb
 qa
 Fn
-xW
+Ku
 Os
 Bb
 As
@@ -17279,7 +18585,7 @@ YK
 YK
 Om
 Om
-Om
+VX
 Om
 Om
 Om
@@ -17556,7 +18862,7 @@ Om
 Om
 Om
 VX
-Om
+WQ
 Om
 Om
 SP
@@ -17887,7 +19193,7 @@ Om
 Om
 Om
 Om
-Om
+VX
 Om
 YK
 YK
@@ -17959,7 +19265,7 @@ Om
 Om
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -18086,7 +19392,7 @@ YK
 YK
 YK
 Om
-Om
+VX
 Om
 Om
 Om
@@ -18112,12 +19418,12 @@ Om
 Om
 kG
 Om
-ai
+mT
 aX
 cJ
 Ja
 qi
-ai
+mT
 Om
 Om
 Om
@@ -18149,7 +19455,7 @@ Om
 SP
 SP
 Om
-Om
+WQ
 Om
 Om
 VX
@@ -18554,9 +19860,9 @@ Om
 Om
 Om
 Om
+WQ
 Om
-Om
-Om
+WQ
 SP
 Om
 Om
@@ -18960,7 +20266,7 @@ Om
 SP
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -19148,7 +20454,7 @@ Om
 Om
 VX
 Om
-Om
+WQ
 Om
 Om
 VX
@@ -19161,7 +20467,7 @@ VX
 Om
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -19866,7 +21172,7 @@ Om
 Om
 Om
 Om
-Om
+fM
 Om
 Om
 Om
@@ -19942,8 +21248,8 @@ Om
 Om
 Om
 Om
-Om
-VX
+Wp
+Wp
 Om
 Om
 Om
@@ -20142,17 +21448,17 @@ Om
 Om
 Om
 Om
-VX
+Om
+Wp
+Om
+Wp
+Wp
 Om
 Om
+Wp
 Om
 Om
-VX
-Om
-VX
-Om
-Om
-Om
+Wp
 Om
 Om
 Om
@@ -20229,7 +21535,7 @@ xr
 xr
 xr
 Es
-fX
+qo
 YW
 xr
 xr
@@ -20344,19 +21650,19 @@ Om
 Om
 Om
 Om
+Wp
+Wp
+Wp
+Wp
+Wp
+Wp
+Wp
+Wp
+Wp
+Wp
+Wp
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
 Om
 Om
 Om
@@ -20403,14 +21709,14 @@ kG
 oX
 TH
 YP
-Es
+Dt
 Va
 xr
 xW
 fX
 Yy
 Et
-fX
+UA
 uz
 Id
 oX
@@ -20427,14 +21733,14 @@ Om
 XU
 Id
 aH
-Ne
+Lt
 Ch
 xr
-yH
-fX
+eZ
+qo
 Yy
 Et
-Ne
+Lt
 Ul
 xe
 XU
@@ -20545,20 +21851,20 @@ Mn
 Om
 Om
 Om
+Wp
 Om
 Om
-Om
-VX
-Om
-SP
-Om
-Om
-VX
+Wp
+Wp
+Wp
 Om
 Om
+Wp
+Wp
 Om
-Om
-Om
+Wp
+Wp
+Wp
 Om
 Om
 VX
@@ -20632,8 +21938,8 @@ xW
 xW
 Ne
 xr
-fX
-qr
+qo
+XL
 xr
 fX
 Bz
@@ -20752,16 +22058,16 @@ Om
 Om
 Om
 Om
+Wp
+Wp
+Wp
 Om
-Om
-Om
-Om
-Om
-VX
-Om
-VX
-VX
-Om
+Wp
+Wp
+Wp
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -20834,7 +22140,7 @@ qV
 Bz
 oS
 xr
-xW
+ir
 XN
 xr
 vS
@@ -20958,11 +22264,11 @@ Om
 Om
 Om
 Om
+Wp
 Om
-Om
-VX
-Om
-Om
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -21037,7 +22343,7 @@ IP
 xr
 xr
 fX
-fX
+qo
 xr
 xr
 IP
@@ -21161,13 +22467,13 @@ Om
 SP
 Om
 Om
+Wp
+Om
+Wp
 Om
 Om
-Om
-Om
-Om
-Om
-VX
+Wp
+Wp
 Om
 Om
 Om
@@ -21366,9 +22672,9 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -21567,13 +22873,13 @@ Om
 VX
 VX
 VX
-Om
-SP
-Om
-VX
+Wp
 Om
 Om
-Om
+Wp
+Wp
+Wp
+Wp
 Om
 Om
 VX
@@ -21639,7 +22945,7 @@ Om
 xr
 Yy
 xr
-IP
+bk
 xr
 xr
 fX
@@ -21773,9 +23079,9 @@ Om
 Om
 Om
 Om
-Om
-VX
-Om
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -21838,7 +23144,7 @@ Om
 Om
 gc
 Om
-XU
+jU
 gJ
 qV
 Ne
@@ -21975,10 +23281,10 @@ VX
 Om
 Om
 Om
-Om
-Om
-Om
-Om
+Wp
+Wp
+Wp
+Wp
 Om
 Om
 SP
@@ -22040,7 +23346,7 @@ Om
 PE
 HP
 Om
-oX
+Qw
 Bf
 yH
 bW
@@ -22178,9 +23484,9 @@ Om
 Om
 Om
 Om
+Wp
 Om
-VX
-Om
+Wp
 Om
 Om
 Om
@@ -22221,14 +23527,14 @@ Om
 oX
 Ov
 SY
-Ne
+Lt
 EA
 xr
 qA
 qA
 xr
 Et
-xW
+yP
 Gc
 Id
 oX
@@ -22242,17 +23548,17 @@ Om
 Om
 gc
 Om
-XU
+jU
 Id
 Gc
-Ne
+Lt
 Et
 xr
 qA
 qA
 xr
 aa
-xW
+yP
 SY
 Ov
 oX
@@ -22380,12 +23686,12 @@ Om
 Om
 VX
 Om
+Wp
 Om
-SP
+Wp
 Om
-WQ
+Wp
 Om
-WQ
 Om
 Om
 Om
@@ -22584,11 +23890,11 @@ Om
 Om
 Om
 Om
+Wp
 Om
-WQ
 Om
 Om
-WQ
+Om
 Om
 Om
 Om
@@ -22786,10 +24092,10 @@ Om
 Om
 Om
 Om
-WQ
-Om
-Om
-Om
+Wp
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -22988,11 +24294,11 @@ Om
 Om
 Om
 Om
+Wp
+Wp
+Wp
+Wp
 Om
-Om
-Om
-Om
-VX
 Om
 Om
 Om
@@ -23191,10 +24497,10 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
-Om
+Wp
+Wp
+Wp
+Wp
 Om
 Om
 SP
@@ -23297,7 +24603,7 @@ Om
 Om
 Om
 Om
-Om
+fM
 Om
 Om
 Om
@@ -23379,7 +24685,7 @@ Om
 Om
 Om
 Om
-VX
+Om
 VX
 VX
 Om
@@ -23394,10 +24700,10 @@ Om
 Om
 Om
 Om
+Wp
 Om
 Om
-Om
-Om
+Wp
 Om
 Om
 Om
@@ -23596,11 +24902,11 @@ Om
 Om
 Om
 Om
+Wp
+Wp
 Om
-VX
 Om
-Om
-Om
+Wp
 Om
 Om
 Om
@@ -23751,7 +25057,7 @@ Mr
 Gm
 sZ
 op
-VY
+ER
 sZ
 DN
 Mr
@@ -23797,12 +25103,12 @@ Om
 Om
 Om
 Om
-VX
-VX
 Om
 Om
-Om
-VX
+Wp
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -23947,18 +25253,18 @@ Om
 Om
 Om
 Kn
-Mr
-VY
+RQ
+ER
 VY
 VY
 CX
-CX
+ER
 fZ
 Af
-VY
-VY
-VY
-Mr
+ER
+ER
+ER
+RQ
 Kn
 Om
 Om
@@ -23983,7 +25289,7 @@ yC
 Om
 Om
 Om
-VX
+Om
 Om
 Om
 Om
@@ -23998,14 +25304,14 @@ VX
 VX
 Om
 Om
-VX
 Om
 Om
 Om
 Om
-Om
-Om
-VX
+Wp
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -24150,12 +25456,12 @@ Om
 Zs
 Kn
 Xd
-VY
+ER
 fZ
 PS
 VY
-CX
-VY
+ER
+ER
 cZ
 cZ
 pY
@@ -24204,10 +25510,10 @@ Om
 Om
 Om
 Om
+Wp
 Om
 Om
-Om
-Om
+Wp
 Om
 Om
 Om
@@ -24356,7 +25662,7 @@ VY
 VY
 VY
 fZ
-cZ
+Mq
 VY
 fZ
 VY
@@ -24399,18 +25705,18 @@ VX
 Om
 Om
 VX
-VX
-VX
-Om
-Om
-Om
-Om
 Om
 VX
-VX
 Om
 Om
 Om
+Om
+Om
+Om
+Om
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -24554,15 +25860,15 @@ Om
 Om
 Kn
 Kn
-Mr
+RQ
 Mr
 Gm
 VY
 VY
-CX
+ER
 VY
-DN
-Mr
+JD
+RQ
 Mr
 Kn
 Kn
@@ -24605,16 +25911,16 @@ Om
 Om
 VX
 Om
-VX
 Om
 Om
 Om
 Om
-VX
+Om
+Wp
+Wp
+Wp
 Om
 Om
-Om
-VX
 Om
 VX
 Om
@@ -24812,9 +26118,9 @@ Om
 SP
 Om
 Om
-Om
-Om
-Om
+Wp
+Wp
+Wp
 Om
 Om
 VX
@@ -25015,8 +26321,8 @@ Om
 Om
 Om
 Om
-Om
-Om
+Wp
+Wp
 Om
 Om
 Om
@@ -25166,7 +26472,7 @@ Kn
 hS
 mZ
 hS
-fZ
+ER
 Kn
 Kn
 Om
@@ -25218,10 +26524,10 @@ SP
 Om
 Om
 Om
-Om
-Om
-Om
-SP
+Wp
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -25275,14 +26581,14 @@ Om
 oX
 FZ
 Sn
-Ne
+Lt
 mU
 xr
 yH
 fX
 YW
 EA
-xW
+yP
 Tp
 xe
 oX
@@ -25369,7 +26675,7 @@ CX
 hS
 Jj
 FI
-hS
+ER
 Kn
 Om
 Om
@@ -25396,7 +26702,7 @@ Om
 vl
 Om
 Om
-VX
+Om
 Om
 Om
 Om
@@ -25421,9 +26727,9 @@ Om
 Om
 SP
 Om
-Om
-Om
-Om
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -25453,7 +26759,7 @@ Om
 oX
 kb
 BG
-fX
+UA
 EA
 gX
 fX
@@ -25622,11 +26928,11 @@ VX
 Om
 Om
 Om
-VX
 Om
-SP
+Wp
 Om
-Om
+Wp
+Wp
 Om
 VX
 Om
@@ -25779,7 +27085,7 @@ fn
 Om
 Om
 Om
-gc
+Om
 Kn
 Kn
 Kn
@@ -25826,11 +27132,11 @@ Om
 Om
 Om
 Om
-VX
+Wp
+Om
+Wp
 Om
 Om
-Om
-SP
 Om
 Om
 Om
@@ -25973,7 +27279,7 @@ Kn
 iV
 Au
 Dn
-CX
+ER
 hS
 hS
 Kn
@@ -26029,11 +27335,11 @@ SP
 Om
 Om
 Om
+Wp
 Om
-Om
-VX
-SP
-Om
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -26231,11 +27537,11 @@ Om
 Om
 Om
 Om
+Wp
 Om
-Om
-Om
-Om
-Om
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -26283,7 +27589,7 @@ gc
 Om
 Om
 oX
-Qz
+xW
 QB
 fX
 xW
@@ -26435,10 +27741,10 @@ Om
 VX
 Om
 Om
-VX
-Om
-Om
-Om
+Wp
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -26575,13 +27881,13 @@ Om
 fn
 fm
 IS
-bg
+cp
 OX
 ys
 ys
 fZ
-op
-cp
+ER
+ER
 cp
 vT
 oF
@@ -26638,9 +27944,9 @@ Om
 VX
 Om
 Om
-Om
-Om
-Om
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -26679,7 +27985,7 @@ xr
 Om
 Om
 Om
-Om
+Wp
 Om
 Om
 Wp
@@ -26778,8 +28084,8 @@ gc
 fm
 vc
 cp
-cp
-cp
+ER
+ER
 cp
 cp
 bo
@@ -26788,7 +28094,7 @@ aP
 TV
 oF
 RJ
-lL
+Ar
 lL
 Uj
 CX
@@ -26814,18 +28120,11 @@ Om
 Om
 VX
 Om
-VX
-Om
-VX
-Om
-VX
-Om
 Om
 Om
 VX
 Om
-Om
-Om
+VX
 Om
 Om
 Om
@@ -26836,15 +28135,22 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
 VX
 Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Wp
+Wp
+Wp
+Wp
 Om
 Om
 VX
@@ -26989,7 +28295,7 @@ oF
 zs
 oF
 oF
-lL
+Df
 lL
 HE
 Kn
@@ -27045,9 +28351,9 @@ Om
 Om
 Om
 Om
-Om
-Om
-VX
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -27093,7 +28399,7 @@ Om
 oX
 Id
 Gc
-Ne
+Lt
 EA
 xr
 ll
@@ -27184,12 +28490,12 @@ JP
 VY
 VY
 uk
-VY
+CX
 VY
 OV
 Yr
 VY
-CX
+ER
 oF
 oF
 mR
@@ -27221,7 +28527,7 @@ Om
 Om
 Om
 Om
-Om
+fM
 ue
 Om
 Om
@@ -27246,12 +28552,12 @@ Om
 Om
 Om
 Om
+Wp
+Wp
+Wp
+Wp
+Wp
 Om
-Om
-Om
-Om
-Om
-VX
 Om
 Om
 Om
@@ -27271,14 +28577,14 @@ Om
 oX
 Ov
 SY
-fX
+UA
 EA
 xr
 ll
 ll
 xr
 Et
-xW
+yP
 UY
 FZ
 oX
@@ -27387,7 +28693,7 @@ CX
 VY
 CX
 iz
-al
+FO
 VY
 iz
 al
@@ -27449,10 +28755,10 @@ Om
 Om
 Om
 VX
-VX
 Om
-VX
-Om
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -27584,14 +28890,14 @@ Om
 Om
 gc
 fm
-nb
+zD
 OY
 jF
 WH
 nb
 OY
 NQ
-nb
+zD
 AN
 yl
 ii
@@ -27621,7 +28927,7 @@ Om
 Om
 Om
 Om
-VX
+Om
 Om
 VX
 VX
@@ -27652,11 +28958,11 @@ Om
 VX
 VX
 Om
-Om
-Om
-VX
-SP
-Om
+Wp
+Wp
+Wp
+Wp
+Wp
 Om
 Om
 SP
@@ -27797,8 +29103,8 @@ op
 Cy
 Fk
 ii
-fZ
-un
+ER
+Ln
 Fk
 Kn
 Kn
@@ -27856,10 +29162,10 @@ Om
 VX
 Om
 Om
+Wp
+Wp
 Om
-Om
-Om
-Om
+Wp
 Om
 Om
 Om
@@ -27989,19 +29295,19 @@ Om
 gc
 fm
 VY
-al
+FO
 VY
 CX
 VY
 OV
 iz
-OZ
+Qm
 al
 VY
 ii
 VY
 VY
-fZ
+ER
 Kn
 dB
 dB
@@ -28057,11 +29363,11 @@ Om
 VX
 Om
 Om
-SP
 Om
 Om
 Om
-Om
+Wp
+Wp
 Om
 Om
 Om
@@ -28175,11 +29481,11 @@ Om
 Om
 Om
 Om
-Kn
-PE
-fh
-PE
-Kn
+tO
+Om
+Om
+Om
+tO
 Om
 Om
 gc
@@ -28260,11 +29566,11 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-VX
+Wp
+Wp
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -28379,7 +29685,7 @@ PE
 bp
 Kn
 Kn
-fm
+Kn
 Kn
 Kn
 Kn
@@ -28393,7 +29699,7 @@ fm
 Kn
 Kn
 qx
-qx
+Ux
 qx
 qx
 jf
@@ -28404,7 +29710,7 @@ qx
 qx
 oF
 VY
-CX
+ER
 VY
 Kn
 Om
@@ -28463,9 +29769,9 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
+Wp
+Wp
+Wp
 Om
 Om
 VX
@@ -28514,8 +29820,8 @@ Om
 Om
 Om
 Om
-Om
-Om
+VX
+VX
 Om
 Om
 Om
@@ -28582,7 +29888,7 @@ fB
 Kn
 aN
 lL
-lL
+BF
 oF
 GS
 VY
@@ -28598,9 +29904,9 @@ fZ
 VY
 VY
 VY
-fZ
+Zn
 VY
-CX
+XF
 VY
 op
 un
@@ -28666,6 +29972,24 @@ VX
 Om
 Om
 Om
+Wp
+Om
+Wp
+Om
+Om
+Om
+Om
+Om
+Om
+VX
+VX
+Om
+Om
+VX
+Om
+Om
+Om
+Om
 VX
 Om
 Om
@@ -28675,18 +29999,15 @@ Om
 Om
 Om
 Om
-VX
-VX
-Om
-Om
-VX
 Om
 Om
 Om
 Om
-VX
 Om
 Om
+Om
+PE
+PE
 Om
 Om
 Om
@@ -28696,21 +30017,6 @@ Om
 Om
 Om
 Om
-yC
-yC
-yC
-yC
-yC
-dK
-yC
-yC
-yC
-yC
-di
-yC
-yC
-yC
-VX
 Om
 Om
 Om
@@ -28783,17 +30089,17 @@ PE
 gg
 Uj
 lL
-lL
+Ar
 lL
 mR
 KJ
-VY
+ER
 Sq
 fZ
-VY
-CX
-VY
-VY
+Iu
+ER
+ER
+ER
 ip
 EI
 VY
@@ -28801,9 +30107,9 @@ cB
 un
 dE
 op
-CX
-fZ
-VY
+ER
+Zn
+RO
 sO
 HF
 EI
@@ -28829,8 +30135,8 @@ Om
 Om
 yC
 Om
-VX
-VX
+Om
+Om
 VX
 Om
 Om
@@ -28854,24 +30160,7 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+WQ
 Om
 Om
 Om
@@ -28880,14 +30169,20 @@ Om
 Om
 Om
 VX
-VX
-Om
-Om
-VX
 Om
 Om
 Om
 Om
+Wp
+Om
+Wp
+Wp
+Wp
+Om
+Wp
+Om
+Om
+Wp
 Om
 Om
 Om
@@ -28897,31 +30192,42 @@ Om
 Om
 Om
 Om
-VX
-yC
 Om
 Om
 Om
-PE
-gc
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Wp
 PE
 Om
-Om
-Wp
-Wp
-Wp
-Om
-yC
+PE
 Om
 Om
 Om
 Om
-SP
 Om
 Om
 Om
 VX
 Om
+Om
+Om
+Om
+VX
+Om
+Om
+Om
+VX
 Om
 Om
 Om
@@ -28992,21 +30298,21 @@ Fd
 ur
 VY
 VY
-VY
-fZ
+ER
+ER
 zz
 VY
 CX
 EI
 VY
-fZ
+ER
 VY
-cb
-cb
 VY
-OV
-ur
 VY
+VY
+JA
+nT
+RO
 wb
 EI
 wb
@@ -29068,60 +30374,60 @@ Om
 Om
 Om
 Om
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-Om
-Om
-SP
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-Om
-Om
-VX
-Om
-Om
-Om
-Om
-Om
-yC
-Om
-Om
-PE
-Yi
-PE
-uJ
 Om
 Om
 Om
 Wp
 Wp
 Om
-yC
+Wp
+Om
+Wp
+Wp
+Wp
+Om
+Wp
+Wp
+Wp
 Om
 Om
 Om
+Wp
+Wp
+Om
+Wp
+Wp
+Wp
+Wp
+Wp
+Om
+Wp
+PE
+Om
+PE
 Om
 Om
+PE
+Wp
+PE
+PE
+PE
+PE
 Om
 Om
 VX
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 Om
 Om
 Om
@@ -29187,13 +30493,13 @@ PE
 kF
 Kn
 Kn
-Kn
+fm
 Kn
 Kn
 Kn
 Kn
 Hc
-Hc
+Li
 Hc
 EI
 Hc
@@ -29271,51 +30577,46 @@ Om
 Om
 Om
 Om
-VX
-Om
-SP
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-Om
-VX
-Om
-yC
-Om
-fH
-fH
-fH
-nA
-fH
-fH
-fH
+Wp
+Wp
 Om
 Wp
 Wp
 Wp
-yC
+Wp
+Wp
+Om
+Wp
+Wp
+Wp
+Om
+Wp
+Wp
+Om
+Om
+Wp
+Wp
+Om
+Om
+Wp
+Wp
+Wp
+PE
+Om
+Om
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+Om
+Om
 Om
 Om
 Om
@@ -29323,6 +30624,11 @@ Om
 VX
 Om
 Om
+Om
+Om
+Om
+Om
+VX
 Om
 Om
 Om
@@ -29388,28 +30694,28 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
+PE
+fh
+PE
 Om
 gc
 Kn
 ge
-VY
+ER
 PS
 VY
 VY
-VY
+ER
 fZ
 oF
 xL
 zs
-hS
+ER
 ii
 wJ
 tQ
 oF
-hS
+ER
 zs
 PQ
 oF
@@ -29476,48 +30782,41 @@ Om
 Om
 VX
 Om
-SP
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-yC
-Om
-fH
-Mj
-nH
-HS
-nH
-GK
-fH
+Wp
+Wp
+Wp
+Wp
+Wp
 Om
 Om
 Wp
+Om
 Wp
-yC
+Wp
+Wp
+Wp
+Wp
+Wp
+Wp
+Wp
+Wp
+Wp
+Wp
+Wp
+Om
+Wp
+Wp
+ni
+PE
+PE
+Om
+PE
+Om
+PE
+PE
+PE
+PE
+PE
 Om
 Om
 Om
@@ -29527,6 +30826,13 @@ Om
 Om
 VX
 Om
+Om
+Om
+Om
+Om
+Om
+Om
+VX
 Om
 VX
 Om
@@ -29596,11 +30902,11 @@ Om
 Om
 gc
 fm
-fZ
+ER
+ER
 VY
-VY
-VY
-fZ
+Iu
+ER
 Qm
 Bo
 oF
@@ -29678,14 +30984,10 @@ Om
 Om
 Om
 Om
+Wp
 Om
-Om
-Om
-SP
-Om
-Om
-Om
-Om
+Wp
+Wp
 Om
 Om
 Om
@@ -29697,29 +30999,33 @@ Om
 Om
 Om
 Om
+Wp
 Om
+Om
+Om
+Wp
 Om
 Om
 VX
-Om
-Om
-Om
-Om
-Om
-gP
+ni
 PE
-lp
-vi
-HS
-HS
-HS
-jN
-lp
+PE
+PE
+PE
+PE
 Om
-gc
-Wp
-Wp
-yC
+Om
+Om
+Om
+PE
+PE
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 Om
 Om
 Om
@@ -29764,7 +31070,7 @@ Om
 VX
 Om
 Om
-Om
+fM
 Om
 Om
 Om
@@ -29800,7 +31106,7 @@ gc
 Kn
 cE
 ur
-VY
+ER
 VY
 VY
 ur
@@ -29808,12 +31114,12 @@ bm
 oF
 RT
 zs
-CX
+ER
 oF
 TR
 tQ
 oF
-CX
+ER
 zs
 PQ
 oF
@@ -29879,27 +31185,12 @@ Om
 Om
 SP
 Om
-Om
-Om
-VX
-Om
-Om
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+Wp
+Wp
+Wp
+Wp
 Om
 VX
-VX
-Om
-SP
 Om
 Om
 Om
@@ -29908,26 +31199,41 @@ Om
 Om
 Om
 Om
-gP
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 PE
-lp
-YR
-HS
-HS
-HS
-HS
-lp
+fS
 PE
-gc
+fS
+PE
+Om
+Om
+Om
+Om
+PE
+PE
+Om
+Om
 Om
 VX
-yC
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 VX
-Om
-Om
-Om
-Om
-Om
 Om
 Om
 Om
@@ -30010,12 +31316,12 @@ AL
 oF
 oF
 oF
-CX
+XS
 oF
 gM
 Is
 oF
-CX
+Xv
 oF
 oF
 oF
@@ -30068,6 +31374,7 @@ Om
 VX
 Om
 VX
+WQ
 Om
 Om
 Om
@@ -30078,6 +31385,11 @@ Om
 Om
 Om
 Om
+Om
+Om
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -30089,12 +31401,6 @@ Om
 Om
 Om
 Om
-SP
-Om
-Om
-Om
-Om
-Om
 Om
 Om
 Om
@@ -30106,30 +31412,30 @@ Om
 VX
 Om
 Om
+yp
+XG
+ez
+lN
+Hg
 Om
-VX
 Om
 Om
-gP
 PE
-lp
-DM
-HS
-HS
-HS
-HS
-lp
 PE
-gc
 Om
 Om
-yC
 Om
 Om
-VX
 Om
 Om
 VX
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 Om
 Om
 Om
@@ -30205,7 +31511,7 @@ Om
 Om
 Kn
 gs
-op
+ER
 bm
 oF
 AL
@@ -30217,7 +31523,7 @@ oF
 oF
 oF
 oF
-hS
+ER
 zs
 PQ
 oF
@@ -30282,24 +31588,25 @@ Om
 VX
 Om
 Om
+Wp
+Wp
+Wp
+Om
+Om
+SP
 Om
 VX
+Om
+Om
+VX
+Om
+Om
+Om
 Om
 Om
 Om
 SP
 Om
-VX
-Om
-Om
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-SP
 Om
 Om
 Om
@@ -30312,23 +31619,22 @@ Om
 Om
 Om
 Om
-yC
 Om
-fH
-pP
-HS
-rR
-HS
-HS
-fH
+Om
+Om
+Om
+PE
 PE
 Om
+VX
 Om
 Om
-yC
 Om
 Om
 Om
+VX
+VX
+VX
 Om
 Om
 Om
@@ -30407,7 +31713,7 @@ gc
 gc
 fm
 ge
-fZ
+KA
 lT
 oF
 EY
@@ -30419,7 +31725,7 @@ oF
 Xw
 Xw
 oF
-LO
+hK
 oF
 oF
 oF
@@ -30482,6 +31788,12 @@ Om
 Om
 Om
 SP
+Wp
+Wp
+Wp
+Wp
+Wp
+Om
 Om
 Om
 Om
@@ -30490,12 +31802,6 @@ Om
 Om
 Om
 Om
-Om
-SP
-Om
-Om
-Om
-Om
 VX
 Om
 Om
@@ -30510,24 +31816,17 @@ Om
 VX
 Om
 Om
-fH
-fH
-lp
-fH
-fH
-fH
-fH
-fH
-bn
-fH
-bn
-fH
-fH
-fH
 Om
 Om
 Om
-yC
+Om
+Om
+Om
+Om
+Om
+PE
+Om
+PE
 Om
 Om
 Om
@@ -30538,6 +31837,13 @@ Om
 Om
 Om
 Om
+Om
+Om
+Om
+Om
+Om
+Om
+VX
 Om
 Om
 VX
@@ -30609,20 +31915,20 @@ Om
 Om
 Kn
 Ao
-VY
-bm
+ER
+Ob
 oF
 gC
 oF
 sm
-CX
-CX
+ER
+ER
 zs
 fZ
 VY
 zs
-CX
-hS
+ER
+ER
 HF
 oF
 dq
@@ -30684,6 +31990,14 @@ Om
 Om
 VX
 Om
+Wp
+Wp
+Wp
+Wp
+Om
+Om
+Om
+Om
 VX
 Om
 Om
@@ -30692,10 +32006,6 @@ Om
 Om
 Om
 Om
-VX
-Om
-Om
-SP
 Om
 Om
 Om
@@ -30712,27 +32022,23 @@ Om
 Om
 Om
 Om
-fH
-gd
-gd
-gd
-ah
-Iu
-RS
-HS
-XS
-fH
-HS
-HS
-XS
-fH
 Om
 Om
 Om
-yC
+Om
+PE
+PE
 Om
 Om
-VX
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 Om
 Om
 Om
@@ -30740,7 +32046,7 @@ Om
 VX
 Om
 Om
-VX
+Om
 Om
 Om
 dB
@@ -30821,9 +32127,9 @@ kW
 hS
 oF
 Wn
-HF
+zK
 Kn
-hS
+ER
 cP
 Ml
 Kn
@@ -30885,7 +32191,46 @@ Om
 Om
 Om
 Om
+Wp
+Wp
+Wp
+Wp
 Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+VX
+Om
+VX
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+PE
+PE
+PE
 Om
 Om
 VX
@@ -30902,47 +32247,8 @@ Om
 Om
 Om
 Om
-VX
 Om
 VX
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-lp
-gd
-gd
-gd
-KA
-Rg
-HS
-HS
-HS
-lp
-iI
-lt
-HS
-fH
-Om
-Om
-Om
-yC
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
 Om
 Om
 fn
@@ -31023,7 +32329,7 @@ cL
 oF
 oF
 hD
-Ml
+ss
 Kn
 Kn
 Kn
@@ -31086,24 +32392,24 @@ VX
 Om
 Om
 Om
+Wp
+Wp
+Wp
+Wp
 Om
 Om
 Om
 Om
+VX
+VX
 Om
+Om
+Om
+Om
+VX
 SP
 Om
 Om
-VX
-VX
-Om
-Om
-Om
-Om
-VX
-SP
-Om
-Om
 Om
 Om
 Om
@@ -31116,29 +32422,29 @@ VX
 Om
 Om
 Om
-lp
-gd
-jw
-gd
-KA
-yo
-HS
-HS
-HS
-lp
-iI
-lt
-HS
-fH
-Om
-Om
-Om
-yC
 Om
 Om
 Om
 Om
 Om
+Om
+Om
+Om
+Om
+PE
+PE
+Om
+Om
+Om
+Om
+Om
+VX
+Om
+Om
+Om
+Om
+Om
+VX
 Om
 Om
 Om
@@ -31219,14 +32525,14 @@ is
 EJ
 Gp
 VY
-VY
+ER
 lE
 HF
 XK
-HF
-HF
-wb
-wb
+zK
+zK
+BM
+BM
 el
 eO
 eO
@@ -31288,9 +32594,14 @@ Om
 VX
 Om
 Om
+Wp
 Om
-SP
+Wp
+Wp
 Om
+Om
+Om
+VX
 Om
 Om
 Om
@@ -31300,11 +32611,6 @@ Om
 Om
 Om
 Om
-VX
-Om
-Om
-Om
-Om
 Om
 Om
 SP
@@ -31318,30 +32624,30 @@ Om
 Om
 Om
 Om
-lp
-gd
-gd
-gd
-KA
-qd
-HS
-HS
-HS
-lp
-iI
-Lz
-HS
-fH
+Om
 Om
 Om
 Om
 yC
+yC
+yC
+yC
+yC
+lp
+yC
+yC
+yC
+yC
+KX
+yC
+yC
+yC
 Om
 Om
-VX
 Om
 Om
-VX
+Om
+Om
 Om
 Om
 Om
@@ -31414,20 +32720,20 @@ Om
 fm
 nw
 fE
-CX
+Ip
 Kd
 VY
 yL
 un
 Gp
-VY
-is
+Pg
+QL
 Ua
 fZ
 CX
-zz
+iG
 VH
-wb
+BM
 el
 el
 eO
@@ -31489,10 +32795,10 @@ Om
 Om
 Om
 Om
+Wp
 Om
-Om
-VX
-Om
+Wp
+Wp
 Om
 Om
 Om
@@ -31520,22 +32826,22 @@ Om
 SP
 Om
 Om
-fH
-gd
-gd
-gd
-sP
-hn
-no
-tO
-Pg
-fH
-HS
-HS
-XS
-fH
 Om
 Om
+Om
+VX
+yC
+Om
+Om
+Om
+PE
+gc
+PE
+Om
+Om
+Wp
+Wp
+Wp
 Om
 yC
 Om
@@ -31545,11 +32851,11 @@ Om
 Om
 Om
 Om
+VX
 Om
 Om
 Om
-Om
-Om
+VX
 Om
 Om
 fn
@@ -31615,20 +32921,20 @@ gc
 Om
 fm
 Gx
-fE
-fE
+ER
+ER
 oF
 Fz
 sb
 YV
 Gp
-VY
+ER
 fZ
 Ye
-VY
+DP
 VY
 tq
-wb
+BM
 el
 el
 el
@@ -31688,6 +32994,21 @@ Om
 Om
 VX
 VX
+Wp
+Wp
+Om
+Wp
+Om
+Wp
+Wp
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 Om
 Om
 Om
@@ -31699,21 +33020,6 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-SP
-Om
-Om
-Om
-Om
 VX
 Om
 Om
@@ -31721,35 +33027,35 @@ VX
 Om
 Om
 Om
-VX
-fH
-fH
-lp
-fH
-fH
-fH
-fH
-fH
-fH
-fH
-fH
-fH
-fH
-fH
+Om
+Om
 Om
 Om
 Om
 yC
 Om
 Om
+PE
+fH
+PE
+DI
+Om
+Om
+Om
+Wp
+Wp
+Om
+yC
 Om
 Om
 Om
 Om
+VX
 Om
 Om
 Om
 Om
+VX
 SP
 Om
 VX
@@ -31817,7 +33123,7 @@ gc
 Om
 fm
 nw
-fE
+ER
 fE
 ii
 HU
@@ -31829,8 +33135,8 @@ Kn
 Kn
 Kn
 Kn
-lU
-CX
+aV
+ej
 Kn
 Kn
 Kn
@@ -31890,10 +33196,10 @@ Om
 Om
 Om
 Om
-VX
 Om
 Om
-Om
+Wp
+Wp
 Om
 Om
 Om
@@ -31924,31 +33230,31 @@ Om
 Om
 Om
 Om
+VX
 Om
-Om
-Om
-Om
-yC
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+VX
 Om
 yC
 Om
+eQ
+eQ
+eQ
+uO
+eQ
+eQ
+eQ
+Om
+Wp
+Wp
+Wp
+yC
+Om
+VX
 Om
 Om
 Om
 Om
-Om
-Om
+VX
 Om
 Om
 Om
@@ -32032,7 +33338,7 @@ dB
 dB
 Kn
 wC
-wC
+ri
 Kn
 dB
 dB
@@ -32081,18 +33387,6 @@ Om
 Om
 Om
 Om
-SP
-Om
-Om
-VX
-Om
-Om
-VX
-Om
-SP
-Om
-Om
-Om
 Om
 Om
 Om
@@ -32100,6 +33394,18 @@ Om
 Om
 Om
 VX
+Wp
+Wp
+Wp
+Wp
+Om
+Wp
+Wp
+Wp
+Om
+Om
+Om
+Om
 Om
 VX
 VX
@@ -32131,18 +33437,18 @@ Om
 Om
 Om
 yC
-yC
-yC
-yC
-yC
-yC
-yC
-yC
-yC
-yC
-yC
-yC
-yC
+Om
+eQ
+kO
+Ht
+Wb
+Xu
+Di
+eQ
+Om
+Om
+Wp
+Wp
 yC
 Om
 Om
@@ -32225,7 +33531,7 @@ Kn
 Kn
 Kn
 oC
-VY
+ER
 Jp
 Kn
 dB
@@ -32281,6 +33587,7 @@ Om
 Om
 Om
 Om
+YK
 Om
 Om
 Om
@@ -32290,12 +33597,11 @@ Om
 Om
 Om
 Om
+Wp
+Wp
 Om
-Om
-Om
-Om
-Om
-Om
+Wp
+Wp
 Om
 Om
 Om
@@ -32332,26 +33638,26 @@ Om
 Om
 Om
 Om
+gP
+PE
+zB
+uq
+id
+id
+id
+vL
+zB
+Om
+gc
+Wp
+Wp
+yC
+Om
+Om
+Om
 Om
 VX
-SP
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
 Om
 Om
 Om
@@ -32433,12 +33739,12 @@ Kn
 dB
 Kn
 DO
-op
+Zt
 zs
 Ri
 Ye
 zs
-Zt
+zG
 kq
 Kn
 dB
@@ -32480,23 +33786,23 @@ VX
 Om
 Om
 Om
+YK
+YK
+YK
+YK
+YK
+YK
 Om
 Om
 Om
 Om
-Om
-Om
-Om
-VX
-VX
-Om
-SP
-Om
-VX
-Om
-SP
-Om
-Om
+Wp
+Wp
+Wp
+Wp
+Wp
+Wp
+Wp
 Om
 Om
 Om
@@ -32531,32 +33837,32 @@ Om
 Om
 Om
 Om
-SP
 Om
 Om
 Om
+gP
+PE
+zB
+fa
+id
+Mf
+id
+eL
+zB
+PE
+gc
+Om
+VX
+yC
 Om
 Om
 Om
-Om
-SP
 Om
 Om
 Om
 VX
 Om
-Om
-Om
-Om
-Om
-Om
 VX
-Om
-Om
-Om
-Om
-VX
-Om
 Om
 Om
 Om
@@ -32671,10 +33977,6 @@ dB
 VX
 Om
 Om
-VX
-Om
-Om
-SP
 Om
 Om
 Om
@@ -32682,21 +33984,25 @@ SP
 Om
 Om
 Om
-VX
-VX
-Om
-SP
 SP
 Om
 Om
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 Om
-SP
 Om
 Om
+Wp
 Om
-Om
-Om
-Om
+Wp
+Wp
+Wp
 Om
 Om
 SP
@@ -32733,23 +34039,23 @@ Om
 Om
 Om
 Om
-Om
-Om
-VX
 VX
 Om
 Om
+gP
+PE
+zB
+NW
+id
+id
+id
+id
+zB
+PE
+gc
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-Om
-Om
+yC
 Om
 Om
 Om
@@ -32839,7 +34145,7 @@ Kn
 oF
 oF
 oF
-wW
+Fu
 pR
 cL
 oF
@@ -32873,7 +34179,7 @@ dB
 Om
 Om
 Om
-VX
+Om
 Om
 SP
 Om
@@ -32881,24 +34187,24 @@ Om
 Om
 VX
 Om
-SP
-VX
+Om
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+Om
+Om
+Wp
+Wp
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-VX
 Om
 Om
 Om
@@ -32934,24 +34240,24 @@ VX
 SP
 Om
 Om
-SP
-Om
-VX
 Om
 Om
 Om
 Om
-VX
+yC
+Om
+eQ
+kv
+qk
+Ay
+Ea
+pc
+eQ
+PE
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+yC
 Om
 Om
 Om
@@ -33083,21 +34389,21 @@ Om
 Om
 Om
 Om
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 Om
 Om
-VX
-Om
-Om
-SP
-Om
-Om
-Om
-Om
-SP
-VX
-Om
-Om
-Om
+Wp
+Wp
 Om
 Om
 SP
@@ -33136,24 +34442,24 @@ Om
 Om
 Om
 Om
-VX
+eQ
+eQ
+zB
+eQ
+eQ
+eQ
+eQ
+eQ
+bD
+eQ
+bD
+eQ
+eQ
+eQ
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+yC
 Om
 Om
 Om
@@ -33243,7 +34549,7 @@ Kn
 au
 ky
 oF
-fZ
+MA
 aJ
 oF
 Xg
@@ -33285,6 +34591,24 @@ Om
 Om
 VX
 Om
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+Om
+Wp
+Wp
+Wp
+Om
+VX
+Om
 Om
 Om
 SP
@@ -33294,24 +34618,6 @@ Om
 Om
 Om
 Om
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-Om
-Om
-Om
-SP
-Om
-Om
-Om
-Om
-Om
-Om
 Om
 Om
 Om
@@ -33338,24 +34644,24 @@ Om
 Om
 Om
 Om
+eQ
+Uo
+Tk
+Hk
+lK
+dJ
+Tq
+id
+KO
+Yc
+id
+id
+Hb
+eQ
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+yC
 Om
 Om
 VX
@@ -33445,7 +34751,7 @@ Kn
 oF
 oF
 oF
-VY
+MA
 VY
 oF
 oF
@@ -33487,64 +34793,20 @@ Om
 Om
 Om
 Om
-Om
-VX
-Om
-Om
-VX
-Om
-Om
-Om
-VX
-Om
-Om
-VX
-Om
-Om
-VX
-Om
-VX
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-Om
-Om
-VX
-Om
-Om
-VX
-Om
-Om
-Om
-VX
-Om
-Om
-Om
-VX
-VX
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-SP
-Om
+Wp
 Om
 Om
 VX
@@ -33552,12 +34814,56 @@ Om
 Om
 Om
 Om
-SP
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+VX
+Om
+Om
+VX
+Om
 Om
 VX
 Om
 Om
 Om
+VX
+Om
+Om
+Om
+VX
+VX
+VX
+Om
+Om
+Om
+Om
+Om
+Om
+zB
+Uo
+Uo
+Nh
+WS
+TC
+id
+id
+id
+Yc
+WD
+mI
+id
+eQ
+Om
+Om
+Om
+yC
 Om
 SP
 Om
@@ -33639,7 +34945,7 @@ oF
 oF
 oF
 uU
-VY
+Iu
 Oi
 Kn
 dB
@@ -33647,8 +34953,8 @@ Kn
 om
 VS
 zs
-CX
-VY
+Nb
+ph
 Kd
 VS
 JY
@@ -33689,58 +34995,17 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-Om
-Om
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 Om
 Om
 Om
@@ -33754,12 +35019,53 @@ Om
 VX
 Om
 Om
-Om
-Om
-Om
-Om
 VX
 Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+zB
+Uo
+UT
+Uo
+WS
+SS
+id
+Mf
+id
+Yc
+WD
+mI
+id
+eQ
+Om
+Om
+Om
+yC
 Om
 Om
 Om
@@ -33830,14 +35136,14 @@ dB
 el
 el
 RX
-fE
+tN
 CX
 OG
 Kn
 Wj
-VY
-HF
-VY
+ER
+ER
+ER
 HF
 KK
 CX
@@ -33849,8 +35155,8 @@ Kn
 zh
 Er
 oF
-wW
-cO
+Ic
+AO
 oF
 JO
 ck
@@ -33891,27 +35197,26 @@ Om
 SP
 Om
 Om
-VX
-VX
-Om
-SP
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-SP
-Om
-SP
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 Om
 Om
 Om
-SP
+Om
+Om
+Om
 Om
 SP
 Om
+SP
 Om
 Om
 Om
@@ -33922,19 +35227,20 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-VX
-Om
-VX
 Om
 Om
 Om
 Om
 Om
 VX
+Om
+VX
+Om
+Om
+Om
+Om
+Om
+VX
 SP
 Om
 Om
@@ -33944,24 +35250,24 @@ Om
 Om
 SP
 Om
+zB
+Uo
+Uo
+Tk
+WS
+BN
+Zv
+Zv
+Zv
+Yc
+WD
+gH
+id
+eQ
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+yC
 Om
 Om
 Om
@@ -34037,8 +35343,8 @@ HF
 OG
 Kn
 uK
-VY
-VY
+ER
+ER
 HF
 VY
 Kn
@@ -34051,7 +35357,7 @@ Kn
 oF
 oF
 oF
-CX
+MA
 yK
 oF
 oF
@@ -34093,16 +35399,16 @@ Om
 Om
 Om
 Om
-VX
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 Om
 Om
 Om
@@ -34146,24 +35452,24 @@ Om
 Om
 Om
 Om
-Om
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-Om
-Om
-Om
-Om
-Om
-Om
+eQ
+Uo
+Nh
+vk
+wV
+MW
+dM
+gO
+AW
+Yc
+id
+id
+XD
+eQ
 Om
 Om
+Om
+yC
 Om
 Om
 Om
@@ -34253,7 +35559,7 @@ Kn
 kQ
 AO
 zs
-VY
+RO
 VY
 zs
 Zt
@@ -34295,6 +35601,41 @@ SP
 Om
 Om
 Om
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+Om
+Om
+Om
+SP
+Om
+Om
+Om
+SP
+Om
+Om
+VX
+Om
+VX
+Om
+VX
+Om
+Om
+Om
+VX
+Om
+Om
+Om
+Om
+Om
+Om
 Om
 Om
 Om
@@ -34302,6 +35643,8 @@ Om
 Om
 Om
 VX
+VX
+Om
 Om
 Om
 Om
@@ -34310,62 +35653,25 @@ Om
 Om
 SP
 Om
-Om
-Om
-SP
-Om
-Om
 VX
-Om
-VX
-Om
-VX
-Om
-Om
-Om
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+eQ
+eQ
+zB
+eQ
+eQ
+eQ
+eQ
+eQ
+eQ
+eQ
+eQ
+eQ
+eQ
+eQ
 Om
 Om
 Om
-Om
-VX
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-SP
-Om
-VX
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-SP
-Om
-Om
+yC
 VX
 Om
 Om
@@ -34456,7 +35762,7 @@ ki
 gS
 oF
 vH
-VY
+DP
 oF
 mS
 SA
@@ -34497,22 +35803,16 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-VX
-VX
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 Om
 Om
 Om
@@ -34530,24 +35830,6 @@ Om
 Om
 Om
 Om
-Om
-Om
-SP
-Om
-Om
-SP
-Om
-VX
-Om
-Om
-Om
-Om
-VX
-Om
-Om
-Om
-Om
-VX
 Om
 Om
 Om
@@ -34558,16 +35840,40 @@ Om
 Om
 SP
 Om
+Om
 SP
 Om
 VX
+Om
+Om
+Om
+Om
 VX
+Om
+Om
+Om
+Om
 VX
 Om
 Om
 Om
 Om
 Om
+Om
+yC
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+yC
 Om
 Om
 SP
@@ -34658,7 +35964,7 @@ oF
 oF
 oF
 AP
-fZ
+Zt
 oF
 oF
 oF
@@ -34700,15 +36006,15 @@ Om
 Om
 SP
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-Om
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 Om
 Om
 VX
@@ -34755,21 +36061,21 @@ Om
 Om
 Om
 Om
-VX
 Om
-Om
-SP
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
 VX
 Om
 Om
@@ -34856,14 +36162,14 @@ eO
 el
 dB
 Kn
-kQ
-Ot
+om
+VS
 zs
-VY
+DP
 Vc
 zs
-Zt
-kq
+zG
+vA
 Kn
 dB
 dB
@@ -34903,13 +36209,13 @@ Om
 Om
 Om
 Om
-Om
-Om
-VX
-Om
-Om
-Om
-SP
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 Om
 Om
 Om
@@ -35062,7 +36368,7 @@ uG
 CH
 oF
 nQ
-VY
+SJ
 oF
 SV
 Ai
@@ -35106,11 +36412,11 @@ Om
 Om
 Om
 Om
-VX
-Om
-Om
-Om
-VX
+YK
+YK
+YK
+YK
+YK
 Om
 Om
 Om
@@ -35141,7 +36447,7 @@ Om
 Om
 Om
 Om
-Om
+WQ
 Om
 Om
 SP
@@ -35309,6 +36615,18 @@ Om
 Om
 Om
 Om
+YK
+YK
+Om
+Om
+Om
+Om
+Om
+VX
+Om
+Om
+Om
+Om
 Om
 Om
 Om
@@ -35320,18 +36638,6 @@ VX
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-Om
-Om
-Om
 VX
 Om
 VX
@@ -35340,11 +36646,11 @@ Om
 Om
 Om
 Om
+WQ
 Om
 Om
 Om
-Om
-Om
+WQ
 Om
 Om
 Om
@@ -35501,7 +36807,7 @@ Om
 Om
 Om
 Om
-Om
+fM
 Om
 Om
 Om
@@ -35550,7 +36856,7 @@ Om
 Om
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -35711,13 +37017,13 @@ Om
 VX
 Om
 Om
-SP
 Om
 Om
-VX
-VX
 Om
-SP
+Om
+Om
+Om
+Om
 Om
 Om
 Om
@@ -35952,7 +37258,7 @@ Om
 VX
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -36117,26 +37423,26 @@ Om
 Om
 Om
 Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 SP
 Om
 Om
-VX
-VX
 Om
 Om
 Om
 Om
-Om
-Om
-Om
-SP
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+WQ
 Om
 Om
 Om
@@ -36323,7 +37629,7 @@ Om
 Om
 Om
 Om
-SP
+Om
 Om
 Om
 VX
@@ -36452,9 +37758,9 @@ bv
 ql
 zO
 FH
-Hv
+jN
 ny
-Hv
+qd
 wG
 Kn
 hl
@@ -36522,30 +37828,30 @@ Om
 Om
 Om
 Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+VX
+Om
+Om
+VX
+Om
+VX
 VX
 Om
 Om
 Om
 Om
-VX
 Om
 Om
 Om
-VX
-Om
-Om
-VX
-Om
-VX
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+WQ
 Om
 Om
 Om
@@ -36722,10 +38028,10 @@ Om
 Om
 Om
 Om
-VX
 Om
-VX
-VX
+Om
+Om
+Om
 Om
 Om
 Om
@@ -36923,7 +38229,6 @@ Om
 Om
 Om
 Om
-VX
 Om
 Om
 Om
@@ -36931,12 +38236,6 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-VX
 Om
 Om
 Om
@@ -36946,8 +38245,15 @@ Om
 VX
 Om
 Om
+Om
+Om
+Om
+Om
 VX
 Om
+Om
+VX
+WQ
 Om
 Om
 Om
@@ -37202,7 +38508,7 @@ SP
 Om
 Om
 Om
-Om
+fM
 Om
 Om
 Om
@@ -37274,7 +38580,7 @@ Qc
 CX
 ip
 Kn
-CX
+IO
 lL
 CX
 Kn
@@ -37471,7 +38777,7 @@ CX
 CX
 un
 mh
-VY
+DM
 un
 VY
 CX
@@ -37734,7 +39040,7 @@ Om
 HW
 Wp
 iQ
-Wp
+UD
 VB
 Wp
 xR
@@ -37956,8 +39262,8 @@ Om
 Om
 VX
 Om
-Om
-Om
+WQ
+WQ
 Om
 Om
 SP
@@ -38068,9 +39374,9 @@ CD
 vY
 pQ
 Vv
-gW
+Vv
 Nu
-Ip
+nM
 Vv
 pQ
 Vv
@@ -38174,7 +39480,7 @@ Om
 Om
 VX
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -38196,7 +39502,7 @@ Om
 Om
 Om
 VX
-Om
+fM
 Om
 SP
 Om
@@ -38270,9 +39576,9 @@ UG
 nM
 UG
 nM
-sS
+nM
 Nu
-Ip
+nM
 UG
 UG
 nM
@@ -38340,7 +39646,7 @@ gc
 Om
 Om
 eK
-Om
+vG
 Om
 gc
 Om
@@ -38472,9 +39778,9 @@ Vv
 Vv
 Vv
 Vv
-IO
+Vv
 Nu
-Ip
+nM
 kX
 Vv
 Vv
@@ -38541,10 +39847,10 @@ Om
 Om
 ft
 Wp
-Om
+WQ
 Om
 Wp
-Om
+WQ
 Om
 Om
 Om
@@ -38562,11 +39868,11 @@ Om
 Om
 Om
 VX
-Om
+WQ
 Om
 SP
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -38674,9 +39980,9 @@ YL
 WC
 Vv
 kX
-IO
+kX
 Nu
-Ip
+nM
 kX
 kX
 Vv
@@ -38692,8 +39998,8 @@ aM
 aM
 aM
 Un
-CD
-Vv
+kX
+kX
 Vv
 aI
 Vv
@@ -38876,9 +40182,9 @@ Vv
 xk
 Vv
 Vv
-IO
+Vv
 Nu
-Ip
+nM
 kX
 Vv
 kX
@@ -38896,7 +40202,7 @@ aM
 Un
 CD
 Un
-Vv
+kX
 Vv
 Vv
 Xm
@@ -38980,7 +40286,7 @@ Om
 Om
 VX
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -39078,9 +40384,9 @@ Vv
 xg
 Vv
 Vv
-gW
+Vv
 Nu
-Ip
+nM
 kX
 Vv
 kX
@@ -39097,8 +40403,8 @@ aM
 aM
 CD
 CD
-Vv
-Vv
+kX
+kX
 Vv
 Vv
 Vv
@@ -39147,7 +40453,7 @@ Om
 Om
 kc
 pL
-WI
+XO
 WI
 Sz
 kc
@@ -39280,9 +40586,9 @@ nM
 iv
 hX
 nM
-sS
+nM
 Nu
-tN
+nM
 Vv
 UG
 UG
@@ -39297,10 +40603,10 @@ FK
 FK
 AG
 FK
-FK
-rn
-UG
-rn
+kX
+kX
+aG
+kX
 nM
 rn
 nM
@@ -39482,16 +40788,16 @@ ln
 GB
 yt
 Vv
-gW
+Vv
 Nu
-Ip
+nM
 Vv
 Vv
 Vv
 kX
 Vv
 Vv
-ey
+Vv
 Vv
 Vv
 Vv
@@ -39499,11 +40805,11 @@ Vv
 eq
 Xi
 Qn
-Vv
-Vv
-Vv
-Vv
-Jy
+aG
+aG
+aG
+aG
+kX
 Vv
 Vv
 Vv
@@ -39702,9 +41008,9 @@ Rq
 HC
 Rq
 Rq
-EO
-Pr
-EO
+aG
+aG
+aG
 EO
 Pr
 EO
@@ -39990,7 +41296,7 @@ VX
 Om
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -40391,7 +41697,7 @@ Om
 VX
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -40596,7 +41902,7 @@ Om
 Om
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -40795,7 +42101,7 @@ Om
 Om
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -40910,7 +42216,7 @@ oh
 Rq
 Rq
 Rq
-mC
+FB
 dv
 NR
 Rq
@@ -41043,10 +42349,10 @@ Om
 kz
 Om
 Om
-xR
+Wi
 kz
-Om
-Om
+go
+go
 dB
 dB
 dB
@@ -41112,8 +42418,8 @@ Cs
 Sf
 fo
 Rq
-Ki
-dv
+nV
+Lc
 hV
 Rq
 Rq
@@ -41311,11 +42617,11 @@ Rq
 Rq
 oa
 Ly
-IX
+sV
 KB
-Rq
+sY
 gG
-eu
+Lz
 Pu
 Rq
 TT
@@ -41450,7 +42756,7 @@ kG
 Om
 HP
 Om
-Om
+QC
 dB
 dB
 dB
@@ -41512,20 +42818,20 @@ cu
 Rq
 BQ
 Ap
-Pu
+mB
 HI
-NF
+RI
 Rq
 zA
-IX
-pG
+Vr
+Tw
 Rq
 sT
 xM
-qb
+Qz
 sf
 Rq
-Rq
+IA
 cu
 cu
 cu
@@ -41644,15 +42950,15 @@ YK
 YK
 Om
 Om
-Om
-Om
-kG
-Om
-Om
-Om
+Sl
 Om
 kG
 Om
+Om
+Om
+zY
+kG
+DC
 dB
 dB
 dB
@@ -41714,20 +43020,20 @@ cu
 oh
 oa
 rD
-gZ
-eu
-gZ
+YR
+xa
+ym
 gV
-Ki
-dv
+Tw
+er
 dv
 gV
 qO
 qb
 BR
 qb
-tv
 Rq
+IA
 cu
 cu
 cu
@@ -41844,9 +43150,9 @@ YK
 YK
 YK
 YK
-Om
-Om
-Om
+MB
+MB
+MB
 nx
 TI
 nx
@@ -41855,12 +43161,12 @@ nx
 Rm
 nx
 nx
+Ee
+dB
+Ee
 dB
 dB
-dB
-dB
-dB
-dB
+Ee
 VV
 "}
 (159,1,1) = {"
@@ -41893,12 +43199,12 @@ cu
 cu
 EO
 Vv
-BF
+XI
 Ta
 Xp
 Iz
 lm
-BF
+XI
 Vv
 gr
 Vv
@@ -41917,7 +43223,7 @@ oh
 oa
 eX
 Pu
-Pu
+Tw
 Th
 Rq
 Ki
@@ -41929,7 +43235,7 @@ qb
 PV
 Pe
 Rq
-Rq
+IA
 cu
 cu
 cu
@@ -42050,17 +43356,17 @@ rO
 nx
 nx
 nx
-of
+fK
 WY
 nx
 dV
-WY
+UC
 iX
 nx
 dB
 dB
 dB
-dB
+oJ
 dB
 dB
 VV
@@ -42123,7 +43429,7 @@ Pu
 gZ
 Rq
 gK
-dG
+Pi
 ta
 Rq
 gx
@@ -42255,14 +43561,14 @@ LK
 WY
 WY
 mQ
-of
-WY
+JM
+ow
 WY
 nx
 dB
+lO
 dB
-dB
-dB
+oJ
 dB
 dB
 VV
@@ -42450,19 +43756,19 @@ YK
 YK
 qe
 YK
-zg
+nx
 LK
 dm
-of
+xN
 WY
 WY
 nx
 Cw
 kE
-zk
+Bg
 nx
-dB
-dB
+lO
+lO
 dB
 dB
 dB
@@ -42530,7 +43836,7 @@ LS
 Pu
 LU
 Rq
-pA
+pW
 Tw
 MO
 Pu
@@ -42663,11 +43969,11 @@ nx
 nx
 nx
 nx
-dB
-dB
-dB
-dB
-dB
+QX
+Yp
+lO
+Yp
+QX
 dB
 VV
 "}
@@ -42729,15 +44035,15 @@ Nj
 Nj
 WU
 pH
-Pu
+kN
 VQ
 HC
 Qt
 Pu
-gZ
-IX
-me
-Pu
+Rg
+Ms
+Yi
+Tw
 Pu
 me
 Sv
@@ -42859,17 +44165,17 @@ Ll
 nx
 nh
 Ll
-WY
+SG
 of
 nx
 YG
 nO
 nx
-dB
-dB
-dB
-dB
-dB
+lO
+Pv
+Pv
+lO
+QX
 dB
 VV
 "}
@@ -42932,11 +44238,11 @@ Rq
 Rq
 uY
 FP
-Pu
+Mj
 Rq
 XV
 oD
-zA
+FB
 gZ
 Lw
 me
@@ -43064,14 +44370,14 @@ XE
 WY
 WY
 mQ
-of
+xN
 WY
 nx
-dB
-dB
-dB
-dB
-dB
+QX
+Pv
+Pv
+Pv
+QX
 dB
 VV
 "}
@@ -43201,8 +44507,8 @@ Om
 Om
 SP
 Om
-Om
-Om
+WQ
+WQ
 Om
 Om
 Om
@@ -43259,21 +44565,21 @@ YK
 qe
 YK
 zg
+UC
+JM
 WY
 WY
-WY
-WY
-WY
+rK
 nx
 nx
 nx
 nx
 nx
-dB
-dB
-dB
-dB
-dB
+QX
+QX
+jo
+QX
+QX
 dB
 VV
 "}
@@ -43340,9 +44646,9 @@ pW
 Rq
 Zm
 mM
-oU
+Pu
 EK
-wz
+Tw
 Ge
 fD
 Rq
@@ -43460,23 +44766,23 @@ YK
 YK
 qe
 YK
-zg
-of
+nx
+TY
+qT
+qT
 WY
-of
-WY
-WY
+ow
 nx
 ZD
 Bu
 zk
 nx
-dB
-dB
-dB
-dB
-dB
-dB
+QX
+iY
+iY
+iY
+QX
+lO
 VV
 "}
 (167,1,1) = {"
@@ -43509,12 +44815,12 @@ cu
 Pr
 ZF
 Vv
-BF
+XI
 QP
 lo
 lo
 sj
-BF
+XI
 Vv
 gr
 Vv
@@ -43540,12 +44846,12 @@ me
 Ok
 Sv
 Sv
-me
+pA
 na
-gZ
-gZ
+mB
+nV
 Uw
-gZ
+nV
 gI
 Rq
 cu
@@ -43665,20 +44971,20 @@ YK
 zg
 UU
 hB
-fJ
+hB
+WY
+JM
+TI
 WY
 of
-mQ
 WY
-of
-WY
-nx
-dB
-dB
-dB
-dB
-dB
-dB
+fQ
+jo
+La
+ee
+iY
+jo
+lO
 VV
 "}
 (168,1,1) = {"
@@ -43742,13 +45048,13 @@ me
 Sv
 Sv
 Sv
-gZ
-HI
-gZ
-HI
+Dd
+NC
+Tw
+YN
 Hf
-eu
-gZ
+Bc
+Tw
 Rq
 cu
 cu
@@ -43869,18 +45175,18 @@ nx
 nx
 nx
 WY
-WY
+nz
 nx
 bU
-of
+fK
 iX
 nx
-dB
-dB
-dB
-dB
-dB
-dB
+QX
+Ej
+iY
+La
+QX
+lO
 VV
 "}
 (169,1,1) = {"
@@ -43945,8 +45251,8 @@ me
 Sv
 oh
 DK
-eu
-gZ
+Bc
+Tw
 lz
 gZ
 Xf
@@ -44066,9 +45372,9 @@ YK
 YK
 YK
 YK
-Om
-Om
-Om
+MB
+MB
+MB
 nx
 TI
 nx
@@ -44077,12 +45383,12 @@ nx
 Rm
 nx
 nx
-dB
-dB
-dB
-dB
-dB
-dB
+QX
+QX
+jo
+QX
+QX
+QX
 VV
 "}
 (170,1,1) = {"
@@ -44126,9 +45432,9 @@ PI
 EO
 cu
 cu
-cu
-cu
-cu
+Rq
+Rq
+Rq
 cu
 cu
 cu
@@ -44146,11 +45452,11 @@ Sv
 Sv
 Sv
 IA
-yv
+TP
 RU
-me
-gZ
-gZ
+Tw
+Lr
+mB
 zT
 zT
 Rq
@@ -44279,11 +45585,11 @@ Om
 kG
 Om
 dB
-dB
-dB
-dB
-dB
-dB
+QX
+Og
+ee
+Og
+QX
 dB
 VV
 "}
@@ -44317,22 +45623,22 @@ cu
 Pr
 ZF
 AH
-BF
+XI
 RW
 lo
 lo
 as
-BF
+XI
 Vv
-gr
 EO
-cu
-cu
-cu
-cu
-cu
-cu
-cu
+aG
+Rq
+Rq
+Rq
+dK
+Rq
+Rq
+Rq
 Sv
 Sv
 Sv
@@ -44351,8 +45657,8 @@ Sv
 pk
 wY
 SW
-eu
-gZ
+Bc
+Tw
 zT
 JU
 Jd
@@ -44479,14 +45785,14 @@ kG
 kG
 Om
 gc
-fn
-dB
-dB
-dB
-dB
-dB
-dB
-dB
+ue
+QX
+QX
+aW
+aW
+iY
+QX
+QX
 VV
 "}
 (172,1,1) = {"
@@ -44526,15 +45832,15 @@ hL
 lv
 XI
 Vv
-FS
 EO
-cu
-cu
-cu
-cu
-cu
-cu
-cu
+aG
+Rq
+ah
+bg
+gd
+lt
+no
+Rq
 cu
 Sv
 Rq
@@ -44551,14 +45857,14 @@ Sv
 Sv
 IA
 Sv
-Pu
+Tw
 gZ
-gZ
-gZ
+ut
+Tw
 HC
-gZ
+iF
 mb
-gZ
+Tw
 oh
 cu
 cu
@@ -44681,14 +45987,14 @@ Om
 Om
 kz
 Om
-Om
-dB
-dB
-dB
-dB
-dB
-dB
-dB
+ue
+QX
+oA
+Ro
+QX
+lH
+iu
+QX
 VV
 "}
 (173,1,1) = {"
@@ -44730,13 +46036,13 @@ XI
 Vv
 EO
 cu
-cu
-cu
-cu
-cu
-cu
-cu
-cu
+Rq
+Rq
+bn
+qb
+bn
+Rq
+Rq
 cu
 cu
 Rq
@@ -44883,14 +46189,14 @@ Om
 Om
 Om
 Om
-Om
-dB
-dB
-dB
-dB
-dB
-dB
-dB
+ue
+QX
+aU
+aW
+ex
+yM
+Mo
+QX
 VV
 "}
 (174,1,1) = {"
@@ -44932,13 +46238,13 @@ XI
 UV
 EO
 cu
-cu
-cu
-cu
-cu
-cu
-cu
-cu
+Rq
+ah
+bg
+hn
+lt
+no
+Rq
 cu
 Rq
 Rq
@@ -45085,14 +46391,14 @@ kz
 Om
 kz
 Om
-Om
-Om
-dB
-dB
-dB
-dB
-dB
-dB
+ue
+QX
+Xo
+rg
+Eo
+aW
+rg
+QX
 VV
 "}
 (175,1,1) = {"
@@ -45134,13 +46440,13 @@ XI
 Vv
 Pr
 cu
-cu
-cu
-cu
-cu
-cu
-cu
-cu
+Rq
+Rq
+bn
+cb
+bn
+Rq
+Rq
 cu
 Rq
 nY
@@ -45148,7 +46454,7 @@ Cp
 me
 me
 Sv
-me
+pA
 jQ
 Js
 oh
@@ -45214,7 +46520,7 @@ Om
 Om
 VX
 Om
-Om
+fM
 Om
 Om
 SP
@@ -45287,14 +46593,14 @@ Om
 Om
 Om
 Om
-kz
-Om
-fn
-dB
-dB
-dB
-dB
-dB
+ue
+QX
+on
+Pp
+rg
+Pp
+SL
+QX
 VV
 "}
 (176,1,1) = {"
@@ -45336,13 +46642,13 @@ XI
 Mg
 Pr
 cu
-cu
-cu
-cu
-cu
-cu
-cu
-cu
+Rq
+ah
+bg
+qb
+lt
+no
+Rq
 cu
 Rq
 qb
@@ -45350,7 +46656,7 @@ Pu
 RD
 tK
 me
-me
+pA
 bx
 Hl
 hv
@@ -45489,14 +46795,14 @@ Om
 Om
 Om
 VX
-kz
-Om
-dB
-dB
-dB
-dB
-dB
-dB
+ue
+QX
+QX
+Co
+GE
+FJ
+QX
+QX
 VV
 "}
 (177,1,1) = {"
@@ -45537,22 +46843,22 @@ kp
 XI
 Vv
 EO
-Pr
-cu
+aG
+Ee
+Rq
+Rq
+iI
 Rq
 Rq
 Rq
 Rq
 Rq
 Rq
-Rq
-Rq
-Rq
-me
+pA
 rE
-yv
+HI
 Zw
-Ok
+tc
 bR
 Pu
 oh
@@ -45687,17 +46993,17 @@ Om
 Om
 kz
 Om
+eU
 Om
 Om
 Om
-Om
-Om
-Om
-dB
-dB
-dB
-dB
-dB
+kz
+ue
+QX
+QX
+QX
+QX
+QX
 dB
 VV
 "}
@@ -45739,7 +47045,7 @@ ec
 XI
 UV
 Cd
-EO
+aG
 cu
 Rq
 bq
@@ -45752,7 +47058,7 @@ bY
 Rq
 Rq
 Rq
-tK
+Bn
 me
 Dy
 Rq
@@ -45894,7 +47200,7 @@ Om
 Om
 SP
 Om
-Om
+ue
 dB
 dB
 dB
@@ -45933,30 +47239,30 @@ cu
 cu
 Pr
 Vv
-BF
+XI
 cz
 lo
 lo
 LW
-BF
+XI
 tS
-gr
 EO
+aG
 cu
 Rq
 cg
-qb
+mt
 Ie
 XR
-xS
+rR
 Wf
 mt
 Gf
 LC
 Rq
 me
-me
-me
+Tw
+Tw
 ja
 Rq
 cu
@@ -46143,14 +47449,14 @@ XI
 vh
 gW
 gr
-EO
+aG
 cu
 Rq
 df
-mw
+mt
 JZ
-XR
-xS
+nA
+sP
 WL
 mt
 Dc
@@ -46159,7 +47465,7 @@ Rq
 Rq
 me
 me
-me
+Tw
 Rq
 cu
 cu
@@ -46344,14 +47650,14 @@ hL
 jG
 be
 su
-gr
-Pr
+EO
+aG
 cu
 Rq
 dZ
-ug
-ug
-XR
+mt
+mw
+nH
 zX
 ug
 ug
@@ -46359,7 +47665,7 @@ ug
 LM
 hk
 Vb
-yv
+FS
 me
 tP
 Rq
@@ -46394,7 +47700,7 @@ Rq
 jA
 oh
 eg
-Sk
+Tw
 Sp
 Ft
 yE
@@ -46546,18 +47852,18 @@ gY
 XI
 vh
 Vv
-gr
+EO
 aG
 cu
 Rq
 ig
-Ar
+mt
 LY
-XR
-xS
+pP
+sS
 Qk
 mt
-Op
+uJ
 cr
 Rq
 Rq
@@ -46741,25 +48047,25 @@ cu
 cu
 EO
 Vv
-BF
+XI
 KP
 oG
 oG
 oz
-BF
+XI
 Vv
-gr
+EO
 EO
 cu
 Rq
-cg
-qb
+di
+mt
 Ie
 XR
-xS
+rR
 Vh
 mt
-yB
+vi
 LC
 Rq
 gZ
@@ -46789,8 +48095,8 @@ Sv
 Sv
 Rq
 me
-Zc
-Zc
+BY
+SO
 Zc
 iM
 Rq
@@ -46950,7 +48256,7 @@ oG
 FL
 UM
 Vv
-gr
+Pr
 Pr
 cu
 Rq
@@ -46958,14 +48264,14 @@ jV
 Cz
 MG
 Fe
-xS
+tv
 Op
 os
 Rq
 Rq
 Rq
-gZ
-tK
+Tw
+Bn
 Pu
 Rq
 Rq
@@ -46992,7 +48298,7 @@ Sv
 Sv
 me
 LF
-HI
+RN
 gZ
 me
 Kj
@@ -47153,11 +48459,11 @@ XI
 XI
 gW
 Pr
-EO
-cu
+aG
 Rq
 Rq
 Rq
+iI
 Rq
 Rq
 Rq
@@ -47167,7 +48473,7 @@ Rq
 IX
 Ug
 gZ
-gZ
+Yi
 hA
 LA
 Rq
@@ -47180,8 +48486,8 @@ Sv
 Sv
 oh
 eN
-Pu
-Pu
+YR
+Tw
 WU
 pT
 me
@@ -47191,12 +48497,12 @@ IA
 cu
 IA
 Sv
-me
-me
-me
-Pu
+pA
+nV
+pA
+nV
 HI
-eu
+bN
 Kj
 Ha
 Ue
@@ -47355,22 +48661,22 @@ DT
 XI
 Vv
 EO
-Pr
-cu
-cu
-cu
-cu
-cu
-cu
-cu
+aG
+Rq
+ah
+bg
+qb
+lt
+no
+Rq
 cu
 oh
-Cp
+oU
 RD
-hA
-RD
-gZ
-Pu
+QI
+Qy
+te
+mB
 Xt
 WU
 Nj
@@ -47395,10 +48701,10 @@ Sv
 oh
 Sv
 eu
-Pu
-me
+Tw
+WF
 fl
-me
+Tw
 Kj
 Ha
 Ue
@@ -47558,18 +48864,18 @@ dO
 Vv
 aG
 aG
-cu
-cu
-cu
-cu
-cu
-cu
-cu
+Rq
+Rq
+bn
+cb
+bn
+Rq
+Rq
 cu
 oh
-qb
+Tw
 Pu
-qb
+ud
 Pu
 qb
 qb
@@ -47598,9 +48904,9 @@ Rq
 rJ
 RD
 hT
-Pu
-Pu
-Pu
+nV
+Tw
+Tw
 WG
 Ha
 Ue
@@ -47759,14 +49065,14 @@ dO
 dO
 Vv
 Pr
-EO
-cu
-cu
-cu
-cu
-cu
-cu
-cu
+aG
+Rq
+ah
+bg
+hn
+lt
+no
+Rq
 cu
 oh
 Rq
@@ -47798,10 +49104,10 @@ Rq
 Rq
 Rq
 HI
-Pu
-Pu
-Pu
-me
+nV
+nV
+mB
+nV
 dv
 GG
 Ha
@@ -47962,13 +49268,13 @@ AG
 Vv
 EO
 cu
-cu
-cu
-cu
-cu
-cu
-cu
-cu
+Rq
+Rq
+bn
+qb
+bn
+Rq
+Rq
 cu
 Rq
 UW
@@ -47999,18 +49305,18 @@ Nj
 Nj
 Nj
 WU
-gZ
-LF
-gZ
+Tw
+Xy
+RS
 eu
-Pu
+mB
 Xy
 Kj
 Ha
 Ue
 Ft
 wp
-Sk
+Tw
 aS
 Ft
 KI
@@ -48164,17 +49470,17 @@ qB
 aG
 Pr
 cu
-cu
-cu
-cu
-cu
-cu
-cu
-cu
+Rq
+ah
+bg
+gd
+lt
+no
+Rq
 cu
 Rq
 TG
-Pu
+kN
 me
 oh
 Sv
@@ -48203,9 +49509,9 @@ Rq
 Rq
 ic
 im
-rJ
-lz
-dv
+Vn
+Bn
+er
 hT
 Kj
 Ha
@@ -48366,16 +49672,16 @@ UG
 DX
 aG
 cu
-cu
-cu
-cu
-cu
-cu
-cu
-cu
+Rq
+Rq
+Rq
+jw
+Rq
+Rq
+Rq
 cu
 Rq
-Mu
+yo
 WZ
 Sv
 Sv
@@ -48403,18 +49709,18 @@ cu
 cu
 cu
 Rq
-rJ
-eu
-rJ
-gZ
-ic
-Pu
+Si
+bN
+Si
+ra
+jk
+mB
 Kj
 Ha
 Ue
 Ft
 iK
-Sk
+Tw
 rs
 Ft
 yE
@@ -48570,9 +49876,9 @@ Pr
 cu
 cu
 cu
-cu
-cu
-cu
+Rq
+Rq
+Rq
 cu
 cu
 cu
@@ -48606,7 +49912,7 @@ cu
 cu
 oh
 hT
-gZ
+te
 Um
 Pu
 rJ

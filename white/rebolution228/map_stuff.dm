@@ -196,3 +196,93 @@
 	hairstyle = null
 	facial_hairstyle = null
 	husk = TRUE
+
+/obj/structure/sign/warning/securearea/deck1
+	name = "DECK I"
+	icon = 'white/rebolution228/map_sprites.dmi'
+	icon_state = "deck1"
+
+/obj/structure/sign/warning/securearea/ntsign
+	name = "NanoTrasen sign"
+	desc = "Logo of NanoTrasen megacorporation, signifying their property."
+	icon = 'white/rebolution228/map_sprites.dmi'
+	icon_state = "nt_sign"
+
+/obj/machinery/doorpanel // just decor so it does nothing
+	name = "screen"
+	desc = "Some kind of machinery that opens some door."
+	icon = 'white/rebolution228/map_sprites.dmi'
+	icon_state = "screen"
+	anchored = 1
+	density = 0
+	opacity = 0
+
+/obj/machinery/doorpanel/broken
+	desc = "Some kind of machinery that opens some door. Their screen appears to be broken."
+	icon = 'white/rebolution228/map_sprites.dmi'
+	icon_state = "screen_b"
+
+/obj/machinery/doorpanel/attack_hand(mob/living/carbon/human/user)
+    to_chat(user, "<span class='warning'>It has no power!</span>")
+
+/obj/machinery/doorpanel/broken/attack_hand(mob/living/carbon/human/user)
+    to_chat(user, "<span class='warning'>It's broken.</span>")
+
+/obj/machinery/oldvents
+	name = "ventilation"
+	icon = 'white/rebolution228/map_sprites.dmi'
+	icon_state = "vent1"
+	anchored = 1
+	density = 0
+	opacity = 0
+
+/obj/machinery/oldvents/variant1
+	icon_state = "vent1_1"
+
+/obj/machinery/oldvents/variant2
+	icon_state = "vent1_2"
+
+/obj/machinery/oldvents/variant3
+	icon_state = "vent1_3"
+
+/obj/machinery/oldvents/variant4
+	icon_state = "vent1_4"
+
+/obj/machinery/oldvents/scrubber
+	name = "scrubber"
+	icon_state = "vent2"
+
+/*
+	Changelog 02/10/2020
++This changelog
++Added road to Base I from Base III
++Mosin Nagant at Base III
++Old non-functional vents everywhere.
++Deck I sign in elevator
++Machinery (not working) in base's enter rooms
++Spades at camp III
+=Gateway is now more colorful
+=Base II Arsenal edited.
+=Box with replacement bulbs at Base I is now full.
+-Icemoon plating at house in Base III
+-Removed snow rock from tracks
+-Removed light emitters near shutters
+
+
+
+	Changelog 07/10/2020
++Added hidden room with stuff at base IV
++Rusted platings at base I/II
++Forest is more dangerous
++Vehicle near house
+=Base II is more abandoned.
+=Equipment changes in Base II armory. Replaced military belt with security belt
+=Added some stuff in da haus
+-Removed one SMG from elevator
+
+
+TODO:
+1. papers
+2. radiation
+3. ice spiders somewhere, i still have no fucking clue where I can put these suckers, base II maybe?
+*/
