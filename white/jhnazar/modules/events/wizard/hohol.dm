@@ -1,6 +1,8 @@
 /mob/living/simple_animal/hostile/carp/ranged/chaos/hohol
 	name = "Хохлокарась"
 	desc = "Винахід Правого Сіктора"
+
+	icon = 'white/jhnazar/icons/hohol.dmi'
 	icon_state = "hohol"
 	icon_living = "hohol"
 	icon_dead = "hohol_dead"
