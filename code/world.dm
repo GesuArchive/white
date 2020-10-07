@@ -19,7 +19,6 @@
 	hub_password = "kMZy3U5jJHSiBQjr"
 	name = "White Dream"
 	fps = 40
-	map_format = SIDE_MAP
 #ifdef FIND_REF_NO_CHECK_TICK
 	loop_checks = FALSE
 #endif
