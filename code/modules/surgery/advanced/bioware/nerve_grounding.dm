@@ -1,6 +1,6 @@
 /datum/surgery/advanced/bioware/nerve_grounding
-	name = "Nerve Grounding"
-	desc = "A surgical procedure which makes the patient's nerves act as grounding rods, protecting them from electrical shocks."
+	name = "Заземление нервов"
+	desc = "Хирургическая процедура, позволяющая нервам пациента выступать в качестве заземляющих стержней, защищая их от поражения электрическим током."
 	steps = list(/datum/surgery_step/incise,
 				/datum/surgery_step/retract_skin,
 				/datum/surgery_step/clamp_bleeders,
@@ -12,25 +12,25 @@
 	bioware_target = BIOWARE_NERVES
 
 /datum/surgery_step/ground_nerves
-	name = "ground nerves"
+	name = "заземление нервов"
 	accept_hand = TRUE
 	time = 155
 
 /datum/surgery_step/ground_nerves/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You start rerouting [target]'s nerves.</span>",
-		"<span class='notice'>[user] starts rerouting [target]'s nerves.</span>",
-		"<span class='notice'>[user] starts manipulating [target]'s nervous system.</span>")
+	display_results(user, target, "<span class='notice'>Начинаю перенаправлять нервы [target].</span>",
+		"<span class='notice'>[user] начал перенаправлять нервы [target].</span>",
+		"<span class='notice'>[user] начал работать с нервной системой [target].</span>")
 
 /datum/surgery_step/ground_nerves/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, "<span class='notice'>You successfully reroute [target]'s nervous system!</span>",
-		"<span class='notice'>[user] successfully reroutes [target]'s nervous system!</span>",
-		"<span class='notice'>[user] finishes manipulating [target]'s nervous system.</span>")
+	display_results(user, target, "<span class='notice'>Успешно перенаправил нервную систему [target]!</span>",
+		"<span class='notice'>[user] успешно перенаправил нервную систему [target]!</span>",
+		"<span class='notice'>[user] закончил работать с нервной системой [target].</span>")
 	new /datum/bioware/grounded_nerves(target)
 	return ..()
 
 /datum/bioware/grounded_nerves
-	name = "Grounded Nerves"
-	desc = "Nerves form a safe path for electricity to traverse, protecting the body from electric shocks."
+	name = "Заземленные Нервы"
+	desc = "Нервы образуют безопасный путь для прохождения электричества, защищая тело от поражения электрическим током."
 	mod_type = BIOWARE_NERVES
 
 /datum/bioware/grounded_nerves/on_gain()

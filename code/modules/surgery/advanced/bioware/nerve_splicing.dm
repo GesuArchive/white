@@ -1,6 +1,6 @@
 /datum/surgery/advanced/bioware/nerve_splicing
-	name = "Nerve Splicing"
-	desc = "A surgical procedure which splices the patient's nerves, making them more resistant to stuns."
+	name = "Переплетение Нервов"
+	desc = "Хирургическая процедура при которой нервы пациента переплетаются, что увеличивает сопротивление оглушению."
 	steps = list(/datum/surgery_step/incise,
 				/datum/surgery_step/retract_skin,
 				/datum/surgery_step/clamp_bleeders,
@@ -12,25 +12,25 @@
 	bioware_target = BIOWARE_NERVES
 
 /datum/surgery_step/splice_nerves
-	name = "splice nerves"
+	name = "переплетение нервов"
 	accept_hand = TRUE
 	time = 155
 
 /datum/surgery_step/splice_nerves/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You start splicing together [target]'s nerves.</span>",
-		"<span class='notice'>[user] starts splicing together [target]'s nerves.</span>",
-		"<span class='notice'>[user] starts manipulating [target]'s nervous system.</span>")
+	display_results(user, target, "<span class='notice'>Начинаю соединять между собой нервы [target].</span>",
+		"<span class='notice'>[user] начал соединять между собой нервы [target].</span>",
+		"<span class='notice'>[user] начал работать с нервной системой [target].</span>")
 
 /datum/surgery_step/splice_nerves/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, "<span class='notice'>You successfully splice [target]'s nervous system!</span>",
-		"<span class='notice'>[user] successfully splices [target]'s nervous system!</span>",
-		"<span class='notice'>[user] finishes manipulating [target]'s nervous system.</span>")
+	display_results(user, target, "<span class='notice'>Успешно переплел нервную систему [target]!</span>",
+		"<span class='notice'>[user] успешно переплел нервную систему [target]!</span>",
+		"<span class='notice'>[user] закончил работать с нервной системой [target].</span>")
 	new /datum/bioware/spliced_nerves(target)
 	return ..()
 
 /datum/bioware/spliced_nerves
-	name = "Spliced Nerves"
-	desc = "Nerves are connected to each other multiple times, greatly reducing the impact of stunning effects."
+	name = "Переплетенные нервы"
+	desc = "Нервы соединены друг с другом по нескольку раз, значительно снижая эффективность оглущающих эффектов."
 	mod_type = BIOWARE_NERVES
 
 /datum/bioware/spliced_nerves/on_gain()

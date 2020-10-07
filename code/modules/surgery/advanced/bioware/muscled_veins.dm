@@ -1,6 +1,6 @@
 /datum/surgery/advanced/bioware/muscled_veins
-	name = "Мышечная мембрана вен"
-	desc = "Хирургическая процедура которая добавляет к кровеносным сосудам мускульную мембрану, позволяя им перекачивать кровь без участия сердца."
+	name = "Мышечное усилиние вен"
+	desc = "Хирургическая процедура которая добавляет к кровеносным сосудам мышечные мембраны, позволяя им перекачивать кровь без участия сердца."
 	steps = list(/datum/surgery_step/incise,
 				/datum/surgery_step/retract_skin,
 				/datum/surgery_step/clamp_bleeders,
