@@ -1,7 +1,7 @@
 /datum/surgery/advanced/bioware/ligament_hook
-	name = "Ligament Hook"
-	desc = "A surgical procedure which reshapes the connections between torso and limbs, making it so limbs can be attached manually if severed. \
-	However this weakens the connection, making them easier to detach as well."
+	name = "Крючкообразное изменение связок"
+	desc = "Хирургическая процедура, которая изменяет форму соединения между конечностями и туловищем, благодаря чему конечности можно будет прикрепить вручную, если они оторвутся. \
+	Однако, это ослабляет соединение, в результате чего конечности легче отрываются."
 	steps = list(/datum/surgery_step/incise,
 				/datum/surgery_step/retract_skin,
 				/datum/surgery_step/clamp_bleeders,
@@ -13,25 +13,25 @@
 	bioware_target = BIOWARE_LIGAMENTS
 
 /datum/surgery_step/reshape_ligaments
-	name = "reshape ligaments"
+	name = "изменение связок"
 	accept_hand = TRUE
 	time = 125
 
 /datum/surgery_step/reshape_ligaments/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You start reshaping [target]'s ligaments into a hook-like shape.</span>",
-		"<span class='notice'>[user] starts reshaping [target]'s ligaments into a hook-like shape.</span>",
-		"<span class='notice'>[user] starts manipulating [target]'s ligaments.</span>")
+	display_results(user, target, "<span class='notice'>Начинаю менять форму связок [target] на крючкообразную.</span>",
+		"<span class='notice'>[user] начал менять форму связок[target] на крючкообразную.</span>",
+		"<span class='notice'>[user] начал работать над связками [target].</span>")
 
 /datum/surgery_step/reshape_ligaments/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, "<span class='notice'>You reshape [target]'s ligaments into a connective hook!</span>",
-		"<span class='notice'>[user] reshapes [target]'s ligaments into a connective hook!</span>",
-		"<span class='notice'>[user] finishes manipulating [target]'s ligaments.</span>")
+	display_results(user, target, "<span class='notice'>Изменил форму связок [target] на соединяющий крючок!</span>",
+		"<span class='notice'>[user] сформировал из связок [target] соединяющий крючок!</span>",
+		"<span class='notice'>[user] закончил работу над связками [target].</span>")
 	new /datum/bioware/hooked_ligaments(target)
 	return ..()
 
 /datum/bioware/hooked_ligaments
-	name = "Hooked Ligaments"
-	desc = "The ligaments and nerve endings that connect the torso to the limbs are formed into a hook-like shape, so limbs can be attached without requiring surgery, but are easier to sever."
+	name = "Крючкообразные связки"
+	desc = "Связки и нервные окончания, соединяющие туловище с конечностями, переделаны в крючкообразную форму, что позволяет прикреплять конечности без операции, однако, повышает вероятность их отсоединения."
 	mod_type = BIOWARE_LIGAMENTS
 
 /datum/bioware/hooked_ligaments/on_gain()

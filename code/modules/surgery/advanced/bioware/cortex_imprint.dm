@@ -1,6 +1,6 @@
 /datum/surgery/advanced/bioware/cortex_imprint
 	name = "Распрямление коры головного мозга"
-	desc = "Хирургическая операция, которая модифицирует кору большого мозга в повторяющийся нейронный паттерн, позволяющая могзу справляться с трудностями, вызванными небольшими повреждениями мозга."
+	desc = "Хирургическая процедура, которая модифицирует кору большого мозга в повторяющийся нейронный паттерн, позволяющая могзу справляться с трудностями, вызванными небольшими повреждениями мозга."
 	steps = list(/datum/surgery_step/incise,
 				/datum/surgery_step/retract_skin,
 				/datum/surgery_step/clamp_bleeders,
@@ -19,7 +19,7 @@
 	return ..()
 
 /datum/surgery_step/imprint_cortex
-	name = "imprint cortex"
+	name = "распрямление коры"
 	accept_hand = TRUE
 	time = 125
 
