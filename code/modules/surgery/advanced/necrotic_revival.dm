@@ -1,6 +1,6 @@
 /datum/surgery/advanced/necrotic_revival
-	name = "Necrotic Revival"
-	desc = "An experimental surgical procedure that stimulates the growth of a Romerol tumor inside the patient's brain. Requires zombie powder or rezadone."
+	name = "Некротическое воскрешение"
+	desc = "Экспериментальная хирургическая процедура, которая стимулирует рост опухоли Ромерола внутри мозга пациента. Требует порошок зомби или Резадон."
 	steps = list(/datum/surgery_step/incise,
 				/datum/surgery_step/retract_skin,
 				/datum/surgery_step/saw,
@@ -17,21 +17,21 @@
 		return FALSE
 
 /datum/surgery_step/bionecrosis
-	name = "start bionecrosis"
+	name = "начать бионекроз"
 	implements = list(/obj/item/reagent_containers/syringe = 100, /obj/item/pen = 30)
 	time = 50
 	chems_needed = list(/datum/reagent/toxin/zombiepowder, /datum/reagent/medicine/rezadone)
 	require_all_chems = FALSE
 
 /datum/surgery_step/bionecrosis/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You begin to grow a romerol tumor on [target]'s brain...</span>",
-		"<span class='notice'>[user] begins to tinker with [target]'s brain...</span>",
-		"<span class='notice'>[user] begins to perform surgery on [target]'s brain.</span>")
+	display_results(user, target, "<span class='notice'>Стимулирую рост опухоли Ромерола в мозгу [target]...</span>",
+		"<span class='notice'>[user] начинает возиться с мозгом [target]...</span>",
+		"<span class='notice'>[user] начинает операцию на мозге [target].</span>")
 
 /datum/surgery_step/bionecrosis/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, "<span class='notice'>You succeed in growing a romerol tumor on [target]'s brain.</span>",
-		"<span class='notice'>[user] successfully grows a romerol tumor on [target]'s brain!</span>",
-		"<span class='notice'>[user] completes the surgery on [target]'s brain.</span>")
+	display_results(user, target, "<span class='notice'>Успешно стимулировал рост опухоли Ромерола в мозгу [target].</span>",
+		"<span class='notice'>[user] успешно вырастил опухоль Ромерола в мозгу [target]!</span>",
+		"<span class='notice'>[user] завершил операцию на мозге [target].</span>")
 	if(!target.getorganslot(ORGAN_SLOT_ZOMBIE))
 		var/obj/item/organ/zombie_infection/ZI = new()
 		ZI.Insert(target)

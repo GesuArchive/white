@@ -77,8 +77,8 @@
 
 		scanning = TRUE
 
-		user.visible_message("<span class='notice'>\The [user] points the [src.name] at \the [A] and performs a forensic scan.</span>")
-		to_chat(user, "<span class='notice'>You scan \the [A]. The scanner is now analysing the results...</span>")
+		user.visible_message("<span class='notice'>[user] указывает на [src.name] в [A] и начинает судебно-медицинское сканирование.</span>")
+		to_chat(user, "<span class='notice'>Я сканирую [A]. Сканер начинает анализ результатов...</span>")
 
 
 		// GATHER INFORMATION
@@ -163,10 +163,10 @@
 		if(!found_something)
 			add_log("<I># Судебно-медецинских следов не обнаружено #</I>", 0) // Don't display this to the holder user
 			if(holder)
-				to_chat(holder, "<span class='warning'>Unable to locate any fingerprints, materials, fibers, or blood on \the [target_name]!</span>")
+				to_chat(holder, "<span class='warning'>Не в состоянии обнаружить какие-либо отпечатки, материалы, волокна, или кровь на [target_name]!</span>")
 		else
 			if(holder)
-				to_chat(holder, "<span class='notice'>You finish scanning \the [target_name].</span>")
+				to_chat(holder, "<span class='notice'>Сканирование [target_name] завершено.</span>")
 
 		add_log("---------------------------------------------------------", 0)
 		scanning = FALSE
@@ -179,7 +179,7 @@
 			to_chat(M, msg)
 		log += "&nbsp;&nbsp;[msg]"
 	else
-		CRASH("[src] [REF(src)] is adding a log when it was never put in scanning mode!")
+		CRASH("[src] [REF(src)] добавляет лог, когда он не был переведен в режим сканирования!")
 
 /proc/get_timestamp()
 	return time2text(world.time + 432000, ":ss")
@@ -189,27 +189,27 @@
 	if(!user.canUseTopic(src, be_close=TRUE))
 		return
 	if(!LAZYLEN(log))
-		to_chat(user, "<span class='notice'>Cannot clear logs, the scanner has no logs.</span>")
+		to_chat(user, "<span class='notice'>Не удалось очистить логи, логи сканера пусты.</span>")
 		return
 	if(scanning)
-		to_chat(user, "<span class='notice'>Cannot clear logs, the scanner is in use.</span>")
+		to_chat(user, "<span class='notice'>Не удалось очистить логи, сканер используется.</span>")
 		return
-	to_chat(user, "<span class='notice'>The scanner logs are cleared.</span>")
+	to_chat(user, "<span class='notice'>Логи сканера очищены.</span>")
 	log = list()
 
 /obj/item/detective_scanner/examine(mob/user)
 	. = ..()
 	if(LAZYLEN(log) && !scanning)
-		. += "<hr><span class='notice'>Alt-click to clear scanner logs.</span>"
+		. += "<hr><span class='notice'>Alt+ЛКМ чтобы очистить логи сканера.</span>"
 
 /obj/item/detective_scanner/proc/displayDetectiveScanResults(mob/living/user)
 	// No need for can-use checks since the action button should do proper checks
 	if(!LAZYLEN(log))
-		to_chat(user, "<span class='notice'>Cannot display logs, the scanner has no logs.</span>")
+		to_chat(user, "<span class='notice'>Не удалось отобразить логи, логи сканера пусты.</span>")
 		return
 	if(scanning)
-		to_chat(user, "<span class='notice'>Cannot display logs, the scanner is in use.</span>")
+		to_chat(user, "<span class='notice'>Не удалось отобразить логи, сканер используется.</span>")
 		return
-	to_chat(user, "<span class='notice'><B>Scanner Report</B></span>")
+	to_chat(user, "<span class='notice'><B>Отчет сканера</B></span>")
 	for(var/iterLog in log)
 		to_chat(user, iterLog)

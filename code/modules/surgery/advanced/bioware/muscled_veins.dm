@@ -1,6 +1,6 @@
 /datum/surgery/advanced/bioware/muscled_veins
-	name = "Vein Muscle Membrane"
-	desc = "A surgical procedure which adds a muscled membrane to blood vessels, allowing them to pump blood without a heart."
+	name = "Мышечное усилиние вен"
+	desc = "Хирургическая процедура которая добавляет к кровеносным сосудам мышечные мембраны, позволяя им перекачивать кровь без участия сердца."
 	steps = list(/datum/surgery_step/incise,
 				/datum/surgery_step/retract_skin,
 				/datum/surgery_step/clamp_bleeders,
@@ -12,25 +12,25 @@
 	bioware_target = BIOWARE_CIRCULATION
 
 /datum/surgery_step/muscled_veins
-	name = "shape vein muscles"
+	name = "формирование венозных мышц"
 	accept_hand = TRUE
 	time = 125
 
 /datum/surgery_step/muscled_veins/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You start wrapping muscles around [target]'s circulatory system.</span>",
-		"<span class='notice'>[user] starts wrapping muscles around [target]'s circulatory system.</span>",
-		"<span class='notice'>[user] starts manipulating [target]'s circulatory system.</span>")
+	display_results(user, target, "<span class='notice'>Начинаю накручивать мышцы вокруг кровеносной системы [target].</span>",
+		"<span class='notice'>[user] начал накручивать мышцы вокруг кровеносной системы [target].</span>",
+		"<span class='notice'>[user] начал работать с кровеносной системой [target].</span>")
 
 /datum/surgery_step/muscled_veins/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, "<span class='notice'>You reshape [target]'s circulatory system, adding a muscled membrane!</span>",
-		"<span class='notice'>[user] reshapes [target]'s circulatory system, adding a muscled membrane!</span>",
-		"<span class='notice'>[user] finishes manipulating [target]'s circulatory system.</span>")
+	display_results(user, target, "<span class='notice'>Я изменил кровеносную систему [target], добавив мышечные мембраны!</span>",
+		"<span class='notice'>[user] изменил кровеносную систему [target], добавив мышечные мембраны!</span>",
+		"<span class='notice'>[user] закончил работать с кровеносной системой [target].</span>")
 	new /datum/bioware/muscled_veins(target)
 	return ..()
 
 /datum/bioware/muscled_veins
-	name = "Threaded Veins"
-	desc = "The circulatory system is woven into a mesh, severely reducing the amount of blood lost from wounds."
+	name = "Сплетенные Вены"
+	desc = "Кровеносная система переплетена, что значительно снижает количество теряемой крови при ранении."
 	mod_type = BIOWARE_CIRCULATION
 
 /datum/bioware/muscled_veins/on_gain()
