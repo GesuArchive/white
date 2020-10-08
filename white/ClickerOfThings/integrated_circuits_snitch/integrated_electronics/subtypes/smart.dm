@@ -233,7 +233,7 @@
 
 	brainholder.do_work(6)
 
-/mob/living/brain/canUseTopic(be_close=FALSE, no_dextery=FALSE, no_tk=FALSE)
+/mob/living/brain/canUseTopic(be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
 	return	check_bot_self
 
 /obj/item/integrated_circuit/smart/advanced_pathfinder/proc/hippie_xor_decrypt()
@@ -365,5 +365,5 @@
 
 	paiholder.do_work(6)
 
-/mob/living/silicon/pai/canUseTopic(be_close=FALSE, no_dextery=FALSE, no_tk=FALSE)
+/mob/living/silicon/pai/canUseTopic(be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
 	return	check_bot_self

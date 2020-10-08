@@ -168,7 +168,7 @@
 	var/smooth_icon = 'icons/turf/floors/ash.dmi'
 	desc = "The ground is covered in volcanic ash."
 	baseturfs = /turf/open/floor/plating/partyhard
-	initial_gas_mix = KITCHEN_COLDROOM_ATMOS
+	//initial_gas_mix = KITCHEN_COLDROOM_ATMOS
 	planetary_atmos = TRUE
 	attachment_holes = FALSE
 	footstep = FOOTSTEP_SAND
