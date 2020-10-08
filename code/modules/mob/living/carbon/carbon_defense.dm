@@ -433,6 +433,7 @@
 		M.visible_message("<span class='notice'>[M] гладит по головке [src]!</span>", \
 					"<span class='notice'>Глажу [src] по головке!</span>")
 	else
+		SEND_SIGNAL(M, COMSIG_CARBON_HUG, M, src)
 		M.visible_message("<span class='notice'>[M] обнимает [src]!</span>", \
 					null, "<span class='hear'>Слышу шуршание одежды.</span>", DEFAULT_MESSAGE_RANGE, list(M, src))
 		to_chat(M, "<span class='notice'>Обнимаю [src]!</span>")
@@ -467,8 +468,6 @@
 				SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "friendly_hug", /datum/mood_event/besthug, M)
 			else if (mood.sanity >= SANITY_DISTURBED)
 				SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "friendly_hug", /datum/mood_event/betterhug, M)
-		for(var/datum/brain_trauma/trauma in M.get_traumas())
-			trauma.on_hug(M, src)
 	AdjustStun(-60)
 	AdjustKnockdown(-60)
 	AdjustUnconscious(-60)
