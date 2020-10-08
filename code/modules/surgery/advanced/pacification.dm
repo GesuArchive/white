@@ -1,6 +1,6 @@
 /datum/surgery/advanced/pacify
-	name = "Pacification"
-	desc = "A surgical procedure which permanently inhibits the aggression center of the brain, making the patient unwilling to cause direct harm."
+	name = "Усмирение"
+	desc = "Хирургическая процедура которая навсегда подавляет центр агрессии мозга, делая пациента неспособным нанести прямой вред."
 	steps = list(/datum/surgery_step/incise,
 				/datum/surgery_step/retract_skin,
 				/datum/surgery_step/saw,
@@ -19,25 +19,25 @@
 		return FALSE
 
 /datum/surgery_step/pacify
-	name = "rewire brain"
+	name = "перепрограммировать мозг"
 	implements = list(TOOL_HEMOSTAT = 100, TOOL_SCREWDRIVER = 35, /obj/item/pen = 15)
 	time = 40
 
 /datum/surgery_step/pacify/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You begin to pacify [target]...</span>",
-		"<span class='notice'>[user] begins to fix [target]'s brain.</span>",
-		"<span class='notice'>[user] begins to perform surgery on [target]'s brain.</span>")
+	display_results(user, target, "<span class='notice'>Начинаю умиротворять [target]...</span>",
+		"<span class='notice'>[user] начинает исправлять мозг [target].</span>",
+		"<span class='notice'>[user] начинает операцию на мозге [target].</span>")
 
 /datum/surgery_step/pacify/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, "<span class='notice'>You succeed in neurologically pacifying [target].</span>",
-		"<span class='notice'>[user] successfully fixes [target]'s brain!</span>",
-		"<span class='notice'>[user] completes the surgery on [target]'s brain.</span>")
+	display_results(user, target, "<span class='notice'>Мне удалось неврологически усмирить [target].</span>",
+		"<span class='notice'>[user] успешно исправил мозг [target]!</span>",
+		"<span class='notice'>[user] завершает операцию на могзе [target].</span>")
 	target.gain_trauma(/datum/brain_trauma/severe/pacifism, TRAUMA_RESILIENCE_LOBOTOMY)
 	return ..()
 
 /datum/surgery_step/pacify/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You screw up, rewiring [target]'s brain the wrong way around...</span>",
-			"<span class='warning'>[user] screws up, causing brain damage!</span>",
-			"<span class='notice'>[user] completes the surgery on [target]'s brain.</span>")
+	display_results(user, target, "<span class='notice'>Я облажался, перепутав часть мозга [target]...</span>",
+			"<span class='warning'>[user] облажался, повредив мозг!</span>",
+			"<span class='notice'>[user] завершает операцию на мозге [target].</span>")
 	target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_LOBOTOMY)
 	return FALSE

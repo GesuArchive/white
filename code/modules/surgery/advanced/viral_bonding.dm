@@ -1,6 +1,6 @@
 /datum/surgery/advanced/viral_bonding
-	name = "Viral Bonding"
-	desc = "A surgical procedure that forces a symbiotic relationship between a virus and its host. The patient must be dosed with spaceacillin, virus food, and formaldehyde."
+	name = "Вирусный Симбиоз"
+	desc = "Хирургическая процедура которая устанавливает симбиотические отношения между вирусом и носителем. Пациенту должен быть введен Космоцелин, вирусная еда и формальдегид."
 	steps = list(/datum/surgery_step/incise,
 				/datum/surgery_step/retract_skin,
 				/datum/surgery_step/clamp_bleeders,
@@ -19,7 +19,7 @@
 	return TRUE
 
 /datum/surgery_step/viral_bond
-	name = "viral bond"
+	name = "вирусное сплетение"
 	implements = list(TOOL_CAUTERY = 100, TOOL_WELDER = 50, /obj/item = 30) // 30% success with any hot item.
 	time = 100
 	chems_needed = list(/datum/reagent/medicine/spaceacillin,/datum/reagent/consumable/virus_food,/datum/reagent/toxin/formaldehyde)
@@ -31,14 +31,14 @@
 	return TRUE
 
 /datum/surgery_step/viral_bond/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You start heating [target]'s bone marrow with [tool]...</span>",
-		"<span class='notice'>[user] starts heating [target]'s bone marrow with [tool]...</span>",
-		"<span class='notice'>[user] starts heating something in [target]'s chest with [tool]...</span>")
+	display_results(user, target, "<span class='notice'>Начинаю нагревать спинной мозг [target] используя [tool]...</span>",
+		"<span class='notice'>[user] начинает нагревать спинной мозг [target] используя [tool]...</span>",
+		"<span class='notice'>[user] начинает нагревать что-то в туловище [target] используя [tool]...</span>")
 
 /datum/surgery_step/viral_bond/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
-	display_results(user, target, "<span class='notice'>[target]'s bone marrow begins pulsing slowly. The viral bonding is complete.</span>",
-		"<span class='notice'>[target]'s bone marrow begins pulsing slowly.</span>",
-		"<span class='notice'>[user] finishes the operation.</span>")
+	display_results(user, target, "<span class='notice'>Костный мозг [target] начинает медленно пульсировать. Вирусный симбиоз установлен.</span>",
+		"<span class='notice'>Костный мозг [target] начинает медленно пульсировать.</span>",
+		"<span class='notice'>[user] завершает операцию.</span>")
 	for(var/X in target.diseases)
 		var/datum/disease/D = X
 		D.carrier = TRUE
