@@ -51,13 +51,13 @@
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_WINDOW_FULLTILE)
 
 /obj/structure/window/reinforced/fulltile/partyhard
-	icon = 'white/valtos/icons/windows.dmi'
+	icon = 'icons/obj/smooth_structures/pod_window.dmi'
 	icon_state = "smooth"
 	max_integrity = 200
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_WINDOW_FULLTILE)
 
 /obj/effect/spawner/structure/window/reinforced/partyhard
-	icon = 'white/valtos/icons/windows.dmi'
+	icon = 'icons/obj/smooth_structures/pod_window.dmi'
 	icon_state = "smooth"
 	spawn_list = list(/obj/structure/grille, /obj/structure/window/reinforced/fulltile/partyhard)
 
