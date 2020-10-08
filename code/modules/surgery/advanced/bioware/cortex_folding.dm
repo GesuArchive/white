@@ -1,6 +1,6 @@
 /datum/surgery/advanced/bioware/cortex_folding
-	name = "Cortex Folding"
-	desc = "A surgical procedure which modifies the cerebral cortex into a complex fold, giving space to non-standard neural patterns."
+	name = "Сгибание коры головного мозга"
+	desc = "Хирургическая процедура, при которой кора сгибается в сложную извилину, что открывает возможность образования нестандартных нейронных паттернов."
 	steps = list(/datum/surgery_step/incise,
 				/datum/surgery_step/retract_skin,
 				/datum/surgery_step/clamp_bleeders,
@@ -19,36 +19,36 @@
 	return ..()
 
 /datum/surgery_step/fold_cortex
-	name = "fold cortex"
+	name = "сгибание коры"
 	accept_hand = TRUE
 	time = 125
 
 /datum/surgery_step/fold_cortex/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You start folding [target]'s outer cerebral cortex into a fractal pattern.</span>",
-		"<span class='notice'>[user] starts folding [target]'s outer cerebral cortex into a fractal pattern.</span>",
-		"<span class='notice'>[user] begins to perform surgery on [target]'s brain.</span>")
+	display_results(user, target, "<span class='notice'>Я начал сгибать внешнюю кору большого мозга [target] в фрактальный паттерн.</span>",
+		"<span class='notice'>[user] начал сгибать внешнюю кору большого мозга [target] в фрактальный паттерн.</span>",
+		"<span class='notice'>[user] начинает операцию на мозге [target].</span>")
 
 /datum/surgery_step/fold_cortex/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, "<span class='notice'>You fold [target]'s outer cerebral cortex into a fractal pattern!</span>",
-		"<span class='notice'>[user] folds [target]'s outer cerebral cortex into a fractal pattern!</span>",
-		"<span class='notice'>[user] completes the surgery on [target]'s brain.</span>")
+	display_results(user, target, "<span class='notice'>Я согнул внешнюю кору большого мозга [target] в фрактальный паттерн!</span>",
+		"<span class='notice'>[user] согнул внешнюю кору большого мозга [target] в фрактальный паттерн!</span>",
+		"<span class='notice'>[user] завершил операцию на мозге [target].</span>")
 	new /datum/bioware/cortex_fold(target)
 	return ..()
 
 /datum/surgery_step/fold_cortex/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(target.getorganslot(ORGAN_SLOT_BRAIN))
-		display_results(user, target, "<span class='warning'>You screw up, damaging the brain!</span>",
-			"<span class='warning'>[user] screws up, damaging the brain!</span>",
-			"<span class='notice'>[user] completes the surgery on [target]'s brain.</span>")
+		display_results(user, target, "<span class='warning'>Я облажался, повредив мозг!</span>",
+			"<span class='warning'>[user] облажался, повредив мозг!</span>",
+			"<span class='notice'>[user] завершил операцию на мозге [target].</span>")
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60)
 		target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_LOBOTOMY)
 	else
-		user.visible_message("<span class='warning'>[user] suddenly notices that the brain [user.p_they()] [user.p_were()] working on is not there anymore.</span>", "<span class='warning'>You suddenly notice that the brain you were working on is not there anymore.</span>")
+		user.visible_message("<span class='warning'>[user] внезапно замечает что мозг [user.p_they()] над которым работал [user.p_were()] исчез.</span>", "<span class='warning'>Вы внезапно обнаружили что мозг, над которым вы работали, исчез.</span>")
 	return FALSE
 
 /datum/bioware/cortex_fold
-	name = "Cortex Fold"
-	desc = "The cerebral cortex has been folded into a complex fractal pattern, and can support non-standard neural patterns."
+	name = "Согнутая кора"
+	desc = "Кора большого мозга была согнута в сложный фрактальный паттерн и может поддерживать нестандарнтные нейронные паттерны."
 	mod_type = BIOWARE_CORTEX
 
 /datum/bioware/cortex_fold/on_gain()
