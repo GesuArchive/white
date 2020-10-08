@@ -51,4 +51,4 @@
 	template_names = list("Default Maint SW", "Arena Maint SW")
 
 /obj/effect/landmark/stationroom/medbay
-	template_names = list("Default Medbay")
+	template_names = list("Default Medbay", "Durka Medbay")

@@ -150,7 +150,6 @@
 	uniform = /obj/item/clothing/under/dwarf
 	shoes = /obj/item/clothing/shoes/dwarf
 	back = /obj/item/storage/backpack
-	id = /obj/item/card/id
 
 /datum/outfit/dwarf/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -161,8 +160,3 @@
 	var/new_name = H.dna.species.random_name(H.gender, TRUE)
 	H.fully_replace_character_name(H.real_name, new_name)
 	H.regenerate_icons()
-	var/obj/item/card/id/W = H.wear_id
-	W.assignment = "Dwarf"
-	W.registered_name = H.real_name
-	W.update_label()
-	W.access = list(ACCESS_MAINT_TUNNELS)

@@ -282,6 +282,7 @@
 	name = "Labor Camp Shuttle Security Airlock";
 	req_access_txt = "2"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel,
 /area/mine/laborcamp)
 "aZ" = (
@@ -472,6 +473,7 @@
 /obj/machinery/door/airlock/security/glass{
 	name = "Labor Camp Shuttle Prisoner Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel,
 /area/mine/laborcamp)
 "by" = (
@@ -738,6 +740,7 @@
 	name = "Mining Shuttle Airlock";
 	opacity = 0
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel,
 /area/mine/production)
 "ck" = (
@@ -4085,6 +4088,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel,
 /area/mine/production)
 "zo" = (
@@ -4910,6 +4914,15 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/mine/production)
+"Ui" = (
+/obj/machinery/door/airlock/external{
+	glass = 1;
+	name = "Labor Camp External Airlock";
+	opacity = 0
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/mine/laborcamp)
 "Uq" = (
 /obj/docking_port/stationary{
 	dir = 2;
@@ -5001,6 +5014,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Lavaland Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
 "UV" = (
@@ -5127,6 +5141,7 @@
 	opacity = 0;
 	req_access_txt = "54"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel,
 /area/mine/eva)
 "WE" = (
@@ -13688,7 +13703,7 @@ aD
 aD
 aD
 aD
-sq
+Ui
 Zs
 sq
 vH

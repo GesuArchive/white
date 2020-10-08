@@ -11687,6 +11687,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Port Docking Bay 2"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
 "aXL" = (

@@ -71,3 +71,8 @@
 	id = "default_med"
 	suffix = "default_med.dmm"
 	name = "Default Medbay"
+
+/datum/map_template/ruin/station/med/durka
+	id = "durka_med"
+	suffix = "durka_med.dmm"
+	name = "Durka Medbay"
