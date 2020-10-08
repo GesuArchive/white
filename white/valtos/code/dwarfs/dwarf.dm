@@ -149,7 +149,6 @@
 	name = "Dwarf"
 	uniform = /obj/item/clothing/under/dwarf
 	shoes = /obj/item/clothing/shoes/dwarf
-	ears = /obj/item/radio/headset
 	back = /obj/item/storage/backpack
 	id = /obj/item/card/id
 
