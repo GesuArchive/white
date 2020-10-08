@@ -246,7 +246,7 @@
 	projectile_type = /obj/projectile/energy/duel
 	var/setting
 
-/obj/item/ammo_casing/energy/duel/ready_proj(atom/target, mob/living/user, quiet, zone_override)
+/obj/item/ammo_casing/energy/duel/ready_proj(atom/target, mob/living/user, quiet, zone_override, extra_damage = 0, extra_penetration = 0)
 	. = ..()
 	var/obj/projectile/energy/duel/D = BB
 	D.setting = setting

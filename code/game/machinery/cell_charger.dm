@@ -1,7 +1,7 @@
 /obj/machinery/cell_charger
 	name = "cell charger"
 	desc = "It charges power cells."
-	icon = 'icons/obj/power.dmi'
+	icon = 'white/valtos/icons/power.dmi'
 	icon_state = "ccharger"
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 5

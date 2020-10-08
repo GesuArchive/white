@@ -22,7 +22,9 @@ GENE SCANNER
 	name = "анализатор Т-луч"
 	desc = "Терагерцовый излучатель лучей и просто сканнер, который подсвечивает провода и трубы под полом."
 	custom_price = 150
-	icon = 'icons/obj/device.dmi'
+	icon = 'white/valtos/icons/items.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "t-ray0"
 	var/on = FALSE
 	slot_flags = ITEM_SLOT_BELT
@@ -145,7 +147,11 @@ GENE SCANNER
 
 // Used by the PDA medical scanner too
 /proc/healthscan(mob/user, mob/living/M, mode = SCANNER_VERBOSE, advanced = FALSE)
-	if(isliving(user) && (user.incapacitated() || user.is_blind()))
+	if(user.incapacitated())
+		return
+
+	if(user.is_blind())
+		to_chat(user, "<span class='warning'>You realize that your scanner has no accessibility support for the blind!</span>")
 		return
 
 	// the final list of strings to render
@@ -412,6 +418,13 @@ GENE SCANNER
 	to_chat(user, jointext(render_list, ""), trailing_newline = FALSE) // we handled the last <br> so we don't need handholding
 
 /proc/chemscan(mob/living/user, mob/living/M)
+	if(user.incapacitated())
+		return
+
+	if(user.is_blind())
+		to_chat(user, "<span class='warning'>You realize that your scanner has no accessibility support for the blind!</span>")
+		return
+
 	if(istype(M) && M.reagents)
 		var/render_list = list()
 		if(M.reagents.reagent_list.len)
@@ -429,10 +442,12 @@ GENE SCANNER
 					render_list += "<span class='notice ml-2'>[round(bit.volume, 0.001)] юнитов [bit.name][bit.overdosed ? "</span> - <span class='boldannounce'>ПЕРЕДОЗИРОВКА</span>" : ".</span>"]\n"
 			else
 				render_list += "<span class='notice ml-1'>Не обнаружено реагентов в желудке.</span>\n"
-		if(M.reagents.addiction_list.len)
+
+		var/list/addictions = M.get_addiction_list()
+		if(addictions.len)
 			render_list += "<span class='boldannounce ml-1'>У пациента есть зависимость от следующих химикатов:</span>\n"
-			for(var/datum/reagent/R in M.reagents.addiction_list)
-				render_list += "<span class='alert ml-2'>[R.name]</span>\n"
+			for(var/datum/reagent/reagent in addictions)
+				render_list += "<span class='alert ml-2'>[reagent.name]</span>\n"
 		else
 			render_list += "<span class='notice ml-1'>У пациента нет зависимостей от химикатов.</span>\n"
 
@@ -456,7 +471,11 @@ GENE SCANNER
 
 /// Displays wounds with extended information on their status vs medscanners
 /proc/woundscan(mob/user, mob/living/carbon/patient, obj/item/healthanalyzer/wound/scanner)
-	if(!istype(patient))
+	if(!istype(patient) || user.incapacitated())
+		return
+
+	if(user.is_blind())
+		to_chat(user, "<span class='warning'>You realize that your scanner has no accessibility support for the blind!</span>")
 		return
 
 	var/render_list = ""
@@ -519,11 +538,11 @@ GENE SCANNER
 	desc = "Ручной анализатор, который сканирует состояние воздуха в помещении. Alt-клик, чтобы использовать барометр."
 	name = "анализатор"
 	custom_price = 100
-	icon = 'icons/obj/device.dmi'
+	icon = 'white/valtos/icons/items.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "analyzer"
 	inhand_icon_state = "analyzer"
-	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	flags_1 = CONDUCT_1
 	item_flags = NOBLUDGEON

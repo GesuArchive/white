@@ -300,7 +300,8 @@
 	return data
 
 /obj/machinery/disposal/bin/ui_act(action, params)
-	if(..())
+	. = ..()
+	if(.)
 		return
 
 	switch(action)

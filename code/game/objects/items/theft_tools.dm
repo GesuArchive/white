@@ -86,7 +86,7 @@
 /obj/item/screwdriver/nuke
 	name = "screwdriver"
 	desc = "A screwdriver with an ultra thin tip that's carefully designed to boost screwing speed."
-	icon = 'icons/obj/nuke_tools.dmi'
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "screwdriver_nuke"
 	inhand_icon_state = "screwdriver_nuke"
 	toolspeed = 0.5
@@ -149,7 +149,7 @@
 		qdel(W)
 		qdel(src)
 
-/obj/item/hemostat/supermatter_sliver/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+/obj/item/nuke_core/supermatter_sliver/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	if(!isliving(hit_atom))
 		return ..()
 	var/mob/living/victim = hit_atom

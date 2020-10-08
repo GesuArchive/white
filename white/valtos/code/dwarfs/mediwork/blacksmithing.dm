@@ -1,7 +1,7 @@
 /obj/forge
 	name = "кузница"
 	desc = "Нагревает различные штуки, но реже всего слитки."
-	icon = 'white/valtos/icons/objects.dmi'
+	icon = 'white/valtos/icons/dwarfs/forge.dmi'
 	icon_state = "forge_on"
 	light_range = 9
 	light_color = "#BB661E"
@@ -87,6 +87,12 @@
 	var/obj/item/blacksmith/ingot/current_ingot = null
 	var/list/allowed_things = list()
 
+/obj/anvil/fullsteel
+	name = "тяжёлая наковальня"
+	desc = "Не сдвинуть. Совсем."
+	icon = 'white/valtos/icons/objects.dmi'
+	icon_state = "anvil_full"
+
 /obj/anvil/Initialize()
 	. = ..()
 	for(var/item in subtypesof(/datum/smithing_recipe))
@@ -113,7 +119,7 @@
 	if(istype(I, /obj/item/blacksmith/smithing_hammer))
 		if(current_ingot)
 			if(current_ingot.heattemp <= 0)
-				icon_state = "anvil_cold"
+				icon_state = "[initial(icon_state)]_cold"
 				to_chat(user, "<span class='warning'>Болванка слишком холодная. Стоит разогреть её.</span>")
 				return
 			if(current_ingot.recipe)
@@ -136,7 +142,7 @@
 						to_chat(user, "<span class='warning'>Болванка раскалывается на множество бесполезных кусочков метала...</span>")
 						current_ingot = null
 						LAZYCLEARLIST(contents)
-						icon_state = "anvil"
+						icon_state = "[initial(icon_state)]"
 					playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
 					user.visible_message("<span class='warning'><b>[user]</b> неправильно бьёт молотом по наковальне.</span>", \
 										"<span class='warning'>Неправильно бью молотом по наковальне.</span>")
@@ -181,7 +187,7 @@
 					I.icon_state = "tongs_cold"
 				current_ingot.forceMove(I)
 				current_ingot = null
-				icon_state = "anvil"
+				icon_state = "[initial(icon_state)]"
 				to_chat(user, "<span class='notice'>Беру болванку в клещи.</span>")
 				return
 		else
@@ -191,9 +197,9 @@
 					return
 				var/obj/item/blacksmith/ingot/N = I.contents[I.contents.len]
 				if(N.heattemp > 0)
-					icon_state = "anvil_hot"
+					icon_state = "[initial(icon_state)]_hot"
 				else
-					icon_state = "anvil_cold"
+					icon_state = "[initial(icon_state)]_cold"
 				N.forceMove(src)
 				current_ingot = N
 				I.icon_state = "tongs"

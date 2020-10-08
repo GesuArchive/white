@@ -112,7 +112,7 @@
 	faction = list("mining")
 	weather_immunities = list("ash")
 	see_in_dark = 1
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly = 1)
+	butcher_results = list(/obj/item/food/meat/slab/human/mutant/fly = 1)
 	response_help_continuous = "prods"
 	response_help_simple = "prod"
 	response_disarm_continuous = "pushes aside"
@@ -149,7 +149,7 @@
 	weather_immunities = list("lava","ash")
 	health = 150
 	see_in_dark = 3
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/human = 3)
+	butcher_results = list(/obj/item/food/meat/slab/human = 3)
 	response_help_continuous = "prods"
 	response_help_simple = "prod"
 	response_disarm_continuous = "pushes aside"
@@ -186,7 +186,7 @@
 	maxHealth = 200
 	health = 200
 	see_in_dark = 100
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly = 2)
+	butcher_results = list(/obj/item/food/meat/slab/human/mutant/fly = 2)
 	response_help_continuous = "prods"
 	response_help_simple = "prod"
 	response_disarm_continuous = "pushes aside"

@@ -2,7 +2,7 @@
 	var/minimum_temperature_difference = 20
 	var/thermal_conductivity = WINDOW_HEAT_TRANSFER_COEFFICIENT
 	color = "#404040"
-	buckle_lying = -1
+	buckle_lying = NO_BUCKLE_LYING
 	var/icon_temperature = T20C //stop small changes in temperature causing icon refresh
 	resistance_flags = LAVA_PROOF | FIRE_PROOF
 
@@ -21,6 +21,9 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/process_atmos()
 	var/environment_temperature = 0
 	var/datum/gas_mixture/pipe_air = return_air()
+
+	if(!pipe_air)
+		return
 
 	var/turf/T = loc
 	if(istype(T))

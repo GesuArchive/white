@@ -16,7 +16,8 @@
 	name = "стол"
 	desc = "Квадратный кусок металла, стоящий на четырех металлических ножках. Это не может двигаться."
 	icon = 'icons/obj/smooth_structures/table.dmi'
-	icon_state = "table"
+	icon_state = "table-0"
+	base_icon_state = "table"
 	density = TRUE
 	anchored = TRUE
 	layer = TABLE_LAYER
@@ -32,7 +33,7 @@
 	custom_materials = list(/datum/material/iron = 2000)
 	max_integrity = 100
 	integrity_failure = 0.33
-	smoothing_flags = SMOOTH_CORNERS
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_TABLES)
 	canSmoothWith = list(SMOOTH_GROUP_TABLES)
 
@@ -44,7 +45,7 @@
 	return "<hr><span class='notice'>Верхушка <b>прикручена</b>, но основные <b>болты</b> также видны.</span>"
 
 /obj/structure/table/update_icon()
-	if(smoothing_flags)
+	if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
 		QUEUE_SMOOTH(src)
 		QUEUE_SMOOTH_NEIGHBORS(src)
 
@@ -257,7 +258,8 @@
 
 /obj/structure/table/greyscale
 	icon = 'icons/obj/smooth_structures/table_greyscale.dmi'
-	icon_state = "table"
+	icon_state = "table_greyscale-0"
+	base_icon_state = "table_greyscale"
 	material_flags = MATERIAL_ADD_PREFIX | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS
 	buildstack = null //No buildstack, so generate from mat datums
 
@@ -302,10 +304,11 @@
 	name = "стеклянный стол"
 	desc = "Что я могу сказать залезая на стеклянные столы? Теперь мне нужно к хирургу."
 	icon = 'icons/obj/smooth_structures/glass_table.dmi'
-	icon_state = "glass_table"
+	icon_state = "glass_table-0"
+	base_icon_state = "glass_table"
 	buildstack = /obj/item/stack/sheet/glass
-	smoothing_groups = null
-	canSmoothWith = null
+	smoothing_groups = list(SMOOTH_GROUP_GLASS_TABLES)
+	canSmoothWith = list(SMOOTH_GROUP_GLASS_TABLES)
 	max_integrity = 70
 	resistance_flags = ACID_PROOF
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 80, ACID = 100)
@@ -381,7 +384,8 @@
 	name = "деревянный стол"
 	desc = "Не применяйте огонь к этому. Говорят, что он легко горит."
 	icon = 'icons/obj/smooth_structures/wood_table.dmi'
-	icon_state = "wood_table"
+	icon_state = "wood_table-0"
+	base_icon_state = "wood_table"
 	frame = /obj/structure/table_frame/wood
 	framestack = /obj/item/stack/sheet/mineral/wood
 	buildstack = /obj/item/stack/sheet/mineral/wood
@@ -398,7 +402,8 @@
 	name = "игорный стол"
 	desc = "Сытный стол для грязных отношений в захудалых местах."
 	icon = 'icons/obj/smooth_structures/poker_table.dmi'
-	icon_state = "poker_table"
+	icon_state = "poker_table-0"
+	base_icon_state = "poker_table"
 	buildstack = /obj/item/stack/tile/carpet
 
 /obj/structure/table/wood/poker/narsie_act()
@@ -409,6 +414,7 @@
 	desc = "Стандартная металлическая рама стола, покрытая удивительно причудливой узорчатой тканью."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "fancy_table"
+	base_icon_state = "fancy_table"
 	frame = /obj/structure/table_frame
 	framestack = /obj/item/stack/rods
 	buildstack = /obj/item/stack/tile/carpet
@@ -426,46 +432,55 @@
 
 /obj/structure/table/wood/fancy/black
 	icon_state = "fancy_table_black"
+	base_icon_state = "fancy_table_black"
 	buildstack = /obj/item/stack/tile/carpet/black
 	smooth_icon = 'icons/obj/smooth_structures/fancy_table_black.dmi'
 
 /obj/structure/table/wood/fancy/blue
 	icon_state = "fancy_table_blue"
+	base_icon_state = "fancy_table_blue"
 	buildstack = /obj/item/stack/tile/carpet/blue
 	smooth_icon = 'icons/obj/smooth_structures/fancy_table_blue.dmi'
 
 /obj/structure/table/wood/fancy/cyan
 	icon_state = "fancy_table_cyan"
+	base_icon_state = "fancy_table_cyan"
 	buildstack = /obj/item/stack/tile/carpet/cyan
 	smooth_icon = 'icons/obj/smooth_structures/fancy_table_cyan.dmi'
 
 /obj/structure/table/wood/fancy/green
 	icon_state = "fancy_table_green"
+	base_icon_state = "fancy_table_green"
 	buildstack = /obj/item/stack/tile/carpet/green
 	smooth_icon = 'icons/obj/smooth_structures/fancy_table_green.dmi'
 
 /obj/structure/table/wood/fancy/orange
 	icon_state = "fancy_table_orange"
+	base_icon_state = "fancy_table_orange"
 	buildstack = /obj/item/stack/tile/carpet/orange
 	smooth_icon = 'icons/obj/smooth_structures/fancy_table_orange.dmi'
 
 /obj/structure/table/wood/fancy/purple
 	icon_state = "fancy_table_purple"
+	base_icon_state = "fancy_table_purple"
 	buildstack = /obj/item/stack/tile/carpet/purple
 	smooth_icon = 'icons/obj/smooth_structures/fancy_table_purple.dmi'
 
 /obj/structure/table/wood/fancy/red
 	icon_state = "fancy_table_red"
+	base_icon_state = "fancy_table_red"
 	buildstack = /obj/item/stack/tile/carpet/red
 	smooth_icon = 'icons/obj/smooth_structures/fancy_table_red.dmi'
 
 /obj/structure/table/wood/fancy/royalblack
 	icon_state = "fancy_table_royalblack"
+	base_icon_state = "fancy_table_royalblack"
 	buildstack = /obj/item/stack/tile/carpet/royalblack
 	smooth_icon = 'icons/obj/smooth_structures/fancy_table_royalblack.dmi'
 
 /obj/structure/table/wood/fancy/royalblue
 	icon_state = "fancy_table_royalblue"
+	base_icon_state = "fancy_table_royalblue"
 	buildstack = /obj/item/stack/tile/carpet/royalblue
 	smooth_icon = 'icons/obj/smooth_structures/fancy_table_royalblue.dmi'
 
@@ -476,7 +491,8 @@
 	name = "армированный стол"
 	desc = "Усиленная версия четырехногого стола."
 	icon = 'icons/obj/smooth_structures/reinforced_table.dmi'
-	icon_state = "r_table"
+	icon_state = "reinforced_table-0"
+	base_icon_state = "reinforced_table"
 	deconstruction_ready = 0
 	buildstack = /obj/item/stack/sheet/plasteel
 	max_integrity = 200
@@ -511,7 +527,8 @@
 	name = "бронзовый стол"
 	desc = "Прочный стол из бронзы."
 	icon = 'icons/obj/smooth_structures/brass_table.dmi'
-	icon_state = "brass_table"
+	icon_state = "brass_table-0"
+	base_icon_state = "brass_table"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	buildstack = /obj/item/stack/tile/bronze
 	smoothing_groups = list(SMOOTH_GROUP_BRONZE_TABLES) //Don't smooth with SMOOTH_GROUP_TABLES
@@ -535,7 +552,7 @@
 	smoothing_groups = null
 	canSmoothWith = null
 	can_buckle = 1
-	buckle_lying = -1
+	buckle_lying = NO_BUCKLE_LYING
 	buckle_requires_restraints = TRUE
 	var/mob/living/carbon/human/patient = null
 	var/obj/machinery/computer/operating/computer = null
@@ -633,7 +650,7 @@
 	. = ..()
 	if(.)
 		return
-	if(!(user.mobility_flags & MOBILITY_STAND) || user.usable_legs < 2)
+	if(user.body_position == LYING_DOWN || user.usable_legs < 2)
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	user.do_attack_animation(src, ATTACK_EFFECT_KICK)

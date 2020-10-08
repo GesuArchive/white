@@ -271,7 +271,6 @@
 /datum/status_effect/hackers_revive/on_remove()
 	owner.revive(full_heal = TRUE, admin_revive = TRUE)
 	owner.visible_message("<span class='warning'><b>[owner]</b> восстаёт из мёртвых!</span>", "<span class='notice'>Я регенерирую полностью.</span>")
-	owner.update_mobility()
 
 /obj/screen/alert/status_effect/hackers_revive
 	name = "Цифровое бессмертие"

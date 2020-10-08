@@ -12,7 +12,7 @@
 	key_third_person = "daps"
 	message = "озадаченно не может найти кому пожать руку и жмёт свою. Позорище."
 	message_param = "приветственно жмёт руку братку %t."
-	restraint_check = TRUE
+	hands_use_check = TRUE
 
 /datum/emote/living/carbon/human/eyebrow
 	key = "eyebrow"
@@ -28,7 +28,7 @@
 	key = "handshake"
 	message = "пожимает свои руки."
 	message_param = "пожимает руку %t."
-	restraint_check = TRUE
+	hands_use_check = TRUE
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/carbon/human/hug
@@ -36,7 +36,7 @@
 	key_third_person = "hugs"
 	message = "обнимает себя."
 	message_param = "обнимает %t."
-	restraint_check = TRUE
+	hands_use_check = TRUE
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/carbon/human/mumble
@@ -79,14 +79,14 @@
 	key = "raise"
 	key_third_person = "raises"
 	message = "поднимает руки."
-	restraint_check = TRUE
+	hands_use_check = TRUE
 
 /datum/emote/living/carbon/human/salute
 	key = "salute"
 	key_third_person = "salutes"
 	message = "отдаёт честь."
 	message_param = "отдаёт честь %t."
-	restraint_check = TRUE
+	hands_use_check = TRUE
 
 /datum/emote/living/carbon/human/shrug
 	key = "shrug"

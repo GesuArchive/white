@@ -79,34 +79,34 @@
 
 	//head
 	if(head && !(obscured & ITEM_SLOT_HEAD))
-		. += "На голове у н[t_ego] [head.ru_get_examine_string(user)].\n"
+		. += "На голове у н[t_ego] [head.get_examine_string(user)].\n"
 
 	//eyes
 	if(!(obscured & ITEM_SLOT_EYES))
 		if(glasses)
-			. += "Также на [t_na] [glasses.ru_get_examine_string(user)].\n"
+			. += "Также на [t_na] [glasses.get_examine_string(user)].\n"
 		else if(eye_color == BLOODCULT_EYE && iscultist(src) && HAS_TRAIT(src, CULT_EYES))
 			. += "<span class='warning'><B>[ru_ego(TRUE)] глаза ярко-красные и они горят!</B></span>\n"
 
 	//ears
 	if(ears && !(obscured & ITEM_SLOT_EARS))
-		. += "В ушах у н[t_ego] есть [ears.ru_get_examine_string(user)].\n"
+		. += "В ушах у н[t_ego] есть [ears.get_examine_string(user)].\n"
 
 	//mask
 	if(wear_mask && !(obscured & ITEM_SLOT_MASK))
-		. += "На лице у [t_ego] [wear_mask.ru_get_examine_string(user)].\n"
+		. += "На лице у [t_ego] [wear_mask.get_examine_string(user)].\n"
 
 	if(wear_neck && !(obscured & ITEM_SLOT_NECK))
-		. += "На шее у н[t_ego] [wear_neck.ru_get_examine_string(user)].\n"
+		. += "На шее у н[t_ego] [wear_neck.get_examine_string(user)].\n"
 
 	//suit/armor
 	if(wear_suit)
 		//suit/armor storage
 		var/suit_thing
 		if(s_store && !(obscured & ITEM_SLOT_SUITSTORE))
-			suit_thing += " вместе с [s_store.ru_get_examine_string(user)]"
+			suit_thing += " вместе с [s_store.get_examine_string(user)]"
 
-		. += "На [t_na] надет [wear_suit.ru_get_examine_string(user)][suit_thing].\n"
+		. += "На [t_na] надет [wear_suit.get_examine_string(user)][suit_thing].\n"
 
 	//uniform
 	if(w_uniform && !(obscured & ITEM_SLOT_ICLOTHING))
@@ -117,21 +117,21 @@
 			if(U.attached_accessory)
 				accessory_msg += " с [icon2html(U.attached_accessory, user)] [U.attached_accessory]"
 
-		. += "Одет[t_a] он[t_a] в [w_uniform.ru_get_examine_string(user)][accessory_msg].\n"
+		. += "Одет[t_a] он[t_a] в [w_uniform.get_examine_string(user)][accessory_msg].\n"
 
 	//back
 	if(back)
-		. += "Со спины у н[t_ego] свисает [back.ru_get_examine_string(user)].\n"
+		. += "Со спины у н[t_ego] свисает [back.get_examine_string(user)].\n"
 
 	//Hands
 	for(var/obj/item/I in held_items)
 		if(!(I.item_flags & ABSTRACT))
-			. += "В [get_held_index_name(get_held_index_of_item(I))] он[t_a] держит [I.ru_get_examine_string(user)].\n"
+			. += "В [get_held_index_name(get_held_index_of_item(I))] он[t_a] держит [I.get_examine_string(user)].\n"
 
 	var/datum/component/forensics/FR = GetComponent(/datum/component/forensics)
 	//gloves
 	if(gloves && !(obscured & ITEM_SLOT_GLOVES))
-		. += "А на руках у н[t_ego] [gloves.ru_get_examine_string(user)].\n"
+		. += "А на руках у н[t_ego] [gloves.get_examine_string(user)].\n"
 	else if(FR && length(FR.blood_DNA))
 		if(num_hands)
 			. += "<span class='warning'>[ru_ego(TRUE)] рук[num_hands > 1 ? "и" : "а"] также в крови!</span>\n"
@@ -145,15 +145,15 @@
 
 	//belt
 	if(belt)
-		. += "И ещё на поясе у н[t_ego] [belt.ru_get_examine_string(user)].\n"
+		. += "И ещё на поясе у н[t_ego] [belt.get_examine_string(user)].\n"
 
 	//shoes
 	if(shoes && !(obscured & ITEM_SLOT_FEET))
-		. += "А на [t_ego] ногах [shoes.ru_get_examine_string(user)].\n"
+		. += "А на [t_ego] ногах [shoes.get_examine_string(user)].\n"
 
 	//ID
 	if(wear_id)
-		. += "И конечно же у н[t_ego] есть [wear_id.ru_get_examine_string(user)].\n"
+		. += "И конечно же у н[t_ego] есть [wear_id.get_examine_string(user)].\n"
 
 	//Status effects
 	var/list/status_examines = status_effect_examines()
@@ -263,11 +263,11 @@
 		temp = getCloneLoss()
 		if(temp)
 			if(temp < 25)
-				msg += "[t_on] незначительные генетические повреждения.\n"
+				msg += "[t_on] имеет незначительные генетические повреждения.\n"
 			else if(temp < 50)
-				msg += "[t_on] <b>сильные</b> генетические повреждения!\n"
+				msg += "[t_on] имеет <b>сильные</b> генетические повреждения!\n"
 			else
-				msg += "<b>[t_on] смертельные генетические повреждения!</b>\n"
+				msg += "<b>[t_on] имеет смертельные генетические повреждения!</b>\n"
 
 
 	if(fire_stacks > 0)
@@ -441,7 +441,7 @@
 			var/cyberimp_detect
 			for(var/obj/item/organ/cyberimp/CI in internal_organs)
 				if(CI.status == ORGAN_ROBOTIC && !CI.syndicate_implant)
-					cyberimp_detect += "[!cyberimp_detect ? "[CI.ru_get_examine_string(user)]" : ", [CI.ru_get_examine_string(user)]"]\n"
+					cyberimp_detect += "[!cyberimp_detect ? "[CI.get_examine_string(user)]" : ", [CI.get_examine_string(user)]"]\n"
 			if(cyberimp_detect)
 				. += "<hr><span class='notice ml-1'>Обнаружены кибернетические модификации:</span>\n"
 				. += "<span class='notice ml-2'>[cyberimp_detect]</span>"

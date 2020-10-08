@@ -61,8 +61,6 @@
 
 	. = ..()
 
-	RegisterSignal(target, COMSIG_ATOM_GET_EXAMINE_NAME, .proc/get_examine_name)
-	RegisterSignal(target, COMSIG_WIPE_BLOOD_DNA, .proc/Detach)
 
 /datum/element/decal/poo/generate_appearance(_icon, _icon_state, _dir, _layer, _color, _alpha, source)
 	var/obj/item/I = source
@@ -86,14 +84,6 @@
 		pic = mutable_appearance(poo_splatter_icon, initial(I.icon_state))
 		poo_splatter_appearances[index] = pic
 	return TRUE
-
-/datum/element/decal/poo/proc/get_examine_name(datum/source, mob/user, list/override)
-	SIGNAL_HANDLER
-
-	var/atom/A = source
-	override[EXAMINE_POSITION_ARTICLE] = A.gender == PLURAL? "some" : "a"
-	override[EXAMINE_POSITION_BEFORE] = " poo-stained "
-	return COMPONENT_EXNAME_CHANGED
 
 /obj/effect/decal/cleanable/poo
 	name = "шоколадный каток"

@@ -57,3 +57,8 @@
 /datum/gear/footwear/color/white
 	display_name = "белые туфли"
 	path = /obj/item/clothing/shoes/sneakers/white
+
+/datum/gear/footwear/wizgirl
+	display_name = "ботинки волшебницы"
+	path = /obj/item/clothing/shoes/wizgirl
+	cost = 250

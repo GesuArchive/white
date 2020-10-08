@@ -27,6 +27,11 @@
 	suffix = "neon_bar.dmm"
 	name = "Neon Bar"
 
+/datum/map_template/ruin/station/bar/lava
+	id = "lava_bar"
+	suffix = "lava_bar.dmm"
+	name = "Lava Bar"
+
 /datum/map_template/ruin/station/bridge
 	id = "default_central"
 	suffix = "default_central.dmm"
@@ -61,3 +66,13 @@
 	id = "arena_maint_sw"
 	suffix = "arena_maint_sw.dmm"
 	name = "Arena Maint SW"
+
+/datum/map_template/ruin/station/med
+	id = "default_med"
+	suffix = "default_med.dmm"
+	name = "Default Medbay"
+
+/datum/map_template/ruin/station/med/durka
+	id = "durka_med"
+	suffix = "durka_med.dmm"
+	name = "Durka Medbay"

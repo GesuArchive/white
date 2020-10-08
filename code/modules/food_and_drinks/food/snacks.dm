@@ -333,11 +333,9 @@ All foods are distributed among various categories. Use common sense.
 			bitecount++
 			L.taste(reagents) // why should carbons get all the fun?
 			if(bitecount >= 5)
-				var/sattisfaction_text = pick("отрыгивает от удовольствия", "просит ещё", "гавкает дважды", "не может найти куда пропал [src]")
-				if(sattisfaction_text)
-					M.manual_emote(sattisfaction_text)
+				var/satisfaction_text = pick("отрыгивает от удовольствия", "просит ещё", "гавкает дважды", "не может найти куда пропал [src]")
+				M.manual_emote(satisfaction_text)
 				qdel(src)
-
 
 // //////////////////////////////////////////////Store////////////////////////////////////////
 /// All the food items that can store an item inside itself, like bread or cake.

@@ -133,12 +133,12 @@
 	throwforce = 5
 	throw_range = 7
 	var/datum/smithing_recipe/recipe = null
-	var/mod_grade = 1
 	var/durability = 5
 	var/progress_current = 0
 	var/progress_need = 10
 	var/heattemp = 0
 	var/type_metal = "iron"
+	var/mod_grade = 1
 
 /obj/item/blacksmith/ingot/gold
 	name = "золотой слиток"
@@ -940,7 +940,8 @@
 	name = "каменный стол"
 	desc = "Прочный стол из камня."
 	icon = 'white/valtos/icons/stone_table.dmi'
-	icon_state = "stone_table"
+	icon_state = "stone_table-0"
+	base_icon_state = "stone_table"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	max_integrity = 300
 	buildstack = null
@@ -1009,3 +1010,124 @@
 				var/turf/where_is_new = get_turf(pick(GLOB.dwarf_shkonka_list))
 				new /obj/effect/mob_spawn/human/dwarf(where_is_new)
 				return TRUE
+
+/obj/item/blacksmith/partial
+	desc = "Похоже на часть чего-то большего."
+	var/result = null
+	var/list/reqs = list()
+	var/list/reqs_names = list()
+	var/list/components = list()
+	var/possible_force = 0
+
+/obj/item/blacksmith/partial/examine(mob/user)
+	. = ..()
+	if(reqs && reqs_names)
+		var/hasContent = FALSE
+		var/requires = "Требуется"
+
+		for(var/i = 1 to reqs.len)
+			var/tname = reqs[i]
+			var/amt = reqs[tname]
+			if(amt == 0)
+				continue
+			var/use_and = i == reqs.len
+			requires += "[(hasContent ? (use_and ? ", и" : ",") : "")] [amt] [reqs_names[tname]]"
+			hasContent = TRUE
+
+		if(hasContent)
+			. +=  "<hr>[requires]."
+		else
+			. += "<hr>Удар молотом завершит сборку."
+
+/obj/item/blacksmith/partial/proc/update_namelist()
+	if(!reqs)
+		return
+
+	reqs_names = new()
+	for(var/tname in reqs)
+		if(ispath(tname, /obj/item/stack))
+			var/obj/item/stack/S = tname
+			var/singular_name = initial(S.singular_name)
+			if(singular_name)
+				reqs_names[tname] = singular_name
+			else
+				reqs_names[tname] = initial(S.name)
+		else
+			var/obj/O = tname
+			reqs_names[tname] = initial(O.name)
+
+/obj/item/blacksmith/partial/proc/get_req_components_amt()
+	var/amt = 0
+	for(var/path in reqs)
+		amt += reqs[path]
+	return amt
+
+/obj/item/blacksmith/partial/attackby(obj/item/P, mob/living/user, params)
+	if(istype(P, /obj/item/blacksmith/smithing_hammer))
+		var/component_check = TRUE
+		for(var/R in reqs)
+			if(reqs[R] > 0)
+				component_check = FALSE
+				break
+		if(component_check)
+			playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
+			var/obj/item/blacksmith/NB = new result(loc)
+			NB.force = possible_force
+			qdel(src)
+		return
+	if(isitem(P) && get_req_components_amt())
+		for(var/I in reqs)
+			if(istype(P, I) && (reqs[I] > 0))
+				if(istype(P, /obj/item/stack))
+					var/obj/item/stack/S = P
+					var/used_amt = min(round(S.get_amount()), reqs[I])
+
+					if(used_amt && S.use(used_amt))
+						var/obj/item/stack/NS = locate(S.merge_type) in components
+
+						if(!NS)
+							NS = new S.merge_type(src, used_amt)
+							components += NS
+						else
+							NS.add(used_amt)
+
+						reqs[I] -= used_amt
+						to_chat(user, "<span class='notice'>Добавляю [P.name] к [src.name].</span>")
+					return
+				if(!user.transferItemToLoc(P, src))
+					break
+				to_chat(user, "<span class='notice'>Добавляю [P.name] к [src.name].</span>")
+				components += P
+				reqs[I]--
+				return TRUE
+		to_chat(user, "<span class='warning'>Это сюда не помещается!</span>")
+		return FALSE
+	else
+		return ..()
+
+/obj/item/blacksmith/partial/Initialize()
+	. = ..()
+	possible_force = force
+	force = 1
+	update_namelist()
+
+/obj/item/blacksmith/partial/zwei
+	name = "лезвие цвая"
+	force = 40
+	icon_state = "zwei_part"
+	result = /obj/item/blacksmith/zwei
+	reqs = list(/obj/item/stack/sheet/mineral/wood = 3, /obj/item/stack/sheet/leather = 2)
+
+/obj/item/blacksmith/partial/katanus
+	name = "лезвие катануса"
+	force = 16
+	icon_state = "katanus_part"
+	result = /obj/item/blacksmith/katanus
+	reqs = list(/obj/item/stack/sheet/mineral/wood = 3, /obj/item/stack/sheet/leather = 2)
+
+/obj/item/blacksmith/partial/cep
+	name = "шар с цепью"
+	force = 20
+	icon_state = "cep_part"
+	result = /obj/item/blacksmith/cep
+	reqs = list(/obj/item/stack/sheet/mineral/wood = 2)

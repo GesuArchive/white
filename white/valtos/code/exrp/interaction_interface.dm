@@ -5,7 +5,7 @@
 	. = ..()
 	if(M == src || src == usr || M != usr)
 		return
-	if(usr.restrained())
+	if(HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED))
 		return
 
 	user.try_interaction(src)

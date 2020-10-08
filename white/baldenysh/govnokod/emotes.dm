@@ -12,4 +12,4 @@
 	key_third_person = "salutes"
 	message = "выполняет римский салют."
 	message_param = "приветствует %t по-римски."
-	restraint_check = TRUE
+	hands_use_check = TRUE

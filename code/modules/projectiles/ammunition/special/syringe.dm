@@ -5,7 +5,7 @@
 	projectile_type = /obj/projectile/bullet/dart/syringe
 	firing_effect_type = null
 
-/obj/item/ammo_casing/syringegun/ready_proj(atom/target, mob/living/user, quiet, zone_override = "")
+/obj/item/ammo_casing/syringegun/ready_proj(atom/target, mob/living/user, quiet, zone_override = "", extra_damage = 0, extra_penetration = 0)
 	if(!BB)
 		return
 	if(istype(loc, /obj/item/gun/syringe))
@@ -38,7 +38,7 @@
 	projectile_type = /obj/projectile/bullet/dart
 	firing_effect_type = null
 
-/obj/item/ammo_casing/chemgun/ready_proj(atom/target, mob/living/user, quiet, zone_override = "")
+/obj/item/ammo_casing/chemgun/ready_proj(atom/target, mob/living/user, quiet, zone_override = "", extra_damage = 0, extra_penetration = 0)
 	if(!BB)
 		return
 	if(istype(loc, /obj/item/gun/chem))
@@ -56,7 +56,7 @@
 	projectile_type = /obj/projectile/bullet/dnainjector
 	firing_effect_type = null
 
-/obj/item/ammo_casing/dnainjector/ready_proj(atom/target, mob/living/user, quiet, zone_override = "")
+/obj/item/ammo_casing/dnainjector/ready_proj(atom/target, mob/living/user, quiet, zone_override = "", extra_damage = 0, extra_penetration = 0)
 	if(!BB)
 		return
 	if(istype(loc, /obj/item/gun/syringe/dna))

@@ -344,6 +344,7 @@
 	id = "hosspace";
 	name = "space shutters"
 	},
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/engine,
 /area/security/main)
 "bj" = (
@@ -549,6 +550,7 @@
 	name = "space shutters"
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/engine,
 /area/crew_quarters/heads/hos)
 "bJ" = (
@@ -1163,6 +1165,7 @@
 /obj/structure/sign/warning/vacuum/external{
 	pixel_x = -32
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/engine,
 /area/security/main)
 "cP" = (
@@ -4417,7 +4420,7 @@
 /area/security/prison)
 "jC" = (
 /obj/structure/table,
-/obj/item/reagent_containers/food/snacks/energybar,
+/obj/item/food/energybar,
 /turf/open/floor/engine,
 /area/security/prison)
 "jD" = (
@@ -4904,6 +4907,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/turf/open/floor/engine,
+/area/security/prison)
+"kG" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/machinery/vending/chetverochka,
 /turf/open/floor/engine,
 /area/security/prison)
 "kH" = (
@@ -7496,7 +7507,7 @@ mn
 ae
 mL
 mY
-nr
+kG
 ae
 mp
 ap

@@ -4,6 +4,7 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	new/datum/stack_recipe("рама самоката", /obj/item/scooter_frame, 10, time = 25, one_per_turf = FALSE), \
 	new/datum/stack_recipe("корзина для белья", /obj/structure/bedsheetbin/empty, 2, time = 5, one_per_turf = FALSE), \
 	new/datum/stack_recipe("перила", /obj/structure/railing, 3, time = 18, window_checks = TRUE), \
+	new/datum/stack_recipe("держатель баков", /obj/structure/tank_holder, 2, time = 5, one_per_turf = TRUE, on_floor = FALSE), \
 	))
 
 /obj/item/stack/rods
@@ -63,16 +64,6 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 			R.use(2)
 			if (!R && replace)
 				user.put_in_hands(new_item)
-
-	else if(istype(W, /obj/item/reagent_containers/food/snacks))
-		var/obj/item/reagent_containers/food/snacks/S = W
-		if(amount != 1)
-			to_chat(user, "<span class='warning'>Мне нужен один стержень, не более!</span>")
-		else if(S.w_class > WEIGHT_CLASS_SMALL)
-			to_chat(user, "<span class='warning'>Ингридиент слишком большой для насаживания!</span>")
-		else
-			var/obj/item/reagent_containers/food/snacks/customizable/A = new/obj/item/reagent_containers/food/snacks/customizable/kebab(get_turf(src))
-			A.initialize_custom_food(src, S, user)
 	else
 		return ..()
 

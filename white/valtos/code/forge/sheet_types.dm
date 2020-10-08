@@ -59,7 +59,7 @@ GLOBAL_LIST_INIT(reagent_recipes, list ( \
 
 
 /obj/item/stack/sheet/mineral/reagent/Topic(href, href_list)//this is a disgusting proc
-	if(usr.restrained() || usr.stat || usr.get_active_held_item() != src)
+	if(HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED)|| usr.stat || usr.get_active_held_item() != src)
 		return
 	if(href_list["make"])
 		if (get_amount() < 1)

@@ -35,6 +35,9 @@
 	name = "сварочная маска"
 	desc = "Противогаз со встроенными сварочными очками и защитной маской. Выглядит как череп разработанный кретином."
 	icon_state = "weldingmask"
+	inhand_icon_state = "weldingmask"
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
 	flash_protect = FLASH_PROTECTION_WELDER
 	custom_materials = list(/datum/material/iron=4000, /datum/material/glass=2000)
 	tint = 2
@@ -83,6 +86,7 @@
 	resistance_flags = FLAMMABLE
 	actions_types = list(/datum/action/item_action/adjust)
 	dog_fashion = /datum/dog_fashion/head/clown
+	species_exception = list(/datum/species/golem/bananium)
 	var/list/clownmask_designs = list()
 
 /obj/item/clothing/mask/gas/clown_hat/Initialize(mapload)
@@ -128,6 +132,7 @@
 	inhand_icon_state = "sexyclown"
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
+	species_exception = list(/datum/species/golem/bananium)
 
 /obj/item/clothing/mask/gas/mime
 	name = "маска мима"
@@ -139,6 +144,7 @@
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
 	actions_types = list(/datum/action/item_action/adjust)
+	species_exception = list(/datum/species/golem)
 	var/list/mimemask_designs = list()
 
 /obj/item/clothing/mask/gas/mime/Initialize(mapload)
@@ -190,6 +196,7 @@
 	inhand_icon_state = "sexymime"
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
+	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/mask/gas/cyborg
 	name = "забрало киборга"
@@ -220,6 +227,7 @@
 	max_integrity = 100
 	actions_types = list(/datum/action/item_action/adjust)
 	dog_fashion = null
+	species_exception = list(/datum/species/golem/wood)
 	var/list/tikimask_designs = list()
 
 /obj/item/clothing/mask/gas/tiki_mask/Initialize(mapload)

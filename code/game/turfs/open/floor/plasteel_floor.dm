@@ -6,7 +6,7 @@
 
 /turf/open/floor/plasteel/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Здесь есть <b>небольшая трещина</b> с краю.</span>"
+	. += "<hr><span class='notice'>Здесь есть <b>небольшая щель</b> с краю.</span>"
 
 /turf/open/floor/plasteel/rust_heretic_act()
 	if(prob(70))
@@ -96,7 +96,10 @@
 
 /turf/open/floor/plasteel/kitchen_coldroom
 	name = "пол холодильной камеры"
+
+/turf/open/floor/plasteel/kitchen_coldroom/Initialize()
 	initial_gas_mix = KITCHEN_COLDROOM_ATMOS
+	. = ..()
 
 /turf/open/floor/plasteel/kitchen_coldroom/freezerfloor
 	icon_state = "freezerfloor"

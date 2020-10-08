@@ -10,13 +10,19 @@
 /datum/antagonist/ert/sobr
 	name = "СОБР"
 	outfit = /datum/outfit/sobr
-	random_names = FALSE
+	random_names = TRUE
 	role = "Отряд СОБР"
 
 /datum/antagonist/ert/sobr/leader
 	name = "Лидер СОБР"
 	outfit = /datum/outfit/sobr/leader
 	role = "Лидер отряда СОБР"
+
+/datum/antagonist/ert/sobr/update_name()
+	owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Рядовой", "Ефрейтор", "Сержант")] [pick(name_source)]")
+
+/datum/antagonist/ert/sobr/leader/update_name()
+	owner.current.fully_replace_character_name(owner.current.real_name,"Лейтенант [pick(name_source)]")
 
 /datum/outfit/sobr
 	name = "СОБР"
@@ -26,6 +32,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/fingerless
 	ears = /obj/item/radio/headset/headset_cent
+	head = /obj/item/clothing/head/beret/durathread
 	glasses = /obj/item/clothing/glasses/sunglasses
 	belt = /obj/item/storage/belt/military/army/wzzzz/sobr
 	back = /obj/item/gun/ballistic/automatic/ak47
@@ -52,6 +59,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/fingerless
 	ears = /obj/item/radio/headset/headset_cent
+	head = /obj/item/clothing/head/beret/durathread
 	glasses = /obj/item/clothing/glasses/sunglasses
 	belt = /obj/item/storage/belt/military/army/wzzzz/sobr
 	back = /obj/item/gun/ballistic/automatic/ak47
@@ -71,6 +79,7 @@
 
 /proc/sobr_request(text, mob/Sender)
 	var/msg = copytext_char(sanitize(text), 1, MAX_MESSAGE_LEN)
+	message_admins("[Sender.name] собирается вызвать СОБР с миссией: [msg]")
 	for(var/obj/machinery/computer/communications/C in GLOB.machines)
 		C.overrideCooldown()
 	var/list/mob/dead/observer/candidates = pollGhostCandidates("Хотите быть в специальном отряде быстрого реагирования?", "deathsquad", null)

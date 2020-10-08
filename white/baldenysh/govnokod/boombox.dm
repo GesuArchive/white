@@ -140,6 +140,16 @@
 	data["curlength"] = selection && selection.song_length ? selection.song_length : FALSE
 	data["env"] = SP.environmental
 
+	data["songs"] = list()
+	for(var/datum/track/S in songs)
+		var/list/track_data = list(
+			name = S.song_name
+		)
+		data["songs"] += list(track_data)
+
+	if(disk)
+		data["songs"] += list(list(name = disk.track.song_name))
+
 	data["disk"] = disk ? TRUE : FALSE
 	data["disktrack"] = disk && disk.track ? disk.track.song_name : FALSE
 
@@ -155,14 +165,14 @@
 				startsound()
 			else
 				stopsound()
-		if("select")
+		if("select_track")
 			var/list/available = list()
 			for(var/datum/track/S in songs)
 				available[S.song_name] = S
 			if(disk)
 				if(disk.track)
 					available[disk.track.song_name] = disk.track
-			var/selected = input(usr, "Выбирай мудро", "Трек:") as null|anything in available
+			var/selected = params["track"]
 			if(QDELETED(src) || !selected || !istype(available[selected], /datum/track))
 				return
 			if(playing)

@@ -33,3 +33,5 @@
 	protection = CONFIG_ENTRY_HIDDEN
 /datum/config_entry/string/cross_key
 	protection = CONFIG_ENTRY_HIDDEN
+/datum/config_entry/string/cross_comms_network
+	protection = CONFIG_ENTRY_LOCKED

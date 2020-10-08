@@ -14,7 +14,7 @@
 	key_third_person = "bows"
 	message = "кланяется."
 	message_param = "кланяется %t."
-	restraint_check = TRUE
+	hands_use_check = TRUE
 
 /datum/emote/living/burp
 	key = "burp"
@@ -56,7 +56,7 @@
 	key = "cross"
 	key_third_person = "crosses"
 	message = "скрещивает свои руки."
-	restraint_check = TRUE
+	hands_use_check = TRUE
 
 /datum/emote/living/chuckle
 	key = "chuckle"
@@ -108,7 +108,7 @@
 	key = "dance"
 	key_third_person = "dances"
 	message = "радостно пританцовывает."
-	restraint_check = TRUE
+	hands_use_check = TRUE
 
 /datum/emote/living/deathgasp
 	key = "deathgasp"
@@ -157,7 +157,7 @@
 	key = "flap"
 	key_third_person = "flaps"
 	message = "хлопает крыльями."
-	restraint_check = TRUE
+	hands_use_check = TRUE
 	var/wing_time = 20
 
 /datum/emote/living/flap/run_emote(mob/user, params, type_override, intentional)
@@ -177,7 +177,7 @@
 	key = "aflap"
 	key_third_person = "aflaps"
 	message = "яростно хлопает крыльями!"
-	restraint_check = TRUE
+	hands_use_check = TRUE
 	wing_time = 10
 
 /datum/emote/living/frown
@@ -259,7 +259,7 @@
 	key = "jump"
 	key_third_person = "jumps"
 	message = "подпрыгивает!"
-	restraint_check = TRUE
+	hands_use_check = TRUE
 
 /datum/emote/living/kiss
 	key = "kiss"
@@ -320,7 +320,7 @@
 	key_third_person = "points"
 	message = "показывает."
 	message_param = "показывает на %t."
-	restraint_check = TRUE
+	hands_use_check = TRUE
 
 /datum/emote/living/point/run_emote(mob/user, params, type_override, intentional)
 	message_param = initial(message_param) // reset
@@ -592,7 +592,7 @@
 
 /datum/emote/living/help/run_emote(mob/user, params, type_override, intentional)
 	var/list/keys = list()
-	var/list/message = list("Available emotes, you can use them with say \"*emote\": ")
+	var/list/message = list("Доступный список эмоций. Их можно использовать в поле say \"*emote\": ")
 
 	for(var/key in GLOB.emote_list)
 		for(var/datum/emote/P in GLOB.emote_list[key])

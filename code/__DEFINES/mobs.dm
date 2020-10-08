@@ -180,12 +180,12 @@
 
 //Charge levels for Ethereals
 #define ETHEREAL_CHARGE_NONE 0
-#define ETHEREAL_CHARGE_LOWPOWER 20
-#define ETHEREAL_CHARGE_NORMAL 50
-#define ETHEREAL_CHARGE_ALMOSTFULL 75
-#define ETHEREAL_CHARGE_FULL 100
-#define ETHEREAL_CHARGE_OVERLOAD 125
-#define ETHEREAL_CHARGE_DANGEROUS 150
+#define ETHEREAL_CHARGE_LOWPOWER 400
+#define ETHEREAL_CHARGE_NORMAL 1000
+#define ETHEREAL_CHARGE_ALMOSTFULL 1500
+#define ETHEREAL_CHARGE_FULL 2000
+#define ETHEREAL_CHARGE_OVERLOAD 2500
+#define ETHEREAL_CHARGE_DANGEROUS 3000
 
 //Slime evolution threshold. Controls how fast slimes can split/grow
 #define SLIME_EVOLUTION_THRESHOLD 10
@@ -210,6 +210,10 @@
 #define SENTIENCE_BOSS 5
 
 //Mob AI Status
+#define POWER_RESTORATION_OFF 0
+#define POWER_RESTORATION_START 1
+#define POWER_RESTORATION_SEARCH_APC 2
+#define POWER_RESTORATION_APC_FOUND 3
 
 //Hostile simple animals
 //If you add a new status, be sure to add a list for it to the simple_animals global in _globalvars/lists/mobs.dm
@@ -290,8 +294,8 @@
 #define POCKET_STRIP_DELAY			40	//time taken (in deciseconds) to search somebody's pockets
 #define DOOR_CRUSH_DAMAGE	15	//the amount of damage that airlocks deal when they crush you
 
-#define	HUNGER_FACTOR		0.12	//factor at which mob nutrition decreases //H_WEEK
-#define	ETHEREAL_CHARGE_FACTOR	0.10 //factor at which ethereal's charge decreases
+#define	HUNGER_FACTOR		0.1	//factor at which mob nutrition decreases
+#define	ETHEREAL_CHARGE_FACTOR	1.6 //factor at which ethereal's charge decreases
 #define	REAGENTS_METABOLISM 0.4	//How many units of reagent are consumed per tick, by default.
 #define REAGENTS_EFFECT_MULTIPLIER (REAGENTS_METABOLISM / 0.4)	// By defining the effect multiplier this way, it'll exactly adjust all effects according to how they originally were with the 0.4 metabolism
 
@@ -372,3 +376,9 @@
 
 /// Returns whether or not the given mob can succumb
 #define CAN_SUCCUMB(target) (HAS_TRAIT(target, TRAIT_CRITICAL_CONDITION) && !HAS_TRAIT(target, TRAIT_NODEATH))
+
+// Body position defines.
+/// Mob is standing up, usually associated with lying_angle value of 0.
+#define STANDING_UP 0
+/// Mob is lying down, usually associated with lying_angle values of 90 or 270.
+#define LYING_DOWN 1

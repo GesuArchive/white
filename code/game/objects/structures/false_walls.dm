@@ -2,16 +2,17 @@
  * False Walls
  */
 /obj/structure/falsewall
-	name = "wall"
+	name = "стена"
 	desc = "Здоровенный кусок металла, который служит для разделения помещений."
 	anchored = TRUE
 	icon = 'icons/turf/walls/baywall.dmi'
-	icon_state = "wall"
+	icon_state = "wall-0"
+	base_icon_state = "wall"
 	layer = LOW_OBJ_LAYER
 	density = TRUE
 	opacity = TRUE
 	max_integrity = 100
-	smoothing_flags = SMOOTH_CORNERS
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 	can_be_unanchored = FALSE
@@ -63,8 +64,8 @@
 			icon_state = "fwall_closing"
 	else
 		if(density)
-			icon_state = initial(icon_state)
-			smoothing_flags = SMOOTH_CORNERS
+			icon_state = "[base_icon_state]-[smoothing_junction]"
+			smoothing_flags = SMOOTH_BITMASK
 			QUEUE_SMOOTH(src)
 		else
 			icon_state = "fwall_open"
@@ -130,12 +131,14 @@
  */
 
 /obj/structure/falsewall/reinforced
-	name = "reinforced wall"
+	name = "армированная стена"
 	desc = "Здоровенный укреплённый кусок металла, который служит для разделения помещений."
 	icon = 'icons/turf/walls/rbaywall.dmi'
-	icon_state = "r_wall"
+	icon_state = "reinforced_wall-0"
+	base_icon_state = "reinforced_wall"
 	walltype = /turf/closed/wall/r_wall
 	mineral = /obj/item/stack/sheet/plasteel
+	smoothing_flags = SMOOTH_BITMASK
 
 /obj/structure/falsewall/reinforced/examine_status(mob/user)
 	to_chat(user, "<span class='notice'>Внешняя <b>решетка</b> цела.</span>")
@@ -151,12 +154,14 @@
  */
 
 /obj/structure/falsewall/uranium
-	name = "uranium wall"
+	name = "урановая стена"
 	desc = "Стена с урановым покрытием. Это плохая идея."
 	icon = 'icons/turf/walls/uranium_wall.dmi'
-	icon_state = "uranium"
+	icon_state = "uranium_wall-0"
+	base_icon_state = "uranium_wall"
 	mineral = /obj/item/stack/sheet/mineral/uranium
 	walltype = /turf/closed/wall/mineral/uranium
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_URANIUM_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_URANIUM_WALLS)
 	var/active = null
@@ -186,43 +191,51 @@
  */
 
 /obj/structure/falsewall/gold
-	name = "gold wall"
+	name = "золотая стена"
 	desc = "Стена с золотым покрытием. Чётко!"
 	icon = 'icons/turf/walls/gold_wall.dmi'
-	icon_state = "gold"
+	icon_state = "gold_wall-0"
+	base_icon_state = "gold_wall"
 	mineral = /obj/item/stack/sheet/mineral/gold
 	walltype = /turf/closed/wall/mineral/gold
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_GOLD_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_GOLD_WALLS)
 
 /obj/structure/falsewall/silver
-	name = "silver wall"
+	name = "серебряная стена"
 	desc = "Стена с серебрянным покрытием. Сияет."
 	icon = 'icons/turf/walls/silver_wall.dmi'
-	icon_state = "silver"
+	icon_state = "silver_wall-0"
+	base_icon_state = "silver_wall"
 	mineral = /obj/item/stack/sheet/mineral/silver
 	walltype = /turf/closed/wall/mineral/silver
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_SILVER_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_SILVER_WALLS)
 
 /obj/structure/falsewall/diamond
-	name = "diamond wall"
+	name = "алмазная стена"
 	desc = "Стена с алмазным покрытием. Построено идиотом."
 	icon = 'icons/turf/walls/diamond_wall.dmi'
-	icon_state = "diamond"
+	icon_state = "diamond_wall-0"
+	base_icon_state = "diamond_wall"
 	mineral = /obj/item/stack/sheet/mineral/diamond
 	walltype = /turf/closed/wall/mineral/diamond
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_DIAMOND_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_DIAMOND_WALLS)
 	max_integrity = 800
 
 /obj/structure/falsewall/plasma
-	name = "plasma wall"
+	name = "стена из плазмы"
 	desc = "Стена с покрытием из плазмы. Это плохая идея."
 	icon = 'icons/turf/walls/plasma_wall.dmi'
-	icon_state = "plasma"
+	icon_state = "plasma_wall-0"
+	base_icon_state = "plasma_wall"
 	mineral = /obj/item/stack/sheet/mineral/plasma
 	walltype = /turf/closed/wall/mineral/plasma
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_PLASMA_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_PLASMA_WALLS)
 
@@ -246,75 +259,88 @@
 		burnbabyburn()
 
 /obj/structure/falsewall/bananium
-	name = "bananium wall"
+	name = "бананиумная стена"
 	desc = "Стена с бананиевым покрытием. Хонк!"
 	icon = 'icons/turf/walls/bananium_wall.dmi'
-	icon_state = "bananium"
+	icon_state = "bananium_wall-0"
+	base_icon_state = "bananium_wall"
 	mineral = /obj/item/stack/sheet/mineral/bananium
 	walltype = /turf/closed/wall/mineral/bananium
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_BANANIUM_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_BANANIUM_WALLS)
 
 
 /obj/structure/falsewall/sandstone
-	name = "sandstone wall"
+	name = "песчаниковая стена"
 	desc = "Стена с песчанниковым покрытием. Грубая."
 	icon = 'icons/turf/walls/sandstone_wall.dmi'
-	icon_state = "sandstone"
+	icon_state = "sandstone_wall-0"
+	base_icon_state = "sandstone_wall"
 	mineral = /obj/item/stack/sheet/mineral/sandstone
 	walltype = /turf/closed/wall/mineral/sandstone
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_SANDSTONE_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_SANDSTONE_WALLS)
 
 /obj/structure/falsewall/wood
-	name = "wooden wall"
+	name = "деревянная стена"
 	desc = "Стена с деревянным покрытием. Занозы торчат."
 	icon = 'icons/turf/walls/wood_wall.dmi'
-	icon_state = "wood"
+	icon_state = "wood_wall-0"
+	base_icon_state = "wood_wall"
 	mineral = /obj/item/stack/sheet/mineral/wood
 	walltype = /turf/closed/wall/mineral/wood
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WOOD_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_WOOD_WALLS)
 
 /obj/structure/falsewall/iron
-	name = "rough metal wall"
+	name = "грубая металлическая стена"
 	desc = "Стена с металлическим покрытием"
 	icon = 'icons/turf/walls/iron_wall.dmi'
-	icon_state = "iron"
+	icon_state = "iron_wall-0"
+	base_icon_state = "iron_wall"
 	mineral = /obj/item/stack/rods
 	mineral_amount = 5
 	walltype = /turf/closed/wall/mineral/iron
+	base_icon_state = "icerock_wall"
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_IRON_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_IRON_WALLS)
 
 /obj/structure/falsewall/abductor
-	name = "alien wall"
+	name = "чужеродная стена"
 	desc = "Стена с инопланетным покрытием."
 	icon = 'icons/turf/walls/abductor_wall.dmi'
-	icon_state = "abductor"
+	icon_state = "abductor_wall-0"
+	base_icon_state = "abductor_wall"
 	mineral = /obj/item/stack/sheet/mineral/abductor
 	walltype = /turf/closed/wall/mineral/abductor
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_ABDUCTOR_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_ABDUCTOR_WALLS)
 
 /obj/structure/falsewall/titanium
-	name = "wall"
+	name = "титановая стена"
 	desc = "Стена с легковесным титановым покрытием."
 	icon = 'icons/turf/walls/shuttle_wall.dmi'
-	icon_state = "shuttle"
+	icon_state = "shuttle_wall-0"
+	base_icon_state = "shuttle_wall"
 	mineral = /obj/item/stack/sheet/mineral/titanium
 	walltype = /turf/closed/wall/mineral/titanium
-	smoothing_flags = SMOOTH_CORNERS
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_TITANIUM_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_TITANIUM_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_SHUTTLE_PARTS)
 
 /obj/structure/falsewall/plastitanium
-	name = "wall"
+	name = "пластитановая стена"
 	desc = "Зловещая стена с пластитановым покрытием."
 	icon = 'icons/turf/walls/plastitanium_wall.dmi'
-	icon_state = "shuttle"
+	icon_state = "plastitanium_wall-0"
+	base_icon_state = "plastitanium_wall"
 	mineral = /obj/item/stack/sheet/mineral/plastitanium
 	walltype = /turf/closed/wall/mineral/plastitanium
-	smoothing_flags = SMOOTH_CORNERS
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_PLASTITANIUM_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_PLASTITANIUM_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_SHUTTLE_PARTS)

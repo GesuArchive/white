@@ -1,11 +1,11 @@
 /obj/item/inducer
 	name = "inducer"
 	desc = "A tool for inductively charging internal power cells."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'white/valtos/icons/items.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "inducer-engi"
 	inhand_icon_state = "inducer-engi"
-	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	force = 7
 	var/powertransfer = 1000
 	var/opened = FALSE

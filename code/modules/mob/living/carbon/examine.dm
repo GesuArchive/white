@@ -9,18 +9,18 @@
 	if (handcuffed)
 		. += "<span class='warning'>[t_on] [icon2html(handcuffed, user)] в наручниках!</span>\n"
 	if (head)
-		. += "На голове у н[t_ego] [head.ru_get_examine_string(user)].\n"
+		. += "На голове у н[t_ego] [head.get_examine_string(user)].\n"
 	if(wear_mask && !(obscured & ITEM_SLOT_MASK))
-		. += "На [t_ego] лице [wear_mask.ru_get_examine_string(user)].\n"
+		. += "На [t_ego] лице [wear_mask.get_examine_string(user)].\n"
 	if(wear_neck && !(obscured & ITEM_SLOT_NECK))
-		. += "На шее у н[t_ego] [wear_neck.ru_get_examine_string(user)].\n"
+		. += "На шее у н[t_ego] [wear_neck.get_examine_string(user)].\n"
 
 	for(var/obj/item/I in held_items)
 		if(!(I.item_flags & ABSTRACT))
-			. += "В [t_ego] [get_held_index_name(get_held_index_of_item(I))] он[t_a] держит [I.ru_get_examine_string(user)].\n"
+			. += "В [t_ego] [get_held_index_name(get_held_index_of_item(I))] он[t_a] держит [I.get_examine_string(user)].\n"
 
 	if (back)
-		. += "На [t_ego] спине [back.ru_get_examine_string(user)].\n"
+		. += "На [t_ego] спине [back.get_examine_string(user)].\n"
 	var/appears_dead = FALSE
 	if (stat == DEAD)
 		appears_dead = TRUE
@@ -83,9 +83,9 @@
 		temp = getCloneLoss()
 		if(temp)
 			if(temp < 25)
-				msg += "[t_on] незначительные генетические повреждения.\n"
+				msg += "[t_on] имеет незначительные генетические повреждения.\n"
 			else if(temp < 50)
-				msg += "[t_on] <b>сильные</b> генетические повреждения!\n"
+				msg += "[t_on] имеет <b>сильные</b> генетические повреждения!\n"
 			else
 				msg += "<b>[t_on] имеет смертельные генетические повреждения!</b>\n"
 

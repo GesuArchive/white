@@ -27,6 +27,8 @@
 	var/precision = FALSE //By default, turfs picked from a spray are random, set to 1 to make it always have at least one water effect per row
 	var/cooling_power = 2 //Sets the cooling_temperature of the water reagent datum inside of the extinguisher when it is refilled
 	var/broken = FALSE
+	/// Icon state when inside a tank holder
+	var/tank_holder_icon_state = "holder_extinguisher"
 
 /obj/item/extinguisher/mini
 	name = "карманный огнетушитель"
@@ -53,11 +55,17 @@
 	. = ..()
 	refill()
 
+/obj/item/extinguisher/ComponentInitialize()
+	. = ..()
+	if(tank_holder_icon_state)
+		AddComponent(/datum/component/container_item/tank_holder, tank_holder_icon_state)
+
 /obj/item/extinguisher/advanced
 	name = "продвинутый огнетушитель"
 	desc = "Используется для остановки распространения термоядерных пожаров внутри двигателя."
 	icon_state = "foam_extinguisher0"
 	inhand_icon_state = "foam_extinguisher"
+	tank_holder_icon_state = "holder_foam_extinguisher"
 	dog_fashion = null
 	chem = /datum/reagent/firefighting_foam
 	tanktype = /obj/structure/reagent_dispensers/foamtank

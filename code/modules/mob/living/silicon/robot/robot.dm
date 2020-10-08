@@ -73,7 +73,7 @@
 
 	var/lawupdate = 1 //Cyborgs will sync their laws with their AI by default
 	var/scrambledcodes = FALSE // Used to determine if a borg shows up on the robotics console.  Setting to TRUE hides them.
-	var/lockcharge //Boolean of whether the borg is locked down or not
+	var/lockcharge = FALSE //Boolean of whether the borg is locked down or not
 
 	var/toner = 0
 	var/tonermax = 40
@@ -134,6 +134,8 @@
 	if(ispath(cell))
 		cell = new cell(src)
 
+	create_modularInterface()
+
 	if(lawupdate)
 		make_laws()
 		if(!TryConnectToAI())
@@ -162,7 +164,7 @@
 		mmi.brain.organ_flags |= ORGAN_FROZEN
 		mmi.brain.name = "[real_name]'s brain"
 		mmi.name = "[initial(mmi.name)]: [real_name]"
-		mmi.brainmob = new(mmi)
+		mmi.set_brainmob(new /mob/living/brain(mmi))
 		mmi.brainmob.name = src.real_name
 		mmi.brainmob.real_name = src.real_name
 		mmi.brainmob.container = mmi
@@ -174,7 +176,6 @@
 	aicamera = new/obj/item/camera/siliconcam/robot_camera(src)
 	toner = tonermax
 	diag_hud_set_borgcell()
-	create_modularInterface()
 	logevent("System brought online.")
 
 /mob/living/silicon/robot/proc/create_modularInterface()
@@ -335,8 +336,6 @@
 	if(connected_ai)
 		. += "Master AI: [connected_ai.name]"
 
-/mob/living/silicon/robot/restrained(ignore_grab)
-	return
 
 /mob/living/silicon/robot/triggerAlarm(class, area/A, O, obj/alarmsource)
 	if(alarmsource.z != z)
@@ -511,7 +510,6 @@
 			ADD_TRAIT(src, TRAIT_IMMOBILIZED, LOCKED_BORG_TRAIT)
 	else if(.)
 		REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, LOCKED_BORG_TRAIT)
-	update_mobility()
 	logevent("System lockdown [lockcharge?"triggered":"released"].")
 
 
@@ -730,6 +728,8 @@
 
 /mob/living/silicon/robot/updatehealth()
 	..()
+	if(!module.breakable_modules)
+		return
 
 	/// the current percent health of the robot (-1 to 1)
 	var/percent_hp = health/maxHealth
@@ -811,10 +811,8 @@
 			if(stat == CONSCIOUS)
 				set_stat(UNCONSCIOUS)
 				become_blind(EYE_DAMAGE)
-				update_mobility()
 		else
 			set_stat(CONSCIOUS)
-	update_mobility()
 	diag_hud_set_status()
 	diag_hud_set_health()
 	diag_hud_set_aishell()

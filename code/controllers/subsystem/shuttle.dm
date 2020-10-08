@@ -12,6 +12,10 @@ SUBSYSTEM_DEF(shuttle)
 	var/list/beacons = list()
 	var/list/transit = list()
 
+	//Now it only for ID generation
+	var/list/assoc_mobile = list()
+	var/list/assoc_stationary = list()
+
 	var/list/transit_requesters = list()
 	var/list/transit_request_failures = list()
 
@@ -63,6 +67,8 @@ SUBSYSTEM_DEF(shuttle)
 	var/datum/map_template/shuttle/preview_template
 
 	var/datum/turf_reservation/preview_reservation
+
+	var/shuttle_loading
 
 /datum/controller/subsystem/shuttle/Initialize(timeofday)
 	ordernum = rand(1, 9000)
@@ -270,6 +276,7 @@ SUBSYSTEM_DEF(shuttle)
 		SSblackbox.record_feedback("text", "shuttle_reason", 1, "[call_reason]")
 		log_shuttle("Shuttle call reason: [call_reason]")
 		webhook_send_roundstatus("shuttle called", list("reason" = call_reason, "seclevel" = get_security_level()))
+		SSticker.emergency_reason = call_reason
 	else
 		webhook_send_roundstatus("shuttle called", list("reason" = "none", "seclevel" = get_security_level()))
 	message_admins("[ADMIN_LOOKUPFLW(user)] has called the shuttle. (<A HREF='?_src_=holder;[HrefToken()];trigger_centcom_recall=1'>TRIGGER CENTCOM RECALL</A>)")
@@ -670,7 +677,7 @@ SUBSYSTEM_DEF(shuttle)
 	QDEL_LIST(remove_images)
 
 
-/datum/controller/subsystem/shuttle/proc/action_load(datum/map_template/shuttle/loading_template, obj/docking_port/stationary/destination_port)
+/datum/controller/subsystem/shuttle/proc/action_load(datum/map_template/shuttle/loading_template, obj/docking_port/stationary/destination_port, replace = FALSE)
 	// Check for an existing preview
 	if(preview_shuttle && (loading_template != preview_template))
 		preview_shuttle.jumpToNullSpace()
@@ -679,8 +686,7 @@ SUBSYSTEM_DEF(shuttle)
 		QDEL_NULL(preview_reservation)
 
 	if(!preview_shuttle)
-		if(load_template(loading_template))
-			preview_shuttle.linkup(loading_template, destination_port)
+		load_template(loading_template)
 		preview_template = loading_template
 
 	// get the existing shuttle information, if any
@@ -690,7 +696,7 @@ SUBSYSTEM_DEF(shuttle)
 
 	if(istype(destination_port))
 		D = destination_port
-	else if(existing_shuttle)
+	else if(existing_shuttle && replace)
 		timer = existing_shuttle.timer
 		mode = existing_shuttle.mode
 		D = existing_shuttle.get_docked()
@@ -709,7 +715,7 @@ SUBSYSTEM_DEF(shuttle)
 		WARNING("Template shuttle [preview_shuttle] cannot dock at [D] ([result]).")
 		return
 
-	if(existing_shuttle)
+	if(existing_shuttle && replace)
 		existing_shuttle.jumpToNullSpace()
 
 	var/list/force_memory = preview_shuttle.movement_force
@@ -724,7 +730,7 @@ SUBSYSTEM_DEF(shuttle)
 	preview_shuttle.timer = timer
 	preview_shuttle.mode = mode
 
-	preview_shuttle.register()
+	preview_shuttle.register(replace)
 
 	// TODO indicate to the user that success happened, rather than just
 	// blanking the modification tab
@@ -853,7 +859,8 @@ SUBSYSTEM_DEF(shuttle)
 	return data
 
 /datum/controller/subsystem/shuttle/ui_act(action, params)
-	if(..())
+	. = ..()
+	if(.)
 		return
 
 	var/mob/user = usr
@@ -896,22 +903,10 @@ SUBSYSTEM_DEF(shuttle)
 					SSblackbox.record_feedback("text", "shuttle_manipulator", 1, "[M.name]")
 					break
 
-		if("preview")
-			if(S)
-				. = TRUE
-				unload_preview()
-				load_template(S)
-				if(preview_shuttle)
-					preview_template = S
-					user.forceMove(get_turf(preview_shuttle))
 		if("load")
-			if(existing_shuttle == backup_shuttle)
-				// TODO make the load button disabled
-				WARNING("The shuttle that the selected shuttle will replace \
-					is the backup shuttle. Backup shuttle is required to be \
-					intact for round sanity.")
-			else if(S)
+			if(S && !shuttle_loading)
 				. = TRUE
+				shuttle_loading = TRUE
 				// If successful, returns the mobile docking port
 				var/obj/docking_port/mobile/mdp = action_load(S)
 				if(mdp)
@@ -919,3 +914,34 @@ SUBSYSTEM_DEF(shuttle)
 					message_admins("[key_name_admin(usr)] loaded [mdp] with the shuttle manipulator.")
 					log_admin("[key_name(usr)] loaded [mdp] with the shuttle manipulator.</span>")
 					SSblackbox.record_feedback("text", "shuttle_manipulator", 1, "[mdp.name]")
+				shuttle_loading = FALSE
+
+		if("preview")
+			//if(preview_shuttle && (loading_template != preview_template))
+			if(S && !shuttle_loading)
+				. = TRUE
+				shuttle_loading = TRUE
+				unload_preview()
+				load_template(S)
+				if(preview_shuttle)
+					preview_template = S
+					user.forceMove(get_turf(preview_shuttle))
+				shuttle_loading = FALSE
+
+		if("replace")
+			if(existing_shuttle == backup_shuttle)
+				// TODO make the load button disabled
+				WARNING("The shuttle that the selected shuttle will replace \
+					is the backup shuttle. Backup shuttle is required to be \
+					intact for round sanity.")
+			else if(S && !shuttle_loading)
+				. = TRUE
+				shuttle_loading = TRUE
+				// If successful, returns the mobile docking port
+				var/obj/docking_port/mobile/mdp = action_load(S, replace = TRUE)
+				if(mdp)
+					user.forceMove(get_turf(mdp))
+					message_admins("[key_name_admin(usr)] load/replaced [mdp] with the shuttle manipulator.")
+					log_admin("[key_name(usr)] load/replaced [mdp] with the shuttle manipulator.</span>")
+					SSblackbox.record_feedback("text", "shuttle_manipulator", 1, "[mdp.name]")
+				shuttle_loading = FALSE

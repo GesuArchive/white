@@ -39,10 +39,11 @@
 	desc = "Внимание: усы фальшивые."
 	icon_state = "fake-moustache"
 	flags_inv = HIDEFACE
+	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/mask/fakemoustache/italian
 	name = "итальянские усы"
-	desc = "Сделаны из настоящих итальянских усов. Передает носителю дитое желание сильно жестикулировать."
+	desc = "Сделаны из настоящих итальянских усов. Передает носителю дикое желание сильно жестикулировать."
 	modifies_speech = TRUE
 
 /obj/item/clothing/mask/fakemoustache/italian/handle_speech(datum/source, list/speech_args)
@@ -234,6 +235,7 @@
 	slot_flags = ITEM_SLOT_MASK
 	adjusted_flags = ITEM_SLOT_HEAD
 	icon_state = "bandbotany"
+	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/mask/bandana/attack_self(mob/user)
 	adjustmask(user)

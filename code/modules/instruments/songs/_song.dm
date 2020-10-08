@@ -38,7 +38,7 @@
 	var/max_repeats = 10
 
 	/// Our volume
-	var/volume = 75
+	var/volume = 35
 	/// Max volume
 	var/max_volume = 75
 	/// Min volume - This is so someone doesn't decide it's funny to set it to 0 and play invisible songs.
@@ -263,7 +263,7 @@
   */
 /datum/song/proc/tempodiv_to_delay(tempodiv)
 	if(!tempodiv)
-		tempodiv = 1		// no division by 0. some song converters tend to use 0 for when it wants to have no div, for whatever reason.
+		tempodiv = 2		// no division by 0. some song converters tend to use 0 for when it wants to have no div, for whatever reason.
 	return max(1, round((tempo/tempodiv) / world.tick_lag, 1))
 
 /**

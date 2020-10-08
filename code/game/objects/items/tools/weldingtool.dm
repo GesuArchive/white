@@ -3,12 +3,12 @@
 /obj/item/weldingtool
 	name = "сварочный аппарат"
 	desc = "Сварка стандартного исполнения, предоставленная компанией Нанотрейзен."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'white/valtos/icons/items.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "welder"
 	inhand_icon_state = "welder"
 	worn_icon_state = "welder"
-	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
 	force = 3
@@ -337,6 +337,9 @@
 	name = "аварийный сварочный инструмент"
 	desc = "Миниатюрный сварочный аппарат, используемый в чрезвычайных ситуациях."
 	icon_state = "miniwelder"
+	inhand_icon_state = "miniwelder"
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
 	max_fuel = 10
 	w_class = WEIGHT_CLASS_TINY
 	custom_materials = list(/datum/material/iron=30, /datum/material/glass=10)

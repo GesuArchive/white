@@ -31,6 +31,8 @@
 /obj/item/storage/belt/utility
 	name = "пояс с инструментами" //Carn: utility belt is nicer, but it bamboozles the text parsing.
 	desc = "Хранит инструменты."
+	icon = 'white/valtos/icons/clothing/belts.dmi'
+	worn_icon = 'white/valtos/icons/clothing/mob/belt.dmi'
 	icon_state = "utility"
 	inhand_icon_state = "utility"
 	worn_icon_state = "utility"
@@ -414,17 +416,17 @@
 	var/rig_snacks
 	while(contents.len <= amount)
 		rig_snacks = pick(list(
-		/obj/item/reagent_containers/food/snacks/candy,
+		/obj/item/food/candy,
 		/obj/item/reagent_containers/food/drinks/dry_ramen,
-		/obj/item/reagent_containers/food/snacks/chips,
-		/obj/item/reagent_containers/food/snacks/sosjerky,
-		/obj/item/reagent_containers/food/snacks/syndicake,
-		/obj/item/reagent_containers/food/snacks/spacetwinkie,
-		/obj/item/reagent_containers/food/snacks/cheesiehonkers,
+		/obj/item/food/chips,
+		/obj/item/food/sosjerky,
+		/obj/item/food/syndicake,
+		/obj/item/food/spacetwinkie,
+		/obj/item/food/cheesiehonkers,
 		/obj/item/reagent_containers/food/snacks/nachos,
 		/obj/item/reagent_containers/food/snacks/cheesynachos,
 		/obj/item/reagent_containers/food/snacks/cubannachos,
-		/obj/item/reagent_containers/food/snacks/nugget,
+		/obj/item/food/nugget,
 		/obj/item/food/spaghetti/pastatomato,
 		/obj/item/reagent_containers/food/snacks/rofflewaffles,
 		/obj/item/reagent_containers/food/snacks/donkpocket,

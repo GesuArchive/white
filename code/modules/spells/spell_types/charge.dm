@@ -67,12 +67,11 @@
 				break
 			else if(istype(item, /obj/item/stock_parts/cell))
 				var/obj/item/stock_parts/cell/C = item
-				if(!C.self_recharge)
-					if(prob(80))
-						C.maxcharge -= 200
-					if(C.maxcharge <= 1) //Div by 0 protection
-						C.maxcharge = 1
-						burnt_out = TRUE
+				if(prob(80))
+					C.maxcharge -= 200
+				if(C.maxcharge <= 1) //Div by 0 protection
+					C.maxcharge = 1
+					burnt_out = TRUE
 				C.charge = C.maxcharge
 				charged_item = C
 				break
@@ -81,12 +80,11 @@
 				for(I in item.contents)
 					if(istype(I, /obj/item/stock_parts/cell/))
 						var/obj/item/stock_parts/cell/C = I
-						if(!C.self_recharge)
-							if(prob(80))
-								C.maxcharge -= 200
-							if(C.maxcharge <= 1) //Div by 0 protection
-								C.maxcharge = 1
-								burnt_out = TRUE
+						if(prob(80))
+							C.maxcharge -= 200
+						if(C.maxcharge <= 1) //Div by 0 protection
+							C.maxcharge = 1
+							burnt_out = TRUE
 						C.charge = C.maxcharge
 						if(istype(C.loc, /obj/item/gun))
 							var/obj/item/gun/G = C.loc
@@ -99,5 +97,5 @@
 		else if(burnt_out)
 			to_chat(L, "<span class='warning'>[charged_item] doesn't seem to be reacting to the spell!</span>")
 		else
-			playsound(get_turf(L), 'sound/magic/charge.ogg', 50, TRUE)
+			playsound(get_turf(L), sound('sound/magic/charge.ogg'), 50, TRUE)
 			to_chat(L, "<span class='notice'>[charged_item] suddenly feels very warm!</span>")

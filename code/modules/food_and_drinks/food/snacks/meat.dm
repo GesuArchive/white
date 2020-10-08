@@ -34,7 +34,7 @@
 ///////////////////////////////////// HUMAN MEATS //////////////////////////////////////////////////////
 
 
-/obj/item/reagent_containers/food/snacks/meat/slab/human
+/obj/item/food/meat/slab/human
 	name = "meat"
 	cooked_type = /obj/item/reagent_containers/food/snacks/meat/steak/plain/human
 	slice_path = /obj/item/reagent_containers/food/snacks/meat/rawcutlet/plain/human
@@ -42,7 +42,7 @@
 	foodtype = MEAT | RAW | GROSS
 	value = FOOD_MEAT_HUMAN
 
-/obj/item/reagent_containers/food/snacks/meat/slab/human/initialize_slice(obj/item/reagent_containers/food/snacks/meat/rawcutlet/plain/human/slice, reagents_per_slice)
+/obj/item/food/meat/slab/human/initialize_slice(obj/item/reagent_containers/food/snacks/meat/rawcutlet/plain/human/slice, reagents_per_slice)
 	..()
 	slice.subjectname = subjectname
 	slice.subjectjob = subjectjob
@@ -51,7 +51,7 @@
 	else if(subjectjob)
 		slice.name = "raw [subjectjob] cutlet"
 
-/obj/item/reagent_containers/food/snacks/meat/slab/human/initialize_cooked_food(obj/item/reagent_containers/food/snacks/meat/S, cooking_efficiency)
+/obj/item/food/meat/slab/human/initialize_cooked_food(obj/item/reagent_containers/food/snacks/meat/S, cooking_efficiency)
 	..()
 	S.subjectname = subjectname
 	S.subjectjob = subjectjob
@@ -61,7 +61,7 @@
 		S.name = "[subjectjob] meatsteak"
 
 
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/slime
+/obj/item/food/meat/slab/human/mutant/slime
 	icon_state = "slimemeat"
 	desc = "Because jello wasn't offensive enough to vegans."
 	list_reagents = list(/datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/toxin/slimejelly = 3)
@@ -70,7 +70,7 @@
 	foodtype = MEAT | RAW | TOXIC
 	value = FOOD_MEAT_MUTANT_RARE
 
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/golem
+/obj/item/food/meat/slab/human/mutant/golem
 	icon_state = "golemmeat"
 	desc = "Edible rocks, welcome to the future."
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/iron = 3)
@@ -79,13 +79,13 @@
 	foodtype = MEAT | RAW | GROSS
 	value = FOOD_MEAT_MUTANT_RARE
 
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/golem/adamantine
+/obj/item/food/meat/slab/human/mutant/golem/adamantine
 	icon_state = "agolemmeat"
 	desc = "From the slime pen to the rune to the kitchen, science."
 	filling_color = "#66CDAA"
 	foodtype = MEAT | RAW | GROSS
 
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/lizard
+/obj/item/food/meat/slab/human/mutant/lizard
 	icon_state = "lizardmeat"
 	desc = "Delicious dino damage."
 	cooked_type = /obj/item/reagent_containers/food/snacks/meat/steak/plain/human/lizard
@@ -94,7 +94,7 @@
 	foodtype = MEAT | RAW
 	value = FOOD_MEAT_MUTANT
 
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/plant
+/obj/item/food/meat/slab/human/mutant/plant
 	icon_state = "plantmeat"
 	desc = "All the joys of healthy eating with all the fun of cannibalism."
 	filling_color = "#E9967A"
@@ -102,7 +102,7 @@
 	foodtype = VEGETABLES
 	value = FOOD_MEAT_MUTANT_RARE
 
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/shadow
+/obj/item/food/meat/slab/human/mutant/shadow
 	icon_state = "shadowmeat"
 	desc = "Ow, the edge."
 	filling_color = "#202020"
@@ -110,7 +110,7 @@
 	foodtype = MEAT | RAW
 	value = FOOD_MEAT_MUTANT_RARE
 
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly
+/obj/item/food/meat/slab/human/mutant/fly
 	icon_state = "flymeat"
 	desc = "Nothing says tasty like maggot filled radioactive mutant flesh."
 	list_reagents = list(/datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/uranium = 3)
@@ -118,7 +118,7 @@
 	foodtype = MEAT | RAW | GROSS
 	value = FOOD_MEAT_MUTANT
 
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/moth
+/obj/item/food/meat/slab/human/mutant/moth
 	icon_state = "mothmeat"
 	desc = "Unpleasantly powdery and dry. Kind of pretty, though."
 	filling_color = "#BF896B"
@@ -126,7 +126,7 @@
 	foodtype = MEAT | RAW
 	value = FOOD_MEAT_MUTANT
 
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/skeleton
+/obj/item/food/meat/slab/human/mutant/skeleton
 	name = "bone"
 	icon_state = "skeletonmeat"
 	desc = "There's a point where this needs to stop, and clearly we have passed it."
@@ -136,7 +136,7 @@
 	foodtype = GROSS
 	value = FOOD_MEAT_MUTANT_RARE
 
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/zombie
+/obj/item/food/meat/slab/human/mutant/zombie
 	name = " meat (rotten)"
 	icon_state = "rottenmeat"
 	desc = "Halfway to becoming fertilizer for your garden."
@@ -144,7 +144,7 @@
 	tastes = list("мозги" = 1, "мясо" = 1)
 	foodtype = RAW | MEAT | TOXIC
 
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/ethereal
+/obj/item/food/meat/slab/human/mutant/ethereal
 	icon_state = "etherealmeat"
 	desc = "So shiny you feel like ingesting it might make you shine too"
 	filling_color = "#97ee63"

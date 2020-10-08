@@ -2,7 +2,7 @@
 /obj/item/food/bread
 	icon = 'icons/obj/food/burgerbread.dmi'
 	max_volume = 80
-	tastes = list("bread" = 10)
+	tastes = list("хлеб" = 10)
 	foodtypes = GRAIN
 	eat_time = 3 SECONDS
 
@@ -27,7 +27,7 @@
 	desc = "Some plain old earthen bread."
 	icon_state = "bread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 10)
-	tastes = list("bread" = 10)
+	tastes = list("хлеб" = 10)
 	foodtypes = GRAIN
 
 /obj/item/food/bread/plain/MakeProcessable()
@@ -45,7 +45,7 @@
 	desc = "Entire stations have been ripped apart over arguing whether this is still good to eat."
 	icon_state = "moldybreadslice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/mold = 10)
-	tastes = list("decaying fungus" = 1)
+	tastes = list("гниющая плесень" = 1)
 	foodtypes = GROSS
 
 /obj/item/food/bread/meat
@@ -53,7 +53,7 @@
 	desc = "The culinary base of every self-respecting eloquen/tg/entleman."
 	icon_state = "meatbread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 10, /datum/reagent/consumable/nutriment/protein = 12)
-	tastes = list("bread" = 10, "meat" = 10)
+	tastes = list("хлеб" = 10, "мясо" = 10)
 	foodtypes = GRAIN | MEAT
 
 /obj/item/food/bread/meat/MakeProcessable()
@@ -71,7 +71,7 @@
 	desc = "The culinary base of every self-respecting eloquen/tg/entleman. Extra Heretical."
 	icon_state = "xenomeatbread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 10, /datum/reagent/consumable/nutriment/protein = 15)
-	tastes = list("bread" = 10, "acid" = 10)
+	tastes = list("хлеб" = 10, "кислота" = 10)
 	foodtypes = GRAIN | MEAT
 
 /obj/item/food/bread/xenomeat/MakeProcessable()
@@ -89,7 +89,7 @@
 	desc = "Reassuringly green meatloaf made from spider meat."
 	icon_state = "spidermeatbread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/toxin = 15, /datum/reagent/consumable/nutriment/vitamin = 10, /datum/reagent/consumable/nutriment/protein = 12)
-	tastes = list("bread" = 10, "cobwebs" = 5)
+	tastes = list("хлеб" = 10, "паутинки" = 5)
 	foodtypes = GRAIN | MEAT | TOXIC
 
 /obj/item/food/bread/spidermeat/MakeProcessable()
@@ -107,7 +107,7 @@
 	desc = "A heavenly and filling treat."
 	icon_state = "bananabread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/banana = 20)
-	tastes = list("bread" = 10) // bananjuice will also flavour
+	tastes = list("хлеб" = 10) // bananjuice will also flavour
 	foodtypes = GRAIN | FRUIT
 
 /obj/item/food/bread/banana/MakeProcessable()
@@ -125,7 +125,7 @@
 	desc = "Like meatbread but for vegetarians. Not guaranteed to give superpowers."
 	icon_state = "tofubread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 10, /datum/reagent/consumable/nutriment/protein = 10)
-	tastes = list("bread" = 10, "tofu" = 10)
+	tastes = list("хлеб" = 10, "тофу" = 10)
 	foodtypes = GRAIN | VEGETABLES
 
 /obj/item/food/bread/tofu/MakeProcessable()
@@ -143,7 +143,7 @@
 	desc = "Yum yum yum!"
 	icon_state = "creamcheesebread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/protein = 10, /datum/reagent/consumable/nutriment/vitamin = 10)
-	tastes = list("bread" = 10, "cheese" = 10)
+	tastes = list("хлеб" = 10, "сыр" = 10)
 	foodtypes = GRAIN | DAIRY
 
 /obj/item/food/bread/creamcheese/MakeProcessable()
@@ -160,7 +160,7 @@
 	desc = "Best eaten in silence."
 	icon_state = "mimanabread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/toxin/mutetoxin = 5, /datum/reagent/consumable/nothing = 5, /datum/reagent/consumable/nutriment/vitamin = 10)
-	tastes = list("bread" = 10, "silence" = 10)
+	tastes = list("хлеб" = 10, "тишина" = 10)
 	foodtypes = GRAIN | FRUIT
 
 /obj/item/food/bread/mimana/MakeProcessable()
@@ -191,7 +191,7 @@
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	attack_verb_continuous = list("touche's")
 	attack_verb_simple = list("touche")
-	tastes = list("bread" = 1)
+	tastes = list("хлеб" = 1)
 	foodtypes = GRAIN
 
 /obj/item/food/garlicbread
@@ -202,7 +202,7 @@
 	inhand_icon_state = "garlicbread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/consumable/garlic = 2)
 	bite_consumption = 3
-	tastes = list("bread" = 1, "garlic" = 1, "butter" = 1)
+	tastes = list("хлеб" = 1, "чеснок" = 1, "масло" = 1)
 	foodtypes = GRAIN
 
 /obj/item/food/deepfryholder
@@ -286,7 +286,7 @@
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "butterbiscuit"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("butter" = 1, "biscuit" = 1)
+	tastes = list("масло" = 1, "бисквит" = 1)
 	foodtypes = GRAIN | BREAKFAST
 
 /obj/item/food/butterdog
@@ -296,7 +296,7 @@
 	icon_state = "butterdog"
 	bite_consumption = 1
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("butter" = 1, "exotic butter" = 1)
+	tastes = list("масло" = 1, "экзотическое масло" = 1)
 	foodtypes = GRAIN | DAIRY
 
 /obj/item/food/butterdog/ComponentInitialize()

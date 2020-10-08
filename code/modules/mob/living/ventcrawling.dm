@@ -12,10 +12,10 @@ GLOBAL_LIST_INIT(ventcrawl_machinery, typecacheof(list(
 	if(stat)
 		to_chat(src, "<span class='warning'>Нужно быть в сознании для этого!</span>")
 		return
-	if(IsStun() || IsParalyzed())
+	if(HAS_TRAIT(src, TRAIT_IMMOBILIZED))
 		to_chat(src, "<span class='warning'>Не могу сделать это в таком состоянии!</span>")
 		return
-	if(restrained())
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
 		to_chat(src, "<span class='warning'>Не могу сделать это со связанными руками!</span>")
 		return
 	if(has_buckled_mobs())
@@ -70,7 +70,7 @@ GLOBAL_LIST_INIT(ventcrawl_machinery, typecacheof(list(
 	if(buckled)
 		to_chat(src, "<i>КАК...</i>")
 		return
-	..()
+	return ..()
 
 
 /mob/living/proc/add_ventcrawl(obj/machinery/atmospherics/starting_machine)

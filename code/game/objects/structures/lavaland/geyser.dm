@@ -57,7 +57,7 @@
 /obj/item/plunger
 	name = "plunger"
 	desc = "It's a plunger for plunging."
-	icon = 'icons/obj/watercloset.dmi'
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "plunger"
 
 	slot_flags = ITEM_SLOT_MASK

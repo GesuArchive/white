@@ -81,11 +81,11 @@
 		to_chat(user, "<span class='warning'>You're too angry to remember how to tackle!</span>")
 		return
 
-	if(user.restrained())
+	if(HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
 		to_chat(user, "<span class='warning'>You need free use of your hands to tackle!</span>")
 		return
 
-	if(!(user.mobility_flags & MOBILITY_STAND))
+	if(user.body_position == LYING_DOWN)
 		to_chat(user, "<span class='warning'>You must be standing to tackle!</span>")
 		return
 

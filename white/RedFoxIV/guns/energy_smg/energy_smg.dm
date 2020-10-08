@@ -23,7 +23,7 @@
 //собственный прок для экзамайна, состоящий из кусков кода со всего света потому что я ебал эти затворы и навязанные кодом куски описания, которые мне не нужны
 
 /obj/item/gun/ballistic/energy_smg/examine(mob/user)
-	. = list("[ru_get_examine_string(user, TRUE)].<hr>")
+	. = list("[get_examine_string(user, TRUE)].<hr>")
 	. += desc
 	. += "Это [weightclass2text(w_class)] размера предмет."
 	if(pin)

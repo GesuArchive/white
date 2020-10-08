@@ -45,9 +45,12 @@
 		return
 	COOLDOWN_START(src, last_played, 0.5 SECONDS)
 	var/mob/living/LM = parent
-	if(!T.footstep || LM.buckled || !((LM.mobility_flags & (MOBILITY_STAND | MOBILITY_MOVE)) == (MOBILITY_STAND | MOBILITY_MOVE)) || LM.throwing || LM.movement_type & (VENTCRAWLING | FLYING))
-		if (!(LM.mobility_flags & MOBILITY_STAND) && !LM.buckled && !(!T.footstep || LM.movement_type & (VENTCRAWLING | FLYING))) //play crawling sound if we're lying
-			playsound(T, 'sound/effects/footstep/crawl1.ogg', 15 * volume)
+
+	if(!T.footstep || LM.buckled || LM.throwing || LM.movement_type & (VENTCRAWLING | FLYING) || HAS_TRAIT(LM, TRAIT_IMMOBILIZED))
+		return
+
+	if(LM.body_position == LYING_DOWN) //play crawling sound if we're lying
+		playsound(T, 'sound/effects/footstep/crawl1.ogg', 15 * volume)
 		return
 
 	if(iscarbon(LM))

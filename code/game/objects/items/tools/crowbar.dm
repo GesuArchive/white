@@ -1,10 +1,10 @@
 /obj/item/crowbar
 	name = "карманный ломик"
 	desc = "Маленький ломик. Этот удобный инструмент полезен для многих вещей, например, для снятия напольной плитки или открывания дверей без электропитания."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'white/valtos/icons/items.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "crowbar"
-	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	usesound = 'sound/items/crowbar.ogg'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT

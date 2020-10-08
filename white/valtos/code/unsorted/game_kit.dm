@@ -85,7 +85,7 @@ THAT STUPID GAME KIT
 
 /obj/item/game_kit/Topic(href, href_list)
 	..()
-	if ((usr.stat || usr.restrained()))
+	if ((usr.stat || HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED)))
 		return
 
 	if (usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf)))

@@ -32,7 +32,7 @@
 	. = ..()
 	if(state == 3 && req_components && req_component_names)
 		var/hasContent = FALSE
-		var/requires = "It requires"
+		var/requires = "Требуется"
 
 		for(var/i = 1 to req_components.len)
 			var/tname = req_components[i]
@@ -40,7 +40,7 @@
 			if(amt == 0)
 				continue
 			var/use_and = i == req_components.len
-			requires += "[(hasContent ? (use_and ? ", и" : ",") : "")] [amt] [amt == 1 ? req_component_names[tname] : "[req_component_names[tname]]\s"]"
+			requires += "[(hasContent ? (use_and ? ", и" : ",") : "")] [amt] [amt == 1 ? req_component_names[tname] : "[req_component_names[tname]]"]"
 			hasContent = TRUE
 
 		if(hasContent)
@@ -185,25 +185,33 @@
 					P.play_tool_sound(src)
 					var/obj/machinery/new_machine = new circuit.build_path(loc)
 					if(istype(new_machine))
-						// Machines will init with a set of default components. Move to nullspace to we don't trigger handle_atom_del, then qdel.
+						// Machines will init with a set of default components. Move to nullspace so we don't trigger handle_atom_del, then qdel.
 						// Finally, replace with this frame's parts.
 						if(new_machine.circuit)
 							// Move to nullspace and delete.
 							new_machine.circuit.moveToNullspace()
 							QDEL_NULL(new_machine.circuit)
-						circuit.forceMove(new_machine)
-						new_machine.circuit = circuit
-						new_machine.set_anchored(anchored)
-						new_machine.on_construction()
 						for(var/obj/old_part in new_machine.component_parts)
 							// Move to nullspace and delete.
 							old_part.moveToNullspace()
 							qdel(old_part)
+
+						// Set anchor state and move the frame's parts over to the new machine.
+						// Then refresh parts and call on_construction().
+
+						new_machine.set_anchored(anchored)
 						new_machine.component_parts = list()
+
+						circuit.forceMove(new_machine)
+						new_machine.component_parts += circuit
+						new_machine.circuit = circuit
+
 						for(var/obj/new_part in src)
 							new_part.forceMove(new_machine)
 							new_machine.component_parts += new_part
 						new_machine.RefreshParts()
+
+						new_machine.on_construction()
 					qdel(src)
 				return
 

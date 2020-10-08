@@ -236,7 +236,7 @@
 	baseturf = /turf/open/floor/grass/gensgrass/dirty/stone/raw
 
 /obj/effect/mob_spawn/human/dwarf
-	name = "шконка"
+	name = "мягкая шконка"
 	desc = "Тут кто-то под шконкой, кирку мне в зад..."
 	icon = 'white/valtos/icons/prison/prison.dmi'
 	icon_state = "spwn"

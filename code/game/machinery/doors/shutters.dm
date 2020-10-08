@@ -2,7 +2,7 @@
 	gender = PLURAL
 	name = "shutters"
 	desc = "Heavy duty mechanical shutters with an atmospheric seal that keeps them airtight once closed."
-	icon = 'icons/obj/doors/shutters.dmi'
+	icon = 'white/valtos/icons/shutters.dmi'
 	layer = SHUTTER_LAYER
 	closingLayer = SHUTTER_LAYER
 	damage_deflection = 20

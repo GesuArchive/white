@@ -296,9 +296,6 @@
 		on = FALSE
 	for(var/mob/M in contents) //only drop mobs
 		M.forceMove(get_turf(src))
-		if(isliving(M))
-			var/mob/living/L = M
-			L.update_mobility()
 	occupant = null
 	flick("pod-open-anim", src)
 	reagent_transfer = efficiency * 10 - 5 // wait before injecting the next occupant
@@ -444,7 +441,8 @@
 	return data
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/ui_act(action, params)
-	if(..())
+	. = ..()
+	if(.)
 		return
 	switch(action)
 		if("power")

@@ -480,7 +480,7 @@ default_layer: The layer to draw this on if no other layer is specified
 
 default_icon_file: The icon file to draw states from if no other icon file is specified
 
-isinhands: If true then worn_icon is skipped so that default_icon_file is used,
+isinhands: If true then alternate_worn_icon is skipped so that default_icon_file is used,
 in this situation default_icon_file is expected to match either the lefthand_ or righthand_ file var
 
 femalueuniform: A value matching a uniform item's fitted var, if this is anything but NO_FEMALE_UNIFORM, we
@@ -504,8 +504,8 @@ generate/load female uniform sprites matching all previously decided variables
 	var/layer2use = alternate_worn_layer ? alternate_worn_layer : default_layer
 
 	var/mutable_appearance/standing
-	//if(femaleuniform)
-	//	standing = wear_female_version(t_state,file2use,layer2use,femaleuniform)
+	if(femaleuniform)
+		standing = wear_female_version(t_state,file2use,layer2use,femaleuniform) //should layer2use be in sync with the adjusted value below? needs testing - shiz
 	if(!standing)
 		standing = mutable_appearance(file2use, t_state, -layer2use)
 

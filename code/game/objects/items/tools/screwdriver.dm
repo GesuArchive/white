@@ -2,12 +2,12 @@
 	name = "отвёртка"
 	desc = "Ею можно откручивать и закручивать различные штуки."
 	gender = FEMALE
-	icon = 'icons/obj/tools.dmi'
+	icon = 'white/valtos/icons/items.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "screwdriver_map"
 	inhand_icon_state = "screwdriver"
 	worn_icon_state = "screwdriver"
-	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
 	force = 5
@@ -69,13 +69,13 @@
 
 /obj/item/screwdriver/get_belt_overlay()
 	if(random_color)
-		var/mutable_appearance/body = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver")
-		var/mutable_appearance/head = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver_head")
+		var/mutable_appearance/body = mutable_appearance('white/valtos/icons/belt_overlays.dmi', "screwdriver")
+		var/mutable_appearance/head = mutable_appearance('white/valtos/icons/belt_overlays.dmi', "screwdriver_head")
 		body.color = color
 		head.add_overlay(body)
 		return head
 	else
-		return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', icon_state)
+		return mutable_appearance('white/valtos/icons/belt_overlays.dmi', icon_state)
 
 /obj/item/screwdriver/abductor
 	name = "чужеродная отвёртка"
@@ -88,7 +88,7 @@
 	random_color = FALSE
 
 /obj/item/screwdriver/abductor/get_belt_overlay()
-	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver_nuke")
+	return mutable_appearance('white/valtos/icons/belt_overlays.dmi', "screwdriver_nuke")
 
 /obj/item/screwdriver/power
 	name = "дрель"

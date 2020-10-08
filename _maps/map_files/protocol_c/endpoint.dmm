@@ -1,7 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"ac" = (
-/turf/open/space/basic,
-/area/space)
 "ad" = (
 /turf/closed/indestructible/riveted,
 /area/start)
@@ -7032,7 +7029,7 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "zX" = (
-/obj/item/reagent_containers/food/snacks/meat/slab/xeno,
+/obj/item/food/meat/slab/xeno,
 /turf/open/floor/grass,
 /area/wizard_station)
 "zZ" = (
@@ -8514,7 +8511,7 @@
 /turf/open/floor/engine/cult,
 /area/wizard_station)
 "DV" = (
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/lizard,
+/obj/item/food/meat/slab/human/mutant/lizard,
 /turf/open/floor/grass,
 /area/wizard_station)
 "DX" = (
@@ -8704,7 +8701,7 @@
 /turf/open/floor/engine/cult,
 /area/wizard_station)
 "EA" = (
-/obj/item/reagent_containers/food/snacks/meat/slab/corgi,
+/obj/item/food/meat/slab/corgi,
 /turf/open/floor/grass,
 /area/wizard_station)
 "EC" = (
@@ -9536,7 +9533,7 @@
 /area/centcom/holding)
 "GN" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/snacks/sashimi,
+/obj/item/food/sashimi,
 /turf/open/floor/wood,
 /area/centcom/holding)
 "GO" = (
@@ -10727,7 +10724,7 @@
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
-/obj/item/reagent_containers/food/snacks/syndicake{
+/obj/item/food/syndicake{
 	pixel_y = 3
 	},
 /turf/open/floor/plasteel,
@@ -13243,7 +13240,7 @@
 /turf/open/floor/plasteel,
 /area/centcom/evac)
 "QR" = (
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/slime,
+/obj/item/food/meat/slab/human/mutant/slime,
 /turf/open/floor/grass,
 /area/wizard_station)
 "QS" = (
@@ -31352,7 +31349,7 @@ Co
 Co
 Co
 Co
-ac
+Co
 Co
 Co
 Co

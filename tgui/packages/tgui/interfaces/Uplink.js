@@ -70,7 +70,7 @@ export const GenericUplink = (props, context) => {
       )}
       buttons={(
         <Fragment>
-          Search
+          Поиск
           <Input
             autoFocus
             value={searchText}

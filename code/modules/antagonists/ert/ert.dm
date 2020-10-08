@@ -193,7 +193,7 @@
 	if(!rip_and_tear)
 		missiondesc += "Избегать смертей гражданских по возможности."
 
-	missiondesc += "<BR><B>Моя миссия</B> : [ert_team.mission.explanation_text]"
+	missiondesc += "<BR><B>Моя миссия</B>: [ert_team.mission.explanation_text]"
 	to_chat(owner,missiondesc)
 
 

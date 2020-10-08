@@ -193,7 +193,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 
 	var/datum/donator/D = GLOB.donators[ckey]
 	if(D)
-		D.ShowPanel(src)
+		D.ui_interact(src.mob)
 	else
 		to_chat(src,"<span class='warning'>Вы не донатили, извините.</span>")
 
@@ -207,6 +207,8 @@ GLOBAL_LIST_EMPTY(donators)
 	var/money = 0
 	var/maxmoney = 0
 	var/allowed_num_items = 20
+	var/selected_cat
+	var/compact_mode = FALSE
 
 /datum/donator/New(ckey, money)
 	..()
@@ -215,26 +217,118 @@ GLOBAL_LIST_EMPTY(donators)
 	maxmoney = money
 	GLOB.donators[ckey] = src
 
+/datum/donator/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "DonationsMenu", "Панель Благотворца")
+		ui.open()
 
-/datum/donator/proc/ShowPanel(mob/user)
-	var/list/dat = list("<center>")
-	dat += "Пожертвования в материю!"
-	dat += "</center>"
+/datum/donator/ui_status(mob/user)
+	return UI_INTERACTIVE
 
-	dat += "<HR>"
-	dat += "<h3>МАШИНА ДОНАТОВ. Баланс: [money]</h3>"
-	dat += "<div class='statusDisplay'>"
-	dat += "<table>"
-	for(var/L in GLOB.donations_list)
-		dat += "<tr><td></td><td><center><b>[L]</b></center></td><td></td><td></td></tr>"
-		for(var/datum/donate_info/prize in GLOB.donations_list[L])
-			dat += "<tr><td><img src='data:image/jpeg;base64,[GetIconForProduct(prize)]'/></td><td>[prize.name]</td><td>[prize.cost]</td><td><A href='?src=\ref[src];getdonate=\ref[prize]'>Получить</A></td></tr>"
-	dat += "</table>"
-	dat += "</div>"
+/datum/donator/ui_data(mob/user)
+	if(!user.mind)
+		return
+	var/list/data = list()
+	data["money"] = money
+	data["compactMode"] = compact_mode
+	return data
 
-	var/datum/browser/popup = new(user, "miningvendor", "Donations Panel", 340, 700)
-	popup.set_content(dat.Join())
-	popup.open()
+/datum/donator/ui_static_data(mob/user)
+	var/list/data = list()
+
+	data["categories"] = list()
+	for(var/category in GLOB.donations_list)
+		var/list/catsan = GLOB.donations_list[category]
+		var/list/cat = list(
+			"name" = category,
+			"items" = (category == selected_cat ? list() : null))
+		for(var/item in 1 to catsan.len)
+			var/datum/donate_info/I = catsan[item]
+			cat["items"] += list(list(
+				"name" = I.name,
+				"cost" = I.cost,
+				"icon" = GetIconForProduct(I),
+				"ref" = REF(I),
+			))
+		data["categories"] += list(cat)
+
+	return data
+
+/datum/donator/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
+	switch(action)
+		if("buy")
+			var/datum/donate_info/prize = locate(params["ref"])
+			var/mob/living/carbon/human/user = usr
+
+			if(!SSticker || SSticker.current_state < 3)
+				to_chat(user,"<span class='warning'>Игра ещё не началась!</span>")
+				return 0
+
+			if((world.time-SSticker.round_start_time) > DONATIONS_SPAWN_WINDOW && !istype(get_area(user), /area/crew_quarters/bar))
+				to_chat(user,"<span class='warning'>Вам нужно быть в баре.</span>")
+				return 0
+
+			if(prize.cost > money)
+				to_chat(user,"<span class='warning'>У вас недостаточно баланса.</span>")
+				return 0
+
+			if(!allowed_num_items)
+				to_chat(user,"<span class='warning'>Вы достигли максимума. Молодец.</span>")
+				return 0
+
+			if(!user)
+				to_chat(user,"<span class='warning'>Вам нужно быть живым.</span>")
+				return 0
+
+			if(!ispath(prize.path_to))
+				return 0
+
+			if(user.stat)
+				return 0
+
+			if(prize.stock <= 0)
+				to_chat(user,"<span class='warning'>Поставки <b>[prize.name]</b> закончились.</span>")
+				return 0
+
+			if(prize.special)
+				if (prize.special != user.ckey)
+					to_chat(user,"<span class='warning'>Этот предмет предназначен для <b>[prize.special]</b>.</span>")
+					return 0
+
+			var/list/slots = list(
+				"сумке" = ITEM_SLOT_BACKPACK,
+				"левом кармане" = ITEM_SLOT_LPOCKET,
+				"правом кармане" = ITEM_SLOT_RPOCKET,
+				"руке" = ITEM_SLOT_DEX_STORAGE
+			)
+
+			prize.stock--
+
+			var/obj/spawned = new prize.path_to(user.loc)
+			var/where = null
+
+			if (ishuman(user))
+				where = user.equip_in_one_of_slots(spawned, slots, qdel_on_fail=0)
+
+			if (!where)
+				to_chat(user,"<span class='info'>Ваш [prize.name] был создан!</span>")
+				spawned.anchored = FALSE
+			else
+				to_chat(user,"<span class='info'>Ваш [prize.name] был создан в [where]!</span>")
+
+			money -= prize.cost
+			allowed_num_items--
+			return TRUE
+		if("select")
+			selected_cat = params["category"]
+			return TRUE
+		if("compact_toggle")
+			compact_mode = !compact_mode
+			return TRUE
 
 /datum/donator/proc/GetIconForProduct(datum/donate_info/P)
 	if(GLOB.donate_icon_cache[P.path_to])
@@ -244,72 +338,6 @@ GLOBAL_LIST_EMPTY(donators)
 	GLOB.donate_icon_cache[P.path_to] = icon2base64(getFlatIcon(product, no_anim = TRUE))
 	qdel(product)
 	return GLOB.donate_icon_cache[P.path_to]
-
-/datum/donator/Topic(href, href_list)
-	var/datum/donate_info/prize = locate(href_list["getdonate"])
-	var/mob/living/carbon/human/user = usr
-
-	if(!SSticker || SSticker.current_state < 3)
-		to_chat(user,"<span class='warning'>Игра ещё не началась!</span>")
-		return 0
-
-	if((world.time-SSticker.round_start_time)>DONATIONS_SPAWN_WINDOW && !istype(get_area(user), /area/shuttle/arrival))
-		to_chat(user,"<span class='warning'>Вам нужно быть на шаттле прибытия.</span>")
-		return 0
-
-	if(prize.cost > money)
-		to_chat(user,"<span class='warning'>У вас недостаточно баланса.</span>")
-		return 0
-
-	if(!allowed_num_items)
-		to_chat(user,"<span class='warning'>Вы достигли максимума. Молодец.</span>")
-		return 0
-
-	if(!user)
-		to_chat(user,"<span class='warning'>Вам нужно быть живым.</span>")
-		return 0
-
-	if(!ispath(prize.path_to))
-		return 0
-
-	if(user.stat)
-		return 0
-
-	if(prize.stock <= 0)
-		to_chat(user,"<span class='warning'>Поставки <b>[prize.name]</b> закончились.</span>")
-		return 0
-
-	if(prize.special)
-		if (prize.special != user.ckey)
-			to_chat(user,"<span class='warning'>Этот предмет предназначен для <b>[prize.special]</b>.</span>")
-			return 0
-
-	var/list/slots = list(
-		"сумке" = ITEM_SLOT_BACKPACK,
-		"левом кармане" = ITEM_SLOT_LPOCKET,
-		"правом кармане" = ITEM_SLOT_RPOCKET,
-		"руке" = ITEM_SLOT_DEX_STORAGE
-	)
-
-	prize.stock--
-
-	var/obj/spawned = new prize.path_to(user.loc)
-	var/where = null
-
-	if (ishuman(user))
-		where = user.equip_in_one_of_slots(spawned, slots, qdel_on_fail=0)
-
-	if (!where)
-		to_chat(user,"<span class='info'>Ваш [prize.name] был создан!</span>")
-		spawned.anchored = FALSE
-	else
-		to_chat(user,"<span class='info'>Ваш [prize.name] был создан в [where]!</span>")
-
-	money -= prize.cost
-	allowed_num_items--
-
-	ShowPanel(user)
-	return
 
 /proc/load_donator(ckey)
 	if(!SSdbcore.IsConnected())

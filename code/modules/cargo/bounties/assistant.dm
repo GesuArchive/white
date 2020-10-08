@@ -61,7 +61,7 @@
 	description = "Очевидно, что компания, которая делает Сырные Хонкеры, скоро уходит из бизнеса. ЦК хочет запастись ими до того, как это произойдет!"
 	reward = 1200
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/cheesiehonkers)
+	wanted_types = list(/obj/item/food/cheesiehonkers)
 
 /datum/bounty/item/assistant/baseball_bat
 	name = "Бейсбольная бита"
@@ -171,7 +171,7 @@
 	description = "Из-за недавней генетической аварии ЦК остро нуждается в обезьянах. Ваша миссия состоит в том, чтобы отправить им кубики обезьян."
 	reward = 2000
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/monkeycube)
+	wanted_types = list(/obj/item/food/monkeycube)
 
 /datum/bounty/item/assistant/chainsaw
 	name = "Бензопила"
@@ -202,7 +202,7 @@
 	name = "Свежее мясо корги"
 	description = "Синдикат недавно украл всё мясо корги у ЦК. Отправьте замену немедленно."
 	reward = 3000
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/meat/slab/corgi)
+	wanted_types = list(/obj/item/food/meat/slab/corgi)
 
 /datum/bounty/item/assistant/action_figures
 	name = "Фигурки"
