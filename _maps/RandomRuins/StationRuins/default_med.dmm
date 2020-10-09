@@ -3169,6 +3169,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/machinery/vending/chetverochka/pharma,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/lobby)
 "yq" = (
