@@ -145,6 +145,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/body_type
 	/// If we have persistent scars enabled
 	var/persistent_scars = TRUE
+	// Автокапитализация и поинтизация текста
+	var/disabled_autocap = FALSE
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -567,6 +569,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "<tr><td><b>Призраки других:</b></td><td align='right'><a href='?_src_=prefs;task=input;preference=ghostothers'>[button_name]</a></td></tr>"
 			dat += "<tr><td><h3>Внутриигровое:</h3></td></tr>"
+			dat += "<tr><td><b>Автокоррекция текста:</b></td><td align='right'><a href='?_src_=prefs;preference=disabled_autocap'>[disabled_autocap ? "Выкл" : "Вкл"]</a></td></tr>"
 			dat += "<tr><td><b>Сообщения ID-карты:</b></td><td align='right'><a href='?_src_=prefs;preference=income_pings'>[(chat_toggles & CHAT_BANKCARD) ? "Вкл" : "Выкл"]</a></td></tr>"
 			dat += "<tr><td><b>FPS:</b></td><td align='right'><a href='?_src_=prefs;preference=clientfps;task=input'>[clientfps]</a></td></tr>"
 			dat += "<tr><td><b>Параллакс:</b></td><td align='right'><a href='?_src_=prefs;preference=parallaxdown' oncontextmenu='window.location.href=\"?_src_=prefs;preference=parallaxup\";return false;'>"
@@ -1824,6 +1827,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("widescreenpref")
 					widescreenpref = !widescreenpref
 					user.client.view_size.setDefault(getScreenSize(widescreenpref))
+
+				if("disabled_autocap")
+					disabled_autocap = !disabled_autocap
 
 				if("pixel_size")
 					switch(pixel_size)

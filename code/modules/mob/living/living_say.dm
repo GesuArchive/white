@@ -388,7 +388,10 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(cultslurring)
 		message = cultslur(message)
 
-	message = capitalize(message)
+	if(client?.prefs?.disabled_autocap)
+		message = message
+	else
+		message = capitalize(message)
 
 	return message
 

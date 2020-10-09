@@ -101,7 +101,11 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if(copytext_char(input, -2) == "!!")
 		spans |= SPAN_YELL
 
-	var/spanned = attach_spans(input, spans)
+	var/spanned = attach_spans_pointized(input, spans)
+
+	if(usr?.client?.prefs?.disabled_autocap)
+		spanned = attach_spans(input, spans)
+
 	return "<i>[say_mod(input, message_mods)]</i>, \"[spanned]\""
 
 /atom/movable/proc/lang_treat(atom/movable/speaker, datum/language/language, raw_message, list/spans, list/message_mods = list(), no_quote = FALSE)
@@ -134,8 +138,11 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		return returntext
 	return "[copytext_char("[freq]", 1, 4)].[copytext_char("[freq]", 4, 5)]"
 
-/proc/attach_spans(input, list/spans)
+/proc/attach_spans_pointized(input, list/spans)
 	return "[message_spans_start(spans)][pointization(input)]</span>"
+
+/proc/attach_spans(input, list/spans)
+	return "[message_spans_start(spans)][input]</span>"
 
 /proc/message_spans_start(list/spans)
 	var/output = "<span class='"

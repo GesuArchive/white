@@ -64,6 +64,9 @@
 
 	var/dchatmsg = "<b>[user]</b> [pointization(r_antidaunize(msg))]"
 
+	if(user?.client?.prefs?.disabled_autocap)
+		dchatmsg = "<b>[user]</b> [msg]"
+
 	var/tmp_sound = get_sound(user)
 	if(tmp_sound && (!only_forced_audio || !intentional))
 		playsound(user, tmp_sound, 50, vary)
