@@ -473,8 +473,8 @@
 		if (A && D)
 			A.pixel_y += 3
 			D.pixel_y += 3
-			A.setDir(turn(A.dir, 90))
-			D.setDir(turn(D.dir, 90))
+			A.setDir(turn(A.dir, 1))
+			D.setDir(turn(D.dir, 1))
 
 			switch (A.dir)
 				if (NORTH)
@@ -525,7 +525,7 @@
 				to_chat(A, "<span class='warning'>ты не можешь кинуть [D] здесь!</span>")
 				return
 
-			A.setDir(turn(A.dir, 180))
+			A.setDir(turn(A.dir, 1))
 			var/turf/T = get_step(A, A.dir)
 			var/turf/S = D.loc
 			if ((S && isturf(S) && S.Exit(D)) && (T && isturf(T) && T.Enter(A)))
