@@ -22,21 +22,21 @@ GLOBAL_LIST_INIT(skill_types, subtypesof(/datum/skill))
   */
 /datum/skill/New()
 	. = ..()
-	levelUpMessages = list("<span class='nicegreen'>What the hell is [name]? Tell an admin if you see this message.</span>", //This first index shouldn't ever really be used
-	"<span class='nicegreen'>I'm starting to figure out what [name] really is!</span>",
-	"<span class='nicegreen'>I'm getting a little better at [name]!</span>",
-	"<span class='nicegreen'>I'm getting much better at [name]!</span>",
-	"<span class='nicegreen'>I feel like I've become quite proficient at [name]!</span>",
-	"<span class='nicegreen'>After lots of practice, I've begun to truly understand the intricacies \
-	 and surprising depth behind [name]. I now consider myself a master [title].</span>",
-	"<span class='nicegreen'>Through incredible determination and effort, I've reached the peak of my [name] abiltities. I'm finally able to consider myself a legendary [title]!</span>" )
-	levelDownMessages = list("<span class='nicegreen'>I have somehow completely lost all understanding of [name]. Please tell an admin if you see this.</span>",
-	"<span class='nicegreen'>I'm starting to forget what [name] really even is. I need more practice...</span>",
-	"<span class='nicegreen'>I'm getting a little worse at [name]. I'll need to keep practicing to get better at it...</span>",
-	"<span class='nicegreen'>I'm getting a little worse at [name]...</span>",
-	"<span class='nicegreen'>I'm losing my [name] expertise ....</span>",
-	"<span class='nicegreen'>I feel like I'm losing my mastery of [name].</span>",
-	"<span class='nicegreen'>I feel as though my legendary [name] skills have deteriorated. I'll need more intense training to recover my lost skills.</span>" )
+	levelUpMessages = list("<span class='nicegreen'>Че такое [name]? Сообщите администратору, если увидите это.</span>", //This first index shouldn't ever really be used
+	"<span class='nicegreen'>Начинаю понимать что такое [name]!</span>",
+	"<span class='nicegreen'>Становится легче понимать [name]!</span>",
+	"<span class='nicegreen'>Я гораздо лучше понимаю [name]!</span>",
+	"<span class='nicegreen'>Я уже неплохо справляюсь с таким навыком как [name]!</span>",
+	"<span class='nicegreen'>После долгих практик и упорного обучения, я теперь почти \
+	 превосходно понимаю что такое [name]. Могу называть себя [title].</span>",
+	"<span class='nicegreen'>Благодаря невероятной решимости и усилиям я достиг пика в развитии [name]. Я наконец могу считать себя легендарным [title]!</span>" )
+	levelDownMessages = list("<span class='nicegreen'>Я как-то полностью потерял понимание [name]. Сообщите администратору, если увидите это.</span>",
+	"<span class='nicegreen'>Я начинаю забывать что такое [name]. Нужно больше практики...</span>",
+	"<span class='nicegreen'>Мне становится немного хуже понятна [name]. Мне нужно продолжать практиковаться, чтобы стать лучше...</span>",
+	"<span class='nicegreen'>Мне становится немного хуже понятна [name]...</span>",
+	"<span class='nicegreen'>Теряю понимание [name] ещё сильнее...</span>",
+	"<span class='nicegreen'>Теперь я больше не мастер в таком навыке как [name].</span>",
+	"<span class='nicegreen'>Мои легендарные навыки в навыке [name] иссякают. Мне понадобится более интенсивная тренировка, чтобы восстановить утраченные навыки.</span>" )
 
 /**
   * level_gained: Gives skill levelup messages to the user

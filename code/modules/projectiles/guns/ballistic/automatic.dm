@@ -272,7 +272,7 @@
 	. = ..()
 	. += "<b>alt + click</b> [cover_open ? "Закрываю" : "Открываю"] пылевой чехол."
 	if(cover_open && magazine)
-		. += "<span class='notice'>Можно использовать <b>пустую руку</b> для извлечения магазина.</span>"
+		. += "\n<span class='notice'>Можно использовать <b>пустую руку</b> для извлечения магазина.</span>"
 
 
 /obj/item/gun/ballistic/automatic/l6_saw/AltClick(mob/user)

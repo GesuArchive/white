@@ -31,10 +31,10 @@
 	. = ..()
 	if(max_mod_capacity)
 		. += "<b>[get_remaining_mod_capacity()]%</b> осталось для установки модификаций."
-		. += "<span class='info'>Можно использовать <b>ломик</b> для изъятия модификаций.</span>"
+		. += "\n<span class='info'>Можно использовать <b>ломик</b> для изъятия модификаций.</span><hr>"
 		for(var/A in get_modkits())
 			var/obj/item/borg/upgrade/modkit/M = A
-			. += "<span class='notice'>Здесь установлен [M.name]. Использует <b>[M.cost]%</b> мощности.</span>"
+			. += "\n<span class='notice'>Здесь установлен [M.name]. Использует <b>[M.cost]%</b> мощности.</span>"
 
 /obj/item/gun/energy/kinetic_accelerator/crowbar_act(mob/living/user, obj/item/I)
 	. = TRUE
