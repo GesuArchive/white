@@ -124,7 +124,7 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 		return
 	if (copytext_char(text,1,2) == "*") //Emotes allowed.
 		return text
-	if (copytext_char(text,-1) in list("!", "?", "."))
+	if (copytext_char(text,-1) in list("!", "?", ".", ":", ";", ","))
 		return text
 	text += "."
 	return text
