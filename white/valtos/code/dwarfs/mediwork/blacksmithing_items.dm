@@ -106,17 +106,23 @@
 						O.toolspeed = round(1 / N.mod_grade, 0.1)
 					if(istype(O, /obj/item/clothing))
 						O.armor = O.armor.modifyAllRatings(5 * N.mod_grade)
+					var/grd = "*"
 					switch(N.mod_grade)
 						if(5 to INFINITY)
-							O.name = "☼[O.name]☼"
+							grd = "☼"
 						if(4)
-							O.name = "≡[O.name]≡"
+							grd = "≡"
 						if(3)
-							O.name = "+[O.name]+"
+							grd = "+"
 						if(2)
-							O.name = "-[O.name]-"
+							grd = "-"
 						if(1)
-							O.name = "*[O.name]*"
+							grd = "*"
+					if(istype(O, /obj/item/blacksmith/partial))
+						var/obj/item/blacksmith/partial/P = O
+						P.item_grade = grd
+						P.real_force = round((O.force / 1.25) * N.mod_grade)
+					O.name = "[grd][O.name][grd]"
 				qdel(N)
 				LAZYCLEARLIST(contents)
 				playsound(src, 'white/valtos/sounds/vaper.ogg', 100)
@@ -1017,7 +1023,8 @@
 	var/list/reqs = list()
 	var/list/reqs_names = list()
 	var/list/components = list()
-	var/possible_force = 0
+	var/real_force = 0
+	var/item_grade = "*"
 
 /obj/item/blacksmith/partial/examine(mob/user)
 	. = ..()
@@ -1072,7 +1079,7 @@
 		if(component_check)
 			playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
 			var/obj/item/blacksmith/NB = new result(loc)
-			NB.force = possible_force
+			NB.force = real_force
 			qdel(src)
 		return
 	if(isitem(P) && get_req_components_amt())
@@ -1107,7 +1114,6 @@
 
 /obj/item/blacksmith/partial/Initialize()
 	. = ..()
-	possible_force = force
 	force = 1
 	update_namelist()
 
