@@ -1348,6 +1348,7 @@
 "oz" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/bodycontainer/crematorium{
+	id = "crematoriumMed";
 	dir = 1
 	},
 /turf/open/floor/plasteel/white,
