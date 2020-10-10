@@ -1080,6 +1080,7 @@
 			playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
 			var/obj/item/blacksmith/NB = new result(loc)
 			NB.force = real_force
+			NB.name = "[item_grade][NB.name][item_grade]"
 			qdel(src)
 		return
 	if(isitem(P) && get_req_components_amt())
