@@ -6,7 +6,7 @@
 	roundstart = FALSE
 	death = FALSE
 	short_desc = "Я точно не болен... Врачи убийцы держат меня тут насильно... Надо придумать способ сбежать отсюда..."
-	flavour_text = "Обезвредить всех НЕ-шизов и угнать эвакуационный шаттл."
+	flavour_text = "Нужно обезвредить всех НЕ-шизов и угнать эвакуационный шаттл."
 	outfit = /datum/outfit/durka
 	assignedrole = "Больной"
 	faction = list("shiz")
@@ -41,8 +41,8 @@
 	silent = TRUE
 	show_in_antagpanel = FALSE
 	prevent_roundtype_conversion = FALSE
-	antag_hud_type = ANTAG_HUD_OBSESSED
-	antag_hud_name = "obsessed"
+	antag_hud_type = ANTAG_HUD_FUGITIVE
+	antag_hud_name = "fugitive_hunter"
 	var/datum/team/shizoid_team/shizoid_team
 
 /datum/antagonist/shizoid/apply_innate_effects(mob/living/mob_override)
