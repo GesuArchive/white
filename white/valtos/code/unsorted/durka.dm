@@ -1,7 +1,8 @@
 /obj/effect/mob_spawn/human/dukra
 	name = "спящий больной"
 	desc = "Накачался и спит."
-	icon_state = "corpsegreytider"
+	icon = 'white/valtos/icons/objects.dmi'
+	icon_state = "shiz"
 	roundstart = FALSE
 	death = FALSE
 	short_desc = "Я точно не болен... Врачи убийцы держат меня тут насильно... Надо придумать способ сбежать отсюда..."
