@@ -368,14 +368,8 @@
 
 /obj/item/clothing/suit/straight_jacket/equipped(mob/user, slot)
 	. = ..()
-	if(slot != ITEM_SLOT_OCLOTHING)
-		if(straight_user)
-			UnregisterSignal(straight_user, COMSIG_MOVABLE_MOVED)
-		return
-	if(straight_user == user)
-		return
 	if(straight_user)
-		UnregisterSignal(straight_user, COMSIG_MOVABLE_MOVED)
+		straight_user = user
 
 	RegisterSignal(straight_user, COMSIG_MOVABLE_MOVED, .proc/check_trip)
 	straight_user = user
@@ -384,6 +378,7 @@
 	. = ..()
 	if(straight_user)
 		UnregisterSignal(straight_user, COMSIG_MOVABLE_MOVED)
+		straight_user =
 
 /obj/item/clothing/suit/straight_jacket/Destroy()
 	straight_user = null
