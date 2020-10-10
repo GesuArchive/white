@@ -195,7 +195,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/check_timer_sources,
 	/client/proc/toggle_cdn
 	)
-GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess_wrapper, /proc/possess, /proc/release))
+GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, /proc/possess, /proc/release))
 GLOBAL_PROTECT(admin_verbs_possess)
 GLOBAL_LIST_INIT(admin_verbs_permissions, list(/client/proc/edit_admin_permissions, /client/proc/de_admin, /client/proc/adminwho,
 /client/proc/prikol_panel, /client/proc/retrieve_file, /client/proc/manage_lists))
@@ -257,7 +257,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_debug_mob_lists,
 	/client/proc/cmd_debug_del_all_wrapper,
 	/client/proc/enable_debug_verbs,
-	/proc/possess_wrapper,
+	/proc/possess,
 	/proc/release,
 	/client/proc/reload_admins,
 	/client/proc/panicbunker,
