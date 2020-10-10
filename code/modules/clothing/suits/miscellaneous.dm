@@ -378,7 +378,7 @@
 	. = ..()
 	if(straight_user)
 		UnregisterSignal(straight_user, COMSIG_MOVABLE_MOVED)
-		straight_user =
+		straight_user = null
 
 /obj/item/clothing/suit/straight_jacket/Destroy()
 	straight_user = null
