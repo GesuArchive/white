@@ -18,10 +18,14 @@
 					/obj/item/plant_analyzer = 4,
 					/obj/machinery/plantgenes = 1,
 					/obj/item/disk/plantgene = 20,
-					/obj/machinery/chem_dispenser = 1
 					)
 	contraband = list(/obj/item/reagent_containers/glass/bottle/ammonia = 10,
-					  /obj/item/reagent_containers/glass/bottle/diethylamine = 5)
+					  /obj/item/reagent_containers/glass/bottle/diethylamine = 5,
+					  /obj/machinery/chem_dispenser = 1,
+					  /obj/item/storage/box/plumbing = 1,
+					  /obj/item/construction/plumbing = 1,
+					  /obj/item/reagent_containers/glass/beaker/large = 2
+					  )
 	refill_canister = /obj/item/vending_refill/hydronutrients
 	default_price = 100
 	extra_price = 250
