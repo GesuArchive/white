@@ -51,7 +51,7 @@
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_WINDOW_FULLTILE)
 
 /obj/structure/window/reinforced/fulltile/partyhard
-	icon = 'white/valtos/icons/window.dmi'
+	icon = 'white/valtos/icons/windows.dmi'
 	icon_state = "window-0"
 	max_integrity = 200
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_WINDOW_FULLTILE)
