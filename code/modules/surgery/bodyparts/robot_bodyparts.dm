@@ -100,7 +100,7 @@
 
 /obj/item/bodypart/chest/robot
 	name = "туловище киборга"
-	desc = "A heavily reinforced case containing cyborg logic boards, with space for a standard power cell."
+	desc = "Тяжело укрепленный корпус, содержащий логические платы киборга, с отверстием под стандартную ячейку питания."
 	inhand_icon_state = "buildpipe"
 	icon = 'icons/mob/augmentation/augments.dmi'
 	flags_1 = CONDUCT_1
@@ -136,21 +136,21 @@
 /obj/item/bodypart/chest/robot/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stock_parts/cell))
 		if(cell)
-			to_chat(user, "<span class='warning'>You have already inserted a cell!</span>")
+			to_chat(user, "<span class='warning'>Я уже вставил ячейку питания!</span>")
 			return
 		else
 			if(!user.transferItemToLoc(W, src))
 				return
 			cell = W
-			to_chat(user, "<span class='notice'>You insert the cell.</span>")
+			to_chat(user, "<span class='notice'>Я вставил ячейку питания.</span>")
 	else if(istype(W, /obj/item/stack/cable_coil))
 		if(wired)
-			to_chat(user, "<span class='warning'>You have already inserted wire!</span>")
+			to_chat(user, "<span class='warning'>Я уже вставил провод!</span>")
 			return
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.use(1))
 			wired = TRUE
-			to_chat(user, "<span class='notice'>You insert the wire.</span>")
+			to_chat(user, "<span class='notice'>Я вставил провод.</span>")
 		else
 			to_chat(user, "<span class='warning'>You need one length of coil to wire it!</span>")
 	else
@@ -162,7 +162,7 @@
 		return
 	. = TRUE
 	I.play_tool_sound(src)
-	to_chat(user, "<span class='notice'>You cut the wires out of [src].</span>")
+	to_chat(user, "<span class='notice'>Я отрезаю провода в [src].</span>")
 	new /obj/item/stack/cable_coil(drop_location(), 1)
 	wired = FALSE
 
@@ -170,10 +170,10 @@
 	..()
 	. = TRUE
 	if(!cell)
-		to_chat(user, "<span class='warning'>There's no power cell installed in [src]!</span>")
+		to_chat(user, "<span class='warning'>В [src] не установлен источник питания!</span>")
 		return
 	I.play_tool_sound(src)
-	to_chat(user, "<span class='notice'>Remove [cell] from [src].</span>")
+	to_chat(user, "<span class='notice'>Извлечь [cell] из [src].</span>")
 	cell.forceMove(drop_location())
 	cell = null
 
@@ -182,14 +182,14 @@
 	. = ..()
 	if(cell)
 		. += {"It has a [cell] inserted.\n
-		<span class='info'>You can use a <b>screwdriver</b> to remove [cell].</span>"}
+		<span class='info'>Вы можете использовать <b>отвертку</b> чтобы извлечь [cell].</span>"}
 	else
-		. += "<span class='info'>It has an empty port for a <b>power cell</b>.</span>"
+		. += "<span class='info'>Имеет пустой слот для <b>ячейки питания</b>.</span>"
 	if(wired)
-		. += "Its all wired up[cell ? " and ready for usage" : ""].\n"+\
-		"<span class='info'>You can use <b>wirecutters</b> to remove the wiring.</span>"
+		. += "Всё подключено [cell ? " и готово для использования" : ""].\n"+\
+		"<span class='info'>Вы можете использовать <b>кусачки</b> чтобы извлечь проводку.</span>"
 	else
-		. += "<span class='info'>It has a couple spots that still need to be <b>wired</b>.</span>"
+		. += "<span class='info'>Имеет пару гнезд, которые необходимо <b>подключить</b>.</span>"
 
 /obj/item/bodypart/chest/robot/drop_organs(mob/user, violent_removal)
 	if(wired)
@@ -202,8 +202,8 @@
 
 
 /obj/item/bodypart/head/robot
-	name = "cyborg head"
-	desc = "A standard reinforced braincase, with spine-plugged neural socket and sensor gimbals."
+	name = "голова киборга"
+	desc = "Стандартная укрепленная черепная коробка, с подключаемой к позвоночнику нейронным сокетом и сенсорными стыковочными узлами."
 	inhand_icon_state = "buildpipe"
 	icon = 'icons/mob/augmentation/augments.dmi'
 	flags_1 = CONDUCT_1
