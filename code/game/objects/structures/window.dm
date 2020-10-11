@@ -602,8 +602,8 @@
 
 /obj/structure/window/fulltile
 	icon = 'white/valtos/icons/window_glass.dmi'
-	icon_state = "window-0"
-	base_icon_state = "window"
+	icon_state = "window_glass-0"
+	base_icon_state = "window_glass"
 	dir = FULLTILE_WINDOW_DIR
 	max_integrity = 50
 	fulltile = TRUE
@@ -659,8 +659,8 @@
 
 /obj/structure/window/plasma/reinforced/fulltile
 	icon = 'white/valtos/icons/window_rplasma.dmi'
-	icon_state = "rplasma_window-0"
-	base_icon_state = "rplasma_window"
+	icon_state = "window_rplasma-0"
+	base_icon_state = "window_rplasma"
 	dir = FULLTILE_WINDOW_DIR
 	state = RWINDOW_SECURE
 	max_integrity = 1000
@@ -702,8 +702,8 @@
 
 /obj/structure/window/reinforced/fulltile
 	icon = 'white/valtos/icons/window_rglass.dmi'
-	icon_state = "reinforced_window-0"
-	base_icon_state = "reinforced_window"
+	icon_state = "window_rglass-0"
+	base_icon_state = "window_rglass"
 	dir = FULLTILE_WINDOW_DIR
 	max_integrity = 150
 	fulltile = TRUE

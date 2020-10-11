@@ -52,7 +52,8 @@
 
 /obj/structure/window/reinforced/fulltile/partyhard
 	icon = 'white/valtos/icons/windows.dmi'
-	icon_state = "window-0"
+	icon_state = "windows-0"
+	base_icon_state = "windows"
 	max_integrity = 200
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_WINDOW_FULLTILE)
 
