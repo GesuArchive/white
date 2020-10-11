@@ -3,7 +3,7 @@
 
 /datum/quirk/no_taste
 	name = "Агевзия"
-	desc = "Я потерял свои вкусовые рецепторы и не могу почувствовать вкус какой-либо еды! Но токсичная пища всё-равно будет отравлять вас."
+	desc = "Я потерял свои вкусовые рецепторы и не могу почувствовать вкус какой-либо еды! Токсичная пища всё ещё будет отравлять вас."
 	value = 0
 	mob_trait = TRAIT_AGEUSIA
 	gain_text = "<span class='notice'>Я больше не чувствую вкус еды!</span>"
@@ -11,12 +11,12 @@
 	medical_record_text = "Пациент страдает от агавзии и неспособен чувствовать вкус еды или жидкости."
 
 /datum/quirk/foreigner
-	name = "Foreigner"
-	desc = "You're not from around here. You don't know Galactic Common!"
+	name = "Иностранец"
+	desc = "Вы не из этих земель. Вы не знаете основной галактический язык!"
 	value = 0
-	gain_text = "<span class='notice'>The words being spoken around you don't make any sense."
-	lose_text = "<span class='notice'>You've developed fluency in Galactic Common."
-	medical_record_text = "Patient does not speak Galactic Common and may require an interpreter."
+	gain_text = "<span class='notice'>Вы не понимаете ни слова."
+	lose_text = "<span class='notice'>Вы научились понимать основной галактический язык.."
+	medical_record_text = "Пациент не разговаривает на основном галактическом языке."
 
 /datum/quirk/foreigner/add()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -32,11 +32,11 @@
 
 /datum/quirk/vegetarian
 	name = "Вегетарианец"
-	desc = "Я находите идею есть мясо физически и морально отталкивающим."
+	desc = "Я нахожу идею есть мясо физически и морально отталкивающим."
 	value = 0
-	gain_text = "<span class='notice'>Я находите идею есть мясо физически и морально отталкивающим.</span>"
-	lose_text = "<span class='notice'>Я чувствую, что перестал быть вегетарианцем..</span>"
-	medical_record_text = "Пациент сообщает о вегетарианской диете.."
+	gain_text = "<span class='notice'>Я нахожу идею есть мясо физически и морально отталкивающим.</span>"
+	lose_text = "<span class='notice'>А мясо-то довольно вкусное!</span>"
+	medical_record_text = "Пациент сообщает о вегетарианской диете."
 
 /datum/quirk/vegetarian/add()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -55,19 +55,19 @@
 
 /datum/quirk/snob
 	name = "Snob"
-	desc = "You care about the finer things, if a room doesn't look nice its just not really worth it, is it?"
+	desc = "Вас заботит чистый вид помещений. Если комната выглядит не такой уж и красивой, стоит ли это того?"
 	value = 0
-	gain_text = "<span class='notice'>You feel like you understand what things should look like.</span>"
-	lose_text = "<span class='notice'>Well who cares about deco anyways?</span>"
-	medical_record_text = "Patient seems to be rather stuck up."
+	gain_text = "<span class='notice'>Вы чуствуете, как-будто знаете, как по-настоящему должны выглядеть комнаты.</span>"
+	lose_text = "<span class='notice'>Ну. Кого вообще заботят какие-то декорации?</span>"
+	medical_record_text = "Пациент демонстрирует напористость."
 	mob_trait = TRAIT_SNOB
 
 /datum/quirk/pineapple_liker
 	name = "Любитель ананасов"
-	desc = "Я очень сильно люблю ананасы. Я никогда ими не наедитесь!"
+	desc = "Я очень сильно люблю ананасы. Я никогда ими не наемся!"
 	value = 0
-	gain_text = "<span class='notice'>Я чувствую, что испытываете сильную тягу к ананасам..</span>"
-	lose_text = "<span class='notice'>Моя любовь к ананасам медленно угасает..</span>"
+	gain_text = "<span class='notice'>Я чувствую, что испытываю сильную тягу к ананасам.</span>"
+	lose_text = "<span class='notice'>Моя любовь к ананасам медленно угасает.</span>"
 	medical_record_text = "Пациент демонстрирует патологическую любовь к ананасу."
 
 /datum/quirk/pineapple_liker/add()
@@ -83,9 +83,9 @@
 
 /datum/quirk/pineapple_hater
 	name = "Отвращение к ананасам"
-	desc = "Я ненавижу ананасы. Серьёзно, кто, чёрт возьми, в здравом уме скажет, что они вкусные? И какой психопат посмел бы положить это в ПИЦЦУ?!"
+	desc = "Я ненавижу ананасы. Серьёзно, они же совсем невкусные! И кто вообще посмеет положить их в пиццу!?"
 	value = 0
-	gain_text = "<span class='notice'>Я думаете над тем, какой кусок идиота любит ананасы...</span>"
+	gain_text = "<span class='notice'>Я думаю над тем, какой кусок идиота любит ананасы...</span>"
 	lose_text = "<span class='notice'>Моя ненависть к ананасам медленнно угасает...</span>"
 	medical_record_text = "Пациент считает, что ананасы отвратительны."
 
@@ -102,7 +102,7 @@
 
 /datum/quirk/deviant_tastes
 	name = "Девиантные вкусы"
-	desc = "Я не люблю ту еду, которое большинство предпочитает употреблять. Тем не менее, я люблю то, что не любят они."
+	desc = "Я не люблю ту еду, которое большинство предпочитает употреблять. Тем не менее, я люблю то, чего не любят они."
 	value = 0
 	gain_text = "<span class='notice'>У вас возникает жажда съесть что-нибудь странное на вкус.</span>"
 	lose_text = "<span class='notice'>Мне хочется поесть нормальную еду.</span>"
@@ -142,7 +142,7 @@
 
 /datum/quirk/phobia
 	name = "Фобия"
-	desc = "Ты чего-то боишься."
+	desc = "Вы чего-то боитесь."
 	value = 0
 	medical_record_text = "Пациент чего-то очень сильно боится."
 
@@ -156,10 +156,10 @@
 		H.cure_trauma_type(/datum/brain_trauma/mild/phobia, TRAUMA_RESILIENCE_ABSOLUTE)
 
 /datum/quirk/needswayfinder
-	name = "Navigationally Challenged"
-	desc = "Lacking familiarity with certain stations, you start with a wayfinding pinpointer where available."
+	name = "Проблемы с навигацией"
+	desc = "Не зная, как выглядят те или иные станции, вы предпочитаете брать с собой путеводитель-указатель."
 	value = 0
-	medical_record_text = "Patient demonstrates a keen ability to get lost."
+	medical_record_text = "Пациент демонстрирует тягу к заблужению."
 
 	var/obj/item/pinpointer/wayfinding/wayfinder
 	var/where
@@ -187,16 +187,16 @@
 		var/mob/living/carbon/human/H = quirk_holder
 		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
 
-	to_chat(quirk_holder, "<span class='notice'>There is a pinpointer [where], which can help you find your way around. Click in-hand to activate.</span>")
+	to_chat(quirk_holder, "<span class='notice'>У вас с собой указатель [where], который поможет вам найти путь в какой-либо отсек. Нажмите в руке, чтобы активировать.</span>")
 
 /datum/quirk/bald
-	name = "Smooth-Headed"
-	desc = "You have no hair and are quite insecure about it! Keep your wig on, or at least your head covered up."
+	name = "Лысый"
+	desc = "У вас нет волос и чувствуете себя некомфортно от этого! Необходимо носить с собой парик или носить то, что закрывает голову."
 	value = 0
 	mob_trait = TRAIT_BALD
-	gain_text = "<span class='notice'>Your head is as smooth as can be, it's terrible.</span>"
-	lose_text = "<span class='notice'>Your head itches, could it be... growing hair?!</span>"
-	medical_record_text = "Patient starkly refused to take off headwear during examination."
+	gain_text = "<span class='notice'>Вы лысый. Удивительно, не правда ли?</span>"
+	lose_text = "<span class='notice'>Ваша голова чешется... у меня что, растут волосы?!</span>"
+	medical_record_text = "Пациент во время осмотра категорически отказывался снять свой головной убор."
 	///The user's starting hairstyle
 	var/old_hair
 
@@ -247,10 +247,10 @@
 
 
 /datum/quirk/tongue_tied
-	name = "Tongue Tied"
-	desc = "Due to a past incident, your ability to communicate has been relegated to your hands."
+	name = "Поврежденный язык"
+	desc = "С вашим языком произошел слегка неприятный инцидент. Возможность к коммуникации теперь осуществляется с помощью рук."
 	value = 0
-	medical_record_text = "During physical examination, patient's tongue was found to be uniquely damaged."
+	medical_record_text = "Во время физического осмотра, язык пациента оказался сильно поврежден."
 
 //Adds tongue & gloves
 /datum/quirk/tongue_tied/on_spawn()
