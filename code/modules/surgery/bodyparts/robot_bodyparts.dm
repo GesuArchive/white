@@ -1,18 +1,18 @@
-#define ROBOTIC_LIGHT_BRUTE_MSG "marred"
-#define ROBOTIC_MEDIUM_BRUTE_MSG "dented"
-#define ROBOTIC_HEAVY_BRUTE_MSG "falling apart"
+#define ROBOTIC_LIGHT_BRUTE_MSG "поврежденная"
+#define ROBOTIC_MEDIUM_BRUTE_MSG "помятая"
+#define ROBOTIC_HEAVY_BRUTE_MSG "разваливающаяся"
 
-#define ROBOTIC_LIGHT_BURN_MSG "scorched"
-#define ROBOTIC_MEDIUM_BURN_MSG "charred"
-#define ROBOTIC_HEAVY_BURN_MSG "smoldering"
+#define ROBOTIC_LIGHT_BURN_MSG "обгоревшая"
+#define ROBOTIC_MEDIUM_BURN_MSG "обугленная"
+#define ROBOTIC_HEAVY_BURN_MSG "тлеющая"
 
 //For ye whom may venture here, split up arm / hand sprites are formatted as "l_hand" & "l_arm".
 //The complete sprite (displayed when the limb is on the ground) should be named "borg_l_arm".
 //Failure to follow this pattern will cause the hand's icons to be missing due to the way get_limb_icon() works to generate the mob's icons using the aux_zone var.
 
 /obj/item/bodypart/l_arm/robot
-	name = "cyborg left arm"
-	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
+	name = "левая рука киборга"
+	desc = "Скелетная конечность, обернутая в псевдомышцы с низкопроводимостью."
 	attack_verb_continuous = list("шлёпает", "бьёт")
 	attack_verb_simple = list("шлёпает", "бьёт")
 	inhand_icon_state = "buildpipe"
@@ -33,8 +33,8 @@
 	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
 
 /obj/item/bodypart/r_arm/robot
-	name = "cyborg right arm"
-	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
+	name = "правая рука киборга"
+	desc = "Скелетная конечность, обернутая в псевдомышцы с низкопроводимостью."
 	attack_verb_continuous = list("шлёпает", "бьёт")
 	attack_verb_simple = list("шлёпает", "бьёт")
 	inhand_icon_state = "buildpipe"
@@ -55,8 +55,8 @@
 	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
 
 /obj/item/bodypart/l_leg/robot
-	name = "cyborg left leg"
-	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
+	name = "левая нога киборга"
+	desc = "Скелетная конечность, обернутая в псевдомышцы с низкопроводимостью."
 	attack_verb_continuous = list("пинает", "давит")
 	attack_verb_simple = list("пинает", "давит")
 	inhand_icon_state = "buildpipe"
@@ -77,8 +77,8 @@
 	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
 
 /obj/item/bodypart/r_leg/robot
-	name = "cyborg right leg"
-	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
+	name = "правая нога киборга"
+	desc = "Скелетная конечность, обернутая в псевдомышцы с низкопроводимостью."
 	attack_verb_continuous = list("пинает", "давит")
 	attack_verb_simple = list("пинает", "давит")
 	inhand_icon_state = "buildpipe"
@@ -99,7 +99,7 @@
 	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
 
 /obj/item/bodypart/chest/robot
-	name = "cyborg torso"
+	name = "туловище киборга"
 	desc = "A heavily reinforced case containing cyborg logic boards, with space for a standard power cell."
 	inhand_icon_state = "buildpipe"
 	icon = 'icons/mob/augmentation/augments.dmi'
