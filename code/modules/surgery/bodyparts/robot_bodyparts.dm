@@ -152,7 +152,7 @@
 			wired = TRUE
 			to_chat(user, "<span class='notice'>Я вставил провод.</span>")
 		else
-			to_chat(user, "<span class='warning'>You need one length of coil to wire it!</span>")
+			to_chat(user, "<span class='warning'>Мне нужен 1 кусок провода, чтобы присоединить его сюда!</span>")
 	else
 		return ..()
 
@@ -240,25 +240,25 @@
 /obj/item/bodypart/head/robot/examine(mob/user)
 	. = ..()
 	if(!flash1 && !flash2)
-		. += "<span class='info'>It has two empty eye sockets for <b>flashes</b>.</span>"
+		. += "<span class='info'>Имеет два свободных глазных слота для <b>flashes</b>.</span>"
 	else
 		var/single_flash = FALSE
 		if(!flash1 || !flash2)
 			single_flash = TRUE
-			. += {"One of its eye sockets is currently occupied by a flash.\n
-			<span class='info'>It has an empty eye socket for another <b>flash</b>.</span>"}
+			. += {"Один из глазных разъемов на данный момент занят by a flash.\n
+			<span class='info'>В нем есть еще один свободный разъем под <b>flash</b>.</span>"}
 		else
-			. += "It has two eye sockets occupied by flashes."
-		. += "<span class='notice'>You can remove the seated flash[single_flash ? "":"es"] with a <b>crowbar</b>.</span>"
+			. += "Оба глазных разъема заняты by flashes."
+		. += "<span class='notice'>Я могу извлечь установленную d flash[single_flash ? "":"es"] при помощи <b>ломика</b>.</span>"
 
 /obj/item/bodypart/head/robot/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/assembly/flash/handheld))
 		var/obj/item/assembly/flash/handheld/F = W
 		if(flash1 && flash2)
-			to_chat(user, "<span class='warning'>You have already inserted the eyes!</span>")
+			to_chat(user, "<span class='warning'>Я уже вставил глаза!</span>")
 			return
 		else if(F.burnt_out)
-			to_chat(user, "<span class='warning'>You can't use a broken flash!</span>")
+			to_chat(user, "<span class='warning'>Я не могу использовать сломанный flash!</span>")
 			return
 		else
 			if(!user.transferItemToLoc(F, src))
@@ -267,7 +267,7 @@
 				flash2 = F
 			else
 				flash1 = F
-			to_chat(user, "<span class='notice'>You insert the flash into the eye socket.</span>")
+			to_chat(user, "<span class='notice'>Я вставил flash в глазной разъем.</span>")
 			return
 	return ..()
 
@@ -275,7 +275,7 @@
 	..()
 	if(flash1 || flash2)
 		I.play_tool_sound(src)
-		to_chat(user, "<span class='notice'>You remove the flash from [src].</span>")
+		to_chat(user, "<span class='notice'>Я извлек flash из [src].</span>")
 		if(flash1)
 			flash1.forceMove(drop_location())
 			flash1 = null
@@ -283,7 +283,7 @@
 			flash2.forceMove(drop_location())
 			flash2 = null
 	else
-		to_chat(user, "<span class='warning'>There is no flash to remove from [src].</span>")
+		to_chat(user, "<span class='warning'>В [src] нет flash который можно извлечь.</span>")
 	return TRUE
 
 
@@ -300,32 +300,32 @@
 
 
 /obj/item/bodypart/l_arm/robot/surplus
-	name = "surplus prosthetic left arm"
-	desc = "A skeletal, robotic limb. Outdated and fragile, but it's still better than nothing."
+	name = "остаточный протез левой руки"
+	desc = "Скелетная робото-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
 	brute_reduction = 0
 	burn_reduction = 0
 	max_damage = 20
 
 /obj/item/bodypart/r_arm/robot/surplus
-	name = "surplus prosthetic right arm"
-	desc = "A skeletal, robotic limb. Outdated and fragile, but it's still better than nothing."
+	name = "surplus протез правой руки"
+	desc = "Скелетная робото-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
 	brute_reduction = 0
 	burn_reduction = 0
 	max_damage = 20
 
 /obj/item/bodypart/l_leg/robot/surplus
-	name = "surplus prosthetic left leg"
-	desc = "A skeletal, robotic limb. Outdated and fragile, but it's still better than nothing."
+	name = "surplus протез левой ноги"
+	desc = "Скелетная робото-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
 	brute_reduction = 0
 	burn_reduction = 0
 	max_damage = 20
 
 /obj/item/bodypart/r_leg/robot/surplus
-	name = "surplus prosthetic right leg"
-	desc = "A skeletal, robotic limb. Outdated and fragile, but it's still better than nothing."
+	name = "surplus протез правой ноги"
+	desc = "Скелетная робото-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
 	brute_reduction = 0
 	burn_reduction = 0
