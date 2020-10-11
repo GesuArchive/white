@@ -601,7 +601,7 @@
 /* Full Tile Windows (more obj_integrity) */
 
 /obj/structure/window/fulltile
-	icon = 'icons/obj/smooth_structures/window.dmi'
+	icon = 'white/valtos/icons/window_glass.dmi'
 	icon_state = "window-0"
 	base_icon_state = "window"
 	dir = FULLTILE_WINDOW_DIR
@@ -658,7 +658,7 @@
 	anchored = FALSE
 
 /obj/structure/window/plasma/reinforced/fulltile
-	icon = 'icons/obj/smooth_structures/rplasma_window.dmi'
+	icon = 'white/valtos/icons/window_rplasma.dmi'
 	icon_state = "rplasma_window-0"
 	base_icon_state = "rplasma_window"
 	dir = FULLTILE_WINDOW_DIR
@@ -701,7 +701,7 @@
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/reinforced/fulltile
-	icon = 'icons/obj/smooth_structures/reinforced_window.dmi'
+	icon = 'white/valtos/icons/window_rglass.dmi'
 	icon_state = "reinforced_window-0"
 	base_icon_state = "reinforced_window"
 	dir = FULLTILE_WINDOW_DIR

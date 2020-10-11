@@ -32,6 +32,9 @@
 	icon = 'white/pieceofcrap.dmi'
 	icon_state = "carp_tp"
 	floor_tile = /obj/item/stack/tile/carpet/peaks
+	smoothing_flags = NONE
+	smoothing_groups = null
+	canSmoothWith = null
 
 /obj/structure/curtain/red
 	name = "красный curtain"
