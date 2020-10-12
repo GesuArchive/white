@@ -129,7 +129,7 @@ SUBSYSTEM_DEF(title)
 			ctt += "[msg]\n"
 		else
 			ctt += "[msg]"
-		splash_turf.maptext = "<font style=\"font-size: 7px; -dm-text-outline: 1px black; font-family: 'Tahoma'; color:'#ffda55'; \">[ctt]</font>"
+		splash_turf.maptext = "<font style=\"font-size: 8px; -dm-text-outline: 1px black; font-family: 'Consolas'; color:'#ffda55'; \">[ctt]</font>"
 
 /datum/controller/subsystem/title/proc/cls()
 	if(splash_turf && enabled_shit)
@@ -152,7 +152,7 @@ SUBSYSTEM_DEF(title)
 			caa += "@> USER [line] ONLINE\n"
 		for(var/line in sortList(caa))
 			tcc += "[line]\n"
-		splash_turf.maptext = "<font style=\"font-size: 7px; -dm-text-outline: 1px black; font-family: 'Tahoma'; color:'#ffda55'; \">[tcc]</font>"
+		splash_turf.maptext = "<font style=\"font-size: 8px; -dm-text-outline: 1px black; font-family: 'Consolas'; color:'#ffda55'; \">[tcc]</font>"
 
 /datum/controller/subsystem/title/proc/afterload()
 	if(splash_turf && enabled_shit)
