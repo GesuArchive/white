@@ -129,7 +129,7 @@ SUBSYSTEM_DEF(title)
 			ctt += "[msg]\n"
 		else
 			ctt += "[msg]"
-		splash_turf.maptext = "<font style=\"font-size: 7px; -dm-text-outline: 1px black; font-family: 'Courier'; color:'#ffda55'; \">[ctt]</font>"
+		splash_turf.maptext = "<font style=\"font-size: 7px; -dm-text-outline: 1px black; font-family: 'Tahoma'; color:'#ffda55'; \">[ctt]</font>"
 
 /datum/controller/subsystem/title/proc/cls()
 	if(splash_turf && enabled_shit)
@@ -152,11 +152,11 @@ SUBSYSTEM_DEF(title)
 			caa += "@> USER [line] ONLINE\n"
 		for(var/line in sortList(caa))
 			tcc += "[line]\n"
-		splash_turf.maptext = "<font style=\"font-size: 7px; -dm-text-outline: 1px black; font-family: 'Courier'; color:'#ffda55'; \">[tcc]</font>"
+		splash_turf.maptext = "<font style=\"font-size: 7px; -dm-text-outline: 1px black; font-family: 'Tahoma'; color:'#ffda55'; \">[tcc]</font>"
 
 /datum/controller/subsystem/title/proc/afterload()
 	if(splash_turf && enabled_shit)
-		splash_turf.do_cring()
+		//splash_turf.do_cring() // no cring anymore. Maybe later
 		splash_turf.icon_state = null
 		splash_turf.icon = icon
 		splash_turf.add_overlay('icons/wd_logo.png')
@@ -167,8 +167,8 @@ SUBSYSTEM_DEF(title)
 	plane = 24
 	blend_mode = 3
 	alpha = 125
-	icon = 'white/valtos/icons/d2.dmi'
-	icon_state = "whatisnext"
+	icon = 'white/valtos/icons/d.dmi'
+	icon_state = "star"
 	color = "#aaaaaa"
 	pixel_x = 240
 	pixel_y = 176
@@ -180,7 +180,7 @@ SUBSYSTEM_DEF(title)
 		lor = -lor
 		color = "#222222"
 
-	var/soe = rand(6, 8)
+	var/soe = rand(2, 4)
 	var/zof = rand(0.1, 0.5)
 
 	animate(src, transform = matrix().Scale(soe,soe), pixel_x = rand(92, 508), time = rand(25, 50), loop = -1, flags = ANIMATION_PARALLEL)
