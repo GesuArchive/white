@@ -42,6 +42,7 @@
 	for(var/direction in GLOB.cardinals)
 		power_station = locate(/obj/machinery/teleport/station, get_step(src, direction))
 		if(power_station)
+			power_station.link_console_and_hub()
 			break
 	return power_station
 
@@ -139,7 +140,7 @@
 	if(!panel_open)
 		. += "<hr><span class='notice'>The panel is <i>screwed</i> in, obstructing the linking device and wiring panel.</span>"
 	else
-		. += "<hr><span class='notice'>The <i>linking</i> device is now able to be <i>scanned</i> with a multitool.<br>The <i>wiring</i> can be <i>connected<i> to a nearby console and hub with a pair of wirecutters.</span>"
+		. += "<hr><span class='notice'>The <i>linking</i> device is now able to be <i>scanned</i> with a multitool.</span>"
 	if(in_range(user, src) || isobserver(user))
 		. += "<hr><span class='notice'>Дисплей: This station can be linked to <b>[efficiency]</b> other station(s).</span>"
 
@@ -190,12 +191,6 @@
 
 	else if(default_deconstruction_crowbar(W))
 		return
-
-	else if(W.tool_behaviour == TOOL_WIRECUTTER)
-		if(panel_open)
-			link_console_and_hub()
-			to_chat(user, "<span class='notice'>You reconnect the station to nearby machinery.</span>")
-			return
 	else
 		return ..()
 

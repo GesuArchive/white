@@ -290,7 +290,7 @@
 
 /mob/living/carbon/resist_fire()
 	adjust_fire_stacks(-5)
-	Paralyze(60, TRUE, TRUE)
+	Paralyze(60, ignore_canstun = TRUE)
 	spin(32,2)
 	visible_message("<span class='danger'>[src] катается по полу пытаясь сбросить пламя!</span>", \
 		"<span class='notice'>Я останавливаюсь, падаю и катаюсь по полу!</span>")
@@ -425,7 +425,7 @@
 
 	switch(rand(1,100)+modifier) //91-100=Nothing special happens
 		if(-INFINITY to 0) //attack yourself
-			I.attack(src,src)
+			INVOKE_ASYNC(I, /obj/item.proc/attack, src, src)
 		if(1 to 30) //throw it at yourself
 			I.throw_impact(src)
 		if(31 to 60) //Throw object in facing direction
@@ -1297,8 +1297,12 @@
 
 /mob/living/carbon/on_lying_down(new_lying_angle)
 	. = ..()
-	if(buckled && buckled.buckle_lying == 0)
-		return
+	if(!buckled || buckled.buckle_lying != 0)
+		lying_angle_on_lying_down(new_lying_angle)
+
+
+/// Special carbon interaction on lying down, to transform its sprite by a rotation.
+/mob/living/carbon/proc/lying_angle_on_lying_down(new_lying_angle)
 	if(!new_lying_angle)
 		set_lying_angle(pick(90, 270))
 	else

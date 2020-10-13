@@ -188,6 +188,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 		ping_ghosts("создан", TRUE)
 
 
+
 /obj/item/mmi/posibrain/attackby(obj/item/O, mob/user)
 	return
 

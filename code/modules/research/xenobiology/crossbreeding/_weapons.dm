@@ -33,24 +33,24 @@ Slimecrossing Weapons
 	switch(damtype)
 		if(BRUTE)
 			hitsound = 'sound/weapons/bladeslice.ogg'
-			attack_verb_continuous = list("режет","рубит","кромсает")
-			attack_verb_simple = list("режет","рубит","кромсает")
+			attack_verb_continuous = string_list(list("режет","рубит","кромсает"))
+			attack_verb_simple = string_list(list("режет","рубит","кромсает"))
 		if(BURN)
 			hitsound = 'sound/weapons/sear.ogg'
-			attack_verb_continuous = list("жгёт","поджигает","даёт прикурить")
-			attack_verb_simple = list("жгёт","поджигает","даёт прикурить")
+			attack_verb_continuous = string_list(list("жгёт","поджигает","даёт прикурить"))
+			attack_verb_simple = string_list(list("жгёт","поджигает","даёт прикурить"))
 		if(TOX)
 			hitsound = 'sound/weapons/pierce.ogg'
-			attack_verb_continuous = list("отравляет","накачивает","токсифицирует")
-			attack_verb_simple = list("отравляет","накачивает","токсифицирует")
+			attack_verb_continuous = string_list(list("отравляет","накачивает","токсифицирует"))
+			attack_verb_simple = string_list(list("отравляет","накачивает","токсифицирует"))
 		if(OXY)
 			hitsound = 'sound/effects/space_wind.ogg'
-			attack_verb_continuous = list("душит","ветрит","вакуумирет")
-			attack_verb_simple = list("душит","ветрит","вакуумирет")
+			attack_verb_continuous = string_list(list("душит","ветрит","вакуумирет"))
+			attack_verb_simple = string_list(list("душит","ветрит","вакуумирет"))
 		if(CLONE)
 			hitsound = 'sound/items/geiger/ext1.ogg'
-			attack_verb_continuous = list("радиацинирует","мутирует","чернобылит")
-			attack_verb_simple = list("радиацинирует","мутирует","чернобылит")
+			attack_verb_continuous = string_list(list("радиацинирует","мутирует","чернобылит"))
+			attack_verb_simple = string_list(list("радиацинирует","мутирует","чернобылит"))
 	return ..()
 
 //Adamantine shield - Chilling Adamantine

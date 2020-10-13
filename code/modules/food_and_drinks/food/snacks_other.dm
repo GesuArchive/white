@@ -653,8 +653,8 @@
 	name = "Bran Requests Cereal"
 	desc = "A dry cereal that satiates your requests for bran. Tastes uniquely like raisins and salt."
 	icon_state = "bran_requests"
-	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/sodiumchloride = 5)
-	bonus_reagents = list(/datum/reagent/consumable/sodiumchloride = 10)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/salt = 5)
+	bonus_reagents = list(/datum/reagent/consumable/salt = 10)
 	tastes = list("отруби" = 4, "причинычи" = 3, "соль" = 1)
 	foodtype = GRAIN | FRUIT | BREAKFAST
 	value = FOOD_FAST
@@ -803,7 +803,7 @@
 	icon_state = "boritos"
 	trash = /obj/item/trash/boritos
 	bitesize = 2
-	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/cooking_oil = 2, /datum/reagent/consumable/sodiumchloride = 3)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/cooking_oil = 2, /datum/reagent/consumable/salt = 3)
 	junkiness = 20
 	filling_color = "#ECA735"
 	tastes = list("жареная кукуруза" = 1)

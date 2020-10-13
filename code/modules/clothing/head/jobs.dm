@@ -274,6 +274,13 @@
 	desc = "Специальный берет с эмблемой безопасности на нем. Для модных офицеров."
 	icon_state = "officerberet"
 
+//Science
+
+/obj/item/clothing/head/beret/science
+	name = "science beret"
+	desc = "A science-themed beret for our hardworking scientists."
+	icon_state = "sciberet"
+
 //Curator
 /obj/item/clothing/head/fedora/curator
 	name = "фетровая шляпа охотника за сокровищами"
