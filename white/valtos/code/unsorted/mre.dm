@@ -182,7 +182,7 @@ MRE Stuff
 	icon_state = "pouch_medium"
 	w_class = WEIGHT_CLASS_SMALL
 	var/open_sound = 'sound/effects/bubbles.ogg'
-	var/list/meal_contents = list(/obj/item/reagent_containers/food/snacks/pizza/meat)
+	var/list/meal_contents = list(/obj/item/food/pizza/meat)
 
 /obj/item/storage/mrebag/PopulateContents()
 	. = ..()
@@ -212,10 +212,10 @@ MRE Stuff
 		update_icon()
 
 /obj/item/storage/mrebag/menu2
-	meal_contents = list(/obj/item/reagent_containers/food/snacks/pizza/margherita)
+	meal_contents = list(/obj/item/food/pizza/margherita)
 
 /obj/item/storage/mrebag/menu3
-	meal_contents = list(/obj/item/reagent_containers/food/snacks/pizza/vegetable)
+	meal_contents = list(/obj/item/food/pizza/vegetable)
 
 /obj/item/storage/mrebag/menu4
 	meal_contents = list(/obj/item/food/burger)
