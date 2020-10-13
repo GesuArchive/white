@@ -291,7 +291,7 @@ const PageMain = (props, context) => {
     context, "messaing_sector", null);
   const [requestingNukeCodes, setRequestingNukeCodes] = useLocalState(
     context, "requesting_nuke_codes", false);
-  const [setRequestingSobr, setRequestingSobr] = useLocalState(
+  const [requestingSobr, setRequestingSobr] = useLocalState(
     context, "requesting_sobr", false);
 
   const [
@@ -461,7 +461,7 @@ const PageMain = (props, context) => {
         }}
       />}
 
-      {!!canRequestNuke && setRequestingSobr  && <MessageModal
+      {!!canRequestNuke && requestingSobr && <MessageModal
         label="Вызов отрядя СОБРа"
         notice="Назовите причину по которой вы собираетесь вызвать специальный отряд быстрого реагирования на станцию."
         icon="bomb"

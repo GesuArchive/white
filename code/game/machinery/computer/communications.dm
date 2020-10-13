@@ -223,11 +223,11 @@
 				return
 			if (!COOLDOWN_FINISHED(src, important_action_cooldown))
 				return
-			var/input = stripped_input(usr, "Назовите причину по которой вы собираетесь вызвать специальный отряд быстрого реагирования на станцию.", "Запрос СОБРа.","")
+			var/input = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
+			sobr_request(input, usr)
 			to_chat(usr, "<span class='notice'>Запрос отправлен.</span>")
 			usr.log_message("has requested the SOBR from CentCom with reason \"[input]\"", LOG_SAY)
 			priority_announce("Отряд СОБРа был вызван [usr].", "Экстренный запрос",'sound/ai/announcer/alert.ogg')
-			sobr_request(input, usr)
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
 		if ("restoreBackupRoutingData")
