@@ -452,6 +452,20 @@ const PageMain = (props, context) => {
         }}
       />}
 
+      {!!canRequestNuke && <MessageModal
+        label="Вызов отрядя СОБРа"
+        notice="Назовите причину по которой вы собираетесь вызвать специальный отряд быстрого реагирования на станцию."
+        icon="bomb"
+        buttonText="Вызвать СОБР"
+        onBack={() => setRequestingNukeCodes(false)}
+        onSubmit={reason => {
+          setRequestingNukeCodes(false);
+          act("callSobr", {
+            reason,
+          });
+        }}
+      />}
+
       {!!callingShuttle && <MessageModal
         label="Nature of emergency"
         icon="space-shuttle"
