@@ -2639,7 +2639,7 @@
 /area/hallway/primary/central)
 "nj" = (
 /obj/structure/table,
-/obj/item/game_kit,
+/obj/item/checkers_kit,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "nk" = (

@@ -48,7 +48,7 @@
 	template_names = list("Supermatter", "Singulo or Tesla")
 
 /obj/effect/landmark/stationroom/maint_sw
-	template_names = list("Default Maint SW", "Arena Maint SW")
+	template_names = list("Default Maint SW", "Arena Maint SW", "Chess Maint SW")
 
 /obj/effect/landmark/stationroom/medbay
 	template_names = list("Default Medbay", "Durka Medbay")
