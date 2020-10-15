@@ -195,8 +195,7 @@ SUBSYSTEM_DEF(shuttle)
 /datum/controller/subsystem/shuttle/proc/canEvac(mob/user)
 	var/srd = CONFIG_GET(number/shuttle_refuel_delay)
 	if(world.time - SSticker.round_start_time < srd)
-		to_chat(user, "<span class='alert'>Эвакуационный шаттл всё ещё готовится. Подождите [DisplayTimeText(srd - (world.time - SSticker.round_start_time))] перед очередной попыткой.</span>")
-		return
+		return "<span class='alert'>Эвакуационный шаттл всё ещё готовится. Подождите [DisplayTimeText(srd - (world.time - SSticker.round_start_time))] перед очередной попыткой.</span>"
 
 	switch(emergency.mode)
 		if(SHUTTLE_RECALL)
