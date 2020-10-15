@@ -79,7 +79,7 @@ const MessageModal = (props, context) => {
             content={props.buttonText}
             color="good"
             disabled={!longEnough}
-            tooltip={!longEnough ? "You need a longer reason." : ""}
+            tooltip={!longEnough ? "Придумайте причину лучше." : ""}
             tooltipPosition="right"
             onClick={() => {
               if (longEnough) {
@@ -91,7 +91,7 @@ const MessageModal = (props, context) => {
 
           <Button
             icon="times"
-            content="Cancel"
+            content="Отмена"
             color="bad"
             onClick={props.onBack}
           />
@@ -113,13 +113,13 @@ const PageBuyingShuttle = (props, context) => {
       <Section>
         <Button
           icon="chevron-left"
-          content="Back"
+          content="Назад"
           onClick={() => act("setState", { state: STATE_MAIN })}
         />
       </Section>
 
       <Section>
-        Budget: <b>{data.budget.toLocaleString()}</b> credits
+        Бюджет: <b>{data.budget.toLocaleString()}</b> кредитов
       </Section>
 
       {sortByCreditCost(data.shuttles).map(shuttle => (
@@ -136,14 +136,14 @@ const PageBuyingShuttle = (props, context) => {
           key={shuttle.ref}
           buttons={(
             <Button
-              content={`${shuttle.creditCost.toLocaleString()} credits`}
+              content={`${shuttle.creditCost.toLocaleString()} кредитов`}
               disabled={data.budget < shuttle.creditCost}
               onClick={() => act("purchaseShuttle", {
                 shuttle: shuttle.ref,
               })}
               tooltip={
                 data.budget < shuttle.creditCost
-                  ? `You need ${shuttle.creditCost - data.budget} more credits.`
+                  ? `Требуется ещё ${shuttle.creditCost - data.budget} кр.`
                   : undefined
               }
               tooltipPosition="left"
@@ -152,7 +152,7 @@ const PageBuyingShuttle = (props, context) => {
           <Box>{shuttle.description}</Box>
           {
             shuttle.prerequisites
-              ? <b>Prerequisites: {shuttle.prerequisites}</b>
+              ? <b>Требования: {shuttle.prerequisites}</b>
               : null
           }
         </Section>
@@ -173,7 +173,7 @@ const PageChangingStatus = (props, context) => {
       <Section>
         <Button
           icon="chevron-left"
-          content="Back"
+          content="Назад"
           onClick={() => act("setState", { state: STATE_MAIN })}
         />
       </Section>
@@ -183,7 +183,7 @@ const PageChangingStatus = (props, context) => {
           <Flex.Item>
             <Button
               icon="times"
-              content="Clear Alert"
+              content="Очистить тревоги"
               color="bad"
               onClick={() => act("setStatusPicture", { picture: "blank" })}
             />
@@ -192,38 +192,38 @@ const PageChangingStatus = (props, context) => {
           <Flex.Item mt={1}>
             <Button
               icon="check-square-o"
-              content="Default"
+              content="Стандарт"
               onClick={() => act("setStatusPicture", { picture: "default" })}
             />
 
             <Button
               icon="bell-o"
-              content="Red Alert"
+              content="Красная тревога"
               onClick={() => act("setStatusPicture", { picture: "redalert" })}
             />
 
             <Button
               icon="exclamation-triangle"
-              content="Lockdown"
+              content="Блокировка"
               onClick={() => act("setStatusPicture", { picture: "lockdown" })}
             />
 
             <Button
               icon="exclamation-circle"
-              content="Biohazard"
+              content="Биологическая угроза"
               onClick={() => act("setStatusPicture", { picture: "biohazard" })}
             />
 
             <Button
               icon="space-shuttle"
-              content="Shuttle ETA"
+              content="Эвакуация"
               onClick={() => act("setStatusPicture", { picture: "shuttle" })}
             />
           </Flex.Item>
         </Flex>
       </Section>
 
-      <Section title="Message">
+      <Section title="Сообщение">
         <Flex direction="column">
           <Flex.Item mb={1}>
             <Input
@@ -246,7 +246,7 @@ const PageChangingStatus = (props, context) => {
           <Flex.Item>
             <Button
               icon="comment-o"
-              content="Message"
+              content="Сообщение"
               onClick={() => act("setStatusMessage", {
                 lineOne,
                 lineTwo,
@@ -302,19 +302,19 @@ const PageMain = (props, context) => {
 
   return (
     <Box>
-      <Section title="Emergency Shuttle">
+      <Section title="Эвакуационный шаттл">
         {
           shuttleCalled
             ? <Button.Confirm
               icon="space-shuttle"
-              content="Recall Emergency Shuttle"
+              content="Отозвать эвакуацию"
               color="bad"
               disabled={!canRecallShuttles || !shuttleRecallable}
               tooltip={(
                 canRecallShuttles && (
-                  !shuttleRecallable && "It's too late for the emergency shuttle to be recalled."
+                  !shuttleRecallable && "Слишком поздно. Шаттл уже в пути."
                 ) || (
-                  "You do not have permission to recall the emergency shuttle."
+                  "У Вас недостаточно привилегий."
                 )
               )}
               tooltipPosition="bottom-right"
@@ -322,7 +322,7 @@ const PageMain = (props, context) => {
             />
             : <Button
               icon="space-shuttle"
-              content="Call Emergency Shuttle"
+              content="Начать эвакуацию"
               disabled={shuttleCanEvacOrFailReason !== 1}
               tooltip={
                 shuttleCanEvacOrFailReason !== 1
@@ -337,21 +337,21 @@ const PageMain = (props, context) => {
         {!!shuttleCalledPreviously && (
           shuttleLastCalled && (
             <Box>
-              Most recent shuttle call/recall traced to:
+              Последний раз шаттл был вызван:
               {" "}<b>{shuttleLastCalled}</b>
             </Box>
           ) || (
-            <Box>Unable to trace most recent shuttle/recall signal.</Box>
+            <Box>Невозможно определить последний вызов шаттла.</Box>
           )
         )}
       </Section>
 
       {!!canSetAlertLevel && (
-        <Section title="Alert Level">
+        <Section title="Уровень тревоги">
           <Flex justify="space-between">
             <Flex.Item>
               <Box>
-                Currently on <b>{capitalize(alertLevel)}</b> Alert
+                Текущий уровень: <b>{capitalize(alertLevel)}</b>
               </Box>
             </Flex.Item>
 
@@ -372,37 +372,37 @@ const PageMain = (props, context) => {
         </Section>
       )}
 
-      <Section title="Functions">
+      <Section title="Функции">
         <Flex
           direction="column">
           {!!canMakeAnnouncement && <Button
             icon="bullhorn"
-            content="Make Priority Announcement"
+            content="Создать срочное объявление"
             onClick={() => act("makePriorityAnnouncement")}
           />}
 
           {!!canToggleEmergencyAccess && <Button.Confirm
             icon="id-card-o"
-            content={`${emergencyAccess ? "Disable" : "Enable"} Emergency Maintenance Access`}
+            content={`${emergencyAccess ? "Отключить" : "Включить"} Экстренный доступ к техтоннелям`}
             color={emergencyAccess ? "bad" : undefined}
             onClick={() => act("toggleEmergencyAccess")}
           />}
 
           <Button
             icon="desktop"
-            content="Set Status Display"
+            content="Настроить дисплеи"
             onClick={() => act("setState", { state: STATE_CHANGING_STATUS })}
           />
 
           <Button
             icon="envelope-o"
-            content="Message List"
+            content="Список сообщений"
             onClick={() => act("setState", { state: STATE_MESSAGES })}
           />
 
           {(canBuyShuttles !== 0) && <Button
             icon="shopping-cart"
-            content="Purchase Shuttle"
+            content="Купить шаттл"
             disabled={canBuyShuttles !== 1}
             // canBuyShuttles is a string detailing the fail reason
             // if one can be given
@@ -413,14 +413,14 @@ const PageMain = (props, context) => {
 
           {!!canMessageAssociates && <Button
             icon="comment-o"
-            content={`Send message to ${emagged ? "[UNKNOWN]" : "CentCom"}`}
+            content={`Отправить сообщение ${emagged ? "[НЕИЗВЕСТНЫЙ]" : "Центральному Командованию"}`}
             disabled={!importantActionReady}
             onClick={() => setMessagingAssociates(true)}
           />}
 
           {!!canRequestNuke && <Button
             icon="radiation"
-            content="Request Nuclear Authentication Codes"
+            content="Запросить коды авторизации ядерной бомбы"
             disabled={!importantActionReady}
             onClick={() => setRequestingNukeCodes(true)}
           />}
@@ -434,17 +434,17 @@ const PageMain = (props, context) => {
 
           {!!emagged && <Button
             icon="undo"
-            content="Restore Backup Routing Data"
+            content="Восстановить стандартные каналы связи"
             onClick={() => act("restoreBackupRoutingData")}
           />}
         </Flex>
       </Section>
 
       {!!canMessageAssociates && messagingAssociates && <MessageModal
-        label={`Message to transmit to ${emagged ? "[ABNORMAL ROUTING COORDINATES]" : "CentCom"} via quantum entanglement`}
-        notice="Please be aware that this process is very expensive, and abuse will lead to...termination. Transmission does not guarantee a response."
+        label={`Сообщение ${emagged ? "[НЕИЗВЕСТНОМУ КАНАЛУ СВЯЗИ]" : "Центральному Командованию"} сквозь квантовые связи`}
+        notice="Учитывайте, что каждый запрос дорого обходится корпорации. Будьте осторожны или это может привести к... расторжению контракта."
         icon="bullhorn"
-        buttonText="Send"
+        buttonText="Отправить"
         onBack={() => setMessagingAssociates(false)}
         onSubmit={message => {
           setMessagingAssociates(false);
@@ -455,10 +455,10 @@ const PageMain = (props, context) => {
       />}
 
       {!!canRequestNuke && requestingNukeCodes && <MessageModal
-        label="Reason for requesting nuclear self-destruct codes"
-        notice="Misuse of the nuclear request system will not be tolerated under any circumstances. Transmission does not guarantee a response."
+        label="Причина запроса кодов ядерной авторизации"
+        notice="Ошибка в запросе может привести к фатальным последствиям. Ответ не гарантирован."
         icon="bomb"
-        buttonText="Request Codes"
+        buttonText="Запросить коды"
         onBack={() => setRequestingNukeCodes(false)}
         onSubmit={reason => {
           setRequestingNukeCodes(false);
@@ -483,9 +483,9 @@ const PageMain = (props, context) => {
       />}
 
       {!!callingShuttle && <MessageModal
-        label="Nature of emergency"
+        label="Эвакуация как есть"
         icon="space-shuttle"
-        buttonText="Call Shuttle"
+        buttonText="Вызвать шаттл"
         minLength={callShuttleReasonMinLength}
         onBack={() => setCallingShuttle(false)}
         onSubmit={reason => {
@@ -507,13 +507,13 @@ const PageMain = (props, context) => {
               textAlign="center"
               width="300px">
               <Flex.Item fontSize="16px" mb={2}>
-                Swipe ID to confirm change
+                Проведите ID-картой для авторизации
               </Flex.Item>
 
               <Flex.Item mr={2} mb={1}>
                 <Button
                   icon="id-card-o"
-                  content="Swipe ID"
+                  content="Проводить здесь"
                   color="good"
                   fontSize="16px"
                   onClick={() => act("changeSecurityLevel", {
@@ -523,7 +523,7 @@ const PageMain = (props, context) => {
 
                 <Button
                   icon="times"
-                  content="Cancel"
+                  content="Отмена"
                   color="bad"
                   fontSize="16px"
                   onClick={() => setShowAlertLevelConfirm(false)}
@@ -538,7 +538,7 @@ const PageMain = (props, context) => {
         !!canSendToSectors
         && sectors.length > 0
         && (
-          <Section title="Allied Sectors">
+          <Section title="Союзные секторы">
             <Flex
               direction="column">
               {
@@ -546,7 +546,7 @@ const PageMain = (props, context) => {
                   <Flex.Item key={sectorName}>
                     <Button
                       content={
-                        `Send a message to station in ${sectorName} sector`
+                        `Отправить сообщение станции в секторе ${sectorName}`
                       }
                       disabled={!importantActionReady}
                       onClick={() => setMessagingSector(sectorName)}
@@ -558,7 +558,7 @@ const PageMain = (props, context) => {
               {sectors.length > 2 && (
                 <Flex.Item>
                   <Button
-                    content="Send a message to all allied stations"
+                    content="Отправить сообщение всем союзным станциям"
                     disabled={!importantActionReady}
                     onClick={() => setMessagingSector("all")}
                   />
@@ -574,10 +574,10 @@ const PageMain = (props, context) => {
         && sectors.length > 0
         && messagingSector
         && <MessageModal
-          label="Message to send to allied station"
-          notice="Please be aware that this process is very expensive, and abuse will lead to...termination."
+          label="Отправка сообщения союзным станциям"
+          notice="Учитывайте, что каждый запрос дорого обходится корпорации. Будьте осторожны или это может привести к... расторжению контракта."
           icon="bullhorn"
-          buttonText="Send"
+          buttonText="Отправить"
           onBack={() => setMessagingSector(null)}
           onSubmit={message => {
             act("sendToOtherSector", {
@@ -603,7 +603,7 @@ const PageMessages = (props, context) => {
     <Section>
       <Button
         icon="chevron-left"
-        content="Back"
+        content="Назад"
         onClick={() => act("setState", { state: STATE_MAIN })}
       />
     </Section>
@@ -639,7 +639,7 @@ const PageMessages = (props, context) => {
         buttons={(
           <Button.Confirm
             icon="trash"
-            content="Delete"
+            content="Удалить"
             color="red"
             onClick={() => act("deleteMessage", {
               message: messageIndex + 1,
@@ -677,10 +677,10 @@ export const CommunicationsConsole = (props, context) => {
       <Window.Content scrollable>
         {(canLogOut || !authenticated)
           ? (
-            <Section title="Authentication">
+            <Section title="Авторизация">
               <Button
                 icon={authenticated ? "sign-out-alt" : "sign-in-alt"}
-                content={authenticated ? `Log Out${authorizeName ? ` (${authorizeName})` : ""}` : "Log In"}
+                content={authenticated ? `Выйти${authorizeName ? ` (${authorizeName})` : ""}` : "Войти"}
                 color={authenticated ? "bad" : "good"}
                 onClick={() => act("toggleAuthentication")}
               />
@@ -693,7 +693,7 @@ export const CommunicationsConsole = (props, context) => {
           || page === STATE_CHANGING_STATUS && <PageChangingStatus />
           || page === STATE_MAIN && <PageMain />
           || page === STATE_MESSAGES && <PageMessages />
-          || <Box>Page not implemented: {page}</Box>
+          || <Box>Тут пока ничего нет :^) {page}</Box>
         )}
       </Window.Content>
     </Window>

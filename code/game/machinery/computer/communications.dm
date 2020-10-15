@@ -219,7 +219,7 @@
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
 		if("callSobr")
-			if (!authenticated_as_non_ai_captain(usr))
+			if (!authenticated_as_non_silicon_captain(usr))
 				return
 			if (!COOLDOWN_FINISHED(src, important_action_cooldown))
 				return
