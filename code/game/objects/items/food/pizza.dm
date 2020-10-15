@@ -9,18 +9,13 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1)
 	foodtypes = GRAIN | DAIRY | VEGETABLES
 
-/obj/item/food/pizza/Initialize()
-	. = ..()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice, 6, 30)
-
 /obj/item/food/pizzaslice
 	icon = 'icons/obj/food/pizzaspaghetti.dmi'
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	foodtypes = GRAIN | DAIRY | VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/food/pizzaslice/Initialize()
-	. = ..()
+/obj/item/food/pizzaslice/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_ROLLINGPIN, /obj/item/stack/sheet/pizza, 1, 10)
 
 /obj/item/food/pizza/margherita
@@ -31,8 +26,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
-/obj/item/food/pizza/margherita/Initialize()
-	. = ..()
+/obj/item/food/pizza/margherita/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/margherita, 6, 30)
 
 /obj/item/food/pizza/margherita/robo
@@ -52,8 +46,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 8)
 	foodtypes = GRAIN | VEGETABLES| DAIRY | MEAT
 
-/obj/item/food/pizza/meat/Initialize()
-	. = ..()
+/obj/item/food/pizza/meat/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/meat, 6, 30)
 
 /obj/item/food/pizzaslice/meat
@@ -71,8 +64,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "грибы" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
-/obj/item/food/pizza/mushroom/Initialize()
-	. = ..()
+/obj/item/food/pizza/mushroom/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/mushroom, 6, 30)
 
 /obj/item/food/pizzaslice/mushroom
@@ -90,8 +82,7 @@
 	tastes = list("корка" = 1, "томаты" = 2, "сыр" = 1, "морковь" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
-/obj/item/food/pizza/vegetable/Initialize()
-	. = ..()
+/obj/item/food/pizza/vegetable/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/vegetable, 6, 30)
 
 /obj/item/food/pizzaslice/vegetable
@@ -109,8 +100,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1, "лень" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | JUNKFOOD
 
-/obj/item/food/pizza/donkpocket/Initialize()
-	. = ..()
+/obj/item/food/pizza/donkpocket/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/donkpocket, 6, 30)
 
 /obj/item/food/pizzaslice/donkpocket
@@ -128,8 +118,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
-/obj/item/food/pizza/dank/Initialize()
-	. = ..()
+/obj/item/food/pizza/dank/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/dank, 6, 30)
 
 /obj/item/food/pizzaslice/dank
@@ -147,8 +136,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
-/obj/item/food/pizza/sassysage/Initialize()
-	. = ..()
+/obj/item/food/pizza/sassysage/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/sassysage, 6, 30)
 
 /obj/item/food/pizzaslice/sassysage
@@ -166,8 +154,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "ананас" = 2, "ветчина" = 2)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | FRUIT | PINEAPPLE
 
-/obj/item/food/pizza/pineapple/Initialize()
-	. = ..()
+/obj/item/food/pizza/pineapple/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/pineapple, 6, 30)
 
 /obj/item/food/pizzaslice/pineapple
@@ -184,8 +171,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 9, /datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/iron = 10, /datum/reagent/medicine/omnizine = 30)
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "пепперони" = 2, "9-ти миллиметровые пули" = 2)
 
-/obj/item/food/pizza/arnold/Initialize()
-	. = ..()
+/obj/item/food/pizza/arnold/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/arnold, 6, 30)
 
 //fuck it, i will leave this at the food level for now.
@@ -241,6 +227,5 @@
 	tastes = list("stale crust" = 1, "rancid cheese" = 2, "грибы" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | GROSS
 
-/obj/item/food/pizzaslice/moldy/Initialize()
-	. = ..()
+/obj/item/food/pizzaslice/moldy/MakeProcessable()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOLD, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 25)

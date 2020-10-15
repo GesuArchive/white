@@ -173,6 +173,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	///Bitflag that controls what in game ways something can select this species as a spawnable source, such as magic mirrors. See [mob defines][code/__DEFINES/mobs.dm] for possible sources.
 	var/changesource_flags = NONE
 
+	///For custom overrides for species ass images
+	var/icon/ass_image
+
 ///////////
 // PROCS //
 ///////////
@@ -1293,7 +1296,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 							"<span class='userdanger'>Блокирую попытку захвата <b>[user]</b>!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, "<span class='warning'>Моя попытка захвата <b>[target]</b> была отражена!</span>")
 		return FALSE
-	if(attacker_style && attacker_style.grab_act(user,target))
+	if(attacker_style?.grab_act(user,target))
 		return TRUE
 	else
 		//Steal them shoes
@@ -1321,7 +1324,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 							"<span class='userdanger'>Блокирую удар [user]!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, "<span class='warning'>Моя атака по [target] была отражена!</span>")
 		return FALSE
-	if(attacker_style && attacker_style.harm_act(user,target))
+	if(attacker_style?.harm_act(user,target))
 		return TRUE
 	else
 

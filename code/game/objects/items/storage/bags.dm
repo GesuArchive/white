@@ -90,6 +90,7 @@
 	name = "блюспейс мешок для мусора"
 	desc = "Новейший и самый удобный при хранении мешок для мусора, способный вместить огромное количество мусора."
 	icon_state = "bluetrashbag"
+	inhand_icon_state = "bluetrashbag"
 	item_flags = NO_MAT_REDEMPTION
 
 /obj/item/storage/bag/trash/bluespace/ComponentInitialize()
