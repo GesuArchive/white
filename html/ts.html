@@ -8,6 +8,9 @@
 				height: 100%;
 				overflow: hidden;
 				text-align: left;
+			}
+
+			body {
 				background: url('ts.png') #000;
 			}
 
@@ -55,6 +58,10 @@
 			function cls() {
 				i = 0;
 				document.getElementById("pp").innerHTML = "";
+			};
+
+			function set_lobby_image(link) {
+				document.body.style.background = "url('" + link + "') #000";
 			};
 
 			document.onselectstart = function() {
