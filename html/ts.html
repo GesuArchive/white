@@ -13,7 +13,7 @@
 
 			#pp {
 				color: #fa0;
-				font: 12px Tahoma;
+				font: 12px Consolas;
 				white-space: break-spaces;
 				padding: 8px;
 				margin: 8px;
@@ -37,6 +37,12 @@
 
 			function write_cons() {
 				if (i < cm.length) {
+					document.getElementById("pp").innerHTML += cm.charAt(i);
+					i++;
+					document.getElementById("pp").innerHTML += cm.charAt(i);
+					i++;
+					document.getElementById("pp").innerHTML += cm.charAt(i);
+					i++;
 					document.getElementById("pp").innerHTML += cm.charAt(i);
 					i++;
 					setTimeout(write_cons, 1);
