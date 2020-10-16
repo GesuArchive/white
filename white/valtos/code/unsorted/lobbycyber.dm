@@ -3,7 +3,8 @@
 	C << browse(SStitle.current_lobby_screen, 	 	      			 "file=ts.png;display=0")
 	C << browse(file('icons/blank_console.png'),     "file=blank_console.png;display=0")
 	C << browse(file('html/ts.html'),     			 "window=lobbyprotoc")
-	C << output(SStitle.ctt, 						 "lobbyprotoc:set_cons")
+	spawn(50)
+		C << output(SStitle.ctt, 					 "lobbyprotoc:set_cons")
 
 /datum/lobbyscreen/proc/hide_titlescreen(client/C)
 	if(C?.mob)
@@ -16,7 +17,8 @@
 	C << browse(SStitle.current_lobby_screen, 	 	      			 "file=ts.png;display=0")
 	C << browse(file('icons/blank_console.png'),     "file=blank_console.png;display=0")
 	C << browse(file('html/ts.html'),     			 "window=lobbyprotoc")
-	C << output(SStitle.ctt, 						 "lobbyprotoc:set_cons")
+	spawn(50)
+		C << output(SStitle.ctt, 					 "lobbyprotoc:set_cons")
 
 /client/proc/send_to_lobby_console(msg)
 	src << output(msg, "lobbyprotoc:set_cons")
@@ -44,6 +46,8 @@
 	var/img_to_set = input("Выберите файл:", "Файл") as null|file
 	if (!isfile(img_to_set))
 		return
+
+	message_admins("[key] меняет картинку в лобби.")
 
 	SStitle.current_lobby_screen = img_to_set
 	SStitle.update_lobby_screen()

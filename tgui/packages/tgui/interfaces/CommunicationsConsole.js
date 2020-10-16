@@ -426,7 +426,7 @@ const PageMain = (props, context) => {
           />}
 
           {!!canRequestNuke && <Button
-            icon="pencil"
+            icon="bullhorn"
             content="Запросить отряд СОБРа"
             disabled={!importantActionReady}
             onClick={() => setRequestingSobr(true)}
