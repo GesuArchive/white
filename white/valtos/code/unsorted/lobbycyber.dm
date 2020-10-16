@@ -13,10 +13,6 @@
 	if(C?.mob)
 		winset(C, "lobbyprotoc", "is-disabled=true;is-visible=false")
 
-/client/New()
-	. = ..()
-	lobbyscreen_image = new /datum/lobbyscreen/main(src)
-
 /client/proc/send_to_lobby_console(msg)
 	src << output(msg, "lobbyprotoc:set_cons")
 
