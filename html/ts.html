@@ -17,11 +17,12 @@
 				white-space: break-spaces;
 				padding: 8px;
 				margin: 8px;
-				width: 600px;
+				width: 800px;
 				background: rgb(5, 3, 1);
 				border: 1px solid  #321;
 				cursor: default;
 				user-select: none;
+				background: url('blank_console.png');
 			}
 
 		</style>
@@ -31,7 +32,7 @@
 			var i = 0;
 
 			function set_cons(msg) {
-				cm = msg.replace(/ /g, "&nbsp;");
+				cm = msg;
 				write_cons();
 			}
 
@@ -47,14 +48,14 @@
 					i++;
 					setTimeout(write_cons, 1);
 				} else {
-					document.getElementById("pp").innerHTML = cm;
+					document.getElementById("pp").innerHTML = cm.replace(/ /g, "&nbsp;");
 				}
 			}
 
 			function cls() {
 				i = 0;
 				document.getElementById("pp").innerHTML = "";
-			}
+			};
 
 			document.onselectstart = function() {
 				window.getSelection().removeAllRanges();
@@ -66,7 +67,7 @@
 	<body>
 		<div id=pp>
 			----------------------------------------------------------</br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Загрузка, потерпите...</br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Загрузка, потерпите...</br>
 			----------------------------------------------------------</br>
 		</div>
 	</body>
