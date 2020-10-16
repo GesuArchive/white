@@ -39,9 +39,9 @@
 	. += "<hr>"
 	if(fancy_open)
 		if(length(contents) == 1)
-			. += "There is one [icon_type] left."
+			. += "Тут не осталось [icon_type]."
 		else
-			. += "There are [contents.len <= 0 ? "no" : "[contents.len]"] [icon_type]s left."
+			. += "Тут осталось [contents.len <= 0 ? "no" : "[contents.len]"] [icon_type]."
 
 /obj/item/storage/fancy/attack_self(mob/user)
 	fancy_open = !fancy_open
@@ -49,7 +49,7 @@
 	. = ..()
 	if(!contents.len)
 		new fold_result(user.drop_location())
-		to_chat(user, "<span class='notice'>You fold the [src] into [initial(fold_result.name)].</span>")
+		to_chat(user, "<span class='notice'>Вы складываете [src] в [initial(fold_result.name)].</span>")
 		user.put_in_active_hand(fold_result)
 		qdel(src)
 
@@ -70,8 +70,8 @@
  */
 
 /obj/item/storage/fancy/donut_box
-	name = "donut box"
-	desc = "Mmm. Donuts."
+	name = "коробка для пончиков"
+	desc = "Ммм. Пончики."
 	icon = 'icons/obj/food/donuts.dmi'
 	icon_state = "donutbox_inner"
 	icon_type = "donut"
@@ -126,8 +126,8 @@
 	icon_type = "egg"
 	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
-	name = "egg box"
-	desc = "A carton for containing eggs."
+	name = "коробка для яиц"
+	desc = "Картонная упаковка для яиц."
 	spawn_type = /obj/item/food/egg
 
 /obj/item/storage/fancy/egg_box/ComponentInitialize()
@@ -141,8 +141,8 @@
  */
 
 /obj/item/storage/fancy/candle_box
-	name = "candle pack"
-	desc = "A pack of red candles."
+	name = "упаковка свечей"
+	desc = "Упаковка с красными свечами."
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candlebox5"
 	icon_type = "candle"
@@ -161,7 +161,7 @@
 /obj/item/storage/fancy/candle_box/attack_self(mob/user)
 	if(!contents.len)
 		new fold_result(user.drop_location())
-		to_chat(user, "<span class='notice'>You fold the [src] into [initial(fold_result.name)].</span>")
+		to_chat(user, "<span class='notice'>Вы складываете [src] в [initial(fold_result.name)].</span>")
 		user.put_in_active_hand(fold_result)
 		qdel(src)
 
@@ -169,8 +169,8 @@
 //CIG PACK//
 ////////////
 /obj/item/storage/fancy/cigarettes
-	name = "\improper Space Cigarettes packet"
-	desc = "The most popular brand of cigarettes, sponsors of the Space Olympics."
+	name = "\improper пачка космических сигарет"
+	desc = "Самый популярный бренд сигарет, спонсор Космической Олимпиады."
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "cig"
 	inhand_icon_state = "cigpacket"
@@ -191,14 +191,14 @@
 
 /obj/item/storage/fancy/cigarettes/attack_self(mob/user)
 	if(contents.len == 0 && spawn_coupon)
-		to_chat(user, "<span class='notice'>You rip the back off \the [src] and get a coupon!</span>")
+		to_chat(user, "<span class='notice'>Вы разрываете заднюю часть [src] и получаете купон!</span>")
 		var/obj/item/coupon/attached_coupon = new
 		user.put_in_hands(attached_coupon)
 		attached_coupon.generate(rigged_omen)
 		attached_coupon = null
 		spawn_coupon = FALSE
-		name = "discarded cigarette packet"
-		desc = "An old cigarette packet with the back torn off, worth less than nothing now."
+		name = "выброшенная пачка сигарет"
+		desc = "Старая пачка сигарет с оторванной спинкой, которая сейчас стоит меньше, чем ничего."
 		var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 		STR.max_items = 0
 		return
@@ -213,9 +213,9 @@
 /obj/item/storage/fancy/cigarettes/examine(mob/user)
 	. = ..()
 
-	. += "<hr><span class='notice'>Alt-click to extract contents.</span>"
+	. += "<hr><span class='notice'>Alt-click чтобы извлечь содержимое.</span>"
 	if(spawn_coupon)
-		. += "\n<span class='notice'>There's a coupon on the back of the pack! You can tear it off once it's empty.</span>"
+		. += "\n<span class='notice'>На обратной стороне упаковки есть купон! Вы можете оторвать его, когда содержимое пачки станет пустым.</span>"
 
 /obj/item/storage/fancy/cigarettes/AltClick(mob/living/carbon/user)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
@@ -225,9 +225,9 @@
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_TAKE, W, user)
 		user.put_in_hands(W)
 		contents -= W
-		to_chat(user, "<span class='notice'>You take \a [W] out of the pack.</span>")
+		to_chat(user, "<span class='notice'>Вы берёте [W] из пачки.</span>")
 	else
-		to_chat(user, "<span class='notice'>There are no [icon_type]s left in the pack.</span>")
+		to_chat(user, "<span class='notice'>В пачке не осталось [icon_type].</span>")
 
 /obj/item/storage/fancy/cigarettes/update_icon_state()
 	if(fancy_open || !contents.len)
@@ -267,14 +267,14 @@
 			SEND_SIGNAL(src, COMSIG_TRY_STORAGE_TAKE, W, M)
 			M.equip_to_slot_if_possible(W, ITEM_SLOT_MASK)
 			contents -= W
-			to_chat(user, "<span class='notice'>You take \a [W] out of the pack.</span>")
+			to_chat(user, "<span class='notice'>Вы берёте [W] из пачки.</span>")
 		else
 			..()
 	else
-		to_chat(user, "<span class='notice'>There are no [icon_type]s left in the pack.</span>")
+		to_chat(user, "<span class='notice'>В пачке не осталось [icon_type]</span>")
 
 /obj/item/storage/fancy/cigarettes/dromedaryco
-	name = "\improper DromedaryCo packet"
+	name = "DromedaryCo packet"
 	desc = "A packet of six imported DromedaryCo cancer sticks. A label on the packaging reads, \"Wouldn't a slow death make a change?\""
 	icon_state = "dromedary"
 	spawn_type = /obj/item/clothing/mask/cigarette/dromedary

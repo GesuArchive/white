@@ -454,7 +454,7 @@ GLOBAL_LIST_INIT(cardboard_recipes, list (														\
 		new /datum/stack_recipe("коробка для рецептурных очков", /obj/item/storage/box/rxglasses),	\
 		null,																					\
 
-		new /datum/stack_recipe("коробка для дискоа", /obj/item/storage/box/disks),						\
+		new /datum/stack_recipe("коробка для дисков", /obj/item/storage/box/disks),						\
 		new /datum/stack_recipe("коробка световых трубок", /obj/item/storage/box/lights/tubes),			\
 		new /datum/stack_recipe("коробка для лампочек", /obj/item/storage/box/lights/bulbs),			\
 		new /datum/stack_recipe("коробка для разных лампочек", /obj/item/storage/box/lights/mixed),		\
