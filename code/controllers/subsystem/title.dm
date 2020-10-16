@@ -81,18 +81,18 @@ SUBSYSTEM_DEF(title)
 				sm("@> world.execute(white)")
 				sm("")
 				sm("        > ぷろとこう_はかい")
-				sm("\n\n\n\n")
+				sm("</br></br></br></br>")
 				var/nn = 0
 				while(nn != 5)
 					sleep(1)
-					sm("\n\n\n\n")
+					sm("</br></br></br></br>")
 					nn++
 				cls()
 
 /datum/controller/subsystem/title/proc/sm(msg, newline = TRUE)
 	if(enabled_shit)
 		if(newline)
-			ctt += "[msg]\n"
+			ctt += "[msg]</br>"
 		else
 			ctt += "[msg]"
 
@@ -105,22 +105,23 @@ SUBSYSTEM_DEF(title)
 		for(var/mob/dead/new_player/D in GLOB.new_player_list)
 			if(D?.client?.lobbyscreen_image)
 				D.client.clear_titlescreen()
-		ctt = null
+		ctt = ""
 		uplayers()
 		game_loaded = TRUE
 
 /datum/controller/subsystem/title/proc/uplayers()
 	if(enabled_shit && game_loaded)
 		var/list/caa = list()
+		ctt = ""
 		for(var/client/C in GLOB.clients)
 			if (C.holder)
-				caa += "\t#> USER <b>[C.key]</b> ONLINE\n"
+				caa += "\t#> USER <b>[C.key]</b> ONLINE</br>"
 			else
-				caa += "\t@> USER [C.key] ONLINE\n"
+				caa += "\t@> USER [C.key] ONLINE</br>"
 		for(var/line in GLOB.whitelist)
-			caa += "@> USER [line] ONLINE\n"
+			caa += "@> USER [line] ONLINE</br>"
 		for(var/line in sortList(caa))
-			ctt += "[line]\n"
+			ctt += "[line]</br>"
 		for(var/mob/dead/new_player/D in GLOB.new_player_list)
 			if(D?.client?.lobbyscreen_image)
 				D.client.send_to_lobby_console(ctt)

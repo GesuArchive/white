@@ -13,8 +13,6 @@
 	if(!. || !client)
 		return FALSE
 
-	client.show_lobby()
-
 	var/list/locinfo = client.get_loc_info()
 
 	var/crsc = client.crawler_sanity_check()
@@ -51,3 +49,5 @@
 	client.update_metabalance_cache()
 	client.proverka_na_pindosov()
 	client.proverka_na_obemky()
+
+	client.show_lobby()

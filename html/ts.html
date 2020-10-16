@@ -23,6 +23,43 @@
 		</style>
 		<script type="text/javascript">
 
+			if (window.location) {
+				var anti_spam = []; // wow I wish I could use e.repeat but IE is dumb and doesn't have it.
+				document[addEventListenerKey]("keydown", function(e) {
+					if(e.target && (e.target.localName == "input" || e.target.localName == "textarea"))
+						return;
+					if(e.defaultPrevented)
+						return; // do e.preventDefault() to prevent this behavior.
+					if(e.which) {
+						if(!anti_spam[e.which]) {
+							anti_spam[e.which] = true;
+							var key = String.fromCharCode(e.which);
+							var x = event.x || event.clientX;
+							var y = event.y || event.clientY;
+							if(x || y ) // if either of these exist this is happening after a click
+								return;
+							window.location.href = "byond://winset?command=keyDown " + e.key;
+						}
+					}
+				});
+				document[addEventListenerKey]("keyup", function(e) {
+					if(e.target && (e.target.localName == "input" || e.target.localName == "textarea"))
+						return;
+					if(e.defaultPrevented)
+						return;
+					if(e.which) {
+						anti_spam[e.which] = false;
+						var key = String.fromCharCode(e.which);
+						var x = event.x || event.clientX;
+						var y = event.y || event.clientY;
+						if( x || y ) // if either of these exist this is happening after a click
+							return;
+
+						window.location.href = "byond://winset?command=keyUp " + e.key;
+					}
+				});
+			}
+
 			var cm = "";
 			var i = 0;
 
@@ -35,7 +72,7 @@
 				if (i < cm.length) {
 					document.getElementById("pp").innerHTML += cm.charAt(i);
 					i++;
-					setTimeout(write_cons, 2);
+					setTimeout(write_cons, 1);
 				} else {
 					document.getElementById("pp").innerHTML = cm;
 				}

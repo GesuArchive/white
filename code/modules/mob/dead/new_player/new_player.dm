@@ -232,7 +232,7 @@
 		observer.name = observer.real_name
 		observer.client.init_verbs()
 	observer.update_icon()
-	client.hide_lobby()
+	observer.client.hide_lobby()
 	observer.stop_sound_channel(CHANNEL_LOBBYMUSIC)
 	QDEL_NULL(mind)
 	qdel(src)
