@@ -116,11 +116,11 @@ SUBSYSTEM_DEF(title)
 		var/tcc = ""
 		for(var/client/C in GLOB.clients)
 			if (C.holder)
-				caa += "\t#> USER <b>[C.key]</b> ONLINE</br>"
+				caa += "\t#> USER <b>[C.key]</b> ONLINE"
 			else
-				caa += "\t@> USER [C.key] ONLINE</br>"
+				caa += "\t@> USER [C.key] ONLINE"
 		for(var/line in GLOB.whitelist)
-			caa += "@> USER [line] ONLINE</br>"
+			caa += "@> USER [line] ONLINE"
 		for(var/line in sortList(caa))
 			tcc += "[line]</br>"
 		ctt = tcc
