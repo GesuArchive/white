@@ -112,7 +112,7 @@ SUBSYSTEM_DEF(title)
 /datum/controller/subsystem/title/proc/uplayers()
 	if(enabled_shit && game_loaded)
 		var/list/caa = list()
-		ctt = ""
+		var/tcc = ""
 		for(var/client/C in GLOB.clients)
 			if (C.holder)
 				caa += "\t#> USER <b>[C.key]</b> ONLINE</br>"
@@ -121,7 +121,8 @@ SUBSYSTEM_DEF(title)
 		for(var/line in GLOB.whitelist)
 			caa += "@> USER [line] ONLINE</br>"
 		for(var/line in sortList(caa))
-			ctt += "[line]</br>"
+			tcc += "[line]</br>"
+		ctt = tcc
 		for(var/mob/dead/new_player/D in GLOB.new_player_list)
 			if(D?.client?.lobbyscreen_image)
 				D.client.send_to_lobby_console(ctt)

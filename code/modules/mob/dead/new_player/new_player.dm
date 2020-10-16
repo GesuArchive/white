@@ -215,6 +215,8 @@
 	var/mob/dead/observer/observer = new()
 	spawning = TRUE
 
+	client.hide_lobby()
+
 	observer.started_as_observer = TRUE
 	close_spawn_windows()
 	var/obj/effect/landmark/observer_start/O = locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list
@@ -232,7 +234,6 @@
 		observer.name = observer.real_name
 		observer.client.init_verbs()
 	observer.update_icon()
-	observer.client.hide_lobby()
 	observer.stop_sound_channel(CHANNEL_LOBBYMUSIC)
 	QDEL_NULL(mind)
 	qdel(src)
