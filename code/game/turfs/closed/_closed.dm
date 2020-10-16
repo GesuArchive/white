@@ -81,15 +81,15 @@
 	animate(size = 0, y = -4, time = 300)
 
 /turf/closed/indestructible/splashscreen/New()
-	SStitle.splash_turf = src
+	//SStitle.splash_turf = src
 	..()
 
 /turf/closed/indestructible/splashscreen/vv_edit_var(var_name, var_value)
 	. = ..()
-	if(.)
-		switch(var_name)
-			if(NAMEOF(src, icon))
-				SStitle.icon = icon
+	//if(.)
+	//	switch(var_name)
+	//		if(NAMEOF(src, icon))
+	//			SStitle.icon = icon
 
 
 /turf/closed/indestructible/reinforced

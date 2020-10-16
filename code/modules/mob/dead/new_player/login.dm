@@ -13,6 +13,8 @@
 	if(!. || !client)
 		return FALSE
 
+	client.show_lobby()
+
 	var/list/locinfo = client.get_loc_info()
 
 	var/crsc = client.crawler_sanity_check()

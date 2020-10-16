@@ -3,53 +3,19 @@ SUBSYSTEM_DEF(title)
 	flags = SS_NO_FIRE
 	init_order = INIT_ORDER_TITLE
 
-	var/file_path
-	var/icon/icon
-	var/icon/previous_icon
-	var/turf/closed/indestructible/splashscreen/splash_turf
 	var/ctt = ""
 	var/enabled_shit = TRUE
+	var/game_loaded = FALSE
 
 /datum/controller/subsystem/title/Initialize()
-	if(file_path && icon)
-		return
 
-	if(fexists("data/previous_title.dat"))
-		var/previous_path = file2text("data/previous_title.dat")
-		if(istext(previous_path))
-			previous_icon = new(previous_icon)
-	fdel("data/previous_title.dat")
-
-	var/list/provisional_title_screens = flist("[global.config.directory]/title_screens/images/")
-	var/list/title_screens = list()
-	var/use_rare_screens = prob(1)
-
-	SSmapping.HACK_LoadMapConfig()
-	for(var/S in provisional_title_screens)
-		var/list/L = splittext(S,"+")
-		if((L.len == 1 && L[1] != "blank.png")|| (L.len > 1 && ((use_rare_screens && lowertext(L[1]) == "rare") || (lowertext(L[1]) == lowertext(SSmapping.config.map_name)))))
-			title_screens += S
-
-	if(length(title_screens))
-		file_path = "[global.config.directory]/title_screens/images/[pick(title_screens)]"
-
-	if(!file_path)
-		file_path = "icons/runtime/default_title.dmi"
-
-	ASSERT(fexists(file_path))
-
-	icon = new(fcopy_rsc(file_path))
-
-	if(splash_turf && enabled_shit)
-		splash_turf.icon = 'icons/protocol_c.dmi'
-		splash_turf.icon_state = "blank"
+	if(enabled_shit)
 		set_load_state("init1")
 
 	return ..()
 
 /datum/controller/subsystem/title/proc/set_load_state(state)
-	if(splash_turf && enabled_shit)
-		new /obj/rs_rs_rs(splash_turf)
+	if(enabled_shit)
 		switch(state)
 			if("init1")
 				sm("-------------------------------------------------------------------------------------------------")
@@ -124,25 +90,28 @@ SUBSYSTEM_DEF(title)
 				cls()
 
 /datum/controller/subsystem/title/proc/sm(msg, newline = TRUE)
-	if(splash_turf && enabled_shit)
+	if(enabled_shit)
 		if(newline)
 			ctt += "[msg]\n"
 		else
 			ctt += "[msg]"
-		splash_turf.maptext = "<font style=\"font-size: 8px; -dm-text-outline: 1px black; font-family: 'Consolas'; color:'#ffda55'; \">[ctt]</font>"
+
+		for(var/mob/dead/new_player/D in GLOB.new_player_list)
+			if(D?.client?.lobbyscreen_image)
+				D.client.send_to_lobby_console(ctt)
 
 /datum/controller/subsystem/title/proc/cls()
-	if(splash_turf && enabled_shit)
-		splash_turf.maptext = ""
+	if(enabled_shit)
+		for(var/mob/dead/new_player/D in GLOB.new_player_list)
+			if(D?.client?.lobbyscreen_image)
+				D.client.clear_titlescreen()
 		ctt = null
 		uplayers()
-		for(var/obj/rs_rs_rs/O in splash_turf)
-			qdel(O)
+		game_loaded = TRUE
 
 /datum/controller/subsystem/title/proc/uplayers()
-	if(splash_turf && enabled_shit && !ctt)
+	if(enabled_shit && game_loaded)
 		var/list/caa = list()
-		var/tcc = ""
 		for(var/client/C in GLOB.clients)
 			if (C.holder)
 				caa += "\t#> USER <b>[C.key]</b> ONLINE\n"
@@ -151,15 +120,13 @@ SUBSYSTEM_DEF(title)
 		for(var/line in GLOB.whitelist)
 			caa += "@> USER [line] ONLINE\n"
 		for(var/line in sortList(caa))
-			tcc += "[line]\n"
-		splash_turf.maptext = "<font style=\"font-size: 8px; -dm-text-outline: 1px black; font-family: 'Consolas'; color:'#ffda55'; \">[tcc]</font>"
+			ctt += "[line]\n"
+		for(var/mob/dead/new_player/D in GLOB.new_player_list)
+			if(D?.client?.lobbyscreen_image)
+				D.client.send_to_lobby_console(ctt)
 
 /datum/controller/subsystem/title/proc/afterload()
-	if(splash_turf && enabled_shit)
-		//splash_turf.do_cring() // no cring anymore. Maybe later
-		splash_turf.icon_state = null
-		splash_turf.icon = icon
-		splash_turf.add_overlay('icons/wd_logo.png')
+	// do nothing
 
 /obj/rs_rs_rs
 	name = "странная штука"
@@ -191,20 +158,7 @@ SUBSYSTEM_DEF(title)
 	animate(	 transform = turn(matrix(), lor*2), pixel_y = rand(150, 202),   time = rand(100, 200))
 	animate(	 transform = turn(matrix(), lor*3), pixel_y = rand(150, 202),   time = rand(25, 50))
 
-/datum/controller/subsystem/title/vv_edit_var(var_name, var_value)
-	. = ..()
-	if(.)
-		switch(var_name)
-			if(NAMEOF(src, icon))
-				if(splash_turf)
-					splash_turf.icon = icon
-
 /datum/controller/subsystem/title/Shutdown()
-	if(file_path)
-		var/F = file("data/previous_title.dat")
-		WRITE_FILE(F, file_path)
-
-	SStitle.icon = 'icons/end.png'
 
 	for(var/client/thing in GLOB.clients)
 		if(!thing)
@@ -212,9 +166,3 @@ SUBSYSTEM_DEF(title)
 		thing.fit_viewport()
 		var/obj/screen/splash/S = new(thing, FALSE)
 		S.Fade(FALSE,FALSE)
-
-/datum/controller/subsystem/title/Recover()
-	icon = SStitle.icon
-	splash_turf = SStitle.splash_turf
-	file_path = SStitle.file_path
-	previous_icon = SStitle.previous_icon

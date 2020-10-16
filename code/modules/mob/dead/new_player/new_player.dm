@@ -232,6 +232,7 @@
 		observer.name = observer.real_name
 		observer.client.init_verbs()
 	observer.update_icon()
+	client.hide_lobby()
 	observer.stop_sound_channel(CHANNEL_LOBBYMUSIC)
 	QDEL_NULL(mind)
 	qdel(src)
@@ -469,6 +470,7 @@
 	. = new_character
 	if(.)
 		new_character.key = key		//Manually transfer the key to log them in,
+		client.hide_lobby()
 		new_character.stop_sound_channel(CHANNEL_LOBBYMUSIC)
 		new_character = null
 		qdel(src)

@@ -3627,6 +3627,7 @@
 #include "white\valtos\code\unsorted\hextile.dm"
 #include "white\valtos\code\unsorted\katana.dm"
 #include "white\valtos\code\unsorted\keybindings_reset.dm"
+#include "white\valtos\code\unsorted\lobbycyber.dm"
 #include "white\valtos\code\unsorted\mre.dm"
 #include "white\valtos\code\unsorted\palputinum.dm"
 #include "white\valtos\code\unsorted\pig.dm"

@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<style type='text/css'>
+
+			body, html {
+				margin: 0;
+				height: 100%;
+				overflow: hidden;
+				text-align: left;
+				background: url('ts.png') #000;
+			}
+			
+			#pp {
+				color: #fa0;
+				font: 12px Tahoma;
+				padding: 8px;
+				margin: 8px;
+				width: 600px;
+				background: rgb(5, 3, 1);
+				border: 1px solid  #321;
+			}
+
+		</style>
+		<script type="text/javascript">
+
+			var cm = "";
+			var i = 0;
+
+			function set_cons(msg) {
+				cm = msg;
+				write_cons();
+			}
+
+			function write_cons() {
+				if (i < cm.length) {
+					document.getElementById("pp").innerHTML += cm.charAt(i);
+					i++;
+					setTimeout(write_cons, 2);
+				} else {
+					document.getElementById("pp").innerHTML = cm;
+				}
+			}
+			
+			function cls() {
+				i = 0;
+				document.getElementById("pp").innerHTML = "";
+			}
+
+		</script>
+	</head>
+
+	<body>
+		<div id=pp></div>
+	</body>
+
+</html>
