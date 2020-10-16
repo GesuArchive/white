@@ -37,6 +37,9 @@
 /client/proc/clear_lobby()
 	clear_titlescreen()
 
+/client/proc/reload_lobby()
+	lobbyscreen_image.reload_titlescreen(src)
+
 /client/verb/hide_lobby()
 	lobbyscreen_image.hide_titlescreen(src)
 

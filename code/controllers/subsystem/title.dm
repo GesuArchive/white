@@ -114,7 +114,7 @@ SUBSYSTEM_DEF(title)
 	if(enabled_shit)
 		for(var/mob/dead/new_player/D in GLOB.new_player_list)
 			if(D?.client?.lobbyscreen_image)
-				D.client.reload_titlescreen()
+				D.client.reload_lobby()
 
 /datum/controller/subsystem/title/proc/uplayers()
 	if(enabled_shit && game_loaded)
