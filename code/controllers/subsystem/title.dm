@@ -6,6 +6,7 @@ SUBSYSTEM_DEF(title)
 	var/ctt = ""
 	var/enabled_shit = TRUE
 	var/game_loaded = FALSE
+	var/current_lobby_screen = 'icons/ts.png'
 
 /datum/controller/subsystem/title/Initialize()
 
@@ -108,6 +109,12 @@ SUBSYSTEM_DEF(title)
 		ctt = ""
 		game_loaded = TRUE
 		uplayers()
+
+/datum/controller/subsystem/title/proc/update_lobby_screen()
+	if(enabled_shit)
+		for(var/mob/dead/new_player/D in GLOB.new_player_list)
+			if(D?.client?.lobbyscreen_image)
+				D.client.reload_titlescreen()
 
 /datum/controller/subsystem/title/proc/uplayers()
 	if(enabled_shit && game_loaded)

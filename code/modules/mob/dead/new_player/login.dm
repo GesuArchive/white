@@ -50,5 +50,5 @@
 	client.proverka_na_pindosov()
 	client.proverka_na_obemky()
 
-	client.lobbyscreen_image = new /datum/lobbyscreen/main()
+	client.lobbyscreen_image = new /datum/lobbyscreen()
 	client.show_lobby()
