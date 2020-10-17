@@ -4,7 +4,7 @@
 		icon_state = "ghost_bee"
 		desc = "Это jhnazar"
 		if(prob(50))
-			to_chat("Вы чувствуете себя видимым всему живому")
+			to_chat(usr, "Вы чувствуете себя видимым всему живому")
 			set_invisibility(0)
 		return
 
