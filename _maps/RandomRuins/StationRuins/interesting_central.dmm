@@ -2005,7 +2005,7 @@
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "hI" = (
-/obj/machinery/computer/arcade,
+/obj/effect/spawner/randomarcade,
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "hK" = (

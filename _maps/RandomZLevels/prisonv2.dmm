@@ -1784,7 +1784,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/computer/arcade,
+/obj/effect/spawner/randomarcade,
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "gc" = (
@@ -3396,7 +3396,7 @@
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "lb" = (
-/obj/machinery/computer/arcade,
+/obj/effect/spawner/randomarcade,
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "lc" = (
