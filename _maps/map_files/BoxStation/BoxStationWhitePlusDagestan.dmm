@@ -133026,7 +133026,7 @@
 /turf/open/floor/plasteel,
 /area/dagestan)
 "wUh" = (
-e,
+/obj/effect/spawner/randomarcade,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
