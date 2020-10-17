@@ -105,7 +105,7 @@ SUBSYSTEM_DEF(title)
 	if(enabled_shit)
 		for(var/mob/dead/new_player/D in GLOB.new_player_list)
 			if(D?.client?.lobbyscreen_image)
-				D.client.clear_titlescreen()
+				D.client.clear_lobby()
 		ctt = ""
 		game_loaded = TRUE
 		uplayers()
@@ -133,7 +133,7 @@ SUBSYSTEM_DEF(title)
 		ctt = tcc
 		for(var/mob/dead/new_player/D in GLOB.new_player_list)
 			if(D?.client?.lobbyscreen_image)
-				D.client.clear_titlescreen()
+				D.client.clear_lobby()
 				D.client.send_to_lobby_console(ctt)
 
 /datum/controller/subsystem/title/proc/afterload()
