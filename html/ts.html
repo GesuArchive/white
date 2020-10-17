@@ -64,6 +64,14 @@
 				document.body.style.background = "url('" + link + "') #000";
 			};
 
+			window.onload = function() {
+				NotifyByondOnload();
+			};
+
+			function NotifyByondOnload() {
+				window.location.href = "byond://winset?command=Lobby-Ready";
+			}
+
 			document.onselectstart = function() {
 				window.getSelection().removeAllRanges();
 			};
