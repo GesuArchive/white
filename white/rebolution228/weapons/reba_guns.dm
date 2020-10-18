@@ -13,4 +13,4 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/com
 	weapon_weight = WEAPON_HEAVY
 	pb_knockback = 1
-    fire_delay = 5
+	fire_delay = 5
