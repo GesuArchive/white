@@ -3441,6 +3441,7 @@
 #include "white\qwaszx000\winners.dm"
 #include "white\qwaszx000\loly\loly.dm"
 #include "white\rebolution228\map_stuff.dm"
+#include "white\rebolution228\weapons\reba_guns.dm"
 #include "white\RedFoxIV\guns\battery_gun_def\battery_gun.dm"
 #include "white\RedFoxIV\guns\energy_smg\energy_smg.dm"
 #include "white\RedFoxIV\guns\sonicgun\sonicgun.dm"
