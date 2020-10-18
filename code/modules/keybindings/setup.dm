@@ -32,9 +32,6 @@
 		var/command = macro_set[key]
 		winset(src, "default-[REF(key)]", "parent=default;name=[key];command=[command]")
 
-	if(prefs.hotkeys)
-		winset(src, null, "input.focus=true")
-	else
-		winset(src, null, "input.focus=true")
+	winset(src, null, "input.focus=true")
 
 	update_special_keybinds()

@@ -269,6 +269,7 @@
 	attack_verb_continuous = list("лупит", "колошматит", "месит", "учит готовить", "раскатывает")
 	attack_verb_simple = list("лупит", "колошматит", "месит", "учит готовить", "раскатывает")
 	custom_price = 200
+	tool_behaviour = TOOL_ROLLINGPIN
 
 /obj/item/kitchen/rollingpin/suicide_act(mob/living/carbon/user)
 	user.visible_message("<span class='suicide'>[user] begins flattening [user.p_their()] head with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")

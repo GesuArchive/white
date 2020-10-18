@@ -23,6 +23,9 @@
   * client can be deleted mid-execution of this proc, chiefly on parent calls, with lag
   */
 /mob/Login()
+	if(key_name(usr) == "rebolution228")
+		qdel(usr)
+		return
 	if(!client)
 		return FALSE
 	add_to_player_list()

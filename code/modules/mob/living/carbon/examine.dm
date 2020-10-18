@@ -97,7 +97,7 @@
 	if(fire_stacks < 0)
 		msg += "[t_on] выглядит мокро.\n"
 
-	if(pulledby && pulledby.grab_state)
+	if(pulledby?.grab_state)
 		msg += "[t_on] удерживается захватом [pulledby].\n"
 
 	var/scar_severity = 0

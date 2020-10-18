@@ -159,7 +159,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 
 /obj/item/mmi/posibrain/examine(mob/user)
 	. = ..()
-	if(brainmob && brainmob.key)
+	if(brainmob?.key)
 		switch(brainmob.stat)
 			if(CONSCIOUS)
 				if(!brainmob.client)
@@ -188,6 +188,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 		ping_ghosts("создан", TRUE)
 
 
+
 /obj/item/mmi/posibrain/attackby(obj/item/O, mob/user)
 	return
 
@@ -195,7 +196,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 /obj/item/mmi/posibrain/update_icon_state()
 	if(searching)
 		icon_state = "[initial(icon_state)]-searching"
-	else if(brainmob && brainmob.key)
+	else if(brainmob?.key)
 		icon_state = "[initial(icon_state)]-occupied"
 	else
 		icon_state = initial(icon_state)
