@@ -565,7 +565,7 @@
 	if(total_damage >= max_damage * disable_threshold) //Easy limb disable disables the limb at 40% health instead of 0%
 		if(!last_maxed)
 			if(owner.stat < UNCONSCIOUS)
-				owner.emote("scream")
+				INVOKE_ASYNC(owner, /mob.proc/emote, "scream")
 			last_maxed = TRUE
 		set_disabled(TRUE)
 		return
@@ -952,7 +952,7 @@
 		var/datum/wound/W = thing
 		bleed_rate += W.blood_flow
 
-	if(owner.body_position == STANDING_UP)
+	if(owner.body_position == LYING_DOWN)
 		bleed_rate *= 0.75
 
 	if(grasped_by)

@@ -368,11 +368,10 @@
 
 /obj/item/clothing/suit/straight_jacket/equipped(mob/user, slot)
 	. = ..()
-	if(straight_user)
+	if(!straight_user)
 		straight_user = user
 
 	RegisterSignal(straight_user, COMSIG_MOVABLE_MOVED, .proc/check_trip)
-	straight_user = user
 
 /obj/item/clothing/suit/straight_jacket/dropped()
 	. = ..()
