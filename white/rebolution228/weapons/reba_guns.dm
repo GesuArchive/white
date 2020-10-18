@@ -14,3 +14,5 @@
 	weapon_weight = WEAPON_HEAVY
 	pb_knockback = 1
     fire_delay = 5
+	inhand_x_dimension = 32
+	inhand_y_dimension = 32
