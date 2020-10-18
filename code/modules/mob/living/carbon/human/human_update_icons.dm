@@ -290,7 +290,7 @@ There are several things that need to be remembered:
 		if(client && hud_used?.hud_shown)
 			client.screen += s_store
 		update_observer_view(s_store)
-		overlays_standing[SUIT_STORE_LAYER]	= s_store.build_worn_icon(default_layer = SUIT_STORE_LAYER, default_icon_file = 'icons/mob/clothing/belt_mirror.dmi')
+		overlays_standing[SUIT_STORE_LAYER]	= s_store.build_worn_icon(default_layer = SUIT_STORE_LAYER, default_icon_file = 'white/valtos/icons/clothing/mob/belt_mirror.dmi')
 		var/mutable_appearance/s_store_overlay = overlays_standing[SUIT_STORE_LAYER]
 		if(OFFSET_S_STORE in dna.species.offset_features)
 			s_store_overlay.pixel_x += dna.species.offset_features[OFFSET_S_STORE][1]

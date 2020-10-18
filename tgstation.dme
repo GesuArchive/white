@@ -3429,7 +3429,6 @@
 #include "white\HumanNugget\recipes.dm"
 #include "white\jhnazar\game\objects\items\circuitboards\machine_circuitboards.dm"
 #include "white\jhnazar\game\objects\items\storage\firstaid.dm"
-#include "white\jhnazar\misc\prikols\prikols.dm"
 #include "white\jhnazar\modules\events\wizard\hohol.dm"
 #include "white\jhnazar\modules\reagents\chemistry\machinery\chem_dispenser.dm"
 #include "white\jhnazar\modules\reagents\reagent_containers\pill.dm"
