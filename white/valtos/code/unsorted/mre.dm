@@ -8,10 +8,9 @@
 		/obj/item/storage/mrebag,
 		/obj/item/storage/mrebag,
 		/obj/item/storage/mrebag/dessert,
-		/obj/item/reagent_containers/food/snacks/cracker,
-		/obj/item/reagent_containers/food/condiment/pack/astrotame,
-		/obj/item/reagent_containers/food/condiment/pack/hotsauce,
-		/obj/item/kitchen/fork/plastic)
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/drinks/soda_cans/random,
+		/obj/item/reagent_containers/food/condiment/pack/hotsauce)
 
 /obj/item/storage/mre/PopulateContents()
 	. = ..()
@@ -46,32 +45,49 @@
 	name = "ИРП-6"
 	icon_state = "vegmre"
 	meal_contents = list(
-		/obj/item/storage/mrebag,
+		/obj/item/storage/mrebag/vegan,
+		/obj/item/storage/mrebag/vegan,
 		/obj/item/storage/mrebag/dessert,
-		/obj/item/reagent_containers/food/snacks/cracker,
-		/obj/item/reagent_containers/food/condiment/pack/ketchup,
+		/obj/item/food/breadslice,
 		/obj/item/reagent_containers/food/drinks/waterbottle,
-		/obj/item/reagent_containers/food/condiment/pack/astrotame,
-		/obj/item/kitchen/fork/plastic)
+		/obj/item/reagent_containers/food/drinks/soda_cans/random)
 
 /obj/item/storage/mre/protein
 	name = "ИРП-47"
 	icon_state = "meatmre"
 	meal_contents = list(
-		/obj/item/storage/mrebag,
-		/obj/item/storage/mrebag,
+		/obj/item/storage/mrebag/protein,
+		/obj/item/storage/mrebag/protein,
 		/obj/item/storage/mrebag/dessert,
+		/obj/item/reagent_containers/food/snacks/bun,
 		/obj/item/reagent_containers/food/condiment/pack/bbqsauce,
-		/obj/item/reagent_containers/food/condiment/pack/hotsauce,
-		/obj/item/kitchen/fork/plastic)
+		/obj/item/reagent_containers/food/drinks/soda_cans/random)
 
 /obj/item/storage/mrebag
-	name = "основное блюдо"
+	name = "основное блюдо (пицца)"
 	desc = "Запечатанный под вакуумом пакет, содержащий основное блюдо ИРП. Саморазогревается при открытии."
 	icon = 'white/valtos/icons/mre.dmi'
 	icon_state = "pouch_medium"
 	w_class = WEIGHT_CLASS_SMALL
 	var/open_sound = 'sound/effects/bubbles.ogg'
+
+/obj/item/storage/mrebag/proc/generate_main_meal()
+	var/obj/item/main_meal = pick(subtypesof(/obj/item/food/pizzaslice))
+	new main_meal(src)
+
+/obj/item/storage/mrebag/vegan
+	name = "основное блюдо (салат)"
+
+/obj/item/storage/mrebag/vegan/generate_main_meal()
+	var/obj/item/main_meal = pick(subtypesof(/obj/item/food/salad))
+	new main_meal(src)
+
+/obj/item/storage/mrebag/protein
+	name = "основное блюдо (бургер)"
+
+/obj/item/storage/mrebag/protein/generate_main_meal()
+	var/obj/item/main_meal = pick(subtypesof(/obj/item/food/burger))
+	new main_meal(src)
 
 /obj/item/storage/mrebag/PopulateContents()
 	. = ..()
@@ -79,8 +95,7 @@
 	STR.max_items = 1
 	STR.max_w_class = WEIGHT_CLASS_SMALL
 	STR.locked = TRUE
-	var/obj/item/main_meal = get_random_food()
-	new main_meal(src)
+	generate_main_meal()
 
 /obj/item/storage/mrebag/update_icon()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
@@ -113,5 +128,5 @@
 	STR.allow_quick_empty = FALSE
 	STR.rustle_sound = FALSE
 	STR.locked = TRUE
-	var/obj/item/picked_content = get_random_drink()
+	var/obj/item/picked_content = pick(subtypesof(/obj/item/food/candy))
 	new picked_content(src)
