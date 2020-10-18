@@ -34,18 +34,15 @@
 	if(msg)
 		if(speech_bubble_recipients.len)
 			remove_images_from_clients(I, speech_bubble_recipients)
-		say_verb(msg)
+		if(GLOB.say_disabled)	//This is here to try to identify lag problems
+			to_chat(usr, "<span class='danger'>Не могу говорить.</span>")
+			return
+		if(message)
+			say(message)
 	else if(speech_bubble_recipients.len)
 		animate(I, time = 7, loop = 1, alpha = 0)
 		spawn(7)
 			remove_images_from_clients(I, speech_bubble_recipients)
-
-/mob/verb/say_verb(message as text)
-	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Не могу говорить.</span>")
-		return
-	if(message)
-		say(message)
 
 ///Whisper verb
 /mob/verb/whisper_verb(message as text)
