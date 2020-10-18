@@ -2,7 +2,7 @@
 	category = CATEGORY_COMMUNICATION
 
 /datum/keybinding/client/communication/say
-	hotkey_keys = list("T", "F3")
+	hotkey_keys = list("F3", "T")
 	name = "Say"
 	full_name = "IC Say"
 	keybind_signal = COMSIG_KB_CLIENT_SAY_DOWN
@@ -14,7 +14,7 @@
 	keybind_signal = COMSIG_KB_CLIENT_OOC_DOWN
 
 /datum/keybinding/client/communication/me
-	hotkey_keys = list("M", "F4")
+	hotkey_keys = list("F4", "M")
 	name = "Me"
 	full_name = "Custom Emote (/Me)"
 	keybind_signal = COMSIG_KB_CLIENT_ME_DOWN

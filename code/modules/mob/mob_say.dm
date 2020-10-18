@@ -1,7 +1,7 @@
 //Speech verbs.
 
 ///Say verb
-/mob/verb/say_verb_wrapper()
+/mob/verb/say_verb(message as text)
 	set name = "Say"
 	set category = "IC"
 
@@ -41,9 +41,6 @@
 			remove_images_from_clients(I, speech_bubble_recipients)
 
 /mob/verb/say_verb(message as text)
-	set name = "Say"
-	set hidden = 1
-
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='danger'>Не могу говорить.</span>")
 		return
@@ -51,18 +48,9 @@
 		say(message)
 
 ///Whisper verb
-/mob/verb/whisper_verb_wrapper()
-	set name = "Whisper"
-	set category = "IC"
-
-	var/msg = input(src, null, "Whisper") as text|null
-	if(msg)
-		whisper_verb(msg)
-
 /mob/verb/whisper_verb(message as text)
 	set name = "Whisper"
-	set hidden = 1
-
+	set category = "IC"
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='danger'>Не могу шептать.</span>")
 		return
@@ -73,17 +61,9 @@
 	say(message, language) //only living mobs actually whisper, everything else just talks
 
 ///The me emote verb
-/mob/verb/me_verb_wrapper()
-	set name = "Me"
-	set category = "IC"
-
-	var/msg = input(src, null, "Me") as text|null
-	if(msg)
-		me_verb(msg)
-
 /mob/verb/me_verb(message as text)
 	set name = "Me"
-	set hidden = 1
+	set category = "IC"
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='danger'>Не могу изображать.</span>")
