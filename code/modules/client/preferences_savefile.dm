@@ -5,7 +5,7 @@
 //	You do not need to raise this if you are adding new values that have sane defaults.
 //	Only raise this value when changing the meaning/format/name/layout of an existing value
 //	where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX	43
+#define SAVEFILE_VERSION_MAX	41
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -94,11 +94,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 		if (!found_block_movement)
 			LAZYADD(key_bindings["Ctrl"], "block_movement")
-
-	if(current_version < 43)
-		key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key)
-		parent.set_macros()
-		save_preferences()
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
 	return

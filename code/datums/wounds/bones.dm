@@ -97,7 +97,7 @@
 		else
 			victim.visible_message("<span class='danger'><b>[victim]</b> слабо бьёт <b>[target]</b> своей сломаной рукой, отскакивая в приступе боли!</span>", \
 			"<span class='userdanger'>У меня не вышло ударить <b>[target]</b> так как перелом в моей [ru_gde_zone(limb.name)] загорается от невыносимой боли!</span>", vision_distance=COMBAT_MESSAGE_RANGE)
-			INVOKE_ASYNC(victim, /mob.proc/emote, "scream")
+			victim.emote("scream")
 			victim.Stun(0.5 SECONDS)
 			limb.receive_damage(brute=rand(3,7))
 			return COMPONENT_NO_ATTACK_HAND

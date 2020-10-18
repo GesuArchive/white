@@ -3,9 +3,6 @@
 	var/deletes_extract = TRUE
 
 /datum/chemical_reaction/slime/on_reaction(datum/reagents/holder)
-	use_slime_core(holder)
-
-/datum/chemical_reaction/slime/proc/use_slime_core(datum/reagents/holder)
 	SSblackbox.record_feedback("tally", "slime_cores_used", 1, "type")
 	if(deletes_extract)
 		delete_extract(holder)
@@ -204,7 +201,7 @@
 	M.qdel_timer = addtimer(CALLBACK(src, .proc/delete_extract, holder), 55, TIMER_STOPPABLE)
 
 /datum/chemical_reaction/slime/slimefreeze/proc/freeze(datum/reagents/holder)
-	if(holder?.my_atom)
+	if(holder && holder.my_atom)
 		var/turf/open/T = get_turf(holder.my_atom)
 		if(istype(T))
 			var/datum/gas/gastype = /datum/gas/nitrogen
@@ -242,7 +239,7 @@
 	M.qdel_timer = addtimer(CALLBACK(src, .proc/delete_extract, holder), 55, TIMER_STOPPABLE)
 
 /datum/chemical_reaction/slime/slimefire/proc/slime_burn(datum/reagents/holder)
-	if(holder?.my_atom)
+	if(holder && holder.my_atom)
 		var/turf/open/T = get_turf(holder.my_atom)
 		if(istype(T))
 			T.atmos_spawn_air("plasma=50;TEMP=1000")
@@ -391,7 +388,7 @@
 	M.qdel_timer = addtimer(CALLBACK(src, .proc/delete_extract, holder), 55, TIMER_STOPPABLE)
 
 /datum/chemical_reaction/slime/slimeexplosion/proc/boom(datum/reagents/holder)
-	if(holder?.my_atom)
+	if(holder && holder.my_atom)
 		explosion(get_turf(holder.my_atom), 1 ,3, 6)
 
 
@@ -487,9 +484,7 @@
 	required_other = TRUE
 
 /datum/chemical_reaction/slime/slimestop/on_reaction(datum/reagents/holder)
-	addtimer(CALLBACK(src, .proc/slime_stop, holder), 5 SECONDS)
-
-/datum/chemical_reaction/slime/slimestop/proc/slime_stop(datum/reagents/holder)
+	sleep(50)
 	var/obj/item/slime_extract/sepia/extract = holder.my_atom
 	var/turf/T = get_turf(holder.my_atom)
 	new /obj/effect/timestop(T, null, null, null)
@@ -498,7 +493,8 @@
 			var/mob/lastheld = get_mob_by_key(holder.my_atom.fingerprintslast)
 			if(lastheld && !lastheld.equip_to_slot_if_possible(extract, ITEM_SLOT_HANDS, disable_warning = TRUE))
 				extract.forceMove(get_turf(lastheld))
-	use_slime_core(holder)
+
+	..()
 
 /datum/chemical_reaction/slime/slimecamera
 	required_reagents = list(/datum/reagent/water = 1)

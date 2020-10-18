@@ -20,7 +20,7 @@
 			if(!SSmapping.station_room_templates[t])
 				log_world("Station room spawner placed at ([T.x], [T.y], [T.z]) has invalid ruin name of \"[t]\" in its list")
 				template_names -= t
-		template_name = pickweight(template_names)
+		template_name = pick(template_names)
 	if(!template_name)
 		GLOB.stationroom_landmarks -= src
 		qdel(src)
@@ -28,7 +28,7 @@
 	var/datum/map_template/template = SSmapping.station_room_templates[template_name]
 	if(!template)
 		return FALSE
-	testing("Station part \"[template_name]\" placed at ([T.x], [T.y], [T.z])")
+	testing("Ruin \"[template_name]\" placed at ([T.x], [T.y], [T.z])")
 	template.load(T, centered = FALSE)
 	template.loaded++
 	GLOB.stationroom_landmarks -= src
@@ -36,19 +36,19 @@
 	return TRUE
 
 /obj/effect/landmark/stationroom/brig
-	template_names = list("Default Brig" = 10, "Loose Brig" = 4, "Armored Brig" = 3)
+	template_names = list("Default Brig", "Loose Brig", "Armored Brig")
 
 /obj/effect/landmark/stationroom/bar
-	template_names = list("Default Bar" = 10, "Neon Bar" = 4, "Lava Bar" = 3)
+	template_names = list("Default Bar", "Neon Bar", "Lava Bar")
 
 /obj/effect/landmark/stationroom/bridge
-	template_names = list("Default Central" = 10, "Compact Central" = 4, "Interesting Central" = 3)
+	template_names = list("Default Central", "Compact Central", "Interesting Central")
 
 /obj/effect/landmark/stationroom/engine
-	template_names = list("Supermatter" = 5, "Singulo or Tesla" = 10)
+	template_names = list("Supermatter", "Singulo or Tesla")
 
 /obj/effect/landmark/stationroom/maint_sw
-	template_names = list("Default Maint SW" = 10, "Arena Maint SW" = 4, "Chess Maint SW" = 3)
+	template_names = list("Default Maint SW", "Arena Maint SW")
 
 /obj/effect/landmark/stationroom/medbay
-	template_names = list("Default Medbay" = 10, "Durka Medbay" = 2)
+	template_names = list("Default Medbay", "Durka Medbay")

@@ -93,13 +93,16 @@
 /mob/living/proc/on_handsblocked_trait_gain(datum/source)
 	SIGNAL_HANDLER
 	mobility_flags &= ~(MOBILITY_USE | MOBILITY_PICKUP | MOBILITY_STORAGE)
-	on_handsblocked_start()
+	drop_all_held_items()
+	ADD_TRAIT(src, TRAIT_UI_BLOCKED, TRAIT_HANDS_BLOCKED)
+	ADD_TRAIT(src, TRAIT_PULL_BLOCKED, TRAIT_HANDS_BLOCKED)
 
 /// Called when [TRAIT_HANDS_BLOCKED] is removed from the mob.
 /mob/living/proc/on_handsblocked_trait_loss(datum/source)
 	SIGNAL_HANDLER
 	mobility_flags |= (MOBILITY_USE | MOBILITY_PICKUP | MOBILITY_STORAGE)
-	on_handsblocked_end()
+	REMOVE_TRAIT(src, TRAIT_UI_BLOCKED, TRAIT_HANDS_BLOCKED)
+	REMOVE_TRAIT(src, TRAIT_PULL_BLOCKED, TRAIT_HANDS_BLOCKED)
 
 
 /// Called when [TRAIT_UI_BLOCKED] is added to the mob.

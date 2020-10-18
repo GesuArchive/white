@@ -828,7 +828,7 @@
 /turf/open/floor/plating,
 /area/crew_quarters/heads/chief)
 "bW" = (
-/obj/effect/spawner/randomarcade,
+/obj/machinery/computer/arcade,
 /obj/machinery/light/small{
 	dir = 8
 	},

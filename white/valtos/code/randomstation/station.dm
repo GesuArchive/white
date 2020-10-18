@@ -67,11 +67,6 @@
 	suffix = "arena_maint_sw.dmm"
 	name = "Arena Maint SW"
 
-/datum/map_template/ruin/station/maint_sw/chess
-	id = "chess_maint_sw"
-	suffix = "chess_maint_sw.dmm"
-	name = "Chess Maint SW"
-
 /datum/map_template/ruin/station/med
 	id = "default_med"
 	suffix = "default_med.dmm"

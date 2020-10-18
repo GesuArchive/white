@@ -42932,7 +42932,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
 "bmQ" = (
-/obj/effect/spawner/randomarcade,
+/obj/machinery/computer/arcade,
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -47365,7 +47365,7 @@
 /turf/open/floor/plasteel/dark,
 /area/chapel/office)
 "btd" = (
-/obj/effect/spawner/randomarcade,
+/obj/machinery/computer/arcade,
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -56507,7 +56507,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/effect/spawner/randomarcade,
+/obj/machinery/computer/arcade,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
 "bHh" = (
@@ -88337,7 +88337,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/effect/spawner/randomarcade,
+/obj/machinery/computer/arcade,
 /obj/machinery/newscaster{
 	pixel_x = -30
 	},

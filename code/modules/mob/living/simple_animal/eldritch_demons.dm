@@ -98,7 +98,7 @@
 	action.Remove(mob_linked)
 	qdel(action)
 	to_chat(mob_linked, "<span class='notice'>Your mind shatters as the [src]'s Mansus Link leaves your mind.</span>")
-	INVOKE_ASYNC(mob_linked, /mob.proc/emote, "scream")
+	mob_linked.emote("Scream")
 	//micro stun
 	mob_linked.AdjustParalyzed(0.5 SECONDS)
 	linked_mobs -= mob_linked

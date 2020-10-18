@@ -103,7 +103,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 
 	var/spanned = attach_spans_pointized(input, spans)
 
-	if(usr && usr?.client?.prefs?.disabled_autocap)
+	if(usr?.client?.prefs?.disabled_autocap)
 		spanned = attach_spans(input, spans)
 
 	return "<i>[say_mod(input, message_mods)]</i>, \"[spanned]\""

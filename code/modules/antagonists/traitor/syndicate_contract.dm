@@ -146,7 +146,7 @@
 					H = contract.owner.current
 					C = H.get_idcard(TRUE)
 
-				if(C?.registered_account)
+				if(C && C.registered_account)
 					C.registered_account.adjust_money(ransom * 0.35)
 
 					C.registered_account.bank_card_talk("Мы обработали выкуп, агент. Вот ваша доля в размере [C.registered_account.account_balance] кредитов.", TRUE)

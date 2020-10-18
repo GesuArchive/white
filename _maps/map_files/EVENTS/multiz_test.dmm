@@ -570,7 +570,7 @@
 /turf/open/floor/plasteel,
 /area/partyhard/odin)
 "bV" = (
-/obj/effect/spawner/randomarcade,
+/obj/machinery/computer/arcade,
 /turf/open/floor/plasteel,
 /area/partyhard/odin)
 "bW" = (

@@ -78,11 +78,9 @@
 					controller.cycleClose(door)
 		else
 			controller.onlyClose(door)
-		addtimer(CALLBACK(src, .proc/not_busy), 2 SECONDS)
-
-/obj/machinery/door_buttons/access_button/proc/not_busy()
-	busy = FALSE
-	update_icon()
+		sleep(20)
+		busy = FALSE
+		update_icon()
 
 /obj/machinery/door_buttons/access_button/update_icon_state()
 	if(machine_stat & NOPOWER)
@@ -210,7 +208,7 @@
 	INVOKE_ASYNC(src, .proc/do_openDoor, A)
 
 /obj/machinery/door_buttons/airlock_controller/proc/do_openDoor(obj/machinery/door/airlock/A)
-	if(A?.open())
+	if(A && A.open())
 		if(machine_stat | (NOPOWER) && !lostPower && A && !QDELETED(A))
 			A.bolt()
 	goIdle(TRUE)

@@ -16,8 +16,6 @@
 		return 1
 	return 0
 
-/*
-
 /datum/interaction/cheer
 	command = "cheer"
 	description = "Подбодрить."
@@ -51,4 +49,3 @@
 	needs_physical_contact = 1
 	max_distance = 25
 	whitelisted = FALSE
-*/

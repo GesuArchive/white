@@ -38,7 +38,7 @@
 	timeout = 10 MINUTES
 
 /datum/mood_event/slipped
-	description = "<span class='warning'>Опять поскальзываюсь. Надо быть аккуратней.</span>\n"
+	description = "<span class='warning'>Опять подскальзываюсь. Надо быть аккуратней.</span>\n"
 	mood_change = -2
 	timeout = 3 MINUTES
 

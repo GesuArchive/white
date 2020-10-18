@@ -210,11 +210,11 @@ GLOBAL_LIST_EMPTY(donators)
 	var/selected_cat
 	var/compact_mode = FALSE
 
-/datum/donator/New(ckey, cm)
+/datum/donator/New(ckey, money)
 	..()
 	ownerkey = ckey
-	money = cm
-	maxmoney = cm
+	src.money = money
+	maxmoney = money
 	GLOB.donators[ckey] = src
 
 /datum/donator/ui_interact(mob/user, datum/tgui/ui)

@@ -10,7 +10,6 @@
 	antag_moodlet = /datum/mood_event/focused
 	antag_hud_type = ANTAG_HUD_TRAITOR
 	antag_hud_name = "traitor"
-	hijack_speed = 0.5				//10 seconds per hijack stage by default
 	var/special_role = ROLE_TRAITOR
 	var/employer = "Синдикат"
 	var/give_objectives = TRUE
@@ -18,6 +17,7 @@
 	var/should_equip = TRUE
 	var/traitor_kind = TRAITOR_HUMAN //Set on initial assignment
 	var/datum/contractor_hub/contractor_hub
+	can_hijack = HIJACK_HIJACKER
 
 /datum/antagonist/traitor/on_gain()
 	if(owner.current && isAI(owner.current))

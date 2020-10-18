@@ -42,9 +42,9 @@
 	user.regenerate_organs()
 
 /datum/action/changeling/fakedeath/proc/ready_to_regenerate(mob/user)
-	if(user?.mind)
+	if(user && user.mind)
 		var/datum/antagonist/changeling/C = user.mind.has_antag_datum(/datum/antagonist/changeling)
-		if(C?.purchasedpowers)
+		if(C && C.purchasedpowers)
 			to_chat(user, "<span class='notice'>Мы готовы возродиться.</span>")
 			name = "Возрождение"
 			desc = "Мы восстанем ещё раз."

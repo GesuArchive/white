@@ -272,7 +272,7 @@
 
 	switch(action)
 		if("toggle_power")
-			if(compressor?.turbine)
+			if(compressor && compressor.turbine)
 				compressor.starter = !compressor.starter
 				. = TRUE
 		if("reconnect")
@@ -334,7 +334,7 @@
 
 	switch(action)
 		if("toggle_power")
-			if(compressor?.turbine)
+			if(compressor && compressor.turbine)
 				compressor.starter = !compressor.starter
 				. = TRUE
 		if("reconnect")

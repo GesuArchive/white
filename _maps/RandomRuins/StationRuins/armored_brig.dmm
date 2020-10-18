@@ -107,7 +107,7 @@
 /turf/open/floor/engine,
 /area/security/prison)
 "aw" = (
-/obj/effect/spawner/randomarcade,
+/obj/machinery/computer/arcade,
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/security/prison)

@@ -2005,7 +2005,7 @@
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "hI" = (
-/obj/effect/spawner/randomarcade,
+/obj/machinery/computer/arcade,
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "hK" = (
@@ -2639,7 +2639,7 @@
 /area/hallway/primary/central)
 "nj" = (
 /obj/structure/table,
-/obj/item/checkers_kit,
+/obj/item/game_kit,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "nk" = (

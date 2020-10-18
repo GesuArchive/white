@@ -19,7 +19,7 @@
 	if(accessible_markets.len)
 		viewing_market = accessible_markets[1]
 		var/list/categories = SSblackmarket.markets[viewing_market].categories
-		if(categories?.len)
+		if(categories && categories.len)
 			viewing_category = categories[1]
 
 /obj/item/blackmarket_uplink/emag_act(mob/user)
@@ -133,7 +133,7 @@
 			viewing_market = market
 
 			var/list/categories = SSblackmarket.markets[viewing_market].categories
-			if(categories?.len)
+			if(categories && categories.len)
 				viewing_category = categories[1]
 			else
 				viewing_category = null

@@ -101,7 +101,7 @@
 /datum/map_template/shuttle/post_load(obj/docking_port/mobile/M)
 	if(movement_force)
 		M.movement_force = movement_force.Copy()
-	M.linkup()
+	M.linkup(src)
 
 /datum/map_template/shuttle/emergency
 	port_id = "emergency"
@@ -556,7 +556,7 @@
 	name = "basic syndicate infiltrator"
 
 /datum/map_template/shuttle/infiltrator/advanced
-	suffix = "advanced"
+	suffix = "basic"
 	name = "advanced syndicate infiltrator"
 
 /datum/map_template/shuttle/cargo/delta

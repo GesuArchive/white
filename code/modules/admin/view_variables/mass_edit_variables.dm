@@ -8,7 +8,7 @@
 	if(!check_rights(R_VAREDIT))
 		return
 
-	if(A?.type)
+	if(A && A.type)
 		method = vv_subtype_prompt(A.type)
 
 	src.massmodify_variables(A, var_name, method)
@@ -114,7 +114,7 @@
 			var/list/varsvars = vv_parse_text(O, new_value)
 			var/pre_processing = new_value
 			var/unique
-			if (varsvars?.len)
+			if (varsvars && varsvars.len)
 				unique = alert(usr, "Process vars unique to each instance, or same for all?", "Variable Association", "Unique", "Same")
 				if(unique == "Unique")
 					unique = TRUE

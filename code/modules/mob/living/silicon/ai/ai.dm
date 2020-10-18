@@ -170,7 +170,6 @@
 	builtInCamera.network = list("ss13")
 
 	ADD_TRAIT(src, TRAIT_PULL_BLOCKED, ROUNDSTART_TRAIT)
-	ADD_TRAIT(src, TRAIT_HANDS_BLOCKED, ROUNDSTART_TRAIT)
 
 
 /mob/living/silicon/ai/key_down(_key, client/user)
@@ -313,9 +312,7 @@
 		to_chat(usr, "<span class='warning'>Wireless control is disabled!</span>")
 		return
 
-	var/can_evac_or_fail_reason = SSshuttle.canEvac(src)
-	if(can_evac_or_fail_reason != TRUE)
-		to_chat(usr, "<span class='alert'>[can_evac_or_fail_reason]</span>")
+	if(!SSshuttle.canEvac(src))
 		return
 
 	var/reason = input(src, "What is the nature of your emergency? ([CALL_SHUTTLE_REASON_LENGTH] characters required.)", "Confirm Shuttle Call") as null|text
@@ -522,9 +519,9 @@
 		C = O
 	L[A.name] = list(A, (C) ? C : O, list(alarmsource))
 	if (O)
-		if (C?.can_use())
+		if (C && C.can_use())
 			queueAlarm("--- [class] alarm detected in [A.name]! (<A HREF=?src=[REF(src)];switchcamera=[REF(C)]>[C.c_tag]</A>)", class)
-		else if (CL?.len)
+		else if (CL && CL.len)
 			var/foo = 0
 			var/dat2 = ""
 			for (var/obj/machinery/camera/I in CL)
@@ -1040,10 +1037,3 @@
 			ADD_TRAIT(src, TRAIT_INCAPACITATED, POWER_LACK_TRAIT)
 	else if(.)
 		REMOVE_TRAIT(src, TRAIT_INCAPACITATED, POWER_LACK_TRAIT)
-
-
-/mob/living/silicon/on_handsblocked_start()
-	return // AIs have no hands
-
-/mob/living/silicon/on_handsblocked_end()
-	return // AIs have no hands

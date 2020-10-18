@@ -1,4 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/wall,
+/area/maintenance/port/aft)
 "b" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access_txt = "12"
@@ -141,8 +144,8 @@
 /area/maintenance/port/aft)
 "C" = (
 /obj/effect/turf_decal/trimline/neutral/line{
-	dir = 9;
-	icon_state = "trimline"
+	icon_state = "trimline";
+	dir = 9
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-2"
@@ -150,8 +153,8 @@
 /area/maintenance/port/aft)
 "D" = (
 /obj/effect/turf_decal/trimline/neutral/line{
-	dir = 1;
-	icon_state = "trimline"
+	icon_state = "trimline";
+	dir = 1
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-2"
@@ -159,8 +162,8 @@
 /area/maintenance/port/aft)
 "E" = (
 /obj/effect/turf_decal/trimline/neutral/line{
-	dir = 5;
-	icon_state = "trimline"
+	icon_state = "trimline";
+	dir = 5
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-2"
@@ -168,8 +171,8 @@
 /area/maintenance/port/aft)
 "F" = (
 /obj/effect/turf_decal/trimline/neutral/line{
-	dir = 8;
-	icon_state = "trimline"
+	icon_state = "trimline";
+	dir = 8
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-2"
@@ -177,8 +180,8 @@
 /area/maintenance/port/aft)
 "G" = (
 /obj/effect/turf_decal/trimline/neutral/line{
-	dir = 4;
-	icon_state = "trimline"
+	icon_state = "trimline";
+	dir = 4
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-2"
@@ -186,8 +189,8 @@
 /area/maintenance/port/aft)
 "H" = (
 /obj/effect/turf_decal/trimline/neutral/line{
-	dir = 10;
-	icon_state = "trimline"
+	icon_state = "trimline";
+	dir = 10
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-2"
@@ -201,8 +204,8 @@
 /area/maintenance/port/aft)
 "J" = (
 /obj/effect/turf_decal/trimline/neutral/line{
-	dir = 6;
-	icon_state = "trimline"
+	icon_state = "trimline";
+	dir = 6
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-2"
@@ -244,9 +247,9 @@
 	},
 /area/maintenance/port/aft)
 "P" = (
-/obj/structure/chair/sofa/left{
-	dir = 1;
-	icon_state = "sofaend_left"
+/obj/structure/chair/sofa/right{
+	icon_state = "sofaend_right";
+	dir = 1
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "s-3"
@@ -254,8 +257,8 @@
 /area/maintenance/port/aft)
 "Q" = (
 /obj/structure/chair/sofa{
-	dir = 1;
-	icon_state = "sofamiddle"
+	icon_state = "sofamiddle";
+	dir = 1
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "s-2"
@@ -263,8 +266,8 @@
 /area/maintenance/port/aft)
 "R" = (
 /obj/structure/chair/sofa{
-	dir = 1;
-	icon_state = "sofamiddle"
+	icon_state = "sofamiddle";
+	dir = 1
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "w-3"
@@ -272,8 +275,8 @@
 /area/maintenance/port/aft)
 "S" = (
 /obj/structure/chair/sofa{
-	dir = 1;
-	icon_state = "sofamiddle"
+	icon_state = "sofamiddle";
+	dir = 1
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "s-3"
@@ -281,17 +284,17 @@
 /area/maintenance/port/aft)
 "T" = (
 /obj/structure/chair/sofa{
-	dir = 1;
-	icon_state = "sofamiddle"
+	icon_state = "sofamiddle";
+	dir = 1
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "w-2"
 	},
 /area/maintenance/port/aft)
 "U" = (
-/obj/structure/chair/sofa/right{
-	dir = 1;
-	icon_state = "sofaend_right"
+/obj/structure/chair/sofa/left{
+	icon_state = "sofaend_left";
+	dir = 1
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "s-3"
@@ -308,29 +311,29 @@
 /area/maintenance/port/aft)
 
 (1,1,1) = {"
-W
-W
-W
-W
-W
+a
+a
+a
+a
+a
 k
-W
-W
+a
+a
 c
-W
-W
-W
-W
-W
+a
+a
+a
+a
+a
 "}
 (2,1,1) = {"
-W
+a
 y
 V
 y
 y
 y
-W
+a
 x
 x
 x
@@ -340,17 +343,17 @@ x
 c
 "}
 (3,1,1) = {"
-W
+a
 y
 W
-W
-W
-W
-W
-W
-W
-W
-W
+a
+a
+a
+a
+a
+a
+a
+a
 W
 x
 c
@@ -358,7 +361,7 @@ c
 (4,1,1) = {"
 b
 y
-W
+a
 m
 g
 l
@@ -367,14 +370,14 @@ l
 l
 q
 P
-W
+a
 x
 c
 "}
 (5,1,1) = {"
-W
+a
 y
-W
+a
 t
 i
 C
@@ -383,14 +386,14 @@ F
 H
 r
 Q
-W
+a
 x
 c
 "}
 (6,1,1) = {"
-W
+a
 y
-W
+a
 u
 i
 D
@@ -399,14 +402,14 @@ M
 I
 r
 R
-W
+a
 x
 c
 "}
 (7,1,1) = {"
-W
+a
 y
-W
+a
 v
 i
 D
@@ -415,14 +418,14 @@ M
 I
 r
 S
-W
+a
 x
 c
 "}
 (8,1,1) = {"
 c
 y
-W
+a
 N
 i
 E
@@ -431,14 +434,14 @@ G
 J
 r
 T
-W
+a
 x
 c
 "}
 (9,1,1) = {"
 c
 y
-W
+a
 O
 j
 o
@@ -447,9 +450,9 @@ o
 o
 z
 U
-W
+a
 x
-W
+a
 "}
 (10,1,1) = {"
 c
@@ -465,21 +468,21 @@ A
 L
 W
 x
-W
+a
 "}
 (11,1,1) = {"
-W
+a
 y
-W
-W
-W
-W
+a
+a
+a
+a
 w
 w
-W
-W
-W
-W
-W
-W
+a
+a
+a
+a
+a
+a
 "}

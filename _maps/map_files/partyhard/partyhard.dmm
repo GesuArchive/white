@@ -2758,7 +2758,7 @@
 	},
 /area/partyhard/dva)
 "gw" = (
-/obj/effect/spawner/randomarcade,
+/obj/machinery/computer/arcade,
 /turf/open/floor/partyhard/steel{
 	icon_state = "r-1"
 	},

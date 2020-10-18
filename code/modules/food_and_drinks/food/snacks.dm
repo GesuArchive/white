@@ -68,7 +68,7 @@ All foods are distributed among various categories. Use common sense.
 	return COMSIG_FRYING_HANDLED
 
 /obj/item/reagent_containers/food/snacks/add_initial_reagents()
-	if(tastes?.len)
+	if(tastes && tastes.len)
 		if(list_reagents)
 			for(var/rid in list_reagents)
 				var/amount = list_reagents[rid]
@@ -186,7 +186,7 @@ All foods are distributed among various categories. Use common sense.
 			if(S.w_class > WEIGHT_CLASS_SMALL)
 				to_chat(user, "<span class='warning'>[S] is too big for [src]!</span>")
 				return FALSE
-			if(!S.customfoodfilling || istype(W, /obj/item/reagent_containers/food/snacks/customizable))
+			if(!S.customfoodfilling || istype(W, /obj/item/reagent_containers/food/snacks/customizable) || istype(W, /obj/item/reagent_containers/food/snacks/pizzaslice/custom))
 				to_chat(user, "<span class='warning'>[src] can't be filled with [S]!</span>")
 				return FALSE
 			if(contents.len >= 20)
@@ -217,7 +217,7 @@ All foods are distributed among various categories. Use common sense.
 				qdel(A)
 	SSblackbox.record_feedback("tally", "food_made", 1, type)
 
-	if(bonus_reagents?.len)
+	if(bonus_reagents && bonus_reagents.len)
 		for(var/r_id in bonus_reagents)
 			var/amount = bonus_reagents[r_id]
 			if(r_id == /datum/reagent/consumable/nutriment || r_id == /datum/reagent/consumable/nutriment/vitamin || r_id == /datum/reagent/consumable/nutriment/protein)

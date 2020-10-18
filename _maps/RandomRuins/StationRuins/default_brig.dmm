@@ -85,7 +85,7 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "at" = (
-/obj/effect/spawner/randomarcade,
+/obj/machinery/computer/arcade,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/security/prison)

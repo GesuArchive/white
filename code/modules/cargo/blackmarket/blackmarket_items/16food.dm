@@ -37,7 +37,7 @@
 /datum/blackmarket_item/food/pizza
 	name = "Пицца"
 	desc =  "Что может быть вкуснее кусочка пиццы?"
-	item = /obj/item/food/pizza
+	item = /obj/item/reagent_containers/food/snacks/pizza
 
 	stock_min = 1
 	stock_max = 20
@@ -46,15 +46,15 @@
 	availability_prob = 100
 
 /datum/blackmarket_item/food/pizza/spawn_item(loc)
-	var/pizza = pick(list(/obj/item/food/pizza/margherita,
-			/obj/item/food/pizza/meat,
-			/obj/item/food/pizza/mushroom,
-			/obj/item/food/pizza/vegetable,
-			/obj/item/food/pizza/donkpocket,
-			/obj/item/food/pizza/dank,
-			/obj/item/food/pizza/sassysage,
-			/obj/item/food/pizza/pineapple,
-			/obj/item/food/pizza/arnold))
+	var/pizza = pick(list(/obj/item/reagent_containers/food/snacks/pizza/margherita,
+			/obj/item/reagent_containers/food/snacks/pizza/meat,
+			/obj/item/reagent_containers/food/snacks/pizza/mushroom,
+			/obj/item/reagent_containers/food/snacks/pizza/vegetable,
+			/obj/item/reagent_containers/food/snacks/pizza/donkpocket,
+			/obj/item/reagent_containers/food/snacks/pizza/dank,
+			/obj/item/reagent_containers/food/snacks/pizza/sassysage,
+			/obj/item/reagent_containers/food/snacks/pizza/pineapple,
+			/obj/item/reagent_containers/food/snacks/pizza/arnold))
 	return new pizza(loc)
 
 /datum/blackmarket_item/food/snack

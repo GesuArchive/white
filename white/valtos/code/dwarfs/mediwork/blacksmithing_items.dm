@@ -547,7 +547,7 @@
 		var/obj/item/SC = new /obj/item/blacksmith/scepter(get_turf(src))
 		user.put_in_hands(SC)
 	if(assigned_count == user)
-		var/msg = stripped_input(user, "Что же мы скажем?", "Сообщение:")
+		var/msg = input(user, "Что же мы скажем?", "Сообщение:")
 		if(!msg)
 			return
 		user.whisper("[msg]")

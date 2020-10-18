@@ -263,7 +263,10 @@
 	icon_state = "plant-05";
 	pixel_y = 10
 	},
-/turf/open/floor/holofloor/carpet,
+/turf/open/floor/holofloor{
+	dir = 9;
+	icon_state = "wood"
+	},
 /area/holodeck/rec_center/lounge)
 "aW" = (
 /obj/effect/turf_decal/tile/green{
@@ -16710,7 +16713,7 @@
 /obj/docking_port/stationary{
 	dwidth = 1;
 	height = 4;
-	id = "pod_4_away";
+	id = "pod4_away";
 	name = "recovery ship";
 	width = 3
 	},
@@ -16720,7 +16723,7 @@
 /obj/docking_port/stationary{
 	dwidth = 1;
 	height = 4;
-	id = "pod_3_away";
+	id = "pod3_away";
 	name = "recovery ship";
 	width = 3
 	},
@@ -16904,7 +16907,7 @@
 	dir = 4;
 	dwidth = 1;
 	height = 4;
-	id = "pod_2_away";
+	id = "pod2_away";
 	name = "recovery ship";
 	width = 3
 	},
@@ -17522,7 +17525,10 @@
 "NV" = (
 /obj/structure/table/wood,
 /obj/item/instrument/saxophone,
-/turf/open/floor/holofloor/carpet,
+/turf/open/floor/holofloor{
+	dir = 9;
+	icon_state = "wood"
+	},
 /area/holodeck/rec_center/lounge)
 "NZ" = (
 /turf/open/floor/holofloor/dark,

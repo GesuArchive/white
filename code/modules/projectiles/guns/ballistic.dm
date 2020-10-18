@@ -100,10 +100,7 @@
 		return
 	if (!magazine)
 		magazine = new mag_type(src)
-	if(bolt_type == BOLT_TYPE_STANDARD)
-		chamber_round()
-	else
-		chamber_round(replace_new_round = TRUE)
+	chamber_round(replace_new_round = TRUE)
 	update_icon()
 
 /obj/item/gun/ballistic/vv_edit_var(vname, vval)

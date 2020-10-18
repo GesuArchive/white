@@ -21,6 +21,12 @@
 			handle_blood()
 
 		if(stat != DEAD)
+			var/bprv = handle_bodyparts()
+			if(bprv & BODYPART_LIFE_UPDATE_HEALTH)
+				update_stamina() //needs to go before updatehealth to remove stamcrit
+				updatehealth()
+
+		if(stat != DEAD)
 			handle_brain_damage()
 
 	else
@@ -29,11 +35,6 @@
 	if(stat == DEAD)
 		stop_sound_channel(CHANNEL_HEARTBEAT)
 		LoadComponent(/datum/component/rot/corpse)
-	else
-		var/bprv = handle_bodyparts()
-		if(bprv & BODYPART_LIFE_UPDATE_HEALTH)
-			update_stamina() //needs to go before updatehealth to remove stamcrit
-			updatehealth()
 
 	check_cremation()
 
@@ -365,7 +366,7 @@
 
 //todo generalize this and move hud out
 /mob/living/carbon/proc/handle_changeling()
-	if(mind && hud_used?.lingchemdisplay)
+	if(mind && hud_used && hud_used.lingchemdisplay)
 		var/datum/antagonist/changeling/changeling = mind.has_antag_datum(/datum/antagonist/changeling)
 		if(changeling)
 			changeling.regenerate()
@@ -376,7 +377,7 @@
 
 
 /mob/living/carbon/handle_mutations_and_radiation()
-	if(dna?.temporary_mutations.len)
+	if(dna && dna.temporary_mutations.len)
 		for(var/mut in dna.temporary_mutations)
 			if(dna.temporary_mutations[mut] < world.time)
 				if(mut == UI_CHANGED)
@@ -400,7 +401,7 @@
 					dna.temporary_mutations.Remove(mut)
 					continue
 		for(var/datum/mutation/human/HM in dna.mutations)
-			if(HM?.timed)
+			if(HM && HM.timed)
 				dna.remove_mutation(HM.type)
 
 	radiation -= min(radiation, RAD_LOSS_PER_TICK)

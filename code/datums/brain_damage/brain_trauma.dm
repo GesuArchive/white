@@ -16,7 +16,7 @@
 	var/resilience = TRAUMA_RESILIENCE_BASIC //how hard is this to cure?
 
 /datum/brain_trauma/Destroy()
-	if(brain?.traumas)
+	if(brain && brain.traumas)
 		brain.traumas -= src
 	if(owner)
 		on_lose()

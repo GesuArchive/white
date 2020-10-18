@@ -1,9 +1,9 @@
 /obj/item/gun/ballistic/automatic/pistol
 	name = "пистолет Макарова"
-	desc = "9mm пистолет. Есть возможность установки глушителя."
+	desc = "10mm пистолет. Есть возможность установки глушителя."
 	icon_state = "pistol"
 	w_class = WEIGHT_CLASS_SMALL
-	mag_type = /obj/item/ammo_box/magazine/m9mm
+	mag_type = /obj/item/ammo_box/magazine/m10mm
 	can_suppress = TRUE
 	burst_size = 1
 	fire_delay = 0

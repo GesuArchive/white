@@ -49,8 +49,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		inhand_icon_state = "cigon"
 		name = "lit [initial(name)]"
 		desc = "A [initial(name)]. This one is lit."
-		attack_verb_continuous =  string_list(list("зажигает","с невероятным усилием поджигает"))
-		attack_verb_simple =  string_list(list("зажигает","с невероятным усилием поджигает"))
+		attack_verb_continuous = list("зажигает","с невероятным усилием поджигает")
+		attack_verb_simple = list("зажигает","с невероятным усилием поджигает")
 		START_PROCESSING(SSobj, src)
 		update_icon()
 
@@ -64,8 +64,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		inhand_icon_state = "cigoff"
 		name = "burnt [initial(name)]"
 		desc = "A [initial(name)]. This one has seen better days."
-		attack_verb_continuous =  string_list(list("щёлкает"))
-		attack_verb_simple =  string_list(list("щёлкает"))
+		attack_verb_continuous = list("щёлкает")
+		attack_verb_simple = list("щёлкает")
 		STOP_PROCESSING(SSobj, src)
 
 /obj/item/match/extinguish()
@@ -188,8 +188,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 	lit = TRUE
 	name = "lit [name]"
-	attack_verb_continuous =  string_list(list("выжигает", "жарит"))
-	attack_verb_simple =  string_list(list("выжигает", "жарит"))
+	attack_verb_continuous = list("выжигает", "жарит")
+	attack_verb_simple = list("выжигает", "жарит")
 	hitsound = 'sound/items/welder.ogg'
 	damtype = BURN
 	force = 4
@@ -277,7 +277,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		qdel(src)
 		return
 	open_flame()
-	if((reagents?.total_volume) && (nextdragtime <= world.time))
+	if((reagents && reagents.total_volume) && (nextdragtime <= world.time))
 		nextdragtime = world.time + dragtime SECONDS
 		handle_reagents()
 
@@ -548,7 +548,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		STOP_PROCESSING(SSobj, src)
 		return
 	open_flame()
-	if(reagents?.total_volume)	//	check if it has any reagents at all
+	if(reagents && reagents.total_volume)	//	check if it has any reagents at all
 		handle_reagents()
 
 
@@ -680,8 +680,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		force = 5
 		damtype = BURN
 		hitsound = 'sound/items/welder.ogg'
-		attack_verb_continuous =  string_list(list("выжигает", "жарит"))
-		attack_verb_simple =  string_list(list("выжигает", "жарит"))
+		attack_verb_continuous = list("выжигает", "жарит")
+		attack_verb_simple = list("выжигает", "жарит")
 		START_PROCESSING(SSobj, src)
 	else
 		hitsound = "swing_hit"
@@ -996,7 +996,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		if(prob(5))//small chance for the vape to break and deal damage if it's emagged
 			playsound(get_turf(src), 'sound/effects/pop_expl.ogg', 50, FALSE)
 			M.apply_damage(20, BURN, BODY_ZONE_HEAD)
-			M.Paralyze(300)
+			M.Paralyze(300, 1, 0)
 			var/datum/effect_system/spark_spread/sp = new /datum/effect_system/spark_spread
 			sp.set_up(5, 1, src)
 			sp.start()
@@ -1004,5 +1004,5 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			qdel(src)
 			return
 
-	if(reagents?.total_volume)
+	if(reagents && reagents.total_volume)
 		hand_reagents()

@@ -328,9 +328,8 @@ GLOBAL_LIST_INIT(titanium_recipes, list ( \
 	throw_speed = 1
 	throw_range = 3
 	sheettype = "plastitanium"
-	custom_materials = list(/datum/material/alloy/plastitanium=MINERAL_MATERIAL_AMOUNT)
+	custom_materials = list(/datum/material/titanium=MINERAL_MATERIAL_AMOUNT, /datum/material/plasma=MINERAL_MATERIAL_AMOUNT)
 	point_value = 45
-	material_type = /datum/material/alloy/plastitanium
 	merge_type = /obj/item/stack/sheet/mineral/plastitanium
 	material_flags = MATERIAL_NO_EFFECTS
 	walltype = /turf/closed/wall/mineral/plastitanium
@@ -432,9 +431,7 @@ GLOBAL_LIST_INIT(adamantine_recipes, list(
 	inhand_icon_state = "sheet-abductor"
 	singular_name = "лист инопланетного сплава"
 	sheettype = "abductor"
-	custom_materials = list(/datum/material/alloy/alien=MINERAL_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/sheet/mineral/abductor
-	material_type = /datum/material/alloy/alien
 
 GLOBAL_LIST_INIT(abductor_recipes, list ( \
 	new/datum/stack_recipe("инопланетная постель", /obj/structure/bed/abductor, 2, one_per_turf = 1, on_floor = 1), \

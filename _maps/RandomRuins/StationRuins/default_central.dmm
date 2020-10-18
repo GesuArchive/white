@@ -1992,7 +1992,7 @@
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
 "fr" = (
-/obj/effect/spawner/randomarcade,
+/obj/machinery/computer/arcade,
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "fs" = (

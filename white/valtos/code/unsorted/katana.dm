@@ -198,8 +198,8 @@
 	name = "ножны катаны"
 	desc = "Для сдерживания мощи."
 
-	icon = 'white/valtos/icons/clothing/belts.dmi'
-	worn_icon = 'white/valtos/icons/clothing/mob/belt.dmi'
+	icon = 'white/valtos/icons/katana/belts.dmi'
+	worn_icon = 'white/valtos/icons/katana/belt.dmi'
 
 	icon_state = "security_katana_sheath"
 	inhand_icon_state = "security_katana_sheath"

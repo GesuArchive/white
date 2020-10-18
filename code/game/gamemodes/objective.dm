@@ -16,7 +16,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 		explanation_text = text
 
 /datum/objective/proc/get_owners() // Combine owner and team into a single list.
-	. = (team?.members) ? team.members.Copy() : list()
+	. = (team && team.members) ? team.members.Copy() : list()
 	if(owner)
 		. += owner
 
@@ -34,7 +34,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	possible_targets = list("Ничего", "Random") + sortNames(possible_targets)
 
 
-	if(target?.current)
+	if(target && target.current)
 		def_value = target.current
 
 	var/mob/new_target = input(admin,"Select target:", "Objective target", def_value) as null|anything in possible_targets
@@ -161,7 +161,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 
 /datum/objective/proc/give_special_equipment(special_equipment)
 	var/datum/mind/receiver = pick(get_owners())
-	if(receiver?.current)
+	if(receiver && receiver.current)
 		if(ishuman(receiver.current))
 			var/mob/living/carbon/human/H = receiver.current
 			var/list/slots = list("backpack" = ITEM_SLOT_BACKPACK)
@@ -184,7 +184,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 
 /datum/objective/assassinate/update_explanation_text()
 	..()
-	if(target?.current)
+	if(target && target.current)
 		explanation_text = "Убить [target.name], на должности [!target_role_type ? target.assigned_role : target.special_role]."
 	else
 		explanation_text = "Ничего."
@@ -271,7 +271,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 
 /datum/objective/debrain/update_explanation_text()
 	..()
-	if(target?.current)
+	if(target && target.current)
 		explanation_text = "Украсть мозг [target.name], на должности [!target_role_type ? target.assigned_role : target.special_role]."
 	else
 		explanation_text = "Ничего."
@@ -300,7 +300,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 
 /datum/objective/protect/update_explanation_text()
 	..()
-	if(target?.current)
+	if(target && target.current)
 		explanation_text = "Защитить [target.name], на должности [!target_role_type ? target.assigned_role : target.special_role]."
 	else
 		explanation_text = "Ничего."
@@ -343,7 +343,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 
 /datum/objective/jailbreak/detain/update_explanation_text()
 	..()
-	if(target?.current)
+	if(target && target.current)
 		explanation_text = "Убедиться в том, что [target.name], на должноости [!target_role_type ? target.assigned_role : target.special_role] будет доставлен в зоне заключения и в наручниках."
 	else
 		explanation_text = "Ничего."
@@ -353,8 +353,6 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	explanation_text = "Захватить шаттл, чтобы ни один преданный экипаж Нанотрейзена не был на нём в живых."
 	team_explanation_text = "Захватить шаттл, чтобы ни один преданный экипаж Нанотрейзена не был на нём в живых."
 	martyr_compatible = FALSE //Technically you won't get both anyway.
-	/// Overrides the hijack speed of any antagonist datum it is on ONLY, no other datums are impacted.
-	var/hijack_speed_override = 1
 
 /datum/objective/hijack/check_completion() // Requires all owners to escape.
 	if(SSshuttle.emergency.mode != SHUTTLE_ENDGAME)
@@ -365,33 +363,18 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 			return FALSE
 	return SSshuttle.emergency.is_hijacked()
 
-/datum/objective/elimination
-	name = "elimination"
-	explanation_text = "Slaughter all loyalist crew aboard the shuttle. You, and any likeminded individuals, must be the only remaining people on the shuttle."
-	team_explanation_text = "Slaughter all loyalist crew aboard the shuttle. You, and any likeminded individuals, must be the only remaining people on the shuttle. Leave no team member behind."
-	martyr_compatible = FALSE
-
-/datum/objective/elimination/check_completion()
-	if(SSshuttle.emergency.mode != SHUTTLE_ENDGAME)
-		return FALSE
-	var/list/datum/mind/owners = get_owners()
-	for(var/datum/mind/M in owners)
-		if(!considered_alive(M, enforce_human = FALSE) || !SSshuttle.emergency.shuttle_areas[get_area(M.current)])
-			return FALSE
-	return SSshuttle.emergency.elimination_hijack()
-
-/datum/objective/elimination/highlander
-	name="highlander elimination"
+/datum/objective/hijack/highlander
+	name="highlander hijack"
 	explanation_text = "Escape on the shuttle alone. Ensure that nobody else makes it out."
 
-/datum/objective/elimination/highlander/check_completion()
+/datum/objective/hijack/check_completion()
 	if(SSshuttle.emergency.mode != SHUTTLE_ENDGAME)
 		return FALSE
 	var/list/datum/mind/owners = get_owners()
 	for(var/datum/mind/M in owners)
 		if(!considered_alive(M, enforce_human = FALSE) || !SSshuttle.emergency.shuttle_areas[get_area(M.current)])
 			return FALSE
-	return SSshuttle.emergency.elimination_hijack(filter_by_human = FALSE, solo_hijack = TRUE)
+	return SSshuttle.emergency.is_hijacked(filter_by_human = FALSE, solo_hijack = TRUE)
 
 /datum/objective/block
 	name = "no organics on shuttle"
@@ -462,7 +445,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	update_explanation_text()
 
 /datum/objective/escape/escape_with_identity/update_explanation_text()
-	if(target?.current)
+	if(target && target.current)
 		target_real_name = target.current.real_name
 		explanation_text = "Сбежать на шаттле или спасательной капсуле под личностью [target_real_name], на должности [target.assigned_role]"
 		var/mob/living/carbon/human/H
@@ -835,13 +818,13 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 	return target
 
 /datum/objective/destroy/check_completion()
-	if(target?.current)
+	if(target && target.current)
 		return target.current.stat == DEAD || target.current.z > 6 || !target.current.ckey //Borgs/brains/AIs count as dead for traitor objectives.
 	return TRUE
 
 /datum/objective/destroy/update_explanation_text()
 	..()
-	if(target?.current)
+	if(target && target.current)
 		explanation_text = "Destroy [target.name], the experimental AI."
 	else
 		explanation_text = "Ничего."
@@ -1070,7 +1053,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 			if(ishuman(changeling.current))
 				var/mob/living/carbon/human/H = changeling.current
 				var/turf/cloc = get_turf(changeling.current)
-				if(cloc?.onCentCom() && (changeling.current.stat != DEAD)) //Living changeling on centcom....
+				if(cloc && cloc.onCentCom() && (changeling.current.stat != DEAD)) //Living changeling on centcom....
 					for(var/name in check_names) //Is he (disguised as) one of the staff?
 						if(H.dna.real_name == name)
 							check_names -= name //This staff member is accounted for, remove them, so the team don't succeed by escape as 7 of the same engineer

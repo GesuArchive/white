@@ -136,7 +136,7 @@
 
 /datum/objective/assassinate/obsessed/update_explanation_text()
 	..()
-	if(target?.current)
+	if(target && target.current)
 		explanation_text = "Убить [target.name], на должности [!target_role_type ? target.assigned_role : target.special_role]."
 	else
 		message_admins("WARNING! [ADMIN_LOOKUPFLW(owner)] obsessed objectives forged without an obsession!")
@@ -148,7 +148,7 @@
 /datum/objective/assassinate/jealous/update_explanation_text()
 	..()
 	old = find_coworker(target)
-	if(target?.current && old)
+	if(target && target.current && old)
 		explanation_text = "Убить старого коллегу моей цели - [old]."
 	else
 		explanation_text = "Ничего."
@@ -210,7 +210,7 @@
 	if(timer == initial(timer))//just so admins can mess with it
 		timer += pick(-600, 0)
 	var/datum/antagonist/obsessed/creeper = owner.has_antag_datum(/datum/antagonist/obsessed)
-	if(target?.current && creeper)
+	if(target && target.current && creeper)
 		creeper.trauma.attachedobsessedobj = src
 		explanation_text = "Находиться возле [target.name] [DisplayTimeText(timer)]ы пока цель жива."
 	else
@@ -229,7 +229,7 @@
 	if(!hugs_needed)//just so admins can mess with it
 		hugs_needed = rand(4,6)
 	var/datum/antagonist/obsessed/creeper = owner.has_antag_datum(/datum/antagonist/obsessed)
-	if(target?.current && creeper)
+	if(target && target.current && creeper)
 		explanation_text = "Обнять [target.name] [hugs_needed] раз пока цель жива."
 	else
 		explanation_text = "Ничего."
@@ -245,7 +245,7 @@
 
 /datum/objective/polaroid/update_explanation_text()
 	..()
-	if(target?.current)
+	if(target && target.current)
 		explanation_text = "Сделать фото с [target.name] пока цель жива."
 	else
 		explanation_text = "Ничего."
