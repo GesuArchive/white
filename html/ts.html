@@ -39,6 +39,11 @@
 				write_cons();
 			}
 
+			function set_cons_now(msg) {
+				i = msg.length
+				document.getElementById("pp").innerHTML = msg.replace(/ /g, "&nbsp;");
+			}
+
 			function write_cons() {
 				if (i < cm.length) {
 					document.getElementById("pp").innerHTML += cm.charAt(i);

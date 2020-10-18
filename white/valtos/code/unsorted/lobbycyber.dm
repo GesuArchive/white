@@ -3,6 +3,8 @@
 	C << browse(SStitle.current_lobby_screen, 	 	 "file=ts.png;display=0")
 	C << browse(file('icons/blank_console.png'),     "file=blank_console.png;display=0")
 	C << browse(file('html/ts.html'),     			 "window=lobbyprotoc")
+	spawn(50)
+		C << output(SStitle.ctt, 					 "lobbyprotoc:set_cons_now")
 
 /datum/lobbyscreen/proc/hide_titlescreen(client/C)
 	if(C?.mob)
@@ -16,7 +18,7 @@
 	C << browse(file('icons/blank_console.png'),     "file=blank_console.png;display=0")
 	C << browse(file('html/ts.html'),     			 "window=lobbyprotoc")
 	spawn(50)
-		C << output(SStitle.ctt, 					 "lobbyprotoc:set_cons")
+		C << output(SStitle.ctt, 					 "lobbyprotoc:set_cons_now")
 
 /client/proc/send_to_lobby_console(msg)
 	src << output(msg, "lobbyprotoc:set_cons")
@@ -30,7 +32,7 @@
 /client/verb/lobby_ready()
 	set hidden = TRUE
 
-	src << output(SStitle.ctt, 					 	 "lobbyprotoc:set_cons")
+	src << output(SStitle.ctt, 					 	 "lobbyprotoc:set_cons_now")
 
 /client/proc/reload_lobby()
 	lobbyscreen_image.reload_titlescreen(src)
