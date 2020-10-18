@@ -5,6 +5,13 @@
 	set name = "Say"
 	set category = "IC"
 
+	if(GLOB.say_disabled)	//This is here to try to identify lag problems
+			to_chat(usr, "<span class='danger'>Не могу говорить.</span>")
+		return
+	if(message)
+		say(message)
+		return
+
 	var/list/speech_bubble_recipients = list()
 	var/bubble_type = "default"
 
@@ -15,14 +22,6 @@
 	var/image/I = image('icons/mob/talk.dmi', src, "[bubble_type]0", FLY_LAYER)
 
 	if(!stat || stat == 1)
-		/*
-		var/list/listening = get_hearers_in_view(9, src)
-		for(var/mob/M in listening)
-			if(!M.client)
-				continue
-			var/client/C = M.client
-			speech_bubble_recipients.Add(C)
-		*/
 		speech_bubble_recipients = GLOB.clients
 		I.alpha = 0
 		animate(I, time = 7, loop = -1, easing = SINE_EASING, alpha = 255)
@@ -88,8 +87,6 @@
 	if(jb)
 		to_chat(src, "<span class='danger'>Мне нельзя говорить.</span>")
 		return
-
-
 
 	if (src.client)
 		if(src.client.prefs.muted & MUTE_DEADCHAT)
