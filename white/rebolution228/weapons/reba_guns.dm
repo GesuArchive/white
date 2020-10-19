@@ -12,9 +12,12 @@
 	rack_sound = 'white/rebolution228/weapons/sounds/spas_pump.ogg'
 	load_sound = 'white/rebolution228/weapons/sounds/spas_insert.ogg'
 	w_class = WEIGHT_CLASS_BULKY
-	mag_type = /obj/item/ammo_box/magazine/internal/shot/com
+	mag_type = /obj/item/ammo_box/magazine/internal/shot/com/eight
 	weapon_weight = WEAPON_HEAVY
 	pb_knockback = 1
 	fire_delay = 5
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
+
+/obj/item/ammo_box/magazine/internal/shot/com/eight
+	max_ammo = 8
