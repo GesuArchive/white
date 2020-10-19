@@ -86,7 +86,7 @@
 
 /obj/item/cautery/advanced/examine()
 	. = ..()
-	. += " It's set to [tool_behaviour == TOOL_CAUTERY ? "mending" : "drilling"] mode."
+	. += "<hr>It's set to [tool_behaviour == TOOL_CAUTERY ? "mending" : "drilling"] mode."
 
 /obj/item/surgicaldrill
 	name = "хирургическая дрель"
@@ -317,7 +317,7 @@
 
 /obj/item/scalpel/advanced/examine()
 	. = ..()
-	. += " Переключатель стоит на [tool_behaviour == TOOL_SCALPEL ? "скальпеле" : "пиле"]."
+	. += "<hr>Переключатель стоит на [tool_behaviour == TOOL_SCALPEL ? "скальпеле" : "пиле"]."
 
 /obj/item/retractor/advanced
 	name = "механические зажимы"
@@ -339,7 +339,7 @@
 
 /obj/item/retractor/advanced/examine()
 	. = ..()
-	. += " Находится в положении [tool_behaviour == TOOL_RETRACTOR ? "расширителя" : "зажима"]."
+	. += "<hr>Находится в положении [tool_behaviour == TOOL_RETRACTOR ? "расширителя" : "зажима"]."
 
 /obj/item/shears
 	name = "ножницы для ампутации"

@@ -460,5 +460,5 @@
 /obj/item/disk/plantgene/examine(mob/user)
 	. = ..()
 	if(gene && (istype(gene, /datum/plant_gene/core/potency)))
-		. += "<span class='notice'>Percent is relative to potency, not maximum volume of the plant.</span>"
-	. += "The write-protect tab is set to [src.read_only ? "protected" : "unprotected"]."
+		. += "<hr><span class='notice'>Percent is relative to potency, not maximum volume of the plant.</span>"
+	. += "<hr>The write-protect tab is set to [src.read_only ? "protected" : "unprotected"]."

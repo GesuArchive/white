@@ -39,12 +39,12 @@
 	. = ..()
 	if(note)
 		if(!in_range(user, src))
-			. += "There's a [note.name] attached to it. You can't read it from here."
+			. += "<hr>There's a [note.name] attached to it. You can't read it from here."
 		else
-			. += "There's a [note.name] attached to it..."
+			. += "<hr>There's a [note.name] attached to it..."
 			. += note.examine(user)
 	if(sticker)
-		. += "There's a barcode attached to the side."
+		. += "<hr>There's a barcode attached to the side."
 
 /obj/structure/big_delivery/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/dest_tagger))
@@ -219,12 +219,12 @@
 	. = ..()
 	if(note)
 		if(!in_range(user, src))
-			. += "There's a [note.name] attached to it. You can't read it from here."
+			. += "<hr>There's a [note.name] attached to it. You can't read it from here."
 		else
-			. += "There's a [note.name] attached to it..."
+			. += "<hr>There's a [note.name] attached to it..."
 			. += note.examine(user)
 	if(sticker)
-		. += "There's a barcode attached to the side."
+		. += "<hr>There's a barcode attached to the side."
 
 /obj/item/small_delivery/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/dest_tagger))
@@ -398,8 +398,8 @@
 
 /obj/item/sales_tagger/examine(mob/user)
 	. = ..()
-	. += "[src] has [paper_count]/[max_paper_count] available barcodes. Refill with paper."
-	. += "Profit split on sale is currently set to [percent_cut]%."
+	. += "<hr>[src] has [paper_count]/[max_paper_count] available barcodes. Refill with paper."
+	. += "\nProfit split on sale is currently set to [percent_cut]%."
 
 /obj/item/sales_tagger/attackby(obj/item/I, mob/living/user, params)
 	. = ..()

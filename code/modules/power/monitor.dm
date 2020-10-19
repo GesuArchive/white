@@ -29,7 +29,7 @@
 
 /obj/machinery/computer/monitor/secret/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Операционная система кажется устаревшей... Походу она не совместима с новейшими системами удалённого контроля NTOS.</span>"
+	. += "<hr><span class='notice'>Операционная система кажется устаревшей... Походу она не совместима с новейшими системами удалённого контроля NTOS.</span>"
 
 /obj/machinery/computer/monitor/Initialize()
 	. = ..()

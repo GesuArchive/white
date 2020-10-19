@@ -40,7 +40,7 @@
 
 /obj/item/gun/syringe/examine(mob/user)
 	. = ..()
-	. += "Can hold [max_syringes] syringe\s. Has [syringes.len] syringe\s remaining."
+	. += "<hr>Can hold [max_syringes] syringe\s. Has [syringes.len] syringe\s remaining."
 
 /obj/item/gun/syringe/attack_self(mob/living/user)
 	if(!syringes.len)

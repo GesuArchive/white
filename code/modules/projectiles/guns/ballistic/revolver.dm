@@ -70,9 +70,9 @@
 /obj/item/gun/ballistic/revolver/examine(mob/user)
 	. = ..()
 	var/live_ammo = get_ammo(FALSE, FALSE)
-	. += "[live_ammo ? live_ammo : "Нет"] живых патронов."
+	. += "<hr>[live_ammo ? live_ammo : "Нет"] живых патронов."
 	if (current_skin)
-		. += "Его можно покрутить используя <b>Alt+клик</b>"
+		. += "\nЕго можно покрутить используя <b>Alt+клик</b>"
 
 /obj/item/gun/ballistic/revolver/detective
 	name = "\improper специальный кольт детектива"

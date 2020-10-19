@@ -26,7 +26,7 @@
 /obj/machinery/power/atmos_synthesizer/examine(mob/user)
 	. = ..()
 	if(wrong_mix)
-		. += "<span class=notice>ОШИБКА: Отсутствуют необходимые газы или пропорции не соотвествуют нормам.</span>"
+		. += "<hr><span class=notice>ОШИБКА: Отсутствуют необходимые газы или пропорции не соотвествуют нормам.</span>"
 
 /obj/machinery/power/atmos_synthesizer/Initialize()
 	. = ..()

@@ -117,19 +117,20 @@
 
 /obj/item/bodypart/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(brute_dam > DAMAGE_PRECISION)
 		. += "<span class='warning'>Конечность имеет [brute_dam > 30 ? "серьёзные" : "незначительные"] травмы.</span>"
 	if(burn_dam > DAMAGE_PRECISION)
 		. += "<span class='warning'>Конечность имеет [burn_dam > 30 ? "серьёзные" : "незначительные"] ожоги.</span>"
 
 	if(locate(/datum/wound/blunt) in wounds)
-		. += "<span class='warning'>The bones in this limb appear badly cracked.</span>"
+		. += "\n<span class='warning'>The bones in this limb appear badly cracked.</span>"
 	if(locate(/datum/wound/slash) in wounds)
-		. += "<span class='warning'>The flesh on this limb appears badly lacerated.</span>"
+		. += "\n<span class='warning'>The flesh on this limb appears badly lacerated.</span>"
 	if(locate(/datum/wound/pierce) in wounds)
-		. += "<span class='warning'>The flesh on this limb appears badly perforated.</span>"
+		. += "\n<span class='warning'>The flesh on this limb appears badly perforated.</span>"
 	if(locate(/datum/wound/burn) in wounds)
-		. += "<span class='warning'>The flesh on this limb appears badly cooked.</span>"
+		. += "\n<span class='warning'>The flesh on this limb appears badly cooked.</span>"
 
 /obj/item/bodypart/blob_act()
 	take_damage(max_damage)

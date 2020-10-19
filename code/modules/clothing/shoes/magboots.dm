@@ -42,7 +42,7 @@
 
 /obj/item/clothing/shoes/magboots/examine(mob/user)
 	. = ..()
-	. += "Они [magpulse ? "включены" : "выключены"]."
+	. += "<hr>Они [magpulse ? "включены" : "выключены"]."
 
 
 /obj/item/clothing/shoes/magboots/advance

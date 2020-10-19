@@ -292,7 +292,7 @@
 
 /mob/living/silicon/pai/examine(mob/user)
 	. = ..()
-	. += "A personal AI in holochassis mode. Its master ID string seems to be [master]."
+	. += "<hr>A personal AI in holochassis mode. Its master ID string seems to be [master]."
 
 /mob/living/silicon/pai/Life()
 	. = ..()

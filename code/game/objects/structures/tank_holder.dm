@@ -35,7 +35,7 @@
 
 /obj/structure/tank_holder/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>It is held together by some <b>screws</b>.</span>"
+	. += "<hr><span class='notice'>It is held together by some <b>screws</b>.</span>"
 
 /obj/structure/tank_holder/attackby(obj/item/W, mob/user, params)
 	if(user.a_intent == INTENT_HARM)

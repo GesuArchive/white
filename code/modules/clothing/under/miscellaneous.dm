@@ -99,7 +99,7 @@
 
 /obj/item/clothing/under/plasmaman/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>There are [extinguishes_left] extinguisher charges left in this suit.</span>"
+	. += "<hr><span class='notice'>There are [extinguishes_left] extinguisher charges left in this suit.</span>"
 
 /obj/item/clothing/under/plasmaman/proc/Extinguish(mob/living/carbon/human/H)
 	if(!istype(H))

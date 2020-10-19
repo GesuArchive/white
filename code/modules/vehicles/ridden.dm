@@ -17,7 +17,7 @@
 	. = ..()
 	if(key_type)
 		if(!inserted_key)
-			. += "<span class='notice'>Put a key inside it by clicking it with the key.</span>"
+			. += "<hr><span class='notice'>Put a key inside it by clicking it with the key.</span>"
 		else
 			. += "<hr><span class='notice'>Alt-click [src] to remove the key.</span>"
 

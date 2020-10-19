@@ -15,7 +15,7 @@
 	var/HC = 0
 	for(var/obj/item/bodypart/head/H in contents)
 		HC++
-	. += "<span class='notice'>Ружье поглотило [HC] голов.\nИспользуйте монтировку для экстракции голов.</span>"
+	. += "<hr><span class='notice'>Ружье поглотило [HC] голов.\nИспользуйте монтировку для экстракции голов.</span>"
 
 /obj/item/gun/ballistic/rifle/boltaction/ptr/attackby(obj/item/W, mob/user, params)
 	. = ..()

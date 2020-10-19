@@ -51,11 +51,11 @@
 /obj/structure/disposalpipe/sorting/mail/examine(mob/user)
 	. = ..()
 	if(sortTypes.len)
-		. += "It is tagged with the following tags:"
+		. += "<hr>It is tagged with the following tags:"
 		for(var/t in sortTypes)
-			. += "\t[GLOB.TAGGERLOCATIONS[t]]."
+			. += "\n\t[GLOB.TAGGERLOCATIONS[t]]."
 	else
-		. += "It has no sorting tags set."
+		. += "<hr>It has no sorting tags set."
 
 /obj/structure/disposalpipe/sorting/mail/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/dest_tagger))

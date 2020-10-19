@@ -325,7 +325,7 @@
 
 /obj/structure/spacevine/examine(mob/user)
 	. = ..()
-	var/text = "This one is a"
+	var/text = "<hr>This one is a"
 	if(mutations.len)
 		for(var/A in mutations)
 			var/datum/spacevine_mutation/SM = A

@@ -189,6 +189,7 @@
 
 /obj/machinery/power/rad_collector/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(active)
 		if(!bitcoinmining)
 			// stored_energy is converted directly to watts every SSmachines.wait * 0.1 seconds.

@@ -96,12 +96,12 @@
 	. = ..()
 	if(open)
 		if(cell)
-			. += "<span class='notice'>It has \a [cell] installed.</span>"
-			. += "<span class='info'>You can use a <b>crowbar</b> to remove it.</span>"
+			. += "<hr><span class='notice'>It has \a [cell] installed.</span>"
+			. += "<hr><span class='info'>You can use a <b>crowbar</b> to remove it.</span>"
 		else
-			. += "<span class='notice'>It has an empty compartment where a <b>power cell</b> can be installed.</span>"
+			. += "<hr><span class='notice'>It has an empty compartment where a <b>power cell</b> can be installed.</span>"
 	if(load) //observer check is so we don't show the name of the ghost that's sitting on it to prevent metagaming who's ded.
-		. += "<span class='notice'>\A [isobserver(load) ? "ghostly figure" : load] is on its load platform.</span>"
+		. += "<hr><span class='notice'>\A [isobserver(load) ? "ghostly figure" : load] is on its load platform.</span>"
 
 
 /mob/living/simple_animal/bot/mulebot/Destroy()

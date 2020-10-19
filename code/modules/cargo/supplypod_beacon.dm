@@ -47,7 +47,7 @@
 /obj/item/supplypod_beacon/examine(user)
 	. = ..()
 	if(!express_console)
-		. += "<span class='notice'>[src] в настоящее время не подключён к экспресс консоли.</span>"
+		. += "<hr><span class='notice'>[src] в настоящее время не подключён к экспресс консоли.</span>"
 	else
 		. += "<hr><span class='notice'>Альт + Клик чтобы чтобы прекратить подключение с экспресс консолью.</span>"
 

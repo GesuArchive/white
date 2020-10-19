@@ -536,12 +536,12 @@
 /obj/structure/carp_rift/examine(mob/user)
 	. = ..()
 	if(time_charged < max_charge)
-		. += "<span class='notice'>It seems to be [(time_charged / max_charge) * 100]% charged.</span>"
+		. += "<hr><span class='notice'>It seems to be [(time_charged / max_charge) * 100]% charged.</span>"
 	else
-		. += "<span class='warning'>This one is fully charged, and is capable of bringing many carp to the station's location.</span>"
+		. += "<hr><span class='warning'>This one is fully charged, and is capable of bringing many carp to the station's location.</span>"
 
 	if(isobserver(user))
-		. += "<span class='notice'>It has [carp_stored] carp available to spawn as.</span>"
+		. += "<hr><span class='notice'>It has [carp_stored] carp available to spawn as.</span>"
 
 /obj/structure/carp_rift/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
 	playsound(src, 'sound/magic/lightningshock.ogg', 50, TRUE)

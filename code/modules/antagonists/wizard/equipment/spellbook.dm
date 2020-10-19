@@ -614,9 +614,9 @@
 /obj/item/spellbook/examine(mob/user)
 	. = ..()
 	if(owner)
-		. += {"There is a small signature on the front cover: "[owner]"."}
+		. += {"<hr>There is a small signature on the front cover: "[owner]"."}
 	else
-		. += "It appears to have no author."
+		. += "<hr>It appears to have no author."
 
 /obj/item/spellbook/Initialize()
 	. = ..()

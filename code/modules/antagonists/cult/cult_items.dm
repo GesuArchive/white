@@ -124,9 +124,9 @@
 /obj/item/cult_bastard/examine(mob/user)
 	. = ..()
 	if(contents.len)
-		. += "<b>There are [contents.len] souls trapped within the sword's core.</b>"
+		. += "<hr><b>There are [contents.len] souls trapped within the sword's core.</b>"
 	else
-		. += "The sword appears to be quite lifeless."
+		. += "<hr>The sword appears to be quite lifeless."
 
 /obj/item/cult_bastard/can_be_pulled(user)
 	return FALSE
@@ -532,9 +532,9 @@
 /obj/item/cult_shift/examine(mob/user)
 	. = ..()
 	if(uses)
-		. += "<span class='cult'>It has [uses] use\s remaining.</span>"
+		. += "<hr><span class='cult'>It has [uses] use\s remaining.</span>"
 	else
-		. += "<span class='cult'>It seems drained.</span>"
+		. += "<hr><span class='cult'>It seems drained.</span>"
 
 /obj/item/cult_shift/proc/handle_teleport_grab(turf/T, mob/user)
 	var/mob/living/carbon/C = user

@@ -71,6 +71,7 @@
 
 /obj/structure/light_construct/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	switch(stage)
 		if(1)
 			. += "It's an empty frame."
@@ -80,11 +81,11 @@
 			. += "The casing is closed."
 	if(cell_connectors)
 		if(cell)
-			. += "You see [cell] inside the casing."
+			. += "\nYou see [cell] inside the casing."
 		else
-			. += "The casing has no power cell for backup power."
+			. += "\nThe casing has no power cell for backup power."
 	else
-		. += "<span class='danger'>This casing doesn't support power cells for backup power.</span>"
+		. += "\n<span class='danger'>This casing doesn't support power cells for backup power.</span>"
 
 /obj/structure/light_construct/attack_hand(mob/user)
 	if(cell)

@@ -31,12 +31,12 @@
 /obj/machinery/computer/emergency_shuttle/examine(mob/user)
 	. = ..()
 	if(hijack_announce)
-		. += "<span class='danger'>Security systems present on console. Any unauthorized tampering will result in an emergency announcement.</span>"
+		. += "<hr><span class='danger'>Security systems present on console. Any unauthorized tampering will result in an emergency announcement.</span>"
 	if(user?.mind?.get_hijack_speed())
-		. += "<span class='danger'>Alt click on this to attempt to hijack the shuttle. This will take multiple tries (current: stage [SSshuttle.emergency.hijack_status]/[HIJACKED]).</span>"
-		. += "<span class='notice'>It will take you [(hijack_stage_time * user.mind.get_hijack_speed()) / 10] seconds to reprogram a stage of the shuttle's navigational firmware, and the console will undergo automated timed lockout for [hijack_stage_cooldown/10] seconds after each stage.</span>"
+		. += "<hr><span class='danger'>Alt click on this to attempt to hijack the shuttle. This will take multiple tries (current: stage [SSshuttle.emergency.hijack_status]/[HIJACKED]).</span>"
+		. += "\n<span class='notice'>It will take you [(hijack_stage_time * user.mind.get_hijack_speed()) / 10] seconds to reprogram a stage of the shuttle's navigational firmware, and the console will undergo automated timed lockout for [hijack_stage_cooldown/10] seconds after each stage.</span>"
 		if(hijack_announce)
-			. += "<span class='warning'>It is probably best to fortify your position as to be uninterrupted during the attempt, given the automatic announcements..</span>"
+			. += "\n<span class='warning'>It is probably best to fortify your position as to be uninterrupted during the attempt, given the automatic announcements..</span>"
 
 /obj/machinery/computer/emergency_shuttle/attackby(obj/item/I, mob/user,params)
 	if(istype(I, /obj/item/card/id))

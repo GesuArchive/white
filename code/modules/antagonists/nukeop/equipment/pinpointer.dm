@@ -4,6 +4,7 @@
 
 /obj/item/pinpointer/nuke/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	var/msg = "Its tracking indicator reads "
 	switch(mode)
 		if(TRACK_NUKE_DISK)
@@ -17,7 +18,7 @@
 	. += msg
 	for(var/obj/machinery/nuclearbomb/bomb in GLOB.machines)
 		if(bomb.timing)
-			. += "Extreme danger. Arming signal detected. Time remaining: [bomb.get_time_left()]."
+			. += "\nExtreme danger. Arming signal detected. Time remaining: [bomb.get_time_left()]."
 
 /obj/item/pinpointer/nuke/process()
 	..()

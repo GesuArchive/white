@@ -11,8 +11,8 @@
 
 /obj/item/assembly/health/examine(mob/user)
 	. = ..()
-	. += "Use it in hand to turn it off/on and Alt-click to swap between \"detect death\" mode and \"detect critical state\" mode."
-	. += "[src.scanning ? "The sensor is on and you can see [health_scan] displayed on the screen" : "The sensor is off"]."
+	. += "<hr>Use it in hand to turn it off/on and Alt-click to swap between \"detect death\" mode and \"detect critical state\" mode."
+	. += "\n[src.scanning ? "The sensor is on and you can see [health_scan] displayed on the screen" : "The sensor is off"]."
 
 /obj/item/assembly/health/activate()
 	if(!..())

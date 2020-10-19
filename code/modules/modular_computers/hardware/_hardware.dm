@@ -78,11 +78,11 @@
 /obj/item/computer_hardware/examine(mob/user)
 	. = ..()
 	if(damage > damage_failure)
-		. += "<span class='danger'>It seems to be severely damaged!</span>"
+		. += "<hr><span class='danger'>It seems to be severely damaged!</span>"
 	else if(damage > damage_malfunction)
-		. += "<span class='warning'>It seems to be damaged!</span>"
+		. += "<hr><span class='warning'>It seems to be damaged!</span>"
 	else if(damage)
-		. += "<span class='notice'>It seems to be slightly damaged.</span>"
+		. += "<hr><span class='notice'>It seems to be slightly damaged.</span>"
 
 // Component-side compatibility check.
 /obj/item/computer_hardware/proc/can_install(obj/item/modular_computer/M, mob/living/user = null)
