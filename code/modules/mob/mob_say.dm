@@ -8,9 +8,6 @@
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='danger'>Не могу говорить.</span>")
 		return
-	if(message)
-		say(message)
-		return
 
 	var/list/speech_bubble_recipients = list()
 	var/bubble_type = "default"
@@ -28,9 +25,7 @@
 		animate(time = 7, alpha = 80)
 		flick_overlay(I, speech_bubble_recipients, -1)
 
-	var/msg = input("", "Say") as null|text
-
-	if(msg)
+	if(message)
 		if(speech_bubble_recipients.len)
 			remove_images_from_clients(I, speech_bubble_recipients)
 		if(GLOB.say_disabled)	//This is here to try to identify lag problems
