@@ -562,7 +562,7 @@
 
 /obj/item/melee/blood_magic/construction/examine(mob/user)
 	. = ..()
-	. += {"<u>A sinister spell used to convert:</u>\n
+	. += {"<hr><u>A sinister spell used to convert:</u>\n
 	Plasteel into runed metal\n
 	[METAL_TO_CONSTRUCT_SHELL_CONVERSION] metal into a construct shell\n
 	Living cyborgs into constructs after a delay\n
@@ -695,7 +695,7 @@
 
 /obj/item/melee/blood_magic/manipulator/examine(mob/user)
 	. = ..()
-	. += "Blood spear, blood bolt barrage, and blood beam cost [BLOOD_SPEAR_COST], [BLOOD_BARRAGE_COST], and [BLOOD_BEAM_COST] charges respectively."
+	. += "<hr>Blood spear, blood bolt barrage, and blood beam cost [BLOOD_SPEAR_COST], [BLOOD_BARRAGE_COST], and [BLOOD_BEAM_COST] charges respectively."
 
 /obj/item/melee/blood_magic/manipulator/afterattack(atom/target, mob/living/carbon/human/user, proximity)
 	if(proximity)

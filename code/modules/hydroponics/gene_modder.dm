@@ -23,6 +23,7 @@
 	var/max_endurance = 10 // IMPT: ALSO AFFECTS LIFESPAN
 	var/min_wchance = 67
 	var/min_wrate = 10
+	var/max_instability = 10
 
 /obj/machinery/plantgenes/RefreshParts() // Comments represent the max you can set per tier, respectively. seeds.dm [219] clamps these for us but we don't want to mislead the viewer.
 	for(var/obj/item/stock_parts/manipulator/M in component_parts)
@@ -32,6 +33,7 @@
 			max_potency = initial(max_potency) + (M.rating**3) // 53,59,77,95 	 Clamps at 100
 
 		max_yield = initial(max_yield) + (M.rating*2) // 4,6,8,10 	Clamps at 10
+		max_instability = initial(max_instability) + (M.rating*20) // 50, 70, 90
 
 	for(var/obj/item/stock_parts/scanning_module/SM in component_parts)
 		if(SM.rating > 3) //If you create t5 parts I'm a step ahead mwahahaha!
@@ -162,6 +164,10 @@
 						if(gene.value < min_wchance)
 							dat += "<br><br>This device's extraction capabilities are currently limited to <span class='highlight'>[min_wchance]</span> weed chance. "
 							dat += "Target gene will be degraded to <span class='highlight'>[min_wchance]</span> weed chance on extraction."
+					else if(istype(target, /datum/plant_gene/core/instability))
+						if(gene.value > max_instability)
+							dat += "<br><br>This device's extraction capabilities are currently limited to <span class='highlight'>[max_instability]</span> instability. "
+							dat += "Target gene will be degraded to <span class='highlight'>[max_instability]</span> instability on extraction."
 
 			if("replace")
 				dat += "<span class='highlight'>[target.get_name()]</span> gene with <span class='highlight'>[disk.gene.get_name()]</span>?<br>"
@@ -326,6 +332,8 @@
 								gene.value = max(gene.value, min_wrate)
 							else if(istype(G, /datum/plant_gene/core/weed_chance))
 								gene.value = max(gene.value, min_wchance)
+							else if(istype(G, /datum/plant_gene/core/instability))
+								gene.value = max(gene.value, max_instability)
 						disk.update_name()
 						qdel(seed)
 						seed = null
@@ -396,7 +404,8 @@
 			/datum/plant_gene/core/endurance,
 			/datum/plant_gene/core/lifespan,
 			/datum/plant_gene/core/weed_rate,
-			/datum/plant_gene/core/weed_chance
+			/datum/plant_gene/core/weed_chance,
+			/datum/plant_gene/core/instability
 			)
 		for(var/a in gene_paths)
 			core_genes += seed.get_gene(a)
@@ -451,5 +460,5 @@
 /obj/item/disk/plantgene/examine(mob/user)
 	. = ..()
 	if(gene && (istype(gene, /datum/plant_gene/core/potency)))
-		. += "<span class='notice'>Percent is relative to potency, not maximum volume of the plant.</span>"
-	. += "The write-protect tab is set to [src.read_only ? "protected" : "unprotected"]."
+		. += "<hr><span class='notice'>Percent is relative to potency, not maximum volume of the plant.</span>"
+	. += "<hr>The write-protect tab is set to [src.read_only ? "protected" : "unprotected"]."

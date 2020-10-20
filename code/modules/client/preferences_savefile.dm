@@ -5,7 +5,7 @@
 //	You do not need to raise this if you are adding new values that have sane defaults.
 //	Only raise this value when changing the meaning/format/name/layout of an existing value
 //	where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX	41
+#define SAVEFILE_VERSION_MAX	43
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -94,6 +94,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 		if (!found_block_movement)
 			LAZYADD(key_bindings["Ctrl"], "block_movement")
+
+	if(current_version < 43)
+		key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key)
+		parent.set_macros()
+		save_preferences()
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
 	return
@@ -208,6 +213,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["fullscreen"], fullscreen)
 	READ_FILE(S["btprefsnew"], btprefsnew)
 	READ_FILE(S["btvolume_max"], btvolume_max)
+	READ_FILE(S["disabled_autocap"], disabled_autocap)
 
 	READ_FILE(S["purchased_gear"], purchased_gear)
 	READ_FILE(S["equipped_gear"], equipped_gear)
@@ -254,6 +260,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	ambientocclusion	= sanitize_integer(ambientocclusion, FALSE, TRUE, initial(ambientocclusion))
 	auto_fit_viewport	= sanitize_integer(auto_fit_viewport, FALSE, TRUE, initial(auto_fit_viewport))
 	fullscreen		= sanitize_integer(fullscreen, 0, 1, initial(fullscreen))
+	disabled_autocap	= sanitize_integer(disabled_autocap, 0, 1, initial(disabled_autocap))
 	widescreenpref  = sanitize_integer(widescreenpref, FALSE, TRUE, initial(widescreenpref))
 	pixel_size		= sanitize_integer(pixel_size, PIXEL_SCALING_AUTO, PIXEL_SCALING_3X, initial(pixel_size))
 	scaling_method  = sanitize_text(scaling_method, initial(scaling_method))
@@ -350,6 +357,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["purchased_gear"], purchased_gear)
 	WRITE_FILE(S["equipped_gear"], equipped_gear)
 	WRITE_FILE(S["hearted_until"], (hearted_until > world.realtime ? hearted_until : null))
+	WRITE_FILE(S["disabled_autocap"], disabled_autocap)
 	return TRUE
 
 /datum/preferences/proc/load_character(slot)

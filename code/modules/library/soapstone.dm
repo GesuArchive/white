@@ -16,7 +16,7 @@
 /obj/item/soapstone/examine(mob/user)
 	. = ..()
 	if(remaining_uses != -1)
-		. += "It has [remaining_uses] uses left."
+		. += "<hr>It has [remaining_uses] uses left."
 
 /obj/item/soapstone/afterattack(atom/target, mob/user, proximity)
 	. = ..()

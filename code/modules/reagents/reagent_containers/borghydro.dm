@@ -96,7 +96,7 @@ Borg Hypospray
 /obj/item/reagent_containers/borghypo/proc/regenerate_reagents()
 	if(iscyborg(src.loc))
 		var/mob/living/silicon/robot/R = src.loc
-		if(R && R.cell)
+		if(R?.cell)
 			for(var/i in 1 to reagent_ids.len)
 				var/datum/reagents/RG = reagent_list[i]
 				if(RG.total_volume < RG.maximum_volume) 	//Don't recharge reagents and drain power if the storage is full.
@@ -136,17 +136,19 @@ Borg Hypospray
 	. = ..()
 	. += DescribeContents()	//Because using the standardized reagents datum was just too cool for whatever fuckwit wrote this
 	var/datum/reagent/loaded = modes[mode]
-	. += "Currently loaded: [initial(loaded.name)]. [initial(loaded.description)]"
-	. += "<span class='notice'><i>Alt+Click</i> to change transfer amount. Currently set to [amount_per_transfer_from_this == 5 ? "dose normally (5u)" : "microdose (2u)"].</span>"
+	. += "<hr>Currently loaded: [initial(loaded.name)]. [initial(loaded.description)]"
+	. += "\n<span class='notice'><i>Alt+Click</i> to change transfer amount. Currently set to [amount_per_transfer_from_this == 5 ? "dose normally (5u)" : "microdose (2u)"].</span>"
 
 /obj/item/reagent_containers/borghypo/proc/DescribeContents()
 	. = list()
 	var/empty = TRUE
 
+	. += "<hr>"
+
 	for(var/datum/reagents/RS in reagent_list)
 		var/datum/reagent/R = locate() in RS.reagent_list
 		if(R)
-			. += "<span class='notice'>It currently has [R.volume] unit\s of [R.name] stored.</span>"
+			. += "\n<span class='notice'>It currently has [R.volume] unit\s of [R.name] stored.</span>"
 			empty = FALSE
 
 	if(empty)
@@ -225,7 +227,7 @@ Borg Shaker
 /obj/item/reagent_containers/borghypo/borgshaker/regenerate_reagents()
 	if(iscyborg(src.loc))
 		var/mob/living/silicon/robot/R = src.loc
-		if(R && R.cell)
+		if(R?.cell)
 			for(var/i in modes) //Lots of reagents in this one, so it's best to regenrate them all at once to keep it from being tedious.
 				var/valueofi = modes[i]
 				var/datum/reagents/RG = reagent_list[valueofi]

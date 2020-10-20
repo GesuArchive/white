@@ -207,7 +207,7 @@
 
 /obj/item/crusher_trophy/examine(mob/living/user)
 	. = ..()
-	. += "<span class='notice'>Causes [effect_desc()] when attached to a kinetic crusher.</span>"
+	. += "<hr><span class='notice'>Causes [effect_desc()] when attached to a kinetic crusher.</span>"
 
 /obj/item/crusher_trophy/proc/effect_desc()
 	return "errors"

@@ -14,7 +14,7 @@
 /obj/item/export_scanner/examine(user)
 	. = ..()
 	if(!cargo_console)
-		. += "<span class='notice'>[src] не подключен к консоли снабжения.</span>"
+		. += "<hr><span class='notice'>[src] не подключен к консоли снабжения.</span>"
 
 /obj/item/export_scanner/afterattack(obj/O, mob/user, proximity)
 	. = ..()

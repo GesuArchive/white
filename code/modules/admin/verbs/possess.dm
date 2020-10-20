@@ -1,16 +1,6 @@
-/proc/possess_wrapper()
-	set name = "Possess Obj"
-	set category = "Объект"
-	var/list/L = list()
-	for(var/obj/O in world)
-		L += O
-	var/target = input(usr, null, "Possess Obj") as null|anything in L
-	if(target)
-		possess(target)
-
 /proc/possess(obj/O in world)
 	set name = "Possess Obj"
-	set category = null
+	set category = "Объект"
 
 	if((O.obj_flags & DANGEROUS_POSSESSION) && CONFIG_GET(flag/forbid_singulo_possession))
 		to_chat(usr, "[O] is too powerful for you to possess.", confidential = TRUE)

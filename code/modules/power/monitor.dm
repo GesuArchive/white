@@ -29,7 +29,7 @@
 
 /obj/machinery/computer/monitor/secret/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Операционная система кажется устаревшей... Походу она не совместима с новейшими системами удалённого контроля NTOS.</span>"
+	. += "<hr><span class='notice'>Операционная система кажется устаревшей... Походу она не совместима с новейшими системами удалённого контроля NTOS.</span>"
 
 /obj/machinery/computer/monitor/Initialize()
 	. = ..()
@@ -60,7 +60,7 @@
 		local_apc = null
 
 /obj/machinery/computer/monitor/proc/get_powernet() //keep in sync with /datum/computer_file/program/power_monitor's version
-	if(attached_wire || (local_apc && local_apc.terminal))
+	if(attached_wire || (local_apc?.terminal))
 		return attached_wire ? attached_wire.powernet : local_apc.terminal.powernet
 	return FALSE
 

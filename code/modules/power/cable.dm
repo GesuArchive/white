@@ -686,10 +686,10 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 
 /obj/structure/cable/multilayer/examine(mob/user)
 	. += ..()
-	. += "<span class='notice'>L1:[cable_layer & CABLE_LAYER_1 ? "Connect" : "Disconnect"].</span>"
-	. += "<span class='notice'>L2:[cable_layer & CABLE_LAYER_2 ? "Connect" : "Disconnect"].</span>"
-	. += "<span class='notice'>L3:[cable_layer & CABLE_LAYER_3 ? "Connect" : "Disconnect"].</span>"
-	. += "<span class='notice'>M:[machinery_layer & MACHINERY_LAYER_1 ? "Connect" : "Disconnect"].</span>"
+	. += "<hr><span class='notice'>L1:[cable_layer & CABLE_LAYER_1 ? "Connect" : "Disconnect"].</span>"
+	. += "\n<span class='notice'>L2:[cable_layer & CABLE_LAYER_2 ? "Connect" : "Disconnect"].</span>"
+	. += "\n<span class='notice'>L3:[cable_layer & CABLE_LAYER_3 ? "Connect" : "Disconnect"].</span>"
+	. += "\n<span class='notice'>M:[machinery_layer & MACHINERY_LAYER_1 ? "Connect" : "Disconnect"].</span>"
 
 GLOBAL_LIST(hub_radial_layer_list)
 

@@ -271,7 +271,7 @@
 
 /obj/structure/sink/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>[reagents.total_volume]/[reagents.maximum_volume] liquids remaining.</span>"
+	. += "<hr><span class='notice'>[reagents.total_volume]/[reagents.maximum_volume] liquids remaining.</span>"
 
 /obj/structure/sink/attack_hand(mob/living/user)
 	. = ..()

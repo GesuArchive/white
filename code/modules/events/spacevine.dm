@@ -325,7 +325,7 @@
 
 /obj/structure/spacevine/examine(mob/user)
 	. = ..()
-	var/text = "This one is a"
+	var/text = "<hr>This one is a"
 	if(mutations.len)
 		for(var/A in mutations)
 			var/datum/spacevine_mutation/SM = A
@@ -449,7 +449,7 @@
 	growth_queue += SV
 	vines += SV
 	SV.master = src
-	if(muts && muts.len)
+	if(muts?.len)
 		for(var/datum/spacevine_mutation/M in muts)
 			M.add_mutation_to_vinepiece(SV)
 	if(parent)

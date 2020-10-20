@@ -66,6 +66,7 @@
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	stoned = TRUE
+	slowdown = 0
 
 /turf/open/floor/grass/gensgrass/dirty/stone/crowbar_act(mob/living/user, obj/item/I)
 	return FALSE
@@ -82,6 +83,7 @@
 	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
 	icon_state = "stone"
 	stoned = FALSE
+	slowdown = 1
 	var/digged_up = FALSE
 
 /turf/closed/wall/stonewall

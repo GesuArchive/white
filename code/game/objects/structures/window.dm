@@ -446,15 +446,15 @@
 	. = ..()
 	switch(state)
 		if(RWINDOW_SECURE)
-			. += "<span class='notice'>Окно прикручено одноразовыми винтами. Придётся <b>нагреть их</b>, чтобы получить хоть какой-то шанс выкрутить их обратно.</span>"
+			. += "<hr><span class='notice'>Окно прикручено одноразовыми винтами. Придётся <b>нагреть их</b>, чтобы получить хоть какой-то шанс выкрутить их обратно.</span>"
 		if(RWINDOW_BOLTS_HEATED)
-			. += "<span class='notice'>Винтики раскалены до бела, похоже можно <b>открутить их</b> прямо сейчас.</span>"
+			. += "<hr><span class='notice'>Винтики раскалены до бела, похоже можно <b>открутить их</b> прямо сейчас.</span>"
 		if(RWINDOW_BOLTS_OUT)
-			. += "<span class='notice'>Винтики удалены и теперь окно можно <b>подпереть</b> сквозь доступную щель.</span>"
+			. += "<hr><span class='notice'>Винтики удалены и теперь окно можно <b>подпереть</b> сквозь доступную щель.</span>"
 		if(RWINDOW_POPPED)
-			. += "<span class='notice'>Основная плита вышла из рамки и стали видны прутья, которые можно <b>откусить</b>.</span>"
+			. += "<hr><span class='notice'>Основная плита вышла из рамки и стали видны прутья, которые можно <b>откусить</b>.</span>"
 		if(RWINDOW_BARS_CUT)
-			. += "<span class='notice'>Основная плита отделена от рамки и теперь её удерживает только несколько <b>болтов</b>.</span>"
+			. += "<hr><span class='notice'>Основная плита отделена от рамки и теперь её удерживает только несколько <b>болтов</b>.</span>"
 
 /obj/structure/window/reinforced/spawner/east
 	dir = EAST
@@ -567,15 +567,15 @@
 	. += "<hr>"
 	switch(state)
 		if(RWINDOW_SECURE)
-			. += "<span class='notice'>It's been screwed in with one way screws, you'd need to <b>heat them</b> to have any chance of backing them out.</span>"
+			. += "<hr><span class='notice'>Окно прикручено одноразовыми винтами. Придётся <b>нагреть их</b>, чтобы получить хоть какой-то шанс выкрутить их обратно.</span>"
 		if(RWINDOW_BOLTS_HEATED)
-			. += "<span class='notice'>The screws are glowing white hot, and you'll likely be able to <b>unscrew them</b> now.</span>"
+			. += "<hr><span class='notice'>Винтики раскалены до бела, похоже можно <b>открутить их</b> прямо сейчас.</span>"
 		if(RWINDOW_BOLTS_OUT)
-			. += "<span class='notice'>The screws have been removed, revealing a small gap you could fit a <b>prying tool</b> in.</span>"
+			. += "<hr><span class='notice'>Винтики удалены и теперь окно можно <b>подпереть</b> сквозь доступную щель.</span>"
 		if(RWINDOW_POPPED)
-			. += "<span class='notice'>The main plate of the window has popped out of the frame, exposing some bars that look like they can be <b>cut</b>.</span>"
+			. += "<hr><span class='notice'>Основная плита вышла из рамки и стали видны прутья, которые можно <b>откусить</b>.</span>"
 		if(RWINDOW_BARS_CUT)
-			. += "<span class='notice'>The main pane can be easily moved out of the way to reveal some <b>bolts</b> holding the frame in.</span>"
+			. += "<hr><span class='notice'>Основная плита отделена от рамки и теперь её удерживает только несколько <b>болтов</b>.</span>"
 
 /obj/structure/window/plasma/reinforced/spawner/east
 	dir = EAST
@@ -601,9 +601,9 @@
 /* Full Tile Windows (more obj_integrity) */
 
 /obj/structure/window/fulltile
-	icon = 'icons/obj/smooth_structures/window.dmi'
-	icon_state = "window-0"
-	base_icon_state = "window"
+	icon = 'white/valtos/icons/window_glass.dmi'
+	icon_state = "window_glass-0"
+	base_icon_state = "window_glass"
 	dir = FULLTILE_WINDOW_DIR
 	max_integrity = 50
 	fulltile = TRUE
@@ -658,9 +658,9 @@
 	anchored = FALSE
 
 /obj/structure/window/plasma/reinforced/fulltile
-	icon = 'icons/obj/smooth_structures/rplasma_window.dmi'
-	icon_state = "rplasma_window-0"
-	base_icon_state = "rplasma_window"
+	icon = 'white/valtos/icons/window_rplasma.dmi'
+	icon_state = "window_rplasma-0"
+	base_icon_state = "window_rplasma"
 	dir = FULLTILE_WINDOW_DIR
 	state = RWINDOW_SECURE
 	max_integrity = 1000
@@ -701,9 +701,9 @@
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/reinforced/fulltile
-	icon = 'icons/obj/smooth_structures/reinforced_window.dmi'
-	icon_state = "reinforced_window-0"
-	base_icon_state = "reinforced_window"
+	icon = 'white/valtos/icons/window_rglass.dmi'
+	icon_state = "window_rglass-0"
+	base_icon_state = "window_rglass"
 	dir = FULLTILE_WINDOW_DIR
 	max_integrity = 150
 	fulltile = TRUE

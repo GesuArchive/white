@@ -113,9 +113,9 @@
 
 /obj/item/computer_hardware/card_slot/examine(mob/user)
 	. = ..()
-	. += "The connector is set to fit into [expansion_hw ? "an expansion bay" : "a computer's primary ID bay"], but can be adjusted with a screwdriver."
+	. += "<hr>The connector is set to fit into [expansion_hw ? "an expansion bay" : "a computer's primary ID bay"], but can be adjusted with a screwdriver."
 	if(stored_card)
-		. += "There appears to be something loaded in the card slots."
+		. += "<hr>There appears to be something loaded in the card slots."
 
 /obj/item/computer_hardware/card_slot/secondary
 	name = "secondary RFID card module"

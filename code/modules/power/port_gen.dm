@@ -72,7 +72,7 @@
 
 /obj/machinery/power/port_gen/examine(mob/user)
 	. = ..()
-	. += "It is[!active?"n't":""] running."
+	. += "<hr>It is[!active?"n't":""] running."
 
 /////////////////
 // P.A.C.M.A.N //
@@ -118,9 +118,9 @@
 
 /obj/machinery/power/port_gen/pacman/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>The generator has [sheets] units of [sheet_name] fuel left, producing [DisplayPower(power_gen)] per cycle.</span>"
+	. += "<hr><span class='notice'>The generator has [sheets] units of [sheet_name] fuel left, producing [DisplayPower(power_gen)] per cycle.</span>"
 	if(anchored)
-		. += "<span class='notice'>It is anchored to the ground.</span>"
+		. += "\n<span class='notice'>It is anchored to the ground.</span>"
 	if(in_range(user, src) || isobserver(user))
 		. += "<hr><span class='notice'>Дисплей: Fuel efficiency increased by <b>[(consumption*100)-100]%</b>.</span>"
 

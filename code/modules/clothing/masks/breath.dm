@@ -30,7 +30,7 @@
 
 /obj/item/clothing/mask/breath/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Alt-клик [src.name] для настройки.</span>"
+	. += "<hr><span class='notice'>Alt-клик [src.name] для настройки.</span>"
 
 /obj/item/clothing/mask/breath/medical
 	desc = "Обтягивающая стерильная маска, которая может быть подключена к источнику воздуха."

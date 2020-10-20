@@ -1,3 +1,4 @@
+/*
 /datum/interaction/lewd/kiss
 	command = "deepkiss"
 	description = "Глубокий засос."
@@ -23,6 +24,8 @@
 		user.visible_message("<span class='warning'>[user] делает глубокий и продолжительный поцелуй с [target].</span>")
 	else
 		user.visible_message("<span class='warning'>[user] целует [target] по-французки.</span>")
+
+*/
 
 /datum/interaction/lewd/assslap
 	command = "assslap"
@@ -95,6 +98,7 @@
 	. = ..()
 	user.do_sex(target, "do_anal")
 
+/*
 /datum/interaction/lewd/finger
 	command = "finger"
 	description = "Засунуть сигарету в пепельницу."
@@ -315,3 +319,5 @@
 /datum/interaction/lewd/thighs/display_interaction(var/mob/living/user, var/mob/living/target)
 	. = ..()
 	user.do_sex(target, "do_thighs")
+
+*/

@@ -43,7 +43,7 @@
 /obj/machinery/power/bs_emitter/examine(mob/user)
 	. = ..()
 	if(machine_stat & (BROKEN))
-		. += "<span class='info'>Похоже, какая-то важная научная блюспейс штуковина была сломана. Данный агрегат теперь абсолютно бесполезен.</span>"
+		. += "<hr><span class='info'>Похоже, какая-то важная научная блюспейс штуковина была сломана. Данный агрегат теперь абсолютно бесполезен.</span>"
 
 /obj/machinery/power/bs_emitter/ComponentInitialize()
 	. = ..()

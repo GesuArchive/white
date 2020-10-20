@@ -5381,7 +5381,7 @@
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/storage)
 "Sc" = (
-/obj/machinery/computer/arcade,
+/obj/effect/spawner/randomarcade,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "Sd" = (

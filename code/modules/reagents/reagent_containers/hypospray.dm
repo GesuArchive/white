@@ -137,10 +137,10 @@
 
 /obj/item/reagent_containers/hypospray/medipen/examine()
 	. = ..()
-	if(reagents && reagents.reagent_list.len)
-		. += "<span class='notice'>It is currently loaded.</span>"
+	if(reagents?.reagent_list.len)
+		. += "<hr><span class='notice'>It is currently loaded.</span>"
 	else
-		. += "<span class='notice'>It is spent.</span>"
+		. += "<hr><span class='notice'>It is spent.</span>"
 
 /obj/item/reagent_containers/hypospray/medipen/stimpack //goliath kiting
 	name = "stimpack medipen"

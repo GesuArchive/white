@@ -96,12 +96,12 @@
 	. = ..()
 	if(open)
 		if(cell)
-			. += "<span class='notice'>It has \a [cell] installed.</span>"
-			. += "<span class='info'>You can use a <b>crowbar</b> to remove it.</span>"
+			. += "<hr><span class='notice'>It has \a [cell] installed.</span>"
+			. += "<hr><span class='info'>You can use a <b>crowbar</b> to remove it.</span>"
 		else
-			. += "<span class='notice'>It has an empty compartment where a <b>power cell</b> can be installed.</span>"
+			. += "<hr><span class='notice'>It has an empty compartment where a <b>power cell</b> can be installed.</span>"
 	if(load) //observer check is so we don't show the name of the ghost that's sitting on it to prevent metagaming who's ded.
-		. += "<span class='notice'>\A [isobserver(load) ? "ghostly figure" : load] is on its load platform.</span>"
+		. += "<hr><span class='notice'>\A [isobserver(load) ? "ghostly figure" : load] is on its load platform.</span>"
 
 
 /mob/living/simple_animal/bot/mulebot/Destroy()
@@ -514,7 +514,7 @@
 
 /mob/living/simple_animal/bot/mulebot/call_bot()
 	..()
-	if(path && path.len)
+	if(path?.len)
 		target = ai_waypoint //Target is the end point of the path, the waypoint set by the AI.
 		destination = get_area_name(target, TRUE)
 		pathset = 1 //Indicates the AI's custom path is initialized.
@@ -704,7 +704,7 @@
 							break
 				else			// otherwise, look for crates only
 					AM = locate(/obj/structure/closet/crate) in get_step(loc,loaddir)
-				if(AM && AM.Adjacent(src))
+				if(AM?.Adjacent(src))
 					load(AM)
 					if(report_delivery)
 						speak("Now loading [load] at <b>[get_area_name(src)]</b>.", radio_channel)

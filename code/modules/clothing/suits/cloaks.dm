@@ -96,7 +96,7 @@
 
 /obj/item/clothing/neck/cloak/skill_reward/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Я ощущаю сильную ауру окружающую этот плащ. Предполагаю, что им может владеть только кто-то по настоящему опытный.</span>"
+	. += "<hr><span class='notice'>Я ощущаю сильную ауру окружающую этот плащ. Предполагаю, что им может владеть только кто-то по настоящему опытный.</span>"
 
 /obj/item/clothing/neck/cloak/skill_reward/proc/check_wearable(mob/user)
 	return user.mind?.get_skill_level(associated_skill_path) < SKILL_LEVEL_LEGENDARY

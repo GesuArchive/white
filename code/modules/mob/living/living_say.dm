@@ -388,13 +388,16 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(cultslurring)
 		message = cultslur(message)
 
-	message = capitalize(message)
+	if(client?.prefs?.disabled_autocap)
+		message = message
+	else
+		message = capitalize(message)
 
 	return message
 
 /mob/living/proc/radio(message, list/message_mods = list(), list/spans, language)
 	var/obj/item/implant/radio/imp = locate() in src
-	if(imp && imp.radio.on)
+	if(imp?.radio.on)
 		if(message_mods[MODE_HEADSET])
 			imp.radio.talk_into(src, message, , spans, language, message_mods)
 			return ITALICS | REDUCE_RANGE

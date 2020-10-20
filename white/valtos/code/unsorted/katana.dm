@@ -81,9 +81,9 @@
 /obj/item/melee/sabre/security/examine(mob/user)
 	. = ..()
 	if(cell)
-		. += "<span class='notice'>Заряд <b>[src.name]</b>: [round(cell.percent())]%.</span>"
+		. += "<hr><span class='notice'>Заряд <b>[src.name]</b>: [round(cell.percent())]%.</span>"
 	else
-		. += "<span class='warning'>Заряд <b>[src.name]</b>: НЕТ БАТАРЕИ.</span>"
+		. += "<hr><span class='warning'>Заряд <b>[src.name]</b>: НЕТ БАТАРЕИ.</span>"
 
 /obj/item/melee/sabre/security/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stock_parts/cell))
@@ -198,8 +198,8 @@
 	name = "ножны катаны"
 	desc = "Для сдерживания мощи."
 
-	icon = 'white/valtos/icons/katana/belts.dmi'
-	worn_icon = 'white/valtos/icons/katana/belt.dmi'
+	icon = 'white/valtos/icons/clothing/belts.dmi'
+	worn_icon = 'white/valtos/icons/clothing/mob/belt.dmi'
 
 	icon_state = "security_katana_sheath"
 	inhand_icon_state = "security_katana_sheath"

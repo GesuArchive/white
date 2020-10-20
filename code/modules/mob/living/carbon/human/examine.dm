@@ -276,7 +276,7 @@
 		msg += "[t_on] выглядит мокро.\n"
 
 
-	if(pulledby && pulledby.grab_state)
+	if(pulledby?.grab_state)
 		msg += "[t_on] удерживается захватом [pulledby].\n"
 
 	if(nutrition < NUTRITION_LEVEL_STARVING - 50)

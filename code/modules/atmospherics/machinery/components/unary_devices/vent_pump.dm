@@ -318,7 +318,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/examine(mob/user)
 	. = ..()
 	if(welded)
-		. += "It seems welded shut."
+		. += "<hr>It seems welded shut."
 
 /obj/machinery/atmospherics/components/unary/vent_pump/power_change()
 	. = ..()

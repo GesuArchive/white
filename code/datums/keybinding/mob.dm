@@ -234,69 +234,6 @@
 	user.body_l_leg()
 	return TRUE
 
-/datum/keybinding/client/ooc
-	hotkey_keys = list("F2", "O")
-	name = "ooc"
-	full_name = "OOC"
-	description = ""
-	keybind_signal = COMSIG_KB_CLIENT_OOC_DOWN
-
-/datum/keybinding/client/ooc/down(client/user)
-	. = ..()
-	if(.)
-		return
-	user.ooc_wrapper()
-	return TRUE
-
-/client/verb/ooc_wrapper()
-	set hidden = TRUE
-	var/message = input("", "OOC \"text\"") as null|text
-	ooc(message)
-
-/datum/keybinding/mob/say
-	hotkey_keys = list("F3", "T")
-	name = "say"
-	full_name = "Say"
-	description = ""
-	keybind_signal = COMSIG_KB_MOB_SAY_DOWN
-
-/datum/keybinding/mob/say/down(client/user)
-	. = ..()
-	if(.)
-		return
-	var/mob/M = user.mob
-	M.say_wrapper()
-	return TRUE
-
-/mob/verb/say_wrapper()
-	set name = ".Say"
-	set hidden = TRUE
-	/*
-	var/message = input("", "Say \"text\"") as null|text
-	say_verb(message)
-	*/
-	call(src, "say_verb_wrapper")()
-
-/datum/keybinding/mob/me
-	hotkey_keys = list("F4", "M")
-	name = "me"
-	full_name = "Me"
-	description = ""
-	keybind_signal = COMSIG_KB_MOB_ME_DOWN
-
-/datum/keybinding/mob/me/down(client/user)
-	. = ..()
-	if(.)
-		return
-	var/mob/M = user.mob
-	M.me_wrapper()
-	return TRUE
-
-/mob/verb/me_wrapper()
-	set name = ".Me"
-	set hidden = TRUE
-	var/message = input("", "Me \"text\"") as null|text
-	me_verb(message)
 /datum/keybinding/mob/prevent_movement
 	hotkey_keys = list("Alt")
 	name = "block_movement"

@@ -57,9 +57,9 @@
 	if(!ishuman(loc))
 		return ..()
 	if(tied == SHOES_UNTIED)
-		. += "The shoelaces are untied."
+		. += "<hr>The shoelaces are untied."
 	else if(tied == SHOES_KNOTTED)
-		. += "The shoelaces are all knotted together."
+		. += "<hr>The shoelaces are all knotted together."
 
 /obj/item/clothing/shoes/equipped(mob/user, slot)
 	. = ..()

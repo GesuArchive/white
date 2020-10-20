@@ -140,7 +140,7 @@
 
 /obj/item/card/id/proc/insert_money(obj/item/I, mob/user, physical_currency)
 	if(!registered_account)
-		to_chat(user, "<span class='warning'>[src] doesn't have a linked account to deposit [I] into!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] не имеет аккаунта в себе!</span>")
 		return
 	var/cash_money = I.get_item_credit_value()
 	if(!cash_money)

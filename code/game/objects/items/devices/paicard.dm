@@ -51,7 +51,7 @@
 	if (!in_range(src, user))
 		return
 	user.set_machine(src)
-	var/dat = "<TT><B>Personal AI Device</B><BR>"
+	var/dat = "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><TT><B>Personal AI Device</B><BR>"
 	if(pai)
 		if(!pai.master_dna || !pai.master)
 			dat += "<a href='byond://?src=[REF(src)];setdna=1'>Imprint Master DNA</a><br>"

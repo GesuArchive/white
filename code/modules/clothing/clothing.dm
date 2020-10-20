@@ -231,31 +231,31 @@
 /obj/item/clothing/examine(mob/user)
 	. = ..()
 	if(damaged_clothes == CLOTHING_SHREDDED)
-		. += "<span class='warning'><b>Полностью разорвано и требует починки!</b></span>"
+		. += "<hr><span class='warning'><b>Полностью разорвано и требует починки!</b></span>"
 		return
 
 	switch (max_heat_protection_temperature)
 		if (400 to 1000)
-			. += "[src] немного защищает от огня."
+			. += "\n[capitalize(src)] немного защищает от огня."
 		if (1001 to 1600)
-			. += "[src] может защитить от огня."
+			. += "\n[capitalize(src)] может защитить от огня."
 		if (1601 to 35000)
-			. += "[src] неплохо защищает от огня."
+			. += "\n[capitalize(src)] неплохо защищает от огня."
 
 	for(var/zone in damage_by_parts)
 		var/pct_damage_part = damage_by_parts[zone] / limb_integrity * 100
 		var/zone_name = parse_zone(zone)
 		switch(pct_damage_part)
 			if(100 to INFINITY)
-				. += "<span class='warning'><b>[capitalize(zone_name)] бесполезна и требует починки!</b></span>"
+				. += "\n<span class='warning'><b>[capitalize(zone_name)] бесполезна и требует починки!</b></span>"
 			if(60 to 99)
-				. += "<span class='warning'>[capitalize(zone_name)] достаточно разорвана!</span>"
+				. += "\n<span class='warning'>[capitalize(zone_name)] достаточно разорвана!</span>"
 			if(30 to 59)
-				. += "<span class='danger'>[capitalize(zone_name)] немного порвана.</span>"
+				. += "\n<span class='danger'>[capitalize(zone_name)] немного порвана.</span>"
 
 	var/datum/component/storage/pockets = GetComponent(/datum/component/storage)
 	if(pockets)
-		var/list/how_cool_are_your_threads = list("<span class='notice'>")
+		var/list/how_cool_are_your_threads = list("<hr><span class='notice'>")
 		if(pockets.attack_hand_interact)
 			how_cool_are_your_threads += "[src] показывает хранилище при клике.\n"
 		else

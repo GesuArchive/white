@@ -181,15 +181,15 @@
 /obj/item/bodypart/chest/robot/examine(mob/user)
 	. = ..()
 	if(cell)
-		. += {"It has a [cell] inserted.\n
+		. += {"<hr>It has a [cell] inserted.\n
 		<span class='info'>Вы можете использовать <b>отвертку</b> чтобы извлечь [cell].</span>"}
 	else
-		. += "<span class='info'>Имеет пустой слот для <b>ячейки питания</b>.</span>"
+		. += "<hr><span class='info'>Имеет пустой слот для <b>ячейки питания</b>.</span>"
 	if(wired)
-		. += "Всё подключено [cell ? " и готово для использования" : ""].\n"+\
+		. += "<hr>Всё подключено [cell ? " и готово для использования" : ""].\n"+\
 		"<span class='info'>Вы можете использовать <b>кусачки</b> чтобы извлечь проводку.</span>"
 	else
-		. += "<span class='info'>Имеет пару гнезд, которые необходимо <b>подключить</b>.</span>"
+		. += "<hr><span class='info'>Имеет пару гнезд, которые необходимо <b>подключить</b>.</span>"
 
 /obj/item/bodypart/chest/robot/drop_organs(mob/user, violent_removal)
 	if(wired)
@@ -240,16 +240,16 @@
 /obj/item/bodypart/head/robot/examine(mob/user)
 	. = ..()
 	if(!flash1 && !flash2)
-		. += "<span class='info'>Имеет два свободных глазных слота для <b>flashes</b>.</span>"
+		. += "<hr><span class='info'>Имеет два свободных глазных слота для <b>flashes</b>.</span>"
 	else
 		var/single_flash = FALSE
 		if(!flash1 || !flash2)
 			single_flash = TRUE
-			. += {"Один из глазных разъемов на данный момент занят by a flash.\n
+			. += {"<hr>Один из глазных разъемов на данный момент занят by a flash.\n
 			<span class='info'>В нем есть еще один свободный разъем под <b>flash</b>.</span>"}
 		else
-			. += "Оба глазных разъема заняты by flashes."
-		. += "<span class='notice'>Я могу извлечь установленную d flash[single_flash ? "":"es"] при помощи <b>ломика</b>.</span>"
+			. += "<hr>Оба глазных разъема заняты by flashes."
+		. += "\n<span class='notice'>Я могу извлечь установленную d flash[single_flash ? "":"es"] при помощи <b>ломика</b>.</span>"
 
 /obj/item/bodypart/head/robot/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/assembly/flash/handheld))

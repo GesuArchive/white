@@ -14,7 +14,7 @@
 
 /obj/item/gun/grenadelauncher/examine(mob/user)
 	. = ..()
-	. += "[grenades.len] / [max_grenades] grenades loaded."
+	. += "<hr>[grenades.len] / [max_grenades] grenades loaded."
 
 /obj/item/gun/grenadelauncher/attackby(obj/item/I, mob/user, params)
 

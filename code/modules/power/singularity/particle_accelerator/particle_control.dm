@@ -193,11 +193,11 @@
 	. = ..()
 	switch(construction_state)
 		if(PA_CONSTRUCTION_UNSECURED)
-			. += "Похоже, он не прикреплен к полу."
+			. += "<hr>Похоже, он не прикреплен к полу."
 		if(PA_CONSTRUCTION_UNWIRED)
-			. += "Не хватает некоторых кабелей."
+			. += "<hr>Не хватает некоторых кабелей."
 		if(PA_CONSTRUCTION_PANEL_OPEN)
-			. += "Панель открыта."
+			. += "<hr>Панель открыта."
 
 /obj/machinery/particle_accelerator/control_box/set_anchored(anchorvalue)
 	. = ..()

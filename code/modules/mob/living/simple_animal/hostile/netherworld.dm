@@ -87,7 +87,7 @@
 
 /mob/living/simple_animal/hostile/netherworld/proc/can_be_seen(turf/location)
 	// Check for darkness
-	if(location && location.lighting_object)
+	if(location?.lighting_object)
 		if(location.get_lumcount()<0.1) // No one can see us in the darkness, right?
 			return null
 
@@ -180,9 +180,9 @@
 /obj/structure/spawner/nether/examine(mob/user)
 	. = ..()
 	if(isskeleton(user) || iszombie(user))
-		. += "A direct link to another dimension full of creatures very happy to see you. <span class='nicegreen'>You can see your house from here!</span>"
+		. += "<hr>A direct link to another dimension full of creatures very happy to see you. <span class='nicegreen'>You can see your house from here!</span>"
 	else
-		. += "A direct link to another dimension full of creatures not very happy to see you. <span class='warning'>Entering the link would be a very bad idea.</span>"
+		. += "<hr>A direct link to another dimension full of creatures not very happy to see you. <span class='warning'>Entering the link would be a very bad idea.</span>"
 
 /obj/structure/spawner/nether/attack_hand(mob/user)
 	. = ..()

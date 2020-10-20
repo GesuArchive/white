@@ -169,7 +169,7 @@
 				return
 
 			if(P.tool_behaviour == TOOL_WRENCH && !circuit.needs_anchored)
-				to_chat(user, "<span class='notice'>Начинаю [anchored ? "при" : "от"]кручивать [src.name]...</span>")
+				to_chat(user, "<span class='notice'>Начинаю [anchored ? "от" : "при"]кручивать [src.name]...</span>")
 				if(P.use_tool(src, user, 40, volume=75))
 					to_chat(user, "<span class='notice'>[anchored ? "От" : "При"]кручиваю [src.name].</span>")
 					set_anchored(!anchored)
