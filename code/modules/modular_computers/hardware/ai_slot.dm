@@ -18,7 +18,7 @@
 /obj/item/computer_hardware/ai_slot/examine(mob/user)
 	. = ..()
 	if(stored_card)
-		. += "There appears to be an intelliCard loaded. There appears to be a pinhole protecting a manual eject button. A screwdriver could probably press it."
+		. += "<hr>There appears to be an intelliCard loaded. There appears to be a pinhole protecting a manual eject button. A screwdriver could probably press it."
 
 /obj/item/computer_hardware/ai_slot/try_insert(obj/item/I, mob/living/user = null)
 	if(!holder)

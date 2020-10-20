@@ -77,7 +77,7 @@
 	. = ..()
 
 	if(eddie_murphy)
-		. += "<span class='warning'>Something appears to be stuck in its exhaust...</span>"
+		. += "<hr><span class='warning'>Something appears to be stuck in its exhaust...</span>"
 
 /obj/vehicle/ridden/secway/obj_destruction()
 	explosion(src, -1, 0, 2, 4, flame_range = 3)

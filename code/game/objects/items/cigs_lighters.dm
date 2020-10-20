@@ -16,8 +16,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //MATCHES//
 ///////////
 /obj/item/match
-	name = "match"
-	desc = "A simple match stick, used for lighting fine smokables."
+	name = "спичка"
+	desc = "Простая спичечная палочка, используемая для зажигания тонких сигарет."
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "match_unlit"
 	var/lit = FALSE
@@ -47,10 +47,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		force = 3
 		hitsound = 'sound/items/welder.ogg'
 		inhand_icon_state = "cigon"
-		name = "lit [initial(name)]"
-		desc = "A [initial(name)]. This one is lit."
-		attack_verb_continuous =  string_list(list("зажигает","с невероятным усилием поджигает"))
-		attack_verb_simple =  string_list(list("зажигает","с невероятным усилием поджигает"))
+		name = "зажженная [initial(name)]"
+		desc = "[initial(name)]. Она горит."
+		attack_verb_continuous = string_list(list("зажигает","с невероятным усилием поджигает"))
+		attack_verb_simple = string_list(list("зажигает","с невероятным усилием поджигает"))
 		START_PROCESSING(SSobj, src)
 		update_icon()
 
@@ -62,10 +62,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		force = initial(force)
 		icon_state = "match_burnt"
 		inhand_icon_state = "cigoff"
-		name = "burnt [initial(name)]"
-		desc = "A [initial(name)]. This one has seen better days."
-		attack_verb_continuous =  string_list(list("щёлкает"))
-		attack_verb_simple =  string_list(list("щёлкает"))
+		name = "сгоревшая [initial(name)]"
+		desc = "[initial(name)]. Раньше у неё были дни получше."
+		attack_verb_continuous = string_list(list("щёлкает"))
+		attack_verb_simple = string_list(list("щёлкает"))
 		STOP_PROCESSING(SSobj, src)
 
 /obj/item/match/extinguish()
@@ -79,7 +79,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(!isliving(M))
 		return
 	if(lit && M.IgniteMob())
-		message_admins("[ADMIN_LOOKUPFLW(user)] set [key_name_admin(M)] on fire with [src] at [AREACOORD(user)]")
+		message_admins("[ADMIN_LOOKUPFLW(user)] поджег [key_name_admin(M)] on fire with [src] at [AREACOORD(user)]")
 		log_game("[key_name(user)] set [key_name(M)] on fire with [src] at [AREACOORD(user)]")
 	var/obj/item/clothing/mask/cigarette/cig = help_light_cig(M)
 	if(lit && cig && user.a_intent == INTENT_HELP)
@@ -115,8 +115,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //FINE SMOKABLES//
 //////////////////
 /obj/item/clothing/mask/cigarette
-	name = "cigarette"
-	desc = "A roll of tobacco and nicotine."
+	name = "сигарета"
+	desc = "сигарета из табака и никотина."
 	icon_state = "cigoff"
 	throw_speed = 0.5
 	inhand_icon_state = "cigoff"

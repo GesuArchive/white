@@ -35,11 +35,11 @@
 /obj/item/clothing/head/helmet/examine(mob/user)
 	. = ..()
 	if(attached_light)
-		. += "Имеет [attached_light] [can_flashlight ? "" : "намертво "] прикрученый к нему."
+		. += "<hr>Имеет [attached_light] [can_flashlight ? "" : "намертво "] прикрученый к нему."
 		if(can_flashlight)
-			. += "<span class='info'>Похоже, что [attached_light] может быть <b>откручен</b> от [src].</span>"
+			. += "<hr><span class='info'>Похоже, что [attached_light] может быть <b>откручен</b> от [src].</span>"
 	else if(can_flashlight)
-		. += "Имеет точку для монтирования <b>фонарика</b>."
+		. += "<hr>Имеет точку для монтирования <b>фонарика</b>."
 
 
 /obj/item/clothing/head/helmet/handle_atom_del(atom/A)
@@ -401,12 +401,12 @@
 
 /obj/item/clothing/head/helmet/monkey_sentience/examine(mob/user)
 	. = ..()
-	. += "<span class='boldwarning'>---ВНИМАНИЕ: УДАЛЕНИЕ ШЛЕМА С СУБЪЕКТА МОЖЕТ ПРИВЕСТИ К:---</span>"
-	. += "<span class='warning'>ЖАЖДЕ КРОВИ</span>"
-	. += "<span class='warning'>СМЕРТИ МОЗГА</span>"
-	. += "<span class='warning'>АКТИВАЦИИ ПЕРВОБЫТНОГО ГЕНА</span>"
-	. += "<span class='warning'>МАССОВОЙ УСТОЙЧИВОСТИ ГЕНЕТИЧЕСКОГО СОСТАВА</span>"
-	. += "<span class='boldnotice'>Перед применением устройства проконсультируйтесь с вашим главным врачом.</span>"
+	. += "<hr><span class='boldwarning'>---ВНИМАНИЕ: УДАЛЕНИЕ ШЛЕМА С СУБЪЕКТА МОЖЕТ ПРИВЕСТИ К:---</span>"
+	. += "\n<span class='warning'>ЖАЖДЕ КРОВИ</span>"
+	. += "\n<span class='warning'>СМЕРТИ МОЗГА</span>"
+	. += "\n<span class='warning'>АКТИВАЦИИ ПЕРВОБЫТНОГО ГЕНА</span>"
+	. += "\n<span class='warning'>МАССОВОЙ УСТОЙЧИВОСТИ ГЕНЕТИЧЕСКОГО СОСТАВА</span>"
+	. += "\n<span class='boldnotice'>Перед применением устройства проконсультируйтесь с вашим главным врачом.</span>"
 
 /obj/item/clothing/head/helmet/monkey_sentience/update_icon_state()
 	icon_state = "[initial(icon_state)][light_colors][magnification ? "up" : ""]"

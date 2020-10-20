@@ -1,6 +1,6 @@
 /datum/surgery/advanced/wing_reconstruction
-	name = "Wing Reconstruction"
-	desc = "An experimental surgical procedure that reconstructs the damaged wings of moth people. Requires Synthflesh."
+	name = "Восстановление Крыльев"
+	desc = "Экспериментальная хирургическая процедура, которая восстанавливает поврежденные крылья мотыльков. Требует Синтплоть."
 	steps = list(/datum/surgery_step/incise,
 				/datum/surgery_step/retract_skin,
 				/datum/surgery_step/clamp_bleeders,
@@ -14,23 +14,23 @@
 	return ..() && target.dna.features["moth_wings"] == "Burnt Off" && ismoth(target)
 
 /datum/surgery_step/wing_reconstruction
-	name = "start wing reconstruction"
+	name = "начать восстановление крыльев"
 	implements = list(TOOL_HEMOSTAT = 85, TOOL_SCREWDRIVER = 35, /obj/item/pen = 15)
 	time = 200
 	chems_needed = list(/datum/reagent/medicine/c2/synthflesh)
 	require_all_chems = FALSE
 
 /datum/surgery_step/wing_reconstruction/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You begin to fix [target]'s charred wing membranes...</span>",
-		"<span class='notice'>[user] begins to fix [target]'s charred wing membranes.</span>",
-		"<span class='notice'>[user] begins to perform surgery on [target]'s charred wing membranes.</span>")
+	display_results(user, target, "<span class='notice'>Начинаю восстанавливать обугленные мембраны крыльев [target]...</span>",
+		"<span class='notice'>[user] начал восстанавливать обугленные мембраны крыльев [target].</span>",
+		"<span class='notice'>[user] начал проведение операции на обугленных мембранах крыльев [target].</span>")
 
 /datum/surgery_step/wing_reconstruction/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		display_results(user, target, "<span class='notice'>You succeed in reconstructing [target]'s wings.</span>",
-			"<span class='notice'>[user] successfully reconstructs [target]'s wings!</span>",
-			"<span class='notice'>[user] completes the surgery on [target]'s wings.</span>")
+		display_results(user, target, "<span class='notice'>Успешно восстановил крылья [target].</span>",
+			"<span class='notice'>[user] успешно восстановил крылья [target]!</span>",
+			"<span class='notice'>[user] завершил операцию на крыльях [target].</span>")
 		if(H.dna.features["original_moth_wings"] != null)
 			H.dna.features["moth_wings"] = H.dna.features["original_moth_wings"]
 		else

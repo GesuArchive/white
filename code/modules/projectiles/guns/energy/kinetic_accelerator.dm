@@ -30,7 +30,7 @@
 /obj/item/gun/energy/kinetic_accelerator/examine(mob/user)
 	. = ..()
 	if(max_mod_capacity)
-		. += "<b>[get_remaining_mod_capacity()]%</b> осталось для установки модификаций."
+		. += "<hr><b>[get_remaining_mod_capacity()]%</b> осталось для установки модификаций."
 		. += "\n<span class='info'>Можно использовать <b>ломик</b> для изъятия модификаций.</span><hr>"
 		for(var/A in get_modkits())
 			var/obj/item/borg/upgrade/modkit/M = A
@@ -248,7 +248,7 @@
 
 /obj/item/borg/upgrade/modkit/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Занимает <b>[cost]%</b> от общей вместимости модификаций.</span>"
+	. += "<hr><span class='notice'>Занимает <b>[cost]%</b> от общей вместимости модификаций.</span>"
 
 /obj/item/borg/upgrade/modkit/attackby(obj/item/A, mob/user)
 	if(istype(A, /obj/item/gun/energy/kinetic_accelerator) && !issilicon(user))

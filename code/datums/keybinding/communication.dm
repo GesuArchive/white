@@ -1,4 +1,3 @@
-/*
 /datum/keybinding/client/communication
 	category = CATEGORY_COMMUNICATION
 
@@ -19,4 +18,3 @@
 	name = "Me"
 	full_name = "Custom Emote (/Me)"
 	keybind_signal = COMSIG_KB_CLIENT_ME_DOWN
-*/

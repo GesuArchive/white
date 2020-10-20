@@ -81,7 +81,7 @@
 
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/examine(mob/user)
 	. = ..()
-	. += "The bolt is [bolt_locked ? "open" : "closed"]."
+	. += "<hr>The bolt is [bolt_locked ? "open" : "closed"]."
 
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/update_icon(var/add_scope = FALSE)
 	if (bolt_locked == FALSE)
@@ -132,7 +132,7 @@
 
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/examine(mob/user)
 	. = ..()
-	. += "The bolt is [bolt_locked ? "open" : "closed"]."
+	. += "<hr>The bolt is [bolt_locked ? "open" : "closed"]."
 
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/update_icon(var/add_scope = FALSE)
 	if (bolt_locked == FALSE)

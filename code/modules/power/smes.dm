@@ -43,7 +43,7 @@
 /obj/machinery/power/smes/examine(user)
 	. = ..()
 	if(!terminal)
-		. += "<span class='warning'> Этот СНМЭ без терминала питания!</span>"
+		. += "<hr><span class='warning'> Этот СНМЭ без терминала питания!</span>"
 
 /obj/machinery/power/smes/Initialize()
 	. = ..()

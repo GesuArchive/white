@@ -1,5 +1,5 @@
 /obj/item/organ/appendix
-	name = "appendix"
+	name = "аппендикс"
 	icon_state = "appendix"
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_APPENDIX
@@ -7,18 +7,18 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY
 
-	now_failing = "<span class='warning'>An explosion of pain erupts in your lower right abdomen!</span>"
-	now_fixed = "<span class='info'>The pain in your abdomen has subsided.</span>"
+	now_failing = "<span class='warning'>Взрывная боль заполнила правый нижний угол вашего живота!</span>"
+	now_fixed = "<span class='info'>Боль в животе утихла.</span>"
 
 	var/inflamed
 
 /obj/item/organ/appendix/update_icon()
 	if(inflamed)
 		icon_state = "appendixinflamed"
-		name = "inflamed appendix"
+		name = "воспаленный аппендикс"
 	else
 		icon_state = "appendix"
-		name = "appendix"
+		name = "аппендикс"
 
 /obj/item/organ/appendix/on_life()
 	..()

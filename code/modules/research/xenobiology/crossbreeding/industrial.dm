@@ -14,7 +14,7 @@ Industrial extracts:
 
 /obj/item/slimecross/industrial/examine(mob/user)
 	. = ..()
-	. += "It currently has [plasmaabsorbed] units of plasma floating inside the outer shell, out of [plasmarequired] units."
+	. += "<hr>It currently has [plasmaabsorbed] units of plasma floating inside the outer shell, out of [plasmarequired] units."
 
 /obj/item/slimecross/industrial/proc/do_after_spawn(obj/item/spawned)
 	return

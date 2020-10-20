@@ -270,7 +270,7 @@
 
 /obj/item/gun/ballistic/automatic/l6_saw/examine(mob/user)
 	. = ..()
-	. += "<b>alt + click</b> [cover_open ? "Закрываю" : "Открываю"] пылевой чехол."
+	. += "<hr><b>ALT + клик/b>, чтобы [cover_open ? "открыть" : "закрыть"] пылевой чехол."
 	if(cover_open && magazine)
 		. += "\n<span class='notice'>Можно использовать <b>пустую руку</b> для извлечения магазина.</span>"
 

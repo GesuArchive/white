@@ -36,15 +36,15 @@
 /obj/vehicle/examine(mob/user)
 	. = ..()
 	if(resistance_flags & ON_FIRE)
-		. += "<span class='warning'>It's on fire!</span>"
+		. += "<hr><span class='warning'>It's on fire!</span>"
 	var/healthpercent = obj_integrity/max_integrity * 100
 	switch(healthpercent)
 		if(50 to 99)
-			. += "Виднеются небольшие царапины."
+			. += "\nВиднеются небольшие царапины."
 		if(25 to 50)
-			. += "Выглядит серьёзно повреждённым."
+			. += "\nВыглядит серьёзно повреждённым."
 		if(0 to 25)
-			. += "<span class='warning'>Вот-вот развалится!</span>"
+			. += "\n<span class='warning'>Вот-вот развалится!</span>"
 
 /obj/vehicle/proc/is_key(obj/item/I)
 	return I? (key_type_exact? (I.type == key_type) : istype(I, key_type)) : FALSE

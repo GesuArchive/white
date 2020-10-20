@@ -36,12 +36,12 @@
 	if(ai_slot)
 		if(ai_slot.stored_card)
 			if(user_is_adjacent)
-				. += "It has a slot installed for an intelliCard which contains: [ai_slot.stored_card.name]"
+				. += "<hr>It has a slot installed for an intelliCard which contains: [ai_slot.stored_card.name]"
 			else
-				. += "It has a slot installed for an intelliCard, which appears to be occupied."
-			. += "<span class='info'>Alt-click to eject the intelliCard.</span>"
+				. += "<hr>It has a slot installed for an intelliCard, which appears to be occupied."
+			. += "<hr><span class='info'>Alt-click to eject the intelliCard.</span>"
 		else
-			. += "It has a slot installed for an intelliCard."
+			. += "<hr>It has a slot installed for an intelliCard."
 
 	var/obj/item/computer_hardware/card_slot/card_slot = get_modular_computer_part(MC_CARD)
 	var/obj/item/computer_hardware/card_slot/card_slot2 = get_modular_computer_part(MC_CARD2)

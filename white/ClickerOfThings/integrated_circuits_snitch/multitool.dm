@@ -2,14 +2,6 @@
 
 /obj/item/multitool/var/datum/integrated_io/selected_io = null  //functional for integrated circuits.
 
-//I know copypasting it and overwriting the old procs is a pretty rough thing to do, but hey, it's the simplest and most effective
-/obj/item/multitool/examine(mob/user)
-	..()
-	if(selected_io)
-		to_chat(user, "<span class='notice'>Activate [src] to detach the data wire.</span>")
-	if(buffer)
-		to_chat(user, "<span class='notice'>Its buffer contains [buffer].</span>")
-
 /obj/item/multitool/attack_self(mob/user)
 	if(selected_io)
 		selected_io = null

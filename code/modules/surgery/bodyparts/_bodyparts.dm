@@ -117,19 +117,20 @@
 
 /obj/item/bodypart/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(brute_dam > DAMAGE_PRECISION)
 		. += "<span class='warning'>Конечность имеет [brute_dam > 30 ? "серьёзные" : "незначительные"] травмы.</span>"
 	if(burn_dam > DAMAGE_PRECISION)
 		. += "<span class='warning'>Конечность имеет [burn_dam > 30 ? "серьёзные" : "незначительные"] ожоги.</span>"
 
 	if(locate(/datum/wound/blunt) in wounds)
-		. += "<span class='warning'>The bones in this limb appear badly cracked.</span>"
+		. += "\n<span class='warning'>Кости этой кончености выглядят сильно потрескавшимися.</span>"
 	if(locate(/datum/wound/slash) in wounds)
-		. += "<span class='warning'>The flesh on this limb appears badly lacerated.</span>"
+		. += "\n<span class='warning'>Плоть этой конечности выглядит сильно порванной.</span>"
 	if(locate(/datum/wound/pierce) in wounds)
-		. += "<span class='warning'>The flesh on this limb appears badly perforated.</span>"
+		. += "\n<span class='warning'>Плоть этой конечности выглядит сильно префорированной.</span>"
 	if(locate(/datum/wound/burn) in wounds)
-		. += "<span class='warning'>The flesh on this limb appears badly cooked.</span>"
+		. += "\n<span class='warning'>Плоть этой конечности выглядит сильно обгоревшей.</span>"
 
 /obj/item/bodypart/blob_act()
 	take_damage(max_damage)
@@ -142,7 +143,7 @@
 			if(!H.get_bodypart(body_zone) && !animal_origin)
 				user.temporarilyRemoveItemFromInventory(src, TRUE)
 				if(!attach_limb(C))
-					to_chat(user, "<span class='warning'>[H]'s body rejects [src]!</span>")
+					to_chat(user, "<span class='warning'>Тело [H] отторгает [src]!</span>")
 					forceMove(H.loc)
 				if(H == user)
 					H.visible_message("<span class='warning'>[H] впихивает [src] в себя!</span>",\
@@ -928,7 +929,7 @@
 		dam_mul *= iter_wound.damage_mulitplier_penalty
 
 	if(!LAZYLEN(wounds) && current_gauze && !replaced)
-		owner.visible_message("<span class='notice'>\The [current_gauze] on [owner]'s [name] fall away.</span>", "<span class='notice'>The [current_gauze] on your [name] fall away.</span>")
+		owner.visible_message("<span class='notice'>[current_gauze] на [owner] [name] отваливается.</span>", "<span class='notice'>[current_gauze] на моем [name] отваливается.</span>")
 		QDEL_NULL(current_gauze)
 
 	wound_damage_multiplier = dam_mul
@@ -994,5 +995,5 @@
 		return
 	current_gauze.absorption_capacity -= seep_amt
 	if(current_gauze.absorption_capacity < 0)
-		owner.visible_message("<span class='danger'>\The [current_gauze] on [owner]'s [name] fall away in rags.</span>", "<span class='warning'>\The [current_gauze] on your [name] fall away in rags.</span>", vision_distance=COMBAT_MESSAGE_RANGE)
+		owner.visible_message("<span class='danger'>[current_gauze] на [owner] [name] отваливается, расслоившись на тряпки.</span>", "<span class='warning'> [current_gauze] на моей [name] отваливается, расслоившись на тряпки.</span>", vision_distance=COMBAT_MESSAGE_RANGE)
 		QDEL_NULL(current_gauze)

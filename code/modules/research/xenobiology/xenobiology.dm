@@ -22,7 +22,7 @@
 /obj/item/slime_extract/examine(mob/user)
 	. = ..()
 	if(Uses > 1)
-		. += "It has [Uses] uses remaining."
+		. += "<hr>It has [Uses] uses remaining."
 
 /obj/item/slime_extract/attackby(obj/item/O, mob/user)
 	if(istype(O, /obj/item/slimepotion/enhancer))

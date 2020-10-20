@@ -26,11 +26,11 @@
 /obj/machinery/organdoc/examine(mob/user)
 	. = ..()
 	if((obj_flags & EMAGGED) && panel_open)
-		. += "<span class='warning'>Хирургические протоколы нарушены!</span>"
+		. += "<hr><span class='warning'>Хирургические протоколы нарушены!</span>"
 	if(processing)
-		. += "<span class='notice'>На данный момент вставляет [storedorgan] в [occupant].</span>"
+		. += "<hr><span class='notice'>На данный момент вставляет [storedorgan] в [occupant].</span>"
 	else if(storedorgan)
-		. += "<span class='notice'>Готов вставить [storedorgan].</span>"
+		. += "<hr><span class='notice'>Готов вставить [storedorgan].</span>"
 
 /obj/machinery/organdoc/close_machine(mob/user)
 	..()

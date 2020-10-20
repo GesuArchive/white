@@ -280,7 +280,7 @@ This section is for the event controller
 
 /turf/open/indestructible/crystal_floor/examine(mob/user)
 	. += ..()
-	. += "<span class='notice'>The floor is made of sturdy crystals.</span>"
+	. += "<hr><span class='notice'>The floor is made of sturdy crystals.</span>"
 
 /turf/open/indestructible/crystal_floor/welder_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -302,7 +302,7 @@ This section is for the event controller
 
 /turf/closed/indestructible/crystal_wall/examine(mob/user)
 	. += ..()
-	. += "<span class='notice'>The wall is made of sturdy crystals.</span>"
+	. += "<hr><span class='notice'>The wall is made of sturdy crystals.</span>"
 
 /turf/open/indestructible/crystal_floor/welder_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -405,11 +405,11 @@ This section is for the destabilized SM
 
 /obj/machinery/destabilized_crystal/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>The Crystal appears to be heavily destabilized. Maybe it can be fixed by injecting it with something from another world.</span>"
+	. += "<hr><span class='notice'>The Crystal appears to be heavily destabilized. Maybe it can be fixed by injecting it with something from another world.</span>"
 	if(length(GLOB.huge_crystal_portals) > 0)
-		. += "<span class='notice'>The Destabilized Crystal appears to be protected by some kind of shield.</span>"
+		. += "\n<span class='notice'>The Destabilized Crystal appears to be protected by some kind of shield.</span>"
 	else
-		. += "<span class='notice'>The shield that was protecting the Crystal is gone, it's time to restore it.</span>"
+		. += "\n<span class='notice'>The shield that was protecting the Crystal is gone, it's time to restore it.</span>"
 
 /obj/machinery/destabilized_crystal/Bumped(atom/movable/movable_atom)
 	if(!isliving(movable_atom))
@@ -452,11 +452,11 @@ This section is for the crystal stabilizer item and the crystal from the closed 
 
 /obj/item/crystal_stabilizer/examine(user)
 	. = ..()
-	. += "<span class='notice'>There is a compartment for something small... like a crystal...</span>"
+	. += "<hr><span class='notice'>There is a compartment for something small... like a crystal...</span>"
 	if(!filled)
-		. += "<span class='notice'>The [src] is empty.</span>"
+		. += "\n<span class='notice'>The [src] is empty.</span>"
 	else
-		. += "<span class='notice'>The [src] is full and can be used to stabilize the Supermatter.</span>"
+		. += "\n<span class='notice'>The [src] is full and can be used to stabilize the Supermatter.</span>"
 
 /obj/item/crystal_stabilizer/attackby(obj/item/W, mob/living/user, params)
 	. = ..()
@@ -560,7 +560,7 @@ This section is for the crystal portals variations
 
 /obj/structure/crystal_portal/examine(user)
 	. = ..()
-	. += "<span class='notice'>The [src] seems to be releasing some sort or high frequency wavelength, maybe it could be closed if another signal is sent back or if an equivalent device is used on it.</span>"
+	. += "<hr><span class='notice'>The [src] seems to be releasing some sort or high frequency wavelength, maybe it could be closed if another signal is sent back or if an equivalent device is used on it.</span>"
 
 /obj/structure/crystal_portal/attack_animal(mob/living/simple_animal/M)
 	if(faction_check(faction, M.faction, FALSE) && !M.client)

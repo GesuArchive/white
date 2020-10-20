@@ -425,7 +425,7 @@
 /obj/item/toy/crayon/spraycan/gang/examine(mob/user)
 	. = ..()
 	if(user.mind && user.mind.has_antag_datum(/datum/antagonist/gang) || isobserver(user))
-		. += "This spraycan has been specially modified for tagging territory."
+		. += "<hr>This spraycan has been specially modified for tagging territory."
 
 /datum/gang_item/equipment/spraycan
 	name = "Territory Spraycan"

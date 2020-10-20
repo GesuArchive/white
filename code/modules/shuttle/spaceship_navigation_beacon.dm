@@ -49,7 +49,7 @@
 
 /obj/machinery/spaceship_navigation_beacon/examine()
 	.=..()
-	. += "<span class='[locked ? "warning" : "nicegreen"]'>Status: [locked ? "LOCKED" : "Stable"] </span>"
+	. += "<hr><span class='[locked ? "warning" : "nicegreen"]'>Status: [locked ? "LOCKED" : "Stable"] </span>"
 
 /obj/machinery/spaceship_navigation_beacon/attackby(obj/item/W, mob/user, params)
 	if(default_deconstruction_screwdriver(user, "core-open", "core", W))

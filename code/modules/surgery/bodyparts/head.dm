@@ -66,6 +66,7 @@
 
 /obj/item/bodypart/head/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(status == BODYPART_ORGANIC)
 		if(!brain)
 			. += "<span class='info'>Здесь нет мозга.</span>"
@@ -84,13 +85,13 @@
 			. += "<span class='info'>Эта штука неподвижна.</span>"
 
 		if(!eyes)
-			. += "<span class='info'>Глаза [real_name] отсутствуют.</span>"
+			. += "\n<span class='info'>Глаза [real_name] отсутствуют.</span>"
 
 		if(!ears)
-			. += "<span class='info'>Уши [real_name] отсутствуют.</span>"
+			. += "\n<span class='info'>Уши [real_name] отсутствуют.</span>"
 
 		if(!tongue)
-			. += "<span class='info'>Язык [real_name] отсутствует.</span>"
+			. += "\n<span class='info'>Язык [real_name] отсутствует.</span>"
 
 
 /obj/item/bodypart/head/can_dismember(obj/item/I)

@@ -147,7 +147,7 @@
 /obj/item/gun/energy/plasmacutter/examine(mob/user)
 	. = ..()
 	if(cell)
-		. += "<span class='notice'>[capitalize(src.name)] заряжен на [round(cell.percent())]%.</span>"
+		. += "<hr><span class='notice'>[capitalize(src.name)] заряжен на [round(cell.percent())]%.</span>"
 
 /obj/item/gun/energy/plasmacutter/attackby(obj/item/I, mob/user)
 	var/charge_multiplier = 0 //2 = Refined stack, 1 = Ore

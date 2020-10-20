@@ -81,9 +81,9 @@
 /obj/item/melee/sabre/security/examine(mob/user)
 	. = ..()
 	if(cell)
-		. += "<span class='notice'>Заряд <b>[src.name]</b>: [round(cell.percent())]%.</span>"
+		. += "<hr><span class='notice'>Заряд <b>[src.name]</b>: [round(cell.percent())]%.</span>"
 	else
-		. += "<span class='warning'>Заряд <b>[src.name]</b>: НЕТ БАТАРЕИ.</span>"
+		. += "<hr><span class='warning'>Заряд <b>[src.name]</b>: НЕТ БАТАРЕИ.</span>"
 
 /obj/item/melee/sabre/security/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stock_parts/cell))
