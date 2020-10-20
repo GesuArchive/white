@@ -1,5 +1,5 @@
 /obj/item/organ/cyberimp/arm
-	name = "arm-mounted implant"
+	name = "имплантат руки"
 	desc = "You shouldn't see this! Adminhelp and report this as an issue on github!"
 	zone = BODY_ZONE_R_ARM
 	icon_state = "implant-toolkit"
@@ -39,7 +39,7 @@
 
 /obj/item/organ/cyberimp/arm/examine(mob/user)
 	. = ..()
-	. += "<span class='info'>[src] is assembled in the [zone == BODY_ZONE_R_ARM ? "right" : "left"] arm configuration. You can use a screwdriver to reassemble it.</span>"
+	. += "<span class='info'>[src] собран в [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] зоне рук. Вы можете использовать отвертку для его пересборки.</span>"
 
 /obj/item/organ/cyberimp/arm/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -51,7 +51,7 @@
 	else
 		zone = BODY_ZONE_R_ARM
 	SetSlotFromZone()
-	to_chat(user, "<span class='notice'>You modify [src] to be installed on the [zone == BODY_ZONE_R_ARM ? "right" : "left"] arm.</span>")
+	to_chat(user, "<span class='notice'>Я изменил положение [src] и пересобрал его в [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руке.</span>")
 	update_icon()
 
 /obj/item/organ/cyberimp/arm/Remove(mob/living/carbon/M, special = 0)
@@ -63,7 +63,7 @@
 	if(. & EMP_PROTECT_SELF)
 		return
 	if(prob(15/severity) && owner)
-		to_chat(owner, "<span class='warning'>The electromagnetic pulse causes [src] to malfunction!</span>")
+		to_chat(owner, "<span class='warning'>Электромагнитный импульс вызвал неисправность [src]!</span>")
 		// give the owner an idea about why his implant is glitching
 		Retract()
 
