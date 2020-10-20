@@ -310,15 +310,15 @@
 
 	switch(tipped_status)
 		if(MEDBOT_PANIC_NONE to MEDBOT_PANIC_LOW)
-			. += "It appears to be tipped over, and is quietly waiting for someone to set it right."
+			. += "<hr>It appears to be tipped over, and is quietly waiting for someone to set it right."
 		if(MEDBOT_PANIC_LOW to MEDBOT_PANIC_MED)
-			. += "It is tipped over and requesting help."
+			. += "<hr>It is tipped over and requesting help."
 		if(MEDBOT_PANIC_MED to MEDBOT_PANIC_HIGH)
-			. += "They are tipped over and appear visibly distressed." // now we humanize the medbot as a they, not an it
+			. += "<hr>They are tipped over and appear visibly distressed." // now we humanize the medbot as a they, not an it
 		if(MEDBOT_PANIC_HIGH to MEDBOT_PANIC_FUCK)
-			. += "<span class='warning'>They are tipped over and visibly panicking!</span>"
+			. += "<hr><span class='warning'>They are tipped over and visibly panicking!</span>"
 		if(MEDBOT_PANIC_FUCK to INFINITY)
-			. += "<span class='warning'><b>They are freaking out from being tipped over!</b></span>"
+			. += "<hr><span class='warning'><b>They are freaking out from being tipped over!</b></span>"
 
 /mob/living/simple_animal/bot/medbot/handle_automated_action()
 	if(!..())

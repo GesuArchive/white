@@ -58,6 +58,7 @@ obj/item/gun/ballistic/shotgun/makeshift/update_icon()
 
 /obj/item/gun/ballistic/shotgun/makeshift/examine()
 	. = ..()
+	. += "<hr>"
 	switch(jamchance)
 		if(5 to 10)
 			.+= "Сделано настолько искуссно, насколько позволяют подручные средства."

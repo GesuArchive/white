@@ -111,11 +111,11 @@
 /obj/item/toy/cards/singlecard/cas/examine(mob/user)
 	. = ..()
 	if (flipped)
-		. += "<span class='notice'>The card is face down.</span>"
+		. += "<hr><span class='notice'>The card is face down.</span>"
 	else if (blank)
-		. += "<span class='notice'>The card is blank. Write on it with a pen.</span>"
+		. += "<hr><span class='notice'>The card is blank. Write on it with a pen.</span>"
 	else
-		. += "<span class='notice'>The card reads: [name]</span>"
+		. += "<hr><span class='notice'>The card reads: [name]</span>"
 	. += "<hr><span class='notice'>Alt-click to flip it.</span>"
 
 /obj/item/toy/cards/singlecard/cas/Flip()

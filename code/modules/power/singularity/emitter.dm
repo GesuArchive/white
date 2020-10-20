@@ -94,6 +94,7 @@
 
 /obj/machinery/power/emitter/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(welded)
 		. += "<span class='info'>Он прочно пришвартован к полу. Я могу <b>отварить</b> его от пола.</span>"
 	else if(anchored)
@@ -103,12 +104,12 @@
 
 	if(in_range(user, src) || isobserver(user))
 		if(!active)
-			. += "<span class='notice'>Его индикатор состояния в настоящее время выключен.</span>"
+			. += "\n<span class='notice'>Его индикатор состояния в настоящее время выключен.</span>"
 		else if(!powered)
-			. += "<span class='notice'>Его индикатор состояния слабо светится.</span>"
+			. += "\n<span class='notice'>Его индикатор состояния слабо светится.</span>"
 		else
-			. += "<span class='notice'>Его индикатор состояния показывает: излучение каждые <b>[DisplayTimeText(fire_delay)]</b>.</span>"
-			. += "<span class='notice'>Потребление энергии: <b>[DisplayPower(active_power_usage)]</b>.</span>"
+			. += "\n<span class='notice'>Его индикатор состояния показывает: излучение каждые <b>[DisplayTimeText(fire_delay)]</b>.</span>"
+			. += "\n<span class='notice'>Потребление энергии: <b>[DisplayPower(active_power_usage)]</b>.</span>"
 
 /obj/machinery/power/emitter/ComponentInitialize()
 	. = ..()

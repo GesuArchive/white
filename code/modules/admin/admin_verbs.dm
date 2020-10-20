@@ -164,6 +164,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/populate_world,
 	/client/proc/get_dynex_power,		//*debug verbs for dynex explosions.
 	/client/proc/get_dynex_range,		//*debug verbs for dynex explosions.
+	/client/proc/set_lobby_image,
 	/client/proc/set_dynex_scale,
 	/client/proc/cmd_display_del_log,
 	/client/proc/outfit_manager,
@@ -195,7 +196,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/check_timer_sources,
 	/client/proc/toggle_cdn
 	)
-GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess_wrapper, /proc/possess, /proc/release))
+GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, /proc/possess, /proc/release))
 GLOBAL_PROTECT(admin_verbs_possess)
 GLOBAL_LIST_INIT(admin_verbs_permissions, list(/client/proc/edit_admin_permissions, /client/proc/de_admin, /client/proc/adminwho,
 /client/proc/prikol_panel, /client/proc/retrieve_file, /client/proc/manage_lists))
@@ -233,6 +234,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/drop_bomb,
 	/client/proc/drop_dynex_bomb,
 	/client/proc/get_dynex_range,
+	/client/proc/set_lobby_image,
 	/client/proc/get_dynex_power,
 	/client/proc/set_dynex_scale,
 	/client/proc/cinematic,
@@ -257,7 +259,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_debug_mob_lists,
 	/client/proc/cmd_debug_del_all_wrapper,
 	/client/proc/enable_debug_verbs,
-	/proc/possess_wrapper,
+	/proc/possess,
 	/proc/release,
 	/client/proc/reload_admins,
 	/client/proc/panicbunker,
@@ -657,7 +659,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	set name = "Remove Spell"
 	set desc = "Remove a spell from the selected mob."
 
-	if(T && T.mind)
+	if(T?.mind)
 		var/obj/effect/proc_holder/spell/S = input("Choose the spell to remove", "NO ABRAKADABRA") as null|anything in sortList(T.mind.spell_list)
 		if(S)
 			T.mind.RemoveSpell(S)

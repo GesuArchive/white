@@ -155,7 +155,7 @@ GLOBAL_LIST_INIT(rus_unicode_fix,null)
 		return
 	if (copytext(text,1,2) == "*") //Emotes allowed.
 		return text
-	if (copytext(text,-1) in list("!", "?", "."))
+	if (copytext(text,-1) in list("!", "?", ".", ":", ";", ","))
 		return text
 	text += "."
 	return text

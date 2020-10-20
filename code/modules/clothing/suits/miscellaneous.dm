@@ -363,6 +363,35 @@
 	equip_delay_self = 50
 	strip_delay = 60
 	breakouttime = 3000
+	slowdown = 4
+	var/mob/straight_user
+
+/obj/item/clothing/suit/straight_jacket/equipped(mob/user, slot)
+	. = ..()
+	if(!straight_user)
+		straight_user = user
+
+	RegisterSignal(straight_user, COMSIG_MOVABLE_MOVED, .proc/check_trip)
+
+/obj/item/clothing/suit/straight_jacket/dropped()
+	. = ..()
+	if(straight_user)
+		UnregisterSignal(straight_user, COMSIG_MOVABLE_MOVED)
+		straight_user = null
+
+/obj/item/clothing/suit/straight_jacket/Destroy()
+	straight_user = null
+	return ..()
+
+/obj/item/clothing/suit/straight_jacket/proc/check_trip()
+	var/mob/living/carbon/human/H = straight_user
+	if(!istype(H) || H.wear_suit != src)
+		return
+
+	if(prob(25))
+		H.Paralyze(5)
+		H.Knockdown(10)
+		H.visible_message("<span class='danger'>[H] спотыкается и падает!</span>", "<span class='userdanger'>Спотыкаюсь и падаю!</span>")
 
 /obj/item/clothing/suit/ianshirt
 	name = "изношенная рубашка"

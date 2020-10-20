@@ -130,6 +130,7 @@
 
 /mob/living/simple_animal/parrot/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(stat)
 		. += pick("This parrot is no more.", "This is a late parrot.", "This is an ex-parrot.")
 

@@ -13,7 +13,7 @@
 
 /obj/item/shuttlespawner/examine(mob/user)
 	. = ..()
-	. += "This capsule has the [template.name] stored."
+	. += "<hr>This capsule has the [template.name] stored."
 	. += template.description
 
 /obj/item/shuttlespawner/attack_self()

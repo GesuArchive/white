@@ -614,9 +614,9 @@
 /obj/item/spellbook/examine(mob/user)
 	. = ..()
 	if(owner)
-		. += {"There is a small signature on the front cover: "[owner]"."}
+		. += {"<hr>There is a small signature on the front cover: "[owner]"."}
 	else
-		. += "It appears to have no author."
+		. += "<hr>It appears to have no author."
 
 /obj/item/spellbook/Initialize()
 	. = ..()
@@ -772,14 +772,14 @@
 		H.set_machine(src)
 		if(href_list["buy"])
 			E = entries[text2num(href_list["buy"])]
-			if(E && E.CanBuy(H,src))
+			if(E?.CanBuy(H,src))
 				if(E.Buy(H,src))
 					if(E.limit)
 						E.limit--
 					uses -= E.cost
 		else if(href_list["refund"])
 			E = entries[text2num(href_list["refund"])]
-			if(E && E.refundable)
+			if(E?.refundable)
 				var/result = E.Refund(H,src)
 				if(result > 0)
 					if(!isnull(E.limit))

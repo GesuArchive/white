@@ -87,10 +87,10 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 		return
 
 	if(!num_mobs_hit)
-		. += "<span class='notice'>So far, this rod has not hit any mobs.</span>"
+		. += "<hr><span class='notice'>So far, this rod has not hit any mobs.</span>"
 		return
 
-	. += "\t<span class='notice'>So far, this rod has hit: \n\
+	. += "<hr>\t<span class='notice'>So far, this rod has hit: \n\
 		\t\t[num_mobs_hit] mobs total, \n\
 		\t\t[num_sentient_mobs_hit] of which were sentient, and \n\
 		\t\t[num_sentient_people_hit] of which were sentient people</span>"

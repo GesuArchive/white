@@ -19,12 +19,12 @@
 
 /mob/living/simple_animal/hostile/guardian/dextrous/examine(mob/user)
 	if(dextrous)
-		. = list("<span class='info'>This is [icon2html(src)] \a <b>[src]</b>!\n[desc]")
+		. = list("<span class='info'>This is [icon2html(src)] \a <b>[src]</b>!\n[desc]<hr>")
 		for(var/obj/item/I in held_items)
 			if(!(I.item_flags & ABSTRACT))
-				. += "It has [I.get_examine_string(user)] in its [get_held_index_name(get_held_index_of_item(I))]."
+				. += "\nIt has [I.get_examine_string(user)] in its [get_held_index_name(get_held_index_of_item(I))]."
 		if(internal_storage && !(internal_storage.item_flags & ABSTRACT))
-			. += "It is holding [internal_storage.get_examine_string(user)] in its internal storage."
+			. += "\nIt is holding [internal_storage.get_examine_string(user)] in its internal storage."
 		. += "</span>"
 	else
 		return ..()
@@ -76,7 +76,7 @@
 	return ITEM_SLOT_DEX_STORAGE
 
 /mob/living/simple_animal/hostile/guardian/dextrous/proc/update_inv_internal_storage()
-	if(internal_storage && client && hud_used && hud_used.hud_shown)
+	if(internal_storage && client && hud_used?.hud_shown)
 		internal_storage.screen_loc = ui_id
 		client.screen += internal_storage
 

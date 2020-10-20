@@ -791,9 +791,7 @@
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "ON" = (
-/obj/forge{
-	pixel_y = 15
-	},
+/obj/forge,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "OV" = (

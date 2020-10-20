@@ -142,12 +142,12 @@
 /obj/item/paper/examine(mob/user)
 	. = ..()
 	if(!in_range(user, src) && !isobserver(user))
-		. += "<span class='warning'>Слишком далеко, чтобы прочитать!</span>"
+		. += "<hr><span class='warning'>Слишком далеко, чтобы прочитать!</span>"
 		return
 	if(user.can_read(src))
 		ui_interact(user)
 		return
-	. += "<span class='warning'>А как читать?!</span>"
+	. += "<hr><span class='warning'>А как читать?!</span>"
 
 /obj/item/paper/ui_status(mob/user,/datum/ui_state/state)
 		// Are we on fire?  Hard ot read if so

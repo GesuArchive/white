@@ -367,8 +367,8 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 
 /obj/machinery/conveyor_switch/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>[src] is set to [oneway ? "one way" : "default"] configuration. It can be changed with <b>screwdriver</b>.</span>"
-	. += "<span class='notice'>[src] is set to [invert_icon ? "inverted": "normal"] position. It can be rotated with <b>wrench</b>.</span>"
+	. += "<hr><span class='notice'>[src] is set to [oneway ? "one way" : "default"] configuration. It can be changed with <b>screwdriver</b>.</span>"
+	. += "\n<span class='notice'>[src] is set to [invert_icon ? "inverted": "normal"] position. It can be rotated with <b>wrench</b>.</span>"
 
 /obj/machinery/conveyor_switch/oneway
 	icon_state = "conveyor_switch_oneway"

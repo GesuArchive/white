@@ -32,8 +32,8 @@
 	. = ..()
 	. += "<hr>"
 	. += "<span class='notice'>Alt-клик для сброса поля к изначальному варианту.</span>"
-	. += "<span class='notice'>Ctrl-Shift-клик по доске, чтобы её свернуть.</span>"
-	. += "<span class='notice'>Shift-клик по шашке, чтобы её перевернуть.</span>"
+	. += "\n<span class='notice'>Ctrl-Shift-клик по доске, чтобы её свернуть.</span>"
+	. += "\n<span class='notice'>Shift-клик по шашке, чтобы её перевернуть.</span>"
 
 /obj/checkered_table/Initialize()
 	..()

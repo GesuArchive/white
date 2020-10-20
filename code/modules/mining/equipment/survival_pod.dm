@@ -34,7 +34,7 @@
 /obj/item/survivalcapsule/examine(mob/user)
 	. = ..()
 	get_template()
-	. += "This capsule has the [template.name] stored."
+	. += "<hr>This capsule has the [template.name] stored.\n"
 	. += template.description
 
 /obj/item/survivalcapsule/attack_self()

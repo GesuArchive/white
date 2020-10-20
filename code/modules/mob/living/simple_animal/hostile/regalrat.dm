@@ -76,11 +76,11 @@
 	if(istype(user,/mob/living/simple_animal/hostile/rat))
 		var/mob/living/simple_animal/hostile/rat/ratself = user
 		if(ratself.faction_check_mob(src, TRUE))
-			. += "<span class='notice'>This is your king. Long live his majesty!</span>"
+			. += "<hr><span class='notice'>This is your king. Long live his majesty!</span>"
 		else
-			. += "<span class='warning'>This is a false king! Strike him down!</span>"
+			. += "<hr><span class='warning'>This is a false king! Strike him down!</span>"
 	else if(istype(user,/mob/living/simple_animal/hostile/regalrat))
-		. += "<span class='warning'>Who is this foolish false king? This will not stand!</span>"
+		. += "<hr><span class='warning'>Who is this foolish false king? This will not stand!</span>"
 
 /mob/living/simple_animal/hostile/regalrat/AttackingTarget()
 	. = ..()
@@ -247,6 +247,7 @@
 
 /mob/living/simple_animal/hostile/rat/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(istype(user,/mob/living/simple_animal/hostile/rat))
 		var/mob/living/simple_animal/hostile/rat/ratself = user
 		if(ratself.faction_check_mob(src, TRUE))
@@ -289,7 +290,7 @@
 					playsound(src, 'sound/effects/sparks2.ogg', 100, TRUE)
 					C.deconstruct()
 					death()
-			else if(C && C.avail())
+			else if(C?.avail())
 				visible_message("<span class='warning'>[src] chews through the [C]. It looks unharmed!</span>")
 				playsound(src, 'sound/effects/sparks2.ogg', 100, TRUE)
 				C.deconstruct()

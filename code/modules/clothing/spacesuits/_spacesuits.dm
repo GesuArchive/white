@@ -124,15 +124,15 @@
 /obj/item/clothing/suit/space/examine(mob/user)
 	. = ..()
 	if(in_range(src, user) || isobserver(user))
-		. += "Терморегулятор [thermal_on ? "включен" : "выключен"], выставленная температура \
+		. += "<hr>Терморегулятор [thermal_on ? "включен" : "выключен"], выставленная температура \
 			[round(temperature_setting-T0C,0.1)] &deg;C ([round(temperature_setting*1.8-459.67,0.1)] &deg;F)"
-		. += "Измеритель мощности показывает [cell ? "[round(cell.percent(), 0.1)]%" : "!invalid!"] оставшегося заряда."
+		. += "\nИзмеритель мощности показывает [cell ? "[round(cell.percent(), 0.1)]%" : "!invalid!"] оставшегося заряда."
 		if(cell_cover_open)
-			. += "The cell cover is open exposing the cell and setting knobs."
+			. += "\nThe cell cover is open exposing the cell and setting knobs."
 			if(!cell)
-				. += "The slot for a cell is empty."
+				. += "\nThe slot for a cell is empty."
 			else
-				. += "\The [cell] is firmly in place."
+				. += "\n[cell] is firmly in place."
 
 // object handling for accessing features of the suit
 /obj/item/clothing/suit/space/attackby(obj/item/I, mob/user, params)
@@ -170,7 +170,7 @@
 
 /// Remove the cell whent he cover is open on CTRL+Click
 /obj/item/clothing/suit/space/CtrlClick(mob/living/user)
-	if(user && user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
+	if(user?.canUseTopic(src, BE_CLOSE, ismonkey(user)))
 		if(cell_cover_open && cell)
 			remove_cell(user)
 			return

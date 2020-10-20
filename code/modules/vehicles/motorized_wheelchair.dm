@@ -129,13 +129,13 @@
 /obj/vehicle/ridden/wheelchair/motorized/examine(mob/user)
 	. = ..()
 	if((obj_flags & EMAGGED) && panel_open)
-		. += "There is a bomb under the maintenance panel."
-	. += "There is a small screen on it, [(in_range(user, src) || isobserver(user)) ? "[power_cell ? "it reads:" : "but it is dark."]" : "but you can't see it from here."]"
+		. += "<hr>There is a bomb under the maintenance panel."
+	. += "<hr>There is a small screen on it, [(in_range(user, src) || isobserver(user)) ? "[power_cell ? "it reads:" : "but it is dark."]" : "but you can't see it from here."]"
 	if(!power_cell || (!in_range(user, src) && !isobserver(user)))
 		return
-	. += "Speed: [speed]"
-	. += "Energy efficiency: [power_efficiency]"
-	. += "Power: [power_cell.charge] out of [power_cell.maxcharge]"
+	. += "\nSpeed: [speed]"
+	. += "\nEnergy efficiency: [power_efficiency]"
+	. += "\nPower: [power_cell.charge] out of [power_cell.maxcharge]"
 
 /obj/vehicle/ridden/wheelchair/motorized/Bump(atom/A)
 	. = ..()

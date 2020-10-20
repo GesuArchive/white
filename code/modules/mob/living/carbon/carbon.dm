@@ -290,7 +290,7 @@
 
 /mob/living/carbon/resist_fire()
 	adjust_fire_stacks(-5)
-	Paralyze(60, TRUE, TRUE)
+	Paralyze(60, ignore_canstun = TRUE)
 	spin(32,2)
 	visible_message("<span class='danger'>[src] катается по полу пытаясь сбросить пламя!</span>", \
 		"<span class='notice'>Я останавливаюсь, падаю и катаюсь по полу!</span>")
@@ -351,7 +351,7 @@
 	if (handcuffed)
 		var/obj/item/W = handcuffed
 		set_handcuffed(null)
-		if (buckled && buckled.buckle_requires_restraints)
+		if (buckled?.buckle_requires_restraints)
 			buckled.unbuckle_mob(src)
 		update_handcuffed()
 		if (client)
@@ -396,7 +396,7 @@
 			handcuffed.forceMove(drop_location())
 			set_handcuffed(null)
 			I.dropped(src)
-			if(buckled && buckled.buckle_requires_restraints)
+			if(buckled?.buckle_requires_restraints)
 				buckled.unbuckle_mob(src)
 			update_handcuffed()
 			return TRUE
@@ -425,7 +425,7 @@
 
 	switch(rand(1,100)+modifier) //91-100=Nothing special happens
 		if(-INFINITY to 0) //attack yourself
-			I.attack(src,src)
+			INVOKE_ASYNC(I, /obj/item.proc/attack, src, src)
 		if(1 to 30) //throw it at yourself
 			I.throw_impact(src)
 		if(31 to 60) //Throw object in facing direction
@@ -473,7 +473,7 @@
 	if(is_mouth_covered()) //make this add a blood/vomit overlay later it'll be hilarious
 		if(message)
 			visible_message("<span class='danger'>[src] заблёвывает себя!</span>", \
-							"<span class='userdanger'>Заблевываю себя. Заебись!</span>")
+							"<span class='userdanger'>Заблевываю себя.</span>")
 			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "vomit", /datum/mood_event/vomitself)
 		distance = 0
 	else
@@ -804,11 +804,11 @@
 			hud_used.healths.icon_state = "health7"
 
 /mob/living/carbon/proc/update_internals_hud_icon(internal_state = 0)
-	if(hud_used && hud_used.internals)
+	if(hud_used?.internals)
 		hud_used.internals.icon_state = "internal[internal_state]"
 
 /mob/living/carbon/proc/update_spacesuit_hud_icon(cell_state = "empty")
-	if(hud_used && hud_used.spacesuit)
+	if(hud_used?.spacesuit)
 		hud_used.spacesuit.icon_state = "spacesuit_[cell_state]"
 
 
@@ -1297,8 +1297,12 @@
 
 /mob/living/carbon/on_lying_down(new_lying_angle)
 	. = ..()
-	if(buckled && buckled.buckle_lying == 0)
-		return
+	if(!buckled || buckled.buckle_lying != 0)
+		lying_angle_on_lying_down(new_lying_angle)
+
+
+/// Special carbon interaction on lying down, to transform its sprite by a rotation.
+/mob/living/carbon/proc/lying_angle_on_lying_down(new_lying_angle)
 	if(!new_lying_angle)
 		set_lying_angle(pick(90, 270))
 	else

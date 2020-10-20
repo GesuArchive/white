@@ -254,8 +254,8 @@
 	name = "заснеженный склон горы"
 	icon = 'icons/turf/mining.dmi'
 	smooth_icon = 'icons/turf/walls/icerock_wall.dmi'
-	icon_state = "mountainrock"
-	base_icon_state = "mountain_wall"
+	icon_state = "icerock_wall-0"
+	base_icon_state = "icerock_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	canSmoothWith = list(SMOOTH_GROUP_CLOSED_TURFS)
 	defer_change = TRUE
@@ -328,8 +328,8 @@
 	name = "заснеженный склон горы"
 	icon = 'icons/turf/mining.dmi'
 	smooth_icon = 'icons/turf/walls/icerock_wall.dmi'
-	icon_state = "mountainrock"
-	base_icon_state = "mountain_wall"
+	icon_state = "icerock_wall-0"
+	base_icon_state = "icerock_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	canSmoothWith = list(SMOOTH_GROUP_CLOSED_TURFS)
 	defer_change = TRUE
@@ -612,8 +612,8 @@
 	name = "заснеженный склон горы"
 	icon = 'icons/turf/mining.dmi'
 	smooth_icon = 'icons/turf/walls/mountain_wall.dmi'
-	icon_state = "mountainrock"
-	base_icon_state = "mountain_wall"
+	icon_state = "icerock_wall-0"
+	base_icon_state = "icerock_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	canSmoothWith = list(SMOOTH_GROUP_CLOSED_TURFS)
 	baseturfs = /turf/open/floor/plating/asteroid/snow

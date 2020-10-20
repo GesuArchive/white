@@ -243,17 +243,17 @@
 	RETURN_TYPE(/list)
 	. = list()
 	if(overmind)
-		. += list("<b>Material: <font color=\"[overmind.blobstrain.color]\">[overmind.blobstrain.name]</font><span class='notice'>.</span></b>",
-		"<b>Material Effects:</b> <span class='notice'>[overmind.blobstrain.analyzerdescdamage]</span>",
-		"<b>Material Properties:</b> <span class='notice'>[overmind.blobstrain.analyzerdesceffect]</span>")
+		. += list("\n<b>Material: <font color=\"[overmind.blobstrain.color]\">[overmind.blobstrain.name]</font><span class='notice'>.</span></b>",
+		"\n<b>Material Effects:</b> <span class='notice'>[overmind.blobstrain.analyzerdescdamage]</span>",
+		"\n<b>Material Properties:</b> <span class='notice'>[overmind.blobstrain.analyzerdesceffect]</span>")
 	else
-		. += "<b>No Material Detected!</b>"
+		. += "\n<b>No Material Detected!</b>"
 
 /obj/structure/blob/proc/typereport(mob/user)
 	RETURN_TYPE(/list)
-	return list("<b>Blob Type:</b> <span class='notice'>[uppertext(initial(name))]</span>",
-							"<b>Health:</b> <span class='notice'>[obj_integrity]/[max_integrity]</span>",
-							"<b>Effects:</b> <span class='notice'>[scannerreport()]</span>")
+	return list("\n<b>Blob Type:</b> <span class='notice'>[uppertext(initial(name))]</span>",
+							"\n<b>Health:</b> <span class='notice'>[obj_integrity]/[max_integrity]</span>",
+							"\n<b>Effects:</b> <span class='notice'>[scannerreport()]</span>")
 
 
 /obj/structure/blob/attack_animal(mob/living/simple_animal/M)
@@ -312,17 +312,17 @@
 	. = ..()
 	var/datum/atom_hud/hud_to_check = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
 	if(user.research_scanner || hud_to_check.hudusers[user])
-		. += "<b>Your HUD displays an extensive report...</b><br>"
+		. += "<hr><b>Your HUD displays an extensive report...</b><br>"
 		if(overmind)
 			. += overmind.blobstrain.examine(user)
 		else
-			. += "<b>Core neutralized. Critical mass no longer attainable.</b>"
+			. += "\n<b>Core neutralized. Critical mass no longer attainable.</b>"
 		. += chemeffectreport(user)
 		. += typereport(user)
 	else
 		if((user == overmind || isobserver(user)) && overmind)
 			. += overmind.blobstrain.examine(user)
-		. += "It seems to be made of [get_chem_name()]."
+		. += "<hr>It seems to be made of [get_chem_name()]."
 
 /obj/structure/blob/proc/scannerreport()
 	return "A generic blob. Looks like someone forgot to override this proc, adminhelp this."

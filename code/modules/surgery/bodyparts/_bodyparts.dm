@@ -117,19 +117,20 @@
 
 /obj/item/bodypart/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	if(brute_dam > DAMAGE_PRECISION)
 		. += "<span class='warning'>Конечность имеет [brute_dam > 30 ? "серьёзные" : "незначительные"] травмы.</span>"
 	if(burn_dam > DAMAGE_PRECISION)
 		. += "<span class='warning'>Конечность имеет [burn_dam > 30 ? "серьёзные" : "незначительные"] ожоги.</span>"
 
 	if(locate(/datum/wound/blunt) in wounds)
-		. += "<span class='warning'>Кости этой кончености выглядят сильно потрескавшимися.</span>"
+		. += "\n<span class='warning'>Кости этой кончености выглядят сильно потрескавшимися.</span>"
 	if(locate(/datum/wound/slash) in wounds)
-		. += "<span class='warning'>Плоть этой конечности выглядит сильно порванной.</span>"
+		. += "\n<span class='warning'>Плоть этой конечности выглядит сильно порванной.</span>"
 	if(locate(/datum/wound/pierce) in wounds)
-		. += "<span class='warning'>Плоть этой конечности выглядит сильно префорированной.</span>"
+		. += "\n<span class='warning'>Плоть этой конечности выглядит сильно префорированной.</span>"
 	if(locate(/datum/wound/burn) in wounds)
-		. += "<span class='warning'>Плоть этой конечности выглядит сильно обгоревшей.</span>"
+		. += "\n<span class='warning'>Плоть этой конечности выглядит сильно обгоревшей.</span>"
 
 /obj/item/bodypart/blob_act()
 	take_damage(max_damage)
@@ -565,7 +566,7 @@
 	if(total_damage >= max_damage * disable_threshold) //Easy limb disable disables the limb at 40% health instead of 0%
 		if(!last_maxed)
 			if(owner.stat < UNCONSCIOUS)
-				owner.emote("scream")
+				INVOKE_ASYNC(owner, /mob.proc/emote, "scream")
 			last_maxed = TRUE
 		set_disabled(TRUE)
 		return
@@ -952,7 +953,7 @@
 		var/datum/wound/W = thing
 		bleed_rate += W.blood_flow
 
-	if(owner.body_position == STANDING_UP)
+	if(owner.body_position == LYING_DOWN)
 		bleed_rate *= 0.75
 
 	if(grasped_by)

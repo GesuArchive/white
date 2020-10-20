@@ -12,16 +12,20 @@
 					/obj/item/reagent_containers/spray/pestspray = 20,
 					/obj/item/reagent_containers/syringe = 5,
 					/obj/item/storage/bag/plants = 5,
-					/obj/item/cultivator = 3,
-					/obj/item/shovel/spade = 3,
-					/obj/item/secateurs = 3,
+					/obj/item/cultivator = 5,
+					/obj/item/shovel/spade = 5,
+					/obj/item/secateurs = 5,
 					/obj/item/plant_analyzer = 4,
 					/obj/machinery/plantgenes = 1,
 					/obj/item/disk/plantgene = 20,
-					/obj/machinery/chem_dispenser = 1
+					/obj/machinery/chem_dispenser/botany = 1,
 					)
 	contraband = list(/obj/item/reagent_containers/glass/bottle/ammonia = 10,
-					  /obj/item/reagent_containers/glass/bottle/diethylamine = 5)
+					  /obj/item/reagent_containers/glass/bottle/diethylamine = 5,
+					  /obj/item/storage/box/plumbing = 1,
+					  /obj/item/construction/plumbing = 1,
+					  /obj/item/reagent_containers/glass/beaker/large = 2
+					  )
 	refill_canister = /obj/item/vending_refill/hydronutrients
 	default_price = 100
 	extra_price = 250

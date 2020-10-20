@@ -44,9 +44,9 @@
 	. = ..()
 	if(show_charge_meter)
 		if(cell)
-			.+= "Батарея заряжена на [round(cell.percent() )]%."
+			.+= "<hr>Батарея заряжена на [round(cell.percent() )]%."
 		else
-			.+= "Батарея отсутствует."
+			.+= "<hr>Батарея отсутствует."
 
 /obj/item/gun/energy/cellgun/proc/insert_cell(mob/user, display_message = TRUE, obj/item/stock_parts/cell/BAT)
 	/*if(!istype(BAT, obj/item/stock_parts/cell))

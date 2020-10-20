@@ -16,7 +16,7 @@
 	. = ..()
 	if(!sample)
 		return
-	. += "<span class='notice'>You can see the following micro-organisms:</span>"
+	. += "<hr><span class='notice'>You can see the following micro-organisms:</span>"
 	for(var/i in sample.micro_organisms)
 		var/datum/micro_organism/MO = i
 		. += MO.get_details()

@@ -260,7 +260,7 @@
 /turf/open/floor/plasteel/vaporwave,
 /area/crew_quarters/theatre)
 "aN" = (
-/obj/machinery/computer/arcade,
+/obj/effect/spawner/randomarcade,
 /turf/open/floor/plasteel/vaporwave,
 /area/crew_quarters/theatre)
 "aO" = (
@@ -353,7 +353,7 @@
 /obj/machinery/status_display/evac{
 	pixel_x = 32
 	},
-/obj/machinery/computer/arcade,
+/obj/effect/spawner/randomarcade,
 /turf/open/floor/plasteel/vaporwave,
 /area/crew_quarters/theatre)
 "be" = (

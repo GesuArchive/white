@@ -29,7 +29,10 @@
 	if(check_emote(message, forced))
 		return
 
-	message = capitalize(message)
+	if(client?.prefs?.disabled_autocap)
+		message = message
+	else
+		message = capitalize(message)
 
 	. = say_dead(message)
 

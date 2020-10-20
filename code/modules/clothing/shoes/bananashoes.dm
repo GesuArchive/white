@@ -44,7 +44,7 @@
 
 /obj/item/clothing/shoes/clown_shoes/banana_shoes/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Обувь [on ? "включена" : "выключена"].</span>"
+	. += "<hr><span class='notice'>Обувь [on ? "включена" : "выключена"].</span>"
 
 /obj/item/clothing/shoes/clown_shoes/banana_shoes/ui_action_click(mob/user)
 	var/datum/component/material_container/bananium = GetComponent(/datum/component/material_container)

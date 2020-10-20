@@ -80,7 +80,6 @@
 	roundend_category = "schoolshooters"
 	antagpanel_category = "Traitor"
 	show_in_antagpanel = FALSE
-	can_hijack = HIJACK_HIJACKER
 	var/datum/team/schoolshooters/team
 
 /datum/antagonist/schoolshooter/create_team(datum/team/abductor_team/new_team)

@@ -25,7 +25,7 @@
 	name = "кирпичная стена"
 	desc = "Изначально эти стены были белого цвета, но со временем люди стали их красить. Собой."
 	icon = 'white/valtos/icons/prison/brick_wall.dmi'
-	icon_state = "brick"
+	icon_state = "brick_wall-0"
 	hardness = 4500
 	explosion_block = 5
 	slicing_duration = 20000
@@ -120,7 +120,7 @@
 /turf/open/floor/beton
 	name = "бетон"
 	desc = "Падать на него не самый лучший вариант."
-	icon_state = "beton"
+	icon_state = "beton-0"
 	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 	icon = 'white/valtos/icons/prison/beton.dmi'
 	floor_tile = /obj/item/stack/tile/beton
@@ -151,7 +151,7 @@
 	name = "кирпичная стена"
 	desc = "Изначально эти стены были белого цвета, но со временем люди стали их красить. Собой."
 	icon = 'white/valtos/icons/prison/brick_wall.dmi'
-	icon_state = "brick"
+	icon_state = "brick_wall-0"
 	walltype = /turf/closed/wall/brick
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 

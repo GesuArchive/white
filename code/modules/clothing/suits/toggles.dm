@@ -122,7 +122,7 @@
 
 /obj/item/clothing/suit/toggle/examine(mob/user)
 	. = ..()
-	. += "Alt+ЛКМ по [src] чтобы переключить [togglename]."
+	. += "<hr>Alt+ЛКМ по [src] чтобы переключить [togglename]."
 
 //Hardsuit toggle code
 /obj/item/clothing/suit/space/hardsuit/Initialize()

@@ -147,9 +147,9 @@ SUBSYSTEM_DEF(spm)
 
 	var/datum/gas_mixture/env = loc.return_air()
 
-	. += "<span class='notice'>Датчик температуры: [round(env.return_temperature()-T0C, 0.01)]°C</span>"
+	. += "<hr><span class='notice'>Датчик температуры: [round(env.return_temperature()-T0C, 0.01)]°C</span>"
 	if(need_rework)
-		. += "<span class='notice'>Возможно <b>мультитул</b> поможет перенастроить его.</span>"
+		. += "\n<span class='notice'>Возможно <b>мультитул</b> поможет перенастроить его.</span>"
 
 /obj/machinery/power/spaceminer/Initialize()
 	. = ..()

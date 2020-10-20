@@ -71,6 +71,7 @@
 
 /obj/structure/light_construct/examine(mob/user)
 	. = ..()
+	. += "<hr>"
 	switch(stage)
 		if(1)
 			. += "It's an empty frame."
@@ -80,11 +81,11 @@
 			. += "The casing is closed."
 	if(cell_connectors)
 		if(cell)
-			. += "You see [cell] inside the casing."
+			. += "\nYou see [cell] inside the casing."
 		else
-			. += "The casing has no power cell for backup power."
+			. += "\nThe casing has no power cell for backup power."
 	else
-		. += "<span class='danger'>This casing doesn't support power cells for backup power.</span>"
+		. += "\n<span class='danger'>This casing doesn't support power cells for backup power.</span>"
 
 /obj/structure/light_construct/attack_hand(mob/user)
 	if(cell)
@@ -339,7 +340,7 @@
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
 			var/area/A = get_area(src)
-			if(emergency_mode || (A && A.fire))
+			if(emergency_mode || (A?.fire))
 				icon_state = "[base_state]_emergency"
 			else
 				icon_state = "[base_state]"
@@ -370,7 +371,7 @@
 		if(color)
 			CO = color
 		var/area/A = get_area(src)
-		if (A && A.fire)
+		if (A?.fire)
 			CO = bulb_emergency_colour
 		else if (nightshift_enabled)
 			BR = nightshift_brightness

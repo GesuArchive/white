@@ -70,7 +70,7 @@ God bless America.
 /obj/machinery/deepfryer/examine(mob/user)
 	. = ..()
 	if(frying)
-		. += "You can make out \a [frying] in the oil."
+		. += "<hr>You can make out \a [frying] in the oil."
 	if(in_range(user, src) || isobserver(user))
 		. += "<hr><span class='notice'>Дисплей: Frying at <b>[fry_speed*100]%</b> speed.<br>Using <b>[oil_use]</b> units of oil per second.</span>"
 

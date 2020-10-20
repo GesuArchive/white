@@ -13,6 +13,7 @@
 	nospawn = FALSE
 	floor_tile = null
 	baseturfs = /turf/open/floor/grass/gensgrass/dirty
+	slowdown = 1
 
 /turf/open/floor/grass/gensgrass/dirty
 	gender = FEMALE
