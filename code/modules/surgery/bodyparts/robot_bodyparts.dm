@@ -300,7 +300,7 @@
 
 
 /obj/item/bodypart/l_arm/robot/surplus
-	name = "добавочный протез левой руки"
+	name = "бюджетный протез левой руки"
 	desc = "Скелетная робото-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
 	brute_reduction = 0
@@ -308,7 +308,7 @@
 	max_damage = 20
 
 /obj/item/bodypart/r_arm/robot/surplus
-	name = "добавочный протез правой руки"
+	name = "бюджетный протез правой руки"
 	desc = "Скелетная робото-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
 	brute_reduction = 0
@@ -316,7 +316,7 @@
 	max_damage = 20
 
 /obj/item/bodypart/l_leg/robot/surplus
-	name = "добавочный протез левой ноги"
+	name = "бюджетный протез левой ноги"
 	desc = "Скелетная робото-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
 	brute_reduction = 0
@@ -324,7 +324,7 @@
 	max_damage = 20
 
 /obj/item/bodypart/r_leg/robot/surplus
-	name = "добавочный протез правой ноги"
+	name = "бюджетный протез правой ноги"
 	desc = "Скелетная робото-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
 	brute_reduction = 0
