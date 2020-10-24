@@ -1,4 +1,4 @@
-GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari", "jhnazar"))
+GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 
 /atom
 	var/zashkvareno = 0
@@ -52,4 +52,4 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari", "jhnazar"))
 		newshot()
 	. = ..()
 
-GLOBAL_LIST_INIT(pacifist_list, list("chillraccoon", "hughdepayne", "jhnazar"))
+GLOBAL_LIST_INIT(pacifist_list, list("chillraccoon", "hughdepayne", "ainnik"))
