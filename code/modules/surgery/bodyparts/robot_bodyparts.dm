@@ -181,7 +181,7 @@
 /obj/item/bodypart/chest/robot/examine(mob/user)
 	. = ..()
 	if(cell)
-		. += {"<hr>It has a [cell] inserted.\n
+		. += {"<hr>Имеет вставленный [cell].\n
 		<span class='info'>Вы можете использовать <b>отвертку</b> чтобы извлечь [cell].</span>"}
 	else
 		. += "<hr><span class='info'>Имеет пустой слот для <b>ячейки питания</b>.</span>"
@@ -240,16 +240,16 @@
 /obj/item/bodypart/head/robot/examine(mob/user)
 	. = ..()
 	if(!flash1 && !flash2)
-		. += "<hr><span class='info'>Имеет два свободных глазных слота для <b>flashes</b>.</span>"
+		. += "<hr><span class='info'>Имеет два свободных глазных слота для <b>вспышек</b>.</span>"
 	else
 		var/single_flash = FALSE
 		if(!flash1 || !flash2)
 			single_flash = TRUE
-			. += {"<hr>Один из глазных разъемов на данный момент занят by a flash.\n
-			<span class='info'>В нем есть еще один свободный разъем под <b>flash</b>.</span>"}
+			. += {"<hr>Один из глазных разъемов на данный момент занят вспышкой.\n
+			<span class='info'>В нем есть еще один свободный разъем под <b>вспышку</b>.</span>"}
 		else
-			. += "<hr>Оба глазных разъема заняты by flashes."
-		. += "\n<span class='notice'>Я могу извлечь установленную d flash[single_flash ? "":"es"] при помощи <b>ломика</b>.</span>"
+			. += "<hr>Оба глазных разъема заняты вспышками."
+		. += "\n<span class='notice'>Я могу извлечь установленную [single_flash ? "вспышку":"вспышки"] при помощи <b>ломика</b>.</span>"
 
 /obj/item/bodypart/head/robot/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/assembly/flash/handheld))
@@ -258,7 +258,7 @@
 			to_chat(user, "<span class='warning'>Я уже вставил глаза!</span>")
 			return
 		else if(F.burnt_out)
-			to_chat(user, "<span class='warning'>Я не могу использовать сломанный flash!</span>")
+			to_chat(user, "<span class='warning'>Я не могу использовать сломанную вспышку!</span>")
 			return
 		else
 			if(!user.transferItemToLoc(F, src))
@@ -267,7 +267,7 @@
 				flash2 = F
 			else
 				flash1 = F
-			to_chat(user, "<span class='notice'>Я вставил flash в глазной разъем.</span>")
+			to_chat(user, "<span class='notice'>Я вставил вспышку в глазной разъем.</span>")
 			return
 	return ..()
 
@@ -275,7 +275,7 @@
 	..()
 	if(flash1 || flash2)
 		I.play_tool_sound(src)
-		to_chat(user, "<span class='notice'>Я извлек flash из [src].</span>")
+		to_chat(user, "<span class='notice'>Я извлек вспышку из [src].</span>")
 		if(flash1)
 			flash1.forceMove(drop_location())
 			flash1 = null
@@ -283,7 +283,7 @@
 			flash2.forceMove(drop_location())
 			flash2 = null
 	else
-		to_chat(user, "<span class='warning'>В [src] нет flash который можно извлечь.</span>")
+		to_chat(user, "<span class='warning'>В [src] нет вспышки которую можно извлечь.</span>")
 	return TRUE
 
 
@@ -300,7 +300,7 @@
 
 
 /obj/item/bodypart/l_arm/robot/surplus
-	name = "остаточный протез левой руки"
+	name = "добавочный протез левой руки"
 	desc = "Скелетная робото-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
 	brute_reduction = 0
@@ -308,7 +308,7 @@
 	max_damage = 20
 
 /obj/item/bodypart/r_arm/robot/surplus
-	name = "surplus протез правой руки"
+	name = "добавочный протез правой руки"
 	desc = "Скелетная робото-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
 	brute_reduction = 0
@@ -316,7 +316,7 @@
 	max_damage = 20
 
 /obj/item/bodypart/l_leg/robot/surplus
-	name = "surplus протез левой ноги"
+	name = "добавочный протез левой ноги"
 	desc = "Скелетная робото-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
 	brute_reduction = 0
@@ -324,7 +324,7 @@
 	max_damage = 20
 
 /obj/item/bodypart/r_leg/robot/surplus
-	name = "surplus протез правой ноги"
+	name = "добавочный протез правой ноги"
 	desc = "Скелетная робото-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
 	brute_reduction = 0
