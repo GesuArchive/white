@@ -41,6 +41,7 @@
 		/datum/reagent/carbon,
 		/datum/reagent/chlorine,
 		/datum/reagent/copper,
+		/datum/reagent/silver,
 		/datum/reagent/consumable/ethanol,
 		/datum/reagent/fluorine,
 		/datum/reagent/hydrogen,
