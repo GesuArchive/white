@@ -238,7 +238,7 @@
 			return
 		SSshuttle.emergency.setTimer(timer*10)
 		log_admin("[key_name(usr)] edited the Emergency Shuttle's timeleft to [timer] seconds.")
-		minor_announce("The emergency shuttle will reach its destination in [DisplayTimeText(timer)].")
+		minor_announce("Эвакуационный шаттл прибудет через [DisplayTimeText(timer*10)].")
 		message_admins("<span class='adminnotice'>[key_name_admin(usr)] edited the Emergency Shuttle's timeleft to [timer] seconds.</span>")
 	else if(href_list["trigger_centcom_recall"])
 		if(!check_rights(R_ADMIN))
@@ -898,9 +898,9 @@
 		GLOB.master_mode = href_list["c_mode2"]
 		log_admin("[key_name(usr)] set the mode as [GLOB.master_mode].")
 		message_admins("<span class='adminnotice'>[key_name_admin(usr)] set the mode as [GLOB.master_mode].</span>")
-		to_chat(world, "<span class='adminnotice'><b>The mode is now: [GLOB.master_mode]</b></span>", confidential = TRUE)
+		to_chat(world, "<span class='adminnotice'><b>Режим: [GLOB.master_mode]</b></span>", confidential = TRUE)
 		Game() // updates the main game menu
-		if (askuser(usr, "Would you like to save this as the default mode for the server?", "Save mode", "Yes", "No", Timeout = null) == 1)
+		if (askuser(usr, "Оставляем навсегда?", "Сохранение", "Да", "Нет", Timeout = null) == 1)
 			SSticker.save_mode(GLOB.master_mode)
 		HandleCMode()
 
