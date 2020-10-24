@@ -71,9 +71,9 @@
 	if(!holder || (holder in src))
 		return
 
-	owner.visible_message("<span class='notice'>[owner] retracts [holder] back into [owner.p_their()] [zone == BODY_ZONE_R_ARM ? "right" : "left"] arm.</span>",
-		"<span class='notice'>[holder] snaps back into your [zone == BODY_ZONE_R_ARM ? "right" : "left"] arm.</span>",
-		"<span class='hear'>You hear a short mechanical noise.</span>")
+	owner.visible_message("<span class='notice'>[owner] втягивает [holder] обратно в [owner.p_their()] [zone == BODY_ZONE_R_ARM ? "правую" : "левую"] руку.</span>",
+		"<span class='notice'>[holder] возвращается в мою [zone == BODY_ZONE_R_ARM ? "правую" : "левую"] руку.</span>",
+		"<span class='hear'>Я услышал короткий механический шелчок.</span>")
 
 	if(istype(holder, /obj/item/assembly/flash/armimplant))
 		var/obj/item/assembly/flash/F = holder
@@ -109,23 +109,23 @@
 		for(var/i in 1 to hand_items.len) //Can't just use *in* here.
 			var/I = hand_items[i]
 			if(!owner.dropItemToGround(I))
-				failure_message += "<span class='warning'>Your [I] interferes with [src]!</span>"
+				failure_message += "<span class='warning'>Мой [I] мешает [src]!</span>"
 				continue
-			to_chat(owner, "<span class='notice'>You drop [I] to activate [src]!</span>")
+			to_chat(owner, "<span class='notice'>Я выбросил [I] чтобы активировать [src]!</span>")
 			success = owner.put_in_hand(holder, owner.get_empty_held_index_for_side(side))
 			break
 		if(!success)
 			for(var/i in failure_message)
 				to_chat(owner, i)
 			return
-	owner.visible_message("<span class='notice'>[owner] extends [holder] from [owner.p_their()] [zone == BODY_ZONE_R_ARM ? "right" : "left"] arm.</span>",
-		"<span class='notice'>You extend [holder] from your [zone == BODY_ZONE_R_ARM ? "right" : "left"] arm.</span>",
-		"<span class='hear'>You hear a short mechanical noise.</span>")
+	owner.visible_message("<span class='notice'>[owner] вытягивает [holder] из [owner.p_their()] [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руки.</span>",
+		"<span class='notice'>Я вытягиваю [holder] из моей [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руки.</span>",
+		"<span class='hear'>Я услышал короткий механический шелчок.</span>")
 	playsound(get_turf(owner), 'sound/mecha/mechmove03.ogg', 50, TRUE)
 
 /obj/item/organ/cyberimp/arm/ui_action_click()
 	if((organ_flags & ORGAN_FAILING) || (!holder && !contents.len))
-		to_chat(owner, "<span class='warning'>The implant doesn't respond. It seems to be broken...</span>")
+		to_chat(owner, "<span class='warning'>Имплант не отвечает. Похоже что он сломался...</span>")
 		return
 
 	if(!holder || (holder in src))
@@ -150,9 +150,9 @@
 		return
 	if(prob(30/severity) && owner && !(organ_flags & ORGAN_FAILING))
 		Retract()
-		owner.visible_message("<span class='danger'>A loud bang comes from [owner]\'s [zone == BODY_ZONE_R_ARM ? "right" : "left"] arm!</span>")
+		owner.visible_message("<span class='danger'> Из [owner] [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руки [owner] раздался громкий хлопок!</span>")
 		playsound(get_turf(owner), 'sound/weapons/flashbang.ogg', 100, TRUE)
-		to_chat(owner, "<span class='userdanger'>You feel an explosion erupt inside your [zone == BODY_ZONE_R_ARM ? "right" : "left"] arm as your implant breaks!</span>")
+		to_chat(owner, "<span class='userdanger'>Чувствую взрыв в моей [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руке, сломался имплант!</span>")
 		owner.adjust_fire_stacks(20)
 		owner.IgniteMob()
 		owner.adjustFireLoss(25)
@@ -160,8 +160,8 @@
 
 
 /obj/item/organ/cyberimp/arm/gun/laser
-	name = "arm-mounted laser implant"
-	desc = "A variant of the arm cannon implant that fires lethal laser beams. The cannon emerges from the subject's arm and remains inside when not in use."
+	name = "встроенный в руку лазерный имплант"
+	desc = "Вариация импланта ручной пушки которая стреляет смертоносными лазернами лучами. Если не используется то пушка остается внутри руки, при стрельбе высовывается из неё."
 	icon_state = "arm_laser"
 	contents = newlist(/obj/item/gun/energy/laser/mounted)
 
@@ -170,8 +170,8 @@
 
 
 /obj/item/organ/cyberimp/arm/gun/taser
-	name = "arm-mounted taser implant"
-	desc = "A variant of the arm cannon implant that fires electrodes and disabler shots. The cannon emerges from the subject's arm and remains inside when not in use."
+	name = "встроенный в руку тазер"
+	desc = "Вариация импланта ручной пушки, которая стреляет электродами и вырубающими снарядами. Если не используется то пушка остается внутри руки, при стрельбе высовывается из неё."
 	icon_state = "arm_taser"
 	contents = newlist(/obj/item/gun/energy/e_gun/advtaser/mounted)
 
@@ -179,8 +179,8 @@
 	zone = BODY_ZONE_L_ARM
 
 /obj/item/organ/cyberimp/arm/toolset
-	name = "integrated toolset implant"
-	desc = "A stripped-down version of the engineering cyborg toolset, designed to be installed on subject's arm. Contain advanced versions of every tool."
+	name = "Имплант встроенного набора инструментов"
+	desc = "Урезанная версия набора инструментов инженерного киборга, сконструированная для установки в руку. Содержит улучшенные версии всех инструментов."
 	contents = newlist(/obj/item/screwdriver/cyborg, /obj/item/wrench/cyborg, /obj/item/weldingtool/largetank/cyborg,
 		/obj/item/crowbar/cyborg, /obj/item/wirecutters/cyborg, /obj/item/multitool/cyborg)
 
@@ -189,25 +189,25 @@
 
 /obj/item/organ/cyberimp/arm/toolset/emag_act(mob/user)
 	if(!(locate(/obj/item/kitchen/knife/combat/cyborg) in items_list))
-		to_chat(user, "<span class='notice'>You unlock [src]'s integrated knife!</span>")
+		to_chat(user, "<span class='notice'>Вы разблокировали интегрированный нож [src]!</span>")
 		items_list += new /obj/item/kitchen/knife/combat/cyborg(src)
 		return 1
 	return 0
 
 /obj/item/organ/cyberimp/arm/esword
-	name = "arm-mounted energy blade"
-	desc = "An illegal and highly dangerous cybernetic implant that can project a deadly blade of concentrated energy."
+	name = "встроенный в руку энергетический клинок"
+	desc = "Незаконный и крайне опасный кибернетический имплант способный выпустить смертоносный клинок из концетрированной энергии."
 	contents = newlist(/obj/item/melee/transforming/energy/blade/hardlight)
 
 /obj/item/organ/cyberimp/arm/medibeam
-	name = "integrated medical beamgun"
-	desc = "A cybernetic implant that allows the user to project a healing beam from their hand."
+	name = "встроенная медицинская лучевая пушка"
+	desc = "Кибернетический имплант позволяющий пользователю излучать исцеляющие лучи из своей руки."
 	contents = newlist(/obj/item/gun/medbeam)
 
 
 /obj/item/organ/cyberimp/arm/flash
-	name = "integrated high-intensity photon projector" //Why not
-	desc = "An integrated projector mounted onto a user's arm that is able to be used as a powerful flash."
+	name = "встроенный проектор фотонов высокой интенсивности" //Why not
+	desc = "Встроенный в руку пользователя проектор способный создавать мощную вспышку."
 	contents = newlist(/obj/item/assembly/flash/armimplant)
 
 /obj/item/organ/cyberimp/arm/flash/Initialize()
@@ -217,13 +217,13 @@
 		F.I = src
 
 /obj/item/organ/cyberimp/arm/baton
-	name = "arm electrification implant"
-	desc = "An illegal combat implant that allows the user to administer disabling shocks from their arm."
+	name = "имплант электрификации руки"
+	desc = "Незаконный боевой имплант позволяющий пользователю контролировать обезвреживающие электричество из своей руки."
 	contents = newlist(/obj/item/borg/stun)
 
 /obj/item/organ/cyberimp/arm/combat
-	name = "combat cybernetics implant"
-	desc = "A powerful cybernetic implant that contains combat modules built into the user's arm."
+	name = "боевой кибернетический имплант"
+	desc = "Мощный кибернетический имплант встроенный в руку пользователя и содержащий боевые модули."
 	contents = newlist(/obj/item/melee/transforming/energy/blade/hardlight, /obj/item/gun/medbeam, /obj/item/borg/stun, /obj/item/assembly/flash/armimplant)
 
 /obj/item/organ/cyberimp/arm/combat/Initialize()
@@ -233,6 +233,6 @@
 		F.I = src
 
 /obj/item/organ/cyberimp/arm/surgery
-	name = "surgical toolset implant"
-	desc = "A set of surgical tools hidden behind a concealed panel on the user's arm."
+	name = "имплант хирургических инструментов"
+	desc = "Набор хирургических инструментов скрывающийся за скрытой панелью на руке пользователя."
 	contents = newlist(/obj/item/retractor/augment, /obj/item/hemostat/augment, /obj/item/cautery/augment, /obj/item/surgicaldrill/augment, /obj/item/scalpel/augment, /obj/item/circular_saw/augment, /obj/item/surgical_drapes)
