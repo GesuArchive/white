@@ -107,11 +107,6 @@
 	M.set_glide_size(glide_size)
 	post_buckle_mob(M)
 
-	if(.)
-		if(M.resistance_flags & ON_FIRE) //Sets the mob on fire if you buckle them to a burning atom/movableect
-			M.adjust_fire_stacks(1)
-			M.IgniteMob()
-
 /**
   * Set a mob as unbuckled from src
   *
