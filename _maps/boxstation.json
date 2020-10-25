@@ -1,4 +1,5 @@
 {
+	"version": 1,
     "map_name": "WBox Station",
     "map_path": "map_files/BoxStation",
     "map_file": ["BoxStationWhite.dmm"],
@@ -7,5 +8,11 @@
 	    "ferry": "ferry_fancy",
 	    "whiteship": "whiteship_box",
 	    "emergency": "emergency_box"
-    }
+    },
+	"jobs_changes": {
+		"prisoner": {
+			"total_positions": 16,
+			"spawn_positions": 4
+		}
+	}
 }
