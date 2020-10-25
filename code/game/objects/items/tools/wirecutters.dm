@@ -60,7 +60,7 @@
 		return
 	else if(istype(C) && C.has_status_effect(STATUS_EFFECT_CHOKINGSTRAND))
 		to_chat(C, "<span class='notice'>Пытаюсь снять прядь дюраткани с шеи.</span>")
-		if(do_after(user, 15, null, C))
+		if(do_after(user, 1.5 SECONDS, C))
 			to_chat(C, "<span class='notice'>Успешно снимаю прядь дюраткани.</span>")
 			C.remove_status_effect(STATUS_EFFECT_CHOKINGSTRAND)
 	else

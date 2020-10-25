@@ -164,7 +164,7 @@
 		if(L.status)
 			to_chat(user, "<span class='warning'>Эта лампочка слишком повреждена чтобы использовать её в качестве замены!</span>")
 			return
-		if(do_after(user, 50, 1, src))
+		if(do_after(user, 5 SECONDS, src))
 			qdel(I)
 			helmet = new helmettype(src)
 			to_chat(user, "<span class='notice'>Я успешно заменил лампочку на шлеме [src].</span>")

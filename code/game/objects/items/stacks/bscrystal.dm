@@ -30,7 +30,7 @@
 /obj/item/stack/ore/bluespace_crystal/attack_self(mob/user)
 	user.visible_message("<span class='warning'><b>[user]</b> раздавливает <b>[src]</b>!</span>", "<span class='danger'>Раздавливаю <b>[src]</b>!</span>")
 	new /obj/effect/particle_effect/sparks(loc)
-	playsound(loc, "sparks", 50, TRUE)
+	playsound(loc, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	blink_mob(user)
 	use(1)
 
@@ -42,7 +42,7 @@
 		visible_message("<span class='notice'><b>[capitalize(src)]</b> шипит и исчезает при ударе!</span>")
 		var/turf/T = get_turf(hit_atom)
 		new /obj/effect/particle_effect/sparks(T)
-		playsound(loc, "sparks", 50, TRUE)
+		playsound(loc, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		if(isliving(hit_atom))
 			blink_mob(hit_atom)
 		use(1)

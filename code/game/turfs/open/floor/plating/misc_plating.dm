@@ -167,7 +167,8 @@
 /turf/open/floor/plating/ironsand
 	gender = PLURAL
 	name = "железный песок"
-	desc = "Как песок, но только <i>металлическая стружка</i>."
+	desc = "Как песок, но только <i>металлический</i>."
+	icon_state = "ironsand1"
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND

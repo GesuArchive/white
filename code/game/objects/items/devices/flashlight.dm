@@ -36,7 +36,7 @@
 
 /obj/item/flashlight/attack_self(mob/user)
 	on = !on
-	playsound(user, 'sound/weapons/empty.ogg', 100, TRUE)
+	playsound(user, on ? 'sound/weapons/magin.ogg' : 'sound/weapons/magout.ogg', 40, TRUE)
 	update_brightness(user)
 	for(var/X in actions)
 		var/datum/action/A = X
