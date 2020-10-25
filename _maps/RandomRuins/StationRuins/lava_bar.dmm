@@ -839,6 +839,10 @@
 /obj/structure/displaycase/forsale/kitchen,
 /turf/open/floor/mineral/plastitanium/red,
 /area/crew_quarters/kitchen)
+"Ey" = (
+/obj/machinery/computer/slot_machine,
+/turf/open/floor/mineral/plastitanium,
+/area/crew_quarters/bar)
 "EK" = (
 /obj/machinery/smartfridge,
 /turf/closed/wall,
@@ -1716,7 +1720,7 @@ ln
 (19,1,1) = {"
 Nr
 Cj
-rJ
+Ey
 Xh
 rJ
 rJ

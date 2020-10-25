@@ -10811,7 +10811,6 @@
 /turf/open/floor/plasteel/dark,
 /area/chapel/main)
 "aTl" = (
-/obj/machinery/vending/cola/random,
 /obj/machinery/status_display/evac{
 	layer = 4;
 	pixel_y = 32
@@ -10821,6 +10820,9 @@
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 8
+	},
+/obj/effect/spawner/randomarcade{
+	dir = 4
 	},
 /turf/open/floor/plasteel/white/corner{
 	dir = 1
@@ -11154,10 +11156,10 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/hallway/secondary/service)
 "aUL" = (
-/obj/effect/spawner/randomarcade,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
+/obj/machinery/vending/cola/random,
 /turf/open/floor/plasteel/white/corner{
 	dir = 1
 	},
@@ -16183,9 +16185,6 @@
 	departmentType = 2;
 	pixel_x = -30
 	},
-/obj/machinery/computer/bounty{
-	dir = 4
-	},
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
@@ -16194,6 +16193,9 @@
 	},
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
+	},
+/obj/machinery/modular_computer/console/preset/civilian{
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
@@ -25674,9 +25676,8 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "ceQ" = (
-/obj/structure/target_stake,
-/obj/machinery/magnetic_module,
 /obj/effect/landmark/blobstart,
+/obj/structure/training_machine,
 /turf/open/floor/engine,
 /area/science/misc_lab)
 "ceR" = (
@@ -26882,10 +26883,6 @@
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/chief)
 "cka" = (
-/obj/machinery/magnetic_controller{
-	autolink = 1;
-	pixel_y = 3
-	},
 /obj/structure/table,
 /turf/open/floor/plasteel,
 /area/science/misc_lab)
@@ -34152,6 +34149,7 @@
 /turf/closed/wall/r_wall,
 /area/maintenance/starboard/aft)
 "mvb" = (
+/obj/structure/chair/stool,
 /turf/open/floor/plasteel/white/corner{
 	dir = 1
 	},
@@ -34767,9 +34765,18 @@
 /turf/open/floor/plasteel/dark,
 /area/security/courtroom)
 "ofT" = (
-/obj/machinery/computer/bounty,
-/turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/machinery/vending/modularpc,
+/turf/open/floor/plasteel/white/corner{
+	dir = 1
+	},
+/area/hallway/secondary/exit)
 "ogj" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/door/airlock/external{
@@ -37302,9 +37309,9 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/obj/structure/closet/emcloset,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/machinery/lapvend,
 /turf/open/floor/plasteel/white/corner{
 	dir = 1
 	},
@@ -59196,7 +59203,7 @@ gjl
 gjl
 gjl
 aZE
-ofT
+bjr
 bjr
 ama
 bmh
@@ -87466,7 +87473,7 @@ beJ
 bge
 bhH
 uGA
-uGA
+ofT
 bmd
 boB
 bnr

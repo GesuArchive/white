@@ -3557,9 +3557,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "jn" = (
-/obj/machinery/computer/bounty{
-	dir = 4
-	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},

@@ -1306,9 +1306,6 @@
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "cU" = (
-/obj/machinery/computer/bounty{
-	dir = 4
-	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
