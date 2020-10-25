@@ -173,7 +173,7 @@
 	weight = 24
 
 /datum/round_aspect/rich/run_aspect()
-	for(var/datum/bank_account/D in SSeconomy.bank_accounts)
+	for(var/datum/bank_account/D in SSeconomy.bank_accounts_by_id)
 		D._adjust_money(10000)
 	..()
 

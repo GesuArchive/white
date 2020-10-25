@@ -257,7 +257,7 @@
 /datum/blackmarket_item/clothing/pigmask
 	name = "Маска свиньи"
 	desc = "REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"
-	item = /obj/item/clothing/mask/pig
+	item = /obj/item/clothing/mask/animal/pig
 
 	price_min = 100
 	price_max = 500
@@ -267,7 +267,7 @@
 /datum/blackmarket_item/clothing/cowmask
 	name = "Маска коровы"
 	desc = "Moo"
-	item = /obj/item/clothing/mask/cowmask
+	item = /obj/item/clothing/mask/animal/cowmask
 
 	price_min = 100
 	price_max = 500
@@ -277,7 +277,7 @@
 /datum/blackmarket_item/clothing/horsehead
 	name = "Голова лошади"
 	desc = "Neith"
-	item = /obj/item/clothing/mask/horsehead
+	item = /obj/item/clothing/mask/animal/horsehead
 
 	price_min = 100
 	price_max = 500

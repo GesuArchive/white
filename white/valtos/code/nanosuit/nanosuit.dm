@@ -566,7 +566,7 @@
 
 /datum/action/item_action/nanosuit
 	check_flags = AB_CHECK_CONSCIOUS
-	icon_icon = 'icons/mob/actions.dmi'
+	icon_icon = 'icons/hud/actions.dmi'
 	background_icon_state = "bg_tech_blue"
 
 /datum/action/item_action/nanosuit/goggletoggle
@@ -663,7 +663,7 @@
 
 /datum/action/item_action/nanosuit/zoom
 	name = "Helmet Zoom"
-	icon_icon = 'icons/mob/actions.dmi'
+	icon_icon = 'icons/hud/actions.dmi'
 	background_icon_state = "bg_tech_blue"
 	icon_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "sniper_zoom"

@@ -6,6 +6,8 @@
 	var/e_range
 	///footstep_type is a define which determines what kind of sounds should get chosen.
 	var/footstep_type
+	//aaaaaaaaaaaaaaa
+	var/last_played
 	///This can be a list OR a soundfile OR null. Determines whatever sound gets played.
 	var/footstep_sounds
 
