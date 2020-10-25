@@ -707,7 +707,7 @@ function tab_change(tab) {
 		draw_debug();
 	} else if(tab == "Тикеты") {
 		draw_tickets();
-	} else if(tab == "Interviews") {
+	} else if(tab == "Гости") {
 		draw_interviews();
 	} else if(tab == "SDQL2") {
 		draw_sdql2();
@@ -835,11 +835,11 @@ function update_tickets(T){
 }
 function update_interviews(I){
 	interviewManager = JSON.parse(I);
-	if(!verb_tabs.includes("Interviews")) {
-		verb_tabs.push("Interviews");
-		addPermanentTab("Interviews");
+	if(!verb_tabs.includes("Гости")) {
+		verb_tabs.push("Гости");
+		addPermanentTab("Гости");
 	}
-	if(current_tab == "Interviews")
+	if(current_tab == "Гости")
 		draw_interviews();
 }
 function update_sdql2(S) {
@@ -875,9 +875,9 @@ function remove_tickets() {
 function remove_interviews() {
 	if(tickets) {
 		tickets = [];
-		removePermanentTab("Interviews");
-		if(current_tab == "Interviews")
-			tab_change("Status");
+		removePermanentTab("Гости");
+		if(current_tab == "Гости")
+			tab_change("Статус");
 	}
 	checkStatusTab();
 }

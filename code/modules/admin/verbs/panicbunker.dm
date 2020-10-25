@@ -27,7 +27,7 @@
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Panic Bunker", "[new_pb ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggle_interviews()
-	set category = "Server"
+	set category = "Срв"
 	set name = "Toggle PB Interviews"
 	if (!CONFIG_GET(flag/panic_bunker))
 		to_chat(usr, "<span class='adminnotice'>NOTE: The panic bunker is not enabled, so this change will not effect anything until it is enabled.</span>", confidential = TRUE)
