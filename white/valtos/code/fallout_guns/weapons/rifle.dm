@@ -46,7 +46,8 @@
 	zoomable = TRUE
 	zoom_amt = 10
 	zoom_out_amt = 13
-	suppressed = 1
+	suppressed = TRUE
+	can_unsuppress = FALSE
 
 /obj/item/gun/ballistic/rifle/fallout/hunting/scoped/amr
 	name = "anti-material rifle"
