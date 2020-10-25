@@ -143,7 +143,7 @@ GLOBAL_VAR_INIT(next_mining_map, "lavaland")
 
 	allow_custom_shuttles = json["allow_custom_shuttles"] != FALSE
 
-	if (!islist(json["jobs_changes"]))
+	if (!islist(json["job_changes"]))
 		log_world("map_config \"job_changes\" field is missing or invalid!")
 		return
 
