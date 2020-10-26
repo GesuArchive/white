@@ -1,7 +1,7 @@
 /datum/round_aspect
 	var/name = "Nothing"
 	var/desc = "Ничего."
-	var/weight = 26
+	var/weight = 150
 
 /datum/round_aspect/proc/run_aspect()
 	SSblackbox.record_feedback("tally", "aspect", 1, name) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
