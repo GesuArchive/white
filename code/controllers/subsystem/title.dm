@@ -7,7 +7,7 @@ SUBSYSTEM_DEF(title)
 	var/ctt = ""
 	var/enabled_shit = TRUE
 	var/game_loaded = FALSE
-	var/current_lobby_screen = null
+	var/current_lobby_screen = 'icons/ts.png'
 
 /datum/controller/subsystem/title/Initialize()
 
