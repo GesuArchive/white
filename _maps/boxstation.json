@@ -8,11 +8,5 @@
 	    "ferry": "ferry_fancy",
 	    "whiteship": "whiteship_box",
 	    "emergency": "emergency_box"
-    },
-	"jobs_changes": {
-		"prisoner": {
-			"total_positions": 16,
-			"spawn_positions": 4
-		}
-	}
+    }
 }
