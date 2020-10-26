@@ -1,7 +1,7 @@
 /datum/round_aspect
 	var/name = "Nothing"
 	var/desc = "Ничего."
-	var/weight = 26
+	var/weight = 150
 
 /datum/round_aspect/proc/run_aspect()
 	SSblackbox.record_feedback("tally", "aspect", 1, name) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -173,7 +173,7 @@
 	weight = 24
 
 /datum/round_aspect/rich/run_aspect()
-	for(var/datum/bank_account/D in SSeconomy.bank_accounts)
+	for(var/datum/bank_account/D in SSeconomy.bank_accounts_by_id)
 		D._adjust_money(10000)
 	..()
 

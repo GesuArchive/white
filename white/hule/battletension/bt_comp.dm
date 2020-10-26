@@ -260,7 +260,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	if(prefs.btvolume_max == null)
 		prefs.btvolume_max = 10
-		prefs.btprefsnew = genres
+		prefs.btprefsnew = list()
 		prefs.save_preferences()
 
 	if(prefs.btprefsnew)

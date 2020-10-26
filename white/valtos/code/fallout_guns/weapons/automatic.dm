@@ -23,7 +23,8 @@
 	inhand_icon_state = "smg22"
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
-	suppressed = 1
+	suppressed = TRUE
+	can_unsuppress = FALSE
 	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/fallout/smgm22
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
@@ -106,7 +107,8 @@
 	desc = "A heavily modified and customized assault rifle with a scope and suppressor as it's most notable additions. Sacrifices a little bit of damage for a little more control."
 	icon_state = "infiltrator"
 	inhand_icon_state = "infiltrator"
-	suppressed = 1
+	suppressed = TRUE
+	can_unsuppress = FALSE
 	extra_damage = 20
 	extra_penetration = 0
 	zoomable = TRUE

@@ -39,6 +39,8 @@
 	var/healium_para_min = 3
 	///Minimum amount of healium to knock you down for good
 	var/healium_sleep_min = 6
+	///Minimum amount of hexane needed to start having effect
+	var/hexane_min = 2
 
 	var/oxy_breath_dam_min = MIN_TOXIC_GAS_DAMAGE
 	var/oxy_breath_dam_max = MAX_TOXIC_GAS_DAMAGE
@@ -282,15 +284,10 @@
 	// Nitryl
 		var/nitryl_pp = breath.get_breath_partial_pressure(breath.get_moles(/datum/gas/nitryl))
 		if (prob(nitryl_pp))
-			to_chat(H, "<span class='alert'>Мои лёгкие горят!</span>")
-		if (nitryl_pp >40)
-			H.emote("gasp")
-			H.adjustFireLoss(10)
-			if (prob(nitryl_pp/2))
-				to_chat(H, "<span class='alert'>Моя глотка смыкается!</span>")
-				H.silent = max(H.silent, 3)
-		else
-			H.adjustFireLoss(nitryl_pp/4)
+			H.emote("burp")
+		if (prob(nitryl_pp) && nitryl_pp>10)
+			H.adjustOrganLoss(ORGAN_SLOT_LUNGS, nitryl_pp/2)
+			to_chat(H, "<span class='notice'>Мои лёгкие горят!</span>")
 		gas_breathed = breath.get_moles(/datum/gas/nitryl)
 		if (gas_breathed > gas_stimulation_min)
 			H.reagents.add_reagent(/datum/reagent/nitryl,1)
@@ -352,14 +349,6 @@
 			H.reagents.add_reagent(/datum/reagent/halon,max(0, 1 - existing))
 		gas_breathed = breath.get_moles(/datum/gas/halon)
 		breath.get_moles(/datum/gas/halon, -gas_breathed)
-
-	// Hexane
-		var/hexane_pp = breath.get_breath_partial_pressure(breath.get_moles(/datum/gas/hexane))
-		if(hexane_pp > gas_stimulation_min)
-			H.hallucination += 50
-			H.reagents.add_reagent(/datum/reagent/hexane,5)
-			if(prob(33))
-				H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3, 150)
 
 	// Stimulum
 		gas_breathed = breath.get_moles(/datum/gas/stimulum)

@@ -32,9 +32,9 @@ GLOBAL_LIST_INIT(donations_list, list(
 	),
 	"Masks" = list(
 		new /datum/donate_info("Fake Moustache",			/obj/item/clothing/mask/fakemoustache,			100),
-		new /datum/donate_info("Pig Mask",					/obj/item/clothing/mask/pig,					150),
-		new /datum/donate_info("Cow Mask",					/obj/item/clothing/mask/cowmask,				150),
-		new /datum/donate_info("Horse Head Mask",			/obj/item/clothing/mask/horsehead,				150),
+		new /datum/donate_info("Pig Mask",					/obj/item/clothing/mask/animal/pig,				150),
+		new /datum/donate_info("Cow Mask",					/obj/item/clothing/mask/animal/cowmask,			150),
+		new /datum/donate_info("Horse Head Mask",			/obj/item/clothing/mask/animal/horsehead,		150),
 		new /datum/donate_info("Carp Mask",					/obj/item/clothing/mask/gas/carp,				150),
 		new /datum/donate_info("Plague Doctor Mask",		/obj/item/clothing/mask/gas/plaguedoctor,		180),
 		new /datum/donate_info("Monkey Mask",				/obj/item/clothing/mask/gas/monkeymask,			180),

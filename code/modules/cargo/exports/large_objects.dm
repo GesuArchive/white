@@ -143,5 +143,4 @@
 	worth += C.air_contents.get_moles(/datum/gas/proto_nitrate)*5
 	worth += C.air_contents.get_moles(/datum/gas/zauker)*1050
 	worth += C.air_contents.get_moles(/datum/gas/halon)*9
-	worth += C.air_contents.get_moles(/datum/gas/hexane)*6
 	return worth

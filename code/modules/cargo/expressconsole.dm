@@ -16,6 +16,7 @@
 	circuit = /obj/item/circuitboard/computer/cargo/express
 	blockade_warning = "Замечена блюспейс нестабильность. Доставка невозможна."
 	req_access = list(ACCESS_QM)
+	is_express = TRUE
 
 	var/message
 	var/printed_beacons = 0 //number of beacons printed. Used to determine beacon names.

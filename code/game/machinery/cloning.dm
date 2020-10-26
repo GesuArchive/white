@@ -258,7 +258,7 @@
 			connected_message("Clone Ejected: Loss of power.")
 
 	else if(mob_occupant && (mob_occupant.loc == src))
-		if(SSeconomy.full_ancap && mob_occupant.health >= 1 && mob_occupant.cloneloss <= 90)
+		if(SSeconomy.full_ancap && mob_occupant.health >= 1)
 			if(!current_insurance)
 				go_out()
 				log_cloning("[key_name(mob_occupant)] ejected from [src] at [AREACOORD(src)] due to invalid bank account.")

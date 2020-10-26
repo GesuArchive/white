@@ -30,7 +30,7 @@
 	id = "dwarf"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS)
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,NO_UNDERWEAR)
-	default_features = list("mcolor" = "FFF", "wings" = "None")
+	mutant_bodyparts = list("mcolor" = "FFF", "wings" = "None")
 	use_skintones = 1
 	disliked_food = GROSS | RAW
 	liked_food = JUNKFOOD | FRIED

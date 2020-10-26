@@ -6,15 +6,16 @@
 
 // The default UI style is the first one in the list
 GLOBAL_LIST_INIT(available_ui_styles, list(
-	"Tetramon" = 'icons/mob/screen_tetramon.dmi',
-	"Cyberspess" = 'icons/mob/screen_cyberspess.dmi',
-	"Midnight" = 'icons/mob/screen_midnight.dmi',
-	"Retro" = 'icons/mob/screen_retro.dmi',
-	"Plasmafire" = 'icons/mob/screen_plasmafire.dmi',
-	"Slimecore" = 'icons/mob/screen_slimecore.dmi',
-	"Operative" = 'icons/mob/screen_operative.dmi',
-	"Clockwork" = 'icons/mob/screen_clockwork.dmi',
-	"Glass" = 'icons/mob/screen_glass.dmi'
+	"Tetramon" = 'icons/hud/screen_tetramon.dmi',
+	"Cyberspess" = 'icons/hud/screen_cyberspess.dmi',
+	"Bassboosted" = 'icons/hud/screen_bassboosted.dmi',
+	"Midnight" = 'icons/hud/screen_midnight.dmi',
+	"Retro" = 'icons/hud/screen_retro.dmi',
+	"Plasmafire" = 'icons/hud/screen_plasmafire.dmi',
+	"Slimecore" = 'icons/hud/screen_slimecore.dmi',
+	"Operative" = 'icons/hud/screen_operative.dmi',
+	"Clockwork" = 'icons/hud/screen_clockwork.dmi',
+	"Glass" = 'icons/hud/screen_glass.dmi'
 ))
 
 /proc/ui_style2icon(ui_style)

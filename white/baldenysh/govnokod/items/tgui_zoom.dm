@@ -56,7 +56,7 @@
 
 /obj/screen/map_overlay
 	name = "test overlay"
-	icon = 'icons/mob/screen_full.dmi'
+	icon = 'icons/hud/screen_full.dmi'
 	icon_state = "curse1"
 	layer = ABOVE_HUD_LAYER
 	plane = ABOVE_HUD_PLANE

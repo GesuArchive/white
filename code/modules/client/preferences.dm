@@ -372,73 +372,69 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			//Mutant stuff
 
-			if("tail_lizard" in pref_species.default_features)
+			if(pref_species.mutant_bodyparts["tail_lizard"])
 
 				dat += "<tr><td><b>Хвост:</b></td><td align='right'>"
 
 				dat += "<a href='?_src_=prefs;preference=tail_lizard;task=input'>[features["tail_lizard"]]</a></td></tr>"
 
-			if("snout" in pref_species.default_features)
+			if(pref_species.mutant_bodyparts["snout"])
 
 				dat += "<tr><td><b>Нос:</b></td><td align='right'>"
 
-				dat += "<a href='?_src_=prefs;preference=snout;task=input'>[features["snout"]]</a></td></tr>"
 
-			if("horns" in pref_species.default_features)
+			if(pref_species.mutant_bodyparts["horns"])
 
 				dat += "<tr><td><b>Рожки:</b></td><td align='right'>"
 
 				dat += "<a href='?_src_=prefs;preference=horns;task=input'>[features["horns"]]</a></td></tr>"
 
-			if("frills" in pref_species.default_features)
+			if(pref_species.mutant_bodyparts["frills"])
 
 				dat += "<tr><td><b>Украшения:</b></td><td align='right'>"
 
 				dat += "<a href='?_src_=prefs;preference=frills;task=input'>[features["frills"]]</a></td></tr>"
 
-			if("spines" in pref_species.default_features)
+			if(pref_species.mutant_bodyparts["spines"])
 
 				dat += "<tr><td><b>Шипы:</b></td><td align='right'>"
 
-				dat += "<a href='?_src_=prefs;preference=spines;task=input'>[features["spines"]]</a></td></tr>"
 
-			if("body_markings" in pref_species.default_features)
+			if(pref_species.mutant_bodyparts["body_markings"])
 
 				dat += "<tr><td><b>Маркировки:</b></td><td align='right'>"
 
 				dat += "<a href='?_src_=prefs;preference=body_markings;task=input'>[features["body_markings"]]</a></td></tr>"
 
-			if("legs" in pref_species.default_features)
+			if(pref_species.mutant_bodyparts["legs"])
 
 				dat += "<tr><td><b>Ноги:</b></td><td align='right'>"
 
 				dat += "<a href='?_src_=prefs;preference=legs;task=input'>[features["legs"]]</a></td></tr>"
 
-			if("moth_wings" in pref_species.default_features)
+			if(pref_species.mutant_bodyparts["moth_wings"])
 
 				dat += "<tr><td><b>Крылья:</b></td><td align='right'>"
 
 				dat += "<a href='?_src_=prefs;preference=moth_wings;task=input'>[features["moth_wings"]]</a></td></tr>"
 
-			if("moth_antennae" in pref_species.default_features)
-
-				dat += "<h3>Moth antennae</h3>"
+			if(pref_species.mutant_bodyparts["moth_antennae"])
 
 				dat += "<a href='?_src_=prefs;preference=moth_antennae;task=input'>[features["moth_antennae"]]</a><BR>"
 
-			if("moth_markings" in pref_species.default_features)
+			if(pref_species.mutant_bodyparts["moth_markings"])
 
 				dat += "<tr><td><b>Маркировки:</b></td><td align='right'>"
 
 				dat += "<a href='?_src_=prefs;preference=moth_markings;task=input'>[features["moth_markings"]]</a></td></tr>"
 
-			if("tail_human" in pref_species.default_features)
+			if(pref_species.mutant_bodyparts["tail_human"])
 
 				dat += "<tr><td><b>Хвост:</b></td><td align='right'>"
 
 				dat += "<a href='?_src_=prefs;preference=tail_human;task=input'>[features["tail_human"]]</a></td></tr>"
 
-			if("ears" in pref_species.default_features)
+			if(pref_species.mutant_bodyparts["ears"])
 
 				dat += "<tr><td><b>Уши:</b></td><td align='right'>"
 
@@ -446,11 +442,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			if(CONFIG_GET(flag/join_with_mutant_humans))
 
-				if("wings" in pref_species.default_features && GLOB.r_wings_list.len >1)
+				if(pref_species.mutant_bodyparts["wings"] && GLOB.r_wings_list.len >1)
 
 					dat += "<tr><td><b>Крылья:</b></td><td align='right'>"
 
-					dat += "<a href='?_src_=prefs;preference=wings;task=input'>[features["wings"]]</a></td></tr>"
 
 			dat += "</table></td></table>"
 
@@ -1667,11 +1662,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					save_preferences()
 
 				if("keybindings_reset")
-					var/choice = tgalert(user, "Would you prefer 'hotkey' or 'classic' defaults?", "Setup keybindings", "Hotkey", "Classic", "Cancel")
-					if(choice == "Cancel")
+					var/choice = tgalert(user, "ПЕРЕКЛЮЧИТЕСЬ НА АНГЛИЙСКУЮ РАСКЛАДКУ ПЕРЕД ВЫБОРОМ", "Настройка хоткеев", "Хоткеи", "Классика", "Отмена")
+					if(choice == "Отмена")
 						ShowChoices(user)
 						return
-					hotkeys = (choice == "Hotkey")
+					hotkeys = (choice == "Хоткеи")
 					key_bindings = (hotkeys) ? deepCopyList(GLOB.hotkey_keybinding_list_by_key) : deepCopyList(GLOB.classic_keybinding_list_by_key)
 					user.client.set_macros()
 
@@ -1948,10 +1943,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	character.set_species(chosen_species, icon_update = FALSE, pref_load = TRUE)
 	character.dna.real_name = character.real_name
 
-	if("tail_lizard" in pref_species.default_features)
-		character.dna.species.mutant_bodyparts |= "tail_lizard"
-	if("spines" in pref_species.default_features)
-		character.dna.species.mutant_bodyparts |= "spines"
+	if(pref_species.mutant_bodyparts["tail_lizard"])
+		character.dna.species.mutant_bodyparts["tail_lizard"] = pref_species.mutant_bodyparts["tail_lizard"]
+	if(pref_species.mutant_bodyparts["spines"])
+		character.dna.species.mutant_bodyparts["spines"] = pref_species.mutant_bodyparts["spines"]
 
 	if(icon_updates)
 		character.update_body()

@@ -67,7 +67,7 @@
 	to_chat(user, "<span class='notice'>Мы должны удерживать <b>[target]</b> для поддержания связи. </span>")
 	while(user.pulling && user.grab_state >= GRAB_NECK)
 		target.reagents.add_reagent(/datum/reagent/medicine/salbutamol, 0.5) // So they don't choke to death while you interrogate them
-		do_mob(user, target, 100, TRUE)
+		do_mob(user, target, 10 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM))
 
 	changeling.islinking = 0
 	target.mind.linglink = 0

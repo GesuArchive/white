@@ -83,7 +83,8 @@
 	desc = "A unique and modified version of the 12.7mm pistol with a higher fire rate, improved damage, and a suppressor attached."
 	icon_state = "devil"
 	inhand_icon_state = "devil"
-	suppressed = 1
+	suppressed = TRUE
+	can_unsuppress = FALSE
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	fire_delay = 3
 	extra_damage = 35
@@ -121,7 +122,8 @@
 	icon_state = "22pistol"
 	inhand_icon_state = "22pistol"
 	mag_type = /obj/item/ammo_box/magazine/fallout/m22
-	suppressed = 1
+	suppressed = TRUE
+	can_unsuppress = FALSE
 	w_class = WEIGHT_CLASS_SMALL
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	extra_damage = 15

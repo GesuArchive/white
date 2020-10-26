@@ -272,13 +272,13 @@
 	if(HAS_TRAIT(src, TRAIT_RESTRAINED))
 		changeNext_move(CLICK_CD_BREAKOUT)
 		last_special = world.time + CLICK_CD_BREAKOUT
-		var/buckle_cd = 600
+		var/buckle_cd = 60 SECONDS
 		if(handcuffed)
 			var/obj/item/restraints/O = src.get_item_by_slot(ITEM_SLOT_HANDCUFFED)
 			buckle_cd = O.breakouttime
 		visible_message("<span class='warning'>[src] пытается выбраться из наручников!</span>", \
 					"<span class='notice'>Пытаюсь выбраться из наручников... (займёт примерно [round(buckle_cd/600,1)] минут, и надо не двигаться.)</span>")
-		if(do_after(src, buckle_cd, 0, target = src))
+		if(do_after(src, buckle_cd, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			if(!buckled)
 				return
 			buckled.user_unbuckle_mob(src,src)
@@ -329,7 +329,7 @@
 	if(!cuff_break)
 		visible_message("<span class='warning'>[src] пытается снять [I]!</span>")
 		to_chat(src, "<span class='notice'>Пытаюсь снять [I]... (это займёт примерно [DisplayTimeText(breakouttime)] и надо бы не двигаться.)</span>")
-		if(do_after(src, breakouttime, 0, target = src))
+		if(do_after(src, breakouttime, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			. = clear_cuffs(I, cuff_break)
 		else
 			to_chat(src, "<span class='warning'>Не получилось снять [I]!</span>")
@@ -338,7 +338,7 @@
 		breakouttime = 50
 		visible_message("<span class='warning'>[src] пытается разорвать [I]!</span>")
 		to_chat(src, "<span class='notice'>Пытаюсь разорвать [I]... (это займёт примерно 5 секунд, надо бы не двигаться.)</span>")
-		if(do_after(src, breakouttime, 0, target = src))
+		if(do_after(src, breakouttime, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			. = clear_cuffs(I, cuff_break)
 		else
 			to_chat(src, "<span class='warning'>У меня не вышло разорвать [I]!</span>")
@@ -1307,3 +1307,22 @@
 		set_lying_angle(pick(90, 270))
 	else
 		set_lying_angle(new_lying_angle)
+
+
+/mob/living/carbon/vv_edit_var(var_name, var_value)
+	switch(var_name)
+		if(NAMEOF(src, disgust))
+			set_disgust(var_value)
+			. = TRUE
+		if(NAMEOF(src, hal_screwyhud))
+			set_screwyhud(var_value)
+			. = TRUE
+		if(NAMEOF(src, handcuffed))
+			set_handcuffed(var_value)
+			. = TRUE
+
+	if(!isnull(.))
+		datum_flags |= DF_VAR_EDITED
+		return
+
+	return ..()

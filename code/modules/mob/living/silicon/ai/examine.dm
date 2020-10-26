@@ -1,7 +1,7 @@
 /mob/living/silicon/ai/examine(mob/user)
 	. = list("<span class='info'>Это же [icon2html(src, user)] <EM>[src]</EM>!<hr>")
 	if (stat == DEAD)
-		. += "<span class='deadsay'>Похоже он выключен полностью.</span>"
+		. += "<span class='deadsay'>Видимо он выключен полностью.</span>"
 	else
 		if (getBruteLoss())
 			if (getBruteLoss() < 30)
