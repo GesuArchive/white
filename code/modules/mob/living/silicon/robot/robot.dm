@@ -428,7 +428,7 @@
 	cut_overlays()
 	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	icon_state = module.cyborg_base_icon
-	if(stat != DEAD && !(IsUnconscious() || IsStun() || IsParalyzed() || low_power_mode)) //Not dead, not stunned.
+	if(stat != DEAD && !(HAS_TRAIT(src, TRAIT_KNOCKEDOUT) || IsStun() || IsParalyzed() || low_power_mode)) //Not dead, not stunned.
 		if(!eye_lights)
 			eye_lights = new()
 		if(lamp_enabled)
@@ -807,10 +807,8 @@
 			death()
 			toggle_headlamp(1)
 			return
-		if(IsUnconscious() || IsStun() || IsKnockdown() || IsParalyzed() || getOxyLoss() > maxHealth*0.5)
-			if(stat == CONSCIOUS)
-				set_stat(UNCONSCIOUS)
-				become_blind(EYE_DAMAGE)
+		if(HAS_TRAIT(src, TRAIT_KNOCKEDOUT) || IsStun() || IsKnockdown() || IsParalyzed())
+			set_stat(UNCONSCIOUS)
 		else
 			set_stat(CONSCIOUS)
 	diag_hud_set_status()
