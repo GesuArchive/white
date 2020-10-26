@@ -66,6 +66,8 @@ SUBSYSTEM_DEF(economy)
 	var/earning_report
 	var/market_crashing = FALSE
 
+	var/obj/machinery/computer/price_controller/PC = null
+
 /datum/controller/subsystem/economy/Initialize(timeofday)
 	var/budget_to_hand_out = round(budget_pool / department_accounts.len)
 	for(var/A in department_accounts)
@@ -193,3 +195,13 @@ SUBSYSTEM_DEF(economy)
 		return 1
 	inflation_value = max(round(((station_total / bank_accounts_by_id.len) / station_target), 0.1), 1.0)
 	return inflation_value
+
+/**
+  * Прок для получения выплат за покуику товаров
+  **/
+/datum/controller/subsystem/economy/proc/adjust_cargo_money(amount, source, slave, product)
+	var/datum/bank_account/D = get_dep_account(ACCOUNT_CAR)
+	if(D)
+		D.adjust_money(amount)
+		if(PC)
+			PC.log_self("Покупка на сумму [amount]. Касса: [source]. Покупатель: [slave]. Товар: [product].")

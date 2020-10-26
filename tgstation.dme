@@ -3502,6 +3502,8 @@
 #include "white\valtos\code\dwarfs\mediwork\blacksmithing_items.dm"
 #include "white\valtos\code\dwarfs\mediwork\blacksmithing_recipes.dm"
 #include "white\valtos\code\dwarfs\mediwork\blacksmithing_skill.dm"
+#include "white\valtos\code\economy\control.dm"
+#include "white\valtos\code\economy\modifiers.dm"
 #include "white\valtos\code\events\unsorted.dm"
 #include "white\valtos\code\exrp\_interaction.dm"
 #include "white\valtos\code\exrp\_lewd.dm"
