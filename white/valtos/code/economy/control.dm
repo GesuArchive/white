@@ -54,5 +54,5 @@
 	for(var/datum/bank_account/A in SSeconomy.bank_accounts_by_id)
 		data["accounts"] += list(list("name" = A.account_holder, "balance" = A.account_balance))
 
-	.["selflog"] = selflog
+	data["selflog"] = selflog
 	return data
