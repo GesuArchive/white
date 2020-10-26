@@ -187,6 +187,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		be_special = list()
 
 	READ_FILE(S["default_slot"], default_slot)
+	READ_FILE(S["max_slots"], max_slots)
 	READ_FILE(S["chat_toggles"], chat_toggles)
 	READ_FILE(S["toggles"], toggles)
 	READ_FILE(S["ghost_form"], ghost_form)
