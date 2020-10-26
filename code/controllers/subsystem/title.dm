@@ -30,7 +30,7 @@ SUBSYSTEM_DEF(title)
 
 	ASSERT(fexists(file_path))
 
-	current_lobby_screen = new(fcopy_rsc(file_path))
+	current_lobby_screen = fcopy_rsc(file_path)
 
 	update_lobby_screen()
 
