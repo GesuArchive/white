@@ -1662,11 +1662,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					save_preferences()
 
 				if("keybindings_reset")
-					var/choice = tgalert(user, "Would you prefer 'hotkey' or 'classic' defaults?", "Setup keybindings", "Hotkey", "Classic", "Cancel")
-					if(choice == "Cancel")
+					var/choice = tgalert(user, "ПЕРЕКЛЮЧИТЕСЬ НА АНГЛИЙСКУЮ РАСКЛАДКУ ПЕРЕД ВЫБОРОМ", "Настройка хоткеев", "Хоткеи", "Классика", "Отмена")
+					if(choice == "Отмена")
 						ShowChoices(user)
 						return
-					hotkeys = (choice == "Hotkey")
+					hotkeys = (choice == "Хоткеи")
 					key_bindings = (hotkeys) ? deepCopyList(GLOB.hotkey_keybinding_list_by_key) : deepCopyList(GLOB.classic_keybinding_list_by_key)
 					user.client.set_macros()
 

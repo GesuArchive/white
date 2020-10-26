@@ -60,15 +60,6 @@
 	switch(_key)
 		if("Alt", "Ctrl", "Shift")
 			full_key = "[AltMod][CtrlMod][ShiftMod]"
-		if ("T")
-			mob.say_verb()
-			return
-		if ("O")
-			ooc()
-			return
-		if ("M")
-			mob.me_verb()
-			return
 		else
 			if(AltMod || CtrlMod || ShiftMod)
 				full_key = "[AltMod][CtrlMod][ShiftMod][_key]"
