@@ -3,6 +3,7 @@ SUBSYSTEM_DEF(title)
 	flags = SS_NO_FIRE
 	init_order = INIT_ORDER_TITLE
 
+	var/file_path
 	var/ctt = ""
 	var/enabled_shit = TRUE
 	var/game_loaded = FALSE
