@@ -12,7 +12,7 @@
 	icon_screen = "supply"
 	light_color = COLOR_BRIGHT_ORANGE
 	circuit = /obj/item/circuitboard/computer/price_controller
-	var/selflog = "<center> -- Очищено Системным Администратором -- </center>\n"
+	var/selflog = " -- Очищено Системным Администратором -- \n"
 
 /obj/machinery/computer/price_controller/Initialize(mapload, obj/item/circuitboard/C)
 	if(!SSeconomy.PC)
@@ -27,7 +27,7 @@
 	selflog += "\[[station_time_timestamp()]\] [msg]\n"
 
 /obj/machinery/computer/price_controller/proc/clear_logs()
-	selflog = "<center> -- Очищено Системным Администратором -- </center>\n"
+	selflog = " -- Очищено Системным Администратором -- \n"
 
 /obj/item/circuitboard/computer/price_controller
 	name = "Контроллер цен (Компьютер)"
@@ -42,6 +42,7 @@
 
 /obj/machinery/computer/price_controller/ui_data(mob/user)
 	var/list/data = list()
+	var/list/accounts = list()
 	data["eng_eco_mod"] = GLOB.eng_eco_mod
 	data["sci_eco_mod"] = GLOB.sci_eco_mod
 	data["med_eco_mod"] = GLOB.med_eco_mod
@@ -49,10 +50,9 @@
 	data["srv_eco_mod"] = GLOB.srv_eco_mod
 	data["civ_eco_mod"] = GLOB.civ_eco_mod
 
-	data["accounts"] = list()
-
 	for(var/datum/bank_account/A in SSeconomy.bank_accounts_by_id)
-		data["accounts"] += list(list("name" = A.account_holder, "balance" = A.account_balance))
+		accounts += list(list("id" = A.account_id, "name" = A.account_holder, "balance" = A.account_balance))
 
+	data["accounts"] = accounts
 	data["selflog"] = selflog
 	return data

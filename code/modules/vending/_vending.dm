@@ -853,12 +853,9 @@ GLOBAL_LIST_EMPTY(vending_products)
 					flick(icon_deny,src)
 					vend_ready = TRUE
 					return
-				var/datum/bank_account/D = SSeconomy.get_dep_account(payment_department)
-				if(D)
-					D.adjust_money(price_to_use)
-					SSblackbox.record_feedback("amount", "vending_spent", price_to_use)
-					log_econ("[price_to_use] credits were inserted into [src] by [D.account_holder] to buy [R].")
-					SSeconomy.adjust_cargo_money(-price_to_use, src, D.account_holder, R)
+				SSeconomy.adjust_cargo_money(price_to_use, src, account.account_holder, R)
+				SSblackbox.record_feedback("amount", "vending_spent", price_to_use)
+				log_econ("[price_to_use] credits were inserted into [src] by [account] to buy [R].")
 			if(last_shopper != usr || purchase_message_cooldown < world.time)
 				say("Thank you for shopping with [src]!")
 				purchase_message_cooldown = world.time + 5 SECONDS

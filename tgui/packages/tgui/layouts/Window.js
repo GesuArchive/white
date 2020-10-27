@@ -6,7 +6,7 @@
 
 import { classes } from 'common/react';
 import { useDispatch } from 'common/redux';
-import { decodeHtmlEntities, toTitleCase } from 'common/string';
+import { capitalize, decodeHtmlEntities, toTitleCase } from 'common/string';
 import { Component, Fragment } from 'inferno';
 import { backendSuspendStart, useBackend } from '../backend';
 import { Icon } from '../components';
@@ -170,7 +170,7 @@ const TitleBar = (props, context) => {
       <div className="TitleBar__title">
         {typeof title === 'string'
           && title === title.toLowerCase()
-          && toTitleCase(title)
+          && capitalize(toTitleCase(title))
           || title}
       </div>
       <div
