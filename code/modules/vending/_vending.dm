@@ -853,7 +853,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 					flick(icon_deny,src)
 					vend_ready = TRUE
 					return
-				SSeconomy.adjust_cargo_money(price_to_use, src, account, R)
+				SSeconomy.adjust_cargo_money(price_to_use, src, account.account_holder, R)
 				SSblackbox.record_feedback("amount", "vending_spent", price_to_use)
 				log_econ("[price_to_use] credits were inserted into [src] by [account] to buy [R].")
 			if(last_shopper != usr || purchase_message_cooldown < world.time)
