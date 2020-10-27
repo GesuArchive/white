@@ -7360,7 +7360,11 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/vehicle/sealed/mecha/working/ripley/deathripley/real,
+/obj/structure/closet/crate,
+/obj/item/card/id/syndicate/nuke_leader,
+/obj/item/card/id/syndicate,
+/obj/item/card/id/syndicate,
+/obj/item/card/id/syndicate,
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
 "zd" = (
@@ -14887,7 +14891,6 @@
 "YT" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/table,
-/obj/item/flashlight/lamp,
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "YU" = (
@@ -18303,7 +18306,7 @@ EO
 Un
 An
 qp
-Pr
+uf
 Un
 Un
 CD
