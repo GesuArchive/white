@@ -61,15 +61,15 @@ export const EconomyController = (props, context) => {
           </Flex.Item>
           <Flex.Item width="80%" grow={1} m={1}>
             <Section title="Аккаунты">
-              <Box
+              <LabeledList
                 overflowY="scroll"
                 height="185px">
                 {accArray.map(accs => (
-                  <Button
-                    key={accs.id}
-                    content={accs.name} />
+                  <LabeledList.Item key={accs.id} label={accs.id}>
+                    {accs.name} - {accs.balance}
+                  </LabeledList.Item>
                 ))}
-              </Box>
+              </LabeledList>
             </Section>
           </Flex.Item>
         </Flex>

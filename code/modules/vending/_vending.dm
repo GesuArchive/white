@@ -734,7 +734,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		var/list/data = list(
 			path = replacetext(replacetext("[R.product_path]", "/obj/item/", ""), "/", "-"),
 			name = R.name,
-			price = R.custom_price || default_price,
+			price = R.custom_price || (default_price * decide_nalog()),
 			max_amount = R.max_amount,
 			ref = REF(R)
 		)
@@ -744,7 +744,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		var/list/data = list(
 			path = replacetext(replacetext("[R.product_path]", "/obj/item/", ""), "/", "-"),
 			name = R.name,
-			price = R.custom_premium_price || extra_price,
+			price = R.custom_premium_price || (extra_price * decide_nalog()),
 			max_amount = R.max_amount,
 			ref = REF(R),
 			premium = TRUE
@@ -755,7 +755,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		var/list/data = list(
 			path = replacetext(replacetext("[R.product_path]", "/obj/item/", ""), "/", "-"),
 			name = R.name,
-			price = R.custom_premium_price || extra_price,
+			price = R.custom_premium_price || (extra_price * decide_nalog()),
 			max_amount = R.max_amount,
 			ref = REF(R),
 			premium = TRUE
@@ -804,7 +804,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 			if(!R || !istype(R) || !R.product_path)
 				vend_ready = TRUE
 				return
-			var/price_to_use = default_price
+			var/price_to_use = default_price * decide_nalog()
 			if(R.custom_price)
 				price_to_use = R.custom_price
 			if(R in hidden_records)
@@ -847,7 +847,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 				if(account.account_job && account.account_job.paycheck_department == payment_department)
 					price_to_use = 0
 				if(coin_records.Find(R) || hidden_records.Find(R))
-					price_to_use = R.custom_premium_price ? R.custom_premium_price : extra_price
+					price_to_use = R.custom_premium_price ? R.custom_premium_price : extra_price * decide_nalog()
 				if(price_to_use && !account.adjust_money(-price_to_use))
 					say("You do not possess the funds to purchase [R.name].")
 					flick(icon_deny,src)
@@ -872,6 +872,21 @@ GLOBAL_LIST_EMPTY(vending_products)
 				to_chat(usr, "<span class='warning'>[capitalize(R.name)] falls onto the floor!</span>")
 			SSblackbox.record_feedback("nested tally", "vending_machine_usage", 1, list("[type]", "[R.product_path]"))
 			vend_ready = TRUE
+
+/obj/machinery/vending/proc/decide_nalog()
+	switch(payment_department)
+		if(ACCOUNT_ENG)
+			return GLOB.eng_eco_mod
+		if(ACCOUNT_SCI)
+			return GLOB.sci_eco_mod
+		if(ACCOUNT_MED)
+			return GLOB.med_eco_mod
+		if(ACCOUNT_SEC)
+			return GLOB.sec_eco_mod
+		if(ACCOUNT_SRV)
+			return GLOB.srv_eco_mod
+		if(ACCOUNT_CIV)
+			return GLOB.civ_eco_mod
 
 /obj/machinery/vending/process(delta_time)
 	if(machine_stat & (BROKEN|NOPOWER))
