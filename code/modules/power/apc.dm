@@ -528,7 +528,7 @@
 			return
 		user.visible_message("<span class='notice'><b>[user.name]</b> welds <b>[src]</b>.</span>", \
 							"<span class='notice'>You start welding the APC frame...</span>", \
-							"<span class='hear'>You hear welding.</span>")
+							"<span class='hear'>Слышу сварку.</span>")
 		if(W.use_tool(src, user, 50, volume=50, amount=3))
 			if ((machine_stat & BROKEN) || opened==APC_COVER_REMOVED)
 				new /obj/item/stack/sheet/metal(loc)

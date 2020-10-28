@@ -1,7 +1,7 @@
 #define DOOR_CLOSE_WAIT 60 ///Default wait until doors autoclose
 /obj/machinery/door
-	name = "door"
-	desc = "Он открывается и закрывается. Удивительно."
+	name = "дверь"
+	desc = "Открывается и закрывается. Удивительно."
 	icon = 'icons/obj/doors/Doorint.dmi'
 	icon_state = "door1"
 	opacity = TRUE
@@ -95,7 +95,7 @@
 
 /obj/machinery/door/proc/try_safety_unlock(mob/user)
 	if(safety_mode && !hasPower() && density)
-		to_chat(user, "<span class='notice'>You begin unlocking the airlock safety mechanism...</span>")
+		to_chat(user, "<span class='notice'>Начинаю разблокировать протоколы безопасности шлюза...</span>")
 		if(do_after(user, 15 SECONDS, target = src))
 			try_to_crowbar(null, user)
 			return TRUE
@@ -381,7 +381,7 @@
 
 /obj/machinery/door/proc/crush()
 	for(var/mob/living/L in get_turf(src))
-		L.visible_message("<span class='warning'>[src] closes on [L], crushing [L.p_them()]!</span>", "<span class='userdanger'>[src] closes on you and crushes you!</span>")
+		L.visible_message("<span class='warning'>[src] закрывается на [L], раздавливая [L.ru_ego()]!</span>", "<span class='userdanger'>[src] закрывается на мне с прикольным звуком!</span>")
 		SEND_SIGNAL(L, COMSIG_LIVING_DOORCRUSHED, src)
 		if(isalien(L))  //For xenos
 			L.adjustBruteLoss(DOOR_CRUSH_DAMAGE * 1.5) //Xenos go into crit after aproximately the same amount of crushes as humans.

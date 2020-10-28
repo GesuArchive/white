@@ -259,7 +259,7 @@
 						return
 					user.visible_message("<span class='notice'>[user] slices apart \the [src].</span>",
 									"<span class='notice'>You cut \the [src] apart with \the [W].</span>",
-									"<span class='hear'>You hear welding.</span>")
+									"<span class='hear'>Слышу сварку.</span>")
 					deconstruct(TRUE)
 				return
 			else // for example cardboard box is cut with wirecutters
@@ -281,7 +281,7 @@
 			after_weld(welded)
 			user.visible_message("<span class='notice'>[user] [welded ? "welds shut" : "unwelded"] \the [src].</span>",
 							"<span class='notice'>You [welded ? "weld" : "unwelded"] \the [src] with \the [W].</span>",
-							"<span class='hear'>You hear welding.</span>")
+							"<span class='hear'>Слышу сварку.</span>")
 			log_game("[key_name(user)] [welded ? "welded":"unwelded"] closet [src] with [W] at [AREACOORD(src)]")
 			update_icon()
 	else if(W.tool_behaviour == TOOL_WRENCH && anchorable)

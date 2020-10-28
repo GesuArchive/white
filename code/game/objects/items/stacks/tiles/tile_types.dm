@@ -72,7 +72,7 @@
 				var/obj/item/stack/sheet/metal/new_item = new(user.loc)
 				user.visible_message("<span class='notice'>[user.name] shaped [src] into metal with the welding tool.</span>", \
 							 "<span class='notice'>You shaped [src] into metal with the welding tool.</span>", \
-							 "<span class='hear'>You hear welding.</span>")
+							 "<span class='hear'>Слышу сварку.</span>")
 				var/obj/item/stack/rods/R = src
 				src = null
 				var/replace = (user.get_inactive_held_item()==R)
@@ -85,7 +85,7 @@
 				var/obj/item/stack/sheet/mineral/new_item = new sheet_type(user.loc)
 				user.visible_message("<span class='notice'>[user.name] shaped [src] into a sheet with the welding tool.</span>", \
 							 "<span class='notice'>You shaped [src] into a sheet with the welding tool.</span>", \
-							 "<span class='hear'>You hear welding.</span>")
+							 "<span class='hear'>Слышу сварку.</span>")
 				var/obj/item/stack/rods/R = src
 				src = null
 				var/replace = (user.get_inactive_held_item()==R)
