@@ -850,7 +850,7 @@
 	materials = list(/datum/material/iron = 750, /datum/material/glass = 750)
 	construction_time = 100
 	build_path = /obj/item/assembly/flash/handheld
-	category = list("Misc")
+	category = list("Разное")
 
 /datum/design/maint_drone
 	name = "Maintenance Drone"
@@ -860,4 +860,4 @@
 	materials = list(/datum/material/iron = 800, /datum/material/glass = 350)
 	construction_time = 150
 	build_path = /obj/effect/mob_spawn/drone
-	category = list("Misc")
+	category = list("Разное")

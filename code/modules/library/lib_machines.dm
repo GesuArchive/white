@@ -192,7 +192,7 @@
 /obj/machinery/computer/bookmanagement/Initialize()
 	. = ..()
 	if(circuit)
-		circuit.name = "Book Inventory Management Console (Машинерия)"
+		circuit.name = "Book Inventory Management Console (Оборудование)"
 		circuit.build_path = /obj/machinery/computer/bookmanagement
 
 /obj/machinery/computer/bookmanagement/ui_interact(mob/user)

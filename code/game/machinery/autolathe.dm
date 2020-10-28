@@ -3,8 +3,8 @@
 #define AUTOLATHE_SEARCH_MENU	3
 
 /obj/machinery/autolathe
-	name = "autolathe"
-	desc = "It produces items using metal and glass."
+	name = "автоматический токарный станок"
+	desc = "Производит изделия из металла и стекла."
 	icon_state = "autolathe"
 	density = TRUE
 	use_power = IDLE_POWER_USE
@@ -35,16 +35,16 @@
 	var/hacked_price = 50
 
 	var/list/categories = list(
-							"Tools",
-							"Electronics",
-							"Construction",
-							"T-Comm",
-							"Security",
-							"Machinery",
-							"Medical",
-							"Misc",
-							"Dinnerware",
-							"Imported"
+							"Инструменты",
+							"Электроника",
+							"Конструкции",
+							"Телекомы",
+							"Безопасность",
+							"Оборудование",
+							"Медицина",
+							"Разное",
+							"Кухня",
+							"Импорт"
 							)
 
 /obj/machinery/autolathe/Initialize()
@@ -87,7 +87,7 @@
 
 /obj/machinery/autolathe/attackby(obj/item/O, mob/user, params)
 	if (busy)
-		to_chat(user, "<span class=\"alert\">The autolathe is busy. Please wait for completion of previous operation.</span>")
+		to_chat(user, "<span class=\"alert\">Автоматический токарный станок занят. Дождитесь завершения предыдущей операции.</span>")
 		return TRUE
 
 	if(default_deconstruction_screwdriver(user, "autolathe_t", "autolathe", O))
@@ -108,9 +108,9 @@
 		return TRUE
 
 	if(istype(O, /obj/item/disk/design_disk))
-		user.visible_message("<span class='notice'>[user] begins to load \the [O] in \the [src]...</span>",
-			"<span class='notice'>You begin to load a design from \the [O]...</span>",
-			"<span class='hear'>You hear the chatter of a floppy drive.</span>")
+		user.visible_message("<span class='notice'>[user] начинает загружать [O] в [src]...</span>",
+			"<span class='notice'>Начинаю загружать [O]...</span>",
+			"<span class='hear'>Слышу шелест дискет.</span>")
 		busy = TRUE
 		var/obj/item/disk/design_disk/D = O
 		if(do_after(user, 14.4, target = src))
@@ -183,7 +183,7 @@
 						if(materials.materials[i] > 0)
 							list_to_show += i
 
-					used_material = input("Choose [used_material]", "Custom Material") as null|anything in sortList(list_to_show, /proc/cmp_typepaths_asc)
+					used_material = input("Выбирайте мудро [used_material]", "Материал") as null|anything in sortList(list_to_show, /proc/cmp_typepaths_asc)
 					if(!used_material)
 						return //Didn't pick any material, so you can't build shit either.
 					custom_materials[used_material] += amount_needed
@@ -197,7 +197,7 @@
 				var/time = is_stack ? 32 : (32 * coeff * multiplier) ** 0.8
 				addtimer(CALLBACK(src, .proc/make_item, power, materials_used, custom_materials, multiplier, coeff, is_stack, usr), time)
 			else
-				to_chat(usr, "<span class=\"alert\">Not enough materials for this operation.</span>")
+				to_chat(usr, "<span class=\"alert\">Недостаточно материалов для этой операции.</span>")
 
 		if(href_list["search"])
 			matching_designs.Cut()
@@ -208,7 +208,7 @@
 					matching_designs.Add(D)
 			updateUsrDialog()
 	else
-		to_chat(usr, "<span class=\"alert\">The autolathe is busy. Please wait for completion of previous operation.</span>")
+		to_chat(usr, "<span class=\"alert\">Автоматический токарный станок занят. Дождитесь завершения предыдущей операции.</span>")
 
 	updateUsrDialog()
 
@@ -265,10 +265,10 @@
 	. += ..()
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 	if(in_range(user, src) || isobserver(user))
-		. += "<hr><span class='notice'>Дисплей: Storing up to <b>[materials.max_amount]</b> material units.<br>Material consumption at <b>[prod_coeff*100]%</b>.</span>"
+		. += "<hr><span class='notice'>Дисплей: Хранение до <b>[materials.max_amount]</b> юнитов.<br>Потребление материалов <b>[prod_coeff*100]%</b>.</span>"
 
 /obj/machinery/autolathe/proc/main_win(mob/user)
-	var/dat = "<div class='statusDisplay'><h3>Autolathe Menu:</h3><br>"
+	var/dat = "<div class='statusDisplay'><h3>Меню автолата:</h3><br>"
 	dat += materials_printout()
 
 	dat += "<form name='search' action='?src=[REF(src)]'>\
@@ -294,8 +294,8 @@
 	return dat
 
 /obj/machinery/autolathe/proc/category_win(mob/user,selected_category)
-	var/dat = "<A href='?src=[REF(src)];menu=[AUTOLATHE_MAIN_MENU]'>Return to main menu</A>"
-	dat += "<div class='statusDisplay'><h3>Browsing [selected_category]:</h3><br>"
+	var/dat = "<A href='?src=[REF(src)];menu=[AUTOLATHE_MAIN_MENU]'>Главное меню</A>"
+	dat += "<div class='statusDisplay'><h3>Категория: [selected_category]:</h3><br>"
 	dat += materials_printout()
 
 	for(var/v in stored_research.researched_designs)
@@ -331,8 +331,8 @@
 	return dat
 
 /obj/machinery/autolathe/proc/search_win(mob/user)
-	var/dat = "<A href='?src=[REF(src)];menu=[AUTOLATHE_MAIN_MENU]'>Return to main menu</A>"
-	dat += "<div class='statusDisplay'><h3>Search results:</h3><br>"
+	var/dat = "<A href='?src=[REF(src)];menu=[AUTOLATHE_MAIN_MENU]'>Главное меню</A>"
+	dat += "<div class='statusDisplay'><h3>Результаты поиска:</h3><br>"
 	dat += materials_printout()
 
 	for(var/v in matching_designs)
@@ -361,12 +361,12 @@
 
 /obj/machinery/autolathe/proc/materials_printout()
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
-	var/dat = "<b>Total amount:</b> [materials.total_amount] / [materials.max_amount] cm<sup>3</sup><br>"
+	var/dat = "<b>Всего:</b> [materials.total_amount] / [materials.max_amount] см<sup>3</sup><br>"
 	for(var/mat_id in materials.materials)
 		var/datum/material/M = mat_id
 		var/mineral_amount = materials.materials[mat_id]
 		if(mineral_amount > 0)
-			dat += "<b>[M.name] amount:</b> [mineral_amount] cm<sup>3</sup><br>"
+			dat += "<b>[M.name]:</b> [mineral_amount] см<sup>3</sup><br>"
 	return dat
 
 /obj/machinery/autolathe/proc/can_build(datum/design/D, amount = 1)

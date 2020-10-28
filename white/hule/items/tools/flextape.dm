@@ -51,7 +51,7 @@
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 12000, /datum/material/glass = 8000)
 	build_path = /obj/item/flextape
-	category = list("hacked", "Misc")
+	category = list("hacked", "Разное")
 
 /datum/design/flextape_r
 	name = "Flextape Remover"
@@ -59,4 +59,4 @@
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 12000, /datum/material/glass = 8000)
 	build_path = /obj/item/flextape_remover
-	category = list("hacked", "Misc")
+	category = list("hacked", "Разное")

@@ -6,7 +6,7 @@
 	materials = list (/datum/material/iron = 2500, /datum/material/glass = 1500, /datum/material/silver = 1500, /datum/material/plasma = 500, /datum/material/titanium = 1500)
 	construction_time = 200
 	build_path = /obj/item/organ/cyberimp/arm/surgery/alien
-	category = list("Misc", "Medical Designs")
+	category = list("Разное", "Медицинские дизайны")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/circular_saw_folding
@@ -15,7 +15,7 @@
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 4000)
 	build_path = /obj/item/circular_saw/folding
-	category = list("initial", "Medical")
+	category = list("initial", "Медицина")
 
 /datum/design/optable_folding
 	name = "Folding стол"
@@ -23,7 +23,7 @@
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 3000)
 	build_path = /obj/item/optable
-	category = list("initial", "Medical")
+	category = list("initial", "Медицина")
 
 /datum/design/cyberimp_science_hud
 	name = "Science HUD Implant"
@@ -33,7 +33,7 @@
 	construction_time = 50
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 500, /datum/material/gold = 500)
 	build_path = /obj/item/organ/cyberimp/eyes/hud/science
-	category = list("Misc", "Medical Designs")
+	category = list("Разное", "Медицинские дизайны")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_diagnostic_hud
@@ -44,5 +44,5 @@
 	construction_time = 50
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 500, /datum/material/gold = 500)
 	build_path = /obj/item/organ/cyberimp/eyes/hud/diagnostic
-	category = list("Misc", "Medical Designs")
+	category = list("Разное", "Медицинские дизайны")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL

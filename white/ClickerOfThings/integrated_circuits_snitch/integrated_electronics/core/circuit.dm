@@ -80,7 +80,7 @@ PROCESSING_SUBSYSTEM_DEF(circuit)
 		///obj/item/weapon/implant/integrated_circuit
 		)
 
-	circuit_fabricator_recipe_list["Tools"] = list(
+	circuit_fabricator_recipe_list["Инструменты"] = list(
 		/obj/item/integrated_electronics/wirer,
 		/obj/item/integrated_electronics/debugger,
 		/obj/item/integrated_electronics/analyzer,

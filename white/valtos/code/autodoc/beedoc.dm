@@ -167,7 +167,7 @@
 	to_chat(user, "<span class='warning'>Переделываю программу в режим готовки шаурмы.</span>")
 
 /obj/item/circuitboard/machine/organdoc
-	name = "Органдок (Машинерия)"
+	name = "Органдок (Оборудование)"
 	build_path = /obj/machinery/organdoc
 	req_components = list(/obj/item/scalpel/advanced = 1,
 		/obj/item/retractor/advanced = 1,
@@ -181,5 +181,5 @@
 	desc = "The circuit board for an Organdoc."
 	id = "organdoc"
 	build_path = /obj/item/circuitboard/machine/organdoc
-	category = list("Medical Machinery")
+	category = list("Медицинское оборудование")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL

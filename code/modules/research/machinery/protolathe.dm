@@ -1,21 +1,21 @@
 /obj/machinery/rnd/production/protolathe
-	name = "protolathe"
-	desc = "Converts raw materials into useful objects."
+	name = "протолат"
+	desc = "Превращает сырье в полезные предметы."
 	icon_state = "protolathe"
 	circuit = /obj/item/circuitboard/machine/protolathe
 	categories = list(
-								"Power Designs",
-								"Medical Designs",
-								"Bluespace Designs",
-								"Stock Parts",
-								"Equipment",
-								"Tool Designs",
-								"Mining Designs",
-								"Electronics",
-								"Weapons",
-								"Ammo",
-								"Firing Pins",
-								"Computer Parts"
+								"Силовые дизайны",
+								"Медицинские дизайны",
+								"Блюспейс дизайны",
+								"Запчасти обрудования",
+								"Снаряжение",
+								"Рабочие инструменты",
+								"Шахтёрское оборудование",
+								"Электроника",
+								"Вооружение",
+								"Аммуниция",
+								"Бойки",
+								"Компьютерные запчасти"
 								)
 	production_animation = "protolathe_n"
 	allowed_buildtypes = PROTOLATHE

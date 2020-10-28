@@ -4,7 +4,6 @@ import { Window } from '../layouts';
 
 export const EconomyController = (props, context) => {
   const { act, data } = useBackend(context);
-  const accArray = data.accounts || [];
   const {
     eng_eco_mod,
     sci_eco_mod,
@@ -12,7 +11,8 @@ export const EconomyController = (props, context) => {
     sec_eco_mod,
     srv_eco_mod,
     civ_eco_mod,
-    selflog,
+    accounts = [],
+    selflog = [],
   } = data;
   return (
     <Window
@@ -64,9 +64,9 @@ export const EconomyController = (props, context) => {
               <LabeledList
                 overflowY="scroll"
                 height="185px">
-                {accArray.map(accs => (
-                  <LabeledList.Item key={accs.id} label={accs.id}>
-                    {accs.name} - {accs.balance}
+                {accounts.map(bbb => (
+                  <LabeledList.Item key={bbb.id} label={bbb.id}>
+                    {bbb.name} - {bbb.balance}
                   </LabeledList.Item>
                 ))}
               </LabeledList>
@@ -74,18 +74,18 @@ export const EconomyController = (props, context) => {
           </Flex.Item>
         </Flex>
         <Section
-          title="Журналы"
+          title="Журнал транзакций"
           buttons={(
-            <Button
-              color="bad"
+            <Button.Confirm
               icon="trash"
               content="Очистить"
-              onClick={() => act("clear_me")} />
+              onClick={() => act('clear_me')} />
           )}>
-          <TextArea
-            value={selflog}
-            height="20em"
-            overflowY="scroll" />
+          {selflog.map(log => (
+            <Box key={log.entry} className="candystripe">
+              {log.entry}
+            </Box>
+          ))}
         </Section>
       </Window.Content>
     </Window>

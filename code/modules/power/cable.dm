@@ -704,7 +704,7 @@ GLOBAL_LIST(hub_radial_layer_list)
 			"Layer 1" = image(icon = 'icons/hud/radial.dmi', icon_state = "coil-red"),
 			"Layer 2" = image(icon = 'icons/hud/radial.dmi', icon_state = "coil-yellow"),
 			"Layer 3" = image(icon = 'icons/hud/radial.dmi', icon_state = "coil-blue"),
-			"Machinery" = image(icon = 'icons/obj/power.dmi', icon_state = "smes")
+			"Оборудование" = image(icon = 'icons/obj/power.dmi', icon_state = "smes")
 			)
 
 	var/layer_result = show_radial_menu(user, src, GLOB.hub_radial_layer_list, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
@@ -721,7 +721,7 @@ GLOBAL_LIST(hub_radial_layer_list)
 		if("Layer 3")
 			CL = CABLE_LAYER_3
 			to_chat(user, "<span class='warning'>You toggle L3 connection.</span>")
-		if("Machinery")
+		if("Оборудование")
 			machinery_layer ^= MACHINERY_LAYER_1
 			to_chat(user, "<span class='warning'>You toggle machinery connection.</span>")
 
