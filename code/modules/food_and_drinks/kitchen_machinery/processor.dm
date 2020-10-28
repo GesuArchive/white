@@ -1,7 +1,7 @@
 
 /obj/machinery/processor
-	name = "food processor"
-	desc = "An industrial grinder used to process meat and other foods. Keep hands clear of intake area while operating."
+	name = "кухонный комбайн"
+	desc = "Промышленный измельчитель, используемый для обработки мяса и других продуктов. Во время работы держите руки подальше от области забора."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "processor1"
 	layer = BELOW_OBJ_LAYER
@@ -24,7 +24,7 @@
 /obj/machinery/processor/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += "<hr><span class='notice'>Дисплей: Outputting <b>[rating_amount]</b> item(s) at <b>[rating_speed*100]%</b> speed.</span>"
+		. += "<hr><span class='notice'>Дисплей: На выходе <b>[rating_amount]</b> предметов со скоростью <b>[rating_speed*100]%</b>.</span>"
 
 /obj/machinery/processor/proc/process_food(datum/food_processor_process/recipe, atom/movable/what)
 	if (recipe.output && loc && !QDELETED(src))
@@ -45,7 +45,7 @@
 
 /obj/machinery/processor/attackby(obj/item/O, mob/user, params)
 	if(processing)
-		to_chat(user, "<span class='warning'>[src] is in the process of processing!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src)] в процессе процессирования!</span>")
 		return TRUE
 	if(default_deconstruction_screwdriver(user, "processor", "processor1", O))
 		return
@@ -69,42 +69,42 @@
 					loaded++
 
 		if(loaded)
-			to_chat(user, "<span class='notice'>You insert [loaded] items into [src].</span>")
+			to_chat(user, "<span class='notice'>Закидываю [loaded] предметов в [src].</span>")
 		return
 
 	var/datum/food_processor_process/P = select_recipe(O)
 	if(P)
-		user.visible_message("<span class='notice'>[user] put [O] into [src].</span>", \
-			"<span class='notice'>You put [O] into [src].</span>")
+		user.visible_message("<span class='notice'>[user] закидывает [O] в [src].</span>", \
+			"<span class='notice'>Закидываю [O] в [src].</span>")
 		user.transferItemToLoc(O, src, TRUE)
 		return 1
 	else
 		if(user.a_intent != INTENT_HARM)
-			to_chat(user, "<span class='warning'>That probably won't blend!</span>")
+			to_chat(user, "<span class='warning'>Это не получится измельчить!</span>")
 			return 1
 		else
 			return ..()
 
 /obj/machinery/processor/interact(mob/user)
 	if(processing)
-		to_chat(user, "<span class='warning'>[src] is in the process of processing!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src)] в процессе процессирования!</span>")
 		return TRUE
 	if(user.a_intent == INTENT_GRAB && ismob(user.pulling) && select_recipe(user.pulling))
 		if(user.grab_state < GRAB_AGGRESSIVE)
-			to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
+			to_chat(user, "<span class='warning'>Потребуется более сильный захват для этого!</span>")
 			return
 		var/mob/living/pushed_mob = user.pulling
-		visible_message("<span class='warning'>[user] stuffs [pushed_mob] into [src]!</span>")
+		visible_message("<span class='warning'>[user] запихивает [pushed_mob] в [src]!</span>")
 		pushed_mob.forceMove(src)
 		user.stop_pulling()
 		return
 	if(contents.len == 0)
-		to_chat(user, "<span class='warning'>[src] is empty!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src)] пуст!</span>")
 		return TRUE
 	processing = TRUE
-	user.visible_message("<span class='notice'>[user] turns on [src].</span>", \
-		"<span class='notice'>You turn on [src].</span>", \
-		"<span class='hear'>You hear a food processor.</span>")
+	user.visible_message("<span class='notice'>[user] включает [src].</span>", \
+		"<span class='notice'>Включаю [src].</span>", \
+		"<span class='hear'>Слышу рёв металла.</span>")
 	playsound(src.loc, 'sound/machines/blender.ogg', 50, TRUE)
 	use_power(500)
 	var/total_time = 0
@@ -125,11 +125,11 @@
 		process_food(P, O)
 	pixel_x = initial(pixel_x) //return to its spot after shaking
 	processing = FALSE
-	visible_message("<span class='notice'>\The [src] finishes processing.</span>")
+	visible_message("<span class='notice'>[capitalize(src)] заканчивает свою работу.</span>")
 
 /obj/machinery/processor/verb/eject()
 	set category = "Объект"
-	set name = "Eject Contents"
+	set name = "Изъять содержимое"
 	set src in oview(1)
 	if(usr.stat != CONSCIOUS || HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED))
 		return
@@ -142,11 +142,11 @@
 
 /obj/machinery/processor/container_resist_act(mob/living/user)
 	user.forceMove(drop_location())
-	user.visible_message("<span class='notice'>[user] crawls free of the processor!</span>")
+	user.visible_message("<span class='notice'>[user] вылезает из комбайна!</span>")
 
 /obj/machinery/processor/slime
-	name = "slime processor"
-	desc = "An industrial grinder with a sticker saying appropriated for science department. Keep hands clear of intake area while operating."
+	name = "переработчик слаймов"
+	desc = "Промышленный комбайн с наклейкой для научного отдела. Во время работы держите руки подальше от области забора."
 	circuit = /obj/item/circuitboard/machine/processor/slime
 
 /obj/machinery/processor/slime/adjust_item_drop_location(atom/movable/AM)
@@ -178,7 +178,7 @@
 	if (!P)
 		return
 
-	visible_message("<span class='notice'>[picked_slime] is sucked into [src].</span>")
+	visible_message("<span class='notice'>[picked_slime] всасывается [src].</span>")
 	picked_slime.forceMove(src)
 
 /obj/machinery/processor/slime/process_food(datum/food_processor_process/recipe, atom/movable/what)
@@ -187,7 +187,7 @@
 		var/C = S.cores
 		if(S.stat != DEAD)
 			S.forceMove(drop_location())
-			S.visible_message("<span class='notice'>[C] crawls free of the processor!</span>")
+			S.visible_message("<span class='notice'>[C] выпрыгивает из комбайна!</span>")
 			return
 		for(var/i in 1 to (C+rating_amount-1))
 			var/atom/movable/item = new S.coretype(drop_location())

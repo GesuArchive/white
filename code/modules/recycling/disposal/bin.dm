@@ -81,15 +81,15 @@
 		if(I.tool_behaviour == TOOL_SCREWDRIVER)
 			panel_open = !panel_open
 			I.play_tool_sound(src)
-			to_chat(user, "<span class='notice'>You [panel_open ? "remove":"attach"] the screws around the power connection.</span>")
+			to_chat(user, "<span class='notice'>[panel_open ? "Откручиваю":"Закручиваю"] винтики питания.</span>")
 			return
 		else if(I.tool_behaviour == TOOL_WELDER && panel_open)
 			if(!I.tool_start_check(user, amount=0))
 				return
 
-			to_chat(user, "<span class='notice'>You start slicing the floorweld off \the [src]...</span>")
+			to_chat(user, "<span class='notice'>Начинаю разваривать [src]...</span>")
 			if(I.use_tool(src, user, 20, volume=100) && panel_open)
-				to_chat(user, "<span class='notice'>You slice the floorweld off \the [src].</span>")
+				to_chat(user, "<span class='notice'>Развариваю [src].</span>")
 				deconstruct()
 			return
 
@@ -104,7 +104,7 @@
 
 /obj/machinery/disposal/proc/place_item_in_disposal(obj/item/I, mob/user)
 	I.forceMove(src)
-	user.visible_message("<span class='notice'>[user.name] places \the [I] into \the [src].</span>", "<span class='notice'>You place \the [I] into \the [src].</span>")
+	user.visible_message("<span class='notice'>[user.name] закидывает [I] в [src].</span>", "<span class='notice'>Закидываю [I] в [src].</span>")
 
 //mouse drop another mob or self
 /obj/machinery/disposal/MouseDrop_T(mob/living/target, mob/living/user)
@@ -124,21 +124,21 @@
 	if(target.buckled || target.has_buckled_mobs())
 		return
 	if(target.mob_size > MOB_SIZE_HUMAN)
-		to_chat(user, "<span class='warning'>[target] doesn't fit inside [src]!</span>")
+		to_chat(user, "<span class='warning'>[target] не помещается внутри [src]!</span>")
 		return
 	add_fingerprint(user)
 	if(user == target)
-		user.visible_message("<span class='warning'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src]...</span>")
+		user.visible_message("<span class='warning'>[user] начинает забираться внутрь [src].</span>", "<span class='notice'>Начинаю забираться внутрь [src]...</span>")
 	else
-		target.visible_message("<span class='danger'>[user] starts putting [target] into [src].</span>", "<span class='userdanger'>[user] starts putting you into [src]!</span>")
+		target.visible_message("<span class='danger'>[user] начинает заталкивать [target] в [src].</span>", "<span class='userdanger'>[user] начинает заталкивать меня в [src]!</span>")
 	if(do_mob(user, target, 20))
 		if (!loc)
 			return
 		target.forceMove(src)
 		if(user == target)
-			user.visible_message("<span class='warning'>[user] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>")
+			user.visible_message("<span class='warning'>[user] забирается в [src].</span>", "<span class='notice'>Забираюсь в [src].</span>")
 		else
-			target.visible_message("<span class='danger'>[user] places [target] in [src].</span>", "<span class='userdanger'>[user] places you in [src].</span>")
+			target.visible_message("<span class='danger'>[user] заталкивает [target] в [src].</span>", "<span class='userdanger'>[user] заталкивает меня в [src].</span>")
 			log_combat(user, target, "stuffed", addition="into [src]")
 			target.LAssailant = user
 		update_icon()
@@ -258,8 +258,8 @@
 // Can hold items and human size things, no other draggables
 
 /obj/machinery/disposal/bin
-	name = "disposal unit"
-	desc = "A pneumatic waste disposal unit."
+	name = "мусорка"
+	desc = "Пневматическая установка для удаления отходов."
 	icon_state = "disposal"
 
 
@@ -268,7 +268,7 @@
 	if(istype(I, /obj/item/storage/bag/trash))	//Not doing component overrides because this is a specific type.
 		var/obj/item/storage/bag/trash/T = I
 		var/datum/component/storage/STR = T.GetComponent(/datum/component/storage)
-		to_chat(user, "<span class='warning'>You empty the bag.</span>")
+		to_chat(user, "<span class='warning'>Опустошаю мешок.</span>")
 		for(var/obj/item/O in T.contents)
 			STR.remove_from_storage(O,src)
 		T.update_icon()
@@ -333,10 +333,10 @@
 	if(isitem(AM) && AM.CanEnterDisposals())
 		if(prob(75))
 			AM.forceMove(src)
-			visible_message("<span class='notice'>[AM] lands in [src].</span>")
+			visible_message("<span class='notice'>[AM] приземляется в [src].</span>")
 			update_icon()
 		else
-			visible_message("<span class='notice'>[AM] bounces off of [src]'s rim!</span>")
+			visible_message("<span class='notice'>[AM] отскакивает от края [src]!</span>")
 			return ..()
 	else
 		return ..()
@@ -439,8 +439,8 @@
 //Delivery Chute
 
 /obj/machinery/disposal/delivery_chute
-	name = "delivery chute"
-	desc = "A chute for big and small packages alike!"
+	name = "разгрузочный желоб"
+	desc = "Лоток для больших и маленьких пакетов!"
 	density = TRUE
 	icon_state = "intake"
 	pressure_charging = FALSE // the chute doesn't need charging and always works
@@ -468,7 +468,7 @@
 	else if(ismob(AM))
 		var/mob/M = AM
 		if(prob(2)) // to prevent mobs being stuck in infinite loops
-			to_chat(M, "<span class='warning'>You hit the edge of the chute.</span>")
+			to_chat(M, "<span class='warning'>Влетаю в край желоба.</span>")
 			return
 		M.forceMove(src)
 	flush()

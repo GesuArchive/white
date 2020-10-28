@@ -3,7 +3,7 @@
 ///////////////////////////////////
 
 /datum/design/board/subspace_receiver
-	name = "Machine Design (Subspace Receiver)"
+	name = "Оборудование (Subspace Receiver)"
 	desc = "Allows for the construction of Subspace Receiver equipment."
 	id = "s-receiver"
 	build_path = /obj/item/circuitboard/machine/telecomms/receiver
@@ -11,7 +11,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/telecomms_bus
-	name = "Machine Design (Bus Mainframe)"
+	name = "Оборудование (Bus Mainframe)"
 	desc = "Allows for the construction of Telecommunications Bus Mainframes."
 	id = "s-bus"
 	build_path = /obj/item/circuitboard/machine/telecomms/bus
@@ -19,7 +19,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/telecomms_hub
-	name = "Machine Design (Hub Mainframe)"
+	name = "Оборудование (Hub Mainframe)"
 	desc = "Allows for the construction of Telecommunications Hub Mainframes."
 	id = "s-hub"
 	build_path = /obj/item/circuitboard/machine/telecomms/hub
@@ -27,7 +27,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/telecomms_relay
-	name = "Machine Design (Relay Mainframe)"
+	name = "Оборудование (Relay Mainframe)"
 	desc = "Allows for the construction of Telecommunications Relay Mainframes."
 	id = "s-relay"
 	build_path = /obj/item/circuitboard/machine/telecomms/relay
@@ -35,7 +35,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/telecomms_processor
-	name = "Machine Design (Processor Unit)"
+	name = "Оборудование (Processor Unit)"
 	desc = "Allows for the construction of Telecommunications Processor equipment."
 	id = "s-processor"
 	build_path = /obj/item/circuitboard/machine/telecomms/processor
@@ -43,7 +43,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/telecomms_server
-	name = "Machine Design (Server Mainframe)"
+	name = "Оборудование (Server Mainframe)"
 	desc = "Allows for the construction of Telecommunications Servers."
 	id = "s-server"
 	build_path = /obj/item/circuitboard/machine/telecomms/server
@@ -51,7 +51,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/telecomms_messaging
-	name = "Machine Design (Messaging Server)"
+	name = "Оборудование (Messaging Server)"
 	desc = "Allows for the construction of Telecommunications Messaging Servers."
 	id = "s-messaging"
 	build_path = /obj/item/circuitboard/machine/telecomms/message_server
@@ -59,7 +59,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/subspace_broadcaster
-	name = "Machine Design (Subspace Broadcaster)"
+	name = "Оборудование (Subspace Broadcaster)"
 	desc = "Allows for the construction of Subspace Broadcasting equipment."
 	id = "s-broadcaster"
 	build_path = /obj/item/circuitboard/machine/telecomms/broadcaster

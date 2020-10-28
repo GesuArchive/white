@@ -8,4 +8,4 @@
 	name = "department circuit imprinter (Science)"
 	circuit = /obj/item/circuitboard/machine/circuit_imprinter/department/science
 	allowed_department_flags = DEPARTMENTAL_FLAG_SCIENCE
-	department_tag = "Science"
+	department_tag = "Научный"

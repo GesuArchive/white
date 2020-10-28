@@ -173,7 +173,7 @@ Nothing else in the console has ID requirements.
 	l += "Доступно очков: <BR>[techweb_point_display_rdconsole(stored_research.research_points, stored_research.last_bitcoins)]"
 	l += "Протоколы безопасности: [obj_flags & EMAGGED ? "<font color='red'>Отключены</font>" : "<font color='green'>Включены</font>"]"
 	l += "<a href='?src=[REF(src)];switch_screen=[RDSCREEN_MENU]'>Главное меню</a> | <a href='?src=[REF(src)];switch_screen=[back]'>Назад</a></div>[RDSCREEN_NOBREAK]"
-	l += "[ui_mode == 1? "<span class='linkOn'>Нормально</span>" : "<a href='?src=[REF(src)];ui_mode=1'>Нормально/a>"] | [ui_mode == 2? "<span class='linkOn'>Кратко</span>" : "<a href='?src=[REF(src)];ui_mode=2'>Кратко</a>"] | [ui_mode == 3? "<span class='linkOn'>Списком</span>" : "<a href='?src=[REF(src)];ui_mode=3'>Списком</a>"]"
+	l += "[ui_mode == 1? "<span class='linkOn'>Нормально</span>" : "<a href='?src=[REF(src)];ui_mode=1'>Нормально</a>"] | [ui_mode == 2? "<span class='linkOn'>Кратко</span>" : "<a href='?src=[REF(src)];ui_mode=2'>Кратко</a>"] | [ui_mode == 3? "<span class='linkOn'>Списком</span>" : "<a href='?src=[REF(src)];ui_mode=3'>Списком</a>"]"
 	return l
 
 /obj/machinery/computer/rdconsole/proc/ui_main_menu()

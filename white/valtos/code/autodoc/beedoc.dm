@@ -177,7 +177,7 @@
 		/obj/item/stock_parts/matter_bin = 1)
 
 /datum/design/board/organdoc
-	name = "Machine Design (Organdoc)"
+	name = "Оборудование (Organdoc)"
 	desc = "The circuit board for an Organdoc."
 	id = "organdoc"
 	build_path = /obj/item/circuitboard/machine/organdoc

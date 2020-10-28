@@ -1,7 +1,7 @@
 /obj/machinery/door/poddoor/shutters
 	gender = PLURAL
-	name = "shutters"
-	desc = "Heavy duty mechanical shutters with an atmospheric seal that keeps them airtight once closed."
+	name = "жалюзи"
+	desc = "Механические заслонки для тяжелых условий эксплуатации с атмосферным уплотнением, обеспечивающим их герметичность после закрытия."
 	icon = 'white/valtos/icons/shutters.dmi'
 	layer = SHUTTER_LAYER
 	closingLayer = SHUTTER_LAYER
@@ -15,12 +15,12 @@
 	opacity = FALSE
 
 /obj/machinery/door/poddoor/shutters/indestructible
-	name = "hardened shutters"
+	name = "сверхкрепкие жалюзи"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 /obj/machinery/door/poddoor/shutters/radiation
-	name = "radiation shutters"
-	desc = "Lead-lined shutters with a radiation hazard symbol. Whilst this won't stop you getting irradiated, especially by a supermatter crystal, it will stop radiation travelling as far."
+	name = "свинцовые жалюзи"
+	desc = "Свинцовые ставни с символом радиационной опасности. Хотя это не помешает вам получить облучение, особенно кристаллом суперматерии, оно остановит распространение излучения так далеко."
 	icon = 'icons/obj/doors/shutters_radiation.dmi'
 	icon_state = "closed"
 	rad_insulation = RAD_EXTREME_INSULATION
@@ -40,8 +40,8 @@
 	rad_insulation = RAD_EXTREME_INSULATION
 
 /obj/machinery/door/poddoor/shutters/window
-	name = "windowed shutters"
-	desc = "A shutter with a thick see-through polycarbonate window."
+	name = "прозрачные жалюзи"
+	desc = "Ставни с толстым прозрачным окном из поликарбоната."
 	icon = 'icons/obj/doors/shutters_window.dmi'
 	icon_state = "closed"
 	opacity = FALSE

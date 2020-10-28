@@ -409,7 +409,7 @@
 	build_path = /obj/machinery/rnd/production/protolathe/department
 
 /obj/item/circuitboard/machine/reagentgrinder
-	name = "Machine Design (All-In-One Grinder)"
+	name = "Оборудование (All-In-One Grinder)"
 	icon_state = "generic"
 	build_path = /obj/machinery/reagentgrinder/constructed
 	req_components = list(

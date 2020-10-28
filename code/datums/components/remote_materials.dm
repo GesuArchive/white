@@ -103,7 +103,7 @@ handles linking back and forth.
 	var/obj/item/multitool/M = I
 	if (!QDELETED(M.buffer) && istype(M.buffer, /obj/machinery/ore_silo))
 		if (silo == M.buffer)
-			to_chat(user, "<span class='warning'>[parent] is already connected to [silo]!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(parent)] уже подключен к [silo]!</span>")
 			return COMPONENT_BLOCK_TOOL_ATTACK
 		if (silo)
 			silo.connected -= src
@@ -115,7 +115,7 @@ handles linking back and forth.
 		silo.connected += src
 		silo.updateUsrDialog()
 		mat_container = silo.GetComponent(/datum/component/material_container)
-		to_chat(user, "<span class='notice'>You connect [parent] to [silo] from the multitool's buffer.</span>")
+		to_chat(user, "<span class='notice'>Подключаю [parent] к [silo] используя буффер мультитула.</span>")
 		return COMPONENT_BLOCK_TOOL_ATTACK
 
 /datum/component/remote_materials/proc/on_hold()
@@ -127,6 +127,6 @@ handles linking back and forth.
 
 /datum/component/remote_materials/proc/format_amount()
 	if (mat_container)
-		return "[mat_container.total_amount] / [mat_container.max_amount == INFINITY ? "Unlimited" : mat_container.max_amount] ([silo ? "remote" : "local"])"
+		return "[mat_container.total_amount] / [mat_container.max_amount == INFINITY ? "Безлимитно" : mat_container.max_amount] ([silo ? "удалённый" : "местный"])"
 	else
 		return "0 / 0"

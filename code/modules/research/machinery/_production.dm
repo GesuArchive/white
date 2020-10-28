@@ -10,7 +10,7 @@
 	var/allowed_buildtypes = NONE
 	var/list/datum/design/cached_designs
 	var/list/datum/design/matching_designs
-	var/department_tag = "Unidentified"			//used for material distribution among other things.
+	var/department_tag = "Неизвестный"			//used for material distribution among other things.
 
 	var/screen = RESEARCH_FABRICATOR_SCREEN_MAIN
 	var/selected_category
@@ -182,7 +182,7 @@
 
 /obj/machinery/rnd/production/proc/ui_header()
 	var/list/l = list()
-	l += "<div class='statusDisplay'><b>[stored_research.organization] [department_tag] - Протолат</b>"
+	l += "<div class='statusDisplay'><b>[department_tag] отдел [stored_research.organization] - Протолат</b>"
 	l += "Протоколы безопасности: [(obj_flags & EMAGGED)? "<font color='red'>Отключены</font>" : "<font color='green'>Включены</font>"]"
 	if (materials.mat_container)
 		l += "<A href='?src=[REF(src)];switch_screen=[RESEARCH_FABRICATOR_SCREEN_MATERIALS]'><B>Материалы:</B> [materials.format_amount()]</A>"

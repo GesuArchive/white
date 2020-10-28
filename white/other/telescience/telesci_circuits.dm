@@ -1,5 +1,5 @@
 /datum/design/board/telepad
-	name = "Machine Design (Telepad Board)"
+	name = "Оборудование (Telepad Board)"
 	desc = "The circuit board for a telescience telepad."
 	id = "telepad"
 	build_path = /obj/item/circuitboard/machine/telesci_pad

@@ -622,7 +622,7 @@
 				return
 			if(!P.adapt_circuit(user, 50))
 				return
-			user.visible_message("<span class='notice'>[user] fabricates a circuit and places it into <b>[src]</b>.</span>", \
+			user.visible_message("<span class='notice'>[user] создаёт специальную плату и вставляет в <b>[src]</b>.</span>", \
 			"<span class='notice'>You adapt a power control board and click it into place in <b>[src]</b>'s guts.</span>")
 			has_electronics = APC_ELECTRONICS_INSTALLED
 			locked = FALSE
@@ -698,7 +698,7 @@
 				if(machine_stat & BROKEN)
 					to_chat(user, "<span class='warning'><b>[src]</b>'s frame is too damaged to support a circuit.</span>")
 					return
-				user.visible_message("<span class='notice'>[user] fabricates a circuit and places it into <b>[src]</b>.</span>", \
+				user.visible_message("<span class='notice'>[user] создаёт специальную плату и вставляет в <b>[src]</b>.</span>", \
 				"<span class='notice'>You adapt a power control board and click it into place in <b>[src]</b>'s guts.</span>")
 				has_electronics = TRUE
 				locked = TRUE

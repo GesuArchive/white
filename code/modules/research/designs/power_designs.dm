@@ -77,7 +77,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/board/pacman
-	name = "Machine Design (PACMAN-type Generator Board)"
+	name = "Оборудование (PACMAN-type Generator Board)"
 	desc = "The circuit board that for a PACMAN-type portable generator."
 	id = "pacman"
 	build_path = /obj/item/circuitboard/machine/pacman
@@ -85,14 +85,14 @@
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/board/pacman/super
-	name = "Machine Design (SUPERPACMAN-type Generator Board)"
+	name = "Оборудование (SUPERPACMAN-type Generator Board)"
 	desc = "The circuit board that for a SUPERPACMAN-type portable generator."
 	id = "superpacman"
 	build_path = /obj/item/circuitboard/machine/pacman/super
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/board/pacman/mrs
-	name = "Machine Design (MRSPACMAN-type Generator Board)"
+	name = "Оборудование (MRSPACMAN-type Generator Board)"
 	desc = "The circuit board that for a MRSPACMAN-type portable generator."
 	id = "mrspacman"
 	build_path = /obj/item/circuitboard/machine/pacman/mrs
