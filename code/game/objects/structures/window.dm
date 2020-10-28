@@ -408,7 +408,7 @@
 		if(RWINDOW_BOLTS_HEATED)
 			if(I.tool_behaviour == TOOL_SCREWDRIVER)
 				user.visible_message("<span class='notice'>[user] втыкает отвёртку в раскалённые винтики и начинает их выкручивать...</span>",
-										"<span class='notice'>Втыкаю отвёртку в раскалённые винтики и начинаешь их выкручивать...</span>")
+										"<span class='notice'>Втыкаю отвёртку в раскалённые винтики и начинаю их выкручивать...</span>")
 				if(I.use_tool(src, user, 80, volume = 50))
 					state = RWINDOW_BOLTS_OUT
 					to_chat(user, "<span class='notice'>Винтики удалены и теперь окно можно подпереть</span>")

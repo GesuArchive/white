@@ -16,8 +16,8 @@
 	response_help_simple = "put your hand through"
 	response_disarm_continuous = "flails at"
 	response_disarm_simple = "flail at"
-	response_harm_continuous = "punches"
-	response_harm_simple = "punch"
+	response_harm_continuous = "бьёт"
+	response_harm_simple = "бьёт"
 	speak_chance = 1
 	melee_damage_lower = 5
 	melee_damage_upper = 12

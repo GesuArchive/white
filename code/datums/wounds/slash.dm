@@ -54,17 +54,17 @@
 	if(!limb.current_gauze)
 		return ..()
 
-	var/list/msg = list("Порезы на [ru_parse_zone(limb.name)] перемотаны")
+	var/list/msg = list("Порезы на [ru_gde_zone(limb.name)] перемотаны")
 	// how much life we have left in these bandages
 	switch(limb.current_gauze.absorption_capacity)
 		if(0 to 1.25)
-			msg += "почти разрушенным "
+			msg += " почти разрушенным "
 		if(1.25 to 2.75)
-			msg += "сильно изношенным "
+			msg += " сильно изношенным "
 		if(2.75 to 4)
-			msg += "слегка окровавленным "
+			msg += " слегка окровавленным "
 		if(4 to INFINITY)
-			msg += "чиста "
+			msg += " чистым "
 	msg += "[limb.current_gauze.name]!"
 
 	return "<B>[msg.Join()]</B>"
