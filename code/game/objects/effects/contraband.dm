@@ -262,7 +262,7 @@
 	icon_state = "poster14"
 
 /obj/structure/sign/poster/contraband/tools
-	name = "Tools"
+	name = "Инструменты"
 	desc = "This poster looks like an advertisement for tools, but is in fact a subliminal jab at the tools at CentCom."
 	icon_state = "poster15"
 

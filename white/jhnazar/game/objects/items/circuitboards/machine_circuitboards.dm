@@ -1,5 +1,5 @@
 /obj/item/circuitboard/machine/chem_dispenser/botany
-	name = "Botany Chem Dispenser (Машинерия)"
+	name = "Botany Chem Dispenser (Оборудование)"
 	icon_state = "service"
 	build_path = /obj/machinery/chem_dispenser/botany
 	req_components = list(

@@ -1,5 +1,5 @@
 /obj/item/circuitboard/machine/ltsrbt
-	name = "LTSRBT (Машинерия)"
+	name = "LTSRBT (Оборудование)"
 	icon_state = "bluespacearray"
 	build_path = /obj/machinery/ltsrbt
 	req_components = list(

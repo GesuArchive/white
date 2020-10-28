@@ -90,7 +90,7 @@
 	build_type = AUTOLATHE
 	materials = list(MAT_CATEGORY_RIGID = 250)
 	build_path = /obj/item/stack/teeth/replacement
-	category = list("initial", "Medical")
+	category = list("initial", "Медицина")
 
 /datum/surgery/teeth_reinsertion
 	name = "вставка зуба"

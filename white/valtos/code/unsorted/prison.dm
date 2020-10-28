@@ -596,18 +596,18 @@
 	name = "sovietlathe"
 	circuit = /obj/item/circuitboard/machine/autolathe/soviet
 	categories = list(
-					"Tools",
-					"Electronics",
-					"T-Comm",
-					"Security",
-					"Machinery",
-					"Medical",
-					"Misc",
-					"Dinnerware",
-					"Imported")
+					"Инструменты",
+					"Электроника",
+					"Телекомы",
+					"Безопасность",
+					"Оборудование",
+					"Медицина",
+					"Разное",
+					"Кухня",
+					"Импорт")
 
 /obj/item/circuitboard/machine/autolathe/soviet
-	name = "Советлат (Машинерия)"
+	name = "Советлат (Оборудование)"
 	build_path = /obj/machinery/autolathe/soviet
 
 /*********************Radio Shit*************************/

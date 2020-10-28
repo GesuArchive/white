@@ -88,7 +88,7 @@
 	return
 
 /obj/item/circuitboard/machine/reagent_sheet
-	name = "Reagent Refinery (Машинерия)"
+	name = "Reagent Refinery (Оборудование)"
 	build_path = /obj/machinery/reagent_sheet
 	req_components = list(
 		/obj/item/stock_parts/micro_laser = 1,

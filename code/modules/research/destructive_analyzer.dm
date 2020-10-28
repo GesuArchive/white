@@ -6,8 +6,8 @@ It is used to destroy hand-held objects and advance technological research. Cont
 Note: Must be placed within 3 tiles of the R&D Console
 */
 /obj/machinery/rnd/destructive_analyzer
-	name = "destructive analyzer"
-	desc = "Learn science by destroying things!"
+	name = "деструктивный анализатор"
+	desc = "Узнай науку, уничтожая вещи!"
 	icon_state = "d_analyzer"
 	circuit = /obj/item/circuitboard/machine/destructive_analyzer
 	var/decon_mod = 0

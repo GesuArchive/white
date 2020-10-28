@@ -1,6 +1,6 @@
 //big thanks to ninja and ma44 on coderbus for solving my autism
 /obj/item/circuitboard/machine/bluespace_miner //MODULARISE IT BECAUSE ITS AUTISM TO REMOVE IF SOMEBODY WANTS TO DISABLE IT EASILY
-	name = "Блюспейс майнер (Машинерия)"
+	name = "Блюспейс майнер (Оборудование)"
 	build_path = /obj/machinery/mineral/bluespace_miner
 	req_components = list(
 		/obj/item/stock_parts/matter_bin = 3,
@@ -27,7 +27,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/gold = 500, /datum/material/silver = 500, /datum/material/bluespace = 500) //quite cheap, for more convenience
 	build_path = /obj/item/circuitboard/machine/bluespace_miner
-	category = list("Bluespace Designs")
+	category = list("Блюспейс дизайны")
 
 /obj/machinery/mineral/bluespace_miner
 	name = "блюспейс майнер"

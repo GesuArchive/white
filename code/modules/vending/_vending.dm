@@ -744,7 +744,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		var/list/data = list(
 			path = replacetext(replacetext("[R.product_path]", "/obj/item/", ""), "/", "-"),
 			name = R.name,
-			price = R.custom_premium_price || (extra_price * decide_nalog()),
+			price = (R.custom_premium_price || extra_price) * decide_nalog(),
 			max_amount = R.max_amount,
 			ref = REF(R),
 			premium = TRUE
@@ -755,7 +755,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		var/list/data = list(
 			path = replacetext(replacetext("[R.product_path]", "/obj/item/", ""), "/", "-"),
 			name = R.name,
-			price = R.custom_premium_price || (extra_price * decide_nalog()),
+			price = (R.custom_premium_price || extra_price) * decide_nalog(),
 			max_amount = R.max_amount,
 			ref = REF(R),
 			premium = TRUE
@@ -806,7 +806,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 				return
 			var/price_to_use = default_price * decide_nalog()
 			if(R.custom_price)
-				price_to_use = R.custom_price
+				price_to_use = R.custom_price * decide_nalog()
 			if(R in hidden_records)
 				if(!extended_inventory)
 					vend_ready = TRUE
@@ -847,7 +847,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 				if(account.account_job && account.account_job.paycheck_department == payment_department)
 					price_to_use = 0
 				if(coin_records.Find(R) || hidden_records.Find(R))
-					price_to_use = R.custom_premium_price ? R.custom_premium_price : extra_price * decide_nalog()
+					price_to_use = (R.custom_premium_price ? R.custom_premium_price : extra_price) * decide_nalog()
 				if(price_to_use && !account.adjust_money(-price_to_use))
 					say("You do not possess the funds to purchase [R.name].")
 					flick(icon_deny,src)

@@ -59,7 +59,7 @@
 								"Cybernetics",
 								"Implants",
 								"Control Interfaces",
-								"Misc"
+								"Разное"
 								)
 
 /obj/machinery/mecha_part_fabricator/Initialize(mapload)
@@ -145,7 +145,7 @@
 		else if(built_item in typesof(/obj/item/mecha_parts/mecha_equipment))
 			var/obj/item/mecha_parts/mecha_equipment/E = built_item
 			var/mech_types = initial(E.mech_flags)
-			sub_category = "Equipment"
+			sub_category = "Снаряжение"
 			if(mech_types)
 				category_override = list()
 				if(mech_types & EXOSUIT_MODULE_RIPLEY)

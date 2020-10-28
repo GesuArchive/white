@@ -64,7 +64,7 @@
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 5000)
 	build_path = /obj/item/seeds/random
-	category = list("initial","Misc")
+	category = list("initial","Разное")
 
 /datum/design/monkey_cube
 	name = "Monkey Cube"

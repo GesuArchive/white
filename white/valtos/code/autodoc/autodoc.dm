@@ -394,7 +394,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	id = "autodoc"
 	build_path = /obj/item/circuitboard/machine/autodoc
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
-	category = list ("Medical Machinery")
+	category = list ("Медицинское оборудование")
 
 /datum/techweb_node/autodoc
 	id = "autodoc"
