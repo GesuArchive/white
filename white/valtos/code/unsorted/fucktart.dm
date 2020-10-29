@@ -19,7 +19,7 @@
 			A.color = "#[random_short_color()]"
 			animate(A, color = color_matrix_rotate_hue(rand(0, 360)), time = rand(200, 500), easing = CIRCULAR_EASING, flags = ANIMATION_PARALLEL)
 			animate(A, transform = M, time = rand(200, 1000), flags = ANIMATION_PARALLEL)
-			sleep(rand(1, 2))
+			sleep(pick(0.3, 0.5, 0.7))
 
 /client/proc/smooth_fucking_z_level()
 	set name = " ? Smooth Z-Level"
