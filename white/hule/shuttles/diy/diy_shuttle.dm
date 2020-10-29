@@ -14,7 +14,8 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	jumpto_ports = list()
 	dir = 2
 	x_offset = 0
-	y_offset = 0
+	y_offset = -7
+	view_range = 5
 	z_lock = list(2,3,4,7,8,9,10,12)
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/adv/diy/Initialize()
