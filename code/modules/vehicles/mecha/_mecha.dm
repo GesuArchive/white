@@ -350,16 +350,16 @@
 	var/hidden_weapon = hide_weapon ? (locate(/obj/item/mecha_parts/mecha_equipment/weapon) in equipment) : null
 	var/list/visible_equipment = equipment - hidden_weapon
 	if(visible_equipment.len)
-		. += "<hr>It's equipped with:\n"
+		. += "<hr>It's equipped with:"
 		for(var/obj/item/mecha_parts/mecha_equipment/ME in visible_equipment)
-			. += "[icon2html(ME, user)] \A [ME]."
+			. += "\n[icon2html(ME, user)] \A [ME]."
 	if(enclosed)
 		return
 	if(mecha_flags & SILICON_PILOT)
-		. += "[src] appears to be piloting itself..."
+		. += "\n[src] appears to be piloting itself..."
 	else
 		for(var/occupante in occupants)
-			. += "You can see [occupante] inside."
+			. += "\nYou can see [occupante] inside."
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			for(var/held_item in H.held_items)

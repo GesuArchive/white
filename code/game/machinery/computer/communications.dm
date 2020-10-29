@@ -8,8 +8,8 @@
 
 // The communications computer
 /obj/machinery/computer/communications
-	name = "communications console"
-	desc = "A console used for high-priority announcements and emergencies."
+	name = "консоль связи"
+	desc = "Консоль, используемая для высокоприоритетных объявлений и чрезвычайных ситуаций."
 	icon_screen = "comm"
 	icon_keyboard = "tech_key"
 	req_access = list(ACCESS_HEADS)
@@ -75,7 +75,7 @@
 	obj_flags |= EMAGGED
 	if (authenticated)
 		authorize_access = get_all_accesses()
-	to_chat(user, "<span class='danger'>You scramble the communication routing circuits!</span>")
+	to_chat(user, "<span class='danger'>Изменяю траекторию связи!</span>")
 	playsound(src, 'sound/machines/terminal_alert.ogg', 50, FALSE)
 
 /obj/machinery/computer/communications/ui_act(action, list/params)
@@ -118,11 +118,11 @@
 				var/obj/item/held_item = usr.get_active_held_item()
 				var/obj/item/card/id/id_card = held_item?.GetID()
 				if (!istype(id_card))
-					to_chat(usr, "<span class='warning'>You need to swipe your ID!</span>")
+					to_chat(usr, "<span class='warning'>Нужно провести ID-КАРТОЙ!</span>")
 					playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, FALSE)
 					return
 				if (!(ACCESS_CAPTAIN in id_card.access))
-					to_chat(usr, "<span class='warning'>You are not authorized to do this!</span>")
+					to_chat(usr, "<span class='warning'>Недостаточно прав!</span>")
 					playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, FALSE)
 					return
 
@@ -134,7 +134,7 @@
 
 			set_security_level(new_sec_level)
 
-			to_chat(usr, "<span class='notice'>Authorization confirmed. Modifying security level.</span>")
+			to_chat(usr, "<span class='notice'>Авторизация подтверждена. Изменение уровня безопасности.</span>")
 			playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 
 			// Only notify people if an actual change happened
@@ -186,7 +186,7 @@
 			if (!istype(shuttle))
 				return
 			if (!shuttle.prerequisites_met())
-				to_chat(usr, "<span class='alert'>You have not met the requirements for purchasing this shuttle.</span>")
+				to_chat(usr, "<span class='alert'>Мы не соответствуем требованиям для покупки этого шаттла.</span>")
 				return
 			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
 			if (bank_account.account_balance < shuttle.credit_cost)
@@ -213,7 +213,7 @@
 				return
 			var/reason = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
 			nuke_request(reason, usr)
-			to_chat(usr, "<span class='notice'>Request sent.</span>")
+			to_chat(usr, "<span class='notice'>Запрос отправлен.</span>")
 			usr.log_message("has requested the nuclear codes from CentCom with reason \"[reason]\"", LOG_SAY)
 			priority_announce("The codes for the on-station nuclear self-destruct have been requested by [usr]. Confirmation or denial of this request will be sent shortly.", "Nuclear Self-Destruct Codes Requested", 'sound/ai/commandreport.ogg')
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
@@ -223,9 +223,14 @@
 				return
 			if (!COOLDOWN_FINISHED(src, important_action_cooldown))
 				return
+			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
+			if (bank_account.account_balance < 5000)
+				to_chat(usr, "<span class='alert'>Недостаточно средств для вызова отряда. Требуется 5000 кредитов на счету снабжения.</span>")
+				return
 			var/input = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
 			sobr_request(input, usr)
-			to_chat(usr, "<span class='notice'>Запрос отправлен.</span>")
+			bank_account.adjust_money(-5000)
+			to_chat(usr, "<span class='notice'>Запрос отправлен. С вашего счёта было списано 5000 кредитов.</span>")
 			usr.log_message("has requested the SOBR from CentCom with reason \"[input]\"", LOG_SAY)
 			priority_announce("Отряд СОБРа был вызван [usr].", "Экстренный запрос",'sound/ai/announcer/alert.ogg')
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
@@ -260,7 +265,7 @@
 				payload["network"] = network_name
 
 			send2otherserver(station_name(), message, "Comms_Console", destination == "all" ? null : list(destination), additional_data = payload)
-			minor_announce(message, title = "Outgoing message to allied station")
+			minor_announce(message, title = "Исходящее сообщение для союзной станции")
 			usr.log_talk(message, LOG_SAY, tag = "message to the other server")
 			message_admins("[ADMIN_LOOKUPFLW(usr)] has sent a message to the other server\[s].")
 			deadchat_broadcast(" has sent an outgoing message to the other station(s).</span>", "<span class='bold'>[usr.real_name]", usr, message_type = DEADCHAT_ANNOUNCEMENT)
@@ -305,7 +310,7 @@
 				authenticated = TRUE
 				authorize_access = get_all_accesses()
 				authorize_name = "Unknown"
-				to_chat(usr, "<span class='warning'>[src] lets out a quiet alarm as its login is overridden.</span>")
+				to_chat(usr, "<span class='warning'>[src] выстреливает несколько искр.</span>")
 				playsound(src, 'sound/machines/terminal_alert.ogg', 25, FALSE)
 			else
 				var/obj/item/card/id/id_card = usr.get_idcard(hand_first = TRUE)
@@ -461,11 +466,11 @@
 	if (!authenticated_as_non_silicon_captain(user))
 		return FALSE
 	if (SSshuttle.emergency.mode != SHUTTLE_RECALL && SSshuttle.emergency.mode != SHUTTLE_IDLE)
-		return "The shuttle is already in transit."
+		return "Шаттл уже летит. Поздно."
 	if (SSshuttle.shuttle_purchased == SHUTTLEPURCHASE_PURCHASED)
-		return "A replacement shuttle has already been purchased."
+		return "Замена уже куплена. Простите."
 	if (SSshuttle.shuttle_purchased == SHUTTLEPURCHASE_FORCED)
-		return "Due to unforseen circumstances, shuttle purchasing is no longer available."
+		return "Из-за непредвиденных обстоятельств покупка шаттла больше не доступна."
 	return TRUE
 
 /obj/machinery/computer/communications/proc/can_send_messages_to_other_sectors(mob/user)
@@ -477,14 +482,14 @@
 /obj/machinery/computer/communications/proc/make_announcement(mob/living/user)
 	var/is_ai = issilicon(user)
 	if(!SScommunications.can_announce(user, is_ai))
-		to_chat(user, "<span class='alert'>Intercomms recharging. Please stand by.</span>")
+		to_chat(user, "<span class='alert'>Подзарядка интеркомов. Подождите, пожалуйста.</span>")
 		return
-	var/input = stripped_input(user, "Please choose a message to announce to the station crew.", "What?")
+	var/input = stripped_input(user, "Выберите сообщение станции.", "ЧЕ?")
 	if(!input || !user.canUseTopic(src, !issilicon(usr)))
 		return
 	if(!(user.can_speak())) //No more cheating, mime/random mute guy!
 		input = "..."
-		to_chat(user, "<span class='warning'>You find yourself unable to speak.</span>")
+		to_chat(user, "<span class='warning'>А как говорить...</span>")
 	else
 		input = user.treat_message(input) //Adds slurs and so on. Someone should make this use languages too.
 	SScommunications.make_announcement(user, is_ai, input)
