@@ -297,7 +297,7 @@ GLOBAL_VAR(restart_counter)
 
 	var/s = "<big>White Dream: REDUX</big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/TT2gqfz\">DISCORD</a>\n\n"
 	s += "<b>WHY:</b> AdaptiveRP, Economy, Cyberpunk, NO LAGS, Friendly Admins and more!\n\n"
-	s += "\[<big>Pycc&kcy;&icy;е &icy;&dcy;y&tcy;!</big>"
+	s += "\[<big>Pycc&kcy;&icy;e &icy;&dcy;y&tcy;!</big>"
 
 	/*
 	//var/hostedby

@@ -15,6 +15,7 @@
 
 /datum/material/palputinum
 	name = "палпутинум"
+	skloname = "палпутинума"
 	desc = "Туз"
 	color = rgb(239, 151, 68)
 	categories = list(MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE)

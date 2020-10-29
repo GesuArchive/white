@@ -589,8 +589,8 @@
 		var/list/materials_list = list()
 		for(var/i in custom_materials)
 			var/datum/material/M = i
-			materials_list += "[M.name]"
-		. += "<span class='small'><u>Похоже, этот предмет создан из [english_list(materials_list)]</u>.</span>"
+			materials_list += "[M.skloname]"
+		. += "<span class='small'>Вероятно, этот предмет создан из <u>[english_list(materials_list)]</u>.</span>"
 	if(reagents)
 		. += "<hr>"
 		if(reagents.flags & TRANSPARENT)
@@ -614,7 +614,7 @@
 
 	if(ishuman(user))
 		if(user.stat == CONSCIOUS && !user.eye_blind)
-			user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[src.name]</b>.</span>", null, null, COMBAT_MESSAGE_RANGE)
+			user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[src.name]</b>.</span>", "<span class='small'>Смотрю на <b>[src.name]</b>.</span>", null, COMBAT_MESSAGE_RANGE)
 		if(user.status_traits)
 			if(HAS_TRAIT(user, TRAIT_JEWISH))
 				var/datum/export_report/ex = export_item_and_contents(src, EXPORT_PIRATE | EXPORT_CARGO | EXPORT_CONTRABAND, dry_run=TRUE)
