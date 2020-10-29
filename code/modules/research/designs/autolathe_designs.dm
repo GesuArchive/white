@@ -318,7 +318,7 @@
 	maxstack = 50
 
 /datum/design/rglass
-	name = "Reinforced Glass"
+	name = "Армированное стекло"
 	id = "rglass"
 	build_type = AUTOLATHE | SMELTER | PROTOLATHE
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = MINERAL_MATERIAL_AMOUNT)

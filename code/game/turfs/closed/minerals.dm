@@ -4,7 +4,7 @@
 	name = "камень"
 	icon = 'white/valtos/icons/rockwall.dmi'
 	icon_state = "rockthefuck"
-	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
+	smoothing_flags = SMOOTH_CORNERS
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_MINERAL_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_MINERAL_WALLS)
 	baseturfs = /turf/open/floor/plating/asteroid/airless
@@ -13,7 +13,7 @@
 	density = TRUE
 	layer = EDGED_TURF_LAYER
 	temperature = TCMB
-	base_icon_state = "smoothrocks"
+	base_icon_state = "rockthefuck"
 	var/smooth_icon = 'white/valtos/icons/rockwall.dmi'
 	var/environment_type = "asteroid"
 	var/turf/open/floor/plating/turf_type = /turf/open/floor/plating/asteroid/airless
