@@ -199,7 +199,7 @@
 
 /obj/machinery/turntable/Initialize()
 	. = ..()
-	icon_state = pick("default", "tall", "neon")
+	icon_state = pick("default", "tall", "neon", "box")
 	if(icon_state == "tall")
 		name = "младший [name]"
 	bbox = new(src)
