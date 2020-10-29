@@ -7,17 +7,17 @@ import { Window } from '../layouts';
 import { createSearch } from 'common/string';
 
 const MATERIAL_KEYS = {
-  "iron": "sheet-metal_3",
-  "glass": "sheet-glass_3",
-  "silver": "sheet-silver_3",
-  "gold": "sheet-gold_3",
-  "diamond": "sheet-diamond",
-  "plasma": "sheet-plasma_3",
-  "uranium": "sheet-uranium",
-  "bananium": "sheet-bananium",
-  "titanium": "sheet-titanium_3",
-  "bluespace crystal": "polycrystal",
-  "plastic": "sheet-plastic_3",
+  "железо": "sheet-metal_3",
+  "стекло": "sheet-glass_3",
+  "серебро": "sheet-silver_3",
+  "золото": "sheet-gold_3",
+  "алмазы": "sheet-diamond",
+  "плазма": "sheet-plasma_3",
+  "уран": "sheet-uranium",
+  "бананиум": "sheet-bananium",
+  "титан": "sheet-titanium_3",
+  "блюспейс кристалл": "polycrystal",
+  "пластик": "sheet-plastic_3",
 };
 
 const COLOR_NONE = 0;
