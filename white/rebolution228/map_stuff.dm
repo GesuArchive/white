@@ -339,3 +339,7 @@
 			<br>
 			<br><b>0UI/I0/255U</b>
 			<br><i>МНе ОчЕНb ПлОХО П0моrиТе</i>"}
+
+/obj/item/paper/crumpled/awaymissions/chilly/howtoopenfukkendoor
+	name = "Crumpled Note"
+	info ={"<i>Левее располагается пульт управления, который открывает ворота. Шифр для тех, кто поймет: РРРЭХБ ВВСА ИННП СХББ ЭСЛМ ЖВВРК 150УТ ПВСЖ.</i>"}	
