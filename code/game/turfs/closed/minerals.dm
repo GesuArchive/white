@@ -25,7 +25,7 @@
 
 /turf/closed/mineral/Initialize()
 	. = ..()
-	if(icon_state != "rockthefuck")
+	if(base_icon_state != "rockthefuck")
 		var/matrix/M = new
 		M.Translate(-4, -4)
 		transform = M

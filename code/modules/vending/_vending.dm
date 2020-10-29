@@ -887,6 +887,8 @@ GLOBAL_LIST_EMPTY(vending_products)
 			return GLOB.srv_eco_mod
 		if(ACCOUNT_CIV)
 			return GLOB.civ_eco_mod
+		else
+			return 1
 
 /obj/machinery/vending/process(delta_time)
 	if(machine_stat & (BROKEN|NOPOWER))
