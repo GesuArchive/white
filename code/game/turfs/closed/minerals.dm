@@ -2,8 +2,8 @@
 
 /turf/closed/mineral //wall piece
 	name = "камень"
-	icon = 'icons/turf/mining.dmi'
-	icon_state = "rock"
+	icon = 'white/valtos/icons/rockwall.dmi'
+	icon_state = "rockthefuck"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_MINERAL_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_MINERAL_WALLS)
@@ -14,7 +14,7 @@
 	layer = EDGED_TURF_LAYER
 	temperature = TCMB
 	base_icon_state = "smoothrocks"
-	var/smooth_icon = 'icons/turf/smoothrocks.dmi'
+	var/smooth_icon = 'white/valtos/icons/rockwall.dmi'
 	var/environment_type = "asteroid"
 	var/turf/open/floor/plating/turf_type = /turf/open/floor/plating/asteroid/airless
 	var/obj/item/stack/ore/mineralType = null
@@ -25,10 +25,11 @@
 
 /turf/closed/mineral/Initialize()
 	. = ..()
-	var/matrix/M = new
-	M.Translate(-4, -4)
-	transform = M
-	icon = smooth_icon
+	if(icon_state != "rockthefuck")
+		var/matrix/M = new
+		M.Translate(-4, -4)
+		transform = M
+		icon = smooth_icon
 
 
 /turf/closed/mineral/proc/Spread_Vein()
