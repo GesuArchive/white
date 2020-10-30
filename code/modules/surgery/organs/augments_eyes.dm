@@ -1,6 +1,6 @@
 /obj/item/organ/cyberimp/eyes
-	name = "cybernetic eye implant"
-	desc = "Implants for your eyes."
+	name = "кибернетические импланты глаз"
+	desc = "Импланты для ваших глаз."
 	icon_state = "eye_implant"
 	implant_overlay = "eye_implant_overlay"
 	slot = ORGAN_SLOT_EYES
@@ -9,8 +9,8 @@
 
 // HUD implants
 /obj/item/organ/cyberimp/eyes/hud
-	name = "HUD implant"
-	desc = "These cybernetic eyes will display a HUD over everything you see. Maybe."
+	name = "имплант интерфейса"
+	desc = "Эти кибернетические глаза выведут интерфейс поверх всего что вы видите. Наверное."
 	slot = ORGAN_SLOT_HUD
 	var/HUD_type = 0
 	var/HUD_trait = null

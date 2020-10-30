@@ -1,13 +1,13 @@
 /obj/item/organ/cyberimp/chest
-	name = "cybernetic torso implant"
-	desc = "Implants for the organs in your torso."
+	name = "кибернетический имплант туловища"
+	desc = "Импланты для органов вашего туловища."
 	icon_state = "chest_implant"
 	implant_overlay = "chest_implant_overlay"
 	zone = BODY_ZONE_CHEST
 
 /obj/item/organ/cyberimp/chest/nutriment
-	name = "Nutriment pump implant"
-	desc = "This implant will synthesize and pump into your bloodstream a small amount of nutriment when you are starving."
+	name = "имплант «питательный насос»"
+	desc = "Этот имплант синтезирует и закачаивает в ваш кровосток небольшое количество питательных веществ если вы голодаете."
 	icon_state = "chest_implant"
 	implant_color = "#00AA00"
 	var/hunger_threshold = NUTRITION_LEVEL_STARVING
@@ -21,7 +21,7 @@
 
 	if(owner.nutrition <= hunger_threshold)
 		synthesizing = TRUE
-		to_chat(owner, "<span class='notice'>You feel less hungry...</span>")
+		to_chat(owner, "<span class='notice'>Чуство голода немного притупилось...</span>")
 		owner.adjust_nutrition(50)
 		addtimer(CALLBACK(src, .proc/synth_cool), 50)
 
@@ -33,20 +33,20 @@
 	if(!owner || . & EMP_PROTECT_SELF)
 		return
 	owner.reagents.add_reagent(/datum/reagent/toxin/bad_food, poison_amount / severity)
-	to_chat(owner, "<span class='warning'>You feel like your insides are burning.</span>")
+	to_chat(owner, "<span class='warning'>Чувствую будто мои внутренности горят.</span>")
 
 
 /obj/item/organ/cyberimp/chest/nutriment/plus
-	name = "Nutriment pump implant PLUS"
-	desc = "This implant will synthesize and pump into your bloodstream a small amount of nutriment when you are hungry."
+	name = "имплант «питательный насос ПЛЮС»"
+	desc = "Этот имплант синтезирует и закачаивает в ваш кровосток небольшое количество питательных веществ если вы голодаете."
 	icon_state = "chest_implant"
 	implant_color = "#006607"
 	hunger_threshold = NUTRITION_LEVEL_HUNGRY
 	poison_amount = 10
 
 /obj/item/organ/cyberimp/chest/reviver
-	name = "Reviver implant"
-	desc = "This implant will attempt to revive and heal you if you lose consciousness. For the faint of heart!"
+	name = "Имплант «Реаниматор»"
+	desc = "Этот имплант постарается привести вас в чуство и исцелить если вы потеряете сознание. Для слабонервных!"
 	icon_state = "chest_implant"
 	implant_color = "#AD0000"
 	slot = ORGAN_SLOT_HEART_AID
@@ -63,7 +63,7 @@
 			else
 				COOLDOWN_START(src, reviver_cooldown, revive_cost)
 				reviving = FALSE
-				to_chat(owner, "<span class='notice'>Your reviver implant shuts down and starts recharging. It will be ready again in [DisplayTimeText(revive_cost)].</span>")
+				to_chat(owner, "<span class='notice'>Ваш имплант «Реаниматор» выключается и начинает перезаряжаться. Он будет готов через [DisplayTimeText(revive_cost)].</span>")
 		return
 
 	if(!COOLDOWN_FINISHED(src, reviver_cooldown) || owner.suiciding)
@@ -73,7 +73,7 @@
 		if(UNCONSCIOUS, HARD_CRIT)
 			revive_cost = 0
 			reviving = TRUE
-			to_chat(owner, "<span class='notice'>You feel a faint buzzing as your reviver implant starts patching your wounds...</span>")
+			to_chat(owner, "<span class='notice'>Я почувствовал слабое жужжание, похоже имлант «Реаниматор» начал латать мои раны...</span>")
 
 
 /obj/item/organ/cyberimp/chest/reviver/proc/heal()
@@ -104,7 +104,7 @@
 		var/mob/living/carbon/human/H = owner
 		if(H.stat != DEAD && prob(50 / severity) && H.can_heartattack())
 			H.set_heartattack(TRUE)
-			to_chat(H, "<span class='userdanger'>You feel a horrible agony in your chest!</span>")
+			to_chat(H, "<span class='userdanger'>Я чувствую ужасную боль в груди!</span>")
 			addtimer(CALLBACK(src, .proc/undo_heart_attack), 600 / severity)
 
 /obj/item/organ/cyberimp/chest/reviver/proc/undo_heart_attack()
@@ -113,13 +113,13 @@
 		return
 	H.set_heartattack(FALSE)
 	if(H.stat == CONSCIOUS)
-		to_chat(H, "<span class='notice'>You feel your heart beating again!</span>")
+		to_chat(H, "<span class='notice'>Чувствую что мое сердце вновь забилось!</span>")
 
 
 /obj/item/organ/cyberimp/chest/thrusters
-	name = "implantable thrusters set"
-	desc = "An implantable set of thruster ports. They use the gas from environment or subject's internals for propulsion in zero-gravity areas. \
-	Unlike regular jetpacks, this device has no stabilization system."
+	name = "комплект маневровых имплантов"
+	desc = "Имлпантируевый набор маневровых портов. Они используют газ из окружения или внутренных органов субъекта для движения в условиях нулевой гравитации. \
+	В отличии от обычных джетпаков, у данного устройства нет систем стабилизации."
 	slot = ORGAN_SLOT_THRUSTERS
 	icon_state = "imp_jetpack"
 	implant_overlay = null
@@ -149,7 +149,7 @@
 	if(!on)
 		if((organ_flags & ORGAN_FAILING))
 			if(!silent)
-				to_chat(owner, "<span class='warning'>Your thrusters set seems to be broken!</span>")
+				to_chat(owner, "<span class='warning'>Кажется мой маневровый набор сломался!</span>")
 			return FALSE
 		if(allow_thrust(0.01))
 			on = TRUE
@@ -158,14 +158,14 @@
 			owner.add_movespeed_modifier(/datum/movespeed_modifier/jetpack/cybernetic)
 			RegisterSignal(owner, COMSIG_MOVABLE_PRE_MOVE, .proc/pre_move_react)
 			if(!silent)
-				to_chat(owner, "<span class='notice'>You turn your thrusters set on.</span>")
+				to_chat(owner, "<span class='notice'>Я включил свой маневровый набор.</span>")
 	else
 		ion_trail.stop()
 		UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 		owner.remove_movespeed_modifier(/datum/movespeed_modifier/jetpack/cybernetic)
 		UnregisterSignal(owner, COMSIG_MOVABLE_PRE_MOVE)
 		if(!silent)
-			to_chat(owner, "<span class='notice'>You turn your thrusters set off.</span>")
+			to_chat(owner, "<span class='notice'>Я выключил свой маневровый набор.</span>")
 		on = FALSE
 	update_icon()
 
