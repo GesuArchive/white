@@ -314,7 +314,7 @@
 
 		var/true_pick = pick("красный", "зелёный", "синий", "жёлтый", "фиолетовый", "оранжевый", "белый", "чёрный")
 
-		to_chat(user, "<span class='revenbignotice'>Фаза [hack_progress]/6. Нужен <b>[true_pick]</b> провод!</span>")
+		to_chat(user, "<span class='revenbignotice'>Фаза [hack_progress + 1]/6. Нужен <b>[true_pick]</b> провод!</span>")
 
 		var/pick = show_radial_menu(user, src, choices, require_near = TRUE)
 
