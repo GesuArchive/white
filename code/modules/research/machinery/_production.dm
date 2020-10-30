@@ -42,7 +42,7 @@
 
 /obj/machinery/rnd/production/ui_interact(mob/user)
 	user.set_machine(src)
-	var/datum/browser/popup = new(user, "rndconsole", name, 460, 550)
+	var/datum/browser/popup = new(user, "rndconsole", name, 490, 590)
 	popup.set_content(generate_ui())
 	popup.open()
 

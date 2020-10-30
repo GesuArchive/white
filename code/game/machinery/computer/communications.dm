@@ -228,13 +228,13 @@
 				to_chat(usr, "<span class='alert'>Недостаточно средств для вызова отряда. Требуется 5000 кредитов на счету снабжения.</span>")
 				return
 			var/input = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
-			sobr_request(input, usr)
 			bank_account.adjust_money(-5000)
 			to_chat(usr, "<span class='notice'>Запрос отправлен. С вашего счёта было списано 5000 кредитов.</span>")
 			usr.log_message("has requested the SOBR from CentCom with reason \"[input]\"", LOG_SAY)
 			priority_announce("Отряд СОБРа был вызван [usr].", "Экстренный запрос",'sound/ai/announcer/alert.ogg')
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
+			sobr_request(input, usr)
 		if ("restoreBackupRoutingData")
 			if (!authenticated_as_non_silicon_captain(usr))
 				return

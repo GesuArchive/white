@@ -509,11 +509,11 @@ update_label()
 /obj/item/card/id/captains_spare/trap/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_WIRECUTTER && first_try)
 		to_chat(user, "<span class='notice'>Начинаю обезвреживать карту. (это займёт примерно одну минуту и нужно не шевелиться)</span>")
-		if(do_after(user, 1 MINUTES, target = src))
+		if(do_after(user, 1 MINUTES, target = src) && first_try)
 			to_chat(user, "<span class='notice'>Карта разминирована.</span>")
 			first_try = FALSE
 			anchored = FALSE
-			priority_announce("[user.real_name] пытается украсть капитанскую карту. Остановите [user.ru_ego()]!", title = "Кража", sound = 'sound/machines/alarm.ogg')
+			priority_announce("[user.real_name] пытается украсть капитанскую карту. Остановите [user.ru_ego()]!", title = "Кража", sound = 'white/valtos/sounds/che.ogg')
 	else
 		return ..()
 
@@ -524,7 +524,7 @@ update_label()
 	if(iscarbon(user) && first_try && !HAS_TRAIT(user.mind, TRAIT_DISK_VERIFIER))
 		var/mob/living/carbon/C = user
 		to_chat(C, "<span class='warning'>Пытаюсь подобрать карту... Что может пойти не тка~</span>")
-		if(do_after(C, 10, target = src))
+		if(do_after(C, 10, target = src) && first_try)
 			to_chat(C, "<span class='userdanger'>КАРТА БЫЛА ЗАМИНИРОВАНА! СУКА!</span>")
 			electrocute_mob(user, get_area(src))
 			playsound(loc, 'sound/weapons/slice.ogg', 25, TRUE, -1)
