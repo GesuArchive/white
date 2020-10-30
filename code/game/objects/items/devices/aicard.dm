@@ -99,7 +99,7 @@
 			. = TRUE
 		if("wireless")
 			AI.control_disabled = !AI.control_disabled
-			to_chat(AI, "<span class='warning'>[src]'s wireless port has been [AI.control_disabled ? "disabled" : "enabled"]!</span>")
+			to_chat(AI, "<span class='warning'>[capitalize(src.name)]'s wireless port has been [AI.control_disabled ? "disabled" : "enabled"]!</span>")
 			. = TRUE
 		if("radio")
 			AI.radio_enabled = !AI.radio_enabled

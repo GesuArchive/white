@@ -424,14 +424,14 @@
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_STATION_SENTIENCE))
 		say("ERROR: Центральное командование временно запретило использование шлемов по увеличению обезьянего интеллекта в этом секторе. БЛИЖАЙШИЙ ЗАКОННЫЙ СЕКТОР: в 2,537 миллионов световых лет от вас.")
 	magnification = user //this polls ghosts
-	visible_message("<span class='warning'>[src] включается!</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] включается!</span>")
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
 	polling = TRUE
 	var/list/candidates = pollCandidatesForMob("Хотите поиграть за обезьянку с увеличенным интеллектом?", ROLE_SENTIENCE, null, ROLE_SENTIENCE, 50, magnification, POLL_IGNORE_SENTIENCE_POTION)
 	polling = FALSE
 	if(!candidates.len)
 		magnification = null
-		visible_message("<span class='notice'>[src] замолкает и падает на пол. Может стоит попробовать позже?</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] замолкает и падает на пол. Может стоит попробовать позже?</span>")
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
 		user.dropItemToGround(src)
 	var/mob/picked = pick(candidates)
@@ -467,7 +467,7 @@
 	//either used up correctly or taken off before polling finished (punish this by destroying the helmet)
 	playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
 	playsound(src, "sparks", 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-	visible_message("<span class='warning'>[src] шипит и распадается</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] шипит и распадается</span>")
 	magnification = null
 	new /obj/effect/decal/cleanable/ash/crematorium(drop_location()) //just in case they're in a locker or other containers it needs to use crematorium ash, see the path itself for an explanation
 

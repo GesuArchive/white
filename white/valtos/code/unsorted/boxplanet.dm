@@ -210,7 +210,7 @@
 			var/area/A = get_area(T)
 			if(!istype(A, /area/boxplanet))
 				ChangeTurf(/turf/open/floor/plating)
-				to_chat(user, "<span class='danger'><b>[capitalize(src)]</b> уже достаточно раскопан!</span>")
+				to_chat(user, "<span class='danger'><b>[capitalize(src.name)]</b> уже достаточно раскопан!</span>")
 			if(istype(T, /turf/closed/mineral))
 				ChangeTurf(/turf/open/openspace/boxplanet/caves)
 				T.ChangeTurf(/turf/open/floor/plating/asteroid/boxplanet/caves)
@@ -239,7 +239,7 @@
 
 /turf/open/floor/plating/asteroid/boxplanet/surface/burn_tile()
 	if(!burnt)
-		visible_message("<span class='danger'>[src] тает!.</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] тает!.</span>")
 		slowdown = 0
 		burnt = TRUE
 		icon_state = "snow_dug"

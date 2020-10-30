@@ -285,8 +285,8 @@
 
 		log_combat(src, M, "grabbed", addition="passive grab")
 		if(!supress_message && !(iscarbon(AM) && HAS_TRAIT(src, TRAIT_STRONG_GRABBER)))
-			M.visible_message("<span class='warning'>[src] хватает [M][(zone_selected == "l_arm" || zone_selected == "r_arm" && ishuman(M))? " за руку":""]!</span>", \
-							"<span class='warning'>[src] хватает меня [(zone_selected == "l_arm" || zone_selected == "r_arm" && ishuman(M))? " за руку":""]!</span>", null, null, src)
+			M.visible_message("<span class='warning'>[capitalize(src.name)] хватает [M][(zone_selected == "l_arm" || zone_selected == "r_arm" && ishuman(M))? " за руку":""]!</span>", \
+							"<span class='warning'>[capitalize(src.name)] хватает меня [(zone_selected == "l_arm" || zone_selected == "r_arm" && ishuman(M))? " за руку":""]!</span>", null, null, src)
 			to_chat(src, "<span class='notice'>Хватаю [M][(zone_selected == "l_arm" || zone_selected == "r_arm" && ishuman(M))? " за руку":""]!</span>")
 		if(!iscarbon(src))
 			M.LAssailant = null
@@ -378,7 +378,7 @@
 		return FALSE
 	if(!..())
 		return FALSE
-	visible_message("<span class='name'>[src]</span> показывает на <b>[A]</b>.", "<span class='notice'>Показываю на <b>[A]</b>.</span>")
+	visible_message("<span class='name'>[capitalize(src.name)]</span> показывает на <b>[A]</b>.", "<span class='notice'>Показываю на <b>[A]</b>.</span>")
 	return TRUE
 
 

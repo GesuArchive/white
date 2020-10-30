@@ -30,7 +30,7 @@
 		if(isspaceturf(T))
 			to_chat(src, "<span class='warning'>You cannot add gravity to space!</span>")
 			return
-		visible_message("<span class='danger'>[src] slams their fist into the [T]!</span>", "<span class='notice'>You modify the gravity of the [T].</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] slams their fist into the [T]!</span>", "<span class='notice'>You modify the gravity of the [T].</span>")
 		do_attack_animation(T)
 		add_gravity(T, 3)
 		return

@@ -18,19 +18,19 @@ Consuming extracts:
 /obj/item/slimecross/consuming/attackby(obj/item/O, mob/user)
 	if(istype(O,/obj/item/reagent_containers/food/snacks))
 		if(last_produced + cooldown > world.time)
-			to_chat(user, "<span class='warning'>[src] is still digesting after its last meal!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is still digesting after its last meal!</span>")
 			return
 		var/datum/reagent/N = O.reagents.has_reagent(/datum/reagent/consumable/nutriment)
 		if(N)
 			nutriment_eaten += N.volume
-			to_chat(user, "<span class='notice'>[src] opens up and swallows [O] whole!</span>")
+			to_chat(user, "<span class='notice'>[capitalize(src.name)] opens up and swallows [O] whole!</span>")
 			qdel(O)
 			playsound(src, 'sound/items/eatfood.ogg', 20, TRUE)
 		else
-			to_chat(user, "<span class='warning'>[src] burbles unhappily at the offering.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] burbles unhappily at the offering.</span>")
 		if(nutriment_eaten >= nutriment_required)
 			nutriment_eaten = 0
-			user.visible_message("<span class='notice'>[src] swells up and produces a small pile of cookies!</span>")
+			user.visible_message("<span class='notice'>[capitalize(src.name)] swells up and produces a small pile of cookies!</span>")
 			playsound(src, 'sound/effects/splat.ogg', 40, TRUE)
 			last_produced = world.time
 			for(var/i in 1 to cookies)

@@ -18,7 +18,7 @@
 
 /obj/item/desynchronizer/attack_self(mob/living/user)
 	if(world.time < next_use)
-		to_chat(user, "<span class='warning'>[src] is still recharging.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is still recharging.</span>")
 		return
 	if(!sync_holder)
 		desync(user)

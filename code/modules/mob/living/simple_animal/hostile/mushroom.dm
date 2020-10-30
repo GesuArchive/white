@@ -132,7 +132,7 @@
 		add_overlay(cap_living)
 
 /mob/living/simple_animal/hostile/mushroom/proc/Recover()
-	visible_message("<span class='notice'>[src] slowly begins to recover.</span>")
+	visible_message("<span class='notice'>[capitalize(src.name)] slowly begins to recover.</span>")
 	faint_ticker = 0
 	revive(full_heal = TRUE, admin_revive = FALSE)
 	UpdateMushroomCap()
@@ -163,7 +163,7 @@
 			Recover()
 			qdel(I)
 		else
-			to_chat(user, "<span class='warning'>[src] won't eat it!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] won't eat it!</span>")
 		return
 	if(I.force)
 		Bruise()

@@ -202,7 +202,7 @@
 /obj/item/clothing/neck/necklace/dope/merchant/attack_self(mob/user)
 	. = ..()
 	selling = !selling
-	to_chat(user, "<span class='notice'>[src] has been set to [selling ? "'Sell'" : "'Get Price'"] mode.</span>")
+	to_chat(user, "<span class='notice'>[capitalize(src.name)] has been set to [selling ? "'Sell'" : "'Get Price'"] mode.</span>")
 
 /obj/item/clothing/neck/necklace/dope/merchant/afterattack(obj/item/I, mob/user, proximity)
 	. = ..()

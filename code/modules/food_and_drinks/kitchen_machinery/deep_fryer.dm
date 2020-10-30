@@ -84,7 +84,7 @@ God bless America.
 		qdel(I)
 		return
 	if(!reagents.has_reagent(/datum/reagent/consumable/cooking_oil))
-		to_chat(user, "<span class='warning'>[capitalize(src)] больше не имеет масла в себе!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] больше не имеет масла в себе!</span>")
 		return
 	if(I.resistance_flags & INDESTRUCTIBLE)
 		to_chat(user, "<span class='warning'>Будет неразумно попытаться зажарить [I]...</span>")
@@ -117,10 +117,10 @@ God bless America.
 		if(cook_time >= DEEPFRYER_COOKTIME && !frying_fried)
 			frying_fried = TRUE //frying... frying... fried
 			playsound(src.loc, 'sound/machines/ding.ogg', 50, TRUE)
-			audible_message("<span class='notice'>[capitalize(src)] дзынькает!</span>")
+			audible_message("<span class='notice'>[capitalize(src.name)] дзынькает!</span>")
 		else if (cook_time >= DEEPFRYER_BURNTIME && !frying_burnt)
 			frying_burnt = TRUE
-			visible_message("<span class='warning'>[capitalize(src)] издает едкий запах!</span>")
+			visible_message("<span class='warning'>[capitalize(src.name)] издает едкий запах!</span>")
 
 
 /obj/machinery/deepfryer/attack_ai(mob/user)

@@ -143,12 +143,12 @@
 	onlearned(user)
 
 /obj/item/book/granter/spell/recoil(mob/user)
-	user.visible_message("<span class='warning'>[src] glows in a black light!</span>")
+	user.visible_message("<span class='warning'>[capitalize(src.name)] glows in a black light!</span>")
 
 /obj/item/book/granter/spell/onlearned(mob/user)
 	..()
 	if(oneuse)
-		user.visible_message("<span class='warning'>[src] glows dark for a second!</span>")
+		user.visible_message("<span class='warning'>[capitalize(src.name)] glows dark for a second!</span>")
 
 /obj/item/book/granter/spell/fireball
 	spell = /obj/effect/proc_holder/spell/aimed/fireball
@@ -230,7 +230,7 @@
 		to_chat(user,"<span class='warning'>You're suddenly somewhere else... and someone else?!</span>")
 		to_chat(stored_swap,"<span class='warning'>Suddenly you're staring at [src] again... where are you, who are you?!</span>")
 	else
-		user.visible_message("<span class='warning'>[src] fizzles slightly as it stops glowing!</span>") //if the mind_transfer failed to transfer mobs, likely due to the target being catatonic.
+		user.visible_message("<span class='warning'>[capitalize(src.name)] fizzles slightly as it stops glowing!</span>") //if the mind_transfer failed to transfer mobs, likely due to the target being catatonic.
 
 	stored_swap = null
 
@@ -286,7 +286,7 @@
 
 /obj/item/book/granter/spell/charge/recoil(mob/user)
 	..()
-	to_chat(user,"<span class='warning'>[src] suddenly feels very warm!</span>")
+	to_chat(user,"<span class='warning'>[capitalize(src.name)] suddenly feels very warm!</span>")
 	empulse(src, 1, 1)
 
 /obj/item/book/granter/spell/summonitem
@@ -298,7 +298,7 @@
 
 /obj/item/book/granter/spell/summonitem/recoil(mob/user)
 	..()
-	to_chat(user,"<span class='warning'>[src] suddenly vanishes!</span>")
+	to_chat(user,"<span class='warning'>[capitalize(src.name)] suddenly vanishes!</span>")
 	qdel(src)
 
 /obj/item/book/granter/spell/random
@@ -350,10 +350,10 @@
 /obj/item/book/granter/martial/cqc/onlearned(mob/living/carbon/user)
 	..()
 	if(oneuse == TRUE)
-		to_chat(user, "<span class='warning'>[src] beeps ominously...</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] beeps ominously...</span>")
 
 /obj/item/book/granter/martial/cqc/recoil(mob/living/carbon/user)
-	to_chat(user, "<span class='warning'>[src] explodes!</span>")
+	to_chat(user, "<span class='warning'>[capitalize(src.name)] explodes!</span>")
 	playsound(src,'sound/effects/explosion1.ogg',40,TRUE)
 	user.flash_act(1, 1)
 	user.adjustBruteLoss(6)

@@ -139,10 +139,10 @@
 	if(..())
 		return
 	if(occupant)
-		to_chat(user, "<span class='warning'>[src] is currently occupied!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is currently occupied!</span>")
 		return
 	if(state_open)
-		to_chat(user, "<span class='warning'>[src] must be closed to [panel_open ? "close" : "open"] its maintenance hatch!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] must be closed to [panel_open ? "close" : "open"] its maintenance hatch!</span>")
 		return
 	if(default_deconstruction_screwdriver(user, "[initial(icon_state)]-o", initial(icon_state), I))
 		return
@@ -174,7 +174,7 @@
 			"<span class='notice'>You climb out of [src]!</span>")
 		open_machine()
 	else
-		to_chat(user,"<span class='warning'>[src] is active and can't be opened!</span>") //rip
+		to_chat(user,"<span class='warning'>[capitalize(src.name)] is active and can't be opened!</span>") //rip
 
 /obj/machinery/harvester/Exited(atom/movable/user)
 	if (!state_open && user == occupant)
@@ -189,7 +189,7 @@
 	if(machine_stat & BROKEN)
 		return
 	if(state_open)
-		. += "<hr><span class='notice'>[src] must be closed before harvesting.</span>"
+		. += "<hr><span class='notice'>[capitalize(src.name)] must be closed before harvesting.</span>"
 	else if(!harvesting)
 		. += "<hr><span class='notice'>Alt-click [src] to start harvesting.</span>"
 	if(in_range(user, src) || isobserver(user))

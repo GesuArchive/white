@@ -509,7 +509,7 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 		return FALSE
 
 	if(!deductcharge(cell_hit_cost))
-		to_chat(user, "<span class='warning'>[src] [cell ? "is out of charge" : "does not have a power source installed"].</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] [cell ? "is out of charge" : "does not have a power source installed"].</span>")
 		return FALSE
 
 	if(!turned_on)

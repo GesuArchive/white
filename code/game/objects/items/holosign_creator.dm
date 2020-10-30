@@ -33,10 +33,10 @@
 	if(target_turf.is_blocked_turf(TRUE)) //can't put holograms on a tile that has dense stuff
 		return
 	if(holocreator_busy)
-		to_chat(user, "<span class='notice'>[src] is busy creating a hologram.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] is busy creating a hologram.</span>")
 		return
 	if(LAZYLEN(signs) >= max_signs)
-		to_chat(user, "<span class='notice'>[src] is projecting at max capacity!</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] is projecting at max capacity!</span>")
 		return
 	playsound(loc, 'sound/machines/click.ogg', 20, TRUE)
 	if(creation_time)

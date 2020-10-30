@@ -71,9 +71,9 @@
 /mob/living/simple_animal/hostile/asteroid/basilisk/AttackingTarget()
 	. = ..()
 	if(lava_drinker && !warmed_up && istype(target, /turf/open/lava))
-		visible_message("<span class='warning'>[src] begins to drink from [target]...</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] begins to drink from [target]...</span>")
 		if(do_after(src, 70, target = target))
-			visible_message("<span class='warning'>[src] begins to fire up!</span>")
+			visible_message("<span class='warning'>[capitalize(src.name)] begins to fire up!</span>")
 			fully_heal()
 			icon_state = "Basilisk_alert"
 			set_varspeed(0)
@@ -82,7 +82,7 @@
 			addtimer(CALLBACK(src, .proc/cool_down), 3000)
 
 /mob/living/simple_animal/hostile/asteroid/basilisk/proc/cool_down()
-	visible_message("<span class='warning'>[src] appears to be cooling down...</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] appears to be cooling down...</span>")
 	if(stat != DEAD)
 		icon_state = "Basilisk"
 	set_varspeed(3)
@@ -134,13 +134,13 @@
 		distanced = get_dist(loc,diamonds.loc)
 		if(distanced <= 1 && diamonds)
 			qdel(diamonds)
-			src.visible_message("<span class='notice'>[src] consumes [diamonds], and it disappears! ...At least, you think.</span>")
+			src.visible_message("<span class='notice'>[capitalize(src.name)] consumes [diamonds], and it disappears! ...At least, you think.</span>")
 	if(bait)
 		var/distanceb = 0
 		distanceb = get_dist(loc,bait.loc)
 		if(distanceb <= 1 && bait)
 			qdel(bait)
-			src.visible_message("<span class='notice'>[src] examines [bait] closer, and telekinetically shatters the pen.</span>")
+			src.visible_message("<span class='notice'>[capitalize(src.name)] examines [bait] closer, and telekinetically shatters the pen.</span>")
 
 /mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random/Initialize()
 	. = ..()

@@ -20,7 +20,7 @@
 				return BULLET_ACT_HIT
 			else
 				blocked = 100
-				target.visible_message("<span class='danger'>[capitalize(src)] был отражен!</span>", \
+				target.visible_message("<span class='danger'>[capitalize(src.name)] был отражен!</span>", \
 									   "<span class='userdanger'>Мне похуй на [src]!</span>")
 
 	..(target, blocked)

@@ -50,7 +50,7 @@
 
 /obj/item/hot_potato/proc/detonate()
 	var/atom/location = loc
-	location.visible_message("<span class='userdanger'>[src] [detonate_explosion? "explodes" : "activates"]!</span>", "<span class='userdanger'>[src] activates! You've ran out of time!</span>")
+	location.visible_message("<span class='userdanger'>[capitalize(src.name)] [detonate_explosion? "explodes" : "activates"]!</span>", "<span class='userdanger'>[capitalize(src.name)] activates! You've ran out of time!</span>")
 	if(detonate_explosion)
 		explosion(src, detonate_dev_range, detonate_heavy_range, detonate_light_range, detonate_flash_range, flame_range = detonate_fire_range)
 	deactivate()
@@ -83,9 +83,9 @@
 /obj/item/hot_potato/examine(mob/user)
 	. = ..()
 	if(active)
-		. += "<hr><span class='warning'>[src] is flashing red-hot! You should probably get rid of it!</span>"
+		. += "<hr><span class='warning'>[capitalize(src.name)] is flashing red-hot! You should probably get rid of it!</span>"
 		if(show_timer)
-			. += "<hr><span class='warning'>[src]'s timer looks to be at [DisplayTimeText(activation_time - world.time)]!</span>"
+			. += "<hr><span class='warning'>[capitalize(src.name)]'s timer looks to be at [DisplayTimeText(activation_time - world.time)]!</span>"
 
 /obj/item/hot_potato/equipped(mob/user)
 	. = ..()
@@ -102,9 +102,9 @@
 	if(!istype(victim) || user != loc || victim == user)
 		return FALSE
 	if(!victim.client)
-		to_chat(user, "<span class='boldwarning'>[src] refuses to attach to a non-sapient creature!</span>")
+		to_chat(user, "<span class='boldwarning'>[capitalize(src.name)] refuses to attach to a non-sapient creature!</span>")
 	if(victim.stat != CONSCIOUS || !victim.usable_legs)
-		to_chat(user, "<span class='boldwarning'>[src] refuses to attach to someone incapable of using it!</span>")
+		to_chat(user, "<span class='boldwarning'>[capitalize(src.name)] refuses to attach to someone incapable of using it!</span>")
 	user.temporarilyRemoveItemFromInventory(src, TRUE)
 	. = FALSE
 	if(!victim.put_in_hands(src))

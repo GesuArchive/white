@@ -17,10 +17,10 @@
 	if(isidcard(I))
 		var/obj/item/card/id/new_id = I
 		if(inserted_id)
-			to_chat(user, "<span class='warning'>[src] already has a card inserted!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a card inserted!</span>")
 			return
 		if(new_id.registered_account)
-			to_chat(user, "<span class='warning'>[src] already has a bank account!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a bank account!</span>")
 			return
 		if(!anchored || !user.transferItemToLoc(I,src))
 			to_chat(user, "<span class='warning'>\the [src] blinks red as you try to insert the ID Card!</span>")

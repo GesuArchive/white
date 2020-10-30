@@ -144,7 +144,7 @@
 /obj/machinery/medical_kiosk/ui_interact(mob/user, datum/tgui/ui)
 	var/patient_distance = 0
 	if(!ishuman(user))
-		to_chat(user, "<span class='warning'>[src] is unable to interface with non-humanoids!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is unable to interface with non-humanoids!</span>")
 		if (ui)
 			ui.close()
 		return

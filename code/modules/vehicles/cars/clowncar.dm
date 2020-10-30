@@ -54,7 +54,7 @@
 /obj/vehicle/sealed/car/clowncar/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
 	. = ..()
 	if(prob(33))
-		visible_message("<span class='danger'>[src] spews out a ton of space lube!</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] spews out a ton of space lube!</span>")
 		new /obj/effect/particle_effect/foam(loc) //YEET
 
 /obj/vehicle/sealed/car/clowncar/attacked_by(obj/item/I, mob/living/user)
@@ -74,12 +74,12 @@
 		if(iscarbon(L))
 			var/mob/living/carbon/C = L
 			C.Paralyze(40) //I play to make sprites go horizontal
-		L.visible_message("<span class='warning'>[src] rams into [L] and sucks [L.p_them()] up!</span>") //fuck off shezza this isn't ERP.
+		L.visible_message("<span class='warning'>[capitalize(src.name)] rams into [L] and sucks [L.p_them()] up!</span>") //fuck off shezza this isn't ERP.
 		mob_forced_enter(L)
 		playsound(src, pick('sound/vehicles/clowncar_ram1.ogg', 'sound/vehicles/clowncar_ram2.ogg', 'sound/vehicles/clowncar_ram3.ogg'), 75)
 		log_combat(src, A, "sucked up")
 	else if(istype(A, /turf/closed))
-		visible_message("<span class='warning'>[src] rams into [A] and crashes!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] rams into [A] and crashes!</span>")
 		playsound(src, pick('sound/vehicles/clowncar_crash1.ogg', 'sound/vehicles/clowncar_crash2.ogg'), 75)
 		playsound(src, 'sound/vehicles/clowncar_crashpins.ogg', 75)
 		dump_mobs(TRUE)

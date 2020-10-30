@@ -618,14 +618,14 @@
 
 /obj/item/borg/projectile_dampen/attack_self(mob/user)
 	if(cycle_delay > world.time)
-		to_chat(user, "<span class='boldwarning'>[src] is still recycling its projectors!</span>")
+		to_chat(user, "<span class='boldwarning'>[capitalize(src.name)] is still recycling its projectors!</span>")
 		return
 	cycle_delay = world.time + PKBORG_DAMPEN_CYCLE_DELAY
 	if(!active)
 		if(!user.has_buckled_mobs())
 			activate_field()
 		else
-			to_chat(user, "<span class='warning'>[src]'s safety cutoff prevents you from activating it due to living beings being ontop of you!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s safety cutoff prevents you from activating it due to living beings being ontop of you!</span>")
 	else
 		deactivate_field()
 	update_icon()
@@ -698,7 +698,7 @@
 	energy = clamp(energy - usage, 0, maxenergy)
 	if(energy <= 0)
 		deactivate_field()
-		visible_message("<span class='warning'>[src] blinks \"ENERGY DEPLETED\".</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] blinks \"ENERGY DEPLETED\".</span>")
 
 /obj/item/borg/projectile_dampen/proc/process_recharge(delta_time)
 	if(!istype(host))

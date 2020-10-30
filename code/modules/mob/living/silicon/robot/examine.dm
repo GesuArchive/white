@@ -1,5 +1,10 @@
 /mob/living/silicon/robot/examine(mob/user)
-	. = list("<span class='info'>Это же [icon2html(src, user)] <EM>[src]</EM>!<hr>")
+	. = list("<span class='info'>Это же")
+
+	. += ..()
+
+	. += "<hr>"
+
 	if(desc)
 		. += "[desc]<hr>"
 
@@ -44,5 +49,3 @@
 		if(DEAD)
 			. += "<hr><span class='deadsay'>Выглядит полностью уничтоженым. Похоже потребуется полный перезапуск.</span>"
 	. += "</span>"
-
-	. += ..()

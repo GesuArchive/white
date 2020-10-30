@@ -114,7 +114,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	if(!usr.canUseTopic(src, !issilicon(usr)))
 		return
 	if(machine_stat & BROKEN)
-		visible_message("<span class='warning'>[src] buzzes.</span>", "<span class='hear'>You hear a faint buzz.</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] buzzes.</span>", "<span class='hear'>You hear a faint buzz.</span>")
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, TRUE)
 		return
 	switch(action)
@@ -147,7 +147,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return
 	if(machine_stat & BROKEN)
-		to_chat(user, "<span class='warning'>[src]'s firmware appears to be malfunctioning!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s firmware appears to be malfunctioning!</span>")
 		return
 	interact(user)
 

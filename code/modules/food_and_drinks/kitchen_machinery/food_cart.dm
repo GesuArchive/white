@@ -68,10 +68,10 @@
 		if(!DG.reagents.total_volume) //glass is empty
 			qdel(DG)
 			glasses++
-			to_chat(user, "<span class='notice'>[src] accepts the drinking glass, sterilizing it.</span>")
+			to_chat(user, "<span class='notice'>[capitalize(src.name)] accepts the drinking glass, sterilizing it.</span>")
 	else if(istype(O, /obj/item/reagent_containers/food/snacks))
 		if(isFull())
-			to_chat(user, "<span class='warning'>[src] is at full capacity.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is at full capacity.</span>")
 		else
 			var/obj/item/reagent_containers/food/snacks/S = O
 			if(!user.transferItemToLoc(S, src))
@@ -85,12 +85,12 @@
 		if(G.get_amount() >= 1)
 			G.use(1)
 			glasses += 4
-			to_chat(user, "<span class='notice'>[src] accepts a sheet of glass.</span>")
+			to_chat(user, "<span class='notice'>[capitalize(src.name)] accepts a sheet of glass.</span>")
 	else if(istype(O, /obj/item/storage/bag/tray))
 		var/obj/item/storage/bag/tray/T = O
 		for(var/obj/item/reagent_containers/food/snacks/S in T.contents)
 			if(isFull())
-				to_chat(user, "<span class='warning'>[src] is at full capacity.</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] is at full capacity.</span>")
 				break
 			else
 				if(SEND_SIGNAL(T, COMSIG_TRY_STORAGE_TAKE, S, src))
@@ -144,7 +144,7 @@
 
 	if(href_list["transfer"])
 		if(mixer.reagents.trans_id_to(src, href_list["transfer"], portion) == 0)
-			to_chat(usr, "<span class='warning'>[src] is full!</span>")
+			to_chat(usr, "<span class='warning'>[capitalize(src.name)] is full!</span>")
 
 	updateDialog()
 

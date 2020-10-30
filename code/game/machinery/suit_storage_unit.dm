@@ -270,7 +270,7 @@
 			else
 				if (occupant)
 					var/mob/living/mob_occupant = occupant
-					to_chat(mob_occupant, "<span class='userdanger'>[src]'s confines grow warm, then hot, then scorching. You're being burned [!mob_occupant.stat ? "alive" : "away"]!</span>")
+					to_chat(mob_occupant, "<span class='userdanger'>[capitalize(src.name)]'s confines grow warm, then hot, then scorching. You're being burned [!mob_occupant.stat ? "alive" : "away"]!</span>")
 				cook()
 		if ("lock", "unlock")
 			if (!state_open)
@@ -367,7 +367,7 @@
 		uv = FALSE
 		locked = FALSE
 		if(uv_super)
-			visible_message("<span class='warning'>[src]'s door creaks open with a loud whining noise. A cloud of foul black smoke escapes from its chamber.</span>")
+			visible_message("<span class='warning'>[capitalize(src.name)]'s door creaks open with a loud whining noise. A cloud of foul black smoke escapes from its chamber.</span>")
 			playsound(src, 'sound/machines/airlock_alien_prying.ogg', 50, TRUE)
 			helmet = null
 			qdel(helmet)
@@ -381,9 +381,9 @@
 			wires.cut_all()
 		else
 			if(!mob_occupant)
-				visible_message("<span class='notice'>[src]'s door slides open. The glowing yellow lights dim to a gentle green.</span>")
+				visible_message("<span class='notice'>[capitalize(src.name)]'s door slides open. The glowing yellow lights dim to a gentle green.</span>")
 			else
-				visible_message("<span class='warning'>[src]'s door slides open, barraging you with the nauseating smell of charred flesh.</span>")
+				visible_message("<span class='warning'>[capitalize(src.name)]'s door slides open, barraging you with the nauseating smell of charred flesh.</span>")
 				mob_occupant.radiation = 0
 			playsound(src, 'sound/machines/airlockclose.ogg', 25, TRUE)
 			var/list/things_to_clear = list() //Done this way since using GetAllContents on the SSU itself would include circuitry and such.
@@ -433,7 +433,7 @@
 	if(locked)
 		if(message_cooldown <= world.time)
 			message_cooldown = world.time + 50
-			to_chat(user, "<span class='warning'>[src]'s door won't budge!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s door won't budge!</span>")
 		return
 	open_machine()
 	dump_inventory_contents()

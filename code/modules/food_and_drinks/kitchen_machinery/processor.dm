@@ -45,7 +45,7 @@
 
 /obj/machinery/processor/attackby(obj/item/O, mob/user, params)
 	if(processing)
-		to_chat(user, "<span class='warning'>[capitalize(src)] в процессе процессирования!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] в процессе процессирования!</span>")
 		return TRUE
 	if(default_deconstruction_screwdriver(user, "processor", "processor1", O))
 		return
@@ -87,7 +87,7 @@
 
 /obj/machinery/processor/interact(mob/user)
 	if(processing)
-		to_chat(user, "<span class='warning'>[capitalize(src)] в процессе процессирования!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] в процессе процессирования!</span>")
 		return TRUE
 	if(user.a_intent == INTENT_GRAB && ismob(user.pulling) && select_recipe(user.pulling))
 		if(user.grab_state < GRAB_AGGRESSIVE)
@@ -99,7 +99,7 @@
 		user.stop_pulling()
 		return
 	if(contents.len == 0)
-		to_chat(user, "<span class='warning'>[capitalize(src)] пуст!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] пуст!</span>")
 		return TRUE
 	processing = TRUE
 	user.visible_message("<span class='notice'>[user] включает [src].</span>", \
@@ -125,7 +125,7 @@
 		process_food(P, O)
 	pixel_x = initial(pixel_x) //return to its spot after shaking
 	processing = FALSE
-	visible_message("<span class='notice'>[capitalize(src)] заканчивает свою работу.</span>")
+	visible_message("<span class='notice'>[capitalize(src.name)] заканчивает свою работу.</span>")
 
 /obj/machinery/processor/verb/eject()
 	set category = "Объект"

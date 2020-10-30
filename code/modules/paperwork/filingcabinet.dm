@@ -69,7 +69,7 @@
 /obj/structure/filingcabinet/ui_interact(mob/user)
 	. = ..()
 	if(contents.len <= 0)
-		to_chat(user, "<span class='notice'>[src] is empty.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] is empty.</span>")
 		return
 
 	var/dat = "<center><table>"

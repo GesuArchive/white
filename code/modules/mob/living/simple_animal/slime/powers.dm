@@ -121,7 +121,7 @@
 			"I am not satisified", "I can not feed from this subject", \
 			"I do not feel nourished", "This subject is not food")]!</span>")
 		if(!silent)
-			visible_message("<span class='warning'>[src] lets go of [buckled]!</span>", \
+			visible_message("<span class='warning'>[capitalize(src.name)] lets go of [buckled]!</span>", \
 							"<span class='notice'><i>I stopped feeding.</i></span>")
 		layer = initial(layer)
 		buckled.unbuckle_mob(src,force=TRUE)

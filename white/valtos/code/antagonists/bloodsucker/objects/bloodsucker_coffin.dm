@@ -135,7 +135,7 @@
 			return 1
 		else
 			playsound(get_turf(src), 'sound/machines/door_locked.ogg', 20, 1)
-			to_chat(user, "<span class='notice'>[src] is locked tight from the inside.</span>")
+			to_chat(user, "<span class='notice'>[capitalize(src.name)] is locked tight from the inside.</span>")
 	return ..()
 
 /obj/structure/closet/crate/coffin/close(mob/living/user)

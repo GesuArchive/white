@@ -223,7 +223,7 @@ Difficulty: Very Hard
 
 
 /mob/living/simple_animal/hostile/megafauna/colossus/devour(mob/living/L)
-	visible_message("<span class='colossus'>[src] disintegrates [L]!</span>")
+	visible_message("<span class='colossus'>[capitalize(src.name)] disintegrates [L]!</span>")
 	L.dust()
 
 /obj/effect/temp_visual/at_shield
@@ -305,7 +305,7 @@ Difficulty: Very Hard
 	if(!istype(O))
 		return FALSE
 	if(blacklist[O])
-		visible_message("<span class='boldwarning'>[src] ripples as it rejects [O]. The device will not accept items that have been removed from it.</span>")
+		visible_message("<span class='boldwarning'>[capitalize(src.name)] ripples as it rejects [O]. The device will not accept items that have been removed from it.</span>")
 		return FALSE
 	return TRUE
 
@@ -703,7 +703,7 @@ Difficulty: Very Hard
 		if(L.stat != DEAD)
 			L.heal_overall_damage(melee_damage_upper, melee_damage_upper)
 			new /obj/effect/temp_visual/heal(get_turf(target), "#80F5FF")
-			visible_message("<span class='notice'>[src] mends the wounds of [target].</span>","<span class='notice'>You mend the wounds of [target].</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] mends the wounds of [target].</span>","<span class='notice'>You mend the wounds of [target].</span>")
 
 /mob/living/simple_animal/hostile/lightgeist/ghost()
 	. = ..()

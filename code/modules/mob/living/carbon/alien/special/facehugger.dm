@@ -75,9 +75,9 @@
 		return
 	switch(stat)
 		if(DEAD,UNCONSCIOUS)
-			. += "<hr><span class='boldannounce'>[src] is not moving.</span>"
+			. += "<hr><span class='boldannounce'>[capitalize(src.name)] is not moving.</span>"
 		if(CONSCIOUS)
-			. += "<hr><span class='boldannounce'>[src] seems to be active!</span>"
+			. += "<hr><span class='boldannounce'>[capitalize(src.name)] seems to be active!</span>"
 	if (sterile)
 		. += "<hr><span class='boldannounce'>It looks like the proboscis has been removed.</span>"
 
@@ -151,8 +151,8 @@
 		if(target.wear_mask && istype(target.wear_mask, /obj/item/clothing/mask/facehugger))
 			return FALSE
 	// passed initial checks - time to leap!
-	M.visible_message("<span class='danger'>[src] leaps at [M]'s face!</span>", \
-							"<span class='userdanger'>[src] leaps at your face!</span>")
+	M.visible_message("<span class='danger'>[capitalize(src.name)] leaps at [M]'s face!</span>", \
+							"<span class='userdanger'>[capitalize(src.name)] leaps at your face!</span>")
 
 	// probiscis-blocker handling
 	if(iscarbon(M))
@@ -161,16 +161,16 @@
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H.is_mouth_covered(head_only = 1))
-				H.visible_message("<span class='danger'>[src] smashes against [H]'s [H.head]!</span>", \
-									"<span class='userdanger'>[src] smashes against your [H.head]!</span>")
+				H.visible_message("<span class='danger'>[capitalize(src.name)] smashes against [H]'s [H.head]!</span>", \
+									"<span class='userdanger'>[capitalize(src.name)] smashes against your [H.head]!</span>")
 				Die()
 				return FALSE
 
 		if(target.wear_mask)
 			var/obj/item/clothing/W = target.wear_mask
 			if(target.dropItemToGround(W))
-				target.visible_message("<span class='danger'>[src] tears [W] off of [target]'s face!</span>", \
-									"<span class='userdanger'>[src] tears [W] off of your face!</span>")
+				target.visible_message("<span class='danger'>[capitalize(src.name)] tears [W] off of [target]'s face!</span>", \
+									"<span class='userdanger'>[capitalize(src.name)] tears [W] off of your face!</span>")
 		target.equip_to_slot_if_possible(src, ITEM_SLOT_MASK, 0, 1, 1)
 	return TRUE // time for a smoke
 
@@ -204,8 +204,8 @@
 			return
 
 	if(!sterile)
-		target.visible_message("<span class='danger'>[src] falls limp after violating [target]'s face!</span>", \
-								"<span class='userdanger'>[src] falls limp after violating your face!</span>")
+		target.visible_message("<span class='danger'>[capitalize(src.name)] falls limp after violating [target]'s face!</span>", \
+								"<span class='userdanger'>[capitalize(src.name)] falls limp after violating your face!</span>")
 
 		Die()
 		icon_state = "[initial(icon_state)]_impregnated"
@@ -217,8 +217,8 @@
 			log_game("[key_name(target)] was impregnated by a facehugger at [loc_name(T)]")
 
 	else
-		target.visible_message("<span class='danger'>[src] violates [target]'s face!</span>", \
-								"<span class='userdanger'>[src] violates your face!</span>")
+		target.visible_message("<span class='danger'>[capitalize(src.name)] violates [target]'s face!</span>", \
+								"<span class='userdanger'>[capitalize(src.name)] violates your face!</span>")
 
 /obj/item/clothing/mask/facehugger/proc/GoActive()
 	if(stat == DEAD || stat == CONSCIOUS)
@@ -244,7 +244,7 @@
 	inhand_icon_state = "facehugger_inactive"
 	stat = DEAD
 
-	visible_message("<span class='danger'>[src] curls up into a ball!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] curls up into a ball!</span>")
 
 /proc/CanHug(mob/living/M)
 	if(!istype(M))

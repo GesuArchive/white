@@ -115,7 +115,7 @@ While using this makes the system rely on OnFire, it still gives options for tim
 		switch(activity)
 			if(TUMOR_PASSIVE)
 				activity = TUMOR_ACTIVE
-				visible_message("<span class='boldwarning'>[src] convulses as your arm enters its radius.  Your instincts tell you to step back.</span>")
+				visible_message("<span class='boldwarning'>[capitalize(src.name)] convulses as your arm enters its radius.  Your instincts tell you to step back.</span>")
 				activator = user
 				if(boosted)
 					mychild.playsound_local(get_turf(mychild), 'sound/effects/magic.ogg', 40, 0)
@@ -125,7 +125,7 @@ While using this makes the system rely on OnFire, it still gives options for tim
 			if(TUMOR_INACTIVE)
 				activity = TUMOR_ACTIVE
 				var/mob/dead/observer/elitemind = null
-				visible_message("<span class='boldwarning'>[src] begins to convulse.  Your instincts tell you to step back.</span>")
+				visible_message("<span class='boldwarning'>[capitalize(src.name)] begins to convulse.  Your instincts tell you to step back.</span>")
 				activator = user
 				if(!boosted)
 					addtimer(CALLBACK(src, .proc/spawn_elite), 30)
@@ -234,7 +234,7 @@ While using this makes the system rely on OnFire, it still gives options for tim
 
 /obj/structure/elite_tumor/proc/onEliteLoss()
 	playsound(loc,'sound/effects/tendril_destroyed.ogg', 200, 0, 50, TRUE, TRUE)
-	visible_message("<span class='boldwarning'>[src] begins to convulse violently before beginning to dissipate.</span>")
+	visible_message("<span class='boldwarning'>[capitalize(src.name)] begins to convulse violently before beginning to dissipate.</span>")
 	visible_message("<span class='boldwarning'>As [src] closes, something is forced up from down below.</span>")
 	var/obj/structure/closet/crate/necropolis/tendril/lootbox = new /obj/structure/closet/crate/necropolis/tendril(loc)
 	if(!boosted)
@@ -297,7 +297,7 @@ While using this makes the system rely on OnFire, it still gives options for tim
 		E.sentience_type = SENTIENCE_ORGANIC
 		qdel(src)
 	else
-		to_chat(user, "<span class='info'>[src] only works on the corpse of a sentient lavaland elite.</span>")
+		to_chat(user, "<span class='info'>[capitalize(src.name)] only works on the corpse of a sentient lavaland elite.</span>")
 
 /obj/effect/temp_visual/elite_tumor_wall
 	name = "magic wall"

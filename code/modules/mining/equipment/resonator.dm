@@ -101,7 +101,7 @@
 	for(var/mob/living/L in T)
 		if(creator)
 			log_combat(creator, L, "used a resonator field on", "resonator")
-		to_chat(L, "<span class='userdanger'>[src] ruptured with you in it!</span>")
+		to_chat(L, "<span class='userdanger'>[capitalize(src.name)] ruptured with you in it!</span>")
 		L.apply_damage(resonance_damage, BRUTE)
 	qdel(src)
 

@@ -212,7 +212,7 @@
 							 "<span class='notice'>Бросаю [src]. Он приземляется на [result]. [comment]</span>", \
 							 "<span class='italics'>Я слышу как катится [src], это звучит как [fake_result].</span>")
 	else if(!src.throwing) //Dice was thrown and is coming to rest
-		visible_message("<span class='notice'>[src] останавливается приземлившись на [result]. [comment]</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] останавливается приземлившись на [result]. [comment]</span>")
 
 /obj/item/dice/update_overlays()
 	. = ..()

@@ -226,10 +226,10 @@
 	if(!proximity)
 		return
 	if(contents.len)
-		to_chat(user, "<span class='warning'>[src] уже что-то хранит!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] уже что-то хранит!</span>")
 		return
 	if(!isorgan(I) && !isbodypart(I))
-		to_chat(user, "<span class='warning'>[src] может содержать только части тела!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] может содержать только части тела!</span>")
 		return
 
 	user.visible_message("<span class='notice'>[user] кладёт [I] внутрь [src].</span>", "<span class='notice'>Кладу [I] внутрь [src].</span>")
@@ -257,7 +257,7 @@
 		icon_state = "evidenceobj"
 		desc = "Контейнер для хранения частей тела."
 	else
-		to_chat(user, "<span class='notice'>[src] пуст.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] пуст.</span>")
 	return
 
 /obj/item/surgical_processor //allows medical cyborgs to scan and initiate advanced surgeries
@@ -409,7 +409,7 @@
 			tail_snip_candidate.forceMove(get_turf(patient))
 		else
 			limb_snip_candidate.dismember()
-		user.visible_message("<span class='danger'>[src] яростно захлопывается, ампутируя [candidate_name] [patient].</span>", "<span class='notice'>Ампутирую [candidate_name] [patient] используя [src].</span>")
+		user.visible_message("<span class='danger'>[capitalize(src.name)] яростно захлопывается, ампутируя [candidate_name] [patient].</span>", "<span class='notice'>Ампутирую [candidate_name] [patient] используя [src].</span>")
 
 /obj/item/bonesetter
 	name = "костоправ"

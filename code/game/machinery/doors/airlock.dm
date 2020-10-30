@@ -919,7 +919,7 @@
 					return
 	if(C.tool_behaviour == TOOL_SCREWDRIVER)
 		if(panel_open && detonated)
-			to_chat(user, "<span class='warning'>[src] не имеет панели, собственно!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] не имеет панели, собственно!</span>")
 			return
 		panel_open = !panel_open
 		to_chat(user, "<span class='notice'>[panel_open ? "Открываю":"Закрываю"] техническую панель шлюза.</span>")
@@ -942,20 +942,20 @@
 	else if(istype(C, /obj/item/door_seal)) //adding the seal
 		var/obj/item/door_seal/airlockseal = C
 		if(!density)
-			to_chat(user, "<span class='warning'>[src] должен быть закрыт, прежде чем запечатывать его!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] должен быть закрыт, прежде чем запечатывать его!</span>")
 			return
 		if(seal)
-			to_chat(user, "<span class='warning'>[src] уже запечатан!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] уже запечатан!</span>")
 			return
 		user.visible_message("<span class='notice'>[user] начинает запечатывать [src].</span>", "<span class='notice'>Начинаю запечатывать [src].</span>")
 		playsound(src, 'sound/items/jaws_pry.ogg', 30, TRUE)
 		if(!do_after(user, airlockseal.seal_time, target = src))
 			return
 		if(!density)
-			to_chat(user, "<span class='warning'>[src] должен быть закрыт, прежде чем запечатывать его!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] должен быть закрыт, прежде чем запечатывать его!</span>")
 			return
 		if(seal)
-			to_chat(user, "<span class='warning'>[src] уже запечатан!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] уже запечатан!</span>")
 			return
 		if(!user.transferItemToLoc(airlockseal, src))
 			to_chat(user, "<span class='warning'>Не могу запечатать [airlockseal]!</span>")
@@ -983,7 +983,7 @@
 /obj/machinery/door/airlock/try_to_weld(obj/item/weldingtool/W, mob/user)
 	if(!operating && density)
 		if(seal)
-			to_chat(user, "<span class='warning'>[src] запечатан!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] запечатан!</span>")
 			return
 		if(user.a_intent != INTENT_HELP)
 			if(!W.tool_start_check(user, amount=0))
@@ -1258,7 +1258,7 @@
 	if(locked || welded || seal) //Extremely generic, as aliens only understand the basics of how airlocks work.
 		if(user.a_intent == INTENT_HARM)
 			return ..()
-		to_chat(user, "<span class='warning'>[src] отказывается открываться!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] отказывается открываться!</span>")
 		return
 	add_fingerprint(user)
 	user.visible_message("<span class='warning'>[user] начинает открывать [src].</span>",\

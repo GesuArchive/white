@@ -92,21 +92,12 @@
 	},
 /area/awaymission/bombass/indoors)
 "ao" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
+/turf/closed/indestructible/rock/snow,
 /area/awaymission/bombass/indoors)
 "ap" = (
-/obj/effect/turf_decal/stripes/corner{
-	icon_state = "warninglinecorner";
-	dir = 8
-	},
+/obj/structure/fermenting_barrel,
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
+	icon_state = "mm-4"
 	},
 /area/awaymission/bombass/indoors)
 "aq" = (
@@ -181,17 +172,14 @@
 	},
 /area/awaymission/bombass/indoors)
 "aC" = (
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 8
-	},
+/obj/machinery/grill,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
 	},
 /area/awaymission/bombass/indoors)
 "aD" = (
-/obj/machinery/microwave,
-/obj/structure/table,
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/food_cart,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
 	},
@@ -199,8 +187,8 @@
 "aE" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 4
+	dir = 4;
+	icon_state = "tile_corner"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-2"
@@ -208,8 +196,8 @@
 /area/awaymission/bombass/indoors)
 "aF" = (
 /obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 8
+	dir = 8;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/partyhard/steel{
@@ -225,8 +213,8 @@
 /area/awaymission/bombass/indoors)
 "aH" = (
 /obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 8
+	dir = 8;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/partyhard/steel{
@@ -235,12 +223,12 @@
 /area/awaymission/bombass/indoors)
 "aI" = (
 /obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 8
+	dir = 8;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 1
+	dir = 1;
+	icon_state = "tile_corner"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-2"
@@ -263,8 +251,8 @@
 /area/awaymission/bombass/indoors)
 "aM" = (
 /obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 1
+	dir = 1;
+	icon_state = "arrows"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
@@ -412,30 +400,29 @@
 	icon_state = "s-7"
 	},
 /obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
+	dir = 8;
+	icon_state = "arrows"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
 	},
 /area/awaymission/bombass/indoors)
 "aV" = (
-/obj/structure/window/reinforced/survival_pod{
-	icon_state = "pwindow";
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 8
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/open/floor/partyhard/steel{
-	icon_state = "cx-3"
+	icon_state = "mm-5"
 	},
 /area/awaymission/bombass/indoors)
 "aW" = (
-/obj/machinery/dna_scannernew,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8;
+	icon_state = "warninglinecorner"
+	},
 /turf/open/floor/partyhard/steel{
-	icon_state = "cx-4"
+	icon_state = "mm-1"
 	},
 /area/awaymission/bombass/indoors)
 "aX" = (
@@ -454,18 +441,16 @@
 	},
 /area/awaymission/bombass/indoors)
 "ba" = (
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 8
-	},
+/obj/machinery/microwave,
+/obj/structure/table,
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
+	icon_state = "mm-1"
 	},
 /area/awaymission/bombass/indoors)
 "bb" = (
 /obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 4
+	dir = 4;
+	icon_state = "tile_corner"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-2"
@@ -473,12 +458,12 @@
 /area/awaymission/bombass/indoors)
 "bc" = (
 /obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 4
+	dir = 4;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 1
+	dir = 1;
+	icon_state = "tile_corner"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-2"
@@ -486,12 +471,12 @@
 /area/awaymission/bombass/indoors)
 "bd" = (
 /obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 4
+	dir = 4;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 1
+	dir = 1;
+	icon_state = "tile_corner"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-5"
@@ -499,8 +484,8 @@
 /area/awaymission/bombass/indoors)
 "be" = (
 /obj/effect/turf_decal/tile/blue{
-	icon_state = "tile_corner";
-	dir = 1
+	dir = 1;
+	icon_state = "tile_corner"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-2"
@@ -539,8 +524,8 @@
 /area/awaymission/bombass)
 "bm" = (
 /obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
+	dir = 8;
+	icon_state = "arrows"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-2"
@@ -558,12 +543,12 @@
 /area/awaymission/bombass/indoors)
 "bo" = (
 /obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
+	dir = 8;
+	icon_state = "arrows"
 	},
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
+	dir = 1;
+	icon_state = "warningline"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
@@ -577,8 +562,8 @@
 /area/awaymission/bombass)
 "bq" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
+	dir = 1;
+	icon_state = "warningline"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
@@ -586,8 +571,8 @@
 /area/awaymission/bombass/indoors)
 "br" = (
 /obj/effect/turf_decal/stripes/end{
-	icon_state = "warn_end";
-	dir = 8
+	dir = 8;
+	icon_state = "warn_end"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
@@ -596,12 +581,12 @@
 "bs" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
+	dir = 1;
+	icon_state = "warningline"
 	},
 /obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
+	dir = 8;
+	icon_state = "arrows"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
@@ -610,8 +595,8 @@
 "bt" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
+	dir = 1;
+	icon_state = "warningline"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
@@ -620,12 +605,12 @@
 "bu" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
+	dir = 1;
+	icon_state = "warningline"
 	},
 /obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
+	dir = 8;
+	icon_state = "arrows"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-5"
@@ -634,8 +619,8 @@
 "bv" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
+	dir = 1;
+	icon_state = "warningline"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-5"
@@ -643,12 +628,12 @@
 /area/awaymission/bombass/indoors)
 "bw" = (
 /obj/effect/turf_decal/stripes/end{
-	icon_state = "warn_end";
-	dir = 4
+	dir = 4;
+	icon_state = "warn_end"
 	},
 /obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
+	dir = 8;
+	icon_state = "arrows"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
@@ -657,8 +642,8 @@
 "bx" = (
 /obj/effect/turf_decal/partyhard/lines,
 /obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
+	dir = 8;
+	icon_state = "arrows"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
@@ -669,35 +654,37 @@
 	icon_state = "s-7"
 	},
 /obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
+	dir = 8;
+	icon_state = "arrows"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
 /area/awaymission/bombass/indoors)
 "bz" = (
-/obj/structure/window/reinforced/survival_pod{
-	icon_state = "pwindow";
-	dir = 4
-	},
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 8
+	dir = 8;
+	icon_state = "warningline"
 	},
 /turf/open/floor/partyhard/steel{
-	icon_state = "cx-6"
+	icon_state = "mm-1"
 	},
 /area/awaymission/bombass/indoors)
 "bA" = (
+/obj/structure/table,
+/obj/machinery/cell_charger,
+/obj/item/stock_parts/cell/crap,
 /turf/open/floor/partyhard/steel{
-	icon_state = "cx-5"
+	icon_state = "dd-2"
 	},
 /area/awaymission/bombass/indoors)
 "bB" = (
-/obj/machinery/gibber,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8;
+	icon_state = "warningline"
+	},
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
+	icon_state = "mm-4"
 	},
 /area/awaymission/bombass/indoors)
 "bC" = (
@@ -705,16 +692,16 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 1
+	dir = 1;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 4
+	dir = 4;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 8
+	dir = 8;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/bot_white/left,
 /turf/open/floor/partyhard/steel{
@@ -726,12 +713,12 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 1
+	dir = 1;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 4
+	dir = 4;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/partyhard/steel{
@@ -743,12 +730,12 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 1
+	dir = 1;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 4
+	dir = 4;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/bot_white/right,
@@ -876,27 +863,15 @@
 	},
 /area/awaymission/bombass/indoors)
 "bO" = (
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 8
-	},
+/obj/structure/table,
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
+	icon_state = "mm-1"
 	},
 /area/awaymission/bombass/indoors)
 "bP" = (
 /obj/structure/table,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
+	icon_state = "dd-2"
 	},
 /area/awaymission/bombass/indoors)
 "bQ" = (
@@ -912,8 +887,8 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 1
+	dir = 1;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/bot_white/left,
 /turf/open/floor/partyhard/steel{
@@ -934,8 +909,8 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 4
+	dir = 4;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/bot_white/right,
 /turf/open/floor/partyhard/steel{
@@ -944,8 +919,8 @@
 /area/awaymission/bombass/indoors)
 "bU" = (
 /obj/machinery/light{
-	icon_state = "tube";
-	dir = 4
+	dir = 4;
+	icon_state = "tube"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-2"
@@ -1002,8 +977,8 @@
 /area/awaymission/bombass)
 "cc" = (
 /obj/effect/turf_decal/stripes/corner{
-	icon_state = "warninglinecorner";
-	dir = 8
+	dir = 8;
+	icon_state = "warninglinecorner"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-3"
@@ -1011,8 +986,8 @@
 /area/awaymission/bombass)
 "cd" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 6
+	dir = 6;
+	icon_state = "warningline"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-1"
@@ -1020,8 +995,8 @@
 /area/awaymission/bombass)
 "ce" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 10
+	dir = 10;
+	icon_state = "warningline"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-1"
@@ -1029,8 +1004,8 @@
 /area/awaymission/bombass)
 "cf" = (
 /obj/effect/turf_decal/stripes/corner{
-	icon_state = "warninglinecorner";
-	dir = 8
+	dir = 8;
+	icon_state = "warninglinecorner"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-1"
@@ -1038,8 +1013,8 @@
 /area/awaymission/bombass)
 "cg" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 4
+	dir = 4;
+	icon_state = "warningline"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-1"
@@ -1047,8 +1022,8 @@
 /area/awaymission/bombass)
 "ch" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 8
+	dir = 8;
+	icon_state = "warningline"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-1"
@@ -1056,8 +1031,8 @@
 /area/awaymission/bombass)
 "ci" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 8
+	dir = 8;
+	icon_state = "warningline"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-3"
@@ -1065,8 +1040,8 @@
 /area/awaymission/bombass)
 "cj" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 4
+	dir = 4;
+	icon_state = "warningline"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-3"
@@ -1074,8 +1049,8 @@
 /area/awaymission/bombass)
 "ck" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 8
+	dir = 8;
+	icon_state = "warningline"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-2"
@@ -1083,8 +1058,8 @@
 /area/awaymission/bombass)
 "cl" = (
 /obj/effect/turf_decal/stripes/corner{
-	icon_state = "warninglinecorner";
-	dir = 4
+	dir = 4;
+	icon_state = "warninglinecorner"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-1"
@@ -1092,8 +1067,8 @@
 /area/awaymission/bombass)
 "cm" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 5
+	dir = 5;
+	icon_state = "warningline"
 	},
 /obj/structure/tbin,
 /turf/open/floor/partyhard/steel{
@@ -1102,8 +1077,8 @@
 /area/awaymission/bombass)
 "cn" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 9
+	dir = 9;
+	icon_state = "warningline"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-1"
@@ -1111,8 +1086,8 @@
 /area/awaymission/bombass)
 "co" = (
 /obj/effect/turf_decal/stripes/corner{
-	icon_state = "warninglinecorner";
-	dir = 1
+	dir = 1;
+	icon_state = "warninglinecorner"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-1"
@@ -1120,8 +1095,8 @@
 /area/awaymission/bombass)
 "cp" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
+	dir = 1;
+	icon_state = "warningline"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-3"
@@ -1129,8 +1104,8 @@
 /area/awaymission/bombass)
 "cq" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
+	dir = 1;
+	icon_state = "warningline"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-1"
@@ -1138,8 +1113,8 @@
 /area/awaymission/bombass)
 "cr" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
+	dir = 1;
+	icon_state = "warningline"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-2"
@@ -1226,17 +1201,7 @@
 	},
 /area/awaymission/bombass/indoors)
 "cw" = (
-/obj/structure/table,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/documents/syndicate/red,
+/obj/machinery/harvester,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
 	},
@@ -1246,8 +1211,8 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 1
+	dir = 1;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/bot_white/left,
 /turf/open/floor/partyhard/steel{
@@ -1286,8 +1251,8 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 4
+	dir = 4;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/bot_white/right,
 /turf/open/floor/partyhard/steel{
@@ -1310,8 +1275,8 @@
 /area/awaymission/bombass/indoors)
 "cE" = (
 /obj/effect/turf_decal/stripes/end{
-	icon_state = "warn_end";
-	dir = 8
+	dir = 8;
+	icon_state = "warn_end"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-5"
@@ -1319,13 +1284,13 @@
 /area/awaymission/bombass/indoors)
 "cF" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
+	dir = 1;
+	icon_state = "warningline"
 	},
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
+	dir = 8;
+	icon_state = "arrows"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
@@ -1333,8 +1298,8 @@
 /area/awaymission/bombass/indoors)
 "cG" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
+	dir = 1;
+	icon_state = "warningline"
 	},
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/partyhard/steel{
@@ -1343,8 +1308,8 @@
 /area/awaymission/bombass/indoors)
 "cH" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
+	dir = 1;
+	icon_state = "warningline"
 	},
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/partyhard/steel{
@@ -1353,21 +1318,25 @@
 /area/awaymission/bombass/indoors)
 "cI" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
+	dir = 1;
+	icon_state = "warningline"
 	},
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 8
+	dir = 8;
+	icon_state = "arrows"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-5"
 	},
 /area/awaymission/bombass/indoors)
 "cJ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8;
+	icon_state = "warningline"
+	},
 /turf/open/floor/partyhard/steel{
-	icon_state = "cx-4"
+	icon_state = "mm-5"
 	},
 /area/awaymission/bombass/indoors)
 "cK" = (
@@ -1375,13 +1344,13 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 8
+	dir = 8;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 1
+	dir = 1;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/bot_white/left,
 /turf/open/floor/partyhard/steel{
@@ -1393,8 +1362,8 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 8
+	dir = 8;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/bot_white/left,
@@ -1407,8 +1376,8 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 8
+	dir = 8;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/bot_white,
@@ -1421,8 +1390,8 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 8
+	dir = 8;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/bot_white/right,
@@ -1435,13 +1404,13 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 8
+	dir = 8;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
-	icon_state = "tile_corner";
-	dir = 4
+	dir = 4;
+	icon_state = "tile_corner"
 	},
 /obj/effect/turf_decal/bot_white/right,
 /turf/open/floor/partyhard/steel{
@@ -1658,25 +1627,21 @@
 	},
 /area/awaymission/bombass/indoors)
 "de" = (
-/obj/machinery/dna_scannernew,
+/obj/structure/punching_bag,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/partyhard/steel{
-	icon_state = "cx-5"
+	icon_state = "dd-2"
 	},
 /area/awaymission/bombass/indoors)
 "df" = (
-/obj/effect/mob_spawn/human/bombmeat{
-	icon_state = "sleeper";
-	dir = 8
-	},
+/obj/structure/table,
+/obj/item/documents/syndicate/red,
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
+	icon_state = "mm-1"
 	},
 /area/awaymission/bombass/indoors)
 "dg" = (
-/obj/effect/mob_spawn/human/bombmeat{
-	icon_state = "sleeper";
-	dir = 8
-	},
+/obj/machinery/gibber,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
 	},
@@ -1707,49 +1672,49 @@
 	},
 /area/awaymission/bombass/indoors)
 "dk" = (
-/obj/effect/turf_decal/stripes/corner{
-	icon_state = "warninglinecorner";
-	dir = 4
-	},
-/obj/structure/curtain/bounty,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
-/area/awaymission/bombass/indoors)
-"dl" = (
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
+/obj/effect/mob_spawn/human/bombmeat{
+	dir = 8;
+	icon_state = "sleeper"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
 /area/awaymission/bombass/indoors)
-"dm" = (
+"dl" = (
 /obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
+	dir = 1;
+	icon_state = "warningline"
 	},
+/obj/machinery/light,
 /turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
+	icon_state = "mm-1"
 	},
 /area/awaymission/bombass/indoors)
-"dn" = (
+"dm" = (
 /obj/effect/turf_decal/stripes/corner{
-	icon_state = "warninglinecorner";
-	dir = 1
+	dir = 1;
+	icon_state = "warninglinecorner"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
 	},
 /area/awaymission/bombass/indoors)
-"do" = (
+"dn" = (
 /obj/effect/mob_spawn/human/bombmeat{
-	icon_state = "sleeper";
-	dir = 8
+	dir = 8;
+	icon_state = "sleeper"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-5"
+	},
+/area/awaymission/bombass/indoors)
+"do" = (
+/obj/effect/mob_spawn/human/bombmeat{
+	dir = 8;
+	icon_state = "sleeper"
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-1"
 	},
 /area/awaymission/bombass/indoors)
 "dp" = (
@@ -1823,8 +1788,8 @@
 /area/awaymission/bombass/indoors)
 "dz" = (
 /obj/machinery/mech_bay_recharge_port{
-	icon_state = "recharge_port";
-	dir = 8
+	dir = 8;
+	icon_state = "recharge_port"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-8"
@@ -1832,8 +1797,8 @@
 /area/awaymission/bombass/indoors)
 "dA" = (
 /obj/machinery/computer/mech_bay_power_console{
-	icon_state = "computer";
-	dir = 4
+	dir = 4;
+	icon_state = "computer"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-10"
@@ -1841,8 +1806,8 @@
 /area/awaymission/bombass/indoors)
 "dB" = (
 /obj/machinery/computer/mech_bay_power_console{
-	icon_state = "computer";
-	dir = 8
+	dir = 8;
+	icon_state = "computer"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-10"
@@ -1971,10 +1936,13 @@
 /turf/open/floor/plating/partyhard,
 /area/awaymission/bombass)
 "ea" = (
-/obj/structure/punching_bag,
-/obj/effect/turf_decal/bot,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4;
+	icon_state = "warninglinecorner"
+	},
+/obj/structure/curtain/bounty,
 /turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
+	icon_state = "mm-5"
 	},
 /area/awaymission/bombass/indoors)
 "eb" = (
@@ -2021,41 +1989,6 @@
 	},
 /area/awaymission/bombass/indoors)
 "ej" = (
-/obj/structure/table,
-/obj/item/reagent_containers/food/snacks/monkeycube,
-/obj/item/reagent_containers/food/snacks/monkeycube,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
-/area/awaymission/bombass/indoors)
-"ek" = (
-/obj/machinery/defibrillator_mount/loaded,
-/turf/closed/wall/partyhard,
-/area/awaymission/bombass/indoors)
-"el" = (
-/obj/structure/table,
-/obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/crap,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
-/area/awaymission/bombass/indoors)
-"em" = (
-/obj/machinery/hydroponics/constructable,
-/obj/item/cultivator,
-/obj/item/reagent_containers/glass/bucket,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
-/area/awaymission/bombass/indoors)
-"en" = (
-/obj/structure/table,
-/obj/machinery/biogenerator,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
-/area/awaymission/bombass/indoors)
-"eo" = (
 /obj/machinery/hydroponics/constructable,
 /obj/item/shovel/spade,
 /obj/item/seeds/wheat,
@@ -2066,21 +1999,52 @@
 	icon_state = "dd-2"
 	},
 /area/awaymission/bombass/indoors)
-"ep" = (
+"ek" = (
+/obj/machinery/defibrillator_mount/loaded,
+/turf/closed/wall/partyhard,
+/area/awaymission/bombass/indoors)
+"el" = (
+/obj/machinery/hydroponics/constructable,
+/obj/item/cultivator,
+/obj/item/reagent_containers/glass/bucket,
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-2"
+	},
+/area/awaymission/bombass/indoors)
+"em" = (
+/obj/structure/table,
+/obj/machinery/biogenerator,
+/turf/open/floor/partyhard/steel{
+	icon_state = "dd-2"
+	},
+/area/awaymission/bombass/indoors)
+"en" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1;
+	icon_state = "warningline"
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-4"
+	},
+/area/awaymission/bombass/indoors)
+"eo" = (
 /obj/machinery/seed_extractor,
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-2"
 	},
 /area/awaymission/bombass/indoors)
+"ep" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1;
+	icon_state = "warningline"
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-5"
+	},
+/area/awaymission/bombass/indoors)
 "eq" = (
 /obj/structure/extinguisher_cabinet,
 /turf/closed/wall/partyhard,
-/area/awaymission/bombass/indoors)
-"er" = (
-/obj/structure/fermenting_barrel,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
 /area/awaymission/bombass/indoors)
 "es" = (
 /obj/structure/sink/oil_well,
@@ -2114,16 +2078,6 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass/indoors)
-"ey" = (
-/obj/effect/turf_decal/stripes/line{
-	icon_state = "warningline";
-	dir = 1
-	},
-/obj/machinery/light,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
 	},
@@ -2197,25 +2151,6 @@
 	name = "Blocked Airlock"
 	},
 /area/awaymission/bombass/indoors)
-"eG" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/food_cart,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass/indoors)
-"eH" = (
-/obj/machinery/harvester,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass/indoors)
-"eI" = (
-/obj/machinery/grill,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/awaymission/bombass/indoors)
 "eJ" = (
 /obj/structure/table,
 /obj/machinery/recharger,
@@ -2225,8 +2160,8 @@
 /area/awaymission/bombass/indoors)
 "eK" = (
 /obj/structure/chair{
-	icon_state = "chair";
-	dir = 4
+	dir = 4;
+	icon_state = "chair"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-2"
@@ -11557,14 +11492,14 @@ aa
 ab
 ab
 ab
-aV
-bz
 ab
 ab
-aV
-bz
 ab
-ay
+ab
+ab
+ab
+ab
+ea
 ab
 aa
 bf
@@ -11749,16 +11684,16 @@ aa
 (50,1,1) = {"
 aa
 ab
-ab
-ab
-aW
-bA
-ab
-ab
-cJ
-de
-ab
-dk
+aD
+av
+aX
+aX
+aX
+aX
+aX
+aX
+aJ
+bq
 ab
 aa
 bf
@@ -11943,16 +11878,16 @@ aa
 (51,1,1) = {"
 aa
 ab
-eG
-av
-aX
-aX
-aX
-aX
-aX
-aX
-aJ
-bq
+an
+aw
+bA
+bP
+aY
+de
+aY
+aY
+aK
+en
 ab
 aa
 bf
@@ -12137,12 +12072,12 @@ aa
 (52,1,1) = {"
 aa
 ab
-an
+aV
 aw
 el
 ej
 aY
-ea
+aY
 aY
 aY
 aK
@@ -12330,17 +12265,17 @@ aa
 "}
 (53,1,1) = {"
 aa
-ab
-ao
+ae
+an
 aw
 em
 eo
 aY
 aY
 aY
-aY
+de
 aK
-ey
+bq
 ab
 aa
 bf
@@ -12524,17 +12459,17 @@ aa
 "}
 (54,1,1) = {"
 aa
-ae
+eq
 an
-aw
-en
+ax
+aZ
+aZ
+aZ
+aZ
+aZ
+aZ
+aL
 ep
-aY
-aY
-aY
-ea
-aK
-bq
 ab
 aa
 bf
@@ -12718,18 +12653,18 @@ aa
 "}
 (55,1,1) = {"
 aa
-eq
-an
-ax
-aZ
-aZ
-aZ
-aZ
-aZ
-aZ
-aL
+eF
+aW
+bz
+bB
+bz
+cJ
+bz
+bz
+bz
+bB
 dm
-ab
+eF
 aa
 bf
 bf
@@ -12912,18 +12847,18 @@ aa
 "}
 (56,1,1) = {"
 aa
-eF
+ab
 ap
 aC
 ba
-aC
+cw
 bO
-aC
-aC
-aC
-ba
+df
+dg
+dk
+do
 dn
-eF
+ab
 aa
 bf
 bf
@@ -13107,16 +13042,16 @@ aa
 (57,1,1) = {"
 aa
 ab
-er
-eI
-aD
-eH
-bP
-cw
-bB
-df
-dg
-do
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 aa
 bf
@@ -13300,18 +13235,18 @@ aa
 "}
 (58,1,1) = {"
 aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+ao
 aa
 bf
 bf

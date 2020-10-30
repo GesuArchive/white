@@ -131,7 +131,7 @@ Maintenance panel panel is [open ? "opened" : "closed"]"},
 		if(user)
 			to_chat(user, "<span class='danger'>You short out [src]'s sound control system. It gives out an evil laugh!!</span>")
 			oldtarget_name = user.name
-		audible_message("<span class='danger'>[src] gives out an evil laugh!</span>")
+		audible_message("<span class='danger'>[capitalize(src.name)] gives out an evil laugh!</span>")
 		playsound(src, 'sound/machines/honkbot_evil_laugh.ogg', 75, TRUE, -1) // evil laughter
 		update_icon()
 
@@ -212,8 +212,8 @@ Maintenance panel panel is [open ? "opened" : "closed"]"},
 
 			log_combat(src,C,"honked")
 
-			C.visible_message("<span class='danger'>[src] honks [C]!</span>",\
-					"<span class='userdanger'>[src] honks you!</span>")
+			C.visible_message("<span class='danger'>[capitalize(src.name)] honks [C]!</span>",\
+					"<span class='userdanger'>[capitalize(src.name)] honks you!</span>")
 		else
 			C.stuttering = 20
 			C.Paralyze(80)
@@ -315,7 +315,7 @@ Maintenance panel panel is [open ? "opened" : "closed"]"},
 				oldtarget_name = C.name
 				bike_horn()
 				speak("Honk!")
-				visible_message("<b>[capitalize(src)]</b> starts chasing [C.name]!")
+				visible_message("<b>[capitalize(src.name)]</b> starts chasing [C.name]!")
 				mode = BOT_HUNT
 				INVOKE_ASYNC(src, .proc/handle_automated_action)
 				break
@@ -325,7 +325,7 @@ Maintenance panel panel is [open ? "opened" : "closed"]"},
 /mob/living/simple_animal/bot/honkbot/explode()
 
 	walk_to(src,0)
-	visible_message("<span class='boldannounce'>[src] blows apart!</span>")
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] blows apart!</span>")
 	var/atom/Tsec = drop_location()
 	//doesn't drop cardboard nor its assembly, since its a very frail material.
 	if(prob(50))

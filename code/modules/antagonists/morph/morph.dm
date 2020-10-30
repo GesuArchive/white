@@ -71,7 +71,7 @@
 		to_chat(src, "<span class='warning'>You cannot eat anything while you are disguised!</span>")
 		return FALSE
 	if(A && A.loc != src)
-		visible_message("<span class='warning'>[src] swallows [A] whole!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] swallows [A] whole!</span>")
 		A.forceMove(src)
 		return TRUE
 	return FALSE
@@ -91,7 +91,7 @@
 	morphed = TRUE
 	form = target
 
-	visible_message("<span class='warning'>[src] suddenly twists and changes shape, becoming a copy of [target]!</span>", \
+	visible_message("<span class='warning'>[capitalize(src.name)] suddenly twists and changes shape, becoming a copy of [target]!</span>", \
 					"<span class='notice'>You twist your body and assume the form of [target].</span>")
 	appearance = target.appearance
 	copy_overlays(target)
@@ -121,7 +121,7 @@
 	animate_movement = SLIDE_STEPS
 	maptext = null
 
-	visible_message("<span class='warning'>[src] suddenly collapses in on itself, dissolving into a pile of green flesh!</span>", \
+	visible_message("<span class='warning'>[capitalize(src.name)] suddenly collapses in on itself, dissolving into a pile of green flesh!</span>", \
 					"<span class='notice'>You reform to your normal body.</span>")
 	name = initial(name)
 	icon = initial(icon)
@@ -138,7 +138,7 @@
 
 /mob/living/simple_animal/hostile/morph/death(gibbed)
 	if(morphed)
-		visible_message("<span class='warning'>[src] twists and dissolves into a pile of green flesh!</span>", \
+		visible_message("<span class='warning'>[capitalize(src.name)] twists and dissolves into a pile of green flesh!</span>", \
 						"<span class='userdanger'>Your skin ruptures! Your flesh breaks apart! No disguise can ward off de--</span>")
 		restore()
 	barf_contents()

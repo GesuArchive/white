@@ -44,7 +44,7 @@
 
 /obj/item/gun/syringe/attack_self(mob/living/user)
 	if(!syringes.len)
-		to_chat(user, "<span class='warning'>[src] is empty!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is empty!</span>")
 		return FALSE
 
 	var/obj/item/reagent_containers/syringe/S = syringes[syringes.len]
@@ -71,7 +71,7 @@
 			playsound(loc, load_sound, 40)
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>[src] cannot hold more syringes!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] cannot hold more syringes!</span>")
 	return FALSE
 
 /obj/item/gun/syringe/update_overlays()
@@ -120,7 +120,7 @@
 			recharge_newshot()
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>[src] cannot hold more syringes!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] cannot hold more syringes!</span>")
 	return FALSE
 
 /obj/item/gun/syringe/blowgun

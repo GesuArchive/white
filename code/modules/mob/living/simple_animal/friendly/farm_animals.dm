@@ -56,7 +56,7 @@
 		if(enemies.len && prob(10))
 			enemies = list()
 			LoseTarget()
-			src.visible_message("<span class='notice'>[src] calms down.</span>")
+			src.visible_message("<span class='notice'>[capitalize(src.name)] calms down.</span>")
 	if(stat == CONSCIOUS)
 		udder.generateMilk()
 		eat_plants()
@@ -69,7 +69,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/goat/Retaliate()
 	..()
-	src.visible_message("<span class='danger'>[src] gets an evil-looking gleam in [p_their()] eye.</span>")
+	src.visible_message("<span class='danger'>[capitalize(src.name)] gets an evil-looking gleam in [p_their()] eye.</span>")
 
 /mob/living/simple_animal/hostile/retaliate/goat/Move()
 	. = ..()
@@ -105,8 +105,8 @@
 		var/mob/living/carbon/human/H = target
 		if(istype(H.dna.species, /datum/species/pod))
 			var/obj/item/bodypart/NB = pick(H.bodyparts)
-			H.visible_message("<span class='warning'>[src] takes a big chomp out of [H]!</span>", \
-								  "<span class='userdanger'>[src] takes a big chomp out of your [NB]!</span>")
+			H.visible_message("<span class='warning'>[capitalize(src.name)] takes a big chomp out of [H]!</span>", \
+								  "<span class='userdanger'>[capitalize(src.name)] takes a big chomp out of your [NB]!</span>")
 			NB.dismember()
 //cow
 /mob/living/simple_animal/cow
@@ -229,7 +229,7 @@
 ///Give intense wisdom to the attacker if they're being friendly about it
 /mob/living/simple_animal/cow/wisdom/attack_hand(mob/living/carbon/M)
 	if(!stat && M.a_intent == INTENT_HELP)
-		to_chat(M, "<span class='nicegreen'>[src] whispers you some intense wisdoms and then disappears!</span>")
+		to_chat(M, "<span class='nicegreen'>[capitalize(src.name)] whispers you some intense wisdoms and then disappears!</span>")
 		M.mind?.adjust_experience(pick(GLOB.skill_types), 500)
 		do_smoke(1, get_turf(src))
 		qdel(src)
@@ -377,7 +377,7 @@
 	if(!.)
 		return
 	if((!stat && prob(3) && eggsleft > 0) && egg_type)
-		visible_message("<span class='alertalien'>[src] [pick(layMessage)]</span>")
+		visible_message("<span class='alertalien'>[capitalize(src.name)] [pick(layMessage)]</span>")
 		eggsleft--
 		var/obj/item/E = new egg_type(get_turf(src))
 		E.forceMove(E.loc, rand(-6,6), rand(-6,6))
@@ -390,7 +390,7 @@
 	if(isturf(loc))
 		amount_grown += rand(1,2) * delta_time
 		if(amount_grown >= 200)
-			visible_message("<span class='notice'>[src] hatches with a quiet cracking sound.</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] hatches with a quiet cracking sound.</span>")
 			new /mob/living/simple_animal/chick(get_turf(src))
 			STOP_PROCESSING(SSobj, src)
 			qdel(src)

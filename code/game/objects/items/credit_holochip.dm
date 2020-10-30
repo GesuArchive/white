@@ -103,5 +103,5 @@
 		return
 	var/wipe_chance = 60 / severity
 	if(prob(wipe_chance))
-		visible_message("<span class='warning'>[src] fizzles and disappears!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] fizzles and disappears!</span>")
 		qdel(src) //rip cash

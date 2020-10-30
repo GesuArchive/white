@@ -196,5 +196,5 @@
 					piles[item] -= WO
 					O.forceMove(drop_location())
 					. = TRUE
-					//to_chat(usr, "<span class='notice'>[src] clanks to life briefly before vending [prize.equipment_name]!</span>")
+					//to_chat(usr, "<span class='notice'>[capitalize(src.name)] clanks to life briefly before vending [prize.equipment_name]!</span>")
 

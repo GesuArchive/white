@@ -5,37 +5,37 @@
 	circuit = /obj/item/circuitboard/machine/techfab/department
 
 /obj/machinery/rnd/production/techfab/department/engineering
-	name = "department techfab (Engineering)"
+	name = "Инженерный фабрикатор"
 	allowed_department_flags = DEPARTMENTAL_FLAG_ENGINEERING
 	department_tag = "Инженерный"
 	circuit = /obj/item/circuitboard/machine/techfab/department/engineering
 
 /obj/machinery/rnd/production/techfab/department/service
-	name = "department techfab (Service)"
+	name = "Сервисный фабрикатор"
 	allowed_department_flags = DEPARTMENTAL_FLAG_SERVICE
 	department_tag = "Сервисный"
 	circuit = /obj/item/circuitboard/machine/techfab/department/service
 
 /obj/machinery/rnd/production/techfab/department/medical
-	name = "department techfab (Medical)"
+	name = "Медицинский фабрикатор"
 	allowed_department_flags = DEPARTMENTAL_FLAG_MEDICAL
 	department_tag = "Медицинский"
 	circuit = /obj/item/circuitboard/machine/techfab/department/medical
 
 /obj/machinery/rnd/production/techfab/department/cargo
-	name = "department techfab (Cargo)"
+	name = "Снабженский фабрикатор"
 	allowed_department_flags = DEPARTMENTAL_FLAG_CARGO
 	department_tag = "Снабженский"
 	circuit = /obj/item/circuitboard/machine/techfab/department/cargo
 
 /obj/machinery/rnd/production/techfab/department/science
-	name = "department techfab (Science)"
+	name = "Научный фабрикатор"
 	allowed_department_flags = DEPARTMENTAL_FLAG_SCIENCE
 	department_tag = "Научный"
 	circuit = /obj/item/circuitboard/machine/techfab/department/science
 
 /obj/machinery/rnd/production/techfab/department/security
-	name = "department techfab (Security)"
+	name = "Фабрикатор службы безопасности"
 	allowed_department_flags = DEPARTMENTAL_FLAG_SECURITY
 	department_tag = "Безопасности"
 	circuit = /obj/item/circuitboard/machine/techfab/department/security

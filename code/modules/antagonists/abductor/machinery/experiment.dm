@@ -38,7 +38,7 @@
 		return
 	if(message_cooldown <= world.time)
 		message_cooldown = world.time + 50
-		to_chat(user, "<span class='warning'>[src]'s door won't budge!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s door won't budge!</span>")
 
 /obj/machinery/abductor/experiment/container_resist_act(mob/living/user)
 	user.changeNext_move(CLICK_CD_BREAKOUT)

@@ -47,7 +47,7 @@
 /obj/item/supplypod_beacon/examine(user)
 	. = ..()
 	if(!express_console)
-		. += "<hr><span class='notice'>[src] в настоящее время не подключён к экспресс консоли.</span>"
+		. += "<hr><span class='notice'>[capitalize(src.name)] в настоящее время не подключён к экспресс консоли.</span>"
 	else
 		. += "<hr><span class='notice'>Альт + Клик чтобы чтобы прекратить подключение с экспресс консолью.</span>"
 
@@ -73,7 +73,7 @@
 	update_status(SP_LINKED)
 	if (express_console.usingBeacon)
 		update_status(SP_READY)
-	to_chat(user, "<span class='notice'>[src] подключён к [C].</span>")
+	to_chat(user, "<span class='notice'>[capitalize(src.name)] подключён к [C].</span>")
 
 /obj/item/supplypod_beacon/AltClick(mob/user)
 	if (!user.canUseTopic(src, !issilicon(user)))

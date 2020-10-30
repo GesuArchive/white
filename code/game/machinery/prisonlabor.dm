@@ -26,10 +26,10 @@
 
 /obj/machinery/plate_press/attackby(obj/item/I, mob/living/user, params)
 	if(!is_operational)
-		to_chat(user, "<span class='warning'>[src] has to be on to do this!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] has to be on to do this!</span>")
 		return FALSE
 	if(current_plate)
-		to_chat(user, "<span class='warning'>[src] already has a plate in it!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a plate in it!</span>")
 		return FALSE
 	if(istype(I, /obj/item/stack/license_plates/empty))
 		var/obj/item/stack/license_plates/empty/plate = I

@@ -69,8 +69,8 @@
 	if(!(P.original == src && P.firer == src)) //can't block or reflect when shooting yourself
 		if(P.reflectable & REFLECT_NORMAL)
 			if(check_reflect(def_zone)) // Checks if you've passed a reflection% check
-				visible_message("<span class='danger'>[src] отражает [P.name]!</span>", \
-								"<span class='userdanger'>[src] отражает [P.name]!</span>")
+				visible_message("<span class='danger'>[capitalize(src.name)] отражает [P.name]!</span>", \
+								"<span class='userdanger'>[capitalize(src.name)] отражает [P.name]!</span>")
 				// Find a turf near or on the original location to bounce to
 				if(!isturf(loc)) //Open canopy mech (ripley) check. if we're inside something and still got hit
 					P.force_hit = TRUE //The thing we're in passed the bullet to us. Pass it back, and tell it to take the damage.

@@ -68,7 +68,7 @@
 
 /obj/structure/ladder/singularity_pull()
 	if (!(resistance_flags & INDESTRUCTIBLE))
-		visible_message("<span class='danger'>[src] is torn to pieces by the gravitational pull!</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] is torn to pieces by the gravitational pull!</span>")
 		qdel(src)
 
 /obj/structure/ladder/proc/travel(going_up, mob/user, is_ghost, obj/structure/ladder/ladder)
@@ -101,7 +101,7 @@
 	if (down)
 		tool_list["Down"] = image(icon = 'icons/testing/turf_analysis.dmi', icon_state = "red_arrow", dir = SOUTH)
 	if (!length(tool_list))
-		to_chat(user, "<span class='warning'>[src] doesn't seem to lead anywhere!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] doesn't seem to lead anywhere!</span>")
 		return
 
 	var/result = show_radial_menu(user, src, tool_list, custom_check = CALLBACK(src, .proc/check_menu, user, is_ghost), require_near = !is_ghost, tooltips = TRUE)

@@ -72,7 +72,7 @@
 			open()
 			return
 		else if(puzzle_id != key.puzzle_id)
-			to_chat(user, "<span class='notice'>[src] buzzes. This must not be the right key.</span>")
+			to_chat(user, "<span class='notice'>[capitalize(src.name)] buzzes. This must not be the right key.</span>")
 			return
 		else
 			to_chat(user, "<span class='notice'>This door doesn't appear to close.</span>")

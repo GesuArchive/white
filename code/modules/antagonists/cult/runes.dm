@@ -92,13 +92,13 @@ Runes can either be invoked by one's self or with many different cultists. Each 
 			to_chat(M, "<span class='warning'>You are unable to invoke the rune!</span>")
 
 /obj/effect/rune/proc/conceal() //for talisman of revealing/hiding
-	visible_message("<span class='danger'>[src] fades away.</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] fades away.</span>")
 	invisibility = INVISIBILITY_OBSERVER
 	alpha = 100 //To help ghosts distinguish hidden runes
 
 /obj/effect/rune/proc/reveal() //for talisman of revealing/hiding
 	invisibility = 0
-	visible_message("<span class='danger'>[src] suddenly appears!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] suddenly appears!</span>")
 	alpha = initial(alpha)
 
 /*
@@ -140,7 +140,7 @@ structure_check() searches for nearby cultist structures required for the invoca
 				L.say(invocation, language = /datum/language/common, ignore_spam = TRUE, forced = "cult invocation")
 			if(invoke_damage)
 				L.apply_damage(invoke_damage, BRUTE)
-				to_chat(L, "<span class='cult italic'>[src] saps your strength!</span>")
+				to_chat(L, "<span class='cult italic'>[capitalize(src.name)] saps your strength!</span>")
 		else if(istype(M, /obj/item/toy/plush/narplush))
 			var/obj/item/toy/plush/narplush/P = M
 			P.visible_message("<span class='cult italic'>[P] squeaks loudly!</span>")
@@ -203,7 +203,7 @@ structure_check() searches for nearby cultist structures required for the invoca
 		log_game("Offer rune failed - no eligible targets")
 		return
 	rune_in_use = TRUE
-	visible_message("<span class='warning'>[src] pulses blood red!</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] pulses blood red!</span>")
 	var/oldcolor = color
 	color = RUNE_COLOR_DARKRED
 	var/mob/living/L = pick(myriad_targets)
@@ -709,7 +709,7 @@ structure_check() searches for nearby cultist structures required for the invoca
 	..()
 	rune_in_use = TRUE
 	var/turf/T = get_turf(src)
-	visible_message("<span class='warning'>[src] turns a bright, glowing orange!</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] turns a bright, glowing orange!</span>")
 	color = "#FC9B54"
 	set_light(6, 1, color)
 	for(var/mob/living/L in viewers(T))

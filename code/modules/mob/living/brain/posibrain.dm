@@ -104,7 +104,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	if(is_occupied() || is_banned_from(user.ckey, ROLE_POSIBRAIN) || QDELETED(brainmob) || QDELETED(src) || QDELETED(user))
 		return
 	if(user.suiciding) //if they suicided, they're out forever.
-		to_chat(user, "<span class='warning'>[capitalize(src)] тихо шипит. Жалко, что суицидники не принимаются!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] тихо шипит. Жалко, что суицидники не принимаются!</span>")
 		return
 	var/posi_ask = alert("Быть [name]? (Внимание! Прошлого тебя не смогут воскресить, придётся забыть старые обиды)","Готов?","Да","Нет")
 	if(posi_ask == "Нет" || QDELETED(src))

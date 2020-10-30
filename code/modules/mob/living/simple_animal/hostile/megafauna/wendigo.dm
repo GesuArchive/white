@@ -147,7 +147,7 @@ Difficulty: Hard
 			for(var/mob/living/L in T)
 				if(L == src || L.throwing)
 					continue
-				to_chat(L, "<span class='userdanger'>[src]'s ground slam shockwave sends you flying!</span>")
+				to_chat(L, "<span class='userdanger'>[capitalize(src.name)]'s ground slam shockwave sends you flying!</span>")
 				var/turf/thrownat = get_ranged_target_turf_direct(src, L, 8, rand(-10, 10))
 				L.throw_at(thrownat, 8, 2, src, TRUE, force = MOVE_FORCE_OVERPOWERING, gentle = TRUE)
 				L.apply_damage(20, BRUTE, wound_bonus=CANT_WOUND)

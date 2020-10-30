@@ -87,7 +87,7 @@ obj/item/gun/ballistic/shotgun/makeshift/update_icon()
 	if(prob(jamchance) && !jammed)
 		jammed = TRUE
 		time_to_unjam = rand(jamchance,50+jamchance) //низкий jamchance даёт меньшее минимальное время для починки
-		to_chat(usr, "<span class='warning'>[src] malfunctions!</span>")
+		to_chat(usr, "<span class='warning'>[capitalize(src.name)] malfunctions!</span>")
 
 /obj/item/gun/ballistic/shotgun/makeshift/can_shoot()
 	.=..()

@@ -304,7 +304,7 @@
 
 /obj/item/hardened_spike/unembedded()
 	var/turf/T = get_turf(src)
-	visible_message("<span class='warning'>[src] cracks and twists, changing shape!</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] cracks and twists, changing shape!</span>")
 	for(var/i in contents)
 		var/obj/o = i
 		o.forceMove(T)

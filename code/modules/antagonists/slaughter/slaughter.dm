@@ -119,8 +119,8 @@
 	face_atom(A)
 	var/mob/living/victim = A
 	victim.take_bodypart_damage(brute=20, wound_bonus=wound_bonus) // don't worry, there's more punishment when they hit something
-	visible_message("<span class='danger'>[src] slams into [victim] with monstrous strength!</span>", "<span class='danger'>You slam into [victim] with monstrous strength!</span>", ignored_mobs=victim)
-	to_chat(victim, "<span class='userdanger'>[src] slams into you with monstrous strength, sending you flying like a ragdoll!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] slams into [victim] with monstrous strength!</span>", "<span class='danger'>You slam into [victim] with monstrous strength!</span>", ignored_mobs=victim)
+	to_chat(victim, "<span class='userdanger'>[capitalize(src.name)] slams into you with monstrous strength, sending you flying like a ragdoll!</span>")
 	var/turf/yeet_target = get_edge_target_turf(victim, dir)
 	victim.throw_at(yeet_target, 10, 5, src)
 	slam_cooldown = world.time

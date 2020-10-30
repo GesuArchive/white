@@ -56,7 +56,7 @@
 		to_chat(user, "<span class='warning'>There is no toner cartridge installed in [src]!</span>")
 		return FALSE
 	else if(ink.charges < 1)
-		to_chat(user, "<span class='warning'>[src] is out of ink!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is out of ink!</span>")
 		return FALSE
 	else
 		return TRUE
@@ -126,7 +126,7 @@
 /obj/item/airlock_painter/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/toner))
 		if(ink)
-			to_chat(user, "<span class='warning'>[src] already contains \a [ink]!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already contains \a [ink]!</span>")
 			return
 		if(!user.transferItemToLoc(W, src))
 			return

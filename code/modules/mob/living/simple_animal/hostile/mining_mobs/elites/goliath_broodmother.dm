@@ -116,7 +116,7 @@
 	var/tturf = get_turf(target)
 	if(!isturf(tturf))
 		return
-	visible_message("<span class='warning'>[src] digs its tentacles under [target]!</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] digs its tentacles under [target]!</span>")
 	new /obj/effect/temp_visual/goliath_tentacle/broodmother/patch(tturf, src)
 
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother/proc/spawn_children(target)
@@ -135,7 +135,7 @@
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother/proc/rage()
 	ranged_cooldown = world.time + 70
 	playsound(src,'sound/spookoween/insane_low_laugh.ogg', 200, 1)
-	visible_message("<span class='warning'>[src] starts picking up speed!</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] starts picking up speed!</span>")
 	color = "#FF0000"
 	set_varspeed(0)
 	move_to_delay = 3
@@ -191,14 +191,14 @@
 	if(!isturf(tturf))
 		return
 	if(get_dist(src, target) <= 7)//Screen range check, so it can't attack people off-screen
-		visible_message("<span class='warning'>[src] digs one of its tentacles under [target]!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] digs one of its tentacles under [target]!</span>")
 		new /obj/effect/temp_visual/goliath_tentacle/broodmother(tturf, src)
 
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother_child/death()
 	. = ..()
 	if(mother != null)
 		mother.children_list -= src
-	visible_message("<span class='warning'>[src] explodes!</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] explodes!</span>")
 	explosion(get_turf(loc),0,0,0,flame_range = 3, adminlog = FALSE)
 	gib()
 
@@ -208,7 +208,7 @@
 	for(var/mob/living/L in loc)
 		if((!QDELETED(spawner) && spawner.faction_check_mob(L)) || L.stat == DEAD)
 			continue
-		visible_message("<span class='danger'>[src] grabs hold of [L]!</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] grabs hold of [L]!</span>")
 		L.Stun(10)
 		L.adjustBruteLoss(rand(30,35))
 		latched = TRUE

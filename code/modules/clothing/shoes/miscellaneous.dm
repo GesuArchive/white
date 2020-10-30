@@ -451,7 +451,7 @@
 	if(!(user.mobility_flags & MOBILITY_USE) || user.stat != CONSCIOUS || HAS_TRAIT(user, TRAIT_HANDS_BLOCKED) || !Adjacent(user) || !user.Adjacent(target) || target.stat == DEAD)
 		return
 	if(occupants.len >= max_occupants)
-		to_chat(user, "<span class='warning'>[src] заполнены!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] заполнены!</span>")
 		return
 	if(istype(target, /mob/living/simple_animal/hostile/retaliate/poison/snake) || istype(target, /mob/living/simple_animal/hostile/headcrab) || istype(target, /mob/living/carbon/alien/larva))
 		occupants += target

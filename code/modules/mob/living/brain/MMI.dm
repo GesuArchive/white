@@ -75,10 +75,10 @@
 		if(!fubar_brain && !(newbrain.organ_flags & ORGAN_FAILING)) // the brain organ hasn't been beaten to death, nor was from a suicider.
 			brainmob.set_stat(CONSCIOUS) //we manually revive the brain mob
 		else if(!fubar_brain && newbrain.organ_flags & ORGAN_FAILING) // the brain is damaged, but not from a suicider
-			to_chat(user, "<span class='warning'>[src] жёлтым сигналом сообщает о том, что мозг повреждён.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] жёлтым сигналом сообщает о том, что мозг повреждён.</span>")
 			playsound(src, 'sound/machines/synth_no.ogg', 5, TRUE)
 		else
-			to_chat(user, "<span class='warning'>[src] красным сигналом сообщает о том, что стоит проверить мозг ещё раз.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] красным сигналом сообщает о том, что стоит проверить мозг ещё раз.</span>")
 			playsound(src, 'sound/machines/triple_beep.ogg', 5, TRUE)
 
 		brainmob.reset_perspective()

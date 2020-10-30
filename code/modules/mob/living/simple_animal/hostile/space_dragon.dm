@@ -109,7 +109,7 @@
 		if(consumed_mob.stat == DEAD)
 			continue
 		playsound(src, 'sound/effects/splat.ogg', 50, TRUE)
-		visible_message("<span class='danger'>[src] vomits up [consumed_mob]!</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] vomits up [consumed_mob]!</span>")
 		consumed_mob.forceMove(loc)
 		consumed_mob.Paralyze(50)
 	if(rifts_charged == 3 && !objective_complete)
@@ -323,7 +323,7 @@
 /mob/living/simple_animal/hostile/space_dragon/proc/eat(atom/movable/A)
 	if(A && A.loc != src)
 		playsound(src, 'sound/magic/demon_attack1.ogg', 100, TRUE)
-		visible_message("<span class='warning'>[src] swallows [A] whole!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] swallows [A] whole!</span>")
 		A.forceMove(src)
 		return TRUE
 	return FALSE

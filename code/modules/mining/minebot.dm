@@ -93,11 +93,11 @@
 	..()
 	. = TRUE
 	if(mode == MINEDRONE_ATTACK)
-		to_chat(user, "<span class='warning'>[src] can't be repaired while in attack mode!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] can't be repaired while in attack mode!</span>")
 		return
 
 	if(maxHealth == health)
-		to_chat(user, "<span class='info'>[src] is at full integrity.</span>")
+		to_chat(user, "<span class='info'>[capitalize(src.name)] is at full integrity.</span>")
 		return
 
 	if(I.use_tool(src, user, 0, volume=40))
@@ -130,9 +130,9 @@
 		toggle_mode()
 		switch(mode)
 			if(MINEDRONE_COLLECT)
-				to_chat(M, "<span class='info'>[src] has been set to search and store loose ore.</span>")
+				to_chat(M, "<span class='info'>[capitalize(src.name)] has been set to search and store loose ore.</span>")
 			if(MINEDRONE_ATTACK)
-				to_chat(M, "<span class='info'>[src] has been set to attack hostile wildlife.</span>")
+				to_chat(M, "<span class='info'>[capitalize(src.name)] has been set to attack hostile wildlife.</span>")
 		return
 
 /mob/living/simple_animal/hostile/mining_drone/CanAllowThrough(atom/movable/O)
@@ -279,7 +279,7 @@
 
 /obj/item/mine_bot_upgrade/proc/upgrade_bot(mob/living/simple_animal/hostile/mining_drone/M, mob/user)
 	if(M.melee_damage_upper != initial(M.melee_damage_upper))
-		to_chat(user, "<span class='warning'>[src] already has a combat upgrade installed!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a combat upgrade installed!</span>")
 		return
 	M.melee_damage_lower += 7
 	M.melee_damage_upper += 7
@@ -292,7 +292,7 @@
 
 /obj/item/mine_bot_upgrade/health/upgrade_bot(mob/living/simple_animal/hostile/mining_drone/M, mob/user)
 	if(M.maxHealth != initial(M.maxHealth))
-		to_chat(user, "<span class='warning'>[src] already has reinforced armor!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] already has reinforced armor!</span>")
 		return
 	M.maxHealth += 45
 	M.updatehealth()

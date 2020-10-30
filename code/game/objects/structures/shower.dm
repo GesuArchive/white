@@ -153,12 +153,12 @@
 	if(current_temperature == SHOWER_FREEZING)
 		if(iscarbon(L))
 			C.adjust_bodytemperature(-80, 80)
-		to_chat(L, "<span class='warning'>[src] is freezing!</span>")
+		to_chat(L, "<span class='warning'>[capitalize(src.name)] is freezing!</span>")
 	else if(current_temperature == SHOWER_BOILING)
 		if(iscarbon(L))
 			C.adjust_bodytemperature(35, 0, 500)
 		L.adjustFireLoss(5)
-		to_chat(L, "<span class='danger'>[src] is searing!</span>")
+		to_chat(L, "<span class='danger'>[capitalize(src.name)] is searing!</span>")
 
 
 /obj/structure/showerframe

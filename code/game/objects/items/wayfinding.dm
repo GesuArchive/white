@@ -118,7 +118,7 @@
 		expression_timer = addtimer(CALLBACK(src, .proc/set_expression, "neutral"), duration, TIMER_STOPPABLE)
 
 /obj/machinery/pinpointer_dispenser/proc/pointat(atom)
-	visible_message("<span class='name'>[src]</span> points at [atom].")
+	visible_message("<span class='name'>[capitalize(src.name)]</span> points at [atom].")
 	new /obj/effect/temp_visual/point(atom,invisibility)
 
 //Pinpointer itself

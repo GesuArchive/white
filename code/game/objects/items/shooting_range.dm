@@ -57,7 +57,7 @@
 	if(C.GetPixel(p_x, p_y) && P.original == src && overlays.len <= 35) // if the located pixel isn't blank (null)
 		hp -= P.damage
 		if(hp <= 0)
-			visible_message("<span class='danger'>[src] breaks into tiny pieces and collapses!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] breaks into tiny pieces and collapses!</span>")
 			qdel(src)
 		var/image/bullet_hole = image('icons/effects/effects.dmi', "scorch", OBJ_LAYER + 0.5)
 		bullet_hole.pixel_x = p_x - 1 //offset correction

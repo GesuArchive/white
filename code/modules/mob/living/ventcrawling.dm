@@ -48,7 +48,7 @@ GLOBAL_LIST_INIT(ventcrawl_machinery, typecacheof(list(
 	if(vent_found)
 		var/datum/pipeline/vent_found_parent = vent_found.parents[1]
 		if(vent_found_parent && (vent_found_parent.members.len || vent_found_parent.other_atmosmch))
-			visible_message("<span class='notice'>[src] начинает проникать в систему вентиляции...</span>" ,"<span class='notice'>Начинаю проникать в систему вентиляции...</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] начинает проникать в систему вентиляции...</span>" ,"<span class='notice'>Начинаю проникать в систему вентиляции...</span>")
 
 			if(!do_after(src, 25, target = vent_found))
 				return
@@ -61,7 +61,7 @@ GLOBAL_LIST_INIT(ventcrawl_machinery, typecacheof(list(
 					to_chat(src, "<span class='warning'>Не могу ползать по трубам с предметами в руках!</span>")
 					return
 
-			visible_message("<span class='notice'>[src] влезает в вентиляционное отверстие!</span>","<span class='notice'>Влезаю в вентиляционное отверстие.</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] влезает в вентиляционное отверстие!</span>","<span class='notice'>Влезаю в вентиляционное отверстие.</span>")
 			forceMove(vent_found)
 	else
 		to_chat(src, "<span class='warning'>Эта вентиляция не подключена к системе труб!</span>")

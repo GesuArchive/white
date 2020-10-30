@@ -97,7 +97,7 @@
 		var/obj/item/food/egg/E = I
 		if(reagents)
 			if(reagents.total_volume >= reagents.maximum_volume)
-				to_chat(user, "<span class='notice'>[src] is full.</span>")
+				to_chat(user, "<span class='notice'>[capitalize(src.name)] is full.</span>")
 			else
 				to_chat(user, "<span class='notice'>You break [E] in [src].</span>")
 				reagents.add_reagent(/datum/reagent/consumable/eggyolk, 5)

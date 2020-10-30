@@ -24,7 +24,7 @@
 
 /obj/vehicle/sealed/car/driver_move(mob/living/user, direction)
 	if(key_type && !is_key(inserted_key))
-		to_chat(user, "<span class='warning'>[src] has no key inserted!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] has no key inserted!</span>")
 		return FALSE
 	var/datum/component/riding/R = GetComponent(/datum/component/riding)
 	R.handle_ride(user, direction)

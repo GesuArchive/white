@@ -192,7 +192,7 @@
 
 /obj/structure/guillotine/user_buckle_mob(mob/living/M, force = FALSE, check_loc = FALSE)
 	if (!anchored)
-		to_chat(usr, "<span class='warning'>[src] needs to be wrenched to the floor!</span>")
+		to_chat(usr, "<span class='warning'>[capitalize(src.name)] needs to be wrenched to the floor!</span>")
 		return FALSE
 
 	if (!istype(M, /mob/living/carbon/human))

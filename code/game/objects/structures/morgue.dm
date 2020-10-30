@@ -54,7 +54,7 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
 	if(locked)
 		if(message_cooldown <= world.time)
 			message_cooldown = world.time + 50
-			to_chat(user, "<span class='warning'>[src]'s door won't budge!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s door won't budge!</span>")
 		return
 	open()
 
@@ -213,7 +213,7 @@ GLOBAL_LIST_EMPTY(crematoriums)
 	var/id = 1
 
 /obj/structure/bodycontainer/crematorium/attack_robot(mob/user) //Borgs can't use crematoriums without help
-	to_chat(user, "<span class='warning'>[src] is locked against you.</span>")
+	to_chat(user, "<span class='warning'>[capitalize(src.name)] is locked against you.</span>")
 	return
 
 /obj/structure/bodycontainer/crematorium/Destroy()

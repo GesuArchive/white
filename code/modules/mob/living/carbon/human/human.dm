@@ -44,7 +44,7 @@
 /mob/living/carbon/human/ZImpactDamage(turf/T, levels)
 	if(!HAS_TRAIT(src, TRAIT_FREERUNNING) || levels > 1) // falling off one level
 		return ..()
-	visible_message("<span class='danger'>[src] makes a hard landing on [T] but remains unharmed from the fall.</span>", \
+	visible_message("<span class='danger'>[capitalize(src.name)] makes a hard landing on [T] but remains unharmed from the fall.</span>", \
 					"<span class='userdanger'>You brace for the fall. You make a hard landing on [T] but remain unharmed.</span>")
 	Knockdown(levels * 50)
 
@@ -685,7 +685,7 @@
 			to_chat(src, "<span class='warning'>А я дышать то не умею. Как?</span>")
 			return FALSE
 
-		visible_message("<span class='notice'>[src] делает сердечно-легочную реанимацию [target.name]!</span>", \
+		visible_message("<span class='notice'>[capitalize(src.name)] делает сердечно-легочную реанимацию [target.name]!</span>", \
 						"<span class='notice'>Делаю сердечно-легочную реанимацию [target.name]... Надо потерпеть!</span>")
 
 		if (!do_mob(src, target, time = panicking ? CPR_PANIC_SPEED : (3 SECONDS)))
@@ -695,7 +695,7 @@
 		if (target.health > target.crit_threshold)
 			return FALSE
 
-		visible_message("<span class='notice'>[src] производит сердечно-легочную реанимацию [target.name]!</span>", "<span class='notice'>Произвожу сердечно-легочную реанимацию [target.name].</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] производит сердечно-легочную реанимацию [target.name]!</span>", "<span class='notice'>Произвожу сердечно-легочную реанимацию [target.name].</span>")
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "saved_life", /datum/mood_event/saved_life)
 		log_combat(src, target, "CPRed")
 
@@ -849,7 +849,7 @@
 	if(!I.loc || buckled)
 		return FALSE
 	if(I == wear_suit)
-		visible_message("<span class='danger'>[src] manages to [cuff_break ? "break" : "remove"] [I]!</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] manages to [cuff_break ? "break" : "remove"] [I]!</span>")
 		to_chat(src, "<span class='notice'>You successfully [cuff_break ? "break" : "remove"] [I].</span>")
 		return TRUE
 
@@ -937,7 +937,7 @@
 /mob/living/carbon/human/vomit(lost_nutrition = 10, blood = FALSE, stun = TRUE, distance = 1, message = TRUE, toxic = FALSE, harm = TRUE, force = FALSE, purge = FALSE)
 	if(blood && (NOBLOOD in dna.species.species_traits) && !HAS_TRAIT(src, TRAIT_TOXINLOVER))
 		if(message)
-			visible_message("<span class='warning'>[src] рыгает!</span>", \
+			visible_message("<span class='warning'>[capitalize(src.name)] рыгает!</span>", \
 							"<span class='userdanger'>Ты пытаешься вырвать, но в твоем желудке нет ничего!</span>")
 		if(stun)
 			Paralyze(200)
@@ -1095,14 +1095,14 @@
 	var/skills_space = "" //cobby told me to do this
 	if(HAS_TRAIT(src, TRAIT_QUICKER_CARRY))
 		carrydelay = 30
-		skills_space = "экспертно"
+		skills_space = "экспертно "
 	else if(HAS_TRAIT(src, TRAIT_QUICK_CARRY))
 		carrydelay = 40
-		skills_space = "быстро"
+		skills_space = "быстро "
 	if(can_be_firemanned(target) && !incapacitated(FALSE, TRUE))
 		visible_message("<span class='notice'><b>[src]</b> начинает [skills_space] поднимать <b>[target]</b> на свою спину..</span>",
 		//Joe Medic starts quickly/expertly lifting Grey Tider onto their back..
-		"<span class='notice'>[carrydelay < 35 ? "Используя свои перчатки, я" : "Я"] [skills_space] начинаю поднимать <b>[target]</b> на свою спину[carrydelay == 40 ? ", пока мне помогают мои наночипы в них..." : "..."]</span>")
+		"<span class='notice'>Начинаю [skills_space]поднимать <b>[target]</b> [carrydelay < 35 ? "мспользуя свои перчатки " : " "] на свою спину[carrydelay == 40 ? ", пока мне помогают мои наночипы в них..." : "..."]</span>")
 		//(Using your gloves' nanochips, you/You) ( /quickly/expertly) start to lift Grey Tider onto your back(, while assisted by the nanochips in your gloves../...)
 		if(do_after(src, carrydelay, target))
 			//Second check to make sure they're still valid to be carried

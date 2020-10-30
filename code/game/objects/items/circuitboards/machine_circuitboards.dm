@@ -451,7 +451,7 @@
 	. = ..()
 	if(is_special_type)
 		return
-	. += "<hr><span class='info'>[src] is set to [fridges_name_paths[build_path]]. You can use a screwdriver to reconfigure it.</span>"
+	. += "<hr><span class='info'>[capitalize(src.name)] is set to [fridges_name_paths[build_path]]. You can use a screwdriver to reconfigure it.</span>"
 
 
 /obj/item/circuitboard/machine/space_heater

@@ -36,7 +36,7 @@
 				obj_integrity = max_integrity
 				to_chat(user, "<span class='notice'>You repair [src].</span>")
 		else
-			to_chat(user, "<span class='warning'>[src] is already in good condition!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is already in good condition!</span>")
 		return
 
 /obj/structure/railing/wirecutter_act(mob/living/user, obj/item/I)
@@ -89,13 +89,13 @@
 
 /obj/structure/railing/proc/can_be_rotated(mob/user,rotation_type)
 	if(anchored)
-		to_chat(user, "<span class='warning'>[src] cannot be rotated while it is fastened to the floor!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] cannot be rotated while it is fastened to the floor!</span>")
 		return FALSE
 
 	var/target_dir = turn(dir, rotation_type == ROTATION_CLOCKWISE ? -90 : 90)
 
 	if(!valid_window_location(loc, target_dir)) //Expanded to include rails, as well!
-		to_chat(user, "<span class='warning'>[src] cannot be rotated in that direction!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] cannot be rotated in that direction!</span>")
 		return FALSE
 	return TRUE
 

@@ -73,7 +73,7 @@
 		blinking = TRUE //we do a fancy animation, release a huge burst(), and leave our staff.
 		burst_range = 10
 		visible_message("<span class='hierophant'>\"Mrmxmexmrk wipj-hiwxvygx wiuyirgi...\"</span>")
-		visible_message("<span class='hierophant_warning'>[src] shrinks, releasing a massive burst of energy!</span>")
+		visible_message("<span class='hierophant_warning'>[capitalize(src.name)] shrinks, releasing a massive burst of energy!</span>")
 		burst(get_turf(src))
 		..()
 
@@ -86,7 +86,7 @@
 		if(!L.dropItemToGround(W))
 			qdel(W)
 	visible_message("<span class='hierophant_warning'>\"[pick(kill_phrases)]\"</span>")
-	visible_message("<span class='hierophant_warning'>[src] annihilates [L]!</span>","<span class='userdanger'>You annihilate [L], restoring your health!</span>")
+	visible_message("<span class='hierophant_warning'>[capitalize(src.name)] annihilates [L]!</span>","<span class='userdanger'>You annihilate [L], restoring your health!</span>")
 	adjustHealth(-L.maxHealth*0.5)
 	L.dust()
 
@@ -362,7 +362,7 @@
 		B.damage = 30
 	animate(src, alpha = 0, time = 2, easing = EASE_OUT) //fade out
 	sleep(1)
-	visible_message("<span class='hierophant_warning'>[src] fades out!</span>")
+	visible_message("<span class='hierophant_warning'>[capitalize(src.name)] fades out!</span>")
 	density = FALSE
 	sleep(2)
 	forceMove(T)
@@ -370,7 +370,7 @@
 	animate(src, alpha = 255, time = 2, easing = EASE_IN) //fade IN
 	sleep(1)
 	density = TRUE
-	visible_message("<span class='hierophant_warning'>[src] fades in!</span>")
+	visible_message("<span class='hierophant_warning'>[capitalize(src.name)] fades in!</span>")
 	sleep(1) //at this point the blasts we made detonate
 	blinking = FALSE
 

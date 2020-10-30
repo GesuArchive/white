@@ -339,7 +339,7 @@
 			adjustBruteLoss(-10)
 		speak_chance *= 1.27 // 20 crackers to go from 1% to 100%
 		speech_shuffle_rate += 10
-		to_chat(user, "<span class='notice'>[src] eagerly devours the cracker.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] eagerly devours the cracker.</span>")
 	..()
 	return
 
@@ -506,7 +506,7 @@
 				if(!parrot_perch || parrot_interest.loc != parrot_perch.loc)
 					held_item = parrot_interest
 					parrot_interest.forceMove(src)
-					visible_message("<span class='notice'>[src] grabs [held_item]!</span>", "<span class='notice'>You grab [held_item]!</span>", "<span class='hear'>You hear the sounds of wings flapping furiously.</span>")
+					visible_message("<span class='notice'>[capitalize(src.name)] grabs [held_item]!</span>", "<span class='notice'>You grab [held_item]!</span>", "<span class='hear'>You hear the sounds of wings flapping furiously.</span>")
 
 			parrot_interest = null
 			parrot_state = PARROT_SWOOP | PARROT_RETURN
@@ -697,7 +697,7 @@
 
 			held_item = I
 			I.forceMove(src)
-			visible_message("<span class='notice'>[src] grabs [held_item]!</span>", "<span class='notice'>You grab [held_item]!</span>", "<span class='hear'>You hear the sounds of wings flapping furiously.</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] grabs [held_item]!</span>", "<span class='notice'>You grab [held_item]!</span>", "<span class='hear'>You hear the sounds of wings flapping furiously.</span>")
 			return held_item
 
 	to_chat(src, "<span class='warning'>There is nothing of interest to take!</span>")
@@ -726,7 +726,7 @@
 		if(stolen_item)
 			C.transferItemToLoc(stolen_item, src, TRUE)
 			held_item = stolen_item
-			visible_message("<span class='notice'>[src] grabs [held_item] out of [C]'s hand!</span>", "<span class='notice'>You snag [held_item] out of [C]'s hand!</span>", "<span class='hear'>You hear the sounds of wings flapping furiously.</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] grabs [held_item] out of [C]'s hand!</span>", "<span class='notice'>You snag [held_item] out of [C]'s hand!</span>", "<span class='hear'>You hear the sounds of wings flapping furiously.</span>")
 			return held_item
 
 	to_chat(src, "<span class='warning'>There is nothing of interest to take!</span>")
@@ -995,4 +995,4 @@
 	forceMove(H)
 	H.ForceContractDisease(P, FALSE)
 	parrot_interest = null
-	H.visible_message("<span class='danger'>[src] dive bombs into [H]'s chest and vanishes!</span>", "<span class='userdanger'>[src] dive bombs into your chest, vanishing! This can't be good!</span>")
+	H.visible_message("<span class='danger'>[capitalize(src.name)] dive bombs into [H]'s chest and vanishes!</span>", "<span class='userdanger'>[capitalize(src.name)] dive bombs into your chest, vanishing! This can't be good!</span>")

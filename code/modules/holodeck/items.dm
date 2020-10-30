@@ -55,14 +55,14 @@
 		w_class = WEIGHT_CLASS_BULKY
 		hitsound = 'sound/weapons/blade1.ogg'
 		playsound(user, 'sound/weapons/saberon.ogg', 20, TRUE)
-		to_chat(user, "<span class='notice'>[src] is now active.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] is now active.</span>")
 	else
 		force = 3
 		icon_state = "sword0"
 		w_class = WEIGHT_CLASS_SMALL
 		hitsound = "swing_hit"
 		playsound(user, 'sound/weapons/saberoff.ogg', 20, TRUE)
-		to_chat(user, "<span class='notice'>[src] can now be concealed.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] can now be concealed.</span>")
 	return
 
 //BASKETBALL OBJECTS

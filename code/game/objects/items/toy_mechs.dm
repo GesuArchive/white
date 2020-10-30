@@ -212,7 +212,7 @@
   */
 /obj/item/toy/prize/suicide_act(mob/living/carbon/user)
 	if(in_combat)
-		to_chat(user, "<span class='notice'>[src] is in battle, let it finish first.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] is in battle, let it finish first.</span>")
 		return
 
 	user.visible_message("<span class='suicide'>[user] begins a fight [user.p_they()] can't win with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")

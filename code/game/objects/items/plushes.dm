@@ -149,7 +149,7 @@
 			to_chat(user, "<span class='warning'>You need to remove some stuffing first!</span>")
 			return
 		if(grenade)
-			to_chat(user, "<span class='warning'>[src] already has a grenade!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a grenade!</span>")
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
@@ -172,7 +172,7 @@
 
 	//we are not catholic
 	if(young == TRUE || Kisser.young == TRUE)
-		user.show_message("<span class='notice'>[src] plays tag with [Kisser].</span>", MSG_VISUAL,
+		user.show_message("<span class='notice'>[capitalize(src.name)] plays tag with [Kisser].</span>", MSG_VISUAL,
 			"<span class='notice'>They're happy.</span>", NONE)
 		Kisser.cheer_up()
 		cheer_up()
@@ -180,7 +180,7 @@
 	//never again
 	else if(Kisser in scorned)
 		//message, visible, alternate message, neither visible nor audible
-		user.show_message("<span class='notice'>[src] rejects the advances of [Kisser]!</span>", MSG_VISUAL,
+		user.show_message("<span class='notice'>[capitalize(src.name)] rejects the advances of [Kisser]!</span>", MSG_VISUAL,
 			"<span class='notice'>That didn't feel like it worked.</span>", NONE)
 	else if(src in Kisser.scorned)
 		user.show_message("<span class='notice'>[Kisser] realises who [src] is and turns away.</span>", MSG_VISUAL,
@@ -204,7 +204,7 @@
 			new_lover(Kisser)
 			Kisser.new_lover(src)
 		else
-			user.show_message("<span class='notice'>[src] rejects the advances of [Kisser], maybe next time?</span>", MSG_VISUAL,
+			user.show_message("<span class='notice'>[capitalize(src.name)] rejects the advances of [Kisser], maybe next time?</span>", MSG_VISUAL,
 								"<span class='notice'>That didn't feel like it worked, this time.</span>", NONE)
 
 	//then comes marriage

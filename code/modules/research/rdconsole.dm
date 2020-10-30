@@ -131,7 +131,7 @@ Nothing else in the console has ID requirements.
 						logname = "User: [ID.registered_name]"
 			var/i = stored_research.research_logs.len
 			stored_research.research_logs += null
-			stored_research.research_logs[++i] = list(TN.display_name, price["General Research"], logname, "[get_area(src)] ([src.x],[src.y],[src.z])")
+			stored_research.research_logs[++i] = list(TN.display_name, price["Основные Исследования"], logname, "[get_area(src)] ([src.x],[src.y],[src.z])")
 			return TRUE
 		else
 			say("Не удалось разблокировать узел: Внутренняя ошибка базы данных!")

@@ -33,7 +33,7 @@
 			to_chat(user, "<span class='warning'>[other_swapper] is already linked. Break the current link to establish a new one.</span>")
 			return
 		if(linked_swapper)
-			to_chat(user, "<span class='warning'>[src] is already linked. Break the current link to establish a new one.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is already linked. Break the current link to establish a new one.</span>")
 			return
 		to_chat(user, "<span class='notice'>You establish a quantum link between the two devices.</span>")
 		linked_swapper = other_swapper
@@ -45,10 +45,10 @@
 
 /obj/item/swapper/attack_self(mob/living/user)
 	if(world.time < next_use)
-		to_chat(user, "<span class='warning'>[src] is still recharging.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is still recharging.</span>")
 		return
 	if(QDELETED(linked_swapper))
-		to_chat(user, "<span class='warning'>[src] is not linked with another swapper.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is not linked with another swapper.</span>")
 		return
 	playsound(src, 'sound/weapons/flash.ogg', 25, TRUE)
 	to_chat(user, "<span class='notice'>You activate [src].</span>")

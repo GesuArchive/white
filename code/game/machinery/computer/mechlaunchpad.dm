@@ -61,10 +61,10 @@
 	if(istype(multitool.buffer, /obj/machinery/mechpad))
 		var/obj/machinery/mechpad/buffered_console = multitool.buffer
 		if(!(mechpads.len < maximum_pads))
-			to_chat(user, "<span class='warning'>[src] cannot handle any more connections!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] cannot handle any more connections!</span>")
 			return
 		if(buffered_console == connected_mechpad)
-			to_chat(user, "<span class='warning'>[src] cannot connect to its own mechpad!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] cannot connect to its own mechpad!</span>")
 		else if(!connected_mechpad && buffered_console == connect_to_pad())
 			connected_mechpad = buffered_console
 			connected_mechpad.connected_console = src
@@ -85,13 +85,13 @@
   */
 /obj/machinery/computer/mechpad/proc/try_launch(var/mob/user, var/obj/machinery/mechpad/where)
 	if(!connected_mechpad)
-		to_chat(user, "<span class='warning'>[src] has no connected pad!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] has no connected pad!</span>")
 		return
 	if(connected_mechpad.panel_open)
-		to_chat(user, "<span class='warning'>[src]'s pad has its' panel open! It won't work!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s pad has its' panel open! It won't work!</span>")
 		return
 	if(!(locate(/obj/vehicle/sealed/mecha) in get_turf(connected_mechpad)))
-		to_chat(user, "<span class='warning'>[src] detects no mecha on the pad!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] detects no mecha on the pad!</span>")
 		return
 	connected_mechpad.launch(where)
 

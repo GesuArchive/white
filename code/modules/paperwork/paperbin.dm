@@ -93,7 +93,7 @@
 		user.put_in_hands(P)
 		to_chat(user, "<span class='notice'>You take [P] out of \the [src].</span>")
 	else
-		to_chat(user, "<span class='warning'>[src] is empty!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is empty!</span>")
 	add_fingerprint(user)
 	return ..()
 

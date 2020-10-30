@@ -239,7 +239,7 @@
 /mob/living/simple_animal/hostile/rat/revive(full_heal = FALSE, admin_revive = FALSE)
 	var/cap = CONFIG_GET(number/ratcap)
 	if(!admin_revive && !ckey && LAZYLEN(SSmobs.cheeserats) >= cap)
-		visible_message("<span class='warning'>[src] twitched but does not continue moving due to the overwhelming rodent population on the station!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] twitched but does not continue moving due to the overwhelming rodent population on the station!</span>")
 		return FALSE
 	. = ..()
 	if(.)
@@ -286,12 +286,12 @@
 			var/obj/structure/cable/C = locate() in F
 			if(C && prob(15))
 				if(C.avail())
-					visible_message("<span class='warning'>[src] chews through the [C]. It's toast!</span>")
+					visible_message("<span class='warning'>[capitalize(src.name)] chews through the [C]. It's toast!</span>")
 					playsound(src, 'sound/effects/sparks2.ogg', 100, TRUE)
 					C.deconstruct()
 					death()
 			else if(C?.avail())
-				visible_message("<span class='warning'>[src] chews through the [C]. It looks unharmed!</span>")
+				visible_message("<span class='warning'>[capitalize(src.name)] chews through the [C]. It looks unharmed!</span>")
 				playsound(src, 'sound/effects/sparks2.ogg', 100, TRUE)
 				C.deconstruct()
 

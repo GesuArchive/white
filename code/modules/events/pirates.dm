@@ -214,7 +214,7 @@
 
 /obj/machinery/loot_locator/interact(mob/user)
 	if(world.time <= next_use)
-		to_chat(user,"<span class='warning'>[src] is recharging.</span>")
+		to_chat(user,"<span class='warning'>[capitalize(src.name)] is recharging.</span>")
 		return
 	next_use = world.time + cooldown
 	var/atom/movable/AM = find_random_loot()

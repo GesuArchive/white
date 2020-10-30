@@ -28,20 +28,20 @@
 /obj/machinery/reagent_sheet/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/solid_reagent) && !panel_open)
 		if(machine_stat & BROKEN)
-			to_chat(user, "<span class='warning'>[src] is broken!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is broken!</span>")
 			return
 		if(working)
-			to_chat(user, "<span class='warning'>[src] is busy!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is busy!</span>")
 			return
 		else
 			var/area/a = loc.loc // Gets our locations location, like a dream within a dream
 			if(!isarea(a))
 				return
 			if(a.power_equip == 0) // There's no APC in this area, don't try to cheat power!
-				to_chat(user, "<span class='warning'>[src] seems to be powered off!</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] seems to be powered off!</span>")
 				return
 			if(!user.transferItemToLoc(I,src) && !I.reagents)
-				to_chat(user, "<span class='alert'>[src] rejects [I]</span>")
+				to_chat(user, "<span class='alert'>[capitalize(src.name)] rejects [I]</span>")
 				return
 			working = I
 			var/chem_material = working.reagents.total_volume * end_volume
@@ -49,7 +49,7 @@
 			updateUsrDialog()
 			addtimer(CALLBACK(src, /obj/machinery/reagent_sheet/proc/create_sheets, chem_material), work_time)
 			to_chat(user, "<span class='notice'>You add [working] to [src]</span>")
-			visible_message("<span class='notice'>[src] activates!</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] activates!</span>")
 		if(!in_range(src, working) || !user.Adjacent(src))
 			return
 	else
@@ -71,7 +71,7 @@
 /obj/machinery/reagent_sheet/proc/create_sheets(amount)
 	var/sheet_amount = max(round(amount / MINERAL_MATERIAL_AMOUNT), 1)
 	var/obj/item/stack/sheet/mineral/reagent/RS = new(get_turf(src))
-	visible_message("<span class='notice'>[src] finishes processing</span>")
+	visible_message("<span class='notice'>[capitalize(src.name)] finishes processing</span>")
 	playsound(src, 'sound/machines/ping.ogg', 50, 0)
 	RS.amount = sheet_amount
 	for(var/path in subtypesof(/datum/reagent))

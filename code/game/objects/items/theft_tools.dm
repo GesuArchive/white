@@ -70,7 +70,7 @@
 		icon_state = "core_container_sealed"
 		playsound(src, 'sound/items/deconstruct.ogg', 60, TRUE)
 		if(ismob(loc))
-			to_chat(loc, "<span class='warning'>[src] is permanently sealed, [core]'s radiation is contained.</span>")
+			to_chat(loc, "<span class='warning'>[capitalize(src.name)] is permanently sealed, [core]'s radiation is contained.</span>")
 
 /obj/item/nuke_core_container/attackby(obj/item/nuke_core/core, mob/user)
 	if(istype(core))
@@ -212,7 +212,7 @@
 		icon_state = "core_container_sealed"
 		playsound(src, 'sound/items/Deconstruct.ogg', 60, TRUE)
 		if(ismob(loc))
-			to_chat(loc, "<span class='warning'>[src] is permanently sealed, [sliver] is safely contained.</span>")
+			to_chat(loc, "<span class='warning'>[capitalize(src.name)] is permanently sealed, [sliver] is safely contained.</span>")
 
 /obj/item/nuke_core_container/supermatter/attackby(obj/item/hemostat/supermatter/tongs, mob/user)
 	if(istype(tongs))

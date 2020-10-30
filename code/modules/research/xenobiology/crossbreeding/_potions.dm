@@ -41,10 +41,10 @@ Slimecrossing Potions
 
 /obj/item/slimepotion/peacepotion/attack(mob/living/M, mob/user)
 	if(!isliving(M) || M.stat == DEAD)
-		to_chat(user, "<span class='warning'>[src] only works on the living.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] only works on the living.</span>")
 		return ..()
 	if(istype(M, /mob/living/simple_animal/hostile/megafauna))
-		to_chat(user, "<span class='warning'>[src] does not work on beings of pure evil!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] does not work on beings of pure evil!</span>")
 		return ..()
 	if(M != user)
 		M.visible_message("<span class='danger'>[user] starts to feed [M] [src]!</span>",

@@ -20,7 +20,7 @@
 	. = ..()
 
 	if(!machine)
-		to_chat(user, "<span class='notice'>[src] is not linked to a machine!</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] is not linked to a machine!</span>")
 		return
 
 	var/obj/item/stack/sheet/s

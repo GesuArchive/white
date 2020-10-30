@@ -72,7 +72,7 @@
 
 /obj/item/photo/proc/show(mob/user)
 	if(!istype(picture) || !picture.picture_image)
-		to_chat(user, "<span class='warning'>[src] seems to be blank...</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] seems to be blank...</span>")
 		return
 	user << browse_rsc(picture.picture_image, "tmp_photo.png")
 	user << browse("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>[name]</title></head>" \

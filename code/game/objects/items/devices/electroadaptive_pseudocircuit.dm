@@ -32,7 +32,7 @@
 		to_chat(R, "<span class='warning'>You don't have the energy for that (you need [DisplayEnergy(circuit_cost)].)</span>")
 		return
 	if(recharging)
-		to_chat(R, "<span class='warning'>[src] needs some time to recharge first.</span>")
+		to_chat(R, "<span class='warning'>[capitalize(src.name)] needs some time to recharge first.</span>")
 		return
 	if(!circuits)
 		to_chat(R, "<span class='warning'>You need more material. Use [src] on existing simple circuits to break them down.</span>")

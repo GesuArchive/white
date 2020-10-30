@@ -39,7 +39,7 @@
 
 /obj/item/stack/ore/bluespace_crystal/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	if(!..()) // not caught in mid-air
-		visible_message("<span class='notice'><b>[capitalize(src)]</b> шипит и исчезает при ударе!</span>")
+		visible_message("<span class='notice'><b>[capitalize(src.name)]</b> шипит и исчезает при ударе!</span>")
 		var/turf/T = get_turf(hit_atom)
 		new /obj/effect/particle_effect/sparks(T)
 		playsound(loc, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)

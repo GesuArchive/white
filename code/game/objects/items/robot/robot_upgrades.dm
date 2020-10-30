@@ -19,7 +19,7 @@
 
 /obj/item/borg/upgrade/proc/action(mob/living/silicon/robot/R, user = usr)
 	if(R.stat == DEAD)
-		to_chat(user, "<span class='warning'>[src] will not function on a deceased cyborg!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] will not function on a deceased cyborg!</span>")
 		return FALSE
 	if(module_type && !is_type_in_list(R.module, module_type))
 		to_chat(R, "<span class='alert'>Upgrade mounting error! No suitable hardpoint detected.</span>")

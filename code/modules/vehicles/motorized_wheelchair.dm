@@ -144,7 +144,7 @@
 	// Here is the shitty emag functionality.
 	if(obj_flags & EMAGGED && (istype(A, /turf/closed) || isliving(A)))
 		explosion(src, -1, 1, 3, 2, 0)
-		visible_message("<span class='boldwarning'>[src] explodes!!</span>")
+		visible_message("<span class='boldwarning'>[capitalize(src.name)] explodes!!</span>")
 		return
 	// If the speed is higher than delay_multiplier throw the person on the wheelchair away
 	if(A.density && speed > delay_multiplier && has_buckled_mobs())
@@ -160,9 +160,9 @@
 			D.throw_at(throw_target, 2, 3)
 			D.Knockdown(80)
 			D.adjustStaminaLoss(35)
-			visible_message("<span class='danger'>[src] crashes into [A], sending [H] and [D] flying!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] crashes into [A], sending [H] and [D] flying!</span>")
 		else
-			visible_message("<span class='danger'>[src] crashes into [A], sending [H] flying!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] crashes into [A], sending [H] flying!</span>")
 		playsound(src, 'sound/effects/bang.ogg', 50, 1)
 
 /obj/vehicle/ridden/wheelchair/motorized/emag_act(mob/user)

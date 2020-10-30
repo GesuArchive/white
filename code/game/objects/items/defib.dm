@@ -117,10 +117,10 @@
 	else if(istype(W, /obj/item/stock_parts/cell))
 		var/obj/item/stock_parts/cell/C = W
 		if(cell)
-			to_chat(user, "<span class='warning'>[src] already has a cell!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a cell!</span>")
 		else
 			if(C.maxcharge < paddles.revivecost)
-				to_chat(user, "<span class='notice'>[src] requires a higher capacity cell.</span>")
+				to_chat(user, "<span class='notice'>[capitalize(src.name)] requires a higher capacity cell.</span>")
 				return
 			if(!user.transferItemToLoc(W, src))
 				return
@@ -154,11 +154,11 @@
 		return
 	if(safety)
 		safety = FALSE
-		visible_message("<span class='notice'>[src] beeps: Safety protocols disabled!</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] beeps: Safety protocols disabled!</span>")
 		playsound(src, 'sound/machines/defib_saftyOff.ogg', 50, FALSE)
 	else
 		safety = TRUE
-		visible_message("<span class='notice'>[src] beeps: Safety protocols enabled!</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] beeps: Safety protocols enabled!</span>")
 		playsound(src, 'sound/machines/defib_saftyOn.ogg', 50, FALSE)
 	update_power()
 
@@ -226,10 +226,10 @@
 /obj/item/defibrillator/proc/finish_charging()
 	if(cell)
 		if(cell.charge >= paddles.revivecost)
-			visible_message("<span class='notice'>[src] beeps: Unit ready.</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] beeps: Unit ready.</span>")
 			playsound(src, 'sound/machines/defib_ready.ogg', 50, FALSE)
 		else
-			visible_message("<span class='notice'>[src] beeps: Charge depleted.</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] beeps: Charge depleted.</span>")
 			playsound(src, 'sound/machines/defib_failed.ogg', 50, FALSE)
 	paddles.cooldown = FALSE
 	paddles.update_icon()
@@ -353,7 +353,7 @@
 			var/mob/living/user = loc
 			to_chat(user, "<span class='warning'>[defib]'s paddles overextend and come out of your hands!</span>")
 		else
-			visible_message("<span class='notice'>[src] snap back into [defib].</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] snap back into [defib].</span>")
 		snap_back()
 
 /obj/item/shockpaddles/proc/recharge(time)
@@ -363,7 +363,7 @@
 	update_icon()
 	sleep(time)
 	var/turf/T = get_turf(src)
-	T.audible_message("<span class='notice'>[src] beeps: Unit is recharged.</span>")
+	T.audible_message("<span class='notice'>[capitalize(src.name)] beeps: Unit is recharged.</span>")
 	playsound(src, 'sound/machines/defib_ready.ogg', 50, FALSE)
 	cooldown = FALSE
 	update_icon()
@@ -427,7 +427,7 @@
 		if(req_defib)
 			to_chat(user, "<span class='warning'>[defib] is recharging!</span>")
 		else
-			to_chat(user, "<span class='warning'>[src] are recharging!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] are recharging!</span>")
 		return
 
 	if(user.a_intent == INTENT_DISARM)
@@ -506,7 +506,7 @@
 		if(req_defib)
 			T.audible_message("<span class='warning'>\The [defib] lets out an urgent beep and lets out a steadily rising hum...</span>")
 		else
-			user.audible_message("<span class='warning'>[src] let out an urgent beep.</span>")
+			user.audible_message("<span class='warning'>[capitalize(src.name)] let out an urgent beep.</span>")
 		if(do_after(user, 1.5 SECONDS, H)) //Takes longer due to overcharging
 			if(!H)
 				busy = FALSE

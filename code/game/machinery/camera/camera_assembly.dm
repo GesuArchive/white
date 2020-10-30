@@ -152,7 +152,7 @@
 		if(STATE_WIRED)	// Upgrades!
 			if(istype(W, /obj/item/stack/sheet/mineral/plasma)) //emp upgrade
 				if(emp_module)
-					to_chat(user, "<span class='warning'>[src] already contains a [emp_module]!</span>")
+					to_chat(user, "<span class='warning'>[capitalize(src.name)] already contains a [emp_module]!</span>")
 					return
 				if(!W.use_tool(src, user, 0, amount=1)) //only use one sheet, otherwise the whole stack will be consumed.
 					return
@@ -165,7 +165,7 @@
 
 			else if(istype(W, /obj/item/analyzer)) //xray upgrade
 				if(xray_module)
-					to_chat(user, "<span class='warning'>[src] already contains a [xray_module]!</span>")
+					to_chat(user, "<span class='warning'>[capitalize(src.name)] already contains a [xray_module]!</span>")
 					return
 				if(!user.transferItemToLoc(W, src))
 					return
@@ -179,7 +179,7 @@
 
 			else if(istype(W, /obj/item/assembly/prox_sensor)) //motion sensing upgrade
 				if(proxy_module)
-					to_chat(user, "<span class='warning'>[src] already contains a [proxy_module]!</span>")
+					to_chat(user, "<span class='warning'>[capitalize(src.name)] already contains a [proxy_module]!</span>")
 					return
 				if(!user.transferItemToLoc(W, src))
 					return

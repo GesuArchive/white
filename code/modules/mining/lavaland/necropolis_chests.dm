@@ -327,7 +327,7 @@
 	var/turf/current_location = get_turf(user)
 	var/area/current_area = current_location.loc
 	if(!linked || (current_area.area_flags & NOTELEPORT))
-		to_chat(user, "<span class='warning'>[src] fizzles uselessly.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] fizzles uselessly.</span>")
 		return
 	if(teleporting)
 		return
@@ -475,7 +475,7 @@
 		cooldown = world.time + 600
 		new /obj/effect/immortality_talisman(get_turf(user), user)
 	else
-		to_chat(user, "<span class='warning'>[src] is not ready yet!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is not ready yet!</span>")
 
 /obj/effect/immortality_talisman
 	name = "hole in reality"
@@ -1121,7 +1121,7 @@
 
 	if(recharge_sound)
 		playsound(dashing_item, recharge_sound, 50, TRUE)
-	to_chat(holder, "<span class='notice'>[src] now has [current_charges]/[max_charges] charges.</span>")
+	to_chat(holder, "<span class='notice'>[capitalize(src.name)] now has [current_charges]/[max_charges] charges.</span>")
 
 /obj/item/hierophant_club
 	name = "hierophant club"

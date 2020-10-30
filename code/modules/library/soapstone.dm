@@ -27,7 +27,7 @@
 	var/obj/structure/chisel_message/existing_message = locate() in T
 
 	if(!remaining_uses && !existing_message)
-		to_chat(user, "<span class='warning'>[src] is too worn out to use.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is too worn out to use.</span>")
 		return
 
 	if(!good_chisel_message_location(T))

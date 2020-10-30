@@ -129,7 +129,7 @@ Borg Hypospray
 	mode = chosen_reagent
 	playsound(loc, 'sound/effects/pop.ogg', 50, FALSE)
 	var/datum/reagent/R = GLOB.chemical_reagents_list[reagent_ids[mode]]
-	to_chat(user, "<span class='notice'>[src] is now dispensing '[R.name]'.</span>")
+	to_chat(user, "<span class='notice'>[capitalize(src.name)] is now dispensing '[R.name]'.</span>")
 	return
 
 /obj/item/reagent_containers/borghypo/examine(mob/user)
@@ -162,7 +162,7 @@ Borg Hypospray
 		amount_per_transfer_from_this = 2
 	else
 		amount_per_transfer_from_this = 5
-	to_chat(user,"<span class='notice'>[src] is now set to [amount_per_transfer_from_this == 5 ? "dose normally" : "microdose"].</span>")
+	to_chat(user,"<span class='notice'>[capitalize(src.name)] is now set to [amount_per_transfer_from_this == 5 ? "dose normally" : "microdose"].</span>")
 
 /obj/item/reagent_containers/borghypo/hacked
 	icon_state = "borghypo_s"
@@ -243,7 +243,7 @@ Borg Shaker
 	else if(target.is_refillable())
 		var/datum/reagents/R = reagent_list[mode]
 		if(!R.total_volume)
-			to_chat(user, "<span class='warning'>[src] is currently out of this ingredient! Please allow some time for the synthesizer to produce more.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is currently out of this ingredient! Please allow some time for the synthesizer to produce more.</span>")
 			return
 
 		if(target.reagents.total_volume >= target.reagents.maximum_volume)

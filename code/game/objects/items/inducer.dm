@@ -51,11 +51,11 @@
 		return TRUE
 
 	if(!cell)
-		to_chat(user, "<span class='warning'>[src] doesn't have a power cell installed!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] doesn't have a power cell installed!</span>")
 		return TRUE
 
 	if(!cell.charge)
-		to_chat(user, "<span class='warning'>[src]'s battery is dead!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s battery is dead!</span>")
 		return TRUE
 	return FALSE
 
@@ -83,7 +83,7 @@
 				update_icon()
 				return
 			else
-				to_chat(user, "<span class='warning'>[src] already has \a [cell] installed!</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] already has \a [cell] installed!</span>")
 				return
 
 	if(cantbeused(user))

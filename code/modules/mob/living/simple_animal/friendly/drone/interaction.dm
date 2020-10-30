@@ -45,7 +45,7 @@
 		visible_message("<span class='warning'>[user] picks up [src]!</span>", \
 						"<span class='userdanger'>[user] picks you up!</span>")
 		if(buckled)
-			to_chat(user, "<span class='warning'>[src] is buckled to [buckled] and cannot be picked up!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is buckled to [buckled] and cannot be picked up!</span>")
 			return
 		to_chat(user, "<span class='notice'>You pick [src] up.</span>")
 		drop_all_held_items()
@@ -97,7 +97,7 @@
 			else
 				to_chat(user, "<span class='warning'>You need to remain still to tighten [src]'s screws!</span>")
 		else
-			to_chat(user, "<span class='warning'>[src]'s screws can't get any tighter!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s screws can't get any tighter!</span>")
 		return //This used to not exist and drones who repaired themselves also stabbed the shit out of themselves.
 	else if(I.tool_behaviour == TOOL_WRENCH && user != src) //They aren't required to be hacked, because laws can change in other ways (i.e. admins)
 		user.visible_message("<span class='notice'>[user] starts resetting [src]...</span>", \
@@ -139,7 +139,7 @@
 		if(hacked)
 			return
 		Stun(40)
-		visible_message("<span class='warning'>[src]'s display glows a vicious red!</span>", \
+		visible_message("<span class='warning'>[capitalize(src.name)]'s display glows a vicious red!</span>", \
 						"<span class='userdanger'>ERROR: LAW OVERRIDE DETECTED</span>")
 		to_chat(src, "<span class='boldannounce'>From now on, these are your laws:</span>")
 		laws = \
@@ -157,7 +157,7 @@
 		if(!hacked)
 			return
 		Stun(40)
-		visible_message("<span class='info'>[src]'s display glows a content blue!</span>", \
+		visible_message("<span class='info'>[capitalize(src.name)]'s display glows a content blue!</span>", \
 						"<font size=3 color='#0000CC'><b>ERROR: LAW OVERRIDE DETECTED</b></font>")
 		to_chat(src, "<span class='info'><b>From now on, these are your laws:</b></span>")
 		laws = initial(laws)

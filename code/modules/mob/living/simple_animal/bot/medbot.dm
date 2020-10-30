@@ -216,7 +216,7 @@
 		declare_crit = 0
 		if(user)
 			to_chat(user, "<span class='notice'>You short out [src]'s reagent synthesis circuits.</span>")
-		audible_message("<span class='danger'>[src] buzzes oddly!</span>")
+		audible_message("<span class='danger'>[capitalize(src.name)] buzzes oddly!</span>")
 		flick("medibot_spark", src)
 		playsound(src, "sparks", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		if(user)
@@ -261,7 +261,7 @@
 		else
 			messagevoice = list("Thank you!" = 'sound/voice/medbot/thank_you.ogg', "You are a good person." = 'sound/voice/medbot/youre_good.ogg')
 	else
-		visible_message("<span class='notice'>[src] manages to wriggle enough to right itself.</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] manages to wriggle enough to right itself.</span>")
 		messagevoice = list("Fuck you." = 'sound/voice/medbot/fuck_you.ogg', "Your behavior has been reported, have a nice day." = 'sound/voice/medbot/reported.ogg')
 	tipper_name = null
 	if(world.time > last_tipping_action_voice + 15 SECONDS)
@@ -544,8 +544,8 @@
 			bot_reset()
 			tending = FALSE
 		else if(patient)
-			C.visible_message("<span class='danger'>[src] is trying to tend the wounds of [patient]!</span>", \
-				"<span class='userdanger'>[src] is trying to tend your wounds!</span>")
+			C.visible_message("<span class='danger'>[capitalize(src.name)] is trying to tend the wounds of [patient]!</span>", \
+				"<span class='userdanger'>[capitalize(src.name)] is trying to tend your wounds!</span>")
 
 			if(do_mob(src, patient, 20)) //Slightly faster than default tend wounds, but does less HPS
 				if((get_dist(src, patient) <= 1) && (on) && assess_patient(patient))
@@ -560,8 +560,8 @@
 					else
 						patient.apply_damage_type((healies*-1),treatment_method) //don't need to check treatment_method since we know by this point that they were actually damaged.
 						log_combat(src, patient, "tended the wounds of", "internal tools", "([uppertext(treatment_method)])")
-					C.visible_message("<span class='notice'>[src] tends the wounds of [patient]!</span>", \
-						"<span class='green'>[src] tends your wounds!</span>")
+					C.visible_message("<span class='notice'>[capitalize(src.name)] tends the wounds of [patient]!</span>", \
+						"<span class='green'>[capitalize(src.name)] tends your wounds!</span>")
 					ADD_TRAIT(patient,TRAIT_MEDIBOTCOMINGTHROUGH,tag)
 					addtimer(TRAIT_CALLBACK_REMOVE(patient, TRAIT_MEDIBOTCOMINGTHROUGH, tag), (30 SECONDS))
 				else
@@ -578,7 +578,7 @@
 
 /mob/living/simple_animal/bot/medbot/explode()
 	on = FALSE
-	visible_message("<span class='boldannounce'>[src] blows apart!</span>")
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] blows apart!</span>")
 	var/atom/Tsec = drop_location()
 
 	drop_part(firstaid, Tsec)

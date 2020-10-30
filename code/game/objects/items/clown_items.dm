@@ -111,7 +111,7 @@
 	if(prob(skillcheck*100)) //higher level = more uses assuming RNG is nice
 		uses--
 	if(uses <= 0)
-		to_chat(user, "<span class='warning'>[src] crumbles into tiny bits!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] crumbles into tiny bits!</span>")
 		qdel(src)
 
 /obj/item/soap/afterattack(atom/target, mob/user, proximity)

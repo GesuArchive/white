@@ -69,7 +69,7 @@
 /obj/effect/decal/cleanable/oil/fire_act(exposed_temperature, exposed_volume)
 	if(exposed_temperature < 480)
 		return
-	visible_message("<span class='danger'>[src] catches fire!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] catches fire!</span>")
 	var/turf/T = get_turf(src)
 	qdel(src)
 	new /obj/effect/hotspot(T)

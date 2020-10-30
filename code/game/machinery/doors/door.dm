@@ -381,7 +381,7 @@
 
 /obj/machinery/door/proc/crush()
 	for(var/mob/living/L in get_turf(src))
-		L.visible_message("<span class='warning'>[src] закрывается на [L], раздавливая [L.ru_ego()]!</span>", "<span class='userdanger'>[src] закрывается на мне с прикольным звуком!</span>")
+		L.visible_message("<span class='warning'>[capitalize(src.name)] закрывается на [L], раздавливая [L.ru_ego()]!</span>", "<span class='userdanger'>[capitalize(src.name)] закрывается на мне с прикольным звуком!</span>")
 		SEND_SIGNAL(L, COMSIG_LIVING_DOORCRUSHED, src)
 		if(isalien(L))  //For xenos
 			L.adjustBruteLoss(DOOR_CRUSH_DAMAGE * 1.5) //Xenos go into crit after aproximately the same amount of crushes as humans.
