@@ -44,7 +44,7 @@
 /mob/living/carbon/human/ZImpactDamage(turf/T, levels)
 	if(!HAS_TRAIT(src, TRAIT_FREERUNNING) || levels > 1) // falling off one level
 		return ..()
-	visible_message("<span class='danger'>[src] makes a hard landing on [T] but remains unharmed from the fall.</span>", \
+	visible_message("<span class='danger'>[capitalize(src.name)] makes a hard landing on [T] but remains unharmed from the fall.</span>", \
 					"<span class='userdanger'>You brace for the fall. You make a hard landing on [T] but remain unharmed.</span>")
 	Knockdown(levels * 50)
 
@@ -685,7 +685,7 @@
 			to_chat(src, "<span class='warning'>А я дышать то не умею. Как?</span>")
 			return FALSE
 
-		visible_message("<span class='notice'>[src] делает сердечно-легочную реанимацию [target.name]!</span>", \
+		visible_message("<span class='notice'>[capitalize(src.name)] делает сердечно-легочную реанимацию [target.name]!</span>", \
 						"<span class='notice'>Делаю сердечно-легочную реанимацию [target.name]... Надо потерпеть!</span>")
 
 		if (!do_mob(src, target, time = panicking ? CPR_PANIC_SPEED : (3 SECONDS)))
@@ -695,7 +695,7 @@
 		if (target.health > target.crit_threshold)
 			return FALSE
 
-		visible_message("<span class='notice'>[src] производит сердечно-легочную реанимацию [target.name]!</span>", "<span class='notice'>Произвожу сердечно-легочную реанимацию [target.name].</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] производит сердечно-легочную реанимацию [target.name]!</span>", "<span class='notice'>Произвожу сердечно-легочную реанимацию [target.name].</span>")
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "saved_life", /datum/mood_event/saved_life)
 		log_combat(src, target, "CPRed")
 
@@ -849,7 +849,7 @@
 	if(!I.loc || buckled)
 		return FALSE
 	if(I == wear_suit)
-		visible_message("<span class='danger'>[src] manages to [cuff_break ? "break" : "remove"] [I]!</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] manages to [cuff_break ? "break" : "remove"] [I]!</span>")
 		to_chat(src, "<span class='notice'>You successfully [cuff_break ? "break" : "remove"] [I].</span>")
 		return TRUE
 
@@ -937,7 +937,7 @@
 /mob/living/carbon/human/vomit(lost_nutrition = 10, blood = FALSE, stun = TRUE, distance = 1, message = TRUE, toxic = FALSE, harm = TRUE, force = FALSE, purge = FALSE)
 	if(blood && (NOBLOOD in dna.species.species_traits) && !HAS_TRAIT(src, TRAIT_TOXINLOVER))
 		if(message)
-			visible_message("<span class='warning'>[src] рыгает!</span>", \
+			visible_message("<span class='warning'>[capitalize(src.name)] рыгает!</span>", \
 							"<span class='userdanger'>Ты пытаешься вырвать, но в твоем желудке нет ничего!</span>")
 		if(stun)
 			Paralyze(200)

@@ -41,11 +41,11 @@
 /obj/item/clothing/suit/armor/reactive/attack_self(mob/user)
 	active = !(active)
 	if(active)
-		to_chat(user, "<span class='notice'>[src] сейчас включен.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] сейчас включен.</span>")
 		icon_state = "reactive"
 		inhand_icon_state = "reactive"
 	else
-		to_chat(user, "<span class='notice'>[src] сейчас выключен.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] сейчас выключен.</span>")
 		icon_state = "reactiveoff"
 		inhand_icon_state = "reactiveoff"
 	add_fingerprint(user)
@@ -111,7 +111,7 @@
 		if(world.time < reactivearmor_cooldown)
 			owner.visible_message("<span class='danger'>Зажигательная броня [owner] активировалась, но заряда нехватило для работы!</span>")
 			return
-		owner.visible_message("<span class='danger'>[src] блокировал [attack_text], рассылаются струи пламени!</span>")
+		owner.visible_message("<span class='danger'>[capitalize(src.name)] блокировал [attack_text], рассылаются струи пламени!</span>")
 		playsound(get_turf(owner),'sound/magic/fireball.ogg', 100, TRUE)
 		for(var/mob/living/carbon/C in range(6, owner))
 			if(C != owner)
@@ -175,7 +175,7 @@
 			sparks.start()
 			owner.visible_message("<span class='danger'>Конденсаторы [owner]'s тесла брони перезаряжаются! Броня просто испускает искры.</span>")
 			return
-		owner.visible_message("<span class='danger'>[src] блокировала [attack_text], испуская лучи света!</span>")
+		owner.visible_message("<span class='danger'>[capitalize(src.name)] блокировала [attack_text], испуская лучи света!</span>")
 		tesla_zap(owner, zap_range, zap_power, zap_flags)
 		reactivearmor_cooldown = world.time + reactivearmor_cooldown_duration
 		return TRUE
@@ -195,7 +195,7 @@
 			owner.visible_message("<span class='danger'>The repulse generator is still recharging!</span>")
 			return FALSE
 		playsound(get_turf(owner),'sound/magic/repulse.ogg', 100, TRUE)
-		owner.visible_message("<span class='danger'>[src] блокировала [attack_text], переводя атаку в мощный силовой импульс!</span>")
+		owner.visible_message("<span class='danger'>[capitalize(src.name)] блокировала [attack_text], переводя атаку в мощный силовой импульс!</span>")
 		var/turf/T = get_turf(owner)
 		var/list/thrown_items = list()
 		for(var/atom/movable/A in range(T, 7))

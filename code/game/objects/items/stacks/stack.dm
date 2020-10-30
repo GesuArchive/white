@@ -46,7 +46,7 @@
 
 /obj/item/stack/grind_requirements()
 	if(is_cyborg)
-		to_chat(usr, "<span class='warning'><b>[capitalize(src)]</b> электронно синтезируется в моём корпусе и не может быть измельчен!</span>")
+		to_chat(usr, "<span class='warning'><b>[capitalize(src.name)]</b> электронно синтезируется в моём корпусе и не может быть измельчен!</span>")
 		return
 	return TRUE
 

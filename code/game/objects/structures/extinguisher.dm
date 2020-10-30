@@ -115,7 +115,7 @@
 
 /obj/structure/extinguisher_cabinet/proc/toggle_cabinet(mob/user)
 	if(opened && broken)
-		to_chat(user, "<span class='warning'>[src] is broken open.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is broken open.</span>")
 	else
 		playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
 		opened = !opened

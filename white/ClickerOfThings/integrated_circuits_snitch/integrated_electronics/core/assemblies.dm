@@ -499,12 +499,12 @@
 /obj/item/electronic_assembly/proc/try_remove_component(obj/item/integrated_circuit/IC, mob/user, silent)
 	if(!opened)
 		if(!silent)
-			to_chat(user, "<span class='warning'>[src]'s hatch is closed, so you can't fiddle with the internal components.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s hatch is closed, so you can't fiddle with the internal components.</span>")
 		return FALSE
 
 	if(!IC.removable)
 		if(!silent)
-			to_chat(user, "<span class='warning'>[src] is permanently attached to the case.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is permanently attached to the case.</span>")
 		return FALSE
 
 	remove_component(IC)
@@ -639,19 +639,19 @@
 			interact(user)
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>[src]'s hatch is closed, so you can't fiddle with the internal components.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s hatch is closed, so you can't fiddle with the internal components.</span>")
 			for(var/obj/item/integrated_circuit/input/S in assembly_components)
 				S.attackby_react(I,user,user.a_intent)
 			return ..()
 
 	else if(istype(I, /obj/item/stock_parts/cell))
 		if(!opened)
-			to_chat(user, "<span class='warning'>[src]'s hatch is closed, so you can't access \the [src]'s power supplier.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s hatch is closed, so you can't access \the [src]'s power supplier.</span>")
 			for(var/obj/item/integrated_circuit/input/S in assembly_components)
 				S.attackby_react(I,user,user.a_intent)
 			return ..()
 		if(battery)
-			to_chat(user, "<span class='warning'>[src] already has \a [battery] installed. Remove it first if you want to replace it.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has \a [battery] installed. Remove it first if you want to replace it.</span>")
 			for(var/obj/item/integrated_circuit/input/S in assembly_components)
 				S.attackby_react(I,user,user.a_intent)
 			return ..()

@@ -20,14 +20,14 @@
 	weapon_force = 0
 
 /mob/living/simple_animal/bot/secbot/grievous/bullet_act(obj/projectile/P)
-	visible_message("<span class='warning'>[src] deflects [P] with its energy swords!</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] deflects [P] with its energy swords!</span>")
 	playsound(src, 'sound/weapons/blade1.ogg', 50, TRUE)
 	return BULLET_ACT_BLOCK
 
 /mob/living/simple_animal/bot/secbot/grievous/Crossed(atom/movable/AM)
 	..()
 	if(ismob(AM) && AM == target)
-		visible_message("<span class='warning'>[src] flails his swords and cuts [AM]!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] flails his swords and cuts [AM]!</span>")
 		playsound(src,'sound/effects/beepskyspinsabre.ogg',100,TRUE,-1)
 		stun_attack(AM)
 
@@ -43,7 +43,7 @@
 	if(mode != BOT_HUNT)
 		return
 	if(prob(block_chance))
-		visible_message("<span class='warning'>[src] deflects [user]'s attack with his energy swords!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] deflects [user]'s attack with his energy swords!</span>")
 		playsound(src, 'sound/weapons/blade1.ogg', 50, TRUE, -1)
 		return TRUE
 
@@ -119,9 +119,9 @@
 			//playsound(src, pick('sound/voice/beepsky/criminal.ogg', 'sound/voice/beepsky/justice.ogg', 'sound/voice/beepsky/freeze.ogg'), 50, FALSE)
 			playsound(loc, pick('white/valtos/sounds/beepsky_russian/criminal.ogg', 'white/valtos/sounds/beepsky_russian/justice.ogg', 'white/valtos/sounds/beepsky_russian/freeze.ogg'), 50, FALSE)
 			playsound(src,'sound/weapons/saberon.ogg',50,TRUE,-1)
-			visible_message("<span class='warning'>[src] ignites his energy swords!</span>")
+			visible_message("<span class='warning'>[capitalize(src.name)] ignites his energy swords!</span>")
 			icon_state = "grievous-c"
-			visible_message("<b>[capitalize(src)]</b> points at [C.name]!")
+			visible_message("<b>[capitalize(src.name)]</b> points at [C.name]!")
 			mode = BOT_HUNT
 			INVOKE_ASYNC(src, .proc/handle_automated_action)
 			break
@@ -132,7 +132,7 @@
 /mob/living/simple_animal/bot/secbot/grievous/explode()
 
 	walk_to(src,0)
-	visible_message("<span class='boldannounce'>[src] lets out a huge cough as it blows apart!</span>")
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] lets out a huge cough as it blows apart!</span>")
 	var/atom/Tsec = drop_location()
 
 	var/obj/item/bot_assembly/secbot/Sa = new (Tsec)

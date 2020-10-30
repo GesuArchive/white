@@ -24,7 +24,7 @@
 	if(istype(card.loc, /obj/item/pda))
 		var/obj/item/pda/P = card.loc
 		P.pai = null
-		P.visible_message("<span class='notice'>[src] ejects itself from [P]!</span>")
+		P.visible_message("<span class='notice'>[capitalize(src.name)] ejects itself from [P]!</span>")
 	if(isliving(card.loc))
 		var/mob/living/L = card.loc
 		if(!L.temporarilyRemoveItemFromInventory(card))
@@ -38,7 +38,7 @@
 	set_light(0)
 	icon_state = "[chassis]"
 	held_state = "[chassis]"
-	visible_message("<span class='boldnotice'>[src] folds out its holochassis emitter and forms a holoshell around itself!</span>")
+	visible_message("<span class='boldnotice'>[capitalize(src.name)] folds out its holochassis emitter and forms a holoshell around itself!</span>")
 	holoform = TRUE
 
 /mob/living/silicon/pai/proc/emittercool()
@@ -54,7 +54,7 @@
 	if(!holoform)
 		. = fold_out(force)
 		return
-	visible_message("<span class='notice'>[src] deactivates its holochassis emitter and folds back into a compact card!</span>")
+	visible_message("<span class='notice'>[capitalize(src.name)] deactivates its holochassis emitter and folds back into a compact card!</span>")
 	stop_pulling()
 	if(istype(loc, /obj/item/clothing/head/mob_holder))
 		var/obj/item/clothing/head/mob_holder/MH = loc
@@ -115,7 +115,7 @@
 	else
 		icon_state = "[chassis]"
 	if(loc != card)
-		visible_message("<span class='notice'>[src] [resting? "lays down for a moment..." : "perks up from the ground"]</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] [resting? "lays down for a moment..." : "perks up from the ground"]</span>")
 
 /mob/living/silicon/pai/start_pulling(atom/movable/AM, state, force = move_force, supress_message = FALSE)
 	return FALSE
@@ -130,6 +130,6 @@
 
 /mob/living/silicon/pai/mob_try_pickup(mob/living/user)
 	if(!possible_chassis[chassis])
-		to_chat(user, "<span class='warning'>[src]'s current form isn't able to be carried!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s current form isn't able to be carried!</span>")
 		return FALSE
 	return ..()

@@ -232,7 +232,7 @@
 /obj/machinery/door/firedoor/attack_alien(mob/user)
 	add_fingerprint(user)
 	if(welded)
-		to_chat(user, "<span class='warning'>[src] не хочет открываться!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] не хочет открываться!</span>")
 		return
 	open()
 
@@ -430,7 +430,7 @@
 			if(istype(C, /obj/item/stack/sheet/plasteel))
 				var/obj/item/stack/sheet/plasteel/P = C
 				if(reinforced)
-					to_chat(user, "<span class='warning'>[capitalize(src)] уже укреплён.</span>")
+					to_chat(user, "<span class='warning'>[capitalize(src.name)] уже укреплён.</span>")
 					return
 				if(P.get_amount() < 2)
 					to_chat(user, "<span class='warning'>Мне потребуется чуть больше пластали для [src].</span>")

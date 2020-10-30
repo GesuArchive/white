@@ -142,7 +142,7 @@
 		if(E.drain_time > world.time)
 			return
 		if(charge < CELL_POWER_DRAIN)
-			to_chat(H, "<span class='warning'>[src] doesn't have enough power!</span>")
+			to_chat(H, "<span class='warning'>[capitalize(src.name)] doesn't have enough power!</span>")
 			return
 		var/obj/item/organ/stomach/ethereal/stomach = H.getorganslot(ORGAN_SLOT_STOMACH)
 		if(stomach.crystal_charge > charge_limit)

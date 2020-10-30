@@ -245,7 +245,7 @@
 		if(target_on_help_and_unarmed || HAS_TRAIT(target, TRAIT_RESTRAINED))
 			do_slap_animation(target)
 			playsound(target.loc, 'sound/weapons/slap.ogg', 50, TRUE, -1)
-			visible_message("<span class='danger'>[src] slaps [target] in the face!</span>",
+			visible_message("<span class='danger'>[capitalize(src.name)] slaps [target] in the face!</span>",
 				"<span class='notice'>You slap [target] in the face! </span>",\
 			"You hear a slap.")
 			target.dna?.species?.stop_wagging_tail(target)
@@ -509,7 +509,7 @@
 			if(!embeds)
 				embeds = TRUE
 				// this way, we only visibly try to examine ourselves if we have something embedded, otherwise we'll still hug ourselves :)
-				visible_message("<span class='notice'>[src] examines [p_them()]self.</span>", \
+				visible_message("<span class='notice'>[capitalize(src.name)] examines [p_them()]self.</span>", \
 					"<span class='notice'>You check yourself for shrapnel.</span>")
 			if(I.isEmbedHarmless())
 				to_chat(src, "\t <a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>There is \a [I] stuck to your [LB.name]!</a>")

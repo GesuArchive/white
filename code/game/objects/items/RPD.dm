@@ -256,7 +256,7 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
   */
 /obj/item/pipe_dispenser/proc/install_upgrade(obj/item/rpd_upgrade/rpd_up, mob/user)
 	if(rpd_up.upgrade_flags& upgrade_flags)
-		to_chat(user, "<span class='warning'>[src] has already installed this upgrade!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] has already installed this upgrade!</span>")
 		return
 	upgrade_flags |= rpd_up.upgrade_flags
 	playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
@@ -369,7 +369,7 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 
 	//Unwrench pipe before we build one over/paint it.
 	if((mode & DESTROY_MODE) && (upgrade_flags & RPD_UPGRADE_UNWRENCH) && istype(A, /obj/machinery/atmospherics))
-		A = A.wrench_act(user, src)	
+		A = A.wrench_act(user, src)
 
 	//make sure what we're clicking is valid for the current category
 	var/static/list/make_pipe_whitelist
@@ -452,7 +452,7 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 					return ..()
 				A = get_turf(A)
 				if(isclosedturf(A))
-					to_chat(user, "<span class='warning'>[src]'s error light flickers; there's something in the way!</span>")
+					to_chat(user, "<span class='warning'>[capitalize(src.name)]'s error light flickers; there's something in the way!</span>")
 					return
 				to_chat(user, "<span class='notice'>You start building a disposals pipe...</span>")
 				playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
@@ -477,7 +477,7 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 					return ..()
 				A = get_turf(A)
 				if(isclosedturf(A))
-					to_chat(user, "<span class='warning'>[src]'s error light flickers; there's something in the way!</span>")
+					to_chat(user, "<span class='warning'>[capitalize(src.name)]'s error light flickers; there's something in the way!</span>")
 					return
 				to_chat(user, "<span class='notice'>You start building a transit tube...</span>")
 				playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)

@@ -75,7 +75,7 @@
 
 /mob/living/carbon/alien/humanoid/resist_grab(moving_resist)
 	if(pulledby.grab_state)
-		visible_message("<span class='danger'>[src] breaks free of [pulledby]'s grip!</span>", \
+		visible_message("<span class='danger'>[capitalize(src.name)] breaks free of [pulledby]'s grip!</span>", \
 						"<span class='danger'>You break free of [pulledby]'s grip!</span>")
 	pulledby.stop_pulling()
 	. = 0

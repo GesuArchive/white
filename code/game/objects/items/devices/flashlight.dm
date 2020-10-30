@@ -179,7 +179,7 @@
 	. = ..()
 	if(!proximity_flag)
 		if(holo_cooldown > world.time)
-			to_chat(user, "<span class='warning'>[src] is not ready yet!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is not ready yet!</span>")
 			return
 		var/T = get_turf(target)
 		if(locate(/mob/living) in T)
@@ -320,10 +320,10 @@
 
 	// Usual checks
 	if(fuel <= 0)
-		to_chat(user, "<span class='warning'>[src] is out of fuel!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is out of fuel!</span>")
 		return
 	if(on)
-		to_chat(user, "<span class='warning'>[src] is already on!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is already on!</span>")
 		return
 
 	. = ..()
@@ -508,10 +508,10 @@
 
 /obj/item/flashlight/glowstick/attack_self(mob/user)
 	if(fuel <= 0)
-		to_chat(user, "<span class='notice'>[src] is spent.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] is spent.</span>")
 		return
 	if(on)
-		to_chat(user, "<span class='warning'>[src] is already lit!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is already lit!</span>")
 		return
 
 	. = ..()

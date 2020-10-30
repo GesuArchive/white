@@ -66,7 +66,7 @@
 				return
 
 	else
-		to_chat(user, "<span class='alert'>[src] rejects the [I]</span>")
+		to_chat(user, "<span class='alert'>[capitalize(src.name)] rejects the [I]</span>")
 
 
 /obj/machinery/reagent_forge/proc/check_cost(materials, using)

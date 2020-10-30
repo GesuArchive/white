@@ -64,7 +64,7 @@
 					blocked = TRUE
 			if(!blocked)
 				L.drop_all_held_items()
-				L.visible_message("<span class='danger'>[src] slams into [L]!</span>", "<span class='userdanger'>[src] slams into you!</span>")
+				L.visible_message("<span class='danger'>[capitalize(src.name)] slams into [L]!</span>", "<span class='userdanger'>[capitalize(src.name)] slams into you!</span>")
 				L.apply_damage(20, BRUTE)
 				playsound(get_turf(L), 'sound/effects/meteorimpact.ogg', 100, TRUE)
 				shake_camera(L, 4, 3)

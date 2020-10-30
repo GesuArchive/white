@@ -197,7 +197,7 @@
 		if(DUEL_READY)
 			return .
 		else
-			to_chat(user,"<span class='warning'>[src] is locked. Wait for FIRE signal before shooting.</span>")
+			to_chat(user,"<span class='warning'>[capitalize(src.name)] is locked. Wait for FIRE signal before shooting.</span>")
 			return FALSE
 
 /obj/item/gun/energy/dueling/proc/is_duelist(mob/living/L)
@@ -213,7 +213,7 @@
 		to_chat(user,"<span class='notice'>You confirm your readiness.</span>")
 		return
 	else if(!is_duelist(target)) //I kinda want to leave this out just to see someone shoot a bystander or missing.
-		to_chat(user,"<span class='warning'>[src] safety system prevents shooting anyone but your designated opponent.</span>")
+		to_chat(user,"<span class='warning'>[capitalize(src.name)] safety system prevents shooting anyone but your designated opponent.</span>")
 		return
 	else
 		duel.fired[src] = TRUE

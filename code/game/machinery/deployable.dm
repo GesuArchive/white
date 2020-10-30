@@ -137,7 +137,7 @@
 	density = TRUE
 	anchored = TRUE
 	if(deploy_message)
-		visible_message("<span class='warning'>[src] deploys!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] deploys!</span>")
 
 
 /obj/item/grenade/barrier
@@ -167,7 +167,7 @@
 		if(HORIZONTAL)
 			mode = SINGLE
 
-	to_chat(user, "<span class='notice'>[src] is now in [mode] mode.</span>")
+	to_chat(user, "<span class='notice'>[capitalize(src.name)] is now in [mode] mode.</span>")
 
 /obj/item/grenade/barrier/prime(mob/living/lanced_by)
 	. = ..()

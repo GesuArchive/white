@@ -68,7 +68,7 @@
 	..()
 	if (istype(O, /obj/item/plant_analyzer))
 		var/obj/item/plant_analyzer/P_analyzer = O
-		var/msg = "<span class='info'>This is \a <span class='name'>[src]</span>.\n"
+		var/msg = "<span class='info'>This is \a <span class='name'>[capitalize(src.name)]</span>.\n"
 		if(seed && P_analyzer.scan_mode == PLANT_SCANMODE_STATS)
 			msg += seed.get_analyzer_text()
 		var/reag_txt = ""
@@ -121,7 +121,7 @@
 	if(trash)
 		generate_trash(T)
 
-	visible_message("<span class='warning'>[src] is squashed.</span>","<span class='hear'>You hear a smack.</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] is squashed.</span>","<span class='hear'>You hear a smack.</span>")
 	if(seed)
 		for(var/datum/plant_gene/trait/trait in seed.genes)
 			trait.on_squash(src, target)
@@ -148,7 +148,7 @@
 
 /obj/item/reagent_containers/food/snacks/grown/grind_requirements()
 	if(dry_grind && !dry)
-		to_chat(usr, "<span class='warning'>[src] needs to be dry before it can be ground up!</span>")
+		to_chat(usr, "<span class='warning'>[capitalize(src.name)] needs to be dry before it can be ground up!</span>")
 		return
 	return TRUE
 

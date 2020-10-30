@@ -47,7 +47,7 @@
 		var/clr = C.crayon_color
 
 		if(!(clr in list("blue", "green", "mime", "orange", "purple", "rainbow", "red", "yellow")))
-			to_chat(usr, "<span class='notice'>[src] refuses to take on this colour!</span>")
+			to_chat(usr, "<span class='notice'>[capitalize(src.name)] refuses to take on this colour!</span>")
 			return
 
 		to_chat(usr, "<span class='notice'>You colour [src] with [W].</span>")

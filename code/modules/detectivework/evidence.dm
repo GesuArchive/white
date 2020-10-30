@@ -84,7 +84,7 @@
 		desc = "Пустой пакетик для улик."
 
 	else
-		to_chat(user, "<span class='notice'>[src] пуст.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] пуст.</span>")
 		icon_state = "evidenceobj"
 	return
 

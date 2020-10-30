@@ -11,7 +11,7 @@
 
 /obj/vehicle/sealed/mecha/mechanized/proc/prehit(obj/projectile/source, list/signal_args)
 	if(prob(deflect_chance))
-		visible_message("<span class='red'>[src] уворачивается от [source].</span>")
+		visible_message("<span class='red'>[capitalize(src.name)] уворачивается от [source].</span>")
 		qdel(source)
 	switch(rand(1,4))
 		if(1)

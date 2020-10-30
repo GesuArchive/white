@@ -163,7 +163,7 @@
 	COOLDOWN_START(src, alert_cooldown, 5 SECONDS)
 	flick("[initial(icon_state)]-alert", src)
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
-	loc.visible_message("<span class='info'>[src] flashes a message across its screen, \"Additional personalities available for download.\"</span>", blind_message = "<span class='notice'>[src] vibrates with an alert.</span>")
+	loc.visible_message("<span class='info'>[capitalize(src.name)] flashes a message across its screen, \"Additional personalities available for download.\"</span>", blind_message = "<span class='notice'>[capitalize(src.name)] vibrates with an alert.</span>")
 
 /obj/item/paicard/emp_act(severity)
 	. = ..()

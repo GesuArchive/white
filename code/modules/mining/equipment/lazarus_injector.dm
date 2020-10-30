@@ -23,7 +23,7 @@
 		if(isanimal(target))
 			var/mob/living/simple_animal/M = target
 			if(M.sentience_type != revive_type)
-				to_chat(user, "<span class='info'>[src] does not work on this sort of creature.</span>")
+				to_chat(user, "<span class='info'>[capitalize(src.name)] does not work on this sort of creature.</span>")
 				return
 			if(M.stat == DEAD)
 				M.faction = list("neutral")
@@ -45,10 +45,10 @@
 				icon_state = "lazarus_empty"
 				return
 			else
-				to_chat(user, "<span class='info'>[src] is only effective on the dead.</span>")
+				to_chat(user, "<span class='info'>[capitalize(src.name)] is only effective on the dead.</span>")
 				return
 		else
-			to_chat(user, "<span class='info'>[src] is only effective on lesser beings.</span>")
+			to_chat(user, "<span class='info'>[capitalize(src.name)] is only effective on lesser beings.</span>")
 			return
 
 /obj/item/lazarus_injector/emp_act()
@@ -61,6 +61,6 @@
 /obj/item/lazarus_injector/examine(mob/user)
 	. = ..()
 	if(!loaded)
-		. += "<hr><span class='info'>[src] is empty.</span>"
+		. += "<hr><span class='info'>[capitalize(src.name)] is empty.</span>"
 	if(malfunctioning)
 		. += "<hr><span class='info'>The display on [src] seems to be flickering.</span>"

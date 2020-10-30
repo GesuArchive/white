@@ -218,11 +218,11 @@ GLOBAL_LIST_EMPTY(lifts)
 	if(lift_master_datum.Check_lift_move(DOWN))
 		tool_list["Down"] = image(icon = 'icons/testing/turf_analysis.dmi', icon_state = "red_arrow", dir = SOUTH)
 	if(!length(tool_list))
-		to_chat(user, "<span class='warning'>[src] doesn't seem to able to move anywhere!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] doesn't seem to able to move anywhere!</span>")
 		add_fingerprint(user)
 		return
 	if(controls_locked)
-		to_chat(user, "<span class='warning'>[src] has its controls locked! It must already be trying to do something!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] has its controls locked! It must already be trying to do something!</span>")
 		add_fingerprint(user)
 		return
 	var/result = show_radial_menu(user, src, tool_list, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)

@@ -484,7 +484,7 @@
 
 /obj/item/seeds/attackby(obj/item/O, mob/user, params)
 	if (istype(O, /obj/item/plant_analyzer))
-		to_chat(user, "<span class='info'>*---------*\n This is \a <span class='name'>[src]</span>.</span>")
+		to_chat(user, "<span class='info'>*---------*\n This is \a <span class='name'>[capitalize(src.name)]</span>.</span>")
 		var/text
 		var/obj/item/plant_analyzer/P_analyzer = O
 		if(P_analyzer.scan_mode == PLANT_SCANMODE_STATS)

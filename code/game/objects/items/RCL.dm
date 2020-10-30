@@ -51,7 +51,7 @@
 
 		if(!loaded)
 			if(!user.transferItemToLoc(W, src))
-				to_chat(user, "<span class='warning'>[src] is stuck to your hand!</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] is stuck to your hand!</span>")
 				return
 			else
 				loaded = W //W.loc is src at this point.
@@ -192,7 +192,7 @@
 		return
 
 	if(prob(2) && ghetto) //Give ghetto RCLs a 2% chance to jam, requiring it to be reactviated manually.
-		to_chat(user, "<span class='warning'>[src]'s wires jam!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s wires jam!</span>")
 		active = FALSE
 		return
 	else

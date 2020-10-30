@@ -117,7 +117,7 @@
 		return
 
 	if((src in user.get_equipped_items(TRUE)) && !user.canUnEquip(src))
-		to_chat(user, "<span class='warning'>[src] is stuck to you!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is stuck to you!</span>")
 		return
 
 	if(!user.canUnEquip(assembly))

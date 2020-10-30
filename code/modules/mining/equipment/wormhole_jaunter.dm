@@ -66,7 +66,7 @@
 				triggered = TRUE
 
 		if(triggered)
-			M.visible_message("<span class='warning'>[src] overloads and activates!</span>")
+			M.visible_message("<span class='warning'>[capitalize(src.name)] overloads and activates!</span>")
 			SSblackbox.record_feedback("tally", "jaunter", 1, "EMP") // EMP accidental activation
 			activate(M)
 
@@ -76,7 +76,7 @@
 		SSblackbox.record_feedback("tally", "jaunter", 1, "Chasm") // chasm automatic activation
 		activate(user, FALSE)
 	else
-		to_chat(user, "<span class='userdanger'>[src] is not attached to your belt, preventing it from saving you from the chasm. RIP.</span>")
+		to_chat(user, "<span class='userdanger'>[capitalize(src.name)] is not attached to your belt, preventing it from saving you from the chasm. RIP.</span>")
 
 //jaunter tunnel
 /obj/effect/portal/jaunt_tunnel

@@ -124,7 +124,7 @@
 
 /obj/vehicle/proc/driver_move(mob/living/user, direction)
 	if(key_type && !is_key(inserted_key))
-		to_chat(user, "<span class='warning'>[src] has no key inserted!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] has no key inserted!</span>")
 		return FALSE
 	if(!default_driver_move)
 		return

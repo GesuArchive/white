@@ -87,7 +87,7 @@
 		printer_ready = world.time + PRINTER_TIMEOUT
 		new /obj/item/paper/record_printout(loc, record)
 	else if(user)
-		to_chat(user, "<span class='warning'>[src] is busy right now.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is busy right now.</span>")
 
 /obj/item/paper/record_printout
 	name = "paper - Log Recording"

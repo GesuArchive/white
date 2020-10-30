@@ -377,7 +377,7 @@
 	. = ..()
 	if(!QDELETED(src) && cap_on && reagents.total_volume)
 		if(prob(flip_chance)) // landed upright
-			src.visible_message("<span class='notice'>[src] lands upright!</span>")
+			src.visible_message("<span class='notice'>[capitalize(src.name)] lands upright!</span>")
 			if(throwingdatum.thrower)
 				SEND_SIGNAL(throwingdatum.thrower, COMSIG_ADD_MOOD_EVENT, "bottle_flip", /datum/mood_event/bottle_flip)
 		else // landed on it's side

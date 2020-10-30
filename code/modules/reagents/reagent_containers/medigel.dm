@@ -43,7 +43,7 @@
 
 /obj/item/reagent_containers/medigel/attack(mob/M, mob/user, def_zone)
 	if(!reagents || !reagents.total_volume)
-		to_chat(user, "<span class='warning'>[src] is empty!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is empty!</span>")
 		return
 
 	if(M == user)

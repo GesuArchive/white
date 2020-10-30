@@ -150,7 +150,7 @@
 /obj/structure/academy_wizard_spawner/deconstruct(disassembled = TRUE)
 	if(!broken)
 		broken = 1
-		visible_message("<span class='warning'>[src] breaks down!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] breaks down!</span>")
 		icon_state = "forge_off"
 		STOP_PROCESSING(SSobj, src)
 
@@ -210,7 +210,7 @@
 			used = TRUE
 
 		var/turf/T = get_turf(src)
-		T.visible_message("<span class='userdanger'>[src] flares briefly.</span>")
+		T.visible_message("<span class='userdanger'>[capitalize(src.name)] flares briefly.</span>")
 
 		addtimer(CALLBACK(src, .proc/effect, user, .), 1 SECONDS)
 

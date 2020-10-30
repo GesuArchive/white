@@ -175,7 +175,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			if(!glass.reagents.total_volume)
 				to_chat(user, "<span class='warning'>[glass] is empty!</span>")
 			else
-				to_chat(user, "<span class='warning'>[src] is full!</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] is full!</span>")
 
 
 /obj/item/clothing/mask/cigarette/proc/light(flavor_text = null)
@@ -902,7 +902,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				add_overlay("vapeopen_low")
 
 		if(screw && (obj_flags & EMAGGED))
-			to_chat(user, "<span class='warning'>[src] can't be modified!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] can't be modified!</span>")
 		else
 			..()
 
@@ -919,7 +919,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			sp.set_up(5, 1, src)
 			sp.start()
 		else
-			to_chat(user, "<span class='warning'>[src] is already emagged!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is already emagged!</span>")
 	else
 		to_chat(user, "<span class='warning'>You need to open the cap to do that!</span>")
 
@@ -976,7 +976,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 	if(!reagents.total_volume)
 		if(ismob(loc))
-			to_chat(M, "<span class='warning'>[src] is empty!</span>")
+			to_chat(M, "<span class='warning'>[capitalize(src.name)] is empty!</span>")
 			STOP_PROCESSING(SSobj, src)
 			//it's reusable so it won't unequip when empty
 		return
@@ -1000,7 +1000,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			var/datum/effect_system/spark_spread/sp = new /datum/effect_system/spark_spread
 			sp.set_up(5, 1, src)
 			sp.start()
-			to_chat(M, "<span class='userdanger'>[src] suddenly explodes in your mouth!</span>")
+			to_chat(M, "<span class='userdanger'>[capitalize(src.name)] suddenly explodes in your mouth!</span>")
 			qdel(src)
 			return
 

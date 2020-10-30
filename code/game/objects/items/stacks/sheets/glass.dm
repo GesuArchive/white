@@ -319,12 +319,12 @@ GLOBAL_LIST_INIT(plastitaniumglass_recipes, list(
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!H.gloves && !HAS_TRAIT(H, TRAIT_PIERCEIMMUNE)) // golems, etc
-			to_chat(H, "<span class='warning'><b>[capitalize(src)]</b> впивается в мою руку!</span>")
+			to_chat(H, "<span class='warning'><b>[capitalize(src.name)]</b> впивается в мою руку!</span>")
 			H.apply_damage(force*0.5, BRUTE, hit_hand)
 	else if(ismonkey(user))
 		var/mob/living/carbon/monkey/M = user
 		if(!HAS_TRAIT(M, TRAIT_PIERCEIMMUNE))
-			to_chat(M, "<span class='warning'><b>[capitalize(src)]</b> впивается в мою руку!</span>")
+			to_chat(M, "<span class='warning'><b>[capitalize(src.name)]</b> впивается в мою руку!</span>")
 			M.apply_damage(force*0.5, BRUTE, hit_hand)
 
 /obj/item/shard/attackby(obj/item/I, mob/user, params)

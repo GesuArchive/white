@@ -717,7 +717,7 @@
 	return ..()
 
 /obj/structure/cloth_pile/burn()
-	visible_message("<span class='danger'>[src] burns into ash!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] burns into ash!</span>")
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	..()
 
@@ -734,7 +734,7 @@
 		cloth_golem.grab_ghost() //won't pull if it's a suicide
 	sleep(20)
 	cloth_golem.forceMove(get_turf(src))
-	cloth_golem.visible_message("<span class='danger'>[src] rises and reforms into [cloth_golem]!</span>","<span class='userdanger'>You reform into yourself!</span>")
+	cloth_golem.visible_message("<span class='danger'>[capitalize(src.name)] rises and reforms into [cloth_golem]!</span>","<span class='userdanger'>You reform into yourself!</span>")
 	cloth_golem = null
 	qdel(src)
 
@@ -745,7 +745,7 @@
 		return
 
 	if(P.get_temperature())
-		visible_message("<span class='danger'>[src] bursts into flames!</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] bursts into flames!</span>")
 		fire_act()
 
 /datum/species/golem/plastic

@@ -144,7 +144,7 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/asteroid/goldgrub/proc/barf_contents()
-	visible_message("<span class='danger'>[src] spits out its consumed ores!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] spits out its consumed ores!</span>")
 	playsound(src, 'sound/effects/splat.ogg', 50, TRUE)
 	for(var/atom/movable/AM in src)
 		AM.forceMove(loc)

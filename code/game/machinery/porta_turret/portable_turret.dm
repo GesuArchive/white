@@ -343,7 +343,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	if(obj_flags & EMAGGED)
 		return
 	to_chat(user, "<span class='warning'>You short out [src]'s threat assessment circuits.</span>")
-	audible_message("<span class='hear'>[src] hums oddly...</span>")
+	audible_message("<span class='hear'>[capitalize(src.name)] hums oddly...</span>")
 	obj_flags |= EMAGGED
 	controllock = TRUE
 	toggle_on(FALSE) //turns off the turret temporarily

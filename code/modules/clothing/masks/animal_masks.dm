@@ -69,7 +69,7 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 		if(M.get_item_by_slot(ITEM_SLOT_MASK) == src)
 			if(update_speech_mod)
 				RegisterSignal(M, COMSIG_MOB_SAY, .proc/handle_speech)
-			to_chat(M, "<span class='userdanger'>[src] was cursed!</span>")
+			to_chat(M, "<span class='userdanger'>[capitalize(src.name)] was cursed!</span>")
 			M.update_inv_wear_mask()
 
 /obj/item/clothing/mask/animal/proc/clear_curse()
@@ -84,7 +84,7 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 	if(ismob(loc))
 		var/mob/M = loc
 		if(M.get_item_by_slot(ITEM_SLOT_MASK) == src)
-			to_chat(M, "<span class='notice'>[src]'s curse has been lifted!</span>")
+			to_chat(M, "<span class='notice'>[capitalize(src.name)]'s curse has been lifted!</span>")
 			if(update_speech_mod)
 				UnregisterSignal(M, COMSIG_MOB_SAY)
 			M.update_inv_wear_mask()
@@ -100,7 +100,7 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 	if(!iscarbon(user))
 		return ..()
 	if(slot == ITEM_SLOT_MASK && HAS_TRAIT_FROM(src, TRAIT_NODROP, CURSED_MASK_TRAIT))
-		to_chat(user, "<span class='userdanger'>[src] was cursed!</span>")
+		to_chat(user, "<span class='userdanger'>[capitalize(src.name)] was cursed!</span>")
 	return ..()
 
 

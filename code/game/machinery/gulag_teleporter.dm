@@ -46,7 +46,7 @@ The console is located at computer/gulag_teleporter.dm
 /obj/machinery/gulag_teleporter/interact(mob/user)
 	. = ..()
 	if(locked)
-		to_chat(user, "<span class='warning'>[src] is locked!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is locked!</span>")
 		return
 	toggle_open()
 
@@ -91,7 +91,7 @@ The console is located at computer/gulag_teleporter.dm
 	if(locked)
 		if(message_cooldown <= world.time)
 			message_cooldown = world.time + 50
-			to_chat(user, "<span class='warning'>[src]'s door won't budge!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s door won't budge!</span>")
 		return
 	open_machine()
 

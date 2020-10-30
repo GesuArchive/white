@@ -28,7 +28,7 @@
 		if(voting_active)
 			apply_vote(I,user)
 		else
-			to_chat(user,"<span class='warning'>[src] is in maintenance mode. Voting is not possible at the moment.</span>")
+			to_chat(user,"<span class='warning'>[capitalize(src.name)] is in maintenance mode. Voting is not possible at the moment.</span>")
 		return
 	return ..()
 
@@ -105,10 +105,10 @@
 	var/obj/item/card/id/voter_card = user.get_idcard()
 	if(id_auth)
 		if(!voter_card)
-			to_chat(user,"<span class='warning'>[src] requires a valid ID card to vote!</span>")
+			to_chat(user,"<span class='warning'>[capitalize(src.name)] requires a valid ID card to vote!</span>")
 			return
 		if(voted && (voter_card in voted))
-			to_chat(user,"<span class='warning'>[src] allows only one vote per person.</span>")
+			to_chat(user,"<span class='warning'>[capitalize(src.name)] allows only one vote per person.</span>")
 			return
 	if(user.transferItemToLoc(I,src))
 		if(!voted)
@@ -158,7 +158,7 @@
 	else
 		var/obj/item/paper/P = pick(options)
 		user.put_in_hands(P)
-		to_chat(user,"<span class='notice'>[src] pops out random vote.</span>")
+		to_chat(user,"<span class='notice'>[capitalize(src.name)] pops out random vote.</span>")
 
 /obj/structure/votebox/proc/print_tally(mob/user)
 	var/list/results = list()
@@ -207,7 +207,7 @@
 	P.name = "Voting Results"
 	P.update_icon()
 	user.put_in_hands(P)
-	to_chat(user,"<span class='notice'>[src] prints out the voting tally.</span>")
+	to_chat(user,"<span class='notice'>[capitalize(src.name)] prints out the voting tally.</span>")
 
 /obj/structure/votebox/update_icon_state()
 	icon_state = "votebox_[voting_active ? "active" : "maint"]"

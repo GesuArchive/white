@@ -393,7 +393,7 @@
 
 /mob/living/simple_animal/slime/proc/spawn_corecross()
 	var/static/list/crossbreeds = subtypesof(/obj/item/slimecross)
-	visible_message("<span class='danger'>[src] shudders, its mutated core consuming the rest of its body!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] shudders, its mutated core consuming the rest of its body!</span>")
 	playsound(src, 'sound/magic/smoke.ogg', 50, TRUE)
 	var/crosspath
 	for(var/X in crossbreeds)

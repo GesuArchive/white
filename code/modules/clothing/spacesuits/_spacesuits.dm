@@ -154,7 +154,7 @@
 		return
 	else if(cell_cover_open && istype(I, /obj/item/stock_parts/cell))
 		if(cell)
-			to_chat(user, "<span class='warning'>[src] already has a cell installed.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a cell installed.</span>")
 			return
 		if(user.transferItemToLoc(I, src))
 			cell = I

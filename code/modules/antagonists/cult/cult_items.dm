@@ -689,7 +689,7 @@
 			if(L.put_in_active_hand(src))
 				L.visible_message("<span class='warning'>[L] catches [src] out of the air!</span>")
 			else
-				L.visible_message("<span class='warning'>[src] bounces off of [L], as if repelled by an unseen force!</span>")
+				L.visible_message("<span class='warning'>[capitalize(src.name)] bounces off of [L], as if repelled by an unseen force!</span>")
 		else if(!..())
 			if(!L.anti_magic_check())
 				L.Paralyze(50)
@@ -702,7 +702,7 @@
 		if(!T)
 			T = get_turf(src)
 		if(T)
-			T.visible_message("<span class='warning'>[src] shatters and melts back into blood!</span>")
+			T.visible_message("<span class='warning'>[capitalize(src.name)] shatters and melts back into blood!</span>")
 			new /obj/effect/temp_visual/cult/sparks(T)
 			new /obj/effect/decal/cleanable/blood/splatter(T)
 			playsound(T, 'sound/effects/glassbr3.ogg', 100)
@@ -986,7 +986,7 @@
 			if(L.put_in_active_hand(src))
 				L.visible_message("<span class='warning'>[L] catches [src] out of the air!</span>")
 			else
-				L.visible_message("<span class='warning'>[src] bounces off of [L], as if repelled by an unseen force!</span>")
+				L.visible_message("<span class='warning'>[capitalize(src.name)] bounces off of [L], as if repelled by an unseen force!</span>")
 		else if(!..())
 			if(!L.anti_magic_check())
 				L.Paralyze(30)

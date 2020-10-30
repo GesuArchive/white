@@ -120,13 +120,13 @@
 
 	if(organ_flags & ORGAN_FAILING)
 		if(status == ORGAN_ROBOTIC)
-			. += "\n<span class='warning'>[src] seems to be broken.</span>"
+			. += "\n<span class='warning'>[capitalize(src.name)] seems to be broken.</span>"
 			return
-		. += "\n<span class='warning'>[src] has decayed for too long, and has turned a sickly color. It probably won't work without repairs.</span>"
+		. += "\n<span class='warning'>[capitalize(src.name)] has decayed for too long, and has turned a sickly color. It probably won't work without repairs.</span>"
 		return
 
 	if(damage > high_threshold)
-		. += "<hr><span class='warning'>[src] is starting to look discolored.</span>"
+		. += "<hr><span class='warning'>[capitalize(src.name)] is starting to look discolored.</span>"
 
 /obj/item/organ/Initialize()
 	. = ..()

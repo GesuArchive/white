@@ -61,22 +61,22 @@
 //whether the machine can have an item inserted in its current state.
 /obj/machinery/rnd/proc/is_insertion_ready(mob/user)
 	if(panel_open)
-		to_chat(user, "<span class='warning'>[capitalize(src)] вскрыт!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] вскрыт!</span>")
 		return FALSE
 	if(disabled)
-		to_chat(user, "<span class='warning'>[capitalize(src)] не хочет принимать!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] не хочет принимать!</span>")
 		return FALSE
 	if(busy)
-		to_chat(user, "<span class='warning'>[capitalize(src)] занят.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] занят.</span>")
 		return FALSE
 	if(machine_stat & BROKEN)
-		to_chat(user, "<span class='warning'>[capitalize(src)] сломан.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] сломан.</span>")
 		return FALSE
 	if(machine_stat & NOPOWER)
-		to_chat(user, "<span class='warning'>[capitalize(src)] без питания.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] без питания.</span>")
 		return FALSE
 	if(loaded_item)
-		to_chat(user, "<span class='warning'>[capitalize(src)] уже заполнен.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] уже заполнен.</span>")
 		return FALSE
 	return TRUE
 

@@ -442,7 +442,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		if (!panel_open)
 			to_chat(user, "<span class='warning'>You should probably unscrew the service panel first!</span>")
 		else if (machine_stat & (BROKEN|NOPOWER))
-			to_chat(user, "<span class='notice'>[src] does not respond.</span>")
+			to_chat(user, "<span class='notice'>[capitalize(src.name)] does not respond.</span>")
 		else
 			//if the panel is open we attempt to refill the machine
 			var/obj/item/vending_refill/canister = I
@@ -467,7 +467,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 			var/denied_items = 0
 			for(var/obj/item/the_item in T.contents)
 				if(contents.len >= MAX_VENDING_INPUT_AMOUNT) // no more than 30 item can fit inside, legacy from snack vending although not sure why it exists
-					to_chat(user, "<span class='warning'>[src]'s compartment is full.</span>")
+					to_chat(user, "<span class='warning'>[capitalize(src.name)]'s compartment is full.</span>")
 					break
 				if(canLoadItem(the_item) && loadingAttempt(the_item,user))
 					SEND_SIGNAL(T, COMSIG_TRY_STORAGE_TAKE, the_item, src, TRUE)
@@ -475,7 +475,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 				else
 					denied_items++
 			if(denied_items)
-				to_chat(user, "<span class='warning'>[src] refuses some items!</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] refuses some items!</span>")
 			if(loaded)
 				to_chat(user, "<span class='notice'>You insert [loaded] dishes into [src]'s compartment.</span>")
 				updateUsrDialog()
@@ -495,7 +495,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 					tilt(user, crit=TRUE)
 
 /obj/machinery/vending/proc/freebie(mob/fatty, freebies)
-	visible_message("<span class='notice'>[src] yields [freebies > 1 ? "several free goodies" : "a free goody"]!</span>")
+	visible_message("<span class='notice'>[capitalize(src.name)] yields [freebies > 1 ? "several free goodies" : "a free goody"]!</span>")
 
 	for(var/i in 1 to freebies)
 		playsound(src, 'sound/machines/machine_vend.ogg', 50, TRUE, extrarange = -3)
@@ -512,7 +512,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 			break
 
 /obj/machinery/vending/proc/tilt(mob/fatty, crit=FALSE)
-	visible_message("<span class='danger'>[src] tips over!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] tips over!</span>")
 	tilted = TRUE
 	layer = ABOVE_MOB_LAYER
 
@@ -666,7 +666,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		if(do_you_have_access)
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>[src]'s input compartment blinks red: Access denied.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s input compartment blinks red: Access denied.</span>")
 			return FALSE
 
 /obj/machinery/vending/exchange_parts(mob/user, obj/item/storage/part_replacer/W)
@@ -957,7 +957,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 	pre_throw(throw_item)
 
 	throw_item.throw_at(target, 16, 3)
-	visible_message("<span class='danger'>[src] launches [throw_item] at [target]!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] launches [throw_item] at [target]!</span>")
 	return TRUE
 /**
   * A callback called before an item is tossed out

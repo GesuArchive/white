@@ -143,7 +143,7 @@
 			update_icon() //this is also handled by turn_off(), so no need to call this twice.
 	else if(istype(I, /obj/item/stock_parts/cell) && open)
 		if(cell)
-			to_chat(user, "<span class='warning'>[src] already has a power cell!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a power cell!</span>")
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
@@ -153,7 +153,7 @@
 						"<span class='notice'>You insert [cell] into [src].</span>")
 	else if(I.tool_behaviour == TOOL_CROWBAR && open && user.a_intent != INTENT_HARM)
 		if(!cell)
-			to_chat(user, "<span class='warning'>[src] doesn't have a power cell!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] doesn't have a power cell!</span>")
 			return
 		cell.add_fingerprint(user)
 		if(Adjacent(user) && !issilicon(user))
@@ -393,16 +393,16 @@
 /mob/living/simple_animal/bot/mulebot/proc/buzz(type)
 	switch(type)
 		if(SIGH)
-			audible_message("<span class='hear'>[src] makes a sighing buzz.</span>")
+			audible_message("<span class='hear'>[capitalize(src.name)] makes a sighing buzz.</span>")
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
 		if(ANNOYED)
-			audible_message("<span class='hear'>[src] makes an annoyed buzzing sound.</span>")
+			audible_message("<span class='hear'>[capitalize(src.name)] makes an annoyed buzzing sound.</span>")
 			playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
 		if(DELIGHT)
-			audible_message("<span class='hear'>[src] makes a delighted ping!</span>")
+			audible_message("<span class='hear'>[capitalize(src.name)] makes a delighted ping!</span>")
 			playsound(src, 'sound/machines/ping.ogg', 50, FALSE)
 		if(CHIME)
-			audible_message("<span class='hear'>[src] makes a chiming sound!</span>")
+			audible_message("<span class='hear'>[capitalize(src.name)] makes a chiming sound!</span>")
 			playsound(src, 'sound/machines/chime.ogg', 50, FALSE)
 	flick("[base_icon]1", src)
 
@@ -724,18 +724,18 @@
 	var/mob/living/L = M
 	if(wires.is_cut(WIRE_AVOIDANCE)) // usually just bumps, but if the avoidance wire is cut, knocks them over.
 		if(iscyborg(L))
-			visible_message("<span class='danger'>[src] bumps into [L]!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] bumps into [L]!</span>")
 		else if(L.Knockdown(8 SECONDS))
 			log_combat(src, L, "knocked down")
-			visible_message("<span class='danger'>[src] knocks over [L]!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] knocks over [L]!</span>")
 	return ..()
 
 // called from mob/living/carbon/human/Crossed()
 // when mulebot is in the same loc
 /mob/living/simple_animal/bot/mulebot/proc/RunOver(mob/living/carbon/human/H)
 	log_combat(src, H, "run over", null, "(DAMTYPE: [uppertext(BRUTE)])")
-	H.visible_message("<span class='danger'>[src] drives over [H]!</span>", \
-					"<span class='userdanger'>[src] drives over you!</span>")
+	H.visible_message("<span class='danger'>[capitalize(src.name)] drives over [H]!</span>", \
+					"<span class='userdanger'>[capitalize(src.name)] drives over you!</span>")
 	playsound(src, 'sound/effects/splat.ogg', 50, TRUE)
 
 	var/damage = rand(5,15)
@@ -788,7 +788,7 @@
 
 
 /mob/living/simple_animal/bot/mulebot/explode()
-	visible_message("<span class='boldannounce'>[src] blows apart!</span>")
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] blows apart!</span>")
 	var/atom/Tsec = drop_location()
 
 	new /obj/item/assembly/prox_sensor(Tsec)
@@ -822,7 +822,7 @@
 /mob/living/simple_animal/bot/mulebot/insertpai(mob/user, obj/item/paicard/card)
 	. = ..()
 	if(.)
-		visible_message("<span class='notice'>[src]'s safeties are locked on.</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)]'s safeties are locked on.</span>")
 
 /mob/living/simple_animal/bot/mulebot/paranormal//allows ghosts only unless hacked to actually be useful
 	name = "\improper GHOULbot"

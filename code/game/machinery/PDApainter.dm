@@ -126,7 +126,7 @@
 			ejectpda()
 
 	else
-		to_chat(user, "<span class='warning'>[src] is empty!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is empty!</span>")
 
 
 /obj/machinery/pdapainter/verb/ejectpda()
@@ -142,4 +142,4 @@
 		storedpda = null
 		update_icon()
 	else
-		to_chat(usr, "<span class='warning'>[src] is empty!</span>")
+		to_chat(usr, "<span class='warning'>[capitalize(src.name)] is empty!</span>")

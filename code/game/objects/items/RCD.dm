@@ -79,10 +79,10 @@ RLD
 /// Installs an upgrade into the RCD checking if it is already installed, or if it is a banned upgrade
 /obj/item/construction/proc/install_upgrade(obj/item/rcd_upgrade/rcd_up, mob/user)
 	if(rcd_up.upgrade & upgrade)
-		to_chat(user, "<span class='warning'>[src] has already installed this upgrade!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] has already installed this upgrade!</span>")
 		return
 	if(rcd_up.upgrade & banned_upgrades)
-		to_chat(user, "<span class='warning'>[src] can't install this upgrade!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] can't install this upgrade!</span>")
 		return
 	upgrade |= rcd_up.upgrade
 	if((rcd_up.upgrade & RCD_UPGRADE_SILO_LINK) && !silo_mats)
@@ -99,7 +99,7 @@ RLD
 		var/obj/item/rcd_ammo/R = O
 		var/load = min(R.ammoamt, max_matter - matter)
 		if(load <= 0)
-			to_chat(user, "<span class='warning'>[src] can't hold any more matter-units!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] can't hold any more matter-units!</span>")
 			return FALSE
 		R.ammoamt -= load
 		if(R.ammoamt <= 0)
@@ -110,7 +110,7 @@ RLD
 	else if(istype(O, /obj/item/stack))
 		loaded = loadwithsheets(O, user)
 	if(loaded)
-		to_chat(user, "<span class='notice'>[src] now holds [matter]/[max_matter] matter-units.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] now holds [matter]/[max_matter] matter-units.</span>")
 		update_icon()	//ensures that ammo counters (if present) get updated
 	return loaded
 

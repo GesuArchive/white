@@ -310,7 +310,7 @@
 				authenticated = TRUE
 				authorize_access = get_all_accesses()
 				authorize_name = "Unknown"
-				to_chat(usr, "<span class='warning'>[src] выстреливает несколько искр.</span>")
+				to_chat(usr, "<span class='warning'>[capitalize(src.name)] выстреливает несколько искр.</span>")
 				playsound(src, 'sound/machines/terminal_alert.ogg', 25, FALSE)
 			else
 				var/obj/item/card/id/id_card = usr.get_idcard(hand_first = TRUE)

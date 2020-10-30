@@ -41,7 +41,7 @@ GLOBAL_LIST_EMPTY(total_extraction_beacons)
 /obj/item/extraction_pack/afterattack(atom/movable/A, mob/living/carbon/human/user, flag, params)
 	. = ..()
 	if(!beacon)
-		to_chat(user, "<span class='warning'>[src] is not linked to a beacon, and cannot be used!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is not linked to a beacon, and cannot be used!</span>")
 		return
 	if(!(beacon in GLOB.total_extraction_beacons))
 		beacon = null
@@ -50,7 +50,7 @@ GLOBAL_LIST_EMPTY(total_extraction_beacons)
 	if(!can_use_indoors)
 		var/area/area = get_area(A)
 		if(!area.outdoors)
-			to_chat(user, "<span class='warning'>[src] can only be used on things that are outdoors!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] can only be used on things that are outdoors!</span>")
 			return
 	if(!flag)
 		return
@@ -58,7 +58,7 @@ GLOBAL_LIST_EMPTY(total_extraction_beacons)
 		return
 	else
 		if(!safe_for_living_creatures && check_for_living_mobs(A))
-			to_chat(user, "<span class='warning'>[src] is not safe for use with living creatures, they wouldn't survive the trip back!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is not safe for use with living creatures, they wouldn't survive the trip back!</span>")
 			return
 		if(!isturf(A.loc)) // no extracting stuff inside other stuff
 			return

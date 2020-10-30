@@ -45,7 +45,7 @@
 		booster_damage_modifier /= facing_modifier
 		booster_deflection_modifier *= facing_modifier
 	if(prob(deflect_chance * booster_deflection_modifier))
-		visible_message("<span class='danger'>[src]'s armour deflects the attack!</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)]'s armour deflects the attack!</span>")
 		log_message("Armor saved.", LOG_MECHA)
 		return 0
 	if(.)
@@ -182,9 +182,9 @@
 
 	if(istype(W, /obj/item/mmi))
 		if(mmi_move_inside(W,user))
-			to_chat(user, "<span class='notice'>[src]-[W] interface initialized successfully.</span>")
+			to_chat(user, "<span class='notice'>[capitalize(src.name)]-[W] interface initialized successfully.</span>")
 		else
-			to_chat(user, "<span class='warning'>[src]-[W] interface initialization failed.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)]-[W] interface initialization failed.</span>")
 		return
 
 	if(istype(W, /obj/item/mecha_ammo))

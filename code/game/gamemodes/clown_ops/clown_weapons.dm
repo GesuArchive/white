@@ -183,7 +183,7 @@
 	bomb = new /obj/item/grenade/syndieminibomb(src)
 	bomb.det_time = det_time
 	if(iscarbon(loc))
-		to_chat(loc, "<span class='danger'>[src] begins to beep.</span>")
+		to_chat(loc, "<span class='danger'>[capitalize(src.name)] begins to beep.</span>")
 		var/mob/living/carbon/C = loc
 		C.throw_mode_on()
 	bomb.preprime(loc, null, FALSE)

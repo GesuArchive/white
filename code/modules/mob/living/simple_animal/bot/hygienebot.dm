@@ -39,7 +39,7 @@
 
 /mob/living/simple_animal/bot/hygienebot/explode()
 	walk_to(src,0)
-	visible_message("<span class='boldannounce'>[src] blows apart in a foamy explosion!</span>")
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] blows apart in a foamy explosion!</span>")
 	do_sparks(3, TRUE, src)
 	on = FALSE
 	new /obj/effect/particle_effect/foam(loc)
@@ -187,7 +187,7 @@
 			oldtarget_name = H.name
 			speak("Unhygienic client found. Please stand still so I can clean you.")
 			playsound(loc, 'sound/effects/hygienebot_happy.ogg', 60, 1)
-			visible_message("<b>[capitalize(src)]</b> points at [H.name]!")
+			visible_message("<b>[capitalize(src.name)]</b> points at [H.name]!")
 			mode = BOT_HUNT
 			INVOKE_ASYNC(src, .proc/handle_automated_action)
 			break

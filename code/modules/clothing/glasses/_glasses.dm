@@ -49,7 +49,7 @@
 		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
 		if(!H.is_blind())
 			if(H.glasses == src)
-				to_chat(H, "<span class='danger'>[src] перегружается и... МОИ ГЛАЗА!</span>")
+				to_chat(H, "<span class='danger'>[capitalize(src.name)] перегружается и... МОИ ГЛАЗА!</span>")
 				H.flash_act(visual = 1)
 				H.blind_eyes(3)
 				H.blur_eyes(5)

@@ -501,13 +501,13 @@
 	if (chassis.active_thrusters == src)
 		return
 	chassis.active_thrusters = src
-	to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)]<span class='notice'>[src] enabled.</span>")
+	to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)]<span class='notice'>[capitalize(src.name)] enabled.</span>")
 
 /obj/item/mecha_parts/mecha_equipment/thrusters/proc/disable()
 	if(chassis.active_thrusters != src)
 		return
 	chassis.active_thrusters = null
-	to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)]<span class='notice'>[src] disabled.</span>")
+	to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)]<span class='notice'>[capitalize(src.name)] disabled.</span>")
 
 /obj/item/mecha_parts/mecha_equipment/thrusters/get_equip_info()
 	return "[..()] \[<a href='?src=[REF(src)];isactive=0'>Enable</a>|<a href='?src=[REF(src)];isactive=1'>Disable</a>\]"

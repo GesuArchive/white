@@ -170,7 +170,7 @@
 
 /obj/effect/temp_visual/plasma_soul/Destroy()
 	if(!beam_target)
-		visible_message("<span class='notice'>[src] fades away...</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] fades away...</span>")
 	. = ..()
 
 /obj/effect/ebeam/plasma_fist

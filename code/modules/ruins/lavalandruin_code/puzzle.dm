@@ -314,12 +314,12 @@
 	//Handcuffed or unconcious
 	if(istype(carbon_victim) && carbon_victim.handcuffed || victim.stat != CONSCIOUS)
 		if(!puzzle_imprison(target))
-			to_chat(user,"<span class='warning'>[src] does nothing.</span>")
+			to_chat(user,"<span class='warning'>[capitalize(src.name)] does nothing.</span>")
 			return
 		to_chat(user,"<span class='warning'>You trap [victim] in the prison cube!</span>")
 		qdel(src)
 	else
-		to_chat(user,"<span class='notice'>[src] only accepts restrained or unconcious prisoners.</span>")
+		to_chat(user,"<span class='notice'>[capitalize(src.name)] only accepts restrained or unconcious prisoners.</span>")
 
 /proc/puzzle_imprison(mob/living/prisoner)
 	var/turf/T = get_turf(prisoner)

@@ -157,7 +157,7 @@
 	..()
 	. = TRUE
 	if(anchored)
-		to_chat(user, "<span class='warning'>[src] is still firmly secured to the ground!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is still firmly secured to the ground!</span>")
 		return
 
 	user.visible_message("<span class='notice'>[user] starts to weld apart [src]!</span>", "<span class='notice'>You start welding apart [src].</span>")
@@ -171,7 +171,7 @@
 /obj/structure/mineral_door/proc/crowbar_door(mob/living/user, obj/item/I) //if the door is flammable, call this in crowbar_act() so we can still decon it
 	. = TRUE
 	if(anchored)
-		to_chat(user, "<span class='warning'>[src] is still firmly secured to the ground!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is still firmly secured to the ground!</span>")
 		return
 
 	user.visible_message("<span class='notice'>[user] starts to pry apart [src]!</span>", "<span class='notice'>You start prying apart [src].</span>")

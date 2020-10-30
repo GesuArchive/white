@@ -16,7 +16,7 @@ Recurring extracts:
 /obj/item/slimecross/recurring/Initialize()
 	. = ..()
 	extract = new extract_type(src.loc)
-	visible_message("<span class='notice'>[src] wraps a layer of goo around itself!</span>")
+	visible_message("<span class='notice'>[capitalize(src.name)] wraps a layer of goo around itself!</span>")
 	extract.name = name
 	extract.desc = desc
 	extract.icon = icon

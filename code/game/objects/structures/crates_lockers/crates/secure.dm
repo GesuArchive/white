@@ -109,5 +109,5 @@
 			else if(!silent)
 				to_chat(user, "<span class='notice'>No ID detected!</span>")
 		else if(!silent)
-			to_chat(user, "<span class='warning'>[src] is broken!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is broken!</span>")
 	else ..()

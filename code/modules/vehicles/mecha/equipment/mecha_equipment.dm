@@ -42,7 +42,7 @@
 		update_chassis_page()
 		log_message("[src] is destroyed.", LOG_MECHA)
 		if(chassis.occupants)
-			to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)]<span class='danger'>[src] is destroyed!</span>")
+			to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)]<span class='danger'>[capitalize(src.name)] is destroyed!</span>")
 			playsound(chassis, destroy_sound, 50)
 		if(!detachable) //If we're a built-in nondetachable equipment, let's lock up the slot that we were in.
 			chassis.max_equip--

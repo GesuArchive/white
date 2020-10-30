@@ -103,7 +103,7 @@
 /obj/machinery/chem_dispenser/examine(mob/user)
 	. = ..()
 	if(panel_open)
-		. += "<hr><span class='notice'>[src]'s maintenance hatch is open!</span>"
+		. += "<hr><span class='notice'>[capitalize(src.name)]'s maintenance hatch is open!</span>"
 	if(in_range(user, src) || isobserver(user))
 		. += "<hr><span class='notice'>Дисплей:\n\
 		Recharging <b>[recharge_amount]</b> power units per interval.\n\
@@ -151,7 +151,7 @@
 
 /obj/machinery/chem_dispenser/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
-		to_chat(user, "<span class='warning'>[src] has no functional safeties to emag.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] has no functional safeties to emag.</span>")
 		return
 	to_chat(user, "<span class='notice'>You short out [src]'s safeties.</span>")
 	dispensable_reagents |= emagged_reagents//add the emagged reagents to the dispensable ones
@@ -321,8 +321,8 @@
 				for(var/reagent in recording_recipe)
 					var/reagent_id = GLOB.name2reagent[translate_legacy_chem_id(reagent)]
 					if(!dispensable_reagents.Find(reagent_id))
-						visible_message("<span class='warning'>[src] buzzes.</span>", "<span class='hear'>You hear a faint buzz.</span>")
-						to_chat(usr, "<span class ='danger'>[src] cannot find <b>[reagent]</b>!</span>")
+						visible_message("<span class='warning'>[capitalize(src.name)] buzzes.</span>", "<span class='hear'>You hear a faint buzz.</span>")
+						to_chat(usr, "<span class ='danger'>[capitalize(src.name)] cannot find <b>[reagent]</b>!</span>")
 						playsound(src, 'sound/machines/buzz-two.ogg', 50, TRUE)
 						return
 				saved_recipes[name] = recording_recipe
@@ -377,7 +377,7 @@
 	cell.use(total/powerefficiency)
 	cell.emp_act(severity)
 	work_animation()
-	visible_message("<span class='danger'>[src] malfunctions, spraying chemicals everywhere!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] malfunctions, spraying chemicals everywhere!</span>")
 
 /obj/machinery/chem_dispenser/RefreshParts()
 	recharge_amount = initial(recharge_amount)

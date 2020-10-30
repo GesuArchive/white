@@ -57,7 +57,7 @@
 	update_icon()
 
 /obj/item/hourglass/proc/finish()
-	visible_message("<span class='notice'>[src] stops.</span>")
+	visible_message("<span class='notice'>[capitalize(src.name)] stops.</span>")
 	stop()
 
 /obj/item/hourglass/Destroy()

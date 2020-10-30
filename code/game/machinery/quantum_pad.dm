@@ -101,11 +101,11 @@
 			return
 
 	if(world.time < last_teleport + teleport_cooldown)
-		to_chat(user, "<span class='warning'>[src] is recharging power. Please wait [DisplayTimeText(last_teleport + teleport_cooldown - world.time)].</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is recharging power. Please wait [DisplayTimeText(last_teleport + teleport_cooldown - world.time)].</span>")
 		return
 
 	if(teleporting)
-		to_chat(user, "<span class='warning'>[src] is charging up. Please wait.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is charging up. Please wait.</span>")
 		return
 
 	if(target_pad.teleporting)
@@ -142,7 +142,7 @@
 				teleporting = FALSE
 				return
 			if(machine_stat & NOPOWER)
-				to_chat(user, "<span class='warning'>[src] is unpowered!</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] is unpowered!</span>")
 				teleporting = FALSE
 				return
 			if(!target_pad || QDELETED(target_pad) || target_pad.machine_stat & NOPOWER)

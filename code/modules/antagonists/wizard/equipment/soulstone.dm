@@ -178,7 +178,7 @@
 				if(iscultist(user))
 					to_chat(user, "<span class='cult'><b>\"This soul is mine.</b></span> <span class='cultlarge'>SACRIFICE THEM!\"</span>")
 				else
-					to_chat(user, "<span class='danger'>[src] seems to reject this soul.</span>")
+					to_chat(user, "<span class='danger'>[capitalize(src.name)] seems to reject this soul.</span>")
 				return FALSE
 			if(contents.len)
 				to_chat(user, "<span class='userdanger'>Capture failed!</span>: [src] is full! Free an existing soul to make room.")

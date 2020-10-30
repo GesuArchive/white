@@ -20,7 +20,7 @@
 	if(!..())
 		return
 	if(cooldown)
-		to_chat(user, "<span class='warning'>[src] needs more time to recharge before it can be used.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] needs more time to recharge before it can be used.</span>")
 		return
 	if(!M.client || !M.mind)
 		to_chat(user, "<span class='warning'>A braindead gangster is an useless gangster!</span>")

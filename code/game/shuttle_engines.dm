@@ -24,7 +24,7 @@
 /obj/structure/shuttle/engine/can_be_unfasten_wrench(mob/user, silent)
 	if(state == ENGINE_WELDED)
 		if(!silent)
-			to_chat(user, "<span class='warning'>[src] is welded to the floor!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is welded to the floor!</span>")
 		return FAILED_UNFASTEN
 	return ..()
 

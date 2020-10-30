@@ -60,7 +60,7 @@
 /obj/vehicle/ridden/driver_move(mob/living/user, direction)
 	if(key_type && !is_key(inserted_key))
 		if(message_cooldown < world.time)
-			to_chat(user, "<span class='warning'>[src] has no key inserted!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] has no key inserted!</span>")
 			message_cooldown = world.time + 5 SECONDS
 		return FALSE
 	if(legs_required)

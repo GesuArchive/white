@@ -609,7 +609,7 @@
 	if(!has_emergency_power(pwr))
 		return FALSE
 	if(cell.charge > 300) //it's meant to handle 120 W, ya doofus
-		visible_message("<span class='warning'>[src] перегорает от переизбытка питания!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] перегорает от переизбытка питания!</span>")
 		burn_out()
 		return FALSE
 	cell.use(pwr)
@@ -907,7 +907,7 @@
 
 /obj/item/light/proc/shatter()
 	if(status == LIGHT_OK || status == LIGHT_BURNED)
-		visible_message("<span class='danger'>[src] разбивается.</span>","<span class='hear'>Слышу как что-то стеклянное разбивается.</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] разбивается.</span>","<span class='hear'>Слышу как что-то стеклянное разбивается.</span>")
 		status = LIGHT_BROKEN
 		force = 5
 		playsound(src.loc, 'sound/effects/glasshit.ogg', 75, TRUE)

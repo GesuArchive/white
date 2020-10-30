@@ -281,7 +281,7 @@ interface with the mining shuttle at the landing site if a mobile beacon is also
 		return
 
 	if(anti_spam_cd)
-		to_chat(user, "<span class='warning'>[src] is currently recalibrating. Please wait.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is currently recalibrating. Please wait.</span>")
 		return
 
 	anti_spam_cd = 1

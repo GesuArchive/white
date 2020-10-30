@@ -141,7 +141,7 @@
 			if(maximum_idle && (count_shells() >= maximum_idle))
 				return // then do nothing; check again next tick
 			if(begin_create_message)
-				visible_message("<span class='notice'>[src] [begin_create_message]</span>")
+				visible_message("<span class='notice'>[capitalize(src.name)] [begin_create_message]</span>")
 			if(work_sound)
 				playsound(src, work_sound, 50, TRUE)
 			mode = DRONE_PRODUCTION
@@ -159,7 +159,7 @@
 			if(create_sound)
 				playsound(src, create_sound, 50, TRUE)
 			if(end_create_message)
-				visible_message("<span class='notice'>[src] [end_create_message]</span>")
+				visible_message("<span class='notice'>[capitalize(src.name)] [end_create_message]</span>")
 
 			mode = DRONE_RECHARGING
 			timer = world.time + cooldownTime
@@ -169,7 +169,7 @@
 			if(recharge_sound)
 				playsound(src, recharge_sound, 50, TRUE)
 			if(recharge_message)
-				visible_message("<span class='notice'>[src] [recharge_message]</span>")
+				visible_message("<span class='notice'>[capitalize(src.name)] [recharge_message]</span>")
 
 			mode = DRONE_READY
 			update_icon()
@@ -199,7 +199,7 @@
 
 	else if(I.tool_behaviour == TOOL_WELDER)
 		if(!(machine_stat & BROKEN))
-			to_chat(user, "<span class='warning'>[src] doesn't need repairs.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] doesn't need repairs.</span>")
 			return
 
 		if(!I.tool_start_check(user, amount=1))
@@ -227,7 +227,7 @@
 	if(!.)
 		return
 	if(break_message)
-		audible_message("<span class='warning'>[src] [break_message]</span>")
+		audible_message("<span class='warning'>[capitalize(src.name)] [break_message]</span>")
 	if(break_sound)
 		playsound(src, break_sound, 50, TRUE)
 

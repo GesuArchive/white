@@ -179,7 +179,7 @@
 					obj_integrity = max_integrity
 					to_chat(user, "<span class='notice'>Чиню [src].</span>")
 			else
-				to_chat(user, "<span class='warning'>[src] уже в полном порядке!</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] уже в полном порядке!</span>")
 			return
 
 		switch(buildstage)

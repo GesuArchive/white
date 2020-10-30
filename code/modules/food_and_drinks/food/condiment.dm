@@ -75,7 +75,7 @@
 			return
 
 		if(reagents.total_volume >= reagents.maximum_volume)
-			to_chat(user, "<span class='warning'>[src] is full!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is full!</span>")
 			return
 
 		var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this, transfered_by = user)
@@ -84,7 +84,7 @@
 	//Something like a glass or a food item. Player probably wants to transfer TO it.
 	else if(target.is_drainable() || istype(target, /obj/item/reagent_containers/food/snacks))
 		if(!reagents.total_volume)
-			to_chat(user, "<span class='warning'>[src] is empty!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is empty!</span>")
 			return
 		if(target.reagents.total_volume >= target.reagents.maximum_volume)
 			to_chat(user, "<span class='warning'>you can't add anymore to [target]!</span>")

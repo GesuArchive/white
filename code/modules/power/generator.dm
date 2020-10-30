@@ -254,7 +254,7 @@
 		return
 
 	if(anchored)
-		to_chat(user, "<span class='warning'>[src] прикручен!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] прикручен!</span>")
 		return TRUE
 	else if(!panel_open)
 		to_chat(user, "<span class='warning'>Стоит открыть панель сначала!</span>")

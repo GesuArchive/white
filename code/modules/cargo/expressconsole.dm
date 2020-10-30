@@ -53,7 +53,7 @@
 			sb.link_console(src, user)
 			return TRUE
 		else
-			to_chat(user, "<span class='alert'>[src] подключен к [sb].</span>")
+			to_chat(user, "<span class='alert'>[capitalize(src.name)] подключен к [sb].</span>")
 	..()
 
 /obj/machinery/computer/cargo/express/emag_act(mob/living/user)

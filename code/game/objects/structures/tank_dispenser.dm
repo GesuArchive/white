@@ -59,7 +59,7 @@
 	else
 		return ..()
 	if(full)
-		to_chat(user, "<span class='notice'>[src] can't hold any more of [I].</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] can't hold any more of [I].</span>")
 		return
 
 	if(!user.transferItemToLoc(I, src))

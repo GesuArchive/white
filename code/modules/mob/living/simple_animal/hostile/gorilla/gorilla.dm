@@ -76,7 +76,7 @@
 			L.throw_at(throw_target, rand(1,2), 7, src)
 		else
 			L.Paralyze(20)
-			visible_message("<span class='danger'>[src] knocks [L] down!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] knocks [L] down!</span>")
 
 /mob/living/simple_animal/hostile/gorilla/CanAttack(atom/the_target)
 	var/list/parts = target_bodyparts(target)

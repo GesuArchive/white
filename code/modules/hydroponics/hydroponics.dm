@@ -535,7 +535,7 @@
 			return 1
 
 		if(reagents.total_volume >= reagents.maximum_volume && !reagent_source.reagents.has_reagent(/datum/reagent/water, 1))
-			to_chat(user, "<span class='notice'>[src] is full.</span>")
+			to_chat(user, "<span class='notice'>[capitalize(src.name)] is full.</span>")
 			return
 
 		var/list/trays = list(src)//makes the list just this in cases of syringes and compost etc
@@ -598,7 +598,7 @@
 			update_icon()
 			return
 		else
-			to_chat(user, "<span class='warning'>[src] already has seeds in it!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has seeds in it!</span>")
 			return
 
 	else if(istype(O, /obj/item/plant_analyzer))
@@ -712,7 +712,7 @@
 
 	else if(istype(O, /obj/item/shovel/spade))
 		if(!myseed && !weedlevel)
-			to_chat(user, "<span class='warning'>[src] doesn't have any plants or weeds!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] doesn't have any plants or weeds!</span>")
 			return
 		user.visible_message("<span class='notice'>[user] starts digging out [src]'s plants...</span>",
 			"<span class='notice'>You start digging out [src]'s plants...</span>")
@@ -740,7 +740,7 @@
 			to_chat(user, "<span class='notice'>[flowergun] must be fully charged to lock in a mutation!</span>")
 			return
 		if(!myseed)
-			to_chat(user, "<span class='warning'>[src] is empty!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is empty!</span>")
 			return
 		if(myseed.endurance <= 20)
 			to_chat(user, "<span class='warning'>[myseed.plantname] isn't hardy enough to sequence it's mutation!</span>")

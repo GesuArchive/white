@@ -303,7 +303,7 @@
 	if(!topic_denied(user))
 		interact(user)
 	else
-		to_chat(user, "<span class='warning'>[src]'s interface is not responding!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s interface is not responding!</span>")
 
 /mob/living/simple_animal/bot/interact(mob/user)
 	show_controls(user)
@@ -351,7 +351,7 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		if(W.tool_behaviour == TOOL_WELDER && user.a_intent != INTENT_HARM)
 			if(health >= maxHealth)
-				to_chat(user, "<span class='warning'>[src] does not need a repair!</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] does not need a repair!</span>")
 				return
 			if(!open)
 				to_chat(user, "<span class='warning'>Unable to repair with the maintenance panel closed!</span>")
@@ -593,7 +593,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 	var/success = bot_move(ai_waypoint, 3)
 	if(!success)
 		if(calling_ai)
-			to_chat(calling_ai, "[icon2html(src, calling_ai)] [get_turf(src) == ai_waypoint ? "<span class='notice'>[src] successfully arrived to waypoint.</span>" : "<span class='danger'>[src] failed to reach waypoint.</span>"]")
+			to_chat(calling_ai, "[icon2html(src, calling_ai)] [get_turf(src) == ai_waypoint ? "<span class='notice'>[capitalize(src.name)] successfully arrived to waypoint.</span>" : "<span class='danger'>[capitalize(src.name)] failed to reach waypoint.</span>"]")
 			calling_ai = null
 		bot_reset()
 
@@ -853,7 +853,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 		return TRUE
 
 	if(topic_denied(usr))
-		to_chat(usr, "<span class='warning'>[src]'s interface is not responding!</span>")
+		to_chat(usr, "<span class='warning'>[capitalize(src.name)]'s interface is not responding!</span>")
 		return TRUE
 	add_fingerprint(usr)
 
@@ -967,7 +967,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 		else
 			to_chat(user, "<span class='warning'>The personality slot is locked.</span>")
 	else
-		to_chat(user, "<span class='warning'>[src] is not compatible with [card]!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is not compatible with [card]!</span>")
 
 /mob/living/simple_animal/bot/proc/ejectpai(mob/user = null, announce = 1)
 	if(paicard)

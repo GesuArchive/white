@@ -399,13 +399,13 @@
 	on = TRUE
 	START_PROCESSING(SSobj, src)
 	if(ismob(loc))
-		to_chat(loc, "<span class='notice'>[src] turns on.</span>")
+		to_chat(loc, "<span class='notice'>[capitalize(src.name)] turns on.</span>")
 
 /obj/item/reagent_containers/chemtank/proc/turn_off()
 	on = FALSE
 	STOP_PROCESSING(SSobj, src)
 	if(ismob(loc))
-		to_chat(loc, "<span class='notice'>[src] turns off.</span>")
+		to_chat(loc, "<span class='notice'>[capitalize(src.name)] turns off.</span>")
 
 /obj/item/reagent_containers/chemtank/process(delta_time)
 	if(!ishuman(loc))

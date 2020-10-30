@@ -243,7 +243,7 @@
 		return
 	armed = !armed
 	update_icon()
-	to_chat(user, "<span class='notice'>[src] is now [armed ? "armed" : "disarmed"]</span>")
+	to_chat(user, "<span class='notice'>[capitalize(src.name)] is now [armed ? "armed" : "disarmed"]</span>")
 
 /obj/item/restraints/legcuffs/beartrap/proc/close_trap()
 	armed = FALSE

@@ -165,10 +165,10 @@
 	if(faction)
 		bananas.faction = faction
 	if (!QDELETED(bananas))
-		visible_message("<span class='notice'>[src] expands!</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] expands!</span>")
 		bananas.log_message("Spawned via [src] at [AREACOORD(src)], Last attached mob: [key_name(spammer)].", LOG_ATTACK)
 	else if (!spammer) // Visible message in case there are no fingerprints
-		visible_message("<span class='notice'>[src] fails to expand!</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] fails to expand!</span>")
 	qdel(src)
 
 /obj/item/food/monkeycube/suicide_act(mob/living/M)
@@ -589,7 +589,7 @@
 	foodtypes = RAW | MEAT | TOXIC
 
 /obj/item/food/meat/slab/goliath/burn()
-	visible_message("<span class='notice'>[src] finishes cooking!</span>")
+	visible_message("<span class='notice'>[capitalize(src.name)] finishes cooking!</span>")
 	new /obj/item/food/meat/steak/goliath(loc)
 	qdel(src)
 

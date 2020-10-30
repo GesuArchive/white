@@ -525,7 +525,7 @@
 		W.afterattack(keg, user, TRUE) 	// redirect refillable containers to the keg, allowing them to be filled
 		return TRUE 										// pretend we handled the attack, too.
 	if(istype(W, /obj/item/nuke_core_container))
-		to_chat(user, "<span class='notice'>[src] has had its plutonium core removed as a part of being decommissioned.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] has had its plutonium core removed as a part of being decommissioned.</span>")
 		return TRUE
 	return ..()
 
@@ -539,7 +539,7 @@
 	if(is_station_level(bomb_location.z))
 		addtimer(CALLBACK(src, .proc/really_actually_explode), 110)
 	else
-		visible_message("<span class='notice'>[src] fizzes ominously.</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] fizzes ominously.</span>")
 		addtimer(CALLBACK(src, .proc/local_foam), 110)
 
 /obj/machinery/nuclearbomb/beer/proc/disarm()

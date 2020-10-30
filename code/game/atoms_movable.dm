@@ -768,12 +768,12 @@
 /atom/movable/proc/force_push(atom/movable/AM, force = move_force, direction, silent = FALSE)
 	. = AM.force_pushed(src, force, direction)
 	if(!silent && .)
-		visible_message("<span class='warning'>[src] forcefully pushes against [AM]!</span>", "<span class='warning'>You forcefully push against [AM]!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] forcefully pushes against [AM]!</span>", "<span class='warning'>You forcefully push against [AM]!</span>")
 
 /atom/movable/proc/move_crush(atom/movable/AM, force = move_force, direction, silent = FALSE)
 	. = AM.move_crushed(src, force, direction)
 	if(!silent && .)
-		visible_message("<span class='danger'>[src] crushes past [AM]!</span>", "<span class='danger'>You crush [AM]!</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] crushes past [AM]!</span>", "<span class='danger'>You crush [AM]!</span>")
 
 /atom/movable/proc/move_crushed(atom/movable/pusher, force = MOVE_FORCE_DEFAULT, direction)
 	return FALSE

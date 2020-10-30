@@ -36,7 +36,7 @@
 /obj/vehicle/ridden/janicart/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/storage/bag/trash))
 		if(mybag)
-			to_chat(user, "<span class='warning'>[src] already has a trashbag hooked!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a trashbag hooked!</span>")
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
@@ -45,7 +45,7 @@
 		update_icon()
 	else if(istype(I, /obj/item/janiupgrade))
 		if(floorbuffer)
-			to_chat(user, "<span class='warning'>[src] already has a floor buffer!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a floor buffer!</span>")
 			return
 		floorbuffer = TRUE
 		qdel(I)

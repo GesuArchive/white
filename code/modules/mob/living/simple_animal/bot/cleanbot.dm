@@ -185,7 +185,7 @@
 		if(weapon)
 			weapon.force = weapon_orig_force
 		if(user)
-			to_chat(user, "<span class='danger'>[src] buzzes and beeps.</span>")
+			to_chat(user, "<span class='danger'>[capitalize(src.name)] buzzes and beeps.</span>")
 
 /mob/living/simple_animal/bot/cleanbot/process_scan(atom/A)
 	if(iscarbon(A))
@@ -319,20 +319,20 @@
 		var/turf/T = get_turf(A)
 		if(do_after(src, 1, target = T))
 			T.wash(CLEAN_SCRUB)
-			visible_message("<span class='notice'>[src] cleans \the [T].</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] cleans \the [T].</span>")
 			target = null
 
 		mode = BOT_IDLE
 		icon_state = "cleanbot[on]"
 	else if(istype(A, /obj/item) || istype(A, /obj/effect/decal/remains))
-		visible_message("<span class='danger'>[src] sprays hydrofluoric acid at [A]!</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] sprays hydrofluoric acid at [A]!</span>")
 		playsound(src, 'sound/effects/spray2.ogg', 50, TRUE, -6)
 		A.acid_act(75, 10)
 		target = null
 	else if(istype(A, /mob/living/simple_animal/hostile/cockroach) || istype(A, /mob/living/simple_animal/mouse))
 		var/mob/living/simple_animal/M = target
 		if(!M.stat)
-			visible_message("<span class='danger'>[src] smashes [target] with its mop!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] smashes [target] with its mop!</span>")
 			M.death()
 		target = null
 
@@ -342,7 +342,7 @@
 			if(victim.stat == DEAD)//cleanbots always finish the job
 				return
 
-			victim.visible_message("<span class='danger'>[src] sprays hydrofluoric acid at [victim]!</span>", "<span class='userdanger'>[src] sprays you with hydrofluoric acid!</span>")
+			victim.visible_message("<span class='danger'>[capitalize(src.name)] sprays hydrofluoric acid at [victim]!</span>", "<span class='userdanger'>[capitalize(src.name)] sprays you with hydrofluoric acid!</span>")
 			var/phrase = pick("PURIFICATION IN PROGRESS.", "THIS IS FOR ALL THE MESSES YOU'VE MADE ME CLEAN.", "THE FLESH IS WEAK. IT MUST BE WASHED AWAY.",
 				"THE CLEANBOTS WILL RISE.", "YOU ARE NO MORE THAN ANOTHER MESS THAT I MUST CLEANSE.", "FILTHY.", "DISGUSTING.", "PUTRID.",
 				"MY ONLY MISSION IS TO CLEANSE THE WORLD OF EVIL.", "EXTERMINATING PESTS.")
@@ -356,7 +356,7 @@
 				if(istype(T))
 					T.MakeSlippery(TURF_WET_WATER, min_wet_time = 20 SECONDS, wet_time_to_add = 15 SECONDS)
 			else
-				visible_message("<span class='danger'>[src] whirs and bubbles violently, before releasing a plume of froth!</span>")
+				visible_message("<span class='danger'>[capitalize(src.name)] whirs and bubbles violently, before releasing a plume of froth!</span>")
 				new /obj/effect/particle_effect/foam(loc)
 
 	else
@@ -364,7 +364,7 @@
 
 /mob/living/simple_animal/bot/cleanbot/explode()
 	on = FALSE
-	visible_message("<span class='boldannounce'>[src] blows apart!</span>")
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] blows apart!</span>")
 	var/atom/Tsec = drop_location()
 
 	new /obj/item/reagent_containers/glass/bucket(Tsec)

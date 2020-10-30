@@ -104,7 +104,7 @@
 		add_atom_colour(G.guardiancolor, FIXED_COLOUR_PRIORITY)
 
 /obj/structure/receiving_pad/proc/disappear()
-	visible_message("<span class='notice'>[src] vanishes!</span>")
+	visible_message("<span class='notice'>[capitalize(src.name)] vanishes!</span>")
 	qdel(src)
 
 /mob/living/simple_animal/hostile/guardian/healer/AltClickOn(atom/movable/A)

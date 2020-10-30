@@ -46,7 +46,7 @@ GLOBAL_LIST_INIT(ore_probability, list(/obj/item/stack/ore/uranium = 50,
   */
 /obj/structure/spawner/ice_moon/proc/destroy_effect()
 	playsound(loc,'sound/effects/explosionfar.ogg', 200, TRUE)
-	visible_message("<span class='boldannounce'>[src] collapses, sealing everything inside!</span>\n<span class='warning'>Ores fall out of the cave as it is destroyed!</span>")
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] collapses, sealing everything inside!</span>\n<span class='warning'>Ores fall out of the cave as it is destroyed!</span>")
 
 /**
   * Drops items after the spawner is destroyed
@@ -110,7 +110,7 @@ GLOBAL_LIST_INIT(ore_probability, list(/obj/item/stack/ore/uranium = 50,
 /obj/effect/collapsing_demonic_portal/Initialize()
 	. = ..()
 	playsound(loc,'sound/effects/tendril_destroyed.ogg', 200, FALSE, 50, TRUE, TRUE)
-	visible_message("<span class='boldannounce'>[src] begins to collapse, cutting it off from this world!</span>")
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] begins to collapse, cutting it off from this world!</span>")
 	animate(src, transform = matrix().Scale(0, 1), alpha = 50, time = 5 SECONDS)
 	addtimer(CALLBACK(src, .proc/collapse), 5 SECONDS)
 

@@ -142,7 +142,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 		return
 
 	if (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50))
-		to_chat(user, "<span class='danger'>[src] slips out of your hand and hits your head.</span>")
+		to_chat(user, "<span class='danger'>[capitalize(src.name)] slips out of your hand and hits your head.</span>")
 		user.take_bodypart_damage(10)
 		user.Unconscious(400)
 		return

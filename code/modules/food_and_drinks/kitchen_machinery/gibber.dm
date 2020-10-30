@@ -71,7 +71,7 @@
 		return
 
 	if(!anchored)
-		to_chat(user, "<span class='warning'>[src] cannot be used unless bolted to the ground!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] cannot be used unless bolted to the ground!</span>")
 		return
 
 	if(user.pulling && user.a_intent == INTENT_GRAB && isliving(user.pulling))

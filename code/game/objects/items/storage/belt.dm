@@ -706,7 +706,7 @@
 		user.put_in_hands(I)
 		update_icon()
 	else
-		to_chat(user, "<span class='warning'>[src] пустой!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] пустой!</span>")
 
 /obj/item/storage/belt/sabre/update_icon_state()
 	icon_state = initial(inhand_icon_state)

@@ -5,7 +5,7 @@
 
 	if(!gibbed && container)//If not gibbed but in a container.
 		var/obj/item/mmi = container
-		mmi.visible_message("<span class='warning'>[src] расплющивается!</span>", \
+		mmi.visible_message("<span class='warning'>[capitalize(src.name)] расплющивается!</span>", \
 					"<span class='hear'>Слышу как что-то расплющивается.</span>")
 		mmi.update_icon()
 

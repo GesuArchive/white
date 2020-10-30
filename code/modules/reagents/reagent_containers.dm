@@ -41,7 +41,7 @@
 					amount_per_transfer_from_this = possible_transfer_amounts[i+1]
 				else
 					amount_per_transfer_from_this = possible_transfer_amounts[1]
-				to_chat(user, "<span class='notice'>[src]'s transfer amount is now [amount_per_transfer_from_this] units.</span>")
+				to_chat(user, "<span class='notice'>[capitalize(src.name)]'s transfer amount is now [amount_per_transfer_from_this] units.</span>")
 				return
 
 /obj/item/reagent_containers/attack(mob/M, mob/user, def_zone)
@@ -113,7 +113,7 @@
 		reagents.expose(target, TOUCH)
 
 	else if(bartender_check(target) && thrown)
-		visible_message("<span class='notice'>[src] lands onto the [target.name] without spilling a single drop.</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] lands onto the [target.name] without spilling a single drop.</span>")
 		return
 
 	else
@@ -121,7 +121,7 @@
 			log_combat(thrownby, target, "splashed (thrown) [english_list(reagents.reagent_list)]", "in [AREACOORD(target)]")
 			log_game("[key_name(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [AREACOORD(target)].")
 			message_admins("[ADMIN_LOOKUPFLW(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [ADMIN_VERBOSEJMP(target)].")
-		visible_message("<span class='notice'>[src] spills its contents all over [target].</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] spills its contents all over [target].</span>")
 		reagents.expose(target, TOUCH)
 		if(QDELETED(src))
 			return
