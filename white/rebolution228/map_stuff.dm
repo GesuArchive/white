@@ -2,8 +2,8 @@
 /* AREAS */
 
 //Main
-/area/awaymission/chilly
-	name = "Surface"
+/area/awaymission/chilly 
+	name = "Chilly"
 	icon = 'white/rebolution228/map_sprites.dmi'
 	icon_state = "coutdoor"
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
@@ -16,6 +16,18 @@
 	poweralm = FALSE
 	ambientsounds = list('sound/ambience/ambimine.ogg')
 
+/area/awaymission/chilly/surface // костыль, потому что шторм иначе будет применяться на все зоны
+	name = "Surface"
+	icon_state = "coutdoor"
+
+/area/awaymission/chilly/surface/Initialize()
+	. = ..()
+	icon = 'white/valtos/icons/cliffs.dmi'
+	icon_state = "snow_storm"
+	layer = OPENSPACE_LAYER
+
+/area/awaymission/chilly/surface/update_icon_state()
+	return
 
 //Facilities
 /area/awaymission/chilly/facility
