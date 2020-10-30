@@ -156,7 +156,7 @@
 /area/awaymission/chilly/facility3)
 "aI" = (
 /mob/living/simple_animal/hostile/skeleton/ice,
-/turf/open/floor/plating/snowed/smoothed/temperatre,
+/turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/cave)
 "aJ" = (
 /obj/effect/turf_decal/dust,
@@ -175,9 +175,14 @@
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly/surface)
 "aM" = (
-/obj/effect/light_emitter,
-/turf/open/floor/grass/snow/safe/oxy,
-/area/awaymission/chilly/cave)
+/obj/item/stack/ore/iron,
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
+/turf/open/floor/plating/asteroid/snow/ice/oxy,
+/area/awaymission/chilly/mountain)
 "aN" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/small/broken{
@@ -510,13 +515,21 @@
 /obj/structure/chair/brevno,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
+"bQ" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/facility3)
 "bR" = (
 /turf/open/floor/plasteel/stairs/old/chilly/right,
 /area/awaymission/chilly/facility2)
 "bS" = (
-/obj/effect/light_emitter,
-/turf/open/floor/plating,
-/area/awaymission/chilly/facility)
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/mountain)
 "bT" = (
 /obj/structure/closet/cabinet,
 /obj/effect/turf_decal/dust,
@@ -1005,6 +1018,11 @@
 /obj/item/chair/wood,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
+"dn" = (
+/obj/structure/girder,
+/obj/effect/decal/cleanable/generic,
+/turf/open/floor/plating,
+/area/awaymission/chilly/facility3)
 "dp" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel{
@@ -1495,6 +1513,11 @@
 	},
 /area/awaymission/chilly/gatewaystart)
 "eR" = (
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/surface)
 "eS" = (
@@ -1561,6 +1584,11 @@
 /turf/open/floor/material,
 /area/awaymission/chilly/facility3)
 "fe" = (
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
 /area/awaymission/chilly/surface)
 "ff" = (
@@ -1647,6 +1675,12 @@
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
+"fr" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/light_emitter,
+/obj/effect/decal/cleanable/generic,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "fs" = (
 /obj/effect/turf_decal/dust,
 /obj/item/stack/rods,
@@ -1670,6 +1704,10 @@
 	heat_capacity = 1e+006
 	},
 /area/awaymission/chilly/gatewaystart)
+"fw" = (
+/obj/item/stack/sheet/mineral/wood,
+/turf/open/floor/plating/snowed/oxy,
+/area/awaymission/chilly/surface)
 "fx" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/fluff/broken_flooring{
@@ -1993,7 +2031,6 @@
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/mountain)
 "gB" = (
-/obj/effect/light_emitter,
 /obj/structure/fluff/broken_flooring{
 	dir = 4;
 	icon_state = "singular"
@@ -2272,7 +2309,6 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 4
 	},
-/obj/effect/light_emitter,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
 "hy" = (
@@ -2368,8 +2404,12 @@
 /area/awaymission/chilly/mountain)
 "hP" = (
 /obj/effect/turf_decal/dust,
-/obj/effect/light_emitter,
 /obj/structure/lattice,
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly/surface)
 "hQ" = (
@@ -2782,10 +2822,9 @@
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility3)
 "jj" = (
-/obj/machinery/light/broken,
-/obj/effect/light_emitter,
-/turf/open/floor/grass/snow/safe/oxy,
-/area/awaymission/chilly/facility)
+/obj/structure/lattice,
+/turf/open/floor/plating/snowed/oxy,
+/area/awaymission/chilly/surface)
 "jk" = (
 /obj/effect/turf_decal/dust,
 /obj/item/chair,
@@ -2940,9 +2979,10 @@
 /turf/open/floor/plating,
 /area/awaymission/chilly/cave)
 "jJ" = (
-/obj/effect/light_emitter,
-/turf/open/floor/plating/snowed/smoothed/temperatre,
-/area/awaymission/chilly/cave)
+/obj/structure/lattice,
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating,
+/area/awaymission/chilly/surface)
 "jM" = (
 /obj/effect/turf_decal/weather/side{
 	dir = 8
@@ -3318,11 +3358,7 @@
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
 "kV" = (
-/obj/effect/turf_decal/weather/side/corner{
-	dir = 4
-	},
-/obj/effect/light_emitter,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/plating/asteroid/snow/ice/oxy,
 /area/awaymission/chilly/surface)
 "kW" = (
 /obj/effect/turf_decal/dust,
@@ -3331,6 +3367,12 @@
 	},
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/chilly/facility)
+"kX" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken4"
+	},
+/area/awaymission/chilly/facility3)
 "kY" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 4
@@ -3617,6 +3659,11 @@
 	},
 /turf/open/floor/plating/ice/smooth/oxy,
 /area/awaymission/chilly/cave)
+"lW" = (
+/obj/effect/turf_decal/dust,
+/obj/item/stack/tile/wood,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "lX" = (
 /obj/effect/turf_decal/dust,
 /obj/item/ammo_casing/spent{
@@ -3677,7 +3724,6 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/weather/side/corner,
-/obj/effect/light_emitter,
 /obj/structure/lattice,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
@@ -4042,7 +4088,7 @@
 /obj/structure/lattice,
 /obj/effect/turf_decal/dust,
 /turf/open/floor/grass/snow/safe/oxy,
-/area/awaymission/chilly/cave)
+/area/awaymission/chilly/surface)
 "nt" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/plasteel/showroomfloor,
@@ -4401,12 +4447,13 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/gatewaystart)
 "ot" = (
-/obj/effect/turf_decal/weather/side{
-	dir = 9
+/obj/effect/turf_decal/dust,
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
 	},
-/obj/effect/light_emitter,
-/obj/structure/lattice,
-/turf/open/floor/plating/snowed/smoothed/temperatre,
+/turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/surface)
 "ou" = (
 /obj/structure/closet/emcloset,
@@ -5612,10 +5659,15 @@
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "so" = (
-/obj/effect/light_emitter,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/grass/snow/safe/oxy,
-/area/awaymission/chilly/cave)
+/obj/effect/decal/cleanable/wrapping,
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
+/turf/open/floor/plating/snowed/oxy,
+/area/awaymission/chilly/surface)
 "sp" = (
 /obj/machinery/hydroponics/constructable,
 /obj/structure/window/reinforced/spawner,
@@ -5634,7 +5686,7 @@
 "ss" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/spider/stickyweb,
-/turf/open/floor/plating/snowed/smoothed/temperatre,
+/turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/facility)
 "st" = (
 /obj/effect/turf_decal/dust,
@@ -5729,6 +5781,11 @@
 	dir = 8
 	},
 /obj/structure/lattice,
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/surface)
 "sJ" = (
@@ -5739,6 +5796,11 @@
 /mob/living/simple_animal/hostile/syndicate/ranged/smg/space,
 /turf/open/floor/plating,
 /area/awaymission/chilly/cave)
+"sN" = (
+/obj/machinery/light/broken,
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating/snowed/oxy,
+/area/awaymission/chilly/surface)
 "sO" = (
 /obj/item/stack/tile/plasteel,
 /obj/effect/turf_decal/dust,
@@ -5906,10 +5968,13 @@
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility)
 "tr" = (
-/obj/effect/light_emitter,
-/obj/effect/turf_decal/dust,
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
 /turf/open/floor/plating/snowed/oxy,
-/area/awaymission/chilly/facility)
+/area/awaymission/chilly/surface)
 "ts" = (
 /obj/effect/turf_decal/dust,
 /obj/item/rcd_ammo{
@@ -6187,7 +6252,7 @@
 	},
 /obj/effect/turf_decal/dust,
 /turf/open/floor/wood{
-	icon_state = "wood-broken"
+	icon_state = "wood-broken3"
 	},
 /area/awaymission/chilly/facility3)
 "uk" = (
@@ -6609,6 +6674,11 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 1
 	},
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
 "vC" = (
@@ -6886,6 +6956,10 @@
 	heat_capacity = 1e+006
 	},
 /area/awaymission/chilly/gatewaystart)
+"wy" = (
+/obj/effect/decal/cleanable/generic,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "wA" = (
 /obj/effect/decal/cleanable/glass,
 /obj/item/stack/rods,
@@ -7001,7 +7075,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/plating/snowed/smoothed/temperatre,
+/turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/cave)
 "wW" = (
 /obj/effect/turf_decal/dust,
@@ -7085,11 +7159,13 @@
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
 /area/awaymission/chilly/mountain)
 "xn" = (
-/obj/effect/light_emitter,
-/obj/effect/light_emitter,
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plating,
-/area/awaymission/chilly/facility)
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "xo" = (
 /turf/open/floor/plasteel/stairs/old/chilly/single{
 	dir = 1
@@ -7638,6 +7714,11 @@
 /obj/effect/turf_decal/weather/side/corner{
 	dir = 1
 	},
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/surface)
 "yX" = (
@@ -8176,6 +8257,10 @@
 	},
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/cave)
+"AA" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating/snowed/oxy,
+/area/awaymission/chilly/facility3)
 "AC" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/oil,
@@ -8295,11 +8380,14 @@
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/ntcargotrain)
 "AT" = (
-/obj/effect/light_emitter,
-/obj/effect/light_emitter,
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plating/snowed/oxy,
-/area/awaymission/chilly/facility)
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "AU" = (
 /obj/structure/table,
 /obj/item/storage/firstaid/regular,
@@ -8512,6 +8600,9 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
+"BA" = (
+/turf/open/floor/plating/snowed/oxy,
+/area/awaymission/chilly/facility3)
 "BB" = (
 /obj/structure/spider/stickyweb,
 /obj/effect/decal/remains/human,
@@ -8531,10 +8622,16 @@
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
 "BD" = (
-/obj/effect/turf_decal/dust,
-/obj/effect/light_emitter,
-/turf/open/floor/grass/snow/safe/oxy,
-/area/awaymission/chilly/cave)
+/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/glass,
+/obj/structure/lattice,
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/awaymission/chilly/surface)
 "BE" = (
 /obj/structure/spider/stickyweb,
 /mob/living/simple_animal/hostile/poison/giant_spider/nurse/ice,
@@ -8587,7 +8684,7 @@
 /area/awaymission/chilly/mountain)
 "BM" = (
 /obj/structure/spider/stickyweb,
-/turf/open/floor/plating/snowed/smoothed/temperatre,
+/turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/facility)
 "BN" = (
 /obj/effect/turf_decal/weather/side,
@@ -8625,6 +8722,12 @@
 /obj/structure/lattice,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly/surface)
+"BT" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken7"
+	},
+/area/awaymission/chilly/facility3)
 "BU" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/railing,
@@ -8672,6 +8775,13 @@
 /obj/effect/turf_decal/tile/dark,
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
+"Cb" = (
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating/snowed/oxy,
+/area/awaymission/chilly/facility3)
 "Cd" = (
 /obj/effect/turf_decal/weather/side,
 /obj/effect/mine/stun,
@@ -9119,6 +9229,12 @@
 	},
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/facility)
+"Dm" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken3"
+	},
+/area/awaymission/chilly/facility3)
 "Dn" = (
 /obj/structure/table/reinforced,
 /obj/machinery/reagentgrinder,
@@ -9167,7 +9283,6 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 4
 	},
-/obj/effect/light_emitter,
 /obj/structure/lattice,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
@@ -9514,6 +9629,13 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
+"EM" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/wood{
+	icon_state = "wood-broken4"
+	},
+/area/awaymission/chilly/facility3)
 "EN" = (
 /obj/structure/grille/broken,
 /obj/effect/turf_decal/dust,
@@ -9603,7 +9725,6 @@
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility5)
 "Fc" = (
-/obj/effect/light_emitter,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility)
 "Fd" = (
@@ -9698,6 +9819,11 @@
 /area/awaymission/chilly/facility)
 "FA" = (
 /obj/effect/decal/cleanable/wrapping,
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/surface)
 "FB" = (
@@ -9753,7 +9879,7 @@
 "FK" = (
 /obj/structure/lattice,
 /turf/open/floor/grass/snow/safe/oxy,
-/area/awaymission/chilly/cave)
+/area/awaymission/chilly/surface)
 "FL" = (
 /turf/open/floor/plasteel/stairs/old/chilly/left{
 	dir = 8
@@ -10475,7 +10601,6 @@
 /obj/item/shard,
 /obj/item/stack/rods,
 /obj/effect/turf_decal/weather/side/corner,
-/obj/effect/light_emitter,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
 "Ic" = (
@@ -10577,6 +10702,11 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"In" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/decal/cleanable/generic,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "Io" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/remains/human,
@@ -10587,6 +10717,12 @@
 /obj/machinery/oldvents/variant1,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility)
+"Iq" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/light_emitter,
+/obj/item/stack/tile/wood,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "Ir" = (
 /obj/structure/rospilovo/apc/open2{
 	pixel_x = 1;
@@ -10688,7 +10824,11 @@
 /area/awaymission/chilly/facility)
 "IG" = (
 /obj/structure/girder,
-/obj/effect/light_emitter,
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly/surface)
 "IH" = (
@@ -11151,10 +11291,14 @@
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
 /area/awaymission/chilly/mountain)
 "Kl" = (
-/obj/effect/light_emitter,
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plating,
-/area/awaymission/chilly/facility)
+/obj/effect/decal/cleanable/glass,
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "Km" = (
 /obj/structure/spider/stickyweb,
 /obj/effect/decal/remains/xeno/larva,
@@ -11615,6 +11759,11 @@
 	},
 /turf/open/floor/plasteel/elevatorshaft,
 /area/awaymission/chilly/facility2)
+"LT" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/plating/snowed/oxy,
+/area/awaymission/chilly/facility3)
 "LU" = (
 /obj/effect/turf_decal/dust,
 /mob/living/simple_animal/hostile/skeleton/ice,
@@ -11672,11 +11821,14 @@
 	},
 /area/awaymission/chilly/facility)
 "Mc" = (
-/obj/effect/turf_decal/weather/side{
-	dir = 4
+/obj/item/stack/rods,
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
 	},
 /turf/open/floor/grass/snow/safe/oxy,
-/area/awaymission/chilly/cave)
+/area/awaymission/chilly/surface)
 "Md" = (
 /obj/effect/turf_decal,
 /obj/structure/railing/corner{
@@ -11722,7 +11874,7 @@
 /area/awaymission/chilly/syndietrain)
 "Ml" = (
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plating/snowed/smoothed/temperatre,
+/turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/facility)
 "Mm" = (
 /obj/effect/decal/cleanable/glass,
@@ -12011,6 +12163,11 @@
 "Nr" = (
 /obj/structure/closet/crate,
 /obj/item/storage/box/pdas,
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 2
+	},
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
 "Nt" = (
@@ -12542,7 +12699,7 @@
 /mob/living/simple_animal/hostile/skeleton/ice{
 	health = 200
 	},
-/turf/open/floor/plating/snowed/smoothed/temperatre,
+/turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/cave)
 "Pl" = (
 /obj/item/trash/cheesie,
@@ -12832,6 +12989,12 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/chilly/facility3)
+"Qg" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/decal/cleanable/blood/old,
+/obj/item/stack/sheet/mineral/wood,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "Qi" = (
 /obj/structure/closet/cabinet,
 /obj/effect/turf_decal/dust,
@@ -12856,6 +13019,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/gatewaystart)
+"Ql" = (
+/obj/machinery/light/broken{
+	dir = 8
+	},
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating/snowed/oxy,
+/area/awaymission/chilly/facility3)
 "Qm" = (
 /obj/effect/turf_decal/dust,
 /obj/item/stock_parts/manipulator,
@@ -13992,8 +14162,10 @@
 /area/awaymission/chilly/gatewaystart)
 "Ui" = (
 /obj/effect/turf_decal/dust,
-/turf/open/floor/plating/snowed/smoothed/temperatre,
-/area/awaymission/chilly/cave)
+/turf/open/floor/wood{
+	icon_state = "wood-broken5"
+	},
+/area/awaymission/chilly/facility3)
 "Uj" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Facility Entrance"
@@ -14168,6 +14340,12 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"UP" = (
+/obj/effect/turf_decal/dust,
+/obj/item/stack/sheet/mineral/wood,
+/obj/effect/decal/cleanable/generic,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "UQ" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/dust,
@@ -14861,10 +15039,11 @@
 	},
 /area/awaymission/chilly/facility2)
 "WT" = (
-/obj/item/stack/rods,
-/obj/effect/light_emitter,
-/turf/open/floor/grass/snow/safe/oxy,
-/area/awaymission/chilly/cave)
+/obj/effect/turf_decal/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken2"
+	},
+/area/awaymission/chilly/facility3)
 "WU" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Maintenance Hatch"
@@ -14932,11 +15111,11 @@
 /turf/open/floor/material,
 /area/awaymission/chilly/facility3)
 "Xi" = (
-/obj/effect/turf_decal/weather/side{
-	dir = 8
+/obj/effect/turf_decal/dust,
+/turf/open/floor/wood{
+	icon_state = "wood-broken6"
 	},
-/turf/open/floor/grass/snow/safe/oxy,
-/area/awaymission/chilly/cave)
+/area/awaymission/chilly/facility3)
 "Xj" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/mecha_wreckage/odysseus,
@@ -19139,14 +19318,14 @@ Om
 dB
 dB
 EO
-WT
-jJ
-aM
-BD
-aM
-aM
-jJ
-aM
+Rl
+CD
+Un
+qp
+Un
+Un
+CD
+Un
 EO
 dB
 Om
@@ -19340,15 +19519,15 @@ Om
 Om
 dB
 dB
-fn
 Om
-BS
-kG
-Om
+xn
+BD
+AT
+xn
 fe
 Nr
-BS
-Om
+BD
+xn
 Om
 Om
 Om
@@ -20555,8 +20734,8 @@ kG
 hR
 LZ
 gB
-gc
-kV
+Om
+aB
 hx
 Ib
 hP
@@ -20956,7 +21135,7 @@ Om
 Om
 Om
 Om
-gc
+xn
 Wp
 PE
 vB
@@ -20965,7 +21144,7 @@ vN
 Jg
 ai
 kG
-gc
+xn
 Om
 Om
 Om
@@ -21158,16 +21337,16 @@ Om
 VX
 Om
 kG
-gc
+xn
 kG
 IG
 Re
 Du
 mg
-ot
+mY
 Cu
 Om
-gc
+xn
 Om
 Om
 Om
@@ -21360,7 +21539,7 @@ Om
 VX
 Om
 Om
-gc
+xn
 kd
 bb
 Bh
@@ -21369,7 +21548,7 @@ hb
 TU
 ai
 Om
-BI
+Kl
 Om
 Om
 Om
@@ -21562,7 +21741,7 @@ Om
 Om
 Wp
 UX
-HP
+AT
 UX
 rX
 EB
@@ -21571,7 +21750,7 @@ Pq
 ti
 qD
 UX
-gc
+xn
 Om
 Om
 VX
@@ -21764,7 +21943,7 @@ Om
 Om
 Wp
 Om
-gc
+xn
 Om
 ai
 nF
@@ -21773,7 +21952,7 @@ RZ
 qm
 ai
 Om
-gc
+xn
 Om
 Om
 Om
@@ -21966,7 +22145,7 @@ Om
 Om
 Om
 LZ
-gc
+xn
 UX
 Cu
 Vj
@@ -21975,7 +22154,7 @@ nP
 FE
 qD
 kG
-gm
+Mc
 Om
 Om
 Om
@@ -22168,7 +22347,7 @@ Om
 Om
 Om
 UX
-gc
+xn
 kG
 ai
 FE
@@ -22177,7 +22356,7 @@ Pq
 FE
 ai
 iP
-gc
+xn
 Om
 Om
 Om
@@ -22370,7 +22549,7 @@ Om
 Om
 Om
 Om
-HP
+AT
 Om
 qD
 Aa
@@ -22379,7 +22558,7 @@ ev
 AS
 Cu
 Om
-gc
+xn
 Om
 VX
 Om
@@ -25672,7 +25851,7 @@ gc
 Om
 oX
 yH
-yH
+WT
 xW
 fX
 Lu
@@ -25698,15 +25877,15 @@ Dw
 PE
 xr
 Rk
-yH
+BT
 xW
 yH
 fX
 Es
-yH
+Ui
 mu
-yH
-yH
+kX
+Ui
 XU
 UX
 gc
@@ -26513,7 +26692,7 @@ XL
 xr
 fX
 Bz
-yH
+BT
 rH
 oX
 Om
@@ -26687,7 +26866,7 @@ Ne
 aT
 YW
 fX
-yH
+Xi
 xr
 oS
 Ne
@@ -26888,7 +27067,7 @@ xr
 IP
 xr
 xr
-yH
+BT
 xW
 xr
 xr
@@ -27093,7 +27272,7 @@ fX
 xW
 xW
 fX
-yH
+Ui
 xW
 xW
 fX
@@ -27293,7 +27472,7 @@ fX
 xW
 fX
 xW
-yH
+Xi
 xW
 fX
 fX
@@ -27494,7 +27673,7 @@ YW
 IP
 xr
 xr
-yH
+WT
 yH
 xr
 xr
@@ -27918,11 +28097,11 @@ HP
 Om
 Qw
 Bf
-yH
+kX
 bW
 Ne
 xr
-fX
+yH
 fX
 xr
 Ne
@@ -29821,7 +30000,7 @@ Om
 Om
 Om
 Om
-jj
+RH
 Kn
 RQ
 ER
@@ -30547,12 +30726,12 @@ PE
 xr
 nG
 yH
+AA
 fX
 fX
+AA
 fX
-fX
-fX
-yH
+Dm
 fX
 yH
 oX
@@ -30750,11 +30929,11 @@ gE
 fX
 fX
 fX
+BA
+AA
+BA
 yH
-fX
-yH
-fX
-fX
+Ui
 QB
 fX
 oX
@@ -30928,10 +31107,10 @@ cN
 ES
 by
 by
-yH
+kX
 fX
 fX
-yH
+Dm
 fX
 gE
 PE
@@ -30952,8 +31131,8 @@ YW
 xr
 xr
 YW
-Es
-xW
+LT
+BA
 xr
 xr
 YW
@@ -31153,9 +31332,9 @@ FZ
 Sn
 Lt
 mU
-xr
-yH
-fX
+YW
+BA
+wy
 YW
 EA
 yP
@@ -31355,10 +31534,10 @@ pE
 fX
 xW
 Ne
-xr
-fX
-qr
 YW
+UP
+sN
+dn
 fX
 yH
 xW
@@ -31557,9 +31736,9 @@ gJ
 qV
 Ne
 az
-xr
-xW
-xW
+YW
+wy
+UP
 YW
 PB
 Ne
@@ -31758,10 +31937,10 @@ xr
 xr
 xr
 gE
-xr
-xr
-fX
-fX
+YW
+YW
+Iq
+HP
 xr
 xr
 gE
@@ -31860,7 +32039,7 @@ Om
 Om
 Kn
 eV
-Kl
+CX
 DZ
 FA
 GD
@@ -31958,15 +32137,15 @@ Om
 kG
 oX
 fX
-xW
-fX
-fX
-yH
-yH
-xW
-Es
-Rk
-Lu
+AA
+AA
+kG
+In
+HP
+fr
+Qg
+Ql
+EM
 fX
 xW
 oX
@@ -32062,9 +32241,9 @@ gc
 Om
 Kn
 UQ
-Kl
+CX
 DZ
-GD
+ot
 GD
 pM
 CU
@@ -32135,7 +32314,7 @@ Om
 gc
 Om
 oX
-yH
+Ui
 xW
 fX
 rM
@@ -32143,9 +32322,9 @@ fX
 vn
 by
 Es
-yH
+WT
 by
-yH
+Dm
 fX
 oX
 Om
@@ -32162,13 +32341,13 @@ oX
 xW
 QB
 fX
-xW
-fX
-yH
-fX
-yH
-fX
-xW
+AA
+db
+lW
+fw
+wy
+kG
+AA
 fX
 fX
 oX
@@ -32264,9 +32443,9 @@ fm
 Kn
 Kn
 eE
-tr
+HF
 hw
-GD
+ot
 GD
 FF
 zi
@@ -32343,7 +32522,7 @@ by
 fX
 fX
 fX
-yH
+kX
 xf
 fX
 xW
@@ -32366,8 +32545,8 @@ xr
 gE
 xr
 xr
-fX
-fX
+Om
+bQ
 xr
 xr
 gE
@@ -32466,9 +32645,9 @@ lL
 aN
 Kn
 CX
-AT
+HF
 GD
-zf
+so
 et
 cK
 CU
@@ -32568,7 +32747,7 @@ qV
 Ne
 uA
 xr
-Rx
+Cb
 xW
 xr
 PM
@@ -32668,9 +32847,9 @@ Ar
 lL
 Uj
 CX
-xn
+CX
 GD
-GD
+ot
 Oe
 TD
 CU
@@ -32767,7 +32946,7 @@ Om
 oX
 Bf
 xW
-yH
+WT
 xW
 xr
 fX
@@ -32870,9 +33049,9 @@ lL
 HE
 Kn
 CX
-AT
+HF
 GD
-GD
+ot
 et
 cK
 zi
@@ -32945,7 +33124,7 @@ Om
 oX
 gk
 Ne
-yH
+Xi
 yH
 xr
 fX
@@ -33072,9 +33251,9 @@ Uj
 Kn
 Kn
 eE
-bS
+uD
 DZ
-GD
+ot
 GD
 cK
 CU
@@ -33274,9 +33453,9 @@ OD
 ZN
 Kn
 iC
-bS
+uD
 DZ
-et
+tr
 zf
 pM
 CU
@@ -33478,7 +33657,7 @@ Kn
 ZK
 Fc
 ZI
-GD
+ot
 GD
 FF
 CU
@@ -37108,7 +37287,7 @@ el
 el
 el
 el
-HF
+Ml
 el
 el
 ey
@@ -37116,7 +37295,7 @@ Pr
 Pr
 Pr
 ey
-CD
+Un
 mL
 Py
 JQ
@@ -37317,11 +37496,11 @@ Pr
 Pr
 Pr
 Pr
-CD
-CD
-CD
+Un
+Un
+Un
 ZF
-CD
+Un
 mL
 EO
 dB
@@ -37520,10 +37699,10 @@ ey
 Pr
 Pr
 Pr
-CD
+Un
 ey
-CD
-CD
+Un
+Un
 FM
 EO
 dB
@@ -37724,8 +37903,8 @@ EO
 EO
 EO
 EO
-CD
-CD
+Un
+Un
 Py
 EO
 dB
@@ -37928,7 +38107,7 @@ It
 SE
 Pr
 Pr
-CD
+Un
 EO
 dB
 dB
@@ -38876,9 +39055,9 @@ dB
 dB
 oJ
 dB
-fn
-fn
-fn
+Om
+Om
+Om
 dB
 oJ
 dB
@@ -39078,9 +39257,9 @@ oJ
 dB
 dB
 oJ
-Fa
-my
-my
+aM
+bS
+bS
 HA
 oJ
 dB
@@ -39717,7 +39896,7 @@ ER
 HF
 mn
 CX
-HF
+Ml
 CX
 Kn
 dB
@@ -39908,7 +40087,7 @@ dB
 dB
 Kn
 HF
-HF
+Ml
 HF
 OG
 Kn
@@ -39920,7 +40099,7 @@ VY
 Kn
 LB
 HF
-wb
+HF
 Kn
 dB
 Kn
@@ -39946,8 +40125,8 @@ dB
 dB
 dB
 EO
-CD
-CD
+Un
+Un
 Pr
 Pr
 oJ
@@ -40109,20 +40288,20 @@ dB
 dB
 dB
 eO
-wb
-wb
-wb
-wb
+Ml
+HF
+Ml
+Ml
 Kn
 Gj
 HF
-wb
-wb
-wb
-Kn
-wb
+Ml
+Ml
 HF
-wb
+Kn
+Ml
+HF
+Ml
 Kn
 dB
 Kn
@@ -40148,9 +40327,9 @@ dB
 dB
 dB
 EO
-CD
-CD
-CD
+Un
+Un
+Un
 EO
 dB
 dB
@@ -40312,18 +40491,18 @@ dB
 dB
 el
 HF
-wb
+Ml
 eO
 el
 Kn
-wb
-wb
-wb
-wb
+Ml
+Ml
+HF
+Ml
 el
 Kn
 HF
-wb
+Ml
 el
 Kn
 dB
@@ -40350,9 +40529,9 @@ dB
 dB
 dB
 EO
-CD
-CD
-CD
+Un
+Un
+Un
 EO
 dB
 oJ
@@ -40513,19 +40692,19 @@ dB
 dB
 dB
 eO
-wb
+Ml
 eO
 el
 eO
 Kn
-wb
+HF
 el
 el
 eO
 el
 Kn
-wb
-wb
+Ml
+Ml
 eO
 el
 dB
@@ -40553,8 +40732,8 @@ dB
 dB
 Pr
 Pr
-CD
-CD
+Un
+Un
 EO
 Pr
 Pr
@@ -40754,12 +40933,12 @@ dB
 dB
 dB
 EO
-CD
-CD
+Un
+Un
 CD
 EO
 Pr
-CD
+Un
 Pr
 Pr
 dB
@@ -40960,10 +41139,10 @@ Bt
 Bt
 Bt
 EO
-CD
-CD
-CD
-CD
+Un
+Un
+Un
+Un
 oJ
 oJ
 dB
@@ -41158,13 +41337,13 @@ dB
 dB
 dB
 ey
-CD
+Un
 Py
 Py
 FM
-CD
-CD
-CD
+Un
+Un
+Un
 Pr
 oJ
 dB
@@ -41361,11 +41540,11 @@ dB
 dB
 EO
 ey
-CD
+Un
 Py
 EO
-CD
-CD
+Un
+Un
 Pr
 Pr
 oJ
@@ -43929,18 +44108,18 @@ YU
 Vv
 Vv
 Vv
-CD
-CD
-CD
+Un
+Un
+Un
 aG
 aG
 aG
 aG
 aG
 Pr
-CD
+Un
 Vv
-CD
+Un
 vY
 pQ
 Vv
@@ -43955,11 +44134,11 @@ Az
 Vv
 Vv
 Vv
-CD
-Vv
+Un
+et
 Vv
 Oc
-Mc
+xF
 WV
 mL
 Vv
@@ -43973,11 +44152,11 @@ Vv
 Vv
 Vv
 Vv
-Ui
-CD
-CD
-Ui
-CD
+qp
+Un
+Un
+qp
+Un
 Vv
 Vv
 Vv
@@ -44130,17 +44309,17 @@ Dr
 FM
 nM
 nM
-CD
+Un
 UG
 nM
 wn
 AG
-CD
+Un
 Pr
 aG
 Pr
-CD
-CD
+Un
+Un
 Vv
 UG
 nM
@@ -44160,10 +44339,10 @@ Dr
 nM
 cm
 FK
-FM
-Dr
-qp
-Dr
+bC
+jJ
+kG
+jJ
 nM
 nM
 UG
@@ -44179,7 +44358,7 @@ Gw
 Gw
 UG
 cm
-CD
+Un
 Vv
 UG
 UG
@@ -44360,14 +44539,14 @@ Vv
 Un
 Vv
 mL
-CD
+Om
+Om
+Om
+iL
+kG
+kG
+Om
 Un
-Un
-so
-qp
-Ui
-Un
-CD
 Vv
 Vv
 mL
@@ -44378,11 +44557,11 @@ Vv
 Vv
 Vv
 Vv
-CD
+Un
 Vv
 Vv
 vC
-CD
+Un
 Vv
 vC
 Vv
@@ -44397,7 +44576,7 @@ mL
 Vv
 Vv
 lZ
-CD
+Un
 EO
 dB
 dB
@@ -44561,15 +44740,15 @@ Vv
 Vv
 Vv
 Vv
-CD
-qp
-qp
-aM
-aM
-aM
 Un
-YU
-YU
+kG
+kG
+gc
+gc
+gc
+Om
+kV
+kV
 CD
 aI
 Vv
@@ -44578,25 +44757,25 @@ mL
 Vv
 mL
 Vv
-CD
+Un
 mL
 Vv
 vC
 mL
 mL
-Ui
-Ui
+qp
+qp
 Vv
-CD
+Un
 Vv
-CD
-CD
-Ui
+Un
+Un
+qp
 Vv
-Ui
-CD
+qp
+Un
 mL
-CD
+Un
 Vv
 Vv
 Pk
@@ -44763,21 +44942,21 @@ Vv
 Vv
 mL
 Vv
-CD
-Un
-Un
-aM
-aM
-so
-Un
-CD
-Un
+Om
+Om
+Om
+gc
+gc
+iL
+Om
+Om
+Om
 YU
 YU
 Vv
 Xm
 mL
-CD
+Un
 Vv
 mL
 vC
@@ -44793,15 +44972,15 @@ Vv
 vC
 Vv
 Vv
-CD
+Un
 Vv
-CD
+Un
 Vv
-Ui
+qp
 Vv
 Vv
-CD
-CD
+Un
+Un
 EO
 dB
 dB
@@ -44965,14 +45144,14 @@ dw
 Vv
 Vv
 Vv
-CD
-mL
-qp
-qp
-aM
-qp
-CD
-CD
+Om
+GD
+kG
+kG
+gc
+kG
+Om
+Om
 YU
 YU
 YU
@@ -44987,7 +45166,7 @@ Vv
 vC
 Vv
 Vv
-CD
+Un
 Vv
 Vv
 vC
@@ -45000,8 +45179,8 @@ Vv
 zS
 Vv
 Vv
-CD
-CD
+Un
+Un
 lZ
 zZ
 Pr
@@ -45167,11 +45346,11 @@ UG
 Vv
 cm
 Dr
-UG
+jj
 nM
 nr
 FK
-FM
+bC
 nr
 YU
 YU
@@ -45195,15 +45374,15 @@ nM
 UG
 UG
 UG
-CD
+Un
 UG
-CD
+Un
 nM
-CD
+Un
 UG
-CD
+Un
 Pk
-CD
+Un
 aG
 aG
 EO
@@ -45370,10 +45549,10 @@ Vv
 Vv
 Vv
 Vv
-Vv
+et
 Vv
 eq
-Xi
+vR
 Qn
 aG
 aG
@@ -45398,7 +45577,7 @@ Vv
 Vv
 Vv
 Vv
-CD
+Un
 Pr
 aG
 Pr
