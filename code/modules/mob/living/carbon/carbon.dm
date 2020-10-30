@@ -170,7 +170,7 @@
 		if(pulling && grab_state >= GRAB_NECK)
 			power_throw++
 		visible_message("<span class='danger'><b>[src]</b> кидает <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."]</span>", \
-						"<span class='danger'>Кидаю <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."].</span>")
+						"<span class='danger'>Кидаю <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."]</span>")
 		playsound(get_turf(src), 'white/valtos/sounds/throw.wav', 50, TRUE)
 		log_message("has thrown [thrown_thing] [power_throw ? "really hard" : ""]", LOG_ATTACK)
 		newtonian_move(get_dir(target, src))

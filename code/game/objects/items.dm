@@ -380,7 +380,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	var/grav = user.has_gravity()
 	if(grav > STANDARD_GRAVITY)
 		var/grav_power = min(3,grav - STANDARD_GRAVITY)
-		to_chat(user,"<span class='notice'>Я с трудом начинаю поднимать [src]...</span>")
+		to_chat(user,"<span class='notice'>С трудом начинаю поднимать [src]...</span>")
 		if(!do_mob(user,src,30*grav_power))
 			return
 

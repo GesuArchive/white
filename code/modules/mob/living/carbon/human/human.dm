@@ -1095,14 +1095,14 @@
 	var/skills_space = "" //cobby told me to do this
 	if(HAS_TRAIT(src, TRAIT_QUICKER_CARRY))
 		carrydelay = 30
-		skills_space = "экспертно"
+		skills_space = "экспертно "
 	else if(HAS_TRAIT(src, TRAIT_QUICK_CARRY))
 		carrydelay = 40
-		skills_space = "быстро"
+		skills_space = "быстро "
 	if(can_be_firemanned(target) && !incapacitated(FALSE, TRUE))
 		visible_message("<span class='notice'><b>[src]</b> начинает [skills_space] поднимать <b>[target]</b> на свою спину..</span>",
 		//Joe Medic starts quickly/expertly lifting Grey Tider onto their back..
-		"<span class='notice'>[carrydelay < 35 ? "Используя свои перчатки, я" : "Я"] [skills_space] начинаю поднимать <b>[target]</b> на свою спину[carrydelay == 40 ? ", пока мне помогают мои наночипы в них..." : "..."]</span>")
+		"<span class='notice'>Начинаю [skills_space]поднимать <b>[target]</b> [carrydelay < 35 ? "мспользуя свои перчатки " : " "] на свою спину[carrydelay == 40 ? ", пока мне помогают мои наночипы в них..." : "..."]</span>")
 		//(Using your gloves' nanochips, you/You) ( /quickly/expertly) start to lift Grey Tider onto your back(, while assisted by the nanochips in your gloves../...)
 		if(do_after(src, carrydelay, target))
 			//Second check to make sure they're still valid to be carried

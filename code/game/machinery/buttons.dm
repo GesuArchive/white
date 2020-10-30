@@ -167,7 +167,7 @@
 		return
 
 	if(!allowed(user))
-		to_chat(user, "<span class='alert'>Access Denied.</span>")
+		to_chat(user, "<span class='alert'>Доступ запрещён.</span>")
 		flick("[skin]-denied", src)
 		return
 

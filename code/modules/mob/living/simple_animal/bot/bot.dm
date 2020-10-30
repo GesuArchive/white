@@ -321,7 +321,7 @@
 		to_chat(user, "<span class='warning'>Please close the access panel before [locked ? "un" : ""]locking it.</span>")
 		return
 	if(!bot_core.allowed(user))
-		to_chat(user, "<span class='warning'>Access denied.</span>")
+		to_chat(user, "<span class='warning'>Доступ запрещён.</span>")
 		return
 	locked = !locked
 	to_chat(user, "<span class='notice'>Controls are now [locked ? "locked" : "unlocked"].</span>")
