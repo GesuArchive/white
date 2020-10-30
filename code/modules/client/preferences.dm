@@ -494,11 +494,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<tr style='vertical-align:middle;' class='metaitem'><td width=300>"
 				if(G.display_name in purchased_gear)
 					if(G.sort_category == "OOC")
-						dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить ещё "
+						dat += "<img class='icon icon-misc' src='data:image/png;base64,[G.get_base64_icon()]'><a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить ещё "
 					else
-						dat += "<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.display_name]'>[ticked ? "Экипировано" : "Экипировать"] "
+						dat += "<img class='icon icon-misc' src='data:image/png;base64,[G.get_base64_icon()]'><a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.display_name]'>[ticked ? "Экипировано" : "Экипировать"] "
 				else
-					dat += "[G.get_base64_icon() ? "<img class='icon icon-misc' src='data:image/png;base64,[G.get_base64_icon()]'>" : ""]<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить</a>"
+					dat += "<img class='icon icon-misc' src='data:image/png;base64,[G.get_base64_icon()]'><a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить</a>"
 				dat += " - [capitalize(G.display_name)]</td>"
 				dat += "<td width=5% style='vertical-align:middle' class='metaprice'>[G.cost]</td><td>"
 				if(G.allowed_roles)
