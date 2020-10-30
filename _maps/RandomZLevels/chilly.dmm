@@ -3168,6 +3168,15 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility)
+"ks" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/chilly/cave)
 "kv" = (
 /obj/machinery/light/small/broken,
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
@@ -4084,6 +4093,15 @@
 /obj/structure/fence/door,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/cave)
+"nq" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/chilly/cave)
 "nr" = (
 /obj/structure/lattice,
 /obj/effect/turf_decal/dust,
@@ -4311,6 +4329,12 @@
 /obj/structure/lattice,
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
+"nW" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 9
+	},
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/chilly/mountain)
 "nY" = (
 /obj/effect/turf_decal/dust,
 /obj/item/stack/tile/plasteel,
@@ -4535,6 +4559,12 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
+"oI" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 10
+	},
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/chilly/mountain)
 "oJ" = (
 /turf/closed/mineral/snowmountain/cavern/oxy,
 /area/awaymission/chilly/mountain)
@@ -6290,6 +6320,12 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
 /area/awaymission/chilly/mountain)
+"uq" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/chilly/mountain)
 "ur" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken{
@@ -7140,10 +7176,7 @@
 	},
 /area/awaymission/chilly/surface)
 "xj" = (
-/obj/machinery/light/broken{
-	dir = 1
-	},
-/turf/open/floor/plating/snowed/smoothed/temperatre,
+/turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/facility)
 "xk" = (
 /obj/effect/turf_decal/weather/side{
@@ -9434,6 +9467,15 @@
 /obj/item/shard,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
+"DY" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/chilly/cave)
 "DZ" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/dust,
@@ -9966,6 +10008,12 @@
 /obj/item/chair,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility)
+"Gb" = (
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/chilly/cave)
 "Gc" = (
 /obj/structure/table,
 /obj/machinery/light/broken{
@@ -11041,6 +11089,13 @@
 	},
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
+"Jr" = (
+/obj/effect/turf_decal/weather/side/corner,
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/chilly/cave)
 "Js" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken{
@@ -11107,8 +11162,9 @@
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly/surface)
 "JF" = (
+/obj/structure/spider/stickyweb,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
-/area/awaymission/chilly/mountain)
+/area/awaymission/chilly/facility)
 "JH" = (
 /obj/structure/spider/stickyweb,
 /obj/effect/decal/cleanable/blood/old,
@@ -12980,6 +13036,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
+"Qd" = (
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/side/corner,
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/chilly/cave)
 "Qf" = (
 /obj/structure/window,
 /obj/machinery/shower{
@@ -15129,8 +15192,13 @@
 	},
 /area/awaymission/chilly/facility3)
 "Xm" = (
-/mob/living/simple_animal/hostile/skeleton/ice,
-/turf/open/floor/plating/snowed/oxy,
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/ice/smooth/oxy,
 /area/awaymission/chilly/cave)
 "Xn" = (
 /obj/machinery/light/small{
@@ -34862,7 +34930,7 @@ RO
 sO
 HF
 EI
-wb
+xj
 fZ
 CX
 fm
@@ -35062,10 +35130,10 @@ VY
 JA
 nT
 RO
-wb
+xj
 EI
 wb
-wb
+xj
 Dq
 fm
 gc
@@ -37280,7 +37348,7 @@ HF
 XK
 zK
 zK
-BM
+JF
 BM
 el
 el
@@ -40327,7 +40395,7 @@ dB
 dB
 dB
 EO
-Un
+CD
 Un
 Un
 EO
@@ -40529,8 +40597,8 @@ dB
 dB
 dB
 EO
-Un
-Un
+CD
+CD
 Un
 EO
 dB
@@ -40733,7 +40801,7 @@ dB
 Pr
 Pr
 Un
-Un
+mL
 EO
 Pr
 Pr
@@ -40934,8 +41002,8 @@ dB
 dB
 EO
 Un
-Un
-CD
+mL
+mL
 EO
 Pr
 Un
@@ -41136,13 +41204,13 @@ dB
 dB
 EO
 Bt
-Bt
-Bt
+mL
+mL
 EO
+YU
 Un
 Un
-Un
-Un
+YU
 oJ
 oJ
 dB
@@ -41339,11 +41407,11 @@ dB
 ey
 Un
 Py
-Py
-FM
 Un
+mL
 Un
-Un
+YU
+YU
 Pr
 oJ
 dB
@@ -41544,7 +41612,7 @@ Un
 Py
 EO
 Un
-Un
+YU
 Pr
 Pr
 oJ
@@ -42313,13 +42381,13 @@ Kn
 hl
 Kn
 el
-JF
+my
 oJ
 cu
 cu
 cu
 Kn
-wb
+xj
 el
 el
 Kn
@@ -42522,7 +42590,7 @@ cu
 cu
 Kn
 xj
-wb
+xj
 el
 el
 cu
@@ -42718,7 +42786,7 @@ hl
 Kn
 HJ
 Mx
-JF
+my
 Ee
 cu
 cu
@@ -42927,7 +42995,7 @@ hl
 ii
 HF
 HF
-wb
+xj
 Kn
 cu
 cu
@@ -44145,27 +44213,27 @@ Vv
 Vv
 zS
 Az
+Ty
+oM
+TJ
 Vv
 Vv
 Vv
 Vv
-Vv
-Vv
-Vv
+mL
+Un
+mL
 qp
-Un
-Un
-qp
-Un
+mL
 Vv
 Vv
 Vv
 zS
 Vv
-vC
+le
 mL
 Vv
-Vv
+vC
 Vv
 mL
 Vv
@@ -44346,9 +44414,9 @@ jJ
 nM
 nM
 UG
-Dr
-nM
-nM
+YL
+BP
+ek
 nM
 AG
 AG
@@ -44358,15 +44426,15 @@ Gw
 Gw
 UG
 cm
-Un
-Vv
+mL
+mL
 UG
 UG
 nM
-UG
-nM
-nM
-nM
+Ty
+Qd
+oM
+DY
 nM
 nM
 Vv
@@ -44540,8 +44608,8 @@ Un
 Vv
 mL
 Om
-Om
-Om
+PE
+PE
 iL
 kG
 kG
@@ -44551,23 +44619,23 @@ Vv
 Vv
 mL
 mL
-Vv
-vC
-Vv
-Vv
-Vv
-Vv
-Un
+YL
+De
+Lm
+lV
 Vv
 Vv
-vC
-Un
-Vv
-vC
+mL
 Vv
 Vv
-vC
-Vv
+Ty
+HV
+HV
+HV
+HV
+Fx
+Gb
+ek
 Vv
 Vv
 mL
@@ -44744,7 +44812,7 @@ Un
 kG
 kG
 gc
-gc
+fh
 gc
 Om
 kV
@@ -44755,28 +44823,28 @@ Vv
 mL
 mL
 Vv
+Gq
+Ve
+nq
 mL
 Vv
-Un
+le
 mL
-Vv
-vC
-mL
+Qs
+zZ
+zZ
+zZ
+zZ
+Gb
+ek
 mL
 qp
-qp
 Vv
-Un
-Vv
-Un
-Un
-qp
-Vv
-qp
-Un
+mL
+mL
 mL
 Un
-Vv
+mL
 Vv
 Pk
 aG
@@ -44944,32 +45012,32 @@ mL
 Vv
 Om
 Om
-Om
+PE
 gc
 gc
 iL
 Om
-Om
+PE
 Om
 YU
 YU
 Vv
-Xm
-mL
+Ty
+lV
 Un
 Vv
 mL
-vC
+xu
 Vv
-Vv
-Vv
-Vv
-vC
-Vv
-Vv
-Vv
-Vv
-vC
+Ty
+Jr
+HV
+Fx
+zZ
+zZ
+Gb
+qM
+ek
 Vv
 Vv
 Un
@@ -44977,7 +45045,7 @@ Vv
 Un
 Vv
 qp
-Vv
+mL
 Vv
 Un
 Un
@@ -45150,26 +45218,26 @@ kG
 kG
 gc
 kG
-Om
-Om
+PE
+PE
 YU
 YU
 YU
 YU
+Gq
+Ve
+Lm
+lV
 Vv
 Vv
 Vv
-Vv
-Vv
-Vv
-Vv
-vC
-Vv
-Vv
-Un
-Vv
-Vv
-vC
+Gq
+qM
+qM
+qM
+qM
+qM
+ks
 Vv
 Vv
 Vv
@@ -45360,9 +45428,9 @@ nM
 rn
 nM
 nM
-nM
-Dr
-nM
+Gq
+Xm
+lV
 nM
 AG
 AG
@@ -45563,9 +45631,9 @@ YU
 YU
 Vv
 YU
-Vv
-Vv
-Vv
+Gq
+Xm
+lV
 Vv
 Vv
 Vv
@@ -45766,12 +45834,12 @@ EO
 Pr
 EO
 EO
-EO
-EO
-Pr
-EO
-ey
-Pr
+Gq
+Ve
+Lm
+HV
+oM
+DY
 Pr
 Pr
 Pr
@@ -45967,14 +46035,14 @@ aG
 aG
 aG
 aG
+oJ
+oJ
 cu
-cu
-cu
-cu
-cu
-cu
-cu
-cu
+oI
+uq
+nW
+oJ
+oJ
 cu
 cu
 cu
@@ -46172,11 +46240,11 @@ cu
 cu
 cu
 cu
+oJ
+oJ
 cu
 cu
-cu
-cu
-cu
+oJ
 cu
 cu
 cu
@@ -46377,7 +46445,7 @@ cu
 cu
 cu
 cu
-cu
+oJ
 cu
 cu
 cu
