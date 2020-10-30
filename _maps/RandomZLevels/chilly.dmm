@@ -2196,6 +2196,15 @@
 /obj/item/shard,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
+"hg" = (
+/obj/effect/turf_decal/dust,
+/obj/effect/light_emitter{
+	name = "potolok light";
+	set_cap = 5;
+	set_luminosity = 4
+	},
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "hi" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 1
@@ -19587,7 +19596,7 @@ Om
 Om
 dB
 dB
-Om
+xn
 xn
 BD
 AT
@@ -19596,7 +19605,7 @@ fe
 Nr
 BD
 xn
-Om
+xn
 Om
 Om
 Om
@@ -21809,7 +21818,7 @@ Om
 Om
 Wp
 UX
-AT
+hg
 UX
 rX
 EB
@@ -22819,7 +22828,7 @@ Om
 Om
 Om
 Om
-Om
+xn
 Om
 mT
 FE
@@ -22828,7 +22837,7 @@ dt
 XW
 mT
 iP
-Om
+xn
 iP
 Om
 Om
@@ -31702,7 +31711,7 @@ Om
 Om
 Om
 Om
-Om
+gc
 qF
 vR
 kM
