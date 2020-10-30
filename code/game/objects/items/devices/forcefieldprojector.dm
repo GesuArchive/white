@@ -40,7 +40,7 @@
 		to_chat(user, "<span class='warning'>Target is too close, aborting!</span>")
 		return
 	if(LAZYLEN(current_fields) >= max_fields)
-		to_chat(user, "<span class='warning'>[src] cannot sustain any more forcefields!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] cannot sustain any more forcefields!</span>")
 		return
 
 	playsound(src,'sound/weapons/resonator_fire.ogg',50,TRUE)
@@ -96,7 +96,7 @@
 	generator = origin
 
 /obj/structure/projected_forcefield/Destroy()
-	visible_message("<span class='warning'>[src] flickers and disappears!</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] flickers and disappears!</span>")
 	playsound(src,'sound/weapons/resonator_blast.ogg',25,TRUE)
 	generator.current_fields -= src
 	generator = null

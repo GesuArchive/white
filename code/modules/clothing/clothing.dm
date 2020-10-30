@@ -111,8 +111,8 @@
 			if(cloth_repair.amount < 3)
 				to_chat(user, "<span class='warning'>Мне потребуется 3 единицы [W.name] для починки [src.name].</span>")
 				return TRUE
-			to_chat(user, "<span class='notice'>Начинаю чинить повреждения [src.name] используя [W.name]...</span>")
-			if(!do_after(user, 6 SECONDS, TRUE, src) || !cloth_repair.use(3))
+			to_chat(user, "<span class='notice'>Начинаю чинить повреждения [src.name] используя [cloth_repair]...</span>")
+			if(!do_after(user, 6 SECONDS, src) || !cloth_repair.use(3))
 				return TRUE
 			repair(user, params)
 			return TRUE
@@ -236,11 +236,11 @@
 
 	switch (max_heat_protection_temperature)
 		if (400 to 1000)
-			. += "\n[capitalize(src)] немного защищает от огня."
+			. += "\n[capitalize(src.name)] немного защищает от огня."
 		if (1001 to 1600)
-			. += "\n[capitalize(src)] может защитить от огня."
+			. += "\n[capitalize(src.name)] может защитить от огня."
 		if (1601 to 35000)
-			. += "\n[capitalize(src)] неплохо защищает от огня."
+			. += "\n[capitalize(src.name)] неплохо защищает от огня."
 
 	for(var/zone in damage_by_parts)
 		var/pct_damage_part = damage_by_parts[zone] / limb_integrity * 100
@@ -360,7 +360,7 @@
 		if(src in M.get_equipped_items(FALSE))
 			to_chat(M, "<span class='warning'>Мой [name] начинает распадаться на части!</span>")
 		else
-			to_chat(M, "<span class='warning'>[capitalize(src)] начинает распадаться на части!</span>")
+			to_chat(M, "<span class='warning'>[capitalize(src.name)] начинает распадаться на части!</span>")
 
 //This mostly exists so subtypes can call appriopriate update icon calls on the wearer.
 /obj/item/clothing/proc/update_clothes_damaged_state(damaged_state = CLOTHING_DAMAGED)
@@ -456,7 +456,7 @@ BLIND     // can't see anything
 				M.visible_message("<span class='danger'>[M]'s [src.name] fall[p_s()] off, [p_theyre()] completely shredded!</span>", "<span class='warning'><b>Your [src.name] fall[p_s()] off, [p_theyre()] completely shredded!</b></span>", vision_distance = COMBAT_MESSAGE_RANGE)
 				M.dropItemToGround(src)
 			else
-				M.visible_message("<span class='danger'>[src] fall[p_s()] apart, completely shredded!</span>", vision_distance = COMBAT_MESSAGE_RANGE)
+				M.visible_message("<span class='danger'>[capitalize(src.name)] fall[p_s()] apart, completely shredded!</span>", vision_distance = COMBAT_MESSAGE_RANGE)
 		name = "shredded [initial(name)]" // change the name -after- the message, not before.
 	else
 		..()

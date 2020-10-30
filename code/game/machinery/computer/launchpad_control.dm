@@ -28,7 +28,7 @@
 				M.buffer = null
 				to_chat(user, "<span class='notice'>You upload the data from the [W.name]'s buffer.</span>")
 			else
-				to_chat(user, "<span class='warning'>[src] cannot handle any more connections!</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] cannot handle any more connections!</span>")
 	else
 		return ..()
 

@@ -59,5 +59,5 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 5000)
 	build_path = /obj/item/ammo_box/magazine/traumatic
-	category = list("Weapons")
+	category = list("Вооружение")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY

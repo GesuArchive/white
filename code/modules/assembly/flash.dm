@@ -67,10 +67,10 @@
 		update_icon()
 	if(ismob(loc))
 		var/mob/M = loc
-		M.visible_message("<span class='danger'>[src] burns out!</span>","<span class='userdanger'>[src] burns out!</span>")
+		M.visible_message("<span class='danger'>[capitalize(src.name)] burns out!</span>","<span class='userdanger'>[capitalize(src.name)] burns out!</span>")
 	else
 		var/turf/T = get_turf(src)
-		T.visible_message("<span class='danger'>[src] burns out!</span>")
+		T.visible_message("<span class='danger'>[capitalize(src.name)] burns out!</span>")
 
 /obj/item/assembly/flash/proc/flash_recharge(interval = 10)
 	var/deciseconds_passed = world.time - last_used
@@ -142,7 +142,7 @@
 		M.log_message("was [targeted? "flashed(targeted)" : "flashed(AOE)"]",LOG_ATTACK)
 
 	if(generic_message && M != user)
-		to_chat(M, "<span class='danger'>[src] emits a blinding light!</span>")
+		to_chat(M, "<span class='danger'>[capitalize(src.name)] emits a blinding light!</span>")
 
 	var/deviation = calculate_deviation(M, user ? user : src)
 
@@ -179,7 +179,7 @@
 		else if(user)
 			visible_message("<span class='warning'>[user] fails to blind [M] with the flash!</span>","<span class='danger'>[user] fails to blind you with the flash!</span>")
 		else
-			to_chat(M, "<span class='danger'>[src] fails to blind you!</span>")
+			to_chat(M, "<span class='danger'>[capitalize(src.name)] fails to blind you!</span>")
 	else
 		if(M.flash_act())
 			var/diff = power * CONFUSION_STACK_MAX_MULTIPLIER - M.get_confusion()
@@ -254,7 +254,7 @@
 		return FALSE
 	if(!AOE_flash(FALSE, 3, 5, FALSE, user))
 		return FALSE
-	to_chat(user, "<span class='danger'>[src] emits a blinding light!</span>")
+	to_chat(user, "<span class='danger'>[capitalize(src.name)] emits a blinding light!</span>")
 
 /obj/item/assembly/flash/emp_act(severity)
 	. = ..()
@@ -368,7 +368,7 @@
 	else //caused by emp/remote signal
 		M.log_message("was [targeted? "hypno-flashed(targeted)" : "hypno-flashed(AOE)"]",LOG_ATTACK)
 	if(generic_message && M != user)
-		to_chat(M, "<span class='notice'>[src] emits a soothing light...</span>")
+		to_chat(M, "<span class='notice'>[capitalize(src.name)] emits a soothing light...</span>")
 	if(targeted)
 		if(M.flash_act(1, 1))
 			var/hypnosis = FALSE
@@ -389,7 +389,7 @@
 		else if(user)
 			user.visible_message("<span class='warning'>[user] fails to blind [M] with the flash!</span>", "<span class='warning'>You fail to hypno-flash [M]!</span>")
 		else
-			to_chat(M, "<span class='danger'>[src] fails to blind you!</span>")
+			to_chat(M, "<span class='danger'>[capitalize(src.name)] fails to blind you!</span>")
 
 	else if(M.flash_act())
 		to_chat(M, "<span class='notice'>Such a pretty light...</span>")

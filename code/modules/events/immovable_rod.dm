@@ -152,7 +152,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 		penetrate(clong)
 	else if(istype(clong, type))
 		var/obj/effect/immovablerod/other = clong
-		visible_message("<span class='danger'>[src] collides with [other]!</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] collides with [other]!</span>")
 		var/datum/effect_system/smoke_spread/smoke = new
 		smoke.set_up(2, get_turf(src))
 		smoke.start()
@@ -187,7 +187,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 				if(!M.stat)
 					shake_camera(M, 2, 3)
 			if(wizard)
-				U.visible_message("<span class='boldwarning'>[src] transforms into [wizard] as [U] suplexes them!</span>", "<span class='warning'>As you grab [src], it suddenly turns into [wizard] as you suplex them!</span>")
+				U.visible_message("<span class='boldwarning'>[capitalize(src.name)] transforms into [wizard] as [U] suplexes them!</span>", "<span class='warning'>As you grab [src], it suddenly turns into [wizard] as you suplex them!</span>")
 				to_chat(wizard, "<span class='boldwarning'>You're suddenly jolted out of rod-form as [U] somehow manages to grab you, slamming you into the ground!</span>")
 				wizard.Stun(60)
 				wizard.apply_damage(25, BRUTE)

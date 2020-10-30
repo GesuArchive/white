@@ -90,7 +90,7 @@
 		// Copying paper, photos, documents and asses.
 		if("make_copy")
 			if(busy)
-				to_chat(usr, "<span class='warning'>[src] is currently busy copying something. Please wait until it is finished.</span>")
+				to_chat(usr, "<span class='warning'>[capitalize(src.name)] is currently busy copying something. Please wait until it is finished.</span>")
 				return FALSE
 			if(paper_copy)
 				if(!length(paper_copy.info))
@@ -131,7 +131,7 @@
 		// AI printing photos from their saved images.
 		if("ai_photo")
 			if(busy)
-				to_chat(usr, "<span class='warning'>[src] is currently busy copying something. Please wait until it is finished.</span>")
+				to_chat(usr, "<span class='warning'>[capitalize(src.name)] is currently busy copying something. Please wait until it is finished.</span>")
 				return FALSE
 			var/mob/living/silicon/ai/tempAI = usr
 			if(!length(tempAI.aicamera.stored))
@@ -373,7 +373,7 @@
 
 	else if(istype(O, /obj/item/toner))
 		if(toner_cartridge)
-			to_chat(user, "<span class='warning'>[src] already has a toner cartridge inserted. Remove that one first.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a toner cartridge inserted. Remove that one first.</span>")
 			return
 		O.forceMove(src)
 		toner_cartridge = O
@@ -475,6 +475,7 @@
  */
 /obj/item/toner
 	name = "toner cartridge"
+	desc = "A small, lightweight cartridge of NanoTrasen ValueBrand toner. Fits photocopiers and autopainters alike."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "tonercartridge"
 	grind_results = list(/datum/reagent/iodine = 40, /datum/reagent/iron = 10)
@@ -483,9 +484,10 @@
 
 /obj/item/toner/large
 	name = "large toner cartridge"
+	desc = "A hefty cartridge of NanoTrasen ValueBrand toner. Fits photocopiers and autopainters alike."
 	grind_results = list(/datum/reagent/iodine = 90, /datum/reagent/iron = 10)
-	charges = 15
-	max_charges = 15
+	charges = 25
+	max_charges = 25
 
 /obj/item/toner/extreme
 	name = "extremely large toner cartridge"

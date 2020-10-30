@@ -29,7 +29,7 @@
 		if(I.use_tool(src, user, 50, volume=50))
 			visible_message("<span class='notice'>[user] slices apart \the [src].</span>",
 				"<span class='notice'>You cut \the [src] apart with \the [I].</span>",
-				"<span class='hear'>You hear welding.</span>")
+				"<span class='hear'>Слышу сварку.</span>")
 			new /obj/item/stack/sheet/metal(src.loc, 4)
 			qdel(src)
 		return

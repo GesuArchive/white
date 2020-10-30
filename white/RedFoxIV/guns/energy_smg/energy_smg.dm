@@ -129,7 +129,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/titanium = 15000, /datum/material/glass = 5000, /datum/material/gold = 4000 , /datum/material/iron = 30000)
 	build_path = /obj/item/gun/ballistic/energy_smg/nopin
-	category = list("Weapons")
+	category = list("Вооружение")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_SCIENCE//убрать флаг РнД если чрезмерно охуеют
 
 /datum/design/energy_smg_mag
@@ -139,5 +139,5 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/titanium = 5000, /datum/material/iron = 5000, /datum/material/glass = 2000)
 	build_path = /obj/item/ammo_box/magazine/energy_smg
-	category = list("Ammo")
+	category = list("Аммуниция")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_SCIENCE//убрать флаг РнД если чрезмерно охуеют

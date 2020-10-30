@@ -35,7 +35,7 @@ This file contains the cult dagger and rune list code
 
 /obj/item/melee/cultblade/dagger/attack_self(mob/user)
 	if(!iscultist(user))
-		to_chat(user, "<span class='warning'>[src] is covered in unintelligible shapes and markings.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is covered in unintelligible shapes and markings.</span>")
 		return
 	scribe_rune(user)
 

@@ -36,7 +36,7 @@
 				var/datum/reagent/S = X
 
 				if(synthesis && S.type != synthesis.type)
-					to_chat(user, "<span class='warning'>[src] already has a reagent of a different type, remove it before adding something else!</span>")
+					to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a reagent of a different type, remove it before adding something else!</span>")
 					return
 
 				if(W.reagents.total_volume && reagents.total_volume < reagents.maximum_volume)
@@ -46,7 +46,7 @@
 						synthesis = RS
 					return
 		else
-			to_chat(user, "<span class='warning'>[src] only accepts one type of reagent at a time!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] only accepts one type of reagent at a time!</span>")
 			return
 
 
@@ -75,7 +75,7 @@
 		is_bullet = TRUE
 
 	if(loaded)
-		to_chat(user, "<span class='warning'>[src] is full!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is full!</span>")
 		return
 
 	if(R && R.reagent_type)//we move it out of their hands and store it as a 'ghost' object

@@ -1,30 +1,30 @@
 //Command
 
 /obj/item/circuitboard/computer/aiupload
-	name = "AI Upload (Компьютер)"
+	name = "AI Upload (Консоль)"
 	icon_state = "command"
 	build_path = /obj/machinery/computer/upload/ai
 
 /obj/item/circuitboard/computer/borgupload
-	name = "Cyborg Upload (Компьютер)"
+	name = "Cyborg Upload (Консоль)"
 	icon_state = "command"
 	build_path = /obj/machinery/computer/upload/borg
 
 /obj/item/circuitboard/computer/bsa_control
-	name = "Bluespace Artillery Controls (Компьютер)"
+	name = "Bluespace Artillery Controls (Консоль)"
 	build_path = /obj/machinery/computer/bsa_control
 
 /obj/item/circuitboard/computer/card
-	name = "ID Console (Компьютер)"
+	name = "ID Console (Консоль)"
 	icon_state = "command"
 	build_path = /obj/machinery/computer/card
 
 /obj/item/circuitboard/computer/card/centcom
-	name = "CentCom ID Console (Компьютер)"
+	name = "CentCom ID Console (Консоль)"
 	build_path = /obj/machinery/computer/card/centcom
 
 /obj/item/circuitboard/computer/card/minor
-	name = "Department Management Console (Компьютер)"
+	name = "Department Management Console (Консоль)"
 	build_path = /obj/machinery/computer/card/minor
 	var/target_dept = 1
 	var/list/dept_list = list("General","Security","Medical","Science","Engineering")
@@ -42,65 +42,65 @@
 
 
 //obj/item/circuitboard/computer/shield
-//	name = "Shield Control (Компьютер)"
+//	name = "Shield Control (Консоль)"
 //	icon_state = "command"
 //	build_path = /obj/machinery/computer/stationshield
 
 //Engineering
 
 /obj/item/circuitboard/computer/apc_control
-	name = "\improper Power Flow Control Console (Компьютер)"
+	name = "\improper Power Flow Control Console (Консоль)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/computer/apc_control
 
 /obj/item/circuitboard/computer/atmos_alert
-	name = "Atmospheric Alert (Компьютер)"
+	name = "Atmospheric Alert (Консоль)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/computer/atmos_alert
 
 /obj/item/circuitboard/computer/atmos_control
-	name = "Atmospheric Monitor (Компьютер)"
+	name = "Atmospheric Monitor (Консоль)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/computer/atmos_control
 
 /obj/item/circuitboard/computer/atmos_control/incinerator
-	name = "Incinerator Air Control (Компьютер)"
+	name = "Incinerator Air Control (Консоль)"
 	build_path = /obj/machinery/computer/atmos_control/incinerator
 
 /obj/item/circuitboard/computer/atmos_control/toxinsmix
-	name = "Toxins Mixing Air Control (Компьютер)"
+	name = "Toxins Mixing Air Control (Консоль)"
 	build_path = /obj/machinery/computer/atmos_control/toxinsmix
 
 /obj/item/circuitboard/computer/atmos_control/tank
-	name = "Tank Control (Компьютер)"
+	name = "Tank Control (Консоль)"
 	build_path = /obj/machinery/computer/atmos_control/tank
 
 /obj/item/circuitboard/computer/atmos_control/tank/oxygen_tank
-	name = "Oxygen Supply Control (Компьютер)"
+	name = "Oxygen Supply Control (Консоль)"
 	build_path = /obj/machinery/computer/atmos_control/tank/oxygen_tank
 
 /obj/item/circuitboard/computer/atmos_control/tank/toxin_tank
-	name = "Plasma Supply Control (Компьютер)"
+	name = "Plasma Supply Control (Консоль)"
 	build_path = /obj/machinery/computer/atmos_control/tank/toxin_tank
 
 /obj/item/circuitboard/computer/atmos_control/tank/air_tank
-	name = "Mixed Air Supply Control (Компьютер)"
+	name = "Mixed Air Supply Control (Консоль)"
 	build_path = /obj/machinery/computer/atmos_control/tank/air_tank
 
 /obj/item/circuitboard/computer/atmos_control/tank/mix_tank
-	name = "Gas Mix Supply Control (Компьютер)"
+	name = "Gas Mix Supply Control (Консоль)"
 	build_path = /obj/machinery/computer/atmos_control/tank/mix_tank
 
 /obj/item/circuitboard/computer/atmos_control/tank/nitrous_tank
-	name = "Nitrous Oxide Supply Control (Компьютер)"
+	name = "Nitrous Oxide Supply Control (Консоль)"
 	build_path = /obj/machinery/computer/atmos_control/tank/nitrous_tank
 
 /obj/item/circuitboard/computer/atmos_control/tank/nitrogen_tank
-	name = "Nitrogen Supply Control (Компьютер)"
+	name = "Nitrogen Supply Control (Консоль)"
 	build_path = /obj/machinery/computer/atmos_control/tank/nitrogen_tank
 
 /obj/item/circuitboard/computer/atmos_control/tank/carbon_tank
-	name = "Carbon Dioxide Supply Control (Компьютер)"
+	name = "Carbon Dioxide Supply Control (Консоль)"
 	build_path = /obj/machinery/computer/atmos_control/tank/carbon_tank
 
 /obj/item/circuitboard/computer/atmos_control/tank/bz_tank
@@ -118,10 +118,6 @@
 /obj/item/circuitboard/computer/atmos_control/tank/healium_tank
 	name = "Healium Supply Control (Computer Board)"
 	build_path = /obj/machinery/computer/atmos_control/tank/healium_tank
-
-/obj/item/circuitboard/computer/atmos_control/tank/hexane_tank
-	name = "Hexane Supply Control (Computer Board)"
-	build_path = /obj/machinery/computer/atmos_control/tank/hexane_tank
 
 /obj/item/circuitboard/computer/atmos_control/tank/hydrogen_tank
 	name = "Hydrogen Supply Control (Computer Board)"
@@ -164,7 +160,7 @@
 	build_path = /obj/machinery/computer/atmos_control/tank/zauker_tank
 
 /obj/item/circuitboard/computer/auxiliary_base
-	name = "Auxiliary Base Management Console (Компьютер)"
+	name = "Auxiliary Base Management Console (Консоль)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/computer/auxiliary_base
 
@@ -174,126 +170,126 @@
 	build_path = /obj/machinery/computer/camera_advanced/base_construction
 
 /obj/item/circuitboard/computer/comm_monitor
-	name = "Telecommunications Monitor (Компьютер)"
+	name = "Telecommunications Monitor (Консоль)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/computer/telecomms/monitor
 
 /obj/item/circuitboard/computer/comm_server
-	name = "Telecommunications Server Monitor (Компьютер)"
+	name = "Telecommunications Server Monitor (Консоль)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/computer/telecomms/server
 
 /obj/item/circuitboard/computer/communications
-	name = "Communications (Компьютер)"
+	name = "Communications (Консоль)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/computer/communications
 
 /obj/item/circuitboard/computer/message_monitor
-	name = "Message Monitor (Компьютер)"
+	name = "Message Monitor (Консоль)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/computer/message_monitor
 
 /obj/item/circuitboard/computer/powermonitor
-	name = "Power Monitor (Компьютер)"  //name fixed 250810
+	name = "Power Monitor (Консоль)"  //name fixed 250810
 	icon_state = "engineering"
 	build_path = /obj/machinery/computer/monitor
 
 /obj/item/circuitboard/computer/powermonitor/secret
-	name = "Outdated Power Monitor (Компьютер)" //Variant used on ruins to prevent them from showing up on PDA's.
+	name = "Outdated Power Monitor (Консоль)" //Variant used on ruins to prevent them from showing up on PDA's.
 	icon_state = "engineering"
 	build_path = /obj/machinery/computer/monitor/secret
 
 /obj/item/circuitboard/computer/sat_control
-	name = "Satellite Network Control (Компьютер)"
+	name = "Satellite Network Control (Консоль)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/computer/sat_control
 
 /obj/item/circuitboard/computer/solar_control
-	name = "Solar Control (Компьютер)"  //name fixed 250810
+	name = "Solar Control (Консоль)"  //name fixed 250810
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/solar_control
 
 /obj/item/circuitboard/computer/stationalert
-	name = "Station Alerts (Компьютер)"
+	name = "Station Alerts (Консоль)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/computer/station_alert
 
 /obj/item/circuitboard/computer/turbine_computer
-	name = "Turbine Computer (Компьютер)"
+	name = "Turbine Computer (Консоль)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/computer/turbine_computer
 
 /obj/item/circuitboard/computer/turbine_control
-	name = "Turbine control (Компьютер)"
+	name = "Turbine control (Консоль)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/computer/turbine_computer
 
 //Generic
 
 /obj/item/circuitboard/computer/arcade/amputation
-	name = "Mediborg's Amputation Adventure (Компьютер)"
+	name = "Mediborg's Amputation Adventure (Консоль)"
 	icon_state = "generic"
 	build_path = /obj/machinery/computer/arcade/amputation
 
 /obj/item/circuitboard/computer/arcade/battle
-	name = "Arcade Battle (Компьютер)"
+	name = "Arcade Battle (Консоль)"
 	icon_state = "generic"
 	build_path = /obj/machinery/computer/arcade/battle
 
 /obj/item/circuitboard/computer/arcade/orion_trail
-	name = "Orion Trail (Компьютер)"
+	name = "Orion Trail (Консоль)"
 	icon_state = "generic"
 	build_path = /obj/machinery/computer/arcade/orion_trail
 
 /obj/item/circuitboard/computer/holodeck// Not going to let people get this, but it's just here for future
-	name = "Holodeck Control (Компьютер)"
+	name = "Holodeck Control (Консоль)"
 	icon_state = "generic"
 	build_path = /obj/machinery/computer/holodeck
 
 /obj/item/circuitboard/computer/libraryconsole
-	name = "Library Visitor Console (Компьютер)"
+	name = "Library Visitor Console (Консоль)"
 	build_path = /obj/machinery/computer/libraryconsole
 
 /obj/item/circuitboard/computer/libraryconsole/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		if(build_path == /obj/machinery/computer/bookmanagement)
-			name = "Library Visitor Console (Компьютер)"
+			name = "Library Visitor Console (Консоль)"
 			build_path = /obj/machinery/computer/libraryconsole
 			to_chat(user, "<span class='notice'>Defaulting access protocols.</span>")
 		else
-			name = "Book Inventory Management Console (Компьютер)"
+			name = "Book Inventory Management Console (Консоль)"
 			build_path = /obj/machinery/computer/bookmanagement
 			to_chat(user, "<span class='notice'>Access protocols successfully updated.</span>")
 	else
 		return ..()
 
 /obj/item/circuitboard/computer/monastery_shuttle
-	name = "Monastery Shuttle (Компьютер)"
+	name = "Monastery Shuttle (Консоль)"
 	icon_state = "generic"
 	build_path = /obj/machinery/computer/shuttle/monastery_shuttle
 
 /obj/item/circuitboard/computer/olddoor
-	name = "DoorMex (Компьютер)"
+	name = "DoorMex (Консоль)"
 	icon_state = "generic"
 	build_path = /obj/machinery/computer/pod/old
 
 /obj/item/circuitboard/computer/pod
-	name = "Massdriver control (Компьютер)"
+	name = "Massdriver control (Консоль)"
 	icon_state = "generic"
 	build_path = /obj/machinery/computer/pod
 
 /obj/item/circuitboard/computer/slot_machine
-	name = "Slot Machine (Компьютер)"
+	name = "Slot Machine (Консоль)"
 	icon_state = "generic"
 	build_path = /obj/machinery/computer/slot_machine
 
 /obj/item/circuitboard/computer/swfdoor
-	name = "Magix (Компьютер)"
+	name = "Magix (Консоль)"
 	icon_state = "generic"
 	build_path = /obj/machinery/computer/pod/old/swf
 
 /obj/item/circuitboard/computer/syndicate_shuttle
-	name = "Syndicate Shuttle (Компьютер)"
+	name = "Syndicate Shuttle (Консоль)"
 	icon_state = "generic"
 	build_path = /obj/machinery/computer/shuttle/syndicate
 	var/challenge = FALSE
@@ -308,12 +304,12 @@
 	return ..()
 
 /obj/item/circuitboard/computer/syndicatedoor
-	name = "ProComp Executive (Компьютер)"
+	name = "ProComp Executive (Консоль)"
 	icon_state = "generic"
 	build_path = /obj/machinery/computer/pod/old/syndicate
 
 /obj/item/circuitboard/computer/white_ship
-	name = "White Ship (Компьютер)"
+	name = "White Ship (Консоль)"
 	icon_state = "generic"
 	build_path = /obj/machinery/computer/shuttle/white_ship
 
@@ -323,150 +319,150 @@
 	build_path = /obj/machinery/computer/shuttle/white_ship/bridge
 
 /obj/item/circuitboard/computer/white_ship/pod
-	name = "Salvage Pod (Компьютер)"
+	name = "Salvage Pod (Консоль)"
 	build_path = /obj/machinery/computer/shuttle/white_ship/pod
 
 /obj/item/circuitboard/computer/white_ship/pod/recall
-	name = "Salvage Pod Recall (Компьютер)"
+	name = "Salvage Pod Recall (Консоль)"
 	build_path = /obj/machinery/computer/shuttle/white_ship/pod/recall
 
 /obj/item/circuitboard/computer/bountypad
-	name = "Bounty Pad (Компьютер)"
+	name = "Bounty Pad (Консоль)"
 	build_path = /obj/machinery/computer/piratepad_control/civilian
 
 //Medical
 
 /obj/item/circuitboard/computer/crew
-	name = "Crew Monitoring Console (Компьютер)"
+	name = "Crew Monitoring Console (Консоль)"
 	icon_state = "medical"
 	build_path = /obj/machinery/computer/crew
 
 /obj/item/circuitboard/computer/med_data
-	name = "Medical Records Console (Компьютер)"
+	name = "Medical Records Console (Консоль)"
 	icon_state = "medical"
 	build_path = /obj/machinery/computer/med_data
 
 /obj/item/circuitboard/computer/operating
-	name = "Operating Computer (Компьютер)"
+	name = "Operating Computer (Консоль)"
 	icon_state = "medical"
 	build_path = /obj/machinery/computer/operating
 
 /obj/item/circuitboard/computer/pandemic
-	name = "PanD.E.M.I.C. 2200 (Компьютер)"
+	name = "PanD.E.M.I.C. 2200 (Консоль)"
 	icon_state = "medical"
 	build_path = /obj/machinery/computer/pandemic
 
 //Science
 
 /obj/item/circuitboard/computer/aifixer
-	name = "AI Integrity Restorer (Компьютер)"
+	name = "AI Integrity Restorer (Консоль)"
 	icon_state = "science"
 	build_path = /obj/machinery/computer/aifixer
 
 /obj/item/circuitboard/computer/launchpad_console
-	name = "Launchpad Control Console (Компьютер)"
+	name = "Launchpad Control Console (Консоль)"
 	icon_state = "science"
 	build_path = /obj/machinery/computer/launchpad
 
 /obj/item/circuitboard/computer/mech_bay_power_console
-	name = "Mech Bay Power Control Console (Компьютер)"
+	name = "Mech Bay Power Control Console (Консоль)"
 	icon_state = "science"
 	build_path = /obj/machinery/computer/mech_bay_power_console
 
 /obj/item/circuitboard/computer/mecha_control
-	name = "Exosuit Control Console (Компьютер)"
+	name = "Exosuit Control Console (Консоль)"
 	icon_state = "science"
 	build_path = /obj/machinery/computer/mecha
 
 /obj/item/circuitboard/computer/nanite_chamber_control
-	name = "Nanite Chamber Control (Компьютер)"
+	name = "Nanite Chamber Control (Консоль)"
 	icon_state = "science"
 	build_path = /obj/machinery/computer/nanite_chamber_control
 
 /obj/item/circuitboard/computer/nanite_cloud_controller
-	name = "Nanite Cloud Control (Компьютер)"
+	name = "Nanite Cloud Control (Консоль)"
 	icon_state = "science"
 	build_path = /obj/machinery/computer/nanite_cloud_controller
 
 /obj/item/circuitboard/computer/rdconsole
-	name = "R&D Console (Компьютер)"
+	name = "R&D Console (Консоль)"
 	icon_state = "science"
 	build_path = /obj/machinery/computer/rdconsole
 
 /obj/item/circuitboard/computer/rdservercontrol
-	name = "R&D Server Control (Компьютер)"
+	name = "R&D Server Control (Консоль)"
 	icon_state = "science"
 	build_path = /obj/machinery/computer/rdservercontrol
 
 /obj/item/circuitboard/computer/research
-	name = "Research Monitor (Компьютер)"
+	name = "Research Monitor (Консоль)"
 	icon_state = "science"
 	build_path = /obj/machinery/computer/security/research
 
 /obj/item/circuitboard/computer/robotics
-	name = "Robotics Control (Компьютер)"
+	name = "Robotics Control (Консоль)"
 	icon_state = "science"
 	build_path = /obj/machinery/computer/robotics
 
 /obj/item/circuitboard/computer/teleporter
-	name = "Teleporter (Компьютер)"
+	name = "Teleporter (Консоль)"
 	icon_state = "science"
 	build_path = /obj/machinery/computer/teleporter
 
 /obj/item/circuitboard/computer/xenobiology
-	name = "Xenobiology Console (Компьютер)"
+	name = "Xenobiology Console (Консоль)"
 	icon_state = "science"
 	build_path = /obj/machinery/computer/camera_advanced/xenobio
 
 /obj/item/circuitboard/computer/scan_consolenew
-	name = "DNA Console (Компьютер)"
+	name = "DNA Console (Консоль)"
 	icon_state = "science"
 	build_path = /obj/machinery/computer/scan_consolenew
 
 /obj/item/circuitboard/computer/mechpad
-	name = "Mecha Orbital Pad Console (Компьютер)"
+	name = "Mecha Orbital Pad Console (Консоль)"
 	icon_state = "science"
 	build_path = /obj/machinery/computer/mechpad
 
 //Security
 
 /obj/item/circuitboard/computer/labor_shuttle
-	name = "Labor Shuttle (Компьютер)"
+	name = "Labor Shuttle (Консоль)"
 	icon_state = "security"
 	build_path = /obj/machinery/computer/shuttle/labor
 
 /obj/item/circuitboard/computer/labor_shuttle/one_way
-	name = "Prisoner Shuttle Console (Компьютер)"
+	name = "Prisoner Shuttle Console (Консоль)"
 	icon_state = "security"
 	build_path = /obj/machinery/computer/shuttle/labor/one_way
 
 /obj/item/circuitboard/computer/gulag_teleporter_console
-	name = "Labor Camp teleporter console (Компьютер)"
+	name = "Labor Camp teleporter console (Консоль)"
 	icon_state = "security"
 	build_path = /obj/machinery/computer/prisoner/gulag_teleporter_computer
 
 /obj/item/circuitboard/computer/prisoner
-	name = "Prisoner Management Console (Компьютер)"
+	name = "Prisoner Management Console (Консоль)"
 	icon_state = "security"
 	build_path = /obj/machinery/computer/prisoner/management
 
 /obj/item/circuitboard/computer/secure_data
-	name = "Security Records Console (Компьютер)"
+	name = "Security Records Console (Консоль)"
 	icon_state = "security"
 	build_path = /obj/machinery/computer/secure_data
 
 /obj/item/circuitboard/computer/warrant
-	name = "Security Warrant Viewer (Компьютер)"
+	name = "Security Warrant Viewer (Консоль)"
 	icon_state = "security"
 	build_path = /obj/machinery/computer/warrant
 
 /obj/item/circuitboard/computer/security
-	name = "Security Cameras (Компьютер)"
+	name = "Security Cameras (Консоль)"
 	icon_state = "security"
 	build_path = /obj/machinery/computer/security
 
 /obj/item/circuitboard/computer/advanced_camera
-	name = "Advanced Camera Console (Компьютер)"
+	name = "Advanced Camera Console (Консоль)"
 	icon_state = "security"
 	build_path = /obj/machinery/computer/camera_advanced/syndie
 
@@ -474,13 +470,8 @@
 
 //Supply
 
-/obj/item/circuitboard/computer/bounty
-	name = "\improper Nanotrasen Bounty Console (Компьютер)"
-	icon_state = "supply"
-	build_path = /obj/machinery/computer/bounty
-
 /obj/item/circuitboard/computer/cargo
-	name = "Supply Console (Компьютер)"
+	name = "Supply Console (Консоль)"
 	icon_state = "supply"
 	build_path = /obj/machinery/computer/cargo
 	var/contraband = FALSE
@@ -510,7 +501,7 @@
 		machine.obj_flags &= ~EMAGGED
 
 /obj/item/circuitboard/computer/cargo/express
-	name = "Express Supply Console (Компьютер)"
+	name = "Express Supply Console (Консоль)"
 	build_path = /obj/machinery/computer/cargo/express
 
 /obj/item/circuitboard/computer/cargo/express/multitool_act(mob/living/user)
@@ -526,29 +517,29 @@
 		obj_flags |= EMAGGED
 
 /obj/item/circuitboard/computer/cargo/request
-	name = "Supply Request Console (Компьютер)"
+	name = "Supply Request Console (Консоль)"
 	build_path = /obj/machinery/computer/cargo/request
 
 /obj/item/circuitboard/computer/ferry
-	name = "Transport Ferry (Компьютер)"
+	name = "Transport Ferry (Консоль)"
 	icon_state = "supply"
 	build_path = /obj/machinery/computer/shuttle/ferry
 
 /obj/item/circuitboard/computer/ferry/request
-	name = "Transport Ferry Console (Компьютер)"
+	name = "Transport Ferry Console (Консоль)"
 	icon_state = "supply"
 	build_path = /obj/machinery/computer/shuttle/ferry/request
 
 /obj/item/circuitboard/computer/mining
-	name = "Outpost Status Display (Компьютер)"
+	name = "Outpost Status Display (Консоль)"
 	icon_state = "supply"
 	build_path = /obj/machinery/computer/security/mining
 
 /obj/item/circuitboard/computer/mining_shuttle
-	name = "Mining Shuttle (Компьютер)"
+	name = "Mining Shuttle (Консоль)"
 	icon_state = "supply"
 	build_path = /obj/machinery/computer/shuttle/mining
 
 /obj/item/circuitboard/computer/mining_shuttle/common
-	name = "Lavaland Shuttle (Компьютер)"
+	name = "Lavaland Shuttle (Консоль)"
 	build_path = /obj/machinery/computer/shuttle/mining/common

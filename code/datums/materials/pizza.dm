@@ -1,5 +1,6 @@
 /datum/material/pizza
-	name = "pizza"
+	name = "пицца"
+	skloname = "пиццы"
 	desc = "~Jamme, jamme, n'coppa, jamme ja! Jamme, jamme, n'coppa jamme ja, funi-culi funi-cala funi-culi funi-cala!! Jamme jamme ja funiculi funicula!~"
 	color = "#FF9F23"
 	categories = list(MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE)

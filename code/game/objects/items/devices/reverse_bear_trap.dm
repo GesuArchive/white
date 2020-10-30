@@ -100,11 +100,11 @@
 	reset()
 	var/mob/living/carbon/human/H = loc
 	if(!istype(H) || H.get_item_by_slot(ITEM_SLOT_HEAD) != src)
-		visible_message("<span class='warning'>[src]'s jaws snap open with an ear-piercing crack!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)]'s jaws snap open with an ear-piercing crack!</span>")
 		playsound(src, 'sound/effects/snap.ogg', 75, TRUE)
 	else
 		var/mob/living/carbon/human/jill = loc
-		jill.visible_message("<span class='boldwarning'>[src] goes off in [jill]'s mouth, ripping [jill.p_their()] head apart!</span>", "<span class='userdanger'>[src] goes off!</span>")
+		jill.visible_message("<span class='boldwarning'>[capitalize(src.name)] goes off in [jill]'s mouth, ripping [jill.p_their()] head apart!</span>", "<span class='userdanger'>[capitalize(src.name)] goes off!</span>")
 		jill.emote("scream")
 		playsound(src, 'sound/effects/snap.ogg', 75, TRUE, frequency = 0.5)
 		playsound(src, 'sound/effects/splat.ogg', 50, TRUE, frequency = 0.5)

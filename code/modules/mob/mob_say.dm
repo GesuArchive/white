@@ -9,34 +9,8 @@
 		to_chat(usr, "<span class='danger'>Не могу говорить.</span>")
 		return
 
-	var/list/speech_bubble_recipients = list()
-	var/bubble_type = "default"
-
-	if(isliving(src))
-		var/mob/living/L = src
-		bubble_type = L.bubble_icon
-
-	var/image/I = image('icons/mob/talk.dmi', src, "[bubble_type]0", FLY_LAYER)
-
-	if(!stat || stat == 1)
-		speech_bubble_recipients = GLOB.clients
-		I.alpha = 0
-		animate(I, time = 7, loop = -1, easing = SINE_EASING, alpha = 255)
-		animate(time = 7, alpha = 80)
-		flick_overlay(I, speech_bubble_recipients, -1)
-
 	if(message)
-		if(speech_bubble_recipients.len)
-			remove_images_from_clients(I, speech_bubble_recipients)
-		if(GLOB.say_disabled)	//This is here to try to identify lag problems
-			to_chat(usr, "<span class='danger'>Не могу говорить.</span>")
-			return
-		if(message)
-			say(message)
-	else if(speech_bubble_recipients.len)
-		animate(I, time = 7, loop = 1, alpha = 0)
-		spawn(7)
-			remove_images_from_clients(I, speech_bubble_recipients)
+		say(message)
 
 ///Whisper verb
 /mob/verb/whisper_verb(message as text)

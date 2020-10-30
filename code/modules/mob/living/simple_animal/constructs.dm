@@ -9,8 +9,8 @@
 	response_help_simple = "think better of touching"
 	response_disarm_continuous = "flails at"
 	response_disarm_simple = "flail at"
-	response_harm_continuous = "punches"
-	response_harm_simple = "punch"
+	response_harm_continuous = "бьёт"
+	response_harm_simple = "бьёт"
 	speak_chance = 1
 	icon = 'icons/mob/cult.dmi'
 	speed = 0
@@ -384,7 +384,7 @@
 			if(undismembermerable_limbs) //they have limbs we can't remove, and no parts we can, attack!
 				return ..()
 			C.Paralyze(60)
-			visible_message("<span class='danger'>[src] knocks [C] down!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] knocks [C] down!</span>")
 			to_chat(src, "<span class='cultlarge'>\"Bring [C.p_them()] to me.\"</span>")
 			return FALSE
 		do_attack_animation(C)

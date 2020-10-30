@@ -49,6 +49,14 @@
 	tastes = list("рыба" = 1, "чипсы" = 1)
 	foodtypes = MEAT | VEGETABLES | FRIED
 
+/obj/item/food/fishfry
+	name = "fish fry"
+	desc = "All that and no bag of chips..."
+	icon_state = "fishfry"
+	food_reagents = list (/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 3)
+	tastes = list("fish" = 1, "pan seared vegtables" = 1)
+	foodtypes = MEAT | VEGETABLES | FRIED
+
 ////////////////////////////////////////////MEATS AND ALIKE////////////////////////////////////////////
 
 /obj/item/food/tofu
@@ -157,15 +165,15 @@
 	if(faction)
 		bananas.faction = faction
 	if (!QDELETED(bananas))
-		visible_message("<span class='notice'>[src] expands!</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] expands!</span>")
 		bananas.log_message("Spawned via [src] at [AREACOORD(src)], Last attached mob: [key_name(spammer)].", LOG_ATTACK)
 	else if (!spammer) // Visible message in case there are no fingerprints
-		visible_message("<span class='notice'>[src] fails to expand!</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] fails to expand!</span>")
 	qdel(src)
 
 /obj/item/food/monkeycube/suicide_act(mob/living/M)
 	M.visible_message("<span class='suicide'>[M] is putting [src] in [M.p_their()] mouth! It looks like [M.p_theyre()] trying to commit suicide!</span>")
-	var/eating_success = do_after(M, 10, TRUE, src, TRUE)
+	var/eating_success = do_after(M, 1 SECONDS, src)
 	if(QDELETED(M)) //qdeletion: the nuclear option of self-harm
 		return SHAME
 	if(!eating_success || QDELETED(src)) //checks if src is gone or if they failed to wait for a second
@@ -294,6 +302,14 @@
 /obj/item/food/meatclown/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/slippery, 30)
+
+/obj/item/food/lasagna
+	name = "Lasagna"
+	desc = "A slice of lasagna. Perfect for a Monday afternoon."
+	icon_state = "lasagna"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/consumable/tomatojuice = 10)
+	tastes = list("meat" = 3, "pasta" = 3, "tomato" = 2, "cheese" = 2)
+	foodtypes = MEAT | DAIRY | GRAIN
 
 //////////////////////////////////////////// KEBABS AND OTHER SKEWERS ////////////////////////////////////////////
 
@@ -573,7 +589,7 @@
 	foodtypes = RAW | MEAT | TOXIC
 
 /obj/item/food/meat/slab/goliath/burn()
-	visible_message("<span class='notice'>[src] finishes cooking!</span>")
+	visible_message("<span class='notice'>[capitalize(src.name)] finishes cooking!</span>")
 	new /obj/item/food/meat/steak/goliath(loc)
 	qdel(src)
 

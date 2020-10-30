@@ -10,8 +10,8 @@
 	turns_per_move = 5
 	response_disarm_continuous = "gently pushes aside"
 	response_disarm_simple = "gently push aside"
-	response_harm_continuous = "punches"
-	response_harm_simple = "punch"
+	response_harm_continuous = "бьёт"
+	response_harm_simple = "бьёт"
 	a_intent = INTENT_HARM
 	maxHealth = 100
 	health = 100

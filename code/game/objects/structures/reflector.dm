@@ -101,7 +101,7 @@
 
 			user.visible_message("<span class='notice'>[user] starts to repair [src].</span>",
 								"<span class='notice'>You begin repairing [src]...</span>",
-								"<span class='hear'>You hear welding.</span>")
+								"<span class='hear'>Слышу сварку.</span>")
 			if(W.use_tool(src, user, 40, volume=40))
 				obj_integrity = max_integrity
 				user.visible_message("<span class='notice'>[user] repairs [src].</span>", \
@@ -113,7 +113,7 @@
 
 			user.visible_message("<span class='notice'>[user] starts to weld [src] to the floor.</span>",
 								"<span class='notice'>You start to weld [src] to the floor...</span>",
-								"<span class='hear'>You hear welding.</span>")
+								"<span class='hear'>Слышу сварку.</span>")
 			if (W.use_tool(src, user, 20, volume=50))
 				set_anchored(TRUE)
 				to_chat(user, "<span class='notice'>You weld [src] to the floor.</span>")
@@ -123,7 +123,7 @@
 
 			user.visible_message("<span class='notice'>[user] starts to cut [src] free from the floor.</span>",
 								"<span class='notice'>You start to cut [src] free from the floor...</span>",
-								"<span class='hear'>You hear welding.</span>")
+								"<span class='hear'>Слышу сварку.</span>")
 			if (W.use_tool(src, user, 20, volume=50))
 				set_anchored(FALSE)
 				to_chat(user, "<span class='notice'>You cut [src] free from the floor.</span>")

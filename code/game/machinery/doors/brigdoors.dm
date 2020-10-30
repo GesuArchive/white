@@ -19,10 +19,10 @@
 //  Programmer: Veryinky
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /obj/machinery/door_timer
-	name = "door timer"
+	name = "таймер шлюза"
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
-	desc = "A remote control for a door."
+	desc = "Удалённое управление шлюзом. Отлично."
 	req_access = list(ACCESS_SECURITY)
 	density = FALSE
 	var/id = null // id of linked machinery/lockers
@@ -107,7 +107,7 @@
 
 	if(!forced)
 		Radio.set_frequency(FREQ_SECURITY)
-		Radio.talk_into(src, "Timer has expired. Releasing prisoner.", FREQ_SECURITY)
+		Radio.talk_into(src, "Таймер закончился. Освобождаю заключённого.", FREQ_SECURITY)
 
 	timing = FALSE
 	activation_time = null
@@ -164,7 +164,7 @@
 		var/time_left = time_left(seconds = TRUE)
 		var/disp2 = "[add_leading(num2text((time_left / 60) % 60), 2, "0")]:[add_leading(num2text(time_left % 60), 2, "0")]"
 		if(length(disp2) > CHARS_PER_LINE)
-			disp2 = "Error"
+			disp2 = "Ошибка"
 		update_display(disp1, disp2)
 	else
 		if(maptext)
@@ -211,7 +211,7 @@
 	. = TRUE
 
 	if(!allowed(usr))
-		to_chat(usr, "<span class='warning'>Access denied.</span>")
+		to_chat(usr, "<span class='warning'>Доступ запрещён.</span>")
 		return FALSE
 
 	switch(action)

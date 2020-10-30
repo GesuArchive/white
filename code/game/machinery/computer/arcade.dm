@@ -83,7 +83,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "arcade", /datum/mood_event/arcade)
 		if(prob(0.0001)) //1 in a million
 			new /obj/item/gun/energy/pulse/prize(src)
-			visible_message("<span class='notice'>[src] dispenses.. woah, a gun! Way past cool.</span>", "<span class='notice'>You hear a chime and a shot.</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] dispenses.. woah, a gun! Way past cool.</span>", "<span class='notice'>You hear a chime and a shot.</span>")
 			user.client.give_award(/datum/award/achievement/misc/pulse, user)
 			return
 
@@ -94,7 +94,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 			prizeselect = pickweight(GLOB.arcade_prize_pool)
 		var/atom/movable/the_prize = new prizeselect(get_turf(src))
 		playsound(src, 'sound/machines/machine_vend.ogg', 50, TRUE, extrarange = -3)
-		visible_message("<span class='notice'>[src] dispenses [the_prize]!</span>", "<span class='notice'>You hear a chime and a clunk.</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] dispenses [the_prize]!</span>", "<span class='notice'>You hear a chime and a clunk.</span>")
 
 /obj/machinery/computer/arcade/emp_act(severity)
 	. = ..()
@@ -536,7 +536,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 			gameover = TRUE
 			blocked = FALSE
 			temp = "<br><center><h3>[enemy_name] has fallen! Rejoice!<center><h3>"
-			playsound(loc, 'sound/arcade/win.ogg', 50, TRUE, extrarange = -3, falloff = 10)
+			playsound(loc, 'sound/arcade/win.ogg', 50, TRUE)
 
 			if(obj_flags & EMAGGED)
 				new /obj/effect/spawner/newbomb/timer/syndicate(loc)
@@ -557,7 +557,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 			timer_id = null
 		gameover = TRUE
 		temp = "<br><center><h3>You have been crushed! GAME OVER<center><h3>"
-		playsound(loc, 'sound/arcade/lose.ogg', 50, TRUE, extrarange = -3, falloff = 10)
+		playsound(loc, 'sound/arcade/lose.ogg', 50, TRUE)
 		xp_gained += 10//pity points
 		if(obj_flags & EMAGGED)
 			user.gib()
@@ -931,7 +931,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 							playsound(loc, 'sound/effects/bang.ogg', 50, TRUE)
 					if(ORION_TRAIL_MALFUNCTION)
 						playsound(loc, 'sound/effects/empulse.ogg', 50, TRUE)
-						visible_message("<span class='danger'>[src] malfunctions, randomizing in-game stats!</span>")
+						visible_message("<span class='danger'>[capitalize(src.name)] malfunctions, randomizing in-game stats!</span>")
 						var/oldfood = food
 						var/oldfuel = fuel
 						food = rand(10,80) / rand(1,2)
@@ -939,9 +939,9 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 						if(electronics)
 							sleep(10)
 							if(oldfuel > fuel && oldfood > food)
-								audible_message("<span class='danger'>[src] lets out a somehow reassuring chime.</span>")
+								audible_message("<span class='danger'>[capitalize(src.name)] lets out a somehow reassuring chime.</span>")
 							else if(oldfuel < fuel || oldfood < food)
-								audible_message("<span class='danger'>[src] lets out a somehow ominous chime.</span>")
+								audible_message("<span class='danger'>[capitalize(src.name)] lets out a somehow ominous chime.</span>")
 							food = oldfood
 							fuel = oldfuel
 							playsound(loc, 'sound/machines/chime.ogg', 50, TRUE)
@@ -1509,17 +1509,17 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 
 	to_chat(user, "<span class='warning'>You flip the switch on the underside of [src].</span>")
 	active = 1
-	visible_message("<span class='notice'>[src] softly beeps and whirs to life!</span>")
+	visible_message("<span class='notice'>[capitalize(src.name)] softly beeps and whirs to life!</span>")
 	playsound(loc, 'sound/machines/defib_SaftyOn.ogg', 25, TRUE)
 	say("This is ship ID #[rand(1,1000)] to Orion Port Authority. We're coming in for landing, over.")
 	sleep(20)
-	visible_message("<span class='warning'>[src] begins to vibrate...</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] begins to vibrate...</span>")
 	say("Uh, Port? Having some issues with our reactor, could you check it out? Over.")
 	sleep(30)
 	say("Oh, God! Code Eight! CODE EIGHT! IT'S GONNA BL-")
 	playsound(loc, 'sound/machines/buzz-sigh.ogg', 25, TRUE)
 	sleep(3.6)
-	visible_message("<span class='userdanger'>[src] explodes!</span>")
+	visible_message("<span class='userdanger'>[capitalize(src.name)] explodes!</span>")
 	explosion(loc, 2,4,8, flame_range = 16)
 	qdel(src)
 
@@ -1548,7 +1548,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 		chopchop.dismember()
 		qdel(chopchop)
 		user.mind?.adjust_experience(/datum/skill/gaming, 100)
-		playsound(loc, 'sound/arcade/win.ogg', 50, TRUE, extrarange = -3, falloff = 10)
+		playsound(loc, 'sound/arcade/win.ogg', 50, TRUE)
 		prizevend(user, rand(3,5))
 	else
 		to_chat(c_user, "<span class='notice'>You (wisely) decide against putting your hand in the machine.</span>")

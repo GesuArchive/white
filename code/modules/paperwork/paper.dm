@@ -18,7 +18,7 @@
  * paper and getting rid of that crashing bug
  */
 /obj/item/paper
-	name = "paper"
+	name = "бумага"
 	gender = NEUTER
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper"
@@ -110,7 +110,7 @@
 		icon_state = "[initial(icon_state)]_words"
 
 /obj/item/paper/verb/rename()
-	set name = "Rename paper"
+	set name = "Переименовать бумагу"
 	set category = "Объект"
 	set src in usr
 
@@ -119,13 +119,13 @@
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
 		if(HAS_TRAIT(H, TRAIT_CLUMSY) && prob(25))
-			to_chat(H, "<span class='warning'>You cut yourself on the paper! Ahhhh! Ahhhhh!</span>")
+			to_chat(H, "<span class='warning'>Режу себя бумагой! Аааааа! ААААААААААБЛЯТЬ!</span>")
 			H.damageoverlaytemp = 9001
 			H.update_damage_hud()
 			return
-	var/n_name = stripped_input(usr, "What would you like to label the paper?", "Paper Labelling", null, MAX_NAME_LEN)
+	var/n_name = stripped_input(usr, "Как мы её назовём?", "Переименование бумаги", null, MAX_NAME_LEN)
 	if((loc == usr && usr.stat == CONSCIOUS))
-		name = "paper[(n_name ? text("- '[n_name]'") : null)]"
+		name = "бумага[(n_name ? text("- '[n_name]'") : null)]"
 	add_fingerprint(usr)
 
 /obj/item/paper/suicide_act(mob/user)
@@ -179,8 +179,8 @@
 		return
 	. = TRUE
 	if(!bypass_clumsy && HAS_TRAIT(user, TRAIT_CLUMSY) && prob(10) && Adjacent(user))
-		user.visible_message("<span class='warning'>[user] accidentally ignites [user.p_them()]self!</span>", \
-							"<span class='userdanger'>You miss [src] and accidentally light yourself on fire!</span>")
+		user.visible_message("<span class='warning'>[user] случайно поджигает себя!</span>", \
+							"<span class='userdanger'>Жгу мимо [src] и поджигаю себя!</span>")
 		if(user.is_holding(I)) //checking if they're holding it in case TK is involved
 			user.dropItemToGround(I)
 		user.adjust_fire_stacks(1)
@@ -200,12 +200,12 @@
 
 	if(istype(P, /obj/item/pen) || istype(P, /obj/item/toy/crayon))
 		if(length(info) >= MAX_PAPER_LENGTH) // Sheet must have less than 1000 charaters
-			to_chat(user, "<span class='warning'>This sheet of paper is full!</span>")
+			to_chat(user, "<span class='warning'>Это хранилище бумаги заполнено!</span>")
 			return
 		ui_interact(user)
 		return
 	else if(istype(P, /obj/item/stamp))
-		to_chat(user, "<span class='notice'>You ready your stamp over the paper! </span>")
+		to_chat(user, "<span class='notice'>Самое время делать печати!</span>")
 		ui_interact(user)
 		return /// Normaly you just stamp, you don't need to read the thing
 	else
@@ -312,9 +312,9 @@
 					LAZYADD(stamped, stamp_icon_state)
 
 				update_static_data(usr,ui)
-				ui.user.visible_message("<span class='notice'>[ui.user] stamps [src] with [stamp_class]!</span>", "<span class='notice'>You stamp [src] with [stamp_class]!</span>")
+				ui.user.visible_message("<span class='notice'>[ui.user] штампует [src] используя [stamp_class]!</span>", "<span class='notice'>Штампую [src] используя [stamp_class]!</span>")
 			else
-				to_chat(usr, pick("You try to stamp but you miss!", "There is no where else you can stamp!"))
+				to_chat(usr, pick("Пытаюсь сделать штамп, но промахиваюсь!", "А где штамп то ставить?!"))
 			. = TRUE
 
 		if("save")
@@ -329,11 +329,11 @@
 				// the generated html might get beyond this limit
 				log_paper("[key_name(ui.user)] writing to paper [name], and overwrote it by [paper_len-MAX_PAPER_LENGTH]")
 			if(paper_len == 0)
-				to_chat(ui.user, pick("Writing block strikes again!", "You forgot to write anthing!"))
+				to_chat(ui.user, pick("ЧЕ!", "КАК!"))
 			else
 				log_paper("[key_name(ui.user)] writing to paper [name]")
 				if(info != in_paper)
-					to_chat(ui.user, "You have added to your paper masterpiece!");
+					to_chat(ui.user, "Записываю свой шедевр на бумаге!");
 					info = in_paper
 					update_static_data(usr,ui)
 
@@ -358,7 +358,7 @@
 	color = "#FFF5ED"
 
 /obj/item/paper/crumpled
-	name = "paper scrap"
+	name = "туалетная бумага"
 	icon_state = "scrap"
 	slot_flags = null
 	show_written_words = FALSE

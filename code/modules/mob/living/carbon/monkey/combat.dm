@@ -143,7 +143,7 @@
 						var/mob/M = pickupTarget.loc
 						if(!pickpocketing)
 							pickpocketing = TRUE
-							M.visible_message("<span class='warning'>[src] starts trying to take [pickupTarget] from [M]!</span>", "<span class='danger'>[src] tries to take [pickupTarget]!</span>")
+							M.visible_message("<span class='warning'>[capitalize(src.name)] starts trying to take [pickupTarget] from [M]!</span>", "<span class='danger'>[capitalize(src.name)] tries to take [pickupTarget]!</span>")
 							INVOKE_ASYNC(src, .proc/pickpocket, M)
 			return TRUE
 
@@ -299,12 +299,12 @@
 	if(do_mob(src, M, MONKEY_ITEM_SNATCH_DELAY) && pickupTarget)
 		for(var/obj/item/I in M.held_items)
 			if(I == pickupTarget)
-				M.visible_message("<span class='danger'>[src] утягивает [pickupTarget] у [M].</span>", "<span class='userdanger'>[src] утягивает [pickupTarget]!</span>")
+				M.visible_message("<span class='danger'>[capitalize(src.name)] утягивает [pickupTarget] у [M].</span>", "<span class='userdanger'>[capitalize(src.name)] утягивает [pickupTarget]!</span>")
 				if(M.temporarilyRemoveItemFromInventory(pickupTarget))
 					if(!QDELETED(pickupTarget) && !equip_item(pickupTarget))
 						pickupTarget.forceMove(drop_location())
 				else
-					M.visible_message("<span class='danger'>[src] пытается стянуть [pickupTarget] у [M], но проваливает попытку!</span>", "<span class='userdanger'>[src] пытается сграбастать [pickupTarget]!</span>")
+					M.visible_message("<span class='danger'>[capitalize(src.name)] пытается стянуть [pickupTarget] у [M], но проваливает попытку!</span>", "<span class='userdanger'>[capitalize(src.name)] пытается сграбастать [pickupTarget]!</span>")
 	pickpocketing = FALSE
 	pickupTarget = null
 	pickupTimer = 0

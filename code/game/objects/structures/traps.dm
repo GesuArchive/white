@@ -20,7 +20,7 @@
 
 /obj/structure/trap/Initialize(mapload)
 	. = ..()
-	flare_message = "<span class='warning'>[src] flares brightly!</span>"
+	flare_message = "<span class='warning'>[capitalize(src.name)] flares brightly!</span>"
 	spark_system = new
 	spark_system.set_up(4,1,src)
 	spark_system.attach(src)
@@ -107,7 +107,7 @@
 /obj/structure/trap/stun/hunter/Initialize(mapload)
 	. = ..()
 	time_between_triggers = 10
-	flare_message = "<span class='warning'>[src] snaps shut!</span>"
+	flare_message = "<span class='warning'>[capitalize(src.name)] snaps shut!</span>"
 
 /obj/structure/trap/stun/hunter/Crossed(atom/movable/AM)
 	if(isliving(AM))

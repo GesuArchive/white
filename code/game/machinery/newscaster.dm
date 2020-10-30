@@ -733,7 +733,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 				set_machine_stat(machine_stat & ~BROKEN)
 				update_icon()
 		else
-			to_chat(user, "<span class='notice'>[src] не хочет починки.</span>")
+			to_chat(user, "<span class='notice'>[capitalize(src.name)] не хочет починки.</span>")
 	else
 		return ..()
 

@@ -51,7 +51,7 @@
 
 		if(!loaded)
 			if(!user.transferItemToLoc(W, src))
-				to_chat(user, "<span class='warning'>[src] is stuck to your hand!</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] is stuck to your hand!</span>")
 				return
 			else
 				loaded = W //W.loc is src at this point.
@@ -192,7 +192,7 @@
 		return
 
 	if(prob(2) && ghetto) //Give ghetto RCLs a 2% chance to jam, requiring it to be reactviated manually.
-		to_chat(user, "<span class='warning'>[src]'s wires jam!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s wires jam!</span>")
 		active = FALSE
 		return
 	else
@@ -247,7 +247,7 @@
 		var/pipe_cleanersuffix = "[min(fromdir,dirnum)]-[max(fromdir,dirnum)]"
 		if(fromdir == dirnum) //pipe_cleaners can't loop back on themselves
 			pipe_cleanersuffix = "invalid"
-		var/image/img = image(icon = 'icons/mob/radial.dmi', icon_state = "cable_[pipe_cleanersuffix]")
+		var/image/img = image(icon = 'icons/hud/radial.dmi', icon_state = "cable_[pipe_cleanersuffix]")
 		img.color = GLOB.pipe_cleaner_colors[colors[current_color_index]]
 		wiredirs[icondir] = img
 	return wiredirs

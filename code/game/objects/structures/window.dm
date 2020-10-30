@@ -132,11 +132,14 @@
 		return FALSE
 	return TRUE
 
+
 /obj/structure/window/attack_tk(mob/user)
 	user.changeNext_move(CLICK_CD_MELEE)
 	user.visible_message("<span class='notice'>Что-то стучит по окну.</span>")
 	add_fingerprint(user)
 	playsound(src, knocksound, 50, TRUE)
+	return COMPONENT_CANCEL_ATTACK_CHAIN
+
 
 /obj/structure/window/attack_hulk(mob/living/carbon/human/user, does_attack_animation = 0)
 	if(!can_be_reached(user))
@@ -398,17 +401,17 @@
 				user.visible_message("<span class='notice'>[user] направляет [sklonenie(I.name, VINITELNI, I.gender)] на защищённые винтики [sklonenie(src.name, VINITELNI, src.gender)]...</span>",
 										"<span class='notice'>Начинаю нагревать винтики [sklonenie(src.name, VINITELNI, src.gender)]...</span>")
 				if(I.use_tool(src, user, 180, volume = 100))
-					to_chat(user, "<span class='notice'>Винтики раскалены до бела, похоже можно открутить их прямо сейчас..</span>")
+					to_chat(user, "<span class='notice'>Винтики раскалены до бела, похоже можно открутить их прямо сейчас.</span>")
 					state = RWINDOW_BOLTS_HEATED
 					addtimer(CALLBACK(src, .proc/cool_bolts), 300)
 				return
 		if(RWINDOW_BOLTS_HEATED)
 			if(I.tool_behaviour == TOOL_SCREWDRIVER)
 				user.visible_message("<span class='notice'>[user] втыкает отвёртку в раскалённые винтики и начинает их выкручивать...</span>",
-										"<span class='notice'>Втыкаю отвёртку в раскалённые винтики и начинаешь их выкручивать...</span>")
+										"<span class='notice'>Втыкаю отвёртку в раскалённые винтики и начинаю их выкручивать...</span>")
 				if(I.use_tool(src, user, 80, volume = 50))
 					state = RWINDOW_BOLTS_OUT
-					to_chat(user, "<span class='notice'>Винтики удалены и теперь окно можно подпереть</span>")
+					to_chat(user, "<span class='notice'>Винтики удалены и теперь окно можно подпереть.</span>")
 				return
 		if(RWINDOW_BOLTS_OUT)
 			if(I.tool_behaviour == TOOL_CROWBAR)
@@ -470,8 +473,8 @@
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/plasma
-	name = "plasma window"
-	desc = "A window made out of a plasma-silicate alloy. It looks insanely tough to break and burn through."
+	name = "окно из плазмы"
+	desc = "Окно из плазменно-силикатного сплава. Выглядит безумно сложным для ломания и прожигания."
 	icon_state = "plasmawindow"
 	reinf = FALSE
 	heat_resistance = 25000
@@ -503,8 +506,8 @@
 	anchored = FALSE
 
 /obj/structure/window/plasma/reinforced
-	name = "reinforced plasma window"
-	desc = "A window made out of a plasma-silicate alloy and a rod matrix. It looks hopelessly tough to break and is most likely nigh fireproof."
+	name = "армированное окно из плазмы"
+	desc = "Окно из плазменно-силикатного сплава и стержневой матрицы. Он выглядит безнадежно жестким для разрушения и, скорее всего, почти пожаробезопасным."
 	icon_state = "plasmarwindow"
 	reinf = TRUE
 	heat_resistance = 50000
@@ -520,43 +523,43 @@
 	switch(state)
 		if(RWINDOW_SECURE)
 			if(I.tool_behaviour == TOOL_WELDER && user.a_intent == INTENT_HARM)
-				user.visible_message("<span class='notice'>[user] holds \the [I] to the security screws on \the [src]...</span>",
-										"<span class='notice'>You begin heating the security screws on \the [src]...</span>")
+				user.visible_message("<span class='notice'>[user] направляет [sklonenie(I.name, VINITELNI, I.gender)] на защищённые винтики [sklonenie(src.name, VINITELNI, src.gender)]...</span>",
+										"<span class='notice'>Начинаю нагревать винтики [sklonenie(src.name, VINITELNI, src.gender)]...</span>")
 				if(I.use_tool(src, user, 180, volume = 100))
-					to_chat(user, "<span class='notice'>The security screws are glowing white hot and look ready to be removed.</span>")
+					to_chat(user, "<span class='notice'>Винтики раскалены до бела, похоже можно открутить их прямо сейчас.</span>")
 					state = RWINDOW_BOLTS_HEATED
 					addtimer(CALLBACK(src, .proc/cool_bolts), 300)
 				return
 		if(RWINDOW_BOLTS_HEATED)
 			if(I.tool_behaviour == TOOL_SCREWDRIVER)
-				user.visible_message("<span class='notice'>[user] digs into the heated security screws and starts removing them...</span>",
-										"<span class='notice'>You dig into the heated screws hard and they start turning...</span>")
+				user.visible_message("<span class='notice'>[user] втыкает отвёртку в раскалённые винтики и начинает их выкручивать...</span>",
+										"<span class='notice'>Втыкаю отвёртку в раскалённые винтики и начинаю их выкручивать...</span>")
 				if(I.use_tool(src, user, 80, volume = 50))
 					state = RWINDOW_BOLTS_OUT
-					to_chat(user, "<span class='notice'>The screws come out, and a gap forms around the edge of the pane.</span>")
+					to_chat(user, "<span class='notice'>Винтики удалены и теперь окно можно подпереть.</span>")
 				return
 		if(RWINDOW_BOLTS_OUT)
 			if(I.tool_behaviour == TOOL_CROWBAR)
-				user.visible_message("<span class='notice'>[user] wedges \the [I] into the gap in the frame and starts prying...</span>",
-										"<span class='notice'>You wedge \the [I] into the gap in the frame and start prying...</span>")
+				user.visible_message("<span class='notice'>[user] вставляет [sklonenie(I.name, VINITELNI, I.gender)] в щель и начинает подпирать окно...</span>",
+										"<span class='notice'>Вставляю [sklonenie(I.name, VINITELNI, I.gender)] в щель и начинаю подпирать окно...</span>")
 				if(I.use_tool(src, user, 50, volume = 50))
 					state = RWINDOW_POPPED
-					to_chat(user, "<span class='notice'>The panel pops out of the frame, exposing some thin metal bars that looks like they can be cut.</span>")
+					to_chat(user, "<span class='notice'>Основная плита вышла из рамки и стали видны прутья, которые можно откусить.</span>")
 				return
 		if(RWINDOW_POPPED)
 			if(I.tool_behaviour == TOOL_WIRECUTTER)
-				user.visible_message("<span class='notice'>[user] starts cutting the exposed bars on \the [src]...</span>",
-										"<span class='notice'>You start cutting the exposed bars on \the [src]</span>")
+				user.visible_message("<span class='notice'>[user] начинает откусывать доступные прутья [sklonenie(src.name, VINITELNI, src.gender)]...</span>",
+										"<span class='notice'>Начинаю откусывать доступные прутья [sklonenie(src.name, VINITELNI, src.gender)]...</span>")
 				if(I.use_tool(src, user, 30, volume = 50))
 					state = RWINDOW_BARS_CUT
-					to_chat(user, "<span class='notice'>The panels falls out of the way exposing the frame bolts.</span>")
+					to_chat(user, "<span class='notice'>Основная плита отделена от рамки и теперь её удерживает только несколько болтов.</span>")
 				return
 		if(RWINDOW_BARS_CUT)
 			if(I.tool_behaviour == TOOL_WRENCH)
-				user.visible_message("<span class='notice'>[user] starts unfastening \the [src] from the frame...</span>",
-					"<span class='notice'>You start unfastening the bolts from the frame...</span>")
+				user.visible_message("<span class='notice'>[user] начинает откручивать [sklonenie(src.name, VINITELNI, src.gender)] от рамки...</span>",
+					"<span class='notice'>Начинаю откручивать болты...</span>")
 				if(I.use_tool(src, user, 50, volume = 50))
-					to_chat(user, "<span class='notice'>You unfasten the bolts from the frame and the window pops loose.</span>")
+					to_chat(user, "<span class='notice'>Снимаю окно с болтов и теперь оно может быть свободно перемещено.</span>")
 					state = WINDOW_OUT_OF_FRAME
 					set_anchored(FALSE)
 				return
@@ -763,8 +766,8 @@
 	glass_amount = 2
 
 /obj/structure/window/shuttle
-	name = "shuttle window"
-	desc = "A reinforced, air-locked pod window."
+	name = "окно шаттла"
+	desc = "Усиленное герметичное окно кабины."
 	icon = 'icons/obj/smooth_structures/shuttle_window.dmi'
 	icon_state = "shuttle_window-0"
 	base_icon_state = "shuttle_window"
@@ -794,8 +797,8 @@
 	anchored = FALSE
 
 /obj/structure/window/plasma/reinforced/plastitanium
-	name = "plastitanium window"
-	desc = "A durable looking window made of an alloy of of plasma and titanium."
+	name = "пластитановое окно"
+	desc = "Прочное окно из сплава плазмы и титана."
 	icon = 'icons/obj/smooth_structures/plastitanium_window.dmi'
 	icon_state = "plastitanium_window-0"
 	base_icon_state = "plastitanium_window"
@@ -820,8 +823,8 @@
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/paperframe
-	name = "paper frame"
-	desc = "A fragile separator made of thin wood and paper."
+	name = "бумажная рамка"
+	desc = "Хрупкий разделитель из тонкого дерева и бумаги."
 	icon = 'icons/obj/smooth_structures/paperframes.dmi'
 	icon_state = "paperframes-0"
 	base_icon_state = "paperframes"
@@ -844,7 +847,7 @@
 	bashsound = 'sound/weapons/slashmiss.ogg'
 	breaksound = 'sound/items/poster_ripped.ogg'
 	hitsound = 'sound/weapons/slashmiss.ogg'
-	var/static/mutable_appearance/torn = mutable_appearance('icons/obj/smooth_structures/paperframes.dmi',icon_state = "кромсает", layer = ABOVE_OBJ_LAYER - 0.1)
+	var/static/mutable_appearance/torn = mutable_appearance('icons/obj/smooth_structures/paperframes.dmi',icon_state = "torn", layer = ABOVE_OBJ_LAYER - 0.1)
 	var/static/mutable_appearance/paper = mutable_appearance('icons/obj/smooth_structures/paperframes.dmi',icon_state = "paper", layer = ABOVE_OBJ_LAYER - 0.1)
 
 /obj/structure/window/paperframe/Initialize()
@@ -854,7 +857,7 @@
 /obj/structure/window/paperframe/examine(mob/user)
 	. = ..()
 	if(obj_integrity < max_integrity)
-		. += "<hr><span class='info'>It looks a bit damaged, you may be able to fix it with some <b>paper</b>.</span>"
+		. += "<hr><span class='info'>Он выглядит немного поврежденным, можно исправить его с помощью <b>бумаги</b>.</span>"
 
 /obj/structure/window/paperframe/spawnDebris(location)
 	. = list(new /obj/item/stack/sheet/mineral/wood(location))
@@ -890,11 +893,11 @@
 	if(user.a_intent == INTENT_HARM)
 		return ..()
 	if(istype(W, /obj/item/paper) && obj_integrity < max_integrity)
-		user.visible_message("<span class='notice'>[user] starts to patch the holes in \the [src].</span>")
+		user.visible_message("<span class='notice'>[user] начинает заделывать щели в [src].</span>")
 		if(do_after(user, 20, target = src))
 			obj_integrity = min(obj_integrity+4,max_integrity)
 			qdel(W)
-			user.visible_message("<span class='notice'>[user] patches some of the holes in \the [src].</span>")
+			user.visible_message("<span class='notice'>[user] заделывает некоторые щели в [src].</span>")
 			if(obj_integrity == max_integrity)
 				update_icon()
 			return
@@ -902,8 +905,8 @@
 	update_icon()
 
 /obj/structure/window/bronze
-	name = "brass window"
-	desc = "A paper-thin pane of translucent yet reinforced brass. Nevermind, this is just weak bronze!"
+	name = "латунное окно"
+	desc = "Тонкая, как бумага, панель из полупрозрачной, но усиленной латуни. Да ладно, это слабая бронза!"
 	icon = 'icons/obj/smooth_structures/clockwork_window.dmi'
 	icon_state = "clockwork_window_single"
 	glass_type = /obj/item/stack/tile/bronze

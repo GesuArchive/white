@@ -236,12 +236,12 @@
 	allow_emag = TRUE
 
 /obj/item/circuitboard/computer/ferry/trader
-	name = "Trader Transport Ferry (Компьютер)"
+	name = "Trader Transport Ferry (Консоль)"
 	icon_state = "supply"
 	build_path = /obj/machinery/computer/shuttle/ferry/trader
 
 /obj/item/circuitboard/computer/ferry/request/trader
-	name = "Trader Transport Console (Компьютер)"
+	name = "Trader Transport Console (Консоль)"
 	icon_state = "supply"
 	build_path = /obj/machinery/computer/shuttle/ferry/request/trader
 

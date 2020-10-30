@@ -57,7 +57,7 @@
 		visor_flags = 0
 		if(iscarbon(loc))
 			var/mob/living/carbon/C = loc
-			C.visible_message("<span class='warning'>[src] [C] трескается!</span>", "<span class='danger'>[src] трескается!</span>")
+			C.visible_message("<span class='warning'>[capitalize(src.name)] [C] трескается!</span>", "<span class='danger'>[capitalize(src.name)] трескается!</span>")
 			desc += " Поверхность покрыта множеством трещин."
 
 

@@ -80,13 +80,13 @@
 				A.visible_message("<span class='notice'>[A] squashed [src].</span>", "<span class='notice'>You squashed [src].</span>")
 				adjustBruteLoss(1) //kills a normal cockroach
 			else
-				visible_message("<span class='notice'>[src] avoids getting crushed.</span>")
+				visible_message("<span class='notice'>[capitalize(src.name)] avoids getting crushed.</span>")
 	else if(isstructure(AM))
 		if(prob(squish_chance))
-			AM.visible_message("<span class='notice'>[src] is crushed under [AM].</span>")
+			AM.visible_message("<span class='notice'>[capitalize(src.name)] is crushed under [AM].</span>")
 			adjustBruteLoss(1)
 		else
-			visible_message("<span class='notice'>[src] avoids getting crushed.</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] avoids getting crushed.</span>")
 
 /mob/living/simple_animal/hostile/cockroach/ex_act() //Explosions are a terrible way to handle a cockroach.
 	return

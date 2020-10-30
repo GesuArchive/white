@@ -52,15 +52,15 @@
 #define RESEARCH_MATERIAL_DESTROY_ID "__destroy"
 
 //! Techweb names for new point types. Can be used to define specific point values for specific types of research (science, security, engineering, etc.)
-#define TECHWEB_POINT_TYPE_GENERIC "General Research"
-#define TECHWEB_POINT_TYPE_NANITES "Nanite Research"
+#define TECHWEB_POINT_TYPE_GENERIC "Основные Исследования"
+#define TECHWEB_POINT_TYPE_NANITES "Нанитовые Исследования"
 
 #define TECHWEB_POINT_TYPE_DEFAULT TECHWEB_POINT_TYPE_GENERIC
 
 //! Associative names for techweb point values, see: [all_nodes][code/modules/research/techweb/all_nodes.dm]
 #define TECHWEB_POINT_TYPE_LIST_ASSOCIATIVE_NAMES list(\
-	TECHWEB_POINT_TYPE_GENERIC = "General Research",\
-	TECHWEB_POINT_TYPE_NANITES = "Nanite Research"\
+	TECHWEB_POINT_TYPE_GENERIC = "Основные Исследования",\
+	TECHWEB_POINT_TYPE_NANITES = "Нанитовые Исследования"\
 	)
 
 /// R&D point value for a maxcap bomb. Can be adjusted if need be. Current Value Cap Radius: 100

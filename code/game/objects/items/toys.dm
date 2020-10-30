@@ -63,7 +63,7 @@
 		if(RD.reagents.total_volume <= 0)
 			to_chat(user, "<span class='warning'>[RD] is empty.</span>")
 		else if(reagents.total_volume >= 10)
-			to_chat(user, "<span class='warning'>[src] is full.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is full.</span>")
 		else
 			A.reagents.trans_to(src, 10, transfered_by = user)
 			to_chat(user, "<span class='notice'>You fill the balloon with the contents of [A].</span>")
@@ -76,7 +76,7 @@
 			if(I.reagents.total_volume <= 0)
 				to_chat(user, "<span class='warning'>[I] is empty.</span>")
 			else if(reagents.total_volume >= 10)
-				to_chat(user, "<span class='warning'>[src] is full.</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] is full.</span>")
 			else
 				desc = "A translucent balloon with some form of liquid sloshing around in it."
 				to_chat(user, "<span class='notice'>You fill the balloon with the contents of [I].</span>")
@@ -98,7 +98,7 @@
 			T = get_turf(AT)
 		else
 			T = get_turf(src)
-		T.visible_message("<span class='danger'>[src] bursts!</span>","<span class='hear'>You hear a pop and a splash.</span>")
+		T.visible_message("<span class='danger'>[capitalize(src.name)] bursts!</span>","<span class='hear'>You hear a pop and a splash.</span>")
 		reagents.expose(T)
 		for(var/atom/A in T)
 			reagents.expose(A)
@@ -416,7 +416,7 @@
 		Rumble()
 		addtimer(CALLBACK(src, .proc/stopRumble), 600)
 	else
-		to_chat(user, "<span class='warning'>[src] is already active!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is already active!</span>")
 
 /obj/item/toy/windup_toolbox/proc/Rumble()
 	var/static/list/transforms
@@ -499,7 +499,7 @@
 	s.set_up(n, c, src)
 	s.start()
 	new ash_type(loc)
-	visible_message("<span class='warning'>[src] explodes!</span>",
+	visible_message("<span class='warning'>[capitalize(src.name)] explodes!</span>",
 		"<span class='hear'>You hear a snap!</span>")
 	playsound(src, 'sound/effects/snap.ogg', 50, TRUE)
 	qdel(src)
@@ -1017,7 +1017,7 @@
 		sleep(5)
 		playsound(src, 'sound/machines/alarm.ogg', 20, FALSE)
 		sleep(140)
-		user.visible_message("<span class='alert'>[src] violently explodes!</span>")
+		user.visible_message("<span class='alert'>[capitalize(src.name)] violently explodes!</span>")
 		explosion(src, 0, 0, 1, 0)
 		qdel(src)
 	else if (cooldown < world.time)
@@ -1228,7 +1228,7 @@
 /obj/item/toy/figure/attack_self(mob/user as mob)
 	if(cooldown <= world.time)
 		cooldown = world.time + 50
-		to_chat(user, "<span class='notice'>[src] says \"[toysay]\"</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] says \"[toysay]\"</span>")
 		playsound(user, toysound, 20, TRUE)
 
 /obj/item/toy/figure/cmo

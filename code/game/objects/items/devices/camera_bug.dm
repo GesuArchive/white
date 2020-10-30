@@ -66,7 +66,7 @@
 	var/turf/T_user = get_turf(user.loc)
 	var/turf/T_current = get_turf(current)
 	if(T_user.z != T_current.z || !current.can_use())
-		to_chat(user, "<span class='danger'>[src] has lost the signal.</span>")
+		to_chat(user, "<span class='danger'>[capitalize(src.name)] has lost the signal.</span>")
 		current = null
 		user.unset_machine()
 		return FALSE

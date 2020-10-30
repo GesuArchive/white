@@ -170,7 +170,7 @@
 		if(pulling && grab_state >= GRAB_NECK)
 			power_throw++
 		visible_message("<span class='danger'><b>[src]</b> кидает <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."]</span>", \
-						"<span class='danger'>Кидаю <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."].</span>")
+						"<span class='danger'>Кидаю <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."]</span>")
 		playsound(get_turf(src), 'white/valtos/sounds/throw.wav', 50, TRUE)
 		log_message("has thrown [thrown_thing] [power_throw ? "really hard" : ""]", LOG_ATTACK)
 		newtonian_move(get_dir(target, src))
@@ -272,13 +272,13 @@
 	if(HAS_TRAIT(src, TRAIT_RESTRAINED))
 		changeNext_move(CLICK_CD_BREAKOUT)
 		last_special = world.time + CLICK_CD_BREAKOUT
-		var/buckle_cd = 600
+		var/buckle_cd = 60 SECONDS
 		if(handcuffed)
 			var/obj/item/restraints/O = src.get_item_by_slot(ITEM_SLOT_HANDCUFFED)
 			buckle_cd = O.breakouttime
-		visible_message("<span class='warning'>[src] пытается выбраться из наручников!</span>", \
+		visible_message("<span class='warning'>[capitalize(src.name)] пытается выбраться из наручников!</span>", \
 					"<span class='notice'>Пытаюсь выбраться из наручников... (займёт примерно [round(buckle_cd/600,1)] минут, и надо не двигаться.)</span>")
-		if(do_after(src, buckle_cd, 0, target = src))
+		if(do_after(src, buckle_cd, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			if(!buckled)
 				return
 			buckled.user_unbuckle_mob(src,src)
@@ -292,11 +292,11 @@
 	adjust_fire_stacks(-5)
 	Paralyze(60, ignore_canstun = TRUE)
 	spin(32,2)
-	visible_message("<span class='danger'>[src] катается по полу пытаясь сбросить пламя!</span>", \
+	visible_message("<span class='danger'>[capitalize(src.name)] катается по полу пытаясь сбросить пламя!</span>", \
 		"<span class='notice'>Я останавливаюсь, падаю и катаюсь по полу!</span>")
 	sleep(30)
 	if(fire_stacks <= 0 && !QDELETED(src))
-		visible_message("<span class='danger'>[src] успешно тушит себя!</span>", \
+		visible_message("<span class='danger'>[capitalize(src.name)] успешно тушит себя!</span>", \
 			"<span class='notice'>Фух! Мне удалось потушить себя.</span>")
 		extinguish_mob()
 	return
@@ -327,18 +327,18 @@
 	I.item_flags |= BEING_REMOVED
 	breakouttime = I.breakouttime
 	if(!cuff_break)
-		visible_message("<span class='warning'>[src] пытается снять [I]!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] пытается снять [I]!</span>")
 		to_chat(src, "<span class='notice'>Пытаюсь снять [I]... (это займёт примерно [DisplayTimeText(breakouttime)] и надо бы не двигаться.)</span>")
-		if(do_after(src, breakouttime, 0, target = src))
+		if(do_after(src, breakouttime, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			. = clear_cuffs(I, cuff_break)
 		else
 			to_chat(src, "<span class='warning'>Не получилось снять [I]!</span>")
 
 	else if(cuff_break == FAST_CUFFBREAK)
 		breakouttime = 50
-		visible_message("<span class='warning'>[src] пытается разорвать [I]!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] пытается разорвать [I]!</span>")
 		to_chat(src, "<span class='notice'>Пытаюсь разорвать [I]... (это займёт примерно 5 секунд, надо бы не двигаться.)</span>")
-		if(do_after(src, breakouttime, 0, target = src))
+		if(do_after(src, breakouttime, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			. = clear_cuffs(I, cuff_break)
 		else
 			to_chat(src, "<span class='warning'>У меня не вышло разорвать [I]!</span>")
@@ -383,7 +383,7 @@
 		return FALSE
 	if(I != handcuffed && I != legcuffed)
 		return FALSE
-	visible_message("<span class='danger'>[src] успешно [cuff_break ? "разрывает" : "снимает"] [I]!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] успешно [cuff_break ? "разрывает" : "снимает"] [I]!</span>")
 	to_chat(src, "<span class='notice'>Я успешно [cuff_break ? "разрываю" : "снимаю"] [I].</span>")
 
 	if(cuff_break)
@@ -464,7 +464,7 @@
 
 	if(nutrition < 100 && !blood)
 		if(message)
-			visible_message("<span class='warning'>[src] корчится в рвотном позыве!</span>", \
+			visible_message("<span class='warning'>[capitalize(src.name)] корчится в рвотном позыве!</span>", \
 							"<span class='userdanger'>Рвота не идёт, ведь мой желудок пуст!</span>")
 		if(stun)
 			Paralyze(200)
@@ -472,13 +472,13 @@
 
 	if(is_mouth_covered()) //make this add a blood/vomit overlay later it'll be hilarious
 		if(message)
-			visible_message("<span class='danger'>[src] заблёвывает себя!</span>", \
+			visible_message("<span class='danger'>[capitalize(src.name)] заблёвывает себя!</span>", \
 							"<span class='userdanger'>Заблевываю себя.</span>")
 			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "vomit", /datum/mood_event/vomitself)
 		distance = 0
 	else
 		if(message)
-			visible_message("<span class='danger'>[src] блюёт!</span>", "<span class='userdanger'>Блюю!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] блюёт!</span>", "<span class='userdanger'>Блюю!</span>")
 			if(!isflyperson(src))
 				SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "vomit", /datum/mood_event/vomit)
 
@@ -521,7 +521,7 @@
  * * amount: int The amount of reagent
  */
 /mob/living/carbon/proc/expel_ingested(var/atom/bite, amount)
-	visible_message("<span class='danger'>[src] throws up all over [p_them()]self!</span>", \
+	visible_message("<span class='danger'>[capitalize(src.name)] throws up all over [p_them()]self!</span>", \
 					"<span class='userdanger'>You are unable to keep the [bite] down without a stomach!</span>")
 
 	var/turf/floor = get_turf(src)
@@ -1049,19 +1049,19 @@
 					if(BP)
 						BP.drop_limb()
 					else
-						to_chat(usr, "<span class='boldwarning'>[src] doesn't have such bodypart.</span>")
+						to_chat(usr, "<span class='boldwarning'>[capitalize(src.name)] doesn't have such bodypart.</span>")
 				if("add")
 					if(BP)
-						to_chat(usr, "<span class='boldwarning'>[src] already has such bodypart.</span>")
+						to_chat(usr, "<span class='boldwarning'>[capitalize(src.name)] already has such bodypart.</span>")
 					else
 						if(!regenerate_limb(result))
-							to_chat(usr, "<span class='boldwarning'>[src] cannot have such bodypart.</span>")
+							to_chat(usr, "<span class='boldwarning'>[capitalize(src.name)] cannot have such bodypart.</span>")
 				if("augment")
 					if(ishuman(src))
 						if(BP)
 							BP.change_bodypart_status(BODYPART_ROBOTIC, TRUE, TRUE)
 						else
-							to_chat(usr, "<span class='boldwarning'>[src] doesn't have such bodypart.</span>")
+							to_chat(usr, "<span class='boldwarning'>[capitalize(src.name)] doesn't have such bodypart.</span>")
 					else
 						to_chat(usr, "<span class='boldwarning'>Only humans can be augmented.</span>")
 		admin_ticket_log("[key_name_admin(usr)] has modified the bodyparts of [src]")
@@ -1307,3 +1307,22 @@
 		set_lying_angle(pick(90, 270))
 	else
 		set_lying_angle(new_lying_angle)
+
+
+/mob/living/carbon/vv_edit_var(var_name, var_value)
+	switch(var_name)
+		if(NAMEOF(src, disgust))
+			set_disgust(var_value)
+			. = TRUE
+		if(NAMEOF(src, hal_screwyhud))
+			set_screwyhud(var_value)
+			. = TRUE
+		if(NAMEOF(src, handcuffed))
+			set_handcuffed(var_value)
+			. = TRUE
+
+	if(!isnull(.))
+		datum_flags |= DF_VAR_EDITED
+		return
+
+	return ..()

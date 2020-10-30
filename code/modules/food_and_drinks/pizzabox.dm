@@ -182,7 +182,7 @@
 	else if(istype(I, /obj/item/food/pizza))
 		if(open)
 			if(pizza)
-				to_chat(user, "<span class='warning'>[src] already has \a [pizza.name]!</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] already has \a [pizza.name]!</span>")
 				return
 			if(!user.transferItemToLoc(I, src))
 				return
@@ -200,7 +200,7 @@
 			update_icon()
 			return
 		else if(bomb)
-			to_chat(user, "<span class='warning'>[src] already has a bomb in it!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a bomb in it!</span>")
 	else if(istype(I, /obj/item/pen))
 		if(!open)
 			if(!user.is_literate())

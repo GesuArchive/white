@@ -16,8 +16,8 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 	response_help_simple = "pass through"
 	response_disarm_continuous = "flails at"
 	response_disarm_simple = "flail at"
-	response_harm_continuous = "punches"
-	response_harm_simple = "punch"
+	response_harm_continuous = "бьёт"
+	response_harm_simple = "бьёт"
 	icon = 'icons/mob/guardian.dmi'
 	icon_state = "magicbase"
 	icon_living = "magicbase"

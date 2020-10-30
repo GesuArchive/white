@@ -202,7 +202,7 @@
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
 
 	if (internal_pressure > 2*ONE_ATMOSPHERE)
-		to_chat(user, "<span class='warning'>As you begin unwrenching \the [src] a gush of air blows in your face... maybe you should reconsider?</span>")
+		to_chat(user, "<span class='warning'>Начинаю откручивать [src], попутно ощущая сильный поток воздуха... может стоит ПЕРЕДУМАТЬ?</span>")
 		unsafe_wrenching = TRUE //Oh dear oh dear
 
 	if(I.use_tool(src, user, 20, volume=50))

@@ -119,7 +119,7 @@
 			to_chat(user,  "<span class='notice'>You [open ? "close":"open"] [src].</span>")
 			toggle_lock(user)
 		else
-			to_chat(user,  "<span class='alert'>Access denied.</span>")
+			to_chat(user,  "<span class='alert'>Доступ запрещён.</span>")
 	else if(W.tool_behaviour == TOOL_WELDER && user.a_intent == INTENT_HELP && !broken)
 		if(obj_integrity < max_integrity)
 			if(!W.tool_start_check(user, amount=5))
@@ -131,7 +131,7 @@
 				update_icon()
 				to_chat(user, "<span class='notice'>You repair [src].</span>")
 		else
-			to_chat(user, "<span class='warning'>[src] is already in good condition!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is already in good condition!</span>")
 		return
 	else if(!alert && W.tool_behaviour == TOOL_CROWBAR && openable) //Only applies to the lab cage and player made display cases
 		if(broken)
@@ -436,10 +436,10 @@
 				to_chat(usr, "<span class='notice'>There's nothing for sale.</span>")
 				return TRUE
 			if(broken)
-				to_chat(usr, "<span class='notice'>[src] appears to be broken.</span>")
+				to_chat(usr, "<span class='notice'>[capitalize(src.name)] appears to be broken.</span>")
 				return TRUE
 			if(!payments_acc)
-				to_chat(usr, "<span class='notice'>[src] hasn't been registered yet.</span>")
+				to_chat(usr, "<span class='notice'>[capitalize(src.name)] hasn't been registered yet.</span>")
 				return TRUE
 			if(!usr.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 				return TRUE
@@ -467,7 +467,7 @@
 				return TRUE
 		if("Open")
 			if(!payments_acc)
-				to_chat(usr, "<span class='notice'>[src] hasn't been registered yet.</span>")
+				to_chat(usr, "<span class='notice'>[capitalize(src.name)] hasn't been registered yet.</span>")
 				return TRUE
 			if(!potential_acc || !potential_acc.registered_account)
 				return
@@ -493,7 +493,7 @@
 
 			var/new_price_input = input(usr,"Set the sale price for this vend-a-tray.","new price",0) as num|null
 			if(isnull(new_price_input) || (payments_acc != potential_acc.registered_account))
-				to_chat(usr, "<span class='warning'>[src] rejects your new price.</span>")
+				to_chat(usr, "<span class='warning'>[capitalize(src.name)] rejects your new price.</span>")
 				return
 			if(!usr.canUseTopic(src, BE_CLOSE, FALSE, NO_TK) )
 				to_chat(usr, "<span class='warning'>You need to get closer!</span>")
@@ -548,21 +548,21 @@
 			set_anchored(!anchored)
 			return
 	else if(!open && user.a_intent == INTENT_HELP)
-		to_chat(user, "<span class='notice'>[src] must be open to move it.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] must be open to move it.</span>")
 		return
 
 /obj/structure/displaycase/forsale/emag_act(mob/user)
 	. = ..()
 	payments_acc = null
 	req_access = list()
-	to_chat(user, "<span class='warning'>[src]'s card reader fizzles and smokes, and the account owner is reset.</span>")
+	to_chat(user, "<span class='warning'>[capitalize(src.name)]'s card reader fizzles and smokes, and the account owner is reset.</span>")
 
 /obj/structure/displaycase/forsale/examine(mob/user)
 	. = ..()
 	if(showpiece && !open)
 		. += "<<hr>span class='notice'>[showpiece] is for sale for [sale_price] credits.</span>"
 	if(broken)
-		. += "<hr><span class='notice'>[src] is sparking and the hover field generator seems to be overloaded. Use a multitool to fix it.</span>"
+		. += "<hr><span class='notice'>[capitalize(src.name)] is sparking and the hover field generator seems to be overloaded. Use a multitool to fix it.</span>"
 
 /obj/structure/displaycase/forsale/obj_break(damage_flag)
 	if(!broken && !(flags_1 & NODECONSTRUCT_1))

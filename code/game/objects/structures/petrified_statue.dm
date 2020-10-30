@@ -69,7 +69,7 @@
 	if(!disassembled)
 		if(petrified_mob)
 			petrified_mob.dust()
-	visible_message("<span class='danger'>[src] shatters!.</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] shatters!.</span>")
 	qdel(src)
 
 

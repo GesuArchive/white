@@ -442,7 +442,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		if (!panel_open)
 			to_chat(user, "<span class='warning'>You should probably unscrew the service panel first!</span>")
 		else if (machine_stat & (BROKEN|NOPOWER))
-			to_chat(user, "<span class='notice'>[src] does not respond.</span>")
+			to_chat(user, "<span class='notice'>[capitalize(src.name)] does not respond.</span>")
 		else
 			//if the panel is open we attempt to refill the machine
 			var/obj/item/vending_refill/canister = I
@@ -467,7 +467,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 			var/denied_items = 0
 			for(var/obj/item/the_item in T.contents)
 				if(contents.len >= MAX_VENDING_INPUT_AMOUNT) // no more than 30 item can fit inside, legacy from snack vending although not sure why it exists
-					to_chat(user, "<span class='warning'>[src]'s compartment is full.</span>")
+					to_chat(user, "<span class='warning'>[capitalize(src.name)]'s compartment is full.</span>")
 					break
 				if(canLoadItem(the_item) && loadingAttempt(the_item,user))
 					SEND_SIGNAL(T, COMSIG_TRY_STORAGE_TAKE, the_item, src, TRUE)
@@ -475,7 +475,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 				else
 					denied_items++
 			if(denied_items)
-				to_chat(user, "<span class='warning'>[src] refuses some items!</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] refuses some items!</span>")
 			if(loaded)
 				to_chat(user, "<span class='notice'>You insert [loaded] dishes into [src]'s compartment.</span>")
 				updateUsrDialog()
@@ -495,7 +495,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 					tilt(user, crit=TRUE)
 
 /obj/machinery/vending/proc/freebie(mob/fatty, freebies)
-	visible_message("<span class='notice'>[src] yields [freebies > 1 ? "several free goodies" : "a free goody"]!</span>")
+	visible_message("<span class='notice'>[capitalize(src.name)] yields [freebies > 1 ? "several free goodies" : "a free goody"]!</span>")
 
 	for(var/i in 1 to freebies)
 		playsound(src, 'sound/machines/machine_vend.ogg', 50, TRUE, extrarange = -3)
@@ -512,7 +512,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 			break
 
 /obj/machinery/vending/proc/tilt(mob/fatty, crit=FALSE)
-	visible_message("<span class='danger'>[src] tips over!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] tips over!</span>")
 	tilted = TRUE
 	layer = ABOVE_MOB_LAYER
 
@@ -666,7 +666,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		if(do_you_have_access)
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>[src]'s input compartment blinks red: Access denied.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s input compartment blinks red: Access denied.</span>")
 			return FALSE
 
 /obj/machinery/vending/exchange_parts(mob/user, obj/item/storage/part_replacer/W)
@@ -734,7 +734,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		var/list/data = list(
 			path = replacetext(replacetext("[R.product_path]", "/obj/item/", ""), "/", "-"),
 			name = R.name,
-			price = R.custom_price || default_price,
+			price = R.custom_price || (default_price * decide_nalog()),
 			max_amount = R.max_amount,
 			ref = REF(R)
 		)
@@ -744,7 +744,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		var/list/data = list(
 			path = replacetext(replacetext("[R.product_path]", "/obj/item/", ""), "/", "-"),
 			name = R.name,
-			price = R.custom_premium_price || extra_price,
+			price = (R.custom_premium_price || extra_price) * decide_nalog(),
 			max_amount = R.max_amount,
 			ref = REF(R),
 			premium = TRUE
@@ -755,7 +755,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		var/list/data = list(
 			path = replacetext(replacetext("[R.product_path]", "/obj/item/", ""), "/", "-"),
 			name = R.name,
-			price = R.custom_premium_price || extra_price,
+			price = (R.custom_premium_price || extra_price) * decide_nalog(),
 			max_amount = R.max_amount,
 			ref = REF(R),
 			premium = TRUE
@@ -804,9 +804,9 @@ GLOBAL_LIST_EMPTY(vending_products)
 			if(!R || !istype(R) || !R.product_path)
 				vend_ready = TRUE
 				return
-			var/price_to_use = default_price
+			var/price_to_use = default_price * decide_nalog()
 			if(R.custom_price)
-				price_to_use = R.custom_price
+				price_to_use = R.custom_price * decide_nalog()
 			if(R in hidden_records)
 				if(!extended_inventory)
 					vend_ready = TRUE
@@ -847,17 +847,15 @@ GLOBAL_LIST_EMPTY(vending_products)
 				if(account.account_job && account.account_job.paycheck_department == payment_department)
 					price_to_use = 0
 				if(coin_records.Find(R) || hidden_records.Find(R))
-					price_to_use = R.custom_premium_price ? R.custom_premium_price : extra_price
+					price_to_use = (R.custom_premium_price ? R.custom_premium_price : extra_price) * decide_nalog()
 				if(price_to_use && !account.adjust_money(-price_to_use))
 					say("You do not possess the funds to purchase [R.name].")
 					flick(icon_deny,src)
 					vend_ready = TRUE
 					return
-				var/datum/bank_account/D = SSeconomy.get_dep_account(payment_department)
-				if(D)
-					D.adjust_money(price_to_use)
-					SSblackbox.record_feedback("amount", "vending_spent", price_to_use)
-					log_econ("[price_to_use] credits were inserted into [src] by [D.account_holder] to buy [R].")
+				SSeconomy.adjust_cargo_money(price_to_use, src, account.account_holder, R)
+				SSblackbox.record_feedback("amount", "vending_spent", price_to_use)
+				log_econ("[price_to_use] credits were inserted into [src] by [account] to buy [R].")
 			if(last_shopper != usr || purchase_message_cooldown < world.time)
 				say("Thank you for shopping with [src]!")
 				purchase_message_cooldown = world.time + 5 SECONDS
@@ -866,10 +864,31 @@ GLOBAL_LIST_EMPTY(vending_products)
 			if(icon_vend) //Show the vending animation if needed
 				flick(icon_vend,src)
 			playsound(src, 'sound/machines/machine_vend.ogg', 50, TRUE, extrarange = -3)
-			new R.product_path(get_turf(src))
+			var/obj/item/vended_item = new R.product_path(get_turf(src))
 			R.amount--
+			if(usr.CanReach(src) && usr.put_in_hands(vended_item))
+				to_chat(usr, "<span class='notice'>You take [R.name] out of the slot.</span>")
+			else
+				to_chat(usr, "<span class='warning'>[capitalize(R.name)] falls onto the floor!</span>")
 			SSblackbox.record_feedback("nested tally", "vending_machine_usage", 1, list("[type]", "[R.product_path]"))
 			vend_ready = TRUE
+
+/obj/machinery/vending/proc/decide_nalog()
+	switch(payment_department)
+		if(ACCOUNT_ENG)
+			return GLOB.eng_eco_mod
+		if(ACCOUNT_SCI)
+			return GLOB.sci_eco_mod
+		if(ACCOUNT_MED)
+			return GLOB.med_eco_mod
+		if(ACCOUNT_SEC)
+			return GLOB.sec_eco_mod
+		if(ACCOUNT_SRV)
+			return GLOB.srv_eco_mod
+		if(ACCOUNT_CIV)
+			return GLOB.civ_eco_mod
+		else
+			return 1
 
 /obj/machinery/vending/process(delta_time)
 	if(machine_stat & (BROKEN|NOPOWER))
@@ -938,7 +957,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 	pre_throw(throw_item)
 
 	throw_item.throw_at(target, 16, 3)
-	visible_message("<span class='danger'>[src] launches [throw_item] at [target]!</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)] launches [throw_item] at [target]!</span>")
 	return TRUE
 /**
   * A callback called before an item is tossed out

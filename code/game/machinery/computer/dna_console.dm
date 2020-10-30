@@ -1696,7 +1696,7 @@
 		var/type = delayed_action["type"]
 		var/buffer_slot = delayed_action["buffer_slot"]
 		if(apply_genetic_makeup(type, buffer_slot))
-			to_chat(connected_scanner.occupant, "<span class='notice'>[src] activates!</span>")
+			to_chat(connected_scanner.occupant, "<span class='notice'>[capitalize(src.name)] activates!</span>")
 		delayed_action = null
 
 /**

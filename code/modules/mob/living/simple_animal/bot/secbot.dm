@@ -114,7 +114,7 @@
 		base_speed += 3
 		addtimer(VARSET_CALLBACK(src, base_speed, base_speed - 3), 60)
 		playsound(src, 'sound/machines/defib_zap.ogg', 50)
-		visible_message("<span class='warning'>[src] shakes and speeds up!</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] shakes and speeds up!</span>")
 
 /mob/living/simple_animal/bot/secbot/set_custom_texts()
 	text_hack = "You overload [name]'s target identification system."
@@ -203,6 +203,15 @@ Auto Patrol: []"},
 		if(special_retaliate_after_attack(H))
 			return
 
+		// Turns an oversight into a feature. Beepsky will now announce when pacifists taunt him over sec comms.
+		if(HAS_TRAIT(H, TRAIT_PACIFISM))
+			H.visible_message("<span class='notice'>[H] taunts [src], daring [p_them()] to give chase!</span>", \
+				"<span class='notice'>You taunt [src], daring [p_them()] to chase you!</span>", "<span class='hear'>You hear someone shout a daring taunt!</span>", DEFAULT_MESSAGE_RANGE, H)
+			speak("Taunted by pacifist scumbag <b>[H]</b> in [get_area(src)].", radio_channel)
+
+			// Interrupt the attack chain. We've already handled this scenario for pacifists.
+			return
+
 	return ..()
 
 /mob/living/simple_animal/bot/secbot/attackby(obj/item/W, mob/user, params)
@@ -220,7 +229,7 @@ Auto Patrol: []"},
 		if(user)
 			to_chat(user, "<span class='danger'>You short out [src]'s target assessment circuits.</span>")
 			oldtarget_name = user.name
-		audible_message("<span class='danger'>[src] buzzes oddly!</span>")
+		audible_message("<span class='danger'>[capitalize(src.name)] buzzes oddly!</span>")
 		declare_arrests = FALSE
 		update_icon()
 
@@ -257,8 +266,8 @@ Auto Patrol: []"},
 /mob/living/simple_animal/bot/secbot/proc/cuff(mob/living/carbon/C)
 	mode = BOT_ARREST
 	playsound(src, 'sound/weapons/cablecuff.ogg', 30, TRUE, -2)
-	C.visible_message("<span class='danger'>[src] is trying to put zipties on [C]!</span>",\
-						"<span class='userdanger'>[src] is trying to put zipties on you!</span>")
+	C.visible_message("<span class='danger'>[capitalize(src.name)] is trying to put zipties on [C]!</span>",\
+						"<span class='userdanger'>[capitalize(src.name)] is trying to put zipties on you!</span>")
 	addtimer(CALLBACK(src, .proc/attempt_handcuff, C), 60)
 
 /mob/living/simple_animal/bot/secbot/proc/attempt_handcuff(mob/living/carbon/C)
@@ -434,7 +443,7 @@ Auto Patrol: []"},
 			else
 				//playsound(src, pick('sound/voice/beepsky/criminal.ogg', 'sound/voice/beepsky/justice.ogg', 'sound/voice/beepsky/freeze.ogg'), 50, FALSE)
 				playsound(loc, pick('white/valtos/sounds/beepsky_russian/criminal.ogg', 'white/valtos/sounds/beepsky_russian/justice.ogg', 'white/valtos/sounds/beepsky_russian/freeze.ogg'), 50, FALSE)
-			visible_message("<b>[capitalize(src)]</b> points at [C.name]!")
+			visible_message("<b>[capitalize(src.name)]</b> points at [C.name]!")
 			mode = BOT_HUNT
 			INVOKE_ASYNC(src, .proc/handle_automated_action)
 			break
@@ -449,7 +458,7 @@ Auto Patrol: []"},
 /mob/living/simple_animal/bot/secbot/explode()
 
 	walk_to(src,0)
-	visible_message("<span class='boldannounce'>[src] blows apart!</span>")
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] blows apart!</span>")
 	var/atom/Tsec = drop_location()
 	if(ranged)
 		var/obj/item/bot_assembly/ed209/Sa = new (Tsec)

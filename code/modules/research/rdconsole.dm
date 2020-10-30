@@ -15,8 +15,8 @@ Nothing else in the console has ID requirements.
 
 */
 /obj/machinery/computer/rdconsole
-	name = "R&D Console"
-	desc = "A console used to interface with R&D tools."
+	name = "консоль R&D"
+	desc = "Консоль, используемая для взаимодействия с инструментами R&D."
 	icon_screen = "rdcomp"
 	icon_keyboard = "rd_key"
 	var/datum/techweb/stored_research					//Reference to global science techweb.
@@ -79,34 +79,34 @@ Nothing else in the console has ID requirements.
 	if(istype(D, /obj/item/disk))
 		if(istype(D, /obj/item/disk/tech_disk))
 			if(t_disk)
-				to_chat(user, "<span class='warning'>A technology disk is already loaded!</span>")
+				to_chat(user, "<span class='warning'>Диск с технологиями уже загружен!</span>")
 				return
 			if(!user.transferItemToLoc(D, src))
-				to_chat(user, "<span class='warning'>[D] is stuck to your hand!</span>")
+				to_chat(user, "<span class='warning'>[D] застрял в руке!</span>")
 				return
 			t_disk = D
 		else if (istype(D, /obj/item/disk/design_disk))
 			if(d_disk)
-				to_chat(user, "<span class='warning'>A design disk is already loaded!</span>")
+				to_chat(user, "<span class='warning'>Диск с дизайнами уже загружен!</span>")
 				return
 			if(!user.transferItemToLoc(D, src))
-				to_chat(user, "<span class='warning'>[D] is stuck to your hand!</span>")
+				to_chat(user, "<span class='warning'>[D] застрял в руке!</span>")
 				return
 			d_disk = D
 		else
-			to_chat(user, "<span class='warning'>Machine cannot accept disks in that format.</span>")
+			to_chat(user, "<span class='warning'>Машина не принимает диски данного формата.</span>")
 			return
-		to_chat(user, "<span class='notice'>You insert [D] into \the [src]!</span>")
+		to_chat(user, "<span class='notice'>Вставляю [D] в [src]!</span>")
 		return
 	return ..()
 
 /obj/machinery/computer/rdconsole/proc/research_node(id, mob/user)
 	if(!stored_research.available_nodes[id] || stored_research.researched_nodes[id])
-		say("Node unlock failed: Either already researched or not available!")
+		say("Не удалось разблокировать узел: Либо уже исследовано, либо недоступно!")
 		return FALSE
 	var/datum/techweb_node/TN = SSresearch.techweb_node_by_id(id)
 	if(!istype(TN))
-		say("Node unlock failed: Unknown error.")
+		say("Не удалось разблокировать узел: Неизвестная ошибка.")
 		return FALSE
 	var/list/price = TN.get_price(stored_research)
 	if(stored_research.can_afford(price))
@@ -131,18 +131,18 @@ Nothing else in the console has ID requirements.
 						logname = "User: [ID.registered_name]"
 			var/i = stored_research.research_logs.len
 			stored_research.research_logs += null
-			stored_research.research_logs[++i] = list(TN.display_name, price["General Research"], logname, "[get_area(src)] ([src.x],[src.y],[src.z])")
+			stored_research.research_logs[++i] = list(TN.display_name, price["Основные Исследования"], logname, "[get_area(src)] ([src.x],[src.y],[src.z])")
 			return TRUE
 		else
-			say("Failed to research node: Internal database error!")
+			say("Не удалось разблокировать узел: Внутренняя ошибка базы данных!")
 			return FALSE
-	say("Not enough research points...")
+	say("Недостаточно очков исследований...")
 	return FALSE
 
 /obj/machinery/computer/rdconsole/emag_act(mob/user)
 	if(!(obj_flags & EMAGGED))
-		to_chat(user, "<span class='notice'>You disable the security protocols[locked? " and unlock the console":""].</span>")
-		playsound(src, "sparks", 75, TRUE)
+		to_chat(user, "<span class='notice'>Отключаю протоколы безопасности и [locked? "разблокирую консоль":"блокирую консоль"].</span>")
+		playsound(src, "sparks", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		obj_flags |= EMAGGED
 		locked = FALSE
 	return ..()
@@ -169,41 +169,41 @@ Nothing else in the console has ID requirements.
 	var/list/l = list()
 	var/datum/asset/spritesheet/sheet = get_asset_datum(/datum/asset/spritesheet/research_designs)
 	l += "[sheet.css_tag()][RDSCREEN_NOBREAK]"
-	l += "<div class='statusDisplay'><b>[stored_research.organization] Research and Development Network</b>"
-	l += "Available points: <BR>[techweb_point_display_rdconsole(stored_research.research_points, stored_research.last_bitcoins)]"
-	l += "Security protocols: [obj_flags & EMAGGED ? "<font color='red'>Disabled</font>" : "<font color='green'>Enabled</font>"]"
-	l += "<a href='?src=[REF(src)];switch_screen=[RDSCREEN_MENU]'>Main Menu</a> | <a href='?src=[REF(src)];switch_screen=[back]'>Back</a></div>[RDSCREEN_NOBREAK]"
-	l += "[ui_mode == 1? "<span class='linkOn'>Normal View</span>" : "<a href='?src=[REF(src)];ui_mode=1'>Normal View</a>"] | [ui_mode == 2? "<span class='linkOn'>Expert View</span>" : "<a href='?src=[REF(src)];ui_mode=2'>Expert View</a>"] | [ui_mode == 3? "<span class='linkOn'>List View</span>" : "<a href='?src=[REF(src)];ui_mode=3'>List View</a>"]"
+	l += "<div class='statusDisplay'><b>Исследовательская сеть [stored_research.organization]</b>"
+	l += "Доступно очков: <BR>[techweb_point_display_rdconsole(stored_research.research_points, stored_research.last_bitcoins)]"
+	l += "Протоколы безопасности: [obj_flags & EMAGGED ? "<font color='red'>Отключены</font>" : "<font color='green'>Включены</font>"]"
+	l += "<a href='?src=[REF(src)];switch_screen=[RDSCREEN_MENU]'>Главное меню</a> | <a href='?src=[REF(src)];switch_screen=[back]'>Назад</a></div>[RDSCREEN_NOBREAK]"
+	l += "[ui_mode == 1? "<span class='linkOn'>Нормально</span>" : "<a href='?src=[REF(src)];ui_mode=1'>Нормально</a>"] | [ui_mode == 2? "<span class='linkOn'>Кратко</span>" : "<a href='?src=[REF(src)];ui_mode=2'>Кратко</a>"] | [ui_mode == 3? "<span class='linkOn'>Списком</span>" : "<a href='?src=[REF(src)];ui_mode=3'>Списком</a>"]"
 	return l
 
 /obj/machinery/computer/rdconsole/proc/ui_main_menu()
 	var/list/l = list()
 	if(research_control)
-		l += "<H2><a href='?src=[REF(src)];switch_screen=[RDSCREEN_TECHWEB]'>Technology</a>"
+		l += "<H2><a href='?src=[REF(src)];switch_screen=[RDSCREEN_TECHWEB]'>Технология</a>"
 	if(d_disk)
-		l += "<hr><a href='?src=[REF(src)];switch_screen=[RDSCREEN_DESIGNDISK]'>Design Disk</a>"
+		l += "<hr><a href='?src=[REF(src)];switch_screen=[RDSCREEN_DESIGNDISK]'>Диск с дизайном</a>"
 	if(t_disk)
-		l += "<hr><a href='?src=[REF(src)];switch_screen=[RDSCREEN_TECHDISK]'>Tech Disk</a>"
-	l += "<hr><a href='?src=[REF(src)];switch_screen=[RDSCREEN_SETTINGS]'>Settings</a></H2>"
+		l += "<hr><a href='?src=[REF(src)];switch_screen=[RDSCREEN_TECHDISK]'>Диск с технологиями</a>"
+	l += "<hr><a href='?src=[REF(src)];switch_screen=[RDSCREEN_SETTINGS]'>Настройки</a></H2>"
 	return l
 
 /obj/machinery/computer/rdconsole/proc/ui_locked()
-	return list("<h3><a href='?src=[REF(src)];switch_screen=[RDSCREEN_MENU];unlock_console=1'>SYSTEM LOCKED</a></h3></br>")
+	return list("<h3><a href='?src=[REF(src)];switch_screen=[RDSCREEN_MENU];unlock_console=1'>СИСТЕМА ЗАБЛОКИРОВАНА</a></h3></br>")
 
 /obj/machinery/computer/rdconsole/proc/ui_settings()
 	var/list/l = list()
-	l += "<div class='statusDisplay'><h3>R&D Console Settings:</h3>"
-	l += "<A href='?src=[REF(src)];lock_console=1'>Lock Console</A></div>"
+	l += "<div class='statusDisplay'><h3>Настройки консоли R&D:</h3>"
+	l += "<A href='?src=[REF(src)];lock_console=1'>Заблокировать консоль</A></div>"
 	return l
 
 /obj/machinery/computer/rdconsole/proc/ui_techdisk()		//Legacy code
 	RDSCREEN_UI_TDISK_CHECK
 	var/list/l = list()
-	l += "<div class='statusDisplay'>Disk Operations: <A href='?src=[REF(src)];clear_tech=0'>Clear Disk</A>"
-	l += "<A href='?src=[REF(src)];eject_tech=1'>Eject Disk</A>"
-	l += "<A href='?src=[REF(src)];updt_tech=0'>Upload All</A>"
-	l += "<A href='?src=[REF(src)];copy_tech=1'>Load Technology to Disk</A></div>"
-	l += "<div class='statusDisplay'><h3>Stored Technology Nodes:</h3>"
+	l += "<div class='statusDisplay'>Операция с диском: <A href='?src=[REF(src)];clear_tech=0'>Стереть</A>"
+	l += "<A href='?src=[REF(src)];eject_tech=1'>Изъять</A>"
+	l += "<A href='?src=[REF(src)];updt_tech=0'>Загрузить всё</A>"
+	l += "<A href='?src=[REF(src)];copy_tech=1'>Записать технологию на диск</A></div>"
+	l += "<div class='statusDisplay'><h3>Технологии:</h3>"
 	for(var/i in t_disk.stored_research.researched_nodes)
 		var/datum/techweb_node/N = SSresearch.techweb_node_by_id(i)
 		l += "<A href='?src=[REF(src)];view_node=[i];back_screen=[screen]'>[N.display_name]</A>"
@@ -213,27 +213,27 @@ Nothing else in the console has ID requirements.
 /obj/machinery/computer/rdconsole/proc/ui_designdisk()		//Legacy code
 	RDSCREEN_UI_DDISK_CHECK
 	var/list/l = list()
-	l += "Disk Operations: <A href='?src=[REF(src)];clear_design=0'>Clear Disk</A><A href='?src=[REF(src)];updt_design=0'>Upload All</A><A href='?src=[REF(src)];eject_design=1'>Eject Disk</A>"
+	l += "Операции с диском: <A href='?src=[REF(src)];clear_design=0'>Clear Disk</A><A href='?src=[REF(src)];updt_design=0'>Загрузить всё</A><A href='?src=[REF(src)];eject_design=1'>Изъять</A>"
 	for(var/i in 1 to d_disk.max_blueprints)
 		l += "<div class='statusDisplay'>"
 		if(d_disk.blueprints[i])
 			var/datum/design/D = d_disk.blueprints[i]
 			l += "<A href='?src=[REF(src)];view_design=[D.id]'>[D.name]</A>"
-			l += "Operations: <A href='?src=[REF(src)];updt_design=[i]'>Upload to database</A> <A href='?src=[REF(src)];clear_design=[i]'>Clear Slot</A>"
+			l += "Операции: <A href='?src=[REF(src)];updt_design=[i]'>Загрузить в базу</A> <A href='?src=[REF(src)];clear_design=[i]'>Стереть</A>"
 		else
-			l += "Empty Slot Operations: <A href='?src=[REF(src)];switch_screen=[RDSCREEN_DESIGNDISK_UPLOAD];disk_slot=[i]'>Load Design to Slot</A>"
+			l += "Операции: <A href='?src=[REF(src)];switch_screen=[RDSCREEN_DESIGNDISK_UPLOAD];disk_slot=[i]'>Записать технологию</A>"
 		l += "</div>"
 	return l
 
 /obj/machinery/computer/rdconsole/proc/ui_designdisk_upload()	//Legacy code
 	RDSCREEN_UI_DDISK_CHECK
 	var/list/l = list()
-	l += "<A href='?src=[REF(src)];switch_screen=[RDSCREEN_DESIGNDISK];back_screen=[screen]'>Return to Disk Operations</A><div class='statusDisplay'>"
-	l += "<h3>Load Design to Disk:</h3>"
+	l += "<A href='?src=[REF(src)];switch_screen=[RDSCREEN_DESIGNDISK];back_screen=[screen]'>Вернуться к операциям с диском/A><div class='statusDisplay'>"
+	l += "<h3>Записать дизайн на диск:</h3>"
 	for(var/v in stored_research.researched_designs)
 		var/datum/design/D = SSresearch.techweb_design_by_id(v)
 		l += "[D.name] "
-		l += "<A href='?src=[REF(src)];copy_design=[disk_slot_selected];copy_design_ID=[D.id]'>Copy to Disk</A>"
+		l += "<A href='?src=[REF(src)];copy_design=[disk_slot_selected];copy_design_ID=[D.id]'>Записать</A>"
 	l += "</div>"
 	return l
 
@@ -249,7 +249,7 @@ Nothing else in the console has ID requirements.
 			columns["[tier]"] += ui_techweb_single_node(node, minimal=(tier != 1))
 			max_tier = max(max_tier, tier)
 
-		l += "<table><tr><th align='left'>Researched</th><th align='left'>Available</th><th align='left'>Future</th></tr><tr>[RDSCREEN_NOBREAK]"
+		l += "<table><tr><th align='left'>Исследовано</th><th align='left'>Доступно</th><th align='left'>Будущее</th></tr><tr>[RDSCREEN_NOBREAK]"
 		if(max_tier)
 			for(var/tier in 0 to max_tier)
 				l += "<td valign='top'>[RDSCREEN_NOBREAK]"
@@ -270,17 +270,17 @@ Nothing else in the console has ID requirements.
 			if(stored_research.available_nodes[v])
 				continue
 			unavail += SSresearch.techweb_node_by_id(v)
-		l += "<h2>Technology Nodes:</h2>[RDSCREEN_NOBREAK]"
-		l += "<div><h3>Available for Research:</h3>"
+		l += "<h2>Узлы технологий:</h2>[RDSCREEN_NOBREAK]"
+		l += "<div><h3>Доступно для исследования:</h3>"
 		for(var/datum/techweb_node/N in avail)
 			var/not_unlocked = (stored_research.available_nodes[N.id] && !stored_research.researched_nodes[N.id])
 			var/has_points = (stored_research.can_afford(N.get_price(stored_research)))
-			var/research_href = not_unlocked? (has_points? "<A href='?src=[REF(src)];research_node=[N.id]'>Research</A>" : "<span class='linkOff bad'>Not Enough Points</span>") : null
+			var/research_href = not_unlocked? (has_points? "<A href='?src=[REF(src)];research_node=[N.id]'>Исследовать</A>" : "<span class='linkOff bad'>Недостаточно очков</span>") : null
 			l += "<A href='?src=[REF(src)];view_node=[N.id];back_screen=[screen]'>[N.display_name]</A>[research_href]"
-		l += "</div><div><h3>Locked Nodes:</h3>"
+		l += "</div><div><h3>Заблокировано:</h3>"
 		for(var/datum/techweb_node/N in unavail)
 			l += "<A href='?src=[REF(src)];view_node=[N.id];back_screen=[screen]'>[N.display_name]</A>"
-		l += "</div><div><h3>Researched Nodes:</h3>"
+		l += "</div><div><h3>Исследовано:</h3>"
 		for(var/datum/techweb_node/N in res)
 			l += "<A href='?src=[REF(src)];view_node=[N.id];back_screen=[screen]'>[N.display_name]</A>"
 		l += "</div>[RDSCREEN_NOBREAK]"
@@ -301,7 +301,7 @@ Nothing else in the console has ID requirements.
 		l += "<br>[node.description]"
 	else
 		if(stored_research.researched_nodes[node.id])
-			l += "<span class='linkOff'>Researched</span>"
+			l += "<span class='linkOff'>Исследовано</span>"
 		else if(stored_research.available_nodes[node.id])
 			if(stored_research.can_afford(node.get_price(stored_research)))
 				l += "<BR><A href='?src=[REF(src)];research_node=[node.id]'>[node.price_display(stored_research)]</A>"
@@ -322,15 +322,15 @@ Nothing else in the console has ID requirements.
 	RDSCREEN_UI_SNODE_CHECK
 	var/list/l = list()
 	if(stored_research.hidden_nodes[selected_node.id])
-		l += "<div><h3>ERROR: RESEARCH NODE UNKNOWN.</h3></div>"
+		l += "<div><h3>ОШИБКА: НЕИЗВЕСТНЫЙ УЗЕЛ.</h3></div>"
 		return
 
 	l += "<table><tr>[RDSCREEN_NOBREAK]"
 	if (length(selected_node.prereq_ids))
-		l += "<th align='left'>Requires</th>[RDSCREEN_NOBREAK]"
-	l += "<th align='left'>Current Node</th>[RDSCREEN_NOBREAK]"
+		l += "<th align='left'>Требует</th>[RDSCREEN_NOBREAK]"
+	l += "<th align='left'>Узел</th>[RDSCREEN_NOBREAK]"
 	if (length(selected_node.unlock_ids))
-		l += "<th align='left'>Unlocks</th>[RDSCREEN_NOBREAK]"
+		l += "<th align='left'>Разблокирует</th>[RDSCREEN_NOBREAK]"
 
 	l += "</tr><tr>[RDSCREEN_NOBREAK]"
 	if (length(selected_node.prereq_ids))
@@ -371,14 +371,14 @@ Nothing else in the console has ID requirements.
 			lathes += "<span data-tooltip='Limbgrower'>[machine_icon(/obj/machinery/limbgrower)]</span>[RDSCREEN_NOBREAK]"
 		if(selected_design.build_type & SMELTER)
 			lathes += "<span data-tooltip='Smelter'>[machine_icon(/obj/machinery/mineral/processing_unit)]</span>[RDSCREEN_NOBREAK]"
-		l += "Construction types:"
+		l += "Возможные дизайны:"
 		l += lathes
 		l += ""
-	l += "Required materials:"
+	l += "Требуемые материалы:"
 	var/all_mats = selected_design.materials + selected_design.reagents_list
 	for(var/M in all_mats)
 		l += "* [CallMaterialName(M)] x [all_mats[M]]"
-	l += "Unlocked by:"
+	l += "Разблокируется от:"
 	for (var/i in selected_design.unlocked_by)
 		l += ui_techweb_single_node(SSresearch.techweb_node_by_id(i))
 	l += "[RDSCREEN_NOBREAK]</div>"
@@ -427,17 +427,17 @@ Nothing else in the console has ID requirements.
 		ui_mode = text2num(ls["ui_mode"])
 	if(ls["lock_console"])
 		if(obj_flags & EMAGGED)
-			to_chat(usr, "<span class='boldwarning'>Security protocol error: Unable to lock.</span>")
+			to_chat(usr, "<span class='boldwarning'>Ошибка протоколов безопасности: Невозможно заблокировать.</span>")
 			return
 		if(allowed(usr))
 			lock_console(usr)
 		else
-			to_chat(usr, "<span class='boldwarning'>Unauthorized Access.</span>")
+			to_chat(usr, "<span class='boldwarning'>Несанкционированный доступ.</span>")
 	if(ls["unlock_console"])
 		if(allowed(usr))
 			unlock_console(usr)
 		else
-			to_chat(usr, "<span class='boldwarning'>Unauthorized Access.</span>")
+			to_chat(usr, "<span class='boldwarning'>Несанкционированный доступ.</span>")
 	if(ls["back_screen"])
 		back = text2num(ls["back_screen"])
 	if(ls["category"])
@@ -445,11 +445,11 @@ Nothing else in the console has ID requirements.
 	if(ls["eject_design"]) //Eject the design disk.
 		eject_disk("design")
 		screen = RDSCREEN_MENU
-		say("Ejecting Design Disk")
+		say("Извлекаю диск дизайнов")
 	if(ls["eject_tech"]) //Eject the technology disk.
 		eject_disk("tech")
 		screen = RDSCREEN_MENU
-		say("Ejecting Technology Disk")
+		say("Извлекаю диск технологий")
 	if(ls["disk_slot"])
 		disk_slot_selected = text2num(ls["disk_slot"])
 	if(ls["research_node"])
@@ -460,40 +460,40 @@ Nothing else in the console has ID requirements.
 		research_node(ls["research_node"], usr)
 	if(ls["clear_tech"]) //Erase la on the technology disk.
 		if(QDELETED(t_disk))
-			say("No Technology Disk Inserted!")
+			say("Не обнаружено диска технологий!")
 			return
 		qdel(t_disk.stored_research)
 		t_disk.stored_research = new
-		say("Wiping technology disk.")
+		say("Стираю диск технологий.")
 	if(ls["copy_tech"]) //Copy some technology la from the research holder to the disk.
 		if(QDELETED(t_disk))
-			say("No Technology Disk Inserted!")
+			say("Не обнаружено диска технологий!")
 			return
 		stored_research.copy_research_to(t_disk.stored_research)
 		screen = RDSCREEN_TECHDISK
-		say("Downloading to technology disk.")
+		say("Успешно записываю технологию на диск.")
 	if(ls["clear_design"]) //Erases la on the design disk.
 		if(QDELETED(d_disk))
-			say("No Design Disk Inserted!")
+			say("Не обнаружено диска дизайна!")
 			return
 		var/n = text2num(ls["clear_design"])
 		if(!n)
 			for(var/i in 1 to d_disk.max_blueprints)
 				d_disk.blueprints[i] = null
-				say("Wiping design disk.")
+				say("Стираю диск дизайна.")
 		else
 			var/datum/design/D = d_disk.blueprints[n]
-			say("Wiping design [D.name] from design disk.")
+			say("Стираю дизайн [D.name] с диска.")
 			d_disk.blueprints[n] = null
 	if(ls["updt_tech"]) //Uple the research holder with information from the technology disk.
 		if(QDELETED(t_disk))
-			say("No Technology Disk Inserted!")
+			say("Не обнаружено диска дизайна!")
 			return
-		say("Uploading technology disk.")
+		say("Записываю технологию на диск.")
 		t_disk.stored_research.copy_research_to(stored_research)
 	if(ls["copy_design"]) //Copy design from the research holder to the design disk.
 		if(QDELETED(d_disk))
-			say("No Design Disk Inserted!")
+			say("Не обнаружено диска технологий!")
 			return
 		var/slot = text2num(ls["copy_design"])
 		var/datum/design/D = SSresearch.techweb_design_by_id(ls["copy_design_ID"])
@@ -501,16 +501,16 @@ Nothing else in the console has ID requirements.
 			var/autolathe_friendly = TRUE
 			if(D.reagents_list.len)
 				autolathe_friendly = FALSE
-				D.category -= "Imported"
+				D.category -= "Импорт"
 			else
 				for(var/x in D.materials)
 					if( !(x in list(/datum/material/iron, /datum/material/glass)))
 						autolathe_friendly = FALSE
-						D.category -= "Imported"
+						D.category -= "Импорт"
 
 			if(D.build_type & (AUTOLATHE|PROTOLATHE|CRAFTLATHE)) // Specifically excludes circuit imprinter and mechfab
 				D.build_type = autolathe_friendly ? (D.build_type | AUTOLATHE) : D.build_type
-				D.category |= "Imported"
+				D.category |= "Импорт"
 			d_disk.blueprints[slot] = D
 		screen = RDSCREEN_DESIGNDISK
 	if(ls["view_node"])
@@ -521,7 +521,7 @@ Nothing else in the console has ID requirements.
 		screen = RDSCREEN_TECHWEB_DESIGNVIEW
 	if(ls["updt_design"]) //Uploads a design from disk to the techweb.
 		if(QDELETED(d_disk))
-			say("No design disk found.")
+			say("Не обнаружено диска дизайна.")
 			return
 		var/n = text2num(ls["updt_design"])
 		if(!n)

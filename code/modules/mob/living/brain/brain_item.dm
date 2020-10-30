@@ -124,7 +124,7 @@
 			return
 
 		user.visible_message("<span class='notice'>[user] начинает обильно поливать [src.name] из [O].</span>", "<span class='notice'>Начинаю обильно поливать [src.name] из [O].</span>")
-		if(!do_after(user, 60, TRUE, src))
+		if(!do_after(user, 6 SECONDS, TRUE, src))
 			to_chat(user, "<span class='warning'>Не вышло нормально починить [src]!</span>")
 			return
 

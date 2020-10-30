@@ -113,7 +113,7 @@ To add a crossbreed:
 
 /obj/item/slimecrossbeaker/process()
 	if(!reagents.total_volume)
-		visible_message("<span class='notice'>[src] has been drained completely, and melts away.</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] has been drained completely, and melts away.</span>")
 		qdel(src)
 
 /obj/item/slimecrossbeaker/bloodpack //Pack of 50u blood. Deletes on empty.
@@ -144,7 +144,7 @@ To add a crossbreed:
 
 /obj/item/slimecrossbeaker/autoinjector/attack(mob/living/M, mob/user)
 	if(!reagents.total_volume)
-		to_chat(user, "<span class='warning'>[src] is empty!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is empty!</span>")
 		return
 	if(!iscarbon(M))
 		return

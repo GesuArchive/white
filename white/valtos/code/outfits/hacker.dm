@@ -40,7 +40,8 @@
 	H.AddSpell(new /obj/effect/proc_holder/spell/self/hacker_immater(null))
 
 	spawn(5 SECONDS)
-		H.hud_used.update_parallax_pref(H, TRUE)
+		if(H?.hud_used)
+			H.hud_used.update_parallax_pref(H, TRUE)
 
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/head)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/suit)

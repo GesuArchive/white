@@ -7,35 +7,35 @@
 /obj/machinery/rnd/production/protolathe/department/engineering
 	name = "department protolathe (Engineering)"
 	allowed_department_flags = DEPARTMENTAL_FLAG_ENGINEERING
-	department_tag = "Engineering"
+	department_tag = "Инженерный"
 	circuit = /obj/item/circuitboard/machine/protolathe/department/engineering
 
 /obj/machinery/rnd/production/protolathe/department/service
 	name = "department protolathe (Service)"
 	allowed_department_flags = DEPARTMENTAL_FLAG_SERVICE
-	department_tag = "Service"
+	department_tag = "Сервисный"
 	circuit = /obj/item/circuitboard/machine/protolathe/department/service
 
 /obj/machinery/rnd/production/protolathe/department/medical
 	name = "department protolathe (Medical)"
 	allowed_department_flags = DEPARTMENTAL_FLAG_MEDICAL
-	department_tag = "Medical"
+	department_tag = "Медицинский"
 	circuit = /obj/item/circuitboard/machine/protolathe/department/medical
 
 /obj/machinery/rnd/production/protolathe/department/cargo
 	name = "department protolathe (Cargo)"
 	allowed_department_flags = DEPARTMENTAL_FLAG_CARGO
-	department_tag = "Cargo"
+	department_tag = "Снабженский"
 	circuit = /obj/item/circuitboard/machine/protolathe/department/cargo
 
 /obj/machinery/rnd/production/protolathe/department/science
 	name = "department protolathe (Science)"
 	allowed_department_flags = DEPARTMENTAL_FLAG_SCIENCE
-	department_tag = "Science"
+	department_tag = "Научный"
 	circuit = /obj/item/circuitboard/machine/protolathe/department/science
 
 /obj/machinery/rnd/production/protolathe/department/security
 	name = "department protolathe (Security)"
 	allowed_department_flags = DEPARTMENTAL_FLAG_SECURITY
-	department_tag = "Security"
+	department_tag = "Безопасности"
 	circuit = /obj/item/circuitboard/machine/protolathe/department/security

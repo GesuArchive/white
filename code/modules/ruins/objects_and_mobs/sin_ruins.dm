@@ -53,7 +53,7 @@
 	addtimer(CALLBACK(src, .proc/collapse), 600)
 
 /obj/structure/cursed_money/proc/collapse()
-	visible_message("<span class='warning'>[src] falls in on itself, \
+	visible_message("<span class='warning'>[capitalize(src.name)] falls in on itself, \
 		canvas rotting away and contents vanishing.</span>")
 	qdel(src)
 

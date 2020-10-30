@@ -89,7 +89,7 @@
 				C.throw_at(user, 3, 10)
 				if(prob(10))
 					balance = max(balance - SPIN_PRICE, 0)
-				to_chat(user, "<span class='warning'>[src] spits your coin back out!</span>")
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] spits your coin back out!</span>")
 
 			else
 				if(!user.temporarilyRemoveItemFromInventory(C))
@@ -111,14 +111,14 @@
 			to_chat(user, "<span class='warning'>This machine is only accepting coins!</span>")
 	else if(I.tool_behaviour == TOOL_MULTITOOL)
 		if(balance > 0)
-			visible_message("<b>[capitalize(src)]</b> says, 'ERROR! Please empty the machine balance before altering paymode'") //Prevents converting coins into holocredits and vice versa
+			visible_message("<b>[capitalize(src.name)]</b> says, 'ERROR! Please empty the machine balance before altering paymode'") //Prevents converting coins into holocredits and vice versa
 		else
 			if(paymode == HOLOCHIP)
 				paymode = COIN
-				visible_message("<b>[capitalize(src)]</b> says, 'This machine now works with COINS!'")
+				visible_message("<b>[capitalize(src.name)]</b> says, 'This machine now works with COINS!'")
 			else
 				paymode = HOLOCHIP
-				visible_message("<b>[capitalize(src)]</b> says, 'This machine now works with HOLOCHIPS!'")
+				visible_message("<b>[capitalize(src.name)]</b> says, 'This machine now works with HOLOCHIPS!'")
 	else
 		return ..()
 
@@ -129,7 +129,7 @@
 	var/datum/effect_system/spark_spread/spark_system = new /datum/effect_system/spark_spread()
 	spark_system.set_up(4, 0, src.loc)
 	spark_system.start()
-	playsound(src, "sparks", 50, TRUE)
+	playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 /obj/machinery/computer/slot_machine/ui_interact(mob/living/user)
 	. = ..()
@@ -258,7 +258,7 @@
 	var/linelength = get_lines()
 
 	if(reels[1][2] + reels[2][2] + reels[3][2] + reels[4][2] + reels[5][2] == "[SEVEN][SEVEN][SEVEN][SEVEN][SEVEN]")
-		visible_message("<b>[capitalize(src)]</b> says, 'JACKPOT! You win [money] credits!'")
+		visible_message("<b>[capitalize(src.name)]</b> says, 'JACKPOT! You win [money] credits!'")
 		priority_announce("Congratulations to [user ? user.real_name : usrname] for winning the jackpot at the slot machine in [get_area(src)]!")
 		jackpots += 1
 		balance += money - give_payout(JACKPOT)
@@ -272,11 +272,11 @@
 				random_step(C, 2, 50)
 
 	else if(linelength == 5)
-		visible_message("<b>[capitalize(src)]</b> says, 'Big Winner! You win a thousand credits!'")
+		visible_message("<b>[capitalize(src.name)]</b> says, 'Big Winner! You win a thousand credits!'")
 		give_money(BIG_PRIZE)
 
 	else if(linelength == 4)
-		visible_message("<b>[capitalize(src)]</b> says, 'Winner! You win four hundred credits!'")
+		visible_message("<b>[capitalize(src.name)]</b> says, 'Winner! You win four hundred credits!'")
 		give_money(SMALL_PRIZE)
 
 	else if(linelength == 3)

@@ -1,13 +1,13 @@
 /datum/design/board/telepad
-	name = "Machine Design (Telepad Board)"
+	name = "Оборудование (Telepad Board)"
 	desc = "The circuit board for a telescience telepad."
 	id = "telepad"
 	build_path = /obj/item/circuitboard/machine/telesci_pad
-	category = list ("Teleportation Machinery")
+	category = list ("Телепортация")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /obj/item/circuitboard/machine/telesci_pad
-	name = "Telepad (Машинерия)"
+	name = "Telepad (Оборудование)"
 	build_path = /obj/machinery/telepad
 	req_components = list(
 							/obj/item/stack/ore/bluespace_crystal = 2,
@@ -19,15 +19,15 @@
 //////////////////////////////////////////////////////////
 
 /datum/design/board/telesci_console
-	name = "Computer Design (Telepad Control Console Board)"
+	name = "Дизайн консоли (Telepad Control Console Board)"
 	desc = "Allows for the construction of circuit boards used to build a telescience console."
 	id = "telesci_console"
 	build_path = /obj/item/circuitboard/computer/telesci_console
-	category = list("Teleportation Machinery")
+	category = list("Телепортация")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /obj/item/circuitboard/computer/telesci_console
-	name = "Telescience Console (Компьютер)"
+	name = "Telescience Console (Консоль)"
 	build_path = /obj/machinery/computer/telescience
 
 //////////////////////////////////////////////////////////

@@ -22,7 +22,7 @@
 
 /obj/structure/janitorialcart/proc/wet_mop(obj/item/mop, mob/user)
 	if(reagents.total_volume < 1)
-		to_chat(user, "<span class='warning'>[src] is out of water!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is out of water!</span>")
 		return FALSE
 	else
 		var/obj/item/mop/M = mop
@@ -81,7 +81,7 @@
 			signs++
 			update_icon()
 		else
-			to_chat(user, "<span class='warning'>[src] can't hold any more signs!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] can't hold any more signs!</span>")
 	else if(mybag)
 		mybag.attackby(I, user)
 	else if(I.tool_behaviour == TOOL_CROWBAR)

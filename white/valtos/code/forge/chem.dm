@@ -53,7 +53,7 @@ GLOBAL_LIST_EMPTY(chempiles)
 		if(src.reagents && I.reagents)
 			. = 1 //so the containers don't splash their content on the src while scooping.
 			if(!src.reagents.total_volume)
-				to_chat(user, "<span class='notice'>[src] isn't thick enough to scoop up!</span>")
+				to_chat(user, "<span class='notice'>[capitalize(src.name)] isn't thick enough to scoop up!</span>")
 				return
 			if(I.reagents.total_volume >= I.reagents.maximum_volume)
 				to_chat(user, "<span class='notice'>[I] is full!</span>")

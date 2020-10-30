@@ -60,7 +60,7 @@
 		. += "<span class='info'>Это же <EM>[!obscure_name ? name : "Unknown"]</EM>!<hr>"
 
 	if(user.stat == CONSCIOUS && ishuman(user))
-		user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[!obscure_name ? name : "Unknown"]</b>.</span>", null, null, COMBAT_MESSAGE_RANGE)
+		user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[!obscure_name ? name : "Unknown"]</b>.</span>", "<span class='small'>Смотрю на <b>[!obscure_name ? name : "Unknown"]</b>.</span>", null, COMBAT_MESSAGE_RANGE)
 
 	var/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
@@ -263,11 +263,11 @@
 		temp = getCloneLoss()
 		if(temp)
 			if(temp < 25)
-				msg += "[t_on] имеет незначительные генетические повреждения.\n"
+				msg += "[t_on] имеет незначительные подтёки на теле.\n"
 			else if(temp < 50)
-				msg += "[t_on] имеет <b>сильные</b> генетические повреждения!\n"
+				msg += "[t_on] имеет <b>обвисшую</b> кожу в на большей части тела!\n"
 			else
-				msg += "<b>[t_on] имеет смертельные генетические повреждения!</b>\n"
+				msg += "<b>[t_on] имеет тело состоящее из кусков свисающей плоти!</b>\n"
 
 
 	if(fire_stacks > 0)
@@ -417,13 +417,13 @@
 
 	switch(scar_severity)
 		if(1 to 4)
-			msg += "<span class='smallnoticeital'>[t_on] похоже имеет шрамы... Стоит присмотреться, чтобы разглядеть ещё.</span>\n"
+			msg += "\n<span class='smallnoticeital'>[t_on] похоже имеет шрамы... Стоит присмотреться, чтобы разглядеть ещё.</span>\n"
 		if(5 to 8)
-			msg += "<span class='notice'><i>[t_on] имеет несколько серьёзных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></span>\n"
+			msg += "\n<span class='notice'><i>[t_on] имеет несколько серьёзных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></span>\n"
 		if(9 to 11)
-			msg += "<span class='notice'><b><i>[t_on] имеет множество ужасных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></b></span>\n"
+			msg += "\n<span class='notice'><b><i>[t_on] имеет множество ужасных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></b></span>\n"
 		if(12 to INFINITY)
-			msg += "<span class='notice'><b><i>[t_on] имеет разорванное в хлам тело состоящее из шрамов... Стоит присмотреться, чтобы разглядеть ещё?</i></b></span>\n"
+			msg += "\n<span class='notice'><b><i>[t_on] имеет разорванное в хлам тело состоящее из шрамов... Стоит присмотреться, чтобы разглядеть ещё?</i></b></span>\n"
 
 	if (length(msg))
 		. += "\n<span class='warning'>[msg.Join("")]</span>"

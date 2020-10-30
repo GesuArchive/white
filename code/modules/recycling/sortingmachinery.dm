@@ -199,6 +199,7 @@
 	new /obj/effect/decal/cleanable/wrapping(get_turf(user))
 	qdel(src)
 
+
 /obj/item/small_delivery/attack_self_tk(mob/user)
 	if(ismob(loc))
 		var/mob/M = loc
@@ -214,6 +215,8 @@
 	new /obj/effect/decal/cleanable/wrapping(get_turf(user))
 	unwrap_contents()
 	qdel(src)
+	return COMPONENT_CANCEL_ATTACK_CHAIN
+
 
 /obj/item/small_delivery/examine(mob/user)
 	. = ..()
@@ -412,7 +415,7 @@
 			else
 				payments_acc = potential_acc.registered_account
 				playsound(src, 'sound/machines/ping.ogg', 40, TRUE)
-				to_chat(user, "<span class='notice'>[src] registers the ID card. Tag a wrapped item to create a barcode.</span>")
+				to_chat(user, "<span class='notice'>[capitalize(src.name)] registers the ID card. Tag a wrapped item to create a barcode.</span>")
 		else if(!potential_acc.registered_account)
 			to_chat(user, "<span class='warning'>This ID card has no account registered!</span>")
 			return
@@ -422,12 +425,12 @@
 			qdel(I)
 			if (paper_count >=  max_paper_count)
 				paper_count = max_paper_count
-				to_chat(user, "<span class='notice'>[src]'s paper supply is now full.</span>")
+				to_chat(user, "<span class='notice'>[capitalize(src.name)]'s paper supply is now full.</span>")
 				return
 			to_chat(user, "<span class='notice'>You refill [src]'s paper supply, you have [paper_count] left.</span>")
 			return
 		else
-			to_chat(user, "<span class='notice'>[src]'s paper supply is full.</span>")
+			to_chat(user, "<span class='notice'>[capitalize(src.name)]'s paper supply is full.</span>")
 			return
 
 /obj/item/sales_tagger/attack_self(mob/user)

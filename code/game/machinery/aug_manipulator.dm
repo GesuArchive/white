@@ -80,7 +80,7 @@
 
 			user.visible_message("<span class='notice'>[user] begins repairing [src].</span>", \
 				"<span class='notice'>You begin repairing [src]...</span>", \
-				"<span class='hear'>You hear welding.</span>")
+				"<span class='hear'>Слышу сварку.</span>")
 
 			if(O.use_tool(src, user, 40, volume=50))
 				if(!(machine_stat & BROKEN))
@@ -90,7 +90,7 @@
 				obj_integrity = max(obj_integrity, max_integrity)
 				update_icon()
 		else
-			to_chat(user, "<span class='notice'>[src] does not need repairs.</span>")
+			to_chat(user, "<span class='notice'>[capitalize(src.name)] does not need repairs.</span>")
 	else
 		return ..()
 
@@ -137,7 +137,7 @@
 		storedpart = null
 		update_icon()
 	else
-		to_chat(user, "<span class='warning'>[src] is empty!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is empty!</span>")
 
 /obj/machinery/aug_manipulator/AltClick(mob/living/user)
 	..()

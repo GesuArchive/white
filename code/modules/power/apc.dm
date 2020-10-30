@@ -528,7 +528,7 @@
 			return
 		user.visible_message("<span class='notice'><b>[user.name]</b> welds <b>[src]</b>.</span>", \
 							"<span class='notice'>You start welding the APC frame...</span>", \
-							"<span class='hear'>You hear welding.</span>")
+							"<span class='hear'>Слышу сварку.</span>")
 		if(W.use_tool(src, user, 50, volume=50, amount=3))
 			if ((machine_stat & BROKEN) || opened==APC_COVER_REMOVED)
 				new /obj/item/stack/sheet/metal(loc)
@@ -622,7 +622,7 @@
 				return
 			if(!P.adapt_circuit(user, 50))
 				return
-			user.visible_message("<span class='notice'>[user] fabricates a circuit and places it into <b>[src]</b>.</span>", \
+			user.visible_message("<span class='notice'>[user] создаёт специальную плату и вставляет в <b>[src]</b>.</span>", \
 			"<span class='notice'>You adapt a power control board and click it into place in <b>[src]</b>'s guts.</span>")
 			has_electronics = APC_ELECTRONICS_INSTALLED
 			locked = FALSE
@@ -698,7 +698,7 @@
 				if(machine_stat & BROKEN)
 					to_chat(user, "<span class='warning'><b>[src]</b>'s frame is too damaged to support a circuit.</span>")
 					return
-				user.visible_message("<span class='notice'>[user] fabricates a circuit and places it into <b>[src]</b>.</span>", \
+				user.visible_message("<span class='notice'>[user] создаёт специальную плату и вставляет в <b>[src]</b>.</span>", \
 				"<span class='notice'>You adapt a power control board and click it into place in <b>[src]</b>'s guts.</span>")
 				has_electronics = TRUE
 				locked = TRUE
@@ -743,7 +743,7 @@
 			update_icon()
 			updateUsrDialog()
 		else
-			to_chat(user, "<span class='warning'>Access denied.</span>")
+			to_chat(user, "<span class='warning'>Доступ запрещён.</span>")
 
 /obj/machinery/power/apc/proc/toggle_nightshift_lights(mob/living/user)
 	if(last_nightshift_switch > world.time - 100) //~10 seconds between each toggle to prevent spamming
@@ -782,7 +782,7 @@
 			to_chat(user, "<span class='warning'>Nothing happens!</span>")
 		else
 			flick("apc-spark", src)
-			playsound(src, "sparks", 75, TRUE)
+			playsound(src, "sparks", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 			obj_flags |= EMAGGED
 			locked = FALSE
 			to_chat(user, "<span class='notice'>You emag the APC interface.</span>")

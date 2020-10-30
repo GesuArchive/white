@@ -64,7 +64,7 @@
 		open = FALSE
 	else
 		if(locked)
-			to_chat(user, "<span class='warning'>[src] is locked!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is locked!</span>")
 			return
 		to_chat(user, "<span class='notice'>You open [src]'s door.</span>")
 		playsound(user, 'sound/effects/bin_open.ogg', 50, TRUE)
@@ -132,7 +132,7 @@
 		playsound(src, 'sound/machines/boltsup.ogg', 30, TRUE)
 		update_icon()
 	else
-		loc.visible_message("<span class='warning'>[src] starts rattling as something pushes against the door!</span>", null, null, null, user)
+		loc.visible_message("<span class='warning'>[capitalize(src.name)] starts rattling as something pushes against the door!</span>", null, null, null, user)
 		to_chat(user, "<span class='notice'>You start pushing out of [src]... (This will take about 20 seconds.)</span>")
 		if(!do_after(user, 200, target = user) || open || !locked || !(user in occupants))
 			return
@@ -164,7 +164,7 @@
 
 /obj/item/pet_carrier/proc/load_occupant(mob/living/user, mob/living/target)
 	if(pet_carrier_full(src))
-		to_chat(user, "<span class='warning'>[src] is already carrying too much!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is already carrying too much!</span>")
 		return
 	user.visible_message("<span class='notice'>[user] starts loading [target] into [src].</span>", \
 	"<span class='notice'>You start loading [target] into [src]...</span>", null, null, target)
@@ -174,7 +174,7 @@
 	if(target in occupants)
 		return
 	if(pet_carrier_full(src)) //Run the checks again, just in case
-		to_chat(user, "<span class='warning'>[src] is already carrying too much!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is already carrying too much!</span>")
 		return
 	user.visible_message("<span class='notice'>[user] loads [target] into [src]!</span>", \
 	"<span class='notice'>You load [target] into [src].</span>", null, null, target)

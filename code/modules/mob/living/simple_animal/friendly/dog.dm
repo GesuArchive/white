@@ -524,7 +524,7 @@
 	..()
 	for(var/mob/living/simple_animal/pet/P in range(1, src))
 		if(P != src && !istype(P,/mob/living/simple_animal/pet/dog/corgi/narsie))
-			visible_message("<span class='warning'>[src] пожирает [P]!</span>", \
+			visible_message("<span class='warning'>[capitalize(src.name)] пожирает [P]!</span>", \
 			"<span class='cult big bold'>ВКУСНЫЕ ДУШИ</span>")
 			playsound(src, 'sound/magic/demon_attack1.ogg', 75, TRUE)
 			narsie_act()
@@ -646,7 +646,7 @@
 //Lisa already has a cute bow!
 /mob/living/simple_animal/pet/dog/corgi/lisa/Topic(href, href_list)
 	if(href_list["remove_inv"] || href_list["add_inv"])
-		to_chat(usr, "<span class='warning'>[src] уже имеет милый вид!</span>")
+		to_chat(usr, "<span class='warning'>[capitalize(src.name)] уже имеет милый вид!</span>")
 		return
 	..()
 

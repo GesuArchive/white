@@ -167,7 +167,8 @@
 /turf/open/floor/plating/ironsand
 	gender = PLURAL
 	name = "железный песок"
-	desc = "Как песок, но только <i>металлическая стружка</i>."
+	desc = "Как песок, но только <i>металлический</i>."
+	icon_state = "ironsand1"
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
@@ -211,8 +212,8 @@
 	icon_state = "ice_turf-255"
 	base_icon_state = "ice_turf"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_FLOOR_ICE)
-	canSmoothWith = list(SMOOTH_GROUP_FLOOR_ICE)
+	smoothing_groups = list(SMOOTH_GROUP_FLOOR_ICE)
+	canSmoothWith = list(SMOOTH_GROUP_TURF_OPEN)
 
 /turf/open/floor/plating/ice/colder
 	temperature = 140

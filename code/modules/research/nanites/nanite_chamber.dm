@@ -182,7 +182,7 @@
 	if(user.stat || locked)
 		if(message_cooldown <= world.time)
 			message_cooldown = world.time + 50
-			to_chat(user, "<span class='warning'>[src]'s door won't budge!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s door won't budge!</span>")
 		return
 	open_machine()
 

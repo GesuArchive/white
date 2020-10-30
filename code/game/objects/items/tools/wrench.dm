@@ -102,7 +102,7 @@
 		tool_behaviour = initial(tool_behaviour)
 		toolspeed = initial(toolspeed)
 		playsound(user, 'sound/weapons/saberoff.ogg', 5, TRUE)
-		to_chat(user, "<span class='warning'>[src] can now be kept at bay.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] can now be kept at bay.</span>")
 	else
 		on = TRUE
 		force = 6
@@ -111,7 +111,7 @@
 		tool_behaviour = TOOL_WRENCH
 		toolspeed = 1
 		playsound(user, 'sound/weapons/saberon.ogg', 5, TRUE)
-		to_chat(user, "<span class='warning'>[src] is now active. Woe onto your enemies!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is now active. Woe onto your enemies!</span>")
 	update_icon()
 
 /obj/item/wrench/combat/update_icon_state()

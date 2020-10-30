@@ -16,6 +16,7 @@
 	circuit = /obj/item/circuitboard/computer/cargo/express
 	blockade_warning = "Замечена блюспейс нестабильность. Доставка невозможна."
 	req_access = list(ACCESS_QM)
+	is_express = TRUE
 
 	var/message
 	var/printed_beacons = 0 //number of beacons printed. Used to determine beacon names.
@@ -52,7 +53,7 @@
 			sb.link_console(src, user)
 			return TRUE
 		else
-			to_chat(user, "<span class='alert'>[src] подключен к [sb].</span>")
+			to_chat(user, "<span class='alert'>[capitalize(src.name)] подключен к [sb].</span>")
 	..()
 
 /obj/machinery/computer/cargo/express/emag_act(mob/living/user)

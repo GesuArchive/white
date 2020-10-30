@@ -1,7 +1,7 @@
 /**********************Mining Scanners**********************/
 /obj/item/mining_scanner
-	desc = "A scanner that checks surrounding rock for useful minerals; it can also be used to stop gibtonite detonations."
-	name = "manual mining scanner"
+	desc = "Сканер, проверяющий окружающую породу на наличие полезных минералов; его также можно использовать для остановки детонации гибтонита."
+	name = "ручной шахтёрский сканнер"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "mining1"
 	inhand_icon_state = "analyzer"
@@ -31,9 +31,9 @@
 	qdel(src)
 
 /obj/item/t_scanner/adv_mining_scanner
-	desc = "A scanner that automatically checks surrounding rock for useful minerals; it can also be used to stop gibtonite detonations. This one has an extended range."
-	name = "advanced automatic mining scanner"
-	icon_state = "mining0"
+	desc = "Сканер, автоматически проверяющий окружающую породу на наличие полезных минералов; его также можно использовать для остановки детонации гибтонита. У этого есть расширенный диапазон."
+	name = "продвинутый автоматический шахтёрский сканнер"
+	icon_state = "adv_mining0"
 	inhand_icon_state = "analyzer"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
@@ -49,8 +49,9 @@
 	toggle_on()
 
 /obj/item/t_scanner/adv_mining_scanner/lesser
-	name = "automatic mining scanner"
-	desc = "A scanner that automatically checks surrounding rock for useful minerals; it can also be used to stop gibtonite detonations."
+	name = "автоматический шахтёрский сканнер"
+	desc = "Сканер, автоматически проверяющий окружающую породу на наличие полезных минералов; его также можно использовать для остановки детонации гибтонита."
+	icon_state = "mining0"
 	range = 4
 	cooldown = 50
 

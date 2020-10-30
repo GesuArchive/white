@@ -40,7 +40,7 @@
 	if(!cloning)
 		return
 
-	visible_message("<span class='notice'>[src] has finished printing its assembly!</span>")
+	visible_message("<span class='notice'>[capitalize(src.name)] has finished printing its assembly!</span>")
 	playsound(src, 'sound/items/poster_being_created.ogg', 50, TRUE)
 	var/obj/item/electronic_assembly/assembly = SScircuit.load_electronic_assembly(get_turf(src), program)
 	if(idlock)
@@ -52,7 +52,7 @@
 /obj/item/integrated_circuit_printer/attackby(obj/item/O, mob/user)
 	if(istype(O, /obj/item/disk/integrated_circuit/upgrade/advanced))
 		if(upgraded)
-			to_chat(user, "<span class='warning'>[src] already has this upgrade. </span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has this upgrade. </span>")
 			return TRUE
 		to_chat(user, "<span class='notice'>You install [O] into [src]. </span>")
 		upgraded = TRUE
@@ -60,7 +60,7 @@
 
 	if(istype(O, /obj/item/disk/integrated_circuit/upgrade/clone))
 		if(fast_clone)
-			to_chat(user, "<span class='warning'>[src] already has this upgrade. </span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has this upgrade. </span>")
 			return TRUE
 		to_chat(user, "<span class='notice'>You install [O] into [src]. Circuit cloning will now be instant. </span>")
 		fast_clone = TRUE
@@ -91,7 +91,7 @@
 			for(var/V in EA.assembly_components)
 				var/obj/item/integrated_circuit/IC = V
 				if(!mats.has_space(mats.get_item_material_amount(IC)))
-					to_chat(user, "<span class='notice'>[src] can't hold any more materials!</span>")
+					to_chat(user, "<span class='notice'>[capitalize(src.name)] can't hold any more materials!</span>")
 					break
 				if(!do_after(user, 5, target = user))
 					recycling = FALSE
@@ -224,7 +224,7 @@
 		else if(ispath(build_type, /obj/item/integrated_circuit))
 			var/obj/item/integrated_circuit/IC = SScircuit.cached_components[build_type]
 			cost = IC.materials[/datum/material/iron]
-		else if(!(build_type in SScircuit.circuit_fabricator_recipe_list["Tools"]))
+		else if(!(build_type in SScircuit.circuit_fabricator_recipe_list["Инструменты"]))
 			return
 		*/
 

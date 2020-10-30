@@ -50,7 +50,7 @@
 /mob/living/proc/bloodpool_sink(obj/effect/decal/cleanable/B)
 	var/turf/mobloc = get_turf(loc)
 
-	visible_message("<span class='warning'>[src] sinks into the pool of blood!</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] sinks into the pool of blood!</span>")
 	playsound(get_turf(src), 'sound/magic/enter_blood.ogg', 50, TRUE, -1)
 	// Extinguish, unbuckle, stop being pulled, set our location into the
 	// dummy object
@@ -175,7 +175,7 @@
 	forceMove(B.loc)
 	client.eye = src
 	SEND_SIGNAL(src, COMSIG_LIVING_AFTERPHASEIN, B)
-	visible_message("<span class='boldwarning'>[src] rises out of the pool of blood!</span>")
+	visible_message("<span class='boldwarning'>[capitalize(src.name)] rises out of the pool of blood!</span>")
 	exit_blood_effect(B)
 	if(iscarbon(src))
 		var/mob/living/carbon/C = src

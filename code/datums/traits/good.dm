@@ -124,7 +124,7 @@
 	value = 1
 	mob_trait = TRAIT_JOLLY
 	mood_quirk = TRUE
-	medical_record_text = "Пациент демонстрирует постоянную эвтимию, нерегулярная для окружающей среды. Если быть честным, это даже немного слишком."
+	medical_record_text = "Пациент демонстрирует постоянную эвтимию, нерегулярную для окружающей среды. Если быть честным, это даже немного слишком."
 
 /datum/quirk/jolly/on_process(delta_time)
 	if(DT_PROB(0.05, delta_time))

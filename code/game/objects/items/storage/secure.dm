@@ -42,7 +42,7 @@
 				to_chat(user, "<span class='notice'>You [open ? "open" : "close"] the service panel.</span>")
 			return
 		if (W.tool_behaviour == TOOL_WIRECUTTER)
-			to_chat(user, "<span class='danger'>[src] is protected from this sort of tampering, yet it appears the internal memory wires can still be <b>pulsed</b>.</span>")
+			to_chat(user, "<span class='danger'>[capitalize(src.name)] is protected from this sort of tampering, yet it appears the internal memory wires can still be <b>pulsed</b>.</span>")
 		if ((W.tool_behaviour == TOOL_MULTITOOL) && (!l_hacking))
 			if(open == TRUE)
 				to_chat(user, "<span class='danger'>Now attempting to reset internal memory, please hold.</span>")

@@ -133,7 +133,7 @@
 			triggered(finder, (finder.active_hand_index % 2 == 0) ? BODY_ZONE_PRECISE_R_HAND : BODY_ZONE_PRECISE_L_HAND)
 			return TRUE	//end the search!
 		else
-			visible_message("<span class='warning'>[src] snaps shut!</span>")
+			visible_message("<span class='warning'>[capitalize(src.name)] snaps shut!</span>")
 			triggered(loc)
 			return FALSE
 	return FALSE
@@ -142,7 +142,7 @@
 /obj/item/assembly/mousetrap/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(!armed)
 		return ..()
-	visible_message("<span class='warning'>[src] is triggered by [AM].</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] is triggered by [AM].</span>")
 	triggered(null)
 
 

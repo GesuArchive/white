@@ -85,4 +85,4 @@
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 50000)
 	build_path = /obj/item/conv_printer
-	category = list("hacked", "Construction")
+	category = list("hacked", "Конструкции")

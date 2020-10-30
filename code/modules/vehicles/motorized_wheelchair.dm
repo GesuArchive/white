@@ -38,25 +38,27 @@
 
 
 /obj/vehicle/ridden/wheelchair/motorized/driver_move(mob/living/user, direction)
-	if(istype(user))
-		if(!canmove)
-			return FALSE
-		if(!power_cell)
-			to_chat(user, "<span class='warning'>There seems to be no cell installed in [src].</span>")
-			canmove = FALSE
-			addtimer(VARSET_CALLBACK(src, canmove, TRUE), 20)
-			return FALSE
-		if(power_cell.charge < power_usage / max(power_efficiency, 1))
-			to_chat(user, "<span class='warning'>The display on [src] blinks 'Out of Power'.</span>")
-			canmove = FALSE
-			addtimer(VARSET_CALLBACK(src, canmove, TRUE), 20)
-			return FALSE
-		if(user.usable_hands < arms_required)
-			to_chat(user, "<span class='warning'>You don't have enough arms to operate the motor controller!</span>")
-			canmove = FALSE
-			addtimer(VARSET_CALLBACK(src, canmove, TRUE), 20)
-			return FALSE
-		power_cell.use(power_usage / max(power_efficiency, 1) * 0.05)
+	if(!istype(user))
+		return ..()
+	if(!canmove)
+		return FALSE
+	if(!power_cell)
+		to_chat(user, "<span class='warning'>There seems to be no cell installed in [src].</span>")
+		canmove = FALSE
+		addtimer(VARSET_CALLBACK(src, canmove, TRUE), 2 SECONDS)
+		return FALSE
+	if(power_cell.charge < power_usage / max(power_efficiency, 1))
+		to_chat(user, "<span class='warning'>The display on [src] blinks 'Out of Power'.</span>")
+		canmove = FALSE
+		addtimer(VARSET_CALLBACK(src, canmove, TRUE), 2 SECONDS)
+		return FALSE
+	if(user.usable_hands < arms_required)
+		to_chat(user, "<span class='warning'>You don't have enough arms to operate the motor controller!</span>")
+		canmove = FALSE
+		addtimer(VARSET_CALLBACK(src, canmove, TRUE), 2 SECONDS)
+		return FALSE
+	power_cell.use(power_usage / max(power_efficiency, 1) * 0.05)
+
 	return ..()
 
 /obj/vehicle/ridden/wheelchair/motorized/set_move_delay(mob/living/user)
@@ -142,7 +144,7 @@
 	// Here is the shitty emag functionality.
 	if(obj_flags & EMAGGED && (istype(A, /turf/closed) || isliving(A)))
 		explosion(src, -1, 1, 3, 2, 0)
-		visible_message("<span class='boldwarning'>[src] explodes!!</span>")
+		visible_message("<span class='boldwarning'>[capitalize(src.name)] explodes!!</span>")
 		return
 	// If the speed is higher than delay_multiplier throw the person on the wheelchair away
 	if(A.density && speed > delay_multiplier && has_buckled_mobs())
@@ -158,9 +160,9 @@
 			D.throw_at(throw_target, 2, 3)
 			D.Knockdown(80)
 			D.adjustStaminaLoss(35)
-			visible_message("<span class='danger'>[src] crashes into [A], sending [H] and [D] flying!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] crashes into [A], sending [H] and [D] flying!</span>")
 		else
-			visible_message("<span class='danger'>[src] crashes into [A], sending [H] flying!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] crashes into [A], sending [H] flying!</span>")
 		playsound(src, 'sound/effects/bang.ogg', 50, 1)
 
 /obj/vehicle/ridden/wheelchair/motorized/emag_act(mob/user)

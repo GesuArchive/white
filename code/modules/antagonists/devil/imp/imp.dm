@@ -11,8 +11,8 @@
 	response_help_simple = "think better of touching"
 	response_disarm_continuous = "flails at"
 	response_disarm_simple = "flail at"
-	response_harm_continuous = "punches"
-	response_harm_simple = "punch"
+	response_harm_continuous = "бьёт"
+	response_harm_simple = "бьёт"
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "imp"
 	icon_living = "imp"

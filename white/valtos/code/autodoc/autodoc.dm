@@ -389,12 +389,12 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 							/obj/item/stack/sheet/glass = 15)
 
 /datum/design/board/autodoc
-	name = "Machine Design (Авто-Док МК IX)"
+	name = "Оборудование (Авто-Док МК IX)"
 	desc = "Allows for the construction of circuit boards used to build a Авто-Док МК IX."
 	id = "autodoc"
 	build_path = /obj/item/circuitboard/machine/autodoc
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
-	category = list ("Medical Machinery")
+	category = list ("Медицинское оборудование")
 
 /datum/techweb_node/autodoc
 	id = "autodoc"

@@ -75,10 +75,10 @@
 	else if(stage == GRENADE_WIRED && is_type_in_list(I, allowed_containers))
 		. = TRUE //no afterattack
 		if(is_type_in_list(I, banned_containers))
-			to_chat(user, "<span class='warning'>[src] is too small to fit [I]!</span>") // this one hits home huh anon?
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is too small to fit [I]!</span>") // this one hits home huh anon?
 			return
 		if(beakers.len == 2)
-			to_chat(user, "<span class='warning'>[src] can not hold more containers!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] can not hold more containers!</span>")
 			return
 		else
 			if(I.reagents.total_volume)

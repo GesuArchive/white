@@ -144,7 +144,7 @@
 /obj/machinery/medical_kiosk/ui_interact(mob/user, datum/tgui/ui)
 	var/patient_distance = 0
 	if(!ishuman(user))
-		to_chat(user, "<span class='warning'>[src] is unable to interface with non-humanoids!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is unable to interface with non-humanoids!</span>")
 		if (ui)
 			ui.close()
 		return
@@ -211,7 +211,7 @@
 	var/clone_loss = altPatient.getCloneLoss()
 	var/brain_loss = altPatient.getOrganLoss(ORGAN_SLOT_BRAIN)
 	var/brain_status = "Brain patterns normal."
-	if(LAZYLEN(user.get_traumas()))
+	if(LAZYLEN(altPatient.get_traumas()))
 		var/list/trauma_text = list()
 		for(var/datum/brain_trauma/B in altPatient.get_traumas())
 			var/trauma_desc = ""

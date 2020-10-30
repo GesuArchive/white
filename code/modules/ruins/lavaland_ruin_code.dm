@@ -44,7 +44,7 @@
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 40000)
 	build_path = /obj/item/golem_shell
-	category = list("Imported")
+	category = list("Импорт")
 
 /obj/item/golem_shell
 	name = "incomplete free golem shell"

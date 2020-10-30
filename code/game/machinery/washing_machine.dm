@@ -157,7 +157,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 		to_chat(user, "<span class='warning'>Close the door first!</span>")
 		return
 	if(bloody_mess)
-		to_chat(user, "<span class='warning'>[src] must be cleaned up first!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] must be cleaned up first!</span>")
 		return
 	busy = TRUE
 	update_icon()
@@ -305,7 +305,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 			return TRUE
 
 		if(bloody_mess)
-			to_chat(user, "<span class='warning'>[src] must be cleaned up first!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] must be cleaned up first!</span>")
 			return TRUE
 
 		if(contents.len >= max_wash_capacity)
@@ -327,7 +327,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 	if(.)
 		return
 	if(busy)
-		to_chat(user, "<span class='warning'>[src] is busy!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is busy!</span>")
 		return
 
 	if(user.pulling && user.a_intent == INTENT_GRAB && isliving(user.pulling))

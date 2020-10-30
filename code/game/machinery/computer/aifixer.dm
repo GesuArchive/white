@@ -105,7 +105,7 @@
 	//Downloading AI from card to terminal.
 	if(interaction == AI_TRANS_FROM_CARD)
 		if(machine_stat & (NOPOWER|BROKEN))
-			to_chat(user, "<span class='alert'>[src] is offline and cannot take an AI at this time.</span>")
+			to_chat(user, "<span class='alert'>[capitalize(src.name)] is offline and cannot take an AI at this time.</span>")
 			return
 		AI.forceMove(src)
 		occupier = AI

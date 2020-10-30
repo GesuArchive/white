@@ -1,6 +1,6 @@
 /obj/machinery/rnd/production
-	name = "technology fabricator"
-	desc = "Makes researched and prototype items with materials and energy."
+	name = "фабрикатор технологий"
+	desc = "Изготавливает исследуемые и прототипы предметов с использованием материалов и энергии."
 	layer = BELOW_OBJ_LAYER
 	var/efficiency_coeff = 1				//Materials needed / coeff = actual.
 	var/list/categories = list()
@@ -10,7 +10,7 @@
 	var/allowed_buildtypes = NONE
 	var/list/datum/design/cached_designs
 	var/list/datum/design/matching_designs
-	var/department_tag = "Unidentified"			//used for material distribution among other things.
+	var/department_tag = "Неизвестный"			//used for material distribution among other things.
 
 	var/screen = RESEARCH_FABRICATOR_SCREEN_MAIN
 	var/selected_category
@@ -42,7 +42,7 @@
 
 /obj/machinery/rnd/production/ui_interact(mob/user)
 	user.set_machine(src)
-	var/datum/browser/popup = new(user, "rndconsole", name, 460, 550)
+	var/datum/browser/popup = new(user, "rndconsole", name, 490, 590)
 	popup.set_content(generate_ui())
 	popup.open()
 
@@ -111,16 +111,16 @@
 	if(!istype(D))
 		return FALSE
 	if(!(isnull(allowed_department_flags) || (D.departmental_flags & allowed_department_flags)))
-		say("Warning: Printing failed: This fabricator does not have the necessary keys to decrypt design schematics. Please update the research data with the on-screen button and contact Nanotrasen Support!")
+		say("Внимание: Ошибка печати: У этого производителя нет необходимых ключей для расшифровки проектных схем. Обновите данные исследования с помощью экранной кнопки и обратитесь в службу поддержки Нанотрейзен!")
 		return FALSE
 	if(D.build_type && !(D.build_type & allowed_buildtypes))
-		say("This machine does not have the necessary manipulation systems for this design. Please contact Nanotrasen Support!")
+		say("Эта машина не имеет необходимых систем манипулирования для этой конструкции. Обратитесь в службу поддержки Нанотрейзен!")
 		return FALSE
 	if(!materials.mat_container)
-		say("No connection to material storage, please contact the quartermaster.")
+		say("Нет связи со складом материалов, обратитесь к завхозу.")
 		return FALSE
 	if(materials.on_hold())
-		say("Mineral access is on hold, please contact the quartermaster.")
+		say("Доступ к минералам приостановлен, обратитесь к завхозу.")
 		return FALSE
 	var/power = 1000
 	amount = clamp(amount, 1, 50)
@@ -133,11 +133,11 @@
 	for(var/MAT in D.materials)
 		efficient_mats[MAT] = D.materials[MAT]/coeff
 	if(!materials.mat_container.has_materials(efficient_mats, amount))
-		say("Not enough materials to complete prototype[amount > 1? "s" : ""].")
+		say("Недостаточно материалов для завершения прототип[amount > 1? "ов" : "а"].")
 		return FALSE
 	for(var/R in D.reagents_list)
 		if(!reagents.has_reagent(R, D.reagents_list[R]*amount/coeff))
-			say("Not enough reagents to complete prototype[amount > 1? "s" : ""].")
+			say("Недостаточно химикатов для завершения прототипа[amount > 1? "ов" : "а"].")
 			return FALSE
 	materials.mat_container.use_materials(efficient_mats, amount)
 	materials.silo_log(src, "built", -amount, "[D.name]", efficient_mats)
@@ -182,15 +182,15 @@
 
 /obj/machinery/rnd/production/proc/ui_header()
 	var/list/l = list()
-	l += "<div class='statusDisplay'><b>[stored_research.organization] [department_tag] Department Lathe</b>"
-	l += "Security protocols: [(obj_flags & EMAGGED)? "<font color='red'>Disabled</font>" : "<font color='green'>Enabled</font>"]"
+	l += "<div class='statusDisplay'><b>[department_tag] отдел [stored_research.organization] - Протолат</b>"
+	l += "Протоколы безопасности: [(obj_flags & EMAGGED)? "<font color='red'>Отключены</font>" : "<font color='green'>Включены</font>"]"
 	if (materials.mat_container)
-		l += "<A href='?src=[REF(src)];switch_screen=[RESEARCH_FABRICATOR_SCREEN_MATERIALS]'><B>Material Amount:</B> [materials.format_amount()]</A>"
+		l += "<A href='?src=[REF(src)];switch_screen=[RESEARCH_FABRICATOR_SCREEN_MATERIALS]'><B>Материалы:</B> [materials.format_amount()]</A>"
 	else
-		l += "<font color='red'>No material storage connected, please contact the quartermaster.</font>"
-	l += "<A href='?src=[REF(src)];switch_screen=[RESEARCH_FABRICATOR_SCREEN_CHEMICALS]'><B>Chemical volume:</B> [reagents.total_volume] / [reagents.maximum_volume]</A>"
-	l += "<a href='?src=[REF(src)];sync_research=1'>Synchronize Research</a>"
-	l += "<a href='?src=[REF(src)];switch_screen=[RESEARCH_FABRICATOR_SCREEN_MAIN]'>Main Screen</a></div>[RDSCREEN_NOBREAK]"
+		l += "<font color='red'>Склад материалов не подключен, обратитесь к завхозу.</font>"
+	l += "<A href='?src=[REF(src)];switch_screen=[RESEARCH_FABRICATOR_SCREEN_CHEMICALS]'><B>Химикаты:</B> [reagents.total_volume] / [reagents.maximum_volume]</A>"
+	l += "<a href='?src=[REF(src)];sync_research=1'>Синхронизировать исследования</a>"
+	l += "<a href='?src=[REF(src)];switch_screen=[RESEARCH_FABRICATOR_SCREEN_MAIN]'>Главное меню</a></div>[RDSCREEN_NOBREAK]"
 	return l
 
 /obj/machinery/rnd/production/proc/ui_screen_materials()
@@ -198,33 +198,33 @@
 		screen = RESEARCH_FABRICATOR_SCREEN_MAIN
 		return ui_screen_main()
 	var/list/l = list()
-	l += "<div class='statusDisplay'><h3>Material Storage:</h3>"
+	l += "<div class='statusDisplay'><h3>Материалы:</h3>"
 	for(var/mat_id in materials.mat_container.materials)
 		var/datum/material/M = mat_id
 		var/amount = materials.mat_container.materials[mat_id]
 		var/ref = REF(M)
-		l += "* [amount] of [M.name]: "
-		if(amount >= MINERAL_MATERIAL_AMOUNT) l += "<A href='?src=[REF(src)];ejectsheet=[ref];eject_amt=1'>Eject</A> [RDSCREEN_NOBREAK]"
+		l += "* [amount] единиц [M.name]: "
+		if(amount >= MINERAL_MATERIAL_AMOUNT) l += "<A href='?src=[REF(src)];ejectsheet=[ref];eject_amt=1'>Изъять</A> [RDSCREEN_NOBREAK]"
 		if(amount >= MINERAL_MATERIAL_AMOUNT*5) l += "<A href='?src=[REF(src)];ejectsheet=[ref];eject_amt=5'>5x</A> [RDSCREEN_NOBREAK]"
-		if(amount >= MINERAL_MATERIAL_AMOUNT) l += "<A href='?src=[REF(src)];ejectsheet=[ref];eject_amt=50'>All</A>[RDSCREEN_NOBREAK]"
+		if(amount >= MINERAL_MATERIAL_AMOUNT) l += "<A href='?src=[REF(src)];ejectsheet=[ref];eject_amt=50'>Всё</A>[RDSCREEN_NOBREAK]"
 		l += ""
 	l += "</div>[RDSCREEN_NOBREAK]"
 	return l
 
 /obj/machinery/rnd/production/proc/ui_screen_chemicals()
 	var/list/l = list()
-	l += "<div class='statusDisplay'><A href='?src=[REF(src)];disposeall=1'>Disposal All Chemicals in Storage</A>"
-	l += "<h3>Chemical Storage:</h3>"
+	l += "<div class='statusDisplay'><A href='?src=[REF(src)];disposeall=1'>Выветрить все химикаты</A>"
+	l += "<h3>Хранилище химикатов:</h3>"
 	for(var/datum/reagent/R in reagents.reagent_list)
 		l += "[R.name]: [R.volume]"
-		l += "<A href='?src=[REF(src)];dispose=[R.type]'>Purge</A>"
+		l += "<A href='?src=[REF(src)];dispose=[R.type]'>Выветрить</A>"
 	l += "</div>"
 	return l
 
 /obj/machinery/rnd/production/proc/ui_screen_search()
 	var/list/l = list()
 	var/coeff = efficiency_coeff
-	l += "<h2>Search Results:</h2>"
+	l += "<h2>Результаты поиска:</h2>"
 	l += "<form name='search' action='?src=[REF(src)]'>\
 	<input type='hidden' name='src' value='[REF(src)]'>\
 	<input type='hidden' name='search' value='to_search'>\
@@ -278,7 +278,7 @@
 		screen = text2num(ls["switch_screen"])
 	if(ls["build"]) //Causes the Protolathe to build something.
 		if(busy)
-			say("Warning: Fabricators busy!")
+			say("Внимание: Фабрикатор занят!")
 		else
 			user_try_print_id(ls["build"], ls["amount"])
 	if(ls["search"]) //Search for designs with name matching pattern
@@ -286,7 +286,7 @@
 		screen = RESEARCH_FABRICATOR_SCREEN_SEARCH
 	if(ls["sync_research"])
 		update_designs()
-		say("Synchronizing research with host technology database.")
+		say("Синхронизация исследований с базой данных хост-технологий.")
 	if(ls["category"])
 		selected_category = ls["category"]
 	if(ls["dispose"])  //Causes the protolathe to dispose of a single reagent (all of it)
@@ -301,10 +301,10 @@
 /obj/machinery/rnd/production/proc/eject_sheets(eject_sheet, eject_amt)
 	var/datum/component/material_container/mat_container = materials.mat_container
 	if (!mat_container)
-		say("No access to material storage, please contact the quartermaster.")
+		say("Нет доступа к складу материалов, обратитесь к завхозу.")
 		return 0
 	if (materials.on_hold())
-		say("Mineral access is on hold, please contact the quartermaster.")
+		say("Доступ к минералам приостановлен, обратитесь к завхозу.")
 		return 0
 	var/count = mat_container.retrieve_sheets(text2num(eject_amt), eject_sheet, drop_location())
 	var/list/matlist = list()
@@ -330,7 +330,7 @@
 	if(!selected_category)
 		return ui_screen_main()
 	var/list/l = list()
-	l += "<div class='statusDisplay'><h3>Browsing [selected_category]:</h3>"
+	l += "<div class='statusDisplay'><h3>Категория: [selected_category]:</h3>"
 	var/coeff = efficiency_coeff
 	for(var/v in stored_research.researched_designs)
 		var/datum/design/D = SSresearch.techweb_design_by_id(v)

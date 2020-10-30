@@ -242,7 +242,7 @@
 	name = "День пчёл"
 	begin_day = 20
 	begin_month = MAY
-	drone_hat = /obj/item/clothing/mask/rat/bee
+	drone_hat = /obj/item/clothing/mask/animal/rat/bee
 
 /datum/holiday/bee/getStationPrefix()
 	return pick("Пчёлочный","Медовый","Роевой","Бжжжжжж","Медовуховый","Жужжащий")
@@ -512,7 +512,7 @@
 	name = "Годовщина Судного Дня Майя"
 	begin_day = 21
 	begin_month = DECEMBER
-	drone_hat = /obj/item/clothing/mask/rat/tribal
+	drone_hat = /obj/item/clothing/mask/animal/rat/tribal
 
 /datum/holiday/xmas
 	name = CHRISTMAS

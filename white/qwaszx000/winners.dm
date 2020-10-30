@@ -63,7 +63,7 @@
 				to_chat(user, "<span class='notice'>You repair [src].</span>")
 				return
 		else
-			to_chat(user, "<span class='warning'>[src] is already in good condition!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is already in good condition!</span>")
 			return
 	else if(W.GetID() && !broken && openable)
 		to_chat(user, "<span class='warning'>It has fingerprint lock! Not ID!</span>")

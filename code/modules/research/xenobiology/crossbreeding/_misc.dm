@@ -114,7 +114,7 @@ Slimecrossing Items
 		return
 	to_chat(user, "<span class='notice'>You squeeze [src].</span>")
 	var/obj/B = new /obj/structure/barricade/slime(get_turf(loc))
-	B.visible_message("<span class='warning'>[src] suddenly grows into a large, gelatinous barrier!</span>")
+	B.visible_message("<span class='warning'>[capitalize(src.name)] suddenly grows into a large, gelatinous barrier!</span>")
 	qdel(src)
 
 //Slime barricade - Chilling Grey

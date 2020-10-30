@@ -108,7 +108,7 @@
 			if(!head_slot || !(istype(head_slot,/obj/item/clothing/head/helmet) || istype(head_slot,/obj/item/clothing/head/hardhat)))
 				H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5)
 				H.updatehealth()
-			visible_message("<span class='danger'>[src] crashes into [A], sending [H] flying!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] crashes into [A], sending [H] flying!</span>")
 			H.Paralyze(80)
 		else
 			var/backdir = turn(dir, 180)

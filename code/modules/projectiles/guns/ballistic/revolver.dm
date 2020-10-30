@@ -116,7 +116,7 @@
 	if(!I.use_tool(src, user, 3 SECONDS))
 		return TRUE
 	if(magazine.ammo_count()) //If it has any ammo inside....
-		user.visible_message("<span class='danger'>[src]'s hammer drops while you're handling it!</span>") //...you learn an important lesson about firearms safety.
+		user.visible_message("<span class='danger'>[capitalize(src.name)]'s hammer drops while you're handling it!</span>") //...you learn an important lesson about firearms safety.
 		var/drop_the_gun_it_actually_fired = chambered.BB ? TRUE : FALSE //Is a live round chambered?
 		skip_357_missfire_check = TRUE //We set this true, then back to false after process_fire, to reduce redundacy of a round "misfiring" when it's already misfiring from wrench_act
 		process_fire(user, user, FALSE)

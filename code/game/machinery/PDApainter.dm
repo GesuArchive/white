@@ -71,7 +71,7 @@
 				return
 			user.visible_message("<span class='notice'>[user] is repairing [src].</span>", \
 							"<span class='notice'>You begin repairing [src]...</span>", \
-							"<span class='hear'>You hear welding.</span>")
+							"<span class='hear'>Слышу сварку.</span>")
 			if(O.use_tool(src, user, 40, volume=50))
 				if(!(machine_stat & BROKEN))
 					return
@@ -126,7 +126,7 @@
 			ejectpda()
 
 	else
-		to_chat(user, "<span class='warning'>[src] is empty!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is empty!</span>")
 
 
 /obj/machinery/pdapainter/verb/ejectpda()
@@ -142,4 +142,4 @@
 		storedpda = null
 		update_icon()
 	else
-		to_chat(usr, "<span class='warning'>[src] is empty!</span>")
+		to_chat(usr, "<span class='warning'>[capitalize(src.name)] is empty!</span>")

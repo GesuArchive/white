@@ -205,17 +205,16 @@
 		to_chat(user, "<span class='warning'>ID-номер уже привязан к этой карте.</span>")
 		return
 
-	for(var/A in SSeconomy.bank_accounts)
-		var/datum/bank_account/B = A
-		if(B.account_id == new_bank_id)
-			if (old_account)
-				old_account.bank_cards -= src
+	var/datum/bank_account/B = SSeconomy.bank_accounts_by_id["[new_bank_id]"]
+	if(B)
+		if (old_account)
+			old_account.bank_cards -= src
 
-			B.bank_cards += src
-			registered_account = B
-			to_chat(user, "<span class='notice'>ID-номер теперь привязан к этой карте.</span>")
+		B.bank_cards += src
+		registered_account = B
+		to_chat(user, "<span class='notice'>ID-номер теперь привязан к этой карте.</span>")
 
-			return TRUE
+		return TRUE
 
 	to_chat(user, "<span class='warning'>ID-номер аккаунта неверный.</span>")
 	return
@@ -427,12 +426,11 @@ update_label()
 				if(ishuman(user))
 					var/mob/living/carbon/human/accountowner = user
 
-					for(var/bank_account in SSeconomy.bank_accounts)
-						var/datum/bank_account/account = bank_account
-						if(account.account_id == accountowner.account_id)
-							account.bank_cards += src
-							registered_account = account
-							to_chat(user, "<span class='notice'>Номер банковского аккаунта автоматически переназначен.</span>")
+					var/datum/bank_account/account = SSeconomy.bank_accounts_by_id["[accountowner.account_id]"]
+					if(account)
+						account.bank_cards += src
+						registered_account = account
+						to_chat(user, "<span class='notice'>Номер банковского аккаунта автоматически переназначен.</span>")
 			return
 		else if (popup_input == "СБРОСИТЬ" && forged)
 			registered_name = initial(registered_name)
@@ -511,11 +509,11 @@ update_label()
 /obj/item/card/id/captains_spare/trap/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_WIRECUTTER && first_try)
 		to_chat(user, "<span class='notice'>Начинаю обезвреживать карту. (это займёт примерно одну минуту и нужно не шевелиться)</span>")
-		if(do_after(user, 1 MINUTES, target = src))
+		if(do_after(user, 1 MINUTES, target = src) && first_try)
 			to_chat(user, "<span class='notice'>Карта разминирована.</span>")
 			first_try = FALSE
 			anchored = FALSE
-			priority_announce("[user.real_name] пытается украсть капитанскую карту. Остановите [user.ru_ego()]!", title = "Кража", sound = 'sound/machines/alarm.ogg')
+			priority_announce("[user.real_name] пытается украсть капитанскую карту. Остановите [user.ru_ego()]!", title = "Кража", sound = 'white/valtos/sounds/che.ogg')
 	else
 		return ..()
 
@@ -526,7 +524,7 @@ update_label()
 	if(iscarbon(user) && first_try && !HAS_TRAIT(user.mind, TRAIT_DISK_VERIFIER))
 		var/mob/living/carbon/C = user
 		to_chat(C, "<span class='warning'>Пытаюсь подобрать карту... Что может пойти не тка~</span>")
-		if(do_after(C, 10, target = src))
+		if(do_after(C, 10, target = src) && first_try)
 			to_chat(C, "<span class='userdanger'>КАРТА БЫЛА ЗАМИНИРОВАНА! СУКА!</span>")
 			electrocute_mob(user, get_area(src))
 			playsound(loc, 'sound/weapons/slice.ogg', 25, TRUE, -1)

@@ -56,7 +56,7 @@ Arrow&bow
 			recharge_newshot()
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>[src] cannot hold more syringes!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] cannot hold more syringes!</span>")
 	return FALSE
 
 /datum/crafting_recipe/bow_h

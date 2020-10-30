@@ -1,4 +1,4 @@
-import { toTitleCase } from 'common/string';
+import { capitalize } from 'common/string';
 import { Fragment } from 'inferno';
 import { useBackend, useLocalState } from '../backend';
 import { BlockQuote, Box, Button, NumberInput, Section, Table } from '../components';
@@ -50,7 +50,7 @@ export const OreRedemptionMachine = (props, context) => {
                 {diskDesigns.map(design => (
                   <Table.Row key={design.index}>
                     <Table.Cell>
-                      File {design.index}: {design.name}
+                      Файл {design.index}: {design.name}
                     </Table.Cell>
                     <Table.Cell collapsing>
                       <Button
@@ -115,7 +115,7 @@ const MaterialRow = (props, context) => {
   return (
     <Table.Row>
       <Table.Cell>
-        {toTitleCase(material.name).replace('Alloy', '')}
+        {capitalize(material.name)}
       </Table.Cell>
       <Table.Cell collapsing textAlign="right">
         <Box mr={2} color="label" inline>

@@ -36,7 +36,7 @@
 				update_icon()
 				to_chat(user, "<span class='notice'>You repair [src].</span>")
 		else
-			to_chat(user, "<span class='warning'>[src] is already in good condition!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is already in good condition!</span>")
 		return
 	else if(istype(I, /obj/item/stack/sheet/glass) && broken)
 		var/obj/item/stack/sheet/glass/G = I
@@ -131,14 +131,15 @@
 	toggle_lock(user)
 	return
 
+
 /obj/structure/fireaxecabinet/attack_tk(mob/user)
+	. = COMPONENT_CANCEL_ATTACK_CHAIN
 	if(locked)
 		to_chat(user, "<span class='warning'>The [name] won't budge!</span>")
 		return
-	else
-		open = !open
-		update_icon()
-		return
+	open = !open
+	update_icon()
+
 
 /obj/structure/fireaxecabinet/update_overlays()
 	. = ..()

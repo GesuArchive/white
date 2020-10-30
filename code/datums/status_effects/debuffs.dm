@@ -270,7 +270,7 @@
 	if(usr != owner)
 		return
 	to_chat(owner, "<span class='notice'>Я пытаюсь снять прядь дюраткани с моей шеи.</span>")
-	if(do_after(owner, 35, null, owner))
+	if(do_after(owner, 3.5 SECONDS, owner))
 		if(isliving(owner))
 			var/mob/living/L = owner
 			to_chat(owner, "<span class='notice'>Я успешно удаляю прядь дюраткани.</span>")

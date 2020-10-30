@@ -14,7 +14,7 @@ SUBSYSTEM_DEF(economy)
 										ACCOUNT_SEC = ACCOUNT_SEC_NAME,
 										ACCOUNT_TRA = ACCOUNT_TRA_NAME)
 	var/list/generated_accounts = list()
-	var/full_ancap = TRUE // Enables extra money charges for things that normally would be free, such as sleepers/cryo/cloning.
+	var/full_ancap = FALSE // Enables extra money charges for things that normally would be free, such as sleepers/cryo/cloning.
 							//Take care when enabling, as players will NOT respond well if the economy is set up for low cash flows.
 	var/alive_humans_bounty = 100
 	var/crew_safety_bounty = 1500
@@ -46,7 +46,11 @@ SUBSYSTEM_DEF(economy)
 							"adamantine" = 750,
 							// tier 4
 							"rainbow" = 1000)
-	var/list/bank_accounts = list() //List of normal accounts (not department accounts)
+	/**
+	  * List of normal (no department ones) accounts' identifiers with associated datum accounts, for big O performance.
+	  * A list of sole account datums can be obtained with flatten_list(), another variable would be redundant rn.
+	  */
+	var/list/bank_accounts_by_id = list()
 	var/list/dep_cards = list()
 	/// A var that collects the total amount of credits owned in player accounts on station, reset and recounted on fire()
 	var/station_total = 0
@@ -61,6 +65,8 @@ SUBSYSTEM_DEF(economy)
 	/// Contains the message to send to newscasters about price inflation and earnings, updated on price_update()
 	var/earning_report
 	var/market_crashing = FALSE
+
+	var/obj/machinery/computer/price_controller/PC = null
 
 /datum/controller/subsystem/economy/Initialize(timeofday)
 	var/budget_to_hand_out = round(budget_pool / department_accounts.len)
@@ -77,14 +83,14 @@ SUBSYSTEM_DEF(economy)
 	car_payout() // Cargo's natural gain in the cash moneys.
 	station_total = 0
 	station_target_buffer += STATION_TARGET_BUFFER
-	for(var/account in bank_accounts)
-		var/datum/bank_account/bank_account = account
+	for(var/account in bank_accounts_by_id)
+		var/datum/bank_account/bank_account = bank_accounts_by_id[account]
 		bank_account.payday(1)
 		if(bank_account?.account_job)
 			temporary_total += (bank_account.account_job.paycheck * STARTING_PAYCHECKS)
 		if(!istype(bank_account, /datum/bank_account/department))
 			station_total += bank_account.account_balance
-	station_target = max(round(temporary_total / max(bank_accounts.len * 2, 1)) + station_target_buffer, 1)
+	station_target = max(round(temporary_total / max(bank_accounts_by_id.len * 2, 1)) + station_target_buffer, 1)
 	if(!market_crashing)
 		price_update()
 
@@ -185,7 +191,17 @@ SUBSYSTEM_DEF(economy)
   * The goal here is that if you want to spend money, you'll have to get it, and the most efficient method is typically from other players.
   **/
 /datum/controller/subsystem/economy/proc/inflation_value()
-	if(!bank_accounts.len)
+	if(!bank_accounts_by_id.len)
 		return 1
-	inflation_value = max(round(((station_total / bank_accounts.len) / station_target), 0.1), 1.0)
+	inflation_value = max(round(((station_total / bank_accounts_by_id.len) / station_target), 0.1), 1.0)
 	return inflation_value
+
+/**
+  * Прок для получения выплат за покуику товаров
+  **/
+/datum/controller/subsystem/economy/proc/adjust_cargo_money(amount, source, slave, product)
+	var/datum/bank_account/D = get_dep_account(ACCOUNT_CAR)
+	if(D)
+		D.adjust_money(amount)
+		if(PC)
+			PC.log_self("+[amount] кр. Источник: [source]. Покупатель: [slave]. Товар: [product].")

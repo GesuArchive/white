@@ -1,7 +1,8 @@
 ///It's gross, gets the name of it's owner, and is all kinds of fucked up
 /datum/material/meat
-	name = "meat"
-	desc = "Meat"
+	name = "мясо"
+	skloname = "мяса"
+	desc = "Ням?"
 	color = rgb(214, 67, 67)
 	categories = list(MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE)
 	sheet_type = /obj/item/stack/sheet/meat

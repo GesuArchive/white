@@ -44,7 +44,7 @@
 			to_chat(user, "<span class='notice'>You place [I] in [src].</span>")
 			update_icon()
 		else
-			to_chat(user, "<span class='warning'>[src] is full.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is full.</span>")
 		return
 
 	else if(user.a_intent != INTENT_HARM)

@@ -110,7 +110,7 @@
 		return TRUE
 
 	if(!chest) //can't remove a cell if there's no chest to remove it from.
-		to_chat(user, "<span class='warning'>[src] has no attached torso!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] has no attached torso!</span>")
 		return
 
 	var/obj/item/stock_parts/cell/temp_cell = user.is_holding_item_of_type(/obj/item/stock_parts/cell)

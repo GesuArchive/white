@@ -225,7 +225,7 @@
 		return
 	if(!chassis.has_charge(energy_drain))
 		log_message("Deactivated.", LOG_MECHA)
-		to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)]<span class='warning'>[src] deactivated - no power.</span>")
+		to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)]<span class='warning'>[capitalize(src.name)] deactivated - no power.</span>")
 		STOP_PROCESSING(SSobj, src)
 		return
 	var/mob/living/carbon/M = patient
@@ -424,7 +424,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/medical/syringe_gun/proc/load_syringe(obj/item/reagent_containers/syringe/S, mob/user)
 	if(LAZYLEN(syringes) >= max_syringes)
-		to_chat(user, "[icon2html(src, user)]<span class='warning'>[src]'s syringe chamber is full!</span>")
+		to_chat(user, "[icon2html(src, user)]<span class='warning'>[capitalize(src.name)]'s syringe chamber is full!</span>")
 		return FALSE
 	if(get_dist(src,S) >= 2)
 		to_chat(user, "[icon2html(src, user)]<span class='warning'>The syringe is too far away!</span>")

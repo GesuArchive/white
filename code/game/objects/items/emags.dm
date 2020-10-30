@@ -89,7 +89,7 @@
 
 /obj/item/card/emag/doorjack/proc/recharge(mob/user)
 	charges = min(charges+1, max_charges)
-	playsound(src,'sound/machines/twobeep.ogg',10,TRUE)
+	playsound(src,'sound/machines/twobeep.ogg',10,TRUE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0)
 	charge_timers.Remove(charge_timers[1])
 
 /obj/item/card/emag/doorjack/examine(mob/user)
@@ -104,11 +104,11 @@
 
 /obj/item/card/emag/doorjack/can_emag(atom/target, mob/user)
 	if (charges <= 0)
-		to_chat(user, "<span class='warning'>[src] is recharging!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] is recharging!</span>")
 		return FALSE
 	for (var/list/subtypelist in type_whitelist)
 		if (target.type in subtypelist)
 			return TRUE
-	to_chat(user, "<span class='warning'>[src] is unable to interface with this. It only seems to fit into airlock electronics.</span>")
+	to_chat(user, "<span class='warning'>[capitalize(src.name)] is unable to interface with this. It only seems to fit into airlock electronics.</span>")
 	return FALSE
 

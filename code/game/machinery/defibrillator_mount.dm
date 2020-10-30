@@ -121,7 +121,7 @@
 		to_chat(user, "<span class='warning'>There isn't any defibrillator to clamp in!</span>")
 		return TRUE
 	if(!clamps_locked)
-		to_chat(user, "<span class='warning'>[src]'s clamps are disengaged!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)]'s clamps are disengaged!</span>")
 		return TRUE
 	user.visible_message("<span class='notice'>[user] presses [multitool] into [src]'s ID slot...</span>", \
 	"<span class='notice'>You begin overriding the clamps on [src]...</span>")

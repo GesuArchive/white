@@ -48,7 +48,7 @@
 	base_icon_state = "icedmetal_wall"
 	desc = "Стена покрытая льдом."
 	smoothing_flags = SMOOTH_BITMASK
-	canSmoothWith = null
+	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 	hardness = 35
 	slicing_duration = 150 //welding through the ice+metal
 	bullet_sizzle = TRUE

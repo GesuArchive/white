@@ -58,7 +58,7 @@
 
 /obj/item/organ/regenerative_core/ui_action_click()
 	if(inert)
-		to_chat(owner, "<span class='notice'>[src] breaks down as it tries to activate.</span>")
+		to_chat(owner, "<span class='notice'>[capitalize(src.name)] breaks down as it tries to activate.</span>")
 	else
 		owner.revive(full_heal = TRUE, admin_revive = FALSE)
 	qdel(src)
@@ -73,11 +73,11 @@
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
 		if(inert)
-			to_chat(user, "<span class='notice'>[src] has decayed and can no longer be used to heal.</span>")
+			to_chat(user, "<span class='notice'>[capitalize(src.name)] has decayed and can no longer be used to heal.</span>")
 			return
 		else
 			if(H.stat == DEAD)
-				to_chat(user, "<span class='notice'>[src] is useless on the dead.</span>")
+				to_chat(user, "<span class='notice'>[capitalize(src.name)] is useless on the dead.</span>")
 				return
 			if(H != user)
 				H.visible_message("<span class='notice'>[user] forces [H] to apply [src]... Black tendrils entangle and reinforce [H.p_them()]!</span>")
@@ -102,11 +102,11 @@
 	. = ..()
 	if(!preserved && !inert)
 		preserved(TRUE)
-		owner.visible_message("<span class='notice'>[src] stabilizes as it's inserted.</span>")
+		owner.visible_message("<span class='notice'>[capitalize(src.name)] stabilizes as it's inserted.</span>")
 
 /obj/item/organ/regenerative_core/Remove(mob/living/carbon/M, special = 0)
 	if(!inert && !special)
-		owner.visible_message("<span class='notice'>[src] rapidly decays as it's removed.</span>")
+		owner.visible_message("<span class='notice'>[capitalize(src.name)] rapidly decays as it's removed.</span>")
 		go_inert()
 	return ..()
 

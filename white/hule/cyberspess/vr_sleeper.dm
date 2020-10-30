@@ -18,7 +18,7 @@
 	var/only_current_user_can_interact = FALSE
 
 /obj/item/circuitboard/machine/vr_sleeper
-	name = "VR Sleeper (Компьютер)"
+	name = "VR Sleeper (Консоль)"
 	icon_state = "command"
 	build_path = /obj/machinery/vr_sleeper
 
@@ -227,7 +227,7 @@
 	vr_outfit = /datum/outfit/vr/syndicate
 
 /obj/effect/vr_clean_master // Will keep VR areas that have this relatively clean.
-	icon = 'icons/mob/screen_gen.dmi'
+	icon = 'icons/hud/screen_gen.dmi'
 	icon_state = "x2"
 	color = "#00FF00"
 	invisibility = INVISIBILITY_ABSTRACT

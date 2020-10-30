@@ -716,7 +716,7 @@
 		return
 	var/mob/living/simple_animal/SM = M
 	if(SM.sentience_type != sentience_type)
-		to_chat(user, "<span class='warning'>[src] won't work on [SM].</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] won't work on [SM].</span>")
 		return
 
 	to_chat(user, "<span class='notice'>You offer [src] to [SM]...</span>")

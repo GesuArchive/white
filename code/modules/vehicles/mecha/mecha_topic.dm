@@ -323,7 +323,7 @@
 			return
 		selected = equip
 		to_chat(occupants, "[icon2html(src, occupants)]<span class='notice'>You switch to [equip].</span>")
-		visible_message("<span class='notice'>[src] raises [equip].</span>")
+		visible_message("<span class='notice'>[capitalize(src.name)] raises [equip].</span>")
 		send_byjax(usr, "exosuit.browser", "eq_list", get_equipment_list())
 		return
 

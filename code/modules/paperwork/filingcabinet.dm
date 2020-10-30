@@ -69,7 +69,7 @@
 /obj/structure/filingcabinet/ui_interact(mob/user)
 	. = ..()
 	if(contents.len <= 0)
-		to_chat(user, "<span class='notice'>[src] is empty.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] is empty.</span>")
 		return
 
 	var/dat = "<center><table>"
@@ -80,13 +80,15 @@
 	dat += "</table></center>"
 	user << browse("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>[name]</title></head><body>[dat]</body></html>", "window=filingcabinet;size=350x300")
 
+
 /obj/structure/filingcabinet/attack_tk(mob/user)
 	if(anchored)
-		attack_self_tk(user)
-	else
-		..()
+		return attack_self_tk(user)
+	return ..()
+
 
 /obj/structure/filingcabinet/attack_self_tk(mob/user)
+	. = COMPONENT_CANCEL_ATTACK_CHAIN
 	if(contents.len)
 		if(prob(40 + contents.len * 5))
 			var/obj/item/I = pick(contents)
@@ -96,6 +98,7 @@
 			to_chat(user, "<span class='notice'>You pull \a [I] out of [src] at random.</span>")
 			return
 	to_chat(user, "<span class='notice'>You find nothing in [src].</span>")
+
 
 /obj/structure/filingcabinet/Topic(href, href_list)
 	if(!usr.canUseTopic(src, BE_CLOSE, ismonkey(usr)))

@@ -3449,9 +3449,6 @@
 /turf/closed/wall,
 /area/storage/tech)
 "ib" = (
-/obj/machinery/computer/bounty{
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},

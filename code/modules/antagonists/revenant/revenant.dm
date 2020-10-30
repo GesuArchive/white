@@ -194,7 +194,7 @@
 /mob/living/simple_animal/revenant/attackby(obj/item/W, mob/living/user, params)
 	. = ..()
 	if(istype(W, /obj/item/nullrod))
-		visible_message("<span class='warning'>[src] violently flinches!</span>", \
+		visible_message("<span class='warning'>[capitalize(src.name)] violently flinches!</span>", \
 						"<span class='revendanger'>As \the [W] passes through you, you feel your essence draining away!</span>")
 		adjustBruteLoss(25) //hella effective
 		inhibited = TRUE
@@ -230,12 +230,12 @@
 	revealed = TRUE
 	invisibility = 0
 	playsound(src, 'sound/effects/screech.ogg', 100, TRUE)
-	visible_message("<span class='warning'>[src] lets out a waning screech as violet mist swirls around its dissolving body!</span>")
+	visible_message("<span class='warning'>[capitalize(src.name)] lets out a waning screech as violet mist swirls around its dissolving body!</span>")
 	icon_state = "revenant_draining"
 	for(var/i = alpha, i > 0, i -= 10)
 		stoplag()
 		alpha = i
-	visible_message("<span class='danger'>[src]'s body breaks apart into a fine pile of blue dust.</span>")
+	visible_message("<span class='danger'>[capitalize(src.name)]'s body breaks apart into a fine pile of blue dust.</span>")
 	var/reforming_essence = essence_regen_cap //retain the gained essence capacity
 	var/obj/item/ectoplasm/revenant/R = new(get_turf(src))
 	R.essence = max(reforming_essence - 15 * perfectsouls, 75) //minus any perfect souls
@@ -372,7 +372,7 @@
 		reform()
 	else
 		inert = TRUE
-		visible_message("<span class='warning'>[src] settles down and seems lifeless.</span>")
+		visible_message("<span class='warning'>[capitalize(src.name)] settles down and seems lifeless.</span>")
 
 /obj/item/ectoplasm/revenant/attack_self(mob/user)
 	if(!reforming || inert)
@@ -386,7 +386,7 @@
 	..()
 	if(inert)
 		return
-	visible_message("<span class='notice'>[src] breaks into particles upon impact, which fade away to nothingness.</span>")
+	visible_message("<span class='notice'>[capitalize(src.name)] breaks into particles upon impact, which fade away to nothingness.</span>")
 	scatter()
 
 /obj/item/ectoplasm/revenant/examine(mob/user)
@@ -415,7 +415,7 @@
 			qdel(revenant)
 			message_admins("No candidates were found for the new revenant. Oh well!")
 			inert = TRUE
-			visible_message("<span class='revenwarning'>[src] settles down and seems lifeless.</span>")
+			visible_message("<span class='revenwarning'>[capitalize(src.name)] settles down and seems lifeless.</span>")
 			return
 		var/mob/dead/observer/C = pick(candidates)
 		key_of_revenant = C.key
@@ -423,12 +423,12 @@
 			qdel(revenant)
 			message_admins("No ckey was found for the new revenant. Oh well!")
 			inert = TRUE
-			visible_message("<span class='revenwarning'>[src] settles down and seems lifeless.</span>")
+			visible_message("<span class='revenwarning'>[capitalize(src.name)] settles down and seems lifeless.</span>")
 			return
 
 	message_admins("[key_of_revenant] has been [old_key == key_of_revenant ? "re":""]made into a revenant by reforming ectoplasm.")
 	log_game("[key_of_revenant] was [old_key == key_of_revenant ? "re":""]made as a revenant by reforming ectoplasm.")
-	visible_message("<span class='revenboldnotice'>[src] suddenly rises into the air before fading away.</span>")
+	visible_message("<span class='revenboldnotice'>[capitalize(src.name)] suddenly rises into the air before fading away.</span>")
 
 	revenant.essence = essence
 	revenant.essence_regen_cap = essence

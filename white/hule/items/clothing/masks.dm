@@ -28,4 +28,4 @@
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 1000)
 	build_path = /obj/item/clothing/mask/gas/anonist
-	category = list("initial", "Misc")
+	category = list("initial", "Разное")

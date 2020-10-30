@@ -20,7 +20,7 @@ Regenerative extracts:
 		return
 	var/mob/living/H = target
 	if(H.stat == DEAD)
-		to_chat(user, "<span class='warning'>[src] will not work on the dead!</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] will not work on the dead!</span>")
 		return
 	if(H != user)
 		user.visible_message("<span class='notice'>[user] crushes [src] over [H], the milky goo quickly regenerating all of [H.p_their()] injuries!</span>",

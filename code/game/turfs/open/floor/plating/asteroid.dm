@@ -458,7 +458,7 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 
 /turf/open/floor/plating/asteroid/snow/burn_tile()
 	if(!burnt)
-		visible_message("<span class='danger'>[src] melts away!.</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] melts away!.</span>")
 		slowdown = 0
 		burnt = TRUE
 		icon_state = "snow_dug"

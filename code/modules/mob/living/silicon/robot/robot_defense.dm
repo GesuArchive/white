@@ -8,7 +8,7 @@ GLOBAL_LIST_INIT(blacklisted_borg_hats, typecacheof(list( //Hats that don't real
 	if(W.tool_behaviour == TOOL_WELDER && (user.a_intent != INTENT_HARM || user == src))
 		user.changeNext_move(CLICK_CD_MELEE)
 		if (!getBruteLoss())
-			to_chat(user, "<span class='warning'>[src] is already in good condition!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is already in good condition!</span>")
 			return
 		if (!W.tool_start_check(user, amount=0)) //The welder has 1u of fuel consumed by it's afterattack, so we don't need to worry about taking any away.
 			return
@@ -90,7 +90,7 @@ GLOBAL_LIST_INIT(blacklisted_borg_hats, typecacheof(list( //Hats that don't real
 
 	if(W.tool_behaviour == TOOL_WRENCH && opened && !cell) //Deconstruction. The flashes break from the fall, to prevent this from being a ghetto reset module.
 		if(!lockcharge)
-			to_chat(user, "<span class='warning'>[src]'s bolts spark! Maybe you should lock them down first!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s bolts spark! Maybe you should lock them down first!</span>")
 			spark_system.start()
 			return
 		to_chat(user, "<span class='notice'>You start to unfasten [src]'s securing bolts...</span>")
@@ -114,7 +114,7 @@ GLOBAL_LIST_INIT(blacklisted_borg_hats, typecacheof(list( //Hats that don't real
 			to_chat(user, "<span class='warning'>You must access the cyborg's internals!</span>")
 			return
 		if(!istype(module, /obj/item/robot_module/medical))
-			to_chat(user, "<span class='warning'>[src] does not have correct mounting points for a defibrillator!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] does not have correct mounting points for a defibrillator!</span>")
 			return
 		var/obj/item/defibrillator/D = W
 		if(D.slot_flags != ITEM_SLOT_BACK) //belt defibs need not apply
@@ -124,7 +124,7 @@ GLOBAL_LIST_INIT(blacklisted_borg_hats, typecacheof(list( //Hats that don't real
 			to_chat(user, "<span class='warning'>You cannot connect the defibrillator to the cyborg power supply with the defibrillator's cell in the way!</span>")
 			return
 		if(locate(/obj/item/borg/upgrade/defib) in src || locate(/obj/item/borg/upgrade/defib/backpack) in src)
-			to_chat(user, "<span class='warning'>[src] already has a defibrillator!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a defibrillator!</span>")
 			return
 		var/obj/item/borg/upgrade/defib/backpack/B = new /obj/item/borg/upgrade/defib/backpack(src)
 		B.action(src, user)
@@ -147,13 +147,13 @@ GLOBAL_LIST_INIT(blacklisted_borg_hats, typecacheof(list( //Hats that don't real
 			to_chat(user, "<span class='warning'>You need to install a power cell to do that!</span>")
 			return
 		if(shell) //AI shells always have the laws of the AI
-			to_chat(user, "<span class='warning'>[src] is controlled remotely! You cannot upload new laws this way!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is controlled remotely! You cannot upload new laws this way!</span>")
 			return
 		if(emagged || (connected_ai && lawupdate)) //Can't be sure which, metagamers
 			emote("buzz-[user.name]")
 			return
 		if(!mind) //A player mind is required for law procs to run antag checks.
-			to_chat(user, "<span class='warning'>[src] is entirely unresponsive!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] is entirely unresponsive!</span>")
 			return
 		MOD.install(laws, user) //Proc includes a success mesage so we don't need another one
 		return
@@ -331,7 +331,7 @@ GLOBAL_LIST_INIT(blacklisted_borg_hats, typecacheof(list( //Hats that don't real
 			to_chat(user, "<span class='notice'>You emag the cover lock.</span>")
 			locked = FALSE
 			if(shell) //A warning to Traitors who may not know that emagging AI shells does not slave them.
-				to_chat(user, "<span class='boldwarning'>[src] seems to be controlled remotely! Emagging the interface may not work as expected.</span>")
+				to_chat(user, "<span class='boldwarning'>[capitalize(src.name)] seems to be controlled remotely! Emagging the interface may not work as expected.</span>")
 		else
 			to_chat(user, "<span class='warning'>The cover is already unlocked!</span>")
 		return
@@ -352,7 +352,7 @@ GLOBAL_LIST_INIT(blacklisted_borg_hats, typecacheof(list( //Hats that don't real
 		return
 
 	if(shell) //AI shells cannot be emagged, so we try to make it look like a standard reset. Smart players may see through this, however.
-		to_chat(user, "<span class='danger'>[src] is remotely controlled! Your emag attempt has triggered a system reset instead!</span>")
+		to_chat(user, "<span class='danger'>[capitalize(src.name)] is remotely controlled! Your emag attempt has triggered a system reset instead!</span>")
 		log_game("[key_name(user)] attempted to emag an AI shell belonging to [key_name(src) ? key_name(src) : connected_ai]. The shell has been reset as a result.")
 		ResetModule()
 		return

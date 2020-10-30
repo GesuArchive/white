@@ -1,32 +1,32 @@
 /obj/machinery/rnd/production/techfab
-	name = "technology fabricator"
-	desc = "Produces researched prototypes with raw materials and energy."
+	name = "фабрикатор технологий"
+	desc = "Производит исследованные прототипы с использованием сырья и энергии."
 	icon_state = "protolathe"
 	circuit = /obj/item/circuitboard/machine/techfab
 	categories = list(
-								"Power Designs",
-								"Medical Designs",
-								"Bluespace Designs",
-								"Stock Parts",
-								"Equipment",
-								"Tool Designs",
-								"Mining Designs",
-								"Electronics",
-								"Weapons",
-								"Ammo",
-								"Firing Pins",
-								"Computer Parts",
-								"AI Modules",
-								"Computer Boards",
-								"Teleportation Machinery",
-								"Medical Machinery",
-								"Engineering Machinery",
-								"Exosuit Modules",
-								"Hydroponics Machinery",
-								"Subspace Telecomms",
-								"Research Machinery",
-								"Misc. Machinery",
-								"Computer Parts"
+								"Силовые дизайны",
+								"Медицинские дизайны",
+								"Блюспейс дизайны",
+								"Запчасти обрудования",
+								"Снаряжение",
+								"Рабочие инструменты",
+								"Шахтёрское оборудование",
+								"Электроника",
+								"Вооружение",
+								"Аммуниция",
+								"Бойки",
+								"Компьютерные запчасти",
+								"Модули ИИ",
+								"Консоли",
+								"Телепортация",
+								"Медицинское оборудование",
+								"Инженерное оборудование",
+								"Модули экзоскелетов",
+								"Оборудование гидропоники",
+								"Подпространственная связь",
+								"Исследовательское оборудование",
+								"Различное оборудование",
+								"Компьютерные запчасти"
 								)
 	console_link = FALSE
 	production_animation = "protolathe_n"

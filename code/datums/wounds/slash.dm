@@ -54,17 +54,17 @@
 	if(!limb.current_gauze)
 		return ..()
 
-	var/list/msg = list("Порезы на [ru_parse_zone(limb.name)] перемотаны")
+	var/list/msg = list("Порезы на [ru_gde_zone(limb.name)] перемотаны")
 	// how much life we have left in these bandages
 	switch(limb.current_gauze.absorption_capacity)
 		if(0 to 1.25)
-			msg += "почти разрушенным "
+			msg += " почти разрушенным "
 		if(1.25 to 2.75)
-			msg += "сильно изношенным "
+			msg += " сильно изношенным "
 		if(2.75 to 4)
-			msg += "слегка окровавленным "
+			msg += " слегка окровавленным "
 		if(4 to INFINITY)
-			msg += "чиста "
+			msg += " чистым "
 	msg += "[limb.current_gauze.name]!"
 
 	return "<B>[msg.Join()]</B>"
@@ -161,8 +161,11 @@
 /// if a felinid is licking this cut to reduce bleeding
 /datum/wound/slash/proc/lick_wounds(mob/living/carbon/human/user)
 	// transmission is one way patient -> felinid since google said cat saliva is antiseptic or whatever, and also because felinids are already risking getting beaten for this even without people suspecting they're spreading a deathvirus
-	for(var/datum/disease/D in victim.diseases)
-		user.ForceContractDisease(D)
+	for(var/i in victim.diseases)
+		var/datum/disease/iter_disease = i
+		if(iter_disease.spread_flags & (DISEASE_SPREAD_SPECIAL | DISEASE_SPREAD_NON_CONTAGIOUS))
+			continue
+		user.ForceContractDisease(iter_disease)
 
 	user.visible_message("<span class='notice'><b>[user]</b> начинает зализывать рану на [ru_gde_zone(limb.name)] <b>[victim]</b>.</span>", "<span class='notice'>Начинаю заливать рану на [ru_gde_zone(limb.name)] <b>[victim]</b>...</span>", ignored_mobs=victim)
 	to_chat(victim, "<span class='notice'><b>[user]</b> начинает зализывать рану на моей [ru_gde_zone(limb.name)].</span")

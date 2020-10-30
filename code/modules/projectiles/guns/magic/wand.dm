@@ -69,7 +69,7 @@
 	..()
 	charges--
 	if(user.anti_magic_check())
-		user.visible_message("<span class='warning'>[src] has no effect on [user]!</span>")
+		user.visible_message("<span class='warning'>[capitalize(src.name)] has no effect on [user]!</span>")
 		return
 	if(isliving(user))
 		var/mob/living/L = user
@@ -106,7 +106,7 @@
 	..()
 	charges--
 	if(user.anti_magic_check())
-		user.visible_message("<span class='warning'>[src] has no effect on [user]!</span>")
+		user.visible_message("<span class='warning'>[capitalize(src.name)] has no effect on [user]!</span>")
 		return
 	if(isliving(user))
 		var/mob/living/L = user

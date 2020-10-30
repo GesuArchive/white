@@ -295,7 +295,11 @@ GLOBAL_VAR(restart_counter)
 
 /world/proc/update_status()
 
-	var/s = ""
+	var/s = "<big>White Dream: REDUX</big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/TT2gqfz\">DISCORD</a>\n\n"
+	s += "<b>WHY:</b> AdaptiveRP, Economy, Cyberpunk, NO LAGS, Friendly Admins and more!\n\n"
+	s += "\[<big>Pycc&kcy;&icy;e &icy;&dcy;y&tcy;!</big>"
+
+	/*
 	//var/hostedby
 	var/special_string
 	var/server_name = "piss"
@@ -317,7 +321,7 @@ GLOBAL_VAR(restart_counter)
 
 	//if (!host && hostedby)
 	//	s += "<b>Host:</b> [hostedby]"
-
+	*/
 	status = s
 
 /world/proc/update_hub_visibility(new_visibility)

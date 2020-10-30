@@ -5,9 +5,9 @@
 #define RAD_LEVEL_CRITICAL 1500
 
 /obj/item/geiger_counter //DISCLAIMER: I know nothing about how real-life Geiger counters work. This will not be realistic. ~Xhuis
-	name = "\improper Geiger counter"
-	desc = "A handheld device used for detecting and measuring radiation pulses."
-	icon = 'icons/obj/device.dmi'
+	name = "счётчик гейгера"
+	desc = "Портативное устройство, используемое для регистрации и измерения импульсов излучения."
+	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "geiger_off"
 	inhand_icon_state = "multitool"
 	worn_icon_state = "geiger_counter"
@@ -60,26 +60,26 @@
 	. = ..()
 	if(!scanning)
 		return
-	. += "<hr><span class='info'>Alt-click it to clear stored radiation levels.</span>"
+	. += "<hr><span class='info'>Alt-клик для очистки показателей.</span>"
 	if(obj_flags & EMAGGED)
-		. += "\n<span class='warning'>The display seems to be incomprehensible.</span>"
+		. += "\n<span class='warning'>Дисплей выдаёт ересь.</span>"
 		return
 	. += "<hr>"
 	switch(radiation_count)
 		if(-INFINITY to RAD_LEVEL_NORMAL)
-			. += "<span class='notice'>Ambient radiation level count reports that all is well.</span>"
+			. += "<span class='notice'>Подсчет уровня радиации показывает, что все в порядке.</span>"
 		if(RAD_LEVEL_NORMAL + 1 to RAD_LEVEL_MODERATE)
-			. += "<span class='alert'>Ambient radiation levels slightly above average.</span>"
+			. += "<span class='alert'>Уровни внешней радиации немного выше среднего.</span>"
 		if(RAD_LEVEL_MODERATE + 1 to RAD_LEVEL_HIGH)
-			. += "<span class='warning'>Ambient radiation levels above average.</span>"
+			. += "<span class='warning'>Уровень радиации выше среднего.</span>"
 		if(RAD_LEVEL_HIGH + 1 to RAD_LEVEL_VERY_HIGH)
-			. += "<span class='danger'>Ambient radiation levels highly above average.</span>"
+			. += "<span class='danger'>Уровни внешней радиации значительно выше среднего.</span>"
 		if(RAD_LEVEL_VERY_HIGH + 1 to RAD_LEVEL_CRITICAL)
-			. += "<span class='suicide'>Ambient radiation levels nearing critical level.</span>"
+			. += "<span class='suicide'>Уровень радиации приближается к критическому уровню.</span>"
 		if(RAD_LEVEL_CRITICAL + 1 to INFINITY)
-			. += "<span class='boldannounce'>Ambient radiation levels above critical level!</span>"
+			. += "<span class='boldannounce'>Уровни внешней радиации выше критического уровня!</span>"
 
-	. += "\n<span class='notice'>The last radiation amount detected was [last_tick_amount]</span>"
+	. += "\n<span class='notice'>Последнее обнаруженное количество радиации было [last_tick_amount]</span>"
 
 /obj/item/geiger_counter/update_icon_state()
 	if(!scanning)
@@ -122,16 +122,16 @@
 /obj/item/geiger_counter/attack_self(mob/user)
 	scanning = !scanning
 	update_icon()
-	to_chat(user, "<span class='notice'>[icon2html(src, user)] You switch [scanning ? "on" : "off"] [src].</span>")
+	to_chat(user, "<span class='notice'>[icon2html(src, user)] Переключаю [src.name] в режим [scanning ? "вкл" : "выкл"].</span>")
 
 /obj/item/geiger_counter/afterattack(atom/target, mob/user)
 	. = ..()
 	if(user.a_intent == INTENT_HELP)
 		if(!(obj_flags & EMAGGED))
-			user.visible_message("<span class='notice'>[user] scans [target] with [src].</span>", "<span class='notice'>You scan [target]'s radiation levels with [src]...</span>")
+			user.visible_message("<span class='notice'>[user] сканирует [target] используя [src.name].</span>", "<span class='notice'>Сканирую [target]'s radiation levels with [src.name]...</span>")
 			addtimer(CALLBACK(src, .proc/scan, target, user), 20, TIMER_UNIQUE) // Let's not have spamming GetAllContents
 		else
-			user.visible_message("<span class='notice'>[user] scans [target] with [src].</span>", "<span class='danger'>You project [src]'s stored radiation into [target]!</span>")
+			user.visible_message("<span class='notice'>[user] сканирует [target] используя [src.name].</span>", "<span class='danger'>Вкачиваю радиацию запасённую [src.name] в [target]!</span>")
 			target.rad_act(radiation_count)
 			radiation_count = 0
 		return TRUE
@@ -142,24 +142,24 @@
 	if(isliving(A))
 		var/mob/living/M = A
 		if(!M.radiation)
-			to_chat(user, "<span class='notice'>[icon2html(src, user)] Radiation levels within normal boundaries.</span>")
+			to_chat(user, "<span class='notice'>[icon2html(src, user)] Уровень радиоактивного излучения в норме.</span>")
 		else
-			to_chat(user, "<span class='boldannounce'>[icon2html(src, user)] Subject is irradiated. Radiation levels: [M.radiation].</span>")
+			to_chat(user, "<span class='boldannounce'>[icon2html(src, user)] Пациент радиоактивен. Уровень излучения: [M.radiation].</span>")
 
 	if(rad_strength)
-		to_chat(user, "<span class='boldannounce'>[icon2html(src, user)] Target contains radioactive contamination. Radioactive strength: [rad_strength]</span>")
+		to_chat(user, "<span class='boldannounce'>[icon2html(src, user)] Цель содержит радиоактивное загрязнение. Сила излучения: [rad_strength]</span>")
 	else
-		to_chat(user, "<span class='notice'>[icon2html(src, user)] Target is free of radioactive contamination.</span>")
+		to_chat(user, "<span class='notice'>[icon2html(src, user)] Цель не имеет радиоактивного загрязнения.</span>")
 
 /obj/item/geiger_counter/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_SCREWDRIVER && (obj_flags & EMAGGED))
 		if(scanning)
-			to_chat(user, "<span class='warning'>Turn off [src] before you perform this action!</span>")
+			to_chat(user, "<span class='warning'>Стоит выключить [src.name] перед тем как делать это!</span>")
 			return FALSE
-		user.visible_message("<span class='notice'>[user] unscrews [src]'s maintenance panel and begins fiddling with its innards...</span>", "<span class='notice'>You begin resetting [src]...</span>")
+		user.visible_message("<span class='notice'>[user] раскручивает панели обслуживания [src.name] и начинает возиться с его внутренностями...</span>", "<span class='notice'>Начинаю сбрасывать [src.name]...</span>")
 		if(!I.use_tool(src, user, 40, volume=50))
 			return FALSE
-		user.visible_message("<span class='notice'>[user] refastens [src]'s maintenance panel!</span>", "<span class='notice'>You reset [src] to its factory settings!</span>")
+		user.visible_message("<span class='notice'>[user] закручивает панельку [src.name]!</span>", "<span class='notice'>Успешно сбрасываю [src.name] до заводских настроек!</span>")
 		obj_flags &= ~EMAGGED
 		radiation_count = 0
 		update_icon()
@@ -171,19 +171,19 @@
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return ..()
 	if(!scanning)
-		to_chat(usr, "<span class='warning'>[src] must be on to reset its radiation level!</span>")
+		to_chat(usr, "<span class='warning'>Сначала нужно включить [src.name]!</span>")
 		return
 	radiation_count = 0
-	to_chat(usr, "<span class='notice'>You flush [src]'s radiation counts, resetting it to normal.</span>")
+	to_chat(usr, "<span class='notice'>Сбрасываю уровни радиации [src.name].</span>")
 	update_icon()
 
 /obj/item/geiger_counter/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
 		return
 	if(scanning)
-		to_chat(user, "<span class='warning'>Turn off [src] before you perform this action!</span>")
+		to_chat(user, "<span class='warning'>Стоит выключить [src.name] перед этим!</span>")
 		return
-	to_chat(user, "<span class='warning'>You override [src]'s radiation storing protocols. It will now generate small doses of radiation, and stored rads are now projected into creatures you scan.</span>")
+	to_chat(user, "<span class='warning'>Перезаписываю протоколы хранения радиации [src.name]. Теперь он будет генерировать небольшие дозы радиации, а сохраненные рады теперь проецируются на существ, которых я сканирую.</span>")
 	obj_flags |= EMAGGED
 
 

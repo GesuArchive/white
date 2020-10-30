@@ -47,7 +47,7 @@
 			diode = W
 			to_chat(user, "<span class='notice'>You install a [diode.name] in [src].</span>")
 		else
-			to_chat(user, "<span class='warning'>[src] already has a diode installed!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a diode installed!</span>")
 
 	else if(W.tool_behaviour == TOOL_SCREWDRIVER)
 		if(diode)
@@ -183,7 +183,7 @@
 			recharging = TRUE
 			START_PROCESSING(SSobj, src)
 		if(energy <= 0)
-			to_chat(user, "<span class='warning'>[src]'s battery is overused, it needs time to recharge!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s battery is overused, it needs time to recharge!</span>")
 			recharge_locked = TRUE
 
 	flick_overlay_view(I, targloc, 10)

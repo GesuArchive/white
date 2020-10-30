@@ -192,7 +192,7 @@
 /obj/machinery/computer/bookmanagement/Initialize()
 	. = ..()
 	if(circuit)
-		circuit.name = "Book Inventory Management Console (Машинерия)"
+		circuit.name = "Book Inventory Management Console (Оборудование)"
 		circuit.build_path = /obj/machinery/computer/bookmanagement
 
 /obj/machinery/computer/bookmanagement/ui_interact(mob/user)
@@ -341,7 +341,7 @@
 		var/obj/item/barcodescanner/scanner = W
 		scanner.computer = src
 		to_chat(user, "<span class='notice'>[scanner]'s associated machine has been set to [src].</span>")
-		audible_message("<span class='hear'>[src] lets out a low, short blip.</span>")
+		audible_message("<span class='hear'>[capitalize(src.name)] lets out a low, short blip.</span>")
 	else
 		return ..()
 
@@ -485,7 +485,7 @@
 					B.author = author
 					B.dat = content
 					B.icon_state = "book[rand(1,8)]"
-					visible_message("<span class='notice'>[src]'s printer hums as it produces a completely bound book. How did it do that?</span>")
+					visible_message("<span class='notice'>[capitalize(src.name)]'s printer hums as it produces a completely bound book. How did it do that?</span>")
 				break
 			qdel(query_library_print)
 	if(href_list["printbible"])
@@ -593,13 +593,13 @@
 	if(!user.transferItemToLoc(P, src))
 		return
 	user.visible_message("<span class='notice'>[user] loads some paper into [src].</span>", "<span class='notice'>You load some paper into [src].</span>")
-	audible_message("<span class='hear'>[src] begins to hum as it warms up its printing drums.</span>")
+	audible_message("<span class='hear'>[capitalize(src.name)] begins to hum as it warms up its printing drums.</span>")
 	busy = TRUE
 	sleep(rand(200,400))
 	busy = FALSE
 	if(P)
 		if(!machine_stat)
-			visible_message("<span class='notice'>[src] whirs as it prints and binds a new book.</span>")
+			visible_message("<span class='notice'>[capitalize(src.name)] whirs as it prints and binds a new book.</span>")
 			var/obj/item/book/B = new(src.loc)
 			B.dat = P.info
 			B.name = "Print Job #" + "[rand(100, 999)]"

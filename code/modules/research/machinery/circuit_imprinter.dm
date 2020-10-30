@@ -1,20 +1,20 @@
 /obj/machinery/rnd/production/circuit_imprinter
-	name = "circuit imprinter"
-	desc = "Manufactures circuit boards for the construction of machines."
+	name = "схемопринтер"
+	desc = "Производит печатные платы для создания обрудования."
 	icon_state = "circuit_imprinter"
 	circuit = /obj/item/circuitboard/machine/circuit_imprinter
 	categories = list(
-								"AI Modules",
-								"Computer Boards",
-								"Teleportation Machinery",
-								"Medical Machinery",
-								"Engineering Machinery",
-								"Exosuit Modules",
-								"Hydroponics Machinery",
-								"Subspace Telecomms",
-								"Research Machinery",
-								"Misc. Machinery",
-								"Computer Parts"
+								"Модули ИИ",
+								"Консоли",
+								"Телепортация",
+								"Медицинское оборудование",
+								"Инженерное оборудование",
+								"Модули экзоскелетов",
+								"Оборудование гидропоники",
+								"Подпространственная связь",
+								"Исследовательское оборудование",
+								"Различное оборудование",
+								"Компьютерные запчасти"
 								)
 	production_animation = "circuit_imprinter_ani"
 	allowed_buildtypes = IMPRINTER

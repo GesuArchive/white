@@ -30,7 +30,7 @@
 /obj/vehicle/ridden/space/speedbike/Move(newloc,move_dir)
 	if(has_buckled_mobs())
 		new /obj/effect/temp_visual/dir_setting/speedbike_trail(loc,move_dir)
-	. = ..()
+	return ..()
 
 /obj/vehicle/ridden/space/speedbike/red
 	icon_state = "speedbike_red"
@@ -76,7 +76,7 @@
 			if(ismovable(A))
 				var/atom/movable/AM = A
 				AM.throw_at(throw_target, 4, 3)
-			visible_message("<span class='danger'>[src] crashes into [A]!</span>")
+			visible_message("<span class='danger'>[capitalize(src.name)] crashes into [A]!</span>")
 			playsound(src, 'sound/effects/bang.ogg', 50, TRUE)
 		if(ishuman(A))
 			var/mob/living/carbon/human/H = A
@@ -85,7 +85,7 @@
 			H.apply_damage(rand(20,35), BRUTE)
 			if(!crash_all)
 				H.throw_at(throw_target, 4, 3)
-				visible_message("<span class='danger'>[src] crashes into [H]!</span>")
+				visible_message("<span class='danger'>[capitalize(src.name)] crashes into [H]!</span>")
 				playsound(src, 'sound/effects/bang.ogg', 50, TRUE)
 
 /obj/vehicle/ridden/space/speedwagon/Moved()

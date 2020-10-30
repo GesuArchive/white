@@ -1,11 +1,16 @@
 /mob/living/silicon/robot/examine(mob/user)
-	. = list("<span class='info'>Это же [icon2html(src, user)] <EM>[src]</EM>!<hr>")
+	. = list("<span class='info'>Это же")
+
+	. += ..()
+
+	. += "<hr>"
+
 	if(desc)
 		. += "[desc]<hr>"
 
 	var/obj/act_module = get_active_held_item()
 	if(act_module)
-		. += "Он держит [icon2html(act_module, user)] [act_module].\n"
+		. += "Он держит [icon2html(act_module, user)] <b>[act_module]</b>.\n"
 	. += status_effect_examines()
 	if (getBruteLoss())
 		if (getBruteLoss() < maxHealth*0.5)
@@ -44,5 +49,3 @@
 		if(DEAD)
 			. += "<hr><span class='deadsay'>Выглядит полностью уничтоженым. Похоже потребуется полный перезапуск.</span>"
 	. += "</span>"
-
-	. += ..()
