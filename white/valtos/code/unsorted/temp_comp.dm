@@ -24,7 +24,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 
 /datum/component/realtemp
 	var/mob/living/carbon/human/owner
-	var/body_temp_alt = 50
+	var/body_temp_alt = 30
 	var/obj/screen/relative_temp/screen_obj
 	var/list/text_temp_sources = list()
 
@@ -35,6 +35,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 
 		var/datum/hud/hud = owner.hud_used
 		screen_obj = new
+		screen_obj.hud = src
 		hud.infodisplay += screen_obj
 		RegisterSignal(screen_obj, COMSIG_CLICK, .proc/hud_click)
 
@@ -52,7 +53,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 /datum/component/realtemp/proc/adjust_temp(amt)
 	if(body_temp_alt <= 0)
 		body_temp_alt = 0
-	if(body_temp_alt < 50)
+	if(body_temp_alt =< 50)
 		body_temp_alt += amt
 		update_temp_icon(amt)
 	else
@@ -101,7 +102,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 	var/temp_to_adjust = 0
 
 	switch(body_temp_alt)
-		if(0)
+		if(-INFINITY to 0)
 			owner.Jitter(15)
 			owner.adjustStaminaLoss(10)
 			if(prob(25))
