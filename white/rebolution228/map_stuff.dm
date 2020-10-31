@@ -14,7 +14,7 @@
 	power_equip = FALSE
 	power_light = FALSE
 	poweralm = FALSE
-	ambientsounds = list('sound/ambience/ambimine.ogg')
+	ambientsounds = list('sound/ambience/white/snowyambient.ogg')
 
 /area/awaymission/chilly/surface // костыль, потому что шторм иначе будет применяться на все зоны
 	name = "Surface"
