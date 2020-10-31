@@ -3646,6 +3646,7 @@
 #include "white\valtos\code\unsorted\sobr.dm"
 #include "white\valtos\code\unsorted\soundeffect.dm"
 #include "white\valtos\code\unsorted\teaparty.dm"
+#include "white\valtos\code\unsorted\temp_comp.dm"
 #include "white\valtos\code\unsorted\trading_outpost.dm"
 #include "white\valtos\code\unsorted\tricoder.dm"
 #include "white\valtos\code\unsorted\vietnam.dm"
