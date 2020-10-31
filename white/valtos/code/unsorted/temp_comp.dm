@@ -53,7 +53,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 /datum/component/realtemp/proc/adjust_temp(amt)
 	if(body_temp_alt <= 0)
 		body_temp_alt = 0
-	if(body_temp_alt =< 50)
+	if(body_temp_alt <= 50)
 		body_temp_alt += amt
 		update_temp_icon(amt)
 	else
