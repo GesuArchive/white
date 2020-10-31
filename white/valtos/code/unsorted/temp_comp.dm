@@ -36,7 +36,6 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 		var/datum/hud/hud = owner.hud_used
 		screen_obj = new
 		hud.infodisplay += screen_obj
-		owner.hud_used += screen_obj
 		RegisterSignal(screen_obj, COMSIG_CLICK, .proc/hud_click)
 
 /datum/component/realtemp/Destroy()
@@ -51,6 +50,8 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 	return ..()
 
 /datum/component/realtemp/proc/adjust_temp(amt)
+	if(body_temp_alt <= 0)
+		body_temp_alt = 0
 	if(body_temp_alt < 50)
 		body_temp_alt += amt
 		update_temp_icon(amt)
@@ -76,7 +77,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 			screen_obj.add_overlay("temp_ov_5")
 
 	switch(body_temp_alt)
-		if(0)
+		if(-INFINITY to 0)
 			screen_obj.icon_state = "temp_0"
 		if(1 to 10)
 			screen_obj.icon_state = "temp_1"
