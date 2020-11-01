@@ -103,13 +103,13 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 	switch(body_temp_alt)
 		if(-INFINITY to 0)
 			owner.Jitter(15)
-			owner.adjustStaminaLoss(10)
+			owner.adjustStaminaLoss(3)
 			if(prob(25))
-				owner.adjustFireLoss(5)
+				owner.adjustFireLoss(4)
 				to_chat(owner, pick("<span class='notice'>Замерзаю...</span>", "<span class='notice'>Холодно...</span>", "<span class='notice'>Мне нужно срочно согреться...</span>"))
 		if(1 to 20)
 			owner.Jitter(10)
-			owner.adjustStaminaLoss(5)
+			owner.adjustStaminaLoss(2)
 		if(21 to 40)
 			owner.Jitter(5)
 			owner.adjustStaminaLoss(1)
@@ -131,10 +131,10 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 			temp_to_adjust += 1
 
 	switch(owner.get_cold_protection(AR.env_temp_relative))
-		if(0.20 to 0.30)
+		if(0.10 to 0.20)
 			temp_sources += "Подходящая одежда уберегает меня от холода."
 			temp_to_adjust += 1
-		if(0.31 to 0.50)
+		if(0.21 to 0.50)
 			temp_sources += "Эта одежда не даст мне замёрзнуть."
 			temp_to_adjust += 2
 		if(0.51 to 0.75)
@@ -149,12 +149,12 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 			var/obj/structure/bonfire/B = heat_source
 			if(B.burning)
 				temp_sources += "Костёр согревает меня."
-				temp_to_adjust += 2
+				temp_to_adjust += 3
 		if(istype(heat_source, /obj/structure/fireplace))
 			var/obj/structure/fireplace/F = heat_source
 			if(F.lit)
 				temp_sources += "Камин согревает меня."
-				temp_to_adjust += 2
+				temp_to_adjust += 3
 
 	adjust_temp(temp_to_adjust)
 	text_temp_sources = temp_sources
