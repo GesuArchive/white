@@ -556,7 +556,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		SEND_SOUND(L, S)
 		L.client.played = TRUE
 
-		var/soundLen = 0
+		var/soundLen = 300
 		var/list/sounds_list = L.client.SoundQuery()
 
 		for(var/playing_sound in sounds_list)
@@ -566,15 +566,15 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 
 		addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), soundLen * 10)
 
-		if(prob(35))
-			var/sound/AGS = sound(pick(GENERIC_AMBIGEN))
+	if(prob(35))
+		var/sound/AGS = sound(pick(GENERIC_AMBIGEN))
 
-			AGS.repeat = FALSE
-			AGS.channel = CHANNEL_AMBIGEN
-			AGS.volume = ambience_volume * 2
-			AGS.status = SOUND_STREAM
+		AGS.repeat = FALSE
+		AGS.channel = CHANNEL_AMBIGEN
+		AGS.volume = ambience_volume * 2
+		AGS.status = SOUND_STREAM
 
-			SEND_SOUND(L, AGS)
+		SEND_SOUND(L, AGS)
 
 
 ///Divides total beauty in the room by roomsize to allow us to get an average beauty per tile.
