@@ -52,6 +52,7 @@
 
 	var/parallax_movedir = 0
 
+	var/ambience_volume = 5
 	var/list/ambientsounds = GENERIC
 	flags_1 = CAN_BE_DIRTY_1 | CULT_PERMITTED_1
 
@@ -67,7 +68,7 @@
 
 	/// Wire assignment for airlocks in this area
 	var/airlock_wires = /datum/wires/airlock
-    
+
 	///This datum, if set, allows terrain generation behavior to be ran on Initialize()
 	var/datum/map_generator/map_generator
 
@@ -543,19 +544,28 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!(L.client && (L.client.prefs.toggles & SOUND_AMBIENCE)))
 		return //General ambience check is below the ship ambience so one can play without the other
 
-	if(prob(35))
-		if(!L.client.played)
+	if(prob(10))
+		var/sound/S = sound(pick(GENERIC_AMBIGEN))
 
-			var/sound/S = sound(pick(ambientsounds))
-			S.repeat = TRUE
-			S.channel = CHANNEL_AMBIENCE
-			S.wait = FALSE
-			S.volume = 5
-			S.status = SOUND_STREAM
+		S.repeat = FALSE
+		S.channel = CHANNEL_AMBIGEN
+		S.volume = ambience_volume * 2
+		S.status = SOUND_STREAM
 
-			SEND_SOUND(L, S)
-			L.client.played = TRUE
-			addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), 300)
+		SEND_SOUND(L, S)
+
+	if(!L.client.played)
+		var/sound/S = sound(pick(ambientsounds))
+
+		S.repeat = TRUE
+		S.channel = CHANNEL_AMBIENCE
+		S.wait = FALSE
+		S.volume = ambience_volume
+		S.status = SOUND_STREAM
+
+		SEND_SOUND(L, S)
+		L.client.played = TRUE
+		addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), S.len*10)
 
 ///Divides total beauty in the room by roomsize to allow us to get an average beauty per tile.
 /area/proc/update_beauty()

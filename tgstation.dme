@@ -3643,6 +3643,7 @@
 #include "white\valtos\code\unsorted\rusprikols.dm"
 #include "white\valtos\code\unsorted\smartfoam.dm"
 #include "white\valtos\code\unsorted\sobr.dm"
+#include "white\valtos\code\unsorted\sound_panel.dm"
 #include "white\valtos\code\unsorted\soundeffect.dm"
 #include "white\valtos\code\unsorted\teaparty.dm"
 #include "white\valtos\code\unsorted\temp_comp.dm"
