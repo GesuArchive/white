@@ -14,13 +14,14 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 	. = ..()
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		H.AddComponent(/datum/component/realtemp)
+		if(!H.GetComponent(/datum/component/realtemp))
+			H.AddComponent(/datum/component/realtemp)
 
 /area/awaymission/chilly/Exited(atom/movable/M)
 	. = ..()
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		qdel(H.GetComponent(/datum/component/realtemp))
+	//if(ishuman(M))
+	//	var/mob/living/carbon/human/H = M
+	//	qdel(H.GetComponent(/datum/component/realtemp))
 
 /datum/component/realtemp
 	var/mob/living/carbon/human/owner
@@ -30,13 +31,15 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 
 /datum/component/realtemp/Initialize()
 	if(ishuman(parent))
-		START_PROCESSING(SSrealtemp, src)
 		owner = parent
 
-		var/datum/hud/hud = owner.hud_used
-		screen_obj = new
+		screen_obj = new /obj/screen/relative_temp()
+		screen_obj.screen_loc = ui_relative_temp
 		screen_obj.hud = src
-		hud.infodisplay += screen_obj
+		owner.hud_used.infodisplay += screen_obj
+
+		START_PROCESSING(SSrealtemp, src)
+
 		RegisterSignal(screen_obj, COMSIG_CLICK, .proc/hud_click)
 
 /datum/component/realtemp/Destroy()
@@ -51,13 +54,9 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 	return ..()
 
 /datum/component/realtemp/proc/adjust_temp(amt)
-	if(body_temp_alt <= 0)
-		body_temp_alt = 0
-	if(body_temp_alt <= 50)
-		body_temp_alt += amt
-		update_temp_icon(amt)
-	else
-		update_temp_icon(0)
+	body_temp_alt += amt
+	body_temp_alt = max(min(body_temp_alt, 50), 0)
+	update_temp_icon(amt)
 
 /datum/component/realtemp/proc/update_temp_icon(amt)
 	if(!(owner.client || owner.hud_used))

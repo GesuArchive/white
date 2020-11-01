@@ -9,59 +9,6 @@
 /datum/saymode/proc/handle_message(mob/living/user, message, datum/language/language)
 	return TRUE
 
-
-/datum/saymode/changeling
-	key = MODE_KEY_CHANGELING
-	mode = MODE_CHANGELING
-
-/datum/saymode/changeling/handle_message(mob/living/user, message, datum/language/language)
-	switch(user.lingcheck())
-		if(LINGHIVE_LINK)
-			var/msg = "<span class='changeling'><b>[user.mind]:</b> [message]</span>"
-			for(var/_M in GLOB.player_list)
-				var/mob/M = _M
-				if(M in GLOB.dead_mob_list)
-					var/link = FOLLOW_LINK(M, user)
-					to_chat(M, "[link] [msg]")
-				else
-					switch(M.lingcheck())
-						if (LINGHIVE_LING)
-							var/mob/living/L = M
-							if (!HAS_TRAIT(L, CHANGELING_HIVEMIND_MUTE))
-								to_chat(M, msg)
-						if(LINGHIVE_LINK)
-							to_chat(M, msg)
-						if(LINGHIVE_OUTSIDER)
-							if(prob(40))
-								to_chat(M, "<span class='changeling'>Мы можем слабо ощутить постороннего, пытающегося общаться через рой...</span>")
-		if(LINGHIVE_LING)
-			if (HAS_TRAIT(user, CHANGELING_HIVEMIND_MUTE))
-				to_chat(user, "<span class='warning'>Яд в воздухе препятствует нашей способности взаимодействовать с роем.</span>")
-				return FALSE
-			var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
-			var/msg = "<span class='changeling'><b>[changeling.changelingID]:</b> [message]</span>"
-			user.log_talk(message, LOG_SAY, tag="changeling [changeling.changelingID]")
-			for(var/_M in GLOB.player_list)
-				var/mob/M = _M
-				if(M in GLOB.dead_mob_list)
-					var/link = FOLLOW_LINK(M, user)
-					to_chat(M, "[link] [msg]")
-				else
-					switch(M.lingcheck())
-						if(LINGHIVE_LINK)
-							to_chat(M, msg)
-						if(LINGHIVE_LING)
-							var/mob/living/L = M
-							if (!HAS_TRAIT(L, CHANGELING_HIVEMIND_MUTE))
-								to_chat(M, msg)
-						if(LINGHIVE_OUTSIDER)
-							if(prob(40))
-								to_chat(M, "<span class='changeling'>Мы можем слабо ощущать другого нашего вида, пытающегося общаться через улей...</span>")
-		if(LINGHIVE_OUTSIDER)
-			to_chat(user, "<span class='changeling'>Наши чувства недостаточно развиты, чтобы общаться таким образом...</span>")
-	return FALSE
-
-
 /datum/saymode/xeno
 	key = "a"
 	mode = MODE_ALIEN

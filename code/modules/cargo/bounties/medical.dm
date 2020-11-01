@@ -2,16 +2,18 @@
 	name = "Сердце"
 	description = "Командир Джонсон находится в критическом состоянии после очередного сердечного приступа. Врачи говорят, что ему нужно новое сердце быстро. Отправьте один, быстро!"
 	reward = 3000
-	wanted_types = list(/obj/item/organ/heart, /obj/item/organ/heart/cybernetic/tier2, /obj/item/organ/heart/cybernetic/tier3)
+	wanted_types = list(/obj/item/organ/heart)
 	exclude_types = list(/obj/item/organ/heart/cybernetic)//Excluding tier 1s, no cheesing.
+	special_include_types = list(/obj/item/organ/heart/cybernetic/tier2, /obj/item/organ/heart/cybernetic/tier3)
 
 /datum/bounty/item/medical/lung
 	name = "Лёгкие"
 	description = "Недавний взрыв на ЦК оставил множество сотрудников с проколотыми легкими. Отправка запасных лёгких будет вознаграждена."
 	reward = 10000
 	required_count = 3
-	wanted_types = list(/obj/item/organ/lungs, /obj/item/organ/lungs/cybernetic/tier2, /obj/item/organ/lungs/cybernetic/tier3)
+	wanted_types = list(/obj/item/organ/lungs)
 	exclude_types = list(/obj/item/organ/lungs/cybernetic)//As above, for all printable organs.
+	special_include_types = list(/obj/item/organ/lungs/cybernetic/tier2, /obj/item/organ/lungs/cybernetic/tier3)
 
 /datum/bounty/item/medical/appendix
 	name = "Аппендицит"
@@ -24,16 +26,18 @@
 	description = "Несколько сотрудников на Станции 12 остались глухими из-за несанкционированной клоунады. Отправь им новые уши."
 	reward = 10000
 	required_count = 3
-	wanted_types = list(/obj/item/organ/ears, /obj/item/organ/ears/cybernetic/upgraded)
+	wanted_types = list(/obj/item/organ/ears)
 	exclude_types = list(/obj/item/organ/ears/cybernetic)
+	special_include_types = list(/obj/item/organ/ears/cybernetic/upgraded)
 
 /datum/bounty/item/medical/liver
 	name = "Печень"
 	description = "Несколько высокопоставленных дипломатов ЦК были госпитализированы с печеночной недостаточностью после недавней встречи с послами стран Третьего Советского Союза. Помоги нам, ладно?"
 	reward = 10000
 	required_count = 3
-	wanted_types = list(/obj/item/organ/liver, /obj/item/organ/liver/cybernetic/tier2, /obj/item/organ/liver/cybernetic/tier3)
+	wanted_types = list(/obj/item/organ/liver)
 	exclude_types = list(/obj/item/organ/liver/cybernetic)
+	special_include_types = list(/obj/item/organ/liver/cybernetic/tier2, /obj/item/organ/liver/cybernetic/tier3)
 
 /datum/bounty/item/medical/eye
 	name = "Глаза"

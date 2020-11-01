@@ -676,7 +676,7 @@
 
 /obj/item/clothing/head/helmet/space/hardsuit/nano/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/rad_insulation, RAD_NO_INSULATION, TRUE, TRUE)
+	AddComponent(/datum/element/rad_insulation, RAD_NO_INSULATION, TRUE, TRUE)
 
 /obj/item/clothing/suit/space/hardsuit/nano/equipped(mob/user, slot)
 	if(ishuman(user))

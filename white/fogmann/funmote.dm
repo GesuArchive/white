@@ -1,7 +1,7 @@
 /datum/emote/living/fart
 	key = "fart"
-	key_third_person = "farts"
-	message = "farts"
+	key_third_person = "пердит"
+	message = "пердит"
 	emote_type = EMOTE_AUDIBLE
 
 
@@ -13,8 +13,8 @@
 		if(. && ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(H.dna.species.id == "human")
-				message = "farts so hard!"
-				H.ex_act(EXPLODE_LIGHT)
+				message = "жёстко пердит!"
+				//H.ex_act(EXPLODE_LIGHT) //нет
 				if(user.key == "Brony_uraj")
 					playsound(H, 'white/fogmann/fart.ogg', 50, 1)
 					for(var/obj/structure/window/W in range(1))

@@ -47,3 +47,8 @@
 	name = "лабораторный халат учёного"
 	desc = "Костюм, который защищает от небольших разливов химикатов. Имеет фиолетовую полоску на плече."
 	icon_state = "labcoat_tox"
+
+/obj/item/clothing/suit/toggle/labcoat/roboticist
+	name = "roboticist labcoat"
+	desc = "More like an eccentric coat than a labcoat. Helps pass off bloodstains as part of the aesthetic. Comes with red shoulder pads."
+	icon_state = "labcoat_robo"
