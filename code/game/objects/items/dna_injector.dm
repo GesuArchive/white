@@ -3,6 +3,7 @@
 	desc = "Позволяет быстро заменить ДНК у пациента."
 	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "dnainjector"
+	worn_icon_state = "pen"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	throw_speed = 3

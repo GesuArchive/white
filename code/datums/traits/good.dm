@@ -179,37 +179,6 @@
 		return
 	eyes.Insert(H)
 
-/datum/quirk/photographer
-	name = "Фотограф"
-	desc = "Я знаю, как обращаться с камерой, и сокращаю задержку между каждым снимком."
-	value = 1
-	mob_trait = TRAIT_PHOTOGRAPHER
-	gain_text = "<span class='notice'>Я знаю всё о фотографировании.</span>"
-	lose_text = "<span class='danger'>Я забываю, как работают фотоаппараты.</span>"
-	medical_record_text = "Пациент упоминал фотографирование как хобби, снимающее стресс."
-
-/datum/quirk/photographer/on_spawn()
-	var/mob/living/carbon/human/H = quirk_holder
-	var/obj/item/storage/photo_album/photo_album = new(get_turf(H))
-	var/list/album_slots = list (
-		"backpack" = ITEM_SLOT_BACKPACK,
-		"hands" = ITEM_SLOT_HANDS
-	)
-	H.equip_in_one_of_slots(photo_album, album_slots , qdel_on_fail = TRUE)
-	photo_album.persistence_id = "personal_[H.mind.key]" // this is a persistent album, the ID is tied to the account's key to avoid tampering
-	photo_album.persistence_load()
-	photo_album.name = "[H.real_name]'s photo album"
-	var/obj/item/camera/camera = new(get_turf(H))
-	var/list/camera_slots = list (
-		"neck" = ITEM_SLOT_NECK,
-		"left pocket" = ITEM_SLOT_LPOCKET,
-		"right pocket" = ITEM_SLOT_RPOCKET,
-		"backpack" = ITEM_SLOT_BACKPACK,
-		"hands" = ITEM_SLOT_HANDS
-	)
-	H.equip_in_one_of_slots(camera, camera_slots , qdel_on_fail = TRUE)
-	H.regenerate_icons()
-
 /datum/quirk/selfaware
 	name = "Самоконтроль"
 	desc = "Я хорошо знаю своё тело, и могу точно оценить степень нанесенных мне повреждений."
