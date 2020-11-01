@@ -2,7 +2,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 	name = "Real Temperature"
 	priority = 10
 	flags = SS_NO_INIT
-	wait = 100
+	wait = 20
 
 /area
 	var/env_temp_relative = 20
@@ -25,7 +25,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 
 /datum/component/realtemp
 	var/mob/living/carbon/human/owner
-	var/body_temp_alt = 30
+	var/body_temp_alt = 50
 	var/obj/screen/relative_temp/screen_obj
 	var/list/text_temp_sources = list()
 
@@ -37,6 +37,9 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 		screen_obj.screen_loc = ui_relative_temp
 		screen_obj.hud = src
 		owner.hud_used.infodisplay += screen_obj
+
+		var/datum/hud/hud = owner.hud_used
+		hud.show_hud(hud.hud_version)
 
 		START_PROCESSING(SSrealtemp, src)
 
@@ -106,7 +109,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 			owner.adjustStaminaLoss(3)
 			if(prob(25))
 				owner.adjustFireLoss(4)
-				to_chat(owner, pick("<span class='notice'>Замерзаю...</span>", "<span class='notice'>Холодно...</span>", "<span class='notice'>Мне нужно срочно согреться...</span>"))
+				to_chat(owner, pick("<span class='warning'>Замерзаю...</span>", "<span class='warning'>Холодно...</span>", "<span class='warning'>Нужно срочно согреться...</span>"))
 		if(1 to 20)
 			owner.Jitter(10)
 			owner.adjustStaminaLoss(2)
@@ -173,7 +176,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 	print_temp(user)
 
 /datum/component/realtemp/proc/print_temp(mob/user)
-	var/msg = "<span class='info'>Мои ощущения температуры:</span>\n"
+	var/msg = "<span class='info'>Мои ощущения температуры:</span><hr>"
 	for(var/i in text_temp_sources)
 		msg += "<span class='notice'>[i]</span>\n"
 	to_chat(user, "<div class='examine_block'>[msg]</div>")
