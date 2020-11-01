@@ -159,9 +159,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/dust,
-/obj/machinery/gateway/away{
-	calibrated = 0
-	},
+/obj/machinery/gateway/away,
 /turf/open/floor/plasteel/dark{
 	heat_capacity = 1e+006
 	},
@@ -641,7 +639,6 @@
 	},
 /obj/effect/turf_decal/dust,
 /obj/machinery/oldvents,
-/obj/effect/landmark/awaystart,
 /turf/open/floor/pod/light,
 /area/awaymission/chilly/facility3)
 "ca" = (
@@ -807,11 +804,6 @@
 "cu" = (
 /turf/closed/indestructible/rock/snow/ice,
 /area/awaymission/chilly/mountain)
-"cv" = (
-/obj/effect/turf_decal/dust,
-/obj/effect/landmark/awaystart,
-/turf/open/floor/carpet/red,
-/area/awaymission/chilly/facility3)
 "cw" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/table/reinforced,
@@ -1318,13 +1310,6 @@
 /obj/structure/lattice/catwalk,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
 /area/awaymission/chilly/surface)
-"dM" = (
-/obj/effect/turf_decal/dust,
-/obj/effect/landmark/awaystart,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
-/area/awaymission/chilly/facility3)
 "dN" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/glass,
@@ -2125,13 +2110,6 @@
 	},
 /obj/effect/turf_decal/dust,
 /turf/open/floor/wood,
-/area/awaymission/chilly/facility3)
-"gl" = (
-/obj/effect/turf_decal/dust,
-/obj/effect/landmark/awaystart,
-/turf/open/floor/wood{
-	icon_state = "wood-broken2"
-	},
 /area/awaymission/chilly/facility3)
 "gm" = (
 /obj/item/stack/rods,
@@ -4846,11 +4824,6 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility3)
-"ol" = (
-/obj/effect/turf_decal/dust,
-/obj/structure/girder,
-/turf/open/floor/plating,
-/area/awaymission/chilly/surface)
 "om" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken{
@@ -5804,7 +5777,6 @@
 /obj/effect/turf_decal/dust,
 /obj/item/stack/sheet/bone,
 /obj/effect/decal/cleanable/blood/gibs/old,
-/obj/effect/landmark/awaystart,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility3)
 "re" = (
@@ -7268,7 +7240,6 @@
 /turf/closed/wall/rospilovo/bricks_white,
 /area/awaymission/chilly/surface)
 "vm" = (
-/obj/effect/landmark/awaystart,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006
 	},
@@ -7421,12 +7392,6 @@
 /obj/effect/turf_decal/weather/snow/corner,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility)
-"vJ" = (
-/obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/dust,
-/obj/effect/landmark/awaystart,
-/turf/open/floor/wood,
-/area/awaymission/chilly/facility3)
 "vK" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/turf_decal/dust,
@@ -7608,13 +7573,6 @@
 	slowdown = 1
 	},
 /area/awaymission/chilly/surface)
-"wj" = (
-/obj/effect/turf_decal/dust,
-/obj/effect/landmark/awaystart,
-/turf/open/floor/wood{
-	icon_state = "wood-broken7"
-	},
-/area/awaymission/chilly/facility3)
 "wk" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/doorpanel/broken,
@@ -9067,12 +9025,6 @@
 	icon_state = "platingdmg1"
 	},
 /area/awaymission/chilly/facility)
-"Av" = (
-/obj/effect/turf_decal/dust,
-/obj/effect/decal/cleanable/vomit/old,
-/obj/effect/landmark/awaystart,
-/turf/open/floor/wood,
-/area/awaymission/chilly/facility3)
 "Aw" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/tile/brown{
@@ -11043,11 +10995,6 @@
 /obj/item/storage/box/lethalshot,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/gatewaystart)
-"Gg" = (
-/obj/effect/turf_decal/dust,
-/obj/effect/landmark/awaystart,
-/turf/open/floor/plating,
-/area/awaymission/chilly/facility3)
 "Gh" = (
 /obj/machinery/door/poddoor/shutters/indestructible,
 /turf/open/floor/plating/ice/smooth/oxy,
@@ -12405,13 +12352,6 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility)
-"Ke" = (
-/obj/effect/turf_decal/dust,
-/obj/effect/landmark/awaystart,
-/turf/open/floor/wood{
-	icon_state = "wood-broken6"
-	},
-/area/awaymission/chilly/facility3)
 "Kg" = (
 /obj/structure/lattice,
 /obj/effect/turf_decal/dust,
@@ -13087,12 +13027,6 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility4)
-"Mp" = (
-/obj/effect/decal/cleanable/glass,
-/obj/effect/turf_decal/dust,
-/obj/effect/landmark/awaystart,
-/turf/open/floor/plating,
-/area/awaymission/chilly/facility3)
 "Mq" = (
 /obj/machinery/door/airlock/hatch,
 /obj/structure/fans/tiny{
@@ -14746,7 +14680,7 @@
 /turf/open/floor/plasteel/dark{
 	heat_capacity = 1e+006
 	},
-/area/awaymission/chilly/surface)
+/area/awaymission/chilly/gatewaystart)
 "Rz" = (
 /obj/effect/turf_decal/dust,
 /mob/living/simple_animal/hostile/skeleton/ice,
@@ -28402,7 +28336,7 @@ Om
 oX
 jT
 fX
-vJ
+by
 Ne
 YW
 Rx
@@ -28410,7 +28344,7 @@ xW
 YW
 fX
 QF
-cv
+Ne
 kS
 oX
 Om
@@ -28434,7 +28368,7 @@ XL
 xr
 fX
 Bz
-wj
+BT
 XB
 oX
 Om
@@ -29816,7 +29750,7 @@ Om
 oX
 Bf
 vk
-cv
+Ne
 fX
 xr
 fX
@@ -29824,7 +29758,7 @@ fX
 YW
 fX
 xW
-Gg
+xW
 ox
 oX
 Om
@@ -29840,7 +29774,7 @@ Om
 Qw
 Bf
 kX
-Av
+bW
 Ne
 xr
 yH
@@ -29848,7 +29782,7 @@ fX
 xr
 Ne
 xJ
-Mp
+oj
 Bf
 oX
 Om
@@ -33274,7 +33208,7 @@ Om
 oX
 pE
 fX
-Gg
+xW
 Ne
 YW
 db
@@ -33282,7 +33216,7 @@ sN
 dn
 fX
 yH
-Gg
+xW
 pE
 oX
 Om
@@ -33452,7 +33386,7 @@ Om
 oX
 jT
 xW
-Gg
+xW
 fX
 gX
 Rx
@@ -33460,7 +33394,7 @@ fX
 xr
 fX
 po
-Gg
+xW
 px
 oX
 Om
@@ -34688,7 +34622,7 @@ Om
 oX
 Bf
 xW
-gl
+WT
 xW
 xr
 fX
@@ -34696,7 +34630,7 @@ fX
 xr
 Lu
 rG
-Gg
+xW
 gk
 oX
 Om
@@ -34866,7 +34800,7 @@ Om
 oX
 gk
 Ne
-Ke
+Xi
 yH
 xr
 fX
@@ -34874,7 +34808,7 @@ fX
 xr
 Ne
 fX
-dM
+yH
 Bf
 oX
 Om
@@ -43364,7 +43298,7 @@ sc
 sc
 Mw
 sc
-ol
+Iw
 sc
 Fq
 sc
