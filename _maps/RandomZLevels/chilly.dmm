@@ -429,7 +429,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating/snowed/smoothed/temperatre,
-/area/awaymission/chilly/facility)
+/area/awaymission/chilly/surface)
 "bq" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/tile/red{
@@ -581,7 +581,9 @@
 /turf/open/floor/plating,
 /area/awaymission/chilly/cave)
 "bP" = (
-/obj/structure/chair/brevno,
+/obj/structure/chair/brevno{
+	dir = 1
+	},
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
 "bQ" = (
@@ -596,6 +598,7 @@
 /obj/effect/turf_decal/dust,
 /obj/item/clothing/suit/jacket/puffer,
 /obj/item/clothing/under/color/white,
+/obj/item/clothing/neck/stripedgreenscarf/wzzzz/grey,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "bU" = (
@@ -3421,7 +3424,9 @@
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
 "kl" = (
-/obj/structure/chair/brevno/log2,
+/obj/structure/chair/brevno/log2{
+	dir = 1
+	},
 /obj/effect/light_emitter,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
@@ -3576,7 +3581,7 @@
 	dir = 4
 	},
 /turf/open/floor/grass/snow/safe/oxy,
-/area/awaymission/chilly/facility)
+/area/awaymission/chilly/surface)
 "kG" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/grass/snow/safe/oxy,
@@ -4702,6 +4707,15 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
+"nR" = (
+/obj/structure/table,
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/obj/effect/turf_decal/dust,
+/obj/item/clothing/neck/scarf/zebra,
+/turf/open/floor/carpet/red,
+/area/awaymission/chilly/facility3)
 "nS" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/lattice,
@@ -5339,6 +5353,7 @@
 /obj/effect/turf_decal/dust,
 /obj/item/clothing/suit/hooded/wintercoat/captain,
 /obj/item/clothing/under/color/white,
+/obj/item/clothing/neck/stripedbluescarf,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "pO" = (
@@ -6389,6 +6404,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 5
 	},
+/obj/item/clothing/neck/stripedgreenscarf,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "sS" = (
@@ -7469,6 +7485,7 @@
 /obj/structure/rack,
 /obj/effect/turf_decal/dust,
 /obj/item/storage/backpack,
+/obj/item/clothing/shoes/winterboots,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility3)
 "vX" = (
@@ -10425,6 +10442,9 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 4
 	},
+/obj/item/clothing/neck/scarf/black,
+/obj/item/clothing/neck/scarf/orange,
+/obj/item/clothing/neck/scarf/zebra,
 /turf/open/floor/plasteel/white{
 	heat_capacity = 1e+006
 	},
@@ -12722,6 +12742,7 @@
 /obj/structure/closet/cabinet,
 /obj/effect/turf_decal/dust,
 /obj/item/clothing/suit/wzzzz/militaryjacket/desert,
+/obj/item/clothing/neck/scarf/black,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility3)
 "Lw" = (
@@ -14282,6 +14303,7 @@
 /obj/effect/turf_decal/dust,
 /obj/item/clothing/suit/hooded/wintercoat/engineering,
 /obj/item/clothing/under/color/white,
+/obj/item/clothing/neck/scarf/yellow,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "Qj" = (
@@ -14349,6 +14371,7 @@
 /obj/effect/turf_decal/dust,
 /obj/item/clothing/suit/det_suit,
 /obj/item/clothing/head/ushanka,
+/obj/item/clothing/neck/stripedgreenscarf/wzzzz,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "Qv" = (
@@ -14601,6 +14624,9 @@
 /obj/item/clothing/suit/hooded/wintercoat,
 /obj/item/clothing/shoes/winterboots,
 /obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/neck/scarf/green,
+/obj/item/clothing/neck/scarf,
+/obj/item/clothing/neck/scarf/red,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/gatewaystart)
 "Ro" = (
@@ -15257,6 +15283,13 @@
 	},
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility2)
+"Ti" = (
+/obj/structure/rack,
+/obj/effect/turf_decal/dust,
+/obj/item/storage/backpack,
+/obj/item/clothing/shoes/winterboots,
+/turf/open/floor/wood,
+/area/awaymission/chilly/facility3)
 "Tj" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/light_emitter,
@@ -15287,6 +15320,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
+"To" = (
+/obj/structure/rack,
+/obj/effect/turf_decal/dust,
+/obj/item/storage/backpack,
+/obj/item/clothing/shoes/winterboots,
+/turf/open/floor/carpet/red,
+/area/awaymission/chilly/facility3)
 "Tp" = (
 /obj/structure/table,
 /obj/machinery/light/broken{
@@ -15900,6 +15940,7 @@
 /obj/item/clothing/suit/jacket/leather/overcoat,
 /obj/item/clothing/head/wzzzz/ttcushankadown,
 /obj/item/kitchen/knife/combat,
+/obj/item/clothing/neck/stripedgreenscarf/wzzzz/black,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility3)
 "Vg" = (
@@ -16139,8 +16180,8 @@
 /obj/structure/rack,
 /obj/effect/turf_decal/dust,
 /obj/item/storage/backpack,
-/obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/gloves/color/black,
+/obj/item/clothing/shoes/winterboots,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "VG" = (
@@ -33589,12 +33630,12 @@ oX
 sR
 qV
 Ne
-uA
+Ti
 xr
 xW
 by
 xr
-PB
+To
 fX
 qV
 Vf
@@ -34832,7 +34873,7 @@ ll
 xr
 Va
 Eu
-SY
+nR
 Ov
 oX
 Om
@@ -37495,7 +37536,7 @@ Om
 VX
 Om
 Om
-fM
+Om
 Om
 Om
 Om
@@ -43232,7 +43273,7 @@ Om
 Om
 Om
 Om
-fM
+Om
 Om
 Om
 Om
@@ -43509,16 +43550,16 @@ sL
 Om
 qR
 Om
-Om
+VX
 SP
 Om
-Om
+VX
 Om
 VX
 Om
 Om
 Om
-Om
+VX
 Om
 Om
 Om
@@ -43921,7 +43962,7 @@ Om
 Om
 VX
 Om
-Om
+VX
 Om
 Om
 Om
@@ -44116,15 +44157,15 @@ Om
 qR
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
 VX
-VX
-VX
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 Om
 VX
 Om
@@ -44933,7 +44974,7 @@ SP
 Om
 Om
 Om
-fM
+Om
 Om
 Om
 Om
@@ -45725,7 +45766,7 @@ Om
 Om
 Om
 Om
-Om
+VX
 Om
 Om
 Om
@@ -46332,9 +46373,9 @@ Om
 Om
 Om
 Om
+VX
 Om
-Om
-Om
+VX
 Om
 Om
 Om
@@ -46342,7 +46383,7 @@ VX
 Om
 Om
 Om
-Om
+VX
 Om
 Om
 Om
@@ -46521,17 +46562,17 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
-Om
+VX
 Om
 Om
 VX
 Om
 Om
+VX
 Om
 Om
+VX
+VX
 Om
 Om
 Om
@@ -46740,7 +46781,7 @@ Om
 Om
 Om
 Om
-Om
+VX
 Om
 Om
 Om
@@ -46927,6 +46968,7 @@ Om
 Om
 Om
 Om
+VX
 Om
 Om
 Om
@@ -46936,6 +46978,7 @@ Om
 Om
 Om
 Om
+VX
 Om
 Om
 Om
@@ -46945,9 +46988,7 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
+VX
 Om
 Om
 Om
@@ -47132,7 +47173,7 @@ Om
 Om
 Om
 Om
-Om
+VX
 Om
 Om
 Om
@@ -47328,7 +47369,7 @@ Om
 Om
 Om
 Om
-Om
+VX
 Om
 Om
 Om
@@ -47351,10 +47392,10 @@ Om
 Om
 Om
 Om
+VX
 Om
 Om
-Om
-Om
+VX
 Om
 Om
 VX
