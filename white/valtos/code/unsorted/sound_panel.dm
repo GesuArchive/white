@@ -11,6 +11,7 @@
 	set category = "Настройки"
 
 	var/datum/sound_panel/S = new
+
 	if(S)
 		S.ui_interact(src.mob)
 
@@ -24,18 +25,24 @@
 	return UI_INTERACTIVE
 
 /datum/sound_panel/ui_data(mob/user)
+
+	if(!usr?.client)
+		return
+
+	var/client/C = usr.client
+
 	var/list/data = list()
 
-	data["adminhelp"] 		= usr.client.prefs.toggles & SOUND_ADMINHELP
-	data["midi"] 			= usr.client.prefs.toggles & SOUND_MIDI
-	data["ambience"] 		= usr.client.prefs.toggles & SOUND_AMBIENCE
-	data["lobby"] 			= usr.client.prefs.toggles & SOUND_LOBBY
-	data["instruments"] 	= usr.client.prefs.toggles & SOUND_INSTRUMENTS
-	data["ship_ambience"] 	= usr.client.prefs.toggles & SOUND_SHIP_AMBIENCE
-	data["prayers"] 		= usr.client.prefs.toggles & SOUND_PRAYERS
-	data["announcements"] 	= usr.client.prefs.toggles & SOUND_ANNOUNCEMENTS
-	data["endofround"] 		= usr.client.prefs.toggles & SOUND_ENDOFROUND
-	data["jukebox"] 		= usr.client.prefs.w_toggles & SOUND_JUKEBOX
+	data["adminhelp"] 		= C.prefs.toggles & SOUND_ADMINHELP
+	data["midi"] 			= C.prefs.toggles & SOUND_MIDI
+	data["ambience"] 		= C.prefs.toggles & SOUND_AMBIENCE
+	data["lobby"] 			= C.prefs.toggles & SOUND_LOBBY
+	data["instruments"] 	= C.prefs.toggles & SOUND_INSTRUMENTS
+	data["ship_ambience"] 	= C.prefs.toggles & SOUND_SHIP_AMBIENCE
+	data["prayers"] 		= C.prefs.toggles & SOUND_PRAYERS
+	data["announcements"] 	= C.prefs.toggles & SOUND_ANNOUNCEMENTS
+	data["endofround"] 		= C.prefs.toggles & SOUND_ENDOFROUND
+	data["jukebox"] 		= C.prefs.w_toggles & SOUND_JUKEBOX
 
 	return data
 
@@ -43,4 +50,38 @@
 	. = ..()
 	if(.)
 		return
+	if(!usr?.client?.prefs)
+		return
+
+	var/client/C = usr.client
+
+	switch(action)
+		if("bt_customize")
+			C.customize_battletension()
+			return
+		if("adminhelp")
+			C.prefs.toggles ^= SOUND_ADMINHELP
+		if("midi")
+			C.prefs.toggles ^= SOUND_MIDI
+		if("ambience")
+			C.prefs.toggles ^= SOUND_AMBIENCE
+		if("lobby")
+			C.prefs.toggles ^= SOUND_LOBBY
+		if("instruments")
+			C.prefs.toggles ^= SOUND_INSTRUMENTS
+		if("ship_ambience")
+			C.prefs.toggles ^= SOUND_SHIP_AMBIENCE
+		if("prayers")
+			C.prefs.toggles ^= SOUND_PRAYERS
+		if("announcements")
+			C.prefs.toggles ^= SOUND_ANNOUNCEMENTS
+		if("endofround")
+			C.prefs.toggles ^= SOUND_ENDOFROUND
+		if("jukebox")
+			C.prefs.w_toggles ^= SOUND_JUKEBOX
+
+	DIRECT_OUTPUT(usr, sound(null))
+	C?.tgui_panel?.stop_music()
+
+	C.prefs.save_preferences()
 	. = TRUE
