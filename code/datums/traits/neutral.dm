@@ -269,13 +269,13 @@
 	to_chat(quirk_holder, "<span class='boldannounce'>Because you speak with your hands, having them full hinders your ability to communicate!</span>")
 
 /datum/quirk/photographer
-	name = "Photographer"
-	desc = "You carry your camera and personal photo album everywhere you go, and your scrapbooks are legendary among your coworkers."
+	name = "Фотограф"
+	desc = "Я знаю, как обращаться с камерой, и сокращаю задержку между каждым снимком."
 	value = 0
 	mob_trait = TRAIT_PHOTOGRAPHER
-	gain_text = "<span class='notice'>You know everything about photography.</span>"
-	lose_text = "<span class='danger'>You forget how photo cameras work.</span>"
-	medical_record_text = "Patient mentions photography as a stress-relieving hobby."
+	gain_text = "<span class='notice'>Я знаю всё о фотографировании.</span>"
+	lose_text = "<span class='danger'>Я забываю, как работают фотоаппараты.</span>"
+	medical_record_text = "Пациент упоминал фотографирование как хобби, снимающее стресс."
 
 /datum/quirk/photographer/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
