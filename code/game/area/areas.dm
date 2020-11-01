@@ -544,16 +544,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!(L.client && (L.client.prefs.toggles & SOUND_AMBIENCE)))
 		return //General ambience check is below the ship ambience so one can play without the other
 
-	if(prob(10))
-		var/sound/S = sound(pick(GENERIC_AMBIGEN))
-
-		S.repeat = FALSE
-		S.channel = CHANNEL_AMBIGEN
-		S.volume = ambience_volume * 2
-		S.status = SOUND_STREAM
-
-		SEND_SOUND(L, S)
-
 	if(!L.client.played)
 		var/sound/S = sound(pick(ambientsounds))
 
@@ -565,7 +555,27 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 
 		SEND_SOUND(L, S)
 		L.client.played = TRUE
-		addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), S.len*10)
+
+		var/soundLen = 0
+		var/list/sounds_list = L.client.SoundQuery()
+
+		for(var/playing_sound in sounds_list)
+			var/sound/found = playing_sound
+			if(found.file == S.file)
+				soundLen = found.len
+
+		addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), soundLen * 10)
+
+		if(prob(35))
+			var/sound/AGS = sound(pick(GENERIC_AMBIGEN))
+
+			AGS.repeat = FALSE
+			AGS.channel = CHANNEL_AMBIGEN
+			AGS.volume = ambience_volume * 2
+			AGS.status = SOUND_STREAM
+
+			SEND_SOUND(L, AGS)
+
 
 ///Divides total beauty in the room by roomsize to allow us to get an average beauty per tile.
 /area/proc/update_beauty()
