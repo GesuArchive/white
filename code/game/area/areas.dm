@@ -556,7 +556,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		SEND_SOUND(L, S)
 		L.client.played = TRUE
 
-		var/soundLen = 300
+		var/soundLen = 30
 		var/list/sounds_list = L.client.SoundQuery()
 
 		for(var/playing_sound in sounds_list)
