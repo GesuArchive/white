@@ -45,7 +45,7 @@
 	else
 		if(allowed(usr))
 			authed = !authed
-			to_chat(user, "<span class='notice'>Консоль [ authed ? "заб" : "раз"]локирована.</span>")
+			to_chat(user, "<span class='notice'>Консоль [ authed ? "раз" : "заб"]локирована.</span>")
 			update_icon()
 			updateUsrDialog()
 		else
