@@ -36,7 +36,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 		screen_obj = new /obj/screen/relative_temp()
 		screen_obj.screen_loc = ui_relative_temp
 		screen_obj.hud = src
-		infodisplay += screen_obj
+		owner.hud_used.infodisplay += screen_obj
 
 		START_PROCESSING(SSrealtemp, src)
 
