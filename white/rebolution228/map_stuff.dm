@@ -112,7 +112,7 @@
 	requires_power = TRUE
 	ambientsounds = list('sound/ambience/ambireebe3.ogg')
 	always_unpowered = TRUE
-	env_temp_relative = -15
+	env_temp_relative = 0
 
 
 

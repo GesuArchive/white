@@ -6,11 +6,15 @@
 #define CHANNEL_JUSTICAR_ARK 1020
 #define CHANNEL_HEARTBEAT 1019 //sound channel for heartbeats
 #define CHANNEL_AMBIENCE 1018
-#define CHANNEL_BUZZ 1017
-#define CHANNEL_BICYCLE 1016
-#define CHANNEL_CUSTOM_JUKEBOX 1015
-#define CHANNEL_TTS_ANNOUNCER 1014
-#define CHANNEL_BATTLETENSION 1013
+#define CHANNEL_AMBIGEN 1017
+#define CHANNEL_BUZZ 1016
+#define CHANNEL_BICYCLE 1015
+#define CHANNEL_CUSTOM_JUKEBOX 1014
+#define CHANNEL_TTS_ANNOUNCER 1013
+#define CHANNEL_BATTLETENSION 1012
+#define CHANNEL_TTS_AVAILABLE 1011
+#define CHANNEL_BOOMBOX_AVAILABLE 800
+#define CHANNEL_HIGHEST_AVAILABLE 780
 
 ///Default range of a sound.
 #define SOUND_RANGE 17
@@ -25,10 +29,6 @@
 
 //THIS SHOULD ALWAYS BE THE LOWEST ONE!
 //KEEP IT UPDATED
-
-#define CHANNEL_TTS_AVAILABLE 1012
-#define CHANNEL_BOOMBOX_AVAILABLE 800
-#define CHANNEL_HIGHEST_AVAILABLE 780
 
 #define MAX_INSTRUMENT_CHANNELS (128 * 6)
 
@@ -119,6 +119,20 @@
 #define SOVIET_AMB_CAVES list('white/valtos/sounds/prison/ambout1.ogg')
 
 #define SCARLET_DAWN_AMBIENT list('white/valtos/sounds/dz/ambidawn.ogg')
+
+#define GENERIC_AMBIGEN list('sound/ambience/ambigen1.ogg',\
+						   'sound/ambience/ambigen3.ogg',\
+						   'sound/ambience/ambigen4.ogg',\
+						   'sound/ambience/ambigen5.ogg',\
+						   'sound/ambience/ambigen6.ogg',\
+						   'sound/ambience/ambigen7.ogg',\
+						   'sound/ambience/ambigen8.ogg',\
+						   'sound/ambience/ambigen9.ogg',\
+						   'sound/ambience/ambigen10.ogg',\
+						   'sound/ambience/ambigen11.ogg',\
+						   'sound/ambience/ambigen12.ogg',\
+						   'sound/ambience/ambigen14.ogg',\
+						   'sound/ambience/ambigen15.ogg')
 
 #define INTERACTION_SOUND_RANGE_MODIFIER -3
 #define EQUIP_SOUND_VOLUME 30

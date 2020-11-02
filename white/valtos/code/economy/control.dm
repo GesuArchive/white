@@ -45,7 +45,7 @@
 	else
 		if(allowed(usr))
 			authed = !authed
-			to_chat(user, "<span class='notice'>Консоль [ authed ? "заб" : "раз"]локирована.</span>")
+			to_chat(user, "<span class='notice'>Консоль [ authed ? "раз" : "заб"]локирована.</span>")
 			update_icon()
 			updateUsrDialog()
 		else
@@ -91,7 +91,7 @@
 		.["selflog"] += list(list("entry" = i))
 	.["accounts"] = list()
 	for(var/B in SSeconomy.bank_accounts_by_id)
-		var/datum/bank_account/A = B // ???
+		var/datum/bank_account/A = SSeconomy.bank_accounts_by_id[B] // ???
 		.["accounts"] += list(list("id" = A.account_id, "name" = A.account_holder, "balance" = A.account_balance))
 
 /obj/machinery/computer/price_controller/ui_act(action, params)

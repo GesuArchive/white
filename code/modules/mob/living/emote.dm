@@ -140,7 +140,7 @@
 /datum/emote/living/drool
 	key = "drool"
 	key_third_person = "drools"
-	message = "дрожит."
+	message = "пускает слюну."
 
 /datum/emote/living/faint
 	key = "faint"

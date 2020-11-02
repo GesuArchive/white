@@ -2,13 +2,10 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 	name = "Real Temperature"
 	priority = 10
 	flags = SS_NO_INIT
-	wait = 100
+	wait = 20
 
 /area
 	var/env_temp_relative = 20
-
-/area/awaymission/chilly
-	env_temp_relative = -20
 
 /area/awaymission/chilly/Entered(atom/movable/M, oldloc)
 	. = ..()
@@ -25,7 +22,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 
 /datum/component/realtemp
 	var/mob/living/carbon/human/owner
-	var/body_temp_alt = 30
+	var/body_temp_alt = 50
 	var/obj/screen/relative_temp/screen_obj
 	var/list/text_temp_sources = list()
 
@@ -37,6 +34,9 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 		screen_obj.screen_loc = ui_relative_temp
 		screen_obj.hud = src
 		owner.hud_used.infodisplay += screen_obj
+
+		var/datum/hud/hud = owner.hud_used
+		hud.show_hud(hud.hud_version)
 
 		START_PROCESSING(SSrealtemp, src)
 
@@ -102,16 +102,16 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 
 	switch(body_temp_alt)
 		if(-INFINITY to 0)
-			owner.Jitter(15)
-			owner.adjustStaminaLoss(10)
+			owner.emote("shiver")
+			owner.adjustStaminaLoss(3)
 			if(prob(25))
-				owner.adjustFireLoss(5)
-				to_chat(owner, pick("<span class='notice'>Замерзаю...</span>", "<span class='notice'>Холодно...</span>", "<span class='notice'>Мне нужно срочно согреться...</span>"))
+				owner.adjustFireLoss(4)
+				to_chat(owner, pick("<span class='warning'>Замерзаю...</span>", "<span class='warning'>Холодно...</span>", "<span class='warning'>Нужно срочно согреться...</span>"))
 		if(1 to 20)
-			owner.Jitter(10)
-			owner.adjustStaminaLoss(5)
+			owner.emote("shiver")
+			owner.adjustStaminaLoss(2)
 		if(21 to 40)
-			owner.Jitter(5)
+			owner.emote("shiver")
 			owner.adjustStaminaLoss(1)
 
 
@@ -131,15 +131,15 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 			temp_to_adjust += 1
 
 	switch(owner.get_cold_protection(AR.env_temp_relative))
-		if(0.20 to 0.30)
+		if(0.10 to 0.20)
 			temp_sources += "Подходящая одежда уберегает меня от холода."
-			temp_to_adjust += 1
-		if(0.31 to 0.50)
-			temp_sources += "Эта одежда не даст мне замёрзнуть."
 			temp_to_adjust += 2
+		if(0.21 to 0.50)
+			temp_sources += "Эта одежда не даст мне замёрзнуть."
+			temp_to_adjust += 3
 		if(0.51 to 0.75)
 			temp_sources += "Эта одежда способна не дать мне замёрзнуть точно."
-			temp_to_adjust += 3
+			temp_to_adjust += 4
 		if(0.76 to 1)
 			temp_sources += "В этой одежде мне не страшен холод."
 			temp_to_adjust += 5
@@ -149,12 +149,12 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 			var/obj/structure/bonfire/B = heat_source
 			if(B.burning)
 				temp_sources += "Костёр согревает меня."
-				temp_to_adjust += 2
+				temp_to_adjust += 3
 		if(istype(heat_source, /obj/structure/fireplace))
 			var/obj/structure/fireplace/F = heat_source
 			if(F.lit)
 				temp_sources += "Камин согревает меня."
-				temp_to_adjust += 2
+				temp_to_adjust += 3
 
 	adjust_temp(temp_to_adjust)
 	text_temp_sources = temp_sources
@@ -173,7 +173,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 	print_temp(user)
 
 /datum/component/realtemp/proc/print_temp(mob/user)
-	var/msg = "<span class='info'>Мои ощущения температуры:</span>\n"
+	var/msg = "<span class='info'>Мои ощущения температуры:</span><hr>"
 	for(var/i in text_temp_sources)
 		msg += "<span class='notice'>[i]</span>\n"
 	to_chat(user, "<div class='examine_block'>[msg]</div>")

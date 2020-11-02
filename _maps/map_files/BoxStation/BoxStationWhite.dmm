@@ -33105,6 +33105,13 @@
 	},
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
+"jmV" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/starboard)
 "jnu" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/simple/orange/visible,
@@ -81404,7 +81411,7 @@ aFu
 dvV
 aFu
 aFu
-bba
+jmV
 aVN
 bfU
 bhu

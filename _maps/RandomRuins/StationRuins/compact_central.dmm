@@ -4161,10 +4161,6 @@
 	},
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
-"uS" = (
-/obj/structure/displaycase/winner/robust,
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
 "uW" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/plasteel/stairs/medium,
@@ -4219,11 +4215,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
-/area/hallway/primary/central)
-"yg" = (
-/obj/effect/turf_decal/tile/yellow,
-/obj/structure/displaycase/winner/engineer,
-/turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "yh" = (
 /obj/structure/lattice,
@@ -5333,7 +5324,7 @@ aj
 aC
 aW
 aS
-uS
+aj
 LY
 LY
 cx
@@ -5485,7 +5476,7 @@ es
 aG
 ba
 nY
-yg
+SE
 At
 DO
 dy
