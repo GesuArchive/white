@@ -1,11 +1,11 @@
 GLOBAL_LIST_EMPTY(frill_objects)
 
 
-/proc/get_frill_object(icon_path, junction, shadow = FALSE, alpha = 255, pixel_y = 32, plane = FRILL_PLANE)
-	. = GLOB.frill_objects["[icon_path]-[junction]-[shadow]-[alpha]-[pixel_y]-[plane]"]
+/proc/get_frill_object(icon_path, junction, shadow = FALSE, custom_alpha = 255, custom_plane = FRILL_PLANE, custom_pixel_x = -16, custom_pixel_y = -16)
+	. = GLOB.frill_objects["[icon_path]-[junction]-[shadow]-[custom_alpha]-[custom_plane]-[custom_pixel_x]-[custom_pixel_y]"]
 	if(.)
 		return
-	. = GLOB.frill_objects["[icon_path]-[junction]-[shadow]-[alpha]-[pixel_y]-[plane]"] = new /atom/movable/visual/frill(null, icon_path, junction, shadow, alpha, pixel_y, plane)
+	. = GLOB.frill_objects["[icon_path]-[junction]-[shadow]-[custom_alpha]-[custom_plane]-[custom_pixel_x]-[custom_pixel_y]"] = new /atom/movable/visual/frill(null, icon_path, junction, shadow, custom_alpha, custom_plane, custom_pixel_x, custom_pixel_y)
 
 
 /**
@@ -49,18 +49,21 @@ GLOBAL_LIST_EMPTY(frill_objects)
 	layer = ABOVE_MOB_LAYER
 	plane = FRILL_PLANE
 	vis_flags = NONE
-	pixel_y = 32
+	pixel_x = -16
+	pixel_y = -16
 
 
-/atom/movable/visual/frill/Initialize(mapload, icon, junction, shadow, custom_alpha, custom_pixel_y, custom_plane)
+/atom/movable/visual/frill/Initialize(mapload, icon, junction, shadow, custom_alpha, custom_plane, custom_pixel_x, custom_pixel_y)
 	. = ..()
 	src.icon = icon
 	icon_state = "frill-[junction]"
 	if(shadow)
-		vis_contents += get_frill_object(icon, junction, FALSE, 120, 0, UNDER_FRILL_PLANE)
+		vis_contents += get_frill_object(icon, junction, FALSE, 120, UNDER_FRILL_PLANE, 0, 0)
 	if(!isnull(custom_alpha))
 		alpha = custom_alpha
-	if(!isnull(custom_pixel_y))
-		pixel_y = custom_pixel_y
 	if(!isnull(custom_plane))
 		plane = custom_plane
+	if(!isnull(custom_pixel_x))
+		pixel_x = custom_pixel_x
+	if(!isnull(custom_pixel_y))
+		pixel_y = custom_pixel_y
