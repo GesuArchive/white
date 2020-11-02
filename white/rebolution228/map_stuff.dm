@@ -133,6 +133,16 @@
 	ambientsounds = list('sound/ambience/ambitech.ogg', 'sound/ambience/ambitech2.ogg', 'sound/ambience/ambitech3.ogg')
 	env_temp_relative = -5
 
+/area/awaymission/chilly/gatewaystart/base2armory
+	name = "Base II Armory"
+	icon_state = "base2armory"
+	env_temp_relative = -5
+
+/area/awaymission/chilly/facility/emergencystorage
+	name = "Emergency Storage"
+	icon_state = "estorage"
+	env_temp_relative = -11
+
 /* TURFS */
 
 
