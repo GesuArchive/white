@@ -695,9 +695,9 @@
 /turf/open/floor/holofloor/beach/coast_t,
 /area/holodeck/rec_center/beach)
 "dn" = (
-/obj/structure/displaycase/winner/robust,
-/turf/open/floor/plasteel,
-/area/centcom/control)
+/obj/machinery/light/small,
+/turf/open/indestructible/labfloor,
+/area/trading_outpost)
 "dq" = (
 /obj/machinery/card_button/trader{
 	alpha = 125;
@@ -1283,8 +1283,15 @@
 	},
 /area/trading_outpost)
 "fr" = (
-/obj/structure/displaycase/winner/engineer,
-/turf/open/floor/plasteel,
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/ausbushes/genericbush,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/grass,
 /area/centcom/control)
 "fs" = (
 /obj/structure/railing/corner,
@@ -1587,9 +1594,7 @@
 /area/trading_outpost)
 "gy" = (
 /obj/item/kirbyplants/random,
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
+/obj/effect/turf_decal/tile/blue,
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "gz" = (
@@ -1689,13 +1694,11 @@
 /turf/open/floor/plasteel,
 /area/trading_outpost)
 "gY" = (
-/obj/effect/turf_decal/tile/blue{
+/obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
+/obj/effect/turf_decal/tile/neutral,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "hc" = (
 /obj/effect/turf_decal/bot,
@@ -2075,12 +2078,6 @@
 	},
 /turf/open/floor/holofloor/dark,
 /area/holodeck/rec_center/spacecheckers)
-"jn" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
-/area/centcom/control)
 "jo" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -3730,7 +3727,7 @@
 "rI" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/tile/blue{
-	dir = 4
+	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
@@ -3934,7 +3931,9 @@
 /area/centcom/control)
 "sM" = (
 /obj/item/kirbyplants/random,
-/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "sO" = (
@@ -6187,12 +6186,6 @@
 /mob/living/simple_animal/cow,
 /turf/open/floor/grass,
 /area/centcom/holding)
-"CX" = (
-/obj/machinery/door/airlock/centcom{
-	name = "CentCom"
-	},
-/turf/open/floor/plating,
-/area/centcom/control)
 "CY" = (
 /obj/structure/chair{
 	dir = 1
@@ -18289,7 +18282,7 @@ ZT
 ZZ
 ZZ
 ZU
-sn
+wW
 WY
 gy
 Zw
@@ -18546,9 +18539,9 @@ ZT
 ZZ
 ZZ
 ZU
-gY
+ev
 jo
-uo
+ut
 gI
 hk
 hN
@@ -18803,7 +18796,7 @@ ZT
 ZU
 ZU
 KJ
-sn
+wW
 jo
 gy
 Zw
@@ -19060,9 +19053,9 @@ ZT
 cu
 cI
 uo
-sn
+WY
 jo
-uo
+ut
 KJ
 Zw
 Zw
@@ -19316,10 +19309,10 @@ ZT
 ZT
 cu
 iv
-dn
-sn
+WY
+WY
 jo
-uo
+WY
 Zw
 uF
 uF
@@ -19574,7 +19567,7 @@ co
 cu
 cN
 ut
-sn
+WY
 jo
 uo
 Zw
@@ -20085,9 +20078,9 @@ ZT
 ZT
 ZT
 ZT
-ZZ
-ZZ
-ZU
+Zw
+pM
+Zw
 sn
 ey
 WY
@@ -20342,9 +20335,9 @@ ZT
 ZT
 ZT
 ZT
-ZZ
-ZZ
-ZU
+Zw
+uF
+Zw
 el
 eR
 gA
@@ -20367,11 +20360,11 @@ ZZ
 ZZ
 ZZ
 ZU
-CI
+Yv
 Es
 Yr
 Es
-CI
+Yv
 ZU
 ZZ
 ZZ
@@ -20599,9 +20592,9 @@ ZT
 ZT
 ZT
 ZT
-ZZ
-ZZ
-ZU
+Zw
+fr
+Zw
 wW
 fl
 WY
@@ -20858,7 +20851,7 @@ ZT
 ZT
 ZU
 ZU
-ZU
+KJ
 ev
 jY
 ut
@@ -21116,13 +21109,13 @@ ZT
 cu
 cI
 uo
-wW
+WY
 jY
 ut
 Zw
 uF
 uF
-Zw
+ZU
 ke
 yX
 nQ
@@ -21138,11 +21131,11 @@ ZU
 ZZ
 ZZ
 ZU
-CI
+Yv
 Es
 Yr
 Es
-CI
+Yv
 ZU
 ZZ
 ZZ
@@ -21372,14 +21365,14 @@ ZT
 ZT
 cu
 iv
-fr
-wW
+WY
+WY
 jY
-ut
+WY
 Zw
 Gh
 uF
-Zw
+ZU
 Xu
 Xu
 Xu
@@ -21630,9 +21623,9 @@ ZT
 cu
 cN
 ut
-wW
+WY
 jY
-ut
+uo
 ZU
 Zw
 Zw
@@ -21652,11 +21645,11 @@ pb
 vm
 xl
 Ay
-CI
+Yv
 Yr
 Yr
 Yr
-CI
+Yv
 ZU
 ZZ
 ZZ
@@ -21886,10 +21879,10 @@ ZT
 ZT
 ZU
 ZU
-ZU
-wW
+KJ
+sn
 jY
-ut
+uo
 ZU
 jk
 nn
@@ -21909,11 +21902,11 @@ ZR
 WY
 Hw
 AD
-CX
+Go
 Yr
 Yr
 Yr
-CX
+Go
 ZU
 ZZ
 ZZ
@@ -22144,9 +22137,9 @@ ZT
 ZZ
 ZZ
 ZU
-WY
+sn
 jY
-ut
+uo
 Zw
 Xu
 Xu
@@ -22166,11 +22159,11 @@ pb
 vU
 Ai
 Bp
-CI
+Yv
 Yr
 Yr
 Yr
-CI
+Yv
 ZU
 ZZ
 ZZ
@@ -22401,9 +22394,9 @@ ZT
 ZZ
 ZZ
 ZU
-jn
+dL
 jY
-ut
+uo
 gQ
 Xu
 Xu
@@ -22658,9 +22651,9 @@ ZT
 ZZ
 ZZ
 ZU
-WY
+sn
 jY
-ut
+uo
 Zw
 Xu
 Xu
@@ -22680,11 +22673,11 @@ ZU
 ZZ
 ZZ
 ZU
-CI
+Yv
 Es
 Yr
 Es
-CI
+Yv
 ZU
 ZZ
 ZZ
@@ -23444,7 +23437,7 @@ Xn
 Xn
 Zw
 WY
-WY
+gY
 Po
 ZU
 ZZ
@@ -23687,11 +23680,11 @@ ZZ
 ZZ
 Qm
 WY
-XX
-XX
-XX
-XX
-XX
+gY
+gY
+gY
+gY
+gY
 WY
 aJ
 WY
@@ -23701,7 +23694,7 @@ WY
 WY
 aJ
 WY
-WY
+gY
 WY
 Qm
 ZZ
@@ -23958,7 +23951,7 @@ WY
 GZ
 Zw
 WY
-WY
+gY
 WY
 ZU
 ZZ
@@ -25377,7 +25370,7 @@ fX
 dS
 cd
 NY
-UJ
+dn
 an
 Uf
 Uf
