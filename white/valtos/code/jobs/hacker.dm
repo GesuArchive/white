@@ -288,7 +288,7 @@
 	invocation_type = "whisper"
 	school = "evocation"
 	sound = 'white/valtos/sounds/hacker_heal.ogg'
-	action_icon_state = "spike"
+	action_icon_state = "thrownlightning"
 	var/list/allowed_items = list(/obj/item/stack/sheet/metal,\
 								  /obj/item/stack/sheet/glass,\
 								  /obj/item/stack/sheet/plasteel,\
