@@ -1930,8 +1930,9 @@
 /area/awaymission/chilly/facility2)
 "fG" = (
 /obj/structure/spider/stickyweb,
-/obj/structure/spider/eggcluster,
-/obj/effect/decal/cleanable/blood/gibs/old,
+/obj/structure/spider/cocoon,
+/obj/effect/mob_spawn/human/corpse/damaged/chilly,
+/obj/item/grenade/syndieminibomb,
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
 /area/awaymission/chilly/cave)
 "fH" = (
@@ -6458,12 +6459,6 @@
 /obj/effect/light_emitter,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
-"sX" = (
-/obj/structure/spider/stickyweb,
-/obj/structure/spider/eggcluster,
-/obj/effect/decal/remains/human,
-/turf/open/floor/plating/asteroid/snow/ice/oxy,
-/area/awaymission/chilly/cave)
 "sY" = (
 /obj/structure/noticeboard,
 /turf/closed/wall/ice,
@@ -6711,11 +6706,6 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility2)
-"tH" = (
-/obj/structure/spider/stickyweb,
-/obj/structure/spider/eggcluster,
-/turf/open/floor/plating/asteroid/snow/ice/oxy,
-/area/awaymission/chilly/mountain)
 "tI" = (
 /obj/structure/spider/stickyweb,
 /mob/living/simple_animal/hostile/poison/giant_spider/hunter/ice,
@@ -8241,10 +8231,6 @@
 	},
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
-"yf" = (
-/obj/structure/spider/eggcluster,
-/turf/open/floor/plating/asteroid/snow/ice/oxy,
-/area/awaymission/chilly/cave)
 "yg" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/closet/crate,
@@ -9550,7 +9536,6 @@
 /area/awaymission/chilly/facility2)
 "BL" = (
 /obj/structure/spider/stickyweb,
-/obj/structure/spider/eggcluster,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/decal/remains/xeno,
@@ -9725,11 +9710,6 @@
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
-"Ci" = (
-/obj/structure/spider/stickyweb,
-/mob/living/simple_animal/hostile/poison/giant_spider/hunter/ice,
-/turf/open/floor/plating/asteroid/snow/ice/oxy,
-/area/awaymission/chilly/mountain)
 "Cj" = (
 /obj/structure/lattice,
 /obj/effect/turf_decal/dust,
@@ -9742,11 +9722,6 @@
 	},
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility)
-"Cl" = (
-/obj/structure/spider/eggcluster,
-/obj/effect/decal/remains/human,
-/turf/open/floor/plating/asteroid/snow/ice/oxy,
-/area/awaymission/chilly/cave)
 "Cm" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/plasticflaps/opaque,
@@ -13835,12 +13810,6 @@
 /obj/effect/turf_decal/weather/side,
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
 /area/awaymission/chilly/facility2)
-"OK" = (
-/obj/structure/spider/stickyweb,
-/mob/living/simple_animal/hostile/poison/giant_spider/hunter/ice,
-/obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/plating/asteroid/snow/ice/oxy,
-/area/awaymission/chilly/mountain)
 "OL" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 10
@@ -14411,12 +14380,6 @@
 /obj/item/clothing/glasses/sunglasses,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
-"Qv" = (
-/obj/structure/spider/stickyweb,
-/obj/structure/spider/eggcluster,
-/obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/plating/asteroid/snow/ice/oxy,
-/area/awaymission/chilly/cave)
 "Qw" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/fulltile/ice,
@@ -16958,7 +16921,7 @@
 /obj/structure/spider/eggcluster,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
-/area/awaymission/chilly/mountain)
+/area/awaymission/chilly/cave)
 "XN" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood/gibs/old,
@@ -17008,7 +16971,7 @@
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
-/area/awaymission/chilly/mountain)
+/area/awaymission/chilly/cave)
 "XU" = (
 /obj/structure/grille,
 /turf/open/floor/plating,
@@ -58508,13 +58471,13 @@ Pr
 ko
 Pr
 Pr
-cu
+aG
 Pr
 Pr
 hs
 Pr
-cu
-oJ
+aG
+Pr
 dB
 dB
 dB
@@ -58716,7 +58679,7 @@ Pr
 pC
 Pr
 Pr
-cu
+aG
 dB
 dB
 dB
@@ -58915,8 +58878,8 @@ vV
 aG
 aG
 Pr
-hO
 fG
+qj
 Pr
 Pr
 cu
@@ -59109,7 +59072,7 @@ ag
 aG
 aG
 zl
-yf
+YU
 Pr
 Pr
 aG
@@ -59310,7 +59273,7 @@ BB
 ag
 aG
 aG
-Qv
+dH
 dQ
 Pr
 aG
@@ -60131,9 +60094,9 @@ aG
 Pr
 lJ
 yi
-AJ
+TQ
 uv
-Qv
+dH
 Pr
 dB
 oJ
@@ -60325,7 +60288,7 @@ HZ
 Pr
 aG
 vU
-AJ
+TQ
 Us
 BL
 tI
@@ -60934,7 +60897,7 @@ uv
 NP
 DV
 Ks
-sX
+lm
 aG
 aG
 LW
@@ -61336,7 +61299,7 @@ qu
 Tk
 HZ
 HZ
-Cl
+GM
 aG
 aG
 Pr
@@ -61949,7 +61912,7 @@ uv
 Km
 uv
 Pr
-AJ
+TQ
 BX
 Pr
 Pr
@@ -62150,7 +62113,7 @@ dH
 Pr
 Pr
 mN
-hs
+lB
 mN
 Pr
 Pr
@@ -62749,7 +62712,7 @@ aG
 Pr
 Pr
 Pr
-OK
+sM
 Pr
 Pr
 aG
@@ -62951,7 +62914,7 @@ Pr
 Pr
 Pr
 Pr
-tH
+TQ
 Pr
 Pr
 Pr
@@ -63154,7 +63117,7 @@ Pr
 Pr
 Pr
 XT
-tH
+TQ
 Pr
 Pr
 cu
@@ -63357,7 +63320,7 @@ cu
 Pr
 Pr
 XM
-Ci
+tI
 Pr
 cu
 Pr
