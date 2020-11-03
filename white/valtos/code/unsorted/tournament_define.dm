@@ -118,3 +118,31 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 	l_pocket = /obj/item/ammo_box/magazine/recharge/ctf
 	r_pocket = /obj/item/ammo_box/magazine/recharge/ctf
 	r_hand = /obj/item/gun/ballistic/automatic/laser/ctf
+
+/client/verb/clicker_panel()
+	set name = "Панель кликеров"
+	set category = "Особенное"
+
+	var/datum/clicker_panel/S = new
+
+	if(S)
+		S.ui_interact(src.mob)
+
+/datum/clicker_panel/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "ClickerPanel")
+		ui.open()
+
+/datum/clicker_panel/ui_status(mob/user)
+	return UI_INTERACTIVE
+
+/datum/clicker_panel/ui_data(mob/user)
+
+	var/list/data = list()
+
+	for(var/client/C in GLOB.clients)
+		data["clickers"] += list(list("id" = C.ckey, "cps" = C.clicklimiter[SECOND_COUNT], "cpm" = C.clicklimiter[CURRENT_MINUTE]))
+
+	return data
+
