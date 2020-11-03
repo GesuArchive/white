@@ -26,9 +26,9 @@ export const ClickerPanel = (props, context) => {
             </Table.Cell>
           </Table.Row>
           {clickers.map(negr => (
-            <tr key={negr.ckey} className="Table__row candystripe">
+            <tr key={negr.id} className="Table__row candystripe">
               <td className="Table__cell text-center text-nowrap">
-                {negr.ckey}
+                {negr.id}
               </td>
               <td className="Table__cell text-center text-nowrap">
                 {negr.cps}

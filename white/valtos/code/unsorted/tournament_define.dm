@@ -142,7 +142,7 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 	var/list/data = list()
 
 	for(var/client/C in GLOB.clients)
-		data["clickers"] += list(list("id" = C.ckey, "cps" = C.clicklimiter[SECOND_COUNT], "cpm" = C.clicklimiter[CURRENT_MINUTE]))
+		data["clickers"] += list(list("id" = C.ckey, "cps" = C.clicklimiter[SECOND_COUNT], "cpm" = C.clicklimiter[MINUTE_COUNT]))
 
 	return data
 
