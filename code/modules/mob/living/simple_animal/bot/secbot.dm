@@ -280,16 +280,17 @@ Auto Patrol: []"},
 		back_to_idle()
 
 /mob/living/simple_animal/bot/secbot/proc/stun_attack(mob/living/carbon/C, harm = FALSE)
+
+	if(prob(35))
+		C.visible_message("<span class='danger'><b>[capitalize(src.name)]</b> промахивается, пытаясь ударить <b>[C]</b>!</span>",\
+								"<span class='userdanger'>[capitalize(src.name)] промахивается пытаясь ударить меня!</span>")
+		return FALSE
+
 	var/judgement_criteria = judgement_criteria()
 	playsound(src, 'sound/weapons/egloves.ogg', 50, TRUE, -1)
 	icon_state = "[initial(icon_state)]-c"
 	addtimer(CALLBACK(src, /atom/.proc/update_icon), 2)
 	var/threat = 5
-
-	if(prob(15))
-		C.visible_message("<span class='danger'><b>[capitalize(src.name)]</b> промахивается, пытаясь ударить <b>[C]</b>!</span>",\
-								"<span class='userdanger'>[capitalize(src.name)] промахивается пытаясь ударить меня!</span>")
-		return FALSE
 
 	if(harm)
 		weapon.attack(C, src)
