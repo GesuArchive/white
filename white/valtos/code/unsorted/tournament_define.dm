@@ -14,7 +14,7 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 
 	to_chat(world, "\n\n<span class='revenbignotice'><center>Турнирный режим теперь <b>[GLOB.is_tournament_rules ? "ВКЛЮЧЕН" : "ОТКЛЮЧЕН"]</b>.</center></span>\n\n")
 	message_admins("[ADMIN_LOOKUPFLW(usr)] переключает режимммм турнира в положение [GLOB.is_tournament_rules ? "ВКЛ" : "ВЫКЛ"].")
-	log_admin("[key_name(usr)] переключает режимммм турнира [GLOB.is_tournament_rules ? "ВКЛ" : "ВЫКЛ"].")
+	log_admin("[key_name(usr)] переключает режимммм турнира в положение [GLOB.is_tournament_rules ? "ВКЛ" : "ВЫКЛ"].")
 
 // Турнирные предметы
 
@@ -81,7 +81,7 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 	r_hand = /obj/item/gun/ballistic/automatic/pistol
 	back = /obj/item/storage/backpack
 
-	backpack_contents = (/obj/item/ammo_box/magazine/m9mm = 5)
+	backpack_contents = list(/obj/item/ammo_box/magazine/m9mm = 5)
 
 /datum/outfit/whiterobust/ass/bat
 	name = "Ассистуха + Бита"
@@ -91,7 +91,7 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 
 	back = /obj/item/storage/backpack
 
-	backpack_contents = (/obj/item/crowbar = 1)
+	backpack_contents = list(/obj/item/crowbar = 1)
 
 /datum/outfit/whiterobust/ass/revolver
 	name = "Ассистуха + Револьвер"
