@@ -1349,6 +1349,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			else
 				miss_chance = min((user.dna.species.punchdamagehigh/user.dna.species.punchdamagelow) + user.getStaminaLoss() + (user.getBruteLoss()*0.5), 100) //old base chance for a miss + various damage. capped at 100 to prevent weirdness in prob()
 
+		if(GLOB.is_tournament_rules)
+			damage = 5
+			miss_chance = 0
+
 		if(!damage || !affecting || prob(miss_chance))//future-proofing for species that have 0 damage/weird cases where no zone is targeted
 			playsound(target.loc, user.dna.species.miss_sound, 25, TRUE, -1)
 			target.visible_message("<span class='danger'>[user] [atk_verb_ru] мимо [target]!</span>",\

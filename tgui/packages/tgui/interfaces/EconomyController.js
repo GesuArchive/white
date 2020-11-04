@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Box, Flex, TextArea, Button, LabeledList, Section, NumberInput } from '../components';
+import { Box, Flex, Button, LabeledList, Section, NumberInput } from '../components';
 import { Window } from '../layouts';
 
 export const EconomyController = (props, context) => {
@@ -60,16 +60,15 @@ export const EconomyController = (props, context) => {
             </Section>
           </Flex.Item>
           <Flex.Item width="80%" grow={1} m={1}>
-            <Section title="Аккаунты">
-              <LabeledList
-                overflowY="scroll"
-                height="185px">
-                {accounts.map(bbb => (
-                  <LabeledList.Item key={bbb.id} label={bbb.id}>
-                    {bbb.name} - {bbb.balance}
-                  </LabeledList.Item>
-                ))}
-              </LabeledList>
+            <Section
+              title="Аккаунты"
+              overflowY="scroll"
+              height="185px">
+              {accounts.map(bbb => (
+                <Box key={bbb.id} className="candystripe">
+                  {bbb.id} - {bbb.name} - {bbb.balance}
+                </Box>
+              ))}
             </Section>
           </Flex.Item>
         </Flex>

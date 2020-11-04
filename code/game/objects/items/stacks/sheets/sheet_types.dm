@@ -709,18 +709,6 @@ new /datum/stack_recipe("paper frame door", /obj/structure/mineral_door/paperfra
 /obj/item/stack/sheet/paperframes/fifty
 	amount = 50
 
-/obj/item/stack/sheet/capitalisium
-	name = "лист капиталиниума"
-	desc = "Источник чистого капитализма, способный породить предсказанного Капиталистического Голема."
-	icon_state = "sheet-capitalisium"
-	merge_type = /obj/item/stack/sheet/capitalisium
-
-/obj/item/stack/sheet/stalinium
-	name = "лист сталиниума"
-	desc = "Источник чистого социализма, способный породить предсказанного Советского Голема."
-	icon_state = "sheet-stalinium"
-	merge_type = /obj/item/stack/sheet/stalinium
-
 /obj/item/stack/sheet/meat
 	name = "листы мяса"
 	desc = "Чье-то окровавленное мясо, спресованное в неплохой твердый лист."

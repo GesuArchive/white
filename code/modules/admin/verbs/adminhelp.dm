@@ -212,7 +212,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		var/admin_number_present = send2tgs_adminless_only(initiator_ckey, "Ticket #[id]: [msg]")
 		log_admin_private("Ticket #[id]: [key_name(initiator)]: [name] - heard by [admin_number_present] non-AFK admins who have +BAN.")
 		if(admin_number_present <= 0)
-			to_chat(C, "<span class='notice'>No active admins are online, your adminhelp was sent through TGS to admins who are available. This may use IRC or Discord.</span>", confidential = TRUE)
+			to_chat(C, "<span class='notice'>Нет активных администраторов на сервере. Спрашивайте в Discord.</span>", confidential = TRUE)
 			heard_by_no_admins = TRUE
 	GLOB.ahelp_tickets.active_tickets += src
 
@@ -286,18 +286,18 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	//show it to the person adminhelping too
 	to_chat(initiator,
 		type = MESSAGE_TYPE_ADMINPM,
-		html = "<span class='adminnotice'>PM to-<b>Admins</b>: <span class='linkify'>[msg]</span></span>",
+		html = "<span class='adminnotice'>Сообщение для <b>администраторов</b>: <span class='linkify'>[msg]</span></span>",
 		confidential = TRUE)
 	SSblackbox.LogAhelp(id, "Ticket Opened", msg, null, initiator.ckey)
 
 //Reopen a closed ticket
 /datum/admin_help/proc/Reopen()
 	if(state == AHELP_ACTIVE)
-		to_chat(usr, "<span class='warning'>This ticket is already open.</span>", confidential = TRUE)
+		to_chat(usr, "<span class='warning'>Запрос уже открыт.</span>", confidential = TRUE)
 		return
 
 	if(GLOB.ahelp_tickets.CKey2ActiveTicket(initiator_ckey))
-		to_chat(usr, "<span class='warning'>This user already has an active ticket, cannot reopen this one.</span>", confidential = TRUE)
+		to_chat(usr, "<span class='warning'>Этот пользователь уже имеет открытый тикет.</span>", confidential = TRUE)
 		return
 
 	statclick = new(null, src)
@@ -358,7 +358,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	addtimer(CALLBACK(initiator, /client/proc/giveadminhelpverb), 50)
 
 	AddInteraction("<font color='green'>Resolved by [key_name].</font>")
-	to_chat(initiator, "<span class='adminhelp'>Your ticket has been resolved by an admin. The Adminhelp verb will be returned to you shortly.</span>", confidential = TRUE)
+	to_chat(initiator, "\n<span class='adminhelp'>Вопрос был разрешён администратором. Можете спрашивать ещё, при желании.</span>\n", confidential = TRUE)
 	if(!silent)
 		SSblackbox.record_feedback("tally", "ahelp_stats", 1, "resolved")
 		var/msg = "Ticket [TicketHref("#[id]")] resolved by [key_name]"
@@ -376,7 +376,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 
 		SEND_SOUND(initiator, sound('sound/effects/rejt.ogg'))
 
-		to_chat(initiator, "<font color='red' size='4'><b>- AdminHelp Rejected! -</b></font>", confidential = TRUE)
+		to_chat(initiator, "<font color='red' size='4'><b>- Запрос отклонён! -</b></font>", confidential = TRUE)
 		to_chat(initiator, "<font color='red'><b>Ваш запрос отклонён.</b> Попробуй ещё раз.</font>", confidential = TRUE)
 		to_chat(initiator, "Пожалуйста, успокойтесь. Администратор возможно не видел какие-либо события связанные с раундом, поэтому распишите проблему более подробно и также четко указывайте имена тех, о ком вы сообщаете.", confidential = TRUE)
 
@@ -393,8 +393,8 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	if(state != AHELP_ACTIVE)
 		return
 
-	var/msg = "<font color='red' size='4'><b>- AdminHelp marked as IC issue! -</b></font><br>"
-	msg += "<font color='red'>Your issue has been determined by an administrator to be an in character issue and does NOT require administrator intervention at this time. For further resolution you should pursue options that are in character.</font>"
+	var/msg = "<font color='red' size='4'><b>- Отмечено как внутриигровая ситуация! -</b></font><br>"
+	msg += "<font color='red'>Ваша проблема была определена администратором как внутриигровая ситуация и в настоящее время НЕ требует вмешательства администратора. Для дальнейшего решения вам следует использовать варианты, которые соответствуют ситуации в игре.</font>"
 
 	if(initiator)
 		SEND_SOUND(initiator, sound('sound/effects/rejt.ogg'))
@@ -505,14 +505,14 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 
 // Used for methods where input via arg doesn't work
 /client/proc/get_adminhelp()
-	var/msg = input(src, "Please describe your problem concisely and an admin will help as soon as they're able.", "Adminhelp contents") as message|null
+	var/msg = input(src, "Опишите вашу проблему или вопрос максимально подробно.", "Ахелп") as message|null
 	adminhelp(msg)
 
 /client/verb/adminhelp_wrapper()
 	set category = "Адм"
 	set name = "❗ Adminhelp"
 
-	var/msg = input(src, "Please describe your problem concisely and an admin will help as soon as they're able.", "Adminhelp contents") as message|null
+	var/msg = input(src, "Опишите вашу проблему или вопрос максимально подробно.", "Ахелп") as message|null
 	if(msg)
 		adminhelp(msg)
 
@@ -521,12 +521,12 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	set hidden = 1
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Speech is currently admin-disabled.</span>", confidential = TRUE)
+		to_chat(usr, "<span class='danger'>Пока нельзя...</span>", confidential = TRUE)
 		return
 
 	//handle muting and automuting
 	if(prefs.muted & MUTE_ADMINHELP)
-		to_chat(src, "<span class='danger'>Error: Admin-PM: You cannot send adminhelps (Muted).</span>", confidential = TRUE)
+		to_chat(src, "<span class='danger'>Ошибка незакрытого ебальника. Закройте ебальник. Закройте ебальник.</span>", confidential = TRUE)
 		return
 	if(handle_spam_prevention(msg,MUTE_ADMINHELP))
 		return
@@ -542,7 +542,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		current_ticket.TimeoutVerb()
 
 	if(ckey in GLOB.petushiniy_list)
-		to_chat(src, "<span class='notice'>PM to-<b>Admins</b>: <span class='linkify'>[msg]</span></span>", confidential = TRUE)
+		to_chat(src, "<span class='notice'>Сообщение для <b>администраторов</b>: <span class='linkify'>[msg]</span></span>", confidential = TRUE)
 		return
 
 	new /datum/admin_help(msg, src, FALSE)

@@ -119,6 +119,8 @@
 /datum/component/soundplayer_listener/proc/update_sound()
 	if(qdel_check())
 		return
+	if(!(listener?.client?.prefs?.w_toggles & SOUND_JUKEBOX))
+		return
 	var/sound/S = get_player_sound()
 	if(!S)
 		S = myplayer.cursound
