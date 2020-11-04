@@ -13,13 +13,7 @@
 	new /datum/clicker_panel(usr)
 
 /datum/sound_panel/New(user)
-	if (istype(user,/client))
-		var/client/user_client = user
-		holder = user_client
-	else
-		var/mob/user_mob = user
-		holder = user_mob.client
-	ui_interact(holder.mob)
+	ui_interact(user)
 
 /datum/sound_panel/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

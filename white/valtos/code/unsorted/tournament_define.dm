@@ -126,13 +126,7 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 	new /datum/clicker_panel(usr)
 
 /datum/clicker_panel/New(user)
-	if (istype(user,/client))
-		var/client/user_client = user
-		holder = user_client
-	else
-		var/mob/user_mob = user
-		holder = user_mob.client
-	ui_interact(holder.mob)
+	ui_interact(user)
 
 /datum/clicker_panel/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
