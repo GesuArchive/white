@@ -123,10 +123,16 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 	set name = "Панель кликеров"
 	set category = "Особенное"
 
-	var/datum/clicker_panel/S = new
+	new /datum/clicker_panel(usr)
 
-	if(S)
-		S.ui_interact(src.mob)
+/datum/clicker_panel/New(user)
+	if (istype(user,/client))
+		var/client/user_client = user
+		holder = user_client
+	else
+		var/mob/user_mob = user
+		holder = user_mob.client
+	ui_interact(holder.mob)
 
 /datum/clicker_panel/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -141,7 +147,8 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 
 	var/list/data = list()
 
-	for(var/client/C in GLOB.clients)
+	for(var/A in GLOB.clients)
+		var/client/C = GLOB.clients[A]
 		data["clickers"] += list(list("id" = C.ckey, "cps" = C.clicklimiter[SECOND_COUNT], "cpm" = C.clicklimiter[MINUTE_COUNT]))
 
 	return data

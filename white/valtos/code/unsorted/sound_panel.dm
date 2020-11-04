@@ -10,10 +10,16 @@
 	set name = " ! Настройка звука"
 	set category = "Настройки"
 
-	var/datum/sound_panel/S = new
+	new /datum/clicker_panel(usr)
 
-	if(S)
-		S.ui_interact(src.mob)
+/datum/sound_panel/New(user)
+	if (istype(user,/client))
+		var/client/user_client = user
+		holder = user_client
+	else
+		var/mob/user_mob = user
+		holder = user_mob.client
+	ui_interact(holder.mob)
 
 /datum/sound_panel/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
