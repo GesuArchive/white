@@ -10,7 +10,7 @@
 	set name = " ! Настройка звука"
 	set category = "Настройки"
 
-	new /datum/clicker_panel(usr)
+	new /datum/sound_panel(usr)
 
 /datum/sound_panel/New(user)
 	ui_interact(user)
