@@ -770,3 +770,23 @@
 /obj/item/clothing/mask/boroda/curse/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_MASK_TRAIT)
+
+/obj/item/storage/belt/chameleon/bomb
+
+/obj/item/storage/belt/chameleon/bomb/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_items = 2
+	STR.max_w_class = WEIGHT_CLASS_BULKY
+	STR.set_holdable(list(
+		/obj/item/transfer_valve,
+		/obj/item/assembly_holder
+		))
+
+/datum/uplink_item/device_tools/bombbelt
+	name = "Bomb belt"
+	desc = "Особый пояс для хранения и переноса бомб, возможно использование в качестве пояса шахида."
+	item = /obj/item/storage/belt/chameleon/bomb
+	cost = 8
+
+
