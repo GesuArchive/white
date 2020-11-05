@@ -149,15 +149,18 @@ SUBSYSTEM_DEF(title)
 		for(var/i in GLOB.new_player_list)
 			var/mob/dead/new_player/player = i
 			if(player.ready == PLAYER_READY_TO_PLAY)
-				caa += "\t[player.mind.assigned_role] - <b>[player.key]</b>"
+				caa += " - <b>[player.key]</b>"
 			else
-				cum += "\t[player.key]"
+				cum += " - [player.key]"
 		for(var/line in GLOB.whitelist)
 			cum += "\t[line]"
-		tcc += "<big>Готовы:</big></br>"
-		for(var/line in sortList(caa))
-			tcc += "[line]</br>"
-		tcc += "</br></br><big>Не готовы:</big></br>"
+		if(SSticker.state == GAME_STATE_PREGAME)
+			tcc += "<big>Готовы:</big></br>"
+			for(var/line in sortList(caa))
+				tcc += "[line]</br>"
+			tcc += "</br></br><big>Не готовы:</big></br>"
+		else
+			tcc += "</br></br><big>Лобби:</big></br>"
 		for(var/line in sortList(cum))
 			tcc += "[line]</br>"
 		ctt = tcc
