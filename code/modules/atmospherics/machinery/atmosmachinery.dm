@@ -49,7 +49,7 @@
 	if(is_type_in_list(src, GLOB.ventcrawl_machinery) && isliving(user))
 		var/mob/living/L = user
 		if(L.ventcrawler)
-			. += "<hr><span class='notice'>Alt-click to crawl through it.</span>"
+			. += "<hr><span class='notice'>Alt-клик, чтобы заползти в вентиляцию.</span>"
 
 /obj/machinery/atmospherics/New(loc, process = TRUE, setdir)
 	if(!isnull(setdir))
@@ -199,17 +199,17 @@
 	var/unsafe_wrenching = FALSE
 	var/internal_pressure = int_air.return_pressure()-env_air.return_pressure()
 
-	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
+	to_chat(user, "<span class='notice'>Начинаю откручивать [src.name]...</span>")
 
 	if (internal_pressure > 2*ONE_ATMOSPHERE)
-		to_chat(user, "<span class='warning'>Начинаю откручивать [src], попутно ощущая сильный поток воздуха... может стоит ПЕРЕДУМАТЬ?</span>")
+		to_chat(user, "<span class='warning'>Начинаю откручивать [src.name], попутно ощущая сильный поток воздуха... может стоит ПЕРЕДУМАТЬ?</span>")
 		unsafe_wrenching = TRUE //Oh dear oh dear
 
 	if(I.use_tool(src, user, 20, volume=50))
 		user.visible_message( \
-			"[user] unfastens \the [src].", \
-			"<span class='notice'>You unfasten \the [src].</span>", \
-			"<span class='hear'>You hear ratchet.</span>")
+			"[user] откручивает [src.name].", \
+			"<span class='notice'>Откручиваю [src.name].</span>", \
+			"<span class='hear'>Слышу трещотку.</span>")
 		investigate_log("was <span class='warning'>REMOVED</span> by [key_name(usr)]", INVESTIGATE_ATMOS)
 
 		//You unwrenched a pipe full of pressure? Let's splat you into the wall, silly.
@@ -230,7 +230,7 @@
 		var/datum/gas_mixture/env_air = loc.return_air()
 		pressures = int_air.return_pressure() - env_air.return_pressure()
 
-	user.visible_message("<span class='danger'>[user] is sent flying by pressure!</span>","<span class='userdanger'>The pressure sends you flying!</span>")
+	user.visible_message("<span class='danger'>Мощный поток воздуха отправляет <b>[user]</b> полетать!</span>","<span class='userdanger'>ВОТ ЭТО НАПОР!</span>")
 
 	// if get_dir(src, user) is not 0, target is the edge_target_turf on that dir
 	// otherwise, edge_target_turf uses a random cardinal direction
@@ -305,7 +305,7 @@
 		if(target_move.can_crawl_through())
 			if(is_type_in_typecache(target_move, GLOB.ventcrawl_machinery))
 				user.forceMove(target_move.loc) //handle entering and so on.
-				user.visible_message("<span class='notice'>You hear something squeezing through the ducts...</span>", "<span class='notice'>You climb out the ventilation system.</span>")
+				user.visible_message("<span class='notice'>Что-то ползает по трубам...</span>", "<span class='notice'>Забираюсь в вентиляцию.</span>")
 			else
 				var/list/pipenetdiff = returnPipenets() ^ target_move.returnPipenets()
 				if(pipenetdiff.len)
@@ -317,7 +317,7 @@
 					playsound(src, 'sound/machines/ventcrawl.ogg', 50, TRUE, -3)
 	else if(is_type_in_typecache(src, GLOB.ventcrawl_machinery) && can_crawl_through()) //if we move in a way the pipe can connect, but doesn't - or we're in a vent
 		user.forceMove(loc)
-		user.visible_message("<span class='notice'>You hear something squeezing through the ducts...</span>", "<span class='notice'>You climb out the ventilation system.</span>")
+		user.visible_message("<span class='notice'>Что-то ползает по трубам...</span>", "<span class='notice'>Выползаю из вентиляции.</span>")
 
 	//PLACEHOLDER COMMENT FOR ME TO READD THE 1 (?) DS DELAY THAT WAS IMPLEMENTED WITH A... TIMER?
 
