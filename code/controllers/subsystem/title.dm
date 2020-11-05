@@ -143,22 +143,28 @@ SUBSYSTEM_DEF(title)
 /datum/controller/subsystem/title/proc/uplayers()
 	if(enabled_shit && game_loaded)
 		var/list/caa = list()
+		var/list/cum = list()
 		ctt = ""
 		var/tcc = ""
-		for(var/client/C in GLOB.clients)
-			if (C.holder)
-				caa += "\t#> USER <b>[C.key]</b> ONLINE"
+		for(var/i in GLOB.new_player_list)
+			var/mob/dead/new_player/player = i
+			if(player.ready == PLAYER_READY_TO_PLAY)
+				caa += "\t[player.mind.assigned_role] - <b>[C.key]</b>"
 			else
-				caa += "\t@> USER [C.key] ONLINE"
+				cum += "\t[C.key]"
 		for(var/line in GLOB.whitelist)
-			caa += "@> USER [line] ONLINE"
+			cum += "\t[line]"
+		tcc += "<big>Готовы:</big></br>"
 		for(var/line in sortList(caa))
+			tcc += "[line]</br>"
+		tcc += "</br></br><big>Не готовы:</big></br>"
+		for(var/line in sortList(cum))
 			tcc += "[line]</br>"
 		ctt = tcc
 		for(var/mob/dead/new_player/D in GLOB.new_player_list)
 			if(D?.client?.lobbyscreen_image)
 				D.client.clear_lobby()
-				D.client.send_to_lobby_console(ctt)
+				D.client.send_to_lobby_console_now(ctt)
 
 /datum/controller/subsystem/title/proc/afterload()
 	// do nothing

@@ -23,6 +23,10 @@
 /client/proc/send_to_lobby_console(msg)
 	src << output(msg, "lobbyprotoc:set_cons")
 
+/client/proc/send_to_lobby_console_now(msg)
+	src << output(msg, "lobbyprotoc:set_cons_now")
+
+
 /client/proc/show_lobby()
 	lobbyscreen_image.show_titlescreen(src)
 
