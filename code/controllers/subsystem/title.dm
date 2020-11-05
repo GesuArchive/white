@@ -149,9 +149,9 @@ SUBSYSTEM_DEF(title)
 		for(var/i in GLOB.new_player_list)
 			var/mob/dead/new_player/player = i
 			if(player.ready == PLAYER_READY_TO_PLAY)
-				caa += "\t[player.mind.assigned_role] - <b>[C.key]</b>"
+				caa += "\t[player.mind.assigned_role] - <b>[player.key]</b>"
 			else
-				cum += "\t[C.key]"
+				cum += "\t[player.key]"
 		for(var/line in GLOB.whitelist)
 			cum += "\t[line]"
 		tcc += "<big>Готовы:</big></br>"
