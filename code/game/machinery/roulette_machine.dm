@@ -36,7 +36,7 @@
 	"22" = "black", "24" = "black", "26" = "black", "28" = "black", "29" = "black", "31" = "black", "33" = "black", "35" = "black")
 
 	var/chosen_bet_amount = 10
-	var/chosen_bet_type = "0"
+	var/chosen_bet_type = ROULETTE_BET_ODD
 	var/last_anti_spam = 0
 	var/anti_spam_cooldown = 20
 	var/obj/item/card/id/my_card
