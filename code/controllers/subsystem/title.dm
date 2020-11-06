@@ -149,11 +149,11 @@ SUBSYSTEM_DEF(title)
 		for(var/i in GLOB.new_player_list)
 			var/mob/dead/new_player/player = i
 			if(player.ready == PLAYER_READY_TO_PLAY)
-				caa += " - <b>[player.key]</b>"
+				caa += "<b>[player.key]</b>"
 			else
-				cum += " - [player.key]"
+				cum += "[player.key]"
 		for(var/line in GLOB.whitelist)
-			cum += " - [line]"
+			cum += "[line]"
 		if(SSticker.current_state == GAME_STATE_PREGAME)
 			tcc += "<big>Готовы:</big></br>"
 			for(var/line in sortList(caa))

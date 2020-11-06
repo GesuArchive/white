@@ -10,7 +10,7 @@ export const ComputerFabricator = (props, context) => {
     <Window
       title="Personal Computer Vendor"
       width={500}
-      height={400}
+      height={410}
       resizable>
       <Window.Content>
         <Section italic fontSize="20px">

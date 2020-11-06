@@ -29,7 +29,7 @@ export const Radio = (props, context) => {
   let height = 106;
   if (subspace) {
     if (channels.length > 0) {
-      height += channels.length * 21 + 6;
+      height += channels.length * 23 + 6;
     }
     else {
       height += 24;
@@ -85,7 +85,7 @@ export const Radio = (props, context) => {
                   ml={1}
                   icon="bullhorn"
                   selected={useCommand}
-                  content={`Высокая громкость ${useCommand ? 'ВКЛ' : 'ВЫКЛ'}`}
+                  content={`Приоритет ${useCommand ? 'ВКЛ' : 'ВЫКЛ'}`}
                   onClick={() => act('command')} />
               )}
               {!!subspaceSwitchable && (

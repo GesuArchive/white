@@ -172,7 +172,7 @@
 		// shuttle timers use 1/10th seconds internally
 		SSshuttle.emergency.setTimer(ENGINES_START_TIME)
 		var/system_error = obj_flags & EMAGGED ? "СИСТЕМНАЯ ОШИБКА:" : null
-		minor_announce("Аварийный шаттл запустится через \
+		minor_announce("Эвакуационный шаттл запустится через \
 			[TIME_LEFT] секунд", system_error, alert=TRUE)
 		. = TRUE
 

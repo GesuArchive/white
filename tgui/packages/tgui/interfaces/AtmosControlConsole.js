@@ -10,7 +10,7 @@ export const AtmosControlConsole = (props, context) => {
   return (
     <Window
       width={500}
-      height={315}
+      height={325}
       resizable>
       <Window.Content scrollable>
         <Section

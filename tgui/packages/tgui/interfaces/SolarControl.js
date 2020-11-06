@@ -17,7 +17,7 @@ export const SolarControl = (props, context) => {
   return (
     <Window
       width={380}
-      height={230}>
+      height={235}>
       <Window.Content>
         <Section
           title="Состояние"
