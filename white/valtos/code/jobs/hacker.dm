@@ -246,7 +246,7 @@
 							target.dust(TRUE,TRUE)
 
 /mob/living/carbon/proc/hackers_immortality()
-	set category = "МАГИЯ"
+	set category = "Хакерство"
 	set name = "Бессмертие"
 
 	var/mob/living/carbon/C = usr
