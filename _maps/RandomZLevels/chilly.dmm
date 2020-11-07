@@ -4244,13 +4244,6 @@
 /obj/item/stack/rods,
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
-"mj" = (
-/obj/structure/table/reinforced,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/open/floor/rospilovo/plitka,
-/area/awaymission/chilly/gatewaystart/base2armory)
 "mk" = (
 /obj/effect/turf_decal/weather/side/corner{
 	dir = 1
@@ -6354,6 +6347,12 @@
 /area/awaymission/chilly/facility2)
 "sg" = (
 /obj/structure/table/reinforced,
+/obj/machinery/recharger{
+	pixel_x = 8
+	},
+/obj/machinery/recharger{
+	pixel_x = -8
+	},
 /turf/open/floor/rospilovo/plitka,
 /area/awaymission/chilly/gatewaystart/base2armory)
 "sh" = (
@@ -6971,6 +6970,10 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility)
+"tR" = (
+/obj/item/storage/belt/chameleon/bomb,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "tS" = (
 /mob/living/simple_animal/hostile/syndicate/ranged/space/stormtrooper,
 /obj/effect/turf_decal/dust,
@@ -7639,6 +7642,9 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/cave)
+"vL" = (
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/chilly/mountain)
 "vM" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/oldvents/variant2,
@@ -16907,10 +16913,13 @@
 /turf/closed/wall/r_wall/rust,
 /area/awaymission/chilly/gatewaystart/base2armory)
 "VQ" = (
-/obj/effect/turf_decal/dust,
-/obj/effect/decal/cleanable/robot_debris/gib,
-/turf/open/floor/plasteel/elevatorshaft,
-/area/awaymission/chilly/facility2)
+/obj/effect/light_emitter{
+	name = "outdoor light";
+	set_cap = 3;
+	set_luminosity = 6
+	},
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/chilly/surface)
 "VR" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -27886,7 +27895,7 @@ Zz
 Zz
 Zz
 Zz
-mj
+sg
 Ns
 Om
 gc
@@ -40221,15 +40230,15 @@ VX
 Om
 Om
 Om
-Om
-Om
-Om
-VX
-Om
-Om
-VX
-Om
-Om
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 Om
 Om
 Om
@@ -40459,21 +40468,21 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 Om
 VX
 Om
@@ -40698,26 +40707,26 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-Om
-Om
-Om
-Om
-Om
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 Om
 Om
 Om
@@ -40937,33 +40946,33 @@ dB
 dB
 dB
 dB
-fn
-Om
-Om
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-Om
-Om
-Om
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
+VQ
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 Om
 Om
 Om
@@ -41180,33 +41189,33 @@ dB
 dB
 dB
 dB
-dB
-Om
-fn
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-SP
-Om
-Om
-Om
-Om
-Om
-Om
+vL
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 Om
 Om
 Om
@@ -41428,29 +41437,29 @@ dB
 dB
 dB
 dB
-fn
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 dB
 dB
 dB
@@ -41674,26 +41683,26 @@ dB
 dB
 dB
 dB
-fn
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-Om
-Om
-Om
+ue
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 dB
 dB
 dB
@@ -41920,22 +41929,22 @@ dB
 dB
 dB
 dB
-fn
-Om
-Om
-Om
-Om
-Om
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+ue
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 dB
 dB
 dB
@@ -42163,20 +42172,20 @@ dB
 dB
 dB
 dB
-Om
-Om
-Om
-fn
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-fn
+YK
+YK
+YK
+VQ
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
+YK
 dB
 dB
 dB
@@ -42412,13 +42421,13 @@ dB
 dB
 dB
 dB
-Om
-fn
-Om
-Om
-Om
-Om
-dB
+YK
+YK
+YK
+YK
+YK
+YK
+vL
 dB
 dB
 dB
@@ -44317,7 +44326,6 @@ dB
 VV
 "}
 (108,1,1) = {"
-VV
 cu
 cu
 cu
@@ -44329,10 +44337,11 @@ cu
 cu
 cu
 cu
-dB
-dB
-dB
-dB
+cu
+cu
+cu
+cu
+cu
 dB
 dB
 dB
@@ -44559,7 +44568,7 @@ dB
 VV
 "}
 (109,1,1) = {"
-VV
+cu
 cu
 cu
 cu
@@ -44801,7 +44810,7 @@ dB
 VV
 "}
 (110,1,1) = {"
-VV
+cu
 cu
 cu
 cu
@@ -45043,7 +45052,6 @@ dB
 VV
 "}
 (111,1,1) = {"
-VV
 cu
 cu
 cu
@@ -45068,7 +45076,8 @@ cu
 cu
 cu
 cu
-cu
+dB
+dB
 dB
 dB
 dB
@@ -45285,7 +45294,6 @@ dB
 VV
 "}
 (112,1,1) = {"
-VV
 cu
 cu
 cu
@@ -45313,7 +45321,8 @@ cu
 cu
 cu
 cu
-cu
+dB
+dB
 dB
 dB
 dB
@@ -45527,7 +45536,7 @@ dB
 VV
 "}
 (113,1,1) = {"
-VV
+cu
 cu
 cu
 cu
@@ -45769,7 +45778,7 @@ dB
 VV
 "}
 (114,1,1) = {"
-VV
+cu
 cu
 cu
 cu
@@ -46011,7 +46020,7 @@ dB
 VV
 "}
 (115,1,1) = {"
-VV
+cu
 cu
 cu
 cu
@@ -46213,7 +46222,7 @@ VX
 Om
 Om
 Om
-VX
+Om
 VX
 Om
 Om
@@ -46253,7 +46262,7 @@ dB
 VV
 "}
 (116,1,1) = {"
-VV
+cu
 cu
 cu
 cu
@@ -46457,7 +46466,7 @@ Om
 Om
 Om
 Om
-Om
+tR
 VX
 Om
 Om
@@ -46495,7 +46504,7 @@ dB
 VV
 "}
 (117,1,1) = {"
-VV
+cu
 cu
 cu
 cu
@@ -46737,7 +46746,7 @@ dB
 VV
 "}
 (118,1,1) = {"
-VV
+cu
 cu
 cu
 cu
@@ -46979,7 +46988,7 @@ dB
 VV
 "}
 (119,1,1) = {"
-VV
+cu
 cu
 cu
 cu
@@ -47221,7 +47230,7 @@ dB
 VV
 "}
 (120,1,1) = {"
-VV
+cu
 cu
 cu
 cu
@@ -57725,7 +57734,7 @@ Nj
 WU
 pH
 kN
-VQ
+FP
 fj
 Qt
 Pu
