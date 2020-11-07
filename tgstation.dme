@@ -3499,6 +3499,7 @@
 #include "white\valtos\code\dwarfs\dwarf.dm"
 #include "white\valtos\code\dwarfs\names.dm"
 #include "white\valtos\code\dwarfs\tank_types.dm"
+#include "white\valtos\code\dwarfs\troll.dm"
 #include "white\valtos\code\dwarfs\mediwork\blacksmithing.dm"
 #include "white\valtos\code\dwarfs\mediwork\blacksmithing_items.dm"
 #include "white\valtos\code\dwarfs\mediwork\blacksmithing_recipes.dm"
