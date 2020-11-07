@@ -142,6 +142,8 @@
 			make_me_an_observer()
 			return
 
+		SStitle.uplayers()
+
 	if(href_list["refresh"])
 		src << browse(null, "window=playersetup") //closes the player setup window
 		new_player_panel()

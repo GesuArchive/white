@@ -27,7 +27,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/gold = 500, /datum/material/silver = 500, /datum/material/bluespace = 500) //quite cheap, for more convenience
 	build_path = /obj/item/circuitboard/machine/bluespace_miner
-	category = list("Блюспейс дизайны")
+	category = list("Телепортация")
 
 /obj/machinery/mineral/bluespace_miner
 	name = "блюспейс майнер"

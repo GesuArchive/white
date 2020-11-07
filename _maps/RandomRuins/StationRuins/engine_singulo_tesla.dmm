@@ -736,10 +736,9 @@
 /turf/open/floor/plating,
 /area/engine/engineering)
 "mY" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable,
-/turf/open/space/basic,
-/area/space/nearstation)
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/engine/engineering)
 "nI" = (
 /obj/structure/cable,
 /obj/machinery/power/emitter/welded{
@@ -989,7 +988,7 @@ ab
 ab
 ab
 ab
-ab
+YT
 mY
 ab
 ab
@@ -1017,7 +1016,7 @@ ab
 ab
 ab
 ab
-ab
+mY
 mY
 ab
 ab
@@ -1046,7 +1045,7 @@ ab
 ab
 ab
 ab
-mY
+fe
 fe
 fe
 fe
@@ -1074,7 +1073,7 @@ ab
 ab
 ab
 ab
-mY
+fe
 ab
 fe
 ab

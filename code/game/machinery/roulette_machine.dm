@@ -36,7 +36,7 @@
 	"22" = "black", "24" = "black", "26" = "black", "28" = "black", "29" = "black", "31" = "black", "33" = "black", "35" = "black")
 
 	var/chosen_bet_amount = 10
-	var/chosen_bet_type = "0"
+	var/chosen_bet_type = ROULETTE_BET_ODD
 	var/last_anti_spam = 0
 	var/anti_spam_cooldown = 20
 	var/obj/item/card/id/my_card
@@ -74,14 +74,13 @@
 	data["HouseBalance"] = my_card?.registered_account.account_balance
 	data["LastSpin"] = last_spin
 	data["Spinning"] = playing
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		var/obj/item/card/id/C = H.get_idcard(TRUE)
-		if(C)
-			data["AccountBalance"] = C.registered_account.account_balance
-		else
-			data["AccountBalance"] = 0
-		data["CanUnbolt"] = (H.get_idcard() == my_card)
+	var/mob/living/carbon/human/H = user
+	var/obj/item/card/id/C = H.get_idcard(TRUE)
+	if(C)
+		data["AccountBalance"] = C.registered_account.account_balance
+	else
+		data["AccountBalance"] = 0
+	data["CanUnbolt"] = (C == my_card)
 
 	return data
 

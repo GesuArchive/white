@@ -92,9 +92,10 @@
 
 /obj/singularity/energy_ball/proc/move_the_basket_ball(move_amount)
 	var/list/dirs = GLOB.alldirs.Copy()
-	for(var/I in 1 to 30)
-		var/atom/real_thing = pick(shocked_things)
-		dirs += get_dir(src, real_thing) //Carry some momentum yeah? Just a bit tho
+	if(shocked_things)
+		for(var/I in 1 to 30)
+			var/atom/real_thing = pick(shocked_things)
+			dirs += get_dir(src, real_thing) //Carry some momentum yeah? Just a bit tho
 	for(var/i in 0 to move_amount)
 		var/move_dir = pick(dirs) //ensures teslas don't just sit around
 		if(target && prob(10))

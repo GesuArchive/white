@@ -87,7 +87,10 @@
 	if(issilicon(usr))
 		say("Единицам ИИ запрещено пользоваться торговыми сетями.")
 		return
-	var/obj/item/card/id/ID = usr.get_idcard(TRUE)
+	var/obj/item/card/id/ID
+	if(isliving(usr))
+		var/mob/living/L = usr
+		ID = L.get_idcard(hand_first = TRUE)
 	if(ID && istype(ID))
 		if(!check_access(ID))
 			say("Нет доступа.")

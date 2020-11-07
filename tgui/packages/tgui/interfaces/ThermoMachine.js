@@ -8,7 +8,7 @@ export const ThermoMachine = (props, context) => {
   return (
     <Window
       width={300}
-      height={230}>
+      height={235}>
       <Window.Content>
         <Section title="Состояние">
           <LabeledList>
