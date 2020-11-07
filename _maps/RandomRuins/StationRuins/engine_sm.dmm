@@ -1620,10 +1620,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
-"rk" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/engine/engineering)
 "rX" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /obj/structure/lattice/catwalk,
@@ -1708,8 +1704,8 @@ ab
 ab
 ab
 ab
-rk
-rk
+ad
+ad
 di
 fm
 di
@@ -1736,7 +1732,7 @@ ab
 ab
 ab
 ab
-rk
+ad
 di
 ec
 ec
