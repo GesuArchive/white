@@ -1,4 +1,4 @@
-/turf/open/transparent/openspace/bluespace
+/turf/open/openspace/bluespace
 	name = "голубое пространство"
 	desc = "голубое"
 	icon = 'white/baldenysh/icons/turf/bluespace_openspace.dmi'
@@ -14,21 +14,21 @@
 	var/list/fall_proctected = list()
 	var/instability = 0
 
-/turf/open/transparent/openspace/bluespace/LateInitialize()
+/turf/open/openspace/bluespace/LateInitialize()
 	return
 
-/turf/open/transparent/openspace/bluespace/process()
+/turf/open/openspace/bluespace/process()
 	instability++
 
 	if(instability >= 30 && prob(instability/5))
 		collapse()
 		return PROCESS_KILL
 
-/turf/open/transparent/openspace/bluespace/Destroy()
+/turf/open/openspace/bluespace/Destroy()
 	close_rift()
 	return ..()
 
-/turf/open/transparent/openspace/bluespace/update_multiz(reset = FALSE)
+/turf/open/openspace/bluespace/update_multiz(reset = FALSE)
 	var/turf/T = below()
 
 	if(reset)
@@ -38,17 +38,17 @@
 		vis_contents += T
 		return TRUE
 
-/turf/open/transparent/openspace/bluespace/proc/start_collapse()
+/turf/open/openspace/bluespace/proc/start_collapse()
 	START_PROCESSING(SSobj, src)
 
-/turf/open/transparent/openspace/bluespace/proc/stop_collapse()
+/turf/open/openspace/bluespace/proc/stop_collapse()
 	if(!instability)
 		return
 
 	STOP_PROCESSING(SSobj, src)
 	instability = 0
 
-/turf/open/transparent/openspace/bluespace/proc/rift(turf/below)
+/turf/open/openspace/bluespace/proc/rift(turf/below)
 	if(!below)
 		return FALSE
 
@@ -65,7 +65,7 @@
 
 	return TRUE
 
-/turf/open/transparent/openspace/bluespace/proc/close_rift()
+/turf/open/openspace/bluespace/proc/close_rift()
 	if(!below_override)
 		return
 
@@ -76,11 +76,11 @@
 	below_override = null
 	update_multiz(TRUE)
 
-/turf/open/transparent/openspace/bluespace/proc/collapse()
+/turf/open/openspace/bluespace/proc/collapse()
 	close_rift()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
-/turf/open/transparent/openspace/bluespace/zPassOut(atom/movable/A, direction, turf/destination)
+/turf/open/openspace/bluespace/zPassOut(atom/movable/A, direction, turf/destination)
 	. = ..()
 	if(A.type in fall_proctected)
 		return FALSE
@@ -89,25 +89,25 @@
 			if(O.density)
 				return FALSE
 
-/turf/open/transparent/openspace/bluespace/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
+/turf/open/openspace/bluespace/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	return TRUE
 
 
 
-/turf/open/transparent/openspace/bluespace/debug
+/turf/open/openspace/bluespace/debug
 	name = "прикольное голубое пространство"
 
-/turf/open/transparent/openspace/bluespace/debug/Initialize()
+/turf/open/openspace/bluespace/debug/Initialize()
 	..()
 
 	var/turf/below = get_turf(get_step(get_step(src, NORTH), NORTH))
 	rift(below)
 
 
-/turf/open/transparent/openspace/bluespace/reverse
+/turf/open/openspace/bluespace/reverse
 	name = "реверсивное прикольное голубое пространство"
 
-/turf/open/transparent/openspace/bluespace/reverse/Initialize()
+/turf/open/openspace/bluespace/reverse/Initialize()
 	..()
 
 	var/turf/below = get_turf(get_step(get_step(src, SOUTH), SOUTH))
