@@ -60,8 +60,6 @@
 	if(istype(below, /turf/open))
 		below_override.CanAtmosPassVertical = ATMOS_PASS_YES
 
-	update_multiz()
-
 	return TRUE
 
 /turf/open/openspace/bluespace/proc/close_rift()
@@ -72,7 +70,6 @@
 	below_override.CanAtmosPassVertical = initial(below_override.CanAtmosPassVertical)
 
 	below_override = null
-	update_multiz(TRUE)
 
 /turf/open/openspace/bluespace/proc/collapse()
 	close_rift()

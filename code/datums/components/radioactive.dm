@@ -37,7 +37,7 @@
 
 /datum/component/radioactive/Destroy()
 	STOP_PROCESSING(SSradiation, src)
-	var/atom/movable/master = parent
+	//var/atom/movable/master = parent
 	//master.remove_filter("rad_glow")
 	return ..()
 

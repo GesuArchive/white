@@ -90,7 +90,7 @@
 	var/obj/item/card/id/ID
 	if(isliving(usr))
 		var/mob/living/L = usr
-		potential_acc = L.get_idcard(hand_first = TRUE)
+		ID = L.get_idcard(hand_first = TRUE)
 	if(ID && istype(ID))
 		if(!check_access(ID))
 			say("Нет доступа.")
