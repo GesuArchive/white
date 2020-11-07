@@ -462,7 +462,7 @@
 	if((HAS_TRAIT(src, TRAIT_NOHUNGER) || HAS_TRAIT(src, TRAIT_TOXINLOVER)) && !force)
 		return TRUE
 
-	if(nutrition < 100 && !blood)
+	if(nutrition < 100 && !blood && !force)
 		if(message)
 			visible_message("<span class='warning'>[capitalize(src.name)] корчится в рвотном позыве!</span>", \
 							"<span class='userdanger'>Рвота не идёт, ведь мой желудок пуст!</span>")
