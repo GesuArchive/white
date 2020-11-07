@@ -28,6 +28,7 @@
 	close_rift()
 	return ..()
 
+/*
 /turf/open/openspace/bluespace/update_multiz(reset = FALSE)
 	var/turf/T = below()
 
@@ -37,6 +38,7 @@
 	else
 		vis_contents += T
 		return TRUE
+*/
 
 /turf/open/openspace/bluespace/proc/start_collapse()
 	START_PROCESSING(SSobj, src)
