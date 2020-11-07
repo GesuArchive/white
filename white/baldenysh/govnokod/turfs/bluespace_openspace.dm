@@ -60,7 +60,6 @@
 	if(istype(below, /turf/open))
 		below_override.CanAtmosPassVertical = ATMOS_PASS_YES
 
-	below.update_multiz()
 	update_multiz()
 
 	return TRUE
@@ -71,7 +70,6 @@
 
 	below_override.above_override = null
 	below_override.CanAtmosPassVertical = initial(below_override.CanAtmosPassVertical)
-	below_override.update_multiz(TRUE)
 
 	below_override = null
 	update_multiz(TRUE)
