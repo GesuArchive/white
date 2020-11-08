@@ -58,7 +58,7 @@ GLOBAL_LIST_INIT(huesoslist, world.file2list("[global.config.directory]/autoeban
 				var/mob/living/carbon/human/H = user
 				H.electrocution_animation(40)
 				H.adjustFireLoss(75)
-		else
-			user.gib()
+		//else
+		//	user.gib()
 		return UI_CLOSE
 	. = ..()
