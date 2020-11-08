@@ -10,7 +10,7 @@
 	materials = list(/datum/material/iron = 700, /datum/material/glass = 50)
 	construction_time=100
 	build_path = /obj/item/stock_parts/cell/empty
-	category = list("Разное","Силовые дизайны","Оборудование","initial")
+	category = list("Разное","Энергетические разработки","Оборудование","initial")
 
 /datum/design/high_cell
 	name = "High-Capacity Power Cell"
@@ -20,7 +20,7 @@
 	materials = list(/datum/material/iron = 700, /datum/material/glass = 60)
 	construction_time=100
 	build_path = /obj/item/stock_parts/cell/high/empty
-	category = list("Разное","Силовые дизайны")
+	category = list("Разное","Энергетические разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/super_cell
@@ -31,7 +31,7 @@
 	materials = list(/datum/material/iron = 700, /datum/material/glass = 70)
 	construction_time=100
 	build_path = /obj/item/stock_parts/cell/super/empty
-	category = list("Разное","Силовые дизайны")
+	category = list("Разное","Энергетические разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/hyper_cell
@@ -42,7 +42,7 @@
 	materials = list(/datum/material/iron = 700, /datum/material/gold = 150, /datum/material/silver = 150, /datum/material/glass = 80)
 	construction_time=100
 	build_path = /obj/item/stock_parts/cell/hyper/empty
-	category = list("Разное","Силовые дизайны")
+	category = list("Разное","Энергетические разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/bluespace_cell
@@ -53,7 +53,7 @@
 	materials = list(/datum/material/iron = 800, /datum/material/gold = 120, /datum/material/glass = 160, /datum/material/diamond = 160, /datum/material/titanium = 300, /datum/material/bluespace = 100)
 	construction_time=100
 	build_path = /obj/item/stock_parts/cell/bluespace/empty
-	category = list("Разное","Силовые дизайны")
+	category = list("Разное","Энергетические разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/light_replacer
@@ -63,7 +63,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 1500, /datum/material/silver = 150, /datum/material/glass = 3000)
 	build_path = /obj/item/lightreplacer
-	category = list("Силовые дизайны")
+	category = list("Энергетические разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/inducer
@@ -73,7 +73,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 3000, /datum/material/glass = 1000)
 	build_path = /obj/item/inducer/sci
-	category = list("Силовые дизайны")
+	category = list("Энергетические разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/board/pacman
