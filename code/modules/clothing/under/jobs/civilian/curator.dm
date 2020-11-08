@@ -20,7 +20,7 @@
 	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/civilian/curator/treasure_hunter
-	name = "униформа охотника за зокровищами"
+	name = "униформа охотника за сокровищами"
 	desc = "Прочная униформа, подходящая для охоты за сокровищами."
 	icon = 'icons/obj/clothing/under/civilian.dmi'
 	icon_state = "curator"
