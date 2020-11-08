@@ -426,7 +426,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 			sleep(10)
 			continue
 		else if(i > 50)
-			speaking = "[DisplayTimeText(i, TRUE)] остаются до стабилизации причинности."
+			speaking = "[DisplayTimeText(i, TRUE)] остаются до дестабилизации прочности."
 		else
 			speaking = "[i*0.1]..."
 		radio.talk_into(src, speaking, common_channel)
