@@ -15,12 +15,12 @@
 	power_light = FALSE
 	poweralm = FALSE
 	ambientsounds = list('sound/ambience/white/snowyambient.ogg')
-	env_temp_relative = -20
+	env_temp_relative = -25
 
 /area/awaymission/chilly/surface // костыль, потому что шторм иначе будет применяться на все зоны
 	name = "Surface"
 	icon_state = "coutdoor"
-	env_temp_relative = -20
+	env_temp_relative = -25
 
 /area/awaymission/chilly/surface/Initialize()
 	. = ..()
@@ -39,7 +39,7 @@
 	requires_power = TRUE
 	always_unpowered = TRUE
 	ambientsounds = list('sound/ambience/ambireebe1.ogg')
-	env_temp_relative = -10
+	env_temp_relative = -20
 
 /area/awaymission/chilly/facility/croom
 	name = "Base I Underground Control Room"
@@ -47,7 +47,7 @@
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	requires_power = FALSE
 	always_unpowered = FALSE
-	env_temp_relative = -15
+	env_temp_relative = -20
 
 /area/awaymission/chilly/facility2
 	name = "Base II"
@@ -65,7 +65,7 @@
 	requires_power = TRUE
 	always_unpowered = TRUE
 	ambientsounds = list('sound/ambience/ambireebe2.ogg')
-	env_temp_relative = -25
+	env_temp_relative = -20
 
 /area/awaymission/chilly/facility4
 	name = "Base IV House"
@@ -74,7 +74,7 @@
 	requires_power = TRUE
 	always_unpowered = TRUE
 	ambientsounds = list('sound/ambience/ambiruin4.ogg')
-	env_temp_relative = -30
+	env_temp_relative = -25
 
 /area/awaymission/chilly/facility5
 	name = "Base V"
@@ -83,7 +83,7 @@
 	requires_power = TRUE
 	always_unpowered = TRUE
 	ambientsounds = list('sound/ambience/ambitech.ogg')
-	env_temp_relative = -40
+	env_temp_relative = -25
 
 
 //Underground something
@@ -94,7 +94,7 @@
 	requires_power = TRUE
 	always_unpowered = TRUE
 	ambientsounds = list('sound/ambience/ambireebe3.ogg')
-	env_temp_relative = -35
+	env_temp_relative = -25
 
 /area/awaymission/chilly/syndietrain
 	name = "Syndicate Cargo Train"
@@ -112,7 +112,7 @@
 	requires_power = TRUE
 	ambientsounds = list('sound/ambience/ambireebe3.ogg')
 	always_unpowered = TRUE
-	env_temp_relative = 0
+	env_temp_relative = -25
 
 
 
