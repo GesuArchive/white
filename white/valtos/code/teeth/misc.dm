@@ -136,8 +136,3 @@
 /mob/living/carbon/human/handle_status_effects()
 	..()
 	checklisp()
-
-/mob/living/carbon/human/treat_message(message)
-	if(lisp)
-		message = lisp(message, lisp)
-	return ..()
