@@ -1606,7 +1606,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 // Implants
 /datum/uplink_item/implants
-	category = "Implants"
+	category = "Импланты"
 	surplus = 50
 
 /datum/uplink_item/implants/adrenal

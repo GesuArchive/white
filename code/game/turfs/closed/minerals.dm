@@ -59,7 +59,7 @@
 
 /turf/closed/mineral/attackby(obj/item/I, mob/user, params)
 	if (!user.IsAdvancedToolUser())
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(usr, "<span class='warning'>Маловато у меня сил для такой работы!</span>")
 		return
 
 	if(I.tool_behaviour == TOOL_MINING)
@@ -70,11 +70,11 @@
 		if(last_act + (40 * I.toolspeed) > world.time)//prevents message spam
 			return
 		last_act = world.time
-		to_chat(user, "<span class='notice'>You start picking...</span>")
+		to_chat(user, "<span class='notice'>Начинаю копать...</span>")
 
 		if(I.use_tool(src, user, 40, volume=50))
 			if(ismineralturf(src))
-				to_chat(user, "<span class='notice'>You finish cutting into the rock.</span>")
+				to_chat(user, "<span class='notice'>Вскапываю камень.</span>")
 				gets_drilled(user, TRUE)
 				SSblackbox.record_feedback("tally", "pick_used_mining", 1, I.type)
 	else

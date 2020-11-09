@@ -411,59 +411,60 @@ GLOBAL_LIST_INIT(durathread_recipes, list ( \
 /*
  * Cardboard
  */
-GLOBAL_LIST_INIT(cardboard_recipes, list (														\
-	new/datum/stack_recipe("коробка", /obj/item/storage/box),										\
-	new/datum/stack_recipe("костюм картонного киборга", /obj/item/clothing/suit/cardborg, 3),				\
-	new/datum/stack_recipe("шлем картонного киборга", /obj/item/clothing/head/cardborg),				\
+GLOBAL_LIST_INIT(cardboard_recipes, list (																				 \
+	new/datum/stack_recipe("коробка", /obj/item/storage/box),															 \
+	new/datum/stack_recipe("костюм картонного киборга", /obj/item/clothing/suit/cardborg, 3),					  		 \
+	new/datum/stack_recipe("шлем картонного киборга", /obj/item/clothing/head/cardborg),								 \
 	new/datum/stack_recipe("большая коробка", /obj/structure/closet/cardboard, 4, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("картонная фигурка", /obj/item/cardboard_cutout, 5),					\
-	null,																						\
+	new/datum/stack_recipe("картонная фигурка", /obj/item/cardboard_cutout, 5),											 \
+	null,																												 \
 
-	new/datum/stack_recipe("коробка из под пиццы", /obj/item/pizzabox),									\
+	new/datum/stack_recipe("коробка из под пиццы", /obj/item/pizzabox),							\
 	new/datum/stack_recipe("папка", /obj/item/folder),											\
 	null,																						\
 	//TO-DO: Find a proper way to just change the illustration on the box. Code isn't the issue, input is.
 	new/datum/stack_recipe_list("необычные коробки", list(
-		new /datum/stack_recipe("коробка для пончиков", /obj/item/storage/fancy/donut_box),				\
-		new /datum/stack_recipe("коробка для яиц", /obj/item/storage/fancy/egg_box),					\
-		new /datum/stack_recipe("donk-pockets box", /obj/item/storage/box/donkpockets),			\
+		new /datum/stack_recipe("коробка для пончиков", /obj/item/storage/fancy/donut_box),								\
+		new /datum/stack_recipe("коробка для яиц", /obj/item/storage/fancy/egg_box),									\
+		new /datum/stack_recipe("donk-pockets box", /obj/item/storage/box/donkpockets),									\
 		new /datum/stack_recipe("donk-pockets spicy box", /obj/item/storage/box/donkpockets/donkpocketspicy),			\
 		new /datum/stack_recipe("donk-pockets teriyaki box", /obj/item/storage/box/donkpockets/donkpocketteriyaki),		\
 		new /datum/stack_recipe("donk-pockets pizza box", /obj/item/storage/box/donkpockets/donkpocketpizza),			\
 		new /datum/stack_recipe("donk-pockets berry box", /obj/item/storage/box/donkpockets/donkpocketberry),			\
 		new /datum/stack_recipe("donk-pockets honk box", /obj/item/storage/box/donkpockets/donkpockethonk),				\
 		new /datum/stack_recipe("monkey cube box", /obj/item/storage/box/monkeycubes),
-		new /datum/stack_recipe("коробка для наггетсов", /obj/item/storage/fancy/nugget_box),			\
-		null,																					\
+		new /datum/stack_recipe("коробка для наггетсов", /obj/item/storage/fancy/nugget_box),							\
+		null,																											\
 
-		new /datum/stack_recipe("коробка для летальных патронов", /obj/item/storage/box/lethalshot),			\
-		new /datum/stack_recipe("коробка для резиновых патронов", /obj/item/storage/box/rubbershot),		\
-		new /datum/stack_recipe("коробка для бобового мешка", /obj/item/storage/box/beanbag),			\
-		new /datum/stack_recipe("коробка для светошумовых гранат", /obj/item/storage/box/flashbangs),				\
-		new /datum/stack_recipe("flashes box", /obj/item/storage/box/flashes),					\
-		new /datum/stack_recipe("коробка для наручников", /obj/item/storage/box/handcuffs),				\
-		new /datum/stack_recipe("коробка для ID карт", /obj/item/storage/box/ids),						\
-		new /datum/stack_recipe("коробка для PDA", /obj/item/storage/box/pdas),							\
-		null,																					\
+		new /datum/stack_recipe("коробка для летальных патронов", /obj/item/storage/box/lethalshot),\
+		new /datum/stack_recipe("коробка для резиновых патронов", /obj/item/storage/box/rubbershot),\
+		new /datum/stack_recipe("коробка для бобового мешка", /obj/item/storage/box/beanbag),		\
+		new /datum/stack_recipe("коробка для светошумовых гранат", /obj/item/storage/box/flashbangs),\
+		new /datum/stack_recipe("flashes box", /obj/item/storage/box/flashes),						\
+		new /datum/stack_recipe("коробка для наручников", /obj/item/storage/box/handcuffs),			\
+		new /datum/stack_recipe("коробка для ID карт", /obj/item/storage/box/ids),					\
+		new /datum/stack_recipe("коробка для PDA", /obj/item/storage/box/pdas),						\
+		null,																						\
 
 		new /datum/stack_recipe("коробка для таблеток", /obj/item/storage/box/pillbottles),			\
-		new /datum/stack_recipe("коробка для стаканов", /obj/item/storage/box/beakers),					\
-		new /datum/stack_recipe("коробка для шприцов", /obj/item/storage/box/syringes),					\
-		new /datum/stack_recipe("коробка для латексных перчаток", /obj/item/storage/box/gloves),				\
-		new /datum/stack_recipe("коробка для стерильных масок", /obj/item/storage/box/masks),				\
-		new /datum/stack_recipe("коробка для мешков для тел", /obj/item/storage/box/bodybags),					\
+		new /datum/stack_recipe("коробка для стаканов", /obj/item/storage/box/beakers),				\
+		new /datum/stack_recipe("коробка для шприцов", /obj/item/storage/box/syringes),				\
+		new /datum/stack_recipe("коробка для латексных перчаток", /obj/item/storage/box/gloves),	\
+		new /datum/stack_recipe("коробка для стерильных масок", /obj/item/storage/box/masks),		\
+		new /datum/stack_recipe("коробка для мешков для тел", /obj/item/storage/box/bodybags),		\
 		new /datum/stack_recipe("коробка для рецептурных очков", /obj/item/storage/box/rxglasses),	\
-		null,																					\
+		new /datum/stack_recipe("коробка для инъекторов", /obj/item/storage/box/medipens),			\
+		null,																						\
 
 		new /datum/stack_recipe("коробка для дисков", /obj/item/storage/box/disks),						\
 		new /datum/stack_recipe("коробка световых трубок", /obj/item/storage/box/lights/tubes),			\
 		new /datum/stack_recipe("коробка для лампочек", /obj/item/storage/box/lights/bulbs),			\
 		new /datum/stack_recipe("коробка для разных лампочек", /obj/item/storage/box/lights/mixed),		\
-		new /datum/stack_recipe("коробка для мышеловок", /obj/item/storage/box/mousetraps),			\
+		new /datum/stack_recipe("коробка для мышеловок", /obj/item/storage/box/mousetraps),				\
 		new /datum/stack_recipe("коробка для свечей", /obj/item/storage/fancy/candle_box)
 		)),
 
-	null,																						\
+	null,																								\
 ))
 
 /obj/item/stack/sheet/cardboard	//BubbleWrap //it's cardboard you fuck

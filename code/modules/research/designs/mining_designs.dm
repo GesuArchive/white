@@ -99,7 +99,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1500, /datum/material/gold = 1500, /datum/material/uranium = 1000)
 	build_path = /obj/item/borg/upgrade/modkit/damage
-	category = list("Шахтёрское оборудование", "Cyborg Upgrade Modules")
+	category = list("Шахтёрское оборудование", "Улучшения киборгов")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/cooldown_mod
@@ -109,7 +109,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1500, /datum/material/gold = 1500, /datum/material/uranium = 1000)
 	build_path = /obj/item/borg/upgrade/modkit/cooldown
-	category = list("Шахтёрское оборудование", "Cyborg Upgrade Modules")
+	category = list("Шахтёрское оборудование", "Улучшения киборгов")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/range_mod
@@ -119,7 +119,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1500, /datum/material/gold = 1500, /datum/material/uranium = 1000)
 	build_path = /obj/item/borg/upgrade/modkit/range
-	category = list("Шахтёрское оборудование", "Cyborg Upgrade Modules")
+	category = list("Шахтёрское оборудование", "Улучшения киборгов")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/hyperaccelerator
@@ -129,5 +129,5 @@
 	build_type = PROTOLATHE | MECHFAB
 	materials = list(/datum/material/iron = 8000, /datum/material/glass = 1500, /datum/material/silver = 2000, /datum/material/gold = 2000, /datum/material/diamond = 2000)
 	build_path = /obj/item/borg/upgrade/modkit/aoe/turfs
-	category = list("Шахтёрское оборудование", "Cyborg Upgrade Modules")
+	category = list("Шахтёрское оборудование", "Улучшения киборгов")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
