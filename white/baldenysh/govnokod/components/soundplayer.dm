@@ -119,6 +119,8 @@
 /datum/component/soundplayer_listener/proc/update_sound()
 	if(qdel_check())
 		return
+	if(!(listener?.client?.prefs?.w_toggles & SOUND_JUKEBOX))
+		return
 	var/sound/S = get_player_sound()
 	if(!S)
 		S = myplayer.cursound
@@ -142,7 +144,7 @@
 		S.environment = myplayer.env_id
 	else
 		S.volume = 0
-	if(myplayer.environmental)
+	if(myplayer.environmental && MT && TT)
 		var/dx = MT.x - TT.x
 		S.x = dx
 		var/dy = MT.y - TT.y

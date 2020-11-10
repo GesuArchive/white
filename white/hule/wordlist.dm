@@ -31,7 +31,7 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 						return
 
 			if(target.client)
-				//inc_metabalance(target, METACOIN_BADWORDS_REWARD, reason="[r_uppertext(W)]...")
+				inc_metabalance(target, METACOIN_BADWORDS_REWARD, reason="[r_uppertext(W)]...")
 				if(!ishuman(target))
 					target.client.prefs.muted |= MUTE_IC
 
@@ -46,7 +46,8 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 				var/mob/living/carbon/human/H = target
 				H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 199, 199)
 				H.gain_trauma(/datum/brain_trauma/severe/mute, TRAUMA_RESILIENCE_SURGERY)
-			if(target.ckey in GLOB.neobuchaemie_debili)
-				target.gib()
+			if(target.ckey in GLOB.neobuchaemie_debili && isliving(target))
+				var/mob/living/L = target
+				L.gib()
 
 			return

@@ -236,7 +236,7 @@
 					confidential = TRUE)
 				to_chat(src,
 					type = MESSAGE_TYPE_ADMINPM,
-					html = "<span class='notice'>PM to-<b>Admins</b>: <span class='linkify'>[msg]</span></span>",
+					html = "<span class='notice'>Сообщение для <b>администраторов</b>: <span class='linkify'>[msg]</span></span>",
 					confidential = TRUE)
 				SSblackbox.LogAhelp(current_ticket.id, "Reply", msg, recipient.ckey, src.ckey)
 
@@ -262,11 +262,11 @@
 					confidential = TRUE)
 				to_chat(recipient,
 					type = MESSAGE_TYPE_ADMINPM,
-					html = "<span class='adminsay'><i>Нажми на имя администратора для ответа.</i></span>",
+					html = "<span class='adminsay'><i>Нажми на имя администратора для ответа.</i></span>\n",
 					confidential = TRUE)
 				to_chat(src,
 					type = MESSAGE_TYPE_ADMINPM,
-					html = "<span class='notice'>Ответ администратору <b>[key_name(recipient, src, 1)]</b>: <span class='linkify'>[msg]</span></span>",
+					html = "<span class='notice'>Для <b>[key_name(recipient, src, 1)]</b>: <span class='linkify'>[msg]</span></span>",
 					confidential = TRUE)
 
 				admin_ticket_log(recipient, "<font color='pink'>PM From [key_name_admin(src)]: [keywordparsedmsg]</font>")
@@ -404,7 +404,7 @@
 		confidential = TRUE)
 	to_chat(C,
 		type = MESSAGE_TYPE_ADMINPM,
-		html = "<span class='adminsay'><i>Нажми на имя администратора для ответа.</i></span>",
+		html = "<span class='adminsay'><i>Нажми на имя администратора для ответа.</i></span>\n",
 		confidential = TRUE)
 
 	admin_ticket_log(C, "<font color='pink'>Сообщение от [tgs_tagged]: [msg]</font>")

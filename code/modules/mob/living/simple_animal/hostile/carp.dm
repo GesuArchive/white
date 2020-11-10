@@ -186,6 +186,7 @@
 	maxHealth = 100
 	health = 100
 	pixel_x = -16
+	base_pixel_x = -16
 	mob_size = MOB_SIZE_LARGE
 	random_color = FALSE
 	food_type = list()

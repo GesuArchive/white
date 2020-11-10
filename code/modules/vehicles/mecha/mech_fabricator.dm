@@ -53,12 +53,12 @@
 								"Durand",
 								"H.O.N.K",
 								"Phazon",
-								"Exosuit Equipment",
-								"Exosuit Ammunition",
-								"Cyborg Upgrade Modules",
-								"Cybernetics",
-								"Implants",
-								"Control Interfaces",
+								"Модули экзоскелетов",
+								"Аммуниция",
+								"Улучшения киборгов",
+								"Кибернетика",
+								"Импланты",
+								"Управление",
 								"Разное"
 								)
 

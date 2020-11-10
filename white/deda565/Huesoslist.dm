@@ -51,14 +51,11 @@ GLOBAL_LIST_INIT(huesoslist, world.file2list("[global.config.directory]/autoeban
 
 /obj/machinery/vending/terminal/ui_interact(mob/user)
 	if(user.ckey in GLOB.huesoslist)
-		if(prob(80))
-			var/turf/T = get_step(get_step(user, NORTH), NORTH)
-			T.Beam(user, icon_state="lightning[rand(1,12)]", time = 5)
-			if(ishuman(user))
-				var/mob/living/carbon/human/H = user
-				H.electrocution_animation(40)
-				H.adjustFireLoss(75)
-		else
-			user.gib()
+		var/turf/T = get_step(get_step(user, NORTH), NORTH)
+		T.Beam(user, icon_state="lightning[rand(1,12)]", time = 5)
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			H.electrocution_animation(40)
+			H.adjustFireLoss(75)
 		return UI_CLOSE
 	. = ..()

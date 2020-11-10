@@ -279,7 +279,7 @@
 	var/pressure = environment.return_pressure()
 	cur_tlv = TLV["pressure"]
 	data["environment_data"] += list(list(
-							"name" = "Pressure",
+							"name" = "Давление",
 							"value" = pressure,
 							"unit" = "kPa",
 							"danger_level" = cur_tlv.get_danger_level(pressure)

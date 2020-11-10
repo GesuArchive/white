@@ -5,7 +5,7 @@
 #define PUMP_DEFAULT_PRESSURE (ONE_ATMOSPHERE)
 
 /obj/machinery/portable_atmospherics/pump
-	name = "portable air pump"
+	name = "портативный воздушный насос"
 	icon_state = "psiphon:0"
 	density = TRUE
 

@@ -2,9 +2,9 @@
 
 /turf/closed/mineral //wall piece
 	name = "камень"
-	icon = 'white/valtos/icons/rockwall.dmi'
-	icon_state = "rockthefuck"
-	smoothing_flags = SMOOTH_CORNERS
+	icon = 'icons/turf/mining.dmi'
+	icon_state = "rock"
+	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_MINERAL_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_MINERAL_WALLS)
 	baseturfs = /turf/open/floor/plating/asteroid/airless
@@ -13,8 +13,8 @@
 	density = TRUE
 	layer = EDGED_TURF_LAYER
 	temperature = TCMB
-	base_icon_state = "rockthefuck"
-	var/smooth_icon = 'white/valtos/icons/rockwall.dmi'
+	base_icon_state = "smoothrocks"
+	var/smooth_icon = 'icons/turf/smoothrocks.dmi'
 	var/environment_type = "asteroid"
 	var/turf/open/floor/plating/turf_type = /turf/open/floor/plating/asteroid/airless
 	var/obj/item/stack/ore/mineralType = null
@@ -25,11 +25,10 @@
 
 /turf/closed/mineral/Initialize()
 	. = ..()
-	if(base_icon_state != "rockthefuck")
-		var/matrix/M = new
-		M.Translate(-4, -4)
-		transform = M
-		icon = smooth_icon
+	var/matrix/M = new
+	M.Translate(-4, -4)
+	transform = M
+	icon = smooth_icon
 
 
 /turf/closed/mineral/proc/Spread_Vein()
@@ -60,7 +59,7 @@
 
 /turf/closed/mineral/attackby(obj/item/I, mob/user, params)
 	if (!user.IsAdvancedToolUser())
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(usr, "<span class='warning'>Маловато у меня сил для такой работы!</span>")
 		return
 
 	if(I.tool_behaviour == TOOL_MINING)
@@ -71,11 +70,11 @@
 		if(last_act + (40 * I.toolspeed) > world.time)//prevents message spam
 			return
 		last_act = world.time
-		to_chat(user, "<span class='notice'>You start picking...</span>")
+		to_chat(user, "<span class='notice'>Начинаю копать...</span>")
 
 		if(I.use_tool(src, user, 40, volume=50))
 			if(ismineralturf(src))
-				to_chat(user, "<span class='notice'>You finish cutting into the rock.</span>")
+				to_chat(user, "<span class='notice'>Вскапываю камень.</span>")
 				gets_drilled(user, TRUE)
 				SSblackbox.record_feedback("tally", "pick_used_mining", 1, I.type)
 	else

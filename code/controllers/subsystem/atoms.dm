@@ -14,19 +14,24 @@ SUBSYSTEM_DEF(atoms)
 
 	var/list/BadInitializeCalls = list()
 
+	initialized = INITIALIZATION_INSSATOMS
+
 /datum/controller/subsystem/atoms/Initialize(timeofday)
 	SStitle.set_load_state("atoms1")
 	GLOB.fire_overlay.appearance_flags = RESET_COLOR
 	setupGenetics() //to set the mutations' sequence
+
 	initialized = INITIALIZATION_INNEW_MAPLOAD
 	InitializeAtoms()
 	SStitle.set_load_state("atoms2")
+	initialized = INITIALIZATION_INNEW_REGULAR
 	return ..()
 
 /datum/controller/subsystem/atoms/proc/InitializeAtoms(list/atoms)
 	if(initialized == INITIALIZATION_INSSATOMS)
 		return
 
+	old_initialized = initialized
 	initialized = INITIALIZATION_INNEW_MAPLOAD
 
 	var/count
@@ -49,7 +54,7 @@ SUBSYSTEM_DEF(atoms)
 	testing("Создано [count] атомов")
 	pass(count)
 
-	initialized = INITIALIZATION_INNEW_REGULAR
+	initialized = old_initialized
 
 	if(late_loaders.len)
 		for(var/I in late_loaders)

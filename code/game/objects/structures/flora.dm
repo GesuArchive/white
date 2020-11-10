@@ -32,15 +32,15 @@
 
 /obj/structure/flora/stump
 	name = "пень"
-	desc = "This represents our promise to the crew, and the station itself, to cut down as many trees as possible." //running naked through the trees
+	desc = "Это является нашим обещанием экипажу и самой станции срубить как можно больше деревьев." //running naked through the trees
 	icon = 'icons/obj/flora/pinetrees.dmi'
 	icon_state = "tree_stump"
 	density = FALSE
 	pixel_x = -16
 
 /obj/structure/flora/tree/pine
-	name = "pine tree"
-	desc = "A coniferous pine tree."
+	name = "сосна"
+	desc = "Хвойная сосна."
 	icon = 'icons/obj/flora/pinetrees.dmi'
 	icon_state = "pine_1"
 	var/list/icon_states = list("pine_1", "pine_2", "pine_3")
@@ -52,15 +52,15 @@
 		icon_state = pick(icon_states)
 
 /obj/structure/flora/tree/pine/xmas
-	name = "xmas tree"
-	desc = "A wondrous decorated Christmas tree."
+	name = "рождественская ёлка"
+	desc = "Дивно украшенная елка."
 	icon_state = "pine_c"
 	icon_states = null
 	flags_1 = NODECONSTRUCT_1 //protected by the christmas spirit
 
 /obj/structure/flora/tree/pine/xmas/presents
 	icon_state = "pinepresents"
-	desc = "A wondrous decorated Christmas tree. It has presents!"
+	desc = "Дивно украшенная елка. Есть подарки!"
 	var/gift_type = /obj/item/a_gift/anything
 	var/unlimited = FALSE
 	var/static/list/took_presents //shared between all xmas trees
@@ -78,9 +78,9 @@
 		return
 
 	if(took_presents[user.ckey] && !unlimited)
-		to_chat(user, "<span class='warning'>There are no presents with your name on.</span>")
+		to_chat(user, "<span class='warning'>Здесь нет подарков для меня...</span>")
 		return
-	to_chat(user, "<span class='warning'>After a bit of rummaging, you locate a gift with your name on it!</span>")
+	to_chat(user, "<span class='warning'>После небольшого осмотра нахожу подарок с моим именем на нем!</span>")
 
 	if(!unlimited)
 		took_presents[user.ckey] = TRUE
@@ -89,17 +89,17 @@
 	user.put_in_hands(G)
 
 /obj/structure/flora/tree/pine/xmas/presents/unlimited
-	desc = "A wonderous decorated Christmas tree. It has a seemly endless supply of presents!"
+	desc = "Чудесно украшенная елка. У него бесконечный запас подарков!"
 	unlimited = TRUE
 
 /obj/structure/flora/tree/dead
 	icon = 'icons/obj/flora/deadtrees.dmi'
-	desc = "A dead tree. How it died, you know not."
+	desc = "Мертвое дерево. Как оно умерло, вы не знаете."
 	icon_state = "tree_1"
 
 /obj/structure/flora/tree/palm
 	icon = 'icons/misc/beach2.dmi'
-	desc = "A tree straight from the tropics."
+	desc = "Дерево прямо из тропиков."
 	icon_state = "palm1"
 
 /obj/structure/flora/tree/palm/Initialize()
@@ -111,11 +111,11 @@
 	name = "festivus pole"
 	icon = 'icons/obj/flora/pinetrees.dmi'
 	icon_state = "festivus_pole"
-	desc = "During last year's Feats of Strength the Research Director was able to suplex this passing immobile rod into a planter."
+	desc = "Во время прошлогодних подвигов директор по исследованиям смог погрузить эту неподвижную удочку в сеялку."
 
 /obj/structure/festivus/anchored
-	name = "suplexed rod"
-	desc = "A true feat of strength, almost as good as last year."
+	name = "суплексированный стержень"
+	desc = "Настоящий подвиг силы, почти такой же, как в прошлом году."
 	icon_state = "anchored_rod"
 	anchored = TRUE
 
@@ -124,9 +124,9 @@
 	. = ..()
 
 /obj/structure/flora/tree/jungle
-	name = "tree"
+	name = "дерево"
 	icon_state = "tree"
-	desc = "It's seriously hampering your view of the jungle."
+	desc = "Это серьезно мешает обзору джунглей."
 	icon = 'icons/obj/flora/jungletrees.dmi'
 	pixel_x = -48
 	pixel_y = -20
@@ -142,8 +142,8 @@
 
 //grass
 /obj/structure/flora/grass
-	name = "grass"
-	desc = "A patch of overgrown grass."
+	name = "трава"
+	desc = "Кусочек заросшей травы."
 	icon = 'icons/obj/flora/snowflora.dmi'
 	gender = PLURAL	//"this is grass" not "this is a grass"
 
@@ -172,8 +172,8 @@
 
 //bushes
 /obj/structure/flora/bush
-	name = "bush"
-	desc = "Some type of shrub."
+	name = "куст"
+	desc = "Какой-то кустарник."
 	icon = 'icons/obj/flora/snowflora.dmi'
 	icon_state = "snowbush1"
 	anchored = TRUE
@@ -185,8 +185,8 @@
 //newbushes
 
 /obj/structure/flora/ausbushes
-	name = "bush"
-	desc = "Some kind of plant."
+	name = "куст"
+	desc = "Какое-то растение."
 	icon = 'icons/obj/flora/ausflora.dmi'
 	icon_state = "firstbush_1"
 
@@ -301,10 +301,10 @@
 	. = ..()
 
 /obj/item/kirbyplants
-	name = "potted plant"
+	name = "растение в горшке"
 	icon = 'icons/obj/flora/plants.dmi'
 	icon_state = "plant-01"
-	desc = "A little bit of nature contained in a pot."
+	desc = "Немного природы в горшке."
 	layer = BELOW_MOB_LAYER
 	w_class = WEIGHT_CLASS_HUGE
 	force = 10
@@ -325,9 +325,9 @@
 /obj/item/kirbyplants/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
 	if(trimmable && HAS_TRAIT(user,TRAIT_BONSAI) && isturf(loc) && I.get_sharpness())
-		to_chat(user,"<span class='notice'>You start trimming [src].</span>")
+		to_chat(user,"<span class='notice'>Начинаю стричь [src].</span>")
 		if(do_after(user,3 SECONDS,target=src))
-			to_chat(user,"<span class='notice'>You finish trimming [src].</span>")
+			to_chat(user,"<span class='notice'>Стригу [src].</span>")
 			change_visual()
 
 /// Cycle basic plant visuals
@@ -362,21 +362,21 @@
 
 
 /obj/item/kirbyplants/dead
-	name = "RD's potted plant"
-	desc = "A gift from the botanical staff, presented after the RD's reassignment. There's a tag on it that says \"Y'all come back now, y'hear?\"\nIt doesn't look very healthy..."
+	name = "любимое растение научного руководителя"
+	desc = "Подарок от ботанического коллектива, подаренный после переназначения научного сотрудника. На нем есть бирка с надписью \"Вы все вернетесь, слышите? \" \n Выглядит не очень здоровым..."
 	icon_state = "plant-25"
 	trimmable = FALSE
 
 /obj/item/kirbyplants/photosynthetic
-	name = "photosynthetic potted plant"
-	desc = "A bioluminescent plant."
+	name = "фотосинтетическое растение в горшке"
+	desc = "Биолюминесцентное растение."
 	icon_state = "plant-09"
 	light_color = COLOR_BRIGHT_BLUE
 	light_range = 3
 
 /obj/item/kirbyplants/fullysynthetic
-	name = "plastic potted plant"
-	desc = "A fake, cheap looking, plastic tree. Perfect for people who kill every plant they touch."
+	name = "растение в горшке из пластика"
+	desc = "Поддельное, дешевое, пластиковое дерево. Идеально подходит для людей, которые убивают каждое растение, к которому прикасаются."
 	icon_state = "plant-26"
 	custom_materials = (list(/datum/material/plastic = 8000))
 	trimmable = FALSE
@@ -387,7 +387,7 @@
 
 /obj/item/kirbyplants/potty
 	name = "Potty the Potted Plant"
-	desc = "A secret agent staffed in the station's bar to protect the mystical cakehat."
+	desc = "Секретный агент работал в баре станции, чтобы защитить мистический торт."
 	icon_state = "potty"
 	trimmable = FALSE
 
@@ -396,7 +396,8 @@
 
 /obj/structure/flora/rock
 	icon_state = "basalt"
-	desc = "A volcanic rock. Pioneers used to ride these babies for miles."
+	name = "камень"
+	desc = "Вулканическая скала. Пионеры ездили на этих младенцах на мили."
 	icon = 'icons/obj/flora/rocks.dmi'
 	resistance_flags = FIRE_PROOF
 	density = TRUE
@@ -427,13 +428,13 @@
 
 /obj/structure/flora/rock/pile
 	icon_state = "lavarocks"
-	desc = "A pile of rocks."
+	desc = "Куча камней."
 
 //Jungle grass
 
 /obj/structure/flora/grass/jungle
-	name = "jungle grass"
-	desc = "Thick alien flora."
+	name = "трава джунглей"
+	desc = "Густая чужеродная флора."
 	icon = 'icons/obj/flora/jungleflora.dmi'
 	icon_state = "grassa"
 
@@ -449,7 +450,7 @@
 
 /obj/structure/flora/rock/jungle
 	icon_state = "rock"
-	desc = "A pile of rocks."
+	desc = "Куча камней."
 	icon = 'icons/obj/flora/jungleflora.dmi'
 	density = FALSE
 
@@ -461,8 +462,8 @@
 //Jungle bushes
 
 /obj/structure/flora/junglebush
-	name = "bush"
-	desc = "A wild plant that is found in jungles."
+	name = "куст"
+	desc = "Дикое растение, которое растет в джунглях."
 	icon = 'icons/obj/flora/jungleflora.dmi'
 	icon_state = "busha"
 
@@ -484,7 +485,7 @@
 	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/structure/flora/rock/pile/largejungle
-	name = "rocks"
+	name = "камни"
 	icon_state = "rocks"
 	icon = 'icons/obj/flora/largejungleflora.dmi'
 	density = FALSE

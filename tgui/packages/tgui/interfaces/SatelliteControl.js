@@ -9,7 +9,7 @@ export const SatelliteControl = (props, context) => {
   return (
     <Window
       width={400}
-      height={305}>
+      height={505}>
       <Window.Content>
         {data.meteor_shield && (
           <Section>

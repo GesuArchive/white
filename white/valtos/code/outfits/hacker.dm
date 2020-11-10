@@ -33,9 +33,8 @@
 
 	H.add_client_colour(/datum/client_colour/hacker)
 	H.hud_list[HACKER_HUD].icon = null
-	H.alpha = 225
+	H.alpha = 200
 
-	H.verbs += /mob/living/carbon/proc/hackers_immortality
 	H.AddSpell(new /obj/effect/proc_holder/spell/self/hacker_heal(null))
 	H.AddSpell(new /obj/effect/proc_holder/spell/self/hacker_immater(null))
 
@@ -43,6 +42,7 @@
 		if(H?.hud_used)
 			H.hud_used.update_parallax_pref(H, TRUE)
 
+		add_verb(H, /mob/living/carbon/proc/hackers_immortality)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/head)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/suit)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/gloves)

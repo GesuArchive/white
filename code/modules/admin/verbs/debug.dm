@@ -535,9 +535,9 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 /client/proc/robust_dress_shop()
 
-	var/list/baseoutfits = list("Naked","Custom","As Job...", "As Plasmaman...", "As Zerg's Character...")
+	var/list/baseoutfits = list("Naked","Custom","As Job...", "As Plasmaman...", "As Zerg's Character...", "Для Турниров...")
 	var/list/outfits = list()
-	var/list/paths = subtypesof(/datum/outfit) - typesof(/datum/outfit/job) - typesof(/datum/outfit/plasmaman) - typesof(/datum/outfit/wzzzz)
+	var/list/paths = subtypesof(/datum/outfit) - typesof(/datum/outfit/job) - typesof(/datum/outfit/plasmaman) - typesof(/datum/outfit/wzzzz) - typesof(/datum/outfit/whiterobust)
 
 	for(var/path in paths)
 		var/datum/outfit/O = path //not much to initalize here but whatever
@@ -587,6 +587,19 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 		dresscode = input("Select character's equipment", "Delirium quick dress shop") as null|anything in sortList(wzzzz_outfits)
 		dresscode = wzzzz_outfits[dresscode]
+		if(isnull(dresscode))
+			return
+
+	if (dresscode == "Для Турниров...")
+		var/list/white_paths = subtypesof(/datum/outfit/whiterobust)
+		var/list/white_outfits = list()
+		for(var/path in white_paths)
+			var/datum/outfit/O = path
+			if(initial(O.can_be_admin_equipped))
+				white_outfits[initial(O.name)] = path
+
+		dresscode = input("ДАВАЙ УРААА ДАВАЙ ДАВАЙ ДАВААААЙ", "ВЫБИРАЕЕЕМ") as null|anything in sortList(white_outfits)
+		dresscode = white_outfits[dresscode]
 		if(isnull(dresscode))
 			return
 

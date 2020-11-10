@@ -6,8 +6,8 @@
 #define CANISTER_TIER_3					"tier 3"
 
 /obj/machinery/portable_atmospherics/canister
-	name = "canister"
-	desc = "A canister for the storage of gas."
+	name = "канистра"
+	desc = "Канистра для хранения газа."
 	icon_state = "yellow"
 	density = TRUE
 	base_icon_state = "yellow" //Used to make dealing with breaking the canister less hellish.
@@ -73,7 +73,7 @@
 
 /obj/machinery/portable_atmospherics/canister/interact(mob/user)
 	if(!allowed(user))
-		to_chat(user, "<span class='alert'>Error - Unauthorized User.</span>")
+		to_chat(user, "<span class='alert'>Ошибка - недостаточно привилегий.</span>")
 		playsound(src, 'sound/misc/compiler-failure.ogg', 50, TRUE)
 		return
 	..()
@@ -81,93 +81,93 @@
 /obj/machinery/portable_atmospherics/canister/examine(user)
 	. = ..()
 	if(mode)
-		. += "<hr><span class='notice'>This canister is [mode].</br> A sticker on its side says <b>MAX PRESSURE: [siunit(pressure_limit, "Pa", 0)]</b>.</span>"
+		. += "<hr><span class='notice'>Эта канистра в режиме [mode].\nСтикер сбоку сообщает <b>МАКСИМАЛЬНОЕ ДАВЛЕНИЕ: [siunit_pressure(pressure_limit, 0)]</b>.</span>"
 
 /obj/machinery/portable_atmospherics/canister/nitrogen
-	name = "Nitrogen canister"
+	name = "Nitrogen канистра"
 	desc = "Nitrogen gas. Reportedly useful for something."
 	icon_state = "red"
 	base_icon_state = "red"
 	gas_type = /datum/gas/nitrogen
 
 /obj/machinery/portable_atmospherics/canister/oxygen
-	name = "Oxygen canister"
+	name = "Oxygen канистра"
 	desc = "Oxygen. Necessary for human life."
 	icon_state = "blue"
 	base_icon_state = "blue"
 	gas_type = /datum/gas/oxygen
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide
-	name = "Carbon dioxide canister"
+	name = "Carbon dioxide канистра"
 	desc = "Carbon dioxide. What the fuck is carbon dioxide?"
 	icon_state = "black"
 	base_icon_state = "black"
 	gas_type = /datum/gas/carbon_dioxide
 
 /obj/machinery/portable_atmospherics/canister/toxins
-	name = "Plasma canister"
+	name = "Plasma канистра"
 	desc = "Plasma gas. The reason YOU are here. Highly toxic."
 	icon_state = "orange"
 	base_icon_state = "orange"
 	gas_type = /datum/gas/plasma
 
 /obj/machinery/portable_atmospherics/canister/bz
-	name = "\improper BZ canister"
+	name = "\improper BZ канистра"
 	desc = "BZ, a powerful hallucinogenic nerve agent."
 	icon_state = "purple"
 	base_icon_state = "purple"
 	gas_type = /datum/gas/bz
 
 /obj/machinery/portable_atmospherics/canister/nitrous_oxide
-	name = "Nitrous oxide canister"
+	name = "Nitrous oxide канистра"
 	desc = "Nitrous oxide gas. Known to cause drowsiness."
 	icon_state = "redws"
 	base_icon_state = "redws"
 	gas_type = /datum/gas/nitrous_oxide
 
 /obj/machinery/portable_atmospherics/canister/air
-	name = "Air canister"
+	name = "Air канистра"
 	desc = "Pre-mixed air."
 	icon_state = "grey"
 	base_icon_state = "grey"
 
 /obj/machinery/portable_atmospherics/canister/tritium
-	name = "Tritium canister"
+	name = "Tritium канистра"
 	desc = "Tritium. Inhalation might cause irradiation."
 	icon_state = "green"
 	base_icon_state = "green"
 	gas_type = /datum/gas/tritium
 
 /obj/machinery/portable_atmospherics/canister/nob
-	name = "Hyper-noblium canister"
+	name = "Hyper-noblium канистра"
 	desc = "Hyper-Noblium. More noble than all other gases."
 	icon_state = "nob"
 	base_icon_state = "nob"
 	gas_type = /datum/gas/hypernoblium
 
 /obj/machinery/portable_atmospherics/canister/nitryl
-	name = "Nitryl canister"
+	name = "Nitryl канистра"
 	desc = "Nitryl gas. Feels great 'til the acid eats your lungs."
 	icon_state = "brown"
 	base_icon_state = "brown"
 	gas_type = /datum/gas/nitryl
 
 /obj/machinery/portable_atmospherics/canister/stimulum
-	name = "Stimulum canister"
+	name = "Stimulum канистра"
 	desc = "Stimulum. High energy gas, high energy people."
 	icon_state = "darkpurple"
 	base_icon_state = "darkpurple"
 	gas_type = /datum/gas/stimulum
 
 /obj/machinery/portable_atmospherics/canister/pluoxium
-	name = "Pluoxium canister"
+	name = "Pluoxium канистра"
 	desc = "Pluoxium. Like oxygen, but more bang for your buck."
 	icon_state = "darkblue"
 	base_icon_state = "darkblue"
 	gas_type = /datum/gas/pluoxium
 
 /obj/machinery/portable_atmospherics/canister/water_vapor
-	name = "Water vapor canister"
+	name = "Water vapor канистра"
 	desc = "Water Vapor. We get it, you vape."
 	icon_state = "water_vapor"
 	base_icon_state = "water_vapor"
@@ -175,7 +175,7 @@
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/miasma
-	name = "Miasma canister"
+	name = "Miasma канистра"
 	desc = "Miasma. Makes you wish your nose was blocked."
 	icon_state = "miasma"
 	base_icon_state = "miasma"
@@ -183,7 +183,7 @@
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/freon
-	name = "Freon canister"
+	name = "Freon канистра"
 	desc = "Freon. Can absorb heat"
 	icon_state = "freon"
 	base_icon_state = "freon"
@@ -191,7 +191,7 @@
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/hydrogen
-	name = "Hydrogen canister"
+	name = "Hydrogen канистра"
 	desc = "Hydrogen, highly flammable"
 	icon_state = "h2"
 	base_icon_state = "h2"
@@ -199,7 +199,7 @@
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/healium
-	name = "Healium canister"
+	name = "Healium канистра"
 	desc = "Healium, causes deep sleep"
 	icon_state = "healium"
 	base_icon_state = "healium"
@@ -207,7 +207,7 @@
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/proto_nitrate
-	name = "Proto Nitrate canister"
+	name = "Proto Nitrate канистра"
 	desc = "Proto Nitrate, reacts differently with various gases"
 	icon_state = "proto_nitrate"
 	base_icon_state = "proto_nitrate"
@@ -215,7 +215,7 @@
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/zauker
-	name = "Zauker canister"
+	name = "Zauker канистра"
 	desc = "Zauker, highly toxic"
 	icon_state = "zauker"
 	base_icon_state = "zauker"
@@ -223,7 +223,7 @@
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/halon
-	name = "Halon canister"
+	name = "Halon канистра"
 	desc = "Halon, removes oxygen from high temperature fires and cools down the area"
 	icon_state = "halon"
 	base_icon_state = "halon"
@@ -231,8 +231,8 @@
 	filled = 1
 
 /obj/machinery/portable_atmospherics/canister/fusion_test
-	name = "fusion test canister"
-	desc = "Don't be a badmin."
+	name = "пиздец, а не канистра"
+	desc = "Анпедал уже готовится."
 	heat_limit = 1e12
 	pressure_limit = 1e14
 	mode = CANISTER_TIER_3
@@ -256,12 +256,12 @@
 	update_icon()
 
 /obj/machinery/portable_atmospherics/canister/proto
-	name = "prototype canister"
+	name = "прототип канистры"
 
 
 /obj/machinery/portable_atmospherics/canister/proto/default
-	name = "prototype canister"
-	desc = "The best way to fix an atmospheric emergency... or the best way to introduce one."
+	name = "прототип канистры"
+	desc = "Лучший способ исправить атмосферную аварию... или лучший способ создать ее."
 	icon_state = "proto"
 	base_icon_state = "proto"
 	volume = 5000
@@ -273,8 +273,8 @@
 
 
 /obj/machinery/portable_atmospherics/canister/proto/default/oxygen
-	name = "prototype canister"
-	desc = "A prototype canister for a prototype bike, what could go wrong?"
+	name = "прототип канистры"
+	desc = "Канистра любителя изобретать велосипеды, что может пойти не так?"
 	gas_type = /datum/gas/oxygen
 	filled = 1
 	release_pressure = ONE_ATMOSPHERE*2

@@ -54,7 +54,7 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
 	if(locked)
 		if(message_cooldown <= world.time)
 			message_cooldown = world.time + 50
-			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s door won't budge!</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] не поддаётся!</span>")
 		return
 	open()
 
@@ -66,10 +66,10 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
 	if(.)
 		return
 	if(locked)
-		to_chat(user, "<span class='danger'>It's locked.</span>")
+		to_chat(user, "<span class='danger'>Заблокировано.</span>")
 		return
 	if(!connected)
-		to_chat(user, "That doesn't appear to have a tray.")
+		to_chat(user, "Здесь нет ложа. Как так?")
 		return
 	if(connected.loc == src)
 		open()
@@ -86,9 +86,9 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
 	add_fingerprint(user)
 	if(istype(P, /obj/item/pen))
 		if(!user.is_literate())
-			to_chat(user, "<span class='notice'>You scribble illegibly on the side of [src]!</span>")
+			to_chat(user, "<span class='notice'>Царапаю что-то прикольное на [src]!</span>")
 			return
-		var/t = stripped_input(user, "What would you like the label to be?", text("[]", name), null)
+		var/t = stripped_input(user, "Что же мы напишем?", text("[]", name), null)
 		if (user.get_active_held_item() != P)
 			return
 		if(!user.canUseTopic(src, BE_CLOSE))
@@ -112,13 +112,13 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
 	user.visible_message(null, \
-		"<span class='notice'>You lean on the back of [src] and start pushing the tray open... (this will take about [DisplayTimeText(breakout_time)].)</span>", \
-		"<span class='hear'>You hear a metallic creaking from [src].</span>")
+		"<span class='notice'>Начинаю расшатывать стенки [src.name] в попытке открыть его... (это займёт примерно [DisplayTimeText(breakout_time)].)</span>", \
+		"<span class='hear'>Слышу металлический звон исходящий от [src.name].</span>")
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src )
 			return
-		user.visible_message("<span class='warning'>[user] successfully broke out of [src]!</span>", \
-			"<span class='notice'>You successfully break out of [src]!</span>")
+		user.visible_message("<span class='warning'>[user] успешно вырывается из [src.name]!</span>", \
+			"<span class='notice'>Успешно вылезаю из [src.name]!</span>")
 		open()
 
 /obj/structure/bodycontainer/proc/open()
@@ -149,8 +149,8 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
  * Morgue
  */
 /obj/structure/bodycontainer/morgue
-	name = "morgue"
-	desc = "Used to keep bodies in until someone fetches them. Now includes a high-tech alert system."
+	name = "морг"
+	desc = "Используется для долговременного хранения тел и возможности восстановить их. Снабжён системой оповещения, если тело вдруг подаст признаки жизни."
 	icon_state = "morgue1"
 	dir = EAST
 	var/beeper = TRUE
@@ -164,14 +164,14 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
 
 /obj/structure/bodycontainer/morgue/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>The speaker is [beeper ? "enabled" : "disabled"]. Alt-click to toggle it.</span>"
+	. += "<hr><span class='notice'>Динамик [beeper ? "включен" : "отключен"]. Alt-клик для смены режима.</span>"
 
 /obj/structure/bodycontainer/morgue/AltClick(mob/user)
 	..()
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return
 	beeper = !beeper
-	to_chat(user, "<span class='notice'>You turn the speaker function [beeper ? "on" : "off"].</span>")
+	to_chat(user, "<span class='notice'>[beeper ? "Включаю" : "Выключаю"] систему оповещений.</span>")
 
 /obj/structure/bodycontainer/morgue/update_icon()
 	if (!connected || connected.loc != src) // Open or tray is gone.
@@ -206,14 +206,14 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
  */
 GLOBAL_LIST_EMPTY(crematoriums)
 /obj/structure/bodycontainer/crematorium
-	name = "crematorium"
-	desc = "A human incinerator. Works well on barbecue nights."
+	name = "крематорий"
+	desc = "Для сжигания тел и готовки прекрасного барбекю."
 	icon_state = "crema1"
 	dir = SOUTH
 	var/id = 1
 
 /obj/structure/bodycontainer/crematorium/attack_robot(mob/user) //Borgs can't use crematoriums without help
-	to_chat(user, "<span class='warning'>[capitalize(src.name)] is locked against you.</span>")
+	to_chat(user, "<span class='warning'>[capitalize(src.name)] заперт для меня.</span>")
 	return
 
 /obj/structure/bodycontainer/crematorium/Destroy()
@@ -254,11 +254,11 @@ GLOBAL_LIST_EMPTY(crematoriums)
 	var/list/conts = GetAllContents() - src - connected
 
 	if(!conts.len)
-		audible_message("<span class='hear'>You hear a hollow crackle.</span>")
+		audible_message("<span class='hear'>Слышу пустой гул.</span>")
 		return
 
 	else
-		audible_message("<span class='hear'>You hear a roar as the crematorium activates.</span>")
+		audible_message("<span class='hear'>Слышу дикий рёв исходящий из крематория.</span>")
 
 		locked = TRUE
 		update_icon()
@@ -290,8 +290,8 @@ GLOBAL_LIST_EMPTY(crematoriums)
 			playsound(src.loc, 'sound/machines/ding.ogg', 50, TRUE) //you horrible people
 
 /obj/structure/bodycontainer/crematorium/creamatorium
-	name = "creamatorium"
-	desc = "A human incinerator. Works well during ice cream socials."
+	name = "крем-а-торий"
+	desc = "Хотите мороженку?"
 
 /obj/structure/bodycontainer/crematorium/creamatorium/cremate(mob/user)
 	var/list/icecreams = new()
@@ -339,7 +339,7 @@ GLOBAL_LIST_EMPTY(crematoriums)
 		connected.close()
 		add_fingerprint(user)
 	else
-		to_chat(user, "<span class='warning'>That's not connected to anything!</span>")
+		to_chat(user, "<span class='warning'>Эта штука не подключена ни к чему!</span>")
 
 /obj/structure/tray/attackby(obj/P, mob/user, params)
 	if(!istype(P, /obj/item/riding_offhand))
@@ -370,23 +370,23 @@ GLOBAL_LIST_EMPTY(crematoriums)
 			return
 	O.forceMove(src.loc)
 	if (user != O)
-		visible_message("<span class='warning'>[user] stuffs [O] into [src].</span>")
+		visible_message("<span class='warning'>[user] запихивает [O] в [src].</span>")
 	return
 
 /*
  * Crematorium tray
  */
 /obj/structure/tray/c_tray
-	name = "crematorium tray"
-	desc = "Apply body before burning."
+	name = "ложе крематория"
+	desc = "Сюда нужно ложить тела."
 	icon_state = "cremat"
 
 /*
  * Morgue tray
  */
 /obj/structure/tray/m_tray
-	name = "morgue tray"
-	desc = "Apply corpse before closing."
+	name = "ложе морга"
+	desc = "Сюда нужно ложить тела."
 	icon_state = "morguet"
 
 /obj/structure/tray/m_tray/CanAllowThrough(atom/movable/mover, turf/target)

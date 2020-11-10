@@ -2271,19 +2271,19 @@
 	dir = 4;
 	dwidth = 1;
 	height = 4;
-	name = "NT SS13: Escape pod loader #4";
+	name = "escape pod loader";
 	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
 	width = 3
 	},
 /turf/open/floor/plating,
 /area/security/main)
 "eI" = (
-/obj/docking_port/stationary/random{
+/obj/effect/spawner/structure/window/reinforced,
+/obj/docking_port/stationary/random/icemoon{
 	dir = 4;
-	id = "pod_lavaland3";
+	id = "pod_3_lavaland";
 	name = "lavaland"
 	},
-/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/security/main)
 "eJ" = (

@@ -212,6 +212,13 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
+"bM" = (
+/obj/effect/turf_decal/trimline/yellow/end{
+	dir = 8
+	},
+/obj/structure/closet/crate/bin,
+/turf/open/floor/plasteel/white,
+/area/medical/pharmacy)
 "bQ" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
@@ -530,6 +537,10 @@
 /obj/item/storage/box/pillpack/haloperidol,
 /obj/item/storage/box/pillpack/haloperidol,
 /obj/item/storage/box/pillpack/haloperidol,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 5;
+	pixel_y = 30
+	},
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/cmo)
 "du" = (
@@ -746,6 +757,10 @@
 /obj/machinery/chem_dispenser,
 /obj/structure/window/reinforced{
 	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
@@ -1123,6 +1138,9 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
 "jV" = (
@@ -1426,6 +1444,9 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "oV" = (
@@ -1434,6 +1455,10 @@
 	},
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 4
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 5;
+	pixel_y = 30
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
@@ -1813,6 +1838,10 @@
 	dir = 4
 	},
 /obj/effect/landmark/start/psychologist,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 5;
+	pixel_y = 30
+	},
 /turf/open/floor/carpet/blue,
 /area/medical/psychology)
 "tf" = (
@@ -2061,9 +2090,10 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
+/obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
+/obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
 "vC" = (
@@ -2178,6 +2208,10 @@
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
+	},
+/obj/structure/extinguisher_cabinet{
+	dir = 4;
+	pixel_x = 24
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay)
@@ -2604,7 +2638,26 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/structure/table,
+/obj/item/reagent_containers/glass/beaker/cryoxadone{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/glass/beaker/cryoxadone{
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/glass/beaker/cryoxadone{
+	pixel_x = 7;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/glass/beaker/cryoxadone{
+	pixel_x = 7;
+	pixel_y = 9
+	},
+/obj/item/storage/pill_bottle/mannitol{
+	pixel_y = 10
+	},
+/obj/item/wrench/medical,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
 "DC" = (
@@ -2715,15 +2768,19 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
 	},
-/obj/item/hand_labeler,
-/obj/structure/table,
 /obj/machinery/camera{
 	c_tag = "Pharmacy";
 	network = list("ss13","medbay")
 	},
-/obj/item/stack/cable_coil,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
@@ -2989,6 +3046,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "Hg" = (
@@ -3123,6 +3183,10 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 10
 	},
+/obj/structure/extinguisher_cabinet{
+	dir = 4;
+	pixel_x = 24
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
 "IX" = (
@@ -3223,6 +3287,10 @@
 	pixel_y = 24;
 	req_one_access_txt = "69"
 	},
+/obj/machinery/chem_dispenser,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
 "Kt" = (
@@ -3249,11 +3317,11 @@
 "KI" = (
 /obj/effect/landmark/start/medical_doctor,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
+	dir = 1
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
@@ -3469,6 +3537,7 @@
 /obj/item/radio/intercom{
 	pixel_x = -27
 	},
+/obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
 "MQ" = (
@@ -3841,6 +3910,10 @@
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
+/obj/structure/table,
+/obj/item/hand_labeler,
+/obj/item/stack/cable_coil,
+/obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
 "QP" = (
@@ -4102,6 +4175,9 @@
 /obj/item/reagent_containers/syringe/contraband/morphine{
 	pixel_y = -16
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/aft)
 "SR" = (
@@ -4130,10 +4206,21 @@
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/aft)
 "Tj" = (
-/obj/effect/turf_decal/trimline/yellow/end{
+/obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/closet/crate/bin,
+/obj/structure/window/reinforced,
+/obj/machinery/chem_master,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
 "Ty" = (
@@ -4456,9 +4543,6 @@
 	},
 /obj/effect/turf_decal/tile/yellow,
 /obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
 "Wf" = (
@@ -4516,6 +4600,9 @@
 /area/medical/medbay/aft)
 "WJ" = (
 /obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
 "WK" = (
@@ -5304,7 +5391,7 @@ ZM
 pS
 QN
 dO
-dO
+bM
 rb
 pg
 Hg

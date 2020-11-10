@@ -1137,6 +1137,9 @@
 	dir = 1
 	},
 /obj/machinery/light/small,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "cC" = (
@@ -1360,6 +1363,9 @@
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
 	},
 /turf/open/floor/plasteel/dark,
 /area/bridge)
@@ -1633,7 +1639,6 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/blue,
 /obj/structure/closet/firecloset,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -1684,7 +1689,7 @@
 	dir = 4;
 	pixel_x = 24
 	},
-/obj/structure/closet/firecloset,
+/obj/structure/table,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "dP" = (
@@ -1776,6 +1781,15 @@
 "em" = (
 /turf/closed/wall/r_wall,
 /area/bridge)
+"eq" = (
+/obj/machinery/porta_turret/ai{
+	dir = 8
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/turf/open/floor/circuit,
+/area/ai_monitored/turret_protected/ai_upload)
 "ex" = (
 /obj/structure/sign/directions/security{
 	dir = 1;
@@ -1824,6 +1838,13 @@
 	pixel_y = -40
 	},
 /obj/machinery/atmospherics/pipe/layer_manifold,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"ft" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/table,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "fC" = (
@@ -2155,6 +2176,9 @@
 /area/crew_quarters/heads/captain)
 "iE" = (
 /obj/machinery/computer/slot_machine,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "iJ" = (
@@ -2251,6 +2275,9 @@
 "jd" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 10
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 30
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -3889,6 +3916,9 @@
 /obj/item/radio/intercom{
 	pixel_y = 20
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "qd" = (
@@ -4055,9 +4085,6 @@
 /area/bridge)
 "qw" = (
 /obj/structure/closet/emcloset,
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -4252,6 +4279,9 @@
 "qS" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
 	dir = 8
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -25
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -4509,6 +4539,17 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
+"sS" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/structure/extinguisher_cabinet{
+	dir = 2;
+	pixel_x = 0;
+	pixel_y = -28
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "ta" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 4
@@ -4682,6 +4723,9 @@
 	},
 /obj/effect/turf_decal/tile/blue,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "Fr" = (
@@ -4728,6 +4772,12 @@
 	},
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
+"HH" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -25
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "JP" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -4743,12 +4793,32 @@
 	},
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/hop)
+"KF" = (
+/obj/structure/chair/comfy/brown{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/turf/open/floor/carpet,
+/area/crew_quarters/heads/captain)
 "Ms" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
 /turf/closed/wall/r_wall,
 /area/teleporter)
+"MF" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/extinguisher_cabinet{
+	dir = 2;
+	pixel_x = 0;
+	pixel_y = -28
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "Nv" = (
 /obj/structure/window/reinforced{
 	dir = 4;
@@ -4830,6 +4900,13 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
+"Tx" = (
+/obj/structure/cable,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/turf/open/floor/carpet,
+/area/crew_quarters/heads/hop)
 "TI" = (
 /obj/machinery/light,
 /obj/structure/disposalpipe/segment{
@@ -5428,7 +5505,7 @@ mB
 mB
 aj
 aj
-np
+MF
 ly
 kL
 bm
@@ -5495,7 +5572,7 @@ ip
 ns
 hV
 hp
-nw
+eq
 ax
 "}
 (17,1,1) = {"
@@ -5657,7 +5734,7 @@ aj
 aG
 ba
 jo
-qx
+gc
 gy
 bw
 bT
@@ -5680,7 +5757,7 @@ ab
 bh
 no
 dO
-eD
+ft
 nj
 bh
 eb
@@ -5733,7 +5810,7 @@ mB
 aj
 aj
 jo
-qx
+eg
 gy
 gM
 ck
@@ -6074,12 +6151,12 @@ ab
 ab
 aj
 aj
-eg
+sS
 jI
 bv
 bR
 Kr
-kY
+Tx
 cV
 dd
 dp
@@ -6094,7 +6171,7 @@ bY
 bZ
 cd
 ci
-ci
+KF
 Tu
 iz
 ic
@@ -6171,7 +6248,7 @@ GP
 fC
 qI
 aj
-aj
+HH
 aj
 ek
 aj

@@ -10,14 +10,6 @@
 #define WRITE_LOG(log, text) rustg_log_write(log, text, "true")
 #define WRITE_LOG_NO_FORMAT(log, text) rustg_log_write(log, text, "false")
 
-/proc/send_sound_preprocessor(target, var/sound/sound)
-	if(sound == null)
-		DIRECT_OUTPUT(target, sound)
-		return
-	if(sound.environment && sound.environment == -1)
-		sound.environment = 12
-	DIRECT_OUTPUT(target, sound)
-
 //print a warning message to world.log
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [UNLINT(src)] usr: [usr].")
 /proc/warning(msg)
@@ -216,6 +208,9 @@
 
 /proc/log_mapping(text)
 	WRITE_LOG(GLOB.world_map_error_log, text)
+
+/proc/log_perf(list/perf_info)
+	WRITE_LOG_NO_FORMAT(GLOB.perf_log, perf_info.Join(","))
 
 /**
  * Appends a tgui-related log entry. All arguments are optional.

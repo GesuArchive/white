@@ -35,7 +35,8 @@ Consuming extracts:
 			last_produced = world.time
 			for(var/i in 1 to cookies)
 				var/obj/item/S = spawncookie()
-				S.forceMove(S.loc, rand(-5, 5), rand(-5, 5))
+				S.pixel_x = base_pixel_x + rand(-5, 5)
+				S.pixel_y = base_pixel_y + rand(-5, 5)
 		return
 	..()
 

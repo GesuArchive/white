@@ -5,8 +5,8 @@ LINEN BINS
 */
 
 /obj/item/bedsheet
-	name = "bedsheet"
-	desc = "A surprisingly soft linen bedsheet."
+	name = "простыня"
+	desc = "Удивительно мягкая льняная простыня."
 	icon = 'icons/obj/bedsheets.dmi'
 	lefthand_file = 'icons/mob/inhands/misc/bedsheet_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/bedsheet_righthand.dmi'
@@ -35,21 +35,22 @@ LINEN BINS
 		return
 	if(layer == initial(layer))
 		layer = ABOVE_MOB_LAYER
-		to_chat(user, "<span class='notice'>You cover yourself with [src].</span>")
+		to_chat(user, "<span class='notice'>Накрываю себя простынёй.</span>")
 		forceMove(loc, 0, 0)
 	else
 		layer = initial(layer)
-		to_chat(user, "<span class='notice'>You smooth [src] out beneath you.</span>")
+		to_chat(user, "<span class='notice'>Расстелаю простыню под собой.</span>")
 	add_fingerprint(user)
 	return
 
 /obj/item/bedsheet/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_WIRECUTTER || I.get_sharpness())
-		var/obj/item/stack/sheet/cloth/C = new (get_turf(src), 3)
-		transfer_fingerprints_to(C)
-		C.add_fingerprint(user)
+		if (!(flags_1 & HOLOGRAM_1))
+			var/obj/item/stack/sheet/cloth/shreds = new (get_turf(src), 3)
+			transfer_fingerprints_to(shreds)
+			shreds.add_fingerprint(user)
 		qdel(src)
-		to_chat(user, "<span class='notice'>You tear [src] up.</span>")
+		to_chat(user, "<span class='notice'>Рву простыню на части.</span>")
 	else
 		return ..()
 
@@ -79,15 +80,15 @@ LINEN BINS
 	dream_messages = list("purple")
 
 /obj/item/bedsheet/patriot
-	name = "patriotic bedsheet"
-	desc = "You've never felt more free than when sleeping on this."
+	name = "патриотическая простыня"
+	desc = "Вы никогда не чувствовали себя более свободными, чем когда спите на этом."
 	icon_state = "sheetUSA"
 	inhand_icon_state = "sheetUSA"
 	dream_messages = list("America", "freedom", "fireworks", "bald eagles")
 
 /obj/item/bedsheet/rainbow
-	name = "rainbow bedsheet"
-	desc = "A multicolored blanket. It's actually several different sheets cut up and sewn together."
+	name = "радужная простыня"
+	desc = "Разноцветное одеяло. На самом деле это несколько разных листов, разрезанных и сшитых вместе."
 	icon_state = "sheetrainbow"
 	inhand_icon_state = "sheetrainbow"
 	dream_messages = list("red", "orange", "yellow", "green", "blue", "purple", "a rainbow")
@@ -103,84 +104,84 @@ LINEN BINS
 	dream_messages = list("yellow")
 
 /obj/item/bedsheet/mime
-	name = "mime's blanket"
-	desc = "A very soothing полосатый blanket.  All the noise just seems to fade out when you're under the covers in this."
+	name = "простыня мима"
+	desc = "Очень успокаивающее полосатое одеяло. Кажется, что весь шум исчезает, когда ты под одеялом в этом."
 	icon_state = "sheetmime"
 	inhand_icon_state = "sheetmime"
 	dream_messages = list("silence", "gestures", "a pale face", "a gaping mouth", "the mime")
 
 /obj/item/bedsheet/clown
-	name = "clown's blanket"
-	desc = "A rainbow blanket with a clown mask woven in. It smells faintly of bananas."
+	name = "клоунская простыня"
+	desc = "Радужное одеяло с вытканной маской клоуна. Пахнет бананами."
 	icon_state = "sheetclown"
 	inhand_icon_state = "sheetrainbow"
 	dream_messages = list("honk", "laughter", "a prank", "a joke", "a smiling face", "the clown")
 
 /obj/item/bedsheet/captain
-	name = "captain's bedsheet"
-	desc = "It has a Nanotrasen symbol on it, and was woven with a revolutionary new kind of thread guaranteed to have 0.01% permeability for most non-chemical substances, popular among most modern captains."
+	name = "простыня капитана"
+	desc = "На нем есть символ нанотразена, и он был соткан из революционно нового вида нити, гарантированно имеющей проницаемость 0,01% для большинства нехимических веществ, популярных среди большинства современных капитанов."
 	icon_state = "sheetcaptain"
 	inhand_icon_state = "sheetcaptain"
 	dream_messages = list("authority", "a golden ID", "sunglasses", "a green disc", "an antique gun", "the captain")
 
 /obj/item/bedsheet/rd
-	name = "research director's bedsheet"
-	desc = "It appears to have a beaker emblem, and is made out of fire-resistant material, although it probably won't protect you in the event of fires you're familiar with every day."
+	name = "простыня научного руководителя"
+	desc = "Похоже, что на нем есть эмблема стакана, и он сделан из огнестойкого материала, хотя он, вероятно, не защитит вас в случае пожаров, с которыми вы знакомы каждый день."
 	icon_state = "sheetrd"
 	inhand_icon_state = "sheetrd"
 	dream_messages = list("authority", "a silvery ID", "a bomb", "a mech", "a facehugger", "maniacal laughter", "the research director")
 
 // for Free Golems.
 /obj/item/bedsheet/rd/royal_cape
-	name = "Royal Cape of the Liberator"
-	desc = "Majestic."
+	name = "королевская накидка освободителя"
+	desc = "Величественно."
 	dream_messages = list("mining", "stone", "a golem", "freedom", "doing whatever")
 
 /obj/item/bedsheet/medical
-	name = "medical blanket"
-	desc = "It's a sterilized* blanket commonly used in the Medbay.  *Sterilization is voided if a virologist is present onboard the station."
+	name = "медицинская простыня"
+	desc = "Это простерилизованное* одеяло, обычно используемое в медпункте. *Стерилизация аннулируется, если на станции присутствует вирусолог."
 	icon_state = "sheetmedical"
 	inhand_icon_state = "sheetmedical"
 	dream_messages = list("healing", "life", "surgery", "a doctor")
 
 /obj/item/bedsheet/cmo
-	name = "chief medical officer's bedsheet"
-	desc = "It's a sterilized blanket that has a cross emblem. There's some cat fur on it, likely from Runtime."
+	name = "простыня главного врача"
+	desc = "Это простерилизованное одеяло с крестиком. На нем немного кошачьей шерсти, вероятно, Рантайма."
 	icon_state = "sheetcmo"
 	inhand_icon_state = "sheetcmo"
 	dream_messages = list("authority", "a silvery ID", "healing", "life", "surgery", "a cat", "the chief medical officer")
 
 /obj/item/bedsheet/hos
-	name = "head of security's bedsheet"
-	desc = "It is decorated with a shield emblem. While crime doesn't sleep, you do, but you are still THE LAW!"
+	name = "простыня начальника охраны"
+	desc = "Он украшен гербом-щитом. Хотя преступление не спит, вы спите, но вы по-прежнему ЗАКОН!"
 	icon_state = "sheethos"
 	inhand_icon_state = "sheethos"
 	dream_messages = list("authority", "a silvery ID", "handcuffs", "a baton", "a flashbang", "sunglasses", "the head of security")
 
 /obj/item/bedsheet/hop
-	name = "head of personnel's bedsheet"
-	desc = "It is decorated with a key emblem. For those rare moments when you can rest and cuddle with Ian without someone screaming for you over the radio."
+	name = "простыня главы персонала"
+	desc = "Он декорирован ключевой эмблемой. Для тех редких моментов, когда вы можете отдохнуть и пообниматься с Яном, и никто не кричит вам по радио."
 	icon_state = "sheethop"
 	inhand_icon_state = "sheethop"
 	dream_messages = list("authority", "a silvery ID", "obligation", "a computer", "an ID", "a corgi", "the head of personnel")
 
 /obj/item/bedsheet/ce
-	name = "chief engineer's bedsheet"
-	desc = "It is decorated with a wrench emblem. It's highly reflective and stain resistant, so you don't need to worry about ruining it with oil."
+	name = "простыня старшего инженера"
+	desc = "Он украшен эмблемой гаечного ключа. Он обладает высокой отражающей способностью и устойчив к пятнам, поэтому вам не нужно беспокоиться о том, чтобы испортить его маслом."
 	icon_state = "sheetce"
 	inhand_icon_state = "sheetce"
 	dream_messages = list("authority", "a silvery ID", "the engine", "power tools", "an APC", "a parrot", "the chief engineer")
 
 /obj/item/bedsheet/qm
-	name = "quartermaster's bedsheet"
-	desc = "It is decorated with a crate emblem in silver lining.  It's rather tough, and just the thing to lie on after a hard day of pushing paper."
+	name = "простыня завхоза"
+	desc = "Он украшен эмблемой ящика на серебряной подкладке. Это довольно сложно, и на нем просто можно лежать после тяжелого дня работы с бумагой."
 	icon_state = "sheetqm"
 	inhand_icon_state = "sheetqm"
 	dream_messages = list("a grey ID", "a shuttle", "a crate", "a sloth", "the quartermaster")
 
 /obj/item/bedsheet/chaplain
-	name = "chaplain's blanket"
-	desc = "A blanket woven with the hearts of gods themselves... Wait, that's just linen."
+	name = "святая простыня"
+	desc = "Одеяло, сотканное из сердец самих богов... Погодите, это просто лён."
 	icon_state = "sheetchap"
 	inhand_icon_state = "sheetchap"
 	dream_messages = list("a grey ID", "the gods", "a fulfilled prayer", "a cult", "the chaplain")
@@ -196,36 +197,36 @@ LINEN BINS
 	dream_messages = list("black")
 
 /obj/item/bedsheet/centcom
-	name = "\improper CentCom bedsheet"
-	desc = "Woven with advanced nanothread for warmth as well as being very decorated, essential for all officials."
+	name = "простыня спецназа"
+	desc = "Тканые из улучшенной нанонити для тепла, а также очень украшенные, необходимые для всех официальных лиц."
 	icon_state = "sheetcentcom"
 	inhand_icon_state = "sheetcentcom"
 	dream_messages = list("a unique ID", "authority", "artillery", "an ending")
 
 /obj/item/bedsheet/syndie
-	name = "syndicate bedsheet"
-	desc = "It has a syndicate emblem and it has an aura of evil."
+	name = "простыня синдиката"
+	desc = "У него есть эмблема синдиката, и у него аура зла."
 	icon_state = "sheetsyndie"
 	inhand_icon_state = "sheetsyndie"
 	dream_messages = list("a green disc", "a red crystal", "a glowing blade", "a wire-covered ID")
 
 /obj/item/bedsheet/cult
-	name = "cultist's bedsheet"
-	desc = "You might dream of Nar'Sie if you sleep with this. It seems rather tattered and glows of an eldritch presence."
+	name = "простыня культиста"
+	desc = "Вам может присниться Нар'Си, если вы будете спать с этим. Он кажется довольно изодранным и светится жутким присутствием."
 	icon_state = "sheetcult"
 	inhand_icon_state = "sheetcult"
 	dream_messages = list("a tome", "a floating red crystal", "a glowing sword", "a bloody symbol", "a massive humanoid figure")
 
 /obj/item/bedsheet/wiz
-	name = "wizard's bedsheet"
-	desc = "A special fabric enchanted with magic so you can have an enchanted night. It even glows!"
+	name = "простыня волшебника"
+	desc = "Особая ткань, зачарованная магией, чтобы вы могли провести волшебную ночь. Он даже светится!"
 	icon_state = "sheetwiz"
 	inhand_icon_state = "sheetwiz"
 	dream_messages = list("a book", "an explosion", "lightning", "a staff", "a skeleton", "a robe", "magic")
 
 /obj/item/bedsheet/nanotrasen
-	name = "\improper Nanotrasen bedsheet"
-	desc = "It has the Nanotrasen logo on it and has an aura of duty."
+	name = "простыня Нанотрейзен"
+	desc = "На нем есть логотип Нанотрейзен, и он создает ауру долга."
 	icon_state = "sheetNT"
 	inhand_icon_state = "sheetNT"
 	dream_messages = list("authority", "an ending")
@@ -236,8 +237,8 @@ LINEN BINS
 	dream_messages = list("a dog", "a corgi", "woof", "bark", "arf")
 
 /obj/item/bedsheet/cosmos
-	name = "cosmic space bedsheet"
-	desc = "Made from the dreams of those who wonder at the stars."
+	name = "космическая простыня"
+	desc = "Сделано из мечтаний тех, кто интересуется звездами."
 	icon_state = "sheetcosmos"
 	inhand_icon_state = "sheetcosmos"
 	dream_messages = list("the infinite cosmos", "Hans Zimmer music", "a flight through space", "the galaxy", "being fabulous", "shooting stars")
@@ -287,8 +288,8 @@ LINEN BINS
 	return INITIALIZE_HINT_QDEL
 
 /obj/structure/bedsheetbin
-	name = "linen bin"
-	desc = "It looks rather cosy."
+	name = "корзина для белья"
+	desc = "Смотрится довольно уютно."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "linenbin-full"
 	anchored = TRUE
@@ -308,11 +309,11 @@ LINEN BINS
 	. = ..()
 	. += "<hr>"
 	if(amount < 1)
-		. += "There are no bed sheets in the bin."
+		. += "Внутри нет простыней."
 	else if(amount == 1)
-		. += "There is one bed sheet in the bin."
+		. += "Осталась всего одна простыня."
 	else
-		. += "There are [amount] bed sheets in the bin."
+		. += "Здесь аж целых [amount] простыней."
 
 
 /obj/structure/bedsheetbin/update_icon_state()
@@ -336,7 +337,7 @@ LINEN BINS
 			return
 		sheets.Add(I)
 		amount++
-		to_chat(user, "<span class='notice'>You put [I] in [src].</span>")
+		to_chat(user, "<span class='notice'>Закидываю [I] в [src].</span>")
 		update_icon()
 
 	else if(default_unfasten_wrench(user, I, 5))
@@ -346,19 +347,19 @@ LINEN BINS
 		if(flags_1 & NODECONSTRUCT_1)
 			return
 		if(amount)
-			to_chat(user, "<span clas='warn'>The [src] must be empty first!</span>")
+			to_chat(user, "<span clas='warn'>Стоит опустошить [src] сначала!</span>")
 			return
 		if(I.use_tool(src, user, 5, volume=50))
-			to_chat(user, "<span clas='notice'>You disassemble the [src].</span>")
+			to_chat(user, "<span clas='notice'>Разбираю [src].</span>")
 			new /obj/item/stack/rods(loc, 2)
 			qdel(src)
 
 	else if(amount && !hidden && I.w_class < WEIGHT_CLASS_BULKY)	//make sure there's sheets to hide it among, make sure nothing else is hidden in there.
 		if(!user.transferItemToLoc(I, src))
-			to_chat(user, "<span class='warning'>\The [I] is stuck to your hand, you cannot hide it among the sheets!</span>")
+			to_chat(user, "<span class='warning'>Чёртов [I] застрял в моей руке. Не получится спрятать его среди простыней!</span>")
 			return
 		hidden = I
-		to_chat(user, "<span class='notice'>You hide [I] among the sheets.</span>")
+		to_chat(user, "<span class='notice'>Прячу [I] среди простыней.</span>")
 
 
 /obj/structure/bedsheetbin/attack_paw(mob/user)
@@ -385,12 +386,12 @@ LINEN BINS
 
 		B.forceMove(drop_location())
 		user.put_in_hands(B)
-		to_chat(user, "<span class='notice'>You take [B] out of [src].</span>")
+		to_chat(user, "<span class='notice'>Достаю [B] из [src].</span>")
 		update_icon()
 
 		if(hidden)
 			hidden.forceMove(drop_location())
-			to_chat(user, "<span class='notice'>[hidden] falls out of [B]!</span>")
+			to_chat(user, "<span class='notice'>[hidden] выпадает из [B]!</span>")
 			hidden = null
 
 	add_fingerprint(user)
@@ -409,7 +410,7 @@ LINEN BINS
 			B = new /obj/item/bedsheet(loc)
 
 		B.forceMove(drop_location())
-		to_chat(user, "<span class='notice'>You telekinetically remove [B] from [src].</span>")
+		to_chat(user, "<span class='notice'>Телекинетически достаю [B] из [src].</span>")
 		update_icon()
 
 		if(hidden)

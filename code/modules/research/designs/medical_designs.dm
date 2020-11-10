@@ -535,7 +535,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
 	build_path = /obj/item/organ/liver/cybernetic
-	category = list("Cybernetics", "Медицинские разработки")
+	category = list("Кибернетика", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cybernetic_liver/tier2
@@ -561,7 +561,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
 	build_path = /obj/item/organ/heart/cybernetic
-	category = list("Cybernetics", "Медицинские разработки")
+	category = list("Кибернетика", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cybernetic_heart/tier2
@@ -587,7 +587,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
 	build_path = /obj/item/organ/lungs/cybernetic
-	category = list("Cybernetics", "Медицинские разработки")
+	category = list("Кибернетика", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cybernetic_lungs/tier2
@@ -613,7 +613,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
 	build_path = /obj/item/organ/stomach/cybernetic
-	category = list("Cybernetics", "Медицинские разработки")
+	category = list("Кибернетика", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cybernetic_stomach/tier2
@@ -639,7 +639,7 @@
 	construction_time = 30
 	materials = list(/datum/material/iron = 250, /datum/material/glass = 400)
 	build_path = /obj/item/organ/ears/cybernetic
-	category = list("Cybernetics", "Медицинские разработки")
+	category = list("Кибернетика", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cybernetic_ears_u
@@ -650,7 +650,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 500, /datum/material/silver = 500)
 	build_path = /obj/item/organ/ears/cybernetic/upgraded
-	category = list("Cybernetics", "Медицинские разработки")
+	category = list("Кибернетика", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /////////////////////
@@ -689,7 +689,7 @@
 /datum/design/surgery/healing //PLEASE ACCOUNT FOR UNIQUE HEALING BRANCHES IN THE hptech HREF (currently 2 for Brute/Burn; Combo is bonus)
 	name = "Tend Wounds"
 	desc = "An upgraded version of the original surgery."
-	id = "surgery_healing_base" //holder because travis cries otherwise. Not used in techweb unlocks.
+	id = "surgery_healing_base" //holder because CI cries otherwise. Not used in techweb unlocks.
 	research_icon_state = "surgery_chest"
 
 /datum/design/surgery/healing/brute_upgrade

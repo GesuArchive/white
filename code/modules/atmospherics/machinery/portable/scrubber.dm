@@ -1,5 +1,5 @@
 /obj/machinery/portable_atmospherics/scrubber
-	name = "portable air scrubber"
+	name = "портативный газоочиститель"
 	icon_state = "pscrubber:0"
 	density = TRUE
 	max_integrity = 250
@@ -146,7 +146,7 @@
 	update_icon()
 
 /obj/machinery/portable_atmospherics/scrubber/huge
-	name = "huge air scrubber"
+	name = "огромный портативный газоочиститель"
 	icon_state = "scrubber:0"
 	anchored = TRUE
 	active_power_usage = 500
