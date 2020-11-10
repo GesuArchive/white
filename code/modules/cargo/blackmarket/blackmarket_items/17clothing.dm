@@ -64,7 +64,7 @@
 /datum/blackmarket_item/clothing/wzzzz/void_explorer
 	name = "Скафандр исследователя космоса"
 	desc = "Улучшенная версия обыного скафандра"
-	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/void_explorer
+	item = /obj/item/clothing/suit/space/hardsuit/void_explorer
 
 	price_min = 15000
 	price_max = 60000
