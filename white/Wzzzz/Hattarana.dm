@@ -4549,7 +4549,7 @@
 	name = "Adv. Security Hardsuit Crate"
 	desc = "Contains a Advanced Security Hardsuit. Requires Armory access to open."
 	cost = 7500
-	contains = list(/obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/rig_secb)
+	contains = list(/obj/item/clothing/suit/space/hardsuit/wzzzz/rig_secb)
 
 /datum/supply_pack/security/trau_s
 	name = "Traumatic Pistol Single-Pack"

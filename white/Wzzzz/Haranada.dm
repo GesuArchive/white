@@ -231,7 +231,7 @@
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 60,"energy" = 60, "bomb" = 50, "bio" = 100, "rad" = 60, "fire" = 100, "acid" = 100)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/hazard_rig
 
-/obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/merc_rig
+/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/merc_rig
 	name = "advanced blood-red hardsuit helmet"
 	desc = "Advanced Syndicate red hardsuit helmet."
 	alt_desc = "Advanced Syndicate red hardsuit helmet."
@@ -281,7 +281,7 @@
 	light_on = FALSE
 	resistance_flags = NONE|FIRE_PROOF|FREEZE_PROOF
 
-/obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/rig_miningalt
+/obj/item/clothing/suit/space/hardsuit/syndi/rig_miningalt
 	name = "advanced miner hardsuit"
 	desc = "For miners, isn't it?"
 	alt_desc = "For miners, isn't it?"
@@ -295,7 +295,7 @@
 	jetpack = null
 	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
-	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/rig_miningalt
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/rig_miningalt
 
 
 
@@ -571,7 +571,7 @@
 
 
 
-/obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/ert_janitor_rig
+/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/ert_janitor_rig
 	name = "ert janitor hardsuit helmet"
 	desc = "Old style of ert hardsuit."
 	alt_desc = "Old style of ert hardsuit."
@@ -639,7 +639,7 @@
 	icon = 'white/Wzzzz/icons/clothing/clothing/hard.dmi'
 	worn_icon = 'white/Wzzzz/icons/clothing/mob1/hard.dmi'
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 30, "energy" = 20, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 50)
-	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/skrell_helmet_white
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/wzzzz/skrell_helmet_white
 
 
 
