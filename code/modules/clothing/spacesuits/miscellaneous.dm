@@ -48,7 +48,7 @@ Contains:
 	//NEW SWAT suit
 /obj/item/clothing/suit/space/swat
 	name = "MK.I Скафандр Спецназа"
-	desc = "Тактический скафандр впервые разработанный совместными усилиями между ныне несуществующей IS-ERI и Нанотрансеном в 20XX для космических военных операций. Проверенный временем экземпляр, в нем очень тяжело ходить, что компенсируется надежной защитой от различных угроз!"
+	desc = "Устаревший тактический скафандр, впервые разработанный совместными усилиями между ныне несуществующей IS-ERI и Нанотразеном в 20XX для проведения операций в космосе. Проверенный временем экземпляр, в нем очень тяжело ходить, однако это компенсируется надежной защитой от различных угроз!"
 	icon_state = "heavy"
 	inhand_icon_state = "swat_suit"
 	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/restraints/handcuffs, /obj/item/tank/internals, /obj/item/kitchen/knife/combat)

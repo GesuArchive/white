@@ -582,7 +582,7 @@
 	build_type = AUTOLATHE | PROTOLATHE
 	materials = list(/datum/material/glass = 500)
 	build_path = /obj/item/reagent_containers/glass/beaker
-	category = list("initial", "Медицина", "Медицинские дизайны")
+	category = list("initial", "Медицина", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/large_beaker
@@ -591,7 +591,7 @@
 	build_type = AUTOLATHE | PROTOLATHE
 	materials = list(/datum/material/glass = 2500)
 	build_path = /obj/item/reagent_containers/glass/beaker/large
-	category = list("initial", "Медицина", "Медицинские дизайны")
+	category = list("initial", "Медицина", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/pillbottle
@@ -600,7 +600,7 @@
 	build_type = AUTOLATHE
 	materials = list(/datum/material/plastic = 20, /datum/material/glass = 100)
 	build_path = /obj/item/storage/pill_bottle
-	category = list("initial", "Медицина", "Медицинские дизайны")
+	category = list("initial", "Медицина", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/beanbag_slug
@@ -769,7 +769,7 @@
 	build_type = AUTOLATHE | PROTOLATHE
 	materials = list(/datum/material/iron = 10, /datum/material/glass = 20)
 	build_path = /obj/item/reagent_containers/syringe
-	category = list("initial", "Медицина", "Медицинские дизайны")
+	category = list("initial", "Медицина", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/dropper
@@ -778,7 +778,7 @@
 	build_type = AUTOLATHE | PROTOLATHE
 	materials = list(/datum/material/glass = 10, /datum/material/plastic = 30)
 	build_path = /obj/item/reagent_containers/dropper
-	category = list("initial", "Медицина", "Медицинские дизайны")
+	category = list("initial", "Медицина", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/prox_sensor

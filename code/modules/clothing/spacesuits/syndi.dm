@@ -125,7 +125,7 @@
 
 //Black-red syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate/black/red
-	name = "темно-красный медицинский шлем скафандра синдиката"
+	name = "темно-красный шлем скафандра синдиката"
 	icon_state = "syndicate-helm-black-red"
 	inhand_icon_state = "syndicate-helm-black-red"
 
