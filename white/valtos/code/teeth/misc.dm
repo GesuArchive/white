@@ -110,10 +110,6 @@
 			to_chat(user, "<span class='notice'>Я уже вырываю зуб!</span>")
 		return TRUE
 
-
-/mob/living/carbon/human // as far as i know,only humans have teeth
-	var/lisp = 0
-
 /mob/living/carbon/human/regenerate_organs()
 	..()
 	update_teeth()
