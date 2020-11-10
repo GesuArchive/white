@@ -751,6 +751,7 @@
 /area/ruin/space/has_grav/terrorship)
 "cQ" = (
 /obj/machinery/door/airlock/hatch,
+/obj/structure/fans/tiny,
 /turf/open/floor/circuit/red/anim,
 /area/ruin/space/has_grav/terrorship)
 "cR" = (
@@ -821,6 +822,7 @@
 /area/ruin/space/has_grav/terrorship)
 "dc" = (
 /obj/machinery/door/airlock/hatch,
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/terrorship)
 "df" = (
@@ -939,6 +941,7 @@
 /area/ruin/space/has_grav/terrorship)
 "dP" = (
 /obj/machinery/door/airlock/hatch,
+/obj/structure/fans/tiny,
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/terrorship)
 "dT" = (
@@ -1175,6 +1178,7 @@
 /area/ruin/space/has_grav/terrorship)
 "fz" = (
 /obj/machinery/door/airlock/hatch,
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "fA" = (
@@ -1490,6 +1494,7 @@
 /area/ruin/space/has_grav/terrorship)
 "AG" = (
 /obj/machinery/door/airlock/public/glass,
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/cafeteria,
 /area/ruin/space/has_grav/terrorship)
 "BB" = (
@@ -1751,6 +1756,7 @@
 /area/ruin/space/has_grav/terrorship)
 "VT" = (
 /obj/machinery/door/airlock/hatch,
+/obj/structure/fans/tiny,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "Wn" = (
@@ -2260,7 +2266,6 @@ fJ
 fJ
 fJ
 fJ
-fJ
 ac
 ac
 ac
@@ -2275,7 +2280,8 @@ ac
 ac
 ac
 ac
-fJ
+ac
+ac
 fJ
 fJ
 fJ
@@ -2326,7 +2332,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 ac
 ac
 XV
@@ -2343,7 +2349,7 @@ fx
 dn
 fx
 ac
-fJ
+ac
 fJ
 fJ
 fJ
@@ -2392,7 +2398,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 ac
 VG
 ac
@@ -2411,7 +2417,7 @@ dk
 dk
 ac
 ac
-fJ
+ac
 fJ
 fJ
 fJ
@@ -2458,7 +2464,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 ac
 Wn
 sQ
@@ -2524,7 +2530,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 ac
 Pv
 RM
@@ -2590,7 +2596,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 ac
 Ww
 RM
@@ -2642,7 +2648,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 ac
 ac
 ac
@@ -2708,7 +2714,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 bc
 ad
 ad
@@ -2774,7 +2780,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 bc
 ad
 ad
@@ -2840,7 +2846,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 bc
 ad
 ad
@@ -2906,7 +2912,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 bc
 ad
 ad
@@ -2972,7 +2978,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 bc
 ad
 ad
@@ -3038,7 +3044,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 bc
 ad
 ad
@@ -3102,7 +3108,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 ac
 ac
 ac
@@ -3168,7 +3174,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 ac
 ad
 ad
@@ -3234,7 +3240,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 ac
 aj
 ad
@@ -4038,7 +4044,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 ac
 aj
 ad
@@ -4086,7 +4092,7 @@ hY
 SD
 ac
 ac
-fJ
+ac
 fJ
 fJ
 fJ
@@ -4106,7 +4112,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 ac
 aG
 aG
@@ -4152,7 +4158,7 @@ aF
 ba
 Xy
 ac
-fJ
+ac
 fJ
 fJ
 fJ
@@ -4174,7 +4180,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 ac
 ac
 ac
@@ -4218,7 +4224,7 @@ ac
 ac
 ac
 ac
-fJ
+ac
 fJ
 fJ
 fJ
@@ -4617,7 +4623,7 @@ fv
 EY
 OF
 ac
-fJ
+ac
 fJ
 fJ
 fJ
@@ -4644,7 +4650,7 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 ac
 bb
 aF
@@ -4652,8 +4658,7 @@ bx
 aF
 bQ
 ac
-fJ
-fJ
+ac
 fJ
 fJ
 fJ
@@ -4683,7 +4688,8 @@ ac
 ac
 ac
 ac
-fJ
+ac
+ac
 fJ
 fJ
 fJ
@@ -4712,13 +4718,13 @@ fJ
 fJ
 fJ
 fJ
-fJ
+ac
 ac
 ac
 bv
 ac
 ac
-fJ
+ac
 fJ
 fJ
 fJ
