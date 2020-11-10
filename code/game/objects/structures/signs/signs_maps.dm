@@ -1,8 +1,8 @@
 //map and direction signs
 
 /obj/structure/sign/map
-	name = "station map"
-	desc = "A navigational chart of the station."
+	name = "карта станции"
+	desc = "Навигационная карта станции. Кто это вообще рисовал?!"
 	max_integrity = 500
 
 /obj/structure/sign/map/left
@@ -12,47 +12,47 @@
 	icon_state = "map-right"
 
 /obj/structure/sign/directions/science
-	name = "science department sign"
-	desc = "A direction sign, pointing out which way the Science department is."
+	name = "знак отдела науки"
+	desc = "Указатель направления, указывающий, в какой стороне находится отдел науки."
 	icon_state = "direction_sci"
 
 /obj/structure/sign/directions/engineering
-	name = "engineering department sign"
-	desc = "A direction sign, pointing out which way the Engineering department is."
+	name = "знак инженерного отдела"
+	desc = "Указатель направления, указывающий, в какой стороне находится инженерный отдел."
 	icon_state = "direction_eng"
 
 /obj/structure/sign/directions/security
-	name = "security department sign"
-	desc = "A direction sign, pointing out which way the Security department is."
+	name = "знак отдела безопасности"
+	desc = "Указатель направления, указывающий, в какой стороне находится служба безопасности."
 	icon_state = "direction_sec"
 
 /obj/structure/sign/directions/medical
-	name = "medbay sign"
-	desc = "A direction sign, pointing out which way the Medbay is."
+	name = "знак медицинского отдела"
+	desc = "Указатель направления, указывающий, в какой стороне находится медицинский отдел."
 	icon_state = "direction_med"
 
 /obj/structure/sign/directions/evac
-	name = "evacuation sign"
-	desc = "A direction sign, pointing out which way the escape shuttle dock is."
+	name = "знак эвакуации"
+	desc = "Указатель направления, указывающий, где находится док-станция эвакуационного шаттла."
 	icon_state = "direction_evac"
 
 /obj/structure/sign/directions/supply
-	name = "cargo sign"
-	desc = "A direction sign, pointing out which way the Cargo Bay is."
+	name = "знак грузового отдела"
+	desc = "Указатель направления, указывающий, где находится грузовой отсек."
 	icon_state = "direction_supply"
 
 /obj/structure/sign/directions/command
-	name = "command department sign"
-	desc = "A direction sign, pointing out which way the Command department is."
+	name = "знак командного управления"
+	desc = "Указатель направления, указывающий, в какую сторону находится командный отдел."
 	icon_state = "direction_bridge"
 
 /obj/structure/sign/directions/vault
-	name = "vault sign"
-	desc = "A direction sign, pointing out which way the station's Vault is."
+	name = "знак хранилища"
+	desc = "Указатель направления, указывающий, где находится Хранилище станции."
 	icon_state = "direction_vault"
 
 /obj/structure/sign/directions/upload
-	name = "upload sign"
-	desc = "A direction sign, pointing out which way the station's AI Upload is."
+	name = "знак аплоада"
+	desc = "Указатель направления, указывающий, в каком направлении находится аплоад ИИ."
 	icon_state = "direction_upload"
 
