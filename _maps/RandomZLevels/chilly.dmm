@@ -2678,6 +2678,10 @@
 /obj/effect/turf_decal/weather/snow/corner,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility)
+"hE" = (
+/mob/living/simple_animal/hostile/nanotrasen/screaming,
+/turf/open/floor/plasteel/white,
+/area/awaymission/chilly/gatewaystart/base2armory)
 "hF" = (
 /obj/structure/closet/secure_closet{
 	req_access = list(3)
@@ -5962,6 +5966,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/ammo_box/magazine/m556/arg,
+/obj/item/ammo_box/magazine/m556/arg,
+/obj/item/ammo_box/magazine/m556/arg,
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/gatewaystart/base2armory)
 "qL" = (
@@ -6375,6 +6382,11 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/chilly/surface)
+"rQ" = (
+/obj/structure/flora/tree/pine,
+/obj/effect/mine/explosive,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "rR" = (
 /obj/effect/turf_decal/stripes/red/line,
 /obj/effect/turf_decal/weather/side{
@@ -6472,6 +6484,7 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/facility2)
 "sg" = (
+/mob/living/simple_animal/hostile/nanotrasen/ranged/assault,
 /turf/open/floor/plasteel/white/side{
 	dir = 1
 	},
@@ -12077,6 +12090,10 @@
 /obj/effect/turf_decal/weather/snow/corner,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility)
+"Hu" = (
+/mob/living/simple_animal/hostile/nanotrasen/ranged/assault,
+/turf/open/floor/plasteel/white,
+/area/awaymission/chilly/gatewaystart/base2armory)
 "Hv" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/tile/brown{
@@ -12844,6 +12861,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/dust,
+/mob/living/simple_animal/hostile/nanotrasen/ranged/assault,
 /turf/open/floor/plasteel/white/side,
 /area/awaymission/chilly/gatewaystart/base2armory)
 "Jw" = (
@@ -13242,7 +13260,7 @@
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
 "KG" = (
-/obj/item/uplink/nuclear,
+/obj/item/uplink/nuclear/debug,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
 "KI" = (
@@ -13805,6 +13823,10 @@
 /obj/item/clothing/glasses/sunglasses,
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility4)
+"Mp" = (
+/obj/effect/mine/explosive,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "Mq" = (
 /obj/machinery/door/airlock/hatch,
 /obj/structure/fans/tiny{
@@ -14257,6 +14279,13 @@
 /obj/machinery/light/broken,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
+"NG" = (
+/obj/effect/mine/explosive,
+/turf/open/floor/grass/snow/safe/oxy{
+	icon_state = "snow_dug";
+	slowdown = 1
+	},
+/area/awaymission/chilly/surface)
 "NH" = (
 /obj/item/stack/sheet/mineral/wood,
 /obj/effect/turf_decal/dust,
@@ -14703,6 +14732,7 @@
 /obj/structure/chair/office{
 	dir = 8
 	},
+/mob/living/simple_animal/hostile/nanotrasen/ranged,
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
@@ -21422,7 +21452,7 @@ VX
 Om
 Om
 fn
-Wp
+NG
 Wp
 Om
 fn
@@ -21895,7 +21925,7 @@ VV
 (14,1,1) = {"
 VV
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -22153,7 +22183,7 @@ Om
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -22389,17 +22419,17 @@ Om
 Om
 Om
 VX
+Mp
+VX
 Om
+Mp
 VX
 Om
 Om
-VX
 Om
 Om
 Om
-Om
-Om
-Om
+Mp
 Om
 Om
 Om
@@ -22624,7 +22654,7 @@ Om
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -22638,7 +22668,7 @@ Om
 Om
 SP
 Om
-Om
+Mp
 VX
 Om
 Om
@@ -22870,9 +22900,9 @@ Om
 Om
 Om
 VX
+Mp
 Om
-Om
-Om
+Mp
 Om
 Om
 Om
@@ -23116,19 +23146,19 @@ Om
 Om
 Om
 Om
-Om
+Mp
 VX
 Om
+Mp
 Om
-Om
-Om
+Mp
 VX
 Om
+Mp
 Om
 Om
 Om
-Om
-Om
+Mp
 Om
 Om
 Om
@@ -23372,7 +23402,7 @@ Om
 Om
 Om
 Om
-Om
+Mp
 VX
 Om
 VX
@@ -23601,13 +23631,13 @@ Om
 Om
 Om
 Om
-Om
-VX
-Om
-Om
+Mp
+rQ
 Om
 Om
 Om
+Om
+Mp
 VX
 Om
 Om
@@ -23833,6 +23863,7 @@ VV
 Om
 VX
 Om
+Mp
 Om
 Om
 Om
@@ -23840,8 +23871,7 @@ Om
 Om
 Om
 Om
-Om
-Om
+Mp
 Om
 Om
 Om
@@ -24087,19 +24117,19 @@ Om
 Om
 Om
 Om
+Mp
+VX
+Mp
 Om
+Om
+Mp
+Om
+Om
+Mp
 VX
 Om
 Om
-Om
-Om
-Om
-Om
-Om
-VX
-Om
-Om
-Om
+Mp
 VX
 Om
 Om
@@ -24326,7 +24356,7 @@ Om
 Om
 Om
 Om
-Om
+Mp
 VX
 Om
 Om
@@ -24335,11 +24365,11 @@ Om
 Om
 Om
 Om
+Mp
 Om
 Om
 Om
-Om
-Om
+Mp
 Om
 Om
 Om
@@ -24561,7 +24591,7 @@ Om
 VX
 SP
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -24571,9 +24601,9 @@ SP
 Om
 Om
 Om
+Mp
 Om
-Om
-Om
+Mp
 VX
 Om
 Om
@@ -24810,8 +24840,8 @@ Om
 Om
 Om
 Om
-Om
-Om
+Mp
+Mp
 Om
 Om
 Om
@@ -24826,7 +24856,7 @@ SP
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -25048,6 +25078,7 @@ Om
 VX
 Om
 Om
+Mp
 Om
 Om
 Om
@@ -25060,6 +25091,7 @@ Om
 Om
 Om
 Om
+Mp
 Om
 Om
 Om
@@ -25069,9 +25101,7 @@ Om
 Om
 Om
 Om
-Om
-Om
-Om
+Mp
 Om
 Om
 VX
@@ -25301,7 +25331,7 @@ Om
 SP
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -25551,14 +25581,14 @@ Om
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
 Om
 Om
 VX
-Om
+Mp
 fn
 dB
 dB
@@ -25790,7 +25820,7 @@ Om
 Om
 Om
 Om
-Om
+Mp
 VX
 Om
 Om
@@ -26267,19 +26297,19 @@ vp
 Om
 Om
 Om
-Om
-Om
-vp
-Om
-Om
-Om
+gb
 Om
 vp
 Om
 Om
 Om
+gb
+vp
 Om
 Om
+Om
+Om
+gb
 Om
 vp
 Om
@@ -26744,7 +26774,7 @@ VX
 Om
 Om
 Om
-gb
+Om
 qR
 Om
 tW
@@ -26992,7 +27022,7 @@ Om
 tW
 Lo
 BO
-Pd
+Hu
 BO
 Pd
 Pd
@@ -27962,7 +27992,7 @@ ps
 BO
 Pd
 BO
-Pd
+Hu
 BO
 BO
 BO
@@ -28451,7 +28481,7 @@ Kx
 Kx
 tW
 TX
-Pd
+hE
 mK
 tW
 Om
@@ -37153,6 +37183,7 @@ Om
 Om
 Om
 Om
+Mp
 Om
 Om
 Om
@@ -37162,14 +37193,13 @@ Om
 Om
 Om
 Om
+Mp
 Om
 Om
 Om
 Om
 Om
-Om
-Om
-Om
+Mp
 Om
 Om
 Om
@@ -37631,7 +37661,7 @@ Om
 Om
 VX
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -37650,7 +37680,7 @@ Om
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -37901,7 +37931,7 @@ Om
 Om
 Om
 VX
-Om
+Mp
 Om
 Om
 Om
@@ -38125,7 +38155,7 @@ Om
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -38362,7 +38392,7 @@ Om
 VX
 Om
 Om
-Om
+Mp
 Om
 Om
 VX
@@ -38615,7 +38645,7 @@ Om
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -38625,7 +38655,7 @@ VX
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -38840,7 +38870,7 @@ Om
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -39102,7 +39132,7 @@ Om
 Om
 Om
 VX
-Om
+Mp
 Om
 Om
 Om
@@ -39323,14 +39353,14 @@ Om
 Om
 Om
 Om
+Mp
+Om
+Mp
 Om
 Om
 Om
 Om
-Om
-Om
-Om
-Om
+Mp
 Om
 Om
 Om
@@ -39351,7 +39381,7 @@ Om
 VX
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -39575,7 +39605,7 @@ VX
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -39824,7 +39854,7 @@ VX
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 VX
@@ -40072,7 +40102,7 @@ Om
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -40081,7 +40111,7 @@ Om
 Om
 Om
 Om
-Om
+Mp
 Om
 dB
 dB
@@ -40301,7 +40331,7 @@ Om
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -40538,7 +40568,7 @@ Om
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -41033,7 +41063,7 @@ Om
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -41267,7 +41297,7 @@ Om
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
@@ -41524,12 +41554,12 @@ Om
 Om
 Om
 Om
+Mp
 Om
 Om
 Om
 Om
-Om
-Om
+Mp
 Om
 Om
 Om
@@ -42255,7 +42285,7 @@ Om
 Om
 Om
 Om
-Om
+Mp
 Om
 Om
 Om
