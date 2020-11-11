@@ -2,7 +2,7 @@
 	"version": 1,
     "map_name": "Construction Station",
     "map_path": "map_files/ConstructionStation",
-    "map_file": "constructionstation.dmm",
+    "map_file": "ConstructionStation.dmm",
     "shuttles": {
 	    "cargo": "cargo_box",
 	    "ferry": "ferry_fancy",
