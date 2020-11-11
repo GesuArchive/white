@@ -141,6 +141,14 @@
 		"trader": {
 			"total_positions": 0,
 			"spawn_positions": 0
+		},
+		"paramedic": {
+			"total_positions": 0,
+			"spawn_positions": 0
+		},
+		"psychologist": {
+			"total_positions": 0,
+			"spawn_positions": 0
 		}
 	}
 }
