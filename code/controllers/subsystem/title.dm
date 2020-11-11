@@ -123,7 +123,7 @@ SUBSYSTEM_DEF(title)
 
 		for(var/mob/dead/new_player/D in GLOB.new_player_list)
 			if(D?.client?.lobbyscreen_image)
-				D.client.send_to_lobby_console(ctt)
+				D.client.send_to_lobby_console_now(ctt)
 
 /datum/controller/subsystem/title/proc/cls()
 	if(enabled_shit)

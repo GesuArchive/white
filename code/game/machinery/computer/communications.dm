@@ -485,14 +485,12 @@
 	if(!SScommunications.can_announce(user, is_ai))
 		to_chat(user, "<span class='alert'>Подзарядка интеркомов. Подождите, пожалуйста.</span>")
 		return
-	var/input = stripped_input(user, "Выберите сообщение станции.", "ЧЕ?")
+	var/input = stripped_input(user, "Введите сообщение для станции.", "ЧЕ?")
 	if(!input || !user.canUseTopic(src, !issilicon(usr)))
 		return
 	if(!(user.can_speak())) //No more cheating, mime/random mute guy!
 		input = "..."
 		to_chat(user, "<span class='warning'>А как говорить...</span>")
-	else
-		input = user.treat_message(input) //Adds slurs and so on. Someone should make this use languages too.
 	SScommunications.make_announcement(user, is_ai, input)
 	deadchat_broadcast(" made a priority announcement from <span class='name'>[get_area_name(usr, TRUE)]</span>.", "<span class='name'>[user.real_name]</span>", user, message_type=DEADCHAT_ANNOUNCEMENT)
 

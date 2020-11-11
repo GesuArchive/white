@@ -364,6 +364,9 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 /mob/living/proc/treat_message(message)
 
+	if(lisp)
+		message = lisp(message, lisp)
+
 	if(HAS_TRAIT(src, TRAIT_UNINTELLIGIBLE_SPEECH))
 		message = unintelligize(message)
 
@@ -382,11 +385,10 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(stuttering)
 		message = stutter(message)
 
-	if(slurring)
-		message = slur(message)
-
-	if(cultslurring)
+	if(cultslurring && slurring)
 		message = cultslur(message)
+	else if(slurring)
+		message = slur(message)
 
 	if(client?.prefs?.disabled_autocap)
 		message = message

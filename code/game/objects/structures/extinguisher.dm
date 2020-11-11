@@ -1,6 +1,6 @@
 /obj/structure/extinguisher_cabinet
-	name = "extinguisher cabinet"
-	desc = "A small wall mounted cabinet designed to hold a fire extinguisher."
+	name = "шкаф огнетушителя"
+	desc = "Небольшой настенный шкаф, предназначенный для размещения огнетушителя."
 	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "extinguisher_closed"
 	anchored = TRUE
@@ -23,7 +23,7 @@
 
 /obj/structure/extinguisher_cabinet/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Alt-click to [opened ? "close":"open"] it.</span>"
+	. += "<hr><span class='notice'>Alt-клик для [opened ? "закрытия":"открытия"] его.</span>"
 
 /obj/structure/extinguisher_cabinet/Destroy()
 	if(stored_extinguisher)
@@ -48,11 +48,11 @@
 
 /obj/structure/extinguisher_cabinet/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_WRENCH && !stored_extinguisher)
-		to_chat(user, "<span class='notice'>You start unsecuring [name]...</span>")
+		to_chat(user, "<span class='notice'>Начинаю снимать [name]...</span>")
 		I.play_tool_sound(src)
 		if(I.use_tool(src, user, 60))
 			playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-			to_chat(user, "<span class='notice'>You unsecure [name].</span>")
+			to_chat(user, "<span class='notice'>Снимаю [name].</span>")
 			deconstruct(TRUE)
 		return
 
@@ -63,7 +63,7 @@
 			if(!user.transferItemToLoc(I, src))
 				return
 			stored_extinguisher = I
-			to_chat(user, "<span class='notice'>You place [I] in [src].</span>")
+			to_chat(user, "<span class='notice'>Вставляю [I] в [src].</span>")
 			update_icon()
 			return TRUE
 		else
@@ -82,7 +82,7 @@
 		return
 	if(stored_extinguisher)
 		user.put_in_hands(stored_extinguisher)
-		to_chat(user, "<span class='notice'>You take [stored_extinguisher] from [src].</span>")
+		to_chat(user, "<span class='notice'>Достаю [stored_extinguisher] из [src].</span>")
 		stored_extinguisher = null
 		if(!opened)
 			opened = 1
@@ -96,7 +96,7 @@
 	. = COMPONENT_CANCEL_ATTACK_CHAIN
 	if(stored_extinguisher)
 		stored_extinguisher.forceMove(loc)
-		to_chat(user, "<span class='notice'>You telekinetically remove [stored_extinguisher] from [src].</span>")
+		to_chat(user, "<span class='notice'>Телекинетически достаю [stored_extinguisher] из [src].</span>")
 		stored_extinguisher = null
 		opened = TRUE
 		playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
@@ -115,7 +115,7 @@
 
 /obj/structure/extinguisher_cabinet/proc/toggle_cabinet(mob/user)
 	if(opened && broken)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] is broken open.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] сломан.</span>")
 	else
 		playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
 		opened = !opened
@@ -154,7 +154,7 @@
 	qdel(src)
 
 /obj/item/wallframe/extinguisher_cabinet
-	name = "extinguisher cabinet frame"
-	desc = "Used for building wall-mounted extinguisher cabinets."
+	name = "каркас шкафа огнетушителя"
+	desc = "Используется для изготовления навесных шкафов для огнетушителей."
 	icon_state = "extinguisher"
 	result_path = /obj/structure/extinguisher_cabinet

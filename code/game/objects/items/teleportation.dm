@@ -95,8 +95,8 @@
  * Hand-tele
  */
 /obj/item/hand_tele
-	name = "hand tele"
-	desc = "A portable item using blue-space technology."
+	name = "ручной телепортер"
+	desc = "Переносной телепортер, использующий блюспейс-технологию как свои 27 пальцев."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "hand_tele"
 	inhand_icon_state = "electronic"
@@ -126,7 +126,7 @@
 /obj/item/hand_tele/proc/try_dispel_portal(atom/target, mob/user)
 	if(is_parent_of_portal(target))
 		qdel(target)
-		to_chat(user, "<span class='notice'>You dispel [target] with \the [src]!</span>")
+		to_chat(user, "<span class='notice'>Удаляю [target] используя [src]!</span>")
 		return TRUE
 	return FALSE
 
@@ -138,7 +138,7 @@
 	var/turf/current_location = get_turf(user)//What turf is the user on?
 	var/area/current_area = current_location.loc
 	if(!current_location || (current_area.area_flags & NOTELEPORT) || is_away_level(current_location.z) || !isturf(user.loc))//If turf was not found or they're on z level 2 or >7 which does not currently exist. or if user is not located on a turf
-		to_chat(user, "<span class='notice'>\The [src] is malfunctioning.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] отказывается работать здесь.</span>")
 		return
 	var/list/L = list()
 	for(var/obj/machinery/computer/teleporter/com in GLOB.machines)
@@ -147,9 +147,9 @@
 			if(!A || (A.area_flags & NOTELEPORT))
 				continue
 			if(com.power_station && com.power_station.teleporter_hub && com.power_station.engaged)
-				L["[get_area(com.target)] (Active)"] = com.target
+				L["[get_area(com.target)] (Активно)"] = com.target
 			else
-				L["[get_area(com.target)] (Inactive)"] = com.target
+				L["[get_area(com.target)] (Неактивно)"] = com.target
 	var/list/turfs = list()
 	for(var/turf/T in urange(10, orange=1))
 		if(T.x>world.maxx-8 || T.x<8)
@@ -161,24 +161,24 @@
 			continue
 		turfs += T
 	if(turfs.len)
-		L["None (Dangerous)"] = pick(turfs)
-	var/t1 = input(user, "Please select a teleporter to lock in on.", "Hand Teleporter") as null|anything in L
+		L["Неизвестно (ОПАСНО)"] = pick(turfs)
+	var/t1 = input(user, "Куда телепортируемся?", "Ручной Телепортер") as null|anything in L
 	if (!t1 || user.get_active_held_item() != src || user.incapacitated())
 		return
 	if(active_portal_pairs.len >= max_portal_pairs)
-		user.show_message("<span class='notice'>\The [src] is recharging!</span>")
+		user.show_message("<span class='notice'>[capitalize(src.name)] перезаряжается!</span>")
 		return
 	var/atom/T = L[t1]
 	var/area/A = get_area(T)
 	if(A.area_flags & NOTELEPORT)
-		to_chat(user, "<span class='notice'>\The [src] is malfunctioning.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] отказывается работать здесь.</span>")
 		return
 	current_location = get_turf(user)	//Recheck.
 	current_area = current_location.loc
 	if(!current_location || (current_area.area_flags & NOTELEPORT) || is_away_level(current_location.z) || !isturf(user.loc))//If turf was not found or they're on z level 2 or >7 which does not currently exist. or if user is not located on a turf
-		to_chat(user, "<span class='notice'>\The [src] is malfunctioning.</span>")
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] отказывается работать здесь.</span>")
 		return
-	user.show_message("<span class='notice'>Locked In.</span>", MSG_AUDIBLE)
+	user.show_message("<span class='notice'>Портал открыт.</span>", MSG_AUDIBLE)
 	var/list/obj/effect/portal/created = create_portal_pair(current_location, get_teleport_turf(get_turf(T)), 300, 1, null, atmos_link_override)
 	if(!(LAZYLEN(created) == 2))
 		return

@@ -1,6 +1,6 @@
 /*****************Pickaxes & Drills & Shovels****************/
 /obj/item/pickaxe
-	name = "pickaxe"
+	name = "кирка"
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "pickaxe"
 	flags_1 = CONDUCT_1
@@ -27,16 +27,16 @@
 	return SHAME
 
 /obj/item/pickaxe/rusted
-	name = "rusty pickaxe"
-	desc = "A pickaxe that's been left to rust."
+	name = "ржавая кирка"
+	desc = "Кирка, оставленная ржаветь."
 	attack_verb_continuous = list("ineffectively hits")
 	attack_verb_simple = list("ineffectively hit")
 	force = 1
 	throwforce = 1
 
 /obj/item/pickaxe/mini
-	name = "compact pickaxe"
-	desc = "A smaller, compact version of the standard pickaxe."
+	name = "компактная кирка"
+	desc = "Меньшая, компактная версия стандартной кирки."
 	icon_state = "minipick"
 	worn_icon_state = "pickaxe"
 	force = 10
@@ -46,25 +46,25 @@
 	custom_materials = list(/datum/material/iron=1000)
 
 /obj/item/pickaxe/silver
-	name = "silver-plated pickaxe"
+	name = "посеребренная кирка"
 	icon_state = "spickaxe"
 	inhand_icon_state = "spickaxe"
 	worn_icon_state = "spickaxe"
 	toolspeed = 0.5 //mines faster than a normal pickaxe, bought from mining vendor
-	desc = "A silver-plated pickaxe that mines slightly faster than standard-issue."
+	desc = "Посеребренная кирка, которая добывает немного быстрее, чем стандартная."
 	force = 17
 
 /obj/item/pickaxe/diamond
-	name = "diamond-tipped pickaxe"
+	name = "кирка с алмазным наконечником"
 	icon_state = "dpickaxe"
 	inhand_icon_state = "dpickaxe"
 	worn_icon_state = "dpickaxe"
 	toolspeed = 0.3
-	desc = "A pickaxe with a diamond pick head. Extremely robust at cracking rock walls and digging up dirt."
+	desc = "Кирка с алмазной головкой. Чрезвычайно устойчива к растрескиванию каменных стен и выкапыванию грязи."
 	force = 19
 
 /obj/item/pickaxe/drill
-	name = "mining drill"
+	name = "шахтёрский бур"
 	icon_state = "handdrill"
 	inhand_icon_state = "jackhammer"
 	worn_icon_state = "jackhammer"
@@ -72,11 +72,11 @@
 	toolspeed = 0.6 //available from roundstart, faster than a pickaxe.
 	usesound = 'sound/weapons/drill.ogg'
 	hitsound = 'sound/weapons/drill.ogg'
-	desc = "An electric mining drill for the especially scrawny."
+	desc = "Электрическая буровая установка для особо худых."
 
 /obj/item/pickaxe/drill/cyborg
-	name = "cyborg mining drill"
-	desc = "An integrated electric mining drill."
+	name = "шахтёрский бур киборга"
+	desc = "Интегрированная электрическая буровая установка."
 	flags_1 = NONE
 
 /obj/item/pickaxe/drill/cyborg/Initialize()
@@ -84,18 +84,18 @@
 	ADD_TRAIT(src, TRAIT_NODROP, CYBORG_ITEM_TRAIT)
 
 /obj/item/pickaxe/drill/diamonddrill
-	name = "diamond-tipped mining drill"
+	name = "бур с алмазным напылением"
 	icon_state = "diamonddrill"
 	toolspeed = 0.2
-	desc = "Yours is the drill that will pierce the heavens!"
+	desc = "Твой бур пронзит небеса!"
 
 /obj/item/pickaxe/drill/cyborg/diamond //This is the BORG version!
-	name = "diamond-tipped cyborg mining drill" //To inherit the NODROP_1 flag, and easier to change borg specific drill mechanics.
+	name = "бур с алмазным напылением киборга" //To inherit the NODROP_1 flag, and easier to change borg specific drill mechanics.
 	icon_state = "diamonddrill"
 	toolspeed = 0.2
 
 /obj/item/pickaxe/drill/jackhammer
-	name = "sonic jackhammer"
+	name = "звуковой пневмоперфоратор"
 	icon_state = "jackhammer"
 	inhand_icon_state = "jackhammer"
 	worn_icon_state = "jackhammer"
@@ -105,8 +105,8 @@
 	desc = "Cracks rocks with sonic blasts."
 
 /obj/item/pickaxe/improvised
-	name = "improvised pickaxe"
-	desc = "A pickaxe made with a knife and crowbar taped together, how does it not break?"
+	name = "импровизированная кирка"
+	desc = "Кирка, сделанная из ножа и лома, склеенных вместе, как она не ломается?"
 	icon_state = "ipickaxe"
 	inhand_icon_state = "ipickaxe"
 	worn_icon_state = "pickaxe"
@@ -118,8 +118,8 @@
 	custom_materials = list(/datum/material/iron=12050) //metal needed for a crowbar and for a knife, why the FUCK does a knife cost 6 metal sheets while a crowbar costs 0.025 sheets? shit makes no sense fuck this
 
 /obj/item/shovel
-	name = "shovel"
-	desc = "A large tool for digging and moving dirt."
+	name = "лопата"
+	desc = "Большой инструмент для копания и перемещения грязи."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "shovel"
 	worn_icon_state = "shovel"
@@ -151,8 +151,8 @@
 	return SHAME
 
 /obj/item/shovel/spade
-	name = "spade"
-	desc = "A small tool for digging and moving dirt."
+	name = "лопаточка"
+	desc = "Небольшой инструмент для рытья и перемещения грязи."
 	icon_state = "spade"
 	inhand_icon_state = "spade"
 	worn_icon_state = "spade"
@@ -163,8 +163,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/shovel/serrated
-	name = "serrated bone shovel"
-	desc = "A wicked tool that cleaves through dirt just as easily as it does flesh. The design was styled after ancient lavaland tribal designs."
+	name = "зубчатая костяная лопата"
+	desc = "Коварный инструмент, который пробивает грязь так же легко, как и плоть. Дизайн был выполнен в стиле древних племен Лаваленда."
 	icon_state = "shovel_bone"
 	inhand_icon_state = "shovel_bone"
 	worn_icon_state = "shovel_serr"

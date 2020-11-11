@@ -734,7 +734,7 @@
 			if(4)
 				var/prev_intent = owner.a_intent
 				owner.a_intent = INTENT_HARM
-				to_chat(owner, "<span class='warning'>Мою руку схватила судорогаs!</span>")
+				to_chat(owner, "<span class='warning'>Мою руку схватила судорога!</span>")
 				owner.log_message("attacked [owner.p_them()]self to a Muscle Spasm", LOG_ATTACK)
 				owner.ClickOn(owner)
 				owner.a_intent = prev_intent

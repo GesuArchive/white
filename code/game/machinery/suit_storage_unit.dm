@@ -1,7 +1,7 @@
 // SUIT STORAGE UNIT /////////////////
 /obj/machinery/suit_storage_unit
-	name = "suit storage unit"
-	desc = "An industrial unit made to hold and decontaminate irradiated equipment. It comes with a built-in UV cauterization mechanism. A small warning label advises that organic matter should not be placed into the unit."
+	name = "блок хранения костюма"
+	desc = "Промышленная установка, предназначенная для хранения и дезактивации облученного оборудования. Он оснащен встроенным механизмом УФ-прижигания. Небольшая предупреждающая этикетка сообщает, что органические вещества не должны попадать внутрь устройства."
 	icon = 'icons/obj/machines/suit_storage.dmi'
 	icon_state = "close"
 	use_power = ACTIVE_POWER_USE

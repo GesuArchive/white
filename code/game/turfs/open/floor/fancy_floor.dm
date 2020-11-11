@@ -9,7 +9,7 @@
 
 /turf/open/floor/wood
 	name = "деревянный пол"
-	desc = "стильное темное дерево."
+	desc = "Стильное темное дерево."
 	icon_state = "wood"
 	floor_tile = /obj/item/stack/tile/wood
 	broken_states = list("wood-broken", "wood-broken2", "wood-broken3", "wood-broken4", "wood-broken5", "wood-broken6", "wood-broken7")

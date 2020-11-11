@@ -256,7 +256,7 @@
 		return FALSE
 	if(!B.key || !B.mind)
 		if(user)
-			to_chat(user, "<span class='warning'>Внутри [src] мозг никак не реагирует на запросы!</span>")
+			to_chat(user, "<span class='warning'>Внутри [src]. Мозг никак не реагирует на запросы!</span>")
 		return FALSE
 	if(!B.client)
 		if(user)

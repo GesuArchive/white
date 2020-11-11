@@ -245,8 +245,8 @@
 	force = 12
 
 /obj/item/pickaxe/silver/wzzzz
-	name = "bone pickaxe"
-	desc = "Improvise your life with bones and wood."
+	name = "костяная кирка"
+	desc = "Импровизируйте свою жизнь с помощью костей и дерева."
 	toolspeed = 0.2
 	force = 12
 	throwforce = 8

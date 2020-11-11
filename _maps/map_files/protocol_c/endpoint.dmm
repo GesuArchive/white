@@ -1752,12 +1752,11 @@
 /area/centcom/evac)
 "hB" = (
 /obj/docking_port/stationary{
-	dir = 4;
-	dwidth = 2;
-	height = 7;
-	id = "pod_away";
+	dwidth = 1;
+	height = 4;
+	id = "pod_3_away";
 	name = "recovery ship";
-	width = 5
+	width = 3
 	},
 /turf/open/floor/plating/asteroid/snow/centcom,
 /area/centcom/outdoors)
@@ -1880,11 +1879,12 @@
 /area/space)
 "ih" = (
 /obj/docking_port/stationary{
-	dwidth = 1;
-	height = 4;
-	id = "pod4_away";
+	dir = 4;
+	dwidth = 2;
+	height = 7;
+	id = "pod_away";
 	name = "recovery ship";
-	width = 3
+	width = 5
 	},
 /turf/open/floor/plating/asteroid/snow/centcom,
 /area/centcom/outdoors)
@@ -2010,7 +2010,7 @@
 	dir = 4;
 	dwidth = 1;
 	height = 4;
-	id = "pod2_away";
+	id = "pod_2_away";
 	name = "recovery ship";
 	width = 3
 	},
@@ -6381,7 +6381,7 @@
 /obj/docking_port/stationary{
 	dwidth = 1;
 	height = 4;
-	id = "pod3_away";
+	id = "pod_4_away";
 	name = "recovery ship";
 	width = 3
 	},
@@ -35564,7 +35564,7 @@ Co
 Co
 Co
 hA
-hA
+hG
 hG
 hA
 Co
@@ -35820,8 +35820,8 @@ Co
 Co
 Co
 Co
-Co
 hA
+hG
 hG
 hA
 hA
@@ -36077,8 +36077,8 @@ Co
 Co
 Co
 Co
-Co
 hA
+hG
 hG
 hG
 hG
@@ -36334,9 +36334,9 @@ Co
 Co
 Co
 Co
-Co
 hA
-hA
+hG
+hG
 hG
 hA
 hA
@@ -36591,9 +36591,9 @@ Co
 Co
 Co
 Co
-Co
-Co
 hA
+hG
+hG
 hG
 hG
 hA
@@ -36848,9 +36848,9 @@ Co
 Co
 Co
 Co
-Co
-Co
 hA
+hG
+hG
 hA
 hG
 hG
@@ -37104,10 +37104,10 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
+hA
+hA
+hG
+hG
 hA
 hA
 hG
@@ -37361,11 +37361,11 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hA
+hA
 hA
 hA
 hA
@@ -37618,10 +37618,10 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hA
 Co
 Co
 Co
@@ -37874,11 +37874,11 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hG
+hG
+hA
 Co
 Co
 Co
@@ -38131,11 +38131,11 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hG
+hA
 Co
 Co
 Co
@@ -38386,13 +38386,13 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hA
+hG
+hG
+hG
+hA
 Co
 Co
 Co
@@ -38642,14 +38642,14 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hG
+hG
+hG
+hG
+hG
+hA
 Co
 Co
 Co
@@ -38899,14 +38899,14 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hG
+hG
+hA
+hA
+hA
 Co
 Co
 Co
@@ -39154,14 +39154,14 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hA
+hG
+hG
+hG
+hA
+hA
 Co
 Co
 Co
@@ -39411,13 +39411,13 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hG
+hA
+hA
+hA
 Co
 Co
 Co
@@ -39667,12 +39667,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hG
+hG
+hA
+hA
 Co
 Co
 Co
@@ -39924,11 +39924,11 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hA
+hA
 Co
 Co
 Co
@@ -40179,12 +40179,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hA
+hG
+hA
+hA
 Co
 Co
 Co
@@ -40436,11 +40436,11 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hG
+hA
 Co
 Co
 Co
@@ -40692,12 +40692,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hG
+hG
+hG
+hA
 Co
 Co
 Co
@@ -40948,13 +40948,13 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hG
+hG
+hG
+hA
+hA
 Co
 Co
 Co
@@ -41204,13 +41204,13 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hG
+hG
+hG
+hA
+hA
 Co
 Co
 Co
@@ -41461,12 +41461,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hG
+hG
+hA
 Co
 Co
 Co
@@ -41718,12 +41718,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hG
+hG
+hA
 Co
 Co
 Co
@@ -41975,12 +41975,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hG
+hG
+hA
 Co
 Co
 Co
@@ -42232,12 +42232,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hG
+hA
+hA
 Co
 Co
 Co
@@ -42489,12 +42489,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hG
+hG
+hA
+hA
 Co
 Co
 Co
@@ -42747,11 +42747,11 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hG
+hA
 Co
 Co
 Co
@@ -43004,12 +43004,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hG
+hG
+hA
+hA
 Co
 Co
 Co
@@ -43262,11 +43262,11 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hG
+hA
 Co
 Co
 Co
@@ -43519,11 +43519,11 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hG
+hG
+hA
 Co
 Co
 Co
@@ -43777,11 +43777,11 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hA
+hA
 Co
 Co
 Co
@@ -44034,12 +44034,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hG
+hG
+hA
+hA
 Co
 Co
 Co
@@ -44292,11 +44292,11 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hG
+hA
 Co
 Co
 Co
@@ -44549,12 +44549,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hG
+hG
+hA
+hA
 Co
 Co
 Co
@@ -44807,12 +44807,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hG
+hG
+hA
+hA
 Co
 Co
 Co
@@ -45065,12 +45065,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hG
+hG
+hA
+hA
 Co
 Co
 Co
@@ -45323,12 +45323,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hG
+hG
+hA
+hA
 Co
 Co
 Co
@@ -45581,11 +45581,11 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hG
+hA
 Co
 Co
 Co
@@ -45838,12 +45838,12 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
+hA
+hA
+hG
+hG
+hA
+hA
 Co
 Co
 Co
@@ -46096,10 +46096,10 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
+hA
+hG
+hG
+hG
 hA
 hA
 hA
@@ -46353,11 +46353,11 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
 hA
+hA
+hG
+hG
+hG
 hG
 hG
 hG
@@ -46611,9 +46611,9 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
+hA
+hA
+hA
 hA
 hA
 hG
@@ -47849,7 +47849,7 @@ ZT
 ZT
 ZT
 ZT
-ZT
+ih
 ZT
 ZT
 ZT
@@ -49142,7 +49142,7 @@ ZT
 ZT
 ZT
 ZT
-ZT
+jl
 ZT
 ZT
 ZT
@@ -49658,7 +49658,7 @@ ZT
 ZT
 ZT
 ZT
-hB
+ZT
 ZT
 ZT
 ZT
@@ -49906,7 +49906,7 @@ ZT
 ZT
 ZT
 ZT
-ih
+ZT
 ZT
 ZT
 ZT
@@ -50932,12 +50932,12 @@ ZT
 ZT
 ZT
 ZT
+hB
 ZT
 ZT
 ZT
 ZT
 ZT
-jl
 ZT
 ZT
 ZT
@@ -51199,7 +51199,7 @@ ZT
 ZT
 ZT
 ZT
-ZT
+Fz
 ZT
 ZT
 ZT
@@ -52476,7 +52476,7 @@ ZT
 ZT
 ZT
 ZT
-Fz
+ZT
 ZT
 ZT
 ZT

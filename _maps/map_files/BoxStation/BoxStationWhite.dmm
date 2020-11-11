@@ -440,7 +440,7 @@
 	dir = 4;
 	dwidth = 1;
 	height = 4;
-	name = "NT SS13: Escape pod loader #3";
+	name = "escape pod loader";
 	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
 	width = 3
 	},
@@ -28067,17 +28067,6 @@
 /obj/machinery/light/small,
 /turf/open/floor/plating,
 /area/ai_monitored/turret_protected/aisat_interior)
-"ctk" = (
-/obj/docking_port/stationary{
-	dir = 8;
-	dwidth = 1;
-	height = 4;
-	name = "NT SS13: Escape pod loader #2";
-	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
-	width = 3
-	},
-/turf/open/floor/plating,
-/area/hallway/secondary/entry)
 "cto" = (
 /obj/machinery/door/airlock/hatch{
 	name = "MiniSat Foyer";
@@ -29128,12 +29117,12 @@
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "cwV" = (
-/obj/docking_port/stationary/random{
+/obj/effect/spawner/structure/window/reinforced,
+/obj/docking_port/stationary/random/icemoon{
 	dir = 8;
-	id = "pod_lavaland1";
+	id = "pod_lavaland";
 	name = "lavaland"
 	},
-/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
 "cxl" = (
@@ -29403,12 +29392,12 @@
 /turf/closed/wall,
 /area/vacant_room/office)
 "czN" = (
-/obj/docking_port/stationary/random{
+/obj/effect/spawner/structure/window/reinforced,
+/obj/docking_port/stationary/random/icemoon{
 	dir = 4;
-	id = "pod_lavaland4";
+	id = "pod_4_lavaland";
 	name = "lavaland"
 	},
-/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "czO" = (
@@ -32830,12 +32819,12 @@
 /turf/open/floor/plasteel,
 /area/hydroponics)
 "ieY" = (
-/obj/docking_port/stationary/random{
+/obj/effect/spawner/structure/window/reinforced,
+/obj/docking_port/stationary/random/icemoon{
 	dir = 8;
-	id = "pod_lavaland2";
+	id = "pod_2_lavaland";
 	name = "lavaland"
 	},
-/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
 "ifu" = (
@@ -34855,7 +34844,7 @@
 	dir = 8;
 	dwidth = 1;
 	height = 4;
-	name = "NT SS13: Escape pod loader #1";
+	name = "escape pod loader";
 	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
 	width = 3
 	},
@@ -47646,7 +47635,7 @@ aaa
 aaa
 fZW
 auP
-ctk
+nRQ
 auP
 fZW
 aaa

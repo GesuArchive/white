@@ -491,7 +491,7 @@
 	build_path = /obj/item/holosign_creator/medical
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 500, /datum/material/silver = 100) //a hint of silver since it can troll 2 antags (bad viros and sentient disease)
 	id = "holobarrier_med"
-	category = list("Медицинские дизайны")
+	category = list("Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /////////////////////////////////////////
