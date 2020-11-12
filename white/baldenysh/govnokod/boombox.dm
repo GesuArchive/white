@@ -143,8 +143,8 @@
 	data["songs"] = list()
 	for(var/datum/track/S in songs)
 		var/list/track_data = list(
-			name = S.song_name
-			short_name = S.short_name
+			name = S.song_name,
+			short_name = S.short_name,
 			category = S.song_category
 		)
 		data["songs"] += list(track_data)
