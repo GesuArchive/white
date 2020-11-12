@@ -4,28 +4,28 @@
 #define ui_admin "EAST-1:28,SOUTH+2:24"
 
 /datum/hud/proc/extend(mob/owner)
-	var/obj/screen/using
+	var/atom/movable/screen/using
 
 	if(owner.client.holder)
-		using = new /obj/screen/verbbutton/admin()
+		using = new /atom/movable/screen/verbbutton/admin()
 		//using.icon = ui_style
 		using.screen_loc = ui_admin
 		using.hud = src
 		infodisplay += using
 
-	using = new /obj/screen/verbbutton/special()
+	using = new /atom/movable/screen/verbbutton/special()
 	//using.icon = ui_style
 	using.screen_loc = ui_special
 	using.hud = src
 	infodisplay += using
 
-	using = new /obj/screen/verbbutton/settings()
+	using = new /atom/movable/screen/verbbutton/settings()
 	//using.icon = ui_style
 	using.screen_loc = ui_settings
 	using.hud = src
 	infodisplay += using
 
-	using = new /obj/screen/verbbutton/main()
+	using = new /atom/movable/screen/verbbutton/main()
 	//using.icon = ui_style
 	using.screen_loc = ui_main
 	using.hud = src
@@ -67,26 +67,26 @@
 
 ///////////////////////////////////////////////////////////////////
 
-/obj/screen/verbbutton
+/atom/movable/screen/verbbutton
 	name = "Верб кнопка прикол"
 	var/list/allowed_categories = list(
 								"IC", "OOC", "Объект", "Призрак", "Особенное", "Настройки",
 								"Адм", "Адс", "Дбг", "Срв", "Фан"
 							)
 
-/obj/screen/verbbutton/Click()
+/atom/movable/screen/verbbutton/Click()
 	ui_interact(usr)
 
-/obj/screen/verbbutton/ui_interact(mob/user, datum/tgui/ui)
+/atom/movable/screen/verbbutton/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "VerbMenu", name)
 		ui.open()
 
-/obj/screen/verbbutton/ui_status(mob/user)
+/atom/movable/screen/verbbutton/ui_status(mob/user)
 	return UI_INTERACTIVE
 
-/obj/screen/verbbutton/ui_data(mob/user)
+/atom/movable/screen/verbbutton/ui_data(mob/user)
 	var/list/data = list()
 	data["verbs"] = list()
 
@@ -98,7 +98,7 @@
 			data["verbs"][verb_item:category] += list(list(verb_item:name, verbpath, verbcolor))
 	return data
 
-/obj/screen/verbbutton/ui_act(action, params)
+/atom/movable/screen/verbbutton/ui_act(action, params)
 	if(..())
 		return
 	//регекс для поиска пидорасов: proc\/[\w\s]+\([\w\s]+as[\w\s]+\)[\w\s="]+set category
@@ -109,39 +109,39 @@
 
 ////////////////////////////////////////////////////
 
-/obj/screen/verbbutton/admin
+/atom/movable/screen/verbbutton/admin
 	name = "Админ"
 	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
 	icon_state = "admin"
 	screen_loc = ui_admin
 	allowed_categories = list("Адм", "Адс", "Дбг", "Срв", "Фан", "Маппинг", "Профайл")
 
-/obj/screen/verbbutton/admin/Click()
+/atom/movable/screen/verbbutton/admin/Click()
 	if(usr.client.holder)
 		ui_interact(usr)
 
-/obj/screen/verbbutton/main
+/atom/movable/screen/verbbutton/main
 	name = "Действия"
 	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
 	icon_state = "main"
 	screen_loc = ui_main
 	allowed_categories = list("IC", "OOC", "Объект", "Призрак")
 
-/obj/screen/verbbutton/special
+/atom/movable/screen/verbbutton/special
 	name = "Особое"
 	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
 	icon_state = "special"
 	screen_loc = ui_special
 	allowed_categories = list("Особенное")
 
-/obj/screen/verbbutton/settings
+/atom/movable/screen/verbbutton/settings
 	name = "Настройки"
 	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
 	icon_state = "settings"
 	screen_loc = ui_settings
 	allowed_categories = list("Настройки")
 
-/obj/screen/verbbutton/settings/ui_data(mob/user)
+/atom/movable/screen/verbbutton/settings/ui_data(mob/user)
 	var/list/data = list()
 	data["verbs"] = list()
 	data["verbs"]["Основное"] = list()
