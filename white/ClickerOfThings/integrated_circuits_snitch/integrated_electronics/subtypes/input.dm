@@ -52,7 +52,7 @@
 
 /obj/item/integrated_circuit/input/numberpad/ask_for_input(mob/user)
 	var/new_input = input(user, "Enter a number, please.",displayed_name) as null|num
-	if(isnum(new_input) && user.IsAdvancedToolUser())
+	if(isnum(new_input) && ISADVANCEDTOOLUSER(user))
 		set_pin_data(IC_OUTPUT, 1, new_input)
 		push_data()
 		activate_pin(1)
@@ -71,7 +71,7 @@
 
 /obj/item/integrated_circuit/input/textpad/ask_for_input(mob/user)
 	var/new_input = stripped_multiline_input(user, "Enter some words, please.",displayed_name)
-	if(istext(new_input) && user.IsAdvancedToolUser())
+	if(istext(new_input) && ISADVANCEDTOOLUSER(user))
 		set_pin_data(IC_OUTPUT, 1, new_input)
 		push_data()
 		activate_pin(1)
@@ -90,7 +90,7 @@
 
 /obj/item/integrated_circuit/input/colorpad/ask_for_input(mob/user)
 	var/new_color = input(user, "Enter a color, please.", "Color", "#ffffff") as color|null
-	if(new_color && user.IsAdvancedToolUser())
+	if(new_color && ISADVANCEDTOOLUSER(user))
 		set_pin_data(IC_OUTPUT, 1, new_color)
 		push_data()
 		activate_pin(1)
