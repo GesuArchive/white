@@ -58,7 +58,7 @@
 
 
 /turf/closed/mineral/attackby(obj/item/I, mob/user, params)
-	if (!user.IsAdvancedToolUser())
+	if (!ISADVANCEDTOOLUSER(user))
 		to_chat(usr, "<span class='warning'>Маловато у меня сил для такой работы!</span>")
 		return
 
