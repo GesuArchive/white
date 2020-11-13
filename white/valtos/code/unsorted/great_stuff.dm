@@ -226,6 +226,7 @@
 	fire_sound = 'white/valtos/sounds/ak74_shot.ogg'
 	icon_state = "ak47"
 	inhand_icon_state = "ak47"
+	worn_icon_state = "ak47"
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	mag_type = /obj/item/ammo_box/magazine/ak47mag

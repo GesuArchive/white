@@ -6,6 +6,8 @@
 	icon_state = "pistol"
 	w_class = WEIGHT_CLASS_NORMAL
 
+	pickup_sound = 'white/valtos/sounds/cock.wav'
+
 	recoil = 0.75
 
 	///sound when inserting magazine
