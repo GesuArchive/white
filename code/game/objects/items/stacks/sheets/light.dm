@@ -1,7 +1,7 @@
 /obj/item/stack/light_w
 	name = "светоплитка"
 	singular_name = "светоплитка"
-	desc = "Светится. Охуенно!"
+	desc = "Светится. Круто!"
 	icon = 'icons/obj/tiles.dmi'
 	icon_state = "glass_wire"
 	w_class = WEIGHT_CLASS_NORMAL

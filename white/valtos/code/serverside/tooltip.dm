@@ -10,7 +10,7 @@
 	else if(mob.hud_used.tooltip)
 		mob.hud_used.tooltip.maptext = ""
 
-/obj/screen/tooltip
+/atom/movable/screen/tooltip
 	name = ""
 	screen_loc = "NORTH,CENTER-4:16"
 	maptext_width = 480

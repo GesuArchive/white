@@ -7,7 +7,7 @@
 	singular_name = "блюспейс кристалл"
 	dye_color = DYE_COSMIC
 	w_class = WEIGHT_CLASS_TINY
-	custom_materials = list(/datum/material/bluespace=MINERAL_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/bluespace=MINERAL_MATERIAL_AMOUNT)
 	points = 50
 	var/blink_range = 8 // The teleport range when crushed/thrown at someone.
 	refined_type = /obj/item/stack/sheet/bluespace_crystal
@@ -51,7 +51,7 @@
 /obj/item/stack/ore/bluespace_crystal/artificial
 	name = "искусственный блюспейс кристалл"
 	desc = "Искусственно сделанный блюспейс кристалл, выглядит изысканно."
-	custom_materials = list(/datum/material/bluespace=MINERAL_MATERIAL_AMOUNT*0.5)
+	mats_per_unit = list(/datum/material/bluespace=MINERAL_MATERIAL_AMOUNT*0.5)
 	blink_range = 4 // Not as good as the organic stuff!
 	points = 0 //nice try
 	refined_type = null
@@ -65,7 +65,7 @@
 	inhand_icon_state = "sheet-polycrystal"
 	singular_name = "блюспейс поликристалл"
 	desc = "Стабильный поликристалл, изготовленный из сплавленных блюспейс кристаллов. Вы могли бы вероятно сломать один."
-	custom_materials = list(/datum/material/bluespace=MINERAL_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/bluespace=MINERAL_MATERIAL_AMOUNT)
 	attack_verb_continuous = list("блюспейс полибьёт", "блюспейс полиударяет", "блюспейс полилупит", "блюспейс поливмазывает", "блюспейс полиразносит")
 	attack_verb_simple = list("блюспейс полибьёт", "блюспейс полиударяет", "блюспейс полилупит", "блюспейс поливмазывает", "блюспейс полиразносит")
 	novariants = TRUE

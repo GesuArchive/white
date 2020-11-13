@@ -63,7 +63,7 @@
 
 
 /obj/item/hand_labeler/attack_self(mob/user)
-	if(!user.IsAdvancedToolUser())
+	if(!ISADVANCEDTOOLUSER(user))
 		to_chat(user, "<span class='warning'>Как этим пользоваться то!</span>")
 		return
 	mode = !mode

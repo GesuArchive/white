@@ -521,7 +521,7 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 /datum/material/bamboo
 	name = "бамбук"
 	skloname = "бамбука"
-	desc = "Если это заебись для панд, то скорее всего заебись и для тебя."
+	desc = "Если это хорошо для панд, то скорее всего будет хорошо и для тебя."
 	color = "#339933"
 	categories = list(MAT_CATEGORY_RIGID = TRUE)
 	sheet_type = /obj/item/stack/sheet/mineral/bamboo

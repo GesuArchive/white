@@ -21,8 +21,8 @@
 	base_icon_state = "fireball"
 	action_icon_state = "fireball0"
 	sound = 'white/hule/SFX/anekdot_delimiter.ogg'
-	active_msg = "Теперь ты будешь ускорять всю хуйню."
-	deactive_msg = "Ты больше не ускоряешь всю хуйню."
+	active_msg = "Теперь ты будешь ускорять снаряды."
+	deactive_msg = "Ты больше не ускоряешь снаряды."
 	active = FALSE
 
 /obj/effect/proc_holder/spell/aimed/ass_accelerator/cast(list/targets, mob/living/user)

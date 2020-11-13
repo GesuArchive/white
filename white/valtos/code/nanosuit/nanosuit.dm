@@ -134,7 +134,7 @@
 
 /obj/item/radio/headset/syndicate/alt/nano/MouseDrop(obj/over_object, src_location, over_location)
 	var/mob/M = usr
-	if((!istype(over_object, /obj/screen)) && usr.canUseTopic(src))
+	if((!istype(over_object, /atom/movable/screen)) && usr.canUseTopic(src))
 		return attack_self(M)
 	return ..()
 
@@ -837,7 +837,7 @@
 		if(A.pulling)
 			D.stop_pulling()
 			D.visible_message("<span class='danger'>[A] загребает [D]!</span>", \
-								"<span class='userdanger'>[A] неистово хватает меня! Пиздец тебе...</span>")
+								"<span class='userdanger'>[A] неистово хватает меня!</span>")
 			A.grab_state = GRAB_AGGRESSIVE //Instant aggressive grab
 			log_combat(A, D, "grabbed", addition="aggressively")
 	return TRUE
@@ -862,8 +862,8 @@
 			A.stop_pulling() //So we don't spam the combo
 			bonus_damage += 5
 			D.Paralyze(15)
-			D.visible_message("<span class='warning'>[A] кладет [D] к хуям на пол!", \
-							"<span class='userdanger'>[A] кладет меня к хуям на пол!</span>")
+			D.visible_message("<span class='warning'>[A] сбивает [D] с ног!", \
+							"<span class='userdanger'>[A] сбивает меня с ног!</span>")
 			if(prob(75))
 				step_away(D,A,15)
 		else if(A.grab_state > GRAB_AGGRESSIVE)
@@ -872,8 +872,8 @@
 				D.throw_at(throw_target, rand(1,2), 7, A)
 			bonus_damage += 10
 			D.Paralyze(60)
-			D.visible_message("<span class='warning'>[A] хуярит [D] так, что тот охуевает!!", \
-							"<span class='userdanger'>[A] хуярит меня так, что ты охуеваешь!!</span>")
+			D.visible_message("<span class='warning'>[A] бьет [D] очень сильно!", \
+							"<span class='userdanger'>[A] бьет меня очень сильно</span>")
 		else if(A.resting && (D.mobility_flags & MOBILITY_STAND)) //but we can't legsweep ourselves!
 			D.visible_message("<span class='warning'>[A] ломает колено [D]!", \
 								"<span class='userdanger'>[A] ломает тебе колено!</span>")

@@ -85,10 +85,10 @@
 
 /datum/dog_fashion/head/nurse
 	name = "Медсестра REAL_NAME"
-	desc = "NAME требуется 100кк стейка... СРОЧНО!"
+	desc = "NAME требуется 100к стейка... СРОЧНО!"
 
 /datum/dog_fashion/head/pirate
-	name = "Спиздили"
+	name = "Пират"
 	desc = "Яррррх!! Эта собака с цингой!"
 	emote_see = list("охотится за сокровищами.","смотрит холодно...","скрежетает своими крошечными корги зубами!")
 	emote_hear = list("свирепо рычит!", "огрызается.")
@@ -151,7 +151,7 @@
 
 /datum/dog_fashion/head/sombrero
 	name = "Старейшина REAL_NAME"
-	desc = "Вы должны уважать БЛЯЯЯЯ"
+	desc = "Вы должны уважать его."
 
 /datum/dog_fashion/head/sombrero/New(mob/M)
 	..()

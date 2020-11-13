@@ -1,6 +1,6 @@
 /obj/machinery/power/atmos_synthesizer
 	name = "собиратель приколов"
-	desc = "Собирает приколы из прикольных газов. Работает на каких-то там блюспейс залупах, чисто поебать на КПД больше 100%."
+	desc = "Собирает приколы из прикольных газов. Работает на какой-то блюспейс технологии."
 	anchored = FALSE
 	density = TRUE
 	interaction_flags_machine = INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN

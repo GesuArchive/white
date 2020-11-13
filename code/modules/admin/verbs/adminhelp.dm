@@ -526,7 +526,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 
 	//handle muting and automuting
 	if(prefs.muted & MUTE_ADMINHELP)
-		to_chat(src, "<span class='danger'>Ошибка незакрытого ебальника. Закройте ебальник. Закройте ебальник.</span>", confidential = TRUE)
+		to_chat(src, "<span class='danger'>Ошибка незакрытого рта. Заткнитесь. Заткнитесь.</span>", confidential = TRUE)
 		return
 	if(handle_spam_prevention(msg,MUTE_ADMINHELP))
 		return

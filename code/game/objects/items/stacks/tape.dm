@@ -86,7 +86,7 @@
 			if(do_mob(user, H, 20))
 				// H.wear_mask = new/obj/item/clothing/mask/tape(H)
 				H.equip_to_slot_or_del(new /obj/item/clothing/mask/tape(H), ITEM_SLOT_MASK)
-				to_chat(user, "<span class='notice'>Заматываю нахуй рот [H].</span>")
+				to_chat(user, "<span class='notice'>Заматываю рот [H].</span>")
 				playsound(loc, 'white/valtos/sounds/ducttape1.ogg', 50, 1)
 				if(src.use(2) == 0)
 					user.dropItemToGround(src)

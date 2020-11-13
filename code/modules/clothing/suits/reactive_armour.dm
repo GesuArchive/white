@@ -209,21 +209,7 @@
 		owner.visible_message("<span class='danger'>Реактивная система телепортации сбрасывает [H] от [attack_text] и бросает [H.p_them()] на созданный стол!</span>")
 		owner.visible_message("<font color='red' size='3'>[H] ОТПРАВЛЯЕТСЯ НА СТОЛ!!!</font>")
 		owner.Paralyze(40)
-		var/list/turfs = new/list()
-		for(var/turf/T in orange(tele_range, H))
-			if(T.density)
-				continue
-			if(T.x>world.maxx-tele_range || T.x<tele_range)
-				continue
-			if(T.y>world.maxy-tele_range || T.y<tele_range)
-				continue
-			turfs += T
-		if(!turfs.len)
-			turfs += pick(/turf in orange(tele_range, H))
-		var/turf/picked = pick(turfs)
-		if(!isturf(picked))
-			return
-		H.forceMove(picked)
+		do_teleport(owner, get_turf(owner), tele_range, no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)
 		new /obj/structure/table(get_turf(owner))
 		reactivearmor_cooldown = world.time + reactivearmor_cooldown_duration
 		return TRUE

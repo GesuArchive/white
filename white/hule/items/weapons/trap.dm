@@ -11,8 +11,8 @@
 	..()
 
 /obj/structure/boobytrap
-	name = "Растяжка ебать"
-	desc = "Пиздец, не подходи - убьет!"
+	name = "Растяжка."
+	desc = "Не подходи - убьет!"
 	icon_state = "boobytrap"
 	icon = 'white/hule/icons/obj/weapons.dmi'
 	anchored = TRUE
@@ -54,7 +54,7 @@
 		if(do_after(user, 30, target = src))
 			W.play_tool_sound(src)
 			if(prob(80) && user.mind.antag_datums == null && user != owner)
-				to_chat(user, "<span class='userdanger'>Дебил блядь! Кто меня учил растяжки обезвреживать?</span>")
+				to_chat(user, "<span class='userdanger'>Совершаю ошибку при попытке обезвредить ловушку!</span>")
 				activate()
 				return
 			if(grenade)

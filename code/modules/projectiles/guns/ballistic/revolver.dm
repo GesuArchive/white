@@ -128,12 +128,12 @@
 		magazine.caliber = "357"
 		fire_sound = 'sound/weapons/gun/revolver/shot_alt.ogg'
 		desc = "Классическое, если не устаревшее, правоохранительное оружие. \nБарабан модифицирован под .357."
-		to_chat(user, "<span class='notice'>Ослабляю барабан [src.name]. Теперь он использует .357.</span>")
+		to_chat(user, "<span class='notice'>Ослабляю барабан [src.name]. Теперь он использует патроны калибра .357.</span>")
 	else
 		magazine.caliber = "38"
 		fire_sound = 'sound/weapons/gun/revolver/shot.ogg'
 		desc = initial(desc)
-		to_chat(user, "<span class='notice'>Затягиваю барабан [src.name]. Теперь он использует .38.</span>")
+		to_chat(user, "<span class='notice'>Затягиваю барабан [src.name]. Теперь он использует патроны калибра .38.</span>")
 
 
 /obj/item/gun/ballistic/revolver/mateba
@@ -256,7 +256,7 @@
 	if((HAS_TRAIT(user, TRAIT_CLUMSY)) || (user.mind && user.mind.assigned_role == "Clown"))
 		return ..()
 	if(process_fire(user, user, FALSE, null, BODY_ZONE_HEAD))
-		user.visible_message("<span class='warning'><b>[user]</b> стреляет себе в ебальник!</span>", "<span class='userdanger'>Стреляю себе в ебало! Заебись!</span>")
+		user.visible_message("<span class='warning'><b>[user]</b> стреляет себе в лицо!</span>", "<span class='userdanger'>Стреляю себе в лицо</span>")
 		user.emote("scream")
 		user.drop_all_held_items()
 		user.Paralyze(80)

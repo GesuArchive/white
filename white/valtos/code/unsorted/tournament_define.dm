@@ -29,7 +29,7 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 	desc = "Урон от удара и броска 10."
 	throwforce = 10
 	force = 10
-	broken = TRUE
+	broken = FALSE
 
 /obj/item/stack/tile/plasteel/tournament
 	name = "турплитка"
@@ -41,6 +41,14 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 /obj/item/tank/internals/oxygen/red/tournament
 	name = "турбаллон"
 	desc = "Урон от удара и броска 10."
+
+/turf/open/floor/plasteel/tournament
+	var/time_to_die = 3 // 3 секунды
+
+/turf/open/floor/plasteel/tournament/Initialize(mapload)
+	. = ..()
+	spawn(time_to_die SECONDS)
+		ChangeTurf(/turf/open/lava/smooth)
 
 // Аутфиты
 
@@ -142,7 +150,8 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 	var/list/data = list()
 
 	for(var/client/C in GLOB.clients)
-		data["clickers"] += list(list("id" = C.key, "cps" = C.clicklimiter[SECOND_COUNT], "cpm" = C.clicklimiter[MINUTE_COUNT]))
+		if(C && C.key && C.clicklimiter)
+			data["clickers"] += list(list("id" = C.key, "cps" = C.clicklimiter[SECOND_COUNT], "cpm" = C.clicklimiter[MINUTE_COUNT]))
 
 	return data
 

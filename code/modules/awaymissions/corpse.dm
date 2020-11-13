@@ -40,6 +40,9 @@
 /obj/effect/mob_spawn/attack_ghost(mob/user)
 	if(!SSticker.HasRoundStarted() || !loc || !ghost_usable)
 		return
+	var/ghost_role = alert("Точно хочешь занять этот спаунер? (внимание, текущее тело будет покинуто)",,"Да","Нет")
+	if(ghost_role == "Нет" || !loc || QDELETED(user))
+		return
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_SPAWNER) && !(flags_1 & ADMIN_SPAWNED_1))
 		to_chat(user, "<span class='warning'>An admin has temporarily disabled non-admin ghost roles!</span>")
 		return
@@ -53,16 +56,6 @@
 		return
 	if(QDELETED(src) || QDELETED(user))
 		return
-	var/ghost_role = alert("Точно хочешь занять этот спаунер? (внимание, текущее тело будет покинуто)",,"Да","Нет")
-
-	if(ghost_role == "Нет" || !loc)
-		return
-
-	if(!isobserver(user) || !user.client)
-		to_chat(user, "<span class='warning'>А хуй тебе!</span>")
-		log_game("[key_name(user)] attempted to abuse [mob_name] spawner")
-		return
-
 	log_game("[key_name(user)] became [mob_name]")
 	create(ckey = user.ckey)
 

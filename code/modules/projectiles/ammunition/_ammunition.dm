@@ -88,7 +88,7 @@
 				box.update_icon()
 				to_chat(user, "<span class='notice'>Собираю [boolets] в [box], который теперь содержит [box.stored_ammo.len] патронов.</span>")
 			else
-				to_chat(user, "<span class='warning'>БЛЯТЬ!</span>")
+				to_chat(user, "<span class='warning'>ОЙ!</span>")
 	else
 		return ..()
 

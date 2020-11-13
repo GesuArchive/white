@@ -74,7 +74,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			topiclimiter[SECOND_COUNT] = 0
 		topiclimiter[SECOND_COUNT] += 1
 		if (topiclimiter[SECOND_COUNT] > stl)
-			to_chat(src, "<span class='userdanger'> > Действия игнорируются. Слишком много действий было совершено до этого за секунду. Сука?</span>")
+			to_chat(src, "<span class='userdanger'> > Действия игнорируются. Слишком много действий было совершено до этого за секунду.</span>")
 			return
 
 	// Tgui Topic middleware
@@ -171,11 +171,11 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(CONFIG_GET(flag/automute_on) && !holder && last_message == message)
 		src.last_message_count++
 		if(src.last_message_count >= SPAM_TRIGGER_AUTOMUTE)
-			to_chat(src, "<span class='userdanger'> > Слыш, сука. Авто-мут был применён к твоей жопе, следующим шагом может стать авто-бан.</span>")
+			to_chat(src, "<span class='userdanger'> > Авто-мут был применён. Следующим шагом может стать авто-бан.</span>")
 			cmd_admin_mute(src, mute_type, 1)
 			return TRUE
 		if(src.last_message_count >= SPAM_TRIGGER_WARNING)
-			to_chat(src, "<span class='userdanger'> > Слыш, блять, спамер мамин. Сейчас тебя замутят, если не прекратишь свою хуйню.</span>")
+			to_chat(src, "<span class='userdanger'> > Прекращай спамить. К тебе будет применён авто-мут, если не прекратишь это.</span>")
 			return FALSE
 	else
 		last_message = message
@@ -860,7 +860,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			clicklimiter[SECOND_COUNT] = 0
 		clicklimiter[SECOND_COUNT] += 1+(!!ab)
 		if (clicklimiter[SECOND_COUNT] > scl)
-			to_chat(src, "<span class='danger'> > Действия игнорируются. Слишком много действий было совершено до этого за секунду. Сука?</span>")
+			to_chat(src, "<span class='danger'> > Действия игнорируются. Слишком много действий было совершено до этого за секунду.</span>")
 			return
 
 	if (prefs.hotkeys)
@@ -1007,7 +1007,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	var/pos = 0
 	for(var/D in GLOB.cardinals)
 		pos++
-		var/obj/screen/O = LAZYACCESS(char_render_holders, "[D]")
+		var/atom/movable/screen/O = LAZYACCESS(char_render_holders, "[D]")
 		if(!O)
 			O = new
 			LAZYSET(char_render_holders, "[D]", O)
@@ -1018,7 +1018,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 /client/proc/clear_character_previews()
 	for(var/index in char_render_holders)
-		var/obj/screen/S = char_render_holders[index]
+		var/atom/movable/screen/S = char_render_holders[index]
 		screen -= S
 		qdel(S)
 	char_render_holders = null

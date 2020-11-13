@@ -1,13 +1,13 @@
 
 // The shattered remnants of your broken limbs fill you with determination!
-/obj/screen/alert/status_effect/determined
+/atom/movable/screen/alert/status_effect/determined
 	name = "Решительность"
 	desc = "Серьезные раны, которые я получил, привели моё тело в режим «сражайся или беги»! Сейчас самое время искать выход!"
 	icon_state = "regenerative_core"
 
 /datum/status_effect/determined
 	id = "determined"
-	alert_type = /obj/screen/alert/status_effect/determined
+	alert_type = /atom/movable/screen/alert/status_effect/determined
 
 /datum/status_effect/determined/on_apply()
 	. = ..()
@@ -21,7 +21,7 @@
 	id = "limp"
 	status_type = STATUS_EFFECT_REPLACE
 	tick_interval = 10
-	alert_type = /obj/screen/alert/status_effect/limp
+	alert_type = /atom/movable/screen/alert/status_effect/limp
 	var/msg_stage = 0//so you dont get the most intense messages immediately
 	/// The left leg of the limping person
 	var/obj/item/bodypart/l_leg/left
@@ -48,7 +48,7 @@
 /datum/status_effect/limp/on_remove()
 	UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_CARBON_GAIN_WOUND, COMSIG_CARBON_LOSE_WOUND, COMSIG_CARBON_ATTACH_LIMB, COMSIG_CARBON_REMOVE_LIMB))
 
-/obj/screen/alert/status_effect/limp
+/atom/movable/screen/alert/status_effect/limp
 	name = "Хромота"
 	desc = "Одна или несколько моих ног были ранены, замедляя меня! Стоит вылечить или хотя бы перевязать!"
 
@@ -102,11 +102,11 @@
 /////////////////////////
 
 // wound alert
-/obj/screen/alert/status_effect/wound
+/atom/movable/screen/alert/status_effect/wound
 	name = "Раны"
 	desc = "Моё тело пережило серьёзный урон. Стоит осмотреть себя."
 
-/obj/screen/alert/status_effect/wound/Click()
+/atom/movable/screen/alert/status_effect/wound/Click()
 	var/mob/living/carbon/C = usr
 	C.check_self_for_injuries()
 

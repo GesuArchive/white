@@ -50,8 +50,8 @@
 	availability_prob = 30
 
 /datum/blackmarket_item/misc/emag
-	name = "Криптографическая хуйня"
-	desc = "Чё это блять?"
+	name = "карта с проводами"
+	desc = "Какая-то карта с микросхемами, подсоединенные проводами."
 	item = /obj/item/card/emag
 
 	price_min = 10000

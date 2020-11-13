@@ -79,7 +79,7 @@
 
 /obj/item/screwdriver/abductor
 	name = "чужеродная отвёртка"
-	desc = "Сверхзвуковая, сука."
+	desc = "Похожа на экспериментальную сверхзвуковую отвертку."
 	icon = 'icons/obj/abductor.dmi'
 	icon_state = "screwdriver_a"
 	inhand_icon_state = "screwdriver_nuke"

@@ -21,7 +21,7 @@ GLOBAL_LIST_INIT(reagent_recipes, list ( \
 	recipes = GLOB.reagent_recipes
 
 
-/obj/item/stack/sheet/mineral/reagent/change_stack(mob/user,amount)
+/obj/item/stack/sheet/mineral/reagent/split_stack(mob/user,amount)
 	var/obj/item/stack/sheet/mineral/reagent/F = new(user, amount, FALSE)
 	if(!isnull(reagent_type))
 		F.reagent_type = reagent_type

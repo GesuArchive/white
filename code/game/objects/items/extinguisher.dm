@@ -1,6 +1,6 @@
 /obj/item/extinguisher
 	name = "огнетушитель"
-	desc = "Классический красный огнетушитель. Может оказаться в жопе при неправильном обращении."
+	desc = "Классический красный огнетушитель. Может оказаться в одном месте при неправильном обращении."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "fire_extinguisher0"
 	inhand_icon_state = "fire_extinguisher"
@@ -12,8 +12,8 @@
 	throw_range = 7
 	force = 18
 	custom_materials = list(/datum/material/iron = 90)
-	attack_verb_continuous = list("хуярит", "ебошит", "устраивает развал", "баллонит", "грейтайдит", "петушит", "учит летать")
-	attack_verb_simple = list("хуярит", "ебошит", "устраивает развал", "баллонит", "грейтайдит", "петушит", "учит летать")
+	attack_verb_continuous = list("бьёт", "ударяет", "устраивает развал", "баллонит", "грейтайдит", "наносит удар")
+	attack_verb_simple = list("бьёт", "ударяет", "устраивает развал", "баллонит", "грейтайдит", "наносит удар")
 	dog_fashion = /datum/dog_fashion/back
 	resistance_flags = FIRE_PROOF
 	var/max_water = 50
@@ -98,7 +98,7 @@
 		return FALSE
 	else
 		if(prob(5) && !broken)
-			to_chat(user, "<span class='userdanger'>Щас ебанёт кажись...</span>")
+			to_chat(user, "<span class='userdanger'>Огнетушитель шипит!</span>")
 			playsound(get_turf(src), 'white/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
 			spawn(rand(10, 50))
 				babah(user)
@@ -123,7 +123,7 @@
 		reagents.clear_reagents()
 		max_water = 0
 		for(var/mob/living/M in get_hearers_in_view(5, bang_turf))
-			to_chat(M, "<span class='warning'>Похоже пронесло...</span>")
+			to_chat(M, "<span class='warning'>Похоже, пронесло!</span>")
 		return
 
 	playsound(bang_turf, 'sound/weapons/flashbang.ogg', 100, TRUE, 8, 0.9)

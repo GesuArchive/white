@@ -76,7 +76,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Chat, listen_looc)()
 		if(handle_spam_prevention(msg, MUTE_LOOC))
 			return
 		if(findtext(msg, "byond://"))
-			to_chat(src, "<span class='bold'>Пидор.</span>")
+			to_chat(src, "<span class='bold'>Ты лох.</span>")
 			log_admin("[key_name(src)] has attempted to advertise in LOOC: [msg]")
 			message_admins("[key_name_admin(src)] has attempted to advertise in LOOC: [msg]")
 			qdel(src)

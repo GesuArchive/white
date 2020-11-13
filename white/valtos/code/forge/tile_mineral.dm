@@ -8,7 +8,7 @@
 	custom_materials = list(/datum/material/reagent=500)
 	var/datum/reagent/reagent_type
 
-/obj/item/stack/tile/mineral/reagent/change_stack(mob/user,amount)
+/obj/item/stack/tile/mineral/reagent/split_stack(mob/user,amount)
 	var/obj/item/stack/tile/mineral/reagent/F = new(user, amount, FALSE)
 	if(!isnull(reagent_type))
 		F.reagent_type = reagent_type

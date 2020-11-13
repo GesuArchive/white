@@ -80,7 +80,7 @@
 			return
 		M.apply_damage(rand(100, 200), BRUTE)
 		M.Paralyze(120)
-		to_chat(M, "<big>БЛЯТЬ!</big>")
+		to_chat(M, "<big>АЙ!</big>")
 
 	var/turf/T = locate(_x, _y, _z)
 	AM.forceMove(T)

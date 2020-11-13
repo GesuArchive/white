@@ -28,7 +28,7 @@
 	///this var is so that the strong punch is always aiming for the body part the user is targeting and not trying to apply to the chest before deviating
 	var/obj/item/bodypart/affecting = D.get_bodypart(ran_zone(A.zone_selected))
 	A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
-	var/atk_verb = pick("пинает", "хуярит", "бьёт", "прикладывает")
+	var/atk_verb = pick("пинает", "бьёт", "прикладывает")
 	D.visible_message("<span class='danger'><b>[A]</b> [atk_verb] <b>[D]</b>!</span>", \
 					  "<span class='userdanger'><b>[A]</b> [atk_verb] меня!</span>", null, null, A)
 	to_chat(A, "<span class='danger'>Моя атака [atk_verb] [D]!</span>")
@@ -40,8 +40,8 @@
 ///Crashing Wave Kick: Harm Disarm combo, throws people seven tiles backwards
 /datum/martial_art/the_sleeping_carp/proc/launchKick(mob/living/carbon/human/A, mob/living/carbon/human/D)
 	A.do_attack_animation(D, ATTACK_EFFECT_KICK)
-	D.visible_message("<span class='warning'><b>[A]</b> пинает <b>[D]</b> прямо в грудь, отправляя жертву полетать!</span>", \
-					"<span class='userdanger'>Меня пинает <b>[A]</b> прямо в грудь. Теперь я лечу!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, A)
+	D.visible_message("<span class='warning'><b>[A]</b> пинает <b>[D]</b> прямо в грудь, отталкивая жертву!</span>", \
+					"<span class='userdanger'>Меня пинает <b>[A]</b> прямо в грудь. Теперь я лечу!</span>", "<span class='hear'>Слышу сильный удар по телу!</span>", COMBAT_MESSAGE_RANGE, A)
 	playsound(get_turf(A), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 	var/atom/throw_target = get_edge_target_turf(D, A.dir)
 	D.throw_at(throw_target, 7, 14, A)
@@ -58,13 +58,13 @@
 		D.apply_damage(40, STAMINA, BODY_ZONE_HEAD)
 		D.Knockdown(40)
 		D.visible_message("<span class='warning'><b>[A]</b> пинает <b>[D]</b> в голову!</span>", \
-					"<span class='userdanger'><b>[A]</b> пинает меня в ебало и я падаю!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, A)
+					"<span class='userdanger'><b>[A]</b> пинает меня прямо в лицо и я падаю!</span>", "<span class='hear'>Слышу сильный удар по телу!</span>", COMBAT_MESSAGE_RANGE, A)
 	else
 		D.apply_damage(5, A.dna.species.attack_type, BODY_ZONE_HEAD, wound_bonus = CANT_WOUND)
 		D.apply_damage(40, STAMINA, BODY_ZONE_HEAD)
 		D.drop_all_held_items()
 		D.visible_message("<span class='warning'><b>[A]</b> пинает <b>[D]</b> в голову!</span>", \
-					"<span class='userdanger'><b>[A]</b> пинает меня в ебало!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, A)
+					"<span class='userdanger'><b>[A]</b> пинает меня в лицо!</span>", "<span class='hear'>м!</span>", COMBAT_MESSAGE_RANGE, A)
 	log_combat(A, D, "dropkicked (Sleeping Carp)")
 	return
 
@@ -81,7 +81,7 @@
 		return TRUE
 	var/obj/item/bodypart/affecting = D.get_bodypart(ran_zone(A.zone_selected))
 	A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
-	var/atk_verb = pick("бьёт", "пинает", "хуярит", "избивает", "выбивает")
+	var/atk_verb = pick("бьёт", "пинает", "избивает", "выбивает")
 	D.visible_message("<span class='danger'><b>[A]</b> [atk_verb] <b>[D]</b>!</span>", \
 					  "<span class='userdanger'><b>[A]</b> [atk_verb] меня!</span>", null, null, A)
 	to_chat(A, "<span class='danger'>Моя атака [atk_verb] [D]!</span>")

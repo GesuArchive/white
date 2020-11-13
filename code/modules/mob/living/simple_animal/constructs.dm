@@ -134,8 +134,8 @@
 	obj_damage = 90
 	melee_damage_lower = 25
 	melee_damage_upper = 25
-	attack_verb_continuous = "хуярит своей здоровенной рукой"
-	attack_verb_simple = "хуярит своей здоровенной рукой"
+	attack_verb_continuous = "бьёт своей здоровенной рукой"
+	attack_verb_simple = "бьёт своей здоровенной рукой"
 	speed = 2.5
 	environment_smash = ENVIRONMENT_SMASH_WALLS
 	attack_sound = 'sound/weapons/punch3.ogg'

@@ -225,7 +225,7 @@
 	color = "#fffae0"
 
 /datum/reagent/drug/yespowder/on_mob_life(mob/living/M)
-	var/high_message = pick("Соглашение наполняет мой разум.", "'Нет' - прошлый век. 'Да' - это заебись.", "Да.")
+	var/high_message = pick("Соглашение наполняет мой разум.", "'Нет' - прошлый век. 'Да' - это модно.", "Да.")
 	if(prob(5))
 		to_chat(M, "<span class='notice'>[high_message]</span>")
 	if(prob(20))
@@ -252,7 +252,7 @@
 	CHECK_DNA_AND_SPECIES(H)
 	H.setOrganLoss(ORGAN_SLOT_BRAIN, 30)
 	if(ishuman(H))
-		to_chat(H, "<span class= 'userdanger'>Вот блять!</span>")
+		to_chat(H, "<span class= 'userdanger'>Я чувствую себя совсем нехорошо!</span>")
 		H.set_species(/datum/species/krokodil_addict)
 	..()
 
@@ -296,7 +296,7 @@
 			high_message = pick("Я чувствую, что летаю!", "Я чувствую, что что-то плавает в моих легких...", "Я вижу слова, которые я говорю...")
 			if(prob(25))
 				var/rotation = max(min(round(current_cycle/4), 20),125)
-				for(var/obj/screen/plane_master/whole_screen in screens)
+				for(var/atom/movable/screen/plane_master/whole_screen in screens)
 					if(prob(60))
 						animate(whole_screen, transform = turn(matrix(), rand(1,rotation)), time = 50, easing = CIRCULAR_EASING)
 						animate(transform = turn(matrix(), -rotation), time = 10, easing = BACK_EASING)
@@ -316,7 +316,7 @@
 				if(prob(4))
 					H.emote("laugh")
 					H.say(pick("ГРЕРКРКРК",";ХАХА, Я БЛЯДЬ ПОД КАЙФОМ!!!","Я БАБОЧКА!!!"))
-					H.visible_message("<span class='notice'>[H] выглядит охуенно высоко!</span>")
+					H.visible_message("<span class='notice'>[H] выглядит, как будто он на высоте!</span>")
 				else if(prob(3))
 					H.Knockdown(20)
 					H.emote("laugh")
@@ -325,7 +325,7 @@
 			if(prob(1) && badtrip_cooldown < world.time)
 				bad_trip = TRUE
 			if(bad_trip)
-				for(var/obj/screen/plane_master/whole_screen in screens)
+				for(var/atom/movable/screen/plane_master/whole_screen in screens)
 					if(prob(35))
 						whole_screen.filters += filter(type="wave", x=30*rand() - 20, y=30*rand() - 20, size=rand()*0.5, offset=rand()*0.5)
 						animate(whole_screen.filters[whole_screen.filters.len], size = rand(2,5), time = 60, easing = QUAD_EASING)
@@ -341,7 +341,7 @@
 						t_ray_images += I
 				if(t_ray_images.len)
 					flick_overlay(t_ray_images, list(H.client), rand(10,30))
-				high_message = pick("Я чувствую, как мои мысли гонятся!", "КТО, БЛЯДЬ, ЭТО СКАЗАЛ?!?!", "Я чувствую, что умру!")
+				high_message = pick("Я чувствую, как мои мысли гонятся!", "КТО ЭТО СКАЗАЛ.", "Я чувствую, что умру!")
 				if(prob(25))
 					H.hallucination += 2
 					H.jitteriness += 3
@@ -381,16 +381,16 @@
 		C.derpspeech = 0
 	if(C && C.hud_used)
 		var/list/screens = list(C.hud_used.plane_masters["[FLOOR_PLANE]"], C.hud_used.plane_masters["[GAME_PLANE]"], C.hud_used.plane_masters["[LIGHTING_PLANE]"], C.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], C.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], C.hud_used.plane_masters["[PLANE_SPACE]"])
-		for(var/obj/screen/plane_master/whole_screen in screens)
+		for(var/atom/movable/screen/plane_master/whole_screen in screens)
 			animate(whole_screen, transform = matrix(), time = 200, easing = ELASTIC_EASING)
 			//animate(whole_screen.filters[whole_screen.filters.len], size = rand(2,5), time = 60, easing = QUAD_EASING)
 			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 200) //reset filters
-			addtimer(CALLBACK(whole_screen, /obj/screen/plane_master/.proc/backdrop, C), 201) //reset backdrop filters so they reappear
+			addtimer(CALLBACK(whole_screen, /atom/movable/screen/plane_master/.proc/backdrop, C), 201) //reset backdrop filters so they reappear
 			PlaySpook(C, 'white/valtos/sounds/honk_echo_distant.ogg', 0, FALSE)
 
 /obj/effect/hallucination/simple/druggy
 	name = "Мой мозг"
-	desc = "Ебать."
+	desc = "Под веществами."
 	image_icon = 'icons/obj/surgery.dmi'
 	image_state = "brain"
 
@@ -444,10 +444,10 @@
 		C.Paralyze(95)
 		DIRECT_OUTPUT(C.client, sound(null))
 		var/list/screens = list(C.hud_used.plane_masters["[FLOOR_PLANE]"], C.hud_used.plane_masters["[GAME_PLANE]"], C.hud_used.plane_masters["[LIGHTING_PLANE]"], C.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], C.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], C.hud_used.plane_masters["[PLANE_SPACE]"])
-		for(var/obj/screen/plane_master/whole_screen in screens)
+		for(var/atom/movable/screen/plane_master/whole_screen in screens)
 			animate(whole_screen, transform = matrix(), pixel_x = 0, pixel_y = 0, color = "#ffffff", time = 200, easing = ELASTIC_EASING)
 			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 200) //reset filters
-			addtimer(CALLBACK(whole_screen, /obj/screen/plane_master/.proc/backdrop, C), 201) //reset backdrop filters so they reappear
+			addtimer(CALLBACK(whole_screen, /atom/movable/screen/plane_master/.proc/backdrop, C), 201) //reset backdrop filters so they reappear
 		to_chat(C, "<b><big>Неужели отпустило...</big></b>")
 
 		if(C.client && current_cycle > 100)
@@ -461,7 +461,7 @@
 				to_chat(C, "<b><big>Или нет?!</big></b>")
 				if(prob(50))
 					spawn(50)
-						to_chat(C, "<b><big>БЛЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯТЬ!!!</big></b>")
+						to_chat(C, "<b><big>А-А-А-А-А-А-А-А-А-А-А-А-А-А!</big></b>")
 						C.reagents.add_reagent_list(list(/datum/reagent/drug/labebium = 25))
 
 /datum/reagent/drug/labebium/proc/create_flood(mob/living/carbon/C)
@@ -502,7 +502,7 @@
 		if("ovoshi")
 			switch(current_cycle)
 				if(1 to 20)
-					high_message = "БЛЯТЬ! ТОЛЬКО НЕ ОВОЩИ!!!"
+					high_message = "ТОЛЬКО НЕ ОВОЩИ!!!"
 					if(prob(30))
 						H.derpspeech++
 						H.cultslurring++
@@ -527,24 +527,24 @@
 					if(prob(85))
 						H.Jitter(35)
 						var/rotation = max(min(round(current_cycle/4), 20),360)
-						for(var/obj/screen/plane_master/whole_screen in screens)
+						for(var/atom/movable/screen/plane_master/whole_screen in screens)
 							if(prob(3))
 								var/sound/sound = sound('white/valtos/sounds/trip_blast.wav')
 								sound.environment = 23
 								sound.volume = 100
 								SEND_SOUND(H.client, sound)
 								H.emote("scream")
-								H.overlay_fullscreen("labebium", /obj/screen/fullscreen/labeb, rand(1, 23))
+								H.overlay_fullscreen("labebium", /atom/movable/screen/fullscreen/labeb, rand(1, 23))
 								H.clear_fullscreen("labebium", rand(15, 60))
 								new /datum/hallucination/delusion(H, TRUE, duration = 150, skip_nearby = FALSE, custom_name = H.name)
 								if(prob(50))
 									spawn(30)
-										H.overlay_fullscreen("labebium", /obj/screen/fullscreen/labeb, rand(1, 23))
+										H.overlay_fullscreen("labebium", /atom/movable/screen/fullscreen/labeb, rand(1, 23))
 										H.clear_fullscreen("labebium", rand(15, 60))
 										H.emote("scream")
 										if(prob(50))
 											spawn(30)
-												H.overlay_fullscreen("labebium", /obj/screen/fullscreen/labeb, rand(1, 23))
+												H.overlay_fullscreen("labebium", /atom/movable/screen/fullscreen/labeb, rand(1, 23))
 												H.clear_fullscreen("labebium", rand(15, 60))
 												H.emote("scream")
 							if(prob(40))
@@ -557,7 +557,7 @@
 								animate(whole_screen, transform = matrix()*2, time = 40, easing = BOUNCE_EASING)
 								addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
 							addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 600)
-					high_message = "НУ НАХУЙ!!!"
+					high_message = "ГОСПОДИ, НЕТ!!!"
 					if(prob(5))
 						animate(H.client, pixel_x = rand(-64,64), pixel_y = rand(-64,64), time = 100)
 					create_flood(H)
@@ -572,7 +572,7 @@
 				H.hud_used.show_hud(HUD_STYLE_NOHUD)
 				tripsoundstarted = TRUE
 			if(prob(15))
-				for(var/obj/screen/plane_master/whole_screen in screens)
+				for(var/atom/movable/screen/plane_master/whole_screen in screens)
 					animate(whole_screen, color = color_matrix_rotate_hue(rand(0, 360)), time = rand(5, 20))
 			if(prob(15))
 				if(H.client)
@@ -587,7 +587,7 @@
 					sound.environment = 23
 					sound.volume = 100
 					SEND_SOUND(H.client, sound)
-					H.overlay_fullscreen("labebium", /obj/screen/fullscreen/labeb, rand(1, 23))
+					H.overlay_fullscreen("labebium", /atom/movable/screen/fullscreen/labeb, rand(1, 23))
 					H.clear_fullscreen("labebium", rand(15, 60))
 	if(prob(10))
 		to_chat(H, "\n")
@@ -637,7 +637,7 @@
 
 /obj/effect/hallucination/simple/ovoshi
 	name = "Овощ"
-	desc = "Ммм, заебись."
+	desc = "М-М-М-М-М-М..!"
 	image_icon = 'white/valtos/icons/lifeweb/harvest.dmi'
 	image_state = "berrypile"
 	var/list/states = list("berrypile", "chilipepper", "eggplant", "soybeans", \
@@ -683,7 +683,7 @@
 	states = list("statue1", "statue2", "statue3", "statue4", \
 		"statue6", "statue7", "seangel", "seangel2")
 
-/obj/screen/fullscreen/labeb
+/atom/movable/screen/fullscreen/labeb
 	icon = 'white/valtos/icons/ruzone_went_up.dmi'
 	layer = SPLASHSCREEN_LAYER
 	plane = SPLASHSCREEN_PLANE

@@ -105,7 +105,7 @@
 		mood_change = 2
 
 /datum/mood_event/table_limbsmash
-	description = "<span class='warning'>Моя голова... Больно блять...</span>\n"
+	description = "<span class='warning'>Моя голова очень сильно болит!</span>\n"
 	mood_change = -3
 	timeout = 3 MINUTES
 

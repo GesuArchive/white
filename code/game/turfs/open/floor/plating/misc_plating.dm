@@ -152,7 +152,7 @@
 /turf/open/floor/plating/beach/water
 	gender = PLURAL
 	name = "вода"
-	desc = "У меня такое ощущение, что никто не заботится о том, чтобы эта вода наконец была водой нахуй..."
+	desc = "У меня такое ощущение, что никто не заботится о том, чтобы эта вода наконец была настоящей водой..."
 	icon_state = "water"
 	baseturfs = /turf/open/floor/plating/beach/water
 	footstep = FOOTSTEP_LAVA //placeholder, kinda.
@@ -271,7 +271,7 @@
 
 /turf/open/floor/plating/grass
 	name = "трава"
-	desc = "Зелёная, сука. А если это не так, то видимо мне нужно поскорее валить отсюда."
+	desc = "Обычная зелёная трава, ничего особенного."
 	icon_state = "grass0"
 	base_icon_state = "grass"
 	bullet_bounce_sound = null

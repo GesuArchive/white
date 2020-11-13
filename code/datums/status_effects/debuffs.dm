@@ -115,7 +115,7 @@
 //SLEEPING
 /datum/status_effect/incapacitating/sleeping
 	id = "sleeping"
-	alert_type = /obj/screen/alert/status_effect/asleep
+	alert_type = /atom/movable/screen/alert/status_effect/asleep
 	needs_update_stat = TRUE
 	tick_interval = 2 SECONDS
 	var/mob/living/carbon/carbon_owner
@@ -189,7 +189,7 @@
 		if(prob(10) && owner.health > owner.crit_threshold)
 			owner.emote("snore")
 
-/obj/screen/alert/status_effect/asleep
+/atom/movable/screen/alert/status_effect/asleep
 	name = "Сон"
 	desc = "Я сплю. Скоро проснусь, надеюсь."
 	icon_state = "asleep"
@@ -199,7 +199,7 @@
 	id = "stasis"
 	duration = -1
 	tick_interval = 10
-	alert_type = /obj/screen/alert/status_effect/stasis
+	alert_type = /atom/movable/screen/alert/status_effect/stasis
 	var/last_dead_time
 
 /datum/status_effect/grouped/stasis/proc/update_time_of_death()
@@ -243,7 +243,7 @@
 	update_time_of_death()
 	return ..()
 
-/obj/screen/alert/status_effect/stasis
+/atom/movable/screen/alert/status_effect/stasis
 	name = "Стазис"
 	desc = "Мои биологические функции остановились. Я могу так жить вечно, но это довольно скучно."
 	icon_state = "stasis"
@@ -254,7 +254,7 @@
 /datum/status_effect/strandling //get it, strand as in durathread strand + strangling = strandling hahahahahahahahahahhahahaha i want to die
 	id = "strandling"
 	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /obj/screen/alert/status_effect/strandling
+	alert_type = /atom/movable/screen/alert/status_effect/strandling
 
 /datum/status_effect/strandling/on_apply()
 	ADD_TRAIT(owner, TRAIT_MAGIC_CHOKE, "dumbmoron")
@@ -264,13 +264,13 @@
 	REMOVE_TRAIT(owner, TRAIT_MAGIC_CHOKE, "dumbmoron")
 	return ..()
 
-/obj/screen/alert/status_effect/strandling
+/atom/movable/screen/alert/status_effect/strandling
 	name = "Choking strand"
 	desc = "Волшебная прядь протектора дюраткань обернута вокруг шеи, препятствуя дыханию! Щелкните этот значок, чтобы удалить прядь."
 	icon_state = "his_grace"
 	alerttooltipstyle = "hisgrace"
 
-/obj/screen/alert/status_effect/strandling/Click(location, control, params)
+/atom/movable/screen/alert/status_effect/strandling/Click(location, control, params)
 	. = ..()
 	if(usr != owner)
 		return
@@ -305,9 +305,9 @@
 	id = "his_wrath"
 	duration = -1
 	tick_interval = 4
-	alert_type = /obj/screen/alert/status_effect/his_wrath
+	alert_type = /atom/movable/screen/alert/status_effect/his_wrath
 
-/obj/screen/alert/status_effect/his_wrath
+/atom/movable/screen/alert/status_effect/his_wrath
 	name = "Его Гнев"
 	desc = "Я бежал от Его милости вместо того, чтобы накормить Его, и теперь страдаю."
 	icon_state = "his_grace"
@@ -569,7 +569,7 @@
 /datum/status_effect/necropolis_curse/proc/apply_curse(set_curse)
 	curse_flags |= set_curse
 	if(curse_flags & CURSE_BLINDING)
-		owner.overlay_fullscreen("curse", /obj/screen/fullscreen/curse, 1)
+		owner.overlay_fullscreen("curse", /atom/movable/screen/fullscreen/curse, 1)
 
 /datum/status_effect/necropolis_curse/proc/remove_curse(remove_curse)
 	if(remove_curse & CURSE_BLINDING)
@@ -647,9 +647,9 @@
 	tick_interval = 10
 	examine_text = "<span class='warning'>SUBJECTPRONOUN стоит в ступоре.</span>"
 	var/stun = TRUE
-	alert_type = /obj/screen/alert/status_effect/trance
+	alert_type = /atom/movable/screen/alert/status_effect/trance
 
-/obj/screen/alert/status_effect/trance
+/atom/movable/screen/alert/status_effect/trance
 	name = "Транс"
 	desc = "Все кажется таким отдаленным, и я могу почувствовать, как мои мысли образуют петли в голове...."
 	icon_state = "high"
@@ -734,7 +734,7 @@
 			if(4)
 				var/prev_intent = owner.a_intent
 				owner.a_intent = INTENT_HARM
-				to_chat(owner, "<span class='warning'>Мою руку схватила судорогаs!</span>")
+				to_chat(owner, "<span class='warning'>Мою руку схватила судорога!</span>")
 				owner.log_message("attacked [owner.p_them()]self to a Muscle Spasm", LOG_ATTACK)
 				owner.ClickOn(owner)
 				owner.a_intent = prev_intent
@@ -754,7 +754,7 @@
 	id = "convulsing"
 	duration = 	150
 	status_type = STATUS_EFFECT_REFRESH
-	alert_type = /obj/screen/alert/status_effect/convulsing
+	alert_type = /atom/movable/screen/alert/status_effect/convulsing
 
 /datum/status_effect/convulsing/on_creation(mob/living/zappy_boy)
 	. = ..()
@@ -768,7 +768,7 @@
 			H.visible_message("<span class='notice'>Рука [H] дёргается и случайно выбрасывает [sklonenie(I.name, VINITELNI, I.gender)]!</span>","<span class='userdanger'>Моя рука внезапно дёргается и из неё выпадает то, что я держу!</span>")
 			H.jitteriness += 5
 
-/obj/screen/alert/status_effect/convulsing
+/atom/movable/screen/alert/status_effect/convulsing
 	name = "Дрожащие руки"
 	desc = "Меня ударили чем-то, и руки не перестают трястись! Похоже, что вещи теперь будут выпадать у меня из рук часто."
 	icon_state = "convulsing"
@@ -777,7 +777,7 @@
 	id = "dna_melt"
 	duration = 600
 	status_type = STATUS_EFFECT_REPLACE
-	alert_type = /obj/screen/alert/status_effect/dna_melt
+	alert_type = /atom/movable/screen/alert/status_effect/dna_melt
 	var/kill_either_way = FALSE //no amount of removing mutations is gonna save you now
 
 /datum/status_effect/dna_melt/on_creation(mob/living/new_owner, set_duration)
@@ -791,7 +791,7 @@
 	var/mob/living/carbon/human/H = owner
 	H.something_horrible(kill_either_way)
 
-/obj/screen/alert/status_effect/dna_melt
+/atom/movable/screen/alert/status_effect/dna_melt
 	name = "Генетическая разбивка"
 	desc = "Мое тело не выдержит больше мутаций! У меня есть минута, чтобы мои мутации были быстро удалены или меня ждёт страшная судьба!"
 	icon_state = "dna_melt"
@@ -801,7 +801,7 @@
 	duration = 100
 	status_type = STATUS_EFFECT_REPLACE
 	tick_interval = 1
-	alert_type = /obj/screen/alert/status_effect/go_away
+	alert_type = /atom/movable/screen/alert/status_effect/go_away
 	var/direction
 
 /datum/status_effect/go_away/on_creation(mob/living/new_owner, set_duration)
@@ -814,7 +814,7 @@
 	var/turf/T = get_step(owner, direction)
 	owner.forceMove(T)
 
-/obj/screen/alert/status_effect/go_away
+/atom/movable/screen/alert/status_effect/go_away
 	name = "К ЗВЕЗДАМ И ДАЛЬШЕ!"
 	desc = "Мне надо идти, меня ждут мои люди!"
 	icon_state = "high"

@@ -367,7 +367,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 			extinguish()
 			to_chat(user, "<span class='notice'>Тушу [src].</span>")
 		else
-			to_chat(user, "<span class='warning'>Обжигаюсь дотронувшись до [src]! БЛЯТЬ!</span>")
+			to_chat(user, "<span class='warning'>Обжигаюсь дотронувшись до [src]!</span>")
 			var/obj/item/bodypart/affecting = C.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 			if(affecting?.receive_damage( 0, 5 ))		// 5 burn damage
 				C.update_damage_overlays()
@@ -426,7 +426,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 /obj/item/attack_alien(mob/user)
 	var/mob/living/carbon/alien/A = user
 
-	if(!A.has_fine_manipulation)
+	if(!ISADVANCEDTOOLUSER(A))
 		if(src in A.contents) // To stop Aliens having items stuck in their pockets
 			A.dropItemToGround(src)
 		to_chat(user, "<span class='warning'>У меня лапки!</span>")

@@ -15,10 +15,10 @@ const routingError = (type, name) => () => {
     <Window resizable>
       <Window.Content scrollable>
         {type === 'notFound' && (
-          <div>Интерфейс <b>{name}</b> проёбан...</div>
+          <div>Интерфейс <b>{name}</b> сломался...</div>
         )}
         {type === 'missingExport' && (
-          <div>Интерфейс <b>{name}</b> чудом проебался!</div>
+          <div>Интерфейс <b>{name}</b> чудом сломался!</div>
         )}
       </Window.Content>
     </Window>

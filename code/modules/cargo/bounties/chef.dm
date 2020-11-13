@@ -49,7 +49,7 @@
 	name = "Пирог"
 	description = "3,14159? Нет! Руководство ЦК хочет съесть пирог! Отправьте им целый пирог."
 	reward = 3142
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/pie)
+	wanted_types = list(/obj/item/food/pie)
 
 /datum/bounty/item/chef/salad
 	name = "Салад или рисовые миски"

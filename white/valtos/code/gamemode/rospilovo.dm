@@ -38,13 +38,13 @@
 
 /turf/open/floor/rospilovo/cyber
 	name = "киберпол"
-	desc = "БЛЯТЬ!"
+	desc = "Чем больше вы всматриваетесь в это, тем страшнее вам становится."
 	icon = 'white/valtos/icons/rospilovo/cybershit.dmi'
 	icon_state = "bfloor-1"
 
 /turf/open/floor/rospilovo/wood
 	name = "деревянный пол"
-	desc = "Скрипучий пиздец."
+	desc = "Простой пол,  сделанный из деревянных досок, прикрепленный саморезами."
 	footstep = FOOTSTEP_WOOD
 	barefootstep = FOOTSTEP_WOOD_BAREFOOT
 	clawfootstep = FOOTSTEP_WOOD_CLAW
@@ -88,7 +88,7 @@
 
 /turf/closed/wall/rospilovo/cyberwall
 	name = "стена"
-	desc = "Здоровенная, пиздец."
+	desc = null
 	icon = 'white/valtos/icons/rospilovo/cyberwall.dmi'
 	icon_state = "cyberwall-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
@@ -100,35 +100,35 @@
 
 /turf/closed/wall/rospilovo/beton
 	name = "стена"
-	desc = "Здоровенная, пиздец."
+	desc = null
 	icon = 'white/valtos/icons/rospilovo/beton_tg.dmi'
 	icon_state = "beton_tg-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/bricks
 	name = "стена"
-	desc = "Здоровенная, пиздец."
+	desc = null
 	icon = 'white/valtos/icons/rospilovo/bricks_tg.dmi'
 	icon_state = "bricks_tg-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/bricks_yellow
 	name = "стена"
-	desc = "Здоровенная, пиздец."
+	desc = null
 	icon = 'white/valtos/icons/rospilovo/bricks_tg_yellow.dmi'
 	icon_state = "bricks_tg_yellow-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/bricks_white
 	name = "стена"
-	desc = "Здоровенная, пиздец."
+	desc = null
 	icon = 'white/valtos/icons/rospilovo/bricks_tg_white.dmi'
 	icon_state = "bricks_tg_white-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/wall/rospilovo/beton_agro
 	name = "стена"
-	desc = "Здоровенная, пиздец."
+	desc = null
 	icon = 'white/valtos/icons/rospilovo/beton_w_tg.dmi'
 	icon_state = "beton_w_tg-0"
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
@@ -144,7 +144,7 @@
 
 /obj/structure/flora/ausbushes/rospilovo
 	name = "трава"
-	desc = "Пахнет травой, охуеть."
+	desc = "Пахнет травой."
 	icon = 'white/valtos/icons/rospilovo/ausflora.dmi'
 	icon_state = "firstbush_1"
 	alpha = 225
@@ -708,7 +708,7 @@
 
 /obj/structure/fluff/rospilovo
 	name = "машина"
-	desc = "Ржавая пиздец."
+	desc = "Ржавый и старый грузовик, потрепанный временем. В таком состоянии он, очевидно, не будет работать."
 	icon = 'white/valtos/icons/rospilovo/decor128.dmi'
 	icon_state = "civilgruz"
 	density = TRUE

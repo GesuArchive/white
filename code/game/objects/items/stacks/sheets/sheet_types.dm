@@ -121,7 +121,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-metal"
 	inhand_icon_state = "sheet-metal"
-	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
 	throwforce = 10
 	flags_1 = CONDUCT_1
 	resistance_flags = FIRE_PROOF
@@ -149,7 +149,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	amount = 5
 
 /obj/item/stack/sheet/metal/cyborg
-	custom_materials = null
+	mats_per_unit = null
 	is_cyborg = 1
 	cost = 500
 
@@ -181,7 +181,7 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-plasteel"
 	inhand_icon_state = "sheet-plasteel"
-	custom_materials = list(/datum/material/alloy/plasteel=MINERAL_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/alloy/plasteel=MINERAL_MATERIAL_AMOUNT)
 	material_type = /datum/material/alloy/plasteel
 	throwforce = 10
 	flags_1 = CONDUCT_1
@@ -256,7 +256,7 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
 	icon_state = "sheet-wood"
 	inhand_icon_state = "sheet-wood"
 	icon = 'icons/obj/stack_objects.dmi'
-	custom_materials = list(/datum/material/wood=MINERAL_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/wood=MINERAL_MATERIAL_AMOUNT)
 	sheettype = "wood"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 0)
 	resistance_flags = FLAMMABLE
@@ -289,7 +289,7 @@ GLOBAL_LIST_INIT(bamboo_recipes, list ( \
 	icon_state = "sheet-bamboo"
 	inhand_icon_state = "sheet-bamboo"
 	icon = 'icons/obj/stack_objects.dmi'
-	custom_materials = list(/datum/material/bamboo = MINERAL_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/bamboo = MINERAL_MATERIAL_AMOUNT)
 	throwforce = 15
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 0)
 	resistance_flags = FLAMMABLE
@@ -473,7 +473,7 @@ GLOBAL_LIST_INIT(cardboard_recipes, list (																				 \
 	singular_name = "лист картона"
 	icon_state = "sheet-card"
 	inhand_icon_state = "sheet-card"
-	custom_materials = list(/datum/material/cardboard = MINERAL_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/cardboard = MINERAL_MATERIAL_AMOUNT)
 	resistance_flags = FLAMMABLE
 	force = 0
 	throwforce = 0
@@ -527,7 +527,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list ( \
 	icon_state = "sheet-runed"
 	inhand_icon_state = "sheet-runed"
 	icon = 'icons/obj/stack_objects.dmi'
-	custom_materials = list(/datum/material/runedmetal = MINERAL_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/runedmetal = MINERAL_MATERIAL_AMOUNT)
 	sheettype = "runed"
 	merge_type = /obj/item/stack/sheet/runed_metal
 	novariants = TRUE
@@ -583,7 +583,7 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 	icon_state = "sheet-brass"
 	inhand_icon_state = "sheet-brass"
 	icon = 'icons/obj/stack_objects.dmi'
-	custom_materials = list(/datum/material/bronze = MINERAL_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/bronze = MINERAL_MATERIAL_AMOUNT)
 	lefthand_file = 'icons/mob/inhands/misc/sheets_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/sheets_righthand.dmi'
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -639,7 +639,7 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "bone"
 	inhand_icon_state = "sheet-bone"
-	custom_materials = list(/datum/material/bone = MINERAL_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/bone = MINERAL_MATERIAL_AMOUNT)
 	singular_name = "кость"
 	desc = "Кто-то пил своё молоко."
 	force = 7
@@ -669,7 +669,7 @@ GLOBAL_LIST_INIT(plastic_recipes, list(
 	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-plastic"
 	inhand_icon_state = "sheet-plastic"
-	custom_materials = list(/datum/material/plastic=MINERAL_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/plastic=MINERAL_MATERIAL_AMOUNT)
 	throwforce = 7
 	material_type = /datum/material/plastic
 	merge_type = /obj/item/stack/sheet/plastic
@@ -694,7 +694,7 @@ new /datum/stack_recipe("paper frame door", /obj/structure/mineral_door/paperfra
 	singular_name = "бумажная рамка"
 	icon_state = "sheet-paper"
 	inhand_icon_state = "sheet-paper"
-	custom_materials = list(/datum/material/paper = MINERAL_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/paper = MINERAL_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/sheet/paperframes
 	resistance_flags = FLAMMABLE
 	grind_results = list(/datum/reagent/cellulose = 20)
@@ -716,7 +716,7 @@ new /datum/stack_recipe("paper frame door", /obj/structure/mineral_door/paperfra
 	singular_name = "лист мяса"
 	icon_state = "sheet-meat"
 	material_flags = MATERIAL_COLOR
-	custom_materials = list(/datum/material/meat = MINERAL_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/meat = MINERAL_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/sheet/meat
 	material_type = /datum/material/meat
 	material_modifier = 1 //None of that wussy stuff
@@ -733,7 +733,7 @@ new /datum/stack_recipe("paper frame door", /obj/structure/mineral_door/paperfra
 	desc = "Это вкусные ломтики пепперони!"
 	singular_name = "ломтик пепперони"
 	icon_state = "sheet-pizza"
-	custom_materials = list(/datum/material/pizza = MINERAL_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/pizza = MINERAL_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/sheet/pizza
 	material_type = /datum/material/pizza
 	material_modifier = 1
@@ -750,7 +750,7 @@ new /datum/stack_recipe("paper frame door", /obj/structure/mineral_door/paperfra
 	desc = "Я уже слишком стар для того чтобы играться с песочными замками. Теперь я строю... Песочные станции."
 	singular_name = "блок песка"
 	icon_state = "sheet-sandstone"
-	custom_materials = list(/datum/material/sand = MINERAL_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/sand = MINERAL_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/sheet/sandblock
 	material_type = /datum/material/sand
 	material_modifier = 1

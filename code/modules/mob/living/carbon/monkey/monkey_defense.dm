@@ -54,9 +54,9 @@
 					damage = rand(10, 15)
 					if(AmountUnconscious() < 100 && health > 0)
 						Unconscious(rand(200, 300))
-						visible_message("<span class='danger'>[M] вырубает [name] нахуй!</span>", \
+						visible_message("<span class='danger'>[M] вырубает [name]!</span>", \
 										"<span class='userdanger'>[M] вырубает меня!</span>", "<span class='hear'>Слышу как что-то жёстко бьёт по плоти!</span>", 5, M)
-						to_chat(M, "<span class='danger'>Вырубаю [name] нахуй!</span>")
+						to_chat(M, "<span class='danger'>Вырубаю [name]!</span>")
 				var/obj/item/bodypart/affecting = get_bodypart(ran_zone(M.zone_selected))
 				if(!affecting)
 					affecting = get_bodypart(BODY_ZONE_CHEST)
