@@ -304,8 +304,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(stat != DEAD)
 		succumb()
 		if(incapacitated())
-			var/response = alert(src, "Преждевременный выход из тела отбирает у меня право на донос.\nОно тебе нужно?", "Точно, ёпта?", "Да, хуярь", "Не, нихуя")
-			if(response == "Да, хуярь")
+			var/response = alert(src, "Преждевременный выход из тела отбирает у меня право на донос.\nОно тебе нужно?", "Ты УВЕРЕН?", "Да", "Нет")
+			if(response == "Да")
 				ghostize(FALSE)
 				return
 		to_chat(src, "<span class='boldnotice'>Я пока ещё живу.</span>")

@@ -42,7 +42,7 @@
 /obj/item/shield/riot/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/melee/baton))
 		if(cooldown < world.time - 25)
-			user.visible_message("<span class='warning'><b>[user]</b> хуярит <b>[src.name]</b> используя [W]!</span>")
+			user.visible_message("<span class='warning'><b>[user]</b> бьёт <b>[src.name]</b> используя [W]!</span>")
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, TRUE)
 			cooldown = world.time
 	else if(istype(W, /obj/item/stack/sheet/mineral/titanium))

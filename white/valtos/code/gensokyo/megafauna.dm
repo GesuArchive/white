@@ -3,8 +3,8 @@
 	desc = "Wow, cute anime girl."
 	health = 1250
 	maxHealth = 1250
-	attack_verb_continuous = "вхуячивает"
-	attack_verb_simple = "въёбывает"
+	attack_verb_continuous = "бьёт"
+	attack_verb_simple = "ударяет"
 	attack_sound = 'sound/magic/clockwork/ratvar_attack.ogg'
 	icon_state = "reimu"
 	icon_living = "reimu"

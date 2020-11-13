@@ -227,7 +227,7 @@
 	var/list/modes = list("Выкл", "Примерные показатели", "Точные показатели", " + отслеживание")
 	var/switchMode = input("Выбери режим работы:", "Режим работы", modes[sensor_mode + 1]) in modes
 	if(get_dist(usr, src) > 1)
-		to_chat(usr, "<span class='warning'>Я слишком далеко блять!</span>")
+		to_chat(usr, "<span class='warning'>Я слишком далеко от станции!</span>")
 		return
 	sensor_mode = modes.Find(switchMode) - 1
 	if (loc == usr)

@@ -441,7 +441,7 @@
 
 /obj/structure/chair/mime
 	name = "невидимый стул"
-	desc = "Ебать."
+	desc = "Мда."
 	anchored = FALSE
 	icon_state = null
 	buildstacktype = null

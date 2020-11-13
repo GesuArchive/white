@@ -482,7 +482,7 @@
 /obj/singularity/proc/combust_mobs()
 	for(var/mob/living/carbon/C in urange(20, src, 1))
 		C.visible_message("<span class='warning'>Кожа <b>[C]</b> воспламеняется!</span>", \
-						  "<span class='userdanger'>Чувствую, что я сейчас <b>ГОРЮ БЛЯТЬ</b>!</span>")
+						  "<span class='userdanger'>Чувствую, что я сейчас <b>ГОРЮ</b>!</span>")
 		C.adjust_fire_stacks(5)
 		C.IgniteMob()
 	return

@@ -22,8 +22,8 @@
 	response_harm_simple = "вмазывает"
 	melee_damage_lower = 20
 	melee_damage_upper = 30
-	attack_verb_continuous = "разъёбывает"
-	attack_verb_simple = "разъёбывает"
+	attack_verb_continuous = "ударяет"
+	attack_verb_simple = "ударяет"
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 10, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = 1600

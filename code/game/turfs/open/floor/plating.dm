@@ -74,7 +74,7 @@
 		if(!broken && !burnt)
 			for(var/obj/O in src)
 				for(var/M in O.buckled_mobs)
-					to_chat(user, "<span class='warning'>Кто-то пристёгнут к <b>[O]</b>! Надо бы убрать [M] нахуй.</span>")
+					to_chat(user, "<span class='warning'>Кто-то пристёгнут к <b>[O]</b>! Надо бы убрать [M].</span>")
 					return
 			var/obj/item/stack/tile/W = C
 			if(!W.use(1))

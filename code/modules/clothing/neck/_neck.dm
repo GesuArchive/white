@@ -188,7 +188,7 @@
 
 /obj/item/clothing/neck/necklace/dope
 	name = "золотая цепочка"
-	desc = "Как же заебись быть гангстером."
+	desc = "Как же чётко быть гангстером."
 	icon = 'icons/obj/clothing/neck.dmi'
 	icon_state = "bling"
 

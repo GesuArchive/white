@@ -1,6 +1,6 @@
 /obj/item/organ/ears/cat/tts
 	name = "magical cat ears"
-	desc = "ВНИМАНИЕ!!! Носителя этих ушек разрешается хуярить в крит, сажать в пермабриг или пермагулаг и ловить с целью отрезать эти ушки."
+	desc = "ВНИМАНИЕ! С носителем этих ушек разрешается делать что угодно, вплоть до отправки в космос без скафандра!"
 	icon = 'icons/obj/clothing/hats.dmi'
 	icon_state = "kitty"
 	damage_multiplier = 5

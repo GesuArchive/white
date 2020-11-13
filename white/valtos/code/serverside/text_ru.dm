@@ -278,6 +278,6 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	desc = "Долгое время работы в рисовых полях и жара палящего сверху солнца даровала вам этот прекрасный акцент."
 	value = 0
 	mob_trait = TRAIT_ASIAT
-	gain_text = "<span class='notice'>Поля ляпотать.</span>"
+	gain_text = "<span class='notice'>Чиньг-чоньг!.</span>"
 	lose_text = "<span class='danger'>Аниме говно.</span>"
-	medical_record_text = "Пациент имеет пиздоглазость."
+	medical_record_text = "Пациент - азиат."

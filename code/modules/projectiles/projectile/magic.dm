@@ -48,9 +48,9 @@
 		else
 			if(target.revive(full_heal = TRUE, admin_revive = TRUE))
 				target.grab_ghost(force = TRUE) // even suicides
-				to_chat(target, "<span class='notice'>Я ЖИВУ!!!</span>")
+				to_chat(target, "<span class='notice'>Я ЖИВУ!</span>")
 			else if(target.stat != DEAD)
-				to_chat(target, "<span class='notice'>Мне заебись!</span>")
+				to_chat(target, "<span class='notice'>Я чувствую себя прекрасно!</span>")
 
 /obj/projectile/magic/teleport
 	name = "заряд телепортации"

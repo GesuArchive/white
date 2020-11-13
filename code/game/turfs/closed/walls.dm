@@ -146,9 +146,9 @@
 	else
 		playsound(src, 'sound/effects/bang.ogg', 50, TRUE)
 		add_dent(WALL_DENT_HIT)
-		user.visible_message("<span class='danger'>[user] хуярит [src]!</span>", \
-					"<span class='danger'>Ебошу [src]!</span>", \
-					"<span class='hear'>Слышу громкий пиздец!</span>")
+		user.visible_message("<span class='danger'>[user] бьёт [src]!</span>", \
+					"<span class='danger'>Бью [src]!</span>", \
+					"<span class='hear'>Слышу громкий удар по стене!</span>")
 	return TRUE
 
 /**

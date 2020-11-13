@@ -387,7 +387,7 @@
 	else
 		limb_snip_candidate = patient.get_bodypart(check_zone(user.zone_selected))
 		if(!limb_snip_candidate)
-			to_chat(user, "<span class='warning'>[patient] не имеет здесь конечности, че ещё блять?</span>")
+			to_chat(user, "<span class='warning'>[patient] не имеет здесь конечности.</span>")
 			return
 		candidate_name = limb_snip_candidate.name
 

@@ -199,8 +199,8 @@
 				if(M.powerlevel < 0)
 					M.powerlevel = 0
 
-				visible_message("<span class='danger'><b>[M.name]</b> ёбнул током <b>[src]</b>!</span>", \
-				"<span class='userdanger'><b>[M.name]</b> ёбнул меня током!</span>")
+				visible_message("<span class='danger'><b>[M.name]</b> ударил током <b>[src]</b>!</span>", \
+				"<span class='userdanger'><b>[M.name]</b> ударил меня током!</span>")
 
 				do_sparks(5, TRUE, src)
 				var/power = M.powerlevel + rand(0,3)

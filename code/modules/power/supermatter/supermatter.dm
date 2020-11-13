@@ -875,7 +875,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		murder = S.attack_verb_continuous
 	dust_mob(S, \
 	"<span class='danger'><b>[S]</b> неблагоразумно [murder] <b>[src.name]</b> и [S.ru_ego()] тело горит блестяще, прежде чем превратиться в пепел!</span>", \
-	"<span class='userdanger'>Неблагоразумно трогаю [src.name], моё тело горит блестяще, прежде чем превратиться в пепел. Заебись.</span>", \
+	"<span class='userdanger'>Неблагоразумно трогаю [src.name], моё тело горит блестяще, прежде чем превратиться в пепел.</span>", \
 	"simple animal attack")
 
 /obj/machinery/power/supermatter_crystal/attack_robot(mob/user)
@@ -920,7 +920,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 			var/obj/item/bodypart/dust_arm = user.get_bodypart(which_hand)
 			dust_arm.dismember()
 			user.visible_message("<span class='danger'><b>[capitalize(W)]</b> исчезает из существования при контакте с <b>[src.name]</b>, резонируя с ужасным звуком...</span>",\
-				"<span class='danger'>Бля! <b>[capitalize(W)]</b> исчезает из существования при контакте с <b>[src.name]</b>, забирая мою руку при этом! Это было глупо!</span>")
+				"<span class='danger'><b>[capitalize(W)]</b> исчезает из существования при контакте с <b>[src.name]</b>, забирая мою руку при этом! Это было глупо!</span>")
 			playsound(src, 'sound/effects/supermatter.ogg', 150, TRUE)
 			Consume(dust_arm)
 			qdel(W)
@@ -934,7 +934,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		else
 			cig.light()
 			user.visible_message("<span class='danger'>Как только <b>[user]</b> прикуривает <b>[W]</b> используя <b>[src.name]</b>, тишина начинает наполнять комнату...</span>",\
-				"<span class='danger'>Время, кажется, замедляется до минимума при прикосновении к <b>[src.name]</b> используя <b>[W]</b>.</span>\n<span class='notice'><b>[W]</b> вспыхивает жуткой энергией, когда я небрежно оттягиваю руку от <b>[src.name]</b>. Пиздос.</span>")
+				"<span class='danger'>Время, кажется, замедляется до минимума при прикосновении к <b>[src.name]</b> используя <b>[W]</b>.</span>\n<span class='notice'><b>[W]</b> вспыхивает жуткой энергией, когда я небрежно оттягиваю руку от <b>[src.name]</b>.</span>")
 			playsound(src, 'sound/effects/supermatter.ogg', 50, TRUE)
 			radiation_pulse(src, 50, 3)
 			return

@@ -82,7 +82,7 @@
 
 /datum/blackmarket_item/tool/thermite_bottle
 	name = "Бутылочка с термитом"
-	desc = "Дыроёб"
+	desc = null
 	item = /obj/item/reagent_containers/glass/bottle/thermite
 
 	price_min = 500

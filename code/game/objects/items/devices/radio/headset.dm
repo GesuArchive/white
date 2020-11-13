@@ -355,4 +355,4 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		return
 	if (command)
 		use_command = !use_command
-		to_chat(user, "<span class='notice'>[use_command ? "Пошумим блять" : "Словим тишину"].</span>")
+		to_chat(user, "<span class='notice'>[use_command ? "Громкоговоритель включен." : "Громкоговоритель выключен."].</span>")
