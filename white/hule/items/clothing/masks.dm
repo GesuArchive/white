@@ -11,7 +11,7 @@
 /obj/item/clothing/mask/gas/anonist/equipped(mob/living/carbon/human/user, slot)
 	..()
 	if(cursed && slot == 2)
-		to_chat(user, "<span class='warning'>Ха лолка ебать затралил у тя [pick("батрудинов","биекция","тошиба","бомбанушен73","будапешт","бандера","бандероль","багратион","багет","баребух","бивалент")] еБаТьТыЛоХ</span>")
+		to_chat(user, "<span class='warning'>Ха лолка ебать затралил у тя [pick("батрудинов","биекция","тошиба","бомбанушен228","будапешт","бандера","бандероль","багратион","багет","баребух","бивалент")] еБаТьТыЛоХ</span>")
 //		to_chat(user, "<img src=[pick("cdn.discordapp.com/attachments/389758687750782997/428556384435568640/unknown.png", "cdn.discordapp.com/attachments/389758687750782997/428556488198324224/B8ytQCR6_6w.png","cdn.discordapp.com/attachments/389758687750782997/428556551574257684/unknown.png","cdn.discordapp.com/attachments/389758687750782997/428558148400578561/unknown.png")]>")
 
 /obj/item/clothing/mask/gas/anonist/attack_hand(mob/user)

@@ -16,7 +16,7 @@
 
 /datum/supply_pack/misc/driftcar
 	name = "контейнер с дрифткаром"
-	desc = "Содержит целую машину. Охуеть."
+	desc = "Содержит целую машину."
 	cost = 50000
 	contains = list(/obj/vehicle/sealed/car/driftcar)
 	crate_name = "блюспейс ящик"

@@ -1,6 +1,6 @@
 /obj/item/clothing/under/rank/omon
 	name = "костюм омоновца"
-	desc = "Тактично пиздец."
+	desc = "Униформа, носимая ОМОНом. Имеет защитные подкладки, немного защищающие от ударов."
 	worn_icon = 'white/valtos/icons/clothing/mob/uniform.dmi'
 	icon = 'white/valtos/icons/clothing/uniforms.dmi'
 	icon_state = "omon"
@@ -18,7 +18,7 @@
 
 /obj/item/clothing/under/rank/sobr
 	name = "тельняшка"
-	desc = "Пиндосы ПОШЛИ на хуй."
+	desc = "ВДВ С НЕБА ПРИВЕТ."
 	worn_icon = 'white/valtos/icons/clothing/mob/uniform.dmi'
 	icon = 'white/valtos/icons/clothing/uniforms.dmi'
 	icon_state = "telnyashka"

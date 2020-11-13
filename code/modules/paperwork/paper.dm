@@ -119,7 +119,7 @@
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
 		if(HAS_TRAIT(H, TRAIT_CLUMSY) && prob(25))
-			to_chat(H, "<span class='warning'>Режу себя бумагой! Аааааа! ААААААААААБЛЯТЬ!</span>")
+			to_chat(H, "<span class='warning'>Режу себя бумагой! А-А-А-А-А-А-А-А!</span>")
 			H.damageoverlaytemp = 9001
 			H.update_damage_hud()
 			return

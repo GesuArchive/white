@@ -14,7 +14,7 @@
 /*
 /obj/item/stack/tile/conc
 	name = "Магическая пластиковая имитация бетона"
-	desc = "Нахуя? Кто это придумал?"
+	desc = "Зачем? Кто это придумал?"
 	icon = 'white/hule/magic/pomoyka/pomoyka.dmi'
 	icon_state = "conc-tile"
 	turf_type = /turf/open/floor/plating/conc
@@ -99,7 +99,7 @@
 /obj/structure/tbin/full/proc/spawnjunk(list/L, mob/M)
 	var/obj/O = pick(L)
 	var/obj/I = new O(get_turf(src),src)
-	to_chat(M,"<span class='notice'>Ебать, целый [I.name] в мусорке!</span>")
+	to_chat(M,"<span class='notice'>Ого, целый [I.name] в мусорке!</span>")
 
 /obj/structure/tbin/full/verb/use()
 	set category = "IC"

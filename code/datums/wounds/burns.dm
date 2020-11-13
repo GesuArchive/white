@@ -95,7 +95,7 @@
 				to_chat(victim, "<span class='notice'>Едва чувствую [limb.name] снова, надо постараться, чтобы заставить её двигаться снова!</span>")
 				set_disabling(FALSE)
 			else if(prob(1))
-				to_chat(victim, "<span class='warning'>Продумаю жизнь без своей [ru_gde_zone(limb.name)]... Кому она нахуй сдалась?!</span>")
+				to_chat(victim, "<span class='warning'>Продумаю жизнь без своей [ru_gde_zone(limb.name)]...</span>")
 				victim.adjustToxLoss(0.75)
 			else if(prob(4))
 				victim.adjustToxLoss(1)

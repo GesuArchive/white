@@ -225,7 +225,7 @@
 	color = "#fffae0"
 
 /datum/reagent/drug/yespowder/on_mob_life(mob/living/M)
-	var/high_message = pick("Соглашение наполняет мой разум.", "'Нет' - прошлый век. 'Да' - это заебись.", "Да.")
+	var/high_message = pick("Соглашение наполняет мой разум.", "'Нет' - прошлый век. 'Да' - это модно.", "Да.")
 	if(prob(5))
 		to_chat(M, "<span class='notice'>[high_message]</span>")
 	if(prob(20))
@@ -252,7 +252,7 @@
 	CHECK_DNA_AND_SPECIES(H)
 	H.setOrganLoss(ORGAN_SLOT_BRAIN, 30)
 	if(ishuman(H))
-		to_chat(H, "<span class= 'userdanger'>Вот блять!</span>")
+		to_chat(H, "<span class= 'userdanger'>Я чувствую себя совсем нехорошо!</span>")
 		H.set_species(/datum/species/krokodil_addict)
 	..()
 
@@ -316,7 +316,7 @@
 				if(prob(4))
 					H.emote("laugh")
 					H.say(pick("ГРЕРКРКРК",";ХАХА, Я БЛЯДЬ ПОД КАЙФОМ!!!","Я БАБОЧКА!!!"))
-					H.visible_message("<span class='notice'>[H] выглядит охуенно высоко!</span>")
+					H.visible_message("<span class='notice'>[H] выглядит, как будто он на высоте!</span>")
 				else if(prob(3))
 					H.Knockdown(20)
 					H.emote("laugh")
@@ -341,7 +341,7 @@
 						t_ray_images += I
 				if(t_ray_images.len)
 					flick_overlay(t_ray_images, list(H.client), rand(10,30))
-				high_message = pick("Я чувствую, как мои мысли гонятся!", "КТО, БЛЯДЬ, ЭТО СКАЗАЛ?!?!", "Я чувствую, что умру!")
+				high_message = pick("Я чувствую, как мои мысли гонятся!", "КТО ЭТО СКАЗАЛ.", "Я чувствую, что умру!")
 				if(prob(25))
 					H.hallucination += 2
 					H.jitteriness += 3
@@ -390,7 +390,7 @@
 
 /obj/effect/hallucination/simple/druggy
 	name = "Мой мозг"
-	desc = "Ебать."
+	desc = "Под веществами."
 	image_icon = 'icons/obj/surgery.dmi'
 	image_state = "brain"
 
@@ -461,7 +461,7 @@
 				to_chat(C, "<b><big>Или нет?!</big></b>")
 				if(prob(50))
 					spawn(50)
-						to_chat(C, "<b><big>БЛЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯТЬ!!!</big></b>")
+						to_chat(C, "<b><big>А-А-А-А-А-А-А-А-А-А-А-А-А-А!</big></b>")
 						C.reagents.add_reagent_list(list(/datum/reagent/drug/labebium = 25))
 
 /datum/reagent/drug/labebium/proc/create_flood(mob/living/carbon/C)
@@ -502,7 +502,7 @@
 		if("ovoshi")
 			switch(current_cycle)
 				if(1 to 20)
-					high_message = "БЛЯТЬ! ТОЛЬКО НЕ ОВОЩИ!!!"
+					high_message = "ТОЛЬКО НЕ ОВОЩИ!!!"
 					if(prob(30))
 						H.derpspeech++
 						H.cultslurring++
@@ -557,7 +557,7 @@
 								animate(whole_screen, transform = matrix()*2, time = 40, easing = BOUNCE_EASING)
 								addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
 							addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 600)
-					high_message = "НУ НАХУЙ!!!"
+					high_message = "ГОСПОДИ, НЕТ!!!"
 					if(prob(5))
 						animate(H.client, pixel_x = rand(-64,64), pixel_y = rand(-64,64), time = 100)
 					create_flood(H)
@@ -637,7 +637,7 @@
 
 /obj/effect/hallucination/simple/ovoshi
 	name = "Овощ"
-	desc = "Ммм, заебись."
+	desc = "М-М-М-М-М-М..!"
 	image_icon = 'white/valtos/icons/lifeweb/harvest.dmi'
 	image_state = "berrypile"
 	var/list/states = list("berrypile", "chilipepper", "eggplant", "soybeans", \

@@ -484,7 +484,7 @@
 	name = "кость"
 	light_range = 2
 	light_power = 2
-	desc = "БЛЯТЬ!"
+	desc = "Любит молоко."
 	duration = 9
 	var/damage = 10 //how much damage do we do?
 	var/monster_damage_boost = TRUE //do we deal extra damage to monsters? Used by the boss

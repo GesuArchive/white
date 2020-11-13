@@ -452,7 +452,7 @@
 	value = -2
 	mob_trait = TRAIT_GRABWEAKNESS
 	gain_text = "<span class='danger'>Я чувствую себя неуверенно.</span>"
-	lose_text = "<span class='notice'>Теперь-то я могу убить всех нахуй блядь.</span>"
+	lose_text = "<span class='notice'>Теперь-то я смогу защитить себя!</span>"
 	medical_record_text = "Пациент представляет собой неуверенную и наивную личность, и им легко манипулировать."
 	hardcore_value = 4
 

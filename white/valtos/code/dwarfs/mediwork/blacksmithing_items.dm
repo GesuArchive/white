@@ -348,7 +348,7 @@
 	throwforce = 15
 	w_class = WEIGHT_CLASS_HUGE
 	//hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb_simple = list("захуяривает")
+	attack_verb_simple = list("ударяет")
 	block_chance = 10
 	max_integrity = 50
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)

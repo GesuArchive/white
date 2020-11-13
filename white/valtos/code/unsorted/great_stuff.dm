@@ -218,7 +218,7 @@
 
 /obj/item/gun/ballistic/automatic/ak47
 	name = "AK-47"
-	desc = "Отрывает ебальник с очереди. Использует противотанковый калибр 7.62."
+	desc = "Отрывает лицо с очереди. Использует противотанковый калибр 7.62."
 	icon = 'white/valtos/icons/gun.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'

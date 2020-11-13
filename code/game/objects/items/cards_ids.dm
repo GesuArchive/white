@@ -525,7 +525,7 @@ update_label()
 		var/mob/living/carbon/C = user
 		to_chat(C, "<span class='warning'>Пытаюсь подобрать карту... Что может пойти не тка~</span>")
 		if(do_after(C, 10, target = src) && first_try)
-			to_chat(C, "<span class='userdanger'>КАРТА БЫЛА ЗАМИНИРОВАНА! СУКА!</span>")
+			to_chat(C, "<span class='userdanger'>КАРТА БЫЛА ЗАМИНИРОВАНА!</span>")
 			electrocute_mob(user, get_area(src))
 			playsound(loc, 'sound/weapons/slice.ogg', 25, TRUE, -1)
 			var/which_hand = BODY_ZONE_L_ARM

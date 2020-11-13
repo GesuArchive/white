@@ -3,7 +3,7 @@
 /obj/item/clothing/head/centhat
 	name = "шапочка ЦентКома"
 	icon_state = "centcom"
-	desc = "Как же заебись быть императором."
+	desc = "Как прекрасно быть императором."
 	inhand_icon_state = "that"
 	flags_inv = 0
 	armor = list(MELEE = 30, BULLET = 15, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, RAD = 0, FIRE = 50, ACID = 50)

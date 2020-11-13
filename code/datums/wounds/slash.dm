@@ -152,7 +152,7 @@
 		to_chat(user, "<span class='warning'Мой рот закрыт и не может достать до ран [victim]!</span>")
 		return
 	if(!user.getorganslot(ORGAN_SLOT_TONGUE))
-		to_chat(user, "<span class='warning'>А чем лизать то бля?!</span>") // f in chat
+		to_chat(user, "<span class='warning'>А чем лизать-то?!</span>") // f in chat
 		return
 
 	lick_wounds(user)

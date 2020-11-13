@@ -213,7 +213,7 @@
 					to_chat(usr, "<span class='warning'>There is nothing to remove from its [remove_from]!</span>")
 					return
 				if(!stat)
-					say("[available_channels.len ? "[pick(available_channels)] " : null]КУДАХ ОСТАВЬ БЛЯТЬ НАУШНИК КУДАХ!")
+					say("[available_channels.len ? "[pick(available_channels)] " : null]КУДАХ, ОСТАВЬ НАУШНИК, КУДАХ!")
 				ears.forceMove(drop_location())
 				ears = null
 				for(var/possible_phrase in speak)

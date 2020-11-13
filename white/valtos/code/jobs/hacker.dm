@@ -185,7 +185,7 @@
 	clothes_req = FALSE
 	charge_max = 600
 	cooldown_min = 600
-	invocation = "Уёбки, сука!"
+	invocation = "; Я люблю ебать себя страпоном в очко."
 	invocation_type = "whisper"
 	school = "restoration"
 	sound = 'white/valtos/sounds/hacker_heal.ogg'

@@ -671,7 +671,7 @@
 		name = "месторождение гибтонита"
 		desc = "Активный резерв гибтонита. Беги!"
 		stage = GIBTONITE_ACTIVE
-		visible_message("<span class='danger'>ГИБТОНИТ СУКА! ОНО ЩАС ЕБАНЁТ НАХУЙ!</span>")
+		visible_message("<span class='danger'>ДА ЭТО ЖЕ ГИБТОНИТ! ОН СЕЙЧАС ВЗОРВЁТСЯ!</span>")
 
 		var/notify_admins = !is_mining_level(z)
 

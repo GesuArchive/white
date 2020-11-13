@@ -410,7 +410,7 @@
 
 /obj/item/clothing/shoes/russian
 	name = "кирзачи"
-	desc = "Заебись."
+	desc = "Древние военные ботинки."
 	icon_state = "rus_shoes"
 	inhand_icon_state = "rus_shoes"
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes

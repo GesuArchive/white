@@ -16,7 +16,7 @@
 		to_chat(admin, "[roundend_category] должен быть живым!")
 		return
 	if(!C.getorgan(/obj/item/organ/brain)) // If only I had a brain
-		to_chat(admin, "[roundend_category] НУЖЕН СУКА МОЗГ.")
+		to_chat(admin, "[roundend_category] НУЖЕН МОЗГ.")
 		return
 	message_admins("[key_name_admin(admin)] made [key_name_admin(new_owner)] into [name].")
 	log_admin("[key_name(admin)] made [key_name(new_owner)] into [name].")

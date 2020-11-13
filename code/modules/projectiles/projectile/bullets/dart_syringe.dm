@@ -21,7 +21,7 @@
 			else
 				blocked = 100
 				target.visible_message("<span class='danger'>[capitalize(src.name)] был отражен!</span>", \
-									   "<span class='userdanger'>Мне похуй на [src]!</span>")
+									   "<span class='userdanger'>Моя броня отражает [src]!</span>")
 
 	..(target, blocked)
 	reagents.flags &= ~(NO_REACT)
