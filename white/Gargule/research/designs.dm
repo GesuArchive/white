@@ -6,7 +6,7 @@
 	materials = list (/datum/material/iron = 2500, /datum/material/glass = 1500, /datum/material/silver = 1500, /datum/material/plasma = 500, /datum/material/titanium = 1500)
 	construction_time = 200
 	build_path = /obj/item/organ/cyberimp/arm/surgery/alien
-	category = list("Разное", "Медицинские дизайны")
+	category = list("Разное", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/circular_saw_folding
@@ -33,7 +33,7 @@
 	construction_time = 50
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 500, /datum/material/gold = 500)
 	build_path = /obj/item/organ/cyberimp/eyes/hud/science
-	category = list("Разное", "Медицинские дизайны")
+	category = list("Разное", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cyberimp_diagnostic_hud
@@ -44,5 +44,5 @@
 	construction_time = 50
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 500, /datum/material/gold = 500)
 	build_path = /obj/item/organ/cyberimp/eyes/hud/diagnostic
-	category = list("Разное", "Медицинские дизайны")
+	category = list("Разное", "Медицинские разработки")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL

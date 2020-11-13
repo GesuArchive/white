@@ -3,7 +3,7 @@
 #define AUTOLATHE_SEARCH_MENU	3
 
 /obj/machinery/autolathe
-	name = "автоматический токарный станок"
+	name = "автолат"
 	desc = "Производит изделия из металла и стекла."
 	icon_state = "autolathe"
 	density = TRUE
@@ -87,7 +87,7 @@
 
 /obj/machinery/autolathe/attackby(obj/item/O, mob/user, params)
 	if (busy)
-		to_chat(user, "<span class=\"alert\">Автоматический токарный станок занят. Дождитесь завершения предыдущей операции.</span>")
+		to_chat(user, "<span class=\"alert\">Автолат занят. Дождитесь завершения предыдущей операции.</span>")
 		return TRUE
 
 	if(default_deconstruction_screwdriver(user, "autolathe_t", "autolathe", O))
@@ -208,7 +208,7 @@
 					matching_designs.Add(D)
 			updateUsrDialog()
 	else
-		to_chat(usr, "<span class=\"alert\">Автоматический токарный станок занят. Дождитесь завершения предыдущей операции.</span>")
+		to_chat(usr, "<span class=\"alert\">Автолат занят. Дождитесь завершения предыдущей операции.</span>")
 
 	updateUsrDialog()
 

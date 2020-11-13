@@ -1,6 +1,6 @@
 #define ROBOTIC_LIGHT_BRUTE_MSG "поврежденная"
 #define ROBOTIC_MEDIUM_BRUTE_MSG "помятая"
-#define ROBOTIC_HEAVY_BRUTE_MSG "разваливающаяся"
+#define ROBOTIC_HEAVY_BRUTE_MSG "разваливающийся"
 
 #define ROBOTIC_LIGHT_BURN_MSG "обгоревшая"
 #define ROBOTIC_MEDIUM_BURN_MSG "обугленная"

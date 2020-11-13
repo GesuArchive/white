@@ -273,6 +273,7 @@ SUBSYSTEM_DEF(ticker)
 			modes += M.name
 		modes = sortList(modes)
 		message_admins("<b>The gamemode is: secret!\nPossibilities:</B> [english_list(modes)]")
+		SStitle.uplayers()
 	else
 		mode.announce()
 

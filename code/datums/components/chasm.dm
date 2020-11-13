@@ -108,7 +108,7 @@
 
 	else
 		// send to oblivion
-		AM.visible_message("<span class='boldwarning'><b>[AM]</b> спотыкается и падает в <b>[parent]</b>!</span>", "<span class='userdanger'>[oblivion_message]</span>")
+		AM.visible_message("<span class='boldwarning'><b>[AM]</b> падает в <b>[parent]</b>!</span>", "<span class='userdanger'>[oblivion_message]</span>")
 		if (isliving(AM))
 			var/mob/living/L = AM
 			L.notransform = TRUE

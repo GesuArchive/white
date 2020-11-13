@@ -1620,11 +1620,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
-"rk" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable,
-/turf/template_noop,
-/area/space/nearstation)
 "rX" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /obj/structure/lattice/catwalk,
@@ -1632,7 +1627,6 @@
 /area/engine/engineering)
 "tw" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 10
 	},
@@ -1651,7 +1645,6 @@
 /area/space/nearstation)
 "AC" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 6
 	},
@@ -1711,8 +1704,8 @@ ab
 ab
 ab
 ab
-ab
-rk
+ad
+ad
 di
 fm
 di
@@ -1739,8 +1732,8 @@ ab
 ab
 ab
 ab
-ab
-AC
+ad
+di
 ec
 ec
 ec

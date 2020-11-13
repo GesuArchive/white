@@ -409,7 +409,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 
 /datum/objective/purge
 	name = "no mutants on shuttle"
-	explanation_text = "Убедиться, что на борту аварийного шаттла нет мутантных гуманоидов."
+	explanation_text = "Убедиться, что на борту эвакуационного шаттла нет мутантных гуманоидов."
 	martyr_compatible = TRUE
 
 /datum/objective/purge/check_completion()

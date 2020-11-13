@@ -48,7 +48,7 @@ Contains:
 	//NEW SWAT suit
 /obj/item/clothing/suit/space/swat
 	name = "MK.I Скафандр Спецназа"
-	desc = "Тактический скафандр впервые разработанный совместными усилиями между ныне несуществующей IS-ERI и Нанотрансеном в 20XX для космических военных операций. Проверенный временем экземпляр, в нем очень тяжело ходить, что компенсируется надежной защитой от различных угроз!"
+	desc = "Устаревший тактический скафандр, впервые разработанный совместными усилиями между ныне несуществующей IS-ERI и Нанотразеном в 20XX для проведения операций в космосе. Проверенный временем экземпляр, в нем очень тяжело ходить, однако это компенсируется надежной защитой от различных угроз!"
 	icon_state = "heavy"
 	inhand_icon_state = "swat_suit"
 	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/restraints/handcuffs, /obj/item/tank/internals, /obj/item/kitchen/knife/combat)
@@ -332,7 +332,7 @@ Contains:
 	inhand_icon_state = "space_suit_syndicate"
 	slowdown = 0	//Space carp magic, never stop believing
 	armor = list(MELEE = -20, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 75, FIRE = 60, ACID = 75) //As whimpy whimpy whoo
-	allowed = list(/obj/item/tank/internals, /obj/item/pneumatic_cannon/speargun)	//I'm giving you a hint here
+	allowed = list(/obj/item/tank/internals, /obj/item/gun/ballistic/rifle/boltaction/harpoon)	//I'm giving you a hint here
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/carp
 
 /obj/item/clothing/head/helmet/space/hardsuit/carp/equipped(mob/living/carbon/human/user, slot)

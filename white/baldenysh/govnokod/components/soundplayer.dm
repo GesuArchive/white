@@ -144,7 +144,7 @@
 		S.environment = myplayer.env_id
 	else
 		S.volume = 0
-	if(myplayer.environmental)
+	if(myplayer.environmental && MT && TT)
 		var/dx = MT.x - TT.x
 		S.x = dx
 		var/dy = MT.y - TT.y

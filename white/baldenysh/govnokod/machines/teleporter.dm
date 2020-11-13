@@ -120,7 +120,7 @@
 	return TRUE
 
 /obj/machinery/power/bs_emitter/proc/start_collapse()
-	for(var/turf/open/transparent/openspace/bluespace/BT in active_tiles)
+	for(var/turf/open/openspace/bluespace/BT in active_tiles)
 		BT.start_collapse()
 
 	active_tiles = list()
@@ -136,18 +136,18 @@
 	for(var/turf/open/T in radius)
 		if(T in active_tiles)
 			continue
-		var/turf/open/transparent/openspace/bluespace/BS
-		if(istype(T, /turf/open/transparent/openspace/bluespace))
+		var/turf/open/openspace/bluespace/BS
+		if(istype(T, /turf/open/openspace/bluespace))
 			BS = T
 			BS.stop_collapse()
 		else
-			BS = T.PlaceOnTop(/turf/open/transparent/openspace/bluespace, flags = CHANGETURF_INHERIT_AIR)
+			BS = T.PlaceOnTop(/turf/open/openspace/bluespace, flags = CHANGETURF_INHERIT_AIR)
 
 		if(!BS)
 			stop_exp()
 			return
 
-		if(istype(BS, /turf/open/transparent/openspace/bluespace))
+		if(istype(BS, /turf/open/openspace/bluespace))
 			active_tiles += BS
 
 		var/tx = target_x + BS.x - x

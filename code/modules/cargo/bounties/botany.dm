@@ -6,7 +6,7 @@
 
 /datum/bounty/item/botany/New()
 	..()
-	description = "Шеф-повар ЦК готовит [foodtype] из [name]. [bonus_desc]»"
+	description = "Шеф-повар ЦК хочет приготовить [foodtype] из [name]. [bonus_desc]»"
 	reward += multiplier * 1000
 	required_count = rand(5, 10)
 
@@ -200,6 +200,7 @@
 	foodtype = "партия овсянки"
 //	bonus_desc = "Squats and oats. We're all out of oats."
 
+/*
 /datum/bounty/item/botany/bonfire
 	name = "зажженный костер"
 	description = "Обогреватели помещений неисправны, и экипаж Центрального Командования начинает мерзнуть. Вырастите дерево и сделайте зажженный костер, чтобы согреть их."
@@ -210,3 +211,4 @@
 		return FALSE
 	var/obj/structure/bonfire/B = O
 	return !!B.burning
+*/

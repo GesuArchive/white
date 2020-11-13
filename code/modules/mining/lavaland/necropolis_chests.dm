@@ -96,7 +96,7 @@
 	modkit_design = /datum/design/unique_modkit/bounty
 
 /datum/design/unique_modkit
-	category = list("Шахтёрское оборудование", "Cyborg Upgrade Modules") //can't be normally obtained
+	category = list("Шахтёрское оборудование", "Улучшения киборгов") //can't be normally obtained
 	build_type = PROTOLATHE | MECHFAB
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
@@ -136,6 +136,8 @@
 	name = "\improper Rod of Asclepius"
 	desc = "A wooden rod about the size of your forearm with a snake carved around it, winding its way up the sides of the rod. Something about it seems to inspire in you the responsibilty and duty to help others."
 	icon = 'icons/obj/lavaland/artefacts.dmi'
+	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
 	icon_state = "asclepius_dormant"
 	var/activated = FALSE
 	var/usedHand

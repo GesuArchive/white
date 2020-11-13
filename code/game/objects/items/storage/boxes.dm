@@ -215,7 +215,7 @@
 /obj/item/storage/box/medipens
 	name = "коробка МедиПенов"
 	desc = "Коробка, полная адреналином МедиПенов."
-	illustration = "syringe"
+	illustration = "epipen"
 
 /obj/item/storage/box/medipens/PopulateContents()
 	for(var/i in 1 to 7)
@@ -224,7 +224,7 @@
 /obj/item/storage/box/medipens/utility
 	name = "набор стимуляторов"
 	desc = "Коробка с несколькими стимуляторами для экономичного майнера."
-	illustration = "syringe"
+	illustration = "epipen"
 
 /obj/item/storage/box/medipens/utility/PopulateContents()
 	..() // includes regular medipens.

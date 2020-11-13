@@ -7,7 +7,7 @@
 	dna_cost = 1
 	req_human = 1
 
-/datum/action/changeling/headcrab/sting_action(mob/user)
+/datum/action/changeling/headcrab/sting_action(mob/living/user)
 	set waitfor = FALSE
 	if(alert("Мы уверены, что хотим покончить с собой и создать сосуд?",,"Да", "Нет") == "Нет")
 		return

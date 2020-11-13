@@ -11,25 +11,24 @@
 	name = "заряд смерти"
 	icon_state = "pulse1_bl"
 
-/obj/projectile/magic/death/on_hit(target)
+/obj/projectile/magic/death/on_hit(mob/living/target)
 	. = ..()
-	if(ismob(target))
-		var/mob/M = target
-		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [target]!</span>")
-			return BULLET_ACT_BLOCK
-		if(isliving(M))
-			var/mob/living/L = M
-			if(L.mob_biotypes & MOB_UNDEAD) //negative energy heals the undead
-				if(L.revive(full_heal = TRUE, admin_revive = TRUE))
-					L.grab_ghost(force = TRUE) // even suicides
-					to_chat(L, "<span class='notice'>You rise with a start, you're undead!!!</span>")
-				else if(L.stat != DEAD)
-					to_chat(L, "<span class='notice'>You feel great!</span>")
-			else
-				L.death(0)
-		else
-			M.death(0)
+	if(!istype(target))
+		return
+
+	if(target.anti_magic_check())
+		target.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [target]!</span>")
+		return BULLET_ACT_BLOCK
+
+	if(target.mob_biotypes & MOB_UNDEAD) //negative energy heals the undead
+		if(target.revive(full_heal = TRUE, admin_revive = TRUE))
+			target.grab_ghost(force = TRUE) // even suicides
+			to_chat(target, "<span class='notice'>Восстаю. Я НЕЖИТЬ!!!</span>")
+		else if(target.stat != DEAD)
+			to_chat(target, "<span class='notice'>Чувствую себя отлично!</span>")
+		return
+
+	target.death()
 
 /obj/projectile/magic/resurrection
 	name = "заряд воскрешения"
