@@ -1,4 +1,4 @@
-/obj/screen/fullscreen/noisescreen
+/atom/movable/screen/fullscreen/noisescreen
 	icon = 'white/valtos/icons/fullscreen.dmi'
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	icon_state = "noise"
@@ -10,4 +10,4 @@
 
 /mob/dead/new_player/Initialize()
 	. = ..()
-	overlay_fullscreen("noise", /obj/screen/fullscreen/noisescreen)
+	overlay_fullscreen("noise", /atom/movable/screen/fullscreen/noisescreen)

@@ -1,8 +1,8 @@
 import { Fragment } from 'inferno';
 import { sortBy } from 'common/collections';
 import { flow } from 'common/fp';
-import { useBackend } from '../backend';
-import { Button, LabeledList, Dropdown, LabeledControls, Box, Knob, Section } from '../components';
+import { useBackend, useLocalState } from '../backend';
+import { Button, LabeledList, Dropdown, LabeledControls, Box, Knob, Section, Tabs, Flex } from '../components';
 import { Window } from '../layouts';
 
 export const BoomBox = (props, context) => {
@@ -11,12 +11,28 @@ export const BoomBox = (props, context) => {
     sortBy(
       song => song.name),
   ])(data.songs || []);
+  const [
+    selectedCategory,
+    setSelectedCategory,
+  ] = useLocalState(context, 'category', songs.category);
   return (
     <Window
       width={520}
-      height={300}
+      height={500}
       resizable>
       <Window.Content>
+          <Flex.Item>
+            <Tabs vertical>
+              {songs.map(thing => (
+                <Tabs.Tab
+                  key={thing.short_name}
+                  selected={thing.short_name === selectedCategory}
+                  onClick={() => setSelectedCategory(thing.short_name)}>
+                  {thing.short_name} ({thing.items?.length || 0})
+                </Tabs.Tab>
+              ))}
+            </Tabs>
+          </Flex.Item>
         <Section
           title="Проигрыватель"
           buttons={(

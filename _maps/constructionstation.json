@@ -9,6 +9,14 @@
 	    "whiteship": "whiteship_box",
 	    "emergency": "emergency_box"
     },
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	"minetype": "none",
+	"traits": [
+		{
+			"Linkage": "Self"
+		}
+	],
 	"job_changes": {
 		"engineer": {
 			"total_positions": -1,

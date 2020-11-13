@@ -143,12 +143,14 @@
 	data["songs"] = list()
 	for(var/datum/track/S in songs)
 		var/list/track_data = list(
-			name = S.song_name
+			name = S.song_name,
+			short_name = S.short_name,
+			category = S.song_category
 		)
 		data["songs"] += list(track_data)
 
 	if(disk)
-		data["songs"] += list(list(name = disk.track.song_name))
+		data["songs"] += list(list(name = disk.track.song_name, short_name = disk.track.short_name, category = disk.track.song_category))
 
 	data["disk"] = disk ? TRUE : FALSE
 	data["disktrack"] = disk && disk.track ? disk.track.song_name : FALSE

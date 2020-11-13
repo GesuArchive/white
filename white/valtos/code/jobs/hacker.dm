@@ -262,7 +262,7 @@
 /datum/status_effect/hackers_revive
 	id = "hackers_revive"
 	duration = 200
-	alert_type = /obj/screen/alert/status_effect/hackers_revive
+	alert_type = /atom/movable/screen/alert/status_effect/hackers_revive
 
 /datum/status_effect/hackers_revive/on_apply()
 	to_chat(owner, "<span class='notice'>Смерть не мой конец! Сейчас восстановимся...</span>")
@@ -272,7 +272,7 @@
 	owner.revive(full_heal = TRUE, admin_revive = TRUE)
 	owner.visible_message("<span class='warning'><b>[owner]</b> восстаёт из мёртвых!</span>", "<span class='notice'>Я регенерирую полностью.</span>")
 
-/obj/screen/alert/status_effect/hackers_revive
+/atom/movable/screen/alert/status_effect/hackers_revive
 	name = "Цифровое бессмертие"
 	desc = "Мне не страшна смерть!"
 	icon_state = "shadow_mend"

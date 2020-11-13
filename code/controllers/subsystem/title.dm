@@ -208,5 +208,5 @@ SUBSYSTEM_DEF(title)
 		if(!thing)
 			continue
 		thing.fit_viewport()
-		var/obj/screen/splash/S = new(thing, FALSE)
+		var/atom/movable/screen/splash/S = new(thing, FALSE)
 		S.Fade(FALSE,FALSE)

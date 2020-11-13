@@ -291,33 +291,10 @@ SUBSYSTEM_DEF(mapping)
 		++space_levels_so_far
 		add_new_zlevel("Empty Area [space_levels_so_far]", ZTRAITS_SPACE)
 
-	// pick a random mining map
-	if (config.minetype == "random")
-		config.minetype = pickweightAllowZero(GLOB.mining_maps)
-
-	GLOB.current_mining_map = config.minetype
-
 	if(config.minetype == "lavaland")
-		if(SSmapping.config.map_name == "Unit Station")
-			LoadGroup(FailedZs, "Lavaland", "map_files/Mining", "Lavaland_mini.dmm", default_traits = ZTRAITS_LAVALAND)
-			current_mining = "lavaland"
-		else
-			LoadGroup(FailedZs, "Lavaland", "map_files/Mining", "Lavaland.dmm", default_traits = ZTRAITS_LAVALAND)
-			current_mining = "lavaland"
-		//LoadGroup(FailedZs, "Gensokyo", "map_files/Mining", "Gensokyo.dmm", default_traits = ZTRAITS_GENSOKYO)
-		//current_mining = "gensokyo"
-	else if (config.minetype == "icemoon")
-		LoadGroup(FailedZs, "Ice moon Underground", "map_files/Mining", "IcemoonUnderground.dmm", default_traits = ZTRAITS_ICEMOON_UNDERGROUND)
-		LoadGroup(FailedZs, "Ice moon", "map_files/Mining", "Icemoon.dmm", default_traits = ZTRAITS_ICEMOON)
-	else if (config.minetype == "nothing")
-		current_mining = "nothing"
-	else if (!isnull(config.minetype))
+		LoadGroup(FailedZs, "Lavaland", "map_files/Mining", "Lavaland.dmm", default_traits = ZTRAITS_LAVALAND)
+	else if (!isnull(config.minetype) && config.minetype != "none")
 		INIT_ANNOUNCE("WARNING: An unknown minetype '[config.minetype]' was set! This is being ignored! Update the maploader code!")
-
-	// reset the mining map to random so if an admin sets the mining map it isn't stuck to that forever
-	GLOB.next_mining_map = "lavaland"
-	var/datum/map_config/VM = load_map_config()
-	SSmapping.changemap(VM)
 #endif
 
 	if(LAZYLEN(FailedZs))	//but seriously, unless the server's filesystem is messed up this will never happen

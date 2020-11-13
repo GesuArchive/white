@@ -23,14 +23,14 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 /datum/component/realtemp
 	var/mob/living/carbon/human/owner
 	var/body_temp_alt = 50
-	var/obj/screen/relative_temp/screen_obj
+	var/atom/movable/screen/relative_temp/screen_obj
 	var/list/text_temp_sources = list()
 
 /datum/component/realtemp/Initialize()
 	if(ishuman(parent))
 		owner = parent
 
-		screen_obj = new /obj/screen/relative_temp()
+		screen_obj = new /atom/movable/screen/relative_temp()
 		screen_obj.screen_loc = ui_relative_temp
 		screen_obj.hud = src
 		owner.hud_used.infodisplay += screen_obj
@@ -159,7 +159,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 	adjust_temp(temp_to_adjust)
 	text_temp_sources = temp_sources
 
-/obj/screen/relative_temp
+/atom/movable/screen/relative_temp
 	name = "температура тела"
 	icon = 'white/valtos/icons/temp_hud.dmi'
 	icon_state = "temp_5"

@@ -3,10 +3,10 @@
 
 	var/map_name
 
-	var/obj/screen/map_overlay/map_overlay
-	var/obj/screen/map_view/cam_screen
-	var/obj/screen/plane_master/lighting/cam_plane_master
-	var/obj/screen/background/cam_background
+	var/atom/movable/screen/map_overlay/map_overlay
+	var/atom/movable/screen/map_view/cam_screen
+	var/atom/movable/screen/plane_master/lighting/cam_plane_master
+	var/atom/movable/screen/background/cam_background
 
 	var/map_range = 12
 	var/datum/movement_detector/tracker
@@ -54,7 +54,7 @@
 	qdel(cam_background)
 	return ..()
 
-/obj/screen/map_overlay
+/atom/movable/screen/map_overlay
 	name = "test overlay"
 	icon = 'icons/hud/screen_full.dmi'
 	icon_state = "curse1"

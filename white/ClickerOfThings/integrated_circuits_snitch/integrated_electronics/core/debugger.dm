@@ -15,7 +15,7 @@
 
 /obj/item/integrated_electronics/debugger/attack_self(mob/user)
 	var/type_to_use = input("Please choose a type to use.","[src] type setting") as null|anything in list("string","number","ref","copy","null","id lock")
-	if(!user.IsAdvancedToolUser())
+	if(!ISADVANCEDTOOLUSER(user))
 		return
 
 	var/new_data = null
@@ -25,7 +25,7 @@
 			copy_values = FALSE
 			copy_id = FALSE
 			new_data = stripped_input(user, "Now type in a string.","[src] string writing", no_trim = TRUE)
-			if(istext(new_data) && user.IsAdvancedToolUser())
+			if(istext(new_data) && ISADVANCEDTOOLUSER(user))
 				data_to_write = new_data
 				to_chat(user, "<span class='notice'>You set \the [src]'s memory to \"[new_data]\".</span>")
 		if("number")
@@ -33,7 +33,7 @@
 			copy_values = FALSE
 			copy_id = FALSE
 			new_data = input(user, "Now type in a number.","[src] number writing") as null|num
-			if(isnum(new_data) && user.IsAdvancedToolUser())
+			if(isnum(new_data) && ISADVANCEDTOOLUSER(user))
 				data_to_write = new_data
 				to_chat(user, "<span class='notice'>You set \the [src]'s memory to [new_data].</span>")
 		if("ref")

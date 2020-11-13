@@ -55,7 +55,7 @@
 
 	if(bodytemperature > BODYTEMP_HEAT_DAMAGE_LIMIT)
 		//Body temperature is too hot.
-		throw_alert("alien_fire", /obj/screen/alert/alien_fire)
+		throw_alert("alien_fire", /atom/movable/screen/alert/alien_fire)
 		switch(bodytemperature)
 			if(360 to 400)
 				apply_damage(HEAT_DAMAGE_LEVEL_1, BURN)
@@ -71,9 +71,6 @@
 
 /mob/living/carbon/alien/reagent_check(datum/reagent/R) //can metabolize all reagents
 	return 0
-
-/mob/living/carbon/alien/IsAdvancedToolUser()
-	return has_fine_manipulation
 
 /mob/living/carbon/alien/get_status_tab_items()
 	. = ..()
@@ -117,9 +114,6 @@ Des: Removes all infected images from the alien.
 		return FALSE
 	return TRUE
 
-/mob/living/carbon/alien/get_standard_pixel_y_offset(lying = FALSE)
-	return initial(pixel_y)
-
 /mob/living/carbon/alien/proc/alien_evolve(mob/living/carbon/alien/new_xeno)
 	to_chat(src, "<span class='noticealien'>You begin to evolve!</span>")
 	visible_message("<span class='alertalien'>[capitalize(src.name)] begins to twist and contort!</span>")
@@ -139,7 +133,7 @@ Des: Removes all infected images from the alien.
 	qdel(src)
 
 /mob/living/carbon/alien/can_hold_items()
-	return has_fine_manipulation
+	return ISADVANCEDTOOLUSER(src) && ..()
 
 /mob/living/carbon/alien/on_lying_down(new_lying_angle)
 	. = ..()

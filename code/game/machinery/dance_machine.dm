@@ -37,6 +37,8 @@
 	var/song_path = null
 	var/song_length = 0
 	var/song_beat = 0
+	var/short_name = "None"
+	var/song_category = "Generic"
 
 /datum/track/New(name, path, length, beat)
 	song_name = name
@@ -57,6 +59,17 @@
 		T.song_name = L[1]
 		T.song_length = text2num(L[2])
 		T.song_beat = text2num(L[3])
+
+		var/list/list_value = splittext(T.song_name,"\[")
+		var/intermediate_stage = jointext(list_value, null)
+
+		list_value = splittext(intermediate_stage," ")
+		for(var/value in list_value)
+			if(findtext(value,"]"))
+				T.song_category = splittext(value,"]")
+
+		T.short_name = splittext(T.song_name,"\]")[2]
+
 		songs |= T
 
 	if(songs.len)

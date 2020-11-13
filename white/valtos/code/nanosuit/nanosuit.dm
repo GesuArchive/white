@@ -134,7 +134,7 @@
 
 /obj/item/radio/headset/syndicate/alt/nano/MouseDrop(obj/over_object, src_location, over_location)
 	var/mob/M = usr
-	if((!istype(over_object, /obj/screen)) && usr.canUseTopic(src))
+	if((!istype(over_object, /atom/movable/screen)) && usr.canUseTopic(src))
 		return attack_self(M)
 	return ..()
 
