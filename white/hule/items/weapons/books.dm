@@ -6,10 +6,7 @@
 	author = "Forces beyond your comprehension"
 	unique = 1
 	title = "Сборник Приколов!"
-	dat = {"<html>
-	<img src='[SSassets.transport.get_asset_url("zdoh.png")]' width=350px height=350px> <br>
-	Список лохов:<br>
-	"}
+	dat = "<html><img src='[SSassets.transport.get_asset_url("zdoh.png")]' width=350px height=350px> <br>Список лохов:<br>"
 
 /obj/item/book/killbook/Initialize()
 	..()
