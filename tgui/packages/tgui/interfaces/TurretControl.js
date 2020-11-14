@@ -13,7 +13,7 @@ export const TurretControl = (props, context) => {
   } = data;
   return (
     <Window
-      width={305}
+      width={325}
       height={data.siliconUser ? 198 : 194}>
       <Window.Content>
         <InterfaceLockNoticeBox />
