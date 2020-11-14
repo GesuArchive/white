@@ -322,7 +322,7 @@
 /area/centcom/supplypod/loading/two)
 "bI" = (
 /turf/open/floor/holofloor/plating/burnmix,
-/area/holodeck/rec_center/burn)
+/area/space)
 "bJ" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -1978,7 +1978,7 @@
 "iU" = (
 /obj/effect/holodeck_effect/sparks,
 /turf/open/floor/holofloor/plating/burnmix,
-/area/holodeck/rec_center/burn)
+/area/space)
 "iV" = (
 /obj/item/weldingtool,
 /turf/open/floor/holofloor/plating,
