@@ -18,7 +18,7 @@ export const BoomBox = (props, context) => {
   });
   return (
     <Window
-      width={420}
+      width={490}
       height={620}
       theme="ntos"
       resizable>
@@ -90,7 +90,7 @@ export const BoomBox = (props, context) => {
                       key={track.short_name}
                       className="candystripe">
                       <Table.Cell>
-                        {track.short_name}
+                        {track.length_t} - {track.short_name}
                       </Table.Cell>
                       <Table.Cell
                         collapsing
@@ -98,7 +98,7 @@ export const BoomBox = (props, context) => {
                         <Button
                           fluid
                           icon={data.curtrack === track.short_name ? 'play' : 'eject'}
-                          disabled={(data.curtrack === track.short_name) 
+                          disabled={(data.curtrack === track.short_name)
                             || data.active}
                           onClick={() => act('select_track', {
                             track: track.name,

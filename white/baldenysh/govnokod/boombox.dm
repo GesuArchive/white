@@ -143,7 +143,7 @@
 	data["active"] = playing
 	data["volume"] = SP.playing_volume
 	data["curtrack"] = selection && selection.short_name ? selection.short_name : FALSE
-	data["curlength"] = selection && selection.song_length ? "[add_leading(num2text((selection.song_length / 60) % 60), 2, "0")]:[add_leading(num2text(selection.song_length % 60), 2, "0")]" : "0:00"
+	data["curlength"] = selection && selection.song_length ? "[add_leading(num2text(((selection.song_length / selection.song_beat) / 60) % 60), 2, "0")]:[add_leading(num2text((selection.song_length / selection.song_beat) % 60), 2, "0")]" : "0:00"
 	data["env"] = SP.environmental
 
 	data["songs"] = list()
@@ -155,11 +155,12 @@
 			)
 		data["songs"][S.song_category]["tracks"] += list(list(
 			"name" 		 = S.song_name,
-			"short_name" = S.short_name
+			"short_name" = S.short_name,
+			"length_t" 	 = S.song_length ? "[add_leading(num2text(((S.song_length / S.song_beat) / 60) % 60), 2, "0")]:[add_leading(num2text((S.song_length / S.song_beat) % 60), 2, "0")]" : "0:00"
 		))
 
 	if(disk)
-		data["songs"]["DISC"]["tracks"] += list(list("name" = disk.track.song_name, "short_name" = disk.track.short_name))
+		data["songs"]["DISC"]["tracks"] = list(list("name" = disk.track.song_name, "short_name" = disk.track.short_name, "length_t" = "?:??"))
 
 	data["disk"] = disk ? TRUE : FALSE
 	data["disktrack"] = disk && disk.track ? disk.track.song_name : FALSE
