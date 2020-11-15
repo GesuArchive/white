@@ -50,7 +50,10 @@
 		var/list/song_values = splittext(splittext(T.song_name,"\[")[2], "\] ")
 
 		T.song_category = song_values[1]
-		T.short_name 	= song_values[2]
+		if(song_values[2])
+			T.short_name 	= song_values[2]
+		else
+			T.short_name 	= T.song_name
 
 		songs |= T
 	if(songs.len)
