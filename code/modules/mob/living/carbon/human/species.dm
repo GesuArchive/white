@@ -1439,7 +1439,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if((M != H) && M.a_intent != INTENT_HELP && H.check_shields(M, 0, M.name, attack_type = UNARMED_ATTACK))
 		log_combat(M, H, "attempted to touch")
 		H.visible_message("<span class='warning'>[M] пытается дотронуться до [H]!</span>", \
-						"<span class='userdanger'>[M] пытается доптронуться до меня!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, M)
+						"<span class='userdanger'>[M] пытается дотронуться до меня!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, M)
 		to_chat(M, "<span class='warning'>Пытаюсь дотронуться до [H]!</span>")
 		return
 	SEND_SIGNAL(M, COMSIG_MOB_ATTACK_HAND, M, H, attacker_style)

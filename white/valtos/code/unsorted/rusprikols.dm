@@ -143,7 +143,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 2500, /datum/material/diamond = 1000, /datum/material/bluespace = 1000)
 	build_path = /obj/item/stock_parts/matter_bin/noneuclid
-	category = list("Запчасти обрудования")
+	category = list("Запчасти оборудования")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -154,7 +154,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 2000, /datum/material/diamond = 300, /datum/material/titanium = 300)
 	build_path = /obj/item/stock_parts/manipulator/noneuclid
-	category = list("Запчасти обрудования")
+	category = list("Запчасти оборудования")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -165,7 +165,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 2000, /datum/material/diamond = 300, /datum/material/bluespace = 300)
 	build_path = /obj/item/stock_parts/scanning_module/noneuclid
-	category = list("Запчасти обрудования")
+	category = list("Запчасти оборудования")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -176,7 +176,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 2000, /datum/material/gold = 1000, /datum/material/diamond = 100)
 	build_path = /obj/item/stock_parts/capacitor/noneuclid
-	category = list("Запчасти обрудования")
+	category = list("Запчасти оборудования")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -187,7 +187,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 2000, /datum/material/uranium = 1000, /datum/material/diamond = 600)
 	build_path = /obj/item/stock_parts/micro_laser/noneuclid
-	category = list("Запчасти обрудования")
+	category = list("Запчасти оборудования")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 

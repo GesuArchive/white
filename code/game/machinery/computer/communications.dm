@@ -492,7 +492,7 @@
 		input = "..."
 		to_chat(user, "<span class='warning'>А как говорить...</span>")
 	SScommunications.make_announcement(user, is_ai, input)
-	deadchat_broadcast(" made a priority announcement from <span class='name'>[get_area_name(usr, TRUE)]</span>.", "<span class='name'>[user.real_name]</span>", user, message_type=DEADCHAT_ANNOUNCEMENT)
+	deadchat_broadcast(" делает объявление из локации <span class='name'>[get_area_name(usr, TRUE)]</span>.", "<span class='name'>[user.real_name]</span>", user, message_type=DEADCHAT_ANNOUNCEMENT)
 
 /obj/machinery/computer/communications/proc/post_status(command, data1, data2)
 

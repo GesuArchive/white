@@ -109,6 +109,7 @@
 /obj/item/storage/bag/ore
 	name = "сумка для добычи руды"
 	desc = "Эту сумку можно использовать для хранения и транспортировки руды."
+	gender = FEMALE
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "satchel"
 	worn_icon_state = "satchel"
@@ -162,17 +163,17 @@
 				show_message = TRUE
 			else
 				if(!spam_protection)
-					to_chat(user, "<span class='warning'>Ваша [name] полна и не может вмещать больше!</span>")
+					to_chat(user, "<span class='warning'>Видимо, [name] полна и не может вмещать больше!</span>")
 					spam_protection = TRUE
 					continue
 	if(show_message)
 		playsound(user, "rustle", 50, TRUE)
 		if (box)
 			user.visible_message("<span class='notice'>[user] выгружает руду под собой[user.p_them()] в [box].</span>", \
-			"<span class='notice'>Вы выгружаете руду под собой в [box].</span>")
+			"<span class='notice'>Загружаю руду под собой в [box].</span>")
 		else
 			user.visible_message("<span class='notice'>[user] собирает руду под [user.p_them()].</span>", \
-				"<span class='notice'>Вы собираете руду под собой своей [name].</span>")
+				"<span class='notice'>Собираю руду под собой в [sklonenie(name, VINITELNI, MALE)].</span>")
 	spam_protection = FALSE
 
 /obj/item/storage/bag/ore/cyborg

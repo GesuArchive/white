@@ -11,7 +11,7 @@
 	for(var/obj/item/bedsheet/sheet in loc)
 		custom_dream_nouns += sheet.dream_messages
 
-	dream_fragments += "вы видите"
+	dream_fragments += "вижу"
 
 	//Subject
 	if(custom_dream_nouns.len && prob(90))
