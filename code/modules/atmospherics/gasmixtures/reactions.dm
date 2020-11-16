@@ -142,7 +142,7 @@ nobiliumsuppression = INFINITY
 
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature((temperature*old_heat_capacity + energy_released)/new_heat_capacity)
+			air.set_temperature((temperature * old_heat_capacity + energy_released) / new_heat_capacity)
 		return REACTING
 	return NO_REACTION
 
@@ -191,7 +191,7 @@ nobiliumsuppression = INFINITY
 	if(energy_released > 0)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature((temperature*old_heat_capacity + energy_released)/new_heat_capacity)
+			air.set_temperature((temperature * old_heat_capacity + energy_released) / new_heat_capacity)
 
 	//let the floor know a fire is happening
 	if(istype(location))
@@ -242,19 +242,22 @@ nobiliumsuppression = INFINITY
 		oxygen_burn_rate = OXYGEN_BURN_RATE_BASE - temperature_scale
 		if(air.get_moles(/datum/gas/oxygen) / air.get_moles(/datum/gas/plasma) > SUPER_SATURATION_THRESHOLD) //supersaturation. Form Tritium.
 			super_saturation = TRUE
-		if(air.get_moles(/datum/gas/oxygen) > air.get_moles(/datum/gas/plasma)*PLASMA_OXYGEN_FULLBURN)
-			plasma_burn_rate = (air.get_moles(/datum/gas/plasma)*temperature_scale)/PLASMA_BURN_RATE_DELTA
+		if(air.get_moles(/datum/gas/oxygen) > air.get_moles(/datum/gas/plasma) * PLASMA_OXYGEN_FULLBURN)
+			plasma_burn_rate = (air.get_moles(/datum/gas/plasma) * temperature_scale) / PLASMA_BURN_RATE_DELTA
 		else
-			plasma_burn_rate = (temperature_scale*(air.get_moles(/datum/gas/oxygen)/PLASMA_OXYGEN_FULLBURN))/PLASMA_BURN_RATE_DELTA
+			plasma_burn_rate = (temperature_scale * (air.get_moles(/datum/gas/oxygen) / PLASMA_OXYGEN_FULLBURN)) / PLASMA_BURN_RATE_DELTA
 
 		if(plasma_burn_rate > MINIMUM_HEAT_CAPACITY)
-			plasma_burn_rate = min(plasma_burn_rate,air.get_moles(/datum/gas/plasma),air.get_moles(/datum/gas/oxygen)/oxygen_burn_rate) //Ensures matter is conserved properly
+			plasma_burn_rate = min(plasma_burn_rate,air.get_moles(/datum/gas/plasma), air.get_moles(/datum/gas/oxygen) / oxygen_burn_rate) //Ensures matter is conserved properly
 			air.set_moles(/datum/gas/plasma, QUANTIZE(air.get_moles(/datum/gas/plasma) - plasma_burn_rate))
 			air.set_moles(/datum/gas/oxygen, QUANTIZE(air.get_moles(/datum/gas/oxygen) - (plasma_burn_rate * oxygen_burn_rate)))
 			if (super_saturation)
 				air.adjust_moles(/datum/gas/tritium, plasma_burn_rate)
 			else
-				air.adjust_moles(/datum/gas/carbon_dioxide, plasma_burn_rate)
+				air.adjust_moles(/datum/gas/carbon_dioxide, plasma_burn_rate * 0.75)
+
+				air.adjust_moles(/datum/gas/water_vapor, plasma_burn_rate * 0.25)
+
 
 			energy_released += FIRE_PLASMA_ENERGY_RELEASED * (plasma_burn_rate)
 
@@ -263,7 +266,7 @@ nobiliumsuppression = INFINITY
 	if(energy_released > 0)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature((temperature*old_heat_capacity + energy_released)/new_heat_capacity)
+			air.set_temperature((temperature * old_heat_capacity + energy_released) / new_heat_capacity)
 
 	//let the floor know a fire is happening
 	if(istype(location))
@@ -311,13 +314,13 @@ nobiliumsuppression = INFINITY
 		temperature_scale = (FREON_MAXIMUM_BURN_TEMPERATURE - temperature) / (FREON_MAXIMUM_BURN_TEMPERATURE - FREON_LOWER_TEMPERATURE) //calculate the scale based on the temperature
 	if(temperature_scale >= 0)
 		oxygen_burn_rate = OXYGEN_BURN_RATE_BASE - temperature_scale
-		if(air.get_moles(/datum/gas/oxygen) > air.get_moles(/datum/gas/freon)*FREON_OXYGEN_FULLBURN)
-			freon_burn_rate = (air.get_moles(/datum/gas/freon)*temperature_scale)/FREON_BURN_RATE_DELTA
+		if(air.get_moles(/datum/gas/oxygen) > air.get_moles(/datum/gas/freon) * FREON_OXYGEN_FULLBURN)
+			freon_burn_rate = (air.get_moles(/datum/gas/freon) * temperature_scale)/FREON_BURN_RATE_DELTA
 		else
-			freon_burn_rate = (temperature_scale*(air.get_moles(/datum/gas/oxygen)/FREON_OXYGEN_FULLBURN))/FREON_BURN_RATE_DELTA
+			freon_burn_rate = (temperature_scale * (air.get_moles(/datum/gas/oxygen) / FREON_OXYGEN_FULLBURN)) / FREON_BURN_RATE_DELTA
 
 		if(freon_burn_rate > MINIMUM_HEAT_CAPACITY)
-			freon_burn_rate = min(freon_burn_rate,air.get_moles(/datum/gas/freon),air.get_moles(/datum/gas/oxygen)/oxygen_burn_rate) //Ensures matter is conserved properly
+			freon_burn_rate = min(freon_burn_rate,air.get_moles(/datum/gas/freon),air.get_moles(/datum/gas/oxygen) / oxygen_burn_rate) //Ensures matter is conserved properly
 			air.set_moles(/datum/gas/freon,  QUANTIZE(air.get_moles(/datum/gas/freon) - freon_burn_rate))
 			air.set_moles(/datum/gas/oxygen, QUANTIZE(air.get_moles(/datum/gas/oxygen) - (freon_burn_rate * oxygen_burn_rate)))
 			air.adjust_moles(/datum/gas/carbon_dioxide, freon_burn_rate)
@@ -330,7 +333,7 @@ nobiliumsuppression = INFINITY
 	if(energy_released < 0)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature((temperature*old_heat_capacity + energy_released)/new_heat_capacity)
+			air.set_temperature((temperature * old_heat_capacity + energy_released) / new_heat_capacity)
 
 /datum/gas_reaction/h2fire
 	priority = -3 //fire should ALWAYS be last, but tritium fires happen before plasma fires
@@ -357,20 +360,20 @@ nobiliumsuppression = INFINITY
 		air.adjust_moles(/datum/gas/hydrogen, -burned_fuel)
 	else
 		burned_fuel = air.get_moles(/datum/gas/hydrogen)*HYDROGEN_BURN_H2_FACTOR
-		air.adjust_moles(/datum/gas/hydrogen, -air.get_moles(/datum/gas/hydrogen)/HYDROGEN_BURN_H2_FACTOR)
+		air.adjust_moles(/datum/gas/hydrogen, -air.get_moles(/datum/gas/hydrogen) / HYDROGEN_BURN_H2_FACTOR)
 		air.adjust_moles(/datum/gas/oxygen, -air.get_moles(/datum/gas/hydrogen))
 
 	if(burned_fuel)
 		energy_released += (FIRE_HYDROGEN_ENERGY_RELEASED * burned_fuel)
 
-		air.get_moles(/datum/gas/water_vapor, burned_fuel/HYDROGEN_BURN_OXY_FACTOR)
+		air.adjust_moles(/datum/gas/water_vapor, burned_fuel / HYDROGEN_BURN_OXY_FACTOR)
 
 		cached_results["fire"] += burned_fuel
 
 	if(energy_released > 0)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature((temperature*old_heat_capacity + energy_released)/new_heat_capacity)
+			air.set_temperature((temperature*old_heat_capacity + energy_released) / new_heat_capacity)
 
 	//let the floor know a fire is happening
 	if(istype(location))
@@ -416,23 +419,23 @@ nobiliumsuppression = INFINITY
 	var/initial_plasma = air.get_moles(/datum/gas/plasma)
 	var/initial_hydrogen = air.get_moles(/datum/gas/hydrogen)
 	var/scale_factor = (air.return_volume())/(PI) //We scale it down by volume/Pi because for fusion conditions, moles roughly = 2*volume, but we want it to be based off something constant between reactions.
-	var/toroidal_size = (2*PI)+TORADIANS(arctan((air.return_volume()-TOROID_VOLUME_BREAKEVEN)/TOROID_VOLUME_BREAKEVEN)) //The size of the phase space hypertorus
+	var/toroidal_size = (2 * PI) //The size of the phase space hypertorus
 	var/gas_power = 0
 	for (var/gas_id in air.get_gases())
-		gas_power += (GLOB.meta_gas_info[gas_id][META_GAS_FUSION_POWER]*air.get_moles(gas_id))
-	var/instability = MODULUS((gas_power*INSTABILITY_GAS_POWER_FACTOR)**2,toroidal_size) //Instability effects how chaotic the behavior of the reaction is
+		gas_power += (GLOB.meta_gas_info[gas_id][META_GAS_FUSION_POWER] * air.get_moles(gas_id))
+	var/instability = MODULUS((gas_power * INSTABILITY_GAS_POWER_FACTOR)**2,toroidal_size) //Instability effects how chaotic the behavior of the reaction is
 	cached_scan_results[id] = instability//used for analyzer feedback
 
 	var/plasma = (initial_plasma-FUSION_MOLE_THRESHOLD)/(scale_factor) //We have to scale the amounts of hydrogen and plasma down a significant amount in order to show the chaotic dynamics we want
 	var/hydrogen = (initial_hydrogen-FUSION_MOLE_THRESHOLD)/(scale_factor) //We also subtract out the threshold amount to make it harder for fusion to burn itself out.
 
 	//The reaction is a specific form of the Kicked Rotator system, which displays chaotic behavior and can be used to model particle interactions.
-	plasma = MODULUS(plasma - (instability*sin(TODEGREES(hydrogen))), toroidal_size)
+	plasma = MODULUS(plasma - (instability * sin(TODEGREES(hydrogen))), toroidal_size)
 	hydrogen = MODULUS(hydrogen - plasma, toroidal_size)
 
 
-	air.set_moles(/datum/gas/plasma, plasma*scale_factor + FUSION_MOLE_THRESHOLD )//Scales the gases back up
-	air.set_moles(/datum/gas/hydrogen, hydrogen*scale_factor + FUSION_MOLE_THRESHOLD)
+	air.set_moles(/datum/gas/plasma, plasma * scale_factor + FUSION_MOLE_THRESHOLD )//Scales the gases back up
+	air.set_moles(/datum/gas/hydrogen, hydrogen * scale_factor + FUSION_MOLE_THRESHOLD)
 	var/delta_plasma = initial_plasma - air.get_moles(/datum/gas/plasma)
 
 	reaction_energy += delta_plasma * PLASMA_BINDING_ENERGY //Energy is gained or lost corresponding to the creation or destruction of mass.
@@ -448,10 +451,10 @@ nobiliumsuppression = INFINITY
 	air.adjust_moles(/datum/gas/tritium, -FUSION_TRITIUM_MOLES_USED)
 	//The decay of the tritium and the reaction's energy produces waste gases, different ones depending on whether the reaction is endo or exothermic
 	if(reaction_energy > 0)
-		air.adjust_moles(/datum/gas/carbon_dioxide, FUSION_TRITIUM_MOLES_USED*(reaction_energy*FUSION_TRITIUM_CONVERSION_COEFFICIENT))
-		air.adjust_moles(/datum/gas/water_vapor, (FUSION_TRITIUM_MOLES_USED*(reaction_energy*FUSION_TRITIUM_CONVERSION_COEFFICIENT)) * 0.25)
+		air.adjust_moles(/datum/gas/carbon_dioxide, FUSION_TRITIUM_MOLES_USED * (reaction_energy * FUSION_TRITIUM_CONVERSION_COEFFICIENT))
+		air.adjust_moles(/datum/gas/water_vapor, (FUSION_TRITIUM_MOLES_USED * (reaction_energy * FUSION_TRITIUM_CONVERSION_COEFFICIENT)) * 0.25)
 	else
-		air.adjust_moles(/datum/gas/carbon_dioxide, FUSION_TRITIUM_MOLES_USED*(reaction_energy*-FUSION_TRITIUM_CONVERSION_COEFFICIENT))
+		air.adjust_moles(/datum/gas/carbon_dioxide, FUSION_TRITIUM_MOLES_USED * (reaction_energy * -FUSION_TRITIUM_CONVERSION_COEFFICIENT))
 
 	if(reaction_energy)
 		if(location)
@@ -463,7 +466,7 @@ nobiliumsuppression = INFINITY
 
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature(clamp(((air.return_temperature()*old_heat_capacity + reaction_energy)/new_heat_capacity),TCMB,INFINITY))
+			air.set_temperature(clamp(((air.return_temperature() * old_heat_capacity + reaction_energy) / new_heat_capacity),TCMB,INFINITY))
 		return REACTING
 
 /datum/gas_reaction/nitrousformation //formationn of n2o, esothermic, requires bz as catalyst
@@ -551,12 +554,12 @@ nobiliumsuppression = INFINITY
 	air.adjust_moles(/datum/gas/oxygen, -heat_efficency)
 	air.adjust_moles(/datum/gas/nitrogen, -heat_efficency)
 	air.adjust_moles(/datum/gas/bz, -heat_efficency * 0.05) //bz gets consumed to balance the nitryl production and not make it too common and/or easy
-	air.adjust_moles(/datum/gas/nitryl, -heat_efficency)
+	air.adjust_moles(/datum/gas/nitryl, heat_efficency)
 
 	if(energy_used > 0)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature(max(((temperature*old_heat_capacity - energy_used)/new_heat_capacity),TCMB))
+			air.set_temperature(max(((temperature * old_heat_capacity - energy_used) / new_heat_capacity),TCMB))
 		return REACTING
 
 /datum/gas_reaction/bzformation //Formation of BZ by combining plasma and tritium at low pressures. Exothermic.
@@ -575,8 +578,8 @@ nobiliumsuppression = INFINITY
 	var/temperature = air.return_temperature()
 	var/pressure = air.return_pressure()
 	var/old_heat_capacity = air.heat_capacity()
-	var/reaction_efficency = min(1/((pressure/(0.1*ONE_ATMOSPHERE))*(max(air.get_moles(/datum/gas/plasma)/air.get_moles(/datum/gas/nitrous_oxide),1))),air.get_moles(/datum/gas/nitrous_oxide),air.get_moles(/datum/gas/plasma) * 0.5)
-	var/energy_released = 2*reaction_efficency*FIRE_CARBON_ENERGY_RELEASED
+	var/reaction_efficency = min(1 / ((pressure / (0.1 * ONE_ATMOSPHERE)) * (max(air.get_moles(/datum/gas/plasma)/air.get_moles(/datum/gas/nitrous_oxide),1))),air.get_moles(/datum/gas/nitrous_oxide),air.get_moles(/datum/gas/plasma) * 0.5)
+	var/energy_released = 2 * reaction_efficency * FIRE_CARBON_ENERGY_RELEASED
 	if ((air.get_moles(/datum/gas/nitrous_oxide) - reaction_efficency < 0 )|| (air.get_moles(/datum/gas/plasma) - (2*reaction_efficency) < 0) || energy_released <= 0) //Shouldn't produce gas from nothing.
 		return NO_REACTION
 	air.adjust_moles(/datum/gas/bz, reaction_efficency * 2.5)
@@ -584,14 +587,14 @@ nobiliumsuppression = INFINITY
 		air.adjust_moles(/datum/gas/bz, -min(pressure,0.5))
 		air.adjust_moles(/datum/gas/oxygen, min(pressure,0.5))
 	air.adjust_moles(/datum/gas/nitrous_oxide, -reaction_efficency)
-	air.adjust_moles(/datum/gas/plasma, -2*reaction_efficency)
+	air.adjust_moles(/datum/gas/plasma, -2 * reaction_efficency)
 
 	SSresearch.science_tech.add_point_type(TECHWEB_POINT_TYPE_DEFAULT, min((reaction_efficency**2) * BZ_RESEARCH_SCALE), BZ_RESEARCH_MAX_AMOUNT)
 
 	if(energy_released > 0)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature(max(((temperature*old_heat_capacity + energy_released)/new_heat_capacity),TCMB))
+			air.set_temperature(max(((temperature * old_heat_capacity + energy_released) / new_heat_capacity),TCMB))
 		return REACTING
 
 /datum/gas_reaction/metalhydrogen
@@ -684,13 +687,13 @@ nobiliumsuppression = INFINITY
 	if ((air.get_moles(/datum/gas/plasma) - heat_scale < 0) || (air.get_moles(/datum/gas/nitryl) - heat_scale < 0)) //Shouldn't produce gas from nothing.
 		return NO_REACTION
 	air.adjust_moles(/datum/gas/stimulum, heat_scale * 0.75)
-	air.adjust_moles(/datum/gas/plasma, -heat_scale)
+	air.adjust_moles(/datum/gas/tritium, -heat_scale)
 	air.adjust_moles(/datum/gas/nitryl, -heat_scale)
 	SSresearch.science_tech.add_point_type(TECHWEB_POINT_TYPE_DEFAULT, STIMULUM_RESEARCH_AMOUNT*max(stim_energy_change,0))
 	if(stim_energy_change)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature(max(((air.return_temperature()*old_heat_capacity + stim_energy_change)/new_heat_capacity),TCMB))
+			air.set_temperature(max(((air.return_temperature() * old_heat_capacity + stim_energy_change) / new_heat_capacity),TCMB))
 		return REACTING
 
 /datum/gas_reaction/nobliumformation //Hyper-Noblium formation is extrememly endothermic, but requires high temperatures to start. Due to its high mass, hyper-nobelium uses large amounts of nitrogen and tritium. BZ can be used as a catalyst to make it less endothermic.
@@ -708,14 +711,14 @@ nobiliumsuppression = INFINITY
 
 /datum/gas_reaction/nobliumformation/react(datum/gas_mixture/air)
 	var/old_heat_capacity = air.heat_capacity()
-	var/nob_formed = min((air.get_moles(/datum/gas/nitrogen)+air.get_moles(/datum/gas/tritium)) * 0.01,air.get_moles(/datum/gas/tritium) * 0.1,air.get_moles(/datum/gas/nitrogen) * 0.2)
-	var/energy_produced = nob_formed*(NOBLIUM_FORMATION_ENERGY/(max(air.get_moles(/datum/gas/bz),1)))
+	var/nob_formed = min((air.get_moles(/datum/gas/nitrogen) + air.get_moles(/datum/gas/tritium)) * 0.01,air.get_moles(/datum/gas/tritium) * 0.1,air.get_moles(/datum/gas/nitrogen) * 0.2)
+	var/energy_produced = nob_formed * (NOBLIUM_FORMATION_ENERGY / (max(air.get_moles(/datum/gas/bz),1)))
 	if ((air.get_moles(/datum/gas/tritium) - 5 * nob_formed < 0) || (air.get_moles(/datum/gas/nitrogen) - 10 * nob_formed < 0))
 		return NO_REACTION
 	air.adjust_moles(/datum/gas/tritium, -nob_formed * 5)
 	air.adjust_moles(/datum/gas/nitrogen, -nob_formed * 10)
 	air.adjust_moles(/datum/gas/hypernoblium, nob_formed)
-	SSresearch.science_tech.add_point_type(TECHWEB_POINT_TYPE_DEFAULT, nob_formed*NOBLIUM_RESEARCH_AMOUNT)
+	SSresearch.science_tech.add_point_type(TECHWEB_POINT_TYPE_DEFAULT, nob_formed * NOBLIUM_RESEARCH_AMOUNT)
 
 	if (nob_formed)
 		var/new_heat_capacity = air.heat_capacity()
@@ -767,8 +770,8 @@ nobiliumsuppression = INFINITY
 	var/energy_used = heat_efficency * 300
 	if ((air.get_moles(/datum/gas/tritium) - heat_efficency * 4 < 0 ) || (air.get_moles(/datum/gas/bz) - heat_efficency * 0.25 < 0)) //Shouldn't produce gas from nothing.
 		return NO_REACTION
-	air.adjust_moles(/datum/gas/tritium, heat_efficency * 4)
-	air.adjust_moles(/datum/gas/bz, heat_efficency * 0.25)
+	air.adjust_moles(/datum/gas/tritium, -heat_efficency * 4)
+	air.adjust_moles(/datum/gas/bz, -heat_efficency * 0.25)
 	air.adjust_moles(/datum/gas/halon, heat_efficency * 4.25)
 
 	if(energy_used)
@@ -797,8 +800,8 @@ nobiliumsuppression = INFINITY
 	var/energy_used = heat_efficency * 9000
 	if ((air.get_moles(/datum/gas/freon) - heat_efficency * 2.75 < 0 ) || (air.get_moles(/datum/gas/bz) - heat_efficency * 0.25 < 0)) //Shouldn't produce gas from nothing.
 		return NO_REACTION
-	air.adjust_moles(/datum/gas/freon, heat_efficency * 2.75)
-	air.adjust_moles(/datum/gas/bz, heat_efficency * 0.25)
+	air.adjust_moles(/datum/gas/freon, -heat_efficency * 2.75)
+	air.adjust_moles(/datum/gas/bz, -heat_efficency * 0.25)
 	air.adjust_moles(/datum/gas/healium, heat_efficency * 3)
 
 	if(energy_used)
@@ -827,8 +830,8 @@ nobiliumsuppression = INFINITY
 	var/energy_used = heat_efficency * 650
 	if ((air.get_moles(/datum/gas/pluoxium) - heat_efficency * 0.2 < 0 ) || (air.get_moles(/datum/gas/hydrogen) - heat_efficency * 2 < 0)) //Shouldn't produce gas from nothing.
 		return NO_REACTION
-	air.adjust_moles(/datum/gas/hydrogen, heat_efficency * 2)
-	air.adjust_moles(/datum/gas/pluoxium, heat_efficency * 0.2)
+	air.adjust_moles(/datum/gas/hydrogen, -heat_efficency * 2)
+	air.adjust_moles(/datum/gas/pluoxium, -heat_efficency * 0.2)
 	air.adjust_moles(/datum/gas/proto_nitrate, heat_efficency * 2.2)
 
 	if(energy_used > 0)
@@ -886,8 +889,8 @@ nobiliumsuppression = INFINITY
 	var/energy_used = heat_efficency * 2500
 	if ((air.get_moles(/datum/gas/halon) - heat_efficency < 0 ) || (air.get_moles(/datum/gas/oxygen) - heat_efficency * 20 < 0)) //Shouldn't produce gas from nothing.
 		return NO_REACTION
-	air.adjust_moles(/datum/gas/halon, heat_efficency)
-	air.adjust_moles(/datum/gas/oxygen, heat_efficency * 20)
+	air.adjust_moles(/datum/gas/halon, -heat_efficency)
+	air.adjust_moles(/datum/gas/oxygen, -heat_efficency * 20)
 	air.adjust_moles(/datum/gas/carbon_dioxide, heat_efficency * 5)
 
 	if(energy_used)
@@ -915,7 +918,7 @@ nobiliumsuppression = INFINITY
 	burned_fuel = min(20, air.get_moles(/datum/gas/nitrogen), air.get_moles(/datum/gas/zauker))
 	if(air.get_moles(/datum/gas/zauker) - burned_fuel < 0)
 		return NO_REACTION
-	air.adjust_moles(/datum/gas/zauker, burned_fuel)
+	air.adjust_moles(/datum/gas/zauker, -burned_fuel)
 
 	if(burned_fuel)
 		energy_released += (460 * burned_fuel)
@@ -990,9 +993,9 @@ nobiliumsuppression = INFINITY
 	if(air.get_moles(/datum/gas/tritium) - produced_amount < 0 || air.get_moles(/datum/gas/proto_nitrate) - produced_amount * 0.01 < 0)
 		return NO_REACTION
 	location.rad_act(produced_amount * 2.4)
-	air.adjust_moles(/datum/gas/tritium, produced_amount)
+	air.adjust_moles(/datum/gas/tritium, -produced_amount)
 	air.adjust_moles(/datum/gas/hydrogen, produced_amount)
-	air.adjust_moles(/datum/gas/proto_nitrate, produced_amount * 0.01)
+	air.adjust_moles(/datum/gas/proto_nitrate, -produced_amount * 0.01)
 	energy_released += 50
 	if(energy_released)
 		var/new_heat_capacity = air.heat_capacity()
@@ -1018,7 +1021,7 @@ nobiliumsuppression = INFINITY
 	var produced_amount = min(5, air.get_moles(/datum/gas/hydrogen), air.get_moles(/datum/gas/proto_nitrate))
 	if(air.get_moles(/datum/gas/hydrogen) - produced_amount < 0)
 		return NO_REACTION
-	air.adjust_moles(/datum/gas/hydrogen, produced_amount)
+	air.adjust_moles(/datum/gas/hydrogen, -produced_amount)
 	air.adjust_moles(/datum/gas/proto_nitrate, produced_amount * 0.5)
 	energy_released -= produced_amount * 2500
 	if(energy_released)
@@ -1067,9 +1070,9 @@ nobiliumsuppression = INFINITY
 	var produced_amount = min(5, air.get_moles(/datum/gas/carbon_dioxide), air.get_moles(/datum/gas/oxygen))
 	if(air.get_moles(/datum/gas/carbon_dioxide) - produced_amount < 0 || air.get_moles(/datum/gas/oxygen) - produced_amount * 0.5 < 0 || air.get_moles(/datum/gas/tritium) - produced_amount * 0.01 < 0)
 		return NO_REACTION
-	air.adjust_moles(/datum/gas/carbon_dioxide, produced_amount)
-	air.adjust_moles(/datum/gas/oxygen, produced_amount * 0.5)
-	air.adjust_moles(/datum/gas/tritium, produced_amount * 0.01)
+	air.adjust_moles(/datum/gas/carbon_dioxide, -produced_amount)
+	air.adjust_moles(/datum/gas/oxygen, -produced_amount * 0.5)
+	air.adjust_moles(/datum/gas/tritium, -produced_amount * 0.01)
 	air.adjust_moles(/datum/gas/pluoxium, produced_amount)
 	air.adjust_moles(/datum/gas/hydrogen, produced_amount * 0.01)
 	energy_released += produced_amount * 250
