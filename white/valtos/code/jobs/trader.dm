@@ -1,7 +1,7 @@
 /datum/job/trader
 	title = "Trader"
 	supervisors = "торговой ассоциации и ордену Алого Рассвета"
-	faction = "Station"
+	faction = "Scarlet"
 	total_positions = 0
 	spawn_positions = 0
 	minimal_player_age = 60

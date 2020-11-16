@@ -840,7 +840,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			if (minute != clicklimiter[ADMINSWARNED_AT]) //only one admin message per-minute. (if they spam the admins can just boot/ban them)
 				clicklimiter[ADMINSWARNED_AT] = minute
 
-				msg += "  Педали были проинформированы и уже выехали давать тебе пизды, крепись."
+				msg += " Педали были проинформированы и уже выехали давать тебе пизды, крепись."
 				if (ab)
 					log_game("[key_name(src)] is using the middle click aimbot exploit")
 					message_admins("[ADMIN_LOOKUPFLW(usr)] [ADMIN_KICK(usr)] is using the middle click aimbot exploit</span>")
