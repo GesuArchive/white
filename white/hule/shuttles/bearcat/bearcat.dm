@@ -110,7 +110,7 @@
 	height = 44
 	dheight = 30
 	port_direction = SOUTH
-	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0)
+	movement_force = list("KNOCKDOWN" = 10, "THROW" = 20)
 	engine_coeff = 30
 
 /*

@@ -228,7 +228,7 @@
 	description = "Опустошенный астеройд с привязанными к нему двигателями, процедура опустошения делает его очень сложной целью для угона, но и весьма ценной. Этот шатл ввиду своих размеров и сложностей с управлением может повредить зону стыковки."
 	admin_notes = "This shuttle will likely crush escape, killing anyone there."
 	credit_cost = 15000
-	movement_force = list("KNOCKDOWN" = 3, "THROW" = 2)
+	movement_force = list("KNOCKDOWN" = 3, "THROW" = 15)
 
 /datum/map_template/shuttle/emergency/luxury
 	suffix = "luxury"
@@ -332,7 +332,7 @@
 	credit_cost = -1000
 	description = "Due to a lack of functional emergency shuttles, we bought this second hand from a scrapyard and pressed it into service. Please do not lean too heavily on the exterior windows, they are fragile."
 	admin_notes = "An abomination with no functional medbay, sections missing, and some very fragile windows. Surprisingly airtight."
-	movement_force = list("KNOCKDOWN" = 3, "THROW" = 2)
+	movement_force = list("KNOCKDOWN" = 3, "THROW" = 15)
 
 /datum/map_template/shuttle/emergency/narnar
 	suffix = "narnar"
@@ -372,7 +372,7 @@
 	It does, however, still dust anything on contact, emits high levels of radiation, and induce hallucinations in anyone looking at it without protective goggles. \
 	Emitters spawn powered on, expect admin notices, they are harmless."
 	credit_cost = 100000
-	movement_force = list("KNOCKDOWN" = 3, "THROW" = 2)
+	movement_force = list("KNOCKDOWN" = 3, "THROW" = 15)
 
 /datum/map_template/shuttle/emergency/imfedupwiththisworld
 	suffix = "imfedupwiththisworld"
@@ -381,7 +381,7 @@
 	Aw, come space on. Why not? No, I can't. Anyway, how is your space roleplay life?"
 	admin_notes = "Tiny, with a single airlock and wooden walls. What could go wrong?"
 	can_be_bought = FALSE
-	movement_force = list("KNOCKDOWN" = 3, "THROW" = 2)
+	movement_force = list("KNOCKDOWN" = 3, "THROW" = 15)
 
 /datum/map_template/shuttle/emergency/goon
 	suffix = "goon"
