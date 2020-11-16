@@ -493,8 +493,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 				"Forever alone :("\
 			)
 
-			world.shelleo("curl -X POST http://localhost:3636/slap-vanodown")
-
 			webhook_send_asay("Server", "[cheesy_message]")
 			//send2adminchat("Server", "[cheesy_message] (No admins online)")
 	QDEL_LIST_ASSOC_VAL(char_render_holders)
