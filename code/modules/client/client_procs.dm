@@ -55,7 +55,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			topiclimiter[MINUTE_COUNT] = 0
 		topiclimiter[MINUTE_COUNT] += 1
 		if (topiclimiter[MINUTE_COUNT] > mtl)
-			var/msg = " >> Действия игнорируются. Слишком много действий было совершено до этого за секунду."
+			var/msg = "Действия игнорируются. Слишком много действий было совершено до этого за секунду."
 			if (minute != topiclimiter[ADMINSWARNED_AT]) //only one admin message per-minute. (if they spam the admins can just boot/ban them)
 				topiclimiter[ADMINSWARNED_AT] = minute
 				msg += " Педали были проинформированы и уже выехали давать тебе пизды, крепись."
@@ -74,7 +74,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			topiclimiter[SECOND_COUNT] = 0
 		topiclimiter[SECOND_COUNT] += 1
 		if (topiclimiter[SECOND_COUNT] > stl)
-			to_chat(src, "<span class='userdanger'> > Действия игнорируются. Слишком много действий было совершено до этого за секунду.</span>")
+			to_chat(src, "<span class='userdanger'>Действия игнорируются. Слишком много действий было совершено до этого за секунду.</span>")
 			return
 
 	// Tgui Topic middleware
@@ -171,11 +171,11 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(CONFIG_GET(flag/automute_on) && !holder && last_message == message)
 		src.last_message_count++
 		if(src.last_message_count >= SPAM_TRIGGER_AUTOMUTE)
-			to_chat(src, "<span class='userdanger'> > Авто-мут был применён. Следующим шагом может стать авто-бан.</span>")
+			to_chat(src, "<span class='userdanger'>Авто-мут был применён. Следующим шагом может стать авто-бан.</span>")
 			cmd_admin_mute(src, mute_type, 1)
 			return TRUE
 		if(src.last_message_count >= SPAM_TRIGGER_WARNING)
-			to_chat(src, "<span class='userdanger'> > Прекращай спамить. К тебе будет применён авто-мут, если не прекратишь это.</span>")
+			to_chat(src, "<span class='userdanger'>Прекращай спамить. К тебе будет применён авто-мут, если не прекратишь это.</span>")
 			return FALSE
 	else
 		last_message = message
@@ -407,7 +407,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	apply_clickcatcher()
 
 	if(prefs.lastchangelog != GLOB.changelog_hash) //bolds the changelog button on the interface so we know there are updates.
-		to_chat(src, "<span class='info'> > У нас недавно были обновления. Не забудь прочитать список последних изменений.</span>")
+		to_chat(src, "<span class='info'>У нас недавно были обновления. Не забудь прочитать список последних изменений.</span>")
 		if(CONFIG_GET(flag/aggressive_changelog))
 			changelog()
 		else
@@ -836,7 +836,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			clicklimiter[MINUTE_COUNT] = 0
 		clicklimiter[MINUTE_COUNT] += 1+(ab)
 		if (clicklimiter[MINUTE_COUNT] > mcl)
-			var/msg = " >> Действия игнорируются. Слишком много действий было совершено до этого за секунду."
+			var/msg = "Действия игнорируются. Слишком много действий было совершено до этого за секунду."
 			if (minute != clicklimiter[ADMINSWARNED_AT]) //only one admin message per-minute. (if they spam the admins can just boot/ban them)
 				clicklimiter[ADMINSWARNED_AT] = minute
 
@@ -860,7 +860,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			clicklimiter[SECOND_COUNT] = 0
 		clicklimiter[SECOND_COUNT] += 1+(!!ab)
 		if (clicklimiter[SECOND_COUNT] > scl)
-			to_chat(src, "<span class='danger'> > Действия игнорируются. Слишком много действий было совершено до этого за секунду.</span>")
+			to_chat(src, "<span class='danger'>Действия игнорируются. Слишком много действий было совершено до этого за секунду.</span>")
 			return
 
 	if (prefs.hotkeys)
