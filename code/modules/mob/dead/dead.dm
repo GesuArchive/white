@@ -53,7 +53,9 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	else
 		. += "Таймер: СКОРО"
 
-	. += "Игроки: [SSticker.totalPlayers]"
+	var/tp = SSticker.totalPlayers + GLOB.whitelist.len
+
+	. += "Игроки: [tp]"
 	. += "Готовы: [SSticker.totalPlayersReady]"
 
 /mob/dead/proc/server_hop()
