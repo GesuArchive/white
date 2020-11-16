@@ -3,8 +3,8 @@
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	department_head = list("Research Director")
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = "научному руководителю"
 	selection_color = "#00eeff"
 	exp_requirements = 30000

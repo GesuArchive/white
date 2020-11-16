@@ -2,8 +2,8 @@
 	title = "Trader"
 	supervisors = "торговой ассоциации и ордену Алого Рассвета"
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	minimal_player_age = 60
 	exp_requirements = 1000
 	exp_type = EXP_TYPE_CREW
