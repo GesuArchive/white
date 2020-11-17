@@ -4,7 +4,7 @@
 
 # Полезное
 #### Апстрим: https://github.com/tgstation/tgstation
-#### Что такое DreamMaker: [Тык](https://ss13.pp.ua/forum/index.php?/topic/7-%D1%87%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-dreammaker-%D0%B4%D0%BB%D1%8F-%D0%B4%D0%B5%D1%82%D0%B5%D0%B9-%D0%BE%D1%82-20-%D1%82%D0%B8-%D0%BB%D0%B5%D1%82/)
+#### Что такое DreamMaker: [Тык](https://forum.station13.ru/index.php?/topic/7-%D1%87%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-dreammaker-%D0%B4%D0%BB%D1%8F-%D0%B4%D0%B5%D1%82%D0%B5%D0%B9-%D0%BE%D1%82-20-%D1%82%D0%B8-%D0%BB%D0%B5%D1%82/)
 #### Как репортить баги: https://hackmd.io/IiFh5OR4S-q9JNzos8gWaw
 #### Как кодить: https://hackmd.io/gMPO4INZQUCArHeHE_V9yg
 #### Как переводить: https://hackmd.io/8mn18B1yTY6ki0Xy-JifCw
