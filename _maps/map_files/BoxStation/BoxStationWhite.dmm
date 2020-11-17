@@ -12279,6 +12279,9 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel/grimy,
 /area/security/detectives_office)
+"baW" = (
+/turf/open/floor/glass/reinforced,
+/area/chapel/main)
 "baX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment{
@@ -32792,7 +32795,7 @@
 /turf/closed/wall/r_wall,
 /area/engine/engineering)
 "hZk" = (
-/turf/open/floor/plasteel,
+/turf/open/floor/glass/reinforced,
 /area/science/nanite)
 "iax" = (
 /obj/structure/lattice,
@@ -33660,6 +33663,7 @@
 /obj/effect/decal/cleanable/cum,
 /obj/effect/decal/cleanable/cum,
 /obj/effect/decal/cleanable/cum,
+/obj/item/blackmarket_uplink,
 /turf/open/floor/plasteel/freezer,
 /area/crew_quarters/fitness/kachalka)
 "kul" = (
@@ -37067,6 +37071,7 @@
 /area/vacant_room/commissary)
 "taJ" = (
 /obj/structure/table,
+/obj/item/blackmarket_uplink,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "taM" = (
@@ -85475,7 +85480,7 @@ aJW
 gKu
 aMX
 aFz
-aFz
+baW
 aUI
 aUI
 aTg
@@ -85732,7 +85737,7 @@ aJV
 aFw
 aFw
 aFz
-aFz
+baW
 aTf
 aPk
 aTf
@@ -86760,7 +86765,7 @@ csT
 aFz
 aFz
 aFz
-aFz
+baW
 aUI
 aTg
 aTi
@@ -87017,7 +87022,7 @@ aFz
 aFz
 aFz
 aFz
-aFz
+baW
 aTf
 aTf
 aPk

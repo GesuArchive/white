@@ -25,6 +25,9 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 8
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "aR" = (
@@ -45,10 +48,7 @@
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_x = -31
 	},
-/obj/structure/chair{
-	dir = 4
-	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/glass/reinforced,
 /area/crew_quarters/bar)
 "cg" = (
 /obj/machinery/light/small{
@@ -204,10 +204,10 @@
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "gx" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 6
-	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -296,9 +296,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "jv" = (
@@ -380,9 +378,6 @@
 /area/crew_quarters/bar)
 "kS" = (
 /obj/structure/chair,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 8
-	},
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "kX" = (
@@ -495,12 +490,12 @@
 /obj/machinery/computer/arcade/orion_trail{
 	dir = 8
 	},
+/obj/effect/turf_decal/bot,
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "pQ" = (
 /obj/structure/table,
 /obj/item/clothing/mask/cigarette/cigar,
-/obj/item/toy/cards/deck,
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "pW" = (
@@ -525,16 +520,15 @@
 	c_tag = "Bar South";
 	dir = 1
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/glass/reinforced,
 /area/crew_quarters/bar)
 "rJ" = (
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "rU" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 4
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
 	},
-/obj/structure/chair,
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "sz" = (
@@ -599,6 +593,12 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/crew_quarters/kitchen)
+"tX" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/crew_quarters/bar)
 "uj" = (
 /obj/structure/table,
 /turf/open/floor/plasteel/showroomfloor,
@@ -690,11 +690,7 @@
 	c_tag = "Bar West";
 	dir = 4
 	},
-/turf/open/floor/mineral/plastitanium,
-/area/crew_quarters/bar)
-"xm" = (
-/obj/structure/table,
-/obj/item/reagent_containers/food/snacks/carpmeat/dry/donbas,
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "xo" = (
@@ -767,6 +763,13 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/crew_quarters/kitchen)
+"zU" = (
+/obj/item/kirbyplants/random,
+/obj/structure/window/reinforced/survival_pod{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/crew_quarters/bar)
 "Ac" = (
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=2";
@@ -791,10 +794,7 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/crew_quarters/kitchen)
 "BE" = (
-/obj/structure/chair{
-	dir = 4
-	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/glass/reinforced,
 /area/crew_quarters/bar)
 "BT" = (
 /obj/item/kirbyplants/random,
@@ -874,8 +874,12 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/crew_quarters/kitchen)
 "Gr" = (
-/obj/structure/table,
-/obj/item/instrument/piano_synth,
+/obj/structure/chair{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "Gu" = (
@@ -965,12 +969,14 @@
 /turf/open/floor/wood,
 /area/crew_quarters/bar)
 "KE" = (
-/obj/effect/landmark/event_spawn,
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "KK" = (
-/obj/structure/chair{
-	dir = 1
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
@@ -1016,6 +1022,9 @@
 "Mi" = (
 /obj/effect/landmark/event_spawn,
 /obj/effect/spawner/xmastree,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 8
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "Mk" = (
@@ -1116,6 +1125,13 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/mineral/plastitanium/red,
 /area/crew_quarters/kitchen)
+"OR" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/mineral/plastitanium,
+/area/crew_quarters/bar)
 "OZ" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 4
@@ -1160,6 +1176,7 @@
 /area/crew_quarters/bar)
 "Rg" = (
 /obj/machinery/turntable,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "Ri" = (
@@ -1200,7 +1217,7 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/glass/reinforced,
 /area/crew_quarters/bar)
 "Tc" = (
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -1244,6 +1261,10 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/crew_quarters/kitchen)
+"UZ" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/glass/reinforced,
+/area/crew_quarters/bar)
 "Vb" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
@@ -1419,7 +1440,7 @@ Cj
 Cj
 Cj
 Cj
-KE
+Cj
 db
 Cj
 db
@@ -1441,8 +1462,8 @@ nV
 wS
 BE
 bz
-rJ
-BT
+BE
+UZ
 Cj
 "}
 (3,1,1) = {"
@@ -1456,10 +1477,10 @@ sC
 tf
 Xh
 rU
-xm
+Gr
 Gr
 KK
-rJ
+BE
 Cj
 "}
 (4,1,1) = {"
@@ -1471,11 +1492,11 @@ zF
 Yc
 kh
 Kf
-rJ
+KE
 kS
 kR
 pQ
-KK
+OR
 rD
 Cj
 "}
@@ -1492,7 +1513,7 @@ Mi
 kS
 ul
 dn
-KK
+OR
 SM
 Cj
 "}
@@ -1506,11 +1527,11 @@ bq
 Xj
 Kf
 aA
-yP
+rJ
 gg
 gg
-rJ
-rJ
+rU
+tX
 wa
 "}
 (7,1,1) = {"
@@ -1543,7 +1564,7 @@ he
 Cj
 Rg
 pI
-BT
+zU
 oS
 fA
 "}
