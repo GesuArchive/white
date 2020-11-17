@@ -1258,8 +1258,8 @@
 	new/obj/item/skillchip/job/engineer(src)
 
 /obj/item/storage/box/swab
-	name = "коробка микробиологических тампонов"
-	desc = "Содержит несколько стерильных тампонов для взятия микробиологических проб."
+	name = "коробка микробиологических ватных дисков"
+	desc = "Содержит несколько стерильных ватных дисков для взятия микробиологических проб."
 	illustration = "swab"
 
 /obj/item/storage/box/swab/PopulateContents()

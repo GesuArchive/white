@@ -223,7 +223,7 @@
 
 /obj/item/clothing/glasses/sunglasses/garb
 	name = "чёрные GAR очки"
-	desc = "Выйти за пределы невозможного и пни разум на обочину."
+	desc = "Выйди за пределы невозможного и пни разум на обочину."
 	icon_state = "garb"
 	inhand_icon_state = "garb"
 	force = 10
@@ -267,7 +267,7 @@
 
 /obj/item/clothing/glasses/welding
 	name = "сварочные очки"
-	desc = "Защищает глаза от ярких вспышек; одобрен ассоциацией безумных учёных."
+	desc = "Защищает глаза от ярких вспышек; одобрены ассоциацией безумных учёных."
 	icon_state = "welding-g"
 	inhand_icon_state = "welding-g"
 	actions_types = list(/datum/action/item_action/toggle)
@@ -396,7 +396,7 @@
 
 /obj/item/clothing/glasses/thermal/eyepatch
 	name = "оптическая тепловая повязка"
-	desc = "Наглазник со встроенной термооптикой."
+	desc = "Повязка со встроенной термооптикой."
 	icon_state = "eyepatch"
 	inhand_icon_state = "eyepatch"
 

@@ -508,10 +508,10 @@
 	if(DT_PROB(2 + nearby_people, delta_time))
 		H.stuttering = max(3, H.stuttering)
 	else if(DT_PROB(min(3, nearby_people), delta_time) && !H.silent)
-		to_chat(H, "<span class='danger'>Я решаете просто немного помолчать. Вам <i>совсем</i> не хочется разговаривать.</span>")
+		to_chat(H, "<span class='danger'>Я решаю просто немного помолчать. Мне <i>совсем</i> не хочется разговаривать.</span>")
 		H.silent = max(10, H.silent)
 	else if(DT_PROB(0.5, delta_time) && dumb_thing)
-		to_chat(H, "<span class='userdanger'>Я вспоминаете дурацкую вещь, которую сказали давным давно и внутренне кричите.</span>")
+		to_chat(H, "<span class='userdanger'>Я вспоминаю дурацкую вещь, которую сказали давным давно и испытываю внутреннюю боль.</span>")
 		dumb_thing = FALSE //only once per life
 		if(prob(1))
 			new/obj/item/food/spaghetti/pastatomato(get_turf(H)) //now that's what I call spaghetti code
