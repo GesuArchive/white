@@ -288,7 +288,7 @@
 
 /obj/item/gun/ballistic/automatic/l6_saw/update_overlays()
 	. = ..()
-	. += "l6_door_[cover_open ? "Открыто" : "Закрыто"]"
+	. += "l6_door_[cover_open ? "open" : "closed"]"
 
 
 /obj/item/gun/ballistic/automatic/l6_saw/afterattack(atom/target as mob|obj|turf, mob/living/user as mob|obj, flag, params)
