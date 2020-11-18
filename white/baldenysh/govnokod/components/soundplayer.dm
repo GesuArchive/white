@@ -154,8 +154,7 @@
 		S.x = dx
 		S.z = dy
 	else
-		var/rr = (dx + dy) / 2
-		S.x = rr
-		S.z = rr
+		S.x = 0
+		S.z = (dx + dy) / 2
 	SEND_SOUND(listener, S)
 	S.volume = 0
