@@ -260,7 +260,7 @@ Made by Xhuis
 		return FALSE
 	return mind.remove_antag_datum(ANTAG_DATUM_SLING)
 
-/datum/game_mode/shadowling/roundend_report()
+/datum/antagonist/shadowling/roundend_report()
 	var/list/round_credits = list()
 	var/len_before_addition
 
@@ -315,3 +315,11 @@ Made by Xhuis
 
 /obj/item/bodypart
 	var/yogs_draw_robot_hair = FALSE
+
+/datum/mood_event/thrall
+	description = "<span class='shadowling'><i>The darkness is true. I love them. I love the masters.</i></span>\n"
+	mood_change = 40
+
+/datum/mood_event/sling
+	description = "<span class='shadowling'><b>The keys to reality are within my grasp.</b></span>\n"
+	mood_change = 20

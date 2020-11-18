@@ -10,7 +10,7 @@
 	return 0
 
 /obj/effect/proc_holder/spell/targeted/sling //Stuns and mutes a human target for 10 seconds
-	ranged_mousepointer = 'icons/effects/cult_target.dmi'
+	ranged_mousepointer = 'icons/effects/mouse_pointers/cult_target.dmi'
 	var/mob/living/user
 	var/mob/living/target
 
