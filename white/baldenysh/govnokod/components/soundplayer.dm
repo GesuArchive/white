@@ -138,7 +138,7 @@
 	var/turf/MT = get_turf(myplayer.soundsource)
 	var/dist = get_dist(TT, MT)
 	if(dist <= myplayer.playing_range && TT.z == MT.z)
-		var/vol = myplayer.playing_volume - max(dist - myplayer.playing_range, 0) * 2
+		var/vol = myplayer.playing_volume - max(dist - myplayer.playing_range, 0)
 		S.volume = vol
 		S.falloff = myplayer.playing_falloff
 		S.environment = myplayer.env_id
@@ -151,6 +151,5 @@
 	else
 		S.x = 0
 		S.z = 1
-		S.volume = clamp(vol - dist, 1, min(100, vol))
 	SEND_SOUND(listener, S)
 	S.volume = 0
