@@ -266,8 +266,8 @@ Made by Xhuis
 
 	round_credits += "<center><h1>The Shadowlings:</h1>"
 	len_before_addition = round_credits.len
-	if(shadows.len)
-		round_credits += printplayerlist(shadows)
+	for(var/datum/antagonist/shadowling/shadow in GLOB.antagonists)
+		round_credits += "<center><h2>[printplayer(shadow.owner)]</h2>"
 	if(len_before_addition == round_credits.len)
 		round_credits += list("<center><h2>The Shadowlings have moved to the shadows!</h2>", "<center><h2>We couldn't locate them!</h2>")
 	round_credits += "<br>"
