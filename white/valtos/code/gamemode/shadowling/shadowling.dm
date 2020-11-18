@@ -36,7 +36,7 @@ Made by Xhuis
 /datum/game_mode
 	var/list/datum/mind/shadows = list()
 	var/list/datum/mind/thralls = list()
-	var/required_thralls = 15 //How many thralls are needed (this is changed in pre_setup, so it scales based on pop)
+	var/required_thralls = 10 //How many thralls are needed (this is changed in pre_setup, so it scales based on pop)
 	var/shadowling_ascended = FALSE //If at least one shadowling has ascended
 	var/thrall_ratio = 1
 
@@ -54,8 +54,8 @@ Made by Xhuis
 	name = "shadowling"
 	config_tag = "shadowling"
 	antag_flag = ROLE_SHADOWLING
-	required_players = 26
-	required_enemies = 3
+	required_players = 15
+	required_enemies = 1
 	recommended_enemies = 3
 	enemy_minimum_age = 14
 	restricted_jobs = list("AI", "Cyborg")
@@ -266,8 +266,8 @@ Made by Xhuis
 
 	round_credits += "<center><h1>The Shadowlings:</h1>"
 	len_before_addition = round_credits.len
-	for(var/datum/mind/shadow in shadows)
-		round_credits += "<center><h2>[shadow.name] as a Shadowling</h2>"
+	if(shadows.len)
+		round_credits += printplayerlist(shadows)
 	if(len_before_addition == round_credits.len)
 		round_credits += list("<center><h2>The Shadowlings have moved to the shadows!</h2>", "<center><h2>We couldn't locate them!</h2>")
 	round_credits += "<br>"
