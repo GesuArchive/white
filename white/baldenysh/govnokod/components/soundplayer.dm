@@ -144,17 +144,13 @@
 		S.environment = myplayer.env_id
 	else
 		S.volume = 0
-	var/dx = 0
-	var/dy = 1
 
-	if(MT && TT)
-		dx = MT.x - TT.x
-		dy = MT.y - TT.y
-	if(myplayer.environmental)
-		S.x = dx
-		S.z = dy
+	if(myplayer.environmental && MT && TT)
+		S.x = MT.x - TT.x
+		S.z = MT.y - TT.y
 	else
 		S.x = 0
-		S.z = (dx + dy) / 2
+		S.z = 1
+		S.volume = clamp(vol - dist, 1, min(100, vol))
 	SEND_SOUND(listener, S)
 	S.volume = 0
