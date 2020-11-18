@@ -16,7 +16,7 @@
 *
 * * Requires TESTING to be defined to work.
 */
-#define REFERENCE_TRACKING
+//#define REFERENCE_TRACKING
 
 ///Method of tracking references without using extools. Slower, kept to avoid over-reliance on extools.
 //#define LEGACY_REFERENCE_TRACKING
