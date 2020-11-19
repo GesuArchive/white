@@ -209,12 +209,12 @@
 	log = FALSE
 
 /datum/world_topic/adminwho/Run(list/input)
-	var/msg = "А вот на Украине..."
-	/*for(var/adm in GLOB.admins)
+	var/msg = "Педали:"
+	for(var/adm in GLOB.admins)
 		var/client/C = adm
 		if(!C.holder.fakekey)
 			msg += "\t[C] is a [C.holder.rank]"
-			msg += "\n"*/
+			msg += "\n"
 	return msg
 
 /datum/world_topic/who
