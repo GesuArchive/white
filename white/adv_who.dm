@@ -27,7 +27,7 @@
 				if (check_donations(C.ckey))
 					entry += " - <b>\[$\]</b> "
 
-				entry = "[C.key]"
+				entry += "[C.key]"
 				if(C.holder && C.holder.fakekey)
 					entry += " <i>(as [C.holder.fakekey])</i>"
 
