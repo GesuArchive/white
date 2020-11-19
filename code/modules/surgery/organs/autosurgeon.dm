@@ -1,9 +1,9 @@
 #define INFINITE -1
 
 /obj/item/autosurgeon
-	name = "autosurgeon"
-	desc = "A device that automatically inserts an implant, skillchip or organ into the user without the hassle of extensive surgery. \
-	 		It has a screwdriver slot for removing accidentally added items."
+	name = "автохирург"
+	desc = "Устройство с помощью которого можно автоматически ставить импланты, чипы скиллов, органы в пациента без проведения операций. \
+	 		Нажми отверткой чтобы вытащить случайно вставленные предметы."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "autoimplanter"
 	inhand_icon_state = "nothing"
@@ -15,16 +15,16 @@
 	return //stops TK fuckery
 
 /obj/item/autosurgeon/organ
-	name = "implant autosurgeon"
-	desc = "A device that automatically inserts an implant or organ into the user without the hassle of extensive surgery. \
-	 		It has a slot to insert implants or organs and a screwdriver slot for removing accidentally added items."
+	name = "имплант автохирурга"
+	desc = "Устройство с помощью которого можно автоматически ставить импланты, чипы скиллов, органы в пациента без проведения операций.\
+	 		Нажми отверткой чтобы вытащить случайно вставленные предметы."
 
 	var/organ_type = /obj/item/organ
 	var/starting_organ
 	var/obj/item/organ/storedorgan
 
 /obj/item/autosurgeon/organ/syndicate
-	name = "suspicious implant autosurgeon"
+	name = "подозрительный имплант автохирурга"
 	icon_state = "syndicate_autoimplanter"
 
 /obj/item/autosurgeon/organ/Initialize(mapload)
@@ -39,33 +39,33 @@
 
 /obj/item/autosurgeon/organ/attack_self(mob/user)//when the object it used...
 	if(!uses)
-		to_chat(user, "<span class='alert'>[capitalize(src.name)] has already been used. The tools are dull and won't reactivate.</span>")
+		to_chat(user, "<span class='alert'>[capitalize(src.name)] уже использован. Инструменты повисли и не включаются .</span>")
 		return
 	else if(!storedorgan)
-		to_chat(user, "<span class='alert'>[capitalize(src.name)] currently has no implant stored.</span>")
+		to_chat(user, "<span class='alert'>[capitalize(src.name)] внутри нет имплантов.</span>")
 		return
 	storedorgan.Insert(user)//insert stored organ into the user
-	user.visible_message("<span class='notice'>[user] presses a button on [src], and you hear a short mechanical noise.</span>", "<span class='notice'>You feel a sharp sting as [src] plunges into your body.</span>")
+	user.visible_message("<span class='notice'>[user] нажимает кнопку [src], слышен короткий механический писк.</span>", "<span class='notice'>Ты чувствуешь резкий укол когда [src] втыкается в твое тело.</span>")
 	playsound(get_turf(user), 'sound/weapons/circsawhit.ogg', 50, TRUE)
 	storedorgan = null
 	name = initial(name)
 	if(uses != INFINITE)
 		uses--
 	if(!uses)
-		desc = "[initial(desc)] Looks like it's been used up."
+		desc = "[initial(desc)] Кажется этим уже пользовались."
 
 /obj/item/autosurgeon/organ/attackby(obj/item/I, mob/user, params)
 	if(istype(I, organ_type))
 		if(storedorgan)
-			to_chat(user, "<span class='alert'>[capitalize(src.name)] already has an implant stored.</span>")
+			to_chat(user, "<span class='alert'>[capitalize(src.name)] внутри уже есть имплант.</span>")
 			return
 		else if(!uses)
-			to_chat(user, "<span class='alert'>[capitalize(src.name)] has already been used up.</span>")
+			to_chat(user, "<span class='alert'>[capitalize(src.name)] уже был использован.</span>")
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		storedorgan = I
-		to_chat(user, "<span class='notice'>You insert the [I] into [src].</span>")
+		to_chat(user, "<span class='notice'>Ты кладешь [I] в [src].</span>")
 	else
 		return ..()
 
@@ -73,29 +73,29 @@
 	if(..())
 		return TRUE
 	if(!storedorgan)
-		to_chat(user, "<span class='warning'>There's no implant in [src] for you to remove!</span>")
+		to_chat(user, "<span class='warning'>Внутри [src] нет импланта который я могу извлечь!</span>")
 	else
 		var/atom/drop_loc = user.drop_location()
 		for(var/J in src)
 			var/atom/movable/AM = J
 			AM.forceMove(drop_loc)
 
-		to_chat(user, "<span class='notice'>You remove the [storedorgan] from [src].</span>")
+		to_chat(user, "<span class='notice'>Я извлек [storedorgan] из [src].</span>")
 		I.play_tool_sound(src)
 		storedorgan = null
 		if(uses != INFINITE)
 			uses--
 		if(!uses)
-			desc = "[initial(desc)] Looks like it's been used up."
+			desc = "[initial(desc)] Кажется им уже воспользовались."
 	return TRUE
 
 /obj/item/autosurgeon/organ/cmo
-	desc = "A single use autosurgeon that contains a medical heads-up display augment. A screwdriver can be used to remove it, but implants can't be placed back in."
+	desc = "Одноразовый автохирург с имплантом медицинского дисплея. Из него можно вытащить импланты отвёрткой, но обратно их уже не вставить."
 	uses = 1
 	starting_organ = /obj/item/organ/cyberimp/eyes/hud/medical
 
 /obj/item/autosurgeon/organ/syndicate/laser_arm
-	desc = "A single use autosurgeon that contains a combat arms-up laser augment. A screwdriver can be used to remove it, but implants can't be placed back in."
+	desc = "Одноразовый автохирург с имплантом боевого лазера. Из него можно вытащить импланты отвёрткой, но обратно их уже не вставить"
 	uses = 1
 	starting_organ = /obj/item/organ/cyberimp/arm/gun/laser
 
@@ -112,15 +112,15 @@
 	starting_organ = /obj/item/organ/cyberimp/chest/reviver
 
 /obj/item/autosurgeon/skillchip
-	name = "skillchip autosurgeon"
-	desc = "A device that automatically inserts a skillchip into the user's brain without the hassle of extensive surgery. \
-	 		It has a slot to insert a skillchip and a screwdriver slot for removing accidentally added items."
+	name = "автохирург чипов навыков"
+	desc = "Устройство которое автоматически вживляет чипы умений в мозг цели, без необходимости проводить операцию. \
+	 		В нем есть слот под чип навыка, используй отвертку чтобы вытащить случайно вставленные предметы."
 	var/skillchip_type = /obj/item/skillchip
 	var/starting_skillchip
 	var/obj/item/skillchip/stored_skillchip
 
 /obj/item/autosurgeon/skillchip/syndicate
-	name = "suspicious skillchip autosurgeon"
+	name = "подозрительный автохирург чипов навыков"
 	icon_state = "syndicate_autoimplanter"
 
 /obj/item/autosurgeon/skillchip/Initialize(mapload)
@@ -137,38 +137,38 @@
 
 /obj/item/autosurgeon/skillchip/attack_self(mob/living/carbon/user)//when the object it used...
 	if(!uses)
-		to_chat(user, "<span class='alert'>[capitalize(src.name)] has already been used. The tools are dull and won't reactivate.</span>")
+		to_chat(user, "<span class='alert'>[capitalize(src.name)] уже был использован. Инструменты висят и не включаются..</span>")
 		return
 
 	if(!stored_skillchip)
-		to_chat(user, "<span class='alert'>[capitalize(src.name)] currently has no skillchip stored.</span>")
+		to_chat(user, "<span class='alert'>Внутри [capitalize(src.name)]  нет чипа навыков.</span>")
 		return
 
 	if(!istype(user))
-		to_chat(user, "<span class='alert'>[user]'s brain cannot accept skillchip implants.</span>")
+		to_chat(user, "<span class='alert'>В мозг [user] нельзя установить чип навыков..</span>")
 		return
 
 	// Try implanting.
 	var/implant_msg = user.implant_skillchip(stored_skillchip)
 	if(implant_msg)
-		user.visible_message("<span class='notice'>[user] presses a button on [src], but nothing happens.</span>", "<span class='notice'>The [src] quietly beeps at you, indicating some sort of error.</span>")
-		to_chat(user, "<span class='alert'>[stored_skillchip] cannot be implanted. [implant_msg]</span>")
+		user.visible_message("<span class='notice'>[user] нажимает кнопку на [src], но ничего не происходит.</span>", "<span class='notice'> [src] издаёт тихий писк, означающий какую-то ошибку.</span>")
+		to_chat(user, "<span class='alert'>[stored_skillchip] нельзя вживить. [implant_msg]</span>")
 		return
 
 	// Clear the stored skillchip, it's technically not in this machine anymore.
 	var/obj/item/skillchip/implanted_chip = stored_skillchip
 	stored_skillchip = null
 
-	user.visible_message("<span class='notice'>[user] presses a button on [src], and you hear a short mechanical noise.</span>", "<span class='notice'>You feel a sharp sting as [src] plunges into your brain.</span>")
+	user.visible_message("<span class='notice'>[user] нажимает кнопку на [src], и слышится короткий механический звук.</span>", "<span class='notice'>Ты чувствуешь резкий укол, когда [src] втыкается в твой мозг.</span>")
 	playsound(get_turf(user), 'sound/weapons/circsawhit.ogg', 50, TRUE)
 
-	to_chat(user,"<span class='notice'>Operation complete! [implanted_chip] successfully implanted. Attempting auto-activation...</span>")
+	to_chat(user,"<span class='notice'Операция завершена! [implanted_chip] успешно вживлен! Попытка автоматической активации...</span>")
 
 	// If implanting succeeded, try activating - Although activating isn't required, so don't early return if it fails.
 	// The user can always go activate it at a skill station.
 	var/activate_msg = implanted_chip.try_activate_skillchip(FALSE, FALSE)
 	if(activate_msg)
-		to_chat(user, "<span class='alert'>[implanted_chip] cannot be activated. [activate_msg]</span>")
+		to_chat(user, "<span class='alert'>[implanted_chip] нельзя активировать. [activate_msg]</span>")
 
 	name = initial(name)
 
@@ -176,26 +176,26 @@
 		uses--
 
 	if(!uses)
-		desc = "[initial(desc)] The surgical tools look too blunt and worn to pierce a skull. Looks like it's all used up."
+		desc = "[initial(desc)] Хирургические инструменты выглядят слишком затупленными чтобы пробить череп. Похоже ими уже воспользовались."
 
 /obj/item/autosurgeon/skillchip/attackby(obj/item/I, mob/user, params)
 	if(!istype(I, skillchip_type))
 		return ..()
 
 	if(stored_skillchip)
-		to_chat(user, "<span class='alert'>[capitalize(src.name)] already has a skillchip stored.</span>")
+		to_chat(user, "<span class='alert'>Внутри [capitalize(src.name)] уже есть чип навыка.</span>")
 		return
 
 	if(!uses)
-		to_chat(user, "<span class='alert'>[capitalize(src.name)] has already been used up.</span>")
+		to_chat(user, "<span class='alert'>[capitalize(src.name)] уже использован.</span>")
 		return
 
 	if(!user.transferItemToLoc(I, src))
-		to_chat(user, "<span class='alert'>You fail to insert the skillchip into [src]. It seems stuck to your hand.</span>")
+		to_chat(user, "<span class='alert'>У меня не получилось вставить чип в [src]. Кажется он застрял у меня в руке.</span>")
 		return
 
 	stored_skillchip = I
-	to_chat(user, "<span class='notice'>You insert the [I] into [src].</span>")
+	to_chat(user, "<span class='notice'>Я вставил [I] в [src].</span>")
 
 /obj/item/autosurgeon/skillchip/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -203,7 +203,7 @@
 		return
 
 	if(!stored_skillchip)
-		to_chat(user, "<span class='warning'>There's no skillchip in [src] for you to remove!</span>")
+		to_chat(user, "<span class='warning'>Внутри [src] нет чипа который я могу извлечь!</span>")
 		return TRUE
 
 	var/atom/drop_loc = user.drop_location()
@@ -211,7 +211,7 @@
 		var/atom/movable/movable_content = thing
 		movable_content.forceMove(drop_loc)
 
-	to_chat(user, "<span class='notice'>You remove the [stored_skillchip] from [src].</span>")
+	to_chat(user, "<span class='notice'>Успешно извлек [stored_skillchip] из [src].</span>")
 	I.play_tool_sound(src)
 	stored_skillchip = null
 
@@ -219,11 +219,11 @@
 		uses--
 
 	if(!uses)
-		desc = "[initial(desc)] Looks like it's been used up."
+		desc = "[initial(desc)] Кажется им уже пользовались."
 
 	return TRUE
 
 /obj/item/autosurgeon/skillchip/syndicate/chameleon_chip
-	desc = "A single use autosurgeon that contains a Syndicate skillchip. A screwdriver can be used to remove it, but skillchips can't be placed back in."
+	desc = "Одноразовый авто хирург с Синдикатовским чипом навыков. Используй отвертку чтобы вытащить чип, но назад вставить его уже нельзя будет."
 	uses = 1
 	starting_skillchip = /obj/item/skillchip/chameleon

@@ -1,5 +1,5 @@
 /datum/surgery/blood_filter
-	name = "Filter blood"
+	name = "Фильтрация крови"
 	steps = list(/datum/surgery_step/incise,
 				/datum/surgery_step/retract_skin,
 				/datum/surgery_step/incise,
@@ -17,28 +17,28 @@
 	return ..()
 
 /datum/surgery_step/filter_blood
-	name = "Filter blood"
+	name = "Фильтрация крови"
 	implements = list(/obj/item/blood_filter = 95)
 	repeatable = TRUE
 	time = 2.5 SECONDS
 
 /datum/surgery_step/filter_blood/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You begin filtering [target]'s blood...</span>",
-		"<span class='notice'>[user] uses the [tool] to filtering your blood.</span>",
-		"<span class='notice'>[user] uses the [tool] on [target]'s chest.</span>")
+	display_results(user, target, "<span class='notice'>Начинаю фильтрацию крови [target]...</span>",
+		"<span class='notice'>[user] использует [tool] для фильтрации моей крови.</span>",
+		"<span class='notice'>[user] использует [tool] на груди [target].</span>")
 
 /datum/surgery_step/filter_blood/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(target.reagents?.total_volume)
 		for(var/blood_chem in target.reagents.reagent_list)
 			var/datum/reagent/chem = blood_chem
 			target.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
-	display_results(user, target, "<span class='notice'>The [tool] pings as it finishes filtering [target]'s blood.</span>",
-		"<span class='notice'>The [tool] pings as it stops pumping your blood.</span>",
-		"The [tool] pings as it stops pumping.")
+	display_results(user, target, "<span class='notice'>Закончив фильтрацию крови [target] [tool] издает короткий звон.</span>",
+		"<span class='notice'>Закончив качать мою кровь [tool] издает короткий звон.</span>",
+		"Закончив качать [tool] издает короткий звон.")
 	return ..()
 
 /datum/surgery_step/filter_blood/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='warning'>You screw up, brusing [target]'s chest!</span>",
-		"<span class='warning'>[user] screws up, brusing [target]'s chest!</span>",
-		"<span class='warning'>[user] screws up!</span>")
+	display_results(user, target, "<span class='warning'>Я облажался, оставив синяк на груди [target]!</span>",
+		"<span class='warning'>[user] облажался, оставив синяк на груди [target]!</span>",
+		"<span class='warning'>[user] облажался!</span>")
 	target.adjustBruteLoss(5)
