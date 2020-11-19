@@ -323,7 +323,7 @@
 	build_type = AUTOLATHE | SMELTER | PROTOLATHE
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = MINERAL_MATERIAL_AMOUNT)
 	build_path = /obj/item/stack/sheet/rglass
-	category = list("initial","Конструкции","Запчасти обрудования")
+	category = list("initial","Конструкции","Запчасти оборудования")
 	maxstack = 50
 
 /datum/design/rods

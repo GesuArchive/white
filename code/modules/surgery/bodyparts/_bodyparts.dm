@@ -874,6 +874,14 @@
 			else
 				limb.icon_state = "[species_id]_[body_zone]"
 		// hippie end
+		// yogs start
+		if(should_draw_yogs)
+			limb.icon = 'white/valtos/icons/shadowling_bodyparts.dmi'
+			if(should_draw_gender)
+				limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
+			else
+				limb.icon_state = "[species_id]_[body_zone]"
+		//yogs end
 		if(aux_zone)
 			aux = image(limb.icon, "[species_id]_[aux_zone]", -aux_layer, image_dir)
 			. += aux

@@ -99,7 +99,7 @@
 /datum/round_aspect/rainy_shift
 	name = "Rainy Shift"
 	desc = "Ожидается выпадение обильных осадков."
-	weight = 80
+	weight = 40
 	var/area/impact_area
 	var/list/possible_pack_types = list()
 	var/static/list/rain_spawnable_supply_packs = list()

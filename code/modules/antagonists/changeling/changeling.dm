@@ -156,7 +156,7 @@
 			break
 
 	if(!thepower)
-		to_chat(owner.current, " >> Что-то сломалось! Нажми F1 и опиши проблему.")
+		to_chat(owner.current, "Что-то сломалось! Нажми F1 и опиши проблему.")
 		return
 
 	if(absorbedcount < thepower.req_dna)

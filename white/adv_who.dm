@@ -22,7 +22,12 @@
 				if(C.ckey in GLOB.anonists_deb)
 					continue
 
-				var/entry = "\t[C.key]"
+				var/entry = "\t"
+
+				if (check_donations(C.ckey))
+					entry += " - <b>\[$\]</b> "
+
+				entry = "[C.key]"
 				if(C.holder && C.holder.fakekey)
 					entry += " <i>(as [C.holder.fakekey])</i>"
 
@@ -57,7 +62,6 @@
 								dead++
 						else
 							living++
-				/*
 				if(isnum(C.player_age))
 					var/age = C.player_age
 					if(age <= 1)
@@ -65,7 +69,6 @@
 					else if(age < 10)
 						age = "<font color='#ff8c00'><b>[age]</b></font>"
 					entry += " - [age]"
-				*/
 				if(is_special_character(C.mob))
 					entry += " - <b><font color='red'>Антагонист</font></b>"
 					if(!C.mob.mind.current || C.mob.mind.current?.stat == DEAD)
@@ -115,27 +118,24 @@
 	msg += "<b>Всего игроков: [length(Lines)]</b>"
 	to_chat(src, msg)
 
-/client/proc/adminwho()
+/client/verb/adminwho()
 	set category = "Адм"
 	set name = "Adminwho"
 
-	if(!check_rights())
-		return
-
-	var/msg = "<b>Current Admins:</b>\n"
+	var/msg = "<b>Педали:</b>\n"
 	if(holder)
 		for(var/client/C in GLOB.admins)
-			msg += "\t[C] is a [C.holder.rank]"
+			msg += "\t[C] - [C.holder.rank]"
 
 			if(C.holder.fakekey)
-				msg += " <i>(as [C.holder.fakekey])</i>"
+				msg += " <i>(как [C.holder.fakekey])</i>"
 
 			if(isobserver(C.mob))
-				msg += " - Observing"
+				msg += " - следит"
 			else if(isnewplayer(C.mob))
-				msg += " - Lobby"
+				msg += " - Лобби"
 			else
-				msg += " - Playing"
+				msg += " - <b>Играет с педалями</b>"
 
 			if(C.is_afk())
 				msg += " (AFK)"
@@ -145,10 +145,10 @@
 			if(C.is_afk())
 				continue //Don't show afk admins to adminwho
 			if(!C.holder.fakekey)
-				msg += "\t[C] is a [C.holder.rank]\n"
-		msg += "<span class='info'>Adminhelps are also sent to IRC. If no admins are available in game adminhelp anyways and an admin on IRC will see it and respond.</span>"
+				msg += "\t[C] - [C.holder.rank]\n"
+		msg += "<span class='info'>Ахелпы также отправляются в Discord, если нет педалей онлайн.</span>"
 	to_chat(src, msg)
 
 /client/proc/inactivity2text()
 	var/seconds = inactivity/10
-	return "[round(seconds / 60)] minute\s, [seconds % 60] second\s"
+	return "[round(seconds / 60)] минут, [seconds % 60] секунд"

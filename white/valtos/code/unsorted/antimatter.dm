@@ -394,7 +394,7 @@
 		dat += "- [fueljar.fuel]/[fueljar.fuel_max] юнитов<BR>"
 
 		dat += "- Ввод: [fuel_injection] юнитов<BR>"
-		dat += "- <A href='?src=[REF(src)];strengthdown=1'>--</A>|<A href='?src=[REF(src)];strengthup=1'>++</A><BR><BR>"
+		dat += "- <A href='?src=[REF(src)];strengthdown=1'>--</A>|<A href='?src=[REF(src)];strengthup=1'>++</A>|<A href='?src=[REF(src)];strengthinput=1'>Своё</A><BR><BR>"
 
 
 	var/datum/browser/popup = new(user, "AMcontrol", name, 420, 500)
@@ -430,6 +430,14 @@
 		fuel_injection--
 		if(fuel_injection < 0)
 			fuel_injection = 0
+
+	if(href_list["strengthinput"])
+		var/wa = input(usr, "Сколько вводим?", "COCKS", "[fuel_injection]") as num|null
+
+		if(isnull(wa) || wa < 0 || wa > 1000)
+			return
+
+		fuel_injection = wa
 
 	if(href_list["refreshstability"])
 		check_core_stability()

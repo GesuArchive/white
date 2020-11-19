@@ -4,6 +4,8 @@
 	desc = "Основное энергетическое оружие."
 	icon = 'icons/obj/guns/energy.dmi'
 
+	pickup_sound = 'white/valtos/sounds/lasercock.wav'
+
 	var/obj/item/stock_parts/cell/cell //What type of power cell this uses
 	var/cell_type = /obj/item/stock_parts/cell
 	var/modifystate = FALSE ///if the weapon has custom icons for individual ammo types it can switch between. ie disabler beams, taser, laser/lethals, ect.

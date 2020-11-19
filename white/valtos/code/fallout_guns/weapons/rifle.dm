@@ -33,7 +33,7 @@
 	fire_delay = 6
 	extra_damage = 30
 	extra_penetration = 5
-	mag_type = /obj/item/ammo_box/magazine/fallout/r10
+	mag_type = /obj/item/ammo_box/magazine/fallout/r20
 
 /obj/item/gun/ballistic/rifle/fallout/varmint/ratslayer
 	name = "ratslayer"
@@ -54,12 +54,13 @@
 	desc = "An extremely heavy duty .50 caliber sniper rifle. Have you seen what this can do to a Deathclaw?"
 	icon_state = "amr"
 	inhand_icon_state = "amr"
-	mag_type = /obj/item/ammo_box/magazine/fallout/amr
+	mag_type = /obj/item/ammo_box/magazine/sniper_rounds
 	fire_sound = 'white/valtos/sounds/fallout/amrfire.ogg'
 	fire_delay = 8
 	extra_damage = 60
 
 //Magazines
+/*
 /obj/item/ammo_box/magazine/fallout/r10
 	name = "10 round magazine (5.56mm)"
 	icon = 'white/valtos/icons/fallout/ammo.dmi'
@@ -68,6 +69,7 @@
 	caliber = "a556"
 	max_ammo = 10
 	multiple_sprites = 2
+*/
 
 /obj/item/ammo_box/magazine/fallout/r308
 	name = "5 round magazine (.308)"
@@ -77,7 +79,7 @@
 	caliber = "a308"
 	max_ammo = 5
 	multiple_sprites = 2
-
+/*
 /obj/item/ammo_box/magazine/fallout/amr
 	name = "6 round magazine (.50)"
 	icon = 'white/valtos/icons/fallout/ammo.dmi'
@@ -86,3 +88,4 @@
 	caliber = "a50MG"
 	max_ammo = 6
 	multiple_sprites = 2
+*/

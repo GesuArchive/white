@@ -60,15 +60,10 @@
 		T.song_length = text2num(L[2])
 		T.song_beat = text2num(L[3])
 
-		var/list/list_value = splittext(T.song_name,"\[")
-		var/intermediate_stage = jointext(list_value, null)
+		var/list/song_values = splittext(splittext(T.song_name,"\[")[2], "\] ")
 
-		list_value = splittext(intermediate_stage," ")
-		for(var/value in list_value)
-			if(findtext(value,"]"))
-				T.song_category = splittext(value,"]")
-
-		T.short_name = splittext(T.song_name,"\]")[2]
+		T.song_category = song_values[1]
+		T.short_name 	= song_values[2]
 
 		songs |= T
 

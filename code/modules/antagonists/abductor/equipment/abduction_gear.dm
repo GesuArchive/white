@@ -358,16 +358,16 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.stat == DEAD)
-			to_chat(user, "<span class='warning'>Your target is dead!</span>")
+			to_chat(user, "<span class='warning'>Цель мертва!</span>")
 			return
-		var/message = stripped_input(user, "Write a message to send to your target's brain.","Enter message")
+		var/message = stripped_input(user, "Что мы хотим сказать мозгу цели?","ПОСЛАНИЕ")
 		if(!message)
 			return
 		if(QDELETED(L) || L.stat == DEAD)
 			return
 
-		to_chat(L, "<span class='hear'>You hear a voice in your head saying: </span><span class='abductor'>[message]</span>")
-		to_chat(user, "<span class='notice'>You send the message to your target.</span>")
+		to_chat(L, "<span class='hear'>Голос в моей голове говорит мне: </span><span class='abductor'>[message]</span>")
+		to_chat(user, "<span class='notice'>Отправляю сообщение цели.</span>")
 		log_directed_talk(user, L, message, LOG_SAY, "abductor whisper")
 
 

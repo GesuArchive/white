@@ -54,11 +54,11 @@
 	var/obj/structure/closet/supplypod/bluespacepod/pod = new()
 	new choice(pod)
 	pod.explosionSize = list(0,0,0,0)
-	var/msg = "<span class=danger>After making your selection, you notice a strange target on the ground. It might be best to step back!</span>"
+	var/msg = "<span class=danger>Странный символ целеуказания появляется прямо у меня перед ногами. Вероятно, стоит отойти подальше!</span>"
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(istype(H.ears, /obj/item/radio/headset))
-			msg = "You hear something crackle in your ears for a moment before a voice speaks.  \"Please stand by for a message from Central Command.  Message as follows: <span class='bold'>Item request received. Your package is inbound, please stand back from the landing site.</span> Message ends.\""
+			msg = "Наушники начинают шуршать, затем из них раздаётся голос, который говорит:  \"Пожалуйста, прослушайте сообщение от Центрального Командования. Сообщение гласит: <span class='bold'>Запрос принят. Посылка уже в пути. Пожалуйста, отойдите от зоны приземления на безопасное расстояние.</span> Конец сообщения.\""
 	to_chat(M, msg)
 
 	new /obj/effect/pod_landingzone(get_turf(src), pod)

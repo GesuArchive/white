@@ -1,6 +1,6 @@
 /obj/machinery/rnd/production/circuit_imprinter
 	name = "схемопринтер"
-	desc = "Производит печатные платы для создания обрудования."
+	desc = "Производит печатные платы для создания оборудования."
 	icon_state = "circuit_imprinter"
 	circuit = /obj/item/circuitboard/machine/circuit_imprinter
 	categories = list(

@@ -72,3 +72,5 @@ In TGS3 it will always be sent to all connected designated game chats.
 	if(!embed_links)
 		message = GLOB.has_discord_embeddable_links.Replace(replacetext(message, "`", ""), " ```$1``` ")
 	world.TgsTargetedChatBroadcast("[category] | [message]", TRUE)
+	webhook_send_ahelp(category, message)
+

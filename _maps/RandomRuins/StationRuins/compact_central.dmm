@@ -82,9 +82,6 @@
 	pixel_x = 32;
 	pixel_y = 24
 	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "al" = (
@@ -284,10 +281,10 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "aJ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+/obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/neutral{
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -4421,6 +4418,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"Fe" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "Fl" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -5432,7 +5436,7 @@ ia
 (18,1,1) = {"
 ac
 ai
-ai
+bW
 aj
 aj
 aj
@@ -5545,10 +5549,10 @@ kn
 "}
 (21,1,1) = {"
 ab
-an
-an
-aA
-aK
+aj
+aj
+aj
+ar
 dP
 dP
 dP
@@ -5737,8 +5741,8 @@ ab
 ab
 an
 an
-aI
-ar
+aA
+Fe
 bj
 bo
 bv

@@ -2,6 +2,8 @@
 	name = "электрошоковая дубинка"
 	desc = "Электрошокер для выведения людей из строя. <i>Не рекомендуется для плотских утех!</i>"
 
+	gender = FEMALE
+
 	icon_state = "stunbaton"
 	inhand_icon_state = "baton"
 	worn_icon_state = "baton"
