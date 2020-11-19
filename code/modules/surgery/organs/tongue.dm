@@ -1,6 +1,6 @@
 /obj/item/organ/tongue
-	name = "tongue"
-	desc = "A fleshy muscle mostly used for lying."
+	name = "язык"
+	desc = "Мышца из плоти, в основном используется для того чтобы врать."
 	icon_state = "tonguenormal"
 	zone = BODY_ZONE_PRECISE_MOUTH
 	slot = ORGAN_SLOT_TONGUE
@@ -52,8 +52,8 @@
 	return is_type_in_typecache(language, languages_possible)
 
 /obj/item/organ/tongue/lizard
-	name = "forked tongue"
-	desc = "A thin and long muscle typically found in reptilian races, apparently moonlights as a nose."
+	name = "раздвоенный язык"
+	desc = "Тонкая и длинная мышца, обычно такая есть у чешуйчатых рас. Так же выполняет роль носа."
 	icon_state = "tonguelizard"
 	say_mod = "шипит"
 	taste_sensitivity = 10 // combined nose + tongue, extra sensitive
@@ -73,8 +73,8 @@
 	speech_args[SPEECH_MESSAGE] = message
 
 /obj/item/organ/tongue/fly
-	name = "proboscis"
-	desc = "A freakish looking meat tube that apparently can take in liquids."
+	name = "хоботок"
+	desc = "Страшная мясная трубка, кажется через неё питаются."
 	icon_state = "tonguefly"
 	say_mod = "жужжит"
 	taste_sensitivity = 25 // you eat vomit, this is a mercy
@@ -110,8 +110,8 @@
 	languages_possible = languages_possible_fly
 
 /obj/item/organ/tongue/abductor
-	name = "superlingual matrix"
-	desc = "A mysterious structure that allows for instant communication between users. Pretty impressive until you need to eat something."
+	name = "суперязыковая матрица"
+	desc = "Таинственная структура, которая позволяет мгновенно общаться с другими пользователями. Довольно интересная вещь, только есть не удобно."
 	icon_state = "tongueayylmao"
 	say_mod = "тараторит"
 	taste_sensitivity = 101 // ayys cannot taste anything.
@@ -127,20 +127,20 @@
 		return
 
 	if(T.mothership == mothership)
-		to_chat(H, "<span class='notice'>[capitalize(src.name)] is already attuned to the same channel as your own.</span>")
+		to_chat(H, "<span class='notice'>[capitalize(src.name)] уже настроен на твой канал.</span>")
 
-	H.visible_message("<span class='notice'>[H] holds [src] in their hands, and concentrates for a moment.</span>", "<span class='notice'>You attempt to modify the attenuation of [src].</span>")
+	H.visible_message("<span class='notice'>[H] держит [src] в руках и сосредотачивается на мгновение</span>", "<span class='notice'>Ты пытаешься модифицировать связи [src].</span>")
 	if(do_after(H, delay=15, target=src))
-		to_chat(H, "<span class='notice'>You attune [src] to your own channel.</span>")
+		to_chat(H, "<span class='notice'>Ты настраиваешь [src] на свои канал.</span>")
 		mothership = T.mothership
 
 /obj/item/organ/tongue/abductor/examine(mob/M)
 	. = ..()
 	if(HAS_TRAIT(M, TRAIT_ABDUCTOR_TRAINING) || HAS_TRAIT(M.mind, TRAIT_ABDUCTOR_TRAINING) || isobserver(M))
 		if(!mothership)
-			. += "<hr><span class='notice'>It is not attuned to a specific mothership.</span>"
+			. += "<hr><span class='notice'>Он не подключен к кораблю.</span>"
 		else
-			. += "<hr><span class='notice'>It is attuned to [mothership].</span>"
+			. += "<hr><span class='notice'>Он подключен к [mothership].</span>"
 
 /obj/item/organ/tongue/abductor/handle_speech(datum/source, list/speech_args)
 	//Hacks
@@ -162,8 +162,8 @@
 	speech_args[SPEECH_MESSAGE] = ""
 
 /obj/item/organ/tongue/zombie
-	name = "rotting tongue"
-	desc = "Between the decay and the fact that it's just lying there you doubt a tongue has ever seemed less sexy."
+	name = "гнилой язык"
+	desc = "Благодаря разложению и тому факту, что он тут просто лежит вы задумываетесь о том, может ли язык выглядеть еще менее сексуально."
 	icon_state = "tonguezombie"
 	say_mod = "мычит"
 	modifies_speech = TRUE
@@ -186,8 +186,8 @@
 	speech_args[SPEECH_MESSAGE] = jointext(message_list, " ")
 
 /obj/item/organ/tongue/alien
-	name = "alien tongue"
-	desc = "According to leading xenobiologists the evolutionary benefit of having a second mouth in your mouth is \"that it looks badass\"."
+	name = "язык чужого"
+	desc = "По мнению ведущих ксенобиологов, эволюционное преимущество от второго рта в том \"что это выглядит круто\"."
 	icon_state = "tonguexeno"
 	say_mod = "шипит"
 	taste_sensitivity = 10 // LIZARDS ARE ALIENS CONFIRMED
@@ -206,8 +206,8 @@
 	playsound(owner, "hiss", 25, TRUE, TRUE)
 
 /obj/item/organ/tongue/bone
-	name = "bone \"tongue\""
-	desc = "Apparently skeletons alter the sounds they produce through oscillation of their teeth, hence their characteristic rattling."
+	name = "костяной \"язык\""
+	desc = "Выяснилось, что скелеты используют вместо языка скрежет своих зубов, отсюда и постоянное дребезжание."
 	icon_state = "tonguebone"
 	say_mod = "костлявит"
 	attack_verb_continuous = list("кусает", "прокусывает", "откусывает", "шутит", "костирует")
@@ -249,14 +249,14 @@
 			speech_args[SPEECH_SPANS] |= SPAN_PAPYRUS
 
 /obj/item/organ/tongue/bone/plasmaman
-	name = "plasma bone \"tongue\""
-	desc = "Like animated skeletons, Plasmamen vibrate their teeth in order to produce speech."
+	name = "плазменная кость \"языка\""
+	desc = "Как и у скелетов, плазмалюди используют вместо языка скрежет зубов чтобы общаться."
 	icon_state = "tongueplasma"
 	modifies_speech = FALSE
 
 /obj/item/organ/tongue/robot
-	name = "robotic voicebox"
-	desc = "A voice synthesizer that can interface with organic lifeforms."
+	name = "синтезатор голоса"
+	desc = "Синтезатор голоса используемый для взаимодействия с органическими формами жизни."
 	status = ORGAN_ROBOTIC
 	organ_flags = NONE
 	icon_state = "tonguerobot"
@@ -273,7 +273,7 @@
 	speech_args[SPEECH_SPANS] |= SPAN_ROBOT
 
 /obj/item/organ/tongue/snail
-	name = "snailtongue"
+	name = "язык улитки"
 	modifies_speech = TRUE
 
 /obj/item/organ/tongue/snail/handle_speech(datum/source, list/speech_args)
@@ -287,8 +287,8 @@
 	speech_args[SPEECH_MESSAGE] = new_message
 
 /obj/item/organ/tongue/ethereal
-	name = "electric discharger"
-	desc = "A sophisticated ethereal organ, capable of synthesising speech via electrical discharge."
+	name = "электрический разрядник"
+	desc = "Сложный эфирный орган, способный синтезировать речь с помощью электрических разрядов."
 	icon_state = "electrotongue"
 	say_mod = "искрит"
 	attack_verb_continuous = list("шокирует", "жалит", "ебошит током")
@@ -317,8 +317,8 @@
 
 //Sign Language Tongue - yep, that's how you speak sign language.
 /obj/item/organ/tongue/tied
-	name = "tied tongue"
-	desc = "If only one had a sword so we may finally untie this knot. If you're seeing this, then it's coded wrong."
+	name = "завязанный язык"
+	desc = "Вот бы у кого-то был меч, чтобы разрубить этот узел. Если ты видишь это, то что-то неправильно запрогано."
 	say_mod = "signs"
 	icon_state = "tonguetied"
 	modifies_speech = TRUE
@@ -359,8 +359,8 @@
 	speech_args[SPEECH_MESSAGE] = new_message
 
 	if(exclamation_found && question_found)
-		M.visible_message("<span class='notice'>[M] lowers one of [M.p_their()] eyebrows, raising the other.</span>")
+		M.visible_message("<span class='notice'>[M] Опускает одну из [M.p_their()] бровей, поднимая другую.</span>")
 	else if(exclamation_found)
-		M.visible_message("<span class='notice'>[M] raises [M.p_their()] eyebrows.</span>")
+		M.visible_message("<span class='notice'>[M] поднимает [M.p_their()] брови.</span>")
 	else if(question_found)
-		M.visible_message("<span class='notice'>[M] lowers [M.p_their()] eyebrows.</span>")
+		M.visible_message("<span class='notice'>[M] опускает [M.p_their()] брови.</span>")
