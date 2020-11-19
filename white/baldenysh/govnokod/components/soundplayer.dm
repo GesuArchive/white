@@ -138,7 +138,7 @@
 	var/turf/MT = get_turf(myplayer.soundsource)
 	var/dist = get_dist(TT, MT)
 	if(dist <= myplayer.playing_range && TT.z == MT.z)
-		var/vol = myplayer.playing_volume - max(dist - myplayer.playing_range, 0)
+		var/vol = myplayer.playing_volume - max((dist - myplayer.playing_range * 2), 0)
 		S.volume = vol
 		S.falloff = myplayer.playing_falloff
 		S.environment = myplayer.env_id
