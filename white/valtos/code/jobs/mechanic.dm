@@ -27,12 +27,13 @@
 	shoes = /obj/item/clothing/shoes/workboots
 	head = /obj/item/clothing/head/welding
 	r_pocket = /obj/item/t_scanner
+	l_hand = /obj/item/storage/part_replacer/cargo
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
 	box = /obj/item/storage/box/survival/engineer
 	pda_slot = ITEM_SLOT_LPOCKET
-	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced = 1, /obj/item/storage/part_replacer/cargo = 1)
+	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced = 1)
 
 	skillchip_path = /obj/item/skillchip/job/engineer
