@@ -213,7 +213,7 @@
 	for(var/adm in GLOB.admins)
 		var/client/C = adm
 		if(!C.holder.fakekey)
-			msg += "\t[C] is a [C.holder.rank]"
+			msg += "\t[C] - [C.holder.rank]"
 			msg += "\n"
 	return msg
 
