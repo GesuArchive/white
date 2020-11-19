@@ -256,8 +256,8 @@
 			return "[jobtitle] недоступен."
 		if(JOB_UNAVAILABLE_BANNED)
 			return "Тебе нельзя быть [jobtitle]."
-		if(JOB_UNAVAILABLE_UNDONATED)
-			return "Роль [jobtitle] доступна только для благотворцев."
+		if(JOB_UNAVAILABLE_UNBUYED)
+			return "Роль [jobtitle] сначала нужно купить."
 		if(JOB_UNAVAILABLE_PLAYTIME)
 			return "Ты не наиграл достаточно времени для [jobtitle]."
 		if(JOB_UNAVAILABLE_ACCOUNTAGE)
@@ -289,6 +289,8 @@
 		return JOB_UNAVAILABLE_PLAYTIME
 	if(latejoin && !job.special_check_latejoin(client))
 		return JOB_UNAVAILABLE_GENERIC
+	if(job.metalocked && !(job.type in client.prefs.jobs_buyed))
+		return JOB_UNAVAILABLE_UNBUYED
 	return JOB_AVAILABLE
 
 /mob/dead/new_player/proc/AttemptLateSpawn(rank)

@@ -87,6 +87,8 @@ SUBSYSTEM_DEF(job)
 			return FALSE
 		if(job.required_playtime_remaining(player.client))
 			return FALSE
+		if(job.metalocked && !(job.type in player.client.prefs.jobs_buyed))
+			return FALSE
 		var/position_limit = job.total_positions
 		if(!latejoin)
 			position_limit = job.spawn_positions
@@ -117,6 +119,9 @@ SUBSYSTEM_DEF(job)
 			continue
 		if(player.mind && (job.title in player.mind.restricted_roles))
 			JobDebug("FOC incompatible with antagonist role, Player: [player]")
+			continue
+		if(job.metalocked && !(job.type in player.client.prefs.jobs_buyed))
+			JobDebug("FOC role not buyed, Player: [player], Job:[job.title]")
 			continue
 		if(player.client.prefs.job_preferences[job.title] == level)
 			JobDebug("FOC pass, Player: [player], Level:[level]")
@@ -149,6 +154,10 @@ SUBSYSTEM_DEF(job)
 
 		if(job.required_playtime_remaining(player.client))
 			JobDebug("GRJ player not enough xp, Player: [player]")
+			continue
+
+		if(job.metalocked && !(job.type in player.client.prefs.jobs_buyed))
+			JobDebug("GRJ role not buyed, Player: [player], Job:[job.title]")
 			continue
 
 		if(player.mind && (job.title in player.mind.restricted_roles))
@@ -333,6 +342,10 @@ SUBSYSTEM_DEF(job)
 
 				if(player.mind && (job.title in player.mind.restricted_roles))
 					JobDebug("DO incompatible with antagonist role, Player: [player], Job:[job.title]")
+					continue
+
+				if(job.metalocked && !(job.type in player.client.prefs.jobs_buyed))
+					JobDebug("DO role not buyed, Player: [player], Job:[job.title]")
 					continue
 
 				// If the player wants that job on this level, then try give it to him.

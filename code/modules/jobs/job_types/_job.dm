@@ -66,6 +66,8 @@
 	var/tmp/list/gear_leftovers = list()
 	var/bounty_types = CIV_JOB_BASIC
 
+	var/metalocked = FALSE
+
 /datum/job/New()
 	. = ..()
 	var/list/jobs_changes = GetMapChanges()

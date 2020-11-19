@@ -143,6 +143,9 @@
 		if("Station Engineer")
 			O = new /datum/outfit/plasmaman/engineering
 
+		if("Механик")
+			O = new /datum/outfit/plasmaman/engineering
+
 		if("Atmospheric Technician")
 			O = new /datum/outfit/plasmaman/atmospherics
 

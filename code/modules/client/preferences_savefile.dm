@@ -5,7 +5,7 @@
 //	You do not need to raise this if you are adding new values that have sane defaults.
 //	Only raise this value when changing the meaning/format/name/layout of an existing value
 //	where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX	46
+#define SAVEFILE_VERSION_MAX	47
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -226,6 +226,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	READ_FILE(S["purchased_gear"], purchased_gear)
 	READ_FILE(S["equipped_gear"], equipped_gear)
+	READ_FILE(S["jobs_buyed"], jobs_buyed)
 	READ_FILE(S["w_toggles"], w_toggles)
 
 	// Custom hotkeys
@@ -287,6 +288,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		purchased_gear = list()
 	if(!equipped_gear)
 		equipped_gear = list()
+	if(!jobs_buyed)
+		jobs_buyed = list()
 
 	if(needs_update >= 0) //save the updated version
 		var/old_default_slot = default_slot
@@ -365,6 +368,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["btvolume_max"], btvolume_max)
 	WRITE_FILE(S["purchased_gear"], purchased_gear)
 	WRITE_FILE(S["equipped_gear"], equipped_gear)
+	WRITE_FILE(S["jobs_buyed"], jobs_buyed)
 	WRITE_FILE(S["hearted_until"], (hearted_until > world.realtime ? hearted_until : null))
 	WRITE_FILE(S["disabled_autocap"], disabled_autocap)
 	return TRUE

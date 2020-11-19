@@ -133,6 +133,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/gear = list()
 	var/list/purchased_gear = list()
 	var/list/equipped_gear = list()
+	var/list/jobs_buyed = list()
 	var/gear_tab = "Основное"
 	///This var stores the amount of points the owner will get for making it out alive.
 	var/hardcore_survival_score = 0
@@ -494,7 +495,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<tr style='vertical-align:middle;' class='metaitem'><td width=300>"
 				if(G.display_name in purchased_gear)
 					if(G.sort_category == "OOC")
-						dat += "<img class='icon icon-misc' src='data:image/png;base64,[G.get_base64_icon()]'><a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить ещё "
+						dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.display_name]'>Купить ещё "
+					if(G.sort_category == "Роли")
+						dat += "<a style='white-space:normal;' href='#'>Куплено "
 					else
 						dat += "<img class='icon icon-misc' src='data:image/png;base64,[G.get_base64_icon()]'><a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.display_name]'>[ticked ? "Экипировано" : "Экипировать"] "
 				else
@@ -843,6 +846,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			var/required_playtime_remaining = job.required_playtime_remaining(user.client)
 			if(required_playtime_remaining)
 				HTML += "<font color=red>[rank]</font></td><td><font color=red> \[ [get_exp_format(required_playtime_remaining)] as [job.get_exp_req_type()] \] </font></td></tr>"
+				continue
+			if(job.metalocked && !(job.type in jobs_buyed))
+				HTML += "<font color=red>[rank]</font></td><td><font color=red> \[ $$$ \] </font></td></tr>"
 				continue
 			if(!job.player_old_enough(user.client))
 				var/available_in_days = job.available_in_days(user.client)

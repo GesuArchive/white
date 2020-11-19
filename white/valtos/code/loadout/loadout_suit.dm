@@ -37,7 +37,7 @@
 /datum/gear/suit/wintercoat/engineering
 	display_name = "инженерное зимнее пальто"
 	path = /obj/item/clothing/suit/hooded/wintercoat/engineering
-	allowed_roles = list("Chief Engineer", "Station Engineer", "Atmospheric Technician")
+	allowed_roles = list("Chief Engineer", "Station Engineer", "Atmospheric Technician", "Механик")
 
 /datum/gear/suit/wintercoat/hydro
 	display_name = "гидропоническое зимнее пальто"

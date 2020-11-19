@@ -51,6 +51,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		"Chief Engineer" = 40,
 		"Station Engineer" = 41,
 		"Atmospheric Technician" = 42,
+		"Механик" = 43,
 		//50-59: Cargo
 		"Head of Personnel" = 50,
 		"Quartermaster" = 51,

@@ -1965,7 +1965,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	desc = "A disposable sentry gun deployment system cleverly disguised as a toolbox, apply wrench for functionality."
 	item = /obj/item/storage/toolbox/emergency/turret
 	cost = 11
-	restricted_roles = list("Station Engineer")
+	restricted_roles = list("Station Engineer", "Механик")
 
 // Pointless
 /datum/uplink_item/badass
