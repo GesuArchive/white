@@ -26,7 +26,7 @@ GLOBAL_LIST_EMPTY(gear_datums)
 		if(!initial(G.cost))
 			WARNING("Loadout - Missing cost: [G]")
 			continue
-		if(!initial(G.path) && (use_category != "OOC" || use_category != "Роли")) //OOC category does not contain actual items
+		if(!initial(G.path) && (use_category != "OOC" && use_category != "Роли")) //OOC category does not contain actual items
 			WARNING("Loadout - Missing path definition: [G]")
 			continue
 

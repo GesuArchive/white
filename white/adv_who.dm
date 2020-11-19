@@ -25,7 +25,7 @@
 				var/entry = "\t"
 
 				if (check_donations(C.ckey))
-					entry += " - <b>\[$\]</b> "
+					entry += "<b>\[$\]</b> "
 
 				entry += "[C.key]"
 				if(C.holder && C.holder.fakekey)
