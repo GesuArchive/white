@@ -299,7 +299,7 @@
 	if(registered_name && registered_name != "Captain")
 		. += mutable_appearance(icon, "assigned")
 	if(job)
-		if(job == "russianofficer" || job == "veteran" || job == "internationalofficer" || job == "trader" || job == "hacker" || jobid == "механик")
+		if(job == "russianofficer" || job == "veteran" || job == "internationalofficer" || job == "trader" || job == "hacker" || job == "механик")
 			. += mutable_appearance('white/valtos/icons/card.dmi', "id[job]")
 		else
 			. += mutable_appearance(icon, "id[r_lowertext(job)]")
