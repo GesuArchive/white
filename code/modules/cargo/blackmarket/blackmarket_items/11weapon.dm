@@ -8,7 +8,7 @@
 	item = /obj/item/gun/ballistic/
 
 	price_min = 1000
-	price_max = 5000
+	price_max = 10000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -97,8 +97,8 @@
 	desc = "Тазер или Дизаблер? Сложный выбор..."
 	item = /obj/item/gun/energy/taser
 
-	price_min = 500
-	price_max = 2000
+	price_min = 5000
+	price_max = 15000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -112,7 +112,7 @@
 /datum/blackmarket_item/weapon/sgun
 	name = "Случайная снайперка"
 	desc = "Для истинных долбаёбов"
-	item = /obj/item/gun/energy/taser
+	item = /obj/item/gun/ballistic/automatic/fallout/marksman
 
 	price_min = 10000
 	price_max = 25000
@@ -120,7 +120,7 @@
 	stock_max = 10
 	availability_prob = 100
 
-/datum/blackmarket_item/weapon/tgun/spawn_item(loc)
+/datum/blackmarket_item/weapon/sgun/spawn_item(loc)
 	var/sgun = pick(list(/obj/item/gun/ballistic/automatic/fallout/marksman/sniper,
 			/obj/item/gun/ballistic/automatic/fallout/marksman/american,
 			/obj/item/gun/ballistic/automatic/fallout/marksman,
