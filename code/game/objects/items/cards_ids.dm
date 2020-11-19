@@ -302,7 +302,7 @@
 		if(job == "russianofficer" || job == "veteran" || job == "internationalofficer" || job == "trader" || job == "hacker" || jobid == "механик")
 			. += mutable_appearance('white/valtos/icons/card.dmi', "id[job]")
 		else
-			. += mutable_appearance(icon, "id[job]")
+			. += mutable_appearance(icon, "id[r_lowertext(job)]")
 
 /obj/item/card/id/proc/update_in_wallet()
 	SIGNAL_HANDLER
