@@ -295,11 +295,11 @@
 	if(!uses_overlays)
 		return
 	cached_flat_icon = null
-	var/job = assignment ? ckey(GetJobName()) : null
+	var/job = assignment ? r_lowertext(ckey(GetJobName())) : null
 	if(registered_name && registered_name != "Captain")
 		. += mutable_appearance(icon, "assigned")
 	if(job)
-		if(job == "russianofficer" || job == "veteran" || job == "internationalofficer" || job == "trader" || job == "hacker")
+		if(job == "russianofficer" || job == "veteran" || job == "internationalofficer" || job == "trader" || job == "hacker" || jobid == "механик")
 			. += mutable_appearance('white/valtos/icons/card.dmi', "id[job]")
 		else
 			. += mutable_appearance(icon, "id[job]")
