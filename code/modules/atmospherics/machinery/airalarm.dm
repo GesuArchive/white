@@ -73,7 +73,7 @@
 	resistance_flags = FIRE_PROOF
 
 	var/danger_level = 0
-	var/mode = AALARM_MODE_SCRUBBING
+	var/mode = AALARM_MODE_CONTAMINATED
 
 	var/locked = TRUE
 	var/aidisabled = 0
