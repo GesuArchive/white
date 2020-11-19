@@ -356,5 +356,5 @@ GLOBAL_LIST_EMPTY(donators)
 		return FALSE
 	var/datum/donator/D = GLOB.donators[ckey]
 	if(D)
-		return maxmoney
+		return D.maxmoney
 	return 0
