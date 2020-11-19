@@ -209,7 +209,7 @@
 	log = FALSE
 
 /datum/world_topic/adminwho/Run(list/input)
-	var/msg = "Педали:"
+	var/msg = "Педали:\n"
 	for(var/adm in GLOB.admins)
 		var/client/C = adm
 		if(!C.holder.fakekey)
