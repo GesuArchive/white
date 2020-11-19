@@ -243,7 +243,7 @@
 	holder.pixel_y = I.Height() - world.icon_size
 	holder.icon_state = "hudno_id"
 	if(wear_id?.GetID())
-		var/jobid = ckey(wear_id.GetJobName())
+		var/jobid = r_lowertext(ckey(wear_id.GetJobName()))
 		if(jobid == "russianofficer" || jobid == "veteran" || jobid == "internationalofficer" || jobid == "trader" || jobid == "hacker" || jobid == "механик")
 			holder.icon = 'white/valtos/icons/hud.dmi'
 		holder.icon_state = "hud[ckey(wear_id.GetJobName())]"
