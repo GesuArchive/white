@@ -18,7 +18,7 @@
 
 /datum/outfit/job/mechanic
 	name = "Механик"
-	jobtype = /datum/job/mechanic
+	jobtype = /datum/job/engineer/mechanic
 
 	belt = /obj/item/storage/belt/utility/full/engi
 	l_pocket = /obj/item/pda/engineering
