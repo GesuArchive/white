@@ -96,7 +96,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 						to_chat(C, "<span class='ooc'><span class='prefix'>[tagmsg]:</span> <EM>[holder.fakekey ? holder.fakekey : key]:</EM> <span class='message linkify'>[msg]</span></span>")
 
 			else if(!(key in C.prefs.ignoring))
-				if(check_donations(ckey))
+				if(check_donations(ckey) > 100)
 					to_chat(C, "<font color='[prefs.ooccolor ? prefs.ooccolor : GLOB.normal_ooc_colour]'><b><span class='prefix'>[tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></b></font>")
 				else if(GLOB.OOC_COLOR)
 					to_chat(C, "<font color='[GLOB.OOC_COLOR]'><b><span class='prefix'>[tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></b></font>")
@@ -167,7 +167,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	set category = "Настройки"
 
 	if(!holder || !check_rights_for(src, R_ADMIN))
-		if(!check_donations(ckey))
+		if(!check_donations(ckey) > 100)
 			if(!is_content_unlocked())
 				return
 
@@ -186,7 +186,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	set category = "Настройки"
 
 	if(!holder || !check_rights_for(src, R_ADMIN))
-		if(!check_donations(ckey))
+		if(!check_donations(ckey) > 100)
 			if(!is_content_unlocked())
 				return
 

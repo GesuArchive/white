@@ -22,6 +22,9 @@
 				if(C.ckey in GLOB.anonists_deb)
 					continue
 
+				if (check_donations(C.ckey))
+					entry += " - <b>\[$\]</b> "
+
 				var/entry = "\t[C.key]"
 				if(C.holder && C.holder.fakekey)
 					entry += " <i>(as [C.holder.fakekey])</i>"
@@ -116,9 +119,6 @@
 /client/verb/adminwho()
 	set category = "Адм"
 	set name = "Adminwho"
-
-	if(!check_rights())
-		return
 
 	var/msg = "<b>Педали:</b>\n"
 	if(holder)
