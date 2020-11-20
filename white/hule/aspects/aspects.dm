@@ -92,6 +92,7 @@
 	for(var/obj/machinery/light/L in world)
 		L.idle_power_usage   = L.idle_power_usage   * 10
 		L.active_power_usage = L.active_power_usage * 10
+		L.power_change()
 
 	SSresearch.mining_multiplier = 5
 	..()
