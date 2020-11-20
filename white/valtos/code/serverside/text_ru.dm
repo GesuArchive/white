@@ -93,6 +93,12 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 		text = replacetext(text, s, "&#[GLOB.rus_unicode_conversion[s]];")
 	return text
 
+/proc/r_jobgen(text)
+	var/list/strip_chars = list("_"," ")
+	for(var/char in strip_chars)
+		text = replacetext_char(text, char, "")
+	return r_lowertext(text)
+
 /proc/r_lowertext(text)
 	var/t = ""
 	for(var/i = 1, i <= length(text), i++)
