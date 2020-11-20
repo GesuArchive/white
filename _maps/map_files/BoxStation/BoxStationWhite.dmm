@@ -31992,6 +31992,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/science/misc_lab)
+"fsQ" = (
+/obj/machinery/copytech,
+/turf/open/floor/plating,
+/area/engine/manufactory)
 "fva" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -32717,6 +32721,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
+"hih" = (
+/obj/machinery/copytech_platform,
+/turf/open/floor/plating,
+/area/engine/manufactory)
 "hnW" = (
 /obj/structure/chair{
 	dir = 1
@@ -73524,7 +73532,7 @@ afp
 mNB
 tJL
 dCj
-tJL
+hih
 tJL
 pUq
 ifX
@@ -74038,7 +74046,7 @@ ozX
 hvP
 mcC
 jHL
-tJL
+fsQ
 tJL
 wxR
 ifX
