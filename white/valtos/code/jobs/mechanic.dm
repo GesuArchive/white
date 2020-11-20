@@ -45,10 +45,11 @@
 	circuit = /obj/item/circuitboard/machine/copytech
 	icon_state = "apparatus"
 	active_power_usage = 2000000
+	density = TRUE
 	var/scanned_type = null
 	var/tier_rate = 1
 	var/obj/machinery/copytech_platform/cp = null
-	var/current_design = null
+	var/atom/movable/current_design = null
 	var/working = FALSE
 	var/atom/movable/active_item = null
 
@@ -87,8 +88,8 @@
 
 /obj/machinery/copytech/proc/create_thing()
 	if(!current_design || !cp)
-		return
-	if(istype(current_design, /obj))
+		return FALSE
+	if(isobj(current_design))
 		var/obj/O = new current_design(get_turf(src))
 		O.set_anchored(TRUE)
 		var/mutable_appearance/result = mutable_appearance(O.icon, O.icon_state)
@@ -97,7 +98,7 @@
 		active_item = O
 		spawn(get_replication_speed(tier_rate))
 			if(!src)
-				return
+				return FALSE
 			if(get_turf(O) != get_turf(src))
 				say("ОШИБКА!!!")
 				use_power = IDLE_POWER_USE
@@ -167,9 +168,16 @@
 	icon_state = "platform"
 	active_power_usage = 5000000
 	density = 0
+	var/tier_rate = 1
 	var/obj/machinery/copytech/ct = null
 	var/working = FALSE
 	var/atom/movable/active_item = null
+
+/obj/machinery/copytech_platform/RefreshParts()
+	var/T = 0
+	for(var/obj/item/stock_parts/micro_laser/M in component_parts)
+		T += M.rating
+	tier_rate = T
 
 /obj/machinery/copytech_platform/Crossed(H as mob|obj)
 	..()
@@ -190,8 +198,7 @@
 
 /obj/machinery/copytech_platform/examine(mob/user)
 	. = ..()
-	if(ct)
-		. += "<hr><span class='info'>Примерное время для уничтожения объекта: [time2text(get_replication_speed(ct.tier_rate), "mm:ss")].</span>"
+	. += "<hr><span class='info'>Примерное время для уничтожения объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>"
 
 /obj/machinery/copytech_platform/Initialize()
 	. = ..()
@@ -240,20 +247,20 @@
 					continue
 				what_we_destroying = thing
 			if(istype(thing, /mob/living))
-				if(ct.tier_rate < 4)
+				if(tier_rate < 4)
 					continue
 				what_we_destroying = thing
 	if(what_we_destroying)
 		what_we_destroying.set_anchored(TRUE)
 		if(isliving(what_we_destroying))
 			var/mob/living/M = what_we_destroying
-			M.SetParalyzed(get_replication_speed(ct.tier_rate) * 2)
+			M.SetParalyzed(get_replication_speed(tier_rate) * 2)
 			M.emote("scream")
 		var/mutable_appearance/result = mutable_appearance('icons/effects/effects.dmi',"nothing")
 		var/mutable_appearance/scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
-		what_we_destroying.transformation_animation(result, time = get_replication_speed(ct.tier_rate), transform_overlay = scanline, reset_after=TRUE)
+		what_we_destroying.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
 		active_item = what_we_destroying
-		spawn(get_replication_speed(ct.tier_rate))
+		spawn(get_replication_speed(tier_rate))
 			if(!src)
 				return
 			if(get_turf(what_we_destroying) != get_turf(src))
