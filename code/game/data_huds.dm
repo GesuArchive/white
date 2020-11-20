@@ -243,10 +243,10 @@
 	holder.pixel_y = I.Height() - world.icon_size
 	holder.icon_state = "hudno_id"
 	if(wear_id?.GetID())
-		var/jobid = r_lowertext(ckey(wear_id.GetJobName()))
-		if(jobid == "russianofficer" || jobid == "veteran" || jobid == "internationalofficer" || jobid == "trader" || jobid == "hacker" || jobid == "механик")
+		var/jobid = ckey(wear_id.GetJobName())
+		if(jobid == "russianofficer" || jobid == "veteran" || jobid == "internationalofficer" || jobid == "trader" || jobid == "hacker" || jobid == "Механик")
 			holder.icon = 'white/valtos/icons/hud.dmi'
-		holder.icon_state = "hud[r_lowertext(ckey(wear_id.GetJobName()))]"
+		holder.icon_state = "hud[ckey(wear_id.GetJobName())]"
 	sec_hud_set_security_status()
 
 /mob/living/proc/sec_hud_set_implants()

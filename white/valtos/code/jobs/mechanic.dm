@@ -37,3 +37,9 @@
 	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced = 1)
 
 	skillchip_path = /obj/item/skillchip/job/engineer
+
+/obj/machinery/copytech
+	name = "копирующий станок"
+	desc = "Умеет конвертировать предметы в читаемые автолатом дизайны."
+	icon = 'white/valtos/icons/something.dmi'
+	icon_state = "apparatus"
