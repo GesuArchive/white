@@ -233,6 +233,7 @@
 /obj/machinery/airalarm/Initialize(mapload)
 	. = ..()
 	set_frequency(frequency)
+	apply_mode(src)
 
 /obj/machinery/airalarm/examine(mob/user)
 	. = ..()
@@ -690,7 +691,7 @@
 	if(old_danger_level != danger_level)
 		apply_danger_level()
 	if(mode == AALARM_MODE_REPLACEMENT && environment_pressure < ONE_ATMOSPHERE * 0.05)
-		mode = AALARM_MODE_SCRUBBING
+		mode = AALARM_MODE_CONTAMINATED
 		apply_mode(src)
 
 
