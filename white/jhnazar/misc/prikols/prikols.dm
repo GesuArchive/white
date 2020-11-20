@@ -7,8 +7,5 @@
 			to_chat(usr, "Вы чувствуете себя видимым всему живому")
 			set_invisibility(0)
 		return
-	if(ckey == "Biomechanicmann")
-		icon = 'white/jhnazar/misc/prikols/beee.dmi'
-		icon_state = "syndiebee-wings"
-		return
+
 
