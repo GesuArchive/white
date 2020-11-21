@@ -11,13 +11,13 @@
 
 	if(ckey == "Biomechanicmann")
 		icon = 'white/jhnazar/misc/prikols/bee.dmi'
-		icon_state = "syndiebee-wings"
+		icon_state = "syndiebee_wings"
 
 		if(prob(50))
-			icon_state = "syndiebee-wings"
+			icon_state = "syndiebee_wings"
 		else
 			if(prob(50))
-				icon_state = "tophatbee-wings"
+				icon_state = "tophatbee_wings"
 			else
-				icon_state = "lichbee-wings"
+				icon_state = "lichbee_wings"
 		return
