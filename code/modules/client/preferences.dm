@@ -658,7 +658,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if(unlock_content)
 					dat += "<tr><td><b>BYOND Membership Publicity:</b></td><td><a href='?_src_=prefs;preference=publicity'>[(toggles & MEMBER_PUBLIC) ? "Public" : "Hidden"]</a></td></tr>"
 
-				if(unlock_content || check_rights_for(user.client, R_ADMIN) || check_donations(user.client.ckey) > 100)
+				if(unlock_content || check_rights_for(user.client, R_ADMIN) || check_donations(user.client.ckey) >= 100)
 					dat += "<tr><td><b>Цвет OOC:</b></td><td><span style='border: 1px solid #161616; background-color: [ooccolor ? ooccolor : GLOB.normal_ooc_colour];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=ooccolor;task=input'>Change</a></td></tr>"
 
 			dat += "</table></td>"
