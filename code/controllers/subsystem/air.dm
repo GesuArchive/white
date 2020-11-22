@@ -81,19 +81,6 @@ SUBSYSTEM_DEF(air)
 	var/timer = TICK_USAGE_REAL
 	var/delta_time = wait * 0.1
 
-	// Every time we fire, we want to make sure pipenets are rebuilt. The game state could have changed between each fire() proc call
-	// and anything missing a pipenet can lead to unintended behaviour at worse and various runtimes at best.
-	if(length(pipenets_needing_rebuilt))
-		var/list/pipenet_rebuilds = pipenets_needing_rebuilt
-		for(var/thing in pipenet_rebuilds)
-			var/obj/machinery/atmospherics/AT = thing
-			AT.build_network()
-		cached_cost += TICK_USAGE_REAL - timer
-		pipenets_needing_rebuilt.Cut()
-		if(state != SS_RUNNING)
-			return
-		cost_rebuilds = MC_AVERAGE(cost_rebuilds, TICK_DELTA_TO_MS(cached_cost))
-
 	if(currentpart == SSAIR_PIPENETS || !resumed)
 		process_pipenets(delta_time, resumed)
 		cost_pipenets = MC_AVERAGE(cost_pipenets, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
@@ -162,7 +149,6 @@ SUBSYSTEM_DEF(air)
 		cost_superconductivity = MC_AVERAGE(cost_superconductivity, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
-		cost_superconductivity = MC_AVERAGE(cost_superconductivity, TICK_DELTA_TO_MS(cached_cost))
 		resumed = FALSE
 	currentpart = SSAIR_PIPENETS
 
