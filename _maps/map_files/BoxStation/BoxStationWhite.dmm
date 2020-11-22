@@ -4170,14 +4170,14 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/structure/sign/poster/official/no_erp{
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
+	},
+/obj/structure/sign/plaques/robust/bronze{
+	pixel_y = 36
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/dorms)
@@ -29599,7 +29599,7 @@
 /obj/item/reagent_containers/food/condiment/peppermill{
 	pixel_x = 2
 	},
-/obj/item/reagent_containers/food/snacks/mint{
+/obj/item/food/mint{
 	pixel_y = 9
 	},
 /turf/open/floor/plating,
@@ -31404,6 +31404,10 @@
 /obj/machinery/ai_slipper/smartfoam,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
+"dHL" = (
+/obj/structure/statue/gold/robust,
+/turf/open/floor/plating,
+/area/space/nearstation)
 "dJF" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
@@ -31992,10 +31996,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/science/misc_lab)
-"fsQ" = (
-/obj/machinery/copytech,
-/turf/open/floor/plating,
-/area/engine/manufactory)
 "fva" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -32721,10 +32721,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
-"hih" = (
-/obj/machinery/copytech_platform,
-/turf/open/floor/plating,
-/area/engine/manufactory)
 "hnW" = (
 /obj/structure/chair{
 	dir = 1
@@ -34038,6 +34034,10 @@
 /area/science/genetics)
 "kze" = (
 /obj/structure/bed/maint,
+/obj/structure/sign/plaques/robust{
+	pixel_x = 16;
+	pixel_y = 36
+	},
 /turf/open/floor/wood{
 	icon_state = "wood-broken6"
 	},
@@ -73532,7 +73532,7 @@ afp
 mNB
 tJL
 dCj
-hih
+tJL
 tJL
 pUq
 ifX
@@ -74046,7 +74046,7 @@ ozX
 hvP
 mcC
 jHL
-fsQ
+tJL
 tJL
 wxR
 ifX
@@ -75739,7 +75739,7 @@ aaa
 aaa
 aaa
 gXs
-jHd
+rpc
 kze
 win
 wGA
@@ -75996,7 +75996,7 @@ aaa
 aaa
 aaa
 gXs
-jHd
+rpc
 kGo
 wGA
 win
@@ -90428,7 +90428,7 @@ aNa
 aQE
 aNa
 gXs
-aaa
+dHL
 gXs
 aNa
 aQE
