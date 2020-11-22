@@ -1,15 +1,15 @@
 
 //make incision
 /datum/surgery_step/incise
-	name = "make incision"
+	name = "сделать надрез"
 	implements = list(TOOL_SCALPEL = 100, /obj/item/melee/transforming/energy/sword = 75, /obj/item/kitchen/knife = 65,
 		/obj/item/shard = 45, /obj/item = 30) // 30% success with any sharp item.
 	time = 16
 
 /datum/surgery_step/incise/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You begin to make an incision in [target]'s [parse_zone(target_zone)]...</span>",
-		"<span class='notice'>[user] begins to make an incision in [target]'s [parse_zone(target_zone)].</span>",
-		"<span class='notice'>[user] begins to make an incision in [target]'s [parse_zone(target_zone)].</span>")
+	display_results(user, target, "<span class='notice'>Начинаю делать надрез на [parse_zone(target_zone)] [target]...</span>",
+		"<span class='notice'>[user] начинает делать надрез на [parse_zone(target_zone)] [target]...</span>",
+		"<span class='notice'>[user] начинает делать надрез на [parse_zone(target_zone)] [target].</span>")
 
 /datum/surgery_step/incise/tool_check(mob/user, obj/item/tool)
 	if(implement_type == /obj/item && !tool.get_sharpness())
@@ -21,8 +21,8 @@
 	if ishuman(target)
 		var/mob/living/carbon/human/H = target
 		if (!(NOBLOOD in H.dna.species.species_traits))
-			display_results(user, target, "<span class='notice'>Blood pools around the incision in [H]'s [parse_zone(target_zone)].</span>",
-				"<span class='notice'>Blood pools around the incision in [H]'s [parse_zone(target_zone)].</span>",
+			display_results(user, target, "<span class='notice'>Кровь течет из надреза [parse_zone(target_zone)] [H].</span>",
+				"<span class='notice'>Кровь течет из надреза [parse_zone(target_zone)] [H].</span>",
 				"")
 			var/obj/item/bodypart/BP = target.get_bodypart(target_zone)
 			if(BP)
@@ -30,9 +30,9 @@
 	return ..()
 
 /datum/surgery_step/incise/nobleed/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You begin to <i>carefully</i> make an incision in [target]'s [parse_zone(target_zone)]...</span>",
-		"<span class='notice'>[user] begins to <i>carefully</i> make an incision in [target]'s [parse_zone(target_zone)].</span>",
-		"<span class='notice'>[user] begins to <i>carefully</i> make an incision in [target]'s [parse_zone(target_zone)].</span>")
+	display_results(user, target, "<span class='notice'><i>Аккуратно</i> надрезаю [parse_zone(target_zone)] [target]...</span>",
+		"<span class='notice'>[user] начинает делать <i>аккуратный</i> надрез на [parse_zone(target_zone)] [target].</span>",
+		"<span class='notice'>[user] начинает делать <i>аккуратный</i> надрез на [parse_zone(target_zone)] [target].</span>")
 
 //clamp bleeders
 /datum/surgery_step/clamp_bleeders
