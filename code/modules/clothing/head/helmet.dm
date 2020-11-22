@@ -107,7 +107,7 @@
 	desc = "Надежный шлем синего цвета, напоминающий вам, что вы все еще должны инженеру пиво."
 	icon_state = "blueshift"
 	inhand_icon_state = "blueshift"
-	custom_premium_price = 750
+	custom_premium_price = PAYCHECK_HARD
 
 /obj/item/clothing/head/helmet/riot
 	name = "анти-мятежный шлем"
@@ -208,7 +208,7 @@
 	worn_x_dimension = 64
 	worn_y_dimension = 64
 	clothing_flags = LARGE_WORN_ICON
-	custom_price = 350
+	custom_price = PAYCHECK_HARD * 1.5
 
 /obj/item/clothing/head/helmet/swat/nanotrasen
 	name = "шлем спецназа"

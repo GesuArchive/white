@@ -261,7 +261,7 @@
 	name = "Хилый"
 	desc = "Ваши кости очень хрупкие! Ваши конечности не смогут выдержать слишком много повреждений."
 	value = -2
-	mob_trait = TRAIT_EASYLIMBWOUND
+	mob_trait = TRAIT_EASILY_WOUNDED
 	gain_text = "<span class='danger'>Я чувствую себя слабым.</span>"
 	lose_text = "<span class='notice'>Я вновь чувствую себя крепким!</span>"
 	medical_record_text = "Пациент имеет очень слабые кости, рекомендуется кальцевая диета."
@@ -467,7 +467,7 @@
 	hardcore_value = 6
 
 /datum/quirk/insanity/on_process(delta_time)
-	if(quirk_holder.has_reagent(/datum/reagent/toxin/mindbreaker, needs_metabolizing = TRUE))
+	if(quirk_holder.reagents.has_reagent(/datum/reagent/toxin/mindbreaker, needs_metabolizing = TRUE))
 		quirk_holder.hallucination = 0
 		return
 	if(DT_PROB(2, delta_time)) //we'll all be mad soon enough
@@ -562,7 +562,6 @@
 	desc = "Я страдаю от наркотической зависимости."
 	value = -2
 	gain_text = "<span class='danger'>Внезапно я почувствовал тягу к наркотикам.</span>"
-	lose_text = "<span class='notice'>Стоит бросить наркотики.</span>"
 	medical_record_text = "Пациент страдает от зависимости и тяжелых наркотиков."
 	hardcore_value = 4
 	var/drug_list = list(/datum/reagent/drug/crank, /datum/reagent/drug/krokodil, /datum/reagent/medicine/morphine, /datum/reagent/drug/happiness, /datum/reagent/drug/methamphetamine) //List of possible IDs
@@ -610,15 +609,22 @@
 		var/mob/living/carbon/human/H = quirk_holder
 		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
 
+/datum/quirk/junkie/remove()
+	if(quirk_holder && reagent_instance)
+		quirk_holder.reagents.remove_addiction(reagent_instance) //chat feedback here. No need of lose_text.
+
 /datum/quirk/junkie/proc/announce_drugs()
 	to_chat(quirk_holder, "<span class='boldnotice'>Я пронёс [initial(drug_container_type.name)] из [initial(reagent_type.name)] [where_drug]. Скоро он закончится, и мне необходимо будет найти дополнительную дозу.</span>")
 
 /datum/quirk/junkie/on_process()
+	if(HAS_TRAIT(quirk_holder, TRAIT_NOMETABOLISM))
+		return
 	var/mob/living/carbon/human/H = quirk_holder
 	if(world.time > next_process)
 		next_process = world.time + process_interval
-		if(!H.reagents.addiction_list.Find(reagent_instance))
-			if(QDELETED(reagent_instance))
+		var/deleted = QDELETED(reagent_instance)
+		if(deleted || !LAZYFIND(H.reagents.addiction_list, reagent_instance))
+			if(deleted)
 				reagent_instance = new reagent_type()
 			else
 				reagent_instance.addiction_stage = 0
@@ -630,9 +636,7 @@
 	desc = "Вы страдаете от никотиновой зависимости и вам придется регулярно выкуривать пачку сигарет. Не очень-то и полезно для ваших легких."
 	value = -1
 	gain_text = "<span class='danger'>Вам стоит снова закурить.</span>"
-	lose_text = "<span class='notice'>Я чувствую, что я бросил привычку курить..</span>"
 	medical_record_text = "Пациент является курильщиком."
-	reagent_type = /datum/reagent/drug/nicotine
 	accessory_type = /obj/item/lighter/greyscale
 	hardcore_value = 1
 
@@ -714,11 +718,11 @@
 		return
 	var/mob/living/carbon/carbon_quirk_holder = quirk_holder
 	for(var/M in allergies)
-		var/datum/reagent/instantiated_med = carbon_quirk_holder.has_reagent(M)
+		var/datum/reagent/instantiated_med = carbon_quirk_holder.reagents.has_reagent(M)
 		if(!instantiated_med)
 			continue
 		//Just halts the progression, I'd suggest you run to medbay asap to get it fixed
-		if(carbon_quirk_holder.has_reagent(/datum/reagent/medicine/epinephrine))
+		if(carbon_quirk_holder.reagents.has_reagent(/datum/reagent/medicine/epinephrine))
 			instantiated_med.reagent_removal_skip_list |= ALLERGIC_REMOVAL_SKIP
 			return //intentionally stops the entire proc so we avoid the organ damage after the loop
 		instantiated_med.reagent_removal_skip_list -= ALLERGIC_REMOVAL_SKIP

@@ -133,8 +133,8 @@
 
 	worth += C.air_contents.get_moles(/datum/gas/bz)*4
 	worth += C.air_contents.get_moles(/datum/gas/stimulum)*100
-	worth += C.air_contents.get_moles(/datum/gas/hypernoblium)*1000
-	worth += C.air_contents.get_moles(/datum/gas/miasma)*10
+	worth += C.air_contents.get_moles(/datum/gas/hypernoblium)*5
+	worth += C.air_contents.get_moles(/datum/gas/miasma)*2
 	worth += C.air_contents.get_moles(/datum/gas/tritium)*5
 	worth += C.air_contents.get_moles(/datum/gas/pluoxium)*5
 	worth += C.air_contents.get_moles(/datum/gas/freon)*15
@@ -143,4 +143,6 @@
 	worth += C.air_contents.get_moles(/datum/gas/proto_nitrate)*5
 	worth += C.air_contents.get_moles(/datum/gas/zauker)*1050
 	worth += C.air_contents.get_moles(/datum/gas/halon)*9
+	worth += C.air_contents.get_moles(/datum/gas/helium)*6
+	worth += C.air_contents.get_moles(/datum/gas/antinoblium)*10
 	return worth

@@ -78,38 +78,38 @@
 		. += "У н[t_ego] на лбу написано <b>[headstamp]</b>. Круто.\n"
 
 	//head
-	if(head && !(obscured & ITEM_SLOT_HEAD))
+	if(head && !(obscured & ITEM_SLOT_HEAD) && !(head.item_flags & EXAMINE_SKIP))
 		. += "На голове у н[t_ego] [head.get_examine_string(user)].\n"
 
 	//eyes
-	if(!(obscured & ITEM_SLOT_EYES))
-		if(glasses)
+	if(!(obscured & ITEM_SLOT_EYES) )
+		if(glasses  && !(glasses.item_flags & EXAMINE_SKIP))
 			. += "Также на [t_na] [glasses.get_examine_string(user)].\n"
 		else if(eye_color == BLOODCULT_EYE && iscultist(src) && HAS_TRAIT(src, CULT_EYES))
 			. += "<span class='warning'><B>[ru_ego(TRUE)] глаза ярко-красные и они горят!</B></span>\n"
 
 	//ears
-	if(ears && !(obscured & ITEM_SLOT_EARS))
+	if(ears && !(obscured & ITEM_SLOT_EARS) && !(ears.item_flags & EXAMINE_SKIP))
 		. += "В ушах у н[t_ego] есть [ears.get_examine_string(user)].\n"
 
 	//mask
-	if(wear_mask && !(obscured & ITEM_SLOT_MASK))
+	if(wear_mask && !(obscured & ITEM_SLOT_MASK)  && !(wear_mask.item_flags & EXAMINE_SKIP))
 		. += "На лице у [t_ego] [wear_mask.get_examine_string(user)].\n"
 
-	if(wear_neck && !(obscured & ITEM_SLOT_NECK))
+	if(wear_neck && !(obscured & ITEM_SLOT_NECK)  && !(wear_neck.item_flags & EXAMINE_SKIP))
 		. += "На шее у н[t_ego] [wear_neck.get_examine_string(user)].\n"
 
 	//suit/armor
-	if(wear_suit)
+	if(wear_suit && !(wear_suit.item_flags & EXAMINE_SKIP))
 		//suit/armor storage
 		var/suit_thing
-		if(s_store && !(obscured & ITEM_SLOT_SUITSTORE))
+		if(s_store && !(obscured & ITEM_SLOT_SUITSTORE) && !(s_store.item_flags & EXAMINE_SKIP))
 			suit_thing += " вместе с [s_store.get_examine_string(user)]"
 
 		. += "На [t_na] надет [wear_suit.get_examine_string(user)][suit_thing].\n"
 
 	//uniform
-	if(w_uniform && !(obscured & ITEM_SLOT_ICLOTHING))
+	if(w_uniform && !(obscured & ITEM_SLOT_ICLOTHING) && !(w_uniform.item_flags & EXAMINE_SKIP))
 		//accessory
 		var/accessory_msg
 		if(istype(w_uniform, /obj/item/clothing/under))
@@ -120,17 +120,17 @@
 		. += "Одет[t_a] он[t_a] в [w_uniform.get_examine_string(user)][accessory_msg].\n"
 
 	//back
-	if(back)
+	if(back && !(back.item_flags & EXAMINE_SKIP))
 		. += "Со спины у н[t_ego] свисает [back.get_examine_string(user)].\n"
 
 	//Hands
 	for(var/obj/item/I in held_items)
-		if(!(I.item_flags & ABSTRACT))
+		if(!(I.item_flags & ABSTRACT) && !(I.item_flags & EXAMINE_SKIP))
 			. += "В [get_held_index_name(get_held_index_of_item(I))] он[t_a] держит [I.get_examine_string(user)].\n"
 
 	var/datum/component/forensics/FR = GetComponent(/datum/component/forensics)
 	//gloves
-	if(gloves && !(obscured & ITEM_SLOT_GLOVES))
+	if(gloves && !(obscured & ITEM_SLOT_GLOVES) && !(gloves.item_flags & EXAMINE_SKIP))
 		. += "А на руках у н[t_ego] [gloves.get_examine_string(user)].\n"
 	else if(FR && length(FR.blood_DNA))
 		if(num_hands)
@@ -144,15 +144,15 @@
 			. += "<span class='warning'>[t_on] [icon2html(handcuffed, user)] в наручниках!</span>\n"
 
 	//belt
-	if(belt)
+	if(belt && !(belt.item_flags & EXAMINE_SKIP))
 		. += "И ещё на поясе у н[t_ego] [belt.get_examine_string(user)].\n"
 
 	//shoes
-	if(shoes && !(obscured & ITEM_SLOT_FEET))
+	if(shoes && !(obscured & ITEM_SLOT_FEET)  && !(shoes.item_flags & EXAMINE_SKIP))
 		. += "А на [t_ego] ногах [shoes.get_examine_string(user)].\n"
 
 	//ID
-	if(wear_id)
+	if(wear_id && !(wear_id.item_flags & EXAMINE_SKIP))
 		. += "И конечно же у н[t_ego] есть [wear_id.get_examine_string(user)].\n"
 
 	//Status effects
@@ -330,7 +330,7 @@
 		if(appears_dead)
 			bleed_text += ", но похоже уже замедляется.</span></B>\n"
 		else
-			if(has_reagent(/datum/reagent/toxin/heparin, needs_metabolizing = TRUE))
+			if(reagents.has_reagent(/datum/reagent/toxin/heparin, needs_metabolizing = TRUE))
 				bleed_text += " невероятно быстро"
 
 			bleed_text += "!</B>\n"
@@ -341,7 +341,7 @@
 
 		msg += bleed_text.Join()
 
-	if(has_reagent(/datum/reagent/teslium, needs_metabolizing = TRUE))
+	if(reagents.has_reagent(/datum/reagent/teslium, needs_metabolizing = TRUE))
 		msg += "[t_on] испускает нежное голубое свечение!\n"
 
 	if(islist(stun_absorption))

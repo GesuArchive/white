@@ -3,7 +3,7 @@
 	body_parts_covered = GROIN|LEGS
 	fitted = NO_FEMALE_UNIFORM
 	can_adjust = FALSE
-	custom_price = 60
+	custom_price = PAYCHECK_EASY
 	icon = 'icons/obj/clothing/under/shorts_pants.dmi'
 	worn_icon = 'icons/mob/clothing/under/shorts_pants.dmi'
 	species_exception = list(/datum/species/golem)
@@ -17,7 +17,7 @@
 	name = "джинсы Must Hang"
 	desc = "Сделаны на лучшей джинсовой фабрике части Альфа Центавры."
 	icon_state = "jeansmustang"
-	custom_price = 180
+	custom_price = PAYCHECK_EASY * 3
 
 /obj/item/clothing/under/pants/blackjeans
 	name = "чёрные джинсы"

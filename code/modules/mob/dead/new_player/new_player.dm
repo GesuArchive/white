@@ -461,8 +461,6 @@
 
 	client.prefs.copy_to(H, antagonist = is_antag, is_latejoiner = transfer_after)
 
-	client.prefs.copy_to(H, antagonist = is_antag)
-
 	client.hide_lobby()
 
 	H.dna.update_dna_identity()

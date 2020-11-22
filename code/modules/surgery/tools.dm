@@ -358,7 +358,7 @@
 	attack_verb_continuous = list("стрижёт", "режет")
 	attack_verb_simple = list("стрижёт", "режет")
 	sharpness = SHARP_EDGED
-	custom_premium_price = 1800
+	custom_premium_price = PAYCHECK_MEDIUM * 14
 
 /obj/item/shears/attack(mob/living/M, mob/user)
 	if(!iscarbon(M) || user.a_intent != INTENT_HELP)
