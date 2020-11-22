@@ -7,12 +7,12 @@
 //WINTER COATS
 /datum/gear/suit/wintercoat
 	subtype_path = /datum/gear/suit/wintercoat
-	cost = 20
+	cost = 80
 
 /datum/gear/suit/wintercoat/grey
 	display_name = "зимнее пальто"
 	path = /obj/item/clothing/suit/hooded/wintercoat
-	cost = 15
+	cost = 60
 
 /datum/gear/suit/wintercoat/captain
 	display_name = "зимнее пальто капитана"
@@ -58,7 +58,7 @@
 
 /datum/gear/suit/jacket
 	subtype_path = /datum/gear/suit/jacket
-	cost = 50
+	cost = 120
 
 /datum/gear/suit/jacket/bomber
 	display_name = "куртка бомбер"
@@ -88,12 +88,12 @@
 /datum/gear/suit/jacket/letterman_nanotrasen
 	display_name = "синяя куртка леттермана"
 	path = /obj/item/clothing/suit/jacket/letterman_nanotrasen
-	cost = 250
+	cost = 150
 
 /datum/gear/suit/jacket/letterman_syndie
 	display_name = "кроваво-красная куртка леттермана"
 	path = /obj/item/clothing/suit/jacket/letterman_syndie
-	cost = 250
+	cost = 150
 
 /datum/gear/suit/jacket/lawyer
 	display_name = "синий пиджак"
@@ -119,7 +119,7 @@
 
 /datum/gear/suit/poncho
 	subtype_path = /datum/gear/suit/poncho
-	cost = 20
+	cost = 60
 
 /datum/gear/suit/poncho/classic
 	display_name = "классический пончо"

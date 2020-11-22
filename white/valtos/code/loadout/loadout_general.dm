@@ -1,14 +1,14 @@
 /datum/gear/dice
 	display_name = "d20"
 	path = /obj/item/dice/d20
-	cost = 3
+	cost = 20
 
 //LIGHTERS & CIGARETTES
 
 /datum/gear/lighter
 	display_name = "зажигалка Zippo"
 	path = /obj/item/lighter
-	cost = 150
+	cost = 400
 
 /datum/gear/lighter/random
 	display_name = "дешёвая зажигалка"
@@ -18,7 +18,7 @@
 /datum/gear/cigarettes
 	display_name = "сигареты \"Space Cigarettes"
 	path = /obj/item/storage/fancy/cigarettes
-	cost = 80
+	cost = 200
 
 /datum/gear/cigarettes/dromedaryco
 	display_name = "сигареты \"DromedaryCo\""
@@ -43,18 +43,18 @@
 /datum/gear/cigarettes/cohiba
 	display_name = "сигара \"Cohiba Robusto\""
 	path = /obj/item/clothing/mask/cigarette/cigar/cohiba
-	cost = 120
+	cost = 350
 
 /datum/gear/cigarettes/havana
 	display_name = "сигара \"premium Havanian\""
 	path = /obj/item/clothing/mask/cigarette/cigar/havana
-	cost = 120
+	cost = 350
 
 /datum/gear/auvtomat
 	display_name = "WT-550"
 	path = /obj/item/gun/ballistic/automatic/wt550
 	allowed_roles = list("Veteran", "Security Officer", "Russian Officer", "Head of Security")
-	cost = 250
+	cost = 500
 
 /datum/gear/spare_id
 	display_name = "Золотая ID-карта капитана"
@@ -67,18 +67,5 @@
 	display_name = "Гитара"
 	description = "Хотите устроить рок-концерт или Вам нужно что-то крепкое в руках для потасовки? Возьмите с собой гитару!"
 	path = /obj/item/instrument/guitar
-	cost = 50
+	cost = 100
 
-/datum/gear/backup_circuit
-	display_name = "Запасная микросхема"
-	description = "Если каким-то образом на этой станции не оказалось консоли, а вы прибыли поздно, то всегда поможет запасная плата вызова шаттла."
-	path = /obj/machinery/computer/shuttle/ferry/request/trader
-	allowed_roles = list("Trader")
-	cost = 50
-
-/datum/gear/lvlonetrader
-	display_name = "Карта расширения L1"
-	description = "Для доступа к дополнительному отсеку."
-	path = /obj/item/card/id/trader_ex
-	allowed_roles = list("Trader")
-	cost = 350

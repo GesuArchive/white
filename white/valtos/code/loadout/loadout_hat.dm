@@ -9,7 +9,7 @@
 	display_name = "Каска, жёлтая"
 	path = /obj/item/clothing/head/hardhat
 	allowed_roles = list("Chief Engineer", "Station Engineer")
-	cost = 9
+	cost = 25
 
 /datum/gear/hat/hhat_orange
 	display_name = "Каска, оранжевая"
@@ -24,12 +24,12 @@
 /datum/gear/hat/that
 	display_name = "Цилиндр"
 	path = /obj/item/clothing/head/that
-	cost = 10
+	cost = 50
 
 /datum/gear/hat/red_beret
 	display_name = "Берет, красный"
 	path = /obj/item/clothing/head/beret
-	cost = 20
+	cost = 100
 
 /datum/gear/hat/wizgirl
 	display_name = "шляпа волшебницы"
