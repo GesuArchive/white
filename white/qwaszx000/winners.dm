@@ -1,5 +1,5 @@
 #define ENGINEER_WINER_CKEY "Laxesh"
-#define ROBUST_WINER_CKEY "DarkKeeper072"
+#define ROBUST_WINER_CKEY "moonmandoom" // 2020. Old winner is DarkKeeper072
 
 /obj/item/extinguisher/robust
 	name = "Robust fire extinguisher"
