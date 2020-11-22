@@ -119,8 +119,8 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 
 ///frog mask - reeee!!
 /obj/item/clothing/mask/animal/frog
-	name = "свинное лицо"
-	desc = "Похоже на маску, но если присмотреться получше то видно что она пришита к лицу этого человека!"
+	name = "маска лягушки"
+	desc = "Древняя маска выполненная в форме лягушачьей головы. <br> Безумие, оно, как гравитация — нужно всего-лишь слегка подтолкнуть."
 	icon_state = "frog"
 	inhand_icon_state = "frog"
 	animal_sounds = list("Ree!!", "Reee!!","REEE!!","REEEEE!!")

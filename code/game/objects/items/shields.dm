@@ -241,7 +241,7 @@
 
 /obj/item/shield/riot/tele
 	name = "телескопический щит"
-	desc = "Усовершенствованный защитный экран от легких материалов, который разрушается для удобства хранения."
+	desc = "Усовершенствованный защитный экран от легких материалов, способен складываться для удобства хранения."
 	icon_state = "teleriot0"
 	lefthand_file = 'icons/mob/inhands/equipment/shields_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/shields_righthand.dmi'

@@ -56,7 +56,7 @@
 
 /obj/item/clothing/under/costume/pirate
 	name = "пиратская матроска"
-	desc = "Ряяя!"
+	desc = "ЙАРРР!"
 	icon_state = "pirate"
 	inhand_icon_state = "pirate"
 	can_adjust = FALSE
