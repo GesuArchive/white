@@ -59,7 +59,7 @@
 		/obj/item/storage/mrebag/protein,
 		/obj/item/storage/mrebag/protein,
 		/obj/item/storage/mrebag/dessert,
-		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/food/bun,
 		/obj/item/reagent_containers/food/condiment/pack/bbqsauce,
 		/obj/item/reagent_containers/food/drinks/soda_cans/random)
 

@@ -397,7 +397,6 @@
 							log_game("[key_name(C)] has become addicted to [R.name] at [R.volume] units.")
 					if(R.overdosed)
 						need_mob_update += R.overdose_process(C)
-					var/datum/reagent/addiction_type = new R.addiction_type()
 					if(is_addicted_to)
 						for(var/addiction in cached_addictions)
 							var/datum/reagent/A = addiction
