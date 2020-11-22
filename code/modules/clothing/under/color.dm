@@ -62,7 +62,7 @@
 
 /obj/item/clothing/under/color/jumpskirt/grey
 	name = "серый юбкомбезон"
-	desc = "Вкусная серая юбкомбезка, напоминающая старые добрые времена."
+	desc = "Изящный серый юбкомбезон, напоминающий вам о старых добрых временах."
 	icon_state = "grey_skirt"
 	inhand_icon_state = "gy_suit"
 
