@@ -1066,7 +1066,7 @@
 					moderator_internal.adjust_moles(/datum/gas/water_vapor, scaled_production)
 					if(m_plasma > 15)
 						moderator_internal.adjust_moles(/datum/gas/bz, scaled_production * 1.35)
-						internal_output.adjust_moles(/datum/gas/freon, scaled_production *0.25
+						internal_output.adjust_moles(/datum/gas/freon, scaled_production *0.25)
 						moderator_internal.adjust_moles(/datum/gas/plasma, -min(moderator_internal.get_moles(/datum/gas/plasma), scaled_production * 1.45))
 					if(m_freon > 500)
 						heat_output *= 0.5
@@ -1139,19 +1139,18 @@
 				filter_type = gas_id2path(filter_type)
 			else
 				filtering = FALSE
-		if(filtering && moderator_internal.gases[filter_type])
-			var/datum/gas_mixture/removed = moderator_internal.remove_specific(filter_type, 20)
+		if(filtering && moderator_internal.get_moles(filter_type))
+			var/datum/gas_mixture/removed = moderator_internal.adjust_moles(filter_type, -20)
 			removed.return_temperature() = moderator_internal.return_temperature()
 			linked_output.airs[1].merge(removed)
 
 		var/datum/gas_mixture/internal_remove
 		if(internal_fusion.get_moles(/datum/gas/helium) > 0)
-			internal_remove = internal_fusion.remove_specific(/datum/gas/helium, internal_fusion.get_moles(/datum/gas/helium) * 0.5)
+			internal_remove = internal_fusion.adjust_moles(/datum/gas/helium, -internal_fusion.get_moles(/datum/gas/helium) * 0.5)
 			linked_output.airs[1].merge(internal_remove)
 		if(internal_fusion.get_moles(/datum/gas/antinoblium) > 0)
-			internal_remove = internal_fusion.remove_specific(/datum/gas/antinoblium, internal_fusion.get_moles(/datum/gas/antinoblium) * 0.05)
+			internal_remove = internal_fusion.adjust_moles(/datum/gas/antinoblium, -internal_fusion.get_moles(/datum/gas/antinoblium) * 0.05)
 			linked_output.airs[1].merge(internal_remove)
-		internal_fusion.garbage_collect()
 
 
 	//Update pipenets
@@ -1254,29 +1253,29 @@
 	//Internal Fusion gases
 	var/list/fusion_gasdata = list()
 	if(connected_core.internal_fusion.total_moles())
-		for(var/gasid in connected_core.internal_fusion.gases)
+		for(var/gasid in connected_core.internal_fusion.get_gases())
 			fusion_gasdata.Add(list(list(
-			"name"= connected_core.internal_fusion.gases[gasid][GAS_META][META_GAS_NAME],
+			"name"= GLOB.meta_gas_info[gasid][META_GAS_NAME],
 			"amount" = round(connected_core.internal_fusion.get_moles(gasid), 0.01),
 			)))
 	else
-		for(var/gasid in connected_core.internal_fusion.gases)
+		for(var/gasid in connected_core.internal_fusion.get_gases())
 			fusion_gasdata.Add(list(list(
-				"name"= connected_core.internal_fusion.gases[gasid][GAS_META][META_GAS_NAME],
+				"name"= GLOB.meta_gas_info[gasid][META_GAS_NAME],
 				"amount" = 0,
 				)))
 	//Moderator gases
 	var/list/moderator_gasdata = list()
 	if(connected_core.moderator_internal.total_moles())
-		for(var/gasid in connected_core.moderator_internal.gases)
+		for(var/gasid in connected_core.moderator_internal.get_gases())
 			moderator_gasdata.Add(list(list(
-			"name"= connected_core.moderator_internal.gases[gasid][GAS_META][META_GAS_NAME],
+			"name"= GLOB.meta_gas_info[gasid][META_GAS_NAME],
 			"amount" = round(connected_core.moderator_internal.get_moles(gasid), 0.01),
 			)))
 	else
-		for(var/gasid in connected_core.moderator_internal.gases)
+		for(var/gasid in connected_core.moderator_internal.get_gases())
 			moderator_gasdata.Add(list(list(
-				"name"= connected_core.moderator_internal.gases[gasid][GAS_META][META_GAS_NAME],
+				"name"= GLOB.meta_gas_info[gasid][META_GAS_NAME],
 				"amount" = 0,
 				)))
 
