@@ -10,7 +10,7 @@
 		return
 	return
 
-	if(ckey == "Biomechanicmann")
+	if(ckey == "biomechanicmann")
 		icon = 'white/jhnazar/misc/prikols/bee.dmi'
 		icon_state = "syndiebee-wings"
 
