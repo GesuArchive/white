@@ -121,7 +121,7 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 
 	r_hand = /obj/item/extinguisher/tournament
 
-/datum/outfit/whiterobust/ass/exting
+/datum/outfit/whiterobust/ass/exting/babah
 	name = "Ассистуха + Огнетушитель-БАБАХ"
 
 	r_hand = /obj/item/extinguisher/tournament/babah
