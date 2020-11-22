@@ -118,7 +118,7 @@
 
 /obj/item/clothing/under/suit/white
 	name = "белый костюм"
-	desc = "Белый костюм и жакет с синей рубашкой. Хочешь играть грубо? ЛАДНО!"
+	desc = "Белый костюм и жакет с синей рубашкой. Хочешь по-грубому? Хорошо!"
 	icon_state = "white_suit"
 	inhand_icon_state = "white_suit"
 

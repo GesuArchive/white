@@ -25,7 +25,7 @@
 	allowed_roles = list("Security Officer", "Brig Physician", "Head of Security")
 
 /datum/gear/suit/wintercoat/medical
-	display_name = "медицинское зимнее пальтоt"
+	display_name = "медицинское зимнее пальто"
 	path = /obj/item/clothing/suit/hooded/wintercoat/medical
 	allowed_roles = list("Paramedic", "Medical Doctor", "Chief Medical Officer", "Chemist", "Geneticist")
 

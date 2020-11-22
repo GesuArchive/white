@@ -56,7 +56,7 @@
 
 /obj/item/clothing/under/color/grey
 	name = "серый комбинезон"
-	desc = "Вкусный серый комбинезон, напоминающий о старых добрых временах."
+	desc = "Изящный серый комбинезон, напоминающий вам о старых добрых временах."
 	icon_state = "grey"
 	inhand_icon_state = "gy_suit"
 
