@@ -312,7 +312,7 @@
 
 				update_static_data(usr,ui)
 				var/obj/O = ui.user.get_active_held_item()
-				ui.user.visible_message("<span class='notice'>[ui.user] штампует [src] используя [stamp_class]!</span>", "<span class='notice'>Штампую [src] используя [stamp_class]!</span>")
+				ui.user.visible_message("<span class='notice'>[ui.user] штампует [src] используя [O.name]!</span>", "<span class='notice'>Штампую [src] используя [O.name]!</span>")
 			else
 				to_chat(usr, pick("Пытаюсь сделать штамп, но промахиваюсь!", "А где штамп то ставить?!"))
 			. = TRUE

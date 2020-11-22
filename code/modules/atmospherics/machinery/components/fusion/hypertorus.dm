@@ -724,8 +724,8 @@
 		//Modifies the moderator_internal temperature based on energy conduction and also the fusion by the same amount
 		var/fusion_temperature_delta = internal_fusion.return_temperature() - moderator_internal.return_temperature()
 		var/fusion_heat_amount = METALLIC_VOID_CONDUCTIVITY * fusion_temperature_delta * (internal_fusion.heat_capacity() * moderator_internal.heat_capacity() / (internal_fusion.heat_capacity() + moderator_internal.heat_capacity()))
-		internal_fusion.return_temperature() = max(internal_fusion.return_temperature() - fusion_heat_amount / internal_fusion.heat_capacity(), TCMB)
-		moderator_internal.return_temperature() = max(moderator_internal.return_temperature() + fusion_heat_amount / moderator_internal.heat_capacity(), TCMB)
+		internal_fusion.set_temperature(max(internal_fusion.return_temperature() - fusion_heat_amount / internal_fusion.heat_capacity(), TCMB))
+		moderator_internal.set_temperature(max(moderator_internal.return_temperature() + fusion_heat_amount / moderator_internal.heat_capacity(), TCMB))
 
 	if(airs[1].total_moles() * 0.05 > MINIMUM_MOLE_COUNT)
 		var/datum/gas_mixture/cooling_in = airs[1]
@@ -735,14 +735,14 @@
 		if(moderator_internal.total_moles() > 0)
 			var/coolant_temperature_delta = cooling_remove.return_temperature() - moderator_internal.return_temperature()
 			var/cooling_heat_amount = HIGH_EFFICIENCY_CONDUCTIVITY * coolant_temperature_delta * (cooling_remove.heat_capacity() * moderator_internal.heat_capacity() / (cooling_remove.heat_capacity() + moderator_internal.heat_capacity()))
-			cooling_remove.return_temperature() = max(cooling_remove.return_temperature() - cooling_heat_amount / cooling_remove.heat_capacity(), TCMB)
-			moderator_internal.return_temperature() = max(moderator_internal.return_temperature() + cooling_heat_amount / moderator_internal.heat_capacity(), TCMB)
+			cooling_remove.set_temperature(max(cooling_remove.return_temperature() - cooling_heat_amount / cooling_remove.heat_capacity(), TCMB))
+			moderator_internal.set_temperature(max(moderator_internal.return_temperature() + cooling_heat_amount / moderator_internal.heat_capacity(), TCMB))
 
 		else if(internal_fusion.total_moles() > 0)
 			var/coolant_temperature_delta = cooling_remove.return_temperature() - internal_fusion.return_temperature()
 			var/cooling_heat_amount = METALLIC_VOID_CONDUCTIVITY * coolant_temperature_delta * (cooling_remove.heat_capacity() * internal_fusion.heat_capacity() / (cooling_remove.heat_capacity() + internal_fusion.heat_capacity()))
-			cooling_remove.return_temperature() = max(cooling_remove.return_temperature() - cooling_heat_amount / cooling_remove.heat_capacity(), TCMB)
-			internal_fusion.return_temperature() = max(internal_fusion.return_temperature() + cooling_heat_amount / internal_fusion.heat_capacity(), TCMB)
+			cooling_remove.set_temperature(max(cooling_remove.return_temperature() - cooling_heat_amount / cooling_remove.heat_capacity(), TCMB))
+			internal_fusion.set_temperature(max(internal_fusion.return_temperature() + cooling_heat_amount / internal_fusion.heat_capacity(), TCMB))
 		cooling_out.merge(cooling_remove)
 
 	fusion_temperature = internal_fusion.return_temperature()
@@ -985,9 +985,9 @@
 
 	//Modifies the internal_fusion temperature with the amount of heat output
 	if(internal_fusion.return_temperature() <= FUSION_MAXIMUM_TEMPERATURE)
-		internal_fusion.return_temperature() = clamp(internal_fusion.return_temperature() + heat_output,TCMB,FUSION_MAXIMUM_TEMPERATURE)
+		internal_fusion.set_temperature(clamp(internal_fusion.return_temperature() + heat_output,TCMB,FUSION_MAXIMUM_TEMPERATURE))
 	else
-		internal_fusion.return_temperature() -= heat_limiter_modifier * 0.01 * delta_time
+		internal_fusion.set_temperature(internal_fusion.return_temperature() - heat_limiter_modifier * 0.01 * delta_time)
 
 	//gas consumption and production
 	if(check_fuel())
@@ -1118,9 +1118,9 @@
 	//heat up and output what's in the internal_output into the linked_output port
 	if(internal_output.total_moles() > 0)
 		if(moderator_internal.total_moles() > 0)
-			internal_output.return_temperature() = moderator_internal.return_temperature() * HIGH_EFFICIENCY_CONDUCTIVITY
+			internal_output.set_temperature(moderator_internal.return_temperature() * HIGH_EFFICIENCY_CONDUCTIVITY)
 		else
-			internal_output.return_temperature() = internal_fusion.return_temperature() * METALLIC_VOID_CONDUCTIVITY
+			internal_output.set_temperature(internal_fusion.return_temperature() * METALLIC_VOID_CONDUCTIVITY)
 		linked_output.airs[1].merge(internal_output)
 
 	//High power fusion might create other matter other than helium, iron is dangerous inside the machine, damage can be seen
@@ -1141,7 +1141,7 @@
 				filtering = FALSE
 		if(filtering && moderator_internal.get_moles(filter_type))
 			var/datum/gas_mixture/removed = moderator_internal.adjust_moles(filter_type, -20)
-			removed.return_temperature() = moderator_internal.return_temperature()
+			removed.set_temperature(moderator_internal.return_temperature())
 			linked_output.airs[1].merge(removed)
 
 		var/datum/gas_mixture/internal_remove

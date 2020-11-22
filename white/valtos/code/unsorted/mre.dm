@@ -8,7 +8,7 @@
 		/obj/item/storage/mrebag,
 		/obj/item/storage/mrebag,
 		/obj/item/storage/mrebag/dessert,
-		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/food/bun,
 		/obj/item/reagent_containers/food/drinks/soda_cans/random,
 		/obj/item/reagent_containers/food/condiment/pack/hotsauce)
 
