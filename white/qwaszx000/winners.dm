@@ -108,6 +108,6 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 /obj/structure/sign/plaques/robust/bronze
-	name = "Интересный портрет"
-	desc = "Разыскивается!<hr><b>Leviathan21</b> AKA <i>Masturbator</i> - третье место!"
+	name = "Портрет"
+	desc = "Доктор Киара всех полечит и исцелит!<hr><b>Leviathan21</b> AKA <i>Masturbator</i> - третье место!"
 	icon_state = "bronze_2020"
