@@ -24,7 +24,7 @@
 	inverse = TRUE
 
 /obj/item/wallframe/light_fixture/small
-	name = "рама лампочки"
+	name = "рама лампы"
 	icon_state = "bulb-construct-item"
 	result_path = /obj/structure/light_construct/small
 	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)

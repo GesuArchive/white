@@ -598,8 +598,8 @@
 		))
 
 /obj/item/storage/belt/fannypack
-	name = "рюкзачок"
-	desc = "Унылый рюкзак для хранения мелких вещей."
+	name = "поясная сумка"
+	desc = "Придурковатая поясная сумка для хранения мелких вещей."
 	icon_state = "fannypack_leather"
 	inhand_icon_state = "fannypack_leather"
 	worn_icon_state = "fannypack_leather"
@@ -613,61 +613,61 @@
 	STR.max_w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/storage/belt/fannypack/black
-	name = "чёрный рюкзачок"
+	name = "чёрная поясная сумка"
 	icon_state = "fannypack_black"
 	inhand_icon_state = "fannypack_black"
 	worn_icon_state = "fannypack_black"
 
 /obj/item/storage/belt/fannypack/red
-	name = "красный рюкзачок"
+	name = "красная поясная сумка"
 	icon_state = "fannypack_red"
 	inhand_icon_state = "fannypack_red"
 	worn_icon_state = "fannypack_red"
 
 /obj/item/storage/belt/fannypack/purple
-	name = "фиолетовый рюкзачок"
+	name = "фиолетовая поясная сумка"
 	icon_state = "fannypack_purple"
 	inhand_icon_state = "fannypack_purple"
 	worn_icon_state = "fannypack_purple"
 
 /obj/item/storage/belt/fannypack/blue
-	name = "синий рюкзачок"
+	name = "синяя поясная сумка"
 	icon_state = "fannypack_blue"
 	inhand_icon_state = "fannypack_blue"
 	worn_icon_state = "fannypack_blue"
 
 /obj/item/storage/belt/fannypack/orange
-	name = "оранжевый рюкзачок"
+	name = "оранжевая поясная сумка"
 	icon_state = "fannypack_orange"
 	inhand_icon_state = "fannypack_orange"
 	worn_icon_state = "fannypack_orange"
 
 /obj/item/storage/belt/fannypack/white
-	name = "белый рюкзачок"
+	name = "белая поясная сумка"
 	icon_state = "fannypack_white"
 	inhand_icon_state = "fannypack_white"
 	worn_icon_state = "fannypack_white"
 
 /obj/item/storage/belt/fannypack/green
-	name = "зелёный рюкзачок"
+	name = "зелёная поясная сумка"
 	icon_state = "fannypack_green"
 	inhand_icon_state = "fannypack_green"
 	worn_icon_state = "fannypack_green"
 
 /obj/item/storage/belt/fannypack/pink
-	name = "розовый рюкзачок"
+	name = "розовая поясная сумка"
 	icon_state = "fannypack_pink"
 	inhand_icon_state = "fannypack_pink"
 	worn_icon_state = "fannypack_pink"
 
 /obj/item/storage/belt/fannypack/cyan
-	name = "голубой рюкзачок"
+	name = "голубая поясная сумка"
 	icon_state = "fannypack_cyan"
 	inhand_icon_state = "fannypack_cyan"
 	worn_icon_state = "fannypack_cyan"
 
 /obj/item/storage/belt/fannypack/yellow
-	name = "жёлтый рюкзачок"
+	name = "жёлтая поясная сумка"
 	icon_state = "fannypack_yellow"
 	inhand_icon_state = "fannypack_yellow"
 	worn_icon_state = "fannypack_yellow"

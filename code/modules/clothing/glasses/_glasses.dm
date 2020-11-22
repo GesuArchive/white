@@ -218,12 +218,12 @@
 /obj/item/clothing/glasses/sunglasses/chemical
 	name = "научные очки"
 	icon_state = "sunhudsci"
-	desc = "Пара липких фиолетовых солнцезащитных очков, которые позволяют носящему распознавать различные химические соединения с первого взY."
+	desc = "Пара липких фиолетовых солнцезащитных очков, которые позволяют носящему распознавать различные химические соединения с первого взгляда."
 	clothing_flags = SCAN_REAGENTS
 
 /obj/item/clothing/glasses/sunglasses/garb
-	name = "чёрные GAR очки"
-	desc = "Выйди за пределы невозможного и пни разум на обочину."
+	name = "чёрные гар очки"
+	desc = "Выйди за пределы невозможного и пни здравый смысл на обочину."
 	icon_state = "garb"
 	inhand_icon_state = "garb"
 	force = 10
@@ -235,7 +235,7 @@
 	sharpness = SHARP_EDGED
 
 /obj/item/clothing/glasses/sunglasses/garb/supergarb
-	name = "чёрные гига GAR очки"
+	name = "чёрные гига-гар очки"
 	desc = "Поверьте в нас, людей."
 	icon_state = "supergarb"
 	inhand_icon_state = "garb"
@@ -243,8 +243,8 @@
 	throwforce = 12
 
 /obj/item/clothing/glasses/sunglasses/gar
-	name = "GAR очки"
-	desc = "Какого черта ты думаешь я?!"
+	name = "гар очки"
+	desc = "Ты за кого меня принимаешь?!"
 	icon_state = "gar"
 	inhand_icon_state = "gar"
 	force = 10
@@ -257,8 +257,8 @@
 	glass_colour_type = /datum/client_colour/glass_colour/orange
 
 /obj/item/clothing/glasses/sunglasses/gar/supergar
-	name = "гига GAR очки"
-	desc = "Мы развиваемся мимо человека, которым мы были минуту назад. Понемногу мы продвигаемся с каждым ходом. Вот как работает дрель!"
+	name = "гига гар очки"
+	desc = "Мы развиваемся. Каждый из нас — не тот, что был минуту назад! С каждым поворотом, пусть немного, но продвигаемся вперёд! Так действует спираль!"
 	icon_state = "supergar"
 	inhand_icon_state = "gar"
 	force = 12

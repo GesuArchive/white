@@ -101,8 +101,8 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	new/datum/stack_recipe("каркас небольшого светильника", /obj/item/wallframe/light_fixture/small, 1), \
 	null, \
 	new/datum/stack_recipe("рамка APC", /obj/item/wallframe/apc, 2), \
-	new/datum/stack_recipe("каркас воздушной сигнализации", /obj/item/wallframe/airalarm, 2), \
-	new/datum/stack_recipe("каркас пожарной сигнализации", /obj/item/wallframe/firealarm, 2), \
+	new/datum/stack_recipe("каркас контроллера воздуха", /obj/item/wallframe/airalarm, 2), \
+	new/datum/stack_recipe("каркас пожарной тревоги", /obj/item/wallframe/firealarm, 2), \
 	new/datum/stack_recipe("шкаф для огнетушителя", /obj/item/wallframe/extinguisher_cabinet, 2), \
 	new/datum/stack_recipe("рамка для кнопки", /obj/item/wallframe/button, 1), \
 	null, \

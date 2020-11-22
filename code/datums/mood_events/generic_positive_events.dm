@@ -102,7 +102,7 @@
 	hidden = TRUE
 
 /datum/mood_event/heretics
-	description = "<span class='nicegreen'>THE HIGHER I RISE , THE MORE I SEE.</span>\n"
+	description = "<span class='nicegreen'>ЧЕМ ВЫШЕ Я ПОДНИМАЮСЬ, ТЕМ БОЛЬШЕ Я ВИЖУ.</span>\n"
 	mood_change = 10 //maybe being a cultist isnt that bad after all
 	hidden = TRUE
 
@@ -128,7 +128,7 @@
 	mood_change = 4
 
 /datum/mood_event/chemical_laughter
-	description = "<span class='nicegreen'>Laughter самая лучшая медицина, не так ли?!</span>\n"
+	description = "<span class='nicegreen'>Смех это действительно лучшее лекарство. Или нет?!</span>\n"
 	mood_change = 4
 	timeout = 3 MINUTES
 

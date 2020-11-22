@@ -316,7 +316,7 @@
 			var/turf/open/theturf = T
 			theturf.MakeSlippery(TURF_WET_WATER, min_wet_time = 10 SECONDS, wet_time_to_add = 5 SECONDS)
 
-		user.visible_message("<span class='notice'>[user] опустошает [src] используя опустошительный краник.</span>", "<span class='info'>Быстренько опустошаю [src] используя опустошительный краник.</span>")
+		user.visible_message("<span class='notice'>[user] опустошает [src] используя выпускной клапан.</span>", "<span class='info'>Быстренько опустошаю [src] используя выпускной клапан.</span>")
 
 //firebot assembly
 /obj/item/extinguisher/attackby(obj/O, mob/user, params)
