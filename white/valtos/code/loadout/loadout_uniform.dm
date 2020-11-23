@@ -4,7 +4,7 @@
 	slot = ITEM_SLOT_ICLOTHING
 	sort_category = "Униформы"
 	species_blacklist = list("plasmaman") //Envirosuit moment
-	cost = 10
+	cost = 50
 
 /datum/gear/uniform/pants
 	subtype_path = /datum/gear/uniform/pants
@@ -61,7 +61,7 @@
 
 /datum/gear/uniform/skirt
 	subtype_path = /datum/gear/uniform/skirt
-	cost = 30
+	cost = 60
 
 /datum/gear/uniform/skirt/blue
 	display_name = "синяя юбка"
@@ -95,7 +95,7 @@
 
 /datum/gear/uniform/suit
 	subtype_path = /datum/gear/uniform/suit
-	cost = 35
+	cost = 150
 
 /datum/gear/uniform/suit/suit_jacket
 	subtype_path = /datum/gear/uniform/suit/suit_jacket
@@ -221,7 +221,7 @@
 /datum/gear/uniform/rank/medical
 	subtype_path = /datum/gear/uniform/rank/medical
 	allowed_roles = list("Paramedic", "Medical Doctor", "Chief Medical Officer")
-	cost = 20
+	cost = 50
 
 /datum/gear/uniform/rank/medical/scrubs_blue
 	display_name = "синий медицинский халат"
