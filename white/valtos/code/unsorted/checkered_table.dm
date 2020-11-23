@@ -42,6 +42,7 @@
 	RegisterSignal(src, COMSIG_CLICK, .proc/table_click)
 	RegisterSignal(src, COMSIG_CLICK_CTRL, .proc/table_click)
 	RegisterSignal(src, COMSIG_CLICK_CTRL_SHIFT, .proc/table_click)
+	RegisterSignal(src, COMSIG_CLICK_SHIFT, .proc/table_click)
 
 /obj/checkered_table/attack_paw(mob/user)
 	return attack_hand(user)
