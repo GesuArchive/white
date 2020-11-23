@@ -114,7 +114,7 @@
 			update_icon()
 		return TRUE
 	else if (isliving(current_design))
-		if(tier_rate =< 8)
+		if(tier_rate <= 8)
 			say("Слишком слабая мощность лазера.")
 			return FALSE
 		var/mob/living/M = new current_design(get_turf(src))
@@ -246,7 +246,7 @@
 				if(O.anchored || (O.resistance_flags & INDESTRUCTIBLE) || O == src)
 					continue
 				what_we_destroying = thing
-			if(istype(thing, /mob/living) && tier_rate =< 8)
+			if(istype(thing, /mob/living) && tier_rate <= 8)
 				what_we_destroying = thing
 	if(what_we_destroying)
 		what_we_destroying.set_anchored(TRUE)
