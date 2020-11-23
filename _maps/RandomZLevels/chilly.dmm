@@ -1319,13 +1319,13 @@
 /obj/structure/closet/crate/freezer,
 /obj/item/food/bread/plain,
 /obj/item/food/bread/plain,
-/obj/item/reagent_containers/food/snacks/canned/peaches,
-/obj/item/reagent_containers/food/snacks/canned/peaches,
-/obj/item/reagent_containers/food/snacks/canned/peaches,
-/obj/item/reagent_containers/food/snacks/canned/beans,
-/obj/item/reagent_containers/food/snacks/bun,
-/obj/item/reagent_containers/food/snacks/bun,
-/obj/item/reagent_containers/food/snacks/bun,
+/obj/item/food/canned/peaches,
+/obj/item/food/canned/peaches,
+/obj/item/food/canned/peaches,
+/obj/item/food/canned/beans,
+/obj/item/food/bun,
+/obj/item/food/bun,
+/obj/item/food/bun,
 /obj/item/reagent_containers/food/snacks/grown/banana/bombanana,
 /obj/item/reagent_containers/food/snacks/grown/carrot,
 /obj/item/reagent_containers/food/snacks/grown/citrus/lemon,
@@ -1336,8 +1336,8 @@
 /obj/item/reagent_containers/food/snacks/grown/tomato,
 /obj/item/reagent_containers/food/snacks/grown/wheat,
 /obj/item/reagent_containers/food/snacks/grown/wheat,
-/obj/item/reagent_containers/food/snacks/tortilla,
-/obj/item/reagent_containers/food/snacks/store/shaurma,
+/obj/item/food/tortilla,
+/obj/item/food/shaurma,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility)
 "dD" = (
@@ -2273,7 +2273,7 @@
 /obj/effect/turf_decal/dust,
 /obj/structure/closet/crate,
 /turf/open/floor/plating/snowed/oxy,
-/area/awaymission/chilly/ntcargotrain)
+/area/awaymission/chilly/surface)
 "go" = (
 /obj/item/toy/snowball,
 /turf/open/floor/grass/snow/safe/oxy,
@@ -2736,7 +2736,7 @@
 /obj/structure/table/wood,
 /obj/effect/turf_decal/dust,
 /obj/item/trash/tray,
-/obj/item/reagent_containers/food/snacks/cornchips,
+/obj/item/food/cornchips,
 /obj/item/food/chips{
 	pixel_x = 8
 	},
@@ -3248,11 +3248,11 @@
 /obj/effect/turf_decal/dust,
 /obj/item/food/sausage,
 /obj/item/food/sausage,
-/obj/item/reagent_containers/food/snacks/canned/beans,
-/obj/item/reagent_containers/food/snacks/canned/beans,
-/obj/item/reagent_containers/food/snacks/canned/beans,
-/obj/item/reagent_containers/food/snacks/canned/beans,
-/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/chilly/facility)
 "iW" = (
@@ -3976,8 +3976,12 @@
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility3)
 "kT" = (
-/turf/open/floor/plating/snowed/smoothed/temperatre,
-/area/awaymission/chilly/ntcargotrain)
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/obj/item/crowbar/large,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "kU" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/closet/firecloset,
@@ -4293,7 +4297,7 @@
 /obj/structure/girder,
 /obj/effect/light_emitter,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
-/area/awaymission/chilly/ntcargotrain)
+/area/awaymission/chilly/surface)
 "lN" = (
 /obj/structure/table,
 /obj/item/radio/intercom,
@@ -6696,8 +6700,8 @@
 /area/awaymission/chilly/gatewaystart)
 "sr" = (
 /obj/structure/closet/secure_closet/freezer,
-/obj/item/reagent_containers/food/snacks/canned/beans,
-/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/white/side{
 	dir = 8
@@ -7418,6 +7422,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 4
 	},
+/obj/machinery/oldvents/variant3,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility/emergencystorage)
 "un" = (
@@ -7961,7 +7966,6 @@
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/cave)
 "vM" = (
-/obj/effect/turf_decal/dust,
 /obj/machinery/oldvents/variant2,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
@@ -8198,7 +8202,7 @@
 	},
 /obj/effect/light_emitter,
 /turf/open/floor/grass/snow/safe/oxy,
-/area/awaymission/chilly/ntcargotrain)
+/area/awaymission/chilly/surface)
 "wr" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/blood,
@@ -8388,7 +8392,7 @@
 /obj/item/clothing/glasses/science,
 /obj/item/clothing/glasses/science,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
-/area/awaymission/chilly/ntcargotrain)
+/area/awaymission/chilly/surface)
 "wU" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -8425,7 +8429,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/snowed/oxy,
-/area/awaymission/chilly/ntcargotrain)
+/area/awaymission/chilly/surface)
 "wY" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/table_frame,
@@ -10268,19 +10272,19 @@
 /area/awaymission/chilly/facility)
 "Co" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/snacks/canned/beans,
-/obj/item/reagent_containers/food/snacks/canned/beans,
-/obj/item/reagent_containers/food/snacks/canned/beans,
-/obj/item/reagent_containers/food/snacks/canned/beans,
-/obj/item/reagent_containers/food/snacks/canned/beans,
-/obj/item/reagent_containers/food/snacks/canned/beans{
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans{
 	pixel_y = 6
 	},
-/obj/item/reagent_containers/food/snacks/canned/beans{
+/obj/item/food/canned/beans{
 	pixel_x = 8
 	},
-/obj/item/reagent_containers/food/snacks/canned/peaches,
-/obj/item/reagent_containers/food/snacks/canned/peaches{
+/obj/item/food/canned/peaches,
+/obj/item/food/canned/peaches{
 	pixel_x = -6;
 	pixel_y = 3
 	},
@@ -10319,7 +10323,7 @@
 "Cu" = (
 /obj/effect/light_emitter,
 /turf/open/floor/plasteel,
-/area/awaymission/chilly/ntcargotrain)
+/area/awaymission/chilly/surface)
 "Cv" = (
 /obj/effect/turf_decal/dust,
 /turf/closed/mineral/snowmountain/cavern/oxy,
@@ -10708,7 +10712,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/grass/snow/safe/oxy,
-/area/awaymission/chilly/ntcargotrain)
+/area/awaymission/chilly/surface)
 "Dv" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/weather/snow/corner,
@@ -10724,7 +10728,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/plating/snowed/smoothed/temperatre,
-/area/awaymission/chilly/ntcargotrain)
+/area/awaymission/chilly/surface)
 "Dy" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/chem_pile,
@@ -12378,17 +12382,6 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel/white,
 /area/awaymission/chilly/facility)
-"It" = (
-/obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/tile/brown{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/brown,
-/obj/effect/turf_decal/tile/brown{
-	dir = 8
-	},
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/cave)
 "Iu" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/oldvents/variant4,
@@ -14713,9 +14706,6 @@
 	},
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
-"Px" = (
-/turf/closed/wall/rust,
-/area/awaymission/chilly/surface)
 "Py" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel,
@@ -15271,7 +15261,7 @@
 /obj/structure/lattice,
 /obj/effect/light_emitter,
 /turf/open/floor/grass/snow/safe/oxy,
-/area/awaymission/chilly/ntcargotrain)
+/area/awaymission/chilly/surface)
 "Rk" = (
 /obj/machinery/light/broken{
 	dir = 8
@@ -15554,7 +15544,7 @@
 /obj/effect/turf_decal/weather/side/corner,
 /obj/structure/lattice,
 /turf/open/floor/grass/snow/safe/oxy,
-/area/awaymission/chilly/ntcargotrain)
+/area/awaymission/chilly/surface)
 "Sa" = (
 /obj/effect/turf_decal/dust,
 /obj/machinery/light/broken,
@@ -15565,9 +15555,6 @@
 	icon_state = "damaged4"
 	},
 /area/awaymission/chilly/facility)
-"Sb" = (
-/turf/open/floor/plating/asteroid/snow/ice/oxy,
-/area/awaymission/chilly/ntcargotrain)
 "Sc" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/table,
@@ -15883,7 +15870,6 @@
 "SW" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/table,
-/obj/item/clothing/glasses/hud/health/sunglasses,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility2)
 "SY" = (
@@ -16529,9 +16515,9 @@
 /area/awaymission/chilly/cave)
 "US" = (
 /obj/structure/closet/crate/wooden/wzzzz/alt,
-/obj/item/reagent_containers/food/snacks/canned/beans,
-/obj/item/reagent_containers/food/snacks/canned/beans,
-/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/open/floor/wood,
@@ -16576,10 +16562,6 @@
 /obj/effect/turf_decal/dust,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility3)
-"UZ" = (
-/obj/effect/turf_decal/tile/brown,
-/turf/open/floor/plasteel,
-/area/awaymission/chilly/cave)
 "Va" = (
 /obj/structure/bed,
 /obj/effect/turf_decal/dust,
@@ -18104,7 +18086,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/floor/grass/snow/safe/oxy,
-/area/awaymission/chilly/ntcargotrain)
+/area/awaymission/chilly/surface)
 "Zf" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -18358,7 +18340,7 @@
 /obj/item/storage/mre,
 /obj/item/storage/mre/protein,
 /turf/open/floor/plating/snowed/oxy,
-/area/awaymission/chilly/ntcargotrain)
+/area/awaymission/chilly/surface)
 "ZJ" = (
 /obj/item/stack/tile/plasteel,
 /obj/effect/turf_decal/dust,
@@ -20216,7 +20198,7 @@ Pr
 tF
 eS
 Jh
-YU
+tF
 Pr
 YU
 tF
@@ -26509,7 +26491,7 @@ ev
 kF
 et
 Ca
-Px
+mT
 Yl
 gF
 Tu
@@ -27232,7 +27214,7 @@ VX
 Om
 gc
 eR
-kT
+PE
 wq
 Cu
 Rj
@@ -27719,7 +27701,7 @@ kd
 mg
 wS
 Dx
-Sb
+kV
 ZI
 mT
 Om
@@ -29178,8 +29160,8 @@ wy
 gc
 Om
 Om
-Om
-Om
+YK
+YK
 Om
 Om
 Om
@@ -29228,7 +29210,7 @@ Om
 Om
 Om
 VX
-SP
+Om
 VX
 Om
 Om
@@ -29420,10 +29402,10 @@ wy
 Om
 Om
 Om
-Om
-Om
-Om
-Om
+YK
+YK
+YK
+YK
 Om
 Om
 YK
@@ -29471,7 +29453,7 @@ Om
 Om
 Om
 Om
-VX
+Om
 Om
 SP
 Om
@@ -29664,7 +29646,7 @@ Om
 Om
 VX
 Om
-Om
+YK
 Om
 Om
 Om
@@ -29905,7 +29887,7 @@ Om
 Om
 Om
 Om
-Om
+YK
 Om
 Om
 VX
@@ -29954,8 +29936,8 @@ Om
 Om
 Om
 VX
-SP
-VX
+Om
+Om
 Om
 Om
 VX
@@ -39394,7 +39376,7 @@ PE
 PE
 DT
 HG
-Bd
+kT
 Om
 Om
 qR
@@ -39815,7 +39797,7 @@ Om
 Om
 Om
 Om
-kZ
+Om
 oV
 Om
 Om
@@ -40552,14 +40534,14 @@ Om
 Om
 kG
 kG
-YJ
+Om
 PE
 vl
 Om
 kG
-PE
-kG
-YJ
+Om
+Om
+Om
 YJ
 Kn
 Kn
@@ -40792,15 +40774,15 @@ Om
 oV
 Om
 Om
-Om
-kG
+PE
+PE
 PE
 PE
 RP
+Om
 YJ
-YJ
-PE
-PE
+Om
+Om
 PE
 lR
 Kn
@@ -41040,7 +41022,7 @@ YJ
 YJ
 RP
 PE
-PE
+Om
 DF
 PE
 YJ
@@ -41283,8 +41265,8 @@ YJ
 RP
 YJ
 PE
-YJ
-YJ
+Om
+Om
 YJ
 lR
 Kn
@@ -41527,7 +41509,7 @@ Om
 Om
 Om
 Om
-PE
+Om
 PE
 Kn
 Kn
@@ -42719,7 +42701,7 @@ Om
 VX
 Om
 Om
-Tz
+Om
 oV
 Om
 Om
@@ -44655,7 +44637,7 @@ Om
 Om
 Om
 Om
-Om
+VX
 Om
 Om
 Om
@@ -44894,7 +44876,7 @@ fn
 dB
 dB
 Om
-Om
+VX
 Om
 Om
 Om
@@ -44952,7 +44934,7 @@ UJ
 pn
 tY
 ef
-It
+mL
 SE
 Pr
 Pr
@@ -45194,7 +45176,7 @@ Yd
 od
 FM
 mL
-qW
+mL
 SE
 Pr
 Pr
@@ -45381,7 +45363,7 @@ mI
 Om
 Om
 Om
-Om
+VX
 Om
 Om
 Om
@@ -45678,7 +45660,7 @@ Tl
 UL
 YF
 Pr
-UZ
+mL
 EO
 Pr
 Pr
@@ -45859,7 +45841,7 @@ dB
 dB
 Om
 Om
-qR
+hc
 Om
 fn
 Om
@@ -45919,7 +45901,7 @@ EO
 sH
 py
 oz
-qW
+mL
 Pr
 Pr
 Pr
@@ -46161,7 +46143,7 @@ EO
 KP
 mL
 mc
-FM
+mL
 Pr
 Pr
 Pr
