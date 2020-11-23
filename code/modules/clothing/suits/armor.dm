@@ -41,7 +41,7 @@
 	desc = "Большой, но удобный кусок брони, защищающий вас от некоторых угроз."
 	icon_state = "blueshift"
 	inhand_icon_state = "blueshift"
-	custom_premium_price = 750
+	custom_premium_price = PAYCHECK_HARD
 
 /obj/item/clothing/suit/armor/hos
 	name = "бронепальто"

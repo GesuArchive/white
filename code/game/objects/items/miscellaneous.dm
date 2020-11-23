@@ -54,11 +54,11 @@
 	var/obj/structure/closet/supplypod/bluespacepod/pod = new()
 	new choice(pod)
 	pod.explosionSize = list(0,0,0,0)
-	var/msg = "<span class=danger>After making your selection, you notice a strange target on the ground. It might be best to step back!</span>"
+	var/msg = "<span class=danger>Странный символ целеуказания появляется прямо у меня перед ногами. Вероятно, стоит отойти подальше!</span>"
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(istype(H.ears, /obj/item/radio/headset))
-			msg = "You hear something crackle in your ears for a moment before a voice speaks.  \"Please stand by for a message from Central Command.  Message as follows: <span class='bold'>Item request received. Your package is inbound, please stand back from the landing site.</span> Message ends.\""
+			msg = "Наушники начинают шуршать, затем из них раздаётся голос, который говорит:  \"Пожалуйста, прослушайте сообщение от Центрального Командования. Сообщение гласит: <span class='bold'>Запрос принят. Посылка уже в пути. Пожалуйста, отойдите от зоны приземления на безопасное расстояние.</span> Конец сообщения.\""
 	to_chat(M, msg)
 
 	new /obj/effect/pod_landingzone(get_turf(src), pod)
@@ -102,7 +102,7 @@
 							  /obj/item/reagent_containers/food/snacks/grown/potato,
 							  /obj/item/reagent_containers/food/snacks/grown/potato/sweet,
 							  /obj/item/reagent_containers/food/snacks/grown/apple,
-							  /obj/item/reagent_containers/food/snacks/chocolatebar,
+							  /obj/item/food/chocolatebar,
 							  /obj/item/reagent_containers/food/snacks/grown/cherries,
 							  /obj/item/reagent_containers/food/snacks/grown/banana,
 							  /obj/item/reagent_containers/food/snacks/grown/cabbage,
@@ -116,7 +116,7 @@
 	theme_name = "fiesta"
 
 /obj/item/storage/box/ingredients/fiesta/PopulateContents()
-	new /obj/item/reagent_containers/food/snacks/tortilla(src)
+	new /obj/item/food/tortilla(src)
 	for(var/i in 1 to 2)
 		new /obj/item/reagent_containers/food/snacks/grown/corn(src)
 		new /obj/item/reagent_containers/food/snacks/grown/soybeans(src)
@@ -171,7 +171,7 @@
 	for(var/i in 1 to 2)
 		new /obj/item/reagent_containers/food/snacks/grown/cherries(src)
 		new /obj/item/reagent_containers/food/snacks/grown/banana(src)
-	new /obj/item/reagent_containers/food/snacks/chocolatebar(src)
+	new /obj/item/food/chocolatebar(src)
 	new /obj/item/reagent_containers/food/snacks/grown/cocoapod(src)
 	new /obj/item/reagent_containers/food/snacks/grown/apple(src)
 
@@ -203,7 +203,7 @@
 /obj/item/storage/box/ingredients/carnivore/PopulateContents()
 	new /obj/item/food/meat/slab/bear(src)
 	new /obj/item/food/meat/slab/spider(src)
-	new /obj/item/reagent_containers/food/snacks/spidereggs(src)
+	new /obj/item/food/spidereggs(src)
 	new /obj/item/food/carpmeat(src)
 	new /obj/item/food/meat/slab/xeno(src)
 	new /obj/item/food/meat/slab/corgi(src)

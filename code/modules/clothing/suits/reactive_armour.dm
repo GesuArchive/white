@@ -111,7 +111,7 @@
 
 /obj/item/clothing/suit/armor/reactive/stealth
 	name = "реактивная стелс броня"
-	desc = "Экспериментальный костюм брони, который делает владельца невидимым при обнаружении неминуемого вреда и создает приманку, которая убегает от владельца. Вы не можете бороться с тем, чего не видите."
+	desc = "Экспериментальная броня, которая делает владельца невидимым в случае опасности и создает приманку, убегающую от носящего. Вы не можете драться с тем, чего не видите."
 
 /obj/item/clothing/suit/armor/reactive/stealth/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(!active)

@@ -2,7 +2,6 @@
 
 /obj/item/electronics/firealarm
 	name = "электроника пожарной сигнализации"
-	custom_price = 50
 	desc = "Схема пожарной сигнализации. Может выдерживать температуру до 40 градусов по Цельсию."
 
 /obj/item/wallframe/firealarm

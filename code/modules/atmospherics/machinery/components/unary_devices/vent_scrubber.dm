@@ -4,7 +4,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber
 	icon_state = "scrub_map-3"
 
-	name = "air scrubber"
+	name = "фильтр"
 	desc = "К нему прикручены вентиль и помпа."
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 10
@@ -120,7 +120,7 @@
 	var/area/scrub_area = get_area(src)
 	if(!GLOB.air_scrub_names[id_tag])
 		// If we do not have a name, assign one
-		name = "\proper [scrub_area.name] air scrubber [assign_random_name()]"
+		name = "фильтр [scrub_area.name] [assign_random_name()]"
 		GLOB.air_scrub_names[id_tag] = name
 
 	scrub_area.air_scrub_info[id_tag] = signal.data
@@ -278,7 +278,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/examine(mob/user)
 	. = ..()
 	if(welded)
-		. += "<hr>It seems welded shut."
+		. += "<hr>Заварен!"
 
 /obj/machinery/atmospherics/components/unary/vent_scrubber/can_crawl_through()
 	return !welded

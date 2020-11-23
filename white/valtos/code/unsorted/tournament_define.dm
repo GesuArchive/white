@@ -29,6 +29,11 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 	desc = "Урон от удара и броска 10."
 	throwforce = 10
 	force = 10
+	broken = TRUE
+
+/obj/item/extinguisher/tournament/babah
+	name = "огнетуршитель-БАБАХ"
+	desc = "Урон от удара и броска 10. Может бабахнуть."
 	broken = FALSE
 
 /obj/item/stack/tile/plasteel/tournament
@@ -115,6 +120,11 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 	name = "Ассистуха + Огнетушитель"
 
 	r_hand = /obj/item/extinguisher/tournament
+
+/datum/outfit/whiterobust/ass/exting/babah
+	name = "Ассистуха + Огнетушитель-БАБАХ"
+
+	r_hand = /obj/item/extinguisher/tournament/babah
 
 /datum/outfit/whiterobust/ass/ctf
 	name = "CTF+"

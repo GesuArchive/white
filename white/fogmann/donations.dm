@@ -353,9 +353,8 @@ GLOBAL_LIST_EMPTY(donators)
 
 /proc/check_donations(ckey)
 	if (!GLOB.donators[ckey]) //If it doesn't exist yet
-		return 0
+		return FALSE
 	var/datum/donator/D = GLOB.donators[ckey]
 	if(D)
-		if (D.maxmoney >= 50)
-			return 1
+		return D.maxmoney
 	return 0

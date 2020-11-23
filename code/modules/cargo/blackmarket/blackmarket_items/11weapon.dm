@@ -37,7 +37,30 @@
 			/obj/item/gun/ballistic/automatic/pistol/m1911,
 			/obj/item/gun/ballistic/automatic/wzzzz/mp40,
 			/obj/item/gun/ballistic/automatic/ar/wzzzz/fg42,
-			/obj/item/gun/ballistic/automatic/pistol/wzzzz/luger))
+			/obj/item/gun/ballistic/automatic/pistol/wzzzz/luger,
+			/obj/item/gun/ballistic/automatic/fallout/smg45,
+			/obj/item/gun/ballistic/automatic/fallout/smg22,
+			/obj/item/gun/ballistic/automatic/fallout/smg9mm,
+			/obj/item/gun/ballistic/automatic/fallout/smg9mm/handmade,
+			/obj/item/gun/ballistic/automatic/fallout/smg10mm,
+			/obj/item/gun/ballistic/automatic/fallout/smg12mm,
+			/obj/item/gun/ballistic/automatic/fallout/marksman/service/survival,
+			/obj/item/gun/ballistic/automatic/fallout/marksman/service/police22,
+			/obj/item/gun/ballistic/automatic/fallout/marksman/service,
+			/obj/item/gun/ballistic/automatic/fallout/assaultrifle/chinese,
+			/obj/item/gun/ballistic/automatic/fallout/assaultrifle,
+			/obj/item/gun/ballistic/automatic/pistol/fallout/deagle,
+			/obj/item/gun/ballistic/automatic/pistol/fallout/m10mm,
+			/obj/item/gun/ballistic/automatic/pistol/fallout/m10mm/chinese,
+			/obj/item/gun/ballistic/automatic/pistol/fallout/m10mm/chinese/v420,
+			/obj/item/gun/ballistic/automatic/pistol/fallout/m10mm/military,
+			/obj/item/gun/ballistic/automatic/pistol/fallout/m12mm,
+			/obj/item/gun/ballistic/automatic/pistol/fallout/m12mm/devil,
+			/obj/item/gun/ballistic/automatic/pistol/fallout/m9mm,
+			/obj/item/gun/ballistic/automatic/pistol/fallout/m9mm/handmade,
+			/obj/item/gun/ballistic/automatic/pistol/fallout/m9mm/maria,
+			/obj/item/gun/ballistic/shotgun/fallout/huntingshot,
+			/obj/item/gun/ballistic/shotgun/fallout/lever))
 	return new pgun(loc)
 
 
@@ -74,8 +97,8 @@
 	desc = "Тазер или Дизаблер? Сложный выбор..."
 	item = /obj/item/gun/energy/taser
 
-	price_min = 500
-	price_max = 2000
+	price_min = 5000
+	price_max = 15000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -85,5 +108,24 @@
 			/obj/item/gun/energy/e_gun/advtaser,
 			/obj/item/gun/energy/disabler))
 	return new tgun(loc)
+
+/datum/blackmarket_item/weapon/sgun
+	name = "Случайная снайперка"
+	desc = "Для истинных долбаёбов"
+	item = /obj/item/gun/ballistic/automatic/fallout/marksman
+
+	price_min = 10000
+	price_max = 25000
+	stock_min = 1
+	stock_max = 10
+	availability_prob = 100
+
+/datum/blackmarket_item/weapon/sgun/spawn_item(loc)
+	var/sgun = pick(list(/obj/item/gun/ballistic/automatic/fallout/marksman/sniper,
+			/obj/item/gun/ballistic/automatic/fallout/marksman/american,
+			/obj/item/gun/ballistic/automatic/fallout/marksman,
+			/obj/item/gun/ballistic/automatic/fallout/assaultrifle/infiltrator
+			))
+	return new sgun(loc)
 
 

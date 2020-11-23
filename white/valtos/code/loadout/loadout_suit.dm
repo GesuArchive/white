@@ -25,7 +25,7 @@
 	allowed_roles = list("Security Officer", "Brig Physician", "Head of Security")
 
 /datum/gear/suit/wintercoat/medical
-	display_name = "медицинское зимнее пальтоt"
+	display_name = "медицинское зимнее пальто"
 	path = /obj/item/clothing/suit/hooded/wintercoat/medical
 	allowed_roles = list("Paramedic", "Medical Doctor", "Chief Medical Officer", "Chemist", "Geneticist")
 
@@ -37,7 +37,7 @@
 /datum/gear/suit/wintercoat/engineering
 	display_name = "инженерное зимнее пальто"
 	path = /obj/item/clothing/suit/hooded/wintercoat/engineering
-	allowed_roles = list("Chief Engineer", "Station Engineer", "Atmospheric Technician")
+	allowed_roles = list("Chief Engineer", "Station Engineer", "Atmospheric Technician", "Механик")
 
 /datum/gear/suit/wintercoat/hydro
 	display_name = "гидропоническое зимнее пальто"

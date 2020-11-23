@@ -54,21 +54,21 @@
 	desc = "Синяя повседневная юбка."
 	icon_state = "blueskirt"
 	inhand_icon_state = "b_suit"
-	custom_price = 60
+	custom_price = PAYCHECK_EASY
 
 /obj/item/clothing/under/dress/skirt/red
 	name = "юбка"
 	desc = "Красная повседневная юбка."
 	icon_state = "redskirt"
 	inhand_icon_state = "r_suit"
-	custom_price = 60
+	custom_price = PAYCHECK_EASY
 
 /obj/item/clothing/under/dress/skirt/purple
 	name = "юбка"
 	desc = "Фиолетовая повседневная юбка."
 	icon_state = "purpleskirt"
 	inhand_icon_state = "p_suit"
-	custom_price = 60
+	custom_price = PAYCHECK_EASY
 
 /obj/item/clothing/under/dress/skirt/plaid
 	name = "юбка"
@@ -77,7 +77,7 @@
 	inhand_icon_state = "plaid_red"
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
-	custom_price = 60
+	custom_price = PAYCHECK_EASY
 
 /obj/item/clothing/under/dress/skirt/plaid/blue
 	name = "юбка"

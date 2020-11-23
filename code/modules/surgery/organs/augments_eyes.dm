@@ -32,23 +32,23 @@
 	..()
 
 /obj/item/organ/cyberimp/eyes/hud/medical
-	name = "Medical HUD implant"
-	desc = "These cybernetic eye implants will display a medical HUD over everything you see."
+	name = "Имплант медицинского интерфейса"
+	desc = "Эти кибернетические глаза выведут медицинский интерфейс поверх всего что вы видите."
 	HUD_type = DATA_HUD_MEDICAL_ADVANCED
 	HUD_trait = TRAIT_MEDICAL_HUD
 
 /obj/item/organ/cyberimp/eyes/hud/security
-	name = "Security HUD implant"
-	desc = "These cybernetic eye implants will display a security HUD over everything you see."
+	name = "Имплант интерфейса службы безопасности"
+	desc = "Эти кибернетические глаза выведут интерфейс службы безопасности поверх всего что вы видите."
 	HUD_type = DATA_HUD_SECURITY_ADVANCED
 	HUD_trait = TRAIT_SECURITY_HUD
 
 /obj/item/organ/cyberimp/eyes/hud/diagnostic
-	name = "Diagnostic HUD implant"
-	desc = "These cybernetic eye implants will display a diagnostic HUD over everything you see."
+	name = "Имплант интерфейса диагностики"
+	desc = "Эти кибернетические глаза выведут интерфейс диагностики поверх всего что вы видите."
 	HUD_type = DATA_HUD_DIAGNOSTIC_ADVANCED
 
 /obj/item/organ/cyberimp/eyes/hud/security/syndicate
-	name = "Contraband Security HUD Implant"
-	desc = "A Cybersun Industries brand Security HUD Implant. These illicit cybernetic eye implants will display a security HUD over everything you see."
+	name = "Контрабандный имплант интерфейса службы безопасности"
+	desc = "Интерфейс службы безопасности от КиберСан Индастриз. Эти нелегальные кибернетические глаза выведут интерфейс службы безопасности поверх всего что вы видите"
 	syndicate_implant = TRUE

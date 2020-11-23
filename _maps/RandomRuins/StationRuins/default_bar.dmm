@@ -597,10 +597,6 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/showroomfloor,
 /area/crew_quarters/kitchen)
-"bC" = (
-/obj/effect/landmark/event_spawn,
-/turf/closed/wall,
-/area/crew_quarters/bar)
 "bD" = (
 /obj/machinery/light{
 	dir = 8
@@ -974,7 +970,7 @@
 "cA" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
-/obj/item/reagent_containers/food/snacks/pie/cream,
+/obj/item/food/pie/cream,
 /obj/machinery/door/poddoor/shutters/preopen{
 	dir = 4;
 	id = "barmanpriv";
@@ -1522,7 +1518,7 @@ aD
 aD
 aD
 af
-bC
+af
 bT
 af
 bT

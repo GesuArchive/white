@@ -5,7 +5,7 @@
 	display_name = "Ещё один слот персонажа"
 	sort_category = "OOC"
 	description = "Дополнительный слот. Что тут ещё сказать, а? Максимум 20 слотов."
-	cost = 50
+	cost = 500
 
 /datum/gear/ooc/char_slot/purchase(var/client/C)
 	C?.prefs?.max_slots += 1
@@ -15,7 +15,7 @@
 	display_name = "Выбрать аспект"
 	sort_category = "OOC"
 	description = "Форсит любой аспект на ваш выбор. Доступно только перед началом раунда (когда игра прогрузилась, но ещё в лобби)."
-	cost = 25
+	cost = 500
 
 /datum/gear/ooc/force_aspect/purchase(var/client/C)
 	if (SSticker.current_state == GAME_STATE_SETTING_UP || SSticker.current_state == GAME_STATE_PLAYING || SSticker.current_state == GAME_STATE_FINISHED)
@@ -27,6 +27,7 @@
 		inc_metabalance(C, cost, TRUE, "Возвращаю [display_name].")
 		return
 	else
+		message_admins("[key_name(C)] покупает аспект [sel_aspect].")
 		to_chat(C, "<span class='notice'>Выбрано <b>[sel_aspect]</b>! Другие игроки могут добавить ещё аспекты.</span>")
 		SSaspects.forced_aspects[sel_aspect] = sel_aspect.weight
 

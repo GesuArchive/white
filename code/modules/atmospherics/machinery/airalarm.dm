@@ -35,7 +35,6 @@
 
 /obj/item/electronics/airalarm
 	name = "плата контроллера воздуха"
-	custom_price = 50
 	icon_state = "airalarm_electronics"
 
 /obj/item/wallframe/airalarm
@@ -73,7 +72,7 @@
 	resistance_flags = FIRE_PROOF
 
 	var/danger_level = 0
-	var/mode = AALARM_MODE_SCRUBBING
+	var/mode = AALARM_MODE_CONTAMINATED
 
 	var/locked = TRUE
 	var/aidisabled = 0
@@ -105,6 +104,8 @@
 		/datum/gas/healium			= new/datum/tlv/dangerous,
 		/datum/gas/proto_nitrate	= new/datum/tlv/dangerous,
 		/datum/gas/zauker			= new/datum/tlv/dangerous,
+		/datum/gas/helium			= new/datum/tlv/dangerous,
+		/datum/gas/antinoblium		= new/datum/tlv/dangerous,
 		/datum/gas/halon			= new/datum/tlv/dangerous
 	)
 
@@ -130,6 +131,8 @@
 		/datum/gas/healium			= new/datum/tlv/dangerous,
 		/datum/gas/proto_nitrate	= new/datum/tlv/dangerous,
 		/datum/gas/zauker			= new/datum/tlv/dangerous,
+		/datum/gas/helium			= new/datum/tlv/dangerous,
+		/datum/gas/antinoblium		= new/datum/tlv/dangerous,
 		/datum/gas/halon			= new/datum/tlv/dangerous
 	)
 
@@ -155,6 +158,8 @@
 		/datum/gas/healium			= new/datum/tlv/dangerous,
 		/datum/gas/proto_nitrate	= new/datum/tlv/dangerous,
 		/datum/gas/zauker			= new/datum/tlv/dangerous,
+		/datum/gas/helium			= new/datum/tlv/dangerous,
+		/datum/gas/antinoblium		= new/datum/tlv/dangerous,
 		/datum/gas/halon			= new/datum/tlv/dangerous
 	)
 
@@ -233,6 +238,7 @@
 /obj/machinery/airalarm/Initialize(mapload)
 	. = ..()
 	set_frequency(frequency)
+	apply_mode(src)
 
 /obj/machinery/airalarm/examine(mob/user)
 	. = ..()
@@ -550,6 +556,8 @@
 						/datum/gas/healium,
 						/datum/gas/proto_nitrate,
 						/datum/gas/zauker,
+						/datum/gas/helium,
+						/datum/gas/antinoblium,
 						/datum/gas/halon,
 					),
 					"scrubbing" = 1,
@@ -690,7 +698,7 @@
 	if(old_danger_level != danger_level)
 		apply_danger_level()
 	if(mode == AALARM_MODE_REPLACEMENT && environment_pressure < ONE_ATMOSPHERE * 0.05)
-		mode = AALARM_MODE_SCRUBBING
+		mode = AALARM_MODE_CONTAMINATED
 		apply_mode(src)
 
 

@@ -76,7 +76,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	. = ..()
 	if(occupant)
 		. += "<hr><span class='notice'>Вижу <b>[occupant]</b> внутри.</span>"
-	. += "<hr><span class='notice'><b>Ctrl-Клик</b> чтобы открыть внутреннее хранилище.</span>"
+	. += "<hr><span class='notice'><b>Ctrl-Клик</b>, чтобы открыть внутреннее хранилище.</span>"
 
 /obj/machinery/autodoc/CanPass(atom/movable/mover, turf/target)
 	if(get_dir(src, mover) == NORTH || get_dir(src, target) == NORTH)
@@ -103,7 +103,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 /obj/machinery/autodoc/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = LoadComponent(/datum/component/storage/concrete/autodoc)
-	STR.cant_hold = typecacheof(list(/obj/item/card/emag))
+	STR.cant_hold = typecacheof(list(/obj/item/card/emag, /obj/item/stock_parts)) // !!!
 
 /obj/machinery/autodoc/RefreshParts()
 	var/list/P = list()
@@ -125,7 +125,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	max_storage = round(list_avg(P), 1)
 	var/datum/component/storage/STR = LoadComponent(/datum/component/storage/concrete/autodoc)
 	STR.max_items = max_storage
-	STR.cant_hold = typecacheof(list(/obj/item/card/emag))
+	STR.cant_hold = typecacheof(list(/obj/item/card/emag, /obj/item/stock_parts)) // !!!
 
 /obj/machinery/autodoc/CtrlClick(mob/user)
 	if(in_use && isliving(user))

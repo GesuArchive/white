@@ -93,6 +93,12 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 		text = replacetext(text, s, "&#[GLOB.rus_unicode_conversion[s]];")
 	return text
 
+/proc/r_jobgen(text)
+	var/list/strip_chars = list("_"," ")
+	for(var/char in strip_chars)
+		text = replacetext_char(text, char, "")
+	return r_lowertext(text)
+
 /proc/r_lowertext(text)
 	var/t = ""
 	for(var/i = 1, i <= length(text), i++)
@@ -281,3 +287,20 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	gain_text = "<span class='notice'>Чиньг-чоньг!.</span>"
 	lose_text = "<span class='danger'>Аниме говно.</span>"
 	medical_record_text = "Пациент - азиат."
+
+/mob/living/carbon/human/proc/get_age_text()
+	switch(age)
+		if(-INFINITY to 16)
+			return "ребёнок"
+		if(17 to 21)
+			return "подросток"
+		if(22 to 35)
+			return gender == FEMALE ? "девушка" : "парень"
+		if(36 to 44)
+			return gender == FEMALE ? "женщина" : "мужчина"
+		if(45 to 60)
+			return gender == FEMALE ? "зрелая женщина" : "зрелый мужчина"
+		if(61 to 75)
+			return gender == FEMALE ? "пожилая женщина" : "пожилой мужчина"
+		if(76 to INFINITY)
+			return gender == FEMALE ? "старушка" : "старик"

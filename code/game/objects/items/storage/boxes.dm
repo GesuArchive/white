@@ -702,7 +702,7 @@
 	slot_flags = ITEM_SLOT_BELT
 	drop_sound = 'sound/items/handling/matchbox_drop.ogg'
 	pickup_sound =  'sound/items/handling/matchbox_pickup.ogg'
-	custom_price = 20
+	custom_price = PAYCHECK_ASSISTANT * 0.4
 
 /obj/item/storage/box/matches/ComponentInitialize()
 	. = ..()
@@ -1047,7 +1047,7 @@
 /obj/item/storage/box/dishdrive
 	name = "Комплект привода тарелки DIY"
 	desc = "Содержит все необходимое, чтобы построить свой собственный Дисковод!" //cringe
-	custom_premium_price = 1000
+	custom_premium_price = PAYCHECK_EASY * 3
 
 /obj/item/storage/box/dishdrive/PopulateContents()
 	var/static/items_inside = list(
@@ -1169,34 +1169,34 @@
 	w_class = WEIGHT_CLASS_TINY
 	illustration = null
 	foldable = null
-	custom_price = 120
+	custom_price = PAYCHECK_EASY
 
 /obj/item/storage/box/gum/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.set_holdable(list(/obj/item/reagent_containers/food/snacks/chewable/bubblegum))
+	STR.set_holdable(list(/obj/item/food/chewable/bubblegum))
 	STR.max_items = 4
 
 /obj/item/storage/box/gum/PopulateContents()
 	for(var/i in 1 to 4)
-		new/obj/item/reagent_containers/food/snacks/chewable/bubblegum(src)
+		new/obj/item/food/chewable/bubblegum(src)
 
 /obj/item/storage/box/gum/nicotine
 	name = "упаковка никотиновой жевательной резинки"
 	desc = "Разработан, чтобы помочь избавиться от никотиновой зависимости и оральной фиксации одновременно, не разрушая при этом ваши легкие. Со вкусом мяты!"
 	icon_state = "bubblegum_nicotine"
-	custom_premium_price = 275
+	custom_premium_price = PAYCHECK_EASY * 1.5
 
 /obj/item/storage/box/gum/nicotine/PopulateContents()
 	for(var/i in 1 to 4)
-		new/obj/item/reagent_containers/food/snacks/chewable/bubblegum/nicotine(src)
+		new/obj/item/food/chewable/bubblegum/nicotine(src)
 
 /obj/item/storage/box/gum/happiness
 	name = "упаковка резинок HP +"
 	desc = "Внешне самодельная упаковка со странным запахом. У него есть странный рисунок улыбающегося лица, высунувшего язык."
 	icon_state = "bubblegum_happiness"
-	custom_price = 300
-	custom_premium_price = 300
+	custom_price = PAYCHECK_HARD * 3
+	custom_premium_price = PAYCHECK_HARD * 3
 
 /obj/item/storage/box/gum/happiness/Initialize()
 	. = ..()
@@ -1205,7 +1205,7 @@
 
 /obj/item/storage/box/gum/happiness/PopulateContents()
 	for(var/i in 1 to 4)
-		new/obj/item/reagent_containers/food/snacks/chewable/bubblegum/happiness(src)
+		new/obj/item/food/chewable/bubblegum/happiness(src)
 
 /obj/item/storage/box/gum/bubblegum
 	name = "упаковка жевательной резинки"
@@ -1214,7 +1214,7 @@
 
 /obj/item/storage/box/gum/bubblegum/PopulateContents()
 	for(var/i in 1 to 4)
-		new/obj/item/reagent_containers/food/snacks/chewable/bubblegum/bubblegum(src)
+		new/obj/item/food/chewable/bubblegum/bubblegum(src)
 
 /obj/item/storage/box/shipping
 	name = "коробка карго припасов"
@@ -1258,8 +1258,8 @@
 	new/obj/item/skillchip/job/engineer(src)
 
 /obj/item/storage/box/swab
-	name = "коробка микробиологических тампонов"
-	desc = "Содержит несколько стерильных тампонов для взятия микробиологических проб."
+	name = "коробка микробиологических ватных дисков"
+	desc = "Содержит несколько стерильных ватных дисков для взятия микробиологических проб."
 	illustration = "swab"
 
 /obj/item/storage/box/swab/PopulateContents()

@@ -43,31 +43,30 @@
 	if(I.resistance_flags & INDESTRUCTIBLE)
 		to_chat(user, "<span class='warning'>Что-то я не очень хочу жарить [I]...</span>")
 		return ..()
-	if(istype(I, /obj/item/reagent_containers))
-		if(istype(I, /obj/item/reagent_containers/food) && !istype(I, /obj/item/reagent_containers/food/drinks))
-			var/obj/item/reagent_containers/food/food_item = I
-			if(HAS_TRAIT(food_item, TRAIT_NODROP) || (food_item.item_flags & (ABSTRACT | DROPDEL)))
-				return ..()
-			else if(food_item.foodtype & GRILLED)
-				to_chat(user, "<span class='notice'>[food_item] уже пожарено!</span>")
-				return
-			else if(grill_fuel <= 0)
-				to_chat(user, "<span class='warning'>Недостаточно топлива!</span>")
-				return
-			else if(!grilled_item && user.transferItemToLoc(food_item, src))
-				grilled_item = food_item
-				grilled_item.foodtype |= GRILLED
-				to_chat(user, "<span class='notice'>Нежно укладываю [grilled_item] на [src].</span>")
-				update_icon()
-				grill_loop.start()
-				return
-		else
-			if(I.reagents.has_reagent(/datum/reagent/consumable/monkey_energy))
-				grill_fuel += (20 * (I.reagents.get_reagent_amount(/datum/reagent/consumable/monkey_energy)))
-				to_chat(user, "<span class='notice'>Выплёскиваю напиток на [src].</span>")
-				I.reagents.remove_reagent(/datum/reagent/consumable/monkey_energy, I.reagents.get_reagent_amount(/datum/reagent/consumable/monkey_energy))
-				update_icon()
-				return
+	if(istype(I, /obj/item/reagent_containers/food/drinks))
+		if(I.reagents.has_reagent(/datum/reagent/consumable/monkey_energy))
+			grill_fuel += (20 * (I.reagents.get_reagent_amount(/datum/reagent/consumable/monkey_energy)))
+			to_chat(user, "<span class='notice'>Выплёскиваю напиток на [src].</span>")
+			I.reagents.remove_reagent(/datum/reagent/consumable/monkey_energy, I.reagents.get_reagent_amount(/datum/reagent/consumable/monkey_energy))
+			update_icon()
+			return
+	else if(IS_EDIBLE(I))
+		if(HAS_TRAIT(I, TRAIT_NODROP) || (I.item_flags & (ABSTRACT | DROPDEL)))
+			return ..()
+		else if(HAS_TRAIT(I, TRAIT_FOOD_GRILLED))
+			to_chat(user, "<span class='notice'>[I] уже пожарено!</span>")
+			return
+		else if(grill_fuel <= 0)
+			to_chat(user, "<span class='warning'>Недостаточно топлива!</span>")
+			return
+		else if(!grilled_item && user.transferItemToLoc(I, src))
+			grilled_item = I
+			ADD_TRAIT(grilled_item, TRAIT_FOOD_GRILLED, "boomers")
+			to_chat(user, "<span class='notice'>Нежно укладываю [grilled_item] на [src].</span>")
+			update_icon()
+			grill_loop.start()
+			return
+
 	..()
 
 /obj/machinery/grill/process(delta_time)

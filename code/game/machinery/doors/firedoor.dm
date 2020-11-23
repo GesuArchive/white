@@ -361,9 +361,7 @@
 
 /obj/item/electronics/firelock
 	name = "микросхема пожарного шлюза"
-	custom_price = 50
 	desc = "Печатная плата, используемая в конструкции пожарных шлюзов."
-	icon_state = "mainboard"
 
 /obj/structure/firelock_frame
 	name = "рама пожарного шлюза"

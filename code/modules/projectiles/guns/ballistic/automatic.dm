@@ -91,8 +91,8 @@
 	update_icon()
 
 /obj/item/gun/ballistic/automatic/wt550
-	name = "WT-550"
-	desc = "Устаревшее оружие. Использует патроны 4.6x30mm калибра и разработано \"WT-550 Automatic Rifle\"."
+	name = "автоматическая винтовка службы безопасности"
+	desc = "Устаревшее оружие. Использует патроны 4.6x30mm калибра, обозначается как \"WT-550 Automatic Rifle\"."
 	icon_state = "wt550"
 	inhand_icon_state = "arg"
 	mag_type = /obj/item/ammo_box/magazine/wt550m9
@@ -288,7 +288,7 @@
 
 /obj/item/gun/ballistic/automatic/l6_saw/update_overlays()
 	. = ..()
-	. += "l6_door_[cover_open ? "Открыто" : "Закрыто"]"
+	. += "l6_door_[cover_open ? "open" : "closed"]"
 
 
 /obj/item/gun/ballistic/automatic/l6_saw/afterattack(atom/target as mob|obj|turf, mob/living/user as mob|obj, flag, params)

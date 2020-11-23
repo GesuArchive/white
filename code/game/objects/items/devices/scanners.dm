@@ -21,7 +21,7 @@ GENE SCANNER
 /obj/item/t_scanner
 	name = "анализатор Т-луч"
 	desc = "Терагерцовый излучатель лучей и просто сканнер, который подсвечивает провода и трубы под полом."
-	custom_price = 150
+	custom_price = PAYCHECK_ASSISTANT * 0.7
 	icon = 'white/valtos/icons/items.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
@@ -31,8 +31,6 @@ GENE SCANNER
 	w_class = WEIGHT_CLASS_SMALL
 	inhand_icon_state = "electronic"
 	worn_icon_state = "electronic"
-	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	custom_materials = list(/datum/material/iron=150)
 
 /obj/item/t_scanner/suicide_act(mob/living/carbon/user)
@@ -99,7 +97,7 @@ GENE SCANNER
 	var/mode = SCANNER_VERBOSE
 	var/scanmode = SCANMODE_HEALTH
 	var/advanced = FALSE
-	custom_price = 300
+	custom_price = PAYCHECK_HARD
 
 /obj/item/healthanalyzer/suicide_act(mob/living/carbon/user)
 	user.visible_message("<span class='suicide'>[user] begins to analyze [user.p_them()]self with [src]! The display shows that [user.p_theyre()] dead!</span>")
@@ -439,15 +437,19 @@ GENE SCANNER
 				render_list += "<span class='notice ml-1'>В желудке пациента обнаружены следующие химикаты:</span>\n"
 				for(var/bile in belly.reagents.reagent_list)
 					var/datum/reagent/bit = bile
-					render_list += "<span class='notice ml-2'>[round(bit.volume, 0.001)] юнитов [bit.name][bit.overdosed ? "</span> - <span class='boldannounce'>ПЕРЕДОЗИРОВКА</span>" : ".</span>"]\n"
+					if(!belly.food_reagents[bit.type])
+						render_list += "<span class='notice ml-2'>[round(bit.volume, 0.001)] юнитов [bit.name][bit.overdosed ? "</span> - <span class='boldannounce'>ПЕРЕДОЗИРОВКА</span>" : ".</span>"]\n"
+					else
+						var/bit_vol = bit.volume - belly.food_reagents[bit.type]
+						if(bit_vol > 0)
+							render_list += "<span class='notice ml-2'>[round(bit_vol, 0.001)] юнитов [bit.name][bit.overdosed ? "</span> - <span class='boldannounce'>ПЕРЕДОЗИРОВКА</span>" : ".</span>"]\n"
 			else
 				render_list += "<span class='notice ml-1'>Не обнаружено реагентов в желудке.</span>\n"
 
-		var/list/addictions = M.get_addiction_list()
-		if(addictions.len)
+		if(M.reagents.addiction_list.len)
 			render_list += "<span class='boldannounce ml-1'>У пациента есть зависимость от следующих химикатов:</span>\n"
-			for(var/datum/reagent/reagent in addictions)
-				render_list += "<span class='alert ml-2'>[reagent.name]</span>\n"
+			for(var/datum/reagent/R in M.reagents.addiction_list)
+				render_list += "<span class='alert ml-2'>[R.name]</span>\n"
 		else
 			render_list += "<span class='notice ml-1'>У пациента нет зависимостей от химикатов.</span>\n"
 
@@ -537,7 +539,7 @@ GENE SCANNER
 /obj/item/analyzer
 	desc = "Ручной анализатор, который сканирует состояние воздуха в помещении. Alt-клик, чтобы использовать барометр."
 	name = "анализатор"
-	custom_price = 100
+	custom_price = PAYCHECK_ASSISTANT * 0.9
 	icon = 'white/valtos/icons/items.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'

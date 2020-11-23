@@ -68,6 +68,7 @@
 		body += "\[<A href='?_src_=holder;[HrefToken()];editrights=[(GLOB.admin_datums[M.client.ckey] || GLOB.deadmins[M.client.ckey]) ? "rank" : "add"];key=[M.key]'>[M.client.holder ? M.client.holder.rank : "Player"]</A>\]"
 		if(CONFIG_GET(flag/use_exp_tracking))
 			body += "\[<A href='?_src_=holder;[HrefToken()];getplaytimewindow=[REF(M)]'>" + M.client.get_exp_living(FALSE) + "</a>\]"
+			body += "\[<A href='?_src_=holder;[HrefToken()];toggleexempt=[REF(M)]'>T-Jobs</a>\]"
 
 	if(isnewplayer(M))
 		body += " <B>Hasn't Entered Game</B> "
@@ -75,6 +76,8 @@
 		body += " \[<A href='?_src_=holder;[HrefToken()];revive=[REF(M)]'>Heal</A>\] "
 
 	if(M.client)
+		if(check_donations(M.client.ckey))
+			body += "<br><b>\[Донатер\]:</b> [check_donations(M.client.ckey)] р."
 		body += "<br>\[<b>First Seen:</b> [M.client.player_join_date]\]\[<b>Byond account registered on:</b> [M.client.account_join_date]\]"
 		body += "<br><br><b>CentCom Galactic Ban DB: </b> "
 		if(CONFIG_GET(string/centcom_ban_db))
@@ -530,7 +533,8 @@
 				world.Reboot(fast_track = TRUE)
 			if("Server Restart (Kill and restart DD)")
 				to_chat(world, "Жесткая перезагрузка мира - [init_by]")
-				world.shelleo("curl -X POST http://localhost:3636/hard-reboot-white")
+				if(CONFIG_GET(flag/this_shit_is_stable))
+					world.shelleo("curl -X POST http://localhost:3636/hard-reboot-white")
 
 /datum/admins/proc/end_round()
 	set category = "Срв"

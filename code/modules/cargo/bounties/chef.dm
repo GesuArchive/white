@@ -16,14 +16,14 @@
 	description = "Высшее руководство хочет провести вечер в кино. Отправьте им мешки с попкорном по этому случаю."
 	reward = 3000
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/popcorn)
+	wanted_types = list(/obj/item/food/popcorn)
 
 /datum/bounty/item/chef/onionrings
 	name = "Луковые кольца"
 	description = "НТ вспоминает день Сатурна. Отправьте кольца лука, чтобы показать поддержку станции."
 	reward = 3000
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/onionrings)
+	wanted_types = list(/obj/item/food/onionrings)
 
 /datum/bounty/item/chef/icecreamsandwich
 	name = "Бутерброды с мороженным" // бутерброд это кринж полнейший
@@ -43,7 +43,7 @@
 	name = "Хлебушек"
 	description = "Проблемы с центральным планированием привели к резкому росту цен на хлеб. Отправьте немного хлеба, чтобы ослабить напряженность."
 	reward = 1000
-	wanted_types = list(/obj/item/food/bread, /obj/item/food/breadslice, /obj/item/reagent_containers/food/snacks/bun, /obj/item/reagent_containers/food/snacks/pizzabread, /obj/item/reagent_containers/food/snacks/rawpastrybase)
+	wanted_types = list(/obj/item/food/bread, /obj/item/food/breadslice, /obj/item/food/bun, /obj/item/food/pizzabread, /obj/item/food/rawpastrybase)
 
 /datum/bounty/item/chef/pie
 	name = "Пирог"
@@ -63,7 +63,7 @@
 	description = "Ночное зрение может означать жизнь или смерть! Поставка морковки-фри является заказом."
 	reward = 3500
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/carrotfries)
+	wanted_types = list(/obj/item/food/carrotfries)
 
 /datum/bounty/item/chef/superbite
 	name = "Супер кусок бургера"

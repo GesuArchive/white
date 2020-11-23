@@ -81,8 +81,6 @@ SUBSYSTEM_DEF(air)
 	var/timer = TICK_USAGE_REAL
 	var/delta_time = wait * 0.1
 
-
-
 	if(currentpart == SSAIR_PIPENETS || !resumed)
 		process_pipenets(delta_time, resumed)
 		cost_pipenets = MC_AVERAGE(cost_pipenets, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
@@ -151,9 +149,8 @@ SUBSYSTEM_DEF(air)
 		cost_superconductivity = MC_AVERAGE(cost_superconductivity, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
-		resumed = 0
+		resumed = FALSE
 	currentpart = SSAIR_PIPENETS
-
 
 
 
@@ -368,7 +365,7 @@ SUBSYSTEM_DEF(air)
 			//EG.dismantle()
 			CHECK_TICK*/
 
-		var/msg = " >> ЭЙ! СЛЫШ! [DisplayTimeText(world.timeofday - timer)] было потрачено на [starting_ats] активных турфов (которые подключены к [ending_ats] другим) с разностями в атмосфере при инициализации."
+		var/msg = "ЭЙ! СЛЫШ! [DisplayTimeText(world.timeofday - timer)] было потрачено на [starting_ats] активных турфов (которые подключены к [ending_ats] другим) с разностями в атмосфере при инициализации."
 		to_chat(world, "<span class='green'>[msg]</span>")
 		warning(msg)
 

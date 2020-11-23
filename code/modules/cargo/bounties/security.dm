@@ -1,6 +1,6 @@
 /datum/bounty/item/security/riotshotgun
 	name = "Штурмовой дробовик"
-	description = "Хулиганы взошли на борт ЦК! отправьте дробовики, или что-то испачкается."
+	description = "Хулиганы взошли на борт ЦК! Быстрее отправьте дробовики, иначе всё станет еще хуже."
 	reward = 5000
 	required_count = 2
 	wanted_types = list(/obj/item/gun/ballistic/shotgun/riot)
@@ -14,7 +14,7 @@
 
 /datum/bounty/item/security/pepperspray
 	name = "Перцовый балончик"
-	description = "У нас было много беспорядков на космической станции 76. Мы могли бы непротив использовать новые перцовые баллончики."
+	description = "У нас было много беспорядков на космической станции 76. Нам бы не помешали новые перцовые баллончики."
 	reward = 3000
 	required_count = 4
 	wanted_types = list(/obj/item/reagent_containers/spray/pepper)

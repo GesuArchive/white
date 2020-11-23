@@ -1491,7 +1491,6 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 		/obj/item/food/breadslice,
 		/obj/item/food/cake,
 		/obj/item/food/cakeslice,
-		/obj/item/reagent_containers/food/snacks/store,
 		/obj/item/food/pie,
 		/obj/item/food/pieslice,
 		/obj/item/food/kebab,

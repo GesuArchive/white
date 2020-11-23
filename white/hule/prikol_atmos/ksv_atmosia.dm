@@ -52,7 +52,7 @@
 	dwidth = 9
 	height = 28
 	dheight = 1
-	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0)
+	movement_force = list("KNOCKDOWN" = 10, "THROW" = 20)
 	engine_coeff = 6
 	rechargeTime = 10 MINUTES
 

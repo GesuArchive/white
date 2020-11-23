@@ -8,7 +8,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump
 	icon_state = "vent_map-3"
 
-	name = "air vent"
+	name = "вентиляция"
 	desc = "К нему прикручены вентиль и помпа."
 
 	use_power = IDLE_POWER_USE
@@ -200,7 +200,7 @@
 	if(!GLOB.air_vent_names[id_tag])
 		// If we do not have a name, assign one.
 		// Produces names like "Port Quarter Solar vent pump hZ2l6".
-		name = "\proper [vent_area.name] vent pump [assign_random_name()]"
+		name = "вентиляция [vent_area.name] [assign_random_name()]"
 		GLOB.air_vent_names[id_tag] = name
 
 	vent_area.air_vent_info[id_tag] = signal.data
@@ -338,7 +338,7 @@
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 100, TRUE)
 
 /obj/machinery/atmospherics/components/unary/vent_pump/high_volume
-	name = "large air vent"
+	name = "мощная вентиляция"
 	power_channel = AREA_USAGE_EQUIP
 
 /obj/machinery/atmospherics/components/unary/vent_pump/high_volume/New()
@@ -459,6 +459,12 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/zauker_output
 	name = "zauker tank output inlet"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_ZAUKER
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/helium_output
+	name = "helium tank output inlet"
+	id_tag = ATMOS_GAS_MONITOR_OUTPUT_HELIUM
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/antinoblium_output
+	name = "antinoblium tank output inlet"
+	id_tag = ATMOS_GAS_MONITOR_OUTPUT_ANTINOBLIUM
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/incinerator_output
 	name = "incinerator chamber output inlet"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_INCINERATOR

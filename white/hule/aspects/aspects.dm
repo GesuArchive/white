@@ -92,6 +92,7 @@
 	for(var/obj/machinery/light/L in world)
 		L.idle_power_usage   = L.idle_power_usage   * 10
 		L.active_power_usage = L.active_power_usage * 10
+		L.power_change()
 
 	SSresearch.mining_multiplier = 5
 	..()
@@ -99,7 +100,7 @@
 /datum/round_aspect/rainy_shift
 	name = "Rainy Shift"
 	desc = "Ожидается выпадение обильных осадков."
-	weight = 80
+	weight = 40
 	var/area/impact_area
 	var/list/possible_pack_types = list()
 	var/static/list/rain_spawnable_supply_packs = list()

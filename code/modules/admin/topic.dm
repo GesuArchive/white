@@ -49,7 +49,7 @@
 		cmd_show_exp_panel(M.client)
 
 	else if(href_list["toggleexempt"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_PERMISSIONS))
 			return
 		var/client/C = locate(href_list["toggleexempt"]) in GLOB.clients
 		if(!C)

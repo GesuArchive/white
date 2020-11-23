@@ -466,35 +466,35 @@
 
 /obj/item/clothing/suit/jacket/miljacket
 	name = "военная куртка"
-	desc = "Холщовая куртка в стиле классической американской военной одежды. Чувствует себя крепким, но комфортно."
+	desc = "Холщовая куртка в стиле классической американской военной одежды. Прочная на ощупь, но весьма комфортная при ношении."
 	icon_state = "militaryjacket"
 	inhand_icon_state = "militaryjacket"
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter, /obj/item/gun/ballistic/automatic/pistol, /obj/item/gun/ballistic/revolver, /obj/item/radio)
 
 /obj/item/clothing/suit/jacket/letterman
 	name = "куртка леттермана"
-	desc = "Классическая коричневая куртка-леттерман. Выглядит довольно жарко и тяжело."
+	desc = "Классическая коричневая куртка-леттерман. Хорошая вещь."
 	icon_state = "letterman"
 	inhand_icon_state = "letterman"
 	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/suit/jacket/letterman_red
-	name = "красная куртка леттермана"
-	desc = "Куртка леттермана в больном красном цвете. Радикально."
+	name = "красная куртка леттерман"
+	desc = "Куртка леттерман нездорово-красного цвета. Радикально."
 	icon_state = "letterman_red"
 	inhand_icon_state = "letterman_red"
 	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/suit/jacket/letterman_syndie
-	name = "кроваво-красная куртка леттермана"
-	desc = "Как ни странно, эта куртка, кажется, имеет большой S на спине..."
+	name = "кроваво-красная куртка леттерман"
+	desc = "Странно, на спине у этой куртки есть большая S."
 	icon_state = "letterman_s"
 	inhand_icon_state = "letterman_s"
 	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/suit/jacket/letterman_nanotrasen
-	name = "синяя куртка леттермана"
-	desc = "Синяя куртка-леттерман с гордым Нанотрейзен N на спине. Тег говорит, что это было сделано в Космическом Китае."
+	name = "синяя куртка леттерман"
+	desc = "Синяя курта леттерман с зачетной Нанотрансеновской N на спине. На бирке сказано что её сшили в Космическом Китае."
 	icon_state = "letterman_n"
 	inhand_icon_state = "letterman_n"
 	species_exception = list(/datum/species/golem)

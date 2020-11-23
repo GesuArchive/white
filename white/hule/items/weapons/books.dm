@@ -6,15 +6,15 @@
 	author = "Forces beyond your comprehension"
 	unique = 1
 	title = "Сборник Приколов!"
-	dat = {"<html>
-	<img src="zdoh.png" width=350px height=350px> <br>
-	Список лохов:<br>
-	"}
 
 /obj/item/book/killbook/Initialize()
 	..()
 	icon_state = "book[rand(1,7)]"
 	name = "Сборник [pick("приколов","анекдотов","юморесок")] [pick("от кодербаса", "от Нуждина", "про болоны", "про бимбы", "про ассистентов", "про вардена")]"
+	dat = {"<html>
+	<img src="[SSassets.transport.get_asset_url("zdoh.png")]" width=350px height=350px> <br>
+	Список лохов:<br>
+	"}
 
 /obj/item/book/killbook/attack_self(mob/user)
 	var/datum/asset/zdoh = get_asset_datum(/datum/asset/simple/white_mix)

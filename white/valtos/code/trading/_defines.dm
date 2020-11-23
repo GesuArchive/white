@@ -7,7 +7,7 @@ GLOBAL_LIST_INIT(terminal_products, list(
 	/obj/item/clothing/under/rank/omon,
 	/obj/item/book/granter/spell/assacc,
 	/obj/item/circular_saw/folding,
-	/obj/item/reagent_containers/food/snacks/customizable/shaurma,
+	/obj/item/food/shaurma,
 	/obj/item/reagent_containers/food/drinks/boyarka,
 	/mob/living/carbon/human,
 	/obj/item/clothing/shoes/combat,

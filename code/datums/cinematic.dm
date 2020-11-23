@@ -286,3 +286,9 @@ Nuke.Explosion()
 Narsie()
 	-> Cinematic(CULT,world)
 */
+/datum/cinematic/moldovans
+	id = CINEMATIC_MOLDOVANE
+
+/datum/cinematic/moldovans/content()
+	flick("moldo",screen)
+	cinematic_sound(sound('white/govno.ogg'))

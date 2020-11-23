@@ -22,7 +22,7 @@
 	icon_state = "bluetie"
 	inhand_icon_state = ""	//no inhands
 	w_class = WEIGHT_CLASS_SMALL
-	custom_price = 60
+	custom_price = PAYCHECK_EASY
 
 /obj/item/clothing/neck/tie/blue
 	name = "синий галстук"
@@ -91,7 +91,7 @@
 	desc = "Стильный шарф. Идеальный зимний аксессуар для тех, у кого острое чувство моды, и для тех, кто просто не может справиться с холодным бризом на шеях."
 	w_class = WEIGHT_CLASS_TINY
 	dog_fashion = /datum/dog_fashion/head
-	custom_price = 60
+	custom_price = PAYCHECK_EASY
 
 /obj/item/clothing/neck/scarf/black
 	name = "чёрный шарф"
@@ -155,17 +155,17 @@
 /obj/item/clothing/neck/stripedredscarf
 	name = "полосатый красный шарф"
 	icon_state = "stripedredscarf"
-	custom_price = 10
+	custom_price = PAYCHECK_ASSISTANT * 0.2
 
 /obj/item/clothing/neck/stripedgreenscarf
 	name = "полосатый зелёный шарф"
 	icon_state = "stripedgreenscarf"
-	custom_price = 10
+	custom_price = PAYCHECK_ASSISTANT * 0.2
 
 /obj/item/clothing/neck/stripedbluescarf
 	name = "полосатый синий шарф"
 	icon_state = "stripedbluescarf"
-	custom_price = 10
+	custom_price = PAYCHECK_ASSISTANT * 0.2
 
 /obj/item/clothing/neck/petcollar
 	name = "ошейник"
@@ -262,7 +262,7 @@
 	icon = 'icons/obj/clothing/neck.dmi'
 	icon_state = "beads"
 	color = "#ffffff"
-	custom_price = 10
+	custom_price = PAYCHECK_ASSISTANT * 0.2
 	custom_materials = (list(/datum/material/plastic = 500))
 
 /obj/item/clothing/neck/beads/Initialize()

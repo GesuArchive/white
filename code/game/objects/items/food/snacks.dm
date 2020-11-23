@@ -24,7 +24,7 @@
 	bite_consumption = 10
 	tastes = list("конфета" = 5, "потеря веса" = 4, "личинка насекомых" = 1)
 	foodtypes = JUNKFOOD | RAW | GROSS
-	custom_price = 800
+	custom_price = PAYCHECK_ASSISTANT * 1.6 //Joke adjusted for inflation
 	w_class = WEIGHT_CLASS_TINY
 	var/revelation = FALSE
 
@@ -85,6 +85,10 @@
 	foodtypes = JUNKFOOD | FRIED
 	w_class = WEIGHT_CLASS_SMALL
 
+/obj/item/food/chips/MakeLeaveTrash()
+	if(trash_type)
+		AddElement(/datum/element/food_trash, trash_type, FOOD_TRASH_POPABLE)
+
 /obj/item/food/no_raisin
 	name = "4no raisins"
 	icon_state = "4no_raisins"
@@ -94,7 +98,7 @@
 	junkiness = 25
 	tastes = list("сушеный изюм" = 1)
 	foodtypes = JUNKFOOD | FRUIT | SUGAR
-	custom_price = 90
+	custom_price = PAYCHECK_ASSISTANT * 0.7
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/no_raisin/healthy
@@ -112,7 +116,7 @@
 	food_reagents = list(/datum/reagent/consumable/sugar = 4)
 	junkiness = 25
 	foodtypes = JUNKFOOD | GRAIN | SUGAR
-	custom_price = 30
+	custom_price = PAYCHECK_PRISONER
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/candy_trash
@@ -138,7 +142,6 @@
 	junkiness = 25
 	tastes = list("сыр" = 5, "чипсы" = 2)
 	foodtypes = JUNKFOOD | DAIRY | SUGAR
-	custom_price = 45
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/syndicake

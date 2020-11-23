@@ -6,11 +6,11 @@
 	products = list(
 					/obj/item/food/kebab/rat/double = 3,
 					/obj/item/storage/box/lcubes = 5,
-					/obj/item/reagent_containers/food/snacks/canned/peaches/maint = 2,
+					/obj/item/food/canned/peaches/maint = 2,
 					/obj/item/reagent_containers/food/snacks/soylentgreen = 5
 					)
 	contraband = list(
-					/obj/item/reagent_containers/food/snacks/store/cheesewheel = 2
+					/obj/item/food/cheesewheel = 2
 					)
 	premium = list(
 					/obj/item/storage/mre = 5,

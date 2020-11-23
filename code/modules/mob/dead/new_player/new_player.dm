@@ -150,7 +150,7 @@
 
 	if(href_list["late_join"])
 		if(!SSticker?.IsRoundInProgress())
-			to_chat(usr, "<span class='boldwarning'> > Раунд ещё не начался или уже завершился...</span>")
+			to_chat(usr, "<span class='boldwarning'>Раунд ещё не начался или уже завершился...</span>")
 			return
 
 		if(href_list["late_join"] == "override")
@@ -162,12 +162,12 @@
 
 			var/queue_position = SSticker.queued_players.Find(usr)
 			if(queue_position == 1)
-				to_chat(usr, "<span class='notice'> > Ты следующий по списку желающих войти в раунд. Тебя оповестят о подходящей возможности.</span>")
+				to_chat(usr, "<span class='notice'>Ты следующий по списку желающих войти в раунд. Тебя оповестят о подходящей возможности.</span>")
 			else if(queue_position)
-				to_chat(usr, "<span class='notice'> > Перед тобой [queue_position-1] игроков в очереди ожидания захода в раунд.</span>")
+				to_chat(usr, "<span class='notice'>Перед тобой [queue_position-1] игроков в очереди ожидания захода в раунд.</span>")
 			else
 				SSticker.queued_players += usr
-				to_chat(usr, "<span class='notice'> > Тебя добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len].</span>")
+				to_chat(usr, "<span class='notice'>Тебя добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len].</span>")
 			return
 		LateChoices()
 
@@ -176,16 +176,16 @@
 
 	if(href_list["SelectedJob"])
 		if(!SSticker?.IsRoundInProgress())
-			to_chat(usr, "<span class='danger'> > Раунд ещё не начался или уже завершился...</span>")
+			to_chat(usr, "<span class='danger'>Раунд ещё не начался или уже завершился...</span>")
 			return
 
 		if(!GLOB.enter_allowed)
-			to_chat(usr, "<span class='notice'> > Нельзя!</span>")
+			to_chat(usr, "<span class='notice'>Нельзя!</span>")
 			return
 
 		if(SSticker.queued_players.len && !(ckey(key) in GLOB.admin_datums))
 			if((living_player_count() >= relevant_cap) || (src != SSticker.queued_players[1]))
-				to_chat(usr, "<span class='warning'> > Полновато здесь.</span>")
+				to_chat(usr, "<span class='warning'>Полновато здесь.</span>")
 				return
 
 		AttemptLateSpawn(href_list["SelectedJob"])
@@ -228,11 +228,11 @@
 	observer.started_as_observer = TRUE
 	close_spawn_windows()
 	var/obj/effect/landmark/observer_start/O = locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list
-	to_chat(src, "<span class='notice'> > Телепортируемся! Аспект: [SSaspects.ca_desc]</span>")
+	to_chat(src, "<span class='notice'>Телепортируемся! Аспект: [SSaspects.ca_desc]</span>")
 	if (O)
 		observer.forceMove(O.loc)
 	else
-		to_chat(src, "<span class='notice'> > Что-то сломалось. Не паникуй и нажми F1 описав проблему.</span>")
+		to_chat(src, "<span class='notice'>Что-то сломалось и тебя забросило немного не там, где нужно. Ничего страшного.</span>")
 		stack_trace("There's no freaking observer landmark available on this map or you're making observers before the map is initialised")
 	observer.key = key
 	observer.client = client
@@ -243,7 +243,7 @@
 		observer.client.init_verbs()
 	observer.update_icon()
 	observer.stop_sound_channel(CHANNEL_LOBBYMUSIC)
-	deadchat_broadcast(" has observed.", "<b>[observer.real_name]</b>", follow_target = observer, turf_target = get_turf(observer), message_type = DEADCHAT_DEATHRATTLE)
+	deadchat_broadcast(" становится призраком.", "<b>[observer.real_name]</b>", follow_target = observer, turf_target = get_turf(observer), message_type = DEADCHAT_DEATHRATTLE)
 	QDEL_NULL(mind)
 	qdel(src)
 	return TRUE
@@ -256,8 +256,8 @@
 			return "[jobtitle] недоступен."
 		if(JOB_UNAVAILABLE_BANNED)
 			return "Тебе нельзя быть [jobtitle]."
-		if(JOB_UNAVAILABLE_UNDONATED)
-			return "Роль [jobtitle] доступна только для благотворцев."
+		if(JOB_UNAVAILABLE_UNBUYED)
+			return "Роль [jobtitle] сначала нужно купить."
 		if(JOB_UNAVAILABLE_PLAYTIME)
 			return "Ты не наиграл достаточно времени для [jobtitle]."
 		if(JOB_UNAVAILABLE_ACCOUNTAGE)
@@ -289,6 +289,8 @@
 		return JOB_UNAVAILABLE_PLAYTIME
 	if(latejoin && !job.special_check_latejoin(client))
 		return JOB_UNAVAILABLE_GENERIC
+	if(job.metalocked && !(job.type in client.prefs.jobs_buyed))
+		return JOB_UNAVAILABLE_UNBUYED
 	return JOB_AVAILABLE
 
 /mob/dead/new_player/proc/AttemptLateSpawn(rank)
@@ -376,7 +378,7 @@
 		SSquirks.AssignQuirks(humanc, humanc.client, TRUE)
 
 	if(humanc && SSaspects.current_aspect)
-		to_chat(humanc, "<span class='notice'><BR> > <B>Важно:</B> [SSaspects.current_aspect.desc]</span><BR>")
+		to_chat(humanc, "<span class='notice'><BR><B>Важно:</B> [SSaspects.current_aspect.desc]</span><BR>")
 
 	log_manifest(character.mind.key,character.mind,character,latejoin = TRUE)
 
@@ -458,8 +460,6 @@
 		is_antag = TRUE
 
 	client.prefs.copy_to(H, antagonist = is_antag, is_latejoiner = transfer_after)
-
-	client.prefs.copy_to(H, antagonist = is_antag)
 
 	client.hide_lobby()
 

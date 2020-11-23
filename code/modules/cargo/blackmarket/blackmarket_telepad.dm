@@ -23,11 +23,11 @@
 	/// Power used per teleported which gets divided by power_efficiency.
 	var/power_usage_per_teleport = 10000
 	/// The time it takes for the machine to recharge before being able to send or receive items.
-	var/recharge_time = 0
+	var/recharge_time = 1
 	/// Current recharge progress.
-	var/recharge_cooldown = 0
+	var/recharge_cooldown = 1
 	/// Base recharge time in seconds which is used to get recharge_time.
-	var/base_recharge_time = 200
+	var/base_recharge_time = 15
 	/// Current /datum/blackmarket_purchase being received.
 	var/receiving
 	/// Current /datum/blackmarket_purchase being sent to the target uplink.

@@ -65,7 +65,7 @@
 	belt = /obj/item/storage/belt/security/full
 	suit_store = /obj/item/gun/ballistic/automatic/wt550/wzzzz/german
 	r_hand = /obj/item/kitchen/knife/combat/survival
-	backpack_contents = list(/obj/item/ammo_box/magazine/wt550m9/wzzzz/mc9mmt=5, /obj/item/gun/energy/taser=1, /obj/item/reagent_containers/food/snacks/canned/peaches=1, /obj/item/reagent_containers/food/snacks/canned/beans=1, /obj/item/reagent_containers/food/drinks/waterbottle/large=1)
+	backpack_contents = list(/obj/item/ammo_box/magazine/wt550m9/wzzzz/mc9mmt=5, /obj/item/gun/energy/taser=1, /obj/item/food/canned/peaches=1, /obj/item/food/canned/beans=1, /obj/item/reagent_containers/food/drinks/waterbottle/large=1)
 
 /datum/outfit/wzzzz/spa_ter_1
 	name = "Space Terrorist Standart"

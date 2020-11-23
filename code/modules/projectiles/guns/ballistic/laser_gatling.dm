@@ -97,6 +97,9 @@
 	name = "laser gatling gun"
 	desc = "An advanced laser cannon with an incredible rate of fire. Requires a bulky backpack power source to use."
 	icon = 'icons/obj/guns/minigun.dmi'
+
+	pickup_sound = 'white/valtos/sounds/lasercock_heavy.wav'
+
 	icon_state = "minigun_spin"
 	inhand_icon_state = "minigun"
 	flags_1 = CONDUCT_1

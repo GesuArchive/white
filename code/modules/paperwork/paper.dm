@@ -11,7 +11,6 @@
 #define MODE_WRITING 1
 #define MODE_STAMPING 2
 
-
 /**
  * Paper is now using markdown (like in github pull notes) for ALL rendering
  * so we do loose a bit of functionality but we gain in easy of use of
@@ -312,7 +311,8 @@
 					LAZYADD(stamped, stamp_icon_state)
 
 				update_static_data(usr,ui)
-				ui.user.visible_message("<span class='notice'>[ui.user] штампует [src] используя [stamp_class]!</span>", "<span class='notice'>Штампую [src] используя [stamp_class]!</span>")
+				var/obj/O = ui.user.get_active_held_item()
+				ui.user.visible_message("<span class='notice'>[ui.user] штампует [src] используя [O.name]!</span>", "<span class='notice'>Штампую [src] используя [O.name]!</span>")
 			else
 				to_chat(usr, pick("Пытаюсь сделать штамп, но промахиваюсь!", "А где штамп то ставить?!"))
 			. = TRUE

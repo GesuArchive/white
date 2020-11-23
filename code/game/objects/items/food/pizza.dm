@@ -1,6 +1,4 @@
-
-/////////////////////////////////////////////////PIZZA////////////////////////////////////////
-
+// Pizza (Whole)
 /obj/item/food/pizza
 	icon = 'icons/obj/food/pizzaspaghetti.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
@@ -8,7 +6,16 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 28, /datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1)
 	foodtypes = GRAIN | DAIRY | VEGETABLES
+	/// type is spawned 6 at a time and replaces this pizza when processed by cutting tool
+	var/obj/item/food/pizzaslice/slice_type
 
+/obj/item/food/pizza/MakeProcessable()
+	if (slice_type)
+		AddElement(/datum/element/processable, TOOL_KNIFE, slice_type, 6, 30)
+		AddElement(/datum/element/processable, TOOL_SAW, slice_type, 6, 45)
+		AddElement(/datum/element/processable, TOOL_SCALPEL, slice_type, 6, 60)
+
+// Pizza Slice
 /obj/item/food/pizzaslice
 	icon = 'icons/obj/food/pizzaspaghetti.dmi'
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5)
@@ -18,6 +25,7 @@
 /obj/item/food/pizzaslice/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_ROLLINGPIN, /obj/item/stack/sheet/pizza, 1, 10)
 
+
 /obj/item/food/pizza/margherita
 	name = "pizza margherita"
 	desc = "The most cheezy pizza in galaxy."
@@ -25,9 +33,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
-
-/obj/item/food/pizza/margherita/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/margherita, 6, 30)
+	slice_type = /obj/item/food/pizzaslice/margherita
 
 /obj/item/food/pizza/margherita/robo
 	food_reagents = list(/datum/reagent/nanomachines = 70, /datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
@@ -39,15 +45,14 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
+
 /obj/item/food/pizza/meat
 	name = "meatpizza"
 	desc = "Greasy pizza with delicious meat."
 	icon_state = "meatpizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 8)
 	foodtypes = GRAIN | VEGETABLES| DAIRY | MEAT
-
-/obj/item/food/pizza/meat/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/meat, 6, 30)
+	slice_type = /obj/item/food/pizzaslice/meat
 
 /obj/item/food/pizzaslice/meat
 	name = "meatpizza slice"
@@ -56,6 +61,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT
 
+
 /obj/item/food/pizza/mushroom
 	name = "mushroom pizza"
 	desc = "Very special pizza."
@@ -63,9 +69,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 28, /datum/reagent/consumable/nutriment/protein = 3,  /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "грибы" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
-
-/obj/item/food/pizza/mushroom/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/mushroom, 6, 30)
+	slice_type = /obj/item/food/pizzaslice/mushroom
 
 /obj/item/food/pizzaslice/mushroom
 	name = "mushroom pizza slice"
@@ -74,6 +78,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "грибы" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
+
 /obj/item/food/pizza/vegetable
 	name = "vegetable pizza"
 	desc = "No one of Tomatos Sapiens were harmed during making this pizza."
@@ -81,9 +86,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/medicine/oculine = 12, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("корка" = 1, "томаты" = 2, "сыр" = 1, "морковь" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
-
-/obj/item/food/pizza/vegetable/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/vegetable, 6, 30)
+	slice_type = /obj/item/food/pizzaslice/vegetable
 
 /obj/item/food/pizzaslice/vegetable
 	name = "vegetable pizza slice"
@@ -92,6 +95,7 @@
 	tastes = list("корка" = 1, "томаты" = 2, "сыр" = 1, "морковь" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
+
 /obj/item/food/pizza/donkpocket
 	name = "donkpocket pizza"
 	desc = "Who thought this would be a good idea?"
@@ -99,9 +103,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/protein = 15, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/medicine/omnizine = 10, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1, "лень" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | JUNKFOOD
-
-/obj/item/food/pizza/donkpocket/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/donkpocket, 6, 30)
+	slice_type = /obj/item/food/pizzaslice/donkpocket
 
 /obj/item/food/pizzaslice/donkpocket
 	name = "donkpocket pizza slice"
@@ -110,6 +112,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1, "лень" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | JUNKFOOD
 
+
 /obj/item/food/pizza/dank
 	name = "dank pizza"
 	desc = "The hippie's pizza of choice."
@@ -117,9 +120,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/doctor_delight = 5, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
-
-/obj/item/food/pizza/dank/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/dank, 6, 30)
+	slice_type = /obj/item/food/pizzaslice/dank
 
 /obj/item/food/pizzaslice/dank
 	name = "dank pizza slice"
@@ -128,6 +129,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
+
 /obj/item/food/pizza/sassysage
 	name = "sassysage pizza"
 	desc = "You can really smell the sassiness."
@@ -135,9 +137,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/protein = 15, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 6)
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
-
-/obj/item/food/pizza/sassysage/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/sassysage, 6, 30)
+	slice_type = /obj/item/food/pizzaslice/sassysage
 
 /obj/item/food/pizzaslice/sassysage
 	name = "sassysage pizza slice"
@@ -146,6 +146,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
+
 /obj/item/food/pizza/pineapple
 	name = "\improper Hawaiian pizza"
 	desc = "The pizza equivalent of Einstein's riddle."
@@ -153,9 +154,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/consumable/pineapplejuice = 8)
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "ананас" = 2, "ветчина" = 2)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | FRUIT | PINEAPPLE
-
-/obj/item/food/pizza/pineapple/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/pineapple, 6, 30)
+	slice_type = /obj/item/food/pizzaslice/pineapple
 
 /obj/item/food/pizzaslice/pineapple
 	name = "\improper Hawaiian pizza slice"
@@ -164,15 +163,31 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "ананас" = 2, "ветчина" = 2)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | FRUIT | PINEAPPLE
 
+
+// Moldly Pizza
+// Used in cytobiology.
+/obj/item/food/pizzaslice/moldy
+	name = "moldy pizza slice"
+	desc = "This was once a perfectly good slice of pizza pie, but now it lies here, rancid and bursting with spores. What a bummer! But we should not dwell on the past, only look towards the future."
+	icon_state = "moldy_slice"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/peptides = 3, /datum/reagent/consumable/tomatojuice = 1, /datum/reagent/toxin/amatoxin = 2)
+	tastes = list("stale crust" = 1, "rancid cheese" = 2, "mushroom" = 1)
+	foodtypes = GRAIN | VEGETABLES | DAIRY | GROSS
+
+/obj/item/food/pizzaslice/moldy/Initialize()
+	. = ..()
+	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOLD, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 25)
+
+
+// Arnold Pizza
+// Has meme code.
 /obj/item/food/pizza/arnold
 	name = "\improper Arnold pizza"
 	desc = "Hello, you've reached Arnold's pizza shop. I'm not here now, I'm out killing pepperoni."
 	icon_state = "arnoldpizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 9, /datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/iron = 10, /datum/reagent/medicine/omnizine = 30)
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "пепперони" = 2, "9-ти миллиметровые пули" = 2)
-
-/obj/item/food/pizza/arnold/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pizzaslice/arnold, 6, 30)
+	slice_type = /obj/item/food/pizzaslice/arnold
 
 //fuck it, i will leave this at the food level for now.
 /obj/item/food/proc/try_break_off(mob/living/M, mob/living/user) //maybe i give you a pizza maybe i break off your arm
@@ -188,7 +203,7 @@
 	playsound(user, "desecration", 50, TRUE, -1)
 
 /obj/item/food/proc/i_kill_you(obj/item/I, mob/living/user)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/pineappleslice))
+	if(istype(I, /obj/item/food/pineappleslice))
 		to_chat(user, "<font color='red' size='7'>If you want something crazy like pineapple, I'll kill you.</font>") //this is in bigger text because it's hard to spam something that gibs you, and so that you're perfectly aware of the reason why you died
 		user.gib() //if you want something crazy like pineapple, i'll kill you
 	else if(istype(I, /obj/item/reagent_containers/food/snacks/grown/mushroom) && iscarbon(user))
@@ -218,14 +233,3 @@
 /obj/item/food/pizzaslice/arnold/attackby(obj/item/I, mob/user)
 	i_kill_you(I, user)
 	. = ..()
-
-/obj/item/food/pizzaslice/moldy
-	name = "moldy pizza slice"
-	desc = "This was once a perfectly good slice of pizza pie, but now it lies here, rancid and bursting with spores. What a bummer! But we should not dwell on the past, only look towards the future."
-	icon_state = "moldy_slice"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/peptides = 3, /datum/reagent/consumable/tomatojuice = 1, /datum/reagent/toxin/amatoxin = 2)
-	tastes = list("stale crust" = 1, "rancid cheese" = 2, "грибы" = 1)
-	foodtypes = GRAIN | VEGETABLES | DAIRY | GROSS
-
-/obj/item/food/pizzaslice/moldy/MakeProcessable()
-	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOLD, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 25)

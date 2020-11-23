@@ -105,11 +105,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/showroomfloor,
 /area/hallway/secondary/service)
-"ao" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
-/turf/open/floor/light/colour_cycle/dancefloor_a,
-/area/crew_quarters/bar)
 "ap" = (
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=2";
@@ -152,11 +147,11 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/light/colour_cycle/dancefloor_b,
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "av" = (
 /obj/structure/chair/stool/bar,
-/turf/open/floor/light/colour_cycle/dancefloor_a,
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "aw" = (
 /obj/structure/disposalpipe/segment{
@@ -528,10 +523,6 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/showroomfloor,
 /area/crew_quarters/kitchen)
-"bF" = (
-/obj/effect/landmark/event_spawn,
-/turf/closed/wall,
-/area/crew_quarters/bar)
 "bG" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
@@ -545,7 +536,7 @@
 "bH" = (
 /obj/structure/chair/stool/bar,
 /obj/effect/landmark/start/assistant,
-/turf/open/floor/light/colour_cycle/dancefloor_b,
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "bJ" = (
 /obj/effect/spawner/structure/window,
@@ -566,7 +557,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/light,
+/turf/open/floor/glass/reinforced,
 /area/crew_quarters/bar)
 "bM" = (
 /obj/machinery/light{
@@ -646,7 +637,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/light,
+/turf/open/floor/glass/reinforced,
 /area/crew_quarters/bar)
 "bY" = (
 /obj/effect/landmark/event_spawn,
@@ -667,7 +658,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/light,
+/turf/open/floor/glass/reinforced,
 /area/crew_quarters/bar)
 "ca" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -688,7 +679,7 @@
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_x = -31
 	},
-/turf/open/floor/light,
+/turf/open/floor/glass/reinforced,
 /area/crew_quarters/bar)
 "cc" = (
 /obj/structure/table/reinforced,
@@ -701,7 +692,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/light,
+/turf/open/floor/glass/reinforced,
 /area/crew_quarters/bar)
 "cf" = (
 /mob/living/carbon/monkey/punpun,
@@ -719,7 +710,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/light,
+/turf/open/floor/glass/reinforced,
 /area/crew_quarters/bar)
 "ch" = (
 /turf/open/floor/plasteel/cafeteria,
@@ -756,13 +747,13 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
-/turf/open/floor/light/colour_cycle/dancefloor_b,
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "cs" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
-/turf/open/floor/light/colour_cycle/dancefloor_b,
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "ct" = (
 /obj/effect/landmark/start/bartender,
@@ -844,18 +835,18 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/light,
+/turf/open/floor/glass/reinforced,
 /area/crew_quarters/bar)
 "cC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/light,
+/turf/open/floor/glass/reinforced,
 /area/crew_quarters/bar)
 "cD" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
-/obj/item/reagent_containers/food/snacks/pie/cream,
+/obj/item/food/pie/cream,
 /obj/machinery/door/poddoor/shutters/preopen{
 	dir = 4;
 	id = "barmanpriv";
@@ -896,7 +887,7 @@
 /obj/machinery/newscaster{
 	pixel_y = -28
 	},
-/turf/open/floor/light/colour_cycle/dancefloor_a,
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "cL" = (
 /obj/machinery/computer/security/telescreen/entertainment{
@@ -919,12 +910,6 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
-"cO" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 4
-	},
-/turf/open/floor/light/colour_cycle/dancefloor_a,
-/area/crew_quarters/bar)
 "cQ" = (
 /obj/machinery/door/window/southright{
 	dir = 8;
@@ -939,7 +924,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/light,
+/turf/open/floor/glass/reinforced,
 /area/crew_quarters/bar)
 "cR" = (
 /turf/open/floor/plasteel/dark,
@@ -1084,7 +1069,7 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/turf/open/floor/light/colour_cycle/dancefloor_b,
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "dk" = (
 /obj/structure/sign/barsign,
@@ -1114,7 +1099,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4,
-/turf/open/floor/light/colour_cycle/dancefloor_a,
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "dp" = (
 /obj/machinery/door/firedoor,
@@ -1136,7 +1121,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/light/colour_cycle/dancefloor_b,
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "dr" = (
 /obj/effect/spawner/structure/window,
@@ -1151,25 +1136,22 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/light/colour_cycle/dancefloor_b,
-/area/crew_quarters/bar)
-"dw" = (
-/turf/open/floor/light/colour_cycle/dancefloor_a,
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "dy" = (
-/turf/open/floor/light/colour_cycle/dancefloor_b,
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "eP" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/turf/open/floor/light/colour_cycle/dancefloor_a,
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "oT" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/effect/landmark/event_spawn,
-/turf/open/floor/light/colour_cycle/dancefloor_a,
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "qf" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
@@ -1182,7 +1164,7 @@
 "rU" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
-/turf/open/floor/light/colour_cycle/dancefloor_b,
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "sm" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -1265,7 +1247,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/light,
+/turf/open/floor/glass/reinforced,
 /area/crew_quarters/bar)
 "GL" = (
 /obj/structure/noticeboard{
@@ -1277,7 +1259,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/light/colour_cycle/dancefloor_b,
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "JS" = (
 /turf/open/floor/plasteel/white/side{
@@ -1291,7 +1273,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 6
 	},
-/turf/open/floor/light/colour_cycle/dancefloor_a,
+/turf/open/floor/light,
 /area/crew_quarters/bar)
 "Mo" = (
 /obj/structure/table/reinforced,
@@ -1331,7 +1313,7 @@ aG
 aG
 aG
 aG
-bF
+ah
 dr
 ah
 dr
@@ -1366,11 +1348,11 @@ ar
 ar
 bJ
 dy
-dw
 dy
-dw
 dy
-dw
+dy
+dy
+dy
 dy
 ah
 "}
@@ -1382,11 +1364,11 @@ ar
 ar
 ar
 bJ
-dw
 dy
-dw
 dy
-dw
+dy
+dy
+dy
 dy
 cJ
 ah
@@ -1400,11 +1382,11 @@ aX
 ar
 bJ
 dy
-dw
 dy
-dw
 dy
-dw
+dy
+dy
+dy
 dj
 ah
 "}
@@ -1416,13 +1398,13 @@ ar
 aY
 ar
 bJ
-dw
+dy
 cs
 bY
 wZ
 db
 dy
-dw
+dy
 dp
 "}
 (7,1,1) = {"
@@ -1434,11 +1416,11 @@ bb
 ar
 bJ
 dy
-cO
+dv
 cZ
 cX
 dn
-dw
+dy
 dy
 dr
 "}
@@ -1450,7 +1432,7 @@ aL
 bb
 ar
 bJ
-dw
+dy
 dv
 bn
 Up
@@ -1468,9 +1450,9 @@ bb
 ar
 bJ
 dy
-cO
+dv
 dy
-dw
+dy
 dy
 eP
 dq
@@ -1484,9 +1466,9 @@ aM
 bc
 bo
 bG
-ao
+rU
 au
-ao
+rU
 rU
 oT
 cq
@@ -1506,7 +1488,7 @@ av
 bH
 av
 bH
-dw
+dy
 GL
 ah
 "}
