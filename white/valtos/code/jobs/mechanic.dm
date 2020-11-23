@@ -49,7 +49,7 @@
 	var/scanned_type = null
 	var/tier_rate = 1
 	var/obj/machinery/copytech_platform/cp = null
-	var/atom/movable/current_design = null
+	var/current_design = null
 	var/working = FALSE
 	var/atom/movable/active_item = null
 
@@ -114,7 +114,7 @@
 			update_icon()
 		return TRUE
 	else if (isliving(current_design))
-		if(tier_rate < 4)
+		if(tier_rate =< 8)
 			say("Слишком слабая мощность лазера.")
 			return FALSE
 		var/mob/living/M = new current_design(get_turf(src))
@@ -151,7 +151,7 @@
 	tier_rate = T
 
 /proc/get_replication_speed(tier)
-	return (600 SECONDS) / tier
+	return (60 SECONDS) / tier
 
 /obj/machinery/copytech/proc/check_platform()
 	if(!cp)
@@ -246,9 +246,7 @@
 				if(O.anchored || (O.resistance_flags & INDESTRUCTIBLE) || O == src)
 					continue
 				what_we_destroying = thing
-			if(istype(thing, /mob/living))
-				if(tier_rate < 4)
-					continue
+			if(istype(thing, /mob/living) && tier_rate =< 8)
 				what_we_destroying = thing
 	if(what_we_destroying)
 		what_we_destroying.set_anchored(TRUE)

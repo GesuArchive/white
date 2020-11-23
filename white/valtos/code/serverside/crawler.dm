@@ -21,7 +21,7 @@
 	if(!cril)
 		return TRUE
 
-	if((text2num(cril["tauceti"]) > 180 || text2num(cril["infinity"]) > 180 || text2num(cril["onyx"]) > 180 || text2num(cril["wycc"]) > 180) || text2num(cril["furry"]) > 180) && text2num(cril["bypass"]) == 0)
+	if((text2num(cril["tauceti"]) > 180 || text2num(cril["infinity"]) > 180 || text2num(cril["onyx"]) > 180 || text2num(cril["wycc"]) > 180 || text2num(cril["furry"]) > 180) && text2num(cril["bypass"]) == 0)
 		message_admins("[key_name(src)] не наш игрок. TC: [cril["tauceti"]]m | IN: [cril["infinity"]]m | ON: [cril["onyx"]]m | SS: [cril["wycc"]]m | FF: [cril["furry"]]m")
 		//spawn(10)
 		//	to_chat(src, "<span class='userdanger'>Информацию о тебе продают, пока ты играешь на серверах из списка отсюда: <a href='https://crawler.station13.ru/?ckey=[ckey]'>https://crawler.station13.ru/?ckey=[ckey]</a></span>")

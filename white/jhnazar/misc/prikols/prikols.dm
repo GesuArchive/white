@@ -8,7 +8,6 @@
 			set_invisibility(0)
 			return
 		return
-	return
 
 	if(ckey == "biomechanicmann")
 		icon = 'white/jhnazar/misc/prikols/bee.dmi'
