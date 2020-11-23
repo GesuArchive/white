@@ -127,7 +127,6 @@
 	can_be_unanchored = FALSE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	custom_materials = list(/datum/material/silver=MINERAL_MATERIAL_AMOUNT*2)
-	abstract_type = /obj/structure/statue/silver
 	flags_1 = NODECONSTRUCT_1
 	var/list/coomers = list()
 
@@ -149,5 +148,4 @@
 	desc = "Доктор Киара всех полечит и исцелит!<hr><b>Leviathan21</b> AKA <i>Masturbator</i> - третье место!"
 	icon_state = "bronze_2020"
 	custom_materials = list(/datum/material/bronze=MINERAL_MATERIAL_AMOUNT*2)
-	abstract_type = /obj/structure/statue/bronze
 	flags_1 = NODECONSTRUCT_1

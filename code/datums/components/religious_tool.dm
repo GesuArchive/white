@@ -142,12 +142,12 @@
 		return
 	if(!easy_access_sect)
 		if(operation_flags & RELIGION_TOOL_SECTSELECT)
-			examine_list += "<span class='notice'>This looks like it can be used to select a sect.</span>"
+			examine_list += "<hr><span class='notice'>This looks like it can be used to select a sect.</span>"
 			return
 
-	examine_list += "<span class='notice'>The sect currently has [round(easy_access_sect.favor)] favor with [GLOB.deity].[(operation_flags & RELIGION_TOOL_SACRIFICE) ? "Desired items can be used on this to increase favor." : ""]</span>"
+	examine_list += "<hr><span class='notice'>The sect currently has [round(easy_access_sect.favor)] favor with [GLOB.deity].[(operation_flags & RELIGION_TOOL_SACRIFICE) ? "Desired items can be used on this to increase favor." : ""]</span>"
 	if(!easy_access_sect.rites_list)
 		return //if we dont have rites it doesnt do us much good if the object can be used to invoke them!
 	if(operation_flags & RELIGION_TOOL_INVOKE)
-		examine_list += "List of available Rites:"
+		examine_list += "<hr>List of available Rites:"
 		examine_list += easy_access_sect.rites_list
