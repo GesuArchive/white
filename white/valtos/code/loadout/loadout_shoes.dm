@@ -65,5 +65,5 @@
 
 /datum/gear/footwear/jackboots
 	display_name = "сапоги"
-	path = /obj/item/clothing/shoes/jackboot
+	path = /obj/item/clothing/shoes/jackboots
 	cost = 200
