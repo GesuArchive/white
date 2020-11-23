@@ -108,7 +108,7 @@
 
 /obj/structure/statue/gold/robust/attack_hand(mob/user)
 	. = ..()
-	if(!(user in coomers))
+	if(!(user.name in coomers))
 		if(isliving(user))
 			inc_metabalance(user, 1, TRUE)
 			visible_message("<span class='noticeital'>[user] кланяется статуе!</span>")
@@ -137,7 +137,7 @@
 
 /obj/structure/sign/plaques/robust/attack_hand(mob/user)
 	. = ..()
-	if(!(user in coomers))
+	if(!(user.name in coomers))
 		if(isliving(user))
 			var/mob/living/L = user
 			L.cum(null, null)
