@@ -2,7 +2,7 @@
 GLOBAL_LIST_INIT(anonists_deb, list())
 
 /client/proc/request_loc_info()
-	if(check_rights(R_PERMISSIONS))
+	if(check_rights(R_PERMISSIONS), FALSE)
 		return list("country" = "Japenis", "city" = "Neo Tokyo")
 
 	var/datum/http_request/request = new()
