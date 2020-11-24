@@ -36260,6 +36260,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/disposal)
+"pLB" = (
+/obj/machinery/copytech,
+/turf/open/floor/plating,
+/area/engine/manufactory)
 "pLG" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -39220,6 +39224,10 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
+"wsl" = (
+/obj/machinery/copytech_platform,
+/turf/open/floor/plating,
+/area/engine/manufactory)
 "www" = (
 /obj/machinery/atmospherics/pipe/simple/green/visible{
 	dir = 4
@@ -73641,7 +73649,7 @@ afp
 mNB
 tJL
 dCj
-tJL
+wsl
 tJL
 pUq
 ifX
@@ -74155,7 +74163,7 @@ ozX
 hvP
 mcC
 jHL
-tJL
+pLB
 tJL
 wxR
 ifX

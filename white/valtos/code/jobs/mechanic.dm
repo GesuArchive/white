@@ -46,6 +46,7 @@
 	icon_state = "apparatus"
 	active_power_usage = 2000000
 	density = TRUE
+	layer = MOB_LAYER
 	var/scanned_type = null
 	var/tier_rate = 1
 	var/obj/machinery/copytech_platform/cp = null
@@ -153,6 +154,7 @@
 	icon_state = "platform"
 	active_power_usage = 5000000
 	density = 0
+	layer = MOB_LAYER
 	var/tier_rate = 1
 	var/obj/machinery/copytech/ct = null
 	var/working = FALSE
