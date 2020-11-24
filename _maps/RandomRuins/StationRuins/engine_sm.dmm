@@ -1639,10 +1639,7 @@
 /turf/open/floor/plating,
 /area/engine/engineering)
 "tw" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
-	dir = 10
-	},
+/obj/structure/lattice,
 /turf/template_noop,
 /area/space/nearstation)
 "tB" = (
@@ -1681,6 +1678,13 @@
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/space/nearstation)
+"Vc" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 6
+	},
+/turf/template_noop,
+/area/space/nearstation)
 
 (1,1,1) = {"
 ab
@@ -1717,10 +1721,10 @@ ab
 ab
 ab
 ab
+ab
 ad
 ad
-di
-fm
+LF
 di
 fm
 di
@@ -1745,10 +1749,10 @@ ab
 ab
 ab
 ab
+ab
 ad
-di
-ec
-ec
+tw
+Vc
 ec
 ec
 ec
@@ -1774,8 +1778,8 @@ ab
 ab
 ab
 ab
-tw
-ec
+LF
+Vc
 ec
 ec
 ec

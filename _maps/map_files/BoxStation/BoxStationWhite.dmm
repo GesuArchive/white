@@ -12025,7 +12025,8 @@
 	dir = 4
 	},
 /obj/item/banner/engineering/atmos/mundane{
-	anchored = 1
+	anchored = 1;
+	pixel_x = 32
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
@@ -32034,6 +32035,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/atmos)
+"fxD" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/turf/open/floor/plasteel/white/side,
+/area/hallway/secondary/exit)
 "fxH" = (
 /obj/effect/spawner/structure/window,
 /obj/machinery/pinpointer_dispenser,
@@ -32942,7 +32949,9 @@
 /area/engine/manufactory)
 "hFK" = (
 /obj/structure/chair,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/white/side{
+	dir = 9
+	},
 /area/hallway/secondary/exit)
 "hGn" = (
 /obj/effect/decal/cleanable/dirt,
@@ -33314,6 +33323,11 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
+"iAm" = (
+/turf/open/floor/plasteel/white/side{
+	dir = 4
+	},
+/area/hallway/secondary/exit)
 "iBZ" = (
 /obj/machinery/power/smes,
 /obj/structure/cable,
@@ -33709,8 +33723,10 @@
 /turf/open/floor/engine/plasma,
 /area/engine/atmos)
 "jAY" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plasteel,
+/obj/structure/chair,
+/turf/open/floor/plasteel/white/side{
+	dir = 1
+	},
 /area/hallway/secondary/exit)
 "jBV" = (
 /obj/machinery/computer/warrant{
@@ -33781,7 +33797,9 @@
 /obj/structure/chair{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/white/side{
+	dir = 10
+	},
 /area/hallway/secondary/exit)
 "jJQ" = (
 /obj/machinery/atmospherics/components/binary/valve/digital{
@@ -33901,6 +33919,14 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/quartermaster/office)
+"jXI" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/turf/open/floor/plasteel/white/side{
+	dir = 6
+	},
+/area/hallway/secondary/exit)
 "jYM" = (
 /obj/item/reagent_containers/glass/bucket,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
@@ -34796,7 +34822,8 @@
 	dir = 4
 	},
 /obj/item/banner/engineering/atmos/mundane{
-	anchored = 1
+	anchored = 1;
+	pixel_x = 32
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
@@ -37012,6 +37039,11 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/hydroponics)
+"rKb" = (
+/turf/open/floor/plasteel/white/side{
+	dir = 8
+	},
+/area/hallway/secondary/exit)
 "rKc" = (
 /obj/machinery/door/window/eastright{
 	base_state = "left";
@@ -37293,7 +37325,7 @@
 	name = "Torture room"
 	},
 /obj/machinery/door/firedoor,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/white,
 /area/hallway/secondary/exit)
 "smX" = (
 /obj/machinery/door/airlock/external,
@@ -39087,9 +39119,10 @@
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "wjO" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/obj/structure/chair,
+/turf/open/floor/plasteel/white/side{
+	dir = 5
+	},
 /area/hallway/secondary/exit)
 "wkN" = (
 /obj/effect/spawner/structure/window,
@@ -89990,7 +90023,7 @@ aNa
 aQE
 aNa
 hFK
-aPq
+rKb
 jIa
 aNa
 aQE
@@ -90246,9 +90279,9 @@ aQE
 aNa
 aQE
 aNa
-hFK
+jAY
 aPq
-jIa
+fxD
 aNa
 aQE
 aNa
@@ -90503,9 +90536,9 @@ aeR
 aNa
 aQE
 aNa
-hFK
+jAY
 dHL
-jIa
+fxD
 aNa
 aQE
 aNa
@@ -90760,9 +90793,9 @@ aQE
 aNa
 aQE
 aNa
-hFK
-aPq
-jIa
+wjO
+iAm
+jXI
 aNa
 aQE
 aNa
@@ -91016,10 +91049,10 @@ aNa
 cyh
 aRW
 aTo
-wjO
-jAY
-jAY
-jAY
+aNa
+aNa
+aNa
+aNa
 aNa
 aTo
 aRW
