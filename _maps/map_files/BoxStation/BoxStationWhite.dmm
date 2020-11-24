@@ -21896,7 +21896,7 @@
 /turf/open/floor/engine,
 /area/engine/atmos)
 "bRK" = (
-/obj/machinery/atmospherics/miner/carbon_dioxide,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/open/floor/engine/co2,
 /area/engine/atmos)
 "bRL" = (
@@ -22212,7 +22212,7 @@
 /turf/open/floor/engine,
 /area/engine/atmos)
 "bSM" = (
-/obj/machinery/atmospherics/miner/toxins,
+/obj/machinery/portable_atmospherics/canister/toxins,
 /turf/open/floor/engine/plasma,
 /area/engine/atmos)
 "bSN" = (
@@ -22448,7 +22448,7 @@
 /turf/open/floor/engine,
 /area/science/misc_lab)
 "bTM" = (
-/obj/machinery/atmospherics/miner/n2o,
+/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
 /turf/open/floor/engine/n2o,
 /area/engine/atmos)
 "bTN" = (
@@ -27390,7 +27390,7 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "clT" = (
-/obj/machinery/atmospherics/miner/nitrogen,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/open/floor/engine/n2,
 /area/engine/atmos)
 "clU" = (
@@ -27402,7 +27402,7 @@
 /turf/open/floor/engine/o2,
 /area/engine/atmos)
 "clW" = (
-/obj/machinery/atmospherics/miner/oxygen,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/engine/o2,
 /area/engine/atmos)
 "clY" = (
