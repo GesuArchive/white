@@ -44,7 +44,7 @@
 	icon = 'white/valtos/icons/something.dmi'
 	circuit = /obj/item/circuitboard/machine/copytech
 	icon_state = "apparatus"
-	active_power_usage = 2000000
+	active_power_usage = 200000
 	density = TRUE
 	layer = MOB_LAYER
 	var/scanned_type = null
@@ -95,12 +95,14 @@
 	if(ispath(current_design, /obj))
 		var/obj/O = new current_design(A)
 		O.set_anchored(TRUE)
+		O.layer = ABOVE_MOB_LAYER
 		var/mutable_appearance/result = mutable_appearance(O.icon, O.icon_state)
 		var/mutable_appearance/scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
 		O.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
 		active_item = O
 		spawn(get_replication_speed(tier_rate))
 			O?.set_anchored(FALSE)
+			O?.layer = initial(O?.layer)
 			say("Завершение работы...")
 			use_power = IDLE_POWER_USE
 			working = FALSE
@@ -114,12 +116,14 @@
 		var/mob/living/M = new current_design(A)
 		M.SetParalyzed(get_replication_speed(tier_rate) * 2)
 		M.emote("scream")
+		M.layer = ABOVE_MOB_LAYER
 		var/mutable_appearance/result = mutable_appearance(M.icon, M.icon_state)
 		var/mutable_appearance/scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
 		M.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
 		active_item = M
 		spawn(get_replication_speed(tier_rate))
 			M?.SetParalyzed(FALSE)
+			M?.layer = initial(M?.layer)
 			say("Завершение работы...")
 			use_power = IDLE_POWER_USE
 			working = FALSE
@@ -152,7 +156,7 @@
 	icon = 'white/valtos/icons/something.dmi'
 	circuit = /obj/item/circuitboard/machine/copytech_platform
 	icon_state = "platform"
-	active_power_usage = 5000000
+	active_power_usage = 500000
 	density = 0
 	layer = MOB_LAYER
 	var/tier_rate = 1
@@ -180,6 +184,7 @@
 		var/mob/living/L = H
 		L.adjustFireLoss(10)
 		L.adjust_fire_stacks(5)
+		L.IgniteMob()
 		L.visible_message("<span class='danger'><b>[L]</b> прожаривается!</span>")
 		playsound(L, 'sound/machines/shower/shower_mid1.ogg', 90, TRUE)
 
@@ -241,6 +246,8 @@
 			var/mob/living/M = what_we_destroying
 			M.SetParalyzed(get_replication_speed(tier_rate) * 2)
 			M.emote("scream")
+			M.layer = ABOVE_MOB_LAYER
+		what_we_destroying.layer = ABOVE_MOB_LAYER
 		var/mutable_appearance/result = mutable_appearance('icons/effects/effects.dmi',"nothing")
 		var/mutable_appearance/scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
 		what_we_destroying.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
