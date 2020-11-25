@@ -8,7 +8,7 @@
 	var/datum/http_response/response = request.into_response()
 
 	if(response.errored || response.status_code != 200)
-		return list("tauceti" = "N/A", "infinity" = "N/A", "onyx" = "N/A", "wycc" = "N/A", "bypass" = "N/A")
+		return list("tauceti" = "N/A", "infinity" = "N/A", "onyx" = "N/A", "wycc" = "N/A", "furry" = "N/A", "bypass" = "N/A")
 
 	return json_decode(response.body)
 
@@ -21,8 +21,8 @@
 	if(!cril)
 		return TRUE
 
-	if((text2num(cril["tauceti"]) > 180 || text2num(cril["infinity"]) > 180 || text2num(cril["onyx"]) > 180 || text2num(cril["wycc"]) > 180) && text2num(cril["bypass"]) == 0)
-		message_admins("[key_name(src)] не наш игрок. TC: [cril["tauceti"]]m | IN: [cril["infinity"]]m | ON: [cril["onyx"]]m | SS: [cril["wycc"]]m")
+	if((text2num(cril["tauceti"]) > 180 || text2num(cril["infinity"]) > 180 || text2num(cril["onyx"]) > 180 || text2num(cril["wycc"]) > 180 || text2num(cril["furry"]) > 180) && text2num(cril["bypass"]) == 0)
+		message_admins("[key_name(src)] не наш игрок. TC: [cril["tauceti"]]m | IN: [cril["infinity"]]m | ON: [cril["onyx"]]m | SS: [cril["wycc"]]m | FF: [cril["furry"]]m")
 		//spawn(10)
 		//	to_chat(src, "<span class='userdanger'>Информацию о тебе продают, пока ты играешь на серверах из списка отсюда: <a href='https://crawler.station13.ru/?ckey=[ckey]'>https://crawler.station13.ru/?ckey=[ckey]</a></span>")
 		//	to_chat(src, "<span class='notice'>Данное уведомление будет убрано автоматически после помощи нам в борьбе со злом. Подробнее: <b>F1</b></span>")

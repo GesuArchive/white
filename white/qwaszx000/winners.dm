@@ -98,6 +98,26 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	layer = ABOVE_MOB_LAYER
 	anchored = TRUE
+	flags_1 = NODECONSTRUCT_1
+	var/list/coomers = list()
+
+/obj/structure/statue/gold/robust/Initialize()
+	. = ..()
+	animate(src, color = color_matrix_rotate_hue(5), time = 300, loop = -1, easing = SINE_EASING)
+	animate(color = color_matrix_rotate_hue(5))
+
+/obj/structure/statue/gold/robust/attack_hand(mob/user)
+	. = ..()
+	if(!(user.name in coomers))
+		if(isliving(user))
+			inc_metabalance(user, 1, TRUE)
+			visible_message("<span class='noticeital'>[user] кланяется статуе!</span>")
+			coomers += user.name
+
+/obj/structure/statue/gold/robust/examine_more(mob/user)
+	. = ..()
+	if(coomers)
+		. += "<hr><b>Уважение проявили:</b> <i>[english_list(coomers)]</i>."
 
 /obj/structure/sign/plaques/robust
 	name = "Портрет Daniil Bassow"
@@ -106,8 +126,26 @@
 	icon_state = "silver_2020"
 	can_be_unanchored = FALSE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	custom_materials = list(/datum/material/silver=MINERAL_MATERIAL_AMOUNT*2)
+	flags_1 = NODECONSTRUCT_1
+	var/list/coomers = list()
+
+/obj/structure/sign/plaques/robust/examine_more(mob/user)
+	. = ..()
+	if(coomers)
+		. += "<hr><b>Уважение проявили:</b> <i>[english_list(coomers)]</i>."
+
+/obj/structure/sign/plaques/robust/attack_hand(mob/user)
+	. = ..()
+	if(!(user.name in coomers))
+		if(isliving(user))
+			var/mob/living/L = user
+			L.cum(null, null)
+			coomers += user.name
 
 /obj/structure/sign/plaques/robust/bronze
 	name = "Портрет"
 	desc = "Доктор Киара всех полечит и исцелит!<hr><b>Leviathan21</b> AKA <i>Masturbator</i> - третье место!"
 	icon_state = "bronze_2020"
+	custom_materials = list(/datum/material/bronze=MINERAL_MATERIAL_AMOUNT*2)
+	flags_1 = NODECONSTRUCT_1

@@ -33,7 +33,7 @@
 	. += "<hr>"
 	. += "<span class='notice'>Alt-клик для сброса поля к изначальному варианту.</span>"
 	. += "\n<span class='notice'>Ctrl-Shift-клик по доске, чтобы её свернуть.</span>"
-	. += "\n<span class='notice'>Shift-клик по шашке, чтобы её перевернуть.</span>"
+	. += "\n<span class='notice'>СКМ по шашке, чтобы её перевернуть.</span>"
 
 /obj/checkered_table/Initialize()
 	..()
@@ -42,6 +42,7 @@
 	RegisterSignal(src, COMSIG_CLICK, .proc/table_click)
 	RegisterSignal(src, COMSIG_CLICK_CTRL, .proc/table_click)
 	RegisterSignal(src, COMSIG_CLICK_CTRL_SHIFT, .proc/table_click)
+	RegisterSignal(src, COMSIG_MOB_MIDDLECLICKON, .proc/table_click)
 
 /obj/checkered_table/attack_paw(mob/user)
 	return attack_hand(user)
@@ -187,14 +188,7 @@
 		piece_active = clicked_piece
 		playsound(src.loc, 'white/valtos/sounds/checkers/capture.wav', 50)
 		visible_message("<span class='notice'><b>[user]</b> поднимает шашку в квадрате <b>[get_letter(_y)][_x]</b>.</span>")
-	else if (piece_active && clicked_piece)
-		overlays -= piece_active
-		piece_active.icon_state = "[piece_active.name]"
-		overlays += piece_active
-		piece_active = null
-		playsound(src.loc, 'white/valtos/sounds/checkers/capture.wav', 50)
-		visible_message("<span class='notice'><b>[user]</b> ставит шашку на место.</span>")
-	else if (clicked_piece && PR["shift"])
+	else if (clicked_piece && PR["middle"])
 		overlays -= clicked_piece
 		clicked_piece.icon_state = "[piece_active.name]"
 		if(clicked_piece.icon == 'white/valtos/icons/piece.dmi')
@@ -204,6 +198,13 @@
 		overlays += clicked_piece
 		playsound(src.loc, 'white/valtos/sounds/checkers/capture.wav', 50)
 		visible_message("<span class='notice'><b>[user]</b> переворачивает шашку в квадрате <b>[get_letter(_y)][_x]</b>.</span>")
+	else if (piece_active && clicked_piece)
+		overlays -= piece_active
+		piece_active.icon_state = "[piece_active.name]"
+		overlays += piece_active
+		piece_active = null
+		playsound(src.loc, 'white/valtos/sounds/checkers/capture.wav', 50)
+		visible_message("<span class='notice'><b>[user]</b> ставит шашку на место.</span>")
 	else if (piece_active && !clicked_piece)
 		remove_piece_from_table(piece_active)
 		overlays -= piece_active

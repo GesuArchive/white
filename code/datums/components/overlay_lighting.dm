@@ -422,7 +422,8 @@
 		if(isnull(next_turf) || IS_OPAQUE_TURF(next_turf))
 			break
 		scanning = next_turf
-	directional_atom.forceMove(scanning)
+	if(directional_atom)
+		directional_atom.forceMove(scanning)
 
 ///Called when current_holder changes loc.
 /datum/component/overlay_lighting/proc/on_holder_dir_change(atom/movable/source, olddir, newdir)

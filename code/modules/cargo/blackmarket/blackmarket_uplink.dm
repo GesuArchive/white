@@ -18,7 +18,7 @@
 	. = ..()
 	if(accessible_markets.len)
 		viewing_market = accessible_markets[1]
-		var/list/categories = SSblackmarket.markets[viewing_market].categories
+		var/list/categories = SSblackmarket?.markets[viewing_market]?.categories
 		if(categories?.len)
 			viewing_category = categories[1]
 

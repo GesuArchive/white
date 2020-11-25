@@ -40,16 +40,17 @@
 
 /obj/machinery/copytech
 	name = "копирующий станок"
-	desc = "Создаёт что угодно в неограниченных объёмах. Потребляет 2 МВт."
+	desc = "Создаёт что угодно в неограниченных объёмах. Потребляет много энергии."
 	icon = 'white/valtos/icons/something.dmi'
 	circuit = /obj/item/circuitboard/machine/copytech
 	icon_state = "apparatus"
-	active_power_usage = 2000000
+	active_power_usage = 200000
 	density = TRUE
+	layer = MOB_LAYER
 	var/scanned_type = null
 	var/tier_rate = 1
 	var/obj/machinery/copytech_platform/cp = null
-	var/atom/movable/current_design = null
+	var/current_design = null
 	var/working = FALSE
 	var/atom/movable/active_item = null
 
@@ -84,64 +85,53 @@
 		say("Приступаю к процессу создания объекта...")
 		use_power = ACTIVE_POWER_USE
 		working = TRUE
+		use_power(active_power_usage)
 		update_icon()
 
 /obj/machinery/copytech/proc/create_thing()
-	if(!current_design || !cp)
-		return FALSE
-	if(isobj(current_design))
-		var/obj/O = new current_design(get_turf(src))
+
+	var/atom/A = drop_location()
+
+	if(ispath(current_design, /obj))
+		var/obj/O = new current_design(A)
 		O.set_anchored(TRUE)
+		O.layer = ABOVE_MOB_LAYER
 		var/mutable_appearance/result = mutable_appearance(O.icon, O.icon_state)
 		var/mutable_appearance/scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
 		O.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
 		active_item = O
 		spawn(get_replication_speed(tier_rate))
-			if(!src)
-				return FALSE
-			if(get_turf(O) != get_turf(src))
-				say("ОШИБКА!!!")
-				use_power = IDLE_POWER_USE
-				working = FALSE
-				power_change()
-				update_icon()
-				return
 			O?.set_anchored(FALSE)
+			O?.layer = initial(O?.layer)
 			say("Завершение работы...")
 			use_power = IDLE_POWER_USE
 			working = FALSE
-			power_change()
+			use_power(idle_power_usage)
 			update_icon()
 		return TRUE
-	else if (isliving(current_design))
-		if(tier_rate < 4)
+	else if (ispath(current_design, /mob/living))
+		if(tier_rate < 8)
 			say("Слишком слабая мощность лазера.")
 			return FALSE
-		var/mob/living/M = new current_design(get_turf(src))
+		var/mob/living/M = new current_design(A)
 		M.SetParalyzed(get_replication_speed(tier_rate) * 2)
 		M.emote("scream")
+		M.layer = ABOVE_MOB_LAYER
 		var/mutable_appearance/result = mutable_appearance(M.icon, M.icon_state)
 		var/mutable_appearance/scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
 		M.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
 		active_item = M
 		spawn(get_replication_speed(tier_rate))
-			if(!src)
-				return
-			if(get_turf(M) != get_turf(src))
-				say("ОШИБКА!!!")
-				use_power = IDLE_POWER_USE
-				working = FALSE
-				power_change()
-				update_icon()
-				return
 			M?.SetParalyzed(FALSE)
+			M?.layer = initial(M?.layer)
 			say("Завершение работы...")
 			use_power = IDLE_POWER_USE
 			working = FALSE
-			power_change()
+			use_power(idle_power_usage)
 			update_icon()
 		return TRUE
 	else
+		say("Неправильный дизайн!")
 		return FALSE
 
 /obj/machinery/copytech/RefreshParts()
@@ -151,7 +141,7 @@
 	tier_rate = T
 
 /proc/get_replication_speed(tier)
-	return (600 SECONDS) / tier
+	return (60 SECONDS) / tier
 
 /obj/machinery/copytech/proc/check_platform()
 	if(!cp)
@@ -162,12 +152,13 @@
 
 /obj/machinery/copytech_platform
 	name = "дезинтегрирующая платформа"
-	desc = "Уничтожает всё, что на ней есть, если активировать. Потребляет 5 МВт."
+	desc = "Уничтожает всё, что на ней есть, если активировать. Потребляет много энергии."
 	icon = 'white/valtos/icons/something.dmi'
 	circuit = /obj/item/circuitboard/machine/copytech_platform
 	icon_state = "platform"
-	active_power_usage = 5000000
+	active_power_usage = 500000
 	density = 0
+	layer = MOB_LAYER
 	var/tier_rate = 1
 	var/obj/machinery/copytech/ct = null
 	var/working = FALSE
@@ -193,6 +184,7 @@
 		var/mob/living/L = H
 		L.adjustFireLoss(10)
 		L.adjust_fire_stacks(5)
+		L.IgniteMob()
 		L.visible_message("<span class='danger'><b>[L]</b> прожаривается!</span>")
 		playsound(L, 'sound/machines/shower/shower_mid1.ogg', 90, TRUE)
 
@@ -224,7 +216,7 @@
 		say("Приступаю к процессу дезинтеграции объекта...")
 		use_power = ACTIVE_POWER_USE
 		working = TRUE
-		power_change()
+		use_power(active_power_usage)
 		update_icon()
 
 /obj/machinery/copytech_platform/proc/check_copytech()
@@ -246,9 +238,7 @@
 				if(O.anchored || (O.resistance_flags & INDESTRUCTIBLE) || O == src)
 					continue
 				what_we_destroying = thing
-			if(istype(thing, /mob/living))
-				if(tier_rate < 4)
-					continue
+			if(istype(thing, /mob/living) && tier_rate >= 8)
 				what_we_destroying = thing
 	if(what_we_destroying)
 		what_we_destroying.set_anchored(TRUE)
@@ -256,6 +246,8 @@
 			var/mob/living/M = what_we_destroying
 			M.SetParalyzed(get_replication_speed(tier_rate) * 2)
 			M.emote("scream")
+			M.layer = ABOVE_MOB_LAYER
+		what_we_destroying.layer = ABOVE_MOB_LAYER
 		var/mutable_appearance/result = mutable_appearance('icons/effects/effects.dmi',"nothing")
 		var/mutable_appearance/scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
 		what_we_destroying.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
@@ -266,14 +258,14 @@
 			if(get_turf(what_we_destroying) != get_turf(src))
 				say("ОШИБКА!!!")
 				working = FALSE
-				power_change()
+				use_power(idle_power_usage)
 				update_icon()
 				return
 			ct?.current_design = what_we_destroying.type
 			say("Завершение работы...")
 			qdel(what_we_destroying)
 			working = FALSE
-			power_change()
+			use_power(idle_power_usage)
 			update_icon()
 		return TRUE
 	else

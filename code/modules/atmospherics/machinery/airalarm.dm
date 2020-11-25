@@ -229,6 +229,8 @@
 
 	update_icon()
 
+	apply_mode(src)
+
 /obj/machinery/airalarm/Destroy()
 	SSradio.remove_object(src, frequency)
 	qdel(wires)
@@ -238,7 +240,6 @@
 /obj/machinery/airalarm/Initialize(mapload)
 	. = ..()
 	set_frequency(frequency)
-	apply_mode(src)
 
 /obj/machinery/airalarm/examine(mob/user)
 	. = ..()
