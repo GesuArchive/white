@@ -249,7 +249,7 @@
 		else if(H.gender == "female")
 			G.fields["gender"]  = "Female"
 		else
-			G.fields["gender"]  = "Other"
+			G.fields["gender"]  = "Attack Helicopter"
 		G.fields["photo_front"]	= photo_front
 		G.fields["photo_side"]	= photo_side
 		general += G
@@ -292,7 +292,7 @@
 		else if(H.gender == "female")
 			G.fields["gender"]  = "Female"
 		else
-			G.fields["gender"]  = "Other"
+			G.fields["gender"]  = "Attack Helicopter"
 		L.fields["blood_type"]	= H.dna.blood_type
 		L.fields["b_dna"]		= H.dna.unique_enzymes
 		L.fields["identity"]	= H.dna.uni_identity

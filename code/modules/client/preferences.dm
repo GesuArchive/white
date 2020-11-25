@@ -255,7 +255,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				else if(gender == FEMALE)
 					dispGender = "Женский"
 				else
-					dispGender = "Другой"
+					dispGender = "УДАРНЫЙ ВЕРТОЛЁТ"
 				dat += "<tr><td><b>Пол:</b></td><td align='right'><a href='?_src_=prefs;preference=gender'>[dispGender]</a></td></tr>"
 				if(gender == PLURAL || gender == NEUTER)
 					dat += "<tr><td><b>Тип тела:</b></td><td align='right'><a href='?_src_=prefs;preference=body_type'>[body_type == MALE ? "Male" : "Female"]</a></td></tr>"
@@ -1589,7 +1589,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(unlock_content)
 						toggles ^= MEMBER_PUBLIC
 				if("gender")
-					var/list/friendlyGenders = list("Male" = "male", "Female" = "female", "Other" = "plural")
+					var/list/friendlyGenders = list("Male" = "male", "Female" = "female", "Attack Helicopter" = "plural")
 					var/pickedGender = input(user, "Choose your gender.", "Character Preference", gender) as null|anything in friendlyGenders
 					if(pickedGender && friendlyGenders[pickedGender] != gender)
 						gender = friendlyGenders[pickedGender]

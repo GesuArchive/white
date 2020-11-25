@@ -280,7 +280,7 @@
 							if(active1.fields["gender"] == "Male")
 								active1.fields["gender"] = "Female"
 							else if(active1.fields["gender"] == "Female")
-								active1.fields["gender"] = "Other"
+								active1.fields["gender"] = "Attack Helicopter"
 							else
 								active1.fields["gender"] = "Male"
 					if("age")
@@ -545,7 +545,7 @@
 						else
 							R.fields["name"] = random_unique_name(R.fields["gender"],1)
 					if(2)
-						R.fields["gender"]	= pick("Male", "Female", "Other")
+						R.fields["gender"]	= pick("Male", "Female", "Attack Helicopter")
 					if(3)
 						R.fields["age"] = rand(AGE_MIN, AGE_MAX)
 					if(4)
