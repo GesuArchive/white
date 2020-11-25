@@ -96,6 +96,7 @@
 		var/obj/O = new current_design(A)
 		O.set_anchored(TRUE)
 		O.layer = ABOVE_MOB_LAYER
+		O.alpha = 0
 		var/mutable_appearance/result = mutable_appearance(O.icon, O.icon_state)
 		var/mutable_appearance/scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
 		O.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
@@ -103,6 +104,7 @@
 		spawn(get_replication_speed(tier_rate))
 			O?.set_anchored(FALSE)
 			O?.layer = initial(O?.layer)
+			O?.alpha = initial(O?.alpha)
 			say("Завершение работы...")
 			use_power = IDLE_POWER_USE
 			working = FALSE
