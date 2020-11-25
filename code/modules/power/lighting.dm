@@ -447,7 +447,7 @@
 /obj/machinery/light/proc/seton(s)
 	on = (s && status == LIGHT_OK)
 	if(on)
-		playsound(get_turf(src), pick('white/valtos/sounds/lamp_1.wav', 'white/valtos/sounds/lamp_2.wav'))
+		playsound(get_turf(src), pick('white/valtos/sounds/lamp_1.wav', 'white/valtos/sounds/lamp_2.wav'), 50, TRUE)
 	update()
 
 /obj/machinery/light/get_cell()
