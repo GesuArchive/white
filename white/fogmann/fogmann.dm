@@ -42,12 +42,8 @@
 	icon = 'white/pieceofcrap.dmi'
 	icon_state = "curtain-open"
 	icon_type = "curtain"
-	alpha = 255 //Mappers can also just set this to 255 if they want curtains that can't be seen through
-	layer = SIGN_LAYER
-	anchored = TRUE
-	opacity = 0
-	density = FALSE
-	open = TRUE
+	alpha = 255
+	opaque_closed = TRUE
 
 /obj/item/device/flashlight/slamp
 	name = "stand lamp"
