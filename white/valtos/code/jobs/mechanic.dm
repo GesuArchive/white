@@ -44,7 +44,7 @@
 	icon = 'white/valtos/icons/something.dmi'
 	circuit = /obj/item/circuitboard/machine/copytech
 	icon_state = "apparatus"
-	active_power_usage = 200000
+	active_power_usage = 20000
 	density = TRUE
 	layer = MOB_LAYER
 	var/scanned_type = null
@@ -158,7 +158,7 @@
 	icon = 'white/valtos/icons/something.dmi'
 	circuit = /obj/item/circuitboard/machine/copytech_platform
 	icon_state = "platform"
-	active_power_usage = 500000
+	active_power_usage = 50000
 	density = 0
 	layer = MOB_LAYER
 	var/tier_rate = 1
