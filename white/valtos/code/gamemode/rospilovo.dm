@@ -266,13 +266,10 @@
 	. = ..()
 
 /obj/structure/table/rospilovo
-	pass_flags = LETPASSTHROW
 	name = "стол"
 	desc = "Обычный деревянный слегка пошарпанный стол."
 	icon = 'white/valtos/icons/rospilovo/stol_stalker.dmi'
 	icon_state = "stol_stalker-0"
-	smoothing_flags = SMOOTH_CORNERS
-	canSmoothWith = list(SMOOTH_GROUP_TABLES)
 
 /obj/structure/rospilovo/okno
 	name = "окно"
