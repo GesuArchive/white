@@ -53,10 +53,13 @@
 	var/current_design = null
 	var/working = FALSE
 	var/atom/movable/active_item = null
+	var/list/crystals = list()
+	var/max_crystals = 4
 
 /obj/machinery/copytech/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='info'>Примерное время создания объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>"
+	. += "<hr><span class='info'>Примерное время создания объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>\n"
+	. += "<span class='info'>Внутри запасено [crystals.len]/[max_crystals] блюспейс-кристаллов.</span>"
 
 /obj/machinery/copytech/Initialize()
 	. = ..()
@@ -69,6 +72,19 @@
 	else
 		icon_state = "apparatus"
 
+/obj/machinery/copytech/attacked_by(obj/item/I, mob/living/user)
+	if(istype(I, /obj/item/stack/ore/bluespace_crystal))
+		if(crystals.len >= max_crystals)
+			to_chat(user, "<span class='warning'>Перебор!</span>")
+			return
+		if(!user.dropItemToGround())
+			return
+		crystals += I
+		I.loc = null
+		user.visible_message("[user] вставляет [I.name] в [src.name].", "<span class='notice'>Вставляю [I.name] в [src.name].</span>")
+	else
+		return ..()
+
 /obj/machinery/copytech/attack_hand(mob/living/user)
 	. = ..()
 	if(working)
@@ -80,6 +96,9 @@
 		return
 	if(!current_design)
 		say("Не обнаружено дизайна. Разберите что-то сперва на дезинтегрирующей платформе!")
+		return
+	if(!crystals.len)
+		say("Недостаточно блюспейс-кристаллов для начала работы!")
 		return
 	if(create_thing())
 		say("Приступаю к процессу создания объекта...")
@@ -101,6 +120,7 @@
 		var/mutable_appearance/scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
 		O.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
 		active_item = O
+		qdel(pick(crystals))
 		spawn(get_replication_speed(tier_rate))
 			O?.set_anchored(FALSE)
 			O?.layer = initial(O?.layer)
@@ -123,6 +143,7 @@
 		var/mutable_appearance/scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
 		M.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
 		active_item = M
+		qdel(pick(crystals))
 		spawn(get_replication_speed(tier_rate))
 			M?.SetParalyzed(FALSE)
 			M?.layer = initial(M?.layer)
