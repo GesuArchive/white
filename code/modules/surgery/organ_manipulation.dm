@@ -1,5 +1,5 @@
 /datum/surgery/organ_manipulation
-	name = "Organ manipulation"
+	name = "Манипуляции с органами"
 	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
 	possible_locs = list(BODY_ZONE_CHEST, BODY_ZONE_HEAD)
 	requires_real_bodypart = 1
@@ -26,7 +26,7 @@
 		)
 
 /datum/surgery/organ_manipulation/alien
-	name = "Alien organ manipulation"
+	name = "Манипуляции с органами пришельцев"
 	possible_locs = list(BODY_ZONE_CHEST, BODY_ZONE_HEAD, BODY_ZONE_PRECISE_GROIN, BODY_ZONE_PRECISE_EYES, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)
 	target_mobtypes = list(/mob/living/carbon/alien/humanoid)
 	steps = list(
@@ -39,7 +39,7 @@
 		)
 
 /datum/surgery/organ_manipulation/mechanic
-	name = "Prosthesis organ manipulation"
+	name = "Манипуляции по протезированию органов"
 	possible_locs = list(BODY_ZONE_CHEST, BODY_ZONE_HEAD)
 	requires_bodypart_type = BODYPART_ROBOTIC
 	lying_required = FALSE
@@ -66,7 +66,7 @@
 
 /datum/surgery_step/manipulate_organs
 	time = 64
-	name = "manipulate organs"
+	name = "манипуляции с органами"
 	repeatable = TRUE
 	implements = list(/obj/item/organ = 100, /obj/item/organ_storage = 100)
 	var/implements_extract = list(TOOL_HEMOSTAT = 100, TOOL_CROWBAR = 55, /obj/item/kitchen/fork = 35)
@@ -81,32 +81,32 @@
 	I = null
 	if(istype(tool, /obj/item/organ_storage))
 		if(!tool.contents.len)
-			to_chat(user, "<span class='warning'>There is nothing inside [tool]!</span>")
+			to_chat(user, "<span class='warning'>[tool] пуст!</span>")
 			return -1
 		I = tool.contents[1]
 		if(!isorgan(I))
-			to_chat(user, "<span class='warning'>You cannot put [I] into [target]'s [parse_zone(target_zone)]!</span>")
+			to_chat(user, "<span class='warning'>Не могу поместить [I] в [parse_zone(target_zone)] [target]!</span>")
 			return -1
 		tool = I
 	if(isorgan(tool))
 		current_type = "insert"
 		I = tool
 		if(target_zone != I.zone || target.getorganslot(I.slot))
-			to_chat(user, "<span class='warning'>There is no room for [I] in [target]'s [parse_zone(target_zone)]!</span>")
+			to_chat(user, "<span class='warning'>В [parse_zone(target_zone)] [target] нет места под [I]!</span>")
 			return -1
 		var/obj/item/organ/meatslab = tool
 		if(!meatslab.useable)
-			to_chat(user, "<span class='warning'>[I] seems to have been chewed on, you can't use this!</span>")
+			to_chat(user, "<span class='warning'>Судя по всему [I] пожеван, так что я не могу его использовать!</span>")
 			return -1
-		display_results(user, target, "<span class='notice'>You begin to insert [tool] into [target]'s [parse_zone(target_zone)]...</span>",
-			"<span class='notice'>[user] begins to insert [tool] into [target]'s [parse_zone(target_zone)].</span>",
-			"<span class='notice'>[user] begins to insert something into [target]'s [parse_zone(target_zone)].</span>")
+		display_results(user, target, "<span class='notice'>Начинаю помещать [tool] в [parse_zone(target_zone)] [target]...</span>",
+			"<span class='notice'>[user] начинает помещать [tool] в [parse_zone(target_zone)] [target].</span>",
+			"<span class='notice'>[user] начинает засовывать что-то в [parse_zone(target_zone)] [target].</span>")
 
 	else if(implement_type in implements_extract)
 		current_type = "extract"
 		var/list/organs = target.getorganszone(target_zone)
 		if(!organs.len)
-			to_chat(user, "<span class='warning'>There are no removable organs in [target]'s [parse_zone(target_zone)]!</span>")
+			to_chat(user, "<span class='warning'>Внутри [parse_zone(target_zone)] [target] нет извлекаемых органов!</span>")
 			return -1
 		else
 			for(var/obj/item/organ/O in organs)
