@@ -332,9 +332,7 @@
 /area/engine/engineering)
 "aX" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "aY" = (
@@ -865,11 +863,11 @@
 /area/engine/engineering)
 "Cd" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 5
 	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
@@ -909,9 +907,8 @@
 /area/engine/engineering)
 "JG" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "JX" = (
@@ -1024,9 +1021,9 @@ ab
 ab
 ab
 ab
+ab
 YT
 mY
-ab
 ab
 ab
 ab
@@ -1052,9 +1049,9 @@ ab
 ab
 ab
 ab
-mY
-mY
 ab
+mY
+mY
 ab
 ab
 fe
@@ -1748,7 +1745,7 @@ ab
 (28,1,1) = {"
 ae
 bP
-JG
+co
 bq
 py
 be
@@ -1776,7 +1773,7 @@ ab
 (29,1,1) = {"
 cb
 cb
-JG
+co
 bL
 du
 ad
@@ -1803,7 +1800,7 @@ ab
 "}
 (30,1,1) = {"
 ab
-cc
+JG
 Cd
 cc
 ay

@@ -590,7 +590,7 @@ What a mess.*/
 							if(active1.fields["gender"] == "Male")
 								active1.fields["gender"] = "Female"
 							else if(active1.fields["gender"] == "Female")
-								active1.fields["gender"] = "Other"
+								active1.fields["gender"] = "Attack Helicopter"
 							else
 								active1.fields["gender"] = "Male"
 					if("age")

@@ -1,5 +1,5 @@
 #define ENGINEER_WINER_CKEY "Laxesh"
-#define ROBUST_WINER_CKEY "DarkKeeper072"
+#define ROBUST_WINER_CKEY "moonmandoom" // 2020. Old winner is DarkKeeper072
 
 /obj/item/extinguisher/robust
 	name = "Robust fire extinguisher"
@@ -88,3 +88,64 @@
 
 /obj/structure/displaycase/winner/engineer
 	start_showpieces = list(list("type" = /obj/item/clothing/neck/cloak/engineer_winer, "trophy_message" = "Glory to <span class='boldnotice'>" + ENGINEER_WINER_CKEY + "</span>!", "need_key" = ENGINEER_WINER_CKEY))
+
+/obj/structure/statue/gold/robust
+	name = "Статуя Solomon Mosser"
+	desc = "Победитель робаст-турнира 2020. Надпись снизу гласит: \"Хайпово\".<hr><b>Moonmandoom</b> - первое место!"
+	icon = 'white/valtos/icons/robust.dmi'
+	icon_state = "gold_2020"
+	can_be_unanchored = FALSE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	layer = ABOVE_MOB_LAYER
+	anchored = TRUE
+	flags_1 = NODECONSTRUCT_1
+	var/list/coomers = list()
+
+/obj/structure/statue/gold/robust/Initialize()
+	. = ..()
+	animate(src, color = color_matrix_rotate_hue(5), time = 300, loop = -1, easing = SINE_EASING)
+	animate(color = color_matrix_rotate_hue(5))
+
+/obj/structure/statue/gold/robust/attack_hand(mob/user)
+	. = ..()
+	if(!(user.name in coomers))
+		if(isliving(user))
+			inc_metabalance(user, 1, TRUE)
+			visible_message("<span class='noticeital'>[user] кланяется статуе!</span>")
+			coomers += user.name
+
+/obj/structure/statue/gold/robust/examine_more(mob/user)
+	. = ..()
+	if(coomers)
+		. += "<hr><b>Уважение проявили:</b> <i>[english_list(coomers)]</i>."
+
+/obj/structure/sign/plaques/robust
+	name = "Портрет Daniil Bassow"
+	desc = "Здесь изображён робастный мальчик. Твои трусики намокают...<hr><b>DANILCUS</b> - второе место!"
+	icon = 'white/valtos/icons/robust.dmi'
+	icon_state = "silver_2020"
+	can_be_unanchored = FALSE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	custom_materials = list(/datum/material/silver=MINERAL_MATERIAL_AMOUNT*2)
+	flags_1 = NODECONSTRUCT_1
+	var/list/coomers = list()
+
+/obj/structure/sign/plaques/robust/examine_more(mob/user)
+	. = ..()
+	if(coomers)
+		. += "<hr><b>Уважение проявили:</b> <i>[english_list(coomers)]</i>."
+
+/obj/structure/sign/plaques/robust/attack_hand(mob/user)
+	. = ..()
+	if(!(user.name in coomers))
+		if(isliving(user))
+			var/mob/living/L = user
+			L.cum(null, null)
+			coomers += user.name
+
+/obj/structure/sign/plaques/robust/bronze
+	name = "Портрет"
+	desc = "Доктор Киара всех полечит и исцелит!<hr><b>Leviathan21</b> AKA <i>Masturbator</i> - третье место!"
+	icon_state = "bronze_2020"
+	custom_materials = list(/datum/material/bronze=MINERAL_MATERIAL_AMOUNT*2)
+	flags_1 = NODECONSTRUCT_1

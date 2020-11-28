@@ -4,74 +4,7 @@
 	slot = ITEM_SLOT_ICLOTHING
 	sort_category = "Униформы"
 	species_blacklist = list("plasmaman") //Envirosuit moment
-	cost = 10
-
-//STANDARD UNIFORM COLORS
-
-/datum/gear/uniform/color
-	subtype_path = /datum/gear/uniform/color
-
-/datum/gear/uniform/color/black
-	display_name = "чёрный комбинезон"
-	path = /obj/item/clothing/under/color/black
-
-/datum/gear/uniform/color/grey
-	display_name = "серый комбинезон"
-	path = /obj/item/clothing/under/color/grey
-
-/datum/gear/uniform/color/blue
-	display_name = "синий комбинезон"
-	path = /obj/item/clothing/under/color/blue
-
-/datum/gear/uniform/color/orange
-	display_name = "оранжевый комбинезон"
-	path = /obj/item/clothing/under/color/orange
-
-/datum/gear/uniform/color/pink
-	display_name = "розовый комбинезон"
-	path = /obj/item/clothing/under/color/pink
-
-/datum/gear/uniform/color/red
-	display_name = "красный комбинезон"
-	path = /obj/item/clothing/under/color/red
-
-/datum/gear/uniform/color/white
-	display_name = "белый комбинезон"
-	path = /obj/item/clothing/under/color/white
-
-/datum/gear/uniform/color/yellow
-	display_name = "жёлтый комбинезон"
-	path = /obj/item/clothing/under/color/yellow
-
-/datum/gear/uniform/color/darkblue
-	display_name = "тёмно-синий комбинезон"
-	path = /obj/item/clothing/under/color/darkblue
-
-/datum/gear/uniform/color/teal
-	display_name = "сине-зеленый комбинезон"
-	path = /obj/item/clothing/under/color/teal
-
-/datum/gear/uniform/color/lightpurple
-	display_name = "светло-фиолетовый комбинезон"
-	path = /obj/item/clothing/under/color/lightpurple
-
-/datum/gear/uniform/color/darkgreen
-	display_name = "тёмно-зелёный комбинезон"
-	path = /obj/item/clothing/under/color/darkgreen
-
-/datum/gear/uniform/color/lightbrown
-	display_name = "светло-коричневый комбинезон"
-	path = /obj/item/clothing/under/color/lightbrown
-
-/datum/gear/uniform/color/brown
-	display_name = "коричневый комбинезон"
-	path = /obj/item/clothing/under/color/brown
-
-/datum/gear/uniform/color/maroon
-	display_name = "бордовый комбинезон"
-	path = /obj/item/clothing/under/color/maroon
-
-//PANTS
+	cost = 50
 
 /datum/gear/uniform/pants
 	subtype_path = /datum/gear/uniform/pants
@@ -128,7 +61,7 @@
 
 /datum/gear/uniform/skirt
 	subtype_path = /datum/gear/uniform/skirt
-	cost = 10
+	cost = 60
 
 /datum/gear/uniform/skirt/blue
 	display_name = "синяя юбка"
@@ -162,7 +95,7 @@
 
 /datum/gear/uniform/suit
 	subtype_path = /datum/gear/uniform/suit
-	cost = 25
+	cost = 150
 
 /datum/gear/uniform/suit/suit_jacket
 	subtype_path = /datum/gear/uniform/suit/suit_jacket
@@ -257,10 +190,12 @@
 /datum/gear/uniform/rank/assistant/formal
 	display_name = "настоящая форма ассистента"
 	path = /obj/item/clothing/under/misc/assistantformal
+	cost = 50
 
 /datum/gear/uniform/rank/assistant/vice
 	display_name = "комбинезон заместителя офицера"
 	path = /obj/item/clothing/under/misc/vice_officer
+	cost = 100
 
 //CARGO ALT UNIS
 
@@ -269,32 +204,28 @@
 	allowed_roles = list("Quartermaster", "Cargo Technician", "Shaft Miner")
 
 /datum/gear/uniform/rank/cargo/overalls
-	display_name = "голубой рабочий комбинезон"
+	display_name = "рабочий комбинезон"
 	path = /obj/item/clothing/under/misc/overalls
+	cost = 50
+	allowed_roles = list("Chief Engineer", "Station Engineer", "Atmospheric Technician")
 
 /datum/gear/uniform/rank/cargo/mining_classic
-	display_name = "астероидно-фиолетовый комбинезон шахтера"
-	description = "Пурпурный комбинезон, грязный комбинезон. Стандартная одежда шахтера шахт НаноТрейзен, когда Лаваланд еще не был открыт и использован для плазмы."
+	display_name = "старый комбинезон шахтера"
+	description = "Пурпурный, грязный комбинезон. Стандартная одежда шахтера шахт Нанотразен, когда Лаваленд еще не был открыт и использован для плазмы."
 	path = /obj/item/clothing/under/rank/cargo/miner
 	allowed_roles = list ("Shaft Miner")
+	cost = 100
 
 //MEDICAL ALT UNIS
 
 /datum/gear/uniform/rank/medical
 	subtype_path = /datum/gear/uniform/rank/medical
 	allowed_roles = list("Paramedic", "Medical Doctor", "Chief Medical Officer")
-
-/datum/gear/uniform/rank/medical/nurse_dress
-	display_name = "комбинезон врача"
-	path = /obj/item/clothing/under/rank/medical/doctor
-
-/datum/gear/uniform/rank/medical/emt
-	display_name = "комбинезон парамедика"
-	path = /obj/item/clothing/under/rank/medical/paramedic
+	cost = 50
 
 /datum/gear/uniform/rank/medical/scrubs_blue
 	display_name = "синий медицинский халат"
-	path = /obj/item/clothing/under/rank/medical/doctor/blue
+	path = /obj/item/clothing/under/rank/medical/doctor/blue	
 
 /datum/gear/uniform/rank/medical/scrubs_green
 	display_name = "зелёный медицинский халат"
@@ -315,14 +246,6 @@
 	path = /obj/item/clothing/under/rank/engineering/engineer/hazard
 
 //SECURITY ALT UNIS
-
-/datum/gear/uniform/rank/security
-	subtype_path = /datum/gear/uniform/rank/security
-	allowed_roles = list("Security Officer")
-
-/datum/gear/uniform/rank/security/skirt
-	display_name = "юбкомбез офицера"
-	path = /obj/item/clothing/under/rank/security/officer/skirt
 
 /datum/gear/uniform/sharovari
 	display_name = "шаровары"

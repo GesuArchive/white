@@ -2423,11 +2423,6 @@
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "rb" = (
-/obj/machinery/door_buttons/access_button{
-	dir = 4;
-	pixel_x = -12;
-	pixel_y = 2
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},

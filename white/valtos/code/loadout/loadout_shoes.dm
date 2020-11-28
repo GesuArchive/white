@@ -3,7 +3,7 @@
 	subtype_path = /datum/gear/footwear
 	slot = ITEM_SLOT_FEET
 	sort_category = "Обувь"
-	cost = 15
+	cost = 50
 
 //fancy shoes and stuff
 
@@ -18,13 +18,13 @@
 /datum/gear/footwear/winterboots
 	display_name = "зимняя обувь"
 	path = /obj/item/clothing/shoes/winterboots
-	cost = 40
+	cost = 60
 
 //Standard shoes
 
 /datum/gear/footwear/color
 	subtype_path = /datum/gear/footwear/color
-	cost = 25
+	cost = 50
 
 /datum/gear/footwear/color/black
 	display_name = "чёрные туфли"
@@ -62,3 +62,8 @@
 	display_name = "ботинки волшебницы"
 	path = /obj/item/clothing/shoes/wizgirl
 	cost = 250
+
+/datum/gear/footwear/jackboots
+	display_name = "сапоги"
+	path = /obj/item/clothing/shoes/jackboots
+	cost = 200

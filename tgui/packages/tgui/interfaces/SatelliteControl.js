@@ -29,7 +29,14 @@ export const SatelliteControl = (props, context) => {
             </LabeledList>
           </Section>
         )}
-        <Section title="Управление">
+        <Section
+          title="Управление"
+          buttons={(
+            <Button.Confirm
+              icon="forward"
+              content="ПЕРЕКЛЮЧИТЬ ВСЕ"
+              onClick={() => act('toggle_all')} />
+          )}>
           <Box mr={-1}>
             {satellites.map(satellite => (
               <Button.Checkbox

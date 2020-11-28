@@ -15,7 +15,7 @@
 			var/matrix/M = A.transform
 			M.Scale(rand(1, 2), rand(1, 2))
 			M.Translate(rand(-2, 2), rand(-2, 2))
-			M.Turn(rand(0, 90))
+			M.Turn(rand(-90, 90))
 			A.color = "#[random_short_color()]"
 			animate(A, color = color_matrix_rotate_hue(rand(0, 360)), time = rand(200, 500), easing = CIRCULAR_EASING, flags = ANIMATION_PARALLEL)
 			animate(A, transform = M, time = rand(200, 1000), flags = ANIMATION_PARALLEL)

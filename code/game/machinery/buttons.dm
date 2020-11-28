@@ -166,6 +166,8 @@
 	if(device && device.next_activate > world.time)
 		return
 
+	playsound(get_turf(src), 'white/valtos/sounds/switch_click.wav', 50, TRUE)
+
 	if(!allowed(user))
 		to_chat(user, "<span class='alert'>Доступ запрещён.</span>")
 		flick("[skin]-denied", src)

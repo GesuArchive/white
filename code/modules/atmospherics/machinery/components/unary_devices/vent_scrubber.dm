@@ -18,7 +18,27 @@
 	var/id_tag = null
 	var/scrubbing = SCRUBBING //0 = siphoning, 1 = scrubbing
 
-	var/filter_types = list(/datum/gas/carbon_dioxide)
+	var/filter_types = list(
+						/datum/gas/carbon_dioxide,
+						/datum/gas/miasma,
+						/datum/gas/plasma,
+						/datum/gas/water_vapor,
+						/datum/gas/hypernoblium,
+						/datum/gas/nitrous_oxide,
+						/datum/gas/nitryl,
+						/datum/gas/tritium,
+						/datum/gas/bz,
+						/datum/gas/stimulum,
+						/datum/gas/pluoxium,
+						/datum/gas/freon,
+						/datum/gas/hydrogen,
+						/datum/gas/healium,
+						/datum/gas/proto_nitrate,
+						/datum/gas/zauker,
+						/datum/gas/helium,
+						/datum/gas/antinoblium,
+						/datum/gas/halon,
+					)
 	var/volume_rate = 400
 	var/widenet = 0 //is this scrubber acting on the 3x3 area around it.
 	var/list/turf/adjacent_turfs = list()

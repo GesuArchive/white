@@ -3,7 +3,7 @@
 // Satellites be actived to generate a shield that will block unorganic matter from passing it.
 /datum/station_goal/station_shield
 	name = "Station Shield"
-	var/coverage_goal = 500
+	var/coverage_goal = 5000
 
 /datum/station_goal/station_shield/get_report()
 	return {"The station is located in a zone full of space debris.
@@ -37,8 +37,8 @@
 	return coverage.len
 
 /obj/machinery/computer/sat_control
-	name = "satellite control"
-	desc = "Used to control the satellite network."
+	name = "управление щитами"
+	desc = "Используется для управления массивом защитных спутников."
 	circuit = /obj/item/circuitboard/computer/sat_control
 	var/notice
 
@@ -57,13 +57,21 @@
 		if("toggle")
 			toggle(text2num(params["id"]))
 			. = TRUE
+		if("toggle_all")
+			toggle_all()
+			. = TRUE
 
 /obj/machinery/computer/sat_control/proc/toggle(id)
 	for(var/obj/machinery/satellite/S in GLOB.machines)
 		if(S.id == id && S.z == z)
 			S.toggle()
 
-/obj/machinery/computer/sat_control/ui_data()
+/obj/machinery/computer/sat_control/proc/toggle_all()
+	for(var/obj/machinery/satellite/S in GLOB.machines)
+		if(S.z == z)
+			S.toggle()
+
+/obj/machinery/computer/sat_control/ui_static_data()
 	var/list/data = list()
 
 	data["satellites"] = list()
@@ -85,7 +93,7 @@
 
 
 /obj/machinery/satellite
-	name = "\improper Defunct Satellite"
+	name = "повреждённый спутник"
 	desc = ""
 	icon = 'icons/obj/machines/satellite.dmi'
 	icon_state = "sat_inactive"
@@ -120,10 +128,10 @@
 /obj/machinery/satellite/proc/toggle(mob/user)
 	if(!active && !isinspace())
 		if(user)
-			to_chat(user, "<span class='warning'>You can only activate [src] in space.</span>")
+			to_chat(user, "<span class='warning'>Активировать [src.name] получится только в космосе.</span>")
 		return FALSE
 	if(user)
-		to_chat(user, "<span class='notice'>You [active ? "deactivate": "activate"] [src].</span>")
+		to_chat(user, "<span class='notice'>[active ? "Деактивирую": "Активирую"] [src.name].</span>")
 	set_anchored(!anchored)
 	return TRUE
 
@@ -132,12 +140,12 @@
 
 /obj/machinery/satellite/multitool_act(mob/living/user, obj/item/I)
 	..()
-	to_chat(user, "<span class='notice'>// NTSAT-[id] // Mode : [active ? "PRIMARY" : "STANDBY"] //[(obj_flags & EMAGGED) ? "DEBUG_MODE //" : ""]</span>")
+	to_chat(user, "<span class='notice'>// NTSAT-[id] // Режим: [active ? "РАБОТА" : "ОЖИДАНИЕ"] //[(obj_flags & EMAGGED) ? "DEBUG_MODE //" : ""]</span>")
 	return TRUE
 
 /obj/machinery/satellite/meteor_shield
-	name = "\improper Meteor Shield Satellite"
-	desc = "A meteor point-defense satellite."
+	name = "защитный спутник"
+	desc = "Противометеоритная защита для всей семьи."
 	mode = "M-SHIELD"
 	processing_flags = START_PROCESSING_MANUALLY
 	subsystem_type = /datum/controller/subsystem/processing/fastprocess
@@ -184,6 +192,6 @@
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	to_chat(user, "<span class='notice'>You access the satellite's debug mode, increasing the chance of meteor strikes.</span>")
+	to_chat(user, "<span class='notice'>Взламываю защиту и увеличиваю шанс удара метеоритом.</span>")
 	if(active)
 		change_meteor_chance(2)
