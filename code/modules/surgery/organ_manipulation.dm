@@ -122,9 +122,9 @@
 				if(I.organ_flags & ORGAN_UNREMOVABLE)
 					to_chat(user, "<span class='warning'>[I] is too well connected to take out!</span>")
 					return -1
-				display_results(user, target, "<span class='notice'>You begin to extract [I] from [target]'s [parse_zone(target_zone)]...</span>",
-					"<span class='notice'>[user] begins to extract [I] from [target]'s [parse_zone(target_zone)].</span>",
-					"<span class='notice'>[user] begins to extract something from [target]'s [parse_zone(target_zone)].</span>")
+				display_results(user, target, "<span class='notice'>Начинаю извлекать [I] из [parse_zone(target_zone)] [target]...</span>",
+					"<span class='notice'>[user] начинает извлекать [I] из [parse_zone(target_zone)] [target].</span>",
+					"<span class='notice'>[user] начинает что-то извлекать из [parse_zone(target_zone)] [target].</span>")
 			else
 				return -1
 
@@ -141,20 +141,20 @@
 			I = tool
 		user.temporarilyRemoveItemFromInventory(I, TRUE)
 		I.Insert(target)
-		display_results(user, target, "<span class='notice'>You insert [tool] into [target]'s [parse_zone(target_zone)].</span>",
-			"<span class='notice'>[user] inserts [tool] into [target]'s [parse_zone(target_zone)]!</span>",
-			"<span class='notice'>[user] inserts something into [target]'s [parse_zone(target_zone)]!</span>")
+		display_results(user, target, "<span class='notice'>Поместил [tool] в [parse_zone(target_zone)] [target].</span>",
+			"<span class='notice'>[user] поместил [tool] в [parse_zone(target_zone)] [target]!</span>",
+			"<span class='notice'>[user] поместил что-то в [parse_zone(target_zone)] [target]!</span>")
 
 	else if(current_type == "extract")
 		if(I && I.owner == target)
-			display_results(user, target, "<span class='notice'>You successfully extract [I] from [target]'s [parse_zone(target_zone)].</span>",
-				"<span class='notice'>[user] successfully extracts [I] from [target]'s [parse_zone(target_zone)]!</span>",
-				"<span class='notice'>[user] successfully extracts something from [target]'s [parse_zone(target_zone)]!</span>")
-			log_combat(user, target, "surgically removed [I.name] from", addition="INTENT: [uppertext(user.a_intent)]")
+			display_results(user, target, "<span class='notice'>Успешно извлек [I] из [parse_zone(target_zone)] [target].</span>",
+				"<span class='notice'>[user] успешно извлек [I] из [parse_zone(target_zone)] [target]!</span>",
+				"<span class='notice'>[user] успешно что-то извлек из [parse_zone(target_zone)] [target]!</span>")
+			log_combat(user, target, "хирургически извлек [I.name] из", addition="INTENT: [uppertext(user.a_intent)]")
 			I.Remove(target)
 			I.forceMove(get_turf(target))
 		else
-			display_results(user, target, "<span class='warning'>You can't extract anything from [target]'s [parse_zone(target_zone)]!</span>",
-				"<span class='notice'>[user] can't seem to extract anything from [target]'s [parse_zone(target_zone)]!</span>",
-				"<span class='notice'>[user] can't seem to extract anything from [target]'s [parse_zone(target_zone)]!</span>")
+			display_results(user, target, "<span class='warning'>Я не могу ничего извлечь из [parse_zone(target_zone)] [target]!</span>",
+				"<span class='notice'>[user] не может ничего извлечь из [parse_zone(target_zone)] [target]!</span>",
+				"<span class='notice'>[user] не может ничего извлечь из [parse_zone(target_zone)] [target]!</span>")
 	return FALSE
