@@ -43,6 +43,8 @@
 /obj/machinery/light_switch/interact(mob/user)
 	. = ..()
 
+	playsound(get_turf(src), 'white/valtos/sounds/switch_click.wav', 50, TRUE)
+
 	area.lightswitch = !area.lightswitch
 	area.update_icon()
 

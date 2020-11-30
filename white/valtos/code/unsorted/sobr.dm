@@ -34,10 +34,7 @@
 	ears = /obj/item/radio/headset/headset_cent
 	head = /obj/item/clothing/head/beret/durathread
 	glasses = /obj/item/clothing/glasses/sunglasses
-	belt = /obj/item/storage/belt/military/army/wzzzz/sobr
-	back = /obj/item/gun/ballistic/automatic/ak47
-	l_pocket = /obj/item/reagent_containers/pill/viagra
-	r_pocket = /obj/item/ammo_box/magazine/ak47mag
+	belt = /obj/item/melee/classic_baton
 	id = /obj/item/card/id/centcom
 
 /datum/outfit/sobr/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -63,19 +60,23 @@
 	glasses = /obj/item/clothing/glasses/sunglasses
 	belt = /obj/item/storage/belt/military/army/wzzzz/sobr
 	back = /obj/item/gun/ballistic/automatic/ak47
-	l_pocket = /obj/item/reagent_containers/pill/viagra
-	r_pocket = /obj/item/ammo_box/magazine/ak47mag
 	id = /obj/item/card/id/centcom
 
 /obj/item/storage/belt/military/army/wzzzz/sobr
 
 /obj/item/storage/belt/military/army/wzzzz/sobr/PopulateContents()
-	new /obj/item/ammo_box/magazine/ak47mag(src)
-	new /obj/item/ammo_box/magazine/ak47mag(src)
-	new /obj/item/ammo_box/magazine/ak47mag(src)
-	new /obj/item/reagent_containers/hypospray/medipen/survival(src)
-	new /obj/item/grenade/syndieminibomb/concussion(src)
-	new /obj/item/grenade/syndieminibomb/concussion(src)
+	if(prob(10))
+		new /obj/item/ammo_box/magazine/ak47mag(src)
+	if(prob(15))
+		new /obj/item/ammo_box/magazine/ak47mag(src)
+	if(prob(20))
+		new /obj/item/ammo_box/magazine/ak47mag(src)
+	if(prob(33))
+		new /obj/item/reagent_containers/hypospray/medipen/survival(src)
+	if(prob(20))
+		new /obj/item/grenade/syndieminibomb/concussion(src)
+	if(prob(30))
+		new /obj/item/grenade/syndieminibomb/concussion(src)
 
 /proc/sobr_request(text, mob/Sender)
 	var/msg = copytext_char(sanitize(text), 1, MAX_MESSAGE_LEN)

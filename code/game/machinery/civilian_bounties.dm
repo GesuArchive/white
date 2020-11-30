@@ -109,7 +109,8 @@
 
 /obj/machinery/computer/piratepad_control/civilian/AltClick(mob/user)
 	. = ..()
-	id_eject(user, inserted_scan_id)
+	if(!user.canUseTopic(src, !issilicon(user)) || !is_operational)
+		id_eject(user, inserted_scan_id)
 
 /obj/machinery/computer/piratepad_control/civilian/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

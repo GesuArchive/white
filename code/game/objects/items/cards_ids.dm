@@ -509,11 +509,12 @@ update_label()
 /obj/item/card/id/captains_spare/trap/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_WIRECUTTER && first_try)
 		to_chat(user, "<span class='notice'>Начинаю обезвреживать карту. (это займёт примерно одну минуту и нужно не шевелиться)</span>")
-		if(do_after(user, 1 MINUTES, target = src) && first_try)
+		if(do_after(user, 30 SECONDS, target = src) && first_try)
 			to_chat(user, "<span class='notice'>Карта разминирована.</span>")
 			first_try = FALSE
 			anchored = FALSE
-			priority_announce("[user.real_name] пытается украсть капитанскую карту. Остановите [user.ru_ego()]!", title = "Кража", sound = 'white/valtos/sounds/che.ogg')
+			if(prob(10))
+				priority_announce("Кто-то пытается украсть капитанскую карту. Остановите [user.ru_ego()]!", title = "Кража", sound = 'white/valtos/sounds/che.ogg')
 	else
 		return ..()
 

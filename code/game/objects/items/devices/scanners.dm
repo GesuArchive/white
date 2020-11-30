@@ -427,8 +427,9 @@ GENE SCANNER
 		var/render_list = list()
 		if(M.reagents.reagent_list.len)
 			render_list += "<span class='notice ml-1'>В крови пациента обнаружены следующие химикаты:</span>\n"
-			for(var/datum/reagent/R in M.reagents.reagent_list)
-				render_list += "<span class='notice ml-2'>[round(R.volume, 0.001)] юнитов [R.name][R.overdosed ? "</span> - <span class='boldannounce'>ПЕРЕДОЗИРОВКА</span>" : ".</span>"]\n"
+			for(var/r in M.reagents.reagent_list)
+				var/datum/reagent/reagent = r
+				render_list += "<span class='notice ml-2'>[round(reagent.volume, 0.001)] юнитов [reagent.name][reagent.overdosed ? "</span> - <span class='boldannounce'>ПЕРЕДОЗИРОВКА</span>" : ".</span>"]\n"
 		else
 			render_list += "<span class='notice ml-1'>Не обнаружено реагентов в крови.</span>\n"
 		var/obj/item/organ/stomach/belly = M.getorganslot(ORGAN_SLOT_STOMACH)
@@ -446,10 +447,11 @@ GENE SCANNER
 			else
 				render_list += "<span class='notice ml-1'>Не обнаружено реагентов в желудке.</span>\n"
 
-		if(M.reagents.addiction_list.len)
+		if(LAZYLEN(M.reagents.addiction_list))
 			render_list += "<span class='boldannounce ml-1'>У пациента есть зависимость от следующих химикатов:</span>\n"
-			for(var/datum/reagent/R in M.reagents.addiction_list)
-				render_list += "<span class='alert ml-2'>[R.name]</span>\n"
+			for(var/a in M.reagents.addiction_list)
+				var/datum/reagent/addiction = a
+				render_list += "<span class='alert ml-2'>[addiction.name]</span>\n"
 		else
 			render_list += "<span class='notice ml-1'>У пациента нет зависимостей от химикатов.</span>\n"
 

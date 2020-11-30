@@ -40,7 +40,7 @@
 						/datum/gas/halon,
 					)
 	var/volume_rate = 400
-	var/widenet = 1 //is this scrubber acting on the 3x3 area around it.
+	var/widenet = 0 //is this scrubber acting on the 3x3 area around it.
 	var/list/turf/adjacent_turfs = list()
 
 	var/frequency = FREQ_ATMOS_CONTROL
