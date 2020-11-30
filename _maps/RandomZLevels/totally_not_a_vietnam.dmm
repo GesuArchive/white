@@ -16,22 +16,19 @@
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dark)
 "bm" = (
-/obj/item/assembly/signaler/anomaly/pyro,
-/obj/item/assembly/signaler/anomaly/pyro,
-/obj/item/assembly/signaler/anomaly/pyro,
-/obj/item/assembly/signaler/anomaly/pyro,
-/obj/item/assembly/signaler/anomaly/pyro,
-/obj/structure/closet/crate,
-/turf/open/floor/grass/gensgrass/dirty/stone/raw,
+/obj/structure/bed/prison/bed,
+/obj/structure/bed/prison/bed{
+	pixel_y = 14
+	},
+/turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dark)
 "bq" = (
-/obj/item/assembly/signaler/anomaly/bluespace,
-/obj/item/assembly/signaler/anomaly/bluespace,
-/obj/item/assembly/signaler/anomaly/bluespace,
-/obj/item/assembly/signaler/anomaly/bluespace,
-/obj/item/assembly/signaler/anomaly/bluespace,
-/obj/structure/closet/crate,
-/turf/open/floor/grass/gensgrass/dirty/stone/raw,
+/obj/structure/rospilovo/luk,
+/obj/effect/mob_spawn/human/vietcong{
+	pixel_y = 7;
+	uses = 30
+	},
+/turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dark)
 "bv" = (
 /obj/structure/closet/crate,
@@ -54,8 +51,8 @@
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dark)
 "bw" = (
-/obj/item/pickaxe/rusted,
-/turf/open/floor/grass/gensgrass/dirty/stone,
+/obj/effect/light_emitter,
+/turf/open/water,
 /area/awaymission/vietnam/dark)
 "cg" = (
 /mob/living/simple_animal/hostile/asteroid/hivelord,
@@ -66,7 +63,8 @@
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dark)
 "cC" = (
-/obj/structure/mineral_door/paperframe,
+/obj/item/documents/syndicate/red,
+/obj/structure/closet/crate,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dark)
 "cE" = (
@@ -80,18 +78,72 @@
 	},
 /area/awaymission/vietnam)
 "cM" = (
-/obj/item/blacksmith/smithing_hammer,
-/obj/item/blacksmith/tongs,
 /obj/structure/table/wood,
-/turf/open/floor/grass/gensgrass/dirty/stone,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/mask/bandana/skull,
+/obj/item/clothing/mask/bandana/green,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/obj/item/clothing/head/rice_hat,
+/turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "dc" = (
-/obj/anvil,
-/turf/open/floor/grass/gensgrass/dirty/stone,
+/obj/structure/table/wood,
+/obj/item/gun/ballistic/automatic/pistol/wzzzz/mauser,
+/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k,
+/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope,
+/obj/item/ammo_box/magazine/wzzzz/a792x57,
+/obj/item/ammo_box/magazine/wzzzz/a792x57,
+/obj/item/ammo_box/magazine/wzzzz/a792x57,
+/turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "dm" = (
-/obj/forge,
-/turf/open/floor/grass/gensgrass/dirty/stone,
+/obj/structure/table/wood,
+/obj/item/spear{
+	pixel_y = -4
+	},
+/obj/item/spear,
+/obj/item/spear{
+	pixel_y = 4
+	},
+/turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "dr" = (
 /turf/open/floor/wood,
@@ -109,11 +161,11 @@
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dark)
 "dW" = (
-/obj/item/blacksmith/ingot{
-	pixel_x = 4;
-	pixel_y = -4
-	},
 /obj/structure/table/wood,
+/obj/item/grenade/iedcasing,
+/obj/item/grenade/iedcasing,
+/obj/item/grenade/iedcasing,
+/obj/item/wirekit,
 /turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "ei" = (
@@ -121,35 +173,28 @@
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dark)
 "ey" = (
-/obj/item/blacksmith/ingot{
-	pixel_x = -4
+/obj/structure/bed/prison/bed,
+/obj/structure/bed/prison/bed{
+	pixel_y = 14
 	},
-/obj/structure/table/wood,
-/turf/open/floor/wood,
+/turf/open/floor/carpet/green,
 /area/awaymission/vietnam/dark)
 "ez" = (
-/obj/item/blacksmith/ingot{
-	pixel_x = 12
+/obj/effect/mob_spawn/human/vietcong{
+	pixel_y = 7
 	},
-/obj/item/blacksmith/ingot,
-/obj/item/blacksmith/ingot{
-	pixel_x = 6;
-	pixel_y = 5
-	},
-/obj/structure/table/wood,
-/turf/open/floor/wood,
+/turf/open/floor/carpet/green,
 /area/awaymission/vietnam/dark)
 "eM" = (
 /obj/item/reagent_containers/syringe/contraband/methamphetamine,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dark)
 "eU" = (
-/obj/structure/chair/wood,
-/turf/open/floor/wood,
+/turf/open/floor/rospilovo/plitka,
 /area/awaymission/vietnam/dark)
 "fs" = (
 /obj/structure/table/wood,
-/turf/open/floor/wood,
+/turf/open/floor/rospilovo/plitka/full,
 /area/awaymission/vietnam/dark)
 "fA" = (
 /obj/effect/light_emitter,
@@ -350,56 +395,15 @@
 /turf/open/floor/plating/beach/sand,
 /area/awaymission/vietnam)
 "nH" = (
-/obj/structure/table/wood,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/mask/bandana/skull,
-/obj/item/clothing/mask/bandana/green,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/obj/item/clothing/head/rice_hat,
-/turf/open/floor/wood,
+/obj/structure/chair/wood{
+	dir = 8
+	},
+/turf/open/floor/rospilovo/plitka,
 /area/awaymission/vietnam/dark)
 "nP" = (
 /obj/structure/table/wood,
-/obj/item/boombox,
-/turf/open/floor/wood,
+/obj/machinery/microwave,
+/turf/open/floor/rospilovo/plitka,
 /area/awaymission/vietnam/dark)
 "oj" = (
 /obj/machinery/gateway/away,
@@ -413,27 +417,16 @@
 /turf/open/water,
 /area/awaymission/vietnam/dark)
 "pQ" = (
-/obj/structure/table/wood,
-/obj/item/gun/ballistic/automatic/pistol/wzzzz/mauser,
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k,
-/obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope,
-/obj/item/ammo_box/magazine/wzzzz/a792x57,
-/obj/item/ammo_box/magazine/wzzzz/a792x57,
-/obj/item/ammo_box/magazine/wzzzz/a792x57,
-/turf/open/floor/wood,
-/area/awaymission/vietnam/dark)
+/obj/effect/turf_decal/sand,
+/obj/structure/rospilovo/musor_yashik/green/full,
+/obj/effect/light_emitter,
+/turf/open/floor/plating/beach/sand,
+/area/awaymission/vietnam)
 "pY" = (
-/obj/structure/table/wood,
-/obj/item/radio,
-/turf/open/floor/wood,
-/area/awaymission/vietnam/dark)
-"qa" = (
-/obj/structure/table/wood,
-/obj/item/grenade/iedcasing,
-/obj/item/grenade/iedcasing,
-/obj/item/grenade/iedcasing,
-/obj/item/wirekit,
-/turf/open/floor/wood,
+/obj/machinery/modular_computer/console{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium/white,
 /area/awaymission/vietnam/dark)
 "qh" = (
 /obj/structure/rospilovo/pen,
@@ -473,17 +466,6 @@
 /obj/structure/rospilovo/luk,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dark)
-"sq" = (
-/obj/structure/rack,
-/obj/item/spear,
-/obj/item/spear{
-	pixel_y = 4
-	},
-/obj/item/spear{
-	pixel_y = -4
-	},
-/turf/open/floor/wood,
-/area/awaymission/vietnam/dark)
 "ss" = (
 /turf/open/floor/mineral/titanium/blue,
 /area/awaymission/vietnam/dark)
@@ -513,26 +495,16 @@
 /turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "td" = (
-/obj/structure/bed/prison/bed,
-/obj/structure/bed/prison/bed{
-	pixel_y = 14
-	},
-/obj/effect/mob_spawn/human/vietcong,
-/obj/effect/mob_spawn/human/vietcong{
-	pixel_y = 14
-	},
-/turf/open/floor/carpet/green,
+/obj/structure/table/wood,
+/obj/item/storage/box/emptysandbags,
+/obj/item/storage/box/emptysandbags,
+/obj/item/storage/box/emptysandbags,
+/turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "tf" = (
 /obj/effect/light_emitter,
 /turf/open/floor/plating/beach/coastline_t,
 /area/awaymission/vietnam)
-"ty" = (
-/obj/structure/rack,
-/obj/item/blacksmith/smithing_hammer,
-/obj/item/blacksmith/tongs,
-/turf/open/floor/wood,
-/area/awaymission/vietnam/dark)
 "tF" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/shovel/spade/wzzz,
@@ -548,17 +520,6 @@
 /obj/structure/water_source/puddle,
 /turf/open/floor/grass/gensgrass/dirty,
 /area/awaymission/vietnam)
-"um" = (
-/obj/item/flashlight/lantern,
-/obj/item/flashlight/lantern,
-/turf/open/floor/carpet/green,
-/area/awaymission/vietnam/dark)
-"uF" = (
-/obj/item/flashlight/lantern,
-/obj/item/flashlight/lantern,
-/obj/item/radio,
-/turf/open/floor/carpet/green,
-/area/awaymission/vietnam/dark)
 "uO" = (
 /obj/item/cultivator/rake,
 /obj/item/reagent_containers/food/snacks/grown/rice,
@@ -576,15 +537,6 @@
 /obj/item/secateurs,
 /turf/open/floor/grass/gensgrass/dirty,
 /area/awaymission/vietnam)
-"vq" = (
-/obj/item/assembly/signaler/anomaly/flux,
-/obj/item/assembly/signaler/anomaly/flux,
-/obj/item/assembly/signaler/anomaly/flux,
-/obj/item/assembly/signaler/anomaly/flux,
-/obj/item/assembly/signaler/anomaly/flux,
-/obj/structure/closet/crate,
-/turf/open/floor/grass/gensgrass/dirty/stone/raw,
-/area/awaymission/vietnam/dark)
 "vz" = (
 /obj/structure/table/wood,
 /obj/item/shovel/spade/wzzz,
@@ -639,32 +591,14 @@
 /area/awaymission/vietnam/dark)
 "xm" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/snacks/salad/boiledrice,
-/obj/item/reagent_containers/food/snacks/salad/boiledrice,
-/obj/item/reagent_containers/food/snacks/salad/boiledrice,
-/obj/item/reagent_containers/food/snacks/salad/boiledrice,
-/obj/item/reagent_containers/food/snacks/salad/boiledrice,
-/obj/item/reagent_containers/food/snacks/salad/boiledrice,
-/obj/item/reagent_containers/food/snacks/salad/boiledrice,
+/obj/item/food/salad/boiledrice,
+/obj/item/food/salad/boiledrice,
+/obj/item/food/salad/boiledrice,
+/obj/item/food/salad/boiledrice,
+/obj/item/food/salad/boiledrice,
+/obj/item/food/salad/boiledrice,
+/obj/item/food/salad/boiledrice,
 /turf/open/floor/wood,
-/area/awaymission/vietnam/dark)
-"xB" = (
-/obj/structure/rack,
-/obj/item/wrench,
-/obj/item/radio,
-/turf/open/floor/wood,
-/area/awaymission/vietnam/dark)
-"xY" = (
-/obj/structure/rack,
-/obj/item/storage/box/emptysandbags,
-/obj/item/storage/box/emptysandbags,
-/obj/item/storage/box/emptysandbags,
-/obj/item/storage/box/emptysandbags,
-/turf/open/floor/wood,
-/area/awaymission/vietnam/dark)
-"yd" = (
-/obj/furnace,
-/turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dark)
 "yl" = (
 /obj/structure/table/wood,
@@ -674,7 +608,6 @@
 /obj/item/cultivator/rake,
 /obj/item/cultivator/rake,
 /obj/item/cultivator/rake,
-/obj/item/radio,
 /turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "yM" = (
@@ -732,15 +665,6 @@
 /obj/item/seeds/bamboo,
 /turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
-"zX" = (
-/obj/item/assembly/signaler/anomaly/vortex,
-/obj/item/assembly/signaler/anomaly/vortex,
-/obj/item/assembly/signaler/anomaly/vortex,
-/obj/item/assembly/signaler/anomaly/vortex,
-/obj/item/assembly/signaler/anomaly/vortex,
-/obj/structure/closet/crate,
-/turf/open/floor/grass/gensgrass/dirty/stone/raw,
-/area/awaymission/vietnam/dark)
 "Af" = (
 /obj/structure/table/wood,
 /obj/item/seeds/tower,
@@ -790,8 +714,6 @@
 "AM" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lantern,
-/obj/item/crowbar/large,
-/obj/machinery/musicwriter,
 /turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "AQ" = (
@@ -806,7 +728,7 @@
 "BB" = (
 /obj/effect/light_emitter,
 /obj/structure/rospilovo/water/bochka/kap,
-/turf/open/floor/grass/gensgrass/dirty,
+/turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam)
 "BH" = (
 /obj/structure/barricade/wooden/stockade,
@@ -965,7 +887,7 @@
 /area/awaymission/vietnam/dark)
 "GJ" = (
 /obj/effect/spawner/structure/window/shuttle,
-/turf/open/floor/mineral/titanium/white,
+/turf/open/floor/plating,
 /area/awaymission/vietnam/dark)
 "GO" = (
 /obj/item/reagent_containers/syringe/lethal/choral,
@@ -977,7 +899,9 @@
 /area/awaymission/vietnam/dark)
 "GW" = (
 /obj/structure/table/wood,
-/obj/item/toy/plush/goatplushie,
+/obj/item/toy/plush/goatplushie{
+	pixel_y = 1
+	},
 /turf/open/floor/carpet/green,
 /area/awaymission/vietnam/dark)
 "Ha" = (
@@ -985,13 +909,20 @@
 /area/awaymission/vietnam/dark)
 "Hh" = (
 /obj/structure/table/wood,
+/obj/item/gun/ballistic/automatic/pistol/fallout/m9mm/maria{
+	pixel_x = -4;
+	pixel_y = 9
+	},
 /obj/item/flashlight/lantern,
 /turf/open/floor/carpet/green,
 /area/awaymission/vietnam/dark)
 "Hr" = (
 /obj/structure/table/wood,
+/obj/item/binoculars{
+	pixel_x = -8;
+	pixel_y = 9
+	},
 /obj/item/flashlight/lantern,
-/obj/item/binoculars,
 /turf/open/floor/carpet/green,
 /area/awaymission/vietnam/dark)
 "HE" = (
@@ -1004,10 +935,12 @@
 /area/awaymission/vietnam/dark)
 "HI" = (
 /obj/structure/rospilovo/propane{
-	pixel_x = 8;
-	pixel_y = 8
+	pixel_x = 11;
+	pixel_y = -5
 	},
-/obj/structure/rospilovo/propane,
+/obj/structure/rospilovo/propane{
+	pixel_y = -3
+	},
 /turf/open/floor/grass/gensgrass/dirty,
 /area/awaymission/vietnam/dark)
 "HS" = (
@@ -1068,11 +1001,6 @@
 /area/awaymission/vietnam/dark)
 "JK" = (
 /mob/living/simple_animal/hostile/asteroid/mineral_crab,
-/turf/open/floor/grass/gensgrass/dirty,
-/area/awaymission/vietnam/dark)
-"JR" = (
-/obj/structure/grille/rospilovo/beton,
-/obj/effect/light_emitter,
 /turf/open/floor/grass/gensgrass/dirty,
 /area/awaymission/vietnam/dark)
 "JW" = (
@@ -1195,23 +1123,9 @@
 /obj/effect/light_emitter,
 /turf/open/floor/plating/beach/sand,
 /area/awaymission/vietnam)
-"PU" = (
-/obj/effect/turf_decal/sand,
-/obj/effect/light_emitter,
-/obj/structure/rospilovo/musor_yashik/green/full,
-/turf/open/floor/plating/beach/sand,
-/area/awaymission/vietnam)
-"PV" = (
-/obj/effect/turf_decal/sand,
-/obj/effect/light_emitter,
-/obj/structure/rospilovo/musor_yashik/red/full,
-/turf/open/floor/plating/beach/sand,
-/area/awaymission/vietnam)
 "Qe" = (
-/obj/structure/mineral_door/wood{
-	name = "bar"
-	},
-/turf/open/floor/wood,
+/obj/structure/mineral_door/sandstone,
+/turf/open/floor/rospilovo/plitka/full,
 /area/awaymission/vietnam/dark)
 "Qh" = (
 /obj/structure/table/wood,
@@ -1232,14 +1146,14 @@
 /obj/machinery/vending/boozeomat/all_access{
 	desc = "A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one. May not work for bartenders that don't have Nanotrasen bank accounts."
 	},
-/turf/open/floor/wood,
+/turf/open/floor/rospilovo/plitka,
 /area/awaymission/vietnam/dark)
 "QF" = (
 /obj/machinery/processor,
 /obj/structure/rospilovo/painting/lenin{
 	pixel_y = 30
 	},
-/turf/open/floor/wood,
+/turf/open/floor/rospilovo/plitka,
 /area/awaymission/vietnam/dark)
 "QS" = (
 /obj/structure/closet/secure_closet/bar,
@@ -1258,7 +1172,7 @@
 /obj/item/kitchen/knife/butcher/wzzzz/machete,
 /obj/item/kitchen/knife/butcher/wzzzz/machete,
 /obj/item/kitchen/knife/butcher/wzzzz/machete,
-/turf/open/floor/wood,
+/turf/open/floor/rospilovo/plitka,
 /area/awaymission/vietnam/dark)
 "Rg" = (
 /obj/effect/turf_decal/stripes/white/line{
@@ -1282,13 +1196,13 @@
 /obj/machinery/chem_dispenser/drinks/fullupgrade{
 	dir = 4
 	},
-/turf/open/floor/wood,
+/turf/open/floor/rospilovo/plitka,
 /area/awaymission/vietnam/dark)
 "RT" = (
 /obj/structure/table/wood,
 /obj/item/kitchen/knife/butcher/wzzzz/machete,
 /obj/item/storage/belt/wzzzz/machete,
-/turf/open/floor/wood,
+/turf/open/floor/rospilovo/plitka/full,
 /area/awaymission/vietnam/dark)
 "Sd" = (
 /obj/item/toy/seashell,
@@ -1305,36 +1219,34 @@
 /obj/machinery/chem_dispenser/drinks/beer/fullupgrade{
 	dir = 4
 	},
-/turf/open/floor/wood,
+/turf/open/floor/rospilovo/plitka,
 /area/awaymission/vietnam/dark)
 "SE" = (
 /mob/living/simple_animal/hostile/russian/bydlo,
-/turf/open/floor/wood,
+/turf/open/floor/rospilovo/plitka,
 /area/awaymission/vietnam/dark)
 "SH" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/soda_cans/dr_gibb,
-/turf/open/floor/wood,
+/turf/open/floor/rospilovo/plitka/full,
 /area/awaymission/vietnam/dark)
 "SQ" = (
 /obj/item/toy/beach_ball,
 /turf/open/floor/plating/beach/sand,
 /area/awaymission/vietnam)
 "SS" = (
-/obj/structure/table/wood,
-/obj/machinery/microwave,
-/turf/open/floor/wood,
+/turf/closed/wall/mineral/sandstone,
 /area/awaymission/vietnam/dark)
 "Th" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/ale,
-/turf/open/floor/wood,
+/turf/open/floor/rospilovo/plitka/full,
 /area/awaymission/vietnam/dark)
 "Tn" = (
 /obj/structure/table/wood,
 /obj/structure/table/wood,
 /obj/item/clothing/glasses/sunglasses,
-/turf/open/floor/wood,
+/turf/open/floor/rospilovo/plitka/full,
 /area/awaymission/vietnam/dark)
 "Tp" = (
 /mob/living/simple_animal/hostile/russian/bydlo,
@@ -1527,15 +1439,6 @@
 /obj/effect/light_emitter,
 /turf/open/floor/plating/beach/water,
 /area/awaymission/vietnam)
-"ZZ" = (
-/obj/item/assembly/signaler/anomaly/grav,
-/obj/item/assembly/signaler/anomaly/grav,
-/obj/item/assembly/signaler/anomaly/grav,
-/obj/item/assembly/signaler/anomaly/grav,
-/obj/item/assembly/signaler/anomaly/grav,
-/obj/structure/closet/crate,
-/turf/open/floor/grass/gensgrass/dirty/stone/raw,
-/area/awaymission/vietnam/dark)
 
 (1,1,1) = {"
 Rj
@@ -15028,7 +14931,7 @@ YF
 GE
 GW
 Ha
-Ha
+ez
 Ha
 Ha
 HF
@@ -20581,7 +20484,7 @@ AQ
 AQ
 AQ
 AQ
-AQ
+UD
 AQ
 AQ
 AQ
@@ -20816,15 +20719,15 @@ Jl
 Jl
 AQ
 Jl
+UD
 AQ
-Dd
-Dd
-Dd
-Dd
-Dd
-Dd
-Dd
-Dd
+AQ
+AQ
+AQ
+AQ
+AQ
+AQ
+UD
 Gn
 yP
 yP
@@ -21046,19 +20949,19 @@ lT
 Rj
 AQ
 AQ
+bm
+bq
 Jl
-sn
 Jl
 Jl
-Jl
+UD
 AQ
-Dd
-cM
-Jl
-Jl
-Jl
-dr
-fs
+AQ
+AQ
+AQ
+AQ
+AQ
+UD
 Jl
 gy
 yP
@@ -21281,19 +21184,19 @@ lT
 Rj
 AQ
 AQ
-Jl
+bm
 Jl
 bf
 Jl
 Jl
 Jl
-Dd
-dc
-Jl
-Jl
-Jl
-eU
-fs
+UD
+AQ
+AQ
+AQ
+AQ
+AQ
+UD
 Jl
 gy
 yP
@@ -21522,13 +21425,13 @@ Jl
 Jl
 Jl
 Jl
-Dd
-dm
 Jl
+UD
+UD
+UD
 Jl
-Jl
-dr
-fs
+UD
+UD
 Jl
 gy
 yP
@@ -21757,13 +21660,13 @@ Jl
 Jl
 Jl
 Jl
-Dd
 Jl
 Jl
+UD
+UD
 Jl
 Jl
-Jl
-cC
+UD
 Jl
 gy
 yP
@@ -21987,18 +21890,18 @@ Rj
 AQ
 AQ
 AQ
-yd
-Jl
-bw
-Jl
-Jl
-cC
 Jl
 Jl
 Jl
 Jl
-dr
-Dd
+Jl
+Jl
+Jl
+Jl
+Jl
+Jl
+UD
+UD
 Jl
 gy
 yP
@@ -22222,18 +22125,18 @@ Rj
 AQ
 AQ
 AQ
-yd
+Jl
+Jl
+Jl
+UD
+UD
+UD
 Jl
 Jl
 Jl
 Jl
-Dd
 Jl
 Jl
-Jl
-Jl
-dr
-oU
 Jl
 gy
 yP
@@ -22459,16 +22362,16 @@ AQ
 AQ
 aT
 Jl
-Jl
-Jl
+UD
+UD
 AQ
-Dd
-dr
-dW
-ey
-ez
-dr
-oU
+AQ
+UD
+UD
+UD
+Jl
+Jl
+Jl
 Jl
 gy
 Bg
@@ -22693,17 +22596,17 @@ AQ
 AQ
 AQ
 Qh
-Jl
-Jl
+UD
+UD
+UD
 AQ
 AQ
-Dd
-dr
-dr
-dr
-dr
-dr
-Dd
+AQ
+UD
+UD
+UD
+UD
+Jl
 Jl
 gy
 Bg
@@ -22927,19 +22830,19 @@ Rj
 AQ
 AQ
 AQ
+UD
+UD
+UD
 AQ
 AQ
 AQ
 AQ
 AQ
-Dd
-Dd
-Dd
-Dd
-Dd
-Dd
-Dd
-Dd
+AQ
+AQ
+AQ
+AQ
+UD
 Gn
 yP
 yP
@@ -23162,9 +23065,9 @@ Rj
 AQ
 AQ
 AQ
-AQ
-AQ
-AQ
+UD
+UD
+UD
 AQ
 AQ
 AQ
@@ -25308,7 +25211,7 @@ vz
 dr
 yl
 Dd
-Gn
+gy
 Bg
 Bg
 yP
@@ -25543,7 +25446,7 @@ vD
 dr
 yM
 oU
-Gn
+gy
 Bg
 Bg
 yP
@@ -25766,7 +25669,7 @@ IU
 Bg
 Bg
 Bg
-Gn
+gy
 Dd
 dr
 Dd
@@ -25778,7 +25681,7 @@ vK
 dr
 zj
 Dd
-Gn
+gy
 Bg
 Bg
 yP
@@ -26001,7 +25904,7 @@ IU
 yP
 Bg
 Bg
-Gn
+gy
 Dd
 dr
 Dd
@@ -26013,7 +25916,7 @@ vZ
 dr
 zC
 Dd
-Gn
+gy
 Bg
 Bg
 yP
@@ -26236,7 +26139,7 @@ IU
 yP
 Bg
 Bg
-Gn
+gy
 lf
 dr
 dr
@@ -26248,7 +26151,7 @@ dr
 dr
 dr
 lf
-Gn
+gy
 Bg
 Bg
 yP
@@ -26471,7 +26374,7 @@ IU
 yP
 Bg
 Bg
-Gn
+gy
 Dd
 dr
 mQ
@@ -26483,7 +26386,7 @@ wf
 dr
 zU
 Dd
-Gn
+gy
 Bg
 Bg
 yP
@@ -26706,7 +26609,7 @@ IU
 yP
 Bg
 Bg
-Gn
+gy
 Dd
 dr
 nb
@@ -26718,7 +26621,7 @@ wL
 dr
 Af
 Dd
-Gn
+gy
 Bg
 Bg
 yP
@@ -26941,7 +26844,7 @@ IU
 IU
 Bg
 Bg
-Gn
+gy
 oU
 dr
 nu
@@ -26953,7 +26856,7 @@ xl
 dr
 Av
 oU
-Gn
+gy
 Bg
 Bg
 yP
@@ -27176,7 +27079,7 @@ YF
 IU
 Bg
 Bg
-Gn
+gy
 Dd
 dr
 dr
@@ -27188,7 +27091,7 @@ xm
 dr
 Az
 Dd
-Gn
+gy
 Bg
 Bg
 yP
@@ -27411,7 +27314,7 @@ YF
 IU
 Bg
 Bg
-Gn
+gy
 Dd
 Dd
 oU
@@ -27423,7 +27326,7 @@ Dd
 oU
 Dd
 Dd
-Gn
+gy
 Bg
 Bg
 yP
@@ -27636,17 +27539,17 @@ AQ
 AQ
 AQ
 AQ
-Jl
-Jl
-Jl
-Jl
-Jl
+AQ
+AQ
+AQ
+AQ
+AQ
 AQ
 YF
 IU
 Bg
 Bg
-Gn
+gy
 Jl
 Jl
 Jl
@@ -27658,7 +27561,7 @@ Jl
 Jl
 Jl
 Jl
-Gn
+gy
 Bg
 Bg
 yP
@@ -27871,9 +27774,9 @@ UD
 AQ
 AQ
 AQ
-Jl
-Jl
-Jl
+AQ
+AQ
+AQ
 Jl
 Jl
 Jl
@@ -27882,7 +27785,7 @@ Bg
 Bg
 Bg
 gy
-Jl
+gy
 Jl
 Jl
 Jl
@@ -28106,9 +28009,9 @@ UD
 AQ
 AQ
 AQ
-Jl
-Jl
-Jl
+AQ
+AQ
+cC
 Jl
 Jl
 Jl
@@ -28116,9 +28019,9 @@ gy
 Bg
 Bg
 Bg
+Bg
 gy
-Jl
-Jl
+gy
 Jl
 Jl
 Jl
@@ -28341,17 +28244,19 @@ UD
 AQ
 AQ
 AQ
-Jl
-Jl
-Jl
-Jl
-Jl
+AQ
+AQ
+AQ
+AQ
+AQ
 AQ
 YF
 IU
 Bg
 Bg
-Gn
+Bg
+Bg
+gy
 Jl
 Jl
 Jl
@@ -28361,9 +28266,7 @@ Jl
 Jl
 Jl
 Jl
-Jl
-Jl
-Gn
+gy
 Bg
 Bg
 yP
@@ -28576,29 +28479,29 @@ UD
 AQ
 AQ
 AQ
-Jl
-Jl
-Jl
-Jl
-Jl
+AQ
+AQ
+AQ
+AQ
+AQ
 AQ
 YF
 IU
 Bg
 Bg
-Gn
+Bg
+Bg
+gy
 Dd
 Dd
 oU
-Dd
 Dd
 lf
 Dd
-Dd
 oU
 Dd
 Dd
-Gn
+gy
 Bg
 Bg
 yP
@@ -28821,7 +28724,9 @@ YF
 IU
 Bg
 Bg
-Gn
+Bg
+Bg
+gy
 Dd
 dr
 dr
@@ -28830,10 +28735,8 @@ dr
 dr
 dr
 dr
-dr
-dr
 Dd
-Gn
+gy
 Bg
 Bg
 yP
@@ -29056,7 +28959,9 @@ YF
 IU
 Bg
 Bg
-Gn
+Bg
+Bg
+gy
 oU
 dr
 dr
@@ -29065,10 +28970,8 @@ dr
 dr
 dr
 dr
-dr
-dr
 oU
-Gn
+gy
 Bg
 Bg
 yP
@@ -29291,19 +29194,19 @@ YF
 yP
 Bg
 Bg
-Gn
+Bg
+Bg
+gy
 Dd
 dr
-nH
+cM
 Dd
-Dd
-lf
 lf
 Dd
 Dd
 dr
 Dd
-Gn
+gy
 Bg
 Bg
 yP
@@ -29476,8 +29379,8 @@ PF
 PF
 PF
 PF
-PF
 ny
+kZ
 kZ
 kZ
 kZ
@@ -29526,19 +29429,19 @@ YF
 yP
 Bg
 Bg
-Gn
+Bg
+Bg
+gy
 Dd
 dr
-nP
+td
 Dd
-td
-um
-um
-td
+Ha
+ey
 Dd
 dr
 Dd
-Gn
+gy
 Bg
 Bg
 yP
@@ -29704,13 +29607,13 @@ AQ
 AQ
 JD
 kZ
-PU
-Dd
-Dd
-Dd
-Dd
-Dd
-Dd
+PF
+SS
+SS
+SS
+SS
+SS
+pQ
 PF
 ny
 kZ
@@ -29761,19 +29664,19 @@ YF
 yP
 Bg
 Bg
-Gn
+Bg
+Bg
+gy
 lf
 dr
-pQ
+dc
 Dd
-td
-uF
-um
-td
+Ha
+ey
 Dd
 dr
 lf
-Gn
+gy
 Bg
 Bg
 yP
@@ -29939,13 +29842,13 @@ AQ
 AQ
 JD
 kZ
-PV
-Dd
+PF
+SS
 QD
 RJ
 SD
 SS
-Dd
+SS
 PF
 ny
 kZ
@@ -29996,19 +29899,19 @@ yP
 yP
 Bg
 Bg
-Gn
+Bg
+Bg
+gy
 Dd
 dr
-pY
+dm
 Dd
-td
-um
-um
-td
+Ha
+ey
 Dd
 AM
 Dd
-Gn
+gy
 Bg
 Bg
 yP
@@ -30176,11 +30079,11 @@ JD
 kZ
 PF
 Qe
-dr
-rB
-dr
-dr
-fs
+eU
+nH
+eU
+nP
+SS
 Sr
 ny
 kZ
@@ -30213,7 +30116,7 @@ AQ
 AQ
 AQ
 AQ
-zX
+UD
 UD
 UD
 UD
@@ -30231,19 +30134,19 @@ yP
 yP
 Bg
 Bg
-Gn
+Bg
+Bg
+gy
 Dd
 dr
-qa
+dW
 Dd
-Dd
-lf
 lf
 Dd
 Dd
 Dd
 Dd
-Gn
+gy
 Bg
 Bg
 yP
@@ -30410,11 +30313,11 @@ AQ
 JD
 kZ
 PF
-Dd
+SS
 QF
-dr
+eU
 SE
-dr
+eU
 Th
 Sr
 ny
@@ -30448,7 +30351,7 @@ AQ
 AQ
 AQ
 AQ
-bm
+UD
 UD
 UD
 UD
@@ -30466,19 +30369,19 @@ yP
 yP
 Bg
 Bg
-Gn
+Bg
+Bg
+gy
 oU
 dr
 dr
-sq
-ty
 dr
 dr
-xB
-xY
+dr
+dr
 dr
 oU
-Gn
+gy
 Bg
 Bg
 yP
@@ -30645,11 +30548,11 @@ AQ
 JD
 kZ
 PF
-Dd
+SS
 QS
-dr
-dr
-dr
+eU
+eU
+eU
 Th
 Sr
 ny
@@ -30683,7 +30586,7 @@ AQ
 AQ
 AQ
 AQ
-ZZ
+UD
 UD
 UD
 UD
@@ -30701,7 +30604,9 @@ yP
 yP
 Bg
 Bg
-Gn
+Bg
+Bg
+gy
 Dd
 dr
 dr
@@ -30710,10 +30615,8 @@ dr
 dr
 dr
 dr
-dr
-dr
 Dd
-Gn
+gy
 Bg
 Bg
 yP
@@ -30880,8 +30783,8 @@ AQ
 JD
 kZ
 PF
-Dd
-Dd
+SS
+SS
 RT
 SH
 fs
@@ -30918,7 +30821,7 @@ AQ
 AQ
 AQ
 AQ
-vq
+UD
 UD
 cp
 UD
@@ -30936,14 +30839,14 @@ yP
 yP
 Bg
 Bg
-Gn
+Bg
+Bg
+gy
 Dd
 Dd
 oU
 Dd
-Dd
 lf
-Dd
 Dd
 oU
 Dd
@@ -31153,7 +31056,7 @@ AQ
 AQ
 AQ
 AQ
-bq
+UD
 UD
 UD
 UD
@@ -31171,19 +31074,19 @@ yP
 yP
 Bg
 Bg
-Gn
-Gn
-Gn
-Gn
-Gn
-Gn
-Gn
-Gn
-Gn
-Gn
-Gn
-Gn
-Gn
+Bg
+Bg
+gy
+gy
+gy
+gy
+gy
+gy
+gy
+gy
+gy
+gy
+gy
 Bg
 Bg
 yP
@@ -34897,7 +34800,7 @@ ss
 oj
 ss
 ss
-DM
+pY
 GJ
 tf
 Yo
@@ -42330,7 +42233,7 @@ XQ
 XQ
 XQ
 XQ
-JR
+XQ
 XQ
 XQ
 AQ
@@ -53981,7 +53884,7 @@ pG
 pG
 pG
 pG
-pG
+bw
 pG
 pG
 pG
@@ -54657,7 +54560,7 @@ pG
 pG
 pG
 pG
-pG
+bw
 pG
 pG
 pG
@@ -55424,7 +55327,7 @@ pG
 pG
 pG
 pG
-pG
+bw
 pG
 pG
 pG
@@ -58548,7 +58451,7 @@ pG
 pG
 pG
 pG
-pG
+bw
 pG
 pG
 pG
