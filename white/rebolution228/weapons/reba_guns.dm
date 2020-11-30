@@ -19,5 +19,11 @@
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 
-/obj/item/ammo_box/magazine/internal/shot/com/eight
+/obj/item/gun/ballistic/shotgun/spas12/rubber
+	mag_type = /obj/item/ammo_box/magazine/internal/shot/riot/eight
+
+/obj/item/ammo_box/magazine/internal/shot/com/eight // lethal rounds
+	max_ammo = 8
+
+/obj/item/ammo_box/magazine/internal/shot/riot/eight // rubber rounds
 	max_ammo = 8
