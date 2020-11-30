@@ -56,6 +56,12 @@
 	allowed_roles = list("Veteran", "Security Officer", "Russian Officer", "Head of Security")
 	cost = 500
 
+/datum/gear/spas12
+	display_name = "SPAS-12"
+	path = /obj/item/gun/ballistic/shotgun/spas12/rubber
+	allowed_roles = list("Warden")
+	cost = 2500
+
 /datum/gear/spare_id
 	display_name = "Золотая ID-карта капитана"
 	description = "Мечта, которая никогда не сбудется. Наверное."
