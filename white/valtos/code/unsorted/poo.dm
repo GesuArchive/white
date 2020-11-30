@@ -12,10 +12,9 @@
 	icon_state = "truepoo"
 	tastes = list("shit" = 1, "poo" = 1)
 	var/random_icon_states = list("poo1", "poo2", "poo3", "poo4", "poo5", "poo6")
-	list_reagents = list(/datum/reagent/toxin/poo = 5)
-	cooked_type = /obj/item/food/poo/cooked
-	filling_color = "#4B3320"
-	foodtype = MEAT | RAW | TOXIC
+	food_reagents = list(/datum/reagent/toxin/poo = 5)
+	microwaved_type = /obj/item/food/poo/cooked
+	foodtypes = MEAT | RAW | TOXIC
 	grind_results = list()
 
 /obj/item/food/poo/Initialize()
@@ -27,7 +26,6 @@
 	name = "жареное говно"
 	icon_state = "ppoo1"
 	random_icon_states = list("ppoo1", "ppoo2", "ppoo3", "ppoo4", "ppoo5", "ppoo6")
-	filling_color = "#4B3320"
 
 /datum/reagent/toxin/poo
 	name = "Говно"
