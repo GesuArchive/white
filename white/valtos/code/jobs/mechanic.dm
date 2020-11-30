@@ -44,7 +44,6 @@
 	icon = 'white/valtos/icons/something.dmi'
 	circuit = /obj/item/circuitboard/machine/copytech
 	icon_state = "apparatus"
-	active_power_usage = 20000
 	density = TRUE
 	layer = MOB_LAYER
 	var/scanned_type = null
@@ -55,11 +54,33 @@
 	var/atom/movable/active_item = null
 	var/crystals = 0
 	var/max_crystals = 4
+	var/obj/structure/cable/attached_cable
+	var/siphoned_power = 0
+	var/siphon_max = 1e7
+
+/obj/machinery/copytech/process()
+	if(siphoned_power >= siphon_max)
+		return
+	update_cable()
+	if(attached_cable)
+		attempt_siphon()
+
+/obj/machinery/copytech/proc/update_cable()
+	var/turf/T = get_turf(src)
+	attached_cable = locate(/obj/structure/cable) in T
+
+/obj/machinery/copytech/proc/attempt_siphon()
+	var/surpluspower = clamp(attached_cable.surplus(), 0, (siphon_max - siphoned_power))
+	if(surpluspower)
+		attached_cable.add_load(surpluspower)
+		siphoned_power += surpluspower
 
 /obj/machinery/copytech/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='info'>Примерное время создания объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>\n"
-	. += "<span class='info'>Внутри запасено [crystals]/[max_crystals] блюспейс-кристаллов.</span>"
+	. += "<span class='info'>Внутри запасено <b>[crystals]/[max_crystals] блюспейс-кристаллов</b>.</span>\n"
+	. += "<span class='info'>Накоплено энергии <b>[siphoned_power]/[siphon_max]W</b>.</span>"
+	. += "<hr><span class='notice'>Похоже ему требуется подключение к энергосети через кабель.</span>"
 
 /obj/machinery/copytech/Initialize()
 	. = ..()
@@ -88,6 +109,9 @@
 	if(working)
 		say("Работа в процессе!")
 		return
+	if(siphoned_power < siphon_max)
+		say("Недостаточно энергии.")
+		return
 	if(!cp)
 		say("Не обнаружена дезинтегрирующая платформа. Попытка синхронизации...")
 		check_platform()
@@ -100,9 +124,7 @@
 		return
 	if(create_thing())
 		say("Приступаю к процессу создания объекта...")
-		use_power = ACTIVE_POWER_USE
 		working = TRUE
-		use_power(active_power_usage)
 		update_icon()
 
 /obj/machinery/copytech/proc/create_thing()
@@ -119,14 +141,13 @@
 		O.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
 		active_item = O
 		crystals--
+		siphoned_power = 0
 		spawn(get_replication_speed(tier_rate))
 			O?.set_anchored(FALSE)
 			O?.layer = initial(O?.layer)
 			O?.alpha = initial(O?.alpha)
 			say("Завершение работы...")
-			use_power = IDLE_POWER_USE
 			working = FALSE
-			use_power(idle_power_usage)
 			update_icon()
 		return TRUE
 	else if (ispath(current_design, /mob/living))
@@ -142,13 +163,12 @@
 		M.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
 		active_item = M
 		crystals--
+		siphoned_power = 0
 		spawn(get_replication_speed(tier_rate))
 			M?.SetParalyzed(FALSE)
 			M?.layer = initial(M?.layer)
 			say("Завершение работы...")
-			use_power = IDLE_POWER_USE
 			working = FALSE
-			use_power(idle_power_usage)
 			update_icon()
 		return TRUE
 	else
@@ -177,7 +197,6 @@
 	icon = 'white/valtos/icons/something.dmi'
 	circuit = /obj/item/circuitboard/machine/copytech_platform
 	icon_state = "platform"
-	active_power_usage = 50000
 	density = 0
 	layer = MOB_LAYER
 	var/tier_rate = 1
@@ -185,6 +204,26 @@
 	var/working = FALSE
 	var/atom/movable/active_item = null
 	var/list/blacklisted_items = list(/obj/item/stack/telecrystal)
+	var/obj/structure/cable/attached_cable
+	var/siphoned_power = 0
+	var/siphon_max = 1e7
+
+/obj/machinery/copytech_platform/process()
+	if(siphoned_power >= siphon_max)
+		return
+	update_cable()
+	if(attached_cable)
+		attempt_siphon()
+
+/obj/machinery/copytech_platform/proc/update_cable()
+	var/turf/T = get_turf(src)
+	attached_cable = locate(/obj/structure/cable) in T
+
+/obj/machinery/copytech_platform/proc/attempt_siphon()
+	var/surpluspower = clamp(attached_cable.surplus(), 0, (siphon_max - siphoned_power))
+	if(surpluspower)
+		attached_cable.add_load(surpluspower)
+		siphoned_power += surpluspower
 
 /obj/machinery/copytech_platform/RefreshParts()
 	var/T = 0
@@ -212,7 +251,9 @@
 
 /obj/machinery/copytech_platform/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='info'>Примерное время для уничтожения объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>"
+	. += "<hr><span class='info'>Примерное время для уничтожения объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>\n"
+	. += "<span class='info'>Накоплено энергии <b>[siphoned_power]/[siphon_max]W</b>.</span>"
+	. += "<hr><span class='notice'>Похоже ему требуется подключение к энергосети через кабель.</span>"
 
 /obj/machinery/copytech_platform/Initialize()
 	. = ..()
@@ -230,15 +271,16 @@
 	if(working)
 		say("Работа в процессе!")
 		return
+	if(siphoned_power < siphon_max)
+		say("Недостаточно энергии.")
+		return
 	if(!ct)
 		say("Не обнаружен копирующий станок. Попытка синхронизации...")
 		check_copytech()
 		return
 	if(destroy_thing())
 		say("Приступаю к процессу дезинтеграции объекта...")
-		use_power = ACTIVE_POWER_USE
 		working = TRUE
-		use_power(active_power_usage)
 		update_icon()
 
 /obj/machinery/copytech_platform/proc/check_copytech()
@@ -274,13 +316,13 @@
 		var/mutable_appearance/scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
 		what_we_destroying.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
 		active_item = what_we_destroying
+		siphoned_power = 0
 		spawn(get_replication_speed(tier_rate))
 			if(!src)
 				return
 			if(get_turf(what_we_destroying) != get_turf(src))
 				say("ОШИБКА!!!")
 				working = FALSE
-				use_power(idle_power_usage)
 				update_icon()
 				return
 			if(what_we_destroying in blacklisted_items)
@@ -290,7 +332,6 @@
 			say("Завершение работы...")
 			qdel(what_we_destroying)
 			working = FALSE
-			use_power(idle_power_usage)
 			update_icon()
 		return TRUE
 	else
