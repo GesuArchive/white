@@ -15,7 +15,10 @@
 "af" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/poddoor/shutters/preopen,
+/obj/machinery/door/poddoor/shutters/radiation/preopen{
+	id = "engsm";
+	name = "Radiation Chamber Shutters"
+	},
 /turf/open/floor/plating,
 /area/engine/engineering)
 "ag" = (
@@ -36,11 +39,9 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "aj" = (
-/obj/structure/closet/emcloset/anchored,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/open/floor/engine,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel,
 /area/engine/engineering)
 "ak" = (
 /obj/structure/rack,
@@ -79,7 +80,10 @@
 /area/engine/engineering)
 "an" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/poddoor/shutters/preopen,
+/obj/machinery/door/poddoor/shutters/radiation/preopen{
+	id = "engsm";
+	name = "Radiation Chamber Shutters"
+	},
 /turf/open/floor/plating,
 /area/engine/supermatter)
 "ao" = (
@@ -112,21 +116,24 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "at" = (
-/obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "au" = (
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/poddoor/shutters/preopen,
+/obj/machinery/door/poddoor/shutters/radiation/preopen{
+	id = "engsm";
+	name = "Radiation Chamber Shutters"
+	},
 /turf/open/floor/plating,
 /area/engine/engineering)
 "av" = (
+/obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/simple/orange/hidden{
-	dir = 5
+	dir = 8
 	},
-/turf/closed/wall,
+/turf/open/floor/plasteel,
 /area/engine/engineering)
 "ax" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
@@ -138,20 +145,20 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "ay" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/machinery/door/airlock/external{
-	name = "Engineering External Access";
-	req_access_txt = "10;13"
-	},
-/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
-/turf/open/floor/engine,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/orange/hidden{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
 /area/engine/engineering)
 "az" = (
 /obj/machinery/atmospherics/pipe/simple/orange/hidden{
 	dir = 8
 	},
-/turf/closed/wall,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel,
 /area/engine/engineering)
 "aA" = (
 /obj/effect/turf_decal/stripes/line{
@@ -175,11 +182,12 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "aC" = (
-/obj/structure/sign/warning/vacuum/external{
-	pixel_x = -32
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/door/airlock/external{
+	name = "Engineering External Access";
+	req_access_txt = "10;13"
 	},
 /obj/structure/cable,
-/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/engine,
 /area/engine/engineering)
@@ -230,14 +238,11 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "aH" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/obj/machinery/door/airlock/external{
-	name = "Engineering External Access";
-	req_access_txt = "10;13"
+/obj/structure/sign/warning/vacuum/external{
+	pixel_x = -32
 	},
 /obj/structure/cable,
+/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/engine,
 /area/engine/engineering)
@@ -434,7 +439,11 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "bq" = (
-/obj/effect/turf_decal/stripes/corner,
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/orange/hidden{
+	dir = 5
+	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "br" = (
@@ -666,11 +675,8 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "cf" = (
-/obj/machinery/camera/emp_proof{
-	c_tag = "Engineering Singularity Northeast";
-	network = list("ss13","engine")
-	},
-/turf/open/floor/engine,
+/obj/structure/sign/warning/radiation/rad_area,
+/turf/closed/wall,
 /area/engine/engineering)
 "cg" = (
 /obj/effect/turf_decal/stripes/line{
@@ -692,11 +698,6 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "ck" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Telecoms Satellite Monitoring";
-	req_one_access_txt = "10;61"
-	},
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
 	},
@@ -753,15 +754,25 @@
 	},
 /turf/open/floor/plating,
 /area/engine/engineering)
+"nR" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	name = "Engineering External Access";
+	req_access_txt = "10;13"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/turf/open/floor/engine,
+/area/engine/engineering)
 "pc" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/engine,
 /area/engine/engineering)
 "py" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
+/obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "qU" = (
@@ -784,6 +795,13 @@
 	},
 /turf/open/floor/engine,
 /area/engine/engineering)
+"sF" = (
+/obj/structure/closet/emcloset/anchored,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/engine/engineering)
 "wg" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -791,6 +809,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
+	},
+/turf/open/floor/engine,
+/area/engine/engineering)
+"wA" = (
+/obj/machinery/camera/emp_proof{
+	c_tag = "Engineering Singularity Northeast";
+	network = list("ss13","engine")
 	},
 /turf/open/floor/engine,
 /area/engine/engineering)
@@ -1298,7 +1323,7 @@ ab
 ab
 ab
 aV
-bp
+aj
 ax
 aB
 aE
@@ -1746,7 +1771,7 @@ ab
 ae
 bP
 co
-bq
+cb
 py
 be
 ad
@@ -1774,12 +1799,12 @@ ab
 cb
 cb
 co
-bL
-du
-ad
-ad
+at
+bq
 cf
-as
+ad
+ad
+wA
 as
 as
 lt
@@ -1806,7 +1831,7 @@ cc
 ay
 aC
 aH
-ca
+nR
 ca
 cd
 ca
@@ -1830,11 +1855,11 @@ ab
 ab
 cb
 PY
-at
+cb
 av
-aj
+bb
+sF
 ad
-bU
 bU
 bU
 bU
@@ -1856,9 +1881,9 @@ ab
 "}
 (32,1,1) = {"
 ab
-bb
+cb
 ck
-bb
+cb
 az
 bb
 ad
