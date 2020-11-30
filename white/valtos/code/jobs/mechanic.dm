@@ -53,13 +53,13 @@
 	var/current_design = null
 	var/working = FALSE
 	var/atom/movable/active_item = null
-	var/list/crystals = list()
+	var/crystals = 0
 	var/max_crystals = 4
 
 /obj/machinery/copytech/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='info'>Примерное время создания объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>\n"
-	. += "<span class='info'>Внутри запасено [crystals.len]/[max_crystals] блюспейс-кристаллов.</span>"
+	. += "<span class='info'>Внутри запасено [crystals]/[max_crystals] блюспейс-кристаллов.</span>"
 
 /obj/machinery/copytech/Initialize()
 	. = ..()
@@ -74,14 +74,12 @@
 
 /obj/machinery/copytech/attacked_by(obj/item/I, mob/living/user)
 	if(istype(I, /obj/item/stack/ore/bluespace_crystal))
-		if(crystals.len >= max_crystals)
+		if(crystals >= max_crystals)
 			to_chat(user, "<span class='warning'>Перебор!</span>")
 			return
-		if(!user.dropItemToGround())
-			return
-		crystals += I
-		I.loc = null
+		crystals++
 		user.visible_message("[user] вставляет [I.name] в [src.name].", "<span class='notice'>Вставляю [I.name] в [src.name].</span>")
+		qdel(I)
 	else
 		return ..()
 
@@ -97,7 +95,7 @@
 	if(!current_design)
 		say("Не обнаружено дизайна. Разберите что-то сперва на дезинтегрирующей платформе!")
 		return
-	if(!crystals.len)
+	if(!crystals)
 		say("Недостаточно блюспейс-кристаллов для начала работы!")
 		return
 	if(create_thing())
@@ -120,7 +118,7 @@
 		var/mutable_appearance/scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
 		O.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
 		active_item = O
-		qdel(pick(crystals))
+		crystals--
 		spawn(get_replication_speed(tier_rate))
 			O?.set_anchored(FALSE)
 			O?.layer = initial(O?.layer)
@@ -143,7 +141,7 @@
 		var/mutable_appearance/scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
 		M.transformation_animation(result, time = get_replication_speed(tier_rate), transform_overlay = scanline, reset_after=TRUE)
 		active_item = M
-		qdel(pick(crystals))
+		crystals--
 		spawn(get_replication_speed(tier_rate))
 			M?.SetParalyzed(FALSE)
 			M?.layer = initial(M?.layer)
@@ -186,6 +184,7 @@
 	var/obj/machinery/copytech/ct = null
 	var/working = FALSE
 	var/atom/movable/active_item = null
+	var/list/blacklisted_items = list(/obj/item/stack/telecrystal)
 
 /obj/machinery/copytech_platform/RefreshParts()
 	var/T = 0
@@ -284,7 +283,10 @@
 				use_power(idle_power_usage)
 				update_icon()
 				return
-			ct?.current_design = what_we_destroying.type
+			if(what_we_destroying in blacklisted_items)
+				ct?.current_design = /obj/item/food/poo
+			else
+				ct?.current_design = what_we_destroying.type
 			say("Завершение работы...")
 			qdel(what_we_destroying)
 			working = FALSE
