@@ -3,33 +3,23 @@
 	id = "ipc"
 	say_mod = "beep boops" //inherited from a user's real species
 	sexes = 0
-	species_traits = list(NOTRANSSTING,NOBLOOD,TRAIT_EASYDISMEMBER,NOFLASH) //all of these + whatever we inherit from the real species
+	species_traits = list(NOTRANSSTING,NOBLOOD,TRAIT_EASYDISMEMBER,TRAIT_NOFLASH) //all of these + whatever we inherit from the real species
 	inherent_traits = list(TRAIT_VIRUSIMMUNE,TRAIT_NOLIMBDISABLE,TRAIT_NOHUNGER,TRAIT_NOBREATH,TRAIT_RADIMMUNE,TRAIT_LIMBATTACHMENT)
 	inherent_biotypes = list(MOB_ROBOTIC, MOB_HUMANOID)
 	meat = null
 	exotic_blood = "oil"
 	damage_overlay_type = "synth"
 	limbs_id = "synth"
-	mutant_bodyparts = list("ipc_screen", "ipc_antenna")
-	default_features = list("ipc_screen" = "BSOD", "ipc_antenna" = "None")
+	mutant_bodyparts = list("ipc_screen" = "BSOD", "ipc_antenna" = "None")
 	burnmod = 1.75
 	heatmod = 1.6
 	brutemod = 1.2
 	var/list/initial_species_traits //for getting these values back for assume_disguise()
 	var/list/initial_inherent_traits
 	changesource_flags = MIRROR_BADMIN | WABBAJACK
+	speech_span = SPAN_ROBOT
 
 	var/datum/action/innate/monitor_change/screen
-
-/datum/species/ipc/spec_emp_act(mob/living/carbon/human/H, severity)
-	. = ..()
-	switch(severity)
-		if(1)
-			H.Stun(160)
-			H.adjustBruteLoss(50)
-		if(2)
-			H.Stun(60)
-			H.adjustBruteLoss(35)
 
 /datum/species/ipc/check_roundstart_eligible()
 	return TRUE
@@ -89,8 +79,8 @@
 	punchstunthreshold = 14 //about 50% chance to stun
 
 /datum/species/ipc/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
-	if(chem.type == /datum/reagent/medicine/synthflesh)
-		chem.reaction_mob(H, TOUCH, 2 ,0) //heal a little
+	if(chem.type == /datum/reagent/medicine/c2/synthflesh)
+		chem.expose_mob(H, TOUCH, 2 ,0) //heal a little
 		H.reagents.remove_reagent(chem.type, REAGENTS_METABOLISM)
 		return 1
 	else
@@ -106,9 +96,6 @@
 	if(screen)
 		screen.Remove(C)
 	..()
-
-/datum/species/ipc/get_spans()
-	return SPAN_ROBOT
 
 /datum/action/innate/monitor_change
 	name = "Screen Change"
