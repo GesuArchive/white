@@ -682,7 +682,7 @@
 	set name = "📘 Добавить заметку"
 	set category = "IC"
 
-	var/msg = input("", "Добавить заметку") as null|message
+	msg = input("", "Добавить заметку") as null|message
 	if(msg)
 		add_memory(msg)
 
