@@ -5,13 +5,13 @@
 #define DONUT_SPRINKLE_CHANCE 30
 
 /obj/item/food/donut
-	name = "donut"
+	name = "пончик"
 	desc = "Goes great with robust coffee."
 	icon = 'icons/obj/food/donuts.dmi'
 	icon_state = "donut"
 	bite_consumption = 5
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3)
-	tastes = list("donut" = 1)
+	tastes = list("пончик" = 1)
 	foodtypes = JUNKFOOD | GRAIN | FRIED | SUGAR | BREAKFAST
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
@@ -67,7 +67,7 @@
 	desc = "Like life, it never quite tastes the same."
 	icon_state = "donut_chaos"
 	bite_consumption = 10
-	tastes = list("donut" = 3, "chaos" = 1)
+	tastes = list("пончик" = 3, "хаос" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/chaos/Initialize()
@@ -80,7 +80,7 @@
 	desc = "Tastes as gross as it looks."
 	icon_state = "donut_meat"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/ketchup = 3)
-	tastes = list("meat" = 1)
+	tastes = list("мясо" = 1)
 	foodtypes = JUNKFOOD | MEAT | GROSS | FRIED | BREAKFAST
 	is_decorated = TRUE
 
@@ -96,7 +96,7 @@
 	desc = "Goes great with a cold beaker of malk."
 	icon_state = "donut_purple"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/medicine/polypyr = 3, /datum/reagent/consumable/sprinkles = 1)
-	tastes = list("donut" = 3, "violets" = 1)
+	tastes = list("пончик" = 3, "фиалки" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/apple
@@ -104,7 +104,7 @@
 	desc = "Goes great with a shot of cinnamon schnapps."
 	icon_state = "donut_green"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/applejuice = 3, /datum/reagent/consumable/sprinkles = 1)
-	tastes = list("donut" = 3, "green apples" = 1)
+	tastes = list("пончик" = 3, "зелёные яблоки" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/caramel
@@ -112,7 +112,7 @@
 	desc = "Goes great with a mug of hot coco."
 	icon_state = "donut_beige"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/caramel = 3, /datum/reagent/consumable/sprinkles = 1)
-	tastes = list("donut" = 3, "buttery sweetness" = 1)
+	tastes = list("пончик" = 3, "маслянистая сладость" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/choco
@@ -120,7 +120,7 @@
 	desc = "Goes great with a glass of warm milk."
 	icon_state = "donut_choc"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/hot_coco = 3, /datum/reagent/consumable/sprinkles = 1) //the coco reagent is just bitter.
-	tastes = list("donut" = 4, "bitterness" = 1)
+	tastes = list("пончик" = 4, "горечь" = 1)
 	decorated_icon = "donut_choc_sprinkles"
 
 /obj/item/food/donut/blumpkin
@@ -128,7 +128,7 @@
 	desc = "Goes great with a mug of soothing drunken blumpkin."
 	icon_state = "donut_blue"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/blumpkinjuice = 3, /datum/reagent/consumable/sprinkles = 1)
-	tastes = list("donut" = 2, "blumpkin" = 1)
+	tastes = list("пончик" = 2, "blumpkin" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/bungo
@@ -136,7 +136,7 @@
 	desc = "Goes great with a mason jar of hippie's delight."
 	icon_state = "donut_yellow"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/bungojuice = 3, /datum/reagent/consumable/sprinkles = 1)
-	tastes = list("donut" = 3, "tropical sweetness" = 1)
+	tastes = list("пончик" = 3, "тропическая сладость" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/matcha
@@ -144,7 +144,7 @@
 	desc = "Goes great with a cup of tea."
 	icon_state = "donut_olive"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/toxin/teapowder = 3, /datum/reagent/consumable/sprinkles = 1)
-	tastes = list("donut" = 3, "matcha" = 1)
+	tastes = list("пончик" = 3, "matcha" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/laugh
@@ -152,7 +152,7 @@
 	desc = "Goes great with a bottle of Bastion Burbon!"
 	icon_state = "donut_laugh"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/laughter = 3)
-	tastes = list("donut" = 3, "fizzy tutti frutti" = 1,)
+	tastes = list("пончик" = 3, "fizzy tutti frutti" = 1,)
 	is_decorated = TRUE
 
 //////////////////////JELLY DONUTS/////////////////////////
@@ -164,7 +164,7 @@
 	decorated_icon = "jelly_homer"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/sugar = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
 	extra_reagent = /datum/reagent/consumable/berryjuice
-	tastes = list("jelly" = 1, "donut" = 3)
+	tastes = list("желе" = 1, "пончик" = 3)
 	foodtypes = JUNKFOOD | GRAIN | FRIED | FRUIT | SUGAR | BREAKFAST
 
 // Jelly donuts don't have holes, but look the same on the outside
@@ -190,7 +190,7 @@
 	desc = "Goes great with a cold beaker of malk."
 	icon_state = "jelly_purple"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/medicine/polypyr = 3, /datum/reagent/consumable/sprinkles = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("jelly" = 1, "donut" = 3, "violets" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "фиалки" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/apple
@@ -198,7 +198,7 @@
 	desc = "Goes great with a shot of cinnamon schnapps."
 	icon_state = "jelly_green"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/applejuice = 3, /datum/reagent/consumable/sprinkles = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("jelly" = 1, "donut" = 3, "green apples" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "зелёные яблоки" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/caramel
@@ -206,7 +206,7 @@
 	desc = "Goes great with a mug of hot coco."
 	icon_state = "jelly_beige"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/caramel = 3, /datum/reagent/consumable/sprinkles = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("jelly" = 1, "donut" = 3, "buttery sweetness" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "маслянистая сладость" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/choco
@@ -214,7 +214,7 @@
 	desc = "Goes great with a glass of warm milk."
 	icon_state = "jelly_choc"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/hot_coco = 3, /datum/reagent/consumable/sprinkles = 1, /datum/reagent/consumable/nutriment/vitamin = 1) //the coco reagent is just bitter.
-	tastes = list("jelly" = 1, "donut" = 4, "bitterness" = 1)
+	tastes = list("желе" = 1, "пончик" = 4, "горечь" = 1)
 	decorated_icon = "jelly_choc_sprinkles"
 
 /obj/item/food/donut/jelly/blumpkin
@@ -222,7 +222,7 @@
 	desc = "Goes great with a mug of soothing drunken blumpkin."
 	icon_state = "jelly_blue"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/blumpkinjuice = 3, /datum/reagent/consumable/sprinkles = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("jelly" = 1, "donut" = 2, "blumpkin" = 1)
+	tastes = list("желе" = 1, "пончик" = 2, "blumpkin" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/bungo
@@ -230,7 +230,7 @@
 	desc = "Goes great with a mason jar of hippie's delight."
 	icon_state = "jelly_yellow"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/bungojuice = 3, /datum/reagent/consumable/sprinkles = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("jelly" = 1, "donut" = 3, "tropical sweetness" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "тропическая сладость" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/matcha
@@ -238,7 +238,7 @@
 	desc = "Goes great with a cup of tea."
 	icon_state = "jelly_olive"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/toxin/teapowder = 3, /datum/reagent/consumable/sprinkles = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("jelly" = 1, "donut" = 3, "matcha" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "matcha" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/laugh
@@ -246,7 +246,7 @@
 	desc = "Goes great with a bottle of Bastion Burbon!"
 	icon_state = "jelly_laugh"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/laughter = 3)
-	tastes = list("jelly" = 3, "donut" = 1, "fizzy tutti frutti" = 1)
+	tastes = list("желе" = 3, "пончик" = 1, "fizzy tutti frutti" = 1)
 	is_decorated = TRUE
 
 //////////////////////////SLIME DONUTS/////////////////////////
@@ -271,7 +271,7 @@
 	desc = "Goes great with a cold beaker of malk."
 	icon_state = "jelly_purple"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/medicine/polypyr = 3, /datum/reagent/consumable/sprinkles = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("jelly" = 1, "donut" = 3, "violets" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "фиалки" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/slimejelly/apple
@@ -279,7 +279,7 @@
 	desc = "Goes great with a shot of cinnamon schnapps."
 	icon_state = "jelly_green"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/applejuice = 3, /datum/reagent/consumable/sprinkles = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("jelly" = 1, "donut" = 3, "green apples" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "зелёные яблоки" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/slimejelly/caramel
@@ -287,7 +287,7 @@
 	desc = "Goes great with a mug of hot coco."
 	icon_state = "jelly_beige"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/caramel = 3, /datum/reagent/consumable/sprinkles = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("jelly" = 1, "donut" = 3, "buttery sweetness" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "маслянистая сладость" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/slimejelly/choco
@@ -295,7 +295,7 @@
 	desc = "Goes great with a glass of warm milk."
 	icon_state = "jelly_choc"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/hot_coco = 3, /datum/reagent/consumable/sprinkles = 1, /datum/reagent/consumable/nutriment/vitamin = 1) //the coco reagent is just bitter.
-	tastes = list("jelly" = 1, "donut" = 4, "bitterness" = 1)
+	tastes = list("желе" = 1, "пончик" = 4, "горечь" = 1)
 	decorated_icon = "jelly_choc_sprinkles"
 
 /obj/item/food/donut/jelly/slimejelly/blumpkin
@@ -303,7 +303,7 @@
 	desc = "Goes great with a mug of soothing drunken blumpkin."
 	icon_state = "jelly_blue"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/blumpkinjuice = 3, /datum/reagent/consumable/sprinkles = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("jelly" = 1, "donut" = 2, "blumpkin" = 1)
+	tastes = list("желе" = 1, "пончик" = 2, "blumpkin" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/slimejelly/bungo
@@ -311,7 +311,7 @@
 	desc = "Goes great with a mason jar of hippie's delight."
 	icon_state = "jelly_yellow"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/bungojuice = 3, /datum/reagent/consumable/sprinkles = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("jelly" = 1, "donut" = 3, "tropical sweetness" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "тропическая сладость" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/slimejelly/matcha
@@ -319,7 +319,7 @@
 	desc = "Goes great with a cup of tea."
 	icon_state = "jelly_olive"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/toxin/teapowder = 3, /datum/reagent/consumable/sprinkles = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("jelly" = 1, "donut" = 3, "matcha" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "matcha" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/slimejelly/laugh
@@ -327,7 +327,7 @@
 	desc = "Goes great with a bottle of Bastion Burbon!"
 	icon_state = "jelly_laugh"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/laughter = 3)
-	tastes = list("jelly" = 3, "donut" = 1, "fizzy tutti frutti" = 1)
+	tastes = list("желе" = 3, "пончик" = 1, "fizzy tutti frutti" = 1)
 	is_decorated = TRUE
 
 ////////////////////////////////////////////MUFFINS////////////////////////////////////////////
@@ -337,7 +337,7 @@
 	desc = "A delicious and spongy little cake."
 	icon_state = "muffin"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("muffin" = 1)
+	tastes = list("оладья" = 1)
 	foodtypes = GRAIN | SUGAR | BREAKFAST
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -345,7 +345,7 @@
 	name = "berry muffin"
 	icon_state = "berrymuffin"
 	desc = "A delicious and spongy little cake, with berries."
-	tastes = list("muffin" = 3, "berry" = 1)
+	tastes = list("оладья" = 3, "ягода" = 1)
 	foodtypes = GRAIN | FRUIT | SUGAR | BREAKFAST
 
 /obj/item/food/muffin/booberry
@@ -353,7 +353,7 @@
 	icon_state = "berrymuffin"
 	alpha = 125
 	desc = "My stomach is a graveyard! No living being can quench my bloodthirst!"
-	tastes = list("muffin" = 3, "spookiness" = 1)
+	tastes = list("оладья" = 3, "страх" = 1)
 	foodtypes = GRAIN | FRUIT | SUGAR | BREAKFAST
 
 /obj/item/food/chawanmushi
@@ -361,7 +361,7 @@
 	desc = "A legendary egg custard that makes friends out of enemies. Probably too hot for a cat to eat."
 	icon_state = "chawanmushi"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("custard" = 1)
+	tastes = list("заварной крем" = 1)
 	foodtypes = GRAIN | MEAT | VEGETABLES
 
 ////////////////////////////////////////////WAFFLES////////////////////////////////////////////
@@ -372,7 +372,7 @@
 	icon_state = "waffles"
 	trash_type = /obj/item/trash/waffles
 	food_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("waffles" = 1)
+	tastes = list("вафли" = 1)
 	foodtypes = GRAIN | SUGAR | BREAKFAST
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -382,7 +382,7 @@
 	icon_state = "soylent_green"
 	trash_type = /obj/item/trash/waffles
 	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/nutriment/protein = 4)
-	tastes = list("waffles" = 7, "people" = 1)
+	tastes = list("вафли" = 7, "люди" = 1)
 	foodtypes = GRAIN | MEAT
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -392,7 +392,7 @@
 	icon_state = "soylent_yellow"
 	trash_type = /obj/item/trash/waffles
 	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/nutriment/protein = 2)
-	tastes = list("waffles" = 7, "the colour green" = 1)
+	tastes = list("вафли" = 7, "зелёный цвет" = 1)
 	foodtypes = GRAIN
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -403,7 +403,7 @@
 	trash_type = /obj/item/trash/waffles
 	bite_consumption = 4
 	food_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/drug/mushroomhallucinogen = 2, /datum/reagent/consumable/nutriment/vitamin = 4)
-	tastes = list("waffle" = 1, "mushrooms" = 1)
+	tastes = list("вафля" = 1, "грибы" = 1)
 	foodtypes = GRAIN | VEGETABLES | SUGAR | BREAKFAST
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -415,7 +415,7 @@
 	icon_state = "donkpocket"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2)
 	microwaved_type = /obj/item/food/donkpocket/warm
-	tastes = list("meat" = 2, "dough" = 2, "laziness" = 1)
+	tastes = list("мясо" = 2, "тесто" = 2, "лень" = 1)
 	foodtypes = GRAIN
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -424,7 +424,7 @@
 	desc = "The heated food of choice for the seasoned traitor."
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/medicine/omnizine = 6)
 	microwaved_type = null
-	tastes = list("meat" = 2, "dough" = 2, "laziness" = 1)
+	tastes = list("мясо" = 2, "тесто" = 2, "лень" = 1)
 	foodtypes = GRAIN
 
 /obj/item/food/dankpocket
@@ -432,7 +432,7 @@
 	desc = "The food of choice for the seasoned botanist."
 	icon_state = "dankpocket"
 	food_reagents = list(/datum/reagent/toxin/lipolicide = 3, /datum/reagent/drug/space_drugs = 3, /datum/reagent/consumable/nutriment = 4)
-	tastes = list("meat" = 2, "dough" = 2)
+	tastes = list("мясо" = 2, "тесто" = 2)
 	foodtypes = GRAIN | VEGETABLES
 
 /obj/item/food/donkpocket/spicy
@@ -441,7 +441,7 @@
 	icon_state = "donkpocketspicy"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/capsaicin = 2)
 	microwaved_type = /obj/item/food/donkpocket/warm/spicy
-	tastes = list("meat" = 2, "dough" = 2, "spice" = 1)
+	tastes = list("мясо" = 2, "тесто" = 2, "пряность" = 1)
 	foodtypes = GRAIN
 
 /obj/item/food/donkpocket/warm/spicy
@@ -449,7 +449,7 @@
 	desc = "The classic snack food, now maybe a bit too spicy."
 	icon_state = "donkpocketspicy"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/medicine/omnizine = 2, /datum/reagent/consumable/capsaicin = 5)
-	tastes = list("meat" = 2, "dough" = 2, "weird spices" = 2)
+	tastes = list("мясо" = 2, "тесто" = 2, "странные специи" = 2)
 	foodtypes = GRAIN
 
 /obj/item/food/donkpocket/teriyaki
@@ -458,7 +458,7 @@
 	icon_state = "donkpocketteriyaki"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/soysauce = 2)
 	microwaved_type = /obj/item/food/donkpocket/warm/teriyaki
-	tastes = list("meat" = 2, "dough" = 2, "soy sauce" = 2)
+	tastes = list("мясо" = 2, "тесто" = 2, "соевый соус" = 2)
 	foodtypes = GRAIN
 
 /obj/item/food/donkpocket/warm/teriyaki
@@ -466,7 +466,7 @@
 	desc = "An east-asian take on the classic stationside snack, now steamy and warm."
 	icon_state = "donkpocketteriyaki"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/medicine/omnizine = 2, /datum/reagent/consumable/soysauce = 2)
-	tastes = list("meat" = 2, "dough" = 2, "soy sauce" = 2)
+	tastes = list("мясо" = 2, "тесто" = 2, "соевый соус" = 2)
 	foodtypes = GRAIN
 
 /obj/item/food/donkpocket/pizza
@@ -475,7 +475,7 @@
 	icon_state = "donkpocketpizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/tomatojuice = 2)
 	microwaved_type = /obj/item/food/donkpocket/warm/pizza
-	tastes = list("meat" = 2, "dough" = 2, "cheese"= 2)
+	tastes = list("мясо" = 2, "тесто" = 2, "сыр"= 2)
 	foodtypes = GRAIN
 
 /obj/item/food/donkpocket/warm/pizza
@@ -483,7 +483,7 @@
 	desc = "Delicious, cheesy, and even better when hot."
 	icon_state = "donkpocketpizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/medicine/omnizine = 2, /datum/reagent/consumable/tomatojuice = 2)
-	tastes = list("meat" = 2, "dough" = 2, "melty cheese"= 2)
+	tastes = list("мясо" = 2, "тесто" = 2, "плавленый сыр"= 2)
 	foodtypes = GRAIN
 
 /obj/item/food/donkpocket/honk
@@ -492,7 +492,7 @@
 	icon_state = "donkpocketbanana"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/banana = 4)
 	microwaved_type = /obj/item/food/donkpocket/warm/honk
-	tastes = list("banana" = 2, "dough" = 2, "children's antibiotics" = 1)
+	tastes = list("банан" = 2, "тесто" = 2, "детские антибиотики" = 1)
 	foodtypes = GRAIN
 
 /obj/item/food/donkpocket/warm/honk
@@ -500,7 +500,7 @@
 	desc = "The award-winning donk-pocket, now warm and toasty."
 	icon_state = "donkpocketbanana"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/medicine/omnizine = 2, /datum/reagent/consumable/banana = 4, /datum/reagent/consumable/laughter = 6)
-	tastes = list("dough" = 2, "children's antibiotics" = 1)
+	tastes = list("тесто" = 2, "детские антибиотики" = 1)
 	foodtypes = GRAIN
 
 /obj/item/food/donkpocket/berry
@@ -509,7 +509,7 @@
 	icon_state = "donkpocketberry"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/berryjuice = 3)
 	microwaved_type = /obj/item/food/donkpocket/warm/berry
-	tastes = list("dough" = 2, "jam" = 2)
+	tastes = list("тесто" = 2, "джем" = 2)
 	foodtypes = GRAIN
 
 /obj/item/food/donkpocket/warm/berry
@@ -517,7 +517,7 @@
 	desc = "A relentlessly sweet donk-pocket, now warm and delicious."
 	icon_state = "donkpocketberry"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/medicine/omnizine = 2, /datum/reagent/consumable/berryjuice = 3)
-	tastes = list("dough" = 2, "warm jam" = 2)
+	tastes = list("тесто" = 2, "тёплый джем" = 2)
 	foodtypes = GRAIN
 
 /obj/item/food/donkpocket/gondola
@@ -526,7 +526,7 @@
 	icon_state = "donkpocketgondola"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/tranquility = 5)
 	microwaved_type = /obj/item/food/donkpocket/warm/gondola
-	tastes = list("meat" = 2, "dough" = 2, "inner peace" = 1)
+	tastes = list("мясо" = 2, "тесто" = 2, "внутренний мир" = 1)
 	foodtypes = GRAIN
 
 /obj/item/food/donkpocket/warm/gondola
@@ -534,7 +534,7 @@
 	desc = "The choice to use real gondola meat in the recipe is controversial, to say the least."
 	icon_state = "donkpocketgondola"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/medicine/omnizine = 2, /datum/reagent/tranquility = 10)
-	tastes = list("meat" = 2, "dough" = 2, "inner peace" = 1)
+	tastes = list("мясо" = 2, "тесто" = 2, "внутренний мир" = 1)
 	foodtypes = GRAIN
 
 ////////////////////////////////////////////OTHER////////////////////////////////////////////
@@ -545,7 +545,7 @@
 	icon_state = "COOKIE!!!"
 	bite_consumption = 1
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
-	tastes = list("cookie" = 1)
+	tastes = list("печенька" = 1)
 	foodtypes = GRAIN | SUGAR
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -561,7 +561,7 @@
 	desc = "A true prophecy in each cookie!"
 	icon_state = "fortune_cookie"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5)
-	tastes = list("cookie" = 1)
+	tastes = list("печенька" = 1)
 	foodtypes = GRAIN | SUGAR
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -570,7 +570,7 @@
 	desc = "It's all twisted up!"
 	icon_state = "poppypretzel"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("pretzel" = 1)
+	tastes = list("крендель" = 1)
 	foodtypes = GRAIN | SUGAR
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -579,7 +579,7 @@
 	desc = "This is a finely-prepared plump helmet biscuit. The ingredients are exceptionally minced plump helmet, and well-minced dwarven wheat flour."
 	icon_state = "phelmbiscuit"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 1)
-	tastes = list("mushroom" = 1, "biscuit" = 1)
+	tastes = list("грибы" = 1, "бисквит" = 1)
 	foodtypes = GRAIN | VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -599,7 +599,7 @@
 	icon_state = "cracker"
 	bite_consumption = 1
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
-	tastes = list("cracker" = 1)
+	tastes = list("крэкер" = 1)
 	foodtypes = GRAIN
 	w_class = WEIGHT_CLASS_TINY
 
@@ -609,7 +609,7 @@
 	icon_state = "hotdog"
 	bite_consumption = 3
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 1, /datum/reagent/consumable/ketchup = 3, /datum/reagent/consumable/nutriment/vitamin = 6)
-	tastes = list("bun" = 3, "meat" = 2)
+	tastes = list("булка" = 3, "мясо" = 2)
 	foodtypes = GRAIN | MEAT | VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -621,7 +621,7 @@
 	desc = "Has the potential to not be Dog."
 	icon_state = "meatbun"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 7, /datum/reagent/consumable/nutriment/vitamin = 4)
-	tastes = list("bun" = 3, "meat" = 2)
+	tastes = list("булка" = 3, "мясо" = 2)
 	foodtypes = GRAIN | MEAT | VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -630,7 +630,7 @@
 	desc = "Bread with egg and cheese?"
 	icon_state = "khachapuri"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 11, /datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("bread" = 1, "egg" = 1, "cheese" = 1)
+	tastes = list("хлеб" = 1, "яйцо" = 1, "сыр" = 1)
 	foodtypes = GRAIN | MEAT | DAIRY
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -640,7 +640,7 @@
 	desc = "Just like your little sister used to make."
 	icon_state = "sugarcookie"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/sugar = 6)
-	tastes = list("sweetness" = 1)
+	tastes = list("сладость" = 1)
 	foodtypes = GRAIN | JUNKFOOD | SUGAR
 
 /obj/item/food/chococornet
@@ -648,7 +648,7 @@
 	desc = "Which side's the head, the fat end or the thin end?"
 	icon_state = "chococornet"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("biscuit" = 3, "chocolate" = 1)
+	tastes = list("бисквит" = 3, "шоколад" = 1)
 	foodtypes = GRAIN | JUNKFOOD
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -657,7 +657,7 @@
 	desc = "The best of both cookie and oat."
 	icon_state = "oatmealcookie"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("cookie" = 2, "oat" = 1)
+	tastes = list("печенька" = 2, "овсянка" = 1)
 	foodtypes = GRAIN
 
 /obj/item/food/cookie/raisin
@@ -665,7 +665,7 @@
 	desc = "Why would you put raisins on a cookie?"
 	icon_state = "raisincookie"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("cookie" = 1, "raisins" = 1)
+	tastes = list("печенька" = 1, "причины" = 1)
 	foodtypes = GRAIN | FRUIT
 
 /obj/item/food/cherrycupcake
@@ -673,7 +673,7 @@
 	desc = "A sweet cupcake with cherry bits."
 	icon_state = "cherrycupcake"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("cake" = 3, "cherry" = 1)
+	tastes = list("торт" = 3, "вишня" = 1)
 	foodtypes = GRAIN | FRUIT | SUGAR
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -682,14 +682,14 @@
 	desc = "Blue cherries inside a delicious cupcake."
 	icon_state = "bluecherrycupcake"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 4)
-	tastes = list("cake" = 3, "blue cherry" = 1)
+	tastes = list("торт" = 3, "синяя вишня" = 1)
 
 /obj/item/food/honeybun
 	name = "honey bun"
 	desc = "A sticky pastry bun glazed with honey."
 	icon_state = "honeybun"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/honey = 6)
-	tastes = list("pastry" = 1, "sweetness" = 1)
+	tastes = list("кондитерские изделия" = 1, "сладость" = 1)
 	foodtypes = GRAIN | SUGAR
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -701,7 +701,7 @@
 	icon_state = "pancakes_1"
 	inhand_icon_state = "pancakes"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("pancakes" = 1)
+	tastes = list("блинчики" = 1)
 	foodtypes = GRAIN | SUGAR | BREAKFAST
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -711,7 +711,7 @@
 	icon_state = "bbpancakes_1"
 	inhand_icon_state = "bbpancakes"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("pancakes" = 1, "blueberries" = 1)
+	tastes = list("блинчики" = 1, "черника" = 1)
 
 /obj/item/food/pancakes/chocolatechip
 	name = "chocolate chip pancake"
@@ -719,7 +719,7 @@
 	icon_state = "ccpancakes_1"
 	inhand_icon_state = "ccpancakes"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("pancakes" = 1, "chocolate" = 1)
+	tastes = list("блинчики" = 1, "шоколад" = 1)
 
 /obj/item/food/pancakes/Initialize()
 	. = ..()
@@ -800,7 +800,7 @@
 	desc = "A sicilian treat that makes you into a wise guy."
 	icon_state = "cannoli"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("pastry" = 1)
+	tastes = list("кондитерские изделия" = 1)
 	foodtypes = GRAIN | DAIRY | SUGAR
 	w_class = WEIGHT_CLASS_TINY
 
