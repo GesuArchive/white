@@ -344,7 +344,7 @@
 	},
 /area/awaymission/vietnam)
 "lU" = (
-/obj/item/reagent_containers/food/snacks/grown/rice,
+/obj/item/food/grown/rice,
 /turf/open/floor/grass/gensgrass/dirty,
 /area/awaymission/vietnam)
 "lW" = (
@@ -443,7 +443,7 @@
 /area/awaymission/vietnam)
 "rh" = (
 /obj/machinery/hydroponics/soil,
-/obj/item/reagent_containers/food/snacks/grown/rice,
+/obj/item/food/grown/rice,
 /turf/open/floor/grass/gensgrass/dirty,
 /area/awaymission/vietnam)
 "ri" = (
@@ -522,7 +522,7 @@
 /area/awaymission/vietnam)
 "uO" = (
 /obj/item/cultivator/rake,
-/obj/item/reagent_containers/food/snacks/grown/rice,
+/obj/item/food/grown/rice,
 /turf/open/floor/grass/gensgrass/dirty,
 /area/awaymission/vietnam)
 "uT" = (

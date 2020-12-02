@@ -925,7 +925,7 @@
 /turf/closed/wall/ice,
 /area/awaymission/chilly/facility)
 "cD" = (
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/randomsnackvend,
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/pod,
@@ -1334,16 +1334,16 @@
 /obj/item/food/bun,
 /obj/item/food/bun,
 /obj/item/food/bun,
-/obj/item/reagent_containers/food/snacks/grown/banana/bombanana,
-/obj/item/reagent_containers/food/snacks/grown/carrot,
-/obj/item/reagent_containers/food/snacks/grown/citrus/lemon,
-/obj/item/reagent_containers/food/snacks/grown/citrus/orange,
-/obj/item/reagent_containers/food/snacks/grown/potato,
-/obj/item/reagent_containers/food/snacks/grown/pumpkin,
-/obj/item/reagent_containers/food/snacks/grown/tomato,
-/obj/item/reagent_containers/food/snacks/grown/tomato,
-/obj/item/reagent_containers/food/snacks/grown/wheat,
-/obj/item/reagent_containers/food/snacks/grown/wheat,
+/obj/item/food/grown/banana/bombanana,
+/obj/item/food/grown/carrot,
+/obj/item/food/grown/citrus/lemon,
+/obj/item/food/grown/citrus/orange,
+/obj/item/food/grown/potato,
+/obj/item/food/grown/pumpkin,
+/obj/item/food/grown/tomato,
+/obj/item/food/grown/tomato,
+/obj/item/food/grown/wheat,
+/obj/item/food/grown/wheat,
 /obj/item/food/tortilla,
 /obj/item/food/shaurma,
 /turf/open/floor/plating,
@@ -4596,7 +4596,7 @@
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility5)
 "mG" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/pod,
@@ -7934,7 +7934,7 @@
 /obj/machinery/light/broken,
 /obj/machinery/oldvents/variant4,
 /obj/structure/spider/stickyweb,
-/obj/item/reagent_containers/food/snacks/grown/mushroom/libertycap,
+/obj/item/food/grown/mushroom/libertycap,
 /turf/open/floor/plating/rust,
 /area/awaymission/chilly/facility)
 "vB" = (
@@ -11634,10 +11634,10 @@
 /obj/structure/closet/crate,
 /obj/item/seeds/chili/ice,
 /obj/effect/turf_decal/dust,
-/obj/item/reagent_containers/food/snacks/grown/mushroom/libertycap,
-/obj/item/reagent_containers/food/snacks/grown/mushroom/libertycap,
-/obj/item/reagent_containers/food/snacks/grown/mushroom/plumphelmet,
-/obj/item/reagent_containers/food/snacks/grown/mushroom/chanterelle,
+/obj/item/food/grown/mushroom/libertycap,
+/obj/item/food/grown/mushroom/libertycap,
+/obj/item/food/grown/mushroom/plumphelmet,
+/obj/item/food/grown/mushroom/chanterelle,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility4)
 "FK" = (

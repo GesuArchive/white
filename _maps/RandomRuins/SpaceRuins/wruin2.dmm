@@ -3736,7 +3736,7 @@
 "hE" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/tea,
-/obj/item/reagent_containers/food/snacks/grown/tomato,
+/obj/item/food/grown/tomato,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -3788,7 +3788,7 @@
 "hK" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/poppy,
-/obj/item/reagent_containers/food/snacks/grown/cherries,
+/obj/item/food/grown/cherries,
 /obj/item/shovel/spade,
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/tile/neutral,
@@ -4031,7 +4031,7 @@
 "ir" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/harebell,
-/obj/item/reagent_containers/food/snacks/grown/watermelon,
+/obj/item/food/grown/watermelon,
 /obj/item/cultivator,
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/tile/neutral{
@@ -4059,7 +4059,7 @@
 /area/ruin/space/has_grav/austation)
 "it" = (
 /obj/machinery/hydroponics/soil,
-/obj/item/reagent_containers/food/snacks/grown/wheat,
+/obj/item/food/grown/wheat,
 /obj/item/reagent_containers/glass/bottle/nutrient/ez,
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/tile/neutral{
@@ -4076,7 +4076,7 @@
 /area/ruin/space/has_grav/austation)
 "iv" = (
 /obj/machinery/hydroponics/soil,
-/obj/item/reagent_containers/food/snacks/grown/tea,
+/obj/item/food/grown/tea,
 /obj/item/hatchet,
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/tile/neutral{

@@ -74,7 +74,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/crew_quarters/kitchen)
 "cx" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /turf/open/floor/mineral/plastitanium,
 /area/crew_quarters/bar)
 "cy" = (

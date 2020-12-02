@@ -703,7 +703,7 @@
 /turf/closed/wall,
 /area/shuttle/bearcat/saloon)
 "bQ" = (
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/randomsnackvend,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/saloon)
 "bR" = (

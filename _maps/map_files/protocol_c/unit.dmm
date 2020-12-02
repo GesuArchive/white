@@ -2290,7 +2290,7 @@
 	dir = 4;
 	pixel_x = -23
 	},
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/randomsnackvend,
 /turf/open/floor/plasteel,
 /area/security/main)
 "fJ" = (
@@ -2568,7 +2568,7 @@
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
 "gO" = (
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/randomsnackvend,
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "gP" = (
@@ -3112,7 +3112,7 @@
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
 "iA" = (
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/randomsnackvend,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "iB" = (
@@ -3759,7 +3759,7 @@
 /turf/open/floor/plasteel,
 /area/science/mixing)
 "kQ" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "kS" = (
@@ -8072,7 +8072,7 @@
 /turf/open/floor/plating,
 /area/maintenance/department/cargo)
 "zN" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /obj/machinery/light/small,
 /turf/open/floor/plasteel,
 /area/crew_quarters/locker)
@@ -9615,7 +9615,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "Fn" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "Fo" = (
@@ -12558,7 +12558,7 @@
 /turf/open/floor/plasteel/white,
 /area/science/research)
 "OM" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/port)
 "OO" = (
@@ -14755,7 +14755,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "WH" = (
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/randomsnackvend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/port)
 "WI" = (
@@ -15370,7 +15370,7 @@
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
 "YR" = (
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/randomsnackvend,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
@@ -15619,7 +15619,7 @@
 /turf/open/floor/plating,
 /area/maintenance/department/science)
 "ZZ" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 

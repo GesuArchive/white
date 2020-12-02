@@ -613,7 +613,7 @@
 /turf/open/space/basic,
 /area/space)
 "hA" = (
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/randomsnackvend,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "hD" = (
@@ -980,7 +980,7 @@
 /turf/open/floor/plating,
 /area/construction/storage_wing)
 "lV" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "lW" = (
@@ -2687,7 +2687,7 @@
 /turf/open/floor/plasteel,
 /area/mine/lobby)
 "Gk" = (
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/randomsnackvend,
 /turf/open/floor/plasteel,
 /area/mine/lobby)
 "Gm" = (
