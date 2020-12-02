@@ -17,7 +17,6 @@
 	var/list/initial_species_traits //for getting these values back for assume_disguise()
 	var/list/initial_inherent_traits
 	changesource_flags = MIRROR_BADMIN | WABBAJACK
-	speech_span = SPAN_ROBOT
 
 	var/datum/action/innate/monitor_change/screen
 
