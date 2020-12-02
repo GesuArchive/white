@@ -2,11 +2,6 @@
 
 GLOBAL_VAR(restart_counter)
 
-/world/proc/enable_debugger()
-    var/dll = (fexists(EXTOOLS) && EXTOOLS)
-    if (dll)
-        call(dll, "debug_initialize")()
-
 /**
  * World creation
  *

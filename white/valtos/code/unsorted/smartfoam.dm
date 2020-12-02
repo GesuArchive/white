@@ -29,7 +29,7 @@
 	if(!uses || cooldown_time > world.time)
 		return
 	var/obj/item/grenade/smf = new /obj/item/grenade/clusterbuster/metalfoam/smart(loc)
-	smf.prime()
+	smf.arm_grenade()
 	uses--
 	cooldown = world.time + cooldown_time
 	power_change()

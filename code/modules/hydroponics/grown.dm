@@ -158,7 +158,7 @@
 /obj/item/food/grown/proc/generate_trash(atom/location)
 	return new trash_type(location, seed)
 
-/obj/item/reagent_containers/food/snacks/grown/grind_requirements()
+/obj/item/food/grown/grind_requirements()
 	if(dry_grind && !HAS_TRAIT(src, TRAIT_DRIED))
 		to_chat(usr, "<span class='warning'>[capitalize(src.name)] needs to be dry before it can be ground up!</span>")
 		return

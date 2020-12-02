@@ -71,6 +71,6 @@
 /obj/item/grenade/chem_grenade/npgrenade/attackby(obj/item/I, mob/user, params)
 	if(stage == 3 && istype(I, /obj/item/wirecutters) && !active)
 		if(prob(90))
-			prime()
+			arm_grenade()
 			return
 	..()

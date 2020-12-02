@@ -686,20 +686,6 @@
 	if(msg)
 		add_memory(msg)
 
-/mob/verb/add_memory(msg as message)
-	set name = "📘 Добавить заметку"
-	set hidden = 1
-	if(mind)
-		if (world.time < memory_throttle_time)
-			return
-		memory_throttle_time = world.time + 5 SECONDS
-		msg = copytext_char(msg, 1, MAX_MESSAGE_LEN)
-		msg = sanitize(msg)
-
-		mind.store_memory(msg)
-	else
-		to_chat(src, "You don't have a mind datum for some reason, so you can't add a note to it.")
-
 /**
  * Allows you to respawn, abandoning your current mob
  *

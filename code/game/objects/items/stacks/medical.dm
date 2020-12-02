@@ -44,12 +44,12 @@
 	if(patient == user)
 		if(!silent)
 			user.visible_message("<span class='notice'><b>[user]</b> начинает применять <b>[skloname]</b> на себе...</span>", "<span class='notice'>Начинаю применять <b>[skloname]</b> на себе...</span>")
-		if(!do_mob(user, M, self_delay, extra_checks=CALLBACK(M, /mob/living/proc/can_inject, user, TRUE)))
+		if(!do_mob(user, patient, self_delay, extra_checks=CALLBACK(patient, /mob/living/proc/can_inject, user, TRUE)))
 			return
 	else if(other_delay)
 		if(!silent)
-			user.visible_message("<span class='notice'><b>[user]</b> начинает применять <b>[skloname]</b> на <b>[M]</b>.</span>", "<span class='notice'>Начинаю применять <b>[skloname]</b> на <b>[M]</b>...</span>")
-		if(!do_mob(user, M, other_delay, extra_checks=CALLBACK(M, /mob/living/proc/can_inject, user, TRUE)))
+			user.visible_message("<span class='notice'><b>[user]</b> начинает применять <b>[skloname]</b> на <b>[patient]</b>.</span>", "<span class='notice'>Начинаю применять <b>[skloname]</b> на <b>[patient]</b>...</span>")
+		if(!do_mob(user, patient, other_delay, extra_checks=CALLBACK(patient, /mob/living/proc/can_inject, user, TRUE)))
 			return
 
 	if(heal(patient, user))

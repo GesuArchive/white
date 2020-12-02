@@ -48,8 +48,8 @@
 
 /obj/item/organ/heart/attackby(obj/item/F, mob/user)
 	.=..()
-	if(istype(F, /obj/item/reagent_containers/food/snacks/grown) && isstrictlytype(src, /obj/item/organ/heart))
-		var/obj/item/reagent_containers/food/snacks/grown/FT = F
+	if(istype(F, /obj/item/food/grown) && isstrictlytype(src, /obj/item/organ/heart))
+		var/obj/item/food/grown/FT = F
 		var/pow = 0
 		var/obj/item/seeds/berry/S = FT.seed
 		if(S.get_gene(/datum/plant_gene/trait/glow))
