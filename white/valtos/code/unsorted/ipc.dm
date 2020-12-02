@@ -1,7 +1,7 @@
 /datum/species/ipc // im fucking lazy mk2 and cant get sprites to normally work
 	name = "IPC" //inherited from the real species, for health scanners and things
 	id = "ipc"
-	say_mod = "beep boops" //inherited from a user's real species
+	say_mod = "бип-бупает" //inherited from a user's real species
 	sexes = 0
 	species_traits = list(NOTRANSSTING,NOBLOOD,TRAIT_EASYDISMEMBER,TRAIT_NOFLASH) //all of these + whatever we inherit from the real species
 	inherent_traits = list(TRAIT_VIRUSIMMUNE,TRAIT_NOLIMBDISABLE,TRAIT_NOHUNGER,TRAIT_NOBREATH,TRAIT_RADIMMUNE,TRAIT_LIMBATTACHMENT)
@@ -31,7 +31,7 @@
         if (!I.tool_start_check(user, amount=0))
             return
         else
-            to_chat(user, "<span class='notice'>You start fixing [H == user ? "your" : "\the"] [affecting.name]...</span>")
+            to_chat(user, "<span class='notice'>Начинаю чинить[H == user ? " свою" : ""] [affecting.name]...</span>")
             if(I.use_tool(src, user, 0, volume=40))
                 if(H == user)
                     H.adjustBruteLoss(-3)
@@ -39,10 +39,10 @@
                     H.adjustBruteLoss(-10)
                 H.updatehealth()
                 H.add_fingerprint(user)
-                H.visible_message("<span class='notice'>[user] has [H == user ? "poorly " : ""]fixed some of the dents on \the [affecting.name].</span>")
+                H.visible_message("<span class='notice'>[user] чинит [H == user ? "неряшливо " : ""]некоторые повреждения на [affecting.name].</span>")
         return
     else if(istype(I, /obj/item/stack/cable_coil))
-        to_chat(user, "<span class='notice'>You start fixing [H == user ? "your" : "\the"] [affecting.name]...</span>")
+        to_chat(user, "<span class='notice'>Начинаю чинить[H == user ? " свою" : ""] [affecting.name]...</span>")
         if(do_after(user, 30, target = H))
             var/obj/item/stack/cable_coil/C = I
             C.use(1)
@@ -53,7 +53,7 @@
                 H.adjustFireLoss(-10)
                 H.adjustToxLoss(-10)
             H.updatehealth()
-            H.visible_message("<span class='notice'>[user] has [H == user ? "poorly " : ""]fixed some of the burnt cables on \the [affecting.name].</span>")
+            H.visible_message("<span class='notice'>[user] чинит [H == user ? "неряшливо " : ""]обгоревшие части на [affecting.name].</span>")
         return
     else
         return ..()
@@ -97,14 +97,14 @@
 	..()
 
 /datum/action/innate/monitor_change
-	name = "Screen Change"
+	name = "Сменить экран"
 	check_flags = AB_CHECK_CONSCIOUS
 	icon_icon = 'icons/mob/actions/actions_silicon.dmi'
 	button_icon_state = "drone_vision"
 
 /datum/action/innate/monitor_change/Activate()
 	var/mob/living/carbon/human/H = owner
-	var/new_ipc_screen = input(usr, "Choose your character's screen:", "Monitor Display") as null|anything in GLOB.ipc_screens_list
+	var/new_ipc_screen = input(usr, "Выбираем:", "Смена экрана") as null|anything in GLOB.ipc_screens_list
 	if(!new_ipc_screen)
 		return
 	H.dna.features["ipc_screen"] = new_ipc_screen
