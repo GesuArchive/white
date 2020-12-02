@@ -3649,6 +3649,7 @@
 #include "white\valtos\code\unsorted\glitch.dm"
 #include "white\valtos\code\unsorted\great_stuff.dm"
 #include "white\valtos\code\unsorted\hextile.dm"
+#include "white\valtos\code\unsorted\ipc.dm"
 #include "white\valtos\code\unsorted\katana.dm"
 #include "white\valtos\code\unsorted\keybindings_reset.dm"
 #include "white\valtos\code\unsorted\lobbycyber.dm"

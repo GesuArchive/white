@@ -122,6 +122,7 @@
 	icon_state = "rock"
 	smooth_icon = 'white/valtos/icons/rocks_smooth.dmi'
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	smoothing_flags = SMOOTH_CORNERS
 	environment_type = "stone_raw"
 	turf_type = /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone/raw

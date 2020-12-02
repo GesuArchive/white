@@ -373,6 +373,18 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			//Mutant stuff
 
+			if(pref_species.mutant_bodyparts["ipc_screen"])
+
+				dat += "<tr><td><b>Экран:</b></td><td align='right'>"
+
+				dat += "<a href='?_src_=prefs;preference=ipc_screen;task=input'>[features["ipc_screen"]]</a></td></tr>"
+
+			if(pref_species.mutant_bodyparts["ipc_antenna"])
+
+				dat += "<tr><td><b>Антенна:</b></td><td align='right'>"
+
+				dat += "<a href='?_src_=prefs;preference=ipc_antenna;task=input'>[features["ipc_antenna"]]</a></td></tr>"
+
 			if(pref_species.mutant_bodyparts["tail_lizard"])
 
 				dat += "<tr><td><b>Хвост:</b></td><td align='right'>"
@@ -1274,6 +1286,18 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/new_hair = input(user, "Choose your character's hair colour:", "Character Preference","#"+hair_color) as color|null
 					if(new_hair)
 						hair_color = sanitize_hexcolor(new_hair)
+
+				if("ipc_screen")
+					var/new_ipc_screen
+					new_ipc_screen = input(user, "Choose your character's screen:", "Character Preference") as null|anything in GLOB.ipc_screens_list
+					if(new_ipc_screen)
+						features["ipc_screen"] = new_ipc_screen
+
+				if("ipc_antenna")
+					var/new_ipc_antenna
+					new_ipc_antenna = input(user, "Choose your character's antenna:", "Character Preference") as null|anything in GLOB.ipc_antennas_list
+					if(new_ipc_antenna)
+						features["ipc_antenna"] = new_ipc_antenna
 
 				if("hairstyle")
 					var/new_hairstyle
