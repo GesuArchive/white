@@ -58,7 +58,7 @@
     else
         return ..()
 
-/datum/species/ipc/random_name(gender,unique,lastname)
+/datum/species/ipc/random_name(gender,unique,lastname, en_lang)
 	if(unique)
 		return random_unique_ipc_name()
 
