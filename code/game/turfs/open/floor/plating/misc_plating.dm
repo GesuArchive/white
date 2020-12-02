@@ -274,6 +274,8 @@
 	desc = "Обычная зелёная трава, ничего особенного."
 	icon_state = "grass0"
 	base_icon_state = "grass"
+	baseturfs = /turf/open/floor/plating/sandy_dirt
+	broken_states = list("damaged")
 	bullet_bounce_sound = null
 	footstep = FOOTSTEP_GRASS
 	barefootstep = FOOTSTEP_GRASS
@@ -301,6 +303,7 @@
 	name = "dirt"
 	desc = "Upon closer examination, it's still dirt."
 	icon_state = "sand"
+	broken_states = list("sand_damaged")
 	bullet_bounce_sound = null
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SAND

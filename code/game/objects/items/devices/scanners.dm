@@ -356,6 +356,7 @@ GENE SCANNER
 			|| S.flying_species != initial(S.flying_species)
 
 		render_list += "<span class='info ml-1'>Селекционный тип: [S.name][mutant ? "-мутант" : ""]</span>\n"
+		render_list += "<span class='info ml-1'>Температура ядра: [round(H.coretemperature-T0C,0.1)] &deg;C ([round(H.coretemperature*1.8-459.67,0.1)] &deg;F)</span>\n"
 	render_list += "<span class='info ml-1'>Температура тела: [round(M.bodytemperature-T0C,0.1)] &deg;C ([round(M.bodytemperature*1.8-459.67,0.1)] &deg;F)</span>\n"
 
 	// Time of death
@@ -710,13 +711,14 @@ GENE SCANNER
 		var/cached_scan_results = air_contents.analyzer_results
 
 		if(total_moles > 0)
-			render_list += "<span class='notice'>Моли: [round(total_moles, 0.01)] mol</span>\
-						 \n<span class='notice'>Объём: [volume] Л</span>\
-						 \n<span class='notice'>Давление: [round(pressure,0.01)] кПа</span>"
+			render_list += "<span class='notice'>Моли: [round(total_moles, 0.01)] моль</span>\
+							\n<span class='notice'>Объём: [volume] Л</span>\
+							\n<span class='notice'>Давление: [round(pressure,0.01)] кПа</span>"
 
-			for(var/id in air_contents.get_gases())
-				var/gas_concentration = air_contents.get_moles(id)/total_moles
-				render_list += "<span class='notice'>[GLOB.meta_gas_info[id][META_GAS_NAME]]: [round(gas_concentration*100, 0.01)] % ([round(air_contents.get_moles(id), 0.01)] моль)</span>"
+			var/list/cached_gases = air_contents.gases
+			for(var/id in cached_gases)
+				var/gas_concentration = cached_gases[id][MOLES]/total_moles
+				render_list += "<span class='notice'>[cached_gases[id][GAS_META][META_GAS_NAME]]: [round(gas_concentration*100, 0.01)] % ([round(cached_gases[id][MOLES], 0.01)] моль)</span>"
 			render_list += "<span class='notice'>Температура: [round(temperature - T0C,0.01)] &deg;C ([round(temperature, 0.01)] K)</span>"
 		else
 			render_list += airs.len > 1 ? "<span class='notice'>Эта ячейка пуста!</span>" : "<span class='notice'>В [target] ничего нет!</span>"

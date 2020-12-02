@@ -4,12 +4,14 @@
 	icon_state = "sheet-hide"
 	inhand_icon_state = "sheet-hide"
 	novariants = TRUE
+	merge_type = /obj/item/stack/sheet/animalhide
 
 /obj/item/stack/sheet/animalhide/human
 	name = "человеческая кожа"
 	desc = "Побочный продукт человеческого происхождения... Мудак?"
 	singular_name = "кусок человеческой кожи"
 	novariants = FALSE
+	merge_type = /obj/item/stack/sheet/animalhide/human
 
 GLOBAL_LIST_INIT(human_recipes, list( \
 	new/datum/stack_recipe("раздутый человеческий костюм", /obj/item/clothing/suit/hooded/bloated_human, 5), \
@@ -24,6 +26,7 @@ GLOBAL_LIST_INIT(human_recipes, list( \
 	desc = "Кусочек кожи."
 	singular_name = "кусочек кожи"
 	novariants = FALSE
+	merge_type = /obj/item/stack/sheet/animalhide/generic
 
 /obj/item/stack/sheet/animalhide/corgi
 	name = "шкура корги"
@@ -31,7 +34,7 @@ GLOBAL_LIST_INIT(human_recipes, list( \
 	singular_name = "кусочек кожи корги"
 	icon_state = "sheet-corgi"
 	inhand_icon_state = "sheet-corgi"
-
+	merge_type = /obj/item/stack/sheet/animalhide/corgi
 
 GLOBAL_LIST_INIT(gondola_recipes, list ( \
 	new/datum/stack_recipe("маска гондолы", /obj/item/clothing/mask/gondola, 1), \
@@ -44,6 +47,7 @@ GLOBAL_LIST_INIT(gondola_recipes, list ( \
 	singular_name = "кусочек шкуры гондолы"
 	icon_state = "sheet-gondola"
 	inhand_icon_state = "sheet-gondola"
+	merge_type = /obj/item/stack/sheet/animalhide/gondola
 
 /obj/item/stack/sheet/animalhide/gondola/get_main_recipes()
 	. = ..()
@@ -63,6 +67,7 @@ GLOBAL_LIST_INIT(corgi_recipes, list ( \
 	singular_name = "кусок шкуры кошки"
 	icon_state = "sheet-cat"
 	inhand_icon_state = "sheet-cat"
+	merge_type = /obj/item/stack/sheet/animalhide/cat
 
 /obj/item/stack/sheet/animalhide/monkey
 	name = "шкура обезьяны"
@@ -70,6 +75,7 @@ GLOBAL_LIST_INIT(corgi_recipes, list ( \
 	singular_name = "кусок шкуры обезьяны"
 	icon_state = "sheet-monkey"
 	inhand_icon_state = "sheet-monkey"
+	merge_type = /obj/item/stack/sheet/animalhide/monkey
 
 GLOBAL_LIST_INIT(monkey_recipes, list ( \
 	new/datum/stack_recipe("маска обезьяны", /obj/item/clothing/mask/gas/monkeymask, 1), \
@@ -86,6 +92,7 @@ GLOBAL_LIST_INIT(monkey_recipes, list ( \
 	singular_name = "кусок кожи ящерицы"
 	icon_state = "sheet-lizard"
 	inhand_icon_state = "sheet-lizard"
+	merge_type = /obj/item/stack/sheet/animalhide/lizard
 
 /obj/item/stack/sheet/animalhide/xeno
 	name = "инопланетная шкура"
@@ -93,6 +100,7 @@ GLOBAL_LIST_INIT(monkey_recipes, list ( \
 	singular_name = "кусок кожи инопланетянина"
 	icon_state = "sheet-xeno"
 	inhand_icon_state = "sheet-xeno"
+	merge_type = /obj/item/stack/sheet/animalhide/xeno
 
 GLOBAL_LIST_INIT(xeno_recipes, list ( \
 	new/datum/stack_recipe("голова ксеноса", /obj/item/clothing/head/xenos, 1), \
@@ -111,6 +119,7 @@ GLOBAL_LIST_INIT(xeno_recipes, list ( \
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "chitin"
 	novariants = TRUE
+	merge_type = /obj/item/stack/sheet/xenochitin
 
 /obj/item/xenos_claw
 	name = "инопланетный коготь"
@@ -130,6 +139,7 @@ GLOBAL_LIST_INIT(xeno_recipes, list ( \
 	singular_name = "кусок безволосой шкуры"
 	icon_state = "sheet-hairlesshide"
 	inhand_icon_state = "sheet-hairlesshide"
+	merge_type = /obj/item/stack/sheet/hairlesshide
 
 /obj/item/stack/sheet/wethide
 	name = "мокрая шкура"
@@ -137,8 +147,15 @@ GLOBAL_LIST_INIT(xeno_recipes, list ( \
 	singular_name = "мокрая шкура"
 	icon_state = "sheet-wetleather"
 	inhand_icon_state = "sheet-wetleather"
-	var/wetness = 30 //Reduced when exposed to high temperautres
-	var/drying_threshold_temperature = 500 //Kelvin to start drying
+	merge_type = /obj/item/stack/sheet/wethide
+	/// Reduced when exposed to high temperatures
+	var/wetness = 30
+	/// Kelvin to start drying
+	var/drying_threshold_temperature = 500
+
+/obj/item/stack/sheet/wethide/Initialize(mapload, new_amount, merge)
+	. = ..()
+	AddElement(/datum/element/dryable, /obj/item/stack/sheet/leather)
 
 /*
  * Leather SHeet
@@ -149,6 +166,7 @@ GLOBAL_LIST_INIT(xeno_recipes, list ( \
 	singular_name = "кусок кожи"
 	icon_state = "sheet-leather"
 	inhand_icon_state = "sheet-leather"
+	merge_type = /obj/item/stack/sheet/leather
 
 GLOBAL_LIST_INIT(leather_recipes, list ( \
 	new/datum/stack_recipe("бумажник", /obj/item/storage/wallet, 1), \
@@ -176,12 +194,13 @@ GLOBAL_LIST_INIT(leather_recipes, list ( \
 	singular_name = "сухожилие стражника"
 	icon_state = "sinew"
 	novariants = TRUE
+	merge_type = /obj/item/stack/sheet/sinew
 
 /obj/item/stack/sheet/sinew/wolf
 	name = "волчьи сухожилия"
 	desc = "Длинные волокнистые нити, которые пришли изнутри волка."
 	singular_name = "волчье сухожилие"
-
+	merge_type = /obj/item/stack/sheet/sinew/wolf
 
 GLOBAL_LIST_INIT(sinew_recipes, list ( \
 	new/datum/stack_recipe("сухожильные наручники", /obj/item/restraints/handcuffs/cable/sinew, 1), \
@@ -191,9 +210,8 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 	. = ..()
 	. += GLOB.sinew_recipes
 
-		/*
- * Plates
- 		*/
+
+/*Plates*/
 /obj/item/stack/sheet/animalhide/goliath_hide
 	name = "шкурные пластины голиафа"
 	desc = "Осколки скалистой шкуры Голиафа могут сделать ваш костюм более стойким к атакам местной фауны."
@@ -205,12 +223,14 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 	item_flags = NOBLUDGEON
 	w_class = WEIGHT_CLASS_NORMAL
 	layer = MOB_LAYER
+	merge_type = /obj/item/stack/sheet/animalhide/goliath_hide
 
 /obj/item/stack/sheet/animalhide/goliath_hide/polar_bear_hide
 	name = "шкура полярного медведя"
 	desc = "Кусочки меха белого медведя могут сделать ваш костюм более стойким к атакам местной фауны."
 	icon_state = "polar_bear_hide"
 	singular_name = "шкура медведя"
+	merge_type = /obj/item/stack/sheet/animalhide/goliath_hide/polar_bear_hide
 
 /obj/item/stack/sheet/animalhide/ashdrake
 	name = "шкура пепельного дракона"
@@ -223,7 +243,7 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 	item_flags = NOBLUDGEON
 	w_class = WEIGHT_CLASS_NORMAL
 	layer = MOB_LAYER
-
+	merge_type = /obj/item/stack/sheet/animalhide/ashdrake
 
 //Step one - dehairing.
 

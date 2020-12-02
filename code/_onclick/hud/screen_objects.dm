@@ -123,7 +123,7 @@
 	var/slot_id
 	/// Icon when empty. For now used only by humans.
 	var/icon_empty
-	 /// Icon when contains an item. For now used only by humans.
+	/// Icon when contains an item. For now used only by humans.
 	var/icon_full
 	/// The overlay when hovering over with an item in your hand
 	var/image/object_overlay
@@ -675,6 +675,9 @@
 	name = "mood"
 	icon_state = "mood5"
 	screen_loc = ui_mood
+
+/atom/movable/screen/mood/attack_tk()
+	return
 
 /atom/movable/screen/splash
 	icon = 'icons/blank_title.png'

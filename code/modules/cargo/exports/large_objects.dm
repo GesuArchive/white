@@ -126,6 +126,7 @@
 	cost = 10 //Base cost of canister. You get more for nice gases inside.
 	unit_name = "Канистра с газом"
 	export_types = list(/obj/machinery/portable_atmospherics/canister)
+	k_elasticity = 0.00033
 
 /datum/export/large/gas_canister/get_cost(obj/O)
 	var/obj/machinery/portable_atmospherics/canister/C = O

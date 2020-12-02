@@ -3,8 +3,8 @@
 	mood_change = -1
 
 /datum/mood_event/broken_vow //Used for when mimes break their vow of silence
-  description = "<span class='boldwarning'>Моё имя было опозорено нарушением моего обета...</span>\n"
-  mood_change = -8
+	description = "<span class='boldwarning'>Моё имя было опозорено нарушением моего обета...</span>\n"
+	mood_change = -8
 
 /datum/mood_event/on_fire
 	description = "<span class='boldwarning'>Я ГОРЮ!!!/span>\n"
@@ -73,14 +73,14 @@
 	timeout = 2 MINUTES
 
 /datum/mood_event/shameful_suicide //suicide_acts that return SHAME, like sord
-  description = "<span class='boldwarning'>Я даже не могу покончить со всем этим!</span>\n"
-  mood_change = -15
-  timeout = 60 SECONDS
+	description = "<span class='boldwarning'>Я даже не могу покончить со всем этим!</span>\n"
+	mood_change = -15
+	timeout = 60 SECONDS
 
 /datum/mood_event/dismembered
-  description = "<span class='boldwarning'>АА-А! МНЕ НУЖНА БЫЛА ЭТА КОНЕЧНОСТЬ!</span>\n"
-  mood_change = -10
-  timeout = 8 MINUTES
+	description = "<span class='boldwarning'>АА-А! МНЕ НУЖНА БЫЛА ЭТА КОНЕЧНОСТЬ!</span>\n"
+	mood_change = -10
+	timeout = 8 MINUTES
 
 /datum/mood_event/tased
 	description = "<span class='warning'>There's no \"z\" in \"taser\". It's in the zap.</span>\n"
@@ -114,20 +114,20 @@
 		description = "<span class='warning'>My fucking [banged_limb.name], man that hurts...</span>\n"
 
 /datum/mood_event/brain_damage
-  mood_change = -3
+	mood_change = -3
 
 /datum/mood_event/brain_damage/add_effects()
-  var/damage_message = pick_list_replacements(BRAIN_DAMAGE_FILE, "brain_damage")
-  description = "<span class='warning'>Хых... Хах... [damage_message]</span>\n"
+	var/damage_message = pick_list_replacements(BRAIN_DAMAGE_FILE, "brain_damage")
+	description = "<span class='warning'>Хых... Хах... [damage_message]</span>\n"
 
 /datum/mood_event/hulk //Entire duration of having the hulk mutation
-  description = "<span class='warning'>ХАЛК БИТЬ!</span>\n"
-  mood_change = -4
+	description = "<span class='warning'>ХАЛК БИТЬ</span>\n"
+	mood_change = -4
 
 /datum/mood_event/epilepsy //Only when the mutation causes a seizure
-  description = "<span class='warning'>Стоило обратить внимание на предупреждение об эпилепсии.</span>\n"
-  mood_change = -3
-  timeout = 5 MINUTES
+	description = "<span class='warning'>Стоило обратить внимание на предупреждение об эпилепсии.</span>\n"
+	mood_change = -3
+	timeout = 5 MINUTES
 
 /datum/mood_event/nyctophobia
 	description = "<span class='warning'>Здесь темновато...</span>\n"

@@ -92,6 +92,7 @@
 	bite_consumption = 1
 	tastes = list("яйцо" = 4, "соль" = 1, "перец" = 1)
 	foodtypes = MEAT | FRIED | BREAKFAST
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/boiledegg
 	name = "boiled egg"
@@ -100,6 +101,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("яйцо" = 1)
 	foodtypes = MEAT | BREAKFAST
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/omelette	//FUCK THIS
 	name = "omelette du fromage"
@@ -108,7 +110,7 @@
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 10, /datum/reagent/consumable/nutriment/vitamin = 3)
 	bite_consumption = 1
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 	tastes = list("яйцо" = 1, "сыр" = 1)
 	foodtypes = MEAT | BREAKFAST | DAIRY
 
@@ -136,6 +138,6 @@
 	icon_state = "benedict"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment = 3)
 	trash_type = /obj/item/trash/plate
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 	tastes = list("яйцо" = 1, "бекон" = 1, "булка" = 1)
 	foodtypes = MEAT | BREAKFAST | GRAIN

@@ -75,7 +75,7 @@
 	name = "Крендель с маком"
 	description = "ЦК нужна причина, чтобы уволить их HR-руководителя. Отправьте крендель с маком, чтобы устроить проваленный тест на наркотики."
 	reward = 3000
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/poppypretzel)
+	wanted_types = list(/obj/item/food/poppypretzel)
 
 /datum/bounty/item/chef/cubancarp
 	name = "Кубинский карп "
@@ -87,7 +87,7 @@
 	name = "Хот-Дог"
 	description = "НТ проводит вкусовые тесты, чтобы определить лучший рецепт хот-дога. Отправьте версию своего хот-дога станции для участия."
 	reward = 8000
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/hotdog)
+	wanted_types = list(/obj/item/food/hotdog)
 
 /datum/bounty/item/chef/eggplantparm
 	name = "Пармиджано"
@@ -101,13 +101,13 @@
 	description = "Человек Кекс посещает ЦК, но он забыл свои кексы! Ваш заказ должен исправить это!"
 	reward = 3000
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/muffin)
+	wanted_types = list(/obj/item/food/muffin)
 
 /datum/bounty/item/chef/chawanmushi
 	name = "Тяван-муси"
 	description = "НТ хочет улучшить отношения со своей дочерней компанией Japan'o'Trasen. Отправьте тяван-муси немедленно."
 	reward = 8000
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/chawanmushi)
+	wanted_types = list(/obj/item/food/chawanmushi)
 
 /datum/bounty/item/chef/kebab
 	name = "Кебаб"
@@ -120,14 +120,14 @@
 	name = "Зелёный сойлент"
 	description = "ЦК слышали замечательные вещи о продукте «Зелёный сойлент» и хотели бы попробовать его. Если вы их отправили, ожидайте приятного бонуса."
 	reward = 5000
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/soylentgreen)
+	wanted_types = list(/obj/item/food/soylentgreen)
 
 /datum/bounty/item/chef/pancakes
 	name = "Блины"
 	description = "Здесь, в НТ, мы считаем сотрудников семьей. А вы знаете, что любят семьи? Блины. Отправь дюжину блинов."
 	reward = 5000
 	required_count = 13
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/pancakes)
+	wanted_types = list(/obj/item/food/pancakes)
 
 /datum/bounty/item/chef/nuggies
 	name = "Куриные наггетсы"

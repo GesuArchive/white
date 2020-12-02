@@ -333,7 +333,7 @@
 			else
 				message_param = "<span class='userdanger'>бьётся своей головой о землю</span> пытаясь показать на %t."
 				H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5)
-	..()
+	return ..()
 
 /datum/emote/living/pout
 	key = "pout"

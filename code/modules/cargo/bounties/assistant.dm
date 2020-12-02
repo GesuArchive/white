@@ -81,14 +81,14 @@
 	description = "Силы безопасности CentCom несут большие потери против Синдиката. Отправьте им пончики, чтобы поднять боевой дух."
 	reward = 3000
 	required_count = 10
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/donut)
+	wanted_types = list(/obj/item/food/donut)
 
 /datum/bounty/item/assistant/donkpocket
 	name = "Донк-Покеты"
 	description = "отзыв безопасности потребителей: Внимание! Донк-Покеты, изготовленные в прошлом году, содержат опасный биоматерию ящерицы. Верните их на ЦК немедленно."
 	reward = 3000
 	required_count = 10
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/donkpocket)
+	wanted_types = list(/obj/item/food/donkpocket)
 
 /datum/bounty/item/assistant/briefcase
 	name = "Портфель"
@@ -129,7 +129,7 @@
 	description = "У командира Зота любовь к командиру Зена. Отправьте партию герани - её любимого цветка и он с радостью наградит вас."
 	reward = 4000
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/grown/poppy/geranium)
+	wanted_types = list(/obj/item/food/grown/poppy/geranium)
 	include_subtypes = FALSE
 
 /datum/bounty/item/assistant/poppy
@@ -137,7 +137,7 @@
 	description = "Командир Зот действительно хочет сбить офицера безопасности Оливию с ног. Отправьте партию маков - её любимого цветка - и он с радостью наградит вас."
 	reward = 1000
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/grown/poppy)
+	wanted_types = list(/obj/item/food/grown/poppy)
 	include_subtypes = FALSE
 
 /datum/bounty/item/assistant/shadyjims

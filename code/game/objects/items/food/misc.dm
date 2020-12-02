@@ -33,6 +33,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("сыр" = 1)
 	foodtypes = DAIRY
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/watermelonslice
 	name = "watermelon slice"
@@ -41,6 +42,7 @@
 	tastes = list("арбуз" = 1)
 	foodtypes = FRUIT
 	juice_results = list(/datum/reagent/consumable/watermelonjuice = 5)
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/candy_corn
 	name = "candy corn"
@@ -49,6 +51,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/sugar = 2)
 	tastes = list("сладкий попкорн" = 1)
 	foodtypes = JUNKFOOD | SUGAR
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/candy_corn/prison
 	name = "desiccated candy corn"
@@ -65,6 +68,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/sugar = 2, /datum/reagent/consumable/coco = 2)
 	tastes = list("шоколад" = 1)
 	foodtypes = JUNKFOOD | SUGAR
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/hugemushroomslice
 	name = "huge mushroom slice"
@@ -73,6 +77,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("грибы" = 1)
 	foodtypes = VEGETABLES
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/popcorn
 	name = "popcorn"
@@ -84,6 +89,7 @@
 	tastes = list("попкорн" = 3, "масло" = 1)
 	foodtypes = JUNKFOOD
 	eatverbs = list("кусает","надкусывает","чапает","пожирает","ест")
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/loadedbakedpotato
 	name = "loaded baked potato"
@@ -92,6 +98,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("картоха" = 1)
 	foodtypes = VEGETABLES | DAIRY
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/fries
 	name = "space fries"
@@ -101,6 +108,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4)
 	tastes = list("картофель фри" = 3, "соль" = 1)
 	foodtypes = VEGETABLES | GRAIN | FRIED
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/fries/Initialize()
 	. = ..()
@@ -113,6 +121,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4)
 	tastes = list("картоха" = 3, "valids" = 1)
 	foodtypes = FRIED | VEGETABLES
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/tatortot/Initialize()
 	. = ..()
@@ -126,6 +135,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/protein = 1)
 	tastes = list("соя" = 1)
 	foodtypes = VEGETABLES
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/cheesyfries
 	name = "cheesy fries"
@@ -135,6 +145,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("картофель фри" = 3, "сыр" = 1)
 	foodtypes = VEGETABLES | GRAIN | DAIRY
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/cheesyfries/Initialize()
 	. = ..()
@@ -146,6 +157,7 @@
 	icon_state = "badrecipe"
 	food_reagents = list(/datum/reagent/toxin/bad_food = 30)
 	foodtypes = GROSS
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/carrotfries
 	name = "carrot fries"
@@ -155,6 +167,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/medicine/oculine = 3, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("морковка" = 3, "соль" = 1)
 	foodtypes = VEGETABLES
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/carrotfries/Initialize()
 	. = ..()
@@ -168,6 +181,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/caramel = 5)
 	tastes = list("яблоко" = 2, "карамель" = 3)
 	foodtypes = JUNKFOOD | FRUIT | SUGAR
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/mint
 	name = "mint"
@@ -177,6 +191,7 @@
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/toxin/minttoxin = 2)
 	foodtypes = TOXIC | SUGAR
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/eggwrap
 	name = "egg wrap"
@@ -185,6 +200,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("яйцо" = 1)
 	foodtypes = MEAT | GRAIN
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/spidereggs
 	name = "spider eggs"
@@ -193,6 +209,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/toxin = 2)
 	tastes = list("паутина" = 1)
 	foodtypes = MEAT | TOXIC
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/spiderling
 	name = "spiderling"
@@ -201,6 +218,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/toxin = 4)
 	tastes = list("паутина" = 1, "кишочки" = 2)
 	foodtypes = MEAT | TOXIC
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/chewable/spiderlollipop
 	name = "spider lollipop"
@@ -218,6 +236,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/coco = 1, /datum/reagent/consumable/sugar = 1)
 	tastes = list("шоколад" = 1)
 	foodtypes = JUNKFOOD | SUGAR
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/fudgedice
 	name = "fudge dice"
@@ -227,6 +246,7 @@
 	trash_type = /obj/item/dice/fudge
 	tastes = list("помадка" = 1)
 	foodtypes = JUNKFOOD | SUGAR
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/chocoorange
 	name = "chocolate orange"
@@ -235,6 +255,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 1)
 	tastes = list("шоколад" = 3, "апельсины" = 1)
 	foodtypes = JUNKFOOD | SUGAR
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/eggplantparm
 	name = "eggplant parmigiana"
@@ -244,6 +265,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("баклажан" = 3, "сыр" = 1)
 	foodtypes = VEGETABLES | DAIRY
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/tortilla
 	name = "tortilla"
@@ -253,6 +275,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("плоская маисовая лепешка" = 1)
 	foodtypes = GRAIN
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/burrito
 	name = "burrito"
@@ -261,6 +284,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2,/datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("плоская маисовая лепешка" = 2, "мясо" = 3)
 	foodtypes = GRAIN | MEAT
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/cheesyburrito
 	name = "cheesy burrito"
@@ -269,6 +293,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("плоская маисовая лепешка" = 2, "мясо" = 3, "сыр" = 1)
 	foodtypes = GRAIN | MEAT | DAIRY
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/carneburrito
 	name = "carne asada burrito"
@@ -277,6 +302,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("плоская маисовая лепешка" = 2, "мясо" = 4)
 	foodtypes = GRAIN | MEAT
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/fuegoburrito
 	name = "fuego plasma burrito"
@@ -285,6 +311,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/capsaicin = 5, /datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("плоская маисовая лепешка" = 2, "мясо" = 3, "перцы" = 1)
 	foodtypes = GRAIN | MEAT
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/yakiimo
 	name = "yaki imo"
@@ -294,6 +321,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("сладкая картоха" = 1)
 	foodtypes = GRAIN | VEGETABLES | SUGAR
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/roastparsnip
 	name = "roast parsnip"
@@ -303,6 +331,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("пастернак" = 1)
 	foodtypes = VEGETABLES
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/melonfruitbowl
 	name = "melon fruit bowl"
@@ -312,6 +341,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("арбуз" = 1)
 	foodtypes = FRUIT
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/nachos
 	name = "nachos"
@@ -320,6 +350,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("начос" = 1)
 	foodtypes = VEGETABLES | FRIED
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/cheesynachos
 	name = "cheesy nachos"
@@ -328,6 +359,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/protein = 1, /datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("начос" = 2, "сыр" = 1)
 	foodtypes = VEGETABLES | FRIED | DAIRY
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/cubannachos
 	name = "Cuban nachos"
@@ -336,6 +368,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 7, /datum/reagent/consumable/capsaicin = 8, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("начос" = 2, "перец" = 1)
 	foodtypes = VEGETABLES | FRIED | DAIRY
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/melonkeg
 	name = "melon keg"
@@ -354,6 +387,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/honey = 5)
 	tastes = list("овес" = 3, "орешки" = 2, "мед" = 1)
 	foodtypes = GRAIN | SUGAR
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/stuffedlegion
 	name = "stuffed legion"
@@ -362,6 +396,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/capsaicin = 2)
 	tastes = list("смерть" = 2, "камни" = 1, "мясо" = 1, "перцы" = 1)
 	foodtypes = MEAT
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/powercrepe
 	name = "Powercrepe"
@@ -432,6 +467,7 @@
 	var/headcolor = rgb(0, 0, 0)
 	tastes = list("конфета" = 1)
 	foodtypes = JUNKFOOD | SUGAR
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/chewable/lollipop/Initialize()
 	. = ..()
@@ -473,6 +509,7 @@
 	food_reagents = list(/datum/reagent/consumable/sugar = 5)
 	tastes = list("конфета" = 1)
 	succ_dur = 15 * 60
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/chewable/bubblegum/nicotine
 	name = "nicotine gum"
@@ -537,6 +574,7 @@
 	food_reagents = list(/datum/reagent/consumable/sugar = 5, /datum/reagent/medicine/sal_acid = 2, /datum/reagent/medicine/oxandrolone = 2)	//Kek
 	tastes = list("конфета")
 	foodtypes = JUNKFOOD
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/chewable/gumball/Initialize()
 	. = ..()
@@ -564,6 +602,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("тако" = 4, "мясо" = 2, "сыр" = 2, "салат" = 1)
 	foodtypes = MEAT | DAIRY | GRAIN | VEGETABLES
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/taco/plain
 	desc = "A traditional taco with meat and cheese, minus the rabbit food."
@@ -579,6 +618,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/salt = 8)
 	tastes = list("отруби" = 4, "причинычи" = 3, "соль" = 1)
 	foodtypes = GRAIN | FRUIT | BREAKFAST
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/butter
 	name = "stick of butter"
@@ -587,6 +627,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	tastes = list("масло" = 1)
 	foodtypes = DAIRY
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/butter/examine(mob/user)
 	. = ..()
@@ -621,6 +662,7 @@
 	gender = PLURAL
 	tastes = list("кляр" = 3, "лук" = 1)
 	foodtypes = VEGETABLES
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/pineappleslice
 	name = "pineapple slice"
@@ -629,6 +671,7 @@
 	juice_results = list(/datum/reagent/consumable/pineapplejuice = 3)
 	tastes = list("ананас" = 1)
 	foodtypes = FRUIT | PINEAPPLE
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/tinychocolate
 	name = "chocolate"
@@ -637,6 +680,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sugar = 1, /datum/reagent/consumable/coco = 1)
 	tastes = list("шоколад" = 1)
 	foodtypes = JUNKFOOD | SUGAR
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/canned
 	name = "Canned Air"
@@ -646,6 +690,7 @@
 	food_flags = FOOD_IN_CONTAINER
 	w_class = WEIGHT_CLASS_NORMAL
 	max_volume = 30
+	w_class = WEIGHT_CLASS_SMALL
 
 
 /obj/item/food/canned/proc/open_can(mob/user)
@@ -709,6 +754,7 @@
 	junkiness = 20
 	tastes = list("жареная кукуруза" = 1)
 	foodtypes = JUNKFOOD | FRIED
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/cornchips/MakeLeaveTrash()
 	if(trash_type)

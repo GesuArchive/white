@@ -56,7 +56,7 @@
 		return
 
 	user.visible_message("<span class='notice'><b>[user]</b> помечает <b>[A]</b> ярлыком \"[label]\".</span>", \
-						 "<span class='notice'>Помечаю <b>[A]</b> ярлыком \"[label]\".</span>")
+		"<span class='notice'>Помечаю <b>[A]</b> ярлыком \"[label]\".</span>")
 	A.AddComponent(/datum/component/label, label)
 	playsound(A, 'sound/items/handling/component_pickup.ogg', 20, TRUE)
 	labels_left--

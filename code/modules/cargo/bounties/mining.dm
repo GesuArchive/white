@@ -61,11 +61,11 @@
 	description = "Наш ботаник утверждает, что может отогнать вкусный ликер абсолютно с любого растения. Посмотрим, что он будет делать с грибными шапочками."
 	reward = 4500
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/grown/ash_flora/mushroom_cap)
+	wanted_types = list(/obj/item/food/grown/ash_flora/mushroom_cap)
 
 /datum/bounty/item/mining/porcini_mushroom
 	name = "Листья гриба"
 	description = "По слухам, белые грибы обладают целебными свойствами. Наши исследователи хотят проверить это."
 	reward = 4500
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/grown/ash_flora/mushroom_leaf)
+	wanted_types = list(/obj/item/food/grown/ash_flora/mushroom_leaf)

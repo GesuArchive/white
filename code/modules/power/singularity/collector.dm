@@ -13,7 +13,7 @@
 	icon_state = "ca"
 	anchored = FALSE
 	density = TRUE
-	req_access = list(ACCESS_ENGINE_EQUIP)
+	req_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS)
 	max_integrity = 350
 	integrity_failure = 0.2
 	circuit = /obj/item/circuitboard/machine/rad_collector
@@ -32,10 +32,6 @@
 /obj/machinery/power/rad_collector/anchored/Initialize()
 	. = ..()
 	set_anchored(TRUE)
-
-/obj/machinery/power/rad_collector/anchored/delta //Deltastation's engine is shared by engineers and atmos techs
-	desc = "Устройство, которое использует излучение Хокинга и плазму для производства энергии. Эта модель даёт доступ атмосферным техникам."
-	req_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS)
 
 /obj/machinery/power/rad_collector/Destroy()
 	return ..()
