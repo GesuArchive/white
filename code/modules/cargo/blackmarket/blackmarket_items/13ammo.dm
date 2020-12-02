@@ -14,7 +14,7 @@
 	availability_prob = 100
 
 /datum/blackmarket_item/ammo/fallout/cpistol
-	name = "Патрон для китайского пистолета"
+	name = "Украинская Задница Джназара" // оригинал: патрон для китайского пистолета; это бля магазин, ты ебанутый?
 	desc = "БЛЯТЬ!"
 	item = /obj/item/ammo_box/magazine/internal/cpistol
 
