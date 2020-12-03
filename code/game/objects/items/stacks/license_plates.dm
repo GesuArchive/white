@@ -9,6 +9,7 @@
 /obj/item/stack/license_plates/empty
 	name = "пустой номерной знак"
 	desc = "Вместо номера автомобильного номера это может содержать цитату типа «Жить, смеяться, любить»."
+	merge_type = /obj/item/stack/license_plates/empty
 
 /obj/item/stack/license_plates/empty/fifty
 	amount = 50
@@ -17,6 +18,7 @@
 	name = "номерной знак"
 	desc = "Тюремный труд окупается."
 	icon_state = "filled_plate_1_1"
+	merge_type = /obj/item/stack/license_plates/filled
 
 ///Override to allow for variations
 /obj/item/stack/license_plates/filled/update_icon_state()

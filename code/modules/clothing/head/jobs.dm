@@ -100,16 +100,16 @@
 	. += "<span class='notice'>Alt-клик, чтобы достать кукурузную конфету.</span>"
 
 /obj/item/clothing/head/fedora/det_hat/AltClick(mob/user)
-	if(user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
-		..()
-		if(loc == user)
-			if(candy_cooldown < world.time)
-				var/obj/item/food/candy_corn/CC = new /obj/item/food/candy_corn(src)
-				user.put_in_hands(CC)
-				to_chat(user, "<span class='notice'>Достаю кукурузную конфету из своей шляпы.</span>")
-				candy_cooldown = world.time+1200
-			else
-				to_chat(user, "<span class='warning'>Я только что взял кукурузную конфету! Надо подождать пару минут, чтобы не истратить заначку.</span>")
+	. = ..()
+	if(loc != user || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
+		return
+	if(candy_cooldown < world.time)
+		var/obj/item/food/candy_corn/CC = new /obj/item/food/candy_corn(src)
+		user.put_in_hands(CC)
+		to_chat(user, "<span class='notice'>Достаю кукурузную конфету из своей шляпы.</span>")
+		candy_cooldown = world.time+1200
+	else
+		to_chat(user, "<span class='warning'>Я только что взял кукурузную конфету! Надо подождать пару минут, чтобы не истратить заначку.</span>")
 
 
 //Mime

@@ -12,6 +12,7 @@
 	flags_1 = CONDUCT_1
 	max_amount = 60
 	grind_results = list(/datum/reagent/silicon = 20, /datum/reagent/copper = 5)
+	merge_type = /obj/item/stack/light_w
 
 /obj/item/stack/light_w/thirty
 	amount = 30

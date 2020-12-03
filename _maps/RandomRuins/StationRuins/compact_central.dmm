@@ -103,7 +103,7 @@
 /turf/closed/wall,
 /area/hallway/primary/central)
 "ao" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "ap" = (
@@ -145,7 +145,7 @@
 /turf/closed/wall/r_wall,
 /area/bridge/meeting_room)
 "at" = (
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/randomsnackvend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "au" = (
@@ -3455,7 +3455,7 @@
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "hX" = (
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/randomsnackvend,
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "hY" = (
@@ -3465,7 +3465,7 @@
 /turf/closed/wall/r_wall,
 /area/ai_monitored/turret_protected/ai_upload)
 "hZ" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "ia" = (

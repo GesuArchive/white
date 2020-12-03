@@ -63,14 +63,14 @@
 	var/list/lootn = list(	/obj/item/shard,
 							/obj/item/reagent_containers/syringe
 						)
-	var/list/lootold = list(/obj/item/reagent_containers/food/snacks/grown/tomato,
-							/obj/item/reagent_containers/food/snacks/grown/eggplant,
-							/obj/item/reagent_containers/food/snacks/grown/carrot,
-							/obj/item/reagent_containers/food/snacks/grown/apple,
-							/obj/item/reagent_containers/food/snacks/grown/potato
+	var/list/lootold = list(/obj/item/food/grown/tomato,
+							/obj/item/food/grown/eggplant,
+							/obj/item/food/grown/carrot,
+							/obj/item/food/grown/apple,
+							/obj/item/food/grown/potato
 						)
 	var/list/lootr = list(	/obj/item/seeds/reishi,
-							/obj/item/reagent_containers/food/snacks/khachapuri,
+							/obj/item/food/khachapuri,
 							/obj/item/soap,
 							/obj/item/switchblade
 						)

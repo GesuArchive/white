@@ -139,7 +139,7 @@
 /turf/closed/wall,
 /area/hallway/primary/central)
 "aM" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "aN" = (
@@ -183,7 +183,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "aW" = (
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/randomsnackvend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "aX" = (
@@ -1823,7 +1823,7 @@
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "eT" = (
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/randomsnackvend,
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "eU" = (
@@ -1960,7 +1960,7 @@
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "fn" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "fo" = (

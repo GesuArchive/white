@@ -75,7 +75,7 @@
 		else if(brainmob?.health <= HEALTH_THRESHOLD_DEAD)
 			. += "<span class='info'>Из этой штуки что-то... вытекает? Похоже мозгу внутри придали неестественную форму.</span>"
 		else if(brainmob)
-			if(brainmob.get_ghost(FALSE, TRUE))
+			if(brainmob.key || brainmob.get_ghost(FALSE, TRUE))
 				. += "<span class='info'>Эта штука немного шевелится... Похоже внутрии неё что-то очень хочет жить.</span>"
 			else
 				. += "<span class='info'>Эта штука неподвижна. Возможно есть шанс сделать из этого что-то полезное.</span>"

@@ -59,43 +59,52 @@
 	icon_state = "spacecash"
 	singular_name = "один кредит"
 	value = 1
+	merge_type = /obj/item/stack/spacecash/c1
 
 /obj/item/stack/spacecash/c10
 	icon_state = "spacecash10"
 	singular_name = "десять кредитов"
 	value = 10
+	merge_type = /obj/item/stack/spacecash/c10
 
 /obj/item/stack/spacecash/c20
 	icon_state = "spacecash20"
 	singular_name = "двадцать кредитов"
 	value = 20
+	merge_type = /obj/item/stack/spacecash/c20
 
 /obj/item/stack/spacecash/c50
 	icon_state = "spacecash50"
 	singular_name = "пятьдесят кредитов"
 	value = 50
+	merge_type = /obj/item/stack/spacecash/c50
 
 /obj/item/stack/spacecash/c100
 	icon_state = "spacecash100"
 	singular_name = "сто кредитов"
 	value = 100
+	merge_type = /obj/item/stack/spacecash/c100
 
 /obj/item/stack/spacecash/c200
 	icon_state = "spacecash200"
 	singular_name = "две сотни кредитов"
 	value = 200
+	merge_type = /obj/item/stack/spacecash/c200
 
 /obj/item/stack/spacecash/c500
 	icon_state = "spacecash500"
 	singular_name = "пять сотен кредитов"
 	value = 500
+	merge_type = /obj/item/stack/spacecash/c500
 
 /obj/item/stack/spacecash/c1000
 	icon_state = "spacecash1000"
 	singular_name = "тысяча кредитов"
 	value = 1000
+	merge_type = /obj/item/stack/spacecash/c1000
 
 /obj/item/stack/spacecash/c10000
 	icon_state = "spacecash10000"
 	singular_name = "десять тысяч кредитов"
 	value = 10000
+	merge_type = /obj/item/stack/spacecash/c10000

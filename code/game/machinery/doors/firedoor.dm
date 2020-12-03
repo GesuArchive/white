@@ -97,7 +97,7 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 
 	user.visible_message("<span class='notice'>[user] бьётся в [src].</span>", \
-						 "<span class='notice'>Бьюсь в [src]. Гениально.</span>")
+		"<span class='notice'>Бьюсь в [src]. Гениально.</span>")
 	playsound(loc, 'sound/effects/glassknock.ogg', 10, FALSE, frequency = 32000)
 
 /obj/machinery/door/firedoor/attackby(obj/item/C, mob/user, params)
@@ -111,19 +111,17 @@
 				return
 			C.play_tool_sound(src)
 			user.visible_message("<span class='notice'>[user] начинает откручивать болты [src]...</span>", \
-								 "<span class='notice'>Начинаю откручивать [src] от пола...</span>")
+				"<span class='notice'>Начинаю откручивать [src] от пола...</span>")
 			if(!C.use_tool(src, user, DEFAULT_STEP_TIME))
 				return
 			playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 			user.visible_message("<span class='notice'>[user] откручивает болты [src].</span>", \
-								 "<span class='notice'>Откручиваю [src] от пола.</span>")
-			var/turf/T = get_turf(src)
-			new /obj/item/shard(T, 1)
-			qdel(src)
+				"<span class='notice'>Откручиваю [src] от пола.</span>")
+			deconstruct(TRUE)
 			return
 		if(C.tool_behaviour == TOOL_SCREWDRIVER)
 			user.visible_message("<span class='notice'>[user] [boltslocked ? "разблокирует" : "блокирует"] болты [src].</span>", \
-								 "<span class='notice'>[boltslocked ? "Разблокирую" : "Блокирую"] напольные болты [src].</span>")
+				 "<span class='notice'>[boltslocked ? "Разблокирую" : "Блокирую"] напольные болты [src].</span>")
 			C.play_tool_sound(src)
 			boltslocked = !boltslocked
 			return
@@ -393,14 +391,14 @@
 			if(C.tool_behaviour == TOOL_CROWBAR)
 				C.play_tool_sound(src)
 				user.visible_message("<span class='notice'>[user] начинает извлекать микросхему из [src]...</span>", \
-									 "<span class='notice'>Начинаю извлекать микросхему из [src]...</span>")
+					"<span class='notice'>Начинаю извлекать микросхему из [src]...</span>")
 				if(!C.use_tool(src, user, DEFAULT_STEP_TIME))
 					return
 				if(constructionStep != CONSTRUCTION_PANEL_OPEN)
 					return
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				user.visible_message("<span class='notice'>[user] извлекает плату из [src].</span>", \
-									 "<span class='notice'>Извлекаю плату из [src].</span>")
+					"<span class='notice'>Извлекаю плату из [src].</span>")
 				new /obj/item/electronics/firelock(drop_location())
 				constructionStep = CONSTRUCTION_NO_CIRCUIT
 				update_icon()
@@ -411,13 +409,13 @@
 					return
 				C.play_tool_sound(src)
 				user.visible_message("<span class='notice'>[user] начинает прикручивать [src]...</span>", \
-									 "<span class='notice'>Начинаю прикручивать [src]...</span>")
+					"<span class='notice'>Начинаю прикручивать [src]...</span>")
 				if(!C.use_tool(src, user, DEFAULT_STEP_TIME))
 					return
 				if(locate(/obj/machinery/door/firedoor) in get_turf(src))
 					return
 				user.visible_message("<span class='notice'>[user] заканчивает пожарный шлюз.</span>", \
-									 "<span class='notice'>Заканчиваю пожарный шлюз.</span>")
+					"<span class='notice'>Заканчиваю пожарный шлюз.</span>")
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				if(reinforced)
 					new /obj/machinery/door/firedoor/heavy(get_turf(src))
@@ -434,13 +432,13 @@
 					to_chat(user, "<span class='warning'>Мне потребуется чуть больше пластали для [src].</span>")
 					return
 				user.visible_message("<span class='notice'>[user] начинает укреплять [src]...</span>", \
-									 "<span class='notice'>Начинаю укреплять [src]...</span>")
+					"<span class='notice'>Начинаю укреплять [src]...</span>")
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				if(do_after(user, DEFAULT_STEP_TIME, target = src))
 					if(constructionStep != CONSTRUCTION_PANEL_OPEN || reinforced || P.get_amount() < 2 || !P)
 						return
 					user.visible_message("<span class='notice'>[user] укрепляет [src].</span>", \
-										 "<span class='notice'>Укрепляю [src].</span>")
+						"<span class='notice'>Укрепляю [src].</span>")
 					playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 					P.use(2)
 					reinforced = 1
@@ -448,7 +446,7 @@
 		if(CONSTRUCTION_NO_CIRCUIT)
 			if(istype(C, /obj/item/electronics/firelock))
 				user.visible_message("<span class='notice'>[user] начинает устанавливает [C] к [src]...</span>", \
-									 "<span class='notice'>Начинаю вставлять плату в [src]...</span>")
+					"<span class='notice'>Начинаю вставлять плату в [src]...</span>")
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				if(!do_after(user, DEFAULT_STEP_TIME, target = src))
 					return
@@ -456,7 +454,7 @@
 					return
 				qdel(C)
 				user.visible_message("<span class='notice'>[user] устанавливает плату в [src].</span>", \
-									 "<span class='notice'>Вставляю плату в [C].</span>")
+					"<span class='notice'>Вставляю плату в [C].</span>")
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				constructionStep = CONSTRUCTION_PANEL_OPEN
 				return
@@ -464,13 +462,13 @@
 				if(!C.tool_start_check(user, amount=1))
 					return
 				user.visible_message("<span class='notice'>[user] начинает разваривать [src]...</span>", \
-									 "<span class='notice'>Начинаю разваривать [src] на куски...</span>")
+					"<span class='notice'>Начинаю разваривать [src] на куски...</span>")
 
 				if(C.use_tool(src, user, DEFAULT_STEP_TIME, volume=50, amount=1))
 					if(constructionStep != CONSTRUCTION_NO_CIRCUIT)
 						return
 					user.visible_message("<span class='notice'>[user] разваривает на куски [src]!</span>", \
-										 "<span class='notice'>Развариваю [src] в метал.</span>")
+						"<span class='notice'>Развариваю [src] в метал.</span>")
 					var/turf/T = get_turf(src)
 					new /obj/item/stack/sheet/metal(T, 3)
 					if(reinforced)
@@ -482,7 +480,7 @@
 				if(!P.adapt_circuit(user, DEFAULT_STEP_TIME * 0.5))
 					return
 				user.visible_message("<span class='notice'>[user] создаёт специальную плату и вставляет в [src].</span>", \
-				"<span class='notice'>Адаптирую микросхему и вставляю в пожарный шлюз.</span>")
+					"<span class='notice'>Адаптирую микросхему и вставляю в пожарный шлюз.</span>")
 				constructionStep = CONSTRUCTION_PANEL_OPEN
 				update_icon()
 				return

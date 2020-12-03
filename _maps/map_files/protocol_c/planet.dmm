@@ -299,7 +299,7 @@
 /turf/open/floor/plastic,
 /area/crew_quarters/bar)
 "ba" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /turf/open/floor/plastic,
 /area/crew_quarters/bar)
 "bb" = (
@@ -1187,7 +1187,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
 "dp" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
 "dq" = (
@@ -1883,7 +1883,7 @@
 /area/chapel/main)
 "fm" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/snacks/grown/harebell,
+/obj/item/food/grown/harebell,
 /turf/open/floor/plasteel/dark,
 /area/chapel/main)
 "fn" = (
@@ -1934,7 +1934,7 @@
 /area/chapel/main)
 "fw" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/snacks/grown/poppy,
+/obj/item/food/grown/poppy,
 /turf/open/floor/plasteel/chapel{
 	dir = 4
 	},
@@ -2433,7 +2433,7 @@
 /turf/open/floor/carpet,
 /area/crew_quarters/dorms)
 "gZ" = (
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/randomsnackvend,
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
@@ -4384,7 +4384,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
 "mf" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8

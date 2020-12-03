@@ -1,5 +1,5 @@
 /** Materials made from other materials.
-  */
+ */
 /datum/material/alloy
 	name = "сплав"
 	skloname = "сплава"
@@ -24,10 +24,10 @@
 
 
 /** Plasteel
-  *
-  * An alloy of iron and plasma.
-  * Applies a significant slowdown effect to any and all items that contain it.
-  */
+ *
+ * An alloy of iron and plasma.
+ * Applies a significant slowdown effect to any and all items that contain it.
+ */
 /datum/material/alloy/plasteel
 	name = "пласталь"
 	skloname = "пластали"
@@ -58,9 +58,9 @@
 	target_item.slowdown -= MATERIAL_SLOWDOWN_PLASTEEL * amount / MINERAL_MATERIAL_AMOUNT
 
 /** Plastitanium
-  *
-  * An alloy of titanium and plasma.
-  */
+ *
+ * An alloy of titanium and plasma.
+ */
 /datum/material/alloy/plastitanium
 	name = "пластитан"
 	skloname = "пластитана"
@@ -76,9 +76,9 @@
 	composition = list(/datum/material/titanium=1, /datum/material/plasma=1)
 
 /** Plasmaglass
-  *
-  * An alloy of silicate and plasma.
-  */
+ *
+ * An alloy of silicate and plasma.
+ */
 /datum/material/alloy/plasmaglass
 	name = "плазмастекло"
 	skloname = "плазмастекла"
@@ -95,9 +95,9 @@
 	composition = list(/datum/material/glass=1, /datum/material/plasma=0.5)
 
 /** Titaniumglass
-  *
-  * An alloy of glass and titanium.
-  */
+ *
+ * An alloy of glass and titanium.
+ */
 /datum/material/alloy/titaniumglass
 	name = "титановое стекло"
 	skloname = "титанового стекла"
@@ -113,9 +113,9 @@
 	composition = list(/datum/material/glass=1, /datum/material/titanium=0.5)
 
 /** Plastitanium Glass
-  *
-  * An alloy of plastitanium and glass.
-  */
+ *
+ * An alloy of plastitanium and glass.
+ */
 /datum/material/alloy/plastitaniumglass
 	name = "пластитановое стекло"
 	skloname = "пластитанового стекла"
@@ -132,11 +132,11 @@
 	composition = list(/datum/material/glass=1, /datum/material/alloy/plastitanium=0.5)
 
 /** Alien Alloy
-  *
-  * Densified plasteel.
-  * Applies a significant slowdown effect to anything that contains it.
-  * Anything constructed from it can slowly regenerate.
-  */
+ *
+ * Densified plasteel.
+ * Applies a significant slowdown effect to anything that contains it.
+ * Anything constructed from it can slowly regenerate.
+ */
 /datum/material/alloy/alien
 	name = "чужеродный сплав"
 	skloname = "чужеродного сплава"

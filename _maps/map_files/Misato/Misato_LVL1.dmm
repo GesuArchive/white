@@ -950,10 +950,10 @@
 /area/space)
 "CN" = (
 /obj/structure/closet/crate,
-/obj/item/reagent_containers/food/snacks/grown/potato,
-/obj/item/reagent_containers/food/snacks/grown/potato,
-/obj/item/reagent_containers/food/snacks/grown/onion,
-/obj/item/reagent_containers/food/snacks/grown/onion,
+/obj/item/food/grown/potato,
+/obj/item/food/grown/potato,
+/obj/item/food/grown/onion,
+/obj/item/food/grown/onion,
 /obj/item/reagent_containers/food/snacks/meat/rawcutlet/plain,
 /obj/item/reagent_containers/food/snacks/meat/rawcutlet/plain,
 /obj/item/reagent_containers/food/snacks/meat/rawcutlet/plain,

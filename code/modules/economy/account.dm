@@ -129,8 +129,8 @@
 					to_chat(M, "<span class='notice'><b>Карта:</b> [message]</span>")
 
 /**
-  * Returns a string with the civilian bounty's description on it.
-  */
+ * Returns a string with the civilian bounty's description on it.
+ */
 /datum/bank_account/proc/bounty_text()
 	if(!civilian_bounty)
 		return FALSE
@@ -138,8 +138,8 @@
 
 
 /**
-  * Returns the required item count, or required chemical units required to submit a bounty.
-  */
+ * Returns the required item count, or required chemical units required to submit a bounty.
+ */
 /datum/bank_account/proc/bounty_num()
 	if(!civilian_bounty)
 		return FALSE
@@ -153,16 +153,16 @@
 		return "At least 1u"
 
 /**
-  * Produces the value of the account's civilian bounty reward, if able.
-  */
+ * Produces the value of the account's civilian bounty reward, if able.
+ */
 /datum/bank_account/proc/bounty_value()
 	if(!civilian_bounty)
 		return FALSE
 	return civilian_bounty.reward
 
 /**
-  * Performs house-cleaning on variables when a civilian bounty is replaced, or, when a bounty is claimed.
-  */
+ * Performs house-cleaning on variables when a civilian bounty is replaced, or, when a bounty is claimed.
+ */
 /datum/bank_account/proc/reset_bounty()
 	civilian_bounty = null
 	bounty_timer = 0

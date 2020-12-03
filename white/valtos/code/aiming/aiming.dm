@@ -2,7 +2,7 @@
 	. = ..()
 	AddComponent(/datum/component/aiming)
 
-/obj/item/reagent_containers/food/snacks/grown/banana/Initialize() //Yes, you can hold someone at gunpoint with a banana.
+/obj/item/food/grown/banana/Initialize() //Yes, you can hold someone at gunpoint with a banana.
 	. = ..()
 	AddComponent(/datum/component/aiming)
 

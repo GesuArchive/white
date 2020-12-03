@@ -384,7 +384,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
 	},

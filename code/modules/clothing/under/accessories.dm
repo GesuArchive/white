@@ -73,7 +73,7 @@
 	return
 
 /obj/item/clothing/accessory/AltClick(mob/user)
-	if(istype(user) && user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
+	if(user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		if(initial(above_suit))
 			above_suit = !above_suit
 			to_chat(user, "[src] will be worn [above_suit ? "above" : "below"] your suit.")
@@ -129,7 +129,7 @@
 				delay = 0
 			else
 				user.visible_message("<span class='notice'><b>[user]</b> начинает вешать <b>[src.name]</b> на грудь <b>[M]</b>.</span>", \
-									 "<span class='notice'>Пытаюсь повесить <b>[src.name]</b> на грудь <b>[M]</b>.</span>")
+					"<span class='notice'>Пытаюсь повесить <b>[src.name]</b> на грудь <b>[M]</b>.</span>")
 			var/input
 			if(!commended && user != M)
 				input = stripped_input(user,"Напишите комментарий к награде. Это будет рассматриваться Нанотрейзеном в дальнейшем.", ,"", 140)
@@ -139,7 +139,7 @@
 						to_chat(user, "<span class='notice'>Прикрепляю <b>[src.name]</b> на <b>[U]</b>.</span>")
 					else
 						user.visible_message("<span class='notice'><b>[user]</b> прикрепляет <b>[src.name]</b> на грудь <b>[M]</b>.</span>", \
-											 "<span class='notice'>Прикрепляю <b>[src.name]</b> на грудь <b>[M]</b>.</span>")
+							"<span class='notice'>Прикрепляю <b>[src.name]</b> на грудь <b>[M]</b>.</span>")
 						if(input)
 							SSblackbox.record_feedback("associative", "commendation", 1, list("commender" = "[user.real_name]", "commendee" = "[M.real_name]", "medal" = "[src.name]", "reason" = input))
 							GLOB.commendations += "[user.real_name] awarded <b>[M.real_name]</b> the <span class='medaltext'>[name]</span>! \n- [input]"

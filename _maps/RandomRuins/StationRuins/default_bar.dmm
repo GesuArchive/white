@@ -293,7 +293,7 @@
 /turf/open/floor/wood,
 /area/crew_quarters/bar)
 "aO" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /turf/open/floor/wood,
 /area/crew_quarters/bar)
 "aP" = (

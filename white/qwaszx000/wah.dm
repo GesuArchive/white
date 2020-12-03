@@ -2,8 +2,8 @@
 	name = "Imperium soup"
 	reqs = list(
 		/obj/item/reagent_containers/glass/bowl = 1,
-		/obj/item/reagent_containers/food/snacks/grown/tomato = 1,
-		/obj/item/reagent_containers/food/snacks/grown/potato = 1,
+		/obj/item/food/grown/tomato = 1,
+		/obj/item/food/grown/potato = 1,
 		/datum/reagent/water = 20,
 		/datum/reagent/consumable/sodiumchloride = 10,
 		/datum/reagent/consumable/blackpepper = 10

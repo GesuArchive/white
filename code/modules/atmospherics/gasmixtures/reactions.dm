@@ -907,6 +907,8 @@ nobiliumsuppression = INFINITY
 	var/old_heat_capacity = air.heat_capacity()
 	var/temperature = air.return_temperature()
 	var/turf/open/location = isturf(holder) ? holder : null
+	if(location == null)
+		return NO_REACTION
 	var produced_amount = min(5, air.get_moles(/datum/gas/tritium), air.get_moles(/datum/gas/proto_nitrate))
 	if(air.get_moles(/datum/gas/tritium) - produced_amount < 0 || air.get_moles(/datum/gas/proto_nitrate) - produced_amount * 0.01 < 0)
 		return NO_REACTION

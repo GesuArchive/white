@@ -26,7 +26,7 @@
 
 /obj/structure/boobytrap/proc/activate()
 	if(grenade)
-		grenade.prime()
+		grenade.arm_grenade()
 		qdel(src)
 
 /obj/structure/boobytrap/Crossed(atom/movable/AM as mob|obj)

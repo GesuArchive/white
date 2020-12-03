@@ -11,6 +11,6 @@
 		return
 
 	for(var/obj/item/grenade/G in loc.loc.contents)
-		G.prime()
+		G.arm_grenade()
 
 	return TRUE

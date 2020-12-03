@@ -77,7 +77,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "au" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "aw" = (
@@ -1269,7 +1269,7 @@
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "jY" = (
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/randomsnackvend,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "kc" = (
@@ -1687,7 +1687,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/randomsnackvend,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "Qz" = (

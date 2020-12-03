@@ -138,7 +138,7 @@
 	time = 40
 	reqs = list(/obj/item/reagent_containers/food/snacks/carpmeat/dry = 1,
 				/datum/reagent/consumable/tomatojuice = 10,
-				/obj/item/reagent_containers/food/snacks/grown/tomato = 1)
+				/obj/item/food/grown/tomato = 1)
 	category = CAT_MISC
 
 /obj/item/reagent_containers/food/snacks/meat/slab/dach

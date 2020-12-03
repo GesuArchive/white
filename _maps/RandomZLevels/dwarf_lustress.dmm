@@ -228,8 +228,8 @@
 /area/awaymission/vietnam/dwarf)
 "nC" = (
 /obj/structure/table/stone,
-/obj/item/reagent_containers/food/snacks/grown/mushroom/plumphelmet,
-/obj/item/reagent_containers/food/snacks/grown/mushroom/plumphelmet{
+/obj/item/food/grown/mushroom/plumphelmet,
+/obj/item/food/grown/mushroom/plumphelmet{
 	pixel_x = 10;
 	pixel_y = 5
 	},
@@ -245,7 +245,7 @@
 /area/awaymission/vietnam/dwarf)
 "of" = (
 /obj/structure/table/stone,
-/obj/item/reagent_containers/food/snacks/grown/mushroom/plumphelmet{
+/obj/item/food/grown/mushroom/plumphelmet{
 	pixel_x = -7;
 	pixel_y = 17
 	},
@@ -259,7 +259,7 @@
 /area/awaymission/vietnam/dwarf)
 "pD" = (
 /obj/structure/table/stone,
-/obj/item/reagent_containers/food/snacks/grown/mushroom/plumphelmet{
+/obj/item/food/grown/mushroom/plumphelmet{
 	pixel_x = 16;
 	pixel_y = 5
 	},

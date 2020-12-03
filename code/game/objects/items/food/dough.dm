@@ -40,6 +40,10 @@
 	tastes = list("хлеб" = 1)
 	foodtypes = GRAIN
 
+/obj/item/food/pizzabread/Initialize()
+	. = ..()
+	AddComponent(/datum/component/customizable_reagent_holder, /obj/item/food/pizza/margherita, CUSTOM_INGREDIENT_ICON_SCATTER, max_ingredients = 12)
+
 /obj/item/food/doughslice
 	name = "кусочек теста"
 	desc = "A slice of dough. Can be cooked into a bun."
@@ -61,6 +65,10 @@
 	w_class = WEIGHT_CLASS_SMALL
 	tastes = list("булочка" = 1) // the bun tastes of bun.
 	foodtypes = GRAIN
+
+/obj/item/food/bun/Initialize()
+	. = ..()
+	AddComponent(/datum/component/customizable_reagent_holder, /obj/item/food/burger/empty, CUSTOM_INGREDIENT_ICON_STACKPLUSTOP)
 
 /obj/item/food/cakebatter
 	name = "тесто для торта"
@@ -85,7 +93,7 @@
 	tastes = list("тесто" = 1)
 	foodtypes = GRAIN | DAIRY
 
-/obj/item/food/flatdough/MakeProcessable()
+/obj/item/food/piedough/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/rawpastrybase, 3, 30)
 
 /obj/item/food/rawpastrybase
