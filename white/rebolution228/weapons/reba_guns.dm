@@ -34,7 +34,7 @@
 // M41A MKII
 
 /obj/item/gun/ballistic/automatic/m41a2
-	var/obj/item/gun/ballistic/revo	lver/grenadelauncher/underbarrel
+	var/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel
 	name = "M41A Pulse Rifle MK.II"
 	desc = "Новая версия громоздкой импульсной винтовки, оснащенная подствольным гранатомётом. Использует безгильзовые 10х24мм патроны."
 	icon = 'white/rebolution228/weapons/rguns.dmi'
