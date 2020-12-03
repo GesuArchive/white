@@ -53,7 +53,7 @@
 	empty_indicator = TRUE
 	spread = 5
 	w_class = WEIGHT_CLASS_BULKY
-	weapon_weight = WEAPON_MEDIUM
+	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'white/rebolution228/weapons/sounds/fire_m41a1.ogg'
 
 /obj/item/gun/ballistic/automatic/m41a2/Initialize()
@@ -114,10 +114,6 @@
 	else
 		icon_state = "m41a2_e"
 
-/obj/item/gun/ballistic/automatic/m41a2/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/two_handed, require_twohands=TRUE, force_unwielded=10, force_wielded=10)
-
 // m41a2 ammo
 
 /obj/item/ammo_box/magazine/m41a/caseless
@@ -140,6 +136,13 @@
 	damage = 35
 	armour_penetration = 25
 	wound_bonus = -40
+
+/obj/projectile/bullet/m41acaseless/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	if(isalien(target))
+		var/mob/living/carbon/alien/L = target
+		L.visible_message("<span class='danger'>[L] explodes into a shower of gibs!</span>")
+		L.gib()
 
 /obj/item/ammo_casing/caseless/m41acaseless
 	name = "10x24мм патрон"
