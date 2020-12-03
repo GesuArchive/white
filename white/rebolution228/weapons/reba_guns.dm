@@ -34,8 +34,8 @@
 // M41A MKII
 
 /obj/item/gun/ballistic/automatic/m41a2
-	var/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel
-	name = "M41A2 Pulse Rifle"
+	var/obj/item/gun/ballistic/revo	lver/grenadelauncher/underbarrel
+	name = "M41A Pulse Rifle MK.II"
 	desc = "Новая версия громоздкой импульсной винтовки, оснащенная подствольным гранатомётом. Использует безгильзовые 10х24мм патроны."
 	icon = 'white/rebolution228/weapons/rguns.dmi'
 	icon_state = "m41a2"
@@ -83,7 +83,7 @@
 			burst_size = 1
 			fire_delay = 0
 			to_chat(user, "<span class='notice'>Выбран полуавтоматический режим.</span>")
-	playsound(user, 'sound/weapons/empty.ogg', 100, TRUE)
+	playsound(user, 'white/rebolution228/weapons/sounds/dryfire1.ogg', 100, TRUE)
 	update_icon()
 	return
 
@@ -113,6 +113,12 @@
 			icon_state = "m41a2_nm"
 	else
 		icon_state = "m41a2_e"
+
+/obj/item/gun/ballistic/automatic/m41a2/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/two_handed, require_twohands=TRUE, force_unwielded=10, force_wielded=10)
+
+// m41a2 ammo
 
 /obj/item/ammo_box/magazine/m41a/caseless
 	name = "M41A2 Magazine"
