@@ -34,7 +34,7 @@
 
 /datum/bounty/item/engineering/energy_ball
 	name = "Удержанный шар теслы"
-	description = "Станция 24 наводнена ордами разгневанных молей. Они запрашивают ультимативную убийцу насекомых."
+	description = "Станция 24 наводнена ордами разгневанных молей. Она запрашивают шар Теслы."
 	reward = 75000 //requires 14k credits of purchases, not to mention cooperation with engineering/heads of staff to set up inside the cramped shuttle
 	wanted_types = list(/obj/singularity/energy_ball)
 
