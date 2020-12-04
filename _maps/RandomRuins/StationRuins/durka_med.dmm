@@ -2957,9 +2957,6 @@
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
 "EQ" = (
-/obj/machinery/vending/medical{
-	pixel_x = -2
-	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
@@ -2970,6 +2967,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/machinery/vending/drugs,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
 "ER" = (

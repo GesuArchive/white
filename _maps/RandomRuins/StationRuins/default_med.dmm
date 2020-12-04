@@ -2006,9 +2006,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/machinery/vending/medical{
-	pixel_x = -2
-	},
+/obj/machinery/vending/drugs,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "oN" = (
