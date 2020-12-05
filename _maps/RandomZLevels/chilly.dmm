@@ -275,11 +275,11 @@
 	},
 /obj/effect/decal/cleanable/cum,
 /obj/effect/decal/cleanable/poo,
-/obj/item/reagent_containers/food/snacks/poo/cooked{
+/obj/item/food/poo/cooked{
 	pixel_x = 5;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/poo/cooked,
+/obj/item/food/poo/cooked,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
 "aR" = (
