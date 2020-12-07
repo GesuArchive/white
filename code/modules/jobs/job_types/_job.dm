@@ -131,12 +131,12 @@
 					permitted = FALSE
 
 				if(!permitted)
-					to_chat(M, "<span class='warning'>Your current species or role does not permit you to spawn with [gear]!</span>")
+					to_chat(M, "<span class='warning'>Должность или раса не позволяют мне иметь [gear]!</span>")
 					continue
 
 				if(G.slot)
 					if(H.equip_to_slot_or_del(G.spawn_item(H), G.slot))
-						to_chat(M, "<span class='notice'>Equipping you with [gear]!</span>")
+						to_chat(M, "<span class='notice'>Экипируемся в [gear]!</span>")
 					else
 						gear_leftovers += G
 				else
@@ -153,25 +153,25 @@
 
 				if(istype(placed_in))
 					if(isturf(placed_in))
-						to_chat(M, "<span class='notice'>Placing [G.display_name] on [placed_in]!</span>")
+						to_chat(M, "<span class='notice'>[capitalize(G.display_name)] находится в [placed_in]!</span>")
 					else
-						to_chat(M, "<span class='noticed'>Placing [G.display_name] in [placed_in.name]]")
+						to_chat(M, "<span class='noticed'>[capitalize(G.display_name)] находится на [placed_in.name]]")
 					continue
 
 				if(H.equip_to_appropriate_slot(item))
-					to_chat(M, "<span class='notice'>Placing [G.display_name] in your inventory!</span>")
+					to_chat(M, "<span class='notice'>[capitalize(G.display_name)] находится где-то на мне!</span>")
 					continue
 				if(H.put_in_hands(item))
-					to_chat(M, "<span class='notice'>Placing [G.display_name] in your hands!</span>")
+					to_chat(M, "<span class='notice'>[capitalize(G.display_name)] у меня в руках!</span>")
 					continue
 
 				var/obj/item/storage/B = (locate() in H)
 				if(B)
 					G.spawn_item(B, metadata)
-					to_chat(M, "<span class='notice'>Placing [G.display_name] in [B.name]!</span>")
+					to_chat(M, "<span class='notice'>[capitalize(G.display_name)] в [B.name]!</span>")
 					continue
 
-				to_chat(M, "<span class='danger'>Failed to locate a storage object on your mob, either you spawned with no hands free and no backpack or this is a bug.</span>")
+				to_chat(M, "<span class='danger'>Что-то пришлось оставить...</span>")
 				qdel(item)
 
 			qdel(gear_leftovers)
