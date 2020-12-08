@@ -269,7 +269,7 @@
 "aQ" = (
 /obj/machinery/hydroponics/soil,
 /obj/structure/rospilovo/krest{
-	desc = "There's something written on it: R.I.P Stanislav Zaporov, 2542-2560. Died from salo suffocation.;
+	desc = "There\'s something written on it: R.I.P Stanislav Zaporov, 2542-2560. Died from salo suffocation.";
 	pixel_x = 16;
 	pixel_y = -2
 	},
