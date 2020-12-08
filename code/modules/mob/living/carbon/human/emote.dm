@@ -173,3 +173,17 @@
 		T.Entered(src)
 
 //Ayy lmao
+
+/datum/emote/living/carbon/human/dab
+	key = "dab"
+	key_third_person = "dabs"
+	message = "бьёт себя рукой по лбу!"
+
+/datum/emote/living/carbon/human/dab/run_emote(mob/living/carbon/user, params)
+	. = ..()
+	if(. && ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/light_dab_angle = rand(35,55)
+		var/light_dab_speed = rand(3,7)
+		H.DabAnimation(angle = light_dab_angle , speed = light_dab_speed)
+		H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5)

@@ -369,7 +369,7 @@
 				data["alertLevel"] = get_security_level()
 				data["authorizeName"] = authorize_name
 				data["canLogOut"] = !issilicon(user)
-				data["shuttleCanEvacOrFailReason"] = SSshuttle.canEvac(user)
+				data["shuttleCanEvacOrFailReason"] = SSshuttle.canEvac(user, TRUE)
 
 				if (authenticated_as_non_silicon_captain(user))
 					data["canMessageAssociates"] = TRUE

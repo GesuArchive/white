@@ -35,6 +35,7 @@
 	uses--
 	to_chat(imp_in, "<span class='notice'>You feel a sudden surge of energy!</span>")
 	imp_in.SetKnockdown(0)
+	imp_in.setStaminaLoss(0)
 	imp_in.set_resting(FALSE)
 	imp_in.reagents.add_reagent(/datum/reagent/medicine/badstims, 6)
 	if(!uses)

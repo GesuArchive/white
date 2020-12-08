@@ -321,7 +321,7 @@
 		to_chat(usr, "<span class='warning'>Wireless control is disabled!</span>")
 		return
 
-	var/can_evac_or_fail_reason = SSshuttle.canEvac(src)
+	var/can_evac_or_fail_reason = SSshuttle.canEvac(src, FALSE)
 	if(can_evac_or_fail_reason != TRUE)
 		to_chat(usr, "<span class='alert'>[can_evac_or_fail_reason]</span>")
 		return

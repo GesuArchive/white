@@ -24,7 +24,7 @@ export const NowPlayingWidget = (props, context) => {
             shrink={0}
             mx={0.5}
             color="label">
-            Now playing:
+            Сейчас играет:
           </Flex.Item>
           <Flex.Item
             mx={0.5}
@@ -39,7 +39,7 @@ export const NowPlayingWidget = (props, context) => {
         </Fragment>
       ) || (
         <Flex.Item grow={1} color="label">
-          Nothing to play.
+          Ничего не играет.
         </Flex.Item>
       )}
       {audio.playing && (
