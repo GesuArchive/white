@@ -272,10 +272,14 @@ a.popt {
 h1, h2, h3, h4, h5, h6 {
   color: #d6d6d6;
   font-family: Verdana, sans-serif;
-  text-shadow: -1px -1px 0 #222,
-               1px -1px 0 #222,
-               -1px 1px 0 #222,
-               1px 1px 0 #222,
+  text-shadow: -1px -1px 0 #000,
+               1px -1px 0 #000,
+               -1px 1px 0 #000,
+               1px 1px 0 #000,
+               -2px -2px 0 #222,
+               2px -2px 0 #222,
+               -2px 2px 0 #222,
+               2px 2px 0 #222;
 }
 
 h1.alert, h2.alert {
@@ -417,7 +421,7 @@ em {
 }
 
 .smalldanger {
-  color: #fd5b5b;
+  color: #b87878;
   margin-left: 2px;
   font-size: 95%;
 }
@@ -477,12 +481,12 @@ em {
 }
 
 .smallnotice {
-  color: #cfa68b;
+  color: #bdaa9e;
   font-size: 95%;
 }
 
 .smallnoticeital {
-  color: #cfa68b;
+  color: #c4ac9c;
   font-style: italic;
   font-size: 95%;
 }
@@ -954,15 +958,15 @@ em {
 }
 
 .examine_block {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(55, 55, 55, 0.33);
-  margin: 2px 8px;
+  margin: 4px 8px;
   padding: 8px 12px;
   max-width: 550px;
 }
 .examine_block hr {
   border: none;
-  background: #333;
+  background: #222;
   height: 1px;
   margin: 8px 16px 8px 16px;
 }
