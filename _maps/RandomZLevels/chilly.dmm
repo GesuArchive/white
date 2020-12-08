@@ -12887,11 +12887,9 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/chilly/facility)
 "Jk" = (
-/obj/structure/chair/plastic{
-	dir = 8
-	},
+/obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/weather/snow/corner{
-	dir = 4
+	dir = 6
 	},
 /turf/open/floor/grass/snow/safe/oxy{
 	icon_state = "snow_dug";
@@ -14745,16 +14743,6 @@
 /obj/effect/turf_decal/weather/side,
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
 /area/awaymission/chilly/facility2)
-"OK" = (
-/obj/effect/turf_decal/dust,
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 6
-	},
-/turf/open/floor/grass/snow/safe/oxy{
-	icon_state = "snow_dug";
-	slowdown = 1
-	},
-/area/awaymission/chilly/surface)
 "OL" = (
 /obj/structure/closet/crate/secure/gear,
 /obj/item/storage/box/lethalshot,
@@ -69315,10 +69303,10 @@ Om
 bc
 Wp
 hR
-gi
 hR
 Wp
 eR
+Om
 Om
 Om
 Om
@@ -69558,9 +69546,9 @@ kG
 hx
 hR
 Wp
-Wp
-OK
+Jk
 kG
+Om
 Om
 kG
 Om
@@ -69800,9 +69788,9 @@ Om
 kG
 bc
 Jk
-OK
 Om
 kG
+Om
 Om
 Om
 Om
@@ -70045,7 +70033,7 @@ Om
 kG
 Om
 Om
-kG
+Om
 Om
 Om
 Om
