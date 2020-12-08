@@ -192,7 +192,7 @@ SUBSYSTEM_DEF(shuttle)
 
 /// Check if we can call the evac shuttle.
 /// Returns TRUE if we can. Otherwise, returns a string detailing the problem.
-/datum/controller/subsystem/shuttle/proc/canEvac(mob/user)
+/datum/controller/subsystem/shuttle/proc/canEvac(mob/user, check_integrity = TRUE)
 	var/srd = CONFIG_GET(number/shuttle_refuel_delay)
 	if(world.time - SSticker.round_start_time < srd)
 		return "<span class='alert'>Эвакуационный шаттл всё ещё готовится. Подождите [DisplayTimeText(srd - (world.time - SSticker.round_start_time))] перед очередной попыткой.</span>"
@@ -211,15 +211,15 @@ SUBSYSTEM_DEF(shuttle)
 		if(SHUTTLE_STRANDED)
 			return "The emergency shuttle has been disabled by CentCom."
 
-	if(world.time - SSticker.round_start_time > 36000)
+	if(world.time - SSticker.round_start_time > 1 HOURS)
 		return TRUE
 
-	var/datum/station_state/end_state = new /datum/station_state()
-	end_state.count()
-	var/station_integrity = min(PERCENT(GLOB.start_state.score(end_state)), 100)
-	if(station_integrity > 98)
-		to_chat(user, "<span class='alert'>Состояние станции удовлетворительное. Улетать пока нет смысла.</span>")
-		return FALSE
+	if(check_integrity)
+		var/datum/station_state/end_state = new /datum/station_state()
+		end_state.count()
+		var/station_integrity = min(PERCENT(GLOB.start_state.score(end_state)), 100)
+		if(station_integrity > 98)
+			return "<span class='alert'>Состояние станции удовлетворительное. Улетать пока нет смысла.</span>"
 
 	return TRUE
 
@@ -237,7 +237,7 @@ SUBSYSTEM_DEF(shuttle)
 			Good luck.")
 		emergency = backup_shuttle
 
-	var/can_evac_or_fail_reason = SSshuttle.canEvac(user)
+	var/can_evac_or_fail_reason = SSshuttle.canEvac(user, FALSE)
 	if(can_evac_or_fail_reason != TRUE)
 		to_chat(user, "<span class='alert'>[can_evac_or_fail_reason]</span>")
 		return
