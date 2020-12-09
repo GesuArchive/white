@@ -106,6 +106,7 @@
 		if(node)
 			node.atmosinit()
 			node.addMember(src)
+		SSair.add_to_rebuild_queue(src)
 
 /obj/machinery/atmospherics/components/unary/hypertorus/update_icon()
 	. = ..()
@@ -908,7 +909,7 @@
 	if(internal_fusion.return_temperature() <= FUSION_MAXIMUM_TEMPERATURE)
 		internal_fusion.set_temperature(clamp(internal_fusion.return_temperature() + heat_output,TCMB,FUSION_MAXIMUM_TEMPERATURE))
 	else
-		internal_fusion.set_temperature(internal_fusion.return_temperature() - heat_limiter_modifier * 0.01 * delta_time)
+		internal_fusion.set_temperature(internal_fusion.return_temperature() - (heat_limiter_modifier * 0.01 * delta_time))
 
 	//gas consumption and production
 	if(check_fuel())
