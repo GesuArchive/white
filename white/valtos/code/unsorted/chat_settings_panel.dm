@@ -55,5 +55,5 @@ GLOBAL_LIST_INIT(chat_settings_list_desc, list(
 		if ("toggle_ignore")
 			var/key = params["key"]
 			if (key)
-				user.client.prefs.chat_toggles ^= key
+				usr.client.prefs.chat_toggles ^= key
 	. = TRUE

@@ -7,6 +7,15 @@
 @use '~tgui/styles/base.scss';
 @use '~tgui/styles/colors.scss';
 
+@font-face {
+  font-family: "KatanaFont";
+  src: url("~tgui-panel/fonts/retroville.ttf");
+}
+
+.katanafont {
+  font-family: "KatanaFont";
+}
+
 $text-color: #ababab !default;
 $color-bg-section: base.$color-bg-section !default;
 
