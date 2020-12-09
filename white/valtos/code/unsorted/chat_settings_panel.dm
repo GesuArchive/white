@@ -6,17 +6,22 @@
 //
 ////////////////////////////////////////////////
 
-GLOBAL_LIST_INIT(chat_settings_list_desc, list(
-	"OOC" 		  		= CHAT_OOC,
-	"LOOC" 		  		= CHAT_LOOC,
-	"Дедчат" 		  	= CHAT_DEAD,
+GLOBAL_LIST_INIT(ghost_chat_settings_list_desc, list(
 	"Разговоры" 	  	= CHAT_GHOSTEARS,
 	"Эмоуты"   			= CHAT_GHOSTSIGHT,
 	"Шепот" 			= CHAT_GHOSTWHISPER,
 	"Сообщения ПДА" 	= CHAT_GHOSTPDA,
 	"Радиопереговоры"   = CHAT_GHOSTRADIO,
-	"Зарплата" 	  		= CHAT_BANKCARD,
 	"Смена законов ИИ" 	= CHAT_GHOSTLAWS
+))
+
+GLOBAL_LIST_INIT(ic_settings_list_desc, list(
+	"Зарплата" 	  		= CHAT_BANKCARD
+))
+
+GLOBAL_LIST_INIT(chat_settings_list_desc, list(
+	"OOC" 		  		= CHAT_OOC,
+	"LOOC" 		  		= CHAT_LOOC
 ))
 
 /client/verb/chat_settings_panel()
@@ -39,9 +44,23 @@ GLOBAL_LIST_INIT(chat_settings_list_desc, list(
 
 /datum/chat_settings_panel/ui_data(mob/user)
 	. = list()
-	.["ignore"] = list()
+	.["ghost"] = list()
 	for(var/key in GLOB.chat_settings_list_desc)
-		.["ignore"] += list(list(
+		.["ghost"] += list(list(
+			"key" = GLOB.chat_settings_list_desc[key],
+			"enabled" = !(user.client.prefs.chat_toggles & GLOB.chat_settings_list_desc[key]),
+			"desc" = key
+		))
+	.["ic"] = list()
+	for(var/key in GLOB.ic_settings_list_desc)
+		.["ic"] += list(list(
+			"key" = GLOB.ic_settings_list_desc[key],
+			"enabled" = !(user.client.prefs.chat_toggles & GLOB.ic_settings_list_desc[key]),
+			"desc" = key
+		))
+	.["chat"] = list()
+	for(var/key in GLOB.chat_settings_list_desc)
+		.["chat"] += list(list(
 			"key" = GLOB.chat_settings_list_desc[key],
 			"enabled" = !(user.client.prefs.chat_toggles & GLOB.chat_settings_list_desc[key]),
 			"desc" = key

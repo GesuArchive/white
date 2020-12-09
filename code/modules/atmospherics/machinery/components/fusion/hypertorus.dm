@@ -701,7 +701,6 @@
 	//Start by storing the gasmix of the inputs inside the internal_fusion and moderator_internal
 	if(!linked_input.airs[1].total_moles())
 		return
-	var/datum/gas_mixture/buffer
 	if(linked_input.airs[1].get_moles(/datum/gas/hydrogen) > 50)
 		linked_input.airs[1].transfer_to(internal_fusion, -fuel_injection_rate * 0.1)
 	if(linked_input.airs[1].get_moles(/datum/gas/tritium) > 50)

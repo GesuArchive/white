@@ -30,7 +30,8 @@
 	desc = "Выглядят ужасно."
 	icon = 'white/valtos/icons/ny.dmi'
 	icon_state = "snowflakes_1"
-	layer = SIGN_LAYER
+	layer = ABOVE_ALL_MOB_LAYER
+	anchored = TRUE
 
 /obj/structure/snowflakes/Initialize()
 	. = ..()
@@ -60,6 +61,12 @@
 	else
 		icon_state = "garland"
 		set_light(0)
+
+/obj/structure/garland/attacked_by(obj/item/I, mob/living/user)
+	. = ..()
+	if(I.tool_behaviour == TOOL_MULTITOOL)
+		to_chat(user, "<span class='notice'>[on ? "Выключаю" : "Включаю"] гирлянду.</span>")
+		update_garland()
 
 /obj/structure/garland/attack_hand(mob/living/user)
 	. = ..()
