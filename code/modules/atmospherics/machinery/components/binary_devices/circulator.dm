@@ -9,7 +9,7 @@
 	icon = 'white/valtos/icons/teg.dmi'
 	icon_state = "circ-unassembled-0"
 	density = TRUE
-	integrity_failure = 75
+	integrity_failure = 0.75
 	move_resist = MOVE_RESIST_DEFAULT //can be pushed around like a regular machine
 	var/active = FALSE
 
