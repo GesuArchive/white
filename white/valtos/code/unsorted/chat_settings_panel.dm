@@ -6,24 +6,23 @@
 //
 ////////////////////////////////////////////////
 
-GLOBAL_LIST_INIT(chat_settings_list_desc, list(
-	CHAT_OOC = "OOC",
-	CHAT_LOOC = "LOOC",
-	CHAT_DEAD = "Дедчат",
-	CHAT_GHOSTEARS = "Разговоры",
-	CHAT_GHOSTSIGHT = "Эмоуты",
-	CHAT_GHOSTWHISPER = "Шепот",
-	CHAT_GHOSTPDA = "Сообщения ПДА",
-	CHAT_GHOSTRADIO = "Радиопереговоры",
-	CHAT_BANKCARD = "Зарплата",
-	CHAT_GHOSTLAWS = "Смена законов ИИ"
+GLOBAL_LIST_INIT(ghost_chat_settings_list_desc, list(
+	"Разговоры" 	  	= CHAT_GHOSTEARS,
+	"Эмоуты"   			= CHAT_GHOSTSIGHT,
+	"Шепот" 			= CHAT_GHOSTWHISPER,
+	"Сообщения ПДА" 	= CHAT_GHOSTPDA,
+	"Радиопереговоры"   = CHAT_GHOSTRADIO,
+	"Смена законов ИИ" 	= CHAT_GHOSTLAWS
 ))
-GLOBAL_LIST_INIT(chat_settings_list, init_chat_settings())
 
-/proc/init_chat_settings()
-	. = list()
-	for (var/k in GLOB.chat_settings_list_desc)
-		.[k] = list()
+GLOBAL_LIST_INIT(ic_settings_list_desc, list(
+	"Зарплата" 	  		= CHAT_BANKCARD
+))
+
+GLOBAL_LIST_INIT(chat_settings_list_desc, list(
+	"OOC" 		  		= CHAT_OOC,
+	"LOOC" 		  		= CHAT_LOOC
+))
 
 /client/verb/chat_settings_panel()
 	set name = " ! Настройка чата"
@@ -45,12 +44,26 @@ GLOBAL_LIST_INIT(chat_settings_list, init_chat_settings())
 
 /datum/chat_settings_panel/ui_data(mob/user)
 	. = list()
-	.["ignore"] = list()
+	.["ghost"] = list()
 	for(var/key in GLOB.chat_settings_list_desc)
-		.["ignore"] += list(list(
-			"key" = key,
-			"enabled" = (user.ckey in GLOB.chat_settings_list[key]),
-			"desc" = GLOB.chat_settings_list_desc[key]
+		.["ghost"] += list(list(
+			"key" = GLOB.chat_settings_list_desc[key],
+			"enabled" = !(user.client.prefs.chat_toggles & GLOB.chat_settings_list_desc[key]),
+			"desc" = key
+		))
+	.["ic"] = list()
+	for(var/key in GLOB.ic_settings_list_desc)
+		.["ic"] += list(list(
+			"key" = GLOB.ic_settings_list_desc[key],
+			"enabled" = !(user.client.prefs.chat_toggles & GLOB.ic_settings_list_desc[key]),
+			"desc" = key
+		))
+	.["chat"] = list()
+	for(var/key in GLOB.chat_settings_list_desc)
+		.["chat"] += list(list(
+			"key" = GLOB.chat_settings_list_desc[key],
+			"enabled" = !(user.client.prefs.chat_toggles & GLOB.chat_settings_list_desc[key]),
+			"desc" = key
 		))
 
 /datum/chat_settings_panel/ui_act(action, params)
@@ -60,6 +73,6 @@ GLOBAL_LIST_INIT(chat_settings_list, init_chat_settings())
 	switch (action)
 		if ("toggle_ignore")
 			var/key = params["key"]
-			if (key && islist(GLOB.chat_settings_list[key]))
+			if (key)
 				usr.client.prefs.chat_toggles ^= key
 	. = TRUE

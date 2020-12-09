@@ -106,6 +106,7 @@
 		if(node)
 			node.atmosinit()
 			node.addMember(src)
+		SSair.add_to_rebuild_queue(src)
 
 /obj/machinery/atmospherics/components/unary/hypertorus/update_icon()
 	. = ..()
@@ -700,15 +701,11 @@
 	//Start by storing the gasmix of the inputs inside the internal_fusion and moderator_internal
 	if(!linked_input.airs[1].total_moles())
 		return
-	var/datum/gas_mixture/buffer
 	if(linked_input.airs[1].get_moles(/datum/gas/hydrogen) > 50)
-		buffer = linked_input.airs[1].adjust_moles(/datum/gas/hydrogen, -fuel_injection_rate * 0.1)
-		internal_fusion.merge(buffer)
+		linked_input.airs[1].transfer_to(internal_fusion, -fuel_injection_rate * 0.1)
 	if(linked_input.airs[1].get_moles(/datum/gas/tritium) > 50)
-		buffer = linked_input.airs[1].adjust_moles(/datum/gas/tritium, -fuel_injection_rate * 0.1)
-		internal_fusion.merge(buffer)
-	buffer = linked_moderator.airs[1].remove(moderator_injection_rate * 0.1)
-	moderator_internal.merge(buffer)
+		linked_input.airs[1].transfer_to(internal_fusion, -fuel_injection_rate * 0.1)
+	linked_moderator.airs[1].transfer_to(moderator_internal, moderator_injection_rate * 0.1)
 
 /obj/machinery/atmospherics/components/unary/hypertorus/core/process(delta_time)
 	fusion_process(delta_time)
@@ -908,7 +905,7 @@
 	if(internal_fusion.return_temperature() <= FUSION_MAXIMUM_TEMPERATURE)
 		internal_fusion.set_temperature(clamp(internal_fusion.return_temperature() + heat_output,TCMB,FUSION_MAXIMUM_TEMPERATURE))
 	else
-		internal_fusion.set_temperature(internal_fusion.return_temperature() - heat_limiter_modifier * 0.01 * delta_time)
+		internal_fusion.set_temperature(internal_fusion.return_temperature() - (heat_limiter_modifier * 0.01 * delta_time))
 
 	//gas consumption and production
 	if(check_fuel())

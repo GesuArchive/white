@@ -111,6 +111,12 @@
 	if(!ishuman(H))
 		return
 	var/mob/living/carbon/human/human = H
+
+	// новый год 2021
+	var/obj/item/stack/garland_pack/fifty/garl = new(get_turf(H))
+	H.put_in_hands(garl)
+	H.equip_to_slot(garl, ITEM_SLOT_BACKPACK)
+
 	if(M.client && (M.client.prefs.equipped_gear && M.client.prefs.equipped_gear.len))
 		for(var/gear in M.client.prefs.equipped_gear)
 			var/datum/gear/G = GLOB.gear_datums[gear]

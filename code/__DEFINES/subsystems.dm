@@ -235,6 +235,7 @@
 #define SSAIR_HOTSPOTS 6
 #define SSAIR_SUPERCONDUCTIVITY 7
 #define SSAIR_EQUALIZE 8
+#define SSAIR_REBUILD_PIPENETS 9
 
 // Explosion Subsystem subtasks
 #define SSEXPLOSIONS_MOVABLES 1

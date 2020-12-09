@@ -4,8 +4,32 @@ import { Window } from '../layouts';
 
 export const ChatSettingsPanel = (props, context) => {
   const { act, data } = useBackend(context);
-  const ignoresPreSort = data.ignore || [];
-  const ignores = ignoresPreSort.sort((a, b) => {
+  const ghostPreSort = data.ghost || [];
+  const ghost = ghostPreSort.sort((a, b) => {
+    const descA = a.desc.toLowerCase();
+    const descB = b.desc.toLowerCase();
+    if (descA < descB) {
+      return -1;
+    }
+    if (descA > descB) {
+      return 1;
+    }
+    return 0;
+  });
+  const icPreSort = data.ic || [];
+  const ic = icPreSort.sort((a, b) => {
+    const descA = a.desc.toLowerCase();
+    const descB = b.desc.toLowerCase();
+    if (descA < descB) {
+      return -1;
+    }
+    if (descA > descB) {
+      return 1;
+    }
+    return 0;
+  });
+  const chatPreSort = data.chat || [];
+  const chat = chatPreSort.sort((a, b) => {
     const descA = a.desc.toLowerCase();
     const descB = b.desc.toLowerCase();
     if (descA < descB) {
@@ -20,18 +44,40 @@ export const ChatSettingsPanel = (props, context) => {
     <Window
       title="Настройка чата"
       width={270}
-      height={560}
+      height={400}
       resizable>
       <Window.Content scrollable>
-        <Section title="Настройка чата">
-          {ignores.map(ignore => (
+        <Section title="Основное">
+          {chat.map(a => (
             <Button
               fluid
-              key={ignore.key}
-              icon={ignore.enabled ? 'times' : 'check'}
-              content={ignore.desc}
-              color={ignore.enabled ? 'bad' : 'good'}
-              onClick={() => act('toggle_ignore', { key: ignore.key })} />
+              key={a.key}
+              icon={a.enabled ? 'times' : 'check'}
+              content={a.desc}
+              color={a.enabled ? 'bad' : 'good'}
+              onClick={() => act('toggle_ignore', { key: a.key })} />
+          ))}
+        </Section>
+        <Section title="IC">
+          {ic.map(a => (
+            <Button
+              fluid
+              key={a.key}
+              icon={a.enabled ? 'times' : 'check'}
+              content={a.desc}
+              color={a.enabled ? 'bad' : 'good'}
+              onClick={() => act('toggle_ignore', { key: a.key })} />
+          ))}
+        </Section>
+        <Section title="Призрак">
+          {ghost.map(a => (
+            <Button
+              fluid
+              key={a.key}
+              icon={a.enabled ? 'times' : 'check'}
+              content={a.desc}
+              color={a.enabled ? 'bad' : 'good'}
+              onClick={() => act('toggle_ignore', { key: a.key })} />
           ))}
         </Section>
       </Window.Content>

@@ -211,6 +211,12 @@ GLOBAL_LIST_EMPTY(crematoriums)
 	icon_state = "crema1"
 	dir = SOUTH
 	var/id = 1
+	var/temperature = T20C
+	var/heating = FALSE
+
+/obj/structure/bodycontainer/crematorium/examine(mob/user)
+	. = ..()
+	. += "<hr><span class='notice'>Температура: <b>[round(temperature-T0C, 0.01)] &deg;C</b></span>"
 
 /obj/structure/bodycontainer/crematorium/attack_robot(mob/user) //Borgs can't use crematoriums without help
 	to_chat(user, "<span class='warning'>[capitalize(src.name)] заперт для меня.</span>")
@@ -247,7 +253,21 @@ GLOBAL_LIST_EMPTY(crematoriums)
 
 	return
 
+/obj/structure/bodycontainer/crematorium/process()
+	temperature += 100
+	if(temperature > 1173.15)
+		STOP_PROCESSING(SSobj, src)
+		playsound(src.loc, 'sound/machines/ding.ogg', 50, TRUE)
+		audible_message("<span class='hear'>Слышу треск.</span>")
+		heating = FALSE
+
 /obj/structure/bodycontainer/crematorium/proc/cremate(mob/user)
+	if(temperature < 1173.15)
+		if(!heating)
+			audible_message("<span class='hear'>Слышу как накаляется метал.</span>")
+			START_PROCESSING(SSobj, src)
+			heating = TRUE
+		return
 	if(locked)
 		return //don't let you cremate something twice or w/e
 	// Make sure we don't delete the actual morgue and its tray
@@ -255,6 +275,7 @@ GLOBAL_LIST_EMPTY(crematoriums)
 
 	if(!conts.len)
 		audible_message("<span class='hear'>Слышу пустой гул.</span>")
+		temperature = T20C
 		return
 
 	else
@@ -281,6 +302,8 @@ GLOBAL_LIST_EMPTY(crematoriums)
 
 		if(!locate(/obj/effect/decal/cleanable/ash) in get_step(src, dir))//prevent pile-up
 			new/obj/effect/decal/cleanable/ash/crematorium(src)
+
+		temperature = T20C
 
 		sleep(30)
 
