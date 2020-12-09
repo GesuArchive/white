@@ -254,10 +254,11 @@ GLOBAL_LIST_EMPTY(crematoriums)
 	return
 
 /obj/structure/bodycontainer/crematorium/process()
-	temperature += T20C
+	temperature += 100
 	if(temperature > 1173.15)
 		STOP_PROCESSING(SSobj, src)
 		playsound(src.loc, 'sound/machines/ding.ogg', 50, TRUE)
+		audible_message("<span class='hear'>Слышу треск.</span>")
 		heating = FALSE
 
 /obj/structure/bodycontainer/crematorium/proc/cremate(mob/user)
