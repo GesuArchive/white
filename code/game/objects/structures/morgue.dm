@@ -261,10 +261,11 @@ GLOBAL_LIST_EMPTY(crematoriums)
 		heating = FALSE
 
 /obj/structure/bodycontainer/crematorium/proc/cremate(mob/user)
-	if(temperature < 1173.15 && !heating)
-		audible_message("<span class='hear'>Слышу как накаляется метал.</span>")
-		heating = TRUE
-		START_PROCESSING(SSobj, src)
+	if(temperature < 1173.15)
+		if(!heating)
+			audible_message("<span class='hear'>Слышу как накаляется метал.</span>")
+			START_PROCESSING(SSobj, src)
+			heating = TRUE
 		return
 	if(locked)
 		return //don't let you cremate something twice or w/e
