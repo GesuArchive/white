@@ -55,7 +55,7 @@
 	for(var/V in inspired)
 		var/mob/living/carbon/human/H = V
 		if(H != user)
-			to_chat(H, "<span class='notice'>Your confidence surges as [user] flourishes [user.p_their()] [name]!</span>")
+			to_chat(H, "<span class='notice'>Your confidence surges as [user] flourishes [user.ru_ego()] [name]!</span>")
 		inspiration(H)
 		special_inspiration(H)
 
@@ -329,7 +329,7 @@
 	. = ..()
 	if(staffcooldown + staffwait > world.time)
 		return
-	user.visible_message("<span class='notice'>[user] chants deeply and waves [user.p_their()] staff!</span>")
+	user.visible_message("<span class='notice'>[user] chants deeply and waves [user.ru_ego()] staff!</span>")
 	if(do_after(user, 2 SECONDS, src))
 		target.add_atom_colour(conversion_color, WASHABLE_COLOUR_PRIORITY) //wololo
 	staffcooldown = world.time

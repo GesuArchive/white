@@ -142,7 +142,7 @@
 /datum/antagonist/cult/on_removal()
 	SSticker.mode.cult -= owner
 	if(!silent)
-		owner.current.visible_message("<span class='deconversion_message'>[owner.current] looks like [owner.current.p_theyve()] just reverted to [owner.current.p_their()] old faith!</span>", null, null, null, owner.current)
+		owner.current.visible_message("<span class='deconversion_message'>[owner.current] looks like [owner.current.p_theyve()] just reverted to [owner.current.ru_ego()] old faith!</span>", null, null, null, owner.current)
 		to_chat(owner.current, "<span class='userdanger'>An unfamiliar white light flashes through your mind, cleansing the taint of the Geometer and all your memories as her servant.</span>")
 		owner.current.log_message("has renounced the cult of Nar'Sie!", LOG_ATTACK, color="#960000")
 	if(cult_team.blood_target && cult_team.blood_target_image && owner.current.client)
@@ -348,7 +348,7 @@
 
 /datum/objective/sacrifice/update_explanation_text()
 	if(target)
-		explanation_text = "Sacrifice [target], the [target.assigned_role] via invoking an Offer rune with [target.p_them()] on it and three acolytes around it."
+		explanation_text = "Sacrifice [target], the [target.assigned_role] via invoking an Offer rune with [target.ru_na()] on it and three acolytes around it."
 	else
 		explanation_text = "The veil has already been weakened here, proceed to the final objective."
 

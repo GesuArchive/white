@@ -228,9 +228,9 @@
 		if(H.staminaloss && !H.IsSleeping())
 			var/total_health = (H.health - H.staminaloss)
 			if(total_health <= HEALTH_THRESHOLD_CRIT && !H.stat)
-				H.visible_message("<span class='warning'>[user] delivers a heavy hit to [H]'s head, knocking [H.p_them()] out cold!</span>", \
+				H.visible_message("<span class='warning'>[user] delivers a heavy hit to [H]'s head, knocking [H.ru_na()] out cold!</span>", \
 								"<span class='userdanger'>You're knocked unconscious by [user]!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", null, user)
-				to_chat(user, "<span class='danger'>You deliver a heavy hit to [H]'s head, knocking [H.p_them()] out cold!</span>")
+				to_chat(user, "<span class='danger'>You deliver a heavy hit to [H]'s head, knocking [H.ru_na()] out cold!</span>")
 				H.SetSleeping(600)
 				H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 15, 150)
 	else

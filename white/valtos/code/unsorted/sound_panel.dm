@@ -63,14 +63,23 @@
 			C.prefs.toggles ^= SOUND_ADMINHELP
 		if("midi")
 			C.prefs.toggles ^= SOUND_MIDI
+			C?.tgui_panel?.stop_music()
+			usr.stop_sound_channel(CHANNEL_ADMIN)
 		if("ambience")
 			C.prefs.toggles ^= SOUND_AMBIENCE
+			usr.stop_sound_channel(CHANNEL_AMBIENCE)
+			usr.stop_sound_channel(CHANNEL_BUZZ)
 		if("lobby")
 			C.prefs.toggles ^= SOUND_LOBBY
+			usr.stop_sound_channel(CHANNEL_LOBBYMUSIC)
+			if(isnewplayer(usr))
+				C.playtitlemusic()
 		if("instruments")
 			C.prefs.toggles ^= SOUND_INSTRUMENTS
 		if("ship_ambience")
 			C.prefs.toggles ^= SOUND_SHIP_AMBIENCE
+			usr.stop_sound_channel(CHANNEL_BUZZ)
+			C.ambience_playing = 0
 		if("prayers")
 			C.prefs.toggles ^= SOUND_PRAYERS
 		if("announcements")
@@ -79,9 +88,7 @@
 			C.prefs.toggles ^= SOUND_ENDOFROUND
 		if("jukebox")
 			C.prefs.w_toggles ^= SOUND_JUKEBOX
-
-	DIRECT_OUTPUT(usr, sound(null))
-	C?.tgui_panel?.stop_music()
+			usr.stop_sound_channel(CHANNEL_JUKEBOX)
 
 	C.prefs.save_preferences()
 	. = TRUE

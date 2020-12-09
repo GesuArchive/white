@@ -38,7 +38,7 @@
 
 
 /obj/item/storage/toolbox/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] robusts [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] robusts [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return (BRUTELOSS)
 
 /obj/item/storage/toolbox/emergency

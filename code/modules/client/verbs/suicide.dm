@@ -87,30 +87,30 @@
 			if(prob(25))
 				disarm_suicide()	// Snowflake suicide for a tired joke.
 				return	//above proc handles logging and death
-			suicide_message = pick("[src] is attempting to push [p_their()] own head off [p_their()] shoulders! It looks like [p_theyre()] trying to commit suicide.", \
-								"[src] is pushing [p_their()] thumbs into [p_their()] eye sockets! It looks like [p_theyre()] trying to commit suicide.")
+			suicide_message = pick("[src] is attempting to push [ru_ego()] own head off [ru_ego()] shoulders! It looks like [p_theyre()] trying to commit suicide.", \
+								"[src] is pushing [ru_ego()] thumbs into [ru_ego()] eye sockets! It looks like [p_theyre()] trying to commit suicide.")
 		else if(a_intent == INTENT_GRAB)
-			suicide_message = pick("[src] is attempting to pull [p_their()] own head off! It looks like [p_theyre()] trying to commit suicide.", \
-									"[src] is aggressively grabbing [p_their()] own neck! It looks like [p_theyre()] trying to commit suicide.", \
-									"[src] is pulling [p_their()] eyes out of their sockets! It looks like [p_theyre()] trying to commit suicide.")
+			suicide_message = pick("[src] is attempting to pull [ru_ego()] own head off! It looks like [p_theyre()] trying to commit suicide.", \
+									"[src] is aggressively grabbing [ru_ego()] own neck! It looks like [p_theyre()] trying to commit suicide.", \
+									"[src] is pulling [ru_ego()] eyes out of their sockets! It looks like [p_theyre()] trying to commit suicide.")
 		else if(a_intent == INTENT_HELP)
 			var/obj/item/organ/brain/userbrain = getorgan(/obj/item/organ/brain)
 			if(userbrain?.damage >= 75)
-				suicide_message = "[src] pulls both arms outwards in front of [p_their()] chest and pumps them behind [p_their()] back, repeats this motion in a smaller range of motion \
-						down to [p_their()] hips two times once more all while sliding [p_their()] legs in a faux walking motion, claps [p_their()] hands together \
-						in front of [p_them()] while both [p_their()] knees knock together, pumps [p_their()] arms downward, pronating [p_their()] wrists and abducting \
-						[p_their()] fingers outward while crossing [p_their()] legs back and forth, repeats this motion again two times while keeping [p_their()] shoulders low\
-						and hunching over, does finger guns with right hand and left hand bent on [p_their()] hip while looking directly forward and putting [p_their()] left leg forward then\
-						crossing [p_their()] arms and leaning back a little while bending [p_their()] knees at an angle! It looks like [p_theyre()] trying to commit suicide."
+				suicide_message = "[src] pulls both arms outwards in front of [ru_ego()] chest and pumps them behind [ru_ego()] back, repeats this motion in a smaller range of motion \
+						down to [ru_ego()] hips two times once more all while sliding [ru_ego()] legs in a faux walking motion, claps [ru_ego()] hands together \
+						in front of [ru_na()] while both [ru_ego()] knees knock together, pumps [ru_ego()] arms downward, pronating [ru_ego()] wrists and abducting \
+						[ru_ego()] fingers outward while crossing [ru_ego()] legs back and forth, repeats this motion again two times while keeping [ru_ego()] shoulders low\
+						and hunching over, does finger guns with right hand and left hand bent on [ru_ego()] hip while looking directly forward and putting [ru_ego()] left leg forward then\
+						crossing [ru_ego()] arms and leaning back a little while bending [ru_ego()] knees at an angle! It looks like [p_theyre()] trying to commit suicide."
 			else
-				suicide_message = pick("[src] is hugging [p_them()]self to death! It looks like [p_theyre()] trying to commit suicide.", \
-							"[src] is high-fiving [p_them()]self to death! It looks like [p_theyre()] trying to commit suicide.", \
+				suicide_message = pick("[src] is hugging [ru_na()]self to death! It looks like [p_theyre()] trying to commit suicide.", \
+							"[src] is high-fiving [ru_na()]self to death! It looks like [p_theyre()] trying to commit suicide.", \
 							"[src] is getting too high on life! It looks like [p_theyre()] trying to commit suicide.")
 		else
-			suicide_message = pick("[src] is attempting to bite [p_their()] tongue off! It looks like [p_theyre()] trying to commit suicide.", \
-								"[src] is jamming [p_their()] thumbs into [p_their()] eye sockets! It looks like [p_theyre()] trying to commit suicide.", \
-								"[src] is twisting [p_their()] own neck! It looks like [p_theyre()] trying to commit suicide.", \
-								"[src] is holding [p_their()] breath! It looks like [p_theyre()] trying to commit suicide.")
+			suicide_message = pick("[src] is attempting to bite [ru_ego()] tongue off! It looks like [p_theyre()] trying to commit suicide.", \
+								"[src] is jamming [ru_ego()] thumbs into [ru_ego()] eye sockets! It looks like [p_theyre()] trying to commit suicide.", \
+								"[src] is twisting [ru_ego()] own neck! It looks like [p_theyre()] trying to commit suicide.", \
+								"[src] is holding [ru_ego()] breath! It looks like [p_theyre()] trying to commit suicide.")
 
 		visible_message("<span class='danger'>[suicide_message]</span>", "<span class='userdanger'>[suicide_message]</span>")
 
@@ -130,8 +130,8 @@
 	if(confirm == "Yes")
 		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
-		visible_message("<span class='danger'>[capitalize(src.name)]'s brain is growing dull and lifeless. [p_they(TRUE)] look[p_s()] like [p_theyve()] lost the will to live.</span>", \
-						"<span class='userdanger'>[capitalize(src.name)]'s brain is growing dull and lifeless. [p_they(TRUE)] look[p_s()] like [p_theyve()] lost the will to live.</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)]'s brain is growing dull and lifeless. [ru_who(TRUE)] look[p_s()] like [p_theyve()] lost the will to live.</span>", \
+						"<span class='userdanger'>[capitalize(src.name)]'s brain is growing dull and lifeless. [ru_who(TRUE)] look[p_s()] like [p_theyve()] lost the will to live.</span>")
 
 		suicide_log()
 
@@ -148,8 +148,8 @@
 	if(confirm == "Yes")
 		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
-		visible_message("<span class='danger'>[capitalize(src.name)] is attempting to bite [p_their()] tongue. It looks like [p_theyre()] trying to commit suicide.</span>", \
-				"<span class='userdanger'>[capitalize(src.name)] is attempting to bite [p_their()] tongue. It looks like [p_theyre()] trying to commit suicide.</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] is attempting to bite [ru_ego()] tongue. It looks like [p_theyre()] trying to commit suicide.</span>", \
+				"<span class='userdanger'>[capitalize(src.name)] is attempting to bite [ru_ego()] tongue. It looks like [p_theyre()] trying to commit suicide.</span>")
 
 		suicide_log()
 

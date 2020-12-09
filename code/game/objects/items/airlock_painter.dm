@@ -91,14 +91,14 @@
 
 		// TODO maybe add some colorful vomit?
 
-		user.visible_message("<span class='suicide'>[user] vomits out [user.p_their()] [L]!</span>")
+		user.visible_message("<span class='suicide'>[user] vomits out [user.ru_ego()] [L]!</span>")
 		playsound(user.loc, 'sound/effects/splat.ogg', 50, TRUE)
 
 		L.forceMove(T)
 
 		return (TOXLOSS|OXYLOSS)
 	else if(can_use(user) && !L)
-		user.visible_message("<span class='suicide'>[user] is spraying toner on [user.p_them()]self from [src]! It looks like [user.p_theyre()] trying to commit suicide.</span>")
+		user.visible_message("<span class='suicide'>[user] is spraying toner on [user.ru_na()]self from [src]! It looks like [user.p_theyre()] trying to commit suicide.</span>")
 		user.reagents.add_reagent(/datum/reagent/colorful_reagent, 1)
 		user.reagents.expose(user, TOUCH, 1)
 		return TOXLOSS

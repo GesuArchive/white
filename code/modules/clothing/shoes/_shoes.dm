@@ -34,7 +34,7 @@
 		playsound(user, "desecration", 50, TRUE, -1)
 		return BRUTELOSS
 	else//didnt realize this suicide act existed (was in miscellaneous.dm) and didnt want to remove it, so made it a 50/50 chance. Why not!
-		user.visible_message("<span class='suicide'>[user] is bashing [user.p_their()] own head in with [src]! Ain't that a kick in the head?</span>")
+		user.visible_message("<span class='suicide'>[user] is bashing [user.ru_ego()] own head in with [src]! Ain't that a kick in the head?</span>")
 		for(var/i = 0, i < 3, i++)
 			sleep(3)
 			playsound(user, 'sound/weapons/genhit2.ogg', 50, TRUE)
@@ -144,7 +144,7 @@
 		if(INTERACTING_WITH(user, our_guy))
 			to_chat(user, "<span class='warning'>Уже взаимодействую с [src]!</span>")
 			return
-		user.visible_message("<span class='notice'>[user] [tied ? "развязывать" : "завязывать"] шнурки на [user.p_their()] [src.name].</span>", "<span class='notice'>You begin [tied ? "unknotting" : "tying"] the laces of your [src.name]...</span>")
+		user.visible_message("<span class='notice'>[user] [tied ? "развязывать" : "завязывать"] шнурки на [user.ru_ego()] [src.name].</span>", "<span class='notice'>You begin [tied ? "unknotting" : "tying"] the laces of your [src.name]...</span>")
 
 		if(do_after(user, lace_time, target = our_guy, extra_checks = CALLBACK(src, .proc/still_shoed, our_guy)))
 			to_chat(user, "<span class='notice'>You [tied ? "Развязываю" : "Завязываю"] шнурки на [src.name].</span>")
@@ -178,7 +178,7 @@
 				adjust_laces(SHOES_UNTIED, user)
 		else // if one of us moved
 			user.visible_message("<span class='danger'>[our_guy] stamps on [user]'s hand, mid-shoelace [tied ? "knotting" : "untying"]!</span>", "<span class='userdanger'>Ow! [our_guy] stamps on your hand!</span>", list(our_guy))
-			to_chat(our_guy, "<span class='userdanger'>You stamp on [user]'s hand! What the- [user.p_they()] [user.p_were()] [tied ? "knotting" : "untying"] your shoelaces!</span>")
+			to_chat(our_guy, "<span class='userdanger'>You stamp on [user]'s hand! What the- [user.ru_who()] [user.p_were()] [tied ? "knotting" : "untying"] your shoelaces!</span>")
 			user.emote("scream")
 			if(istype(L))
 				var/obj/item/bodypart/ouchie = L.get_bodypart(pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
@@ -199,7 +199,7 @@
 	if(tied == SHOES_KNOTTED)
 		our_guy.Paralyze(5)
 		our_guy.Knockdown(10)
-		our_guy.visible_message("<span class='danger'>[our_guy] trips on [our_guy.p_their()] knotted shoelaces and falls! What a klutz!</span>", "<span class='userdanger'>You trip on your knotted shoelaces and fall over!</span>")
+		our_guy.visible_message("<span class='danger'>[our_guy] trips on [our_guy.ru_ego()] knotted shoelaces and falls! What a klutz!</span>", "<span class='userdanger'>You trip on your knotted shoelaces and fall over!</span>")
 		SEND_SIGNAL(our_guy, COMSIG_ADD_MOOD_EVENT, "trip", /datum/mood_event/tripped) // well we realized they're knotted now!
 		our_alert = our_guy.throw_alert("shoealert", /atom/movable/screen/alert/shoes/knotted)
 
@@ -210,7 +210,7 @@
 				our_guy.Paralyze(5)
 				our_guy.Knockdown(10)
 				SEND_SIGNAL(our_guy, COMSIG_ADD_MOOD_EVENT, "trip", /datum/mood_event/tripped) // well we realized they're knotted now!
-				our_guy.visible_message("<span class='danger'>[our_guy] trips on [our_guy.p_their()] untied shoelaces and falls! What a klutz!</span>", "<span class='userdanger'>You trip on your untied shoelaces and fall over!</span>")
+				our_guy.visible_message("<span class='danger'>[our_guy] trips on [our_guy.ru_ego()] untied shoelaces and falls! What a klutz!</span>", "<span class='userdanger'>You trip on your untied shoelaces and fall over!</span>")
 
 			if(2 to 5) // .4% chance to stumble and lurch forward
 				our_guy.throw_at(get_step(our_guy, our_guy.dir), 3, 2)

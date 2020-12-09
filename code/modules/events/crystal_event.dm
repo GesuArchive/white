@@ -417,7 +417,7 @@ This section is for the destabilized SM
 	var/mob/living/user = movable_atom
 	if(isnull(user.mind))
 		return
-	movable_atom.visible_message("<span class='danger'>\The [movable_atom] slams into \the [src] inducing a resonance... [movable_atom.p_their()] body starts to glow and burst into flames before flashing into dust!</span>",\
+	movable_atom.visible_message("<span class='danger'>\The [movable_atom] slams into \the [src] inducing a resonance... [movable_atom.ru_ego()] body starts to glow and burst into flames before flashing into dust!</span>",\
 	"<span class='userdanger'>You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
 	"<span class='hear'>You hear an unearthly noise as a wave of heat washes over you.</span>")
 	playsound(get_turf(src), 'sound/effects/supermatter.ogg', 50, TRUE)

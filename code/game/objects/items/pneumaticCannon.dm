@@ -161,7 +161,7 @@
 		return
 	if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(75) && clumsyCheck && iscarbon(user))
 		var/mob/living/carbon/C = user
-		C.visible_message("<span class='warning'>[C] loses [C.p_their()] grip on [src], causing it to go off!</span>", "<span class='userdanger'>[capitalize(src.name)] slips out of your hands and goes off!</span>")
+		C.visible_message("<span class='warning'>[C] loses [C.ru_ego()] grip on [src], causing it to go off!</span>", "<span class='userdanger'>[capitalize(src.name)] slips out of your hands and goes off!</span>")
 		C.dropItemToGround(src, TRUE)
 		if(prob(10))
 			target = get_turf(user)

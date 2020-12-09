@@ -51,7 +51,7 @@
 	STR.set_holdable(null, list(/obj/item/disk/nuclear))
 
 /obj/item/storage/bag/trash/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] puts [src] over [user.p_their()] head and starts chomping at the insides! Disgusting!</span>")
+	user.visible_message("<span class='suicide'>[user] puts [src] over [user.ru_ego()] head and starts chomping at the insides! Disgusting!</span>")
 	playsound(loc, 'sound/items/eatfood.ogg', 50, TRUE, -1)
 	return (TOXLOSS)
 
@@ -169,10 +169,10 @@
 	if(show_message)
 		playsound(user, "rustle", 50, TRUE)
 		if (box)
-			user.visible_message("<span class='notice'>[user] выгружает руду под собой[user.p_them()] в [box].</span>", \
+			user.visible_message("<span class='notice'>[user] выгружает руду под собой[user.ru_na()] в [box].</span>", \
 			"<span class='notice'>Загружаю руду под собой в [box].</span>")
 		else
-			user.visible_message("<span class='notice'>[user] собирает руду под [user.p_them()].</span>", \
+			user.visible_message("<span class='notice'>[user] собирает руду под [user.ru_na()].</span>", \
 				"<span class='notice'>Собираю руду под собой в [sklonenie(name, VINITELNI, MALE)].</span>")
 	spam_protection = FALSE
 

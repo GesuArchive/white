@@ -221,7 +221,7 @@
 				if(zone == BODY_ZONE_HEAD || zone == BODY_ZONE_PRECISE_EYES || zone == BODY_ZONE_PRECISE_MOUTH)
 					shoot_self(user, affecting)
 				else
-					user.visible_message("<span class='danger'><b>[user.name]</b> трусливо стреляет <b>[src.name]</b> в [user.p_their()] [affecting.name]!</span>", "<span class='userdanger'>Вы трусливо выстрелили <b>[src.name]</b> в свой [affecting.name]!</span>", "<span class='hear'>Вы слышали выстрел!</span>")
+					user.visible_message("<span class='danger'><b>[user.name]</b> трусливо стреляет <b>[src.name]</b> в [user.ru_ego()] [affecting.name]!</span>", "<span class='userdanger'>Вы трусливо выстрелили <b>[src.name]</b> в свой [affecting.name]!</span>", "<span class='hear'>Вы слышали выстрел!</span>")
 				chambered = null
 				return
 

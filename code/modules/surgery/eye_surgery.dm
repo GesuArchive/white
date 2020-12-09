@@ -14,7 +14,7 @@
 /datum/surgery/eye_surgery/can_start(mob/user, mob/living/carbon/target)
 	var/obj/item/organ/eyes/E = target.getorganslot(ORGAN_SLOT_EYES)
 	if(!E)
-		to_chat(user, "<span class='warning'>It's hard to do surgery on someone's eyes when [target.p_they()] [target.p_do()]n't have any.</span>")
+		to_chat(user, "<span class='warning'>It's hard to do surgery on someone's eyes when [target.ru_who()] [target.p_do()]n't have any.</span>")
 		return FALSE
 	return TRUE
 

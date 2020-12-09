@@ -69,7 +69,7 @@
 /obj/item/clothing/gloves/space_ninja/examine(mob/user)
 	. = ..()
 	if(HAS_TRAIT_FROM(src, TRAIT_NODROP, NINJA_SUIT_TRAIT))
-		. += "<hr>[p_their(TRUE)] energy drain mechanism is <B>[candrain?"active":"inactive"]</B>."
+		. += "<hr>[ru_ego(TRUE)] energy drain mechanism is <B>[candrain?"active":"inactive"]</B>."
 
 /obj/item/clothing/gloves/space_ninja/ui_action_click(mob/user, action)
 	if(istype(action, /datum/action/item_action/toggle_glove))

@@ -23,10 +23,10 @@ Regenerative extracts:
 		to_chat(user, "<span class='warning'>[capitalize(src.name)] will not work on the dead!</span>")
 		return
 	if(H != user)
-		user.visible_message("<span class='notice'>[user] crushes [src] over [H], the milky goo quickly regenerating all of [H.p_their()] injuries!</span>",
-			"<span class='notice'>You squeeze [src], and it bursts over [H], the milky goo regenerating [H.p_their()] injuries.</span>")
+		user.visible_message("<span class='notice'>[user] crushes [src] over [H], the milky goo quickly regenerating all of [H.ru_ego()] injuries!</span>",
+			"<span class='notice'>You squeeze [src], and it bursts over [H], the milky goo regenerating [H.ru_ego()] injuries.</span>")
 	else
-		user.visible_message("<span class='notice'>[user] crushes [src] over [user.p_them()]self, the milky goo quickly regenerating all of [user.p_their()] injuries!</span>",
+		user.visible_message("<span class='notice'>[user] crushes [src] over [user.ru_na()]self, the milky goo quickly regenerating all of [user.ru_ego()] injuries!</span>",
 			"<span class='notice'>You squeeze [src], and it bursts in your hand, splashing you with milky goo which quickly regenerates your injuries!</span>")
 	core_effect_before(H, user)
 	H.revive(full_heal = TRUE, admin_revive = FALSE)
@@ -179,7 +179,7 @@ Regenerative extracts:
 	effect_desc = "Fully heals and randomly colors the target."
 
 /obj/item/slimecross/regenerative/pyrite/core_effect(mob/living/target, mob/user)
-	target.visible_message("<span class='warning'>The milky goo coating [target] leaves [target.p_them()] a different color!</span>")
+	target.visible_message("<span class='warning'>The milky goo coating [target] leaves [target.ru_na()] a different color!</span>")
 	target.add_atom_colour(rgb(rand(0,255),rand(0,255),rand(0,255)),WASHABLE_COLOUR_PRIORITY)
 
 /obj/item/slimecross/regenerative/red

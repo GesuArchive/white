@@ -37,11 +37,11 @@
 		if(cultist_examine_message)
 			. += "<hr><span class='cult'>[cultist_examine_message]</span>"
 		if(cooldowntime > world.time)
-			. += "<hr><span class='cult italic'>The magic in [src] is too weak, [p_they()] will be ready to use again in [DisplayTimeText(cooldowntime - world.time)].</span>"
+			. += "<hr><span class='cult italic'>The magic in [src] is too weak, [ru_who()] will be ready to use again in [DisplayTimeText(cooldowntime - world.time)].</span>"
 
 /obj/structure/destructible/cult/examine_status(mob/user)
 	if(iscultist(user) || isobserver(user))
-		var/t_It = p_they(TRUE)
+		var/t_It = ru_who(TRUE)
 		var/t_is = p_are()
 		return "<span class='cult'>[t_It] [t_is] at <b>[round(obj_integrity * 100 / max_integrity)]%</b> stability.</span>"
 	return ..()
@@ -53,7 +53,7 @@
 			obj_integrity = min(max_integrity, obj_integrity + 5)
 			Beam(M, icon_state="sendbeam", time=4)
 			M.visible_message("<span class='danger'>[M] repairs \the <b>[src]</b>.</span>", \
-				"<span class='cult'>You repair <b>[src]</b>, leaving [p_they()] at <b>[round(obj_integrity * 100 / max_integrity)]%</b> stability.</span>")
+				"<span class='cult'>You repair <b>[src]</b>, leaving [ru_who()] at <b>[round(obj_integrity * 100 / max_integrity)]%</b> stability.</span>")
 		else
 			to_chat(M, "<span class='cult'>You cannot repair [src], as [p_theyre()] undamaged!</span>")
 	else

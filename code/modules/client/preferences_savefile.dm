@@ -5,7 +5,7 @@
 //	You do not need to raise this if you are adding new values that have sane defaults.
 //	Only raise this value when changing the meaning/format/name/layout of an existing value
 //	where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX	47
+#define SAVEFILE_VERSION_MAX	48
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -108,6 +108,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		w_toggles |= SOUND_JUKEBOX
 		save_preferences()
 
+	if(current_version < 47)
+		w_toggles &= ~TOOLTIP_USER_UP
+		save_preferences()
+
 /datum/preferences/proc/update_character(current_version, savefile/S)
 	return
 
@@ -141,12 +145,12 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		addtimer(CALLBACK(src, .proc/announce_conflict, notadded), 5 SECONDS)
 
 /datum/preferences/proc/announce_conflict(list/notadded)
-	to_chat(parent, "<span class='userdanger'>KEYBINDING CONFLICT!!!\n\
-	There are new keybindings that have defaults bound to keys you already set, They will default to Unbound. You can bind them in Setup Character or Game Preferences\n\
-	<a href='?_src_=prefs;preference=tab;tab=3'>Or you can click here to go straight to the keybindings page</a></span>")
+	to_chat(parent, "<span class='userdanger'>Конфликт хоткеев!\n\
+	Появились новые функции, которые могут пересекаться с текущими хоткеями. Перепроверь настройки на всякий.\n\
+	<a href='?_src_=prefs;preference=tab;tab=4'>Ну или можешь нажать сюда, чтобы перейти сразу к настройкам.</a></span>")
 	for(var/item in notadded)
 		var/datum/keybinding/conflicted = item
-		to_chat(parent, "<span class='userdanger'>[conflicted.category]: [conflicted.full_name] needs updating")
+		to_chat(parent, "<span class='userdanger'>[conflicted.category]: [conflicted.full_name] требует обновления")
 		LAZYADD(key_bindings["Unbound"], conflicted.name) // set it to unbound to prevent this from opening up again in the future
 
 

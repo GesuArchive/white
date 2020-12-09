@@ -2,7 +2,7 @@ import { useBackend } from '../backend';
 import { Section, Button } from '../components';
 import { Window } from '../layouts';
 
-export const NotificationPreferences = (props, context) => {
+export const ChatSettingsPanel = (props, context) => {
   const { act, data } = useBackend(context);
   const ignoresPreSort = data.ignore || [];
   const ignores = ignoresPreSort.sort((a, b) => {
@@ -18,12 +18,12 @@ export const NotificationPreferences = (props, context) => {
   });
   return (
     <Window
-      title="Настройка уведомлений"
+      title="Настройка чата"
       width={270}
-      height={660}
+      height={560}
       resizable>
       <Window.Content scrollable>
-        <Section title="Настройка уведомлений призрака">
+        <Section title="Настройка чата">
           {ignores.map(ignore => (
             <Button
               fluid

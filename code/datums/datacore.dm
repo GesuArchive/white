@@ -186,7 +186,7 @@
 		.manifest tr.alt td {[monochrome?"border-top-width: 2px":"background-color: #DEF"]}
 	</style></head>
 	<table class="manifest" width='350px'>
-	<tr class='head'><th>Name</th><th>Rank</th></tr>
+	<tr class='head'><th>Имя</th><th>Должность</th></tr>
 	"}
 	for(var/department in manifest)
 		var/list/entries = manifest[department]

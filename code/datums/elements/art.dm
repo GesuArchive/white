@@ -30,7 +30,7 @@
 			msg = "[source.p_theyre(TRUE)] fair to middling, enough to be called an \"art object\"."
 		if (0 to BAD_ART)
 			SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "artbad", /datum/mood_event/artbad)
-			msg = "Wow, [source.p_they()] sucks."
+			msg = "Wow, [source.ru_who()] sucks."
 
 	user.visible_message("<span class='notice'>[user] stops and looks intently at [source].</span>", \
 		"<span class='notice'>You appraise [source]... [msg]</span>")
@@ -60,7 +60,7 @@
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "artgreat", /datum/mood_event/artgreat)
 		msg = "What \a [pick("masterpiece", "chef-d'oeuvre")] [source.p_theyre()]. So [pick("subversive", "revolutionary", "unitizing", "egalitarian")]!"
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "artbad", /datum/mood_event/artbad)
-		msg = "Wow, [source.p_they()] sucks."
+		msg = "Wow, [source.ru_who()] sucks."
 
 	user.visible_message("<span class='notice'>[user] stops to inspect [source].</span>", \
 		"<span class='notice'>You appraise [source], inspecting the fine craftsmanship of the proletariat... [msg]</span>")

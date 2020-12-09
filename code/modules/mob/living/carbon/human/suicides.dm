@@ -5,7 +5,7 @@
 	ghostize(FALSE)	// Disallows reentering body and disassociates mind
 
 /mob/living/carbon/human/proc/disarm_suicide()
-	var/suicide_message = "[src] is ripping [p_their()] own arms off! It looks like [p_theyre()] trying to commit suicide." //heheh get it?
+	var/suicide_message = "[src] is ripping [ru_ego()] own arms off! It looks like [p_theyre()] trying to commit suicide." //heheh get it?
 	visible_message("<span class='danger'>[suicide_message]</span>", "<span class='userdanger'>[suicide_message]</span>")
 
 	var/timer = 15

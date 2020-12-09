@@ -115,7 +115,7 @@
 			icon_state = "soulstone"
 		name = initial(name)
 		if(iswizard(user) || usability)
-			to_chat(A, "<b>You have been released from your prison, but you are still bound to [user.real_name]'s will. Help [user.p_them()] succeed in [user.p_their()] goals at all costs.</b>")
+			to_chat(A, "<b>You have been released from your prison, but you are still bound to [user.real_name]'s will. Help [user.ru_na()] succeed in [user.ru_ego()] goals at all costs.</b>")
 		else if(iscultist(user))
 			to_chat(A, "<b>You have been released from your prison, but you are still bound to the cult's will. Help them succeed in their goals at all costs.</b>")
 		was_used()
@@ -284,9 +284,9 @@
 	if(newstruct.mind && ((stoner && iscultist(stoner)) || cultoverride) && SSticker?.mode)
 		SSticker.mode.add_cultist(newstruct.mind, 0)
 	if(iscultist(stoner) || cultoverride)
-		to_chat(newstruct, "<b>You are still bound to serve the cult[stoner ? " and [stoner]":""], follow [stoner ? stoner.p_their() : "their"] orders and help [stoner ? stoner.p_them() : "them"] complete [stoner ? stoner.p_their() : "their"] goals at all costs.</b>")
+		to_chat(newstruct, "<b>You are still bound to serve the cult[stoner ? " and [stoner]":""], follow [stoner ? stoner.ru_ego() : "their"] orders and help [stoner ? stoner.ru_na() : "them"] complete [stoner ? stoner.ru_ego() : "their"] goals at all costs.</b>")
 	else if(stoner)
-		to_chat(newstruct, "<b>You are still bound to serve your creator, [stoner], follow [stoner.p_their()] orders and help [stoner.p_them()] complete [stoner.p_their()] goals at all costs.</b>")
+		to_chat(newstruct, "<b>You are still bound to serve your creator, [stoner], follow [stoner.ru_ego()] orders and help [stoner.ru_na()] complete [stoner.ru_ego()] goals at all costs.</b>")
 	newstruct.clear_alert("bloodsense")
 	BS = newstruct.throw_alert("bloodsense", /atom/movable/screen/alert/bloodsense)
 	if(BS)
@@ -322,11 +322,11 @@
 	else
 		icon_state = "soulstone2"
 	if(user && (iswizard(user) || usability))
-		to_chat(S, "Your soul has been captured! You are now bound to [user.real_name]'s will. Help [user.p_them()] succeed in [user.p_their()] goals at all costs.")
+		to_chat(S, "Your soul has been captured! You are now bound to [user.real_name]'s will. Help [user.ru_na()] succeed in [user.ru_ego()] goals at all costs.")
 	else if(user && iscultist(user))
 		to_chat(S, "Your soul has been captured! You are now bound to the cult's will. Help them succeed in their goals at all costs.")
 	if(message_user && user)
-		to_chat(user, "<span class='info'><b>Capture successful!</b>:</span> [T.real_name]'s soul has been ripped from [T.p_their()] body and stored within [src].")
+		to_chat(user, "<span class='info'><b>Capture successful!</b>:</span> [T.real_name]'s soul has been ripped from [T.ru_ego()] body and stored within [src].")
 
 
 /obj/item/soulstone/proc/getCultGhost(mob/living/carbon/human/T, mob/user)

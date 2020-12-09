@@ -35,7 +35,7 @@
 			icon_state = icon_empty
 
 /obj/item/reagent_containers/food/condiment/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] is trying to eat the entire [src]! It looks like [user.p_they()] forgot how food works!</span>")
+	user.visible_message("<span class='suicide'>[user] is trying to eat the entire [src]! It looks like [user.ru_who()] forgot how food works!</span>")
 	return OXYLOSS
 
 /obj/item/reagent_containers/food/condiment/attack(mob/M, mob/user, def_zone)

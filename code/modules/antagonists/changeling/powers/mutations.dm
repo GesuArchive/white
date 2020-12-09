@@ -272,7 +272,7 @@
 		qdel(src)
 
 /obj/item/gun/magic/tentacle/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] coils [src] tightly around [user.p_their()] neck! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] coils [src] tightly around [user.ru_ego()] neck! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return (OXYLOSS)
 
 

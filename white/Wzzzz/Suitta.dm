@@ -16,16 +16,16 @@
 	//flags_inv = HIDEHAIR
 
 	[bolt_locked ? "_locked" : ""]
-	
+
 	obj/item/gun/ballistic/kar98k/update_icon()
 	..()
 	add_overlay("[icon_state]_open")
-	
+
 	mp40,mauser,luger - 9mm
 	mg34 - a792x57
 	stg - a792x33
-	
-	
+
+
 		firemodes = list(
 		list(mode_name="single shot",	burst=1, burst_delay=1.5, move_delay=2, dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		list(mode_name="short bursts",	burst=3, burst_delay=1.5, move_delay=4, dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
@@ -37,18 +37,18 @@
 	icon_state = (ammo_magazine)? "mp40" : "mp400"
 	wielded_inhand_icon_state = (ammo_magazine)? "mp40-w" : "mp400"
 	..()
-	
-	
-	
+
+
+
 	var/obj/item/clothing/head/helmet/space/hardsuit/wzzzz/breacher_cheap = null
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
 	/obj/item/storage/belt/mining/wzzzz/large/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
@@ -95,14 +95,14 @@
 		/obj/item/stack/marker_beacon
 		))
 
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
 /obj/item/melee/marines/Initialize()
 	. = ..()
 	AddComponent(/datum/component/butchering, 30, 95, 5) //fast and effective, but as a sword, it might damage the results.
@@ -123,7 +123,7 @@
 		playsound(B, 'sound/items/sheath.ogg', 25, TRUE)
 
 /obj/item/melee/marines/suicide_act(mob/living/user)
-	user.visible_message("<span class='suicide'>[user] is trying to cut off all [user.p_their()] limbs with [src]! it looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] is trying to cut off all [user.ru_ego()] limbs with [src]! it looks like [user.p_theyre()] trying to commit suicide!</span>")
 	var/i = 0
 	ADD_TRAIT(src, TRAIT_NODROP, SABRE_SUICIDE_TRAIT)
 	if(iscarbon(user))
@@ -164,30 +164,30 @@
 		user.adjustBruteLoss(200)
 		user.death(FALSE)
 	REMOVE_TRAIT(src, TRAIT_NODROP, SABRE_SUICIDE_TRAIT)
-	
+
 pocket_storage_component_path = /datum/component/storage/concrete/pockets/helmet
-	
-	
-	
+
+
+
 desc = "To cut everything."
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-	
-	
-	
-	
 
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

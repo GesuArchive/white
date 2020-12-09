@@ -631,7 +631,7 @@
 /obj/item/reagent_containers/food/drinks/soda_cans/attack(mob/M, mob/user)
 	if(istype(M, /mob/living/carbon) && !reagents.total_volume && user.a_intent == INTENT_HARM && user.zone_selected == BODY_ZONE_HEAD)
 		if(M == user)
-			user.visible_message("<span class='warning'>[user] crushes the can of [src] on [user.p_their()] forehead!</span>", "<span class='notice'>You crush the can of [src] on your forehead.</span>")
+			user.visible_message("<span class='warning'>[user] crushes the can of [src] on [user.ru_ego()] forehead!</span>", "<span class='notice'>You crush the can of [src] on your forehead.</span>")
 		else
 			user.visible_message("<span class='warning'>[user] crushes the can of [src] on [M]'s forehead!</span>", "<span class='notice'>You crush the can of [src] on [M]'s forehead.</span>")
 		playsound(M,'sound/weapons/pierce.ogg', rand(10,50), TRUE)

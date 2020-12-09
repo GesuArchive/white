@@ -147,7 +147,7 @@
 
 	var/list/msg = list()
 	if(!limb.current_gauze)
-		msg += "[victim.p_their(TRUE)] [limb.name] [examine_desc]"
+		msg += "[victim.ru_ego(TRUE)] [limb.name] [examine_desc]"
 	else
 		var/sling_condition = ""
 		// how much life we have left in these bandages

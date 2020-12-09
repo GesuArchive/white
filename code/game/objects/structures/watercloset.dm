@@ -297,7 +297,7 @@
 	var/washing_face = 0
 	if(selected_area in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_EYES))
 		washing_face = 1
-	user.visible_message("<span class='notice'>[user] starts washing [user.p_their()] [washing_face ? "face" : "hands"]...</span>", \
+	user.visible_message("<span class='notice'>[user] starts washing [user.ru_ego()] [washing_face ? "face" : "hands"]...</span>", \
 						"<span class='notice'>You start washing your [washing_face ? "face" : "hands"]...</span>")
 	busy = TRUE
 
@@ -326,7 +326,7 @@
 	else
 		user.wash(CLEAN_WASH)
 
-	user.visible_message("<span class='notice'>[user] washes [user.p_their()] [washing_face ? "face" : "hands"] using [src].</span>", \
+	user.visible_message("<span class='notice'>[user] washes [user.ru_ego()] [washing_face ? "face" : "hands"] using [src].</span>", \
 						"<span class='notice'>You wash your [washing_face ? "face" : "hands"] using [src].</span>")
 
 /obj/structure/sink/attackby(obj/item/O, mob/living/user, params)
@@ -355,7 +355,7 @@
 			user.Paralyze(B.stun_time)
 			user.stuttering = B.stun_time/20
 			B.deductcharge(B.cell_hit_cost)
-			user.visible_message("<span class='warning'>[user] shocks [user.p_them()]self while attempting to wash the active [B.name]!</span>", \
+			user.visible_message("<span class='warning'>[user] shocks [user.ru_na()]self while attempting to wash the active [B.name]!</span>", \
 								"<span class='userdanger'>You unwisely attempt to wash [B] while it's still on.</span>")
 			playsound(src, B.stun_sound, 50, TRUE)
 			return
@@ -496,7 +496,7 @@
 	var/washing_face = FALSE
 	if(selected_area in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_EYES))
 		washing_face = TRUE
-	user.visible_message("<span class='notice'>[user] starts washing [user.p_their()] [washing_face ? "face" : "hands"]...</span>", \
+	user.visible_message("<span class='notice'>[user] starts washing [user.ru_ego()] [washing_face ? "face" : "hands"]...</span>", \
 						"<span class='notice'>You start washing your [washing_face ? "face" : "hands"]...</span>")
 	busy = TRUE
 
@@ -517,7 +517,7 @@
 	else
 		user.wash(CLEAN_WASH)
 
-	user.visible_message("<span class='notice'>[user] washes [user.p_their()] [washing_face ? "face" : "hands"] using [src].</span>", \
+	user.visible_message("<span class='notice'>[user] washes [user.ru_ego()] [washing_face ? "face" : "hands"] using [src].</span>", \
 						"<span class='notice'>You wash your [washing_face ? "face" : "hands"] using [src].</span>")
 
 /obj/structure/water_source/attackby(obj/item/O, mob/living/user, params)
@@ -542,7 +542,7 @@
 			user.Paralyze(baton.stun_time)
 			user.stuttering = baton.stun_time * 0.05
 			baton.deductcharge(baton.cell_hit_cost)
-			user.visible_message("<span class='warning'>[user] shocks [user.p_them()]self while attempting to wash the active [baton.name]!</span>", \
+			user.visible_message("<span class='warning'>[user] shocks [user.ru_na()]self while attempting to wash the active [baton.name]!</span>", \
 								"<span class='userdanger'>You unwisely attempt to wash [baton] while it's still on.</span>")
 			playsound(src, baton.stun_sound, 50, TRUE)
 			return

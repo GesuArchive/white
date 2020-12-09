@@ -3637,6 +3637,7 @@
 #include "white\valtos\code\unsorted\boxplanet.dm"
 #include "white\valtos\code\unsorted\cancer.dm"
 #include "white\valtos\code\unsorted\car.dm"
+#include "white\valtos\code\unsorted\chat_settings_panel.dm"
 #include "white\valtos\code\unsorted\checkered_table.dm"
 #include "white\valtos\code\unsorted\christmas.dm"
 #include "white\valtos\code\unsorted\custom_races.dm"

@@ -119,7 +119,7 @@
 	if(strikes_to_lose_limb <= 0)
 		return "<span class='deadsay'><B>[victim.ru_ego(TRUE)] [limb.name] выглядит мёртвой и не похожей на органическую.</B></span>"
 
-	var/list/condition = list("[victim.p_their(TRUE)] [limb.name] [examine_desc]")
+	var/list/condition = list("[victim.ru_ego(TRUE)] [limb.name] [examine_desc]")
 	if(limb.current_gauze)
 		var/bandage_condition
 		switch(limb.current_gauze.absorption_capacity)

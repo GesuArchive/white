@@ -175,7 +175,7 @@ Charged extracts:
 	if(!user.canUseTopic(src, BE_CLOSE))
 		return
 	H.set_species(racechoice, icon_update=1)
-	H.visible_message("<span class='warning'>[H] suddenly shifts form as [src] dissolves into [H.p_their()] skin!</span>")
+	H.visible_message("<span class='warning'>[H] suddenly shifts form as [src] dissolves into [H.ru_ego()] skin!</span>")
 	..()
 
 /obj/item/slimecross/charged/pink

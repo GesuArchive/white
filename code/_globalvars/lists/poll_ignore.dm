@@ -23,26 +23,26 @@
 
 
 GLOBAL_LIST_INIT(poll_ignore_desc, list(
-	POLL_IGNORE_SENTIENCE_POTION = "Sentience potion",
-	POLL_IGNORE_POSSESSED_BLADE = "Possessed blade",
-	POLL_IGNORE_ALIEN_LARVA = "Xenomorph larva",
-	POLL_IGNORE_SYNDICATE = "Syndicate",
-	POLL_IGNORE_HOLOPARASITE = "Holoparasite",
+	POLL_IGNORE_SENTIENCE_POTION = "Зелье разумности",
+	POLL_IGNORE_POSSESSED_BLADE = "Одержимый клинок",
+	POLL_IGNORE_ALIEN_LARVA = "Личинка ксеноморфа",
+	POLL_IGNORE_SYNDICATE = "Синдикат",
+	POLL_IGNORE_HOLOPARASITE = "Голопаразит",
 	POLL_IGNORE_POSIBRAIN = "Позитронный мозг",
-	POLL_IGNORE_SPECTRAL_BLADE = "Spectral blade",
-	POLL_IGNORE_CONSTRUCT = "Construct",
-	POLL_IGNORE_SPIDER = "Spiders",
-	POLL_IGNORE_ASHWALKER = "Ashwalker eggs",
-	POLL_IGNORE_GOLEM = "Golems",
-	POLL_IGNORE_SWARMER = "Swarmer shells",
-	POLL_IGNORE_DRONE = "Drone shells",
+	POLL_IGNORE_SPECTRAL_BLADE = "Спектральный меч",
+	POLL_IGNORE_CONSTRUCT = "Констракт культа",
+	POLL_IGNORE_SPIDER = "Пауки",
+	POLL_IGNORE_ASHWALKER = "Пепельные яйца",
+	POLL_IGNORE_GOLEM = "Големы",
+	POLL_IGNORE_SWARMER = "Свармеры",
+	POLL_IGNORE_DRONE = "Дроны",
 	POLL_IGNORE_FUGITIVE = "Fugitive Hunter",
-	POLL_IGNORE_PYROSLIME = "Slime",
-	POLL_IGNORE_SHADE = "Shade",
-	POLL_IGNORE_IMAGINARYFRIEND = "Imaginary Friend",
-	POLL_IGNORE_SPLITPERSONALITY = "Split Personality",
-	POLL_IGNORE_CONTRACTOR_SUPPORT = "Contractor Support Unit",
-	POLL_IGNORE_ACADEMY_WIZARD = "Academy Wizard Defender"
+	POLL_IGNORE_PYROSLIME = "Слаймы",
+	POLL_IGNORE_SHADE = "Духи",
+	POLL_IGNORE_IMAGINARYFRIEND = "Воображаемый друг",
+	POLL_IGNORE_SPLITPERSONALITY = "Раздвоение личности",
+	POLL_IGNORE_CONTRACTOR_SUPPORT = "Помощник наёмника",
+	POLL_IGNORE_ACADEMY_WIZARD = "Защитник академии магов"
 ))
 GLOBAL_LIST_INIT(poll_ignore, init_poll_ignore())
 

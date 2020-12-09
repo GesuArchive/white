@@ -89,7 +89,7 @@
 		M.apply_damage(10, STAMINA)
 		if(prob(5))
 			M.Paralyze(60)
-			visible_message("<span class='danger'>[M] is knocked right off [M.p_their()] feet!</span>")
+			visible_message("<span class='danger'>[M] is knocked right off [M.ru_ego()] feet!</span>")
 
 //
 // Structures

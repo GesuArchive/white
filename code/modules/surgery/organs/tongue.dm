@@ -359,8 +359,8 @@
 	speech_args[SPEECH_MESSAGE] = new_message
 
 	if(exclamation_found && question_found)
-		M.visible_message("<span class='notice'>[M] Опускает одну из [M.p_their()] бровей, поднимая другую.</span>")
+		M.visible_message("<span class='notice'>[M] Опускает одну из [M.ru_ego()] бровей, поднимая другую.</span>")
 	else if(exclamation_found)
-		M.visible_message("<span class='notice'>[M] поднимает [M.p_their()] брови.</span>")
+		M.visible_message("<span class='notice'>[M] поднимает [M.ru_ego()] брови.</span>")
 	else if(question_found)
-		M.visible_message("<span class='notice'>[M] опускает [M.p_their()] брови.</span>")
+		M.visible_message("<span class='notice'>[M] опускает [M.ru_ego()] брови.</span>")

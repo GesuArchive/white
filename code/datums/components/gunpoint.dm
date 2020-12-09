@@ -79,9 +79,9 @@
 	if(A != target)
 		return
 	var/mob/living/shooter = parent
-	shooter.visible_message("<span class='danger'>[shooter] bumps into [target] and fumbles [shooter.p_their()] aim!</span>", \
+	shooter.visible_message("<span class='danger'>[shooter] bumps into [target] and fumbles [shooter.ru_ego()] aim!</span>", \
 		"<span class='danger'>You bump into [target] and fumble your aim!</span>", ignored_mobs = target)
-	to_chat(target, "<span class='userdanger'>[shooter] bumps into you and fumbles [shooter.p_their()] aim!</span>")
+	to_chat(target, "<span class='userdanger'>[shooter] bumps into you and fumbles [shooter.ru_ego()] aim!</span>")
 	qdel(src)
 
 ///If the shooter shoves or grabs the target, cancel the holdup to avoid cheesing and forcing the charged shot
@@ -90,9 +90,9 @@
 
 	if(T != target || shooter.a_intent == INTENT_DISARM || shooter.a_intent == INTENT_GRAB)
 		return
-	shooter.visible_message("<span class='danger'>[shooter] bumps into [target] and fumbles [shooter.p_their()] aim!</span>", \
+	shooter.visible_message("<span class='danger'>[shooter] bumps into [target] and fumbles [shooter.ru_ego()] aim!</span>", \
 		"<span class='danger'>You bump into [target] and fumble your aim!</span>", ignored_mobs = target)
-	to_chat(target, "<span class='userdanger'>[shooter] bumps into you and fumbles [shooter.p_their()] aim!</span>")
+	to_chat(target, "<span class='userdanger'>[shooter] bumps into you and fumbles [shooter.ru_ego()] aim!</span>")
 	qdel(src)
 
 ///Update the damage multiplier for whatever stage we're entering into
@@ -158,9 +158,9 @@
 	SIGNAL_HANDLER
 
 	var/mob/living/shooter = parent
-	shooter.visible_message("<span class='danger'>[shooter] breaks [shooter.p_their()] aim on [target]!</span>", \
+	shooter.visible_message("<span class='danger'>[shooter] breaks [shooter.ru_ego()] aim on [target]!</span>", \
 		"<span class='danger'>You are no longer aiming [weapon] at [target].</span>", ignored_mobs = target)
-	to_chat(target, "<span class='userdanger'>[shooter] breaks [shooter.p_their()] aim on you!</span>")
+	to_chat(target, "<span class='userdanger'>[shooter] breaks [shooter.ru_ego()] aim on you!</span>")
 	SEND_SIGNAL(target, COMSIG_CLEAR_MOOD_EVENT, "gunpoint")
 	qdel(src)
 

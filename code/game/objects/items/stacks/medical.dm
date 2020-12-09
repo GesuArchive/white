@@ -61,7 +61,7 @@
 /// Apply the actual effects of the healing if it's a simple animal, goes to [/obj/item/stack/medical/proc/heal_carbon] if it's a carbon, returns TRUE if it works, FALSE if it doesn't
 /obj/item/stack/medical/proc/heal(mob/living/patient, mob/user)
 	if(patient.stat == DEAD)
-		to_chat(user, "<span class='warning'>[patient] is dead! You can not help [patient.p_them()].</span>")
+		to_chat(user, "<span class='warning'>[patient] is dead! You can not help [patient.ru_na()].</span>")
 		return
 	if(isanimal(patient) && heal_brute) // only brute can heal
 		var/mob/living/simple_animal/critter = patient
@@ -116,7 +116,7 @@
 	merge_type = /obj/item/stack/medical/bruise_pack
 
 /obj/item/stack/medical/bruise_pack/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is bludgeoning [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] is bludgeoning [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return (BRUTELOSS)
 
 /obj/item/stack/medical/gauze
@@ -186,7 +186,7 @@
 		return ..()
 
 /obj/item/stack/medical/gauze/suicide_act(mob/living/user)
-	user.visible_message("<span class='suicide'>[user] begins tightening [src] around [user.p_their()] neck! It looks like [user.p_they()] forgot how to use medical supplies!</span>")
+	user.visible_message("<span class='suicide'>[user] begins tightening [src] around [user.ru_ego()] neck! It looks like [user.ru_who()] forgot how to use medical supplies!</span>")
 	return OXYLOSS
 
 /obj/item/stack/medical/gauze/improvised
@@ -264,7 +264,7 @@
 	merge_type = /obj/item/stack/medical/ointment
 
 /obj/item/stack/medical/ointment/suicide_act(mob/living/user)
-	user.visible_message("<span class='suicide'>[user] is squeezing [src] into [user.p_their()] mouth! [user.p_do(TRUE)]n't [user.p_they()] know that stuff is toxic?</span>")
+	user.visible_message("<span class='suicide'>[user] is squeezing [src] into [user.ru_ego()] mouth! [user.p_do(TRUE)]n't [user.ru_who()] know that stuff is toxic?</span>")
 	return TOXLOSS
 
 /obj/item/stack/medical/mesh
@@ -386,7 +386,7 @@
 	if(!iscarbon(user))
 		return
 	var/mob/living/carbon/C = user
-	C.visible_message("<span class='suicide'>[C] is squirting all of [src] into [C.p_their()] mouth! That's not proper procedure! It looks like [C.p_theyre()] trying to commit suicide!</span>")
+	C.visible_message("<span class='suicide'>[C] is squirting all of [src] into [C.ru_ego()] mouth! That's not proper procedure! It looks like [C.p_theyre()] trying to commit suicide!</span>")
 	if(!do_after(C, 2 SECONDS))
 		C.visible_message("<span class='suicide'>[C] screws up like an idiot and still dies anyway!</span>")
 		return (BRUTELOSS)

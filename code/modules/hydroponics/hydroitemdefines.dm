@@ -86,7 +86,7 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
 /obj/item/cultivator/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is scratching [user.p_their()] back as hard as [user.p_they()] can with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] is scratching [user.ru_ego()] back as hard as [user.ru_who()] can with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return (BRUTELOSS)
 
 /obj/item/cultivator/rake
@@ -109,7 +109,7 @@
 		H.set_confusion(max(H.get_confusion(), 10))
 		H.Stun(20)
 		playsound(src, 'sound/weapons/punch4.ogg', 50, TRUE)
-		H.visible_message("<span class='warning'>[H] steps on [src] causing the handle to hit [H.p_them()] right in the face!</span>", \
+		H.visible_message("<span class='warning'>[H] steps on [src] causing the handle to hit [H.ru_na()] right in the face!</span>", \
 						  "<span class='userdanger'>You step on [src] causing the handle to hit you right in the face!</span>")
 
 /obj/item/hatchet
@@ -137,7 +137,7 @@
 	AddComponent(/datum/component/butchering, 70, 100)
 
 /obj/item/hatchet/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is chopping at [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] is chopping at [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	playsound(src, 'sound/weapons/bladeslice.ogg', 50, TRUE, -1)
 	return (BRUTELOSS)
 
@@ -171,7 +171,7 @@
 	AddComponent(/datum/component/butchering, 90, 105)
 
 /obj/item/scythe/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is beheading [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] is beheading [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		var/obj/item/bodypart/BP = C.get_bodypart(BODY_ZONE_HEAD)

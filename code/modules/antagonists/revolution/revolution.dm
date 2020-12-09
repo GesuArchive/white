@@ -202,7 +202,7 @@
 
 /datum/antagonist/rev/farewell()
 	if(ishuman(owner.current) || ismonkey(owner.current))
-		owner.current.visible_message("<span class='deconversion_message'>[owner.current] looks like [owner.current.p_theyve()] just remembered [owner.current.p_their()] real allegiance!</span>", null, null, null, owner.current)
+		owner.current.visible_message("<span class='deconversion_message'>[owner.current] looks like [owner.current.p_theyve()] just remembered [owner.current.ru_ego()] real allegiance!</span>", null, null, null, owner.current)
 		to_chat(owner, "<span class ='deconversion_message bold'>You are no longer a brainwashed revolutionary! Your memory is hazy from the time you were a rebel...the only thing you remember is the name of the one who brainwashed you....</span>")
 	else if(issilicon(owner.current))
 		owner.current.visible_message("<span class='deconversion_message'>The frame beeps contentedly, purging the hostile memory engram from the MMI before initalizing it.</span>", null, null, null, owner.current)
@@ -211,7 +211,7 @@
 /datum/antagonist/rev/head/farewell()
 	if((ishuman(owner.current) || ismonkey(owner.current)))
 		if(owner.current.stat != DEAD)
-			owner.current.visible_message("<span class='deconversion_message'>[owner.current] looks like [owner.current.p_theyve()] just remembered [owner.current.p_their()] real allegiance!</span>", null, null, null, owner.current)
+			owner.current.visible_message("<span class='deconversion_message'>[owner.current] looks like [owner.current.p_theyve()] just remembered [owner.current.ru_ego()] real allegiance!</span>", null, null, null, owner.current)
 			to_chat(owner, "<span class ='deconversion_message bold'>You have given up your cause of overthrowing the command staff. You are no longer a Head Revolutionary.</span>")
 		else
 			to_chat(owner, "<span class ='deconversion_message bold'>The sweet release of death. You are no longer a Head Revolutionary.</span>")

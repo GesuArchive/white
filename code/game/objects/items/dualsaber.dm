@@ -97,7 +97,7 @@
 				return OXYLOSS
 
 	else
-		user.visible_message("<span class='suicide'>[user] begins beating [user.p_them()]self to death with \the [src]'s handle! It probably would've been cooler if [user.p_they()] turned it on first!</span>")
+		user.visible_message("<span class='suicide'>[user] begins beating [user.ru_na()]self to death with \the [src]'s handle! It probably would've been cooler if [user.ru_who()] turned it on first!</span>")
 	return BRUTELOSS
 
 /obj/item/dualsaber/Initialize()
@@ -169,8 +169,8 @@
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		if(C.wear_mask)
-			in_mouth = ", barely missing [user.p_their()] nose"
-	. = "<span class='warning'>[user] swings [user.p_their()] [name][in_mouth]. [user.p_they(TRUE)] light[user.p_s()] [A.loc == user ? "[user.p_their()] [A.name]" : A] in the process.</span>"
+			in_mouth = ", barely missing [user.ru_ego()] nose"
+	. = "<span class='warning'>[user] swings [user.ru_ego()] [name][in_mouth]. [user.ru_who(TRUE)] light[user.p_s()] [A.loc == user ? "[user.ru_ego()] [A.name]" : A] in the process.</span>"
 	playsound(loc, hitsound, get_clamped_volume(), TRUE, -1)
 	add_fingerprint(user)
 	// Light your candles while spinning around the room

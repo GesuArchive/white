@@ -17,7 +17,7 @@
 	timeout = 4 MINUTES
 
 /datum/mood_event/besthug/add_effects(mob/friend)
-	description = "<span class='nicegreen'>[friend.name] очень мило себя ведёт, рядом с [friend.p_they()] так хорошо находиться!</span>\n"
+	description = "<span class='nicegreen'>[friend.name] очень мило себя ведёт, рядом с [friend.ru_who()] так хорошо находиться!</span>\n"
 
 /datum/mood_event/warmhug
 	description = "<span class='nicegreen'>Warm cozy hugs are the best!</span>\n"
