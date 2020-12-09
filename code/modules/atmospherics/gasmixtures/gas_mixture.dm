@@ -350,7 +350,6 @@ get_true_breath_pressure(pp) --> gas_pp = pp/breath_pp*total_moles()
 		return null
 	var/datum/gas_mixture/removed = new type
 	removed.set_temperature(return_temperature())
-	//adjust_moles(gas_id, removed.get_gases())
 	removed.set_moles(gas_id, amount)
 	adjust_moles(gas_id, -amount)
 
