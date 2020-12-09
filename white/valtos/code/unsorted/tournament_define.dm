@@ -137,7 +137,7 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 	r_pocket = /obj/item/ammo_box/magazine/recharge/ctf
 	r_hand = /obj/item/gun/ballistic/automatic/laser/ctf
 
-/client/verb/clicker_panel()
+/client/proc/clicker_panel()
 	set name = "Панель кликеров"
 	set category = "Особенное"
 
