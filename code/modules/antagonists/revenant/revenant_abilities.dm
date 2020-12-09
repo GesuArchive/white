@@ -23,7 +23,7 @@
 		to_chat(src, "<span class='revenwarning'>You are already siphoning the essence of a soul!</span>")
 		return
 	if(!target.stat)
-		to_chat(src, "<span class='revennotice'>[target.p_their(TRUE)] soul is too strong to harvest.</span>")
+		to_chat(src, "<span class='revennotice'>[target.ru_ego(TRUE)] soul is too strong to harvest.</span>")
 		if(prob(10))
 			to_chat(target, "<span class='revennotice'>You feel as if you are being watched.</span>")
 		return
@@ -33,13 +33,13 @@
 	to_chat(src, "<span class='revennotice'>You search for the soul of [target].</span>")
 	if(do_after(src, rand(10, 20), target, timed_action_flags = IGNORE_HELD_ITEM)) //did they get deleted in that second?
 		if(target.ckey)
-			to_chat(src, "<span class='revennotice'>[target.p_their(TRUE)] soul burns with intelligence.</span>")
+			to_chat(src, "<span class='revennotice'>[target.ru_ego(TRUE)] soul burns with intelligence.</span>")
 			essence_drained += rand(20, 30)
 		if(target.stat != DEAD)
-			to_chat(src, "<span class='revennotice'>[target.p_their(TRUE)] soul blazes with life!</span>")
+			to_chat(src, "<span class='revennotice'>[target.ru_ego(TRUE)] soul blazes with life!</span>")
 			essence_drained += rand(40, 50)
 		else
-			to_chat(src, "<span class='revennotice'>[target.p_their(TRUE)] soul is weak and faltering.</span>")
+			to_chat(src, "<span class='revennotice'>[target.ru_ego(TRUE)] soul is weak and faltering.</span>")
 		if(do_after(src, rand(15, 20), target, timed_action_flags = IGNORE_HELD_ITEM)) //did they get deleted NOW?
 			switch(essence_drained)
 				if(1 to 30)
@@ -64,7 +64,7 @@
 					target.Stun(46)
 				reveal(46)
 				stun(46)
-				target.visible_message("<span class='warning'>[target] suddenly rises slightly into the air, [target.p_their()] skin turning an ashy gray.</span>")
+				target.visible_message("<span class='warning'>[target] suddenly rises slightly into the air, [target.ru_ego()] skin turning an ashy gray.</span>")
 				if(target.anti_magic_check(FALSE, TRUE))
 					to_chat(src, "<span class='revenminor'>Something's wrong! [target] seems to be resisting the siphoning, leaving you vulnerable!</span>")
 					target.visible_message("<span class='warning'>[target] slumps onto the ground.</span>", \
@@ -93,7 +93,7 @@
 											   "<span class='revenwarning'>Violets lights, dancing in your vision, receding--</span>")
 				qdel(B)
 			else
-				to_chat(src, "<span class='revenwarning'>You are not close enough to siphon [target ? "[target]'s":"[target.p_their()]"] soul. The link has been broken.</span>")
+				to_chat(src, "<span class='revenwarning'>You are not close enough to siphon [target ? "[target]'s":"[target.ru_ego()]"] soul. The link has been broken.</span>")
 	draining = FALSE
 	essence_drained = 0
 

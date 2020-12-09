@@ -3,7 +3,7 @@
 
 /obj/item/melee/proc/check_martial_counter(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	if(target.check_block())
-		target.visible_message("<span class='danger'>[target.name] blocks [src] and twists [user]'s arm behind [user.p_their()] back!</span>",
+		target.visible_message("<span class='danger'>[target.name] blocks [src] and twists [user]'s arm behind [user.ru_ego()] back!</span>",
 					"<span class='userdanger'>You block the attack!</span>")
 		user.Stun(40)
 		return TRUE
@@ -30,7 +30,7 @@
 	custom_materials = list(/datum/material/iron = 1000)
 
 /obj/item/melee/chainofcommand/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is strangling [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] is strangling [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return (OXYLOSS)
 
 /obj/item/melee/synthetic_arm_blade
@@ -95,7 +95,7 @@
 		playsound(B, 'sound/items/sheath.ogg', 25, TRUE)
 
 /obj/item/melee/sabre/suicide_act(mob/living/user)
-	user.visible_message("<span class='suicide'>[user] is trying to cut off all [user.p_their()] limbs with [src]! it looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] is trying to cut off all [user.ru_ego()] limbs with [src]! it looks like [user.p_theyre()] trying to commit suicide!</span>")
 	var/i = 0
 	ADD_TRAIT(src, TRAIT_NODROP, SABRE_SUICIDE_TRAIT)
 	if(iscarbon(user))
@@ -167,7 +167,7 @@
 		H.reagents.add_reagent(/datum/reagent/toxin, 4)
 
 /obj/item/melee/beesword/suicide_act(mob/living/user)
-	user.visible_message("<span class='suicide'>[user] is stabbing [user.p_them()]self in the throat with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] is stabbing [user.ru_na()]self in the throat with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	playsound(get_turf(src), hitsound, 75, TRUE, -1)
 	return TOXLOSS
 
@@ -358,7 +358,7 @@
 	var/mob/living/carbon/human/H = user
 	var/obj/item/organ/brain/B = H.getorgan(/obj/item/organ/brain)
 
-	user.visible_message("<span class='suicide'>[user] stuffs [src] up [user.p_their()] nose and presses the 'extend' button! It looks like [user.p_theyre()] trying to clear [user.p_their()] mind.</span>")
+	user.visible_message("<span class='suicide'>[user] stuffs [src] up [user.ru_ego()] nose and presses the 'extend' button! It looks like [user.p_theyre()] trying to clear [user.ru_ego()] mind.</span>")
 	if(!on)
 		src.attack_self(user)
 	else
@@ -503,7 +503,7 @@
 	return BULLET_ACT_HIT
 
 /obj/item/melee/supermatter_sword/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] touches [src]'s blade. It looks like [user.p_theyre()] tired of waiting for the radiation to kill [user.p_them()]!</span>")
+	user.visible_message("<span class='suicide'>[user] touches [src]'s blade. It looks like [user.p_theyre()] tired of waiting for the radiation to kill [user.ru_na()]!</span>")
 	user.dropItemToGround(src, TRUE)
 	shard.Bumped(user)
 

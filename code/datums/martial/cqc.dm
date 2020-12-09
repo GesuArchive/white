@@ -68,9 +68,9 @@
 		log_combat(A, D, "kicked (CQC)")
 	if(D.IsParalyzed() && !D.stat)
 		log_combat(A, D, "knocked out (Head kick)(CQC)")
-		D.visible_message("<span class='danger'>[A] kicks [D]'s head, knocking [D.p_them()] out!</span>", \
+		D.visible_message("<span class='danger'>[A] kicks [D]'s head, knocking [D.ru_na()] out!</span>", \
 						"<span class='userdanger'>You're knocked unconscious by [A]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", null, A)
-		to_chat(A, "<span class='danger'>You kick [D]'s head, knocking [D.p_them()] out!</span>")
+		to_chat(A, "<span class='danger'>You kick [D]'s head, knocking [D.ru_na()] out!</span>")
 		playsound(get_turf(A), 'sound/weapons/genhit1.ogg', 50, TRUE, -1)
 		D.SetSleeping(300)
 		D.adjustOrganLoss(ORGAN_SLOT_BRAIN, 15, 150)
@@ -181,7 +181,7 @@
 			I = D.get_active_held_item()
 			D.visible_message("<span class='danger'>[A] strikes [D]'s jaw with their hand!</span>", \
 							"<span class='userdanger'>Your jaw is struck by [A], you feel disoriented!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, A)
-			to_chat(A, "<span class='danger'>You strike [D]'s jaw, leaving [D.p_them()] disoriented!</span>")
+			to_chat(A, "<span class='danger'>You strike [D]'s jaw, leaving [D.ru_na()] disoriented!</span>")
 			playsound(get_turf(D), 'sound/weapons/cqchit1.ogg', 50, TRUE, -1)
 			if(I && D.temporarilyRemoveItemFromInventory(I))
 				A.put_in_hands(I)

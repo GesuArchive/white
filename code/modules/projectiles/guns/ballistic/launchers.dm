@@ -91,7 +91,7 @@
 		sleep(5)
 		shoot_with_empty_chamber(user)
 		sleep(20)
-		user.visible_message("<span class='warning'>[user] looks about the room realizing [user.p_theyre()] still there. [user.p_they(TRUE)] proceed to shove [src] down their throat and choke [user.p_them()]self with it!</span>", \
+		user.visible_message("<span class='warning'>[user] looks about the room realizing [user.p_theyre()] still there. [user.ru_who(TRUE)] proceed to shove [src] down their throat and choke [user.ru_na()]self with it!</span>", \
 			"<span class='userdanger'>You look around after realizing you're still here, then proceed to choke yourself to death with [src]!</span>")
 		sleep(20)
 		return OXYLOSS

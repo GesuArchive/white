@@ -221,7 +221,7 @@
 			vehicle.unbuckle_mob(rider)
 			rider.throw_at(landing_turf, 2, 2)
 			rider.Paralyze(40)
-			vehicle.visible_message("<span class='danger'>[rider] misses the landing and falls on [rider.p_their()] face!</span>")
+			vehicle.visible_message("<span class='danger'>[rider] misses the landing and falls on [rider.ru_ego()] face!</span>")
 		else
 			rider.spin(4, 1)
 			animate(rider, pixel_y = -6, time = 4)

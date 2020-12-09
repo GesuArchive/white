@@ -99,9 +99,9 @@
 
 /datum/emote/proc/replace_pronoun(mob/user, message)
 	if(findtext(message, "their"))
-		message = replacetext(message, "their", user.p_their())
+		message = replacetext(message, "their", user.ru_ego())
 	if(findtext(message, "them"))
-		message = replacetext(message, "them", user.p_them())
+		message = replacetext(message, "them", user.ru_na())
 	if(findtext(message, "%s"))
 		message = replacetext(message, "%s", user.p_s())
 	return message
@@ -166,9 +166,9 @@
 /mob/proc/manual_emote(text) //Just override the song and dance
 	. = TRUE
 	if(findtext(text, "their"))
-		text = replacetext(text, "their", p_their())
+		text = replacetext(text, "their", ru_ego())
 	if(findtext(text, "them"))
-		text = replacetext(text, "them", p_them())
+		text = replacetext(text, "them", ru_na())
 	if(findtext(text, "%s"))
 		text = replacetext(text, "%s", p_s())
 

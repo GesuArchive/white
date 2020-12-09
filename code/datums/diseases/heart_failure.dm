@@ -60,7 +60,7 @@
 			affected_mob.stop_sound_channel(CHANNEL_HEARTBEAT)
 			affected_mob.playsound_local(affected_mob, 'sound/effects/singlebeat.ogg', 100, FALSE)
 			if(affected_mob.stat == CONSCIOUS)
-				affected_mob.visible_message("<span class='danger'>[affected_mob] clutches at [affected_mob.p_their()] chest as if [affected_mob.p_their()] heart is stopping!</span>", \
+				affected_mob.visible_message("<span class='danger'>[affected_mob] clutches at [affected_mob.ru_ego()] chest as if [affected_mob.ru_ego()] heart is stopping!</span>", \
 					"<span class='userdanger'>You feel a terrible pain in your chest, as if your heart has stopped!</span>")
 			affected_mob.adjustStaminaLoss(60, FALSE)
 			affected_mob.set_heartattack(TRUE)

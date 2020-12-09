@@ -53,7 +53,7 @@
 				if(do_after(user, 1 SECONDS, src))
 					fold_in()
 					if(user.put_in_hands(card))
-						user.visible_message("<span class='notice'>[user] promptly scoops up [user.p_their()] pAI's card.</span>")
+						user.visible_message("<span class='notice'>[user] promptly scoops up [user.ru_ego()] pAI's card.</span>")
 			else
 				visible_message("<span class='danger'>[user] stomps on [src]!.</span>")
 				take_holo_damage(2)

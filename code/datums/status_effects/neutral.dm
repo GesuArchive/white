@@ -154,7 +154,7 @@
 		return
 
 	slap_item = slap
-	owner.visible_message("<span class='notice'>[owner] raises [owner.p_their()] arm, looking for a high-five!</span>", \
+	owner.visible_message("<span class='notice'>[owner] raises [owner.ru_ego()] arm, looking for a high-five!</span>", \
 		"<span class='notice'>You post up, looking for a high-five!</span>", null, 2)
 
 	for(var/mob/living/carbon/possible_taker in orange(1, owner))
@@ -163,7 +163,7 @@
 		register_candidate(possible_taker)
 
 	if(!possible_takers) // in case we tried high-fiving with only a dead body around or something
-		owner.visible_message("<span class='danger'>[owner] realizes no one within range is actually capable of high-fiving, lowering [owner.p_their()] arm in shame...</span>", \
+		owner.visible_message("<span class='danger'>[owner] realizes no one within range is actually capable of high-fiving, lowering [owner.ru_ego()] arm in shame...</span>", \
 			"<span class='warning'>You realize a moment too late that no one within range is actually capable of high-fiving you, oof...</span>", null, 2)
 		SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five_alone)
 		qdel(src)
@@ -198,7 +198,7 @@
 
 /// We failed to high-five broh, either because there's no one viable next to us anymore, or we lost the slapper, or what
 /datum/status_effect/high_fiving/proc/fail()
-	owner.visible_message("<span class='danger'>[owner] slowly lowers [owner.p_their()] arm, realizing no one will high-five [owner.p_them()]! How embarassing...</span>", \
+	owner.visible_message("<span class='danger'>[owner] slowly lowers [owner.ru_ego()] arm, realizing no one will high-five [owner.ru_na()]! How embarassing...</span>", \
 		"<span class='warning'>You realize the futility of continuing to wait for a high-five, and lower your arm...</span>", null, 2)
 	SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/left_hanging)
 	qdel(src)
@@ -250,8 +250,8 @@
 	if(!owner || !rube)
 		qdel(src)
 		return
-	owner.visible_message("<span class='danger'>[owner] pulls away from [rube]'s slap at the last second, dodging the high-five entirely!</span>", "<span class='nicegreen'>[rube] fails to make contact with your hand, making an utter fool of [rube.p_them()]self!</span>", "<span class='hear'>You hear a disappointing sound of flesh not hitting flesh!</span>", ignored_mobs=rube)
-	var/all_caps_for_emphasis = uppertext("NO! [owner] PULLS [owner.p_their()] HAND AWAY FROM YOURS! YOU'RE TOO SLOW!")
+	owner.visible_message("<span class='danger'>[owner] pulls away from [rube]'s slap at the last second, dodging the high-five entirely!</span>", "<span class='nicegreen'>[rube] fails to make contact with your hand, making an utter fool of [rube.ru_na()]self!</span>", "<span class='hear'>You hear a disappointing sound of flesh not hitting flesh!</span>", ignored_mobs=rube)
+	var/all_caps_for_emphasis = uppertext("NO! [owner] PULLS [owner.ru_ego()] HAND AWAY FROM YOURS! YOU'RE TOO SLOW!")
 	to_chat(rube, "<span class='userdanger'>[all_caps_for_emphasis]</span>")
 	playsound(owner, 'sound/weapons/thudswoosh.ogg', 100, TRUE, 1)
 	rube.Knockdown(1 SECONDS)
@@ -264,7 +264,7 @@
 	SIGNAL_HANDLER
 
 	if(!slap_item)
-		examine_list += "<span class='warning'>[owner]'s arm appears tensed up, as if [owner.p_they()] plan on pulling it back suddenly...</span>\n"
+		examine_list += "<span class='warning'>[owner]'s arm appears tensed up, as if [owner.ru_who()] plan on pulling it back suddenly...</span>\n"
 
 /// One of our possible takers moved, see if they left us hanging
 /datum/status_effect/high_fiving/proc/check_taker_in_range(mob/living/carbon/taker)

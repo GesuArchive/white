@@ -32,7 +32,7 @@
 		to_chat(user, "On second thought, the element of surprise isn't so bad after all.")
 		return
 
-	var/war_declaration = "[user.real_name] has declared [user.p_their()] intent to utterly destroy [station_name()] with a nuclear device, and dares the crew to try and stop [user.p_them()]."
+	var/war_declaration = "[user.real_name] has declared [user.ru_ego()] intent to utterly destroy [station_name()] with a nuclear device, and dares the crew to try and stop [user.ru_na()]."
 
 	declaring_war_lowpop = TRUE
 	var/custom_threat = alert(user, "Do you want to customize your declaration?", "Customize?", "Yes", "No")

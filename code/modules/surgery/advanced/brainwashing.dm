@@ -41,7 +41,7 @@
 
 /datum/surgery_step/brainwash/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(!target.mind)
-		to_chat(user, "<span class='warning'>[target] не реагирует на промывание мозга, кажется, что [target.p_they()] лишился ума...</span>")
+		to_chat(user, "<span class='warning'>[target] не реагирует на промывание мозга, кажется, что [target.ru_who()] лишился ума...</span>")
 		return FALSE
 	if(HAS_TRAIT(target, TRAIT_MINDSHIELD))
 		to_chat(user, "<span class='warning'>Слышу слабое жужание устройства в мозгу [target] и новая директива стирается.</span>")
@@ -62,5 +62,5 @@
 			"<span class='notice'>[user] завершил операцию на мозге [target].</span>")
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 40)
 	else
-		user.visible_message("<span class='warning'>[user] внезапно замечает что мозг [user.p_they()] над которым работал [user.p_were()] исчез.</span>", "<span class='warning'>Вы внезапно обнаружили что мозг, над которым вы работали, исчез.</span>")
+		user.visible_message("<span class='warning'>[user] внезапно замечает что мозг [user.ru_who()] над которым работал [user.p_were()] исчез.</span>", "<span class='warning'>Вы внезапно обнаружили что мозг, над которым вы работали, исчез.</span>")
 	return FALSE

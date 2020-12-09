@@ -168,7 +168,7 @@
 		return
 	user.visible_message("<span class='notice'>[user] starts loading [target] into [src].</span>", \
 	"<span class='notice'>You start loading [target] into [src]...</span>", null, null, target)
-	to_chat(target, "<span class='userdanger'>[user] starts loading you into [user.p_their()] [name]!</span>")
+	to_chat(target, "<span class='userdanger'>[user] starts loading you into [user.ru_ego()] [name]!</span>")
 	if(!do_mob(user, target, 30))
 		return
 	if(target in occupants)
@@ -178,7 +178,7 @@
 		return
 	user.visible_message("<span class='notice'>[user] loads [target] into [src]!</span>", \
 	"<span class='notice'>You load [target] into [src].</span>", null, null, target)
-	to_chat(target, "<span class='userdanger'>[user] loads you into [user.p_their()] [name]!</span>")
+	to_chat(target, "<span class='userdanger'>[user] loads you into [user.ru_ego()] [name]!</span>")
 	add_occupant(target)
 
 /obj/item/pet_carrier/proc/add_occupant(mob/living/occupant)

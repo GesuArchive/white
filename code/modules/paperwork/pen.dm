@@ -32,7 +32,7 @@
 	sharpness = SHARP_POINTY
 
 /obj/item/pen/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is scribbling numbers all over [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit sudoku...</span>")
+	user.visible_message("<span class='suicide'>[user] is scribbling numbers all over [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit sudoku...</span>")
 	return(BRUTELOSS)
 
 /obj/item/pen/blue

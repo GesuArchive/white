@@ -73,7 +73,7 @@
 				return
 			cards += CH.currenthand
 			playsound(src, 'white/ClickerOfThings/shitspawn_deck/diler_est.ogg', 50, 1)
-			user.visible_message("[user] puts [user.p_their()] hand of cards in the deck. Ti to che delaesh?!", "<span class='notice'>You put the hand of cards in the deck. Ti to che delaesh?!</span>")
+			user.visible_message("[user] puts [user.ru_ego()] hand of cards in the deck. Ti to che delaesh?!", "<span class='notice'>You put the hand of cards in the deck. Ti to che delaesh?!</span>")
 			qdel(CH)
 		else
 			playsound(src, 'white/ClickerOfThings/shitspawn_deck/durak.ogg', 50, 1)

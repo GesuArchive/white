@@ -41,7 +41,7 @@
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
 
 /mob/living/simple_animal/shade/death()
-	deathmessage = "lets out a contented sigh as [p_their()] form unwinds."
+	deathmessage = "lets out a contented sigh as [ru_ego()] form unwinds."
 	..()
 
 /mob/living/simple_animal/shade/canSuicide()

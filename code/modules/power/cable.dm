@@ -436,7 +436,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	if(locate(/obj/structure/chair/stool) in get_turf(user))
 		user.visible_message("<span class='suicide'>[user] is making a noose with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	else
-		user.visible_message("<span class='suicide'>[user] is strangling [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message("<span class='suicide'>[user] is strangling [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return(OXYLOSS)
 
 /obj/item/stack/cable_coil/proc/check_menu(mob/living/user)

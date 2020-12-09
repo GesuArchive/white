@@ -36,7 +36,7 @@
 		radiation_pulse(src, 400, 2)
 
 /obj/item/nuke_core/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is rubbing [src] against [user.p_them()]self! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] is rubbing [src] against [user.ru_na()]self! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return (TOXLOSS)
 
 //nuke core box, for carrying the core
@@ -177,7 +177,7 @@
 	..()
 	if(!isliving(user) || user.status_flags & GODMODE) //try to keep this in sync with supermatter's consume fail conditions
 		return FALSE
-	user.visible_message("<span class='danger'>[user] reaches out and tries to pick up [src]. [user.p_their()] body starts to glow and bursts into flames before flashing into dust!</span>",\
+	user.visible_message("<span class='danger'>[user] reaches out and tries to pick up [src]. [user.ru_ego()] body starts to glow and bursts into flames before flashing into dust!</span>",\
 			"<span class='userdanger'>You reach for [src] with your hands. That was dumb.</span>",\
 			"<span class='hear'>Everything suddenly goes silent.</span>")
 	radiation_pulse(user, 500, 2)

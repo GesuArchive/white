@@ -92,7 +92,7 @@
 				var/mob/living/carbon/human/H = M
 				to_chat(user, "<span class='boldnotice'>You find that their intent is to [H.a_intent]...</span>")
 				if(H.mind)
-					to_chat(user, "<span class='boldnotice'>You uncover that [H.p_their()] true identity is [H.mind.name].</span>")
+					to_chat(user, "<span class='boldnotice'>You uncover that [H.ru_ego()] true identity is [H.mind.name].</span>")
 		else
 			to_chat(user, "<span class='warning'>You can't find a mind to read inside of [M]!</span>")
 

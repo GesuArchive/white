@@ -509,7 +509,7 @@
 			if(!embeds)
 				embeds = TRUE
 				// this way, we only visibly try to examine ourselves if we have something embedded, otherwise we'll still hug ourselves :)
-				visible_message("<span class='notice'>[capitalize(src.name)] examines [p_them()]self.</span>", \
+				visible_message("<span class='notice'>[capitalize(src.name)] examines [ru_na()]self.</span>", \
 					"<span class='notice'>You check yourself for shrapnel.</span>")
 			if(I.isEmbedHarmless())
 				to_chat(src, "\t <a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>There is \a [I] stuck to your [LB.name]!</a>")
@@ -717,7 +717,7 @@
 	RegisterSignal(user, COMSIG_PARENT_QDELETING, .proc/qdel_void)
 	RegisterSignal(grasped_part, list(COMSIG_CARBON_REMOVE_LIMB, COMSIG_PARENT_QDELETING), .proc/qdel_void)
 
-	user.visible_message("<span class='danger'>[user] grasps at [user.p_their()] [grasped_part.name], trying to stop the bleeding.</span>", "<span class='notice'>You grab hold of your [grasped_part.name] tightly.</span>", vision_distance=COMBAT_MESSAGE_RANGE)
+	user.visible_message("<span class='danger'>[user] grasps at [user.ru_ego()] [grasped_part.name], trying to stop the bleeding.</span>", "<span class='notice'>You grab hold of your [grasped_part.name] tightly.</span>", vision_distance=COMBAT_MESSAGE_RANGE)
 	playsound(get_turf(src), 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 	return TRUE
 

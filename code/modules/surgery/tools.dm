@@ -110,7 +110,7 @@
 	bare_wound_bonus = 10
 
 /obj/item/surgicaldrill/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] rams [src] into [user.p_their()] chest! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] rams [src] into [user.ru_ego()] chest! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	addtimer(CALLBACK(user, /mob/living/carbon.proc/gib, null, null, TRUE, TRUE), 25)
 	user.SpinAnimation(3, 10)
 	playsound(user, 'sound/machines/juicer.ogg', 20, TRUE)
@@ -158,7 +158,7 @@
 	toolspeed = 0.5
 
 /obj/item/scalpel/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is slitting [user.p_their()] [pick("wrists", "throat", "stomach")] with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] is slitting [user.ru_ego()] [pick("wrists", "throat", "stomach")] with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return (BRUTELOSS)
 
 

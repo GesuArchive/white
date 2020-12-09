@@ -35,7 +35,7 @@
 	if(!process_scan) //since it's not scanning on process, it scans here.
 		scan_for_target()
 	toggle_on()
-	user.visible_message("<span class='notice'>[user] [active ? "" : "de"]activates [user.p_their()] pinpointer.</span>", "<span class='notice'>You [active ? "" : "de"]activate your pinpointer.</span>")
+	user.visible_message("<span class='notice'>[user] [active ? "" : "de"]activates [user.ru_ego()] pinpointer.</span>", "<span class='notice'>You [active ? "" : "de"]activate your pinpointer.</span>")
 
 /obj/item/pinpointer/proc/toggle_on()
 	active = !active
@@ -112,7 +112,7 @@
 /obj/item/pinpointer/crew/attack_self(mob/living/user)
 	if(active)
 		toggle_on()
-		user.visible_message("<span class='notice'>[user] deactivates [user.p_their()] pinpointer.</span>", "<span class='notice'>You deactivate your pinpointer.</span>")
+		user.visible_message("<span class='notice'>[user] deactivates [user.ru_ego()] pinpointer.</span>", "<span class='notice'>You deactivate your pinpointer.</span>")
 		return
 
 	if (has_owner && !pinpointer_owner)
@@ -152,7 +152,7 @@
 
 	target = names[A]
 	toggle_on()
-	user.visible_message("<span class='notice'>[user] activates [user.p_their()] pinpointer.</span>", "<span class='notice'>You activate your pinpointer.</span>")
+	user.visible_message("<span class='notice'>[user] activates [user.ru_ego()] pinpointer.</span>", "<span class='notice'>You activate your pinpointer.</span>")
 
 /obj/item/pinpointer/crew/scan_for_target()
 	if(target)

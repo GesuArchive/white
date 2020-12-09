@@ -257,7 +257,7 @@ structure_check() searches for nearby cultist structures required for the invoca
 		convertee.adjustBruteLoss(-(brutedamage * 0.75))
 		convertee.adjustFireLoss(-(burndamage * 0.75))
 	convertee.visible_message("<span class='warning'>[convertee] writhes in pain \
-	[brutedamage || burndamage ? "even as [convertee.p_their()] wounds heal and close" : "as the markings below [convertee.p_them()] glow a bloody red"]!</span>", \
+	[brutedamage || burndamage ? "even as [convertee.ru_ego()] wounds heal and close" : "as the markings below [convertee.ru_na()] glow a bloody red"]!</span>", \
 	"<span class='cultlarge'><i>AAAAAAAAAAAAAA-</i></span>")
 	SSticker.mode.add_cultist(convertee.mind, 1)
 	new /obj/item/melee/cultblade/dagger(get_turf(src))
@@ -583,7 +583,7 @@ structure_check() searches for nearby cultist structures required for the invoca
 			return
 	SEND_SOUND(mob_to_revive, sound('sound/ambience/antag/bloodcult.ogg'))
 	to_chat(mob_to_revive, "<span class='cultlarge'>\"PASNAR SAVRAE YAM'TOTH. Arise.\"</span>")
-	mob_to_revive.visible_message("<span class='warning'>[mob_to_revive] draws in a huge breath, red light shining from [mob_to_revive.p_their()] eyes.</span>", \
+	mob_to_revive.visible_message("<span class='warning'>[mob_to_revive] draws in a huge breath, red light shining from [mob_to_revive.ru_ego()] eyes.</span>", \
 								  "<span class='cultlarge'>You awaken suddenly from the void. You're alive!</span>")
 	rune_in_use = FALSE
 
@@ -848,11 +848,11 @@ structure_check() searches for nearby cultist structures required for the invoca
 		GM.Grant(G)
 		while(!QDELETED(affecting))
 			if(!(affecting in T))
-				user.visible_message("<span class='warning'>A spectral tendril wraps around [affecting] and pulls [affecting.p_them()] back to the rune!</span>")
+				user.visible_message("<span class='warning'>A spectral tendril wraps around [affecting] and pulls [affecting.ru_na()] back to the rune!</span>")
 				Beam(affecting, icon_state="drainbeam", time=2)
 				affecting.forceMove(get_turf(src)) //NO ESCAPE :^)
 			if(affecting.key)
-				affecting.visible_message("<span class='warning'>[affecting] slowly relaxes, the glow around [affecting.p_them()] dimming.</span>", \
+				affecting.visible_message("<span class='warning'>[affecting] slowly relaxes, the glow around [affecting.ru_na()] dimming.</span>", \
 					"<span class='danger'>You are re-united with your physical form. [src] releases its hold over you.</span>")
 				affecting.Paralyze(40)
 				break

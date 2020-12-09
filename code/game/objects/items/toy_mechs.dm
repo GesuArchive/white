@@ -177,7 +177,7 @@
 
 		//extend the offer of battle to the other mech
 		to_chat(user, "<span class='notice'>You offer battle to [target.name]!</span>")
-		to_chat(target, "<span class='notice'><b>[user.name] wants to battle with [user.p_their()] [name]!</b> <i>Attack them with a toy mech to initiate combat.</i></span>")
+		to_chat(target, "<span class='notice'><b>[user.name] wants to battle with [user.ru_ego()] [name]!</b> <i>Attack them with a toy mech to initiate combat.</i></span>")
 		wants_to_battle = TRUE
 		addtimer(CALLBACK(src, .proc/withdraw_offer, user), 6 SECONDS)
 		return
@@ -215,7 +215,7 @@
 		to_chat(user, "<span class='notice'>[capitalize(src.name)] is in battle, let it finish first.</span>")
 		return
 
-	user.visible_message("<span class='suicide'>[user] begins a fight [user.p_they()] can't win with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] begins a fight [user.ru_who()] can't win with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 
 	in_combat = TRUE
 	sleep(1.5 SECONDS)
@@ -445,20 +445,20 @@
  */
 /obj/item/toy/prize/proc/check_battle_start(mob/living/carbon/user, obj/item/toy/prize/attacker, mob/living/carbon/target)
 	if(attacker?.in_combat)
-		to_chat(user, "<span class='notice'>[target?target.p_their() : "Your" ] [attacker.name] is in combat.</span>")
+		to_chat(user, "<span class='notice'>[target?target.ru_ego() : "Your" ] [attacker.name] is in combat.</span>")
 		target?.to_chat(target, "<span class='notice'>Your [attacker.name] is in combat.</span>")
 		return FALSE
 	if(in_combat)
 		to_chat(user, "<span class='notice'>Your [name] is in combat.</span>")
-		target?.to_chat(target, "<span class='notice'>[target.p_their()] [name] is in combat.</span>")
+		target?.to_chat(target, "<span class='notice'>[target.ru_ego()] [name] is in combat.</span>")
 		return FALSE
 	if(attacker && attacker.timer > world.time)
-		to_chat(user, "<span class='notice'>[target?target.p_their() : "Your" ] [attacker.name] isn't ready for battle.</span>")
+		to_chat(user, "<span class='notice'>[target?target.ru_ego() : "Your" ] [attacker.name] isn't ready for battle.</span>")
 		target?.to_chat(target, "<span class='notice'>Your [attacker.name] isn't ready for battle.</span>")
 		return FALSE
 	if(timer > world.time)
 		to_chat(user, "<span class='notice'>Your [name] isn't ready for battle.</span>")
-		target?.to_chat(target, "<span class='notice'>[target.p_their()] [name] isn't ready for battle.</span>")
+		target?.to_chat(target, "<span class='notice'>[target.ru_ego()] [name] isn't ready for battle.</span>")
 		return FALSE
 
 	return TRUE

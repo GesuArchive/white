@@ -47,7 +47,7 @@
 		return
 
 	if(M == user)
-		M.visible_message("<span class='notice'>[user] attempts to [apply_method] [src] on [user.p_them()]self.</span>")
+		M.visible_message("<span class='notice'>[user] attempts to [apply_method] [src] on [user.ru_na()]self.</span>")
 		if(self_delay)
 			if(!do_mob(user, M, self_delay))
 				return

@@ -23,7 +23,7 @@
 		if(!usr.mind.miming)
 			to_chat(usr, "<span class='warning'>You must dedicate yourself to silence first!</span>")
 			return
-		invocation = "<B>[usr.real_name]</B> looks as if a wall is in front of [usr.p_them()]."
+		invocation = "<B>[usr.real_name]</B> looks as if a wall is in front of [usr.ru_na()]."
 	else
 		invocation_type ="none"
 	..()
@@ -99,7 +99,7 @@
 		if(!usr.mind.miming)
 			to_chat(usr, "<span class='warning'>You must dedicate yourself to silence first!</span>")
 			return
-		invocation = "<B>[usr.real_name]</B> moves [usr.p_their()] hands in the shape of a cube, pressing a box out of the air."
+		invocation = "<B>[usr.real_name]</B> moves [usr.ru_ego()] hands in the shape of a cube, pressing a box out of the air."
 	else
 		invocation_type ="none"
 	..()
@@ -169,7 +169,7 @@
 		if(!usr.mind.miming)
 			to_chat(usr, "<span class='warning'>You must dedicate yourself to silence first!</span>")
 			return
-		invocation = "<B>[usr.real_name]</B> looks as if a blockade is in front of [usr.p_them()]."
+		invocation = "<B>[usr.real_name]</B> looks as if a blockade is in front of [usr.ru_na()]."
 	else
 		invocation_type ="none"
 	..()

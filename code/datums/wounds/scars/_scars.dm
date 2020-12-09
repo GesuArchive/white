@@ -127,7 +127,7 @@
 		if(WOUND_SEVERITY_CRITICAL)
 			msg = "<span class='smallnoticeital'><b>[msg]</b></span>"
 		if(WOUND_SEVERITY_LOSS)
-			msg = "[victim.p_their(TRUE)] [limb.name] [description]." // different format
+			msg = "[victim.ru_ego(TRUE)] [limb.name] [description]." // different format
 			msg = "<span class='notice'><i><b>[msg]</b></i></span>"
 	return "[msg]"
 

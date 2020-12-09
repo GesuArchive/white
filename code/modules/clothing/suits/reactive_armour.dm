@@ -206,7 +206,7 @@
 		if(world.time < reactivearmor_cooldown)
 			owner.visible_message("<span class='danger'>Реактивная броня на перезарядке!</span>")
 			return
-		owner.visible_message("<span class='danger'>Реактивная система телепортации сбрасывает [H] от [attack_text] и бросает [H.p_them()] на созданный стол!</span>")
+		owner.visible_message("<span class='danger'>Реактивная система телепортации сбрасывает [H] от [attack_text] и бросает [H.ru_na()] на созданный стол!</span>")
 		owner.visible_message("<font color='red' size='3'>[H] ОТПРАВЛЯЕТСЯ НА СТОЛ!!!</font>")
 		owner.Paralyze(40)
 		do_teleport(owner, get_turf(owner), tele_range, no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)

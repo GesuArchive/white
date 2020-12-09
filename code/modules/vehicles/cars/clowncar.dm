@@ -74,7 +74,7 @@
 		if(iscarbon(L))
 			var/mob/living/carbon/C = L
 			C.Paralyze(40) //I play to make sprites go horizontal
-		L.visible_message("<span class='warning'>[capitalize(src.name)] rams into [L] and sucks [L.p_them()] up!</span>") //fuck off shezza this isn't ERP.
+		L.visible_message("<span class='warning'>[capitalize(src.name)] rams into [L] and sucks [L.ru_na()] up!</span>") //fuck off shezza this isn't ERP.
 		mob_forced_enter(L)
 		playsound(src, pick('sound/vehicles/clowncar_ram1.ogg', 'sound/vehicles/clowncar_ram2.ogg', 'sound/vehicles/clowncar_ram3.ogg'), 75)
 		log_combat(src, A, "sucked up")

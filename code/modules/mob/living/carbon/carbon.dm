@@ -509,7 +509,7 @@
  * * amount: int The amount of reagent
  */
 /mob/living/carbon/proc/expel_ingested(atom/bite, amount)
-	visible_message("<span class='danger'>[src] throws up all over [p_them()]self!</span>", \
+	visible_message("<span class='danger'>[src] throws up all over [ru_na()]self!</span>", \
 					"<span class='userdanger'>You are unable to keep the [bite] down without a stomach!</span>")
 
 	var/turf/floor = get_turf(src)

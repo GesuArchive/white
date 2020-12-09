@@ -25,7 +25,7 @@
 	desc = "A first aid kit with the ability to heal common types of injuries."
 
 /obj/item/storage/firstaid/regular/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins giving [user.p_them()]self aids with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] begins giving [user.ru_na()]self aids with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return BRUTELOSS
 
 /obj/item/storage/firstaid/regular/PopulateContents()
@@ -159,7 +159,7 @@
 	damagetype_healed = BURN
 
 /obj/item/storage/firstaid/fire/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins rubbing \the [src] against [user.p_them()]self! It looks like [user.p_theyre()] trying to start a fire!</span>")
+	user.visible_message("<span class='suicide'>[user] begins rubbing \the [src] against [user.ru_na()]self! It looks like [user.p_theyre()] trying to start a fire!</span>")
 	return FIRELOSS
 
 /obj/item/storage/firstaid/fire/Initialize(mapload)
@@ -209,7 +209,7 @@
 	damagetype_healed = OXY
 
 /obj/item/storage/firstaid/o2/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins hitting [user.p_their()] neck with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] begins hitting [user.ru_ego()] neck with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return OXYLOSS
 
 /obj/item/storage/firstaid/o2/Initialize(mapload)
@@ -234,7 +234,7 @@
 	damagetype_healed = BRUTE
 
 /obj/item/storage/firstaid/brute/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins beating [user.p_them()]self over the head with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] begins beating [user.ru_na()]self over the head with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return BRUTELOSS
 
 /obj/item/storage/firstaid/brute/Initialize(mapload)

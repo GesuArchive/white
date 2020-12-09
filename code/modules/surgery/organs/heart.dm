@@ -92,7 +92,7 @@
 
 	if(organ_flags & ORGAN_FAILING)	//heart broke, stopped beating, death imminent
 		if(owner.stat == CONSCIOUS)
-			owner.visible_message("<span class='danger'>[owner] clutches at [owner.p_their()] chest as if [owner.p_their()] heart is stopping!</span>", \
+			owner.visible_message("<span class='danger'>[owner] clutches at [owner.ru_ego()] chest as if [owner.ru_ego()] heart is stopping!</span>", \
 				"<span class='userdanger'>You feel a terrible pain in your chest, as if your heart has stopped!</span>")
 		owner.set_heartattack(TRUE)
 		failed = TRUE
@@ -224,7 +224,7 @@
 	if(prob(emp_vulnerability/severity)) //Chance of permanent effects
 		organ_flags |= ORGAN_SYNTHETIC_EMP //Starts organ faliure - gonna need replacing soon.
 		Stop()
-		owner.visible_message("<span class='danger'>[owner] clutches at [owner.p_their()] chest as if [owner.p_their()] heart is stopping!</span>", \
+		owner.visible_message("<span class='danger'>[owner] clutches at [owner.ru_ego()] chest as if [owner.ru_ego()] heart is stopping!</span>", \
 						"<span class='userdanger'>You feel a terrible pain in your chest, as if your heart has stopped!</span>")
 		addtimer(CALLBACK(src, .proc/Restart), 10 SECONDS)
 
