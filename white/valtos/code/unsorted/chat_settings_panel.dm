@@ -43,7 +43,7 @@ GLOBAL_LIST_INIT(chat_settings_list_desc, list(
 	for(var/key in GLOB.chat_settings_list_desc)
 		.["ignore"] += list(list(
 			"key" = GLOB.chat_settings_list_desc[key],
-			"enabled" = (user.client.prefs.chat_toggles & GLOB.chat_settings_list_desc[key]),
+			"enabled" = !(user.client.prefs.chat_toggles & GLOB.chat_settings_list_desc[key]),
 			"desc" = key
 		))
 
