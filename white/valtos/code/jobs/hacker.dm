@@ -32,7 +32,7 @@
 
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
-	hud_list[HACKER_HUD].?add_overlay("node_enemy")
+	hud_list[HACKER_HUD]?.add_overlay("node_enemy")
 
 /obj/item/gun/examine(mob/user)
 	. = ..()
