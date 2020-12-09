@@ -141,7 +141,7 @@
 					continue
 
 				if(G.slot)
-					if(H.equip_to_slot_or_del(new /obj/item/stack/garland_pack/fifty(gd.location), G.slot))
+					if(H.equip_to_slot_or_del(G.spawn_item(H), G.slot))
 						to_chat(M, "<span class='notice'>Экипируемся в [gear]!</span>")
 					else
 						gear_leftovers += G
