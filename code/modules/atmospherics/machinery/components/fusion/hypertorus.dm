@@ -703,10 +703,10 @@
 		return
 	var/datum/gas_mixture/buffer
 	if(linked_input.airs[1].get_moles(/datum/gas/hydrogen) > 50)
-		buffer = linked_input.airs[1].adjust_moles(/datum/gas/hydrogen, -fuel_injection_rate * 0.1)
+		buffer = linked_input.airs[1].remove_specific(/datum/gas/hydrogen, -fuel_injection_rate * 0.1)
 		internal_fusion.merge(buffer)
 	if(linked_input.airs[1].get_moles(/datum/gas/tritium) > 50)
-		buffer = linked_input.airs[1].adjust_moles(/datum/gas/tritium, -fuel_injection_rate * 0.1)
+		buffer = linked_input.airs[1].remove_specific(/datum/gas/tritium, -fuel_injection_rate * 0.1)
 		internal_fusion.merge(buffer)
 	buffer = linked_moderator.airs[1].remove(moderator_injection_rate * 0.1)
 	moderator_internal.merge(buffer)
