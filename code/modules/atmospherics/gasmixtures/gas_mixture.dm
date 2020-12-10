@@ -168,8 +168,6 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 	return 1
 
 /datum/gas_mixture/parse_gas_string(gas_string)
-	gas_string = SSair.preprocess_gas_string(gas_string)
-
 	var/list/gas = params2list(gas_string)
 	if(gas["TEMP"])
 		set_temperature(text2num(gas["TEMP"]))

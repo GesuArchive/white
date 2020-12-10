@@ -215,8 +215,7 @@
 		var/datum/pipeline/P = PL[i]
 		if(!P)
 			continue
-		GL += P.other_airs
-		GL += P.air
+		GL += P.return_air()
 		for(var/atmosmch in P.other_atmosmch)
 			if (istype(atmosmch, /obj/machinery/atmospherics/components/binary/valve))
 				var/obj/machinery/atmospherics/components/binary/valve/V = atmosmch

@@ -70,7 +70,7 @@
 
 	SSair.atmos_machinery -= src
 
-	dump_inventory_contents()
+	//dump_inventory_contents()
 	if(pipe_vision_img)
 		qdel(pipe_vision_img)
 
