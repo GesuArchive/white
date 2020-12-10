@@ -4240,7 +4240,10 @@
 /area/awaymission/chilly/facility2)
 "lF" = (
 /obj/structure/closet,
-/obj/item/clothing/suit/armor/vest/wzzzz/riot_german,
+/obj/item/clothing/suit/armor/vest/wzzzz/riot_german{
+	cold_protection = 390;
+	min_cold_protection_temperature = 60
+	},
 /obj/item/clothing/head/helmet/wzzzz/riot,
 /obj/item/melee/classic_baton/wzzzz/german{
 	desc = "A compact yet robust personal defense weapon. Can be concealed when folded.";
@@ -4838,8 +4841,14 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/red,
-/obj/item/clothing/suit/armor/vest/wzzzz/riot_german,
-/obj/item/clothing/head/helmet/wzzzz/riot,
+/obj/item/clothing/suit/armor/vest/wzzzz/riot_german{
+	cold_protection = 390;
+	min_cold_protection_temperature = 60
+	},
+/obj/item/clothing/head/helmet/wzzzz/riot{
+	cold_protection = 390;
+	min_cold_protection_temperature = 60
+	},
 /obj/item/melee/classic_baton/wzzzz/german{
 	desc = "A compact yet robust personal defense weapon. Can be concealed when folded.";
 	name = "baton"
@@ -6767,7 +6776,10 @@
 "sA" = (
 /obj/structure/closet,
 /obj/effect/turf_decal/dust,
-/obj/item/clothing/suit/armor/vest/wzzzz/riot_german,
+/obj/item/clothing/suit/armor/vest/wzzzz/riot_german{
+	cold_protection = 390;
+	min_cold_protection_temperature = 60
+	},
 /obj/item/clothing/head/helmet/wzzzz/riot,
 /obj/item/melee/classic_baton/wzzzz/german{
 	desc = "A compact yet robust personal defense weapon. Can be concealed when folded.";
@@ -15089,7 +15101,10 @@
 /obj/effect/turf_decal/dust,
 /obj/item/storage/backpack,
 /obj/item/clothing/gloves/combat,
-/obj/item/clothing/shoes/jackboots/wzzzz/dutylong,
+/obj/item/clothing/shoes/jackboots/wzzzz/dutylong{
+	cold_protection = 120;
+	min_cold_protection_temperature = 2
+	},
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
@@ -15326,8 +15341,12 @@
 "Qu" = (
 /obj/structure/closet/cabinet,
 /obj/effect/turf_decal/dust,
-/obj/item/clothing/suit/det_suit,
-/obj/item/clothing/head/ushanka,
+/obj/item/clothing/suit/det_suit{
+	min_cold_protection_temperature = 60
+	},
+/obj/item/clothing/head/ushanka{
+	cold_protection = 390
+	},
 /obj/item/clothing/neck/stripedgreenscarf/wzzzz,
 /obj/item/clothing/glasses/sunglasses,
 /turf/open/floor/carpet/red,
@@ -16916,7 +16935,10 @@
 /obj/structure/closet/cabinet,
 /obj/effect/turf_decal/dust,
 /obj/item/clothing/suit/jacket/leather/overcoat,
-/obj/item/clothing/head/wzzzz/ttcushankadown,
+/obj/item/clothing/head/wzzzz/ttcushankadown{
+	cold_protection = 390;
+	min_cold_protection_temperature = 120
+	},
 /obj/item/kitchen/knife/combat,
 /obj/item/clothing/neck/stripedgreenscarf/wzzzz/black,
 /turf/open/floor/plating,
