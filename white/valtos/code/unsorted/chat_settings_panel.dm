@@ -17,8 +17,7 @@ GLOBAL_LIST_INIT(ghost_chat_settings_list_desc, list(
 
 GLOBAL_LIST_INIT(ghost_events_settings_list_desc, list(
 	"Смерти" 	  		= DISABLE_DEATHRATTLE,
-	"Прибывшие"   		= DISABLE_ARRIVALRATTLE,
-	"Быть антагом" 		= MIDROUND_ANTAG
+	"Прибывшие"   		= DISABLE_ARRIVALRATTLE
 ))
 
 GLOBAL_LIST_INIT(ic_settings_list_desc, list(
@@ -55,7 +54,7 @@ GLOBAL_LIST_INIT(chat_settings_list_desc, list(
 	for(var/key in GLOB.ghost_events_settings_list_desc)
 		.["ghost"] += list(list(
 			"key" = GLOB.ghost_events_settings_list_desc[key],
-			"enabled" = !(user.client.prefs.toggles & GLOB.ghost_events_settings_list_desc[key]),
+			"enabled" = (user.client.prefs.toggles & GLOB.ghost_events_settings_list_desc[key]),
 			"desc" = key,
 			"type" = "events"
 		))
