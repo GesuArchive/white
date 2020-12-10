@@ -40,5 +40,5 @@
 /datum/element/decal/blood/proc/get_examine_name(datum/source, mob/user, list/override)
 	SIGNAL_HANDLER
 
-	override[EXAMINE_POSITION_BEFORE] = "<i class='red'>(в крови)</i> "
+	override[EXAMINE_POSITION_BEFORE] = "<small class='red'>(в крови)</small> "
 	return COMPONENT_EXNAME_CHANGED
