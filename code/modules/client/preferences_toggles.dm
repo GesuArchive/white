@@ -4,7 +4,7 @@
 //Example usage TOGGLE_CHECKBOX(datum/verbs/menu/settings/Ghost/chatterbox, toggle_ghost_ears)()
 
 /datum/verbs/menu/settings
-	name = "Settings"
+	name = "Настройки"
 
 //override because we don't want to save preferences twice.
 /datum/verbs/menu/settings/Set_checked(client/C, verbpath)
@@ -16,12 +16,25 @@
 		winset(C, "[verbpath]", "is-checked = [!checked]")
 
 /datum/verbs/menu/settings/verb/setup_character()
-	set name = "Preferences"
+	set name = "Настройки"
 	set category = "Особенное"
-	set desc = "Open Game Preferences Window"
+	set desc = "Основные настройки"
 	usr.client.prefs.current_tab = 2
 	usr.client.prefs.ShowChoices(usr)
 
+/datum/verbs/menu/settings/verb/setup_sound()
+	set name = " ! Настройка звука"
+	set category = "Настройки"
+	set desc = "Настройки звука"
+	new /datum/sound_panel(usr)
+
+/datum/verbs/menu/settings/verb/setup_chat()
+	set name = " ! Настройка чата"
+	set category = "Настройки"
+	set desc = "Настройки чата"
+	new /datum/chat_settings_panel(usr)
+
+/*
 /datum/verbs/menu/settings/ghost
 	name = "Ghost"
 
@@ -134,11 +147,12 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost, togglemidroundantag)()
 
 /datum/verbs/menu/settings/sound
 	name = "Sound"
+*/
 
-/datum/verbs/menu/settings/sound/verb/stop_client_sounds()
+TOGGLE_CHECKBOX(/datum/verbs/menu/settings, stop_client_sounds)()
 	set name = "❌ Остановить звуки"
 	set category = "Особенное"
-	set desc = "Stop Current Sounds"
+	set desc = "Остановить звуки"
 	DIRECT_OUTPUT(usr, sound(null))
 	var/client/C = usr.client
 	C?.tgui_panel?.stop_music()
@@ -148,14 +162,14 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost, togglemidroundantag)()
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings, listen_ooc)()
 	set name = "💬 Видимость OOC"
 	set category = "Настройки"
-	set desc = "Show OOC Chat"
+	set desc = "Показывать OOC"
 	usr.client.prefs.chat_toggles ^= CHAT_OOC
 	usr.client.prefs.save_preferences()
 	to_chat(usr, "You will [(usr.client.prefs.chat_toggles & CHAT_OOC) ? "now" : "no longer"] see messages on the OOC channel.")
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Seeing OOC", "[usr.client.prefs.chat_toggles & CHAT_OOC ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 /datum/verbs/menu/settings/listen_ooc/Get_checked(client/C)
 	return C.prefs.chat_toggles & CHAT_OOC
-
+/*
 TOGGLE_CHECKBOX(/datum/verbs/menu/settings, listen_bank_card)()
 	set name = "💬 Зарплата"
 	set category = "Настройки"
@@ -166,7 +180,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings, listen_bank_card)()
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Income Notifications", "[(usr.client.prefs.chat_toggles & CHAT_BANKCARD) ? "Enabled" : "Disabled"]"))
 /datum/verbs/menu/settings/listen_bank_card/Get_checked(client/C)
 	return C.prefs.chat_toggles & CHAT_BANKCARD
-
+*/
 
 GLOBAL_LIST_INIT(ghost_forms, sortList(list("ghost","ghostking","ghostian2","skeleghost","ghost_red","ghost_black", \
 							"ghost_blue","ghost_yellow","ghost_green","ghost_pink", \
@@ -356,7 +370,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	return
 
 /client/proc/resetasaycolor()
-	set name = "❌ Reset your Admin Say Color"
+	set name = "Reset your Admin Say Color"
 	set desc = "Returns your ASAY Color to default"
 	set category = "Настройки.Адм"
 	if(!holder)

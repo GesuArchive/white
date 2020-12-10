@@ -392,25 +392,25 @@
 	SEND_SOUND(M, sound('sound/misc/notice2.ogg')) //Alerting them to their consideration
 	if(flashwindow)
 		window_flash(M.client)
-	var/list/answers = ignore_category ? list("Yes", "No", "Never for this round") : list("Yes", "No")
-	switch(tgui_alert(M, Question, "A limited-time offer!", answers, timeout=poll_time))
-		if("Yes")
-			to_chat(M, "<span class='notice'>Choice registered: Yes.</span>")
+	var/list/answers = ignore_category ? list("Да", "Нет", "Никогда") : list("Да", "Нет")
+	switch(tgui_alert(M, Question, "Предложение получить новое тело!", answers, timeout=poll_time))
+		if("Да")
+			to_chat(M, "<span class='notice'>Выбираем: Да.</span>")
 			if(time_passed + poll_time <= world.time)
-				to_chat(M, "<span class='danger'>Sorry, you answered too late to be considered!</span>")
+				to_chat(M, "<span class='danger'>СЛИШКОМ ПОЗДНО!</span>")
 				SEND_SOUND(M, sound('sound/machines/buzz-sigh.ogg'))
 				candidates -= M
 			else
 				candidates += M
-		if("No")
-			to_chat(M, "<span class='danger'>Choice registered: No.</span>")
+		if("Нет")
+			to_chat(M, "<span class='danger'>Выбираем: Нет.</span>")
 			candidates -= M
-		if("Never for this round")
+		if("Никогда")
 			var/list/L = GLOB.poll_ignore[ignore_category]
 			if(!L)
 				GLOB.poll_ignore[ignore_category] = list()
 			GLOB.poll_ignore[ignore_category] += M.ckey
-			to_chat(M, "<span class='danger'>Choice registered: Never for this round.</span>")
+			to_chat(M, "<span class='danger'>Выбираем: Не спрашиваем до конца раунда.</span>")
 			candidates -= M
 		else
 			candidates -= M

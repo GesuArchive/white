@@ -6,12 +6,6 @@
 //
 ////////////////////////////////////////////////
 
-/client/verb/sound_panel()
-	set name = " ! Настройка звука"
-	set category = "Настройки"
-
-	new /datum/sound_panel(usr)
-
 /datum/sound_panel/New(user)
 	ui_interact(user)
 

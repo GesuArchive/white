@@ -1,8 +1,8 @@
-/datum/verbs/menu/Admin/Generate_list(client/C)
+/datum/verbs/Admin/Generate_list(client/C)
 	if (C.holder)
 		. = ..()
 
-/datum/verbs/menu/Admin/verb/playerpanel()
+/datum/verbs/Admin/verb/playerpanel()
 	set name = "Player Panel"
 	set desc = "Player Panel"
 	set category = "Адм.Игра"
