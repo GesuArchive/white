@@ -69,6 +69,10 @@
 /obj/item/clothing/under/color/grey/ancient
 	name = "древний комбинезон"
 	desc = "Ужасно оборванный и потрепанный серый комбинезон. Похоже, его не стирали уже больше десяти лет."
+	icon = 'white/rebolution228/clothing/uniform.dmi'
+	worn_icon = 'white/rebolution228/clothing/uniform.dmi'
+	worn_icon_state = "grey_anciente"
+	icon_state = "grey_ancient"
 
 /obj/item/clothing/under/color/blue
 	name = "синий комбинезон"
