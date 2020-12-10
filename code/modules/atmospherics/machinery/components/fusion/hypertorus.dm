@@ -106,7 +106,6 @@
 		if(node)
 			node.atmosinit()
 			node.addMember(src)
-		SSair.add_to_rebuild_queue(src)
 
 /obj/machinery/atmospherics/components/unary/hypertorus/update_icon()
 	. = ..()

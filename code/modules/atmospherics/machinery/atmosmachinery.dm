@@ -69,10 +69,8 @@
 		nullifyNode(i)
 
 	SSair.atmos_machinery -= src
-	if(SSair.currentpart == SSAIR_ATMOSMACHINERY)
-		SSair.currentrun -= src
-	SSair.pipenets_needing_rebuilt -= src
 
+	dump_inventory_contents()
 	if(pipe_vision_img)
 		qdel(pipe_vision_img)
 

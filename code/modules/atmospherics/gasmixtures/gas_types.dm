@@ -49,6 +49,8 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 	var/fusion_power = 0 //How much the gas accelerates a fusion reaction
 	var/rarity = 0 // relative rarity compared to other gases, used when setting up the reactions list.
 
+// If you add or remove gases, update TOTAL_NUM_GASES in the extools code to match! Extools currently expects 14 gas types to exist.
+
 /datum/gas/oxygen
 	id = "o2"
 	specific_heat = 20
@@ -174,7 +176,7 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 /datum/gas/healium
 	id = "healium"
 	specific_heat = 10
-	name = "Healium"
+	name = "Хилиум"
 	dangerous = TRUE
 	gas_overlay = "healium"
 	moles_visible = MOLES_GAS_VISIBLE
@@ -183,7 +185,7 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 /datum/gas/proto_nitrate
 	id = "proto_nitrate"
 	specific_heat = 30
-	name = "Proto Nitrate"
+	name = "Прото-нитрат"
 	dangerous = TRUE
 	gas_overlay = "proto_nitrate"
 	moles_visible = MOLES_GAS_VISIBLE
@@ -192,7 +194,7 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 /datum/gas/zauker
 	id = "zauker"
 	specific_heat = 350
-	name = "Zauker"
+	name = "Заукер"
 	dangerous = TRUE
 	gas_overlay = "zauker"
 	moles_visible = MOLES_GAS_VISIBLE
@@ -201,7 +203,7 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 /datum/gas/halon
 	id = "halon"
 	specific_heat = 175
-	name = "Halon"
+	name = "Галон"
 	dangerous = TRUE
 	gas_overlay = "halon"
 	moles_visible = MOLES_GAS_VISIBLE
@@ -210,14 +212,14 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 /datum/gas/helium
 	id = "helium"
 	specific_heat = 15
-	name = "Helium"
+	name = "Гелий"
 	fusion_power = 7
 	rarity = 50
 
 /datum/gas/antinoblium
 	id = "antinoblium"
 	specific_heat = 1
-	name = "Antinoblium"
+	name = "Анти-нобилий"
 	dangerous = TRUE
 	gas_overlay = "antinoblium"
 	moles_visible = MOLES_GAS_VISIBLE

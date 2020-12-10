@@ -47,10 +47,6 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 	if(var_name == "_extools_pointer_gasmixture")
 		return FALSE // please no. segfaults bad.
 	return ..()
-/*
-/datum/gas_mixture/Del()
-	__gasmixture_unregister()
-	. = ..()*/
 
 /datum/gas_mixture/proc/__gasmixture_unregister()
 /datum/gas_mixture/proc/__gasmixture_register()
@@ -94,11 +90,11 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 	//Returns: 1 in all cases
 
 /datum/gas_mixture/proc/merge(datum/gas_mixture/giver)
-	//Merges all air from giver into self. giver is untouched.
+	//Merges all air from giver into self. Deletes giver.
 	//Returns: 1 if we are mutable, 0 otherwise
 
 /datum/gas_mixture/proc/remove(amount)
-	//Removes amount of gas from the gas_mixture
+	//Proportionally removes amount of gas from the gas_mixture
 	//Returns: gas_mixture with the gases removed
 
 /datum/gas_mixture/proc/transfer_to(datum/gas_mixture/target, amount)
@@ -141,7 +137,6 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 	//Performs various reactions such as combustion or fusion (LOL)
 	//Returns: 1 if any reaction took place; 0 otherwise
 
-
 /datum/gas_mixture/proc/__remove()
 /datum/gas_mixture/remove(amount)
 	var/datum/gas_mixture/removed = new type
@@ -173,6 +168,8 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 	return 1
 
 /datum/gas_mixture/parse_gas_string(gas_string)
+	gas_string = SSair.preprocess_gas_string(gas_string)
+
 	var/list/gas = params2list(gas_string)
 	if(gas["TEMP"])
 		set_temperature(text2num(gas["TEMP"]))
@@ -241,39 +238,6 @@ get_true_breath_pressure(pp) --> gas_pp = pp/breath_pp*total_moles()
 */
 
 /datum/gas_mixture/turf
-
-/*
-/mob/verb/profile_atmos()
-	/world{loop_checks = 0;}
-	var/datum/gas_mixture/A = new
-	var/datum/gas_mixture/B = new
-	A.parse_gas_string("o2=200;n2=800;TEMP=50")
-	B.parse_gas_string("co2=500;plasma=500;TEMP=5000")
-	var/pa
-	var/pb
-	pa = world.tick_usage
-	for(var/I in 1 to 100000)
-		B.transfer_to(A, 1)
-		A.transfer_to(B, 1)
-	pb = world.tick_usage
-	var/total_time = (pb-pa) * world.tick_lag
-	to_chat(src, "Total time (gas transfer): [total_time]ms")
-	to_chat(src, "Operations per second: [100000 / (total_time/1000)]")
-	pa = world.tick_usage
-	for(var/I in 1 to 100000)
-		B.total_moles();
-	pb = world.tick_usage
-	total_time = (pb-pa) * world.tick_lag
-	to_chat(src, "Total time (total_moles): [total_time]ms")
-	to_chat(src, "Operations per second: [100000 / (total_time/1000)]")
-	pa = world.tick_usage
-	for(var/I in 1 to 100000)
-		new /datum/gas_mixture
-	pb = world.tick_usage
-	total_time = (pb-pa) * world.tick_lag
-	to_chat(src, "Total time (new gas mixture): [total_time]ms")
-	to_chat(src, "Operations per second: [100000 / (total_time/1000)]")
-*/
 
 	///Distributes the contents of two mixes equally between themselves
 	//Returns: bool indicating whether gases moved between the two mixes
