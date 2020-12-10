@@ -9,7 +9,7 @@
 <style>
 	body {
 		font-family: Verdana, Geneva, Tahoma, sans-serif;
-		font-size: 12px !important;
+		font-size: 13px !important;
 		margin: 0 !important;
 		padding: 0 !important;
 		overflow-x: hidden;
@@ -28,12 +28,12 @@
 	}
 
 	body.dark {
-		background-color: #080808;
+		background-color: #090909;
 		color: #aaaaaa;
 	}
 
 	body.cyber {
-		background-color: #080808;
+		background-color: #000306;
 		color: #aaaaaa;
 	}
 
@@ -44,11 +44,11 @@
 	}
 
 	.dark #menu, .dark #menu {
-		background-color: #181818;
+		background-color: #050505;
 	}
 
 	.cyber #menu, .cyber #menu {
-		background-color: #181818;
+		background-color: #000306;
 	}
 
 	#statcontent {
@@ -61,7 +61,7 @@
 	}
 
 	.dark a {
-		color: #ffbd92;
+		color: #ff9956;
 	}
 
 	.cyber a {
@@ -111,11 +111,11 @@
 		border-width: 1px;
 		border-style: solid;
 		color: rgba(0, 0, 0, 0.7);
-		padding: 3px 2px;
+		padding: 4px 3px;
 		text-align: center;
 		text-decoration: none;
-		font-size: 12px;
-		margin: 0;
+		font-size: 13px;
+		margin: 0 1px;
 		cursor: pointer;
 		transition-duration: 0.25s;
 		order: 3;
@@ -123,13 +123,13 @@
 	}
 
 	.dark button {
-		background-color: #080808;
+		background-color: #000000;
 		border-color: #343434;
-		color: #ffbd92;
+		color: #ff9956;
 	}
 
 	.cyber button {
-		background-color: #080808;
+		background-color: #000000;
 		border-color: #343434;
 		color: #abc6ec;
 	}
@@ -139,7 +139,7 @@
 	}
 
 	.dark button:hover {
-		background-color:  #ffbd92;
+		background-color:  #ff9956;
 		color: #080808;
 	}
 
@@ -151,6 +151,7 @@
 	.button:active, .button.active {
 		background-color: #ffffff;
 		color: black;
+		font-weight: bold;
 		border-top: 1px solid #cecece;
 		border-left: 1px solid #cecece;
 		border-right: 1px solid #cecece;
@@ -159,7 +160,7 @@
 
 	.dark .button:active, .dark .button.active {
 		background-color: #080808;
-		color: #ffbd92;
+		color: #ff9956;
 		border-top: 1px solid #343434;
 		border-left: 1px solid #343434;
 		border-right: 1px solid #343434;
@@ -167,7 +168,7 @@
 	}
 
 	.cyber .button:active, .cyber .button.active {
-		background-color: #080808;
+		background-color: #000306;
 		color: #abc6ec;
 		border-top: 1px solid #343434;
 		border-left: 1px solid #343434;
@@ -194,11 +195,12 @@
 		min-width: 0;
 		min-height: 0;
 		white-space: pre-wrap;
-		margin-top: 2px;
-		margin-right: 2px;
+		margin-top: 3px;
+		margin-right: 3px;
 		padding-left: 2px;
 		padding-right: 0;
 		border: 1px solid rgba(0, 0, 0, 0.7);
+		border-radius: 3px;
 	}
 
 	.grid-item:hover {
@@ -208,18 +210,18 @@
 	}
 
 	.dark .grid-item {
-		background: rgba(100, 100, 100, 0.1);
-		border: 1px solid rgba(45, 45, 45, 0.9);
+		background: #090909;
+		border: 1px solid #202020;
 	}
 
 	.dark .grid-item:hover {
-		background: #ffbd92;
+		background: #ff9956;
 		color: #080808;
 		text-decoration: none;
 	}
 
 	.cyber .grid-item {
-		background: rgba(50, 160, 255, 0.01);
+		background: rgba(50, 160, 255, 0.05);
 		border: 1px solid rgba(50, 160, 255, 0.2);
 	}
 
@@ -242,7 +244,7 @@
 	}
 
 	.dark .link {
-		color: #ffbd92;
+		color: #ff9956;
 	}
 
 	.cyber .link {

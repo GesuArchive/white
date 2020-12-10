@@ -702,9 +702,9 @@
 	if(!linked_input.airs[1].total_moles())
 		return
 	if(linked_input.airs[1].get_moles(/datum/gas/hydrogen) > 50)
-		linked_input.airs[1].transfer_to(internal_fusion, -fuel_injection_rate * 0.1)
+		linked_input.airs[1].transfer_to(internal_fusion, fuel_injection_rate * 0.1)
 	if(linked_input.airs[1].get_moles(/datum/gas/tritium) > 50)
-		linked_input.airs[1].transfer_to(internal_fusion, -fuel_injection_rate * 0.1)
+		linked_input.airs[1].transfer_to(internal_fusion, fuel_injection_rate * 0.1)
 	linked_moderator.airs[1].transfer_to(moderator_internal, moderator_injection_rate * 0.1)
 
 /obj/machinery/atmospherics/components/unary/hypertorus/core/process(delta_time)

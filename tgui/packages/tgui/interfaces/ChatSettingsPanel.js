@@ -55,7 +55,7 @@ export const ChatSettingsPanel = (props, context) => {
               icon={a.enabled ? 'times' : 'check'}
               content={a.desc}
               color={a.enabled ? 'bad' : 'good'}
-              onClick={() => act('toggle_ignore', { key: a.key })} />
+              onClick={() => act(a.type, { key: a.key })} />
           ))}
         </Section>
         <Section title="IC">
@@ -66,7 +66,7 @@ export const ChatSettingsPanel = (props, context) => {
               icon={a.enabled ? 'times' : 'check'}
               content={a.desc}
               color={a.enabled ? 'bad' : 'good'}
-              onClick={() => act('toggle_ignore', { key: a.key })} />
+              onClick={() => act(a.type, { key: a.key })} />
           ))}
         </Section>
         <Section title="Призрак">
@@ -77,7 +77,7 @@ export const ChatSettingsPanel = (props, context) => {
               icon={a.enabled ? 'times' : 'check'}
               content={a.desc}
               color={a.enabled ? 'bad' : 'good'}
-              onClick={() => act('toggle_ignore', { key: a.key })} />
+              onClick={() => act(a.type, { key: a.key })} />
           ))}
         </Section>
       </Window.Content>

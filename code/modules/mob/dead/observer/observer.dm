@@ -192,6 +192,9 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		ghost_accs = client.prefs.ghost_accs
 		ghost_others = client.prefs.ghost_others
 
+	if(update_custom_icon())
+		return TRUE
+
 	if(hair_overlay)
 		cut_overlay(hair_overlay)
 		hair_overlay = null
@@ -199,7 +202,6 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	if(facial_hair_overlay)
 		cut_overlay(facial_hair_overlay)
 		facial_hair_overlay = null
-
 
 	if(new_form)
 		icon_state = new_form

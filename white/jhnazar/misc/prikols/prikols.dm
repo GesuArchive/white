@@ -1,4 +1,9 @@
-/mob/dead/observer/update_icon(new_form)
+/*
+ * Этот прок вызывается в проке призрака update_icon()
+ * Если возвращает TRUE, то update_icon() у призрака не выполняется.
+ */
+
+/mob/dead/observer/proc/update_custom_icon()
 	if(ckey == "jhnazar")
 		icon = 'white/jhnazar/misc/prikols/ghost_icon.dmi'
 		icon_state = "ghost_bee"
@@ -6,8 +11,7 @@
 		if(prob(50))
 			to_chat(usr, "Вы чувствуете себя видимым всему живому")
 			set_invisibility(0)
-			return
-		return
+		return TRUE
 
 	if(ckey == "biomechanicmann")
 		icon = 'white/jhnazar/misc/prikols/bee.dmi'
@@ -20,5 +24,6 @@
 				icon_state = "tophatbee-wings"
 			else
 				icon_state = "lichbee-wings"
-		return
-	return
+		return TRUE
+
+	return FALSE

@@ -164,7 +164,7 @@
 	name = "Syndicate Sleeper Agent"
 	antag_datum = /datum/antagonist/traitor
 	antag_flag = ROLE_TRAITOR
-	protected_roles = list("Prisoner", "Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain")
+	protected_roles = list("Prisoner", "Russian Officer", "Trader", "Hacker", "Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain")
 	restricted_roles = list("Cyborg", "AI", "Позитронный мозг")
 	required_candidates = 1
 	weight = 7
@@ -216,7 +216,7 @@
 	persistent = TRUE
 	antag_flag = ROLE_FAMILIES
 	protected_roles = list("Prisoner", "Head of Personnel")
-	restricted_roles = list("Cyborg", "AI", "Security Officer", "Warden", "Detective", "Head of Security", "Captain")
+	restricted_roles = list("Cyborg", "AI", "Security Officer", "Russian Officer", "Veteran", "Warden", "Detective", "Head of Security", "Captain")
 	required_candidates = 6 // gotta have 'em ALL
 	weight = 1
 	cost = 25

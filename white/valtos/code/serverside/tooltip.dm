@@ -19,7 +19,7 @@
 	layer = 23
 	plane = 23
 
-TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_up)()
+TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, toggle_tooltip_up)()
 	set name = "🔄 Название предметов"
 	set category = "Настройки"
 	set desc = "Имена предметов"
@@ -31,10 +31,10 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_up)()
 		to_chat(usr, "Я не буду видеть названия предметов.")
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Tooltip Up", "[usr.client.prefs.w_toggles & TOOLTIP_USER_UP ? "Вкл" : "Выкл"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/datum/verbs/menu/Settings/Game/toggle_tooltip_up/Get_checked(client/C)
+/datum/verbs/menu/Settings/toggle_tooltip_up/Get_checked(client/C)
 	return C.prefs.w_toggles & TOOLTIP_USER_UP
 
-TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_pos)()
+TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, toggle_tooltip_pos)()
 	set name = "🔄 Позиция названий предметов"
 	set category = "Настройки"
 	set desc = "Позиция имён предметов"
@@ -48,10 +48,10 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_pos)()
 		usr.hud_used.tooltip.screen_loc = "NORTH,CENTER-4:16"
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Tooltip Pos", "[usr.client.prefs.w_toggles & TOOLTIP_USER_POS ? "Верх" : "Низ"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/datum/verbs/menu/Settings/Game/toggle_tooltip_pos/Get_checked(client/C)
+/datum/verbs/menu/Settings/toggle_tooltip_pos/Get_checked(client/C)
 	return C.prefs.w_toggles & TOOLTIP_USER_POS
 
-TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_retro)()
+TOGGLE_CHECKBOX(/datum/verbs/menu/Settings, toggle_tooltip_retro)()
 	set name = "🔄 Ретро-названия"
 	set category = "Настройки"
 	set desc = "Ретро-статусбар"
@@ -69,5 +69,5 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/Settings/Game, toggle_tooltip_retro)()
 		winset(usr, "mainwindow", "is-maximized=true")
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Tooltip Retro", "[usr.client.prefs.w_toggles & TOOLTIP_USER_RETRO ? "Вкл" : "Выкл"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/datum/verbs/menu/Settings/Game/toggle_tooltip_retro/Get_checked(client/C)
+/datum/verbs/menu/Settings/toggle_tooltip_retro/Get_checked(client/C)
 	return C.prefs.w_toggles & TOOLTIP_USER_RETRO

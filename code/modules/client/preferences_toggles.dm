@@ -4,7 +4,7 @@
 //Example usage TOGGLE_CHECKBOX(datum/verbs/menu/settings/Ghost/chatterbox, toggle_ghost_ears)()
 
 /datum/verbs/menu/settings
-	name = "Settings"
+	name = "Настройки"
 
 //override because we don't want to save preferences twice.
 /datum/verbs/menu/settings/Set_checked(client/C, verbpath)
@@ -16,157 +16,32 @@
 		winset(C, "[verbpath]", "is-checked = [!checked]")
 
 /datum/verbs/menu/settings/verb/setup_character()
-	set name = "Preferences"
+	set name = "Настройки"
 	set category = "Особенное"
-	set desc = "Open Game Preferences Window"
+	set desc = "Основные настройки"
 	usr.client.prefs.current_tab = 2
 	usr.client.prefs.ShowChoices(usr)
 
-/datum/verbs/menu/settings/ghost
-	name = "Ghost"
-
-//toggles
-/datum/verbs/menu/settings/ghost/chatterbox
-	name = "Chat Box Spam"
-
-TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_ears)()
-	set name = "💬 Разговоры"
+/datum/verbs/menu/settings/verb/setup_sound()
+	set name = " ! Настройка звука"
 	set category = "Настройки"
-	set desc = "See All Speech"
-	usr.client.prefs.chat_toggles ^= CHAT_GHOSTEARS
-	to_chat(usr, "As a ghost, you will now [(usr.client.prefs.chat_toggles & CHAT_GHOSTEARS) ? "see all speech in the world" : "only see speech from nearby mobs"].")
-	usr.client.prefs.save_preferences()
-	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Ghost Ears", "[usr.client.prefs.chat_toggles & CHAT_GHOSTEARS ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-/datum/verbs/menu/settings/ghost/chatterbox/toggle_ghost_ears/Get_checked(client/C)
-	return C.prefs.chat_toggles & CHAT_GHOSTEARS
+	set desc = "Настройки звука"
+	new /datum/sound_panel(usr)
 
-TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_sight)()
-	set name = "💬 Эмоуты"
+/datum/verbs/menu/settings/verb/setup_chat()
+	set name = " ! Настройка чата"
 	set category = "Настройки"
-	set desc = "See All Emotes"
-	usr.client.prefs.chat_toggles ^= CHAT_GHOSTSIGHT
-	to_chat(usr, "As a ghost, you will now [(usr.client.prefs.chat_toggles & CHAT_GHOSTSIGHT) ? "see all emotes in the world" : "only see emotes from nearby mobs"].")
-	usr.client.prefs.save_preferences()
-	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Ghost Sight", "[usr.client.prefs.chat_toggles & CHAT_GHOSTSIGHT ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-/datum/verbs/menu/settings/ghost/chatterbox/toggle_ghost_sight/Get_checked(client/C)
-	return C.prefs.chat_toggles & CHAT_GHOSTSIGHT
+	set desc = "Настройки чата"
+	new /datum/chat_settings_panel(usr)
 
-TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_whispers)()
-	set name = "💬 Шепот"
-	set category = "Настройки"
-	set desc = "See All Whispers"
-	usr.client.prefs.chat_toggles ^= CHAT_GHOSTWHISPER
-	to_chat(usr, "As a ghost, you will now [(usr.client.prefs.chat_toggles & CHAT_GHOSTWHISPER) ? "see all whispers in the world" : "only see whispers from nearby mobs"].")
-	usr.client.prefs.save_preferences()
-	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Ghost Whispers", "[usr.client.prefs.chat_toggles & CHAT_GHOSTWHISPER ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-/datum/verbs/menu/settings/ghost/chatterbox/toggle_ghost_whispers/Get_checked(client/C)
-	return C.prefs.chat_toggles & CHAT_GHOSTWHISPER
-
-TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_radio)()
-	set name = "💬 Радиопереговоры"
-	set category = "Настройки"
-	set desc = "See All Radio Chatter"
-	usr.client.prefs.chat_toggles ^= CHAT_GHOSTRADIO
-	to_chat(usr, "As a ghost, you will now [(usr.client.prefs.chat_toggles & CHAT_GHOSTRADIO) ? "see radio chatter" : "not see radio chatter"].")
-	usr.client.prefs.save_preferences()
-	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Ghost Radio", "[usr.client.prefs.chat_toggles & CHAT_GHOSTRADIO ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc! //social experiment, increase the generation whenever you copypaste this shamelessly GENERATION 1
-/datum/verbs/menu/settings/ghost/chatterbox/toggle_ghost_radio/Get_checked(client/C)
-	return C.prefs.chat_toggles & CHAT_GHOSTRADIO
-
-TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_pda)()
-	set name = "💬 Сообщения ПДА"
-	set category = "Настройки"
-	set desc = "See All PDA Messages"
-	usr.client.prefs.chat_toggles ^= CHAT_GHOSTPDA
-	to_chat(usr, "As a ghost, you will now [(usr.client.prefs.chat_toggles & CHAT_GHOSTPDA) ? "see all pda messages in the world" : "only see pda messages from nearby mobs"].")
-	usr.client.prefs.save_preferences()
-	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Ghost PDA", "[usr.client.prefs.chat_toggles & CHAT_GHOSTPDA ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-/datum/verbs/menu/settings/ghost/chatterbox/toggle_ghost_pda/Get_checked(client/C)
-	return C.prefs.chat_toggles & CHAT_GHOSTPDA
-
-TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox, toggle_ghost_laws)()
-	set name = "💬 Смена законов ИИ"
-	set category = "Настройки"
-	set desc = "See All Law Changes"
-	usr.client.prefs.chat_toggles ^= CHAT_GHOSTLAWS
-	to_chat(usr, "As a ghost, you will now [(usr.client.prefs.chat_toggles & CHAT_GHOSTLAWS) ? "be notified of all law changes" : "no longer be notified of law changes"].")
-	usr.client.prefs.save_preferences()
-	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Ghost Laws", "[usr.client.prefs.chat_toggles & CHAT_GHOSTLAWS ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-/datum/verbs/menu/settings/ghost/chatterbox/toggle_ghost_laws/Get_checked(client/C)
-	return C.prefs.chat_toggles & CHAT_GHOSTLAWS
-
-/datum/verbs/menu/settings/ghost/chatterbox/events
-	name = "Events"
-
-//please be aware that the following two verbs have inverted stat output, so that "Toggle Deathrattle|1" still means you activated it
-TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox/events, toggle_deathrattle)()
-	set name = "💬 Смерти"
-	set category = "Настройки"
-	set desc = "Death"
-	usr.client.prefs.toggles ^= DISABLE_DEATHRATTLE
-	usr.client.prefs.save_preferences()
-	to_chat(usr, "You will [(usr.client.prefs.toggles & DISABLE_DEATHRATTLE) ? "no longer" : "now"] get messages when a sentient mob dies.")
-	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Deathrattle", "[!(usr.client.prefs.toggles & DISABLE_DEATHRATTLE) ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, maybe you should spend some time reading the comments.
-/datum/verbs/menu/settings/ghost/chatterbox/events/toggle_deathrattle/Get_checked(client/C)
-	return !(C.prefs.toggles & DISABLE_DEATHRATTLE)
-
-TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost/chatterbox/events, toggle_arrivalrattle)()
-	set name = "💬 Прибывшие"
-	set category = "Настройки"
-	set desc = "New Player Arrival"
-	usr.client.prefs.toggles ^= DISABLE_ARRIVALRATTLE
-	to_chat(usr, "You will [(usr.client.prefs.toggles & DISABLE_ARRIVALRATTLE) ? "no longer" : "now"] get messages when someone joins the station.")
-	usr.client.prefs.save_preferences()
-	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Arrivalrattle", "[!(usr.client.prefs.toggles & DISABLE_ARRIVALRATTLE) ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, maybe you should rethink where your life went so wrong.
-/datum/verbs/menu/settings/ghost/chatterbox/events/toggle_arrivalrattle/Get_checked(client/C)
-	return !(C.prefs.toggles & DISABLE_ARRIVALRATTLE)
-
-TOGGLE_CHECKBOX(/datum/verbs/menu/settings/ghost, togglemidroundantag)()
-	set name = " 🔄 Быть антагом в раунде"
-	set category = "Настройки"
-	set desc = "Midround Antagonist"
-	usr.client.prefs.toggles ^= MIDROUND_ANTAG
-	usr.client.prefs.save_preferences()
-	to_chat(usr, "You will [(usr.client.prefs.toggles & MIDROUND_ANTAG) ? "now" : "no longer"] be considered for midround antagonist positions.")
-	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Midround Antag", "[usr.client.prefs.toggles & MIDROUND_ANTAG ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-/datum/verbs/menu/settings/ghost/togglemidroundantag/Get_checked(client/C)
-	return C.prefs.toggles & MIDROUND_ANTAG
-
-/datum/verbs/menu/settings/sound
-	name = "Sound"
-
-/datum/verbs/menu/settings/sound/verb/stop_client_sounds()
+TOGGLE_CHECKBOX(/datum/verbs/menu/settings, stop_client_sounds)()
 	set name = "❌ Остановить звуки"
 	set category = "Особенное"
-	set desc = "Stop Current Sounds"
+	set desc = "Остановить звуки"
 	DIRECT_OUTPUT(usr, sound(null))
 	var/client/C = usr.client
 	C?.tgui_panel?.stop_music()
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Stop Self Sounds")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-
-TOGGLE_CHECKBOX(/datum/verbs/menu/settings, listen_ooc)()
-	set name = "💬 Видимость OOC"
-	set category = "Настройки"
-	set desc = "Show OOC Chat"
-	usr.client.prefs.chat_toggles ^= CHAT_OOC
-	usr.client.prefs.save_preferences()
-	to_chat(usr, "You will [(usr.client.prefs.chat_toggles & CHAT_OOC) ? "now" : "no longer"] see messages on the OOC channel.")
-	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Seeing OOC", "[usr.client.prefs.chat_toggles & CHAT_OOC ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-/datum/verbs/menu/settings/listen_ooc/Get_checked(client/C)
-	return C.prefs.chat_toggles & CHAT_OOC
-
-TOGGLE_CHECKBOX(/datum/verbs/menu/settings, listen_bank_card)()
-	set name = "💬 Зарплата"
-	set category = "Настройки"
-	set desc = "Show or hide updates to your income"
-	usr.client.prefs.chat_toggles ^= CHAT_BANKCARD
-	usr.client.prefs.save_preferences()
-	to_chat(usr, "You will [(usr.client.prefs.chat_toggles & CHAT_BANKCARD) ? "now" : "no longer"] be notified when you get paid.")
-	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Income Notifications", "[(usr.client.prefs.chat_toggles & CHAT_BANKCARD) ? "Enabled" : "Disabled"]"))
-/datum/verbs/menu/settings/listen_bank_card/Get_checked(client/C)
-	return C.prefs.chat_toggles & CHAT_BANKCARD
-
 
 GLOBAL_LIST_INIT(ghost_forms, sortList(list("ghost","ghostking","ghostian2","skeleghost","ghost_red","ghost_black", \
 							"ghost_blue","ghost_yellow","ghost_green","ghost_pink", \
@@ -356,7 +231,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	return
 
 /client/proc/resetasaycolor()
-	set name = "❌ Reset your Admin Say Color"
+	set name = "Reset your Admin Say Color"
 	set desc = "Returns your ASAY Color to default"
 	set category = "Настройки.Адм"
 	if(!holder)

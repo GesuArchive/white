@@ -15,6 +15,11 @@ GLOBAL_LIST_INIT(ghost_chat_settings_list_desc, list(
 	"Смена законов ИИ" 	= CHAT_GHOSTLAWS
 ))
 
+GLOBAL_LIST_INIT(ghost_events_settings_list_desc, list(
+	"Смерти" 	  		= DISABLE_DEATHRATTLE,
+	"Прибывшие"   		= DISABLE_ARRIVALRATTLE
+))
+
 GLOBAL_LIST_INIT(ic_settings_list_desc, list(
 	"Зарплата" 	  		= CHAT_BANKCARD
 ))
@@ -23,12 +28,6 @@ GLOBAL_LIST_INIT(chat_settings_list_desc, list(
 	"OOC" 		  		= CHAT_OOC,
 	"LOOC" 		  		= CHAT_LOOC
 ))
-
-/client/verb/chat_settings_panel()
-	set name = " ! Настройка чата"
-	set category = "Настройки"
-
-	new /datum/chat_settings_panel(usr)
 
 /datum/chat_settings_panel/New(user)
 	ui_interact(user)
@@ -45,25 +44,35 @@ GLOBAL_LIST_INIT(chat_settings_list_desc, list(
 /datum/chat_settings_panel/ui_data(mob/user)
 	. = list()
 	.["ghost"] = list()
-	for(var/key in GLOB.chat_settings_list_desc)
+	for(var/key in GLOB.ghost_chat_settings_list_desc)
 		.["ghost"] += list(list(
-			"key" = GLOB.chat_settings_list_desc[key],
-			"enabled" = !(user.client.prefs.chat_toggles & GLOB.chat_settings_list_desc[key]),
-			"desc" = key
+			"key" = GLOB.ghost_chat_settings_list_desc[key],
+			"enabled" = !(user.client.prefs.chat_toggles & GLOB.ghost_chat_settings_list_desc[key]),
+			"desc" = key,
+			"type" = "chat"
+		))
+	for(var/key in GLOB.ghost_events_settings_list_desc)
+		.["ghost"] += list(list(
+			"key" = GLOB.ghost_events_settings_list_desc[key],
+			"enabled" = (user.client.prefs.toggles & GLOB.ghost_events_settings_list_desc[key]),
+			"desc" = key,
+			"type" = "events"
 		))
 	.["ic"] = list()
 	for(var/key in GLOB.ic_settings_list_desc)
 		.["ic"] += list(list(
 			"key" = GLOB.ic_settings_list_desc[key],
 			"enabled" = !(user.client.prefs.chat_toggles & GLOB.ic_settings_list_desc[key]),
-			"desc" = key
+			"desc" = key,
+			"type" = "chat"
 		))
 	.["chat"] = list()
 	for(var/key in GLOB.chat_settings_list_desc)
 		.["chat"] += list(list(
 			"key" = GLOB.chat_settings_list_desc[key],
 			"enabled" = !(user.client.prefs.chat_toggles & GLOB.chat_settings_list_desc[key]),
-			"desc" = key
+			"desc" = key,
+			"type" = "chat"
 		))
 
 /datum/chat_settings_panel/ui_act(action, params)
@@ -71,8 +80,12 @@ GLOBAL_LIST_INIT(chat_settings_list_desc, list(
 	if(.)
 		return
 	switch (action)
-		if ("toggle_ignore")
+		if ("chat")
 			var/key = params["key"]
 			if (key)
 				usr.client.prefs.chat_toggles ^= key
+		if ("events")
+			var/key = params["key"]
+			if (key)
+				usr.client.prefs.toggles ^= key
 	. = TRUE
