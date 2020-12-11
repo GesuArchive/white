@@ -395,7 +395,7 @@
 
 
 /obj/item/organ/eyes/moth
-	name = "moth eyes"
+	name = "глаза мотылька"
 	desc = "These eyes seem to have increased sensitivity to bright light, with no improvement to low light vision."
 	flash_protect = FLASH_PROTECTION_SENSITIVE
 
