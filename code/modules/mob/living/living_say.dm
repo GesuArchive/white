@@ -260,7 +260,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 		if(is_blind(src))
 			return FALSE
 
-		message_size = get_dist(src, speaker)
+		var/message_size = get_dist(src, speaker)
 
 		message = "<span class='chat_step_[message_size]'>[message]</span>"
 
