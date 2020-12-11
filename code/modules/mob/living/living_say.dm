@@ -247,6 +247,8 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	var/deaf_type
 
 	var/message_size = get_dist(src, speaker)
+	if(src == speaker)
+		message_size = 0
 
 	if(HAS_TRAIT(speaker, TRAIT_SIGN_LANG)) //Checks if speaker is using sign language
 		deaf_message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
