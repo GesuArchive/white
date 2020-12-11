@@ -250,8 +250,6 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	if(speaker == src)
 		message_size = 5
 
-	message = "<span class='chat_step_[message_size]'>[message]</span>"
-
 	if(HAS_TRAIT(speaker, TRAIT_SIGN_LANG)) //Checks if speaker is using sign language
 		deaf_message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
 		if(speaker != src)
@@ -286,6 +284,8 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	// Recompose message for AI hrefs, language incomprehension.
 	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
+
+	message = "<span class='chat_step_[message_size]'>[message]</span>"
 
 	show_message(message, MSG_AUDIBLE, deaf_message, deaf_type, avoid_highlighting = speaker == src)
 	return message
