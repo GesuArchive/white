@@ -219,7 +219,7 @@ SUBSYSTEM_DEF(shuttle)
 		end_state.count()
 		var/station_integrity = min(PERCENT(GLOB.start_state.score(end_state)), 100)
 		if(station_integrity > 98)
-			return "<span class='alert'>Состояние станции удовлетворительное. Улетать пока нет смысла.</span>"
+			return "Состояние станции удовлетворительное. Улетать пока нет смысла."
 
 	return TRUE
 
