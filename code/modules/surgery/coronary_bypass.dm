@@ -1,5 +1,5 @@
 /datum/surgery/coronary_bypass
-	name = "Coronary Bypass"
+	name = "Реваскуляризация миокарда"
 	steps = list(
 		/datum/surgery_step/incise, /datum/surgery_step/retract_skin, /datum/surgery_step/saw, /datum/surgery_step/clamp_bleeders,
 		/datum/surgery_step/incise_heart, /datum/surgery_step/coronary_bypass, /datum/surgery_step/close,
@@ -16,22 +16,22 @@
 
 //an incision but with greater bleed, and a 90% base success chance
 /datum/surgery_step/incise_heart
-	name = "incise heart"
+	name = "надрезать сердце"
 	implements = list(TOOL_SCALPEL = 90, /obj/item/melee/transforming/energy/sword = 45, /obj/item/kitchen/knife = 45,
 		/obj/item/shard = 25)
 	time = 16
 
 /datum/surgery_step/incise_heart/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You begin to make an incision in [target]'s heart...</span>",
-		"<span class='notice'>[user] begins to make an incision in [target]'s heart.</span>",
-		"<span class='notice'>[user] begins to make an incision in [target]'s heart.</span>")
+	display_results(user, target, "<span class='notice'>Начинаю делать надрез в сердце [target]...</span>",
+		"<span class='notice'>[user] начинает делать надрез в сердце [target].</span>",
+		"<span class='notice'>[user] начинает делать надрез в сердце [target].</span>")
 
 /datum/surgery_step/incise_heart/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
 		if (!(NOBLOOD in H.dna.species.species_traits))
-			display_results(user, target, "<span class='notice'>Blood pools around the incision in [H]'s heart.</span>",
-				"<span class='notice'>Blood pools around the incision in [H]'s heart.</span>",
+			display_results(user, target, "<span class='notice'>Кровь брызгает вокруг надреза в сердце [H].</span>",
+				"<span class='notice'>Кровь брызгает вокруг надреза в сердце [H]</span>",
 				"")
 			var/obj/item/bodypart/BP = H.get_bodypart(target_zone)
 			BP.generic_bleedstacks += 10
@@ -41,9 +41,9 @@
 /datum/surgery_step/incise_heart/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		display_results(user, target, "<span class='warning'>You screw up, cutting too deeply into the heart!</span>",
-			"<span class='warning'>[user] screws up, causing blood to spurt out of [H]'s chest!</span>",
-			"<span class='warning'>[user] screws up, causing blood to spurt out of [H]'s chest!</span>")
+		display_results(user, target, "<span class='warning'>Я облажался, сделав слишком глубокий надрез в сердце!</span>",
+			"<span class='warning'>[user] облажался, из-за чего из груди [H] брызгает кровь!</span>",
+			"<span class='warning'>[user] облажался, из-за чего из груди [H] брызгает кровь!</span>")
 		var/obj/item/bodypart/BP = H.get_bodypart(target_zone)
 		BP.generic_bleedstacks += 10
 		H.adjustOrganLoss(ORGAN_SLOT_HEART, 10)
@@ -51,31 +51,31 @@
 
 //grafts a coronary bypass onto the individual's heart, success chance is 90% base again
 /datum/surgery_step/coronary_bypass
-	name = "graft coronary bypass"
+	name = "выполнить аортокоронарное штунирование"
 	implements = list(TOOL_HEMOSTAT = 90, TOOL_WIRECUTTER = 35, /obj/item/stack/package_wrap = 15, /obj/item/stack/cable_coil = 5)
 	time = 90
 
 /datum/surgery_step/coronary_bypass/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>You begin to graft a bypass onto [target]'s heart...</span>",
-			"<span class='notice'>[user] begins to graft something onto [target]'s heart!</span>",
-			"<span class='notice'>[user] begins to graft something onto [target]'s heart!</span>")
+	display_results(user, target, "<span class='notice'>Начинаю делать обходное штунирование сердца [target]...</span>",
+			"<span class='notice'>[user] начинает делать обходное штунирование сердца [target]!</span>",
+			"<span class='notice'>[user] начинает делать обходное штунирование сердца [target]!</span>")
 
 /datum/surgery_step/coronary_bypass/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	target.setOrganLoss(ORGAN_SLOT_HEART, 60)
 	var/obj/item/organ/heart/heart = target.getorganslot(ORGAN_SLOT_HEART)
 	if(heart)	//slightly worrying if we lost our heart mid-operation, but that's life
 		heart.operated = TRUE
-	display_results(user, target, "<span class='notice'>You successfully graft a bypass onto [target]'s heart.</span>",
-			"<span class='notice'>[user] finishes grafting something onto [target]'s heart.</span>",
-			"<span class='notice'>[user] finishes grafting something onto [target]'s heart.</span>")
+	display_results(user, target, "<span class='notice'>Успешно выполняю обходное штунирование на сердце [target].</span>",
+			"<span class='notice'>[user] успешно выполняет обходное штунирование на сердце [target].</span>",
+			"<span class='notice'>[user] успешно выполняет обходное штунирование на сердце [target].</span>")
 	return ..()
 
 /datum/surgery_step/coronary_bypass/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		display_results(user, target, "<span class='warning'>You screw up in attaching the graft, and it tears off, tearing part of the heart!</span>",
-			"<span class='warning'>[user] screws up, causing blood to spurt out of [H]'s chest profusely!</span>",
-			"<span class='warning'>[user] screws up, causing blood to spurt out of [H]'s chest profusely!</span>")
+		display_results(user, target, "<span class='warning'>Я облажался, выполняя штунирование, разорвав часть сердца!</span>",
+			"<span class='warning'>[user] облажался, из-за чего из груди [H] обильно льётся кровь!</span>",
+			"<span class='warning'>[user] облажался, из-за чего из груди [H] обильно льётся кровь!</span>")
 		H.adjustOrganLoss(ORGAN_SLOT_HEART, 20)
 		var/obj/item/bodypart/BP = H.get_bodypart(target_zone)
 		BP.generic_bleedstacks += 30
