@@ -4,8 +4,8 @@
 ///////////
 
 /obj/structure/easel
-	name = "easel"
-	desc = "Only for the finest of art!"
+	name = "мольберт"
+	desc = "Только для лучшего искусства!"
 	icon = 'icons/obj/artstuff.dmi'
 	icon_state = "easel"
 	density = TRUE
@@ -21,7 +21,7 @@
 		painting = C
 		C.forceMove(get_turf(src))
 		C.layer = layer+0.1
-		user.visible_message("<span class='notice'>[user] puts \the [C] on \the [src].</span>","<span class='notice'>You place \the [C] on \the [src].</span>")
+		user.visible_message("<span class='notice'>[user] ставит [C] на [src].</span>","<span class='notice'>Ставлю [C] на [src].</span>")
 	else
 		return ..()
 
@@ -36,8 +36,8 @@
 		painting = null
 
 /obj/item/canvas
-	name = "canvas"
-	desc = "Draw out your soul on this canvas!"
+	name = "холст"
+	desc = "Нарисуй свою душу на этом холсте!"
 	icon = 'icons/obj/artstuff.dmi'
 	icon_state = "11x11"
 	flags_1 = UNPAINTABLE_1
@@ -47,7 +47,7 @@
 	var/list/grid
 	var/canvas_color = "#ffffff" //empty canvas color
 	var/used = FALSE
-	var/painting_name = "Untitled Artwork" //Painting name, this is set after framing.
+	var/painting_name = "Без названия" //Painting name, this is set after framing.
 	var/finalized = FALSE //Blocks edits
 	var/author_ckey
 	var/icon_generated = FALSE
@@ -184,7 +184,7 @@
 		return canvas_color
 
 /obj/item/canvas/proc/try_rename(mob/user)
-	var/new_name = stripped_input(user,"What do you want to name the painting?")
+	var/new_name = stripped_input(user,"Как мы назовём наш шедевр?")
 	if(painting_name != initial(painting_name) && new_name && user.canUseTopic(src,BE_CLOSE))
 		painting_name = new_name
 		SStgui.update_uis(src)
@@ -217,8 +217,8 @@
 	framed_offset_y = 6
 
 /obj/item/canvas/twentyfour_twentyfour
-	name = "ai universal standard canvas"
-	desc = "Besides being very large, the AI can accept these as a display from their internal database after you've hung it up."
+	name = "универсальный стандартный холст ИИ"
+	desc = "Помимо того, что он очень большой, ИИ может воспринимать их как отображение из своей внутренней базы данных после того, как вы его повесили."
 	icon_state = "24x24"
 	width = 24
 	height = 24
@@ -228,8 +228,8 @@
 	framed_offset_y = 5
 
 /obj/item/wallframe/painting
-	name = "painting frame"
-	desc = "The perfect showcase for your favorite deathtrap memories."
+	name = "рамка картины"
+	desc = "Идеальная витрина для ваших любимых воспоминаний о смертельной ловушке."
 	icon = 'icons/obj/decals.dmi'
 	custom_materials = list(/datum/material/wood = 2000)
 	flags_1 = NONE
@@ -237,8 +237,8 @@
 	result_path = /obj/structure/sign/painting
 
 /obj/structure/sign/painting
-	name = "Painting"
-	desc = "Art or \"Art\"? You decide."
+	name = "Картина"
+	desc = "Искусство или \"Искусство\"? Выбирай."
 	icon = 'icons/obj/decals.dmi'
 	icon_state = "frame-empty"
 	custom_materials = list(/datum/material/wood = 2000)
@@ -278,7 +278,7 @@
 	if(C)
 		C.forceMove(drop_location())
 		C = null
-		to_chat(user, "<span class='notice'>You remove the painting from the frame.</span>")
+		to_chat(user, "<span class='notice'>Вынимаю картину из рамки.</span>")
 		update_icon()
 		return TRUE
 
@@ -287,7 +287,7 @@
 		C = new_canvas
 		if(!C.finalized)
 			C.finalize(user)
-		to_chat(user,"<span class='notice'>You frame [C].</span>")
+		to_chat(user,"<span class='notice'>Вставляю [C] в рамку.</span>")
 	update_icon()
 
 /obj/structure/sign/painting/proc/try_rename(mob/user)
