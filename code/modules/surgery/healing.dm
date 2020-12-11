@@ -31,7 +31,7 @@
 					/datum/surgery_step/close)
 
 /datum/surgery_step/heal
-	name = "repair body"
+	name = "восстановить тело"
 	implements = list(TOOL_HEMOSTAT = 100, TOOL_SCREWDRIVER = 65, /obj/item/pen = 55)
 	repeatable = TRUE
 	time = 25
@@ -42,17 +42,17 @@
 /datum/surgery_step/heal/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	var/woundtype
 	if(brutehealing && burnhealing)
-		woundtype = "wounds"
+		woundtype = "раны"
 	else if(brutehealing)
-		woundtype = "bruises"
+		woundtype = "синяки"
 	else //why are you trying to 0,0...?
-		woundtype = "burns"
+		woundtype = "ожоги"
 	if(istype(surgery,/datum/surgery/healing))
 		var/datum/surgery/healing/the_surgery = surgery
 		if(!the_surgery.antispam)
-			display_results(user, target, "<span class='notice'>You attempt to patch some of [target]'s [woundtype].</span>",
-		"<span class='notice'>[user] attempts to patch some of [target]'s [woundtype].</span>",
-		"<span class='notice'>[user] attempts to patch some of [target]'s [woundtype].</span>")
+			display_results(user, target, "<span class='notice'>Пытаюсь залатать [woundtype] [target].</span>",
+		"<span class='notice'>[user] пытается залатать [woundtype] [target].</span>",
+		"<span class='notice'>[user] пытается залатать [woundtype] [target].</span>")
 
 /datum/surgery_step/heal/initiate(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, try_to_fail = FALSE)
 	if(!..())
@@ -62,8 +62,8 @@
 			break
 
 /datum/surgery_step/heal/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	var/umsg = "You succeed in fixing some of [target]'s wounds" //no period, add initial space to "addons"
-	var/tmsg = "[user] fixes some of [target]'s wounds" //see above
+	var/umsg = "Успешно залатал некоторые раны [target]" //no period, add initial space to "addons"
+	var/tmsg = "[user] залатал некоторые раны [target]" //see above
 	var/urhealedamt_brute = brutehealing
 	var/urhealedamt_burn = burnhealing
 	if(missinghpbonus)
@@ -88,9 +88,9 @@
 	return ..()
 
 /datum/surgery_step/heal/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='warning'>You screwed up!</span>",
-		"<span class='warning'>[user] screws up!</span>",
-		"<span class='notice'>[user] fixes some of [target]'s wounds.</span>", TRUE)
+	display_results(user, target, "<span class='warning'>Я облажался!</span>",
+		"<span class='warning'>[user] облажался!</span>",
+		"<span class='notice'>[user] залатал некоторые раны [target].</span>", TRUE)
 	var/urdamageamt_burn = brutehealing * 0.8
 	var/urdamageamt_brute = burnhealing * 0.8
 	if(missinghpbonus)
