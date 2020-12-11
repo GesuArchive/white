@@ -245,6 +245,13 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	var/deaf_message
 	var/deaf_type
+
+	var/message_size = get_dist(src, speaker)
+	if(speaker == src)
+		message_size = 5
+
+	message = "<span class='chat_step_[message_size]'>[message]</span>"
+
 	if(HAS_TRAIT(speaker, TRAIT_SIGN_LANG)) //Checks if speaker is using sign language
 		deaf_message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
 		if(speaker != src)
@@ -259,10 +266,6 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 		if(is_blind(src))
 			return FALSE
-
-		var/message_size = get_dist(src, speaker)
-
-		message = "<span class='chat_step_[message_size]'>[message]</span>"
 
 		message = deaf_message
 
