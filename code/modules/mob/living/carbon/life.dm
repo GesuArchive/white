@@ -234,6 +234,9 @@
 	else
 		SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "chemical_euphoria")
 
+	#define NITROGEN_NARCOSIS_PRESSURE_LOW 160 // Low-level Nitrogen Narcosis, laughter and tunnel vision
+	#define NITROGEN_NARCOSIS_PRESSURE_HIGH 480 // High-level nitrogen narcosis, with hallucinations
+
 	if(breath.get_moles(/datum/gas/nitrogen))
 		var/SA_partialpressure = (breath.get_moles(/datum/gas/nitrogen)/breath.total_moles())*breath_pressure
 		if(SA_partialpressure > NITROGEN_NARCOSIS_PRESSURE_LOW) // Giggles
@@ -241,9 +244,14 @@
 				emote(pick("giggle","laugh"))
 			if(SA_partialpressure > NITROGEN_NARCOSIS_PRESSURE_HIGH) // Hallucinations
 				if(prob(15))
-					to_chat(src, "<span class='userdanger'>You can't think straight!</span>")
-					confused = min(SA_partialpressure/10, confused + 12)
+					to_chat(src, "<span class='userdanger'>СЛОЖН... ДУМОТЬ!!!</span>")
+					set_confusion(min(SA_partialpressure/10, get_confusion() + 12))
 				hallucination += 5
+
+/// The maximum amount of hallucination stacks that BZ can give to a mob per life tick.
+#define BZ_MAX_HALLUCINATION 20
+/// Affects how quickly BZ reaches its maximum
+#define BZ_LAMBDA 0.0364
 
 	if(breath.get_moles(/datum/gas/bz))
 		var/bz_partialpressure = (breath.get_moles(/datum/gas/bz)/breath.total_moles())*breath_pressure
