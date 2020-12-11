@@ -104,7 +104,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	if(ic_blocked)
 		//The filter warning message shows the sanitized message though.
-		to_chat(src, "<span class='warning'>Хотел сказать <span replaceRegex='show_filtered_ic_chat'>\"[message]\"</span>, но у меня ничего не вышло.</span>")
+		to_chat(src, "<span class='warning'>Хочу сказать <span replaceRegex='show_filtered_ic_chat'>\"[message]\"</span>, но у меня ничего не выходит.</span>")
 		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
 		return
 	var/list/message_mods = list()
@@ -260,6 +260,9 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 		if(is_blind(src))
 			return FALSE
 
+		message_size = get_dist(src, speaker)
+
+		message = "<span class='chat_step_[message_size]'>[message]</span>"
 
 		message = deaf_message
 

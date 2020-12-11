@@ -319,7 +319,7 @@
 /obj/item/organ/tongue/tied
 	name = "завязанный язык"
 	desc = "Вот бы у кого-то был меч, чтобы разрубить этот узел. Если ты видишь это, то что-то неправильно запрогано."
-	say_mod = "signs"
+	say_mod = "поёт"
 	icon_state = "tonguetied"
 	modifies_speech = TRUE
 	organ_flags = ORGAN_UNREMOVABLE
