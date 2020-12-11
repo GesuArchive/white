@@ -95,7 +95,7 @@
 	if(losebreath >= 1) //You've missed a breath, take oxy damage
 		losebreath--
 		if(prob(10))
-			emote("gasp")
+			INVOKE_ASYNC(src, .proc/emote, "gasp")
 		if(istype(loc, /obj/))
 			var/obj/loc_as_obj = loc
 			loc_as_obj.handle_internal_lifeform(src,0)
@@ -170,7 +170,7 @@
 	//OXYGEN
 	if(O2_partialpressure < safe_oxy_min) //Not enough oxygen
 		if(prob(20))
-			emote("gasp")
+			INVOKE_ASYNC(src, .proc/emote, "gasp")
 		if(O2_partialpressure > 0)
 			var/ratio = 1 - O2_partialpressure/safe_oxy_min
 			adjustOxyLoss(min(5*ratio, 3))
@@ -234,13 +234,20 @@
 	else
 		SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "chemical_euphoria")
 
-	//BZ (Facepunch port of their Agent B)
+	if(breath.get_moles(/datum/gas/nitrogen))
+		var/SA_partialpressure = (breath.get_moles(/datum/gas/nitrogen)/breath.total_moles())*breath_pressure
+		if(SA_partialpressure > NITROGEN_NARCOSIS_PRESSURE_LOW) // Giggles
+			if(prob(20))
+				emote(pick("giggle","laugh"))
+			if(SA_partialpressure > NITROGEN_NARCOSIS_PRESSURE_HIGH) // Hallucinations
+				if(prob(15))
+					to_chat(src, "<span class='userdanger'>You can't think straight!</span>")
+					confused = min(SA_partialpressure/10, confused + 12)
+				hallucination += 5
+
 	if(breath.get_moles(/datum/gas/bz))
 		var/bz_partialpressure = (breath.get_moles(/datum/gas/bz)/breath.total_moles())*breath_pressure
-		if(bz_partialpressure > 1)
-			hallucination += 10
-		else if(bz_partialpressure > 0.01)
-			hallucination += 5
+		hallucination += round(BZ_MAX_HALLUCINATION * (1 - NUM_E ** (-BZ_LAMBDA * bz_partialpressure))) // Yogs -- Better BZ hallucination values. Keep in mind that hallucination has to be an integer value, due to how it's handled in handle_hallucination()
 
 	//TRITIUM
 	if(breath.get_moles(/datum/gas/tritium))
@@ -293,9 +300,11 @@
 			else
 				SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "smell")
 
+
 	//Clear all moods if no miasma at all
 	else
 		SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "smell")
+
 
 	//BREATH TEMPERATURE
 	handle_breath_temperature(breath)
