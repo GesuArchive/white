@@ -166,6 +166,13 @@
 	)
 	parents = list("font-awesome.css" = 'html/font-awesome/css/all.min.css')
 
+/datum/asset/simple/namespaced/chatfonts
+	assets = list(
+		"retroville.eot"  = 'html/fontloader/fonts/retroville.eot',
+		"retroville.woff" = 'html/fontloader/fonts/retroville.woff'
+	)
+	parents = list("chatfonts.css" = 'html/fontloader/chatfonts.css')
+
 /datum/asset/spritesheet/chat
 	name = "chat"
 
