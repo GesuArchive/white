@@ -296,11 +296,11 @@ GLOBAL_VAR_INIT(hub_mimic, TRUE)
 	var/s = ""
 
 	if(!GLOB.hub_mimic)
-		s += "<big><b>White Dream: REDUX</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/TT2gqfz\">DISCORD</a>\n\n"
+		s += "<big><b>White Dream: REDUX</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
 		s += "WHY: AdaptiveRP, Economy, Cyberpunk, NO LAGS, Friendly Admins and more!\n\n"
 		s += "\[<big>Pycc&kcy;&icy;e &icy;&dcy;y&tcy;!</big>"
 	else
-		s += "<b>\[RU\] Th&iecy; Fluffy Frontier 18+ MRP</b> — (<a href=\"https://discord.gg/TT2gqfz\">Discord)\]<br>"
+		s += "<b>\[RU\] The Fluffy Fronti&iecy;r 18+ MRP</b> — (<a href=\"https://discord.gg/9uJ7dmM\">Discord)\]<br>"
 		s += "Russian furry MRP server running on modified Skyrat code<br>"
 		s += "\[[pick("Box", "Meta")] Station, [pick("green", "blue", "red", "delta")] alert, ~[GLOB.player_list.len] players</a>"
 
