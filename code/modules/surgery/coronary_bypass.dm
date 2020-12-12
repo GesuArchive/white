@@ -23,8 +23,8 @@
 
 /datum/surgery_step/incise_heart/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, "<span class='notice'>Начинаю делать надрез в сердце [target]...</span>",
-		"<span class='notice'>[user] начинает делать надрез в сердце [target].</span>",
-		"<span class='notice'>[user] начинает делать надрез в сердце [target].</span>")
+		"<span class='notice'>[user] начинает делать надрез в [target.ru_who()] сердце.</span>",
+		"<span class='notice'>[user] начинает делать надрез в [target.ru_who()] сердце.</span>")
 
 /datum/surgery_step/incise_heart/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))
@@ -57,8 +57,8 @@
 
 /datum/surgery_step/coronary_bypass/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, "<span class='notice'>Начинаю делать обходное штунирование сердца [target]...</span>",
-			"<span class='notice'>[user] начинает делать обходное штунирование сердца [target]!</span>",
-			"<span class='notice'>[user] начинает делать обходное штунирование сердца [target]!</span>")
+			"<span class='notice'>[user] начинает делать обходное штунирование [target.ru_who()] сердца!</span>",
+			"<span class='notice'>[user] начинает делать обходное штунирование [target.ru_who()] сердца!</span>")
 
 /datum/surgery_step/coronary_bypass/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	target.setOrganLoss(ORGAN_SLOT_HEART, 60)
@@ -66,8 +66,8 @@
 	if(heart)	//slightly worrying if we lost our heart mid-operation, but that's life
 		heart.operated = TRUE
 	display_results(user, target, "<span class='notice'>Успешно выполняю обходное штунирование на сердце [target].</span>",
-			"<span class='notice'>[user] успешно выполняет обходное штунирование на сердце [target].</span>",
-			"<span class='notice'>[user] успешно выполняет обходное штунирование на сердце [target].</span>")
+			"<span class='notice'>[user] успешно выполняет обходное штунирование на [target.ru_who()] сердце.</span>",
+			"<span class='notice'>[user] успешно выполняет обходное штунирование на [target.ru_who()] сердце.</span>")
 	return ..()
 
 /datum/surgery_step/coronary_bypass/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
