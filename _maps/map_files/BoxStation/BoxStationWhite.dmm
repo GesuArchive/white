@@ -372,6 +372,12 @@
 /obj/structure/closet/firecloset,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
+"aeG" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "aeJ" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel,
@@ -31308,16 +31314,6 @@
 /obj/machinery/ai_slipper/smartfoam,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
-"dHG" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 10
-	},
-/turf/open/floor/plating,
-/area/maintenance/port/aft)
 "dHL" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -32347,12 +32343,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/maintenance/department/medical/morgue)
-"gzP" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 10
-	},
-/turf/open/floor/plating,
-/area/maintenance/port/aft)
 "gBt" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
@@ -36611,6 +36601,16 @@
 /obj/effect/landmark/stationroom/medbay,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
+"qiG" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "qjH" = (
 /obj/machinery/atmospherics/pipe/manifold4w/yellow/visible,
 /turf/open/floor/plasteel,
@@ -64572,7 +64572,7 @@ jfp
 jfp
 jfp
 jfp
-dHG
+qiG
 jfp
 jfp
 uBp
@@ -66619,7 +66619,7 @@ bNJ
 bLC
 cCf
 bNI
-gzP
+aeG
 bVI
 bXC
 bWB
