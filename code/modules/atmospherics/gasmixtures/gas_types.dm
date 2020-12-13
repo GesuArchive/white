@@ -194,7 +194,7 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 /datum/gas/zauker
 	id = "zauker"
 	specific_heat = 350
-	name = "Заукер"
+	name = "Циклон Б"
 	dangerous = TRUE
 	gas_overlay = "zauker"
 	moles_visible = MOLES_GAS_VISIBLE
