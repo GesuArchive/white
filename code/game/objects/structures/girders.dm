@@ -1,6 +1,7 @@
 /obj/structure/girder
 	name = "балка"
-	icon_state = "girder"
+	icon = 'white/valtos/icons/girders/girder.dmi'
+	icon_state = "icon-0"
 	desc = "Большая структурная сборка из металла; Требуется слой металла, прежде чем он может рассматриваться как стена."
 	anchored = TRUE
 	density = TRUE
@@ -316,7 +317,8 @@
 
 /obj/structure/girder/displaced
 	name = "displaced girder"
-	icon_state = "displaced"
+	icon = 'white/valtos/icons/girders/loss_girder.dmi'
+	icon_state = "icon-0"
 	anchored = FALSE
 	state = GIRDER_DISPLACED
 	girderpasschance = 25
@@ -324,7 +326,8 @@
 
 /obj/structure/girder/reinforced
 	name = "reinforced girder"
-	icon_state = "reinforced"
+	icon = 'white/valtos/icons/girders/reinforced_girder.dmi'
+	icon_state = "icon-0"
 	state = GIRDER_REINF
 	girderpasschance = 0
 	max_integrity = 350
