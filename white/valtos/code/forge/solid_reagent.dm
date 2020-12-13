@@ -5,9 +5,8 @@
 	icon_state = "chembar"
 	obj_flags = UNIQUE_RENAME
 	var/reagent_type
-	foodtype = TOXIC
-	volume = 200
-	reagent_flags = TRANSPARENT
+	foodtypes = TOXIC
+	var/volume = 200
 
 /obj/item/food/solid_reagent/Initialize()
 	. = ..()

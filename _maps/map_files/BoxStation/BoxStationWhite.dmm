@@ -35065,10 +35065,10 @@
 /area/maintenance/port/aft)
 "nop" = (
 /obj/structure/table/rospilovo,
-/obj/item/reagent_containers/food/snacks/carpmeat/dry,
-/obj/item/reagent_containers/food/snacks/carpmeat/dry/donbas,
-/obj/item/reagent_containers/food/snacks/carpmeat/dry/donbas,
-/obj/item/reagent_containers/food/snacks/carpmeat/dry/donbas,
+/obj/item/food/carpmeat/dry,
+/obj/item/food/carpmeat/dry/donbas,
+/obj/item/food/carpmeat/dry/donbas,
+/obj/item/food/carpmeat/dry/donbas,
 /obj/effect/spawner/lootdrop/maint_drugs,
 /obj/effect/spawner/lootdrop/maint_drugs,
 /turf/open/floor/wood,

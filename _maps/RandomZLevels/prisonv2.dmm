@@ -1504,7 +1504,7 @@
 /area/prisonv2)
 "ff" = (
 /obj/structure/table/prison,
-/obj/item/reagent_containers/food/snacks/bearsteak,
+/obj/item/food/bearsteak,
 /turf/open/floor/carpet,
 /area/prisonv2)
 "fg" = (
@@ -1516,7 +1516,7 @@
 /area/prisonv2)
 "fh" = (
 /obj/structure/table/prison,
-/obj/item/reagent_containers/food/snacks/fuegoburrito,
+/obj/item/food/fuegoburrito,
 /turf/open/floor/carpet,
 /area/prisonv2)
 "fi" = (
@@ -1627,12 +1627,12 @@
 /area/prisonv2)
 "fA" = (
 /obj/structure/table/prison,
-/obj/item/reagent_containers/food/snacks/onionrings,
+/obj/item/food/onionrings,
 /turf/open/floor/carpet,
 /area/prisonv2)
 "fB" = (
 /obj/structure/table/prison,
-/obj/item/reagent_containers/food/snacks/stuffedlegion,
+/obj/item/food/stuffedlegion,
 /turf/open/floor/carpet,
 /area/prisonv2)
 "fC" = (
@@ -1687,12 +1687,12 @@
 /area/prisonv2)
 "fK" = (
 /obj/structure/table/prison,
-/obj/item/reagent_containers/food/snacks/cubancarp,
+/obj/item/food/cubancarp,
 /turf/open/floor/carpet,
 /area/prisonv2)
 "fL" = (
 /obj/structure/table/prison,
-/obj/item/reagent_containers/food/snacks/dankpocket,
+/obj/item/food/dankpocket,
 /turf/open/floor/carpet,
 /area/prisonv2)
 "fM" = (
@@ -1750,12 +1750,12 @@
 /area/prisonv2)
 "fV" = (
 /obj/structure/table/prison,
-/obj/item/reagent_containers/food/snacks/oatmealcookie,
+/obj/item/food/oatmealcookie,
 /turf/open/floor/carpet,
 /area/prisonv2)
 "fW" = (
 /obj/structure/table/prison,
-/obj/item/reagent_containers/food/snacks/pumpkinpieslice,
+/obj/item/food/pumpkinpieslice,
 /turf/open/floor/carpet,
 /area/prisonv2)
 "fX" = (
@@ -1848,8 +1848,8 @@
 /area/prisonv2)
 "gm" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/snacks/meat/slab/bear,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/slime,
+/obj/item/food/meat/slab/bear,
+/obj/item/food/meat/slab/human/mutant/slime,
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "gn" = (
@@ -1858,8 +1858,8 @@
 /area/prisonv2)
 "go" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/snacks/meat/slab/human,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/slime,
+/obj/item/food/meat/slab/human,
+/obj/item/food/meat/slab/human/mutant/slime,
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "gp" = (
@@ -2007,8 +2007,8 @@
 /area/prisonv2)
 "gG" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/slime,
+/obj/item/food/meat/slab/human/mutant,
+/obj/item/food/meat/slab/human/mutant/slime,
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "gH" = (
@@ -2017,8 +2017,8 @@
 /area/prisonv2)
 "gI" = (
 /obj/structure/table,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/zombie,
-/obj/item/reagent_containers/food/snacks/meat/slab/xeno,
+/obj/item/food/meat/slab/human/mutant/zombie,
+/obj/item/food/meat/slab/xeno,
 /obj/effect/mob_spawn/human/corpse/damaged,
 /obj/machinery/reagentgrinder,
 /turf/open/floor/rospilovo/plitka,
@@ -2030,24 +2030,24 @@
 /area/prisonv2)
 "gK" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/golem,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/golem,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/golem/adamantine,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/lizard,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/skeleton,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/zombie,
+/obj/item/food/meat/slab/human/mutant/fly,
+/obj/item/food/meat/slab/human/mutant/golem,
+/obj/item/food/meat/slab/human/mutant/golem,
+/obj/item/food/meat/slab/human/mutant/golem/adamantine,
+/obj/item/food/meat/slab/human/mutant/lizard,
+/obj/item/food/meat/slab/human/mutant/skeleton,
+/obj/item/food/meat/slab/human/mutant/zombie,
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "gL" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/golem,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/golem/adamantine,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/lizard,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/shadow,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/skeleton,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/zombie,
+/obj/item/food/meat/slab/human/mutant/fly,
+/obj/item/food/meat/slab/human/mutant/golem,
+/obj/item/food/meat/slab/human/mutant/golem/adamantine,
+/obj/item/food/meat/slab/human/mutant/lizard,
+/obj/item/food/meat/slab/human/mutant/shadow,
+/obj/item/food/meat/slab/human/mutant/skeleton,
+/obj/item/food/meat/slab/human/mutant/zombie,
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "gM" = (
@@ -2056,12 +2056,12 @@
 /area/prisonv2)
 "gN" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/lizard,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/plant,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/shadow,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/skeleton,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/zombie,
+/obj/item/food/meat/slab/human/mutant/fly,
+/obj/item/food/meat/slab/human/mutant/lizard,
+/obj/item/food/meat/slab/human/mutant/plant,
+/obj/item/food/meat/slab/human/mutant/shadow,
+/obj/item/food/meat/slab/human/mutant/skeleton,
+/obj/item/food/meat/slab/human/mutant/zombie,
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "gO" = (
@@ -2070,11 +2070,11 @@
 /area/prisonv2)
 "gP" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/fly,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/lizard,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/plant,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/skeleton,
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/zombie,
+/obj/item/food/meat/slab/human/mutant/fly,
+/obj/item/food/meat/slab/human/mutant/lizard,
+/obj/item/food/meat/slab/human/mutant/plant,
+/obj/item/food/meat/slab/human/mutant/skeleton,
+/obj/item/food/meat/slab/human/mutant/zombie,
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "gQ" = (
@@ -3742,7 +3742,7 @@
 "lX" = (
 /obj/effect/decal/prison/pipe/piped,
 /obj/structure/table/prison,
-/obj/item/reagent_containers/food/snacks/salad/validsalad,
+/obj/item/food/salad/validsalad,
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "lY" = (

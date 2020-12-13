@@ -4866,7 +4866,7 @@
 /area/partyhard/chetyre)
 "lj" = (
 /obj/structure/table,
-/obj/item/reagent_containers/food/snacks/mint,
+/obj/item/food/mint,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},

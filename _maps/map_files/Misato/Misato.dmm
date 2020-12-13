@@ -1874,7 +1874,7 @@
 	pixel_y = -24;
 	req_access_txt = "28"
 	},
-/obj/item/reagent_containers/food/snacks/mint,
+/obj/item/food/mint,
 /obj/item/reagent_containers/food/condiment/saltshaker{
 	pixel_x = -3
 	},
@@ -4755,7 +4755,7 @@
 	name = "kitchen shutters"
 	},
 /obj/machinery/door/firedoor,
-/obj/item/reagent_containers/food/snacks/pie/cream,
+/obj/item/food/pie/cream,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-1"
 	},
