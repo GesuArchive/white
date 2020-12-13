@@ -8,10 +8,10 @@
 		/datum/reagent/consumable/sodiumchloride = 10,
 		/datum/reagent/consumable/blackpepper = 10
 	)
-	result = /obj/item/reagent_containers/food/snacks/soup/Imperium
+	result = /obj/item/food/soup/Imperium
 	subcategory = CAT_SOUP
 
-/obj/item/reagent_containers/food/snacks/soup/Imperium
+/obj/item/food/soup/Imperium
 	name = "Imperium soup"
 	desc = "FOR IMPERIUM!"
 	icon_state = "wishsoup"

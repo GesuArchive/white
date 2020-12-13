@@ -70,7 +70,7 @@
 	maxHealth = 300
 	health = 300
 	see_in_dark = 0
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 4, /obj/item/stack/sheet/bone = 2)
+	butcher_results = list(/obj/item/food/meat/slab = 4, /obj/item/stack/sheet/bone = 2)
 	response_help_continuous = "prods"
 	response_help_simple = "prod"
 	response_disarm_continuous = "pushes aside"

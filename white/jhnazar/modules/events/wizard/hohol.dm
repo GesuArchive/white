@@ -18,7 +18,7 @@
 
 	speak = list("СЛАВА УКРАЇНІ!","ГЕРОЯМ СЛАВА!","МОСКАЛІ СОСАТИ", "МОСКАЛЯКУ НА ГІЛЯКУ", "ХРЮ", "Хочу сальця")
 
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/pig = 10)
+	butcher_results = list(/obj/item/food/meat/slab/pig = 10)
 
 	mob_size = MOB_SIZE_HUGE
 	mob_biotypes = MOB_ORGANIC|MOB_EPIC

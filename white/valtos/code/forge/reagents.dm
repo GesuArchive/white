@@ -57,14 +57,14 @@
 			if(atom && istype(atom, /obj/effect/particle_effect))
 				volume = volume * SOLID_PARTICLE_EFFECT_EFFICIENCY//big nerf to smoke and foam duping
 
-			for(var/obj/item/reagent_containers/food/snacks/solid_reagent/SR in T.contents)
+			for(var/obj/item/food/solid_reagent/SR in T.contents)
 				if(SR.reagents && SR.reagent_type == src.type && SR.reagents.total_volume < 200)
 					if(touch_msg)
 						SR.add_fingerprint(touch_mob)
 					SR.reagents.add_reagent(src.type, volume)
 					return TRUE
 
-			var/obj/item/reagent_containers/food/snacks/solid_reagent/Sr = new (T)
+			var/obj/item/food/solid_reagent/Sr = new (T)
 			if(touch_msg)
 				Sr.add_fingerprint(touch_mob)
 			Sr.reagents.add_reagent(src.type, volume, src.data)

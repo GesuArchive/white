@@ -9,7 +9,7 @@
 	light_power = 0.5
 	light_range = 2
 	light_color = LIGHT_COLOR_FLARE
-	var/obj/item/reagent_containers/food/snacks/solid_reagent/working = null
+	var/obj/item/food/solid_reagent/working = null
 	var/work_time = 300
 	var/end_volume = 100
 	circuit = /obj/item/circuitboard/machine/reagent_sheet
@@ -26,7 +26,7 @@
 		to_chat(user, "<hr><span class='notice'>Дисплей: Outputting <b>[end_volume/20]</b> ingot(s) after <b>[work_time*0.1]</b> seconds of processing.<span>")
 
 /obj/machinery/reagent_sheet/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/solid_reagent) && !panel_open)
+	if(istype(I, /obj/item/food/solid_reagent) && !panel_open)
 		if(machine_stat & BROKEN)
 			to_chat(user, "<span class='warning'>[capitalize(src.name)] is broken!</span>")
 			return

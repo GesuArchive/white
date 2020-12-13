@@ -1,4 +1,4 @@
-/obj/item/reagent_containers/food/snacks/solid_reagent
+/obj/item/food/solid_reagent
 	name = "solidified chemicals"
 	desc = "Стоит ли это пробовать на вкус? Хмм..."
 	icon = 'white/valtos/icons/forge/chemical.dmi'
@@ -9,29 +9,29 @@
 	volume = 200
 	reagent_flags = TRANSPARENT
 
-/obj/item/reagent_containers/food/snacks/solid_reagent/Initialize()
+/obj/item/food/solid_reagent/Initialize()
 	. = ..()
 	pixel_x = rand(8,-8)
 	pixel_y = rand(8,-8)
 
-/obj/item/reagent_containers/food/snacks/solid_reagent/microwave_act(obj/machinery/microwave/M)
+/obj/item/food/solid_reagent/microwave_act(obj/machinery/microwave/M)
 	if(reagents)
 		reagents.expose_temperature(1000)
 
 
-/obj/item/reagent_containers/food/snacks/solid_reagent/ex_act()
+/obj/item/food/solid_reagent/ex_act()
 	if(reagents)
 		for(var/datum/reagent/R in reagents.reagent_list)
 			R.on_ex_act()
 	if(!QDELETED(src))
 		..()
 
-/obj/item/reagent_containers/food/snacks/solid_reagent/fire_act(exposed_temperature, exposed_volume)
+/obj/item/food/solid_reagent/fire_act(exposed_temperature, exposed_volume)
 	reagents.expose_temperature(exposed_temperature)
 	if(volume <= 0)
 		qdel(src)
 
-/obj/item/reagent_containers/food/snacks/solid_reagent/attackby(obj/item/I, mob/user, params)
+/obj/item/food/solid_reagent/attackby(obj/item/I, mob/user, params)
 	var/hotness = I.get_temperature()
 	if(hotness && reagents)
 		reagents.expose_temperature(hotness)
@@ -40,7 +40,7 @@
 			qdel(src)
 
 
-/obj/item/reagent_containers/food/snacks/solid_reagent/afterattack(obj/target, mob/user , proximity)
+/obj/item/food/solid_reagent/afterattack(obj/target, mob/user , proximity)
 	if(!proximity)
 		return
 	if(target.is_open_container()/* || istype(target, /obj/effect/decal/cleanable/chempile) && target.reagents*/)

@@ -78,7 +78,7 @@
 	breakout_time = 200
 	pryLidTimer = 200
 	resistance_flags = NONE
-	material_drop = /obj/item/reagent_containers/food/snacks/meat/slab
+	material_drop = /obj/item/food/meat/slab
 	material_drop_amount = 3
 
 /obj/structure/closet/crate/coffin/metalcoffin // closet.dmi, closets.dm, and job_closets.dm
@@ -237,7 +237,7 @@
 	result =/obj/structure/closet/crate/coffin/meatcoffin
 	tools = list(/obj/item/kitchen/knife,
 				 /obj/item/kitchen/rollingpin)
-	reqs = list(/obj/item/reagent_containers/food/snacks/meat/slab = 5,
+	reqs = list(/obj/item/food/meat/slab = 5,
 				/obj/item/restraints/handcuffs/cable = 1)
 	time = 150
 	category = CAT_STRUCTURE

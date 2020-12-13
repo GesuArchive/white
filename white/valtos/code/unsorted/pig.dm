@@ -16,7 +16,7 @@
 	health = 50
 	attacked_sound = 'white/valtos/sounds/pig/oink.ogg'
 	deathsound = 'white/valtos/sounds/pig/death.ogg'
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/pig = 3)
+	butcher_results = list(/obj/item/food/meat/slab/pig = 3)
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
 	response_disarm_continuous = "отталкивает"

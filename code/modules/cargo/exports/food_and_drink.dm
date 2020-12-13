@@ -12,7 +12,7 @@
 
 /datum/export/food/get_cost(obj/O, allowed_categories, apply_elastic)
 	. = ..()
-	var/obj/item/reagent_containers/food/snacks/sold_food = O
+	var/obj/item/food/sold_food = O
 	if(sold_food.silver_spawned)
 		return FOOD_WORTHLESS
 	return sold_food.value
