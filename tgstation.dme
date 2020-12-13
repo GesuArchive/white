@@ -3605,6 +3605,8 @@
 #include "white\valtos\code\loadout\loadout_shoes.dm"
 #include "white\valtos\code\loadout\loadout_suit.dm"
 #include "white\valtos\code\loadout\loadout_uniform.dm"
+#include "white\valtos\code\majormode\collect_items.dm"
+#include "white\valtos\code\majormode\major.dm"
 #include "white\valtos\code\makeshift\crossbow.dm"
 #include "white\valtos\code\makeshift\ducttape.dm"
 #include "white\valtos\code\makeshift\lockermech.dm"
