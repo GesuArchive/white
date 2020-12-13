@@ -2,8 +2,8 @@
 	name = "армированная стена"
 	desc = "Здоровенный укреплённый кусок металла, который служит для разделения помещений."
 	icon = 'icons/turf/walls/rbaywall.dmi'
-	icon_state = "reinforced_wall-0"
-	base_icon_state = "reinforced_wall"
+	icon_state = "base-0"
+	base_icon_state = "base"
 	opacity = TRUE
 	density = TRUE
 	smoothing_flags = SMOOTH_BITMASK

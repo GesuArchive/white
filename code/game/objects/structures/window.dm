@@ -608,9 +608,9 @@
 /* Full Tile Windows (more obj_integrity) */
 
 /obj/structure/window/fulltile
-	icon = 'white/valtos/icons/window_glass.dmi'
-	icon_state = "window_glass-0"
-	base_icon_state = "window_glass"
+	icon = 'white/valtos/icons/windows/glass.dmi'
+	icon_state = "icon-0"
+	base_icon_state = "icon"
 	dir = FULLTILE_WINDOW_DIR
 	max_integrity = 50
 	fulltile = TRUE
@@ -708,9 +708,9 @@
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/reinforced/fulltile
-	icon = 'white/valtos/icons/window_rglass.dmi'
-	icon_state = "window_rglass-0"
-	base_icon_state = "window_rglass"
+	icon = 'white/valtos/icons/windows/reinforced_glass.dmi'
+	icon_state = "icon-0"
+	base_icon_state = "icon"
 	dir = FULLTILE_WINDOW_DIR
 	max_integrity = 150
 	fulltile = TRUE

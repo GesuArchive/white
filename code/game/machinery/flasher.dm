@@ -3,7 +3,7 @@
 /obj/machinery/flasher
 	name = "mounted flash"
 	desc = "A wall-mounted flashbulb device."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'white/valtos/icons/power.dmi'
 	icon_state = "mflash1"
 	max_integrity = 250
 	integrity_failure = 0.4

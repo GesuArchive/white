@@ -4,8 +4,8 @@
 	name = "стена"
 	desc = "Здоровенный кусок металла, который служит для разделения помещений."
 	icon = 'icons/turf/walls/tall/wall.dmi'
-	icon_state = "icon-0"
-	base_icon_state = "icon"
+	icon_state = "base-0"
+	base_icon_state = "base"
 	explosion_block = 1
 
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
