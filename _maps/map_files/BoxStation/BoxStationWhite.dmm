@@ -24325,6 +24325,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
 /area/tcommsat/computer)
 "can" = (
@@ -24346,6 +24347,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
 /area/tcommsat/computer)
 "cao" = (
@@ -31306,6 +31308,16 @@
 /obj/machinery/ai_slipper/smartfoam,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
+"dHG" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "dHL" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -31648,11 +31660,11 @@
 "eMw" = (
 /obj/machinery/atmospherics/pipe/simple/orange/visible,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 4
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 5
 	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
@@ -32335,6 +32347,12 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/maintenance/department/medical/morgue)
+"gzP" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "gBt" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
@@ -39653,6 +39671,12 @@
 /obj/machinery/atmospherics/pipe/simple/orange/visible,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 10
 	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
@@ -64547,7 +64571,7 @@ jfp
 jfp
 jfp
 jfp
-jfp
+dHG
 jfp
 jfp
 uBp
@@ -66594,7 +66618,7 @@ bNJ
 bLC
 cCf
 bNI
-bHE
+gzP
 bVI
 bXC
 bWB
