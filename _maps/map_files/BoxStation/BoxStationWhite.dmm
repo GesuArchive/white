@@ -1407,6 +1407,7 @@
 /area/engine/atmos)
 "ama" = (
 /mob/living/simple_animal/sloth/paperwork,
+/obj/item/stamp,
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
 "amb" = (
@@ -11661,6 +11662,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 9
 	},
+/obj/structure/closet/crate/maint,
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
 "aXA" = (
@@ -14074,6 +14076,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/item/storage/box/shipping,
+/obj/item/clothing/head/soft,
+/obj/item/clothing/head/soft,
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
 "bjn" = (
@@ -14597,15 +14602,10 @@
 /turf/open/floor/plasteel/white,
 /area/science/research)
 "blY" = (
-/obj/structure/table,
-/obj/item/storage/box/shipping,
-/obj/item/clothing/head/soft,
-/obj/item/clothing/head/soft,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 1
-	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/maint,
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/quartermaster/warehouse)
 "blZ" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/stripes/line{
@@ -14751,18 +14751,6 @@
 /area/quartermaster/storage)
 "bmP" = (
 /obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/quartermaster/office)
-"bmQ" = (
-/obj/item/stamp{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/stamp/denied{
-	pixel_x = 4;
-	pixel_y = -2
-	},
-/obj/structure/table,
 /turf/open/floor/plasteel,
 /area/quartermaster/office)
 "bnb" = (
@@ -14919,13 +14907,7 @@
 /turf/open/floor/plasteel,
 /area/quartermaster/office)
 "bnG" = (
-/obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
-/obj/item/clipboard,
-/obj/item/pen/red,
-/obj/structure/table,
+/obj/machinery/computer/cargo,
 /turf/open/floor/plasteel,
 /area/quartermaster/office)
 "bnI" = (
@@ -15206,12 +15188,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
-"bpA" = (
-/obj/machinery/computer/cargo{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
-/area/quartermaster/office)
 "bpB" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -16156,21 +16132,10 @@
 	},
 /area/science/research)
 "bvF" = (
-/obj/machinery/requests_console{
-	department = "Cargo Bay";
-	departmentType = 2;
-	pixel_x = -30
-	},
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/brown{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 8
-	},
-/obj/machinery/modular_computer/console/preset/civilian{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -16596,6 +16561,8 @@
 	pixel_y = 7
 	},
 /obj/item/stamp/qm,
+/obj/item/stamp/denied,
+/obj/item/stamp,
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
 "byd" = (
@@ -16603,9 +16570,7 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
 	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
+/obj/machinery/suit_storage_unit/mining/eva,
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
 "byf" = (
@@ -16669,6 +16634,7 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
 	},
+/obj/item/toy/plush/snakeplushie,
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
 "byn" = (
@@ -17062,26 +17028,17 @@
 /turf/open/floor/plasteel/dark,
 /area/science/genetics)
 "bzP" = (
-/obj/machinery/computer/cargo{
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 8
-	},
-/turf/open/floor/plasteel,
-/area/quartermaster/qm)
-"bzR" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 6
 	},
 /obj/machinery/ai_slipper/smartfoam,
+/turf/open/floor/plasteel,
+/area/quartermaster/qm)
+"bzR" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
 "bzT" = (
@@ -17319,25 +17276,12 @@
 /turf/open/floor/plasteel/dark,
 /area/science/genetics)
 "bAS" = (
-/obj/machinery/camera{
-	c_tag = "Quartermaster's Office";
-	dir = 4
-	},
-/obj/item/radio/intercom{
-	pixel_y = -35
-	},
-/obj/machinery/status_display/supply{
-	pixel_x = -32
-	},
-/obj/machinery/computer/security/qm{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
@@ -28196,6 +28140,11 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/grimy,
 /area/ai_monitored/turret_protected/aisat_interior)
+"ctH" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/closet/crate/maint,
+/turf/open/floor/plasteel,
+/area/quartermaster/storage)
 "ctJ" = (
 /obj/effect/landmark/start/cyborg,
 /obj/structure/cable,
@@ -31707,6 +31656,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
+"ePZ" = (
+/obj/structure/lattice,
+/turf/closed/wall,
+/area/space/nearstation)
 "eQN" = (
 /obj/effect/decal/cleanable/oil,
 /obj/effect/turf_decal/stripes/line,
@@ -34013,6 +33966,29 @@
 	dir = 9
 	},
 /area/science/research)
+"krF" = (
+/obj/machinery/camera{
+	c_tag = "Quartermaster's Office";
+	dir = 4
+	},
+/obj/item/radio/intercom{
+	pixel_y = -35
+	},
+/obj/machinery/status_display/supply{
+	pixel_x = -32
+	},
+/obj/machinery/computer/security/qm{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/quartermaster/qm)
 "ksH" = (
 /obj/machinery/atmospherics/pipe/simple/purple/visible{
 	dir = 8
@@ -34369,6 +34345,12 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
+"lmG" = (
+/obj/structure/table,
+/obj/item/stamp,
+/obj/item/stamp/denied,
+/turf/open/floor/plasteel,
+/area/quartermaster/office)
 "lmZ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -34877,6 +34859,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall/r_wall,
 /area/engine/atmos)
+"mNk" = (
+/obj/machinery/computer/bounty,
+/turf/open/floor/plasteel,
+/area/quartermaster/storage)
 "mNB" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel/dark,
@@ -35077,6 +35063,26 @@
 /obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"nph" = (
+/obj/machinery/requests_console{
+	department = "Cargo Bay";
+	departmentType = 2;
+	pixel_x = -30
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 8
+	},
+/obj/machinery/computer/bounty{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/quartermaster/qm)
 "npF" = (
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
@@ -35963,10 +35969,17 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/science/xenobiology)
+"pga" = (
+/obj/machinery/computer/bounty,
+/turf/open/floor/plasteel,
+/area/quartermaster/office)
 "pgn" = (
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/engine/atmos)
+"pgo" = (
+/turf/closed/wall,
+/area/space)
 "pgP" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -36388,6 +36401,21 @@
 	},
 /turf/open/floor/plating,
 /area/science/xenobiology)
+"pRK" = (
+/obj/machinery/computer/cargo{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/quartermaster/qm)
 "pSN" = (
 /obj/effect/turf_decal/tile/purple,
 /obj/effect/turf_decal/tile/purple{
@@ -58572,7 +58600,7 @@ aSg
 bhT
 hPI
 aZE
-blY
+eZO
 dPG
 boJ
 bql
@@ -59602,9 +59630,9 @@ bjn
 dcu
 bkt
 bmh
-boK
+ctH
 bpz
-boK
+ctH
 bjr
 bkt
 bvV
@@ -59866,10 +59894,10 @@ bjr
 bjr
 bvV
 bxu
-aaa
-aaa
-aaa
-gXs
+pgo
+des
+pgo
+ePZ
 gXs
 aaa
 aaa
@@ -60116,16 +60144,16 @@ bjp
 bjr
 bjr
 bmh
-boK
+ctH
 sSZ
 cBp
 bjr
 buB
 bvV
 bxu
-bxu
-ioQ
-bxu
+nph
+pRK
+krF
 bxu
 gXs
 aaa
@@ -60375,7 +60403,7 @@ bjr
 bmh
 boK
 sSZ
-boK
+ctH
 bjr
 bjr
 bub
@@ -60626,7 +60654,7 @@ gjl
 gjl
 gjl
 aZE
-bjr
+mNk
 bjr
 ama
 bmh
@@ -60878,7 +60906,7 @@ gjl
 baS
 aZI
 pKc
-baS
+blY
 bdS
 bdU
 ckQ
@@ -62685,7 +62713,7 @@ bia
 aZK
 bjs
 bkx
-bmQ
+pga
 bnA
 dZy
 jMP
@@ -62944,7 +62972,7 @@ cNM
 cNI
 bnG
 bnz
-bpA
+lmG
 pVh
 bbR
 bqs
