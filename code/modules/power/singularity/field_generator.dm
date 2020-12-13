@@ -58,6 +58,7 @@ no power level overlay is currently in the overlays list.
 	. = ..()
 	fields = list()
 	connected_gens = list()
+	RegisterSignal(src, COMSIG_ATOM_SINGULARITY_TRY_MOVE, .proc/block_singularity_if_active)
 
 /obj/machinery/field/generator/anchored/Initialize()
 	. = ..()
@@ -340,11 +341,6 @@ no power level overlay is currently in the overlays list.
 	clean_up = 0
 	update_icon()
 
-	//This is here to help fight the "hurr durr, release singulo cos nobody will notice before the
-	//singulo eats the evidence". It's not fool-proof but better than nothing.
-	//I want to avoid using global variables.
-	INVOKE_ASYNC(src, .proc/notify_admins)
-
 	move_resist = initial(move_resist)
 
 /obj/machinery/field/generator/proc/shield_floor(create)
@@ -397,6 +393,12 @@ no power level overlay is currently in the overlays list.
 				investigate_log("has <font color='red'>failed</font> whilst a singulo exists at [AREACOORD(T)].", INVESTIGATE_SINGULO)
 				notify_ghosts("УЛЕТЕЛО!", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, ghost_sound = 'sound/machines/warning-buzzer.ogg', header = "УЛЕТЕЛО!", notify_volume = 75)
 		O.last_warning = world.time
+
+/obj/machinery/field/generator/proc/block_singularity_if_active()
+	SIGNAL_HANDLER
+
+	if (active)
+		return SINGULARITY_TRY_MOVE_BLOCK
 
 /obj/machinery/field/generator/shock(mob/living/user)
 	if(fields.len)

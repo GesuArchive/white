@@ -172,6 +172,8 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 	if(gas["TEMP"])
 		set_temperature(text2num(gas["TEMP"]))
 		gas -= "TEMP"
+	else // if we do not have a temp in the new gas mix lets assume room temp.
+		set_temperature(T20C)
 	clear()
 	for(var/id in gas)
 		var/path = id

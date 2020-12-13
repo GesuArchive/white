@@ -8,11 +8,12 @@
 	var/description
 	var/prerequisites
 	var/admin_notes
-
+	/// How much does this shuttle cost the cargo budget to purchase? Put in terms of CARGO_CRATE_VALUE to properly scale the cost with the current balance of cargo's income.
 	var/credit_cost = INFINITY
+	/// Can the  be legitimately purchased by the station? Used by hardcoded or pre-mapped shuttles like the lavaland or cargo shuttle.
 	var/can_be_bought = TRUE
-
-	var/list/movement_force // If set, overrides default movement_force on shuttle
+	/// If set, overrides default movement_force on shuttle
+	var/list/movement_force
 
 	var/port_x_offset
 	var/port_y_offset
@@ -185,7 +186,7 @@
 	name = "Набор построй свой собственный шатл"
 	description = "Для предпиимчевого челночного инженера! Шасси будет пристыковано при покупке, но запуск должен быть разрешен в обычном порядке через вызов шатла. Поставляется вместе со строительными материалами. Разблокирует возможность купить ящики с двигателем шатла в карго."
 	admin_notes = "No brig, no medical facilities, no shuttle console."
-	credit_cost = 2500
+	credit_cost = CARGO_CRATE_VALUE * 5
 
 /datum/map_template/shuttle/emergency/airless/post_load()
 	. = ..()
@@ -198,7 +199,7 @@
 	suffix = "asteroid"
 	name = "Эвакуационный Шатл Астеройдной Станции"
 	description = "Респектабельный шатл среднего размера, который впервые заступил на службу доставляя экипаж Нанотрансена на их внутренные объекты в поясе астероидов и обратно."
-	credit_cost = 3000
+	credit_cost = CARGO_CRATE_VALUE * 6
 
 /datum/map_template/shuttle/emergency/bar
 	suffix = "bar"
@@ -206,7 +207,7 @@
 	description = "К услугам гостей разумный персонал бара (Бардрон и Барменша), ванная, качественная гостинная для руководителей и большой стол для собраний."
 	admin_notes = "Bardrone and Barmaid are GODMODE, will be automatically sentienced by the fun balloon at 60 seconds before arrival. \
 	Has medical facilities."
-	credit_cost = 5000
+	credit_cost = CARGO_CRATE_VALUE * 10
 
 /datum/map_template/shuttle/emergency/pod
 	suffix = "pod"
@@ -220,15 +221,15 @@
 	name = "Mother Russia Bleeds"
 	description = "Это довольно высококачественный шатл, da. Сидений много, много пространства, вся экипировка! Даже есть развлечения! Например куча бухла и арена для пьяного экипажа, весело! Если арены не достаточно, просто нажмите на кнопку выпуска выпуска медведей. Волноваться нет смысла, медведи обучены не вылезать из бойцовской ямы, ток что полностью безопасно до момента пока никто не слишком глуп или пьян, чтобы оставить дверь открытой. И не позволяйте детям Азимова испортить веселье!"
 	admin_notes = "Includes a small variety of weapons. And bears. Only captain-access can release the bears. Bears won't smash the windows themselves, but they can escape if someone lets them."
-	credit_cost = 5000 // While the shuttle is rusted and poorly maintained, trained bears are costly.
+	credit_cost = CARGO_CRATE_VALUE * 10 // While the shuttle is rusted and poorly maintained, trained bears are costly.
 
 /datum/map_template/shuttle/emergency/meteor
 	suffix = "meteor"
 	name = "Астеройд С Привязанными К Нему Двигателями"
 	description = "Опустошенный астеройд с привязанными к нему двигателями, процедура опустошения делает его очень сложной целью для угона, но и весьма ценной. Этот шатл ввиду своих размеров и сложностей с управлением может повредить зону стыковки."
 	admin_notes = "This shuttle will likely crush escape, killing anyone there."
-	credit_cost = 15000
-	movement_force = list("KNOCKDOWN" = 3, "THROW" = 15)
+	credit_cost = CARGO_CRATE_VALUE * 30
+	movement_force = list("KNOCKDOWN" = 3, "THROW" = 2)
 
 /datum/map_template/shuttle/emergency/luxury
 	suffix = "luxury"
@@ -236,14 +237,14 @@
 	description = "Роскошный золотой шатл с крытым бассейном. Каждый член экипажа желающий попасть на борт должен принести 500 кредитов, оплата принимается наличными и минеральными монетами"
 	extra_desc = "Зайти на шатл стоит 500 кредитов."
 	admin_notes = "Due to the limited space for non paying crew, this shuttle may cause a riot."
-	credit_cost = 10000
+	credit_cost = CARGO_CRATE_VALUE * 20
 
 /datum/map_template/shuttle/emergency/discoinferno
 	suffix = "discoinferno"
 	name = "Disco Inferno"
 	description = "The glorious results of centuries of plasma research done by Nanotrasen employees. This is the reason why you are here. Get on and dance like you're on fire, burn baby burn!"
 	admin_notes = "Flaming hot. The main area has a dance machine as well as plasma floor tiles that will be ignited by players every single time."
-	credit_cost = 10000
+	credit_cost = CARGO_CRATE_VALUE * 20
 	can_be_bought = FALSE
 
 /datum/map_template/shuttle/emergency/arena
@@ -251,7 +252,7 @@
 	name = "Арена"
 	description = "Персонал должен пройти через потустороннюю арену чтобы попасть на шатл. Ожидайте огромное количество жертв. Для разблокировки этого шатла необходимо найти и устранить источник кровавого сигнала."
 	admin_notes = "RIP AND TEAR."
-	credit_cost = 10000
+	credit_cost = CARGO_CRATE_VALUE * 20
 	/// Whether the arena z-level has been created
 	var/arena_loaded = FALSE
 
@@ -273,12 +274,12 @@
 	suffix = "birdboat"
 	name = "Эвакуационный Шатл Станции БёрдБоат"
 	description = "Не смотря на то что этот шатл немного маловат - он полностью укомплектован, чего не скажешь о типе станции, на которой он был заказан."
-	credit_cost = 1000
+	credit_cost = CARGO_CRATE_VALUE * 2
 
 /datum/map_template/shuttle/emergency/box
 	suffix = "box"
 	name = "Эвакуационный Шатл Станции Ящик"
-	credit_cost = 2000
+	credit_cost = CARGO_CRATE_VALUE * 4
 	description = "Проверенный временем золотой стандарт для экстренной эксфильтрации, оборудованный всем, что может пригодиться экипажу для безопасного полета домой."
 
 /datum/map_template/shuttle/emergency/donut
@@ -286,7 +287,7 @@
 	name = "Аварйный Шатл Станции Пончиков"
 	description = "Прекрасно налезет на любую грубую шутку с формой станции, шатл содержит несколько камер для заключенных и небольшое медицинское крыло."
 	admin_notes = "Has airlocks on both sides of the shuttle and will probably intersect near the front on some stations that build past departures."
-	credit_cost = 2500
+	credit_cost = CARGO_CRATE_VALUE * 5
 
 /datum/map_template/shuttle/emergency/clown
 	suffix = "clown"
@@ -297,7 +298,7 @@
 	Соберите все простыни раньше вашего соседа! Узнайте, наблюдает ли за вами ИИ  с помощью нашего ожидающего патента изобретения \"Пикающий ТОМ: Многоинструментальный ИИ Детектор\" или, если коротко, ПИИИТОР. \
 	Веселой поездки!"
 	admin_notes = "Brig is replaced by anchored greentext book surrounded by lavaland chasms, stationside door has been removed to prevent accidental dropping. No brig."
-	credit_cost = 8000
+	credit_cost = CARGO_CRATE_VALUE * 16
 
 /datum/map_template/shuttle/emergency/cramped
 	suffix = "cramped"
@@ -311,25 +312,25 @@
 /datum/map_template/shuttle/emergency/meta
 	suffix = "meta"
 	name = "Meta Station Emergency Shuttle"
-	credit_cost = 4000
+	credit_cost = CARGO_CRATE_VALUE * 8
 	description = "A fairly standard shuttle, though larger and slightly better equipped than the Box Station variant."
 
 /datum/map_template/shuttle/emergency/kilo
 	suffix = "kilo"
 	name = "Kilo Station Emergency Shuttle"
-	credit_cost = 5000
+	credit_cost = CARGO_CRATE_VALUE * 10
 	description = "A fully functional shuttle including a complete infirmary, storage facilties and regular amenities."
 
 /datum/map_template/shuttle/emergency/mini
 	suffix = "mini"
 	name = "Ministation emergency shuttle"
-	credit_cost = 1000
+	credit_cost = CARGO_CRATE_VALUE * 2
 	description = "Despite its namesake, this shuttle is actually only slightly smaller than standard, and still complete with a brig and medbay."
 
 /datum/map_template/shuttle/emergency/scrapheap
 	suffix = "scrapheap"
 	name = "Standby Evacuation Vessel \"Scrapheap Challenge\""
-	credit_cost = -1000
+	credit_cost = CARGO_CRATE_VALUE * -2
 	description = "Due to a lack of functional emergency shuttles, we bought this second hand from a scrapyard and pressed it into service. Please do not lean too heavily on the exterior windows, they are fragile."
 	admin_notes = "An abomination with no functional medbay, sections missing, and some very fragile windows. Surprisingly airtight."
 	movement_force = list("KNOCKDOWN" = 3, "THROW" = 15)
@@ -340,7 +341,7 @@
 	description = "Looks like this shuttle may have wandered into the darkness between the stars on route to the station. Let's not think too hard about where all the bodies came from."
 	admin_notes = "Contains real cult ruins, mob eyeballs, and inactive constructs. Cult mobs will automatically be sentienced by fun balloon. \
 	Cloning pods in 'medbay' area are showcases and nonfunctional."
-	credit_cost = 6667
+	credit_cost = 6667 ///The joke is the number so no defines
 
 /datum/map_template/shuttle/emergency/narnar/prerequisites_met()
 	return SSshuttle.shuttle_purchase_requirements_met[SHUTTLE_UNLOCK_NARNAR]
@@ -350,7 +351,7 @@
 	name = "Pubby Station Emergency Shuttle"
 	description = "A train but in space! Complete with a first, second class, brig and storage area."
 	admin_notes = "Choo choo motherfucker!"
-	credit_cost = 1000
+	credit_cost = CARGO_CRATE_VALUE * 2
 
 /datum/map_template/shuttle/emergency/cere
 	suffix = "cere"
@@ -358,7 +359,7 @@
 	description = "The large, beefed-up version of the box-standard shuttle. Includes an expanded brig, fully stocked medbay, enhanced cargo storage with mech chargers, \
 	an engine room stocked with various supplies, and a crew capacity of 80+ to top it all off. Live large, live Cere."
 	admin_notes = "Seriously big, even larger than the Delta shuttle."
-	credit_cost = 10000
+	credit_cost = CARGO_CRATE_VALUE * 20
 
 /datum/map_template/shuttle/emergency/supermatter
 	suffix = "supermatter"
@@ -371,8 +372,8 @@
 	Outside of admin intervention, it cannot explode. \
 	It does, however, still dust anything on contact, emits high levels of radiation, and induce hallucinations in anyone looking at it without protective goggles. \
 	Emitters spawn powered on, expect admin notices, they are harmless."
-	credit_cost = 100000
-	movement_force = list("KNOCKDOWN" = 3, "THROW" = 15)
+	credit_cost = CARGO_CRATE_VALUE * 200
+	movement_force = list("KNOCKDOWN" = 3, "THROW" = 2)
 
 /datum/map_template/shuttle/emergency/imfedupwiththisworld
 	suffix = "imfedupwiththisworld"
@@ -387,7 +388,7 @@
 	suffix = "goon"
 	name = "NES Port"
 	description = "The Nanotrasen Emergency Shuttle Port(NES Port for short) is a shuttle used at other less known Nanotrasen facilities and has a more open inside for larger crowds, but fewer onboard shuttle facilities."
-	credit_cost = 500
+	credit_cost = CARGO_CRATE_VALUE
 
 /datum/map_template/shuttle/emergency/rollerdome
 	suffix = "rollerdome"
@@ -395,7 +396,7 @@
 	description = "Developed by a member of Nanotrasen's R&D crew that claims to have travelled from the year 2028. \
 	He says this shuttle is based off an old entertainment complex from the 1990s, though our database has no records on anything pertaining to that decade."
 	admin_notes = "ONLY NINETIES KIDS REMEMBER. Uses the fun balloon and drone from the Emergency Bar."
-	credit_cost = 2500
+	credit_cost = CARGO_CRATE_VALUE * 5
 
 /datum/map_template/shuttle/emergency/wabbajack
 	suffix = "wabbajack"
@@ -404,27 +405,27 @@
 	The only occupants were a number of dead rodents, who appeared to have clawed each other to death. \
 	Needless to say, no engineering team wanted to go near the thing, and it's only being used as an Emergency Escape Shuttle because there is literally nothing else available."
 	admin_notes = "If the crew can solve the puzzle, they will wake the wabbajack statue. It will likely not end well. There's a reason it's boarded up. Maybe they should have just left it alone."
-	credit_cost = 15000
+	credit_cost = CARGO_CRATE_VALUE * 30
 
 /datum/map_template/shuttle/emergency/omega
 	suffix = "omega"
 	name = "Omegastation Emergency Shuttle"
 	description = "On the smaller size with a modern design, this shuttle is for the crew who like the cosier things, while still being able to stretch their legs."
-	credit_cost = 1000
+	credit_cost = CARGO_CRATE_VALUE * 2
 
 /datum/map_template/shuttle/emergency/cruise
 	suffix = "cruise"
 	name = "The NTSS Independence"
 	description = "Ordinarily reserved for special functions and events, the Cruise Shuttle Independence can bring a summery cheer to your next station evacuation for a 'modest' fee!"
 	admin_notes = "This motherfucker is BIG. You might need to force dock it."
-	credit_cost = 50000
+	credit_cost = CARGO_CRATE_VALUE * 100
 
 /datum/map_template/shuttle/emergency/monkey
 	suffix = "nature"
 	name = "Dynamic Environmental Interaction Shuttle"
 	description = "A large shuttle with a center biodome that is flourishing with life. Frolick with the monkeys! (Extra monkeys are stored on the bridge.)"
 	admin_notes = "Pretty freakin' large, almost as big as Raven or Cere. Excercise caution with it."
-	credit_cost = 8000
+	credit_cost = CARGO_CRATE_VALUE * 16
 
 /datum/map_template/shuttle/ferry/base
 	suffix = "base"
@@ -511,7 +512,7 @@
 	name = "Delta Station Emergency Shuttle"
 	description = "A large shuttle for a large station, this shuttle can comfortably fit all your overpopulation and crowding needs. Complete with all facilities plus additional equipment."
 	admin_notes = "Go big or go home."
-	credit_cost = 7500
+	credit_cost = CARGO_CRATE_VALUE * 15
 
 /datum/map_template/shuttle/emergency/raven
 	suffix = "raven"
@@ -520,7 +521,7 @@
 	Once first to the scene to pick through warzones for valuable remains, it now serves as an excellent escape option for stations under heavy fire from outside forces. \
 	This escape shuttle boasts shields and numerous anti-personnel turrets guarding its perimeter to fend off meteors and enemy boarding attempts."
 	admin_notes = "Comes with turrets that will target anything without the neutral faction (nuke ops, xenos etc, but not pets)."
-	credit_cost = 30000
+	credit_cost = CARGO_CRATE_VALUE * 60
 
 /datum/map_template/shuttle/emergency/zeta
 	suffix = "zeta"
@@ -528,7 +529,7 @@
 	description = "A glitch appears on your monitor, flickering in and out of the options laid before you. \
 	It seems strange and alien, you may need a special technology to access the signal.."
 	admin_notes = "Has alien surgery tools, and a void core that provides unlimited power."
-	credit_cost = 8000
+	credit_cost = CARGO_CRATE_VALUE * 16
 
 /datum/map_template/shuttle/emergency/zeta/prerequisites_met()
 	return SSshuttle.shuttle_purchase_requirements_met[SHUTTLE_UNLOCK_ALIENTECH]

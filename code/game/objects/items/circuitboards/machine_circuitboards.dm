@@ -278,7 +278,7 @@
 /obj/item/circuitboard/machine/thermomachine
 	name = "Thermomachine (Оборудование)"
 	icon_state = "engineering"
-	desc = "You can use a screwdriver to switch between heater and freezer."
+	build_path = /obj/machinery/atmospherics/components/unary/thermomachine/freezer
 	var/pipe_layer = PIPING_LAYER_DEFAULT
 	req_components = list(
 		/obj/item/stock_parts/matter_bin = 2,
@@ -286,81 +286,39 @@
 		/obj/item/stack/cable_coil = 1,
 		/obj/item/stack/sheet/glass = 1)
 
-#define PATH_FREEZER /obj/machinery/atmospherics/components/unary/thermomachine/freezer
-#define PATH_HEATER  /obj/machinery/atmospherics/components/unary/thermomachine/heater
-
-/obj/item/circuitboard/machine/thermomachine/Initialize()
+/obj/item/circuitboard/machine/thermomachine/multitool_act(mob/living/user, obj/item/multitool/I)
 	. = ..()
-	if(!build_path)
-		if(prob(50))
-			name = "Freezer (Оборудование)"
-			build_path = PATH_FREEZER
-		else
-			name = "Heater (Оборудование)"
-			build_path = PATH_HEATER
-
-/obj/item/circuitboard/machine/thermomachine/attackby(obj/item/I, mob/user, params)
-	if(I.tool_behaviour == TOOL_SCREWDRIVER)
-		var/obj/item/circuitboard/new_type
-		var/new_setting
-		switch(build_path)
-			if(PATH_FREEZER)
-				new_type = /obj/item/circuitboard/machine/thermomachine/heater
-				new_setting = "Heater"
-			if(PATH_HEATER)
-				new_type = /obj/item/circuitboard/machine/thermomachine/freezer
-				new_setting = "Freezer"
-		name = initial(new_type.name)
-		build_path = initial(new_type.build_path)
-		I.play_tool_sound(src)
-		to_chat(user, "<span class='notice'>You change the circuitboard setting to \"[new_setting]\".</span>")
-		return
-
-	if(I.tool_behaviour == TOOL_MULTITOOL)
+	if (istype(I))
 		pipe_layer = (pipe_layer >= PIPING_LAYER_MAX) ? PIPING_LAYER_MIN : (pipe_layer + 1)
 		to_chat(user, "<span class='notice'>You change the circuitboard to layer [pipe_layer].</span>")
-		return
-
-	. = ..()
 
 /obj/item/circuitboard/machine/thermomachine/examine()
 	. = ..()
 	. += "<hr><span class='notice'>It is set to layer [pipe_layer].</span>"
 
-/obj/item/circuitboard/machine/thermomachine/heater
-	name = "Heater (Оборудование)"
-	build_path = PATH_HEATER
-
-/obj/item/circuitboard/machine/thermomachine/freezer
-	name = "Freezer (Оборудование)"
-	build_path = PATH_FREEZER
-
-#undef PATH_FREEZER
-#undef PATH_HEATER
-
 /obj/item/circuitboard/machine/HFR_fuel_input
-	name = "HFR Fuel Input (Machine Board)"
+	name = "HFR Fuel Input (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/atmospherics/components/unary/hypertorus/fuel_input
 	req_components = list(
 		/obj/item/stack/sheet/plasteel = 5)
 
 /obj/item/circuitboard/machine/HFR_waste_output
-	name = "HFR Waste Output (Machine Board)"
+	name = "HFR Waste Output (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/atmospherics/components/unary/hypertorus/waste_output
 	req_components = list(
 		/obj/item/stack/sheet/plasteel = 5)
 
 /obj/item/circuitboard/machine/HFR_moderator_input
-	name = "HFR Moderator Input (Machine Board)"
+	name = "HFR Moderator Input (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/atmospherics/components/unary/hypertorus/moderator_input
 	req_components = list(
 		/obj/item/stack/sheet/plasteel = 5)
 
 /obj/item/circuitboard/machine/HFR_core
-	name = "HFR core (Machine Board)"
+	name = "HFR core (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/atmospherics/components/unary/hypertorus/core
 	req_components = list(
@@ -369,14 +327,14 @@
 		/obj/item/stack/sheet/plasteel = 10)
 
 /obj/item/circuitboard/machine/HFR_corner
-	name = "HFR Corner (Machine Board)"
+	name = "HFR Corner (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/hypertorus/corner
 	req_components = list(
 		/obj/item/stack/sheet/plasteel = 5)
 
 /obj/item/circuitboard/machine/HFR_interface
-	name = "HFR Interface (Machine Board)"
+	name = "HFR Interface (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/hypertorus/interface
 	req_components = list(

@@ -32,6 +32,10 @@
 	. = ..()
 	packin_up()
 
+/obj/machinery/computer/cargo/express/on_construction()
+	. = ..()
+	packin_up()
+
 /obj/machinery/computer/cargo/express/Destroy()
 	if(beacon)
 		beacon.unlink_console()
@@ -63,9 +67,11 @@
 		user.visible_message("<span class='warning'>[user] проводит подохрительной картой по [src]!</span>",
 		"<span class='notice'>Вы изменяете протоколы маршрутизации, позволяя консоли снабжения приземлиться в любом месте на станции.</span>")
 	obj_flags |= EMAGGED
+	contraband = TRUE
 	// This also sets this on the circuit board
 	var/obj/item/circuitboard/computer/cargo/board = circuit
 	board.obj_flags |= EMAGGED
+	board.contraband = TRUE
 	packin_up()
 
 /obj/machinery/computer/cargo/express/proc/packin_up() // oh shit, I'm sorry
@@ -79,7 +85,7 @@
 			) // see, my quartermaster taught me a few things too
 		if((P.hidden) || (P.special)) // like, how not to rip the manifest
 			continue// by using someone else's crate
-		if(!(obj_flags & EMAGGED) && P.contraband) // will you show me?
+		if(P.contraband && !contraband) // will you show me?
 			continue // i'd be right happy to
 		meme_pack_data[P.group]["packs"] += list(list(
 			"name" = P.name,
@@ -123,7 +129,7 @@
 	data["message"] = message
 	if(!meme_pack_data)
 		packin_up()
-		stack_trace("Вы не дали хороший совет грузовой технике, и он разорвал манифест. В результате не было данных пакета для [src]")
+		stack_trace("There was no pack data for [src]")
 	data["supplies"] = meme_pack_data
 	if (cooldown > 0)//cooldown used for printing beacons
 		cooldown--
@@ -200,7 +206,10 @@
 					if (SO.pack.cost <= points_to_check && LZ)//we need to call the cost check again because of the CHECK_TICK call
 						TIMER_COOLDOWN_START(src, COOLDOWN_EXPRESSPOD_CONSOLE, 5 SECONDS)
 						D.adjust_money(-SO.pack.cost)
-						new /obj/effect/pod_landingzone(LZ, podType, SO)
+						if(pack.special_pod)
+							new /obj/effect/pod_landingzone(LZ, pack.special_pod, SO)
+						else
+							new /obj/effect/pod_landingzone(LZ, podType, SO)
 						. = TRUE
 						update_icon()
 			else
@@ -219,7 +228,10 @@
 						for(var/i in 1 to MAX_EMAG_ROCKETS)
 							var/LZ = pick(empty_turfs)
 							LAZYREMOVE(empty_turfs, LZ)
-							new /obj/effect/pod_landingzone(LZ, podType, SO)
+							if(pack.special_pod)
+								new /obj/effect/pod_landingzone(LZ, pack.special_pod, SO)
+							else
+								new /obj/effect/pod_landingzone(LZ, podType, SO)
 							. = TRUE
 							update_icon()
 							CHECK_TICK

@@ -1,5 +1,5 @@
 /datum/bounty/virus
-	reward = 5000
+	reward = CARGO_CRATE_VALUE * 10
 	var/shipped = FALSE
 	var/stat_value = 0
 	var/stat_name = ""
@@ -11,7 +11,7 @@
 		stat_value *= -1
 	name = "Вирус ([stat_name] [stat_value])"
 	description = "НТ интересуется вирусом со статистическим значением [stat_name], равным [stat_value]. Центральное командование заплатит щедро за такой вирус."
-	reward += rand(0, 4) * 500
+	reward += rand(0, 4) * CARGO_CRATE_VALUE
 
 /datum/bounty/virus/completion_string()
 	return shipped ? "Отпрален" : "Не отправлен"

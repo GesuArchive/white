@@ -5,8 +5,6 @@
 	var/begin_month = 0
 	var/end_day = 0 // Default of 0 means the holiday lasts a single day
 	var/end_month = 0
-	var/begin_week = FALSE //If set to a number, then this holiday will begin on certain week
-	var/begin_weekday = FALSE //If set to a weekday, then this will trigger the holiday on the above week
 	var/always_celebrate = FALSE // for christmas neverending, or testing.
 	var/current_year = 0
 	var/year_offset = 0
@@ -35,9 +33,6 @@
 		end_day = begin_day
 	if(!end_month)
 		end_month = begin_month
-	if(begin_week && begin_weekday)
-		if(begin_week == ww && begin_weekday == ddd && begin_month == mm)
-			return TRUE
 	if(end_month > begin_month) //holiday spans multiple months in one year
 		if(mm == end_month) //in final month
 			if(dd <= end_day)
@@ -467,7 +462,7 @@
 /datum/holiday/moth/shouldCelebrate(dd, mm, yy, ww, ddd) //National Moth Week falls on the last full week of July, including the saturday and sunday before. See http://nationalmothweek.org/ for precise tracking.
 	if(mm == JULY)
 		var/week
-		if(first_day_of_month() >= 5)	//Friday or later start of the month means week 5 is a full week.
+		if(first_day_of_month(yy, mm) >= 5)	//Friday or later start of the month means week 5 is a full week.
 			week = 5
 		else
 			week = 4
@@ -482,7 +477,7 @@
 	name = "Islamic calendar code broken"
 
 /datum/holiday/islamic/shouldCelebrate(dd, mm, yy, ww, ddd)
-	var/datum/foreign_calendar/islamic/cal = new
+	var/datum/foreign_calendar/islamic/cal = new(yy, mm, dd)
 	return ..(cal.dd, cal.mm, cal.yy, ww, ddd)
 
 /datum/holiday/islamic/ramadan
@@ -550,7 +545,7 @@
 	drone_hat = /obj/item/clothing/head/santa
 
 /datum/holiday/festive_season/greet()
-	return "Have a nice festive season!"
+	return "Приятных новогодних праздников!"
 
 /datum/holiday/boxing
 	name = "День подарков"
@@ -637,7 +632,7 @@
 	name = "If you see this the Hebrew holiday calendar code is broken"
 
 /datum/holiday/hebrew/shouldCelebrate(dd, mm, yy, ww, ddd)
-	var/datum/foreign_calendar/hebrew/cal = new
+	var/datum/foreign_calendar/hebrew/cal = new(yy, mm, dd)
 	return ..(cal.dd, cal.mm, cal.yy, ww, ddd)
 
 /datum/holiday/hebrew/hanukkah

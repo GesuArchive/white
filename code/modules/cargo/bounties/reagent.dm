@@ -33,7 +33,7 @@
 
 /datum/bounty/reagent/simple_drink
 	name = "Простые напитки"
-	reward = 1500
+	reward = CARGO_CRATE_VALUE * 3
 
 /datum/bounty/reagent/simple_drink/New()
 	// Don't worry about making this comprehensive. It doesn't matter if some drinks are skipped.
@@ -89,7 +89,7 @@
 
 /datum/bounty/reagent/complex_drink
 	name = "Комплексный напиток"
-	reward = 4000
+	reward = CARGO_CRATE_VALUE * 8
 
 /datum/bounty/reagent/complex_drink/New()
 	// Don't worry about making this comprehensive. It doesn't matter if some drinks are skipped.
@@ -122,7 +122,7 @@
 
 /datum/bounty/reagent/chemical_simple
 	name = "Обычный химикат"
-	reward = 4000
+	reward = CARGO_CRATE_VALUE * 8
 	required_volume = 30
 
 /datum/bounty/reagent/chemical_simple/New()
@@ -160,7 +160,7 @@
 
 /datum/bounty/reagent/chemical_complex
 	name = "Редкий химикат"
-	reward = 6000
+	reward = CARGO_CRATE_VALUE * 12
 	required_volume = 20
 
 /datum/bounty/reagent/chemical_complex/New()
@@ -228,7 +228,7 @@
 
 /datum/bounty/pill/simple_pill
 	name = "Простая таблетка"
-	reward = 10000
+	reward = CARGO_CRATE_VALUE * 20
 
 /datum/bounty/pill/simple_pill/New()
 	//reagent that are possible to be chem factory'd
@@ -256,4 +256,4 @@
 	required_ammount += rand(1,60)
 	wanted_vol += rand(1,20)
 	description = "Для ЦК требуется [required_ammount] из [name], содержащее не менее [wanted_vol] каждого. Отправьте контейнер с ним, чтобы получить вознаграждение."
-	reward += rand(1, 5) * 3000
+	reward += rand(1, 5) * (CARGO_CRATE_VALUE * 6)

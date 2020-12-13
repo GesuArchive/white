@@ -4,6 +4,7 @@
 	max_buckled_mobs = 1
 	buckle_lying = 0
 	default_driver_move = FALSE
+	pass_flags_self = PASSTABLE
 	var/rider_check_flags = REQUIRES_LEGS | REQUIRES_ARMS
 	COOLDOWN_DECLARE(message_cooldown)
 
@@ -114,9 +115,3 @@
 /obj/vehicle/ridden/zap_act(power, zap_flags)
 	zap_buckle_check(power)
 	return ..()
-
-/obj/vehicle/ridden/CanAllowThrough(atom/movable/mover, turf/target)
-	. = ..()
-
-	if(mover.pass_flags & PASSTABLE)
-		return TRUE

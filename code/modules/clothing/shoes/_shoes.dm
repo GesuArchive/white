@@ -141,7 +141,7 @@
 		return
 
 	if(user == loc && tied != SHOES_TIED) // if they're our own shoes, go tie-wards
-		if(INTERACTING_WITH(user, our_guy))
+		if(DOING_INTERACTION_WITH_TARGET(user, our_guy))
 			to_chat(user, "<span class='warning'>Уже взаимодействую с [src]!</span>")
 			return
 		user.visible_message("<span class='notice'>[user] [tied ? "развязывать" : "завязывать"] шнурки на [user.ru_ego()] [src.name].</span>", "<span class='notice'>You begin [tied ? "unknotting" : "tying"] the laces of your [src.name]...</span>")
@@ -161,7 +161,7 @@
 		if(tied == SHOES_KNOTTED)
 			to_chat(user, "<span class='warning'>Шнурки на [loc] [src.name] уже связаны!</span>")
 			return
-		if(INTERACTING_WITH(user, our_guy))
+		if(DOING_INTERACTION_WITH_TARGET(user, our_guy))
 			to_chat(user, "<span class='warning'>Уже взаимодействую с [src]!</span>")
 			return
 
@@ -247,7 +247,7 @@
 /obj/item/clothing/shoes/attack_self(mob/user)
 	. = ..()
 
-	if(INTERACTING_WITH(user, src))
+	if(DOING_INTERACTION_WITH_TARGET(user, src))
 		to_chat(user, "<span class='warning'>Уже взаимодействую с [src]!</span>")
 		return
 

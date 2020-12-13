@@ -1,7 +1,7 @@
 /datum/bounty/item/engineering/gas
 	name = "Полная канистра плюоксия"
 	description = "РнД ЦК исследует сверхкомпактные внутренние устройства. Отправьте им бак, полный плуоксиума, и вы получите компенсацию."
-	reward = 7500
+	reward = CARGO_CRATE_VALUE * 15
 	wanted_types = list(/obj/item/tank)
 	var/moles_required = 20 // A full tank is 28 moles, but CentCom ignores that fact.
 	var/gas_type = /datum/gas/pluoxium
@@ -47,17 +47,17 @@
 /datum/bounty/item/engineering/gas/zauker_tank
 	name = "Полная канистра Заукера"
 	description = "Главная планета \[REDACTED] была выбрана в качестве полигона для испытания нового оружия, в котором используется газ Заукер. Отправьте нам полный бак. (20 моль)"
-	reward = 10000
+	reward = CARGO_CRATE_VALUE * 20
 	gas_type = /datum/gas/zauker
 
 /datum/bounty/item/engineering/emitter
 	name = "Эмиттер"
 	description = "Мы думаем, что в конструкции эмиттера вашей станции может быть дефект, основанный на огромном количестве отслоений, которые, похоже, видит ваш сектор. Отправьте нам один из ваших."
-	reward = 2500
+	reward = CARGO_CRATE_VALUE * 5
 	wanted_types = list(/obj/machinery/power/emitter)
 
 /datum/bounty/item/engineering/hydro_tray
 	name = "Гидропонические лотки"
 	description = "Лаборанты пытаются выяснить, как снизить потребление энергии лотками для гидропоники, но мы поджарили последний. Сделаете один для нас?"
-	reward = 2000
+	reward = CARGO_CRATE_VALUE * 4
 	wanted_types = list(/obj/machinery/hydroponics/constructable)

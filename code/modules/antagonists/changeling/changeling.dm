@@ -370,7 +370,7 @@
 	if (you_are_greet)
 		to_chat(owner.current, "<span class='boldannounce'>Мы генокрад! Нам удалось поглотить одного из членов экипажа станции и занять его форму.</span>")
 	to_chat(owner.current, "<b>Мы должны выполнить следующие цели:</b>")
-	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ling_aler.ogg', 100, FALSE, pressure_affected = FALSE)
+	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ling_aler.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 
 	owner.announce_objectives()
 
