@@ -33,7 +33,6 @@
 
 /area/boxplanet/underground/unexplored
 	icon_state = "unexplored"
-	area_flags = TUNNELS_ALLOWED
 
 /area/boxplanet/underground/explored
 	name = "Подземелье"
@@ -261,18 +260,7 @@
 	bullet_sizzle = TRUE
 	bullet_bounce_sound = null
 	digResult = /obj/item/stack/sheet/mineral/snow
-	mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/wolf = 1)
-	flora_spawn_list = list(/obj/structure/flora/tree/boxplanet/kartoshmel = 2, /obj/structure/flora/tree/boxplanet/glikodil = 2, /obj/structure/flora/tree/boxplanet/svetosvin = 2)
-	terrain_spawn_list = list(/obj/effect/step_trigger/ambush = 2, /obj/effect/flora_spawner = 1)
-	data_having_type = /turf/open/floor/plating/asteroid/airless/cave/boxplanet/has_data
 	turf_type = /turf/open/floor/plating/asteroid/boxplanet/caves
-
-/turf/open/floor/plating/asteroid/airless/cave/boxplanet/has_data //subtype for producing a tunnel with given data
-	has_data = TRUE
-
-/turf/open/floor/plating/asteroid/airless/cave/boxplanet/make_tunnel(dir, pick_tunnel_width)
-	pick_tunnel_width = list("1" = 4, "2" = 5, "3" = 3, "4" = 3, "5" = 2)
-	..()
 
 /turf/open/floor/plating/asteroid/boxplanet/ex_act(severity, target, prikolist)
 	..()

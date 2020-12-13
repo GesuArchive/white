@@ -102,49 +102,45 @@
  	suffix = "redroom.dmm"
  	name = "Red Room"
 
-/obj/item/reagent_containers/food/snacks/carpmeat/dry/donbas
+/obj/item/food/carpmeat/dry/donbas
 	name = "Debaltsevo fish"
 	desc = "Dryed fish with tomatoes. S vodoi v samiy raz."
 	icon = 'white/pieceofcrap.dmi'
 	icon_state = "roasted"
-	list_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/toxin/carpotoxin = 3)
-	bitesize = 2
-	filling_color = "#000000"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/toxin/carpotoxin = 3)
 	tastes = list("рыба" = 1, "томаты" =1)
-	foodtype = MEAT
+	foodtypes = MEAT
 
-/obj/item/reagent_containers/food/snacks/carpmeat/dry
+/obj/item/food/carpmeat/dry
 	name = "Dryed fish"
 	desc = "Just dryed fish. S pivkom v samiy raz."
 	icon = 'white/pieceofcrap.dmi'
 	icon_state = "dry"
-	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/toxin/carpotoxin = 1)
-	bitesize = 2
-	filling_color = "#FA8072"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/toxin/carpotoxin = 1)
 	tastes = list("рыба" = 1)
-	foodtype = MEAT
+	foodtypes = MEAT
 
 /datum/crafting_recipe/dryfish
 	name = "Dryed Fish"
-	result =  /obj/item/reagent_containers/food/snacks/carpmeat/dry
+	result =  /obj/item/food/carpmeat/dry
 	time = 80
-	reqs = list(/obj/item/reagent_containers/food/snacks/carpmeat = 3,
+	reqs = list(/obj/item/food/carpmeat = 3,
 				/datum/reagent/fuel = 5)
 	category = CAT_MISC
 
 /datum/crafting_recipe/dryfish/donbass
 	name = "Debaltsevo Fish"
-	result =  /obj/item/reagent_containers/food/snacks/carpmeat/dry/donbas
+	result =  /obj/item/food/carpmeat/dry/donbas
 	time = 40
-	reqs = list(/obj/item/reagent_containers/food/snacks/carpmeat/dry = 1,
+	reqs = list(/obj/item/food/carpmeat/dry = 1,
 				/datum/reagent/consumable/tomatojuice = 10,
 				/obj/item/food/grown/tomato = 1)
 	category = CAT_MISC
 
-/obj/item/reagent_containers/food/snacks/meat/slab/dach
+/obj/item/food/meat/slab/dach
 	name = "dach meat"
 	desc = "Tastes like... well you know..."
-	foodtype = RAW | MEAT | GROSS
+	foodtypes = RAW | MEAT | GROSS
 
 /datum/supply_pack/organic/critter/dhund
 	name = "Dachshund Crate"
@@ -160,7 +156,7 @@
 	icon_state = "dachshund"
 	icon_living = "dachshund"
 	icon_dead = "dachshund_dead"
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/dach = 3)
+	butcher_results = list(/obj/item/food/meat/slab/dach = 3)
 	gold_core_spawnable = 2
 
 /mob/living/simple_animal/pet/dog/shepherd
@@ -171,7 +167,7 @@
 	icon_state = "shepherd"
 	icon_living = "shepherd"
 	icon_dead = "shepherd_dead"
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/shepherd = 3)
+	butcher_results = list(/obj/item/food/meat/slab/shepherd = 3)
 	gold_core_spawnable = 2
 
 /mob/living/simple_animal/pet/dog/jack
@@ -182,7 +178,7 @@
 	icon_state = "jack"
 	icon_living = "jack"
 	icon_dead = "jack_dead"
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/jack = 3)
+	butcher_results = list(/obj/item/food/meat/slab/jack = 3)
 	gold_core_spawnable = 2
 
 /mob/living/simple_animal/pet/dog/pug/chi
@@ -193,23 +189,23 @@
 	icon_state = "chi"
 	icon_living = "chi"
 	icon_dead = "chi_dead"
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/chi = 1)
+	butcher_results = list(/obj/item/food/meat/slab/chi = 1)
 	gold_core_spawnable = 2
 
-/obj/item/reagent_containers/food/snacks/meat/slab/jack
+/obj/item/food/meat/slab/jack
 	name = "jack meat"
 	desc = "Tastes like... well you know..."
-	foodtype = RAW | MEAT | GROSS
+	foodtypes = RAW | MEAT | GROSS
 
-/obj/item/reagent_containers/food/snacks/meat/slab/chi
+/obj/item/food/meat/slab/chi
 	name = "chihuahua meat"
 	desc = "Tastes like... well you know..."
-	foodtype = RAW | MEAT | GROSS
+	foodtypes = RAW | MEAT | GROSS
 
-/obj/item/reagent_containers/food/snacks/meat/slab/shepherd
+/obj/item/food/meat/slab/shepherd
 	name = "shepherd meat"
 	desc = "Tastes like... well you know..."
-	foodtype = RAW | MEAT | GROSS
+	foodtypes = RAW | MEAT | GROSS
 
 /datum/supply_pack/organic/critter/shepherd
 	name = "German Shepherd"

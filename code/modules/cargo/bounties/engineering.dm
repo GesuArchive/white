@@ -36,12 +36,12 @@
 	name = "Удержанный шар теслы"
 	description = "Станция 24 наводнена ордами разгневанных молей. Она запрашивают шар Теслы."
 	reward = 75000 //requires 14k credits of purchases, not to mention cooperation with engineering/heads of staff to set up inside the cramped shuttle
-	wanted_types = list(/obj/singularity/energy_ball)
+	wanted_types = list(/obj/energy_ball)
 
 /datum/bounty/item/engineering/energy_ball/applies_to(obj/O)
 	if(!..())
 		return FALSE
-	var/obj/singularity/energy_ball/T = O
+	var/obj/energy_ball/T = O
 	return !T.miniball
 
 /datum/bounty/item/engineering/gas/zauker_tank

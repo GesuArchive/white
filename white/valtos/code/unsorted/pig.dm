@@ -39,14 +39,16 @@
 		var/chosen_sound = pick('white/valtos/sounds/pig/hru.ogg', 'white/valtos/sounds/pig/oink.ogg', 'white/valtos/sounds/pig/squeak.ogg')
 		playsound(src, chosen_sound, 50, TRUE)
 
-/obj/item/reagent_containers/food/snacks/meat/slab/pig
+/obj/item/food/meat/slab/pig
 	name = "сало"
 	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "salo"
-	slice_path = /obj/item/reagent_containers/food/snacks/meat/rawcutlet/plain/salo
-	foodtype = MEAT
+	foodtypes = MEAT
 
-/obj/item/reagent_containers/food/snacks/meat/rawcutlet/plain/salo
+/obj/item/food/meat/slab/pig/MakeProcessable()
+	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/rawcutlet/plain/salo, 3, 30)
+
+/obj/item/food/meat/rawcutlet/plain/salo
 	name = "сало"
 	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "salo_slice"

@@ -41,7 +41,7 @@
 		var/atom/A = B
 		if(!ispath(A))
 			continue
-		text_reqs += list("[need_to_collect[B]] [initial(B.name)]")
+		text_reqs += list("[need_to_collect[A]] [initial(A.name)]")
 	announce_text += "<u>[english_list(text_reqs)]</u>."
 	announce_text += "<br><br><i>У вас <b>один час</b> на выполнение данного поручения, в случае невыполнения ваша станция будет признана подрывающей работу и будет уничтожена.</i>"
 	return

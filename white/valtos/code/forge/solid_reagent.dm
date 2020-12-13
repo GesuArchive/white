@@ -8,7 +8,6 @@
 	foodtype = TOXIC
 	volume = 200
 	reagent_flags = TRANSPARENT
-	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/solid_reagent/Initialize()
 	. = ..()

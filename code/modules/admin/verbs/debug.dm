@@ -648,7 +648,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 				S.icon_state = "singularity_s7"
 				S.pixel_x = -96
 				S.pixel_y = -96
-				S.grav_pull = 0
+				//S.grav_pull = 0
 				S.dissipate = 0
 				//S.dissipate_delay = 10
 				//S.dissipate_track = 0

@@ -132,7 +132,7 @@
 			if(FORGED_BULLET_CASING)
 				var/obj/projectile/bullet/forged/F = I
 				if(F.damage >= 20)
-					F.movement_type |= UNSTOPPABLE
+					F.movement_type |= PHASING
 					F.range = F.range * 0.5//oof
 
 

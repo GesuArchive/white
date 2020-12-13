@@ -71,4 +71,3 @@
 			Sr.reagent_type = src.type
 			Sr.name = "затвердевший [src]"
 			Sr.add_atom_colour(src.color, FIXED_COLOUR_PRIORITY)
-			Sr.filling_color = src.color

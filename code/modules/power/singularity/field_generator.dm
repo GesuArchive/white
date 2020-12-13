@@ -382,18 +382,6 @@ no power level overlay is currently in the overlays list.
 		if(S)
 			qdel(S)
 
-/obj/machinery/field/generator/proc/notify_admins()
-	var/temp = TRUE //stops spam
-	for(var/obj/singularity/O in GLOB.singularities)
-		if(O.last_warning && temp)
-			if((world.time - O.last_warning) > 50) //to stop message-spam
-				temp = FALSE
-				var/turf/T = get_turf(src)
-				message_admins("A singulo exists and a containment field has failed at [ADMIN_VERBOSEJMP(T)].")
-				investigate_log("has <font color='red'>failed</font> whilst a singulo exists at [AREACOORD(T)].", INVESTIGATE_SINGULO)
-				notify_ghosts("УЛЕТЕЛО!", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, ghost_sound = 'sound/machines/warning-buzzer.ogg', header = "УЛЕТЕЛО!", notify_volume = 75)
-		O.last_warning = world.time
-
 /obj/machinery/field/generator/proc/block_singularity_if_active()
 	SIGNAL_HANDLER
 

@@ -422,40 +422,6 @@
 	begin_month = DECEMBER
 	drone_hat = /obj/item/clothing/mask/gas/monkeymask
 
-/datum/holiday/thanksgiving
-	name = "День благодарения в Соединенных Штатах"
-	begin_week = 4
-	begin_month = NOVEMBER
-	begin_weekday = THURSDAY
-	drone_hat = /obj/item/clothing/head/that //This is the closest we can get to a pilgrim's hat
-
-/datum/holiday/thanksgiving/canada
-	name = "День благодарения в Канаде"
-	begin_week = 2
-	begin_month = OCTOBER
-	begin_weekday = MONDAY
-
-/datum/holiday/columbus
-	name = "День Колумба"
-	begin_week = 2
-	begin_month = OCTOBER
-	begin_weekday = MONDAY
-
-/datum/holiday/mother
-	name = "День Матери"
-	begin_week = 2
-	begin_month = MAY
-	begin_weekday = SUNDAY
-
-/datum/holiday/mother/greet()
-	return "Счастливого Дня Матери в большинстве стран Америки, Азии и Океании!"
-
-/datum/holiday/father
-	name = "День Отца"
-	begin_week = 3
-	begin_month = JUNE
-	begin_weekday = SUNDAY
-
 /datum/holiday/moth
 	name = "Неделя Моли"
 

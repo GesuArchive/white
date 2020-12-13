@@ -57,7 +57,7 @@
 	return
 
 /obj/projectile/beam/laser/heavylaser/penetrator
-	movement_type = FLYING | UNSTOPPABLE
+	movement_type = FLYING | PHASING
 	range = 12
 
 /obj/item/melee/classic_baton/dildon
