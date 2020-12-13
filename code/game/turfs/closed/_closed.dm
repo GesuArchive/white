@@ -1,4 +1,5 @@
 /turf/closed
+	plane = WALL_PLANE
 	layer = CLOSED_TURF_LAYER
 	opacity = TRUE
 	density = TRUE
@@ -6,10 +7,14 @@
 	flags_1 = RAD_PROTECT_CONTENTS_1 | RAD_NO_CONTAMINATE_1
 	rad_insulation = RAD_MEDIUM_INSULATION
 	pass_flags_self = PASSCLOSEDTURF
+	/// Icon path. Smoothing objects larger than 32x32 require a visual object to represent the excess part, in order not to increase its hitbox. We call that a frill.
+	var/frill_icon
 
-/turf/closed/Initialize()
+/turf/closed/Initialize(mapload)
 	. = ..()
 	update_air_ref()
+	if(frill_icon)
+		AddElement(/datum/element/frill, frill_icon)
 
 /turf/closed/AfterChange()
 	. = ..()
@@ -97,6 +102,7 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
+	frill_icon = 'icons/effects/frills/wall_reinforced_frill.dmi'
 
 
 /turf/closed/indestructible/riveted

@@ -13,6 +13,7 @@
 	girder_type = /obj/structure/girder/reinforced
 	explosion_block = 2
 	rad_insulation = RAD_HEAVY_INSULATION
+	frill_icon = 'icons/effects/frills/wall_reinforced_frill.dmi'
 	///Dismantled state, related to deconstruction.
 	var/d_state = INTACT
 
@@ -232,6 +233,7 @@
 		new /obj/effect/temp_visual/glowing_rune(src)
 	ChangeTurf(/turf/closed/wall/r_wall/rust)
 
+
 /turf/closed/wall/r_wall/syndicate
 	name = "обшивка"
 	desc = "Бронированный корпус зловещего корабля."
@@ -243,6 +245,8 @@
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_DIAGONAL_CORNERS
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_SYNDICATE_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_SYNDICATE_WALLS, SMOOTH_GROUP_PLASTITANIUM_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_SHUTTLE_PARTS)
+	frill_icon = null
+
 
 /turf/closed/wall/r_wall/syndicate/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
 	return FALSE
