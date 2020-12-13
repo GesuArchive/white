@@ -108,10 +108,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/parallax
 
 	var/ambientocclusion = TRUE
-	var/auto_fit_viewport = TRUE
 	var/fullscreen = FALSE
-	var/widescreenpref = FALSE
-
 
 	///Do we see the top part of tall walls when looming over floors?
 	var/frills_over_floors = FALSE
