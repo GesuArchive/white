@@ -51,7 +51,7 @@
 	wanted_types = list(/obj/structure/statue)
 
 /datum/bounty/item/assistant/clown_box
-	name = "Ящик клоуна"
+	name = "Коробка клоуна"
 	description = "Вселенной нужен смех. Отпечатайте корбку штампом клоуна и отправьте его."
 	reward = CARGO_CRATE_VALUE * 3
 	wanted_types = list(/obj/item/storage/box/clown)
@@ -246,3 +246,83 @@
 	required_count = 10
 	include_subtypes = FALSE
 	wanted_types = list(/obj/item/pen)
+
+/datum/bounty/item/assistant/guitar
+	name = "Гитара"
+	description = "Мы проводим межгалактический конкурс по игре на музыкальных инструментах. Нам нужно, чтобы вы прислали гитару."
+	reward = CARGO_CRATE_VALUE * 5
+	required_count = 1
+	include_subtypes = FALSE
+	wanted_types = list(/obj/item/instrument/guitar)
+
+/datum/bounty/item/assistant/eguitar
+	name = "Электрогитара"
+	description = "Мы проводим межгалактический конкурс по игре на музыкальных инструментах. Нам нужно, чтобы вы прислали электрогитару."
+	reward = CARGO_CRATE_VALUE * 5
+	required_count = 1
+	include_subtypes = FALSE
+	wanted_types = list(/obj/item/instrument/eguitar)
+
+/datum/bounty/item/assistant/violin
+	name = "Скрипка"
+	description = "Мы проводим межгалактический конкурс по игре на музыкальных инструментах. Нам нужно, чтобы вы прислали скрипку."
+	reward = CARGO_CRATE_VALUE * 5
+	required_count = 1
+	include_subtypes = FALSE
+	wanted_types = list(/obj/item/instrument/violin)
+
+/datum/bounty/item/assistant/donbas
+	name = "Рыба с Дебальцево"
+	description = "У сотрудников ЦК закончилось сало. Доставьте им сушёной рыбы"
+	reward = CARGO_CRATE_VALUE * 5
+	required_count = 3
+	include_subtypes = FALSE
+	wanted_types = list(/obj/item/food/carpmeat/dry/donbas)
+
+/datum/bounty/item/assistant/donbas
+	name = "Русская поваренная книга"
+	description = "На станции 16 умер русский повар. Отправьте им русскую поваренная книга чтобы бахнуть борщу"
+	reward = CARGO_CRATE_VALUE * 5
+	required_count = 1
+	include_subtypes = FALSE
+	wanted_types = list(/obj/item/book/granter/crafting_recipe/cookbook)
+
+/datum/bounty/item/assistant/gloves
+	name = "Резиновые перчатки"
+	description = "Асисстенты станции 14 украли все резиновые перчатки. Доставьте им новые!"
+	reward = CARGO_CRATE_VALUE * 250
+	required_count = 5
+	include_subtypes = FALSE
+	wanted_types = list(/obj/item/clothing/gloves/color/yellow)
+
+/datum/bounty/item/assistant/watertank
+	name = "Бак с водой"
+	description = "На ЦК случился пожар! Доставьте им баки с водой!"
+	reward = CARGO_CRATE_VALUE * 250
+	required_count = 5
+	include_subtypes = FALSE
+	wanted_types = list(/obj/structure/reagent_dispensers/watertank)
+
+/datum/bounty/item/assistant/fueltank
+	name = "Бак с топливом"
+	description = "На ЦК случился пожар! Доставьте клоуну баки с топливом!"
+	reward = CARGO_CRATE_VALUE * 250
+	required_count = 5
+	include_subtypes = FALSE
+	wanted_types = list(/obj/structure/reagent_dispensers/fueltank)
+
+/datum/bounty/item/assistant/turntable
+	name = "Взрыв Каробка"
+	description = "На станции 15 произошло чаепитие. Они просят музыкальный автомат для продолжения смены."
+	reward = CARGO_CRATE_VALUE * 50
+	required_count = 1
+	include_subtypes = FALSE
+	wanted_types = list(/obj/machinery/turntable)
+
+/datum/bounty/item/assistant/loyalty
+	name = "Кейс с майндшилд имплантами"
+	description = "ЦК просит доставить кейс с майндшилд имплантами в связи с революцией на их станции."
+	reward = CARGO_CRATE_VALUE * 50
+	required_count = 1
+	include_subtypes = FALSE
+	wanted_types = list(/obj/item/storage/lockbox/loyalty)
