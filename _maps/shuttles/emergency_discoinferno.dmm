@@ -110,6 +110,7 @@
 	heat_proof = 1;
 	resistance_flags = 2
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/plasma/disco,
 /area/shuttle/escape)
 "v" = (
@@ -118,6 +119,7 @@
 /area/shuttle/escape)
 "w" = (
 /obj/machinery/door/airlock/gold,
+/obj/structure/fans/tiny,
 /turf/open/floor/wood,
 /area/shuttle/escape)
 "x" = (

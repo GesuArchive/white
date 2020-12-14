@@ -93,6 +93,7 @@
 /obj/machinery/door/airlock/shuttle{
 	name = "Emergency Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},

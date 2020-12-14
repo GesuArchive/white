@@ -203,6 +203,7 @@
 	port_direction = 4;
 	width = 14
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "L" = (
@@ -297,6 +298,11 @@
 /obj/structure/table/glass,
 /obj/item/defibrillator/loaded,
 /turf/open/floor/mineral/titanium/white,
+/area/shuttle/escape)
+"Z" = (
+/obj/machinery/door/airlock/titanium,
+/obj/structure/fans/tiny,
+/turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 
 (1,1,1) = {"
@@ -578,7 +584,7 @@ p
 u
 b
 b
-G
+Z
 K
 b
 b

@@ -572,6 +572,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/escape)
 "bc" = (
@@ -717,6 +718,7 @@
 /obj/docking_port/mobile/emergency{
 	name = "Kilo emergency shuttle"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/escape)
 "br" = (
@@ -1078,6 +1080,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/escape)
 "bY" = (

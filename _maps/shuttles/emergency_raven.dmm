@@ -1057,6 +1057,7 @@
 /area/shuttle/escape)
 "cn" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "co" = (
@@ -2126,6 +2127,7 @@
 	name = "CentCom Raven Cruiser";
 	width = 32
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "ep" = (
@@ -2146,6 +2148,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/shuttle/escape)
+"Bp" = (
+/obj/machinery/door/airlock/external{
+	name = "Emegency Shuttle External Airlock"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/shuttle/escape)
 
 (1,1,1) = {"
 aa
@@ -2161,7 +2170,7 @@ aa
 aa
 aO
 ax
-cd
+Bp
 co
 eo
 ax
@@ -2169,9 +2178,9 @@ aO
 aa
 aO
 ax
-cd
+Bp
 co
-cd
+Bp
 ax
 aO
 aa
@@ -2849,9 +2858,9 @@ aO
 aa
 aO
 ax
-cd
+Bp
 cw
-cd
+Bp
 ax
 aO
 aa

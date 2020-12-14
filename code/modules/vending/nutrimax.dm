@@ -16,9 +16,7 @@
 					/obj/item/shovel/spade = 5,
 					/obj/item/secateurs = 5,
 					/obj/item/plant_analyzer = 4,
-					/obj/machinery/plantgenes = 1,
-					/obj/item/disk/plantgene = 20,
-					/obj/machinery/chem_dispenser/botany = 1,
+					/obj/item/storage/box/disks_plantgene = 2,
 					)
 	contraband = list(/obj/item/reagent_containers/glass/bottle/ammonia = 10,
 					  /obj/item/reagent_containers/glass/bottle/diethylamine = 5,

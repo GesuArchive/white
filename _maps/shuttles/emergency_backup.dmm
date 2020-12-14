@@ -8,6 +8,7 @@
 "c" = (
 /obj/machinery/door/airlock/titanium,
 /obj/docking_port/mobile/emergency/backup,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape/backup)
 "f" = (

@@ -13,6 +13,7 @@
 /obj/machinery/door/airlock/titanium{
 	name = "Emergency Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
 "ag" = (
@@ -30,6 +31,7 @@
 	name = "Meta emergency shuttle";
 	width = 25
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
 "al" = (
@@ -845,6 +847,14 @@
 	},
 /turf/open/floor/mineral/plastitanium/red/brig,
 /area/shuttle/escape)
+"Gp" = (
+/obj/machinery/door/airlock/external{
+	name = "Emergency Recovery Airlock"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/fans/tiny,
+/turf/open/floor/plasteel,
+/area/shuttle/escape)
 "LY" = (
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
@@ -930,7 +940,7 @@ be
 cc
 be
 be
-bf
+Gp
 "}
 (6,1,1) = {"
 ac
@@ -946,7 +956,7 @@ bf
 bT
 be
 be
-bf
+Gp
 "}
 (7,1,1) = {"
 ac

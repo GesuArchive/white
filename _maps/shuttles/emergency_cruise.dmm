@@ -208,6 +208,14 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/shuttle/escape)
+"jp" = (
+/obj/machinery/door/airlock/shuttle,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/wood,
+/area/shuttle/escape)
 "jt" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/escape)
@@ -600,6 +608,14 @@
 /obj/structure/shuttle/engine/huge,
 /turf/open/floor/plating/airless,
 /area/shuttle/escape)
+"tm" = (
+/obj/machinery/door/airlock/shuttle,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/wood,
+/area/shuttle/escape)
 "tB" = (
 /obj/structure/statue/diamond/ai1{
 	anchored = 1;
@@ -869,6 +885,7 @@
 	name = "The NTSS Independence";
 	width = 44
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/wood,
 /area/shuttle/escape)
 "Do" = (
@@ -1663,7 +1680,7 @@ kd
 kd
 kd
 jt
-qE
+tm
 CR
 jt
 kd
@@ -1680,8 +1697,8 @@ kd
 kd
 kd
 jt
-qE
-qE
+tm
+tm
 jt
 kd
 kd
@@ -2629,8 +2646,8 @@ kd
 kd
 kd
 jt
-aY
-aY
+jp
+jp
 jt
 kd
 kd
@@ -2646,8 +2663,8 @@ kd
 kd
 kd
 jt
-aY
-aY
+jp
+jp
 jt
 kd
 kd
