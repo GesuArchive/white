@@ -1,8 +1,12 @@
 /obj/structure/grille
 	desc = "Хрупкий каркас из металлических стержней."
 	name = "решетка"
-	icon = 'icons/obj/structures.dmi'
-	icon_state = "grille"
+	icon = 'white/valtos/icons/grille/grille.dmi'
+	icon_state = "icon-0"
+	base_icon_state = "icon"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_WALLS)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_AIRLOCK)
 	density = TRUE
 	anchored = TRUE
 	pass_flags_self = PASSGRILLE
