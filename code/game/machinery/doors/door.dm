@@ -85,7 +85,7 @@
 /obj/machinery/door/proc/set_dir_based()
 	for(var/direction in GLOB.cardinals)
 		var/atom/A = get_step(src, direction)
-		if(A.density || isstype(A, /obj/structure/window))
+		if(A.density || istype(A, /obj/structure/window))
 			if(direction == NORTH || direction == SOUTH)
 				dir = 4
 			else
