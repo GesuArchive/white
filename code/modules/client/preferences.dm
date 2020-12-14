@@ -111,7 +111,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/fullscreen = FALSE
 
 	///Do we see the top part of tall walls when looming over floors?
-	var/frills_over_floors = FALSE
+	var/frills_over_floors = TRUE
 
 	///Should we automatically fit the viewport?
 	var/auto_fit_viewport = FALSE
