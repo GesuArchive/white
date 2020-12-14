@@ -56,7 +56,8 @@
 
 /obj/machinery/door/airlock/freezer
 	name = "freezer airlock"
-	icon = 'icons/obj/doors/airlocks/station/freezer.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/freezer.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/station/glass_overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_fre
 
 /obj/machinery/door/airlock/science
@@ -313,8 +314,8 @@
 */
 
 /obj/machinery/door/airlock/public
-	icon = 'icons/obj/doors/airlocks/station2/glass.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/station2/overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/glass.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/station/glass_overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_public
 
 /obj/machinery/door/airlock/public/glass
