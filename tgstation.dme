@@ -3470,6 +3470,8 @@
 #include "white\hule\tts\tts.dm"
 #include "white\hule\tts\tts_items.dm"
 #include "white\HumanNugget\recipes.dm"
+#include "white\jhnazar\datums\wires\airlock_cycle.dm"
+#include "white\jhnazar\game\machinery\airlock_cycle_control.dm"
 #include "white\jhnazar\game\objects\items\circuitboards\machine_circuitboards.dm"
 #include "white\jhnazar\game\objects\items\storage\firstaid.dm"
 #include "white\jhnazar\misc\prikols\prikols.dm"
