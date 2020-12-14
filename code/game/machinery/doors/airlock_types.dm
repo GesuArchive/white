@@ -3,21 +3,25 @@
 */
 
 /obj/machinery/door/airlock/command
-	icon = 'icons/obj/doors/airlocks/station/command.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/command.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_com
 	normal_integrity = 450
 
 /obj/machinery/door/airlock/security
-	icon = 'icons/obj/doors/airlocks/station/security.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/security.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_sec
 	normal_integrity = 450
 
 /obj/machinery/door/airlock/engineering
-	icon = 'icons/obj/doors/airlocks/station/engineering.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/engineering.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_eng
 
 /obj/machinery/door/airlock/medical
-	icon = 'icons/obj/doors/airlocks/station/medical.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/medical.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_med
 
 /obj/machinery/door/airlock/maintenance
@@ -29,21 +33,25 @@
 
 /obj/machinery/door/airlock/maintenance/external
 	name = "external airlock access"
-	icon = 'icons/obj/doors/airlocks/station/maintenanceexternal.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/external/external.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/external/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_extmai
 
 /obj/machinery/door/airlock/mining
 	name = "mining airlock"
-	icon = 'icons/obj/doors/airlocks/station/mining.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/mining.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_min
 
 /obj/machinery/door/airlock/atmos
 	name = "atmospherics airlock"
-	icon = 'icons/obj/doors/airlocks/station/atmos.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/atmos.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_atmo
 
 /obj/machinery/door/airlock/research
-	icon = 'icons/obj/doors/airlocks/station/research.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/research.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_research
 
 /obj/machinery/door/airlock/freezer
@@ -52,11 +60,13 @@
 	assemblytype = /obj/structure/door_assembly/door_assembly_fre
 
 /obj/machinery/door/airlock/science
-	icon = 'icons/obj/doors/airlocks/station/science.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/science.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_science
 
 /obj/machinery/door/airlock/virology
-	icon = 'icons/obj/doors/airlocks/station/virology.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/virology.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_viro
 
 //////////////////////////////////
