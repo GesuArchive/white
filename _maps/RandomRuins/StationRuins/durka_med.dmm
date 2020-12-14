@@ -10,6 +10,7 @@
 "am" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Medbay Maintenance";
 	req_access_txt = "5"
 	},
@@ -1742,6 +1743,7 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Medbay Maintenance";
 	req_access_txt = "5"
 	},

@@ -10,6 +10,17 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"d" = (
+/obj/structure/barricade/wooden{
+	name = "wooden barricade (CLOSED)"
+	},
+/obj/machinery/door/airlock/maintenance{
+	dir = 8;
+	req_access_txt = "12"
+	},
+/obj/effect/mapping_helpers/airlock/abandoned,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "e" = (
 /obj/structure/table/wood,
 /obj/effect/turf_decal/stripes/line{
@@ -35,6 +46,7 @@
 /area/maintenance/port/aft)
 "k" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Incinerator Access";
 	req_access_txt = "12"
 	},
@@ -108,6 +120,7 @@
 	name = "wooden barricade (CLOSED)"
 	},
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	req_access_txt = "12"
 	},
 /obj/effect/mapping_helpers/airlock/abandoned,
@@ -475,7 +488,7 @@ W
 W
 W
 w
-w
+d
 W
 W
 W

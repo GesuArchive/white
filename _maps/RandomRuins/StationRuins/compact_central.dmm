@@ -699,6 +699,7 @@
 /area/teleporter)
 "bK" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Captain's Office Maintenance";
 	req_access_txt = "20"
 	},
@@ -1620,6 +1621,7 @@
 /area/engine/gravity_generator)
 "dS" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	req_access_txt = "12"
 	},
 /obj/structure/cable,
@@ -1671,6 +1673,7 @@
 "dZ" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	req_access_txt = "12"
 	},
 /obj/machinery/door/firedoor,
@@ -1750,6 +1753,7 @@
 /area/maintenance/central/secondary)
 "ei" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	req_access_txt = "12"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -3565,6 +3569,7 @@
 /area/hallway/primary/central)
 "ii" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	req_access_txt = "12"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -4116,6 +4121,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	req_access_txt = "12"
 	},
 /obj/machinery/door/firedoor,
@@ -4389,6 +4395,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	req_access_txt = "12"
 	},
 /obj/machinery/door/firedoor,

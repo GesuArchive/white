@@ -380,6 +380,7 @@
 "bY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Medbay Maintenance";
 	req_access_txt = "5"
 	},
@@ -1188,6 +1189,7 @@
 "ho" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Medbay Maintenance";
 	req_access_txt = "5"
 	},
@@ -1808,6 +1810,7 @@
 "mK" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Chemistry Maintenance";
 	req_access_txt = "33"
 	},

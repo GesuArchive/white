@@ -32,6 +32,7 @@
 /area/maintenance/port/aft)
 "j" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Incinerator Access";
 	req_access_txt = "12"
 	},

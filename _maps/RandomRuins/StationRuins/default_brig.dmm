@@ -218,6 +218,7 @@
 /area/security/prison)
 "aP" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Permabrig Maintenance";
 	req_access_txt = "1"
 	},
