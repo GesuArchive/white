@@ -457,7 +457,7 @@
 /obj/structure/closet/radiation,
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -3
+	pixel_x = -23
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -763,7 +763,7 @@
 /area/bridge)
 "bN" = (
 /obj/machinery/airalarm{
-	pixel_y = 32
+	pixel_y = 23
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/blue{
@@ -847,7 +847,7 @@
 /obj/structure/cable,
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = 0
+	pixel_y = -23
 	},
 /obj/machinery/camera/autoname{
 	dir = 1
@@ -893,7 +893,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 3
+	pixel_x = 23
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/wood,
@@ -1055,7 +1055,7 @@
 /obj/item/bedsheet/captain,
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -3
+	pixel_x = -23
 	},
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
@@ -1267,7 +1267,7 @@
 /obj/structure/cable,
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -3
+	pixel_x = -23
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
@@ -1405,7 +1405,7 @@
 /obj/machinery/disposal/bin,
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = 0
+	pixel_y = -23
 	},
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
@@ -1627,7 +1627,7 @@
 /obj/machinery/light,
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = 0
+	pixel_y = -23
 	},
 /turf/open/floor/plating,
 /area/teleporter)
@@ -2213,7 +2213,7 @@
 /obj/structure/table/wood,
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 3
+	pixel_x = 23
 	},
 /obj/item/camera,
 /obj/item/storage/photo_album{
@@ -2669,7 +2669,7 @@
 "nk" = (
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = 0
+	pixel_y = -23
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -2738,7 +2738,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 3
+	pixel_x = 23
 	},
 /obj/item/folder/red,
 /turf/open/floor/plasteel/dark,
@@ -2844,7 +2844,7 @@
 /obj/item/flashlight/seclite,
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 3
+	pixel_x = 23
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -2998,14 +2998,14 @@
 "oa" = (
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -3
+	pixel_x = -23
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "ob" = (
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 3
+	pixel_x = 23
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/plasteel,
@@ -3323,7 +3323,7 @@
 "oO" = (
 /obj/structure/cable,
 /obj/machinery/airalarm{
-	pixel_y = 32
+	pixel_y = 23
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -3696,7 +3696,7 @@
 "pF" = (
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = 0
+	pixel_y = -23
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -3966,7 +3966,7 @@
 "qi" = (
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = 0
+	pixel_y = -23
 	},
 /obj/machinery/camera/autoname{
 	dir = 1
@@ -4098,7 +4098,7 @@
 "qy" = (
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -3
+	pixel_x = -23
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -4120,7 +4120,7 @@
 	c_tag = "Central Hallway North-West"
 	},
 /obj/machinery/airalarm{
-	pixel_y = 32
+	pixel_y = 23
 	},
 /obj/machinery/atmospherics/pipe/layer_manifold{
 	dir = 4
@@ -4619,7 +4619,7 @@
 "vF" = (
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = 0
+	pixel_y = -23
 	},
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)

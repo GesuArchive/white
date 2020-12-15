@@ -207,7 +207,7 @@
 	c_tag = "Central Hallway North-West"
 	},
 /obj/machinery/airalarm{
-	pixel_y = 32
+	pixel_y = 23
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -323,7 +323,7 @@
 /area/hallway/primary/central)
 "bt" = (
 /obj/machinery/airalarm{
-	pixel_y = 32
+	pixel_y = 23
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -1127,7 +1127,7 @@
 "do" = (
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = 0
+	pixel_y = -23
 	},
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -1966,7 +1966,7 @@
 "fo" = (
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -3
+	pixel_x = -23
 	},
 /obj/machinery/porta_turret/ai{
 	dir = 4
@@ -2487,7 +2487,7 @@
 /obj/structure/table/wood,
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 3
+	pixel_x = 23
 	},
 /obj/item/camera,
 /obj/item/storage/photo_album{
@@ -2632,7 +2632,7 @@
 "hb" = (
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -3
+	pixel_x = -23
 	},
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
@@ -3019,7 +3019,7 @@
 /obj/item/bedsheet/captain,
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -3
+	pixel_x = -23
 	},
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
@@ -3285,7 +3285,7 @@
 "iC" = (
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 3
+	pixel_x = 23
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -3326,7 +3326,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 3
+	pixel_x = 23
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel,
@@ -3501,7 +3501,7 @@
 	c_tag = "Teleporter"
 	},
 /obj/machinery/airalarm{
-	pixel_y = 32
+	pixel_y = 23
 	},
 /turf/open/floor/plasteel,
 /area/teleporter)
@@ -3745,7 +3745,7 @@
 "jJ" = (
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -3
+	pixel_x = -23
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -4073,7 +4073,7 @@
 "kJ" = (
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 3
+	pixel_x = 23
 	},
 /obj/machinery/light{
 	dir = 4
@@ -4162,7 +4162,7 @@
 "kS" = (
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = 0
+	pixel_y = -23
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)

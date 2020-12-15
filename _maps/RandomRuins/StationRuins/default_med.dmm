@@ -222,7 +222,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -3
+	pixel_x = -23
 	},
 /obj/machinery/light{
 	dir = 8
@@ -950,7 +950,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = 0
+	pixel_y = -23
 	},
 /obj/machinery/atmospherics/pipe/simple/general/visible{
 	dir = 5
@@ -1019,7 +1019,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = 0
+	pixel_y = -23
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/chair/sofa/corp/left{
@@ -1181,7 +1181,7 @@
 "hb" = (
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 3
+	pixel_x = 23
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
@@ -1301,7 +1301,7 @@
 	dir = 1
 	},
 /obj/machinery/airalarm{
-	pixel_y = 32
+	pixel_y = 23
 	},
 /obj/machinery/computer/operating,
 /turf/open/floor/plasteel/white,
@@ -1324,7 +1324,7 @@
 /obj/item/clipboard,
 /obj/item/pen,
 /obj/machinery/airalarm{
-	pixel_y = 32
+	pixel_y = 23
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
@@ -2408,7 +2408,7 @@
 /obj/item/book/manual/wiki/security_space_law,
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 3
+	pixel_x = 23
 	},
 /obj/machinery/power/apc{
 	areastring = "/area/security/checkpoint/medical";
@@ -2692,7 +2692,7 @@
 /obj/effect/turf_decal/tile/yellow,
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 3
+	pixel_x = 23
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
@@ -2965,7 +2965,7 @@
 /area/medical/medbay/aft)
 "vY" = (
 /obj/machinery/airalarm{
-	pixel_y = 32
+	pixel_y = 23
 	},
 /obj/effect/turf_decal/tile/green{
 	dir = 1
@@ -3792,7 +3792,7 @@
 "Ci" = (
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 3
+	pixel_x = 23
 	},
 /obj/structure/closet/l3closet/virology,
 /obj/machinery/light{
@@ -4294,7 +4294,7 @@
 "EG" = (
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -3
+	pixel_x = -23
 	},
 /obj/structure/sink{
 	dir = 4;
@@ -4666,7 +4666,7 @@
 	dir = 4
 	},
 /obj/machinery/airalarm{
-	pixel_y = 32
+	pixel_y = 23
 	},
 /obj/machinery/computer/operating,
 /turf/open/floor/plasteel/white,
@@ -4677,7 +4677,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -3
+	pixel_x = -23
 	},
 /obj/machinery/light{
 	dir = 8
@@ -4806,7 +4806,7 @@
 /obj/machinery/light,
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = 0
+	pixel_y = -23
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 9
@@ -5009,7 +5009,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -3
+	pixel_x = -23
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/central)
@@ -5319,7 +5319,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = 0
+	pixel_y = -23
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/lobby)
@@ -5762,7 +5762,7 @@
 /obj/effect/turf_decal/tile/blue,
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 3
+	pixel_x = 23
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -6012,7 +6012,7 @@
 /area/medical/break_room)
 "Sy" = (
 /obj/machinery/airalarm{
-	pixel_y = 32
+	pixel_y = 23
 	},
 /obj/item/wrench,
 /obj/effect/turf_decal/stripes/line{
@@ -6460,7 +6460,7 @@
 	dir = 1
 	},
 /obj/machinery/airalarm{
-	pixel_y = 32
+	pixel_y = 23
 	},
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/cmo)
