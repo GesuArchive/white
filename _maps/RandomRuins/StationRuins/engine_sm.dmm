@@ -3,10 +3,9 @@
 /turf/template_noop,
 /area/template_noop)
 "ac" = (
-/obj/structure/sign/warning/vacuum/external{
-	pixel_x = 32
-	},
-/obj/structure/fans/tiny,
+/obj/machinery/advanced_airlock_controller/directional/east,
+/obj/machinery/atmospherics/components/binary/dp_vent_pump/layer4,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "ad" = (
@@ -57,8 +56,9 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "at" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 5
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
@@ -388,6 +388,7 @@
 	name = "Engineering External Access";
 	req_access_txt = "10;13"
 	},
+/obj/machinery/atmospherics/pipe/layer_manifold,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "bC" = (
@@ -575,6 +576,8 @@
 	name = "Engineering External Access";
 	req_access_txt = "10;13"
 	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "cv" = (
@@ -1633,6 +1636,11 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
+"oi" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/turf/open/floor/plasteel,
+/area/engine/engineering)
 "rX" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /obj/structure/lattice/catwalk,
@@ -1998,7 +2006,7 @@ ab
 ab
 ab
 at
-au
+oi
 cu
 ac
 bB

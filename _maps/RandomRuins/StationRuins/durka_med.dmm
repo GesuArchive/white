@@ -7,15 +7,6 @@
 /obj/machinery/sheetifier,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
-"am" = (
-/obj/structure/cable,
-/obj/machinery/door/airlock/maintenance{
-	dir = 4;
-	name = "Medbay Maintenance";
-	req_access_txt = "5"
-	},
-/turf/open/floor/plating,
-/area/medical/medbay/central)
 "an" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -397,8 +388,11 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 6
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
@@ -1142,6 +1136,10 @@
 "jc" = (
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
+"jp" = (
+/obj/structure/sign/warning/vacuum/external,
+/turf/closed/wall/r_wall,
+/area/space/nearstation)
 "jr" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
@@ -1511,15 +1509,15 @@
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
 "oQ" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
 /obj/machinery/light,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -27
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
@@ -1579,6 +1577,10 @@
 /obj/machinery/computer/card/minor/cmo,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
+"pz" = (
+/obj/structure/closet/emcloset/anchored,
+/turf/open/floor/plating,
+/area/space/nearstation)
 "pB" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 4
@@ -1949,6 +1951,16 @@
 	},
 /turf/open/floor/carpet/blue,
 /area/medical/psychology)
+"te" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/medical/medbay/central)
 "tf" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
@@ -2081,8 +2093,11 @@
 "uE" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 9
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
@@ -2440,6 +2455,16 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
+"yG" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/external{
+	req_access_txt = "5"
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space/nearstation)
 "yN" = (
 /obj/machinery/firealarm{
 	pixel_y = 25
@@ -3221,6 +3246,16 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
+"Hc" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/binary/dp_vent_pump/layer4{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/medical/medbay/central)
 "Hg" = (
 /obj/effect/turf_decal/trimline/yellow/filled/corner{
 	dir = 1
@@ -3875,6 +3910,9 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
 	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "NW" = (
@@ -3935,11 +3973,13 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 9
-	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
+	dir = 4
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "Ow" = (
@@ -4101,6 +4141,22 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/white,
+/area/medical/medbay/central)
+"PZ" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/external{
+	req_access_txt = "5"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/turf/open/floor/plating,
 /area/medical/medbay/central)
 "Qm" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -4395,6 +4451,10 @@
 	dir = 1
 	},
 /turf/open/floor/wood,
+/area/medical/medbay/central)
+"Sv" = (
+/obj/structure/closet/firecloset,
+/turf/open/floor/plating,
 /area/medical/medbay/central)
 "Sw" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
@@ -4702,7 +4762,7 @@
 /turf/open/floor/plating,
 /area/medical/medbay/central)
 "UP" = (
-/obj/structure/cable,
+/obj/machinery/advanced_airlock_controller/directional/north,
 /turf/open/floor/plating,
 /area/medical/medbay/central)
 "US" = (
@@ -4992,6 +5052,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/aft)
+"WT" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/layer_manifold{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/medical/medbay/central)
 "WV" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
@@ -5144,6 +5211,10 @@
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
+"XQ" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/space/nearstation)
 "XR" = (
 /obj/structure/bookcase/random,
 /turf/open/floor/wood,
@@ -5526,8 +5597,8 @@ gN
 "}
 (5,1,1) = {"
 ZM
-Zu
-Vt
+jp
+yG
 Zn
 MC
 ut
@@ -5568,8 +5639,8 @@ gN
 "}
 (6,1,1) = {"
 ZM
-Zu
-Vt
+pz
+XQ
 Zn
 fb
 dO
@@ -5610,8 +5681,8 @@ gN
 "}
 (7,1,1) = {"
 ZM
-kv
-dv
+Sv
+WT
 Zn
 jN
 dO
@@ -5653,7 +5724,7 @@ gN
 (8,1,1) = {"
 ZM
 UP
-UP
+Hc
 Zn
 Fw
 dO
@@ -5695,7 +5766,7 @@ gN
 (9,1,1) = {"
 ZM
 UF
-gm
+te
 Zn
 ow
 vF
@@ -5736,8 +5807,8 @@ gN
 "}
 (10,1,1) = {"
 ZM
-am
 ZM
+PZ
 pS
 QN
 dO

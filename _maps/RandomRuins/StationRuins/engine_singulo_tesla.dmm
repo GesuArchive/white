@@ -720,10 +720,40 @@
 /obj/structure/sign/warning/radiation/rad_area,
 /turf/closed/wall/r_wall,
 /area/engine/engineering)
+"dG" = (
+/obj/machinery/atmospherics/components/binary/dp_vent_pump/layer4,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/machinery/advanced_airlock_controller/directional/east,
+/turf/open/floor/plating,
+/area/engine/engineering)
 "fe" = (
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space/nearstation)
+"hb" = (
+/obj/machinery/atmospherics/components/binary/dp_vent_pump/layer4{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/advanced_airlock_controller/directional/north,
+/turf/open/floor/plating,
+/area/engine/engineering)
+"hh" = (
+/turf/open/space/basic,
+/area/engine/engineering)
+"hm" = (
+/obj/machinery/door/airlock/external{
+	name = "Engineering External Access";
+	req_access_txt = "10;13"
+	},
+/obj/machinery/atmospherics/pipe/layer_manifold,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
+/area/template_noop)
 "hM" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -732,6 +762,9 @@
 /obj/machinery/field/generator,
 /turf/open/floor/plating,
 /area/engine/engineering)
+"ix" = (
+/turf/closed/wall/r_wall,
+/area/template_noop)
 "lt" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/engine,
@@ -740,6 +773,35 @@
 /obj/structure/cable,
 /obj/machinery/power/emitter/welded{
 	dir = 4
+	},
+/turf/open/floor/plating,
+/area/engine/engineering)
+"md" = (
+/obj/machinery/door/airlock/external{
+	name = "Engineering External Access";
+	req_access_txt = "10;13"
+	},
+/obj/machinery/atmospherics/pipe/layer_manifold{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/engine/engineering)
+"mC" = (
+/obj/machinery/door/airlock/external{
+	name = "Engineering External Access";
+	req_access_txt = "10;13"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/engine/engineering)
@@ -827,15 +889,32 @@
 /obj/machinery/field/generator,
 /turf/open/floor/plating,
 /area/engine/engineering)
+"xF" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 10
+	},
+/turf/open/floor/engine,
+/area/engine/engineering)
 "xH" = (
 /obj/machinery/door/airlock/external{
 	name = "Engineering External Access";
 	req_access_txt = "10;13"
 	},
 /obj/structure/fans/tiny,
+/obj/machinery/atmospherics/pipe/layer_manifold,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
 /area/engine/engineering)
 "yi" = (
+/obj/machinery/advanced_airlock_controller/directional/east,
+/obj/machinery/atmospherics/components/binary/dp_vent_pump/layer4,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plating/airless,
 /area/engine/engineering)
 "yz" = (
@@ -854,12 +933,8 @@
 /area/engine/engineering)
 "AH" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2,
 /turf/open/floor/engine,
 /area/engine/engineering)
 "Bp" = (
@@ -867,7 +942,9 @@
 	name = "Engineering External Access";
 	req_access_txt = "10;13"
 	},
-/obj/structure/fans/tiny,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "Bx" = (
@@ -878,12 +955,8 @@
 /area/engine/engineering)
 "BT" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 5
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/engine,
 /area/engine/engineering)
 "Cd" = (
@@ -902,6 +975,9 @@
 	req_access_txt = "10;13"
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "GV" = (
@@ -1226,11 +1302,11 @@ ab
 ab
 fe
 ab
-ad
-ad
-ad
-ad
-ad
+hh
+hh
+hh
+hh
+hh
 ab
 ab
 ab
@@ -1254,11 +1330,11 @@ ab
 ab
 fe
 ab
-Bp
-YT
-YT
-YT
 ad
+md
+ad
+hh
+hh
 ab
 ab
 ab
@@ -1281,12 +1357,12 @@ du
 ad
 ad
 ad
-ad
 aU
 ad
+hb
 WN
-YT
-ad
+hh
+hh
 ab
 ab
 ab
@@ -1311,9 +1387,9 @@ bU
 bU
 bU
 bU
-bU
+mC
 ad
-YT
+ad
 ad
 ab
 ab
@@ -1341,7 +1417,7 @@ Ia
 zz
 BT
 Dp
-YT
+dG
 xH
 ab
 ab
@@ -1818,7 +1894,7 @@ pc
 AH
 ad
 ad
-bu
+ad
 ab
 ab
 ab
@@ -1843,10 +1919,10 @@ bt
 bt
 bZ
 bZ
-bZ
+xF
 Bp
 yi
-ab
+hm
 ab
 ab
 ab
@@ -1873,8 +1949,8 @@ bU
 bU
 bU
 ad
-ab
-ab
+ix
+ix
 ab
 ab
 ab

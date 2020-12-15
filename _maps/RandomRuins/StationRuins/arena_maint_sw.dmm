@@ -10,17 +10,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
-"d" = (
-/obj/structure/barricade/wooden{
-	name = "wooden barricade (CLOSED)"
-	},
-/obj/machinery/door/airlock/maintenance{
-	dir = 8;
-	req_access_txt = "12"
-	},
-/obj/effect/mapping_helpers/airlock/abandoned,
-/turf/open/floor/plating,
-/area/maintenance/port/aft)
 "e" = (
 /obj/structure/table/wood,
 /obj/effect/turf_decal/stripes/line{
@@ -33,6 +22,17 @@
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-3"
 	},
+/area/maintenance/port/aft)
+"h" = (
+/obj/structure/barricade/wooden{
+	name = "wooden barricade (CLOSED)"
+	},
+/obj/machinery/door/airlock/maintenance{
+	dir = 8;
+	req_access_txt = "12"
+	},
+/obj/effect/mapping_helpers/airlock/abandoned,
+/turf/open/floor/plating,
 /area/maintenance/port/aft)
 "i" = (
 /turf/open/floor/partyhard/steel{
@@ -488,7 +488,7 @@ W
 W
 W
 w
-d
+h
 W
 W
 W
