@@ -155,6 +155,22 @@
 	else
 		airlock.abandoned = TRUE
 
+/obj/effect/mapping_helpers/airlock/unres
+	name = "airlock unresctricted side helper"
+	icon_state = "airlock_unres_helper"
+
+/obj/effect/mapping_helpers/airlock/unres/payload(obj/machinery/door/airlock/airlock)
+	airlock.unres_sides ^= dir
+
+/obj/effect/mapping_helpers/airlock/abandoned
+	name = "airlock abandoned helper"
+	icon_state = "airlock_abandoned"
+
+/obj/effect/mapping_helpers/airlock/abandoned/payload(obj/machinery/door/airlock/airlock)
+	if(airlock.abandoned)
+		log_mapping("[src] at [AREACOORD(src)] tried to make [airlock] abandoned but it's already abandoned!")
+	else
+		airlock.abandoned = TRUE
 
 //needs to do its thing before spawn_rivers() is called
 INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
