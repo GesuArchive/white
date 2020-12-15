@@ -1,62 +1,62 @@
 /obj/structure/door_assembly/door_assembly_public
 	name = "public airlock assembly"
-	icon = 'icons/obj/doors/airlocks/station2/glass.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/station2/overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/glass.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/station/glass_overlays.dmi'
 	glass_type = /obj/machinery/door/airlock/public/glass
 	airlock_type = /obj/machinery/door/airlock/public
 
 /obj/structure/door_assembly/door_assembly_com
 	name = "command airlock assembly"
-	icon = 'icons/obj/doors/airlocks/station/command.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/command.dmi'
 	base_name = "command airlock"
 	glass_type = /obj/machinery/door/airlock/command/glass
 	airlock_type = /obj/machinery/door/airlock/command
 
 /obj/structure/door_assembly/door_assembly_sec
 	name = "security airlock assembly"
-	icon = 'icons/obj/doors/airlocks/station/security.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/security.dmi'
 	base_name = "security airlock"
 	glass_type = /obj/machinery/door/airlock/security/glass
 	airlock_type = /obj/machinery/door/airlock/security
 
 /obj/structure/door_assembly/door_assembly_eng
 	name = "engineering airlock assembly"
-	icon = 'icons/obj/doors/airlocks/station/engineering.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/engineering.dmi'
 	base_name = "engineering airlock"
 	glass_type = /obj/machinery/door/airlock/engineering/glass
 	airlock_type = /obj/machinery/door/airlock/engineering
 
 /obj/structure/door_assembly/door_assembly_min
 	name = "mining airlock assembly"
-	icon = 'icons/obj/doors/airlocks/station/mining.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/mining.dmi'
 	base_name = "mining airlock"
 	glass_type = /obj/machinery/door/airlock/mining/glass
 	airlock_type = /obj/machinery/door/airlock/mining
 
 /obj/structure/door_assembly/door_assembly_atmo
 	name = "atmospherics airlock assembly"
-	icon = 'icons/obj/doors/airlocks/station/atmos.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/atmos.dmi'
 	base_name = "atmospherics airlock"
 	glass_type = /obj/machinery/door/airlock/atmos/glass
 	airlock_type = /obj/machinery/door/airlock/atmos
 
 /obj/structure/door_assembly/door_assembly_research
 	name = "research airlock assembly"
-	icon = 'icons/obj/doors/airlocks/station/research.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/research.dmi'
 	base_name = "research airlock"
 	glass_type = /obj/machinery/door/airlock/research/glass
 	airlock_type = /obj/machinery/door/airlock/research
 
 /obj/structure/door_assembly/door_assembly_science
 	name = "science airlock assembly"
-	icon = 'icons/obj/doors/airlocks/station/science.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/science.dmi'
 	base_name = "science airlock"
 	glass_type = /obj/machinery/door/airlock/science/glass
 	airlock_type = /obj/machinery/door/airlock/science
 
 /obj/structure/door_assembly/door_assembly_med
 	name = "medical airlock assembly"
-	icon = 'icons/obj/doors/airlocks/station/medical.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/medical.dmi'
 	base_name = "medical airlock"
 	glass_type = /obj/machinery/door/airlock/medical/glass
 	airlock_type = /obj/machinery/door/airlock/medical
@@ -70,47 +70,49 @@
 
 /obj/structure/door_assembly/door_assembly_extmai
 	name = "external maintenance airlock assembly"
-	icon = 'icons/obj/doors/airlocks/station/maintenanceexternal.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/external/external.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/external/external.dmi'
 	base_name = "external maintenance airlock"
 	glass_type = /obj/machinery/door/airlock/maintenance/external/glass
 	airlock_type = /obj/machinery/door/airlock/maintenance/external
 
 /obj/structure/door_assembly/door_assembly_ext
 	name = "external airlock assembly"
-	icon = 'icons/obj/doors/airlocks/external/external.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/external/external.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/external/external.dmi'
 	base_name = "external airlock"
-	overlays_file = 'icons/obj/doors/airlocks/external/overlays.dmi'
 	glass_type = /obj/machinery/door/airlock/external/glass
 	airlock_type = /obj/machinery/door/airlock/external
 
 /obj/structure/door_assembly/door_assembly_fre
 	name = "freezer airlock assembly"
-	icon = 'icons/obj/doors/airlocks/station/freezer.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/freezer.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/station/glass_overlays.dmi'
 	base_name = "freezer airlock"
 	airlock_type = /obj/machinery/door/airlock/freezer
 	noglass = TRUE
 
 /obj/structure/door_assembly/door_assembly_hatch
 	name = "airtight hatch assembly"
-	icon = 'icons/obj/doors/airlocks/hatch/centcom.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/hatch.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/station/glass_overlays.dmi'
 	base_name = "airtight hatch"
-	overlays_file = 'icons/obj/doors/airlocks/hatch/overlays.dmi'
 	airlock_type = /obj/machinery/door/airlock/hatch
 	noglass = TRUE
 
 /obj/structure/door_assembly/door_assembly_mhatch
 	name = "maintenance hatch assembly"
-	icon = 'icons/obj/doors/airlocks/hatch/maintenance.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/hatch.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/station/glass_overlays.dmi'
 	base_name = "maintenance hatch"
-	overlays_file = 'icons/obj/doors/airlocks/hatch/overlays.dmi'
 	airlock_type = /obj/machinery/door/airlock/maintenance_hatch
 	noglass = TRUE
 
 /obj/structure/door_assembly/door_assembly_highsecurity
 	name = "high security airlock assembly"
-	icon = 'icons/obj/doors/airlocks/highsec/highsec.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/hatch.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/tall/station/glass_overlays.dmi'
 	base_name = "high security airlock"
-	overlays_file = 'icons/obj/doors/airlocks/highsec/overlays.dmi'
 	airlock_type = /obj/machinery/door/airlock/highsecurity
 	noglass = TRUE
 	material_type = /obj/item/stack/sheet/plasteel
@@ -150,7 +152,7 @@
 
 /obj/structure/door_assembly/door_assembly_viro
 	name = "virology airlock assembly"
-	icon = 'icons/obj/doors/airlocks/station/virology.dmi'
+	icon = 'icons/obj/doors/airlocks/tall/station/virology.dmi'
 	base_name = "virology airlock"
 	glass_type = /obj/machinery/door/airlock/virology/glass
 	airlock_type = /obj/machinery/door/airlock/virology
