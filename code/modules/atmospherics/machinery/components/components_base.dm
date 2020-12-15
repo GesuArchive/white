@@ -2,7 +2,6 @@
 // On top of that, now people can add component-speciic procs/vars if they want!
 
 /obj/machinery/atmospherics/components
-	plane = OVER_TILE_PLANE
 	hide = FALSE
 
 	var/welded = FALSE //Used on pumps and scrubbers
@@ -42,7 +41,7 @@
 
 	underlays.Cut()
 
-	plane = showpipe ? GAME_PLANE : OVER_TILE_PLANE
+	plane = showpipe ? GAME_PLANE : FLOOR_PLANE
 
 	if(!showpipe)
 		return ..()

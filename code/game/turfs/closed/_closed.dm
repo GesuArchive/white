@@ -1,5 +1,4 @@
 /turf/closed
-	plane = WALL_PLANE
 	layer = CLOSED_TURF_LAYER
 	opacity = TRUE
 	density = TRUE
@@ -8,7 +7,7 @@
 	rad_insulation = RAD_MEDIUM_INSULATION
 	pass_flags_self = PASSCLOSEDTURF
 
-/turf/closed/Initialize(mapload)
+/turf/closed/Initialize()
 	. = ..()
 	update_air_ref()
 
