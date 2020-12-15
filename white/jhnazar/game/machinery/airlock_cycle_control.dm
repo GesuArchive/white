@@ -84,6 +84,8 @@
 	var/list/vents = list()
 	var/obj/vis_target = null
 
+	pixel_z = 10
+
 /obj/machinery/advanced_airlock_controller/lavaland
 	exterior_pressure = WARNING_LOW_PRESSURE + 10
 	depressurization_margin = ONE_ATMOSPHERE

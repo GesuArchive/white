@@ -1136,10 +1136,6 @@
 "jc" = (
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
-"jp" = (
-/obj/structure/sign/warning/vacuum/external,
-/turf/closed/wall/r_wall,
-/area/space/nearstation)
 "jr" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
@@ -1580,7 +1576,7 @@
 "pz" = (
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/plating,
-/area/space/nearstation)
+/area/medical/medbay/central)
 "pB" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 4
@@ -2464,7 +2460,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/space/nearstation)
+/area/medical/medbay/central)
 "yN" = (
 /obj/machinery/firealarm{
 	pixel_y = 25
@@ -5214,7 +5210,7 @@
 "XQ" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/space/nearstation)
+/area/medical/medbay/central)
 "XR" = (
 /obj/structure/bookcase/random,
 /turf/open/floor/wood,
@@ -5597,7 +5593,7 @@ gN
 "}
 (5,1,1) = {"
 ZM
-jp
+kv
 yG
 Zn
 MC
