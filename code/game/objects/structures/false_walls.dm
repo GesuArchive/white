@@ -5,9 +5,10 @@
 	name = "стена"
 	desc = "Здоровенный кусок металла, который служит для разделения помещений."
 	anchored = TRUE
-	icon = 'icons/turf/walls/baywall.dmi'
-	icon_state = "wall-0"
-	base_icon_state = "wall"
+	icon = 'icons/turf/walls/tall/wall.dmi'
+	icon_state = "base-0"
+	base_icon_state = "base"
+	frill_icon = 'icons/effects/frills/wall_metal_frill.dmi'
 	layer = LOW_OBJ_LAYER
 	density = TRUE
 	opacity = TRUE
@@ -133,9 +134,10 @@
 /obj/structure/falsewall/reinforced
 	name = "армированная стена"
 	desc = "Здоровенный укреплённый кусок металла, который служит для разделения помещений."
-	icon = 'icons/turf/walls/rbaywall.dmi'
-	icon_state = "reinforced_wall-0"
-	base_icon_state = "reinforced_wall"
+	icon = 'icons/turf/walls/tall/reinforced_wall.dmi'
+	icon_state = "base-0"
+	base_icon_state = "base"
+	frill_icon = 'icons/effects/frills/wall_reinforced_frill.dmi'
 	walltype = /turf/closed/wall/r_wall
 	mineral = /obj/item/stack/sheet/plasteel
 	smoothing_flags = SMOOTH_BITMASK
