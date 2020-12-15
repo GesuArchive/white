@@ -3,71 +3,59 @@
 */
 
 /obj/machinery/door/airlock/command
-	icon = 'icons/obj/doors/airlocks/tall/station/command.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/station/command.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_com
 	normal_integrity = 450
 
 /obj/machinery/door/airlock/security
-	icon = 'icons/obj/doors/airlocks/tall/station/security.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/station/security.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_sec
 	normal_integrity = 450
 
 /obj/machinery/door/airlock/engineering
-	icon = 'icons/obj/doors/airlocks/tall/station/engineering.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/station/engineering.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_eng
 
 /obj/machinery/door/airlock/medical
-	icon = 'icons/obj/doors/airlocks/tall/station/medical.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/station/medical.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_med
 
 /obj/machinery/door/airlock/maintenance
 	name = "maintenance access"
-	icon = 'icons/obj/doors/airlocks/tall/maintenance.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/station/maintenance.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_mai
 	normal_integrity = 250
 
 /obj/machinery/door/airlock/maintenance/external
 	name = "external airlock access"
-	icon = 'icons/obj/doors/airlocks/tall/external/external.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/external/overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/station/maintenanceexternal.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_extmai
 
 /obj/machinery/door/airlock/mining
 	name = "mining airlock"
-	icon = 'icons/obj/doors/airlocks/tall/station/mining.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/station/mining.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_min
 
 /obj/machinery/door/airlock/atmos
 	name = "atmospherics airlock"
-	icon = 'icons/obj/doors/airlocks/tall/station/atmos.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/station/atmos.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_atmo
 
 /obj/machinery/door/airlock/research
-	icon = 'icons/obj/doors/airlocks/tall/station/research.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/station/research.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_research
 
 /obj/machinery/door/airlock/freezer
 	name = "freezer airlock"
-	icon = 'icons/obj/doors/airlocks/tall/station/freezer.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/station/glass_overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/station/freezer.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_fre
 
 /obj/machinery/door/airlock/science
-	icon = 'icons/obj/doors/airlocks/tall/station/science.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/station/science.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_science
 
 /obj/machinery/door/airlock/virology
-	icon = 'icons/obj/doors/airlocks/tall/station/virology.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/station/virology.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_viro
 
 //////////////////////////////////
@@ -314,8 +302,8 @@
 */
 
 /obj/machinery/door/airlock/public
-	icon = 'icons/obj/doors/airlocks/tall/station/glass.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/station/glass_overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/station2/glass.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/station2/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_public
 
 /obj/machinery/door/airlock/public/glass
@@ -343,9 +331,9 @@
 
 /obj/machinery/door/airlock/external
 	name = "external airlock"
-	icon = 'icons/obj/doors/airlocks/tall/external/external.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/external/overlays.dmi'
-	note_overlay_file = 'icons/obj/doors/airlocks/tall/external/overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/external/external.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/external/overlays.dmi'
+	note_overlay_file = 'icons/obj/doors/airlocks/external/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_ext
 
 /obj/machinery/door/airlock/external/glass
@@ -358,16 +346,16 @@
 */
 
 /obj/machinery/door/airlock/centcom //Use grunge as a station side version, as these have special effects related to them via phobias and such.
-	icon = 'icons/obj/doors/airlocks/tall/station/hatch.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/station/glass_overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/centcom/centcom.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/centcom/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_centcom
 	normal_integrity = 1000
 	security_level = 6
 	explosion_block = 2
 
 /obj/machinery/door/airlock/grunge
-	icon = 'icons/obj/doors/airlocks/tall/station/hatch.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/station/glass_overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/centcom/centcom.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/centcom/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_grunge
 
 //////////////////////////////////
@@ -377,8 +365,8 @@
 
 /obj/machinery/door/airlock/vault
 	name = "vault door"
-	icon = 'icons/obj/doors/airlocks/tall/station/hatch.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/station/glass_overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/vault/vault.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/vault/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_vault
 	explosion_block = 2
 	normal_integrity = 400 // reverse engieneerd: 400 * 1.5 (sec lvl 6) = 600 = original
@@ -391,14 +379,16 @@
 
 /obj/machinery/door/airlock/hatch
 	name = "airtight hatch"
-	icon = 'icons/obj/doors/airlocks/tall/station/hatch.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/station/glass_overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/hatch/centcom.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/hatch/overlays.dmi'
+	note_overlay_file = 'icons/obj/doors/airlocks/hatch/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_hatch
 
 /obj/machinery/door/airlock/maintenance_hatch
 	name = "maintenance hatch"
-	icon = 'icons/obj/doors/airlocks/tall/station/hatch.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/station/glass_overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/hatch/maintenance.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/hatch/overlays.dmi'
+	note_overlay_file = 'icons/obj/doors/airlocks/hatch/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_mhatch
 
 //////////////////////////////////
@@ -408,8 +398,8 @@
 
 /obj/machinery/door/airlock/highsecurity
 	name = "high tech security airlock"
-	icon = 'icons/obj/doors/airlocks/tall/station/hatch.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/station/glass_overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/highsec/highsec.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/highsec/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_highsecurity
 	explosion_block = 2
 	normal_integrity = 500
@@ -499,10 +489,10 @@
 		return FALSE
 
 /obj/machinery/door/airlock/cult/proc/conceal()
-	icon = 'icons/obj/doors/airlocks/tall/maintenance.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
+	icon = 'icons/obj/doors/airlocks/station/maintenance.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/station/overlays.dmi'
 	name = "airlock"
-	desc = "Он открывается и закрывается. Удивительно."
+	desc = "It opens and closes."
 	stealthy = TRUE
 	update_icon()
 

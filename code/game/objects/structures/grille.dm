@@ -1,13 +1,10 @@
 /obj/structure/grille
 	desc = "Хрупкий каркас из металлических стержней."
 	name = "решетка"
-	icon = 'white/valtos/icons/grille/grille.dmi'
-	icon_state = "icon-0"
-	base_icon_state = "icon"
-	plane = WALL_PLANE
+	icon = 'icons/obj/structures.dmi'
+	icon_state = "grille"
 	density = TRUE
 	anchored = TRUE
-	pass_flags_self = PASSGRILLE
 	flags_1 = CONDUCT_1 | RAD_PROTECT_CONTENTS_1 | RAD_NO_CONTAMINATE_1
 	pressure_resistance = 5*ONE_ATMOSPHERE
 	armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 100, BOMB = 10, BIO = 100, RAD = 100, FIRE = 0, ACID = 0)

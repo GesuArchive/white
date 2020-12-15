@@ -3,9 +3,9 @@
 /turf/closed/wall
 	name = "стена"
 	desc = "Здоровенный кусок металла, который служит для разделения помещений."
-	icon = 'icons/turf/walls/tall/wall.dmi'
-	icon_state = "base-0"
-	base_icon_state = "base"
+	icon = 'icons/turf/walls/baywall.dmi'
+	icon_state = "wall-0"
+	base_icon_state = "wall"
 	explosion_block = 1
 
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
@@ -18,7 +18,6 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
-	frill_icon = 'icons/effects/frills/wall_metal_frill.dmi'
 
 	///lower numbers are harder. Used to determine the probability of a hulk smashing through.
 	var/hardness = 40

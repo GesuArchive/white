@@ -110,9 +110,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/ambientocclusion = TRUE
 	var/fullscreen = FALSE
 
-	///Do we see the top part of tall walls when looming over floors?
-	var/frills_over_floors = TRUE
-
 	///Should we automatically fit the viewport?
 	var/auto_fit_viewport = FALSE
 	///Should we be in the widescreen mode set by the config?
@@ -1825,19 +1822,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if (parent && parent.mob && parent.mob.hud_used)
 						parent.mob.hud_used.update_parallax_pref(parent.mob)
 
-				if("frills_over_floors")
-					frills_over_floors = !frills_over_floors
-					if(length(parent?.screen))
-						var/atom/movable/screen/plane_master/frill/frill = locate(/atom/movable/screen/plane_master/frill) in parent.screen
-						frill.backdrop(parent.mob)
-
 				if("ambientocclusion")
 					ambientocclusion = !ambientocclusion
 					if(parent?.screen && parent.screen.len)
 						var/atom/movable/screen/plane_master/game_world/PM = locate(/atom/movable/screen/plane_master/game_world) in parent.screen
 						PM.backdrop(parent.mob)
-						var/atom/movable/screen/plane_master/frill/frill = locate(/atom/movable/screen/plane_master/frill) in parent.screen
-						frill.backdrop(parent.mob)
 
 				if("auto_fit_viewport")
 					auto_fit_viewport = !auto_fit_viewport

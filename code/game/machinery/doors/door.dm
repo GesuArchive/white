@@ -7,7 +7,6 @@
 	opacity = TRUE
 	density = TRUE
 	move_resist = MOVE_FORCE_VERY_STRONG
-	plane = UNDER_FRILL_PLANE
 	layer = OPEN_DOOR_LAYER
 	power_channel = AREA_USAGE_ENVIRON
 	max_integrity = 350
@@ -76,21 +75,9 @@
 	else
 		flags_1 &= ~PREVENT_CLICK_UNDER_1
 
-	set_dir_based()
-
 	//doors only block while dense though so we have to use the proc
 	real_explosion_block = explosion_block
 	explosion_block = EXPLOSION_BLOCK_PROC
-
-/obj/machinery/door/proc/set_dir_based()
-	for(var/direction in GLOB.cardinals)
-		var/atom/A = get_step(src, direction)
-		if(A.density || locate(/obj/structure/window, get_step(src, direction)) || locate(/obj/machinery/door/airlock, get_step(src, direction)))
-			if(direction == NORTH || direction == SOUTH)
-				dir = 4
-			else
-				dir = 2
-			return
 
 /obj/machinery/door/proc/set_init_door_layer()
 	if(density)

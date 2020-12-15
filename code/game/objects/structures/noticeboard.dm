@@ -1,7 +1,7 @@
 /obj/structure/noticeboard
 	name = "notice board"
 	desc = "A board for pinning important notices upon. It is made of the finest Spanish cork."
-	icon = 'white/valtos/icons/power.dmi'
+	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "noticeboard"
 	density = FALSE
 	anchored = TRUE

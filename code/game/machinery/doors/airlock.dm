@@ -45,7 +45,7 @@
 
 /obj/machinery/door/airlock
 	name = "шлюз"
-	icon = 'icons/obj/doors/airlocks/tall/station/public.dmi'
+	icon = 'icons/obj/doors/airlocks/station/public.dmi'
 	icon_state = "closed"
 	max_integrity = 300
 	var/normal_integrity = AIRLOCK_INTEGRITY_N
@@ -87,8 +87,8 @@
 	var/noPower = 'sound/machines/doorclick.ogg'
 	var/previous_airlock = /obj/structure/door_assembly //what airlock assembly mineral plating was applied to
 	var/airlock_material //material of inner filling; if its an airlock with glass, this should be set to "glass"
-	var/overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
-	var/note_overlay_file = 'icons/obj/doors/airlocks/tall/overlays.dmi' //Used for papers and photos pinned to the airlock
+	var/overlays_file = 'icons/obj/doors/airlocks/station/overlays.dmi'
+	var/note_overlay_file = 'icons/obj/doors/airlocks/station/overlays.dmi' //Used for papers and photos pinned to the airlock
 
 	var/cyclelinkeddir = 0
 	var/obj/machinery/door/airlock/cyclelinkedairlock

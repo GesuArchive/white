@@ -1,8 +1,8 @@
 /obj/structure/door_assembly
 	name = "airlock assembly"
-	icon = 'icons/obj/doors/airlocks/tall/station/public.dmi'
+	icon = 'icons/obj/doors/airlocks/station/public.dmi'
 	icon_state = "construction"
-	var/overlays_file = 'icons/obj/doors/airlocks/tall/overlays.dmi'
+	var/overlays_file = 'icons/obj/doors/airlocks/overlays.dmi'
 	anchored = FALSE
 	density = TRUE
 	max_integrity = 200

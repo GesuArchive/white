@@ -3,8 +3,7 @@
 	desc = "Окно. Невероятно."
 	icon_state = "window"
 	density = TRUE
-	plane = WALL_PLANE
-	layer = CLOSED_DOOR_LAYER //Just above doors
+	layer = ABOVE_OBJ_LAYER //Just above doors
 	pressure_resistance = 4*ONE_ATMOSPHERE
 	anchored = TRUE //initially is 0 for tile smoothing
 	flags_1 = ON_BORDER_1 | RAD_PROTECT_CONTENTS_1
@@ -608,17 +607,16 @@
 /* Full Tile Windows (more obj_integrity) */
 
 /obj/structure/window/fulltile
-	icon = 'white/valtos/icons/windows/glass.dmi'
-	icon_state = "base-0"
-	base_icon_state = "base"
-	frill_icon = 'white/valtos/icons/windows/glass_frill.dmi'
+	icon = 'white/valtos/icons/window_glass.dmi'
+	icon_state = "window_glass-0"
+	base_icon_state = "window_glass"
 	dir = FULLTILE_WINDOW_DIR
 	max_integrity = 50
 	fulltile = TRUE
 	flags_1 = PREVENT_CLICK_UNDER_1
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_WALLS)
-	canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_WALLS)
+	smoothing_groups = list(SMOOTH_GROUP_WINDOW_FULLTILE)
+	canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE)
 	glass_amount = 2
 
 /obj/structure/window/fulltile/attackby(obj/item/W, mob/user, params)
@@ -709,18 +707,17 @@
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/reinforced/fulltile
-	icon = 'white/valtos/icons/windows/reinforced_glass.dmi'
-	icon_state = "base-0"
-	base_icon_state = "base"
-	frill_icon = 'white/valtos/icons/windows/reinforced_glass_frill.dmi'
+	icon = 'white/valtos/icons/window_rglass.dmi'
+	icon_state = "window_rglass-0"
+	base_icon_state = "window_rglass"
 	dir = FULLTILE_WINDOW_DIR
 	max_integrity = 150
 	fulltile = TRUE
 	flags_1 = PREVENT_CLICK_UNDER_1
 	state = RWINDOW_SECURE
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_WALLS)
-	canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_WALLS)
+	smoothing_groups = list(SMOOTH_GROUP_WINDOW_FULLTILE)
+	canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE)
 	glass_amount = 2
 
 /obj/structure/window/reinforced/fulltile/attackby(obj/item/W, mob/user, params)

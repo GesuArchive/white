@@ -1,7 +1,7 @@
 /obj/machinery/igniter
 	name = "igniter"
 	desc = "It's useful for igniting plasma."
-	icon = 'white/valtos/icons/power.dmi'
+	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "igniter0"
 	plane = FLOOR_PLANE
 	use_power = IDLE_POWER_USE
