@@ -3,7 +3,7 @@
 	desc = "Окно. Невероятно."
 	icon_state = "window"
 	density = TRUE
-	plane = UNDER_FRILL_PLANE
+	plane = WALL_PLANE
 	layer = CLOSED_DOOR_LAYER //Just above doors
 	pressure_resistance = 4*ONE_ATMOSPHERE
 	anchored = TRUE //initially is 0 for tile smoothing
@@ -609,8 +609,9 @@
 
 /obj/structure/window/fulltile
 	icon = 'white/valtos/icons/windows/glass.dmi'
-	icon_state = "icon-0"
-	base_icon_state = "icon"
+	icon_state = "base-0"
+	base_icon_state = "base"
+	frill_icon = 'white/valtos/icons/windows/glass_frill.dmi'
 	dir = FULLTILE_WINDOW_DIR
 	max_integrity = 50
 	fulltile = TRUE
@@ -709,8 +710,9 @@
 
 /obj/structure/window/reinforced/fulltile
 	icon = 'white/valtos/icons/windows/reinforced_glass.dmi'
-	icon_state = "icon-0"
-	base_icon_state = "icon"
+	icon_state = "base-0"
+	base_icon_state = "base"
+	frill_icon = 'white/valtos/icons/windows/reinforced_glass_frill.dmi'
 	dir = FULLTILE_WINDOW_DIR
 	max_integrity = 150
 	fulltile = TRUE

@@ -4,6 +4,7 @@
 	icon = 'white/valtos/icons/grille/grille.dmi'
 	icon_state = "icon-0"
 	base_icon_state = "icon"
+	plane = WALL_PLANE
 	density = TRUE
 	anchored = TRUE
 	pass_flags_self = PASSGRILLE
