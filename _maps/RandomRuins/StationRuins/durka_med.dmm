@@ -120,7 +120,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -416,7 +416,7 @@
 	dir = 1
 	},
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /obj/structure/bookcase/random,
 /turf/open/floor/plasteel/white,
@@ -940,7 +940,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
@@ -1205,7 +1205,7 @@
 	dir = 1
 	},
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
@@ -1482,7 +1482,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -24
+	pixel_x = -3
 	},
 /obj/item/reagent_containers/hypospray/medipen/survival/luxury,
 /obj/item/reagent_containers/hypospray/medipen/survival/luxury,
@@ -1723,7 +1723,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = 0
 	},
 /obj/machinery/camera/autoname{
 	dir = 1
@@ -2022,7 +2022,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = 0
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
@@ -2032,7 +2032,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /obj/machinery/computer/med_data{
 	dir = 8
@@ -2133,7 +2133,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /obj/machinery/light{
 	dir = 1
@@ -2441,7 +2441,7 @@
 /area/medical/medbay/aft)
 "yD" = (
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/structure/closet/secure_closet/security/med,
@@ -2538,7 +2538,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -22
+	pixel_x = -3
 	},
 /obj/item/stack/sheet/metal/fifty{
 	pixel_x = 2;
@@ -2579,7 +2579,7 @@
 /obj/item/stack/sheet/mineral/plasma,
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /obj/structure/cable,
 /obj/machinery/camera/autoname{
@@ -2604,7 +2604,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -23
+	pixel_x = -3
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
@@ -3133,7 +3133,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = 0
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
@@ -3286,7 +3286,7 @@
 "Ho" = (
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -3350,7 +3350,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = 0
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
@@ -3417,7 +3417,7 @@
 	dir = 1
 	},
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /obj/structure/table/glass,
 /obj/item/paper_bin{
@@ -3898,7 +3898,7 @@
 /area/medical/virology)
 "NP" = (
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /obj/item/wrench,
 /obj/effect/turf_decal/stripes/line{
@@ -3986,7 +3986,7 @@
 /obj/effect/turf_decal/stripes/end,
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = 0
 	},
 /obj/machinery/light,
 /turf/open/floor/plasteel/white,
@@ -4705,7 +4705,7 @@
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/mop,
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
@@ -4744,7 +4744,7 @@
 	dir = 9
 	},
 /obj/machinery/airalarm{
-	pixel_y = 24
+	pixel_y = 32
 	},
 /obj/machinery/firealarm{
 	dir = 1;
@@ -4786,7 +4786,7 @@
 	},
 /obj/effect/turf_decal/tile/blue,
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay)

@@ -17,6 +17,12 @@
 	poddoor = TRUE
 	air_tight = TRUE
 
+/obj/machinery/door/poddoor/Initialize()
+	. = ..()
+	if(dir == NORTH)
+		layer = OBJ_LAYER
+		closingLayer = OBJ_LAYER
+
 /obj/machinery/door/poddoor/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	id = "[port.id]_[id]"
 

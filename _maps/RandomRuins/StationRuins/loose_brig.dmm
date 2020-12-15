@@ -357,7 +357,7 @@
 "aV" = (
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -23
+	pixel_x = -3
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -665,7 +665,7 @@
 /area/crew_quarters/heads/hos)
 "bD" = (
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /obj/structure/reagent_dispensers/peppertank{
 	pixel_x = 30
@@ -1067,7 +1067,7 @@
 "cm" = (
 /obj/structure/rack,
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /obj/item/gun/energy/ionrifle,
 /obj/item/gun/energy/temperature/security,
@@ -1778,7 +1778,7 @@
 /area/ai_monitored/security/armory)
 "dI" = (
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /obj/machinery/light{
 	dir = 1
@@ -2209,7 +2209,7 @@
 /obj/machinery/recharger,
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/showroomfloor,
@@ -2347,7 +2347,7 @@
 "eL" = (
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /obj/machinery/light{
 	dir = 4
@@ -2930,7 +2930,7 @@
 /area/security/prison)
 "fT" = (
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4

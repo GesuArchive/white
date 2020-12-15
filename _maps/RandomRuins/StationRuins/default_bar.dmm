@@ -106,7 +106,7 @@
 /area/crew_quarters/theatre)
 "ap" = (
 /obj/machinery/airalarm{
-	pixel_y = 24
+	pixel_y = 32
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/theatre)
@@ -270,7 +270,7 @@
 "aL" = (
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -22
+	pixel_x = -3
 	},
 /obj/machinery/light/small{
 	dir = 8
@@ -439,7 +439,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /obj/machinery/vending/wardrobe/chef_wardrobe,
 /turf/open/floor/plasteel/showroomfloor,
@@ -691,7 +691,7 @@
 	pixel_y = 6
 	},
 /obj/machinery/airalarm{
-	pixel_y = 24
+	pixel_y = 32
 	},
 /obj/machinery/light{
 	dir = 1
@@ -840,7 +840,7 @@
 "cm" = (
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -22
+	pixel_x = -3
 	},
 /obj/machinery/camera{
 	c_tag = "Bar West";
@@ -1241,7 +1241,7 @@
 "da" = (
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 4

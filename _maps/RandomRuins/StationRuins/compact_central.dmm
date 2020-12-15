@@ -172,13 +172,14 @@
 	c_tag = "Central Hallway North-West"
 	},
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "ay" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /obj/machinery/firealarm{
 	pixel_y = 24
@@ -304,7 +305,9 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	pixel_y = 16
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "aM" = (
@@ -330,7 +333,8 @@
 /area/hallway/primary/central)
 "aO" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -342,7 +346,7 @@
 /area/hallway/primary/central)
 "aQ" = (
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -571,7 +575,7 @@
 	c_tag = "Teleporter"
 	},
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -620,7 +624,8 @@
 	pixel_y = 24
 	},
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -1178,7 +1183,9 @@
 	pixel_x = 5;
 	pixel_y = -32
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	pixel_y = 16
+	},
 /obj/machinery/light_switch{
 	pixel_x = -6;
 	pixel_y = -22
@@ -1250,7 +1257,7 @@
 "da" = (
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -1522,7 +1529,7 @@
 "dE" = (
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -1652,7 +1659,7 @@
 "dX" = (
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -22
+	pixel_x = -3
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 8
@@ -1935,7 +1942,8 @@
 	pixel_y = 28
 	},
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 10
@@ -2075,7 +2083,7 @@
 /obj/structure/cable,
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /turf/open/floor/carpet,
 /area/bridge/meeting_room)
@@ -2471,7 +2479,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	pixel_y = 16
+	},
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "fL" = (
@@ -2506,7 +2516,8 @@
 /area/bridge/meeting_room)
 "fO" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -2610,7 +2621,8 @@
 	dir = 1
 	},
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -2622,7 +2634,8 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -2662,7 +2675,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -22
+	pixel_x = -3
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -2903,7 +2916,8 @@
 /area/hallway/primary/central)
 "gG" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -2946,7 +2960,8 @@
 	pixel_y = 32
 	},
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -2979,7 +2994,9 @@
 	name = "Bridge RC";
 	pixel_y = -30
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	pixel_y = 16
+	},
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
@@ -2987,7 +3004,8 @@
 /area/bridge/meeting_room)
 "gO" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /obj/machinery/computer/card,
 /turf/open/floor/carpet,
@@ -3033,7 +3051,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/captain,
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
@@ -3136,7 +3154,9 @@
 /turf/open/floor/plating,
 /area/maintenance/central)
 "hl" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	pixel_y = 16
+	},
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -3259,7 +3279,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
@@ -3379,7 +3399,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -23
+	pixel_x = -3
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
@@ -3551,7 +3571,7 @@
 /obj/effect/turf_decal/tile/blue,
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -3560,7 +3580,7 @@
 	dir = 1
 	},
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -3690,7 +3710,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /obj/machinery/camera/autoname{
 	dir = 8
@@ -3722,7 +3742,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = 0
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
@@ -3770,7 +3790,7 @@
 "jN" = (
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /obj/machinery/light{
 	dir = 4
@@ -3838,13 +3858,15 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "jV" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	pixel_y = 16
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "jW" = (
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = 0
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -3914,7 +3936,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	pixel_y = 16
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "ke" = (
@@ -3949,7 +3973,9 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "ki" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	pixel_y = 16
+	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -4723,7 +4749,7 @@
 "UJ" = (
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = 0
 	},
 /obj/machinery/suit_storage_unit/captain,
 /turf/open/floor/carpet,
