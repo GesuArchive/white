@@ -428,7 +428,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -22
+	pixel_x = -3
 	},
 /obj/item/radio/intercom{
 	pixel_x = -29;
@@ -749,7 +749,7 @@
 "bZ" = (
 /obj/structure/rack,
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /obj/item/gun/energy/ionrifle,
 /obj/item/gun/energy/temperature/security,
@@ -1182,7 +1182,7 @@
 "db" = (
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /turf/open/floor/plating,
 /area/security/prison/safe)
@@ -1917,7 +1917,7 @@
 /obj/machinery/recharger,
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/warden)
@@ -2000,7 +2000,7 @@
 "eT" = (
 /obj/machinery/airalarm{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 3
 	},
 /obj/machinery/light{
 	dir = 4
@@ -2031,7 +2031,7 @@
 /area/security/prison)
 "eW" = (
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
@@ -2914,7 +2914,7 @@
 "gP" = (
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -23
+	pixel_x = -3
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -3502,7 +3502,7 @@
 /area/security/brig)
 "id" = (
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
@@ -5002,7 +5002,7 @@
 "lt" = (
 /obj/structure/cable,
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
@@ -5816,7 +5816,7 @@
 /area/security/prison)
 "nc" = (
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 32
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/plasteel,
@@ -6426,7 +6426,7 @@
 "nV" = (
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = 0
 	},
 /obj/machinery/light/small,
 /obj/effect/turf_decal/tile/neutral{

@@ -440,7 +440,9 @@
 /area/engine/engineering)
 "bq" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/light,
+/obj/machinery/light{
+	pixel_y = 16
+	},
 /obj/machinery/atmospherics/pipe/simple/orange/hidden{
 	dir = 5
 	},
@@ -483,7 +485,9 @@
 /turf/open/floor/engine,
 /area/engine/engineering)
 "bw" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	pixel_y = 16
+	},
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/engine/engineering)
@@ -539,7 +543,8 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	light_color = "#c1caff"
+	light_color = "#c1caff";
+	pixel_y = 24
 	},
 /obj/machinery/camera/emp_proof{
 	c_tag = "Engineering Particle Accelerator";
@@ -597,7 +602,9 @@
 /area/engine/engineering)
 "bL" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/light,
+/obj/machinery/light{
+	pixel_y = 16
+	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "bN" = (

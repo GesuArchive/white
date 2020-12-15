@@ -2,7 +2,7 @@
 	gender = PLURAL
 	name = "жалюзи"
 	desc = "Механические заслонки для тяжелых условий эксплуатации с атмосферным уплотнением, обеспечивающим их герметичность после закрытия."
-	icon = 'white/valtos/icons/shutters.dmi'
+	icon = 'icons/obj/doors/tall/shutters.dmi'
 	layer = SHUTTER_LAYER
 	closingLayer = SHUTTER_LAYER
 	damage_deflection = 20
@@ -21,7 +21,7 @@
 /obj/machinery/door/poddoor/shutters/radiation
 	name = "свинцовые жалюзи"
 	desc = "Свинцовые ставни с символом радиационной опасности. Хотя это не помешает вам получить облучение, особенно кристаллом суперматерии, оно остановит распространение излучения так далеко."
-	icon = 'icons/obj/doors/shutters_radiation.dmi'
+	icon = 'icons/obj/doors/tall/shutters.dmi'
 	icon_state = "closed"
 	rad_insulation = RAD_EXTREME_INSULATION
 

@@ -138,18 +138,20 @@
 /area/engine/engineering)
 "aO" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/light,
+/obj/machinery/light{
+	pixel_y = 16
+	},
 /obj/machinery/atmospherics/pipe/simple/green/visible{
 	dir = 4
+	},
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -26
 	},
 /turf/open/floor/engine,
 /area/engine/engineering)
 "aP" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/firealarm{
-	dir = 1;
-	pixel_y = -26
-	},
 /obj/machinery/camera{
 	c_tag = "Engineering Supermatter Fore";
 	dir = 1;
@@ -186,7 +188,9 @@
 /area/engine/engineering)
 "aS" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/light,
+/obj/machinery/light{
+	pixel_y = 16
+	},
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/cyan/visible{
 	dir = 4
@@ -299,12 +303,9 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
-"bg" = (
-/obj/structure/sign/warning/radiation,
-/turf/closed/wall/r_wall,
-/area/engine/supermatter)
 "bh" = (
 /obj/machinery/atmospherics/pipe/simple/green/visible,
+/obj/structure/sign/warning/radiation,
 /turf/closed/wall/r_wall,
 /area/engine/supermatter)
 "bi" = (
@@ -315,6 +316,7 @@
 /area/engine/engineering)
 "bj" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/visible,
+/obj/structure/sign/warning/fire,
 /turf/closed/wall/r_wall,
 /area/engine/supermatter)
 "bk" = (
@@ -664,7 +666,7 @@
 "cK" = (
 /obj/machinery/airalarm/engine{
 	dir = 4;
-	pixel_x = -23
+	pixel_x = -3
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/binary/pump{
@@ -791,7 +793,8 @@
 	dir = 1
 	},
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /obj/machinery/atmospherics/pipe/simple/cyan/visible{
 	dir = 4
@@ -949,7 +952,9 @@
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
 "dz" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	pixel_y = 16
+	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 9
 	},
@@ -1033,7 +1038,7 @@
 	},
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -22
+	pixel_x = -3
 	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
 	dir = 8
@@ -1120,7 +1125,8 @@
 /area/engine/engineering)
 "dW" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
@@ -1306,7 +1312,9 @@
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
 "ew" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	pixel_y = 16
+	},
 /turf/open/floor/plating,
 /area/engine/engineering)
 "ex" = (
@@ -1632,7 +1640,7 @@
 "gP" = (
 /obj/machinery/airalarm{
 	dir = 4;
-	pixel_x = -22
+	pixel_x = -3
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
@@ -2203,7 +2211,7 @@ ad
 aU
 bD
 aO
-bg
+bk
 bk
 bF
 do
@@ -2316,7 +2324,7 @@ aW
 bD
 aS
 bk
-bx
+bk
 bJ
 dp
 dp

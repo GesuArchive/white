@@ -4,9 +4,6 @@
 	icon = 'white/valtos/icons/grille/grille.dmi'
 	icon_state = "icon-0"
 	base_icon_state = "icon"
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_ABDUCTOR_TABLES)
-	canSmoothWith = list(SMOOTH_GROUP_ABDUCTOR_TABLES)
 	density = TRUE
 	anchored = TRUE
 	pass_flags_self = PASSGRILLE
