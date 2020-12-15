@@ -66,7 +66,7 @@ GLOBAL_VAR_INIT(chat_bubbles, FALSE)
 	S.pixel_y = L.bound_height
 
 	for(var/client/C in show_to)
-		if(C.mob.can_hear() && C.mob.has_language(message_language) && GLOB.chat_bubbles)
+		if(C.mob.can_hear() && C.mob.has_language(message_language))
 			C.images += S
 		else if(isobserver(C.mob))
 			C.images += S
@@ -86,7 +86,7 @@ GLOBAL_VAR_INIT(chat_bubbles, FALSE)
 		animate(S, alpha = 0, pixel_y = new_y, time = 4)
 		spawn(4)
 			for(var/client/C in show_to)
-				if(C.mob.can_hear() && C.mob.has_language(message_language) && GLOB.chat_bubbles)
+				if(C.mob.can_hear() && C.mob.has_language(message_language))
 					C.images -= S
 				else if(isobserver(C.mob))
 					C.images -= S
