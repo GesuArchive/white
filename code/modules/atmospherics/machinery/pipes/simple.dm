@@ -5,8 +5,6 @@
 	icon = 'icons/obj/atmospherics/pipes/simple.dmi'
 	icon_state = "pipe11-3"
 
-	plane = WALL_PLANE
-
 	name = "pipe"
 	desc = "A one meter section of regular pipe."
 
