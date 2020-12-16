@@ -350,6 +350,9 @@
 		return
 	invisibility = is_station_level(posobj.z) ? 0 : INVISIBILITY_ABSTRACT
 
+/atom/movable/screen/parallax_layer/planet/update_o()
+	return //Shit won't move
+
 /atom/movable/screen/parallax_layer/nebula
 	icon_state = "nebula"
 	speed = 2.5
