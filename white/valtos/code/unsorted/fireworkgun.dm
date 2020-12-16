@@ -25,9 +25,8 @@
 		return
 	for(var/datum/reagent/R in reagents.reagent_list)
 		color_variations.Add(R.color)
-		return
 
-/obj/item/gun/magic/fireworkgun/before_firing(atom/target,mob/user, aimed)
+/obj/item/gun/magic/fireworkgun/process_fire(atom/target, mob/living/user, message, params, zone_override, bonus_spread)
 	if(chambered?.BB)
 		var/obj/projectile/magic/fireworkgun/AB = chambered.BB
 		AB.color_variations = color_variations.Copy()
@@ -79,19 +78,18 @@
 	icon_state = pick("star", "tristar", "fourstar", "jew")
 	SpinAnimation(5, -1, prob(50))
 	color = pick(color_variations)
-	for(var/i in 1 to 15)
+	for(var/i in 1 to 25)
 		if(QDELETED(src))
 			return
 		var/obj/effect/overlay/sparkles/fireworkgun/S = new /obj/effect/overlay/sparkles/fireworkgun(src)
 		S.color = pick(color_variations)
 		S.alpha = 255
 		sparkles += S
-		S.orbit(src, rand(10, 60), prob(50), rand(30, 60), rand(4, 16), TRUE)
-		//var/matrix/initial_matrix = matrix(S.transform)
-		//initial_matrix = matrix(S.transform)
-		//initial_matrix.Translate(0, -16)
-		//animate(S, transform = initial_matrix, time = 50, loop = 0)
-	spawn(50)
+		var/matrix/initial_matrix = matrix(S.transform)
+		initial_matrix = matrix(S.transform)
+		initial_matrix.Translate(rand(-64, 64), rand(-64, 64))
+		animate(S, transform = initial_matrix, time = 5, loop = 0)
+	spawn(5)
 		QDEL_LIST(sparkles)
 		qdel(src)
 
