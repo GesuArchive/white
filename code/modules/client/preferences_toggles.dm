@@ -38,6 +38,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings, stop_client_sounds)()
 	set name = "❌ Остановить звуки"
 	set category = "Особенное"
 	set desc = "Остановить звуки"
+	checkbox = CHECKBOX_NONE
 	DIRECT_OUTPUT(usr, sound(null))
 	var/client/C = usr.client
 	C?.tgui_panel?.stop_music()

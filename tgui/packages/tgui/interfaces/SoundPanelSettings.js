@@ -19,7 +19,7 @@ export const SoundPanelSettings = (props, context) => {
   return (
     <Window
       width={250}
-      height={450}
+      height={430}
       title="Настройки звука"
       resizable>
       <Window.Content>
@@ -74,10 +74,14 @@ export const SoundPanelSettings = (props, context) => {
             onClick={() => act('ship_ambience')} />
           <Button
             icon="wrench"
-            color="transparent"
             content="Настроить Battletension"
             fluid
             onClick={() => act('bt_customize')} />
+          <Button
+            icon="play"
+            content="Следующий Battletension"
+            fluid
+            onClick={() => act('switch_track')} />
         </Section>
         <Section title="Педальное">
           <Button

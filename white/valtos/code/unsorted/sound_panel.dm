@@ -53,6 +53,9 @@
 		if("bt_customize")
 			C.customize_battletension()
 			return
+		if("switch_track")
+			C.random_battletension()
+			return
 		if("adminhelp")
 			C.prefs.toggles ^= SOUND_ADMINHELP
 		if("midi")

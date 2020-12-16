@@ -450,12 +450,12 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 			policytext += "<hr>"
 			anything = TRUE
 	if(!anything)
-		policytext += "No related rules found."
+		policytext += "Нет особых правил."
 
 	usr << browse(policytext.Join(""),"window=policy")
 
 /client/verb/fix_stat_panel()
-	set name = "Fix Stat Panel"
+	set name = "Починить ЭТУ панель"
 	set hidden = TRUE
 
 	init_verbs()

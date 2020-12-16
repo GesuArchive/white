@@ -43,8 +43,8 @@ export const ChatSettingsPanel = (props, context) => {
   return (
     <Window
       title="Настройка чата"
-      width={270}
-      height={400}
+      width={250}
+      height={460}
       resizable>
       <Window.Content scrollable>
         <Section title="Основное">
