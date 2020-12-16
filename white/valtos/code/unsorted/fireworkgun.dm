@@ -31,7 +31,7 @@
 	if(aimed)
 		if(chambered?.BB)
 			var/obj/projectile/magic/fireworkgun/AB = chambered.BB
-			AB.color_variations = color_variations
+			AB.color_variations = color_variations.Copy()
 	. = ..()
 
 /obj/item/ammo_casing/magic/fireworkgun
@@ -50,7 +50,7 @@
 	name = "заряд фейрверков"
 	icon = 'white/valtos/icons/projectiles.dmi'
 	icon_state = "railgun"
-	var/list/color_variations = list()
+	var/list/color_variations = list("#FFFFFF")
 
 /obj/projectile/magic/fireworkgun/Initialize()
 	. = ..()
@@ -59,7 +59,7 @@
 /obj/projectile/magic/fireworkgun/on_hit(target)
 	. = ..()
 	var/obj/effect/fireworkgun_main/FM = new /obj/effect/fireworkgun_main(get_turf(src))
-	FM.color_variations = color_variations
+	FM.color_variations = color_variations.Copy()
 
 	if(isliving(target))
 		var/mob/living/L = target
@@ -73,7 +73,7 @@
 	icon_state = "star"
 	anchored = TRUE
 	var/list/sparkles = list()
-	var/list/color_variations = list()
+	var/list/color_variations = list("#FFFFFF")
 
 /obj/effect/fireworkgun_main/Initialize()
 	. = ..()
