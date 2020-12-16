@@ -67,7 +67,8 @@
 	icon = 'icons/turf/mining.dmi'
 	smooth_icon = 'icons/turf/walls/rock_wall.dmi'
 	icon_state = "rock2"
-	smoothing_flags = SMOOTH_CORNERS|SMOOTH_BORDER
+	base_icon_state = "rock_wall"
+	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	canSmoothWith = list(SMOOTH_GROUP_CLOSED_TURFS)
 	baseturfs = /turf/open/floor/plating/ashplanet/rocky
 	environment_type = "waste"
@@ -161,13 +162,14 @@
 	icon_state = "s-1"
 
 /turf/open/floor/plating/partyhard
+	name = "пепел"
 	icon = 'icons/turf/mining.dmi'
 	gender = PLURAL
-	name = "ash"
 	icon_state = "ash"
-	smoothing_flags = SMOOTH_CORNERS|SMOOTH_BORDER
+	base_icon_state = "ash"
+	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	var/smooth_icon = 'icons/turf/floors/ash.dmi'
-	desc = "The ground is covered in volcanic ash."
+	desc = "Земля покрыта вулканическим пеплом."
 	baseturfs = /turf/open/floor/plating/partyhard
 	//initial_gas_mix = KITCHEN_COLDROOM_ATMOS
 	planetary_atmos = TRUE
@@ -179,12 +181,13 @@
 	tiled_dirt = FALSE
 
 /turf/open/floor/plating/partyhard/Initialize()
-	if(smoothing_flags)
+	. = ..()
+	if(smoothing_flags & SMOOTH_BITMASK)
 		var/matrix/M = new
 		M.Translate(-4, -4)
 		transform = M
 		icon = smooth_icon
-	. = ..()
+		icon_state = "[icon_state]-[smoothing_junction]"
 
 
 /obj/structure/pillar
