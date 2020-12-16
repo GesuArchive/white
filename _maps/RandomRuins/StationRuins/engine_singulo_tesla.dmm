@@ -712,6 +712,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "co" = (
@@ -968,6 +969,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 5
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "Dp" = (
@@ -1011,6 +1013,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "JX" = (
@@ -1039,6 +1042,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "Qx" = (

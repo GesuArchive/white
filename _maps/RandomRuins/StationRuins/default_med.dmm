@@ -17,6 +17,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
 "ag" = (
@@ -97,6 +98,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "aB" = (
@@ -127,6 +129,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "aT" = (
@@ -537,6 +540,7 @@
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
 	dir = 4
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
 "cH" = (
@@ -1193,6 +1197,7 @@
 	name = "Medbay Maintenance";
 	req_access_txt = "5"
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plating,
 /area/medical/break_room)
 "hu" = (
@@ -1266,6 +1271,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "hP" = (
@@ -1287,6 +1293,15 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/white,
+/area/medical/medbay/aft)
+"hX" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/duct/water,
+/turf/open/floor/plasteel/dark,
 /area/medical/medbay/aft)
 "ic" = (
 /obj/machinery/holopad,
@@ -1630,6 +1645,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/break_room)
 "ll" = (
@@ -1805,6 +1821,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4,
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "mK" = (
@@ -1902,6 +1919,13 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
+/turf/open/floor/plasteel/white,
+/area/medical/medbay/central)
+"nH" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 4
+	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "nI" = (
@@ -2064,6 +2088,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "pw" = (
@@ -2074,6 +2099,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 5
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/break_room)
 "pE" = (
@@ -2377,6 +2403,7 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "qS" = (
@@ -2655,6 +2682,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "sW" = (
@@ -2800,6 +2828,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2,
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "tR" = (
@@ -2909,6 +2938,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "vo" = (
@@ -2998,6 +3028,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 10
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/break_room)
 "wi" = (
@@ -3005,6 +3036,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "wu" = (
@@ -3012,6 +3044,7 @@
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "wy" = (
@@ -3163,6 +3196,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "yb" = (
@@ -3240,6 +3274,7 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "yv" = (
@@ -3271,6 +3306,13 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
+"yy" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 8
+	},
+/obj/machinery/duct/water,
+/turf/open/floor/plasteel/white,
+/area/medical/medbay/central)
 "yA" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -3732,6 +3774,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 8
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "BW" = (
@@ -4076,7 +4119,12 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel,
+/area/medical/virology)
+"DF" = (
+/obj/machinery/duct/water,
+/turf/closed/wall/r_wall,
 /area/medical/virology)
 "DG" = (
 /obj/machinery/light/small{
@@ -4289,6 +4337,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "EG" = (
@@ -4312,6 +4361,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "EK" = (
@@ -4456,6 +4506,7 @@
 	pixel_y = 20
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/freezer,
 /area/medical/break_room)
 "Gf" = (
@@ -4510,6 +4561,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "GP" = (
@@ -4847,6 +4899,7 @@
 /turf/open/floor/plasteel/dark,
 /area/medical/storage)
 "JB" = (
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/freezer,
 /area/medical/break_room)
 "JL" = (
@@ -4939,6 +4992,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/break_room)
 "Kw" = (
@@ -4958,6 +5012,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "KL" = (
@@ -5042,6 +5097,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "LG" = (
@@ -5054,6 +5110,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "LH" = (
@@ -5103,6 +5160,7 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/break_room)
 "LT" = (
@@ -5338,6 +5396,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/break_room)
 "NP" = (
@@ -5524,6 +5583,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/central)
 "Ps" = (
@@ -5811,6 +5871,7 @@
 	pixel_y = 8
 	},
 /obj/machinery/light/small,
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/freezer,
 /area/medical/break_room)
 "Rj" = (
@@ -5834,6 +5895,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "RB" = (
@@ -6005,6 +6067,7 @@
 /obj/structure/disposalpipe/junction/flip{
 	dir = 1
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "Su" = (
@@ -6078,6 +6141,7 @@
 /obj/machinery/door/airlock{
 	name = "Private Restroom"
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/freezer,
 /area/medical/break_room)
 "SO" = (
@@ -6183,6 +6247,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
 "Tt" = (
@@ -6231,6 +6296,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "TI" = (
@@ -6403,6 +6469,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel,
 /area/medical/break_room)
 "Vi" = (
@@ -6873,6 +6940,7 @@
 /area/medical/cryo)
 "Yf" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning,
+/obj/machinery/duct/water,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "Yn" = (
@@ -7568,7 +7636,7 @@ Fi
 Jh
 si
 VY
-cp
+yy
 lt
 BJ
 xF
@@ -7610,7 +7678,7 @@ nI
 qZ
 zx
 PJ
-WH
+nH
 Fb
 bB
 Er
@@ -7951,7 +8019,7 @@ qK
 sV
 KI
 Yf
-Le
+hX
 EI
 Ll
 Fp
@@ -8337,7 +8405,7 @@ LQ
 fV
 Su
 Rg
-Qf
+DF
 Si
 Mt
 Al

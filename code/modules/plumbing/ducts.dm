@@ -4,7 +4,7 @@ All the important duct code:
 /code/datums/ductnet.dm
 */
 /obj/machinery/duct
-	name = "fluid duct"
+	name = "труба"
 	icon = 'icons/obj/plumbing/fluid_ducts.dmi'
 	icon_state = "nduct"
 
@@ -337,9 +337,13 @@ All the important duct code:
 	connect_network(D, direction, TRUE)
 	update_icon()
 
+/obj/machinery/duct/water
+	name = "водопровод"
+	duct_color = "#00aaff"
+
 ///has a total of 5 layers and doesnt give a shit about color. its also dumb so doesnt autoconnect.
 /obj/machinery/duct/multilayered
-	name = "duct layer-manifold"
+	name = "труба-переходник"
 	icon = 'icons/obj/2x2.dmi'
 	icon_state = "multiduct"
 	pixel_x = -15
@@ -385,8 +389,8 @@ All the important duct code:
 	return
 
 /obj/item/stack/ducts
-	name = "stack of duct"
-	desc = "A stack of fluid ducts."
+	name = "набор труб"
+	desc = "Используются для передачи жидкости на расстояние."
 	singular_name = "duct"
 	icon = 'icons/obj/plumbing/fluid_ducts.dmi'
 	icon_state = "ducts"
