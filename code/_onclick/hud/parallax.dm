@@ -13,17 +13,12 @@
 		C.parallax_layers_cached = list()
 		C.parallax_layers_cached += new SSparallax.random_space(null, C.view)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_2(null, C.view)
-		if (SSmapping.current_mining == "gensokyo")
-			C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/planet/high_definition/gensokyo(null, C.view)
-		else if (SSmapping.current_mining == "lavaland")
-			C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/planet/high_definition(null, C.view)
-		else if (SSmapping.current_mining == "icemoon")
-			C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/planet/high_definition/icemoon(null, C.view)
+		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/planet(null, C.view)
 		if(SSparallax.random_layer)
 			C.parallax_layers_cached += new SSparallax.random_layer
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_3(null, C.view)
-		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/clouds(null, C.view)
-		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/ice_surface(null, C.view)
+		//C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/clouds(null, C.view)
+		//C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/ice_surface(null, C.view)
 
 	C.parallax_layers = C.parallax_layers_cached.Copy()
 
@@ -65,12 +60,12 @@
 		switch(C.prefs.parallax)
 			if (PARALLAX_INSANE)
 				C.parallax_throttle = FALSE
-				C.parallax_layers_max = 7
+				C.parallax_layers_max = 5
 				return TRUE
 
 			if (PARALLAX_MED)
 				C.parallax_throttle = PARALLAX_DELAY_MED
-				C.parallax_layers_max = 5
+				C.parallax_layers_max = 3
 				return TRUE
 
 			if (PARALLAX_LOW)
@@ -83,7 +78,7 @@
 
 	//This is high parallax.
 	C.parallax_throttle = PARALLAX_DELAY_DEFAULT
-	C.parallax_layers_max = 7
+	C.parallax_layers_max = 5
 	return TRUE
 
 /datum/hud/proc/update_parallax_pref(mob/viewmob, forced_parallax = FALSE)
@@ -104,11 +99,7 @@
 			var/atom/movable/screen/parallax_layer/L = thing
 			L.icon_state = initial(L.icon_state)
 			L.update_o(C.view)
-			var/T
-			if(L.speed != 0)
-				T = PARALLAX_LOOP_TIME / L.speed
-			else
-				T = PARALLAX_LOOP_TIME
+			var/T = PARALLAX_LOOP_TIME / L.speed
 			if (T > animate_time)
 				animate_time = T
 		C.dont_animate_parallax = world.time + min(animate_time, PARALLAX_LOOP_TIME)
@@ -160,12 +151,9 @@
 		if (!new_parallax_movedir)
 			animate(L)
 			continue
+
 		var/newstate = initial(L.icon_state)
-		var/T
-		if(L.speed != 0)
-			T = PARALLAX_LOOP_TIME / L.speed
-		else
-			T = PARALLAX_LOOP_TIME
+		var/T = PARALLAX_LOOP_TIME / L.speed
 
 		if (newstate in icon_states(L.icon))
 			L.icon_state = newstate
@@ -349,7 +337,7 @@
 	icon_state = "asteroids"
 
 /atom/movable/screen/parallax_layer/planet
-	icon_state = "planet"
+	icon_state = "planet_lavaland"
 	blend_mode = BLEND_OVERLAY
 	absolute = TRUE //Status of seperation
 	speed = 2.5
@@ -360,15 +348,7 @@
 	var/turf/posobj = get_turf(C.eye)
 	if(!posobj)
 		return
-	if((SSmapping.config?.map_name == "Unit Station" && posobj.z == 2) || (is_station_level(posobj.z) && SSmapping.config.map_name != "Unit Station"))
-		invisibility = 0
-	else
-		invisibility = INVISIBILITY_ABSTRACT
-
-/atom/movable/screen/parallax_layer/planet/update_o()
-	if (icon_state == "planet_icemoon" || icon_state == "planet_lavaland")
-		return //Shit wont move
-	. = ..()
+	invisibility = is_station_level(posobj.z) ? 0 : INVISIBILITY_ABSTRACT
 
 /atom/movable/screen/parallax_layer/nebula
 	icon_state = "nebula"
@@ -376,47 +356,6 @@
 	layer = 4
 	blend_mode = 3
 	color = "#ffff00"
-
-/atom/movable/screen/parallax_layer/planet/high_definition
-	icon_state = "planet_lavaland"
-
-/atom/movable/screen/parallax_layer/planet/high_definition/gensokyo
-	icon_state = "planet_gensokyo"
-
-/atom/movable/screen/parallax_layer/planet/high_definition/icemoon
-	icon_state = "planet_icemoon"
-
-/atom/movable/screen/parallax_layer/ice_surface
-	icon_state = "ice_surface"
-	blend_mode = BLEND_OVERLAY
-	speed = 0.1
-	layer = 5
-
-/atom/movable/screen/parallax_layer/ice_surface/update_status(mob/M)
-	var/client/C = M.client
-	var/turf/posobj = get_turf(C.eye)
-	if(!posobj)
-		return
-	if((SSmapping.config?.map_name == "Unit Station" && posobj.z == 3) || is_centcom_level(posobj.z))
-		invisibility = 0
-	else
-		invisibility = INVISIBILITY_ABSTRACT
-
-/atom/movable/screen/parallax_layer/clouds
-	icon_state = "clouds"
-	blend_mode = BLEND_OVERLAY
-	speed = 3
-	layer = 6
-
-/atom/movable/screen/parallax_layer/clouds/update_status(mob/M)
-	var/client/C = M.client
-	var/turf/posobj = get_turf(C.eye)
-	if(!posobj)
-		return
-	if((SSmapping.config?.map_name == "Unit Station" && posobj.z == 3) || is_centcom_level(posobj.z))
-		invisibility = 0
-	else
-		invisibility = INVISIBILITY_ABSTRACT
 
 /atom/movable/screen/parallax_layer/cyberspess
 	icon_state = "cyberspess"
