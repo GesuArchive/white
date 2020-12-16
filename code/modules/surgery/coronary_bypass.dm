@@ -22,7 +22,7 @@
 	time = 16
 
 /datum/surgery_step/incise_heart/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>Начинаю делать надрез в сердце [target]...</span>",
+	display_results(user, target, "<span class='notice'>Начинаю делать надрез в сердце [sklonenie(target, RODITELNI, target.gender)]...</span>",
 		"<span class='notice'>[user] начинает делать надрез в [target.ru_who()] сердце.</span>",
 		"<span class='notice'>[user] начинает делать надрез в [target.ru_who()] сердце.</span>")
 
@@ -56,7 +56,7 @@
 	time = 90
 
 /datum/surgery_step/coronary_bypass/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>Начинаю делать обходное штунирование сердца [target]...</span>",
+	display_results(user, target, "<span class='notice'>Начинаю делать обходное штунирование сердца [sklonenie(target, RODITELNI, target.gender)]...</span>",
 			"<span class='notice'>[user] начинает делать обходное штунирование [target.ru_who()] сердца!</span>",
 			"<span class='notice'>[user] начинает делать обходное штунирование [target.ru_who()] сердца!</span>")
 
@@ -65,7 +65,7 @@
 	var/obj/item/organ/heart/heart = target.getorganslot(ORGAN_SLOT_HEART)
 	if(heart)	//slightly worrying if we lost our heart mid-operation, but that's life
 		heart.operated = TRUE
-	display_results(user, target, "<span class='notice'>Успешно выполняю обходное штунирование на сердце [target].</span>",
+	display_results(user, target, "<span class='notice'>Успешно выполняю обходное штунирование на сердце [sklonenie(target, RODITELNI, target.gender)].</span>",
 			"<span class='notice'>[user] успешно выполняет обходное штунирование на [target.ru_who()] сердце.</span>",
 			"<span class='notice'>[user] успешно выполняет обходное штунирование на [target.ru_who()] сердце.</span>")
 	return ..()
