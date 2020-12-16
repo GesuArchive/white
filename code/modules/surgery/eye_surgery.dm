@@ -7,7 +7,7 @@
 
 //fix eyes
 /datum/surgery_step/fix_eyes
-	name = "исправвление глаз"
+	name = "исправление глаз"
 	implements = list(TOOL_HEMOSTAT = 100, TOOL_SCREWDRIVER = 45, /obj/item/pen = 25)
 	time = 64
 
@@ -21,7 +21,7 @@
 /datum/surgery_step/fix_eyes/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, "<span class='notice'>Начинаю исправлять глаза [sklonenie(target, RODITELNI, target.gender)]...</span>",
 		"<span class='notice'>[user] начинает исправлять [target.ru_who()] глаза.</span>",
-		"<span class='notice'>[user] начинает операцию [target.ru_who()] на глазах.</span>")
+		"<span class='notice'>[user] начинает операцию на [target.ru_who()] глазах.</span>")
 
 /datum/surgery_step/fix_eyes/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/obj/item/organ/eyes/E = target.getorganslot(ORGAN_SLOT_EYES)
