@@ -1,16 +1,16 @@
 ///Pad for the Civilian Bounty Control.
 /obj/machinery/piratepad/civilian
-	name = "civilian bounty pad"
-	desc = "A machine designed to send civilian bounty targets to centcom."
+	name = "платформа отправки"
+	desc = "Используется для отправки груза на ЦК."
 	layer = TABLE_LAYER
 	resistance_flags = FIRE_PROOF
 	circuit = /obj/item/circuitboard/machine/bountypad
 
 ///Computer for assigning new civilian bounties, and sending bounties for collection.
 /obj/machinery/computer/piratepad_control/civilian
-	name = "civilian bounty control terminal"
-	desc = "A console for assigning civilian bounties to inserted ID cards, and for controlling the bounty pad for export."
-	status_report = "Ready for delivery."
+	name = "гражданский терминал заказов"
+	desc = "Консоль, которая предоставляет персоналу возможность выполнять небольшие поручения, достаточно лишь вставить свою ID-карту."
+	status_report = "Готово к отправке."
 	icon_screen = "civ_bounty"
 	icon_keyboard = "id_key"
 	warmup_time = 3 SECONDS
@@ -30,7 +30,7 @@
 
 /obj/machinery/computer/piratepad_control/multitool_act(mob/living/user, obj/item/multitool/I)
 	if(istype(I) && istype(I.buffer,/obj/machinery/piratepad/civilian))
-		to_chat(user, "<span class='notice'>You link [src] with [I.buffer] in [I] buffer.</span>")
+		to_chat(user, "<span class='notice'>Привязываю [src] используя [I.buffer] в буффере [I].</span>")
 		pad = I.buffer
 		return TRUE
 
@@ -48,11 +48,11 @@
 	if(sending)
 		return FALSE
 	if(!inserted_scan_id)
-		status_report = "Please insert your ID first."
+		status_report = "Вставьте сначала вашу ID-карту."
 		playsound(loc, 'sound/machines/synth_no.ogg', 30 , TRUE)
 		return FALSE
 	if(!inserted_scan_id.registered_account.civilian_bounty)
-		status_report = "Please accept a new civilian bounty first."
+		status_report = "Получите новый заказ, пожалуйста."
 		playsound(loc, 'sound/machines/synth_no.ogg', 30 , TRUE)
 		return FALSE
 	status_report = "Civilian Bounty: "
@@ -60,10 +60,10 @@
 		if(AM == pad)
 			continue
 		if(inserted_scan_id.registered_account.civilian_bounty.applies_to(AM))
-			status_report += "Target Applicable."
+			status_report += "Объект подходит."
 			playsound(loc, 'sound/machines/synth_yes.ogg', 30 , TRUE)
 			return
-	status_report += "Not Applicable."
+	status_report += "Неудовлетворительно."
 	playsound(loc, 'sound/machines/synth_no.ogg', 30 , TRUE)
 
 /**
@@ -89,19 +89,19 @@
 			curr_bounty.ship(AM)
 			qdel(AM)
 	if(active_stack >= 1)
-		status_report += "Bounty Target Found x[active_stack]. "
+		status_report += "Найдены требуемые предметы x[active_stack]. "
 	else
-		status_report = "No applicable targets found. Aborting."
+		status_report = "Не обнаружены необходимые предметы. Отмена."
 		stop_sending()
 	if(curr_bounty.can_claim())
 		//Pay for the bounty with the ID's department funds.
-		status_report += "Bounty Completed! Please send your completed bounty cube to cargo for your automated payout shortly."
+		status_report += "Заказ завершён! Пожалуйста, отправьте куб с данными заказа на шаттле для получения вознаграждения."
 		inserted_scan_id.registered_account.reset_bounty()
 		SSeconomy.civ_bounty_tracker++
 		var/obj/item/bounty_cube/reward = new /obj/item/bounty_cube(drop_location())
 		reward.bounty_value = curr_bounty.reward
 		reward.AddComponent(/datum/component/pricetag, inserted_scan_id.registered_account, 30)
-	pad.visible_message("<span class='notice'>[pad] activates!</span>")
+	pad.visible_message("<span class='notice'>[capitalize(pad.name)] активируется!</span>")
 	flick(pad.sending_state,pad)
 	pad.icon_state = pad.idle_state
 	playsound(loc, 'sound/machines/synth_yes.ogg', 30 , TRUE)
@@ -153,10 +153,10 @@
 			var/datum/bank_account/pot_acc = inserted_scan_id.registered_account
 			if(pot_acc.civilian_bounty && ((world.time) < pot_acc.bounty_timer + 5 MINUTES))
 				var/curr_time = round(((pot_acc.bounty_timer + (5 MINUTES))-world.time)/ (1 MINUTES), 0.01)
-				to_chat(usr, "<span class='warning'>You already have an incomplete civilian bounty, try again in [curr_time] minutes to replace it!</span>")
+				to_chat(usr, "<span class='warning'>Похоже, стоит подождать ещё примерно [curr_time] минут для замены заказа!</span>")
 				return FALSE
 			if(!pot_acc.account_job)
-				to_chat(usr, "<span class='warning'>The console smartly rejects your ID card, as it lacks a job assignment!</span>")
+				to_chat(usr, "<span class='warning'>Консоль не хочет принимать мою карту, похоже карта не имеет данных о должности!</span>")
 				return FALSE
 			var/datum/bounty/crumbs = random_bounty(pot_acc.account_job.bounty_types) //It's a good scene from War Dogs (2016).
 			pot_acc.bounty_timer = world.time
@@ -183,8 +183,8 @@
 		else
 			id_eject(user, target)
 
-	user.visible_message("<span class='notice'>[user] inserts \the [card_to_insert] into \the [src].</span>",
-						"<span class='notice'>You insert \the [card_to_insert] into \the [src].</span>")
+	user.visible_message("<span class='notice'>[user] вставляет [card_to_insert] в [src].</span>",
+						"<span class='notice'>Вставляю [card_to_insert] в [src].</span>")
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 	updateUsrDialog()
 	return TRUE
@@ -192,14 +192,14 @@
 ///Removes A stored ID card.
 /obj/machinery/computer/piratepad_control/civilian/proc/id_eject(mob/user, obj/target)
 	if(!target)
-		to_chat(user, "<span class='warning'>That slot is empty!</span>")
+		to_chat(user, "<span class='warning'>Внутри пусто!</span>")
 		return FALSE
 	else
 		target.forceMove(drop_location())
 		if(!issilicon(user) && Adjacent(user))
 			user.put_in_hands(target)
-		user.visible_message("<span class='notice'>[user] gets \the [target] from \the [src].</span>", \
-							"<span class='notice'>You get \the [target] from \the [src].</span>")
+		user.visible_message("<span class='notice'>[user] достаёт [target] из [src].</span>", \
+							"<span class='notice'>Достаю [target] из[src].</span>")
 		playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 		inserted_scan_id = null
 		updateUsrDialog()
@@ -207,8 +207,8 @@
 
 ///Upon completion of a civilian bounty, one of these is created. It is sold to cargo to give the cargo budget bounty money, and the person who completed it cash.
 /obj/item/bounty_cube
-	name = "Bounty Cube"
-	desc = "A bundle of compressed hardlight data, containing a completed bounty. Sell this on the cargo shuttle to claim it!"
+	name = "Куб с Данными"
+	desc = "Набор сжатых данных, которые имеют информацию о выполненном заказе. Это нужно отправить на шаттле снабжения!"
 	icon = 'icons/obj/economy.dmi'
 	icon_state = "bounty_cube"
 	///Value of the bounty that this bounty cube sells for.
@@ -216,14 +216,14 @@
 
 ///Beacon to launch a new bounty setup when activated.
 /obj/item/civ_bounty_beacon
-	name = "civilian bounty beacon"
-	desc = "N.T. approved civilian bounty beacon, toss it down and you will have a bounty pad and computer delivered to you."
+	name = "гражданский маяк заказов"
+	desc = "Универсальный приёмник от Нанотрейзен, который посылает сигнал с требованием прислать гражданский терминал заказов и платформу прямо сюда. Чудеса!"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "floor_beacon"
 	var/uses = 2
 
 /obj/item/civ_bounty_beacon/attack_self()
-	loc.visible_message("<span class='warning'>\The [src] begins to beep loudly!</span>")
+	loc.visible_message("<span class='warning'>[capitalize(src.name)] начинает громко пищать!</span>")
 	addtimer(CALLBACK(src, .proc/launch_payload), 1 SECONDS)
 
 /obj/item/civ_bounty_beacon/proc/launch_payload()

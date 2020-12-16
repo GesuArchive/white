@@ -204,8 +204,8 @@
 	storage_type = /obj/item/tank/internals/oxygen
 
 /obj/machinery/loot_locator
-	name = "Booty Locator"
-	desc = "This sophisticated machine scans the nearby space for items of value."
+	name = "Поисковик Сокровищ"
+	desc = "Эта удивительная машина ищет и выводит на экран ценность ближайших кладов."
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "tdoppler"
 	density = TRUE
@@ -214,14 +214,14 @@
 
 /obj/machinery/loot_locator/interact(mob/user)
 	if(world.time <= next_use)
-		to_chat(user,"<span class='warning'>[capitalize(src.name)] is recharging.</span>")
+		to_chat(user,"<span class='warning'>[capitalize(src.name)] перезаряжается.</span>")
 		return
 	next_use = world.time + cooldown
 	var/atom/movable/AM = find_random_loot()
 	if(!AM)
-		say("No valuables located. Try again later.")
+		say("Ничего ценного не обнаружено. Попробуйте ещё.")
 	else
-		say("Located: [AM.name] at [get_area_name(AM)]")
+		say("Обнаружено: [AM.name] в [get_area_name(AM)]")
 
 /obj/machinery/loot_locator/proc/find_random_loot()
 	if(!GLOB.exports_list.len)
@@ -238,7 +238,7 @@
 
 //Pad & Pad Terminal
 /obj/machinery/piratepad
-	name = "cargo hold pad"
+	name = "платформа отправки"
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "lpad-idle-o"
 	var/idle_state = "lpad-idle-o"
@@ -249,13 +249,13 @@
 /obj/machinery/piratepad/multitool_act(mob/living/user, obj/item/multitool/I)
 	. = ..()
 	if (istype(I))
-		to_chat(user, "<span class='notice'>You register [src] in [I]s buffer.</span>")
+		to_chat(user, "<span class='notice'>Записываю [src] в буффере [I].</span>")
 		I.buffer = src
 		return TRUE
 
 /obj/machinery/computer/piratepad_control
-	name = "cargo hold control terminal"
-	var/status_report = "Ready for delivery."
+	name = "управление платформой торговли"
+	var/status_report = "Готово к доставке."
 	var/obj/machinery/piratepad/pad
 	var/warmup_time = 100
 	var/sending = FALSE
@@ -271,7 +271,7 @@
 /obj/machinery/computer/piratepad_control/multitool_act(mob/living/user, obj/item/multitool/I)
 	. = ..()
 	if (istype(I) && istype(I.buffer,/obj/machinery/piratepad))
-		to_chat(user, "<span class='notice'>You link [src] with [I.buffer] in [I] buffer.</span>")
+		to_chat(user, "<span class='notice'>Привязываю [src] используя [I.buffer] в буффере [I].</span>")
 		pad = I.buffer
 		return TRUE
 
@@ -321,7 +321,7 @@
 	if(sending)
 		return
 
-	status_report = "Predicted value: "
+	status_report = "Возможная ценность: "
 	var/value = 0
 	var/datum/export_report/ex = new
 	for(var/atom/movable/AM in get_turf(pad))
@@ -348,7 +348,7 @@
 			continue
 		export_item_and_contents(AM, EXPORT_PIRATE | EXPORT_CARGO | EXPORT_CONTRABAND | EXPORT_EMAG, apply_elastic = FALSE, delete_unsold = FALSE, external_report = ex)
 
-	status_report = "Sold: "
+	status_report = "Продажа: "
 	var/value = 0
 	for(var/datum/export/E in ex.total_amount)
 		var/export_text = E.total_printout(ex,notes = FALSE) //Don't want nanotrasen messages, makes no sense here.
@@ -371,9 +371,9 @@
 	points += value
 
 	if(!value)
-		status_report += "Nothing"
+		status_report += "Ничего"
 
-	pad.visible_message("<span class='notice'>[pad] activates!</span>")
+	pad.visible_message("<span class='notice'>[capitalize(pad.name)] активируется!</span>")
 	flick(pad.sending_state,pad)
 	pad.icon_state = pad.idle_state
 	sending = FALSE
@@ -382,8 +382,8 @@
 	if(sending)
 		return
 	sending = TRUE
-	status_report = "Sending... "
-	pad.visible_message("<span class='notice'>[pad] starts charging up.</span>")
+	status_report = "Отправка... "
+	pad.visible_message("<span class='notice'>[capitalize(pad.name)] начинает разогреваться.</span>")
 	pad.icon_state = pad.warmup_state
 	sending_timer = addtimer(CALLBACK(src,.proc/send),warmup_time, TIMER_STOPPABLE)
 
@@ -391,7 +391,7 @@
 	if(!sending)
 		return
 	sending = FALSE
-	status_report = "Ready for delivery."
+	status_report = "Готово к отправке."
 	if(custom_report)
 		status_report = custom_report
 	pad.icon_state = pad.idle_state

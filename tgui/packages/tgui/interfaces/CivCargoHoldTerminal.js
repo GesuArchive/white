@@ -14,8 +14,8 @@ export const CivCargoHoldTerminal = (props, context) => {
     id_bounty_value,
     id_bounty_num,
   } = data;
-  const in_text = "Welcome valued employee.";
-  const out_text = "To begin, insert your ID into the console.";
+  const in_text = "Приветствуем, драгоценный сотрудник.";
+  const out_text = "Для начала работы вставьте вашу ID-карту в консоль.";
   return (
     <Window resizable
       width={500}
@@ -27,14 +27,14 @@ export const CivCargoHoldTerminal = (props, context) => {
               color={!id_inserted ? 'default': 'blue'}>
               {id_inserted ? in_text : out_text}
             </NoticeBox>
-            <Section title="Cargo Pad">
+            <Section title="Платформа">
               <LabeledList>
                 <LabeledList.Item
-                  label="Status"
+                  label="Состояние"
                   color={pad ? "good" : "bad"}>
-                  {pad ? "Online" : "Not Found"}
+                  {pad ? "Подключена" : "Не найдена"}
                 </LabeledList.Item>
-                <LabeledList.Item label="Cargo Report">
+                <LabeledList.Item label="Сообщение">
                   {status_report}
                 </LabeledList.Item>
               </LabeledList>
@@ -46,13 +46,13 @@ export const CivCargoHoldTerminal = (props, context) => {
               <Button
                 fluid
                 icon={"sync"}
-                content={"Check Contents"}
+                content={"Проверить"}
                 disabled={!pad || !id_inserted}
                 onClick={() => act('recalc')} />
               <Button
                 fluid
                 icon={sending ? 'times' : 'arrow-up'}
-                content={sending ? "Stop Sending" : "Send Goods"}
+                content={sending ? "Отменить" : "Отправить"}
                 selected={sending}
                 disabled={!pad || !id_inserted}
                 onClick={() => act(sending ? 'stop' : 'send')} />
@@ -60,13 +60,13 @@ export const CivCargoHoldTerminal = (props, context) => {
                 fluid
                 icon={id_bounty_info ? 'recycle' : 'pen'}
                 color={id_bounty_info ? 'green' : 'default'}
-                content={id_bounty_info ? "Replace Bounty" : "New Bounty"}
+                content={id_bounty_info ? "Заменить заказ" : "Новый заказ"}
                 disabled={!id_inserted}
                 onClick={() => act('bounty')} />
               <Button
                 fluid
                 icon={'download'}
-                content={"Eject"}
+                content={"Изъять"}
                 disabled={!id_inserted}
                 onClick={() => act('eject')} />
             </Fragment>
@@ -84,17 +84,17 @@ const BountyTextBox = (props, context) => {
     id_bounty_value,
     id_bounty_num,
   } = data;
-  const na_text = "N/A, please add a new bounty.";
+  const na_text = "Нет описания, получите новый заказ.";
   return (
-    <Section title="Bounty Info">
+    <Section title="Информация о заказе">
       <LabeledList>
-        <LabeledList.Item label="Description">
+        <LabeledList.Item label="Описание">
           {id_bounty_info ? id_bounty_info : na_text}
         </LabeledList.Item>
-        <LabeledList.Item label="Quantity">
+        <LabeledList.Item label="Количество">
           {id_bounty_info ? id_bounty_num : "N/A"}
         </LabeledList.Item>
-        <LabeledList.Item label="Value">
+        <LabeledList.Item label="Ценность">
           {id_bounty_info ? id_bounty_value : "N/A"}
         </LabeledList.Item>
       </LabeledList>
