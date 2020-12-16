@@ -3647,6 +3647,7 @@
 #include "white\valtos\code\nanosuit\nanosuit.dm"
 #include "white\valtos\code\outfits\hacker.dm"
 #include "white\valtos\code\outfits\russian.dm"
+#include "white\valtos\code\outfits\scarlet.dm"
 #include "white\valtos\code\outfits\trader.dm"
 #include "white\valtos\code\randomstation\landmarks.dm"
 #include "white\valtos\code\randomstation\mapping.dm"
