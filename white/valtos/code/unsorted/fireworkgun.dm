@@ -69,7 +69,7 @@
 
 /obj/effect/fireworkgun_main
 	name = "искорка"
-	icon = 'icons/effects/effects.dmi'
+	icon = 'white/valtos/icons/effects.dmi'
 	icon_state = "star"
 	anchored = TRUE
 	var/list/sparkles = list()
@@ -99,7 +99,7 @@
 /obj/effect/overlay/sparkles/fireworkgun
 	gender = PLURAL
 	name = "искорка"
-	icon = 'icons/effects/effects.dmi'
+	icon = 'white/valtos/icons/effects.dmi'
 	icon_state = "ministar"
 	anchored = TRUE
 
