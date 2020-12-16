@@ -85,10 +85,7 @@
 		S.color = pick(color_variations)
 		S.alpha = 255
 		sparkles += S
-		var/matrix/initial_matrix = matrix(S.transform)
-		initial_matrix = matrix(S.transform)
-		initial_matrix.Translate(rand(-64, 64), rand(-64, 64))
-		animate(S, transform = initial_matrix, time = 5, loop = 0)
+		animate(S, pixel_y = rand(-64, 64), pixel_x = rand(-64, 64), time = 5, loop = 0)
 	spawn(5)
 		QDEL_LIST(sparkles)
 		qdel(src)
