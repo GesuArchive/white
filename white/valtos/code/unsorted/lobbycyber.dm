@@ -26,6 +26,8 @@
 /client/proc/send_to_lobby_console_now(msg)
 	src << output(msg, "lobbyprotoc:set_cons_now")
 
+/client/proc/adjust_lobbyscreen_width(width)
+	src << output(width, "lobbyprotoc:set_lobby_width")
 
 /client/proc/show_lobby()
 	lobbyscreen_image.show_titlescreen(src)
@@ -36,7 +38,7 @@
 /client/verb/lobby_ready()
 	set hidden = TRUE
 
-	src << output(SStitle.ctt, 					 	 "lobbyprotoc:set_cons_now")
+	src << output(SStitle.ctt, "lobbyprotoc:set_cons_now")
 
 /client/proc/reload_lobby()
 	lobbyscreen_image.reload_titlescreen(src)

@@ -8,11 +8,13 @@
 				height: 100%;
 				overflow: hidden;
 				text-align: left;
+				background: #000;
 			}
 
-			body {
+			#main {
 				background: url('ts.png') #000;
 				background-size: cover;
+				height: 100%;
 			}
 
 			#pp {
@@ -21,7 +23,7 @@
 				white-space: break-spaces;
 				padding: 8px;
 				margin: 8px;
-				width: 800px;
+				min-width: 400px;
 				background: rgb(5, 5, 5);
 				border: 1px solid  #333;
 				cursor: default;
@@ -70,6 +72,10 @@
 				document.body.style.background = "url('" + link + "') #000";
 			};
 
+			function set_lobby_width(width) {
+				document.body.style.width = width + "px";
+			};
+
 			window.onload = function() {
 				NotifyByondOnload();
 			};
@@ -86,10 +92,12 @@
 	</head>
 
 	<body>
-		<div id=pp>
-			----------------------------------------------------------</br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Загрузка, потерпите...</br>
-			----------------------------------------------------------</br>
+		<div id=main>
+			<div id=pp>
+				----------------------------------------------------------</br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Загрузка, потерпите...</br>
+				----------------------------------------------------------</br>
+			</div>
 		</div>
 	</body>
 
