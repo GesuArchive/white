@@ -24,14 +24,13 @@
 		color_variations = list("#FFFFFF")
 		return
 	for(var/datum/reagent/R in reagents.reagent_list)
-		color_variations += R.color
+		color_variations.Add(R.color)
 		return
 
 /obj/item/gun/magic/fireworkgun/before_firing(atom/target,mob/user, aimed)
-	if(aimed)
-		if(chambered?.BB)
-			var/obj/projectile/magic/fireworkgun/AB = chambered.BB
-			AB.color_variations = color_variations.Copy()
+	if(chambered?.BB)
+		var/obj/projectile/magic/fireworkgun/AB = chambered.BB
+		AB.color_variations = color_variations.Copy()
 	. = ..()
 
 /obj/item/ammo_casing/magic/fireworkgun
@@ -73,7 +72,7 @@
 	icon_state = "star"
 	anchored = TRUE
 	var/list/sparkles = list()
-	var/list/color_variations = list("#FFFFFF")
+	var/list/color_variations = list("#FF0000", "#0000FF", "#00FF00")
 
 /obj/effect/fireworkgun_main/Initialize()
 	. = ..()
@@ -88,10 +87,10 @@
 		S.alpha = 255
 		sparkles += S
 		S.orbit(src, rand(10, 60), prob(50), rand(30, 60), rand(4, 16), TRUE)
-		var/matrix/initial_matrix = matrix(S.transform)
-		initial_matrix = matrix(S.transform)
-		initial_matrix.Translate(0, -16)
-		animate(S, transform = initial_matrix, time = 50, loop = 0)
+		//var/matrix/initial_matrix = matrix(S.transform)
+		//initial_matrix = matrix(S.transform)
+		//initial_matrix.Translate(0, -16)
+		//animate(S, transform = initial_matrix, time = 50, loop = 0)
 	spawn(50)
 		QDEL_LIST(sparkles)
 		qdel(src)
