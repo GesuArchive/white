@@ -1,5 +1,5 @@
 /datum/surgery/prosthetic_replacement
-	name = "Prosthetic replacement"
+	name = "Замена конечностей"
 	steps = list(/datum/surgery_step/incise, /datum/surgery_step/clamp_bleeders, /datum/surgery_step/retract_skin, /datum/surgery_step/add_prosthetic)
 	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
 	possible_locs = list(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG, BODY_ZONE_HEAD)
@@ -17,7 +17,7 @@
 
 
 /datum/surgery_step/add_prosthetic
-	name = "add prosthetic"
+	name = "добавить конечность"
 	implements = list(/obj/item/bodypart = 100, /obj/item/organ_storage = 100, /obj/item/chainsaw = 100, /obj/item/melee/synthetic_arm_blade = 100)
 	time = 32
 	var/organ_rejection_dam = 0
