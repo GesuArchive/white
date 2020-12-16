@@ -30,7 +30,7 @@
 	name = "x031 техзащита"
 	desc = "#(&GB#*&R"
 	icon = 'white/valtos/icons/clothing/suits.dmi'
-	worn_icon = 'white/valtos/icons/clothing/suit.dmi'
+	worn_icon = 'white/valtos/icons/clothing/mob/suit.dmi'
 	icon_state = "scarlet"
 	slowdown = 0
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 100)
@@ -50,7 +50,7 @@
 /obj/item/clothing/suit/space/x031/equipped(mob/user, slot)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
-	scanlines = mutable_appearance('white/valtos/icons/clothing/suit.dmi', "sl_suit", EFFECTS_LAYER)
+	scanlines = mutable_appearance('white/valtos/icons/clothing/mob/suit.dmi', "sl_suit", EFFECTS_LAYER)
 	user.add_overlay(scanlines)
 	INVOKE_ASYNC(src, .proc/bootSequence)
 
@@ -113,7 +113,7 @@
 	name = "x031 техшлем"
 	desc = "SH&*(@UQ"
 	icon = 'white/valtos/icons/clothing/hats.dmi'
-	worn_icon = 'white/valtos/icons/clothing/hat.dmi'
+	worn_icon = 'white/valtos/icons/clothing/mob/hat.dmi'
 	icon_state = "scarlet"
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 100)
 	cold_protection = HEAD
@@ -128,7 +128,7 @@
 /obj/item/clothing/head/x031/equipped(mob/user, slot)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
-	scanlines = mutable_appearance('white/valtos/icons/clothing/suit.dmi', "sl_head", EFFECTS_LAYER)
+	scanlines = mutable_appearance('white/valtos/icons/clothing/mob/suit.dmi', "sl_head", EFFECTS_LAYER)
 	user.add_overlay(scanlines)
 
 /obj/item/clothing/mask/gas/syndicate/x031
