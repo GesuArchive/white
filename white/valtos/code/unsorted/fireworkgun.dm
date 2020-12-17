@@ -85,7 +85,6 @@
 		S.color = pick(color_variations)
 		S.alpha = 255
 		sparkles += S
-		animate(S, pixel_y = rand(-64, 64), pixel_x = rand(-64, 64), time = 5, loop = 0)
 	spawn(5)
 		QDEL_LIST(sparkles)
 		qdel(src)
@@ -99,4 +98,5 @@
 
 /obj/effect/overlay/sparkles/fireworkgun/Initialize()
 	icon_state = pick("ministar", "microstar")
+	animate(src, pixel_y = rand(-64, 64), pixel_x = rand(-64, 64), time = 5, loop = 0)
 	. = ..()
