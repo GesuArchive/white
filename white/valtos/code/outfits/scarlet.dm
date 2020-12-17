@@ -58,7 +58,7 @@
 	H.overlay_fullscreen("scarlet", /atom/movable/screen/fullscreen/scarlet, 1)
 	sleep(50)
 	H.overlay_fullscreen("scarlet", /atom/movable/screen/fullscreen/scarlet, 2)
-	to_chat(H, "<span class='revenboldnotice'><center> -|- ИНИЦИАЛИЗАЦИЯ -|- </center></span>")
+	to_chat(H, "<span class='revenboldnotice'><center> -|- ИНИЦИАЛИЗАЦИЯ #1 -|- </center></span>")
 	sleep(15)
 	for(var/i in 1 to 10)
 		to_chat(H, "<span class='revenboldnotice'><center> -|- [md5("[rand(0, 999)][H]")] -|- </center></span>")
@@ -66,22 +66,22 @@
 		sleep(1)
 	sleep(20)
 	H.overlay_fullscreen("scarlet", /atom/movable/screen/fullscreen/scarlet, 4)
-	to_chat(H, "<span class='revenboldnotice'><center> -|- УСПЕШНАЯ ОШИБКА -|- </center></span>")
+	to_chat(H, "<span class='revenboldnotice'><center> -|- УСПЕШНАЯ ОШИБКА #1 -|- </center></span>")
 	sleep(5)
 	H.overlay_fullscreen("scarlet", /atom/movable/screen/fullscreen/scarlet, 3)
-	to_chat(H, "<span class='revenboldnotice'><center> -|- ПОДКЛЮЧЕНИЕ -|- </center></span>")
+	to_chat(H, "<span class='revenboldnotice'><center> -|- ПОДКЛЮЧЕНИЕ #1 -|- </center></span>")
 	sleep(20)
 	H.overlay_fullscreen("scarlet", /atom/movable/screen/fullscreen/scarlet, 4)
-	to_chat(H, "<span class='revenboldnotice'><center> -|- УСПЕШНАЯ ОШИБКА -|- </center></span>")
+	to_chat(H, "<span class='revenboldnotice'><center> -|- УСПЕШНАЯ ОШИБКА #2 -|- </center></span>")
 	sleep(5)
 	H.overlay_fullscreen("scarlet", /atom/movable/screen/fullscreen/scarlet, 3)
-	to_chat(H, "<span class='revenboldnotice'><center> -|- АДАПТАЦИЯ -|- </center></span>")
+	to_chat(H, "<span class='revenboldnotice'><center> -|- АДАПТАЦИЯ #1 -|- </center></span>")
 	sleep(10)
 	H.overlay_fullscreen("scarlet", /atom/movable/screen/fullscreen/scarlet, 4)
-	to_chat(H, "<span class='revenboldnotice'><center> -|- УСПЕШНАЯ ОШИБКА -|- </center></span>")
+	to_chat(H, "<span class='revenboldnotice'><center> -|- УСПЕШНАЯ ОШИБКА #3 -|- </center></span>")
 	sleep(5)
 	H.overlay_fullscreen("scarlet", /atom/movable/screen/fullscreen/scarlet, 2)
-	to_chat(H, "<span class='revenboldnotice'><center> -|- ПОДКЛЮЧЕНИЕ -|- </center></span>")
+	to_chat(H, "<span class='revenboldnotice'><center> -|- ПОДКЛЮЧЕНИЕ #2 -|- </center></span>")
 	for(var/i in 1 to 7)
 		to_chat(H, "<span class='revenboldnotice'><center> -|- [md5("[rand(0, 999)][H]")] -|- </center></span>")
 		playsound(src, 'sound/machines/beep.ogg', 50, FALSE)
@@ -90,22 +90,22 @@
 	to_chat(H, "<span class='revenboldnotice'><center> -|- КРИТИЧЕСКАЯ ОШИБКА -|- </center></span>")
 	sleep(20)
 	H.overlay_fullscreen("scarlet", /atom/movable/screen/fullscreen/scarlet, 6)
-	to_chat(H, "<span class='revenboldnotice'><center> -|- АДАПТАЦИЯ -|- </center></span>")
+	to_chat(H, "<span class='revenboldnotice'><center> -|- АДАПТАЦИЯ #2 -|- </center></span>")
 	sleep(20)
 	H.overlay_fullscreen("scarlet", /atom/movable/screen/fullscreen/scarlet, 4)
-	to_chat(H, "<span class='revenboldnotice'><center> -|- УСПЕХ -|- </center></span>")
+	to_chat(H, "<span class='revenboldnotice'><center> -|- УСПЕХ #1 -|- </center></span>")
 	sleep(20)
 	H.overlay_fullscreen("scarlet", /atom/movable/screen/fullscreen/scarlet, 7)
-	to_chat(H, "<span class='revenboldnotice'><center> -!- ЗАПУСК -!- </center></span>")
+	to_chat(H, "<span class='revenboldnotice'><center> -!- ЗАПУСК #1 -!- </center></span>")
 	sleep(20)
-	to_chat(H, "<span class='revenboldnotice'><center> -!- СИСТЕМА В СЕТИ -!- </center></span>")
+	to_chat(H, "<span class='revenboldnotice'><center> -!- СИСТЕМА В СЕТИ #1 -!- </center></span>")
 	H.clear_fullscreen("scarlet", 10)
 
 /atom/movable/screen/fullscreen/scarlet
 	icon = 'white/valtos/icons/fullscreen_scarlet.dmi'
 	layer = SPLASHSCREEN_LAYER
 	plane = SPLASHSCREEN_PLANE
-	icon_state = "scarlet1"
+	icon_state = "scarlet"
 
 /obj/item/clothing/head/x031
 	name = "х031 техшлем"
