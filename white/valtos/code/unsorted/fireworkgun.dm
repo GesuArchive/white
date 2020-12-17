@@ -81,11 +81,11 @@
 	for(var/i in 1 to 25)
 		if(QDELETED(src))
 			return
-		var/obj/effect/overlay/sparkles/fireworkgun/S = new /obj/effect/overlay/sparkles/fireworkgun(src)
+		var/obj/effect/overlay/sparkles/fireworkgun/S = new /obj/effect/overlay/sparkles/fireworkgun(get_turf(src))
 		S.color = pick(color_variations)
 		S.alpha = 255
 		sparkles += S
-	spawn(5)
+	spawn(50)
 		QDEL_LIST(sparkles)
 		qdel(src)
 
