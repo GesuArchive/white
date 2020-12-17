@@ -11,9 +11,12 @@
 				background: #000;
 			}
 
-			#main {
-				background: url('ts.png') #000;
-				background-size: contain;
+			#bg {
+				position: absolute;
+				display: block;
+				top: 0;
+				z-index: -1;
+				width: auto;
 				height: 100%;
 			}
 
@@ -24,7 +27,6 @@
 				padding: 8px;
 				margin: 8px;
 				min-width: 400px;
-				background: rgb(5, 5, 5);
 				border: 1px solid  #333;
 				cursor: default;
 				user-select: none;
@@ -40,12 +42,12 @@
 			function set_cons(msg) {
 				cm = msg;
 				write_cons();
-			}
+			};
 
 			function set_cons_now(msg) {
 				i = msg.length
 				document.getElementById("pp").innerHTML = msg.replace(/ /g, "&nbsp;");
-			}
+			};
 
 			function write_cons() {
 				if (i < cm.length) {
@@ -60,8 +62,8 @@
 					setTimeout(write_cons, 1);
 				} else {
 					document.getElementById("pp").innerHTML = cm.replace(/ /g, "&nbsp;");
-				}
-			}
+				};
+			};
 
 			function cls() {
 				i = 0;
@@ -69,20 +71,25 @@
 			};
 
 			function set_lobby_image(link) {
-				document.getElementById("main").style.background = "url('" + link + "') #000";
-			};
-
-			function set_lobby_width(width) {
-				document.getElementById("main").style.width = width + "px";
+				document.getElementById("bg").src = link;
 			};
 
 			window.onload = function() {
+				setTimeout(movebg, 75);
 				NotifyByondOnload();
+			};
+
+			var mp = 0;
+			function movebg() {
+				document.getElementById("pp").style.cssText = "background-position: " + mp + "px";
+				mp++
+				if(mp == 32) mp = 0;
+				setTimeout(movebg, 75);
 			};
 
 			function NotifyByondOnload() {
 				window.location.href = "byond://winset?command=Lobby-Ready";
-			}
+			};
 
 			document.onselectstart = function() {
 				window.getSelection().removeAllRanges();
@@ -92,13 +99,12 @@
 	</head>
 
 	<body>
-		<div id=main>
-			<div id=pp>
-				----------------------------------------------------------</br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Загрузка, потерпите...</br>
-				----------------------------------------------------------</br>
-			</div>
+		<div id=pp>
+			----------------------------------------------------------</br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Загрузка, потерпите...</br>
+			----------------------------------------------------------</br>
 		</div>
+		<img id=bg src='ts.png'>
 	</body>
 
 </html>

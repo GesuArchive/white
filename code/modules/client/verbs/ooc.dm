@@ -401,8 +401,6 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	// Avoid auto-resizing the statpanel and chat into nothing.
 	desired_width = min(desired_width, split_width - 300)
 
-	adjust_lobbyscreen_width(desired_width)
-
 	// Calculate and apply a best estimate
 	// +4 pixels are for the width of the splitter's handle
 	var/pct = 100 * (desired_width + 4) / split_width
