@@ -143,7 +143,7 @@ Made by Xhuis
 	//Normal shadowpeople but with enhanced effects
 	name = "Shadowling"
 	id = "shadowling"
-	say_mod = "chitters"
+	say_mod = "шепелявит"
 	species_traits = list(NOBLOOD,NO_UNDERWEAR,NO_DNA_COPY,NOTRANSSTING,NOEYESPRITES,TRAIT_NOFLASH)
 	inherent_traits = list(TRAIT_NOGUNS, TRAIT_RESISTCOLD, TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE, TRAIT_NOBREATH, TRAIT_RADIMMUNE, TRAIT_VIRUSIMMUNE, TRAIT_PIERCEIMMUNE)
 	no_equip = list(ITEM_SLOT_MASK, ITEM_SLOT_EYES, ITEM_SLOT_GLOVES, ITEM_SLOT_FEET, ITEM_SLOT_ICLOTHING, ITEM_SLOT_OCLOTHING)
@@ -211,7 +211,7 @@ Made by Xhuis
 /datum/species/shadow/ling/lesser //Empowered thralls. Obvious, but powerful
 	name = "Lesser Shadowling"
 	id = "l_shadowling"
-	say_mod = "chitters"
+	say_mod = "шепелявит"
 	species_traits = list(NOBLOOD,NO_DNA_COPY,NOTRANSSTING,NOEYESPRITES,TRAIT_NOFLASH)
 	inherent_traits = list(TRAIT_NOBREATH, TRAIT_RADIMMUNE)
 	burnmod = 1.1

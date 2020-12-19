@@ -289,35 +289,21 @@ GLOBAL_VAR(restart_counter)
 	log_world("Deallocated [num_deleted] gas mixtures")
 	..()
 
+GLOBAL_VAR_INIT(hub_mimic, TRUE)
+
 /world/proc/update_status()
 
-	var/s = "<big>White Dream: REDUX</big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/TT2gqfz\">DISCORD</a>\n\n"
-	s += "<b>WHY:</b> AdaptiveRP, Economy, Cyberpunk, NO LAGS, Friendly Admins and more!\n\n"
-	s += "\[<big>Pycc&kcy;&icy;e &icy;&dcy;y&tcy;!</big>"
+	var/s = ""
 
-	/*
-	//var/hostedby
-	var/special_string
-	var/server_name = "piss"
-	var/server_type = "coom"
-	if(config)
-		special_string = CONFIG_GET(string/special_string)
-		//hostedby = CONFIG_GET(string/hostedby)
-		server_name = CONFIG_GET(string/servername)
-		server_type = CONFIG_GET(string/servertype)
-		s += "[special_string]"
+	if(!GLOB.hub_mimic)
+		s += "<big><b>White Dream: REDUX</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/9uJ7dmM\">DISCORD</a>\n\n"
+		s += "WHY: AdaptiveRP, Economy, Cyberpunk, NO LAGS, Friendly Admins and more!\n\n"
+		s += "\[<big>Pycc&kcy;&icy;e &icy;&dcy;y&tcy;!</big>"
+	else
+		s += "<b>\[RU\] The Fluffy Fronti&iecy;r 18+ MRP</b> — (<a href=\"https://discord.gg/9uJ7dmM\">Discord)\]<br>"
+		s += "Russian furry MRP server running on modified Skyrat code<br>"
+		s += "\[[pick("Box", "Meta")] Station, [pick("green", "blue", "red", "delta")] alert, ~[GLOB.player_list.len] players</a>"
 
-	s += "<a href=\"https://discord.gg/TT2gqfz\"><big><b>[server_name]: [server_type]</b></big></a>\n"
-	s += "\n<b><i>AltRP, Cyberpunk, MetaCash, NO LAG and more!</i></b>\n\n"
-	// <img src=\"https://hub.station13.ru/o/?=[world.time]\">
-
-	var/players = GLOB.clients.len
-
-	s += "<b>Players:</b> \[[players]/75"
-
-	//if (!host && hostedby)
-	//	s += "<b>Host:</b> [hostedby]"
-	*/
 	status = s
 
 /world/proc/update_hub_visibility(new_visibility)

@@ -1,6 +1,6 @@
 /obj/item/soapstone
-	name = "soapstone"
-	desc = "Leave informative messages for the crew, including the crew of future shifts!\nEven if out of uses, it can still be used to remove messages.\n(Not suitable for engraving on shuttles, off station or on cats. Side effects may include prompt beatings, psychotic clown incursions, and/or orbital bombardment.)"
+	name = "стеатит"
+	desc = "Оставляйте информационные сообщения для экипажа, в том числе для будущих смен!\nДаже если он не используется, его все равно можно использовать для удаления сообщений.\n(Не подходит для гравировки на шаттлах, за пределами станции или на кошках. Возможны побочные эффекты быстрые избиения, вторжения психотических клоунов и/или орбитальные бомбардировки.)"
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "soapstone"
 	throw_speed = 3
@@ -16,7 +16,7 @@
 /obj/item/soapstone/examine(mob/user)
 	. = ..()
 	if(remaining_uses != -1)
-		. += "<hr>It has [remaining_uses] uses left."
+		. += "<hr>Может быть использован ещё [remaining_uses] раз."
 
 /obj/item/soapstone/afterattack(atom/target, mob/user, proximity)
 	. = ..()
@@ -27,18 +27,18 @@
 	var/obj/structure/chisel_message/existing_message = locate() in T
 
 	if(!remaining_uses && !existing_message)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] is too worn out to use.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] истёрся.</span>")
 		return
 
 	if(!good_chisel_message_location(T))
-		to_chat(user, "<span class='warning'>It's not appropriate to engrave on [T].</span>")
+		to_chat(user, "<span class='warning'>Тут не получится гравировать.</span>")
 		return
 
 	if(existing_message)
-		user.visible_message("<span class='notice'>[user] starts erasing [existing_message].</span>", "<span class='notice'>You start erasing [existing_message].</span>", "<span class='hear'>You hear a chipping sound.</span>")
+		user.visible_message("<span class='notice'>[user] начинает стирать [existing_message].</span>", "<span class='notice'>Начинаю стирать [existing_message].</span>", "<span class='hear'>Слышу как что-то скребёт по металлу.</span>")
 		playsound(loc, 'sound/items/gavel.ogg', 50, TRUE, -1)
 		if(do_after(user, tool_speed, target = existing_message))
-			user.visible_message("<span class='notice'>[user] erases [existing_message].</span>", "<span class='notice'>You erase [existing_message][existing_message.creator_key == user.ckey ? ", refunding a use" : ""].</span>")
+			user.visible_message("<span class='notice'>[user] стирает [existing_message].</span>", "<span class='notice'>Стираю [existing_message][existing_message.creator_key == user.ckey ? ", не испортив стеатит" : ""].</span>")
 			existing_message.persists = FALSE
 			qdel(existing_message)
 			playsound(loc, 'sound/items/gavel.ogg', 50, TRUE, -1)
@@ -46,19 +46,19 @@
 				refund_use()
 		return
 
-	var/message = stripped_input(user, "What would you like to engrave?", "Leave a message")
+	var/message = stripped_input(user, "Что же мы напишем?", "Сообщение")
 	if(!message)
-		to_chat(user, "<span class='notice'>You decide not to engrave anything.</span>")
+		to_chat(user, "<span class='notice'>Не хочу писать. Вот!</span>")
 		return
 
 	if(!target.Adjacent(user) && locate(/obj/structure/chisel_message) in T)
-		to_chat(user, "<span class='warning'>Someone wrote here before you chose! Find another spot.</span>")
+		to_chat(user, "<span class='warning'>Кто-то уже что-то написал здесь!</span>")
 		return
 	playsound(loc, 'sound/items/gavel.ogg', 50, TRUE, -1)
-	user.visible_message("<span class='notice'>[user] starts engraving a message into [T]...</span>", "<span class='notice'>You start engraving a message into [T]...</span>", "<span class='hear'>You hear a chipping sound.</span>")
+	user.visible_message("<span class='notice'>[user] начинает выцарапывать сообщение на [T]...</span>", "<span class='notice'>Начинаю выцарапывать сообщение на [T]...</span>", "<span class='hear'>Слышу как что-то скребёт по металлу.</span>")
 	if(can_use() && do_after(user, tool_speed, target = T) && can_use()) //This looks messy but it's actually really clever!
 		if(!locate(/obj/structure/chisel_message) in T)
-			user.visible_message("<span class='notice'>[user] leaves a message for future spacemen!</span>", "<span class='notice'>You engrave a message into [T]!</span>", "<span class='hear'>You hear a chipping sound.</span>")
+			user.visible_message("<span class='notice'>[user] выцарапывает сообщение для будущих космонавтов!</span>", "<span class='notice'>Выцарапываю сообщение на [T]!</span>", "<span class='hear'>Слышу как что-то скребёт по металлу.</span>")
 			playsound(loc, 'sound/items/gavel.ogg', 50, TRUE, -1)
 			var/obj/structure/chisel_message/M = new(T)
 			M.register(user, message)
@@ -84,7 +84,7 @@
 		// This will mess up RPG loot names, but w/e
 		name = initial(name)
 	else
-		name = "dull [initial(name)]"
+		name = "сточенный [initial(name)]"
 
 /* Persistent engraved messages, etched onto the station turfs to serve
 as instructions and/or memes for the next generation of spessmen.
@@ -108,8 +108,8 @@ but only permamently removed with the curator's soapstone.
 		. = TRUE
 
 /obj/structure/chisel_message
-	name = "engraved message"
-	desc = "A message from a past traveler."
+	name = "гравировка"
+	desc = "Сообщение из прошлого."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "soapstone_message"
 	layer = LATTICE_LAYER
@@ -266,7 +266,7 @@ but only permamently removed with the curator's soapstone.
 		if("delete")
 			if(!is_admin)
 				return
-			var/confirm = alert(user, "Confirm deletion of engraved message?", "Confirm Deletion", "Yes", "No")
-			if(confirm == "Yes")
+			var/confirm = alert(user, "Удаляем точно?", "Волосатый анальный хуй", "Да", "Нет")
+			if(confirm == "Да")
 				persists = FALSE
 				qdel(src)

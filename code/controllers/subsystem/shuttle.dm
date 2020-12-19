@@ -195,21 +195,21 @@ SUBSYSTEM_DEF(shuttle)
 /datum/controller/subsystem/shuttle/proc/canEvac(mob/user, check_integrity = TRUE)
 	var/srd = CONFIG_GET(number/shuttle_refuel_delay)
 	if(world.time - SSticker.round_start_time < srd)
-		return "<span class='alert'>Эвакуационный шаттл всё ещё готовится. Подождите [DisplayTimeText(srd - (world.time - SSticker.round_start_time))] перед очередной попыткой.</span>"
+		return "Эвакуационный шаттл всё ещё готовится. Подождите [DisplayTimeText(srd - (world.time - SSticker.round_start_time))] перед очередной попыткой."
 
 	switch(emergency.mode)
 		if(SHUTTLE_RECALL)
-			return "The emergency shuttle may not be called while returning to CentCom."
+			return "Эвакуационный шаттл не может быть вызван, пока он летит к ЦК."
 		if(SHUTTLE_CALL)
-			return "The emergency shuttle is already on its way."
+			return "Эвакуационный шаттл уже в пути."
 		if(SHUTTLE_DOCKED)
-			return "The emergency shuttle is already here."
+			return "Эвакуационный шаттл уже на месте."
 		if(SHUTTLE_IGNITING)
-			return "The emergency shuttle is firing its engines to leave."
+			return "Эвакуационный шаттл уже зажигает свои двигатели и собирается улетать."
 		if(SHUTTLE_ESCAPE)
-			return "The emergency shuttle is moving away to a safe distance."
+			return "Эвакуационный шаттл уже отлетел от станции на безопасное расстояние."
 		if(SHUTTLE_STRANDED)
-			return "The emergency shuttle has been disabled by CentCom."
+			return "Эвакуационный шаттл заблокирован Центральным Командованием."
 
 	if(world.time - SSticker.round_start_time > 1 HOURS)
 		return TRUE
@@ -219,7 +219,7 @@ SUBSYSTEM_DEF(shuttle)
 		end_state.count()
 		var/station_integrity = min(PERCENT(GLOB.start_state.score(end_state)), 100)
 		if(station_integrity > 98)
-			return "<span class='alert'>Состояние станции удовлетворительное. Улетать пока нет смысла.</span>"
+			return "Состояние станции удовлетворительное. Улетать пока нет смысла."
 
 	return TRUE
 

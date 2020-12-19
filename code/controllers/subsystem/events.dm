@@ -47,6 +47,7 @@ SUBSYSTEM_DEF(events)
 /datum/controller/subsystem/events/proc/checkEvent()
 	if(scheduled <= world.time)
 		spawnEvent()
+		adjust_frequency_by_time_passed()
 		reschedule()
 
 //decides which world.time we should select another random event at.
@@ -185,3 +186,18 @@ SUBSYSTEM_DEF(events)
 /datum/controller/subsystem/events/proc/resetFrequency()
 	frequency_lower = initial(frequency_lower)
 	frequency_upper = initial(frequency_upper)
+
+/datum/controller/subsystem/events/proc/adjust_frequency_by_time_passed()
+	switch(world.time - SSticker.round_start_time)
+		if(1 HOURS to 2 HOURS) // 1.5 - 5 минут
+			frequency_lower = 1.5 MINUTES
+			frequency_upper = 5 MINUTES
+		if(2 HOURS to 3 HOURS) // 1 - 4 минуты
+			frequency_lower = 1 MINUTES
+			frequency_upper = 4 MINUTES
+		if(3 HOURS to 4 HOURS) // 0.5 - 2 минуты
+			frequency_lower = 0.5 MINUTES
+			frequency_upper = 2 MINUTES
+		if(5 HOURS to INFINITY) // вечный пиздец каждые 15 - 30 секунд
+			frequency_lower = 15 SECONDS
+			frequency_upper = 30 SECONDS

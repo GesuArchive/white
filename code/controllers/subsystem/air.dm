@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(air)
-	name = "Atmospherics"
+	name = "Турбо-Атмос"
 	init_order = INIT_ORDER_AIR
 	priority = FIRE_PRIORITY_AIR
 	wait = 0.5 SECONDS
@@ -27,7 +27,6 @@ SUBSYSTEM_DEF(air)
 
 	//atmos singletons
 	var/list/gas_reactions = list()
-	var/list/atmos_gen
 
 	//Special functions lists
 	var/list/turf/active_super_conductivity = list()
@@ -39,8 +38,6 @@ SUBSYSTEM_DEF(air)
 
 	var/map_loading = TRUE
 	var/list/queued_for_activation
-	var/display_all_groups = FALSE
-
 
 /datum/controller/subsystem/air/stat_entry(msg)
 	msg += "C:{"
@@ -88,98 +85,81 @@ SUBSYSTEM_DEF(air)
 		for(var/thing in pipenet_rebuilds)
 			var/obj/machinery/atmospherics/AT = thing
 			AT.build_network()
-		cached_cost += TICK_USAGE_REAL - timer
 		pipenets_needing_rebuilt.Cut()
 		if(state != SS_RUNNING)
 			return
-		cost_rebuilds = MC_AVERAGE(cost_rebuilds, TICK_DELTA_TO_MS(cached_cost))
+		cost_rebuilds = MC_AVERAGE(cost_rebuilds, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 
 	if(currentpart == SSAIR_PIPENETS || !resumed)
-		timer = TICK_USAGE_REAL
-		if(!resumed)
-			cached_cost = 0
 		process_pipenets(delta_time, resumed)
-		cached_cost += TICK_USAGE_REAL - timer
+		cost_pipenets = MC_AVERAGE(cost_pipenets, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
-		cost_pipenets = MC_AVERAGE(cost_pipenets, TICK_DELTA_TO_MS(cached_cost))
 		resumed = FALSE
 		currentpart = SSAIR_ATMOSMACHINERY
 
 	if(currentpart == SSAIR_ATMOSMACHINERY)
 		timer = TICK_USAGE_REAL
-		if(!resumed)
-			cached_cost = 0
 		process_atmos_machinery(delta_time, resumed)
-		cached_cost += TICK_USAGE_REAL - timer
+		cost_atmos_machinery = MC_AVERAGE(cost_atmos_machinery, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
-		cost_atmos_machinery = MC_AVERAGE(cost_atmos_machinery, TICK_DELTA_TO_MS(cached_cost))
-		resumed = FALSE
+		resumed = 0
+		currentpart = SSAIR_EQUALIZE
+
+	if(currentpart == SSAIR_EQUALIZE)
+		timer = TICK_USAGE_REAL
+		process_turf_equalize(resumed)
+		cost_equalize = MC_AVERAGE(cost_equalize, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
+		if(state != SS_RUNNING)
+			return
+		resumed = 0
 		currentpart = SSAIR_ACTIVETURFS
 
 	if(currentpart == SSAIR_ACTIVETURFS)
 		timer = TICK_USAGE_REAL
-		if(!resumed)
-			cached_cost = 0
 		process_active_turfs(resumed)
-		cached_cost += TICK_USAGE_REAL - timer
+		cost_turfs = MC_AVERAGE(cost_turfs, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
-		cost_turfs = MC_AVERAGE(cost_turfs, TICK_DELTA_TO_MS(cached_cost))
 		resumed = FALSE
 		currentpart = SSAIR_EXCITEDGROUPS
 
 	if(currentpart == SSAIR_EXCITEDGROUPS)
 		timer = TICK_USAGE_REAL
-		if(!resumed)
-			cached_cost = 0
 		process_excited_groups(resumed)
-		cached_cost += TICK_USAGE_REAL - timer
+		cost_groups = MC_AVERAGE(cost_groups, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
-		cost_groups = MC_AVERAGE(cost_groups, TICK_DELTA_TO_MS(cached_cost))
 		resumed = FALSE
 		currentpart = SSAIR_HIGHPRESSURE
 
 	if(currentpart == SSAIR_HIGHPRESSURE)
 		timer = TICK_USAGE_REAL
-		if(!resumed)
-			cached_cost = 0
 		process_high_pressure_delta(resumed)
-		cached_cost += TICK_USAGE_REAL - timer
+		cost_highpressure = MC_AVERAGE(cost_highpressure, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
-		cost_highpressure = MC_AVERAGE(cost_highpressure, TICK_DELTA_TO_MS(cached_cost))
 		resumed = FALSE
 		currentpart = SSAIR_HOTSPOTS
 
 	if(currentpart == SSAIR_HOTSPOTS)
 		timer = TICK_USAGE_REAL
-		if(!resumed)
-			cached_cost = 0
 		process_hotspots(delta_time, resumed)
-		cached_cost += TICK_USAGE_REAL - timer
+		cost_hotspots = MC_AVERAGE(cost_hotspots, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
-		cost_hotspots = MC_AVERAGE(cost_hotspots, TICK_DELTA_TO_MS(cached_cost))
 		resumed = FALSE
 		currentpart = SSAIR_SUPERCONDUCTIVITY
 
 	if(currentpart == SSAIR_SUPERCONDUCTIVITY)
 		timer = TICK_USAGE_REAL
-		if(!resumed)
-			cached_cost = 0
 		process_super_conductivity(resumed)
-		cached_cost += TICK_USAGE_REAL - timer
+		cost_superconductivity = MC_AVERAGE(cost_superconductivity, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
-		cost_superconductivity = MC_AVERAGE(cost_superconductivity, TICK_DELTA_TO_MS(cached_cost))
 		resumed = FALSE
 	currentpart = SSAIR_PIPENETS
-
-	SStgui.update_uis(SSair) //Lightning fast debugging motherfucker
-
 
 /datum/controller/subsystem/air/proc/process_pipenets(delta_time, resumed = FALSE)
 	if (!resumed)
@@ -248,6 +228,7 @@ SUBSYSTEM_DEF(air)
 		high_pressure_delta.len--
 		T.high_pressure_movements()
 		T.pressure_difference = 0
+		T.pressure_specific_target = null
 		if(MC_TICK_CHECK)
 			return
 
@@ -261,8 +242,10 @@ SUBSYSTEM_DEF(air)
 	while(currentrun.len)
 		var/turf/open/T = currentrun[currentrun.len]
 		currentrun.len--
-		if (istype(T))
-			T.equalize_pressure_in_zone(fire_count)
+		if (T)
+			if(istype(T))
+				T.equalize_pressure_in_zone(fire_count)
+			//equalize_pressure_in_zone(T, fire_count)
 		if (MC_TICK_CHECK)
 			return
 
@@ -276,7 +259,7 @@ SUBSYSTEM_DEF(air)
 	while(currentrun.len)
 		var/turf/open/T = currentrun[currentrun.len]
 		currentrun.len--
-		if (istype(T))
+		if (T)
 			T.process_cell(fire_count)
 		if (MC_TICK_CHECK)
 			return
@@ -392,6 +375,8 @@ SUBSYSTEM_DEF(air)
 		CHECK_TICK
 
 /datum/controller/subsystem/air/proc/setup_template_machinery(list/atmos_machines)
+	if(!initialized) // yogs - fixes randomized bars
+		return // yogs
 	for(var/A in atmos_machines)
 		var/obj/machinery/atmospherics/AM = A
 		AM.atmosinit()

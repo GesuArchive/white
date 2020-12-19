@@ -104,7 +104,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	if(ic_blocked)
 		//The filter warning message shows the sanitized message though.
-		to_chat(src, "<span class='warning'>Хотел сказать <span replaceRegex='show_filtered_ic_chat'>\"[message]\"</span>, но у меня ничего не вышло.</span>")
+		to_chat(src, "<span class='warning'>Хочу сказать <span replaceRegex='show_filtered_ic_chat'>\"[message]\"</span>, но у меня ничего не выходит.</span>")
 		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
 		return
 	var/list/message_mods = list()
@@ -245,6 +245,11 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	var/deaf_message
 	var/deaf_type
+
+	var/message_size = get_dist(src, speaker)
+	if(src == speaker)
+		message_size = 0
+
 	if(HAS_TRAIT(speaker, TRAIT_SIGN_LANG)) //Checks if speaker is using sign language
 		deaf_message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
 		if(speaker != src)
@@ -259,7 +264,6 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 		if(is_blind(src))
 			return FALSE
-
 
 		message = deaf_message
 
@@ -280,6 +284,8 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	// Recompose message for AI hrefs, language incomprehension.
 	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
+
+	message = "<span class='chat_step_[message_size]'>[message]</span>"
 
 	show_message(message, MSG_AUDIBLE, deaf_message, deaf_type, avoid_highlighting = speaker == src)
 	return message
