@@ -179,7 +179,7 @@
 
 /obj/item/clothing/head/hardhat/reindeer
 	name = "оригинальная оленья шапка"
-	desc = "Некоторые поддельные рога и очень поддельный красный нос."
+	desc = "Пара поддельных рогов и крайне фальшивый красный нос."
 	icon_state = "hardhat0_reindeer"
 	inhand_icon_state = "hardhat0_reindeer"
 	hat_type = "reindeer"
@@ -191,7 +191,7 @@
 	dog_fashion = /datum/dog_fashion/head/reindeer
 
 /obj/item/clothing/head/cardborg
-	name = "кардборговый шлем"
+	name = "шлем картонного киборга"
 	desc = "Шлем, сделанный из коробки."
 	icon_state = "cardborg_h"
 	inhand_icon_state = "cardborg_h"
@@ -249,13 +249,13 @@
 		. += M
 
 /obj/item/clothing/head/wig/attack_self(mob/user)
-	var/new_style = input(user, "Select a hairstyle", "Wig Styling")  as null|anything in (GLOB.hairstyles_list - "Bald")
+	var/new_style = input(user, "Выберите прическу", "Wig Styling")  as null|anything in (GLOB.hairstyles_list - "Bald")
 	var/newcolor = adjustablecolor ? input(usr,"","Choose Color",color) as color|null : null
 	if(!user.canUseTopic(src, BE_CLOSE))
 		return
 	if(new_style && new_style != hairstyle)
 		hairstyle = new_style
-		user.visible_message("<span class='notice'>[user] меняет \the [src]'s прическу на [new_style].</span>", "<span class='notice'>Я изменил \the [src]'s прическу на [new_style].</span>")
+		user.visible_message("<span class='notice'>[user] меняет прическу [src] на [new_style].</span>", "<span class='notice'>Я изменил прическу [src] на [new_style].</span>")
 	if(newcolor && newcolor != color) // only update if necessary
 		add_atom_colour(newcolor, FIXED_COLOUR_PRIORITY)
 	update_icon()
