@@ -1537,6 +1537,10 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility4)
+"ec" = (
+/mob/living/simple_animal/hostile/asteroid/polarbear,
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "ed" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/dust,
@@ -2164,6 +2168,9 @@
 "fV" = (
 /obj/effect/turf_decal/weather/side,
 /obj/effect/light_emitter,
+/obj/structure/railing{
+	dir = 1
+	},
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
 "fW" = (
@@ -3556,6 +3563,13 @@
 	heat_capacity = 1e+006
 	},
 /area/awaymission/chilly/gatewaystart)
+"jL" = (
+/obj/effect/turf_decal/weather/side,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "jM" = (
 /obj/effect/turf_decal/weather/side{
 	dir = 8
@@ -4687,7 +4701,6 @@
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
 "mR" = (
-/obj/structure/railing,
 /obj/effect/turf_decal/weather/snow/corner,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
@@ -8582,6 +8595,10 @@
 /obj/effect/turf_decal/weather/side,
 /turf/open/floor/plating/ice/smooth/oxy,
 /area/awaymission/chilly/cave)
+"xl" = (
+/obj/structure/flora/tree/pine,
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/awaymission/chilly/surface)
 "xn" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/filingcabinet{
@@ -11783,7 +11800,6 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/chilly/gatewaystart/base2armory)
 "Gg" = (
-/obj/structure/railing,
 /obj/effect/turf_decal/weather/snow/corner,
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
@@ -12061,6 +12077,15 @@
 	},
 /turf/open/floor/pod/light,
 /area/awaymission/chilly/facility)
+"GT" = (
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 1
+	},
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "GU" = (
 /obj/structure/bed/maint{
 	pixel_x = 3;
@@ -13431,9 +13456,6 @@
 	},
 /area/awaymission/chilly/syndietrain)
 "KS" = (
-/obj/structure/railing{
-	dir = 10
-	},
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 10
 	},
@@ -16531,6 +16553,14 @@
 	},
 /turf/open/floor/plasteel/airless/white,
 /area/awaymission/chilly/facility3)
+"TX" = (
+/obj/effect/light_emitter{
+	name = "outdoor light";
+	set_cap = 3;
+	set_luminosity = 6
+	},
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/awaymission/chilly/surface)
 "TY" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/rospilovo/plita,
@@ -18725,6 +18755,15 @@
 /obj/item/flashlight/flare,
 /turf/open/floor/plating/snowed/oxy,
 /area/awaymission/chilly/facility/emergencystorage)
+"ZQ" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/chilly/surface)
 "ZS" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light/broken{
@@ -24748,9 +24787,9 @@ VX
 Om
 Om
 Om
-Om
-Om
-kG
+PE
+PE
+YJ
 Om
 Om
 Om
@@ -24990,8 +25029,8 @@ Om
 WQ
 fn
 Om
-Om
-VX
+PE
+xl
 Om
 Om
 fn
@@ -25232,7 +25271,7 @@ Om
 dB
 dB
 Om
-VX
+xl
 fn
 Om
 dB
@@ -25475,7 +25514,7 @@ dB
 dB
 dB
 dB
-kG
+YJ
 dB
 dB
 dB
@@ -27354,8 +27393,8 @@ PY
 sl
 nx
 nx
-vR
-kZ
+ZQ
+GT
 Om
 YK
 YK
@@ -27597,7 +27636,7 @@ ns
 ns
 nx
 KS
-CU
+jL
 Rt
 Om
 YK
@@ -27839,7 +27878,7 @@ Kf
 Av
 nx
 Gg
-CU
+jL
 Om
 ML
 Om
@@ -28323,7 +28362,7 @@ nx
 nx
 nx
 Gg
-CU
+jL
 Om
 eK
 Om
@@ -35497,7 +35536,7 @@ Om
 Om
 Om
 Om
-Om
+PE
 Om
 dB
 Ko
@@ -35737,10 +35776,10 @@ Om
 Om
 SP
 Om
+PE
 Om
-Om
-ch
-Om
+Dw
+PE
 qj
 Ko
 qK
@@ -35981,9 +36020,9 @@ Om
 Om
 Om
 Om
-Om
-Om
-fn
+PE
+PE
+TX
 qu
 qZ
 rw
@@ -36222,9 +36261,9 @@ Om
 Om
 Om
 VX
-Om
-Om
-Om
+PE
+PE
+PE
 qk
 Ko
 rh
@@ -50864,7 +50903,7 @@ dB
 dB
 dB
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -52561,7 +52600,7 @@ dB
 fn
 Om
 Om
-Om
+WQ
 Om
 Om
 VX
@@ -53043,7 +53082,7 @@ dB
 dB
 dB
 dB
-Om
+WQ
 Om
 Om
 VX
@@ -53286,7 +53325,7 @@ dB
 dB
 dB
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -56192,7 +56231,7 @@ dB
 dB
 dB
 Om
-Om
+ec
 Om
 Om
 Om
@@ -57170,7 +57209,7 @@ Om
 Om
 Om
 SP
-Om
+ec
 Om
 SP
 Om
@@ -58373,7 +58412,7 @@ dB
 dB
 Om
 Om
-Om
+ec
 Om
 Om
 Om
@@ -58862,7 +58901,7 @@ Om
 Om
 VX
 Om
-Om
+ec
 Om
 Om
 Om
@@ -59110,7 +59149,7 @@ VX
 Om
 Om
 VX
-Om
+ec
 Om
 Om
 Om
@@ -62249,7 +62288,7 @@ dB
 dB
 Om
 Om
-Om
+ec
 Om
 Om
 Om
@@ -63481,7 +63520,7 @@ Om
 Om
 VX
 Om
-Om
+WQ
 Om
 Om
 VX
@@ -64951,7 +64990,7 @@ Om
 Om
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -65191,7 +65230,7 @@ Om
 Om
 Om
 VX
-Om
+WQ
 Om
 Om
 Om
@@ -66366,7 +66405,7 @@ dB
 Om
 VX
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -67575,12 +67614,12 @@ Ko
 Ko
 dB
 Om
-Om
+PE
 Om
 Om
 VX
 Om
-Om
+PE
 Om
 Om
 VX
@@ -67816,15 +67855,15 @@ vF
 wT
 Ko
 As
+PE
+PE
+PE
 Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
+PE
+PE
+PE
+PE
+PE
 Om
 VX
 Om
@@ -68057,31 +68096,31 @@ uH
 wN
 An
 OC
+PE
+PE
+PE
+PE
+PE
+PE
+Om
+Om
+VX
+VX
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+Om
+VX
+SP
 Om
 SP
 Om
-Om
-Om
-Om
-Om
-Om
-VX
-VX
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
-SP
-Om
-SP
-Om
 YK
 YK
 YK
@@ -68093,7 +68132,7 @@ Om
 VX
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -68300,8 +68339,8 @@ RC
 uZ
 Ko
 RW
-Om
-VX
+PE
+PE
 Om
 Om
 Om
@@ -68331,7 +68370,7 @@ YK
 YK
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -68791,20 +68830,20 @@ VX
 Om
 VX
 Om
+WQ
+Om
+Om
+Om
+VX
+Om
+Om
+Om
+Om
 Om
 Om
 Om
 Om
 VX
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-Om
-VX
 VX
 Om
 Om
@@ -68817,7 +68856,7 @@ Om
 Om
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -69032,7 +69071,7 @@ Om
 Om
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -70245,7 +70284,7 @@ Om
 Om
 Om
 VX
-Om
+WQ
 Om
 Om
 SP
@@ -70511,7 +70550,7 @@ Om
 Om
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -70727,7 +70766,7 @@ Om
 Om
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -71214,7 +71253,7 @@ VX
 Om
 Om
 Om
-Om
+WQ
 Om
 Om
 Om
@@ -71688,7 +71727,7 @@ dB
 dB
 Om
 VX
-Om
+WQ
 Om
 VX
 Om
