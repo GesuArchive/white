@@ -35,7 +35,7 @@ export const NtosMinnet = (props, context) => {
                     inline
                     bold
                     mr={1}>
-                    {component.temp} Sols/s
+                    {component.hashrate} Sols/s
                   </Box>
                   <Box
                     inline

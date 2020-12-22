@@ -2,7 +2,7 @@ SUBSYSTEM_DEF(spm)
 	name = "Криптомайнинг"
 	wait = 25
 	var/list/miners	= list()
-	var/diff = 1
+	var/diff = 1.00001
 	var/crypto = "BTC"
 
 /datum/controller/subsystem/spm/Initialize()
@@ -13,7 +13,7 @@ SUBSYSTEM_DEF(spm)
 	return ..()
 
 /datum/controller/subsystem/spm/fire()
-	diff += rand (-0.00001, 0.00003)
+	diff += rand(-0.00001, 0.00003)
 
 	for(var/obj/machinery/power/mining_rack/MC in miners)
 		if(!MC.powernet)
@@ -94,9 +94,6 @@ SUBSYSTEM_DEF(spm)
 /obj/machinery/power/mining_rack/attackby(obj/item/I, mob/living/user, params)
 
 	if(user.a_intent == INTENT_HARM)
-		return ..()
-
-	if(!anchored)
 		return ..()
 
 	if(istype(I, /obj/item/mining_thing))
