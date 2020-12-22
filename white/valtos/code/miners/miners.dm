@@ -31,7 +31,7 @@ SUBSYSTEM_DEF(spm)
 /////////////////////////////////////
 
 /obj/machinery/power/mining_rack
-	name = "полка для ферм"
+	name = "Криптополка"
 	desc = "Сюда можно установить специальное \"оборудование\"."
 	icon = 'white/valtos/icons/miner.dmi'
 	icon_state = "rack"
@@ -47,6 +47,7 @@ SUBSYSTEM_DEF(spm)
 
 /obj/machinery/power/mining_rack/Initialize()
 	. = ..()
+	name = "Криптополка #[rand(1, 99999)]"
 	if(anchored)
 		connect_to_network()
 	linked_techweb = SSresearch.science_tech
