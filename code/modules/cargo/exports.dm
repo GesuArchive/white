@@ -180,7 +180,7 @@ Then the player gets the profit from selling his own wasted time.
 	if(unit_name)
 		msg += unit_name
 		if(total_amount > 1)
-			msg += "s"
+			msg += "ов"
 		if(message)
 			msg += " "
 
