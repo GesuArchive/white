@@ -13,7 +13,7 @@ SUBSYSTEM_DEF(spm)
 	return ..()
 
 /datum/controller/subsystem/spm/fire()
-	diff += rand(-0.00001, 0.00003)
+	diff += 0.00001
 
 	for(var/obj/machinery/power/mining_rack/MC in miners)
 		if(!MC.powernet)
@@ -190,7 +190,7 @@ SUBSYSTEM_DEF(spm)
 			D.adjust_money(min((hashrate_total/SSspm.diff)/10, 1))
 
 		if(istype(linked_techweb))
-			linked_techweb.add_point_type(TECHWEB_POINT_TYPE_DEFAULT, min(hashrate_total/SSspm.diff, 1))
+			linked_techweb.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = min(hashrate_total/SSspm.diff, 1)))
 
 /obj/item/mining_thing
 	name = "куча хлама"

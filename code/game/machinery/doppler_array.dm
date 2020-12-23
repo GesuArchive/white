@@ -235,7 +235,7 @@
 				ancapbucks = point_gain
 
 			D.adjust_money(ancapbucks)
-			linked_techweb.add_point_type(TECHWEB_POINT_TYPE_DEFAULT, point_gain)
+			linked_techweb.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = point_gain))
 			say("Детали взрыва и смесь были проанализированы, теперь они проданы за [ancapbucks] cr, с наградой [point_gain] очков.")
 
 	else //you've made smaller bombs
