@@ -187,10 +187,10 @@ SUBSYSTEM_DEF(spm)
 
 		var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
 		if(D)
-			D.adjust_money(min((hashrate_total/SSspm.diff)/10, 1))
+			D.adjust_money(max((hashrate_total/SSspm.diff)/10, 1))
 
 		if(istype(linked_techweb))
-			linked_techweb.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = min(hashrate_total/SSspm.diff, 1)))
+			linked_techweb.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = max(hashrate_total/SSspm.diff, 1)))
 
 /obj/item/mining_thing
 	name = "куча хлама"
