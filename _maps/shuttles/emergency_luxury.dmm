@@ -81,8 +81,7 @@
 /area/shuttle/escape/luxury)
 "ap" = (
 /obj/structure/chair/comfy/teal{
-	dir = 4;
-	icon_state = "comfychair"
+	dir = 4
 	},
 /turf/open/floor/mineral/diamond,
 /area/shuttle/escape)
@@ -149,8 +148,7 @@
 	id = "ohnopoors";
 	name = "window shutters";
 	pixel_x = -5;
-	pixel_y = 26;
-	req_access_txt = "0"
+	pixel_y = 26
 	},
 /turf/open/floor/carpet/blue,
 /area/shuttle/escape/luxury)
@@ -229,8 +227,7 @@
 /area/shuttle/escape/luxury)
 "aM" = (
 /obj/structure/chair/comfy/teal{
-	dir = 4;
-	icon_state = "comfychair"
+	dir = 4
 	},
 /turf/open/floor/mineral/diamond,
 /area/shuttle/escape/luxury)
@@ -457,8 +454,7 @@
 	layer = 2.9
 	},
 /turf/open/floor/holofloor/beach/coast_t{
-	dir = 8;
-	icon_state = "sandwater_t"
+	dir = 8
 	},
 /area/shuttle/escape/luxury)
 "bx" = (
@@ -525,8 +521,7 @@
 "bG" = (
 /obj/machinery/door/window/eastleft,
 /turf/open/floor/holofloor/beach/coast_t{
-	dir = 8;
-	icon_state = "sandwater_t"
+	dir = 8
 	},
 /area/shuttle/escape/luxury)
 "bH" = (
@@ -565,8 +560,7 @@
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/eastright,
 /turf/open/floor/holofloor/beach/coast_t{
-	dir = 8;
-	icon_state = "sandwater_t"
+	dir = 8
 	},
 /area/shuttle/escape/luxury)
 "bN" = (

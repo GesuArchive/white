@@ -38,3 +38,6 @@
 /obj/projectile/bullet/dart/syringe
 	name = "шприц"
 	icon_state = "syringeproj"
+
+/obj/projectile/bullet/dart/piercing
+	piercing = TRUE

@@ -100,6 +100,10 @@
 		SSeconomy.civ_bounty_tracker++
 		var/obj/item/bounty_cube/reward = new /obj/item/bounty_cube(drop_location())
 		reward.bounty_value = curr_bounty.reward
+		reward.bounty_name = curr_bounty.name
+		reward.bounty_holder = inserted_scan_id.registered_name
+		reward.name = "\improper [reward.bounty_value] cr [reward.name]"
+		reward.desc += " The tag indicates it was [reward.bounty_holder]'s reward for completing the <i>[reward.bounty_name]</i> bounty and that it was created at [station_time_timestamp(format = "hh:mm")]."
 		reward.AddComponent(/datum/component/pricetag, inserted_scan_id.registered_account, 30)
 	pad.visible_message("<span class='notice'>[capitalize(pad.name)] активируется!</span>")
 	flick(pad.sending_state,pad)
@@ -213,6 +217,10 @@
 	icon_state = "bounty_cube"
 	///Value of the bounty that this bounty cube sells for.
 	var/bounty_value = 0
+	///Who completed the bounty.
+	var/bounty_holder
+	///What the bounty was for.
+	var/bounty_name
 
 ///Beacon to launch a new bounty setup when activated.
 /obj/item/civ_bounty_beacon

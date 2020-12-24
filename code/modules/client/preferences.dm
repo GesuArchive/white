@@ -150,6 +150,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/persistent_scars = TRUE
 	// Автокапитализация и поинтизация текста
 	var/disabled_autocap = FALSE
+	///If we want to broadcast deadchat connect/disconnect messages
+	var/broadcast_login_logout = TRUE
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -1807,6 +1809,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("ghost_laws")
 					chat_toggles ^= CHAT_GHOSTLAWS
+
+				if("hear_login_logout")
+					chat_toggles ^= CHAT_LOGIN_LOGOUT
+
+				if("broadcast_login_logout")
+					broadcast_login_logout = !broadcast_login_logout
 
 				if("income_pings")
 					chat_toggles ^= CHAT_BANKCARD

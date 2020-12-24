@@ -142,10 +142,12 @@
 		target.forceMove(src)
 		if(user == target)
 			user.visible_message("<span class='warning'>[user] забирается в [src].</span>", "<span class='notice'>Забираюсь в [src].</span>")
+			. = TRUE
 		else
 			target.visible_message("<span class='danger'>[user] заталкивает [target] в [src].</span>", "<span class='userdanger'>[user] заталкивает меня в [src].</span>")
 			log_combat(user, target, "stuffed", addition="into [src]")
 			target.LAssailant = user
+			. = TRUE
 		update_icon()
 
 /obj/machinery/disposal/relaymove(mob/living/user, direction)

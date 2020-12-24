@@ -70,28 +70,6 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/arrival)
 "j" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/turf/open/floor/mineral/titanium/white,
-/area/shuttle/arrival)
-"k" = (
-/obj/effect/turf_decal/bot,
-/obj/structure/chair/comfy/shuttle,
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/arrival)
-"l" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/chair/comfy/shuttle,
 /obj/machinery/light{
@@ -99,7 +77,12 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/arrival)
-"m" = (
+"k" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/chair/comfy/shuttle,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/arrival)
+"l" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/chair/comfy/shuttle,
 /obj/machinery/status_display/evac{
@@ -110,9 +93,21 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/arrival)
+"m" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/arrival)
 "n" = (
 /obj/structure/shuttle/engine/propulsion/left{
-	icon_state = "propulsion_l";
 	dir = 8
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -124,7 +119,6 @@
 /obj/structure/window/shuttle,
 /obj/structure/grille,
 /obj/structure/shuttle/engine/heater{
-	icon_state = "heater";
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -142,10 +136,6 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 1
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -156,10 +146,6 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 1
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -173,9 +159,6 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/arrival)
 "t" = (
@@ -191,7 +174,6 @@
 /area/shuttle/arrival)
 "u" = (
 /obj/structure/shuttle/engine/propulsion{
-	icon_state = "propulsion";
 	dir = 8
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -230,28 +212,18 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/item/radio/intercom{
-	pixel_x = 28
-	},
-/obj/effect/turf_decal/arrows{
-	icon_state = "arrows";
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/corner,
-/obj/effect/turf_decal/stripes/corner{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/arrival)
 "x" = (
-/obj/effect/turf_decal/tile/blue{
+/obj/effect/turf_decal/bot,
+/obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/mineral/titanium/white,
+/obj/machinery/light,
+/turf/open/floor/mineral/plastitanium,
 /area/shuttle/arrival)
 "y" = (
 /obj/machinery/requests_console{
@@ -276,26 +248,32 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/arrival)
 "B" = (
-/obj/effect/turf_decal/tile/blue{
+/obj/effect/turf_decal/bot,
+/obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/blue,
-/turf/open/floor/mineral/titanium/white,
+/obj/machinery/status_display/evac{
+	pixel_y = -32
+	},
+/obj/machinery/light,
+/turf/open/floor/mineral/plastitanium,
 /area/shuttle/arrival)
 "C" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
+/obj/item/radio/intercom{
+	pixel_x = 28
+	},
+/obj/effect/turf_decal/stripes/corner,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
 	},
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/arrival)
 "D" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 2
-	},
+/obj/effect/turf_decal/stripes/line,
 /obj/machinery/door/airlock/shuttle{
 	name = "Arrival Shuttle Airlock"
 	},
@@ -306,12 +284,12 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/arrival)
 "E" = (
-/obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
+/obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/stripes/line{
-	dir = 8
+	dir = 4
 	},
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/arrival)
@@ -324,7 +302,6 @@
 /area/shuttle/arrival)
 "G" = (
 /obj/structure/shuttle/engine/propulsion/right{
-	icon_state = "propulsion_r";
 	dir = 8
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -339,6 +316,16 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/arrival)
 "I" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/arrival)
+"J" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
@@ -349,25 +336,12 @@
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/arrival)
-"J" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/mineral/titanium/white,
-/area/shuttle/arrival)
 "K" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/corner{
-	dir = 8
-	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/arrival)
 "L" = (
@@ -399,32 +373,13 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
+/obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
 /turf/open/floor/mineral/titanium/white,
-/area/shuttle/arrival)
-"P" = (
-/obj/effect/turf_decal/bot,
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
-/obj/machinery/light,
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/arrival)
-"Q" = (
-/obj/effect/turf_decal/bot,
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
-/obj/machinery/status_display/evac{
-	pixel_y = -32
-	},
-/obj/machinery/light,
-/turf/open/floor/mineral/plastitanium,
 /area/shuttle/arrival)
 
 (1,1,1) = {"
@@ -456,65 +411,65 @@ c
 "}
 (4,1,1) = {"
 d
-j
+m
 r
-x
-I
-O
+q
+J
+m
 f
 "}
 (5,1,1) = {"
 e
-l
+j
+w
 s
-B
-J
-P
+K
+x
 e
 "}
 (6,1,1) = {"
 f
 k
-s
+w
 y
-J
+K
 N
 f
 "}
 (7,1,1) = {"
 f
 k
-s
+w
 z
-J
+K
 N
 f
 "}
 (8,1,1) = {"
 f
 k
-s
+w
 A
-J
+K
 N
 f
 "}
 (9,1,1) = {"
 c
-m
+l
+w
 s
+K
 B
-J
-Q
 c
 "}
 (10,1,1) = {"
 d
 q
-w
 C
-K
-x
+E
+O
+q
 f
 "}
 (11,1,1) = {"
@@ -530,7 +485,7 @@ b
 c
 e
 t
-E
+I
 M
 e
 c

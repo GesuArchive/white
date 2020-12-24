@@ -77,7 +77,22 @@
 	key = "screech"
 	key_third_person = "screeches"
 	message = "визжит."
-	mob_type_allowed_typecache = list(/mob/living/carbon/monkey, /mob/living/carbon/alien)
+	mob_type_allowed_typecache = list(/mob/living/carbon/monkey)
+	emote_type = EMOTE_AUDIBLE
+
+/datum/emote/living/carbon/screech/get_sound(mob/living/user)
+	return pick('sound/creatures/monkey/monkey_screech_1.ogg',
+				'sound/creatures/monkey/monkey_screech_2.ogg',
+				'sound/creatures/monkey/monkey_screech_3.ogg',
+				'sound/creatures/monkey/monkey_screech_4.ogg',
+				'sound/creatures/monkey/monkey_screech_5.ogg',
+				'sound/creatures/monkey/monkey_screech_6.ogg',
+				'sound/creatures/monkey/monkey_screech_7.ogg')
+
+/datum/emote/living/carbon/screech/roar
+	key = "roar"
+	key_third_person = "roars"
+	message = "ревёт."
 
 /datum/emote/living/carbon/sign
 	key = "sign"

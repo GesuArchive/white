@@ -13,9 +13,6 @@
 	description = "НТ интересуется вирусом со статистическим значением [stat_name], равным [stat_value]. Центральное командование заплатит щедро за такой вирус."
 	reward += rand(0, 4) * CARGO_CRATE_VALUE
 
-/datum/bounty/virus/completion_string()
-	return shipped ? "Отпрален" : "Не отправлен"
-
 /datum/bounty/virus/can_claim()
 	return ..() && shipped
 
@@ -40,12 +37,6 @@
 	if(!applies_to(O))
 		return
 	shipped = TRUE
-
-/datum/bounty/virus/compatible_with(datum/other_bounty)
-	if(!istype(other_bounty, /datum/bounty/virus))
-		return TRUE
-	var/datum/bounty/virus/V = other_bounty
-	return type != V.type || stat_value != V.stat_value
 
 
 /datum/bounty/virus/proc/accepts_virus(V)

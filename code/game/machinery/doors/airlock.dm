@@ -1087,6 +1087,7 @@
 						prying_so_hard = FALSE
 						return
 					open(2)
+					take_damage(25, BRUTE, 0, 0) // Enough to sometimes spark
 					if(density && !open(2))
 						to_chat(user, "<span class='warning'>Несмотря на мои попытки, [src] отказывается открываться.</span>")
 				prying_so_hard = FALSE

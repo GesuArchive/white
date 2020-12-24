@@ -185,8 +185,6 @@
 	var/datum/gas_mixture/internal_fusion
 	///Stores the information of the moderators gasmix
 	var/datum/gas_mixture/moderator_internal
-	///Stores the information of the output gasmix
-	var/datum/gas_mixture/internal_output
 	///Set the filtering type of the waste remove
 	var/filter_type = null
 
@@ -309,7 +307,6 @@
 	. = ..()
 	internal_fusion = new
 	moderator_internal = new
-	internal_output = new
 
 	radio = new(src)
 	radio.keyslot = new radio_key
@@ -323,8 +320,6 @@
 		internal_fusion = null
 	if(moderator_internal)
 		moderator_internal = null
-	if(internal_output)
-		internal_output = null
 	if(linked_input)
 		QDEL_NULL(linked_input)
 	if(linked_output)
@@ -906,6 +901,7 @@
 	else
 		internal_fusion.set_temperature(internal_fusion.return_temperature() - (heat_limiter_modifier * 0.01 * delta_time))
 
+	var/datum/gas_mixture/internal_output
 	//gas consumption and production
 	if(check_fuel())
 		var/fuel_consumption = clamp((fuel_injection_rate * 0.001) * 5 * power_level, 0.05, 30) * delta_time

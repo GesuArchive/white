@@ -101,6 +101,8 @@
 	Animals & All Unspecified
 */
 /mob/living/UnarmedAttack(atom/A)
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
+		return
 	A.attack_animal(src)
 
 /atom/proc/attack_animal(mob/user)
@@ -162,6 +164,8 @@
 
 // Babby aliens
 /mob/living/carbon/alien/larva/UnarmedAttack(atom/A)
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
+		return
 	A.attack_larva(src)
 
 /atom/proc/attack_larva(mob/user)
@@ -173,6 +177,8 @@
 	Nothing happening here
 */
 /mob/living/simple_animal/slime/UnarmedAttack(atom/A)
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
+		return
 	if(isturf(A))
 		return ..()
 	A.attack_slime(src)
@@ -185,6 +191,8 @@
 	Drones
 */
 /mob/living/simple_animal/drone/UnarmedAttack(atom/A)
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
+		return
 	A.attack_drone(src)
 
 /atom/proc/attack_drone(mob/living/simple_animal/drone/user)
@@ -212,6 +220,8 @@
 */
 
 /mob/living/simple_animal/UnarmedAttack(atom/A, proximity)
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
+		return
 	if(!dextrous)
 		return ..()
 	if(!ismob(A))
@@ -224,6 +234,8 @@
 */
 
 /mob/living/simple_animal/hostile/UnarmedAttack(atom/A)
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
+		return
 	target = A
 	if(dextrous && !ismob(A))
 		..()

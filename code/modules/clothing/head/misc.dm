@@ -72,7 +72,7 @@
 	inhand_icon_state = "syndicate-helm-black-red"
 	desc = "Пластиковая копия космического шлема агента Синдиката. В этом вы будете выглядеть как настоящий убийственный агент Синдиката! Это игрушка, она не предназначена для использования в космосе!"
 	clothing_flags = SNUG_FIT
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 /obj/item/clothing/head/cueball
 	name = "бильярдный шлем"
@@ -81,7 +81,7 @@
 	inhand_icon_state="cueball"
 	clothing_flags = SNUG_FIT
 	flags_cover = HEADCOVERSEYES|HEADCOVERSMOUTH
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 /obj/item/clothing/head/snowman
 	name = "Голова Снеговика"
@@ -90,7 +90,7 @@
 	inhand_icon_state = "snowman_h"
 	clothing_flags = SNUG_FIT
 	flags_cover = HEADCOVERSEYES
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 /obj/item/clothing/head/justice
 	name = "шляпа правосудия"
@@ -98,7 +98,7 @@
 	icon_state = "justicered"
 	inhand_icon_state = "justicered"
 	clothing_flags = SNUG_FIT
-	flags_inv = HIDEHAIR|HIDEEARS|HIDEEYES|HIDEFACE|HIDEFACIALHAIR
+	flags_inv = HIDEHAIR|HIDEEARS|HIDEEYES|HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
 	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/justice/blue
@@ -184,7 +184,7 @@
 	icon_state = "chickenhead"
 	inhand_icon_state = "chickensuit"
 	clothing_flags = SNUG_FIT
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 /obj/item/clothing/head/griffin
 	name = "голова гриффона"
@@ -192,7 +192,7 @@
 	icon_state = "griffinhat"
 	inhand_icon_state = "griffinhat"
 	clothing_flags = SNUG_FIT
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 /obj/item/clothing/head/bearpelt
 	name = "медвежья шкура"
@@ -206,7 +206,7 @@
 	inhand_icon_state = "xenos_helm"
 	desc = "Шлем из хитиновой шкуры ксеноса."
 	clothing_flags = SNUG_FIT
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 
 /obj/item/clothing/head/fedora
@@ -327,13 +327,12 @@
 	name = "бумажная шапка"
 	desc = "Бумажный мешок с грубыми отверстиями для глаз. Полезно для сокрытия личности или безобразия."
 	icon_state = "papersack"
-	flags_inv = HIDEHAIR|HIDEFACE|HIDEEARS
+	flags_inv = HIDEHAIR|HIDEFACE|HIDEEARS|HIDESNOUT
 
 /obj/item/clothing/head/papersack/smiley
 	name = "бумажная шапка"
 	desc = "Бумажный мешок с грубыми прорезями для глаз и схематичной улыбкой, нарисованной спереди. Совсем не жутко."
 	icon_state = "papersack_smile"
-	flags_inv = HIDEHAIR|HIDEFACE|HIDEEARS
 
 /obj/item/clothing/head/crown
 	name = "корона"
@@ -358,7 +357,7 @@
 	desc = "Когда все пойдет не так, защита головы - лучший выбор."
 	icon_state = "lobster_hat"
 	clothing_flags = SNUG_FIT
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 /obj/item/clothing/head/drfreezehat
 	name = "парик доктора заморозки"

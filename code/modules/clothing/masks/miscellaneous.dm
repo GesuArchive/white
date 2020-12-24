@@ -22,9 +22,9 @@
 	icon_state = "sterile"
 	inhand_icon_state = "sterile"
 	w_class = WEIGHT_CLASS_TINY
-	flags_inv = HIDEFACE
+	flags_inv = HIDEFACE|HIDESNOUT
 	flags_cover = MASKCOVERSMOUTH
-	visor_flags_inv = HIDEFACE
+	visor_flags_inv = HIDEFACE|HIDESNOUT
 	visor_flags_cover = MASKCOVERSMOUTH
 	gas_transfer_coefficient = 0.9
 	permeability_coefficient = 0.01
@@ -69,14 +69,15 @@
 	name = "маска радости"
 	desc = "Выразите своё счастье или скройте печали с этой маской смеющегося лица с вырезанными на ним слезами радости."
 	icon_state = "joy"
+	flags_inv = HIDESNOUT
 
 /obj/item/clothing/mask/bandana
 	name = "бандана ботаника"
 	desc = "Отличная бандана с нанотехнологичной подкладкой и узором гидропоники."
 	w_class = WEIGHT_CLASS_TINY
 	flags_cover = MASKCOVERSMOUTH
-	flags_inv = HIDEFACE|HIDEFACIALHAIR
-	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR
+	flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
+	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
 	visor_flags_cover = MASKCOVERSMOUTH | PEPPERPROOF
 	slot_flags = ITEM_SLOT_MASK
 	adjusted_flags = ITEM_SLOT_HEAD
@@ -151,21 +152,21 @@
 	desc = "Древние бинты."
 	icon_state = "mummy_mask"
 	inhand_icon_state = "mummy_mask"
-	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 /obj/item/clothing/mask/scarecrow
 	name = "маска из мешка"
 	desc = "Мешок из мешковины с прорезями для глаз."
 	icon_state = "scarecrow_sack"
 	inhand_icon_state = "scarecrow_sack"
-	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 /obj/item/clothing/mask/gondola
 	name = "Маска гондолы"
 	desc = "Из настоящего гондольего меха "
 	icon_state = "gondola"
 	inhand_icon_state = "gondola"
-	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	w_class = WEIGHT_CLASS_SMALL
 	modifies_speech = TRUE
 
