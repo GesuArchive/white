@@ -171,3 +171,14 @@
 	price_min = 150
 	price_max = 350
 	availability_prob = 60
+
+/datum/blackmarket_item/medicine/speedrun
+	name = "Срочное погружение"
+	desc = "Боевой стимулятор с небольшими побочными эффектами."
+	item = /obj/item/reagent_containers/pill/speedrun
+
+	stock_min = 1
+	stock_max = 5
+	price_min = 350
+	price_max = 650
+	availability_prob = 70
