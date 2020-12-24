@@ -405,7 +405,7 @@
 					msg += "[t_on] имеет глупое выражение лица.\n"
 		if(getorgan(/obj/item/organ/brain))
 			if(ai_controller?.ai_status == AI_STATUS_ON)
-				msg += "<span class='deadsay'>[t_He] do[t_es]n't appear to be [t_him]self.</span>\n"
+				msg += "<span class='deadsay'>[t_on] выглядит не очень разумно.</span>\n"
 			if(!key)
 				msg += "<span class='deadsay'>[t_on] кататоник. Стресс от жизни в глубоком космосе сильно повлиял на н[t_ego]. Восстановление маловероятно.</span>\n"
 			else if(!client)

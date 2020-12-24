@@ -42,3 +42,39 @@
 		shipped_count += O_is_a_stack.amount
 	else
 		shipped_count += 1
+
+/datum/bounty/item/completion_string()
+	return {"[shipped_count]/[required_count]"}
+
+/datum/bounty/item/compatible_with(datum/other_bounty)
+	return type != other_bounty.type
+
+/datum/bounty/item/mech/mark_high_priority(scale_reward)
+	return ..(max(scale_reward * 0.7, 1.2))
+
+/datum/bounty/reagent/completion_string()
+	return {"[round(shipped_volume)]/[required_volume] юнитов"}
+
+/datum/bounty/reagent/compatible_with(other_bounty)
+	if(!istype(other_bounty, /datum/bounty/reagent))
+		return TRUE
+	var/datum/bounty/reagent/R = other_bounty
+	return wanted_reagent.type != R.wanted_reagent.type
+
+/datum/bounty/pill/completion_string()
+	return {"[shipped_ammount]/[required_ammount] pills"}
+
+/datum/bounty/pill/compatible_with(other_bounty)
+	if(!istype(other_bounty, /datum/bounty/pill/simple_pill))
+		return TRUE
+	var/datum/bounty/pill/simple_pill/P = other_bounty
+	return (wanted_reagent.type == P.wanted_reagent.type) && (wanted_vol == P.wanted_vol)
+
+/datum/bounty/virus/completion_string()
+	return shipped ? "Отправлено" : "Не отправлено"
+
+/datum/bounty/virus/compatible_with(datum/other_bounty)
+	if(!istype(other_bounty, /datum/bounty/virus))
+		return TRUE
+	var/datum/bounty/virus/V = other_bounty
+	return type != V.type || stat_value != V.stat_value

@@ -559,10 +559,8 @@
 	var/notified = FALSE
 
 /obj/item/integrated_circuit/reagent/smoke/on_reagent_change(changetype)
-	//reset warning only if we have reagents now
-	if(changetype == ADD_REAGENT)
-		notified = FALSE
 	push_vol()
+
 /obj/item/integrated_circuit/reagent/smoke/do_work(ord)
 	switch(ord)
 		if(1)
