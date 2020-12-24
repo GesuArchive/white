@@ -74,9 +74,6 @@
 	var/transfer_amount = 10
 	var/busy = FALSE
 
-/obj/item/integrated_circuit/reagent/injector/on_reagent_change(changetype)
-	push_vol()
-
 /obj/item/integrated_circuit/reagent/injector/on_data_written()
 	var/new_amount = get_pin_data(IC_INPUT, 2)
 	if(new_amount < 0)
@@ -270,9 +267,6 @@
 /obj/item/integrated_circuit/reagent/storage/do_work()
 	set_pin_data(IC_OUTPUT, 2, WEAKREF(src))
 	push_data()
-
-/obj/item/integrated_circuit/reagent/storage/on_reagent_change(changetype)
-	push_vol()
 
 /obj/item/integrated_circuit/reagent/storage/big
 	name = "big reagent storage"
@@ -558,8 +552,10 @@
 	var/smoke_radius = 5
 	var/notified = FALSE
 
-/obj/item/integrated_circuit/reagent/smoke/on_reagent_change(changetype)
+/obj/item/integrated_circuit/reagent/proc/on_reagent_change(datum/reagents/holder, ...)
+	SIGNAL_HANDLER
 	push_vol()
+	return NONE
 
 /obj/item/integrated_circuit/reagent/smoke/do_work(ord)
 	switch(ord)
@@ -613,9 +609,6 @@
 /obj/item/integrated_circuit/reagent/extinguisher/Initialize()
 	.=..()
 	set_pin_data(IC_OUTPUT,2, src)
-
-/obj/item/integrated_circuit/reagent/extinguisher/on_reagent_change(changetype)
-	push_vol()
 
 /obj/item/integrated_circuit/reagent/extinguisher/do_work()
 	//Check if enough volume
@@ -747,11 +740,6 @@
 			qdel(drainedchems)
 	push_data()
 	activate_pin(2)
-
-
-/obj/item/integrated_circuit/reagent/drain/on_reagent_change(changetype)
-	push_vol()
-
 
 // - Beaker Connector - //
 /obj/item/integrated_circuit/input/beaker_connector
