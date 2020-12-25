@@ -22334,7 +22334,9 @@
 	name = "Telecomms RC";
 	pixel_x = 30
 	},
-/turf/open/floor/plasteel,
+/obj/structure/cable/multilayer/multiz,
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/plating,
 /area/tcommsat/computer)
 "bUi" = (
 /obj/machinery/modular_computer/console/preset/research{
@@ -35772,11 +35774,11 @@
 /turf/open/floor/plasteel,
 /area/maintenance/starboard/fore)
 "nig" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 10
+/obj/structure/tank_holder/extinguisher{
+	pixel_y = 8
 	},
-/turf/open/floor/plating,
-/area/maintenance/port/aft)
+/turf/open/floor/plasteel,
+/area/ai_monitored/storage/eva)
 "niA" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
@@ -38579,6 +38581,10 @@
 /obj/machinery/atmospherics/pipe/layer_manifold,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"sBm" = (
+/obj/structure/ladder,
+/turf/open/floor/plasteel,
+/area/tcommsat/computer)
 "sBJ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -67120,7 +67126,7 @@ aAW
 aCa
 aDB
 aDI
-azW
+nig
 azW
 azW
 ayW
@@ -67942,7 +67948,7 @@ bNJ
 bLC
 cCf
 bNI
-nig
+bHE
 bVI
 bXC
 bWB
@@ -68148,7 +68154,7 @@ aBq
 avv
 aDE
 aFc
-azW
+nig
 azW
 aJf
 ayW
@@ -69232,7 +69238,7 @@ bVJ
 fbm
 bOM
 bWI
-bXG
+sBm
 bSt
 bUc
 bVb
@@ -84149,7 +84155,7 @@ xYx
 xYx
 xYx
 qKu
-gXs
+nXv
 maP
 cmI
 bTR
@@ -86719,7 +86725,7 @@ xYx
 xYx
 xYx
 pCj
-gXs
+nXv
 maP
 lSv
 cvO

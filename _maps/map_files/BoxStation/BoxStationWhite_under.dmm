@@ -62,6 +62,11 @@
 /obj/effect/spawner/lootdrop/maintenance/two,
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"eI" = (
+/obj/effect/turf_decal/stripes/box,
+/obj/structure/cable/multilayer/multiz,
+/turf/open/floor/plating,
+/area/tcommsat/server/upper)
 "eJ" = (
 /obj/structure/ladder,
 /turf/open/floor/plating,
@@ -163,9 +168,18 @@
 	},
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
+"hK" = (
+/obj/machinery/telecomms/relay/preset/station,
+/turf/open/floor/circuit/telecomms,
+/area/tcommsat/server/upper)
 "hM" = (
 /turf/closed/wall,
 /area/maintenance/aft)
+"hZ" = (
+/obj/machinery/light/floor,
+/obj/structure/cable,
+/turf/open/floor/circuit/telecomms,
+/area/tcommsat/server/upper)
 "ii" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible,
 /obj/structure/cable,
@@ -195,6 +209,12 @@
 /obj/effect/turf_decal/stripes/white/box,
 /turf/open/floor/plating,
 /area/hydroponics)
+"jl" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server/upper)
 "jv" = (
 /obj/structure/sign/departments/xenobio{
 	pixel_x = -32
@@ -285,6 +305,12 @@
 /obj/structure/closet/athletic_mixed,
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"kI" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server/upper)
 "kS" = (
 /obj/structure/sign/warning/vacuum,
 /turf/closed/wall,
@@ -296,6 +322,10 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
+"ll" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server/upper)
 "lq" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "xenobio7";
@@ -342,6 +372,10 @@
 	},
 /turf/open/floor/plasteel/freezer,
 /area/science/xenobiology)
+"mI" = (
+/obj/structure/cable,
+/turf/open/floor/circuit/telecomms,
+/area/tcommsat/server/upper)
 "mZ" = (
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/open/floor/grass,
@@ -371,6 +405,14 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/science/xenobiology)
+"nr" = (
+/obj/machinery/light/floor,
+/obj/machinery/newscaster{
+	pixel_y = 32
+	},
+/obj/structure/cable,
+/turf/open/floor/circuit/telecomms,
+/area/tcommsat/server/upper)
 "nS" = (
 /obj/machinery/light{
 	dir = 8
@@ -425,6 +467,12 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
+"oP" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/obj/machinery/door/firedoor/window,
+/turf/open/floor/plating,
+/area/tcommsat/server/upper)
 "pg" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible{
 	dir = 4
@@ -582,6 +630,11 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/science/xenobiology)
+"sm" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/south,
+/turf/open/floor/circuit/telecomms,
+/area/tcommsat/server/upper)
 "sv" = (
 /obj/effect/spawner/lootdrop/two_percent_xeno_egg_spawner,
 /turf/open/floor/engine,
@@ -704,6 +757,9 @@
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"uV" = (
+/turf/closed/wall/r_wall,
+/area/tcommsat/server/upper)
 "vl" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -30
@@ -757,6 +813,12 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"xb" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server/upper)
 "xc" = (
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
@@ -807,9 +869,23 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
+"xV" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server/upper)
 "ye" = (
 /turf/closed/wall,
 /area/maintenance/port/aft)
+"yW" = (
+/obj/machinery/light/floor,
+/obj/structure/cable,
+/obj/item/radio/intercom{
+	pixel_x = -30
+	},
+/turf/open/floor/circuit/telecomms,
+/area/tcommsat/server/upper)
 "zb" = (
 /obj/structure/sign/warning/coldtemp,
 /obj/effect/spawner/structure/window/reinforced,
@@ -1061,6 +1137,12 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/science/xenobiology)
+"EF" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server/upper)
 "ER" = (
 /turf/closed/mineral/random/snow,
 /area/icemoon/surface/outdoors)
@@ -1184,6 +1266,12 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"Hk" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server/upper)
 "HC" = (
 /obj/machinery/biogenerator,
 /turf/open/floor/plasteel/dark,
@@ -1232,6 +1320,12 @@
 /obj/structure/table,
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"Jp" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server/upper)
 "Jv" = (
 /obj/structure/rack,
 /obj/effect/spawner/lootdrop/maintenance/two,
@@ -1636,6 +1730,10 @@
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
+"PN" = (
+/obj/structure/ladder,
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server/upper)
 "PR" = (
 /obj/machinery/requests_console{
 	department = "Hydroponics";
@@ -2082,6 +2180,9 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
+"Zs" = (
+/turf/open/floor/circuit/telecomms,
+/area/tcommsat/server/upper)
 "Zy" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/stripes/line{
@@ -26458,7 +26559,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -26715,7 +26816,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -26972,7 +27073,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -27229,7 +27330,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -27486,7 +27587,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -27743,7 +27844,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -28000,7 +28101,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -28257,7 +28358,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -28514,7 +28615,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -28771,7 +28872,7 @@ PG
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -29017,18 +29118,18 @@ Zm
 Zm
 Zm
 Zm
+uV
+uV
+oP
+oP
+oP
+uV
+uV
 Zm
 Zm
 Zm
 Zm
 PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
 Zm
 Zm
 Zm
@@ -29273,19 +29374,19 @@ Zm
 Zm
 Zm
 Zm
-Zm
+uV
+uV
+nr
+mI
+Zs
+mI
+yW
+uV
 Zm
 Zm
 Zm
 Zm
 PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
 Zm
 Zm
 Zm
@@ -29530,24 +29631,24 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+oP
+mI
+mI
+kI
+xb
+Jp
+mI
+uV
 PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
 PG
 Zm
 Zm
@@ -29783,19 +29884,19 @@ Zm
 Zm
 Zm
 PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
 PG
-Zm
-Zm
-Zm
+PG
+PG
+PG
+oP
+hK
+Zs
+EF
+PN
+ll
+eI
+uV
+PG
 Zm
 Zm
 Zm
@@ -30044,15 +30145,15 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+oP
+mI
+mI
+Hk
+xV
+jl
+sm
+uV
 PG
-Zm
-Zm
-Zm
 Zm
 Zm
 Zm
@@ -30301,15 +30402,15 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+uV
+uV
+hZ
+mI
+Zs
+mI
+hZ
+uV
 PG
-Zm
-Zm
-Zm
 Zm
 Zm
 Zm
@@ -30554,19 +30655,19 @@ Zm
 Zm
 Zm
 PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
 PG
-Zm
-Zm
-Zm
+PG
+PG
+PG
+PG
+uV
+uV
+oP
+oP
+oP
+uV
+uV
+PG
 Zm
 Zm
 Zm
@@ -30817,13 +30918,13 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 PG
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -31074,13 +31175,13 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 PG
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
@@ -31331,13 +31432,13 @@ Zm
 Zm
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 PG
 Zm
 Zm
-Zm
+PG
 Zm
 Zm
 Zm
