@@ -8,9 +8,9 @@
 	spawn_list = list(/turf/open/floor/plating, /obj/structure/grille, /obj/structure/window/reinforced/fulltile)
 
 /datum/map_generator_module/splatter_layer/maint_walls
-	clusterCheckFlags = CLUSTER_CHECK_NONE
+	clusterCheckFlags = CLUSTER_CHECK_SAME_TURFS
 	spawnableAtoms = list()
-	spawnableTurfs = list(/turf/closed/wall = 35, /turf/closed/wall/r_wall = 15)
+	spawnableTurfs = list(/turf/closed/wall = 5, /turf/closed/wall/r_wall = 1)
 
 /datum/map_generator_module/splatter_layer/main_spawn
 	spawnableTurfs = list()
@@ -34,9 +34,9 @@
 
 /datum/map_generator/station_maints
 	modules = list(/datum/map_generator_module/bottom_layer/maint_turfs, \
-		/datum/map_generator_module/border/maint_walls, \
 		/datum/map_generator_module/splatter_layer/maint_walls, \
 		/datum/map_generator_module/splatter_layer/main_spawn, \
+		/datum/map_generator_module/border/maint_walls, \
 		/datum/map_generator_module/bottom_layer/repressurize)
 	buildmode_name = "Pattern: Station Maintenance Level"
 
