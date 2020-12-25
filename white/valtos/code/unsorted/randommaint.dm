@@ -10,11 +10,11 @@
 /datum/map_generator_module/splatter_layer/maint_walls
 	clusterCheckFlags = CLUSTER_CHECK_NONE
 	spawnableAtoms = list()
-	spawnableTurfs = list(/turf/closed/wall = 15, /turf/closed/wall/r_wall = 5)
+	spawnableTurfs = list(/turf/closed/wall = 35, /turf/closed/wall/r_wall = 15)
 
 /datum/map_generator_module/splatter_layer/main_spawn
 	spawnableTurfs = list()
-	clusterCheckFlags = CLUSTER_CHECK_ALL
+	clusterCheckFlags = CLUSTER_CHECK_NONE
 	spawnableAtoms = list(/obj/structure/grille/broken = 5,
 						  /obj/structure/grille = 15,
 						  /obj/structure/girder = 5,
@@ -30,16 +30,18 @@
 						  /obj/structure/chair/stool = 10)
 
 /datum/map_generator_module/bottom_layer/maint_turfs
-	spawnableTurfs = list(/turf/open/floor/plating = 95, /turf/open/floor/plasteel = 5)
+	spawnableTurfs = list(/turf/open/floor/plating = 100)
 
 /datum/map_generator/station_maints
 	modules = list(/datum/map_generator_module/bottom_layer/maint_turfs, \
 		/datum/map_generator_module/border/maint_walls, \
 		/datum/map_generator_module/splatter_layer/maint_walls, \
-		/datum/map_generator_module/splatter_layer/main_spawn)
+		/datum/map_generator_module/splatter_layer/main_spawn, \
+		/datum/map_generator_module/bottom_layer/repressurize)
 	buildmode_name = "Pattern: Station Maintenance Level"
 
 /area/maintenance/bottom_station_maints
 	name = "Технические тоннели"
 	icon_state = "amaint"
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | CAVES_ALLOWED
 	map_generator = /datum/map_generator/station_maints
