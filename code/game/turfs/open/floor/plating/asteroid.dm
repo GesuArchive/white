@@ -214,7 +214,6 @@
 
 /turf/open/floor/plating/asteroid/snow/centcom
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	plane = -1
 	temperature = 293.15
 
 /turf/open/floor/plating/asteroid/snow/centcom/New()
