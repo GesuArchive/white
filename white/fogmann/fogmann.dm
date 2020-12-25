@@ -411,7 +411,7 @@
 	tools = list(TOOL_SCREWDRIVER)
 	category = CAT_PRIMAL
 
-datum/crafting_recipe/frog
+/datum/crafting_recipe/frog
 	name = "????"
 	result =  /obj/item/clothing/accessory/medal/frog
 	time = 80
