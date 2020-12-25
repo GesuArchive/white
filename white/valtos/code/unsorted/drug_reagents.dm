@@ -798,7 +798,7 @@
 
 	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"], H.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], H.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], H.hud_used.plane_masters["[PLANE_SPACE]"])
 	for(var/atom/movable/screen/plane_master/whole_screen in screens)
-		whole_screen.add_filter("angular_blur", 1, 0, 0, 4)
+		whole_screen.add_filter("angular_blur", 1, angular_blur_filter(x = 0, y = 0, size 4))
 
 	var/sound/sound = sound('white/valtos/sounds/HOME_Resonance.ogg', TRUE)
 	sound.environment = 23
@@ -826,7 +826,7 @@
 	..()
 
 /obj/item/reagent_containers/pill/speedrun
-	name = "Срочное погружение"
+	name = "срочное погружение"
 	desc = "Позволяет игнорировать большую часть повреждений на момент действия."
 	icon_state = "pill4"
 	list_reagents = list(/datum/reagent/drug/speedrun = 15)
