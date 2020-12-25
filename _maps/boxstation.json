@@ -1,8 +1,21 @@
 {
 	"version": 1,
-    "map_name": "WBox Station",
+    "map_name": "Box Station",
     "map_path": "map_files/BoxStation",
-    "map_file": "BoxStationWhite.dmm",
+    "map_file": [
+		"BoxStationWhite_under.dmm",
+		"BoxStationWhite.dmm",
+	],
+	"traits": [
+		{
+			"Up": 1,
+			"Baseturf": "/turf/open/space/basic"
+		},
+		{
+			"Down": -1,
+			"Baseturf": "/turf/open/openspace/airless"
+		}
+	],
     "shuttles": {
 	    "cargo": "cargo_box",
 	    "ferry": "ferry_fancy",
