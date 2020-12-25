@@ -778,12 +778,14 @@
 
 /datum/reagent/drug/speedrun/on_mob_life(mob/living/M)
 
+	M.set_drugginess(15)
+
 	if(prob(15))
 		M.adjustOxyLoss(-50 * REM, 0)
 		M.adjustStaminaLoss(-50 * REM, 0)
 
 	if(prob(5))
-		M.emote("moan")
+		M.emote(pick("twitch","drool","moan","giggle"))
 	..()
 
 /datum/reagent/drug/speedrun/on_mob_metabolize(mob/living/carbon/H)
@@ -798,10 +800,10 @@
 
 	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"], H.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], H.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], H.hud_used.plane_masters["[PLANE_SPACE]"])
 	for(var/atom/movable/screen/plane_master/whole_screen in screens)
-		whole_screen.add_filter("angular_blur", 1, angular_blur_filter(x = 0, y = 0, size = 4))
+		whole_screen.add_filter("angular_blur", 1, angular_blur_filter(x = 0, y = 0, size = 1.5))
 		var/filter = whole_screen.get_filter("angular_blur")
-		animate(filter, size = 64, time = 150, loop = -1)
-		animate(size = 4, time = 150)
+		animate(filter, size = 4, time = 150, loop = -1)
+		animate(size = 1.5, time = 150)
 
 	var/sound/sound = sound('white/valtos/sounds/HOME_Resonance.ogg', TRUE)
 	sound.environment = 23
