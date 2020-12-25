@@ -4,7 +4,7 @@
     "map_path": "map_files/BoxStation",
     "map_file": [
 		"BoxStationWhite_under.dmm",
-		"BoxStationWhite.dmm",
+		"BoxStationWhite.dmm"
 	],
 	"traits": [
 		{
