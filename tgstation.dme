@@ -3421,6 +3421,7 @@
 #include "white\deda565\Huesoslist.dm"
 #include "white\fogmann\donations.dm"
 #include "white\fogmann\fogmann.dm"
+#include "white\fogmann\fogmann2.dm"
 #include "white\fogmann\funmote.dm"
 #include "white\fogmann\lowpop.dm"
 #include "white\Gargule\_helpers.dm"

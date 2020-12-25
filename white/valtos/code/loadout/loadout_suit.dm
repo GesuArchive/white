@@ -54,6 +54,12 @@
 	path = /obj/item/clothing/suit/hooded/wintercoat/miner
 	allowed_roles = list("Shaft Miner")
 
+/datum/gear/suit/karabakh
+	display_name = "куртка рейнджера Карабаха"
+	path = /obj/item/clothing/suit/armor/hos/ranger
+	cost = 2099
+
+
 //JACKETS
 
 /datum/gear/suit/jacket

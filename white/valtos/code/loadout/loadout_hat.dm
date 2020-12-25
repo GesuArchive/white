@@ -37,3 +37,9 @@
 	display_name = "шляпа волшебницы"
 	path = /obj/item/clothing/head/wizgirl
 	cost = 250
+
+/datum/gear/hat/karabakh
+	display_name = "шлем рейнджера Карабаха"
+	path = /obj/item/clothing/head/helmet/alt/ranger
+	cost = 2499
+
