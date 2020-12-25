@@ -799,6 +799,9 @@
 	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"], H.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], H.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], H.hud_used.plane_masters["[PLANE_SPACE]"])
 	for(var/atom/movable/screen/plane_master/whole_screen in screens)
 		whole_screen.add_filter("angular_blur", 1, angular_blur_filter(x = 0, y = 0, size = 4))
+		var/filter = whole_screen.get_filter("angular_blur")
+		animate(filter, size = 64, time = 150, loop = -1)
+		animate(size = 4, time = 150)
 
 	var/sound/sound = sound('white/valtos/sounds/HOME_Resonance.ogg', TRUE)
 	sound.environment = 23
@@ -818,9 +821,7 @@
 
 	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"], H.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], H.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], H.hud_used.plane_masters["[PLANE_SPACE]"])
 	for(var/atom/movable/screen/plane_master/whole_screen in screens)
-		animate(whole_screen, transform = matrix(), pixel_x = 0, pixel_y = 0, color = "#ffffff", time = 200, easing = ELASTIC_EASING)
-		addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 200) //reset filters
-		addtimer(CALLBACK(whole_screen, /atom/movable/screen/plane_master/.proc/backdrop, H), 201) //reset backdrop filters so they reappear
+		whole_screen.remove_filter("angular_blur")
 
 	DIRECT_OUTPUT(H.client, sound(null))
 	..()
