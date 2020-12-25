@@ -383,6 +383,7 @@
 	inhand_icon_state = "helmet"
 	armor = list(MELEE = 40, BULLET = 60, LASER = 10, ENERGY = 10, BOMB = 40, BIO = 0, RAD = 0, FIRE = 50, ACID = 50, WOUND = 5)
 	strip_delay = 80
+	can_flashlight = FALSE
 
 /obj/item/clothing/suit/armor/hos/ranger
 	name = "Плащ рейнджера НКР"
