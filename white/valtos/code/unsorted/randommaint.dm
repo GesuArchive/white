@@ -32,7 +32,7 @@
 /datum/map_generator_module/bottom_layer/maint_turfs
 	spawnableTurfs = list(/turf/open/floor/plating = 100)
 
-/datum/map_generator/station_maints
+/datum/map_generator/jungle_generator/station_maints
 	modules = list(/datum/map_generator_module/bottom_layer/maint_turfs, \
 		/datum/map_generator_module/splatter_layer/maint_walls, \
 		/datum/map_generator_module/splatter_layer/main_spawn, \
@@ -40,7 +40,7 @@
 		/datum/map_generator_module/bottom_layer/repressurize)
 	buildmode_name = "Pattern: Station Maintenance Level"
 
-/area/maintenance/bottom_station_maints
+/area/maintenance/jungle_generator/bottom_station_maints
 	name = "Технические тоннели"
 	icon_state = "amaint"
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | CAVES_ALLOWED
