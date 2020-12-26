@@ -327,7 +327,7 @@
 /turf/open/floor/plasteel/dark/telecomms,
 /area/tcommsat/server/upper)
 "ln" = (
-/turf/open/space/basic,
+/turf/open/genturf,
 /area/maintenance/bottom_station_maints)
 "lq" = (
 /obj/machinery/door/poddoor/preopen{
@@ -951,7 +951,7 @@
 /area/science/xenobiology)
 "AA" = (
 /obj/effect/landmark/carpspawn,
-/turf/open/space/basic,
+/turf/open/genturf,
 /area/maintenance/bottom_station_maints)
 "AC" = (
 /obj/structure/stairs/south,
@@ -1072,6 +1072,10 @@
 /obj/item/clothing/suit/hooded/wintercoat/science,
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"DD" = (
+/obj/machinery/power/apc/auto_name/north,
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints)
 "DM" = (
 /obj/machinery/camera{
 	c_tag = "Xeno Test Chamber";
@@ -1313,6 +1317,9 @@
 "IH" = (
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
+/area/space/nearstation)
+"IQ" = (
+/turf/open/genturf,
 /area/space/nearstation)
 "IZ" = (
 /obj/structure/disposaloutlet{
@@ -22975,7 +22982,7 @@ SF
 fT
 ye
 ln
-ln
+DD
 ln
 ln
 ln
@@ -25801,19 +25808,19 @@ ln
 ln
 ln
 ln
-PG
-Zm
-Zm
-Zm
-Zm
-PG
 ln
 ln
-Zm
-Zm
-PG
-Zm
-Zm
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
 ln
 ln
 ln
@@ -26063,7 +26070,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+IQ
 ln
 ln
 Zm
@@ -26320,7 +26327,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+IQ
 ln
 ln
 Zm
@@ -26572,19 +26579,19 @@ ln
 ln
 ln
 ln
-PG
-Zm
-Zm
-Zm
-Zm
-Zm
 ln
 ln
-Zm
-Zm
-PG
-Zm
-Zm
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
 ln
 ln
 ln
@@ -27348,7 +27355,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ln
 ln
 ln
 Zm
@@ -27605,7 +27612,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ln
 ln
 ln
 Zm
@@ -27862,7 +27869,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ln
 ln
 ln
 Zm
@@ -28119,7 +28126,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ln
 ln
 ln
 Zm
@@ -28376,7 +28383,7 @@ Zm
 Zm
 Zm
 Zm
-Zm
+ln
 ln
 ln
 Zm
@@ -28633,7 +28640,7 @@ PG
 PG
 PG
 PG
-PG
+ln
 ln
 ln
 Zm
@@ -28890,7 +28897,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+ln
 ln
 ln
 Zm
@@ -29147,7 +29154,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+ln
 ln
 ln
 Zm
@@ -29404,7 +29411,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+ln
 ln
 ln
 Zm
@@ -41972,7 +41979,7 @@ ln
 ln
 ln
 ln
-Zm
+ln
 Zm
 Zm
 Zm
@@ -42229,7 +42236,7 @@ ln
 ln
 ln
 ln
-Zm
+ln
 Zm
 Zm
 Zm
@@ -42486,8 +42493,8 @@ ln
 ln
 ln
 ln
-Zm
-Zm
+ln
+ln
 Zm
 Zm
 Zm
@@ -42742,9 +42749,9 @@ ln
 ln
 ln
 ln
-Zm
-Zm
-Zm
+ln
+ln
+ln
 Zm
 Zm
 Zm
@@ -42999,9 +43006,9 @@ ln
 ln
 ln
 ln
-PG
-PG
-PG
+ln
+ln
+ln
 PG
 PG
 PG
@@ -43256,9 +43263,9 @@ ln
 ln
 ln
 ln
-PG
-PG
-PG
+ln
+ln
+ln
 PG
 hM
 hM
@@ -43515,7 +43522,7 @@ ln
 ln
 ln
 ln
-PG
+ln
 hM
 hM
 pB
