@@ -40,8 +40,8 @@
 		/datum/map_generator_module/bottom_layer/repressurize)
 	buildmode_name = "Pattern: Station Maintenance Level"
 
-/area/maintenance/jungle_generator/bottom_station_maints
+/area/maintenance/bottom_station_maints
 	name = "Технические тоннели"
 	icon_state = "amaint"
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | CAVES_ALLOWED
-	map_generator = /datum/map_generator/station_maints
+	map_generator = /datum/map_generator/jungle_generator/station_maints
