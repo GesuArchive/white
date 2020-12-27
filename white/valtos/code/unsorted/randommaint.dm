@@ -35,13 +35,13 @@
 /datum/map_generator/station_maints_generator
 	var/name = "Генератор техтоннелей"
 	var/list/open_turf_types   = list(/turf/open/floor/plating = 1)
-	var/list/closed_turf_types = list(/turf/closed/wall = 2, /turf/closed/wall/r_wall = 1)
+	var/list/space_turf_types   = list(/turf/open/space/basic = 1)
 
 	///Unique ID for this spawner
 	var/string_gen
 
 	///Chance of cells starting closed
-	var/initial_closed_chance = 1
+	var/initial_space_chance = 25
 
 	///Amount of smoothing iterations
 	var/smoothing_iterations = 20
@@ -70,32 +70,39 @@
 /datum/map_generator/station_maints_generator/generate_terrain(list/turfs)
 	. = ..()
 	var/start_time = REALTIMEOFDAY
-	string_gen = rustg_cnoise_generate("[initial_closed_chance]", "[smoothing_iterations]", "[birth_limit]", "[death_limit]", "[world.maxx]", "[world.maxy]") //Generate the raw CA data
+	string_gen = rustg_cnoise_generate("[initial_space_chance]", "[smoothing_iterations]", "[birth_limit]", "[death_limit]", "[world.maxx]", "[world.maxy]") //Generate the raw CA data
 
-	for(var/i in turfs) //Go through all the turfs and generate them
+	// double iterations
+
+	for(var/i in turfs)
 		var/turf/gen_turf = i
 
-		var/area/A = gen_turf.loc
-		if(!(A.area_flags & CAVES_ALLOWED))
+		var/spaceturf = text2num(string_gen[world.maxx * (gen_turf.y - 1) + gen_turf.x])
+
+		var/turf/new_turf = pickweight(spaceturf ? space_turf_types : open_turf_types)
+
+		new_turf = gen_turf.ChangeTurf(new_turf, initial(new_turf.baseturfs), CHANGETURF_DEFER_CHANGE)
+
+		CHECK_TICK
+
+	for(var/i in turfs)
+		var/turf/gen_turf = i
+
+		if(isspaceturf(gen_turf))
+			var/area/A = gen_turf.loc
+			var/area/newA = new /area/space
+			newA.setup("Space")
+			newA.set_dynamic_lighting(DYNAMIC_LIGHTING_DISABLED)
+			newA.contents += A
+			gen_turf.change_area(A, newA)
 			continue
-
-		var/closed = text2num(string_gen[world.maxx * (gen_turf.y - 1) + gen_turf.x])
-
-		var/stored_flags
-		if(gen_turf.flags_1 & NO_RUINS_1)
-			stored_flags |= NO_RUINS_1
-
-		var/turf/new_turf = pickweight(closed ? closed_turf_types : open_turf_types)
 
 		for(var/turf/open/space/S in range(1, gen_turf))
 			new_turf = /turf/closed/wall
 
 		new_turf = gen_turf.ChangeTurf(new_turf, initial(new_turf.baseturfs), CHANGETURF_DEFER_CHANGE)
 
-		new_turf.flags_1 |= stored_flags
 
-		if(!closed)//Open turfs have some special behavior related to spawning flora and mobs.
-			continue
 		CHECK_TICK
 
 	var/message = "[name] завершает работу за [(REALTIMEOFDAY - start_time)/10] секунд!"
