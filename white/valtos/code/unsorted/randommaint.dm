@@ -90,10 +90,8 @@
 
 		if(isspaceturf(gen_turf))
 			var/area/A = gen_turf.loc
-			var/area/newA = new /area/space
-			newA.setup("Space")
-			newA.set_dynamic_lighting(DYNAMIC_LIGHTING_DISABLED)
-			newA.contents += A
+			var/area/newA = GLOB.areas_by_type[/area/space]
+			newA.contents += gen_turf
 			gen_turf.change_area(A, newA)
 			continue
 
