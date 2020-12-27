@@ -98,10 +98,7 @@
 			continue
 
 		for(var/turf/open/space/S in range(1, gen_turf))
-			new_turf = /turf/closed/wall
-
-		new_turf = gen_turf.ChangeTurf(new_turf, initial(new_turf.baseturfs), CHANGETURF_DEFER_CHANGE)
-
+			new_turf = gen_turf.ChangeTurf(/turf/closed/wall, initial(/turf/closed/wall.baseturfs), CHANGETURF_DEFER_CHANGE)
 
 		CHECK_TICK
 
