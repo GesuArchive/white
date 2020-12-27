@@ -123,7 +123,7 @@
 /datum/blackmarket_item/ammo/m50
 	name = "Пистолетный магазин (.50)"
 	desc = "Магазин калибра .50"
-	item = /obj/item/ammo_box/magazine/m9mm
+	item = /obj/item/ammo_box/magazine/m50
 
 	price_min = 100
 	price_max = 500
