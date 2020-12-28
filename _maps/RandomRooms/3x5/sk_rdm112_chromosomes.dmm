@@ -14,28 +14,21 @@
 	pixel_y = 3
 	},
 /obj/machinery/light/built{
-	icon_state = "tube-empty";
-	dir = 8
+	dir = 8;
+	icon_state = "tube-empty"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/template_noop)
 "d" = (
 /obj/structure/table/glass,
-/obj/item/chromosome/reinforcer{
-	pixel_y = 8
-	},
-/obj/item/chromosome/reinforcer{
-	pixel_y = 4
-	},
-/obj/item/chromosome/reinforcer,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/template_noop)
 "e" = (
 /obj/structure/frame/computer{
-	icon_state = "0";
-	dir = 4
+	dir = 4;
+	icon_state = "0"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -43,8 +36,8 @@
 "f" = (
 /obj/structure/table/glass,
 /obj/machinery/light/broken{
-	icon_state = "tube-broken";
-	dir = 4
+	dir = 4;
+	icon_state = "tube-broken"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/sheet/plastic/five,
@@ -63,12 +56,6 @@
 /obj/structure/frame/machine,
 /turf/open/floor/plating,
 /area/template_noop)
-"i" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/trap/nexus/trickyspawner/zombie,
-/obj/effect/spawner/lootdrop/trap,
-/turf/open/floor/plating,
-/area/template_noop)
 
 (1,1,1) = {"
 a
@@ -80,7 +67,7 @@ e
 (2,1,1) = {"
 a
 d
-i
+a
 b
 a
 "}

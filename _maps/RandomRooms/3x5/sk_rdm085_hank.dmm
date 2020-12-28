@@ -18,10 +18,6 @@
 /obj/structure/closet/crate/wooden/toy,
 /turf/open/floor/mineral/bananium,
 /area/template_noop)
-"e" = (
-/obj/effect/spawner/lootdrop/clowntrap,
-/turf/open/floor/mineral/bananium,
-/area/template_noop)
 "f" = (
 /turf/closed/wall/mineral/bananium,
 /area/template_noop)
@@ -31,9 +27,6 @@
 "h" = (
 /obj/machinery/light/small{
 	dir = 1
-	},
-/mob/living/simple_animal/cluwne{
-	name = "Hank"
 	},
 /turf/open/floor/carpet/orange,
 /area/template_noop)
@@ -47,7 +40,6 @@
 /area/template_noop)
 "j" = (
 /obj/machinery/door/airlock/bananium/glass,
-/obj/effect/trap/trigger/random,
 /turf/open/floor/plasteel/stairs/old,
 /area/template_noop)
 
@@ -60,7 +52,7 @@ g
 "}
 (2,1,1) = {"
 b
-e
+b
 b
 f
 h

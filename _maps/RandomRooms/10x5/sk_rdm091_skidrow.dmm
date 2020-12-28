@@ -8,7 +8,6 @@
 /obj/effect/decal/cleanable/shreds,
 /obj/item/toy/cards/singlecard,
 /obj/effect/spawner/lootdrop/maintenance/seven,
-/obj/item/reagent_containers/glass/waterbottle/relic,
 /obj/item/cigbutt,
 /turf/open/floor/plating,
 /area/template_noop)
@@ -48,7 +47,6 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "j" = (
-/obj/effect/landmark/start/randommaint/hobo,
 /obj/structure/bed/dogbed,
 /obj/item/bedsheet/random,
 /turf/open/floor/plating,
@@ -66,10 +64,6 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/broken_bottle,
-/obj/item/melee/classic_baton/police/deputy{
-	name = "old baton";
-	stamina_damage = 10
-	},
 /obj/item/cigbutt,
 /turf/open/floor/plating,
 /area/template_noop)
@@ -106,8 +100,8 @@
 /area/template_noop)
 "y" = (
 /obj/item/storage/bag/trash{
-	pixel_y = -12;
-	pixel_x = 13
+	pixel_x = 13;
+	pixel_y = -12
 	},
 /obj/effect/decal/cleanable/food/tomato_smudge,
 /turf/open/floor/plating,
@@ -130,8 +124,8 @@
 	pixel_y = -2
 	},
 /obj/item/wirecutters{
-	pixel_y = -3;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = -3
 	},
 /obj/item/reagent_containers/syringe,
 /turf/open/floor/plating,

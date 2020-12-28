@@ -28,9 +28,6 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "f" = (
-/obj/structure/chair/wood/normal{
-	dir = 4
-	},
 /turf/open/floor/plating,
 /area/template_noop)
 "g" = (

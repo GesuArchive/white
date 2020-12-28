@@ -1,6 +1,5 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "b" = (
-/obj/item/twohanded/required/kirbyplants/random,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -28,9 +27,9 @@
 	},
 /obj/item/seeds/poppy/geranium,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/reagent_containers/food/snacks/grown/wheat,
-/obj/item/reagent_containers/food/snacks/grown/corn,
-/obj/item/reagent_containers/food/snacks/grown/apple,
+/obj/item/food/grown/wheat,
+/obj/item/food/grown/corn,
+/obj/item/food/grown/apple,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
 /area/template_noop)
@@ -42,7 +41,6 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "g" = (
-/obj/item/twohanded/required/kirbyplants/random,
 /obj/machinery/status_display/evac{
 	pixel_y = 32
 	},
@@ -51,12 +49,12 @@
 /area/template_noop)
 "h" = (
 /obj/structure/table,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/hand_labeler,
-/obj/item/reagent_containers/food/snacks/grown/tea,
-/obj/item/reagent_containers/food/snacks/grown/grapes,
-/obj/item/reagent_containers/food/snacks/grown/cherries,
+/obj/item/food/grown/tea,
+/obj/item/food/grown/grapes,
+/obj/item/food/grown/cherries,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
 /area/template_noop)
@@ -80,9 +78,6 @@
 	pixel_x = 11
 	},
 /obj/effect/turf_decal/bot,
-/obj/structure/sign/departments/minsky/supply/hydroponics{
-	pixel_x = 32
-	},
 /turf/open/floor/plasteel,
 /area/template_noop)
 "m" = (
@@ -98,7 +93,6 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "n" = (
-/obj/item/twohanded/required/kirbyplants/random,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
@@ -121,7 +115,7 @@
 	},
 /obj/item/reagent_containers/syringe,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable/white,
+/obj/structure/cable,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
 /area/template_noop)

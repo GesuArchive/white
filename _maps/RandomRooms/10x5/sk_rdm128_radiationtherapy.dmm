@@ -17,8 +17,8 @@
 "c" = (
 /obj/structure/closet/radiation,
 /obj/machinery/light/built{
-	icon_state = "tube-empty";
-	dir = 1
+	dir = 1;
+	icon_state = "tube-empty"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
@@ -55,12 +55,12 @@
 	dir = 1
 	},
 /obj/machinery/light/broken{
-	icon_state = "tube-broken";
-	dir = 1
+	dir = 1;
+	icon_state = "tube-broken"
 	},
 /obj/effect/turf_decal/caution/stand_clear{
-	icon_state = "stand_clear";
-	dir = 1
+	dir = 1;
+	icon_state = "stand_clear"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
@@ -146,11 +146,10 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/caution/stand_clear{
-	icon_state = "stand_clear";
-	dir = 8
+	dir = 8;
+	icon_state = "stand_clear"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/trap/nexus/trickyspawner/catbutcher,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "w" = (
@@ -262,17 +261,13 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "K" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/lootdrop/trap/reusable,
-/turf/open/floor/plating,
+/mob/living/simple_animal/hostile/cat_butcherer,
+/turf/open/floor/plasteel,
 /area/template_noop)
 "L" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/lootdrop/trap/reusable,
-/turf/open/floor/plasteel,
+/mob/living/simple_animal/pet/cat/space,
+/turf/open/floor/mineral/uranium,
 /area/template_noop)
 
 (1,1,1) = {"
@@ -285,7 +280,7 @@ C
 (2,1,1) = {"
 b
 m
-l
+K
 x
 D
 "}
@@ -308,7 +303,7 @@ e
 r
 v
 z
-L
+l
 "}
 (6,1,1) = {"
 f
@@ -327,7 +322,7 @@ G
 (8,1,1) = {"
 h
 n
-n
+L
 n
 H
 "}
@@ -341,7 +336,7 @@ I
 (10,1,1) = {"
 j
 o
-K
+d
 B
 J
 "}

@@ -17,7 +17,7 @@
 /area/template_noop)
 "d" = (
 /obj/structure/table,
-/obj/item/reagent_containers/food/snacks/donut,
+/obj/item/storage/fancy/donut_box,
 /turf/open/floor/plating,
 /area/template_noop)
 "e" = (
@@ -33,11 +33,6 @@
 /area/template_noop)
 "g" = (
 /obj/structure/table,
-/obj/item/stack/sheet/mineral/copper,
-/obj/item/stack/sheet/mineral/copper,
-/obj/item/stack/sheet/mineral/copper{
-	amount = 5
-	},
 /turf/open/floor/plating,
 /area/template_noop)
 

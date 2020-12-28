@@ -49,16 +49,11 @@
 	pixel_y = 9
 	},
 /obj/item/reagent_containers/glass/bottle/mutagen,
-/obj/item/reagent_containers/food/drinks/bottle/virusfood{
-	pixel_x = 6;
-	pixel_y = 4
-	},
 /turf/open/floor/plating,
 /area/template_noop)
 "h" = (
 /obj/item/reagent_containers/glass/bottle/synaptizine,
 /obj/structure/table/glass,
-/obj/effect/spawner/lootdrop/teratoma/major,
 /obj/effect/spawner/lootdrop/maintenance/three,
 /turf/open/floor/plating,
 /area/template_noop)

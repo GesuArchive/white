@@ -3,10 +3,6 @@
 /obj/structure/dresser,
 /turf/open/floor/carpet/black,
 /area/template_noop)
-"c" = (
-/obj/effect/landmark/start/randommaint/magician,
-/turf/open/floor/carpet/black,
-/area/template_noop)
 "g" = (
 /turf/open/floor/carpet/black,
 /area/template_noop)
@@ -51,12 +47,6 @@
 	dir = 1
 	},
 /obj/structure/table/wood,
-/obj/item/reagent_containers/medspray/barber{
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/medspray/dye{
-	pixel_x = -3
-	},
 /turf/open/floor/carpet/black,
 /area/template_noop)
 "O" = (
@@ -75,7 +65,7 @@ a
 "}
 (2,1,1) = {"
 F
-c
+g
 o
 "}
 (3,1,1) = {"

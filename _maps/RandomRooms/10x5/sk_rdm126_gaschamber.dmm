@@ -50,8 +50,8 @@
 /area/template_noop)
 "f" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector{
-	icon_state = "inje_map-2";
-	dir = 8
+	dir = 8;
+	icon_state = "inje_map-2"
 	},
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/dirt,
@@ -61,7 +61,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/effect/spawner/lootdrop/trap,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "h" = (
@@ -87,13 +86,12 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/effect/trap/nexus/trickyspawner/shitsec,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "k" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector{
-	icon_state = "inje_map-2";
-	dir = 4
+	dir = 4;
+	icon_state = "inje_map-2"
 	},
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/dark,
@@ -122,12 +120,6 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel/dark,
-/area/template_noop)
-"p" = (
-/obj/structure/chair,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/trap/nexus/trickyspawner,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "q" = (
@@ -194,8 +186,8 @@
 /area/template_noop)
 "y" = (
 /obj/machinery/atmospherics/components/unary/portables_connector{
-	icon_state = "connector_map-2";
-	dir = 8
+	dir = 8;
+	icon_state = "connector_map-2"
 	},
 /obj/effect/turf_decal/box,
 /turf/open/floor/plasteel,
@@ -217,14 +209,6 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red,
-/turf/open/floor/plasteel,
-/area/template_noop)
-"B" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/lootdrop/trap,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "C" = (
@@ -281,8 +265,8 @@
 /area/template_noop)
 "J" = (
 /obj/machinery/atmospherics/components/unary/portables_connector{
-	icon_state = "connector_map-2";
-	dir = 4
+	dir = 4;
+	icon_state = "connector_map-2"
 	},
 /obj/effect/turf_decal/box,
 /obj/effect/decal/cleanable/dirt,
@@ -365,24 +349,17 @@
 /obj/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/simple/general/visible,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/trap/nexus/trickyspawner/zombie,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "S" = (
 /obj/machinery/door/window/southleft,
-/obj/effect/spawner/lootdrop/trap,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
-"T" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/lootdrop/trap,
-/turf/open/floor/plasteel,
 /area/template_noop)
 
 (1,1,1) = {"
 a
 x
-B
+r
 I
 L
 "}
@@ -419,7 +396,7 @@ j
 r
 r
 E
-T
+H
 "}
 (7,1,1) = {"
 b
@@ -430,7 +407,7 @@ J
 "}
 (8,1,1) = {"
 k
-p
+n
 S
 G
 N

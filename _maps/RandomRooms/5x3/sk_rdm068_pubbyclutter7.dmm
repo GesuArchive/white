@@ -1,15 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
-/obj/machinery/shieldwallgen,
-/turf/open/floor/plating,
-/area/template_noop)
 "b" = (
 /obj/effect/spawner/lootdrop/maintenance,
 /obj/structure/closet,
 /turf/open/floor/plating,
 /area/template_noop)
 "c" = (
-/obj/item/stack/cable_coil/cut/random,
+/obj/item/stack/cable_coil,
 /turf/open/floor/plating,
 /area/template_noop)
 "d" = (
@@ -61,9 +57,9 @@
 /area/template_noop)
 
 (1,1,1) = {"
-a
 f
-a
+f
+f
 "}
 (2,1,1) = {"
 b

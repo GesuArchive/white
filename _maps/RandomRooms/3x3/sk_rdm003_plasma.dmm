@@ -4,7 +4,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "b" = (
-/obj/item/stack/sheet/iron,
+/obj/item/stack/sheet/metal,
 /obj/item/stack/cable_coil/cut,
 /obj/effect/decal/cleanable/glitter/pink,
 /turf/open/floor/plating,

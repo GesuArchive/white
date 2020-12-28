@@ -11,11 +11,6 @@
 /obj/effect/spawner/lootdrop/maintenance/three,
 /turf/open/floor/plating,
 /area/template_noop)
-"c" = (
-/obj/effect/spawner/lootdrop/trap,
-/obj/effect/spawner/lootdrop/clowntrap,
-/turf/open/floor/plating,
-/area/template_noop)
 "d" = (
 /obj/machinery/vending/autodrobe/all_access,
 /turf/open/floor/plating,
@@ -53,7 +48,6 @@
 /area/template_noop)
 "m" = (
 /obj/structure/rack,
-/obj/item/clothing/mask/horsehead,
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/plating,
 /area/template_noop)
@@ -86,7 +80,7 @@ o
 "}
 (3,1,1) = {"
 h
-c
+h
 h
 h
 "}

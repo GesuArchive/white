@@ -13,7 +13,7 @@
 /obj/machinery/shower{
 	dir = 8
 	},
-/turf/open/floor/noslip/standard,
+/turf/open/floor/noslip,
 /area/template_noop)
 "d" = (
 /obj/machinery/light/small{
@@ -41,8 +41,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/effect/trap/nexus/trickyspawner/catbutcher,
-/obj/effect/spawner/lootdrop/trap,
 /turf/open/floor/plasteel/white,
 /area/template_noop)
 "h" = (
@@ -63,6 +61,7 @@
 /area/template_noop)
 "j" = (
 /obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/cat_butcherer,
 /turf/open/floor/plasteel/white,
 /area/template_noop)
 "k" = (
@@ -79,8 +78,8 @@
 "l" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/frame/computer{
-	icon_state = "0";
-	dir = 4
+	dir = 4;
+	icon_state = "0"
 	},
 /turf/open/floor/plasteel/white,
 /area/template_noop)
@@ -91,10 +90,9 @@
 /obj/structure/closet/crate/freezer,
 /obj/effect/decal/cleanable/blood/old,
 /obj/item/organ/eyes,
-/obj/item/organ/eyes/apid,
+/obj/item/organ/eyes,
 /obj/item/organ/eyes/moth,
 /obj/item/organ/eyes/robotic,
-/obj/effect/spawner/lootdrop/teratoma/major,
 /turf/open/floor/plasteel/white,
 /area/template_noop)
 

@@ -25,7 +25,6 @@
 /area/template_noop)
 "c" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/trap/trigger/all,
 /turf/open/floor/plating{
 	icon_state = "platingdmg3"
 	},
@@ -53,11 +52,6 @@
 /turf/open/floor/plating{
 	icon_state = "platingdmg3"
 	},
-/area/template_noop)
-"g" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/trap/trigger/all,
-/turf/open/floor/plating,
 /area/template_noop)
 "h" = (
 /obj/effect/decal/cleanable/dirt,
@@ -88,8 +82,6 @@
 	},
 /obj/item/surgical_drapes,
 /obj/item/clothing/mask/surgical,
-/obj/effect/trap/nexus/doorbolt,
-/obj/effect/trap/nexus/darkness,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "j" = (
@@ -212,7 +204,6 @@
 	dir = 8
 	},
 /obj/item/shard,
-/obj/effect/trap/trigger/all,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
 	},
@@ -240,7 +231,7 @@
 
 (1,1,1) = {"
 a
-g
+d
 j
 o
 "}
@@ -264,7 +255,7 @@ r
 "}
 (5,1,1) = {"
 e
-g
+d
 n
 s
 "}

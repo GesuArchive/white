@@ -43,11 +43,6 @@
 	icon_state = "platingdmg1"
 	},
 /area/template_noop)
-"h" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/lootdrop/trap/reusable,
-/turf/open/floor/plasteel/kitchen_coldroom/freezerfloor,
-/area/template_noop)
 "i" = (
 /obj/item/wrench/medical,
 /obj/effect/decal/cleanable/dirt,
@@ -64,8 +59,8 @@
 "k" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer,
 /obj/effect/turf_decal/stripes/end{
-	icon_state = "warn_end";
-	dir = 4
+	dir = 4;
+	icon_state = "warn_end"
 	},
 /obj/machinery/light{
 	dir = 8
@@ -116,22 +111,14 @@
 /obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plasteel/kitchen_coldroom/freezerfloor,
 /area/template_noop)
-"r" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/trap/nexus/trickyspawner/zombie{
-	mobs = 3
-	},
-/turf/open/floor/plating,
-/area/template_noop)
 "s" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/lootdrop/trap/reusable,
 /turf/open/floor/plating,
 /area/template_noop)
 
 (1,1,1) = {"
 a
-h
+f
 k
 n
 "}
@@ -143,9 +130,9 @@ o
 "}
 (3,1,1) = {"
 c
-r
+s
 f
-h
+f
 "}
 (4,1,1) = {"
 d

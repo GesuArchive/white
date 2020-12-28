@@ -12,9 +12,9 @@
 /area/template_noop)
 "c" = (
 /obj/structure/closet,
-/obj/item/canvas/twentythreeXnineteen,
-/obj/item/canvas/nineteenXnineteen,
-/obj/item/canvas/twentythreeXtwentythree,
+/obj/item/canvas/nineteen_nineteen,
+/obj/item/canvas/twentythree_twentythree,
+/obj/item/canvas/twentythree_twentythree,
 /obj/item/storage/crayons,
 /turf/open/floor/plating,
 /area/template_noop)
@@ -36,7 +36,7 @@
 /area/template_noop)
 "h" = (
 /obj/structure/table,
-/obj/item/stack/sheet/iron{
+/obj/item/stack/sheet/metal{
 	amount = 10
 	},
 /obj/item/stack/rods{

@@ -62,7 +62,6 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "t" = (
-/obj/item/twohanded/required/kirbyplants/random,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
@@ -119,10 +118,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/template_noop)
-"D" = (
-/obj/item/twohanded/required/kirbyplants/random,
-/turf/open/floor/plating,
-/area/template_noop)
 "G" = (
 /turf/open/floor/plating{
 	icon_state = "platingdmg2"
@@ -154,9 +149,6 @@
 /obj/structure/table,
 /obj/item/folder/white,
 /obj/item/wrench/medical,
-/obj/structure/sign/poster/official/moth4{
-	pixel_x = -32
-	},
 /turf/open/floor/plating,
 /area/template_noop)
 "K" = (
@@ -236,7 +228,7 @@ c
 M
 "}
 (6,1,1) = {"
-D
+S
 c
 S
 c

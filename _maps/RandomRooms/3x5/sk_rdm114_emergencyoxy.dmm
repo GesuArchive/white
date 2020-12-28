@@ -18,8 +18,8 @@
 "d" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/light/small/broken{
-	icon_state = "bulb-broken";
-	dir = 8
+	dir = 8;
+	icon_state = "bulb-broken"
 	},
 /turf/open/floor/plasteel,
 /area/template_noop)
@@ -51,8 +51,8 @@
 "i" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/light/small/built{
-	icon_state = "bulb-empty";
-	dir = 8
+	dir = 8;
+	icon_state = "bulb-empty"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,

@@ -11,8 +11,8 @@
 "c" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/small/built{
-	icon_state = "bulb-empty";
-	dir = 8
+	dir = 8;
+	icon_state = "bulb-empty"
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/template_noop)
@@ -29,8 +29,8 @@
 /obj/item/clothing/head/ushanka,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/small/broken{
-	icon_state = "bulb-broken";
-	dir = 4
+	dir = 4;
+	icon_state = "bulb-broken"
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/template_noop)

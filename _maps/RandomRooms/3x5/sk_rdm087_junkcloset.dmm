@@ -39,7 +39,6 @@
 /area/template_noop)
 "f" = (
 /obj/effect/spawner/lootdrop/maintenance,
-/obj/item/stack/sheet/mineral/copper,
 /turf/open/floor/plating,
 /area/template_noop)
 "g" = (
@@ -53,9 +52,6 @@
 "i" = (
 /obj/structure/rack,
 /obj/effect/spawner/lootdrop/maintenance/two,
-/obj/item/stack/sheet/mineral/copper,
-/obj/item/stack/sheet/mineral/copper,
-/obj/item/stack/sheet/mineral/copper,
 /turf/open/floor/plating,
 /area/template_noop)
 "j" = (

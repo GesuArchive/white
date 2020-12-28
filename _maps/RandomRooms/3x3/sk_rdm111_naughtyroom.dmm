@@ -18,8 +18,7 @@
 "d" = (
 /obj/structure/bed,
 /obj/item/bedsheet/random,
-/obj/effect/trap/nexus/trickyspawner/catbutcher,
-/obj/effect/trap/trigger,
+/mob/living/simple_animal/hostile/cat_butcherer,
 /turf/open/floor/carpet/purple,
 /area/template_noop)
 "e" = (

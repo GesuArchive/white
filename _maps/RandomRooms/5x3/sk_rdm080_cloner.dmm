@@ -16,7 +16,6 @@
 /turf/open/floor/plasteel/white,
 /area/template_noop)
 "b" = (
-/obj/machinery/clonepod/experimental,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
@@ -27,6 +26,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/machinery/computer/scan_consolenew,
 /turf/open/floor/plasteel/white,
 /area/template_noop)
 "c" = (
@@ -40,28 +40,13 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/turf/open/floor/plasteel/white,
-/area/template_noop)
-"d" = (
 /obj/machinery/dna_scannernew,
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
 /turf/open/floor/plasteel/white,
 /area/template_noop)
 "e" = (
-/obj/machinery/computer/prototype_cloning,
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/paper/fluff/ruins/exp_cloning/manual,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
@@ -103,8 +88,6 @@
 /turf/open/floor/plasteel/white,
 /area/template_noop)
 "i" = (
-/obj/item/reagent_containers/food/drinks/bottle/synthflesh,
-/obj/item/reagent_containers/food/drinks/bottle/synthflesh,
 /obj/structure/closet,
 /turf/open/floor/plasteel/white,
 /area/template_noop)
@@ -122,8 +105,6 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/effect/trap/nexus/trickyspawner/zombie,
-/obj/effect/spawner/lootdrop/trap,
 /turf/open/floor/plasteel/white,
 /area/template_noop)
 
@@ -143,8 +124,8 @@ k
 j
 "}
 (4,1,1) = {"
-d
-g
+k
+f
 j
 "}
 (5,1,1) = {"

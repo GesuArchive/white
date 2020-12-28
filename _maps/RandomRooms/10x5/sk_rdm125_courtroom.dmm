@@ -15,8 +15,8 @@
 	dir = 4
 	},
 /obj/machinery/light/built{
-	icon_state = "tube-empty";
-	dir = 1
+	dir = 1;
+	icon_state = "tube-empty"
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -59,8 +59,8 @@
 /area/template_noop)
 "g" = (
 /obj/machinery/light/broken{
-	icon_state = "tube-broken";
-	dir = 1
+	dir = 1;
+	icon_state = "tube-broken"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -262,21 +262,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/template_noop)
-"C" = (
-/obj/effect/trap/trigger/reusable/random,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
-/area/template_noop)
-"D" = (
-/obj/structure/table_frame/wood,
-/obj/effect/trap/nexus/trickyspawner/shitsec{
-	mobs = 3
-	},
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
-/area/template_noop)
 
 (1,1,1) = {"
 a
@@ -309,7 +294,7 @@ x
 (5,1,1) = {"
 e
 k
-C
+k
 k
 y
 "}
@@ -323,7 +308,7 @@ y
 (7,1,1) = {"
 f
 m
-D
+d
 t
 z
 "}

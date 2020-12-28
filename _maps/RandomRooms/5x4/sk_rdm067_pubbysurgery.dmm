@@ -40,7 +40,6 @@
 /area/template_noop)
 "f" = (
 /obj/effect/spawner/lootdrop/organ_spawner,
-/obj/effect/trap/nexus/trickyspawner/catbutcher,
 /turf/open/floor/plating{
 	icon_state = "platingdmg3"
 	},
@@ -104,10 +103,6 @@
 	icon_state = "panelscorched"
 	},
 /area/template_noop)
-"q" = (
-/obj/effect/spawner/lootdrop/trap/reusable,
-/turf/open/floor/plating,
-/area/template_noop)
 "r" = (
 /obj/effect/spawner/lootdrop/organ_spawner,
 /obj/structure/closet/crate,
@@ -131,7 +126,7 @@ o
 (3,1,1) = {"
 c
 h
-q
+m
 m
 "}
 (4,1,1) = {"

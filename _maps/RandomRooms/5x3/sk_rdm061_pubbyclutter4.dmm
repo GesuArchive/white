@@ -42,11 +42,7 @@
 /area/template_noop)
 "j" = (
 /obj/structure/grille/broken,
-/obj/structure/piano,
-/turf/open/floor/plating,
-/area/template_noop)
-"k" = (
-/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/structure/musician/piano,
 /turf/open/floor/plating,
 /area/template_noop)
 "l" = (
@@ -74,7 +70,7 @@ b
 (4,1,1) = {"
 d
 g
-k
+b
 "}
 (5,1,1) = {"
 e

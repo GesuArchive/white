@@ -6,13 +6,6 @@
 /obj/structure/window/reinforced/spawner/north,
 /obj/structure/rack,
 /obj/item/storage/box/ingredients/carnivore,
-/obj/item/reagent_containers/food/snacks/bun,
-/obj/item/reagent_containers/food/snacks/bun,
-/obj/item/reagent_containers/food/snacks/bun,
-/obj/item/reagent_containers/food/snacks/bun,
-/obj/item/reagent_containers/food/snacks/bun,
-/obj/item/reagent_containers/food/snacks/bun,
-/obj/item/reagent_containers/food/snacks/bun,
 /turf/open/floor/grass,
 /area/template_noop)
 "c" = (
@@ -45,13 +38,8 @@
 /area/template_noop)
 "n" = (
 /obj/structure/table,
-/obj/item/reagent_containers/food/snacks/burger/rat{
-	pixel_x = 4;
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/food/snacks/burger/rat,
 /obj/structure/window/reinforced/spawner,
-/turf/open/floor/monotile/steel,
+/turf/open/floor/plasteel,
 /area/template_noop)
 "o" = (
 /obj/structure/chair/stool/bar,
@@ -76,8 +64,8 @@
 /area/template_noop)
 "w" = (
 /obj/structure/rack,
-/obj/item/stack/cable_coil/blue,
-/obj/item/stack/cable_coil/blue,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
 /obj/item/kitchen/knife/butcher,
 /obj/item/clothing/suit/hooded/wintercoat/security,
 /turf/open/floor/plating{
@@ -128,16 +116,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/item/reagent_containers/food/snacks/burger/rat{
-	pixel_x = 7;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/food/snacks/burger/rat{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/food/snacks/burger/rat,
-/turf/open/floor/monotile/steel,
+/turf/open/floor/plasteel,
 /area/template_noop)
 "G" = (
 /obj/machinery/light/small,
@@ -164,7 +143,6 @@
 /area/template_noop)
 "K" = (
 /obj/effect/decal/cleanable/blood/old,
-/obj/item/reagent_containers/food/snacks/bun,
 /turf/open/floor/plasteel/cafeteria,
 /area/template_noop)
 "L" = (

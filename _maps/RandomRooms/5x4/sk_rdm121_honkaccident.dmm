@@ -2,7 +2,6 @@
 "a" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/blue,
-/obj/effect/trap/nexus/doorbolt,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "b" = (
@@ -20,7 +19,6 @@
 /area/template_noop)
 "d" = (
 /obj/structure/mecha_wreckage/honker,
-/obj/effect/trap/nexus/darkness,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
 	icon_state = "platingdmg1"
@@ -78,13 +76,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/template_noop)
-"l" = (
-/obj/effect/spawner/lootdrop/clowntrap,
-/turf/open/floor/plating{
-	heat_capacity = 1e+006;
-	icon_state = "panelscorched"
-	},
-/area/template_noop)
 "m" = (
 /obj/item/grown/bananapeel,
 /obj/effect/decal/cleanable/dirt,
@@ -95,13 +86,6 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/template_noop)
-"O" = (
-/obj/effect/spawner/lootdrop/trap,
-/turf/open/floor/plating{
-	heat_capacity = 1e+006;
-	icon_state = "panelscorched"
-	},
 /area/template_noop)
 
 (1,1,1) = {"
@@ -118,14 +102,14 @@ j
 "}
 (3,1,1) = {"
 e
-O
+b
 b
 m
 "}
 (4,1,1) = {"
 b
 d
-l
+b
 e
 "}
 (5,1,1) = {"
