@@ -333,7 +333,7 @@
 	name = "Supply multi deck pipe adapter"
 	},
 /obj/effect/turf_decal/stripes/box,
-/obj/structure/railing{
+/obj/structure/railing/corner{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -1625,7 +1625,7 @@ eb
 aX
 ad
 ad
-fl
+ad
 fl
 fl
 fl
