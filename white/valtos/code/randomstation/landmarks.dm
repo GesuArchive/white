@@ -35,7 +35,7 @@
 			if(template.always_spawn_with[v] == PLACE_BELOW)
 				var/turf/LO = locate(T.x,T.y,T.z - 1)
 				var/datum/map_template/ruin/below_temp = SSmapping.station_room_templates[v.name]
-				below_temp.load(LO, centered = FALSE)
+				below_temp.try_to_place(LO.z, list(/area/space), LO)
 	template.loaded++
 	GLOB.stationroom_landmarks -= src
 	qdel(src)
