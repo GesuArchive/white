@@ -31,10 +31,11 @@
 	testing("Station part \"[template_name]\" placed at ([T.x], [T.y], [T.z])")
 	template.load(T, centered = FALSE)
 	if(template.always_spawn_with)
-		for(var/datum/map_template/v in template.always_spawn_with)
+		for(var/v in template.always_spawn_with)
 			if(template.always_spawn_with[v] == PLACE_BELOW)
-				var/turf/LO = locate(T.x,T.y,T.z - 1)
-				var/datum/map_template/ruin/below_temp = SSmapping.station_room_templates[v.name]
+				var/turf/LO = locate(T.x, T.y, T.z - 1)
+				var/datum/map_template/MT = v
+				var/datum/map_template/ruin/below_temp = SSmapping.station_room_templates[MT.name]
 				below_temp.load(LO, centered = FALSE)
 				below_temp.loaded++
 	template.loaded++
@@ -52,7 +53,7 @@
 	template_names = list("Default Central" = 10, "Compact Central" = 4, "Interesting Central" = 3)
 
 /obj/effect/landmark/stationroom/engine
-	template_names = list("Supermatter" = 5, "Singulo or Tesla" = 10)
+	template_names = list("Supermatter" = 8, "Singulo or Tesla" = 10)
 
 /obj/effect/landmark/stationroom/maint_sw
 	template_names = list("Default Maint SW" = 10, "Arena Maint SW" = 4, "Chess Maint SW" = 3)
