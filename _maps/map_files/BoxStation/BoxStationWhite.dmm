@@ -9158,6 +9158,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "aJD" = (
@@ -10148,7 +10149,6 @@
 /turf/open/floor/plasteel/grimy,
 /area/hallway/secondary/entry)
 "aOZ" = (
-/obj/structure/cable,
 /obj/effect/turf_decal/stripes/box,
 /obj/structure/cable/multilayer/multiz,
 /obj/structure/sign/warning/electricshock{

@@ -51,6 +51,12 @@
 	id = "engine_sm"
 	suffix = "engine_sm.dmm"
 	name = "Supermatter"
+	always_spawn_with = list(/datum/map_template/ruin/station/engine/bottom = PLACE_BELOW)
+
+/datum/map_template/ruin/station/engine/bottom
+	id = "engine_sm_bottom"
+	suffix = "engine_sm_bottom.dmm"
+	name = "Supermatter Bottom"
 
 /datum/map_template/ruin/station/engine/singulotesla
 	id = "engine_singulo_tesla"
