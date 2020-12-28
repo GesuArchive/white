@@ -25,11 +25,17 @@
 		GLOB.stationroom_landmarks -= src
 		qdel(src)
 		return FALSE
-	var/datum/map_template/template = SSmapping.station_room_templates[template_name]
+	var/datum/map_template/ruin/template = SSmapping.station_room_templates[template_name]
 	if(!template)
 		return FALSE
 	testing("Station part \"[template_name]\" placed at ([T.x], [T.y], [T.z])")
 	template.load(T, centered = FALSE)
+	if(template.always_spawn_with)
+		for(var/v in template.always_spawn_with)
+			if(template.always_spawn_with[v] == PLACE_BELOW)
+				var/turf/LO = locate(1,1,T.z - 1)
+				var/datum/map_template/ruin/below_temp = SSmapping.station_room_templates[template.always_spawn_with[v]]
+				below_temp.load(LO, centered = FALSE)
 	template.loaded++
 	GLOB.stationroom_landmarks -= src
 	qdel(src)
