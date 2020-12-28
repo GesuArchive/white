@@ -62,6 +62,7 @@
 	id = "engine_singulo_tesla"
 	suffix = "engine_singulo_tesla.dmm"
 	name = "Singulo or Tesla"
+	always_spawn_with = null // FUCK
 
 /datum/map_template/ruin/station/maint_sw
 	id = "default_maint_sw"
