@@ -66,7 +66,7 @@
 
 	output += "</center>"
 
-	var/datum/browser/popup = new(src, "playersetup", "<div align='center'>New Loli Station</div>", 265, 265) // 新しい白い夢
+	var/datum/browser/popup = new(src, "playersetup", "<div align='center'>New White Dream</div>", 265, 265) // 新しい白い夢
 	popup.set_window_options("can_close=0")
 	popup.set_content(output.Join())
 	popup.open(FALSE)
