@@ -32,7 +32,6 @@
 	template.load(T, centered = FALSE)
 	if(template.always_spawn_with)
 		for(var/v in template.always_spawn_with)
-			//if(template.always_spawn_with[v] == PLACE_BELOW)
 			var/turf/LO = locate(T.x, T.y, T.z - 1)
 			var/datum/map_template/MT = new v
 			var/datum/map_template/ruin/below_temp = SSmapping.station_room_templates[MT.name]
