@@ -18863,9 +18863,9 @@
 /turf/open/floor/plasteel/white,
 /area/science/mixing)
 "bHo" = (
-/obj/structure/closet,
+/obj/structure/ladder,
 /turf/open/floor/plating,
-/area/maintenance/aft)
+/area/maintenance/starboard/fore)
 "bHp" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -66925,7 +66925,7 @@ aaa
 gXs
 gXs
 bCq
-bHE
+pYD
 cay
 bVI
 bWC
@@ -72828,7 +72828,7 @@ bFk
 bDs
 bCv
 wiz
-bHo
+bID
 bLK
 bMK
 bMK
@@ -81776,7 +81776,7 @@ awF
 cpb
 anf
 xPY
-anf
+bHo
 alP
 alP
 alP

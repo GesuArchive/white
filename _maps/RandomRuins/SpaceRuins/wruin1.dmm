@@ -3,7 +3,7 @@
 /turf/template_noop,
 /area/template_noop)
 "ab" = (
-/turf/closed/mineral/random/no_caves,
+/turf/closed/mineral/random,
 /area/ruin/space/has_grav/telepadovo)
 "ac" = (
 /turf/open/floor/plating/asteroid/airless,
@@ -170,10 +170,10 @@
 	},
 /obj/effect/mob_spawn/human/syndicate{
 	desc = "Там кто-то есть. И он смотрит на меня не очень мило.";
-	short_desc = "Я телепадовец";
+	dir = 8;
 	flavour_text = "Я заведующий этой космоостановкой. В мои обязанности входит переправка прибывающих агентов на станцию.";
 	important_info = "И мне нельзя покидать это место, если только ему совсем не придут кранты.";
-	dir = 8
+	short_desc = "Я телепадовец"
 	},
 /turf/open/floor/partyhard/steel{
 	icon_state = "st-12"

@@ -63,29 +63,29 @@
 /obj/effect/landmark/stationroom/maint/rdm3x3/Initialize()
 	. = ..()
 	for(var/datum/map_template/R in subtypesof(/datum/map_template/ruin/maint/rdm3x3))
-		template_names.Add(R.name)
+		template_names += R.name
 
 /obj/effect/landmark/stationroom/maint/rdm3x5/Initialize()
 	. = ..()
 	for(var/datum/map_template/R in subtypesof(/datum/map_template/ruin/maint/rdm3x5))
-		template_names.Add(R.name)
+		template_names += R.name
 
 /obj/effect/landmark/stationroom/maint/rdm5x3/Initialize()
 	. = ..()
 	for(var/datum/map_template/R in subtypesof(/datum/map_template/ruin/maint/rdm5x3))
-		template_names.Add(R.name)
+		template_names += R.name
 
 /obj/effect/landmark/stationroom/maint/rdm5x4/Initialize()
 	. = ..()
 	for(var/datum/map_template/R in subtypesof(/datum/map_template/ruin/maint/rdm5x4))
-		template_names.Add(R.name)
+		template_names += R.name
 
 /obj/effect/landmark/stationroom/maint/rdm10x5/Initialize()
 	. = ..()
 	for(var/datum/map_template/R in subtypesof(/datum/map_template/ruin/maint/rdm10x5))
-		template_names.Add(R.name)
+		template_names += R.name
 
 /obj/effect/landmark/stationroom/maint/rdm10x10/Initialize()
 	. = ..()
 	for(var/datum/map_template/R in subtypesof(/datum/map_template/ruin/maint/rdm10x10))
-		template_names.Add(R.name)
+		template_names += R.name
