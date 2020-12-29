@@ -36,6 +36,9 @@
 	var/name = "Генератор техтоннелей"
 	var/list/open_turf_types = list(/turf/open/floor/plating = 1)
 	var/list/garbage_types = list(/obj/effect/spawner/lootdrop/grille_or_trash = 10,
+								  /obj/structure/grille = 50,
+								  /obj/structure/girder = 5,
+								  /obj/structure/grille/broken = 10,
 								  /obj/effect/spawner/lootdrop/maint_drugs = 4,
 								  /obj/effect/spawner/lootdrop/refreshing_beverage = 3,
 								  /obj/effect/spawner/lootdrop/botanical_waste = 1,
