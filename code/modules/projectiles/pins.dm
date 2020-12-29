@@ -109,8 +109,8 @@
 	return FALSE
 
 /obj/item/firing_pin/implant/mindshield
-	name = "ударник под мозгозащиту"
-	desc = "Этот ударник настроен на тех, кто имплантировал в себя мозгозащиту."
+	name = "ударник под «щит разума»"
+	desc = "Этот защитный ударник позволяет использовать оружие только тем, кто имплантировал себе «щит разума»."
 	icon_state = "firing_pin_loyalty"
 	req_implant = /obj/item/implant/mindshield
 

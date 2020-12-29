@@ -264,7 +264,7 @@ GLOBAL_LIST_EMPTY(crematoriums)
 /obj/structure/bodycontainer/crematorium/proc/cremate(mob/user)
 	if(temperature < 1173.15)
 		if(!heating)
-			audible_message("<span class='hear'>Слышу как накаляется метал.</span>")
+			audible_message("<span class='hear'>Слышу как накаляется металл.</span>")
 			START_PROCESSING(SSobj, src)
 			heating = TRUE
 		return

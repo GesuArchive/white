@@ -183,17 +183,17 @@
 	if(!ert_team)
 		return
 
-	to_chat(owner, "<B><font size=3 color=red>Я вхожу в [name].</font></B>")
+	to_chat(owner, "<B><font size=3 color=red>Я [name].</font></B>")
 
-	var/missiondesc = "Моя миссия на станции [station_name()] заключается в"
+	var/missiondesc = "Мой отряд был отправлен на станцию [station_name()] с миссией от Отдела Безопасности Нанотрейсен ."
 	if(leader) //If Squad Leader
-		missiondesc += " ведении своего отряда на выполнение задачи. Занять оперативный шаттл, когда все готовы."
+		missiondesc += "Ведите свой отряд чтобы обеспечить выполнение миссии. Садитесь на шаттл, когда ваша команда будет готова."
 	else
-		missiondesc += " выполнении приказов своего лидера."
+		missiondesc += "Следуйте приказам командира отряда."
 	if(!rip_and_tear)
-		missiondesc += "Избегать смертей гражданских по возможности."
+		missiondesc += "По возможности избегайте жертв среди гражданского населения."
 
-	missiondesc += "<BR><B>Моя миссия</B>: [ert_team.mission.explanation_text]"
+	missiondesc += "<BR><B>Ваша миссия</B>: [ert_team.mission.explanation_text]"
 	to_chat(owner,missiondesc)
 
 

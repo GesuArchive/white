@@ -389,8 +389,8 @@
 //////////////////////////JUICES AND STUFF ///////////////////////
 
 /obj/item/reagent_containers/food/drinks/bottle/orangejuice
-	name = "оранжевый  juice"
-	desc = "Full of vitamins and deliciousness!"
+	name = "апельсиновый сок"
+	desc = "Насыщенный вкус с витаминами!"
 	custom_price = PAYCHECK_ASSISTANT
 	icon_state = "orangejuice"
 	inhand_icon_state = "carton"

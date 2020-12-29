@@ -358,7 +358,7 @@
 	color = "#FFF5ED"
 
 /obj/item/paper/crumpled
-	name = "туалетная бумага"
+	name = "клочок бумаги"
 	icon_state = "scrap"
 	slot_flags = null
 	show_written_words = FALSE
