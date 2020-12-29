@@ -759,7 +759,7 @@
 
 
 /obj/item/storage/box/deputy
-	name = "ящик повязок Службы Безопасности"
+	name = "коробка с повязками Службы Безопасности"
 	desc = "Выдается лицам, уполномоченным действовать в качестве работника службы безопасности."
 	icon_state = "secbox"
 	illustration = "depband"
@@ -769,7 +769,7 @@
 		new /obj/item/clothing/accessory/armband/deputy(src)
 
 /obj/item/storage/box/metalfoam
-	name = "ящик с гранатами из пенопласта"
+	name = "коробка с гранатами из металлопены"
 	desc = "Используется для быстрого закрытия пробоин в корпусе."
 	illustration = "grenade"
 
@@ -778,7 +778,7 @@
 		new /obj/item/grenade/chem_grenade/metalfoam(src)
 
 /obj/item/storage/box/smart_metal_foam
-	name = "ящик умных гранат из пенопласта"
+	name = "коробка умных гранат из металлопены"
 	desc = "Используется для быстрой заделки пробоин в корпусе. Эта разновидность соответствует стенам своего участка."
 	illustration = "grenade"
 

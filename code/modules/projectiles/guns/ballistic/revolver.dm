@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/revolver
-	name = "\improper .357 револьвер"
+	name = "револьвер .357 калибра"
 	desc = "Подозрительный револьвер, использующий .357 патроны." //usually used by syndicates
 	icon_state = "revolver"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder
@@ -137,12 +137,12 @@
 
 
 /obj/item/gun/ballistic/revolver/mateba
-	name = "\improper Unica 6 автоматический револьвер"
+	name = "Unica 6 автоматический револьвер"
 	desc = "Ретро-мощный револьвер, обычно используемый офицерами новой России. Использует .357 патроны."
 	icon_state = "mateba"
 
 /obj/item/gun/ballistic/revolver/golden
-	name = "\improper золотой револьвер"
+	name = "золотой револьвер"
 	desc = "Раритетное оружие, использующее патроны .357."
 	icon_state = "goldrevolver"
 	fire_sound = 'sound/weapons/resonator_blast.ogg'
@@ -150,8 +150,8 @@
 	pin = /obj/item/firing_pin
 
 /obj/item/gun/ballistic/revolver/nagant
-	name = "\improper наган"
-	desc = "Старая модель револьвера, использововшая в России. Можно зацепить глушитель. Использует 7.62x38mmR патроны."
+	name = "наган"
+	desc = "Старая модель револьвера, использововшая в России. Можно нацепить глушитель. Использует патроны калибра 7.62x38mmR."
 	icon_state = "nagant"
 	can_suppress = TRUE
 
@@ -162,7 +162,7 @@
 // You can spin the chamber to randomize the position of the bullet.
 
 /obj/item/gun/ballistic/revolver/russian
-	name = "\improper русский револьвер"
+	name = "русский револьвер"
 	desc = "Сделано для пьяных игр тупыми пиндосами. Использует .357 патроны, можно начинать крутить барабан и ставить в рот."
 	icon_state = "russianrevolver"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/rus357

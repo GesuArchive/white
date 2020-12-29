@@ -695,8 +695,8 @@
 	list_reagents = list(/datum/reagent/consumable/sodawater = 50)
 
 /obj/item/reagent_containers/food/drinks/soda_cans/lemon_lime
-	name = "оранжевый  soda"
-	desc = "You wanted ORANGE. It gave you Lemon Lime."
+	name = "апельсиновая газировка"
+	desc = "Вы хотели АПЕЛЬСИНОВУЮ. А вместо этого Лимон и Лайм."
 	icon_state = "lemon-lime"
 	list_reagents = list(/datum/reagent/consumable/lemon_lime = 30)
 	foodtype = FRUIT

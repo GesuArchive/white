@@ -91,7 +91,7 @@
 	max_ammo = 14
 
 /obj/item/ammo_box/foambox
-	name = "ящик с патронами (Пенчики)"
+	name = "ящик с патронами (Пенные Дротики)"
 	icon = 'icons/obj/guns/toy.dmi'
 	icon_state = "foambox"
 	ammo_type = /obj/item/ammo_casing/caseless/foam_dart

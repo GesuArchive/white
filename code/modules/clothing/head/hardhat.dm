@@ -1,6 +1,6 @@
 /obj/item/clothing/head/hardhat
 	name = "каска"
-	desc = "Кусок головного убора, используемый в опасных рабочих условиях для защиты головы. Поставляется со встроенным фонариком."
+	desc = "Головной убор, используемый в опасных рабочих условиях для защиты головы. Поставляется со встроенным фонариком."
 	icon_state = "hardhat0_yellow"
 	inhand_icon_state = "hardhat0_yellow"
 	armor = list(MELEE = 15, BULLET = 5, LASER = 20, ENERGY = 10, BOMB = 20, BIO = 10, RAD = 20, FIRE = 100, ACID = 50, WOUND = 10) // surprisingly robust against head trauma
@@ -107,7 +107,7 @@
 
 /obj/item/clothing/head/hardhat/weldhat
 	name = "сварочный шлем"
-	desc = "Кусок головного убора, используемый в опасных рабочих условиях для защиты головы. Поставляется со встроенным фонариком И сварочным щитом! Но лампочка кажется немного меньше."
+	desc = "Головной убор, используемый в опасных рабочих условиях для защиты головы. Поставляется со встроенным фонариком И сварочным щитом! Но лампочка кажется немного меньше."
 	light_range = 3 //Needs a little bit of tradeoff
 	dog_fashion = null
 	actions_types = list(/datum/action/item_action/toggle_helmet_light, /datum/action/item_action/toggle_welding_screen)
@@ -153,7 +153,7 @@
 	hat_type = "orange"
 
 /obj/item/clothing/head/hardhat/weldhat/white
-	desc = "Кусок головного убора, используемый в опасных рабочих условиях для защиты головы. Поставляется со встроенным фонариком И сварочным щитом!" //This bulb is not smaller
+	desc = "Головной убор, используемый в опасных рабочих условиях для защиты головы. Поставляется со встроенным фонариком И сварочным щитом!" //This bulb is not smaller
 	icon_state = "hardhat0_white"
 	inhand_icon_state = "hardhat0_white"
 	light_range = 4 //Boss always takes the best stuff
