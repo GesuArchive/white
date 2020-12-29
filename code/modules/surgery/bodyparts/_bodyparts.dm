@@ -2,6 +2,7 @@
 /obj/item/bodypart
 	name = "конечность"
 	desc = "Почему так получилось?"
+	gender = FEMALE
 	force = 3
 	throwforce = 3
 	w_class = WEIGHT_CLASS_SMALL
