@@ -10,7 +10,7 @@
 	"traits": [
 		{
 			"Up": 1,
-			"Baseturf": "/turf/open/space/basic",
+			"Baseturf": "/turf/open/space",
 			"Linkage": "Cross"
 		},
 		{
