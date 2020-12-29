@@ -79,7 +79,7 @@
 	var/string_gen
 
 	///Chance of cells starting closed
-	var/initial_garbage_chance = 15
+	var/initial_garbage_chance = 45
 
 	///Amount of smoothing iterations
 	var/smoothing_iterations = 20
