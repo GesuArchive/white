@@ -38065,6 +38065,7 @@
 	req_access_txt = "12"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "rFc" = (
@@ -40425,6 +40426,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/science/misc_lab)
+"wcD" = (
+/obj/effect/turf_decal/stripes/box,
+/obj/structure/cable/multilayer/multiz,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "wcN" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -61795,12 +61801,12 @@ ceW
 bCq
 cgD
 nbS
-bHE
-bHE
+bUt
+bUt
 rEs
-bHE
-bHE
-bHE
+bUt
+bUt
+wcD
 mWF
 mra
 gXs

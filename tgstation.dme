@@ -3664,6 +3664,7 @@
 #include "white\valtos\code\outfits\scarlet.dm"
 #include "white\valtos\code\outfits\trader.dm"
 #include "white\valtos\code\randomstation\landmarks.dm"
+#include "white\valtos\code\randomstation\maint.dm"
 #include "white\valtos\code\randomstation\mapping.dm"
 #include "white\valtos\code\randomstation\station.dm"
 #include "white\valtos\code\ruins\wruins.dm"

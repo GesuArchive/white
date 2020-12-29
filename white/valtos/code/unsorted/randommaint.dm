@@ -34,14 +34,52 @@
 
 /datum/map_generator/station_maints_generator
 	var/name = "Генератор техтоннелей"
-	var/list/open_turf_types   = list(/turf/open/floor/plating = 1)
-	var/list/space_turf_types   = list(/turf/open/space/basic = 1)
+	var/list/open_turf_types = list(/turf/open/floor/plating = 1)
+	var/list/garbage_types = list(/obj/effect/spawner/lootdrop/grille_or_trash = 10,
+								  /obj/effect/spawner/lootdrop/maint_drugs = 4,
+								  /obj/effect/spawner/lootdrop/refreshing_beverage = 3,
+								  /obj/effect/spawner/lootdrop/botanical_waste = 1,
+								  /obj/effect/spawner/lootdrop/food_packaging = 1,
+								  /obj/effect/spawner/lootdrop/cigbutt = 1,
+								  /obj/effect/spawner/lootdrop/garbage_spawner = 5,
+								  /obj/effect/spawner/lootdrop/gambling = 1,
+								  /obj/effect/spawner/lootdrop/prison_contraband = 1,
+								  /obj/effect/spawner/lootdrop/donkpockets = 1,
+								  /obj/effect/spawner/lootdrop/three_course_meal = 1,
+								  /obj/effect/spawner/lootdrop/maintenance = 1,
+								  /obj/effect/spawner/lootdrop/maintenance/two = 1,
+								  /obj/effect/spawner/lootdrop/maintenance/three = 1,
+								  /obj/effect/spawner/lootdrop/maintenance/four = 1,
+								  /obj/effect/spawner/lootdrop/maintenance/five = 1,
+								  /obj/effect/spawner/lootdrop/maintenance/six = 1,
+								  /obj/effect/spawner/lootdrop/maintenance/seven = 1,
+								  /obj/effect/spawner/lootdrop/maintenance/eight = 1,
+								  /obj/effect/spawner/lootdrop/organ_spawner = 1,
+								  /obj/effect/spawner/lootdrop/memeorgans = 1,
+								  /obj/effect/spawner/lootdrop/two_percent_xeno_egg_spawner = 1,
+								  /obj/effect/spawner/lootdrop/costume = 1,
+								  /obj/effect/spawner/lootdrop/minor/beret_or_rabbitears = 1,
+								  /obj/effect/spawner/lootdrop/minor/bowler_or_that = 1,
+								  /obj/effect/spawner/lootdrop/minor/kittyears_or_rabbitears = 1,
+								  /obj/effect/spawner/trap = 1,
+								  /obj/effect/gibspawner/generic = 1,
+								  /obj/effect/spawner/structure/window/hollow = 1,
+								  /obj/effect/spawner/randomarcade = 1,
+								  /mob/living/simple_animal/hostile/poison/giant_spider = 1,
+								  /mob/living/simple_animal/hostile/poison/giant_spider/hunter = 1,
+								  /mob/living/simple_animal/hostile/poison/giant_spider/tarantula = 1,
+								  /mob/living/simple_animal/hostile/poison/giant_spider/viper = 1,
+								  /mob/living/simple_animal/hostile/cockroach = 1,
+								  /mob/living/simple_animal/hostile/vatbeast = 1,
+								  /mob/living/simple_animal/hostile/retaliate/goose/vomit = 1,
+								  /mob/living/simple_animal/hostile/mimic = 1,
+								  /mob/living/simple_animal/hostile/regalrat = 1)
 
 	///Unique ID for this spawner
 	var/string_gen
 
 	///Chance of cells starting closed
-	var/initial_space_chance = 25
+	var/initial_garbage_chance = 15
 
 	///Amount of smoothing iterations
 	var/smoothing_iterations = 20
@@ -52,15 +90,6 @@
 	///How little neighbours does a alive cell need to die
 	var/death_limit = 3
 
-	/*
-	modules = list(/datum/map_generator_module/bottom_layer/maint_turfs, \
-		/datum/map_generator_module/splatter_layer/maint_walls, \
-		/datum/map_generator_module/splatter_layer/main_spawn, \
-		/datum/map_generator_module/border/maint_walls, \
-		/datum/map_generator_module/bottom_layer/repressurize)
-	buildmode_name = "Pattern: Station Maintenance Level"
-	*/
-
 /area/maintenance/bottom_station_maints
 	name = "Технические тоннели"
 	icon_state = "amaint"
@@ -70,34 +99,26 @@
 /datum/map_generator/station_maints_generator/generate_terrain(list/turfs)
 	. = ..()
 	var/start_time = REALTIMEOFDAY
-	string_gen = rustg_cnoise_generate("[initial_space_chance]", "[smoothing_iterations]", "[birth_limit]", "[death_limit]", "[world.maxx]", "[world.maxy]") //Generate the raw CA data
+	string_gen = rustg_cnoise_generate("[initial_garbage_chance]", "[smoothing_iterations]", "[birth_limit]", "[death_limit]", "[world.maxx]", "[world.maxy]") //Generate the raw CA data
 
 	// double iterations
 
 	for(var/i in turfs)
+
+		if(!istype(i, /turf/open/genturf))
+			continue
+
 		var/turf/gen_turf = i
 
-		var/spaceturf = text2num(string_gen[world.maxx * (gen_turf.y - 1) + gen_turf.x])
+		var/garbage_turf = text2num(string_gen[world.maxx * (gen_turf.y - 1) + gen_turf.x])
 
-		var/turf/new_turf = pickweight(spaceturf ? space_turf_types : open_turf_types)
+		var/turf/new_turf = pickweight(open_turf_types)
 
 		new_turf = gen_turf.ChangeTurf(new_turf, initial(new_turf.baseturfs), CHANGETURF_DEFER_CHANGE)
 
-		CHECK_TICK
-
-	for(var/i in turfs)
-		var/turf/gen_turf = i
-
-		if(isspaceturf(gen_turf))
-			var/area/A = gen_turf.loc
-			var/area/newA = GLOB.areas_by_type[/area/space]
-			newA.contents += gen_turf
-			gen_turf.change_area(A, newA)
-			continue
-
-		for(var/turf/open/space/S in range(1, gen_turf))
-			var/turf/new_turf = /turf/closed/wall
-			new_turf = gen_turf.ChangeTurf(new_turf, initial(new_turf.baseturfs), CHANGETURF_DEFER_CHANGE)
+		if(garbage_turf)
+			var/atom/picked_garbage = pickweight(garbage_types)
+			new picked_garbage(new_turf)
 
 		CHECK_TICK
 
