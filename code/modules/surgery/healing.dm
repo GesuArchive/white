@@ -102,23 +102,23 @@
 
 /***************************BRUTE***************************/
 /datum/surgery/healing/brute
-	name = "Tend Wounds (Bruises)"
+	name = "Лечение ран (Ушибов)"
 
 /datum/surgery/healing/brute/basic
-	name = "Tend Wounds (Bruises, Basic)"
+	name = "Лечение ран (Ушибов, Базовое)"
 	replaced_by = /datum/surgery/healing/brute/upgraded
 	healing_step_type = /datum/surgery_step/heal/brute/basic
 	desc = "A surgical procedure that provides basic treatment for a patient's brute traumas. Heals slightly more when the patient is severely injured."
 
 /datum/surgery/healing/brute/upgraded
-	name = "Tend Wounds (Bruises, Adv.)"
+	name = "Лечение ран (Ушибов, Продвинутое)"
 	replaced_by = /datum/surgery/healing/brute/upgraded/femto
 	requires_tech = TRUE
 	healing_step_type = /datum/surgery_step/heal/brute/upgraded
 	desc = "A surgical procedure that provides advanced treatment for a patient's brute traumas. Heals more when the patient is severely injured."
 
 /datum/surgery/healing/brute/upgraded/femto
-	name = "Tend Wounds (Bruises, Exp.)"
+	name = "Лечение ран (Ушибов, Экспертное)"
 	replaced_by = /datum/surgery/healing/combo/upgraded/femto
 	requires_tech = TRUE
 	healing_step_type = /datum/surgery_step/heal/brute/upgraded/femto
@@ -126,7 +126,7 @@
 
 /********************BRUTE STEPS********************/
 /datum/surgery_step/heal/brute/basic
-	name = "tend bruises"
+	name = "лечение ран"
 	brutehealing = 5
 	missinghpbonus = 15
 
@@ -140,23 +140,23 @@
 
 /***************************BURN***************************/
 /datum/surgery/healing/burn
-	name = "Tend Wounds (Burn)"
+	name = "Лечение ран (Ожогов)"
 
 /datum/surgery/healing/burn/basic
-	name = "Tend Wounds (Burn, Basic)"
+	name = "Лечение ран (Ожогов, Базовое)"
 	replaced_by = /datum/surgery/healing/burn/upgraded
 	healing_step_type = /datum/surgery_step/heal/burn/basic
 	desc = "A surgical procedure that provides basic treatment for a patient's burns. Heals slightly more when the patient is severely injured."
 
 /datum/surgery/healing/burn/upgraded
-	name = "Tend Wounds (Burn, Adv.)"
+	name = "Лечение ран (Ожогов, Продвинутое)"
 	replaced_by = /datum/surgery/healing/burn/upgraded/femto
 	requires_tech = TRUE
 	healing_step_type = /datum/surgery_step/heal/burn/upgraded
 	desc = "A surgical procedure that provides advanced treatment for a patient's burns. Heals more when the patient is severely injured."
 
 /datum/surgery/healing/burn/upgraded/femto
-	name = "Tend Wounds (Burn, Exp.)"
+	name = "Лечение ран (Ожогов, Экспертное)"
 	replaced_by = /datum/surgery/healing/combo/upgraded/femto
 	requires_tech = TRUE
 	healing_step_type = /datum/surgery_step/heal/burn/upgraded/femto
@@ -164,7 +164,7 @@
 
 /********************BURN STEPS********************/
 /datum/surgery_step/heal/burn/basic
-	name = "tend burn wounds"
+	name = "лечение ожогов"
 	burnhealing = 5
 	missinghpbonus = 15
 
@@ -181,28 +181,28 @@
 
 
 /datum/surgery/healing/combo
-	name = "Tend Wounds (Mixture, Basic)"
+	name = "Лечение Ран (Смешанных, Основное)"
 	replaced_by = /datum/surgery/healing/combo/upgraded
 	requires_tech = TRUE
 	healing_step_type = /datum/surgery_step/heal/combo
 	desc = "A surgical procedure that provides basic treatment for a patient's burns and brute traumas. Heals slightly more when the patient is severely injured."
 
 /datum/surgery/healing/combo/upgraded
-	name = "Tend Wounds (Mixture, Adv.)"
+	name = "Лечение Ран (Смешанных, Продвинутое)"
 	replaced_by = /datum/surgery/healing/combo/upgraded/femto
 	healing_step_type = /datum/surgery_step/heal/combo/upgraded
 	desc = "A surgical procedure that provides advanced treatment for a patient's burns and brute traumas. Heals more when the patient is severely injured."
 
 
 /datum/surgery/healing/combo/upgraded/femto //no real reason to type it like this except consistency, don't worry you're not missing anything
-	name = "Tend Wounds (Mixture, Exp.)"
+	name = "Лечение Ран (Смешанных, Экспертное)"
 	replaced_by = null
 	healing_step_type = /datum/surgery_step/heal/combo/upgraded/femto
 	desc = "A surgical procedure that provides experimental treatment for a patient's burns and brute traumas. Heals considerably more when the patient is severely injured."
 
 /********************COMBO STEPS********************/
 /datum/surgery_step/heal/combo
-	name = "tend physical wounds"
+	name = "лечение физических травм"
 	brutehealing = 3
 	burnhealing = 3
 	missinghpbonus = 15
@@ -219,7 +219,7 @@
 	missinghpbonus = 2.5
 
 /datum/surgery_step/heal/combo/upgraded/femto/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='warning'>You screwed up!</span>",
-		"<span class='warning'>[user] screws up!</span>",
-		"<span class='notice'>[user] fixes some of [target]'s wounds.</span>", TRUE)
+	display_results(user, target, "<span class='warning'>Я облажался!</span>",
+		"<span class='warning'>[user] облажался!</span>",
+		"<span class='notice'>[user] залатал некоторые раны [target].</span>", TRUE)
 	target.take_bodypart_damage(5,5)
