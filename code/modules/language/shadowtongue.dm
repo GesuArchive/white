@@ -1,18 +1,18 @@
 // You n'wah!
 // many thanks to https://casualscrolls.fandom.com/wiki/Dunmeri_language, for providing this list of syllables
 /datum/language/shadowtongue
-	name = "Shadowtongue"
-	desc = "What a grand and intoxicating innocence."
+	name = "Теневой"
+	desc = "Какая величественная и опьяняющая невинность."
 	key = "x"
 	space_chance = 50
 	syllables = list(
-		"er", "sint", "en", "et", "nor", "bahr", "sint", "un", "ku'elm", "lakor", "eri",
-		"noj", "dashilu", "as", "ot", "lih", "morh", "ghinu", "kin", "sha", "marik", "jibu",
-		"sudas", "fut", "kol", "bivi", "pohim", "devohr", "ru", "huirf", "neiris", "sut",
-		"devehr", "iru", "gher", "gan", "ujil", "lacor", "bahris", "ghar", "alnef", "wah",
-		"khurdhar", "bar", "et", "ilu", "dash", "diru", "noj", "de", "damjulan", "luvahr",
-		"telshahr", "tifur", "enhi", "am", "bahr", "nei", "neibahri", "n'chow", "n'wah",
-		"s'wit", "b'vehk", "f'lah", "muth", "sera", "sedura", "bal", "dun"
+		"ер", "синт", "ен", "ет", "нор", "бахр", "синт", "ун", "ку'елм", "лакор", "ери",
+		"ной", "дашилу", "ас", "от", "лих", "морх", "гхину", "кин", "ша", "марик", "йибу",
+		"судас", "фут", "кол", "биви", "похим", "девохр", "ру", "хуирф", "неирис", "сут",
+		"девэр", "иру", "гхер", "ган", "уйил", "лацор", "бахрис", "гхар", "алнеф", "вах",
+		"хурдхар", "бар", "ет", "илу", "даш", "диру", "ной", "де", "дамюлан", "лувахр",
+		"телшахр", "тифур", "енхи", "ам", "бахр", "неи", "неибахри", "н'чов", "н'вах",
+		"с'вит", "б'вэк", "ф'лах", "мутх", "сера", "седура", "бал", "дун"
 	)
 	icon_state = "shadow"
 	default_priority = 90

@@ -1,6 +1,6 @@
 /datum/language/swarmer
-	name = "Swarmer"
-	desc = "A language only consisting of musical notes."
+	name = "Роевой"
+	desc = "Язык, состоящий только из музыкальных нот."
 	spans = list(SPAN_ROBOT)
 	key = "s"
 	flags = NO_STUTTER

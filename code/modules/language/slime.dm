@@ -1,8 +1,8 @@
 /datum/language/slime
-	name = "Slime"
-	desc = "A melodic and complex language spoken by slimes. Some of the notes are inaudible to humans."
+	name = "Слаймовый"
+	desc = "Мелодичный и сложный язык, на котором говорят слизи. Некоторые ноты не слышны людям."
 	key = "k"
-	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
+	syllables = list("кур","курр","xуку","куил","кууум","xукум","вол","xрим","зау","куу-уу","куиx","кууу","зиx","*","!")
 	default_priority = 70
 
 	icon_state = "slime"

@@ -1,14 +1,14 @@
 /datum/language/moffic
-	name = "Moffic"
-	desc = "The language of the Mothpeople borders on complete unintelligibility."
+	name = "Моффик"
+	desc = "Язык людей-молей, который граничит с полной непонятностью."
 	key = "m"
 	space_chance = 10
 	syllables = list(
-		"år", "i", "går", "sek", "mo", "ff", "ok", "gj", "ø", "gå", "la", "le",
-		"lit", "ygg", "van", "dår", "næ", "møt", "idd", "hvo", "ja", "på", "han",
-		"så", "ån", "det", "att", "nå", "gö", "bra", "int", "tyc", "om", "när",
-		"två", "må", "dag", "sjä", "vii", "vuo", "eil", "tun", "käyt", "teh", "vä",
-		"hei", "huo", "suo", "ää", "ten", "ja", "heu", "stu", "uhr", "kön", "we", "hön"
+		"åр", "и", "гåр", "сек", "мо", "фф", "ок", "гй", "ø", "гå", "ла", "ле",
+		"лит", "ыгг", "ван", "дåр", "нæ", "мøт", "идд", "хво", "я", "пå", "хан",
+		"сå", "åн", "дет", "атт", "нå", "гö", "бра", "инт", "тыц", "ом", "нäр",
+		"твå", "мå", "даг", "сйä", "вии", "вуо", "еил", "тун", "кäыт", "тэ", "вä",
+		"хеи", "хуо", "суо", "ää", "тен", "я", "хеу", "сту", "ухр", "кöн", "ве", "хöн"
 	)
 	icon_state = "moth"
 	default_priority = 90

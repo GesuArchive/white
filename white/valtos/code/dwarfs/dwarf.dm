@@ -119,17 +119,17 @@
 	safe_nitro_min = 16
 
 /datum/language/dwarven
-	name = "Dwarven"
-	desc = "An old language still used by some stem of the human species."
+	name = "Дварфийский"
+	desc = "Старый язык, который до сих пор используется некоторыми представителями человеческого рода."
 	key = "w"
 	syllables = list(
-		"etag", "gekur", "tel", "gudos", "geth", "udiz", "zalud", "shoveth", "ver", "zilir",
-		"eshobak", "sarumak", "asdobak", "fozak", "shovethak", "tangak", "dogak", "ashokak", "gethak", "slisak", "mulonak",
-		"vadag", "vasag", "udosag", "-longudosag", "vanag", "hivag", "vilkag", "nigag",
-		"asdob", "nir", "nob", "mez", "vor", "fim", "gät", "zun", "ått", "nag", "zez", "eshob", "asdob",
-		"og", "get", "zal", "ud", "lok", "ad", "nat", "gat", "mit", "des", "shug", "kul", "git", "gad", "zis",
-		"deb", "koshmot", "legon", "razmer", "lanzil", "gim", "gamil", "datlad", "tat", "gelut", "gakit", "tomus", "tizöt", "rirnöl",
-		"med", "kulet", "ngalák", "kuthdêng", "cenäth", "ustos", "oshnïl", "nural", "nazush"
+		"етаг", "гекур", "тел", "гудос", "гетх", "удиз", "залуд", "шоветх", "вер", "зилир",
+		"ешобак", "сарумак", "асдобак", "фозак", "шоветхак", "тангак", "догак", "ашокак", "гетхак", "слисак", "мулонак",
+		"вадаг", "васаг", "удосаг", "-лонгудосаг", "ванаг", "хиваг", "вилкаг", "нигаг",
+		"асдоб", "нир", "ноб", "мез", "вор", "фим", "гäт", "зун", "åтт", "наг", "зез", "ешоб", "асдоб",
+		"ог", "гет", "зал", "уд", "лок", "ад", "нат", "гат", "мит", "дес", "шуг", "кул", "гит", "гад", "зис",
+		"деб", "кошмот", "легон", "размер", "ланзил", "гим", "гамил", "датлад", "тат", "гелут", "гакит", "томус", "тизöт", "рирнöл",
+		"мед", "кулет", "нгалáк", "кутхдêнг", "ценäтх", "устос", "ошнïл", "нурал", "назуш"
 	)
 	space_chance = 35
 	icon = 'white/valtos/icons/language.dmi'
