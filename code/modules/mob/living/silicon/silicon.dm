@@ -275,7 +275,7 @@
 
 /mob/living/silicon/proc/checklaws() //Gives you a link-driven interface for deciding what laws the statelaws() proc will share with the crew. --NeoFite
 
-	var/list = "<b>Which laws do you want to include when stating them for the crew?</b><br><br>"
+	var/list = "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/><b>Which laws do you want to include when stating them for the crew?</b><br><br>"
 
 	if (laws.zeroth)
 		if (!lawcheck[1])

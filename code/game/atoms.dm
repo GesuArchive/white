@@ -797,7 +797,7 @@
 
 ///Is this atom in space
 /atom/proc/isinspace()
-	if(isspaceturf(get_turf(src)))
+	if(isspaceturf(get_turf(src)) || isopenspace(get_turf(src)))
 		return TRUE
 	else
 		return FALSE
