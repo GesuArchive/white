@@ -5,36 +5,22 @@
 	. /= length(L)
 	LAZYCLEARLIST(L)
 
-/datum/component/storage/concrete/autodoc
-	silent = TRUE
-	max_combined_w_class = WEIGHT_CLASS_GIGANTIC
-	max_w_class = WEIGHT_CLASS_BULKY
-	drop_all_on_deconstruct = TRUE
-	drop_all_on_destroy = TRUE
-	attack_hand_interact = FALSE
-
 GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	/datum/surgery_step/incise,
 	/datum/surgery_step/clamp_bleeders,
 	/datum/surgery_step/close,
 	/datum/surgery_step/saw,
-	/datum/surgery_step/fix_brain,
 	/datum/surgery_step/sever_limb,
 	/datum/surgery_step/heal,
 	/datum/surgery_step/extract_implant,
-	/datum/surgery_step/manipulate_organs,
 	/datum/surgery_step/remove_fat,
-	/datum/surgery_step/replace_limb,
 	/datum/surgery_step/remove_object,
-	/datum/surgery_step/add_prosthetic,
 	/datum/surgery_step/drill,
 	/datum/surgery_step/retract_skin,
-	/datum/surgery_step/insert_pill,
 	/datum/surgery_step/fix_eyes,
-//	/datum/surgery_step/revive,
 	/datum/surgery_step/pacify,
 	/datum/surgery_step/thread_veins,
-//	/datum/surgery_step/splice_nerves,
+	/datum/surgery_step/splice_nerves,
 	/datum/surgery_step/ground_nerves,
 	/datum/surgery_step/muscled_veins,
 	/datum/surgery_step/reinforce_ligaments,
@@ -61,7 +47,6 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	active_power_usage = 300
 	pixel_x = -16
 	var/speed_mult = 1
-	var/max_storage = 1
 	var/list/valid_surgeries = list()
 	var/datum/surgery/target_surgery
 	var/datum/surgery/active_surgery
@@ -100,11 +85,6 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 		if(valid)
 			valid_surgeries += S
 
-/obj/machinery/autodoc/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = LoadComponent(/datum/component/storage/concrete/autodoc)
-	STR.cant_hold = typecacheof(list(/obj/item/card/emag, /obj/item/stock_parts)) // !!!
-
 /obj/machinery/autodoc/RefreshParts()
 	var/list/P = list()
 	var/avg = 1
@@ -113,29 +93,16 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	avg = round(list_avg(P), 1)
 	switch(avg)
 		if(2)
-			speed_mult = 0.9
+			speed_mult = 0.75
 		if(3)
-			speed_mult = 0.7
-		if(4)
 			speed_mult = 0.5
+		if(4)
+			speed_mult = 0.25
 		else
-			speed_mult = 0.2
-	for(var/obj/item/stock_parts/matter_bin/M in component_parts)
-		P += M.get_part_rating()
-	max_storage = round(list_avg(P), 1)
-	var/datum/component/storage/STR = LoadComponent(/datum/component/storage/concrete/autodoc)
-	STR.max_items = max_storage
-	STR.cant_hold = typecacheof(list(/obj/item/card/emag, /obj/item/stock_parts)) // !!!
+			speed_mult = 0.1
 
 /obj/machinery/autodoc/CtrlClick(mob/user)
-	if(in_use && isliving(user))
-		playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
-		return
-	var/datum/component/storage/ST = GetComponent(/datum/component/storage/concrete/autodoc)
-	if (user.active_storage)
-		user.active_storage.close(user)
-	ST.orient2hud(user)
-	ST.show_to(user)
+	playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
 
 /obj/machinery/autodoc/ui_act(action, list/params)
 	if(..())
@@ -245,9 +212,6 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 			return
 		qdel(SS)
 	in_use = TRUE
-	var/datum/component/storage/ST = GetComponent(/datum/component/storage/concrete/autodoc)
-	ST.close_all()
-	ST.locked = TRUE
 	update_icon()
 	active_surgery = new target_surgery.type(patient, target_zone, affecting)
 	while(active_surgery.status <= active_surgery.steps.len)
@@ -278,7 +242,6 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	active_surgery = null
 	active_step = null
 	in_use = FALSE
-	ST.locked = FALSE
 	if(!state_open)
 		open_machine()
 	update_icon()
@@ -382,7 +345,6 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 							/obj/item/stock_parts/scanning_module = 5,
 							/obj/item/stock_parts/manipulator = 5,
 							/obj/item/stock_parts/micro_laser = 5,
-							/obj/item/stock_parts/matter_bin = 5,
 							/obj/item/scalpel/advanced = 1,
 							/obj/item/retractor/advanced = 1,
 							/obj/item/cautery/advanced = 1,
@@ -435,13 +397,6 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	target.apply_damage(50, BRUTE, "[target_zone]")
 	return TRUE
 
-/datum/surgery_step/fix_brain/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
-	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/brainwashed))
-		target.mind.remove_antag_datum(/datum/antagonist/brainwashed)
-	target.setOrganLoss(ORGAN_SLOT_BRAIN, target.getOrganLoss(ORGAN_SLOT_BRAIN) - 50)	//we set damage in this case in order to clear the "failing" flag
-	target.cure_all_traumas(TRAUMA_RESILIENCE_SURGERY)
-	return TRUE
-
 /datum/surgery_step/sever_limb/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
 	if(surgery.operated_bodypart)
 		var/obj/item/bodypart/target_limb = surgery.operated_bodypart
@@ -474,20 +429,6 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 			qdel(I)
 	return TRUE
 
-/datum/surgery_step/manipulate_organs/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
-	for(var/obj/item/organ/O in autodoc.contents)
-		if(O.zone == target_zone)
-			O.Insert(target)
-	return TRUE
-
-/datum/surgery_step/manipulate_organs/autodoc_check(target_zone, obj/machinery/autodoc/autodoc, silent = TRUE, mob/living/carbon/target)
-	for(var/obj/item/organ/O in autodoc.contents)
-		if(O.zone == target_zone)
-			return TRUE
-	if(!silent)
-		autodoc.say("Не найдено подходящих органов для [parse_zone(target_zone)] во внутреннем хранилище!")
-	return FALSE
-
 /datum/surgery_step/remove_fat/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
 	target.overeatduration = 0 //patient is unfatted
 	var/removednutriment = target.nutrition
@@ -509,23 +450,6 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	autodoc.visible_message("<span class='notice'><b>[autodoc]</b> выплёвывает <b>[newmeat]</b>!</span>")
 	return TRUE
 
-/datum/surgery_step/replace_limb/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
-	for(var/obj/item/bodypart/limb in autodoc.contents)
-		if(limb.body_zone == target_zone)
-			L = limb
-			break
-	if(L)
-		L.replace_limb(target, TRUE)
-	return TRUE
-
-/datum/surgery_step/replace_limb/autodoc_check(target_zone, obj/machinery/autodoc/autodoc, silent = TRUE, mob/living/carbon/target)
-	for(var/obj/item/bodypart/limb in autodoc.contents)
-		if(limb.body_zone == target_zone)
-			return TRUE
-	if(!silent)
-		autodoc.say("Не найдено подходящих органов для [parse_zone(target_zone)] во внутреннем хранилище!")
-	return FALSE
-
 /datum/surgery_step/remove_object/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
 	if(L)
 		if(ishuman(target))
@@ -537,41 +461,6 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 			if(!H.has_embedded_objects())
 				H.clear_alert("embeddedobject")
 				SEND_SIGNAL(H, COMSIG_CLEAR_MOOD_EVENT, "embedded")
-	return TRUE
-
-/datum/surgery_step/add_prosthetic/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
-	var/obj/item/bodypart/L
-	for(var/obj/item/bodypart/limb in autodoc.contents)
-		if(limb.body_zone == target_zone)
-			L = limb
-			break
-	if(L)
-		L.attach_limb(target)
-		if(organ_rejection_dam)
-			target.adjustToxLoss(organ_rejection_dam)
-	return TRUE
-
-/datum/surgery_step/insert_pill
-	ad_repeatable = TRUE
-
-/datum/surgery_step/insert_pill/autodoc_check(target_zone, obj/machinery/autodoc/autodoc, silent = TRUE, mob/living/carbon/target)
-	for(var/obj/item/reagent_containers/pill/P in autodoc.contents)
-		return TRUE
-	if(!silent)
-		autodoc.say("Не обнаружено таблеток во внутреннем хранилище!")
-	return FALSE
-
-/datum/surgery_step/insert_pill/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
-	var/obj/item/reagent_containers/pill/pill
-	for(var/obj/item/reagent_containers/pill/P in autodoc.contents)
-		pill = P
-		break
-	if(pill)
-		pill.forceMove(target)
-		var/datum/action/item_action/hands_free/activate_pill/P = new(pill)
-		P.button.name = "Активировать [pill.name]"
-		P.target = pill
-		P.Grant(target)
 	return TRUE
 
 /datum/surgery_step/fix_eyes/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
