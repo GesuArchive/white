@@ -69,7 +69,7 @@
 
 		move(4 + orbiting_balls.len * 1.5)
 
-		playsound(src.loc, 'sound/magic/lightningbolt.ogg', 100, TRUE, extrarange = 30)
+		playsound(src.loc, 'sound/magic/lightningbolt.ogg', 50, TRUE, extrarange = 10)
 
 		pixel_x = 0
 		pixel_y = 0
