@@ -144,7 +144,7 @@
 /turf/open/floor/plating,
 /area/science/xenobiology)
 "cq" = (
-/obj/structure/closet/cardboard,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "ct" = (
@@ -321,11 +321,6 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel/freezer,
 /area/science/xenobiology)
-"hs" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-5"
-	},
-/area/shuttle/turbolift/primary)
 "hy" = (
 /obj/effect/turf_decal/trimline/green/filled/corner{
 	dir = 4
@@ -371,11 +366,6 @@
 /obj/structure/cable,
 /turf/open/floor/circuit/telecomms,
 /area/tcommsat/server/upper)
-"ih" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-4"
-	},
-/area/shuttle/turbolift/primary)
 "ii" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible,
 /obj/structure/cable,
@@ -400,9 +390,10 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
 "iE" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-8"
+/obj/machinery/light/small/red{
+	dir = 4
 	},
+/turf/open/floor/glass/reinforced,
 /area/shuttle/turbolift/primary)
 "iN" = (
 /obj/machinery/door/airlock/maintenance{
@@ -444,6 +435,7 @@
 /obj/structure/sign/departments/xenobio{
 	pixel_x = -32
 	},
+/obj/structure/grille,
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "jw" = (
@@ -929,9 +921,7 @@
 /area/hydroponics)
 "qz" = (
 /obj/machinery/lazylift/master,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-3"
-	},
+/turf/open/floor/glass/reinforced,
 /area/shuttle/turbolift/primary)
 "qC" = (
 /obj/effect/turf_decal/stripes/line{
@@ -986,9 +976,10 @@
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
 "rL" = (
-/obj/structure/closet,
-/turf/open/floor/plating,
-/area/maintenance/aft)
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating/rust,
+/area/maintenance/bottom_station_maints)
 "rS" = (
 /obj/item/clothing/mask/gas,
 /obj/item/clothing/mask/gas{
@@ -1198,11 +1189,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
-"we" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
-/area/shuttle/turbolift/primary)
 "wg" = (
 /obj/machinery/portable_atmospherics/canister/bz,
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
@@ -1327,11 +1313,6 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
-"xA" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-9"
-	},
-/area/shuttle/turbolift/primary)
 "xH" = (
 /obj/effect/turf_decal/trimline/green/filled/corner{
 	dir = 8
@@ -1704,6 +1685,10 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/science/xenobiology)
+"EA" = (
+/obj/structure/closet,
+/turf/open/floor/plating,
+/area/maintenance/aft)
 "EF" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -1948,6 +1933,10 @@
 /obj/structure/table,
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"Jk" = (
+/obj/structure/closet/cardboard,
+/turf/open/floor/plating,
+/area/maintenance/aft)
 "Jp" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -2085,6 +2074,7 @@
 /obj/structure/sign/warning/biohazard{
 	pixel_x = -32
 	},
+/obj/structure/grille,
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "Lt" = (
@@ -2232,9 +2222,10 @@
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
 "MY" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-7"
+/obj/machinery/light/small/red{
+	dir = 8
 	},
+/turf/open/floor/glass/reinforced,
 /area/shuttle/turbolift/primary)
 "MZ" = (
 /obj/machinery/door/window/southleft{
@@ -2508,11 +2499,6 @@
 "Qv" = (
 /turf/closed/wall/r_wall,
 /area/science/xenobiology)
-"Qy" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-10"
-	},
-/area/shuttle/turbolift/primary)
 "Qz" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/aft)
@@ -2995,9 +2981,7 @@
 /turf/open/floor/engine,
 /area/science/xenobiology)
 "Zf" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-6"
-	},
+/turf/open/floor/glass/reinforced,
 /area/shuttle/turbolift/primary)
 "Zh" = (
 /obj/structure/cable,
@@ -25878,7 +25862,7 @@ PG
 Zm
 nS
 wP
-rm
+CJ
 dP
 dP
 dP
@@ -27671,7 +27655,7 @@ ln
 ln
 ln
 ln
-ln
+CJ
 ln
 ln
 ln
@@ -28438,7 +28422,7 @@ wP
 wP
 wP
 wP
-wP
+eF
 wP
 wP
 wP
@@ -28959,8 +28943,8 @@ rm
 rm
 rm
 rm
-ln
-ln
+CJ
+CJ
 rm
 rm
 rm
@@ -29154,9 +29138,9 @@ nd
 nd
 MO
 RB
-xA
-we
-Qy
+Zf
+Zf
+Zf
 ys
 bl
 wN
@@ -29411,9 +29395,9 @@ rC
 rC
 in
 RB
-ih
+Zf
 iE
-hs
+Zf
 Fp
 Px
 uE
@@ -30433,9 +30417,9 @@ ln
 rm
 ln
 ln
-ln
-ln
-ln
+rm
+CJ
+rm
 rm
 rm
 rm
@@ -30765,7 +30749,7 @@ ln
 rm
 ln
 ln
-ln
+CJ
 ln
 ln
 nS
@@ -31015,12 +30999,12 @@ sm
 uV
 Zm
 nS
-ln
+CJ
 rm
-ln
-ln
+CJ
+CJ
 rm
-ln
+CJ
 rm
 rm
 ln
@@ -31727,7 +31711,7 @@ dP
 dP
 dP
 ln
-ln
+CJ
 ln
 ln
 ln
@@ -32292,7 +32276,7 @@ ln
 ln
 ln
 ln
-ln
+CJ
 ln
 ln
 ln
@@ -32806,7 +32790,7 @@ wP
 wP
 wP
 wP
-wP
+eF
 wP
 wP
 ln
@@ -33315,7 +33299,7 @@ dP
 FZ
 ln
 ln
-ln
+CJ
 ln
 ln
 ln
@@ -34085,8 +34069,8 @@ dP
 dP
 gQ
 rm
-ln
-ln
+CJ
+rm
 rm
 dP
 dP
@@ -34356,7 +34340,7 @@ dP
 rm
 rm
 rm
-ln
+CJ
 rm
 ln
 ln
@@ -34861,7 +34845,7 @@ ln
 ln
 ln
 ln
-dP
+FZ
 ln
 ln
 ln
@@ -35118,7 +35102,7 @@ ln
 rm
 ln
 ln
-dP
+FZ
 ln
 ln
 ln
@@ -35379,7 +35363,7 @@ rm
 rm
 rm
 rm
-ln
+rm
 wP
 ln
 rm
@@ -35567,8 +35551,8 @@ Zm
 Zm
 Zm
 nS
-ln
-ln
+rm
+CJ
 rm
 rm
 rm
@@ -35636,12 +35620,12 @@ ln
 ln
 ln
 ln
-ln
-wP
-ln
 rm
-ln
-ln
+eF
+rm
+rm
+CJ
+CJ
 rm
 ln
 nS
@@ -36665,7 +36649,7 @@ rm
 rm
 rm
 rm
-xU
+rL
 rm
 ln
 ln
@@ -36913,7 +36897,7 @@ rm
 rm
 rm
 ln
-rm
+ln
 ln
 rm
 dP
@@ -37169,7 +37153,7 @@ ln
 ln
 ln
 ln
-rm
+ln
 ln
 ln
 rm
@@ -37668,7 +37652,7 @@ ln
 ln
 ln
 ln
-ln
+CJ
 ln
 ln
 ln
@@ -37913,7 +37897,7 @@ dP
 dP
 dP
 dP
-FZ
+CJ
 ln
 ln
 rm
@@ -37956,7 +37940,7 @@ ln
 ln
 ln
 rm
-ln
+CJ
 nS
 Zm
 Zm
@@ -38170,7 +38154,7 @@ dP
 dP
 dP
 dP
-FZ
+CJ
 ln
 ln
 rm
@@ -38187,7 +38171,7 @@ rm
 rm
 rm
 rm
-ln
+CJ
 rm
 ln
 ln
@@ -38696,7 +38680,7 @@ ln
 ln
 rm
 ln
-ln
+CJ
 dP
 dP
 dP
@@ -39211,11 +39195,11 @@ ln
 rm
 ln
 rm
-ln
+CJ
 rm
 rm
 rm
-ln
+CJ
 rm
 ln
 ln
@@ -40232,12 +40216,12 @@ ln
 ln
 ln
 rm
-ln
-ln
+CJ
+CJ
 rm
 rm
-ln
-ln
+CJ
+CJ
 rm
 ln
 ln
@@ -40495,7 +40479,7 @@ tG
 rm
 ln
 ln
-ln
+CJ
 ln
 ln
 rm
@@ -40758,7 +40742,7 @@ ln
 rm
 rm
 rm
-ln
+CJ
 rm
 rm
 CJ
@@ -40992,7 +40976,7 @@ dP
 dP
 dP
 dP
-FZ
+CJ
 ln
 ln
 ln
@@ -41249,7 +41233,7 @@ dP
 dP
 dP
 dP
-FZ
+CJ
 ln
 QN
 rm
@@ -41269,7 +41253,7 @@ ln
 rm
 ln
 ln
-ln
+CJ
 ln
 ln
 ln
@@ -41297,7 +41281,7 @@ rm
 rm
 rm
 rm
-ln
+CJ
 nS
 PG
 PG
@@ -41546,7 +41530,6 @@ rm
 rm
 wP
 rm
-ln
 rm
 dP
 dP
@@ -41554,7 +41537,8 @@ dP
 dP
 uh
 rm
-ln
+dP
+dP
 nS
 Zm
 Zm
@@ -41780,7 +41764,7 @@ ln
 rm
 ln
 ln
-ln
+CJ
 ln
 ln
 CJ
@@ -41803,7 +41787,6 @@ wP
 wP
 wP
 ln
-ln
 rm
 dP
 dP
@@ -41811,17 +41794,18 @@ dP
 dP
 dP
 rm
-CJ
+dP
+dP
 nS
-nS
-nS
-nS
-nS
-nS
-nS
-nS
-nS
-nS
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
 Zm
 PG
 Zm
@@ -42060,25 +42044,25 @@ rm
 ln
 ln
 ln
-ln
 rm
 dP
 dP
 dP
 dP
 dP
-ln
+rm
 dP
 dP
-dP
-dP
-dP
-dP
-dP
-dP
-dP
-uh
 nS
+nS
+nS
+nS
+nS
+nS
+nS
+nS
+nS
+Zm
 Zm
 PG
 PG
@@ -42317,14 +42301,13 @@ ln
 ln
 ln
 ln
-ln
 rm
 dP
 dP
 dP
 dP
 dP
-ln
+rm
 dP
 dP
 dP
@@ -42334,8 +42317,9 @@ dP
 dP
 dP
 dP
-dP
+uh
 nS
+Zm
 Zm
 PG
 Zm
@@ -42554,7 +42538,7 @@ ln
 ln
 ln
 ln
-ln
+CJ
 wP
 rm
 ln
@@ -42574,14 +42558,13 @@ rm
 rm
 ln
 ln
-ln
 rm
 dP
 dP
 dP
 dP
 dP
-rm
+CJ
 dP
 dP
 dP
@@ -42593,6 +42576,7 @@ dP
 dP
 dP
 nS
+Zm
 Zm
 PG
 Zm
@@ -42811,7 +42795,7 @@ rm
 ln
 ln
 iO
-ln
+CJ
 wP
 rm
 ln
@@ -42831,14 +42815,13 @@ ln
 ln
 ln
 ln
-ln
 CJ
 dP
 dP
 dP
 dP
 dP
-rm
+CJ
 dP
 dP
 dP
@@ -42850,6 +42833,7 @@ dP
 dP
 dP
 nS
+Zm
 PG
 PG
 PG
@@ -43088,14 +43072,13 @@ ln
 ln
 ln
 ln
-ln
 CJ
 dP
 dP
 dP
 dP
 dP
-rm
+CJ
 dP
 dP
 dP
@@ -43107,6 +43090,7 @@ dP
 dP
 dP
 nS
+Zm
 Zm
 PG
 Zm
@@ -43346,13 +43330,12 @@ rm
 rm
 rm
 rm
+dP
+dP
+dP
+dP
+dP
 rm
-dP
-dP
-dP
-dP
-dP
-ln
 dP
 dP
 dP
@@ -43364,6 +43347,7 @@ dP
 dP
 dP
 nS
+Zm
 Zm
 PG
 Zm
@@ -43602,14 +43586,13 @@ ln
 ln
 ln
 ln
-ln
 rm
 dP
 dP
 dP
 dP
 dP
-ln
+rm
 dP
 dP
 dP
@@ -43621,6 +43604,7 @@ dP
 dP
 dP
 nS
+Zm
 Zm
 PG
 Zm
@@ -43859,7 +43843,6 @@ ln
 ln
 ln
 ln
-ln
 rm
 dP
 dP
@@ -43878,6 +43861,7 @@ dP
 dP
 dP
 nS
+Zm
 Zm
 PG
 Zm
@@ -44120,7 +44104,6 @@ rm
 rm
 ln
 ln
-ln
 rm
 rm
 rm
@@ -44135,6 +44118,7 @@ dP
 dP
 dP
 nS
+Zm
 PG
 PG
 PG
@@ -44352,7 +44336,7 @@ rm
 rm
 rm
 rm
-dP
+FZ
 rm
 mR
 hM
@@ -44379,8 +44363,7 @@ ln
 ln
 ln
 ln
-ln
-ln
+rm
 dP
 dP
 dP
@@ -44392,6 +44375,7 @@ dP
 dP
 dP
 nS
+Zm
 Zm
 Zm
 Zm
@@ -44635,20 +44619,20 @@ rm
 rm
 rm
 rm
-FZ
-FZ
-rm
-ln
-ln
-ln
 rm
 rm
+dP
+dP
+dP
+dP
+dP
+dP
+dP
+dP
+dP
+dP
 nS
-nS
-nS
-nS
-nS
-nS
+Zm
 Zm
 Zm
 Zm
@@ -44857,16 +44841,16 @@ rm
 rm
 rm
 rm
-ln
+CJ
 rm
 rm
-ln
+CJ
 rm
-ln
+CJ
 rm
 rm
 rm
-dP
+FZ
 rm
 Fa
 Xp
@@ -44893,18 +44877,18 @@ Fa
 Fa
 Fa
 Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-cq
-Qz
-PG
-Zm
-Zm
-Zm
+rm
+rm
+FZ
+FZ
+rm
+rm
+nS
+nS
+nS
+nS
+nS
+nS
 Zm
 Zm
 Zm
@@ -45110,7 +45094,7 @@ ln
 ln
 rm
 ln
-ln
+CJ
 ln
 ln
 ln
@@ -45138,20 +45122,20 @@ Fa
 Fa
 Fa
 Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-zS
+pY
+pY
+pY
+pY
+pY
+pY
+pY
+pY
 pY
 CG
-rL
+zS
+Fa
+Fa
+Fa
 Fa
 Fa
 Fa
@@ -45625,7 +45609,7 @@ ln
 rm
 ln
 ln
-ln
+CJ
 ln
 ln
 ln
@@ -46908,7 +46892,7 @@ dP
 dP
 dP
 rm
-ln
+CJ
 rm
 rm
 rm
@@ -46955,7 +46939,7 @@ ZY
 AZ
 cp
 Xp
-Fa
+Jk
 Qz
 Zm
 Zm
@@ -47179,9 +47163,9 @@ dP
 dP
 dP
 dP
+FZ
 dP
-dP
-Fa
+cq
 Xp
 Qv
 wg
@@ -47212,7 +47196,7 @@ Gz
 Qb
 Qv
 Xp
-Fa
+EA
 ds
 Zm
 Zm
@@ -48468,7 +48452,7 @@ PG
 Qz
 RC
 Xp
-Fa
+pY
 Ls
 Vg
 jv
@@ -48730,14 +48714,14 @@ Xp
 Vg
 Xp
 Xp
+pY
+pY
 Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
+pY
+pY
+pY
+pY
+pY
 Ld
 pY
 LC
@@ -48749,10 +48733,10 @@ Fa
 Fa
 Mv
 jM
-Fa
-Fa
-Fa
-Fa
+pY
+pY
+pY
+pY
 Fa
 on
 Qz
@@ -49263,11 +49247,11 @@ Fa
 Fa
 RC
 pY
+pY
 Fa
-Fa
-Fa
-Fa
-Fa
+pY
+pY
+pY
 Qz
 Qz
 Zm
@@ -49522,7 +49506,7 @@ ds
 Qz
 Qz
 Fa
-Fa
+pY
 Qz
 Qz
 Qz
