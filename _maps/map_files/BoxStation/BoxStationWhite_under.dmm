@@ -390,10 +390,10 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
 "iE" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/red{
 	dir = 4
 	},
-/turf/open/floor/glass/reinforced,
+/turf/open/floor/vault,
 /area/shuttle/turbolift/primary)
 "iN" = (
 /obj/machinery/door/airlock/maintenance{
@@ -920,8 +920,7 @@
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
 "qz" = (
-/obj/machinery/lazylift/master,
-/turf/open/floor/glass/reinforced,
+/turf/open/floor/vault,
 /area/shuttle/turbolift/primary)
 "qC" = (
 /obj/effect/turf_decal/stripes/line{
@@ -1336,8 +1335,8 @@
 /turf/closed/wall,
 /area/maintenance/port/aft)
 "ys" = (
-/obj/machinery/door/airlock/command/glass{
-	name = "EVA Storage";
+/obj/machinery/door/airlock/command{
+	name = "EVA Lift";
 	req_access_txt = "18"
 	},
 /turf/open/floor/plasteel/dark,
@@ -2222,10 +2221,10 @@
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
 "MY" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/red{
 	dir = 8
 	},
-/turf/open/floor/glass/reinforced,
+/turf/open/floor/vault,
 /area/shuttle/turbolift/primary)
 "MZ" = (
 /obj/machinery/door/window/southleft{
@@ -2981,7 +2980,8 @@
 /turf/open/floor/engine,
 /area/science/xenobiology)
 "Zf" = (
-/turf/open/floor/glass/reinforced,
+/obj/machinery/lazylift/master,
+/turf/open/floor/vault,
 /area/shuttle/turbolift/primary)
 "Zh" = (
 /obj/structure/cable,
@@ -28883,7 +28883,7 @@ gj
 RB
 qz
 MY
-Zf
+qz
 RB
 dG
 lw
@@ -29139,8 +29139,8 @@ nd
 MO
 RB
 Zf
-Zf
-Zf
+qz
+qz
 ys
 bl
 wN
@@ -29395,9 +29395,9 @@ rC
 rC
 in
 RB
-Zf
+qz
 iE
-Zf
+qz
 Fp
 Px
 uE

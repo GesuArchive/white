@@ -33389,6 +33389,12 @@
 	},
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
+"iFi" = (
+/obj/machinery/light/red{
+	dir = 8
+	},
+/turf/open/openspace,
+/area/shuttle/turbolift/primary)
 "iGQ" = (
 /obj/machinery/power/generator,
 /obj/structure/cable,
@@ -34309,6 +34315,12 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/genetics)
+"kxE" = (
+/obj/machinery/light/red{
+	dir = 4
+	},
+/turf/open/openspace,
+/area/shuttle/turbolift/primary)
 "kze" = (
 /obj/structure/bed/maint,
 /obj/structure/sign/plaques/robust{
@@ -39542,11 +39554,11 @@
 /area/engine/atmos)
 "vbD" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/command/glass{
-	name = "EVA Storage";
+/obj/machinery/navbeacon/wayfinding,
+/obj/machinery/door/airlock/command{
+	name = "EVA Lift";
 	req_access_txt = "18"
 	},
-/obj/machinery/navbeacon/wayfinding,
 /turf/open/floor/plasteel,
 /area/shuttle/turbolift/primary)
 "vcm" = (
@@ -67085,7 +67097,7 @@ vJX
 oBH
 nig
 aHC
-aHC
+iFi
 aHC
 nig
 vZo
@@ -67599,7 +67611,7 @@ aCb
 tUz
 nig
 aHC
-aHC
+kxE
 aHC
 dYw
 aaa
