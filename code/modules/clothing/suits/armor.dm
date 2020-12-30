@@ -262,7 +262,7 @@
 
 /obj/item/clothing/suit/armor/vest/durathread
 	name = "дюратканевый жилет"
-	desc = "Жилет из прочной нити с полосками кожи, выступающими в качестве травмирующих пластин."
+	desc = "Жилет из прочной нити с полосками кожи, выступающих в качестве баллистических пластин."
 	icon_state = "durathread"
 	inhand_icon_state = "durathread"
 	strip_delay = 60

@@ -54,7 +54,7 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/shoes/magboots/syndie
-	desc = "Магнитные сапоги с обратной конструкцией, которые имеют сильное магнитное притяжение. Собственность Горлекс Мародеров."
+	desc = "Магнитные сапоги обратной разработки которые имеют сильное магнитное притяжение. Собственность Мародеров Горлекс."
 	name = "кроваво-красные магнитки"
 	icon_state = "syndiemag0"
 	magboot_state = "syndiemag"

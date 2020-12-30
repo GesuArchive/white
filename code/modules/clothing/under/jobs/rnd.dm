@@ -60,7 +60,7 @@
 
 /obj/item/clothing/under/rank/rnd/scientist
 	desc = "Он изготовлен из специального волокна, обеспечивающего незначительную защиту от взрывчатки. У него есть маркировка, обозначающая, что носитель является ученым."
-	name = "кобинезон учёного"
+	name = "комбинезон учёного"
 	icon_state = "toxins"
 	inhand_icon_state = "w_suit"
 	permeability_coefficient = 0.5

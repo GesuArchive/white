@@ -107,8 +107,8 @@
 			take_bodypart_damage(10 + 5 * extra_speed, check_armor = TRUE, wound_bonus = extra_speed * 5)
 			victim.Paralyze(2 SECONDS)
 			Paralyze(2 SECONDS)
-			visible_message("<span class='danger'><b>[src]</b> врезается в <b>[victim]</b>[extra_speed ? "невероятно сильно" : ""], роняя обоих на пол!</span>",\
-				"<span class='userdanger'>Врезаюсь в <b>[victim]</b>[extra_speed ? "удивительно больно" : ""]!</span>")
+			visible_message("<span class='danger'><b>[src]</b> врезается в <b>[victim]</b>[extra_speed ? "со всей силы" : ""], роняя обоих на пол!</span>",\
+				"<span class='userdanger'>Я жестко врезался в <b>[victim]</b>[extra_speed ? " со всей дури" : ""]!</span>")
 		playsound(src,'sound/weapons/punch1.ogg',50,TRUE)
 
 

@@ -1,6 +1,6 @@
 /obj/item/gun/energy/ionrifle
 	name = "ионная винтовка"
-	desc = "Переносное противо бронированное оружие, предназначенное для предотвращения механических угроз на расстоянии."
+	desc = "Переносное противоброневое оружие, предназначенное для обезвреживания механических угроз на расстоянии."
 	icon_state = "ionrifle"
 	inhand_icon_state = null	//so the human update icon uses the icon_state instead.
 	worn_icon_state = null
