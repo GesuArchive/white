@@ -378,3 +378,23 @@
 /obj/item/paper/crumpled/awaymissions/chilly/howtoopenfukkendoor
 	name = "Crumpled Note"
 	info ={"<i>Левее располагается пульт управления, который открывает ворота. Шифр для тех, кто поймет: РРРЭХБ ВВСА ИННП СХББ ЭСЛМ ЖВВРК 150УТ ПВСЖ.</i>"}
+
+
+/* cocksucking motherfucker */
+/obj/item/clothing/shoes/combat/coldres2
+	name = "insulated combat boots"
+	desc = "High speed, low drag combat boots, now with an added layer of insulation."
+	cold_protection = FEET|LEGS
+	min_cold_protection_temperature = SHOES_MIN_TEMP_PROTECT
+	heat_protection = FEET|LEGS
+	max_heat_protection_temperature = SHOES_MAX_TEMP_PROTECT
+
+/obj/item/clothing/suit/armor/wzzzz/tac_hazmat/grey/coldres
+	body_parts_covered = CHEST|GROIN|ARMS
+	cold_protection = CHEST|GROIN|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+
+/obj/item/clothing/head/helmet/wzzzz/riot/coldres
+	body_parts_covered = HEAD
+	cold_protection = HEAD
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
