@@ -7,8 +7,8 @@
 	desc = "A manual that teaches a single user tactical Close-Quarters Combat before self-destructing."
 	item = /obj/item/book/granter/martial/cqc
 
-	price_min = 50000
-	price_max = 100000
+	price_min = 500000
+	price_max = 1000000
 	stock_max = 1
 	availability_prob = 10
 /datum/blackmarket_item/smelee/martialarts
@@ -17,8 +17,8 @@
 			and gain the ability to swat bullets from the air, but you will also refuse to use dishonorable ranged weaponry."
 	item = /obj/item/book/granter/martial/carp
 
-	price_min = 50000
-	price_max = 100000
+	price_min = 500000
+	price_max = 1000000
 	stock_max = 1
 	availability_prob = 10
 
@@ -30,8 +30,8 @@
 			deal extra damage and hit targets further. Use a screwdriver to take out any attached tanks."
 	item = /obj/item/melee/powerfist
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 10000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 25
 
@@ -40,8 +40,8 @@
 	desc = "These gloves let the user punch people very fast. Does not improve weapon attack speed or the meaty fists of a hulk."
 	item = /obj/item/clothing/gloves/rapid
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 10000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 25
 
@@ -51,8 +51,8 @@
 			pocketed when inactive. Activating it produces a loud, distinctive noise."
 	item = /obj/item/melee/transforming/energy/sword/saber
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 50000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 25
 
@@ -62,8 +62,8 @@
 			all energy projectiles, but requires two hands to wield."
 	item = /obj/item/dualsaber
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 500000
+	price_max = 1000000
 	stock_max = 1
 	availability_prob = 25
 
@@ -73,8 +73,8 @@
 	impact, or just stepping on it. Beware friendly fire, as even anti-slip shoes will not protect against it."
 	item = /obj/item/melee/transforming/energy/sword/bananium
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 50000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 25
 

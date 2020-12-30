@@ -62,8 +62,8 @@
 			quarter anti-personnel engagements."
 	item = /obj/item/gun/ballistic/shotgun/bulldog
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 30000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 25
 
@@ -73,8 +73,8 @@
 			24-round magazine and is compatible with suppressors."
 	item = /obj/item/gun/ballistic/automatic/c20r
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 30000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 25
 
@@ -84,8 +84,8 @@
 			This deadly weapon has a massive 50-round magazine of devastating 7.12x82mm ammunition."
 	item = /obj/item/gun/ballistic/automatic/l6_saw
 
-	price_min = 5000
-	price_max = 50000
+	price_min = 30000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 25
 
@@ -95,8 +95,8 @@
 			with a toggleable 40mm underbarrel grenade launcher."
 	item = /obj/item/gun/ballistic/automatic/m90
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 30000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 25
 
@@ -105,8 +105,8 @@
 	desc = "Ranged fury, Syndicate style. Guaranteed to cause shock and awe or your TC back!"
 	item = /obj/item/gun/ballistic/automatic/sniper_rifle/syndicate
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 100000
+	price_max = 1000000
 	stock_max = 1
 	availability_prob = 5
 
@@ -120,8 +120,8 @@
 	of bolts, but takes time to automatically recharge after each shot."
 	item = /obj/item/gun/energy/kinetic_accelerator/crossbow
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 30000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 25
 

@@ -10,8 +10,8 @@
 	stock_min = 1
 	stock_max = 1
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 50000
+	price_max = 100000
 	availability_prob = 25
 /datum/blackmarket_item/sbundles/c20r
 	name = "C-20r bundle"
@@ -20,8 +20,8 @@
 	stock_min = 1
 	stock_max = 1
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 50000
+	price_max = 100000
 	availability_prob = 25
 
 /datum/blackmarket_item/sbundles/cyber_implants
@@ -31,8 +31,8 @@
 	stock_min = 1
 	stock_max = 1
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 50000
+	price_max = 100000
 	availability_prob = 25
 
 /datum/blackmarket_item/sbundles/medical
@@ -43,8 +43,8 @@
 	stock_min = 1
 	stock_max = 1
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 50000
+	price_max = 100000
 	availability_prob = 25
 
 /datum/blackmarket_item/sbundles/sniper
@@ -56,8 +56,8 @@
 	stock_min = 1
 	stock_max = 1
 
-	price_min = 10000
-	price_max = 50000
+	price_min = 100000
+	price_max = 500000
 	availability_prob = 25
 
 /datum/blackmarket_item/sbundles/firestarter
@@ -69,8 +69,8 @@
 	stock_min = 1
 	stock_max = 1
 
-	price_min = 10000
-	price_max = 50000
+	price_min = 100000
+	price_max = 500000
 	availability_prob = 25
 
 /datum/blackmarket_item/sbundles/contract_kit
@@ -96,8 +96,8 @@
 	stock_min = 1
 	stock_max = 1
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 50000
+	price_max = 100000
 	availability_prob = 25
 
 /datum/blackmarket_item/sbundles/bundle_b
@@ -108,8 +108,8 @@
 	stock_min = 1
 	stock_max = 1
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 50000
+	price_max = 100000
 	availability_prob = 25
 
 /datum/blackmarket_item/sbundles/origami_kit
@@ -133,8 +133,8 @@
 	stock_min = 1
 	stock_max = 1
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 50000
+	price_max = 100000
 	availability_prob = 25
 
 /datum/blackmarket_item/sbundles/space_suit

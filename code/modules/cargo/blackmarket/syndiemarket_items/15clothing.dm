@@ -17,8 +17,8 @@
 	desc = "Very heavy, but nice protection"
 	item = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/wzzzz/merc_rig_heavy
 
-	price_min = 300000
-	price_max = 1000000
+	price_min = 3000000
+	price_max = 10000000
 	stock_max = 1
 	availability_prob = 50
 
@@ -27,8 +27,8 @@
 	desc = "Very heavy, but nice protection"
 	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/wzzzz/hazard_rig
 
-	price_min = 100000
-	price_max = 650000
+	price_min = 1000000
+	price_max = 6500000
 	stock_max = 1
 	availability_prob = 100
 
@@ -41,8 +41,8 @@
 			Nanotrasen crew who spot these suits are known to panic."
 	item = /obj/item/clothing/suit/space/hardsuit/syndi
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 50000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 50
 
@@ -52,8 +52,8 @@
 			provides the user with superior armor and mobility compared to the standard Syndicate hardsuit."
 	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite
 
-	price_min = 25000
-	price_max = 50000
+	price_min = 250000
+	price_max = 500000
 	stock_max = 1
 	availability_prob = 50
 
@@ -65,8 +65,8 @@
 			and artificial intelligence cores emit more of this light than cooler objects like walls and airlocks."
 	item = /obj/item/clothing/glasses/thermal/syndi
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 10000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 50
 
@@ -97,8 +97,8 @@
 			The shields can handle up to three impacts within a short duration and will rapidly recharge while not under fire."
 	item = /obj/item/clothing/suit/space/hardsuit/shielded/syndi
 
-	price_min = 5000
-	price_max = 10000
+	price_min = 50000
+	price_max = 100000
 	stock_max = 1
 	availability_prob = 50
 
