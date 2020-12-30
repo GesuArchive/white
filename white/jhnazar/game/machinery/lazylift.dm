@@ -38,12 +38,12 @@ That's it, ok bye!
 //Mappers, DON'T USE ME! Use the other one.
 
 /area/shuttle/turbolift
-	ambientsounds = sound('white/jhnazar/sound/effects/lift/elevatormusic.ogg')
+	ambientsounds = sound(list('white/jhnazar/sound/effects/lift/elevatormusic.ogg', 'white/jhnazar/sound/effects/turbolift/elevatormusic1.ogg', 'white/jhnazar/sound/effects/turbolift/elevatormusic2.ogg'))
 //	looping_ambience = 'white/jhnazar/sound/effects/lift/elevatormusic.ogg' //Mandatory.
 
 /obj/machinery/lazylift_button
-	name = "Turbolift call button"
-	desc = "A button that can call a turbolift to your location, so that you can board it. Be sure to mash it as often as physically possible."
+	name = "кнопка вызова шаттла"
+	desc = "Кнопка, которая вызывает шаттл."
 	icon = 'white/jhnazar/icons/obj/turbolift.dmi'
 	icon_state = "button"
 	can_be_unanchored = FALSE
@@ -65,16 +65,16 @@ That's it, ok bye!
 
 /obj/machinery/lazylift_button/attack_hand(mob/user)
 	if (machine_stat & NOPOWER || !lift)
-		to_chat(user, "<span class='warning'>Nothing happens...</span>")
+		to_chat(user, "<span class='warning'>Ничего не происходит...</span>")
 		return
 	if(isliving(user) && user.mouse_opacity) //Don't display things like AIs or admin ghosts clicking the button.
-		visible_message("<span class='notice'>[user] [pick("calmly presses", "mashes", "pokes", "slaps", "hits")] [src] </span>", "<span class='notice'>You push [src].</span>")
+		visible_message("<span class='notice'>[user] [pick("спокойно нажимает на", "давит на", "тыкает по", "шлёпает по", "ударяет")] [src] </span>", "<span class='notice'>Вы жмёте по [src].</span>")
 	flick("button_lit", src)
 	lift.master.path_to(lift.deck, lift.master.platform_location.deck)
 
 /obj/machinery/door/airlock/ship/public/glass/turbolift
-	name = "turbolift door"
-	desc = "A bulkhead which opens and closes."
+	name = "дверь лифта"
+	desc = "Дверь, которая открывается и закрывается."
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //Go away greytiders
 
 //Lifts speak a lotta languages, alien isn't one of 'em.
@@ -83,8 +83,8 @@ That's it, ok bye!
 	understood_languages = list(/datum/language/common, /datum/language/machine, /datum/language/draconic, /datum/language/drone)
 
 /obj/machinery/lazylift
-	name = "Turbolift interface panel"
-	desc = "A control panel for elevators, simply talk into its microphone to tell it where you want to go. Brought to you by the Sirius Cybernetics Corporation."
+	name = "панель управления лифтом"
+	desc = "Панель управления лифтом, в который встроен микрофон, реагирующий на голос живых существ."
 	icon = 'white/jhnazar/icons/obj/computers.dmi'
 	icon_state = "turbolift"
 	pixel_y = 26 //E.
@@ -176,9 +176,9 @@ That's it, ok bye!
 	var/list/decks = list() //Lifts that are slaved to this 'un. This abuses pointers to tell a lift object to point to a given deck.
 	var/obj/machinery/lazylift/platform_location = null //Where is the lift platform at?
 	var/in_use = FALSE
-	var/turbolift_loop_sound = 'white/jhnazar/sound/effects/lift/elevator_loop.ogg'
-	var/turbolift_start_sound = 'white/jhnazar/sound/effects/lift/elevator_start.ogg'
-	var/turbolift_end_sound = 'white/jhnazar/sound/effects/lift/elevator_end.ogg'
+	var/turbolift_loop_sound = sound('white/jhnazar/sound/effects/lift/elevator_loop.ogg')
+	var/turbolift_start_sound = sound('white/jhnazar/sound/effects/lift/elevator_start.ogg')
+	var/turbolift_end_sound = sound('white/jhnazar/sound/effects/lift/elevator_end.ogg')
 	var/start_delay = 1 SECONDS
 	var/end_delay = 0.5 SECONDS
 	var/turbolift_delay = 4 SECONDS //How long should the turbolift stay on each deck? Don't make this delay higher than a few seconds, or BYOND will start to complain.
@@ -196,9 +196,9 @@ That's it, ok bye!
 	end_delay = 2 SECONDS
 	turbolift_delay = 2 SECONDS
 	pixel_y = 32
-	turbolift_loop_sound = 'white/jhnazar/sound/effects/lift/lift_loop.ogg'
-	turbolift_start_sound = 'white/jhnazar/sound/effects/lift/lift_start.ogg'
-	turbolift_end_sound = 'white/jhnazar/sound/effects/lift/lift_end.ogg'
+	turbolift_loop_sound = sound('white/jhnazar/sound/effects/lift/lift_loop.ogg')
+	turbolift_start_sound = sound('white/jhnazar/sound/effects/lift/lift_start.ogg')
+	turbolift_end_sound = sound('white/jhnazar/sound/effects/lift/lift_end.ogg')
 	play_voice_lines = FALSE //Fancy, silent lift.
 
 /obj/machinery/lazylift/Initialize()
