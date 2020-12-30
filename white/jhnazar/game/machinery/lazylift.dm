@@ -38,7 +38,7 @@ That's it, ok bye!
 //Mappers, DON'T USE ME! Use the other one.
 
 /area/shuttle/turbolift
-//	ambientsounds = list()
+	ambientsounds = sound('white/jhnazar/sound/effects/lift/elevatormusic.ogg')
 //	looping_ambience = 'white/jhnazar/sound/effects/lift/elevatormusic.ogg' //Mandatory.
 
 /obj/machinery/lazylift_button
