@@ -519,7 +519,7 @@
 	antag_datum = /datum/antagonist/space_dragon
 	antag_flag = "Space Dragon"
 	antag_flag_override = ROLE_SPACE_DRAGON
-	enemy_roles = list("Security Officer", "Detective", "Head of Security", "Captain")
+	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 4
@@ -563,7 +563,7 @@
 	name = "Abductors"
 	antag_flag = "Abductor"
 	antag_flag_override = ROLE_ABDUCTOR
-	enemy_roles = list("Security Officer", "Detective", "Head of Security", "Captain")
+	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 2
 	weight = 4
@@ -602,7 +602,7 @@
 	antag_flag = "Swarmer"
 	antag_flag_override = ROLE_ALIEN
 	required_type = /mob/dead/observer
-	enemy_roles = list("Security Officer", "Detective", "Head of Security", "Captain")
+	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 0
 	weight = 3
@@ -636,7 +636,7 @@
 	antag_datum = /datum/antagonist/ninja
 	antag_flag = "Space Ninja"
 	antag_flag_override = ROLE_NINJA
-	enemy_roles = list("Security Officer", "Detective", "Head of Security", "Captain")
+	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 4
@@ -676,7 +676,7 @@
 	antag_flag = "Spider"
 	antag_flag_override = ROLE_ALIEN
 	required_type = /mob/dead/observer
-	enemy_roles = list("Security Officer", "Detective", "Head of Security", "Captain")
+	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 0
 	weight = 3

@@ -2,7 +2,7 @@
 	name = "Gangmageddon"
 	config_tag = "gangmageddon"
 	antag_flag = ROLE_GANG
-	restricted_jobs = list("Security Officer", "Warden", "Detective", "AI", "Cyborg","Captain", "Head of Personnel", "Head of Security")
+	restricted_jobs = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Warden", "Detective", "AI", "Cyborg","Captain", "Head of Personnel", "Head of Security")
 	required_players = 25
 	required_enemies = 3
 	recommended_enemies = 6
