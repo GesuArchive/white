@@ -33390,7 +33390,7 @@
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
 "iFi" = (
-/obj/machinery/light/red{
+/obj/machinery/light{
 	dir = 8
 	},
 /turf/open/openspace,
@@ -34316,7 +34316,7 @@
 /turf/open/floor/plasteel/white,
 /area/science/genetics)
 "kxE" = (
-/obj/machinery/light/red{
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/open/openspace,
