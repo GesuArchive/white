@@ -78,6 +78,8 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	///Whether or not we use stealthy audio levels for this item's attack sounds
 	var/stealthy_audio = FALSE
 
+	var/list/block_sounds = list('white/valtos/sounds/block_sword.ogg')
+
 	///How large is the object, used for stuff like whether it can fit in backpacks or not
 	var/w_class = WEIGHT_CLASS_NORMAL
 	///This is used to determine on which slots an item can fit.
@@ -452,7 +454,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 /obj/item/proc/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "удар", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, args)
 	if(prob(final_block_chance))
-		playsound(src, 'white/valtos/sounds/block_sword.ogg', 100)
+		playsound(src, pick(block_sounds), 100)
 		owner.visible_message("<span class='danger'><b>[owner]</b> блокирует [attack_text] при помощи <b>[src.name]</b>!</span>")
 		return 1
 	return 0
