@@ -1,14 +1,14 @@
 /datum/language/nekomimetic
-	name = "Nekomimetic"
-	desc = "To the casual observer, this langauge is an incomprehensible mess of broken Japanese. To the felinids, it's somehow comprehensible."
+	name = "Некомиметик"
+	desc = "Для стороннего наблюдателя этот язык - непонятная путаница ломаного японского языка. Для фелинидов - обыденность."
 	key = "f"
 	space_chance = 70
 	syllables = list(
-		"neko", "nyan", "mimi", "moe", "mofu", "fuwa", "kyaa", "kawaii", "poka", "munya",
-		"puni", "munyu", "ufufu", "uhuhu", "icha", "doki", "kyun", "kusu", "nya", "nyaa",
-		"desu", "kis", "ama", "chuu", "baka", "hewo", "boop", "gato", "kit", "sune", "yori",
-		"sou", "baka", "chan", "san", "kun", "mahou", "yatta", "suki", "usagi", "domo", "ori",
-		"uwa", "zaazaa", "shiku", "puru", "ira", "heto", "etto"
+		"неко", "нян", "мими", "моэ", "мофу", "фува", "кия", "кавай", "пока", "муня",
+		"пуни", "мунью", "уфуфу", "ухуху", "ича", "доки", "кюн", "кусу", "ня", "няя",
+		"десу", "кис", "ама", "чу", "бака", "хево", "буп", "гато", "кит", "сунэ", "йори",
+		"соу", "бака", "чан", "сан", "кун", "махоу", "ятта", "суки", "усаги", "домо", "ори",
+		"ува", "заазаа", "шику", "пуру", "айра", "хето", "етто"
 	)
 	icon_state = "neko"
 	default_priority = 90
