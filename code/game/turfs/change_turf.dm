@@ -171,12 +171,17 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		new_baseturfs.len -= min(amount, new_baseturfs.len - 1) // No removing the very bottom
 		if(new_baseturfs.len == 1)
 			new_baseturfs = new_baseturfs[1]
-		return ChangeTurf(turf_type, new_baseturfs, flags)
+		var/turf/new_floor = ChangeTurf(baseturfs, baseturfs, flags)
+		new_floor.air_update_turf()
+		return new_floor
 
 	if(baseturfs == type)
 		return src
 
-	return ChangeTurf(baseturfs, baseturfs, flags) // The bottom baseturf will never go away
+	var/turf/new_floor = ChangeTurf(baseturfs, baseturfs, flags)
+	new_floor.air_update_turf()
+
+	return new_floor // The bottom baseturf will never go away
 
 // Take the input as baseturfs and put it underneath the current baseturfs
 // If fake_turf_type is provided and new_baseturfs is not the baseturfs list will be created identical to the turf type's

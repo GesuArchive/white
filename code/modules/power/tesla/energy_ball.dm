@@ -92,8 +92,9 @@
 /obj/energy_ball/proc/move(move_amount)
 	var/list/dirs = GLOB.alldirs.Copy()
 	for (var/i in 1 to 30)
-		var/atom/real_thing = pick(shocked_things)
-		dirs += get_dir(src, real_thing) //Carry some momentum yeah? Just a bit tho
+		if(shocked_things.len)
+			var/atom/real_thing = pick(shocked_things)
+			dirs += get_dir(src, real_thing) //Carry some momentum yeah? Just a bit tho
 	for (var/i in 0 to move_amount)
 		var/move_dir = pick(dirs) //ensures teslas don't just sit around
 		if (target && prob(10))
