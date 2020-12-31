@@ -134,6 +134,10 @@
 						   'sound/ambience/ambigen14.ogg',\
 						   'sound/ambience/ambigen15.ogg')
 
+#define TURBOLIFT list('white/jhnazar/sound/effects/lift/elevatormusic.ogg',\
+						'white/jhnazar/sound/effects/turbolift/elevatormusic1.ogg',\
+						'white/jhnazar/sound/effects/turbolift/elevatormusic2.ogg')
+
 #define INTERACTION_SOUND_RANGE_MODIFIER -3
 #define EQUIP_SOUND_VOLUME 30
 #define PICKUP_SOUND_VOLUME 15

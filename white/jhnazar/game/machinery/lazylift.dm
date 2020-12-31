@@ -38,11 +38,11 @@ That's it, ok bye!
 //Mappers, DON'T USE ME! Use the other one.
 
 /area/shuttle/turbolift
-	ambientsounds = sound(list('white/jhnazar/sound/effects/lift/elevatormusic.ogg', 'white/jhnazar/sound/effects/turbolift/elevatormusic1.ogg', 'white/jhnazar/sound/effects/turbolift/elevatormusic2.ogg'))
+	ambientsounds = TURBOLIFT //Песни для лифта добавлять в sound.dm
 //	looping_ambience = 'white/jhnazar/sound/effects/lift/elevatormusic.ogg' //Mandatory.
 
 /obj/machinery/lazylift_button
-	name = "кнопка вызова шаттла"
+	name = "кнопка вызова элеватора"
 	desc = "Кнопка, которая вызывает шаттл."
 	icon = 'white/jhnazar/icons/obj/turbolift.dmi'
 	icon_state = "button"
