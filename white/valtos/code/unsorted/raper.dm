@@ -173,7 +173,7 @@
 				break
 
 		// if the target has a weapon, chance to disarm them
-		if(W && DT_PROB(raper_attack_DISARM_PROB, delta_time))
+		if(W && DT_PROB(MONKEY_ATTACK_DISARM_PROB, delta_time))
 			living_pawn.a_intent = INTENT_DISARM
 			raper_attack(controller, target, delta_time)
 		else
