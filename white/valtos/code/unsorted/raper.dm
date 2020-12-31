@@ -55,7 +55,7 @@
 			selected_enemy = possible_enemy
 			break
 		if(selected_enemy)
-			if(!selected_enemy.stat && !selected_enemy.handcuffed) //He's up, get him!
+			if(!selected_enemy.stat || !selected_enemy.handcuffed) //He's up, get him!
 				blackboard[BB_RAPER_CURRENT_ATTACK_TARGET] = selected_enemy
 				current_movement_target = selected_enemy
 				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/battle_screech/raper)
@@ -150,7 +150,7 @@
 		retaliate(user)
 
 /datum/ai_behavior/battle_screech/raper
-	screeches = list("ОХ-ОХ-ОХ", "АХ-АХ-АХ")
+	screeches = list("scream", "moan")
 
 /datum/ai_behavior/raper_attack_mob
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT | AI_BEHAVIOR_MOVE_AND_PERFORM //performs to increase frustration
@@ -232,6 +232,7 @@
 	else if (living_pawn.Adjacent(target))
 		INVOKE_ASYNC(src, .proc/try_fuck_mob, controller) //put him in!
 	else
+		step(living_pawn, get_dir(src, target))
 		controller.current_movement_target = target
 
 /datum/ai_behavior/fuck_mob/perform(delta_time, datum/ai_controller/controller)
@@ -254,6 +255,7 @@
 	controller.current_movement_target = target
 
 	if(living_pawn.Adjacent(target))
+		step(living_pawn, get_dir(src, target))
 		INVOKE_ASYNC(src, .proc/try_fuck_mob, controller) //put him in!
 	else //This means we might be getting pissed!
 		return
