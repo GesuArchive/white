@@ -26,28 +26,28 @@ GLOBAL_LIST_EMPTY(turbolifts)
 
 /obj/machinery/turbolift_button/attack_hand(mob/user)
 	if (machine_stat & NOPOWER)
-		to_chat(user, "<span class='warning'>[src] does not respond.</span>")
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] не отвечает.</span>")
 	if(!shuttle_id || !floor_id)
-		say("An unexpected error has occured. Please contact a Nanotrasen Turbolift Repair Technician.")
+		say("Произошла неизвестная ошибка. Пожалуйста, свяжитесь со службой починки лифтов Нанотрейзен.")
 		return
 
 	var/obj/docking_port/mobile/turbolift/M = SSshuttle.getShuttle(shuttle_id)
 	var/obj/machinery/computer/turbolift/T = M?.turbolift_computer?.resolve()
 	if(!M || !T)
-		say("An unexpected error has occured. Please contact a Nanotrasen Turbolift Repair Technician.")
+		say("Произошла неизвестная ошибка. Пожалуйста, свяжитесь со службой починки лифтов Нанотрейзен.")
 		return
 
 	if("[floor_id]" in T.destination_queue)
-		say("The current deck is already queued.")
+		say("Эта палуба уже выбрана.")
 	else if(T.z == src.z)
-		say("The turbolift is already at this deck.")
+		say("Лифт уже в месте назначения.")
 	else
-		say("The turbolift will arrive shortly. Thank you for using Nanotrasen Turbolift Services(TM).")
+		say("Лифт скоро прибудет в точку назначения. Спасибо за использование лифтов Нанотрейзен.")
 		T.destination_queue += "[floor_id]"
 		START_PROCESSING(SSmachines, T)
 
 /obj/machinery/computer/turbolift
-	name = "turbolift control console"
+	name = "консоль лифта"
 	icon = 'white/jhnazar/icons/obj/turbolift.dmi'
 	icon_state = "panel"
 	density = FALSE
@@ -72,9 +72,9 @@ GLOBAL_LIST_EMPTY(turbolifts)
 	GLOB.turbolifts += src
 
 /obj/machinery/door/airlock/turbolift
-	name = "turbolift airlock"
+	name = "шлюз лифта"
 	icon = 'white/jhnazar/icons/obj/turbolift_door.dmi'
-	desc = "A sleek airlock for walking through. This one looks extremely strong."
+	desc = "Он открывается и закрывается. Этот выглядит ОЧЕНЬ крепким."
 	icon_state = "closed"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	var/dock_dir
@@ -97,11 +97,13 @@ GLOBAL_LIST_EMPTY(turbolifts)
 	var/area/A = get_area(src)
 	if(T.below() && !istype(A, /area/shuttle/turbolift)) //We know the elevator will spawn on the bottom floor, and the airlocks on all other floors should stay closed.
 		unbolt()
-		close()
+		spawn(0)
+			close()
 		bolt()
 	else
 		unbolt()
-		open()
+		spawn(0)
+			open()
 		bolt()
 
 /obj/machinery/door/airlock/turbolift/do_animate(animation)
@@ -124,12 +126,12 @@ GLOBAL_LIST_EMPTY(turbolifts)
 		icon_state = "open"
 
 /turf/open/indestructible/turbolift
-	name = "turbolift floor"
-	desc = "A turbolift floor. You'd have an easier time destroying CentCom than breaking through this."
+	name = "пол лифта"
+	desc = "Выдержит вашу маман."
 
 /turf/closed/indestructible/turbolift
-	name = "turbolift wall"
-	desc = "A turbolift wall. One of the strongest walls known to man."
+	name = "стена лифта"
+	desc = "Достаточно крепкая."
 	icon = 'icons/turf/walls/wall.dmi'
 	icon_state = "wall"
 //	canSmoothWith = list(/turf/closed/indestructible/turbolift)
@@ -198,7 +200,7 @@ GLOBAL_LIST_EMPTY(turbolifts)
 		in_use = FALSE
 		return
 
-	say("Departing for Deck [dock.deck]: [dock.name].")
+	say("Отправляемся из палубы [dock.deck]: [dock.name].")
 	for(var/datum/weakref/T in airlocks)
 		var/obj/machinery/door/airlock/turbolift/A = T.resolve()
 		if(A)
@@ -211,7 +213,7 @@ GLOBAL_LIST_EMPTY(turbolifts)
 /obj/machinery/computer/turbolift/proc/move(var/destination_id)
 	var/obj/docking_port/mobile/turbolift/M = SSshuttle.getShuttle(shuttle_id)
 	if(!M)
-		say("An unexpected error has occured. The turbolift is now offline. Please contact a Nanotrasen Turbolift Repair Technician.")
+		say("Произошла неизвестная ошибка. Лифт больше не может работать. Пожалуйста, свяжитесь со службой починки лифтов Нанотрейзен.")
 		STOP_PROCESSING(SSmachines, src)
 		online = FALSE
 		log_mapping("TURBOLIFT: [src] could not find mobile dock: [shuttle_id] at [AREACOORD(src)]")
@@ -221,7 +223,7 @@ GLOBAL_LIST_EMPTY(turbolifts)
 
 	var/obj/docking_port/stationary/turbolift/dock = SSshuttle.getDock(destination_id)
 	if(!dock)
-		say("ERROR 404: Deck not found.")
+		say("ERROR 404: Палуба не найдена.")
 		destination_queue.Cut(1,2)
 		in_use = FALSE
 		return
@@ -231,7 +233,7 @@ GLOBAL_LIST_EMPTY(turbolifts)
 
 /obj/machinery/computer/turbolift/proc/post_move(var/destination_id)
 	var/obj/docking_port/stationary/turbolift/dock = SSshuttle.getDock(destination_id)
-	say("Arrived at [dock ? "Deck [dock.deck]: [dock.name]" : "destination"].")
+	say("Прибыли [dock ? "к палубе [dock.deck]: [dock.name]" : "в место назначения"].")
 	for(var/datum/weakref/T in airlocks)
 		var/obj/machinery/door/airlock/turbolift/A = T.resolve()
 		if(A)

@@ -80,7 +80,7 @@
 /obj/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE)
 	..()
 	if(obj_flags & FROZEN)
-		visible_message("<span class='danger'>[capitalize(src.name)] shatters into a million pieces!</span>")
+		visible_message("<span class='danger'>[capitalize(src.name)] разлетается на миллион частей!</span>")
 		qdel(src)
 
 
@@ -318,7 +318,7 @@
 		return
 	current_skin = pick
 	icon_state = unique_reskin[pick]
-	to_chat(M, "[src.name] теперь выглядит как '[pick].'")
+	to_chat(M, "[src.name] теперь выглядит как [pick].")
 
 /**
  * Checks if we are allowed to interact with a radial menu for reskins

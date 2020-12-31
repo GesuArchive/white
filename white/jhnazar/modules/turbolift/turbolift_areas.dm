@@ -3,36 +3,36 @@
 	ambientsounds = list('white/jhnazar/sound/effects/turbolift/elevatormusic.ogg')
 
 /area/shuttle/turbolift/shaft //What the shuttle leaves behind
-	name = "turbolift shaft"
+	name = "Шахта лифта"
 	requires_power = TRUE
 	ambientsounds = MAINTENANCE
 
 /area/shuttle/turbolift/primary
-	name = "primary turbolift"
+	name = "Первый лифт"
 
 /area/shuttle/turbolift/secondary
-	name = "secondary turbolift"
+	name = "Второй лифт"
 
 /area/shuttle/turbolift/tertiary
-	name = "tertiary turbolift"
+	name = "Третий лифт"
 
 /area/shuttle/turbolift/quaternary
-	name = "quaternary turbolift"
+	name = "Четвёртый лифт"
 
 /area/shuttle/turbolift/quinary
-	name = "quinary turbolift"
+	name = "Пятый лифт"
 
 /area/shuttle/turbolift/senary
-	name = "senary turbolift"
+	name = "Шестой лифт"
 
 /area/shuttle/turbolift/septenary
-	name = "septenary turbolift"
+	name = "Седьмой лифт"
 
 /area/shuttle/turbolift/octonary
-	name = "octonary turbolift"
+	name = "Восьмой лифт"
 
 /area/shuttle/turbolift/nonary
-	name = "nonary turbolift"
+	name = "Девятый лифт"
 
 /area/shuttle/turbolift/denary //If you need more than 10 elevators what are you doing?
-	name = "denary turbolift"
+	name = "Десятый лифт"
