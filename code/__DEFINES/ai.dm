@@ -33,3 +33,11 @@
 #define BB_MONKEY_TARGET_DISPOSAL "BB_monkey_target_disposal"
 #define BB_MONKEY_DISPOSING "BB_monkey_disposing"
 #define BB_MONKEY_RECRUIT_COOLDOWN "BB_monkey_recruit_cooldown"
+
+
+/// Raper AI. Yes
+
+#define BB_RAPER_AGRESSIVE "BB_raper_agressive"
+#define BB_RAPER_ENEMIES "BB_raper_enemies"
+#define BB_RAPER_CURRENT_ATTACK_TARGET "BB_raper_current_attack_target"
+#define BB_RAPER_FUCKING "BB_raper_fucking"

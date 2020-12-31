@@ -59,6 +59,29 @@
 	message_mime = "изображает стон!"
 	emote_type = EMOTE_AUDIBLE
 
+/datum/emote/living/carbon/moan/get_sound(mob/living/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(!H.mind || !H.mind.miming)
+			if(user.gender == FEMALE)
+				return pick('white/valtos/sounds/exrp/interactions/moan_f1.ogg',\
+							'white/valtos/sounds/exrp/interactions/moan_f2.ogg',\
+							'white/valtos/sounds/exrp/interactions/moan_f3.ogg',\
+							'white/valtos/sounds/exrp/interactions/moan_f4.ogg',\
+							'white/valtos/sounds/exrp/interactions/moan_f5.ogg',\
+							'white/valtos/sounds/exrp/interactions/moan_f6.ogg',\
+							'white/valtos/sounds/exrp/interactions/moan_f7.ogg')
+			else
+				return pick('white/valtos/sounds/exrp/interactions/moan_m0.ogg',\
+							'white/valtos/sounds/exrp/interactions/moan_m1.ogg',\
+							'white/valtos/sounds/exrp/interactions/moan_m2.ogg',\
+							'white/valtos/sounds/exrp/interactions/moan_m3.ogg',\
+							'white/valtos/sounds/exrp/interactions/moan_m4.ogg',\
+							'white/valtos/sounds/exrp/interactions/moan_m5.ogg',\
+							'white/valtos/sounds/exrp/interactions/moan_m6.ogg',\
+							'white/valtos/sounds/exrp/interactions/moan_m7.ogg',\
+							'white/valtos/sounds/exrp/interactions/moan_m12.ogg')
+
 /datum/emote/living/carbon/roll
 	key = "roll"
 	key_third_person = "rolls"
