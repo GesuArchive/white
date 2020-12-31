@@ -46,7 +46,7 @@
 
 	if(length(enemies) || blackboard[BB_RAPER_AGRESSIVE]) //We have enemies or are pissed
 
-		var/mob/living/selected_enemy
+		var/mob/living/carbon/selected_enemy
 
 		for(var/mob/living/possible_enemy in view(MONKEY_ENEMY_VISION, living_pawn))
 			if(possible_enemy == living_pawn || (!enemies[possible_enemy] && (!blackboard[BB_RAPER_AGRESSIVE] || HAS_AI_CONTROLLER_TYPE(possible_enemy, /datum/ai_controller/raper)))) //Are they an enemy? (And do we even care?)
@@ -55,7 +55,7 @@
 			selected_enemy = possible_enemy
 			break
 		if(selected_enemy)
-			if(!selected_enemy.stat) //He's up, get him!
+			if(!selected_enemy.stat && !selected_enemy.handcuffed) //He's up, get him!
 				blackboard[BB_RAPER_CURRENT_ATTACK_TARGET] = selected_enemy
 				current_movement_target = selected_enemy
 				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/battle_screech/raper)
@@ -224,11 +224,15 @@
 
 /datum/ai_behavior/fuck_mob/finish_action(datum/ai_controller/controller, succeeded)
 	. = ..()
+	var/mob/living/target = controller.blackboard[BB_RAPER_CURRENT_ATTACK_TARGET]
+	var/mob/living/living_pawn = controller.pawn
 	if(!controller.blackboard[BB_RAPER_CURRENT_ATTACK_TARGET])
 		controller.blackboard[BB_RAPER_CURRENT_ATTACK_TARGET] = null
 		controller.blackboard[BB_RAPER_FUCKING] = FALSE
-	else
+	else if (living_pawn.Adjacent(target))
 		INVOKE_ASYNC(src, .proc/try_fuck_mob, controller) //put him in!
+	else
+		controller.current_movement_target = target
 
 /datum/ai_behavior/fuck_mob/perform(delta_time, datum/ai_controller/controller)
 	. = ..()
@@ -241,7 +245,7 @@
 
 	controller.current_movement_target = target
 
-	if(target.pulledby != living_pawn && !HAS_AI_CONTROLLER_TYPE(target.pulledby, /datum/ai_controller/monkey)) //Dont steal from my fellow monkeys.
+	if(target.pulledby != living_pawn && !HAS_AI_CONTROLLER_TYPE(target.pulledby, /datum/ai_controller/raper)) //Dont steal from my fellow monkeys.
 		if(living_pawn.Adjacent(target) && isturf(target.loc))
 			living_pawn.a_intent = INTENT_GRAB
 			target.grabbedby(living_pawn)
