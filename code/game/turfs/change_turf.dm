@@ -171,15 +171,10 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		new_baseturfs.len -= min(amount, new_baseturfs.len - 1) // No removing the very bottom
 		if(new_baseturfs.len == 1)
 			new_baseturfs = new_baseturfs[1]
-		var/turf/new_floor = ChangeTurf(baseturfs, baseturfs, flags)
-		new_floor.air_update_turf()
-		return new_floor
+		return ChangeTurf(baseturfs, baseturfs, flags)
 
 	if(baseturfs == type)
 		return src
-
-	var/turf/new_floor = ChangeTurf(baseturfs, baseturfs, flags)
-	new_floor.air_update_turf()
 
 	return new_floor // The bottom baseturf will never go away
 
