@@ -265,5 +265,5 @@
 			if(!target.dropItemToGround(W))
 				qdel(W)
 				target.regenerate_icons()
-		living_pawn.do_sex(target, pick("do_oral", "do_anal"))
+		living_pawn.do_sex(target, pick("do_throatfuck", "do_anal"))
 	finish_action(controller, TRUE)
