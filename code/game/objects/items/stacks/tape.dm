@@ -3,7 +3,7 @@
 /obj/item/stack/sticky_tape
 	name = "клейкая лента"
 	singular_name = "клейкая лента"
-	desc = "Используется для приклеивания к вещам, для приклеивания к людям сказанного."
+	desc = "Используется для приклеивания вещей, а иногда и для приклеивания упомянутых вещей к людям."
 	icon = 'icons/obj/tapes.dmi'
 	icon_state = "tape_w"
 	var/prefix = "sticky"

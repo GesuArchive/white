@@ -80,6 +80,7 @@
 
 /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	name = "уродливый камень"
+	desc = "хуй"
 	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
 	icon_state = "stone"
 	stoned = FALSE

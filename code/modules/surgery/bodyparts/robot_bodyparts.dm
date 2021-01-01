@@ -1,10 +1,10 @@
-#define ROBOTIC_LIGHT_BRUTE_MSG "поврежденная"
-#define ROBOTIC_MEDIUM_BRUTE_MSG "помятая"
-#define ROBOTIC_HEAVY_BRUTE_MSG "разваливающийся"
+#define ROBOTIC_LIGHT_BRUTE_MSG "повреждена"
+#define ROBOTIC_MEDIUM_BRUTE_MSG "помята"
+#define ROBOTIC_HEAVY_BRUTE_MSG "разваливается"
 
-#define ROBOTIC_LIGHT_BURN_MSG "обгоревшая"
-#define ROBOTIC_MEDIUM_BURN_MSG "обугленная"
-#define ROBOTIC_HEAVY_BURN_MSG "тлеющая"
+#define ROBOTIC_LIGHT_BURN_MSG "обгорела"
+#define ROBOTIC_MEDIUM_BURN_MSG "обуглилась"
+#define ROBOTIC_HEAVY_BURN_MSG "тлеет"
 
 //For ye whom may venture here, split up arm / hand sprites are formatted as "l_hand" & "l_arm".
 //The complete sprite (displayed when the limb is on the ground) should be named "borg_l_arm".
