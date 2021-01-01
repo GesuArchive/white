@@ -196,12 +196,13 @@
 
 	living_pawn.changeNext_move(CLICK_CD_MELEE) //We play fair
 
-	var/obj/item/weapon = pick(living_pawn.held_items)
+	var/obj/item/weapon = living_pawn.held_items.len ? pick(living_pawn.held_items) : null
 
 	living_pawn.face_atom(target)
 
 	living_pawn.a_intent = INTENT_GRAB
 	target.grabbedby(living_pawn)
+	target.grippedby(living_pawn)
 
 	// attack with weapon if we have one
 	if(weapon)
@@ -256,6 +257,7 @@
 		if(living_pawn.Adjacent(target) && isturf(target.loc))
 			living_pawn.a_intent = INTENT_GRAB
 			target.grabbedby(living_pawn)
+			target.grippedby(living_pawn)
 		return //Do the rest next turn
 
 	controller.current_movement_target = target
