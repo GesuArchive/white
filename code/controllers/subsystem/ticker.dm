@@ -273,7 +273,6 @@ SUBSYSTEM_DEF(ticker)
 			modes += M.name
 		modes = sortList(modes)
 		message_admins("<b>The gamemode is: secret!\nPossibilities:</B> [english_list(modes)]")
-		SStitle.uplayers()
 	else
 		mode.announce()
 
@@ -318,6 +317,8 @@ SUBSYSTEM_DEF(ticker)
 
 	if(CONFIG_GET(flag/aspects))
 		SSaspects.run_aspect()
+
+	SStitle.uplayers()
 
 	return TRUE
 

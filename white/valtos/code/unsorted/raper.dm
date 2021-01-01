@@ -17,6 +17,7 @@
 	RegisterSignal(new_pawn, COMSIG_LIVING_TRY_SYRINGE, .proc/on_try_syringe)
 	RegisterSignal(new_pawn, COMSIG_ATOM_HULK_ATTACK, .proc/on_attack_hulk)
 	RegisterSignal(new_pawn, COMSIG_CARBON_CUFF_ATTEMPTED, .proc/on_attempt_cuff)
+	blackboard[BB_RAPER_AGRESSIVE] = TRUE //Angry cunt
 	return ..() //Run parent at end
 
 /datum/ai_controller/raper/UnpossessPawn(destroy)
@@ -46,7 +47,7 @@
 
 	if(length(enemies) || blackboard[BB_RAPER_AGRESSIVE]) //We have enemies or are pissed
 
-		var/mob/living/carbon/selected_enemy
+		var/mob/living/selected_enemy
 
 		for(var/mob/living/possible_enemy in view(MONKEY_ENEMY_VISION, living_pawn))
 			if(possible_enemy == living_pawn || (!enemies[possible_enemy] && (!blackboard[BB_RAPER_AGRESSIVE] || HAS_AI_CONTROLLER_TYPE(possible_enemy, /datum/ai_controller/raper)))) //Are they an enemy? (And do we even care?)
@@ -55,7 +56,7 @@
 			selected_enemy = possible_enemy
 			break
 		if(selected_enemy)
-			if(!selected_enemy.stat || !selected_enemy.handcuffed) //He's up, get him!
+			if(!selected_enemy.stat && !selected_enemy.IsStun() && !selected_enemy.IsKnockdown() && !selected_enemy.IsImmobilized() && !selected_enemy.IsParalyzed() && !selected_enemy.IsSleeping()) //He's up, get him!
 				blackboard[BB_RAPER_CURRENT_ATTACK_TARGET] = selected_enemy
 				current_movement_target = selected_enemy
 				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/battle_screech/raper)
@@ -89,7 +90,7 @@
 
 /datum/ai_controller/raper/proc/on_attack_hand(datum/source, mob/living/L)
 	SIGNAL_HANDLER
-	if(L.a_intent == INTENT_HARM && prob(MONKEY_RETALIATE_HARM_PROB))
+	if(L.a_intent == INTENT_GRAB && prob(MONKEY_RETALIATE_HARM_PROB))
 		retaliate(L)
 	else if(L.a_intent == INTENT_DISARM && prob(MONKEY_RETALIATE_DISARM_PROB))
 		retaliate(L)
@@ -161,7 +162,7 @@
 	var/mob/living/target = controller.blackboard[BB_RAPER_CURRENT_ATTACK_TARGET]
 	var/mob/living/living_pawn = controller.pawn
 
-	if(!target || target.stat != CONSCIOUS)
+	if(!target || target.stat != CONSCIOUS || target.IsStun() || target.IsKnockdown() || target.IsImmobilized() || target.IsParalyzed() || target.IsSleeping())
 		finish_action(controller, TRUE) //Target == owned
 
 	if(living_pawn.Adjacent(target) && isturf(target.loc) && !IS_DEAD_OR_INCAP(living_pawn))	// if right next to perp
@@ -177,7 +178,7 @@
 			living_pawn.a_intent = INTENT_DISARM
 			raper_attack(controller, target, delta_time)
 		else
-			living_pawn.a_intent = INTENT_HARM
+			living_pawn.a_intent = INTENT_GRAB
 			raper_attack(controller, target, delta_time)
 
 
@@ -195,15 +196,18 @@
 
 	living_pawn.changeNext_move(CLICK_CD_MELEE) //We play fair
 
-	var/obj/item/weapon = locate(/obj/item) in living_pawn.held_items
+	var/obj/item/weapon = pick(living_pawn.held_items)
 
 	living_pawn.face_atom(target)
+
+	living_pawn.a_intent = INTENT_GRAB
+	target.grabbedby(living_pawn)
 
 	// attack with weapon if we have one
 	if(weapon)
 		weapon.melee_attack_chain(living_pawn, target)
 	else
-		target.attack_paw(living_pawn)
+		target.attack_hand(living_pawn)
 
 	// no de-aggro
 	if(controller.blackboard[BB_RAPER_AGRESSIVE])
@@ -230,9 +234,11 @@
 		controller.blackboard[BB_RAPER_CURRENT_ATTACK_TARGET] = null
 		controller.blackboard[BB_RAPER_FUCKING] = FALSE
 	else if (living_pawn.Adjacent(target))
+		living_pawn.do_sex(target, pick("do_throatfuck", "do_anal"))
 		INVOKE_ASYNC(src, .proc/try_fuck_mob, controller) //put him in!
 	else
-		step(living_pawn, get_dir(src, target))
+		living_pawn.forceMove(get_turf(target))
+		living_pawn.do_sex(target, pick("do_throatfuck", "do_anal"))
 		controller.current_movement_target = target
 
 /datum/ai_behavior/fuck_mob/perform(delta_time, datum/ai_controller/controller)
@@ -255,7 +261,7 @@
 	controller.current_movement_target = target
 
 	if(living_pawn.Adjacent(target))
-		step(living_pawn, get_dir(src, target))
+		living_pawn.forceMove(get_turf(target))
 		INVOKE_ASYNC(src, .proc/try_fuck_mob, controller) //put him in!
 	else //This means we might be getting pissed!
 		return
@@ -273,3 +279,11 @@
 				target.regenerate_icons()
 		living_pawn.do_sex(target, pick("do_throatfuck", "do_anal"))
 	finish_action(controller, TRUE)
+
+/mob/living/carbon/human/rapist
+	ai_controller = /datum/ai_controller/raper
+
+/mob/living/carbon/human/rapist/Initialize()
+	.=..()
+	ADD_TRAIT(src, TRAIT_STUNIMMUNE, "sosi")
+	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, "sosi")
