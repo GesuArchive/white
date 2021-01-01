@@ -147,8 +147,8 @@
 /////////////////////////////
 
 /obj/item/gun/ballistic/shotgun/doublebarrel
-	name = "двухстволка"
-	desc = "Истинная классика."
+	name = "двустволка"
+	desc = "Настоящая классика."
 	icon_state = "dshotgun"
 	inhand_icon_state = "shotgun_db"
 	w_class = WEIGHT_CLASS_BULKY
