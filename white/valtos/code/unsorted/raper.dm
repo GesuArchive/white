@@ -276,9 +276,9 @@
 
 	if(target)
 		for(var/obj/item/W in target)
-			if(!target.dropItemToGround(W))
-				qdel(W)
-				target.regenerate_icons()
+			if(istype(W, /obj/item/restraints))
+				continue
+			target.dropItemToGround(W)
 		living_pawn.do_sex(target, pick("do_throatfuck", "do_anal"))
 	finish_action(controller, TRUE)
 
