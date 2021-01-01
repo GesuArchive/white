@@ -3721,6 +3721,7 @@
 #include "white\valtos\code\unsorted\port_grav.dm"
 #include "white\valtos\code\unsorted\prison.dm"
 #include "white\valtos\code\unsorted\randommaint.dm"
+#include "white\valtos\code\unsorted\raper.dm"
 #include "white\valtos\code\unsorted\rusprikols.dm"
 #include "white\valtos\code\unsorted\smartfoam.dm"
 #include "white\valtos\code\unsorted\sobr.dm"
