@@ -828,16 +828,6 @@
 	data.standard_format_data(message, text, key) // hippie end
 	ntnet_send(data)
 
-/obj/item/integrated_circuit/input/ntnet_receive(datum/netdata/data)
-	set_pin_data(IC_OUTPUT, 1, data.sender_id)
-	set_pin_data(IC_OUTPUT, 2, data.data["data"])
-	set_pin_data(IC_OUTPUT, 3, data.data["data_secondary"])
-	set_pin_data(IC_OUTPUT, 4, data.data["encrypted_passkey"])
-	//set_pin_data(IC_OUTPUT, 5, data.broadcast)
-
-	push_data()
-	activate_pin(2)
-
 /obj/item/integrated_circuit/input/ntnet_advanced
 	name = "Low level NTNet transreceiver"
 	desc = "Enables the sending and receiving of messages over NTNet via packet data protocol. Allows advanced control of message contents and signalling. Must use associative lists. Outputs associative list. Has a slower transmission rate than normal NTNet circuits, due to increased data processing complexity."
@@ -875,12 +865,6 @@
 	data.data = message
 	data.passkey = assembly.access_card.access
 	ntnet_send(data)
-
-/obj/item/integrated_circuit/input/ntnet_advanced/ntnet_receive(datum/netdata/data)
-	set_pin_data(IC_OUTPUT, 1, data.data)
-	//set_pin_data(IC_OUTPUT, 2, data.broadcast)
-	push_data()
-	activate_pin(2)
 
 //This circuit gives information on where the machine is.
 /obj/item/integrated_circuit/input/gps
