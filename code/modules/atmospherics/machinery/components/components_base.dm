@@ -18,7 +18,7 @@
 	..()
 
 	for(var/i in 1 to device_type)
-		var/datum/gas_mixture/A = new(200)
+		var/datum/gas_mixture/A = new(1000)
 		airs[i] = A
 
 /obj/machinery/atmospherics/components/Initialize()
