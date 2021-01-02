@@ -823,11 +823,9 @@
 	var/text = get_pin_data(IC_INPUT, 3)
 
 	var/datum/netdata/data = new
-	var/datum/netdata/data = new(list("data" = mode,"data_secondary" = "toggle"))
-	data.receiver_id = target_interface.hardware_id
+	data.receiver_id = splittext(target_address, ";")
 	var/key = get_pin_data(IC_INPUT, 4) // hippie start -- adds passkey back in
 	data.standard_format_data(message, text, key) // hippie end
-	data.user = user	// for responce message
 	ntnet_send(data)
 
 /obj/item/integrated_circuit/input/ntnet_receive(datum/netdata/data)
@@ -835,7 +833,7 @@
 	set_pin_data(IC_OUTPUT, 2, data.data["data"])
 	set_pin_data(IC_OUTPUT, 3, data.data["data_secondary"])
 	set_pin_data(IC_OUTPUT, 4, data.data["encrypted_passkey"])
-	//set_pin_data(IC_OUTPUT, 5, data.broadcast)
+	set_pin_data(IC_OUTPUT, 5, data.broadcast)
 
 	push_data()
 	activate_pin(2)
@@ -872,16 +870,15 @@
 	var/list/message = get_pin_data(IC_INPUT, 2)
 	if(!islist(message))
 		message = list()
-	var/datum/netdata/data = new(list("data" = mode,"data_secondary" = "toggle"))
-	data.receiver_id = target_interface.hardware_id
+	var/datum/netdata/data = new
+	data.receiver_id = splittext(target_address, ";")
 	data.data = message
 	data.passkey = assembly.access_card.access
-	data.user = user	// for responce message
 	ntnet_send(data)
 
 /obj/item/integrated_circuit/input/ntnet_advanced/ntnet_receive(datum/netdata/data)
 	set_pin_data(IC_OUTPUT, 1, data.data)
-	//set_pin_data(IC_OUTPUT, 2, data.broadcast)
+	set_pin_data(IC_OUTPUT, 2, data.broadcast)
 	push_data()
 	activate_pin(2)
 
