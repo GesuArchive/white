@@ -45,8 +45,8 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/New()
 	if(!id_tag)
 		id_tag = SSnetworks.assign_random_name()
-	var/datum/gas_mixture/N = airs[1]
-	N.set_volume(1000) // Increase the volume of the air vent's node.
+	//var/datum/gas_mixture/N = airs[1]
+	//N.set_volume(1000) // Increase the volume of the air vent's node.
 	// Allows it to pump much faster.
 	. = ..()
 
