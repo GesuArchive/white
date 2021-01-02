@@ -56,7 +56,7 @@
 			selected_enemy = possible_enemy
 			break
 		if(selected_enemy)
-			if(!selected_enemy.stat && !(HAS_TRAIT(target, TRAIT_IMMOBILIZED)) && !(HAS_TRAIT(target, TRAIT_FLOORED)) && !(HAS_TRAIT(target, TRAIT_HANDS_BLOCKED))) //He's up, get him!
+			if(!selected_enemy.stat && !(HAS_TRAIT(selected_enemy, TRAIT_IMMOBILIZED)) && !(HAS_TRAIT(selected_enemy, TRAIT_FLOORED)) && !(HAS_TRAIT(selected_enemy, TRAIT_HANDS_BLOCKED))) //He's up, get him!
 				blackboard[BB_RAPER_CURRENT_ATTACK_TARGET] = selected_enemy
 				current_movement_target = selected_enemy
 				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/battle_screech/raper)
@@ -155,7 +155,7 @@
 	screeches = list("scream", "moan")
 
 /datum/ai_behavior/battle_shout/raper
-	screeches = list("СЕЙЧАС ТЕБЕ БУДЕТ ПРИЯТНО!!!", "ИДИ СЮДА, СЛАДЕНЬКИЙ!!!", "ОХ-ОХ-ОХ, Я СЕЙЧАС ОБКОНЧАЮСЬ!!!", "ТЕБЕ ЭТО ОБЯЗАТЕЛЬНО ПОНРАВИТСЯ!!!")
+	shouts = list("СЕЙЧАС ТЕБЕ БУДЕТ ПРИЯТНО!!!", "ИДИ СЮДА, СЛАДЕНЬКИЙ!!!", "ОХ-ОХ-ОХ, Я СЕЙЧАС ОБКОНЧАЮСЬ!!!", "ТЕБЕ ЭТО ОБЯЗАТЕЛЬНО ПОНРАВИТСЯ!!!")
 
 /datum/ai_behavior/raper_attack_mob
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT | AI_BEHAVIOR_MOVE_AND_PERFORM //performs to increase frustration

@@ -19,6 +19,6 @@
 
 /datum/ai_behavior/battle_shout/perform(delta_time, datum/ai_controller/controller)
 	var/mob/living/living_pawn = controller.pawn
-	INVOKE_ASYNC(living_pawn, /mob.proc/say, pick(shouts))
+	INVOKE_ASYNC(living_pawn, .proc/say, pick(shouts))
 	finish_action(controller, TRUE)
 
