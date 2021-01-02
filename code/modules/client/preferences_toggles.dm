@@ -38,8 +38,7 @@ TOGGLE_CHECKBOX(/datum/verbs/menu/settings, stop_client_sounds)()
 	set name = "❌ Остановить звуки"
 	set category = "Особенное"
 	set desc = "Остановить звуки"
-	checkbox = CHECKBOX_NONE
-	DIRECT_OUTPUT(usr, sound(null))
+	SEND_SOUND(usr, sound(null))
 	var/client/C = usr.client
 	C?.tgui_panel?.stop_music()
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Stop Self Sounds")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

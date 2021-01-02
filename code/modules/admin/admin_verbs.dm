@@ -482,7 +482,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 					mob.name = mob.real_name
 				mob.mouse_opacity = initial(mob.mouse_opacity)
 		else
-			var/new_key = ckeyEx(stripped_input(usr, "Enter your desired display name.", "Fake Key", key, 26))
+			var/new_key = stripped_input(usr, "Выбери сикей. Можно на русском!", "Маскируемся", key, 26)
 			if(!new_key)
 				return
 			holder.fakekey = new_key
