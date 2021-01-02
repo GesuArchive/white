@@ -833,7 +833,7 @@
 	set_pin_data(IC_OUTPUT, 2, data.data["data"])
 	set_pin_data(IC_OUTPUT, 3, data.data["data_secondary"])
 	set_pin_data(IC_OUTPUT, 4, data.data["encrypted_passkey"])
-	set_pin_data(IC_OUTPUT, 5, data.broadcast)
+	//set_pin_data(IC_OUTPUT, 5, data.broadcast)
 
 	push_data()
 	activate_pin(2)
@@ -878,7 +878,7 @@
 
 /obj/item/integrated_circuit/input/ntnet_advanced/ntnet_receive(datum/netdata/data)
 	set_pin_data(IC_OUTPUT, 1, data.data)
-	set_pin_data(IC_OUTPUT, 2, data.broadcast)
+	//set_pin_data(IC_OUTPUT, 2, data.broadcast)
 	push_data()
 	activate_pin(2)
 
