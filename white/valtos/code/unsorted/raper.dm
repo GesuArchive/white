@@ -56,10 +56,11 @@
 			selected_enemy = possible_enemy
 			break
 		if(selected_enemy)
-			if(!selected_enemy.stat && !selected_enemy.IsStun() && !selected_enemy.IsKnockdown() && !selected_enemy.IsImmobilized() && !selected_enemy.IsParalyzed() && !selected_enemy.IsSleeping()) //He's up, get him!
+			if(!selected_enemy.stat && !(HAS_TRAIT(target, TRAIT_IMMOBILIZED)) && !(HAS_TRAIT(target, TRAIT_FLOORED)) && !(HAS_TRAIT(target, TRAIT_HANDS_BLOCKED))) //He's up, get him!
 				blackboard[BB_RAPER_CURRENT_ATTACK_TARGET] = selected_enemy
 				current_movement_target = selected_enemy
 				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/battle_screech/raper)
+				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/battle_shout/raper)
 				current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/raper_attack_mob)
 				return //Focus on this
 			else //He's down, can we fuck him?
@@ -153,6 +154,9 @@
 /datum/ai_behavior/battle_screech/raper
 	screeches = list("scream", "moan")
 
+/datum/ai_behavior/battle_shout/raper
+	screeches = list("СЕЙЧАС ТЕБЕ БУДЕТ ПРИЯТНО!!!", "ИДИ СЮДА, СЛАДЕНЬКИЙ!!!", "ОХ-ОХ-ОХ, Я СЕЙЧАС ОБКОНЧАЮСЬ!!!", "ТЕБЕ ЭТО ОБЯЗАТЕЛЬНО ПОНРАВИТСЯ!!!")
+
 /datum/ai_behavior/raper_attack_mob
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT | AI_BEHAVIOR_MOVE_AND_PERFORM //performs to increase frustration
 
@@ -162,7 +166,7 @@
 	var/mob/living/target = controller.blackboard[BB_RAPER_CURRENT_ATTACK_TARGET]
 	var/mob/living/living_pawn = controller.pawn
 
-	if(!target || target.stat != CONSCIOUS || target.IsStun() || target.IsKnockdown() || target.IsImmobilized() || target.IsParalyzed() || target.IsSleeping())
+	if(!target || target.stat != CONSCIOUS || HAS_TRAIT(target, TRAIT_IMMOBILIZED) || HAS_TRAIT(target, TRAIT_FLOORED) || HAS_TRAIT(target, TRAIT_HANDS_BLOCKED))
 		finish_action(controller, TRUE) //Target == owned
 
 	if(living_pawn.Adjacent(target) && isturf(target.loc) && !IS_DEAD_OR_INCAP(living_pawn))	// if right next to perp

@@ -14,9 +14,11 @@
 	INVOKE_ASYNC(living_pawn, /mob.proc/emote, pick(screeches))
 	finish_action(controller, TRUE)
 
+/datum/ai_behavior/battle_shout
+	var/list/shouts
 
-
-
-
-
+/datum/ai_behavior/battle_shout/perform(delta_time, datum/ai_controller/controller)
+	var/mob/living/living_pawn = controller.pawn
+	INVOKE_ASYNC(living_pawn, /mob.proc/say, pick(shouts))
+	finish_action(controller, TRUE)
 
