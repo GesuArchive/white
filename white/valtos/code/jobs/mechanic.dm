@@ -36,7 +36,7 @@
 	pda_slot = ITEM_SLOT_LPOCKET
 	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced = 1)
 
-	skillchip_path = /obj/item/skillchip/job/engineer
+	skillchips = list(/obj/item/skillchip/job/engineer)
 
 /obj/machinery/copytech
 	name = "копирующий станок"

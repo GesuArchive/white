@@ -9,10 +9,10 @@
 	if(!proximity)
 		return
 
-	if(!istype(A, /mob/living/carbon/monkey))
+	if(!istype(A, /mob/living/carbon/human/species/monkey))
 		return
 
-	var/mob/living/carbon/monkey/M = A
+	var/mob/living/carbon/human/species/monkey/M = A
 	if(M.mind)
 		return
 
@@ -33,10 +33,10 @@
 	if(!proximity)
 		return
 
-	if(!istype(A, /mob/living/carbon/monkey))
+	if(!istype(A, /mob/living/carbon/human/species/monkey))
 		return
 
-	var/mob/living/carbon/monkey/M = A
+	var/mob/living/carbon/human/species/monkey/M = A
 	if(M.mind)
 		return
 

@@ -35,8 +35,8 @@
 	payday_modifier = 1.5
 
 
-/datum/species/monkey/random_name(gender,unique,lastname)
-	var/randname = "monkey ([rand(1,999)])"
+/datum/species/monkey/random_name(gender,unique,lastname,en_lang)
+	var/randname = "мартышка ([rand(1,999)])"
 
 	return randname
 

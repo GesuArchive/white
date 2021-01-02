@@ -124,3 +124,8 @@
 
 /datum/netdata/proc/generate_netlog()
 	return "[json_encode(json_list_generation_netlog())]"
+
+/datum/netdata/proc/standard_format_data(primary, secondary, passkey)
+	data["data"] = primary
+	data["data_secondary"] = secondary
+	data["encrypted_passkey"] = passkey

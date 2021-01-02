@@ -757,7 +757,7 @@
 
 /obj/item/integrated_circuit/manipulation/monkey_manipulator/do_work()
 	var/obj/item/I = get_pin_data_as_type(IC_INPUT, 2, /obj/item)
-	var/mob/living/carbon/monkey/M = get_pin_data_as_type(IC_INPUT, 3, /mob/living/carbon/monkey)
+	var/mob/living/carbon/human/species/monkey/M = get_pin_data_as_type(IC_INPUT, 3, /mob/living/carbon/human/species/monkey)
 	if(!M || M.mind)
 		return
 

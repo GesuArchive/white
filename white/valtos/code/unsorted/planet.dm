@@ -76,8 +76,6 @@
 
 	if(isliving(AM))
 		var/mob/living/M = AM
-		if(M.is_flying())
-			return
 		M.apply_damage(rand(100, 200), BRUTE)
 		M.Paralyze(120)
 		to_chat(M, "<big>АЙ!</big>")
