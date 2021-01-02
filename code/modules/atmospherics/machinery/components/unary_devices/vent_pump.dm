@@ -48,6 +48,7 @@
 	var/datum/gas_mixture/N = airs[1]
 	N.set_volume(1000) // Increase the volume of the air vent's node.
 	// Allows it to pump much faster.
+	. = ..()
 
 /obj/machinery/atmospherics/components/unary/vent_pump/Destroy()
 	var/area/vent_area = get_area(src)
