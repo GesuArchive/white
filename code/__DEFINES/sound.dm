@@ -37,7 +37,9 @@
 
 //Ambience types
 
-#define GENERIC list(	  'sound/ambience/white/ambi4.ogg',\
+#define GENERIC list(	  'sound/ambience/white/ambi2.ogg',\
+						  'sound/ambience/white/ambi3.ogg',\
+						  'sound/ambience/white/ambi4.ogg',\
 						  'sound/ambience/white/ambi5.ogg',\
 						  'sound/ambience/white/ambi6.ogg',\
 					 	  'sound/ambience/white/ambi7.ogg',\
@@ -45,6 +47,7 @@
 						  'sound/ambience/white/ambi9.ogg',\
 					 	  'sound/ambience/white/ambi10.ogg',\
 						  'sound/ambience/white/ambi12.ogg',\
+						  'sound/ambience/white/ambi13.ogg',\
 						  'white/valtos/sounds/prison/amb8.ogg')
 
 #define HOLY list(		  'sound/ambience/white/ambichurch1.ogg')
@@ -56,7 +59,7 @@
 #define RUINS list(		  'sound/ambience/white/ambidanger1.ogg',\
 						  'sound/ambience/white/ambidanger2.ogg',\
 						  'sound/ambience/white/ambi1.ogg',\
-						  'sound/ambience/white/ambi2.ogg',\
+						  'sound/ambience/white/ambi11.ogg',\
 						  'sound/ambience/white/ambi3.ogg')
 
 #define ENGINEERING list( 'sound/ambience/white/ambieng1.ogg',\
@@ -67,7 +70,8 @@
 						  'sound/ambience/white/ambi12.ogg',\
 						  'white/valtos/sounds/prison/amb6.ogg')
 
-#define MEDICAL list(	  'sound/ambience/white/ambimed1.ogg')
+#define MEDICAL list(	  'sound/ambience/white/ambimed1.ogg',\
+						  'sound/ambience/white/ambimed2.ogg')
 
 #define SPOOKY list(	  'sound/ambience/white/ambimo1.ogg',\
 						  'white/valtos/sounds/prison/amb7.ogg')
@@ -134,9 +138,9 @@
 						   'sound/ambience/ambigen14.ogg',\
 						   'sound/ambience/ambigen15.ogg')
 
-#define TURBOLIFT list('white/jhnazar/sound/effects/lift/elevatormusic.ogg',\
-						'white/jhnazar/sound/effects/turbolift/elevatormusic1.ogg',\
-						'white/jhnazar/sound/effects/turbolift/elevatormusic2.ogg')
+#define TURBOLIFT list(    'white/jhnazar/sound/effects/lift/elevatormusic.ogg',\
+						   'white/jhnazar/sound/effects/turbolift/elevatormusic1.ogg',\
+						   'white/jhnazar/sound/effects/turbolift/elevatormusic2.ogg')
 
 #define INTERACTION_SOUND_RANGE_MODIFIER -3
 #define EQUIP_SOUND_VOLUME 30

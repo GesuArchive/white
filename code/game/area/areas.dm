@@ -52,7 +52,7 @@
 
 	var/parallax_movedir = 0
 
-	var/ambience_volume = 5
+	var/ambience_volume = 15
 	var/list/ambientsounds = GENERIC
 	flags_1 = CAN_BE_DIRTY_1 | CULT_PERMITTED_1
 
