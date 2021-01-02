@@ -138,25 +138,6 @@
 		death(FALSE)
 		ghostize(FALSE)	// Disallows reentering body and disassociates mind
 
-/mob/living/carbon/monkey/verb/suicide()
-	set hidden = TRUE
-	if(!canSuicide())
-		return
-	var/confirm = alert("Are you sure you want to commit suicide?", "Confirm Suicide", "Yes", "No")
-	if(!canSuicide())
-		return
-	if(confirm == "Yes")
-		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
-		set_suicide(TRUE)
-		visible_message("<span class='danger'>[capitalize(src.name)] is attempting to bite [ru_ego()] tongue. It looks like [p_theyre()] trying to commit suicide.</span>", \
-				"<span class='userdanger'>[capitalize(src.name)] is attempting to bite [ru_ego()] tongue. It looks like [p_theyre()] trying to commit suicide.</span>")
-
-		suicide_log()
-
-		adjustOxyLoss(max(200- getToxLoss() - getFireLoss() - getBruteLoss() - getOxyLoss(), 0))
-		death(FALSE)
-		ghostize(FALSE)	// Disallows reentering body and disassociates mind
-
 /mob/living/silicon/ai/verb/suicide()
 	set hidden = TRUE
 	if(!canSuicide())

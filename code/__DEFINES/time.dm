@@ -22,6 +22,7 @@
 #define CHRISTMAS				"Рождество"
 #define FESTIVE_SEASON			"Праздничный сезон"
 #define GARBAGEDAY				"Мусорный День"
+#define MONKEYDAY				"День обезьяны"
 /*
 
 Days of the week to make it easier to reference them.

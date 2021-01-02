@@ -102,10 +102,10 @@
 		return TRUE //successful attack
 
 /mob/living/carbon/send_item_attack_message(obj/item/I, mob/living/user, hit_area, obj/item/bodypart/hit_bodypart)
+	if(!I.force && !length(I.attack_verb_simple) && !length(I.attack_verb_continuous))
+		return
 	var/message_verb_continuous = length(I.attack_verb_continuous) ? "[pick(I.attack_verb_continuous)]" : "бьёт"
 	var/message_verb_simple = length(I.attack_verb_simple) ? "[pick(I.attack_verb_simple)]" : "бьёт"
-	if(!I.force)
-		return
 
 	var/extra_wound_details = ""
 	if(I.damtype == BRUTE && hit_bodypart.can_dismember())
@@ -168,7 +168,7 @@
 	return FALSE
 
 
-/mob/living/carbon/attack_paw(mob/living/carbon/monkey/M)
+/mob/living/carbon/attack_paw(mob/living/carbon/human/M)
 
 	if(can_inject(M, TRUE))
 		for(var/thing in diseases)
@@ -441,9 +441,14 @@
 		to_chat(M, "<span class='notice'>Встряхиваю [src] пытаесь поднять [ru_ego()]!</span>")
 		to_chat(src, "<span class='notice'>[M] пытается поднять меня!</span>")
 	else if(check_zone(M.zone_selected) == BODY_ZONE_HEAD) //Headpats!
+		SEND_SIGNAL(src, COMSIG_CARBON_HEADPAT, M)
 		M.visible_message("<span class='notice'>[M] гладит по головке [src]!</span>", \
-					"<span class='notice'>Глажу [src] по головке!</span>")
+					null, "<span class='hear'>Слышу мягкое похлопывание.</span>", DEFAULT_MESSAGE_RANGE, list(M, src))
+		to_chat(M, "<span class='notice'>Глажу [src] по головке!</span>")
+		to_chat(src, "<span class='notice'>[M] гладит меня по головке! </span>")
+
 	else
+		SEND_SIGNAL(src, COMSIG_CARBON_HUGGED, M)
 		SEND_SIGNAL(M, COMSIG_CARBON_HUG, M, src)
 		M.visible_message("<span class='notice'>[M] обнимает [src]!</span>", \
 					null, "<span class='hear'>Слышу шуршание одежды.</span>", DEFAULT_MESSAGE_RANGE, list(M, src))
@@ -452,11 +457,15 @@
 
 		// Warm them up with hugs
 		share_bodytemperature(M)
-		if(bodytemperature > M.bodytemperature)
-			SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "hug", /datum/mood_event/warmhug, src) // Hugger got a warm hug
-			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "hug", /datum/mood_event/hug) // Reciver always gets a mood for being hugged
-		else
-			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "hug", /datum/mood_event/warmhug, M) // You got a warm hug
+
+		// No moodlets for people who hate touches
+		if(!HAS_TRAIT(src, TRAIT_BADTOUCH))
+			if(bodytemperature > M.bodytemperature)
+				if(!HAS_TRAIT(M, TRAIT_BADTOUCH))
+					SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "hug", /datum/mood_event/warmhug, src) // Hugger got a warm hug (Unless they hate hugs)
+				SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "hug", /datum/mood_event/hug) // Reciver always gets a mood for being hugged
+			else
+				SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "hug", /datum/mood_event/warmhug, M) // You got a warm hug
 
 		// Let people know if they hugged someone really warm or really cold
 		if(M.bodytemperature > BODYTEMP_HEAT_DAMAGE_LIMIT)
@@ -474,12 +483,13 @@
 			to_chat(src, "<span class='notice'>Мне стало легче!</span>")
 
 		if(HAS_TRAIT(M, TRAIT_FRIENDLY))
-			var/datum/component/mood/mood = M.GetComponent(/datum/component/mood)
-			if (mood.sanity >= SANITY_GREAT)
+			var/datum/component/mood/hugger_mood = M.GetComponent(/datum/component/mood)
+			if (hugger_mood.sanity >= SANITY_GREAT)
 				new /obj/effect/temp_visual/heart(loc)
 				SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "friendly_hug", /datum/mood_event/besthug, M)
-			else if (mood.sanity >= SANITY_DISTURBED)
+			else if (hugger_mood.sanity >= SANITY_DISTURBED)
 				SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "friendly_hug", /datum/mood_event/betterhug, M)
+
 	AdjustStun(-60)
 	AdjustKnockdown(-60)
 	AdjustUnconscious(-60)
@@ -495,7 +505,7 @@
 	// Shake animation
 	if (incapacitated())
 		var/direction = prob(50) ? -1 : 1
-		animate(src, pixel_x = pixel_x + SHAKE_ANIMATION_OFFSET * direction, time = 1, easing = QUAD_EASING | EASE_OUT)
+		animate(src, pixel_x = pixel_x + SHAKE_ANIMATION_OFFSET * direction, time = 1, easing = QUAD_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
 		animate(pixel_x = pixel_x - (SHAKE_ANIMATION_OFFSET * 2 * direction), time = 1)
 		animate(pixel_x = pixel_x + SHAKE_ANIMATION_OFFSET * direction, time = 1, easing = QUAD_EASING | EASE_IN)
 

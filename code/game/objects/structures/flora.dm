@@ -410,11 +410,6 @@
 	. = ..()
 	icon_state = "[icon_state][rand(1,3)]"
 
-/obj/structure/flora/rock/Destroy()
-	if(mineResult && mineAmount)
-		new mineResult(loc, mineAmount)
-	. = ..()
-
 /obj/structure/flora/rock/attackby(obj/item/W, mob/user, params)
 	if(!mineResult || W.tool_behaviour != TOOL_MINING)
 		return ..()
@@ -423,6 +418,8 @@
 	to_chat(user, "<span class='notice'>Начинаю копать...</span>")
 	if(W.use_tool(src, user, 40, volume=50))
 		to_chat(user, "<span class='notice'>Заканчиваю копать камень.</span>")
+		if(mineResult && mineAmount)
+			new mineResult(loc, mineAmount)
 		SSblackbox.record_feedback("tally", "pick_used_mining", 1, W.type)
 		qdel(src)
 

@@ -6,8 +6,8 @@
 	icon_living = "curseblob"
 	icon_aggro = "curseblob"
 	mob_biotypes = MOB_SPIRIT
-	movement_type = FLYING
-	move_to_delay = 10
+	is_flying_animal = TRUE
+	move_to_delay = 5
 	vision_range = 20
 	aggro_vision_range = 20
 	maxHealth = 40 //easy to kill, but oh, will you be seeing a lot of them.

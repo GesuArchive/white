@@ -425,7 +425,7 @@
 	begin_month = DECEMBER
 
 /datum/holiday/monkey
-	name = "День обезьяны"
+	name = MONKEYDAY
 	begin_day = 14
 	begin_month = DECEMBER
 	drone_hat = /obj/item/clothing/mask/gas/monkeymask
@@ -584,6 +584,14 @@
 
 /datum/holiday/hotdogday/greet()
 	return "Happy National Hot Dog Day!"
+
+/datum/holiday/indigenous //Indigenous Peoples' Day from Earth!
+	name = "International Day of the World's Indigenous Peoples"
+	begin_month = AUGUST
+	begin_day = 9
+
+/datum/holiday/indigenous/getStationPrefix()
+	return pick("Endangered language", "Word", "Language", "Language revitalization", "Potato", "Corn")
 
 /datum/holiday/hebrew
 	name = "If you see this the Hebrew holiday calendar code is broken"

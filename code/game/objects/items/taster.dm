@@ -6,8 +6,6 @@
 
 	w_class = WEIGHT_CLASS_TINY
 
-	speech_span = null
-
 	var/taste_sensitivity = 15
 
 /obj/item/taster/afterattack(atom/O, mob/user, proximity)
@@ -15,6 +13,10 @@
 	if(!proximity)
 		return
 
-	if(O.reagents)
-		var/message = O.reagents.generate_taste_message(taste_sensitivity)
-		to_chat(user, "<span class='notice'>[capitalize(src.name)] tastes <span class='italics'>[message]</span> in [O].</span>")
+	if(!O.reagents)
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] не может вкусить [O], потому что ничего не осталось.</span>")
+	else if(O.reagents.total_volume == 0)
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] не может вкусить [O], потому что ничего нет.")
+	else
+		var/message = O.reagents.generate_taste_message(user, taste_sensitivity)
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] вкушает <span class='italics'>[message]</span> в [O].</span>")

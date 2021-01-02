@@ -69,7 +69,21 @@
 			return pick('white/valtos/sounds/emotes/scream_male_1.ogg', 'white/valtos/sounds/emotes/scream_male_2.ogg', 'sound/voice/human/malescream_1.ogg', 'sound/voice/human/malescream_2.ogg', 'sound/voice/human/malescream_3.ogg', 'sound/voice/human/malescream_4.ogg', 'sound/voice/human/malescream_5.ogg', 'sound/voice/human/malescream_6.ogg')
 	else if(ismoth(H))
 		return 'sound/voice/moth/scream_moth.ogg'
+	else if(ismonkey(user)) //If its a monkey, override it.
+		return pick('sound/creatures/monkey/monkey_screech_1.ogg',
+					'sound/creatures/monkey/monkey_screech_2.ogg',
+					'sound/creatures/monkey/monkey_screech_3.ogg',
+					'sound/creatures/monkey/monkey_screech_4.ogg',
+					'sound/creatures/monkey/monkey_screech_5.ogg',
+					'sound/creatures/monkey/monkey_screech_6.ogg',
+					'sound/creatures/monkey/monkey_screech_7.ogg')
 
+/datum/emote/living/carbon/human/scream/screech //If a human tries to screech it'll just scream.
+	key = "screech"
+	key_third_person = "screeches"
+	message = "screeches."
+	emote_type = EMOTE_AUDIBLE
+	vary = FALSE
 
 /datum/emote/living/carbon/human/pale
 	key = "pale"
@@ -187,3 +201,43 @@
 		var/light_dab_speed = rand(3,7)
 		H.DabAnimation(angle = light_dab_angle , speed = light_dab_speed)
 		H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5)
+
+///Snowflake emotes only for le epic chimp
+/datum/emote/living/carbon/human/monkey
+
+/datum/emote/living/carbon/human/monkey/can_run_emote(mob/user, status_check = TRUE, intentional)
+	if(ismonkey(user))
+		return ..()
+	return FALSE
+
+/datum/emote/living/carbon/human/monkey/gnarl
+	key = "gnarl"
+	key_third_person = "gnarls"
+	message = "рычит и обнажает свои зубы..."
+
+/datum/emote/living/carbon/human/monkey/roll
+	key = "roll"
+	key_third_person = "rolls"
+	message = "перекатывается."
+	hands_use_check = TRUE
+
+/datum/emote/living/carbon/human/monkey/scratch
+	key = "scratch"
+	key_third_person = "scratches"
+	message = "чешется."
+	hands_use_check = TRUE
+
+/datum/emote/living/carbon/human/monkey/screech/roar
+	key = "roar"
+	key_third_person = "roars"
+	message = "ревёт."
+
+/datum/emote/living/carbon/human/monkey/tail
+	key = "tail"
+	message = "машет хвостом."
+
+/datum/emote/living/carbon/human/monkeysign
+	key = "sign"
+	key_third_person = "signs"
+	message_param = "поёт ноту %t."
+	hands_use_check = TRUE

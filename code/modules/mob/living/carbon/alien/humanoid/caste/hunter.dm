@@ -86,9 +86,3 @@
 			visible_message("<span class='danger'>[capitalize(src.name)] smashes into [hit_atom]!</span>", "<span class='alertalien'>[capitalize(src.name)] smashes into [hit_atom]!</span>")
 			Paralyze(40, ignore_canstun = TRUE)
 
-/mob/living/carbon/alien/humanoid/float(on)
-	if(leaping)
-		return
-	..()
-
-

@@ -63,7 +63,7 @@
 	friendly_verb_continuous = "ворсится"
 	friendly_verb_simple = "ворсится"
 	mob_size = MOB_SIZE_SMALL
-	movement_type = FLYING
+	is_flying_animal = TRUE
 	gold_core_spawnable = FRIENDLY_SPAWN
 
 	var/parrot_damage_upper = 10
@@ -306,7 +306,7 @@
 		handle_automated_speech(1) //assured speak/emote
 	return
 
-/mob/living/simple_animal/parrot/attack_paw(mob/living/carbon/monkey/M)
+/mob/living/simple_animal/parrot/attack_paw(mob/living/carbon/human/M)
 	return attack_hand(M)
 
 /mob/living/simple_animal/parrot/attack_alien(mob/living/carbon/alien/M)

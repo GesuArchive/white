@@ -45,13 +45,6 @@
 	if(user.usable_hands < 2)
 		return FALSE
 	return ..()
-
-/datum/emote/living/carbon/gnarl
-	key = "gnarl"
-	key_third_person = "gnarls"
-	message = "корчится и показывает свои зубы..."
-	mob_type_allowed_typecache = list(/mob/living/carbon/monkey)
-
 /datum/emote/living/carbon/moan
 	key = "moan"
 	key_third_person = "moans"
@@ -86,42 +79,21 @@
 	key = "roll"
 	key_third_person = "rolls"
 	message = "перекатывается."
-	mob_type_allowed_typecache = list(/mob/living/carbon/monkey, /mob/living/carbon/alien)
+	mob_type_allowed_typecache = list(/mob/living/carbon/alien)
 	hands_use_check = TRUE
 
 /datum/emote/living/carbon/scratch
 	key = "scratch"
 	key_third_person = "scratches"
 	message = "чешется."
-	mob_type_allowed_typecache = list(/mob/living/carbon/monkey, /mob/living/carbon/alien)
+	mob_type_allowed_typecache = list(/mob/living/carbon/alien)
 	hands_use_check = TRUE
-
-/datum/emote/living/carbon/screech
-	key = "screech"
-	key_third_person = "screeches"
-	message = "визжит."
-	mob_type_allowed_typecache = list(/mob/living/carbon/monkey)
-	emote_type = EMOTE_AUDIBLE
-
-/datum/emote/living/carbon/screech/get_sound(mob/living/user)
-	return pick('sound/creatures/monkey/monkey_screech_1.ogg',
-				'sound/creatures/monkey/monkey_screech_2.ogg',
-				'sound/creatures/monkey/monkey_screech_3.ogg',
-				'sound/creatures/monkey/monkey_screech_4.ogg',
-				'sound/creatures/monkey/monkey_screech_5.ogg',
-				'sound/creatures/monkey/monkey_screech_6.ogg',
-				'sound/creatures/monkey/monkey_screech_7.ogg')
-
-/datum/emote/living/carbon/screech/roar
-	key = "roar"
-	key_third_person = "roars"
-	message = "ревёт."
 
 /datum/emote/living/carbon/sign
 	key = "sign"
 	key_third_person = "signs"
-	message_param = "показывает номер %t."
-	mob_type_allowed_typecache = list(/mob/living/carbon/monkey, /mob/living/carbon/alien)
+	message_param = "поёт ноту %t."
+	mob_type_allowed_typecache = list(/mob/living/carbon/alien)
 	hands_use_check = TRUE
 
 /datum/emote/living/carbon/sign/select_param(mob/user, params)
@@ -139,7 +111,7 @@
 /datum/emote/living/carbon/tail
 	key = "tail"
 	message = "машет хвостом."
-	mob_type_allowed_typecache = list(/mob/living/carbon/monkey, /mob/living/carbon/alien)
+	mob_type_allowed_typecache = list(/mob/living/carbon/alien)
 
 /datum/emote/living/carbon/wink
 	key = "wink"

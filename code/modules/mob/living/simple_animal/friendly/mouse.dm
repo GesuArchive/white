@@ -91,14 +91,17 @@
 		if(istype(F) && !F.intact)
 			var/obj/structure/cable/C = locate() in F
 			if(C && prob(15))
-				if(C.avail())
-					visible_message("<span class='warning'>[capitalize(src.name)] chews through the [C]. It's toast!</span>")
-					playsound(src, 'sound/effects/sparks2.ogg', 100, TRUE)
-					C.deconstruct()
-					death(toast=1)
+				var/powered = C.avail()
+				if(powered && !HAS_TRAIT(src, TRAIT_SHOCKIMMUNE))
+					visible_message("<span class='warning'>[src] chews through the [C]. It's toast!</span>")
+					death(toast = TRUE)
 				else
-					C.deconstruct()
-					visible_message("<span class='warning'>[capitalize(src.name)] chews through the [C].</span>")
+					visible_message("<span class='warning'>[src] chews through the [C].</span>")
+
+				C.deconstruct()
+				if(powered)
+					playsound(src, 'sound/effects/sparks2.ogg', 100, TRUE)
+
 	for(var/obj/item/food/cheesewedge/cheese in range(1, src))
 		if(prob(10))
 			be_fruitful()
@@ -181,6 +184,11 @@
 	gold_core_spawnable = NO_SPAWN
 	pet_bonus = TRUE
 	pet_bonus_emote = "squeaks happily!"
+
+/mob/living/simple_animal/mouse/brown/tom/Initialize()
+	. = ..()
+	// Tom fears no cable.
+	ADD_TRAIT(src, TRAIT_SHOCKIMMUNE, SPECIES_TRAIT)
 
 /obj/item/food/deadmouse
 	name = "дохлая мышь"

@@ -15,7 +15,6 @@
 	hide = TRUE
 	shift_underlay_only = FALSE
 
-	var/id_tag = null
 	var/scrubbing = SCRUBBING //0 = siphoning, 1 = scrubbing
 
 	var/filter_types = list(
@@ -51,10 +50,9 @@
 	pipe_state = "scrubber"
 
 /obj/machinery/atmospherics/components/unary/vent_scrubber/New()
-	..()
 	if(!id_tag)
-		id_tag = assign_uid_vents()
-
+		id_tag = SSnetworks.assign_random_name()
+	. = ..()
 	for(var/f in filter_types)
 		if(istext(f))
 			filter_types -= f
@@ -140,7 +138,7 @@
 	var/area/scrub_area = get_area(src)
 	if(!GLOB.air_scrub_names[id_tag])
 		// If we do not have a name, assign one
-		name = "фильтр [scrub_area.name] [assign_random_name()]"
+		name = "фильтр [scrub_area.name] [id_tag]"
 		GLOB.air_scrub_names[id_tag] = name
 
 	scrub_area.air_scrub_info[id_tag] = signal.data

@@ -307,8 +307,6 @@
 
 	var/pda_slot = ITEM_SLOT_BELT
 
-	var/skillchip_path = null
-
 /datum/outfit/job/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	switch(H.backpack)
 		if(GBACKPACK)
@@ -368,18 +366,6 @@
 	if(H.client?.prefs.playtime_reward_cloak)
 		neck = /obj/item/clothing/neck/cloak/skill_reward/playing
 
-	// Insert the skillchip associated with this job into the target.
-	if(skillchip_path && istype(H))
-		var/obj/item/skillchip/skillchip_instance = new skillchip_path()
-		var/implant_msg = H.implant_skillchip(skillchip_instance)
-		if(implant_msg)
-			stack_trace("Failed to implant [H] with [skillchip_instance], on job [src]. Failure message: [implant_msg]")
-			qdel(skillchip_instance)
-			return
-
-		var/activate_msg = skillchip_instance.try_activate_skillchip(TRUE, TRUE)
-		if(activate_msg)
-			CRASH("Failed to activate [H]'s [skillchip_instance], on job [src]. Failure message: [activate_msg]")
 
 /datum/outfit/proc/special_equip(mob/living/carbon/human/H)
 	//SS13 WHITE
@@ -393,8 +379,6 @@
 	types += backpack
 	types += satchel
 	types += duffelbag
-	if(skillchip_path)
-		types += skillchip_path
 	return types
 
 //Warden and regular officers add this result to their get_access()

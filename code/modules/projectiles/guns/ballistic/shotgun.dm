@@ -44,7 +44,7 @@
 	desc = "Прочный дробовик с более длинным магазином и фиксированным тактическим запасом, предназначенным для несмертельного контроля над беспорядками."
 	icon_state = "riotshotgun"
 	inhand_icon_state = "shotgun"
-	fire_delay = 7
+	fire_delay = 8
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/riot
 	sawn_desc = "Пошли со мной, если хочешь жить."
 	can_be_sawn_off  = TRUE
