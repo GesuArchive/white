@@ -352,9 +352,25 @@
 		text = copytext_char(text, 1, max_length)
 	return trim_left(trim_right(text))
 
+/*
 //Returns a string with the first element of the string capitalized.
 /proc/capitalize(t as text)
-	return r_capitalize(t)
+    return uppertext(copytext_char(t, 1, 2)) + copytext_char(t, 2)
+*/
+
+//Returns a string with the first element of the string capitalized.
+/proc/capitalize(text)
+	if(text)
+		text = uppertext(text[1]) + copytext(text, 1 + length(text[1]))
+	return text
+
+//Returns a string with the first element of the every word of the string capitalized.
+/proc/capitalize_words(text)
+	var/list/S = splittext(text, " ")
+	var/list/M = list()
+	for (var/w in S)
+		M += capitalize(w)
+	return jointext(M, " ")
 
 /proc/stringmerge(text,compare,replace = "*")
 //This proc fills in all spaces with the "replace" var (* by default) with whatever

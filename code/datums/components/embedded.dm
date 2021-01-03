@@ -87,7 +87,7 @@
 	limb.embedded_objects |= weapon // on the inside... on the inside...
 	weapon.forceMove(victim)
 	RegisterSignal(weapon, list(COMSIG_MOVABLE_MOVED, COMSIG_PARENT_QDELETING), .proc/weaponDeleted)
-	victim.visible_message("<span class='danger'><b>[capitalize(weapon)]</b> [harmful ? "впивается в [ru_parse_zone(limb.name)]" : "приклеивается к [ru_gde_zone(limb.name)]"] <b>[victim]</b>!</span>", "<span class='userdanger'><b>[capitalize(weapon)]</b> [harmful ? "впивается в мою [ru_parse_zone(limb.name)]" : "приклеивается к моей [ru_gde_zone(limb.name)]"]!</span>")
+	victim.visible_message("<span class='danger'><b>[capitalize(weapon.name)]</b> [harmful ? "впивается в [ru_parse_zone(limb.name)]" : "приклеивается к [ru_gde_zone(limb.name)]"] <b>[victim]</b>!</span>", "<span class='userdanger'><b>[capitalize(weapon.name)]</b> [harmful ? "впивается в мою [ru_parse_zone(limb.name)]" : "приклеивается к моей [ru_gde_zone(limb.name)]"]!</span>")
 
 	var/damage = weapon.throwforce
 	if(harmful)
@@ -141,7 +141,7 @@
 
 	if(harmful && prob(pain_chance_current))
 		limb.receive_damage(brute=(1-pain_stam_pct) * damage, stamina=pain_stam_pct * damage, wound_bonus = CANT_WOUND)
-		to_chat(victim, "<span class='userdanger'>[capitalize(weapon)] торчащий из моей [ru_otkuda_zone(limb.name)] болит!</span>")
+		to_chat(victim, "<span class='userdanger'>[capitalize(weapon.name)] торчащий из моей [ru_otkuda_zone(limb.name)] болит!</span>")
 
 	var/fall_chance_current = DT_PROB_RATE(fall_chance / 100, delta_time) * 100
 	if(victim.body_position == LYING_DOWN)
@@ -167,7 +167,7 @@
 	if(harmful && prob(chance))
 		var/damage = weapon.w_class * jostle_pain_mult
 		limb.receive_damage(brute=(1-pain_stam_pct) * damage, stamina=pain_stam_pct * damage, wound_bonus = CANT_WOUND)
-		to_chat(victim, "<span class='userdanger'>[capitalize(weapon)] торчащий из моей [ru_otkuda_zone(limb.name)] колется!</span>")
+		to_chat(victim, "<span class='userdanger'>[capitalize(weapon.name)] торчащий из моей [ru_otkuda_zone(limb.name)] колется!</span>")
 
 
 /// Called when then item randomly falls out of a carbon. This handles the damage and descriptors, then calls safe_remove()
@@ -178,7 +178,7 @@
 		var/damage = weapon.w_class * remove_pain_mult
 		limb.receive_damage(brute=(1-pain_stam_pct) * damage, stamina=pain_stam_pct * damage, wound_bonus = CANT_WOUND)
 
-	victim.visible_message("<span class='danger'><b>[capitalize(weapon)]</b> [harmful ? "выпадает из" : "отклеивается от"] [ru_otkuda_zone(limb.name)] <b>[victim.name]</b>!</span>", "<span class='userdanger'><b>[capitalize(weapon)]</b> [harmful ? "выпадает из" : "отклеивается от"] моей [ru_otkuda_zone(limb.name)]!</span>")
+	victim.visible_message("<span class='danger'><b>[capitalize(weapon.name)]</b> [harmful ? "выпадает из" : "отклеивается от"] [ru_otkuda_zone(limb.name)] <b>[victim.name]</b>!</span>", "<span class='userdanger'><b>[capitalize(weapon.name)]</b> [harmful ? "выпадает из" : "отклеивается от"] моей [ru_otkuda_zone(limb.name)]!</span>")
 	safeRemove()
 
 
@@ -230,6 +230,6 @@
 	limb.embedded_objects -= weapon
 
 	if(victim)
-		to_chat(victim, "<span class='userdanger'>Невероятно, но <b>[weapon]</b> пропадает из моей [ru_otkuda_zone(limb.name)]!</span>")
+		to_chat(victim, "<span class='userdanger'>Невероятно, но <b>[weapon.name]</b> пропадает из моей [ru_otkuda_zone(limb.name)]!</span>")
 
 	qdel(src)
