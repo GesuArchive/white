@@ -166,7 +166,7 @@
 		return TRUE
 	else if(HAS_TRAIT(mob, TRAIT_RESTRAINED))
 		COOLDOWN_START(src, move_delay, 1 SECONDS)
-		to_chat(src, "<span class='warning'>You're restrained! You can't move!</span>")
+		to_chat(src, "<span class='warning'>Урод держит меня! Не могу двигаться!</span>")
 		return TRUE
 	return mob.resist_grab(TRUE)
 
@@ -241,17 +241,17 @@
 			var/turf/open/floor/stepTurf = get_step(L, direct)
 			if(stepTurf)
 				for(var/obj/effect/decal/cleanable/food/salt/S in stepTurf)
-					to_chat(L, "<span class='warning'>[S] bars your passage!</span>")
+					to_chat(L, "<span class='warning'>[capitalize(S)] не даёт пройти!</span>")
 					if(isrevenant(L))
 						var/mob/living/simple_animal/revenant/R = L
 						R.reveal(20)
 						R.stun(20)
 					return
 				if(stepTurf.flags_1 & NOJAUNT_1)
-					to_chat(L, "<span class='warning'>Some strange aura is blocking the way.</span>")
+					to_chat(L, "<span class='warning'>Странная аура блокирует путь.</span>")
 					return
 				if (locate(/obj/effect/blessing, stepTurf))
-					to_chat(L, "<span class='warning'>Holy energies block your path!</span>")
+					to_chat(L, "<span class='warning'>Святая энергия блокирует мой путь!</span>")
 					return
 
 				L.forceMove(stepTurf)
@@ -276,7 +276,7 @@
 	if(backup)
 		if(istype(backup) && movement_dir && !backup.anchored)
 			if(backup.newtonian_move(turn(movement_dir, 180))) //You're pushing off something movable, so it moves
-				to_chat(src, "<span class='info'>You push off of [backup] to propel yourself.</span>")
+				to_chat(src, "<span class='info'>Отталкиваю [backup] от себя, чтобы двигаться дальше.</span>")
 		return TRUE
 	return FALSE
 
@@ -490,11 +490,11 @@
 	var/turf/above_turf = SSmapping.get_turf_above(current_turf)
 
 	if(can_zFall(above_turf, 1, current_turf, DOWN)) //Will be fall down if we go up?
-		to_chat(src, "<span class='notice'>You are not Superman.<span>")
+		to_chat(src, "<span class='warning'>ПОЛ МЕШАЕТСЯ!<span>")
 		return
 
 	if(zMove(UP, TRUE))
-		to_chat(src, "<span class='notice'>Поднимаюсь.</span>")
+		to_chat(src, "<span class='notice'>Поднимаюсь наверх.</span>")
 
 ///Moves a mob down a z level
 /mob/verb/down()
@@ -502,7 +502,7 @@
 	set category = "IC"
 
 	if(zMove(DOWN, TRUE))
-		to_chat(src, "<span class='notice'>Опускаюсь.</span>")
+		to_chat(src, "<span class='notice'>Спускаюсь вниз.</span>")
 
 ///Move a mob between z levels, if it's valid to move z's on this turf
 /mob/proc/zMove(dir, feedback = FALSE)
@@ -510,7 +510,7 @@
 		return FALSE
 	if(incapacitated())
 		if(feedback)
-			to_chat(src, "<span class='warning'>You can't do that right now!</span>")
+			to_chat(src, "<span class='warning'>Не хочу!</span>")
 			return FALSE
 	var/turf/target = get_step_multiz(src, dir)
 	if(!target)

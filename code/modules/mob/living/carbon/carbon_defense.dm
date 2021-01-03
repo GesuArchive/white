@@ -521,12 +521,12 @@
 			if(!embeds)
 				embeds = TRUE
 				// this way, we only visibly try to examine ourselves if we have something embedded, otherwise we'll still hug ourselves :)
-				visible_message("<span class='notice'>[capitalize(src.name)] examines [ru_na()]self.</span>", \
-					"<span class='notice'>You check yourself for shrapnel.</span>")
+				visible_message("<span class='notice'>[capitalize(src.name)] осматривает себя.</span>", \
+					"<span class='notice'>Осматриваю себя в поисках осколков.</span>")
 			if(I.isEmbedHarmless())
-				to_chat(src, "\t <a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>There is \a [I] stuck to your [LB.name]!</a>")
+				to_chat(src, "\t <a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Здесь [I] застрявший в [ru_gde_zone(LB.name)]!</a>")
 			else
-				to_chat(src, "\t <a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>There is \a [I] embedded in your [LB.name]!</a>")
+				to_chat(src, "\t <a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Здесь [I] впившийся в [ru_gde_zone(LB.name)]!</a>")
 
 	return embeds
 

@@ -13,17 +13,17 @@
 		if(penetrated_text)
 			to_chat(src, "<span class='userdanger'>[penetrated_text]</span>")
 		else
-			to_chat(src, "<span class='userdanger'>Моя броня пробита!</span>")
+			to_chat(src, "<span class='userdanger'>Броня пробита!</span>")
 	else if(armor >= 100)
 		if(absorb_text)
 			to_chat(src, "<span class='notice'>[absorb_text]</span>")
 		else
-			to_chat(src, "<span class='notice'>Моя броня поглотила удар!</span>")
+			to_chat(src, "<span class='notice'>Броня поглотила удар!</span>")
 	else
 		if(soften_text)
 			to_chat(src, "<span class='warning'>[soften_text]</span>")
 		else
-			to_chat(src, "<span class='warning'>Моя броня смягчает удар!</span>")
+			to_chat(src, "<span class='warning'>Броня смягчает удар!</span>")
 	return armor
 
 /mob/living/proc/getarmor(def_zone, type)

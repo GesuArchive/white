@@ -84,7 +84,7 @@
 		LOCATION_BACKPACK = ITEM_SLOT_BACKPACK,
 		LOCATION_HANDS = ITEM_SLOT_HANDS
 	)
-	where = H.equip_in_one_of_slots(pills, slots, FALSE) || "у ваших ног"
+	where = H.equip_in_one_of_slots(pills, slots, FALSE) || "у моих ног"
 
 /datum/quirk/brainproblems/post_add()
 	if(where == LOCATION_BACKPACK)
@@ -230,7 +230,7 @@
 		LOCATION_BACKPACK = ITEM_SLOT_BACKPACK,
 		LOCATION_HANDS = ITEM_SLOT_HANDS
 	)
-	where = H.equip_in_one_of_slots(heirloom, slots, FALSE) || "у ваших ног"
+	where = H.equip_in_one_of_slots(heirloom, slots, FALSE) || "у моих ног"
 
 /datum/quirk/family_heirloom/post_add()
 	if(where == LOCATION_BACKPACK)
@@ -601,9 +601,9 @@
 		LOCATION_RPOCKET = ITEM_SLOT_RPOCKET,
 		LOCATION_BACKPACK = ITEM_SLOT_BACKPACK
 	)
-	where_drug = H.equip_in_one_of_slots(drug_instance, slots, FALSE) || "у ваших ног"
+	where_drug = H.equip_in_one_of_slots(drug_instance, slots, FALSE) || "у моих ног"
 	if (accessory_instance)
-		where_accessory = H.equip_in_one_of_slots(accessory_instance, slots, FALSE) || "у ваших ног"
+		where_accessory = H.equip_in_one_of_slots(accessory_instance, slots, FALSE) || "у моих ног"
 	announce_drugs()
 
 /datum/quirk/junkie/post_add()
@@ -639,6 +639,7 @@
 	value = -1
 	gain_text = "<span class='danger'>Вам стоит снова закурить.</span>"
 	medical_record_text = "Пациент является курильщиком."
+	reagent_type = /datum/reagent/drug/nicotine
 	accessory_type = /obj/item/lighter/greyscale
 	hardcore_value = 1
 

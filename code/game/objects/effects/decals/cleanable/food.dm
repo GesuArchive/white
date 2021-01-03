@@ -27,8 +27,8 @@
 	icon_state = "smashed_pie"
 
 /obj/effect/decal/cleanable/food/salt
-	name = "salt pile"
-	desc = "A sizable pile of table salt. Someone must be upset."
+	name = "соль"
+	desc = "Огромная куча соли. Наверное. Пробовать я это не стану."
 	icon_state = "salt_pile"
 	var/safepasses = 3 //how many times can this salt pile be passed before dissipating
 
