@@ -157,14 +157,14 @@
 /datum/component/deadchat_control/proc/on_examine(atom/A, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
-	examine_list += "<span class='notice'>[A.p_theyre(TRUE)] currently under deadchat control using the [deadchat_mode] ruleset!</span>"
+	examine_list += "<hr><span class='notice'>[A.p_theyre(TRUE)] currently under deadchat control using the [deadchat_mode] ruleset!</span>"
 
 	if(deadchat_mode == DEMOCRACY_MODE)
-		examine_list += "<span class='notice'>Type a command into chat to vote on an action. This happens once every [input_cooldown * 0.1] seconds.</span>"
+		examine_list += "\n<span class='notice'>Type a command into chat to vote on an action. This happens once every [input_cooldown * 0.1] seconds.</span>"
 	else if(deadchat_mode == ANARCHY_MODE)
-		examine_list += "<span class='notice'>Type a command into chat to perform. You may do this once every [input_cooldown * 0.1] seconds.</span>"
+		examine_list += "\n<span class='notice'>Type a command into chat to perform. You may do this once every [input_cooldown * 0.1] seconds.</span>"
 
-	var/extended_examine = "<span class='notice'>Command list:"
+	var/extended_examine = "\n<span class='notice'>Command list:"
 
 	for(var/possible_input in inputs)
 		extended_examine += " [possible_input]"
