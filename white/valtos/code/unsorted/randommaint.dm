@@ -89,10 +89,22 @@
 	var/death_limit = 3
 
 /area/maintenance/bottom_station_maints
-	name = "Технические тоннели"
+	name = "Центральные техтоннели"
 	icon_state = "amaint"
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | CAVES_ALLOWED
 	map_generator = /datum/map_generator/station_maints_generator
+
+/area/maintenance/bottom_station_maints/north
+	name = "Северные техтоннели"
+
+/area/maintenance/bottom_station_maints/east
+	name = "Восточные техтоннели"
+
+/area/maintenance/bottom_station_maints/west
+	name = "Западные техтоннели"
+
+/area/maintenance/bottom_station_maints/south
+	name = "Южные техтоннели"
 
 /datum/map_generator/station_maints_generator/generate_terrain(list/turfs)
 	. = ..()

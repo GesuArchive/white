@@ -3366,7 +3366,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/stalkybush,
-/mob/living/carbon/monkey,
+/mob/living/carbon/human/species/monkey,
 /turf/open/floor/grass,
 /area/hallway/primary/central)
 "oT" = (
