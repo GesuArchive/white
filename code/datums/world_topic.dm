@@ -306,7 +306,7 @@
 	var/procpath = "/[proctype]/[procname]"
 	if(!text2path(procpath))
 		return "Error: callproc(): [procpath] does not exist."
-	var/list/lst = splittext(input["args"], "/")
+	var/list/lst = json_decode(input["args"])
 	if(!lst)
 		return
 
