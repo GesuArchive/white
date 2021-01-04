@@ -314,3 +314,6 @@
 	message_admins("INBOUND CONNECTION called [procname]() with [lst.len ? "the arguments [list2params(lst)]":"no arguments"].")
 
 	return call("/proc/[procname]")(arglist(lst))
+
+/proc/global_fucking_announce(text)
+	to_chat(world, text)
