@@ -12373,10 +12373,8 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/tile/brown{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
+/obj/structure/lattice/catwalk,
+/turf/open/openspace,
 /area/quartermaster/storage)
 "bcG" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -13816,22 +13814,13 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port)
-"bjo" = (
-/obj/effect/turf_decal/tile/brown{
-	dir = 1
-	},
-/obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/quartermaster/storage)
 "bjp" = (
 /obj/machinery/firealarm{
 	pixel_y = 27
 	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 1
-	},
 /obj/structure/cable,
-/turf/open/floor/plasteel,
+/obj/structure/lattice/catwalk,
+/turf/open/openspace,
 /area/quartermaster/storage)
 "bjq" = (
 /obj/structure/cable,
@@ -13866,13 +13855,8 @@
 	dir = 5
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/tile/brown{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
+/obj/structure/lattice/catwalk,
+/turf/open/openspace,
 /area/quartermaster/storage)
 "bju" = (
 /obj/item/radio/intercom{
@@ -16711,15 +16695,13 @@
 /turf/open/floor/plasteel/dark,
 /area/science/genetics)
 "bzR" = (
-/obj/effect/turf_decal/tile/brown{
-	dir = 1
-	},
 /obj/machinery/light{
 	dir = 1;
 	pixel_y = 0
 	},
 /obj/structure/cable,
-/turf/open/floor/plasteel,
+/obj/structure/lattice/catwalk,
+/turf/open/openspace,
 /area/quartermaster/storage)
 "bzT" = (
 /obj/machinery/door/airlock/maintenance{
@@ -17005,7 +16987,7 @@
 "bAZ" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plasteel,
+/turf/open/floor/plating,
 /area/quartermaster/storage)
 "bBa" = (
 /obj/structure/disposalpipe/segment{
@@ -21260,7 +21242,7 @@
 /turf/open/floor/engine,
 /area/engine/atmos)
 "bRK" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/atmospherics/miner/carbon_dioxide,
 /turf/open/floor/engine/co2,
 /area/engine/atmos)
 "bRL" = (
@@ -21557,7 +21539,7 @@
 /turf/open/floor/engine,
 /area/engine/atmos)
 "bSM" = (
-/obj/machinery/portable_atmospherics/canister/toxins,
+/obj/machinery/atmospherics/miner/toxins,
 /turf/open/floor/engine/plasma,
 /area/engine/atmos)
 "bSN" = (
@@ -21750,7 +21732,7 @@
 /turf/open/floor/engine,
 /area/science/misc_lab)
 "bTM" = (
-/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
+/obj/machinery/atmospherics/miner/n2o,
 /turf/open/floor/engine/n2o,
 /area/engine/atmos)
 "bTN" = (
@@ -26641,7 +26623,7 @@
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "clT" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/machinery/atmospherics/miner/nitrogen,
 /turf/open/floor/engine/n2,
 /area/engine/atmos)
 "clU" = (
@@ -26653,7 +26635,7 @@
 /turf/open/floor/engine/o2,
 /area/engine/atmos)
 "clW" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/atmospherics/miner/oxygen,
 /turf/open/floor/engine/o2,
 /area/engine/atmos)
 "clY" = (
@@ -35399,11 +35381,9 @@
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 1
-	},
 /obj/structure/cable,
-/turf/open/floor/plasteel,
+/obj/structure/lattice/catwalk,
+/turf/open/openspace,
 /area/quartermaster/storage)
 "mNB" = (
 /obj/effect/turf_decal/stripes/line,
@@ -38309,11 +38289,9 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "sfq" = (
-/obj/effect/turf_decal/tile/brown{
-	dir = 4
-	},
 /obj/structure/cable,
-/turf/open/floor/plasteel,
+/obj/structure/lattice/catwalk,
+/turf/open/openspace,
 /area/quartermaster/storage)
 "sfM" = (
 /obj/machinery/mecha_part_fabricator/maint,
@@ -60990,7 +60968,7 @@ aPA
 rmP
 hPI
 aZE
-bjo
+sfq
 bAZ
 sSZ
 sSZ
@@ -61247,7 +61225,7 @@ bcu
 bxw
 aXU
 aZE
-bjo
+sfq
 bAZ
 uqv
 uqv
