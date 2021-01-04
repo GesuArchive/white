@@ -294,19 +294,19 @@
 
 /datum/world_topic/special_cmd/Run(list/input)
 	if(!input["proc"])
-		return
+		return "WHERE IS PROC"
 
 	var/list/proclist = splittext(input["proc"], "/")
 	if (!length(proclist))
-		return
+		return "WHAT THE FUCK"
 
 	var/procname = proclist[proclist.len]
-	var/proctype = ("verb" in proclist) ? "verb" :"proc"
+	var/proctype = ("verb" in proclist) ? "verb" : "proc"
 
 	var/procpath = "/[proctype]/[procname]"
 	if(!text2path(procpath))
 		return "Error: callproc(): [procpath] does not exist."
-	var/list/lst = params2list(input["args"])
+	var/list/lst = splittext(input["args"], "/")
 	if(!lst)
 		return
 
