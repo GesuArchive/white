@@ -303,7 +303,7 @@
 	var/procname = proclist[proclist.len]
 	var/proctype = ("verb" in proclist) ? "verb" :"proc"
 
-	procpath = "/[proctype]/[procname]"
+	var/procpath = "/[proctype]/[procname]"
 	if(!text2path(procpath))
 		return "Error: callproc(): [procpath] does not exist."
 	var/list/lst = params2list(input["args"])
