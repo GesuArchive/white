@@ -641,13 +641,16 @@
 /area/science/xenobiology)
 "kd" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 10
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 10
+/obj/machinery/status_display/supply{
+	pixel_y = 32
 	},
-/turf/open/genturf,
-/area/maintenance/bottom_station_maints/west)
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/quartermaster/warehouse)
 "kh" = (
 /obj/structure/cable,
 /obj/effect/spawner/structure/window/reinforced,
@@ -675,6 +678,12 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
+"kt" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/quartermaster/warehouse)
 "kA" = (
 /obj/effect/landmark/stationroom/maint/rdm10x5,
 /turf/open/floor/plating,
@@ -717,6 +726,7 @@
 /obj/effect/turf_decal/loading_area{
 	dir = 8
 	},
+/obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
 "kX" = (
@@ -727,12 +737,14 @@
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
 "kY" = (
-/obj/machinery/rnd/bepis,
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
 	},
-/obj/machinery/status_display/supply{
-	pixel_x = -32
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/item/radio/intercom{
+	pixel_y = 20
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
@@ -821,10 +833,14 @@
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness)
 "me" = (
-/obj/structure/table,
-/obj/machinery/cell_charger,
-/obj/item/radio/intercom{
-	pixel_y = 20
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/camera{
+	c_tag = "Cargo Bay North"
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
@@ -886,19 +902,20 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "nc" = (
-/obj/structure/table,
-/obj/item/hand_labeler,
-/obj/machinery/requests_console{
-	department = "Cargo Bay";
-	departmentType = 2;
-	pixel_y = 30
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
 	},
-/obj/effect/turf_decal/stripes/line{
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/item/storage/box/shipping,
-/obj/item/clothing/head/soft,
-/obj/item/clothing/head/soft,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 5;
+	pixel_y = 30
+	},
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
 "nd" = (
@@ -947,16 +964,15 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
 "nq" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
 	},
-/obj/machinery/power/apc{
-	areastring = "/area/quartermaster/warehouse";
-	dir = 8;
-	name = "Cargo Warehouse APC";
-	pixel_x = -24
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 8
 	},
-/obj/structure/cable,
+/obj/machinery/status_display/supply{
+	pixel_y = 32
+	},
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
 "nr" = (
@@ -982,10 +998,12 @@
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/north)
 "nF" = (
-/obj/machinery/camera{
-	c_tag = "Cargo Bay North"
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 8
 	},
-/obj/machinery/vending/wardrobe/cargo_wardrobe,
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
 "nH" = (
@@ -1376,6 +1394,12 @@
 	},
 /turf/open/floor/plating,
 /area/quartermaster/warehouse)
+"tx" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/quartermaster/warehouse)
 "tD" = (
 /obj/machinery/firealarm{
 	dir = 8;
@@ -1431,6 +1455,10 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/science/xenobiology)
+"tT" = (
+/obj/machinery/light,
+/turf/open/floor/plasteel,
+/area/quartermaster/warehouse)
 "ub" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research/glass{
@@ -1823,9 +1851,14 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "zK" = (
-/mob/living/simple_animal/sloth/paperwork,
-/turf/open/floor/plasteel,
-/area/quartermaster/warehouse)
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/turf/open/genturf,
+/area/maintenance/bottom_station_maints/west)
 "zM" = (
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
@@ -1837,6 +1870,15 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
+	},
+/obj/machinery/requests_console{
+	department = "Cargo Bay";
+	departmentType = 2;
+	pixel_y = 30
+	},
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
@@ -2003,15 +2045,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
-"Cw" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 9
-	},
-/turf/open/floor/plasteel,
-/area/quartermaster/warehouse)
 "CC" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -2186,6 +2219,12 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
+"Ey" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/closet/crate/internals,
+/obj/machinery/light/floor,
+/turf/open/floor/plasteel,
+/area/quartermaster/warehouse)
 "EA" = (
 /obj/structure/closet,
 /turf/open/genturf,
@@ -2241,7 +2280,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
 "Fk" = (
@@ -2331,9 +2369,13 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "Gg" = (
-/obj/effect/turf_decal/stripes/corner{
-	dir = 1
+/obj/machinery/power/apc{
+	areastring = "/area/quartermaster/warehouse";
+	dir = 8;
+	name = "Cargo Warehouse APC";
+	pixel_x = -24
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
 "Gl" = (
@@ -2384,15 +2426,7 @@
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints)
 "GI" = (
-/obj/machinery/computer/bounty,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 5;
-	pixel_y = 30
-	},
-/obj/machinery/light{
-	dir = 1;
-	pixel_y = 0
-	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
 "GL" = (
@@ -2428,6 +2462,11 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"Hh" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/turf/open/floor/plasteel,
+/area/quartermaster/warehouse)
 "Hk" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -2451,6 +2490,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/ai_monitored/storage/eva)
+"Hx" = (
+/obj/effect/turf_decal/loading_area{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/quartermaster/warehouse)
 "Hz" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -2489,6 +2534,11 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
+"It" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/light/floor,
+/turf/open/floor/plasteel,
+/area/quartermaster/warehouse)
 "Iw" = (
 /obj/machinery/power/apc/auto_name/north{
 	cell_type = /obj/item/stock_parts/cell/high/plus
@@ -2512,8 +2562,9 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "IU" = (
-/obj/structure/ladder,
 /obj/effect/turf_decal/bot,
+/obj/structure/closet/crate/maint,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
 "IX" = (
@@ -2740,6 +2791,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness)
+"LB" = (
+/obj/effect/landmark/event_spawn,
+/turf/open/floor/plasteel,
+/area/quartermaster/warehouse)
 "LC" = (
 /obj/structure/closet/crate,
 /turf/open/genturf,
@@ -2915,6 +2970,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
+"Nc" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/quartermaster/warehouse)
 "Ni" = (
 /obj/effect/landmark/blobstart,
 /turf/open/floor/engine,
@@ -2984,8 +3045,9 @@
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/east)
 "NM" = (
-/obj/effect/landmark/event_spawn,
 /obj/effect/turf_decal/bot,
+/obj/structure/closet/crate/medical,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
 "NR" = (
@@ -3183,6 +3245,7 @@
 	dir = 1
 	},
 /obj/structure/stairs/west{
+	invisibility = 101;
 	layer = 2
 	},
 /turf/open/floor/plating,
@@ -3307,11 +3370,8 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
 "RK" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 6
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
@@ -3374,6 +3434,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
+"Su" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/turf/open/floor/plasteel,
+/area/quartermaster/warehouse)
 "SC" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/window/reinforced{
@@ -3407,6 +3471,7 @@
 /area/crew_quarters/fitness)
 "SI" = (
 /obj/structure/stairs/west{
+	invisibility = 101;
 	layer = 2
 	},
 /obj/machinery/conveyor{
@@ -3483,6 +3548,11 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
+"Ty" = (
+/obj/machinery/light/floor,
+/mob/living/simple_animal/sloth/paperwork,
+/turf/open/floor/plasteel,
+/area/quartermaster/warehouse)
 "Tz" = (
 /obj/effect/turf_decal/trimline/green/filled/line,
 /turf/open/floor/plasteel/dark,
@@ -3668,6 +3738,10 @@
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hydroponics)
+"Wo" = (
+/obj/machinery/light/floor,
+/turf/open/floor/plasteel,
+/area/quartermaster/warehouse)
 "Wq" = (
 /turf/closed/wall,
 /area/hydroponics)
@@ -22371,11 +22445,11 @@ GQ
 GQ
 da
 YG
-YG
+da
 YG
 da
 YG
-YG
+da
 YG
 da
 da
@@ -22628,11 +22702,11 @@ tP
 GQ
 da
 db
-db
+Gg
 db
 SI
 db
-db
+kt
 db
 PL
 da
@@ -22885,9 +22959,9 @@ XY
 Wf
 Pp
 Hr
+GI
 db
-db
-db
+Hx
 db
 db
 db
@@ -23138,8 +23212,8 @@ PG
 mw
 sp
 GQ
-da
-da
+GQ
+GQ
 da
 Fj
 db
@@ -23395,12 +23469,12 @@ PG
 KI
 Vd
 GQ
+GQ
+GQ
 da
-kY
-nq
-Fj
-zT
-db
+kd
+IU
+tx
 aI
 db
 aI
@@ -23652,15 +23726,15 @@ PG
 KI
 GQ
 GQ
+GQ
+GQ
 da
-nc
-Gg
 zN
 aI
-db
+Wo
 zT
 db
-zT
+Ey
 db
 kT
 da
@@ -23909,15 +23983,15 @@ Zm
 mw
 GQ
 GQ
+GQ
+GQ
 da
-me
-db
-zN
+kY
 zT
 db
 aI
-db
-NM
+LB
+zT
 db
 db
 Fv
@@ -24166,11 +24240,11 @@ Zm
 mw
 GQ
 GQ
+GQ
+GQ
 da
-nF
-db
-zN
-zT
+me
+aI
 db
 CP
 db
@@ -24423,17 +24497,17 @@ Zm
 mw
 GQ
 GQ
+GQ
+GQ
 da
-GI
-db
-zN
+nc
 zT
+Ty
+aI
 db
-zT
+It
 db
-zT
-db
-db
+tT
 da
 da
 GQ
@@ -24680,15 +24754,15 @@ Zm
 mw
 GQ
 GQ
+GQ
+GQ
 da
-IU
-db
-zN
+nq
 aI
 db
-zT
+aI
 db
-zT
+aI
 db
 Ru
 da
@@ -24937,14 +25011,14 @@ Zm
 mw
 GQ
 GQ
+GQ
+GQ
 da
-db
-zK
-zN
-zT
-db
-zT
-db
+nF
+NM
+Su
+Hh
+Nc
 zT
 db
 db
@@ -25194,15 +25268,15 @@ Zm
 KI
 GQ
 GQ
+GQ
+GQ
 da
-db
+Fj
 RK
-Cw
-db
 Bb
 db
 db
-db
+RK
 db
 db
 da
@@ -25451,10 +25525,10 @@ Zm
 KI
 GQ
 GQ
-da
+GQ
+GQ
 da
 tm
-da
 da
 da
 da
@@ -25710,8 +25784,8 @@ GQ
 GQ
 GQ
 GQ
-kd
-OM
+GQ
+zK
 OM
 OM
 OM
