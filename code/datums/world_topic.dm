@@ -315,5 +315,5 @@
 
 	return call("/proc/[procname]")(arglist(lst))
 
-/proc/global_fucking_announce(text)
-	to_chat(world, text)
+/proc/global_fucking_announce(text, userkey = null)
+	to_chat(world, "<span class='adminnotice'><b>[userkey ? "Администратор" : userkey] делает объявление:</b></span>\n \t [text]")
