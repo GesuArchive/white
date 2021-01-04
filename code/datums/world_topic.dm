@@ -313,9 +313,7 @@
 	log_admin("INBOUND CONNECTION called [procname]() with [lst.len ? "the arguments [list2params(lst)]":"no arguments"].")
 	message_admins("INBOUND CONNECTION called [procname]() with [lst.len ? "the arguments [list2params(lst)]":"no arguments"].")
 
-	call("/proc/[procname]")(arglist(lst))
-
-	return "GREAT"
+	return call("/proc/[procname]")(arglist(lst))
 
 /proc/global_fucking_announce(text, userkey = null)
 	to_chat(world, "<span class='adminnotice'><b>[userkey ? userkey : "Администратор"] делает объявление:</b></span>\n \t [text]")
