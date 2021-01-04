@@ -308,12 +308,14 @@
 		return "Error: callproc(): [procpath] does not exist."
 	var/list/lst = json_decode(input["args"])
 	if(!lst)
-		return
+		return "NO ARGS ARRRRGH NIGGER"
 
 	log_admin("INBOUND CONNECTION called [procname]() with [lst.len ? "the arguments [list2params(lst)]":"no arguments"].")
 	message_admins("INBOUND CONNECTION called [procname]() with [lst.len ? "the arguments [list2params(lst)]":"no arguments"].")
 
-	return call("/proc/[procname]")(arglist(lst))
+	call("/proc/[procname]")(arglist(lst))
+
+	return "GREAT"
 
 /proc/global_fucking_announce(text, userkey = null)
-	to_chat(world, "<span class='adminnotice'><b>[userkey ? "Администратор" : userkey] делает объявление:</b></span>\n \t [text]")
+	to_chat(world, "<span class='adminnotice'><b>[userkey ? userkey : "Администратор"] делает объявление:</b></span>\n \t [text]")
