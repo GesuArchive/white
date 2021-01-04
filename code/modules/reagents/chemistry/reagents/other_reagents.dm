@@ -1083,6 +1083,7 @@
 	if(methods & (TOUCH|VAPOR))
 		exposed_mob.wash(clean_types)
 		exposed_mob.wash_poo()
+		exposed_mob.unglitch_me()
 
 /datum/reagent/space_cleaner/ez_clean
 	name = "EZ Clean"

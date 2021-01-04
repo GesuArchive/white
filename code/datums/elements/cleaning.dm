@@ -29,6 +29,7 @@
 			if(cleaned_human.body_position == LYING_DOWN)
 				cleaned_human.wash(CLEAN_SCRUB)
 				cleaned_human.wash_poo()
+				cleaned_human.unglitch_me()
 				cleaned_human.headstamp = null
 				cleaned_human.regenerate_icons()
 				to_chat(cleaned_human, "<span class='danger'>[AM] моет твоё лицо!</span>")
