@@ -585,6 +585,11 @@
 	pixel_x = -5;
 	pixel_y = 30
 	},
+/obj/structure/table,
+/obj/machinery/microwave{
+	pixel_x = -3;
+	pixel_y = 6
+	},
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "bR" = (
@@ -602,25 +607,17 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "bT" = (
-/obj/structure/table,
-/obj/machinery/microwave{
-	pixel_x = -3;
-	pixel_y = 6
-	},
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/griddle,
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "bU" = (
-/obj/structure/table,
-/obj/machinery/microwave{
-	pixel_x = -3;
-	pixel_y = 6
-	},
+/obj/machinery/griddle,
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "bV" = (

@@ -305,9 +305,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/machinery/light{
-	pixel_y = 0
-	},
+/obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "aM" = (
@@ -3192,12 +3190,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "hq" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
+/obj/machinery/light,
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -4427,6 +4420,13 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/central)
+"Eg" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/light,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "Ez" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -4767,6 +4767,9 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"XZ" = (
+/turf/open/floor/plating/airless,
+/area/template_noop)
 "Yc" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -5055,7 +5058,7 @@ ab
 al
 cZ
 ep
-ab
+XZ
 ab
 bs
 bs
@@ -5093,7 +5096,7 @@ ab
 al
 hl
 ep
-yh
+XZ
 bs
 wx
 cg
@@ -5131,7 +5134,7 @@ ab
 al
 cZ
 ep
-hb
+XZ
 bs
 bP
 cz
@@ -5169,7 +5172,7 @@ ab
 ai
 cZ
 ep
-hb
+XZ
 bs
 cc
 hm
@@ -5207,7 +5210,7 @@ ab
 az
 cZ
 ep
-yh
+XZ
 bs
 cd
 bM
@@ -5242,10 +5245,10 @@ ia
 ab
 ab
 ab
-az
-cZ
+pR
+DM
 ep
-ab
+XZ
 bs
 bs
 hw
@@ -5283,7 +5286,7 @@ ai
 aj
 cZ
 ep
-ab
+XZ
 ab
 cf
 hx
@@ -5392,8 +5395,8 @@ ia
 "}
 (16,1,1) = {"
 ab
-hq
 az
+aj
 aj
 cZ
 dh
@@ -5430,10 +5433,10 @@ ia
 "}
 (17,1,1) = {"
 ab
-an
-an
-aA
-aA
+az
+aj
+aj
+hq
 an
 ep
 ep
@@ -5468,11 +5471,11 @@ ia
 "}
 (18,1,1) = {"
 ac
-ai
-bW
 aj
 aj
 aj
+aj
+ar
 ar
 fY
 gn
@@ -5582,7 +5585,7 @@ kn
 "}
 (21,1,1) = {"
 ab
-aj
+ai
 aj
 aj
 ar
@@ -5620,10 +5623,10 @@ ab
 "}
 (22,1,1) = {"
 ab
+ai
 aj
 aj
-aj
-ar
+Eg
 dP
 dV
 ha
