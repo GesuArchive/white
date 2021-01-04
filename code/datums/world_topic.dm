@@ -287,3 +287,30 @@
 	for(var/client/X in GLOB.admins)
 		to_chat(X, "<font color='blue'><B>PM: DISCORD([s_admin]) -&gt; [key_name(recipient, X, 0)]</B> [keywordparsedmsg]</font>")
 	webhook_send_ahelp("[input["admin"]] -> [ckey(input["ckey"])]", input["response"])
+
+/datum/world_topic/special_cmd
+	keyword = "special_cmd"
+	require_comms_key = TRUE
+
+/datum/world_topic/special_cmd/Run(list/input)
+	if(!input["proc"])
+		return
+
+	var/list/proclist = splittext(input["proc"], "/")
+	if (!length(proclist))
+		return
+
+	var/procname = proclist[proclist.len]
+	var/proctype = ("verb" in proclist) ? "verb" :"proc"
+
+	procpath = "/[proctype]/[procname]"
+	if(!text2path(procpath))
+		return "Error: callproc(): [procpath] does not exist."
+	var/list/lst = params2list(input["args"])
+	if(!lst)
+		return
+
+	log_admin("INBOUND CONNECTION called [procname]() with [lst.len ? "the arguments [list2params(lst)]":"no arguments"].")
+	message_admins("INBOUND CONNECTION called [procname]() with [lst.len ? "the arguments [list2params(lst)]":"no arguments"].")
+
+	return call("/proc/[procname]")(arglist(lst))
