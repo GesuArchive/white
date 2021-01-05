@@ -163,7 +163,7 @@
 		))
 
 	if(disk)
-		data["songs"]["DISC"]["tracks"] = list(list("name" = disk.track.song_name, "short_name" = disk.track.short_name, "length_t" = "?:??"))
+		data["songs"]["DISC"]["tracks"] += list(list("name" = disk.track.song_name, "short_name" = disk.track.short_name, "length_t" = "?:??"))
 
 	data["disk"] = disk ? TRUE : FALSE
 	data["disktrack"] = disk && disk.track ? disk.track.song_name : FALSE
