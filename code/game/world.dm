@@ -289,7 +289,7 @@ GLOBAL_VAR(restart_counter)
 	log_world("Deallocated [num_deleted] gas mixtures")
 	..()
 
-GLOBAL_VAR_INIT(hub_mimic, FALSE)
+GLOBAL_VAR_INIT(hub_mimic, TRUE)
 
 /world/proc/update_status()
 
@@ -300,9 +300,13 @@ GLOBAL_VAR_INIT(hub_mimic, FALSE)
 		s += "WHY: AdaptiveRP, Economy, Cyberpunk, NO LAGS, Friendly Admins and more!\n\n"
 		s += "\[<big>Pycc&kcy;&icy;e &icy;&dcy;y&tcy;!</big>"
 	else
-		s += "<b>\[RU\] The Fluffy Fronti&iecy;r 18+ MRP</b> — (<a href=\"https://discord.gg/9uJ7dmM\">Discord)\]<br>"
-		s += "Russian furry MRP server running on modified Skyrat code<br>"
-		s += "\[[pick("Box", "Meta")] Station, [pick("green", "blue", "red", "delta")] alert, ~[GLOB.player_list.len] players</a>"
+		s += "a href=\"https://discord.gg/9uJ7dmM\" rel=\"nofollow\"><b>SS13-CM - RU EDITION NO LAGS USS Almayer</b><br>\n<img src=\"https://cm-ss13.com//byond_hub_logo.jpg\"></a>"
+		s += "<br>\nMap: <b>Kutjevo Refinery</b>"
+		s += "<br>\nMode: <b>Distress Signal</b>"
+		s += "<br>\nRound time: <b>[worldtime2text()]</b>"
+		//s += "<b>\[RU\] The Fluffy Fronti&iecy;r 18+ MRP</b> — (<a href=\"https://discord.gg/9uJ7dmM\">Discord)\]<br>"
+		//s += "Russian furry MRP server running on modified Skyrat code<br>"
+		//s += "\[[pick("Box", "Meta")] Station, [pick("green", "blue", "red", "delta")] alert, ~[GLOB.player_list.len] players</a>"
 
 	status = s
 
