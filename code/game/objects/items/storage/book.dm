@@ -138,7 +138,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 /obj/item/storage/book/bible/attack(mob/living/M, mob/living/carbon/human/user, heal_mode = TRUE)
 
 	if (!ISADVANCEDTOOLUSER(user))
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user, "<span class='warning'>У меня не хватает ловкости для этого!</span>")
 		return
 
 	if (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50))

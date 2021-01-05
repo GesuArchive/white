@@ -443,7 +443,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	if(!istype(user))
 		return FALSE
 	if(!ISADVANCEDTOOLUSER(user))
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user, "<span class='warning'>У меня не хватает ловкости для этого!</span>")
 		return FALSE
 	if(user.incapacitated() || !user.Adjacent(src))
 		return FALSE
@@ -736,7 +736,7 @@ GLOBAL_LIST(hub_radial_layer_list)
 	if(!istype(user))
 		return FALSE
 	if(!ISADVANCEDTOOLUSER(user))
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user, "<span class='warning'>У меня не хватает ловкости для этого!</span>")
 		return FALSE
 	if(user.incapacitated() || !user.Adjacent(src))
 		return FALSE

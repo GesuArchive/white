@@ -76,7 +76,7 @@
 		to_chat(user, "<span class='notice'>You point [src] at [target], but nothing happens!</span>")
 		return
 	if (!ISADVANCEDTOOLUSER(user))
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user, "<span class='warning'>У меня не хватает ловкости для этого!</span>")
 		return
 	if(HAS_TRAIT(user, TRAIT_CHUNKYFINGERS))
 		to_chat(user, "<span class='warning'>Your fingers can't press the button!</span>")

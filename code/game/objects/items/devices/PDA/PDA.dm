@@ -200,7 +200,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 /obj/item/pda/interact(mob/user)
 	if(!ISADVANCEDTOOLUSER(user))
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user, "<span class='warning'>У меня не хватает ловкости для этого!</span>")
 		return
 
 	..()
