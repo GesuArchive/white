@@ -14,8 +14,8 @@ again.
 		for(var/I in spawn_list)
 			new I(get_turf(src))
 		// новый год 2021
-		if(prob(10))
-			new /obj/structure/snowflakes(get_turf(src))
+		//if(prob(10))
+		//	new /obj/structure/snowflakes(get_turf(src))
 	return INITIALIZE_HINT_QDEL
 
 
