@@ -300,7 +300,7 @@ GLOBAL_VAR_INIT(hub_mimic, TRUE)
 		s += "WHY: AdaptiveRP, Economy, Cyberpunk, NO LAGS, Friendly Admins and more!\n\n"
 		s += "\[<big>Pycc&kcy;&icy;e &icy;&dcy;y&tcy;!</big>"
 	else
-		s += "a href=\"https://discord.gg/9uJ7dmM\" rel=\"nofollow\"><b>SS13-CM - RU EDITION NO LAGS USS Almayer</b><br>\n<img src=\"https://cm-ss13.com//byond_hub_logo.jpg\"></a>"
+		s += "<a href=\"https://discord.gg/9uJ7dmM\" rel=\"nofollow\"><b>SS13-CM - RU EDITION NO LAGS USS Almayer</b><br>\n<img src=\"https://cm-ss13.com//byond_hub_logo.jpg\"></a>"
 		s += "<br>\nMap: <b>Kutjevo Refinery</b>"
 		s += "<br>\nMode: <b>Distress Signal</b>"
 		s += "<br>\nRound time: <b>[worldtime2text()]</b>"
