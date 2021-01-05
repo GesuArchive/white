@@ -236,7 +236,7 @@
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 10, FIRE = 100, ACID = 75)
 
 /obj/item/clothing/head/helmet/space/plasmaman/cargo
-	name = "плазмаменский шлем карготехника"
+	name = "плазмаменский шлем грузчика"
 	desc = "Разработан специально для отдела доставки."
 	icon_state = "cargo_envirohelm"
 	inhand_icon_state = "cargo_envirohelm"

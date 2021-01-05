@@ -1,6 +1,6 @@
 /obj/machinery/door/window
-	name = "interior door"
-	desc = "A strong door."
+	name = "интерьерная дверь"
+	desc = "Крепкая дверка."
 	icon = 'icons/obj/doors/windoor.dmi'
 	icon_state = "left"
 	layer = ABOVE_WINDOW_LAYER

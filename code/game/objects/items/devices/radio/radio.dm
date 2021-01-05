@@ -2,11 +2,11 @@
 
 /obj/item/radio
 	icon = 'icons/obj/radio.dmi'
-	name = "station bounced radio"
+	name = "рация"
 	icon_state = "walkietalkie"
 	inhand_icon_state = "walkietalkie"
 	worn_icon_state = "radio"
-	desc = "A basic handheld radio that communicates with local telecommunication networks."
+	desc = "Базовая портативная радиостанция, связывающаяся с местными телекоммуникационными сетями."
 	dog_fashion = /datum/dog_fashion/back
 
 	flags_1 = CONDUCT_1 | HEAR_1
@@ -334,20 +334,20 @@
 /obj/item/radio/examine(mob/user)
 	. = ..()
 	if (frequency && in_range(src, user))
-		. += "<hr><span class='notice'>It is set to broadcast over the [frequency/10] frequency.</span>"
+		. += "<hr><span class='notice'>Вещание настроено на частоте [frequency/10].</span>"
 	if (unscrewed)
-		. += "<hr><span class='notice'>It can be attached and modified.</span>"
+		. += "<hr><span class='notice'>Может быть приделано к чему-то или модифицированно.</span>"
 	else
-		. += "<hr><span class='notice'>It cannot be modified or attached.</span>"
+		. += "<hr><span class='notice'>Не готово к приделыванию и модифицированию.</span>"
 
 /obj/item/radio/attackby(obj/item/W, mob/user, params)
 	add_fingerprint(user)
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
 		unscrewed = !unscrewed
 		if(unscrewed)
-			to_chat(user, "<span class='notice'>The radio can now be attached and modified!</span>")
+			to_chat(user, "<span class='notice'>Теперь рация может быть приделана к чему-то или модифицированна!</span>")
 		else
-			to_chat(user, "<span class='notice'>The radio can no longer be modified or attached!</span>")
+			to_chat(user, "<span class='notice'>Теперь рация не может быть приделана к чему-то или модифицированна!</span>")
 	else
 		return ..()
 
@@ -358,7 +358,7 @@
 	emped++ //There's been an EMP; better count it
 	var/curremp = emped //Remember which EMP this was
 	if (listening && ismob(loc))	// if the radio is turned on and on someone's person they notice
-		to_chat(loc, "<span class='warning'>\The [src] overloads.</span>")
+		to_chat(loc, "<span class='warning'>[capitalize(src.name)] перегружается.</span>")
 	broadcasting = FALSE
 	listening = FALSE
 	for (var/ch_name in channels)
@@ -379,7 +379,7 @@
 //Giving borgs their own radio to have some more room to work with -Sieve
 
 /obj/item/radio/borg
-	name = "cyborg radio"
+	name = "рация киборга"
 	subspace_transmission = TRUE
 	subspace_switchable = TRUE
 	dog_fashion = null
@@ -416,14 +416,14 @@
 					keyslot = null
 
 			recalculateChannels()
-			to_chat(user, "<span class='notice'>You pop out the encryption key in the radio.</span>")
+			to_chat(user, "<span class='notice'>Вынимаю ключ шифрования из рации.</span>")
 
 		else
-			to_chat(user, "<span class='warning'>This radio doesn't have any encryption keys!</span>")
+			to_chat(user, "<span class='warning'>Эта рация не имеет ключей шифрования в себе!</span>")
 
 	else if(istype(W, /obj/item/encryptionkey/))
 		if(keyslot)
-			to_chat(user, "<span class='warning'>The radio can't hold another key!</span>")
+			to_chat(user, "<span class='warning'>Эта рация не может иметь больше ключей шифрования!</span>")
 			return
 
 		if(!keyslot)

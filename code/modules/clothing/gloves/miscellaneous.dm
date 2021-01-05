@@ -101,7 +101,7 @@
 	inhand_icon_state = "jannyplasma"
 
 /obj/item/clothing/gloves/color/plasmaman/cargo
-	name = "герметичные перчатки карго"
+	name = "герметичные перчатки грузчика"
 	icon_state = "cargoplasma"
 	inhand_icon_state = "cargoplasma"
 

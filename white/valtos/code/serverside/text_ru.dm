@@ -158,7 +158,7 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	else if (freq == "Medical")
 		return "Медбей"
 	else if (freq == "Supply")
-		return "Карго"
+		return "Снабжение"
 	else if (freq == "Service")
 		return "Обслуживание"
 	else if (freq == "AI Private")

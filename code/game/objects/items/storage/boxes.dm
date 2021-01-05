@@ -1218,7 +1218,7 @@
 		new/obj/item/food/chewable/bubblegum/bubblegum(src)
 
 /obj/item/storage/box/shipping
-	name = "коробка карго припасов"
+	name = "коробка припасов снабжения"
 	desc = "Содержит несколько сканеров и этикетировщиков для транспортировки вещей. Упаковочная бумага в комплект не входит."
 	illustration = "shipping"
 

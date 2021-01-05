@@ -239,7 +239,7 @@
 
 /// Supply display which shows the status of the supply shuttle.
 /obj/machinery/status_display/supply
-	name = "дисплей карго"
+	name = "дисплей снабжения"
 
 /obj/machinery/status_display/supply/process()
 	if(machine_stat & NOPOWER)

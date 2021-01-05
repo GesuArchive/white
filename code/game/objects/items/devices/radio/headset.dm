@@ -235,8 +235,8 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	keyslot = new /obj/item/encryptionkey/heads/hop
 
 /obj/item/radio/headset/headset_cargo
-	name = "гарнитура карго"
-	desc = "Гарнитура, используемая КМ и его подчиненными."
+	name = "гарнитура снабжения"
+	desc = "Гарнитура, используемая завхозом и его подчиненными."
 	icon_state = "cargo_headset"
 	keyslot = new /obj/item/encryptionkey/headset_cargo
 

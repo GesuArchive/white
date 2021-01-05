@@ -336,7 +336,7 @@
 	if(announce)
 		for(var/client/C in GLOB.clients)
 			if(userkey == C.ckey)
-				to_chat(C, "<span class='rose bold'>Новый баланс: [mc_count] метакэша!</span>")
+				to_chat(C, "<span class='rose bold'>Новый баланс: [value] метакэша!</span>")
 	return no_err
 
 /**

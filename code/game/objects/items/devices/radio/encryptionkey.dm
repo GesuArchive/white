@@ -1,6 +1,6 @@
 /obj/item/encryptionkey
-	name = "standard encryption key"
-	desc = "An encryption key for a radio headset."
+	name = "стандартный ключ шифрования"
+	desc = "Ключ шифрования радиогарнитуры."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "cypherkey"
 	w_class = WEIGHT_CLASS_TINY
@@ -12,7 +12,7 @@
 /obj/item/encryptionkey/Initialize()
 	. = ..()
 	if(!channels.len)
-		desc = "An encryption key for a radio headset.  Has no special codes in it. You should probably tell a coder!"
+		desc = "Ключ шифрования радиогарнитуры. Никаких специальных кодов в нем нет. Вы, наверное, должны сказать кодеру!"
 
 /obj/item/encryptionkey/examine(mob/user)
 	. = ..()
@@ -21,111 +21,111 @@
 		for(var/i in channels)
 			examine_text_list += "[GLOB.channel_tokens[i]] - [lowertext(i)]"
 
-		. += "<hr><span class='notice'>It can access the following channels; [jointext(examine_text_list, ", ")].</span>"
+		. += "<hr><span class='notice'>Имеет доступ к следующим каналам; [jointext(examine_text_list, ", ")].</span>"
 
 /obj/item/encryptionkey/syndicate
-	name = "syndicate encryption key"
+	name = "ключ шифрования синдиката"
 	icon_state = "syn_cypherkey"
 	channels = list(RADIO_CHANNEL_SYNDICATE = 1)
 	syndie = TRUE//Signifies that it de-crypts Syndicate transmissions
 
 /obj/item/encryptionkey/binary
-	name = "binary translator key"
+	name = "ключ бинарного транслятора"
 	icon_state = "bin_cypherkey"
 	translate_binary = TRUE
 
 /obj/item/encryptionkey/headset_sec
-	name = "security radio encryption key"
+	name = "ключ шифрования безопасности"
 	icon_state = "sec_cypherkey"
 	channels = list(RADIO_CHANNEL_SECURITY = 1)
 
 /obj/item/encryptionkey/headset_eng
-	name = "engineering radio encryption key"
+	name = "инженерный ключ шифрования"
 	icon_state = "eng_cypherkey"
 	channels = list(RADIO_CHANNEL_ENGINEERING = 1)
 
 /obj/item/encryptionkey/headset_rob
-	name = "robotics radio encryption key"
+	name = "ключ шифрования роботехников"
 	icon_state = "rob_cypherkey"
 	channels = list(RADIO_CHANNEL_SCIENCE = 1, RADIO_CHANNEL_ENGINEERING = 1)
 
 /obj/item/encryptionkey/headset_med
-	name = "medical radio encryption key"
+	name = "ключ шифрования медбея"
 	icon_state = "med_cypherkey"
 	channels = list(RADIO_CHANNEL_MEDICAL = 1)
 
 /obj/item/encryptionkey/headset_sci
-	name = "science radio encryption key"
+	name = "ключ шифрования научного отдела"
 	icon_state = "sci_cypherkey"
 	channels = list(RADIO_CHANNEL_SCIENCE = 1)
 
 /obj/item/encryptionkey/headset_medsci
-	name = "medical research radio encryption key"
+	name = "ключ шифрования медбея и научки"
 	icon_state = "medsci_cypherkey"
 	channels = list(RADIO_CHANNEL_SCIENCE = 1, RADIO_CHANNEL_MEDICAL = 1)
 
 /obj/item/encryptionkey/headset_srvsec
-	name = "law and order radio encryption key"
+	name = "ключ шифрования закона и порядка"
 	icon_state = "srvsec_cypherkey"
 	channels = list(RADIO_CHANNEL_SERVICE = 1, RADIO_CHANNEL_SECURITY = 1)
 
 /obj/item/encryptionkey/headset_srvmed
-	name = "psychology radio encryption key"
+	name = "ключ шифрования психолога"
 	icon_state = "srvmed_cypherkey"
 	channels = list(RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_SERVICE = 1)
 
 /obj/item/encryptionkey/headset_com
-	name = "command radio encryption key"
+	name = "ключ шифрования командования"
 	icon_state = "com_cypherkey"
 	channels = list(RADIO_CHANNEL_COMMAND = 1)
 
 /obj/item/encryptionkey/heads/captain
-	name = "\proper the captain's encryption key"
+	name = "ключ шифрования капитана"
 	icon_state = "cap_cypherkey"
 	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_ENGINEERING = 0, RADIO_CHANNEL_SCIENCE = 0, RADIO_CHANNEL_MEDICAL = 0, RADIO_CHANNEL_SUPPLY = 0, RADIO_CHANNEL_SERVICE = 0)
 
 /obj/item/encryptionkey/heads/rd
-	name = "\proper the research director's encryption key"
+	name = "ключ шифрования научного руководителя"
 	icon_state = "rd_cypherkey"
 	channels = list(RADIO_CHANNEL_SCIENCE = 1, RADIO_CHANNEL_COMMAND = 1)
 
 /obj/item/encryptionkey/heads/hos
-	name = "\proper the head of security's encryption key"
+	name = "ключ шифрования начальника охраны"
 	icon_state = "hos_cypherkey"
 	channels = list(RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
 
 /obj/item/encryptionkey/heads/ce
-	name = "\proper the chief engineer's encryption key"
+	name = "ключ шифрования старшего инженера"
 	icon_state = "ce_cypherkey"
 	channels = list(RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_COMMAND = 1)
 
 /obj/item/encryptionkey/heads/cmo
-	name = "\proper the chief medical officer's encryption key"
+	name = "ключ шифрования старшего медицинского офицера"
 	icon_state = "cmo_cypherkey"
 	channels = list(RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_COMMAND = 1)
 
 /obj/item/encryptionkey/heads/hop
-	name = "\proper the head of personnel's encryption key"
+	name = "ключ шифрования главы персонала"
 	icon_state = "hop_cypherkey"
 	channels = list(RADIO_CHANNEL_SUPPLY = 1, RADIO_CHANNEL_SERVICE = 1, RADIO_CHANNEL_COMMAND = 1)
 
 /obj/item/encryptionkey/headset_cargo
-	name = "supply radio encryption key"
+	name = "ключ шифрования снабжения"
 	icon_state = "cargo_cypherkey"
 	channels = list(RADIO_CHANNEL_SUPPLY = 1)
 
 /obj/item/encryptionkey/headset_mining
-	name = "mining radio encryption key"
+	name = "ключ шифрования шахтёров"
 	icon_state = "cargo_cypherkey"
 	channels = list(RADIO_CHANNEL_SUPPLY = 1, RADIO_CHANNEL_SCIENCE = 1)
 
 /obj/item/encryptionkey/headset_service
-	name = "service radio encryption key"
+	name = "ключ шифрования сервиса"
 	icon_state = "srv_cypherkey"
 	channels = list(RADIO_CHANNEL_SERVICE = 1)
 
 /obj/item/encryptionkey/headset_cent
-	name = "\improper CentCom radio encryption key"
+	name = "ключ шифрования ЦК"
 	icon_state = "cent_cypherkey"
 	independent = TRUE
 	channels = list(RADIO_CHANNEL_CENTCOM = 1)

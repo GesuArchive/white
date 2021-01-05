@@ -242,7 +242,7 @@ proc/rhtml_decode(var/t)
 	else if (freq == "Medical")
 		return "Медбей"
 	else if (freq == "Supply")
-		return "Карго"
+		return "Снабжение"
 	else if (freq == "Service")
 		return "Обслуживание"
 	else if (freq == "AI Private")
