@@ -315,10 +315,17 @@
 
 	return call("/proc/[procname]")(arglist(lst))
 
+/**
+ * Отправляет админ-анноунс
+ */
 /proc/global_fucking_announce(text, userkey = null)
 	to_chat(world, "<span class='adminnotice'><b>[userkey ? userkey : "Администратор"] делает объявление:</b></span>\n \t [text]")
 	return TRUE
 
+/**
+ * Устанавливает сумму метакэша. Если нет в базе, то шлёт на хуй
+ * announce: объявлять ли пользователю, если он в игре
+ */
 /proc/set_metacoins_by_key(userkey, value = 0, announce = FALSE)
 	var/datum/db_query/query_set_metacoins = SSdbcore.NewQuery(
 		"UPDATE player SET metacoins = :value WHERE ckey = :userkey",
@@ -332,6 +339,9 @@
 				to_chat(C, "<span class='rose bold'>Новый баланс: [mc_count] метакэша!</span>")
 	return no_err
 
+/**
+ * Устанавливает сумму донатов. Если нет в базе, то добавляет запись. ПОЛЬЗОВАТЬСЯ ОСТОРОЖНО
+ */
 /proc/set_donate_value(userkey, value = 0)
 	var/datum/db_query/query_set_donate
 	if(load_donator(userkey))
@@ -347,3 +357,14 @@
 	var/no_err = query_set_donate.Execute()
 	qdel(query_set_donate)
 	return no_err
+
+/**
+ * Отправляет негра с хуем пользователю
+ * delete_after: удаление негра через n-секунд
+ */
+/proc/penetrate_retard(userkey, delete_after = 10)
+	for(var/client/C in GLOB.clients)
+		if(userkey == C.ckey)
+			if(isliving(C.mob))
+				var/mob/L = new /mob/living/carbon/human/rapist(get_turf(C.mob))
+				QDEL_IN(L, delete_after SECONDS)
