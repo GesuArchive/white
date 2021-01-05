@@ -1129,16 +1129,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/aft)
-"iu" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/components/binary/dp_vent_pump/layer4{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/medical/medbay/central)
 "ix" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/firealarm{
@@ -1555,17 +1545,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 4
-	},
 /turf/open/floor/plasteel/white,
-/area/medical/medbay/central)
-"oR" = (
-/obj/machinery/advanced_airlock_controller/directional/north,
-/turf/open/floor/plating,
 /area/medical/medbay/central)
 "oV" = (
 /obj/structure/disposalpipe/segment{
@@ -1844,16 +1824,6 @@
 	dir = 1
 	},
 /turf/open/floor/wood,
-/area/medical/medbay/central)
-"rI" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/turf/open/floor/plating,
 /area/medical/medbay/central)
 "rN" = (
 /obj/structure/table/reinforced,
@@ -2135,12 +2105,6 @@
 "uE" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 9
-	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "uM" = (
@@ -4032,11 +3996,11 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 9
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
@@ -4121,13 +4085,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
-"Pg" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/layer_manifold{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/medical/medbay/central)
 "Pm" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
@@ -4994,12 +4951,6 @@
 /obj/machinery/door/airlock/external{
 	req_access_txt = "5"
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 4
-	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -5202,6 +5153,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/medical/medbay/central)
 "Xt" = (
@@ -5751,7 +5703,7 @@ gN
 (7,1,1) = {"
 ZM
 vl
-Pg
+UP
 zW
 jN
 dO
@@ -5792,8 +5744,8 @@ gN
 "}
 (8,1,1) = {"
 ZM
-oR
-iu
+gm
+UP
 zW
 Fw
 dO
@@ -5835,7 +5787,7 @@ gN
 (9,1,1) = {"
 ZM
 UF
-rI
+UP
 zW
 ow
 vF
