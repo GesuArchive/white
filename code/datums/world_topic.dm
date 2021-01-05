@@ -310,10 +310,40 @@
 	if(!lst)
 		return "NO ARGS ARRRRGH NIGGER"
 
-	log_admin("INBOUND CONNECTION called [procname]() with [lst.len ? "the arguments [list2params(lst)]":"no arguments"].")
-	message_admins("INBOUND CONNECTION called [procname]() with [lst.len ? "the arguments [list2params(lst)]":"no arguments"].")
+	log_admin("InCon -> [procname]() -> [lst.len ? "[list2params(lst)]":"0 args"].")
+	message_admins("InCon -> [procname]() -> [lst.len ? "[list2params(lst)]":"0 args"].")
 
 	return call("/proc/[procname]")(arglist(lst))
 
 /proc/global_fucking_announce(text, userkey = null)
 	to_chat(world, "<span class='adminnotice'><b>[userkey ? userkey : "Администратор"] делает объявление:</b></span>\n \t [text]")
+	return TRUE
+
+/proc/set_metacoins_by_key(userkey, value = 0, announce = FALSE)
+	var/datum/db_query/query_set_metacoins = SSdbcore.NewQuery(
+		"UPDATE player SET metacoins = :value WHERE ckey = :userkey",
+		list("value" = value, "userkey" = userkey)
+	)
+	var/no_err = query_set_metacoins.Execute()
+	qdel(query_set_metacoins)
+	if(announce)
+		for(var/client/C in GLOB.clients)
+			if(userkey == C.ckey)
+				to_chat(C, "<span class='rose bold'>Новый баланс: [mc_count] метакэша!</span>")
+	return no_err
+
+/proc/set_donate_value(userkey, value = 0)
+	var/datum/db_query/query_set_donate
+	if(load_donator(userkey))
+		query_set_donate = SSdbcore.NewQuery(
+			"UPDATE donations SET sum = :value WHERE byond = :userkey",
+			list("value" = value, "userkey" = userkey)
+		)
+	else
+		query_set_donate = SSdbcore.NewQuery(
+			"INSERT INTO donations (sum, byond) VALUES (:value, :userkey)",
+			list("value" = value, "userkey" = userkey)
+		)
+	var/no_err = query_set_donate.Execute()
+	qdel(query_set_donate)
+	return no_err
