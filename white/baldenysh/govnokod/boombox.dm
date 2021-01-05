@@ -32,8 +32,15 @@
 /obj/item/boombox/update_icon()
 	if(playing)
 		icon_state = "[initial(icon_state)]_active"
+		add_filter("motion_blur", 1, motion_blur_filter(x = 0, y = 1))
+		var/filter = get_filter("motion_blur")
+		animate(filter, y = 0, time = 5, loop = -1)
+		animate(y = 1, time = 5)
 	else
 		icon_state = "[initial(icon_state)]"
+		var/filter = get_filter("motion_blur")
+		animate(filter)
+		remove_filter("motion_blur")
 
 /obj/item/boombox/proc/load_tracks()
 	var/list/tracks = flist("[global.config.directory]/jukebox_music/sounds/")
