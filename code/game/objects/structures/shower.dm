@@ -43,7 +43,7 @@
 
 /obj/machinery/shower/interact(mob/M)
 	if(reagents.total_volume < 5)
-		to_chat(M,"<span class='notice'>\The [src] is dry.</span>")
+		to_chat(M,"<span class='notice'><b>[src.name]</b> is dry.</span>")
 		return FALSE
 	on = !on
 	update_icon()

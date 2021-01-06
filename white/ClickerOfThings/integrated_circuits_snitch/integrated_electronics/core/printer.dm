@@ -112,13 +112,13 @@
 		if(!idlock)
 			idlock = debugger.idlock
 			debugger.idlock = null
-			to_chat(user, "<span class='notice'>You set \the [src] to print out id-locked assemblies only.</span>")
+			to_chat(user, "<span class='notice'>You set <b>[src.name]</b> to print out id-locked assemblies only.</span>")
 			return
 
 		if(debugger.idlock.resolve() == idlock.resolve())
 			idlock = null
 			debugger.idlock = null
-			to_chat(user, "<span class='notice'>You reset \the [src]'s protection settings.</span>")
+			to_chat(user, "<span class='notice'>You reset <b>[src.name]</b>'s protection settings.</span>")
 			return
 
 	return ..()

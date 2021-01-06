@@ -702,7 +702,7 @@
 
 
 /obj/item/food/canned/proc/open_can(mob/user)
-	to_chat(user, "<span class='notice'>You pull back the tab of \the [src].</span>")
+	to_chat(user, "<span class='notice'>You pull back the tab of <b>[src.name]</b>.</span>")
 	playsound(user.loc, 'sound/items/foodcanopen.ogg', 50)
 	reagents.flags |= OPENCONTAINER
 

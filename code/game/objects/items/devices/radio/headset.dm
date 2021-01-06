@@ -30,7 +30,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	var/radiosound = 'white/valtos/sounds/radio/common.ogg'
 
 /obj/item/radio/headset/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins putting \the [src]'s antenna up [user.ru_ego()] nose! It looks like [user.p_theyre()] trying to give [user.ru_na()]self cancer!</span>")
+	user.visible_message("<span class='suicide'>[user] begins putting <b>[src.name]</b>'s antenna up [user.ru_ego()] nose! It looks like [user.p_theyre()] trying to give [user.ru_na()]self cancer!</span>")
 	return TOXLOSS
 
 /obj/item/radio/headset/examine(mob/user)

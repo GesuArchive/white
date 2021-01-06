@@ -28,20 +28,20 @@
 		return FALSE
 
 	if(stored_card)
-		to_chat(user, "<span class='warning'>You try to insert \the [I] into \the [src], but the slot is occupied.</span>")
+		to_chat(user, "<span class='warning'>You try to insert \the [I] into <b>[src.name]</b>, but the slot is occupied.</span>")
 		return FALSE
 	if(user && !user.transferItemToLoc(I, src))
 		return FALSE
 
 	stored_card = I
-	to_chat(user, "<span class='notice'>You insert \the [I] into \the [src].</span>")
+	to_chat(user, "<span class='notice'>You insert \the [I] into <b>[src.name]</b>.</span>")
 
 	return TRUE
 
 
 /obj/item/computer_hardware/ai_slot/try_eject(mob/living/user = null, forced = FALSE)
 	if(!stored_card)
-		to_chat(user, "<span class='warning'>There is no card in \the [src].</span>")
+		to_chat(user, "<span class='warning'>There is no card in <b>[src.name]</b>.</span>")
 		return FALSE
 
 	if(locked && !forced)

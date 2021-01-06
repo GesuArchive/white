@@ -34,7 +34,7 @@
 		if(!tank)
 			var/obj/item/tank/internals/IT = W
 			if(IT.volume <= 3)
-				to_chat(user, "<span class='warning'>\The [IT] is too small for \the [src].</span>")
+				to_chat(user, "<span class='warning'>\The [IT] is too small for <b>[src.name]</b>.</span>")
 				return
 			updateTank(W, 0, user)
 	else if(W.tool_behaviour == TOOL_WRENCH)
@@ -46,7 +46,7 @@
 			if(3)
 				fisto_setting = 1
 		W.play_tool_sound(src)
-		to_chat(user, "<span class='notice'>You tweak \the [src]'s piston valve to [fisto_setting].</span>")
+		to_chat(user, "<span class='notice'>You tweak <b>[src.name]</b>'s piston valve to [fisto_setting].</span>")
 	else if(W.tool_behaviour == TOOL_SCREWDRIVER)
 		if(tank)
 			updateTank(tank, 1, user)
@@ -54,25 +54,25 @@
 /obj/item/melee/powerfist/proc/updateTank(obj/item/tank/internals/thetank, removing = 0, mob/living/carbon/human/user)
 	if(removing)
 		if(!tank)
-			to_chat(user, "<span class='notice'>\The [src] currently has no tank attached to it.</span>")
+			to_chat(user, "<span class='notice'><b>[src.name]</b> currently has no tank attached to it.</span>")
 			return
-		to_chat(user, "<span class='notice'>You detach \the [thetank] from \the [src].</span>")
+		to_chat(user, "<span class='notice'>You detach \the [thetank] from <b>[src.name]</b>.</span>")
 		tank.forceMove(get_turf(user))
 		user.put_in_hands(tank)
 		tank = null
 	if(!removing)
 		if(tank)
-			to_chat(user, "<span class='warning'>\The [src] already has a tank.</span>")
+			to_chat(user, "<span class='warning'><b>[src.name]</b> already has a tank.</span>")
 			return
 		if(!user.transferItemToLoc(thetank, src))
 			return
-		to_chat(user, "<span class='notice'>You hook \the [thetank] up to \the [src].</span>")
+		to_chat(user, "<span class='notice'>You hook \the [thetank] up to <b>[src.name]</b>.</span>")
 		tank = thetank
 
 
 /obj/item/melee/powerfist/attack(mob/living/target, mob/living/user)
 	if(!tank)
-		to_chat(user, "<span class='warning'>\The [src] can't operate without a source of gas!</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> can't operate without a source of gas!</span>")
 		return
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, "<span class='warning'>You don't want to harm other living beings!</span>")
@@ -84,14 +84,14 @@
 	T.assume_air(gasused)
 	T.air_update_turf()
 	if(!gasused)
-		to_chat(user, "<span class='warning'>\The [src]'s tank is empty!</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b>'s tank is empty!</span>")
 		target.apply_damage((force / 5), BRUTE)
 		playsound(loc, 'sound/weapons/punch1.ogg', 50, TRUE)
 		target.visible_message("<span class='danger'>[user]'s powerfist lets out a dull thunk as [user.ru_who()] punch[user.p_es()] [target.name]!</span>", \
 			"<span class='userdanger'>[user]'s punches you!</span>")
 		return
 	if(gasused.total_moles() < gasperfist * fisto_setting)
-		to_chat(user, "<span class='warning'>\The [src]'s piston-ram lets out a weak hiss, it needs more gas!</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b>'s piston-ram lets out a weak hiss, it needs more gas!</span>")
 		playsound(loc, 'sound/weapons/punch4.ogg', 50, TRUE)
 		target.apply_damage((force / 2), BRUTE)
 		target.visible_message("<span class='danger'>[user]'s powerfist lets out a weak hiss as [user.ru_who()] punch[user.p_es()] [target.name]!</span>", \

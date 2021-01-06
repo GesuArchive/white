@@ -107,7 +107,7 @@
 				for(var/obj/item/T in I.contents)
 					if(istype(T, /obj/item/book) || istype(T, /obj/item/spellbook))
 						STR.remove_from_storage(T, src)
-				to_chat(user, "<span class='notice'>You empty \the [I] into \the [src].</span>")
+				to_chat(user, "<span class='notice'>You empty \the [I] into <b>[src.name]</b>.</span>")
 				update_icon()
 			else if(istype(I, /obj/item/pen))
 				if(!user.is_literate())

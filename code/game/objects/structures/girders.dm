@@ -216,7 +216,7 @@
 		if (P.pipe_type in list(0, 1, 5))	//simple pipes, simple bends, and simple manifolds.
 			if(!user.transferItemToLoc(P, drop_location()))
 				return
-			to_chat(user, "<span class='notice'>You fit the pipe into \the [src].</span>")
+			to_chat(user, "<span class='notice'>You fit the pipe into <b>[src.name]</b>.</span>")
 	else
 		return ..()
 

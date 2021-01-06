@@ -32,7 +32,7 @@
 		return FALSE
 
 	if(battery)
-		to_chat(user, "<span class='warning'>You try to connect \the [I] to \the [src], but its connectors are occupied.</span>")
+		to_chat(user, "<span class='warning'>You try to connect \the [I] to <b>[src.name]</b>, but its connectors are occupied.</span>")
 		return FALSE
 
 	if(I.w_class > holder.max_hardware_size)
@@ -43,21 +43,21 @@
 		return FALSE
 
 	battery = I
-	to_chat(user, "<span class='notice'>You connect \the [I] to \the [src].</span>")
+	to_chat(user, "<span class='notice'>You connect \the [I] to <b>[src.name]</b>.</span>")
 
 	return TRUE
 
 
 /obj/item/computer_hardware/battery/try_eject(mob/living/user = null, forced = FALSE)
 	if(!battery)
-		to_chat(user, "<span class='warning'>There is no power cell connected to \the [src].</span>")
+		to_chat(user, "<span class='warning'>There is no power cell connected to <b>[src.name]</b>.</span>")
 		return FALSE
 	else
 		if(user)
 			user.put_in_hands(battery)
 		else
 			battery.forceMove(drop_location())
-		to_chat(user, "<span class='notice'>You detach \the [battery] from \the [src].</span>")
+		to_chat(user, "<span class='notice'>You detach \the [battery] from <b>[src.name]</b>.</span>")
 		battery = null
 
 		if(holder)

@@ -291,8 +291,8 @@ All the important duct code:
 	if(anchored || can_anchor())
 		set_anchored(!anchored)
 		user.visible_message( \
-		"[user] [anchored ? null : "un"]fastens \the [src].", \
-		"<span class='notice'>You [anchored ? null : "un"]fasten \the [src].</span>", \
+		"[user] [anchored ? null : "un"]fastens <b>[src.name]</b>.", \
+		"<span class='notice'>You [anchored ? null : "un"]fasten <b>[src.name]</b>.</span>", \
 		"<span class='hear'>You hear ratcheting.</span>")
 	return TRUE
 ///collection of all the sanity checks to prevent us from stacking ducts that shouldn't be stacked

@@ -24,7 +24,7 @@
 	var/last_receive_signal_log
 
 /obj/item/assembly/signaler/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] eats \the [src]! If it is signaled, [user.ru_who()] will die!</span>")
+	user.visible_message("<span class='suicide'>[user] eats <b>[src.name]</b>! If it is signaled, [user.ru_who()] will die!</span>")
 	playsound(src, 'sound/items/eatfood.ogg', 50, TRUE)
 	moveToNullspace()
 	suicider = user.mind

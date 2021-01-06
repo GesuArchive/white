@@ -51,7 +51,7 @@
 
 	else if(W.tool_behaviour == TOOL_SCREWDRIVER)
 		if(diode)
-			to_chat(user, "<span class='notice'>You remove the [diode.name] from \the [src].</span>")
+			to_chat(user, "<span class='notice'>You remove the [diode.name] from <b>[src.name]</b>.</span>")
 			diode.forceMove(drop_location())
 			diode = null
 	else

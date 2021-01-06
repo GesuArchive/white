@@ -904,7 +904,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		var/obj/item/multitool/M = I
 		if(M.buffer && istype(M.buffer, /obj/machinery/porta_turret))
 			turrets |= M.buffer
-			to_chat(user, "<span class='notice'>You link \the [M.buffer] with \the [src].</span>")
+			to_chat(user, "<span class='notice'>You link \the [M.buffer] with <b>[src.name]</b>.</span>")
 			return
 
 	if (issilicon(user))

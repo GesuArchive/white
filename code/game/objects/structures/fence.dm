@@ -35,9 +35,9 @@
 
 	switch(hole_size)
 		if(MEDIUM_HOLE)
-			. += "There is a large hole in \the [src]."
+			. += "There is a large hole in <b>[src.name]</b>."
 		if(LARGE_HOLE)
-			. += "\The [src] has been completely cut through."
+			. += "<b>[src.name]</b> has been completely cut through."
 
 /obj/structure/fence/end
 	icon_state = "end"
@@ -72,19 +72,19 @@
 			to_chat(user, "<span class='warning'>This fence has too much cut out of it already!</span>")
 			return
 
-		user.visible_message("<span class='danger'>\The [user] starts cutting through \the [src] with \the [W].</span>",\
-		"<span class='danger'>You start cutting through \the [src] with \the [W].</span>")
+		user.visible_message("<span class='danger'>\The [user] starts cutting through <b>[src.name]</b> with \the [W].</span>",\
+		"<span class='danger'>You start cutting through <b>[src.name]</b> with \the [W].</span>")
 
 		if(do_after(user, CUT_TIME*W.toolspeed, target = src))
 			if(current_stage == hole_size)
 				switch(++hole_size)
 					if(MEDIUM_HOLE)
-						visible_message("<span class='notice'>\The [user] cuts into \the [src] some more.</span>")
+						visible_message("<span class='notice'>\The [user] cuts into <b>[src.name]</b> some more.</span>")
 						to_chat(user, "<span class='info'>You could probably fit yourself through that hole now. Although climbing through would be much faster if you made it even bigger.</span>")
 						climbable = TRUE
 					if(LARGE_HOLE)
-						visible_message("<span class='notice'>\The [user] completely cuts through \the [src].</span>")
-						to_chat(user, "<span class='info'>The hole in \the [src] is now big enough to walk through.</span>")
+						visible_message("<span class='notice'>\The [user] completely cuts through <b>[src.name]</b>.</span>")
+						to_chat(user, "<span class='info'>The hole in <b>[src.name]</b> is now big enough to walk through.</span>")
 						climbable = FALSE
 
 				update_cut_status()
@@ -131,7 +131,7 @@
 
 /obj/structure/fence/door/proc/toggle(mob/user)
 	open = !open
-	visible_message("<span class='notice'>\The [user] [open ? "opens" : "closes"] \the [src].</span>")
+	visible_message("<span class='notice'>\The [user] [open ? "opens" : "closes"] <b>[src.name]</b>.</span>")
 	update_door_status()
 	playsound(src, 'sound/machines/click.ogg', 100, TRUE)
 

@@ -193,7 +193,7 @@
 /// Toggle the space suit's cell cover
 /obj/item/clothing/suit/space/proc/toggle_spacesuit_cell(mob/user)
 	cell_cover_open = !cell_cover_open
-	to_chat(user, "<span class='notice'>You [cell_cover_open ? "open" : "close"] the cell cover on \the [src].</span>")
+	to_chat(user, "<span class='notice'>You [cell_cover_open ? "open" : "close"] the cell cover on <b>[src.name]</b>.</span>")
 
 /// Toggle the space suit's thermal regulator status
 /obj/item/clothing/suit/space/proc/toggle_spacesuit()
@@ -202,13 +202,13 @@
 	// thermal protection value and should just return out early.
 	var/mob/living/carbon/human/user = src.loc
 	if(!thermal_on && !(cell && cell.charge >= THERMAL_REGULATOR_COST))
-		to_chat(user, "<span class='warning'>The thermal regulator on \the [src] has no charge.</span>")
+		to_chat(user, "<span class='warning'>The thermal regulator on <b>[src.name]</b> has no charge.</span>")
 		return
 
 	thermal_on = !thermal_on
 	min_cold_protection_temperature = thermal_on ? SPACE_SUIT_MIN_TEMP_PROTECT : SPACE_SUIT_MIN_TEMP_PROTECT_OFF
 	if(user)
-		to_chat(user, "<span class='notice'>You turn [thermal_on ? "on" : "off"] \the [src]'s thermal regulator.</span>")
+		to_chat(user, "<span class='notice'>You turn [thermal_on ? "on" : "off"] <b>[src.name]</b>'s thermal regulator.</span>")
 	SEND_SIGNAL(src, COMSIG_SUIT_SPACE_TOGGLE)
 
 // let emags override the temperature settings

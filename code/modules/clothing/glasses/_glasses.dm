@@ -19,7 +19,7 @@
 	var/glass_colour_type //colors your vision when worn
 
 /obj/item/clothing/glasses/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] тычет \the [src] в [user.ru_ego()] глаза! Выглядит так, будто [user.p_theyre()] пытается покончить с собой!</span>")
+	user.visible_message("<span class='suicide'>[user] тычет <b>[src.name]</b> в [user.ru_ego()] глаза! Выглядит так, будто [user.p_theyre()] пытается покончить с собой!</span>")
 	return BRUTELOSS
 
 /obj/item/clothing/glasses/examine(mob/user)
@@ -108,7 +108,7 @@
 	REMOVE_TRAIT(user, TRAIT_SUPERMATTER_MADNESS_IMMUNE, CLOTHING_TRAIT)
 
 /obj/item/clothing/glasses/meson/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] is putting \the [src] to [user.ru_ego()] eyes and overloading the brightness! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] is putting <b>[src.name]</b> to [user.ru_ego()] eyes and overloading the brightness! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return BRUTELOSS
 
 /obj/item/clothing/glasses/meson/night
@@ -160,7 +160,7 @@
 	glass_colour_type = /datum/client_colour/glass_colour/green
 
 /obj/item/clothing/glasses/science/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] is tightening \the [src]'s straps around [user.ru_ego()] neck! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] is tightening <b>[src.name]</b>'s straps around [user.ru_ego()] neck! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return OXYLOSS
 
 /obj/item/clothing/glasses/eyepatch

@@ -105,9 +105,9 @@
 	if(..())
 		return
 	if(ispath(finished_obj))
-		to_chat(user, "<span class='notice'>You start tightening the screws on \the [src].</span>")
+		to_chat(user, "<span class='notice'>You start tightening the screws on <b>[src.name]</b>.</span>")
 		if (I.use_tool(src, user, 2 SECONDS, volume=50))
-			to_chat(user, "<span class='notice'>You tighten the last screws on \the [src].</span>")
+			to_chat(user, "<span class='notice'>You tighten the last screws on <b>[src.name]</b>.</span>")
 			new finished_obj(drop_location())
 			qdel(src)
 		return
@@ -117,7 +117,7 @@
 	. = TRUE
 	if(..())
 		return
-	to_chat(user, "<span class='notice'>You start to dismantle \the [src]...</span>")
+	to_chat(user, "<span class='notice'>You start to dismantle <b>[src.name]</b>...</span>")
 	if (I.use_tool(src, user, 2 SECONDS, volume=50))
-		to_chat(user, "<span class='notice'>You dismantle \the [src].</span>")
+		to_chat(user, "<span class='notice'>You dismantle <b>[src.name]</b>.</span>")
 		deconstruct()

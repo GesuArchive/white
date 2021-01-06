@@ -522,7 +522,7 @@
 				return
 
 			if(W.tool_behaviour == TOOL_WRENCH)
-				to_chat(user, "<span class='notice'>You detach \the [src] from the wall.</span>")
+				to_chat(user, "<span class='notice'>You detach <b>[src.name]</b> from the wall.</span>")
 				W.play_tool_sound(src)
 				new /obj/item/wallframe/advanced_airlock_controller( user.loc )
 				qdel(src)

@@ -514,17 +514,17 @@ GENE SCANNER
 		playsound(src, 'sound/machines/ping.ogg', 50, FALSE)
 		var/list/encouragements = list("briefly displays a happy face, gazing emptily at you", "briefly displays a spinning cartoon heart", "displays an encouraging message about eating healthy and exercising", \
 				"reminds you that everyone is doing their best", "displays a message wishing you well", "displays a sincere thank-you for your interest in first-aid", "formally absolves you of all your sins")
-		to_chat(user, "<span class='notice'>\The [src] makes a happy ping and [pick(encouragements)]!</span>")
+		to_chat(user, "<span class='notice'><b>[src.name]</b> makes a happy ping and [pick(encouragements)]!</span>")
 		next_encouragement = world.time + 10 SECONDS
 		greedy = FALSE
 	else if(!greedy)
-		to_chat(user, "<span class='warning'>\The [src] displays an eerily high-definition frowny face, chastizing you for asking it for too much encouragement.</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> displays an eerily high-definition frowny face, chastizing you for asking it for too much encouragement.</span>")
 		greedy = TRUE
 	else
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
 		if(isliving(user))
 			var/mob/living/L = user
-			to_chat(L, "<span class='warning'>\The [src] makes a disappointed buzz and pricks your finger for being greedy. Ow!</span>")
+			to_chat(L, "<span class='warning'><b>[src.name]</b> makes a disappointed buzz and pricks your finger for being greedy. Ow!</span>")
 			L.adjustBruteLoss(4)
 			L.dropItemToGround(src)
 
@@ -534,7 +534,7 @@ GENE SCANNER
 
 	if(!istype(patient))
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
-		to_chat(user, "<span class='notice'>\The [src] makes a sad buzz and briefly displays a frowny face, indicating it can't scan [patient].</span>")
+		to_chat(user, "<span class='notice'><b>[src.name]</b> makes a sad buzz and briefly displays a frowny face, indicating it can't scan [patient].</span>")
 		return
 
 	woundscan(user, patient, src)

@@ -39,7 +39,7 @@
 			return
 
 		var/trans = A.reagents.trans_to(src, 50, transfered_by = user) //transfer 50u , using the spray's transfer amount would take too long to refill
-		to_chat(user, "<span class='notice'>You fill \the [src] with [trans] units of the contents of \the [A].</span>")
+		to_chat(user, "<span class='notice'>You fill <b>[src.name]</b> with [trans] units of the contents of \the [A].</span>")
 		return
 
 	if(reagents.total_volume < amount_per_transfer_from_this)
@@ -56,7 +56,7 @@
 	var/contained = reagents.log_list()
 
 	log_combat(user, T, "sprayed", src, addition="which had [contained]")
-	log_game("[key_name(user)] fired [contained] from \a [src] at [AREACOORD(T)].") //copypasta falling out of my pockets
+	log_game("[key_name(user)] fired [contained] from <b>[src.name]</b> at [AREACOORD(T)].") //copypasta falling out of my pockets
 	return
 
 
@@ -140,7 +140,7 @@
 	if (alert(usr, "Are you sure you want to empty that?", "Empty Bottle:", "Yes", "No") != "Yes")
 		return
 	if(isturf(usr.loc) && src.loc == usr)
-		to_chat(usr, "<span class='notice'>You empty \the [src] onto the floor.</span>")
+		to_chat(usr, "<span class='notice'>You empty <b>[src.name]</b> onto the floor.</span>")
 		reagents.expose(usr.loc)
 		src.reagents.clear_reagents()
 
@@ -175,14 +175,14 @@
 	stream_amount = 5
 
 /obj/item/reagent_containers/spray/cleaner/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is putting the nozzle of \the [src] in [user.ru_ego()] mouth. It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] is putting the nozzle of <b>[src.name]</b> in [user.ru_ego()] mouth. It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	if(do_mob(user,user,30))
 		if(reagents.total_volume >= amount_per_transfer_from_this)//if not empty
 			user.visible_message("<span class='suicide'>[user] pulls the trigger!</span>")
 			src.spray(user)
 			return BRUTELOSS
 		else
-			user.visible_message("<span class='suicide'>[user] pulls the trigger...but \the [src] is empty!</span>")
+			user.visible_message("<span class='suicide'>[user] pulls the trigger...but <b>[src.name]</b> is empty!</span>")
 			return SHAME
 	else
 		user.visible_message("<span class='suicide'>[user] decided life was worth living.</span>")
@@ -214,7 +214,7 @@
 	list_reagents = null
 
 /obj/item/reagent_containers/spray/pepper/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins huffing \the [src]! It looks like [user.p_theyre()] getting a dirty high!</span>")
+	user.visible_message("<span class='suicide'>[user] begins huffing <b>[src.name]</b>! It looks like [user.p_theyre()] getting a dirty high!</span>")
 	return OXYLOSS
 
 // Fix pepperspraying yourself

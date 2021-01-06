@@ -48,7 +48,7 @@
 /obj/machinery/electrolyzer/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	. += "\The [src] is [on ? "on" : "off"], and the hatch is [panel_open ? "open" : "closed"]."
+	. += "<b>[src.name]</b> is [on ? "on" : "off"], and the hatch is [panel_open ? "open" : "closed"]."
 
 	if(cell)
 		. += "</br>The charge meter reads [cell ? round(cell.percent(), 1) : 0]%."
@@ -132,13 +132,13 @@
 		cell = I
 		I.add_fingerprint(usr)
 
-		user.visible_message("<span class='notice'>\The [user] inserts a power cell into \the [src].</span>", "<span class='notice'>You insert the power cell into \the [src].</span>")
+		user.visible_message("<span class='notice'>\The [user] inserts a power cell into <b>[src.name]</b>.</span>", "<span class='notice'>You insert the power cell into <b>[src.name]</b>.</span>")
 		SStgui.update_uis(src)
 
 		return
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		panel_open = !panel_open
-		user.visible_message("<span class='notice'>\The [user] [panel_open ? "opens" : "closes"] the hatch on \the [src].</span>", "<span class='notice'>You [panel_open ? "open" : "close"] the hatch on \the [src].</span>")
+		user.visible_message("<span class='notice'>\The [user] [panel_open ? "opens" : "closes"] the hatch on <b>[src.name]</b>.</span>", "<span class='notice'>You [panel_open ? "open" : "close"] the hatch on <b>[src.name]</b>.</span>")
 		update_icon()
 		return
 	if(default_deconstruction_crowbar(I))
@@ -171,7 +171,7 @@
 		if("power")
 			on = !on
 			mode = ELECTROLYZER_MODE_STANDBY
-			usr.visible_message("<span class='notice'>[usr] switches [on ? "on" : "off"] \the [src].</span>", "<span class='notice'>You switch [on ? "on" : "off"] \the [src].</span>")
+			usr.visible_message("<span class='notice'>[usr] switches [on ? "on" : "off"] <b>[src.name]</b>.</span>", "<span class='notice'>You switch [on ? "on" : "off"] <b>[src.name]</b>.</span>")
 			update_icon()
 			if (on)
 				START_PROCESSING(SSmachines, src)

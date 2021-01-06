@@ -33,7 +33,7 @@
 	armed = TRUE
 	icon_state = "uglymine"
 	playsound(src, 'sound/machines/nuke/angry_beep.ogg', 40, FALSE, -2)
-	visible_message("<span class='danger'>\The [src] beeps softly, indicating it is now active.<span>", vision_distance = COMBAT_MESSAGE_RANGE)
+	visible_message("<span class='danger'><b>[src.name]</b> beeps softly, indicating it is now active.<span>", vision_distance = COMBAT_MESSAGE_RANGE)
 
 /obj/effect/mine/Crossed(atom/movable/AM)
 	if(triggered || !isturf(loc) || !armed)
@@ -273,7 +273,7 @@
 		user_human.throw_mode_on()
 
 	playsound(src, 'sound/weapons/armbomb.ogg', 70, TRUE)
-	to_chat(user, "<span class='warning'>You arm \the [src], causing it to shake! It will deploy in 3 seconds.</span>")
+	to_chat(user, "<span class='warning'>You arm <b>[src.name]</b>, causing it to shake! It will deploy in 3 seconds.</span>")
 	active = TRUE
 	addtimer(CALLBACK(src, .proc/deploy_mine), 3 SECONDS)
 
@@ -282,7 +282,7 @@
 	do_alert_animation()
 	playsound(loc, 'sound/machines/chime.ogg', 30, FALSE, -3)
 	var/obj/effect/mine/new_mine = new mine_type(get_turf(src))
-	visible_message("<span class='danger'>\The [src] releases a puff of smoke, revealing \a [new_mine]!</span>")
+	visible_message("<span class='danger'><b>[src.name]</b> releases a puff of smoke, revealing \a [new_mine]!</span>")
 	var/obj/effect/particle_effect/smoke/poof = new (get_turf(src))
 	poof.lifetime = 3
 	qdel(src)

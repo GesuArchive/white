@@ -111,7 +111,7 @@
 		storedpart.icon = style_list_icons[choice]
 		eject_part(user)
 	else
-		to_chat(user, "<span class='warning'>\The [src] is empty!</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> is empty!</span>")
 
 /**
  * Checks if we are allowed to interact with a radial menu

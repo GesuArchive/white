@@ -1005,7 +1005,7 @@
 
 	var/mob/living/brain/B = M.brainmob
 	if(!user.transferItemToLoc(M, src))
-		to_chat(user, "<span class='warning'>\the [M] is stuck to your hand, you cannot put it in \the [src]!</span>")
+		to_chat(user, "<span class='warning'>\the [M] is stuck to your hand, you cannot put it in <b>[src.name]</b>!</span>")
 		return FALSE
 
 	M.set_mecha(src)

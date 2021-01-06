@@ -129,7 +129,7 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sortList(list(
 			return
 	if(istype(I, /obj/item/light_eater))
 		var/obj/effect/decal/cleanable/ash/A = new /obj/effect/decal/cleanable/ash(drop_location())
-		A.desc += "\nLooks like this used to be \a [src] some time ago."
+		A.desc += "\nLooks like this used to be <b>[src.name]</b> some time ago."
 		visible_message("<span class='danger'>[capitalize(src.name)] is disintegrated by [I]!</span>")
 		playsound(src, 'sound/items/welder.ogg', 50, TRUE)
 		qdel(src)

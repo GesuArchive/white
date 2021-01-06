@@ -170,7 +170,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return
 	if(istype(glass))	//you can dip cigarettes into beakers
 		if(glass.reagents.trans_to(src, chem_volume, transfered_by = user))	//if reagents were transfered, show the message
-			to_chat(user, "<span class='notice'>You dip \the [src] into \the [glass].</span>")
+			to_chat(user, "<span class='notice'>You dip <b>[src.name]</b> into \the [glass].</span>")
 		else			//if not, either the beaker was empty, or the cigarette was full
 			if(!glass.reagents.total_volume)
 				to_chat(user, "<span class='warning'>[glass] is empty!</span>")
@@ -283,7 +283,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/cigarette/attack_self(mob/user)
 	if(lit)
-		user.visible_message("<span class='notice'>[user] calmly drops and treads on \the [src], putting it out instantly.</span>")
+		user.visible_message("<span class='notice'>[user] calmly drops and treads on <b>[src.name]</b>, putting it out instantly.</span>")
 		new type_butt(user.loc)
 		new /obj/effect/decal/cleanable/ash(user.loc)
 		qdel(src)
@@ -651,11 +651,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/lighter/suicide_act(mob/living/carbon/user)
 	if (lit)
-		user.visible_message("<span class='suicide'>[user] begins holding \the [src]'s flame up to [user.ru_ego()] face! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message("<span class='suicide'>[user] begins holding <b>[src.name]</b>'s flame up to [user.ru_ego()] face! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 		playsound(src, 'sound/items/welder.ogg', 50, TRUE)
 		return FIRELOSS
 	else
-		user.visible_message("<span class='suicide'>[user] begins whacking [user.ru_na()]self with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message("<span class='suicide'>[user] begins whacking [user.ru_na()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 		return BRUTELOSS
 
 /obj/item/lighter/update_overlays()

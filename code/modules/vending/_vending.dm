@@ -1149,7 +1149,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		var/obj/item/card/id/C = L.get_idcard(TRUE)
 		if(C?.registered_account)
 			private_a = C.registered_account
-			say("\The [src] has been linked to [C].")
+			say("<b>[src.name]</b> has been linked to [C].")
 
 	if(compartmentLoadAccessCheck(user))
 		if(istype(I, /obj/item/pen))

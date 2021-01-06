@@ -627,7 +627,7 @@
 	if(..())
 		return TRUE
 	if(being_built)
-		to_chat(user, "<span class='warning'>\The [src] is currently processing! Please wait until completion.</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> is currently processing! Please wait until completion.</span>")
 		return FALSE
 	return default_deconstruction_screwdriver(user, "fab-o", "fab-idle", I)
 
@@ -635,7 +635,7 @@
 	if(..())
 		return TRUE
 	if(being_built)
-		to_chat(user, "<span class='warning'>\The [src] is currently processing! Please wait until completion.</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> is currently processing! Please wait until completion.</span>")
 		return FALSE
 	return default_deconstruction_crowbar(I)
 
@@ -644,7 +644,7 @@
 		to_chat(user, "<span class='warning'>You can't load [src] while it's opened!</span>")
 		return FALSE
 	if(being_built)
-		to_chat(user, "<span class='warning'>\The [src] is currently processing! Please wait until completion.</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> is currently processing! Please wait until completion.</span>")
 		return FALSE
 
 	return TRUE

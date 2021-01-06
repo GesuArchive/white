@@ -308,7 +308,7 @@
 		if (health >= maxHealth)
 			to_chat(src, "<span class='warning'>You feel fine, no need to eat anything!</span>")
 			return
-		to_chat(src, "<span class='green'>You eat \the [src], restoring some health.</span>")
+		to_chat(src, "<span class='green'>You eat <b>[src.name]</b>, restoring some health.</span>")
 		heal_bodypart_damage(MINOR_HEAL)
 		qdel(target)
 

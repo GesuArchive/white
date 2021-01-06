@@ -337,7 +337,7 @@
 	if(istype(O, /obj/item/reagent_containers))
 		var/obj/item/reagent_containers/RG = O
 		if(reagents.total_volume <= 0)
-			to_chat(user, "<span class='notice'>\The [src] is dry.</span>")
+			to_chat(user, "<span class='notice'><b>[src.name]</b> is dry.</span>")
 			return FALSE
 		if(RG.is_refillable())
 			if(!RG.reagents.holder_full())
@@ -362,7 +362,7 @@
 
 	if(istype(O, /obj/item/mop))
 		if(reagents.total_volume <= 0)
-			to_chat(user, "<span class='notice'>\The [src] is dry.</span>")
+			to_chat(user, "<span class='notice'><b>[src.name]</b> is dry.</span>")
 			return FALSE
 		reagents.trans_to(O, 5, transfered_by = user)
 		begin_reclamation()

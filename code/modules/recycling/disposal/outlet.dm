@@ -92,7 +92,7 @@
 
 /obj/structure/disposaloutlet/multitool_act(mob/living/user, obj/item/I)
 	. = ..()
-	to_chat(user, "<span class='notice'>You adjust the ejection force on \the [src].</span>")
+	to_chat(user, "<span class='notice'>You adjust the ejection force on <b>[src.name]</b>.</span>")
 	switch(eject_speed)
 		if(EJECT_SPEED_SLOW)
 			eject_speed = EJECT_SPEED_MED
@@ -111,5 +111,5 @@
 	. = ..()
 	if(obj_flags & EMAGGED)
 		return
-	to_chat(user, "<span class='notice'>You silently disable the sanity checking on \the [src]'s ejection force.</span>")
+	to_chat(user, "<span class='notice'>You silently disable the sanity checking on <b>[src.name]</b>'s ejection force.</span>")
 	obj_flags |= EMAGGED

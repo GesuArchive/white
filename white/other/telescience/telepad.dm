@@ -54,10 +54,10 @@
 		playsound(src, 'sound/items/Ratchet.ogg', 50, 1)
 		if(anchored)
 			anchored = 0
-			to_chat(user, "<span class='caution'>\The [src] can now be moved.</span>")
+			to_chat(user, "<span class='caution'><b>[src.name]</b> can now be moved.</span>")
 		else if(!anchored)
 			anchored = 1
-			to_chat(user, "<span class='caution'>\The [src] is now secured.</span>")
+			to_chat(user, "<span class='caution'><b>[src.name]</b> is now secured.</span>")
 	else if(istype(W, /obj/item/screwdriver))
 		if(stage == 0)
 			playsound(src, W.usesound, 50, 1)

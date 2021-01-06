@@ -385,10 +385,10 @@ This section is for the destabilized SM
 		if(!injector.filled)
 			to_chat(user, "<span class='notice'>\The [W] is empty!</span>")
 			return
-		to_chat(user, "<span class='notice'>You carefully begin injecting \the [src] with \the [W]... take care not to move until all the steps are finished!</span>")
+		to_chat(user, "<span class='notice'>You carefully begin injecting <b>[src.name]</b> with \the [W]... take care not to move until all the steps are finished!</span>")
 		if(!W.use_tool(src, user, 1 SECONDS, volume = 100))
 			return
-		to_chat(user, "<span class='notice'>Seems that \the [src] internal resonance is fading with the fluid!</span>")
+		to_chat(user, "<span class='notice'>Seems that <b>[src.name]</b> internal resonance is fading with the fluid!</span>")
 		playsound(get_turf(src), 'sound/effects/supermatter.ogg', 35, TRUE)
 		if(!W.use_tool(src, user, 1.5 SECONDS, volume = 100))
 			return
@@ -417,8 +417,8 @@ This section is for the destabilized SM
 	var/mob/living/user = movable_atom
 	if(isnull(user.mind))
 		return
-	movable_atom.visible_message("<span class='danger'>\The [movable_atom] slams into \the [src] inducing a resonance... [movable_atom.ru_ego()] body starts to glow and burst into flames before flashing into dust!</span>",\
-	"<span class='userdanger'>You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
+	movable_atom.visible_message("<span class='danger'>\The [movable_atom] slams into <b>[src.name]</b> inducing a resonance... [movable_atom.ru_ego()] body starts to glow and burst into flames before flashing into dust!</span>",\
+	"<span class='userdanger'>You slam into <b>[src.name]</b> as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
 	"<span class='hear'>You hear an unearthly noise as a wave of heat washes over you.</span>")
 	playsound(get_turf(src), 'sound/effects/supermatter.ogg', 50, TRUE)
 	consume(movable_atom)
@@ -571,9 +571,9 @@ This section is for the crystal portals variations
 	if((W.item_flags & ABSTRACT) || !istype(user))
 		return
 	if(istype(W, /obj/item/anomaly_neutralizer))
-		to_chat(user, "<span class='notice'>You start closing \the [src]...</span>")
+		to_chat(user, "<span class='notice'>You start closing <b>[src.name]</b>...</span>")
 		if(W.use_tool(src, user, 5.5 SECONDS, volume = 100))
-			to_chat(user, "<span class='notice'>You successfully close \the [src]!</span>")
+			to_chat(user, "<span class='notice'>You successfully close <b>[src.name]</b>!</span>")
 			closed = TRUE
 			qdel(src)
 	if(W.tool_behaviour == TOOL_ANALYZER)

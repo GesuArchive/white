@@ -258,7 +258,7 @@
 				var/obj/vehicle/ridden_vehicle = L.buckled
 				if(!ridden_vehicle.are_legs_exposed) //close the trap without injuring/trapping the rider if their legs are inside the vehicle at all times.
 					close_trap()
-					ridden_vehicle.visible_message("<span class='danger'>[ridden_vehicle] triggers \the [src].</span>")
+					ridden_vehicle.visible_message("<span class='danger'>[ridden_vehicle] triggers <b>[src.name]</b>.</span>")
 					return ..()
 
 			if(L.movement_type & (FLYING|FLOATING)) //don't close the trap if they're flying/floating over it.
@@ -281,8 +281,8 @@
 					snap = FALSE
 			if(snap)
 				close_trap()
-				L.visible_message("<span class='danger'>[L] triggers \the [src].</span>", \
-						"<span class='userdanger'>You trigger \the [src]!</span>")
+				L.visible_message("<span class='danger'>[L] triggers <b>[src.name]</b>.</span>", \
+						"<span class='userdanger'>You trigger <b>[src.name]</b>!</span>")
 				L.apply_damage(trap_damage, BRUTE, def_zone)
 	..()
 
@@ -340,13 +340,13 @@
  */
 /obj/item/restraints/legcuffs/bola/proc/ensnare(mob/living/carbon/C)
 	if(!C.legcuffed && C.num_legs >= 2)
-		visible_message("<span class='danger'>\The [src] ensnares [C]!</span>")
+		visible_message("<span class='danger'><b>[src.name]</b> ensnares [C]!</span>")
 		C.legcuffed = src
 		forceMove(C)
 		C.update_equipment_speed_mods()
 		C.update_inv_legcuffed()
 		SSblackbox.record_feedback("tally", "handcuffs", 1, type)
-		to_chat(C, "<span class='userdanger'>\The [src] ensnares you!</span>")
+		to_chat(C, "<span class='userdanger'><b>[src.name]</b> ensnares you!</span>")
 		C.Knockdown(knockdown)
 		playsound(src, 'sound/effects/snap.ogg', 50, TRUE)
 

@@ -155,7 +155,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	. += GLOB.metal_recipes
 
 /obj/item/stack/sheet/metal/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] начинает лупить [user.ru_na()]себя по голове \the [src]! Похоже на то, что [user.p_theyre()] пытается покончить с собой!</span>")
+	user.visible_message("<span class='suicide'>[user] начинает лупить [user.ru_na()]себя по голове <b>[src.name]</b>! Похоже на то, что [user.p_theyre()] пытается покончить с собой!</span>")
 	return BRUTELOSS
 
 /*

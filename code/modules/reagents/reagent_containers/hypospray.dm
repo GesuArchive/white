@@ -116,7 +116,7 @@
 	custom_premium_price = PAYCHECK_HARD
 
 /obj/item/reagent_containers/hypospray/medipen/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins to choke on \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] begins to choke on <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return OXYLOSS//ironic. he could save others from oxyloss, but not himself.
 
 /obj/item/reagent_containers/hypospray/medipen/inject(mob/living/M, mob/user)
@@ -232,7 +232,7 @@
 		return ..()
 
 	if(DOING_INTERACTION(user, DOAFTER_SOURCE_SURVIVALPEN))
-		to_chat(user,"<span class='notice'>You are too busy to use \the [src]!</span>")
+		to_chat(user,"<span class='notice'>You are too busy to use <b>[src.name]</b>!</span>")
 		return
 
 	to_chat(user,"<span class='notice'>You start manually releasing the low-pressure gauge...</span>")

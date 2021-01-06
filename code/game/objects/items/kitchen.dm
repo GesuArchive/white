@@ -36,7 +36,7 @@
 	custom_price = PAYCHECK_PRISONER
 
 /obj/item/kitchen/fork/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] stabs \the [src] into [user.ru_ego()] chest! It looks like [user.p_theyre()] trying to take a bite out of [user.ru_na()]self!</span>")
+	user.visible_message("<span class='suicide'>[user] stabs <b>[src.name]</b> into [user.ru_ego()] chest! It looks like [user.p_theyre()] trying to take a bite out of [user.ru_na()]self!</span>")
 	playsound(src, 'sound/items/eatfood.ogg', 50, TRUE)
 	return BRUTELOSS
 
@@ -252,7 +252,7 @@
 	custom_materials = null
 
 /obj/item/kitchen/knife/shiv/carrot/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] forcefully drives \the [src] into [user.ru_ego()] eye! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] forcefully drives <b>[src.name]</b> into [user.ru_ego()] eye! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return BRUTELOSS
 
 /obj/item/kitchen/rollingpin
@@ -272,7 +272,7 @@
 	tool_behaviour = TOOL_ROLLINGPIN
 
 /obj/item/kitchen/rollingpin/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins flattening [user.ru_ego()] head with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] begins flattening [user.ru_ego()] head with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return BRUTELOSS
 /* Trays  moved to /obj/item/storage/bag */
 

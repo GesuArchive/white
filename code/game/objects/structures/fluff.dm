@@ -264,9 +264,9 @@
 
 /obj/structure/fluff/hedge/attacked_by(obj/item/I, mob/living/user)
 	if(opacity && HAS_TRAIT(user, TRAIT_BONSAI) && I.get_sharpness())
-		to_chat(user,"<span class='notice'>You start trimming \the [src].</span>")
+		to_chat(user,"<span class='notice'>You start trimming <b>[src.name]</b>.</span>")
 		if(do_after(user, 3 SECONDS,target=src))
-			to_chat(user,"<span class='notice'>You finish trimming \the [src].</span>")
+			to_chat(user,"<span class='notice'>You finish trimming <b>[src.name]</b>.</span>")
 			opacity = FALSE
 	else
 		return ..()

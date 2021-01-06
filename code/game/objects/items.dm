@@ -779,7 +779,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		var/obj/effect/decal/cleanable/molten_object/MO = new(T)
 		MO.pixel_x = rand(-16,16)
 		MO.pixel_y = rand(-16,16)
-		MO.desc = "Looks like this was \an [src] some time ago."
+		MO.desc = "Looks like this was <b>[src.name]</b> some time ago."
 		..()
 
 /obj/item/proc/microwave_act(obj/machinery/microwave/M)

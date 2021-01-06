@@ -153,7 +153,7 @@
 	for(var/datum/track/S in songs)
 		if(!data["songs"][S.song_category])
 			data["songs"][S.song_category] = list (
-				"name" = S.song_category,
+				"name" 	 = S.song_category,
 				"tracks" = list()
 			)
 		data["songs"][S.song_category]["tracks"] += list(list(
@@ -163,7 +163,15 @@
 		))
 
 	if(disk)
-		data["songs"]["DISC"]["tracks"] += list(list("name" = disk.track.song_name, "short_name" = disk.track.short_name, "length_t" = "?:??"))
+		data["songs"]["ДИСК"] = list (
+			"name" 	 = S.song_category,
+			"tracks" = list()
+		)
+		data["songs"]["ДИСК"]["tracks"] += list(list(
+			"name" 		 = disk.track.song_name,
+			"short_name" = disk.track.short_name,
+			"length_t" 	 = "?:??"
+		))
 
 	data["disk"] = disk ? TRUE : FALSE
 	data["disktrack"] = disk && disk.track ? disk.track.song_name : FALSE

@@ -304,7 +304,7 @@ RLD
 		else
 			window_type = /obj/structure/window/fulltile
 
-	to_chat(user, "<span class='notice'>You change \the [src]'s window mode to [window_size] [window_glass] window.</span>")
+	to_chat(user, "<span class='notice'>You change <b>[src.name]</b>'s window mode to [window_size] [window_glass] window.</span>")
 
 /obj/item/construction/rcd/proc/toggle_silo_link(mob/user)
 	if(silo_mats)
@@ -312,9 +312,9 @@ RLD
 			to_chat(user, "<span class='alert'>No silo link detected. Connect to silo via multitool.</span>")
 			return FALSE
 		silo_link = !silo_link
-		to_chat(user, "<span class='notice'>You change \the [src]'s storage link state: [silo_link ? "ON" : "OFF"].</span>")
+		to_chat(user, "<span class='notice'>You change <b>[src.name]</b>'s storage link state: [silo_link ? "ON" : "OFF"].</span>")
 	else
-		to_chat(user, "<span class='warning'>\the [src] doesn't have remote storage connection.</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> doesn't have remote storage connection.</span>")
 
 /obj/item/construction/rcd/proc/get_airlock_image(airlock_type)
 	var/obj/machinery/door/airlock/proto = airlock_type

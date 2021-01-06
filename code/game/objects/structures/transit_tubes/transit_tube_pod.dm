@@ -31,7 +31,7 @@
 		if(!moving)
 			I.play_tool_sound(src)
 			if(contents.len)
-				user.visible_message("<span class='notice'>[user] empties \the [src].</span>", "<span class='notice'>You empty \the [src].</span>")
+				user.visible_message("<span class='notice'>[user] empties <b>[src.name]</b>.</span>", "<span class='notice'>You empty <b>[src.name]</b>.</span>")
 				empty_pod()
 			else
 				deconstruct(TRUE, user)

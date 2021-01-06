@@ -14,7 +14,7 @@
 		user.transferItemToLoc(W, src)
 	else if(SEND_SIGNAL(W, COMSIG_CONTAINS_STORAGE))
 		SEND_SIGNAL(W, COMSIG_TRY_STORAGE_TAKE_TYPE, /obj/item/stack/ore, src)
-		to_chat(user, "<span class='notice'>You empty the ore in [W] into \the [src].</span>")
+		to_chat(user, "<span class='notice'>You empty the ore in [W] into <b>[src.name]</b>.</span>")
 	else
 		return ..()
 
@@ -24,8 +24,8 @@
 
 /obj/structure/ore_box/crowbar_act(mob/living/user, obj/item/I)
 	if(I.use_tool(src, user, 50, volume=50))
-		user.visible_message("<span class='notice'>[user] pries \the [src] apart.</span>",
-			"<span class='notice'>You pry apart \the [src].</span>",
+		user.visible_message("<span class='notice'>[user] pries <b>[src.name]</b> apart.</span>",
+			"<span class='notice'>You pry apart <b>[src.name]</b>.</span>",
 			"<span class='hear'>You hear splitting wood.</span>")
 		deconstruct(TRUE, user)
 	return TRUE

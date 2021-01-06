@@ -70,7 +70,7 @@
 		P.add_fingerprint(user)
 		P.forceMove(user.loc)
 		user.put_in_hands(P)
-		to_chat(user, "<span class='notice'>You take [P] out of \the [src].</span>")
+		to_chat(user, "<span class='notice'>You take [P] out of <b>[src.name]</b>.</span>")
 		bin_pen = null
 		update_icon()
 	else if(total_paper >= 1)
@@ -91,7 +91,7 @@
 		P.add_fingerprint(user)
 		P.forceMove(user.loc)
 		user.put_in_hands(P)
-		to_chat(user, "<span class='notice'>You take [P] out of \the [src].</span>")
+		to_chat(user, "<span class='notice'>You take [P] out of <b>[src.name]</b>.</span>")
 	else
 		to_chat(user, "<span class='warning'>[capitalize(src.name)] is empty!</span>")
 	add_fingerprint(user)
@@ -159,7 +159,7 @@
 
 /obj/item/paper_bin/bundlenatural/attackby(obj/item/W, mob/user)
 	if(W.get_sharpness())
-		to_chat(user, "<span class='notice'>You snip \the [src], spilling paper everywhere.</span>")
+		to_chat(user, "<span class='notice'>You snip <b>[src.name]</b>, spilling paper everywhere.</span>")
 		var/turf/T = get_turf(src.loc)
 		while(total_paper > 0)
 			total_paper--

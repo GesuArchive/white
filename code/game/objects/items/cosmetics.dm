@@ -33,7 +33,7 @@
 
 /obj/item/lipstick/attack_self(mob/user)
 	cut_overlays()
-	to_chat(user, "<span class='notice'>You twist \the [src] [open ? "closed" : "open"].</span>")
+	to_chat(user, "<span class='notice'>You twist <b>[src.name]</b> [open ? "closed" : "open"].</span>")
 	open = !open
 	if(open)
 		var/mutable_appearance/colored_overlay = mutable_appearance(icon, "lipstick_uncap_color")
@@ -59,17 +59,17 @@
 			to_chat(user, "<span class='warning'>You need to wipe off the old lipstick first!</span>")
 			return
 		if(H == user)
-			user.visible_message("<span class='notice'>[user] does [user.ru_ego()] lips with \the [src].</span>", \
-				"<span class='notice'>You take a moment to apply \the [src]. Perfect!</span>")
+			user.visible_message("<span class='notice'>[user] does [user.ru_ego()] lips with <b>[src.name]</b>.</span>", \
+				"<span class='notice'>You take a moment to apply <b>[src.name]</b>. Perfect!</span>")
 			H.lip_style = "lipstick"
 			H.lip_color = colour
 			H.update_body()
 		else
-			user.visible_message("<span class='warning'>[user] begins to do [H]'s lips with \the [src].</span>", \
-				"<span class='notice'>You begin to apply \the [src] on [H]'s lips...</span>")
+			user.visible_message("<span class='warning'>[user] begins to do [H]'s lips with <b>[src.name]</b>.</span>", \
+				"<span class='notice'>You begin to apply <b>[src.name]</b> on [H]'s lips...</span>")
 			if(do_after(user, 20, target = H))
-				user.visible_message("<span class='notice'>[user] does [H]'s lips with \the [src].</span>", \
-					"<span class='notice'>You apply \the [src] on [H]'s lips.</span>")
+				user.visible_message("<span class='notice'>[user] does [H]'s lips with <b>[src.name]</b>.</span>", \
+					"<span class='notice'>You apply <b>[src.name]</b> on [H]'s lips.</span>")
 				H.lip_style = "lipstick"
 				H.lip_color = colour
 				H.update_body()
@@ -89,10 +89,10 @@
 				H.lip_style = null
 				H.update_body()
 			else
-				user.visible_message("<span class='warning'>[user] begins to wipe [H]'s lipstick off with \the [src].</span>", \
+				user.visible_message("<span class='warning'>[user] begins to wipe [H]'s lipstick off with <b>[src.name]</b>.</span>", \
 					"<span class='notice'>You begin to wipe off [H]'s lipstick...</span>")
 				if(do_after(user, 10, target = H))
-					user.visible_message("<span class='notice'>[user] wipes [H]'s lipstick off with \the [src].</span>", \
+					user.visible_message("<span class='notice'>[user] wipes [H]'s lipstick off with <b>[src.name]</b>.</span>", \
 						"<span class='notice'>You wipe off [H]'s lipstick.</span>")
 					H.lip_style = null
 					H.update_body()

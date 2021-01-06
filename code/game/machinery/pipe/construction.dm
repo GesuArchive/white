@@ -155,8 +155,8 @@ Buildable meters
 
 	W.play_tool_sound(src)
 	user.visible_message( \
-		"[user] fastens \the [src].", \
-		"<span class='notice'>You fasten \the [src].</span>", \
+		"[user] fastens <b>[src.name]</b>.", \
+		"<span class='notice'>You fasten <b>[src.name]</b>.</span>", \
 		"<span class='hear'>You hear ratcheting.</span>")
 
 	qdel(src)

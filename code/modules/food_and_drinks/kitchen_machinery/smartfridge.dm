@@ -87,12 +87,12 @@
 	if(!machine_stat)
 
 		if(contents.len >= max_n_of_items)
-			to_chat(user, "<span class='warning'>\The [src] is full!</span>")
+			to_chat(user, "<span class='warning'><b>[src.name]</b> is full!</span>")
 			return FALSE
 
 		if(accept_check(O))
 			load(O)
-			user.visible_message("<span class='notice'>[user] adds \the [O] to \the [src].</span>", "<span class='notice'>You add \the [O] to \the [src].</span>")
+			user.visible_message("<span class='notice'>[user] adds \the [O] to <b>[src.name]</b>.</span>", "<span class='notice'>You add \the [O] to <b>[src.name]</b>.</span>")
 			updateUsrDialog()
 			if (visible_contents)
 				update_icon()
@@ -111,11 +111,11 @@
 
 			if(loaded)
 				if(contents.len >= max_n_of_items)
-					user.visible_message("<span class='notice'>[user] loads \the [src] with \the [O].</span>", \
-						"<span class='notice'>You fill \the [src] with \the [O].</span>")
+					user.visible_message("<span class='notice'>[user] loads <b>[src.name]</b> with \the [O].</span>", \
+						"<span class='notice'>You fill <b>[src.name]</b> with \the [O].</span>")
 				else
-					user.visible_message("<span class='notice'>[user] loads \the [src] with \the [O].</span>", \
-						"<span class='notice'>You load \the [src] with \the [O].</span>")
+					user.visible_message("<span class='notice'>[user] loads <b>[src.name]</b> with \the [O].</span>", \
+						"<span class='notice'>You load <b>[src.name]</b> with \the [O].</span>")
 				if(O.contents.len > 0)
 					to_chat(user, "<span class='warning'>Some items are refused.</span>")
 				if (visible_contents)
@@ -126,7 +126,7 @@
 				return FALSE
 
 	if(user.a_intent != INTENT_HARM)
-		to_chat(user, "<span class='warning'>\The [src] smartly refuses [O].</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> smartly refuses [O].</span>")
 		updateUsrDialog()
 		return FALSE
 	else
@@ -143,7 +143,7 @@
 	if(ismob(O.loc))
 		var/mob/M = O.loc
 		if(!M.transferItemToLoc(O, src))
-			to_chat(usr, "<span class='warning'>\the [O] is stuck to your hand, you cannot put it in \the [src]!</span>")
+			to_chat(usr, "<span class='warning'>\the [O] is stuck to your hand, you cannot put it in <b>[src.name]</b>!</span>")
 			return FALSE
 		else
 			return TRUE

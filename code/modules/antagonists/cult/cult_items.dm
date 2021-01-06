@@ -545,12 +545,12 @@
 
 /obj/item/cult_shift/attack_self(mob/user)
 	if(!uses || !iscarbon(user))
-		to_chat(user, "<span class='warning'>\The [src] is dull and unmoving in your hands.</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> is dull and unmoving in your hands.</span>")
 		return
 	if(!iscultist(user))
 		user.dropItemToGround(src, TRUE)
 		step(src, pick(GLOB.alldirs))
-		to_chat(user, "<span class='warning'>\The [src] flickers out of your hands, your connection to this dimension is too strong!</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> flickers out of your hands, your connection to this dimension is too strong!</span>")
 		return
 
 	var/mob/living/carbon/C = user
@@ -619,16 +619,16 @@
 		if(A in user.GetAllContents())
 			to_chat(user, "<span class='cult italic'>[A] must be on a surface in order to teleport it!</span>")
 			return
-		to_chat(user, "<span class='cult italic'>You ignite [A] with \the [src], turning it to ash, but through the torch's flames you see that [A] has reached [cultist_to_receive]!</span>")
+		to_chat(user, "<span class='cult italic'>You ignite [A] with <b>[src.name]</b>, turning it to ash, but through the torch's flames you see that [A] has reached [cultist_to_receive]!</span>")
 		cultist_to_receive.put_in_hands(A)
 		charges--
-		to_chat(user, "\The [src] now has [charges] charge\s.")
+		to_chat(user, "<b>[src.name]</b> now has [charges] charge\s.")
 		if(charges == 0)
 			qdel(src)
 
 	else
 		..()
-		to_chat(user, "<span class='warning'>\The [src] can only transport items!</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> can only transport items!</span>")
 
 
 /obj/item/cult_spear

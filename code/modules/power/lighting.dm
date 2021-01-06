@@ -859,10 +859,10 @@
 
 /obj/item/light/suicide_act(mob/living/carbon/user)
 	if (status == LIGHT_BROKEN)
-		user.visible_message("<span class='suicide'>[user] begins to stab [user.ru_na()]self with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message("<span class='suicide'>[user] begins to stab [user.ru_na()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 		return BRUTELOSS
 	else
-		user.visible_message("<span class='suicide'>[user] begins to eat \the [src]! It looks like [user.p_theyre()] not very bright!</span>")
+		user.visible_message("<span class='suicide'>[user] begins to eat <b>[src.name]</b>! It looks like [user.p_theyre()] not very bright!</span>")
 		shatter()
 		return BRUTELOSS
 

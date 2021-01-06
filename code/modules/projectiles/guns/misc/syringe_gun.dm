@@ -54,7 +54,7 @@
 	user.put_in_hands(S)
 
 	syringes.Remove(S)
-	to_chat(user, "<span class='notice'>You unload [S] from \the [src].</span>")
+	to_chat(user, "<span class='notice'>You unload [S] from <b>[src.name]</b>.</span>")
 	update_icon()
 
 	return TRUE
@@ -67,7 +67,7 @@
 		if(syringes.len < max_syringes)
 			if(!user.transferItemToLoc(A, src))
 				return FALSE
-			to_chat(user, "<span class='notice'>You load [A] into \the [src].</span>")
+			to_chat(user, "<span class='notice'>You load [A] into <b>[src.name]</b>.</span>")
 			syringes += A
 			recharge_newshot()
 			update_icon()
@@ -118,7 +118,7 @@
 		if(syringes.len < max_syringes)
 			if(!user.transferItemToLoc(D, src))
 				return FALSE
-			to_chat(user, "<span class='notice'>You load \the [D] into \the [src].</span>")
+			to_chat(user, "<span class='notice'>You load \the [D] into <b>[src.name]</b>.</span>")
 			syringes += D
 			recharge_newshot()
 			return TRUE

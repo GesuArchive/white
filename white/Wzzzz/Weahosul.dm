@@ -100,7 +100,7 @@
 
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/rack(mob/user = null)
 	if (bolt_locked == FALSE)
-		to_chat(user, "<span class='notice'>You open the bolt of \the [src]</span>")
+		to_chat(user, "<span class='notice'>You open the bolt of <b>[src.name]</b></span>")
 		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
 		process_chamber(FALSE, FALSE, FALSE)
 		bolt_locked = TRUE
@@ -156,7 +156,7 @@
 
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope/rack(mob/user = null)
 	if (bolt_locked == FALSE)
-		to_chat(user, "<span class='notice'>You open the bolt of \the [src]</span>")
+		to_chat(user, "<span class='notice'>You open the bolt of <b>[src.name]</b></span>")
 		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
 		process_chamber(FALSE, FALSE, FALSE)
 		bolt_locked = TRUE

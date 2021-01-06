@@ -24,7 +24,7 @@
 
 /obj/item/clothing/shoes/suicide_act(mob/living/carbon/user)
 	if(rand(2)>1)
-		user.visible_message("<span class='suicide'>[user] begins tying \the [src] up waaay too tightly! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message("<span class='suicide'>[user] begins tying <b>[src.name]</b> up waaay too tightly! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 		var/obj/item/bodypart/l_leg = user.get_bodypart(BODY_ZONE_L_LEG)
 		var/obj/item/bodypart/r_leg = user.get_bodypart(BODY_ZONE_R_LEG)
 		if(l_leg)

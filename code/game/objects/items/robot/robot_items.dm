@@ -650,7 +650,7 @@
 
 /obj/item/borg/projectile_dampen/proc/deactivate_field()
 	QDEL_NULL(dampening_field)
-	visible_message("<span class='warning'>\The [src] shuts off!</span>")
+	visible_message("<span class='warning'><b>[src.name]</b> shuts off!</span>")
 	for(var/P in tracked)
 		restore_projectile(P)
 	active = FALSE

@@ -51,7 +51,7 @@ Arrow&bow
 		if(syringes.len < max_syringes)
 			if(!user.transferItemToLoc(A, src))
 				return FALSE
-			to_chat(user, "<span class='notice'>You load [A] into \the [src].</span>")
+			to_chat(user, "<span class='notice'>You load [A] into <b>[src.name]</b>.</span>")
 			syringes += A
 			recharge_newshot()
 			return TRUE

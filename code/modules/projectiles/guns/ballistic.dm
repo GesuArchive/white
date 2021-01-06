@@ -482,23 +482,23 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 	if(!saw.get_sharpness() || (!is_type_in_typecache(saw, GLOB.gun_saw_types) && saw.tool_behaviour != TOOL_SAW)) //needs to be sharp. Otherwise turned off eswords can cut this.
 		return
 	if(sawn_off)
-		to_chat(user, "<span class='warning'>\The [src] is already shortened!</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> is already shortened!</span>")
 		return
 	if(bayonet)
-		to_chat(user, "<span class='warning'>You cannot saw-off \the [src] with \the [bayonet] attached!</span>")
+		to_chat(user, "<span class='warning'>You cannot saw-off <b>[src.name]</b> with \the [bayonet] attached!</span>")
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	user.visible_message("<span class='notice'>[user] begins to shorten \the [src].</span>", "<span class='notice'>You begin to shorten \the [src]...</span>")
+	user.visible_message("<span class='notice'>[user] begins to shorten <b>[src.name]</b>.</span>", "<span class='notice'>You begin to shorten <b>[src.name]</b>...</span>")
 
 	//if there's any live ammo inside the gun, makes it go off
 	if(blow_up(user))
-		user.visible_message("<span class='danger'>\The [src] goes off!</span>", "<span class='danger'>\The [src] goes off in your face!</span>")
+		user.visible_message("<span class='danger'><b>[src.name]</b> goes off!</span>", "<span class='danger'><b>[src.name]</b> goes off in your face!</span>")
 		return
 
 	if(do_after(user, 30, target = src))
 		if(sawn_off)
 			return
-		user.visible_message("<span class='notice'>[user] shortens \the [src]!</span>", "<span class='notice'>You shorten \the [src].</span>")
+		user.visible_message("<span class='notice'>[user] shortens <b>[src.name]</b>!</span>", "<span class='notice'>You shorten <b>[src.name]</b>.</span>")
 		name = "sawn-off [src.name]"
 		desc = sawn_desc
 		w_class = WEIGHT_CLASS_NORMAL

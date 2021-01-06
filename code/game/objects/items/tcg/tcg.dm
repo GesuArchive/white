@@ -194,7 +194,7 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 
 /obj/item/tcgcard_deck/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>\The [src] has [contents.len] cards inside.</span>"
+	. += "<span class='notice'><b>[src.name]</b> has [contents.len] cards inside.</span>"
 
 /obj/item/tcgcard_deck/attack_hand(mob/user)
 	var/list/choices = list(
@@ -258,8 +258,8 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 	user.put_in_hands(drawn_card)
 	drawn_card.flipped = flipped //If it's a face down deck, it'll be drawn face down, if it's a face up pile you'll draw it face up.
 	drawn_card.update_icon_state()
-	user.visible_message("<span class='notice'>[user] draws a card from \the [src]!</span>", \
-					"<span class='notice'>You draw a card from \the [src]!</span>")
+	user.visible_message("<span class='notice'>[user] draws a card from <b>[src.name]</b>!</span>", \
+					"<span class='notice'>You draw a card from <b>[src.name]</b>!</span>")
 	if(contents.len <= 1)
 		var/obj/item/tcgcard/final_card = contents[1]
 		user.transferItemToLoc(final_card, drop_location())
@@ -278,8 +278,8 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 	if(user.active_storage)
 		user.active_storage.close(user)
 	if(visable)
-		user.visible_message("<span class='notice'>[user] shuffles \the [src]!</span>", \
-						"<span class='notice'>You shuffle \the [src]!</span>")
+		user.visible_message("<span class='notice'>[user] shuffles <b>[src.name]</b>!</span>", \
+						"<span class='notice'>You shuffle <b>[src.name]</b>!</span>")
 
 /**
  * The user flips the deck, turning it into a face up/down pile, and reverses the order of the cards from top to bottom.

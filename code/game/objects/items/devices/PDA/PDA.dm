@@ -986,7 +986,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 	else if(istype(C, /obj/item/card/id))
 		var/obj/item/card/id/idcard = C
 		if(!idcard.registered_name)
-			to_chat(user, "<span class='warning'>\The [src] rejects the ID!</span>")
+			to_chat(user, "<span class='warning'><b>[src.name]</b> rejects the ID!</span>")
 			if(!silent)
 				playsound(src, 'sound/machines/terminal_error.ogg', 50, TRUE)
 			return
@@ -1000,7 +1000,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 		else
 			if(!id_check(user, idcard))
 				return
-			to_chat(user, "<span class='notice'>You put the ID into \the [src]'s slot.</span>")
+			to_chat(user, "<span class='notice'>You put the ID into <b>[src.name]</b>'s slot.</span>")
 			updateSelfDialog()//Update self dialog on success.
 
 			return	//Return in case of failed check or when successful.
@@ -1014,11 +1014,11 @@ GLOBAL_LIST_EMPTY(PDAs)
 		updateUsrDialog()
 	else if(is_type_in_list(C, contained_item)) //Checks if there is a pen
 		if(inserted_item)
-			to_chat(user, "<span class='warning'>There is already \a [inserted_item] in \the [src]!</span>")
+			to_chat(user, "<span class='warning'>There is already \a [inserted_item] in <b>[src.name]</b>!</span>")
 		else
 			if(!user.transferItemToLoc(C, src))
 				return
-			to_chat(user, "<span class='notice'>You slide \the [C] into \the [src].</span>")
+			to_chat(user, "<span class='notice'>You slide \the [C] into <b>[src.name]</b>.</span>")
 			inserted_item = C
 			update_icon()
 			playsound(src, 'sound/machines/pda_button1.ogg', 50, TRUE)

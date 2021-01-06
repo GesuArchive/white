@@ -137,9 +137,9 @@
 /obj/machinery/medical_kiosk/examine(mob/user)
 	. = ..()
 	if(scanner_wand == null)
-		. += "<hr><span class='notice'>\The [src] is missing its scanner.</span>"
+		. += "<hr><span class='notice'><b>[src.name]</b> is missing its scanner.</span>"
 	else
-		. += "<hr><span class='notice'>\The [src] has its scanner clipped to the side. Alt-Click to remove.</span>"
+		. += "<hr><span class='notice'><b>[src.name]</b> has its scanner clipped to the side. Alt-Click to remove.</span>"
 
 /obj/machinery/medical_kiosk/ui_interact(mob/user, datum/tgui/ui)
 	var/patient_distance = 0

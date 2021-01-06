@@ -166,14 +166,14 @@
 		return
 
 	if (active)
-		user.visible_message("<span class='notice'>[user] deactivated \the [src].</span>", \
-			"<span class='notice'>You deactivate \the [src].</span>", \
+		user.visible_message("<span class='notice'>[user] deactivated <b>[src.name]</b>.</span>", \
+			"<span class='notice'>You deactivate <b>[src.name]</b>.</span>", \
 			"<span class='hear'>You hear heavy droning fade out.</span>")
 		shields_down()
 	else
 		if(anchored)
-			user.visible_message("<span class='notice'>[user] activated \the [src].</span>", \
-				"<span class='notice'>You activate \the [src].</span>", \
+			user.visible_message("<span class='notice'>[user] activated <b>[src.name]</b>.</span>", \
+				"<span class='notice'>You activate <b>[src.name]</b>.</span>", \
 				"<span class='hear'>You hear heavy droning.</span>")
 			shields_up()
 		else
@@ -200,7 +200,7 @@
 			coil.use(1)
 			obj_integrity = max_integrity
 			set_machine_stat(machine_stat & ~BROKEN)
-			to_chat(user, "<span class='notice'>You repair \the [src].</span>")
+			to_chat(user, "<span class='notice'>You repair <b>[src.name]</b>.</span>")
 			update_icon()
 
 	else if(W.tool_behaviour == TOOL_WRENCH)
@@ -209,13 +209,13 @@
 			return
 		if(!anchored && !isinspace())
 			W.play_tool_sound(src, 100)
-			to_chat(user, "<span class='notice'>You secure \the [src] to the floor!</span>")
+			to_chat(user, "<span class='notice'>You secure <b>[src.name]</b> to the floor!</span>")
 			set_anchored(TRUE)
 		else if(anchored)
 			W.play_tool_sound(src, 100)
-			to_chat(user, "<span class='notice'>You unsecure \the [src] from the floor!</span>")
+			to_chat(user, "<span class='notice'>You unsecure <b>[src.name]</b> from the floor!</span>")
 			if(active)
-				to_chat(user, "<span class='notice'>\The [src] shuts off!</span>")
+				to_chat(user, "<span class='notice'><b>[src.name]</b> shuts off!</span>")
 				shields_down()
 			set_anchored(FALSE)
 
@@ -407,24 +407,24 @@
 	if(.)
 		return
 	if(!anchored)
-		to_chat(user, "<span class='warning'>\The [src] needs to be firmly secured to the floor first!</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> needs to be firmly secured to the floor first!</span>")
 		return
 	if(locked && !issilicon(user))
 		to_chat(user, "<span class='warning'>The controls are locked!</span>")
 		return
 	if(!powernet)
-		to_chat(user, "<span class='warning'>\The [src] needs to be powered by a wire!</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> needs to be powered by a wire!</span>")
 		return
 
 	if(active)
-		user.visible_message("<span class='notice'>[user] turned \the [src] off.</span>", \
-			"<span class='notice'>You turn off \the [src].</span>", \
+		user.visible_message("<span class='notice'>[user] turned <b>[src.name]</b> off.</span>", \
+			"<span class='notice'>You turn off <b>[src.name]</b>.</span>", \
 			"<span class='hear'>You hear heavy droning fade out.</span>")
 		active = FALSE
 		log_game("[src] was deactivated by [key_name(user)] at [AREACOORD(src)]")
 	else
-		user.visible_message("<span class='notice'>[user] turned \the [src] on.</span>", \
-			"<span class='notice'>You turn on \the [src].</span>", \
+		user.visible_message("<span class='notice'>[user] turned <b>[src.name]</b> on.</span>", \
+			"<span class='notice'>You turn on <b>[src.name]</b>.</span>", \
 			"<span class='hear'>You hear heavy droning.</span>")
 		active = ACTIVE_SETUPFIELDS
 		log_game("[src] was activated by [key_name(user)] at [AREACOORD(src)]")
@@ -460,7 +460,7 @@
 		needs_power = TRUE
 		setDir(get_dir(gen_primary, gen_secondary))
 	for(var/mob/living/L in get_turf(src))
-		visible_message("<span class='danger'>\The [src] is suddenly occupying the same space as \the [L]!</span>")
+		visible_message("<span class='danger'><b>[src.name]</b> is suddenly occupying the same space as \the [L]!</span>")
 		L.gib()
 	RegisterSignal(src, COMSIG_ATOM_SINGULARITY_TRY_MOVE, .proc/block_singularity)
 

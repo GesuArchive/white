@@ -106,7 +106,7 @@
 /obj/structure/holohoop/attackby(obj/item/W as obj, mob/user as mob, params)
 	if(get_dist(src,user)<2)
 		if(user.transferItemToLoc(W, drop_location()))
-			visible_message("<span class='warning'>[user] dunks [W] into \the [src]!</span>")
+			visible_message("<span class='warning'>[user] dunks [W] into <b>[src.name]</b>!</span>")
 
 /obj/structure/holohoop/attack_hand(mob/user)
 	. = ..()
@@ -119,7 +119,7 @@
 			return
 		L.forceMove(loc)
 		L.Paralyze(100)
-		visible_message("<span class='danger'>[user] dunks [L] into \the [src]!</span>")
+		visible_message("<span class='danger'>[user] dunks [L] into <b>[src.name]</b>!</span>")
 		user.stop_pulling()
 	else
 		..()

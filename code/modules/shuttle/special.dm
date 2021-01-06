@@ -346,7 +346,7 @@
 		if(armless)
 			if(!AM.pulling || !iscash(AM.pulling) && !istype(AM.pulling, /obj/item/card/id))
 				if(!check_times[AM] || check_times[AM] < world.time) //Let's not spam the message
-					to_chat(AM, "<span class='notice'>Try pulling a valid ID, space cash, holochip or coin into \the [src]!</span>")
+					to_chat(AM, "<span class='notice'>Try pulling a valid ID, space cash, holochip or coin into <b>[src.name]</b>!</span>")
 					check_times[AM] = world.time + LUXURY_MESSAGE_COOLDOWN
 
 	if(payees[AM] >= threshold)

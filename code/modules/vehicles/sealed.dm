@@ -60,7 +60,7 @@
 	if(!istype(M))
 		return FALSE
 	if(!silent)
-		M.visible_message("<span class='notice'>[M] climbs into \the [src]!</span>")
+		M.visible_message("<span class='notice'>[M] climbs into <b>[src.name]</b>!</span>")
 	M.forceMove(src)
 	add_occupant(M)
 	return TRUE
@@ -80,7 +80,7 @@
 		M.throw_at(target_turf, 5, 10)
 
 	if(!silent)
-		M.visible_message("<span class='notice'>[M] drops out of \the [src]!</span>")
+		M.visible_message("<span class='notice'>[M] drops out of <b>[src.name]</b>!</span>")
 	return TRUE
 
 /obj/vehicle/sealed/proc/exit_location(M)

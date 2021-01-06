@@ -399,7 +399,7 @@
 /obj/item/roulette_wheel_beacon/attack_self()
 	if(used)
 		return
-	loc.visible_message("<span class='warning'>\The [src] begins to beep loudly!</span>")
+	loc.visible_message("<span class='warning'><b>[src.name]</b> begins to beep loudly!</span>")
 	used = TRUE
 	addtimer(CALLBACK(src, .proc/launch_payload), 40)
 

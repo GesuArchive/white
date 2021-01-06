@@ -413,7 +413,7 @@
 			visible_message("<span class='danger'>[user] [change_msg] [src]!</span>")
 			add_hiddenprint(user)
 		else
-			visible_message("<span class='danger'>\The [src] [change_msg]!</span>")
+			visible_message("<span class='danger'><b>[src.name]</b> [change_msg]!</span>")
 
 		playsound(src, 'sound/items/wirecutter.ogg', 100, TRUE)
 	update_icon() //update Initialize() if you remove this.

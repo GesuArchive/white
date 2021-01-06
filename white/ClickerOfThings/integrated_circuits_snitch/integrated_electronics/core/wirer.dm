@@ -27,7 +27,7 @@
 			selected_io = io
 			to_chat(user, "<span class='notice'>You attach a data wire to \the [selected_io.holder]'s [selected_io.name] data channel.</span>")
 			mode = WIRING
-			update_icon()		
+			update_icon()
 		if(WIRING)
 			if(io == selected_io)
 				to_chat(user, "<span class='warning'>Wiring \the [selected_io.holder]'s [selected_io.name] into itself is rather pointless.</span>")
@@ -93,7 +93,7 @@
 			selected_io = null
 			mode = UNWIRE
 	update_icon()
-	to_chat(user, "<span class='notice'>You set \the [src] to [mode].</span>")
+	to_chat(user, "<span class='notice'>You set <b>[src.name]</b> to [mode].</span>")
 
 #undef WIRE
 #undef WIRING

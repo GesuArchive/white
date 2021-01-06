@@ -72,7 +72,7 @@
 		if(det_time > 0)
 			. += "The timer is set to [DisplayTimeText(det_time)]."
 		else
-			. += "\The [src] is set for instant detonation."
+			. += "<b>[src.name]</b> is set for instant detonation."
 
 
 /obj/item/grenade/attack_self(mob/user)

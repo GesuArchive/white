@@ -42,12 +42,12 @@
 	var/obj/item/bodypart/head/myhead = user.get_bodypart(BODY_ZONE_HEAD)
 	if(myhead)
 		inc_metabalance(user, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить и за это тоже, сладенький.")
-		user.visible_message("<span class='suicide'>[user] puts [user.ru_ego()] head into \the [src], and begins closing it! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message("<span class='suicide'>[user] puts [user.ru_ego()] head into <b>[src.name]</b>, and begins closing it! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 		myhead.dismember()
 		myhead.forceMove(src)//force your enemies to kill themselves with your head collection box!
 		playsound(user, "desecration-01.ogg", 50, TRUE, -1)
 		return BRUTELOSS
-	user.visible_message("<span class='suicide'>[user] beating [user.ru_na()]self with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message("<span class='suicide'>[user] beating [user.ru_na()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return BRUTELOSS
 
 /obj/item/storage/box/update_overlays()
@@ -801,7 +801,7 @@
 	..()
 	user.changeNext_move(CLICK_CD_MELEE)
 	playsound(loc, "rustle", 50, TRUE, -5)
-	user.visible_message("<span class='notice'>[user] обнимает \the [src].</span>","<span class='notice'>Вы обнимаете \the [src].</span>")
+	user.visible_message("<span class='notice'>[user] обнимает <b>[src.name]</b>.</span>","<span class='notice'>Вы обнимаете <b>[src.name]</b>.</span>")
 
 /////clown box & honkbot assembly
 /obj/item/storage/box/clown

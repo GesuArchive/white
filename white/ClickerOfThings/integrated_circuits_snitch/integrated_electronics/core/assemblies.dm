@@ -313,11 +313,11 @@
 
 	if(href_list["remove_cell"])
 		if(!battery)
-			to_chat(usr, "<span class='warning'>There's no power cell to remove from \the [src].</span>")
+			to_chat(usr, "<span class='warning'>There's no power cell to remove from <b>[src.name]</b>.</span>")
 		else
 			battery.forceMove(drop_location())
 			playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
-			to_chat(usr, "<span class='notice'>You pull \the [battery] out of \the [src]'s power supplier.</span>")
+			to_chat(usr, "<span class='notice'>You pull \the [battery] out of <b>[src.name]</b>'s power supplier.</span>")
 			battery = null
 			diag_hud_set_circuitstat() //update diagnostic hud
 
@@ -447,11 +447,11 @@
 // Returns true if the circuit made it inside.
 /obj/item/electronic_assembly/proc/try_add_component(obj/item/integrated_circuit/IC, mob/user)
 	if(!opened)
-		to_chat(user, "<span class='warning'>\The [src]'s hatch is closed, you can't put anything inside.</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b>'s hatch is closed, you can't put anything inside.</span>")
 		return FALSE
 
 	if(IC.w_class > w_class)
-		to_chat(user, "<span class='warning'>\The [IC] is way too big to fit into \the [src].</span>")
+		to_chat(user, "<span class='warning'>\The [IC] is way too big to fit into <b>[src.name]</b>.</span>")
 		return FALSE
 
 	var/total_part_size = return_total_size()
@@ -610,16 +610,16 @@
 			// check if unlocked to lock
 			if(!idlock)
 				idlock = debugger.idlock
-				to_chat(user,"<span class='notice'>You lock \the [src].</span>")
+				to_chat(user,"<span class='notice'>You lock <b>[src.name]</b>.</span>")
 
 			//if locked, unlock if ids match
 			else
 				if(idlock.resolve() == debugger.idlock.resolve())
 					idlock = null
-					to_chat(user,"<span class='notice'>You unlock \the [src].</span>")
+					to_chat(user,"<span class='notice'>You unlock <b>[src.name]</b>.</span>")
 
 				else
-					to_chat(user,"<span class='notice'>The scanned ID doesn't match with \the [src]'s lock.</span>")
+					to_chat(user,"<span class='notice'>The scanned ID doesn't match with <b>[src.name]</b>'s lock.</span>")
 
 			debugger.idlock = null
 			return
@@ -646,7 +646,7 @@
 
 	else if(istype(I, /obj/item/stock_parts/cell))
 		if(!opened)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s hatch is closed, so you can't access \the [src]'s power supplier.</span>")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)]'s hatch is closed, so you can't access <b>[src.name]</b>'s power supplier.</span>")
 			for(var/obj/item/integrated_circuit/input/S in assembly_components)
 				S.attackby_react(I,user,user.a_intent)
 			return ..()
@@ -659,7 +659,7 @@
 		battery = I
 		diag_hud_set_circuitstat() //update diagnostic hud
 		playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>You slot the [I] inside \the [src]'s power supplier.</span>")
+		to_chat(user, "<span class='notice'>You slot the [I] inside <b>[src.name]</b>'s power supplier.</span>")
 		return TRUE
 
 	else if(istype(I, /obj/item/integrated_electronics/detailer))

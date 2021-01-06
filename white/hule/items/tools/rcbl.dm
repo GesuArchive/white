@@ -63,7 +63,7 @@
 		return
 
 	if (matter < 1)
-		to_chat(user, "<span class='warning'>\The [src] doesn't have enough matter left.</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> doesn't have enough matter left.</span>")
 		return
 
 	to_chat(user, "<span class='notice'>Constructing conveyor belt...</span>")

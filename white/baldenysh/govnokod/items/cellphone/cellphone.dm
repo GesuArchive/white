@@ -40,7 +40,7 @@
 	if(istype(I, /obj/item/card/id))
 		var/obj/item/card/id/idcard = I
 		if(!idcard.registered_name)
-			to_chat(user, "<span class='warning'>\The [src] rejects the ID!</span>")
+			to_chat(user, "<span class='warning'><b>[src.name]</b> rejects the ID!</span>")
 			return
 		InsertID(idcard)
 

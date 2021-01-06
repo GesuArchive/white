@@ -664,7 +664,7 @@
 		return
 
 /obj/item/reagent_containers/food/drinks/soda_cans/proc/open_soda(mob/user)
-	to_chat(user, "You pull back the tab of \the [src] with a satisfying pop.") //Ahhhhhhhh
+	to_chat(user, "You pull back the tab of <b>[src.name]</b> with a satisfying pop.") //Ahhhhhhhh
 	reagents.flags |= OPENCONTAINER
 	playsound(src, "can_open", 50, TRUE)
 	spillable = TRUE

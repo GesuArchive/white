@@ -23,7 +23,7 @@
 			to_chat(user, "<span class='warning'>[capitalize(src.name)] already has a bank account!</span>")
 			return
 		if(!anchored || !user.transferItemToLoc(I,src))
-			to_chat(user, "<span class='warning'>\the [src] blinks red as you try to insert the ID Card!</span>")
+			to_chat(user, "<span class='warning'><b>[src.name]</b> blinks red as you try to insert the ID Card!</span>")
 			return
 		inserted_id = new_id
 		RegisterSignal(inserted_id, COMSIG_PARENT_QDELETING, .proc/remove_card)
@@ -44,7 +44,7 @@
 
 	user.put_in_hands(inserted_id)
 	inserted_id.add_fingerprint(user)
-	user.visible_message("<span class='notice'>[user] removes [inserted_id] from \the [src].</span>", "<span class='notice'>You remove [inserted_id] from \the [src].</span>")
+	user.visible_message("<span class='notice'>[user] removes [inserted_id] from <b>[src.name]</b>.</span>", "<span class='notice'>You remove [inserted_id] from <b>[src.name]</b>.</span>")
 	remove_card()
 
 ///Used to clean up variables after the card has been removed, unregisters the removal signal, sets inserted ID to null, and updates the icon.

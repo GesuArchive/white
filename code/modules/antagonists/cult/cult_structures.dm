@@ -32,7 +32,7 @@
 
 /obj/structure/destructible/cult/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>\The [src] is [anchored ? "":"not "]secured to the floor.</span>"
+	. += "<hr><span class='notice'><b>[src.name]</b> is [anchored ? "":"not "]secured to the floor.</span>"
 	if(iscultist(user) || isobserver(user))
 		if(cultist_examine_message)
 			. += "<hr><span class='cult'>[cultist_examine_message]</span>"
@@ -71,7 +71,7 @@
 /obj/structure/destructible/cult/attackby(obj/I, mob/user, params)
 	if(istype(I, /obj/item/melee/cultblade/dagger) && iscultist(user))
 		set_anchored(!anchored)
-		to_chat(user, "<span class='notice'>You [anchored ? "":"un"]secure \the [src] [anchored ? "to":"from"] the floor.</span>")
+		to_chat(user, "<span class='notice'>You [anchored ? "":"un"]secure <b>[src.name]</b> [anchored ? "to":"from"] the floor.</span>")
 	else
 		return ..()
 

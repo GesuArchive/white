@@ -43,7 +43,7 @@
 		if(istype(mover.pulledby, /mob/living/simple_animal/hostile/poison/giant_spider))
 			return TRUE
 		if(prob(50))
-			to_chat(mover, "<span class='danger'>You get stuck in \the [src] for a moment.</span>")
+			to_chat(mover, "<span class='danger'>You get stuck in <b>[src.name]</b> for a moment.</span>")
 			return FALSE
 	else if(istype(mover, /obj/projectile))
 		return prob(30)
@@ -64,7 +64,7 @@
 		if(mover.pulledby == allowed_mob)
 			return TRUE
 		if(prob(50))
-			to_chat(mover, "<span class='danger'>You get stuck in \the [src] for a moment.</span>")
+			to_chat(mover, "<span class='danger'>You get stuck in <b>[src.name]</b> for a moment.</span>")
 			return FALSE
 	else if(istype(mover, /obj/projectile))
 		return prob(30)
@@ -254,7 +254,7 @@
 			var/target_atom = pick(nearby)
 			walk_to(src, target_atom)
 			if(prob(40))
-				src.visible_message("<span class='notice'>\The [src] skitters[pick(" away"," around","")].</span>")
+				src.visible_message("<span class='notice'><b>[src.name]</b> skitters[pick(" away"," around","")].</span>")
 	else if(prob(10))
 		//ventcrawl!
 		for(var/obj/machinery/atmospherics/components/unary/vent_pump/v in view(7,src))
@@ -290,7 +290,7 @@
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
 	to_chat(user, "<span class='notice'>You struggle against the tight bonds... (This will take about [DisplayTimeText(breakout_time)].)</span>")
-	visible_message("<span class='notice'>You see something struggling and writhing in \the [src]!</span>")
+	visible_message("<span class='notice'>You see something struggling and writhing in <b>[src.name]</b>!</span>")
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src)
 			return
@@ -298,7 +298,7 @@
 
 /obj/structure/spider/cocoon/Destroy()
 	var/turf/T = get_turf(src)
-	src.visible_message("<span class='warning'>\The [src] splits open.</span>")
+	src.visible_message("<span class='warning'><b>[src.name]</b> splits open.</span>")
 	for(var/atom/movable/A in contents)
 		A.forceMove(T)
 	return ..()

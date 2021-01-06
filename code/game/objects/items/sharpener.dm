@@ -34,7 +34,7 @@
 		to_chat(user, "<span class='warning'>You can only sharpen items that are already sharp, such as knives!</span>")
 		return
 	if(is_type_in_list(I, list(/obj/item/melee/transforming/energy, /obj/item/dualsaber))) //You can't sharpen the photons in energy meelee weapons
-		to_chat(user, "<span class='warning'>You don't think \the [I] will be the thing getting modified if you use it on \the [src]!</span>")
+		to_chat(user, "<span class='warning'>You don't think \the [I] will be the thing getting modified if you use it on <b>[src.name]</b>!</span>")
 		return
 
 	//This block is used to check more things if the item has a relevant component.
@@ -60,7 +60,7 @@
 	desc = "[desc] At least, it used to."
 	used = TRUE
 	update_icon()
-	
+
 /**
 * # Super whetstone
 *

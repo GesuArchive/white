@@ -158,7 +158,7 @@
 	. = !(state_open || panel_open || (flags_1 & NODECONSTRUCT_1)) && I.tool_behaviour == TOOL_CROWBAR //We removed is_operational here
 	if(.)
 		I.play_tool_sound(src, 50)
-		visible_message("<span class='notice'>[usr] pries open \the [src].</span>", "<span class='notice'>You pry open [src].</span>")
+		visible_message("<span class='notice'>[usr] pries open <b>[src.name]</b>.</span>", "<span class='notice'>You pry open [src].</span>")
 		open_machine()
 
 /obj/machinery/harvester/emag_act(mob/user)

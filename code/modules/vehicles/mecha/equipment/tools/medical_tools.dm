@@ -58,7 +58,7 @@
 	if(!patient_insertion_check(target))
 		return
 	to_chat(source, "[icon2html(src, source)]<span class='notice'>You start putting [target] into [src]...</span>")
-	chassis.visible_message("<span class='warning'>[chassis] starts putting [target] into \the [src].</span>")
+	chassis.visible_message("<span class='warning'>[chassis] starts putting [target] into <b>[src.name]</b>.</span>")
 	if(!do_after(source, equip_cooldown, target=target))
 		return
 	if(!chassis || src != chassis.selected || !(get_dir(chassis, target)&chassis.dir))

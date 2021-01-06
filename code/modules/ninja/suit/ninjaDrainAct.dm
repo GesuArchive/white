@@ -114,7 +114,7 @@
 
 	. = DRAIN_RD_HACK_FAILED
 
-	to_chat(ninja, "<span class='notice'>Hacking \the [src]...</span>")
+	to_chat(ninja, "<span class='notice'>Hacking <b>[src.name]</b>...</span>")
 	AI_notify_hack()
 
 	if(stored_research)
@@ -130,7 +130,7 @@
 
 	. = DRAIN_RD_HACK_FAILED
 
-	to_chat(ninja, "<span class='notice'>Hacking \the [src]...</span>")
+	to_chat(ninja, "<span class='notice'>Hacking <b>[src.name]</b>...</span>")
 	AI_notify_hack()
 
 	if(stored_research)

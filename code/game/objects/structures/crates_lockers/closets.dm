@@ -256,18 +256,18 @@
 				if(!W.tool_start_check(user, amount=0))
 					return
 
-				to_chat(user, "<span class='notice'>You begin cutting \the [src] apart...</span>")
+				to_chat(user, "<span class='notice'>You begin cutting <b>[src.name]</b> apart...</span>")
 				if(W.use_tool(src, user, 40, volume=50))
 					if(!opened)
 						return
-					user.visible_message("<span class='notice'>[user] slices apart \the [src].</span>",
-									"<span class='notice'>You cut \the [src] apart with \the [W].</span>",
+					user.visible_message("<span class='notice'>[user] slices apart <b>[src.name]</b>.</span>",
+									"<span class='notice'>You cut <b>[src.name]</b> apart with \the [W].</span>",
 									"<span class='hear'>Слышу сварку.</span>")
 					deconstruct(TRUE)
 				return
 			else // for example cardboard box is cut with wirecutters
-				user.visible_message("<span class='notice'>[user] cut apart \the [src].</span>", \
-									"<span class='notice'>You cut \the [src] apart with \the [W].</span>")
+				user.visible_message("<span class='notice'>[user] cut apart <b>[src.name]</b>.</span>", \
+									"<span class='notice'>You cut <b>[src.name]</b> apart with \the [W].</span>")
 				deconstruct(TRUE)
 				return
 		if(user.transferItemToLoc(W, drop_location())) // so we put in unlit welder too
@@ -276,14 +276,14 @@
 		if(!W.tool_start_check(user, amount=0))
 			return
 
-		to_chat(user, "<span class='notice'>You begin [welded ? "unwelding":"welding"] \the [src]...</span>")
+		to_chat(user, "<span class='notice'>You begin [welded ? "unwelding":"welding"] <b>[src.name]</b>...</span>")
 		if(W.use_tool(src, user, 40, volume=50))
 			if(opened)
 				return
 			welded = !welded
 			after_weld(welded)
-			user.visible_message("<span class='notice'>[user] [welded ? "welds shut" : "unwelded"] \the [src].</span>",
-							"<span class='notice'>You [welded ? "weld" : "unwelded"] \the [src] with \the [W].</span>",
+			user.visible_message("<span class='notice'>[user] [welded ? "welds shut" : "unwelded"] <b>[src.name]</b>.</span>",
+							"<span class='notice'>You [welded ? "weld" : "unwelded"] <b>[src.name]</b> with \the [W].</span>",
 							"<span class='hear'>Слышу сварку.</span>")
 			log_game("[key_name(user)] [welded ? "welded":"unwelded"] closet [src] with [W] at [AREACOORD(src)]")
 			update_icon()
@@ -522,7 +522,7 @@
 		else if(!silent)
 			to_chat(user, "<span class='alert'>Доступ запрещён.</span>")
 	else if(secure && broken)
-		to_chat(user, "<span class='warning'>\The [src] is broken!</span>")
+		to_chat(user, "<span class='warning'><b>[src.name]</b> is broken!</span>")
 
 /obj/structure/closet/emag_act(mob/user)
 	if(secure && !broken)

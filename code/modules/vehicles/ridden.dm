@@ -34,7 +34,7 @@
 	if(!user.transferItemToLoc(I, src))
 		to_chat(user, "<span class='warning'>[I] seems to be stuck to your hand!</span>")
 		return
-	to_chat(user, "<span class='notice'>You insert \the [I] into \the [src].</span>")
+	to_chat(user, "<span class='notice'>You insert \the [I] into <b>[src.name]</b>.</span>")
 	if(inserted_key)	//just in case there's an invalid key
 		inserted_key.forceMove(drop_location())
 	inserted_key = I
@@ -45,7 +45,7 @@
 	if(!is_occupant(user))
 		to_chat(user, "<span class='warning'>You must be riding the [src] to remove [src]'s key!</span>")
 		return
-	to_chat(user, "<span class='notice'>You remove \the [inserted_key] from \the [src].</span>")
+	to_chat(user, "<span class='notice'>You remove \the [inserted_key] from <b>[src.name]</b>.</span>")
 	inserted_key.forceMove(drop_location())
 	user.put_in_hands(inserted_key)
 	inserted_key = null

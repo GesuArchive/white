@@ -91,7 +91,7 @@
 /obj/structure/ai_core/latejoin_inactive/attackby(obj/item/P, mob/user, params)
 	if(P.tool_behaviour == TOOL_MULTITOOL)
 		active = !active
-		to_chat(user, "<span class='notice'>You [active? "activate" : "deactivate"] \the [src]'s transmitters.</span>")
+		to_chat(user, "<span class='notice'>You [active? "activate" : "deactivate"] <b>[src.name]</b>'s transmitters.</span>")
 		return
 	return ..()
 

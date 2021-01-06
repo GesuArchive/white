@@ -567,8 +567,8 @@
 
 /obj/item/toy/talking/proc/activation_message(mob/user)
 	user.visible_message(
-		"<span class='notice'>[user] pulls the string on \the [src].</span>",
-		"<span class='notice'>You pull the string on \the [src].</span>",
+		"<span class='notice'>[user] pulls the string on <b>[src.name]</b>.</span>",
+		"<span class='notice'>You pull the string on <b>[src.name]</b>.</span>",
 		"<span class='notice'>You hear a string being pulled.</span>")
 
 /obj/item/toy/talking/proc/generate_messages()
@@ -609,8 +609,8 @@
 
 /obj/item/toy/talking/codex_gigas/activation_message(mob/user)
 	user.visible_message(
-		"<span class='notice'>[user] presses the button on \the [src].</span>",
-		"<span class='notice'>You press the button on \the [src].</span>",
+		"<span class='notice'>[user] presses the button on <b>[src.name]</b>.</span>",
+		"<span class='notice'>You press the button on <b>[src.name]</b>.</span>",
 		"<span class='notice'>You hear a soft click.</span>")
 
 /obj/item/toy/talking/owl
@@ -660,7 +660,7 @@
 
 
 /obj/item/toy/cards/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] is slitting [user.ru_ego()] wrists with \the [src]! It looks like [user.ru_who()] [user.p_have()] a crummy hand!</span>")
+	user.visible_message("<span class='suicide'>[user] is slitting [user.ru_ego()] wrists with <b>[src.name]</b>! It looks like [user.ru_who()] [user.p_have()] a crummy hand!</span>")
 	playsound(src, 'sound/items/cardshuffle.ogg', 50, TRUE)
 	return BRUTELOSS
 
@@ -1039,7 +1039,7 @@
 /obj/item/toy/nuke/emag_act(mob/user)
 	if (obj_flags & EMAGGED)
 		return
-	to_chat(user, "<span class = 'notice'> You short-circuit \the [src].</span>")
+	to_chat(user, "<span class = 'notice'> You short-circuit <b>[src.name]</b>.</span>")
 	obj_flags |= EMAGGED
 /*
  * Fake meteor
@@ -1055,7 +1055,7 @@
 /obj/item/toy/minimeteor/emag_act(mob/user)
 	if (obj_flags & EMAGGED)
 		return
-	to_chat(user, "<span class = 'notice'> You short-circuit whatever electronics exist inside \the [src], if there even are any.</span>")
+	to_chat(user, "<span class = 'notice'> You short-circuit whatever electronics exist inside <b>[src.name]</b>, if there even are any.</span>")
 	obj_flags |= EMAGGED
 
 /obj/item/toy/minimeteor/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)

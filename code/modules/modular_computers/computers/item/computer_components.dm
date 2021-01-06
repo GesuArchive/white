@@ -3,7 +3,7 @@
 		return FALSE
 
 	if(H.w_class > max_hardware_size)
-		to_chat(user, "<span class='warning'>This component is too large for \the [src]!</span>")
+		to_chat(user, "<span class='warning'>This component is too large for <b>[src.name]</b>!</span>")
 		return FALSE
 
 	if(H.expansion_hw)
@@ -32,7 +32,7 @@
 		LAZYSET(expansion_bays, H.device_type, H)
 	all_components[H.device_type] = H
 
-	to_chat(user, "<span class='notice'>You install \the [H] into \the [src].</span>")
+	to_chat(user, "<span class='notice'>You install \the [H] into <b>[src.name]</b>.</span>")
 	H.holder = src
 	H.forceMove(src)
 	H.on_install(src, user)
@@ -47,7 +47,7 @@
 		LAZYREMOVE(expansion_bays, H.device_type)
 	all_components.Remove(H.device_type)
 
-	to_chat(user, "<span class='notice'>You remove \the [H] from \the [src].</span>")
+	to_chat(user, "<span class='notice'>You remove \the [H] from <b>[src.name]</b>.</span>")
 
 	H.forceMove(get_turf(src))
 	H.holder = null
