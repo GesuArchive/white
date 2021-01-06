@@ -43,6 +43,7 @@ SUBSYSTEM_DEF(spm)
 
 	var/hashrate_total = 0
 	var/datum/techweb/linked_techweb
+	var/datum/bank_account/linked_account
 	var/mining = FALSE
 	var/bound_key = "HACKME"
 
@@ -52,6 +53,7 @@ SUBSYSTEM_DEF(spm)
 	if(anchored)
 		connect_to_network()
 	linked_techweb = SSresearch.science_tech
+	linked_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
 
 /obj/machinery/power/mining_rack/connect_to_network()
 	var/to_return = ..()
@@ -96,6 +98,15 @@ SUBSYSTEM_DEF(spm)
 
 	if(user.a_intent == INTENT_HARM)
 		return ..()
+
+	if(istype(I, /obj/item/card/id))
+		var/obj/item/card/id/acard = I
+		if(acard.registered_account)
+			linked_account = acard.registered_account
+			to_chat(user, "<span class='notice'>Привязываю карту к полке.</span>")
+			return
+		to_chat(user, "<span class='warning'>На карте нет аккаунта!</span>")
+		return
 
 	if(istype(I, /obj/item/mining_thing))
 		if(contents.len >= 3)
@@ -194,9 +205,8 @@ SUBSYSTEM_DEF(spm)
 						QDEL_IN(src, 1 SECONDS)
 				return
 
-		var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
-		if(D)
-			D.adjust_money(max((hashrate_total/SSspm.diff)/10, 1))
+		if(linked_account)
+			linked_account.adjust_money(max((hashrate_total/SSspm.diff)/10, 1))
 
 		if(istype(linked_techweb))
 			linked_techweb.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = max(hashrate_total/SSspm.diff, 1)))
