@@ -16,7 +16,14 @@ export const NtosMinnet = (props, context) => {
       height={630}
       resizable>
       <NtosWindow.Content scrollable>
-        <Section title="Криптомайнеры">
+        <Section
+          title="Криптомайнеры"
+          buttons={(
+            <Button.Confirm
+              icon="wrench"
+              content={data.cryptokey}
+              onClick={() => act('set_key')} />
+          )}>
           {miners.map(component => (
             <Section
               key={component.name}

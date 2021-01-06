@@ -44,6 +44,7 @@ SUBSYSTEM_DEF(spm)
 	var/hashrate_total = 0
 	var/datum/techweb/linked_techweb
 	var/mining = FALSE
+	var/bound_key = "HACKME"
 
 /obj/machinery/power/mining_rack/Initialize()
 	. = ..()
@@ -118,6 +119,14 @@ SUBSYSTEM_DEF(spm)
 		if(I.use_tool(src, user, 40, volume=75))
 			to_chat(user, "<span class='notice'>[anchored ? "От" : "При"]кручиваю [src.name].</span>")
 			set_anchored(!anchored)
+		return
+
+	if(I.tool_behaviour == TOOL_MULTITOOL)
+		var/new_key = stripped_input(usr, "Текущий ключ \"[bound_key]\"", "Установка нового ключа.")
+		if(!new_key)
+			return
+		bound_key = new_key
+		to_chat(user, "<span class='notice'>Ключ \"[new_key]\" установлен.</span>")
 		return
 
 	if(I.tool_behaviour == TOOL_CROWBAR)
@@ -323,11 +332,14 @@ SUBSYSTEM_DEF(spm)
 	size = 8
 	tgui_id = "NtosMinnet"
 	program_icon = "cog"
+	var/cryptokey = "HACKME"
 
 /datum/computer_file/program/minnet/ui_data(mob/user)
 	var/list/data = get_header_data()
 	var/list/all_entries[0]
 	for(var/obj/machinery/power/mining_rack/MC in SSspm.miners)
+		if(cryptokey != MC.bound_key)
+			continue
 		all_entries.Add(list(list(
 			"name" = MC.name,
 			"hashrate" = MC.hashrate_total,
@@ -337,6 +349,7 @@ SUBSYSTEM_DEF(spm)
 		)))
 
 	data["miners"] = all_entries
+	data["cryptokey"] = cryptokey
 	return data
 
 /datum/computer_file/program/minnet/ui_act(action,params)
@@ -348,6 +361,12 @@ SUBSYSTEM_DEF(spm)
 			for(var/obj/machinery/power/mining_rack/MC in SSspm.miners)
 				if(MC.name == params["name"])
 					MC.mining = !MC.mining
+			. = TRUE
+		if("set_key")
+			var/new_key = stripped_input(usr, "Текущий ключ \"[cryptokey]\"", "Установка нового ключа.")
+			if(!new_key)
+				return
+			cryptokey = new_key
 			. = TRUE
 
 /datum/supply_pack/misc/spaceminer

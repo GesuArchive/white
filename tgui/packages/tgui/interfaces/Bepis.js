@@ -10,7 +10,7 @@ export const Bepis = (props, context) => {
   return (
     <Window
       width={500}
-      height={500}>
+      height={520}>
       <Window.Content>
         <Section title="Business Exploration Protocol Incubation Sink">
           <Section
