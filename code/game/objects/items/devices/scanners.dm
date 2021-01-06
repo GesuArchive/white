@@ -319,7 +319,7 @@ GENE SCANNER
 			var/toReport = "<span class='info ml-1'>Органы:</span>\
 				<table class='ml-2'><tr>\
 				<td style='width:6em;'><font color='#7777CC'><b>Орган</b></font></td>\
-				[advanced ? "<td style='width:3em;'><font color='#7777CC'><b>Урн</b></font></td>" : ""]\
+				[advanced ? "<td style='width:3em;'><font color='#7777CC'><b>Урон</b></font></td>" : ""]\
 				<td style='width:12em;'><font color='#7777CC'><b>Состояние</b></font></td>"
 
 			for(var/obj/item/organ/organ in H.internal_organs)
@@ -356,8 +356,8 @@ GENE SCANNER
 			|| S.flying_species != initial(S.flying_species)
 
 		render_list += "<span class='info ml-1'>Селекционный тип: [S.name][mutant ? "-мутант" : ""]</span>\n"
-		render_list += "<span class='info ml-1'>Температура ядра: [round(H.coretemperature-T0C,0.1)] &deg;C ([round(H.coretemperature*1.8-459.67,0.1)] &deg;F)</span>\n"
-	render_list += "<span class='info ml-1'>Температура тела: [round(M.bodytemperature-T0C,0.1)] &deg;C ([round(M.bodytemperature*1.8-459.67,0.1)] &deg;F)</span>\n"
+		render_list += "<span class='info ml-1'>Внутренняя температура: [round(H.coretemperature-T0C,0.1)] &deg;C ([round(H.coretemperature*1.8-459.67,0.1)] &deg;F)</span>\n"
+	render_list += "<span class='info ml-1'>Внешняя температура: [round(M.bodytemperature-T0C,0.1)] &deg;C ([round(M.bodytemperature*1.8-459.67,0.1)] &deg;F)</span>\n"
 
 	// Time of death
 	if(M.tod && (M.stat == DEAD || ((HAS_TRAIT(M, TRAIT_FAKEDEATH)) && !advanced)))
