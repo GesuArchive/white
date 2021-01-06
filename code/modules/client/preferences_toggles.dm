@@ -34,7 +34,7 @@
 	set desc = "Настройки чата"
 	new /datum/chat_settings_panel(usr)
 
-/datum/verbs/menu/settings/sound/verb/stop_client_sounds()
+/datum/verbs/menu/settings/verb/stop_client_sounds()
 	set name = "❌ Остановить звуки"
 	set category = "Особенное"
 	set desc = "Остановить звуки"
