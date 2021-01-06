@@ -163,11 +163,11 @@
 		))
 
 	if(disk)
-		data["songs"]["ДИСК"] = list (
-			"name" 	 = S.song_category,
+		data["songs"]["DISC"] = list (
+			"name" 	 = "ДИСК",
 			"tracks" = list()
 		)
-		data["songs"]["ДИСК"]["tracks"] += list(list(
+		data["songs"]["DISC"]["tracks"] += list(list(
 			"name" 		 = disk.track.song_name,
 			"short_name" = disk.track.short_name,
 			"length_t" 	 = "?:??"
