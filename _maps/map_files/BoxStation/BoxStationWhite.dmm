@@ -31303,6 +31303,7 @@
 	name = "Atmospherics Internal Airlock";
 	req_access_txt = "24"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "fsC" = (
@@ -37036,6 +37037,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/engine/atmos)
 "ryM" = (
