@@ -246,10 +246,6 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	var/deaf_message
 	var/deaf_type
 
-	var/message_size = get_dist(src, speaker)
-	if(src == speaker)
-		message_size = 0
-
 	if(HAS_TRAIT(speaker, TRAIT_SIGN_LANG)) //Checks if speaker is using sign language
 		deaf_message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
 		if(speaker != src)
@@ -272,10 +268,10 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	if(speaker != src)
 		if(!radio_freq) //These checks have to be seperate, else people talking on the radio will make "You can't hear yourself!" appear when hearing people over the radio while deaf.
-			deaf_message = "<span class='name'>[capitalize(speaker.name)]</span> [speaker.verb_say] что-то, но я не могу понять что."
+			deaf_message = "<span class='name'>[capitalize(speaker.name)]</span> [speaker.verb_say] что-то, но не могу понять что."
 			deaf_type = 1
 	else
-		deaf_message = "<span class='notice'>Я не слышу себя!</span>"
+		deaf_message = "<span class='notice'>Не слышу себя!</span>"
 		deaf_type = 2 // Since you should be able to hear yourself without looking
 
 	// Create map text prior to modifying message for goonchat
@@ -284,8 +280,6 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	// Recompose message for AI hrefs, language incomprehension.
 	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
-
-	message = "<span class='chat_step_[message_size]'>[message]</span>"
 
 	show_message(message, MSG_AUDIBLE, deaf_message, deaf_type, avoid_highlighting = speaker == src)
 	return message

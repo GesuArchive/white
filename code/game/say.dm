@@ -65,8 +65,12 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	//End name span.
 	var/endspanpart = "</span>"
 
+	var/message_size = get_dist(src, speaker)
+	if(src == speaker)
+		message_size = 0
+
 	//Message
-	var/messagepart = " <span class='message'>[lang_treat(speaker, message_language, raw_message, spans, message_mods)]</span></span>"
+	var/messagepart = " <span class='message chat_step_[message_size]'>[lang_treat(speaker, message_language, raw_message, spans, message_mods)]</span></span>"
 
 	var/languageicon = ""
 	var/datum/language/D = GLOB.language_datum_instances[message_language]
@@ -83,7 +87,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 
 /atom/movable/proc/say_mod(input, list/message_mods = list())
 	var/ending = copytext_char(input, -1)
-	if(copytext_char(input, -2) == "!!")
+	if(copytext_char(input, -1) == "!")
 		return verb_yell
 	else if(message_mods[MODE_SING])
 		. = verb_sing
@@ -98,7 +102,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if(!input)
 		input = "..."
 
-	if(copytext_char(input, -2) == "!!")
+	if(copytext_char(input, -1) == "!")
 		spans |= SPAN_YELL
 
 	var/spanned = attach_spans_pointized(input, spans)

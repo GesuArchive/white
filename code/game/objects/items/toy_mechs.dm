@@ -231,7 +231,7 @@
 				playsound(user, 'sound/weapons/smash.ogg', 20, TRUE)
 				combat_health-- //we scratched it!
 			if(4)
-				say(special_attack_cry + "!!")
+				say(special_attack_cry + "!")
 				user.adjustStaminaLoss(25)
 
 		if(!combat_sleep(1 SECONDS, null, user))
@@ -471,7 +471,7 @@
  * * victim - the toy being hit by the special move
  */
 /obj/item/toy/prize/proc/special_attack_move(obj/item/toy/prize/victim)
-	say(special_attack_cry + "!!")
+	say(special_attack_cry + "!")
 
 	special_attack_charged = FALSE
 	special_attack_cooldown = 3
