@@ -82,19 +82,19 @@
 		var/a_letter = text2ascii(phrase, i)
 		var/letter = ascii2text(a_letter)
 		if(prob(33))
-			if(r_lowertext(letter)=="о")	letter="у"
-			if(r_lowertext(letter)=="ы")	letter="i"
-			if(r_lowertext(letter)=="р")	letter="r"
-			if(r_lowertext(letter)=="л")	letter="ль"
-			if(r_lowertext(letter)=="з")	letter="с"
-			if(r_lowertext(letter)=="в")	letter="ф"
-			if(r_lowertext(letter)=="б")	letter="п"
-			if(r_lowertext(letter)=="г")	letter="х"
-			if(r_lowertext(letter)=="д")	letter="т"
+			if(lowertext(letter)=="о")	letter="у"
+			if(lowertext(letter)=="ы")	letter="i"
+			if(lowertext(letter)=="р")	letter="r"
+			if(lowertext(letter)=="л")	letter="ль"
+			if(lowertext(letter)=="з")	letter="с"
+			if(lowertext(letter)=="в")	letter="ф"
+			if(lowertext(letter)=="б")	letter="п"
+			if(lowertext(letter)=="г")	letter="х"
+			if(lowertext(letter)=="д")	letter="т"
 
 		switch(rand(1,15))
-			if(1,3,5,8)		letter = "[r_lowertext(letter)]"
-			if(2,4,6,15)	letter = "[r_uppertext(letter)]"
+			if(1,3,5,8)		letter = "[lowertext(letter)]"
+			if(2,4,6,15)	letter = "[uppertext(letter)]"
 			if(7)			letter += "'"
 			if(9,10)		letter = "<b>[letter]</b>"
 			if(11,12)		letter = "<big>[letter]</big>"
@@ -111,20 +111,20 @@
 		var/a_letter = text2ascii(phrase, i)
 		var/letter = ascii2text(a_letter)
 		if(prob(33))
-			if(r_lowertext(letter)=="о")	letter="о"
-			if(r_lowertext(letter)=="ы")	letter="i"
-			if(r_lowertext(letter)=="р")	letter="НАР"
-			if(r_lowertext(letter)=="л")	letter="ль"
-			if(r_lowertext(letter)=="з")	letter="СИ"
-			if(r_lowertext(letter)=="в")	letter="ф"
-			if(r_lowertext(letter)=="б")	letter="п"
-			if(r_lowertext(letter)=="г")	letter="СМЫСЛА"
-			if(r_lowertext(letter)=="д")	letter="т"
-			if(r_lowertext(letter)=="н")	letter="НЕТ"
+			if(lowertext(letter)=="о")	letter="о"
+			if(lowertext(letter)=="ы")	letter="i"
+			if(lowertext(letter)=="р")	letter="НАР"
+			if(lowertext(letter)=="л")	letter="ль"
+			if(lowertext(letter)=="з")	letter="СИ"
+			if(lowertext(letter)=="в")	letter="ф"
+			if(lowertext(letter)=="б")	letter="п"
+			if(lowertext(letter)=="г")	letter="СМЫСЛА"
+			if(lowertext(letter)=="д")	letter="т"
+			if(lowertext(letter)=="н")	letter="НЕТ"
 
 		switch(rand(1,15))
-			if(1,3,5,8)		letter = "[r_lowertext(letter)]"
-			if(2,4,6,15)	letter = "[r_uppertext(letter)]"
+			if(1,3,5,8)		letter = "[lowertext(letter)]"
+			if(2,4,6,15)	letter = "[uppertext(letter)]"
 			if(7)			letter += "'"
 			if(9,10)		letter = "<b>[letter]</b>"
 			if(11,12)		letter = "<big>[letter]</big>"
@@ -152,7 +152,7 @@
 	message = replacetext(message, "пушки", "говно")
 	message = replacetext(message, "руки", "КУЛЬТЯПКИ")
 	if(prob(50))
-		message = r_uppertext(message)
+		message = uppertext(message)
 		message += "[r_stutter(pick("!", "!!", "!!!"))]"
 	if(!stuttering && prob(15))
 		message = r_stutter(message)
@@ -489,7 +489,7 @@
 			colored_message = "(ASAY) [colored_message]"
 		if(LOG_EMOTE)
 			colored_message = "(EMOTE) [colored_message]"
-	
+
 	var/list/timestamped_message = list("\[[time_stamp()]\] [key_name(src)] [loc_name(src)] (Event #[LAZYLEN(logging[smessage_type])])" = colored_message)
 
 	logging[smessage_type] += timestamped_message

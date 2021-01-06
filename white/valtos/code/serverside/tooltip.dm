@@ -6,7 +6,7 @@
 			var/obj_name = A.name
 			if(mob.hud_used.tooltip.last_word == obj_name)
 				return
-			mob.hud_used.tooltip.maptext = "<span class='maptext reallybig yell' style='text-align: center;'>[r_uppertext(obj_name)]</span>"
+			mob.hud_used.tooltip.maptext = "<span class='maptext reallybig yell' style='text-align: center;'>[uppertext(obj_name)]</span>"
 	else if(mob.hud_used.tooltip)
 		mob.hud_used.tooltip.maptext = ""
 

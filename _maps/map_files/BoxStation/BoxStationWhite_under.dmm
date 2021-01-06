@@ -292,13 +292,13 @@
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/south)
 "fx" = (
-/obj/machinery/light{
-	dir = 8
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "12"
 	},
-/obj/effect/turf_decal/bot,
-/obj/structure/closet/crate/maint,
-/turf/open/floor/plasteel,
-/area/quartermaster/warehouse)
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "fE" = (
 /obj/structure/ladder,
 /turf/open/floor/plating,
@@ -395,6 +395,20 @@
 /obj/machinery/door/firedoor,
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/east)
+"hl" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "QMLoad"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/stairs/west{
+	invisibility = 101;
+	layer = 2
+	},
+/turf/open/floor/plating,
+/area/quartermaster/warehouse)
 "hr" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
@@ -2491,10 +2505,19 @@
 /turf/open/floor/plasteel,
 /area/ai_monitored/storage/eva)
 "Hx" = (
-/obj/effect/turf_decal/loading_area{
-	dir = 4
+/obj/structure/stairs/west{
+	invisibility = 101;
+	layer = 2
 	},
-/turf/open/floor/plasteel,
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "QMLoad2"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating,
 /area/quartermaster/warehouse)
 "Hz" = (
 /obj/effect/turf_decal/tile/neutral,
@@ -3237,18 +3260,10 @@
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/south)
 "PL" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "QMLoad"
+/obj/effect/turf_decal/loading_area{
+	dir = 4
 	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/structure/stairs/west{
-	invisibility = 101;
-	layer = 2
-	},
-/turf/open/floor/plating,
+/turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
 "PN" = (
 /obj/structure/ladder,
@@ -3470,19 +3485,12 @@
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness)
 "SI" = (
-/obj/structure/stairs/west{
-	invisibility = 101;
-	layer = 2
+/obj/machinery/light{
+	dir = 8
 	},
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "QMLoad2"
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating,
+/obj/effect/turf_decal/bot,
+/obj/structure/closet/crate/maint,
+/turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
 "SL" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -21933,11 +21941,11 @@ KI
 Zm
 PG
 Zm
-bK
-YG
-bK
-YG
-bK
+Zm
+Zm
+Zm
+Zm
+Zm
 PG
 PG
 PG
@@ -22190,14 +22198,14 @@ KI
 Zm
 PG
 Zm
-YG
-aI
-fx
-aI
 bK
-Zm
-Zm
-Zm
+YG
+bK
+YG
+bK
+mw
+mw
+mw
 Zm
 Zm
 PG
@@ -22447,13 +22455,13 @@ bK
 YG
 bK
 YG
-bK
-zT
+YG
 aI
+SI
 aI
-bK
-bK
-mw
+da
+GQ
+GQ
 mw
 mw
 mw
@@ -22704,11 +22712,11 @@ da
 db
 Gg
 db
-SI
-db
-db
-db
-PL
+da
+zT
+aI
+aI
+da
 da
 GQ
 GQ
@@ -22965,7 +22973,7 @@ Hx
 db
 db
 db
-Fe
+hl
 da
 GQ
 GQ
@@ -23218,7 +23226,7 @@ da
 Fj
 db
 db
-db
+PL
 db
 db
 db
@@ -40677,7 +40685,7 @@ fF
 fF
 fF
 fF
-mP
+Xc
 fF
 fF
 fF
@@ -40934,7 +40942,7 @@ fF
 fF
 fF
 fF
-mP
+Xc
 fF
 fF
 fF
@@ -41191,7 +41199,7 @@ fF
 fF
 fF
 fF
-mP
+Xc
 fF
 fF
 fF
@@ -41448,7 +41456,7 @@ fF
 fF
 fF
 fF
-mP
+Xc
 fF
 fF
 fF
@@ -41705,7 +41713,7 @@ fF
 fF
 fF
 fF
-mP
+Xc
 fF
 fF
 fF
@@ -41962,7 +41970,7 @@ fF
 fF
 fF
 fF
-mP
+nm
 fF
 fF
 fF
@@ -42219,7 +42227,7 @@ fF
 fF
 fF
 fF
-mP
+Xc
 fF
 fF
 fF
@@ -42476,7 +42484,7 @@ fF
 fF
 fF
 fF
-mP
+Xc
 fF
 fF
 fF
@@ -42720,9 +42728,9 @@ PG
 mP
 mP
 mP
-mP
-mP
-mP
+Xc
+Xc
+Xc
 fF
 fF
 fF
@@ -42733,7 +42741,7 @@ fF
 fF
 fF
 fF
-mP
+Xc
 fF
 fF
 fF
@@ -42979,18 +42987,18 @@ Bt
 Bt
 Bt
 Bt
-mP
-mP
-mP
-mP
-mP
-mP
-mP
-mP
-OL
-mP
-mP
-mP
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+fx
+Xc
+Xc
+Xc
 fF
 fF
 fF

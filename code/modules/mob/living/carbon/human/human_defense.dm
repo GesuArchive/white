@@ -731,7 +731,7 @@
 				isdisabled += " но "
 			else
 				isdisabled += " и "
-		combined_msg += "<tr><td><b>[r_uppertext(LB.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "info" : "warning"]'>[r_uppertext(status)]</span>\]</td></tr>"
+		combined_msg += "<tr><td><b>[uppertext(LB.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "info" : "warning"]'>[uppertext(status)]</span>\]</td></tr>"
 
 		for(var/thing in LB.wounds)
 			var/datum/wound/W = thing
@@ -754,7 +754,7 @@
 				combined_msg += "<tr><td><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Похоже [I] торчит из моей [ru_otkuda_zone(LB.name)]!</a></td></tr>"
 
 	for(var/t in missing)
-		combined_msg += "<tr><td>\t <b>[r_uppertext(ru_exam_parse_zone(parse_zone(t)))]:</b></td><td>\[<span class='boldannounce'>ОТСУТСТВУЕТ</span>\]</td></tr>"
+		combined_msg += "<tr><td>\t <b>[uppertext(ru_exam_parse_zone(parse_zone(t)))]:</b></td><td>\[<span class='boldannounce'>ОТСУТСТВУЕТ</span>\]</td></tr>"
 
 	combined_msg += "</table>"
 

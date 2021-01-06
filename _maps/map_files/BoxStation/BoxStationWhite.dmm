@@ -1377,15 +1377,6 @@
 	},
 /turf/open/floor/engine/vacuum,
 /area/engine/atmos)
-"ama" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Cargo Bay Maintenance";
-	req_access_txt = "31"
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/quartermaster/storage)
 "amb" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -11355,6 +11346,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 9
 	},
+/obj/structure/railing,
 /turf/open/floor/plating,
 /area/maintenance/port)
 "aXV" = (
@@ -11455,6 +11447,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/railing{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -12263,8 +12258,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/open/floor/plasteel,
 /area/quartermaster/storage)
 "bcG" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -12620,6 +12614,7 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
 	dir = 1
 	},
+/obj/structure/railing/corner,
 /turf/open/floor/plating,
 /area/maintenance/port)
 "bex" = (
@@ -13684,16 +13679,11 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 9
 	},
+/obj/structure/railing{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/maintenance/port)
-"bjp" = (
-/obj/machinery/firealarm{
-	pixel_y = 27
-	},
-/obj/structure/cable,
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
-/area/quartermaster/storage)
 "bjq" = (
 /obj/structure/cable,
 /obj/structure/railing/corner{
@@ -13727,8 +13717,7 @@
 	dir = 5
 	},
 /obj/structure/cable,
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/open/floor/plasteel,
 /area/quartermaster/storage)
 "bju" = (
 /obj/item/radio/intercom{
@@ -14703,6 +14692,7 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
+/obj/machinery/vending/wardrobe/cargo_wardrobe,
 /turf/open/floor/plasteel,
 /area/quartermaster/office)
 "boO" = (
@@ -16210,7 +16200,6 @@
 /obj/item/radio/intercom{
 	pixel_y = -35
 	},
-/obj/machinery/vending/wardrobe/cargo_wardrobe,
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
@@ -16550,14 +16539,13 @@
 /turf/open/floor/plasteel/dark,
 /area/science/genetics)
 "bzR" = (
-/obj/machinery/light{
-	dir = 1;
-	pixel_y = 0
+/obj/structure/lattice/catwalk,
+/obj/structure/railing{
+	dir = 8
 	},
 /obj/structure/cable,
-/obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/quartermaster/storage)
+/area/maintenance/port)
 "bzT" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Cargo Bay Maintenance";
@@ -16842,7 +16830,11 @@
 "bAZ" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating,
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = -24
+	},
+/turf/open/floor/plasteel,
 /area/quartermaster/storage)
 "bBa" = (
 /obj/structure/disposalpipe/segment{
@@ -30252,6 +30244,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/hydroponics)
+"dju" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/quartermaster/storage)
 "dkX" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -30370,12 +30366,19 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "dwu" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 6
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/turf/open/openspace,
-/area/quartermaster/storage)
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/railing,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "dxb" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -32252,6 +32255,11 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/manufactory)
+"hvV" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel,
+/area/quartermaster/storage)
 "hwf" = (
 /obj/effect/spawner/lootdrop/maintenance/two,
 /obj/item/stock_parts/capacitor,
@@ -34679,12 +34687,13 @@
 /turf/closed/wall/r_wall,
 /area/engine/atmos)
 "mNk" = (
-/obj/machinery/airalarm{
-	pixel_y = 23
+/obj/machinery/door/airlock/maintenance{
+	name = "Cargo Bay Maintenance";
+	req_access_txt = "31"
 	},
+/obj/machinery/door/firedoor,
 /obj/structure/cable,
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/open/floor/plating,
 /area/quartermaster/storage)
 "mNB" = (
 /obj/effect/turf_decal/stripes/line,
@@ -34868,6 +34877,19 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/fore/secondary)
+"nlV" = (
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 9
+	},
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/port)
 "nnA" = (
 /obj/machinery/door/airlock{
 	name = "Observatory Access"
@@ -35127,6 +35149,15 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/fore)
+"nHG" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/airalarm{
+	dir = 8;
+	pixel_x = 23
+	},
+/turf/open/floor/plasteel,
+/area/quartermaster/storage)
 "nJo" = (
 /turf/open/floor/plasteel/dark,
 /area/maintenance/solars/port/aft)
@@ -36255,12 +36286,16 @@
 /turf/open/floor/plating,
 /area/maintenance/port)
 "pRK" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 5
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/turf/open/openspace,
-/area/quartermaster/storage)
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/railing,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "pSN" = (
 /obj/effect/turf_decal/tile/purple,
 /obj/effect/turf_decal/tile/purple{
@@ -37418,10 +37453,8 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "sfq" = (
-/obj/structure/cable,
-/obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/quartermaster/storage)
+/area/maintenance/port)
 "sfM" = (
 /obj/machinery/mecha_part_fabricator/maint,
 /turf/open/floor/plating,
@@ -38984,6 +39017,12 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
+"vlB" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/quartermaster/storage)
 "vmJ" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
@@ -59137,13 +59176,13 @@ hPI
 aZE
 arC
 arC
-dwu
-sSZ
-pRK
 arC
-dwu
-sSZ
-des
+bql
+arC
+arC
+arC
+bvV
+vlB
 bjr
 pxg
 bjr
@@ -59645,9 +59684,9 @@ aZA
 aZA
 aPA
 ePZ
-hPI
-aZE
-ama
+dwu
+sfq
+sfq
 aZE
 bkn
 sSZ
@@ -59902,10 +59941,10 @@ aYX
 bbs
 aPA
 rmP
-hPI
-aZE
+dwu
 sfq
-bAZ
+sfq
+aZE
 sSZ
 sSZ
 sSZ
@@ -60160,9 +60199,9 @@ bbr
 bcu
 bxw
 aXU
-aZE
 sfq
-bAZ
+sfq
+aZE
 uqv
 uqv
 mJV
@@ -60416,10 +60455,10 @@ aPA
 aPA
 aPA
 byc
-aSX
+pRK
+sfq
+sfq
 aZE
-bjp
-bAZ
 sSZ
 sSZ
 sSZ
@@ -60673,11 +60712,11 @@ aQM
 aQM
 aQM
 byd
-aYY
-aZE
+nlV
 bzR
-bAZ
-sSZ
+bzR
+aZE
+bkn
 sSZ
 sSZ
 sSZ
@@ -60931,9 +60970,9 @@ gjl
 gjl
 byg
 gjl
-aZE
+gjl
 mNk
-bAZ
+aZE
 uqv
 uqv
 mJV
@@ -61189,7 +61228,7 @@ bdS
 bdU
 ckQ
 byz
-sfq
+dju
 bAZ
 sSZ
 sSZ
@@ -61447,7 +61486,7 @@ bfg
 byl
 bhW
 bjt
-bAZ
+hvV
 sSZ
 sSZ
 sSZ
@@ -61704,7 +61743,7 @@ bgA
 bex
 byz
 bcF
-bAZ
+nHG
 sSZ
 sSZ
 sSZ
@@ -62216,7 +62255,7 @@ bwQ
 gjl
 gjl
 gjl
-sdX
+gjl
 bju
 biv
 bmf
@@ -62473,7 +62512,7 @@ gjl
 gjl
 bdW
 igQ
-sdX
+gjl
 bgz
 biT
 ioQ

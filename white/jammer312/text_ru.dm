@@ -119,7 +119,7 @@ GLOBAL_LIST_INIT(rus_unicode_fix,null)
 
 //utility stuff
 
-/proc/r_uppertext(text)
+/proc/uppertext(text)
 	var/t = ""
 	for(var/i = 1, i <= length(text), i++)
 		var/a = text2ascii(text, i)
@@ -130,7 +130,7 @@ GLOBAL_LIST_INIT(rus_unicode_fix,null)
 		else t += ascii2text(a)
 	return uppertext(t)
 
-/proc/r_lowertext(text)
+/proc/lowertext(text)
 	var/t = ""
 	for(var/i = 1, i <= length(text), i++)
 		var/a = text2ascii(text, i)
@@ -148,7 +148,7 @@ GLOBAL_LIST_INIT(rus_unicode_fix,null)
 	else if (copytext(t,1,2) == ":")
 		s += 2
 	s = findtext(t, regex("\[^ \]","g"), s) + 1
-	return r_uppertext(copytext(t, 1, s)) + copytext(t, s)
+	return uppertext(copytext(t, 1, s)) + copytext(t, s)
 
 /proc/pointization(text)
 	if (!text)

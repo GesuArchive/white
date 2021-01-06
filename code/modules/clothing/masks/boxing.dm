@@ -71,7 +71,7 @@
 		message = replacetext_char(message, "библиотека", "biblioteca")
 		message = replacetext_char(message, "предатель", "traidor")
 		message = replacetext_char(message, "маг", "mago")
-		message = r_uppertext(message)	//Things end up looking better this way (no mixed cases), and it fits the macho wrestler image.
+		message = uppertext(message)	//Things end up looking better this way (no mixed cases), and it fits the macho wrestler image.
 		if(prob(25))
 			message += " OLE!"
 	speech_args[SPEECH_MESSAGE] = message

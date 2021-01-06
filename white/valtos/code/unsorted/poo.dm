@@ -128,10 +128,11 @@
 
 /datum/emote/living/poo/run_emote(mob/user, params)
 	. = ..()
+	var/list/random_poo = list("покакунькивает", "срёт", "какает", "производит акт дефекации", "обсирается", "выдавливает какулину")
 	if(. && ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(HAS_TRAIT(H, TRAIT_LIGHT_POOER) && H.nutrition >= NUTRITION_LEVEL_WELL_FED)
-			H.visible_message("<span class='notice'><b>[H]</b> срёт себе прямо в руку!</span>", \
+			H.visible_message("<span class='notice'><b>[H]</b> [prob(25) ? pick(random_poo) : uppertext(pick(random_poo))] себе прямо в руку!</span>", \
 					"<span class='notice'>Выдавливаю какаху из своего тела.</span>")
 			playsound(H, 'white/valtos/sounds/poo2.ogg', 25, 1) //silence hunter
 			var/obj/item/food/poo/P = new(get_turf(H))
@@ -143,7 +144,7 @@
 			return
 		else if (H.nutrition >= NUTRITION_LEVEL_FULL)
 			if(H.get_item_by_slot(ITEM_SLOT_ICLOTHING))
-				H.visible_message("<span class='notice'><b>[H]</b> срёт себе в штаны!</span>", \
+				H.visible_message("<span class='notice'><b>[H]</b> [prob(25) ? pick(random_poo) : uppertext(pick(random_poo))] себе в штаны!</span>", \
 						"<span class='notice'>Сру себе в штаны.</span>")
 				playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
 				H.nutrition -= 75
@@ -158,14 +159,14 @@
 				SSblackbox.record_feedback("tally", "poo", 1, "Poo Self")
 				return
 			else
-				H.visible_message("<span class='notice'><b>[H]</b> срёт на пол!</span>", \
+				H.visible_message("<span class='notice'><b>[H]</b> [prob(25) ? pick(random_poo) : uppertext(pick(random_poo))] на пол!</span>", \
 						"<span class='notice'>Выдавливаю какаху из своего тела.</span>")
 				playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
 				new /obj/item/food/poo(H.loc)
 				H.nutrition -= 75
 				SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 				return
-		else
+		else if(H.stat == CONSCIOUS)
 			H.visible_message("<span class='notice'><b>[H]</b> тужится!</span>", \
 					"<span class='notice'>Вам нечем какать.</span>")
 			H.adjust_blurriness(1)

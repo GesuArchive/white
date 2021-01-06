@@ -9,9 +9,9 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 /proc/proverka_na_detey(var/msg, var/mob/target)
 	if(!target.client)
 		return
-	msg = r_lowertext(msg)
+	msg = lowertext(msg)
 	for(var/W in GLOB.bad_words)
-		W = r_lowertext(W)
+		W = lowertext(W)
 		if(findtext_char(msg, W) && isliving(target) && W != "")
 			var/list/ML = splittext(msg, " ")
 
@@ -31,7 +31,7 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 						return
 
 			if(target.client)
-				inc_metabalance(target, METACOIN_BADWORDS_REWARD, reason="[r_uppertext(W)]...")
+				inc_metabalance(target, METACOIN_BADWORDS_REWARD, reason="[uppertext(W)]...")
 				if(!ishuman(target))
 					target.client.prefs.muted |= MUTE_IC
 

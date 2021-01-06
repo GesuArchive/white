@@ -90,6 +90,8 @@
 	med_hud_set_status()
 	stop_pulling()
 
+	emote("poo")
+
 	if(mind || force_killcount)
 		secure_kill(lastattackerckey)
 

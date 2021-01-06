@@ -28,7 +28,7 @@
 	icon_state = pick("default", "tall", "neon")
 
 	if(icon_state == "tall")
-		name = "Младший [r_lowertext(name)]"
+		name = "Младший [lowertext(name)]"
 
 	var/list/tracks = flist("[global.config.directory]/jukebox_music/sounds/")
 

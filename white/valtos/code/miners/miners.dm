@@ -82,6 +82,7 @@ SUBSYSTEM_DEF(spm)
 			. += "\n<span class='notice'>[icon2html(MT, user)] [MT.tech_name] \[[MT.hashrate] Sols/s]</span>"
 	. += "<hr><span class='notice'>Общая скорость: <b>[hashrate_total] Sols/s</b>.</span>"
 	. += "\n<span class='notice'>Сложность сети: <b>[SSspm.diff]</b>.</span>"
+	. += "\n<span class='notice'>Привязанный аккаунт: <b>[linked_account.account_holder]</b>.</span>"
 
 /obj/machinery/power/mining_rack/proc/get_env_temp()
 	var/datum/gas_mixture/env = loc.return_air()

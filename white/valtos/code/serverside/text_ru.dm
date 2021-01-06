@@ -97,33 +97,7 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	var/list/strip_chars = list("_"," ")
 	for(var/char in strip_chars)
 		text = replacetext_char(text, char, "")
-	return r_lowertext(text)
-
-/proc/r_lowertext(text)
-	var/t = ""
-	for(var/i = 1, i <= length(text), i++)
-		var/a = text2ascii(text, i)
-		if (a == 1105 || a == 1025)
-			t += ascii2text(1105)
-			continue
-		if (a < 1040 || a > 1071)
-			t += ascii2text(a)
-			continue
-		t += ascii2text(a + 32)
-	return lowertext(t)
-
-/proc/r_uppertext(text)
-	var/t = ""
-	for(var/i = 1, i <= length(text), i++)
-		var/a = text2ascii(text, i)
-		if (a == 1105 || a == 1025)
-			t += ascii2text(1025)
-			continue
-		if (a < 1072 || a > 1105)
-			t += ascii2text(a)
-			continue
-		t += ascii2text(a - 32)
-	return uppertext(t)
+	return lowertext(text)
 
 /proc/pointization(text)
 	if (!text)
@@ -136,8 +110,9 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	return text
 
 /proc/r_antidaunize(t as text)
-    var/first = ascii2text(text2ascii(t))
-    return r_lowertext(first) + copytext(t, length(first) + 1)
+	if(t)
+		t = lowertext(t[1]) + copytext(t, 1 + length(t[1]))
+	return t
 
 /proc/r_json_decode(text) //now I'm stupid
 	for(var/s in GLOB.rus_unicode_conversion_hex)

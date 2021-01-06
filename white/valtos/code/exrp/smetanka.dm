@@ -10,8 +10,8 @@
 /obj/effect/decal/cleanable/cum/Initialize(mapload, list/datum/disease/diseases)
 	. = ..()
 	reagents.add_reagent(/datum/reagent/consumable/nutriment/protein, 5)
-	pixel_x = rand(-8, 8)
-	pixel_y = rand(-8, 8)
+	pixel_x = rand(-12, 12)
+	pixel_y = rand(-12, 12)
 
 /obj/effect/decal/cleanable/cum/attack_hand(mob/user)
 	. = ..()

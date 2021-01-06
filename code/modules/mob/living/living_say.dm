@@ -185,7 +185,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	message = treat_message(message) // unfortunately we still need this
 	var/sigreturn = SEND_SIGNAL(src, COMSIG_MOB_SAY, args)
 	if (sigreturn & COMPONENT_UPPERCASE_SPEECH)
-		message = r_uppertext(message)
+		message = uppertext(message)
 	if(!message)
 		return
 
