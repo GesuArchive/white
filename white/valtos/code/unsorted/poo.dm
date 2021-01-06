@@ -126,11 +126,15 @@
 	key_third_person = "shits on the floor"
 	emote_type = EMOTE_AUDIBLE
 
-/datum/emote/living/poo/run_emote(mob/user, params)
+/datum/emote/living/poo/run_emote(mob/living/user, params)
 	. = ..()
+	if(.)
+		user.try_poo()
+
+/mob/living/proc/try_poo()
 	var/list/random_poo = list("покакунькивает", "срёт", "какает", "производит акт дефекации", "обсирается", "выдавливает какулину")
-	if(. && ishuman(user))
-		var/mob/living/carbon/human/H = user
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
 		if(HAS_TRAIT(H, TRAIT_LIGHT_POOER) && H.nutrition >= NUTRITION_LEVEL_WELL_FED)
 			H.visible_message("<span class='notice'><b>[H]</b> [prob(25) ? pick(random_poo) : uppertext(pick(random_poo))] себе прямо в руку!</span>", \
 					"<span class='notice'>Выдавливаю какаху из своего тела.</span>")

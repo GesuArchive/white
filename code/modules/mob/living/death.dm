@@ -69,6 +69,7 @@
  * * gibbed - Was the mob gibbed?
 */
 /mob/living/proc/death(gibbed)
+	INVOKE_ASYNC(src, .proc/try_poo)
 	set_stat(DEAD)
 	unset_machine()
 	timeofdeath = world.time
@@ -89,8 +90,6 @@
 	med_hud_set_health()
 	med_hud_set_status()
 	stop_pulling()
-
-	emote("poo")
 
 	if(mind || force_killcount)
 		secure_kill(lastattackerckey)
