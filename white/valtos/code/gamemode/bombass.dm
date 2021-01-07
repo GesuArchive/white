@@ -1,5 +1,5 @@
 /area/awaymission/bombass
-	name = "bombass"
+	name = "Бомбасс"
 	icon_state = "awaycontent6"
 	requires_power = TRUE
 	area_flags = NOTELEPORT
@@ -9,24 +9,17 @@
 	mood_message = "<span class='nicegreen'>СЕГОДНЯ Я УМРУ!\n</span>"
 
 /area/awaymission/bombass/indoors
-	name = "bombass housing"
+	name = "Бункер бомбасса"
 	outdoors = FALSE
 	requires_power = FALSE
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 
 /obj/structure/closet/bombcloset/bombsquad
-	name = "\improper BOMBSQUAD closet"
+	name = "BOMBSQUAD"
 	anchored = TRUE
 
 /obj/structure/closet/bombcloset/bombsquad/PopulateContents()
-	..()
-	new /obj/item/clothing/suit/bomb_suit(src)
-	new /obj/item/clothing/under/color/black(src)
-	new /obj/item/clothing/shoes/sneakers/black(src)
-	new /obj/item/clothing/head/bomb_hood/bombsquad(src)
-
-/obj/item/clothing/head/bomb_hood/bombsquad
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR
+	return
 
 /datum/outfit/job/bombsquad
 	name = "BombMeat uniform"
@@ -35,7 +28,7 @@
 	id = /obj/item/card/id
 
 /datum/job/bombmeat
-	title = "Defender"
+	title = "Защитник"
 	faction = "Assault"
 
 	total_positions = 32
@@ -58,9 +51,9 @@
 	random = FALSE
 	oxy_damage = 30
 	mob_species = /datum/species/human
-	short_desc = "Я бомбасист"
-	flavour_text = "ПОРА УМИРАТЬ!"
-	important_info = "Система клонирования дала сбой и теперь вся надежда только на самих себя."
+	short_desc = "Я бомбасист. Моя задача состоит в защите входа в бункер."
+	flavour_text = "К сожалению, система клонирования дала сбой и теперь вся надежда только на самих себя."
+	important_info = "ПОРА УМИРАТЬ!"
 	uniform = /datum/outfit/job/assistant
 	shoes = null
 	disease = /datum/disease/dnaspread
@@ -68,7 +61,7 @@
 
 /obj/effect/mob_spawn/human/bombmeat/equip(mob/living/carbon/human/H)
 	. = ..()
-	if(H.gender==FEMALE)
+	if(H.gender == FEMALE)
 		H.real_name = "Бомбасистка [capitalize(pick(GLOB.first_names_female))]"
 	else
 		H.real_name = "Бомбасист [capitalize(pick(GLOB.first_names_male))]"
