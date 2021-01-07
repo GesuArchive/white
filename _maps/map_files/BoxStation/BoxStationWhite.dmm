@@ -7797,6 +7797,9 @@
 	dir = 4;
 	sortType = 17
 	},
+/obj/structure/railing{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "aGG" = (
@@ -7869,7 +7872,7 @@
 	},
 /turf/open/floor/plasteel/grimy,
 /area/chapel/office)
-"aGV" = (
+"aGW" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -7878,18 +7881,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
-"aGW" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/maintenance/starboard/fore)
-"aGX" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/openspace/airless,
-/area/space)
 "aGY" = (
 /obj/machinery/airalarm{
 	pixel_y = 23
@@ -17871,6 +17862,7 @@
 /area/maintenance/starboard)
 "bGc" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/science/mixing)
 "bGd" = (
@@ -18930,6 +18922,7 @@
 /area/science/mixing)
 "bKe" = (
 /obj/effect/spawner/structure/window,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/science/mixing)
 "bKf" = (
@@ -19563,6 +19556,7 @@
 /area/crew_quarters/heads/hor)
 "bMs" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/science/research)
 "bMt" = (
@@ -30115,11 +30109,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/maintenance/starboard/fore)
+/obj/structure/lattice,
+/turf/open/openspace,
+/area/space)
 "daq" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -30808,6 +30800,9 @@
 "epI" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/science/nanite)
@@ -31738,6 +31733,10 @@
 /obj/structure/chair/office/light{
 	dir = 4
 	},
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/science/nanite)
 "goy" = (
@@ -31860,6 +31859,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/dark,
+/area/science/nanite)
+"gDw" = (
+/turf/open/openspace,
 /area/science/nanite)
 "gEl" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2,
@@ -33993,6 +33995,13 @@
 /obj/machinery/ai_slipper/smartfoam,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
+"kSC" = (
+/obj/effect/spawner/lootdrop/maintenance,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "kSG" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -34656,9 +34665,10 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
+/obj/structure/railing{
+	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/science/nanite)
 "mEJ" = (
@@ -35171,6 +35181,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/fore)
+"nGp" = (
+/obj/effect/landmark/event_spawn,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "nGv" = (
 /obj/structure/disposalpipe/sorting/mail/flip{
 	dir = 4;
@@ -35533,6 +35550,15 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/engine/engineering)
+"omB" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "ooX" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/visible,
 /obj/machinery/atmospherics/pipe/simple/yellow/visible{
@@ -36503,9 +36529,10 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
+/obj/structure/railing{
+	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/science/nanite)
 "qfo" = (
@@ -36739,6 +36766,9 @@
 "qGG" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/science/nanite)
@@ -38059,6 +38089,10 @@
 	dir = 8
 	},
 /obj/effect/landmark/start/scientist,
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/science/nanite)
 "tgF" = (
@@ -38947,6 +38981,12 @@
 /obj/machinery/atmospherics/pipe/simple/purple/visible,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
+"vbs" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/glass/reinforced,
+/area/science/nanite)
 "vbD" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/navbeacon/wayfinding,
@@ -39254,11 +39294,8 @@
 /turf/open/floor/plasteel/white,
 /area/science/genetics)
 "vGf" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/maintenance/starboard/fore)
+/turf/open/openspace,
+/area/space)
 "vHt" = (
 /turf/open/floor/plasteel,
 /area/science/misc_lab)
@@ -79500,10 +79537,10 @@ akw
 akw
 auy
 arj
-aaa
-aaa
-aaa
-aaa
+vGf
+vGf
+vGf
+vGf
 aUZ
 bLS
 bRN
@@ -79757,7 +79794,7 @@ akV
 hNj
 auz
 arj
-aaa
+vGf
 alP
 alP
 alP
@@ -80014,7 +80051,7 @@ alj
 aqv
 auA
 arj
-aaa
+vGf
 alP
 azr
 aDX
@@ -81559,8 +81596,8 @@ bYW
 dGr
 dGr
 aCA
-aEl
-awD
+nGp
+kSC
 aGW
 alP
 vLg
@@ -81818,7 +81855,7 @@ alP
 alP
 vGf
 vGf
-aGV
+dab
 vLg
 aYq
 vBE
@@ -82073,9 +82110,9 @@ apE
 anf
 avD
 alO
-aaa
-aaa
-aGX
+vGf
+vGf
+dab
 vLg
 aJO
 cjx
@@ -82330,8 +82367,8 @@ apE
 anf
 atw
 alP
-hvj
-hvj
+vGf
+vGf
 dab
 vLg
 aJN
@@ -82587,8 +82624,8 @@ alP
 anf
 awC
 alP
-anf
-aFm
+hvj
+omB
 aGF
 vLg
 vLg
@@ -88017,8 +88054,8 @@ biA
 kqV
 gLd
 qea
-hZk
-hZk
+gDw
+vbs
 hZk
 icS
 uCO
@@ -88274,8 +88311,8 @@ bvg
 bBD
 gLd
 gwd
-hZk
-hZk
+gDw
+vbs
 hZk
 icS
 bUq
