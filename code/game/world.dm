@@ -289,7 +289,7 @@ GLOBAL_VAR(restart_counter)
 	log_world("Deallocated [num_deleted] gas mixtures")
 	..()
 
-GLOBAL_VAR_INIT(hub_mimic, TRUE)
+GLOBAL_VAR_INIT(hub_mimic, FALSE)
 
 /world/proc/update_status()
 

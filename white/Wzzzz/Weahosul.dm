@@ -24,6 +24,9 @@
 	max_ammo = 5
 	multiple_sprites = TRUE
 
+/obj/item/ammo_box/magazine/wzzzz/a792x57/empty
+	start_empty = TRUE
+
 /obj/item/ammo_casing/a792x57
 	name = "7.92x57mm bullet casing"
 	desc = "A 7.92x57mm bullet casing."

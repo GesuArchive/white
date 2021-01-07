@@ -1,7 +1,8 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/closed/indestructible/rock/snow,
-/area/awaymission/bombass)
+/obj/effect/mine/explosive,
+/turf/open/floor/plating/partyhard,
+/area/awaymission/bombass/indoors)
 "ab" = (
 /turf/closed/wall/partyhard,
 /area/awaymission/bombass/indoors)
@@ -549,11 +550,8 @@
 /area/awaymission/bombass/indoors)
 "bM" = (
 /obj/structure/rack,
-/obj/item/ammo_box/a762,
-/obj/item/ammo_box/a762,
-/obj/item/ammo_box/a762,
-/obj/item/ammo_box/a762,
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k,
+/obj/item/ammo_box/a762,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
@@ -645,7 +643,7 @@
 	},
 /area/awaymission/bombass/indoors)
 "bX" = (
-/obj/machinery/chem_heater,
+/obj/structure/table,
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-4"
 	},
@@ -834,15 +832,12 @@
 /area/awaymission/bombass/indoors)
 "cv" = (
 /obj/structure/rack,
-/obj/item/ammo_box/a762,
-/obj/item/ammo_box/a762,
-/obj/item/ammo_box/a762,
-/obj/item/ammo_box/a762,
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/scope,
 /obj/machinery/light/small{
 	dir = 1;
 	pixel_y = 0
 	},
+/obj/item/ammo_box/a762,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
@@ -1091,7 +1086,7 @@
 	},
 /area/awaymission/bombass/indoors)
 "cS" = (
-/obj/machinery/reagent_sheet,
+/obj/machinery/chem_heater,
 /turf/open/floor/partyhard/steel{
 	icon_state = "dd-5"
 	},
@@ -1133,26 +1128,20 @@
 /area/awaymission/bombass/indoors)
 "cY" = (
 /obj/structure/rack,
-/obj/item/ammo_box/a762,
-/obj/item/ammo_box/a762,
-/obj/item/ammo_box/a762,
-/obj/item/ammo_box/a762,
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k/empty,
+/obj/item/ammo_box/a762,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
 /area/awaymission/bombass/indoors)
 "db" = (
 /obj/structure/rack,
-/obj/item/ammo_box/a762,
-/obj/item/ammo_box/a762,
-/obj/item/ammo_box/a762,
-/obj/item/ammo_box/a762,
 /obj/item/gun/ballistic/rifle/boltaction/wzzzz/kar98k,
 /obj/machinery/light/small{
 	dir = 1;
 	pixel_y = 0
 	},
+/obj/item/ammo_box/a762,
 /turf/open/floor/partyhard/steel{
 	icon_state = "mm-4"
 	},
@@ -1669,6 +1658,12 @@
 /obj/effect/mine/stun,
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-1"
+	},
+/area/awaymission/bombass)
+"uO" = (
+/obj/item/disk/design_disk/adv/kar98k_ammo,
+/turf/open/floor/partyhard/steel{
+	icon_state = "b-3"
 	},
 /area/awaymission/bombass)
 "Bw" = (
@@ -3664,8 +3659,8 @@ bm
 eK
 eK
 ab
-aa
-aa
+ek
+ek
 ek
 bf
 bf
@@ -4440,8 +4435,8 @@ bm
 ac
 eL
 ab
-aa
-aa
+ek
+ek
 ek
 bf
 bf
@@ -4839,7 +4834,7 @@ bf
 bf
 bg
 bg
-bg
+bl
 bg
 bg
 bg
@@ -5417,7 +5412,7 @@ bf
 bf
 bg
 bg
-bg
+bl
 bg
 bg
 bZ
@@ -5433,13 +5428,13 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+dH
+dH
+dH
+dH
+dH
+dH
+dH
 dH
 bg
 bg
@@ -5604,8 +5599,8 @@ bo
 bH
 bY
 ab
-aa
-aa
+ek
+ek
 ek
 bf
 bf
@@ -5627,13 +5622,13 @@ bg
 bg
 bg
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+dH
+dR
+dL
+dL
+dL
+ec
+ec
 dH
 bg
 bg
@@ -5821,14 +5816,14 @@ bg
 bg
 bg
 bg
-bg
-bg
-fP
-bg
-bg
-bg
-bg
-bg
+dR
+dR
+aa
+dL
+ec
+ec
+ec
+dL
 bg
 bg
 eo
@@ -6015,14 +6010,14 @@ bg
 bg
 bg
 bg
-bg
-bg
-bl
-bg
-bg
-bg
-bg
-bg
+dH
+dL
+dL
+ec
+ec
+ec
+dL
+dH
 bg
 bg
 bg
@@ -6207,16 +6202,16 @@ cq
 bg
 bg
 bg
+bl
 bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
+dH
+dH
+dH
+dH
+dH
+dH
+dH
+dH
 bg
 bg
 bg
@@ -7944,7 +7939,7 @@ fP
 bg
 bg
 bg
-bj
+uO
 bh
 bh
 bh

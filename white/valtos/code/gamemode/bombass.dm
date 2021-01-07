@@ -118,19 +118,30 @@
 	var/datum/antagonist/bombmeat/bt = new
 	new_spawn.mind.add_antag_datum(bt)
 
-/*
+/obj/item/disk/design_disk/adv/kar98k_ammo
+	name = "Kar98k Ammo and Clips"
 
-/obj/machinery/clonepod/experimental/bombass/growclone(clonename, ui, mutation_index, mindref, last_death, blood_type, datum/species/mrace, list/features, factions, list/quirks, datum/bank_account/insurance)
+/obj/item/disk/design_disk/adv/kar98k_ammo/Initialize()
 	. = ..()
+	var/datum/design/kar98k_ammo/A = new
+	var/datum/design/kar98k_clip/C = new
+	blueprints[1] = A
+	blueprints[2] = C
 
-	var/mob/living/mob_occupant = get_mob_or_brainmob(occupant)
+/datum/design/kar98k_ammo
+	name = "Kar98k Ammo (7.92x57mm)"
+	desc = "Патрон калибра 7.92x57mm."
+	id = "kar98k_ammo"
+	build_type = AUTOLATHE
+	materials = list(MAT_CATEGORY_RIGID = 1250)
+	build_path = /obj/item/ammo_casing/a792x57
+	category = list("Импорт")
 
-	var/datum/antagonist/bombmeat/bt = new
-	mob_occupant.mind.add_antag_datum(bt)
-
-	if(mob_occupant.gender==FEMALE)
-		mob_occupant.real_name = "Бомбасистка [capitalize(pick(GLOB.first_names_female))]"
-	else
-		mob_occupant.real_name = "Бомбасист [capitalize(pick(GLOB.first_names_male))]"
-
-*/
+/datum/design/kar98k_clip
+	name = "Kar98k Clip"
+	desc = "Зарядник для винтовки Kar98k. Принимает патроны калибра 7.92x57mm."
+	id = "kar98k_clip"
+	build_type = AUTOLATHE
+	materials = list(MAT_CATEGORY_RIGID = 2500)
+	build_path = /obj/item/ammo_box/magazine/wzzzz/a792x57/empty
+	category = list("Импорт")
