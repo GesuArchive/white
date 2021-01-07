@@ -10,8 +10,8 @@
 #define MEDBOT_PANIC_END	100
 
 /mob/living/simple_animal/bot/medbot
-	name = "\improper Medibot"
-	desc = "A little medical robot. He looks somewhat underwhelmed."
+	name = "Медбот"
+	desc = "Маленький медицинский робот. Он выглядит несколько разочарованным."
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "medibot0"
 	density = FALSE
@@ -29,7 +29,7 @@
 	model = "Medibot"
 	bot_core_type = /obj/machinery/bot_core/medbot
 	window_id = "automed"
-	window_name = "Automatic Medical Unit v1.1"
+	window_name = "Автоматическая медицинская установка v1.1"
 	data_hud_type = DATA_HUD_MEDICAL_ADVANCED
 	path_image_color = "#DDDDFF"
 /// drop determining variable
@@ -71,15 +71,15 @@
 	var/last_tipping_action_voice = 0
 
 /mob/living/simple_animal/bot/medbot/mysterious
-	name = "\improper Mysterious Medibot"
-	desc = "International Medibot of mystery."
+	name = "Загадочный Медбот"
+	desc = "Ух."
 	skin = "bezerk"
 	damagetype_healer = "all"
 	heal_amount = 10
 
 /mob/living/simple_animal/bot/medbot/derelict
-	name = "\improper Old Medibot"
-	desc = "Looks like it hasn't been modified since the late 2080s."
+	name = "Старый Медбот"
+	desc = "Похоже, его не меняли с конца 2080-х годов."
 	skin = "bezerk"
 	damagetype_healer = "all"
 	heal_threshold = 0
@@ -135,9 +135,9 @@
 
 /mob/living/simple_animal/bot/medbot/set_custom_texts()
 
-	text_hack = "You corrupt [name]'s healing processor circuits."
-	text_dehack = "You reset [name]'s healing processor circuits."
-	text_dehack_fail = "[name] seems damaged and does not respond to reprogramming!"
+	text_hack = "Взламываю процессор лечения [name]."
+	text_dehack = "Сбрасываю процессор лечения [name]."
+	text_dehack_fail = "[capitalize(name)] поврежден и не реагирует на перепрограммирование!"
 
 /mob/living/simple_animal/bot/medbot/attack_paw(mob/user)
 	return attack_hand(user)
@@ -146,23 +146,23 @@
 	var/dat
 	dat += hack(user)
 	dat += showpai(user)
-	dat += "<TT><B>Medical Unit Controls v1.1</B></TT><BR><BR>"
-	dat += "Status: <A href='?src=[REF(src)];power=1'>[on ? "On" : "Off"]</A><BR>"
-	dat += "Maintenance panel panel is [open ? "opened" : "closed"]<BR>"
-	dat += "<br>Behaviour controls are [locked ? "locked" : "unlocked"]<hr>"
+	dat += "<TT><B>Управление Медботом v1.1</B></TT><BR><BR>"
+	dat += "Состояние: <A href='?src=[REF(src)];power=1'>[on ? "Вкл" : "Выкл"]</A><BR>"
+	dat += "Техническая панель [open ? "открыта" : "закрыта"]<BR>"
+	dat += "<br>Управление поведением [locked ? "заблокировано" : "разблокировано"]<hr>"
 	if(!locked || issilicon(user) || isAdminGhostAI(user))
-		dat += "<TT>Healing Threshold: "
+		dat += "<TT>Порог лечения: "
 		dat += "<a href='?src=[REF(src)];adj_threshold=-10'>--</a> "
 		dat += "<a href='?src=[REF(src)];adj_threshold=-5'>-</a> "
 		dat += "[heal_threshold] "
 		dat += "<a href='?src=[REF(src)];adj_threshold=5'>+</a> "
 		dat += "<a href='?src=[REF(src)];adj_threshold=10'>++</a>"
 		dat += "</TT><br>"
-		dat += "The speaker switch is [shut_up ? "off" : "on"]. <a href='?src=[REF(src)];togglevoice=[1]'>Toggle</a><br>"
-		dat += "Critical Patient Alerts: <a href='?src=[REF(src)];critalerts=1'>[declare_crit ? "Yes" : "No"]</a><br>"
-		dat += "Patrol Station: <a href='?src=[REF(src)];operation=patrol'>[auto_patrol ? "Yes" : "No"]</a><br>"
-		dat += "Stationary Mode: <a href='?src=[REF(src)];stationary=1'>[stationary_mode ? "Yes" : "No"]</a><br>"
-		dat += "<a href='?src=[REF(src)];hptech=1'>Search for Technological Advancements</a><br>"
+		dat += "Динамик: [shut_up ? "выключен" : "включен"]. <a href='?src=[REF(src)];togglevoice=[1]'>Переключить</a><br>"
+		dat += "Сообщать о раненых: <a href='?src=[REF(src)];critalerts=1'>[declare_crit ? "Да" : "Нет"]</a><br>"
+		dat += "Патрулировать станцию: <a href='?src=[REF(src)];operation=patrol'>[auto_patrol ? "Да" : "Нет"]</a><br>"
+		dat += "Стационарный режим: <a href='?src=[REF(src)];stationary=1'>[stationary_mode ? "Да" : "Нет"]</a><br>"
+		dat += "<a href='?src=[REF(src)];hptech=1'>Поиск технологических улучшений</a><br>"
 
 	return dat
 
@@ -200,7 +200,7 @@
 		if(tech_boosters)
 			heal_amount = (round(tech_boosters/2,0.1)*initial(heal_amount))+initial(heal_amount) //every 2 tend wounds tech gives you an extra 100% healing, adjusting for unique branches (combo is bonus)
 			if(oldheal_amount < heal_amount)
-				speak("New knowledge found! Surgical efficacy improved to [round(heal_amount/initial(heal_amount)*100)]%!")
+				speak("Обнаружены новые знания! Хирургическая эффективность повышена на [round(heal_amount/initial(heal_amount)*100)]%!")
 	update_controls()
 	return
 
@@ -215,8 +215,8 @@
 	if(emagged == 2)
 		declare_crit = 0
 		if(user)
-			to_chat(user, "<span class='notice'>You short out [src]'s reagent synthesis circuits.</span>")
-		audible_message("<span class='danger'>[capitalize(src.name)] buzzes oddly!</span>")
+			to_chat(user, "<span class='notice'>Взламываю синтезатор реагентов [src.name].</span>")
+		audible_message("<span class='danger'>[capitalize(src.name)] странно гудит!</span>")
 		flick("medibot_spark", src)
 		playsound(src, "sparks", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		if(user)
@@ -232,7 +232,7 @@
 	if(assess_patient(H))
 		last_found = world.time
 		if((last_newpatient_speak + 300) < world.time) //Don't spam these messages!
-			var/list/messagevoice = list("Hey, [H.name]! Hold on, I'm coming." = 'sound/voice/medbot/coming.ogg',"Wait [H.name]! I want to help!" = 'sound/voice/medbot/help.ogg',"[H.name], you appear to be injured!" = 'sound/voice/medbot/injured.ogg')
+			var/list/messagevoice = list("Эй, [H.name]! Подожди, я иду." = 'sound/voice/medbot/coming.ogg',"Постой, [H.name]! Я хочу помочь!" = 'sound/voice/medbot/help.ogg',"[H.name], у тебя раны!" = 'sound/voice/medbot/injured.ogg')
 			var/message = pick(messagevoice)
 			speak(message)
 			playsound(src, messagevoice[message], 50, FALSE)
@@ -244,7 +244,7 @@
 /mob/living/simple_animal/bot/medbot/proc/tip_over(mob/user)
 	ADD_TRAIT(src, TRAIT_IMMOBILIZED, BOT_TIPPED_OVER)
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 50)
-	user.visible_message("<span class='danger'>[user] tips over [src]!</span>", "<span class='danger'>You tip [src] over!</span>")
+	user.visible_message("<span class='danger'>[user] роняет [src.name]а!</span>", "<span class='danger'>Роняю [src.name]а на бок!</span>")
 	mode = BOT_TIPPED
 	var/matrix/mat = transform
 	transform = mat.Turn(180)
@@ -255,14 +255,14 @@
 	var/list/messagevoice
 
 	if(user)
-		user.visible_message("<span class='notice'>[user] sets [src] right-side up!</span>", "<span class='green'>You set [src] right-side up!</span>")
+		user.visible_message("<span class='notice'>[user] ставит [src.name] на место!</span>", "<span class='green'>Ставлю [src.name] на место!</span>")
 		if(user.name == tipper_name)
-			messagevoice = list("I forgive you." = 'sound/voice/medbot/forgive.ogg')
+			messagevoice = list("Я тебя прощаю." = 'sound/voice/medbot/forgive.ogg')
 		else
-			messagevoice = list("Thank you!" = 'sound/voice/medbot/thank_you.ogg', "You are a good person." = 'sound/voice/medbot/youre_good.ogg')
+			messagevoice = list("Спасибо!" = 'sound/voice/medbot/thank_you.ogg', "Ты неплохой человек." = 'sound/voice/medbot/youre_good.ogg')
 	else
-		visible_message("<span class='notice'>[capitalize(src.name)] manages to wriggle enough to right itself.</span>")
-		messagevoice = list("Fuck you." = 'sound/voice/medbot/fuck_you.ogg', "Your behavior has been reported, have a nice day." = 'sound/voice/medbot/reported.ogg')
+		visible_message("<span class='notice'>[capitalize(src.name)] умудряется встать на колёсики сам.</span>")
+		messagevoice = list("Пошёл на хуй." = 'sound/voice/medbot/fuck_you.ogg', "Ваше поведение было записано, прекрасного дня." = 'sound/voice/medbot/reported.ogg')
 	tipper_name = null
 	if(world.time > last_tipping_action_voice + 15 SECONDS)
 		last_tipping_action_voice = world.time
@@ -280,17 +280,17 @@
 
 	switch(tipped_status)
 		if(MEDBOT_PANIC_LOW)
-			messagevoice = list("I require assistance." = 'sound/voice/medbot/i_require_asst.ogg')
+			messagevoice = list("Мне требуется помощь." = 'sound/voice/medbot/i_require_asst.ogg')
 		if(MEDBOT_PANIC_MED)
-			messagevoice = list("Please put me back." = 'sound/voice/medbot/please_put_me_back.ogg')
+			messagevoice = list("Пожалуйста, поставьте меня обратно." = 'sound/voice/medbot/please_put_me_back.ogg')
 		if(MEDBOT_PANIC_HIGH)
-			messagevoice = list("Please, I am scared!" = 'sound/voice/medbot/please_im_scared.ogg')
+			messagevoice = list("Пожалуйста, я напуган!" = 'sound/voice/medbot/please_im_scared.ogg')
 		if(MEDBOT_PANIC_FUCK)
-			messagevoice = list("I don't like this, I need help!" = 'sound/voice/medbot/dont_like.ogg', "This hurts, my pain is real!" = 'sound/voice/medbot/pain_is_real.ogg')
+			messagevoice = list("Я не хочу этого, мне нужна помощь!" = 'sound/voice/medbot/dont_like.ogg', "МНЕ БОЛЬНО, ЭТА БОЛЬ РЕАЛЬНА!" = 'sound/voice/medbot/pain_is_real.ogg')
 		if(MEDBOT_PANIC_ENDING)
-			messagevoice = list("Is this the end?" = 'sound/voice/medbot/is_this_the_end.ogg', "Nooo!" = 'sound/voice/medbot/nooo.ogg')
+			messagevoice = list("Это конец?" = 'sound/voice/medbot/is_this_the_end.ogg', "Нееет!" = 'sound/voice/medbot/nooo.ogg')
 		if(MEDBOT_PANIC_END)
-			speak("PSYCH ALERT: Crewmember [tipper_name] recorded displaying antisocial tendencies torturing bots in [get_area(src)]. Please schedule psych evaluation.", radio_channel)
+			speak("ПСИХИЧЕСКАЯ ТРЕВОГА: Член экипажа [tipper_name] был записан как поборник антиобщественных тенденций, пытающих ботов в [get_area(src)]. Требуется экстренная изоляция пациента в виду явных психических отклонений.", radio_channel)
 			set_right() // strong independent medbot
 
 	if(prob(tipped_status))
@@ -310,15 +310,15 @@
 
 	switch(tipped_status)
 		if(MEDBOT_PANIC_NONE to MEDBOT_PANIC_LOW)
-			. += "<hr>It appears to be tipped over, and is quietly waiting for someone to set it right."
+			. += "<hr>Кажется, он опрокинут и спокойно ждет, пока кто-нибудь его поставит на место."
 		if(MEDBOT_PANIC_LOW to MEDBOT_PANIC_MED)
-			. += "<hr>It is tipped over and requesting help."
+			. += "<hr>Он опрокинут и просит помощи."
 		if(MEDBOT_PANIC_MED to MEDBOT_PANIC_HIGH)
-			. += "<hr>They are tipped over and appear visibly distressed." // now we humanize the medbot as a they, not an it
+			. += "<hr>Он опрокинут и выглядят обеспокоенными." // now we humanize the medbot as a they, not an it
 		if(MEDBOT_PANIC_HIGH to MEDBOT_PANIC_FUCK)
-			. += "<hr><span class='warning'>They are tipped over and visibly panicking!</span>"
+			. += "<hr><span class='warning'>Он опрокинут и явно в панике!</span>"
 		if(MEDBOT_PANIC_FUCK to INFINITY)
-			. += "<hr><span class='warning'><b>They are freaking out from being tipped over!</b></span>"
+			. += "<hr><span class='warning'><b>Он в ужасе от того, что его опрокинули!</b></span>"
 
 /mob/living/simple_animal/bot/medbot/handle_automated_action()
 	if(!..())
@@ -347,7 +347,7 @@
 				var/list/i_need_scissors = list('sound/voice/medbot/fuck_you.ogg', 'sound/voice/medbot/turn_off.ogg', 'sound/voice/medbot/im_different.ogg', 'sound/voice/medbot/close.ogg', 'sound/voice/medbot/shindemashou.ogg')
 				playsound(src, pick(i_need_scissors), 70)
 			else
-				var/list/messagevoice = list("Radar, put a mask on!" = 'sound/voice/medbot/radar.ogg',"There's always a catch, and I'm the best there is." = 'sound/voice/medbot/catch.ogg',"I knew it, I should've been a plastic surgeon." = 'sound/voice/medbot/surgeon.ogg',"What kind of medbay is this? Everyone's dropping like flies." = 'sound/voice/medbot/flies.ogg',"Delicious!" = 'sound/voice/medbot/delicious.ogg', "Why are we still here? Just to suffer?" = 'sound/voice/medbot/why.ogg')
+				var/list/messagevoice = list("Радар, надень маску!" = 'sound/voice/medbot/radar.ogg',"Всегда есть подвох, и я лучший из них." = 'sound/voice/medbot/catch.ogg',"Я знал это, я должен был стать пластическим хирургом." = 'sound/voice/medbot/surgeon.ogg',"Что это за медотсек? Все дохнут как мухи." = 'sound/voice/medbot/flies.ogg',"Delicious!" = 'sound/voice/medbot/delicious.ogg', "Почему мы все еще здесь? Просто страдать?" = 'sound/voice/medbot/why.ogg')
 				var/message = pick(messagevoice)
 				speak(message)
 				playsound(src, messagevoice[message], 50)
@@ -451,15 +451,15 @@
 
 /mob/living/simple_animal/bot/medbot/attack_hand(mob/living/carbon/human/H)
 	if(DOING_INTERACTION_WITH_TARGET(H, src))
-		to_chat(H, "<span class='warning'>Уже взаимодействую с [src].</span>")
+		to_chat(H, "<span class='warning'>Уже взаимодействую с [src.name]ом.</span>")
 		return
 
 	if(H.a_intent == INTENT_DISARM && mode != BOT_TIPPED)
-		H.visible_message("<span class='danger'>[H] begins tipping over [src].</span>", "<span class='warning'>You begin tipping over [src]...</span>")
+		H.visible_message("<span class='danger'>[H] начинает опрокидывать [src.name]а.</span>", "<span class='warning'>Начинаю опрокидывать [src.name]а...</span>")
 
 		if(world.time > last_tipping_action_voice + 15 SECONDS)
 			last_tipping_action_voice = world.time // message for tipping happens when we start interacting, message for righting comes after finishing
-			var/list/messagevoice = list("Hey, wait..." = 'sound/voice/medbot/hey_wait.ogg',"Please don't..." = 'sound/voice/medbot/please_dont.ogg',"I trusted you..." = 'sound/voice/medbot/i_trusted_you.ogg', "Nooo..." = 'sound/voice/medbot/nooo.ogg', "Oh fuck-" = 'sound/voice/medbot/oh_fuck.ogg')
+			var/list/messagevoice = list("Эй, подожди..." = 'sound/voice/medbot/hey_wait.ogg',"Пожалуйста, не надо..." = 'sound/voice/medbot/please_dont.ogg',"Я доверял тебе..." = 'sound/voice/medbot/i_trusted_you.ogg', "Нееет..." = 'sound/voice/medbot/nooo.ogg', "Ох, бля-" = 'sound/voice/medbot/oh_fuck.ogg')
 			var/message = pick(messagevoice)
 			speak(message)
 			playsound(src, messagevoice[message], 70, FALSE)
@@ -468,7 +468,7 @@
 			tip_over(H)
 
 	else if(H.a_intent == INTENT_HELP && mode == BOT_TIPPED)
-		H.visible_message("<span class='notice'>[H] begins righting [src].</span>", "<span class='notice'>You begin righting [src]...</span>")
+		H.visible_message("<span class='notice'>[H] начинает ставить на место [src.name]а.</span>", "<span class='notice'>Начинаю ставить на место [src.name]а...</span>")
 		if(do_after(H, 3 SECONDS, target=src))
 			set_right(H)
 	else
@@ -502,7 +502,7 @@
 		return
 
 	if(C.stat == DEAD || (HAS_TRAIT(C, TRAIT_FAKEDEATH)))
-		var/list/messagevoice = list("No! Stay with me!" = 'sound/voice/medbot/no.ogg',"Live, damnit! LIVE!" = 'sound/voice/medbot/live.ogg',"I...I've never lost a patient before. Not today, I mean." = 'sound/voice/medbot/lost.ogg')
+		var/list/messagevoice = list("Нет! Оставайся со мной!" = 'sound/voice/medbot/no.ogg',"Живть, мать твою! ЖИВИ!" = 'sound/voice/medbot/live.ogg',"Я... Я никогда не терял пациентов. Не сегодня, имею в виду." = 'sound/voice/medbot/lost.ogg')
 		var/message = pick(messagevoice)
 		speak(message)
 		playsound(src, messagevoice[message], 50)
@@ -537,17 +537,17 @@
 
 		if(!treatment_method && emagged != 2) //If they don't need any of that they're probably cured!
 			if(C.maxHealth - C.get_organic_health() < heal_threshold)
-				to_chat(src, "<span class='notice'>[C] is healthy! Your programming prevents you from tending the wounds of anyone without at least [heal_threshold] damage of any one type ([heal_threshold + 5] for oxygen damage.)</span>")
+				to_chat(src, "<span class='notice'>[C] здоров! Программа не позволяет лечить чьи-либо раны без хотя бы [heal_threshold] урона любого типа ([heal_threshold + 5] для кислородного урона.)</span>")
 
-			var/list/messagevoice = list("All patched up!" = 'sound/voice/medbot/patchedup.ogg',"An apple a day keeps me away." = 'sound/voice/medbot/apple.ogg',"Feel better soon!" = 'sound/voice/medbot/feelbetter.ogg')
+			var/list/messagevoice = list("Все исправлено!" = 'sound/voice/medbot/patchedup.ogg',"Кто яблоко в день съедает, у того я не бываю." = 'sound/voice/medbot/apple.ogg',"Поправляйся!" = 'sound/voice/medbot/feelbetter.ogg')
 			var/message = pick(messagevoice)
 			speak(message)
 			playsound(src, messagevoice[message], 50)
 			bot_reset()
 			tending = FALSE
 		else if(patient)
-			C.visible_message("<span class='danger'>[capitalize(src.name)] is trying to tend the wounds of [patient]!</span>", \
-				"<span class='userdanger'>[capitalize(src.name)] is trying to tend your wounds!</span>")
+			C.visible_message("<span class='danger'>[capitalize(src.name)] пытается вылечить раны [patient]!</span>", \
+				"<span class='userdanger'>[capitalize(src.name)] пытается вылечить мои раны!</span>")
 
 			if(do_mob(src, patient, 20)) //Slightly faster than default tend wounds, but does less HPS
 				if((get_dist(src, patient) <= 1) && (on) && assess_patient(patient))
@@ -562,8 +562,8 @@
 					else
 						patient.apply_damage_type((healies*-1),treatment_method) //don't need to check treatment_method since we know by this point that they were actually damaged.
 						log_combat(src, patient, "tended the wounds of", "internal tools", "([uppertext(treatment_method)])")
-					C.visible_message("<span class='notice'>[capitalize(src.name)] tends the wounds of [patient]!</span>", \
-						"<span class='green'>[capitalize(src.name)] tends your wounds!</span>")
+					C.visible_message("<span class='notice'>[capitalize(src.name)] лечит раны [patient]!</span>", \
+						"<span class='green'>[capitalize(src.name)] лечит мои раны!</span>")
 					ADD_TRAIT(patient,TRAIT_MEDIBOTCOMINGTHROUGH,tag)
 					addtimer(TRAIT_CALLBACK_REMOVE(patient, TRAIT_MEDIBOTCOMINGTHROUGH, tag), (30 SECONDS))
 				else
@@ -573,14 +573,14 @@
 
 			update_icon()
 			if(!tending)
-				visible_message("[src] places its tools back into itself.")
+				visible_message("[src] укладывает свои инструменты обратно в себя.")
 				soft_reset()
 		else
 			tending = FALSE
 
 /mob/living/simple_animal/bot/medbot/explode()
 	on = FALSE
-	visible_message("<span class='boldannounce'>[capitalize(src.name)] blows apart!</span>")
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] разрывается на куски!</span>")
 	var/atom/Tsec = drop_location()
 
 	drop_part(firstaid, Tsec)
@@ -600,7 +600,7 @@
 	if(declare_cooldown > world.time)
 		return
 	var/area/location = get_area(src)
-	speak("Medical emergency! [crit_patient || "A patient"] is in critical condition at [location]!",radio_channel)
+	speak("Требуется экстренная медицинская помощь! [crit_patient || "Пациент"] в критическом состоянии в [location]!",radio_channel)
 	declare_cooldown = world.time + 200
 
 /obj/machinery/bot_core/medbot
