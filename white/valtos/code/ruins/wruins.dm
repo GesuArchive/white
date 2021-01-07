@@ -70,7 +70,7 @@
 	view_range = 9
 
 /obj/item/paper/crumpled/ruins/autism
-	info = "<i>Ты лох.</i>"
+	info = "<i>Ты пидор.</i>"
 
 //telepadovo
 

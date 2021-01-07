@@ -4419,7 +4419,7 @@
 	dir = 4;
 	dwidth = 8;
 	height = 12;
-	id = "explorer_mini_custom";
+	id = "explorer_mini_station";
 	name = "Autism Station";
 	roundstart_template = /datum/map_template/shuttle/ruin/explorer_mini;
 	width = 12
