@@ -171,7 +171,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 			if(!is_content_unlocked())
 				return
 
-	var/new_ooccolor = input(src, "Please select your OOC color.", "OOC color", prefs.ooccolor) as color|null
+	var/new_ooccolor = input(src, "Выбирай цвет OOC. Учитывай тёмную и светлую темы.", "Цвет OOC", prefs.ooccolor) as color|null
 	if(isnull(new_ooccolor))
 		return
 	new_ooccolor = sanitize_ooccolor(new_ooccolor)
@@ -201,9 +201,9 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	set hidden = TRUE
 
 	if(GLOB.admin_notice)
-		to_chat(src, "<span class='boldnotice'>Admin Notice:</span>\n \t [GLOB.admin_notice]")
+		to_chat(src, "<span class='boldnotice'>Заметка:</span>\n \t [GLOB.admin_notice]")
 	else
-		to_chat(src, "<span class='notice'>There are no admin notices at the moment.</span>")
+		to_chat(src, "<span class='notice'>Нет ничего особенного на этот раунд.</span>")
 
 /client/verb/motd()
 	set name = "📘 Приветствие"
@@ -441,7 +441,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	//Collect keywords
 	var/list/keywords = mob.get_policy_keywords()
 	var/header = get_policy(POLICY_VERB_HEADER)
-	var/list/policytext = list(header,"<hr>")
+	var/list/policytext = list(header,"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><hr>")
 	var/anything = FALSE
 	for(var/keyword in keywords)
 		var/p = get_policy(keyword)

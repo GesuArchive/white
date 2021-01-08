@@ -9,16 +9,16 @@
  * tgui panel / chat troubleshooting verb
  */
 /client/verb/fix_tgui_panel()
-	set name = "Fix chat"
-	set category = "OOC"
+	set name = " ❗ Починить чат"
+	set category = "Особенное"
 	var/action
 	log_tgui(src, "Started fixing.", context = "verb/fix_tgui_panel")
 
 	nuke_chat()
 
 	// Failed to fix
-	action = alert(src, "Did that work?", "", "Yes", "No, switch to old ui")
-	if (action == "No, switch to old ui")
+	action = alert(src, "Сработало?", "", "Да", "Нет, хочу вырвиглазный чат")
+	if (action == "Нет, хочу вырвиглазный чат")
 		winset(src, "output", "on-show=&is-disabled=0&is-visible=1")
 		winset(src, "browseroutput", "is-disabled=1;is-visible=0")
 		log_tgui(src, "Failed to fix.", context = "verb/fix_tgui_panel")

@@ -238,12 +238,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	return result
 
-/client/verb/random_battletension()
-	set name = " ▶️ Переключить трек"
-	set desc = "Меняет текущий трек рандомно. Круто."
-	set category = "Настройки"
-	set hidden = TRUE
-
+/client/proc/random_battletension()
 	if(mob && ishuman(mob))
 		var/datum/component/battletension/BT = mob.GetComponent(/datum/component/battletension)
 		if(BT)
@@ -251,12 +246,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	else
 		to_chat(usr, "<span class='danger'>Жаль, что я не <b>человек</b>.</span>")
 
-/client/verb/customize_battletension()
-	set name = "Настроить Battle Tension"
-	set desc = "Allows for advanced prikol immersion."
-	set category = "Настройки"
-	set hidden = TRUE
-
+/client/proc/customize_battletension()
 	var/list/genres = list(PRIKOL, TECHNO, TOUHOU, MORTAL, NAZIST)
 	var/settings
 

@@ -8,11 +8,11 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-/*
-/client/verb/fuck()
-	set name = "memes"
+
+/client/proc/fuck_pie()
+	set name = "TESTPIE"
 	set category = "Особенное"
-	var/pizdos = input("")
+	var/pizdos = input("ВВЕДИТЕ ХУЙ")
 	if(pizdos)
 		world << "Начальное слово: [pizdos]"
 
@@ -33,7 +33,6 @@
 		world << "С. Винительный: [sklonenie(pizdos, VINITELNI)]"
 		world << "С. Творительный: [sklonenie(pizdos, TVORITELNI)]"
 		world << "С. Предложный: [sklonenie(pizdos, PREDLOZHNI)]"
-*/
 
 /proc/sklonenie_item_tvor(msgfrom)
 	if(length(msgfrom) <= 2)

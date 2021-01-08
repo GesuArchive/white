@@ -53,6 +53,7 @@
 	set category = "OOC"
 	set name = "📘 Информация о сервере"
 	set desc = "Check the current server code revision"
+	set hidden = TRUE
 
 	var/list/msg = list("")
 	// Round ID

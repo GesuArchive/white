@@ -99,7 +99,7 @@
 		orbiter.glide_size = movable_parent.glide_size
 
 	orbiter.forceMove(get_turf(parent))
-	to_chat(orbiter, "<span class='notice'>Следим за [parent].</span>")
+	to_chat(orbiter, "<span class='notice'>Следим за <b>[sklonenie(parent.name, TVORITELNI, parent.gender)]</b>.</span>")
 
 /datum/component/orbiter/proc/end_orbit(atom/movable/orbiter, refreshing=FALSE)
 	if(!orbiter_list[orbiter])

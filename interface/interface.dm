@@ -99,7 +99,7 @@
 	return
 
 /client/verb/changelog()
-	set name = "📘 Последние изменения"
+	set name = "📘 Последние изменения /tg/"
 	set category = "OOC"
 	var/datum/asset/simple/namespaced/changelog = get_asset_datum(/datum/asset/simple/namespaced/changelog)
 	changelog.send(src)

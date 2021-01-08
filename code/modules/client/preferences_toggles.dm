@@ -16,8 +16,8 @@
 		winset(C, "[verbpath]", "is-checked = [!checked]")
 
 /datum/verbs/menu/settings/verb/setup_character()
-	set name = "Настройки"
-	set category = "Особенное"
+	set name = " ! Основные настройки"
+	set category = "OOC"
 	set desc = "Основные настройки"
 	usr.client.prefs.current_tab = 2
 	usr.client.prefs.ShowChoices(usr)
